@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-05-11 00:29+0000\n"
+"POT-Creation-Date: 2025-05-18 00:29+0000\n"
 "PO-Revision-Date: 2024-10-17 16:16+0000\n"
 "Last-Translator: \"Yong Kim (Neatnet)\" <neatnet@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -56,7 +56,7 @@ msgstr "다크"
 
 #: resources/templates/base.twig:95
 #: resources/templates/server/status/monitor/index.twig:8
-#: src/Controllers/JavaScriptMessagesController.php:222 src/Menu.php:475
+#: src/Controllers/JavaScriptMessagesController.php:213 src/Menu.php:475
 #: src/Util.php:1351
 msgid "Settings"
 msgstr "설정"
@@ -67,7 +67,7 @@ msgid "Log out"
 msgstr "로그아웃"
 
 #: resources/templates/base.twig:108
-#: src/Controllers/JavaScriptMessagesController.php:345
+#: src/Controllers/JavaScriptMessagesController.php:313
 msgid "Page-related settings"
 msgstr "페이지 관련 설정"
 
@@ -193,13 +193,13 @@ msgstr "%s 다음에"
 #: resources/templates/database/designer/main.twig:585
 #: resources/templates/export.twig:429
 #: resources/templates/server/privileges/privileges_summary.twig:31
-#: resources/templates/server/status/monitor/index.twig:176
+#: resources/templates/server/status/monitor/index.twig:206
 #: resources/templates/server/status/processes/list.twig:72
 #: resources/templates/table/zoom_search/index.twig:62
 #: resources/templates/table/zoom_search/index.twig:120
 #: src/Config/ConfigFile.php:554
-#: src/Controllers/JavaScriptMessagesController.php:225
-#: src/Display/Results.php:930 src/Plugins/Export/ExportSql.php:2038
+#: src/Controllers/JavaScriptMessagesController.php:216
+#: src/Display/Results.php:930 src/Plugins/Export/ExportSql.php:2039
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "없음"
@@ -271,7 +271,7 @@ msgstr "열"
 #: resources/templates/table/zoom_search/index.twig:152
 #: resources/templates/triggers/editor_form.twig:75
 #: resources/templates/view_create.twig:123 src/BrowseForeigners.php:180
-#: src/Controllers/JavaScriptMessagesController.php:341
+#: src/Controllers/JavaScriptMessagesController.php:309
 #: src/Controllers/Server/PrivilegesController.php:303
 #: src/Normalization.php:231 src/Tracking/Tracking.php:287
 #: src/Tracking/Tracking.php:402
@@ -335,7 +335,7 @@ msgstr "SQL 미리보기"
 #: resources/templates/table/relation/common_form.twig:142
 #: resources/templates/table/structure/partition_definition_form.twig:13
 #: resources/templates/table/zoom_search/result_form.twig:79
-#: src/Controllers/JavaScriptMessagesController.php:459
+#: src/Controllers/JavaScriptMessagesController.php:429
 msgid "Save"
 msgstr "저장"
 
@@ -366,6 +366,10 @@ msgstr "불러오는 중"
 #: resources/templates/columns_definitions/column_definitions_form.twig:179
 #: resources/templates/database/designer/main.twig:1127
 #: resources/templates/database/designer/main.twig:1137
+#: resources/templates/database/events/index.twig:162
+#: resources/templates/database/events/index.twig:170
+#: resources/templates/database/events/index.twig:182
+#: resources/templates/database/events/index.twig:186
 #: resources/templates/database/routines/index.twig:79
 #: resources/templates/database/routines/index.twig:87
 #: resources/templates/database/routines/index.twig:99
@@ -397,8 +401,23 @@ msgstr "불러오는 중"
 #: resources/templates/server/privileges/users_overview.twig:176
 #: resources/templates/server/status/advisor/index.twig:20
 #: resources/templates/server/status/advisor/index.twig:37
-#: resources/templates/server/status/monitor/index.twig:94
-#: resources/templates/server/status/monitor/index.twig:183
+#: resources/templates/server/status/monitor/index.twig:59
+#: resources/templates/server/status/monitor/index.twig:68
+#: resources/templates/server/status/monitor/index.twig:88
+#: resources/templates/server/status/monitor/index.twig:124
+#: resources/templates/server/status/monitor/index.twig:213
+#: resources/templates/server/status/monitor/index.twig:224
+#: resources/templates/server/status/monitor/index.twig:255
+#: resources/templates/server/status/monitor/index.twig:268
+#: resources/templates/server/status/monitor/index.twig:279
+#: resources/templates/server/status/monitor/index.twig:311
+#: resources/templates/server/status/monitor/index.twig:317
+#: resources/templates/server/status/monitor/index.twig:328
+#: resources/templates/server/status/monitor/index.twig:335
+#: resources/templates/server/status/monitor/index.twig:347
+#: resources/templates/server/status/monitor/index.twig:354
+#: resources/templates/server/status/monitor/index.twig:366
+#: resources/templates/server/status/monitor/index.twig:373
 #: resources/templates/server/user_groups/user_groups.twig:51
 #: resources/templates/server/user_groups/user_groups.twig:55
 #: resources/templates/sql/query.twig:222
@@ -415,6 +434,10 @@ msgstr "불러오는 중"
 #: resources/templates/table/zoom_search/result_form.twig:25
 #: resources/templates/table/zoom_search/result_form.twig:80
 #: resources/templates/table/zoom_search/result_form.twig:96
+#: resources/templates/triggers/list.twig:82
+#: resources/templates/triggers/list.twig:90
+#: resources/templates/triggers/list.twig:102
+#: resources/templates/triggers/list.twig:106
 #: src/Controllers/JavaScriptMessagesController.php:152
 #: src/Tracking/Tracking.php:200 src/Tracking/Tracking.php:540
 msgid "Close"
@@ -554,7 +577,7 @@ msgstr "노드 그룹"
 #: src/Config/Forms/User/ExportForm.php:53
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
-#: src/Controllers/JavaScriptMessagesController.php:722
+#: src/Controllers/JavaScriptMessagesController.php:692
 #: src/Import/Import.php:1169 src/Menu.php:214 src/Menu.php:318
 #: src/Navigation/Nodes/NodeColumn.php:40
 #: src/Navigation/Nodes/NodeDatabase.php:59
@@ -792,7 +815,7 @@ msgid "Input transformation options"
 msgstr "입력 변환 옵션"
 
 #: resources/templates/config/form_display/display.twig:46
-#: src/Controllers/JavaScriptMessagesController.php:346
+#: src/Controllers/JavaScriptMessagesController.php:314
 msgid "Apply"
 msgstr "적용"
 
@@ -871,7 +894,7 @@ msgstr "사용불가"
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:24
 #: src/Controllers/Database/Structure/DropTableController.php:41
 #: src/Controllers/Database/Structure/EmptyTableController.php:40
-#: src/Controllers/JavaScriptMessagesController.php:509
+#: src/Controllers/JavaScriptMessagesController.php:479
 #: src/Controllers/Table/DeleteRowsController.php:32
 #: src/Controllers/Table/DropColumnController.php:44
 #: src/Controllers/Table/Structure/PrimaryController.php:100
@@ -910,7 +933,7 @@ msgstr "예"
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:33
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:23
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:24
-#: src/Controllers/JavaScriptMessagesController.php:373
+#: src/Controllers/JavaScriptMessagesController.php:341
 #: src/Indexes/IndexColumn.php:145 src/Indexes/Index.php:446
 #: src/Indexes/Index.php:472 src/Plugins/Export/ExportHtmlword.php:562
 #: src/Plugins/Export/ExportLatex.php:567 src/Plugins/Export/ExportOdt.php:685
@@ -978,7 +1001,7 @@ msgstr "다시 쿼리하기"
 #: resources/templates/triggers/row.twig:28
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
-#: src/Controllers/JavaScriptMessagesController.php:407
+#: src/Controllers/JavaScriptMessagesController.php:377
 #: src/Display/Results.php:1805 src/Html/Generator.php:520
 #: src/Html/Generator.php:788
 msgid "Edit"
@@ -997,7 +1020,7 @@ msgstr "수정"
 #: resources/templates/server/user_groups/user_groups.twig:56
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:189
-#: src/Controllers/JavaScriptMessagesController.php:409
+#: src/Controllers/JavaScriptMessagesController.php:379
 #: src/Display/Results.php:2428 src/Tracking/Tracking.php:224
 msgid "Delete"
 msgstr "삭제"
@@ -1055,8 +1078,8 @@ msgstr "최근 기록"
 #: src/Plugins/Export/ExportMediawiki.php:48
 #: src/Plugins/Export/ExportOds.php:58 src/Plugins/Export/ExportOdt.php:69
 #: src/Plugins/Export/ExportPdf.php:66 src/Plugins/Export/ExportPhparray.php:45
-#: src/Plugins/Export/ExportSql.php:166
-#: src/Plugins/Export/ExportTexytext.php:55 src/Plugins/Export/ExportXml.php:72
+#: src/Plugins/Export/ExportSql.php:167
+#: src/Plugins/Export/ExportTexytext.php:55 src/Plugins/Export/ExportXml.php:73
 #: src/Plugins/Export/ExportYaml.php:44 src/Plugins/Import/ImportCsv.php:87
 #: src/Plugins/Import/ImportLdi.php:62
 #: src/Plugins/Import/ImportMediawiki.php:62
@@ -1164,7 +1187,7 @@ msgid "Count:"
 msgstr "개수:"
 
 #: resources/templates/console/display.twig:121
-#: src/Controllers/JavaScriptMessagesController.php:672
+#: src/Controllers/JavaScriptMessagesController.php:642
 msgid "Time taken:"
 msgstr "소요 시간 :"
 
@@ -1201,7 +1224,7 @@ msgstr "이 북마크를 공유"
 #: resources/templates/database/designer/main.twig:1058
 #: resources/templates/modals/preview_sql_confirmation.twig:14
 #: resources/templates/table/structure/display_structure.twig:367
-#: src/Controllers/JavaScriptMessagesController.php:365
+#: src/Controllers/JavaScriptMessagesController.php:333
 msgid "OK"
 msgstr "확인"
 
@@ -1354,7 +1377,7 @@ msgstr "실행"
 #: resources/templates/server/databases/index.twig:319
 #: resources/templates/server/variables/index.twig:15
 #: resources/templates/table/search/index.twig:196
-#: src/Controllers/JavaScriptMessagesController.php:342
+#: src/Controllers/JavaScriptMessagesController.php:310
 msgid "Cancel"
 msgstr "취소"
 
@@ -1474,7 +1497,7 @@ msgid "Page to delete"
 msgstr "삭제할 페이지"
 
 #: resources/templates/database/designer/main.twig:10
-#: src/Controllers/JavaScriptMessagesController.php:553
+#: src/Controllers/JavaScriptMessagesController.php:523
 msgid "Untitled"
 msgstr "제목 없음"
 
@@ -1495,7 +1518,7 @@ msgstr "전체 화면으로부터 나가기"
 
 #: resources/templates/database/designer/main.twig:40
 #: resources/templates/database/designer/main.twig:43
-#: src/Controllers/JavaScriptMessagesController.php:545
+#: src/Controllers/JavaScriptMessagesController.php:515
 msgid "Add tables from other databases"
 msgstr "다른 데이터베이스에서 테이블 가져오기"
 
@@ -1506,19 +1529,19 @@ msgstr "새 페이지"
 
 #: resources/templates/database/designer/main.twig:56
 #: resources/templates/database/designer/main.twig:59
-#: src/Controllers/JavaScriptMessagesController.php:549
+#: src/Controllers/JavaScriptMessagesController.php:519
 msgid "Open page"
 msgstr "페이지 열기"
 
 #: resources/templates/database/designer/main.twig:63
 #: resources/templates/database/designer/main.twig:66
-#: src/Controllers/JavaScriptMessagesController.php:547
+#: src/Controllers/JavaScriptMessagesController.php:517
 msgid "Save page"
 msgstr "페이지 저장"
 
 #: resources/templates/database/designer/main.twig:70
 #: resources/templates/database/designer/main.twig:73
-#: src/Controllers/JavaScriptMessagesController.php:548
+#: src/Controllers/JavaScriptMessagesController.php:518
 msgid "Save page as"
 msgstr "페이지를 다른 이름으로 저장"
 
@@ -1541,7 +1564,7 @@ msgstr "릴레이션 생성"
 
 #: resources/templates/database/designer/main.twig:98
 #: resources/templates/database/designer/main.twig:101
-#: src/Controllers/JavaScriptMessagesController.php:539
+#: src/Controllers/JavaScriptMessagesController.php:509
 msgid "Choose column to display"
 msgstr "출력할 필드 선택"
 
@@ -1687,7 +1710,7 @@ msgstr "옵션 활성화"
 
 #: resources/templates/database/designer/main.twig:1138
 #: resources/templates/sql/query.twig:181
-#: src/Controllers/JavaScriptMessagesController.php:564
+#: src/Controllers/JavaScriptMessagesController.php:534
 msgid "Submit"
 msgstr "확인"
 
@@ -1727,7 +1750,7 @@ msgstr "이벤트 이름"
 #: resources/templates/database/tracking/tables.twig:17
 #: resources/templates/table/tracking/main.twig:31
 #: src/Config/ConfigFile.php:578
-#: src/Controllers/JavaScriptMessagesController.php:292 src/Menu.php:446
+#: src/Controllers/JavaScriptMessagesController.php:273 src/Menu.php:446
 #: src/Server/Status/Processes.php:96 src/Util.php:1347
 msgid "Status"
 msgstr "상태"
@@ -1795,7 +1818,7 @@ msgstr "정의자"
 #: resources/templates/database/events/index.twig:3 src/Menu.php:377
 #: src/Navigation/Nodes/NodeEventContainer.php:22
 #: src/Navigation/Nodes/NodeEventContainer.php:24
-#: src/Plugins/Export/ExportSql.php:996 src/Plugins/Export/ExportXml.php:96
+#: src/Plugins/Export/ExportSql.php:997 src/Plugins/Export/ExportXml.php:97
 #: src/Util.php:1369
 msgid "Events"
 msgstr "이벤트"
@@ -1848,7 +1871,7 @@ msgstr "모두 선택"
 #: resources/templates/server/privileges/users_overview.twig:95
 #: resources/templates/server/privileges/users_overview.twig:124
 #: resources/templates/server/privileges/users_overview.twig:125
-#: resources/templates/server/status/monitor/index.twig:54
+#: resources/templates/server/status/monitor/index.twig:75
 #: resources/templates/table/privileges/index.twig:95
 #: resources/templates/table/privileges/index.twig:119
 #: resources/templates/table/privileges/index.twig:120
@@ -1856,7 +1879,7 @@ msgstr "모두 선택"
 #: resources/templates/triggers/list.twig:18
 #: resources/templates/triggers/row.twig:41
 #: src/Config/Forms/User/ExportForm.php:148
-#: src/Controllers/JavaScriptMessagesController.php:391 src/Menu.php:241
+#: src/Controllers/JavaScriptMessagesController.php:359 src/Menu.php:241
 #: src/Menu.php:343 src/Menu.php:465 src/Server/Privileges.php:1283
 #: src/Util.php:1349 src/Util.php:1364 src/Util.php:1381
 msgid "Export"
@@ -1886,7 +1909,7 @@ msgstr "내보내기"
 #: resources/templates/triggers/list.twig:20
 #: resources/templates/triggers/list.twig:21
 #: resources/templates/triggers/row.twig:52
-#: resources/templates/triggers/row.twig:58 src/Operations.php:535
+#: resources/templates/triggers/row.twig:58 src/Operations.php:536
 msgid "Drop"
 msgstr "삭제"
 
@@ -1914,6 +1937,40 @@ msgstr "ON"
 #: resources/templates/database/events/index.twig:143
 msgid "OFF"
 msgstr "OFF"
+
+#: resources/templates/database/events/index.twig:161
+#, fuzzy
+#| msgid "Excel edition"
+msgid "Event editor"
+msgstr "Excel 버전"
+
+#: resources/templates/database/events/index.twig:166
+#: resources/templates/database/routines/index.twig:83
+#: resources/templates/database/routines/index.twig:118
+#: resources/templates/home/index.twig:321
+#: resources/templates/modals/index_dialog_modal.twig:26
+#: resources/templates/navigation/main.twig:58
+#: resources/templates/server/privileges/users_overview.twig:172
+#: resources/templates/server/status/monitor/index.twig:94
+#: resources/templates/server/status/monitor/index.twig:296
+#: resources/templates/table/structure/display_structure.twig:348
+#: resources/templates/triggers/list.twig:86
+#: src/Controllers/JavaScriptMessagesController.php:317
+msgid "Loading…"
+msgstr "불러오는 중…"
+
+#: resources/templates/database/events/index.twig:171
+#: resources/templates/database/routines/index.twig:88
+#: resources/templates/server/privileges/users_overview.twig:177
+#: resources/templates/triggers/list.twig:91
+msgid "Save changes"
+msgstr "변경사항을 저장"
+
+#: resources/templates/database/events/index.twig:181
+#, fuzzy
+#| msgid "Export of event %s"
+msgid "Export event"
+msgstr "이벤트 %s 추출"
 
 #: resources/templates/database/export/index.twig:61
 msgid ""
@@ -1943,7 +2000,7 @@ msgstr "테이블:"
 #: src/Controllers/Server/DatabasesController.php:256
 #: src/Navigation/Nodes/NodeTableContainer.php:22
 #: src/Navigation/Nodes/NodeTableContainer.php:24
-#: src/Plugins/Export/ExportXml.php:111 src/Server/Status/Data.php:126
+#: src/Plugins/Export/ExportXml.php:112 src/Server/Status/Data.php:126
 msgid "Tables"
 msgstr "테이블"
 
@@ -1989,7 +2046,7 @@ msgstr "열 선택"
 #: resources/templates/database/multi_table_query/form.twig:38
 #: resources/templates/database/tracking/tables.twig:19
 #: resources/templates/table/tracking/main.twig:33
-#: src/Controllers/JavaScriptMessagesController.php:721
+#: src/Controllers/JavaScriptMessagesController.php:691
 #: src/Controllers/Table/ChangeController.php:213
 msgid "Show"
 msgstr "보기"
@@ -2421,23 +2478,6 @@ msgstr "반환값"
 msgid "Routine editor"
 msgstr "루틴 이름"
 
-#: resources/templates/database/routines/index.twig:83
-#: resources/templates/database/routines/index.twig:118
-#: resources/templates/home/index.twig:321
-#: resources/templates/modals/index_dialog_modal.twig:26
-#: resources/templates/navigation/main.twig:58
-#: resources/templates/server/privileges/users_overview.twig:172
-#: resources/templates/server/status/monitor/index.twig:66
-#: resources/templates/table/structure/display_structure.twig:348
-#: src/Controllers/JavaScriptMessagesController.php:349
-msgid "Loading…"
-msgstr "불러오는 중…"
-
-#: resources/templates/database/routines/index.twig:88
-#: resources/templates/server/privileges/users_overview.twig:177
-msgid "Save changes"
-msgstr "변경사항을 저장"
-
 #: resources/templates/database/routines/index.twig:98
 #, fuzzy
 #| msgid "Export of routine %s"
@@ -2445,8 +2485,8 @@ msgid "Export routine"
 msgstr "루틴 %s 내보내기"
 
 #: resources/templates/database/routines/index.twig:113
-#: src/Controllers/Database/RoutinesController.php:354
-#: src/Controllers/Database/RoutinesController.php:364
+#: src/Controllers/Database/RoutinesController.php:355
+#: src/Controllers/Database/RoutinesController.php:365
 msgid "Execute routine"
 msgstr "루틴 실행"
 
@@ -2655,7 +2695,7 @@ msgid "Replace table prefix"
 msgstr "테이블의 접두사를 교체"
 
 #: resources/templates/database/structure/check_all_tables.twig:28
-#: src/Controllers/JavaScriptMessagesController.php:684
+#: src/Controllers/JavaScriptMessagesController.php:654
 msgid "Copy table with prefix"
 msgstr "테이블에 접두사를 추가하여 복제"
 
@@ -2688,7 +2728,7 @@ msgstr "컬럼 정의의 일부가 변경될 수도 있습니다.[br]계속하�
 
 #: resources/templates/database/structure/copy_form.twig:5
 #: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:260
-#: src/Plugins/Export/ExportSql.php:927 src/Plugins/Export/ExportXml.php:366
+#: src/Plugins/Export/ExportSql.php:928 src/Plugins/Export/ExportXml.php:367
 #: src/Plugins/Export/Helpers/Pdf.php:176
 msgid "Database:"
 msgstr "데이터베이스:"
@@ -2714,7 +2754,7 @@ msgstr "정말로 다음 쿼리를 실행하시겠습니까?"
 #: resources/templates/database/structure/empty_form.twig:15
 #: resources/templates/import.twig:154 resources/templates/sql/query.twig:145
 #: resources/templates/table/delete/confirm.twig:25
-#: src/Controllers/JavaScriptMessagesController.php:376
+#: src/Controllers/JavaScriptMessagesController.php:344
 msgid "Enable foreign key checks"
 msgstr "외래 키 검사 활성화"
 
@@ -2760,7 +2800,7 @@ msgstr "생성 쿼리 보이기"
 #: resources/templates/table/relation/foreign_key_row.twig:102
 #: resources/templates/triggers/editor_form.twig:32
 #: resources/templates/triggers/list.twig:49 src/Config/Descriptions.php:937
-#: src/Plugins/Export/ExportXml.php:431 src/Server/Privileges.php:1573
+#: src/Plugins/Export/ExportXml.php:432 src/Server/Privileges.php:1573
 #: src/Server/Privileges.php:1575
 msgid "Table"
 msgstr "테이블"
@@ -2768,7 +2808,7 @@ msgstr "테이블"
 #: resources/templates/database/structure/show_create.twig:30
 #: src/Navigation/Nodes/NodeViewContainer.php:22
 #: src/Navigation/Nodes/NodeViewContainer.php:24
-#: src/Plugins/Export/ExportXml.php:121
+#: src/Plugins/Export/ExportXml.php:122
 msgid "Views"
 msgstr "뷰"
 
@@ -2976,7 +3016,7 @@ msgstr "마지막"
 #: resources/templates/server/privileges/initials_row.twig:21
 #: resources/templates/table/browse_foreigners/show_all.twig:2
 #: src/BrowseForeigners.php:287
-#: src/Controllers/JavaScriptMessagesController.php:582
+#: src/Controllers/JavaScriptMessagesController.php:552
 msgid "Show all"
 msgstr "모두 보기"
 
@@ -3038,7 +3078,7 @@ msgid "Hide browser transformation"
 msgstr "브라우저 정보 숨기기"
 
 #: resources/templates/display/results/table.twig:263
-#: src/Controllers/JavaScriptMessagesController.php:501
+#: src/Controllers/JavaScriptMessagesController.php:471
 msgid "Geometry"
 msgstr "기하데이터"
 
@@ -3053,7 +3093,7 @@ msgstr "잘 알려진 바이너리"
 #: resources/templates/display/results/table.twig:323
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
-#: src/Controllers/JavaScriptMessagesController.php:495
+#: src/Controllers/JavaScriptMessagesController.php:465
 #: src/Display/Results.php:1806 src/Html/Generator.php:83
 msgid "Copy"
 msgstr "복사"
@@ -3064,7 +3104,7 @@ msgid "Query results operations"
 msgstr "쿼리 결과 처리방법"
 
 #: resources/templates/display/results/table.twig:353
-#: src/Controllers/JavaScriptMessagesController.php:494
+#: src/Controllers/JavaScriptMessagesController.php:464
 #: src/Export/Export.php:1100
 msgid "Copy to clipboard"
 msgstr "클립보드에 복사하기"
@@ -3243,7 +3283,7 @@ msgid "Defined aliases"
 msgstr "정의된 별칭"
 
 #: resources/templates/export.twig:206
-#: src/Controllers/JavaScriptMessagesController.php:299
+#: src/Controllers/JavaScriptMessagesController.php:280
 msgctxt "Alias"
 msgid "Database"
 msgstr "데이터베이스"
@@ -3254,13 +3294,13 @@ msgid "Remove"
 msgstr "삭제"
 
 #: resources/templates/export.twig:220
-#: src/Controllers/JavaScriptMessagesController.php:300
+#: src/Controllers/JavaScriptMessagesController.php:281
 msgctxt "Alias"
 msgid "Table"
 msgstr "테이블"
 
 #: resources/templates/export.twig:233
-#: src/Controllers/JavaScriptMessagesController.php:301
+#: src/Controllers/JavaScriptMessagesController.php:282
 msgctxt "Alias"
 msgid "Column"
 msgstr "컬럼명"
@@ -3500,8 +3540,8 @@ msgid "Server connection:"
 msgstr "서버 연결:"
 
 #: resources/templates/home/index.twig:198
-#: src/Plugins/Export/ExportLatex.php:233 src/Plugins/Export/ExportSql.php:765
-#: src/Plugins/Export/ExportXml.php:215
+#: src/Plugins/Export/ExportLatex.php:233 src/Plugins/Export/ExportSql.php:766
+#: src/Plugins/Export/ExportXml.php:216
 msgid "Server version:"
 msgstr "서버 버전:"
 
@@ -3587,7 +3627,7 @@ msgstr "가져오기"
 
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
-#: src/Controllers/JavaScriptMessagesController.php:439
+#: src/Controllers/JavaScriptMessagesController.php:409
 #: src/Export/Export.php:1123 src/Html/Generator.php:854
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
@@ -3597,10 +3637,9 @@ msgstr "뒤로"
 #: resources/templates/preferences/header.twig:48
 #: resources/templates/preferences/manage/main.twig:11
 #: resources/templates/server/status/monitor/index.twig:53
-#: src/Config/Forms/User/ImportForm.php:58
-#: src/Controllers/JavaScriptMessagesController.php:327 src/Menu.php:250
-#: src/Menu.php:353 src/Menu.php:470 src/Util.php:1350 src/Util.php:1365
-#: src/Util.php:1382
+#: resources/templates/server/status/monitor/index.twig:69
+#: src/Config/Forms/User/ImportForm.php:58 src/Menu.php:250 src/Menu.php:353
+#: src/Menu.php:470 src/Util.php:1350 src/Util.php:1365 src/Util.php:1382
 msgid "Import"
 msgstr "가져오기"
 
@@ -3922,7 +3961,7 @@ msgid "An error has occurred while loading the navigation display"
 msgstr "내비게이션 디스플레이를 불러오는 도중 에러가 발생함"
 
 #: resources/templates/navigation/main.twig:84
-#: src/Controllers/JavaScriptMessagesController.php:599
+#: src/Controllers/JavaScriptMessagesController.php:569
 msgid "Drop files here"
 msgstr "파일을 여기로 끌어오세요"
 
@@ -4475,7 +4514,7 @@ msgid "Check privileges"
 msgstr "사용권한 검사"
 
 #: resources/templates/server/databases/index.twig:249
-#: src/Controllers/JavaScriptMessagesController.php:310
+#: src/Controllers/JavaScriptMessagesController.php:291
 #: src/Engines/Innodb.php:133
 msgid "Total:"
 msgstr "전체:"
@@ -4497,7 +4536,7 @@ msgid "No databases"
 msgstr "데이터베이스가 없습니다"
 
 #: resources/templates/server/databases/index.twig:314
-#: src/Controllers/JavaScriptMessagesController.php:367
+#: src/Controllers/JavaScriptMessagesController.php:335
 msgid "Confirm"
 msgstr "확인"
 
@@ -4653,7 +4692,7 @@ msgstr "사용자 계정"
 #: resources/templates/server/privileges/edit_routine_privileges.twig:29
 #: resources/templates/server/privileges/edit_routine_privileges.twig:46
 #: resources/templates/server/privileges/edit_routine_privileges.twig:59
-#: src/Controllers/JavaScriptMessagesController.php:393
+#: src/Controllers/JavaScriptMessagesController.php:361
 #: src/Server/Privileges.php:1579 src/Server/Privileges.php:1581
 msgid "Routine"
 msgstr "루틴"
@@ -5259,8 +5298,8 @@ msgstr ""
 
 #: resources/templates/server/replication/change_primary.twig:25
 #: resources/templates/server/replication/primary_add_replica_user.twig:29
-#: src/Plugins/Export/ExportLatex.php:225 src/Plugins/Export/ExportSql.php:754
-#: src/Plugins/Export/ExportXml.php:206
+#: src/Plugins/Export/ExportLatex.php:225 src/Plugins/Export/ExportSql.php:755
+#: src/Plugins/Export/ExportXml.php:207
 msgid "Host:"
 msgstr "호스트:"
 
@@ -5304,7 +5343,7 @@ msgid "Generate password:"
 msgstr "비밀번호 생성:"
 
 #: resources/templates/server/replication/primary_add_replica_user.twig:73
-#: src/Controllers/JavaScriptMessagesController.php:606
+#: src/Controllers/JavaScriptMessagesController.php:576
 msgid "Generate"
 msgstr "생성"
 
@@ -5557,7 +5596,7 @@ msgstr "서버"
 
 #: resources/templates/server/status/base.twig:11
 #: resources/templates/server/status/processes/list.twig:5
-#: src/Controllers/JavaScriptMessagesController.php:207
+#: src/Controllers/JavaScriptMessagesController.php:198
 msgid "Processes"
 msgstr "프로세스"
 
@@ -5636,15 +5675,28 @@ msgstr ""
 "차트 설정은 브라우저의 로컬 스토리지에 저장됩니다. 설정된 내용이 있다면 내보"
 "내기를 할 수 있습니다."
 
-#: resources/templates/server/status/monitor/index.twig:55
+#: resources/templates/server/status/monitor/index.twig:58
+#, fuzzy
+#| msgid "Import monitor configuration"
+msgid "Importing system monitor configuration"
+msgstr "모니터 설정 가져오기"
+
+#: resources/templates/server/status/monitor/index.twig:63
+#: src/Controllers/JavaScriptMessagesController.php:299
+msgid "Please select the file you want to import:"
+msgstr "가져올 파일을 선택하세요:"
+
+#: resources/templates/server/status/monitor/index.twig:76
 msgid "Reset to default"
 msgstr "기본값으로 초기화"
 
-#: resources/templates/server/status/monitor/index.twig:62
-msgid "Monitor Instructions"
+#: resources/templates/server/status/monitor/index.twig:87
+#, fuzzy
+#| msgid "Monitor Instructions"
+msgid "System monitor instructions"
 msgstr "모니터 지침"
 
-#: resources/templates/server/status/monitor/index.twig:64
+#: resources/templates/server/status/monitor/index.twig:92
 msgid ""
 "The phpMyAdmin Monitor can assist you in optimizing the server configuration "
 "and track down time intensive queries. For the latter you will need to set "
@@ -5657,11 +5709,11 @@ msgstr ""
 "slow_query_log 또는 general_log를 활성화해야 합니다. 단, 일반_로그는 많은 양"
 "의 데이터를 생성하며 서버 부하를 최대 15%까지 증가시킨다는 점에 유의하세요."
 
-#: resources/templates/server/status/monitor/index.twig:72
+#: resources/templates/server/status/monitor/index.twig:99
 msgid "Using the monitor:"
 msgstr "모니터 사용 방식:"
 
-#: resources/templates/server/status/monitor/index.twig:74
+#: resources/templates/server/status/monitor/index.twig:101
 msgid ""
 "Your browser will refresh all displayed charts in a regular interval. You "
 "may add charts and change the refresh rate under 'Settings', or remove any "
@@ -5671,7 +5723,7 @@ msgstr ""
 "를 추가하거나, 새로고침 주기를 수정할 수 있습니다. 또한 각 차트의 톱니바퀴 아"
 "이콘을 통해 차트를 제거할 수 있습니다."
 
-#: resources/templates/server/status/monitor/index.twig:77
+#: resources/templates/server/status/monitor/index.twig:104
 msgid ""
 "To display queries from the logs, click on any chart. Once confirmed, this "
 "will load a table of grouped queries, there you may click on any occurring "
@@ -5681,11 +5733,11 @@ msgstr ""
 "이블이 로드되며, 여기서 발생하는 SELECT 문을 클릭하여 추가로 분석할 수 있습니"
 "다."
 
-#: resources/templates/server/status/monitor/index.twig:81
+#: resources/templates/server/status/monitor/index.twig:108
 msgid "Please note:"
 msgstr "주의사항:"
 
-#: resources/templates/server/status/monitor/index.twig:84
+#: resources/templates/server/status/monitor/index.twig:111
 msgid ""
 "Enabling the general_log may increase the server load by 5-15%. Also be "
 "aware that generating statistics from the logs is a load intensive task, so "
@@ -5697,99 +5749,199 @@ msgstr ""
 "시간대를 선택, general_log를 비활성화, 및 모니터링이 더 이상 필요하지 않는 테"
 "이블은 비우는 것을 추천합니다."
 
-#: resources/templates/server/status/monitor/index.twig:93
-#: resources/templates/server/status/monitor/index.twig:99
+#: resources/templates/server/status/monitor/index.twig:123
+#: resources/templates/server/status/monitor/index.twig:129
 msgid "Chart Title"
 msgstr "차트 제목"
 
-#: resources/templates/server/status/monitor/index.twig:103
+#: resources/templates/server/status/monitor/index.twig:133
 msgid "Preset chart"
 msgstr "프리셋 차트"
 
-#: resources/templates/server/status/monitor/index.twig:109
+#: resources/templates/server/status/monitor/index.twig:139
 msgid "Status variable(s)"
 msgstr "상태 변수"
 
-#: resources/templates/server/status/monitor/index.twig:114
+#: resources/templates/server/status/monitor/index.twig:144
 msgid "Select series:"
 msgstr "시리즈 선택:"
 
-#: resources/templates/server/status/monitor/index.twig:117
+#: resources/templates/server/status/monitor/index.twig:147
 msgid "Commonly monitored"
 msgstr "일반 모니터링 대상"
 
-#: resources/templates/server/status/monitor/index.twig:135
+#: resources/templates/server/status/monitor/index.twig:165
 msgid "or type variable name:"
 msgstr "또는 타입 변수 이름:"
 
-#: resources/templates/server/status/monitor/index.twig:142
+#: resources/templates/server/status/monitor/index.twig:172
 msgid "Display as differential value"
 msgstr "차이값으로 출력"
 
-#: resources/templates/server/status/monitor/index.twig:147
+#: resources/templates/server/status/monitor/index.twig:177
 msgid "Apply a divisor"
 msgstr "나누는 수 적용"
 
 #. l10n: shortcuts for Kilobyte
-#: resources/templates/server/status/monitor/index.twig:151
-#: src/Controllers/JavaScriptMessagesController.php:211 src/Util.php:304
+#: resources/templates/server/status/monitor/index.twig:181
+#: src/Controllers/JavaScriptMessagesController.php:202 src/Util.php:304
 msgid "KiB"
 msgstr "KB"
 
 #. l10n: shortcuts for Megabyte
-#: resources/templates/server/status/monitor/index.twig:152
-#: src/Controllers/JavaScriptMessagesController.php:212 src/Util.php:306
+#: resources/templates/server/status/monitor/index.twig:182
+#: src/Controllers/JavaScriptMessagesController.php:203 src/Util.php:306
 msgid "MiB"
 msgstr "MB"
 
-#: resources/templates/server/status/monitor/index.twig:158
+#: resources/templates/server/status/monitor/index.twig:188
 msgid "Append unit to data values"
 msgstr "데이터 값에 단위를 덧붙임"
 
-#: resources/templates/server/status/monitor/index.twig:166
+#: resources/templates/server/status/monitor/index.twig:196
 msgid "Add this series"
 msgstr "이 시리즈 추가"
 
-#: resources/templates/server/status/monitor/index.twig:169
+#: resources/templates/server/status/monitor/index.twig:199
 msgid "Clear series"
 msgstr "계열 모두 삭제"
 
-#: resources/templates/server/status/monitor/index.twig:173
+#: resources/templates/server/status/monitor/index.twig:203
 msgid "Series in chart:"
 msgstr "차트의 계열:"
 
-#: resources/templates/server/status/monitor/index.twig:182
-#: src/Controllers/JavaScriptMessagesController.php:223
+#: resources/templates/server/status/monitor/index.twig:212
+#: src/Controllers/JavaScriptMessagesController.php:214
 msgid "Add chart to grid"
 msgstr "차트에 그리드 추가"
 
-#: resources/templates/server/status/monitor/index.twig:189
+#: resources/templates/server/status/monitor/index.twig:223
 msgid "Log statistics"
 msgstr "로그 통계"
 
-#: resources/templates/server/status/monitor/index.twig:191
+#: resources/templates/server/status/monitor/index.twig:229
 msgid "Selected time range:"
 msgstr "선택한 시간:"
 
-#: resources/templates/server/status/monitor/index.twig:199
+#: resources/templates/server/status/monitor/index.twig:237
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
 msgstr "SELECT, INSERT, UPDATE 및 DELETE 문만 가져옴"
 
-#: resources/templates/server/status/monitor/index.twig:205
+#: resources/templates/server/status/monitor/index.twig:243
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr "더 나은 그룹화를 위해 INSERT 문에서 변수 데이터 제거"
 
-#: resources/templates/server/status/monitor/index.twig:209
+#: resources/templates/server/status/monitor/index.twig:247
 msgid "Choose from which log you want the statistics to be generated from."
 msgstr "통계가 생성될 로그를 선택하세요."
 
-#: resources/templates/server/status/monitor/index.twig:212
+#: resources/templates/server/status/monitor/index.twig:250
 msgid "Results are grouped by query text."
 msgstr "결과는 쿼리 텍스트별로 그룹화됩니다."
 
-#: resources/templates/server/status/monitor/index.twig:216
+#: resources/templates/server/status/monitor/index.twig:256
+msgid "From slow log"
+msgstr "느린 로그로부터"
+
+#: resources/templates/server/status/monitor/index.twig:257
+msgid "From general log"
+msgstr "일반 로그로부터"
+
+#: resources/templates/server/status/monitor/index.twig:267
 msgid "Query analyzer"
 msgstr "질의 분석기"
+
+#: resources/templates/server/status/monitor/index.twig:273 src/Menu.php:335
+#: src/Util.php:1363
+msgid "Query"
+msgstr "질의 마법사"
+
+#: resources/templates/server/status/monitor/index.twig:280
+msgid "Analyse query"
+msgstr "질의 분석"
+
+#: resources/templates/server/status/monitor/index.twig:290
+msgid "Analysing logs"
+msgstr "로그 분석 중"
+
+#: resources/templates/server/status/monitor/index.twig:291
+#: resources/templates/server/status/monitor/index.twig:300
+msgid "Cancel request"
+msgstr "요청 취소"
+
+#: resources/templates/server/status/monitor/index.twig:294
+#, fuzzy
+#| msgid "Analysing & loading logs. This may take a while."
+msgid "Analysing and loading logs. This may take a while."
+msgstr "로그를 읽고 분석합니다. 이 작업은 시간이 걸릴 수 있습니다."
+
+#: resources/templates/server/status/monitor/index.twig:310
+msgid "No data found"
+msgstr "자료가 없습니다"
+
+#: resources/templates/server/status/monitor/index.twig:314
+msgid "Log analysed, but no data found in this time span."
+msgstr "로그가 분석되었습니다. 하지만 해당 기간내에는 자료가 없습니다."
+
+#: resources/templates/server/status/monitor/index.twig:327
+msgid "Loading logs"
+msgstr "로그를 불러오는 중"
+
+#: resources/templates/server/status/monitor/index.twig:331
+msgid "Log data loaded. Queries executed in this time span:"
+msgstr "로그자료가 로드되었습니다. 쿼리들이 실행되었던 기간:"
+
+#: resources/templates/server/status/monitor/index.twig:336
+#, fuzzy
+#| msgid "Jump to Log table"
+msgid "Jump to the log table"
+msgstr "로그 테이블로 이동"
+
+#: resources/templates/server/status/monitor/index.twig:346
+msgid "Monitor refresh failed"
+msgstr "모니터링 리프리쉬가 실패하였습니다"
+
+#: resources/templates/server/status/monitor/index.twig:350
+#: resources/templates/server/status/monitor/index.twig:369
+#, fuzzy
+#| msgid "Warning"
+msgid "Warning:"
+msgstr "경고"
+
+#: resources/templates/server/status/monitor/index.twig:351
+msgid ""
+"While requesting new chart data the server returned an invalid response. "
+"This is most likely because your session expired. Reloading the page and "
+"reentering your credentials should help."
+msgstr ""
+"새로운 차트 데이터를 요청하는 동안 서버에서 잘못된 응답을 반환했습니다.대부분"
+"의 경우 세션이 만료되었기 때문입니다.페이지를 다시 로드하고 새로 인증받는 것"
+"이 도움이 될것입니다."
+
+#: resources/templates/server/status/monitor/index.twig:355
+msgid "Reload page"
+msgstr "페이지 새로고침"
+
+#: resources/templates/server/status/monitor/index.twig:365
+msgid "Local monitor configuration incompatible!"
+msgstr "호환되지 않는 로컬 모니터 설정입니다!"
+
+#: resources/templates/server/status/monitor/index.twig:370
+#, fuzzy
+#| msgid ""
+#| "The chart arrangement configuration in your browsers local storage is not "
+#| "compatible anymore to the newer version of the monitor dialog. It is very "
+#| "likely that your current configuration will not work anymore. Please "
+#| "reset your configuration to default in the <i>Settings</i> menu."
+msgid ""
+"The chart arrangement configuration in your browsers local storage is not "
+"compatible anymore to the newer version of the monitor dialog. It is very "
+"likely that your current configuration will not work anymore. Please reset "
+"your configuration to default in the [em]Settings[/em] menu."
+msgstr ""
+"브라우저 내의 차트 정렬 설정은 더 이상 새 버전의 모니터 다이얼로그와 호환되"
+"지 않습니다. 현재 설정은 더 이상 작동되지 않을 수 있습니다. <i>설정</i>메뉴에"
+"서 설정을 초기화해 주세요."
 
 #: resources/templates/server/status/processes/index.twig:14
 msgid "Show only active"
@@ -5804,7 +5956,7 @@ msgstr ""
 "를 줄 수 있습니다."
 
 #: resources/templates/server/status/processes/index.twig:49
-#: src/Controllers/JavaScriptMessagesController.php:230
+#: src/Controllers/JavaScriptMessagesController.php:221
 msgid "Start auto refresh"
 msgstr "자동 새로고침 시작"
 
@@ -5871,7 +6023,7 @@ msgid "This MySQL server has been running for %1$s. It started up on %2$s."
 msgstr "이 MySQL 서버는 %1$s 동안 구동되었습니다. 구동 시작날짜는 %2$s 입니다."
 
 #: resources/templates/server/status/status/index.twig:14
-#: src/Controllers/JavaScriptMessagesController.php:221
+#: src/Controllers/JavaScriptMessagesController.php:212
 msgid "Traffic"
 msgstr "소통량"
 
@@ -5884,7 +6036,7 @@ msgstr ""
 "보고한 통계가 부정확할 수 있습니다."
 
 #: resources/templates/server/status/status/index.twig:36
-#: src/Controllers/JavaScriptMessagesController.php:206
+#: src/Controllers/JavaScriptMessagesController.php:197
 msgid "Connections"
 msgstr "연결 수"
 
@@ -6136,7 +6288,7 @@ msgstr "상태"
 
 #: resources/templates/sql/profiling_chart.twig:13
 #: resources/templates/triggers/list.twig:51
-#: src/Controllers/JavaScriptMessagesController.php:293
+#: src/Controllers/JavaScriptMessagesController.php:274
 #: src/Plugins/Export/ExportHtmlword.php:440
 #: src/Plugins/Export/ExportOdt.php:559
 #: src/Plugins/Export/ExportTexytext.php:425
@@ -6186,7 +6338,7 @@ msgstr "프로파일링 결과로 파이 차트."
 #: src/Controllers/Table/Partition/RepairController.php:47
 #: src/Controllers/Table/Partition/TruncateController.php:48
 #: src/Controllers/Table/RelationController.php:140
-#: src/Database/Routines.php:1024 src/Display/Results.php:3013
+#: src/Database/Routines.php:1023 src/Display/Results.php:3013
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "쿼리가 정상적으로 실행되었습니다."
@@ -6264,7 +6416,7 @@ msgstr "쿼리 시뮬레이션 하기"
 #: resources/templates/sql/relational_column_dropdown.twig:3
 #: resources/templates/table/insert/column_row.twig:48
 #: resources/templates/table/search/input_box.twig:21
-#: src/Controllers/JavaScriptMessagesController.php:411
+#: src/Controllers/JavaScriptMessagesController.php:381
 msgid "Browse foreign values"
 msgstr "외래값 탐색"
 
@@ -6494,8 +6646,8 @@ msgstr "재정렬하려면 드래그"
 
 #: resources/templates/table/index_form.twig:167
 #: resources/templates/table/index_form.twig:203
-#: src/Controllers/JavaScriptMessagesController.php:493
-#: src/Controllers/JavaScriptMessagesController.php:645
+#: src/Controllers/JavaScriptMessagesController.php:463
+#: src/Controllers/JavaScriptMessagesController.php:615
 #: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1465
 msgid "Ignore"
 msgstr "무시"
@@ -6880,32 +7032,32 @@ msgid "Index length"
 msgstr "인덱스 길이"
 
 #: resources/templates/table/structure/display_partitions.twig:85
-#: src/Operations.php:518
+#: src/Operations.php:519
 msgid "Analyze"
 msgstr "분석"
 
 #: resources/templates/table/structure/display_partitions.twig:95
-#: src/Operations.php:519
+#: src/Operations.php:520
 msgid "Check"
 msgstr "검사"
 
 #: resources/templates/table/structure/display_partitions.twig:105
-#: src/Operations.php:520
+#: src/Operations.php:521
 msgid "Optimize"
 msgstr "옵티마이저"
 
 #: resources/templates/table/structure/display_partitions.twig:115
-#: src/Operations.php:521
+#: src/Operations.php:522
 msgid "Rebuild"
 msgstr "리빌드"
 
 #: resources/templates/table/structure/display_partitions.twig:125
-#: src/Operations.php:522
+#: src/Operations.php:523
 msgid "Repair"
 msgstr "복구"
 
 #: resources/templates/table/structure/display_partitions.twig:135
-#: src/Operations.php:523
+#: src/Operations.php:524
 msgid "Truncate"
 msgstr "비우기"
 
@@ -6946,7 +7098,7 @@ msgid "Column %s has been dropped."
 msgstr "컬럼 %s을 삭제했습니다."
 
 #: resources/templates/table/structure/display_structure.twig:130
-#: src/Controllers/JavaScriptMessagesController.php:609
+#: src/Controllers/JavaScriptMessagesController.php:579
 msgid "More"
 msgstr "더보기"
 
@@ -7147,6 +7299,7 @@ msgstr "시간"
 
 #: resources/templates/triggers/editor_form.twig:52
 #: resources/templates/triggers/list.twig:52
+#: src/Controllers/JavaScriptMessagesController.php:363
 #: src/Navigation/Nodes/NodeEvent.php:24
 #: src/Plugins/Export/ExportHtmlword.php:441
 #: src/Plugins/Export/ExportOdt.php:562
@@ -7166,9 +7319,9 @@ msgstr "트리거 %s 내보내기"
 #: src/Navigation/Nodes/NodeTriggerContainer.php:25
 #: src/Plugins/Export/ExportHtmlword.php:495
 #: src/Plugins/Export/ExportOdt.php:626 src/Plugins/Export/ExportPdf.php:234
-#: src/Plugins/Export/ExportSql.php:1906
+#: src/Plugins/Export/ExportSql.php:1907
 #: src/Plugins/Export/ExportTexytext.php:465
-#: src/Plugins/Export/ExportXml.php:116 src/Util.php:1370 src/Util.php:1386
+#: src/Plugins/Export/ExportXml.php:117 src/Util.php:1370 src/Util.php:1386
 msgid "Triggers"
 msgstr "트리거"
 
@@ -7179,6 +7332,18 @@ msgstr "새로운 트리거 생성"
 #: resources/templates/triggers/list.twig:40
 msgid "There are no triggers to display."
 msgstr "표시할 트리거가 없습니다."
+
+#: resources/templates/triggers/list.twig:81
+#, fuzzy
+#| msgid "Trigger name"
+msgid "Trigger editor"
+msgstr "트리거 이름"
+
+#: resources/templates/triggers/list.twig:101
+#, fuzzy
+#| msgid "Export of trigger %s"
+msgid "Export trigger"
+msgstr "트리거 %s 내보내기"
 
 #: resources/templates/view_create.twig:75
 msgid "VIEW name"
@@ -8780,43 +8945,43 @@ msgid "Closed"
 msgstr "닫기"
 
 #: src/Config/ConfigFile.php:608
-#: src/Controllers/JavaScriptMessagesController.php:749
+#: src/Controllers/JavaScriptMessagesController.php:719
 msgctxt "Week day name"
 msgid "Monday"
 msgstr "월요일"
 
 #: src/Config/ConfigFile.php:609
-#: src/Controllers/JavaScriptMessagesController.php:750
+#: src/Controllers/JavaScriptMessagesController.php:720
 msgctxt "Week day name"
 msgid "Tuesday"
 msgstr "화요일"
 
 #: src/Config/ConfigFile.php:610
-#: src/Controllers/JavaScriptMessagesController.php:751
+#: src/Controllers/JavaScriptMessagesController.php:721
 msgctxt "Week day name"
 msgid "Wednesday"
 msgstr "수요일"
 
 #: src/Config/ConfigFile.php:611
-#: src/Controllers/JavaScriptMessagesController.php:752
+#: src/Controllers/JavaScriptMessagesController.php:722
 msgctxt "Week day name"
 msgid "Thursday"
 msgstr "목요일"
 
 #: src/Config/ConfigFile.php:612
-#: src/Controllers/JavaScriptMessagesController.php:753
+#: src/Controllers/JavaScriptMessagesController.php:723
 msgctxt "Week day name"
 msgid "Friday"
 msgstr "금요일"
 
 #: src/Config/ConfigFile.php:613
-#: src/Controllers/JavaScriptMessagesController.php:754
+#: src/Controllers/JavaScriptMessagesController.php:724
 msgctxt "Week day name"
 msgid "Saturday"
 msgstr "토요일"
 
 #: src/Config/ConfigFile.php:614
-#: src/Controllers/JavaScriptMessagesController.php:748
+#: src/Controllers/JavaScriptMessagesController.php:718
 msgctxt "Week day name"
 msgid "Sunday"
 msgstr "일요일"
@@ -8851,7 +9016,7 @@ msgstr "비활성화"
 #: src/Plugins/Export/ExportLatex.php:113
 #: src/Plugins/Export/ExportMediawiki.php:68
 #: src/Plugins/Export/ExportOdt.php:84 src/Plugins/Export/ExportPdf.php:91
-#: src/Plugins/Export/ExportSql.php:265
+#: src/Plugins/Export/ExportSql.php:266
 #: src/Plugins/Export/ExportTexytext.php:70
 msgid "structure"
 msgstr "구조"
@@ -8862,7 +9027,7 @@ msgstr "구조"
 #: src/Plugins/Export/ExportLatex.php:113
 #: src/Plugins/Export/ExportMediawiki.php:68
 #: src/Plugins/Export/ExportOdt.php:84 src/Plugins/Export/ExportPdf.php:91
-#: src/Plugins/Export/ExportSql.php:265
+#: src/Plugins/Export/ExportSql.php:266
 #: src/Plugins/Export/ExportTexytext.php:70
 msgid "data"
 msgstr "데이터"
@@ -8873,7 +9038,7 @@ msgstr "데이터"
 #: src/Plugins/Export/ExportLatex.php:113
 #: src/Plugins/Export/ExportMediawiki.php:68
 #: src/Plugins/Export/ExportOdt.php:84 src/Plugins/Export/ExportPdf.php:91
-#: src/Plugins/Export/ExportSql.php:265
+#: src/Plugins/Export/ExportSql.php:266
 #: src/Plugins/Export/ExportTexytext.php:70
 msgid "structure and data"
 msgstr "구조 및 데이터"
@@ -9059,7 +9224,7 @@ msgstr ""
 "한)."
 
 #: src/Config/Descriptions.php:171 src/Config/Descriptions.php:708
-#: src/Plugins/Export/ExportSql.php:365
+#: src/Plugins/Export/ExportSql.php:366
 msgid "Exclude definition of current user"
 msgstr "현재 사용자의 정의 제외"
 
@@ -10320,7 +10485,7 @@ msgstr "파일명 템플릿"
 #: src/Plugins/Export/ExportMediawiki.php:58
 #: src/Plugins/Export/ExportMediawiki.php:64
 #: src/Plugins/Export/ExportOdt.php:79 src/Plugins/Export/ExportPdf.php:87
-#: src/Plugins/Export/ExportSql.php:261
+#: src/Plugins/Export/ExportSql.php:262
 #: src/Plugins/Export/ExportTexytext.php:65
 msgid "Dump table"
 msgstr "덤프 테이블"
@@ -10382,11 +10547,11 @@ msgstr "생성/갱신/검사일자"
 msgid "Use delayed inserts"
 msgstr "지연 삽입 사용"
 
-#: src/Config/Descriptions.php:692 src/Plugins/Export/ExportSql.php:230
+#: src/Config/Descriptions.php:692 src/Plugins/Export/ExportSql.php:231
 msgid "Disable foreign key checks"
 msgstr "외래 키 검사 비활성화"
 
-#: src/Config/Descriptions.php:693 src/Plugins/Export/ExportSql.php:240
+#: src/Config/Descriptions.php:693 src/Plugins/Export/ExportSql.php:241
 msgid "Export views as tables"
 msgstr "뷰를 테이블로 내보내기"
 
@@ -10405,7 +10570,7 @@ msgid ""
 msgstr ""
 "존재하지 않는 경우 추가(테이블 생성 중에 인덱스가 생성되므로 효율성이 낮음)"
 
-#: src/Config/Descriptions.php:709 src/Plugins/Export/ExportSql.php:371
+#: src/Config/Descriptions.php:709 src/Plugins/Export/ExportSql.php:372
 #, php-format
 msgid "%s view"
 msgstr "%s 뷰"
@@ -10418,7 +10583,7 @@ msgstr "삽입 무시기능 사용"
 msgid "Syntax to use when inserting data"
 msgstr "자료 삽입시 사용 구문"
 
-#: src/Config/Descriptions.php:713 src/Plugins/Export/ExportSql.php:498
+#: src/Config/Descriptions.php:713 src/Plugins/Export/ExportSql.php:499
 msgid "Maximal length of created query"
 msgstr "CREATE 질의 최대 길이"
 
@@ -10426,7 +10591,7 @@ msgstr "CREATE 질의 최대 길이"
 msgid "Export type"
 msgstr "내보내기 형식"
 
-#: src/Config/Descriptions.php:719 src/Plugins/Export/ExportSql.php:220
+#: src/Config/Descriptions.php:719 src/Plugins/Export/ExportSql.php:221
 msgid "Enclose export in a transaction"
 msgstr "내보내기에 트랜잭션 포함"
 
@@ -10693,7 +10858,7 @@ msgid "Navigation panel width"
 msgstr "내비게이션 패널 너비"
 
 #: src/Config/Descriptions.php:811
-#: src/Controllers/JavaScriptMessagesController.php:614
+#: src/Controllers/JavaScriptMessagesController.php:584
 #: src/Navigation/NavigationTree.php:1292
 msgid "Link with main panel"
 msgstr "매인 패널에 링크"
@@ -11253,7 +11418,7 @@ msgid "Missing data for %s"
 msgstr "%s 데이터 누락"
 
 #: src/Config/FormDisplay.php:619 src/Config/Validator.php:595
-#: src/Controllers/JavaScriptMessagesController.php:832
+#: src/Controllers/JavaScriptMessagesController.php:802
 msgid "Incorrect value!"
 msgstr "잘못된 값!"
 
@@ -11552,22 +11717,22 @@ msgid "Incorrect IP address: %s"
 msgstr "잘못된 IP 주소: %s"
 
 #: src/Config/Validator.php:530
-#: src/Controllers/JavaScriptMessagesController.php:831
+#: src/Controllers/JavaScriptMessagesController.php:801
 msgid "Not a valid port number!"
 msgstr "유효한 포트번호가 아닙니다!"
 
 #: src/Config/Validator.php:552
-#: src/Controllers/JavaScriptMessagesController.php:829
+#: src/Controllers/JavaScriptMessagesController.php:799
 msgid "Not a positive number!"
 msgstr "양수가 아닙니다!"
 
 #: src/Config/Validator.php:574
-#: src/Controllers/JavaScriptMessagesController.php:830
+#: src/Controllers/JavaScriptMessagesController.php:800
 msgid "Not a non-negative number!"
 msgstr "0 또는 양수가 아닙니다!"
 
 #: src/Config/Validator.php:613
-#: src/Controllers/JavaScriptMessagesController.php:833
+#: src/Controllers/JavaScriptMessagesController.php:803
 #, php-format
 msgid "Value must be less than or equal to %s!"
 msgstr "값은 %s보다 작거나 같아야 합니다!"
@@ -11593,7 +11758,7 @@ msgstr ""
 "바랍니다."
 
 #: src/Controllers/Console/Bookmark/AddController.php:40
-#: src/Controllers/JavaScriptMessagesController.php:596
+#: src/Controllers/JavaScriptMessagesController.php:566
 msgid "Failed"
 msgstr "실패함"
 
@@ -11631,8 +11796,8 @@ msgstr ""
 #: src/Controllers/Database/ExportController.php:60
 #: src/Controllers/Database/ImportController.php:58
 #: src/Controllers/Database/ImportController.php:63
-#: src/Controllers/Database/RoutinesController.php:77
-#: src/Controllers/Database/RoutinesController.php:96
+#: src/Controllers/Database/RoutinesController.php:78
+#: src/Controllers/Database/RoutinesController.php:97
 #: src/Controllers/Database/SearchController.php:51
 #: src/Controllers/Database/SearchController.php:56
 #: src/Controllers/Database/SqlController.php:52
@@ -11643,7 +11808,7 @@ msgstr ""
 #: src/Controllers/Database/Structure/RealRowCountController.php:50
 #: src/Controllers/Database/TrackingController.php:53
 #: src/Controllers/Database/TrackingController.php:58
-#: src/Controllers/JavaScriptMessagesController.php:360
+#: src/Controllers/JavaScriptMessagesController.php:328
 #: src/Controllers/Operations/Database/CollationController.php:52
 #: src/Controllers/Operations/DatabaseController.php:232
 #: src/Controllers/Operations/DatabaseController.php:237
@@ -11703,9 +11868,9 @@ msgid "Edit event"
 msgstr "이벤트 수정"
 
 #: src/Controllers/Database/EventsController.php:175
-#: src/Controllers/Database/RoutinesController.php:273
-#: src/Controllers/Database/RoutinesController.php:303
-#: src/Controllers/Database/RoutinesController.php:371
+#: src/Controllers/Database/RoutinesController.php:274
+#: src/Controllers/Database/RoutinesController.php:304
+#: src/Controllers/Database/RoutinesController.php:372
 #: src/Controllers/Triggers/IndexController.php:207
 msgid "Error in processing request:"
 msgstr "요청 처리 중 에러가 발생:"
@@ -11754,7 +11919,7 @@ msgstr "권한 없음"
 msgid "You do not have the privileges to administrate the users!"
 msgstr "사용자를 관리할 권한이 없습니다!"
 
-#: src/Controllers/Database/RoutinesController.php:85
+#: src/Controllers/Database/RoutinesController.php:86
 #: src/Controllers/Database/Structure/AddPrefixController.php:33
 #: src/Controllers/Database/Structure/CentralColumns/AddController.php:37
 #: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:36
@@ -11765,7 +11930,7 @@ msgstr "사용자를 관리할 권한이 없습니다!"
 #: src/Controllers/Database/Structure/EmptyFormController.php:31
 #: src/Controllers/Database/Structure/ShowCreateController.php:34
 #: src/Controllers/Export/TablesController.php:27
-#: src/Controllers/JavaScriptMessagesController.php:361
+#: src/Controllers/JavaScriptMessagesController.php:329
 #: src/Controllers/Operations/TableController.php:98
 #: src/Controllers/Operations/TableController.php:103
 #: src/Controllers/Operations/ViewController.php:73
@@ -11808,15 +11973,15 @@ msgstr "사용자를 관리할 권한이 없습니다!"
 msgid "No table selected."
 msgstr "선택한 테이블이 없습니다."
 
-#: src/Controllers/Database/RoutinesController.php:173
+#: src/Controllers/Database/RoutinesController.php:174
 msgid "Add routine"
 msgstr "루틴 추가하기"
 
-#: src/Controllers/Database/RoutinesController.php:177
+#: src/Controllers/Database/RoutinesController.php:178
 msgid "Edit routine"
 msgstr "루틴 수정"
 
-#: src/Controllers/Database/RoutinesController.php:276
+#: src/Controllers/Database/RoutinesController.php:277
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
@@ -11825,18 +11990,18 @@ msgstr ""
 "%2$s 데이터베이스에 %1$s 이름의 루틴을 찾을 수 없습니다. 이 루틴을 편집하는 "
 "데 필요한 권한이 부족할 수 있습니다."
 
-#: src/Controllers/Database/RoutinesController.php:305
-#: src/Controllers/Database/RoutinesController.php:373
+#: src/Controllers/Database/RoutinesController.php:306
+#: src/Controllers/Database/RoutinesController.php:374
 #, php-format
 msgid "No routine with name %1$s found in database %2$s."
 msgstr "%2$s 데이터베이스에 %1$s 라는 이름의 루틴이 없습니다."
 
-#: src/Controllers/Database/RoutinesController.php:416
+#: src/Controllers/Database/RoutinesController.php:417
 #, php-format
 msgid "Export of routine %s"
 msgstr "루틴 %s 내보내기"
 
-#: src/Controllers/Database/RoutinesController.php:435
+#: src/Controllers/Database/RoutinesController.php:436
 #, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
@@ -12403,174 +12568,159 @@ msgstr "연결 / 프로세스"
 msgid "Number of statements"
 msgstr "구문 수"
 
-#: src/Controllers/JavaScriptMessagesController.php:176
-msgid "Local monitor configuration incompatible!"
-msgstr "호환되지 않는 로컬 모니터 설정입니다!"
-
-#: src/Controllers/JavaScriptMessagesController.php:178
-msgid ""
-"The chart arrangement configuration in your browsers local storage is not "
-"compatible anymore to the newer version of the monitor dialog. It is very "
-"likely that your current configuration will not work anymore. Please reset "
-"your configuration to default in the <i>Settings</i> menu."
-msgstr ""
-"브라우저 내의 차트 정렬 설정은 더 이상 새 버전의 모니터 다이얼로그와 호환되"
-"지 않습니다. 현재 설정은 더 이상 작동되지 않을 수 있습니다. <i>설정</i>메뉴에"
-"서 설정을 초기화해 주세요."
-
-#: src/Controllers/JavaScriptMessagesController.php:184
+#: src/Controllers/JavaScriptMessagesController.php:175
 msgid "Query cache efficiency"
 msgstr "질의 캐시 효율"
 
-#: src/Controllers/JavaScriptMessagesController.php:185
+#: src/Controllers/JavaScriptMessagesController.php:176
 msgid "Query cache usage"
 msgstr "질의 캐시 사용량"
 
-#: src/Controllers/JavaScriptMessagesController.php:186
+#: src/Controllers/JavaScriptMessagesController.php:177
 msgid "Query cache used"
 msgstr "질의 캐시 사용됨"
 
-#: src/Controllers/JavaScriptMessagesController.php:188
+#: src/Controllers/JavaScriptMessagesController.php:179
 msgid "System CPU usage"
 msgstr "시스템 CPU 사용량"
 
-#: src/Controllers/JavaScriptMessagesController.php:189
+#: src/Controllers/JavaScriptMessagesController.php:180
 msgid "System memory"
 msgstr "시스템 메모리"
 
-#: src/Controllers/JavaScriptMessagesController.php:190
+#: src/Controllers/JavaScriptMessagesController.php:181
 msgid "System swap"
 msgstr "시스템 스왑"
 
-#: src/Controllers/JavaScriptMessagesController.php:192
+#: src/Controllers/JavaScriptMessagesController.php:183
 msgid "Average load"
 msgstr "평균 부하"
 
-#: src/Controllers/JavaScriptMessagesController.php:193
+#: src/Controllers/JavaScriptMessagesController.php:184
 msgid "Total memory"
 msgstr "전체 메모리"
 
-#: src/Controllers/JavaScriptMessagesController.php:194
+#: src/Controllers/JavaScriptMessagesController.php:185
 msgid "Cached memory"
 msgstr "캐시된 메모리"
 
-#: src/Controllers/JavaScriptMessagesController.php:195
+#: src/Controllers/JavaScriptMessagesController.php:186
 msgid "Buffered memory"
 msgstr "버퍼 메모리"
 
-#: src/Controllers/JavaScriptMessagesController.php:196
+#: src/Controllers/JavaScriptMessagesController.php:187
 msgid "Free memory"
 msgstr "사용가능 메모리"
 
-#: src/Controllers/JavaScriptMessagesController.php:197
+#: src/Controllers/JavaScriptMessagesController.php:188
 msgid "Used memory"
 msgstr "사용된 메모리"
 
-#: src/Controllers/JavaScriptMessagesController.php:199
+#: src/Controllers/JavaScriptMessagesController.php:190
 msgid "Total swap"
 msgstr "전체 스왑"
 
-#: src/Controllers/JavaScriptMessagesController.php:200
+#: src/Controllers/JavaScriptMessagesController.php:191
 msgid "Cached swap"
 msgstr "캐시된 스왑"
 
-#: src/Controllers/JavaScriptMessagesController.php:201
+#: src/Controllers/JavaScriptMessagesController.php:192
 msgid "Used swap"
 msgstr "사용된 스왑"
 
-#: src/Controllers/JavaScriptMessagesController.php:202
+#: src/Controllers/JavaScriptMessagesController.php:193
 msgid "Free swap"
 msgstr "사용가능 스왑"
 
-#: src/Controllers/JavaScriptMessagesController.php:204
+#: src/Controllers/JavaScriptMessagesController.php:195
 msgid "Bytes sent"
 msgstr "바이트 보냄"
 
-#: src/Controllers/JavaScriptMessagesController.php:205
+#: src/Controllers/JavaScriptMessagesController.php:196
 msgid "Bytes received"
 msgstr "바이트 받음"
 
 #. l10n: shortcuts for Byte
-#: src/Controllers/JavaScriptMessagesController.php:210 src/Util.php:302
+#: src/Controllers/JavaScriptMessagesController.php:201 src/Util.php:302
 msgid "B"
 msgstr "B"
 
 #. l10n: shortcuts for Gigabyte
-#: src/Controllers/JavaScriptMessagesController.php:213 src/Util.php:308
+#: src/Controllers/JavaScriptMessagesController.php:204 src/Util.php:308
 msgid "GiB"
 msgstr "GB"
 
 #. l10n: shortcuts for Terabyte
-#: src/Controllers/JavaScriptMessagesController.php:214 src/Util.php:310
+#: src/Controllers/JavaScriptMessagesController.php:205 src/Util.php:310
 msgid "TiB"
 msgstr "TB"
 
 #. l10n: shortcuts for Petabyte
-#: src/Controllers/JavaScriptMessagesController.php:215 src/Util.php:312
+#: src/Controllers/JavaScriptMessagesController.php:206 src/Util.php:312
 msgid "PiB"
 msgstr "PB"
 
 #. l10n: shortcuts for Exabyte
-#: src/Controllers/JavaScriptMessagesController.php:216 src/Util.php:314
+#: src/Controllers/JavaScriptMessagesController.php:207 src/Util.php:314
 msgid "EiB"
 msgstr "EB"
 
-#: src/Controllers/JavaScriptMessagesController.php:217
+#: src/Controllers/JavaScriptMessagesController.php:208
 #, php-format
 msgid "%d table(s)"
 msgstr "%d개 테이블(s)"
 
 #. l10n: Questions is the name of a MySQL Status variable
-#: src/Controllers/JavaScriptMessagesController.php:220
+#: src/Controllers/JavaScriptMessagesController.php:211
 msgid "Questions"
 msgstr "질의"
 
-#: src/Controllers/JavaScriptMessagesController.php:224
+#: src/Controllers/JavaScriptMessagesController.php:215
 msgid "Please add at least one variable to the series!"
 msgstr "하나 이상의 변수를 시리즈에 추가하십시오!"
 
 #. l10n: SQL Query on modal to show exported query
-#: src/Controllers/JavaScriptMessagesController.php:227
+#: src/Controllers/JavaScriptMessagesController.php:218
 msgid "SQL Query"
 msgstr "SQL 쿼리"
 
-#: src/Controllers/JavaScriptMessagesController.php:228
+#: src/Controllers/JavaScriptMessagesController.php:219
 msgid "Resume monitor"
 msgstr "모니터링 재개"
 
-#: src/Controllers/JavaScriptMessagesController.php:229
+#: src/Controllers/JavaScriptMessagesController.php:220
 msgid "Pause monitor"
 msgstr "모니터링 정지"
 
-#: src/Controllers/JavaScriptMessagesController.php:231
+#: src/Controllers/JavaScriptMessagesController.php:222
 msgid "Stop auto refresh"
 msgstr "자동 새로고침 중지"
 
-#: src/Controllers/JavaScriptMessagesController.php:233
+#: src/Controllers/JavaScriptMessagesController.php:224
 msgid "general_log and slow_query_log are enabled."
 msgstr "일반 로그와 슬로우 쿼리 로그가 활성화 되었습니다."
 
-#: src/Controllers/JavaScriptMessagesController.php:234
+#: src/Controllers/JavaScriptMessagesController.php:225
 msgid "general_log is enabled."
 msgstr "일반 로그가 활성화 되었습니다."
 
-#: src/Controllers/JavaScriptMessagesController.php:235
+#: src/Controllers/JavaScriptMessagesController.php:226
 msgid "slow_query_log is enabled."
 msgstr "슬로우 쿼리 로그가 활성화 되었습니다."
 
-#: src/Controllers/JavaScriptMessagesController.php:236
+#: src/Controllers/JavaScriptMessagesController.php:227
 msgid "slow_query_log and general_log are disabled."
 msgstr "슬로우 쿼리 로그와 일반 로그가 비활성화 되었습니다."
 
-#: src/Controllers/JavaScriptMessagesController.php:237
+#: src/Controllers/JavaScriptMessagesController.php:228
 msgid "log_output is not set to TABLE."
 msgstr "테이블에 대한 로그 출력이 설정되지 않았습니다."
 
-#: src/Controllers/JavaScriptMessagesController.php:238
+#: src/Controllers/JavaScriptMessagesController.php:229
 msgid "log_output is set to TABLE."
 msgstr "테이블에 대한 로그 출력이 설정되었습니다."
 
-#: src/Controllers/JavaScriptMessagesController.php:240
+#: src/Controllers/JavaScriptMessagesController.php:231
 #, php-format
 msgid ""
 "slow_query_log is enabled, but the server logs only queries that take longer "
@@ -12580,12 +12730,12 @@ msgstr ""
 "slow_query_log가 활성화 되어 있지만, 서버는 %d초 보다 오래 걸리는 쿼리만 기록"
 "합니다. 시스템에 따라 이 long_query_time을 0~2초로 설정하는 것이 좋습니다."
 
-#: src/Controllers/JavaScriptMessagesController.php:244
+#: src/Controllers/JavaScriptMessagesController.php:235
 #, php-format
 msgid "long_query_time is set to %d second(s)."
 msgstr "long_query_time이 %d초로 설정되였습니다."
 
-#: src/Controllers/JavaScriptMessagesController.php:246
+#: src/Controllers/JavaScriptMessagesController.php:237
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
@@ -12593,30 +12743,30 @@ msgstr ""
 "다음 설정은 서버 전체에 적용되고 서버 재기동시 기본 설정으로 초기화됩니다:"
 
 #. l10n: %s is FILE or TABLE
-#: src/Controllers/JavaScriptMessagesController.php:249
+#: src/Controllers/JavaScriptMessagesController.php:240
 #, php-format
 msgid "Set log_output to %s"
 msgstr "로그 출력을 %s로 설정"
 
 #. l10n: Enable in this context means setting a status variable to ON
-#: src/Controllers/JavaScriptMessagesController.php:251
+#: src/Controllers/JavaScriptMessagesController.php:242
 #, php-format
 msgid "Enable %s"
 msgstr "%s 사용가능"
 
 #. l10n: Disable in this context means setting a status variable to OFF
-#: src/Controllers/JavaScriptMessagesController.php:253
+#: src/Controllers/JavaScriptMessagesController.php:244
 #, php-format
 msgid "Disable %s"
 msgstr "%s 사용안함"
 
 #. l10n: %d seconds
-#: src/Controllers/JavaScriptMessagesController.php:255
+#: src/Controllers/JavaScriptMessagesController.php:246
 #, php-format
 msgid "Set long_query_time to %d seconds."
 msgstr "long_query_time을 %d초로 설정."
 
-#: src/Controllers/JavaScriptMessagesController.php:257
+#: src/Controllers/JavaScriptMessagesController.php:248
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
@@ -12624,58 +12774,38 @@ msgstr ""
 "변수들을 변경할 수 없습니다. root로 로그인하거나 데이터베이스 관리자에게 문의"
 "하십시오."
 
-#: src/Controllers/JavaScriptMessagesController.php:259
+#: src/Controllers/JavaScriptMessagesController.php:250
 msgid "Change settings"
 msgstr "설정 변경"
 
-#: src/Controllers/JavaScriptMessagesController.php:260
+#: src/Controllers/JavaScriptMessagesController.php:251
 msgid "Current settings"
 msgstr "현재 설정"
 
-#: src/Controllers/JavaScriptMessagesController.php:262
+#: src/Controllers/JavaScriptMessagesController.php:253
 msgid "Chart title"
 msgstr "차트 제목"
 
 #. l10n: As in differential values
-#: src/Controllers/JavaScriptMessagesController.php:264
+#: src/Controllers/JavaScriptMessagesController.php:255
 msgid "Differential"
 msgstr "차이"
 
-#: src/Controllers/JavaScriptMessagesController.php:265
+#: src/Controllers/JavaScriptMessagesController.php:256
 #, php-format
 msgid "Divided by %s"
 msgstr "%s로 구분"
 
-#: src/Controllers/JavaScriptMessagesController.php:266
+#: src/Controllers/JavaScriptMessagesController.php:257
 msgid "Unit"
 msgstr "단위"
 
-#: src/Controllers/JavaScriptMessagesController.php:268
-msgid "From slow log"
-msgstr "느린 로그로부터"
-
-#: src/Controllers/JavaScriptMessagesController.php:269
-msgid "From general log"
-msgstr "일반 로그로부터"
-
-#: src/Controllers/JavaScriptMessagesController.php:270
+#: src/Controllers/JavaScriptMessagesController.php:259
 msgid "The database name is not known for this query in the server's logs."
 msgstr ""
 "서버의 로그에 저장된 이 쿼리에 해당하는 데이터베이스 이름을 알 수 없습니다."
 
-#: src/Controllers/JavaScriptMessagesController.php:271
-msgid "Analysing logs"
-msgstr "로그 분석 중"
-
-#: src/Controllers/JavaScriptMessagesController.php:272
-msgid "Analysing & loading logs. This may take a while."
-msgstr "로그를 읽고 분석합니다. 이 작업은 시간이 걸릴 수 있습니다."
-
-#: src/Controllers/JavaScriptMessagesController.php:273
-msgid "Cancel request"
-msgstr "요청 취소"
-
-#: src/Controllers/JavaScriptMessagesController.php:275
+#: src/Controllers/JavaScriptMessagesController.php:261
 msgid ""
 "This column shows the amount of identical queries that are grouped together. "
 "However only the SQL query itself has been used as a grouping criteria, so "
@@ -12684,7 +12814,7 @@ msgstr ""
 "이 열은 함께 그룹화된 동일한 질의의 양을 보여줍니다. 그러나 질의 자체만으로 "
 "그룹화하기 때문에, 시작 시간 등의 질의에 대한 다른 특성은 다를 수 있습니다."
 
-#: src/Controllers/JavaScriptMessagesController.php:280
+#: src/Controllers/JavaScriptMessagesController.php:266
 msgid ""
 "Since grouping of INSERTs queries has been selected, INSERT queries into the "
 "same table are also being grouped together, disregarding of the inserted "
@@ -12693,295 +12823,250 @@ msgstr ""
 "INSERT 쿼리들만 선택되었기 때문에, 입력하는 데이터에 상관없이 같은 테이블을 "
 "대상으로 하는 쿼리들끼리 또 분류되었습니다."
 
-#: src/Controllers/JavaScriptMessagesController.php:284
-msgid "Log data loaded. Queries executed in this time span:"
-msgstr "로그자료가 로드되었습니다. 쿼리들이 실행되었던 기간:"
-
-#: src/Controllers/JavaScriptMessagesController.php:286
-msgid "Jump to Log table"
-msgstr "로그 테이블로 이동"
-
-#: src/Controllers/JavaScriptMessagesController.php:287
-msgid "No data found"
-msgstr "자료가 없습니다"
-
-#: src/Controllers/JavaScriptMessagesController.php:288
-msgid "Log analysed, but no data found in this time span."
-msgstr "로그가 분석되었습니다. 하지만 해당 기간내에는 자료가 없습니다."
-
-#: src/Controllers/JavaScriptMessagesController.php:290
+#: src/Controllers/JavaScriptMessagesController.php:271
 msgid "Analyzing…"
 msgstr "분석중…"
 
-#: src/Controllers/JavaScriptMessagesController.php:291
+#: src/Controllers/JavaScriptMessagesController.php:272
 msgid "Explain output"
 msgstr "분석 결과"
 
-#: src/Controllers/JavaScriptMessagesController.php:294
+#: src/Controllers/JavaScriptMessagesController.php:275
 msgid "Total time:"
 msgstr "전체 시간:"
 
-#: src/Controllers/JavaScriptMessagesController.php:295
+#: src/Controllers/JavaScriptMessagesController.php:276
 msgid "Profiling results"
 msgstr "프로파일링 결과"
 
-#: src/Controllers/JavaScriptMessagesController.php:296
+#: src/Controllers/JavaScriptMessagesController.php:277
 msgctxt "Display format"
 msgid "Table"
 msgstr "테이블"
 
-#: src/Controllers/JavaScriptMessagesController.php:297
+#: src/Controllers/JavaScriptMessagesController.php:278
 msgid "Chart"
 msgstr "차트"
 
 #. l10n: A collection of available filters
-#: src/Controllers/JavaScriptMessagesController.php:304
+#: src/Controllers/JavaScriptMessagesController.php:285
 msgid "Log table filter options"
 msgstr "로그 테이블의 필터 옵션"
 
 #. l10n: Filter as in "Start Filtering"
-#: src/Controllers/JavaScriptMessagesController.php:306
+#: src/Controllers/JavaScriptMessagesController.php:287
 msgid "Filter"
 msgstr "필터"
 
-#: src/Controllers/JavaScriptMessagesController.php:307
+#: src/Controllers/JavaScriptMessagesController.php:288
 msgid "Filter queries by word/regexp:"
 msgstr "단어/정규식에 의한 필터 질의:"
 
-#: src/Controllers/JavaScriptMessagesController.php:308
+#: src/Controllers/JavaScriptMessagesController.php:289
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr "그룹 쿼리, WHERE 절 변수 데이터를 무시합니다"
 
-#: src/Controllers/JavaScriptMessagesController.php:309
+#: src/Controllers/JavaScriptMessagesController.php:290
 msgid "Sum of grouped rows:"
 msgstr "그룹화된 행의 합계:"
 
-#: src/Controllers/JavaScriptMessagesController.php:312
-msgid "Loading logs"
-msgstr "로그를 불러오는 중"
-
-#: src/Controllers/JavaScriptMessagesController.php:313
-msgid "Monitor refresh failed"
-msgstr "모니터링 리프리쉬가 실패하였습니다"
-
-#: src/Controllers/JavaScriptMessagesController.php:315
-msgid ""
-"While requesting new chart data the server returned an invalid response. "
-"This is most likely because your session expired. Reloading the page and "
-"reentering your credentials should help."
-msgstr ""
-"새로운 차트 데이터를 요청하는 동안 서버에서 잘못된 응답을 반환했습니다.대부분"
-"의 경우 세션이 만료되었기 때문입니다.페이지를 다시 로드하고 새로 인증받는 것"
-"이 도움이 될것입니다."
-
-#: src/Controllers/JavaScriptMessagesController.php:319
-msgid "Reload page"
-msgstr "페이지 새로고침"
-
-#: src/Controllers/JavaScriptMessagesController.php:321
+#: src/Controllers/JavaScriptMessagesController.php:293
 msgid "Affected rows:"
 msgstr "적용된 행:"
 
-#: src/Controllers/JavaScriptMessagesController.php:323
+#: src/Controllers/JavaScriptMessagesController.php:295
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr "설정 파일을 분석할 수 없습니다. 유효한 JSON 코드가 아닙니다."
 
-#: src/Controllers/JavaScriptMessagesController.php:325
+#: src/Controllers/JavaScriptMessagesController.php:297
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr "가져온 설정과 차트 격자를 그리는데 실패했습니다. 기본 설정으로 적용중…"
 
-#: src/Controllers/JavaScriptMessagesController.php:328
-msgid "Import monitor configuration"
-msgstr "모니터 설정 가져오기"
-
-#: src/Controllers/JavaScriptMessagesController.php:329
-msgid "Please select the file you want to import:"
-msgstr "가져올 파일을 선택하세요:"
-
-#: src/Controllers/JavaScriptMessagesController.php:330
+#: src/Controllers/JavaScriptMessagesController.php:300
 msgid "Please enter a valid table name."
 msgstr "테이블 이름을 올바르게 입력하세요."
 
-#: src/Controllers/JavaScriptMessagesController.php:331
+#: src/Controllers/JavaScriptMessagesController.php:301
 msgid "Please enter a valid database name."
 msgstr "데이터베이스 이름을 올바르게 입력하세요."
 
-#: src/Controllers/JavaScriptMessagesController.php:332
+#: src/Controllers/JavaScriptMessagesController.php:302
 msgid "No files available on server for import!"
 msgstr "가져오기를 수행하기 위한 파일이 서버에 없습니다!"
 
-#: src/Controllers/JavaScriptMessagesController.php:334
-msgid "Analyse query"
-msgstr "질의 분석"
-
-#: src/Controllers/JavaScriptMessagesController.php:337
+#: src/Controllers/JavaScriptMessagesController.php:305
 msgid "Formatting SQL…"
 msgstr "SQL을 정렬하고 있습니다…"
 
-#: src/Controllers/JavaScriptMessagesController.php:338
+#: src/Controllers/JavaScriptMessagesController.php:306
 msgid "No parameters found!"
 msgstr "파라미터를 찾을 수 없습니다!"
 
-#: src/Controllers/JavaScriptMessagesController.php:350
+#: src/Controllers/JavaScriptMessagesController.php:318
 msgid "Request aborted!!"
 msgstr "요청이 취소되었습니다!"
 
-#: src/Controllers/JavaScriptMessagesController.php:351
+#: src/Controllers/JavaScriptMessagesController.php:319
 msgid "Processing request"
 msgstr "요청 처리 중"
 
-#: src/Controllers/JavaScriptMessagesController.php:352
+#: src/Controllers/JavaScriptMessagesController.php:320
 msgid "Request failed!!"
 msgstr "요청에 실패했습니다!"
 
-#: src/Controllers/JavaScriptMessagesController.php:353
+#: src/Controllers/JavaScriptMessagesController.php:321
 #: src/Controllers/Sql/EnumValuesController.php:36
 #: src/Controllers/Sql/SetValuesController.php:39
 msgid "Error in processing request"
 msgstr "요청 처리 중 에러 발생"
 
-#: src/Controllers/JavaScriptMessagesController.php:354
+#: src/Controllers/JavaScriptMessagesController.php:322
 #, php-format
 msgid "Error code: %s"
 msgstr "오류 코드: %s"
 
-#: src/Controllers/JavaScriptMessagesController.php:355
+#: src/Controllers/JavaScriptMessagesController.php:323
 #, php-format
 msgid "Error text: %s"
 msgstr "에러 메시지: %s"
 
-#: src/Controllers/JavaScriptMessagesController.php:357
+#: src/Controllers/JavaScriptMessagesController.php:325
 msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
 msgstr ""
 "서버 연결이 끊어진 것 같습니다. 네트워크 연결 및 서버 상태를 확인해 주세요."
 
-#: src/Controllers/JavaScriptMessagesController.php:362
+#: src/Controllers/JavaScriptMessagesController.php:330
 msgid "No accounts selected."
 msgstr "계정을 선택하지 않았습니다."
 
-#: src/Controllers/JavaScriptMessagesController.php:363
+#: src/Controllers/JavaScriptMessagesController.php:331
 msgid "Dropping column"
 msgstr "열 삭제 중"
 
-#: src/Controllers/JavaScriptMessagesController.php:364
+#: src/Controllers/JavaScriptMessagesController.php:332
 msgid "Adding primary key"
 msgstr "기본 키를 추가하고 있습니다"
 
-#: src/Controllers/JavaScriptMessagesController.php:366
+#: src/Controllers/JavaScriptMessagesController.php:334
 msgid "Click to dismiss this notification"
 msgstr "클릭하면 이 알림을 받지 않습니다"
 
-#: src/Controllers/JavaScriptMessagesController.php:370
+#: src/Controllers/JavaScriptMessagesController.php:338
 msgid "Renaming databases"
 msgstr "데이터베이스 이름 변경 중"
 
-#: src/Controllers/JavaScriptMessagesController.php:371
+#: src/Controllers/JavaScriptMessagesController.php:339
 msgid "Copying database"
 msgstr "데이터베이스 복사 중"
 
-#: src/Controllers/JavaScriptMessagesController.php:372
+#: src/Controllers/JavaScriptMessagesController.php:340
 msgid "Changing charset"
 msgstr "문자셋 변경 중"
 
-#: src/Controllers/JavaScriptMessagesController.php:379
+#: src/Controllers/JavaScriptMessagesController.php:347
 msgid "Failed to get real row count."
 msgstr "실제 행 개수를 가져오지 못했습니다."
 
-#: src/Controllers/JavaScriptMessagesController.php:382
+#: src/Controllers/JavaScriptMessagesController.php:350
 msgid "Searching"
 msgstr "검색중"
 
-#: src/Controllers/JavaScriptMessagesController.php:383
+#: src/Controllers/JavaScriptMessagesController.php:351
 msgid "Hide search results"
 msgstr "검색 결과 숨기기"
 
-#: src/Controllers/JavaScriptMessagesController.php:384
+#: src/Controllers/JavaScriptMessagesController.php:352
 msgid "Show search results"
 msgstr "검색 결과 보이기"
 
-#: src/Controllers/JavaScriptMessagesController.php:385
+#: src/Controllers/JavaScriptMessagesController.php:353
 msgid "Browsing"
 msgstr "보기"
 
-#: src/Controllers/JavaScriptMessagesController.php:386
+#: src/Controllers/JavaScriptMessagesController.php:354
 msgid "Deleting"
 msgstr "삭제중"
 
-#: src/Controllers/JavaScriptMessagesController.php:387
+#: src/Controllers/JavaScriptMessagesController.php:355
 #, php-format
 msgid "Delete the matches for the %s table?"
 msgstr "테이블 %s에 대하여 일치하는 것들을 삭제 하겠습니까?"
 
-#: src/Controllers/JavaScriptMessagesController.php:390
+#: src/Controllers/JavaScriptMessagesController.php:358
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "저장 함수의 정의는 RETURN문을 포함해야 합니다!"
 
-#: src/Controllers/JavaScriptMessagesController.php:392
+#: src/Controllers/JavaScriptMessagesController.php:360
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr "내보낼 수 있는 루틴이 없습니다. 필요 권한이 없을 수도 있습니다."
 
-#: src/Controllers/JavaScriptMessagesController.php:396
+#: src/Controllers/JavaScriptMessagesController.php:362
+#: src/Navigation/Nodes/NodeTrigger.php:24
+msgid "Trigger"
+msgstr "트리거"
+
+#: src/Controllers/JavaScriptMessagesController.php:366
 #, php-format
 msgid "Values for column %s"
 msgstr "\"%s\" 열의 값"
 
-#: src/Controllers/JavaScriptMessagesController.php:397
+#: src/Controllers/JavaScriptMessagesController.php:367
 msgid "Values for a new column"
 msgstr "새로운 열의 값"
 
-#: src/Controllers/JavaScriptMessagesController.php:398
+#: src/Controllers/JavaScriptMessagesController.php:368
 msgid "Enter each value in a separate field."
 msgstr "각각의 필드에 값을 입력하세요."
 
-#: src/Controllers/JavaScriptMessagesController.php:399
+#: src/Controllers/JavaScriptMessagesController.php:369
 #, php-format
 msgid "Add %d value(s)"
 msgstr "%d 값 추가"
 
-#: src/Controllers/JavaScriptMessagesController.php:402
+#: src/Controllers/JavaScriptMessagesController.php:372
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr "주의: 파일에 여러 테이블이 포함되어 있다면, 하나로 결합됩니다."
 
-#: src/Controllers/JavaScriptMessagesController.php:405
+#: src/Controllers/JavaScriptMessagesController.php:375
 msgid "Hide query box"
 msgstr "질의 상자 숨기기"
 
-#: src/Controllers/JavaScriptMessagesController.php:406
+#: src/Controllers/JavaScriptMessagesController.php:376
 msgid "Show query box"
 msgstr "질의 상자 보이기"
 
-#: src/Controllers/JavaScriptMessagesController.php:408
+#: src/Controllers/JavaScriptMessagesController.php:378
 msgid "Edit query"
 msgstr "쿼리 수정"
 
-#: src/Controllers/JavaScriptMessagesController.php:410
+#: src/Controllers/JavaScriptMessagesController.php:380
 #, php-format
 msgid "%d is not valid row number."
 msgstr "%d는 올바른 행번호가 아닙니다."
 
-#: src/Controllers/JavaScriptMessagesController.php:412
+#: src/Controllers/JavaScriptMessagesController.php:382
 #, php-format
 msgid "Variable %d:"
 msgstr "변수 %d:"
 
-#: src/Controllers/JavaScriptMessagesController.php:415
+#: src/Controllers/JavaScriptMessagesController.php:385
 #: src/Normalization.php:950
 msgid "Pick"
 msgstr "고르기"
 
-#: src/Controllers/JavaScriptMessagesController.php:416
+#: src/Controllers/JavaScriptMessagesController.php:386
 msgid "Column selector"
 msgstr "컬럼 셀렉터"
 
-#: src/Controllers/JavaScriptMessagesController.php:417
+#: src/Controllers/JavaScriptMessagesController.php:387
 msgid "Search this list"
 msgstr "현재 리스트 검색"
 
-#: src/Controllers/JavaScriptMessagesController.php:419
+#: src/Controllers/JavaScriptMessagesController.php:389
 #, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
@@ -12990,54 +13075,54 @@ msgstr ""
 "중요 목록에 열이 없습니다. 데이터베이스 %s의 중요 열 목록에 현재 테이블에 없"
 "는 열이 있는지 확인합니다."
 
-#: src/Controllers/JavaScriptMessagesController.php:422
+#: src/Controllers/JavaScriptMessagesController.php:392
 msgid "See more"
 msgstr "더 보기"
 
-#: src/Controllers/JavaScriptMessagesController.php:425
+#: src/Controllers/JavaScriptMessagesController.php:395
 msgid "Add primary key"
 msgstr "기본 키 추가"
 
-#: src/Controllers/JavaScriptMessagesController.php:426
+#: src/Controllers/JavaScriptMessagesController.php:396
 msgid "Primary key added."
 msgstr "기본 키가 추가되었습니다."
 
-#: src/Controllers/JavaScriptMessagesController.php:427
+#: src/Controllers/JavaScriptMessagesController.php:397
 #: src/Normalization.php:257
 msgid "Taking you to next step…"
 msgstr "다음 단계로 가는 중…"
 
-#: src/Controllers/JavaScriptMessagesController.php:428
+#: src/Controllers/JavaScriptMessagesController.php:398
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
 msgstr "테이블 '%s' 정규화의 첫번째 단계가 완료되었습니다."
 
-#: src/Controllers/JavaScriptMessagesController.php:429
+#: src/Controllers/JavaScriptMessagesController.php:399
 #: src/Normalization.php:513 src/Normalization.php:572
 #: src/Normalization.php:659 src/Normalization.php:732
 msgid "End of step"
 msgstr "단계의 끝"
 
-#: src/Controllers/JavaScriptMessagesController.php:430
+#: src/Controllers/JavaScriptMessagesController.php:400
 msgid "Second step of normalization (2NF)"
 msgstr "정규화의 두번째 단계 (2NF)"
 
 #. l10n: Display text for calendar close link
-#: src/Controllers/JavaScriptMessagesController.php:431
-#: src/Controllers/JavaScriptMessagesController.php:781
+#: src/Controllers/JavaScriptMessagesController.php:401
+#: src/Controllers/JavaScriptMessagesController.php:751
 #: src/Normalization.php:345
 msgid "Done"
 msgstr "완료"
 
-#: src/Controllers/JavaScriptMessagesController.php:432
+#: src/Controllers/JavaScriptMessagesController.php:402
 msgid "Confirm partial dependencies"
 msgstr "부분 의존성 확인"
 
-#: src/Controllers/JavaScriptMessagesController.php:433
+#: src/Controllers/JavaScriptMessagesController.php:403
 msgid "Selected partial dependencies are as follows:"
 msgstr "선택된 부분의 의존성은 다음과 같음:"
 
-#: src/Controllers/JavaScriptMessagesController.php:435
+#: src/Controllers/JavaScriptMessagesController.php:405
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
@@ -13045,19 +13130,19 @@ msgstr ""
 "주의: a, b -> d, f 는 열 a와 열 b의 결합된 값들이 열 d와 열 f의 값을 결정할 "
 "수 있다는 뜻입니다."
 
-#: src/Controllers/JavaScriptMessagesController.php:438
+#: src/Controllers/JavaScriptMessagesController.php:408
 msgid "No partial dependencies selected!"
 msgstr "부분 의존성이 선택되지 않았습니다!"
 
-#: src/Controllers/JavaScriptMessagesController.php:440
+#: src/Controllers/JavaScriptMessagesController.php:410
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr "테이블의 데이터에 기초한 가능한 부분 의존성을 알려주세요"
 
-#: src/Controllers/JavaScriptMessagesController.php:441
+#: src/Controllers/JavaScriptMessagesController.php:411
 msgid "Hide partial dependencies list"
 msgstr "부분 의존성 목록을 숨김"
 
-#: src/Controllers/JavaScriptMessagesController.php:443
+#: src/Controllers/JavaScriptMessagesController.php:413
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
@@ -13065,174 +13150,174 @@ msgstr ""
 "잠시 기다리십시오! 데이터의 크기와 열의 갯수에 따라 수 초 가량 시간이 걸릴 "
 "수 있습니다."
 
-#: src/Controllers/JavaScriptMessagesController.php:445
+#: src/Controllers/JavaScriptMessagesController.php:415
 msgid "Step"
 msgstr "단계"
 
-#: src/Controllers/JavaScriptMessagesController.php:446
+#: src/Controllers/JavaScriptMessagesController.php:416
 msgid "The following actions will be performed:"
 msgstr "다음 행동이 실행됩니다 :"
 
-#: src/Controllers/JavaScriptMessagesController.php:447
+#: src/Controllers/JavaScriptMessagesController.php:417
 #, php-format
 msgid "DROP columns %s from the table %s"
 msgstr "컬럼%s을(를) 테이블%s로부터 DROP"
 
-#: src/Controllers/JavaScriptMessagesController.php:448
+#: src/Controllers/JavaScriptMessagesController.php:418
 msgid "Create the following table"
 msgstr "다음 테이블을 생성"
 
-#: src/Controllers/JavaScriptMessagesController.php:451
+#: src/Controllers/JavaScriptMessagesController.php:421
 msgid "Third step of normalization (3NF)"
 msgstr "정규화의 세번째 단계 (3NF)"
 
-#: src/Controllers/JavaScriptMessagesController.php:452
+#: src/Controllers/JavaScriptMessagesController.php:422
 msgid "Confirm transitive dependencies"
 msgstr "이행 의존성 확인"
 
-#: src/Controllers/JavaScriptMessagesController.php:453
+#: src/Controllers/JavaScriptMessagesController.php:423
 msgid "Selected dependencies are as follows:"
 msgstr "선택된 의존성은 다음과 같다:"
 
-#: src/Controllers/JavaScriptMessagesController.php:454
+#: src/Controllers/JavaScriptMessagesController.php:424
 msgid "No dependencies selected!"
 msgstr "의존성이 선택되지 않았습니다!"
 
-#: src/Controllers/JavaScriptMessagesController.php:455
+#: src/Controllers/JavaScriptMessagesController.php:425
 #, fuzzy
 #| msgid "Use this value"
 msgid "Enter first value"
 msgstr "이 값을 사용합니다"
 
-#: src/Controllers/JavaScriptMessagesController.php:456
+#: src/Controllers/JavaScriptMessagesController.php:426
 #, fuzzy
 #| msgid "Session value"
 msgid "Enter second value"
 msgstr "세션 값"
 
-#: src/Controllers/JavaScriptMessagesController.php:462
+#: src/Controllers/JavaScriptMessagesController.php:432
 msgid "Hide search criteria"
 msgstr "검색 조건 숨기기"
 
-#: src/Controllers/JavaScriptMessagesController.php:463
+#: src/Controllers/JavaScriptMessagesController.php:433
 msgid "Show search criteria"
 msgstr "검색 조건 보이기"
 
-#: src/Controllers/JavaScriptMessagesController.php:464
+#: src/Controllers/JavaScriptMessagesController.php:434
 msgid "Column maximum:"
 msgstr "열(컬럼) 최댓값:"
 
-#: src/Controllers/JavaScriptMessagesController.php:465
+#: src/Controllers/JavaScriptMessagesController.php:435
 msgid "Column minimum:"
 msgstr "열(컬럼) 최솟값:"
 
-#: src/Controllers/JavaScriptMessagesController.php:468
+#: src/Controllers/JavaScriptMessagesController.php:438
 msgid "Hide find and replace criteria"
 msgstr "찾기와 바꾸기 조건 숨김"
 
-#: src/Controllers/JavaScriptMessagesController.php:469
+#: src/Controllers/JavaScriptMessagesController.php:439
 msgid "Show find and replace criteria"
 msgstr "찾기와 바꾸기 조건 보임"
 
-#: src/Controllers/JavaScriptMessagesController.php:473
+#: src/Controllers/JavaScriptMessagesController.php:443
 msgid "Each point represents a data row."
 msgstr "각 포인트는 데이터 행을 나타냅니다."
 
-#: src/Controllers/JavaScriptMessagesController.php:475
+#: src/Controllers/JavaScriptMessagesController.php:445
 msgid "Hovering over a point will show its label."
 msgstr "포인트에 마우스를 올리면 라벨이 표시됩니다."
 
-#: src/Controllers/JavaScriptMessagesController.php:477
+#: src/Controllers/JavaScriptMessagesController.php:447
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr "확대하려면 마우스로 플롯의 한 영역을 선택하세요."
 
-#: src/Controllers/JavaScriptMessagesController.php:479
+#: src/Controllers/JavaScriptMessagesController.php:449
 msgid "Click reset zoom button to come back to original state."
 msgstr "줌 원래대로 보기 버튼을 클릭하면 원본 상태로 돌아갑니다."
 
-#: src/Controllers/JavaScriptMessagesController.php:481
+#: src/Controllers/JavaScriptMessagesController.php:451
 msgid "Click a data point to view and possibly edit the data row."
 msgstr "데이터 포인트(플롯 지점)를 클릭하면 행의 열람과 편집이 가능합니다."
 
-#: src/Controllers/JavaScriptMessagesController.php:483
+#: src/Controllers/JavaScriptMessagesController.php:453
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr "우측 하단 코너로 드래그하여 플롯을 확대할 수 있습니다."
 
-#: src/Controllers/JavaScriptMessagesController.php:486
+#: src/Controllers/JavaScriptMessagesController.php:456
 msgid "Select two columns"
 msgstr "두 개의 열 선택"
 
-#: src/Controllers/JavaScriptMessagesController.php:488
+#: src/Controllers/JavaScriptMessagesController.php:458
 msgid "Select two different columns"
 msgstr "두 개의 서로다른 열 선택"
 
-#: src/Controllers/JavaScriptMessagesController.php:490
+#: src/Controllers/JavaScriptMessagesController.php:460
 msgid "Data point content"
 msgstr "데이터 포인트 내용"
 
-#: src/Controllers/JavaScriptMessagesController.php:496
+#: src/Controllers/JavaScriptMessagesController.php:466
 msgid "X"
 msgstr "X"
 
-#: src/Controllers/JavaScriptMessagesController.php:497
+#: src/Controllers/JavaScriptMessagesController.php:467
 msgid "Y"
 msgstr "Y"
 
-#: src/Controllers/JavaScriptMessagesController.php:498
+#: src/Controllers/JavaScriptMessagesController.php:468
 msgid "Point"
 msgstr "포인트"
 
-#: src/Controllers/JavaScriptMessagesController.php:499
+#: src/Controllers/JavaScriptMessagesController.php:469
 msgid "Linestring"
 msgstr "줄(열) 구분자"
 
-#: src/Controllers/JavaScriptMessagesController.php:500
+#: src/Controllers/JavaScriptMessagesController.php:470
 msgid "Polygon"
 msgstr "폴리곤"
 
-#: src/Controllers/JavaScriptMessagesController.php:502
+#: src/Controllers/JavaScriptMessagesController.php:472
 msgid "Inner ring"
 msgstr "내부 원"
 
-#: src/Controllers/JavaScriptMessagesController.php:503
+#: src/Controllers/JavaScriptMessagesController.php:473
 msgid "Outer ring"
 msgstr "외부 원"
 
-#: src/Controllers/JavaScriptMessagesController.php:504
+#: src/Controllers/JavaScriptMessagesController.php:474
 msgid "Add a point"
 msgstr "포인트 추가"
 
-#: src/Controllers/JavaScriptMessagesController.php:505
+#: src/Controllers/JavaScriptMessagesController.php:475
 msgid "Add a linestring"
 msgstr "선 추가"
 
-#: src/Controllers/JavaScriptMessagesController.php:506
+#: src/Controllers/JavaScriptMessagesController.php:476
 msgid "Add an inner ring"
 msgstr "내부 링 추가"
 
-#: src/Controllers/JavaScriptMessagesController.php:507
+#: src/Controllers/JavaScriptMessagesController.php:477
 msgid "Add a polygon"
 msgstr "폴리곤 추가"
 
-#: src/Controllers/JavaScriptMessagesController.php:508
+#: src/Controllers/JavaScriptMessagesController.php:478
 msgid "Add geometry"
 msgstr "공간 데이터를 추가"
 
-#: src/Controllers/JavaScriptMessagesController.php:510
+#: src/Controllers/JavaScriptMessagesController.php:480
 msgid "Do you want to copy encryption key?"
 msgstr "암호화 키를 복사하겠습니까?"
 
-#: src/Controllers/JavaScriptMessagesController.php:511
+#: src/Controllers/JavaScriptMessagesController.php:481
 msgid "Encryption key"
 msgstr "암호화 키"
 
-#: src/Controllers/JavaScriptMessagesController.php:514
+#: src/Controllers/JavaScriptMessagesController.php:484
 msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
 msgstr "16진수 값을 계산하는 동안 HEX 함수가 정수를 문자열로 처리함"
 
-#: src/Controllers/JavaScriptMessagesController.php:519
+#: src/Controllers/JavaScriptMessagesController.php:489
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
@@ -13240,7 +13325,7 @@ msgstr ""
 "MySQL은 슬라이더로 선택되지 않는 추가값을 허용합니다; 값들을 직접 입력하길 원"
 "할 경우"
 
-#: src/Controllers/JavaScriptMessagesController.php:525
+#: src/Controllers/JavaScriptMessagesController.php:495
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
@@ -13248,7 +13333,7 @@ msgstr ""
 "MySQL은 Datepicker에서 선택할 수 없는 추가 값을 수신합니다. 원하는 경우 해당 "
 "값의 키를 직접 입력합니다"
 
-#: src/Controllers/JavaScriptMessagesController.php:531
+#: src/Controllers/JavaScriptMessagesController.php:501
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
@@ -13256,19 +13341,19 @@ msgstr ""
 "이 페이지를 변경했다는것을 나타냅니다; 변경사항을 적용하지 않고 나갈 경우 확"
 "인 메시지가 표시 됩니다"
 
-#: src/Controllers/JavaScriptMessagesController.php:536
+#: src/Controllers/JavaScriptMessagesController.php:506
 msgid "Select referenced key"
 msgstr "참고키 선택"
 
-#: src/Controllers/JavaScriptMessagesController.php:537
+#: src/Controllers/JavaScriptMessagesController.php:507
 msgid "Select Foreign Key"
 msgstr "외래키 선택"
 
-#: src/Controllers/JavaScriptMessagesController.php:538
+#: src/Controllers/JavaScriptMessagesController.php:508
 msgid "Please select the primary key or a unique key!"
 msgstr "기본 키 또는 고유 키를 선택해 주세요!"
 
-#: src/Controllers/JavaScriptMessagesController.php:541
+#: src/Controllers/JavaScriptMessagesController.php:511
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
@@ -13276,64 +13361,64 @@ msgstr ""
 "레이아웃의 변경을 저장하지 않았습니다. 저장하지 않으면, 변경사항이 손실됩니"
 "다. 이대로 계속 하시겠습니까?"
 
-#: src/Controllers/JavaScriptMessagesController.php:544
+#: src/Controllers/JavaScriptMessagesController.php:514
 msgid "value/subQuery is empty"
 msgstr "값/서브쿼리가 비었습니다"
 
-#: src/Controllers/JavaScriptMessagesController.php:546
+#: src/Controllers/JavaScriptMessagesController.php:516
 msgid "Page name"
 msgstr "페이지 이름"
 
-#: src/Controllers/JavaScriptMessagesController.php:550
+#: src/Controllers/JavaScriptMessagesController.php:520
 msgid "Delete page"
 msgstr "페이지 삭제"
 
 #. l10n: When the user opens a page saved in the Designer
-#: src/Controllers/JavaScriptMessagesController.php:552
+#: src/Controllers/JavaScriptMessagesController.php:522
 msgid "Some tables saved in this page might have been renamed or deleted."
 msgstr ""
 "이 페이지에 저장된 일부 테이블의 이름이 변경되었거나 삭제되었을 수 있습니다."
 
-#: src/Controllers/JavaScriptMessagesController.php:554
+#: src/Controllers/JavaScriptMessagesController.php:524
 msgid "Please select a page to continue"
 msgstr "계속할 페이지를 선택하세요"
 
-#: src/Controllers/JavaScriptMessagesController.php:555
+#: src/Controllers/JavaScriptMessagesController.php:525
 msgid "Please enter a valid page name"
 msgstr "올바른 페이지 이름을 입력하세요"
 
-#: src/Controllers/JavaScriptMessagesController.php:556
+#: src/Controllers/JavaScriptMessagesController.php:526
 msgid "Do you want to save the changes to the current page?"
 msgstr "현재 페이지의 수정된 내용을 저장하겠습니까?"
 
-#: src/Controllers/JavaScriptMessagesController.php:557
+#: src/Controllers/JavaScriptMessagesController.php:527
 msgid "Successfully deleted the page"
 msgstr "페이지가 정상적으로 삭제되었습니다"
 
-#: src/Controllers/JavaScriptMessagesController.php:558
+#: src/Controllers/JavaScriptMessagesController.php:528
 msgid "Export relational schema"
 msgstr "릴레이션 스키마를 내보내기"
 
-#: src/Controllers/JavaScriptMessagesController.php:559
+#: src/Controllers/JavaScriptMessagesController.php:529
 msgid "Modifications have been saved"
 msgstr "수정된 내용이 저장되었습니다"
 
-#: src/Controllers/JavaScriptMessagesController.php:562
+#: src/Controllers/JavaScriptMessagesController.php:532
 #, php-format
 msgid "%d object(s) created."
 msgstr "%d 개의 개체가 생성되었습니다."
 
-#: src/Controllers/JavaScriptMessagesController.php:563
+#: src/Controllers/JavaScriptMessagesController.php:533
 msgid "Column name"
 msgstr "열 이름"
 
-#: src/Controllers/JavaScriptMessagesController.php:567
+#: src/Controllers/JavaScriptMessagesController.php:537
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
 msgstr ""
 "편집을 취소하려면 Esc 키를 누릅니다.<br>- 새 줄을 입력하려면 Shift+Enter를 누"
 "릅니다."
 
-#: src/Controllers/JavaScriptMessagesController.php:569
+#: src/Controllers/JavaScriptMessagesController.php:539
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
@@ -13341,15 +13426,15 @@ msgstr ""
 "일부 데이터를 변경한 후 저장하지 않았습니다. 데이터를 저장하지 않고 페이지를 "
 "이동하기를 원합니까?"
 
-#: src/Controllers/JavaScriptMessagesController.php:572
+#: src/Controllers/JavaScriptMessagesController.php:542
 msgid "Drag to reorder."
 msgstr "재정렬하려면 드래그하세요."
 
-#: src/Controllers/JavaScriptMessagesController.php:573
+#: src/Controllers/JavaScriptMessagesController.php:543
 msgid "Click to sort results by this column."
 msgstr "이 열의 값에 따라 결과를 정렬하려면 누르세요."
 
-#: src/Controllers/JavaScriptMessagesController.php:575
+#: src/Controllers/JavaScriptMessagesController.php:545
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
@@ -13359,21 +13444,21 @@ msgstr ""
 "<br>- Ctrl+Click 또는 Alt+Click (맥: Shift+Option+Click) 으로 ORDER BY 절로부"
 "터 이 컬럼 제거"
 
-#: src/Controllers/JavaScriptMessagesController.php:579
+#: src/Controllers/JavaScriptMessagesController.php:549
 msgid "Click to mark/unmark."
 msgstr "선택/해제하려면 클릭하세요."
 
-#: src/Controllers/JavaScriptMessagesController.php:580
+#: src/Controllers/JavaScriptMessagesController.php:550
 msgid "Double-click to copy column name."
 msgstr "칼럼명을 복사하려면 더블클릭하세요."
 
-#: src/Controllers/JavaScriptMessagesController.php:581
+#: src/Controllers/JavaScriptMessagesController.php:551
 #, fuzzy
 #| msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgid "Click the drop-down arrow to toggle column's visibility."
 msgstr "열 보이기 여부를 바꾸려면<br>드롭다운 화살표를 클릭하세요."
 
-#: src/Controllers/JavaScriptMessagesController.php:584
+#: src/Controllers/JavaScriptMessagesController.php:554
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -13381,11 +13466,11 @@ msgstr ""
 "이 테이블에는 유일 속성을 가진 컬럼이 없습니다. 저장 시에 격자창 편집, 체크박"
 "스, 편집, 복사, 삭제 등의 기능이 정상적으로 동작하지 않을 수 있습니다."
 
-#: src/Controllers/JavaScriptMessagesController.php:587
+#: src/Controllers/JavaScriptMessagesController.php:557
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr "올바른 16진수 문자열을 입력하세요. 사용가능한 문자는 0-9, A-F 입니다."
 
-#: src/Controllers/JavaScriptMessagesController.php:589
+#: src/Controllers/JavaScriptMessagesController.php:559
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
@@ -13393,53 +13478,53 @@ msgstr ""
 "정말 모든 열을 보시겠습니까? 테이블 크기가 큰 경우 브라우저가 정지할 수 있습"
 "니다."
 
-#: src/Controllers/JavaScriptMessagesController.php:591
+#: src/Controllers/JavaScriptMessagesController.php:561
 msgid "Original length"
 msgstr "원본 길이"
 
-#: src/Controllers/JavaScriptMessagesController.php:594
+#: src/Controllers/JavaScriptMessagesController.php:564
 msgid "cancel"
 msgstr "취소"
 
-#: src/Controllers/JavaScriptMessagesController.php:595
+#: src/Controllers/JavaScriptMessagesController.php:565
 #: src/Controllers/Server/Status/StatusController.php:183
 msgid "Aborted"
 msgstr "중지됨"
 
-#: src/Controllers/JavaScriptMessagesController.php:597
+#: src/Controllers/JavaScriptMessagesController.php:567
 msgid "Success"
 msgstr "성공"
 
-#: src/Controllers/JavaScriptMessagesController.php:598
+#: src/Controllers/JavaScriptMessagesController.php:568
 msgid "Import status"
 msgstr "상태 가져오기"
 
-#: src/Controllers/JavaScriptMessagesController.php:600
+#: src/Controllers/JavaScriptMessagesController.php:570
 msgid "Select database first"
 msgstr "데이터베이스를 먼저 선택하세요"
 
-#: src/Controllers/JavaScriptMessagesController.php:602
+#: src/Controllers/JavaScriptMessagesController.php:572
 msgid "Go to link:"
 msgstr "다음 링크로 이동 :"
 
-#: src/Controllers/JavaScriptMessagesController.php:605
+#: src/Controllers/JavaScriptMessagesController.php:575
 msgid "Generate password"
 msgstr "비밀번호 생성"
 
-#: src/Controllers/JavaScriptMessagesController.php:612
+#: src/Controllers/JavaScriptMessagesController.php:582
 msgid "Show panel"
 msgstr "패널 표시"
 
-#: src/Controllers/JavaScriptMessagesController.php:613
+#: src/Controllers/JavaScriptMessagesController.php:583
 msgid "Hide panel"
 msgstr "패널 숨기기"
 
-#: src/Controllers/JavaScriptMessagesController.php:615
+#: src/Controllers/JavaScriptMessagesController.php:585
 #: src/Navigation/NavigationTree.php:1295
 msgid "Unlink from main panel"
 msgstr "매인 패널에서 링크 해제"
 
-#: src/Controllers/JavaScriptMessagesController.php:619 src/Setup/Index.php:153
+#: src/Controllers/JavaScriptMessagesController.php:589 src/Setup/Index.php:153
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -13448,39 +13533,39 @@ msgstr ""
 "phpMyAdmin 업그레이드가 필요합니다. 최신버전은 %s이며 %s에 릴리즈 되었습니다."
 
 #. l10n: Latest available phpMyAdmin version
-#: src/Controllers/JavaScriptMessagesController.php:623
+#: src/Controllers/JavaScriptMessagesController.php:593
 msgid ", latest stable version:"
 msgstr ", 최신 안정 버전:"
 
-#: src/Controllers/JavaScriptMessagesController.php:624
+#: src/Controllers/JavaScriptMessagesController.php:594
 msgid "up to date"
 msgstr "최신버전"
 
-#: src/Controllers/JavaScriptMessagesController.php:625
+#: src/Controllers/JavaScriptMessagesController.php:595
 msgid "There was an error in loading the Git information."
 msgstr "Git 정보를 로드하는 동안 오류가 발생했습니다."
 
-#: src/Controllers/JavaScriptMessagesController.php:628
+#: src/Controllers/JavaScriptMessagesController.php:598
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr "치명적인 자바스크립트 오류 발생. 오류를 전송할까요?"
 
-#: src/Controllers/JavaScriptMessagesController.php:629
+#: src/Controllers/JavaScriptMessagesController.php:599
 msgid "Change report settings"
 msgstr "보고서 설정 변경"
 
-#: src/Controllers/JavaScriptMessagesController.php:630
+#: src/Controllers/JavaScriptMessagesController.php:600
 msgid "Show report details"
 msgstr "보고서 상세 보기"
 
-#: src/Controllers/JavaScriptMessagesController.php:631
+#: src/Controllers/JavaScriptMessagesController.php:601
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr "PHP의 실행시간 제한에 걸려 내보내기가 완료되지 않았습니다!"
 
-#: src/Controllers/JavaScriptMessagesController.php:634
+#: src/Controllers/JavaScriptMessagesController.php:604
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -13489,72 +13574,72 @@ msgstr ""
 "경고: 현재 페이지의 폼 필드는 %d개가 넘습니다. 폼이 전송될 때 PHP의 "
 "max_input_vars 설정에 의해 일부 필드가 손실될 수 있습니다."
 
-#: src/Controllers/JavaScriptMessagesController.php:640
-#: src/Controllers/JavaScriptMessagesController.php:653
+#: src/Controllers/JavaScriptMessagesController.php:610
+#: src/Controllers/JavaScriptMessagesController.php:623
 msgid "Some errors have been detected on the server!"
 msgstr "서버 에러가 감지되었습니다!"
 
-#: src/Controllers/JavaScriptMessagesController.php:642
+#: src/Controllers/JavaScriptMessagesController.php:612
 msgid "Please look at the bottom of this window."
 msgstr "이 창의 아래쪽을 보세요."
 
-#: src/Controllers/JavaScriptMessagesController.php:648
+#: src/Controllers/JavaScriptMessagesController.php:618
 #: src/Error/ErrorHandler.php:431
 msgid "Ignore All"
 msgstr "모두 무시"
 
-#: src/Controllers/JavaScriptMessagesController.php:655
+#: src/Controllers/JavaScriptMessagesController.php:625
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr "각 설정은 현재 전송중입니다. 기다려주세요."
 
-#: src/Controllers/JavaScriptMessagesController.php:659
+#: src/Controllers/JavaScriptMessagesController.php:629
 msgid "Column name successfully copied to clipboard!"
 msgstr "열 이름이 클립보드에 정상적으로 복사되었습니다!"
 
-#: src/Controllers/JavaScriptMessagesController.php:660
+#: src/Controllers/JavaScriptMessagesController.php:630
 msgid "Column name copying to clipboard failed!"
 msgstr "열 이름을 클립보드에 복사하지 못했습니다!"
 
-#: src/Controllers/JavaScriptMessagesController.php:661
+#: src/Controllers/JavaScriptMessagesController.php:631
 msgid "Successfully copied!"
 msgstr "정상적으로 복사되었습니다!"
 
-#: src/Controllers/JavaScriptMessagesController.php:662
+#: src/Controllers/JavaScriptMessagesController.php:632
 msgid "Copying failed!"
 msgstr "복사가 실패했습니다!"
 
-#: src/Controllers/JavaScriptMessagesController.php:665
+#: src/Controllers/JavaScriptMessagesController.php:635
 msgid "Execute this query again?"
 msgstr "이 질의를 다시 실행합니까?"
 
-#: src/Controllers/JavaScriptMessagesController.php:666
+#: src/Controllers/JavaScriptMessagesController.php:636
 msgid "Do you really want to delete this bookmark?"
 msgstr "북마크를 삭제하시겠습니까?"
 
-#: src/Controllers/JavaScriptMessagesController.php:667
+#: src/Controllers/JavaScriptMessagesController.php:637
 msgid "Some error occurred while getting SQL debug info."
 msgstr "SQL 디버그 정보를 가져오는 중 오류가 발생하였습니다."
 
-#: src/Controllers/JavaScriptMessagesController.php:668
+#: src/Controllers/JavaScriptMessagesController.php:638
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "%s 쿼리를 %s 번 %s 초 안에 처리했습니다."
 
-#: src/Controllers/JavaScriptMessagesController.php:669
+#: src/Controllers/JavaScriptMessagesController.php:639
 #, php-format
 msgid "%s argument(s) passed"
 msgstr "%s개의 인수가 전달됨"
 
-#: src/Controllers/JavaScriptMessagesController.php:670
+#: src/Controllers/JavaScriptMessagesController.php:640
 msgid "Show arguments"
 msgstr "매개변수 보이기"
 
-#: src/Controllers/JavaScriptMessagesController.php:671
+#: src/Controllers/JavaScriptMessagesController.php:641
 msgid "Hide arguments"
 msgstr "매개변수 숨기기"
 
-#: src/Controllers/JavaScriptMessagesController.php:674
+#: src/Controllers/JavaScriptMessagesController.php:644
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -13569,75 +13654,75 @@ msgstr ""
 "수 있습니다. 사파리에서는 일반적으로 \"개인 모드 브라우징\"에 의해 발생 됩니"
 "다."
 
-#: src/Controllers/JavaScriptMessagesController.php:681
+#: src/Controllers/JavaScriptMessagesController.php:651
 msgid "Copy tables to"
 msgstr "테이블을 복사합니다"
 
-#: src/Controllers/JavaScriptMessagesController.php:682
+#: src/Controllers/JavaScriptMessagesController.php:652
 msgid "Add table prefix"
 msgstr "테이블 접두사 추가"
 
-#: src/Controllers/JavaScriptMessagesController.php:683
+#: src/Controllers/JavaScriptMessagesController.php:653
 msgid "Replace table with prefix"
 msgstr "접두사로 테이블 교체"
 
-#: src/Controllers/JavaScriptMessagesController.php:687
+#: src/Controllers/JavaScriptMessagesController.php:657
 msgid "Extremely weak"
 msgstr "매우 취약"
 
-#: src/Controllers/JavaScriptMessagesController.php:688
+#: src/Controllers/JavaScriptMessagesController.php:658
 msgid "Very weak"
 msgstr "다소 취약"
 
-#: src/Controllers/JavaScriptMessagesController.php:689
+#: src/Controllers/JavaScriptMessagesController.php:659
 msgid "Weak"
 msgstr "취약"
 
-#: src/Controllers/JavaScriptMessagesController.php:690
+#: src/Controllers/JavaScriptMessagesController.php:660
 msgid "Good"
 msgstr "좋음"
 
-#: src/Controllers/JavaScriptMessagesController.php:691
+#: src/Controllers/JavaScriptMessagesController.php:661
 msgid "Strong"
 msgstr "강력함"
 
 #. l10n: error code 5 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:695
+#: src/Controllers/JavaScriptMessagesController.php:665
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
 msgstr "보안 키 활성화를 기다리는 동안 시간이 초과되었습니다."
 
 #. l10n: error code 2 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:697
+#: src/Controllers/JavaScriptMessagesController.php:667
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
 msgstr "보안 키에 잘못된 요청을 보냈습니다."
 
 #. l10n: unknown error code (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:699
+#: src/Controllers/JavaScriptMessagesController.php:669
 msgctxt "U2F error"
 msgid "Unknown security key error."
 msgstr "알 수 없는 보안 키 에러."
 
 #. l10n: error code 3 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:701
+#: src/Controllers/JavaScriptMessagesController.php:671
 msgctxt "U2F error"
 msgid "Client does not support security key."
 msgstr "클라이언트가 보안 키를 지원하지 않습니다."
 
 #. l10n: error code 4 (from U2F API) on register
-#: src/Controllers/JavaScriptMessagesController.php:703
+#: src/Controllers/JavaScriptMessagesController.php:673
 msgctxt "U2F error"
 msgid "Failed security key activation."
 msgstr "보안 키 활성화에 실패했습니다."
 
 #. l10n: error code 4 (from U2F API) on authanticate
-#: src/Controllers/JavaScriptMessagesController.php:705
+#: src/Controllers/JavaScriptMessagesController.php:675
 msgctxt "U2F error"
 msgid "Invalid security key."
 msgstr "유효하지 않은 보안 키."
 
-#: src/Controllers/JavaScriptMessagesController.php:708
+#: src/Controllers/JavaScriptMessagesController.php:678
 msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
@@ -13645,7 +13730,7 @@ msgstr ""
 "WebAuthn을 사용할 수 없습니다. 보안 컨텍스트(HTTPS)를 지원하는 브라우저를 사"
 "용하세요."
 
-#: src/Controllers/JavaScriptMessagesController.php:713
+#: src/Controllers/JavaScriptMessagesController.php:683
 msgid ""
 "You can not open, save or delete your page layout, as IndexedDB is not "
 "working in your browser and your phpMyAdmin configuration storage is not "
@@ -13654,354 +13739,354 @@ msgstr ""
 "브라우저에서 인덱싱된 DB가 작동하지 않고 phpMyAdmin 설정 저장소가 이를 위해 "
 "구성되어 있지 않으므로 페이지 레이아웃을 열거나 저장 또는 삭제할 수 없습니다."
 
-#: src/Controllers/JavaScriptMessagesController.php:718
+#: src/Controllers/JavaScriptMessagesController.php:688
 #, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
 msgstr "%s 테이블이 이미 존재합니다!"
 
-#: src/Controllers/JavaScriptMessagesController.php:720 src/InsertEdit.php:242
+#: src/Controllers/JavaScriptMessagesController.php:690 src/InsertEdit.php:242
 #: src/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "숨기기"
 
-#: src/Controllers/JavaScriptMessagesController.php:724
+#: src/Controllers/JavaScriptMessagesController.php:694
 msgctxt "Month name"
 msgid "January"
 msgstr "1월"
 
-#: src/Controllers/JavaScriptMessagesController.php:725
+#: src/Controllers/JavaScriptMessagesController.php:695
 msgctxt "Month name"
 msgid "February"
 msgstr "2월"
 
-#: src/Controllers/JavaScriptMessagesController.php:726
+#: src/Controllers/JavaScriptMessagesController.php:696
 msgctxt "Month name"
 msgid "March"
 msgstr "3월"
 
-#: src/Controllers/JavaScriptMessagesController.php:727
+#: src/Controllers/JavaScriptMessagesController.php:697
 msgctxt "Month name"
 msgid "April"
 msgstr "4월"
 
-#: src/Controllers/JavaScriptMessagesController.php:728
+#: src/Controllers/JavaScriptMessagesController.php:698
 msgctxt "Month name"
 msgid "May"
 msgstr "5월"
 
-#: src/Controllers/JavaScriptMessagesController.php:729
+#: src/Controllers/JavaScriptMessagesController.php:699
 msgctxt "Month name"
 msgid "June"
 msgstr "6월"
 
-#: src/Controllers/JavaScriptMessagesController.php:730
+#: src/Controllers/JavaScriptMessagesController.php:700
 msgctxt "Month name"
 msgid "July"
 msgstr "7월"
 
-#: src/Controllers/JavaScriptMessagesController.php:731
+#: src/Controllers/JavaScriptMessagesController.php:701
 msgctxt "Month name"
 msgid "August"
 msgstr "8월"
 
-#: src/Controllers/JavaScriptMessagesController.php:732
+#: src/Controllers/JavaScriptMessagesController.php:702
 msgctxt "Month name"
 msgid "September"
 msgstr "9월"
 
-#: src/Controllers/JavaScriptMessagesController.php:733
+#: src/Controllers/JavaScriptMessagesController.php:703
 msgctxt "Month name"
 msgid "October"
 msgstr "10월"
 
-#: src/Controllers/JavaScriptMessagesController.php:734
+#: src/Controllers/JavaScriptMessagesController.php:704
 msgctxt "Month name"
 msgid "November"
 msgstr "11월"
 
-#: src/Controllers/JavaScriptMessagesController.php:735
+#: src/Controllers/JavaScriptMessagesController.php:705
 msgctxt "Month name"
 msgid "December"
 msgstr "12월"
 
-#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:498
+#: src/Controllers/JavaScriptMessagesController.php:706 src/Util.php:498
 msgctxt "Short month name for January"
 msgid "Jan"
 msgstr "1월"
 
-#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:499
+#: src/Controllers/JavaScriptMessagesController.php:707 src/Util.php:499
 msgctxt "Short month name for February"
 msgid "Feb"
 msgstr "2월"
 
-#: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:500
+#: src/Controllers/JavaScriptMessagesController.php:708 src/Util.php:500
 msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "3월"
 
-#: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:501
+#: src/Controllers/JavaScriptMessagesController.php:709 src/Util.php:501
 msgctxt "Short month name for April"
 msgid "Apr"
 msgstr "4월"
 
-#: src/Controllers/JavaScriptMessagesController.php:740 src/Util.php:502
+#: src/Controllers/JavaScriptMessagesController.php:710 src/Util.php:502
 msgctxt "Short month name for May"
 msgid "May"
 msgstr "5월"
 
-#: src/Controllers/JavaScriptMessagesController.php:741 src/Util.php:503
+#: src/Controllers/JavaScriptMessagesController.php:711 src/Util.php:503
 msgctxt "Short month name for June"
 msgid "Jun"
 msgstr "6월"
 
-#: src/Controllers/JavaScriptMessagesController.php:742 src/Util.php:504
+#: src/Controllers/JavaScriptMessagesController.php:712 src/Util.php:504
 msgctxt "Short month name for July"
 msgid "Jul"
 msgstr "7월"
 
-#: src/Controllers/JavaScriptMessagesController.php:743 src/Util.php:505
+#: src/Controllers/JavaScriptMessagesController.php:713 src/Util.php:505
 msgctxt "Short month name for August"
 msgid "Aug"
 msgstr "8월"
 
-#: src/Controllers/JavaScriptMessagesController.php:744 src/Util.php:506
+#: src/Controllers/JavaScriptMessagesController.php:714 src/Util.php:506
 msgctxt "Short month name for September"
 msgid "Sep"
 msgstr "9월"
 
-#: src/Controllers/JavaScriptMessagesController.php:745 src/Util.php:507
+#: src/Controllers/JavaScriptMessagesController.php:715 src/Util.php:507
 msgctxt "Short month name for October"
 msgid "Oct"
 msgstr "10월"
 
-#: src/Controllers/JavaScriptMessagesController.php:746 src/Util.php:508
+#: src/Controllers/JavaScriptMessagesController.php:716 src/Util.php:508
 msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "11월"
 
-#: src/Controllers/JavaScriptMessagesController.php:747 src/Util.php:509
+#: src/Controllers/JavaScriptMessagesController.php:717 src/Util.php:509
 msgctxt "Short month name for December"
 msgid "Dec"
 msgstr "12월"
 
-#: src/Controllers/JavaScriptMessagesController.php:755 src/Util.php:512
+#: src/Controllers/JavaScriptMessagesController.php:725 src/Util.php:512
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "일"
 
-#: src/Controllers/JavaScriptMessagesController.php:756 src/Util.php:513
+#: src/Controllers/JavaScriptMessagesController.php:726 src/Util.php:513
 msgctxt "Short week day name for Monday"
 msgid "Mon"
 msgstr "월"
 
-#: src/Controllers/JavaScriptMessagesController.php:757 src/Util.php:514
+#: src/Controllers/JavaScriptMessagesController.php:727 src/Util.php:514
 msgctxt "Short week day name for Tuesday"
 msgid "Tue"
 msgstr "화"
 
-#: src/Controllers/JavaScriptMessagesController.php:758 src/Util.php:515
+#: src/Controllers/JavaScriptMessagesController.php:728 src/Util.php:515
 msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr "수"
 
-#: src/Controllers/JavaScriptMessagesController.php:759 src/Util.php:516
+#: src/Controllers/JavaScriptMessagesController.php:729 src/Util.php:516
 msgctxt "Short week day name for Thursday"
 msgid "Thu"
 msgstr "목"
 
-#: src/Controllers/JavaScriptMessagesController.php:760 src/Util.php:517
+#: src/Controllers/JavaScriptMessagesController.php:730 src/Util.php:517
 msgctxt "Short week day name for Friday"
 msgid "Fri"
 msgstr "금"
 
-#: src/Controllers/JavaScriptMessagesController.php:761 src/Util.php:518
+#: src/Controllers/JavaScriptMessagesController.php:731 src/Util.php:518
 msgctxt "Short week day name for Saturday"
 msgid "Sat"
 msgstr "토"
 
-#: src/Controllers/JavaScriptMessagesController.php:762
+#: src/Controllers/JavaScriptMessagesController.php:732
 msgctxt "Minimal week day name for Sunday"
 msgid "Su"
 msgstr "일"
 
-#: src/Controllers/JavaScriptMessagesController.php:763
+#: src/Controllers/JavaScriptMessagesController.php:733
 msgctxt "Minimal week day name for Monday"
 msgid "Mo"
 msgstr "월"
 
-#: src/Controllers/JavaScriptMessagesController.php:764
+#: src/Controllers/JavaScriptMessagesController.php:734
 msgctxt "Minimal week day name for Tuesday"
 msgid "Tu"
 msgstr "화"
 
-#: src/Controllers/JavaScriptMessagesController.php:765
+#: src/Controllers/JavaScriptMessagesController.php:735
 msgctxt "Minimal week day name for Wednesday"
 msgid "We"
 msgstr "수"
 
-#: src/Controllers/JavaScriptMessagesController.php:766
+#: src/Controllers/JavaScriptMessagesController.php:736
 msgctxt "Minimal week day name for Thursday"
 msgid "Th"
 msgstr "목"
 
-#: src/Controllers/JavaScriptMessagesController.php:767
+#: src/Controllers/JavaScriptMessagesController.php:737
 msgctxt "Minimal week day name for Friday"
 msgid "Fr"
 msgstr "금"
 
-#: src/Controllers/JavaScriptMessagesController.php:768
+#: src/Controllers/JavaScriptMessagesController.php:738
 msgctxt "Minimal week day name for Saturday"
 msgid "Sa"
 msgstr "토"
 
-#: src/Controllers/JavaScriptMessagesController.php:769
+#: src/Controllers/JavaScriptMessagesController.php:739
 msgctxt "Column header for week of the year in calendar"
 msgid "Wk"
 msgstr "주"
 
 #. l10n: DO NOT TRANSLATE! Use either "calendar-month-year" or "calendar-year-month".
-#: src/Controllers/JavaScriptMessagesController.php:771
+#: src/Controllers/JavaScriptMessagesController.php:741
 msgctxt "The month-year order in a calendar"
 msgid "calendar-month-year"
 msgstr "날짜 표기-월-년"
 
-#: src/Controllers/JavaScriptMessagesController.php:772
+#: src/Controllers/JavaScriptMessagesController.php:742
 msgctxt "Year suffix for calendar, \"none\" is empty"
 msgid "none"
 msgstr "없음"
 
-#: src/Controllers/JavaScriptMessagesController.php:773
+#: src/Controllers/JavaScriptMessagesController.php:743
 msgctxt "A specific point in the day, as shown on a clock"
 msgid "Time"
 msgstr "시간"
 
-#: src/Controllers/JavaScriptMessagesController.php:774
+#: src/Controllers/JavaScriptMessagesController.php:744
 msgctxt "Unit of time"
 msgid "Hour"
 msgstr "시"
 
-#: src/Controllers/JavaScriptMessagesController.php:775
+#: src/Controllers/JavaScriptMessagesController.php:745
 msgctxt "Unit of time"
 msgid "Minute"
 msgstr "분"
 
-#: src/Controllers/JavaScriptMessagesController.php:776
+#: src/Controllers/JavaScriptMessagesController.php:746
 msgctxt "Unit of time"
 msgid "Second"
 msgstr "초"
 
-#: src/Controllers/JavaScriptMessagesController.php:777
+#: src/Controllers/JavaScriptMessagesController.php:747
 msgctxt "Unit of time"
 msgid "Millisecond"
 msgstr "밀리초"
 
-#: src/Controllers/JavaScriptMessagesController.php:778
+#: src/Controllers/JavaScriptMessagesController.php:748
 msgctxt "Unit of time"
 msgid "Microsecond"
 msgstr "마이크로초"
 
-#: src/Controllers/JavaScriptMessagesController.php:779
+#: src/Controllers/JavaScriptMessagesController.php:749
 msgctxt "The time zone for a time of day"
 msgid "Time zone"
 msgstr "시간대"
 
 #. l10n: Display text for previous month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:783
+#: src/Controllers/JavaScriptMessagesController.php:753
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "이전"
 
 #. l10n: Display text for next month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:785
+#: src/Controllers/JavaScriptMessagesController.php:755
 msgctxt "Next month"
 msgid "Next"
 msgstr "다음"
 
 #. l10n: Display text for current month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:787
+#: src/Controllers/JavaScriptMessagesController.php:757
 msgid "Today"
 msgstr "오늘"
 
-#: src/Controllers/JavaScriptMessagesController.php:790
+#: src/Controllers/JavaScriptMessagesController.php:760
 msgid "This field is required"
 msgstr "해당 항목은 필수 항목입니다"
 
-#: src/Controllers/JavaScriptMessagesController.php:791
+#: src/Controllers/JavaScriptMessagesController.php:761
 msgid "Please fix this field"
 msgstr "이 필드를 수정하세요"
 
-#: src/Controllers/JavaScriptMessagesController.php:792
+#: src/Controllers/JavaScriptMessagesController.php:762
 msgid "Please enter a valid email address"
 msgstr "올바른 이메일 주소를 입력하세요"
 
-#: src/Controllers/JavaScriptMessagesController.php:793
+#: src/Controllers/JavaScriptMessagesController.php:763
 msgid "Please enter a valid URL"
 msgstr "올바른 URL을 입력해 주세요"
 
-#: src/Controllers/JavaScriptMessagesController.php:794
+#: src/Controllers/JavaScriptMessagesController.php:764
 msgid "Please enter a valid date"
 msgstr "올바른 날짜를 입력하세요"
 
-#: src/Controllers/JavaScriptMessagesController.php:795
+#: src/Controllers/JavaScriptMessagesController.php:765
 msgid "Please enter a valid date ( ISO )"
 msgstr "올바른 날짜(ISO 형식)를 입력하세요"
 
-#: src/Controllers/JavaScriptMessagesController.php:796
+#: src/Controllers/JavaScriptMessagesController.php:766
 msgid "Please enter a valid number"
 msgstr "올바른 숫자를 입력해 주세요"
 
-#: src/Controllers/JavaScriptMessagesController.php:797
+#: src/Controllers/JavaScriptMessagesController.php:767
 msgid "Please enter a valid credit card number"
 msgstr "올바른 신용 카드 번호를 입력하세요"
 
-#: src/Controllers/JavaScriptMessagesController.php:798
+#: src/Controllers/JavaScriptMessagesController.php:768
 msgid "Please enter only digits"
 msgstr "숫자만 입력해 주세요"
 
-#: src/Controllers/JavaScriptMessagesController.php:799
+#: src/Controllers/JavaScriptMessagesController.php:769
 msgid "Please enter the same value again"
 msgstr "같은 값을 한번 더 입력하세요"
 
-#: src/Controllers/JavaScriptMessagesController.php:800
+#: src/Controllers/JavaScriptMessagesController.php:770
 msgid "Please enter no more than {0} characters"
 msgstr "{0} 글자 이하로 입력해 주세요"
 
-#: src/Controllers/JavaScriptMessagesController.php:801
+#: src/Controllers/JavaScriptMessagesController.php:771
 msgid "Please enter at least {0} characters"
 msgstr "최소 {0} 글자 이상 입력해주세요"
 
-#: src/Controllers/JavaScriptMessagesController.php:802
+#: src/Controllers/JavaScriptMessagesController.php:772
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr "{0} 글자에서 {1} 글자 사이로 입력해 주세요"
 
-#: src/Controllers/JavaScriptMessagesController.php:803
+#: src/Controllers/JavaScriptMessagesController.php:773
 msgid "Please enter a value between {0} and {1}"
 msgstr "{0} 에서 {1} 사이의 값을 입력하세요"
 
-#: src/Controllers/JavaScriptMessagesController.php:804
+#: src/Controllers/JavaScriptMessagesController.php:774
 msgid "Please enter a value less than or equal to {0}"
 msgstr "{0}과 같거나 작은 값을 입력하세요"
 
-#: src/Controllers/JavaScriptMessagesController.php:805
+#: src/Controllers/JavaScriptMessagesController.php:775
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "{0}과 같거나 큰 값을 입력하세요"
 
-#: src/Controllers/JavaScriptMessagesController.php:806
+#: src/Controllers/JavaScriptMessagesController.php:776
 msgid "Please enter a valid date or time"
 msgstr "올바른 날짜 또는 시간을 입력하세요"
 
-#: src/Controllers/JavaScriptMessagesController.php:807
+#: src/Controllers/JavaScriptMessagesController.php:777
 msgid "Please enter a valid HEX input"
 msgstr "올바른 HEX값을 입력하세요"
 
 #. l10n: To validate the usage of a MD5 function on the column
-#: src/Controllers/JavaScriptMessagesController.php:809
+#: src/Controllers/JavaScriptMessagesController.php:779
 msgid "This column can not contain a 32 chars value"
 msgstr "이 열에는 32 글자의 값을 포함할 수 없습니다"
 
-#: src/Controllers/JavaScriptMessagesController.php:812
+#: src/Controllers/JavaScriptMessagesController.php:782
 msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
@@ -14009,38 +14094,38 @@ msgstr ""
 "이러한 함수는 이진 결과를 반환하도록 되어 있으므로 예상과 다른 결과를 방지하"
 "려면 BINARY, VARBINARY, BLOB 열에 저장해야 합니다."
 
-#: src/Controllers/JavaScriptMessagesController.php:817
+#: src/Controllers/JavaScriptMessagesController.php:787
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size."
 msgstr "업로드 중인 파일이 허용된 최대 크기보다 클 수 있습니다."
 
-#: src/Controllers/JavaScriptMessagesController.php:819
+#: src/Controllers/JavaScriptMessagesController.php:789
 #, php-format
 msgid "%s of %s"
 msgstr "%s / %s"
 
-#: src/Controllers/JavaScriptMessagesController.php:820
+#: src/Controllers/JavaScriptMessagesController.php:790
 #, php-format
 msgid "%s/sec."
 msgstr "%s/초."
 
-#: src/Controllers/JavaScriptMessagesController.php:821
+#: src/Controllers/JavaScriptMessagesController.php:791
 msgid "About %MIN min. %SEC sec. remaining."
 msgstr "약 %MIN 분 %SEC 초 남음."
 
-#: src/Controllers/JavaScriptMessagesController.php:822
+#: src/Controllers/JavaScriptMessagesController.php:792
 msgid "About %SEC sec. remaining."
 msgstr "약 %SEC 초 남음."
 
-#: src/Controllers/JavaScriptMessagesController.php:823
+#: src/Controllers/JavaScriptMessagesController.php:793
 msgid "The file is being processed, please be patient."
 msgstr "파일이 처리되는 중입니다. 잠시 기다려 주십시오."
 
-#: src/Controllers/JavaScriptMessagesController.php:824
+#: src/Controllers/JavaScriptMessagesController.php:794
 msgid "Uploading your import file…"
 msgstr "당신의 가져오기 파일을 업로드하는 중…"
 
-#: src/Controllers/JavaScriptMessagesController.php:826
+#: src/Controllers/JavaScriptMessagesController.php:796
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
@@ -14965,7 +15050,7 @@ msgid "There is an issue with your request."
 msgstr "요청에 문제가 있습니다."
 
 #: src/Controllers/Table/GetFieldController.php:85
-#: src/Database/Routines.php:1041 src/Import/Import.php:135
+#: src/Database/Routines.php:1040 src/Import/Import.php:135
 #: src/InsertEdit.php:159 src/Sql.php:864
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "결과값이 없습니다. (빈 레코드 리턴)."
@@ -15174,9 +15259,9 @@ msgid "Could not load schema plugins, please check your installation!"
 msgstr "개요 플러그인을 로드할 수 없습니다. 올바로 설치되었는지 확인해주세요!"
 
 #: src/Database/Events.php:93 src/Database/Events.php:102
-#: src/Database/Events.php:136 src/Database/Routines.php:101
-#: src/Database/Routines.php:127 src/Database/Routines.php:205
-#: src/Database/Routines.php:1001 src/Triggers/Triggers.php:83
+#: src/Database/Events.php:136 src/Database/Routines.php:105
+#: src/Database/Routines.php:131 src/Database/Routines.php:209
+#: src/Database/Routines.php:1000 src/Triggers/Triggers.php:83
 #: src/Triggers/Triggers.php:92 src/Triggers/Triggers.php:127
 #, php-format
 msgid "The following query has failed: \"%s\""
@@ -15184,9 +15269,9 @@ msgstr "쿼리 실행 실패: \"%s\""
 
 #: src/Database/Events.php:97 src/Database/Events.php:106
 #: src/Database/Events.php:119 src/Database/Events.php:140
-#: src/Database/Routines.php:105 src/Database/Routines.php:131
-#: src/Database/Routines.php:209 src/Database/Routines.php:223
-#: src/Database/Routines.php:1005 src/Html/Generator.php:804
+#: src/Database/Routines.php:109 src/Database/Routines.php:135
+#: src/Database/Routines.php:213 src/Database/Routines.php:227
+#: src/Database/Routines.php:1004 src/Html/Generator.php:804
 #: src/Triggers/Triggers.php:87 src/Triggers/Triggers.php:96
 #: src/Triggers/Triggers.php:110 src/Triggers/Triggers.php:131
 msgid "MySQL said: "
@@ -15196,7 +15281,7 @@ msgstr "MySQL 메시지: "
 msgid "Sorry, we failed to restore the dropped event."
 msgstr "삭제한 이벤트를 복원하지 못했습니다."
 
-#: src/Database/Events.php:117 src/Database/Routines.php:221
+#: src/Database/Events.php:117 src/Database/Routines.php:225
 #: src/Triggers/Triggers.php:108
 msgid "The backed up query was:"
 msgstr "백업했던 쿼리:"
@@ -15211,12 +15296,12 @@ msgstr "이벤트 %1$s 를 변경했습니다."
 msgid "Event %1$s has been created."
 msgstr "이벤트 %1$s 를 생성했습니다."
 
-#: src/Database/Events.php:157 src/Database/Routines.php:147
+#: src/Database/Events.php:157 src/Database/Routines.php:151
 #: src/Triggers/Triggers.php:148
 msgid "One or more errors have occurred while processing your request:"
 msgstr "요청을 처리하는 중에 하나 혹은 그 이상의 오류가 발생했습니다:"
 
-#: src/Database/Events.php:270 src/Database/Routines.php:803
+#: src/Database/Events.php:270 src/Database/Routines.php:806
 #: src/Triggers/Triggers.php:190
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "디파이너의 형식은 \"username@hostname\" 이어야 합니다!"
@@ -15241,40 +15326,40 @@ msgstr "올바른 이벤트 타입을 입력하세요."
 msgid "You must provide an event definition."
 msgstr "이벤트 정의를 입력하세요."
 
-#: src/Database/Routines.php:82 src/Database/Routines.php:811
+#: src/Database/Routines.php:86
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr "잘못된 루틴 타입: \"%s\""
 
-#: src/Database/Routines.php:134
+#: src/Database/Routines.php:138
 #, php-format
 msgid "Routine %1$s has been created."
 msgstr "루틴 %1$s가 생성되었습니다."
 
-#: src/Database/Routines.php:220
+#: src/Database/Routines.php:224
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "죄송합니다만 삭제한 루틴을 복구하지 못했습니다."
 
-#: src/Database/Routines.php:269
+#: src/Database/Routines.php:273
 #, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
 msgstr "%1$s 루틴이수정되었습니다. 권한이 조정되었습니다."
 
-#: src/Database/Routines.php:274
+#: src/Database/Routines.php:278
 #, php-format
 msgid "Routine %1$s has been modified."
 msgstr "루틴 %1$s가 수정되었습니다."
 
-#: src/Database/Routines.php:648
+#: src/Database/Routines.php:651
 msgid "You must provide a name and a type for each routine parameter."
 msgstr "각 루틴 매개변수의 이름과 유형을 제공해야 합니다."
 
-#: src/Database/Routines.php:666
+#: src/Database/Routines.php:669
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr "매개 변수에 대해 지정된 방향 \"%s\"가 잘못되었습니다."
 
-#: src/Database/Routines.php:686 src/Database/Routines.php:751
+#: src/Database/Routines.php:689 src/Database/Routines.php:754
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
@@ -15282,24 +15367,30 @@ msgstr ""
 "ENUM, SET, VARCHAR, VARBINARY 유형의 루틴 매개변수에 대한 길이/값을 제공해야 "
 "합니다."
 
-#: src/Database/Routines.php:733
+#: src/Database/Routines.php:736
 msgid "You must provide a valid return type for the routine."
 msgstr "루틴에 유효한 반환 유형을 제공해야 합니다."
+
+#: src/Database/Routines.php:813
+#, fuzzy
+#| msgid "Invalid routine type: \"%s\""
+msgid "Invalid routine type!"
+msgstr "잘못된 루틴 타입: \"%s\""
 
 #: src/Database/Routines.php:819
 msgid "You must provide a routine name!"
 msgstr "루틴 이름이 필요합니다!"
 
-#: src/Database/Routines.php:883
+#: src/Database/Routines.php:882
 msgid "You must provide a routine definition."
 msgstr "루틴의 정의를 제공해야 합니다."
 
-#: src/Database/Routines.php:1017
+#: src/Database/Routines.php:1016
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "루틴 %s의 실행 결과"
 
-#: src/Database/Routines.php:1032
+#: src/Database/Routines.php:1031
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
@@ -16052,10 +16143,6 @@ msgstr "SQL 명령어 트래킹"
 msgid "Database seems to be empty!"
 msgstr "데이터베이스가 비어있는 것 같습니다!"
 
-#: src/Menu.php:335 src/Util.php:1363
-msgid "Query"
-msgstr "질의 마법사"
-
 #: src/Menu.php:398 src/Util.php:1372
 msgid "Designer"
 msgstr "디자이너"
@@ -16153,7 +16240,7 @@ msgstr "새 이벤트"
 
 #: src/Navigation/Nodes/NodeFunctionContainer.php:22
 #: src/Navigation/Nodes/NodeFunctionContainer.php:24
-#: src/Plugins/Export/ExportSql.php:643 src/Plugins/Export/ExportXml.php:101
+#: src/Plugins/Export/ExportSql.php:644 src/Plugins/Export/ExportXml.php:102
 msgid "Functions"
 msgstr "함수"
 
@@ -16173,7 +16260,7 @@ msgstr "펼치기/접기"
 
 #: src/Navigation/Nodes/NodeProcedureContainer.php:22
 #: src/Navigation/Nodes/NodeProcedureContainer.php:24
-#: src/Plugins/Export/ExportSql.php:632 src/Plugins/Export/ExportXml.php:106
+#: src/Plugins/Export/ExportSql.php:633 src/Plugins/Export/ExportXml.php:107
 msgid "Procedures"
 msgstr "프로시저"
 
@@ -16195,10 +16282,6 @@ msgstr "새 테이블"
 msgctxt "Create new trigger"
 msgid "New"
 msgstr "새 트리거"
-
-#: src/Navigation/Nodes/NodeTrigger.php:24
-msgid "Trigger"
-msgstr "트리거"
 
 #: src/Navigation/Nodes/NodeViewContainer.php:32
 msgctxt "Create new view"
@@ -16463,39 +16546,39 @@ msgstr ""
 msgid "No partial dependencies found!"
 msgstr "부분적 의존관계를 찾을 수 없습니다!"
 
-#: src/Operations.php:537
+#: src/Operations.php:538
 msgid "Coalesce"
 msgstr "병합"
 
-#: src/Operations.php:888
+#: src/Operations.php:889
 msgid "Can't move table to same one!"
 msgstr "같은 테이블이 있어 옮길 수 없음!"
 
-#: src/Operations.php:890
+#: src/Operations.php:891
 msgid "Can't copy table to same one!"
 msgstr "같은 테이블이 있어 복사할 수 없음!"
 
-#: src/Operations.php:926
+#: src/Operations.php:927
 #, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "테이블 %s 을 %s 로 옮겼습니다. 권한설정을 조정하였습니다."
 
-#: src/Operations.php:932
+#: src/Operations.php:933
 #, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "%s 테이블을 %s 으로 복사하였습니다. 권한설정을 조정하였습니다."
 
-#: src/Operations.php:938
+#: src/Operations.php:939
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "테이블 %s 을 %s 로 옮겼습니다."
 
-#: src/Operations.php:942
+#: src/Operations.php:943
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "%s 테이블이 %s 으로 복사되었습니다."
 
-#: src/Operations.php:965
+#: src/Operations.php:966
 msgid "The table name is empty!"
 msgstr "테이블명이 없습니다!"
 
@@ -16615,30 +16698,30 @@ msgstr "엑셀 형식:"
 #: src/Plugins/Export/ExportHtmlword.php:81
 #: src/Plugins/Export/ExportLatex.php:174 src/Plugins/Export/ExportOdt.php:127
 #: src/Plugins/Export/ExportTexytext.php:79
-#: src/Plugins/Export/ExportXml.php:129
+#: src/Plugins/Export/ExportXml.php:130
 msgid "Data dump options"
 msgstr "데이터 덤프 옵션"
 
 #: src/Plugins/Export/ExportHtmlword.php:192
-#: src/Plugins/Export/ExportOdt.php:244 src/Plugins/Export/ExportSql.php:2148
+#: src/Plugins/Export/ExportOdt.php:244 src/Plugins/Export/ExportSql.php:2149
 #: src/Plugins/Export/ExportTexytext.php:177
 msgid "Dumping data for table"
 msgstr "테이블의 덤프 데이터"
 
 #: src/Plugins/Export/ExportHtmlword.php:486
-#: src/Plugins/Export/ExportOdt.php:616 src/Plugins/Export/ExportSql.php:1892
+#: src/Plugins/Export/ExportOdt.php:616 src/Plugins/Export/ExportSql.php:1893
 #: src/Plugins/Export/ExportTexytext.php:458
 msgid "Table structure for table"
 msgstr "테이블 구조"
 
 #: src/Plugins/Export/ExportHtmlword.php:503
-#: src/Plugins/Export/ExportOdt.php:636 src/Plugins/Export/ExportSql.php:1950
+#: src/Plugins/Export/ExportOdt.php:636 src/Plugins/Export/ExportSql.php:1951
 #: src/Plugins/Export/ExportTexytext.php:471
 msgid "Structure for view"
 msgstr "뷰 구조"
 
 #: src/Plugins/Export/ExportHtmlword.php:509
-#: src/Plugins/Export/ExportOdt.php:644 src/Plugins/Export/ExportSql.php:1989
+#: src/Plugins/Export/ExportOdt.php:644 src/Plugins/Export/ExportSql.php:1990
 #: src/Plugins/Export/ExportTexytext.php:475
 msgid "Stand-in structure for view"
 msgstr "뷰 용 스탠드-인 구조"
@@ -16664,7 +16747,7 @@ msgid "Structure of table @TABLE@"
 msgstr "@TABLE@ 테이블 구조"
 
 #: src/Plugins/Export/ExportLatex.php:123 src/Plugins/Export/ExportOdt.php:94
-#: src/Plugins/Export/ExportSql.php:277
+#: src/Plugins/Export/ExportSql.php:278
 msgid "Object creation options"
 msgstr "객체 생성 옵션"
 
@@ -16684,7 +16767,7 @@ msgid "Label key:"
 msgstr "라벨 키:"
 
 #: src/Plugins/Export/ExportLatex.php:149 src/Plugins/Export/ExportOdt.php:102
-#: src/Plugins/Export/ExportSql.php:202
+#: src/Plugins/Export/ExportSql.php:203
 msgid "Display foreign key relationships"
 msgstr "외래 키 릴레이션 표시"
 
@@ -16693,7 +16776,7 @@ msgid "Display comments"
 msgstr "댓글 보기"
 
 #: src/Plugins/Export/ExportLatex.php:162 src/Plugins/Export/ExportOdt.php:115
-#: src/Plugins/Export/ExportSql.php:210
+#: src/Plugins/Export/ExportSql.php:211
 msgid "Display media types"
 msgstr "MIME 타입 표시"
 
@@ -16701,17 +16784,17 @@ msgstr "MIME 타입 표시"
 msgid "Put columns names in the first row:"
 msgstr "첫 줄에 열 이름 추가:"
 
-#: src/Plugins/Export/ExportLatex.php:231 src/Plugins/Export/ExportSql.php:761
-#: src/Plugins/Export/ExportXml.php:213
+#: src/Plugins/Export/ExportLatex.php:231 src/Plugins/Export/ExportSql.php:762
+#: src/Plugins/Export/ExportXml.php:214
 msgid "Generation Time:"
 msgstr "생성 시간:"
 
-#: src/Plugins/Export/ExportLatex.php:234 src/Plugins/Export/ExportSql.php:767
-#: src/Plugins/Export/ExportXml.php:216
+#: src/Plugins/Export/ExportLatex.php:234 src/Plugins/Export/ExportSql.php:768
+#: src/Plugins/Export/ExportXml.php:217
 msgid "PHP Version:"
 msgstr "PHP 버전:"
 
-#: src/Plugins/Export/ExportLatex.php:320 src/Plugins/Export/ExportSql.php:2038
+#: src/Plugins/Export/ExportLatex.php:320 src/Plugins/Export/ExportSql.php:2039
 msgid "Data:"
 msgstr "데이터:"
 
@@ -16752,7 +16835,7 @@ msgstr "구조 보기"
 msgid "Stand in"
 msgstr "스탠드 인"
 
-#: src/Plugins/Export/ExportSql.php:181
+#: src/Plugins/Export/ExportSql.php:182
 msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
@@ -16760,48 +16843,48 @@ msgstr ""
 "추가 설명 표시 <i>(내보내기 타임스탬프, PHP 버전, 서버 버전 등의 정보 포함)</"
 "i>"
 
-#: src/Plugins/Export/ExportSql.php:188
+#: src/Plugins/Export/ExportSql.php:189
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr "추가적인 커스텀 헤더 코멘트(\\n으로 줄바꿈):"
 
-#: src/Plugins/Export/ExportSql.php:194
+#: src/Plugins/Export/ExportSql.php:195
 msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
 msgstr ""
 "데이터베이스가 생성, 최종 업데이트, 최종 체크의 타임스탬프를 포함합니다"
 
-#: src/Plugins/Export/ExportSql.php:247
+#: src/Plugins/Export/ExportSql.php:248
 msgid "Export metadata"
 msgstr "메타데이터 내보내기"
 
-#: src/Plugins/Export/ExportSql.php:285
+#: src/Plugins/Export/ExportSql.php:286
 msgid "Add statements:"
 msgstr "구문 추가:"
 
-#: src/Plugins/Export/ExportSql.php:293 src/Plugins/Export/ExportSql.php:302
-#: src/Plugins/Export/ExportSql.php:319 src/Plugins/Export/ExportSql.php:328
-#: src/Plugins/Export/ExportSql.php:352 src/Plugins/Export/ExportSql.php:380
-#: src/Plugins/Export/ExportSql.php:389
+#: src/Plugins/Export/ExportSql.php:294 src/Plugins/Export/ExportSql.php:303
+#: src/Plugins/Export/ExportSql.php:320 src/Plugins/Export/ExportSql.php:329
+#: src/Plugins/Export/ExportSql.php:353 src/Plugins/Export/ExportSql.php:381
+#: src/Plugins/Export/ExportSql.php:390
 #, php-format
 msgid "Add %s statement"
 msgstr "%s 구문 추가"
 
-#: src/Plugins/Export/ExportSql.php:335
+#: src/Plugins/Export/ExportSql.php:336
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr "(테이블 생성 중에 인덱스가 생성되므로 효율성이 떨어짐)"
 
-#: src/Plugins/Export/ExportSql.php:342
+#: src/Plugins/Export/ExportSql.php:343
 #, php-format
 msgid "%s value"
 msgstr "%s 값"
 
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
-#: src/Plugins/Export/ExportSql.php:359
+#: src/Plugins/Export/ExportSql.php:360
 msgid "Use simple view export"
 msgstr "단순 뷰 내보내기 사용"
 
-#: src/Plugins/Export/ExportSql.php:398
+#: src/Plugins/Export/ExportSql.php:399
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
@@ -16809,35 +16892,35 @@ msgstr ""
 "테이블과 컬럼의 이름을 역따옴표로 감싸기 <i>(특수문자나 키워드가 포함된 컬럼"
 "이나 테이블의 이름을 보호함)</i>"
 
-#: src/Plugins/Export/ExportSql.php:413
+#: src/Plugins/Export/ExportSql.php:414
 msgid "Data creation options"
 msgstr "데이터 생성 옵션"
 
-#: src/Plugins/Export/ExportSql.php:418 src/Plugins/Export/ExportSql.php:2111
+#: src/Plugins/Export/ExportSql.php:419 src/Plugins/Export/ExportSql.php:2112
 msgid "Truncate table before insert"
 msgstr "삽입 전에 테이블 비우기"
 
-#: src/Plugins/Export/ExportSql.php:425
+#: src/Plugins/Export/ExportSql.php:426
 msgid "Instead of <code>INSERT</code> statements, use:"
 msgstr "<code>INSERT</code> 구문 대신 사용할 구문:"
 
-#: src/Plugins/Export/ExportSql.php:431
+#: src/Plugins/Export/ExportSql.php:432
 msgid "<code>INSERT DELAYED</code> statements"
 msgstr "<code>INSERT DELAYED</code> 문"
 
-#: src/Plugins/Export/ExportSql.php:440 src/Plugins/Export/ExportSql.php:467
+#: src/Plugins/Export/ExportSql.php:441 src/Plugins/Export/ExportSql.php:468
 msgid "<code>INSERT IGNORE</code> statements"
 msgstr "<code>INSERT IGNORE</code> 문"
 
-#: src/Plugins/Export/ExportSql.php:451
+#: src/Plugins/Export/ExportSql.php:452
 msgid "Function to use when dumping data:"
 msgstr "데이터 덤프시 사용할 함수:"
 
-#: src/Plugins/Export/ExportSql.php:462
+#: src/Plugins/Export/ExportSql.php:463
 msgid "Syntax to use when inserting data:"
 msgstr "데이터 삽입시 사용할 구문:"
 
-#: src/Plugins/Export/ExportSql.php:472
+#: src/Plugins/Export/ExportSql.php:473
 msgid ""
 "include column names in every <code>INSERT</code> statement <br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
@@ -16846,7 +16929,7 @@ msgstr ""
 "모든 <code>INSERT</code> 구문에 컬럼 이름을 포함<br>&nbsp; &nbsp; &nbsp;예: "
 "<code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3)</code>"
 
-#: src/Plugins/Export/ExportSql.php:477
+#: src/Plugins/Export/ExportSql.php:478
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
@@ -16855,7 +16938,7 @@ msgstr ""
 "모든 <code>INSERT</code> 구문에 여러 개의 행을 삽입<br>&nbsp; &nbsp; &nbsp; "
 "예:<code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
-#: src/Plugins/Export/ExportSql.php:482
+#: src/Plugins/Export/ExportSql.php:483
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
@@ -16863,7 +16946,7 @@ msgstr ""
 "위의 것 둘 다<br> &nbsp; &nbsp; &nbsp; 예: <code>INSERT INTO tbl_name (col_A,"
 "col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
-#: src/Plugins/Export/ExportSql.php:487
+#: src/Plugins/Export/ExportSql.php:488
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
@@ -16871,7 +16954,7 @@ msgstr ""
 "위의 것 둘 다 안 함<br> &nbsp; &nbsp; &nbsp; 예: <code>INSERT INTO tbl_name "
 "VALUES (1,2,3)</code>"
 
-#: src/Plugins/Export/ExportSql.php:506
+#: src/Plugins/Export/ExportSql.php:507
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
@@ -16879,7 +16962,7 @@ msgstr ""
 "16진수 표기법으로 이진 열을 덤프합니다. <i>(예: \"abc\"는 0x616263가 됩니"
 "다)</i>"
 
-#: src/Plugins/Export/ExportSql.php:515
+#: src/Plugins/Export/ExportSql.php:516
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
@@ -16887,114 +16970,114 @@ msgstr ""
 "UTC로 TIMESTAMP 열 덤프 <i>(서로 다른 시간대에 있는 서버 간에 TIMESTAMP 열을 "
 "덤프하고 다시 로드할 수 있도록 합니다)</i>"
 
-#: src/Plugins/Export/ExportSql.php:592
+#: src/Plugins/Export/ExportSql.php:593
 msgid "It appears your database uses routines;"
 msgstr "데이터베이스에서 루틴을 사용하는 것 같습니다;"
 
-#: src/Plugins/Export/ExportSql.php:595 src/Plugins/Export/ExportSql.php:1505
-#: src/Plugins/Export/ExportSql.php:1938
+#: src/Plugins/Export/ExportSql.php:596 src/Plugins/Export/ExportSql.php:1506
+#: src/Plugins/Export/ExportSql.php:1939
 msgid "alias export may not work reliably in all cases."
 msgstr "별칭 내보내기가 모든 경우에 안정적으로 동작하지 않을 수 있습니다."
 
-#: src/Plugins/Export/ExportSql.php:1052
+#: src/Plugins/Export/ExportSql.php:1053
 msgid "Metadata"
 msgstr "메타데이터"
 
-#: src/Plugins/Export/ExportSql.php:1113
+#: src/Plugins/Export/ExportSql.php:1114
 #, php-format
 msgid "Metadata for table %s"
 msgstr "%s 테이블용 메타데이터"
 
-#: src/Plugins/Export/ExportSql.php:1120
+#: src/Plugins/Export/ExportSql.php:1121
 #, php-format
 msgid "Metadata for database %s"
 msgstr "%s 데이터베이스용 메타데이터"
 
-#: src/Plugins/Export/ExportSql.php:1419
+#: src/Plugins/Export/ExportSql.php:1420
 #, php-format
 msgid "Error reading structure for table %s:"
 msgstr "테이블 %s의 구조를 읽는 중 오류:"
 
-#: src/Plugins/Export/ExportSql.php:1502
+#: src/Plugins/Export/ExportSql.php:1503
 msgid "It appears your database uses views;"
 msgstr "데이터베이스에서 뷰를 사용하는 것 같습니다;"
 
-#: src/Plugins/Export/ExportSql.php:1646
+#: src/Plugins/Export/ExportSql.php:1647
 msgid "Constraints for dumped tables"
 msgstr "덤프된 테이블의 제약사항"
 
-#: src/Plugins/Export/ExportSql.php:1647
+#: src/Plugins/Export/ExportSql.php:1648
 msgid "Constraints for table"
 msgstr "테이블의 제약사항"
 
-#: src/Plugins/Export/ExportSql.php:1673
+#: src/Plugins/Export/ExportSql.php:1674
 msgid "Indexes for dumped tables"
 msgstr "덤프된 테이블의 인덱스"
 
-#: src/Plugins/Export/ExportSql.php:1674
+#: src/Plugins/Export/ExportSql.php:1675
 msgid "Indexes for table"
 msgstr "테이블의 인덱스"
 
-#: src/Plugins/Export/ExportSql.php:1697
+#: src/Plugins/Export/ExportSql.php:1698
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "덤프된 테이블의 AUTO_INCREMENT"
 
-#: src/Plugins/Export/ExportSql.php:1698
+#: src/Plugins/Export/ExportSql.php:1699
 msgid "AUTO_INCREMENT for table"
 msgstr "테이블의 AUTO_INCREMENT"
 
-#: src/Plugins/Export/ExportSql.php:1754
+#: src/Plugins/Export/ExportSql.php:1755
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "테이블에 포함된 MIME형식"
 
-#: src/Plugins/Export/ExportSql.php:1784
+#: src/Plugins/Export/ExportSql.php:1785
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "테이블의 릴레이션"
 
-#: src/Plugins/Export/ExportSql.php:1935
+#: src/Plugins/Export/ExportSql.php:1936
 msgid "It appears your table uses triggers;"
 msgstr "테이블에서 트리거를 사용하는 것 같습니다;"
 
-#: src/Plugins/Export/ExportSql.php:1965
+#: src/Plugins/Export/ExportSql.php:1966
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "테이블로 내보낸 %s 뷰의 구조"
 
-#: src/Plugins/Export/ExportSql.php:1992
+#: src/Plugins/Export/ExportSql.php:1993
 msgid "(See below for the actual view)"
 msgstr "(실제 뷰는 아래 참조)"
 
-#: src/Plugins/Export/ExportSql.php:2049
+#: src/Plugins/Export/ExportSql.php:2050
 #, php-format
 msgid "Error reading data for table %s:"
 msgstr "테이블 %s의 데이터를 읽는 동안 발생한 오류:"
 
-#: src/Plugins/Export/ExportSql.php:2625
+#: src/Plugins/Export/ExportSql.php:2626
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:565
 msgid "Creation:"
 msgstr "생성:"
 
-#: src/Plugins/Export/ExportSql.php:2633
+#: src/Plugins/Export/ExportSql.php:2634
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:576
 msgid "Last update:"
 msgstr "마지막 업데이트:"
 
-#: src/Plugins/Export/ExportSql.php:2641
+#: src/Plugins/Export/ExportSql.php:2642
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:587
 msgid "Last check:"
 msgstr "마지막 검사:"
 
-#: src/Plugins/Export/ExportSql.php:2662
+#: src/Plugins/Export/ExportSql.php:2663
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
 "호환성을 최대화 할 수 있는 데이터베이스 시스템 또는 예전 버전의 MySQL 서버:"
 
-#: src/Plugins/Export/ExportXml.php:90
+#: src/Plugins/Export/ExportXml.php:91
 msgid "Object creation options (all are recommended)"
 msgstr "개체 생성 옵션(모두 권장)"
 
-#: src/Plugins/Export/ExportXml.php:134
+#: src/Plugins/Export/ExportXml.php:135
 msgid "Export contents"
 msgstr "내용 내보내기"
 
@@ -17603,7 +17686,7 @@ msgid "Error 405! Request method not allowed."
 msgstr "405 오류! 요청 메서드가 허용되지 않습니다."
 
 #: src/Server/Plugins.php:53 src/Server/Privileges.php:634
-#: src/Server/Privileges.php:3138
+#: src/Server/Privileges.php:3135
 msgid "Native MySQL authentication"
 msgstr "기본 MySQL 인증"
 
@@ -17715,7 +17798,7 @@ msgstr ""
 msgid "You have added a new user."
 msgstr "새 사용자를 추가했습니다."
 
-#: src/Server/Privileges.php:3230
+#: src/Server/Privileges.php:3227
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
