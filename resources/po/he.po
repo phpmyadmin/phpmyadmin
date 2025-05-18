@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-05-18 00:29+0000\n"
-"PO-Revision-Date: 2025-05-04 17:35+0000\n"
+"PO-Revision-Date: 2025-05-19 07:01+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "he/>\n"
@@ -2025,10 +2025,8 @@ msgid "OFF"
 msgstr "כבוי"
 
 #: resources/templates/database/events/index.twig:161
-#, fuzzy
-#| msgid "Excel edition"
 msgid "Event editor"
-msgstr "מהדורת Excel"
+msgstr "עורך אירועים"
 
 #: resources/templates/database/events/index.twig:166
 #: resources/templates/database/routines/index.twig:83
@@ -2054,27 +2052,25 @@ msgid "Save changes"
 msgstr "שמירת עמוד"
 
 #: resources/templates/database/events/index.twig:181
-#, fuzzy
-#| msgid "Export of event %s"
 msgid "Export event"
-msgstr "ייצוא של אירועים %s"
+msgstr "ייצוא אירועים"
 
 #: resources/templates/database/export/index.twig:61
 msgid ""
 "@SERVER@ will become the server name and @DATABASE@ will become the database "
 "name."
-msgstr ""
+msgstr "@SERVER@ יהפוך לשם השרת ואילו @DATABASE@ יהפוך לשם מסד הנתונים."
 
 #. l10n: A query that the user has written freely
 #: resources/templates/database/export/index.twig:5
 #: resources/templates/table/export/index.twig:5
 msgid "Exporting a raw query"
-msgstr ""
+msgstr "מתבצע ייצוא של שאילתה גולמית"
 
 #: resources/templates/database/export/index.twig:7
-#, fuzzy, php-format
+#, php-format
 msgid "Exporting tables from \"%s\" database"
-msgstr "יצירת טבלה חדשה על מאגר נתונים %s"
+msgstr "מתבצע ייצוא של טבלאות ממסד הנתונים „%s”"
 
 #: resources/templates/database/export/index.twig:14
 #: src/Navigation/Navigation.php:219
@@ -5832,10 +5828,8 @@ msgid ""
 msgstr ""
 
 #: resources/templates/server/status/monitor/index.twig:58
-#, fuzzy
-#| msgid "Import monitor configuration"
 msgid "Importing system monitor configuration"
-msgstr "ייבוא תצורת מעקב"
+msgstr "ייבוא תצורת מעקב מערכת"
 
 #: resources/templates/server/status/monitor/index.twig:63
 #: src/Controllers/JavaScriptMessagesController.php:299
@@ -6019,8 +6013,6 @@ msgid "Cancel request"
 msgstr "ביטול הבקשה"
 
 #: resources/templates/server/status/monitor/index.twig:294
-#, fuzzy
-#| msgid "Analysing & loading logs. This may take a while."
 msgid "Analysing and loading logs. This may take a while."
 msgstr "היומנים מנותחים ונטענים. פעולה זו עשויה לארוך זמן מה."
 
@@ -6041,8 +6033,6 @@ msgid "Log data loaded. Queries executed in this time span:"
 msgstr "נתוני היומן נטענו. שאילתות שהופעלו בטווח זמן זה:"
 
 #: resources/templates/server/status/monitor/index.twig:336
-#, fuzzy
-#| msgid "Jump to Log table"
 msgid "Jump to the log table"
 msgstr "מעבר לטבלת היומן"
 
@@ -6052,10 +6042,8 @@ msgstr "רענון המעקב נכשל"
 
 #: resources/templates/server/status/monitor/index.twig:350
 #: resources/templates/server/status/monitor/index.twig:369
-#, fuzzy
-#| msgid "Warnings"
 msgid "Warning:"
-msgstr "אזהרות"
+msgstr "אזהרה:"
 
 #: resources/templates/server/status/monitor/index.twig:351
 msgid ""
@@ -15215,23 +15203,21 @@ msgid "You must provide a valid return type for the routine."
 msgstr ""
 
 #: src/Database/Routines.php:813
-#, fuzzy
-#| msgid "Invalid authentication type!"
 msgid "Invalid routine type!"
-msgstr "סוג האימות שגוי!"
+msgstr "סוג השגרה שגוי!"
 
 #: src/Database/Routines.php:819
 msgid "You must provide a routine name!"
-msgstr ""
+msgstr "חובה לספק שם שגרה!"
 
 #: src/Database/Routines.php:882
 msgid "You must provide a routine definition."
-msgstr ""
+msgstr "חובה לספק הגדרת שגרה."
 
 #: src/Database/Routines.php:1016
-#, fuzzy, php-format
+#, php-format
 msgid "Execution results of routine %s"
-msgstr "מאפשר יצירת שגרות מאוחסנות."
+msgstr "תוצאות הפעלת השגרה %s"
 
 #: src/Database/Routines.php:1031
 #, php-format
