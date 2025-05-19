@@ -832,8 +832,8 @@ class Sql
             $GLOBALS['querytime'] = $this->dbi->lastQueryExecutionTime;
 
             if (! defined('TESTSUITE')) {
-                // reopen session
-                session_start();
+                // reopen session but prevent PHP from sending the session cookie again
+                session_start(['use_cookies' => false]);
             }
 
             // Displays an error message if required and stop parsing the script
