@@ -78,7 +78,7 @@ class Session
      *
      * @throws SessionHandlerException
      */
-    private static function sessionFailed(array $errors): void
+    private static function sessionFailed(array $errors): never
     {
         $messages = [];
         foreach ($errors as $error) {
@@ -115,7 +115,7 @@ class Session
     /** @throws SessionHandlerException */
     public static function setUp(Config $config, ErrorHandler $errorHandler): void
     {
-        if (! empty(ini_get('session.auto_start')) && session_name() !== 'phpMyAdmin' && ! empty(session_id())) {
+        if (ini_get('session.auto_start') && session_name() !== 'phpMyAdmin' && session_id()) {
             // Do not delete the existing non empty session, it might be used by
             // other applications; instead just close it.
             if ($_SESSION === []) {
@@ -173,7 +173,7 @@ class Session
         session_cache_limiter('private');
 
         $httpCookieName = $config->getCookieName('phpMyAdmin');
-        @session_name($httpCookieName);
+        session_name($httpCookieName);
 
         // Restore correct session ID (it might have been reset by auto started session
         if ($config->issetCookie('phpMyAdmin')) {
@@ -190,15 +190,6 @@ class Session
             setcookie($httpCookieName, '', 1);
             $errors = $errorHandler->sliceErrors($origErrorCount);
             self::sessionFailed($errors);
-        }
-
-        unset($origErrorCount, $sessionResult);
-
-        /**
-         * Disable setting of session cookies for further session_start() calls.
-         */
-        if (session_status() !== PHP_SESSION_ACTIVE) {
-            ini_set('session.use_cookies', 'true');
         }
 
         /**
@@ -224,7 +215,10 @@ class Session
             self::sessionFailed($errors);
         }
 
+        // PHP will send the same cookie again, but there is no way to stop it
+        // A third cookie will be sent by session_regenerate_id() which will override these two
         session_start();
+
         if (! empty($_SESSION[' PMA_token '])) {
             return;
         }

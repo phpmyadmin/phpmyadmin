@@ -8325,8 +8325,8 @@
       <code><![CDATA[$config->getCookie('phpMyAdmin')]]></code>
     </MixedArgument>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty(ini_get('session.auto_start'))]]></code>
-      <code><![CDATA[empty(session_id())]]></code>
+      <code><![CDATA[ini_get('session.auto_start')]]></code>
+      <code><![CDATA[session_id()]]></code>
     </RiskyTruthyFalsyComparison>
     <UnusedFunctionCall>
       <code><![CDATA[session_save_path]]></code>
