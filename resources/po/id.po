@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-05-18 00:29+0000\n"
-"PO-Revision-Date: 2025-05-07 04:03+0000\n"
+"PO-Revision-Date: 2025-05-19 07:01+0000\n"
 "Last-Translator: Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/id/>\n"
@@ -1946,10 +1946,8 @@ msgid "OFF"
 msgstr "NONAKTIF"
 
 #: resources/templates/database/events/index.twig:161
-#, fuzzy
-#| msgid "Excel edition"
 msgid "Event editor"
-msgstr "Versi Excel"
+msgstr "Penyunting event"
 
 #: resources/templates/database/events/index.twig:166
 #: resources/templates/database/routines/index.twig:83
@@ -1974,10 +1972,8 @@ msgid "Save changes"
 msgstr "Simpan perubahan"
 
 #: resources/templates/database/events/index.twig:181
-#, fuzzy
-#| msgid "Export of event %s"
 msgid "Export event"
-msgstr "Ekspor event %s"
+msgstr "Ekspor event"
 
 #: resources/templates/database/export/index.twig:61
 msgid ""
@@ -5741,10 +5737,8 @@ msgstr ""
 "mengekspornya jika Anda memiliki pengaturan yang rumit."
 
 #: resources/templates/server/status/monitor/index.twig:58
-#, fuzzy
-#| msgid "Import monitor configuration"
 msgid "Importing system monitor configuration"
-msgstr "Impor konfigurasi monitor"
+msgstr "Mengimpor konfigurasi monitor sistem"
 
 #: resources/templates/server/status/monitor/index.twig:63
 #: src/Controllers/JavaScriptMessagesController.php:299
@@ -5756,10 +5750,8 @@ msgid "Reset to default"
 msgstr "Kembalikan nilai bawaan"
 
 #: resources/templates/server/status/monitor/index.twig:87
-#, fuzzy
-#| msgid "Monitor Instructions"
 msgid "System monitor instructions"
-msgstr "Instruksi Pemantauan"
+msgstr "Petunjuk monitor sistem"
 
 #: resources/templates/server/status/monitor/index.twig:92
 msgid ""
@@ -5941,10 +5933,9 @@ msgid "Cancel request"
 msgstr "Permintaan pembatalan"
 
 #: resources/templates/server/status/monitor/index.twig:294
-#, fuzzy
-#| msgid "Analysing & loading logs. This may take a while."
 msgid "Analysing and loading logs. This may take a while."
-msgstr "Menganalisis & memuat log. Mungkin perlu waktu."
+msgstr ""
+"Menganalisis dan memuat log. Proses ini mungkin memerlukan waktu yang lama."
 
 #: resources/templates/server/status/monitor/index.twig:310
 msgid "No data found"
@@ -5964,10 +5955,8 @@ msgid "Log data loaded. Queries executed in this time span:"
 msgstr "Data log dimuat. Query dieksekusi dalam rentang waktu ini:"
 
 #: resources/templates/server/status/monitor/index.twig:336
-#, fuzzy
-#| msgid "Jump to Log table"
 msgid "Jump to the log table"
-msgstr "Langsung ke tabel Log"
+msgstr "Lompat ke tabel log"
 
 #: resources/templates/server/status/monitor/index.twig:346
 msgid "Monitor refresh failed"
@@ -5975,10 +5964,8 @@ msgstr "Penyegaran layar gagal"
 
 #: resources/templates/server/status/monitor/index.twig:350
 #: resources/templates/server/status/monitor/index.twig:369
-#, fuzzy
-#| msgid "Warning"
 msgid "Warning:"
-msgstr "Peringatan"
+msgstr "Peringatan:"
 
 #: resources/templates/server/status/monitor/index.twig:351
 msgid ""
@@ -5999,22 +5986,16 @@ msgid "Local monitor configuration incompatible!"
 msgstr "Konfigurasi monitor lokal tidak kompatibel!"
 
 #: resources/templates/server/status/monitor/index.twig:370
-#, fuzzy
-#| msgid ""
-#| "The chart arrangement configuration in your browsers local storage is not "
-#| "compatible anymore to the newer version of the monitor dialog. It is very "
-#| "likely that your current configuration will not work anymore. Please "
-#| "reset your configuration to default in the <i>Settings</i> menu."
 msgid ""
 "The chart arrangement configuration in your browsers local storage is not "
 "compatible anymore to the newer version of the monitor dialog. It is very "
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the [em]Settings[/em] menu."
 msgstr ""
-"Konfigurasi pengaturan bagan dalam penyimpanan lokal peramban Anda tidak "
-"lagi kompatibel dengan versi baru dialog monitor. Sangat mungkin konfigurasi "
-"Anda saat ini tidak lagi bekerja. Harap reset konfigurasi menjadi bawaan "
-"pada menu <i>Pengaturan</i>."
+"Konfigurasi pengaturan grafik di penyimpanan lokal browser Anda tidak lagi "
+"kompatibel dengan versi dialog monitor yang lebih baru. Kemungkinan besar "
+"konfigurasi Anda saat ini tidak akan berfungsi lagi. Harap setel ulang "
+"konfigurasi Anda ke default di menu [em]Pengaturan[/em]."
 
 #: resources/templates/server/status/processes/index.twig:14
 msgid "Show only active"
