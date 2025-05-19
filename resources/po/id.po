@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-05-18 00:29+0000\n"
-"PO-Revision-Date: 2025-05-19 07:01+0000\n"
+"PO-Revision-Date: 2025-05-20 07:03+0000\n"
 "Last-Translator: Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/id/>\n"
@@ -7400,16 +7400,12 @@ msgid "There are no triggers to display."
 msgstr "Tidak ada trigger untuk ditampilkan."
 
 #: resources/templates/triggers/list.twig:81
-#, fuzzy
-#| msgid "Trigger name"
 msgid "Trigger editor"
-msgstr "Nama trigger"
+msgstr "Penyunting trigger"
 
 #: resources/templates/triggers/list.twig:101
-#, fuzzy
-#| msgid "Export of trigger %s"
 msgid "Export trigger"
-msgstr "Ekspor trigger %s"
+msgstr "Ekspor trigger"
 
 #: resources/templates/view_create.twig:75
 msgid "VIEW name"
@@ -15673,10 +15669,8 @@ msgid "You must provide a valid return type for the routine."
 msgstr "Anda harus memasukkan jenis hasil yang valid untuk routine."
 
 #: src/Database/Routines.php:813
-#, fuzzy
-#| msgid "Invalid routine type: \"%s\""
 msgid "Invalid routine type!"
-msgstr "Jenis routine invalid: \"%s\""
+msgstr "Jenis rutin tidak valid!"
 
 #: src/Database/Routines.php:819
 msgid "You must provide a routine name!"
