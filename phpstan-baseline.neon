@@ -1465,12 +1465,6 @@ parameters:
 			path: src/ConfigStorage/Relation.php
 
 		-
-			message: '#^Cannot access an offset on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
 			message: '#^Cannot cast mixed to string\.$#'
 			identifier: cast.string
 			count: 1
@@ -1657,12 +1651,6 @@ parameters:
 			path: src/ConfigStorage/Relation.php
 
 		-
-			message: '#^Only booleans are allowed in a negated boolean, string\|false\|null given\.$#'
-			identifier: booleanNot.exprNotBoolean
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
 			message: '#^Only booleans are allowed in an if condition, PhpMyAdmin\\Dbal\\ResultInterface\|false given\.$#'
 			identifier: if.condNotBoolean
 			count: 1
@@ -1671,18 +1659,6 @@ parameters:
 		-
 			message: '#^Only booleans are allowed in an if condition, bool\|string\|null given\.$#'
 			identifier: if.condNotBoolean
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
-			message: '#^Parameter \#1 \$array of function array_reverse expects array, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
-			message: '#^Parameter \#1 \$array of function array_shift expects array, mixed given\.$#'
-			identifier: argument.type
 			count: 1
 			path: src/ConfigStorage/Relation.php
 
@@ -1712,12 +1688,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#1 \$type of method PhpMyAdmin\\Types\:\:getTypeClass\(\) expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
-			message: '#^Parameter \#1 \$value of function count expects array\|Countable, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/ConfigStorage/Relation.php
@@ -1775,6 +1745,36 @@ parameters:
 			identifier: staticMethod.deprecated
 			count: 1
 			path: src/Console.php
+
+		-
+			message: '#^Cannot access an offset on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Console/History.php
+
+		-
+			message: '#^Only booleans are allowed in a negated boolean, string\|false\|null given\.$#'
+			identifier: booleanNot.exprNotBoolean
+			count: 1
+			path: src/Console/History.php
+
+		-
+			message: '#^Parameter \#1 \$array of function array_reverse expects array, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Console/History.php
+
+		-
+			message: '#^Parameter \#1 \$array of function array_shift expects array, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Console/History.php
+
+		-
+			message: '#^Parameter \#1 \$value of function count expects array\|Countable, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Console/History.php
 
 		-
 			message: '#^Binary operation "\.\=" between mixed and '' \-\> '' results in an error\.$#'
@@ -16706,6 +16706,15 @@ parameters:
 
 		-
 			message: '''
+				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
+				Use dependency injection instead\.$#
+			'''
+			identifier: staticMethod.deprecated
+			count: 1
+			path: tests/unit/ConsoleTest.php
+
+		-
+			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
 				Use dependency injection instead\.$#
 			'''
@@ -16739,6 +16748,15 @@ parameters:
 			identifier: staticMethod.deprecated
 			count: 2
 			path: tests/unit/Controllers/Console/Bookmark/AddControllerTest.php
+
+		-
+			message: '''
+				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
+				Use dependency injection instead\.$#
+			'''
+			identifier: staticMethod.deprecated
+			count: 1
+			path: tests/unit/Controllers/Console/Bookmark/RefreshControllerTest.php
 
 		-
 			message: '''

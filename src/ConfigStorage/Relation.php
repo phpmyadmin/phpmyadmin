@@ -24,9 +24,7 @@ use PhpMyAdmin\Version;
 use function __;
 use function array_fill_keys;
 use function array_keys;
-use function array_reverse;
 use function array_search;
-use function array_shift;
 use function asort;
 use function bin2hex;
 use function count;
@@ -604,137 +602,6 @@ class Relation
         }
 
         return (bool) $this->dbi->queryAsControlUser($updQuery);
-    }
-
-    /**
-     * Set a SQL history entry
-     *
-     * @param string $db       the name of the db
-     * @param string $table    the name of the table
-     * @param string $username the username
-     * @param string $sqlquery the sql query
-     */
-    public function setHistory(string $db, string $table, string $username, string $sqlquery): void
-    {
-        $maxCharactersInDisplayedSQL = $this->config->settings['MaxCharactersInDisplayedSQL'];
-        // Prevent to run this automatically on Footer class destroying in testsuite
-        if (mb_strlen($sqlquery) > $maxCharactersInDisplayedSQL) {
-            return;
-        }
-
-        $sqlHistoryFeature = $this->getRelationParameters()->sqlHistoryFeature;
-
-        if (! isset($_SESSION['sql_history'])) {
-            $_SESSION['sql_history'] = [];
-        }
-
-        $_SESSION['sql_history'][] = ['db' => $db, 'table' => $table, 'sqlquery' => $sqlquery];
-
-        if (count($_SESSION['sql_history']) > $this->config->settings['QueryHistoryMax']) {
-            // history should not exceed a maximum count
-            array_shift($_SESSION['sql_history']);
-        }
-
-        if ($sqlHistoryFeature === null || ! $this->config->settings['QueryHistoryDB']) {
-            return;
-        }
-
-        $this->dbi->queryAsControlUser(
-            'INSERT INTO '
-            . Util::backquote($sqlHistoryFeature->database) . '.'
-            . Util::backquote($sqlHistoryFeature->history) . '
-                  (`username`,
-                    `db`,
-                    `table`,
-                    `timevalue`,
-                    `sqlquery`)
-            VALUES
-                  (' . $this->dbi->quoteString($username, ConnectionType::ControlUser) . ',
-                   ' . $this->dbi->quoteString($db, ConnectionType::ControlUser) . ',
-                   ' . $this->dbi->quoteString($table, ConnectionType::ControlUser) . ',
-                   NOW(),
-                   ' . $this->dbi->quoteString($sqlquery, ConnectionType::ControlUser) . ')',
-        );
-
-        $this->purgeHistory($username);
-    }
-
-    /**
-     * Gets a SQL history entry
-     *
-     * @param string $username the username
-     *
-     * @return mixed[]|false list of history items
-     */
-    public function getHistory(string $username): array|false
-    {
-        $sqlHistoryFeature = $this->getRelationParameters()->sqlHistoryFeature;
-        if ($sqlHistoryFeature === null) {
-            return false;
-        }
-
-        /**
-         * if db-based history is disabled but there exists a session-based
-         * history, use it
-         */
-        if (! $this->config->settings['QueryHistoryDB']) {
-            if (isset($_SESSION['sql_history'])) {
-                return array_reverse($_SESSION['sql_history']);
-            }
-
-            return false;
-        }
-
-        $histQuery = '
-             SELECT `db`,
-                    `table`,
-                    `sqlquery`,
-                    `timevalue`
-               FROM ' . Util::backquote($sqlHistoryFeature->database)
-                . '.' . Util::backquote($sqlHistoryFeature->history) . '
-              WHERE `username` = ' . $this->dbi->quoteString($username) . '
-           ORDER BY `id` DESC';
-
-        return $this->dbi->fetchResultSimple($histQuery, ConnectionType::ControlUser);
-    }
-
-    /**
-     * purges SQL history
-     *
-     * deletes entries that exceeds $cfg['QueryHistoryMax'], oldest first, for the
-     * given user
-     *
-     * @param string $username the username
-     */
-    public function purgeHistory(string $username): void
-    {
-        $sqlHistoryFeature = $this->getRelationParameters()->sqlHistoryFeature;
-        if (! $this->config->settings['QueryHistoryDB'] || $sqlHistoryFeature === null) {
-            return;
-        }
-
-        $searchQuery = '
-            SELECT `timevalue`
-            FROM ' . Util::backquote($sqlHistoryFeature->database)
-                . '.' . Util::backquote($sqlHistoryFeature->history) . '
-            WHERE `username` = ' . $this->dbi->quoteString($username) . '
-            ORDER BY `timevalue` DESC
-            LIMIT ' . $this->config->settings['QueryHistoryMax'] . ', 1';
-
-        $maxTime = $this->dbi->fetchValue($searchQuery, 0, ConnectionType::ControlUser);
-
-        if (! $maxTime) {
-            return;
-        }
-
-        $this->dbi->queryAsControlUser(
-            'DELETE FROM '
-            . Util::backquote($sqlHistoryFeature->database) . '.'
-            . Util::backquote($sqlHistoryFeature->history) . '
-              WHERE `username` = ' . $this->dbi->quoteString($username, ConnectionType::ControlUser)
-            . '
-                AND `timevalue` <= \'' . $maxTime . '\'',
-        );
     }
 
     /**

@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Application;
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Console\History;
 use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Exceptions\ConfigException;
@@ -40,7 +41,8 @@ final class ApplicationTest extends AbstractTestCase
             'error_message' => 'Failed to load phpMyAdmin configuration.',
         ]);
 
-        $application = new Application($errorHandler, $config, $template, ResponseFactory::create());
+        $history = self::createMock(History::class);
+        $application = new Application($errorHandler, $config, $template, ResponseFactory::create(), $history);
         $application->run();
 
         $output = $this->getActualOutputForAssertion();

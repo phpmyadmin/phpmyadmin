@@ -9,6 +9,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Console\History;
 
 use function __;
 use function _ngettext;
@@ -31,6 +32,7 @@ class Console
         private readonly Relation $relation,
         private readonly Template $template,
         private readonly BookmarkRepository $bookmarkRepository,
+        private readonly History $history,
     ) {
         $this->config = Config::getInstance();
     }
@@ -94,7 +96,7 @@ class Console
         }
 
         $bookmarkFeature = $this->relation->getRelationParameters()->bookmarkFeature;
-        $sqlHistory = $this->relation->getHistory($this->config->selectedServer['user']);
+        $sqlHistory = $this->history->getHistory($this->config->selectedServer['user']);
         $bookmarkContent = $this->getBookmarkContent();
 
         return $this->template->render('console/display', [

@@ -7,6 +7,7 @@ namespace PhpMyAdmin;
 use Fig\Http\Message\StatusCodeInterface;
 use Laminas\HttpHandlerRunner\Emitter\SapiEmitter;
 use Laminas\HttpHandlerRunner\RequestHandlerRunner;
+use PhpMyAdmin\Console\History;
 use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
@@ -61,6 +62,7 @@ class Application
         private readonly Config $config,
         private readonly Template $template,
         private readonly ResponseFactory $responseFactory,
+        private readonly History $history,
     ) {
     }
 
@@ -115,7 +117,7 @@ class Application
         $requestHandler->add(new ProfilingChecking());
         $requestHandler->add(new UserPreferencesLoading($this->config));
         $requestHandler->add(new RecentTableHandling($this->config));
-        $requestHandler->add(new StatementHistory($this->config));
+        $requestHandler->add(new StatementHistory($this->config, $this->history));
 
         $runner = new RequestHandlerRunner(
             $requestHandler,

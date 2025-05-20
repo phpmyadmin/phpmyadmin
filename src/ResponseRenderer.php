@@ -5,8 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use Fig\Http\Message\StatusCodeInterface;
-use PhpMyAdmin\Bookmarks\BookmarkRepository;
-use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Exceptions\ExitException;
@@ -164,11 +163,12 @@ class ResponseRenderer
             return self::$instance;
         }
 
+        /** @var Console $console */
+        $console = ContainerBuilder::getContainer()->get(Console::class);
+
         $config = Config::getInstance();
         $template = new Template($config);
         $dbi = DatabaseInterface::getInstance();
-        $relation = new Relation($dbi);
-        $console = new Console($relation, $template, new BookmarkRepository($dbi, $relation));
 
         self::$instance = new ResponseRenderer(
             $config,
