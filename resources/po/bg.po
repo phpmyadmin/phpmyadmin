@@ -4,9 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-05-18 00:29+0000\n"
-"PO-Revision-Date: 2025-05-15 13:44+0000\n"
-"Last-Translator: 109247019824 <109247019824@users.noreply.hosted.weblate."
-"org>\n"
+"PO-Revision-Date: 2025-05-21 20:01+0000\n"
+"Last-Translator: Мария Рангелова <rangelova1186@gmail.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/bg/>\n"
 "Language: bg\n"
@@ -450,9 +449,8 @@ msgid "Referenced by %s."
 msgstr "Позовава се на %s."
 
 #: resources/templates/columns_definitions/column_name.twig:12
-#, fuzzy
 msgid "Is a foreign key."
-msgstr "Избор външен ключ"
+msgstr "Външен ключ е."
 
 #: resources/templates/columns_definitions/column_name.twig:16
 #: resources/templates/database/data_dictionary/index.twig:22
@@ -488,9 +486,8 @@ msgid "Column"
 msgstr "Kолона"
 
 #: resources/templates/columns_definitions/column_name.twig:39
-#, fuzzy
 msgid "Pick from Central Columns"
-msgstr "Изтриване колона(и)"
+msgstr "Избиране от Централните Колони"
 
 #: resources/templates/columns_definitions/partitions.twig:17
 msgid "Partition by:"
@@ -498,9 +495,8 @@ msgstr "Разделяне от:"
 
 #: resources/templates/columns_definitions/partitions.twig:32
 #: resources/templates/columns_definitions/partitions.twig:60
-#, fuzzy
 msgid "Expression or column list"
-msgstr "Стойности за колоната %s"
+msgstr "Израз или списък с колони %s"
 
 #: resources/templates/columns_definitions/partitions.twig:37
 msgid "Partitions:"
@@ -517,24 +513,20 @@ msgstr "Под-дялове:"
 #: resources/templates/columns_definitions/partitions.twig:76
 #: resources/templates/table/operations/index.twig:481
 #: resources/templates/table/structure/display_partitions.twig:25
-#, fuzzy
 msgid "Partition"
-msgstr "Положение"
+msgstr "Дял"
 
 #: resources/templates/columns_definitions/partitions.twig:78
-#, fuzzy
 msgid "Values"
-msgstr "Стойност"
+msgstr "Стойности"
 
 #: resources/templates/columns_definitions/partitions.twig:82
-#, fuzzy
 msgid "Subpartition"
-msgstr "Положение"
+msgstr "Подразделение"
 
 #: resources/templates/columns_definitions/partitions.twig:84
-#, fuzzy
 msgid "Engine"
-msgstr "Хранилища"
+msgstr "Двигател"
 
 #: resources/templates/columns_definitions/partitions.twig:85
 #: resources/templates/config/form_display/input.twig:53
@@ -551,28 +543,24 @@ msgid "Comment"
 msgstr "Коментар"
 
 #: resources/templates/columns_definitions/partitions.twig:86
-#, fuzzy
 msgid "Data directory"
-msgstr "Папка с данни"
+msgstr "Директория с данни"
 
 #: resources/templates/columns_definitions/partitions.twig:87
-#, fuzzy
 msgid "Index directory"
-msgstr "Папка за качване на файлове"
+msgstr "Индексна директория"
 
 #: resources/templates/columns_definitions/partitions.twig:88
 msgid "Max rows"
 msgstr "Максимален брой редове"
 
 #: resources/templates/columns_definitions/partitions.twig:89
-#, fuzzy
 msgid "Min rows"
-msgstr "реда"
+msgstr "Мин. редове"
 
 #: resources/templates/columns_definitions/partitions.twig:90
-#, fuzzy
 msgid "Table space"
-msgstr "Търсене в таблица"
+msgstr "Място в таблицата"
 
 #: resources/templates/columns_definitions/partitions.twig:91
 #, fuzzy
