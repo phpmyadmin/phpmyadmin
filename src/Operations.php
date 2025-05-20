@@ -711,7 +711,7 @@ class Operations
      *
      * @return string[]
      */
-    public function getWarningMessagesArray(mixed $newTableStorageEngine): array
+    public function getWarningMessagesArray(string $newTableStorageEngine): array
     {
         $warningMessages = [];
         foreach ($this->dbi->getWarnings() as $warning) {
@@ -722,7 +722,7 @@ class Operations
             // I just ignore it. But there are other 1478 messages
             // that it's better to show.
             if (
-                $newTableStorageEngine === 'MyISAM'
+                $newTableStorageEngine === 'MYISAM'
                 && $warning->code === 1478
                 && $warning->level === 'Error'
             ) {

@@ -188,7 +188,7 @@ class Table implements Stringable
     public function isEngine(array|string $engine): bool
     {
         $engine = (array) $engine;
-        $tableStorageEngine = $this->getStorageEngine();
+        $tableStorageEngine = strtoupper($this->getStorageEngine());
 
         return in_array($tableStorageEngine, $engine, true);
     }
@@ -300,7 +300,7 @@ class Table implements Stringable
     {
         $tableStorageEngine = $this->getStatusInfo('ENGINE');
 
-        return strtoupper((string) $tableStorageEngine);
+        return (string) $tableStorageEngine;
     }
 
     /**

@@ -27,7 +27,6 @@ use function __;
 use function array_keys;
 use function md5;
 use function strnatcasecmp;
-use function strtoupper;
 use function uksort;
 use function usort;
 
@@ -164,14 +163,12 @@ final readonly class RelationController implements InvocableController
          * Dialog
          */
         // Now find out the columns of our $table
-        // need to use DatabaseInterface::QUERY_BUFFERED with $this->dbi->numRows()
-        // in mysqli
         $columns = $this->dbi->getColumns(Current::$database, Current::$table);
 
         $columnArray = [];
         $columnArray[''] = '';
         foreach ($columns as $column) {
-            if (strtoupper($storageEngine) !== 'INNODB' && $column->key === '') {
+            if ($storageEngine !== 'InnoDB' && $column->key === '') {
                 continue;
             }
 
@@ -206,7 +203,6 @@ final readonly class RelationController implements InvocableController
                 'one_key' => $oneKey,
                 'column_array' => $columnArray,
                 'options_array' => $options,
-                'tbl_storage_engine' => $storageEngine,
                 'db' => Current::$database,
                 'table' => Current::$table,
                 'url_params' => UrlParams::$params,
@@ -225,7 +221,6 @@ final readonly class RelationController implements InvocableController
             'one_key' => [],
             'column_array' => $columnArray,
             'options_array' => $options,
-            'tbl_storage_engine' => $storageEngine,
             'db' => Current::$database,
             'table' => Current::$table,
             'url_params' => UrlParams::$params,

@@ -1456,7 +1456,7 @@ class TableTest extends AbstractTestCase
         $dbi = DatabaseInterface::getInstanceForTest($extension);
         $tblObject = new Table($targetTable, $targetDb, $dbi);
         $tblObject->getStatusInfo(null);
-        $expect = 'DBIDUMMY';
+        $expect = 'DBIdummy';
         $tblStorageEngine = $dbi->getTable($targetDb, $targetTable)->getStorageEngine();
         self::assertSame($expect, $tblStorageEngine);
     }

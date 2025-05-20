@@ -2250,7 +2250,7 @@ class RelationTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface($dummyDbi);
 
         $dummyDbi->addResult(
-            "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'somedb' AND UPPER(ENGINE) = 'INNODB'",
+            "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'somedb' AND ENGINE = 'InnoDB'",
             [
                 ['table1'],
                 ['table3'],
@@ -2259,7 +2259,7 @@ class RelationTest extends AbstractTestCase
 
         $relation = new Relation($dbi);
 
-        $tables = $relation->getTables('somedb', 'INNODB');
+        $tables = $relation->getTables('somedb', 'InnoDB');
         self::assertEquals(['table1', 'table3'], $tables);
 
         $dummyDbi->assertAllQueriesConsumed();

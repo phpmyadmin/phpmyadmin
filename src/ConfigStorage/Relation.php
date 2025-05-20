@@ -1624,7 +1624,7 @@ class Relation
         $tablesRows = $this->dbi->query(
             'SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = '
             . $this->dbi->quoteString($foreignDb)
-            . ' AND UPPER(ENGINE) = ' . $this->dbi->quoteString($storageEngine),
+            . ' AND ENGINE = ' . $this->dbi->quoteString($storageEngine),
         );
         /** @var list<string> $tables */
         $tables = $tablesRows->fetchAllColumn();
