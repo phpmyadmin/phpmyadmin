@@ -1723,12 +1723,6 @@ parameters:
 			path: src/ConfigStorage/Relation.php
 
 		-
-			message: '#^Parameter \#2 \$callback of function usort expects callable\(string\|null, string\|null\)\: int, Closure\(string, string\)\: int\<\-1, 1\> given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
 			message: '#^Parameter \#2 \$table of method PhpMyAdmin\\ConfigStorage\\Relation\:\:getDisplayField\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1

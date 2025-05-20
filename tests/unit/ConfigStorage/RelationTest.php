@@ -2250,12 +2250,11 @@ class RelationTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface($dummyDbi);
 
         $dummyDbi->addResult(
-            'SHOW TABLE STATUS FROM `somedb`',
+            "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'somedb' AND UPPER(ENGINE) = 'INNODB'",
             [
-                ['table1', 'InnoDB'],
-                ['table2', 'MyISAM'],
-                ['table3', 'InnoDB'],
-            ]
+                ['table1'],
+                ['table3'],
+            ],
         );
 
         $relation = new Relation($dbi);

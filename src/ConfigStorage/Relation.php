@@ -39,7 +39,6 @@ use function is_string;
 use function ksort;
 use function mb_check_encoding;
 use function mb_strlen;
-use function mb_strtoupper;
 use function mb_substr;
 use function natcasesort;
 use function preg_match;
@@ -1616,21 +1615,19 @@ class Relation
      * Get tables for foreign key constraint
      *
      * @param string $foreignDb        Database name
-     * @param string $tblStorageEngine Table storage engine
+     * @param string $storageEngine Table storage engine
      *
-     * @return mixed[] Table names
+     * @return string[] Table names
      */
-    public function getTables(string $foreignDb, string $tblStorageEngine): array
+    public function getTables(string $foreignDb, string $storageEngine): array
     {
-        $tables = [];
-        $tablesRows = $this->dbi->query('SHOW TABLE STATUS FROM ' . Util::backquote($foreignDb));
-        while ($row = $tablesRows->fetchRow()) {
-            if (! isset($row[1]) || mb_strtoupper($row[1]) !== $tblStorageEngine) {
-                continue;
-            }
-
-            $tables[] = $row[0];
-        }
+        $tablesRows = $this->dbi->query(
+            'SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = '
+            . $this->dbi->quoteString($foreignDb)
+            . ' AND UPPER(ENGINE) = ' . $this->dbi->quoteString($storageEngine),
+        );
+        /** @var list<string> $tables */
+        $tables = $tablesRows->fetchAllColumn();
 
         if ($this->config->settings['NaturalOrder']) {
             usort($tables, strnatcasecmp(...));
