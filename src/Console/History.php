@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Console;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\ConfigStorage\Features\SqlHistoryFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
@@ -15,13 +16,13 @@ use function array_shift;
 use function count;
 use function mb_strlen;
 
-class History
+readonly class History
 {
-    public function __construct(
-        private readonly DatabaseInterface $dbi,
-        private readonly Relation $relation,
-        private readonly Config $config,
-    ) {
+    private SqlHistoryFeature|null $sqlHistoryFeature;
+
+    public function __construct(private DatabaseInterface $dbi, Relation $relation, private Config $config)
+    {
+        $this->sqlHistoryFeature = $relation->getRelationParameters()->sqlHistoryFeature;
     }
 
     public function setHistory(string $db, string $table, string $username, string $sqlquery): void
@@ -30,8 +31,6 @@ class History
         if (mb_strlen($sqlquery) > $maxCharactersInDisplayedSQL) {
             return;
         }
-
-        $sqlHistoryFeature = $this->relation->getRelationParameters()->sqlHistoryFeature;
 
         if (! isset($_SESSION['sql_history'])) {
             $_SESSION['sql_history'] = [];
@@ -43,14 +42,14 @@ class History
             array_shift($_SESSION['sql_history']);
         }
 
-        if ($sqlHistoryFeature === null || ! $this->config->settings['QueryHistoryDB']) {
+        if ($this->sqlHistoryFeature === null || ! $this->config->settings['QueryHistoryDB']) {
             return;
         }
 
         $this->dbi->queryAsControlUser(
             'INSERT INTO '
-            . Util::backquote($sqlHistoryFeature->database) . '.'
-            . Util::backquote($sqlHistoryFeature->history) . '
+            . Util::backquote($this->sqlHistoryFeature->database) . '.'
+            . Util::backquote($this->sqlHistoryFeature->history) . '
                   (`username`,
                     `db`,
                     `table`,
@@ -74,8 +73,7 @@ class History
      */
     public function getHistory(string $username): array|false
     {
-        $sqlHistoryFeature = $this->relation->getRelationParameters()->sqlHistoryFeature;
-        if ($sqlHistoryFeature === null) {
+        if ($this->sqlHistoryFeature === null) {
             return false;
         }
 
@@ -92,8 +90,8 @@ class History
                     `table`,
                     `sqlquery`,
                     `timevalue`
-               FROM ' . Util::backquote($sqlHistoryFeature->database)
-                . '.' . Util::backquote($sqlHistoryFeature->history) . '
+               FROM ' . Util::backquote($this->sqlHistoryFeature->database)
+                . '.' . Util::backquote($this->sqlHistoryFeature->history) . '
               WHERE `username` = ' . $this->dbi->quoteString($username) . '
            ORDER BY `id` DESC';
 
@@ -102,15 +100,14 @@ class History
 
     private function purgeHistory(string $username): void
     {
-        $sqlHistoryFeature = $this->relation->getRelationParameters()->sqlHistoryFeature;
-        if (! $this->config->settings['QueryHistoryDB'] || $sqlHistoryFeature === null) {
+        if (! $this->config->settings['QueryHistoryDB'] || $this->sqlHistoryFeature === null) {
             return;
         }
 
         $searchQuery = '
             SELECT `timevalue`
-            FROM ' . Util::backquote($sqlHistoryFeature->database)
-                . '.' . Util::backquote($sqlHistoryFeature->history) . '
+            FROM ' . Util::backquote($this->sqlHistoryFeature->database)
+                . '.' . Util::backquote($this->sqlHistoryFeature->history) . '
             WHERE `username` = ' . $this->dbi->quoteString($username) . '
             ORDER BY `timevalue` DESC
             LIMIT ' . $this->config->settings['QueryHistoryMax'] . ', 1';
@@ -123,11 +120,11 @@ class History
 
         $this->dbi->queryAsControlUser(
             'DELETE FROM '
-            . Util::backquote($sqlHistoryFeature->database) . '.'
-            . Util::backquote($sqlHistoryFeature->history) . '
+            . Util::backquote($this->sqlHistoryFeature->database) . '.'
+            . Util::backquote($this->sqlHistoryFeature->history) . '
               WHERE `username` = ' . $this->dbi->quoteString($username, ConnectionType::ControlUser)
             . '
-                AND `timevalue` <= \'' . $maxTime . '\'',
+                AND `timevalue` <= ' . $this->dbi->quoteString($maxTime, ConnectionType::ControlUser),
         );
     }
 }
