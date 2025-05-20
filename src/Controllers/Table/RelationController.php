@@ -21,12 +21,10 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\UrlParams;
-use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
 
 use function __;
 use function array_keys;
-use function mb_strtoupper;
 use function md5;
 use function strnatcasecmp;
 use function strtoupper;
@@ -83,7 +81,11 @@ final readonly class RelationController implements InvocableController
             if (isset($_POST['foreignTable'])) {
                 $this->getDropdownValueForTable();
             } else { // if only the db is selected
-                $this->getDropdownValueForDatabase($storageEngine);
+                $this->getDropdownValueForDatabase(
+                    $storageEngine,
+                    $request->getParsedBodyParamAsString('foreignDb'),
+                    $request->getParsedBodyParamAsString('foreign', ''),
+                );
             }
 
             return $this->response->response();
@@ -389,32 +391,14 @@ final readonly class RelationController implements InvocableController
      *
      * @param string $storageEngine Storage engine.
      */
-    public function getDropdownValueForDatabase(string $storageEngine): void
+    public function getDropdownValueForDatabase(string $storageEngine, string $foreignDb, string $foreign): void
     {
-        $tables = [];
-        $foreign = isset($_POST['foreign']) && $_POST['foreign'] === 'true';
+        $foreign = $foreign === 'true';
 
         if ($foreign) {
-            $query = 'SHOW TABLE STATUS FROM '
-                . Util::backquote($_POST['foreignDb']);
-            $tablesRs = $this->dbi->query($query);
-
-            foreach ($tablesRs as $row) {
-                if (! isset($row['Engine']) || mb_strtoupper($row['Engine']) !== $storageEngine) {
-                    continue;
-                }
-
-                $tables[] = $row['Name'];
-            }
+            $tables = $this->relation->getTables($foreignDb, $storageEngine);
         } else {
-            $query = 'SHOW TABLES FROM '
-                . Util::backquote($_POST['foreignDb']);
-            $tablesRs = $this->dbi->query($query);
-            $tables = $tablesRs->fetchAllColumn();
-        }
-
-        if ($this->config->settings['NaturalOrder']) {
-            usort($tables, strnatcasecmp(...));
+            $tables = $this->dbi->getTables($foreignDb);
         }
 
         $this->response->addJSON('tables', $tables);

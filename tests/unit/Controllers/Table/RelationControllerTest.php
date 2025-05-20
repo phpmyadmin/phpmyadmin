@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
-use Generator;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\RelationController;
@@ -132,10 +131,8 @@ class RelationControllerTest extends AbstractTestCase
             ->willReturn($resultStub);
 
         $resultStub->expects(self::any())
-            ->method('getIterator')
-            ->willReturnCallback(static function (): Generator {
-                yield from [['Engine' => 'InnoDB', 'Name' => 'table']];
-            });
+            ->method('fetchAllColumn')
+            ->willReturn(['table']);
 
         $ctrl = new RelationController(
             $this->response,
@@ -145,8 +142,7 @@ class RelationControllerTest extends AbstractTestCase
             Config::getInstance(),
         );
 
-        $_POST['foreign'] = 'true';
-        $ctrl->getDropdownValueForDatabase('INNODB');
+        $ctrl->getDropdownValueForDatabase('INNODB', 'db', 'true');
         $json = $this->response->getJSONResult();
         self::assertSame(
             ['table'],
@@ -161,14 +157,8 @@ class RelationControllerTest extends AbstractTestCase
      */
     public function testGetDropdownValueForDbActionTwo(): void
     {
-        $resultStub = $this->createMock(DummyResult::class);
-
         $this->dbi->expects(self::exactly(1))
-            ->method('query')
-            ->willReturn($resultStub);
-
-        $resultStub->expects(self::any())
-            ->method('fetchAllColumn')
+            ->method('getTables')
             ->willReturn(['table']);
 
         $ctrl = new RelationController(
@@ -179,8 +169,7 @@ class RelationControllerTest extends AbstractTestCase
             Config::getInstance(),
         );
 
-        $_POST['foreign'] = 'false';
-        $ctrl->getDropdownValueForDatabase('INNODB');
+        $ctrl->getDropdownValueForDatabase('INNODB', 'db', 'false');
         $json = $this->response->getJSONResult();
         self::assertSame(
             ['table'],

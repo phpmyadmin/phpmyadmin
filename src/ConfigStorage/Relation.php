@@ -1614,7 +1614,7 @@ class Relation
     /**
      * Get tables for foreign key constraint
      *
-     * @param string $foreignDb        Database name
+     * @param string $foreignDb     Database name
      * @param string $storageEngine Table storage engine
      *
      * @return string[] Table names

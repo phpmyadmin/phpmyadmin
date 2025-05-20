@@ -2502,12 +2502,9 @@
       <code><![CDATA[$_POST['destination_table']]]></code>
       <code><![CDATA[$multiEditColumnsName]]></code>
       <code><![CDATA[$multiEditColumnsName]]></code>
-      <code><![CDATA[usort($tables, strnatcasecmp(...))]]></code>
     </InvalidArgument>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['display_field']]]></code>
-      <code><![CDATA[$_POST['foreignDb']]]></code>
-      <code><![CDATA[$_POST['foreignDb']]]></code>
       <code><![CDATA[$_POST['foreignDb']]]></code>
       <code><![CDATA[$_POST['foreignDb']]]></code>
       <code><![CDATA[$foreignTable]]></code>
