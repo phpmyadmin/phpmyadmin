@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Console\Bookmark;
 use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Console;
+use PhpMyAdmin\Console\Console;
 use PhpMyAdmin\Console\History;
 use PhpMyAdmin\Controllers\Console\Bookmark\RefreshController;
 use PhpMyAdmin\Dbal\DatabaseInterface;

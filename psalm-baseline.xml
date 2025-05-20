@@ -700,7 +700,7 @@
       <code><![CDATA[$userGroups[$groupName]]]></code>
     </PossiblyNullArrayOffset>
   </file>
-  <file src="src/Console.php">
+  <file src="src/Console/Console.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
