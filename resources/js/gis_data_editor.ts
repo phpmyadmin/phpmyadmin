@@ -252,16 +252,12 @@ function makeGeometryInputs (gisData): string {
  * @param {function} resolve
  */
 function loadJSAndGISEditor (resolve) {
-    let script;
-
-    script = document.createElement('script');
-    script.src = 'js/table/gis_visualization.js';
-    document.head.appendChild(script);
+    let script: HTMLScriptElement;
 
     // OpenLayers.js is BIG and takes time. So asynchronous loading would not work.
     // Load the JS and do a callback to load the content for the GIS Editor.
     script = document.createElement('script');
-    script.src = 'js/vendor/openlayers/OpenLayers.js';
+    script.src = 'js/vendor/openlayers/openlayers.js';
     script.addEventListener('load', function () {
         resolve();
     });
@@ -270,6 +266,10 @@ function loadJSAndGISEditor (resolve) {
         resolve();
     });
 
+    document.head.appendChild(script);
+
+    script = document.createElement('script');
+    script.src = 'js/table/gis_visualization.js';
     document.head.appendChild(script);
 
     gisEditorLoaded = true;

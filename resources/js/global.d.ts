@@ -4,7 +4,6 @@ interface Window {
     mysqlDocTemplate: string;
     themeImagePath: string;
     firstDayOfCalendar: string;
-    ol: any;
     opera: any;
     zxcvbnts: any;
     msCrypto: any;

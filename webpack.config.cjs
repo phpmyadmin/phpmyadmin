@@ -1,5 +1,4 @@
 const path = require('path');
-const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -93,6 +92,14 @@ module.exports = [
                         minChunks: 2,
                         minSize: 1,
                     },
+                    openLayers: {
+                        priority: 10,
+                        test: /[\\/]node_modules[\\/](ol|rbush)[\\/]/,
+                        name: 'openlayers',
+                        filename: 'vendor/[name]/[name].js',
+                        chunks: 'all',
+                        enforce: true,
+                    },
                 },
             },
         },
@@ -150,7 +157,7 @@ module.exports = [
                     { from: rootPath + '/node_modules/jquery-uitablefilter/jquery.uitablefilter.js', to: publicPath + '/js/vendor/jquery/jquery.uitablefilter.js' },
                     { from: rootPath + '/node_modules/tablesorter/dist/js/jquery.tablesorter.js', to: publicPath + '/js/vendor/jquery/jquery.tablesorter.js' },
                     { from: rootPath + '/node_modules/jquery-ui-timepicker-addon/dist/jquery-ui-timepicker-addon.js', to: publicPath + '/js/vendor/jquery/jquery-ui-timepicker-addon.js' },
-                    { from: rootPath + '/node_modules/ol/ol.css', to: publicPath + '/js/vendor/openlayers/theme/ol.css' },
+                    { from: rootPath + '/node_modules/ol/ol.css', to: publicPath + '/js/vendor/openlayers/openlayers.css' },
                     { from: rootPath + '/node_modules/locutus.sprintf/src/php/strings/sprintf.browser.js', to: publicPath + '/js/vendor/sprintf.js' },
                     { from: rootPath + '/node_modules/chart.js/dist/chart.umd.js', to: publicPath + '/js/vendor/chart.umd.js' },
                     { from: rootPath + '/node_modules/chart.js/dist/chart.umd.js.map', to: publicPath + '/js/vendor/chart.umd.js.map' },
@@ -160,32 +167,6 @@ module.exports = [
                 ],
             }),
         ],
-    },
-    {
-        name: 'OpenLayers',
-        entry: rootPath + '/resources/js/ol.mjs',
-        devtool: 'source-map',
-        mode: 'production',
-        performance: {
-            hints: false,
-            maxEntrypointSize: 512000,
-            maxAssetSize: 512000,
-        },
-        output: {
-            path: publicPath + '/js/vendor/openlayers',
-            filename: 'OpenLayers.js',
-            library: 'ol',
-            libraryTarget: 'umd',
-            libraryExport: 'default',
-        },
-        plugins: [
-            new webpack.BannerPlugin({
-                banner: 'OpenLayers (https://openlayers.org/)\nCopyright 2005-present, OpenLayers Contributors All rights reserved.\nLicensed under BSD 2-Clause License (https://github.com/openlayers/openlayers/blob/main/LICENSE.md)',
-            }),
-        ],
-        optimization: {
-            minimize: false,
-        }
     },
     {
         name: 'CSS',
