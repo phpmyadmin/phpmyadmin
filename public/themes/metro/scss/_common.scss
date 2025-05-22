@@ -1487,15 +1487,6 @@ input#auto_increment_opt {
   td {
     position: static;
   }
-
-  tbody td span {
-    display: block;
-    overflow: hidden;
-
-    code span {
-      display: inline;
-    }
-  }
 }
 
 .modal-copy input {
@@ -2525,4 +2516,8 @@ body {
 
 .table-responsive-md .data {
   z-index: 9;
+}
+
+pre {
+  margin: 0;
 }

@@ -854,9 +854,9 @@ class Sql
             // the form should not have priority over errors
         } elseif ($messageToShow !== '' && $statementInfo->flags->queryType !== StatementType::Select) {
             $message = Message::rawSuccess(htmlspecialchars($messageToShow));
-        } elseif (! empty(self::$showAsPhp)) {
+        } elseif (self::$showAsPhp === true) {
             $message = Message::success(__('Showing as PHP code'));
-        } elseif (isset(self::$showAsPhp)) {
+        } elseif (self::$showAsPhp === false) {
             /* User disable showing as PHP, query is only displayed */
             $message = Message::notice(__('Showing SQL query'));
         } else {
@@ -931,7 +931,7 @@ class Sql
 
         $queryMessage = Generator::getMessage($message, $sqlQuery, MessageType::Success);
 
-        if (isset(self::$showAsPhp)) {
+        if (self::$showAsPhp !== null) {
             return $queryMessage;
         }
 
@@ -1533,7 +1533,7 @@ class Sql
         ResponseRenderer::$reload = $this->hasCurrentDbChanged($db);
         $this->dbi->selectDb($db);
 
-        if (isset(self::$showAsPhp)) {
+        if (self::$showAsPhp !== null) {
             // Only if we ask to see the php code
             // The following was copied from getQueryResponseForNoResultsReturned()
             // Delete if it's not needed in this context

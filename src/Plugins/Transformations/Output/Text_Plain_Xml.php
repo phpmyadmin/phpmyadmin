@@ -52,9 +52,7 @@ class Text_Plain_Xml extends TransformationsPlugin
      */
     public function applyTransformation(string $buffer, array $options = [], FieldMetadata|null $meta = null): string
     {
-        return '<code class="xml"><pre>' . "\n"
-        . htmlspecialchars($buffer) . "\n"
-        . '</pre></code>';
+        return '<pre><code class="xml">' . htmlspecialchars($buffer) . '</code></pre>';
     }
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */

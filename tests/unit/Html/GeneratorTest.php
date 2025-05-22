@@ -277,18 +277,18 @@ class GeneratorTest extends AbstractTestCase
     public function testFormatSql(): void
     {
         self::assertSame(
-            '<code class="sql" dir="ltr"><pre>' . "\n"
-            . 'SELECT 1 &lt; 2' . "\n"
-            . '</pre></code>',
+            '<pre><code class="sql" dir="ltr">'
+            . 'SELECT 1 &lt; 2'
+            . '</code></pre>',
             Generator::formatSql('SELECT 1 < 2'),
         );
 
         Config::getInstance()->settings['MaxCharactersInDisplayedSQL'] = 6;
 
         self::assertSame(
-            '<code class="sql" dir="ltr"><pre>' . "\n"
-            . 'SELECT[...]' . "\n"
-            . '</pre></code>',
+            '<pre><code class="sql" dir="ltr">'
+            . 'SELECT[...]'
+            . '</code></pre>',
             Generator::formatSql('SELECT 1 < 2', true),
         );
     }
@@ -486,9 +486,7 @@ class GeneratorTest extends AbstractTestCase
 <div class="alert alert-primary border-top-0 border-start-0 border-end-0 rounded-bottom-0 mb-0" role="alert">
   <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice"> Message <em>one</em>.
 </div>
-<div class="card-body sqlOuter"><code class="sql" dir="ltr"><pre>
-SELECT 1;
-</pre></code></div>
+<div class="card-body sqlOuter"><pre><code class="sql" dir="ltr">SELECT 1;</code></pre></div>
 <div class="card-footer tools d-print-none">
 <div class="row align-items-center">
 <div class="col-auto">
@@ -535,9 +533,7 @@ HTML;
 <div class="alert alert-success border-top-0 border-start-0 border-end-0 rounded-bottom-0 mb-0" role="alert">
   <img src="themes/dot.gif" title="" alt="" class="icon ic_s_success"> Message <em>one</em>.
 </div>
-<div class="card-body sqlOuter"><code class="php" dir="ltr"><pre>
-$sql = "EXPLAIN SELECT 1;";
-</pre></code></div>
+<div class="card-body sqlOuter"><pre><code class="php" dir="ltr">$sql = "EXPLAIN SELECT 1;";</code></pre></div>
 <div class="card-footer tools d-print-none">
 <div class="row align-items-center">
 <div class="col-auto">

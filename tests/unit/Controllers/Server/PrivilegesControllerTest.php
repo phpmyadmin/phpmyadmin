@@ -148,10 +148,10 @@ class PrivilegesControllerTest extends AbstractTestCase
         self::assertStringContainsString("You have updated the privileges for 'pma_test'@'localhost'.", $output);
 
         // phpcs:disable Generic.Files.LineLength.TooLong
-        $expectedSql = '<pre>' . "\n"
+        $expectedSql = '<pre><code class="sql" dir="ltr">'
             . "REVOKE ALL PRIVILEGES ON  `test_db_1`.* FROM 'pma_test'@'localhost'; REVOKE GRANT OPTION ON  `test_db_1`.* FROM 'pma_test'@'localhost'; GRANT SELECT ON  `test_db_1`.* TO 'pma_test'@'localhost'; \n"
-            . "REVOKE ALL PRIVILEGES ON  `test_db_2`.* FROM 'pma_test'@'localhost'; REVOKE GRANT OPTION ON  `test_db_2`.* FROM 'pma_test'@'localhost'; GRANT SELECT ON  `test_db_2`.* TO 'pma_test'@'localhost'; \n"
-            . '</pre>';
+            . "REVOKE ALL PRIVILEGES ON  `test_db_2`.* FROM 'pma_test'@'localhost'; REVOKE GRANT OPTION ON  `test_db_2`.* FROM 'pma_test'@'localhost'; GRANT SELECT ON  `test_db_2`.* TO 'pma_test'@'localhost'; "
+            . '</code></pre>';
         // phpcs:enable
         self::assertStringContainsString($expectedSql, $output);
 
