@@ -121,7 +121,7 @@ final readonly class TableController implements InvocableController
             $showComment = '';
         } else {
             $tableIsAView = false;
-            $tableStorageEngine = $pmaTable->getStorageEngine();
+            $tableStorageEngine = mb_strtoupper($pmaTable->getStorageEngine());
             $showComment = $pmaTable->getComment();
         }
 
@@ -215,17 +215,12 @@ final readonly class TableController implements InvocableController
                 }
             }
 
-            $newTableStorageEngine = $request->getParsedBodyParamAsStringOrNull('new_tbl_storage_engine');
-            $newTblStorageEngine = '';
-            if (
-                is_string($newTableStorageEngine) && $newTableStorageEngine !== ''
-                && mb_strtoupper($newTableStorageEngine) !== $tableStorageEngine
-            ) {
-                $newTblStorageEngine = mb_strtoupper($newTableStorageEngine);
-
+            $newTableStorageEngine = mb_strtoupper($request->getParsedBodyParamAsString('new_tbl_storage_engine', ''));
+            $newStorageEngine = '';
+            if ($newTableStorageEngine !== '' && $newTableStorageEngine !== $tableStorageEngine) {
+                $newStorageEngine = $newTableStorageEngine;
                 if ($pmaTable->isEngine('ARIA')) {
-                    $createOptions['transactional'] = ($createOptions['transactional'] ?? '')
-                        == '0' ? '0' : '1';
+                    $createOptions['transactional'] = ($createOptions['transactional'] ?? '') == '0' ? '0' : '1';
                     $createOptions['page_checksum'] ??= '';
                 }
             }
@@ -237,7 +232,7 @@ final readonly class TableController implements InvocableController
                 $createOptions['page_checksum'] ?? '',
                 empty($createOptions['delay_key_write']) ? '0' : '1',
                 $createOptions['row_format'] ?? $pmaTable->getRowFormat(),
-                $newTblStorageEngine,
+                $newStorageEngine,
                 isset($createOptions['transactional']) && $createOptions['transactional'] == '0' ? '0' : '1',
                 $tableCollation,
                 $tableStorageEngine,
@@ -322,7 +317,7 @@ final readonly class TableController implements InvocableController
                 $showComment = '';
             } else {
                 $tableIsAView = false;
-                $tableStorageEngine = $pmaTable->getStorageEngine();
+                $tableStorageEngine = mb_strtoupper($pmaTable->getStorageEngine());
                 $showComment = $pmaTable->getComment();
             }
 

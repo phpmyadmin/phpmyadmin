@@ -2243,4 +2243,25 @@ class RelationTest extends AbstractTestCase
 
         $dummyDbi->assertAllQueriesConsumed();
     }
+
+    public function testGetTablesReturnsFilteredTables(): void
+    {
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+
+        $dummyDbi->addResult(
+            "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'somedb' AND ENGINE = 'InnoDB'",
+            [
+                ['table1'],
+                ['table3'],
+            ],
+        );
+
+        $relation = new Relation($dbi);
+
+        $tables = $relation->getTables('somedb', 'InnoDB');
+        self::assertEquals(['table1', 'table3'], $tables);
+
+        $dummyDbi->assertAllQueriesConsumed();
+    }
 }

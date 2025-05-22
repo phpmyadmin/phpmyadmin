@@ -39,6 +39,7 @@ use stdClass;
 use function __;
 use function in_array;
 use function str_contains;
+use function strtoupper;
 
 /**
  * Displays table structure infos like columns, indexes, size, rows
@@ -150,7 +151,7 @@ readonly class StructureController implements InvocableController
             $tableStorageEngine = __('View');
         } else {
             $tableIsAView = false;
-            $tableStorageEngine = $this->tableObj->getStorageEngine();
+            $tableStorageEngine = strtoupper($this->tableObj->getStorageEngine());
         }
 
         // prepare comments
@@ -235,11 +236,9 @@ readonly class StructureController implements InvocableController
             ];
         }
 
-        $engine = $this->tableObj->getStorageEngine();
-
         return $this->template->render('table/structure/display_structure', [
             'collations' => $collations,
-            'is_foreign_key_supported' => ForeignKey::isSupported($engine),
+            'is_foreign_key_supported' => ForeignKey::isSupported($tableStorageEngine),
             'indexes' => Index::getFromTable($this->dbi, Current::$table, Current::$database),
             'indexes_duplicates' => Index::findDuplicates(Current::$table, Current::$database),
             'relation_parameters' => $relationParameters,

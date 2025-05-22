@@ -613,9 +613,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArgument>
-      <code><![CDATA[usort($tables, strnatcasecmp(...))]]></code>
-    </InvalidArgument>
     <InvalidReturnStatement>
       <code><![CDATA[$tableNameReplacements]]></code>
     </InvalidReturnStatement>
@@ -2505,12 +2502,9 @@
       <code><![CDATA[$_POST['destination_table']]]></code>
       <code><![CDATA[$multiEditColumnsName]]></code>
       <code><![CDATA[$multiEditColumnsName]]></code>
-      <code><![CDATA[usort($tables, strnatcasecmp(...))]]></code>
     </InvalidArgument>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['display_field']]]></code>
-      <code><![CDATA[$_POST['foreignDb']]]></code>
-      <code><![CDATA[$_POST['foreignDb']]]></code>
       <code><![CDATA[$_POST['foreignDb']]]></code>
       <code><![CDATA[$_POST['foreignDb']]]></code>
       <code><![CDATA[$foreignTable]]></code>
