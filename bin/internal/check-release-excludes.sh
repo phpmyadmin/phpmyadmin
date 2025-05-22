@@ -57,7 +57,7 @@ validateExtension() {
                 foundFileExt
             fi
         ;;
-        resources/js/src/*)
+        resources/js/*)
             if [ "${extension}" != "ts" ] && [ "${extension}" != "mjs" ]; then
                 foundFileExt
             fi

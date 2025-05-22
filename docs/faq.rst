@@ -694,8 +694,7 @@ A list of files and corresponding functionality which degrade gracefully when re
 * :file:`./setup/` (setup script)
 * :file:`./examples/` (configuration examples)
 * :file:`./resources/sql/` (SQL scripts to configure advanced functionalities)
-* :file:`./resources/js/src/` (Source files to re-build `./public/js/`)
-* :file:`./resources/js/global.d.ts` JS type declaration file
+* :file:`./resources/js/` (Source files to re-build `./public/js/`)
 * Run `rm -rv vendor/tecnickcom/tcpdf && composer dump-autoload --no-interaction --optimize --dev` (exporting to PDF)
 * Run `rm -rv vendor/williamdes/mariadb-mysql-kbs && composer dump-autoload --no-interaction --optimize --dev` (external links to MariaDB and MySQL documentations)
 * Run `rm -rv vendor/code-lts/u2f-php-server && composer dump-autoload --no-interaction --optimize --dev` (U2F second factor authentication)

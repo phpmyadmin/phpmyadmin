@@ -18,7 +18,7 @@ interface Window {
 interface JQuery {
     sortableTable: (method: any) => any;
 
-    menuResizer: (method: string|Function) => any;
+    menuResizer: (method: string|(() => number)) => any;
 
     filterByValue: (value: any) => any;
 
