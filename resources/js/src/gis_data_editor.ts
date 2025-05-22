@@ -255,7 +255,7 @@ function loadJSAndGISEditor (resolve) {
     let script;
 
     script = document.createElement('script');
-    script.src = 'js/dist/table/gis_visualization.js';
+    script.src = 'js/table/gis_visualization.js';
     document.head.appendChild(script);
 
     // OpenLayers.js is BIG and takes time. So asynchronous loading would not work.

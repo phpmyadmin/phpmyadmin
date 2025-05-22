@@ -79,14 +79,21 @@ module.exports = [
         },
         output: {
             filename: '[name].js',
-            path: publicPath + '/js/dist',
+            path: publicPath + '/js',
         },
         optimization: {
+            chunkIds: 'named',
+            moduleIds: 'named',
             runtimeChunk: 'single',
             splitChunks: {
-                chunks: 'all',
-                name: 'shared',
-                minSize: 1,
+                cacheGroups: {
+                    shared: {
+                        name: 'shared',
+                        chunks: 'all',
+                        minChunks: 2,
+                        minSize: 1,
+                    },
+                },
             },
         },
         externals: {

@@ -51,7 +51,7 @@ class ScriptsTest extends AbstractTestCase
         $actual = $this->object->getDisplay();
 
         self::assertStringContainsString(
-            'src="js/dist/common.js?v=' . rawurlencode(Version::VERSION) . '"',
+            'src="js/common.js?v=' . rawurlencode(Version::VERSION) . '"',
             $actual,
         );
         self::assertStringContainsString(

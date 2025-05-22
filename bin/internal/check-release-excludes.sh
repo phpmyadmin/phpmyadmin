@@ -52,7 +52,7 @@ validateExtension() {
                 foundFileExt
             fi
         ;;
-        public/js/dist/*)
+        public/js/*)
             if [ "${extension}" != "js" ] && [ "${extension}" != "map" ]; then
                 foundFileExt
             fi
