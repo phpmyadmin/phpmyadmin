@@ -14713,19 +14713,24 @@
     </PossiblyInvalidArgument>
   </file>
   <file src="test/classes/Command/TwigLintCommandTest.php">
-    <MixedArgument occurrences="2">
+    <MixedArgument occurrences="3">
       <code>$filesFound</code>
+      <code>$filesFound[1]</code>
       <code>$filesInfos</code>
     </MixedArgument>
+    <MixedArrayAccess occurrences="5">
+      <code>$filesFound[0]['file']</code>
+      <code>$filesFound[0]['template']</code>
+      <code>$filesFound[1]['exception']</code>
+      <code>$filesFound[1]['file']</code>
+      <code>$filesFound[1]['template']</code>
+    </MixedArrayAccess>
     <MixedAssignment occurrences="4">
       <code>$context</code>
       <code>$context</code>
       <code>$filesFound</code>
       <code>$filesInfos</code>
     </MixedAssignment>
-    <PossiblyUndefinedArrayOffset occurrences="1">
-      <code>$filesFound[0]['exception']</code>
-    </PossiblyUndefinedArrayOffset>
   </file>
   <file src="test/classes/CommonTest.php">
     <DocblockTypeContradiction occurrences="2">

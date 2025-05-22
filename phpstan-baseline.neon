@@ -16742,6 +16742,11 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Encoding\\:\\:convertString\\(\\) should return string but returns string\\|false\\.$#"
+			count: 2
+			path: libraries/classes/Encoding.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Encoding\\:\\:kanjiStrConv\\(\\) should return string but returns string\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Encoding.php
 

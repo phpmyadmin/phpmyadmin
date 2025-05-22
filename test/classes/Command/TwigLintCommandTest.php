@@ -9,6 +9,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use Symfony\Component\Console\Command\Command;
 use Twig\Error\SyntaxError;
 
+use function array_multisort;
 use function class_exists;
 use function sort;
 
@@ -104,14 +105,18 @@ class TwigLintCommandTest extends AbstractTestCase
         $filesFound = $twigLintCommand->getFilesInfo($path);
 
         self::assertCount(2, $filesFound);
-        self::assertSame('{{ file }' . "\n", $filesFound[0]['template']);
-        self::assertSame($path . '/foo-invalid.twig', $filesFound[0]['file']);
-        self::assertArrayHasKey('exception', $filesFound[0]);
-        $exception = $filesFound[0]['exception'];
+        array_multisort($filesFound);
+        self::assertSame('{{ file }}' . "\n", $filesFound[0]['template']);
+        self::assertSame($path . DIRECTORY_SEPARATOR . 'foo-valid.twig', $filesFound[0]['file']);
+        self::assertSame('{{ file }' . "\n", $filesFound[1]['template']);
+        self::assertSame($path . DIRECTORY_SEPARATOR . 'foo-invalid.twig', $filesFound[1]['file']);
+        self::assertArrayHasKey('exception', $filesFound[1]);
+        $exception = $filesFound[1]['exception'];
         self::assertInstanceOf(SyntaxError::class, $exception);
-        self::assertSame('Unexpected "}" in "' . $path . '/foo-invalid.twig" at line 1.', $exception->getMessage());
-        self::assertSame('{{ file }}' . "\n", $filesFound[1]['template']);
-        self::assertSame($path . '/foo-valid.twig', $filesFound[1]['file']);
+        self::assertSame(
+            'Unexpected "}" in "' . $path . DIRECTORY_SEPARATOR . 'foo-invalid.twig" at line 1.',
+            $exception->getMessage()
+        );
     }
 
     public function testGetContext(): void
