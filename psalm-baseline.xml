@@ -9582,7 +9582,7 @@
       <code><![CDATA[$filesInfos]]></code>
     </MixedAssignment>
     <PossiblyUndefinedArrayOffset>
-      <code><![CDATA[$filesFound[0]['exception']]]></code>
+      <code><![CDATA[$filesFound[1]['exception']]]></code>
     </PossiblyUndefinedArrayOffset>
   </file>
   <file src="tests/unit/Config/ConfigFileTest.php">
