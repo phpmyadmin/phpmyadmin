@@ -5029,12 +5029,6 @@ parameters:
 			path: src/Database/Designer/Common.php
 
 		-
-			message: '#^Parameter \#1 \$string of function rawurlencode expects string, int\|string given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Database/Designer/Common.php
-
-		-
 			message: '#^Parameter \#1 \$string of function rawurlencode expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -6152,6 +6146,12 @@ parameters:
 
 		-
 			message: '#^Method PhpMyAdmin\\Encoding\:\:convertString\(\) should return string but returns string\|false\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Encoding.php
+
+		-
+			message: '#^Method PhpMyAdmin\\Encoding\:\:kanjiStrConv\(\) should return string but returns string\|false\.$#'
 			identifier: return.type
 			count: 1
 			path: src/Encoding.php
@@ -10459,15 +10459,9 @@ parameters:
 			path: src/Plugins/Export/ExportSql.php
 
 		-
-			message: '#^Cannot access offset int\|string on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Plugins/Export/ExportSql.php
-
-		-
 			message: '#^Cannot access offset string on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 11
+			count: 12
 			path: src/Plugins/Export/ExportSql.php
 
 		-
@@ -11701,12 +11695,6 @@ parameters:
 			path: src/Plugins/Schema/Dia/DiaRelationSchema.php
 
 		-
-			message: '#^Parameter \#2 \$masterField of method PhpMyAdmin\\Plugins\\Schema\\Dia\\DiaRelationSchema\:\:addRelation\(\) expects string, int\|string given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Plugins/Schema/Dia/DiaRelationSchema.php
-
-		-
 			message: '#^Parameter \#4 \$foreignField of method PhpMyAdmin\\Plugins\\Schema\\Dia\\DiaRelationSchema\:\:addRelation\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -11750,12 +11738,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#4 \$masterField of method PhpMyAdmin\\Plugins\\Schema\\Eps\\EpsRelationSchema\:\:addRelation\(\) expects string, \(int\|string\) given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Plugins/Schema/Eps/EpsRelationSchema.php
-
-		-
-			message: '#^Parameter \#4 \$masterField of method PhpMyAdmin\\Plugins\\Schema\\Eps\\EpsRelationSchema\:\:addRelation\(\) expects string, int\|string given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Plugins/Schema/Eps/EpsRelationSchema.php
@@ -12052,12 +12034,6 @@ parameters:
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: '#^Parameter \#2 \$masterField of method PhpMyAdmin\\Plugins\\Schema\\Pdf\\PdfRelationSchema\:\:addRelation\(\) expects string, int\|string given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
 			message: '#^Parameter \#4 \$foreignField of method PhpMyAdmin\\Plugins\\Schema\\Pdf\\PdfRelationSchema\:\:addRelation\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -12239,12 +12215,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#4 \$masterField of method PhpMyAdmin\\Plugins\\Schema\\Svg\\SvgRelationSchema\:\:addRelation\(\) expects string, \(int\|string\) given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Plugins/Schema/Svg/SvgRelationSchema.php
-
-		-
-			message: '#^Parameter \#4 \$masterField of method PhpMyAdmin\\Plugins\\Schema\\Svg\\SvgRelationSchema\:\:addRelation\(\) expects string, int\|string given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Plugins/Schema/Svg/SvgRelationSchema.php
@@ -14726,12 +14696,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#2 \$array of function array_map expects array, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Table/Table.php
-
-		-
-			message: '#^Parameter \#2 \$field of method PhpMyAdmin\\Table\\Table\:\:getSQLToCreateForeignKey\(\) expects array\<string\>, array\<int\|string\> given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Table/Table.php

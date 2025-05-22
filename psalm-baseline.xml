@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="6.10.3@90b5b9f5e7c8e441b191d3c82c58214753d7c7c1">
+<files psalm-version="6.11.0@4ed53b7ccebc09ef60ec4c9e464bf8a01bfd35b0">
   <file src="app/services_loader.php">
     <MixedArgument>
       <code><![CDATA[$argumentName]]></code>
@@ -3361,7 +3361,6 @@
       <code><![CDATA[$_POST['t_x'][$key]]]></code>
       <code><![CDATA[$_POST['t_y'][$key]]]></code>
       <code><![CDATA[$db]]></code>
-      <code><![CDATA[$oneField]]></code>
       <code><![CDATA[$oneTable['TABLE_NAME']]]></code>
       <code><![CDATA[$oneTable['TABLE_NAME']]]></code>
       <code><![CDATA[$tab]]></code>
@@ -7112,9 +7111,6 @@
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$masterField]]></code>
     </MixedArgumentTypeCoercion>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$oneField]]></code>
-    </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$_REQUEST['dia_orientation']]]></code>
       <code><![CDATA[$_REQUEST['dia_paper']]]></code>
@@ -7150,9 +7146,6 @@
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$masterField]]></code>
     </MixedArgumentTypeCoercion>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$oneField]]></code>
-    </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$_REQUEST['eps_orientation']]]></code>
     </PossiblyInvalidCast>
@@ -7331,7 +7324,6 @@
     </MixedOperand>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_REQUEST['pdf_table_order']]]></code>
-      <code><![CDATA[$oneField]]></code>
       <code><![CDATA[$showTable['Check_time']]]></code>
       <code><![CDATA[$showTable['Create_time']]]></code>
       <code><![CDATA[$showTable['Update_time']]]></code>
@@ -7515,9 +7507,6 @@
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$masterField]]></code>
     </MixedArgumentTypeCoercion>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$oneField]]></code>
-    </PossiblyInvalidArgument>
     <UnsupportedPropertyReferenceUsage>
       <code><![CDATA[$this->tables[$table]->width = &$this->tablewidth]]></code>
     </UnsupportedPropertyReferenceUsage>
@@ -8738,9 +8727,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArgument>
-      <code><![CDATA[$existrelForeign[$masterFieldMd5]->indexList]]></code>
-    </InvalidArgument>
     <InvalidReturnStatement>
       <code><![CDATA[$tableAutoIncrement ?? '']]></code>
       <code><![CDATA[$this->getStatusInfo('TABLE_COLLATION') ?? '']]></code>
