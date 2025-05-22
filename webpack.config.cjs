@@ -86,11 +86,14 @@ module.exports = [
             runtimeChunk: 'single',
             splitChunks: {
                 cacheGroups: {
-                    shared: {
-                        name: 'shared',
+                    shared: { name: 'shared', chunks: 'all', minChunks: 2, minSize: 1 },
+                    bootstrap: {
+                        priority: 10,
+                        test: /[\\/]node_modules[\\/](bootstrap|@popperjs)[\\/]/,
+                        name: 'bootstrap',
+                        filename: 'vendor/[name]/[name].js',
                         chunks: 'all',
-                        minChunks: 2,
-                        minSize: 1,
+                        enforce: true,
                     },
                     openLayers: {
                         priority: 10,
@@ -148,8 +151,6 @@ module.exports = [
                     { from: rootPath + '/node_modules/jquery-validation/dist/jquery.validate.min.js', to: publicPath + '/js/vendor/jquery/jquery.validate.min.js' },
                     { from: rootPath + '/node_modules/jquery-validation/dist/additional-methods.js', to: publicPath + '/js/vendor/jquery/additional-methods.js' },
                     { from: rootPath + '/node_modules/js-cookie/dist/js.cookie.min.js', to: publicPath + '/js/vendor/js.cookie.min.js' },
-                    { from: rootPath + '/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js', to: publicPath + '/js/vendor/bootstrap/bootstrap.bundle.min.js' },
-                    { from: rootPath + '/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js.map', to: publicPath + '/js/vendor/bootstrap/bootstrap.bundle.min.js.map' },
                     { from: rootPath + '/node_modules/@zxcvbn-ts/core/dist/zxcvbn-ts.js', to: publicPath + '/js/vendor/zxcvbn-ts.js' },
                     { from: rootPath + '/node_modules/@zxcvbn-ts/core/dist/zxcvbn-ts.js.map', to: publicPath + '/js/vendor/zxcvbn-ts.js.map' },
                     { from: rootPath + '/node_modules/tracekit/tracekit.js', to: publicPath + '/js/vendor/tracekit.js' },

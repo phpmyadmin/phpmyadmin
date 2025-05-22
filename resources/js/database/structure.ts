@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import * as bootstrap from 'bootstrap';
 import { AJAX } from '../modules/ajax.ts';
 import { getForeignKeyCheckboxLoader, loadForeignKeyCheckbox } from '../modules/functions.ts';
 import { Navigation } from '../modules/navigation.ts';
@@ -86,7 +87,7 @@ function fetchRealRowCount ($target) {
 
 function addTooltipToFavoriteIcons (): void {
     document.querySelectorAll('.favorite_table_anchor').forEach((favoriteTableAnchor: HTMLElement): void => {
-        new window.bootstrap.Tooltip(favoriteTableAnchor);
+        new bootstrap.Tooltip(favoriteTableAnchor);
     });
 }
 

@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import * as bootstrap from 'bootstrap';
 import { AJAX } from './ajax.ts';
 import { Navigation } from './navigation.ts';
 import { CommonParams } from './common.ts';
@@ -147,7 +148,7 @@ export function addDatepicker ($thisElement, type = undefined, options = undefin
     if (type === 'time') {
         $thisElement.timepicker($.extend(defaultOptions, options));
         // Add a tip regarding entering MySQL allowed-values for TIME data-type
-        window.bootstrap.Tooltip.getOrCreateInstance($thisElement.get(0), { title: window.Messages.strMysqlAllowedValuesTipTime })
+        bootstrap.Tooltip.getOrCreateInstance($thisElement.get(0), { title: window.Messages.strMysqlAllowedValuesTipTime })
             .setContent({ '.tooltip-inner': window.Messages.strMysqlAllowedValuesTipTime });
     } else {
         $thisElement.datetimepicker($.extend(defaultOptions, options));
@@ -197,10 +198,10 @@ export function addDateTimePicker () {
 
         // Add a tip regarding entering MySQL allowed-values for TIME and DATE data-type
         if (this.classList.contains('timefield')) {
-            window.bootstrap.Tooltip.getOrCreateInstance(this, { title: window.Messages.strMysqlAllowedValuesTipTime })
+            bootstrap.Tooltip.getOrCreateInstance(this, { title: window.Messages.strMysqlAllowedValuesTipTime })
                 .setContent({ '.tooltip-inner': window.Messages.strMysqlAllowedValuesTipTime });
         } else if (this.classList.contains('datefield')) {
-            window.bootstrap.Tooltip.getOrCreateInstance(this, { title: window.Messages.strMysqlAllowedValuesTipDate })
+            bootstrap.Tooltip.getOrCreateInstance(this, { title: window.Messages.strMysqlAllowedValuesTipDate })
                 .setContent({ '.tooltip-inner': window.Messages.strMysqlAllowedValuesTipDate });
         }
     });
@@ -1527,7 +1528,7 @@ export function dismissNotifications () {
                 message = $(this).hasClass('copyQueryBtn') ? window.Messages.strCopyToClipboard : window.Messages.strEditQuery;
             }
 
-            window.bootstrap.Tooltip.getOrCreateInstance('.ajax_notification', { title: message })
+            bootstrap.Tooltip.getOrCreateInstance('.ajax_notification', { title: message })
                 .setContent({ '.tooltip-inner': message });
         });
 
@@ -2496,7 +2497,7 @@ export function onloadEnumSetEditor (): void {
             centralColumnsModal = document.getElementById('centralColumnsModal');
         }
 
-        const modal = window.bootstrap.Modal.getOrCreateInstance(centralColumnsModal);
+        const modal = bootstrap.Modal.getOrCreateInstance(centralColumnsModal);
 
         centralColumnsModal.addEventListener(
             'shown.bs.modal',
@@ -2834,7 +2835,7 @@ export function showHints ($div: JQuery<HTMLElement> | undefined = undefined) {
 
     $newDiv.get(0).querySelectorAll('.pma_hint').forEach((hintElement: HTMLElement): void => {
         const content = hintElement.querySelector('span').textContent;
-        window.bootstrap.Tooltip.getOrCreateInstance(hintElement, { title: content })
+        bootstrap.Tooltip.getOrCreateInstance(hintElement, { title: content })
             .setContent({ '.tooltip-inner': content });
     });
 }

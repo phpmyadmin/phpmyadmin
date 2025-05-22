@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import * as bootstrap from 'bootstrap';
 import highlightSql from './sql-highlight.ts';
 
 /**
@@ -114,7 +115,7 @@ const ajaxShowMessage = function (message = null, timeout = null, type = null) {
         $retval
             .delay(newTimeOut)
             .fadeOut('medium', function () {
-                window.bootstrap.Tooltip.getInstance(this)?.dispose();
+                bootstrap.Tooltip.getInstance(this)?.dispose();
 
                 // Remove the notification
                 $(this).remove();
@@ -129,7 +130,7 @@ const ajaxShowMessage = function (message = null, timeout = null, type = null) {
          * Add a tooltip to the notification to let the user know that they
          * can dismiss the ajax notification by clicking on it.
          */
-        window.bootstrap.Tooltip.getOrCreateInstance($retval.get(0), { title: window.Messages.strDismiss })
+        bootstrap.Tooltip.getOrCreateInstance($retval.get(0), { title: window.Messages.strDismiss })
             .setContent({ '.tooltip-inner': window.Messages.strDismiss });
     }
 
@@ -150,7 +151,7 @@ const ajaxShowMessage = function (message = null, timeout = null, type = null) {
  */
 const ajaxRemoveMessage = function ($thisMessageBox: JQuery | boolean): void {
     if ($thisMessageBox !== undefined && typeof $thisMessageBox !== 'boolean' && $thisMessageBox instanceof $) {
-        window.bootstrap.Tooltip.getInstance($thisMessageBox.get(0))?.dispose();
+        bootstrap.Tooltip.getInstance($thisMessageBox.get(0))?.dispose();
 
         $thisMessageBox
             .stop(true, true)

@@ -27,7 +27,7 @@
     "@zxcvbn-ts/core": "^3.0.4",
     "autoprefixer": "^10.4.21",
     "babel-loader": "^9.1.2",
-    "bootstrap": "5.3.5",
+    "bootstrap": "^5.3.5",
     "chart.js": "^4.4.3",
     "chartjs-adapter-date-fns": "^3.0.0",
     "chartjs-plugin-zoom": "^2.0.1",

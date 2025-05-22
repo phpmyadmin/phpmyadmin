@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import * as bootstrap from 'bootstrap';
 import { AJAX } from '../modules/ajax.ts';
 import {
     checkPassword,
@@ -68,7 +69,7 @@ const EditUserGroup = {
                     return;
                 }
 
-                const modal = window.bootstrap.Modal.getInstance(editUserGroupModal);
+                const modal = bootstrap.Modal.getInstance(editUserGroupModal);
                 const modalBody = editUserGroupModal.querySelector('.modal-body');
                 const saveButton = editUserGroupModal.querySelector('#editUserGroupModalSaveButton');
 

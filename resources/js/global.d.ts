@@ -9,7 +9,6 @@ interface Window {
     msCrypto: any;
     u2f: any;
     variableNames: string[];
-    bootstrap: typeof bootstrap;
 
     sprintf(format: string, ...values: (string|number)[]): string;
 }

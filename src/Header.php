@@ -84,7 +84,7 @@ class Header
         $this->scripts->addFile('vendor/jquery/jquery-migrate.min.js');
         $this->scripts->addFile('vendor/sprintf.js');
         $this->scripts->addFile('vendor/jquery/jquery-ui.min.js');
-        $this->scripts->addFile('vendor/bootstrap/bootstrap.bundle.min.js');
+        $this->scripts->addFile('vendor/bootstrap/bootstrap.js');
         $this->scripts->addFile('vendor/js.cookie.min.js');
         $this->scripts->addFile('vendor/jquery/jquery.validate.min.js');
         $this->scripts->addFile('vendor/jquery/jquery-ui-timepicker-addon.js');

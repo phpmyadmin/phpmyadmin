@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import * as bootstrap from 'bootstrap';
 import { CommonParams } from '../common.ts';
 import { Navigation } from '../navigation.ts';
 import handleCreateViewModal from '../functions/handleCreateViewModal.ts';
@@ -8,10 +9,10 @@ import isStorageSupported from '../functions/isStorageSupported.ts';
 function updateFavoriteTableButton (buttonId: string, htmlContent: string): void {
     const currentButton = document.getElementById(buttonId);
     // Remove current tooltip before changing the button
-    window.bootstrap.Tooltip.getInstance(currentButton)?.dispose();
+    bootstrap.Tooltip.getInstance(currentButton)?.dispose();
     currentButton.outerHTML = htmlContent;
     // Enable tooltip of the new button
-    new window.bootstrap.Tooltip(document.getElementById(buttonId));
+    new bootstrap.Tooltip(document.getElementById(buttonId));
 }
 
 /**
