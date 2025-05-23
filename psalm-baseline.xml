@@ -620,9 +620,6 @@
       <code><![CDATA[array<string, string>]]></code>
     </InvalidReturnType>
     <MixedArgument>
-      <code><![CDATA[$_SESSION['sql_history']]]></code>
-      <code><![CDATA[$_SESSION['sql_history']]]></code>
-      <code><![CDATA[$_SESSION['sql_history']]]></code>
       <code><![CDATA[$columns['table_name']]]></code>
       <code><![CDATA[$columns['table_schema']]]></code>
       <code><![CDATA[$foreignDb]]></code>
@@ -634,9 +631,6 @@
     <MixedArgumentTypeCoercion>
       <code><![CDATA[uksort($foreign, strnatcasecmp(...))]]></code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAssignment>
-      <code><![CDATA[$_SESSION['sql_history'][]]]></code>
-    </MixedArrayAssignment>
     <MixedArrayOffset>
       <code><![CDATA[$foreign[$key]]]></code>
     </MixedArrayOffset>
@@ -667,7 +661,6 @@
       <code><![CDATA[bool]]></code>
     </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[! $maxTime]]></code>
       <code><![CDATA[$relationParams[$work]]]></code>
       <code><![CDATA[empty($this->config->selectedServer[$feature])]]></code>
       <code><![CDATA[empty($this->config->selectedServer['bookmarktable'])]]></code>
@@ -707,10 +700,23 @@
       <code><![CDATA[$userGroups[$groupName]]]></code>
     </PossiblyNullArrayOffset>
   </file>
-  <file src="src/Console.php">
+  <file src="src/Console/Console.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
+  </file>
+  <file src="src/Console/History.php">
+    <MixedArgument>
+      <code><![CDATA[$_SESSION['sql_history']]]></code>
+      <code><![CDATA[$_SESSION['sql_history']]]></code>
+      <code><![CDATA[$_SESSION['sql_history']]]></code>
+    </MixedArgument>
+    <MixedArrayAssignment>
+      <code><![CDATA[$_SESSION['sql_history'][]]]></code>
+    </MixedArrayAssignment>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[! $maxTime]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/BrowseForeignersController.php">
     <PossiblyUnusedReturnValue>
@@ -9860,6 +9866,7 @@
   </file>
   <file src="tests/unit/ConsoleTest.php">
     <DeprecatedMethod>
+      <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
   </file>
@@ -9881,6 +9888,7 @@
   </file>
   <file src="tests/unit/Controllers/Console/Bookmark/RefreshControllerTest.php">
     <DeprecatedMethod>
+      <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
   </file>

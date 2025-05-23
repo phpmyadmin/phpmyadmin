@@ -5,8 +5,10 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Console\Bookmark;
 
 use PhpMyAdmin\Bookmarks\BookmarkRepository;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Console;
+use PhpMyAdmin\Console\Console;
+use PhpMyAdmin\Console\History;
 use PhpMyAdmin\Controllers\Console\Bookmark\RefreshController;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
@@ -26,9 +28,10 @@ class RefreshControllerTest extends AbstractTestCase
         $relation = new Relation($dbi);
         $bookmarkRepository = new BookmarkRepository($dbi, $relation);
         $template = new Template();
+        $history = new History($dbi, $relation, Config::getInstance());
         $controller = new RefreshController(
             $response,
-            new Console($relation, $template, $bookmarkRepository),
+            new Console($relation, $template, $bookmarkRepository, $history),
         );
         $controller(self::createStub(ServerRequest::class));
         self::assertSame(['console_message_bookmark' => ''], $response->getJSONResult());

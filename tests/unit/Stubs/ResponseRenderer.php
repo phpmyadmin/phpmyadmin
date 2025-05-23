@@ -14,7 +14,8 @@ namespace PhpMyAdmin\Tests\Stubs;
 use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Console;
+use PhpMyAdmin\Console\Console;
+use PhpMyAdmin\Console\History;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Error\ErrorHandler;
@@ -56,7 +57,8 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
         $dummyDbi->addSelectDb('phpmyadmin');
         $dbi = DatabaseInterface::getInstanceForTest($dummyDbi, $config);
         $relation = new Relation($dbi);
-        $console = new Console($relation, $template, new BookmarkRepository($dbi, $relation));
+        $history = new History($dbi, $relation, $config);
+        $console = new Console($relation, $template, new BookmarkRepository($dbi, $relation), $history);
 
         parent::__construct(
             $config,

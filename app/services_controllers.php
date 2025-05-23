@@ -88,7 +88,7 @@ return [
         ],
         Console\Bookmark\RefreshController::class => [
             'class' => Console\Bookmark\RefreshController::class,
-            'arguments' => ['$response' => '@response', '$console' => '@console'],
+            'arguments' => ['$response' => '@response', '$console' => '@' . \PhpMyAdmin\Console\Console::class],
         ],
         Console\UpdateConfigController::class => [
             'class' => Console\UpdateConfigController::class,

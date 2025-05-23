@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Http\Middleware;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Console\History;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
@@ -29,14 +29,14 @@ final class StatementHistoryTest extends AbstractTestCase
         $config->selectedServer['user'] = 'test_user';
         $dbi = self::createStub(DatabaseInterface::class);
         $dbi->method('isConnected')->willReturn(true);
-        $relation = self::createMock(Relation::class);
-        $relation->expects(self::once())->method('setHistory')->with(
+        $history = self::createMock(History::class);
+        $history->expects(self::once())->method('setHistory')->with(
             self::identicalTo('test_db'),
             self::identicalTo('test_table'),
             self::identicalTo('test_user'),
             self::identicalTo('SELECT 1;'),
         );
-        $statementHistory = new StatementHistory($config, $dbi, $relation);
+        $statementHistory = new StatementHistory($config, $history, $dbi);
 
         $response = self::createStub(ResponseInterface::class);
         $handler = self::createStub(RequestHandlerInterface::class);
@@ -56,9 +56,9 @@ final class StatementHistoryTest extends AbstractTestCase
 
         $dbi = self::createStub(DatabaseInterface::class);
         $dbi->method('isConnected')->willReturn($isConnected);
-        $relation = self::createMock(Relation::class);
-        $relation->expects(self::never())->method('setHistory');
-        $statementHistory = new StatementHistory(new Config(), $dbi, $relation);
+        $history = self::createMock(History::class);
+        $history->expects(self::never())->method('setHistory');
+        $statementHistory = new StatementHistory(new Config(), $history, $dbi);
 
         $response = self::createStub(ResponseInterface::class);
         $handler = self::createStub(RequestHandlerInterface::class);

@@ -7,7 +7,8 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Console;
+use PhpMyAdmin\Console\Console;
+use PhpMyAdmin\Console\History;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Header;
@@ -57,11 +58,13 @@ class HeaderTest extends AbstractTestCase
         $dbi = DatabaseInterface::getInstance();
         $relation = new Relation($dbi);
         $template = new Template();
+        $config = Config::getInstance();
+        $history = new History($dbi, $relation, $config);
 
         return new Header(
             $template,
-            new Console($relation, $template, new BookmarkRepository($dbi, $relation)),
-            Config::getInstance(),
+            new Console($relation, $template, new BookmarkRepository($dbi, $relation), $history),
+            $config,
         );
     }
 
@@ -78,7 +81,8 @@ class HeaderTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         $relation = new Relation($dbi);
         $template = new Template($config);
-        $console = new Console($relation, $template, new BookmarkRepository($dbi, $relation));
+        $history = new History($dbi, $relation, $config);
+        $console = new Console($relation, $template, new BookmarkRepository($dbi, $relation), $history);
         $header = new Header($template, $console, $config);
 
         $header->setBodyId('PMA_header_id');

@@ -9,7 +9,8 @@ use PhpMyAdmin\BrowseForeigners;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
-use PhpMyAdmin\Console;
+use PhpMyAdmin\Console\Console;
+use PhpMyAdmin\Console\History;
 use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\Database\CentralColumns;
 use PhpMyAdmin\Database\Designer;
@@ -75,6 +76,7 @@ return [
                 '$config' => '@config',
                 '$template' => '@template',
                 '$responseFactory' => '@' . ResponseFactory::class,
+                '$history' => '@history',
             ],
         ],
         'browse_foreigners' => [
@@ -229,7 +231,14 @@ return [
         DatabaseInterface::class => 'dbi',
         PhpMyAdmin\ResponseRenderer::class => 'response',
         'bookmarkRepository' => ['class' => BookmarkRepository::class, 'arguments' => ['@dbi', '@relation']],
-        'console' => ['class' => Console::class, 'arguments' => [ '@relation', '@template', '@bookmarkRepository']],
+        Console::class => [
+            'class' => Console::class,
+            'arguments' => [ '@relation', '@template', '@bookmarkRepository', '@history'],
+        ],
         'table_mover' => ['class' => TableMover::class, 'arguments' => ['@dbi', '@relation']],
+        'history' => [
+            'class' => History::class,
+            'arguments' => ['$dbi' => '@dbi', '$relation' => '@relation', '$config' => '@config'],
+        ],
     ],
 ];
