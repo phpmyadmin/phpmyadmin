@@ -1,6 +1,6 @@
 /* eslint-env node, jest */
 
-import { stringifyJSON } from '../../resources/js/src/modules/functions.ts';
+import { stringifyJSON } from '../../resources/js/modules/functions.ts';
 
 describe('Functions', () => {
     describe('Testing stringifyJSON', function () {

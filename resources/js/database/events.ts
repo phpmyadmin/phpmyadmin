@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import * as bootstrap from 'bootstrap';
 import { AJAX } from '../modules/ajax.ts';
 import { addDatepicker, getSqlEditor, slidingMessage } from '../modules/functions.ts';
 import { Navigation } from '../modules/navigation.ts';
@@ -121,7 +122,7 @@ const DatabaseEvents = {
                 eventsExportModal.querySelector('.modal-body').innerHTML = eventsExportTextarea;
             });
 
-            window.bootstrap.Modal.getOrCreateInstance(eventsExportModal).show();
+            bootstrap.Modal.getOrCreateInstance(eventsExportModal).show();
         }
     },
     editorDialog: function (isNew, $this) {
@@ -184,7 +185,7 @@ const DatabaseEvents = {
                         // Item created successfully
                         ajaxRemoveMessage($msg);
                         slidingMessage(data.message);
-                        window.bootstrap.Modal.getOrCreateInstance('#eventsEditorModal').hide();
+                        bootstrap.Modal.getOrCreateInstance('#eventsEditorModal').hide();
                         // If we are in 'edit' mode, we must
                         // remove the reference to the old row.
                         if (isEditMode && $editRow !== null) {
@@ -333,7 +334,7 @@ const DatabaseEvents = {
                     '<span class="visually-hidden">' + window.Messages.strLoading + '</span></div>';
             });
 
-            window.bootstrap.Modal.getOrCreateInstance(eventsEditorModal).show();
+            bootstrap.Modal.getOrCreateInstance(eventsEditorModal).show();
         });
     },
 

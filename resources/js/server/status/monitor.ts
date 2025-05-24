@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import * as bootstrap from 'bootstrap';
 import { AJAX } from '../../modules/ajax.ts';
 import { addDatepicker, prettyProfilingNum } from '../../modules/functions.ts';
 import { CommonParams } from '../../modules/common.ts';
@@ -24,7 +25,7 @@ var chartSize;
 var monitorSettings;
 
 function serverResponseError () {
-    window.bootstrap.Modal.getOrCreateInstance('#serverResponseErrorModal').show();
+    bootstrap.Modal.getOrCreateInstance('#serverResponseErrorModal').show();
 }
 
 function serverResponseErrorModalReloadEventHandler () {
@@ -674,7 +675,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 json = JSON.parse(data);
             } catch (err) {
                 alert(window.Messages.strFailedParsingConfig);
-                window.bootstrap.Modal.getOrCreateInstance('#monitorImportConfigModal').hide();
+                bootstrap.Modal.getOrCreateInstance('#monitorImportConfigModal').hide();
 
                 return;
             }
@@ -682,7 +683,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             // Basic check, is this a monitor config json?
             if (! json || ! json.monitorCharts || ! json.monitorCharts) {
                 alert(window.Messages.strFailedParsingConfig);
-                window.bootstrap.Modal.getOrCreateInstance('#monitorImportConfigModal').hide();
+                bootstrap.Modal.getOrCreateInstance('#monitorImportConfigModal').hide();
 
                 return;
             }
@@ -706,7 +707,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 rebuildGrid();
             }
 
-            window.bootstrap.Modal.getOrCreateInstance('#monitorImportConfigModal').hide();
+            bootstrap.Modal.getOrCreateInstance('#monitorImportConfigModal').hide();
         };
 
         if (input.files[0]) {
@@ -765,7 +766,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 if (typeof data !== 'undefined' && data.success === true) {
                     logVars = data.message;
                 } else {
-                    window.bootstrap.Modal.getOrCreateInstance('#monitorInstructionsModal').hide();
+                    bootstrap.Modal.getOrCreateInstance('#monitorInstructionsModal').hide();
                     serverResponseError();
 
                     return;
@@ -1019,7 +1020,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 && typeof window.localStorage.monitorVersion !== 'undefined'
                 && monitorProtocolVersion !== window.localStorage.monitorVersion
             ) {
-                window.bootstrap.Modal.getOrCreateInstance('#incompatibleMonitorConfigModal').show();
+                bootstrap.Modal.getOrCreateInstance('#incompatibleMonitorConfigModal').show();
             }
         }
 
@@ -1352,12 +1353,12 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         const logAnalyseModal = document.getElementById('logAnalyseModal');
 
         function logAnalyseModalSlowLogEventHandler () {
-            window.bootstrap.Modal.getOrCreateInstance(logAnalyseModal).hide();
+            bootstrap.Modal.getOrCreateInstance(logAnalyseModal).hide();
             loadLog('slow', min, max);
         }
 
         function logAnalyseModalGeneralLogEventHandler () {
-            window.bootstrap.Modal.getOrCreateInstance(logAnalyseModal).hide();
+            bootstrap.Modal.getOrCreateInstance(logAnalyseModal).hide();
             loadLog('general', min, max);
         }
 
@@ -1400,7 +1401,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             logAnalyseModalGeneralLogButton?.removeEventListener('click', logAnalyseModalGeneralLogEventHandler);
         });
 
-        window.bootstrap.Modal.getOrCreateInstance(logAnalyseModal).show();
+        bootstrap.Modal.getOrCreateInstance(logAnalyseModal).show();
     }
 
     function loadLog (type: string, min: Date, max: Date) {
@@ -1664,7 +1665,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             }
         });
 
-        window.bootstrap.Modal.getOrCreateInstance(analysingLogsModal).show();
+        bootstrap.Modal.getOrCreateInstance(analysingLogsModal).show();
 
         var url = 'index.php?route=/server/status/monitor/slow-log';
         if (opts.src === 'general') {
@@ -1686,15 +1687,15 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 if (typeof data !== 'undefined' && data.success === true) {
                     logData = data.message;
                 } else {
-                    window.bootstrap.Modal.getOrCreateInstance(analysingLogsModal).hide();
+                    bootstrap.Modal.getOrCreateInstance(analysingLogsModal).hide();
                     serverResponseError();
 
                     return;
                 }
 
                 if (logData.rows.length === 0) {
-                    window.bootstrap.Modal.getOrCreateInstance(analysingLogsModal).hide();
-                    window.bootstrap.Modal.getOrCreateInstance('#analysingLogsNoDataFoundModal').show();
+                    bootstrap.Modal.getOrCreateInstance(analysingLogsModal).hide();
+                    bootstrap.Modal.getOrCreateInstance('#analysingLogsNoDataFoundModal').show();
 
                     return;
                 }
@@ -1743,7 +1744,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 const analysingLogsLogDataLoadedModal = document.getElementById('analysingLogsLogDataLoadedModal');
 
                 function analysingLogsLogDataLoadedModalJumpEventHandler () {
-                    window.bootstrap.Modal.getOrCreateInstance(analysingLogsLogDataLoadedModal).hide();
+                    bootstrap.Modal.getOrCreateInstance(analysingLogsLogDataLoadedModal).hide();
                     $(document).scrollTop($('#logTable').offset().top);
                 }
 
@@ -1757,8 +1758,8 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                     analysingLogsLogDataLoadedModalJumpButton?.removeEventListener('click', analysingLogsLogDataLoadedModalJumpEventHandler);
                 });
 
-                window.bootstrap.Modal.getOrCreateInstance(analysingLogsModal).hide();
-                window.bootstrap.Modal.getOrCreateInstance(analysingLogsLogDataLoadedModal).show();
+                bootstrap.Modal.getOrCreateInstance(analysingLogsModal).hide();
+                bootstrap.Modal.getOrCreateInstance(analysingLogsLogDataLoadedModal).show();
             }
         );
 
@@ -2016,7 +2017,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 tooltipContent += '<br>' + window.Messages.strMoreCountColumnExplanation;
             }
 
-            new window.bootstrap.Tooltip(amountColumn.get(0), { title: tooltipContent, html: true });
+            new bootstrap.Tooltip(amountColumn.get(0), { title: tooltipContent, html: true });
         }
 
         $('#logTable').find('table').tablesorter({
@@ -2073,7 +2074,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             }
         });
 
-        window.bootstrap.Modal.getOrCreateInstance(queryAnalyzerModal).show();
+        bootstrap.Modal.getOrCreateInstance(queryAnalyzerModal).show();
     }
 
     /* Loads and displays the analyzed query data */

@@ -785,8 +785,7 @@ const AJAX = {
             var script = document.createElement('script');
             var self = this;
 
-            var file = name.indexOf('vendor/') !== -1 ? name : 'dist/' + name;
-            script.src = 'js/' + file + '?' + 'v=' + encodeURIComponent(CommonParams.get('version'));
+            script.src = 'js/' + name + '?' + 'v=' + encodeURIComponent(CommonParams.get('version'));
             script.async = false;
             script.onload = function () {
                 self.done(name, callback);

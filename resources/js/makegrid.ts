@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import * as bootstrap from 'bootstrap';
 import { AJAX } from './modules/ajax.ts';
 import {
     addDatepicker,
@@ -1758,7 +1759,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                 .on('mouseleave', function () {
                     g.showReorderHint = false;
 
-                    window.bootstrap.Tooltip.getOrCreateInstance(this, { title: g.updateHint(), html: true })
+                    bootstrap.Tooltip.getOrCreateInstance(this, { title: g.updateHint(), html: true })
                         .setContent({ '.tooltip-inner': g.updateHint() });
                 })
                 .on('dblclick', function (e) {
@@ -1835,7 +1836,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                 const $colVisibTh = $(colVisibTh).slice(0, 1);
 
                 colVisibTh.forEach((tableHeader: HTMLElement) => {
-                    window.bootstrap.Tooltip.getOrCreateInstance(tableHeader, { title: window.Messages.strColVisibHint })
+                    bootstrap.Tooltip.getOrCreateInstance(tableHeader, { title: window.Messages.strColVisibHint })
                         .setContent({ '.tooltip-inner': window.Messages.strColVisibHint });
                 });
 
@@ -2284,7 +2285,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                     return;
                 }
 
-                window.bootstrap.Tooltip.getOrCreateInstance(editRowAnchor.querySelector('a'));
+                bootstrap.Tooltip.getOrCreateInstance(editRowAnchor.querySelector('a'));
             });
         }
     };
@@ -2379,7 +2380,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
 
     // create tooltip for each <th> with draggable class
     t.querySelectorAll('th.draggable').forEach((tableHeader: HTMLElement) => {
-        window.bootstrap.Tooltip.getOrCreateInstance(tableHeader, { title: g.updateHint(), html: true })
+        bootstrap.Tooltip.getOrCreateInstance(tableHeader, { title: g.updateHint(), html: true })
             .setContent({ '.tooltip-inner': g.updateHint() });
     });
 
@@ -2390,7 +2391,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
             g.showMultiSortHint = true;
 
             t.querySelectorAll('th.draggable').forEach((tableHeader: HTMLElement) => {
-                window.bootstrap.Tooltip.getOrCreateInstance(tableHeader, { title: g.updateHint(), html: true })
+                bootstrap.Tooltip.getOrCreateInstance(tableHeader, { title: g.updateHint(), html: true })
                     .setContent({ '.tooltip-inner': g.updateHint() });
             });
         })
@@ -2399,7 +2400,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
             g.showMultiSortHint = false;
 
             t.querySelectorAll('th.draggable').forEach((tableHeader: HTMLElement) => {
-                window.bootstrap.Tooltip.getOrCreateInstance(tableHeader, { title: g.updateHint(), html: true })
+                bootstrap.Tooltip.getOrCreateInstance(tableHeader, { title: g.updateHint(), html: true })
                     .setContent({ '.tooltip-inner': g.updateHint() });
             });
         });

@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import * as bootstrap from 'bootstrap';
 import { AJAX } from '../modules/ajax.ts';
 import { addDatepicker, getSqlEditor, slidingMessage } from '../modules/functions.ts';
 import { Navigation } from '../modules/navigation.ts';
@@ -137,7 +138,7 @@ const DatabaseRoutines = {
                 routinesExportModal.querySelector('.modal-body').innerHTML = routinesExportTextarea;
             });
 
-            window.bootstrap.Modal.getOrCreateInstance(routinesExportModal).show();
+            bootstrap.Modal.getOrCreateInstance(routinesExportModal).show();
         }
     },
     editorDialog: function (isNew, $this) {
@@ -203,7 +204,7 @@ const DatabaseRoutines = {
                     // Item created successfully
                     ajaxRemoveMessage($msg);
                     slidingMessage(data.message);
-                    window.bootstrap.Modal.getOrCreateInstance('#routinesEditorModal').hide();
+                    bootstrap.Modal.getOrCreateInstance('#routinesEditorModal').hide();
 
                     var tableId = '#' + data.tableType + 'Table';
                     // If we are in 'edit' mode, we must
@@ -356,7 +357,7 @@ const DatabaseRoutines = {
                     '<span class="visually-hidden">' + window.Messages.strLoading + '</span></div>';
             });
 
-            window.bootstrap.Modal.getOrCreateInstance(routinesEditorModal).show();
+            bootstrap.Modal.getOrCreateInstance(routinesEditorModal).show();
         });
     },
 
@@ -810,7 +811,7 @@ const DatabaseRoutines = {
             }
 
             const routinesExecuteModal = document.getElementById('routinesExecuteModal');
-            const modal = window.bootstrap.Modal.getOrCreateInstance(routinesExecuteModal);
+            const modal = bootstrap.Modal.getOrCreateInstance(routinesExecuteModal);
 
             const routinesExecuteButtonEventHandler = function () {
                 /**

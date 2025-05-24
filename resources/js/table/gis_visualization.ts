@@ -1,6 +1,15 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.ts';
 import { escapeHtml } from '../modules/functions/escape.ts';
+import { Feature, Map, View } from 'ol';
+import { Attribution, MousePosition, Zoom } from 'ol/control';
+import { createStringXY } from 'ol/coordinate';
+import { isEmpty } from 'ol/extent';
+import { LineString, MultiLineString, MultiPoint, MultiPolygon, Point, Polygon } from 'ol/geom';
+import { Tile, Vector as VectorLayer } from 'ol/layer';
+import { get as getProjection } from 'ol/proj';
+import { OSM, Vector as VectorSource } from 'ol/source';
+import { Circle, Fill, Stroke, Style, Text } from 'ol/style';
 
 /**
  * @fileoverview    functions used for visualizing GIS data
@@ -428,11 +437,11 @@ class OlVisualization extends GisVisualization {
     }
 
     drawOpenLayers () {
-        if (typeof window.ol === 'undefined') {
+        if (! document.querySelector('script[src*="js/vendor/openlayers/openlayers.js"]')) {
             return undefined;
         }
 
-        const olCss = 'js/vendor/openlayers/theme/ol.css';
+        const olCss = 'js/vendor/openlayers/openlayers.css';
         if (! document.querySelector('link[rel="stylesheet"][href="' + olCss + '"]')) {
             const link = document.createElement('link');
             link.rel = 'stylesheet';
@@ -441,28 +450,28 @@ class OlVisualization extends GisVisualization {
             document.head.appendChild(link);
         }
 
-        const vectorSource = new window.ol.source.Vector({
+        const vectorSource = new VectorSource({
             features: getFeaturesFromOpenLayersData(this.data),
         });
-        const map = new window.ol.Map({
+        const map = new Map({
             target: this.target,
             layers: [
-                new window.ol.layer.Tile({ source: new window.ol.source.OSM() }),
-                new window.ol.layer.Vector({ source: vectorSource }),
+                new Tile({ source: new OSM() }),
+                new VectorLayer({ source: vectorSource }),
             ],
-            view: new window.ol.View({ center: [0, 0], zoom: 4 }),
+            view: new View({ center: [0, 0], zoom: 4 }),
             controls: [
-                new window.ol.control.MousePosition({
-                    coordinateFormat: window.ol.coordinate.createStringXY(4),
+                new MousePosition({
+                    coordinateFormat: createStringXY(4),
                     projection: 'EPSG:4326'
                 }),
-                new window.ol.control.Zoom,
-                new window.ol.control.Attribution
+                new Zoom,
+                new Attribution
             ]
         });
 
         const extent = vectorSource.getExtent();
-        if (! window.ol.extent.isEmpty(extent)) {
+        if (! isEmpty(extent)) {
             map.getView().fit(extent, { padding: [20, 20, 20, 20] });
         }
 
@@ -502,40 +511,40 @@ function getFeaturesFromOpenLayersData (geometries: any[]): any[] {
         let olGeometry: any = null;
         const style: any = {};
         if (geometry.geometry.type === 'LineString') {
-            olGeometry = new window.ol.geom.LineString(geometry.geometry.coordinates);
-            style.stroke = new window.ol.style.Stroke(geometry.style.stroke);
+            olGeometry = new LineString(geometry.geometry.coordinates);
+            style.stroke = new Stroke(geometry.style.stroke);
         } else if (geometry.geometry.type === 'MultiLineString') {
-            olGeometry = new window.ol.geom.MultiLineString(geometry.geometry.coordinates);
-            style.stroke = new window.ol.style.Stroke(geometry.style.stroke);
+            olGeometry = new MultiLineString(geometry.geometry.coordinates);
+            style.stroke = new Stroke(geometry.style.stroke);
         } else if (geometry.geometry.type === 'MultiPoint') {
-            olGeometry = new window.ol.geom.MultiPoint(geometry.geometry.coordinates);
-            style.image = new window.ol.style.Circle({
-                fill: new window.ol.style.Fill(geometry.style.circle.fill),
-                stroke: new window.ol.style.Stroke(geometry.style.circle.stroke),
+            olGeometry = new MultiPoint(geometry.geometry.coordinates);
+            style.image = new Circle({
+                fill: new Fill(geometry.style.circle.fill),
+                stroke: new Stroke(geometry.style.circle.stroke),
                 radius: geometry.style.circle.radius,
             });
         } else if (geometry.geometry.type === 'MultiPolygon') {
-            olGeometry = new window.ol.geom.MultiPolygon(geometry.geometry.coordinates);
-            style.fill = new window.ol.style.Fill(geometry.style.fill);
-            style.stroke = new window.ol.style.Stroke(geometry.style.stroke);
+            olGeometry = new MultiPolygon(geometry.geometry.coordinates);
+            style.fill = new Fill(geometry.style.fill);
+            style.stroke = new Stroke(geometry.style.stroke);
         } else if (geometry.geometry.type === 'Point') {
-            olGeometry = new window.ol.geom.Point(geometry.geometry.coordinates);
-            style.image = new window.ol.style.Circle({
-                fill: new window.ol.style.Fill(geometry.style.circle.fill),
-                stroke: new window.ol.style.Stroke(geometry.style.circle.stroke),
+            olGeometry = new Point(geometry.geometry.coordinates);
+            style.image = new Circle({
+                fill: new Fill(geometry.style.circle.fill),
+                stroke: new Stroke(geometry.style.circle.stroke),
                 radius: geometry.style.circle.radius,
             });
         } else if (geometry.geometry.type === 'Polygon') {
-            olGeometry = new window.ol.geom.Polygon(geometry.geometry.coordinates);
-            style.fill = new window.ol.style.Fill(geometry.style.fill);
-            style.stroke = new window.ol.style.Stroke(geometry.style.stroke);
+            olGeometry = new Polygon(geometry.geometry.coordinates);
+            style.fill = new Fill(geometry.style.fill);
+            style.stroke = new Stroke(geometry.style.stroke);
         } else {
             throw new Error();
         }
 
         if (geometry.geometry.srid !== 3857) {
             const source  = 'EPSG:' + (geometry.geometry.srid !== 0 ? geometry.geometry.srid : 4326);
-            const sourceProj = window.ol.getProjection(source);
+            const sourceProj = getProjection(source);
 
             if (sourceProj) {
                 olGeometry = olGeometry.transform(
@@ -546,11 +555,11 @@ function getFeaturesFromOpenLayersData (geometries: any[]): any[] {
         }
 
         if (geometry.style.text) {
-            style.text = new window.ol.style.Text(geometry.style.text);
+            style.text = new Text(geometry.style.text);
         }
 
-        const feature = new window.ol.Feature(olGeometry);
-        feature.setStyle(new window.ol.style.Style(style));
+        const feature = new Feature(olGeometry);
+        feature.setStyle(new Style(style));
         features.push(feature);
     }
 
@@ -572,7 +581,7 @@ class GisVisualizationController {
 
         $(document).on('click', '#useOsmAsBaseLayerSwitch', this.boundOnChoiceChange);
 
-        if (typeof window.ol === 'undefined') {
+        if (! document.querySelector('script[src*="js/vendor/openlayers/openlayers.js"]')) {
             $('#useOsmAsBaseLayerSwitch, #useOsmAsBaseLayerSwitchLabel').hide();
             $('#useOsmAsBaseLayerSwitch').prop('checked', false);
         }

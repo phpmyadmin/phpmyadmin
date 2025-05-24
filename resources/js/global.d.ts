@@ -4,13 +4,11 @@ interface Window {
     mysqlDocTemplate: string;
     themeImagePath: string;
     firstDayOfCalendar: string;
-    ol: any;
     opera: any;
     zxcvbnts: any;
     msCrypto: any;
     u2f: any;
     variableNames: string[];
-    bootstrap: typeof bootstrap;
 
     sprintf(format: string, ...values: (string|number)[]): string;
 }
@@ -18,7 +16,7 @@ interface Window {
 interface JQuery {
     sortableTable: (method: any) => any;
 
-    menuResizer: (method: string|Function) => any;
+    menuResizer: (method: string|(() => number)) => any;
 
     filterByValue: (value: any) => any;
 

@@ -12,6 +12,6 @@
         "strict": false,
         "isolatedModules": true
     },
-    "include": ["./resources/js/global.d.ts", "./resources/js/src/**/*"],
+    "include": ["./resources/js/**/*"],
     "exclude": ["node_modules"]
 }

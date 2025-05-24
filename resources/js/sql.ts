@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import * as bootstrap from 'bootstrap';
 import { AJAX } from './modules/ajax.ts';
 import { checkFormElementInRange, checkSqlQuery, prepareForAjaxRequest } from './modules/functions.ts';
 import { Navigation } from './modules/navigation.ts';
@@ -1209,7 +1210,7 @@ function browseForeignDialog ($thisA) {
         browseForeignModal = document.getElementById('browseForeignModal');
     }
 
-    const modal = window.bootstrap.Modal.getOrCreateInstance(browseForeignModal);
+    const modal = bootstrap.Modal.getOrCreateInstance(browseForeignModal);
 
     browseForeignModal.addEventListener('hidden.bs.modal', function () {
         // remove event handlers attached to elements related to dialog
