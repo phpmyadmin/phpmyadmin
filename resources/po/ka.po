@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-05-25 00:29+0000\n"
-"PO-Revision-Date: 2025-05-16 21:03+0000\n"
+"PO-Revision-Date: 2025-05-25 12:31+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ka/>\n"
@@ -5794,10 +5794,8 @@ msgstr ""
 
 #: resources/templates/server/status/monitor/index.twig:350
 #: resources/templates/server/status/monitor/index.twig:369
-#, fuzzy
-#| msgid "Warning"
 msgid "Warning:"
-msgstr "გაფრთხილება"
+msgstr "გაფრთხილება:"
 
 #: resources/templates/server/status/monitor/index.twig:351
 msgid ""
@@ -14779,10 +14777,8 @@ msgid "You must provide a valid return type for the routine."
 msgstr ""
 
 #: src/Database/Routines.php:813
-#, fuzzy
-#| msgid "Invalid routine type: \"%s\""
 msgid "Invalid routine type!"
-msgstr "არასწორი პროცედურის ტიპი: \"%s\""
+msgstr "არასწორი პროცედურის ტიპი!"
 
 #: src/Database/Routines.php:819
 msgid "You must provide a routine name!"
