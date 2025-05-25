@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-05-25 00:29+0000\n"
-"PO-Revision-Date: 2025-05-24 14:03+0000\n"
-"Last-Translator: Marijn Scholtus <linkable@gmail.com>\n"
+"PO-Revision-Date: 2025-05-25 12:31+0000\n"
+"Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
 "Language: nl\n"
@@ -1947,10 +1947,8 @@ msgid "OFF"
 msgstr "UIT"
 
 #: resources/templates/database/events/index.twig:161
-#, fuzzy
-#| msgid "Excel edition"
 msgid "Event editor"
-msgstr "Excel-editie"
+msgstr "Gebeurtenis bewerker"
 
 #: resources/templates/database/events/index.twig:166
 #: resources/templates/database/routines/index.twig:83
@@ -1975,10 +1973,8 @@ msgid "Save changes"
 msgstr "Wijzigingen opslaan"
 
 #: resources/templates/database/events/index.twig:181
-#, fuzzy
-#| msgid "Export of event %s"
 msgid "Export event"
-msgstr "Export van gebeurtenis %s"
+msgstr "Export gebeurtenis"
 
 #: resources/templates/database/export/index.twig:61
 msgid ""
@@ -2136,10 +2132,8 @@ msgid "Update query"
 msgstr "Werk query bij"
 
 #: resources/templates/database/multi_table_query/form.twig:175
-#, fuzzy
-#| msgid "Update query"
 msgid "Copy query"
-msgstr "Werk query bij"
+msgstr "Kopieer query"
 
 #: resources/templates/database/multi_table_query/form.twig:176
 #: src/Html/Generator.php:545
@@ -2446,10 +2440,8 @@ msgid "Function"
 msgstr "Functie"
 
 #: resources/templates/database/routines/execute_form.twig:54
-#, fuzzy
-#| msgid "This page does not contain any tables!"
 msgid "This routine does not require any parameters."
-msgstr "Deze pagina bevat geen tabellen!"
+msgstr "De routine vereist geen parameters."
 
 #: resources/templates/database/routines/index.twig:3 src/Menu.php:371
 #: src/Util.php:1368
@@ -2482,16 +2474,12 @@ msgid "Returns"
 msgstr "Geeft terug"
 
 #: resources/templates/database/routines/index.twig:78
-#, fuzzy
-#| msgid "Routine name"
 msgid "Routine editor"
-msgstr "Routinenaam"
+msgstr "Routine bewerker"
 
 #: resources/templates/database/routines/index.twig:98
-#, fuzzy
-#| msgid "Export of routine %s"
 msgid "Export routine"
-msgstr "Routine %s exporteren"
+msgstr "Exporteren routine"
 
 #: resources/templates/database/routines/index.twig:113
 #: src/Controllers/Database/RoutinesController.php:355
@@ -5768,10 +5756,8 @@ msgstr ""
 "heeft."
 
 #: resources/templates/server/status/monitor/index.twig:58
-#, fuzzy
-#| msgid "Import monitor configuration"
 msgid "Importing system monitor configuration"
-msgstr "Importeer monitor configuratie"
+msgstr "Importeren systeem monitor configuratie"
 
 #: resources/templates/server/status/monitor/index.twig:63
 #: src/Controllers/JavaScriptMessagesController.php:299
@@ -5783,10 +5769,8 @@ msgid "Reset to default"
 msgstr "Standaardwaarde herstellen"
 
 #: resources/templates/server/status/monitor/index.twig:87
-#, fuzzy
-#| msgid "Monitor Instructions"
 msgid "System monitor instructions"
-msgstr "Monitorinstructies"
+msgstr "Systeem monitorinstructies"
 
 #: resources/templates/server/status/monitor/index.twig:92
 msgid ""
@@ -5967,10 +5951,8 @@ msgid "Cancel request"
 msgstr "Aanvraag onderbreken"
 
 #: resources/templates/server/status/monitor/index.twig:294
-#, fuzzy
-#| msgid "Analysing & loading logs. This may take a while."
 msgid "Analysing and loading logs. This may take a while."
-msgstr "Logbestanden worden geladen en geanalyseerd. Dit kan even duren."
+msgstr "Analyseren en laden logbestanden. Dit kan even duren."
 
 #: resources/templates/server/status/monitor/index.twig:310
 msgid "No data found"
@@ -5990,10 +5972,8 @@ msgid "Log data loaded. Queries executed in this time span:"
 msgstr "Loggegevens zijn geladen. Aantal ondertussen uitgevoerde query's:"
 
 #: resources/templates/server/status/monitor/index.twig:336
-#, fuzzy
-#| msgid "Jump to Log table"
 msgid "Jump to the log table"
-msgstr "Ga naar tabel Log"
+msgstr "Ga naar de log tabel"
 
 #: resources/templates/server/status/monitor/index.twig:346
 msgid "Monitor refresh failed"
@@ -6001,10 +5981,8 @@ msgstr "Verversen van monitor mislukt"
 
 #: resources/templates/server/status/monitor/index.twig:350
 #: resources/templates/server/status/monitor/index.twig:369
-#, fuzzy
-#| msgid "Warning"
 msgid "Warning:"
-msgstr "Waarschuwing"
+msgstr "Waarschuwing:"
 
 #: resources/templates/server/status/monitor/index.twig:351
 msgid ""
@@ -6025,12 +6003,6 @@ msgid "Local monitor configuration incompatible!"
 msgstr "Configuratie van lokale monitoring is niet geldig!"
 
 #: resources/templates/server/status/monitor/index.twig:370
-#, fuzzy
-#| msgid ""
-#| "The chart arrangement configuration in your browsers local storage is not "
-#| "compatible anymore to the newer version of the monitor dialog. It is very "
-#| "likely that your current configuration will not work anymore. Please "
-#| "reset your configuration to default in the <i>Settings</i> menu."
 msgid ""
 "The chart arrangement configuration in your browsers local storage is not "
 "compatible anymore to the newer version of the monitor dialog. It is very "
@@ -6040,8 +6012,8 @@ msgstr ""
 "De configuratie voor de volgorde van grafieken, die opgeslagen is in lokale "
 "opslag van je browser, is niet langer compatibel met de nieuwere versie van "
 "de monitor-interface. Je huidige instellingen werken mogelijk niet meer. "
-"Reset de instellingen naar de standaardwaarden in het menu <i>Instellingen</"
-"i>."
+"Reset de instellingen naar de standaardwaarden in het menu "
+"<em>Instellingen</em>."
 
 #: resources/templates/server/status/processes/index.twig:14
 msgid "Show only active"
@@ -7448,16 +7420,12 @@ msgid "There are no triggers to display."
 msgstr "Er zijn geen triggers om weer te gegeven."
 
 #: resources/templates/triggers/list.twig:81
-#, fuzzy
-#| msgid "Trigger name"
 msgid "Trigger editor"
-msgstr "Triggernaam"
+msgstr "Trigger bewerker"
 
 #: resources/templates/triggers/list.twig:101
-#, fuzzy
-#| msgid "Export of trigger %s"
 msgid "Export trigger"
-msgstr "Export van trigger %s"
+msgstr "Exporteer trigger"
 
 #: resources/templates/view_create.twig:75
 msgid "VIEW name"
@@ -15548,10 +15516,9 @@ msgid "The columns have been moved successfully."
 msgstr "De geselecteerde kolommen zijn met succes verplaatst."
 
 #: src/Controllers/Table/Structure/MoveColumnsController.php:112
-#, fuzzy
-#| msgid "The selected user was not found in the privilege table."
 msgid "The selected columns do not match the columns in the table."
-msgstr "De geselecteerde gebruiker is niet aangetroffen in de rechtentabel."
+msgstr ""
+"De geselecteerde kolommen komen niet overeen met de kolommen in de tabel."
 
 #: src/Controllers/Table/Structure/MoveColumnsController.php:139
 msgid "The selected columns are already in the correct order."
@@ -15828,10 +15795,8 @@ msgid "You must provide a valid return type for the routine."
 msgstr "Vul een geldig returntype in voor de routine."
 
 #: src/Database/Routines.php:813
-#, fuzzy
-#| msgid "Invalid routine type: \"%s\""
 msgid "Invalid routine type!"
-msgstr "Ongeldig routine-type: \"%s\""
+msgstr "Ongeldig routine-type!"
 
 #: src/Database/Routines.php:819
 msgid "You must provide a routine name!"
@@ -18736,16 +18701,12 @@ msgid "You must provide a trigger definition."
 msgstr "U moet een triggerdefinitie ingeven."
 
 #: src/Types.php:97
-#, fuzzy
-#| msgid "Empty"
 msgid "empty"
-msgstr "Legen"
+msgstr "legen"
 
 #: src/Types.php:98
-#, fuzzy
-#| msgid "not present"
 msgid "not empty"
-msgstr "niet aanwezig"
+msgstr "niet leeg"
 
 #: src/Types.php:161
 msgid ""
@@ -18853,18 +18814,16 @@ msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr "Een dag en tijd combinatie, ondersteunde reeks gaat van %1$s tot %2$s"
 
 #: src/Types.php:208
-#, fuzzy
-#| msgid ""
-#| "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
-#| "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-19 03:14:07 UTC on "
 "32-bit platforms (MariaDB 11.3 and earlier), and up to 2106-02-07 06:28:15 "
 "UTC on 64-bit platforms (MariaDB 11.5 and later), stored as the number of "
 "seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
-"Een tijdstip, van 1970-01-01 00:00:01 UTC tot 2038-01-09 03:14:07 UTC, wordt "
-"opgeslaan als aantal seconden sinds het beginmoment (1970-01-01 00:00:00 UTC)"
+"Een tijdstip, van 1970-01-01 00:00:01 UTC tot 2038-01-19 03:14:07 UTC op 32-"
+"bits platforms (MariaDB 11.3 en eerder), en tot 2106-02-07 06:28:15 UTC op "
+"64-bits platforms (MariaDB 11.5 en later) wordt opgeslagen als aantal "
+"seconden sinds het beginmoment (1970-01-01 00:00:00 UTC)"
 
 #: src/Types.php:214
 #, php-format
