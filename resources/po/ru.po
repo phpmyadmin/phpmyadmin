@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-05-18 00:29+0000\n"
+"POT-Creation-Date: 2025-05-25 00:29+0000\n"
 "PO-Revision-Date: 2025-04-25 17:45+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -131,7 +131,7 @@ msgstr ""
 #: resources/templates/table/structure/display_structure.twig:143
 #: resources/templates/table/structure/display_structure.twig:284
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:25
-#: src/Controllers/Table/StructureController.php:216
+#: src/Controllers/Table/StructureController.php:217
 msgid "Primary"
 msgstr "Первичный"
 
@@ -153,7 +153,7 @@ msgstr "Уникальный"
 #: resources/templates/table/structure/display_structure.twig:290
 #: resources/templates/table/structure/display_table_stats.twig:24
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:27
-#: src/Controllers/Table/StructureController.php:220
+#: src/Controllers/Table/StructureController.php:221
 #: src/Navigation/Nodes/NodeIndex.php:24
 msgid "Index"
 msgstr "Индекс"
@@ -2821,8 +2821,8 @@ msgstr "Представления"
 #: resources/templates/database/structure/structure_table_row.twig:122
 #: resources/templates/database/structure/structure_table_row.twig:186
 #: src/Controllers/Operations/TableController.php:120
-#: src/Controllers/Operations/TableController.php:321
-#: src/Controllers/Table/StructureController.php:150
+#: src/Controllers/Operations/TableController.php:316
+#: src/Controllers/Table/StructureController.php:151
 #: src/Navigation/Nodes/NodeView.php:24
 msgid "View"
 msgstr "Представление"
@@ -4231,7 +4231,7 @@ msgstr "Вы включили двухфакторную авторизацию.
 #: resources/templates/preview_sql.twig:3
 #: src/Controllers/Database/Structure/DropTableController.php:42
 #: src/Controllers/Database/Structure/EmptyTableController.php:41
-#: src/Controllers/Operations/TableController.php:337
+#: src/Controllers/Operations/TableController.php:332
 #: src/Controllers/Table/DropColumnController.php:61
 #: src/Controllers/Table/ReplaceController.php:287 src/Core.php:516
 msgid "No change"
@@ -6416,7 +6416,7 @@ msgstr "Круговая диаграмма с результатами проф
 #: src/Controllers/Table/Partition/RebuildController.php:48
 #: src/Controllers/Table/Partition/RepairController.php:47
 #: src/Controllers/Table/Partition/TruncateController.php:48
-#: src/Controllers/Table/RelationController.php:140
+#: src/Controllers/Table/RelationController.php:141
 #: src/Database/Routines.php:1023 src/Display/Results.php:3013
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
@@ -11911,11 +11911,11 @@ msgstr ""
 msgid "Server %d"
 msgstr "Сервер %d"
 
-#: src/ConfigStorage/Relation.php:1250
+#: src/ConfigStorage/Relation.php:1116
 msgid "no description"
 msgstr "нет описания"
 
-#: src/ConfigStorage/Relation.php:1456
+#: src/ConfigStorage/Relation.php:1322
 #, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
@@ -12010,7 +12010,7 @@ msgstr "Значение должно быть отрицательным чис
 msgid "Value must be less than or equal to %s!"
 msgstr "Значение должно быть меньше или равно %s!"
 
-#: src/Console.php:61
+#: src/Console/Console.php:64
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
@@ -12018,7 +12018,7 @@ msgstr[0] "Показать %1$d закладку (как частных, так
 msgstr[1] "Показать %1$d закладки (как частных, так и общих)"
 msgstr[2] "Показать %1$d закладок (как частных, так и общих)"
 
-#: src/Console.php:68
+#: src/Console/Console.php:71
 msgid "No bookmarks"
 msgstr "Нет закладок"
 
@@ -12119,8 +12119,8 @@ msgstr ""
 #: src/Controllers/Table/SearchController.php:177
 #: src/Controllers/Table/SqlController.php:57
 #: src/Controllers/Table/SqlController.php:62
-#: src/Controllers/Table/StructureController.php:90
-#: src/Controllers/Table/StructureController.php:95
+#: src/Controllers/Table/StructureController.php:91
+#: src/Controllers/Table/StructureController.php:96
 #: src/Controllers/Table/Structure/PrimaryController.php:67
 #: src/Controllers/Table/Structure/PrimaryController.php:72
 #: src/Controllers/Table/TrackingController.php:66
@@ -12239,8 +12239,8 @@ msgstr "У вас нет прав администрировать пользо�
 #: src/Controllers/Table/SearchController.php:191
 #: src/Controllers/Table/SqlController.php:71
 #: src/Controllers/Table/SqlController.php:76
-#: src/Controllers/Table/StructureController.php:104
-#: src/Controllers/Table/StructureController.php:109
+#: src/Controllers/Table/StructureController.php:105
+#: src/Controllers/Table/StructureController.php:110
 #: src/Controllers/Table/Structure/PrimaryController.php:81
 #: src/Controllers/Table/Structure/PrimaryController.php:86
 #: src/Controllers/Table/ZoomSearchController.php:114
@@ -14471,7 +14471,7 @@ msgid "String"
 msgstr "Символьные"
 
 #: src/Controllers/Operations/Database/CollationController.php:40
-#: src/Controllers/Operations/TableController.php:270
+#: src/Controllers/Operations/TableController.php:265
 msgid "No collation provided."
 msgstr "Не предоставлено сопоставление."
 
@@ -14519,7 +14519,7 @@ msgstr "Двухфакторная аутентификация сконфигу
 
 #: src/Controllers/SchemaExportController.php:38
 #: src/Controllers/Server/UserGroupsFormController.php:44
-#: src/ResponseRenderer.php:447
+#: src/ResponseRenderer.php:448
 msgid "Missing parameter:"
 msgstr "Отсутствующий параметр:"
 
@@ -15449,11 +15449,11 @@ msgstr "Имя раздела должно быть непустой строк�
 msgid "Invalid database or table name."
 msgstr "Неверное имя базы данных или таблицы."
 
-#: src/Controllers/Table/RelationController.php:317
+#: src/Controllers/Table/RelationController.php:314
 msgid "Display column was successfully updated."
 msgstr "Отображаемый столбец был успешно обновлен."
 
-#: src/Controllers/Table/RelationController.php:351
+#: src/Controllers/Table/RelationController.php:348
 msgid "Internal relationships were successfully updated."
 msgstr "Внутренние связи были успешно обновлены."
 
@@ -18480,7 +18480,7 @@ msgstr ""
 "перезагрузки страницы, изменения интерфейса будут отменены. Пожалуйста, "
 "проверьте изменена ли структура таблицы."
 
-#: src/Table/Table.php:1572
+#: src/Table/Table.php:1576
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Ошибка создания внешнего ключа на %1$s (проверьте типы данных)"

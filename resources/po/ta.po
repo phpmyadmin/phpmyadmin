@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-05-18 00:29+0000\n"
+"POT-Creation-Date: 2025-05-25 00:29+0000\n"
 "PO-Revision-Date: 2025-01-27 16:17+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -133,7 +133,7 @@ msgstr ""
 #: resources/templates/table/structure/display_structure.twig:143
 #: resources/templates/table/structure/display_structure.twig:284
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:25
-#: src/Controllers/Table/StructureController.php:216
+#: src/Controllers/Table/StructureController.php:217
 msgid "Primary"
 msgstr "முதன்மை"
 
@@ -155,7 +155,7 @@ msgstr "தனித்தன்மை"
 #: resources/templates/table/structure/display_structure.twig:290
 #: resources/templates/table/structure/display_table_stats.twig:24
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:27
-#: src/Controllers/Table/StructureController.php:220
+#: src/Controllers/Table/StructureController.php:221
 #: src/Navigation/Nodes/NodeIndex.php:24
 msgid "Index"
 msgstr "சுட்டுதொகுப்புக்குறி"
@@ -2826,8 +2826,8 @@ msgstr "காட்சிகள்"
 #: resources/templates/database/structure/structure_table_row.twig:122
 #: resources/templates/database/structure/structure_table_row.twig:186
 #: src/Controllers/Operations/TableController.php:120
-#: src/Controllers/Operations/TableController.php:321
-#: src/Controllers/Table/StructureController.php:150
+#: src/Controllers/Operations/TableController.php:316
+#: src/Controllers/Table/StructureController.php:151
 #: src/Navigation/Nodes/NodeView.php:24
 msgid "View"
 msgstr "நோக்கு"
@@ -4223,7 +4223,7 @@ msgstr "நீங்கள் இரண்டு காரணி அங்கீ
 #: resources/templates/preview_sql.twig:3
 #: src/Controllers/Database/Structure/DropTableController.php:42
 #: src/Controllers/Database/Structure/EmptyTableController.php:41
-#: src/Controllers/Operations/TableController.php:337
+#: src/Controllers/Operations/TableController.php:332
 #: src/Controllers/Table/DropColumnController.php:61
 #: src/Controllers/Table/ReplaceController.php:287 src/Core.php:516
 msgid "No change"
@@ -6376,7 +6376,7 @@ msgstr "விவரக்குறிப்பு முடிவுகளு�
 #: src/Controllers/Table/Partition/RebuildController.php:48
 #: src/Controllers/Table/Partition/RepairController.php:47
 #: src/Controllers/Table/Partition/TruncateController.php:48
-#: src/Controllers/Table/RelationController.php:140
+#: src/Controllers/Table/RelationController.php:141
 #: src/Database/Routines.php:1023 src/Display/Results.php:3013
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
@@ -11786,11 +11786,11 @@ msgstr ""
 msgid "Server %d"
 msgstr "வழங்கி %d"
 
-#: src/ConfigStorage/Relation.php:1250
+#: src/ConfigStorage/Relation.php:1116
 msgid "no description"
 msgstr "விளக்கம் இல்லை"
 
-#: src/ConfigStorage/Relation.php:1456
+#: src/ConfigStorage/Relation.php:1322
 #, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
@@ -11884,14 +11884,14 @@ msgstr "எதிர்மறை அல்லாத எண் அல்ல!"
 msgid "Value must be less than or equal to %s!"
 msgstr "மதிப்பு %s ஐ விட குறைவாகவோ அல்லது சமமாகவோ இருக்க வேண்டும்!"
 
-#: src/Console.php:61
+#: src/Console/Console.php:64
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
 msgstr[0] "%1$d புக்மார்க்கைக் காட்டுகிறது (தனியார் மற்றும் பகிரப்பட்டவை)"
 msgstr[1] "%1$d புக்மார்க்குகளைக் காட்டுகிறது (தனிப்பட்ட மற்றும் பகிரப்பட்ட இரண்டும்)"
 
-#: src/Console.php:68
+#: src/Console/Console.php:71
 msgid "No bookmarks"
 msgstr "புத்தகக்குறிகள் இல்லை"
 
@@ -11989,8 +11989,8 @@ msgstr "\"%s\" என்ற பக்கம் ஏற்கனவே உள்�
 #: src/Controllers/Table/SearchController.php:177
 #: src/Controllers/Table/SqlController.php:57
 #: src/Controllers/Table/SqlController.php:62
-#: src/Controllers/Table/StructureController.php:90
-#: src/Controllers/Table/StructureController.php:95
+#: src/Controllers/Table/StructureController.php:91
+#: src/Controllers/Table/StructureController.php:96
 #: src/Controllers/Table/Structure/PrimaryController.php:67
 #: src/Controllers/Table/Structure/PrimaryController.php:72
 #: src/Controllers/Table/TrackingController.php:66
@@ -12108,8 +12108,8 @@ msgstr "பயனர்களை நிர்வகிப்பதற்கா�
 #: src/Controllers/Table/SearchController.php:191
 #: src/Controllers/Table/SqlController.php:71
 #: src/Controllers/Table/SqlController.php:76
-#: src/Controllers/Table/StructureController.php:104
-#: src/Controllers/Table/StructureController.php:109
+#: src/Controllers/Table/StructureController.php:105
+#: src/Controllers/Table/StructureController.php:110
 #: src/Controllers/Table/Structure/PrimaryController.php:81
 #: src/Controllers/Table/Structure/PrimaryController.php:86
 #: src/Controllers/Table/ZoomSearchController.php:114
@@ -14324,7 +14324,7 @@ msgid "String"
 msgstr "சரம்"
 
 #: src/Controllers/Operations/Database/CollationController.php:40
-#: src/Controllers/Operations/TableController.php:270
+#: src/Controllers/Operations/TableController.php:265
 msgid "No collation provided."
 msgstr "எந்த கூட்டு வழங்கப்படவில்லை."
 
@@ -14371,7 +14371,7 @@ msgstr "இரண்டு காரணி ஏற்பு கட்டமைக
 
 #: src/Controllers/SchemaExportController.php:38
 #: src/Controllers/Server/UserGroupsFormController.php:44
-#: src/ResponseRenderer.php:447
+#: src/ResponseRenderer.php:448
 msgid "Missing parameter:"
 msgstr "மதிப்புருக்கள் காணப்படவில்லை:"
 
@@ -15276,11 +15276,11 @@ msgstr "பகிர்வு பெயர் காலியாக இல்ல
 msgid "Invalid database or table name."
 msgstr "தவறான தரவுத்தளம் அல்லது அட்டவணை பெயர்."
 
-#: src/Controllers/Table/RelationController.php:317
+#: src/Controllers/Table/RelationController.php:314
 msgid "Display column was successfully updated."
 msgstr "காட்சி நெடுவரிசை வெற்றிகரமாக புதுப்பிக்கப்பட்டது."
 
-#: src/Controllers/Table/RelationController.php:351
+#: src/Controllers/Table/RelationController.php:348
 msgid "Internal relationships were successfully updated."
 msgstr "உள் உறவுகள் வெற்றிகரமாக புதுப்பிக்கப்பட்டன."
 
@@ -18276,7 +18276,7 @@ msgstr ""
 "செய்யப்பட்ட மாற்றங்கள் தொடர்ந்து இருக்காது. அட்டவணை அமைப்பு மாற்றப்பட்டுள்ளதா என்பதை "
 "சரிபார்க்கவும்."
 
-#: src/Table/Table.php:1572
+#: src/Table/Table.php:1576
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "%1$s இல் வெளிநாட்டு விசையை உருவாக்கும் பிழை (தரவு வகைகளை சரிபார்க்கவும்)"
