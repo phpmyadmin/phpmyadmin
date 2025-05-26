@@ -15,6 +15,7 @@
     "@babel/core": "^7.26.10",
     "@babel/preset-env": "^7.26.9",
     "@babel/preset-typescript": "^7.21.0",
+    "@babel/runtime": "^7.27.1",
     "@popperjs/core": "^2.11.8",
     "@types/bootstrap": "^5.2.6",
     "@types/chart.js": "^2.9.37",
