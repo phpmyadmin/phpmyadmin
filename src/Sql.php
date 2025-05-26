@@ -740,8 +740,8 @@ class Sql
         $this->queryTime = $this->dbi->lastQueryExecutionTime;
 
         if (! defined('TESTSUITE')) {
-            // reopen session
-            session_start();
+            // reopen session but prevent PHP from sending the session cookie again
+            session_start(['use_cookies' => false]);
         }
 
         $errorMessage = '';
