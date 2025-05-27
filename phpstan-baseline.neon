@@ -35032,7 +35032,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'index_list' on mixed\\.$#"
-			count: 1
+			count: 2
 			path: libraries/classes/Table.php
 
 		-
@@ -35167,7 +35167,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 41
+			count: 30
 			path: libraries/classes/Table.php
 
 		-
