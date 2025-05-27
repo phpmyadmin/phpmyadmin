@@ -14,6 +14,7 @@ import checkIndexName from './indexes/checkIndexName.ts';
 import mainMenuResizerCallback from './functions/mainMenuResizerCallback.ts';
 import isStorageSupported from './functions/isStorageSupported.ts';
 import adjustTotals from './functions/adjustTotals.ts';
+import { TempusDominus } from '@eonasdan/tempus-dominus';
 
 /**
  * Object containing CodeMirror editor of the query editor in SQL tab.
@@ -79,6 +80,92 @@ export function addDatepicker ($thisElement, type = undefined, options = undefin
     var showTimepicker = true;
     if (type === 'date') {
         showTimepicker = false;
+    }
+
+    if (type === 'date') {
+        new TempusDominus($thisElement.parent()[0], {
+            display: {
+                icons: {
+                    type: 'icons',
+                    time: 'bi bi-clock',
+                    date: 'bi bi-calendar-week',
+                    up: 'bi bi-arrow-up',
+                    down: 'bi bi-arrow-down',
+                    previous: 'bi bi-chevron-left',
+                    next: 'bi bi-chevron-right',
+                    today: 'bi bi-calendar-check',
+                    clear: 'bi bi-trash',
+                    close: 'bi bi-x'
+                },
+                components: {
+                    clock: false,
+                },
+            },
+            localization: {
+                hourCycle: 'h23',
+                format: 'yyyy-MM-dd',
+            },
+        });
+
+        return;
+    }
+
+    if (type === 'datetime' || type === 'timestamp') {
+        new TempusDominus($thisElement.parent()[0], {
+            display: {
+                icons: {
+                    type: 'icons',
+                    time: 'bi bi-clock',
+                    date: 'bi bi-calendar-week',
+                    up: 'bi bi-arrow-up',
+                    down: 'bi bi-arrow-down',
+                    previous: 'bi bi-chevron-left',
+                    next: 'bi bi-chevron-right',
+                    today: 'bi bi-calendar-check',
+                    clear: 'bi bi-trash',
+                    close: 'bi bi-x'
+                },
+                sideBySide: true,
+                components: {
+                    seconds: true,
+                },
+            },
+            localization: {
+                hourCycle: 'h23',
+                format: 'yyyy-MM-dd HH:mm:ss',
+            },
+        });
+
+        return;
+    }
+
+    if (type === 'time') {
+        new TempusDominus($thisElement.parent()[0], {
+            display: {
+                icons: {
+                    type: 'icons',
+                    time: 'bi bi-clock',
+                    date: 'bi bi-calendar-week',
+                    up: 'bi bi-arrow-up',
+                    down: 'bi bi-arrow-down',
+                    previous: 'bi bi-chevron-left',
+                    next: 'bi bi-chevron-right',
+                    today: 'bi bi-calendar-check',
+                    clear: 'bi bi-trash',
+                    close: 'bi bi-x',
+                },
+                components: {
+                    calendar: false,
+                    seconds: true,
+                },
+            },
+            localization: {
+                hourCycle: 'h23',
+                format: 'HH:mm:ss',
+            },
+        });
+
+        return;
     }
 
     // Getting the current Date and time
@@ -165,8 +252,8 @@ export function addDateTimePicker () {
     }
 
     $('input.timefield, input.datefield, input.datetimefield').each(function () {
-        var decimals = Number($(this).parent().attr('data-decimals'));
-        var type = $(this).parent().attr('data-type');
+        var decimals = Number($(this).closest('td').attr('data-decimals'));
+        var type = $(this).closest('td').attr('data-type');
 
         var showMillisec = false;
         var showMicrosec = false;
