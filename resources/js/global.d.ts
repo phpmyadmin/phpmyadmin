@@ -24,7 +24,6 @@ interface JQuery {
 }
 
 interface JQueryStatic {
-    timepicker: any;
     tablesorter: any;
     uiTableFilter: any;
 }

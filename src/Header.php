@@ -85,10 +85,11 @@ class Header
         $this->scripts->addFile('vendor/jquery/jquery-migrate.min.js');
         $this->scripts->addFile('vendor/sprintf.js');
         $this->scripts->addFile('vendor/jquery/jquery-ui.min.js');
+        $this->scripts->addFile('vendor/popperjs/popperjs.js');
         $this->scripts->addFile('vendor/bootstrap/bootstrap.js');
+        $this->scripts->addFile('vendor/@eonasdan/tempus-dominus.js');
         $this->scripts->addFile('vendor/js.cookie.min.js');
         $this->scripts->addFile('vendor/jquery/jquery.validate.min.js');
-        $this->scripts->addFile('vendor/jquery/jquery-ui-timepicker-addon.js');
         $this->scripts->addFile('index.php', ['route' => '/messages', 'l' => Current::$lang]);
         $this->scripts->addFile('shared.js');
         $this->scripts->addFile('menu_resizer.js');
@@ -272,7 +273,6 @@ class Header
         $messages = $this->getMessage();
         $isLoggedIn = $dbi->isConnected();
 
-        $this->scripts->addFile('datetimepicker.js');
         $this->scripts->addFile('validator-messages.js');
 
         return [

@@ -694,12 +694,14 @@ class InsertEditTest extends AbstractTestCase
         self::assertSame(
             <<<'HTML'
             a
-              <input type="text" name="fieldsb"
-                value="&amp;lt;" size="20"    data-type="DATE"
-                class="textfield datetimefield"
-                onchange="c"
-                tabindex="22"
-                id="field_22_3"><input type="hidden" name="auto_incrementb" value="1"><input type="hidden" name="fields_typeb" value="timestamp">
+                  <div class="input-group" id="field_22_3InputGroup" data-td-target-input="nearest" data-td-target-toggle="nearest">
+                  <input type="text" name="fieldsb" value="&amp;lt;" size="20"
+                    data-type="DATE" class="form-control textfield datetimefield" aria-label="Date/time"
+                    onchange="c"
+                    id="field_22_3" data-td-target="#field_22_3InputGroup" aria-describedby="field_22_3Button">
+                  <button class="btn btn-outline-secondary" type="button" data-td-target="#field_22_3InputGroup" id="field_22_3Button" data-td-toggle="datetimepicker"><img src="themes/dot.gif" title="Open date/time picker" alt="Open date/time picker" class="icon ic_b_calendar"></button>
+                </div>
+              <input type="hidden" name="auto_incrementb" value="1"><input type="hidden" name="fields_typeb" value="timestamp">
             HTML,
             $result,
         );
@@ -2457,8 +2459,7 @@ class InsertEditTest extends AbstractTestCase
         self::assertStringContainsString('<option>UUID</option>', $actual);
         self::assertStringContainsString('<span class="column_type" dir="ltr">datetime</span>', $actual);
         self::assertStringContainsString(
-            '<input type="text" name="fields[multi_edit][0][d8578edf8458ce06fbc5bb76a58c5ca4]"' . "\n"
-            . '    value="12-10-14.000000"',
+            '<input type="text" name="fields[multi_edit][0][d8578edf8458ce06fbc5bb76a58c5ca4]" value="12-10-14.000000"',
             $actual,
         );
 

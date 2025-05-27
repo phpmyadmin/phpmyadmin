@@ -2,15 +2,44 @@
 {% if is_textarea %}
   {{- textarea_html|raw -}}
 {% else %}
-  <input type="text" name="fields{{ column_name_appendix }}"
-    value="{{ input.value }}" size="{{ input.size }}"
-    {%- if input.is_char %} data-maxlength="{{ input.size }}"{% endif %}
-    {%- if input.is_integer %} min="{{ input.min }}" max="{{ input.max }}"{% endif %}
-    data-type="{{ input.is_integer ? 'INT' : input.data_type }}"
-    class="textfield{{ true_type == 'date' ? ' datefield' }}{{ true_type == 'time' ? ' timefield' }}{{ true_type == 'datetime' or true_type == 'timestamp' ? ' datetimefield' }}"
-    onchange="{{ input.on_change_clause|e('html_attr') }}"
-    tabindex="{{ input.field_index }}"{{ input.is_integer ? ' inputmode="numeric"' }}
-    id="field_{{ input.field_index }}_3">
+  {% if true_type == 'date' %}
+    <div class="input-group" id="field_{{ input.field_index }}_3InputGroup" data-td-target-input="nearest" data-td-target-toggle="nearest">
+      <input type="text" name="fields{{ column_name_appendix }}" value="{{ input.value }}" size="{{ input.size }}"
+        data-type="{{ input.data_type }}" class="form-control textfield datefield" aria-label="{{ t('Date') }}"
+        onchange="{{ input.on_change_clause|e('html_attr') }}"
+        id="field_{{ input.field_index }}_3" data-td-target="#field_{{ input.field_index }}_3InputGroup" aria-describedby="field_{{ input.field_index }}_3Button">
+      <button class="btn btn-outline-secondary" type="button" data-td-target="#field_{{ input.field_index }}_3InputGroup" id="field_{{ input.field_index }}_3Button" data-td-toggle="datetimepicker">
+        {{- get_image('b_calendar', t('Open date picker')) -}}
+      </button>
+    </div>
+  {% elseif true_type == 'datetime' or true_type == 'timestamp' %}
+    <div class="input-group" id="field_{{ input.field_index }}_3InputGroup" data-td-target-input="nearest" data-td-target-toggle="nearest">
+      <input type="text" name="fields{{ column_name_appendix }}" value="{{ input.value }}" size="{{ input.size }}"
+        data-type="{{ input.data_type }}" class="form-control textfield datetimefield" aria-label="{{ t('Date/time') }}"
+        onchange="{{ input.on_change_clause|e('html_attr') }}"
+        id="field_{{ input.field_index }}_3" data-td-target="#field_{{ input.field_index }}_3InputGroup" aria-describedby="field_{{ input.field_index }}_3Button">
+      <button class="btn btn-outline-secondary" type="button" data-td-target="#field_{{ input.field_index }}_3InputGroup" id="field_{{ input.field_index }}_3Button" data-td-toggle="datetimepicker">
+        {{- get_image('b_calendar', t('Open date/time picker')) -}}
+      </button>
+    </div>
+  {% elseif true_type == 'time' %}
+    <div class="input-group" id="field_{{ input.field_index }}_3InputGroup" data-td-target-input="nearest" data-td-target-toggle="nearest">
+      <input type="text" name="fields{{ column_name_appendix }}" value="{{ input.value }}" size="{{ input.size }}"
+        data-type="{{ input.data_type }}" class="form-control textfield timefield" aria-label="{{ t('Time') }}"
+        onchange="{{ input.on_change_clause|e('html_attr') }}"
+        id="field_{{ input.field_index }}_3" data-td-target="#field_{{ input.field_index }}_3InputGroup" aria-describedby="field_{{ input.field_index }}_3Button">
+      <button class="btn btn-outline-secondary" type="button" data-td-target="#field_{{ input.field_index }}_3InputGroup" id="field_{{ input.field_index }}_3Button" data-td-toggle="datetimepicker">
+        {{- get_image('b_calendar', t('Open time picker')) -}}
+      </button>
+    </div>
+  {% else %}
+    <input type="text" name="fields{{ column_name_appendix }}" value="{{ input.value }}" size="{{ input.size }}"
+      {%- if input.is_char %} data-maxlength="{{ input.size }}"{% endif %}
+      {%- if input.is_integer %} min="{{ input.min }}" max="{{ input.max }}"{% endif %}
+      data-type="{{ input.is_integer ? 'INT' : input.data_type }}" class="textfield" aria-label="{{ t('Column value') }}"
+      onchange="{{ input.on_change_clause|e('html_attr') }}"{{ input.is_integer ? ' inputmode="numeric"' }}
+      id="field_{{ input.field_index }}_3">
+  {% endif %}
 
   {%- if extra matches '/(VIRTUAL|PERSISTENT|GENERATED)/' and 'DEFAULT_GENERATED' not in extra -%}
     <input type="hidden" name="virtual{{ column_name_appendix }}" value="1">

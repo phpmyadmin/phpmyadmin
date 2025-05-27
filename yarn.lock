@@ -963,6 +963,11 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.7.tgz#1d572bfbbe14b7704e0ba0f39b74815b84870d70"
   integrity sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==
 
+"@eonasdan/tempus-dominus@^6.10.4":
+  version "6.10.4"
+  resolved "https://registry.yarnpkg.com/@eonasdan/tempus-dominus/-/tempus-dominus-6.10.4.tgz#693da2c6be7de65ead5be9d302eaaaa9e7ea0b05"
+  integrity sha512-aR1QkKUEFyfpqKuRs3ZnIfMhhB4aAS6WO3CpHn4FTLABe2ia3tm4pb7w+ium3w5b/d+mIKSi6VcbDukU+dtnYA==
+
 "@eslint-community/eslint-utils@^4.2.0", "@eslint-community/eslint-utils@^4.4.0":
   version "4.5.1"
   resolved "https://registry.yarnpkg.com/@eslint-community/eslint-utils/-/eslint-utils-4.5.1.tgz#b0fc7e06d0c94f801537fd4237edc2706d3b8e4c"
@@ -2094,6 +2099,11 @@ binary-extensions@^2.0.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/binary-extensions/-/binary-extensions-2.3.0.tgz#f6e14a97858d327252200242d4ccfe522c445522"
   integrity sha512-Ceh+7ox5qe7LJuLHoY0feh3pHuUDHAcRUeyL2VYghZwfpkNIy/+8Ocg0a3UuSoYzavmylwuLWQOf3hl0jjMMIw==
+
+bootstrap-icons@^1.13.1:
+  version "1.13.1"
+  resolved "https://registry.yarnpkg.com/bootstrap-icons/-/bootstrap-icons-1.13.1.tgz#0aad3f5b55b67402990e729ce3883416f9cef6c5"
+  integrity sha512-ijombt4v6bv5CLeXvRWKy7CuM3TRTuPEuGaGKvTV5cz65rQSY8RQ2JcHt6b90cBBAC7s8fsf2EkQDldzCoXUjw==
 
 bootstrap@^5.3.5:
   version "5.3.6"
@@ -3851,11 +3861,6 @@ jquery-ui-dist@1.13.3:
   integrity sha512-qeTR3SOSQ0jgxaNXSFU6+JtxdzNUSJKgp8LCzVrVKntM25+2YBJW1Ea8B2AwjmmSHfPLy2dSlZxJQN06OfVFhg==
   dependencies:
     jquery ">=1.8.0 <4.0.0"
-
-jquery-ui-timepicker-addon@1.6.3:
-  version "1.6.3"
-  resolved "https://registry.yarnpkg.com/jquery-ui-timepicker-addon/-/jquery-ui-timepicker-addon-1.6.3.tgz#8037c39b0b630282dd0b37dd8ad7fc5e1163377f"
-  integrity sha512-JvZTp1vGN1Ws9tr39VPRBC1/cOVdY/pa6a2mMcAXpEgjrsXc02xBXQthDtQsBXEqR0FbZV+GdXi/c+LDpuyk/A==
 
 jquery-uitablefilter@^1.0.0:
   version "1.0.0"

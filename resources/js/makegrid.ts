@@ -7,13 +7,15 @@ import {
     copyToClipboard,
     getCellValue,
     stringifyJSON,
-    toggleDatepickerIfInvalid,
     updateCode
 } from './modules/functions.ts';
 import { CommonParams } from './modules/common.ts';
 import highlightSql from './modules/sql-highlight.ts';
 import { ajaxShowMessage } from './modules/ajax-message.ts';
 import { escapeHtml } from './modules/functions/escape.ts';
+import { TempusDominus } from '@eonasdan/tempus-dominus';
+
+let editCellDatePicker: TempusDominus|null = null;
 
 /**
  * Create advanced table (resize, reorder, and show/hide columns; and also grid editing).
@@ -638,10 +640,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
          */
         showEditCell: function (cell) {
             // destroy the date picker instance left if any, see: #17703
-            var $datePickerInstance = $(g.cEdit).find('.hasDatepicker');
-            if ($datePickerInstance.length > 0) {
-                $datePickerInstance.datepicker('destroy');
-            }
+            editCellDatePicker?.dispose();
 
             if ($(cell).is('.grid_edit') &&
                 ! g.colRsz && ! g.colReorder) {
@@ -803,16 +802,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
             g.isCellEditActive = false;
             g.currentEditCell = null;
             // destroy datepicker in edit area, if exist
-            var $dp = $(g.cEdit).find('.hasDatepicker');
-            if ($dp.length > 0) {
-                // @ts-ignore
-                $(document).on('mousedown', $.datepicker._checkExternalClick); // eslint-disable-line no-underscore-dangle
-                $dp.datepicker('refresh');
-
-                // change the cursor in edit box back to normal
-                // (the cursor become a hand pointer when we add datepicker)
-                $(g.cEdit).find('.edit_box').css('cursor', 'inherit');
-            }
+            editCellDatePicker?.dispose();
         },
 
         /**
@@ -935,7 +925,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                                 $editArea.find('select').val('');
                             }
                         } else if ($td.is('.datefield')) {
-                            $('.ui-datepicker-trigger').trigger('click');
+                            $editArea.find('input').trigger('click');
                         } else {
                             $editArea.find('textarea').val('');
                         }
@@ -1165,7 +1155,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                     }
 
                     // add datetime picker
-                    addDatepicker($inputField, $td.attr('data-type'), {
+                    editCellDatePicker = addDatepicker($inputField, $td.attr('data-type'), {
                         showMillisec: showMillisec,
                         showMicrosec: showMicrosec,
                         timeFormat: timeFormat,
@@ -1178,29 +1168,10 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                             e.preventDefault();
                             e.stopPropagation();
                             g.saveOrPostEditedCell();
-                        } else if (e.which !== 27) {
-                            toggleDatepickerIfInvalid($td, $inputField);
                         }
                     });
 
-                    $inputField.datepicker('show');
-                    toggleDatepickerIfInvalid($td, $inputField);
-
-                    // unbind the mousedown event to prevent the problem of
-                    // datepicker getting closed, needs to be checked for any
-                    // change in names when updating
-                    // @ts-ignore
-                    $(document).off('mousedown', $.datepicker._checkExternalClick); // eslint-disable-line no-underscore-dangle
-
-                    // move ui-datepicker-div inside cEdit div
-                    var datepickerDiv = $('#ui-datepicker-div');
-                    datepickerDiv.css({ 'top': 0, 'left': 0, 'position': 'relative' });
-                    $(g.cEdit).append(datepickerDiv);
-
-                    // cancel any click on the datepicker element
-                    $editArea.find('> *').on('click', function (e) {
-                        e.stopPropagation();
-                    });
+                    editCellDatePicker.show();
 
                     g.isEditCellTextEditable = true;
                 } else {
@@ -2251,7 +2222,6 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
             $('html').on('click', function (e) {
                 // hide edit cell if the click is not fromDat edit area
                 if ($(e.target).parents().index($(g.cEdit)) === -1 &&
-                    ! $(e.target).parents('.ui-datepicker-header').length &&
                     ! $('#browseForeignModal').length &&
                     ! $(e.target).closest('.dismissable').length
                 ) {
