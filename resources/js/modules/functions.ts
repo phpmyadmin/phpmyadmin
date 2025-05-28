@@ -2325,12 +2325,13 @@ export function onloadEnumSetEditor (): void {
 
         // Add the parsed values to the editor
         var dropIcon = getImageTag('b_drop');
+        var dragIcon = '<span class="drag-handle">&#9776;</span>';
         for (i = 0; i < values.length; i++) {
             fields += '<tr><td>' +
                 '<input type=\'text\' value=\'' + values[i] + '\'>' +
                 '</td><td class=\'drop\'>' +
                 dropIcon +
-                '</td></tr>';
+                '</td><td class="drag-col">' + dragIcon + '</td></tr>';
         }
 
         /**
@@ -2341,7 +2342,7 @@ export function onloadEnumSetEditor (): void {
             '<div class="card-body">' +
             '<p>' + getImageTag('s_notice') +
             window.Messages.enum_hint + '</p>' +
-            '<table class="table table-borderless values">' + fields + '</table>' +
+            '<table class="table table-borderless values"><tbody>' + fields + '</tbody></table>' +
             '</div><div class="card-footer">' +
             '<table class="table table-borderless add"><tr><td>' +
             '<div class="slider"></div>' +
@@ -2380,6 +2381,13 @@ export function onloadEnumSetEditor (): void {
 
         $('#enumEditorModal').modal('show');
         $('#enumEditorModal').find('.modal-body').first().html(dialog);
+        $('#enumEditorModal .values tbody').sortable({
+            axis: 'y',
+            containment: 'parent',
+            handle: '.drag-handle',
+            cursor: 'move',
+            tolerance: 'pointer'
+        });
         // slider for choosing how many fields to add
         $('#enumEditorModal').find('.slider').slider({
             animate: true,
@@ -2572,6 +2580,8 @@ export function onloadEnumSetEditor (): void {
                     '<input type=\'text\'>' +
                     '</td><td class=\'drop\'>' +
                     getImageTag('b_drop') +
+                    '</td><td class="drag-col">' +
+                    '<span class="drag-handle">&#9776;</span>' +
                     '</td></tr>'
                 )
                 .find('tr').last()
