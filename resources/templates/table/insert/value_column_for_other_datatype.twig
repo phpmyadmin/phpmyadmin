@@ -1,15 +1,24 @@
 {{ backup_field|raw }}
 {% if is_textarea %}
-  {{- html_field|raw -}}
+  {{- textarea_html|raw -}}
 {% else %}
-  {{- html_field|raw -}}
+  <input type="text" name="fields{{ column_name_appendix }}"
+    value="{{ input.value }}" size="{{ input.size }}"
+    {%- if input.is_char %} data-maxlength="{{ input.size }}"{% endif %}
+    {%- if input.is_integer %} min="{{ input.min }}" max="{{ input.max }}"{% endif %}
+    data-type="{{ input.is_integer ? 'INT' : input.data_type }}"
+    class="textfield{{ true_type == 'date' ? ' datefield' }}{{ true_type == 'time' ? ' timefield' }}{{ true_type == 'datetime' or true_type == 'timestamp' ? ' datetimefield' }}"
+    onchange="{{ input.on_change_clause|e('html_attr') }}"
+    tabindex="{{ input.field_index }}"{{ input.is_integer ? ' inputmode="numeric"' }}
+    id="field_{{ input.field_index }}_3">
+
   {%- if extra matches '/(VIRTUAL|PERSISTENT|GENERATED)/' and 'DEFAULT_GENERATED' not in extra -%}
-    <input type="hidden" name="virtual{{ columnNameAppendix }}" value="1">
+    <input type="hidden" name="virtual{{ column_name_appendix }}" value="1">
   {%- endif -%}
   {%- if extra == 'auto_increment' -%}
-    <input type="hidden" name="auto_increment{{ columnNameAppendix }}" value="1">
+    <input type="hidden" name="auto_increment{{ column_name_appendix }}" value="1">
   {%- endif -%}
-  {%- if trueType == 'bit' or trueType == 'uuid' or trueType == 'timestamp' or trueType == 'datetime' or trueType == 'date' -%}
-    <input type="hidden" name="fields_type{{ columnNameAppendix }}" value="{{ trueType }}">
+  {%- if true_type == 'bit' or true_type == 'uuid' or true_type == 'timestamp' or true_type == 'datetime' or true_type == 'date' -%}
+    <input type="hidden" name="fields_type{{ column_name_appendix }}" value="{{ true_type }}">
   {%- endif -%}
 {% endif %}
