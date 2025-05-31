@@ -18345,7 +18345,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 33
+			count: 32
 			path: tests/unit/InsertEditTest.php
 
 		-

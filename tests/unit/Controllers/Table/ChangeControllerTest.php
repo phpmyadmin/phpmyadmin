@@ -71,33 +71,41 @@ final class ChangeControllerTest extends AbstractTestCase
         $actual = $response->getHTMLResult();
 
         self::assertStringContainsString($pageSettings->getHTML(), $actual);
+        // phpcs:disable Generic.Files.LineLength.TooLong
         self::assertStringContainsString(
-            '<input type="text" name="fields[multi_edit][0][b80bb7740288fda1f201890375a60c8f]" value="NULL"'
-            . ' size="4" min="-2147483648" max="2147483647" data-type="INT" class="textfield"'
-            . ' onchange="return'
-            . ' verificationsAfterFieldChange(&quot;b80bb7740288fda1f201890375a60c8f&quot;,'
-            . ' &quot;0&quot;,&quot;int(11)&quot;)"'
-            . ' tabindex="1" inputmode="numeric" id="field_1_3"><input type="hidden"'
-            . ' name="auto_increment[multi_edit][0][b80bb7740288fda1f201890375a60c8f]" value="1">',
+            <<<'HTML'
+              <input type="text" name="fields[multi_edit][0][b80bb7740288fda1f201890375a60c8f]"
+                value="NULL" size="4" min="-2147483648" max="2147483647"    data-type="INT"
+                class="textfield"
+                onchange="return&#x20;verificationsAfterFieldChange&#x28;&quot;b80bb7740288fda1f201890375a60c8f&quot;,&#x20;&quot;0&quot;,&quot;int&#x28;11&#x29;&quot;&#x29;"
+                tabindex="1" inputmode="numeric"
+                id="field_1_3"><input type="hidden" name="auto_increment[multi_edit][0][b80bb7740288fda1f201890375a60c8f]" value="1">
+            HTML,
             $actual,
         );
         self::assertStringContainsString(
-            '<input type="text" name="fields[multi_edit][0][b068931cc450442b63f5b3d276ea4297]" value="NULL" size="20"'
-            . ' data-maxlength="20" data-type="CHAR" class="textfield" onchange="return'
-            . ' verificationsAfterFieldChange(&quot;b068931cc450442b63f5b3d276ea4297&quot;,'
-            . ' &quot;0&quot;,&quot;varchar(20)&quot;)"'
-            . ' tabindex="2" id="field_2_3">',
+            <<<'HTML'
+              <input type="text" name="fields[multi_edit][0][b068931cc450442b63f5b3d276ea4297]"
+                value="NULL" size="20" data-maxlength="20"    data-type="CHAR"
+                class="textfield"
+                onchange="return&#x20;verificationsAfterFieldChange&#x28;&quot;b068931cc450442b63f5b3d276ea4297&quot;,&#x20;&quot;0&quot;,&quot;varchar&#x28;20&#x29;&quot;&#x29;"
+                tabindex="2"
+                id="field_2_3">
+            HTML,
             $actual,
         );
         self::assertStringContainsString(
-            '<input type="text" name="fields[multi_edit][0][a55dbdcc1a45ed90dbee68864d566b99]" value="NULL.000000"'
-            . ' size="4" data-type="DATE" class="textfield datetimefield" onchange="return'
-            . ' verificationsAfterFieldChange(&quot;a55dbdcc1a45ed90dbee68864d566b99&quot;,'
-            . ' &quot;0&quot;,&quot;datetime&quot;)"'
-            . ' tabindex="3" id="field_3_3"><input type="hidden"'
-            . ' name="fields_type[multi_edit][0][a55dbdcc1a45ed90dbee68864d566b99]" value="datetime">',
+            <<<'HTML'
+              <input type="text" name="fields[multi_edit][0][a55dbdcc1a45ed90dbee68864d566b99]"
+                value="NULL.000000" size="4"    data-type="DATE"
+                class="textfield datetimefield"
+                onchange="return&#x20;verificationsAfterFieldChange&#x28;&quot;a55dbdcc1a45ed90dbee68864d566b99&quot;,&#x20;&quot;0&quot;,&quot;datetime&quot;&#x29;"
+                tabindex="3"
+                id="field_3_3"><input type="hidden" name="fields_type[multi_edit][0][a55dbdcc1a45ed90dbee68864d566b99]" value="datetime">
+            HTML,
             $actual,
         );
+        // phpcs:enable
         self::assertStringContainsString(
             '<th><a href="index.php?route=/table/change&lang=en" data-post="db=test_db&table=test_table'
             . '&ShowFieldTypesInDataEditView=0&ShowFunctionFields=1'

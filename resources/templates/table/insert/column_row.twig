@@ -105,7 +105,10 @@
         {% else %}
           {{ backup_field|raw }}
           <input type="hidden" name="fields_type[multi_edit][{{ row_id }}][{{ column.md5 }}]" value="hex">
-          {{ input_field_html|raw }}
+          <input type="text" name="fields[multi_edit][{{ row_id }}][{{ column.md5 }}]"
+            value="{{ special_chars }}" size="{{ hex_input_size }}" data-type="HEX" class="textfield"
+            onchange="return verificationsAfterFieldChange('{{ column.md5|escape('js') }}', '{{ row_id|escape('js') }}', '{{ column.trueType }}')"
+            id="field_{{ id_index }}_3">
         {% endif %}
         {% if is_upload and column.isBlob %}
           <br>

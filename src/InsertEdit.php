@@ -382,60 +382,28 @@ class InsertEdit
             . '</textarea>';
     }
 
-    /**
-     * Get HTML input type
-     *
-     * @param InsertEditColumn $column             description of column in given table
-     * @param string           $columnNameAppendix the name attribute
-     * @param string           $specialChars       special characters
-     * @param int              $fieldsize          html field size
-     * @param string           $onChangeClause     onchange clause for fields
-     * @param string           $dataType           the html5 data-* attribute type
-     *
-     * @return string                       an html snippet
-     */
-    private function getHtmlInput(
-        InsertEditColumn $column,
-        string $columnNameAppendix,
-        string $specialChars,
-        int $fieldsize,
-        string $onChangeClause,
-        string $dataType,
-    ): string {
-        $theClass = 'textfield';
-        if ($column->trueType === 'date') {
-            $theClass .= ' datefield';
-        } elseif ($column->trueType === 'time') {
-            $theClass .= ' timefield';
-        } elseif ($column->trueType === 'datetime' || $column->trueType === 'timestamp') {
-            $theClass .= ' datetimefield';
-        }
-
-        $inputMinMax = '';
+    /** @return object{isInteger: bool, minValue: string, maxValue: string} */
+    private function getIntegerRange(InsertEditColumn $column): object
+    {
+        $minValue = '';
+        $maxValue = '';
         $isInteger = in_array($column->trueType, $this->dbi->types->getIntegerTypes(), true);
         if ($isInteger) {
-            $extractedColumnspec = Util::extractColumnSpec($column->type);
-            $isUnsigned = $extractedColumnspec['unsigned'];
+            $extractedColumnSpec = Util::extractColumnSpec($column->type);
+            $isUnsigned = $extractedColumnSpec['unsigned'];
             $minMaxValues = $this->dbi->types->getIntegerRange($column->trueType, ! $isUnsigned);
-            $inputMinMax = 'min="' . $minMaxValues[0] . '" '
-                . 'max="' . $minMaxValues[1] . '"';
-            $dataType = 'INT';
+            $minValue = $minMaxValues[0];
+            $maxValue = $minMaxValues[1];
         }
 
-        // do not use the 'date' or 'time' types here; they have no effect on some
-        // browsers and create side effects (see bug #4218)
-        return '<input type="text"'
-            . ' name="fields' . $columnNameAppendix . '"'
-            . ' value="' . $specialChars . '" size="' . $fieldsize . '"'
-            . ($column->isChar
-                ? ' data-maxlength="' . $fieldsize . '"'
-                : '')
-            . ($inputMinMax !== '' ? ' ' . $inputMinMax : '')
-            . ' data-type="' . $dataType . '"'
-            . ' class="' . $theClass . '" onchange="' . htmlspecialchars($onChangeClause, ENT_COMPAT) . '"'
-            . ' tabindex="' . $this->fieldIndex . '"'
-            . ($isInteger ? ' inputmode="numeric"' : '')
-            . ' id="field_' . $this->fieldIndex . '_3">';
+        return new class ($isInteger, $minValue, $maxValue) {
+            public function __construct(
+                public readonly bool $isInteger,
+                public readonly string $minValue,
+                public readonly string $maxValue,
+            ) {
+            }
+        };
     }
 
     /**
@@ -525,11 +493,13 @@ class InsertEdit
         $dataType = $this->dbi->types->getTypeClass($column->trueType);
         $fieldsize = $this->getColumnSize($column, $specInBrackets);
 
+        $input = [];
+        $textareaHtml = '';
         $isTextareaRequired = $column->isChar
             && ($this->config->settings['CharEditing'] === 'textarea' || str_contains($data, "\n"));
         if ($isTextareaRequired) {
             $this->config->settings['CharEditing'] = $defaultCharEditing;
-            $htmlField = $this->getTextarea(
+            $textareaHtml = $this->getTextarea(
                 $column,
                 $backupField,
                 $columnNameAppendix,
@@ -538,23 +508,28 @@ class InsertEdit
                 $dataType,
             );
         } else {
-            $htmlField = $this->getHtmlInput(
-                $column,
-                $columnNameAppendix,
-                $specialChars,
-                $fieldsize,
-                $onChangeClause,
-                $dataType->value,
-            );
+            $integerRange = $this->getIntegerRange($column);
+            $input = [
+                'value' => $specialChars,
+                'size' => $fieldsize,
+                'is_char' => $column->isChar,
+                'is_integer' => $integerRange->isInteger,
+                'min' => $integerRange->minValue,
+                'max' => $integerRange->maxValue,
+                'data_type' => $dataType->value,
+                'on_change_clause' => $onChangeClause,
+                'field_index' => $this->fieldIndex,
+            ];
         }
 
         return $this->template->render('table/insert/value_column_for_other_datatype', [
-            'html_field' => $htmlField,
+            'input' => $input,
+            'textarea_html' => $textareaHtml,
             'backup_field' => $backupField,
             'is_textarea' => $isTextareaRequired,
-            'columnNameAppendix' => $columnNameAppendix,
+            'column_name_appendix' => $columnNameAppendix,
             'extra' => $column->extra,
-            'trueType' => $column->trueType,
+            'true_type' => $column->trueType,
         ]);
     }
 
@@ -1655,7 +1630,7 @@ class InsertEdit
         $blobValueUnit = '';
         $maxUploadSize = 0;
         $selectOptionForUpload = '';
-        $inputFieldHtml = '';
+        $hexInputSize = 0;
         if ($transformedHtml === '') {
             if ($foreignData->dispRow !== null) {
                 $foreignDropdown = $this->relation->foreignDropdown(
@@ -1714,14 +1689,7 @@ class InsertEdit
                     ! $isColumnProtectedBlob
                     && ! ($column->isBlob || ($column->length > $this->config->settings['LimitChars']))
                 ) {
-                    $inputFieldHtml = $this->getHtmlInput(
-                        $column,
-                        $columnNameAppendix,
-                        $specialChars,
-                        min(max($column->length * 2, 4), $this->config->settings['LimitChars']),
-                        $onChangeClause,
-                        'HEX',
-                    );
+                    $hexInputSize = min(max($column->length * 2, 4), $this->config->settings['LimitChars']);
                 }
             } else {
                 $columnValue = $this->getValueColumnForOtherDatatypes(
@@ -1777,7 +1745,7 @@ class InsertEdit
             'max_upload_size' => $maxUploadSize,
             'select_option_for_upload' => $selectOptionForUpload,
             'limit_chars' => $this->config->settings['LimitChars'],
-            'input_field_html' => $inputFieldHtml,
+            'hex_input_size' => $hexInputSize,
             'field_title' => $this->getColumnTitle($column->field, $commentsMap),
         ]);
     }
