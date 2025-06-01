@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-06-01 00:34+0000\n"
-"PO-Revision-Date: 2025-05-21 20:01+0000\n"
+"PO-Revision-Date: 2025-06-02 19:01+0000\n"
 "Last-Translator: Мария Рангелова <rangelova1186@gmail.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/bg/>\n"
@@ -563,9 +563,8 @@ msgid "Table space"
 msgstr "Място в таблицата"
 
 #: resources/templates/columns_definitions/partitions.twig:91
-#, fuzzy
 msgid "Node group"
-msgstr "Потребители"
+msgstr "Група възли"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:4
 #: resources/templates/database/central_columns/edit.twig:3
@@ -749,9 +748,8 @@ msgstr "Празно"
 #: resources/templates/table/operations/index.twig:80
 #: resources/templates/table/operations/index.twig:116
 #: resources/templates/table/operations/index.twig:316
-#, fuzzy
 msgid "Adjust privileges"
-msgstr "Редакция"
+msgstr "Коригиране на привилегиите"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:54
 #: resources/templates/database/data_dictionary/index.twig:29
@@ -781,26 +779,22 @@ msgstr "Преместване колона"
 #: src/Plugins/Export/ExportOdt.php:467
 #: src/Plugins/Export/ExportTexytext.php:366
 #: src/Plugins/Export/Helpers/Pdf.php:517
-#, fuzzy
 msgid "Media type"
-msgstr "MIME тип"
+msgstr "Тип медия"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:75
 #: resources/templates/columns_definitions/table_fields_definitions.twig:86
-#, fuzzy
 msgid "List of available transformations and their options"
-msgstr "Достъпни трансформации"
+msgstr "Списък с наличните трансформации и техните опции"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:77
 #: resources/templates/transformation_overview.twig:18
-#, fuzzy
 msgid "Browser display transformation"
-msgstr "Браузърна трансформация"
+msgstr "Показване на трансформацията в браузъра"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:81
-#, fuzzy
 msgid "Browser display transformation options"
-msgstr "Браузърна трансформация"
+msgstr "Показване на трансформиращите опции в браузъра"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:82
 #: resources/templates/columns_definitions/table_fields_definitions.twig:93
@@ -818,14 +812,12 @@ msgstr ""
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:88
 #: resources/templates/transformation_overview.twig:37
-#, fuzzy
 msgid "Input transformation"
-msgstr "Браузърна трансформация"
+msgstr "Въвеждане на трансформацията"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:92
-#, fuzzy
 msgid "Input transformation options"
-msgstr "Опции на трансформацията"
+msgstr "Въвеждане на трансформиращите опции"
 
 #: resources/templates/config/form_display/display.twig:46
 #: src/Controllers/JavaScriptMessagesController.php:314
@@ -1242,9 +1234,8 @@ msgid "OK"
 msgstr "OK"
 
 #: resources/templates/console/display.twig:178
-#, fuzzy
 msgid "Restore default values"
-msgstr "Стойност по подразбиране"
+msgstr "Възстановяване на стойностите по подразбиране"
 
 #: resources/templates/console/display.twig:185 src/Config/Descriptions.php:958
 msgid "Always expand query messages"
@@ -1255,9 +1246,8 @@ msgid "Show query history at start"
 msgstr "Покажи историята на заявката в началото"
 
 #: resources/templates/console/display.twig:193 src/Config/Descriptions.php:959
-#, fuzzy
 msgid "Show current browsing query"
-msgstr "Показване на текущата заявка браузване"
+msgstr "Показване на текущата заявка за сърфиране"
 
 #: resources/templates/console/display.twig:197
 msgid ""
@@ -1302,7 +1292,6 @@ msgstr "Добавяне на нова колона"
 
 #: resources/templates/database/central_columns/main.twig:24
 #: resources/templates/database/central_columns/main.twig:234
-#, fuzzy
 msgid "Length/Value"
 msgstr "Дължина/Стойности"
 
@@ -1317,15 +1306,13 @@ msgid "A_I"
 msgstr "A_I"
 
 #: resources/templates/database/central_columns/main.twig:129
-#, fuzzy
 msgid "The central list of columns for the current database is empty"
-msgstr "Централния лист от колони в избраната база данни е празна."
+msgstr "Най-важният списък с колони за текущата база данни е празен"
 
 #: resources/templates/database/central_columns/main.twig:168
 #: resources/templates/display/results/table.twig:139
-#, fuzzy
 msgid "Filter rows:"
-msgstr "Филтриране на редове"
+msgstr "Филтриране на редове:"
 
 #: resources/templates/database/central_columns/main.twig:171
 #: resources/templates/display/results/table.twig:143
@@ -1399,9 +1386,8 @@ msgstr "Отмяна"
 
 #: resources/templates/database/create_table.twig:3
 #: resources/templates/database/operations/index.twig:28
-#, fuzzy
 msgid "Create new table"
-msgstr "Създаване таблица"
+msgstr "Създаване на таблица"
 
 #: resources/templates/database/create_table.twig:10
 #: resources/templates/database/operations/index.twig:35
@@ -1488,14 +1474,12 @@ msgid "Select all"
 msgstr "Маркиране на всички"
 
 #: resources/templates/database/designer/database_tables.twig:37
-#, fuzzy
 msgid "Show/hide columns"
-msgstr "Преместване колони"
+msgstr "Показване/скриване на колони"
 
 #: resources/templates/database/designer/database_tables.twig:46
-#, fuzzy
 msgid "See table structure"
-msgstr "Структура на таблица"
+msgstr "Разглеждане на структурата на таблицата"
 
 #: resources/templates/database/designer/database_tables.twig:93
 #, php-format
@@ -1508,14 +1492,12 @@ msgid "Add an option for column \"%s\"."
 msgstr "Добавяне на опция към колона \"%s\"."
 
 #: resources/templates/database/designer/edit_delete_pages.twig:5
-#, fuzzy
 msgid "Page to open"
-msgstr "Заглавие в браузъра"
+msgstr "Страница за отваряне"
 
 #: resources/templates/database/designer/edit_delete_pages.twig:5
-#, fuzzy
 msgid "Page to delete"
-msgstr "Релацията изтрита"
+msgstr "Страница за изтриване"
 
 #: resources/templates/database/designer/main.twig:10
 #: src/Controllers/JavaScriptMessagesController.php:523
@@ -1524,9 +1506,8 @@ msgstr "Неозаглавено"
 
 #: resources/templates/database/designer/main.twig:19
 #: resources/templates/database/designer/main.twig:25
-#, fuzzy
 msgid "Show/Hide tables list"
-msgstr "Показване таблици"
+msgstr "Показване/Скриване на списъка с таблиците"
 
 #: resources/templates/database/designer/main.twig:29
 #: resources/templates/database/designer/main.twig:35
@@ -1546,9 +1527,8 @@ msgstr "Добавете таблици от други бази данни"
 
 #: resources/templates/database/designer/main.twig:48
 #: resources/templates/database/designer/main.twig:52
-#, fuzzy
 msgid "New page"
-msgstr "Ново име"
+msgstr "Ново страница"
 
 #: resources/templates/database/designer/main.twig:56
 #: resources/templates/database/designer/main.twig:59
@@ -1570,9 +1550,8 @@ msgstr "Записване на страница като"
 
 #: resources/templates/database/designer/main.twig:77
 #: resources/templates/database/designer/main.twig:80
-#, fuzzy
 msgid "Delete pages"
-msgstr "Избор на страница"
+msgstr "Изтриване на страници"
 
 #: resources/templates/database/designer/main.twig:84
 #: resources/templates/database/designer/main.twig:87
@@ -1583,9 +1562,8 @@ msgstr "Създаване таблица"
 #: resources/templates/database/designer/main.twig:91
 #: resources/templates/database/designer/main.twig:94
 #: resources/templates/database/designer/main.twig:268
-#, fuzzy
 msgid "Create relationship"
-msgstr "Създаване релация"
+msgstr "Създаване на връзка"
 
 #: resources/templates/database/designer/main.twig:98
 #: resources/templates/database/designer/main.twig:101
@@ -1764,9 +1742,8 @@ msgid "Select page"
 msgstr "Избор на страница"
 
 #: resources/templates/database/designer/schema_export.twig:6
-#, fuzzy
 msgid "Select export relational type:"
-msgstr "Редакция или експорт на релационна схема"
+msgstr "Изберете релационен тип експорт:"
 
 #: resources/templates/database/events/editor_form.twig:10
 #: resources/templates/database/routines/editor_form.twig:11
@@ -3319,9 +3296,8 @@ msgid "Format:"
 msgstr "Формат:"
 
 #: resources/templates/export.twig:121
-#, fuzzy
 msgid "File format to export"
-msgstr "Файл за импортиране:"
+msgstr "Файлов формат за експортиране"
 
 #: resources/templates/export.twig:133
 msgid "Rows:"
@@ -3815,9 +3791,8 @@ msgid "Skip this number of queries (for SQL) starting from the first one:"
 msgstr "Брой редове, които да бъдат пропуснати от началото:"
 
 #: resources/templates/import.twig:149
-#, fuzzy
 msgid "Other options"
-msgstr "Други опции:"
+msgstr "Други опции"
 
 #: resources/templates/indexes.twig:40
 #: resources/templates/table/structure/display_structure.twig:495
@@ -3872,9 +3847,8 @@ msgid "Password:"
 msgstr "Парола:"
 
 #: resources/templates/login/form.twig:93
-#, fuzzy
 msgid "Server choice:"
-msgstr "Избор на сървър"
+msgstr "Избор на сървър:"
 
 #: resources/templates/login/header.twig:10
 #: src/Plugins/Auth/AuthenticationConfig.php:83
@@ -3976,9 +3950,8 @@ msgid ""
 msgstr ""
 
 #: resources/templates/menu/main.twig:27
-#, fuzzy
 msgid "View:"
-msgstr "Изглед"
+msgstr "Изглед:"
 
 #: resources/templates/menu/main.twig:29 src/Plugins/Export/Helpers/Pdf.php:177
 msgid "Table:"
@@ -4395,9 +4368,8 @@ msgid "OK"
 msgstr "OK"
 
 #: resources/templates/relation/check_relations.twig:62
-#, fuzzy
 msgid "General relation features:"
-msgstr "Общи свойства на релациите"
+msgstr "Общи характеристики на връзката:"
 
 #: resources/templates/relation/check_relations.twig:64
 #: resources/templates/relation/check_relations.twig:89
@@ -4421,14 +4393,12 @@ msgid "Enabled"
 msgstr "Позволено"
 
 #: resources/templates/relation/check_relations.twig:87
-#, fuzzy
 msgid "Display features:"
-msgstr "Показване свойства"
+msgstr "Показване на свойствата:"
 
 #: resources/templates/relation/check_relations.twig:125
-#, fuzzy
 msgid "Designer and creation of PDFs:"
-msgstr "Създаване на PDF-и"
+msgstr "Дизайнер и създаване на PDF файлове:"
 
 #: resources/templates/relation/check_relations.twig:150
 #, fuzzy
