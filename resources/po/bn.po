@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-05-25 00:29+0000\n"
+"POT-Creation-Date: 2025-06-01 00:34+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -3441,7 +3441,7 @@ msgstr "কানায় রুপান্তর কর"
 #: src/Controllers/Table/Partition/DropController.php:54
 #: src/Controllers/Table/Partition/RebuildController.php:54
 #: src/Controllers/Table/Partition/TruncateController.php:54
-#: src/Html/Generator.php:739 src/Import/Import.php:119 src/InsertEdit.php:456
+#: src/Html/Generator.php:739 src/Import/Import.php:119 src/InsertEdit.php:424
 #: src/Message.php:138
 msgid "Error"
 msgstr "ভুল"
@@ -4062,7 +4062,7 @@ msgid "You may also drag and drop a file on any page."
 msgstr ""
 
 #: resources/templates/import.twig:56 resources/templates/import.twig:80
-#: src/InsertEdit.php:457
+#: src/InsertEdit.php:425
 msgid "The directory you set for upload work cannot be reached."
 msgstr "আপলোড করার জন্য নির্ধারিত ডিরেক্টরীটি পাওয়া যাচ্ছে না।"
 
@@ -5438,7 +5438,7 @@ msgstr "তথ্য পড়ার অনুমোদন।"
 #: resources/templates/server/privileges/privileges_table.twig:60
 #: resources/templates/server/privileges/privileges_table.twig:87
 #: resources/templates/server/privileges/privileges_table.twig:114
-#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:465
+#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:433
 msgid "Or"
 msgstr "অথবা"
 
@@ -7374,7 +7374,7 @@ msgstr "পুনবিন্যাসের জন্য টানুন"
 #: resources/templates/table/index_form.twig:203
 #: src/Controllers/JavaScriptMessagesController.php:463
 #: src/Controllers/JavaScriptMessagesController.php:615
-#: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1465
+#: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1440
 msgid "Ignore"
 msgstr "উপেক্ষা"
 
@@ -7446,7 +7446,7 @@ msgstr "দৈর্ঘ্যের জন্য এই স্বম্ভ স�
 msgid "Binary - do not edit"
 msgstr "Binary - সম্পাদন করবেন না"
 
-#: resources/templates/table/insert/column_row.twig:120
+#: resources/templates/table/insert/column_row.twig:123
 #: resources/templates/table/search/input_box.twig:32
 msgid "Edit/Insert"
 msgstr "সম্পাদন/নতুন"
@@ -12490,7 +12490,7 @@ msgstr "সার্ভার সংযোগে ব্যবহৃত ভাষ
 msgid "Missing data for %s"
 msgstr "%s এর তথ্য নাই"
 
-#: src/Config/FormDisplay.php:619 src/Config/Validator.php:595
+#: src/Config/FormDisplay.php:619 src/Config/Validator.php:593
 #: src/Controllers/JavaScriptMessagesController.php:802
 #, fuzzy
 #| msgid "Incorrect value"
@@ -12774,23 +12774,23 @@ msgstr "ডাটাবেইজ লেভেল ট্যাব"
 msgid "Table-level tabs"
 msgstr "টেবলের লেবেল ট্যাব"
 
-#: src/Config/Validator.php:253
+#: src/Config/Validator.php:251
 msgid "Could not connect to the database server!"
 msgstr "ডাটাবেইজ সার্ভারে সংযোগ করা যায়নি"
 
-#: src/Config/Validator.php:289
+#: src/Config/Validator.php:287
 #, fuzzy
 #| msgid "Authentication type"
 msgid "Invalid authentication type!"
 msgstr "প্রমাণীকরণের ধরন"
 
-#: src/Config/Validator.php:294
+#: src/Config/Validator.php:292
 #, fuzzy
 #| msgid "Empty username while using config authentication method!"
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr "কনফিগ প্রমাণীকরণের ক্ষেত্রে ব্যবহারকারীর নাম খালি পাওয়াগেছে!"
 
-#: src/Config/Validator.php:300
+#: src/Config/Validator.php:298
 #, fuzzy
 #| msgid "Empty signon session name while using signon authentication method!"
 msgid ""
@@ -12798,13 +12798,13 @@ msgid ""
 "method!"
 msgstr "সাইনঅন প্রমাণীকরণের ক্ষেত্রে সাইনঅন সেশনের নাম খালি পাওয়াগেছে!"
 
-#: src/Config/Validator.php:307
+#: src/Config/Validator.php:305
 #, fuzzy
 #| msgid "Empty signon URL while using signon authentication method!"
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr "শুন্য signon URL যখন signon প্রমাণীকরণ ব্যবহার করছেন।"
 
-#: src/Config/Validator.php:360
+#: src/Config/Validator.php:358
 #, fuzzy
 #| msgid ""
 #| "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
@@ -12814,7 +12814,7 @@ msgstr ""
 "যখন phpMyAdmin configuration storage ব্যবহৃত হচ্ছে তখন phpMyAdmin নিয়ন্ত্রক "
 "ব্যবহারকারী শুন্য"
 
-#: src/Config/Validator.php:367
+#: src/Config/Validator.php:365
 #, fuzzy
 #| msgid ""
 #| "Empty phpMyAdmin control user password while using phpMyAdmin "
@@ -12826,37 +12826,37 @@ msgstr ""
 "যখন phpMyAdmin configuration storage ব্যবহৃত হচ্ছে তখন phpMyAdmin নিয়ন্ত্রক "
 "ব্যবহারকারী পাসওর্য়াড শুন্য"
 
-#: src/Config/Validator.php:456
+#: src/Config/Validator.php:454
 msgid "Incorrect value:"
 msgstr "ভুল মান:"
 
-#: src/Config/Validator.php:467
+#: src/Config/Validator.php:465
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "অসত্য IP address: %s"
 
-#: src/Config/Validator.php:530
+#: src/Config/Validator.php:528
 #: src/Controllers/JavaScriptMessagesController.php:801
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Not a valid port number!"
 msgstr "কার্যকর পোর্ট নাম্বার নয়"
 
-#: src/Config/Validator.php:552
+#: src/Config/Validator.php:550
 #: src/Controllers/JavaScriptMessagesController.php:799
 #, fuzzy
 #| msgid "Not a positive number"
 msgid "Not a positive number!"
 msgstr "নাম্বারটি পজেটিভ নয়"
 
-#: src/Config/Validator.php:574
+#: src/Config/Validator.php:572
 #: src/Controllers/JavaScriptMessagesController.php:800
 #, fuzzy
 #| msgid "Not a non-negative number"
 msgid "Not a non-negative number!"
 msgstr "নেগেটিভ নয় এমন নাম্বার না"
 
-#: src/Config/Validator.php:613
+#: src/Config/Validator.php:611
 #: src/Controllers/JavaScriptMessagesController.php:803
 #, fuzzy, php-format
 #| msgid "Value must be less than or equal to %s"
@@ -17649,15 +17649,15 @@ msgid ""
 "removed."
 msgstr "ইনডেক্স %1$s এবং %2$s এক সমান মনে হয় এবং যে কোন একটি মুছে ফেলুন।"
 
-#: src/InsertEdit.php:466
+#: src/InsertEdit.php:434
 msgid "web server upload directory:"
 msgstr "ওয়েব সার্ভারের আপলোড ডিরেক্টরি:"
 
-#: src/InsertEdit.php:883 src/Sql.php:861
+#: src/InsertEdit.php:858 src/Sql.php:861
 msgid "Showing SQL query"
 msgstr "এসকিউএল অনুসন্ধান দেখাচ্ছে"
 
-#: src/InsertEdit.php:907 src/Sql.php:841
+#: src/InsertEdit.php:882 src/Sql.php:841
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "প্রবেশকৃত রো আইডি: %1$d"

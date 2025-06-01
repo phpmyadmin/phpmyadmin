@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-05-25 00:29+0000\n"
+"POT-Creation-Date: 2025-06-01 00:34+0000\n"
 "PO-Revision-Date: 2024-10-17 16:16+0000\n"
 "Last-Translator: KwiatekMiki <niecierpiehiszpanskiego@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -3152,7 +3152,7 @@ msgstr "Konwersja do Kana"
 #: src/Controllers/Table/Partition/DropController.php:54
 #: src/Controllers/Table/Partition/RebuildController.php:54
 #: src/Controllers/Table/Partition/TruncateController.php:54
-#: src/Html/Generator.php:739 src/Import/Import.php:119 src/InsertEdit.php:456
+#: src/Html/Generator.php:739 src/Import/Import.php:119 src/InsertEdit.php:424
 #: src/Message.php:138
 msgid "Error"
 msgstr "Błąd"
@@ -3700,7 +3700,7 @@ msgid "You may also drag and drop a file on any page."
 msgstr "Możesz także przeciągnąć i upuścić plik na dowolnej stronie."
 
 #: resources/templates/import.twig:56 resources/templates/import.twig:80
-#: src/InsertEdit.php:457
+#: src/InsertEdit.php:425
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Nie można znaleźć katalogu do zapisu przesyłanych plików."
 
@@ -4931,7 +4931,7 @@ msgstr "Pozwól czytać dane."
 #: resources/templates/server/privileges/privileges_table.twig:60
 #: resources/templates/server/privileges/privileges_table.twig:87
 #: resources/templates/server/privileges/privileges_table.twig:114
-#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:465
+#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:433
 msgid "Or"
 msgstr "Lub"
 
@@ -6738,7 +6738,7 @@ msgstr "Przeciągnij, aby zmienić kolejność"
 #: resources/templates/table/index_form.twig:203
 #: src/Controllers/JavaScriptMessagesController.php:463
 #: src/Controllers/JavaScriptMessagesController.php:615
-#: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1465
+#: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1440
 msgid "Ignore"
 msgstr "Ignoruj"
 
@@ -6803,7 +6803,7 @@ msgstr "Ze względu na swoją długość <br> tej kolumny nie można edytować."
 msgid "Binary - do not edit"
 msgstr "Binarne - nie do edycji"
 
-#: resources/templates/table/insert/column_row.twig:120
+#: resources/templates/table/insert/column_row.twig:123
 #: resources/templates/table/search/input_box.twig:32
 msgid "Edit/Insert"
 msgstr "Edycja/Wstaw"
@@ -11662,7 +11662,7 @@ msgstr "Sortowanie połączenie z serwerem"
 msgid "Missing data for %s"
 msgstr "Brakuje danych dla %s"
 
-#: src/Config/FormDisplay.php:619 src/Config/Validator.php:595
+#: src/Config/FormDisplay.php:619 src/Config/Validator.php:593
 #: src/Controllers/JavaScriptMessagesController.php:802
 msgid "Incorrect value!"
 msgstr "Nieprawidłowa wartość!"
@@ -11924,21 +11924,21 @@ msgstr "Zakładki na poziomie bazy danych"
 msgid "Table-level tabs"
 msgstr "Poziom zakładek tabeli"
 
-#: src/Config/Validator.php:253
+#: src/Config/Validator.php:251
 msgid "Could not connect to the database server!"
 msgstr "Nie można połączyć się z serwerem bazy danych!"
 
-#: src/Config/Validator.php:289
+#: src/Config/Validator.php:287
 msgid "Invalid authentication type!"
 msgstr "Nieprawidłowy typ uwierzytelniania!"
 
-#: src/Config/Validator.php:294
+#: src/Config/Validator.php:292
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr ""
 "Pomiń nazwę użytkownika podczas używania metody uwierzytelnienia z "
 "[kbd]pliku konfiguracyjnego[/kbd]!"
 
-#: src/Config/Validator.php:300
+#: src/Config/Validator.php:298
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
@@ -11946,20 +11946,20 @@ msgstr ""
 "Nazwa pustej sesji logowania podczas używania metody uwierzytelniania "
 "[kbd]signon[/kbd]!"
 
-#: src/Config/Validator.php:307
+#: src/Config/Validator.php:305
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr ""
 "Pusty adres URL logowania podczas korzystania z metody uwierzytelniania "
 "[kbd]signon[/kbd]!"
 
-#: src/Config/Validator.php:360
+#: src/Config/Validator.php:358
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 "Opróżnij użytkownika kontrolującego phpMyAdmin podczas korzystania z "
 "konfiguracji magazynu phpMyAdmin!"
 
-#: src/Config/Validator.php:367
+#: src/Config/Validator.php:365
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
@@ -11967,31 +11967,31 @@ msgstr ""
 "Puste hasło użytkownika phpMyAdmin podczas korzystania z konfiguracji "
 "magazynu phpMyAdmin!"
 
-#: src/Config/Validator.php:456
+#: src/Config/Validator.php:454
 msgid "Incorrect value:"
 msgstr "Nieprawidłowa wartość:"
 
-#: src/Config/Validator.php:467
+#: src/Config/Validator.php:465
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "Nieprawidłowy adres IP: %s"
 
-#: src/Config/Validator.php:530
+#: src/Config/Validator.php:528
 #: src/Controllers/JavaScriptMessagesController.php:801
 msgid "Not a valid port number!"
 msgstr "Nieprawidłowy numer portu!"
 
-#: src/Config/Validator.php:552
+#: src/Config/Validator.php:550
 #: src/Controllers/JavaScriptMessagesController.php:799
 msgid "Not a positive number!"
 msgstr "Liczba nie jest dodatnia!"
 
-#: src/Config/Validator.php:574
+#: src/Config/Validator.php:572
 #: src/Controllers/JavaScriptMessagesController.php:800
 msgid "Not a non-negative number!"
 msgstr "Liczba nie jest nieujemna!"
 
-#: src/Config/Validator.php:613
+#: src/Config/Validator.php:611
 #: src/Controllers/JavaScriptMessagesController.php:803
 #, php-format
 msgid "Value must be less than or equal to %s!"
@@ -16495,15 +16495,15 @@ msgstr ""
 "Indeksy %1$s i %2$s wyglądają na identyczne i jeden z nich mógłby zostać "
 "usunięty."
 
-#: src/InsertEdit.php:466
+#: src/InsertEdit.php:434
 msgid "web server upload directory:"
 msgstr "katalog przesyłania serwera web:"
 
-#: src/InsertEdit.php:883 src/Sql.php:861
+#: src/InsertEdit.php:858 src/Sql.php:861
 msgid "Showing SQL query"
 msgstr "Wyświetl zapytanie SQL"
 
-#: src/InsertEdit.php:907 src/Sql.php:841
+#: src/InsertEdit.php:882 src/Sql.php:841
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Id wstawionego wiersza: %1$d"

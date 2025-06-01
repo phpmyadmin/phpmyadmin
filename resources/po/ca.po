@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-05-25 00:29+0000\n"
+"POT-Creation-Date: 2025-06-01 00:34+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -3220,7 +3220,7 @@ msgstr "Converteix a Kana"
 #: src/Controllers/Table/Partition/DropController.php:54
 #: src/Controllers/Table/Partition/RebuildController.php:54
 #: src/Controllers/Table/Partition/TruncateController.php:54
-#: src/Html/Generator.php:739 src/Import/Import.php:119 src/InsertEdit.php:456
+#: src/Html/Generator.php:739 src/Import/Import.php:119 src/InsertEdit.php:424
 #: src/Message.php:138
 msgid "Error"
 msgstr "Error"
@@ -3795,7 +3795,7 @@ msgid "You may also drag and drop a file on any page."
 msgstr "També podeu arrossegar i deixar anar un fitxer en qualsevol pàgina."
 
 #: resources/templates/import.twig:56 resources/templates/import.twig:80
-#: src/InsertEdit.php:457
+#: src/InsertEdit.php:425
 msgid "The directory you set for upload work cannot be reached."
 msgstr ""
 "No es pot assolir el directori que heu establert per al treball de pujada."
@@ -5159,7 +5159,7 @@ msgstr "Permet llegir dades."
 #: resources/templates/server/privileges/privileges_table.twig:60
 #: resources/templates/server/privileges/privileges_table.twig:87
 #: resources/templates/server/privileges/privileges_table.twig:114
-#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:465
+#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:433
 msgid "Or"
 msgstr "O"
 
@@ -7105,7 +7105,7 @@ msgstr "Arrossegueu per reordenar"
 #: resources/templates/table/index_form.twig:203
 #: src/Controllers/JavaScriptMessagesController.php:463
 #: src/Controllers/JavaScriptMessagesController.php:615
-#: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1465
+#: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1440
 msgid "Ignore"
 msgstr "Ignora"
 
@@ -7173,7 +7173,7 @@ msgstr ""
 msgid "Binary - do not edit"
 msgstr "Binari - no editeu"
 
-#: resources/templates/table/insert/column_row.twig:120
+#: resources/templates/table/insert/column_row.twig:123
 #: resources/templates/table/search/input_box.twig:32
 msgid "Edit/Insert"
 msgstr "Edita o insereix"
@@ -12292,7 +12292,7 @@ msgstr "Col·lació de la connexió del servidor"
 msgid "Missing data for %s"
 msgstr "Falten dades a %s"
 
-#: src/Config/FormDisplay.php:619 src/Config/Validator.php:595
+#: src/Config/FormDisplay.php:619 src/Config/Validator.php:593
 #: src/Controllers/JavaScriptMessagesController.php:802
 msgid "Incorrect value!"
 msgstr "Valor incorrecte!"
@@ -12562,21 +12562,21 @@ msgstr "Pestanyes pel que fa a les bases de dades"
 msgid "Table-level tabs"
 msgstr "Pestanyes pel que fa a les taules"
 
-#: src/Config/Validator.php:253
+#: src/Config/Validator.php:251
 msgid "Could not connect to the database server!"
 msgstr "No s'ha pogut connectar amb el servidor de dades!"
 
-#: src/Config/Validator.php:289
+#: src/Config/Validator.php:287
 msgid "Invalid authentication type!"
 msgstr "Tipus d'autenticació incorrecte!"
 
-#: src/Config/Validator.php:294
+#: src/Config/Validator.php:292
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr ""
 "Nom d'usuari buit mentre s'utilitzava el mètode d'autenticació [kbd]config[/"
 "kbd]!"
 
-#: src/Config/Validator.php:300
+#: src/Config/Validator.php:298
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
@@ -12584,20 +12584,20 @@ msgstr ""
 "Nom de sessió de signon en blanc mentre s'utilitzava el mètode "
 "d'autenticació [kbd]signon[/kbd]!"
 
-#: src/Config/Validator.php:307
+#: src/Config/Validator.php:305
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr ""
 "URL de signon en blanc mentre s'utilitzava el mètode d'autenticació "
 "[kbd]signon[/kbd]!"
 
-#: src/Config/Validator.php:360
+#: src/Config/Validator.php:358
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 "Usuari de control buit de phpMyAdmin mentre s'utilitzava l'emmagatzematge de "
 "la configuració de phpMyAdmin!"
 
-#: src/Config/Validator.php:367
+#: src/Config/Validator.php:365
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
@@ -12605,31 +12605,31 @@ msgstr ""
 "Contrasenya buida de l'usuari de control de phpMyAdmin mentre s'utilitzava "
 "l'emmagatzematge de la configuració de phpMyAdmin!"
 
-#: src/Config/Validator.php:456
+#: src/Config/Validator.php:454
 msgid "Incorrect value:"
 msgstr "Valor incorrecte:"
 
-#: src/Config/Validator.php:467
+#: src/Config/Validator.php:465
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "Adreça IP incorrecta: %s"
 
-#: src/Config/Validator.php:530
+#: src/Config/Validator.php:528
 #: src/Controllers/JavaScriptMessagesController.php:801
 msgid "Not a valid port number!"
 msgstr "No és un número de port vàlid!"
 
-#: src/Config/Validator.php:552
+#: src/Config/Validator.php:550
 #: src/Controllers/JavaScriptMessagesController.php:799
 msgid "Not a positive number!"
 msgstr "No és un nombre positiu!"
 
-#: src/Config/Validator.php:574
+#: src/Config/Validator.php:572
 #: src/Controllers/JavaScriptMessagesController.php:800
 msgid "Not a non-negative number!"
 msgstr "No és un nombre no-negatiu!"
 
-#: src/Config/Validator.php:613
+#: src/Config/Validator.php:611
 #: src/Controllers/JavaScriptMessagesController.php:803
 #, php-format
 msgid "Value must be less than or equal to %s!"
@@ -17357,15 +17357,15 @@ msgstr ""
 "Els índexs %1$s i %2$s semblen iguals i un d'ells possiblement es podria "
 "esborrar."
 
-#: src/InsertEdit.php:466
+#: src/InsertEdit.php:434
 msgid "web server upload directory:"
 msgstr "directori de pujada del servidor web:"
 
-#: src/InsertEdit.php:883 src/Sql.php:861
+#: src/InsertEdit.php:858 src/Sql.php:861
 msgid "Showing SQL query"
 msgstr "Es mostra la consulta SQL"
 
-#: src/InsertEdit.php:907 src/Sql.php:841
+#: src/InsertEdit.php:882 src/Sql.php:841
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Id de la fila inserida: %1$d"

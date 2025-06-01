@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-05-25 00:29+0000\n"
+"POT-Creation-Date: 2025-06-01 00:34+0000\n"
 "PO-Revision-Date: 2023-02-17 01:47+0000\n"
 "Last-Translator: Anders Johansson <johansson@aljmedia.se>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -3299,7 +3299,7 @@ msgstr "Konvertera till Kana"
 #: src/Controllers/Table/Partition/DropController.php:54
 #: src/Controllers/Table/Partition/RebuildController.php:54
 #: src/Controllers/Table/Partition/TruncateController.php:54
-#: src/Html/Generator.php:739 src/Import/Import.php:119 src/InsertEdit.php:456
+#: src/Html/Generator.php:739 src/Import/Import.php:119 src/InsertEdit.php:424
 #: src/Message.php:138
 msgid "Error"
 msgstr "Fel"
@@ -3901,7 +3901,7 @@ msgid "You may also drag and drop a file on any page."
 msgstr "Du kan också dra och släppa en fil på valfri sida."
 
 #: resources/templates/import.twig:56 resources/templates/import.twig:80
-#: src/InsertEdit.php:457
+#: src/InsertEdit.php:425
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Katalogen du ställt in för uppladdning kan inte nås."
 
@@ -5244,7 +5244,7 @@ msgstr "Tillåter läsning av data."
 #: resources/templates/server/privileges/privileges_table.twig:60
 #: resources/templates/server/privileges/privileges_table.twig:87
 #: resources/templates/server/privileges/privileges_table.twig:114
-#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:465
+#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:433
 msgid "Or"
 msgstr "Eller"
 
@@ -7172,7 +7172,7 @@ msgstr "Dra om du vill ändra ordning"
 #: resources/templates/table/index_form.twig:203
 #: src/Controllers/JavaScriptMessagesController.php:463
 #: src/Controllers/JavaScriptMessagesController.php:615
-#: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1465
+#: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1440
 msgid "Ignore"
 msgstr "Ignorera"
 
@@ -7239,7 +7239,7 @@ msgstr "På grund av sin längd,<br> är denna kolumn kanske inte redigerbar."
 msgid "Binary - do not edit"
 msgstr "Binär - ändra inte"
 
-#: resources/templates/table/insert/column_row.twig:120
+#: resources/templates/table/insert/column_row.twig:123
 #: resources/templates/table/search/input_box.twig:32
 msgid "Edit/Insert"
 msgstr "Redigera / Infoga"
@@ -12320,7 +12320,7 @@ msgstr "Serveranslutning kollationering"
 msgid "Missing data for %s"
 msgstr "Saknar data för %s"
 
-#: src/Config/FormDisplay.php:619 src/Config/Validator.php:595
+#: src/Config/FormDisplay.php:619 src/Config/Validator.php:593
 #: src/Controllers/JavaScriptMessagesController.php:802
 msgid "Incorrect value!"
 msgstr "Felaktigt värde!"
@@ -12604,19 +12604,19 @@ msgstr "Flikar på databasnivå"
 msgid "Table-level tabs"
 msgstr "Flikar på tabellnivå"
 
-#: src/Config/Validator.php:253
+#: src/Config/Validator.php:251
 msgid "Could not connect to the database server!"
 msgstr "Kunde inte ansluta till databasservern!"
 
-#: src/Config/Validator.php:289
+#: src/Config/Validator.php:287
 msgid "Invalid authentication type!"
 msgstr "Ogiltig autentiseringstyp!"
 
-#: src/Config/Validator.php:294
+#: src/Config/Validator.php:292
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr "Tomt användarnamn vid användning av [kbd]config[/kbd]-autentisering!"
 
-#: src/Config/Validator.php:300
+#: src/Config/Validator.php:298
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
@@ -12624,18 +12624,18 @@ msgstr ""
 "Tomt sessionsnamn för signon vid användning av [kbd]signon[/kbd]-"
 "autentisering!"
 
-#: src/Config/Validator.php:307
+#: src/Config/Validator.php:305
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr "Tom URL för signon vid användning av [kbd]signon[/kbd]-autentisering!"
 
-#: src/Config/Validator.php:360
+#: src/Config/Validator.php:358
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 "Tom phpMyAdmin-kontrollanvändare vid användning av konfigurationslagring för "
 "phpMyAdmin!"
 
-#: src/Config/Validator.php:367
+#: src/Config/Validator.php:365
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
@@ -12643,31 +12643,31 @@ msgstr ""
 "Tomt lösenord för phpMyAdmin-kontrollanvändare vid användning av "
 "konfigurationslagring för phpMyAdmin!"
 
-#: src/Config/Validator.php:456
+#: src/Config/Validator.php:454
 msgid "Incorrect value:"
 msgstr "Felaktigt värde:"
 
-#: src/Config/Validator.php:467
+#: src/Config/Validator.php:465
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "Felaktig IP-adress: %s"
 
-#: src/Config/Validator.php:530
+#: src/Config/Validator.php:528
 #: src/Controllers/JavaScriptMessagesController.php:801
 msgid "Not a valid port number!"
 msgstr "Inte ett giltigt portnummer!"
 
-#: src/Config/Validator.php:552
+#: src/Config/Validator.php:550
 #: src/Controllers/JavaScriptMessagesController.php:799
 msgid "Not a positive number!"
 msgstr "Inte ett positivt tal!"
 
-#: src/Config/Validator.php:574
+#: src/Config/Validator.php:572
 #: src/Controllers/JavaScriptMessagesController.php:800
 msgid "Not a non-negative number!"
 msgstr "Inte ett icke-negativt tal!"
 
-#: src/Config/Validator.php:613
+#: src/Config/Validator.php:611
 #: src/Controllers/JavaScriptMessagesController.php:803
 #, php-format
 msgid "Value must be less than or equal to %s!"
@@ -17327,15 +17327,15 @@ msgstr ""
 "Index %1$s och %2$s verkar vara identiska och ett av dem kan möjligen tas "
 "bort."
 
-#: src/InsertEdit.php:466
+#: src/InsertEdit.php:434
 msgid "web server upload directory:"
 msgstr "Uppladdningskatalog på webbserver:"
 
-#: src/InsertEdit.php:883 src/Sql.php:861
+#: src/InsertEdit.php:858 src/Sql.php:861
 msgid "Showing SQL query"
 msgstr "Visar SQL-fråga"
 
-#: src/InsertEdit.php:907 src/Sql.php:841
+#: src/InsertEdit.php:882 src/Sql.php:841
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Infogade rad-id: %1$d"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-05-25 00:29+0000\n"
+"POT-Creation-Date: 2025-06-01 00:34+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Sinhala <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -3442,7 +3442,7 @@ msgstr "Kana වෙත පරිවර්තනය කරන්න"
 #: src/Controllers/Table/Partition/DropController.php:54
 #: src/Controllers/Table/Partition/RebuildController.php:54
 #: src/Controllers/Table/Partition/TruncateController.php:54
-#: src/Html/Generator.php:739 src/Import/Import.php:119 src/InsertEdit.php:456
+#: src/Html/Generator.php:739 src/Import/Import.php:119 src/InsertEdit.php:424
 #: src/Message.php:138
 msgid "Error"
 msgstr "දෝෂය"
@@ -4044,7 +4044,7 @@ msgid "You may also drag and drop a file on any page."
 msgstr ""
 
 #: resources/templates/import.twig:56 resources/templates/import.twig:80
-#: src/InsertEdit.php:457
+#: src/InsertEdit.php:425
 msgid "The directory you set for upload work cannot be reached."
 msgstr "උඩුගත කිරීම් සඳහා සැකසූ ඩිරෙක්ටරිය වෙත පිවිසිය නොහැක."
 
@@ -5390,7 +5390,7 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:60
 #: resources/templates/server/privileges/privileges_table.twig:87
 #: resources/templates/server/privileges/privileges_table.twig:114
-#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:465
+#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:433
 msgid "Or"
 msgstr "හෝ"
 
@@ -7334,7 +7334,7 @@ msgstr "අනුපිලිවෙල නැවත සකස් කිරීම
 #: resources/templates/table/index_form.twig:203
 #: src/Controllers/JavaScriptMessagesController.php:463
 #: src/Controllers/JavaScriptMessagesController.php:615
-#: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1465
+#: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1440
 msgid "Ignore"
 msgstr "නොසලකන්න"
 
@@ -7399,7 +7399,7 @@ msgstr "මෙහි දිග නිසා,<br> මෙම තීරුව ස�
 msgid "Binary - do not edit"
 msgstr "ද්වීමය - සංස්කරණය නොකරන්න"
 
-#: resources/templates/table/insert/column_row.twig:120
+#: resources/templates/table/insert/column_row.twig:123
 #: resources/templates/table/search/input_box.twig:32
 msgid "Edit/Insert"
 msgstr "සංස්කරණය/ඇතුල් කරන්න"
@@ -12565,7 +12565,7 @@ msgstr "සේවාදායක සමඟ සම්බන්ධතාවේ ප
 msgid "Missing data for %s"
 msgstr "%s සඳහා දත්ත නොමැත"
 
-#: src/Config/FormDisplay.php:619 src/Config/Validator.php:595
+#: src/Config/FormDisplay.php:619 src/Config/Validator.php:593
 #: src/Controllers/JavaScriptMessagesController.php:802
 msgid "Incorrect value!"
 msgstr "වැරදි අගයකි!"
@@ -12813,25 +12813,25 @@ msgstr "දත්තගබඩා සේවාදායකය"
 msgid "Table-level tabs"
 msgstr "වගු විස්තර"
 
-#: src/Config/Validator.php:253
+#: src/Config/Validator.php:251
 #, fuzzy
 #| msgid "Could not connect to the target"
 msgid "Could not connect to the database server!"
 msgstr "ඉලක්කය වෙත සම්බන්ද විය නොහැකි විය"
 
-#: src/Config/Validator.php:289
+#: src/Config/Validator.php:287
 #, fuzzy
 #| msgid "Authentication type"
 msgid "Invalid authentication type!"
 msgstr "සත්‍යාපන වර්ගය"
 
-#: src/Config/Validator.php:294
+#: src/Config/Validator.php:292
 #, fuzzy
 #| msgid "Empty username while using config authentication method!"
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr "config සත්‍යාපන ක්‍රමය භාවිතා කිරීමේදී හිස් භාවිත නාමයක්!"
 
-#: src/Config/Validator.php:300
+#: src/Config/Validator.php:298
 #, fuzzy
 #| msgid "Empty signon session name while using signon authentication method!"
 msgid ""
@@ -12839,48 +12839,48 @@ msgid ""
 "method!"
 msgstr "signon සත්‍යාපන ක්‍රමය භාවිතා කිරීමේදී හිස් signon සැසි නාමයක්!"
 
-#: src/Config/Validator.php:307
+#: src/Config/Validator.php:305
 #, fuzzy
 #| msgid "Empty signon URL while using signon authentication method!"
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr "singon සත්‍යාපන ක්‍රමය භාවිතා කිරීමේදී signon URL සඳහා හිස් අගයක්!"
 
-#: src/Config/Validator.php:360
+#: src/Config/Validator.php:358
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr "pmadb භාවිතා කිරීමේදී phpMyAdmin පරිපාලක භාවිතා කරන්නා සඳහා හිස් අගයක්!"
 
-#: src/Config/Validator.php:367
+#: src/Config/Validator.php:365
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
 msgstr "pmadb භාවිතා කිරීමේදී phpMyAdmin පරිපාලක භාවිතා කරන්නාගේ මුරපදය සඳහා හිස් අගයක්!"
 
-#: src/Config/Validator.php:456
+#: src/Config/Validator.php:454
 msgid "Incorrect value:"
 msgstr "වැරදි අගයකි:"
 
-#: src/Config/Validator.php:467
+#: src/Config/Validator.php:465
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "වැරදි IP යොමුව: %s"
 
-#: src/Config/Validator.php:530
+#: src/Config/Validator.php:528
 #: src/Controllers/JavaScriptMessagesController.php:801
 msgid "Not a valid port number!"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ!"
 
-#: src/Config/Validator.php:552
+#: src/Config/Validator.php:550
 #: src/Controllers/JavaScriptMessagesController.php:799
 msgid "Not a positive number!"
 msgstr "ධන සංඛ්‍යාවක් නොවේ!"
 
-#: src/Config/Validator.php:574
+#: src/Config/Validator.php:572
 #: src/Controllers/JavaScriptMessagesController.php:800
 msgid "Not a non-negative number!"
 msgstr "ඍණ නොවන සංඛ්‍යාවක් නොවේ!"
 
-#: src/Config/Validator.php:613
+#: src/Config/Validator.php:611
 #: src/Controllers/JavaScriptMessagesController.php:803
 #, php-format
 msgid "Value must be less than or equal to %s!"
@@ -17497,15 +17497,15 @@ msgid ""
 "removed."
 msgstr "%1$s හා %2$s සුචි එක සමාන බැවින් එකක් ඉවත් කල හැක."
 
-#: src/InsertEdit.php:466
+#: src/InsertEdit.php:434
 msgid "web server upload directory:"
 msgstr "වෙබ් සේවාදායකයේ උඩුගත ඩිරෙක්ටරිය:"
 
-#: src/InsertEdit.php:883 src/Sql.php:861
+#: src/InsertEdit.php:858 src/Sql.php:861
 msgid "Showing SQL query"
 msgstr "SQL විමසුම පෙන්වමින්"
 
-#: src/InsertEdit.php:907 src/Sql.php:841
+#: src/InsertEdit.php:882 src/Sql.php:841
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "%1$d පේළිය ඇතුල් කරන ලදි"

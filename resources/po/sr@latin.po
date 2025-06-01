@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-05-25 00:29+0000\n"
+"POT-Creation-Date: 2025-06-01 00:34+0000\n"
 "PO-Revision-Date: 2022-12-13 20:50+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Serbian (latin) <https://hosted.weblate.org/projects/"
@@ -3476,7 +3476,7 @@ msgstr ""
 #: src/Controllers/Table/Partition/DropController.php:54
 #: src/Controllers/Table/Partition/RebuildController.php:54
 #: src/Controllers/Table/Partition/TruncateController.php:54
-#: src/Html/Generator.php:739 src/Import/Import.php:119 src/InsertEdit.php:456
+#: src/Html/Generator.php:739 src/Import/Import.php:119 src/InsertEdit.php:424
 #: src/Message.php:138
 msgid "Error"
 msgstr "Greška"
@@ -4093,7 +4093,7 @@ msgid "You may also drag and drop a file on any page."
 msgstr ""
 
 #: resources/templates/import.twig:56 resources/templates/import.twig:80
-#: src/InsertEdit.php:457
+#: src/InsertEdit.php:425
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Direktorijum koji ste izabrali za slanje nije dostupan."
 
@@ -5471,7 +5471,7 @@ msgstr "Dozvoljava čitanje podataka."
 #: resources/templates/server/privileges/privileges_table.twig:60
 #: resources/templates/server/privileges/privileges_table.twig:87
 #: resources/templates/server/privileges/privileges_table.twig:114
-#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:465
+#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:433
 msgid "Or"
 msgstr "ili"
 
@@ -7400,7 +7400,7 @@ msgstr "Povucite da bi ste promenili redosled"
 #: resources/templates/table/index_form.twig:203
 #: src/Controllers/JavaScriptMessagesController.php:463
 #: src/Controllers/JavaScriptMessagesController.php:615
-#: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1465
+#: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1440
 msgid "Ignore"
 msgstr "Ignoriši"
 
@@ -7473,7 +7473,7 @@ msgstr "Zbog njene veličine,<br />ova kolona možda neće moći da se izmeni"
 msgid "Binary - do not edit"
 msgstr "Binarni - ne menjaj"
 
-#: resources/templates/table/insert/column_row.twig:120
+#: resources/templates/table/insert/column_row.twig:123
 #: resources/templates/table/search/input_box.twig:32
 msgid "Edit/Insert"
 msgstr "Uredi/Umetni"
@@ -12627,7 +12627,7 @@ msgstr "Način poređenja kod veze na server"
 msgid "Missing data for %s"
 msgstr "Nedostaju podaci za %s"
 
-#: src/Config/FormDisplay.php:619 src/Config/Validator.php:595
+#: src/Config/FormDisplay.php:619 src/Config/Validator.php:593
 #: src/Controllers/JavaScriptMessagesController.php:802
 #, fuzzy
 #| msgid "Incorrect value"
@@ -12868,23 +12868,23 @@ msgstr "Server baze podataka"
 msgid "Table-level tabs"
 msgstr "Komentari tabele"
 
-#: src/Config/Validator.php:253
+#: src/Config/Validator.php:251
 msgid "Could not connect to the database server!"
 msgstr ""
 
-#: src/Config/Validator.php:289
+#: src/Config/Validator.php:287
 #, fuzzy
 #| msgid "No valid authentication key plugged"
 msgid "Invalid authentication type!"
 msgstr "Ni jedan validan autentikacioni ključ nije ubačen"
 
-#: src/Config/Validator.php:294
+#: src/Config/Validator.php:292
 #, fuzzy
 #| msgid "Can not find signon authentication script:"
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr "Ne mogu da nađem signon skript za autentikaciju:"
 
-#: src/Config/Validator.php:300
+#: src/Config/Validator.php:298
 #, fuzzy
 #| msgid "Can not find signon authentication script:"
 msgid ""
@@ -12892,56 +12892,56 @@ msgid ""
 "method!"
 msgstr "Ne mogu da nađem signon skript za autentikaciju:"
 
-#: src/Config/Validator.php:307
+#: src/Config/Validator.php:305
 #, fuzzy
 #| msgid "Can not find signon authentication script:"
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr "Ne mogu da nađem signon skript za autentikaciju:"
 
-#: src/Config/Validator.php:360
+#: src/Config/Validator.php:358
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 
-#: src/Config/Validator.php:367
+#: src/Config/Validator.php:365
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
 msgstr ""
 
-#: src/Config/Validator.php:456
+#: src/Config/Validator.php:454
 #, fuzzy
 #| msgid "Incorrect value"
 msgid "Incorrect value:"
 msgstr "Neispravna vrednost"
 
-#: src/Config/Validator.php:467
+#: src/Config/Validator.php:465
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr ""
 
-#: src/Config/Validator.php:530
+#: src/Config/Validator.php:528
 #: src/Controllers/JavaScriptMessagesController.php:801
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Not a valid port number!"
 msgstr "Nije ispravan broj porta"
 
-#: src/Config/Validator.php:552
+#: src/Config/Validator.php:550
 #: src/Controllers/JavaScriptMessagesController.php:799
 #, fuzzy
 #| msgid "Not a positive number"
 msgid "Not a positive number!"
 msgstr "Nije pozitivan broj"
 
-#: src/Config/Validator.php:574
+#: src/Config/Validator.php:572
 #: src/Controllers/JavaScriptMessagesController.php:800
 #, fuzzy
 #| msgid "Not a non-negative number"
 msgid "Not a non-negative number!"
 msgstr "Nije nenegativan broj"
 
-#: src/Config/Validator.php:613
+#: src/Config/Validator.php:611
 #: src/Controllers/JavaScriptMessagesController.php:803
 #, fuzzy, php-format
 #| msgid "Value must be less than or equal to %s"
@@ -17760,17 +17760,17 @@ msgstr ""
 "Indeksi %1$s and %2$s izgleda da su jednaki i jedan od njih verovatno može "
 "da se ukloni."
 
-#: src/InsertEdit.php:466
+#: src/InsertEdit.php:434
 #, fuzzy
 #| msgid "web server upload directory"
 msgid "web server upload directory:"
 msgstr "direktorijum za slanje veb servera"
 
-#: src/InsertEdit.php:883 src/Sql.php:861
+#: src/InsertEdit.php:858 src/Sql.php:861
 msgid "Showing SQL query"
 msgstr "Prikaz kao SQL upit"
 
-#: src/InsertEdit.php:907 src/Sql.php:841
+#: src/InsertEdit.php:882 src/Sql.php:841
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""

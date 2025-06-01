@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-05-25 00:29+0000\n"
+"POT-Creation-Date: 2025-06-01 00:34+0000\n"
 "PO-Revision-Date: 2025-01-27 16:17+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -3147,7 +3147,7 @@ msgstr "கானாவாக மாற்றவும்"
 #: src/Controllers/Table/Partition/DropController.php:54
 #: src/Controllers/Table/Partition/RebuildController.php:54
 #: src/Controllers/Table/Partition/TruncateController.php:54
-#: src/Html/Generator.php:739 src/Import/Import.php:119 src/InsertEdit.php:456
+#: src/Html/Generator.php:739 src/Import/Import.php:119 src/InsertEdit.php:424
 #: src/Message.php:138
 msgid "Error"
 msgstr "வலு"
@@ -3691,7 +3691,7 @@ msgid "You may also drag and drop a file on any page."
 msgstr "நீங்கள் எந்தப் பக்கத்திலும் ஒரு கோப்பை இழுத்து விடலாம்."
 
 #: resources/templates/import.twig:56 resources/templates/import.twig:80
-#: src/InsertEdit.php:457
+#: src/InsertEdit.php:425
 msgid "The directory you set for upload work cannot be reached."
 msgstr "பதிவேற்றத்திற்காக நீங்கள் தேர்வு செய்த அடைவை எட்டமுடியவில்லை."
 
@@ -4898,7 +4898,7 @@ msgstr "தரவைப் படிக்க அனுமதிக்கிற�
 #: resources/templates/server/privileges/privileges_table.twig:60
 #: resources/templates/server/privileges/privileges_table.twig:87
 #: resources/templates/server/privileges/privileges_table.twig:114
-#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:465
+#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:433
 msgid "Or"
 msgstr "அல்லது"
 
@@ -6687,7 +6687,7 @@ msgstr "மறுவரிசைப்படுத்த இழுக்கவ�
 #: resources/templates/table/index_form.twig:203
 #: src/Controllers/JavaScriptMessagesController.php:463
 #: src/Controllers/JavaScriptMessagesController.php:615
-#: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1465
+#: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1440
 msgid "Ignore"
 msgstr "புறக்கணி"
 
@@ -6752,7 +6752,7 @@ msgstr "அதன் நீளம் காரணமாக, <br> இந்த �
 msgid "Binary - do not edit"
 msgstr "பைனரி - திருத்த வேண்டாம்"
 
-#: resources/templates/table/insert/column_row.twig:120
+#: resources/templates/table/insert/column_row.twig:123
 #: resources/templates/table/search/input_box.twig:32
 msgid "Edit/Insert"
 msgstr "திருத்து/செருகவும்"
@@ -11559,7 +11559,7 @@ msgstr "சேவையக இணைப்பு குறிமுறை அட
 msgid "Missing data for %s"
 msgstr "%s க்கான தரவு காணவில்லை"
 
-#: src/Config/FormDisplay.php:619 src/Config/Validator.php:595
+#: src/Config/FormDisplay.php:619 src/Config/Validator.php:593
 #: src/Controllers/JavaScriptMessagesController.php:802
 msgid "Incorrect value!"
 msgstr "தவறான மதிப்பு!"
@@ -11816,37 +11816,37 @@ msgstr "தரவுத்தள-படிநிலைமட்ட தாவல�
 msgid "Table-level tabs"
 msgstr "அட்டவணை-படிநிலைமட்ட தாவல்கள்"
 
-#: src/Config/Validator.php:253
+#: src/Config/Validator.php:251
 msgid "Could not connect to the database server!"
 msgstr "தரவுத்தள சேவையகத்துடன் இணைக்க முடியவில்லை!"
 
-#: src/Config/Validator.php:289
+#: src/Config/Validator.php:287
 msgid "Invalid authentication type!"
 msgstr "தவறான அங்கீகார வகை!"
 
-#: src/Config/Validator.php:294
+#: src/Config/Validator.php:292
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr "[KBD] கட்டமைப்பு [/KBD] அங்கீகார முறையைப் பயன்படுத்தும் போது வெற்று பயனர்பெயர்!"
 
-#: src/Config/Validator.php:300
+#: src/Config/Validator.php:298
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
 msgstr ""
 "[KBD] சிக்னான் [/KBD] அங்கீகார முறையைப் பயன்படுத்தும் போது வெற்று சிக்னன் அமர்வு பெயர்!"
 
-#: src/Config/Validator.php:307
+#: src/Config/Validator.php:305
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr "[KBD] சிக்னான் [/KBD] அங்கீகார முறையைப் பயன்படுத்தும் போது வெற்று சிக்னன் URL!"
 
-#: src/Config/Validator.php:360
+#: src/Config/Validator.php:358
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 "Phpmyadmin கட்டமைப்பு சேமிப்பகத்தைப் பயன்படுத்தும் போது வெற்று Phpmyadmin கட்டுப்பாட்டு "
 "பயனரை!"
 
-#: src/Config/Validator.php:367
+#: src/Config/Validator.php:365
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
@@ -11854,31 +11854,31 @@ msgstr ""
 "Phpmyadmin உள்ளமைவு சேமிப்பிடத்தைப் பயன்படுத்தும் போது PHPMYADMIN கட்டுப்பாட்டு பயனர் "
 "கடவுச்சொல்லை கட்டுப்படுத்தவும்!"
 
-#: src/Config/Validator.php:456
+#: src/Config/Validator.php:454
 msgid "Incorrect value:"
 msgstr "தவறான மதிப்பு:"
 
-#: src/Config/Validator.php:467
+#: src/Config/Validator.php:465
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "தவறான ஐபி முகவரி: %s"
 
-#: src/Config/Validator.php:530
+#: src/Config/Validator.php:528
 #: src/Controllers/JavaScriptMessagesController.php:801
 msgid "Not a valid port number!"
 msgstr "செல்லுபடியாகும் துறைமுகம் எண் அல்ல!"
 
-#: src/Config/Validator.php:552
+#: src/Config/Validator.php:550
 #: src/Controllers/JavaScriptMessagesController.php:799
 msgid "Not a positive number!"
 msgstr "நேர்மறை எண் அல்ல!"
 
-#: src/Config/Validator.php:574
+#: src/Config/Validator.php:572
 #: src/Controllers/JavaScriptMessagesController.php:800
 msgid "Not a non-negative number!"
 msgstr "எதிர்மறை அல்லாத எண் அல்ல!"
 
-#: src/Config/Validator.php:613
+#: src/Config/Validator.php:611
 #: src/Controllers/JavaScriptMessagesController.php:803
 #, php-format
 msgid "Value must be less than or equal to %s!"
@@ -16326,15 +16326,15 @@ msgid ""
 "removed."
 msgstr "குறியீடுகள் %1$s மற்றும் %2$s சமமாகத் தெரிகிறது, அவற்றில் ஒன்று அகற்றப்படலாம்."
 
-#: src/InsertEdit.php:466
+#: src/InsertEdit.php:434
 msgid "web server upload directory:"
 msgstr "வலை சேவையக பதிவேற்ற அடைவு:"
 
-#: src/InsertEdit.php:883 src/Sql.php:861
+#: src/InsertEdit.php:858 src/Sql.php:861
 msgid "Showing SQL query"
 msgstr "கவிமொ வினவலைக் காட்டுகிறது"
 
-#: src/InsertEdit.php:907 src/Sql.php:841
+#: src/InsertEdit.php:882 src/Sql.php:841
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "வரிசை ஐடி செருகப்பட்டது: %1$d"
