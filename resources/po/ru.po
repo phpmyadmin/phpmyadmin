@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-06-01 00:34+0000\n"
-"PO-Revision-Date: 2025-04-25 17:45+0000\n"
+"PO-Revision-Date: 2025-06-06 13:00+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ru/>\n"
@@ -1944,10 +1944,8 @@ msgid "OFF"
 msgstr "ОТКЛЮЧИТЬ"
 
 #: resources/templates/database/events/index.twig:161
-#, fuzzy
-#| msgid "Excel edition"
 msgid "Event editor"
-msgstr "Версия Excel"
+msgstr "Редактор событий"
 
 #: resources/templates/database/events/index.twig:166
 #: resources/templates/database/routines/index.twig:83
@@ -1972,10 +1970,8 @@ msgid "Save changes"
 msgstr "Сохранить изменения"
 
 #: resources/templates/database/events/index.twig:181
-#, fuzzy
-#| msgid "Export of event %s"
 msgid "Export event"
-msgstr "Экспортировать событие %s"
+msgstr "Экспортировать событие"
 
 #: resources/templates/database/export/index.twig:61
 msgid ""
@@ -3537,8 +3533,6 @@ msgid "Server:"
 msgstr "Сервер:"
 
 #: resources/templates/home/index.twig:186
-#, fuzzy
-#| msgid "Host name:"
 msgid "Hostname:"
 msgstr "Имя хоста:"
 
@@ -5747,10 +5741,8 @@ msgstr ""
 "наличии сложной настройки вы можете экспортировать её."
 
 #: resources/templates/server/status/monitor/index.twig:58
-#, fuzzy
-#| msgid "Import monitor configuration"
 msgid "Importing system monitor configuration"
-msgstr "Импорт настроек монитора"
+msgstr "Импорт настроек системного монитора"
 
 #: resources/templates/server/status/monitor/index.twig:63
 #: src/Controllers/JavaScriptMessagesController.php:299
@@ -5762,10 +5754,8 @@ msgid "Reset to default"
 msgstr "Восстановить изначальное значение"
 
 #: resources/templates/server/status/monitor/index.twig:87
-#, fuzzy
-#| msgid "Monitor Instructions"
 msgid "System monitor instructions"
-msgstr "Инструкции мониторинга"
+msgstr "Инструкции системного монитора"
 
 #: resources/templates/server/status/monitor/index.twig:92
 msgid ""
