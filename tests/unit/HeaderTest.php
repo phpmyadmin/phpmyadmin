@@ -283,6 +283,7 @@ class HeaderTest extends AbstractTestCase
             ['name' => 'vendor/sprintf.js', 'fire' => 0],
             ['name' => 'vendor/jquery/jquery-ui.min.js', 'fire' => 0],
             ['name' => 'vendor/bootstrap/bootstrap.js', 'fire' => 0],
+            ['name' => 'vendor/@eonasdan/tempus-dominus.js', 'fire' => 0],
             ['name' => 'vendor/js.cookie.min.js', 'fire' => 0],
             ['name' => 'vendor/jquery/jquery.validate.min.js', 'fire' => 0],
             ['name' => 'vendor/jquery/jquery-ui-timepicker-addon.js', 'fire' => 0],

@@ -86,6 +86,7 @@ class Header
         $this->scripts->addFile('vendor/sprintf.js');
         $this->scripts->addFile('vendor/jquery/jquery-ui.min.js');
         $this->scripts->addFile('vendor/bootstrap/bootstrap.js');
+        $this->scripts->addFile('vendor/@eonasdan/tempus-dominus.js');
         $this->scripts->addFile('vendor/js.cookie.min.js');
         $this->scripts->addFile('vendor/jquery/jquery.validate.min.js');
         $this->scripts->addFile('vendor/jquery/jquery-ui-timepicker-addon.js');
