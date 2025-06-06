@@ -1883,14 +1883,14 @@ class Results
         array $orderUrlParams,
         array $multiOrderUrlParams
     ): string {
-        $urlPath = Url::getFromRoute('/sql', $multiOrderUrlParams, false);
+        $urlPath = Url::getFromRoute('/sql', $multiOrderUrlParams, true);
         $innerLinkContent = htmlspecialchars($fieldsMeta->name) . $orderImg
             . '<input type="hidden" value="'
             . $urlPath
             . '">';
 
         return Generator::linkOrButton(
-            Url::getFromRoute('/sql', $orderUrlParams, false),
+            Url::getFromRoute('/sql', $orderUrlParams, true),
             null,
             $innerLinkContent,
             ['class' => 'sortlink']
