@@ -12,13 +12,12 @@ import { addDateTimePicker } from '../modules/functions.ts';
  * Modify form controls when the "NULL" checkbox is checked
  *
  * @param {string} theType   the MySQL field type
- * @param {string} urlField  the urlencoded field name - OBSOLETE
  * @param {string} md5Field  the md5 hashed field name
  * @param {string} multiEdit the multi_edit row sequence number
  *
  * @return {boolean} always true
  */
-function nullify (theType, urlField, md5Field, multiEdit) {
+function nullify (theType, md5Field, multiEdit) {
     // @ts-ignore
     var rowForm = document.forms.insertForm;
 
@@ -647,7 +646,6 @@ AJAX.registerOnload('table/change.js', function () {
         nullify(
             // use hidden fields populated by /table/change
             $(this).siblings('.nullify_code').val(),
-            $(this).closest('tr').find('input:hidden').first().val(),
             $(this).siblings('.hashed_field').val(),
             $(this).siblings('.multi_edit').val()
         );
@@ -806,7 +804,6 @@ function addNewContinueInsertionFields (event) {
                         var $changedElement = $(this);
                         nullify(
                             $changedElement.siblings('.nullify_code').val(),
-                            $thisElement.closest('tr').find('input:hidden').first().val(),
                             $changedElement.data('hashed_field'),
                             '[multi_edit][' + $changedElement.data('new_row_index') + ']'
                         );
@@ -848,7 +845,7 @@ function addNewContinueInsertionFields (event) {
             // Clone the insert tables
             $lastRow
                 .clone(true, true)
-                .insertBefore('#actions_panel')
+                .insertBefore($('#actions_panel').closest('div'))
                 .find('input[name*=multi_edit],select[name*=multi_edit],textarea[name*=multi_edit]')
                 .each(tempIncrementIndex)
                 .end()
