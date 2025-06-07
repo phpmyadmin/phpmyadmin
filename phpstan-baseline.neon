@@ -13782,7 +13782,19 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 5
+			count: 3
+			path: src/Session.php
+
+		-
+			message: '#^Only booleans are allowed in &&, string\|false given on the left side\.$#'
+			identifier: booleanAnd.leftNotBoolean
+			count: 1
+			path: src/Session.php
+
+		-
+			message: '#^Only booleans are allowed in &&, string\|false given on the right side\.$#'
+			identifier: booleanAnd.rightNotBoolean
+			count: 1
 			path: src/Session.php
 
 		-
