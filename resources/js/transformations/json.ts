@@ -8,14 +8,14 @@ AJAX.registerOnload('transformations/json.js', function () {
     var $elm = $('#page_content').find('code.json');
     $elm.each(function () {
         var $json = $(this);
-        var $pre = $json.find('pre');
+        var $pre = $json.closest('pre');
         /* We only care about visible elements to avoid double processing */
-        if ($pre.is(':visible')) {
+        if ($json.is(':visible')) {
             var $highlight = $('<div class="json-highlight cm-s-default"></div>');
-            $json.append($highlight);
+            $pre.append($highlight);
             // @ts-ignore
             window.CodeMirror.runMode($json.text(), 'application/json', $highlight[0]);
-            $pre.hide();
+            $json.hide();
         }
     });
 });

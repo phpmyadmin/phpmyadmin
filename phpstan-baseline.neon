@@ -7668,7 +7668,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 11
+			count: 7
 			path: src/Html/Generator.php
 
 		-
@@ -14016,7 +14016,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 11
+			count: 10
 			path: src/Sql.php
 
 		-

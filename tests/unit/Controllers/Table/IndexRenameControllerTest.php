@@ -87,14 +87,14 @@ class IndexRenameControllerTest extends AbstractTestCase
         $dbi->setVersion(['@@version' => '5.5.0']);
         DatabaseInterface::$instance = $dbi;
 
+        // phpcs:disable Generic.Files.LineLength.TooLong
         $expected = <<<'HTML'
-<div class="preview_sql">
-            <code class="sql" dir="ltr"><pre>
-ALTER TABLE `test_db`.`test_table_index_rename` DROP INDEX `old_name`, ADD INDEX `new_name` (`name`) USING BTREE;
-</pre></code>
-    </div>
+        <div class="preview_sql">
+                    <pre><code class="sql" dir="ltr">ALTER TABLE `test_db`.`test_table_index_rename` DROP INDEX `old_name`, ADD INDEX `new_name` (`name`) USING BTREE;</code></pre>
+            </div>
 
-HTML;
+        HTML;
+        // phpcs:enable
 
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
             ->withQueryParams(['db' => 'test_db', 'table' => 'test_table_index_rename'])
