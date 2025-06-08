@@ -6913,30 +6913,6 @@ parameters:
 			path: src/Footer.php
 
 		-
-			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
-			identifier: notEqual.notAllowed
-			count: 1
-			path: src/Gis/Ds/Point.php
-
-		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 2
-			path: src/Gis/Ds/Point.php
-
-		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 2
-			path: src/Gis/Ds/Polygon.php
-
-		-
-			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
-			identifier: notEqual.notAllowed
-			count: 2
-			path: src/Gis/GisGeometry.php
-
-		-
 			message: '#^Only numeric types are allowed in \+, int\<0, max\>\|false given on the left side\.$#'
 			identifier: plus.leftNonNumeric
 			count: 1
@@ -7123,12 +7099,6 @@ parameters:
 			path: src/Gis/GisMultiPoint.php
 
 		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 8
-			path: src/Gis/GisMultiPoint.php
-
-		-
 			message: '#^Parameter \#1 \$point of method PhpMyAdmin\\Gis\\GisGeometry\:\:getWktCoord\(\) expects array\{x\: float\|int\|string, y\: float\|int\|string\}\|null, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -7255,7 +7225,7 @@ parameters:
 			path: src/Gis/GisMultiPolygon.php
 
 		-
-			message: '#^Parameter \#1 \$points of method PhpMyAdmin\\Image\\ImageWrapper\:\:filledPolygon\(\) expects list\<int\>, array\<float\> given\.$#'
+			message: '#^Parameter \#1 \$points of method PhpMyAdmin\\Image\\ImageWrapper\:\:filledPolygon\(\) expects list\<int\>, list\<float\> given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Gis/GisMultiPolygon.php
@@ -7294,12 +7264,6 @@ parameters:
 			message: '#^Cannot access offset ''POINT'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
-			path: src/Gis/GisPoint.php
-
-		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 4
 			path: src/Gis/GisPoint.php
 
 		-
@@ -7351,7 +7315,7 @@ parameters:
 			path: src/Gis/GisPolygon.php
 
 		-
-			message: '#^Parameter \#1 \$points of method PhpMyAdmin\\Image\\ImageWrapper\:\:filledPolygon\(\) expects list\<int\>, array\<float\> given\.$#'
+			message: '#^Parameter \#1 \$points of method PhpMyAdmin\\Image\\ImageWrapper\:\:filledPolygon\(\) expects list\<int\>, list\<float\> given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Gis/GisPolygon.php
@@ -7395,12 +7359,6 @@ parameters:
 		-
 			message: '#^Cannot cast mixed to string\.$#'
 			identifier: cast.string
-			count: 1
-			path: src/Gis/GisVisualization.php
-
-		-
-			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
-			identifier: notEqual.notAllowed
 			count: 1
 			path: src/Gis/GisVisualization.php
 

@@ -87,10 +87,6 @@ class GisMultiPoint extends GisGeometry
 
         foreach ($pointsArr as $point) {
             // draw a small circle to mark the point
-            if ($point[0] == '' || $point[1] == '') {
-                continue;
-            }
-
             $image->arc(
                 (int) round($point[0]),
                 (int) round($point[1]),
@@ -102,7 +98,7 @@ class GisMultiPoint extends GisGeometry
             );
         }
 
-        if ($label === '' || $pointsArr[0][0] == '' || $pointsArr[0][1] == '') {
+        if ($label === '' || ! isset($pointsArr[0])) {
             return;
         }
 
@@ -139,14 +135,10 @@ class GisMultiPoint extends GisGeometry
 
         foreach ($pointsArr as $point) {
             // draw a small circle to mark the point
-            if ($point[0] == '' || $point[1] == '') {
-                continue;
-            }
-
             $pdf->Circle($point[0], $point[1], 2, 0, 360, 'D', $line);
         }
 
-        if ($label === '' || $pointsArr[0][0] == '' || $pointsArr[0][1] == '') {
+        if ($label === '' || ! isset($pointsArr[0])) {
             return;
         }
 

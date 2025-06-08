@@ -11,6 +11,7 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 
 #[CoversClass(Polygon::class)]
+#[CoversClass(Point::class)]
 class PolygonTest extends AbstractTestCase
 {
     /**

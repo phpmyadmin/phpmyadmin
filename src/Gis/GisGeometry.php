@@ -235,7 +235,7 @@ abstract class GisGeometry
      * @param ScaleData|null $scaleData data related to scaling
      * @param bool           $linear    if true, as a 1D array, else as a 2D array
      *
-     * @return float[]|float[][] scaled points
+     * @psalm-return ($linear is true ? list<float> : list<array{float, float}>)
      */
     private function extractPointsInternal(string $pointSet, ScaleData|null $scaleData, bool $linear): array
     {
@@ -249,7 +249,7 @@ abstract class GisGeometry
             // Extract coordinates of the point
             $coordinates = explode(' ', $point);
 
-            if (isset($coordinates[1]) && trim($coordinates[0]) != '' && trim($coordinates[1]) != '') {
+            if (isset($coordinates[1]) && trim($coordinates[0]) !== '' && trim($coordinates[1]) !== '') {
                 $x = (float) $coordinates[0];
                 $y = (float) $coordinates[1];
                 if ($scaleData !== null) {
@@ -278,14 +278,11 @@ abstract class GisGeometry
      * @param string         $wktCoords string of comma separated points
      * @param ScaleData|null $scaleData data related to scaling
      *
-     * @return float[][] scaled points
+     * @return list<array{float, float}>
      */
     protected function extractPoints1d(string $wktCoords, ScaleData|null $scaleData): array
     {
-        /** @var float[][] $pointsArr */
-        $pointsArr = $this->extractPointsInternal($wktCoords, $scaleData, false);
-
-        return $pointsArr;
+        return $this->extractPointsInternal($wktCoords, $scaleData, false);
     }
 
     /**
@@ -294,14 +291,11 @@ abstract class GisGeometry
      * @param string         $wktCoords string of comma separated points
      * @param ScaleData|null $scaleData data related to scaling
      *
-     * @return float[] scaled points
+     * @return list<float>
      */
     protected function extractPoints1dLinear(string $wktCoords, ScaleData|null $scaleData): array
     {
-        /** @var float[] $pointsArr */
-        $pointsArr = $this->extractPointsInternal($wktCoords, $scaleData, true);
-
-        return $pointsArr;
+        return $this->extractPointsInternal($wktCoords, $scaleData, true);
     }
 
     /**
