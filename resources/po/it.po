@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-06-01 00:34+0000\n"
+"POT-Creation-Date: 2025-06-08 00:30+0000\n"
 "PO-Revision-Date: 2025-01-20 13:00+0000\n"
 "Last-Translator: Matteo Regazzi <mregazzi@tiscali.it>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -3158,13 +3158,13 @@ msgstr "Nessuno"
 msgid "Convert to Kana"
 msgstr "Converti a Kana"
 
-#: resources/templates/error/generic.twig:37
+#: resources/templates/error/generic.twig:39
 #: resources/templates/table/structure/display_structure.twig:361
 #: src/Controllers/Operations/ViewController.php:115
 #: src/Controllers/Table/Partition/DropController.php:54
 #: src/Controllers/Table/Partition/RebuildController.php:54
 #: src/Controllers/Table/Partition/TruncateController.php:54
-#: src/Html/Generator.php:739 src/Import/Import.php:119 src/InsertEdit.php:424
+#: src/Html/Generator.php:739 src/Import/Import.php:119 src/InsertEdit.php:421
 #: src/Message.php:138
 msgid "Error"
 msgstr "Errore"
@@ -3712,7 +3712,7 @@ msgid "You may also drag and drop a file on any page."
 msgstr "Puoi anche trascinare e rilasciare un file su qualsiasi pagina."
 
 #: resources/templates/import.twig:56 resources/templates/import.twig:80
-#: src/InsertEdit.php:425
+#: src/InsertEdit.php:422
 msgid "The directory you set for upload work cannot be reached."
 msgstr "La directory impostata per l'upload non può essere trovata."
 
@@ -4954,7 +4954,7 @@ msgstr "Permette di leggere i dati."
 #: resources/templates/server/privileges/privileges_table.twig:60
 #: resources/templates/server/privileges/privileges_table.twig:87
 #: resources/templates/server/privileges/privileges_table.twig:114
-#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:433
+#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:430
 msgid "Or"
 msgstr "Oppure"
 
@@ -6781,7 +6781,7 @@ msgstr "Trascina per riordinare"
 #: resources/templates/table/index_form.twig:203
 #: src/Controllers/JavaScriptMessagesController.php:463
 #: src/Controllers/JavaScriptMessagesController.php:615
-#: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1440
+#: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1437
 msgid "Ignore"
 msgstr "Ignora"
 
@@ -16727,15 +16727,15 @@ msgstr ""
 "Sembra che gli indici %1$s e %2$s sono uguali ed uno di questi potrebbe, "
 "possibilmente, essere rimosso."
 
-#: src/InsertEdit.php:434
+#: src/InsertEdit.php:431
 msgid "web server upload directory:"
 msgstr "directory di upload del web-server:"
 
-#: src/InsertEdit.php:858 src/Sql.php:861
+#: src/InsertEdit.php:855 src/Sql.php:861
 msgid "Showing SQL query"
 msgstr "Visualizzo la query SQL"
 
-#: src/InsertEdit.php:882 src/Sql.php:841
+#: src/InsertEdit.php:879 src/Sql.php:841
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Inserita riga id: %1$d"

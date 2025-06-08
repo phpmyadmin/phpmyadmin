@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-06-01 00:34+0000\n"
+"POT-Creation-Date: 2025-06-08 00:30+0000\n"
 "PO-Revision-Date: 2025-06-06 13:00+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -3133,13 +3133,13 @@ msgstr "Нет"
 msgid "Convert to Kana"
 msgstr "Конвертировать в Кану"
 
-#: resources/templates/error/generic.twig:37
+#: resources/templates/error/generic.twig:39
 #: resources/templates/table/structure/display_structure.twig:361
 #: src/Controllers/Operations/ViewController.php:115
 #: src/Controllers/Table/Partition/DropController.php:54
 #: src/Controllers/Table/Partition/RebuildController.php:54
 #: src/Controllers/Table/Partition/TruncateController.php:54
-#: src/Html/Generator.php:739 src/Import/Import.php:119 src/InsertEdit.php:424
+#: src/Html/Generator.php:739 src/Import/Import.php:119 src/InsertEdit.php:421
 #: src/Message.php:138
 msgid "Error"
 msgstr "Ошибка"
@@ -3683,7 +3683,7 @@ msgid "You may also drag and drop a file on any page."
 msgstr "Вы также можете просто перетащить файл на любой странице."
 
 #: resources/templates/import.twig:56 resources/templates/import.twig:80
-#: src/InsertEdit.php:425
+#: src/InsertEdit.php:422
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Установленный каталог загрузки не доступен."
 
@@ -4915,7 +4915,7 @@ msgstr "Разрешает выборку данных."
 #: resources/templates/server/privileges/privileges_table.twig:60
 #: resources/templates/server/privileges/privileges_table.twig:87
 #: resources/templates/server/privileges/privileges_table.twig:114
-#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:433
+#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:430
 msgid "Or"
 msgstr "Или"
 
@@ -6715,7 +6715,7 @@ msgstr "Перетяните для изменения порядка сорти
 #: resources/templates/table/index_form.twig:203
 #: src/Controllers/JavaScriptMessagesController.php:463
 #: src/Controllers/JavaScriptMessagesController.php:615
-#: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1440
+#: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1437
 msgid "Ignore"
 msgstr "Игнорировать"
 
@@ -16501,15 +16501,15 @@ msgid ""
 "removed."
 msgstr "Индексы %1$s и %2$s равнозначны и один из них может быть удалён."
 
-#: src/InsertEdit.php:434
+#: src/InsertEdit.php:431
 msgid "web server upload directory:"
 msgstr "Из каталога загрузки:"
 
-#: src/InsertEdit.php:858 src/Sql.php:861
+#: src/InsertEdit.php:855 src/Sql.php:861
 msgid "Showing SQL query"
 msgstr "Отображает SQL-запрос"
 
-#: src/InsertEdit.php:882 src/Sql.php:841
+#: src/InsertEdit.php:879 src/Sql.php:841
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Идентификатор вставленной строки: %1$d"
