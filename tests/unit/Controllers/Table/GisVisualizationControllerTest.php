@@ -45,7 +45,7 @@ class GisVisualizationControllerTest extends AbstractTestCase
         $dummyDbi = $this->createDbiDummy();
         $dummyDbi->addSelectDb('test_db');
         $dummyDbi->addResult(
-            'SELECT * FROM `gis_all`',
+            'SELECT * FROM `gis_all` LIMIT 0, 0',
             [['POINT', 'POINT(100 250)']],
             ['name', 'shape'],
             [
@@ -127,5 +127,7 @@ class GisVisualizationControllerTest extends AbstractTestCase
 
         self::assertSame(StatusCodeInterface::STATUS_OK, $response->getStatusCode());
         self::assertSame($expected, $responseRenderer->getHTMLResult());
+        $dummyDbi->assertAllSelectsConsumed();
+        $dummyDbi->assertAllQueriesConsumed();
     }
 }
