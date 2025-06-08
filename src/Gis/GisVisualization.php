@@ -56,7 +56,7 @@ class GisVisualization
         [135, 201, 191],
     ];
 
-    /** @var mixed[][]   Raw data for the visualization */
+    /** @var array<int, array<int|string|null>> Raw data for the visualization */
     private array $data;
 
     /** The width of the GIS visualization.*/
@@ -117,8 +117,7 @@ class GisVisualization
     /**
      * Get visualization
      *
-     * @param mixed[][] $data Raw data, if set, parameters other
-     *                        than $options will be ignored
+     * @param array<int, array<int|string|null>> $data Raw data, if set, parameters other than $options will be ignored
      */
     public static function getByData(array $data, GisVisualizationSettings $options): GisVisualization
     {
@@ -131,7 +130,7 @@ class GisVisualization
     public function hasSrid(): bool
     {
         foreach ($this->data as $row) {
-            if ($row['srid'] != 0) {
+            if ((int) $row['srid'] !== 0) {
                 return true;
             }
         }
@@ -142,11 +141,10 @@ class GisVisualization
     /**
      * Stores user specified options.
      *
-     * @param mixed[][]|string $sqlOrData SQL to fetch raw data for visualization
-     *                                    or an array with data.
-     *                                    If it is an array row and pos are ignored
-     * @param int              $rows      Number of rows
-     * @param int              $pos       Start position
+     * @param array<int, array<int|string|null>>|string $sqlOrData SQL to fetch raw data for visualization or an array
+     *                                                             with data. If it is an array row and pos are ignored
+     * @param int                                       $rows      Number of rows
+     * @param int                                       $pos       Start position
      */
     private function __construct(
         array|string $sqlOrData,
@@ -167,7 +165,7 @@ class GisVisualization
             : $sqlOrData;
     }
 
-    /** @return mixed[][] raw data */
+    /** @return array<int, array<string|null>> */
     private function modifyQueryAndFetch(string $sqlQuery): array
     {
         $modifiedSql = $this->modifySqlQuery($sqlQuery);
@@ -235,7 +233,7 @@ class GisVisualization
     /**
      * Returns raw data for GIS visualization.
      *
-     * @return mixed[][] the raw data.
+     * @return array<int, array<string|null>>
      */
     private function fetchRawData(string $modifiedSql): array
     {

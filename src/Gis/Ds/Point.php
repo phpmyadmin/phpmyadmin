@@ -21,7 +21,7 @@ final readonly class Point
         $noOfPoints = $polygon->count();
 
         // If first point is repeated at the end remove it
-        if ($polygon->top() == $polygon->bottom()) {
+        if ($polygon->top()->isEqual($polygon->bottom())) {
             --$noOfPoints;
         }
 
@@ -46,11 +46,11 @@ final readonly class Point
                 continue;
             }
 
-            if ($p1->y != $p2->y) {
+            if ($p1->y !== $p2->y) {
                 $xinters = ($this->y - $p1->y)
                     * ($p2->x - $p1->x)
                     / ($p2->y - $p1->y) + $p1->x;
-                if ($p1->x == $p2->x || $this->x <= $xinters) {
+                if ($p1->x === $p2->x || $this->x <= $xinters) {
                     $counter++;
                 }
             }
@@ -59,5 +59,10 @@ final readonly class Point
         }
 
         return $counter % 2 !== 0;
+    }
+
+    public function isEqual(self $point): bool
+    {
+        return $this->x === $point->x && $this->y === $point->y;
     }
 }

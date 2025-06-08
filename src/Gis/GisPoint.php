@@ -83,7 +83,7 @@ class GisPoint extends GisGeometry
         $pointsArr = $this->extractPoints1dLinear($point, $scaleData);
 
         // draw a small circle to mark the point
-        if ($pointsArr[0] == '' || $pointsArr[1] == '') {
+        if (! isset($pointsArr[0], $pointsArr[1])) {
             return;
         }
 
@@ -131,7 +131,7 @@ class GisPoint extends GisGeometry
         $point = mb_substr($spatial, 6, -1);
         $pointsArr = $this->extractPoints1dLinear($point, $scaleData);
 
-        if ($pointsArr[0] == '' || $pointsArr[1] == '') {
+        if (! isset($pointsArr[0], $pointsArr[1])) {
             return;
         }
 

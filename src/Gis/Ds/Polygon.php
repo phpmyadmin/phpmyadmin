@@ -31,7 +31,7 @@ final class Polygon extends SplDoublyLinkedList
         $noOfPoints = $this->count();
 
         // If the last point is same as the first point ignore it
-        if ($this->top() == $this->bottom()) {
+        if ($this->top()->isEqual($this->bottom())) {
             --$noOfPoints;
         }
 
@@ -108,7 +108,7 @@ final class Polygon extends SplDoublyLinkedList
             //If both are outside the polygon reduce the epsilon and
             //recalculate the points(reduce exponentially for faster convergence)
             $epsilon **= 2;
-            if ($epsilon == 0) {
+            if ($epsilon === 0.0) {
                 return false;
             }
         }
