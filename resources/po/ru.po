@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-06-08 00:30+0000\n"
-"PO-Revision-Date: 2025-06-06 13:00+0000\n"
+"PO-Revision-Date: 2025-06-09 08:03+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ru/>\n"
@@ -5933,8 +5933,6 @@ msgid "Cancel request"
 msgstr "Отменить запрос"
 
 #: resources/templates/server/status/monitor/index.twig:294
-#, fuzzy
-#| msgid "Analysing & loading logs. This may take a while."
 msgid "Analysing and loading logs. This may take a while."
 msgstr "Анализ и загрузка журналов. Ждите, может занять какое-то время."
 
@@ -5957,8 +5955,6 @@ msgstr ""
 "Данные журналов загружены. Запросы, выполненные в данный промежуток времени:"
 
 #: resources/templates/server/status/monitor/index.twig:336
-#, fuzzy
-#| msgid "Jump to Log table"
 msgid "Jump to the log table"
 msgstr "Перейти к таблице журнала"
 
@@ -5968,10 +5964,8 @@ msgstr "Обновление монитора завершилось ошибк�
 
 #: resources/templates/server/status/monitor/index.twig:350
 #: resources/templates/server/status/monitor/index.twig:369
-#, fuzzy
-#| msgid "Warning"
 msgid "Warning:"
-msgstr "Предупреждение"
+msgstr "Предупреждение:"
 
 #: resources/templates/server/status/monitor/index.twig:351
 msgid ""
@@ -5992,12 +5986,6 @@ msgid "Local monitor configuration incompatible!"
 msgstr "Настройки локального монитора несовместимы!"
 
 #: resources/templates/server/status/monitor/index.twig:370
-#, fuzzy
-#| msgid ""
-#| "The chart arrangement configuration in your browsers local storage is not "
-#| "compatible anymore to the newer version of the monitor dialog. It is very "
-#| "likely that your current configuration will not work anymore. Please "
-#| "reset your configuration to default in the <i>Settings</i> menu."
 msgid ""
 "The chart arrangement configuration in your browsers local storage is not "
 "compatible anymore to the newer version of the monitor dialog. It is very "
@@ -6007,7 +5995,7 @@ msgstr ""
 "Настройки вывода графиков в локальном хранилище вашего браузера больше "
 "несовместимы с новой версией диалога монитора. Высока вероятность потери "
 "работоспособности текущих настроек. Пожалуйста, сбросьте ваши настройки в "
-"меню <i>Настройки</i>."
+"меню [em]Настройки[/em]."
 
 #: resources/templates/server/status/processes/index.twig:14
 msgid "Show only active"
@@ -7409,16 +7397,12 @@ msgid "There are no triggers to display."
 msgstr "Отсутствуют триггеры для отображения."
 
 #: resources/templates/triggers/list.twig:81
-#, fuzzy
-#| msgid "Trigger name"
 msgid "Trigger editor"
-msgstr "Название триггера"
+msgstr "Редактор триггера"
 
 #: resources/templates/triggers/list.twig:101
-#, fuzzy
-#| msgid "Export of trigger %s"
 msgid "Export trigger"
-msgstr "Экспорт триггера %s"
+msgstr "Экспорт триггера"
 
 #: resources/templates/view_create.twig:75
 msgid "VIEW name"
@@ -13751,9 +13735,8 @@ msgid "Double-click to copy column name."
 msgstr "Кликните дважды для копирования имени столбца."
 
 #: src/Controllers/JavaScriptMessagesController.php:551
-#, fuzzy
 msgid "Click the drop-down arrow to toggle column's visibility."
-msgstr "Кликните выпадающую стрелку<br>для переключения видимости столбца."
+msgstr "Щёлкните выпадающую стрелку для переключения видимости столбца."
 
 #: src/Controllers/JavaScriptMessagesController.php:554
 msgid ""
@@ -15461,13 +15444,12 @@ msgid "The columns have been moved successfully."
 msgstr "Поля были успешно перемещены."
 
 #: src/Controllers/Table/Structure/MoveColumnsController.php:112
-#, fuzzy
 msgid "The selected columns do not match the columns in the table."
-msgstr "Выбранный пользователь не найден в таблице привилегий."
+msgstr "Выбранные столбцы не соответствуют столбцам в таблице."
 
 #: src/Controllers/Table/Structure/MoveColumnsController.php:139
 msgid "The selected columns are already in the correct order."
-msgstr ""
+msgstr "Выбранные столбцы уже в правильном порядке."
 
 #: src/Controllers/Table/Structure/PartitioningController.php:257
 #: src/Controllers/Table/Structure/SaveController.php:265
@@ -15738,10 +15720,8 @@ msgid "You must provide a valid return type for the routine."
 msgstr "Необходимо задать корректный возвращаемый тип для процедуры."
 
 #: src/Database/Routines.php:813
-#, fuzzy
-#| msgid "Invalid routine type: \"%s\""
 msgid "Invalid routine type!"
-msgstr "Ошибочный тип процедуры: \"%s\""
+msgstr "Недопустимый тип процедуры!"
 
 #: src/Database/Routines.php:819
 msgid "You must provide a routine name!"
@@ -17769,6 +17749,8 @@ msgid ""
 "Displays a link to download the binary data of the column. You can use the "
 "option to specify the filename."
 msgstr ""
+"Отображает ссылку для загрузки двоичных данных столбца. Вы можете "
+"использовать параметр для указания имени файла."
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:38
 msgid ""
@@ -18626,14 +18608,12 @@ msgid "You must provide a trigger definition."
 msgstr "Вы должны задать определение триггера."
 
 #: src/Types.php:97
-#, fuzzy
 msgid "empty"
-msgstr "Очистить"
+msgstr "пусто"
 
 #: src/Types.php:98
-#, fuzzy
 msgid "not empty"
-msgstr "отсутствует"
+msgstr "не пусто"
 
 #: src/Types.php:161
 msgid ""
@@ -18741,16 +18721,16 @@ msgstr ""
 "Совмещение даты и времени, поддерживаемый диапазон от \"%1$s\" до \"%2$s\""
 
 #: src/Types.php:208
-#, fuzzy
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-19 03:14:07 UTC on "
 "32-bit platforms (MariaDB 11.3 and earlier), and up to 2106-02-07 06:28:15 "
 "UTC on 64-bit platforms (MariaDB 11.5 and later), stored as the number of "
 "seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
-"Временная метка, диапазон от \"1970-01-01 00:00:01\" UTC до \"2038-01-09 "
-"03:14:07\" UTC, содержит количество секунд прошедших со времени "
-"(\"1970-01-01 00:00:00\" UTC)"
+"Метка времени, диапазон от 1970-01-01 00:00:01 UTC до 2038-01-19 03:14:07 "
+"UTC на 32-битных платформах (MariaDB 11.3 и ниже), и до 2106-02-07 06:28:15 "
+"UTC на 64-битных платформах (MariaDB 11.5 и выше), хранящийся в виде числа "
+"секунд от начала эпохи (1970-01-01 00:00:00 UTC)"
 
 #: src/Types.php:214
 #, php-format
