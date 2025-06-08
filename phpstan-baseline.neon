@@ -9201,7 +9201,7 @@ parameters:
 			path: libraries/classes/Controllers/Table/GisVisualizationController.php
 
 		-
-			message: "#^Parameter \\#1 \\$query of method PhpMyAdmin\\\\DatabaseInterface\\:\\:tryQuery\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$sqlQuery of method PhpMyAdmin\\\\Controllers\\\\Table\\\\GisVisualizationController\\:\\:getCandidateColumns\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/GisVisualizationController.php
 
