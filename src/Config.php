@@ -167,13 +167,7 @@ class Config
             return false;
         }
 
-        if (function_exists('gd_info')) {
-            if (str_contains(gd_info()['GD Version'], '2.')) {
-                return true;
-            }
-        }
-
-        return false;
+        return function_exists('gd_info') && str_contains(gd_info()['GD Version'], '2.');
     }
 
     public function isWindows(): bool

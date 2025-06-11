@@ -147,7 +147,7 @@ class ImportSql extends ImportPlugin
 
         // Extracting remaining statements.
         /** @infection-ignore-all */
-        while (! Import::$hasError && ! ImportSettings::$timeoutPassed && ! empty($bq->query)) {
+        while (! Import::$hasError && ! ImportSettings::$timeoutPassed && $bq->query !== '') {
             $statement = $bq->extract(true);
             if ($statement === false || $statement === '') {
                 continue;

@@ -1429,11 +1429,6 @@
       <code><![CDATA[$sql]]></code>
     </UnusedProperty>
   </file>
-  <file src="src/Controllers/Import/SimulateDmlController.php">
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($statement->join)]]></code>
-    </RiskyTruthyFalsyComparison>
-  </file>
   <file src="src/Controllers/Import/StatusController.php">
     <MixedArgument>
       <code><![CDATA[$_SESSION['Import_message']['message'] ?? '']]></code>
@@ -1628,7 +1623,6 @@
       <code><![CDATA[empty($createOptions['checksum'])]]></code>
       <code><![CDATA[empty($createOptions['delay_key_write'])]]></code>
       <code><![CDATA[empty($createOptions['delay_key_write'])]]></code>
-      <code><![CDATA[empty(Current::$messageToShow)]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Operations/ViewController.php">
@@ -1835,8 +1829,6 @@
     </MixedArgumentTypeCoercion>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($_REQUEST['ajax_page_request'])]]></code>
-      <code><![CDATA[empty($routinename)]]></code>
-      <code><![CDATA[empty($routinename)]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Server/ReplicationController.php">
@@ -3390,10 +3382,6 @@
       <code><![CDATA[$oneKey->constraint]]></code>
       <code><![CDATA[$origData['settings_data']]]></code>
     </PossiblyNullArgument>
-    <PossiblyNullArrayOffset>
-      <code><![CDATA[$indexArray1]]></code>
-      <code><![CDATA[$indexArray2]]></code>
-    </PossiblyNullArrayOffset>
     <PossiblyNullOperand>
       <code><![CDATA[$oneKey->refTableName]]></code>
     </PossiblyNullOperand>
@@ -6433,7 +6421,6 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($column->collation)]]></code>
       <code><![CDATA[empty($config->selectedServer['port'])]]></code>
-      <code><![CDATA[empty($delimiter)]]></code>
       <code><![CDATA[empty($statement->fields)]]></code>
       <code><![CDATA[empty($statement->name->database)]]></code>
       <code><![CDATA[empty($statement->name->database)]]></code>

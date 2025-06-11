@@ -496,24 +496,16 @@ class Common
             );
 
             // will be use to emphasis prim. keys in the table view
-            $indexArray1 = [];
-            while ($row = $result->fetchAssoc()) {
-                $indexArray1[$row['Column_name']] = 1;
-            }
+            $indexArray1 = $result->fetchAllColumn('Column_name');
 
             $result = $this->dbi->query(
                 'SHOW INDEX FROM ' . Util::backquote($db2)
                 . '.' . Util::backquote($t2) . ';',
             );
             // will be used to emphasis prim. keys in the table view
-            $indexArray2 = [];
-            while ($row = $result->fetchAssoc()) {
-                $indexArray2[$row['Column_name']] = 1;
-            }
+            $indexArray2 = $result->fetchAllColumn('Column_name');
 
-            unset($result);
-
-            if (! empty($indexArray1[$f1]) && ! empty($indexArray2[$f2])) {
+            if (in_array($f1, $indexArray1, true) && in_array($f2, $indexArray2, true)) {
                 $updQuery = 'ALTER TABLE ' . Util::backquote($db2)
                     . '.' . Util::backquote($t2)
                     . ' ADD FOREIGN KEY ('

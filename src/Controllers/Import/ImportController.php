@@ -66,7 +66,7 @@ final readonly class ImportController implements InvocableController
         ImportSettings::$charsetOfFile = $request->getParsedBodyParamAsString('charset_of_file', '');
         $format = $request->getParsedBodyParamAsString('format', '');
         ImportSettings::$importType = $request->getParsedBodyParamAsString('import_type', '');
-        Current::$messageToShow = $request->getParsedBodyParamAsStringOrNull('message_to_show');
+        Current::$messageToShow = $request->getParsedBodyParamAsString('message_to_show', '');
         ImportSettings::$skipQueries = (int) $request->getParsedBodyParamAsStringOrNull('skip_queries');
         ImportSettings::$localImportFile = $request->getParsedBodyParamAsString('local_import_file', '');
         if ($request->hasBodyParam('show_as_php')) {
@@ -380,7 +380,7 @@ final readonly class ImportController implements InvocableController
             if (@is_link(ImportSettings::$importFile)) {
                 ImportSettings::$importFile = 'none';
             }
-        } elseif (empty(ImportSettings::$importFile) || ! is_uploaded_file(ImportSettings::$importFile)) {
+        } elseif (ImportSettings::$importFile === '' || ! is_uploaded_file(ImportSettings::$importFile)) {
             ImportSettings::$importFile = 'none';
         }
 

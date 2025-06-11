@@ -429,7 +429,7 @@ final readonly class ExportController implements InvocableController
         }
 
         // Compression needed?
-        if (Export::$compression) {
+        if (Export::$compression !== '') {
             if ($separateFiles !== '') {
                 $this->export->dumpBuffer = $this->export->compress(
                     $this->export->dumpBufferObjects,

@@ -359,7 +359,7 @@ final class ReplaceController implements InvocableController
             return $this->response->response();
         }
 
-        if (! empty($returnToSqlQuery)) {
+        if ($returnToSqlQuery !== '') {
             Current::$dispQuery = Current::$sqlQuery;
             Current::$displayMessage = Current::$message;
             Current::$message = null;

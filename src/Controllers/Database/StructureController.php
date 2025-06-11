@@ -619,7 +619,7 @@ final class StructureController implements InvocableController
     {
         foreach ($db as $dbTable) {
             if (
-                Current::$database == $this->replication->extractDbOrTable($dbTable)
+                Current::$database === $this->replication->extractDbOrTable($dbTable)
                 && preg_match(
                     '@^' .
                     preg_quote(mb_substr($this->replication->extractDbOrTable($dbTable, 'table'), 0, -1), '@') . '@',

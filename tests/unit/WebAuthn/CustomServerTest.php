@@ -9,9 +9,9 @@ use PhpMyAdmin\WebAuthn\CBORDecoder;
 use PhpMyAdmin\WebAuthn\CustomServer;
 use PhpMyAdmin\WebAuthn\DataStream;
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DoesNotPerformAssertions;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\UriInterface;
-use Throwable;
 
 use function hex2bin;
 
@@ -59,6 +59,7 @@ final class CustomServerTest extends TestCase
     }
 
     /** @see https://github.com/web-auth/webauthn-framework/blob/v3.3.12/tests/library/Functional/AssertionTest.php#L46 */
+    #[DoesNotPerformAssertions]
     public function testParseAndValidateAssertionResponse(): void
     {
         $server = new CustomServer();
@@ -79,20 +80,7 @@ final class CustomServerTest extends TestCase
             ],
         ];
 
-        $throwable = null;
-        try {
-            $server->parseAndValidateAssertionResponse(
-                $authenticatorResponse,
-                $allowedCredentials,
-                $challenge,
-                $request,
-            );
-        } catch (Throwable $throwable) {
-            throw $throwable;
-        }
-
-        /** @psalm-suppress RedundantCondition */
-        self::assertNull($throwable);
+        $server->parseAndValidateAssertionResponse($authenticatorResponse, $allowedCredentials, $challenge, $request);
     }
 
     /** @see https://github.com/web-auth/webauthn-framework/blob/v3.3.12/tests/library/Functional/NoneAttestationStatementTest.php#L45 */

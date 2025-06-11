@@ -55,7 +55,7 @@ final class WebauthnLibServer implements Server
     private ManagerFactory $coseAlgorithmManagerFactory;
 
     /** @var string[] */
-    private array $selectedAlgorithms;
+    private array $selectedAlgorithms = ['RS256', 'RS512', 'PS256', 'PS512', 'ES256', 'ES512', 'Ed25519'];
 
     public function __construct(private TwoFactor $twofactor)
     {
@@ -72,8 +72,6 @@ final class WebauthnLibServer implements Server
         $this->coseAlgorithmManagerFactory->add('ES384', new ECDSA\ES384());
         $this->coseAlgorithmManagerFactory->add('ES512', new ECDSA\ES512());
         $this->coseAlgorithmManagerFactory->add('Ed25519', new EdDSA\Ed25519());
-
-        $this->selectedAlgorithms = ['RS256', 'RS512', 'PS256', 'PS512', 'ES256', 'ES512', 'Ed25519'];
     }
 
     /** @inheritDoc */

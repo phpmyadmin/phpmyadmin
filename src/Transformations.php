@@ -383,8 +383,8 @@ class Transformations
 
         // Do we have any parameter to set?
         $hasValue =
-            $mimetype != '' ||
-            $transformation != '' ||
+            $mimetype !== '' ||
+            $transformation !== '' ||
             $transformationOpts !== '' ||
             $inputTransform !== '' ||
             $inputTransformOpts !== '';

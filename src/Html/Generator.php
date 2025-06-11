@@ -111,11 +111,7 @@ class Generator
      */
     public static function showHint(string $message): string
     {
-        if (Config::getInstance()->settings['ShowHint']) {
-            $classClause = ' class="pma_hint"';
-        } else {
-            $classClause = '';
-        }
+        $classClause = Config::getInstance()->settings['ShowHint'] ? ' class="pma_hint"' : '';
 
         return '<span' . $classClause . '>'
             . self::getImage('b_help')

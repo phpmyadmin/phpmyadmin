@@ -43,7 +43,7 @@ final class CopyFormController implements InvocableController
 
         $databasesList = DatabaseInterface::getInstance()->getDatabaseList();
         foreach ($databasesList as $key => $databaseName) {
-            if ($databaseName == Current::$database) {
+            if ($databaseName === Current::$database) {
                 $databasesList->offsetUnset($key);
                 break;
             }

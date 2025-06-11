@@ -257,16 +257,14 @@ final readonly class TableController implements InvocableController
                 $this->operations->changeAllColumnsCollation(Current::$database, Current::$table, $tableCollationParam);
             }
 
-            if ($tableCollationParam === '') {
-                if ($request->isAjax()) {
-                    $this->response->setRequestStatus(false);
-                    $this->response->addJSON(
-                        'message',
-                        Message::error(__('No collation provided.')),
-                    );
+            if ($tableCollationParam === '' && $request->isAjax()) {
+                $this->response->setRequestStatus(false);
+                $this->response->addJSON(
+                    'message',
+                    Message::error(__('No collation provided.')),
+                );
 
-                    return $this->response->response();
-                }
+                return $this->response->response();
             }
         }
 
@@ -326,7 +324,7 @@ final readonly class TableController implements InvocableController
             $createOptions = $pmaTable->getCreateOptions();
         }
 
-        if (isset($result) && empty(Current::$messageToShow)) {
+        if (isset($result) && Current::$messageToShow === '') {
             if ($newMessage === '') {
                 if (Current::$sqlQuery === '') {
                     $newMessage = Message::success(__('No change'));

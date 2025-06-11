@@ -173,7 +173,7 @@ class ImportShp extends ImportPlugin
             unlink($dbfFilePath);
         }
 
-        if ($shp->lastError != '') {
+        if ($shp->lastError !== '') {
             Import::$hasError = true;
             Current::$message = Message::error(
                 __('There was an error importing the ESRI shape file: "%s".'),

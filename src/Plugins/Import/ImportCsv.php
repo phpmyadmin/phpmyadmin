@@ -358,8 +358,8 @@ class ImportCsv extends AbstractImportCsv
 
                             if (
                                 $this->enclosed === $this->escaped
-                                && ($ch == $this->terminated
-                                || $ch == $this->newLine
+                                && ($ch === $this->terminated
+                                || $ch === $this->newLine
                                 || ($this->newLine === 'auto'
                                 && ($ch === "\r" || $ch === "\n")))
                             ) {

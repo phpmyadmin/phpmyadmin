@@ -2068,12 +2068,6 @@ parameters:
 			path: src/Controllers/Database/Structure/CopyFormController.php
 
 		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 1
-			path: src/Controllers/Database/Structure/CopyFormController.php
-
-		-
 			message: '#^Cannot access offset ''table_limit_offset'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
@@ -2190,7 +2184,7 @@ parameters:
 		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
-			count: 3
+			count: 2
 			path: src/Controllers/Database/StructureController.php
 
 		-
@@ -2344,12 +2338,6 @@ parameters:
 			path: src/Controllers/Export/ExportController.php
 
 		-
-			message: '#^Only booleans are allowed in an if condition, string given\.$#'
-			identifier: if.condNotBoolean
-			count: 1
-			path: src/Controllers/Export/ExportController.php
-
-		-
 			message: '#^PHPDoc tag @var for variable \$aliasesParam has no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
 			count: 1
@@ -2460,7 +2448,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 4
+			count: 3
 			path: src/Controllers/Import/ImportController.php
 
 		-
@@ -2528,12 +2516,6 @@ parameters:
 			identifier: identical.alwaysTrue
 			count: 1
 			path: src/Controllers/Import/ImportController.php
-
-		-
-			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
-			identifier: empty.notAllowed
-			count: 1
-			path: src/Controllers/Import/SimulateDmlController.php
 
 		-
 			message: '#^Cannot access offset ''go_back_url'' on mixed\.$#'
@@ -2652,7 +2634,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 5
+			count: 4
 			path: src/Controllers/Operations/TableController.php
 
 		-
@@ -2826,7 +2808,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 3
+			count: 1
 			path: src/Controllers/Server/PrivilegesController.php
 
 		-
@@ -3174,7 +3156,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 2
+			count: 1
 			path: src/Controllers/Table/ChangeController.php
 
 		-
@@ -3612,7 +3594,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 7
+			count: 6
 			path: src/Controllers/Table/ReplaceController.php
 
 		-
@@ -4966,12 +4948,6 @@ parameters:
 			message: '#^Cannot access offset string on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
-			path: src/Database/Designer/Common.php
-
-		-
-			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
-			identifier: empty.notAllowed
-			count: 2
 			path: src/Database/Designer/Common.php
 
 		-
@@ -6486,7 +6462,7 @@ parameters:
 		-
 			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
 			identifier: notEqual.notAllowed
-			count: 2
+			count: 1
 			path: src/Export/Export.php
 
 		-
@@ -10467,7 +10443,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 25
+			count: 24
 			path: src/Plugins/Export/ExportSql.php
 
 		-
@@ -11175,7 +11151,7 @@ parameters:
 		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
-			count: 21
+			count: 19
 			path: src/Plugins/Import/ImportCsv.php
 
 		-
@@ -11338,12 +11314,6 @@ parameters:
 			path: src/Plugins/Import/ImportShp.php
 
 		-
-			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
-			identifier: notEqual.notAllowed
-			count: 1
-			path: src/Plugins/Import/ImportShp.php
-
-		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
 			count: 1
@@ -11368,12 +11338,6 @@ parameters:
 			'''
 			identifier: staticMethod.deprecated
 			count: 2
-			path: src/Plugins/Import/ImportSql.php
-
-		-
-			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
-			identifier: empty.notAllowed
-			count: 1
 			path: src/Plugins/Import/ImportSql.php
 
 		-
@@ -11449,12 +11413,6 @@ parameters:
 			path: src/Plugins/Import/Upload/UploadNoplugin.php
 
 		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 1
-			path: src/Plugins/Import/Upload/UploadNoplugin.php
-
-		-
 			message: '#^Method PhpMyAdmin\\Plugins\\Import\\Upload\\UploadNoplugin\:\:getUploadStatus\(\) return type has no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
 			count: 1
@@ -11511,7 +11469,7 @@ parameters:
 		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
-			count: 2
+			count: 1
 			path: src/Plugins/Import/Upload/UploadProgress.php
 
 		-
@@ -11595,12 +11553,6 @@ parameters:
 		-
 			message: '#^Cannot access offset string on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Plugins/Import/Upload/UploadSession.php
-
-		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
 			count: 1
 			path: src/Plugins/Import/Upload/UploadSession.php
 
@@ -14139,7 +14091,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 2
+			count: 1
 			path: src/SqlQueryForm.php
 
 		-
@@ -14359,12 +14311,6 @@ parameters:
 			path: src/Table/ColumnsDefinition.php
 
 		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 1
-			path: src/Table/Indexes.php
-
-		-
 			message: '#^Only booleans are allowed in a negated boolean, PhpMyAdmin\\Dbal\\ResultInterface\|false given\.$#'
 			identifier: booleanNot.exprNotBoolean
 			count: 1
@@ -14421,13 +14367,13 @@ parameters:
 		-
 			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
 			identifier: notEqual.notAllowed
-			count: 3
+			count: 2
 			path: src/Table/Search.php
 
 		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
-			count: 2
+			count: 1
 			path: src/Table/Search.php
 
 		-
@@ -14583,7 +14529,7 @@ parameters:
 		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
-			count: 3
+			count: 2
 			path: src/Table/Table.php
 
 		-
@@ -14976,7 +14922,7 @@ parameters:
 		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
-			count: 15
+			count: 13
 			path: src/Tracking/Tracking.php
 
 		-
@@ -15033,7 +14979,7 @@ parameters:
 		-
 			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
 			identifier: notEqual.notAllowed
-			count: 3
+			count: 1
 			path: src/Transformations.php
 
 		-
@@ -15450,7 +15396,7 @@ parameters:
 		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
-			count: 7
+			count: 6
 			path: src/Util.php
 
 		-
@@ -16011,12 +15957,6 @@ parameters:
 		-
 			message: '#^Only booleans are allowed in &&, string given on the left side\.$#'
 			identifier: booleanAnd.leftNotBoolean
-			count: 2
-			path: tests/end-to-end/TestBase.php
-
-		-
-			message: '#^Only booleans are allowed in a negated boolean, int given\.$#'
-			identifier: booleanNot.exprNotBoolean
 			count: 2
 			path: tests/end-to-end/TestBase.php
 
@@ -19760,12 +19700,6 @@ parameters:
 
 		-
 			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) with ''pubKeyCredParams'' and array\{challenge\: non\-falsy\-string, rp\: array\{name\: string, id\: string\}, user\: array\{id\: string, name\: string, displayName\: string\}, pubKeyCredParams\: list\<array\{alg\: int, type\: ''public\-key''\}\>, authenticatorSelection\: array\<string, string\>, timeout\: int\<1, max\>, attestation\: non\-empty\-string\} will always evaluate to true\.$#'
-			identifier: staticMethod.alreadyNarrowedType
-			count: 1
-			path: tests/unit/WebAuthn/CustomServerTest.php
-
-		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertNull\(\) with null will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: tests/unit/WebAuthn/CustomServerTest.php

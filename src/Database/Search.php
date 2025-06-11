@@ -49,7 +49,7 @@ class Search
      *
      * @var bool criteriaSearchOptionsIncludeHex
      */
-    private bool $criteriaSearchOptionsIncludeHex;
+    private bool $criteriaSearchOptionsIncludeHex = false;
 
     /**
      * Already set search type's description
@@ -82,7 +82,6 @@ class Search
             4 => __('the exact phrase as whole field'),
             5 => __('as regular expression'),
         ];
-        $this->criteriaSearchOptionsIncludeHex = false;
         // Sets criteria parameters
         $this->setSearchParams();
     }

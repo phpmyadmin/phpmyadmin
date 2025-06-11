@@ -624,7 +624,7 @@ class Tracking
         // Iterate tracked data definition statements
         // For each log entry we want to get date, username and statement
         foreach ($logSchemaEntries as $logEntry) {
-            if (trim($logEntry) == '') {
+            if (trim($logEntry) === '') {
                 continue;
             }
 
@@ -655,7 +655,7 @@ class Tracking
         // Iterate tracked data manipulation statements
         // For each log entry we want to get date, username and statement
         foreach ($logDataEntries as $logEntry) {
-            if (trim($logEntry) == '') {
+            if (trim($logEntry) === '') {
                 continue;
             }
 

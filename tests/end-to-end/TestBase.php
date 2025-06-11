@@ -1135,7 +1135,7 @@ JS;
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
         curl_exec($ch);
-        if (! curl_errno($ch)) {
+        if (curl_errno($ch) === 0) {
             return;
         }
 
@@ -1169,7 +1169,7 @@ JS;
             echo 'Test failed, get more information here: ' . $proj->automation_session->public_url . "\n";
         }
 
-        if (! curl_errno($ch)) {
+        if (curl_errno($ch) === 0) {
             return;
         }
 

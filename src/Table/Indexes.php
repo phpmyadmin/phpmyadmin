@@ -64,7 +64,7 @@ final class Indexes
         // Builds the new one
         switch ($index->getChoice()) {
             case 'PRIMARY':
-                if ($index->getName() == '') {
+                if ($index->getName() === '') {
                     $index->setName('PRIMARY');
                 } elseif ($index->getName() !== 'PRIMARY') {
                     $this->error = Message::error(

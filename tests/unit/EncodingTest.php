@@ -71,10 +71,8 @@ class EncodingTest extends AbstractTestCase
     public function testIconv(): void
     {
         // Set PHP native locale
-        if (function_exists('setlocale')) {
-            if (setlocale(0, 'POSIX') === false) {
-                self::markTestSkipped('native setlocale failed');
-            }
+        if (function_exists('setlocale') && setlocale(0, 'POSIX') === false) {
+            self::markTestSkipped('native setlocale failed');
         }
 
         _setlocale(LC_ALL, 'POSIX');

@@ -45,10 +45,8 @@ final class TokenRequestParamChecking implements MiddlewareInterface
     public function checkTokenRequestParam(ServerRequest $request): ResponseInterface|null
     {
         $token = $request->getParsedBodyParamAsString('token', '');
-        if ($token !== '') {
-            if (hash_equals($_SESSION[' PMA_token '], $token)) {
-                return null;
-            }
+        if ($token !== '' && hash_equals($_SESSION[' PMA_token '], $token)) {
+            return null;
         }
 
         // Warn in case the mismatch is result of failed setting of session cookie

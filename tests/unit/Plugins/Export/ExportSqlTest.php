@@ -1401,7 +1401,7 @@ SQL;
             . ') ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE='
             . "latin1_general_ci COMMENT='List' AUTO_INCREMENT=5";
         $flag = false;
-        $result = $this->object->replaceWithAliases(null, $sqlQuery, $aliases, $db, $flag);
+        $result = $this->object->replaceWithAliases('', $sqlQuery, $aliases, $db, $flag);
 
         self::assertSame(
             "CREATE TABLE IF NOT EXISTS `bartest` (\n" .
@@ -1414,7 +1414,7 @@ SQL;
         );
 
         $flag = false;
-        $result = $this->object->replaceWithAliases(null, $sqlQuery, [], '', $flag);
+        $result = $this->object->replaceWithAliases('', $sqlQuery, [], '', $flag);
 
         self::assertSame(
             "CREATE TABLE IF NOT EXISTS foo (\n" .

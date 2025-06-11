@@ -41,8 +41,7 @@ EOT;
         $data = [
             $mime,
             $data,
-            '<?xml version="1.0" encoding="UTF-8"?' . '>'
-            . '<office:document-meta '
+            '<?xml version="1.0" encoding="UTF-8"?><office:document-meta '
             . 'xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" '
             . 'xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" '
             . 'office:version="1.0">'
@@ -54,8 +53,7 @@ EOT;
             . '</meta:creation-date>'
             . '</office:meta>'
             . '</office:document-meta>',
-            '<?xml version="1.0" encoding="UTF-8"?' . '>'
-            . '<office:document-styles ' . self::NS
+            '<?xml version="1.0" encoding="UTF-8"?><office:document-styles ' . self::NS
             . ' office:version="1.0">'
             . '<office:font-face-decls>'
             . '<style:font-face style:name="Arial Unicode MS"'
@@ -149,8 +147,7 @@ EOT;
             . '<style:master-page style:name="Standard" style:page-layout-name="pm1"/>'
             . '</office:master-styles>'
             . '</office:document-styles>',
-            '<?xml version="1.0" encoding="UTF-8"?' . '>'
-            . '<manifest:manifest'
+            '<?xml version="1.0" encoding="UTF-8"?><manifest:manifest'
             . ' xmlns:manifest="urn:oasis:names:tc:opendocument:xmlns:manifest:1.0">'
             . '<manifest:file-entry manifest:media-type="' . $mime
             . '" manifest:full-path="/"/>'

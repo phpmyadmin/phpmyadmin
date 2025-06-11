@@ -471,11 +471,7 @@ class Routines
             return $retval;
         }
 
-        if ($retval['item_type'] === 'FUNCTION') {
-            $retval['item_type_toggle'] = 'PROCEDURE';
-        } else {
-            $retval['item_type_toggle'] = 'FUNCTION';
-        }
+        $retval['item_type_toggle'] = $retval['item_type'] === 'FUNCTION' ? 'PROCEDURE' : 'FUNCTION';
 
         $retval['item_returntype'] = '';
         $retval['item_returnlength'] = '';
@@ -1053,11 +1049,7 @@ class Routines
     {
         $output = '';
         foreach ($row as $value) {
-            if ($value === null) {
-                $value = '<i>NULL</i>';
-            } else {
-                $value = htmlspecialchars($value);
-            }
+            $value = $value === null ? '<i>NULL</i>' : htmlspecialchars($value);
 
             $output .= '<td>' . $value . '</td>';
         }
@@ -1115,12 +1107,7 @@ class Routines
             }
 
             if (in_array($routine['item_param_type'][$i], ['ENUM', 'SET'], true)) {
-                if ($routine['item_param_type'][$i] === 'ENUM') {
-                    $params[$i]['input_type'] = 'radio';
-                } else {
-                    $params[$i]['input_type'] = 'checkbox';
-                }
-
+                $params[$i]['input_type'] = $routine['item_param_type'][$i] === 'ENUM' ? 'radio' : 'checkbox';
                 foreach ($routine['item_param_length_arr'][$i] as $value) {
                     $value = htmlentities(Util::unQuote($value), ENT_QUOTES);
                     $params[$i]['htmlentities'][] = $value;
