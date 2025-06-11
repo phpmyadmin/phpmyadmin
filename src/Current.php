@@ -21,5 +21,5 @@ final class Current
     public static string|null $completeQuery = null;
     public static Message|string|null $displayMessage = null;
     public static int $numTables = 0;
-    public static string|null $messageToShow = null;
+    public static string $messageToShow = '';
 }

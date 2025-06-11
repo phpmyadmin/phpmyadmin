@@ -324,7 +324,7 @@ final readonly class TableController implements InvocableController
             $createOptions = $pmaTable->getCreateOptions();
         }
 
-        if (isset($result) && empty(Current::$messageToShow)) {
+        if (isset($result) && Current::$messageToShow === '') {
             if ($newMessage === '') {
                 if (Current::$sqlQuery === '') {
                     $newMessage = Message::success(__('No change'));
