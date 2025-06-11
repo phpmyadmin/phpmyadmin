@@ -1444,7 +1444,7 @@ class Util
             return 'application/bzip2';
         }
 
-        if ($len >= 4 && $test == "PK\003\004") {
+        if ($len >= 4 && $test === "PK\003\004") {
             return 'application/zip';
         }
 

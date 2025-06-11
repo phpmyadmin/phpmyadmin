@@ -22,7 +22,7 @@ final class TransExpressionTest extends AbstractTestCase
     #[DataProvider('transExpressionsProvider')]
     public function testTransExpressions(array $arguments, string $expected): void
     {
-        $compiler = self::getCompiler();
+        $compiler = $this->getCompiler();
         (new TransExpression('t', new Node($arguments), 1))->compile($compiler);
         self::assertSame($expected, $compiler->getSource());
     }
@@ -147,7 +147,7 @@ final class TransExpressionTest extends AbstractTestCase
     {
         self::expectException(SyntaxError::class);
         self::expectExceptionMessage($expected);
-        (new TransExpression('t', new Node($arguments), 1))->compile(self::getCompiler());
+        (new TransExpression('t', new Node($arguments), 1))->compile($this->getCompiler());
     }
 
     /** @psalm-return iterable<string, array{Node[], non-empty-string}> */
@@ -308,7 +308,7 @@ final class TransExpressionTest extends AbstractTestCase
         return new NameExpression($name, 1);
     }
 
-    private static function getCompiler(): Compiler
+    private function getCompiler(): Compiler
     {
         return (new Compiler(Template::getTwigEnvironment(null, false)))->reset();
     }

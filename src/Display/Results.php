@@ -2740,7 +2740,7 @@ class Results
             // some results of PROCEDURE ANALYSE() are reported as
             // being BINARY but they are quite readable,
             // so don't treat them as BINARY
-        } elseif ($meta->isBinary() && $this->isAnalyse !== true) {
+        } elseif ($meta->isBinary() && ! $this->isAnalyse) {
             // we show the BINARY or BLOB message and field's size
             // (or maybe use a transformation)
             $binaryOrBlob = 'BLOB';

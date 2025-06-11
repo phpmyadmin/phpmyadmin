@@ -161,29 +161,17 @@ class ReplicationGui
                 || isset($serverReplicaReplication[0]['Replica_SQL_Running'])
                 && $serverReplicaReplication[0]['Replica_SQL_Running'] !== 'No';
 
-            if (! $isReplicaIoRunning) {
-                $urlParams['sr_replica_action'] = 'start';
-            } else {
-                $urlParams['sr_replica_action'] = 'stop';
-            }
+            $urlParams['sr_replica_action'] = $isReplicaIoRunning ? 'stop' : 'start';
 
             $urlParams['sr_replica_control_param'] = 'IO_THREAD';
             $replicaControlIoLink = Url::getCommon($urlParams, '', false);
 
-            if (! $isReplicaSqlRunning) {
-                $urlParams['sr_replica_action'] = 'start';
-            } else {
-                $urlParams['sr_replica_action'] = 'stop';
-            }
+            $urlParams['sr_replica_action'] = $isReplicaSqlRunning ? 'stop' : 'start';
 
             $urlParams['sr_replica_control_param'] = 'SQL_THREAD';
             $replicaControlSqlLink = Url::getCommon($urlParams, '', false);
 
-            if (! $isReplicaIoRunning || ! $isReplicaSqlRunning) {
-                $urlParams['sr_replica_action'] = 'start';
-            } else {
-                $urlParams['sr_replica_action'] = 'stop';
-            }
+            $urlParams['sr_replica_action'] = ! $isReplicaIoRunning || ! $isReplicaSqlRunning ? 'start' : 'stop';
 
             $urlParams['sr_replica_control_param'] = null;
             $replicaControlFullLink = Url::getCommon($urlParams, '', false);

@@ -84,7 +84,7 @@ final class SimulateDmlController implements InvocableController
         foreach ($parser->statements as $statement) {
             if (
                 ! $statement instanceof UpdateStatement && ! $statement instanceof DeleteStatement
-                || ! empty($statement->join)
+                || $statement->join !== null && $statement->join !== []
                 || count(Query::getTables($statement)) > 1
             ) {
                 $this->error = __('Only single-table UPDATE and DELETE queries can be simulated.');

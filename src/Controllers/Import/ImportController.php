@@ -380,7 +380,7 @@ final readonly class ImportController implements InvocableController
             if (@is_link(ImportSettings::$importFile)) {
                 ImportSettings::$importFile = 'none';
             }
-        } elseif (empty(ImportSettings::$importFile) || ! is_uploaded_file(ImportSettings::$importFile)) {
+        } elseif (ImportSettings::$importFile === '' || ! is_uploaded_file(ImportSettings::$importFile)) {
             ImportSettings::$importFile = 'none';
         }
 

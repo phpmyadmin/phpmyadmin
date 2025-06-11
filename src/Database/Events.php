@@ -230,11 +230,7 @@ class Events
         $retval['item_name'] = $item['EVENT_NAME'];
         $retval['item_status'] = $item['STATUS'];
         $retval['item_type'] = $item['EVENT_TYPE'];
-        if ($retval['item_type'] === 'RECURRING') {
-            $retval['item_type_toggle'] = 'ONE TIME';
-        } else {
-            $retval['item_type_toggle'] = 'RECURRING';
-        }
+        $retval['item_type_toggle'] = $retval['item_type'] === 'RECURRING' ? 'ONE TIME' : 'RECURRING';
 
         $retval['item_execute_at'] = $item['EXECUTE_AT'];
         $retval['item_interval_value'] = $item['INTERVAL_VALUE'];

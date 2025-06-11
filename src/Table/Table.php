@@ -1570,7 +1570,7 @@ class Table implements Stringable
                 if ($tmpErrorCreate !== '') {
                     $seenError = true;
 
-                    if (substr($tmpErrorCreate, 1, 4) == '1005') {
+                    if (substr($tmpErrorCreate, 1, 4) === '1005') {
                         $message = Message::error(
                             __(
                                 'Error creating foreign key on %1$s (check data types)',

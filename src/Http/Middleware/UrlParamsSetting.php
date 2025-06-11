@@ -44,10 +44,8 @@ final class UrlParamsSetting implements MiddlewareInterface
         if ($goto !== null && Core::checkPageValidity($goto)) {
             UrlParams::$goto = $goto;
             UrlParams::$params['goto'] = $goto;
-        } else {
-            if ($this->config->issetCookie('goto')) {
-                $this->config->removeCookie('goto');
-            }
+        } elseif ($this->config->issetCookie('goto')) {
+            $this->config->removeCookie('goto');
         }
 
         $back = $request->getParam('back');

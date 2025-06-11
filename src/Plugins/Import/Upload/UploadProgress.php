@@ -38,7 +38,7 @@ class UploadProgress implements UploadInterface
      */
     public static function getUploadStatus(string $id): array|null
     {
-        if (trim($id) == '') {
+        if (trim($id) === '') {
             return null;
         }
 
