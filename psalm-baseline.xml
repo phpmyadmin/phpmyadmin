@@ -1829,8 +1829,6 @@
     </MixedArgumentTypeCoercion>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($_REQUEST['ajax_page_request'])]]></code>
-      <code><![CDATA[empty($routinename)]]></code>
-      <code><![CDATA[empty($routinename)]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Server/ReplicationController.php">

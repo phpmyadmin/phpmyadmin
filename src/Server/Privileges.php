@@ -3265,7 +3265,7 @@ class Privileges
         return is_string($dbname) && preg_match('/(?<!\\\\)(?:_|%)/', $dbname) === 1;
     }
 
-    public function getRoutinename(ServerRequest $request): string|null
+    public function getRoutinename(ServerRequest $request): string
     {
         $postPredRoutinename = $request->getParsedBodyParamAsString('pred_routinename', '');
         /** @var mixed $requestRoutinename */
@@ -3278,7 +3278,7 @@ class Privileges
             return $requestRoutinename;
         }
 
-        return null;
+        return '';
     }
 
     public function getTablename(ServerRequest $request): string|null
