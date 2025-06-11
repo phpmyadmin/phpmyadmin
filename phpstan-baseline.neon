@@ -10443,7 +10443,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 25
+			count: 24
 			path: src/Plugins/Export/ExportSql.php
 
 		-

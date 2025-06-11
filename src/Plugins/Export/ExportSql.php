@@ -1494,7 +1494,7 @@ class ExportSql extends ExportPlugin
 
             // Substitute aliases in `CREATE` query.
             $flag = false;
-            $createQuery = $this->replaceWithAliases(null, $createQuery, $aliases, $db, $flag);
+            $createQuery = $this->replaceWithAliases('', $createQuery, $aliases, $db, $flag);
 
             // One warning per view.
             if ($flag && $view) {
@@ -2384,16 +2384,16 @@ class ExportSql extends ExportPlugin
     /**
      * replaces db/table/column names with their aliases
      *
-     * @param string|null $delimiter The delimiter for the parser (";" or "$$")
-     * @param string      $sqlQuery  SQL query in which aliases are to be substituted
-     * @param mixed[]     $aliases   Alias information for db/table/column
-     * @param string      $db        the database name
-     * @param bool        $flag      the flag denoting whether any replacement was done
+     * @param string  $delimiter The delimiter for the parser (";" or "$$")
+     * @param string  $sqlQuery  SQL query in which aliases are to be substituted
+     * @param mixed[] $aliases   Alias information for db/table/column
+     * @param string  $db        the database name
+     * @param bool    $flag      the flag denoting whether any replacement was done
      *
      * @return string query replaced with aliases
      */
     public function replaceWithAliases(
-        string|null $delimiter,
+        string $delimiter,
         string $sqlQuery,
         array $aliases,
         string $db,
@@ -2404,7 +2404,7 @@ class ExportSql extends ExportPlugin
         /**
          * The parser of this query.
          */
-        $parser = new Parser(empty($delimiter) ? $sqlQuery : 'DELIMITER ' . $delimiter . "\n" . $sqlQuery);
+        $parser = new Parser($delimiter === '' ? $sqlQuery : 'DELIMITER ' . $delimiter . "\n" . $sqlQuery);
 
         if (empty($parser->statements[0])) {
             return $sqlQuery;

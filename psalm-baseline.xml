@@ -6421,7 +6421,6 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($column->collation)]]></code>
       <code><![CDATA[empty($config->selectedServer['port'])]]></code>
-      <code><![CDATA[empty($delimiter)]]></code>
       <code><![CDATA[empty($statement->fields)]]></code>
       <code><![CDATA[empty($statement->name->database)]]></code>
       <code><![CDATA[empty($statement->name->database)]]></code>
