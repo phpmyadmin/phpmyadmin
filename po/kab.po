@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-02-27 14:25-0300\n"
-"PO-Revision-Date: 2024-04-02 05:12+0000\n"
+"PO-Revision-Date: 2025-06-13 14:01+0000\n"
 "Last-Translator: ButterflyOfFire <boffire@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Kabyle <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "kab/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -4239,7 +4239,7 @@ msgstr "Udmawan"
 #: templates/server/privileges/privileges_table.twig:352
 #: templates/table/tracking/structure_snapshot_columns.twig:1
 msgid "Structure"
-msgstr "Taγessa"
+msgstr "Taɣessa"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:71
 #: libraries/classes/Config/Forms/User/ExportForm.php:108
@@ -4796,7 +4796,7 @@ msgstr "Ulac tafelwit ittwafernen."
 
 #: libraries/classes/Controllers/Database/TrackingController.php:155
 msgid "Database Log"
-msgstr "Aγmis n taffa n isefka"
+msgstr "Aɣmis n taffa n isefka"
 
 #: libraries/classes/Controllers/ErrorReportController.php:106
 msgid ""
@@ -4825,7 +4825,7 @@ msgstr ""
 #: libraries/classes/Controllers/Export/ExportController.php:239
 #: libraries/classes/Export.php:1345
 msgid "Bad type!"
-msgstr "Tawsit mačči d tameγnut !"
+msgstr "Tawsit mačči d tameɣtut !"
 
 #: libraries/classes/Controllers/Export/ExportController.php:333
 msgid "Bad parameters!"
@@ -6773,9 +6773,8 @@ msgid "Show panel"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:601
-#, fuzzy
 msgid "Hide panel"
-msgstr "Γumm s wudem awurman"
+msgstr "Ɣumm s wudem awurman"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:603
 #: libraries/classes/Navigation/NavigationTree.php:1355
