@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2024-04-02 05:12+0000\n"
+"PO-Revision-Date: 2025-06-13 14:01+0000\n"
 "Last-Translator: ButterflyOfFire <boffire@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Kabyle <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "kab/>\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
-msgstr "Tawsit mačči d tameγnut !"
+msgstr "Tawsit mačči d tameɣtut !"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -288,7 +288,7 @@ msgstr "Tifelwiyin"
 #: templates/columns_definitions/table_fields_definitions.twig:4
 #: templates/table/tracking/structure_snapshot_columns.twig:1
 msgid "Structure"
-msgstr "Taγessa"
+msgstr "Taɣessa"
 
 #: db_export.php:70 libraries/classes/Config/Forms/User/ExportForm.php:62
 #: libraries/classes/Config/Forms/User/ExportForm.php:101
@@ -372,7 +372,7 @@ msgstr "Ulac tafelwit ittwafernen."
 
 #: db_tracking.php:153
 msgid "Database Log"
-msgstr "Aγmis n taffa n isefka"
+msgstr "Aɣmis n taffa n isefka"
 
 #: error_report.php:73
 msgid ""
@@ -2463,9 +2463,8 @@ msgid "Show panel"
 msgstr ""
 
 #: js/messages.php:659
-#, fuzzy
 msgid "Hide panel"
-msgstr "Γumm s wudem awurman"
+msgstr "Ɣumm s wudem awurman"
 
 #: js/messages.php:660
 msgid "Show hidden navigation tree items."
