@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-06-08 00:30+0000\n"
-"PO-Revision-Date: 2024-12-14 12:01+0000\n"
+"PO-Revision-Date: 2025-06-13 14:01+0000\n"
 "Last-Translator: ButterflyOfFire <boffire@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Kabyle <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "kab/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.9-rc\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -608,7 +608,7 @@ msgstr ""
 #: src/Navigation/Nodes/NodeTable.php:277 src/Util.php:1052 src/Util.php:1360
 #: src/Util.php:1377
 msgid "Structure"
-msgstr "Taγessa"
+msgstr "Taɣessa"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:9
 #: resources/templates/database/central_columns/edit.twig:8
@@ -12034,7 +12034,7 @@ msgstr "Ulac tafelwit ittwafernen."
 
 #: src/Controllers/Database/TrackingController.php:149
 msgid "Database Log"
-msgstr "Aγmis n taffa n isefka"
+msgstr "Aɣmis n taffa n isefka"
 
 #: src/Controllers/ErrorReportController.php:92
 msgid ""
@@ -12062,7 +12062,7 @@ msgstr ""
 
 #: src/Controllers/Export/ExportController.php:117 src/Export/Export.php:1061
 msgid "Bad type!"
-msgstr "Tawsit mačči d tameγnut !"
+msgstr "Tawsit mačči d tameɣtut !"
 
 #: src/Controllers/GisDataEditorController.php:116
 #, php-format
@@ -13420,9 +13420,8 @@ msgid "Show panel"
 msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:583
-#, fuzzy
 msgid "Hide panel"
-msgstr "Γumm s wudem awurman"
+msgstr "Ɣumm s wudem awurman"
 
 #: src/Controllers/JavaScriptMessagesController.php:585
 #: src/Navigation/NavigationTree.php:1295
