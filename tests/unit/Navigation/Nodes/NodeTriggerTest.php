@@ -24,12 +24,13 @@ class NodeTriggerTest extends AbstractTestCase
                     'route' => '/triggers',
                     'params' => ['edit_item' => 1, 'db' => null, 'item_name' => null],
                 ],
-                'icon' => [
-                    'route' => '/triggers',
-                    'params' => ['export_item' => 1, 'db' => null, 'item_name' => null],
-                ],
             ],
             $parent->links,
+        );
+        self::assertSame('/triggers', $parent->icon->route);
+        self::assertSame(
+            ['export_item' => 1, 'db' => null, 'item_name' => null],
+            $parent->icon->params,
         );
     }
 }

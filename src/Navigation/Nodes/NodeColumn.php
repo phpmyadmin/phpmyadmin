@@ -27,13 +27,14 @@ class NodeColumn extends Node
 
         parent::__construct($config, $item['name']);
 
-        $this->icon = ['image' => $this->getColumnIcon($item['key']), 'title' => __('Column')];
+        $this->icon = new Icon(
+            $this->getColumnIcon($item['key']),
+            __('Column'),
+            '/table/structure/change',
+            ['change_column' => 1, 'db' => null, 'table' => null, 'field' => null],
+        );
         $this->links = [
             'text' => [
-                'route' => '/table/structure/change',
-                'params' => ['change_column' => 1, 'db' => null, 'table' => null, 'field' => null],
-            ],
-            'icon' => [
                 'route' => '/table/structure/change',
                 'params' => ['change_column' => 1, 'db' => null, 'table' => null, 'field' => null],
             ],

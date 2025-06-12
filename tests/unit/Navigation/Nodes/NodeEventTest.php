@@ -24,12 +24,10 @@ class NodeEventTest extends AbstractTestCase
                     'route' => '/database/events',
                     'params' => ['edit_item' => 1, 'db' => null, 'item_name' => null],
                 ],
-                'icon' => [
-                    'route' => '/database/events',
-                    'params' => ['export_item' => 1, 'db' => null, 'item_name' => null],
-                ],
             ],
             $parent->links,
         );
+        self::assertSame('/database/events', $parent->icon->route);
+        self::assertSame(['edit_item' => 1, 'db' => null, 'item_name' => null], $parent->icon->params);
     }
 }

@@ -21,20 +21,18 @@ class NodeViewContainer extends NodeDatabaseChildContainer
     {
         parent::__construct($config, __('Views'));
 
-        $this->icon = ['image' => 'b_views', 'title' => __('Views')];
+        $this->icon = new Icon('b_views', __('Views'), '/database/structure', ['tbl_type' => 'view', 'db' => null]);
         $this->links = [
             'text' => ['route' => '/database/structure', 'params' => ['tbl_type' => 'view', 'db' => null]],
-            'icon' => ['route' => '/database/structure', 'params' => ['tbl_type' => 'view', 'db' => null]],
         ];
         $this->classes = 'viewContainer subContainer';
         $this->realName = 'views';
 
         $newLabel = _pgettext('Create new view', 'New');
         $new = $this->getInstanceForNewNode($newLabel, 'new_view italics');
-        $new->icon = ['image' => 'b_view_add', 'title' => $newLabel];
+        $new->icon = new Icon('b_view_add', $newLabel, '/view/create', ['db' => null]);
         $new->links = [
             'text' => ['route' => '/view/create', 'params' => ['db' => null]],
-            'icon' => ['route' => '/view/create', 'params' => ['db' => null]],
         ];
         $this->addChild($new);
     }

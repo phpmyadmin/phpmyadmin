@@ -24,12 +24,13 @@ class NodeProcedureTest extends AbstractTestCase
                     'route' => '/database/routines',
                     'params' => ['item_type' => 'PROCEDURE', 'edit_item' => 1, 'db' => null, 'item_name' => null],
                 ],
-                'icon' => [
-                    'route' => '/database/routines',
-                    'params' => ['item_type' => 'PROCEDURE', 'execute_dialog' => 1, 'db' => null, 'item_name' => null],
-                ],
             ],
             $parent->links,
+        );
+        self::assertSame('/database/routines', $parent->icon->route);
+        self::assertSame(
+            ['item_type' => 'PROCEDURE', 'execute_dialog' => 1, 'db' => null, 'item_name' => null],
+            $parent->icon->params,
         );
     }
 }

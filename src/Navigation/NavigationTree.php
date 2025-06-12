@@ -16,6 +16,7 @@ use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Favorites\RecentFavoriteTables;
 use PhpMyAdmin\Favorites\TableType;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Navigation\Nodes\Icon;
 use PhpMyAdmin\Navigation\Nodes\Node;
 use PhpMyAdmin\Navigation\Nodes\NodeColumn;
 use PhpMyAdmin\Navigation\Nodes\NodeColumnContainer;
@@ -802,7 +803,12 @@ class NavigationTree
                 $groups[$key] = new Node($this->config, (string) $key, NodeType::Container, true);
                 $groups[$key]->separators = $node->separators;
                 $groups[$key]->separatorDepth = $node->separatorDepth - 1;
-                $groups[$key]->icon = ['image' => 'b_group', 'title' => __('Groups')];
+                $groups[$key]->icon = new Icon(
+                    'b_group',
+                    __('Groups'),
+                    $node->icon->route,
+                    array_merge($node->icon->params, ['tbl_group' => $key]),
+                );
                 $groups[$key]->pos2 = $node->pos2;
                 $groups[$key]->pos3 = $node->pos3;
                 if ($node instanceof NodeTableContainer || $node instanceof NodeViewContainer) {
@@ -810,10 +816,6 @@ class NavigationTree
                         'text' => [
                             'route' => $node->links['text']['route'],
                             'params' => array_merge($node->links['text']['params'], ['tbl_group' => $key]),
-                        ],
-                        'icon' => [
-                            'route' => $node->links['icon']['route'],
-                            'params' => array_merge($node->links['icon']['params'], ['tbl_group' => $key]),
                         ],
                     ];
                 }
@@ -1016,6 +1018,8 @@ class NavigationTree
         $paths = $node->getPaths();
         $nodeIsContainer = $node->type === NodeType::Container;
         $liClasses = '';
+        $iconLinks = [];
+        $textLink = [];
 
         // Whether to show the node in the tree (true for all nodes but root)
         // If false, the node's children will still be shown, but as children of the node's parent
@@ -1065,27 +1069,10 @@ class NavigationTree
                     $args[$parent->urlParamName] = $parent->realName;
                 }
 
-                $iconLinks = [];
-                $iconLinks[] = [
-                    'route' => $node->links['icon']['route'],
-                    'params' => array_merge(
-                        $node->links['icon']['params'],
-                        array_intersect_key($args, $node->links['icon']['params']),
-                    ),
-                    'image' => $node->icon['image'],
-                    'title' => $node->icon['title'],
-                ];
+                $iconLinks[] = $node->icon->withDifferentParams($args);
 
-                if ($node instanceof NodeTable && isset($node->links['second_icon'], $node->secondIcon)) {
-                    $iconLinks[] = [
-                        'route' => $node->links['second_icon']['route'],
-                        'params' => array_merge(
-                            $node->links['second_icon']['params'],
-                            array_intersect_key($args, $node->links['second_icon']['params']),
-                        ),
-                        'image' => $node->secondIcon['image'],
-                        'title' => $node->secondIcon['title'],
-                    ];
+                if ($node instanceof NodeTable && $node->secondIcon !== null) {
+                    $iconLinks[] = $node->secondIcon->withDifferentParams($args);
                 }
 
                 $textLink = [
@@ -1136,8 +1123,8 @@ class NavigationTree
             'node_is_container' => $nodeIsContainer,
             'has_second_icon' => isset($node->secondIcon),
             'recursive' => ['html' => $recursiveHtml ?? '', 'has_wrapper' => $wrap, 'is_hidden' => ! $node->visible],
-            'icon_links' => $iconLinks ?? [],
-            'text_link' => $textLink ?? [],
+            'icon_links' => $iconLinks,
+            'text_link' => $textLink,
             'pagination_params' => $paginationParams,
             'node_is_group' => $nodeIsGroup ?? false,
             'link_classes' => $linkClasses ?? '',

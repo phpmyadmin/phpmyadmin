@@ -21,10 +21,11 @@ class NodeTriggerContainerTest extends AbstractTestCase
         self::assertSame(
             [
                 'text' => ['route' => '/triggers', 'params' => ['db' => null, 'table' => null]],
-                'icon' => ['route' => '/triggers', 'params' => ['db' => null, 'table' => null]],
             ],
             $parent->links,
         );
+        self::assertSame('/triggers', $parent->icon->route);
+        self::assertSame(['db' => null, 'table' => null], $parent->icon->params);
         self::assertSame('triggers', $parent->realName);
     }
 }

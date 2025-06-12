@@ -21,22 +21,27 @@ class NodeFunctionContainer extends NodeDatabaseChildContainer
     {
         parent::__construct($config, __('Functions'));
 
-        $this->icon = ['image' => 'b_routines', 'title' => __('Functions')];
+        $this->icon = new Icon(
+            'b_routines',
+            __('Functions'),
+            '/database/routines',
+            ['type' => 'FUNCTION', 'db' => null],
+        );
         $this->links = [
             'text' => ['route' => '/database/routines', 'params' => ['type' => 'FUNCTION', 'db' => null]],
-            'icon' => ['route' => '/database/routines', 'params' => ['type' => 'FUNCTION', 'db' => null]],
         ];
         $this->realName = 'functions';
 
         $newLabel = _pgettext('Create new function', 'New');
         $new = $this->getInstanceForNewNode($newLabel, 'new_function italics');
-        $new->icon = ['image' => 'b_routine_add', 'title' => $newLabel];
+        $new->icon = new Icon(
+            'b_routine_add',
+            $newLabel,
+            '/database/routines',
+            ['item_type' => 'FUNCTION', 'add_item' => 1, 'db' => null],
+        );
         $new->links = [
             'text' => [
-                'route' => '/database/routines',
-                'params' => ['item_type' => 'FUNCTION', 'add_item' => 1, 'db' => null],
-            ],
-            'icon' => [
                 'route' => '/database/routines',
                 'params' => ['item_type' => 'FUNCTION', 'add_item' => 1, 'db' => null],
             ],

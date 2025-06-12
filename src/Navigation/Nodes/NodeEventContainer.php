@@ -21,19 +21,17 @@ class NodeEventContainer extends NodeDatabaseChildContainer
     {
         parent::__construct($config, __('Events'));
 
-        $this->icon = ['image' => 'b_events', 'title' => __('Events')];
+        $this->icon = new Icon('b_events', __('Events'), '/database/events', ['db' => null]);
         $this->links = [
             'text' => ['route' => '/database/events', 'params' => ['db' => null]],
-            'icon' => ['route' => '/database/events', 'params' => ['db' => null]],
         ];
         $this->realName = 'events';
 
         $newLabel = _pgettext('Create new event', 'New');
         $new = $this->getInstanceForNewNode($newLabel, 'new_event italics');
-        $new->icon = ['image' => 'b_event_add', 'title' => $newLabel];
+        $new->icon = new Icon('b_event_add', $newLabel, '/database/events', ['add_item' => 1, 'db' => null]);
         $new->links = [
             'text' => ['route' => '/database/events', 'params' => ['add_item' => 1, 'db' => null]],
-            'icon' => ['route' => '/database/events', 'params' => ['add_item' => 1, 'db' => null]],
         ];
         $this->addChild($new);
     }

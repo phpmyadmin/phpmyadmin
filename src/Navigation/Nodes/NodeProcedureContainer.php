@@ -21,19 +21,27 @@ class NodeProcedureContainer extends NodeDatabaseChildContainer
     {
         parent::__construct($config, __('Procedures'));
 
-        $this->icon = ['image' => 'b_routines', 'title' => __('Procedures')];
+        $this->icon = new Icon(
+            'b_routines',
+            __('Procedures'),
+            '/database/routines',
+            ['type' => 'PROCEDURE', 'db' => null],
+        );
         $this->links = [
             'text' => ['route' => '/database/routines', 'params' => ['type' => 'PROCEDURE', 'db' => null]],
-            'icon' => ['route' => '/database/routines', 'params' => ['type' => 'PROCEDURE', 'db' => null]],
         ];
         $this->realName = 'procedures';
 
         $newLabel = _pgettext('Create new procedure', 'New');
         $new = $this->getInstanceForNewNode($newLabel, 'new_procedure italics');
-        $new->icon = ['image' => 'b_routine_add', 'title' => $newLabel];
+        $new->icon = new Icon(
+            'b_routine_add',
+            $newLabel,
+            '/database/routines',
+            ['add_item' => 1, 'db' => null],
+        );
         $new->links = [
             'text' => ['route' => '/database/routines', 'params' => ['add_item' => 1, 'db' => null]],
-            'icon' => ['route' => '/database/routines', 'params' => ['add_item' => 1, 'db' => null]],
         ];
         $this->addChild($new);
     }

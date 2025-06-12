@@ -21,9 +21,10 @@ class NodeIndexTest extends AbstractTestCase
         self::assertSame(
             [
                 'text' => ['route' => '/table/indexes', 'params' => ['db' => null, 'table' => null, 'index' => null]],
-                'icon' => ['route' => '/table/indexes', 'params' => ['db' => null, 'table' => null, 'index' => null]],
             ],
             $parent->links,
         );
+        self::assertSame('/table/indexes', $parent->icon->route);
+        self::assertSame(['db' => null, 'table' => null, 'index' => null], $parent->icon->params);
     }
 }
