@@ -18,15 +18,12 @@ class NodeViewTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $parent = new NodeView(new Config(), 'default');
-        self::assertSame(
-            [
-                'text' => ['route' => '/sql', 'params' => ['pos' => 0, 'db' => null, 'table' => null]],
-                'icon' => ['route' => '/table/structure', 'params' => ['db' => null, 'table' => null]],
-            ],
-            $parent->links,
-        );
-        self::assertSame('b_props', $parent->icon['image']);
-        self::assertSame('View', $parent->icon['title']);
+        self::assertSame('/sql', $parent->link->route);
+        self::assertSame(['pos' => 0, 'db' => null, 'table' => null], $parent->link->params);
+        self::assertSame('b_props', $parent->icon->image);
+        self::assertSame('View', $parent->icon->title);
+        self::assertSame('/table/structure', $parent->icon->route);
+        self::assertSame(['db' => null, 'table' => null], $parent->icon->params);
         self::assertStringContainsString('view', $parent->classes);
     }
 }

@@ -48,16 +48,18 @@ class NodeDatabase extends Node
     {
         parent::__construct($config, $name);
 
-        $this->icon = ['image' => 's_db', 'title' => __('Database operations')];
+        $this->icon = new Icon(
+            's_db',
+            __('Database operations'),
+            '/database/operations',
+            ['db' => null],
+        );
 
-        $this->links = [
-            'text' => [
-                'route' => $this->config->settings['DefaultTabDatabase'],
-                'params' => ['db' => null],
-            ],
-            'icon' => ['route' => '/database/operations', 'params' => ['db' => null]],
-            'title' => __('Structure'),
-        ];
+        $this->link = new Link(
+            __('Structure'),
+            $this->config->settings['DefaultTabDatabase'],
+            ['db' => null],
+        );
 
         $this->classes = 'database';
         $this->urlParamName = 'db';

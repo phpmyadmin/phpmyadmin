@@ -21,17 +21,17 @@ class NodeTrigger extends Node
     {
         parent::__construct($config, $name);
 
-        $this->icon = ['image' => 'b_triggers', 'title' => __('Trigger')];
-        $this->links = [
-            'text' => [
-                'route' => '/triggers',
-                'params' => ['edit_item' => 1, 'db' => null, 'item_name' => null],
-            ],
-            'icon' => [
-                'route' => '/triggers',
-                'params' => ['export_item' => 1, 'db' => null, 'item_name' => null],
-            ],
-        ];
+        $this->icon = new Icon(
+            'b_triggers',
+            __('Trigger'),
+            '/triggers',
+            ['export_item' => 1, 'db' => null, 'item_name' => null],
+        );
+        $this->link = new Link(
+            '',
+            '/triggers',
+            ['edit_item' => 1, 'db' => null, 'item_name' => null],
+        );
         $this->classes = 'trigger';
         $this->urlParamName = 'item_name';
     }

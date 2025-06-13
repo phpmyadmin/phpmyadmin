@@ -22,26 +22,27 @@ class NodeIndexContainer extends Node
     {
         parent::__construct($config, __('Indexes'), NodeType::Container);
 
-        $this->icon = ['image' => 'b_index', 'title' => __('Indexes')];
-        $this->links = [
-            'text' => ['route' => '/table/structure', 'params' => ['db' => null, 'table' => null]],
-            'icon' => ['route' => '/table/structure', 'params' => ['db' => null, 'table' => null]],
-        ];
+        $this->icon = new Icon('b_index', __('Indexes'), '/table/structure', ['db' => null, 'table' => null]);
+        $this->link = new Link(
+            '',
+            '/table/structure',
+            ['db' => null, 'table' => null],
+        );
         $this->realName = 'indexes';
 
         $newLabel = _pgettext('Create new index', 'New');
         $new = $this->getInstanceForNewNode($newLabel, 'new_index italics');
-        $new->icon = ['image' => 'b_index_add', 'title' => $newLabel];
-        $new->links = [
-            'text' => [
-                'route' => '/table/indexes',
-                'params' => ['create_index' => 1, 'added_fields' => 2, 'db' => null, 'table' => null],
-            ],
-            'icon' => [
-                'route' => '/table/indexes',
-                'params' => ['create_index' => 1, 'added_fields' => 2, 'db' => null, 'table' => null],
-            ],
-        ];
+        $new->icon = new Icon(
+            'b_index_add',
+            $newLabel,
+            '/table/indexes',
+            ['create_index' => 1, 'added_fields' => 2, 'db' => null, 'table' => null],
+        );
+        $new->link = new Link(
+            $newLabel,
+            '/table/indexes',
+            ['create_index' => 1, 'added_fields' => 2, 'db' => null, 'table' => null],
+        );
         $this->addChild($new);
     }
 }

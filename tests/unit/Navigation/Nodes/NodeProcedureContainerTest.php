@@ -18,13 +18,10 @@ class NodeProcedureContainerTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $parent = new NodeProcedureContainer(new Config());
-        self::assertSame(
-            [
-                'text' => ['route' => '/database/routines', 'params' => ['type' => 'PROCEDURE', 'db' => null]],
-                'icon' => ['route' => '/database/routines', 'params' => ['type' => 'PROCEDURE', 'db' => null]],
-            ],
-            $parent->links,
-        );
+        self::assertSame('/database/routines', $parent->link->route);
+        self::assertSame(['type' => 'PROCEDURE', 'db' => null], $parent->link->params);
         self::assertSame('procedures', $parent->realName);
+        self::assertSame('/database/routines', $parent->icon->route);
+        self::assertSame(['type' => 'PROCEDURE', 'db' => null], $parent->icon->params);
     }
 }

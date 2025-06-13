@@ -23,15 +23,14 @@ class NodeTableTest extends AbstractTestCase
         $config->settings['NavigationTreeDefaultTabTable2'] = '/table/change';
 
         $parent = new NodeTable($config, 'default');
-        self::assertSame(
-            [
-                'text' => ['route' => '/sql', 'params' => ['pos' => 0, 'db' => null, 'table' => null]],
-                'icon' => ['route' => '/table/search', 'params' => ['db' => null, 'table' => null]],
-                'second_icon' => ['route' => '/table/change', 'params' => ['db' => null, 'table' => null]],
-                'title' => 'Browse',
-            ],
-            $parent->links,
-        );
+        self::assertSame('/sql', $parent->link->route);
+        self::assertSame(['pos' => 0, 'db' => null, 'table' => null], $parent->link->params);
+        self::assertSame('Browse', $parent->link->title);
+        self::assertSame('/table/search', $parent->icon->route);
+        self::assertSame(['db' => null, 'table' => null], $parent->icon->params);
+        self::assertNotNull($parent->secondIcon);
+        self::assertSame('/table/change', $parent->secondIcon->route);
+        self::assertSame(['db' => null, 'table' => null], $parent->secondIcon->params);
         self::assertStringContainsString('table', $parent->classes);
     }
 
@@ -46,8 +45,8 @@ class NodeTableTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->settings['NavigationTreeDefaultTabTable'] = $target;
         $node = new NodeTable($config, 'default');
-        self::assertSame($imageName, $node->icon['image']);
-        self::assertSame($imageTitle, $node->icon['title']);
+        self::assertSame($imageName, $node->icon->image);
+        self::assertSame($imageTitle, $node->icon->title);
     }
 
     /**

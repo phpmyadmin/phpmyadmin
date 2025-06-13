@@ -21,11 +21,12 @@ class NodeView extends NodeDatabaseChild
     {
         parent::__construct($config, $name);
 
-        $this->icon = ['image' => 'b_props', 'title' => __('View')];
-        $this->links = [
-            'text' => ['route' => '/sql', 'params' => ['pos' => 0, 'db' => null, 'table' => null]],
-            'icon' => ['route' => '/table/structure', 'params' => ['db' => null, 'table' => null]],
-        ];
+        $this->icon = new Icon('b_props', __('View'), '/table/structure', ['db' => null, 'table' => null]);
+        $this->link = new Link(
+            '',
+            '/sql',
+            ['pos' => 0, 'db' => null, 'table' => null],
+        );
         $this->classes = 'view';
         $this->urlParamName = 'table';
     }

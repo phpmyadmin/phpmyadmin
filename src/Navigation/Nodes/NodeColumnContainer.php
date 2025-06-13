@@ -22,26 +22,27 @@ class NodeColumnContainer extends Node
     {
         parent::__construct($config, __('Columns'), NodeType::Container);
 
-        $this->icon = ['image' => 'pause', 'title' => __('Columns')];
-        $this->links = [
-            'text' => ['route' => '/table/structure', 'params' => ['db' => null, 'table' => null]],
-            'icon' => ['route' => '/table/structure', 'params' => ['db' => null, 'table' => null]],
-        ];
+        $this->icon = new Icon('pause', __('Columns'), '/table/structure', ['db' => null, 'table' => null]);
+        $this->link = new Link(
+            '',
+            '/table/structure',
+            ['db' => null, 'table' => null],
+        );
         $this->realName = 'columns';
 
         $newLabel = _pgettext('Create new column', 'New');
         $new = $this->getInstanceForNewNode($newLabel, 'new_column italics');
-        $new->icon = ['image' => 'b_column_add', 'title' => $newLabel];
-        $new->links = [
-            'text' => [
-                'route' => '/table/add-field',
-                'params' => ['field_where' => 'last', 'after_field' => '', 'db' => null, 'table' => null],
-            ],
-            'icon' => [
-                'route' => '/table/add-field',
-                'params' => ['field_where' => 'last', 'after_field' => '', 'db' => null, 'table' => null],
-            ],
-        ];
+        $new->icon = new Icon(
+            'b_column_add',
+            $newLabel,
+            '/table/add-field',
+            ['field_where' => 'last', 'after_field' => '', 'db' => null, 'table' => null],
+        );
+        $new->link = new Link(
+            $newLabel,
+            '/table/add-field',
+            ['field_where' => 'last', 'after_field' => '', 'db' => null, 'table' => null],
+        );
         $this->addChild($new);
     }
 }

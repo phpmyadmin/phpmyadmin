@@ -18,18 +18,15 @@ class NodeTriggerTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $parent = new NodeTrigger(new Config(), 'default');
+        self::assertSame('/triggers', $parent->link->route);
         self::assertSame(
-            [
-                'text' => [
-                    'route' => '/triggers',
-                    'params' => ['edit_item' => 1, 'db' => null, 'item_name' => null],
-                ],
-                'icon' => [
-                    'route' => '/triggers',
-                    'params' => ['export_item' => 1, 'db' => null, 'item_name' => null],
-                ],
-            ],
-            $parent->links,
+            ['edit_item' => 1, 'db' => null, 'item_name' => null],
+            $parent->link->params,
+        );
+        self::assertSame('/triggers', $parent->icon->route);
+        self::assertSame(
+            ['export_item' => 1, 'db' => null, 'item_name' => null],
+            $parent->icon->params,
         );
     }
 }

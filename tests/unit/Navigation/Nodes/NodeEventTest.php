@@ -18,18 +18,9 @@ class NodeEventTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $parent = new NodeEvent(new Config(), 'default');
-        self::assertSame(
-            [
-                'text' => [
-                    'route' => '/database/events',
-                    'params' => ['edit_item' => 1, 'db' => null, 'item_name' => null],
-                ],
-                'icon' => [
-                    'route' => '/database/events',
-                    'params' => ['export_item' => 1, 'db' => null, 'item_name' => null],
-                ],
-            ],
-            $parent->links,
-        );
+        self::assertSame('/database/events', $parent->link->route);
+        self::assertSame(['edit_item' => 1, 'db' => null, 'item_name' => null], $parent->link->params);
+        self::assertSame('/database/events', $parent->icon->route);
+        self::assertSame(['edit_item' => 1, 'db' => null, 'item_name' => null], $parent->icon->params);
     }
 }

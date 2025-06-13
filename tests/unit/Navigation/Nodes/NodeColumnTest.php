@@ -26,21 +26,19 @@ final class NodeColumnTest extends AbstractTestCase
         self::assertSame(NodeType::Object, $nodeColumn->type);
         self::assertFalse($nodeColumn->isGroup);
         self::assertSame('actor_id (PRI, smallint)', $nodeColumn->displayName);
-        self::assertSame(['image' => 'b_primary', 'title' => 'Column'], $nodeColumn->icon);
+        self::assertSame('b_primary', $nodeColumn->icon->image);
+        self::assertSame('Column', $nodeColumn->icon->title);
+        self::assertSame('/table/structure/change', $nodeColumn->icon->route);
         self::assertSame(
-            [
-                'text' => [
-                    'route' => '/table/structure/change',
-                    'params' => ['change_column' => 1, 'db' => null, 'table' => null, 'field' => null],
-                ],
-                'icon' => [
-                    'route' => '/table/structure/change',
-                    'params' => ['change_column' => 1, 'db' => null, 'table' => null, 'field' => null],
-                ],
-                'title' => 'Structure',
-            ],
-            $nodeColumn->links,
+            ['change_column' => 1, 'db' => null, 'table' => null, 'field' => null],
+            $nodeColumn->icon->params,
         );
+        self::assertSame('/table/structure/change', $nodeColumn->link->route);
+        self::assertSame(
+            ['change_column' => 1, 'db' => null, 'table' => null, 'field' => null],
+            $nodeColumn->link->params,
+        );
+        self::assertSame('Structure', $nodeColumn->link->title);
         self::assertSame('field', $nodeColumn->urlParamName);
     }
 
@@ -54,7 +52,8 @@ final class NodeColumnTest extends AbstractTestCase
             'nullable' => '',
         ]);
         self::assertSame('last_update (timestamp, curren...)', $nodeColumn->displayName);
-        self::assertSame(['image' => 'pause', 'title' => 'Column'], $nodeColumn->icon);
+        self::assertSame('pause', $nodeColumn->icon->image);
+        self::assertSame('Column', $nodeColumn->icon->title);
     }
 
     public function testColumnNodeWithTruncatedDefaultValue2(): void
@@ -67,7 +66,8 @@ final class NodeColumnTest extends AbstractTestCase
             'nullable' => 'nullable',
         ]);
         self::assertSame('email (UNI, varchar, defaul..., nullable)', $nodeColumn->displayName);
-        self::assertSame(['image' => 'bd_primary', 'title' => 'Column'], $nodeColumn->icon);
+        self::assertSame('bd_primary', $nodeColumn->icon->image);
+        self::assertSame('Column', $nodeColumn->icon->title);
     }
 
     public function testColumnNodeWithoutTruncatedDefaultValue(): void
@@ -80,6 +80,7 @@ final class NodeColumnTest extends AbstractTestCase
             'nullable' => '',
         ]);
         self::assertSame('email (varchar, column)', $nodeColumn->displayName);
-        self::assertSame(['image' => 'pause', 'title' => 'Column'], $nodeColumn->icon);
+        self::assertSame('pause', $nodeColumn->icon->image);
+        self::assertSame('Column', $nodeColumn->icon->title);
     }
 }

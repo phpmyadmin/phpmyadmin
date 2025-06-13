@@ -21,14 +21,11 @@ class NodeDatabaseTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $parent = new NodeDatabase(new Config(), 'default');
-        self::assertSame(
-            [
-                'text' => ['route' => '/database/structure', 'params' => ['db' => null]],
-                'icon' => ['route' => '/database/operations', 'params' => ['db' => null]],
-                'title' => 'Structure',
-            ],
-            $parent->links,
-        );
+        self::assertSame('/database/structure', $parent->link->route);
+        self::assertSame(['db' => null], $parent->link->params);
+        self::assertSame('Structure', $parent->link->title);
+        self::assertSame('/database/operations', $parent->icon->route);
+        self::assertSame(['db' => null], $parent->icon->params);
         self::assertStringContainsString('database', $parent->classes);
     }
 

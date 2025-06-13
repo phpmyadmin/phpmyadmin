@@ -531,7 +531,6 @@ final class NodeTest extends AbstractTestCase
         self::assertSame('New', $node->name);
         self::assertSame(NodeType::Object, $node->type);
         self::assertFalse($node->isGroup);
-        self::assertSame('New', $node->title);
         self::assertTrue($node->isNew);
         self::assertSame('new_database italics', $node->classes);
     }

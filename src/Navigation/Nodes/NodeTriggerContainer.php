@@ -22,20 +22,22 @@ class NodeTriggerContainer extends Node
     {
         parent::__construct($config, __('Triggers'), NodeType::Container);
 
-        $this->icon = ['image' => 'b_triggers', 'title' => __('Triggers')];
-        $this->links = [
-            'text' => ['route' => '/triggers', 'params' => ['db' => null, 'table' => null]],
-            'icon' => ['route' => '/triggers', 'params' => ['db' => null, 'table' => null]],
-        ];
+        $this->icon = new Icon('b_triggers', __('Triggers'), '/triggers', ['db' => null, 'table' => null]);
+        $this->link = new Link(
+            '',
+            '/triggers',
+            ['db' => null, 'table' => null],
+        );
         $this->realName = 'triggers';
 
         $newLabel = _pgettext('Create new trigger', 'New');
         $new = $this->getInstanceForNewNode($newLabel, 'new_trigger italics');
-        $new->icon = ['image' => 'b_trigger_add', 'title' => $newLabel];
-        $new->links = [
-            'text' => ['route' => '/triggers', 'params' => ['add_item' => 1, 'db' => null]],
-            'icon' => ['route' => '/triggers', 'params' => ['add_item' => 1, 'db' => null]],
-        ];
+        $new->icon = new Icon('b_trigger_add', $newLabel, '/triggers', ['add_item' => 1, 'db' => null]);
+        $new->link = new Link(
+            $newLabel,
+            '/triggers',
+            ['add_item' => 1, 'db' => null],
+        );
         $this->addChild($new);
     }
 }

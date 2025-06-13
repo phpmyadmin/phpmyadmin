@@ -21,7 +21,7 @@
 
     {% if node.isGroup %}
       <div class="block second{{ has_second_icon ? ' double' }}">
-        <u>{{ get_image(node.icon['image'], node.icon['title']) }}</u>
+        <u>{{ get_image(node.icon.image, node.icon.title) }}</u>
       </div>
       &nbsp;{{ node.name }}
     {% else %}

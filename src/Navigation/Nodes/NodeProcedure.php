@@ -21,17 +21,17 @@ class NodeProcedure extends NodeDatabaseChild
     {
         parent::__construct($config, $name);
 
-        $this->icon = ['image' => 'b_routines', 'title' => __('Procedure')];
-        $this->links = [
-            'text' => [
-                'route' => '/database/routines',
-                'params' => ['item_type' => 'PROCEDURE', 'edit_item' => 1, 'db' => null, 'item_name' => null],
-            ],
-            'icon' => [
-                'route' => '/database/routines',
-                'params' => ['item_type' => 'PROCEDURE', 'execute_dialog' => 1, 'db' => null, 'item_name' => null],
-            ],
-        ];
+        $this->icon = new Icon(
+            'b_routines',
+            __('Procedure'),
+            '/database/routines',
+            ['item_type' => 'PROCEDURE', 'execute_dialog' => 1, 'db' => null, 'item_name' => null],
+        );
+        $this->link = new Link(
+            '',
+            '/database/routines',
+            ['item_type' => 'PROCEDURE', 'edit_item' => 1, 'db' => null, 'item_name' => null],
+        );
         $this->classes = 'procedure';
         $this->urlParamName = 'item_name';
     }

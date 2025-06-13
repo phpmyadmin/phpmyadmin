@@ -23,40 +23,32 @@ class NodeTable extends NodeDatabaseChild
 {
     /**
      * For the second IMG tag, used when rendering the node.
-     *
-     * @var array<string, string>|null
-     * @psalm-var array{image: string, title: string}|null
      */
-    public array|null $secondIcon = null;
+    public Icon|null $secondIcon = null;
 
     /** @param string $name An identifier for the new node */
     public function __construct(Config $config, string $name)
     {
         parent::__construct($config, $name);
 
-        $icon = $this->addIcon($this->config->settings['NavigationTreeDefaultTabTable']);
+        $icon = $this->addIcon(
+            $this->config->settings['NavigationTreeDefaultTabTable'],
+            ['db' => null, 'table' => null],
+        );
         if ($icon !== null) {
             $this->icon = $icon;
         }
 
-        $this->secondIcon = $this->addIcon($this->config->settings['NavigationTreeDefaultTabTable2']);
-        $this->title = Util::getTitleForTarget($this->config->settings['DefaultTabTable']);
+        $this->secondIcon = $this->addIcon(
+            $this->config->settings['NavigationTreeDefaultTabTable2'],
+            ['db' => null, 'table' => null],
+        );
 
-        $this->links = [
-            'text' => [
-                'route' => $this->config->settings['DefaultTabTable'],
-                'params' => ['pos' => 0, 'db' => null, 'table' => null],
-            ],
-            'icon' => [
-                'route' => $this->config->settings['NavigationTreeDefaultTabTable'],
-                'params' => ['db' => null, 'table' => null],
-            ],
-            'second_icon' => [
-                'route' => $this->config->settings['NavigationTreeDefaultTabTable2'],
-                'params' => ['db' => null, 'table' => null],
-            ],
-            'title' => $this->title,
-        ];
+        $this->link = new Link(
+            Util::getTitleForTarget($this->config->settings['DefaultTabTable']),
+            $this->config->settings['DefaultTabTable'],
+            ['pos' => 0, 'db' => null, 'table' => null],
+        );
         $this->classes = 'nav_node_table';
         $this->urlParamName = 'table';
     }
@@ -267,18 +259,17 @@ class NodeTable extends NodeDatabaseChild
     /**
      * Add an icon to navigation tree
      *
-     * @param '/table/sql'|'/table/search'|'/table/change'|'/sql'|'/table/structure'|'' $page Page name to redirect
-     *
-     * @return array{image: string, title: string}|null
+     * @param '/table/sql'|'/table/search'|'/table/change'|'/sql'|'/table/structure'|'' $page   Page name to redirect
+     * @param array<string, mixed>                                                      $params
      */
-    private function addIcon(string $page): array|null
+    private function addIcon(string $page, array $params): Icon|null
     {
         return match ($page) {
-            '/table/structure' => ['image' => 'b_props', 'title' => __('Structure')],
-            '/table/search' => ['image' => 'b_search', 'title' => __('Search')],
-            '/table/change' => ['image' => 'b_insrow', 'title' => __('Insert')],
-            '/table/sql' => ['image' => 'b_sql', 'title' => __('SQL')],
-            '/sql' => ['image' => 'b_browse', 'title' => __('Browse')],
+            '/table/structure' => new Icon('b_props', __('Structure'), $page, $params),
+            '/table/search' => new Icon('b_search', __('Search'), $page, $params),
+            '/table/change' => new Icon('b_insrow', __('Insert'), $page, $params),
+            '/table/sql' => new Icon('b_sql', __('SQL'), $page, $params),
+            '/sql' => new Icon('b_browse', __('Browse'), $page, $params),
             default => null,
         };
     }

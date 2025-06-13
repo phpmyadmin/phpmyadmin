@@ -21,11 +21,17 @@ class NodeIndex extends Node
     {
         parent::__construct($config, $name);
 
-        $this->icon = ['image' => 'b_index', 'title' => __('Index')];
-        $this->links = [
-            'text' => ['route' => '/table/indexes', 'params' => ['db' => null, 'table' => null, 'index' => null]],
-            'icon' => ['route' => '/table/indexes', 'params' => ['db' => null, 'table' => null, 'index' => null]],
-        ];
+        $this->icon = new Icon(
+            'b_index',
+            __('Index'),
+            '/table/indexes',
+            ['db' => null, 'table' => null, 'index' => null],
+        );
+        $this->link = new Link(
+            '',
+            '/table/indexes',
+            ['db' => null, 'table' => null, 'index' => null],
+        );
         $this->classes = 'index';
         $this->urlParamName = 'index';
     }

@@ -18,13 +18,10 @@ class NodeViewContainerTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $parent = new NodeViewContainer(new Config());
-        self::assertSame(
-            [
-                'text' => ['route' => '/database/structure', 'params' => ['tbl_type' => 'view', 'db' => null]],
-                'icon' => ['route' => '/database/structure', 'params' => ['tbl_type' => 'view', 'db' => null]],
-            ],
-            $parent->links,
-        );
+        self::assertSame('/database/structure', $parent->link->route);
+        self::assertSame(['tbl_type' => 'view', 'db' => null], $parent->link->params);
+        self::assertSame('/database/structure', $parent->icon->route);
+        self::assertSame(['tbl_type' => 'view', 'db' => null], $parent->icon->params);
         self::assertSame('views', $parent->realName);
         self::assertStringContainsString('viewContainer', $parent->classes);
     }

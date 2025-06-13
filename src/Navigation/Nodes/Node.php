@@ -71,27 +71,11 @@ class Node
 
     /**
      * For the IMG tag, used when rendering the node.
-     *
-     * @var array<string, string>
-     * @psalm-var array{image: string, title: string}
      */
-    public array $icon = ['image' => '', 'title' => ''];
+    public Icon $icon;
 
-    /**
-     * An array of A tags, used when rendering the node.
-     *
-     * @var array<string, mixed>
-     * @psalm-var array{
-     *   text: array{route: string, params: array<string, mixed>},
-     *   icon: array{route: string, params: array<string, mixed>},
-     *   second_icon?: array{route: string, params: array<string, mixed>},
-     *   title?: string
-     * }
-     */
-    public array $links = ['text' => ['route' => '', 'params' => []], 'icon' => ['route' => '', 'params' => []]];
+    public Link $link;
 
-    /** @var string HTML title */
-    public string $title = '';
     /** @var string Extra CSS classes for the node */
     public string $classes = '';
     /** @var bool Whether this node is a link for creating new objects */
@@ -125,6 +109,8 @@ class Node
         public bool $isGroup = false,
     ) {
         $this->realName = $name;
+        $this->icon = new Icon('', '', '');
+        $this->link = new Link('', '', []);
     }
 
     /**
@@ -138,7 +124,6 @@ class Node
         string $classes,
     ): Node {
         $node = new Node($this->config, $name);
-        $node->title = $name;
         $node->isNew = true;
         $node->classes = $classes;
 

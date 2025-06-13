@@ -21,17 +21,17 @@ class NodeFunction extends NodeDatabaseChild
     {
         parent::__construct($config, $name);
 
-        $this->icon = ['image' => 'b_routines', 'title' => __('Function')];
-        $this->links = [
-            'text' => [
-                'route' => '/database/routines',
-                'params' => ['item_type' => 'FUNCTION', 'edit_item' => 1, 'db' => null, 'item_name' => null],
-            ],
-            'icon' => [
-                'route' => '/database/routines',
-                'params' => ['item_type' => 'FUNCTION', 'execute_dialog' => 1, 'db' => null, 'item_name' => null],
-            ],
-        ];
+        $this->icon = new Icon(
+            'b_routines',
+            __('Function'),
+            '/database/routines',
+            ['item_type' => 'FUNCTION', 'execute_dialog' => 1, 'db' => null, 'item_name' => null],
+        );
+        $this->link = new Link(
+            '',
+            '/database/routines',
+            ['item_type' => 'FUNCTION', 'edit_item' => 1, 'db' => null, 'item_name' => null],
+        );
         $this->classes = 'function';
         $this->urlParamName = 'item_name';
     }

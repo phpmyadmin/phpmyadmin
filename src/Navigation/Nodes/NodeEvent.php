@@ -21,17 +21,17 @@ class NodeEvent extends NodeDatabaseChild
     {
         parent::__construct($config, $name);
 
-        $this->icon = ['image' => 'b_events', 'title' => __('Event')];
-        $this->links = [
-            'text' => [
-                'route' => '/database/events',
-                'params' => ['edit_item' => 1, 'db' => null, 'item_name' => null],
-            ],
-            'icon' => [
-                'route' => '/database/events',
-                'params' => ['export_item' => 1, 'db' => null, 'item_name' => null],
-            ],
-        ];
+        $this->icon = new Icon(
+            'b_events',
+            __('Event'),
+            '/database/events',
+            ['edit_item' => 1, 'db' => null, 'item_name' => null],
+        );
+        $this->link = new Link(
+            '',
+            '/database/events',
+            ['edit_item' => 1, 'db' => null, 'item_name' => null],
+        );
         $this->classes = 'event';
         $this->urlParamName = 'item_name';
     }
