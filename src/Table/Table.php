@@ -674,7 +674,7 @@ class Table implements Stringable
             $result = $this->dbi->tryQuery(
                 'SELECT 1 FROM ' . Util::backquote($this->dbName) . '.'
                 . Util::backquote($this->name) . ' LIMIT '
-                . $config->settings['MaxExactCountViews']
+                . $config->settings['MaxExactCountViews'],
             );
             if ($result) {
                 $rowCount = $result->numRows();
