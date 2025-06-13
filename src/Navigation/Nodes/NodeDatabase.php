@@ -55,13 +55,11 @@ class NodeDatabase extends Node
             ['db' => null],
         );
 
-        $this->links = [
-            'text' => [
-                'route' => $this->config->settings['DefaultTabDatabase'],
-                'params' => ['db' => null],
-            ],
-            'title' => __('Structure'),
-        ];
+        $this->link = new Link(
+            __('Structure'),
+            $this->config->settings['DefaultTabDatabase'],
+            ['db' => null],
+        );
 
         $this->classes = 'database';
         $this->urlParamName = 'db';

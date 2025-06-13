@@ -23,12 +23,8 @@ final class NodeColumnContainerTest extends AbstractTestCase
         self::assertSame('Columns', $nodeColumnContainer->icon->title);
         self::assertSame('/table/structure', $nodeColumnContainer->icon->route);
         self::assertSame(['db' => null, 'table' => null], $nodeColumnContainer->icon->params);
-        self::assertSame(
-            [
-                'text' => ['route' => '/table/structure', 'params' => ['db' => null, 'table' => null]],
-            ],
-            $nodeColumnContainer->links,
-        );
+        self::assertSame('/table/structure', $nodeColumnContainer->link->route);
+        self::assertSame(['db' => null, 'table' => null], $nodeColumnContainer->link->params);
         self::assertSame('columns', $nodeColumnContainer->realName);
         self::assertCount(1, $nodeColumnContainer->children);
         self::assertArrayHasKey(0, $nodeColumnContainer->children);
@@ -44,14 +40,10 @@ final class NodeColumnContainerTest extends AbstractTestCase
             ['field_where' => 'last', 'after_field' => '', 'db' => null, 'table' => null],
             $newNode->icon->params,
         );
+        self::assertSame('/table/add-field', $newNode->link->route);
         self::assertSame(
-            [
-                'text' => [
-                    'route' => '/table/add-field',
-                    'params' => ['field_where' => 'last', 'after_field' => '', 'db' => null, 'table' => null],
-                ],
-            ],
-            $newNode->links,
+            ['field_where' => 'last', 'after_field' => '', 'db' => null, 'table' => null],
+            $newNode->link->params,
         );
     }
 }

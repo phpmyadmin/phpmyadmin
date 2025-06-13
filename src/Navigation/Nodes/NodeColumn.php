@@ -33,13 +33,11 @@ class NodeColumn extends Node
             '/table/structure/change',
             ['change_column' => 1, 'db' => null, 'table' => null, 'field' => null],
         );
-        $this->links = [
-            'text' => [
-                'route' => '/table/structure/change',
-                'params' => ['change_column' => 1, 'db' => null, 'table' => null, 'field' => null],
-            ],
-            'title' => __('Structure'),
-        ];
+        $this->link = new Link(
+            __('Structure'),
+            '/table/structure/change',
+            ['change_column' => 1, 'db' => null, 'table' => null, 'field' => null],
+        );
         $this->urlParamName = 'field';
     }
 

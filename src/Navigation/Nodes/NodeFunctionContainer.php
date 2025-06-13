@@ -27,9 +27,11 @@ class NodeFunctionContainer extends NodeDatabaseChildContainer
             '/database/routines',
             ['type' => 'FUNCTION', 'db' => null],
         );
-        $this->links = [
-            'text' => ['route' => '/database/routines', 'params' => ['type' => 'FUNCTION', 'db' => null]],
-        ];
+        $this->link = new Link(
+            $this->title,
+            '/database/routines',
+            ['type' => 'FUNCTION', 'db' => null],
+        );
         $this->realName = 'functions';
 
         $newLabel = _pgettext('Create new function', 'New');
@@ -40,12 +42,11 @@ class NodeFunctionContainer extends NodeDatabaseChildContainer
             '/database/routines',
             ['item_type' => 'FUNCTION', 'add_item' => 1, 'db' => null],
         );
-        $new->links = [
-            'text' => [
-                'route' => '/database/routines',
-                'params' => ['item_type' => 'FUNCTION', 'add_item' => 1, 'db' => null],
-            ],
-        ];
+        $new->link = new Link(
+            $new->title,
+            '/database/routines',
+            ['item_type' => 'FUNCTION', 'add_item' => 1, 'db' => null],
+        );
         $this->addChild($new);
     }
 }

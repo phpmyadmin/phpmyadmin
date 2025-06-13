@@ -45,13 +45,11 @@ class NodeTable extends NodeDatabaseChild
         );
         $this->title = Util::getTitleForTarget($this->config->settings['DefaultTabTable']);
 
-        $this->links = [
-            'text' => [
-                'route' => $this->config->settings['DefaultTabTable'],
-                'params' => ['pos' => 0, 'db' => null, 'table' => null],
-            ],
-            'title' => $this->title,
-        ];
+        $this->link = new Link(
+            $this->title,
+            $this->config->settings['DefaultTabTable'],
+            ['pos' => 0, 'db' => null, 'table' => null],
+        );
         $this->classes = 'nav_node_table';
         $this->urlParamName = 'table';
     }

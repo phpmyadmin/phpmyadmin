@@ -27,12 +27,11 @@ class NodeProcedure extends NodeDatabaseChild
             '/database/routines',
             ['item_type' => 'PROCEDURE', 'execute_dialog' => 1, 'db' => null, 'item_name' => null],
         );
-        $this->links = [
-            'text' => [
-                'route' => '/database/routines',
-                'params' => ['item_type' => 'PROCEDURE', 'edit_item' => 1, 'db' => null, 'item_name' => null],
-            ],
-        ];
+        $this->link = new Link(
+            $this->title,
+            '/database/routines',
+            ['item_type' => 'PROCEDURE', 'edit_item' => 1, 'db' => null, 'item_name' => null],
+        );
         $this->classes = 'procedure';
         $this->urlParamName = 'item_name';
     }

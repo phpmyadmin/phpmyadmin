@@ -46,9 +46,7 @@ class NodeDatabaseContainer extends Node
         $newLabel = _pgettext('Create new database', 'New');
         $new = $this->getInstanceForNewNode($newLabel, 'new_database italics');
         $new->icon = new Icon('b_newdb', $newLabel, '/server/databases');
-        $new->links = [
-            'text' => ['route' => '/server/databases', 'params' => []],
-        ];
+        $new->link = new Link($new->title, '/server/databases');
         $this->addChild($new);
     }
 }

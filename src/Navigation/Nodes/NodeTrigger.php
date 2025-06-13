@@ -27,12 +27,11 @@ class NodeTrigger extends Node
             '/triggers',
             ['export_item' => 1, 'db' => null, 'item_name' => null],
         );
-        $this->links = [
-            'text' => [
-                'route' => '/triggers',
-                'params' => ['edit_item' => 1, 'db' => null, 'item_name' => null],
-            ],
-        ];
+        $this->link = new Link(
+            $this->title,
+            '/triggers',
+            ['edit_item' => 1, 'db' => null, 'item_name' => null],
+        );
         $this->classes = 'trigger';
         $this->urlParamName = 'item_name';
     }

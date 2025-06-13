@@ -27,9 +27,11 @@ class NodeProcedureContainer extends NodeDatabaseChildContainer
             '/database/routines',
             ['type' => 'PROCEDURE', 'db' => null],
         );
-        $this->links = [
-            'text' => ['route' => '/database/routines', 'params' => ['type' => 'PROCEDURE', 'db' => null]],
-        ];
+        $this->link = new Link(
+            $this->title,
+            '/database/routines',
+            ['type' => 'PROCEDURE', 'db' => null],
+        );
         $this->realName = 'procedures';
 
         $newLabel = _pgettext('Create new procedure', 'New');
@@ -40,9 +42,11 @@ class NodeProcedureContainer extends NodeDatabaseChildContainer
             '/database/routines',
             ['add_item' => 1, 'db' => null],
         );
-        $new->links = [
-            'text' => ['route' => '/database/routines', 'params' => ['add_item' => 1, 'db' => null]],
-        ];
+        $new->link = new Link(
+            $new->title,
+            '/database/routines',
+            ['add_item' => 1, 'db' => null],
+        );
         $this->addChild($new);
     }
 }

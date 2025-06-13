@@ -74,16 +74,7 @@ class Node
      */
     public Icon $icon;
 
-    /**
-     * An array of A tags, used when rendering the node.
-     *
-     * @var array<string, mixed>
-     * @psalm-var array{
-     *   text: array{route: string, params: array<string, mixed>},
-     *   title?: string
-     * }
-     */
-    public array $links = ['text' => ['route' => '', 'params' => []]];
+    public Link $link;
 
     /** @var string HTML title */
     public string $title = '';
@@ -121,6 +112,7 @@ class Node
     ) {
         $this->realName = $name;
         $this->icon = new Icon('', '', '');
+        $this->link = new Link('', '', []);
     }
 
     /**

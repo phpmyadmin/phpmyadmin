@@ -17,6 +17,7 @@ use PhpMyAdmin\Favorites\RecentFavoriteTables;
 use PhpMyAdmin\Favorites\TableType;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Navigation\Nodes\Icon;
+use PhpMyAdmin\Navigation\Nodes\Link;
 use PhpMyAdmin\Navigation\Nodes\Node;
 use PhpMyAdmin\Navigation\Nodes\NodeColumn;
 use PhpMyAdmin\Navigation\Nodes\NodeColumnContainer;
@@ -44,7 +45,6 @@ use PhpMyAdmin\UserPrivilegesFactory;
 
 use function __;
 use function _ngettext;
-use function array_intersect_key;
 use function array_key_exists;
 use function array_key_last;
 use function array_keys;
@@ -773,7 +773,7 @@ class NavigationTree
 
                     $newChild->realName = $child->realName;
                     $newChild->icon = $child->icon;
-                    $newChild->links = $child->links;
+                    $newChild->link = $child->link;
                     $newChild->pos2 = $child->pos2;
                     $newChild->pos3 = $child->pos3;
                     foreach ($child->children as $elm) {
@@ -812,12 +812,11 @@ class NavigationTree
                 $groups[$key]->pos2 = $node->pos2;
                 $groups[$key]->pos3 = $node->pos3;
                 if ($node instanceof NodeTableContainer || $node instanceof NodeViewContainer) {
-                    $groups[$key]->links = [
-                        'text' => [
-                            'route' => $node->links['text']['route'],
-                            'params' => array_merge($node->links['text']['params'], ['tbl_group' => $key]),
-                        ],
-                    ];
+                    $groups[$key]->link = new Link(
+                        $groups[$key]->title,
+                        $node->link->route,
+                        array_merge($node->link->params, ['tbl_group' => $key]),
+                    );
                 }
 
                 foreach ($newChildren as $newChild) {
@@ -1075,14 +1074,7 @@ class NavigationTree
                     $iconLinks[] = $node->secondIcon->withDifferentParams($args);
                 }
 
-                $textLink = [
-                    'route' => $node->links['text']['route'],
-                    'params' => array_merge(
-                        $node->links['text']['params'],
-                        array_intersect_key($args, $node->links['text']['params']),
-                    ),
-                    'title' => $node->links['title'] ?? $node->title,
-                ];
+                $textLink = $node->link->withDifferentParams($args);
             }
 
             $controlButtons .= $node->getHtmlForControlButtons($this->relationParameters->navigationItemsHidingFeature);
@@ -1167,11 +1159,8 @@ class NavigationTree
             }
 
             $paths = $node->getPaths();
-            if (! isset($node->links['text'])) {
-                continue;
-            }
 
-            $title = $node->links['title'] ?? '';
+            $title = $node->link->title;
             $options[] = [
                 'title' => $title,
                 'name' => $node->realName,

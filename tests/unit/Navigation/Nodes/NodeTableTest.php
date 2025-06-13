@@ -23,13 +23,9 @@ class NodeTableTest extends AbstractTestCase
         $config->settings['NavigationTreeDefaultTabTable2'] = '/table/change';
 
         $parent = new NodeTable($config, 'default');
-        self::assertSame(
-            [
-                'text' => ['route' => '/sql', 'params' => ['pos' => 0, 'db' => null, 'table' => null]],
-                'title' => 'Browse',
-            ],
-            $parent->links,
-        );
+        self::assertSame('/sql', $parent->link->route);
+        self::assertSame(['pos' => 0, 'db' => null, 'table' => null], $parent->link->params);
+        self::assertSame('Browse', $parent->link->title);
         self::assertSame('/table/search', $parent->icon->route);
         self::assertSame(['db' => null, 'table' => null], $parent->icon->params);
         self::assertNotNull($parent->secondIcon);

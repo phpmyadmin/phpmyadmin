@@ -27,12 +27,11 @@ class NodeEvent extends NodeDatabaseChild
             '/database/events',
             ['edit_item' => 1, 'db' => null, 'item_name' => null],
         );
-        $this->links = [
-            'text' => [
-                'route' => '/database/events',
-                'params' => ['edit_item' => 1, 'db' => null, 'item_name' => null],
-            ],
-        ];
+        $this->link = new Link(
+            $this->title,
+            '/database/events',
+            ['edit_item' => 1, 'db' => null, 'item_name' => null],
+        );
         $this->classes = 'event';
         $this->urlParamName = 'item_name';
     }

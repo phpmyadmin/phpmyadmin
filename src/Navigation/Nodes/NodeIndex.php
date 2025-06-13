@@ -27,9 +27,11 @@ class NodeIndex extends Node
             '/table/indexes',
             ['db' => null, 'table' => null, 'index' => null],
         );
-        $this->links = [
-            'text' => ['route' => '/table/indexes', 'params' => ['db' => null, 'table' => null, 'index' => null]],
-        ];
+        $this->link = new Link(
+            $this->title,
+            '/table/indexes',
+            ['db' => null, 'table' => null, 'index' => null],
+        );
         $this->classes = 'index';
         $this->urlParamName = 'index';
     }

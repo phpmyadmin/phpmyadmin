@@ -23,9 +23,11 @@ class NodeColumnContainer extends Node
         parent::__construct($config, __('Columns'), NodeType::Container);
 
         $this->icon = new Icon('pause', __('Columns'), '/table/structure', ['db' => null, 'table' => null]);
-        $this->links = [
-            'text' => ['route' => '/table/structure', 'params' => ['db' => null, 'table' => null]],
-        ];
+        $this->link = new Link(
+            $this->title,
+            '/table/structure',
+            ['db' => null, 'table' => null],
+        );
         $this->realName = 'columns';
 
         $newLabel = _pgettext('Create new column', 'New');
@@ -36,12 +38,11 @@ class NodeColumnContainer extends Node
             '/table/add-field',
             ['field_where' => 'last', 'after_field' => '', 'db' => null, 'table' => null],
         );
-        $new->links = [
-            'text' => [
-                'route' => '/table/add-field',
-                'params' => ['field_where' => 'last', 'after_field' => '', 'db' => null, 'table' => null],
-            ],
-        ];
+        $new->link = new Link(
+            $new->title,
+            '/table/add-field',
+            ['field_where' => 'last', 'after_field' => '', 'db' => null, 'table' => null],
+        );
         $this->addChild($new);
     }
 }

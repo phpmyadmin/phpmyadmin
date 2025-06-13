@@ -23,9 +23,11 @@ class NodeIndexContainer extends Node
         parent::__construct($config, __('Indexes'), NodeType::Container);
 
         $this->icon = new Icon('b_index', __('Indexes'), '/table/structure', ['db' => null, 'table' => null]);
-        $this->links = [
-            'text' => ['route' => '/table/structure', 'params' => ['db' => null, 'table' => null]],
-        ];
+        $this->link = new Link(
+            $this->title,
+            '/table/structure',
+            ['db' => null, 'table' => null],
+        );
         $this->realName = 'indexes';
 
         $newLabel = _pgettext('Create new index', 'New');
@@ -36,12 +38,11 @@ class NodeIndexContainer extends Node
             '/table/indexes',
             ['create_index' => 1, 'added_fields' => 2, 'db' => null, 'table' => null],
         );
-        $new->links = [
-            'text' => [
-                'route' => '/table/indexes',
-                'params' => ['create_index' => 1, 'added_fields' => 2, 'db' => null, 'table' => null],
-            ],
-        ];
+        $new->link = new Link(
+            $new->title,
+            '/table/indexes',
+            ['create_index' => 1, 'added_fields' => 2, 'db' => null, 'table' => null],
+        );
         $this->addChild($new);
     }
 }

@@ -33,16 +33,12 @@ final class NodeColumnTest extends AbstractTestCase
             ['change_column' => 1, 'db' => null, 'table' => null, 'field' => null],
             $nodeColumn->icon->params,
         );
+        self::assertSame('/table/structure/change', $nodeColumn->link->route);
         self::assertSame(
-            [
-                'text' => [
-                    'route' => '/table/structure/change',
-                    'params' => ['change_column' => 1, 'db' => null, 'table' => null, 'field' => null],
-                ],
-                'title' => 'Structure',
-            ],
-            $nodeColumn->links,
+            ['change_column' => 1, 'db' => null, 'table' => null, 'field' => null],
+            $nodeColumn->link->params,
         );
+        self::assertSame('Structure', $nodeColumn->link->title);
         self::assertSame('field', $nodeColumn->urlParamName);
     }
 
