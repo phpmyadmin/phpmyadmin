@@ -76,8 +76,6 @@ class Node
 
     public Link $link;
 
-    /** @var string HTML title */
-    public string $title = '';
     /** @var string Extra CSS classes for the node */
     public string $classes = '';
     /** @var bool Whether this node is a link for creating new objects */
@@ -126,7 +124,6 @@ class Node
         string $classes,
     ): Node {
         $node = new Node($this->config, $name);
-        $node->title = $name;
         $node->isNew = true;
         $node->classes = $classes;
 

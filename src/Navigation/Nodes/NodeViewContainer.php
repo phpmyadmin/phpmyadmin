@@ -23,7 +23,7 @@ class NodeViewContainer extends NodeDatabaseChildContainer
 
         $this->icon = new Icon('b_views', __('Views'), '/database/structure', ['tbl_type' => 'view', 'db' => null]);
         $this->link = new Link(
-            $this->title,
+            '',
             '/database/structure',
             ['tbl_type' => 'view', 'db' => null],
         );
@@ -34,7 +34,7 @@ class NodeViewContainer extends NodeDatabaseChildContainer
         $new = $this->getInstanceForNewNode($newLabel, 'new_view italics');
         $new->icon = new Icon('b_view_add', $newLabel, '/view/create', ['db' => null]);
         $new->link = new Link(
-            $new->title,
+            $newLabel,
             '/view/create',
             ['db' => null],
         );

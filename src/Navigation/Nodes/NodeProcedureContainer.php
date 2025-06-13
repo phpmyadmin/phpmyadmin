@@ -28,7 +28,7 @@ class NodeProcedureContainer extends NodeDatabaseChildContainer
             ['type' => 'PROCEDURE', 'db' => null],
         );
         $this->link = new Link(
-            $this->title,
+            '',
             '/database/routines',
             ['type' => 'PROCEDURE', 'db' => null],
         );
@@ -43,7 +43,7 @@ class NodeProcedureContainer extends NodeDatabaseChildContainer
             ['add_item' => 1, 'db' => null],
         );
         $new->link = new Link(
-            $new->title,
+            $newLabel,
             '/database/routines',
             ['add_item' => 1, 'db' => null],
         );

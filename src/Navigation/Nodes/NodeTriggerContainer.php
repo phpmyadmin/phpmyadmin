@@ -24,7 +24,7 @@ class NodeTriggerContainer extends Node
 
         $this->icon = new Icon('b_triggers', __('Triggers'), '/triggers', ['db' => null, 'table' => null]);
         $this->link = new Link(
-            $this->title,
+            '',
             '/triggers',
             ['db' => null, 'table' => null],
         );
@@ -34,7 +34,7 @@ class NodeTriggerContainer extends Node
         $new = $this->getInstanceForNewNode($newLabel, 'new_trigger italics');
         $new->icon = new Icon('b_trigger_add', $newLabel, '/triggers', ['add_item' => 1, 'db' => null]);
         $new->link = new Link(
-            $new->title,
+            $newLabel,
             '/triggers',
             ['add_item' => 1, 'db' => null],
         );

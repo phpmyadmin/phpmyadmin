@@ -28,7 +28,7 @@ class NodeEvent extends NodeDatabaseChild
             ['edit_item' => 1, 'db' => null, 'item_name' => null],
         );
         $this->link = new Link(
-            $this->title,
+            '',
             '/database/events',
             ['edit_item' => 1, 'db' => null, 'item_name' => null],
         );

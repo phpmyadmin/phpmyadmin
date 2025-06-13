@@ -43,10 +43,9 @@ class NodeTable extends NodeDatabaseChild
             $this->config->settings['NavigationTreeDefaultTabTable2'],
             ['db' => null, 'table' => null],
         );
-        $this->title = Util::getTitleForTarget($this->config->settings['DefaultTabTable']);
 
         $this->link = new Link(
-            $this->title,
+            Util::getTitleForTarget($this->config->settings['DefaultTabTable']),
             $this->config->settings['DefaultTabTable'],
             ['pos' => 0, 'db' => null, 'table' => null],
         );

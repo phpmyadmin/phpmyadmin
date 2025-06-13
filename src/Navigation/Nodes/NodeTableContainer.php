@@ -23,7 +23,7 @@ class NodeTableContainer extends NodeDatabaseChildContainer
 
         $this->icon = new Icon('b_browse', __('Tables'), '/database/structure', ['tbl_type' => 'table', 'db' => null]);
         $this->link = new Link(
-            $this->title,
+            '',
             '/database/structure',
             ['tbl_type' => 'table', 'db' => null],
         );
@@ -34,7 +34,7 @@ class NodeTableContainer extends NodeDatabaseChildContainer
         $new = $this->getInstanceForNewNode($newLabel, 'new_table italics');
         $new->icon = new Icon('b_table_add', $newLabel, '/table/create', ['db' => null]);
         $new->link = new Link(
-            $new->title,
+            $newLabel,
             '/table/create',
             ['db' => null],
         );

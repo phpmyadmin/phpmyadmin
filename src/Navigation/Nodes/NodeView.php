@@ -23,7 +23,7 @@ class NodeView extends NodeDatabaseChild
 
         $this->icon = new Icon('b_props', __('View'), '/table/structure', ['db' => null, 'table' => null]);
         $this->link = new Link(
-            $this->title,
+            '',
             '/sql',
             ['pos' => 0, 'db' => null, 'table' => null],
         );

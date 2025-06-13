@@ -24,7 +24,7 @@ class NodeColumnContainer extends Node
 
         $this->icon = new Icon('pause', __('Columns'), '/table/structure', ['db' => null, 'table' => null]);
         $this->link = new Link(
-            $this->title,
+            '',
             '/table/structure',
             ['db' => null, 'table' => null],
         );
@@ -39,7 +39,7 @@ class NodeColumnContainer extends Node
             ['field_where' => 'last', 'after_field' => '', 'db' => null, 'table' => null],
         );
         $new->link = new Link(
-            $new->title,
+            $newLabel,
             '/table/add-field',
             ['field_where' => 'last', 'after_field' => '', 'db' => null, 'table' => null],
         );

@@ -28,7 +28,7 @@ class NodeIndex extends Node
             ['db' => null, 'table' => null, 'index' => null],
         );
         $this->link = new Link(
-            $this->title,
+            '',
             '/table/indexes',
             ['db' => null, 'table' => null, 'index' => null],
         );

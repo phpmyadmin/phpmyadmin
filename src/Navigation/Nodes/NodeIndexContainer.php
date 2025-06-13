@@ -24,7 +24,7 @@ class NodeIndexContainer extends Node
 
         $this->icon = new Icon('b_index', __('Indexes'), '/table/structure', ['db' => null, 'table' => null]);
         $this->link = new Link(
-            $this->title,
+            '',
             '/table/structure',
             ['db' => null, 'table' => null],
         );
@@ -39,7 +39,7 @@ class NodeIndexContainer extends Node
             ['create_index' => 1, 'added_fields' => 2, 'db' => null, 'table' => null],
         );
         $new->link = new Link(
-            $new->title,
+            $newLabel,
             '/table/indexes',
             ['create_index' => 1, 'added_fields' => 2, 'db' => null, 'table' => null],
         );

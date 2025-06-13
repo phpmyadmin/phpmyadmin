@@ -813,7 +813,7 @@ class NavigationTree
                 $groups[$key]->pos3 = $node->pos3;
                 if ($node instanceof NodeTableContainer || $node instanceof NodeViewContainer) {
                     $groups[$key]->link = new Link(
-                        $groups[$key]->title,
+                        '',
                         $node->link->route,
                         array_merge($node->link->params, ['tbl_group' => $key]),
                     );
@@ -1160,9 +1160,8 @@ class NavigationTree
 
             $paths = $node->getPaths();
 
-            $title = $node->link->title;
             $options[] = [
-                'title' => $title,
+                'title' => $node->link->title,
                 'name' => $node->realName,
                 'data' => ['apath' => $paths['aPath'], 'vpath' => $paths['vPath'], 'pos' => $this->pos],
                 'isSelected' => $node->realName === $selected,

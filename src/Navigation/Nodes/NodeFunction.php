@@ -28,7 +28,7 @@ class NodeFunction extends NodeDatabaseChild
             ['item_type' => 'FUNCTION', 'execute_dialog' => 1, 'db' => null, 'item_name' => null],
         );
         $this->link = new Link(
-            $this->title,
+            '',
             '/database/routines',
             ['item_type' => 'FUNCTION', 'edit_item' => 1, 'db' => null, 'item_name' => null],
         );

@@ -23,7 +23,7 @@ class NodeEventContainer extends NodeDatabaseChildContainer
 
         $this->icon = new Icon('b_events', __('Events'), '/database/events', ['db' => null]);
         $this->link = new Link(
-            $this->title,
+            '',
             '/database/events',
             ['db' => null],
         );
@@ -33,7 +33,7 @@ class NodeEventContainer extends NodeDatabaseChildContainer
         $new = $this->getInstanceForNewNode($newLabel, 'new_event italics');
         $new->icon = new Icon('b_event_add', $newLabel, '/database/events', ['add_item' => 1, 'db' => null]);
         $new->link = new Link(
-            $new->title,
+            $newLabel,
             '/database/events',
             ['add_item' => 1, 'db' => null],
         );

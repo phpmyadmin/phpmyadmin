@@ -28,7 +28,7 @@ class NodeFunctionContainer extends NodeDatabaseChildContainer
             ['type' => 'FUNCTION', 'db' => null],
         );
         $this->link = new Link(
-            $this->title,
+            '',
             '/database/routines',
             ['type' => 'FUNCTION', 'db' => null],
         );
@@ -43,7 +43,7 @@ class NodeFunctionContainer extends NodeDatabaseChildContainer
             ['item_type' => 'FUNCTION', 'add_item' => 1, 'db' => null],
         );
         $new->link = new Link(
-            $new->title,
+            $newLabel,
             '/database/routines',
             ['item_type' => 'FUNCTION', 'add_item' => 1, 'db' => null],
         );

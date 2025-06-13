@@ -30,7 +30,7 @@ final class NodeColumnContainerTest extends AbstractTestCase
         self::assertArrayHasKey(0, $nodeColumnContainer->children);
         $newNode = $nodeColumnContainer->children[0];
         self::assertSame('New', $newNode->name);
-        self::assertSame('New', $newNode->title);
+        self::assertSame('New', $newNode->link->title);
         self::assertTrue($newNode->isNew);
         self::assertSame('new_column italics', $newNode->classes);
         self::assertSame('b_column_add', $newNode->icon->image);
