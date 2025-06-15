@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-06-08 00:30+0000\n"
+"POT-Creation-Date: 2025-06-15 00:31+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -165,7 +165,7 @@ msgstr "অনন্য"
 #: resources/templates/table/structure/display_table_stats.twig:24
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:27
 #: src/Controllers/Table/StructureController.php:221
-#: src/Navigation/Nodes/NodeIndex.php:24
+#: src/Navigation/Nodes/NodeIndex.php:26
 msgid "Index"
 msgstr "ইনডেক্স"
 
@@ -501,7 +501,7 @@ msgstr "ফরেন কী নির্বাচন করুন"
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:9
 #: resources/templates/table/zoom_search/index.twig:36
 #: resources/templates/table/zoom_search/result_form.twig:33
-#: src/Navigation/Nodes/NodeColumn.php:30
+#: src/Navigation/Nodes/NodeColumn.php:32
 #: src/Plugins/Export/ExportHtmlword.php:260
 #: src/Plugins/Export/ExportHtmlword.php:336
 #: src/Plugins/Export/ExportLatex.php:499 src/Plugins/Export/ExportOdt.php:364
@@ -640,9 +640,9 @@ msgstr "ব্যাবহারকারীর দল"
 #: src/Config/Forms/User/ExportForm.php:126
 #: src/Controllers/JavaScriptMessagesController.php:692
 #: src/Import/Import.php:1169 src/Menu.php:214 src/Menu.php:318
-#: src/Navigation/Nodes/NodeColumn.php:40
+#: src/Navigation/Nodes/NodeColumn.php:37
 #: src/Navigation/Nodes/NodeDatabase.php:59
-#: src/Navigation/Nodes/NodeTable.php:277 src/Util.php:1052 src/Util.php:1360
+#: src/Navigation/Nodes/NodeTable.php:268 src/Util.php:1052 src/Util.php:1360
 #: src/Util.php:1377
 msgid "Structure"
 msgstr "গঠন"
@@ -911,7 +911,7 @@ msgstr "পূর্বাবস্থায়"
 #: resources/templates/server/variables/index.twig:17
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:167
-#: src/Html/Generator.php:671 src/Html/MySQLDocumentation.php:49
+#: src/Html/Generator.php:667 src/Html/MySQLDocumentation.php:49
 #: src/Sanitize.php:185
 msgid "Documentation"
 msgstr "সহায়িকা"
@@ -1083,8 +1083,8 @@ msgstr "সহ-অনুসন্ধান"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:377
-#: src/Display/Results.php:1805 src/Html/Generator.php:520
-#: src/Html/Generator.php:788
+#: src/Display/Results.php:1805 src/Html/Generator.php:516
+#: src/Html/Generator.php:784
 msgid "Edit"
 msgstr "সম্পাদনা"
 
@@ -1206,7 +1206,7 @@ msgstr "SQL এর ব্যাখা"
 
 #: resources/templates/console/display.twig:55
 #: resources/templates/console/display.twig:213
-#: resources/templates/sql/profiling_chart.twig:3 src/Html/Generator.php:607
+#: resources/templates/sql/profiling_chart.twig:3 src/Html/Generator.php:603
 msgid "Profiling"
 msgstr "প্রোফাইলিং"
 
@@ -1315,8 +1315,8 @@ msgstr ""
 #: resources/templates/console/display.twig:133
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
-#: src/Config/Descriptions.php:928 src/Export/Export.php:1081
-#: src/Html/Generator.php:576
+#: src/Config/Descriptions.php:928 src/Export/Export.php:1076
+#: src/Html/Generator.php:572
 msgid "Refresh"
 msgstr "রিফ্রেশ"
 
@@ -2370,14 +2370,14 @@ msgid "Copy query"
 msgstr "অনুসন্ধান আপডেট"
 
 #: resources/templates/database/multi_table_query/form.twig:176
-#: src/Html/Generator.php:545
+#: src/Html/Generator.php:541
 #, fuzzy
 #| msgid "Submit Query"
 msgid "Submit query"
 msgstr "অনুসন্ধান পেশ কর"
 
 #: resources/templates/database/operations/index.twig:2
-#: src/Navigation/Nodes/NodeDatabase.php:51
+#: src/Navigation/Nodes/NodeDatabase.php:53
 msgid "Database operations"
 msgstr "ডাটাবেইজ কার্যক্রম"
 
@@ -2680,7 +2680,7 @@ msgstr "রুটিনের প্যারামিটার"
 #: resources/templates/database/routines/execute_form.twig:19
 #: resources/templates/table/search/index.twig:36
 #: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:257
-#: src/Navigation/Nodes/NodeFunction.php:24
+#: src/Navigation/Nodes/NodeFunction.php:26
 msgid "Function"
 msgstr "ফাংশন"
 
@@ -2703,7 +2703,7 @@ msgstr "রুটিনসমূহ"
 #: resources/templates/server/databases/index.twig:77
 #: src/Config/ConfigFile.php:522 src/Config/ConfigFile.php:536
 #: src/Config/ConfigFile.php:590 src/Config/ConfigFile.php:600 src/Menu.php:223
-#: src/Menu.php:327 src/Navigation/Nodes/NodeTable.php:278 src/Util.php:1054
+#: src/Menu.php:327 src/Navigation/Nodes/NodeTable.php:269 src/Util.php:1054
 #: src/Util.php:1362 src/Util.php:1379
 msgid "Search"
 msgstr "খোঁজা"
@@ -2834,7 +2834,7 @@ msgstr[1] "<strong>%2$s</strong> মধ্যে %1$s গুলো মিল"
 #: resources/templates/table/structure/display_structure.twig:271
 #: src/Config/ConfigFile.php:526 src/Config/ConfigFile.php:540
 #: src/Config/ConfigFile.php:604 src/Menu.php:207
-#: src/Navigation/Nodes/NodeTable.php:281 src/Util.php:1056 src/Util.php:1376
+#: src/Navigation/Nodes/NodeTable.php:272 src/Util.php:1056 src/Util.php:1376
 msgid "Browse"
 msgstr "দেখা"
 
@@ -3109,7 +3109,7 @@ msgstr "ভিউসমূহ"
 #: resources/templates/database/structure/structure_table_row.twig:122
 #: resources/templates/database/structure/structure_table_row.twig:186
 #: src/Controllers/Operations/TableController.php:120
-#: src/Controllers/Operations/TableController.php:316
+#: src/Controllers/Operations/TableController.php:314
 #: src/Controllers/Table/StructureController.php:151
 #: src/Navigation/Nodes/NodeView.php:24
 msgid "View"
@@ -3138,7 +3138,7 @@ msgstr "প্রতিলিপি করা হয়েছে"
 #: resources/templates/database/structure/structure_table_row.twig:59
 #: resources/templates/sql/query.twig:76 src/Config/ConfigFile.php:524
 #: src/Config/ConfigFile.php:538 src/Config/ConfigFile.php:602 src/Menu.php:234
-#: src/Navigation/Nodes/NodeTable.php:279 src/Util.php:1055 src/Util.php:1380
+#: src/Navigation/Nodes/NodeTable.php:270 src/Util.php:1055 src/Util.php:1380
 msgid "Insert"
 msgstr "ইনর্সাট"
 
@@ -3411,7 +3411,7 @@ msgstr "অনুসন্ধান ফল"
 
 #: resources/templates/display/results/table.twig:353
 #: src/Controllers/JavaScriptMessagesController.php:464
-#: src/Export/Export.php:1100
+#: src/Export/Export.php:1095
 msgid "Copy to clipboard"
 msgstr ""
 
@@ -3441,7 +3441,7 @@ msgstr "কানায় রুপান্তর কর"
 #: src/Controllers/Table/Partition/DropController.php:54
 #: src/Controllers/Table/Partition/RebuildController.php:54
 #: src/Controllers/Table/Partition/TruncateController.php:54
-#: src/Html/Generator.php:739 src/Import/Import.php:119 src/InsertEdit.php:421
+#: src/Html/Generator.php:735 src/Import/Import.php:119 src/InsertEdit.php:421
 #: src/Message.php:138
 msgid "Error"
 msgstr "ভুল"
@@ -3535,7 +3535,7 @@ msgstr "আধুনিকায়ন হয়েছে"
 #. l10n: Title of the option on the Export page
 #: resources/templates/export.twig:68
 #: src/Controllers/JavaScriptMessagesController.php:132
-#: src/Html/Generator.php:763
+#: src/Html/Generator.php:759
 msgid "SQL query:"
 msgstr "SQL অনুসন্ধান:"
 
@@ -4002,7 +4002,7 @@ msgstr "ইহা নাও"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:409
-#: src/Export/Export.php:1123 src/Html/Generator.php:854
+#: src/Export/Export.php:1118 src/Html/Generator.php:850
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "পিছনে"
@@ -4653,7 +4653,7 @@ msgstr ""
 #: resources/templates/preview_sql.twig:3
 #: src/Controllers/Database/Structure/DropTableController.php:42
 #: src/Controllers/Database/Structure/EmptyTableController.php:41
-#: src/Controllers/Operations/TableController.php:332
+#: src/Controllers/Operations/TableController.php:330
 #: src/Controllers/Table/DropColumnController.php:61
 #: src/Controllers/Table/ReplaceController.php:287 src/Core.php:516
 msgid "No change"
@@ -7034,7 +7034,7 @@ msgstr "প্রোফাইলিং এর ফলাফল"
 #: src/Controllers/Table/Partition/RepairController.php:47
 #: src/Controllers/Table/Partition/TruncateController.php:48
 #: src/Controllers/Table/RelationController.php:141
-#: src/Database/Routines.php:1023 src/Display/Results.php:3013
+#: src/Database/Routines.php:1019 src/Display/Results.php:3013
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "আপনার SQL অনুসন্ধানটি সফলভাবে কাজ করেছে."
@@ -8119,7 +8119,7 @@ msgstr "সময়"
 #: resources/templates/triggers/editor_form.twig:52
 #: resources/templates/triggers/list.twig:52
 #: src/Controllers/JavaScriptMessagesController.php:363
-#: src/Navigation/Nodes/NodeEvent.php:24
+#: src/Navigation/Nodes/NodeEvent.php:26
 #: src/Plugins/Export/ExportHtmlword.php:441
 #: src/Plugins/Export/ExportOdt.php:562
 #: src/Plugins/Export/ExportTexytext.php:426
@@ -9730,7 +9730,7 @@ msgstr "ফাইলের নাম"
 #: src/Config/ConfigFile.php:520 src/Config/ConfigFile.php:534
 #: src/Config/ConfigFile.php:588 src/Config/ConfigFile.php:598
 #: src/Config/Descriptions.php:755 src/Menu.php:219 src/Menu.php:323
-#: src/Menu.php:441 src/Navigation/Nodes/NodeTable.php:280 src/Util.php:1053
+#: src/Menu.php:441 src/Navigation/Nodes/NodeTable.php:271 src/Util.php:1053
 #: src/Util.php:1346 src/Util.php:1361 src/Util.php:1378
 msgid "SQL"
 msgstr "এসকিউএল"
@@ -11879,7 +11879,7 @@ msgstr "চলাচলের ফ্রেম"
 
 #: src/Config/Descriptions.php:811
 #: src/Controllers/JavaScriptMessagesController.php:584
-#: src/Navigation/NavigationTree.php:1292
+#: src/Navigation/NavigationTree.php:1267
 #, fuzzy
 #| msgid "Customize main panel"
 msgid "Link with main panel"
@@ -12349,11 +12349,11 @@ msgstr "পরিসংখ্যান দেখাও"
 msgid "Skip locked tables"
 msgstr "লকড টেবল এড়িয়ে যাও"
 
-#: src/Config/Descriptions.php:927 src/Html/Generator.php:495
+#: src/Config/Descriptions.php:927 src/Html/Generator.php:491
 msgid "Explain SQL"
 msgstr "SQL এর ব্যাখা"
 
-#: src/Config/Descriptions.php:929 src/Html/Generator.php:556
+#: src/Config/Descriptions.php:929 src/Html/Generator.php:552
 #, fuzzy
 #| msgid "Create PHP Code"
 msgid "Create PHP code"
@@ -12574,12 +12574,12 @@ msgstr "ব্রাউজারের রুপান্তর"
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr "সেটিংস সংরক্ষন করা যায়নি, দেওয়া তথ্যে ভূল আছে"
 
-#: src/Config.php:439
+#: src/Config.php:433
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "বর্তমান কনফিগারেশন ফাইল (%s) টি পড়া যাচ্ছে না।"
 
-#: src/Config.php:472
+#: src/Config.php:466
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr "কনফিগারেশন ফাইলে ভুল অনুমতি দেয়া, ওটা লেখার মত নয়"
 
@@ -12962,8 +12962,8 @@ msgstr ""
 #: src/Controllers/Table/DropColumnConfirmationController.php:55
 #: src/Controllers/Table/FindReplaceController.php:73
 #: src/Controllers/Table/FindReplaceController.php:78
-#: src/Controllers/Table/GisVisualizationController.php:60
-#: src/Controllers/Table/GisVisualizationController.php:65
+#: src/Controllers/Table/GisVisualizationController.php:63
+#: src/Controllers/Table/GisVisualizationController.php:68
 #: src/Controllers/Table/ImportController.php:67
 #: src/Controllers/Table/ImportController.php:72
 #: src/Controllers/Table/IndexesController.php:65
@@ -13222,7 +13222,7 @@ msgstr ""
 msgid "You may want to refresh the page."
 msgstr "আপনি পাতাটি রিফ্রেশ করে নিতে পারেন."
 
-#: src/Controllers/Export/ExportController.php:117 src/Export/Export.php:1061
+#: src/Controllers/Export/ExportController.php:117 src/Export/Export.php:1056
 msgid "Bad type!"
 msgstr "ধরন মিলে নাই!"
 
@@ -14220,7 +14220,7 @@ msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:362
-#: src/Navigation/Nodes/NodeTrigger.php:24
+#: src/Navigation/Nodes/NodeTrigger.php:26
 #, fuzzy
 #| msgid "Triggers"
 msgid "Trigger"
@@ -14785,7 +14785,7 @@ msgid "Hide panel"
 msgstr "ইনডেক্স প্যানেল"
 
 #: src/Controllers/JavaScriptMessagesController.php:585
-#: src/Navigation/NavigationTree.php:1295
+#: src/Navigation/NavigationTree.php:1270
 #, fuzzy
 #| msgid "Customize main panel"
 msgid "Unlink from main panel"
@@ -15579,7 +15579,7 @@ msgid "String"
 msgstr "স্ট্রিং"
 
 #: src/Controllers/Operations/Database/CollationController.php:40
-#: src/Controllers/Operations/TableController.php:265
+#: src/Controllers/Operations/TableController.php:264
 msgid "No collation provided."
 msgstr ""
 
@@ -16448,7 +16448,7 @@ msgid "No row selected."
 msgstr "কোন রো নির্বাচন করা হয় নাই"
 
 #: src/Controllers/Table/ChartController.php:57
-#: src/Controllers/Table/GisVisualizationController.php:77
+#: src/Controllers/Table/GisVisualizationController.php:80
 msgid "No SQL query was set to fetch data."
 msgstr "তথ্য আনার জন্য কোন SQL অনুসন্ধান নির্ধারন করা হয় নাই।"
 
@@ -16504,12 +16504,12 @@ msgid "There is an issue with your request."
 msgstr "ইনডেক্স বিহীন জোড়ার পরিমান অনেক বেশী।"
 
 #: src/Controllers/Table/GetFieldController.php:85
-#: src/Database/Routines.php:1040 src/Import/Import.php:135
+#: src/Database/Routines.php:1036 src/Import/Import.php:135
 #: src/InsertEdit.php:159 src/Sql.php:864
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "মাইএসকিউএল কিছু পায়নি। (শুন্য তথ্য)।"
 
-#: src/Controllers/Table/GisVisualizationController.php:99
+#: src/Controllers/Table/GisVisualizationController.php:91
 #, fuzzy
 #| msgid "Has no effect in this MySQL version."
 msgid "No spatial column found for this SQL query."
@@ -16700,51 +16700,51 @@ msgstr "phpMyAdmin কনফিগারেশনের storage table পাও�
 msgid "Error: relationship already exists."
 msgstr "ভুল: সর্ম্পক পূর্ব থেকেই তৈরী আছে।"
 
-#: src/Database/Designer/Common.php:536
+#: src/Database/Designer/Common.php:528
 #, fuzzy
 #| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relationship has been added."
 msgstr "FOREIGN KEY সর্ম্পক যোগ করা হয়েছে"
 
-#: src/Database/Designer/Common.php:541
+#: src/Database/Designer/Common.php:533
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "ভুল: সর্ম্পক যোগ করা হয়নি"
 
-#: src/Database/Designer/Common.php:544
+#: src/Database/Designer/Common.php:536
 msgid "Error: Missing index on column(s)."
 msgstr ""
 
-#: src/Database/Designer/Common.php:549 src/Database/Designer/Common.php:611
+#: src/Database/Designer/Common.php:541 src/Database/Designer/Common.php:603
 msgid "Error: Relational features are disabled!"
 msgstr "ভুল: সর্ম্পক তৈরী অকার্যকর করা আছে!"
 
-#: src/Database/Designer/Common.php:570
+#: src/Database/Designer/Common.php:562
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relationship has been added."
 msgstr "আভ্যন্তরীন সম্পর্ক যোগ করা হয়েছে"
 
-#: src/Database/Designer/Common.php:575
+#: src/Database/Designer/Common.php:567
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Internal relationship could not be added!"
 msgstr "ভুল: সর্ম্পক যোগ করা হয়নি"
 
-#: src/Database/Designer/Common.php:605
+#: src/Database/Designer/Common.php:597
 #, fuzzy
 #| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "FOREIGN KEY সর্ম্পক যোগ করা হয়েছে"
 
-#: src/Database/Designer/Common.php:630
+#: src/Database/Designer/Common.php:622
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Internal relationship could not be removed!"
 msgstr "ভুল: সর্ম্পক যোগ করা হয়নি"
 
-#: src/Database/Designer/Common.php:633
+#: src/Database/Designer/Common.php:625
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relationship has been removed."
@@ -16760,7 +16760,7 @@ msgstr ""
 #: src/Database/Events.php:93 src/Database/Events.php:102
 #: src/Database/Events.php:136 src/Database/Routines.php:105
 #: src/Database/Routines.php:131 src/Database/Routines.php:209
-#: src/Database/Routines.php:1000 src/Triggers/Triggers.php:83
+#: src/Database/Routines.php:996 src/Triggers/Triggers.php:83
 #: src/Triggers/Triggers.php:92 src/Triggers/Triggers.php:127
 #, php-format
 msgid "The following query has failed: \"%s\""
@@ -16770,7 +16770,7 @@ msgstr "নিন্মোক্ত অনুসন্ধানটি ব্য�
 #: src/Database/Events.php:119 src/Database/Events.php:140
 #: src/Database/Routines.php:109 src/Database/Routines.php:135
 #: src/Database/Routines.php:213 src/Database/Routines.php:227
-#: src/Database/Routines.php:1004 src/Html/Generator.php:804
+#: src/Database/Routines.php:1000 src/Html/Generator.php:800
 #: src/Triggers/Triggers.php:87 src/Triggers/Triggers.php:96
 #: src/Triggers/Triggers.php:110 src/Triggers/Triggers.php:131
 msgid "MySQL said: "
@@ -16800,32 +16800,32 @@ msgstr "ইভেন্ট %1$s তৈরী হয়েছে।"
 msgid "One or more errors have occurred while processing your request:"
 msgstr "আপনার কাজ প্রক্রিয়া করার সময় এক বা একাধীক ভুল হয়েছে:"
 
-#: src/Database/Events.php:270 src/Database/Routines.php:806
+#: src/Database/Events.php:266 src/Database/Routines.php:802
 #: src/Triggers/Triggers.php:190
 #, fuzzy
 #| msgid "The definer must be in the \"username@hostname\" format"
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "সংজ্ঞা দানকারী অবশ্যই \"username@hostname\" গঠনে হবে"
 
-#: src/Database/Events.php:278
+#: src/Database/Events.php:274
 #, fuzzy
 #| msgid "You must provide an event name"
 msgid "You must provide an event name!"
 msgstr "আপনাকে অবশ্যই একটি ইভেন্টের নাম দিতে হবে"
 
-#: src/Database/Events.php:292
+#: src/Database/Events.php:288
 msgid "You must provide a valid interval value for the event."
 msgstr "আপনাকে এই ইভেন্টের জন্য অবশ্যই একটি কার্যকর বিরাম মান দিতে হবে।"
 
-#: src/Database/Events.php:305
+#: src/Database/Events.php:301
 msgid "You must provide a valid execution time for the event."
 msgstr "আপনাকে অবশ্য্ই এই ইভেন্টের জন্য একটি কার্যকর সম্পাদন সময় দিতে হবে।"
 
-#: src/Database/Events.php:308
+#: src/Database/Events.php:304
 msgid "You must provide a valid type for the event."
 msgstr "আপনাকে অবশ্যই এই ইভেন্টের জন্য একটি কার্যকর ধরন দিতে হবে।"
 
-#: src/Database/Events.php:334
+#: src/Database/Events.php:330
 msgid "You must provide an event definition."
 msgstr "আপনাকে অবশ্যই ইভেন্টের সংজ্ঞা দিতে হবে।"
 
@@ -16854,16 +16854,16 @@ msgstr "রুটিন %1$s পরিবর্তীত হয়েছে।"
 msgid "Routine %1$s has been modified."
 msgstr "রুটিন %1$s পরিবর্তীত হয়েছে।"
 
-#: src/Database/Routines.php:651
+#: src/Database/Routines.php:647
 msgid "You must provide a name and a type for each routine parameter."
 msgstr "প্রতিটি রুটিন প্যারামিটারের জন্য অবশ্যই একটি নাম এবং ধরন দিতে হবে।"
 
-#: src/Database/Routines.php:669
+#: src/Database/Routines.php:665
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr "প্যারামিটারের জন্য অকার্যকর নির্দেশনা \"%s\"।"
 
-#: src/Database/Routines.php:689 src/Database/Routines.php:754
+#: src/Database/Routines.php:685 src/Database/Routines.php:750
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
@@ -16871,32 +16871,32 @@ msgstr ""
 "ENUM, SET,VARCHAR and VARBINARY এর রুটিনের প্যারামিটরে দৈর্ঘ্য/মান অবশ্যই দিতে "
 "হবে।"
 
-#: src/Database/Routines.php:736
+#: src/Database/Routines.php:732
 msgid "You must provide a valid return type for the routine."
 msgstr "আপনাকে অবশ্যই রুটিনের কার্যকর ফেরত ধরণ দিতে হবে।"
 
-#: src/Database/Routines.php:813
+#: src/Database/Routines.php:809
 #, fuzzy
 #| msgid "Invalid routine type: \"%s\""
 msgid "Invalid routine type!"
 msgstr "অকার্যকর রুটিন ধরন:\"%s\""
 
-#: src/Database/Routines.php:819
+#: src/Database/Routines.php:815
 #, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a routine name!"
 msgstr "আপনাকে অবশ্যই একটি রুটিনের নাম দিতে হবে"
 
-#: src/Database/Routines.php:882
+#: src/Database/Routines.php:878
 msgid "You must provide a routine definition."
 msgstr "আপনাকে অবশ্যই রুটিনের একটি সংজ্ঞা দিতে হবে।"
 
-#: src/Database/Routines.php:1016
+#: src/Database/Routines.php:1012
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "রুটিন %s এর সম্পাদনের ফলাফল"
 
-#: src/Database/Routines.php:1031
+#: src/Database/Routines.php:1027
 #, fuzzy, php-format
 #| msgid "%d row affected by the last statement inside the procedure"
 #| msgid_plural "%d rows affected by the last statement inside the procedure"
@@ -17326,13 +17326,13 @@ msgid ""
 "you log in again, you should be able to resume the work where you left off."
 msgstr ""
 
-#: src/Export/Export.php:189 src/Export/Export.php:225
-#: src/Export/Export.php:433
+#: src/Export/Export.php:189 src/Export/Export.php:220
+#: src/Export/Export.php:428
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "%s ফাইলটি সংরক্ষন করার মত জায়গা নাই।"
 
-#: src/Export/Export.php:386
+#: src/Export/Export.php:381
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
@@ -17340,18 +17340,18 @@ msgstr ""
 "%s ফাইলটি পূর্ব থেকে আছে, ফাইল এর নাম পরিবর্তন করুন বা উপরে লেখার এর স্থানটি "
 "নির্বাচন করুন।"
 
-#: src/Export/Export.php:393 src/Export/Export.php:403
+#: src/Export/Export.php:388 src/Export/Export.php:398
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "ওয়েব সার্ভারের %s ফাইলটি সংরক্ষন করার অনুমিত নাই।"
 
-#: src/Export/Export.php:440
+#: src/Export/Export.php:435
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "স্তুপকৃত তথ্য %s ফাইলে সংরক্ষন করা হয়েছে।"
 
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
-#: src/Export/Export.php:779
+#: src/Export/Export.php:774
 msgid "Exporting a raw query is not supported for this export method."
 msgstr ""
 
@@ -17438,60 +17438,60 @@ msgstr ""
 msgid "Session not found."
 msgstr "SOAP সংযোজক পাওয়া যাচ্ছে না"
 
-#: src/Html/Generator.php:151
+#: src/Html/Generator.php:147
 #, fuzzy, php-format
 #| msgid "Jump to database \"%s\"."
 msgid "Jump to database “%s”."
 msgstr "ডাটাবেইজ \"%s\" যাও।"
 
-#: src/Html/Generator.php:217
+#: src/Html/Generator.php:213
 msgid "SSL is not being used"
 msgstr ""
 
-#: src/Html/Generator.php:224
+#: src/Html/Generator.php:220
 msgid "SSL is used with disabled verification"
 msgstr ""
 
-#: src/Html/Generator.php:226
+#: src/Html/Generator.php:222
 msgid "SSL is used without certification authority"
 msgstr ""
 
-#: src/Html/Generator.php:229
+#: src/Html/Generator.php:225
 msgid "SSL is used"
 msgstr ""
 
-#: src/Html/Generator.php:333
+#: src/Html/Generator.php:329
 msgid "The PHP function password_hash() with default options."
 msgstr ""
 
-#: src/Html/Generator.php:334
+#: src/Html/Generator.php:330
 msgid "password_hash() PHP function"
 msgstr ""
 
-#: src/Html/Generator.php:504
+#: src/Html/Generator.php:500
 msgid "Skip Explain SQL"
 msgstr "SQL এর ব্যাখা এড়িয়ে যাও"
 
-#: src/Html/Generator.php:536
+#: src/Html/Generator.php:532
 #, fuzzy
 #| msgid "Without PHP Code"
 msgid "Without PHP code"
 msgstr "পিএইছপি কোড ছাড়া"
 
-#: src/Html/Generator.php:621
+#: src/Html/Generator.php:617
 #, fuzzy
 #| msgid "Edit index"
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "ইনডেক্স সম্পাদনা"
 
-#: src/Html/Generator.php:746
+#: src/Html/Generator.php:742
 #, fuzzy
 #| msgid "Static data"
 msgid "Static analysis:"
 msgstr "স্থিত তথ্য"
 
-#: src/Html/Generator.php:749
+#: src/Html/Generator.php:745
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr ""
@@ -17520,13 +17520,13 @@ msgid ""
 "requires these functions!"
 msgstr ""
 
-#: src/Http/Middleware/TokenRequestParamChecking.php:58
+#: src/Http/Middleware/TokenRequestParamChecking.php:56
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
 
-#: src/Http/Middleware/TokenRequestParamChecking.php:67
+#: src/Http/Middleware/TokenRequestParamChecking.php:65
 msgid "Error: Token mismatch"
 msgstr "ভুল: টোকেন মিলে নাই"
 
@@ -17741,19 +17741,19 @@ msgstr "প্রোসিডিউরস:"
 msgid "Views:"
 msgstr "ভিউসমূহ:"
 
-#: src/Navigation/NavigationTree.php:742
+#: src/Navigation/NavigationTree.php:743
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
 
-#: src/Navigation/NavigationTree.php:805
+#: src/Navigation/NavigationTree.php:808
 #, fuzzy
 #| msgid "Group name:"
 msgid "Groups"
 msgstr "দলের নাম:"
 
-#: src/Navigation/NavigationTree.php:912
+#: src/Navigation/NavigationTree.php:913
 #, fuzzy, php-format
 #| msgid "%s other result found"
 #| msgid_plural "%s other results found"
@@ -17762,11 +17762,11 @@ msgid_plural "%s results found"
 msgstr[0] "%s টি অন্যান্য ফলাফল পাওয়াগেছে"
 msgstr[1] "%s গুলো অন্যান্য ফলাফল পাওয়াগেছে"
 
-#: src/Navigation/NavigationTree.php:1287
+#: src/Navigation/NavigationTree.php:1262
 msgid "Collapse all"
 msgstr ""
 
-#: src/Navigation/Nodes/NodeColumnContainer.php:32
+#: src/Navigation/Nodes/NodeColumnContainer.php:33
 msgctxt "Create new column"
 msgid "New"
 msgstr "নতুন"
@@ -17776,61 +17776,61 @@ msgctxt "Create new database"
 msgid "New"
 msgstr "নতুন"
 
-#: src/Navigation/Nodes/NodeDatabase.php:191
+#: src/Navigation/Nodes/NodeDatabase.php:193
 msgid "Show hidden items"
 msgstr "গোপন জিনিস দেখাও"
 
-#: src/Navigation/Nodes/NodeEventContainer.php:31
+#: src/Navigation/Nodes/NodeEventContainer.php:32
 msgctxt "Create new event"
 msgid "New"
 msgstr "নতুন ইভেন্ট"
 
 #: src/Navigation/Nodes/NodeFunctionContainer.php:22
-#: src/Navigation/Nodes/NodeFunctionContainer.php:24
+#: src/Navigation/Nodes/NodeFunctionContainer.php:26
 #: src/Plugins/Export/ExportSql.php:644 src/Plugins/Export/ExportXml.php:102
 msgid "Functions"
 msgstr "ফাংশনসমূহ"
 
-#: src/Navigation/Nodes/NodeFunctionContainer.php:31
+#: src/Navigation/Nodes/NodeFunctionContainer.php:37
 msgctxt "Create new function"
 msgid "New"
 msgstr "নতুন"
 
-#: src/Navigation/Nodes/NodeIndexContainer.php:32
+#: src/Navigation/Nodes/NodeIndexContainer.php:33
 msgctxt "Create new index"
 msgid "New"
 msgstr "নতুন"
 
-#: src/Navigation/Nodes/Node.php:583
+#: src/Navigation/Nodes/Node.php:568
 msgid "Expand/Collapse"
 msgstr ""
 
 #: src/Navigation/Nodes/NodeProcedureContainer.php:22
-#: src/Navigation/Nodes/NodeProcedureContainer.php:24
+#: src/Navigation/Nodes/NodeProcedureContainer.php:26
 #: src/Plugins/Export/ExportSql.php:633 src/Plugins/Export/ExportXml.php:107
 msgid "Procedures"
 msgstr "প্রোসিডিউরস"
 
-#: src/Navigation/Nodes/NodeProcedureContainer.php:31
+#: src/Navigation/Nodes/NodeProcedureContainer.php:37
 msgctxt "Create new procedure"
 msgid "New"
 msgstr "নতুন"
 
-#: src/Navigation/Nodes/NodeProcedure.php:24
+#: src/Navigation/Nodes/NodeProcedure.php:26
 msgid "Procedure"
 msgstr "প্রোসিডিউর"
 
-#: src/Navigation/Nodes/NodeTableContainer.php:32
+#: src/Navigation/Nodes/NodeTableContainer.php:33
 msgctxt "Create new table"
 msgid "New"
 msgstr "নতুন"
 
-#: src/Navigation/Nodes/NodeTriggerContainer.php:32
+#: src/Navigation/Nodes/NodeTriggerContainer.php:33
 msgctxt "Create new trigger"
 msgid "New"
 msgstr "নতুন"
 
-#: src/Navigation/Nodes/NodeViewContainer.php:32
+#: src/Navigation/Nodes/NodeViewContainer.php:33
 msgctxt "Create new view"
 msgid "New"
 msgstr "নতুন"
@@ -19210,51 +19210,51 @@ msgstr "ডাটাবেইজ ডিরেক্টরির অধিকা�
 msgid "Details…"
 msgstr "বিশদ…"
 
-#: src/Replication/ReplicationGui.php:453
+#: src/Replication/ReplicationGui.php:441
 msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
 msgstr ""
 
-#: src/Replication/ReplicationGui.php:464
+#: src/Replication/ReplicationGui.php:452
 msgid "Replication started successfully."
 msgstr "প্রতিলিপির প্রস্তুত কাজ সফলভাবে শুরু হয়েছে।"
 
-#: src/Replication/ReplicationGui.php:465
+#: src/Replication/ReplicationGui.php:453
 msgid "Error starting replication."
 msgstr "প্রতিলিপি তৈরীরকাজে সমস্যা হয়েছে।"
 
-#: src/Replication/ReplicationGui.php:468
+#: src/Replication/ReplicationGui.php:456
 msgid "Replication stopped successfully."
 msgstr "প্রতিলিপি সফলভাবে বন্ধ হয়েছে।"
 
-#: src/Replication/ReplicationGui.php:469
+#: src/Replication/ReplicationGui.php:457
 msgid "Error stopping replication."
 msgstr "প্রতিলিপি বন্ধে সমস্যা হয়েছে।"
 
-#: src/Replication/ReplicationGui.php:472
+#: src/Replication/ReplicationGui.php:460
 msgid "Replication resetting successfully."
 msgstr "প্রতিলিপি সফলভাবে পুনস্থাপন করা হয়েছে।"
 
-#: src/Replication/ReplicationGui.php:473
+#: src/Replication/ReplicationGui.php:461
 msgid "Error resetting replication."
 msgstr "প্রতিলিপি পুনস্থাপনে সমস্যা হয়েছে।"
 
-#: src/Replication/ReplicationGui.php:476
+#: src/Replication/ReplicationGui.php:464
 msgid "Success."
 msgstr "সফল।"
 
-#: src/Replication/ReplicationGui.php:477
+#: src/Replication/ReplicationGui.php:465
 msgid "Error."
 msgstr "ভুল।"
 
-#: src/Replication/ReplicationGui.php:522
+#: src/Replication/ReplicationGui.php:510
 #, fuzzy, php-format
 #| msgid "Unable to connect to master %s."
 msgid "Unable to connect to primary %s."
 msgstr "প্রধান %s সহিত সংযোগ করা যায়নি."
 
-#: src/Replication/ReplicationGui.php:532
+#: src/Replication/ReplicationGui.php:520
 #, fuzzy
 #| msgid ""
 #| "Unable to read master log position. Possible privilege problem on master."
@@ -19262,13 +19262,13 @@ msgid ""
 "Unable to read primary log position. Possible privilege problem on primary."
 msgstr "প্রধান লগ পড়া যায়নি। প্রধান লগে অধিকার সমস্যা."
 
-#: src/Replication/ReplicationGui.php:550
+#: src/Replication/ReplicationGui.php:538
 #, fuzzy
 #| msgid "Unable to change master"
 msgid "Unable to change primary!"
 msgstr "প্রধানটি পরিবর্তন করা যায়নি"
 
-#: src/Replication/ReplicationGui.php:554
+#: src/Replication/ReplicationGui.php:542
 #, fuzzy, php-format
 #| msgid "Master server changed successfully to %s"
 msgid "Primary server changed successfully to %s."

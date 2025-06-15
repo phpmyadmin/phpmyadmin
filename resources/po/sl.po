@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-06-08 00:30+0000\n"
+"POT-Creation-Date: 2025-06-15 00:31+0000\n"
 "PO-Revision-Date: 2025-05-12 23:02+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -154,7 +154,7 @@ msgstr "Edinstven"
 #: resources/templates/table/structure/display_table_stats.twig:24
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:27
 #: src/Controllers/Table/StructureController.php:221
-#: src/Navigation/Nodes/NodeIndex.php:24
+#: src/Navigation/Nodes/NodeIndex.php:26
 msgid "Index"
 msgstr "Indeks"
 
@@ -473,7 +473,7 @@ msgstr "Je tuji ključ."
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:9
 #: resources/templates/table/zoom_search/index.twig:36
 #: resources/templates/table/zoom_search/result_form.twig:33
-#: src/Navigation/Nodes/NodeColumn.php:30
+#: src/Navigation/Nodes/NodeColumn.php:32
 #: src/Plugins/Export/ExportHtmlword.php:260
 #: src/Plugins/Export/ExportHtmlword.php:336
 #: src/Plugins/Export/ExportLatex.php:499 src/Plugins/Export/ExportOdt.php:364
@@ -580,9 +580,9 @@ msgstr "Skupina vozlišča"
 #: src/Config/Forms/User/ExportForm.php:126
 #: src/Controllers/JavaScriptMessagesController.php:692
 #: src/Import/Import.php:1169 src/Menu.php:214 src/Menu.php:318
-#: src/Navigation/Nodes/NodeColumn.php:40
+#: src/Navigation/Nodes/NodeColumn.php:37
 #: src/Navigation/Nodes/NodeDatabase.php:59
-#: src/Navigation/Nodes/NodeTable.php:277 src/Util.php:1052 src/Util.php:1360
+#: src/Navigation/Nodes/NodeTable.php:268 src/Util.php:1052 src/Util.php:1360
 #: src/Util.php:1377
 msgid "Structure"
 msgstr "Struktura"
@@ -837,7 +837,7 @@ msgstr "Ponastavi"
 #: resources/templates/server/variables/index.twig:17
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:167
-#: src/Html/Generator.php:671 src/Html/MySQLDocumentation.php:49
+#: src/Html/Generator.php:667 src/Html/MySQLDocumentation.php:49
 #: src/Sanitize.php:185
 msgid "Documentation"
 msgstr "Dokumentacija"
@@ -1008,8 +1008,8 @@ msgstr "Ponovna poizvedba"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:377
-#: src/Display/Results.php:1805 src/Html/Generator.php:520
-#: src/Html/Generator.php:788
+#: src/Display/Results.php:1805 src/Html/Generator.php:516
+#: src/Html/Generator.php:784
 msgid "Edit"
 msgstr "Uredi"
 
@@ -1119,7 +1119,7 @@ msgstr "Razloži"
 
 #: resources/templates/console/display.twig:55
 #: resources/templates/console/display.twig:213
-#: resources/templates/sql/profiling_chart.twig:3 src/Html/Generator.php:607
+#: resources/templates/sql/profiling_chart.twig:3 src/Html/Generator.php:603
 msgid "Profiling"
 msgstr "Profiliranje"
 
@@ -1200,8 +1200,8 @@ msgstr "Porabljen čas:"
 #: resources/templates/console/display.twig:133
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
-#: src/Config/Descriptions.php:928 src/Export/Export.php:1081
-#: src/Html/Generator.php:576
+#: src/Config/Descriptions.php:928 src/Export/Export.php:1076
+#: src/Html/Generator.php:572
 msgid "Refresh"
 msgstr "Osveži"
 
@@ -2140,12 +2140,12 @@ msgid "Copy query"
 msgstr "Kopiraj poizvedbo"
 
 #: resources/templates/database/multi_table_query/form.twig:176
-#: src/Html/Generator.php:545
+#: src/Html/Generator.php:541
 msgid "Submit query"
 msgstr "Izvedi poizvedbo"
 
 #: resources/templates/database/operations/index.twig:2
-#: src/Navigation/Nodes/NodeDatabase.php:51
+#: src/Navigation/Nodes/NodeDatabase.php:53
 msgid "Database operations"
 msgstr "Posegi zbirke podatkov"
 
@@ -2438,7 +2438,7 @@ msgstr "Parametri rutine"
 #: resources/templates/database/routines/execute_form.twig:19
 #: resources/templates/table/search/index.twig:36
 #: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:257
-#: src/Navigation/Nodes/NodeFunction.php:24
+#: src/Navigation/Nodes/NodeFunction.php:26
 msgid "Function"
 msgstr "Funkcija"
 
@@ -2459,7 +2459,7 @@ msgstr "Rutina"
 #: resources/templates/server/databases/index.twig:77
 #: src/Config/ConfigFile.php:522 src/Config/ConfigFile.php:536
 #: src/Config/ConfigFile.php:590 src/Config/ConfigFile.php:600 src/Menu.php:223
-#: src/Menu.php:327 src/Navigation/Nodes/NodeTable.php:278 src/Util.php:1054
+#: src/Menu.php:327 src/Navigation/Nodes/NodeTable.php:269 src/Util.php:1054
 #: src/Util.php:1362 src/Util.php:1379
 msgid "Search"
 msgstr "Iskanje"
@@ -2576,7 +2576,7 @@ msgstr[3] "%1$s zadetkov v <strong>%2$s</strong>"
 #: resources/templates/table/structure/display_structure.twig:271
 #: src/Config/ConfigFile.php:526 src/Config/ConfigFile.php:540
 #: src/Config/ConfigFile.php:604 src/Menu.php:207
-#: src/Navigation/Nodes/NodeTable.php:281 src/Util.php:1056 src/Util.php:1376
+#: src/Navigation/Nodes/NodeTable.php:272 src/Util.php:1056 src/Util.php:1376
 msgid "Browse"
 msgstr "Prebrskaj"
 
@@ -2827,7 +2827,7 @@ msgstr "Pogledi"
 #: resources/templates/database/structure/structure_table_row.twig:122
 #: resources/templates/database/structure/structure_table_row.twig:186
 #: src/Controllers/Operations/TableController.php:120
-#: src/Controllers/Operations/TableController.php:316
+#: src/Controllers/Operations/TableController.php:314
 #: src/Controllers/Table/StructureController.php:151
 #: src/Navigation/Nodes/NodeView.php:24
 msgid "View"
@@ -2856,7 +2856,7 @@ msgstr "Podvojeno"
 #: resources/templates/database/structure/structure_table_row.twig:59
 #: resources/templates/sql/query.twig:76 src/Config/ConfigFile.php:524
 #: src/Config/ConfigFile.php:538 src/Config/ConfigFile.php:602 src/Menu.php:234
-#: src/Navigation/Nodes/NodeTable.php:279 src/Util.php:1055 src/Util.php:1380
+#: src/Navigation/Nodes/NodeTable.php:270 src/Util.php:1055 src/Util.php:1380
 msgid "Insert"
 msgstr "Vstavi"
 
@@ -3116,7 +3116,7 @@ msgstr "Dejanja rezultatov poizvedbe"
 
 #: resources/templates/display/results/table.twig:353
 #: src/Controllers/JavaScriptMessagesController.php:464
-#: src/Export/Export.php:1100
+#: src/Export/Export.php:1095
 msgid "Copy to clipboard"
 msgstr "Kopiraj v odložišče"
 
@@ -3146,7 +3146,7 @@ msgstr "Pretvori v kano"
 #: src/Controllers/Table/Partition/DropController.php:54
 #: src/Controllers/Table/Partition/RebuildController.php:54
 #: src/Controllers/Table/Partition/TruncateController.php:54
-#: src/Html/Generator.php:739 src/Import/Import.php:119 src/InsertEdit.php:421
+#: src/Html/Generator.php:735 src/Import/Import.php:119 src/InsertEdit.php:421
 #: src/Message.php:138
 msgid "Error"
 msgstr "Napaka"
@@ -3227,7 +3227,7 @@ msgstr "Posodobi"
 #. l10n: Title of the option on the Export page
 #: resources/templates/export.twig:68
 #: src/Controllers/JavaScriptMessagesController.php:132
-#: src/Html/Generator.php:763
+#: src/Html/Generator.php:759
 msgid "SQL query:"
 msgstr "Poizvedba SQL:"
 
@@ -3639,7 +3639,7 @@ msgstr "Uporabi"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:409
-#: src/Export/Export.php:1123 src/Html/Generator.php:854
+#: src/Export/Export.php:1118 src/Html/Generator.php:850
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "Nazaj"
@@ -4231,7 +4231,7 @@ msgstr "Omogočili ste dvostopenjsko overovitev."
 #: resources/templates/preview_sql.twig:3
 #: src/Controllers/Database/Structure/DropTableController.php:42
 #: src/Controllers/Database/Structure/EmptyTableController.php:41
-#: src/Controllers/Operations/TableController.php:332
+#: src/Controllers/Operations/TableController.php:330
 #: src/Controllers/Table/DropColumnController.php:61
 #: src/Controllers/Table/ReplaceController.php:287 src/Core.php:516
 msgid "No change"
@@ -6412,7 +6412,7 @@ msgstr "Tortni diagram z rezultati profiliranja."
 #: src/Controllers/Table/Partition/RepairController.php:47
 #: src/Controllers/Table/Partition/TruncateController.php:48
 #: src/Controllers/Table/RelationController.php:141
-#: src/Database/Routines.php:1023 src/Display/Results.php:3013
+#: src/Database/Routines.php:1019 src/Display/Results.php:3013
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "Poizvedbo SQL smo uspešno izvedli."
@@ -7375,7 +7375,7 @@ msgstr "Čas"
 #: resources/templates/triggers/editor_form.twig:52
 #: resources/templates/triggers/list.twig:52
 #: src/Controllers/JavaScriptMessagesController.php:363
-#: src/Navigation/Nodes/NodeEvent.php:24
+#: src/Navigation/Nodes/NodeEvent.php:26
 #: src/Plugins/Export/ExportHtmlword.php:441
 #: src/Plugins/Export/ExportOdt.php:562
 #: src/Plugins/Export/ExportTexytext.php:426
@@ -9015,7 +9015,7 @@ msgstr "Vietnamsko"
 #: src/Config/ConfigFile.php:520 src/Config/ConfigFile.php:534
 #: src/Config/ConfigFile.php:588 src/Config/ConfigFile.php:598
 #: src/Config/Descriptions.php:755 src/Menu.php:219 src/Menu.php:323
-#: src/Menu.php:441 src/Navigation/Nodes/NodeTable.php:280 src/Util.php:1053
+#: src/Menu.php:441 src/Navigation/Nodes/NodeTable.php:271 src/Util.php:1053
 #: src/Util.php:1346 src/Util.php:1361 src/Util.php:1378
 msgid "SQL"
 msgstr "SQL"
@@ -11060,7 +11060,7 @@ msgstr "Širina navigacijske plošče"
 
 #: src/Config/Descriptions.php:811
 #: src/Controllers/JavaScriptMessagesController.php:584
-#: src/Navigation/NavigationTree.php:1292
+#: src/Navigation/NavigationTree.php:1267
 msgid "Link with main panel"
 msgstr "Poveži z glavno ploščo"
 
@@ -11490,11 +11490,11 @@ msgstr "Pokaži statistiko"
 msgid "Skip locked tables"
 msgstr "Preskoči zaklenjene tabele"
 
-#: src/Config/Descriptions.php:927 src/Html/Generator.php:495
+#: src/Config/Descriptions.php:927 src/Html/Generator.php:491
 msgid "Explain SQL"
 msgstr "Razloži stavek SQL"
 
-#: src/Config/Descriptions.php:929 src/Html/Generator.php:556
+#: src/Config/Descriptions.php:929 src/Html/Generator.php:552
 msgid "Create PHP code"
 msgstr "Ustvari kodo PHP"
 
@@ -11700,12 +11700,12 @@ msgstr ""
 "Ne morem shraniti nastavitev, saj poslani obrazec za konfiguracijo vsebuje "
 "napake!"
 
-#: src/Config.php:439
+#: src/Config.php:433
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Obstoječa konfiguracijska datoteka (%s) ni berljiva."
 
-#: src/Config.php:472
+#: src/Config.php:466
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Napačna dovoljenja konfiguracijske datoteke; ne sme biti vsem zapisljiva!"
@@ -12047,8 +12047,8 @@ msgstr "Stran z imenom »%s« že obstaja; prosimo, preimenujte jo."
 #: src/Controllers/Table/DropColumnConfirmationController.php:55
 #: src/Controllers/Table/FindReplaceController.php:73
 #: src/Controllers/Table/FindReplaceController.php:78
-#: src/Controllers/Table/GisVisualizationController.php:60
-#: src/Controllers/Table/GisVisualizationController.php:65
+#: src/Controllers/Table/GisVisualizationController.php:63
+#: src/Controllers/Table/GisVisualizationController.php:68
 #: src/Controllers/Table/ImportController.php:67
 #: src/Controllers/Table/ImportController.php:72
 #: src/Controllers/Table/IndexesController.php:65
@@ -12306,7 +12306,7 @@ msgstr ""
 msgid "You may want to refresh the page."
 msgstr "Morda boste želeli osvežiti stran."
 
-#: src/Controllers/Export/ExportController.php:117 src/Export/Export.php:1061
+#: src/Controllers/Export/ExportController.php:117 src/Export/Export.php:1056
 msgid "Bad type!"
 msgstr "Slaba vrsta!"
 
@@ -13251,7 +13251,7 @@ msgstr ""
 "Izvoziti ne moremo nobene rutine. Morda manjkajo zahtevani privilegiji."
 
 #: src/Controllers/JavaScriptMessagesController.php:362
-#: src/Navigation/Nodes/NodeTrigger.php:24
+#: src/Navigation/Nodes/NodeTrigger.php:26
 msgid "Trigger"
 msgstr "Sprožilec"
 
@@ -13766,7 +13766,7 @@ msgid "Hide panel"
 msgstr "Skrij ploščo"
 
 #: src/Controllers/JavaScriptMessagesController.php:585
-#: src/Navigation/NavigationTree.php:1295
+#: src/Navigation/NavigationTree.php:1270
 msgid "Unlink from main panel"
 msgstr "Ne poveži z glavno ploščo"
 
@@ -14409,7 +14409,7 @@ msgid "String"
 msgstr "Niz"
 
 #: src/Controllers/Operations/Database/CollationController.php:40
-#: src/Controllers/Operations/TableController.php:265
+#: src/Controllers/Operations/TableController.php:264
 msgid "No collation provided."
 msgstr "Pravilo za razvrščanje znakov ni podano."
 
@@ -15288,7 +15288,7 @@ msgid "No row selected."
 msgstr "Ni izbranih vrstic."
 
 #: src/Controllers/Table/ChartController.php:57
-#: src/Controllers/Table/GisVisualizationController.php:77
+#: src/Controllers/Table/GisVisualizationController.php:80
 msgid "No SQL query was set to fetch data."
 msgstr "Za pridobivanje podatkov ni bil določen noben SQL."
 
@@ -15343,12 +15343,12 @@ msgid "There is an issue with your request."
 msgstr "Prišlo je do težave z vašo zahtevo."
 
 #: src/Controllers/Table/GetFieldController.php:85
-#: src/Database/Routines.php:1040 src/Import/Import.php:135
+#: src/Database/Routines.php:1036 src/Import/Import.php:135
 #: src/InsertEdit.php:159 src/Sql.php:864
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL je vrnil kot rezultat prazno množico (npr. nič vrstic)."
 
-#: src/Controllers/Table/GisVisualizationController.php:99
+#: src/Controllers/Table/GisVisualizationController.php:91
 msgid "No spatial column found for this SQL query."
 msgstr "V poizvedbi SQL nismo našli prostorskega stolpca."
 
@@ -15518,39 +15518,39 @@ msgstr ""
 msgid "Error: relationship already exists."
 msgstr "Napaka: razmerje že obstaja."
 
-#: src/Database/Designer/Common.php:536
+#: src/Database/Designer/Common.php:528
 msgid "FOREIGN KEY relationship has been added."
 msgstr "Dodali smo razmerje FOREIGN KEY."
 
-#: src/Database/Designer/Common.php:541
+#: src/Database/Designer/Common.php:533
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "Napaka: Razmerja FOREIGN KEY nismo mogli dodati!"
 
-#: src/Database/Designer/Common.php:544
+#: src/Database/Designer/Common.php:536
 msgid "Error: Missing index on column(s)."
 msgstr "Napaka: Na stolpcih manjka indeks."
 
-#: src/Database/Designer/Common.php:549 src/Database/Designer/Common.php:611
+#: src/Database/Designer/Common.php:541 src/Database/Designer/Common.php:603
 msgid "Error: Relational features are disabled!"
 msgstr "Napaka: Funkcionalnosti razmerij so onemogočene!"
 
-#: src/Database/Designer/Common.php:570
+#: src/Database/Designer/Common.php:562
 msgid "Internal relationship has been added."
 msgstr "Dodali smo notranje razmerje."
 
-#: src/Database/Designer/Common.php:575
+#: src/Database/Designer/Common.php:567
 msgid "Error: Internal relationship could not be added!"
 msgstr "Napaka: Notranjega razmerja nismo mogli dodati!"
 
-#: src/Database/Designer/Common.php:605
+#: src/Database/Designer/Common.php:597
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "Odstranili smo razmerje FOREIGN KEY."
 
-#: src/Database/Designer/Common.php:630
+#: src/Database/Designer/Common.php:622
 msgid "Error: Internal relationship could not be removed!"
 msgstr "Napaka: Notranjega razmerja nismo mogli odstraniti!"
 
-#: src/Database/Designer/Common.php:633
+#: src/Database/Designer/Common.php:625
 msgid "Internal relationship has been removed."
 msgstr "Odstranili smo notranje razmerje."
 
@@ -15561,7 +15561,7 @@ msgstr "Ne morem naložiti vtičnikov sheme, prosimo, preverite vašo namestitev
 #: src/Database/Events.php:93 src/Database/Events.php:102
 #: src/Database/Events.php:136 src/Database/Routines.php:105
 #: src/Database/Routines.php:131 src/Database/Routines.php:209
-#: src/Database/Routines.php:1000 src/Triggers/Triggers.php:83
+#: src/Database/Routines.php:996 src/Triggers/Triggers.php:83
 #: src/Triggers/Triggers.php:92 src/Triggers/Triggers.php:127
 #, php-format
 msgid "The following query has failed: \"%s\""
@@ -15571,7 +15571,7 @@ msgstr "Naslednja poizvedba je spodletela: \"%s\""
 #: src/Database/Events.php:119 src/Database/Events.php:140
 #: src/Database/Routines.php:109 src/Database/Routines.php:135
 #: src/Database/Routines.php:213 src/Database/Routines.php:227
-#: src/Database/Routines.php:1004 src/Html/Generator.php:804
+#: src/Database/Routines.php:1000 src/Html/Generator.php:800
 #: src/Triggers/Triggers.php:87 src/Triggers/Triggers.php:96
 #: src/Triggers/Triggers.php:110 src/Triggers/Triggers.php:131
 msgid "MySQL said: "
@@ -15601,28 +15601,28 @@ msgstr "Dogodek %1$s je ustvarjen."
 msgid "One or more errors have occurred while processing your request:"
 msgstr "Med obdelovanjem vaše zahteve je prišlo do ene ali več napak:"
 
-#: src/Database/Events.php:270 src/Database/Routines.php:806
+#: src/Database/Events.php:266 src/Database/Routines.php:802
 #: src/Triggers/Triggers.php:190
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "Opredeljevalec mora biti oblike \"uporabniškoime@imegostitelja\"!"
 
-#: src/Database/Events.php:278
+#: src/Database/Events.php:274
 msgid "You must provide an event name!"
 msgstr "Navesti morate ime dogodka!"
 
-#: src/Database/Events.php:292
+#: src/Database/Events.php:288
 msgid "You must provide a valid interval value for the event."
 msgstr "Navesti morateveljavno vrednost intervala dogodka."
 
-#: src/Database/Events.php:305
+#: src/Database/Events.php:301
 msgid "You must provide a valid execution time for the event."
 msgstr "Navesti morate veljavni čas izvedbe dogodka."
 
-#: src/Database/Events.php:308
+#: src/Database/Events.php:304
 msgid "You must provide a valid type for the event."
 msgstr "Navesti morate veljavno vrsto dogodka."
 
-#: src/Database/Events.php:334
+#: src/Database/Events.php:330
 msgid "You must provide an event definition."
 msgstr "Navesti morate opredelitev dogodka."
 
@@ -15650,16 +15650,16 @@ msgstr "Rutino %1$s smo spremenili. Privilegije smo prilagodili."
 msgid "Routine %1$s has been modified."
 msgstr "Rutino %1$s smo spremenili."
 
-#: src/Database/Routines.php:651
+#: src/Database/Routines.php:647
 msgid "You must provide a name and a type for each routine parameter."
 msgstr "Navesti morate ime in vrsto vsakega parametra rutine."
 
-#: src/Database/Routines.php:669
+#: src/Database/Routines.php:665
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr "Neveljavna smer \"%s\" podana za parameter."
 
-#: src/Database/Routines.php:689 src/Database/Routines.php:754
+#: src/Database/Routines.php:685 src/Database/Routines.php:750
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
@@ -15667,30 +15667,30 @@ msgstr ""
 "Navesti morate dolžine/vrednosti za parametre rutine vrste ENUM, SET, "
 "VARCHAR in VARBINARY."
 
-#: src/Database/Routines.php:736
+#: src/Database/Routines.php:732
 msgid "You must provide a valid return type for the routine."
 msgstr "Navesti morate veljavno vrsto vrnjene vrednosti dogodka."
 
-#: src/Database/Routines.php:813
+#: src/Database/Routines.php:809
 #, fuzzy
 #| msgid "Invalid routine type: \"%s\""
 msgid "Invalid routine type!"
 msgstr "Neveljavna vrsta rutine: \"%s\""
 
-#: src/Database/Routines.php:819
+#: src/Database/Routines.php:815
 msgid "You must provide a routine name!"
 msgstr "Navesti morate ime rutine!"
 
-#: src/Database/Routines.php:882
+#: src/Database/Routines.php:878
 msgid "You must provide a routine definition."
 msgstr "Navesti morate opredelitev rutine."
 
-#: src/Database/Routines.php:1016
+#: src/Database/Routines.php:1012
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "Rezultati izvedbe rutine %s"
 
-#: src/Database/Routines.php:1031
+#: src/Database/Routines.php:1027
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
@@ -16129,13 +16129,13 @@ msgstr ""
 "Samodejno smo vas odjavili zaradi nedejavnosti v zadnjih %s sekundah. Ko se "
 "ponovno prijavite, boste lahko nadaljevali z delom tam, kjer ste ostali."
 
-#: src/Export/Export.php:189 src/Export/Export.php:225
-#: src/Export/Export.php:433
+#: src/Export/Export.php:189 src/Export/Export.php:220
+#: src/Export/Export.php:428
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "Ni dovolj prostora za shranjevanje datoteke %s."
 
-#: src/Export/Export.php:386
+#: src/Export/Export.php:381
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
@@ -16143,18 +16143,18 @@ msgstr ""
 "Datoteka %s že obstaja na strežniku, spremenite ime novi ali prepišite "
 "obstoječo datoteko."
 
-#: src/Export/Export.php:393 src/Export/Export.php:403
+#: src/Export/Export.php:388 src/Export/Export.php:398
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "Spletni strežnik nima dovoljenja za shranjevanje datoteke %s."
 
-#: src/Export/Export.php:440
+#: src/Export/Export.php:435
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "Dump je shranjen v datoteko %s."
 
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
-#: src/Export/Export.php:779
+#: src/Export/Export.php:774
 msgid "Exporting a raw query is not supported for this export method."
 msgstr "Izvoz surove poizvedbe ni podprt pri tej metodi izvoza."
 
@@ -16236,53 +16236,53 @@ msgstr ""
 msgid "Session not found."
 msgstr "Seje nismo našli."
 
-#: src/Html/Generator.php:151
+#: src/Html/Generator.php:147
 #, php-format
 msgid "Jump to database “%s”."
 msgstr "Preskoči na zbirko podatkov \"%s\"."
 
-#: src/Html/Generator.php:217
+#: src/Html/Generator.php:213
 msgid "SSL is not being used"
 msgstr "SSL ni v uporabi"
 
-#: src/Html/Generator.php:224
+#: src/Html/Generator.php:220
 msgid "SSL is used with disabled verification"
 msgstr "SSL je v uporabi z onemogočenim preverjanjem"
 
-#: src/Html/Generator.php:226
+#: src/Html/Generator.php:222
 msgid "SSL is used without certification authority"
 msgstr "SSL je v uporabi brez overitelja potrdil"
 
-#: src/Html/Generator.php:229
+#: src/Html/Generator.php:225
 msgid "SSL is used"
 msgstr "SSL je v uporabi"
 
-#: src/Html/Generator.php:333
+#: src/Html/Generator.php:329
 msgid "The PHP function password_hash() with default options."
 msgstr "Funkcija PHP password_hash() s privzetimi možnostmi."
 
-#: src/Html/Generator.php:334
+#: src/Html/Generator.php:330
 msgid "password_hash() PHP function"
 msgstr "Funkcija PHP password_hash()"
 
-#: src/Html/Generator.php:504
+#: src/Html/Generator.php:500
 msgid "Skip Explain SQL"
 msgstr "Preskoči razlago stavka SQL"
 
-#: src/Html/Generator.php:536
+#: src/Html/Generator.php:532
 msgid "Without PHP code"
 msgstr "Brez kode PHP"
 
-#: src/Html/Generator.php:621
+#: src/Html/Generator.php:617
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "Uredi v vrstici"
 
-#: src/Html/Generator.php:746
+#: src/Html/Generator.php:742
 msgid "Static analysis:"
 msgstr "Statična analiza:"
 
-#: src/Html/Generator.php:749
+#: src/Html/Generator.php:745
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr "Med analizo smo našli %d napak."
@@ -16313,7 +16313,7 @@ msgstr ""
 "Funkciji ini_get in/ali ini_set sta onemogočeni v php.ini. phpMyAdmin "
 "potrebuje ti funkciji!"
 
-#: src/Http/Middleware/TokenRequestParamChecking.php:58
+#: src/Http/Middleware/TokenRequestParamChecking.php:56
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
@@ -16321,7 +16321,7 @@ msgstr ""
 "Nastavljanje piškotka seje je spodletelo. Morda uporabljate HTTP namesto "
 "HTTPS za dostop do phpMyAdmina."
 
-#: src/Http/Middleware/TokenRequestParamChecking.php:67
+#: src/Http/Middleware/TokenRequestParamChecking.php:65
 msgid "Error: Token mismatch"
 msgstr "Napaka: Neujemanje žetonov"
 
@@ -16525,7 +16525,7 @@ msgstr "Procedure:"
 msgid "Views:"
 msgstr "Pogledi:"
 
-#: src/Navigation/NavigationTree.php:742
+#: src/Navigation/NavigationTree.php:743
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
@@ -16534,11 +16534,11 @@ msgstr ""
 "zmogljivost. Razmislite o onemogočitvi združevanja vnosov na navigacijski "
 "plošči."
 
-#: src/Navigation/NavigationTree.php:805
+#: src/Navigation/NavigationTree.php:808
 msgid "Groups"
 msgstr "Skupine"
 
-#: src/Navigation/NavigationTree.php:912
+#: src/Navigation/NavigationTree.php:913
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
@@ -16547,11 +16547,11 @@ msgstr[1] "najdena %s rezultata"
 msgstr[2] "najdeni %s rezultati"
 msgstr[3] "najdenih %s rezultatov"
 
-#: src/Navigation/NavigationTree.php:1287
+#: src/Navigation/NavigationTree.php:1262
 msgid "Collapse all"
 msgstr "Skrči vse"
 
-#: src/Navigation/Nodes/NodeColumnContainer.php:32
+#: src/Navigation/Nodes/NodeColumnContainer.php:33
 msgctxt "Create new column"
 msgid "New"
 msgstr "Nov"
@@ -16561,61 +16561,61 @@ msgctxt "Create new database"
 msgid "New"
 msgstr "Novo"
 
-#: src/Navigation/Nodes/NodeDatabase.php:191
+#: src/Navigation/Nodes/NodeDatabase.php:193
 msgid "Show hidden items"
 msgstr "Prikaži skrite predmete"
 
-#: src/Navigation/Nodes/NodeEventContainer.php:31
+#: src/Navigation/Nodes/NodeEventContainer.php:32
 msgctxt "Create new event"
 msgid "New"
 msgstr "Nov"
 
 #: src/Navigation/Nodes/NodeFunctionContainer.php:22
-#: src/Navigation/Nodes/NodeFunctionContainer.php:24
+#: src/Navigation/Nodes/NodeFunctionContainer.php:26
 #: src/Plugins/Export/ExportSql.php:644 src/Plugins/Export/ExportXml.php:102
 msgid "Functions"
 msgstr "Funkcije"
 
-#: src/Navigation/Nodes/NodeFunctionContainer.php:31
+#: src/Navigation/Nodes/NodeFunctionContainer.php:37
 msgctxt "Create new function"
 msgid "New"
 msgstr "Nova"
 
-#: src/Navigation/Nodes/NodeIndexContainer.php:32
+#: src/Navigation/Nodes/NodeIndexContainer.php:33
 msgctxt "Create new index"
 msgid "New"
 msgstr "Nov"
 
-#: src/Navigation/Nodes/Node.php:583
+#: src/Navigation/Nodes/Node.php:568
 msgid "Expand/Collapse"
 msgstr "Razširi/Skrči"
 
 #: src/Navigation/Nodes/NodeProcedureContainer.php:22
-#: src/Navigation/Nodes/NodeProcedureContainer.php:24
+#: src/Navigation/Nodes/NodeProcedureContainer.php:26
 #: src/Plugins/Export/ExportSql.php:633 src/Plugins/Export/ExportXml.php:107
 msgid "Procedures"
 msgstr "Procedure"
 
-#: src/Navigation/Nodes/NodeProcedureContainer.php:31
+#: src/Navigation/Nodes/NodeProcedureContainer.php:37
 msgctxt "Create new procedure"
 msgid "New"
 msgstr "Nova"
 
-#: src/Navigation/Nodes/NodeProcedure.php:24
+#: src/Navigation/Nodes/NodeProcedure.php:26
 msgid "Procedure"
 msgstr "Procedura"
 
-#: src/Navigation/Nodes/NodeTableContainer.php:32
+#: src/Navigation/Nodes/NodeTableContainer.php:33
 msgctxt "Create new table"
 msgid "New"
 msgstr "Nova"
 
-#: src/Navigation/Nodes/NodeTriggerContainer.php:32
+#: src/Navigation/Nodes/NodeTriggerContainer.php:33
 msgctxt "Create new trigger"
 msgid "New"
 msgstr "Nov"
 
-#: src/Navigation/Nodes/NodeViewContainer.php:32
+#: src/Navigation/Nodes/NodeViewContainer.php:33
 msgctxt "Create new view"
 msgid "New"
 msgstr "Nov"
@@ -17969,7 +17969,7 @@ msgstr "Prosimo, preverite pravice mape, v kateri se nahaja zbirka podatkov."
 msgid "Details…"
 msgstr "Podrobnosti …"
 
-#: src/Replication/ReplicationGui.php:453
+#: src/Replication/ReplicationGui.php:441
 msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
@@ -17977,55 +17977,55 @@ msgstr ""
 "Povezava s strežnikom je onemogočena; prosimo, omogočite "
 "$cfg['AllowArbitraryServer'] v konfiguraciji phpMyAdmin."
 
-#: src/Replication/ReplicationGui.php:464
+#: src/Replication/ReplicationGui.php:452
 msgid "Replication started successfully."
 msgstr "Podvojevanje se je uspešno začelo."
 
-#: src/Replication/ReplicationGui.php:465
+#: src/Replication/ReplicationGui.php:453
 msgid "Error starting replication."
 msgstr "Napaka pri zagonu podvojevanja."
 
-#: src/Replication/ReplicationGui.php:468
+#: src/Replication/ReplicationGui.php:456
 msgid "Replication stopped successfully."
 msgstr "Podvojevanje je uspešno ustavljeno."
 
-#: src/Replication/ReplicationGui.php:469
+#: src/Replication/ReplicationGui.php:457
 msgid "Error stopping replication."
 msgstr "Napaka pri ustavljanju podvojevanja."
 
-#: src/Replication/ReplicationGui.php:472
+#: src/Replication/ReplicationGui.php:460
 msgid "Replication resetting successfully."
 msgstr "Ponastavljanje podvojevanja je bilo uspešno."
 
-#: src/Replication/ReplicationGui.php:473
+#: src/Replication/ReplicationGui.php:461
 msgid "Error resetting replication."
 msgstr "Napaka pri ponastavljanju podvojevanja."
 
-#: src/Replication/ReplicationGui.php:476
+#: src/Replication/ReplicationGui.php:464
 msgid "Success."
 msgstr "Uspešno."
 
-#: src/Replication/ReplicationGui.php:477
+#: src/Replication/ReplicationGui.php:465
 msgid "Error."
 msgstr "Napaka."
 
-#: src/Replication/ReplicationGui.php:522
+#: src/Replication/ReplicationGui.php:510
 #, php-format
 msgid "Unable to connect to primary %s."
 msgstr "Ne morem se povezati z glavnim strežnikom %s."
 
-#: src/Replication/ReplicationGui.php:532
+#: src/Replication/ReplicationGui.php:520
 msgid ""
 "Unable to read primary log position. Possible privilege problem on primary."
 msgstr ""
 "Ne morem prebrati položaja dnevnika glavnega strežnika. Možne težave s "
 "privilegiji na glavnem strežniku."
 
-#: src/Replication/ReplicationGui.php:550
+#: src/Replication/ReplicationGui.php:538
 msgid "Unable to change primary!"
 msgstr "Ne morem spremeniti glavnega strežnika!"
 
-#: src/Replication/ReplicationGui.php:554
+#: src/Replication/ReplicationGui.php:542
 #, php-format
 msgid "Primary server changed successfully to %s."
 msgstr "Glavni strežnik smo uspešno spremenili v %s."
