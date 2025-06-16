@@ -3,6 +3,7 @@ phpMyAdmin - ChangeLog
 
 5.2.3 (not yet released)
 - issue #19548 Fix missing tooltip in status monitor log table
+- issue #19619 Fix horizontal scrollbar in server status pages
 
 5.2.2 (2025-01-21)
 - issue        [security] Fix for a path disclosure leak in the Monitoring tab
