@@ -124,7 +124,14 @@
           <label for="tableCommentsInput">{{ t('Table comments') }}</label>
         </div>
         <div class="col-6">
-          <input class="form-control" id="tableCommentsInput" type="text" name="comment" maxlength="2048" value="{{ table_comment }}">
+          <textarea 
+            id="tableCommentsInput"
+            class="form-control"
+            name="comment" 
+            maxlength="2048" 
+            class="textfield" 
+            rows="1"
+            cols="30">{{ table_comment }}</textarea>
         </div>
       </div>
 
