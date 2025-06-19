@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-06-15 00:31+0000\n"
-"PO-Revision-Date: 2024-10-29 18:22+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@mfauth.net>\n"
+"PO-Revision-Date: 2025-06-20 21:02+0000\n"
+"Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ug/>\n"
 "Language: ug\n"
@@ -16,19 +16,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.8.2-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
-#, fuzzy
-#| msgid "Cookies must be enabled past this point."
 msgid "Javascript must be enabled past this point!"
-msgstr "Cookies نى قوزغاتقاندىن كېيىن ئاندىن كېرىڭ."
+msgstr "چوقۇم Javascript قوزغىتىلسا داۋاملىشىدۇ."
 
 #: resources/templates/base.twig:46
-#, fuzzy
-#| msgid "Add %s"
 msgid "Open user account menu"
-msgstr "قوشۇلغىنى %s"
+msgstr "ئىشلەتكۈچى ھېسابات تىزىملىكىنى ئاچىدۇ"
 
 #: resources/templates/base.twig:57 resources/templates/navigation/main.twig:35
 #: resources/templates/navigation/main.twig:36
@@ -36,45 +32,37 @@ msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin ھۆججىتى"
 
 #: resources/templates/base.twig:62
-#, fuzzy
-#| msgid "Documentation"
 msgid "MariaDB documentation"
-msgstr "قوللانما"
+msgstr "MariaDB قوللانمىسى"
 
 #: resources/templates/base.twig:62
-#, fuzzy
-#| msgid "Documentation"
 msgid "MySQL documentation"
-msgstr "قوللانما"
+msgstr "MySQL قوللانمىسى"
 
 #: resources/templates/base.twig:73
-#, fuzzy
-#| msgid "General relation features"
 msgid "Appearance:"
-msgstr "ئاساسىي ئالاقە ۋاريانتلىرى"
+msgstr "كۆرۈنۈش:"
 
 #: resources/templates/base.twig:76 resources/templates/home/index.twig:150
 msgid "Color mode for the theme"
-msgstr ""
+msgstr "ئۆرنەكنىڭ رەڭ ھالىتى"
 
 #: resources/templates/base.twig:80 resources/templates/home/index.twig:154
 msgctxt "Light color mode of the theme"
 msgid "Light"
-msgstr ""
+msgstr "يورۇق"
 
 #: resources/templates/base.twig:82 resources/templates/home/index.twig:156
 msgctxt "Dark color mode of the theme"
 msgid "Dark"
-msgstr ""
+msgstr "قاراڭغۇ"
 
 #: resources/templates/base.twig:95
 #: resources/templates/server/status/monitor/index.twig:8
 #: src/Controllers/JavaScriptMessagesController.php:213 src/Menu.php:475
 #: src/Util.php:1351
-#, fuzzy
-#| msgid "General relation features"
 msgid "Settings"
-msgstr "ئاساسىي ئالاقە ۋاريانتلىرى"
+msgstr "تەڭشەك"
 
 #: resources/templates/base.twig:99 resources/templates/navigation/main.twig:30
 #: resources/templates/navigation/main.twig:31
@@ -83,10 +71,8 @@ msgstr "چېكىنىش"
 
 #: resources/templates/base.twig:108
 #: src/Controllers/JavaScriptMessagesController.php:313
-#, fuzzy
-#| msgid "General relation features"
 msgid "Page-related settings"
-msgstr "ئاساسىي ئالاقە ۋاريانتلىرى"
+msgstr "بەتكە ئالاقىدار تەڭشەك"
 
 #: resources/templates/base.twig:110
 msgid "Click on the bar to scroll to top of page"
@@ -103,9 +89,9 @@ msgid "phpMyAdmin Demo Server"
 msgstr "phpMyAdmin Demo Server"
 
 #: resources/templates/base.twig:159
-#, fuzzy, php-format
+#, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
-msgstr "ھازىر% 2 $ s تارمىقىدىن Git تۈزىتىلگەن نۇسخىسى% 1 $ s."
+msgstr "ھازىر Git نىڭ %1$s نەشرىنىڭ %2$s شېخى ئىجرا قىلىنىۋاتىدۇ."
 
 #: resources/templates/base.twig:161
 msgid "Git information missing!"
@@ -190,10 +176,8 @@ msgstr "بوشلۇق"
 
 #: resources/templates/columns_definitions/column_attributes.twig:165
 #: resources/templates/table/structure/display_partitions.twig:27
-#, fuzzy
-#| msgid "Compression"
 msgid "Expression"
-msgstr "پىرىسلاش"
+msgstr "ئىپادە"
 
 #: resources/templates/columns_definitions/column_attributes.twig:185
 msgid "first"
@@ -201,9 +185,9 @@ msgstr "بىرىنچى"
 
 #: resources/templates/columns_definitions/column_attributes.twig:190
 #: resources/templates/table/structure/display_structure.twig:439
-#, fuzzy, php-format
+#, php-format
 msgid "after %s"
-msgstr "% s دىن كېيىن"
+msgstr "%s دىن كېيىن"
 
 #: resources/templates/columns_definitions/column_attributes.twig:216
 #: resources/templates/columns_definitions/column_attributes.twig:239
@@ -234,10 +218,8 @@ msgstr "جەدۋەل ئىسمى"
 #: resources/templates/database/central_columns/main.twig:202
 #: resources/templates/export.twig:281 resources/templates/export.twig:297
 #: resources/templates/export.twig:313
-#, fuzzy
-#| msgid "And"
 msgid "Add"
-msgstr "ۋە"
+msgstr "قوش"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:38
 #, fuzzy
@@ -8417,12 +8399,13 @@ msgstr "كۈنىگە"
 
 #: src/Advisory/Rules.php:34
 msgid "Uptime below one day"
-msgstr "بىر كۈندىن تۆۋەن ۋاقىت"
+msgstr "ئىجرا قىلىنغان ۋاقتى بىر كۈندىن ئاز"
 
 #: src/Advisory/Rules.php:37
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
 msgstr ""
-"ئىشلىتىش ۋاقتى 1 كۈنگە يەتمەيدۇ ، ئىقتىدار تەڭشەش توغرا بولماسلىقى مۇمكىن."
+"ئىجرا قىلىنغان ۋاقتى بىر كۈندىن ئاز، ئۈنۈمنى تەڭشەش تەۋسىيەسى توغرا "
+"بولماسلىقى مۇمكىن."
 
 #: src/Advisory/Rules.php:39
 msgid ""
@@ -13235,13 +13218,13 @@ msgstr "ئىزدەش"
 
 #: src/Controllers/ChangeLogController.php:54
 #: src/Controllers/LicenseController.php:44
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
-"% S ھۆججىتىنى بۇ سىستېمىدا ئىشلەتكىلى بولمايدۇ ، تېخىمۇ كۆپ ئۇچۇرغا ئېرىشىش "
-"ئۈچۈن% s نى زىيارەت قىلىڭ."
+"بۇ سىستېمىدا %s ھۆججەتنى ئىشلەتكىلى بولمايدۇ ، تېخىمۇ كۆپ ئۇچۇرغا ئېرىشىش "
+"ئۈچۈن %s نى زىيارەت قىلىڭ."
 
 #: src/Controllers/Console/Bookmark/AddController.php:40
 #: src/Controllers/JavaScriptMessagesController.php:566
