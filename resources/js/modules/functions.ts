@@ -2390,6 +2390,7 @@ export function onloadEnumSetEditor (): void {
             cursor: 'move',
             tolerance: 'pointer'
         });
+
         // slider for choosing how many fields to add
         $('#enumEditorModal').find('.slider').slider({
             animate: true,
