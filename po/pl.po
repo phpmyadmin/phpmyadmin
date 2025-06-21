@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-02-27 14:25-0300\n"
-"PO-Revision-Date: 2024-10-17 16:16+0000\n"
-"Last-Translator: KwiatekMiki <niecierpiehiszpanskiego@gmail.com>\n"
+"PO-Revision-Date: 2025-06-22 06:47+0000\n"
+"Last-Translator: \"Lisek (Damian Bartyś)\" <damianbart22@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/5-2/pl/"
 ">\n"
 "Language: pl\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.8-rc\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -4940,11 +4940,10 @@ msgstr ""
 "[kbd]signon[/kbd]!"
 
 #: libraries/classes/Config/Validator.php:297
-#, fuzzy
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr ""
-"Pusty adres URL logowania podczas korzystania z metody uwierzytelniania "
-"[kbd]signon[/kbd]!"
+"Pusty adres URL logowania podczas korzystania z metody uwierzytelniania [kbd]"
+"signon[/kbd]!"
 
 #: libraries/classes/Config/Validator.php:351
 msgid ""
@@ -6844,7 +6843,6 @@ msgid "Third step of normalization (3NF)"
 msgstr "Trzeci krok normalizacji (3NF)"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:436
-#, fuzzy
 msgid "Confirm transitive dependencies"
 msgstr "Potwierdź zależności przejściowe"
 
@@ -19256,9 +19254,8 @@ msgid "Browse/Edit the points"
 msgstr "Przeglądaj/Edytuj punkty"
 
 #: templates/table/zoom_search/result_form.twig:14
-#, fuzzy
 msgid "How to use"
-msgstr "Jak korzystać"
+msgstr "Jak używać"
 
 #: templates/table/zoom_search/result_form.twig:17
 msgid "Reset zoom"
@@ -19271,7 +19268,6 @@ msgstr "Przełącz nawigację"
 
 #. l10n: Current page
 #: templates/top_menu.twig:14
-#, fuzzy
 msgid "(current)"
 msgstr "(obecny)"
 
