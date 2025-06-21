@@ -318,9 +318,6 @@ const DatabaseTriggers = {
                     addDatepicker($(this).css('width', '95%'), 'datetime');
                 });
 
-                // @ts-ignore
-                $.datepicker.initialized = false;
-
                 if ($('input[name=editor_process_edit]').length > 0) {
                     isEditMode = true;
                 }
@@ -519,12 +516,6 @@ AJAX.registerOnload('triggers.js', function () {
      */
     $(document).on('click', 'a.ajax.add_anchor, a.ajax.edit_anchor', function (event) {
         event.preventDefault();
-
-        if ($(this).hasClass('add_anchor')) {
-            // @ts-ignore
-            $.datepicker.initialized = false;
-        }
-
         DatabaseTriggers.editorDialog($(this).hasClass('add_anchor'), $(this));
     });
 
