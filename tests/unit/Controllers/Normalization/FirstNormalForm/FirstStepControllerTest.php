@@ -37,9 +37,10 @@ class FirstStepControllerTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['normalizeTo' => $normalizeTo]);
 
+        $relation = new Relation($dbi);
         $controller = new FirstStepController(
             $response,
-            new Normalization($dbi, new Relation($dbi), new Transformations(), $template),
+            new Normalization($dbi, $relation, new Transformations($dbi, $relation), $template),
         );
         $controller($request);
 

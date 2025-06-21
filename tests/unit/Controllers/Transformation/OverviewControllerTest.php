@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Transformation;
 
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Transformation\OverviewController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -27,8 +27,6 @@ class OverviewControllerTest extends AbstractTestCase
 
         $this->setGlobalConfig();
 
-        DatabaseInterface::$instance = $this->createDatabaseInterface();
-
         Current::$database = 'db';
         Current::$table = 'table';
     }
@@ -37,7 +35,8 @@ class OverviewControllerTest extends AbstractTestCase
     {
         $response = new ResponseRenderer();
 
-        $controller = new OverviewController($response, new Transformations());
+        $dbi = $this->createDatabaseInterface();
+        $controller = new OverviewController($response, new Transformations($dbi, new Relation($dbi)));
 
         $controller(self::createStub(ServerRequest::class));
         $actual = $response->getHTMLResult();

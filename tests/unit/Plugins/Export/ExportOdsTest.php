@@ -57,11 +57,8 @@ class ExportOdsTest extends AbstractTestCase
         Export::$bufferNeeded = false;
         Export::$asFile = true;
         Export::$saveOnServer = false;
-        $this->object = new ExportOds(
-            new Relation($dbi),
-            new Export($dbi),
-            new Transformations(),
-        );
+        $relation = new Relation($dbi);
+        $this->object = new ExportOds($relation, new Export($dbi), new Transformations($dbi, $relation));
     }
 
     /**

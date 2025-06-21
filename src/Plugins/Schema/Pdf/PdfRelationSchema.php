@@ -85,13 +85,15 @@ class PdfRelationSchema extends ExportRelationSchema
     private Transformations $transformations;
 
     private Pdf $pdf;
+    private DatabaseInterface $dbi;
 
     /** @see Pdf */
     public function __construct(Relation $relation, DatabaseName $db)
     {
         parent::__construct($relation, $db);
 
-        $this->transformations = new Transformations();
+        $this->dbi = DatabaseInterface::getInstance();
+        $this->transformations = new Transformations($this->dbi, $relation);
 
         $this->setShowGrid(isset($_REQUEST['pdf_show_grid']));
         $this->setShowColor(isset($_REQUEST['pdf_show_color']));
@@ -447,7 +449,6 @@ class PdfRelationSchema extends ExportRelationSchema
         $this->pdf->Cell(0, 9, __('Table of contents'), 1, 0, 'C');
         $this->pdf->Ln(15);
         $i = 1;
-        $dbi = DatabaseInterface::getInstance();
         foreach ($alltables as $table) {
             $this->pdf->customLinks['doc'][$table]['-'] = $this->pdf->AddLink();
             $this->pdf->setX(10);
@@ -465,7 +466,7 @@ class PdfRelationSchema extends ExportRelationSchema
             $this->pdf->setX(10);
             $this->pdf->Cell(0, 6, $i . ' ' . $table, 0, 1, 'L', false, $this->pdf->customLinks['doc'][$table]['-']);
             // $this->diagram->Ln(1);
-            $fields = $dbi->getColumns($this->db->getName(), $table);
+            $fields = $this->dbi->getColumns($this->db->getName(), $table);
             foreach ($fields as $row) {
                 $this->pdf->setX(20);
                 $fieldName = $row->field;
@@ -521,7 +522,7 @@ class PdfRelationSchema extends ExportRelationSchema
                 $mimeMap = $this->transformations->getMime($this->db->getName(), $table, true);
             }
 
-            $showTable = $dbi->getTable($this->db->getName(), $table)->getStatusInfo();
+            $showTable = $this->dbi->getTable($this->db->getName(), $table)->getStatusInfo();
             $showComment = $showTable['Comment'] ?? '';
             $createTime = isset($showTable['Create_time'])
                 ? Util::localisedDate(new DateTimeImmutable($showTable['Create_time']))
@@ -536,7 +537,7 @@ class PdfRelationSchema extends ExportRelationSchema
             /**
              * Gets fields properties
              */
-            $columns = $dbi->getColumns($this->db->getName(), $table);
+            $columns = $this->dbi->getColumns($this->db->getName(), $table);
 
             // Find which tables are related with the current one and write it in
             // an array

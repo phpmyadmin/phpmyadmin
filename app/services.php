@@ -219,7 +219,8 @@ return [
             'class' => TrackingChecker::class,
             'arguments' => ['$dbi' => '@dbi', '$relation' => '@relation'],
         ],
-        'transformations' => ['class' => Transformations::class],
+        'transformations' => ['class' => Transformations::class, 'arguments' => ['@dbi', '@relation']],
+        Transformations::class => 'transformations',
         'triggers' => ['class' => Triggers::class, 'arguments' => ['@dbi']],
         'user_password' => [
             'class' => UserPassword::class,

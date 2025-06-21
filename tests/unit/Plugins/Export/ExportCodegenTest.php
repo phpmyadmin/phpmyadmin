@@ -39,11 +39,8 @@ class ExportCodegenTest extends AbstractTestCase
 
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
-        $this->object = new ExportCodegen(
-            new Relation($dbi),
-            new Export($dbi),
-            new Transformations(),
-        );
+        $relation = new Relation($dbi);
+        $this->object = new ExportCodegen($relation, new Export($dbi), new Transformations($dbi, $relation));
     }
 
     /**

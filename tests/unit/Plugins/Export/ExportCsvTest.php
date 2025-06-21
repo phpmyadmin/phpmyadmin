@@ -46,11 +46,8 @@ class ExportCsvTest extends AbstractTestCase
         Current::$lang = '';
         Export::$saveFilename = '';
 
-        $this->object = new ExportCsv(
-            new Relation($dbi),
-            new Export($dbi),
-            new Transformations(),
-        );
+        $relation = new Relation($dbi);
+        $this->object = new ExportCsv($relation, new Export($dbi), new Transformations($dbi, $relation));
     }
 
     /**

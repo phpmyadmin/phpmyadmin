@@ -51,11 +51,8 @@ class ExportXmlTest extends AbstractTestCase
         ExportPlugin::$singleTable = false;
         Current::$database = 'db';
         Config::getInstance()->selectedServer['DisableIS'] = true;
-        $this->object = new ExportXml(
-            new Relation($dbi),
-            new Export($dbi),
-            new Transformations(),
-        );
+        $relation = new Relation($dbi);
+        $this->object = new ExportXml($relation, new Export($dbi), new Transformations($dbi, $relation));
     }
 
     /**
