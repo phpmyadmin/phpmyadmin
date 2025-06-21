@@ -99,27 +99,14 @@ class PluginsTest extends AbstractTestCase
     public function testGetChoice(): void
     {
         $dbi = DatabaseInterface::getInstance();
+        $relation = new Relation($dbi);
+        $transformations = new Transformations($dbi, $relation);
+        $export = new Export($dbi);
         $exportList = [
-            new Plugins\Export\ExportJson(
-                new Relation($dbi),
-                new Export($dbi),
-                new Transformations(),
-            ),
-            new Plugins\Export\ExportOds(
-                new Relation($dbi),
-                new Export($dbi),
-                new Transformations(),
-            ),
-            new Plugins\Export\ExportSql(
-                new Relation($dbi),
-                new Export($dbi),
-                new Transformations(),
-            ),
-            new Plugins\Export\ExportXml(
-                new Relation($dbi),
-                new Export($dbi),
-                new Transformations(),
-            ),
+            new Plugins\Export\ExportJson($relation, $export, $transformations),
+            new Plugins\Export\ExportOds($relation, $export, $transformations),
+            new Plugins\Export\ExportSql($relation, $export, $transformations),
+            new Plugins\Export\ExportXml($relation, $export, $transformations),
         ];
         $actual = Plugins::getChoice($exportList, 'xml');
         $expected = [

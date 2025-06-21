@@ -67,11 +67,8 @@ class ExportTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
         $export = new Export($dbi);
-        $exportPlugin = new ExportPhparray(
-            new Relation($dbi),
-            new Export($dbi),
-            new Transformations(),
-        );
+        $relation = new Relation($dbi);
+        $exportPlugin = new ExportPhparray($relation, new Export($dbi), new Transformations($dbi, $relation));
         $finalFileName = $export->getFinalFilename($exportPlugin, 'zip', 'myfilename');
         self::assertSame('myfilename.php.zip', $finalFileName);
         $finalFileName = $export->getFinalFilename($exportPlugin, 'gzip', 'myfilename');
@@ -85,11 +82,8 @@ class ExportTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
         $export = new Export($dbi);
-        $exportPlugin = new ExportPhparray(
-            new Relation($dbi),
-            new Export($dbi),
-            new Transformations(),
-        );
+        $relation = new Relation($dbi);
+        $exportPlugin = new ExportPhparray($relation, new Export($dbi), new Transformations($dbi, $relation));
         $mimeType = $export->getMimeType($exportPlugin, 'zip');
         self::assertSame('application/zip', $mimeType);
         $mimeType = $export->getMimeType($exportPlugin, 'gzip');
@@ -131,12 +125,13 @@ class ExportTest extends AbstractTestCase
         $export = new Export($dbi);
 
         ExportPlugin::$exportType = ExportType::Database;
+        $relation = new Relation($dbi);
         $export->exportDatabase(
             DatabaseName::from('test_db'),
             ['test_table'],
             ['test_table'],
             ['test_table'],
-            new ExportSql(new Relation($dbi), $export, new Transformations()),
+            new ExportSql($relation, $export, new Transformations($dbi, $relation)),
             [],
             '',
         );
@@ -205,9 +200,10 @@ SQL;
         DatabaseInterface::$instance = $dbi;
         $export = new Export($dbi);
 
+        $relation = new Relation($dbi);
         $export->exportServer(
             ['test_db'],
-            new ExportSql(new Relation($dbi), $export, new Transformations()),
+            new ExportSql($relation, $export, new Transformations($dbi, $relation)),
             [],
             '',
         );

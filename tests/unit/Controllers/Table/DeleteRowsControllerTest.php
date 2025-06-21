@@ -66,7 +66,7 @@ class DeleteRowsControllerTest extends AbstractTestCase
             $dbi,
             $relation,
             new RelationCleanup($dbi, $relation),
-            new Transformations(),
+            new Transformations($dbi, $relation),
             new Template($config),
             new BookmarkRepository($dbi, $relation),
             $config,

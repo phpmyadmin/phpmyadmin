@@ -39,7 +39,7 @@ abstract class ExportPlugin implements Plugin
     final public function __construct(
         public Relation $relation,
         protected Export $export,
-        protected Transformations $transformations,
+        public Transformations $transformations,
     ) {
         $this->init();
         $this->properties = $this->setProperties();

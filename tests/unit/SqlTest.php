@@ -66,7 +66,7 @@ class SqlTest extends AbstractTestCase
             $this->dbi,
             $relation,
             new RelationCleanup($this->dbi, $relation),
-            new Transformations(),
+            new Transformations($this->dbi, $relation),
             new Template(),
             new BookmarkRepository($this->dbi, $relation),
             Config::getInstance(),

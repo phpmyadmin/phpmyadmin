@@ -99,7 +99,7 @@ class StructureControllerTest extends AbstractTestCase
             $response,
             $template,
             $relation,
-            new Transformations(),
+            new Transformations($this->dbi, $relation),
             $this->dbi,
             $pageSettings,
             new DbTableExists($this->dbi),

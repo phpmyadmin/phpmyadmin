@@ -94,10 +94,11 @@ class InsertEditTest extends AbstractTestCase
         $config->settings['Confirm'] = true;
         $config->settings['LoginCookieValidity'] = 1440;
         $config->settings['enable_drag_drop_import'] = true;
+        $relation = new Relation($this->dbi);
         $this->insertEdit = new InsertEdit(
             $this->dbi,
-            new Relation($this->dbi),
-            new Transformations(),
+            $relation,
+            new Transformations($this->dbi, $relation),
             new FileListing(),
             new Template(),
             $config,
@@ -207,10 +208,11 @@ class InsertEditTest extends AbstractTestCase
             ->willReturn([], []);
 
         DatabaseInterface::$instance = $dbi;
+        $relation = new Relation($dbi);
         $this->insertEdit = new InsertEdit(
             $dbi,
-            new Relation($dbi),
-            new Transformations(),
+            $relation,
+            new Transformations($dbi, $relation),
             new FileListing(),
             new Template(),
             Config::getInstance(),
@@ -252,10 +254,11 @@ class InsertEditTest extends AbstractTestCase
             ->willReturn([$meta]);
 
         DatabaseInterface::$instance = $dbi;
+        $relation = new Relation($dbi);
         $this->insertEdit = new InsertEdit(
             $dbi,
-            new Relation($dbi),
-            new Transformations(),
+            $relation,
+            new Transformations($dbi, $relation),
             new FileListing(),
             new Template(),
             Config::getInstance(),
@@ -287,10 +290,11 @@ class InsertEditTest extends AbstractTestCase
             ->willReturn($resultStub);
 
         DatabaseInterface::$instance = $dbi;
+        $relation = new Relation($dbi);
         $this->insertEdit = new InsertEdit(
             $dbi,
-            new Relation($dbi),
-            new Transformations(),
+            $relation,
+            new Transformations($dbi, $relation),
             new FileListing(),
             new Template(),
             Config::getInstance(),
@@ -1026,10 +1030,11 @@ class InsertEditTest extends AbstractTestCase
             ->getMock();
 
         DatabaseInterface::$instance = $dbi;
+        $relation = new Relation($dbi);
         $this->insertEdit = new InsertEdit(
             $dbi,
-            new Relation($dbi),
-            new Transformations(),
+            $relation,
+            new Transformations($dbi, $relation),
             new FileListing(),
             new Template(),
             Config::getInstance(),
@@ -1241,10 +1246,11 @@ class InsertEditTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         Current::$database = 'db';
         Current::$table = 'table';
+        $relation = new Relation($dbi);
         $this->insertEdit = new InsertEdit(
             $dbi,
-            new Relation($dbi),
-            new Transformations(),
+            $relation,
+            new Transformations($dbi, $relation),
             new FileListing(),
             new Template(),
             Config::getInstance(),
@@ -1324,10 +1330,11 @@ class InsertEditTest extends AbstractTestCase
         $_POST['submit_type'] = '';
 
         $dbi = DatabaseInterface::getInstance();
+        $relation = new Relation($dbi);
         $this->insertEdit = new InsertEdit(
             $dbi,
-            new Relation($dbi),
-            new Transformations(),
+            $relation,
+            new Transformations($dbi, $relation),
             new FileListing(),
             new Template(),
             Config::getInstance(),
@@ -1347,10 +1354,11 @@ class InsertEditTest extends AbstractTestCase
         $_POST['submit_type'] = '';
 
         $dbi = DatabaseInterface::getInstance();
+        $relation = new Relation($dbi);
         $this->insertEdit = new InsertEdit(
             $dbi,
-            new Relation($dbi),
-            new Transformations(),
+            $relation,
+            new Transformations($dbi, $relation),
             new FileListing(),
             new Template(),
             Config::getInstance(),
@@ -1379,10 +1387,11 @@ class InsertEditTest extends AbstractTestCase
             ->willReturn($warnings);
 
         DatabaseInterface::$instance = $dbi;
+        $relation = new Relation($dbi);
         $this->insertEdit = new InsertEdit(
             $dbi,
-            new Relation($dbi),
-            new Transformations(),
+            $relation,
+            new Transformations($dbi, $relation),
             new FileListing(),
             new Template(),
             Config::getInstance(),
@@ -1429,10 +1438,11 @@ class InsertEditTest extends AbstractTestCase
             ->willReturn('2');
 
         DatabaseInterface::$instance = $dbi;
+        $relation = new Relation($dbi);
         $this->insertEdit = new InsertEdit(
             $dbi,
-            new Relation($dbi),
-            new Transformations(),
+            $relation,
+            new Transformations($dbi, $relation),
             new FileListing(),
             new Template(),
             Config::getInstance(),
@@ -2169,10 +2179,11 @@ class InsertEditTest extends AbstractTestCase
             ->willReturn(false, '123', '2013-08-28 06:34:14');
 
         DatabaseInterface::$instance = $dbi;
+        $relation = new Relation($dbi);
         $this->insertEdit = new InsertEdit(
             $dbi,
-            new Relation($dbi),
-            new Transformations(),
+            $relation,
+            new Transformations($dbi, $relation),
             new FileListing(),
             new Template(),
             Config::getInstance(),
@@ -2217,10 +2228,11 @@ class InsertEditTest extends AbstractTestCase
             ->willReturn($columns);
 
         DatabaseInterface::$instance = $dbi;
+        $relation = new Relation($dbi);
         $this->insertEdit = new InsertEdit(
             $dbi,
-            new Relation($dbi),
-            new Transformations(),
+            $relation,
+            new Transformations($dbi, $relation),
             new FileListing(),
             new Template(),
             Config::getInstance(),
@@ -2272,10 +2284,11 @@ class InsertEditTest extends AbstractTestCase
         $response = new ReflectionProperty(ResponseRenderer::class, 'instance');
         $response->setValue(null, $responseMock);
 
+        $relation = new Relation($dbi);
         $this->insertEdit = new InsertEdit(
             $dbi,
-            new Relation($dbi),
-            new Transformations(),
+            $relation,
+            new Transformations($dbi, $relation),
             new FileListing(),
             new Template(),
             Config::getInstance(),
@@ -2325,10 +2338,11 @@ class InsertEditTest extends AbstractTestCase
             ->willReturn(new Table('table', 'db', $dbi));
 
         DatabaseInterface::$instance = $dbi;
+        $relation = new Relation($dbi);
         $this->insertEdit = new InsertEdit(
             $dbi,
-            new Relation($dbi),
-            new Transformations(),
+            $relation,
+            new Transformations($dbi, $relation),
             new FileListing(),
             new Template(),
             Config::getInstance(),

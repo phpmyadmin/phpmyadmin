@@ -74,11 +74,8 @@ class ExportSqlTest extends AbstractTestCase
         ExportPlugin::$exportType = ExportType::Table;
         ExportPlugin::$singleTable = false;
 
-        $this->object = new ExportSql(
-            new Relation($dbi),
-            new Export($dbi),
-            new Transformations(),
-        );
+        $relation = new Relation($dbi);
+        $this->object = new ExportSql($relation, new Export($dbi), new Transformations($dbi, $relation));
         $this->object->useSqlBackquotes(false);
     }
 
@@ -889,7 +886,9 @@ SQL;
             );
 
         DatabaseInterface::$instance = $dbi;
-        $this->object->relation = new Relation($dbi);
+        $relation = new Relation($dbi);
+        $this->object = new ExportSql($relation, new Export($dbi), new Transformations($dbi, $relation));
+        $this->object->useSqlBackquotes(false);
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['sql_relation' => 'On', 'sql_mime' => 'On', 'sql_include_comments' => 'On']);

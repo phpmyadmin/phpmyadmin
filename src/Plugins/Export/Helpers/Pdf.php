@@ -90,8 +90,9 @@ class Pdf extends PdfLib
     ) {
         parent::__construct($orientation, $unit, $format, $unicode, $encoding, $diskcache, $pdfa);
 
-        $this->relation = new Relation(DatabaseInterface::getInstance());
-        $this->transformations = new Transformations();
+        $dbi = DatabaseInterface::getInstance();
+        $this->relation = new Relation($dbi);
+        $this->transformations = new Transformations($dbi, $this->relation);
     }
 
     /**

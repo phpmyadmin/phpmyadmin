@@ -95,7 +95,7 @@ class ReplaceControllerTest extends AbstractTestCase
         $dummyDbi = $this->createDbiDummy();
         $dbi = $this->createDatabaseInterface($dummyDbi);
         $relation = new Relation($dbi);
-        $transformations = new Transformations();
+        $transformations = new Transformations($dbi, $relation);
         $template = new Template();
         $response = new ResponseRenderer();
 

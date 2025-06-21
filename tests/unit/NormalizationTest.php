@@ -97,7 +97,8 @@ class NormalizationTest extends AbstractTestCase
             ->method('fetchSingleRow')
             ->willReturn(['`id`_cnt' => 0, '`col1`_cnt' => 0, '`col2`_cnt' => 0]);
 
-        $this->normalization = new Normalization($dbi, new Relation($dbi), new Transformations(), new Template());
+        $relation = new Relation($dbi);
+        $this->normalization = new Normalization($dbi, $relation, new Transformations($dbi, $relation), new Template());
     }
 
     /**
@@ -131,10 +132,11 @@ class NormalizationTest extends AbstractTestCase
         $db = 'testdb';
         $table = 'mytable';
         $numFields = 1;
+        $relation = new Relation($this->dbi);
         $normalization = new Normalization(
             $this->dbi,
-            new Relation($this->dbi),
-            new Transformations(),
+            $relation,
+            new Transformations($this->dbi, $relation),
             new Template(),
         );
         $result = $normalization->getHtmlForCreateNewColumn($userPrivileges, $numFields, $db, $table);

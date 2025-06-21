@@ -217,7 +217,7 @@ class Results
         private readonly string $sqlQuery,
     ) {
         $this->relation = new Relation($this->dbi);
-        $this->transformations = new Transformations();
+        $this->transformations = new Transformations($this->dbi, $this->relation);
         $this->template = new Template();
 
         $this->setDefaultTransformations();
