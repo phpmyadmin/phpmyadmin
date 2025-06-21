@@ -32,9 +32,10 @@ class FourthStepControllerTest extends AbstractTestCase
         $response = new ResponseRenderer();
         $template = new Template();
 
+        $relation = new Relation($dbi);
         $controller = new FourthStepController(
             $response,
-            new Normalization($dbi, new Relation($dbi), new Transformations(), $template),
+            new Normalization($dbi, $relation, new Transformations($dbi, $relation), $template),
         );
         $controller(self::createStub(ServerRequest::class));
 

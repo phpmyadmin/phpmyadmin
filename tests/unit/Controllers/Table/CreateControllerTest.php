@@ -272,7 +272,7 @@ class CreateControllerTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
             ->withParsedBody(['num_fields' => '2']);
 
-        $transformations = new Transformations();
+        $transformations = new Transformations($dbi, $relation);
         (new CreateController(
             $response,
             $transformations,

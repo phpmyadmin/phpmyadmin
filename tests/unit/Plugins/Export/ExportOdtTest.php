@@ -75,11 +75,8 @@ class ExportOdtTest extends AbstractTestCase
         ExportPlugin::$exportType = ExportType::Table;
         ExportPlugin::$singleTable = false;
         Config::getInstance()->selectedServer['DisableIS'] = true;
-        $this->object = new ExportOdt(
-            new Relation($this->dbi),
-            new Export($this->dbi),
-            new Transformations(),
-        );
+        $relation = new Relation($this->dbi);
+        $this->object = new ExportOdt($relation, new Export($this->dbi), new Transformations($this->dbi, $relation));
     }
 
     /**
@@ -574,9 +571,10 @@ class ExportOdtTest extends AbstractTestCase
 
     public function testGetTableDef(): void
     {
+        $relation = new Relation($this->dbi);
         $this->object = $this->getMockBuilder(ExportOdt::class)
             ->onlyMethods(['formatOneColumnDefinition'])
-            ->setConstructorArgs([new Relation($this->dbi), new Export($this->dbi), new Transformations()])
+            ->setConstructorArgs([$relation, new Export($this->dbi), new Transformations($this->dbi, $relation)])
             ->getMock();
 
         // case 1
@@ -613,7 +611,9 @@ class ExportOdtTest extends AbstractTestCase
             ->willReturn(['comment' => 'testComment']);
 
         DatabaseInterface::$instance = $dbi;
-        $this->object->relation = new Relation($dbi);
+        $relation = new Relation($dbi);
+        $this->object->relation = $relation;
+        $this->object->transformations = new Transformations($dbi, $relation);
 
         $this->object->expects(self::exactly(2))
             ->method('formatOneColumnDefinition')
@@ -694,7 +694,9 @@ class ExportOdtTest extends AbstractTestCase
             ->willReturn(['comment' => 'testComment']);
 
         DatabaseInterface::$instance = $dbi;
-        $this->object->relation = new Relation($dbi);
+        $relation = new Relation($dbi);
+        $this->object->relation = $relation;
+        $this->object->transformations = new Transformations($dbi, $relation);
         $this->object->buffer = '';
         $relationParameters = RelationParameters::fromArray([
             'relwork' => true,

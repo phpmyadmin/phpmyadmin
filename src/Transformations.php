@@ -52,6 +52,10 @@ class Transformations
     /** @var string[][]|null */
     private static array|null $availableMimeTypesStack = null;
 
+    public function __construct(private readonly DatabaseInterface $dbi, private readonly Relation $relation)
+    {
+    }
+
     /**
      * Returns array of options from string with options separated by comma,
      * removes quotes
@@ -283,9 +287,7 @@ class Transformations
      */
     public function getMime(string $db, string $table, bool $strict = false, bool $fullName = false): array|null
     {
-        $dbi = DatabaseInterface::getInstance();
-        $relation = new Relation($dbi);
-        $browserTransformationFeature = $relation->getRelationParameters()->browserTransformationFeature;
+        $browserTransformationFeature = $this->relation->getRelationParameters()->browserTransformationFeature;
         if ($browserTransformationFeature === null) {
             return null;
         }
@@ -303,8 +305,8 @@ class Transformations
                     . '`input_transformation_options`'
             . ' FROM ' . Util::backquote($browserTransformationFeature->database) . '.'
             . Util::backquote($browserTransformationFeature->columnInfo)
-            . ' WHERE `db_name` = ' . $dbi->quoteString($db, ConnectionType::ControlUser)
-            . ' AND `table_name` = ' . $dbi->quoteString($table, ConnectionType::ControlUser)
+            . ' WHERE `db_name` = ' . $this->dbi->quoteString($db, ConnectionType::ControlUser)
+            . ' AND `table_name` = ' . $this->dbi->quoteString($table, ConnectionType::ControlUser)
             . ' AND ( `mimetype` != \'\'' . (! $strict ?
                 ' OR `transformation` != \'\''
                 . ' OR `transformation_options` != \'\''
@@ -321,7 +323,7 @@ class Transformations
          *     input_transformation_options: string
          * }> $result
          */
-        $result = $dbi->fetchResult($comQry, 'column_name', null, ConnectionType::ControlUser);
+        $result = $this->dbi->fetchResult($comQry, 'column_name', null, ConnectionType::ControlUser);
 
         foreach ($result as $column => $values) {
             // convert mimetype to new format (f.e. Text_Plain, etc)
@@ -370,9 +372,7 @@ class Transformations
         string $inputTransformOpts,
         bool $forcedelete = false,
     ): bool {
-        $dbi = DatabaseInterface::getInstance();
-        $relation = new Relation($dbi);
-        $browserTransformationFeature = $relation->getRelationParameters()->browserTransformationFeature;
+        $browserTransformationFeature = $this->relation->getRelationParameters()->browserTransformationFeature;
         if ($browserTransformationFeature === null) {
             return false;
         }
@@ -394,11 +394,11 @@ class Transformations
                     `comment`
                FROM ' . Util::backquote($browserTransformationFeature->database) . '.'
             . Util::backquote($browserTransformationFeature->columnInfo) . '
-              WHERE `db_name`     = ' . $dbi->quoteString($db, ConnectionType::ControlUser) . '
-                AND `table_name`  = ' . $dbi->quoteString($table, ConnectionType::ControlUser) . '
-                AND `column_name` = ' . $dbi->quoteString($key, ConnectionType::ControlUser);
+              WHERE `db_name`     = ' . $this->dbi->quoteString($db, ConnectionType::ControlUser) . '
+                AND `table_name`  = ' . $this->dbi->quoteString($table, ConnectionType::ControlUser) . '
+                AND `column_name` = ' . $this->dbi->quoteString($key, ConnectionType::ControlUser);
 
-        $testRs = $dbi->queryAsControlUser($testQry);
+        $testRs = $this->dbi->queryAsControlUser($testQry);
 
         if ($testRs->numRows() > 0) {
             $row = $testRs->fetchAssoc();
@@ -409,15 +409,15 @@ class Transformations
                     . Util::backquote($browserTransformationFeature->columnInfo)
                     . ' SET '
                     . '`mimetype` = '
-                    . $dbi->quoteString($mimetype, ConnectionType::ControlUser) . ', '
+                    . $this->dbi->quoteString($mimetype, ConnectionType::ControlUser) . ', '
                     . '`transformation` = '
-                    . $dbi->quoteString($transformation, ConnectionType::ControlUser) . ', '
+                    . $this->dbi->quoteString($transformation, ConnectionType::ControlUser) . ', '
                     . '`transformation_options` = '
-                    . $dbi->quoteString($transformationOpts, ConnectionType::ControlUser) . ', '
+                    . $this->dbi->quoteString($transformationOpts, ConnectionType::ControlUser) . ', '
                     . '`input_transformation` = '
-                    . $dbi->quoteString($inputTransform, ConnectionType::ControlUser) . ', '
+                    . $this->dbi->quoteString($inputTransform, ConnectionType::ControlUser) . ', '
                     . '`input_transformation_options` = '
-                    . $dbi->quoteString($inputTransformOpts, ConnectionType::ControlUser);
+                    . $this->dbi->quoteString($inputTransformOpts, ConnectionType::ControlUser);
             } else {
                 $updQuery = 'DELETE FROM '
                     . Util::backquote($browserTransformationFeature->database)
@@ -425,9 +425,9 @@ class Transformations
             }
 
             $updQuery .= '
-                WHERE `db_name`     = ' . $dbi->quoteString($db, ConnectionType::ControlUser) . '
-                  AND `table_name`  = ' . $dbi->quoteString($table, ConnectionType::ControlUser) . '
-                  AND `column_name` = ' . $dbi->quoteString($key, ConnectionType::ControlUser);
+                WHERE `db_name`     = ' . $this->dbi->quoteString($db, ConnectionType::ControlUser) . '
+                  AND `table_name`  = ' . $this->dbi->quoteString($table, ConnectionType::ControlUser) . '
+                  AND `column_name` = ' . $this->dbi->quoteString($key, ConnectionType::ControlUser);
         } elseif ($hasValue) {
             $updQuery = 'INSERT INTO '
                 . Util::backquote($browserTransformationFeature->database)
@@ -436,18 +436,18 @@ class Transformations
                 . 'transformation, transformation_options, '
                 . 'input_transformation, input_transformation_options) '
                 . ' VALUES('
-                . $dbi->quoteString($db, ConnectionType::ControlUser) . ','
-                . $dbi->quoteString($table, ConnectionType::ControlUser) . ','
-                . $dbi->quoteString($key, ConnectionType::ControlUser) . ','
-                . $dbi->quoteString($mimetype, ConnectionType::ControlUser) . ','
-                . $dbi->quoteString($transformation, ConnectionType::ControlUser) . ','
-                . $dbi->quoteString($transformationOpts, ConnectionType::ControlUser) . ','
-                . $dbi->quoteString($inputTransform, ConnectionType::ControlUser) . ','
-                . $dbi->quoteString($inputTransformOpts, ConnectionType::ControlUser) . ')';
+                . $this->dbi->quoteString($db, ConnectionType::ControlUser) . ','
+                . $this->dbi->quoteString($table, ConnectionType::ControlUser) . ','
+                . $this->dbi->quoteString($key, ConnectionType::ControlUser) . ','
+                . $this->dbi->quoteString($mimetype, ConnectionType::ControlUser) . ','
+                . $this->dbi->quoteString($transformation, ConnectionType::ControlUser) . ','
+                . $this->dbi->quoteString($transformationOpts, ConnectionType::ControlUser) . ','
+                . $this->dbi->quoteString($inputTransform, ConnectionType::ControlUser) . ','
+                . $this->dbi->quoteString($inputTransformOpts, ConnectionType::ControlUser) . ')';
         }
 
         if (isset($updQuery)) {
-            return (bool) $dbi->queryAsControlUser($updQuery);
+            return (bool) $this->dbi->queryAsControlUser($updQuery);
         }
 
         return false;
@@ -467,9 +467,7 @@ class Transformations
      */
     public function clear(string $db, string $table = '', string $column = ''): bool
     {
-        $dbi = DatabaseInterface::getInstance();
-        $relation = new Relation($dbi);
-        $browserTransformationFeature = $relation->getRelationParameters()->browserTransformationFeature;
+        $browserTransformationFeature = $this->relation->getRelationParameters()->browserTransformationFeature;
         if ($browserTransformationFeature === null) {
             return false;
         }
@@ -490,6 +488,6 @@ class Transformations
             $deleteSql .= '`db_name` = \'' . $db . '\' ';
         }
 
-        return (bool) $dbi->tryQuery($deleteSql);
+        return (bool) $this->dbi->tryQuery($deleteSql);
     }
 }

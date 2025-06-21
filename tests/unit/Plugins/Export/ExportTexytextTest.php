@@ -68,10 +68,11 @@ class ExportTexytextTest extends AbstractTestCase
         Current::$table = '';
         Current::$lang = 'en';
         Config::getInstance()->selectedServer['DisableIS'] = true;
+        $relation = new Relation($this->dbi);
         $this->object = new ExportTexytext(
-            new Relation($this->dbi),
+            $relation,
             new Export($this->dbi),
-            new Transformations(),
+            new Transformations($this->dbi, $relation),
         );
     }
 
@@ -259,9 +260,10 @@ class ExportTexytextTest extends AbstractTestCase
 
     public function testGetTableDef(): void
     {
+        $relation = new Relation($this->dbi);
         $this->object = $this->getMockBuilder(ExportTexytext::class)
             ->onlyMethods(['formatOneColumnDefinition'])
-            ->setConstructorArgs([new Relation($this->dbi), new Export($this->dbi), new Transformations()])
+            ->setConstructorArgs([$relation, new Export($this->dbi), new Transformations($this->dbi, $relation)])
             ->getMock();
 
         // case 1
@@ -297,7 +299,9 @@ class ExportTexytextTest extends AbstractTestCase
             ]);
 
         DatabaseInterface::$instance = $dbi;
-        $this->object->relation = new Relation($dbi);
+        $relation = new Relation($dbi);
+        $this->object->relation = $relation;
+        $this->object->transformations = new Transformations($dbi, $relation);
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['texytext_relation' => 'On', 'texytext_mime' => 'On', 'texytext_comments' => 'On']);

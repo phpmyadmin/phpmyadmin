@@ -46,11 +46,8 @@ class ExportPhparrayTest extends AbstractTestCase
         Current::$database = '';
         Current::$table = '';
         Current::$lang = 'en';
-        $this->object = new ExportPhparray(
-            new Relation($dbi),
-            new Export($dbi),
-            new Transformations(),
-        );
+        $relation = new Relation($dbi);
+        $this->object = new ExportPhparray($relation, new Export($dbi), new Transformations($dbi, $relation));
     }
 
     /**

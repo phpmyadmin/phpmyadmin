@@ -59,10 +59,19 @@ final class ChangeControllerTest extends AbstractTestCase
 
         $relation = new Relation($dbi);
         $template = new Template();
+        $insertEdit = new InsertEdit(
+            $dbi,
+            $relation,
+            new Transformations($dbi, $relation),
+            new FileListing(),
+            $template,
+            $config,
+        );
+
         (new ChangeController(
             $response,
             $template,
-            new InsertEdit($dbi, $relation, new Transformations(), new FileListing(), $template, $config),
+            $insertEdit,
             $relation,
             $pageSettings,
             new DbTableExists($dbi),
@@ -162,10 +171,19 @@ final class ChangeControllerTest extends AbstractTestCase
 
         $relation = new Relation($dbi);
         $template = new Template();
+        $insertEdit = new InsertEdit(
+            $dbi,
+            $relation,
+            new Transformations($dbi, $relation),
+            new FileListing(),
+            $template,
+            $config,
+        );
+
         (new ChangeController(
             $response,
             $template,
-            new InsertEdit($dbi, $relation, new Transformations(), new FileListing(), $template, $config),
+            $insertEdit,
             $relation,
             $pageSettings,
             new DbTableExists($dbi),

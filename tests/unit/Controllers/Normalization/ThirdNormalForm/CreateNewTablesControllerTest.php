@@ -56,9 +56,10 @@ class CreateNewTablesControllerTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['newTables' => $newTables]);
 
+        $relation = new Relation($dbi);
         $controller = new CreateNewTablesController(
             $response,
-            new Normalization($dbi, new Relation($dbi), new Transformations(), $template),
+            new Normalization($dbi, $relation, new Transformations($dbi, $relation), $template),
         );
         $controller($request);
 

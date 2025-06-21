@@ -80,7 +80,7 @@ class MultiTableQuery
             $dbi,
             $relation,
             new RelationCleanup($dbi, $relation),
-            new Transformations(),
+            new Transformations($dbi, $relation),
             new Template(),
             $bookmarkRepository,
             Config::getInstance(),

@@ -34,9 +34,10 @@ class AddNewPrimaryControllerTest extends AbstractTestCase
         $response = new ResponseRenderer();
         $template = new Template();
 
+        $relation = new Relation($dbi);
         $controller = new AddNewPrimaryController(
             $response,
-            new Normalization($dbi, new Relation($dbi), new Transformations(), $template),
+            new Normalization($dbi, $relation, new Transformations($dbi, $relation), $template),
             new UserPrivilegesFactory($dbi),
         );
         $controller(self::createStub(ServerRequest::class));
