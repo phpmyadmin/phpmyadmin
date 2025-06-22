@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-06-15 00:31+0000\n"
+"POT-Creation-Date: 2025-06-22 00:31+0000\n"
 "PO-Revision-Date: 2025-06-17 13:34+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@mfauth.net>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -284,7 +284,7 @@ msgstr "செல்க"
 #: resources/templates/columns_definitions/column_definitions_form.twig:68
 #: resources/templates/database/data_dictionary/index.twig:16
 #: resources/templates/table/structure/display_table_stats.twig:6
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:554
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:555
 msgid "Table comments:"
 msgstr "அட்டவணைக் கருத்துரைகள்:"
 
@@ -482,9 +482,9 @@ msgstr "ஒரு வெளிநாட்டு விசை."
 #: src/Plugins/Export/ExportOdt.php:441
 #: src/Plugins/Export/ExportTexytext.php:288
 #: src/Plugins/Export/ExportTexytext.php:352
-#: src/Plugins/Export/Helpers/Pdf.php:486
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:601
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:623
+#: src/Plugins/Export/Helpers/Pdf.php:487
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:602
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:624
 msgid "Column"
 msgstr "நிரல்வரிசை"
 
@@ -603,7 +603,7 @@ msgstr "கட்டமைப்பு"
 #: src/Plugins/Export/ExportHtmlword.php:439
 #: src/Plugins/Export/ExportOdt.php:556
 #: src/Plugins/Export/ExportTexytext.php:424
-#: src/Plugins/Export/Helpers/Pdf.php:330
+#: src/Plugins/Export/Helpers/Pdf.php:331
 msgid "Name"
 msgstr "பெயர்"
 
@@ -634,9 +634,9 @@ msgstr "பெயர்"
 #: src/Plugins/Export/ExportOdt.php:444
 #: src/Plugins/Export/ExportTexytext.php:289
 #: src/Plugins/Export/ExportTexytext.php:353
-#: src/Plugins/Export/Helpers/Pdf.php:488
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:602
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:624
+#: src/Plugins/Export/Helpers/Pdf.php:489
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:603
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:625
 msgid "Type"
 msgstr "வகை"
 
@@ -673,9 +673,9 @@ msgstr ""
 #: src/Plugins/Export/ExportOdt.php:450
 #: src/Plugins/Export/ExportTexytext.php:291
 #: src/Plugins/Export/ExportTexytext.php:355
-#: src/Plugins/Export/Helpers/Pdf.php:492
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:605
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:627
+#: src/Plugins/Export/Helpers/Pdf.php:493
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:606
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:628
 msgid "Default"
 msgstr "இயல்நிலை"
 
@@ -713,8 +713,8 @@ msgstr "அடுக்கு"
 #: resources/templates/columns_definitions/table_fields_definitions.twig:27
 #: resources/templates/database/central_columns/edit.twig:13
 #: resources/templates/table/structure/display_structure.twig:24
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:603
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:625
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:604
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:626
 msgid "Attributes"
 msgstr "பண்புக்கூறுகள்"
 
@@ -737,9 +737,9 @@ msgstr "பண்புக்கூறுகள்"
 #: src/Plugins/Export/ExportOdt.php:447
 #: src/Plugins/Export/ExportTexytext.php:290
 #: src/Plugins/Export/ExportTexytext.php:354
-#: src/Plugins/Export/Helpers/Pdf.php:490
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:604
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:626
+#: src/Plugins/Export/Helpers/Pdf.php:491
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:605
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:627
 msgid "Null"
 msgstr "வெற்று"
 
@@ -761,9 +761,9 @@ msgstr "சலுகைகளை சரிசெய்யவும்"
 #: src/Config/Descriptions.php:711 src/Plugins/Export/ExportHtmlword.php:355
 #: src/Plugins/Export/ExportLatex.php:508 src/Plugins/Export/ExportOdt.php:460
 #: src/Plugins/Export/ExportTexytext.php:361
-#: src/Plugins/Export/Helpers/Pdf.php:509
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:617
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:630
+#: src/Plugins/Export/Helpers/Pdf.php:510
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:618
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:631
 msgid "Comments"
 msgstr "கருத்துரைகள்"
 
@@ -781,7 +781,7 @@ msgstr "நிரல்வரிசையை நகர்த்து"
 #: src/Config/Descriptions.php:714 src/Plugins/Export/ExportHtmlword.php:362
 #: src/Plugins/Export/ExportOdt.php:467
 #: src/Plugins/Export/ExportTexytext.php:366
-#: src/Plugins/Export/Helpers/Pdf.php:517
+#: src/Plugins/Export/Helpers/Pdf.php:518
 msgid "Media type"
 msgstr "ஊடக வகை"
 
@@ -909,7 +909,7 @@ msgstr "முடக்கப்பட்டது"
 #: src/Plugins/Export/ExportHtmlword.php:562
 #: src/Plugins/Export/ExportLatex.php:567 src/Plugins/Export/ExportOdt.php:685
 #: src/Plugins/Export/ExportTexytext.php:522
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:669
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:670
 msgid "Yes"
 msgstr "ஆம்"
 
@@ -945,7 +945,7 @@ msgstr "ஆம்"
 #: src/Indexes/Index.php:472 src/Plugins/Export/ExportHtmlword.php:562
 #: src/Plugins/Export/ExportLatex.php:567 src/Plugins/Export/ExportOdt.php:685
 #: src/Plugins/Export/ExportTexytext.php:522
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:669
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:670
 msgid "No"
 msgstr "இல்லை"
 
@@ -1421,9 +1421,9 @@ msgstr "அச்சிடுக"
 #: src/Plugins/Export/ExportHtmlword.php:349
 #: src/Plugins/Export/ExportLatex.php:504 src/Plugins/Export/ExportOdt.php:454
 #: src/Plugins/Export/ExportTexytext.php:357
-#: src/Plugins/Export/Helpers/Pdf.php:501
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:607
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:629
+#: src/Plugins/Export/Helpers/Pdf.php:502
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:608
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:630
 msgid "Links to"
 msgstr "இணைப்புகள்"
 
@@ -1797,7 +1797,7 @@ msgstr "முடிவு"
 #: src/Plugins/Export/ExportHtmlword.php:442
 #: src/Plugins/Export/ExportOdt.php:565
 #: src/Plugins/Export/ExportTexytext.php:427
-#: src/Plugins/Export/Helpers/Pdf.php:336
+#: src/Plugins/Export/Helpers/Pdf.php:337
 msgid "Definition"
 msgstr "வரையறை"
 
@@ -2739,7 +2739,7 @@ msgstr ""
 #: resources/templates/database/structure/copy_form.twig:5
 #: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:260
 #: src/Plugins/Export/ExportSql.php:928 src/Plugins/Export/ExportXml.php:367
-#: src/Plugins/Export/Helpers/Pdf.php:176
+#: src/Plugins/Export/Helpers/Pdf.php:177
 msgid "Database:"
 msgstr "தரவுத்தளம்:"
 
@@ -3766,8 +3766,8 @@ msgstr "உங்களை இலக்கு தளத்திற்கு அ
 
 #: resources/templates/list_navigator.twig:4 src/BrowseForeigners.php:278
 #: src/Pdf.php:71 src/Pdf.php:91
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:458
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:483
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:459
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:484
 msgid "Page number:"
 msgstr "பக்க எண்:"
 
@@ -3920,7 +3920,7 @@ msgstr ""
 msgid "View:"
 msgstr "காண்க:"
 
-#: resources/templates/menu/main.twig:29 src/Plugins/Export/Helpers/Pdf.php:177
+#: resources/templates/menu/main.twig:29 src/Plugins/Export/Helpers/Pdf.php:178
 msgid "Table:"
 msgstr "அட்டவணை:"
 
@@ -6331,7 +6331,7 @@ msgstr "சனி->நிலை"
 #: src/Plugins/Export/ExportHtmlword.php:440
 #: src/Plugins/Export/ExportOdt.php:559
 #: src/Plugins/Export/ExportTexytext.php:425
-#: src/Plugins/Export/Helpers/Pdf.php:332 src/Server/Status/Processes.php:95
+#: src/Plugins/Export/Helpers/Pdf.php:333 src/Server/Status/Processes.php:95
 msgid "Time"
 msgstr "நேரம்"
 
@@ -7113,8 +7113,8 @@ msgstr "பகிர்வைத் திருத்து"
 
 #: resources/templates/table/structure/display_structure.twig:30
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:11
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:606
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:628
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:607
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:629
 msgid "Extra"
 msgstr "மிகை"
 
@@ -7347,7 +7347,7 @@ msgstr "நேரம்"
 #: src/Plugins/Export/ExportHtmlword.php:441
 #: src/Plugins/Export/ExportOdt.php:562
 #: src/Plugins/Export/ExportTexytext.php:426
-#: src/Plugins/Export/Helpers/Pdf.php:334
+#: src/Plugins/Export/Helpers/Pdf.php:335
 msgid "Event"
 msgstr "நிகழ்வு"
 
@@ -7942,8 +7942,8 @@ msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
 "below 25%%"
 msgstr ""
-"அனைத்து தற்காலிக அட்டவணைகளிலும்%s%% வட்டுக்கு எழுதப்பட்டுள்ளது, இந்த மதிப்பு 25%% குறைவா"
-"க இருக்க வேண்டும்"
+"அனைத்து தற்காலிக அட்டவணைகளிலும்%s%% வட்டுக்கு எழுதப்பட்டுள்ளது, இந்த மதிப்பு 25%% "
+"குறைவாக இருக்க வேண்டும்"
 
 #: src/Advisory/Rules.php:368
 msgid "Temp disk rate"
@@ -8470,10 +8470,10 @@ msgid ""
 "perfectly adequate for your system if you don't have much InnoDB tables or "
 "other services running on the same machine."
 msgstr ""
-"நீங்கள் தற்போது உங்கள் நினைவகத்தின்%s %% ஐ இன்னோடிபி இடையகக் குளத்திற்கு பயன்படுத்துகிறீர்கள்"
-". நீங்கள் 60 %% த்திற்கும் குறைவாக ஒதுக்குகிறீர்கள் என்றால் இந்த விதி சுடுகிறது, இருப்பினும்"
-" உங்களிடம் அதிக இன்னோடிபி அட்டவணைகள் அல்லது ஒரே கணினியில் இயங்கும் பிற சேவைகள் "
-"இல்லையென்றால் இது உங்கள் கணினிக்குப் போதுமானதாக இருக்கும்."
+"நீங்கள் தற்போது உங்கள் நினைவகத்தின்%s %% ஐ இன்னோடிபி இடையகக் குளத்திற்கு "
+"பயன்படுத்துகிறீர்கள். நீங்கள் 60 %% த்திற்கும் குறைவாக ஒதுக்குகிறீர்கள் என்றால் இந்த விதி "
+"சுடுகிறது, இருப்பினும் உங்களிடம் அதிக இன்னோடிபி அட்டவணைகள் அல்லது ஒரே கணினியில் "
+"இயங்கும் பிற சேவைகள் இல்லையென்றால் இது உங்கள் கணினிக்குப் போதுமானதாக இருக்கும்."
 
 #: src/Advisory/Rules.php:748
 msgid "MyISAM concurrent inserts"
@@ -11658,10 +11658,10 @@ msgid ""
 msgstr ""
 "இந்த %soption %s முடக்கப்பட வேண்டும், ஏனெனில் இது எந்தவொரு MySQL சேவையகத்திற்கும் "
 "உள்நுழைவதைத் தாக்குபவர்களை அனுமதிக்கிறது. இது தேவை என்று நீங்கள் நினைத்தால், %sRESTRICT "
-"உள்நுழைவை MySQL சேவையகம் %s அல்லது %s நம்பகமான பதிலாள்கள் பட்டியல் %s க்கு பயன்படுத்தவும்"
-". இருப்பினும், உங்கள் ஐபி ஒரு ஐஎச்பிக்கு சொந்தமானது என்றால், நம்பகமான ப்ராக்சீச் பட்டியலுடன் "
-"ஐபி அடிப்படையிலான பாதுகாப்பு நம்பகமானதாக இருக்காது, அங்கு நீங்கள் உட்பட ஆயிரக்கணக்கான "
-"பயனர்கள் இணைக்கப்பட்டுள்ளனர்."
+"உள்நுழைவை MySQL சேவையகம் %s அல்லது %s நம்பகமான பதிலாள்கள் பட்டியல் %s க்கு "
+"பயன்படுத்தவும். இருப்பினும், உங்கள் ஐபி ஒரு ஐஎச்பிக்கு சொந்தமானது என்றால், நம்பகமான "
+"ப்ராக்சீச் பட்டியலுடன் ஐபி அடிப்படையிலான பாதுகாப்பு நம்பகமானதாக இருக்காது, அங்கு நீங்கள் "
+"உட்பட ஆயிரக்கணக்கான பயனர்கள் இணைக்கப்பட்டுள்ளனர்."
 
 #: src/Config/ServerConfigChecks.php:77
 msgid ""
@@ -11740,8 +11740,8 @@ msgid ""
 "%5$d)."
 msgstr ""
 "%1$s உள்நுழைவு குக்கீ செல்லுபடியாகும் %2$sஐ விட அதிகமாக உள்ளது %3$sஅமர்வுக்கு "
-"அதிகமாகும். GC_MAXLIFETIME %4$sசீரற்ற அமர்வு செல்லாததை ஏற்படுத்தக்கூடும் (தற்போது அமர்வு"
-". GC_MAXLIFETIME %5$d)."
+"அதிகமாகும். GC_MAXLIFETIME %4$sசீரற்ற அமர்வு செல்லாததை ஏற்படுத்தக்கூடும் (தற்போது "
+"அமர்வு. GC_MAXLIFETIME %5$d)."
 
 #: src/Config/ServerConfigChecks.php:340
 #, fuzzy, php-format
@@ -12369,8 +12369,8 @@ msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
 msgstr ""
-"curl நீட்டிப்பு மற்றும் allow_url_fopen முடக்கப்பட்டுள்ளது. இதனால் தவறு அறிக்கை, பதிப்புச்"
-" சோதனை போன்ற அம்சங்கள் முடக்கப்பட்டுள்ளது."
+"curl நீட்டிப்பு மற்றும் allow_url_fopen முடக்கப்பட்டுள்ளது. இதனால் தவறு அறிக்கை, "
+"பதிப்புச் சோதனை போன்ற அம்சங்கள் முடக்கப்பட்டுள்ளது."
 
 #: src/Controllers/Import/ImportController.php:161
 #, php-format
@@ -12541,8 +12541,8 @@ msgid ""
 "Do you really want to DROP the selected partition(s)? This will also DELETE "
 "the data related to the selected partition(s)!"
 msgstr ""
-"தேர்ந்தெடுக்கப்பட்ட பகிர்வு(கள்)ஐக் (DROP)நீக்கம் செய்ய விரும்புகிறீர்களா? இது தேர்ந்தெடுக்கப்பட்"
-"ட பகிர்வு(கள்) தொடர்பான தரவை (DELETE) நீக்கும்!"
+"தேர்ந்தெடுக்கப்பட்ட பகிர்வு(கள்)ஐக் (DROP)நீக்கம் செய்ய விரும்புகிறீர்களா? இது "
+"தேர்ந்தெடுக்கப்பட்ட பகிர்வு(கள்) தொடர்பான தரவை (DELETE) நீக்கும்!"
 
 #: src/Controllers/JavaScriptMessagesController.php:82
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
@@ -12566,10 +12566,11 @@ msgid ""
 "refer to the tips at "
 msgstr ""
 "இந்தத் தரவு, உங்கள் தரவைப் புதிய இணைப்பிற்கு மாற்றியமைக்க முயற்சிக்கும். அரிதான "
-"சந்தர்ப்பங்களில், குறிப்பாகப் புதிய குறிமுறை அடுக்குவரிசையில் (collation) ஒரு குறிமுறை"
-" இல்லை என்றால், இந்தச் செயல்முறையால் தரவு புதிய குறிமுறை அடுக்குவரிசையில்(collation) "
-"தவறாகத் தோன்றக்கூடும்; இந்த வழக்கில், நீங்கள் அசல் குறிமுறை அடுக்குவரிசைக்கு மாற்றியமைக்க "
-"நாங்கள் பரிந்துரைக்கிறோம், மேலும் உதவிக்குறிப்புகளைப் பார்க்கவும் "
+"சந்தர்ப்பங்களில், குறிப்பாகப் புதிய குறிமுறை அடுக்குவரிசையில் (collation) ஒரு "
+"குறிமுறை இல்லை என்றால், இந்தச் செயல்முறையால் தரவு புதிய குறிமுறை "
+"அடுக்குவரிசையில்(collation) தவறாகத் தோன்றக்கூடும்; இந்த வழக்கில், நீங்கள் அசல் குறிமுறை "
+"அடுக்குவரிசைக்கு மாற்றியமைக்க நாங்கள் பரிந்துரைக்கிறோம், மேலும் உதவிக்குறிப்புகளைப் "
+"பார்க்கவும் "
 
 #: src/Controllers/JavaScriptMessagesController.php:92
 msgid "Garbled Data"
@@ -17292,17 +17293,17 @@ msgid "Error reading data for table %s:"
 msgstr "அட்டவணை %s க்கான தரவைப் படிப்பது பிழை:"
 
 #: src/Plugins/Export/ExportSql.php:2626
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:565
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:566
 msgid "Creation:"
 msgstr "உருவாக்கம்:"
 
 #: src/Plugins/Export/ExportSql.php:2634
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:576
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:577
 msgid "Last update:"
 msgstr "கடைசி நிகழ்நிலையாக்கம்:"
 
 #: src/Plugins/Export/ExportSql.php:2642
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:587
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:588
 msgid "Last check:"
 msgstr "கடைசி சரிபார்ப்பு:"
 
@@ -17321,7 +17322,7 @@ msgstr "பொருள் உருவாக்கும் விருப்�
 msgid "Export contents"
 msgstr "உள்ளடக்கத்தை தரவேற்றுக"
 
-#: src/Plugins/Export/Helpers/Pdf.php:178
+#: src/Plugins/Export/Helpers/Pdf.php:179
 msgid "Purpose:"
 msgstr "நோக்கம்:"
 
@@ -17484,17 +17485,17 @@ msgstr "ச்கீமா பிழை: "
 msgid "PDF export page"
 msgstr "PDF தரவேற்ற பக்கம்"
 
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:117
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:119
 #, php-format
 msgid "Schema of the %s database"
 msgstr "%s தரவுத்தளத்தின் ஒழுங்கமைவு"
 
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:145
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:494
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:147
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:495
 msgid "Relational schema"
 msgstr "தொடர்புடைய திட்டம்"
 
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:447
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:449
 msgid "Table of contents"
 msgstr "உள்ளடக்க அட்டவணை"
 
