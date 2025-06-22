@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-06-15 00:31+0000\n"
+"POT-Creation-Date: 2025-06-22 00:31+0000\n"
 "PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Kazakh <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -295,7 +295,7 @@ msgstr "Ótý"
 #: resources/templates/columns_definitions/column_definitions_form.twig:68
 #: resources/templates/database/data_dictionary/index.twig:16
 #: resources/templates/table/structure/display_table_stats.twig:6
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:554
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:555
 msgid "Table comments:"
 msgstr "Keste túsiniktemeleri:"
 
@@ -497,9 +497,9 @@ msgstr "Bul syrtqy kilt."
 #: src/Plugins/Export/ExportOdt.php:441
 #: src/Plugins/Export/ExportTexytext.php:288
 #: src/Plugins/Export/ExportTexytext.php:352
-#: src/Plugins/Export/Helpers/Pdf.php:486
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:601
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:623
+#: src/Plugins/Export/Helpers/Pdf.php:487
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:602
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:624
 msgid "Column"
 msgstr "Baǵan"
 
@@ -618,7 +618,7 @@ msgstr "Qurylym"
 #: src/Plugins/Export/ExportHtmlword.php:439
 #: src/Plugins/Export/ExportOdt.php:556
 #: src/Plugins/Export/ExportTexytext.php:424
-#: src/Plugins/Export/Helpers/Pdf.php:330
+#: src/Plugins/Export/Helpers/Pdf.php:331
 msgid "Name"
 msgstr "Aty"
 
@@ -649,9 +649,9 @@ msgstr "Aty"
 #: src/Plugins/Export/ExportOdt.php:444
 #: src/Plugins/Export/ExportTexytext.php:289
 #: src/Plugins/Export/ExportTexytext.php:353
-#: src/Plugins/Export/Helpers/Pdf.php:488
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:602
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:624
+#: src/Plugins/Export/Helpers/Pdf.php:489
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:603
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:625
 msgid "Type"
 msgstr "Túri"
 
@@ -688,9 +688,9 @@ msgstr ""
 #: src/Plugins/Export/ExportOdt.php:450
 #: src/Plugins/Export/ExportTexytext.php:291
 #: src/Plugins/Export/ExportTexytext.php:355
-#: src/Plugins/Export/Helpers/Pdf.php:492
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:605
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:627
+#: src/Plugins/Export/Helpers/Pdf.php:493
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:606
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:628
 msgid "Default"
 msgstr "Ádepki"
 
@@ -728,8 +728,8 @@ msgstr "Kolasıa"
 #: resources/templates/columns_definitions/table_fields_definitions.twig:27
 #: resources/templates/database/central_columns/edit.twig:13
 #: resources/templates/table/structure/display_structure.twig:24
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:603
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:625
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:604
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:626
 msgid "Attributes"
 msgstr "Tólsıpattar"
 
@@ -752,9 +752,9 @@ msgstr "Tólsıpattar"
 #: src/Plugins/Export/ExportOdt.php:447
 #: src/Plugins/Export/ExportTexytext.php:290
 #: src/Plugins/Export/ExportTexytext.php:354
-#: src/Plugins/Export/Helpers/Pdf.php:490
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:604
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:626
+#: src/Plugins/Export/Helpers/Pdf.php:491
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:605
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:627
 msgid "Null"
 msgstr "Bosmán"
 
@@ -776,9 +776,9 @@ msgstr "Artyqshylyqtardy naqtylaý"
 #: src/Config/Descriptions.php:711 src/Plugins/Export/ExportHtmlword.php:355
 #: src/Plugins/Export/ExportLatex.php:508 src/Plugins/Export/ExportOdt.php:460
 #: src/Plugins/Export/ExportTexytext.php:361
-#: src/Plugins/Export/Helpers/Pdf.php:509
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:617
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:630
+#: src/Plugins/Export/Helpers/Pdf.php:510
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:618
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:631
 msgid "Comments"
 msgstr "Túsiniktemeler"
 
@@ -796,7 +796,7 @@ msgstr "Baǵandy jyljytý"
 #: src/Config/Descriptions.php:714 src/Plugins/Export/ExportHtmlword.php:362
 #: src/Plugins/Export/ExportOdt.php:467
 #: src/Plugins/Export/ExportTexytext.php:366
-#: src/Plugins/Export/Helpers/Pdf.php:517
+#: src/Plugins/Export/Helpers/Pdf.php:518
 #, fuzzy
 #| msgid "MIME type"
 msgid "Media type"
@@ -926,7 +926,7 @@ msgstr "Óshirilgen"
 #: src/Plugins/Export/ExportHtmlword.php:562
 #: src/Plugins/Export/ExportLatex.php:567 src/Plugins/Export/ExportOdt.php:685
 #: src/Plugins/Export/ExportTexytext.php:522
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:669
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:670
 msgid "Yes"
 msgstr "Ia"
 
@@ -962,7 +962,7 @@ msgstr "Ia"
 #: src/Indexes/Index.php:472 src/Plugins/Export/ExportHtmlword.php:562
 #: src/Plugins/Export/ExportLatex.php:567 src/Plugins/Export/ExportOdt.php:685
 #: src/Plugins/Export/ExportTexytext.php:522
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:669
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:670
 msgid "No"
 msgstr "Joq"
 
@@ -1452,9 +1452,9 @@ msgstr "Basyp shyǵarý"
 #: src/Plugins/Export/ExportHtmlword.php:349
 #: src/Plugins/Export/ExportLatex.php:504 src/Plugins/Export/ExportOdt.php:454
 #: src/Plugins/Export/ExportTexytext.php:357
-#: src/Plugins/Export/Helpers/Pdf.php:501
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:607
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:629
+#: src/Plugins/Export/Helpers/Pdf.php:502
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:608
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:630
 msgid "Links to"
 msgstr "Kelesige siltemeler"
 
@@ -1831,7 +1831,7 @@ msgstr "Sońy"
 #: src/Plugins/Export/ExportHtmlword.php:442
 #: src/Plugins/Export/ExportOdt.php:565
 #: src/Plugins/Export/ExportTexytext.php:427
-#: src/Plugins/Export/Helpers/Pdf.php:336
+#: src/Plugins/Export/Helpers/Pdf.php:337
 msgid "Definition"
 msgstr "Anyqtamasy"
 
@@ -2799,7 +2799,7 @@ msgstr ""
 #: resources/templates/database/structure/copy_form.twig:5
 #: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:260
 #: src/Plugins/Export/ExportSql.php:928 src/Plugins/Export/ExportXml.php:367
-#: src/Plugins/Export/Helpers/Pdf.php:176
+#: src/Plugins/Export/Helpers/Pdf.php:177
 msgid "Database:"
 msgstr "Derekqor:"
 
@@ -3881,8 +3881,8 @@ msgstr "Sizdi maqsatty saıtqa aparady."
 
 #: resources/templates/list_navigator.twig:4 src/BrowseForeigners.php:278
 #: src/Pdf.php:71 src/Pdf.php:91
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:458
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:483
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:459
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:484
 msgid "Page number:"
 msgstr "Bet nómiri:"
 
@@ -4050,7 +4050,7 @@ msgstr ""
 msgid "View:"
 msgstr "Kórinister:"
 
-#: resources/templates/menu/main.twig:29 src/Plugins/Export/Helpers/Pdf.php:177
+#: resources/templates/menu/main.twig:29 src/Plugins/Export/Helpers/Pdf.php:178
 msgid "Table:"
 msgstr "Keste:"
 
@@ -6692,7 +6692,7 @@ msgstr "Kúı"
 #: src/Plugins/Export/ExportHtmlword.php:440
 #: src/Plugins/Export/ExportOdt.php:559
 #: src/Plugins/Export/ExportTexytext.php:425
-#: src/Plugins/Export/Helpers/Pdf.php:332 src/Server/Status/Processes.php:95
+#: src/Plugins/Export/Helpers/Pdf.php:333 src/Server/Status/Processes.php:95
 msgid "Time"
 msgstr "Ýaqyt"
 
@@ -7510,8 +7510,8 @@ msgstr "Bólinýdi óńdeý"
 
 #: resources/templates/table/structure/display_structure.twig:30
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:11
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:606
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:628
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:607
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:629
 msgid "Extra"
 msgstr "Qosymsha"
 
@@ -7752,7 +7752,7 @@ msgstr "Ýaqyt"
 #: src/Plugins/Export/ExportHtmlword.php:441
 #: src/Plugins/Export/ExportOdt.php:562
 #: src/Plugins/Export/ExportTexytext.php:426
-#: src/Plugins/Export/Helpers/Pdf.php:334
+#: src/Plugins/Export/Helpers/Pdf.php:335
 msgid "Event"
 msgstr "Oqıǵa"
 
@@ -18087,17 +18087,17 @@ msgid "Error reading data for table %s:"
 msgstr "%s kestesiniń derekterin oqý qatesi:"
 
 #: src/Plugins/Export/ExportSql.php:2626
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:565
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:566
 msgid "Creation:"
 msgstr "Jasaý:"
 
 #: src/Plugins/Export/ExportSql.php:2634
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:576
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:577
 msgid "Last update:"
 msgstr "Sońǵy jańartý:"
 
 #: src/Plugins/Export/ExportSql.php:2642
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:587
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:588
 msgid "Last check:"
 msgstr "Sońǵy tekserý:"
 
@@ -18116,7 +18116,7 @@ msgstr "Nysan jasaý opsıalary (barlyǵy usynylady)"
 msgid "Export contents"
 msgstr "Mazmundardy eksporttaý"
 
-#: src/Plugins/Export/Helpers/Pdf.php:178
+#: src/Plugins/Export/Helpers/Pdf.php:179
 msgid "Purpose:"
 msgstr "Maqsat:"
 
@@ -18283,17 +18283,17 @@ msgstr "SULBA QATESI: "
 msgid "PDF export page"
 msgstr "PDF eksporttaý beti"
 
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:117
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:119
 #, php-format
 msgid "Schema of the %s database"
 msgstr "%s derekqorynyń sulbasy"
 
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:145
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:494
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:147
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:495
 msgid "Relational schema"
 msgstr "Qatynastyq sulba"
 
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:447
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:449
 msgid "Table of contents"
 msgstr "Mazmun kestesi"
 
