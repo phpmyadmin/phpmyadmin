@@ -145,6 +145,7 @@ final class ExportController implements InvocableController
         );
 
         $this->response->render('database/export/index', array_merge($options, [
+            'export_memory_limit' => $this->export->getMemoryLimit(),
             'page_settings_error_html' => $pageSettingsErrorHtml,
             'page_settings_html' => $pageSettingsHtml,
             'structure_or_data_forced' => $request->getParsedBodyParam('structure_or_data_forced', 0),
