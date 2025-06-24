@@ -402,20 +402,38 @@ final class SaveController implements InvocableController
         return $changed;
     }
 
-    private function hasCurrentTimestampFunction($query): bool
+    /**
+     * Checks if a query has DEFAULT CURRENT_TIMESTAMP function
+     *
+     * @param string $query SQL query to check
+     *
+     * @return bool true if query has DEFAULT CURRENT_TIMESTAMP function
+     */
+    private function hasCurrentTimestampFunction(string $query): bool
     {
         preg_match("/DEFAULT\s+'current_timestamp\((\d+)\)'/i", $query, $matches);
 
         return !empty($matches[0]);
     }
 
-    private function getCurrentTimestampArgumentValue($query)
-    {
+    /**
+     * @param string $query SQL query to check
+     *
+     * @return int|null precision argument value or null if not found
+     */
+    private function getCurrentTimestampArgumentValue(string $query) {
         preg_match("/DEFAULT\s+'current_timestamp\((\d+)\)'/i", $query, $matches);
-        return !empty($matches[1]) ? $matches[1] : null;
     }
 
-    private function replaceQuotes($query): string
+    /**
+     * Replaces DEFAULT 'current_timestamp(n)' with DEFAULT CURRENT_TIMESTAMP(n)
+     * in the given query, where n is the precision argument value.
+     *
+     * @param string $query SQL query to modify
+     *
+     * @return string modified SQL query
+     */
+    private function replaceQuotes(string $query): string
     {
         $new_query = $query;
 
