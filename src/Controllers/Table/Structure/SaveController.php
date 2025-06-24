@@ -198,9 +198,6 @@ final class SaveController implements InvocableController
                 }
             }
 
-            // Checking if query has quoted current_timestamp function in default value
-            $sqlQuery = $this->hasCurrentTimestampFunction($sqlQuery) ? $this->replaceQuotes($sqlQuery) : $sqlQuery;
-
             // Then make the requested changes
             $result = $this->dbi->tryQuery($sqlQuery);
 
@@ -402,56 +399,4 @@ final class SaveController implements InvocableController
         return $changed;
     }
 
-    /**
-     * Checks if a query has DEFAULT CURRENT_TIMESTAMP function
-     *
-     * @param string $query SQL query to check
-     *
-     * @return bool true if query has DEFAULT CURRENT_TIMESTAMP function
-     */
-    private function hasCurrentTimestampFunction(string $query): bool
-    {
-        preg_match("/DEFAULT\s+'current_timestamp\((\d+)\)'/i", $query, $matches);
-
-        return !empty($matches[0]);
-    }
-
-    /**
-     * @param string $query SQL query to check
-     *
-     * @return int|null precision argument value or null if not found
-     */
-    private function getCurrentTimestampArgumentValue(string $query) {
-        preg_match("/DEFAULT\s+'current_timestamp\((\d+)\)'/i", $query, $matches);
-    }
-
-    /**
-     * Replaces DEFAULT 'current_timestamp(n)' with DEFAULT CURRENT_TIMESTAMP(n)
-     * in the given query, where n is the precision argument value.
-     *
-     * @param string $query SQL query to modify
-     *
-     * @return string modified SQL query
-     */
-    private function replaceQuotes(string $query): string
-    {
-        $new_query = $query;
-
-        while ($this->hasCurrentTimestampFunction($new_query)) {
-            $val = $this->getCurrentTimestampArgumentValue($new_query);
-
-            if ($val) {
-                $sub_query = "DEFAULT CURRENT_TIMESTAMP($val)";
-
-                $new_query = preg_replace(
-                    "/DEFAULT\s+'current_timestamp\((\d+)\)'/",
-                    $sub_query,
-                    $new_query,
-                    1
-                );
-            }
-        }
-
-        return $new_query;
-    }
 }
