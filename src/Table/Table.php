@@ -519,7 +519,7 @@ class Table implements Stringable
                             $query .= ' DEFAULT 0x' . $defaultValue;
                         } else {
                             // if default value is a current timestamp sql function then it does not needs to be quoted
-                            if(self::hasCurrentTimestampFunction($defaultValue)) {
+                            if(str_contains($defaultValue, 'current_timestamp') || str_contains($defaultValue, 'CURRENT_TIMESTAMP')) {
                                 $query .= ' DEFAULT CURRENT_TIMESTAMP(' . $length . ')';
                             } else {
                                 $query .= ' DEFAULT ' . $dbi->quoteString($defaultValue);
@@ -1780,19 +1780,5 @@ class Table implements Stringable
         }
 
         return $columnsWithIndex;
-    }
-
-    /**
-     * Checks if a query has DEFAULT CURRENT_TIMESTAMP function
-     *
-     * @param string $query SQL query to check
-     *
-     * @return bool true if query has DEFAULT CURRENT_TIMESTAMP function
-     */
-    private static function hasCurrentTimestampFunction(string $query): bool
-    {
-        preg_match("/current_timestamp\((\d+)\)/i", $query, $matches);
-
-        return !empty($matches[0]);
     }
 }
