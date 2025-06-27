@@ -637,19 +637,29 @@ final readonly class ImportController implements InvocableController
                     Current::$table = $tableFromSql;
                 }
 
-                $htmlOutput .= $this->sql->executeQueryAndGetQueryResponse(
-                    $statementInfo,
-                    false, // is_gotofile
-                    Current::$database, // db
-                    Current::$table, // table
-                    '', // sql_query_for_bookmark - see below
-                    '', // message_to_show
-                    UrlParams::$goto, // goto
-                    null, // disp_query
-                    '', // disp_message
-                    Current::$sqlQuery,
-                    Current::$sqlQuery, // complete_query
-                );
+                try {
+                    $htmlOutput .= $this->sql->executeQueryAndGetQueryResponse(
+                        $statementInfo,
+                        false, // is_gotofile
+                        Current::$database, // db
+                        Current::$table, // table
+                        '', // sql_query_for_bookmark - see below
+                        '', // message_to_show
+                        UrlParams::$goto, // goto
+                        null, // disp_query
+                        '', // disp_message
+                        Current::$sqlQuery,
+                        Current::$sqlQuery, // complete_query
+                    );
+                } finally {
+                    if($htmlOutput === "") // request is terminated and no response is generated
+                    {
+                        Import::$hasError = true;
+                        Current::$message = Message::error(
+                            __('Query execution failed with empty response')
+                        );
+                    }
+                }
             }
 
             // sql_query_for_bookmark is not included in Sql::executeQueryAndGetQueryResponse
