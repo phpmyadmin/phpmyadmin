@@ -519,7 +519,7 @@ class Table implements Stringable
                             $query .= ' DEFAULT 0x' . $defaultValue;
                         } else {
                             // if default value is a current timestamp sql function then it does not needs to be quoted
-                            if(str_contains($defaultValue, 'current_timestamp') || str_contains($defaultValue, 'CURRENT_TIMESTAMP')) {
+                            if (str_contains($defaultValue, 'current_timestamp') || str_contains($defaultValue, 'CURRENT_TIMESTAMP')) {
                                 $query .= ' DEFAULT CURRENT_TIMESTAMP(' . $length . ')';
                             } else {
                                 $query .= ' DEFAULT ' . $dbi->quoteString($defaultValue);
