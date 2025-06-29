@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.ts';
 import { addDateTimePicker } from '../modules/functions.ts';
+import { TempusDominus } from '@eonasdan/tempus-dominus';
 
 /**
  * @fileoverview    function used in table data manipulation pages
@@ -596,9 +597,6 @@ AJAX.registerOnload('table/change.js', function () {
      */
     window.extendingValidatorMessages();
 
-    // @ts-ignore
-    $.datepicker.initialized = false;
-
     const gisEditorModal = document.getElementById('gisEditorModal');
     gisEditorModal?.addEventListener('show.bs.modal', event => {
         // @ts-ignore
@@ -712,9 +710,8 @@ function addNewContinueInsertionFields (event) {
      */
     var targetRows = Number($('#insert_rows').val());
 
-    // remove all datepickers
-    $('input.datefield, input.datetimefield').each(function () {
-        $(this).datepicker('destroy');
+    $('input.timefield, input.datefield, input.datetimefield').each(function () {
+        (new TempusDominus($(this).parent()[0])).dispose();
     });
 
     if (currRows < targetRows) {

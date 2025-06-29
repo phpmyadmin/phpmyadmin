@@ -83,34 +83,31 @@ final class ChangeControllerTest extends AbstractTestCase
         // phpcs:disable Generic.Files.LineLength.TooLong
         self::assertStringContainsString(
             <<<'HTML'
-              <input type="text" name="fields[multi_edit][0][b80bb7740288fda1f201890375a60c8f]"
-                value="NULL" size="4" min="-2147483648" max="2147483647"    data-type="INT"
-                class="textfield"
-                onchange="return&#x20;verificationsAfterFieldChange&#x28;&quot;b80bb7740288fda1f201890375a60c8f&quot;,&#x20;&quot;0&quot;,&quot;int&#x28;11&#x29;&quot;&#x29;"
-                tabindex="1" inputmode="numeric"
-                id="field_1_3"><input type="hidden" name="auto_increment[multi_edit][0][b80bb7740288fda1f201890375a60c8f]" value="1">
+                  <input type="text" name="fields[multi_edit][0][b80bb7740288fda1f201890375a60c8f]" value="NULL" size="4" min="-2147483648" max="2147483647"      data-type="INT" class="textfield" aria-label="Column value"
+                  onchange="return&#x20;verificationsAfterFieldChange&#x28;&quot;b80bb7740288fda1f201890375a60c8f&quot;,&#x20;&quot;0&quot;,&quot;int&#x28;11&#x29;&quot;&#x29;" inputmode="numeric"
+                  id="field_1_3">
+              <input type="hidden" name="auto_increment[multi_edit][0][b80bb7740288fda1f201890375a60c8f]" value="1">
             HTML,
             $actual,
         );
         self::assertStringContainsString(
             <<<'HTML'
-              <input type="text" name="fields[multi_edit][0][b068931cc450442b63f5b3d276ea4297]"
-                value="NULL" size="20" data-maxlength="20"    data-type="CHAR"
-                class="textfield"
-                onchange="return&#x20;verificationsAfterFieldChange&#x28;&quot;b068931cc450442b63f5b3d276ea4297&quot;,&#x20;&quot;0&quot;,&quot;varchar&#x28;20&#x29;&quot;&#x29;"
-                tabindex="2"
-                id="field_2_3">
+                  <input type="text" name="fields[multi_edit][0][b068931cc450442b63f5b3d276ea4297]" value="NULL" size="20" data-maxlength="20"      data-type="CHAR" class="textfield" aria-label="Column value"
+                  onchange="return&#x20;verificationsAfterFieldChange&#x28;&quot;b068931cc450442b63f5b3d276ea4297&quot;,&#x20;&quot;0&quot;,&quot;varchar&#x28;20&#x29;&quot;&#x29;"
+                  id="field_2_3">
             HTML,
             $actual,
         );
         self::assertStringContainsString(
             <<<'HTML'
-              <input type="text" name="fields[multi_edit][0][a55dbdcc1a45ed90dbee68864d566b99]"
-                value="NULL.000000" size="4"    data-type="DATE"
-                class="textfield datetimefield"
-                onchange="return&#x20;verificationsAfterFieldChange&#x28;&quot;a55dbdcc1a45ed90dbee68864d566b99&quot;,&#x20;&quot;0&quot;,&quot;datetime&quot;&#x29;"
-                tabindex="3"
-                id="field_3_3"><input type="hidden" name="fields_type[multi_edit][0][a55dbdcc1a45ed90dbee68864d566b99]" value="datetime">
+                  <div class="input-group" id="field_3_3InputGroup" data-td-target-input="nearest" data-td-target-toggle="nearest">
+                  <input type="text" name="fields[multi_edit][0][a55dbdcc1a45ed90dbee68864d566b99]" value="NULL.000000" size="4"
+                    data-type="DATE" class="form-control textfield datetimefield" aria-label="Date/time"
+                    onchange="return&#x20;verificationsAfterFieldChange&#x28;&quot;a55dbdcc1a45ed90dbee68864d566b99&quot;,&#x20;&quot;0&quot;,&quot;datetime&quot;&#x29;"
+                    id="field_3_3" data-td-target="#field_3_3InputGroup" aria-describedby="field_3_3Button">
+                  <button class="btn btn-outline-secondary" type="button" data-td-target="#field_3_3InputGroup" id="field_3_3Button" data-td-toggle="datetimepicker"><img src="themes/dot.gif" title="Open date/time picker" alt="Open date/time picker" class="icon ic_b_calendar"></button>
+                </div>
+              <input type="hidden" name="fields_type[multi_edit][0][a55dbdcc1a45ed90dbee68864d566b99]" value="datetime">
             HTML,
             $actual,
         );
