@@ -622,8 +622,20 @@ class Generator
             $inlineEditLink = '';
         }
 
+        // Add show create link
+        $showCreateParams['sql_query'] = "";
+        $showCreateParams['db'] = $GLOBALS['db'];
+        $showCreateParams['selected_tbl[]'] = $GLOBALS['table'];
+        $showCreateLink = Url::getFromRoute('/database/structure/show-create', $showCreateParams);
+        $showCreateLink = ' [&nbsp;'
+            . self::linkOrButton(
+                $showCreateLink,
+                null,
+                __('Show create')
+            ) . '&nbsp;]';
+
         $retval .= $inlineEditLink . $editLink . $explainLink . $phpLink
-            . $refreshLink;
+            . $refreshLink . $showCreateLink;
         $retval .= '</div></div>';
 
         $retval .= '</div>';
