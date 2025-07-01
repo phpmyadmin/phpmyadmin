@@ -622,7 +622,7 @@ class Generator
             $inlineEditLink = '';
         }
 
-        // Add show create link
+        // Add show create link when viewing tables
         $showCreateParams['sql_query'] = "";
         $showCreateParams['db'] = $GLOBALS['db'];
         $showCreateParams['selected_tbl[]'] = $GLOBALS['table'];
