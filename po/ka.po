@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2025-02-12 12:48+0000\n"
+"PO-Revision-Date: 2025-07-03 11:07+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "ka/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.10-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -5225,20 +5225,10 @@ msgstr ""
 "will expire sooner than configured in phpMyAdmin."
 
 #: libraries/classes/Controllers/HomeController.php:372
-#, fuzzy
-#| msgid ""
-#| "r PHP parameter [a@https://www.php.net/manual/en/session.configuration."
-#| "#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
-#| "that kie validity configured in phpMyAdmin, because of this, your login l "
-#| "expire sooner than configured in phpMyAdmin."
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
-"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
-"than cookie validity configured in phpMyAdmin, because of this, your login "
-"will expire sooner than configured in phpMyAdmin."
 
 #: libraries/classes/Controllers/HomeController.php:390
 msgid ""
@@ -10212,28 +10202,22 @@ msgid "Plugins"
 msgstr "დამატებები"
 
 #: libraries/classes/Message.php:255
-#, fuzzy, php-format
-#| msgid "%1$d row(s) affected."
+#, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "%1$d row(s) affected."
-msgstr[1] "%1$d row(s) affected."
+msgstr[0] "%1$d მწკრივი შეიცვალა."
 
 #: libraries/classes/Message.php:276
-#, fuzzy, php-format
-#| msgid "%1$d row(s) deleted."
+#, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] "წაიშალა %1$d სტრიქონი."
-msgstr[1] "წაიშალა %1$d სტრიქონი."
+msgstr[0] "წაიშალა %1$d მწკრივი."
 
 #: libraries/classes/Message.php:297
-#, fuzzy, php-format
-#| msgid "%1$d row(s) inserted."
+#, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
 msgstr[0] "ჩაისვა %1$d სტრიქონი."
-msgstr[1] "ჩაისვა %1$d სტრიქონი."
 
 #: libraries/classes/Navigation/Navigation.php:223
 msgid "Groups:"
@@ -13314,14 +13298,8 @@ msgid "Could not save configuration"
 msgstr "კონფიგურაციის შენახვა ან ჩატვირთვა ვერ მოხერხდა"
 
 #: libraries/classes/UserPreferences.php:178
-#, fuzzy
-#| msgid ""
-#| " additional features for working with linked tables have been ctivated. "
-#| "To find out why click %shere%s."
 msgid "The phpMyAdmin configuration storage database could not be accessed."
-msgstr ""
-"The additional features for working with linked tables have been "
-"deactivated. To find out why click %shere%s."
+msgstr "phpMyAdmin-ის კონფიგურაციის საცავის ბაზასთან წვდომა შეუძლებელია."
 
 #: libraries/classes/Util.php:138
 #, php-format
