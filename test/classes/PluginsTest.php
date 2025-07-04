@@ -6,6 +6,8 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Plugins;
 
+use function extension_loaded;
+
 /**
  * @covers \PhpMyAdmin\Plugins
  */
@@ -17,9 +19,11 @@ class PluginsTest extends AbstractTestCase
 
         $GLOBALS['server'] = 1;
         $plugins = Plugins::getExport('database', false);
+        $isCurl = extension_loaded('curl');
         self::assertSame(['export_type' => 'database', 'single_table' => false], $plugin_param);
         self::assertIsArray($plugins);
-        self::assertCount(14, $plugins);
+        $pluginCount = $isCurl ? 14 : 13;
+        self::assertCount($pluginCount, $plugins);
         self::assertContainsOnlyInstancesOf(Plugins\ExportPlugin::class, $plugins);
     }
 
