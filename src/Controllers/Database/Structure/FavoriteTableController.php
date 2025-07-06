@@ -80,7 +80,7 @@ final readonly class FavoriteTableController implements InvocableController
         } elseif (isset($_REQUEST['add_favorite'])) {
             if (! $alreadyFavorite) {
                 $numTables = count($favoriteInstance->getTables());
-                if ($numTables == $this->config->settings['NumFavoriteTables']) {
+                if ($numTables === $this->config->settings['NumFavoriteTables']) {
                     $changes = false;
                 } else {
                     // Otherwise add to favorite list.

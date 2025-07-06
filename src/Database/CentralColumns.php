@@ -614,7 +614,7 @@ class CentralColumns
     private function getHtmlForEditTableRow(array $row, int $rowNum): string
     {
         $meta = [];
-        if (! isset($row['col_default']) || $row['col_default'] == '') {
+        if (! isset($row['col_default']) || $row['col_default'] === '') {
             $meta['DefaultType'] = 'NONE';
         } elseif ($row['col_default'] === 'CURRENT_TIMESTAMP' || $row['col_default'] === 'current_timestamp()') {
             $meta['DefaultType'] = 'CURRENT_TIMESTAMP';
@@ -819,7 +819,7 @@ class CentralColumns
         $rowNum = 0;
         foreach ($rowsList as $row) {
             $rowsMeta[$rowNum] = [];
-            if (! isset($row['col_default']) || $row['col_default'] == '') {
+            if (! isset($row['col_default']) || $row['col_default'] === '') {
                 $rowsMeta[$rowNum]['DefaultType'] = 'NONE';
             } elseif ($row['col_default'] === 'CURRENT_TIMESTAMP' || $row['col_default'] === 'current_timestamp()') {
                 $rowsMeta[$rowNum]['DefaultType'] = 'CURRENT_TIMESTAMP';

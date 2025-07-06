@@ -173,7 +173,7 @@ class ExportTexytext extends ExportPlugin
 
         if (
             ! $this->export->outputHandler(
-                $tableAlias != ''
+                $tableAlias !== ''
                 ? '== ' . __('Dumping data for table') . ' ' . $tableAlias . "\n\n"
                 : '==' . __('Dumping data for query result') . "\n\n",
             )

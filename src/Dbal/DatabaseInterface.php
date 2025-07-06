@@ -1000,8 +1000,8 @@ class DatabaseInterface
         string $value,
         ConnectionType $connectionType = ConnectionType::User,
     ): void {
-        $currentValue = $this->getVariable($var, self::GETVAR_SESSION, $connectionType);
-        if ($currentValue == $value) {
+        $currentValue = (string) $this->getVariable($var, self::GETVAR_SESSION, $connectionType);
+        if ($currentValue === $value) {
             return;
         }
 

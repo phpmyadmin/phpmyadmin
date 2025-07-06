@@ -62,7 +62,7 @@ class UniqueCondition
                         continue;
                     }
 
-                    if (strcasecmp($meta->name, $expression->alias) == 0) {
+                    if (strcasecmp($meta->name, $expression->alias) === 0) {
                         $meta->orgname = $expression->column;
                         break;
                     }
@@ -87,7 +87,7 @@ class UniqueCondition
 
             // If this field is not from the table which the unique clause needs
             // to be restricted to.
-            if ($restrictToTable !== '' && $restrictToTable != $meta->table) {
+            if ($restrictToTable !== '' && $restrictToTable !== $meta->table) {
                 continue;
             }
 

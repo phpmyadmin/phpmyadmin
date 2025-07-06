@@ -418,7 +418,7 @@ class Generator
         }
 
         $config = Config::getInstance();
-        $renderSql = $config->settings['ShowSQL'] == true && $sqlQuery !== '' && $sqlQuery !== ';';
+        $renderSql = $config->settings['ShowSQL'] && $sqlQuery !== '' && $sqlQuery !== ';';
 
         if (isset(Sql::$usingBookmarkMessage)) {
             $retval .= Sql::$usingBookmarkMessage->getDisplay();

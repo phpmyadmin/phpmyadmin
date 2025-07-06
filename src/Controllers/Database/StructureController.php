@@ -596,7 +596,7 @@ final class StructureController implements InvocableController
 
             $do = (is_string($searchDoDBInTruename) && $searchDoDBInTruename !== '')
                 || (is_string($searchDoDBInDB) && $searchDoDBInDB !== '')
-                || ($nbServReplicaDoDb == 0 && $nbServReplicaIgnoreDb == 0)
+                || ($nbServReplicaDoDb === 0 && $nbServReplicaIgnoreDb === 0)
                 || $this->hasTable($replicaInfo['Wild_Do_Table'], $table);
 
             $searchDb = array_search(Current::$database, $replicaInfo['Ignore_DB']);

@@ -765,7 +765,7 @@ class Util
         }
 
         foreach ($pages as $i) {
-            if ($i == $pageNow) {
+            if ($i === $pageNow) {
                 $selected = 'selected style="font-weight: bold"';
             } else {
                 $selected = '';
@@ -842,7 +842,7 @@ class Util
     public static function printableBitValue(int $value, int $length): string
     {
         // if running on a 64-bit server or the length is safe for decbin()
-        if (PHP_INT_SIZE == 8 || $length < 33) {
+        if (PHP_INT_SIZE === 8 || $length < 33) {
             $printable = decbin($value);
         } else {
             // FIXME: does not work for the leftmost bit of a 64-bit value
@@ -1818,7 +1818,7 @@ class Util
         $orderLinkParams = [];
         $orderLinkParams['title'] = __('Sort');
         // If this column was requested to be sorted.
-        if ($requestedSort == $sort) {
+        if ($requestedSort === $sort) {
             if ($requestedSortOrder === 'ASC') {
                 $futureSortOrder = 'DESC';
                 // current sort order is ASC
@@ -1917,7 +1917,10 @@ class Util
 
     public static function getTableListPosition(ServerRequest $request, string $db): int
     {
-        if (! isset($_SESSION['tmpval']['table_limit_offset']) || $_SESSION['tmpval']['table_limit_offset_db'] != $db) {
+        if (
+            ! isset($_SESSION['tmpval']['table_limit_offset'])
+            || $_SESSION['tmpval']['table_limit_offset_db'] !== $db
+        ) {
             $_SESSION['tmpval']['table_limit_offset'] = 0;
             $_SESSION['tmpval']['table_limit_offset_db'] = $db;
         }

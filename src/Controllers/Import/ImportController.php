@@ -560,7 +560,7 @@ final readonly class ImportController implements InvocableController
             Current::$message->addParamHtml('<a href="' . $importUrl . '">');
             Current::$message->addParamHtml('</a>');
 
-            if (ImportSettings::$offset === 0 || (isset($originalSkip) && $originalSkip == ImportSettings::$offset)) {
+            if (ImportSettings::$offset === 0 || (isset($originalSkip) && $originalSkip === ImportSettings::$offset)) {
                 Current::$message->addText(
                     __(
                         'However on last run no data has been parsed,'

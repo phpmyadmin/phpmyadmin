@@ -39,7 +39,7 @@ final class VersionCheckController implements InvocableController
         $latestCompatible = $this->versionInformation->getLatestCompatibleVersion($versionDetails);
         $version = '';
         $date = '';
-        if ($latestCompatible != null) {
+        if ($latestCompatible !== null) {
             $version = $latestCompatible->version;
             $date = $latestCompatible->date;
         }

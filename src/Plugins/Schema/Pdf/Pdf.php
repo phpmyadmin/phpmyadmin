@@ -355,7 +355,7 @@ class Pdf extends PdfLib
         $wmax = ($w - 2 * $this->cMargin) * 1000 / $this->FontSize;
         $s = str_replace("\r", '', $txt);
         $nb = strlen($s);
-        if ($nb > 0 && $s[$nb - 1] == "\n") {
+        if ($nb > 0 && $s[$nb - 1] === "\n") {
             $nb--;
         }
 
@@ -366,7 +366,7 @@ class Pdf extends PdfLib
         $nl = 1;
         while ($i < $nb) {
             $c = $s[$i];
-            if ($c == "\n") {
+            if ($c === "\n") {
                 $i++;
                 $sep = -1;
                 $j = $i;
@@ -381,7 +381,7 @@ class Pdf extends PdfLib
 
             $l += $cw[mb_ord($c)] ?? 0;
             if ($l > $wmax) {
-                if ($sep == -1) {
+                if ($sep === -1) {
                     if ($i === $j) {
                         $i++;
                     }

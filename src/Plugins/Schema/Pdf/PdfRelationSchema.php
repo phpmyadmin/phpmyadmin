@@ -592,7 +592,7 @@ class PdfRelationSchema extends ExportRelationSchema
                 $break = true;
             }
 
-            if ($break == true) {
+            if ($break) {
                 $this->pdf->Cell(0, 3, '', 0, 1);
                 $this->pdf->Ln();
             }
@@ -650,7 +650,7 @@ class PdfRelationSchema extends ExportRelationSchema
                 $linksTo = '';
                 if ($foreigner) {
                     $linksTo = '-> ';
-                    if ($foreigner['foreign_db'] != $this->db->getName()) {
+                    if ($foreigner['foreign_db'] !== $this->db->getName()) {
                         $linksTo .= $foreigner['foreign_db'] . '.';
                     }
 

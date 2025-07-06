@@ -184,7 +184,7 @@ class Export
                         $writeResult = @fwrite(self::$fileHandle, $this->dumpBuffer);
                         // Here, use strlen rather than mb_strlen to get the length
                         // in bytes to compare against the number of bytes written.
-                        if ($writeResult != strlen($this->dumpBuffer)) {
+                        if ($writeResult === false || $writeResult !== strlen($this->dumpBuffer)) {
                             Current::$message = Message::error(
                                 __('Insufficient space to save the file %s.'),
                             );

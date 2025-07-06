@@ -108,7 +108,7 @@ final class Processes
         foreach ($sortableColumns as $columnKey => $column) {
             $isSorted = $orderByField !== ''
                 && $sortOrder !== ''
-                && $orderByField == $column['order_by_field'];
+                && $orderByField === $column['order_by_field'];
 
             $column['sort_order'] = 'ASC';
             if ($isSorted && $sortOrder === 'ASC') {

@@ -223,7 +223,7 @@ class Routing
         $pathInfo = Core::getEnv('PATH_INFO');
         if ($pathInfo !== '' && $pmaPhpSelf !== '') {
             $questionPos = mb_strpos($pmaPhpSelf, '?');
-            if ($questionPos != false) {
+            if ($questionPos) {
                 $pmaPhpSelf = mb_substr($pmaPhpSelf, 0, $questionPos);
             }
 

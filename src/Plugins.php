@@ -285,7 +285,7 @@ class Plugins
                     $text = $propertyGroup->getText();
                 }
 
-                if ($text != null) {
+                if ($text !== null && $text !== '') {
                     $ret .= '<h5 class="card-title mt-4 mb-2">' . $plugin->getTranslatedText($text) . '</h5>';
                 }
 
