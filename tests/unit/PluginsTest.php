@@ -16,6 +16,8 @@ use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 
+use function extension_loaded;
+
 #[CoversClass(Plugins::class)]
 class PluginsTest extends AbstractTestCase
 {
@@ -29,9 +31,11 @@ class PluginsTest extends AbstractTestCase
     public function testGetExport(): void
     {
         $plugins = Plugins::getExport(ExportType::Database, false);
+        $isCurl = extension_loaded('curl');
         self::assertSame(ExportType::Database, ExportPlugin::$exportType);
         self::assertFalse(ExportPlugin::$singleTable);
-        self::assertCount(14, $plugins);
+        $pluginCount = $isCurl ? 14 : 13;
+        self::assertCount($pluginCount, $plugins);
         self::assertContainsOnlyInstancesOf(Plugins\ExportPlugin::class, $plugins);
     }
 
