@@ -504,6 +504,7 @@ class GeneratorTest extends AbstractTestCase
 <div class="col-auto"><a href="index.php" data-post="route=/import&db=test_db&table=test_table&sql_query=EXPLAIN+SELECT+1%3B&server=2&lang=en" class="btn btn-link">Explain SQL</a></div>
 <div class="col-auto"><a href="index.php" data-post="route=/import&db=test_db&table=test_table&sql_query=SELECT+1%3B&show_query=1&show_as_php=1&server=2&lang=en" class="btn btn-link">Create PHP code</a></div>
 <div class="col-auto"><a href="index.php" data-post="route=/sql&db=test_db&table=test_table&sql_query=SELECT+1%3B&show_query=1&server=2&lang=en" class="btn btn-link">Refresh</a></div>
+<div class="col-auto"><a href="index.php" data-post="route=/database/structure/show-create&sql_query=&server=2&lang=en">Show create</a></div>
 </div></div></div>
 HTML;
         // phpcs:enable
