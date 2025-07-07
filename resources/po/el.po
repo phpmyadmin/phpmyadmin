@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-07-06 00:30+0000\n"
-"PO-Revision-Date: 2025-05-14 19:50+0000\n"
-"Last-Translator: Spyridon Eftychios Kokotos <spiroskoeu@gmail.com>\n"
+"PO-Revision-Date: 2025-07-08 09:02+0000\n"
+"Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "el/>\n"
 "Language: el\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -29,16 +29,12 @@ msgid "phpMyAdmin documentation"
 msgstr "Τεκμηρίωση phpMyAdmin"
 
 #: resources/templates/base.twig:62
-#, fuzzy
-#| msgid "Documentation"
 msgid "MariaDB documentation"
-msgstr "Τεκμηρίωση"
+msgstr "Τεκμηρίωση για MariaDB"
 
 #: resources/templates/base.twig:62
-#, fuzzy
-#| msgid "Documentation"
 msgid "MySQL documentation"
-msgstr "Τεκμηρίωση"
+msgstr "Τεκμηρίωση για MySQL"
 
 #: resources/templates/base.twig:73
 msgid "Appearance:"
@@ -304,10 +300,8 @@ msgstr "Σύνδεση:"
 #: resources/templates/columns_definitions/column_definitions_form.twig:109
 #: resources/templates/columns_definitions/partitions.twig:137
 #: resources/templates/table/operations/index.twig:134
-#, fuzzy
-#| msgid "Storage engines"
 msgid "Storage engine"
-msgstr "Μηχανές αποθήκευσης"
+msgstr "Μηχανή αποθήκευσης"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:132
 msgid "PARTITION definition:"
@@ -1503,7 +1497,7 @@ msgstr "Προβολή δομής πίνακα"
 #: resources/templates/database/designer/database_tables.twig:93
 #, php-format
 msgid "Select \"%s\""
-msgstr "Επιλέξτε \"%s\""
+msgstr "Επιλογή «%s»"
 
 #: resources/templates/database/designer/database_tables.twig:111
 #, php-format
@@ -1837,7 +1831,7 @@ msgstr "Διατήρηση με την ολοκλήρωση"
 #: resources/templates/triggers/editor_form.twig:67
 #: resources/templates/view_create.twig:55
 msgid "Definer"
-msgstr "Προσδιοριστής"
+msgstr "Οριστής"
 
 #: resources/templates/database/events/index.twig:3 src/Menu.php:377
 #: src/Navigation/Nodes/NodeEventContainer.php:22
@@ -2269,16 +2263,12 @@ msgid "Switch to copied database"
 msgstr "Αλλαγή στο αντίγραφο της βάσης δεδομένων"
 
 #: resources/templates/database/operations/index.twig:217
-#, fuzzy
-#| msgid "Change all column collations"
 msgid "Change all tables collations"
 msgstr "Αλλαγή όλων των συνθέσεων πινάκων"
 
 #: resources/templates/database/operations/index.twig:221
-#, fuzzy
-#| msgid "Change all column collations"
 msgid "Change all tables columns collations"
-msgstr "Αλλαγή όλων των συνθέσεων στηλών"
+msgstr "Αλλαγή όλων των συνθέσεων στηλών πινάκων"
 
 #: resources/templates/database/privileges/index.twig:5
 #: resources/templates/table/privileges/index.twig:5
@@ -3915,7 +3905,7 @@ msgstr ""
 
 #: resources/templates/login/twofactor/application_configure.twig:13
 msgid "Secret/key:"
-msgstr ""
+msgstr "Μυστικό/κλειδί:"
 
 #: resources/templates/login/twofactor/application_configure.twig:16
 #: resources/templates/login/twofactor/application.twig:2
@@ -4240,10 +4230,8 @@ msgstr ""
 "php, π.χ. χρησιμοποιώντας τον %sκώδικα Εγκατάστασης%s."
 
 #: resources/templates/preferences/manage/main.twig:80
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save as JSON file"
-msgstr "Αποστολή"
+msgstr "Αποθήκευση ως αρχείο JSON"
 
 #: resources/templates/preferences/manage/main.twig:84
 msgid "Save as PHP file"
@@ -5240,10 +5228,8 @@ msgstr "Επιτρέπει τη δημιουργία και διαγραφή υ�
 #: resources/templates/server/privileges/privileges_table.twig:235
 #: resources/templates/server/privileges/privileges_table.twig:239
 #: src/Server/Privileges.php:361 src/Server/Privileges.php:370
-#, fuzzy
-#| msgid "Allows deleting data."
 msgid "Allows deleting historical rows."
-msgstr "Επιτρέπει τη διαγραφή δεδομένων."
+msgstr "Επιτρέπει τη διαγραφή ιστορικών εγγραφών."
 
 #: resources/templates/server/privileges/privileges_table.twig:256
 msgid "Global"
@@ -7404,7 +7390,7 @@ msgstr ""
 
 #: resources/templates/table/relation/common_form.twig:30
 msgid "Foreign key constraint"
-msgstr "Όριο μη διακριτού κλειδιού"
+msgstr "Περιορισμός ξένου κλειδιού"
 
 #: resources/templates/table/relation/common_form.twig:47
 msgid "+ Add constraint"
@@ -8418,15 +8404,6 @@ msgid "Temp disk rate"
 msgstr "Βαθμός προσωρινού δίσκου"
 
 #: src/Advisory/Rules.php:374
-#, fuzzy
-#| msgid ""
-#| "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
-#| "some temporary tables are always being written to disk, independent of "
-#| "the value of these variables. To eliminate these you will have to rewrite "
-#| "your queries to avoid those conditions (Within a temporary table: "
-#| "Presence of a BLOB or TEXT column or presence of a column bigger than 512 "
-#| "bytes) as mentioned in the <a href=\"https://dev.mysql.com/doc/refman/5.5/"
-#| "en/internal-temporary-tables.html\">MySQL Documentation</a>"
 msgid ""
 "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 "some temporary tables are always being written to disk, independent of the "
@@ -8441,9 +8418,9 @@ msgstr ""
 "από την τιμή αυτών των μεταβλητών. Για να το αποτρέψετε αυτό θα πρέπει να "
 "ξαναγράψετε τα ερωτήματά σας για να αποφύγετε αυτές τις συνθήκες (Εντός ενός "
 "προσωρινού πίνακα: Παρουσία μιας στήλης BLOB ή TEXT ή παρουσία μιας στήλης "
-"μεγαλύτερης από 512 bytes) όπως αναφέρθηκεν στην <a href=\"https://dev.mysql."
-"com/doc/refman/5.5/en/internal-temporary-tables.html\">τεκμηρίωση της MySQL</"
-"a>"
+"μεγαλύτερης από 512 bytes) όπως αναφέρθηκε στην <a href="
+"\"https://dev.mysql.com/doc/refman/8.0/en/internal-temporary-tables.html\""
+">τεκμηρίωση της MySQL</a>"
 
 #: src/Advisory/Rules.php:383
 #, php-format
@@ -8476,18 +8453,16 @@ msgid "key_buffer_size is 0"
 msgstr "Το key_buffer_size είναι 0"
 
 #: src/Advisory/Rules.php:402
-#, fuzzy, no-php-format
-#| msgid "Max %% MyISAM key buffer ever used"
+#, no-php-format
 msgid "Max % MyISAM key buffer ever used"
-msgstr "Μέγιστο %% buffer κλειδιού MyISAM που χρησιμοποιήθηκε"
+msgstr "Μέγιστο % buffer κλειδιού MyISAM που χρησιμοποιήθηκε"
 
 #: src/Advisory/Rules.php:407 src/Advisory/Rules.php:424
-#, fuzzy, no-php-format
-#| msgid "MyISAM key buffer (index cache) %% used is low."
+#, no-php-format
 msgid "MyISAM key buffer (index cache) % used is low."
 msgstr ""
-"Το buffer κλειδιού MyISAM (λανθάνουσα ευρετηρίου) %% που χρησιμοποιείτε "
-"είναι χαμηλό."
+"Το buffer κλειδιού MyISAM (λανθάνουσα ευρετηρίου) % που χρησιμοποιείτε είναι "
+"χαμηλό."
 
 #: src/Advisory/Rules.php:409 src/Advisory/Rules.php:426
 msgid ""
@@ -8523,12 +8498,10 @@ msgid "Percentage of index reads from memory"
 msgstr "Ποσοστό των αναγνώσεων ευρετηρίων από τη μνήμη"
 
 #: src/Advisory/Rules.php:440
-#, fuzzy, no-php-format
-#| msgid "The %% of indexes that use the MyISAM key buffer is low."
+#, no-php-format
 msgid "The % of indexes that use the MyISAM key buffer is low."
 msgstr ""
-"Το %% των ευρετηρίων που χρησιμοποιούν το buffer κλειδιού MyISAM είναι "
-"χαμηλό."
+"Το % των ευρετηρίων που χρησιμοποιούν το buffer κλειδιού MyISAM είναι χαμηλό."
 
 #: src/Advisory/Rules.php:441
 msgid "You may need to increase {key_buffer_size}."
@@ -8569,16 +8542,12 @@ msgid "Percentage of used open files limit"
 msgstr "Ποσοστό του ορίου χρησιμοποιημένων ανοιχτών αρχείων"
 
 #: src/Advisory/Rules.php:464
-#, fuzzy
-#| msgid ""
-#| "The number of open files is approaching the max number of open files.  "
-#| "You may get a \"Too many open files\" error."
 msgid ""
 "The number of open files is approaching the max number of open files. You "
 "may get a \"Too many open files\" error."
 msgstr ""
 "Ο αριθμός των ανοιγμένων αρχείων προσεγγίζει τον μέγιστο αριθμό ανοιγμένων "
-"αρχείων. Ίσως λάβετ το σφάλμα «Πολλά ανοιχτά αρχεία»."
+"αρχείων. Ίσως λάβετε το σφάλμα «Πολλά ανοιχτά αρχεία»."
 
 #: src/Advisory/Rules.php:468 src/Advisory/Rules.php:481
 msgid ""
@@ -8612,10 +8581,9 @@ msgstr ""
 "ανά ώρα"
 
 #: src/Advisory/Rules.php:490
-#, fuzzy, no-php-format
-#| msgid "Immediate table locks %%"
+#, no-php-format
 msgid "Immediate table locks %"
-msgstr "Άμεσα κλειδώματα πίνακα %%"
+msgstr "Άμεσα κλειδώματα πίνακα %"
 
 #: src/Advisory/Rules.php:494 src/Advisory/Rules.php:504
 msgid "Too many table locks were not granted immediately."
@@ -8666,10 +8634,9 @@ msgid "The thread cache is set to 0"
 msgstr "Η λανθάνουσα μνήμη νήματος έχει οριστεί σε 0"
 
 #: src/Advisory/Rules.php:521
-#, fuzzy, no-php-format
-#| msgid "Thread cache hit rate %%"
+#, no-php-format
 msgid "Thread cache hit rate %"
-msgstr "Βαθμός νήματος λανθάνουσας μνήμης νήματος %%"
+msgstr "Βαθμός νήματος λανθάνουσας μνήμης νήματος %"
 
 #: src/Advisory/Rules.php:525
 msgid "Thread cache is not efficient."
@@ -8865,18 +8832,7 @@ msgstr ""
 "σχέση με το InnoDB buffer pool."
 
 #: src/Advisory/Rules.php:650 src/Advisory/Rules.php:680
-#, fuzzy, no-php-format
-#| msgid ""
-#| "Especially on a system with a lot of writes to InnoDB tables you should "
-#| "set {innodb_log_file_size} to 25%% of {innodb_buffer_pool_size}. However "
-#| "the bigger this value, the longer the recovery time will be when database "
-#| "crashes, so this value should not be set much higher than 256 MiB. Please "
-#| "note however that you cannot simply change the value of this variable. "
-#| "You need to shutdown the server, remove the InnoDB log files, set the new "
-#| "value in my.cnf, start the server, then check the error logs if "
-#| "everything went fine. See also <a href=\"https://"
-#| "mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-#| "innodblogfilesize-proper-way.html\">this blog entry</a>"
+#, no-php-format
 msgid ""
 "Especially on a system with a lot of writes to InnoDB tables you should set "
 "{innodb_log_file_size} to 25% of {innodb_buffer_pool_size}. However the "
@@ -8889,9 +8845,9 @@ msgid ""
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "Ειδικά σε ένα σύστημα με πολλές εγγραφές σε πίνακες InnoDB θα πρέπει να "
-"ορίσετε το {innodb_log_file_size} στο 25%% του {innodb_buffer_pool_size}. "
-"Ωστόοσ, όσο μεγαλύτερη αυτή η τιμή, τόσο μεγαλύτερος ο χρόνος επαναφοράς "
-"μιας βάσης δεδομένων που κατέρευσε, έτσι αυτή η τιμή δεν πρέπει να οριστεί "
+"ορίσετε το {innodb_log_file_size} στο 25% του {innodb_buffer_pool_size}. "
+"Ωστόσο, όσο μεγαλύτερη αυτή η τιμή, τόσο μεγαλύτερος ο χρόνος επαναφοράς "
+"μιας βάσης δεδομένων που κατέρρευσε, έτσι αυτή η τιμή δεν πρέπει να οριστεί "
 "σε πολύ μεγαλύτερη τιμή από 256 MB. Σημειώστε, ωστόσο, ότι δεν μπορείτε απλά "
 "να αλλάξετε την τιμή αυτής της μεταβλητής. Χρειάζεται να τερματίσετε τον "
 "διακομιστή, να απομακρύνεται τα αρχεία καταγραφής InnoDB, να ορίσετε νέα "
@@ -8918,17 +8874,7 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr "Το μεγεθος του αρχείου καταγραφής της InnoDB είναι ανεπαρκώς μεγάλο."
 
 #: src/Advisory/Rules.php:706
-#, fuzzy, no-php-format
-#| msgid ""
-#| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
-#| "size of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} "
-#| "slows down the recovery time after a database crash considerably. See "
-#| "also <a href=\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
-#| "innodb_log_file_size/\">this Article</a>. You need to shutdown the "
-#| "server, remove the InnoDB log files, set the new value in my.cnf, start "
-#| "the server, then check the error logs if everything went fine. See also "
-#| "<a href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/"
-#| "increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+#, no-php-format
 msgid ""
 "It is usually sufficient to set {innodb_log_file_size} to 25% of the size of "
 "{innodb_buffer_pool_size}. A very big {innodb_log_file_size} slows down the "
@@ -8940,17 +8886,17 @@ msgid ""
 "href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
-"Είναι συνήθως αρκετό να ορίσετε το {innodb_log_file_size} στο 25%% του "
+"Είναι συνήθως αρκετό να ορίσετε το {innodb_log_file_size} στο 25% του "
 "μεγέθους του {innodb_buffer_pool_size}. Ένα πολύ μεγάλο "
 "{innodb_log_file_size} επιβραδύνει το χρόνο επαναφοράς σημαντικά μετά από "
-"μια κατάρευση βάσης δεδομένων. Δείτε επίσης <a href=\"https://www.percona."
-"com/blog/2006/07/03/choosing-proper-innodb_log_file_size/\">αυτό το άρθρο</"
-"a>. Χρειάζεται να τερματίσετε τον διακομιστή, να απομακρύνετε τα αρχεία "
-"καταγραφής της InnoDB, να ορίσετε τη νέα τιμή στο my.cnf, να εκκινήσετε τον "
-"διακομιστή και μετά να ελέγξετε τις καταγραφές σφαλμάτων αν όλα πήγαν καλά. "
-"Δείτε επίσης <a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">αυτό το άρθρο "
-"ιστολογίου</a>"
+"μια κατάρρευση βάσης δεδομένων. Δείτε επίσης <a href=\"https://"
+"www.percona.com/blog/2006/07/03/choosing-proper-innodb_log_file_size/\">αυτό "
+"το άρθρο</a>. Χρειάζεται να τερματίσετε τον διακομιστή, να απομακρύνετε τα "
+"αρχεία καταγραφής της InnoDB, να ορίσετε τη νέα τιμή στο my.cnf, να "
+"εκκινήσετε τον διακομιστή και μετά να ελέγξετε τις καταγραφές σφαλμάτων αν "
+"όλα πήγαν καλά. Δείτε επίσης <a href=\"https://"
+"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
+"proper-way.html\">αυτό το άρθρο ιστολογίου</a>"
 
 #: src/Advisory/Rules.php:717
 #, php-format
@@ -8966,18 +8912,7 @@ msgid "Your InnoDB buffer pool is fairly small."
 msgstr "Το InnoDB buffer pool είναι αρκετά μικρό."
 
 #: src/Advisory/Rules.php:728
-#, fuzzy, no-php-format
-#| msgid ""
-#| "The InnoDB buffer pool has a profound impact on performance for InnoDB "
-#| "tables. Assign all your remaining memory to this buffer. For database "
-#| "servers that use solely InnoDB as storage engine and have no other "
-#| "services (e.g. a web server) running, you may set this as high as 80%% of "
-#| "your available memory. If that is not the case, you need to carefully "
-#| "assess the memory consumption of your other services and non-InnoDB-"
-#| "Tables and set this variable accordingly. If it is set too high, your "
-#| "system will start swapping, which decreases performance significantly. "
-#| "See also <a href=\"https://www.percona.com/blog/2007/11/03/choosing-"
-#| "innodb_buffer_pool_size/\">this article</a>"
+#, no-php-format
 msgid ""
 "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 "tables. Assign all your remaining memory to this buffer. For database "
@@ -8994,13 +8929,14 @@ msgstr ""
 "πίνακες InnoDB. Δεσμεύστε όλη την υπόλοιπη μνήμη σας σε αυτό το buffer. Για "
 "διακομιστές βάσεων δεδομένων που χρησιμοποιούν μόνο InnoDB ως μηχανή "
 "αποθήκευσης και δεν έχουν άλλες υπηρεσίες (π.χ. ένα διακομιστή ιστού) να "
-"εκτελούνται, μπορείτε να ορίσετε αυτή την τιμή ως και το 80%% της διαθέσιμης "
+"εκτελούνται, μπορείτε να ορίσετε αυτή την τιμή ως και το 80% της διαθέσιμης "
 "μνήμης σας. Αν δεν είναι αυτή η περίπτωση, θα πρέπει να δείτε προσεκτικά την "
 "κατανάλωση μνήμης από τις άλλες υπηρεσίες σας και τους μη-InnoDB-Πίνακες και "
 "να ορίσετε αυτή την μεταβλητή ανάλογα. Αν οριστεί πολύ ψηλά, το σύστημα σας "
 "θα αρχίσει τις ανταλλαγές, κάτι που θα μειώσει την απόδοση σημαντικά. Δείτε "
-"επίσης <a href=\"https://www.percona.com/blog/2007/11/03/choosing-"
-"innodb_buffer_pool_size/\">αυτό το άρθρο</a>"
+"επίσης <a href="
+"\"https://www.percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/\""
+">αυτό το άρθρο</a>"
 
 #: src/Advisory/Rules.php:738
 #, php-format
@@ -9063,10 +8999,9 @@ msgstr ""
 "Το query_cache_size ορίστηκε σε 0 ή το query_cache_type ορίστηκε σε «OFF»"
 
 #: src/Advisory/Rules.php:786
-#, fuzzy, no-php-format
-#| msgid "Query cache efficiency (%%)"
+#, no-php-format
 msgid "Query cache efficiency (%)"
-msgstr "Απόδοση λανθάνουσας μνήμης ερωτήματος (%%)"
+msgstr "Απόδοση λανθάνουσας μνήμης ερωτήματος (%)"
 
 #: src/Advisory/Rules.php:790
 msgid "Query cache not running efficiently, it has a low hit rate."
@@ -9090,11 +9025,9 @@ msgid "Query Cache usage"
 msgstr "Χρήση λανθάνουσας μνήμης ερωτήματος"
 
 #: src/Advisory/Rules.php:802
-#, fuzzy, no-php-format
-#| msgid "Less than 80%% of the query cache is being utilized."
+#, no-php-format
 msgid "Less than 80% of the query cache is being utilized."
-msgstr ""
-"Λιγότερο από το 80%% της λανθάνουσας μνήμης ερωτήματος χρησιμοποιείται."
+msgstr "Λιγότερο από το 80% της λανθάνουσας μνήμης ερωτήματος χρησιμοποιείται."
 
 #: src/Advisory/Rules.php:804
 msgid ""
@@ -9300,12 +9233,9 @@ msgid "accent-sensitive"
 msgstr "ταίριασμα τονισμένων"
 
 #: src/Charsets/Collation.php:222
-#, fuzzy
-#| msgctxt "Collation variant"
-#| msgid "accent-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "ταίριασμα τονισμένων"
+msgstr "ταίριασμα kana"
 
 #: src/Charsets/Collation.php:223
 msgctxt "Collation variant"
@@ -9320,7 +9250,7 @@ msgstr "δυαδικό"
 #: src/Charsets/Collation.php:225
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr ""
+msgstr "χωρίς συμπλήρωση"
 
 #: src/Charsets/Collation.php:242
 msgctxt "Collation"
@@ -9919,7 +9849,7 @@ msgstr ""
 #: src/Config/Descriptions.php:171 src/Config/Descriptions.php:708
 #: src/Plugins/Export/ExportSql.php:366
 msgid "Exclude definition of current user"
-msgstr ""
+msgstr "Εξαίρεση ορισμού για τον τρέχοντα χρήστη"
 
 #: src/Config/Descriptions.php:173
 msgid ""
@@ -10180,17 +10110,12 @@ msgstr ""
 "σύνδεσμοι «Προηγούμενο» και «Επόμενο»."
 
 #: src/Config/Descriptions.php:274
-#, fuzzy
-#| msgid ""
-#| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
-#| "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgid ""
 "The number of bytes a script is allowed to allocate, e.g. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
-"Ο αριθμός των bytes που επιτρέπεται να δεσμευσει ένας κώδικας, π.χ. "
-"[kbd]32M[/kbd] ([kbd]-1[/kbd] για απεριόριστη και [kbd]0[/kbd] για καμιά "
-"αλλαγή)."
+"Ο αριθμός των bytes που επιτρέπεται να δεσμεύσει ένας κώδικας, π.χ. [kbd]"
+"32M[/kbd] ([kbd]-1[/kbd] για απεριόριστη και [kbd]0[/kbd] για καμιά αλλαγή)."
 
 #: src/Config/Descriptions.php:278
 msgid "In the navigation panel, replaces the database tree with a selector"
@@ -10240,11 +10165,9 @@ msgstr ""
 "Αν θα προβάλονται διεργασίες κάτω από τη βάση δεδομένων στο δέντρο πλοήγησης"
 
 #: src/Config/Descriptions.php:300
-#, fuzzy
-#| msgid "Whether to show events under database in the navigation tree"
 msgid "Whether to expand single database in the navigation tree automatically."
 msgstr ""
-"Αν θα θα προβάλονται συμβάντα κάτω από τη βάση δεδομένων στο δέντρο πλοήγησης"
+"Αν θα επεκταθεί μεμονωμένη βάση δεδομένων στο δέντρο πλοήγησης αυτόματα."
 
 #: src/Config/Descriptions.php:302
 msgid "Set to 0 to collapse navigation panel."
@@ -10352,16 +10275,12 @@ msgstr ""
 "προτείνεται: [kbd]pma__bookmark[/kbd]"
 
 #: src/Config/Descriptions.php:339
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no column comments/mime types, suggested: "
-#| "[kbd]pma__column_info[/kbd]."
 msgid ""
 "Leave blank for no column comments/media types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
-"Αφήστε κενό για να μη υπάρχουν σχόλια/τύποι mime στις στήλες, προτείνεται: "
-"[kbd]pma_column_info[/kbd]."
+"Αφήστε κενό για να μη υπάρχουν σχόλια/τύποι πολυμέσων στις στήλες, "
+"προτείνεται: [kbd]pma_column_info[/kbd]."
 
 #: src/Config/Descriptions.php:342
 msgid ""
@@ -10735,8 +10654,6 @@ msgstr ""
 "προβάλονται."
 
 #: src/Config/Descriptions.php:489
-#, fuzzy
-#| msgid "Allow to display database and table statistics (eg. space usage)."
 msgid "Allow to display database and table statistics (e.g. space usage)."
 msgstr ""
 "Δικαίωμα προβολής στατιστικών βάσης δεδομένων και πινάκων (π.χ. χρήση χώρου "
@@ -10912,6 +10829,8 @@ msgstr ""
 #: src/Config/Descriptions.php:549
 msgid "Uncheck the checkbox to disable drag and drop import"
 msgstr ""
+"Αποεπιλέξτε το πλαίσιο ελέγχου για απενεργοποίηση την εισαγωγή με μεταφορά "
+"και απόθεση."
 
 #: src/Config/Descriptions.php:550
 msgid "How many rows can be inserted at one time."
@@ -13251,6 +13170,8 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
+"Προσπαθείτε να μειώσετε τον αριθμό των γραμμών, αλλά έχουν ήδη εισαχθεί "
+"δεδομένα σε αυτές τις γραμμές, τα οποία θα χαθούν. Θέλετε να συνεχίσετε;"
 
 #: src/Controllers/JavaScriptMessagesController.php:75
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -13392,10 +13313,8 @@ msgid "Y values"
 msgstr "Τιμές Υ"
 
 #: src/Controllers/JavaScriptMessagesController.php:139
-#, fuzzy
-#| msgid "Please enter the same value again"
 msgid "Please enter the SQL query first."
-msgstr "Εισάγετε την ίδια τιμή ξανά"
+msgstr "Εισάγετε πρώτα το ερώτημα SQL."
 
 #: src/Controllers/JavaScriptMessagesController.php:142
 msgid "The host name is empty!"
@@ -14296,7 +14215,7 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:514
 msgid "value/subQuery is empty"
-msgstr ""
+msgstr "Η τιμή / Το υποερώτημα είναι άδεια"
 
 #: src/Controllers/JavaScriptMessagesController.php:516
 msgid "Page name"
@@ -14341,10 +14260,8 @@ msgid "%d object(s) created."
 msgstr "%d αντικείμενο(α) δημιουργήθηκε(αν)."
 
 #: src/Controllers/JavaScriptMessagesController.php:533
-#, fuzzy
-#| msgid "Column names"
 msgid "Column name"
-msgstr "Ονόματα στηλών"
+msgstr "Όνομα στήλης"
 
 #: src/Controllers/JavaScriptMessagesController.php:537
 #, fuzzy
@@ -14692,8 +14609,7 @@ msgid ""
 msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:688
-#, fuzzy, php-format
-#| msgid "Table %s already exists!"
+#, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
@@ -15213,7 +15129,7 @@ msgstr "Κείμενο"
 #: src/Controllers/Operations/Database/CollationController.php:40
 #: src/Controllers/Operations/TableController.php:264
 msgid "No collation provided."
-msgstr ""
+msgstr "Δεν παρέχεται καμιά σύνθεση."
 
 #: src/Controllers/Operations/DatabaseController.php:82
 msgid "Cannot copy database to the same name. Change the name and try again."
@@ -16202,10 +16118,8 @@ msgstr "Μη έγκυρο όνομα πίνακα"
 #. l10n: In case a SQL query did not pass a security check
 #: src/Controllers/Table/GetFieldController.php:70
 #: src/Controllers/Transformation/WrapperController.php:75
-#, fuzzy
-#| msgid "There are too many joins without indexes."
 msgid "There is an issue with your request."
-msgstr "Υπάρχουν πολλές ενώσεις χωρίς ευρετήρια."
+msgstr "Υπάρχουν κάποιο θέμα με το αίτημα σας."
 
 #: src/Controllers/Table/GetFieldController.php:85
 #: src/Database/Routines.php:1036 src/Import/Import.php:135
@@ -16381,18 +16295,14 @@ msgstr ""
 "λίστας στηλών."
 
 #: src/Database/Designer/Common.php:445
-#, fuzzy
-#| msgid ""
-#| "The configuration storage is not ready for the central list of columns "
-#| "feature."
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
 "on designer when user tries to set a display field."
 msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
 msgstr ""
-"Η αποθήκευση ρυθμίσεων δεν είναι έτοιμη για το χαρακτηριστικό κεντρικής "
-"λίστας στηλών."
+"Η αποθήκευση ρυθμίσεων του phpMyAdmin δεν έχει ρυθμιστεί για «Προβολή "
+"Χαρακτηριστικών»."
 
 #: src/Database/Designer/Common.php:487
 msgid "Error: relationship already exists."
@@ -18676,6 +18586,9 @@ msgid ""
 "has been deprecated for security reasons. Add all command line options "
 "directly to the definition in %s."
 msgstr ""
+"Χρησιμοποιείτε το πεδίο επιλογών γραμμής εντολών εξωτερικής μετατροπής, που "
+"έχει καταργηθεί για λόγους ασφαλείας. Προσθέστε όλες τις επιλογές γραμμής "
+"εντολών κατευθείαν στο ορισμό στο %s."
 
 #: src/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:27
 msgid ""
@@ -18849,7 +18762,6 @@ msgstr ""
 "FreeOTP, το Google Authenticator ή το Authy."
 
 #: src/Plugins/TwoFactor/Key.php:203
-#, fuzzy
 msgid "Hardware Security Key (FIDO U2F)"
 msgstr "Υλικό κλειδί ασφαλείας (FIDO U2F)"
 
