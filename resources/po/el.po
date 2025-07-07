@@ -3845,10 +3845,8 @@ msgid "Password:"
 msgstr "Κωδικός πρόσβασης:"
 
 #: resources/templates/login/form.twig:93
-#, fuzzy
-#| msgid "Server Choice:"
 msgid "Server choice:"
-msgstr "Επιλογή Διακομιστή:"
+msgstr "Επιλογή διακομιστή:"
 
 #: resources/templates/login/header.twig:10
 #: src/Plugins/Auth/AuthenticationConfig.php:83
@@ -3858,20 +3856,15 @@ msgid "Welcome to %s"
 msgstr "Καλωσήρθατε στο %s"
 
 #: resources/templates/login/header.twig:17
-#, fuzzy
-#| msgid ""
-#| "There is mismatch between HTTPS indicated on the server and client. This "
-#| "can lead to non working phpMyAdmin or a security risk. Please fix your "
-#| "server configuration to indicate HTTPS properly."
 msgid ""
 "There is a mismatch between HTTPS indicated on the server and client. This "
 "can lead to a non working phpMyAdmin or a security risk. Please fix your "
 "server configuration to indicate HTTPS properly."
 msgstr ""
-"Υπάρχει δυσαρμονία μεταξύ του HTTPS που φαίνεται στο διακομιστή και στον "
-"πελάτη. Αυτό μπορεί να οδηγήσει σε μη λειτουργικό phpMyAdmin ή σε κίνδυνο "
-"ασφάλειας. Διορθώστε τη ρύθμιση του διακομιστή σας ώστε να δείχνει το HTTPS "
-"σωστά."
+"Υπάρχει ασυμφωνία μεταξύ του HTTPS που δηλώνεται στον διακομιστή και στον "
+"πελάτη. Αυτό μπορεί να προκαλέσει δυσλειτουργία του phpMyAdmin ή κίνδυνο "
+"ασφαλείας. Παρακαλώ διορθώστε τη ρύθμιση του διακομιστή ώστε να δηλώνει "
+"σωστά το HTTPS."
 
 #: resources/templates/login/twofactor/application_configure.twig:3
 msgid ""
@@ -3984,10 +3977,8 @@ msgstr ""
 "Μετά επιβεβαιώστε τη σύνδεση στη συσκευή."
 
 #: resources/templates/menu/main.twig:27
-#, fuzzy
-#| msgid "Views:"
 msgid "View:"
-msgstr "Προβολές:"
+msgstr "Προβολή:"
 
 #: resources/templates/menu/main.twig:29 src/Plugins/Export/Helpers/Pdf.php:178
 msgid "Table:"
@@ -4011,7 +4002,7 @@ msgstr "Προβολή κρυφών αντικειμένων δέντρου πλ
 
 #: resources/templates/navigation/item_unhide_dialog.twig:19
 msgid "Unhide"
-msgstr ""
+msgstr "Απόκρυψη"
 
 #: resources/templates/navigation/main.twig:25
 #: resources/templates/navigation/main.twig:26
@@ -15011,13 +15002,16 @@ msgstr "Εισάγετε μια έγκυρη ΔΕΚΑΕΞΑΔΙΚΗ εισαγω
 #. l10n: To validate the usage of a MD5 function on the column
 #: src/Controllers/JavaScriptMessagesController.php:779
 msgid "This column can not contain a 32 chars value"
-msgstr "Αυτή η στήλη δεν μπορεί να περιέχει τιμή 32 χαρακτήρων."
+msgstr "Αυτή η στήλη δεν μπορεί να περιέχει τιμή 32 χαρακτήρων"
 
 #: src/Controllers/JavaScriptMessagesController.php:782
 msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
 msgstr ""
+"Αυτές οι συναρτήσεις προορίζονται να επιστρέφουν δυαδικό αποτέλεσμα· για να "
+"αποφύγετε ασυνεπή αποτελέσματα, θα πρέπει να το αποθηκεύσετε σε στήλη τύπου "
+"BINARY, VARBINARY ή BLOB."
 
 #: src/Controllers/JavaScriptMessagesController.php:787
 #, fuzzy
