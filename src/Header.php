@@ -17,7 +17,6 @@ use PhpMyAdmin\Navigation\Navigation;
 use PhpMyAdmin\Theme\ThemeManager;
 
 use function array_merge;
-use function defined;
 use function htmlspecialchars;
 use function ini_get;
 use function json_encode;
@@ -209,8 +208,6 @@ class Header
     /** @return mixed[] */
     public function getDisplay(): array
     {
-        $baseDir = defined('PMA_PATH_TO_BASEDIR') ? PMA_PATH_TO_BASEDIR : '';
-
         /** @var ThemeManager $themeManager */
         $themeManager = ContainerBuilder::getContainer()->get(ThemeManager::class);
         $theme = $themeManager->theme;
@@ -278,7 +275,6 @@ class Header
         return [
             'lang' => Current::$lang,
             'allow_third_party_framing' => $this->config->settings['AllowThirdPartyFraming'],
-            'base_dir' => $baseDir,
             'theme_path' => $theme->getPath(),
             'server' => Current::$server,
             'title' => $this->getPageTitle(),
