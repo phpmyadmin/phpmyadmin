@@ -623,6 +623,7 @@ class Generator
         }
 
         // Add show create link when viewing tables
+        $showCreateParams = [];
         $showCreateParams['sql_query'] = "";
         $showCreateParams['db'] = $GLOBALS['db'];
         $showCreateParams['selected_tbl[]'] = $GLOBALS['table'];
