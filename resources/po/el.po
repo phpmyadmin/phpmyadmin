@@ -310,7 +310,7 @@ msgstr "Ορισμός PARTITION:"
 #: resources/templates/columns_definitions/column_definitions_form.twig:151
 msgctxt "Online transaction part of the SQL DDL for InnoDB"
 msgid "Online transaction"
-msgstr "Διαδικτυακή συναλλαγή"
+msgstr "Ηλεκτρονική συναλλαγή"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:154
 #: resources/templates/modals/index_dialog_modal.twig:11
@@ -1295,7 +1295,7 @@ msgstr "Δημιουργία έκδοσης"
 #: resources/templates/database/central_columns/edit.twig:15
 msgctxt "Auto Increment"
 msgid "A_I"
-msgstr "A_I"
+msgstr "Α/Α"
 
 #: resources/templates/database/central_columns/main.twig:4
 msgid "Add new column"
@@ -1304,7 +1304,7 @@ msgstr "Προσθήκη νέας στήλης"
 #: resources/templates/database/central_columns/main.twig:24
 #: resources/templates/database/central_columns/main.twig:234
 msgid "Length/Value"
-msgstr "Μήκος/Τιμή"
+msgstr "Μήκος/Τιμή*"
 
 #: resources/templates/database/central_columns/main.twig:36
 #: resources/templates/database/central_columns/main.twig:246
@@ -1317,10 +1317,8 @@ msgid "A_I"
 msgstr "Α/Α"
 
 #: resources/templates/database/central_columns/main.twig:129
-#, fuzzy
-#| msgid "The central list of columns for the current database is empty."
 msgid "The central list of columns for the current database is empty"
-msgstr "Η κεντρική λίστα στηλών για την τρέχουσα βάση δεδομένων είναι άδεια."
+msgstr "Η κεντρική λίστα στηλών για την τρέχουσα βάση δεδομένων είναι άδεια"
 
 #: resources/templates/database/central_columns/main.twig:168
 #: resources/templates/display/results/table.twig:139
@@ -1995,14 +1993,14 @@ msgid ""
 "@SERVER@ will become the server name and @DATABASE@ will become the database "
 "name."
 msgstr ""
-"Το \"@SERVER@\" θα αντικατασταθεί από το όνομα του διακομιστή και το "
-"\"@DATABASE@\" θα αντικατασταθεί από το όνομα της βάσης δεδομένων."
+"Το @SERVER@ θα γίνει το όνομα του διακομιστή και το @DATABASE@ θα γίνει το "
+"όνομα της βάσης δεδομένων."
 
 #. l10n: A query that the user has written freely
 #: resources/templates/database/export/index.twig:5
 #: resources/templates/table/export/index.twig:5
 msgid "Exporting a raw query"
-msgstr "Εξαγωγή ενός ακατέργαστου ερωτήματος"
+msgstr "Εξαγωγή ακατέργαστου ερωτήματος"
 
 #: resources/templates/database/export/index.twig:7
 #, php-format
@@ -2184,8 +2182,8 @@ msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details."
 msgstr ""
-"Δεν έχετε αρκετά δικαιώματα για την εκτέλεση αυτής της λειτουργίας. "
-"Παρακαλώ, ανατρέξτε στην τεκμηρίωση για περισσότερες λεπτομέρειες."
+"Δεν έχετε αρκετά δικαιώματα για εκτέλεση αυτής της λειτουργίας. Δείτε την "
+"τεκμηρίωση για περισσότερες λεπτομέρειες."
 
 #: resources/templates/database/operations/index.twig:84
 msgid "Remove database"
@@ -3061,10 +3059,8 @@ msgid "All"
 msgstr "Όλα"
 
 #: resources/templates/display/results/table.twig:151
-#, fuzzy
-#| msgid "Sort by key"
 msgid "Sort by key:"
-msgstr "Ταξινόμηση ανά κλειδί"
+msgstr "Ταξινόμηση ανά κλειδί:"
 
 #: resources/templates/display/results/table.twig:200
 #: resources/templates/table/search/index.twig:101
@@ -3248,8 +3244,6 @@ msgstr "Εντολή SQL:"
 
 #. l10n: Button to show the SQL query on the export page
 #: resources/templates/export.twig:72
-#, fuzzy
-#| msgid "Showing SQL query"
 msgid "Show SQL query"
 msgstr "Εμφάνιση ερωτήματος SQL"
 
@@ -3383,21 +3377,16 @@ msgid "File name template:"
 msgstr "Πρότυπο ονόματος αρχείου:"
 
 #: resources/templates/export.twig:384
-#, fuzzy, php-format
-#| msgid ""
-#| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-#| "formatting strings. Additionally the following transformations will "
-#| "happen: %3$s. Other text will be kept as is. See the %4$sFAQ%5$s for "
-#| "details."
+#, php-format
 msgid ""
 "This value is interpreted using the 'strftime' function, so you can use time "
 "formatting strings. Additionally the following transformations will happen: "
 "%s Other text will be kept as is. See the FAQ 6.27 for details."
 msgstr ""
-"Αυτή η τιμή μετατρέπεται με χρήση της συνάρτησης %1$sstrftime%2$s, έτσι "
-"μπορείτε να χρησιμοποιήσετε φράσεις μορφής χρόνου. Επιπρόσθετα, θα γίνουν "
-"και οι ακόλουθες μετατροπές: %3$s. Το υπόλοιπο κείμενο θα παραμείνει όπως "
-"είναι. Δείτε τις %4$sΣΑΕ%5$s για λεπτομέρειες."
+"Αυτή η τιμή ερμηνεύεται χρησιμοποιώντας τη συνάρτηση «strftime», επομένως "
+"μπορείτε να χρησιμοποιήσετε συμβολοσειρές μορφοποίησης χρόνου. Επιπλέον, θα "
+"πραγματοποιηθούν οι εξής μετατροπές: %s Άλλο κείμενο θα διατηρηθεί ως έχει. "
+"Δείτε τη Συχνή Ερώτηση 6.27 για λεπτομέρειες."
 
 #: resources/templates/export.twig:394
 #, fuzzy
@@ -3469,8 +3458,6 @@ msgid "Spatial Reference System Identifier"
 msgstr ""
 
 #: resources/templates/gis_data_editor_form.twig:41
-#, fuzzy
-#| msgid "SRID:"
 msgctxt "Spatial Reference System Identifier"
 msgid "SRID:"
 msgstr "SRID:"
@@ -3494,22 +3481,19 @@ msgstr "κανένας κλάδος"
 
 #: resources/templates/home/git_info.twig:15
 #: resources/templates/home/git_info.twig:22
-#, fuzzy, php-format
-#| msgid "%1$s from %2$s branch"
+#, php-format
 msgid "from %s branch"
-msgstr "%1$s από %2$s κλάδο"
+msgstr "από %s κλάδο"
 
 #: resources/templates/home/git_info.twig:25
-#, fuzzy, php-format
-#| msgid "committed on %1$s by %2$s"
+#, php-format
 msgid "committed on %s by %s"
-msgstr "έγινε την %1$s από %2$s"
+msgstr "έγινε την %s από %s"
 
 #: resources/templates/home/git_info.twig:32
-#, fuzzy, php-format
-#| msgid "authored on %1$s by %2$s"
+#, php-format
 msgid "authored on %s by %s"
-msgstr "δημιουργήθηκε την %1$s από %2$s"
+msgstr "δημιουργήθηκε την %s από %s"
 
 #: resources/templates/home/index.twig:22 resources/templates/login/form.twig:8
 #, php-format
@@ -3535,10 +3519,8 @@ msgid "Change password"
 msgstr "Αλλαγή κωδικού πρόσβασης"
 
 #: resources/templates/home/index.twig:56
-#, fuzzy
-#| msgid "Server connection collation"
 msgid "Server connection collation:"
-msgstr "Σύνθεση σύνδεσης διακομιστή"
+msgstr "Σύνθεση σύνδεσης διακομιστή:"
 
 #: resources/templates/home/index.twig:82
 #: resources/templates/preferences/manage/main.twig:55
@@ -3723,10 +3705,8 @@ msgid "Upload a file"
 msgstr "Λήψη αρχείου"
 
 #: resources/templates/import.twig:40
-#, fuzzy
-#| msgid "File to import:"
 msgid "Select file to import"
-msgstr "Αρχείο για εισαγωγή:"
+msgstr "Επιλογή αρχείου για εισαγωγή"
 
 #: resources/templates/import.twig:46 resources/templates/import.twig:72
 #: resources/templates/preferences/manage/main.twig:21
@@ -3744,10 +3724,10 @@ msgstr ""
 "Ο φάκελος που ορίσατε για την αποθήκευση αρχείων δεν μπόρεσε να βρεθεί."
 
 #: resources/templates/import.twig:58 resources/templates/import.twig:83
-#, fuzzy, php-format
-#| msgid "Select from the web server upload directory <b>%s</b>:"
+#, php-format
 msgid "Select from the web server upload directory [strong]%s[/strong]:"
-msgstr "Επιλογή από το φάκελο αποστολής του διακομίστή ιστού <b>%s</b>:"
+msgstr ""
+"Επιλογή από τον φάκελο αποστολών του διακομιστή ιστού [strong]%s[/strong]:"
 
 #: resources/templates/import.twig:65 resources/templates/import.twig:91
 #, fuzzy
@@ -3813,10 +3793,8 @@ msgstr "Άλλες επιλογές:"
 
 #: resources/templates/indexes.twig:40
 #: resources/templates/table/structure/display_structure.twig:495
-#, fuzzy
-#| msgid "Rename to"
 msgid "Rename"
-msgstr "Μετονομασία σε"
+msgstr "Μετονομασία"
 
 #: resources/templates/indexes.twig:46
 #: resources/templates/table/structure/display_structure.twig:501
@@ -15033,7 +15011,7 @@ msgstr "Εισάγετε μια έγκυρη ΔΕΚΑΕΞΑΔΙΚΗ εισαγω
 #. l10n: To validate the usage of a MD5 function on the column
 #: src/Controllers/JavaScriptMessagesController.php:779
 msgid "This column can not contain a 32 chars value"
-msgstr ""
+msgstr "Αυτή η στήλη δεν μπορεί να περιέχει τιμή 32 χαρακτήρων."
 
 #: src/Controllers/JavaScriptMessagesController.php:782
 msgid ""
@@ -19714,7 +19692,7 @@ msgid ""
 msgstr ""
 "Προορίζεται για την αποθήκευση διευθύνσεων IPv6, καθώς και διευθύνσεων IPv4 "
 "με την υπόθεση της συμβατικής αντιστοίχισης διευθύνσεων IPv4 σε διευθύνσεις "
-"IPv6."
+"IPv6"
 
 #: src/Types.php:292
 #, fuzzy
@@ -19750,13 +19728,9 @@ msgid "Could not save configuration"
 msgstr "Αδύνατη η αποθήκευση ρυθμίσεων"
 
 #: src/UserPreferences.php:172
-#, fuzzy
-#| msgid ""
-#| "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgid "The phpMyAdmin configuration storage database could not be accessed."
 msgstr ""
-"%sΔημιουργία%s του τρέχοντος χώρου αποθήκευσης ρυθμίσεων του phpMyAdmin στην "
-"τρέχουσα βάση δεδομένων."
+"Η βάση δεδομένων αποθήκευσης ρυθμίσεων του phpMyAdmin δεν ήταν προσβάσιμη."
 
 #: src/Util.php:128
 #, php-format
