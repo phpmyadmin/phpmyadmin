@@ -240,7 +240,7 @@ class ExportOdt extends ExportPlugin
 
         $this->buffer .= '<text:h text:outline-level="2" text:style-name="Heading_2"'
             . ' text:is-list-header="true">';
-        $tableAlias != ''
+        $tableAlias !== ''
             ? $this->buffer .= __('Dumping data for table') . ' ' . htmlspecialchars($tableAlias)
             : $this->buffer .= __('Dumping data for query result');
         $this->buffer .= '</text:h>'

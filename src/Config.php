@@ -285,7 +285,7 @@ class Config
                 (! isset($configData['ThemeDefault'])
                 && $themeManager->theme->getId() !== 'original')
                 || isset($configData['ThemeDefault'])
-                && $configData['ThemeDefault'] != $themeManager->theme->getId()
+                && $configData['ThemeDefault'] !== $themeManager->theme->getId()
             ) {
                 $this->setUserValue(
                     null,
@@ -295,7 +295,7 @@ class Config
                 );
             }
         } elseif (
-            $this->settings['ThemeDefault'] != $themeManager->theme->getId()
+            $this->settings['ThemeDefault'] !== $themeManager->theme->getId()
             && $themeManager->themeExists($this->settings['ThemeDefault'])
         ) {
             // no cookie - read default from settings
@@ -536,7 +536,7 @@ class Config
         } elseif (Util::getProtoFromForwardedHeader(Core::getEnv('HTTP_FORWARDED')) === 'https') {
             // RFC 7239 Forwarded header
             $isHttps = true;
-        } elseif (Core::getEnv('SERVER_PORT') == 443) {
+        } elseif ((int) Core::getEnv('SERVER_PORT') === 443) {
             $isHttps = true;
         }
 

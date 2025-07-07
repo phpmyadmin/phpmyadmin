@@ -480,6 +480,9 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$_REQUEST['printview']]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Config/ServerConfigChecks.php">
     <MixedAssignment>
@@ -613,6 +616,9 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
+    <DocblockTypeContradiction>
+      <code><![CDATA[$foreign[$field] !== '']]></code>
+    </DocblockTypeContradiction>
     <InvalidReturnStatement>
       <code><![CDATA[$tableNameReplacements]]></code>
     </InvalidReturnStatement>
@@ -660,6 +666,9 @@
     <PossiblyUnusedReturnValue>
       <code><![CDATA[bool]]></code>
     </PossiblyUnusedReturnValue>
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[isset($foreign[$field]) && $foreign[$field] !== '']]></code>
+    </RedundantConditionGivenDocblockType>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$relationParams[$work]]]></code>
       <code><![CDATA[empty($this->config->selectedServer[$feature])]]></code>
@@ -2933,6 +2942,7 @@
       <code><![CDATA[$_POST['maxPlotLimit']]]></code>
     </RiskyCast>
     <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$_POST['get_data_row']]]></code>
       <code><![CDATA[empty($_POST['maxPlotLimit'])]]></code>
       <code><![CDATA[empty($row->collation)]]></code>
     </RiskyTruthyFalsyComparison>
@@ -5887,9 +5897,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <DocblockTypeContradiction>
-      <code><![CDATA[$resp == null]]></code>
-    </DocblockTypeContradiction>
     <MixedArgument>
       <code><![CDATA[$serverCookie]]></code>
       <code><![CDATA[$serverCookie]]></code>
@@ -7905,6 +7912,9 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$questionPos]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Sanitize.php">
     <DeprecatedMethod>
@@ -8124,10 +8134,12 @@
       <code><![CDATA[$row1[0]]]></code>
     </PossiblyUndefinedArrayOffset>
     <RiskyCast>
+      <code><![CDATA[$_POST['grant_count']]]></code>
       <code><![CDATA[$_POST['max_connections']]]></code>
       <code><![CDATA[$_POST['max_questions']]]></code>
       <code><![CDATA[$_POST['max_updates']]]></code>
       <code><![CDATA[$_POST['max_user_connections']]]></code>
+      <code><![CDATA[$_REQUEST['column_count']]]></code>
     </RiskyCast>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($_POST[$currentGrant[0] . '_none'])]]></code>
@@ -8402,7 +8414,6 @@
     </MixedArrayAssignment>
     <MixedAssignment>
       <code><![CDATA[$maxRows]]></code>
-      <code><![CDATA[$pos]]></code>
       <code><![CDATA[$sortCol]]></code>
       <code><![CDATA[$unlimNumRows]]></code>
     </MixedAssignment>
@@ -8417,8 +8428,6 @@
       <code><![CDATA[$statementInfo->statement->where[0]->expr]]></code>
     </MixedPropertyFetch>
     <MixedReturnStatement>
-      <code><![CDATA[$pos]]></code>
-      <code><![CDATA[$pos]]></code>
       <code><![CDATA[$unlimNumRows]]></code>
       <code><![CDATA[$unlimNumRows]]></code>
       <code><![CDATA[@((int) ceil($numberOfLine / $maxRows) - 1) * $maxRows]]></code>
@@ -8465,6 +8474,9 @@
     </RedundantCondition>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! $index->isUnique()]]></code>
+      <code><![CDATA[$_POST['grid_edit']]]></code>
+      <code><![CDATA[$_POST['printview']]]></code>
+      <code><![CDATA[$_POST['printview']]]></code>
       <code><![CDATA[$table]]></code>
       <code><![CDATA[empty($_GET['id_bookmark'])]]></code>
       <code><![CDATA[empty($_GET['id_bookmark'])]]></code>
@@ -8910,9 +8922,6 @@
       <code><![CDATA[$tokens[0]]]></code>
       <code><![CDATA[$tokens[2]]]></code>
     </PossiblyNullArrayAccess>
-    <PossiblyNullOperand>
-      <code><![CDATA[$statement]]></code>
-    </PossiblyNullOperand>
     <PossiblyNullPropertyFetch>
       <code><![CDATA[$parser->list->tokens]]></code>
       <code><![CDATA[$statement->fields[0]->table]]></code>
@@ -8988,6 +8997,21 @@
       <code><![CDATA[$tableName]]></code>
       <code><![CDATA[$versionNumber]]></code>
     </PossiblyNullArgument>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$_POST['alter_table']]]></code>
+      <code><![CDATA[$_POST['alter_view']]]></code>
+      <code><![CDATA[$_POST['create_index']]]></code>
+      <code><![CDATA[$_POST['create_table']]]></code>
+      <code><![CDATA[$_POST['create_view']]]></code>
+      <code><![CDATA[$_POST['delete']]]></code>
+      <code><![CDATA[$_POST['drop_index']]]></code>
+      <code><![CDATA[$_POST['drop_table']]]></code>
+      <code><![CDATA[$_POST['drop_view']]]></code>
+      <code><![CDATA[$_POST['insert']]]></code>
+      <code><![CDATA[$_POST['rename_table']]]></code>
+      <code><![CDATA[$_POST['truncate']]]></code>
+      <code><![CDATA[$_POST['update']]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Transformations.php">
     <LessSpecificReturnStatement>

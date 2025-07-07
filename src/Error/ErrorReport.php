@@ -116,7 +116,7 @@ class ErrorReport
             $errors = [];
             // create php error report
             $i = 0;
-            if (! isset($_SESSION['prev_errors']) || $_SESSION['prev_errors'] == '') {
+            if (! isset($_SESSION['prev_errors']) || $_SESSION['prev_errors'] === '') {
                 return [];
             }
 

@@ -328,7 +328,7 @@ class Menu
         $tabs['search']['icon'] = 'b_search';
         $tabs['search']['route'] = '/database/search';
         $tabs['search']['active'] = $route === '/database/search';
-        if ($numTables == 0) {
+        if ($numTables === 0) {
             $tabs['search']['warning'] = __('Database seems to be empty!');
         }
 
@@ -336,7 +336,7 @@ class Menu
         $tabs['query']['icon'] = 's_db';
         $tabs['query']['route'] = '/database/multi-table-query';
         $tabs['query']['active'] = $route === '/database/multi-table-query';
-        if ($numTables == 0) {
+        if ($numTables === 0) {
             $tabs['query']['warning'] = __('Database seems to be empty!');
         }
 
@@ -344,7 +344,7 @@ class Menu
         $tabs['export']['icon'] = 'b_export';
         $tabs['export']['route'] = '/database/export';
         $tabs['export']['active'] = $route === '/database/export';
-        if ($numTables == 0) {
+        if ($numTables === 0) {
             $tabs['export']['warning'] = __('Database seems to be empty!');
         }
 

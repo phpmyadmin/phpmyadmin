@@ -103,7 +103,7 @@ class AuthenticationSignon extends AuthenticationPlugin
         $config = Config::getInstance();
         /* Check if we're using same signon server */
         $signonUrl = $config->selectedServer['SignonURL'];
-        if (isset($_SESSION['LAST_SIGNON_URL']) && $_SESSION['LAST_SIGNON_URL'] != $signonUrl) {
+        if (isset($_SESSION['LAST_SIGNON_URL']) && $_SESSION['LAST_SIGNON_URL'] !== $signonUrl) {
             return false;
         }
 

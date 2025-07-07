@@ -383,7 +383,7 @@ class NavigationTree
 
         array_shift($path); // remove db
 
-        if (($path === [] || ! array_key_exists($path[0], $containers)) && count($containers) != 1) {
+        if (($path === [] || ! array_key_exists($path[0], $containers)) && count($containers) !== 1) {
             return $db;
         }
 

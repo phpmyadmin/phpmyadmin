@@ -783,7 +783,7 @@ class Pdf extends PdfLib
                 $this->tablewidths[$i] = $sColWidth + $surplusToAdd;
             }
 
-            if ($this->displayColumn[$i] != false) {
+            if ($this->displayColumn[$i]) {
                 continue;
             }
 

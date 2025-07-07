@@ -150,7 +150,7 @@ final class Search
         $where = '';
         if ($unaryFlag) {
             $where = $backquotedName . ' ' . $funcType;
-        } elseif (strncasecmp($types, 'enum', 4) == 0 && ! empty($criteriaValues)) {
+        } elseif (strncasecmp($types, 'enum', 4) === 0 && ! empty($criteriaValues)) {
             $where = $backquotedName;
             $where .= $this->getEnumWhereClause($criteriaValues, $funcType);
         } elseif ($criteriaValues != '') {

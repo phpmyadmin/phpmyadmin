@@ -189,7 +189,7 @@ final class DesignerController implements InvocableController
         }
 
         $selectedPage = null;
-        if ($displayPage != -1) {
+        if ($displayPage !== -1) {
             $selectedPage = $this->designerCommon->getPageName($displayPage);
         }
 

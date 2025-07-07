@@ -65,7 +65,7 @@ class Replication
             return -1;
         }
 
-        if ($control !== 'SQL_THREAD' && $control !== 'IO_THREAD' && $control != null) {
+        if ($control !== 'SQL_THREAD' && $control !== 'IO_THREAD' && $control !== '') {
             return -1;
         }
 

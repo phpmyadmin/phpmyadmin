@@ -414,7 +414,7 @@ final class ReplaceController implements InvocableController
             }
         }
 
-        if ($request->getParsedBodyParam('do_transformations') == true) {
+        if ($request->getParsedBodyParam('do_transformations')) {
             $editedValues = [];
             parse_str($request->getParsedBodyParamAsString('transform_fields_list'), $editedValues);
 
