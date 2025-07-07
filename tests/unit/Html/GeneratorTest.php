@@ -518,6 +518,7 @@ HTML;
         $config->settings['ShowSQL'] = true;
         $config->settings['SQLQuery']['Edit'] = false;
         $config->settings['SQLQuery']['Refresh'] = true;
+        $config->settings['SQLQuery']['ShowCreate'] = true;
         Current::$displayQuery = 'EXPLAIN SELECT 1;';
         Current::$sqlQuery = '';
         DatabaseInterface::$instance = $this->createDatabaseInterface();
@@ -544,6 +545,7 @@ HTML;
 <div class="col-auto"><a href="index.php" data-post="route=/import&db=test_db&table=test_table&sql_query=SELECT+1%3B&server=2&lang=en" class="btn btn-link">Skip Explain SQL</a></div>
 <div class="col-auto"><a href="index.php" data-post="route=/import&db=test_db&table=test_table&sql_query=EXPLAIN+SELECT+1%3B&show_query=1&server=2&lang=en" class="btn btn-link">Without PHP code</a></div>
 <div class="col-auto"><a href="index.php" data-post="route=/import&db=test_db&table=test_table&sql_query=EXPLAIN+SELECT+1%3B&show_query=1&server=2&lang=en" class="btn btn-link">Submit query</a></div>
+<div class="col-auto"><a href="index.php" data-post="route=/database/structure/show-create&sql_query=&server=2&lang=en">Show create</a></div>
 </div></div></div>
 HTML;
         // phpcs:enable
