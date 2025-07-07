@@ -12358,17 +12358,16 @@ msgid ""
 "the folder/file \"%s\""
 msgstr ""
 "Η προσωρινή μνήμη δρομολόγησης δεν μπόρεσε να γραφτεί, πρέπει να ρυθμίσετε "
-"τα δικαιώματα στον φάκελο/αρχείο «%s»."
+"τα δικαιώματα στον φάκελο/αρχείο «%s»"
 
 #: libraries/classes/Routing.php:168
-#, fuzzy, php-format
-#| msgid "Source database `%s` was not found!"
+#, php-format
 msgid "Error 404! The page %s was not found."
-msgstr "Η Βάση δεδομένων προέλευσης «%s» δεν βρέθηκε!"
+msgstr "Σφάλμα 404! Η σελίδα %s δεν βρέθηκε."
 
 #: libraries/classes/Routing.php:179
 msgid "Error 405! Request method not allowed."
-msgstr ""
+msgstr "Σφάλμα 405! Η μέθοδος αιτήματος δεν επιτρέπεται."
 
 #: libraries/classes/SavedSearches.php:239
 msgid "Please provide a name for this bookmarked search."
@@ -13519,6 +13518,9 @@ msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
 msgstr ""
+"Προορίζεται για την αποθήκευση διευθύνσεων IPv6, καθώς και διευθύνσεων IPv4 "
+"με την υπόθεση της συμβατικής αντιστοίχισης διευθύνσεων IPv4 σε διευθύνσεις "
+"IPv6."
 
 #: libraries/classes/Types.php:445
 #, fuzzy
