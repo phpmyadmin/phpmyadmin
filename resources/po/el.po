@@ -782,7 +782,7 @@ msgstr "Απομάκρυνση στήλης"
 #: src/Plugins/Export/ExportTexytext.php:366
 #: src/Plugins/Export/Helpers/Pdf.php:518
 msgid "Media type"
-msgstr "Τύπος μέσου"
+msgstr "Τύπος Πολυμέσων"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:75
 #: resources/templates/columns_definitions/table_fields_definitions.twig:86
@@ -10830,7 +10830,7 @@ msgstr ""
 msgid "Uncheck the checkbox to disable drag and drop import"
 msgstr ""
 "Αποεπιλέξτε το πλαίσιο ελέγχου για απενεργοποίηση την εισαγωγή με μεταφορά "
-"και απόθεση."
+"και απόθεση"
 
 #: src/Config/Descriptions.php:550
 msgid "How many rows can be inserted at one time."
@@ -11319,10 +11319,9 @@ msgstr ""
 "δημιουργηθούν κατά τη δημιουργία τη δημιουργία πίνακα)"
 
 #: src/Config/Descriptions.php:709 src/Plugins/Export/ExportSql.php:372
-#, fuzzy, php-format
-#| msgid "%s value"
+#, php-format
 msgid "%s view"
-msgstr "%s τιμή"
+msgstr "%s προβολή"
 
 #: src/Config/Descriptions.php:710
 msgid "Use ignore inserts"
@@ -11362,7 +11361,7 @@ msgstr "Έλεγχοι μη διακριτού κλειδιού"
 
 #: src/Config/Descriptions.php:727
 msgid "First day of calendar"
-msgstr ""
+msgstr "Πρώτη ημέρα του ημερολογίου"
 
 #: src/Config/Descriptions.php:729
 msgid "Browse mode"
@@ -11487,7 +11486,7 @@ msgstr "Παράβλεψη σφαλμάτων πολλαπλών δηλώσεω�
 
 #: src/Config/Descriptions.php:770
 msgid "Enable drag and drop import"
-msgstr ""
+msgstr "Ενεργοποιηση εισαγωγής με μεταφορα και απόθεση"
 
 #: src/Config/Descriptions.php:771
 msgid "Partial import: allow interrupt"
@@ -11689,10 +11688,8 @@ msgid "Show events in tree"
 msgstr "Προβολή συμβάντων στο δέντρο"
 
 #: src/Config/Descriptions.php:833
-#, fuzzy
-#| msgid "Copying database"
 msgid "Expand single database"
-msgstr "Αντιγραφή βάσης δεδομένων"
+msgstr "Επέκταση μεμονωμένης βάσης δεδομένων"
 
 #: src/Config/Descriptions.php:834
 msgid "Recently used tables"
@@ -12574,7 +12571,7 @@ msgstr "Εμφάνιση εγγραφών %1$s - %2$s."
 #, php-format
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
-msgstr ""
+msgstr "Υπάρχει ήδη σελίδα με το όνομα «%s», μετονομάστε τη σε κάτι άλλο."
 
 #: src/Controllers/Database/DesignerController.php:169
 #: src/Controllers/Database/DesignerController.php:174
@@ -12673,11 +12670,12 @@ msgid "Export of event %s"
 msgstr "Εξαγωγή του συμβάντος %s"
 
 #: src/Controllers/Database/EventsController.php:221
-#, fuzzy, php-format
-#| msgid "No event with name %1$s found in database %2$s."
+#, php-format
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
-msgstr "Κανένα συμβάν με ονομασία %1$s δεν βρέθηκε στη βάση δεδομένων %2$s."
+msgstr ""
+"Σφάλμα κατά την επεξεργασία του αιτήματος: Δεν βρέθηκε συμβάν με το όνομα %1$"
+"s στη βάση δεδομένων %2$s."
 
 #: src/Controllers/Database/ExportController.php:129
 #: src/Controllers/Server/ExportController.php:55
@@ -12703,10 +12701,8 @@ msgstr "Χωρίς Δικαιώματα"
 #: src/Controllers/Database/PrivilegesController.php:71
 #: src/Controllers/Server/PrivilegesController.php:105
 #: src/Controllers/Table/PrivilegesController.php:74
-#, fuzzy
-#| msgid "You do not have privileges to manipulate with the users!"
 msgid "You do not have the privileges to administrate the users!"
-msgstr "Δεν έχετε τα απαραίτητα δικαιώματα για να χειριστείτε χρήστες!"
+msgstr "Δεν έχετε τα δικαιώματα για να διαχειριστείτε τους χρήστες!"
 
 #: src/Controllers/Database/RoutinesController.php:86
 #: src/Controllers/Database/Structure/AddPrefixController.php:33
@@ -12759,8 +12755,6 @@ msgstr "Δεν έχετε τα απαραίτητα δικαιώματα για 
 #: src/Controllers/Table/ZoomSearchController.php:114
 #: src/Controllers/Table/ZoomSearchController.php:119
 #: src/Controllers/Triggers/IndexController.php:72
-#, fuzzy
-#| msgid "No tables selected."
 msgid "No table selected."
 msgstr "Δεν επιλέχθηκαν πίνακες."
 
@@ -12794,17 +12788,15 @@ msgid "Export of routine %s"
 msgstr "Εξαγωγή της ρουτίνας %s"
 
 #: src/Controllers/Database/RoutinesController.php:436
-#, fuzzy, php-format
-#| msgid ""
-#| "No routine with name %1$s found in database %2$s. You might be lacking "
-#| "the necessary privileges to view/export this routine."
+#, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
 "%2$s. You might be lacking the necessary privileges to view/export this "
 "routine."
 msgstr ""
-"Καμιά ρουτίνα με το όνομα %1$s δεν βρέθηκε στη βάση δεδομένων %2$s. Ίσως δεν "
-"έχετε τα απαραίτητα δικαιώματα για προβολή/εξάγωγή της ρουτίνας."
+"Σφάλμα κατά την επεξεργασία του αιτήματος: Δεν βρέθηκε διαδικασία με το "
+"όνομα %1$s στη βάση δεδομένων %2$s. Πιθανώς δεν έχετε τα απαραίτητα "
+"δικαιώματα για να δείτε ή να εξάγετε αυτή τη διαδικασία."
 
 #: src/Controllers/Database/SearchController.php:63
 msgid ""
@@ -12947,6 +12939,10 @@ msgid ""
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
+"Ο διακομιστής σας λειτουργεί με τις προεπιλεγμένες τιμές για τον controluser "
+"και τον κωδικό πρόσβασης (controlpass) και είναι εκτεθειμένος σε εισβολές. "
+"Θα πρέπει οπωσδήποτε να διορθώσετε αυτό το κενό ασφαλείας αλλάζοντας τον "
+"κωδικό πρόσβασης για τον controluser «pma»."
 
 #: src/Controllers/HomeController.php:322
 msgid ""
@@ -13286,10 +13282,8 @@ msgstr "Επεξεργασία ευρετηρίου"
 
 #. l10n: Rename a table Index
 #: src/Controllers/JavaScriptMessagesController.php:120
-#, fuzzy
-#| msgid "Remove index(s)"
 msgid "Rename index"
-msgstr "Απομάκρυνση ευρετηρίου(ων)"
+msgstr "Μετονομασία ευρετηρίου"
 
 #: src/Controllers/JavaScriptMessagesController.php:122
 msgid "Create single-column index"
@@ -13502,10 +13496,8 @@ msgstr "Εισάγετε τουλάχιστον μια μεταβλητή στι
 
 #. l10n: SQL Query on modal to show exported query
 #: src/Controllers/JavaScriptMessagesController.php:218
-#, fuzzy
-#| msgid "SQL query"
 msgid "SQL Query"
-msgstr "Εντολή SQL"
+msgstr "Ερώτημα SQL"
 
 #: src/Controllers/JavaScriptMessagesController.php:219
 msgid "Resume monitor"
@@ -13718,16 +13710,12 @@ msgstr ""
 "Επαναφορά στην προεπιλεγμένη ρύθμιση…"
 
 #: src/Controllers/JavaScriptMessagesController.php:300
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid table name."
-msgstr "Εισάγετε ένα έγκυρο όνομα σελίδας"
+msgstr "Εισάγετε ένα έγκυρο όνομα πίνακα."
 
 #: src/Controllers/JavaScriptMessagesController.php:301
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid database name."
-msgstr "Εισάγετε ένα έγκυρο όνομα σελίδας"
+msgstr "Εισάγετε ένα έγκυρο όνομα βάσης δεδομένων."
 
 #: src/Controllers/JavaScriptMessagesController.php:302
 msgid "No files available on server for import!"
@@ -14168,6 +14156,8 @@ msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
 msgstr ""
+"Η συνάρτηση HEX θα χειριστεί τον ακέραιο ως συμβολοσειρά κατά τον υπολογισμό "
+"της δεκαεξαδικής τιμής."
 
 #: src/Controllers/JavaScriptMessagesController.php:489
 msgid ""
@@ -14229,6 +14219,8 @@ msgstr "Διαγραφή σελίδας"
 #: src/Controllers/JavaScriptMessagesController.php:522
 msgid "Some tables saved in this page might have been renamed or deleted."
 msgstr ""
+"Κάποιες πίνακες που έχουν αποθηκευτεί σε αυτή τη σελίδα μπορεί να έχουν "
+"μετονομαστεί ή διαγραφεί."
 
 #: src/Controllers/JavaScriptMessagesController.php:524
 msgid "Please select a page to continue"
@@ -14461,16 +14453,12 @@ msgid "Column name copying to clipboard failed!"
 msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:631
-#, fuzzy
-#| msgid "Successfully deleted the page"
 msgid "Successfully copied!"
-msgstr "Η σελίδα διαγράφτηκε επιτυχώς"
+msgstr "Η σελίδα αντιγράφτηκε επιτυχώς!"
 
 #: src/Controllers/JavaScriptMessagesController.php:632
-#, fuzzy
-#| msgid "Copying database"
 msgid "Copying failed!"
-msgstr "Αντιγραφή βάσης δεδομένων"
+msgstr "Η αντιγραφή απέτυχε!"
 
 #: src/Controllers/JavaScriptMessagesController.php:635
 msgid "Execute this query again?"
@@ -14552,48 +14540,39 @@ msgstr "Δυνατό"
 
 #. l10n: error code 5 (from U2F API)
 #: src/Controllers/JavaScriptMessagesController.php:665
-#, fuzzy
-#| msgid "Timed out waiting for security key activation."
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
-msgstr ""
-"Έληξε ο χρόνος περιμένοντας για την ενεργοποίηση του κλειδιού ασφαλείας."
+msgstr "Έληξε ο χρόνος αναμενοντας για την ενεργοποίηση του κλειδιού ασφαλείας."
 
 #. l10n: error code 2 (from U2F API)
 #: src/Controllers/JavaScriptMessagesController.php:667
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
-msgstr ""
+msgstr "Μη έγκυρο αίτημα εστάλη στο κλειδί ασφαλείας."
 
 #. l10n: unknown error code (from U2F API)
 #: src/Controllers/JavaScriptMessagesController.php:669
-#, fuzzy
-#| msgid "Unknown error"
 msgctxt "U2F error"
 msgid "Unknown security key error."
-msgstr "Άγνωστο σφάλμα"
+msgstr "Άγνωστο σφάλμα κλειδιού ασφαλείας."
 
 #. l10n: error code 3 (from U2F API)
 #: src/Controllers/JavaScriptMessagesController.php:671
 msgctxt "U2F error"
 msgid "Client does not support security key."
-msgstr ""
+msgstr "Ο πελάτης δεν υποστηρίζει κλειδί ασφαλείας."
 
 #. l10n: error code 4 (from U2F API) on register
 #: src/Controllers/JavaScriptMessagesController.php:673
-#, fuzzy
-#| msgid "Failed security key activation (%s)."
 msgctxt "U2F error"
 msgid "Failed security key activation."
-msgstr "Αποτυχυμένη ενεργοποίηση κλειδιού ασφαλείας (%s)."
+msgstr "Αποτυχημένη ενεργοποίηση κλειδιού ασφαλείας."
 
 #. l10n: error code 4 (from U2F API) on authanticate
 #: src/Controllers/JavaScriptMessagesController.php:675
-#, fuzzy
-#| msgid "Invalid export type"
 msgctxt "U2F error"
 msgid "Invalid security key."
-msgstr "Μη έγκυρος τύπος εξαγωγής"
+msgstr "Μη έγκυρο κλειδί ασφαλείας."
 
 #: src/Controllers/JavaScriptMessagesController.php:678
 msgid ""
@@ -14607,6 +14586,9 @@ msgid ""
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
+"Δεν μπορείτε να ανοίξετε, αποθηκεύσετε ή διαγράψετε τη διάταξη της σελίδας "
+"σας, καθώς το IndexedDB δεν λειτουργεί στον περιηγητή σας και η αποθήκευση "
+"ρυθμίσεων του phpMyAdmin δεν είναι ρυθμισμένη για αυτό."
 
 #: src/Controllers/JavaScriptMessagesController.php:688
 #, php-format
@@ -15756,16 +15738,12 @@ msgstr ""
 "Ο αριθμός των γραμμών σε αναμονή για εγγραφή στις σειρές INSERT DELAYED."
 
 #: src/Controllers/Server/Status/VariablesController.php:417
-#, fuzzy
-#| msgid ""
-#| "The number of tables that have been opened. If opened tables is big, your "
-#| "table cache value is probably too small."
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table_open_cache value is probably too small."
 msgstr ""
-"Ο αριθμός των πινάκων που ανοίχτηκαν. Αν οι ανοιγμένοι πίνακες είναι "
-"μεγάλοι, η τιμή λανθάνουσας μνήμης πινάκων είναι πιθανον μικρή."
+"Ο αριθμός των πινάκων που έχουν ανοιχτεί. Αν ο αριθμός των ανοιχτών πινάκων "
+"είναι μεγάλος, η τιμή του table_open_cache σας είναι πιθανώς πολύ μικρή."
 
 #: src/Controllers/Server/Status/VariablesController.php:420
 msgid "The number of files that are open."
@@ -16140,7 +16118,7 @@ msgstr "Δεν έχει χρήση σε αυτήν την έκδοση MySQL."
 #: src/Controllers/Table/Maintenance/OptimizeController.php:65
 #: src/Controllers/Table/Maintenance/RepairController.php:65
 msgid "Maintenance operations on multiple tables are disabled."
-msgstr ""
+msgstr "Οι εργασίες συντήρησης σε πολλαπλούς πίνακες είναι απενεργοποιημένες."
 
 #: src/Controllers/Table/Partition/AnalyzeController.php:34
 #: src/Controllers/Table/Partition/CheckController.php:34
@@ -16244,13 +16222,13 @@ msgstr ""
 "Καμιά ενέργεια με την ονομασία %1$s δεν βρέθηκε στη βάση δεδομένων %2$s."
 
 #: src/Controllers/Triggers/IndexController.php:250
-#, fuzzy, php-format
-#| msgid "No trigger with name %1$s found in database %2$s."
+#, php-format
 msgid ""
 "Error in processing request: No trigger with name %1$s found in database "
 "%2$s."
 msgstr ""
-"Καμιά ενέργεια με την ονομασία %1$s δεν βρέθηκε στη βάση δεδομένων %2$s."
+"Σφάλμα κατά την επεξεργασία του αιτήματος: Δεν βρέθηκε trigger με το όνομα "
+"%1$s στη βάση δεδομένων %2$s."
 
 #: src/Controllers/UserPasswordController.php:46
 msgid "You don't have sufficient privileges to be here right now!"
@@ -16514,6 +16492,8 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
+"Σφάλμα 1045: Η πρόσβαση απορρίφθηκε για τον χρήστη. Επιπλέον πληροφορίες "
+"σφάλματος μπορεί να είναι διαθέσιμες, αλλά αποκρύπτονται από τη ρύθμιση %s."
 
 #: src/Display/Results.php:2404 src/Display/Results.php:2419
 msgid "The row has been deleted."
@@ -16932,6 +16912,8 @@ msgid ""
 "You have been automatically logged out due to inactivity of %s seconds. Once "
 "you log in again, you should be able to resume the work where you left off."
 msgstr ""
+"Έχετε αποσυνδεθεί αυτόματα λόγω αδράνειας %s δευτερολέπτων. Μόλις συνδεθείτε "
+"ξανά, θα μπορείτε να συνεχίσετε την εργασία από εκεί που σταματήσατε."
 
 #: src/Export/Export.php:189 src/Export/Export.php:220
 #: src/Export/Export.php:428
@@ -16961,6 +16943,8 @@ msgstr "Το αρχείο εξόδου αποθηκεύτηκε ως %s."
 #: src/Export/Export.php:774
 msgid "Exporting a raw query is not supported for this export method."
 msgstr ""
+"Η εξαγωγή μιας ακατέργαστης ερώτησης δεν υποστηρίζεται για αυτή τη μέθοδο "
+"εξαγωγής."
 
 #: src/Favorites/RecentFavoriteTables.php:154
 msgid "Could not save recent table!"
@@ -17069,11 +17053,11 @@ msgstr "Το SSL χρησιμοποιείται"
 
 #: src/Html/Generator.php:329
 msgid "The PHP function password_hash() with default options."
-msgstr ""
+msgstr "Η συνάρτηση PHP password_hash() με τις προεπιλεγμένες επιλογές."
 
 #: src/Html/Generator.php:330
 msgid "password_hash() PHP function"
-msgstr ""
+msgstr "Η συνάρτηση PHP password_hash()"
 
 #: src/Html/Generator.php:500
 msgid "Skip Explain SQL"
@@ -17120,6 +17104,8 @@ msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
+"Οι συναρτήσεις ini_get και/ή ini_set είναι απενεργοποιημένες στο php.ini. Το "
+"phpMyAdmin απαιτεί αυτές τις συναρτήσεις!"
 
 #: src/Http/Middleware/TokenRequestParamChecking.php:56
 msgid ""
@@ -17355,10 +17341,8 @@ msgstr ""
 "αντικειμένων στον πίνακα πλοήγησης."
 
 #: src/Navigation/NavigationTree.php:808
-#, fuzzy
-#| msgid "Groups:"
 msgid "Groups"
-msgstr "Ομάδες:"
+msgstr "Ομάδες"
 
 #: src/Navigation/NavigationTree.php:913
 #, php-format
@@ -17955,10 +17939,8 @@ msgstr "Εμφάνιση σχολίων"
 
 #: src/Plugins/Export/ExportLatex.php:162 src/Plugins/Export/ExportOdt.php:115
 #: src/Plugins/Export/ExportSql.php:211
-#, fuzzy
-#| msgid "Display MIME types"
 msgid "Display media types"
-msgstr "Διαθέσιμοι τύποι MIME"
+msgstr "Προβολή τύπων μέσων"
 
 #: src/Plugins/Export/ExportLatex.php:180
 msgid "Put columns names in the first row:"
@@ -17992,10 +17974,8 @@ msgstr "Εξαγωγή κεφαλίδων πίνακα"
 
 #: src/Plugins/Export/ExportOdt.php:245
 #: src/Plugins/Export/ExportTexytext.php:178
-#, fuzzy
-#| msgid "Dumping data for table"
 msgid "Dumping data for query result"
-msgstr "Άδειασμα δεδομένων του πίνακα"
+msgstr "Άδειασμα δεδομένων για το αποτέλεσμα του ερωτήματος"
 
 #: src/Plugins/Export/ExportPdf.php:78
 msgid "Report title:"
@@ -18006,10 +17986,8 @@ msgid "Dumping data"
 msgstr "Άδειασμα δεδομένων"
 
 #: src/Plugins/Export/ExportPdf.php:201
-#, fuzzy
-#| msgid "Query results"
 msgid "Query result data"
-msgstr "Ααποτελέσματα ερωτήματος"
+msgstr "Δεδομένα αποτελέσματος ερωτήματος"
 
 #: src/Plugins/Export/ExportPdf.php:237
 msgid "View structure"
@@ -18070,7 +18048,7 @@ msgstr "%s τιμή"
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
 #: src/Plugins/Export/ExportSql.php:360
 msgid "Use simple view export"
-msgstr ""
+msgstr "Χρήση απλής προβολής εξαγωγής"
 
 #: src/Plugins/Export/ExportSql.php:399
 msgid ""
@@ -18220,10 +18198,8 @@ msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT για πίνακα"
 
 #: src/Plugins/Export/ExportSql.php:1755
-#, fuzzy
-#| msgid "MIME TYPES FOR TABLE"
 msgid "MEDIA TYPES FOR TABLE"
-msgstr "ΤΥΠΟΙ MIME ΓΙΑ ΠΙΝΑΚΑ"
+msgstr "ΤΥΠΟΙ ΠΟΛΥΜΕΣΩΝ ΓΙΑ ΠΙΝΑΚΑ"
 
 #: src/Plugins/Export/ExportSql.php:1785
 msgid "RELATIONSHIPS FOR TABLE"
@@ -18290,15 +18266,15 @@ msgstr ""
 
 #: src/Plugins/Import/ImportCsv.php:100
 msgid "Name of the new table (optional):"
-msgstr ""
+msgstr "Όνομα του νέου πίνακα (προαιρετικό):"
 
 #: src/Plugins/Import/ImportCsv.php:109
 msgid "Name of the new database (optional):"
-msgstr ""
+msgstr "Όνομα της νέας βάσης δεδομένων (προαιρετικό):"
 
 #: src/Plugins/Import/ImportCsv.php:118 src/Plugins/Import/ImportCsv.php:136
 msgid "Import these many number of rows (optional):"
-msgstr ""
+msgstr "Εισαγωγή αυτού του αριθμού εγγραφών (προαιρετικό):"
 
 #: src/Plugins/Import/ImportCsv.php:126 src/Plugins/Import/ImportOds.php:73
 msgid ""
@@ -18319,10 +18295,8 @@ msgstr ""
 "πρέπει να χωρίζονται με κόμμα και να μην περιβάλλονται σε εισαγωγικά."
 
 #: src/Plugins/Import/ImportCsv.php:151
-#, fuzzy
-#| msgid "Column names: "
 msgid "Column names:"
-msgstr "Ονόματα στηλών: "
+msgstr "Ονόματα στηλών"
 
 #: src/Plugins/Import/ImportCsv.php:287 src/Plugins/Import/ImportCsv.php:617
 #, php-format
@@ -18714,12 +18688,11 @@ msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
 msgstr "Μετατρέπει μια διεύθυνση δικτύου από μορφή (IPv4/IPv6) σε δυαδική"
 
 #: src/Plugins/Transformations/Input/Text_Plain_Iptolong.php:28
-#, fuzzy
-#| msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
 msgid ""
 "Converts an Internet network address in (IPv4/IPv6) format into a long "
 "integer."
-msgstr "Μετατρέπει μια διεύθυνση δικτύου από μορφή (IPv4/IPv6) σε δυαδική"
+msgstr ""
+"Μετατρέπει μια διεύθυνση δικτύου από μορφή (IPv4/IPv6) σε μεγάλο ακέραιο."
 
 #: src/Plugins/Transformations/Input/Text_Plain_JsonEditor.php:25
 msgid "Syntax highlighted CodeMirror editor for JSON."
@@ -18784,10 +18757,8 @@ msgid "Two-factor authentication failed."
 msgstr "Η πιστοποίηση δύο-παραγόντων απέτυχε."
 
 #: src/Plugins/TwoFactorPlugin.php:110
-#, fuzzy
-#| msgid "Two-factor authentication"
 msgid "No Two-Factor Authentication"
-msgstr "Πιστοποίηση δύο-παραγόντων"
+msgstr "Χωρίς Πιστοποίηση Δύο-Παραγόντων"
 
 #: src/Plugins/TwoFactorPlugin.php:118
 msgid "Login using password only."
@@ -18913,6 +18884,8 @@ msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
+"Η προσωρινή μνήμη δρομολόγησης δεν μπόρεσε να γραφτεί, πρέπει να ρυθμίσετε "
+"τα δικαιώματα στον φάκελο/αρχείο «%s»."
 
 #: src/Routing/Routing.php:157 src/Routing/Routing.php:200
 #, fuzzy, php-format
