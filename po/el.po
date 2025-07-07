@@ -16488,7 +16488,7 @@ msgstr "Προβολή:"
 
 #: templates/navigation/item_unhide_dialog.twig:20
 msgid "Unhide"
-msgstr "Απόκρυψη"
+msgstr "Εμφάνιση"
 
 #: templates/navigation/main.twig:25 templates/navigation/main.twig:26
 msgid "Home"
@@ -16507,16 +16507,12 @@ msgid "phpMyAdmin documentation"
 msgstr "Τεκμηρίωση phpMyAdmin"
 
 #: templates/navigation/main.twig:39 templates/navigation/main.twig:40
-#, fuzzy
-#| msgid "Documentation"
 msgid "MariaDB Documentation"
-msgstr "Τεκμηρίωση"
+msgstr "Τεκμηρίωση MariaDB"
 
 #: templates/navigation/main.twig:39 templates/navigation/main.twig:40
-#, fuzzy
-#| msgid "Documentation"
 msgid "MySQL Documentation"
-msgstr "Τεκμηρίωση"
+msgstr "Τεκμηρίωση MySQL"
 
 #: templates/navigation/main.twig:43 templates/navigation/main.twig:44
 msgid "Navigation panel settings"
@@ -16531,10 +16527,8 @@ msgid "An error has occurred while loading the navigation display"
 msgstr "Ένα σφάλμα συμβαίνει κατά τη φόρτωση της προβολής πλοήγησης"
 
 #: templates/navigation/main.twig:88
-#, fuzzy
-#| msgid "SQL dump"
 msgid "SQL upload"
-msgstr "Κάδος SQL"
+msgstr "Αποστολή SQL"
 
 #: templates/preferences/autoload.twig:7
 msgid ""
@@ -16753,17 +16747,13 @@ msgstr "Επιλέξτε δυαδικό αρχείο καταγραφής για
 
 #: templates/server/binlog/index.twig:59 templates/server/binlog/index.twig:60
 #: templates/server/status/processes/list.twig:20
-#, fuzzy
-#| msgid "Truncate Shown Queries"
 msgid "Truncate shown queries"
-msgstr "Αποκοπή εμφανιζόμενων ερωτημάτων"
+msgstr "Διαγραφή εμφανιζόμενων ερωτημάτων"
 
 #: templates/server/binlog/index.twig:63 templates/server/binlog/index.twig:64
 #: templates/server/status/processes/list.twig:26
-#, fuzzy
-#| msgid "Show Full Queries"
 msgid "Show full queries"
-msgstr "Πλήρης εμφάνιση ερωτημάτων"
+msgstr "Εμφάνιση πλήρων ερωτημάτων"
 
 #: templates/server/binlog/index.twig:84
 msgid "Log name"
@@ -16792,10 +16782,8 @@ msgid "Character sets and collations"
 msgstr "Σύνολα και συνθέσεις χαρακτήρων"
 
 #: templates/server/collations/index.twig:32
-#, fuzzy
-#| msgid "Default"
 msgid "(default)"
-msgstr "Προεπιλογή"
+msgstr "(προεπιλογή)"
 
 #: templates/server/databases/index.twig:6
 msgid "Databases statistics"
@@ -16807,10 +16795,8 @@ msgid "Create database"
 msgstr "Δημιουργία βάσης δεδομένων"
 
 #: templates/server/databases/index.twig:72
-#, fuzzy
-#| msgid "Check privileges for database \"%s\"."
 msgid "No privileges to create databases"
-msgstr "Έλεγχος δικαιωμάτων για τη βάση «%s»."
+msgstr "Δεν έχετε δικαιώματα για τη δημιουργία βάσεων δεδομένων"
 
 #: templates/server/databases/index.twig:159
 #: templates/server/replication/index.twig:18
@@ -16863,16 +16849,12 @@ msgid "Storage Engine"
 msgstr "Μηχανή αποθήκευσης"
 
 #: templates/server/engines/show.twig:45
-#, fuzzy
-#| msgid "Storage engines"
 msgid "Unknown storage engine."
-msgstr "Μηχανές αποθήκευσης"
+msgstr "Άγνωστη μηχανή αποθήκευσης."
 
 #: templates/server/export/index.twig:32
-#, fuzzy
-#| msgid "@SERVER@ will become the server name"
 msgid "@SERVER@ will become the server name."
-msgstr "Το @SERVER@ θα γίνει το όνομα του διακομιστή"
+msgstr "Το @SERVER@ θα γίνει το όνομα του διακομιστή."
 
 #: templates/server/export/index.twig:3
 msgid "Exporting databases from the current server"
@@ -16899,26 +16881,20 @@ msgid "Author"
 msgstr "Δημιουργός"
 
 #: templates/server/plugins/index.twig:41
-#, fuzzy
-#| msgid "active"
 msgid "inactive"
-msgstr "ενεργή"
+msgstr "ανενεργή"
 
 #: templates/server/plugins/index.twig:43
 msgid "disabled"
 msgstr "Απενεργοποιημένο"
 
 #: templates/server/plugins/index.twig:45
-#, fuzzy
-#| msgid "Deleting"
 msgid "deleting"
-msgstr "Διαγραφή"
+msgstr "διαγραφή"
 
 #: templates/server/plugins/index.twig:47
-#, fuzzy
-#| msgid "Delete"
 msgid "deleted"
-msgstr "Διαγραφή"
+msgstr "διαγραμένο"
 
 #: templates/server/privileges/add_user.twig:12
 msgid "Database for user account"
