@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-02-17 10:36+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
+"PO-Revision-Date: 2025-07-08 10:01+0000\n"
+"Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/4-9/el/>"
 "\n"
 "Language: el\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -338,16 +338,12 @@ msgid "You have to choose at least one column to display!"
 msgstr "Πρέπει να επιλέξετε τουλάχιστον μία στήλη για εμφάνιση!"
 
 #: db_qbe.php:145 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Simulate query"
 msgid "Multi-table query"
-msgstr "Εξομοίωση ερωτήματος"
+msgstr "Ερώτημα πολλαπλού πίνακα"
 
 #: db_qbe.php:149 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Query failed"
 msgid "Query by example"
-msgstr "Το ερώτημα απέτυχε"
+msgstr "Ερώτημα κατά παράδειγμα"
 
 #: db_qbe.php:168
 #, php-format
@@ -546,15 +542,11 @@ msgid "Output"
 msgstr "Εξαγόμενο"
 
 #: gis_data_editor.php:423
-#, fuzzy
-#| msgid ""
-#| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-#| "below into the \"Value\" field."
 msgid ""
 "Choose \"ST_GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"Επιλέξτε το «GeomFromText» από τη στήλη «Function» και επικολλήστε το "
+"Επιλέξτε το «ST_GeomFromText» από τη στήλη «Function» και επικολλήστε το "
 "παρακάτω κείμενο στο πεδίο «Value»."
 
 #: import.php:73
@@ -963,6 +955,8 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
+"Προσπαθείτε να μειώσετε τον αριθμό των γραμμών, αλλά έχουν ήδη εισαχθεί "
+"δεδομένα σε αυτές τις γραμμές, τα οποία θα χαθούν. Θέλετε να συνεχίσετε;"
 
 #: js/messages.php:74
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -1129,10 +1123,8 @@ msgid "Y values"
 msgstr "Τιμές Υ"
 
 #: js/messages.php:142
-#, fuzzy
-#| msgid "Please enter the same value again"
 msgid "Please enter the SQL query first."
-msgstr "Εισάγετε την ίδια τιμή ξανά"
+msgstr "Εισάγετε πρώτα το ερώτημα SQL."
 
 #: js/messages.php:145
 msgid "The host name is empty!"
@@ -2332,7 +2324,7 @@ msgstr ""
 
 #: js/messages.php:564
 msgid "value/subQuery is empty"
-msgstr ""
+msgstr "Η τιμή / Το υποερώτημα είναι άδεια"
 
 #: js/messages.php:565 templates/database/designer/side_menu.twig:34
 #: templates/database/designer/side_menu.twig:37
@@ -2396,10 +2388,8 @@ msgid "%d object(s) created."
 msgstr "%d αντικείμενο(α) δημιουργήθηκε(αν)."
 
 #: js/messages.php:582
-#, fuzzy
-#| msgid "Column names"
 msgid "Column name"
-msgstr "Ονόματα στηλών"
+msgstr "Όνομα στήλης"
 
 #: js/messages.php:583 libraries/classes/SqlQueryForm.php:419
 msgid "Submit"
@@ -2750,8 +2740,7 @@ msgid "Failed security key activation (%s)."
 msgstr "Αποτυχυμένη ενεργοποίηση κλειδιού ασφαλείας (%s)."
 
 #: js/messages.php:755
-#, fuzzy, php-format
-#| msgid "Table %s already exists!"
+#, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
@@ -2993,9 +2982,8 @@ msgstr "Εβδ"
 #. * or "calendar-year-month".
 #.
 #: js/messages.php:899
-#, fuzzy
 msgid "calendar-month-year"
-msgstr "calendar-month-year"
+msgstr "ημερολόγιο-μήνας-έτος"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:902
@@ -3585,12 +3573,9 @@ msgid "accent-sensitive"
 msgstr "ταίριασμα τονισμένων"
 
 #: libraries/classes/Charsets.php:679
-#, fuzzy
-#| msgctxt "Collation variant"
-#| msgid "accent-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "ταίριασμα τονισμένων"
+msgstr "ταίριασμα kana"
 
 #: libraries/classes/Charsets.php:683
 msgctxt "Collation variant"
@@ -3605,7 +3590,7 @@ msgstr "δυαδικό"
 #: libraries/classes/Charsets.php:689
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr ""
+msgstr "χωρίς συμπλήρωση"
 
 #: libraries/classes/Config.php:1132
 #, php-format
@@ -6983,18 +6968,14 @@ msgstr ""
 "Αδύνατη η φόρτωση προσθέτων σχήματος, για αυτό ελέξτε την εγκατάστασή σας!"
 
 #: libraries/classes/Database/Designer/Common.php:518
-#, fuzzy
-#| msgid ""
-#| "The configuration storage is not ready for the central list of columns "
-#| "feature."
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
 "on designer when user tries to set a display field."
 msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
 msgstr ""
-"Η αποθήκευση ρυθμίσεων δεν είναι έτοιμη για το χαρακτηριστικό κεντρικής "
-"λίστας στηλών."
+"Η αποθήκευση ρυθμίσεων του phpMyAdmin δεν έχει ρυθμιστεί για «Προβολή "
+"Χαρακτηριστικών»."
 
 #: libraries/classes/Database/Designer/Common.php:565
 msgid "Error: relationship already exists."
@@ -7224,6 +7205,8 @@ msgid ""
 "Please disable mysql.allow_local_infile in your PHP configuration or install "
 "the mysqli extension."
 msgstr ""
+"Απενεργοποιήστε το mysql.allow_local_infile στη ρύθμιση της PHP ή "
+"εγκαταστήστε την επέκταση mysqli."
 
 #: libraries/classes/Dbi/DbiMysqli.php:178
 msgid "SSL connection enforced by server, automatically enabling it."
@@ -9002,16 +8985,12 @@ msgid "Switch to copied database"
 msgstr "Αλλαγή στο αντίγραφο της βάσης δεδομένων"
 
 #: libraries/classes/Operations.php:320
-#, fuzzy
-#| msgid "Change all column collations"
 msgid "Change all tables collations"
 msgstr "Αλλαγή όλων των συνθέσεων πινάκων"
 
 #: libraries/classes/Operations.php:326
-#, fuzzy
-#| msgid "Change all column collations"
 msgid "Change all tables columns collations"
-msgstr "Αλλαγή όλων των συνθέσεων στηλών"
+msgstr "Αλλαγή όλων των συνθέσεων στηλών πινάκων"
 
 #: libraries/classes/Operations.php:799
 msgid "Alter table order by"
@@ -10104,18 +10083,6 @@ msgstr ""
 "επιλογή ως κενό."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:28
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/classes/Plugins/Transformations/"
-#| "Output/Text_Plain_External.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use and the second option is the parameters for the program. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -10129,17 +10096,17 @@ msgid ""
 "ensure that the output appears all on one line (Default 1)."
 msgstr ""
 "ΜΟΝΟ ΓΙΑ LINUX: Εκτελεί μία εξωτερική εφαρμογή και στέλνει τα δεδομένα μέσω "
-"«βασικής εισαγωγής». Επιστρέφει το αποτέλεσμα της εφαρμογής. Προεπιλεγμένη "
-"τιμή είναι το Tidy, που τυπώνει μορφοποιημένο κώδικα HTML. Για λόγους "
-"ασφαλείας, πρέπει χειροκίνητα να αλλάξετε το αρχείο libraries/pclasses/"
-"Plugins/tTransformations/oOutput/Text_Plain_External.php και να εισάγετε τα "
-"εργαλεία που εσείς θέλετε να είναι διαθέσιμα. Η πρώτη επιλογή είναι ο "
-"αριθμός της εφαρμογής που θέλετε να χρησιμοποιήσετε και η δεύτερη επιλογή "
-"είναι οι παράμετροι της. Η τρίτη επιλογή, αν τεθεί σε 1 θα μετατρέψει το "
-"αποτέλεσμα χρησιμοποιώντας την εντολή htmlspecialchars() (Προεπιλεγμένη "
-"τιμή: 1). Η τέταρτη επιλογή, αν τεθεί σε 1 θα εισάγει NOWRAP στο κελί "
-"περιεχομένου ούτως ώστε όλο το αποτέλεσμα να εμφανιστεί χωρίς αλλαγές στην "
-"διάταξη (Προεπιλεγμένη τιμή: 1)."
+"βασικής εισαγωγής. Επιστρέφει το βασικό αποτέλεσμα της εφαρμογής. "
+"Προεπιλεγμένη τιμή είναι το Tidy, που τυπώνει μορφοποιημένο κώδικα HTML. Για "
+"λόγους ασφαλείας, πρέπει χειροκίνητα να αλλάξετε το αρχείο libraries/"
+"pclasses/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php και "
+"να εισάγετε τα εργαλεία που εσείς θέλετε να είναι διαθέσιμα. Η πρώτη επιλογή "
+"είναι ο αριθμός της εφαρμογής που θέλετε να χρησιμοποιήσετε. Η δεύτερη "
+"επιλογή παραμένει κενή για ιστορικούς λόγους. Η τρίτη επιλογή, αν τεθεί ως 1 "
+"θα μετατρέψει το αποτέλεσμα χρησιμοποιώντας την εντολή htmlspecialchars() "
+"(Προεπιλογή: 1). Η τέταρτη επιλογή, αν τεθεί σε 1 θα αποτρέπει την "
+"αναδίπλωση γραμμών και θα διασφαλίζει ότι το αποτέλεσμα θα εμφανίζει τα "
+"πάντα σε μια γραμμή (Προεπιλογή: 1)."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:114
 #, php-format
@@ -10148,6 +10115,9 @@ msgid ""
 "has been deprecated for security reasons. Add all command line options "
 "directly to the definition in %s."
 msgstr ""
+"Χρησιμοποιείτε το πεδίο επιλογών γραμμής εντολών εξωτερικής μετατροπής, που "
+"έχει καταργηθεί για λόγους ασφαλείας. Προσθέστε όλες τις επιλογές γραμμής "
+"εντολών κατευθείαν στο ορισμό στο %s."
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:28
 msgid ""
@@ -10305,6 +10275,8 @@ msgid ""
 "The gd PHP extension was not found. The QRcode can not be displayed without "
 "the gd PHP extension."
 msgstr ""
+"Η επέκταση gd της PHP δεν βρέθηκε. Ο κώδικας QR δεν μπορεί να προβληθεί "
+"χωρίς την επέκταση gd της PHP."
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:146
 msgid "Authentication Application (2FA)"
@@ -10319,12 +10291,10 @@ msgstr ""
 "FreeOTP, το Google Authenticator ή το Authy."
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:186
-#, fuzzy
 msgid "Hardware Security Key (FIDO U2F)"
 msgstr "Υλικό κλειδί ασφαλείας (FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:196
-#, fuzzy
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F."
 msgstr ""
@@ -10689,16 +10659,13 @@ msgid "Change or reconfigure master server"
 msgstr "Αλλαγή ή επαναρύθμιση του πρωτεύοντος διακομιστή"
 
 #: libraries/classes/ReplicationGui.php:293
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as slave in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
-"Αυτός ο διακομιστής δεν ρυθμίστηκε ως δευτερεύων σε μια διαδικασία "
-"αναπαραγωγής. Θέλετε να τον <a href=\"%s\">ρυθμίσετε</a>;"
+"Αυτός ο διακομιστής δεν ρυθμίστηκε ως δευτερεύων σε διαδικασία αναπαραγωγής. "
+"Θέλετε να τον %sρυθμίσετε%s;"
 
 #: libraries/classes/ReplicationGui.php:316
 msgid "Error management:"
@@ -10720,16 +10687,13 @@ msgid "Skip next %s errors."
 msgstr "Παράβλεψη επόμενων %s σφαλμάτων."
 
 #: libraries/classes/ReplicationGui.php:355
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as master in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
 "Αυτός ο διακομιστής δεν έχει ρυθμιστεί ως πρωτεύων σε μια διαδικασία "
-"αναπαραγωγής. Θέλετε να τον <a href=\"%s\">ρυθμίσετε</a>;"
+"αναπαραγωγής. Θέλετε να τον %sρυθμίσετε%s;"
 
 #: libraries/classes/ReplicationGui.php:389
 #: templates/display/export/select_options.twig:8
@@ -11008,7 +10972,7 @@ msgstr "Διατήρηση με την ολοκλήρωση"
 #: libraries/classes/Rte/Events.php:511 libraries/classes/Rte/Routines.php:1046
 #: libraries/classes/Rte/Triggers.php:399 templates/view_create.twig:45
 msgid "Definer"
-msgstr "Προσδιοριστής"
+msgstr "Οριστής"
 
 #: libraries/classes/Rte/Events.php:555 libraries/classes/Rte/Routines.php:1127
 #: libraries/classes/Rte/Triggers.php:438
@@ -14200,7 +14164,7 @@ msgstr "κανένα από τα παραπάνω"
 
 #: libraries/db_common.inc.php:151 tbl_operations.php:224
 msgid "No collation provided."
-msgstr ""
+msgstr "Δεν παρέχεται καμιά σύνθεση."
 
 #: libraries/mult_submits.inc.php:337
 msgid "Success!"
@@ -14299,10 +14263,8 @@ msgstr ""
 "php, π.χ. χρησιμοποιώντας τον %sκώδικα Εγκατάστασης%s."
 
 #: prefs_manage.php:309
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save as JSON file"
-msgstr "Αποστολή"
+msgstr "Αποθήκευση ως αρχείο JSON"
 
 #: prefs_manage.php:314
 msgid "Save as PHP file"
@@ -14339,10 +14301,8 @@ msgid "View dump (schema) of databases"
 msgstr "Εμφάνισης σκαριφήματος (σχήματος) βάσεων δεδομένων"
 
 #: server_privileges.php:74
-#, fuzzy
-#| msgid "Allows deleting data."
 msgid "Allows deleting historical rows."
-msgstr "Επιτρέπει τη διαγραφή δεδομένων."
+msgstr "Επιτρέπει τη διαγραφή ιστορικών εγγραφών."
 
 #: server_privileges.php:145 server_replication.php:38
 #: server_user_groups.php:31 templates/server/databases/create.twig:46
@@ -14594,10 +14554,8 @@ msgstr "Μη έγκυρο όνομα πίνακα"
 
 #. l10n: In case a SQL query did not pass a security check
 #: tbl_get_field.php:46 transformation_wrapper.php:69
-#, fuzzy
-#| msgid "There are too many joins without indexes."
 msgid "There is an issue with your request."
-msgstr "Υπάρχουν πολλές ενώσεις χωρίς ευρετήρια."
+msgstr "Υπάρχουν κάποιο θέμα με το αίτημα σας."
 
 #: tbl_replace.php:258
 #, php-format
@@ -14977,10 +14935,9 @@ msgid "See table structure"
 msgstr "Προβολή δομής πίνακα"
 
 #: templates/database/designer/database_tables.twig:91
-#, fuzzy, php-format
-#| msgid "Select all"
+#, php-format
 msgid "Select \"%s\""
-msgstr "Επιλογή όλων"
+msgstr "Επιλογή «%s»"
 
 #: templates/database/designer/database_tables.twig:126
 #, php-format
@@ -15949,22 +15906,16 @@ msgstr[0] "<strong>Σύνολο:</strong> <em>%count%</em> αποτέλεσμα"
 msgstr[1] "<strong>Σύνολο:</strong> <em>%count%</em> αποτελέσματα"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
-#, fuzzy
-#| msgid ""
-#| "If column type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
-#| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
 "single quote (\"'\") amongst those values, precede it with a backslash (for "
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Αν ο τύπος του πεδίου είναι «enum» ή «set», παρακαλώ εισάγετε τις τιμές "
-"χρησιμοποιώντας την εξής μορφή: 'α','β','γ'…<br />Αν χρειάζεται να εισάγετε "
-"την ανάποδη κάθετο («\\») ή απλά εισαγωγικά («'»), προθέστε τα με ανάποδη "
-"κάθετο στην αρχή (για παράδειγμα '\\\\χψω' ή 'α\\'β')."
+"Αν ο τύπος του πεδίου είναι «enum» ή «set», εισάγετε τις τιμές με χρήση της "
+"μορφής: 'α','β','γ'…<br />Αν χρειάζεται να εισάγετε την ανάποδη κάθετο («\\»)"
+" ή απλά εισαγωγικά («'»), προσθέστε τα με ανάποδη κάθετο στην αρχή (για "
+"παράδειγμα '\\\\χψω' ή 'α\\'β')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:21
 msgid ""
@@ -16350,24 +16301,21 @@ msgstr ""
 "παραγόντων στη συσκευή σας και εισάγετε τον κώδικα πιστοποίησης που παράγει."
 
 #: templates/login/twofactor/application_configure.twig:11
-#, fuzzy
-#| msgid ""
-#| "Please scan following QR code into the two-factor authentication app on "
-#| "your device and enter authentication code it generates."
 msgid ""
 "Please enter following secret/key into the two-factor authentication app on "
 "your device and enter authentication code it generates."
 msgstr ""
-"Παρακαλώ σαρώστε τον ακόλουθο κώδικα QR μέσα στην εφαρμογή πιστοποίησης δύο-"
-"παραγόντων στη συσκευή σας και εισάγετε τον κώδικα πιστοποίησης που παράγει."
+"Εισάγετε τον ακόλουθο κώδικα QR μέσα στην εφαρμογή πιστοποίησης δύο-"
+"παραγόντων στη συσκευή σας και εισάγετε τον κώδικα πιστοποίησης που "
+"δημιουργεί."
 
 #: templates/login/twofactor/application_configure.twig:14
 msgid "OTP url:"
-msgstr ""
+msgstr "url για OTP:"
 
 #: templates/login/twofactor/application_configure.twig:18
 msgid "Secret/key:"
-msgstr ""
+msgstr "Μυστικό/κλειδί:"
 
 #: templates/database/designer/table_list.twig:4
 msgid "Hide/Show all"
@@ -16570,7 +16518,7 @@ msgstr ""
 
 #: templates/table/relation/common_form.twig:24
 msgid "Foreign key constraint"
-msgstr "Όριο μη διακριτού κλειδιού"
+msgstr "Περιορισμός ξένου κλειδιού"
 
 #: templates/table/relation/common_form.twig:89
 msgid "+ Add constraint"
