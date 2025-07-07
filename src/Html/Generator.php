@@ -625,10 +625,11 @@ class Generator
         // Add show create link when viewing tables
         $showCreateLink = '';
         if (! empty($config->settings['SQLQuery']['ShowCreate'])) {
-            $showCreateParams = [];
-            $showCreateParams['sql_query'] = "";
-            $showCreateParams['db'] = $GLOBALS['db'];
-            $showCreateParams['selected_tbl[]'] = $GLOBALS['table'];
+            $showCreateParams = [
+                'sql_query' => '',
+                'db' => $GLOBALS['db'],
+                'selected_tbl[]' => $GLOBALS['table'],
+            ];
             $showCreateLink = Url::getFromRoute('/database/structure/show-create', $showCreateParams);
             $showCreateLink = '<div class="col-auto">'
                 . self::linkOrButton(
