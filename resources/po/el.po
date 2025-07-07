@@ -4002,7 +4002,7 @@ msgstr "Προβολή κρυφών αντικειμένων δέντρου πλ
 
 #: resources/templates/navigation/item_unhide_dialog.twig:19
 msgid "Unhide"
-msgstr "Απόκρυψη"
+msgstr "Εμφάνιση"
 
 #: resources/templates/navigation/main.twig:25
 #: resources/templates/navigation/main.twig:26
@@ -4016,17 +4016,13 @@ msgstr "Άδειασμα δεδομένων συνεδρίας"
 
 #: resources/templates/navigation/main.twig:39
 #: resources/templates/navigation/main.twig:40
-#, fuzzy
-#| msgid "Documentation"
 msgid "MariaDB Documentation"
-msgstr "Τεκμηρίωση"
+msgstr "Τεκμηρίωση MariaDB"
 
 #: resources/templates/navigation/main.twig:39
 #: resources/templates/navigation/main.twig:40
-#, fuzzy
-#| msgid "Documentation"
 msgid "MySQL Documentation"
-msgstr "Τεκμηρίωση"
+msgstr "Τεκμηρίωση MySQL"
 
 #: resources/templates/navigation/main.twig:43
 #: resources/templates/navigation/main.twig:44
@@ -4048,10 +4044,8 @@ msgid "Drop files here"
 msgstr "Ρίξτε αρχεία εδώ"
 
 #: resources/templates/navigation/main.twig:88
-#, fuzzy
-#| msgid "SQL dump"
 msgid "SQL upload"
-msgstr "Κάδος SQL"
+msgstr "Αποστολή SQL"
 
 #: resources/templates/navigation/tree/database_select.twig:10
 #: resources/templates/server/databases/index.twig:3
@@ -4583,18 +4577,14 @@ msgstr "Αρχεία"
 #: resources/templates/server/binlog/index.twig:57
 #: resources/templates/server/binlog/index.twig:58
 #: resources/templates/server/status/processes/list.twig:20
-#, fuzzy
-#| msgid "Truncate Shown Queries"
 msgid "Truncate shown queries"
-msgstr "Αποκοπή εμφανιζόμενων ερωτημάτων"
+msgstr "Διαγραφή εμφανιζόμενων ερωτημάτων"
 
 #: resources/templates/server/binlog/index.twig:61
 #: resources/templates/server/binlog/index.twig:62
 #: resources/templates/server/status/processes/list.twig:26
-#, fuzzy
-#| msgid "Show Full Queries"
 msgid "Show full queries"
-msgstr "Πλήρης εμφάνιση ερωτημάτων"
+msgstr "Εμφάνιση πλήρων ερωτημάτων"
 
 #: resources/templates/server/binlog/index.twig:82
 msgid "Log name"
@@ -4638,10 +4628,8 @@ msgid "Create database"
 msgstr "Δημιουργία βάσης δεδομένων"
 
 #: resources/templates/server/databases/index.twig:50
-#, fuzzy
-#| msgid "Check privileges for database \"%s\"."
 msgid "No privileges to create databases"
-msgstr "Έλεγχος δικαιωμάτων για τη βάση «%s»."
+msgstr "Δεν έχετε δικαιώματα για τη δημιουργία βάσεων δεδομένων"
 
 #: resources/templates/server/databases/index.twig:156
 #: resources/templates/server/replication/index.twig:18
@@ -4724,16 +4712,12 @@ msgid "Variables"
 msgstr "Μεταβλητές"
 
 #: resources/templates/server/engines/show.twig:45
-#, fuzzy
-#| msgid "Storage engines"
 msgid "Unknown storage engine."
-msgstr "Μηχανές αποθήκευσης"
+msgstr "Άγνωστη μηχανή αποθήκευσης."
 
 #: resources/templates/server/export/index.twig:26
-#, fuzzy
-#| msgid "@SERVER@ will become the server name"
 msgid "@SERVER@ will become the server name."
-msgstr "Το @SERVER@ θα γίνει το όνομα του διακομιστή"
+msgstr "Το @SERVER@ θα γίνει το όνομα του διακομιστή."
 
 #: resources/templates/server/export/index.twig:3
 msgid "Exporting databases from the current server"
@@ -4762,26 +4746,20 @@ msgid "Author"
 msgstr "Δημιουργός"
 
 #: resources/templates/server/plugins/index.twig:41
-#, fuzzy
-#| msgid "active"
 msgid "inactive"
-msgstr "ενεργή"
+msgstr "ανενεργή"
 
 #: resources/templates/server/plugins/index.twig:43
 msgid "disabled"
 msgstr "Απενεργοποιημένο"
 
 #: resources/templates/server/plugins/index.twig:45
-#, fuzzy
-#| msgid "Deleting"
 msgid "deleting"
-msgstr "Διαγραφή"
+msgstr "διαγραφή"
 
 #: resources/templates/server/plugins/index.twig:47
-#, fuzzy
-#| msgid "Delete"
 msgid "deleted"
-msgstr "Διαγραφή"
+msgstr "διαγραμένο"
 
 #: resources/templates/server/privileges/add_user_fieldset.twig:2
 #: resources/templates/server/privileges/user_overview.twig:20
