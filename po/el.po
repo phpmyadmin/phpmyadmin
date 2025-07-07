@@ -13747,7 +13747,7 @@ msgid ""
 msgstr ""
 "Προορίζεται για την αποθήκευση διευθύνσεων IPv6, καθώς και διευθύνσεων IPv4 "
 "με την υπόθεση της συμβατικής αντιστοίχισης διευθύνσεων IPv4 σε διευθύνσεις "
-"IPv6."
+"IPv6"
 
 #: libraries/classes/Types.php:723
 msgctxt "numeric types"
@@ -13777,13 +13777,9 @@ msgid "Could not save configuration"
 msgstr "Αδύνατη η αποθήκευση ρυθμίσεων"
 
 #: libraries/classes/UserPreferences.php:178
-#, fuzzy
-#| msgid ""
-#| "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgid "The phpMyAdmin configuration storage database could not be accessed."
 msgstr ""
-"%sΔημιουργία%s του τρέχοντος χώρου αποθήκευσης ρυθμίσεων του phpMyAdmin στην "
-"τρέχουσα βάση δεδομένων."
+"Η βάση δεδομένων αποθήκευσης ρυθμίσεων του phpMyAdmin δεν ήταν προσβάσιμη."
 
 #: libraries/classes/Util.php:138
 #, php-format
@@ -14192,21 +14188,17 @@ msgstr "Σύνδεση:"
 #: templates/columns_definitions/column_definitions_form.twig:113
 #: templates/columns_definitions/partitions.twig:137
 #: templates/table/operations/index.twig:128
-#, fuzzy
-#| msgid "Storage engines"
 msgid "Storage engine"
-msgstr "Μηχανές αποθήκευσης"
+msgstr "Μηχανή αποθήκευσης"
 
 #: templates/columns_definitions/column_definitions_form.twig:136
 msgid "PARTITION definition:"
 msgstr "Ορισμός PARTITION:"
 
 #: templates/columns_definitions/column_definitions_form.twig:154
-#, fuzzy
-#| msgid "Enclose export in a transaction"
 msgctxt "Online transaction part of the SQL DDL for InnoDB"
 msgid "Online transaction"
-msgstr "Συμπερίληψη εξαγωγής στη συναλλαγή"
+msgstr "Ηλεκτρονική συναλλαγή"
 
 #: templates/columns_definitions/column_name.twig:4
 #, php-format
@@ -14519,8 +14511,6 @@ msgid "Create version"
 msgstr "Δημιουργία έκδοσης"
 
 #: templates/database/central_columns/edit.twig:13
-#, fuzzy
-#| msgid "A_I"
 msgctxt "Auto Increment"
 msgid "A_I"
 msgstr "Α/Α"
@@ -14531,10 +14521,8 @@ msgstr "Προσθήκη νέας στήλης"
 
 #: templates/database/central_columns/main.twig:24
 #: templates/database/central_columns/main.twig:230
-#, fuzzy
-#| msgid "Length/Values"
 msgid "Length/Value"
-msgstr "Μήκος/Τιμές*"
+msgstr "Μήκος/Τιμή*"
 
 #: templates/database/central_columns/main.twig:36
 #: templates/database/central_columns/main.twig:242
@@ -14547,10 +14535,8 @@ msgid "A_I"
 msgstr "Α/Α"
 
 #: templates/database/central_columns/main.twig:131
-#, fuzzy
-#| msgid "The central list of columns for the current database is empty."
 msgid "The central list of columns for the current database is empty"
-msgstr "Η κεντρική λίστα στηλών για την τρέχουσα βάση δεδομένων είναι άδεια."
+msgstr "Η κεντρική λίστα στηλών για την τρέχουσα βάση δεδομένων είναι άδεια"
 
 #: templates/database/central_columns/main.twig:168
 #: templates/display/results/table.twig:62
@@ -14615,10 +14601,8 @@ msgid "Number of columns"
 msgstr "Αριθμός στηλών"
 
 #: templates/database/data_dictionary/index.twig:3
-#, fuzzy
-#| msgid "Database comment"
 msgid "Database comment:"
-msgstr "Σχόλιο βάσης δεδομένων"
+msgstr "Σχόλιο βάσης δεδομένων:"
 
 #: templates/database/data_dictionary/index.twig:68 templates/indexes.twig:18
 #: templates/table/structure/display_structure.twig:418
@@ -14946,19 +14930,17 @@ msgid "OFF"
 msgstr "ΑΝΕΝΕΡΓΟ"
 
 #: templates/database/export/index.twig:62
-#, fuzzy
-#| msgid ", @DATABASE@ will become the database name"
 msgid ""
 "@SERVER@ will become the server name and @DATABASE@ will become the database "
 "name."
-msgstr ", το @DATABASE@ θα γίνει το όνομα της βάσης δεδομένων"
+msgstr ""
+"Το @SERVER@ θα γίνει το όνομα του διακομιστή και το @DATABASE@ θα γίνει το "
+"όνομα της βάσης δεδομένων."
 
 #. l10n: A query that the user has written freely
 #: templates/database/export/index.twig:5 templates/table/export/index.twig:5
-#, fuzzy
-#| msgid "Showing SQL query"
 msgid "Exporting a raw query"
-msgstr "Εμφάνιση ερωτήματος SQL"
+msgstr "Εξαγωγή ακατέργαστου ερωτήματος"
 
 #: templates/database/export/index.twig:7
 #, php-format
@@ -15055,16 +15037,12 @@ msgstr "Νέο όνομα βάσης δεδομένων"
 #: templates/table/operations/index.twig:79
 #: templates/table/operations/index.twig:113
 #: templates/table/operations/index.twig:291
-#, fuzzy
-#| msgid ""
-#| "You don't have sufficient privileges to perform this operation; Please "
-#| "refer to the documentation for more details"
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details."
 msgstr ""
 "Δεν έχετε αρκετά δικαιώματα για εκτέλεση αυτής της λειτουργίας. Δείτε την "
-"τεκμηρίωση για περισσότερες λεπτομέρειες"
+"τεκμηρίωση για περισσότερες λεπτομέρειες."
 
 #: templates/database/operations/index.twig:89
 msgid "Remove database"
@@ -15196,10 +15174,8 @@ msgid "Ins:"
 msgstr "Προσθήκη:"
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:12
-#, fuzzy
-#| msgid "And:"
 msgid "And"
-msgstr "Και:"
+msgstr "Και"
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:17
 msgid "Del:"
@@ -15235,23 +15211,17 @@ msgid "Modify:"
 msgstr "Τροποποίηση:"
 
 #: templates/database/qbe/selection_form.twig:54
-#, fuzzy
-#| msgid "Add/Delete criteria rows"
 msgid "Add/Delete criteria rows:"
-msgstr "Προσθήκη/Αφαίρεση Γραμμής Κριτηρίων"
+msgstr "Προσθήκη/Αφαίρεση Εγγραφών Κριτηρίων:"
 
 #: templates/database/qbe/selection_form.twig:67
-#, fuzzy
-#| msgid "Add/Delete columns"
 msgid "Add/Delete columns:"
-msgstr "Προσθήκη/Αφαίρεση Στηλών"
+msgstr "Προσθήκη/Αφαίρεση Στηλών:"
 
 #: templates/database/qbe/selection_form.twig:86
 #: templates/database/qbe/selection_form.twig:88
-#, fuzzy
-#| msgid "Use Tables"
 msgid "Use tables"
-msgstr "Χρήση Πινάκων"
+msgstr "Χρήση πινάκων"
 
 #: templates/database/qbe/selection_form.twig:107
 #, php-format
@@ -15278,9 +15248,6 @@ msgid "Returns"
 msgstr "Επιστροφές"
 
 #: templates/database/routines/index.twig:62
-#, fuzzy
-#| msgctxt "Create new column"
-#| msgid "New"
 msgctxt "Create new routine"
 msgid "New"
 msgstr "Νέα"
@@ -15443,10 +15410,8 @@ msgid "Make consistent with central list"
 msgstr "Συνέπεια με την κεντρική λίστα"
 
 #: templates/database/structure/copy_form.twig:14
-#, fuzzy
-#| msgid "Options"
 msgid "Options:"
-msgstr "Επιλογές"
+msgstr "Επιλογές:"
 
 #: templates/database/structure/copy_form.twig:39
 msgid "Add AUTO INCREMENT value"
@@ -15574,10 +15539,8 @@ msgid "There are no triggers to display."
 msgstr "Δεν υπάρχουν ενέργειες για εμφάνιση."
 
 #: templates/display/results/sort_by_key.twig:3
-#, fuzzy
-#| msgid "Sort by key"
 msgid "Sort by key:"
-msgstr "Ταξινόμηση ανά κλειδί"
+msgstr "Ταξινόμηση ανά κλειδί:"
 
 #: templates/display/results/table.twig:32
 msgid "Save edited data"
@@ -15706,8 +15669,6 @@ msgid "Update"
 msgstr "Ενημέρωση"
 
 #: templates/export.twig:53
-#, fuzzy
-#| msgid "Showing SQL query"
 msgid "Show SQL query"
 msgstr "Εμφάνιση ερωτήματος SQL"
 
@@ -15794,21 +15755,16 @@ msgid "File name template:"
 msgstr "Πρότυπο ονόματος αρχείου:"
 
 #: templates/export.twig:324
-#, fuzzy, php-format
-#| msgid ""
-#| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-#| "formatting strings. Additionally the following transformations will "
-#| "happen: %3$s. Other text will be kept as is. See the %4$sFAQ%5$s for "
-#| "details."
+#, php-format
 msgid ""
 "This value is interpreted using the 'strftime' function, so you can use time "
 "formatting strings. Additionally the following transformations will happen: "
 "%s Other text will be kept as is. See the FAQ 6.27 for details."
 msgstr ""
-"Αυτή η τιμή μετατρέπεται με χρήση της συνάρτησης %1$sstrftime%2$s, έτσι "
-"μπορείτε να χρησιμοποιήσετε φράσεις μορφής χρόνου. Επιπρόσθετα, θα γίνουν "
-"και οι ακόλουθες μετατροπές: %3$s. Το υπόλοιπο κείμενο θα παραμείνει όπως "
-"είναι. Δείτε τις %4$sΣΑΕ%5$s για λεπτομέρειες."
+"Αυτή η τιμή ερμηνεύεται χρησιμοποιώντας τη συνάρτηση «strftime», επομένως "
+"μπορείτε να χρησιμοποιήσετε συμβολοσειρές μορφοποίησης χρόνου. Επιπλέον, θα "
+"πραγματοποιηθούν οι εξής μετατροπές: %s Άλλο κείμενο θα διατηρηθεί ως έχει. "
+"Δείτε τη Συχνή Ερώτηση 6.27 για λεπτομέρειες."
 
 #: templates/export.twig:329
 msgid "use this for future exports"
@@ -15874,8 +15830,6 @@ msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Χρήση του OpenStreetMaps ως Βασικό Επίπεδο"
 
 #: templates/gis_data_editor_form.twig:38
-#, fuzzy
-#| msgid "SRID:"
 msgctxt "Spatial Reference System Identifier"
 msgid "SRID:"
 msgstr "SRID:"
@@ -15892,10 +15846,9 @@ msgstr "Σημείο:"
 #: templates/gis_data_editor_form.twig:93
 #: templates/gis_data_editor_form.twig:134
 #: templates/gis_data_editor_form.twig:186
-#, fuzzy, php-format
-#| msgid "Point %d"
+#, php-format
 msgid "Point %d:"
-msgstr "Σημείο %d"
+msgstr "Σημείο %d:"
 
 #: templates/gis_data_editor_form.twig:113
 #, php-format
@@ -15959,22 +15912,19 @@ msgid "no branch"
 msgstr "κανένας κλάδος"
 
 #: templates/home/git_info.twig:15 templates/home/git_info.twig:22
-#, fuzzy, php-format
-#| msgid "%1$s from %2$s branch"
+#, php-format
 msgid "from %s branch"
-msgstr "%1$s από %2$s κλάδο"
+msgstr "από %s κλάδο"
 
 #: templates/home/git_info.twig:25
-#, fuzzy, php-format
-#| msgid "committed on %1$s by %2$s"
+#, php-format
 msgid "committed on %s by %s"
-msgstr "έγινε την %1$s από %2$s"
+msgstr "έγινε την %s από %s"
 
 #: templates/home/git_info.twig:32
-#, fuzzy, php-format
-#| msgid "authored on %1$s by %2$s"
+#, php-format
 msgid "authored on %s by %s"
-msgstr "δημιουργήθηκε την %1$s από %2$s"
+msgstr "δημιουργήθηκε την %s από %s"
 
 #: templates/home/index.twig:22 templates/login/form.twig:7
 #, php-format
@@ -15992,10 +15942,8 @@ msgid "General settings"
 msgstr "Γενικές ρυθμίσεις"
 
 #: templates/home/index.twig:56
-#, fuzzy
-#| msgid "Server connection collation"
 msgid "Server connection collation:"
-msgstr "Σύνθεση σύνδεσης διακομιστή"
+msgstr "Σύνθεση σύνδεσης διακομιστή:"
 
 #: templates/home/index.twig:79 templates/preferences/manage/main.twig:56
 msgid "More settings"
@@ -16145,26 +16093,22 @@ msgid "Browse your computer:"
 msgstr "Περιηγηθείτε στον υπολογιστή σας:"
 
 #: templates/import.twig:62
-#, fuzzy
-#| msgid "Browse your computer:"
 msgid "Browse your computer"
-msgstr "Περιηγηθείτε στον υπολογιστή σας:"
+msgstr "Περιηγηθείτε στον υπολογιστή σας"
 
 #: templates/import.twig:68 templates/import.twig:101
 msgid "You may also drag and drop a file on any page."
 msgstr "Μπορείτε να σύρετε και να αφήσετε ένα αρχείο σε οποιαδήποτε σελίδα."
 
 #: templates/import.twig:74 templates/import.twig:104
-#, fuzzy, php-format
-#| msgid "Select from the web server upload directory <b>%s</b>:"
+#, php-format
 msgid "Select from the web server upload directory [strong]%s[/strong]:"
-msgstr "Επιλογή από το φάκελο αποστολής του διακομίστή ιστού <b>%s</b>:"
+msgstr ""
+"Επιλογή από τον φάκελο αποστολών του διακομιστή ιστού [strong]%s[/strong]:"
 
 #: templates/import.twig:80
-#, fuzzy
-#| msgid "File to import:"
 msgid "Select file to import"
-msgstr "Αρχείο για εισαγωγή:"
+msgstr "Επιλογή αρχείου για εισαγωγή"
 
 #: templates/import.twig:85 templates/import.twig:115
 msgid "There are no files to upload!"
@@ -16207,10 +16151,8 @@ msgstr "Άλλες επιλογές:"
 
 #: templates/indexes.twig:38
 #: templates/table/structure/display_structure.twig:446
-#, fuzzy
-#| msgid "Rename to"
 msgid "Rename"
-msgstr "Μετονομασία σε"
+msgstr "Μετονομασία"
 
 #: templates/indexes.twig:44
 #: templates/table/structure/display_structure.twig:452
@@ -16230,19 +16172,13 @@ msgstr "ημερολόγιο-μήνας-έτος"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: templates/javascript/variables.twig:11
-#, fuzzy
-#| msgctxt "Year suffix"
-#| msgid "none"
 msgid "none"
 msgstr "κανένα"
 
 #. l10n: Previous month. Display text for previous month link in calendar
 #: templates/javascript/variables.twig:16
-#, fuzzy
-#| msgctxt "Previous month"
-#| msgid "Prev"
 msgid "Prev"
-msgstr "Προηγούμενο"
+msgstr "Προηγούμενος"
 
 #. l10n: Next month. Display text for next month link in calendar
 #: templates/javascript/variables.twig:17
@@ -16436,7 +16372,7 @@ msgstr "Εισάγετε μια έγκυρη ΔΕΚΑΕΞΑΔΙΚΗ εισαγω
 #. l10n: To validate the usage of a MD5 function on the column
 #: templates/javascript/variables.twig:108
 msgid "This column can not contain a 32 chars value"
-msgstr ""
+msgstr "Αυτή η στήλη δεν μπορεί να περιέχει τιμή 32 χαρακτήρων."
 
 #. l10n: To validate the usage of a AES_ENCRYPT/DES_ENCRYPT function on the column
 #: templates/javascript/variables.twig:109
