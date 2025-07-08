@@ -572,11 +572,6 @@ class Config
             $parts = array_slice($parts, 0, count($parts) - 1);
         }
 
-        /* Remove extra path from javascript calls */
-        if (defined('PMA_PATH_TO_BASEDIR')) {
-            $parts = array_slice($parts, 0, count($parts) - 1);
-        }
-
         // Add one more part to make the path end in slash unless it already ends with slash
         if (count($parts) < 2 || $parts[array_key_last($parts)] !== '') {
             $parts[] = '';
