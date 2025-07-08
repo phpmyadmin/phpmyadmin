@@ -5,22 +5,20 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Container\ContainerBuilder;
-use PhpMyAdmin\Twig\AssetExtension;
-use PhpMyAdmin\Twig\CoreExtension;
-use PhpMyAdmin\Twig\FlashMessengerExtension;
+use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Html\MySQLDocumentation;
+use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Twig\I18nExtension;
 use PhpMyAdmin\Twig\MessageExtension;
 use PhpMyAdmin\Twig\PmaGlobalVariable;
-use PhpMyAdmin\Twig\SanitizeExtension;
-use PhpMyAdmin\Twig\TransformationsExtension;
-use PhpMyAdmin\Twig\UrlExtension;
-use PhpMyAdmin\Twig\UtilExtension;
+use PhpMyAdmin\Utils\Gis;
 use RuntimeException;
 use Throwable;
 use Twig\Environment;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
+use Twig\Extension\AttributeExtension;
 use Twig\Extension\DebugExtension;
 use Twig\Loader\FilesystemLoader;
 use Twig\RuntimeLoader\ContainerRuntimeLoader;
@@ -67,15 +65,18 @@ class Template
         }
 
         $twig->addGlobal('pma', new PmaGlobalVariable());
-        $twig->addExtension(new AssetExtension());
-        $twig->addExtension(new CoreExtension());
-        $twig->addExtension(new FlashMessengerExtension());
+        $twig->addExtension(new AttributeExtension(Core::class));
+        $twig->addExtension(new AttributeExtension(FlashMessenger::class));
+        $twig->addExtension(new AttributeExtension(Generator::class));
+        $twig->addExtension(new AttributeExtension(Gis::class));
         $twig->addExtension(new I18nExtension());
-        $twig->addExtension(new MessageExtension());
-        $twig->addExtension(new SanitizeExtension());
-        $twig->addExtension(new TransformationsExtension());
-        $twig->addExtension(new UrlExtension());
-        $twig->addExtension(new UtilExtension());
+        $twig->addExtension(new AttributeExtension(MessageExtension::class));
+        $twig->addExtension(new AttributeExtension(MySQLDocumentation::class));
+        $twig->addExtension(new AttributeExtension(Sanitize::class));
+        $twig->addExtension(new AttributeExtension(ThemeManager::class));
+        $twig->addExtension(new AttributeExtension(Transformations::class));
+        $twig->addExtension(new AttributeExtension(Url::class));
+        $twig->addExtension(new AttributeExtension(Util::class));
 
         return $twig;
     }

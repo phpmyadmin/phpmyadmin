@@ -21,6 +21,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Plugins\TransformationsInterface;
+use Twig\Attribute\AsTwigFunction;
 
 use function array_shift;
 use function class_exists;
@@ -214,6 +215,7 @@ class Transformations
      *
      * @return string the description of the transformation
      */
+    #[AsTwigFunction('get_description')]
     public function getDescription(string $file): string
     {
         $className = $this->getClassName($file);
@@ -231,6 +233,7 @@ class Transformations
      *
      * @return string the name of the transformation
      */
+    #[AsTwigFunction('get_name')]
     public function getName(string $file): string
     {
         $className = $this->getClassName($file);

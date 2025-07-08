@@ -14,6 +14,8 @@ use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\Utils\SessionCache;
 use Stringable;
+use Twig\Attribute\AsTwigFilter;
+use Twig\Attribute\AsTwigFunction;
 
 use function __;
 use function _pgettext;
@@ -97,6 +99,7 @@ class Util
      *
      * @param string $value Configuration option name
      */
+    #[AsTwigFunction('show_icons')]
     public static function showIcons(string $value): bool
     {
         return in_array(Config::getInstance()->settings[$value], ['icons', 'both'], true);
@@ -107,6 +110,7 @@ class Util
      *
      * @param string $value Configuration option name
      */
+    #[AsTwigFunction('show_text')]
     public static function showText(string $value): bool
     {
         return in_array(Config::getInstance()->settings[$value], ['text', 'both'], true);
@@ -168,6 +172,7 @@ class Util
      *
      * @return string  the URL link
      */
+    #[AsTwigFunction('get_mysql_docu_url', isSafe: ['html'])]
     public static function getMySQLDocuURL(string $link, string $anchor = ''): string
     {
         // Fixup for newly used names:
@@ -209,6 +214,7 @@ class Util
      *
      * @return string The URL link
      */
+    #[AsTwigFunction('get_docu_url', isSafe: ['html'])]
     public static function getDocuURL(bool $isMariaDB = false): string
     {
         if ($isMariaDB) {
@@ -234,6 +240,7 @@ class Util
      *
      * @param Stringable|string|null $identifier the database, table or field name to "backquote"
      */
+    #[AsTwigFunction('backquote')]
     public static function backquote(Stringable|string|null $identifier): string
     {
         return static::backquoteCompat($identifier, 'NONE');
@@ -287,6 +294,7 @@ class Util
      * @return string[]|null the formatted value and its unit
      * @psalm-return ($value is null ? null : array{string, string})
      */
+    #[AsTwigFunction('format_byte_down')]
     public static function formatByteDown(float|int|string|null $value, int $limes = 6, int $comma = 0): array|null
     {
         if ($value === null) {
@@ -365,6 +373,7 @@ class Util
      *
      * @return string   the formatted value and its unit
      */
+    #[AsTwigFunction('format_number')]
     public static function formatNumber(
         float|int|string $value,
         int $digitsLeft = 3,
@@ -585,6 +594,7 @@ class Util
      *
      * @return string the formatted value
      */
+    #[AsTwigFunction('timespan_format')]
     public static function timespanFormat(int $seconds): string
     {
         $days = floor($seconds / 86400);
@@ -881,6 +891,7 @@ class Util
      *
      * @return string the converted value
      */
+    #[AsTwigFilter('convert_bit_default_value')]
     public static function convertBitDefaultValue(string|null $bitDefaultValue): string
     {
         return (string) preg_replace(
@@ -909,6 +920,7 @@ class Util
      *  displayed_type : string,
      * }
      */
+    #[AsTwigFunction('extract_column_spec')]
     public static function extractColumnSpec(string $columnSpecification): array
     {
         $firstBracketPos = mb_strpos($columnSpecification, '(');
@@ -1174,6 +1186,7 @@ class Util
     /**
      * This function is to check whether database support UUID
      */
+    #[AsTwigFunction('is_uuid_supported')]
     public static function isUUIDSupported(): bool
     {
         return Compatibility::isUUIDSupported(DatabaseInterface::getInstance());
@@ -1311,6 +1324,7 @@ class Util
      *
      * @return string[]
      */
+    #[AsTwigFunction('parse_enum_set_values')]
     public static function parseEnumSetValues(string $definition, bool $escapeHtml = true): array
     {
         // There is a JS port of the below parser in functions.js
@@ -1801,7 +1815,10 @@ class Util
      * @param string $initialSortOrder Initial sort order
      *
      * @return string Link to be displayed in the table header
+     *
+     * @psalm-api
      */
+    #[AsTwigFunction('sortable_table_header', isSafe: ['html'])]
     public static function sortableTableHeader(string $title, string $sort, string $initialSortOrder = 'ASC'): string
     {
         $requestedSort = 'table';

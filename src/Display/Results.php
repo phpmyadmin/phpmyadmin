@@ -1121,7 +1121,7 @@ class Results
         $themeManager = ContainerBuilder::getContainer()->get(ThemeManager::class);
 
         $tmpImage = '<img class="fulltext" src="'
-            . $themeManager->theme->getImgPath($tmpImageFile)
+            . $themeManager->getThemeImagePath($tmpImageFile)
             . '" alt="' . $tmpTxt . '" title="' . $tmpTxt . '">';
 
         return Generator::linkOrButton(Url::getFromRoute('/sql', $urlParamsFullText, false), null, $tmpImage);

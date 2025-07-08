@@ -8,6 +8,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Html\MySQLDocumentation;
+use Twig\Attribute\AsTwigFilter;
+use Twig\Attribute\AsTwigFunction;
 
 use function __;
 use function count;
@@ -160,6 +162,7 @@ class Sanitize
      * @param string $message the message
      * @param bool   $safe    whether string is safe (can keep < and > chars)
      */
+    #[AsTwigFilter('sanitize', isSafe: ['html'])]
     public static function convertBBCode(string $message, bool $safe = false): string
     {
         if (! $safe) {
@@ -244,6 +247,7 @@ class Sanitize
      *
      * @return string Javascript code.
      */
+    #[AsTwigFunction('get_js_value', isSafe: ['html'])]
     public static function getJsValue(string $key, mixed $value): string
     {
         return $key . ' = ' . json_encode($value, JSON_HEX_TAG) . ";\n";

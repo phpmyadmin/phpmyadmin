@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Html;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Util;
+use Twig\Attribute\AsTwigFunction;
 
 use function __;
 use function defined;
@@ -31,6 +32,7 @@ class MySQLDocumentation
      *
      * @return string  the html link
      */
+    #[AsTwigFunction('show_mysql_docu', isSafe: ['html'])]
     public static function show(
         string $link,
         bool $bigIcon = false,
@@ -66,6 +68,7 @@ class MySQLDocumentation
      *
      * @return string  the html link
      */
+    #[AsTwigFunction('show_docu', isSafe: ['html'])]
     public static function showDocumentation(
         string $page,
         string $anchor = '',
@@ -89,6 +92,7 @@ class MySQLDocumentation
      *
      * @return string URL
      */
+    #[AsTwigFunction('get_docu_link', isSafe: ['html'])]
     public static function getDocumentationLink(string $page, string $anchor = '', string $pathPrefix = './'): string
     {
         /* Construct base URL */
