@@ -14,6 +14,7 @@ import checkIndexName from './indexes/checkIndexName.ts';
 import mainMenuResizerCallback from './functions/mainMenuResizerCallback.ts';
 import isStorageSupported from './functions/isStorageSupported.ts';
 import adjustTotals from './functions/adjustTotals.ts';
+import { TempusDominus } from '@eonasdan/tempus-dominus';
 
 /**
  * Object containing CodeMirror editor of the query editor in SQL tab.
@@ -71,102 +72,103 @@ export function addNoCacheToAjaxRequests (options: JQuery.AjaxSettings, original
  * @param {string} type
  * @param {object} options
  */
-export function addDatepicker ($thisElement, type = undefined, options = undefined) {
-    if (type !== 'date' && type !== 'time' && type !== 'datetime' && type !== 'timestamp') {
-        return;
-    }
-
-    var showTimepicker = true;
+export function addDatepicker ($thisElement, type = undefined, options = undefined): TempusDominus|null {
     if (type === 'date') {
-        showTimepicker = false;
+        return new TempusDominus($thisElement.parent()[0], {
+            display: {
+                icons: {
+                    type: 'icons',
+                    time: 'bi bi-clock',
+                    date: 'bi bi-calendar-week',
+                    up: 'bi bi-arrow-up',
+                    down: 'bi bi-arrow-down',
+                    previous: 'bi bi-chevron-left',
+                    next: 'bi bi-chevron-right',
+                    today: 'bi bi-calendar-check',
+                    clear: 'bi bi-trash',
+                    close: 'bi bi-x'
+                },
+                components: {
+                    clock: false,
+                },
+            },
+            localization: {
+                hourCycle: 'h23',
+                format: 'yyyy-MM-dd',
+            },
+        });
     }
 
-    // Getting the current Date and time
-    var currentDateTime = new Date();
-
-    var defaultOptions = {
-        timeInput: true,
-        hour: currentDateTime.getHours(),
-        minute: currentDateTime.getMinutes(),
-        second: currentDateTime.getSeconds(),
-        showOn: 'button',
-        buttonImage: window.themeImagePath + 'b_calendar.png',
-        buttonImageOnly: true,
-        stepMinutes: 1,
-        stepHours: 1,
-        showSecond: true,
-        showMillisec: true,
-        showMicrosec: true,
-        showTimepicker: showTimepicker,
-        showButtonPanel: false,
-        changeYear: true,
-        dateFormat: 'yy-mm-dd', // yy means year with four digits
-        timeFormat: 'HH:mm:ss.lc',
-        constrainInput: false,
-        altFieldTimeOnly: false,
-        showAnim: '',
-        beforeShow: function (input, inst) {
-            // Remember that we came from the datepicker; this is used
-            // in table/change.js by verificationsAfterFieldChange()
-            $thisElement.data('comes_from', 'datepicker');
-            if ($(input).closest('.cEdit').length > 0) {
-                setTimeout(function () {
-                    inst.dpDiv.css({
-                        top: 0,
-                        left: 0,
-                        position: 'relative'
-                    });
-                }, 0);
-            }
-
-            setTimeout(function () {
-                // Fix wrong timepicker z-index, doesn't work without timeout
-                $('#ui-timepicker-div').css('z-index', $('#ui-datepicker-div').css('z-index'));
-                // Integrate tooltip text into dialog
-                if ($thisElement.hasClass('timefield')) {
-                    const $note = $('<p class="note"></div>');
-                    $note.text(window.Messages.strMysqlAllowedValuesTipTime);
-                    $('div.ui-datepicker').append($note);
-                } else if ($thisElement.hasClass('datefield')) {
-                    const $note = $('<p class="note"></div>');
-                    $note.text(window.Messages.strMysqlAllowedValuesTipDate);
-                    $('div.ui-datepicker').append($note);
-                }
-            }, 0);
-        },
-        onSelect: function () {
-            $thisElement.data('datepicker').inline = true;
-        },
-        onClose: function () {
-            // The value is no more from the date picker
-            $thisElement.data('comes_from', '');
-            if (typeof $thisElement.data('datepicker') !== 'undefined') {
-                $thisElement.data('datepicker').inline = false;
-            }
-        }
-    };
-    if (type === 'time') {
-        $thisElement.timepicker($.extend(defaultOptions, options));
-        // Add a tip regarding entering MySQL allowed-values for TIME data-type
-        bootstrap.Tooltip.getOrCreateInstance($thisElement.get(0), { title: window.Messages.strMysqlAllowedValuesTipTime })
-            .setContent({ '.tooltip-inner': window.Messages.strMysqlAllowedValuesTipTime });
-    } else {
-        $thisElement.datetimepicker($.extend(defaultOptions, options));
+    if (type === 'datetime' || type === 'timestamp') {
+        return new TempusDominus($thisElement.parent()[0], {
+            display: {
+                icons: {
+                    type: 'icons',
+                    time: 'bi bi-clock',
+                    date: 'bi bi-calendar-week',
+                    up: 'bi bi-arrow-up',
+                    down: 'bi bi-arrow-down',
+                    previous: 'bi bi-chevron-left',
+                    next: 'bi bi-chevron-right',
+                    today: 'bi bi-calendar-check',
+                    clear: 'bi bi-trash',
+                    close: 'bi bi-x'
+                },
+                sideBySide: true,
+                components: {
+                    seconds: true,
+                },
+            },
+            localization: {
+                hourCycle: 'h23',
+                format: 'yyyy-MM-dd HH:mm:ss',
+            },
+        });
     }
+
+    if (type !== 'time') {
+        return null;
+    }
+
+    const picker = new TempusDominus($thisElement.parent()[0], {
+        display: {
+            icons: {
+                type: 'icons',
+                time: 'bi bi-clock',
+                date: 'bi bi-calendar-week',
+                up: 'bi bi-arrow-up',
+                down: 'bi bi-arrow-down',
+                previous: 'bi bi-chevron-left',
+                next: 'bi bi-chevron-right',
+                today: 'bi bi-calendar-check',
+                clear: 'bi bi-trash',
+                close: 'bi bi-x',
+            },
+            components: {
+                calendar: false,
+                seconds: true,
+            },
+        },
+        localization: {
+            hourCycle: 'h23',
+            format: 'HH:mm:ss',
+        },
+    });
+
+    // Add a tip regarding entering MySQL allowed-values for TIME data-type
+    bootstrap.Tooltip.getOrCreateInstance($thisElement.get(0), { title: window.Messages.strMysqlAllowedValuesTipTime })
+        .setContent({ '.tooltip-inner': window.Messages.strMysqlAllowedValuesTipTime });
+
+    return picker;
 }
 
 /**
  * Add a date/time picker to each element that needs it
- * (only when jquery-ui-timepicker-addon.js is loaded)
  */
 export function addDateTimePicker () {
-    if ($.timepicker === undefined) {
-        return;
-    }
-
     $('input.timefield, input.datefield, input.datetimefield').each(function () {
-        var decimals = Number($(this).parent().attr('data-decimals'));
-        var type = $(this).parent().attr('data-type');
+        var decimals = Number($(this).closest('td').attr('data-decimals'));
+        var type = $(this).closest('td').attr('data-type');
 
         var showMillisec = false;
         var showMicrosec = false;
@@ -3533,40 +3535,6 @@ export function onloadLoginForm () {
     if ($httpsWarning.length) {
         if ((window.location.protocol === 'https:') !== CommonParams.get('is_https')) {
             $httpsWarning.show();
-        }
-    }
-}
-
-/**
- * Toggle the Datetimepicker UI if the date value entered
- * by the user in the 'text box' is not going to be accepted
- * by the Datetimepicker plugin (but is accepted by MySQL)
- *
- * @param $td
- * @param $inputField
- */
-export function toggleDatepickerIfInvalid ($td, $inputField) {
-    // If the Datetimepicker UI is not present, return
-    if ($inputField.hasClass('hasDatepicker')) {
-        // Regex allowed by the Datetimepicker UI
-        var dtexpDate = new RegExp([
-            '^([0-9]{4})',
-            '-(((01|03|05|07|08|10|12)-((0[1-9])|([1-2][0-9])|(3[0-1])))|((02|04|06|09|11)',
-            '-((0[1-9])|([1-2][0-9])|30)))$'
-        ].join(''));
-        var dtexpTime = new RegExp([
-            '^(([0-1][0-9])|(2[0-3]))',
-            ':((0[0-9])|([1-5][0-9]))',
-            ':((0[0-9])|([1-5][0-9]))(.[0-9]{1,6}){0,1}$'
-        ].join(''));
-
-        // If key-ed in Time or Date values are unsupported by the UI, close it
-        if ($td.attr('data-type') === 'date' && ! dtexpDate.test($inputField.val())) {
-            $inputField.datepicker('hide');
-        } else if ($td.attr('data-type') === 'time' && ! dtexpTime.test($inputField.val())) {
-            $inputField.datepicker('hide');
-        } else {
-            $inputField.datepicker('show');
         }
     }
 }
