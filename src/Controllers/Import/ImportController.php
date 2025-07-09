@@ -652,11 +652,10 @@ final readonly class ImportController implements InvocableController
                         Current::$sqlQuery, // complete_query
                     );
                 } finally {
-                    if($htmlOutput === "") // request is terminated and no response is generated
-                    {
+                    if ($htmlOutput === '') {
                         Import::$hasError = true;
                         Current::$message = Message::error(
-                            __('Query execution failed with empty response')
+                            __('Query execution failed with empty response'),
                         );
                     }
                 }
