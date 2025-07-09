@@ -12,7 +12,7 @@ namespace PhpMyAdmin\Config\Settings;
  * @link https://docs.phpmyadmin.net/en/latest/config.html#sql-query-box-settings
  *
  * @psalm-immutable
- * @psalm-type SqlQueryBoxSettingsType = array{Edit: bool, Explain: bool, ShowAsPHP: bool, Refresh: bool}
+ * @psalm-type SqlQueryBoxSettingsType = array{Edit: bool, Explain: bool, ShowAsPHP: bool, Refresh: bool, ShowCreate: bool}
  */
 final class SqlQueryBox
 {
@@ -60,6 +60,17 @@ final class SqlQueryBox
      */
     public bool $Refresh;
 
+    /**
+     * Display a "Show create" link on the results page.
+     *
+     * ```php
+     * $cfg['SQLQuery']['ShowCreate'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_SQLQuery_ShowCreate
+     */
+    public bool $ShowCreate;
+
     /** @param mixed[] $sqlQueryBox */
     public function __construct(array $sqlQueryBox = [])
     {
@@ -67,6 +78,7 @@ final class SqlQueryBox
         $this->Explain = $this->setExplain($sqlQueryBox);
         $this->ShowAsPHP = $this->setShowAsPHP($sqlQueryBox);
         $this->Refresh = $this->setRefresh($sqlQueryBox);
+        $this->ShowCreate = $this->setShowCreate($sqlQueryBox);
     }
 
     /** @psalm-return SqlQueryBoxSettingsType */
@@ -77,6 +89,7 @@ final class SqlQueryBox
             'Explain' => $this->Explain,
             'ShowAsPHP' => $this->ShowAsPHP,
             'Refresh' => $this->Refresh,
+            'ShowCreate' => $this->ShowCreate,
         ];
     }
 
@@ -102,5 +115,11 @@ final class SqlQueryBox
     private function setRefresh(array $sqlQueryBox): bool
     {
         return ! isset($sqlQueryBox['Refresh']) || $sqlQueryBox['Refresh'];
+    }
+
+    /** @param mixed[] $sqlQueryBox */
+    private function setShowCreate(array $sqlQueryBox): bool
+    {
+        return ! isset($sqlQueryBox['ShowCreate']) || $sqlQueryBox['ShowCreate'];
     }
 }
