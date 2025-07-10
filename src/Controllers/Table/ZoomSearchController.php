@@ -17,6 +17,7 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Table\Search;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\UniqueCondition;
@@ -47,6 +48,7 @@ use function strtoupper;
  *
  * Display table zoom search form, create SQL queries from form data.
  */
+#[Route('/table/zoom-search', ['GET', 'POST'])]
 final class ZoomSearchController implements InvocableController
 {
     /** @var list<string> */

@@ -10,10 +10,12 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 
 use function __;
 use function _pgettext;
 
+#[Route('/normalization/get-columns', ['POST'])]
 final class GetColumnsController implements InvocableController
 {
     public function __construct(

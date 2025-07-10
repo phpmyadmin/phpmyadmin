@@ -11,6 +11,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Navigation\Navigation;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Utils\SessionCache;
 
 use function __;
@@ -20,6 +21,7 @@ use function __;
  *
  * Displays server, database and table selection tree.
  */
+#[Route('/navigation', ['GET', 'POST'])]
 final class NavigationController implements InvocableController
 {
     public function __construct(

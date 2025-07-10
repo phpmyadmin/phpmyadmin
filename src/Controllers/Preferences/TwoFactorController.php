@@ -11,12 +11,14 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\TwoFactor;
 
 use function __;
 use function count;
 use function define;
 
+#[Route('/preferences/two-factor', ['GET', 'POST'])]
 final readonly class TwoFactorController implements InvocableController
 {
     public function __construct(private ResponseRenderer $response, private Relation $relation, private Config $config)

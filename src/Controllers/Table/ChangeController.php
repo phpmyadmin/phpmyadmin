@@ -19,6 +19,7 @@ use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
@@ -37,6 +38,7 @@ use function trim;
 /**
  * Displays form for editing and inserting new table rows.
  */
+#[Route('/table/change', ['GET', 'POST'])]
 class ChangeController implements InvocableController
 {
     /** @var array<mixed> */

@@ -16,6 +16,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use Webmozart\Assert\Assert;
 
 use function __;
@@ -24,6 +25,7 @@ use function is_numeric;
 use function parse_str;
 use function sprintf;
 
+#[Route('/database/central-columns', ['GET', 'POST'])]
 final readonly class CentralColumnsController implements InvocableController
 {
     public function __construct(

@@ -24,6 +24,7 @@ use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Url;
@@ -43,6 +44,7 @@ use function sprintf;
 use const PHP_VERSION;
 use const SODIUM_CRYPTO_SECRETBOX_KEYBYTES;
 
+#[Route('[/]', ['GET', 'POST'])]
 final class HomeController implements InvocableController
 {
     /**

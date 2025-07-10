@@ -23,6 +23,7 @@ use PhpMyAdmin\MessageType;
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\UrlParams;
@@ -41,6 +42,7 @@ use function sprintf;
 /**
  * Manipulation of table data like inserting, replacing and updating.
  */
+#[Route('/table/replace', ['GET', 'POST'])]
 final class ReplaceController implements InvocableController
 {
     public function __construct(

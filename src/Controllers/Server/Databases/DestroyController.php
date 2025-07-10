@@ -13,6 +13,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\UserPrivilegesFactory;
 use PhpMyAdmin\Util;
@@ -24,6 +25,7 @@ use function count;
 use function is_array;
 use function is_string;
 
+#[Route('/server/databases/destroy', ['POST'])]
 final readonly class DestroyController implements InvocableController
 {
     public function __construct(

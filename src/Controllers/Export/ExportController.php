@@ -23,6 +23,7 @@ use PhpMyAdmin\Plugins\Export\ExportXml;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
@@ -38,6 +39,7 @@ use function is_array;
 use function register_shutdown_function;
 use function time;
 
+#[Route('/export', ['GET', 'POST'])]
 final readonly class ExportController implements InvocableController
 {
     public function __construct(

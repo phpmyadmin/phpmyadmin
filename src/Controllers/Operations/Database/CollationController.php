@@ -14,10 +14,12 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Util;
 
 use function __;
 
+#[Route('/database/operations/collation', ['POST'])]
 final class CollationController implements InvocableController
 {
     public function __construct(

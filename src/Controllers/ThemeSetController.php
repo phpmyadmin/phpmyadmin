@@ -8,10 +8,12 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
 
+#[Route('/themes/set', ['POST'])]
 final readonly class ThemeSetController implements InvocableController
 {
     public function __construct(

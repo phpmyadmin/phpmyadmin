@@ -47,15 +47,78 @@ use PhpMyAdmin\Controllers\UserPasswordController;
 use PhpMyAdmin\Controllers\VersionCheckController;
 use PhpMyAdmin\Controllers\View;
 use PhpMyAdmin\Routing\Routes;
+use PhpMyAdmin\Tests\Routing\Fixtures\Controllers\FooController;
+use PhpMyAdmin\Tests\Routing\Fixtures\Controllers\One\BarController;
+use PhpMyAdmin\Tests\Routing\Fixtures\Controllers\One\FooBarController;
+use PhpMyAdmin\Tests\Routing\Fixtures\Controllers\One\Two\VariableController;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
+use ReflectionProperty;
 
 #[CoversClass(Routes::class)]
 final class RoutesTest extends TestCase
 {
     public function testCollect(): void
     {
+        $reflectorPath = new ReflectionProperty(Routes::class, 'controllersPath');
+        $reflectorPath->setValue(null, __DIR__ . '/Fixtures/Controllers');
+        $reflectorNamespace = new ReflectionProperty(Routes::class, 'controllersNamespace');
+        $reflectorNamespace->setValue(null, 'PhpMyAdmin\Tests\Routing\Fixtures\Controllers');
+
         $expectedGetRoutes = [
+            '/another-route' => FooBarController::class,
+            '/bar-route' => BarController::class,
+            '/foo' => FooController::class,
+            '/foo/route' => FooController::class,
+            '' => FooBarController::class,
+            '/' => FooBarController::class,
+        ];
+        $expectedPostRoutes = ['/foo' => FooController::class, '/foo/route' => FooController::class];
+        $expectedRegexRoutes = [
+            [
+                'regex' => '~^(?|/route\-with\-var/([^/]+))$~',
+                'routeMap' => [2 => [VariableController::class, ['variable' => 'variable']]],
+            ],
+        ];
+        $expected = [
+            ['GET' => $expectedGetRoutes, 'POST' => $expectedPostRoutes],
+            ['GET' => $expectedRegexRoutes, 'POST' => $expectedRegexRoutes],
+        ];
+
+        $routeCollector = new RouteCollector(new RouteParserStd(), new DataGeneratorGroupCountBased());
+        Routes::collectFromAttributes($routeCollector);
+        self::assertSame($expected, $routeCollector->getData());
+
+        $reflectorPath->setValue(null, $reflectorPath->getDefaultValue());
+        $reflectorNamespace->setValue(null, $reflectorNamespace->getDefaultValue());
+    }
+
+    public function testCollectFromControllers(): void
+    {
+        $routeCollector = new RouteCollector(new RouteParserStd(), new DataGeneratorGroupCountBased());
+        Routes::collectFromAttributes($routeCollector);
+        $expected = [
+            ['GET' => $this->getExpectedGetRoutes(), 'POST' => $this->getExpectedPostRoutes()],
+            ['GET' => $this->getExpectedRegexGetRoutes(), 'POST' => $this->getExpectedRegexPostRoutes()],
+        ];
+        self::assertEquals($expected, $routeCollector->getData());
+    }
+
+    public function testCollectFromControllers2(): void
+    {
+        $routeCollector = new RouteCollector(new RouteParserStd(), new DataGeneratorGroupCountBased());
+        Routes::collect($routeCollector);
+        $expected = [
+            ['GET' => $this->getExpectedGetRoutes(), 'POST' => $this->getExpectedPostRoutes()],
+            ['GET' => $this->getExpectedRegexGetRoutes(), 'POST' => $this->getExpectedRegexPostRoutes()],
+        ];
+        self::assertSame($expected, $routeCollector->getData());
+    }
+
+    /** @return array<string, class-string> */
+    private function getExpectedGetRoutes(): array
+    {
+        return [
             '' => HomeController::class,
             '/' => HomeController::class,
             '/browse-foreigners' => BrowseForeignersController::class,
@@ -153,8 +216,12 @@ final class RoutesTest extends TestCase
             '/view/create' => View\CreateController::class,
             '/view/operations' => Operations\ViewController::class,
         ];
+    }
 
-        $expectedPostRoutes = [
+    /** @return array<string, class-string> */
+    private function getExpectedPostRoutes(): array
+    {
+        return [
             '' => HomeController::class,
             '/' => HomeController::class,
             '/browse-foreigners' => BrowseForeignersController::class,
@@ -326,9 +393,14 @@ final class RoutesTest extends TestCase
             '/view/operations' => Operations\ViewController::class,
             '/sync-favorite-tables' => SyncFavoriteTablesController::class,
         ];
+    }
 
+    /** @return array{array{regex: string, routeMap: array<int, array{class-string, array<string, string>}>}} */
+    private function getExpectedRegexGetRoutes(): array
+    {
         $regex = '~^(?|/server/engines/([^/]+)|/server/engines/([^/]+)/([^/]+)|/server/variables/get/([^/]+)()())$~';
-        $expectedRegexGetRoutes = [
+
+        return [
             [
                 'regex' => $regex,
                 'routeMap' => [
@@ -338,8 +410,12 @@ final class RoutesTest extends TestCase
                 ],
             ],
         ];
+    }
 
-        $expectedRegexPostRoutes = [
+    /** @return array{array{regex: string, routeMap: array<int, array{class-string, array<string, string>}>}} */
+    private function getExpectedRegexPostRoutes(): array
+    {
+        return [
             [
                 'regex' => '~^(?|/server/status/processes/kill/(\d+)|/server/variables/set/([^/]+)())$~',
                 'routeMap' => [
@@ -348,15 +424,5 @@ final class RoutesTest extends TestCase
                 ],
             ],
         ];
-
-        $routeCollector = new RouteCollector(new RouteParserStd(), new DataGeneratorGroupCountBased());
-        Routes::collect($routeCollector);
-        self::assertSame(
-            [
-                ['GET' => $expectedGetRoutes, 'POST' => $expectedPostRoutes],
-                ['GET' => $expectedRegexGetRoutes, 'POST' => $expectedRegexPostRoutes],
-            ],
-            $routeCollector->getData(),
-        );
     }
 }

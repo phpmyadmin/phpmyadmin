@@ -14,11 +14,13 @@ use PhpMyAdmin\Identifiers\InvalidIdentifier;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use Webmozart\Assert\Assert;
 use Webmozart\Assert\InvalidArgumentException;
 
 use function __;
 
+#[Route('/table/structure/drop-confirm', ['POST'])]
 final class DropColumnConfirmationController implements InvocableController
 {
     public function __construct(

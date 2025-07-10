@@ -13,11 +13,13 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use Webmozart\Assert\Assert;
 
 use function __;
 use function is_array;
 
+#[Route('/table/structure/central-columns-add', ['POST'])]
 final class CentralColumnsAddController implements InvocableController
 {
     public function __construct(

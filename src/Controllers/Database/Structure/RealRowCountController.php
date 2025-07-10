@@ -13,6 +13,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -20,6 +21,7 @@ use function __;
 /**
  * Handles request for real row count on database level view page.
  */
+#[Route('/database/structure/real-row-count', ['GET', 'POST'])]
 final class RealRowCountController implements InvocableController
 {
     public function __construct(

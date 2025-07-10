@@ -19,6 +19,7 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
@@ -39,6 +40,7 @@ use const ENT_QUOTES;
 /**
  * Routines management.
  */
+#[Route('/database/routines', ['GET', 'POST'])]
 final readonly class RoutinesController implements InvocableController
 {
     public function __construct(

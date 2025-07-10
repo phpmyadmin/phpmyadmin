@@ -17,12 +17,14 @@ use PhpMyAdmin\Indexes\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Table\Indexes;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\UrlParams;
 
 use function __;
 
+#[Route('/table/indexes/rename', ['GET', 'POST'])]
 final class IndexRenameController implements InvocableController
 {
     public function __construct(

@@ -18,6 +18,7 @@ use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
@@ -28,6 +29,7 @@ use function mb_strpos;
 use function str_contains;
 use function urlencode;
 
+#[Route('/sql', ['GET', 'POST'])]
 readonly class SqlController implements InvocableController
 {
     public function __construct(

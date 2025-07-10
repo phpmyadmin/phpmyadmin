@@ -11,6 +11,7 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\SqlParser\Components\CreateDefinition;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
@@ -27,6 +28,7 @@ use function count;
 use function implode;
 use function is_array;
 
+#[Route('/table/structure/move-columns', ['POST'])]
 final class MoveColumnsController implements InvocableController
 {
     public function __construct(

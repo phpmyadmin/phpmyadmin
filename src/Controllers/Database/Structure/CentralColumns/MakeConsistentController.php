@@ -13,11 +13,13 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use Webmozart\Assert\Assert;
 
 use function __;
 use function is_array;
 
+#[Route('/database/structure/central-columns/make-consistent', ['POST'])]
 final class MakeConsistentController implements InvocableController
 {
     public function __construct(

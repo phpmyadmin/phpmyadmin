@@ -10,10 +10,12 @@ use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Template;
 
 use function __;
 
+#[Route('/database/structure/change-prefix-form', ['POST'])]
 final class ChangePrefixFormController implements InvocableController
 {
     public function __construct(

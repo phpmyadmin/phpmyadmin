@@ -10,8 +10,10 @@ use PhpMyAdmin\Git;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Util;
 
+#[Route('/git-revision', ['GET', 'POST'])]
 final class GitInfoController implements InvocableController
 {
     public function __construct(private readonly ResponseRenderer $response, private readonly Config $config)

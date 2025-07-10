@@ -10,12 +10,14 @@ use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\UrlParams;
 
 use function __;
 use function array_values;
 use function is_array;
 
+#[Route('/table/export/rows', ['POST'])]
 final class ExportRowsController implements InvocableController
 {
     public function __construct(

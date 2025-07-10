@@ -12,10 +12,12 @@ use PhpMyAdmin\Export\TemplateModel;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Template;
 
 use function is_array;
 
+#[Route('/export/template/create', ['POST'])]
 final readonly class CreateController implements InvocableController
 {
     public function __construct(

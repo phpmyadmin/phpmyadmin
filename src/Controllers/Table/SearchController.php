@@ -16,6 +16,7 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Table\Search;
 use PhpMyAdmin\Template;
@@ -42,6 +43,7 @@ use function strtoupper;
  * Display table search form, create SQL query from form data
  * and call Sql::executeQueryAndSendQueryResponse() to execute it.
  */
+#[Route('/table/search', ['GET', 'POST'])]
 final class SearchController implements InvocableController
 {
     /**

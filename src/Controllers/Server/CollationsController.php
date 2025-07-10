@@ -13,10 +13,12 @@ use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 
 /**
  * Handles viewing character sets and collations
  */
+#[Route('/server/collations', ['GET'])]
 final class CollationsController implements InvocableController
 {
     /** @var array<string, Charset> */

@@ -7,9 +7,11 @@ namespace PhpMyAdmin\Controllers;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Theme\ThemeManager;
 
+#[Route('/themes', ['GET'])]
 final class ThemesController implements InvocableController
 {
     public function __construct(

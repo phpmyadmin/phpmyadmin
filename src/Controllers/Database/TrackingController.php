@@ -16,6 +16,7 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Tracking\Tracking;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
@@ -27,6 +28,7 @@ use function sprintf;
 /**
  * Tracking configuration for database.
  */
+#[Route('/database/tracking', ['GET', 'POST'])]
 final readonly class TrackingController implements InvocableController
 {
     public function __construct(

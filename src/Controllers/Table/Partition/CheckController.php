@@ -15,11 +15,13 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\MessageType;
 use PhpMyAdmin\Partitioning\Maintenance;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use Webmozart\Assert\Assert;
 use Webmozart\Assert\InvalidArgumentException;
 
 use function __;
 
+#[Route('/table/partition/check', ['POST'])]
 final class CheckController implements InvocableController
 {
     public function __construct(private readonly ResponseRenderer $response, private readonly Maintenance $model)

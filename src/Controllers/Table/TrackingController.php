@@ -15,6 +15,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Tracking\LogType;
 use PhpMyAdmin\Tracking\TrackedDataType;
 use PhpMyAdmin\Tracking\Tracker;
@@ -34,6 +35,7 @@ use function mb_strlen;
 use function sprintf;
 use function trim;
 
+#[Route('/table/tracking', ['GET', 'POST'])]
 final class TrackingController implements InvocableController
 {
     public function __construct(

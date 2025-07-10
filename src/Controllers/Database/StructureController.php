@@ -26,6 +26,7 @@ use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Replication\Replication;
 use PhpMyAdmin\Replication\ReplicationInfo;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Template;
@@ -56,6 +57,7 @@ use function urlencode;
 /**
  * Handles database structure logic
  */
+#[Route('/database/structure', ['GET', 'POST'])]
 final class StructureController implements InvocableController
 {
     /** @var int Number of tables */

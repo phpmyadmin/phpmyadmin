@@ -25,6 +25,7 @@ use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\UserPrivilegesFactory;
@@ -36,6 +37,7 @@ use function mb_strtolower;
 /**
  * Handles miscellaneous database operations.
  */
+#[Route('/database/operations', ['GET', 'POST'])]
 final readonly class DatabaseController implements InvocableController
 {
     public function __construct(

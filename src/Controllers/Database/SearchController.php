@@ -16,12 +16,14 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
 
 use function __;
 
+#[Route('/database/search', ['GET', 'POST'])]
 final readonly class SearchController implements InvocableController
 {
     public function __construct(

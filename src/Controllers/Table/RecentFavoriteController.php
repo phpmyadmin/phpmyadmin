@@ -14,12 +14,14 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\InvalidIdentifier;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 
 use function __;
 
 /**
  * Browse recent and favorite tables chosen from navigation.
  */
+#[Route('/table/recent-favorite', ['GET', 'POST'])]
 final class RecentFavoriteController implements InvocableController
 {
     public function __construct(private readonly ResponseRenderer $response)

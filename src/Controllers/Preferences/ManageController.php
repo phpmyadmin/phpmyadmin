@@ -17,6 +17,7 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\Util;
@@ -45,6 +46,7 @@ use const UPLOAD_ERR_OK;
 /**
  * User preferences management page.
  */
+#[Route('/preferences/manage', ['GET', 'POST'])]
 final class ManageController implements InvocableController
 {
     public function __construct(
