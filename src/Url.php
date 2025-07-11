@@ -9,6 +9,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Crypto\Crypto;
 use PhpMyAdmin\Tests\UrlTest;
+use Twig\Attribute\AsTwigFunction;
 
 use function base64_decode;
 use function base64_encode;
@@ -41,6 +42,7 @@ class Url
      *
      * @return string   string with input fields
      */
+    #[AsTwigFunction('get_hidden_inputs', isSafe: ['html'])]
     public static function getHiddenInputs(
         string|array $db = '',
         string $table = '',
@@ -116,6 +118,7 @@ class Url
      *
      * @return string form fields of type hidden
      */
+    #[AsTwigFunction('get_hidden_fields', isSafe: ['html'])]
     public static function getHiddenFields(array $values, string $pre = '', bool $isToken = false): string
     {
         $fields = '';
@@ -173,6 +176,7 @@ class Url
      *
      * @return string   string with URL parameters
      */
+    #[AsTwigFunction('get_common', isSafe: ['html'])]
     public static function getCommon(array $params = [], string $divider = '?', bool $encrypt = true): string
     {
         return self::getCommonRaw($params, $divider, $encrypt);
@@ -207,6 +211,7 @@ class Url
      *
      * @return string   string with URL parameters
      */
+    #[AsTwigFunction('get_common_raw', isSafe: ['html'])]
     public static function getCommonRaw(array $params = [], string $divider = '?', bool $encrypt = true): string
     {
         // avoid overwriting when creating navigation panel links to servers
@@ -339,6 +344,7 @@ class Url
      * @param string  $route                Route to use
      * @param mixed[] $additionalParameters Additional URL parameters
      */
+    #[AsTwigFunction('url', isSafe: ['html'])]
     public static function getFromRoute(string $route, array $additionalParameters = [], bool $encrypt = true): string
     {
         return 'index.php?route=' . $route . self::getCommon($additionalParameters, self::getArgSeparator(), $encrypt);

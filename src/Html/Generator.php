@@ -26,6 +26,7 @@ use PhpMyAdmin\TypeClass;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use Throwable;
+use Twig\Attribute\AsTwigFunction;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
@@ -92,6 +93,7 @@ class Generator
      *
      * @return string link or empty string
      */
+    #[AsTwigFunction('link_to_var_documentation', isSafe: ['html'])]
     public static function linkToVarDocumentation(
         string $name,
         bool $useMariaDB = false,
@@ -109,6 +111,7 @@ class Generator
      *
      * @param string $message the message for the tooltip
      */
+    #[AsTwigFunction('show_hint', isSafe: ['html'])]
     public static function showHint(string $message): string
     {
         $classClause = Config::getInstance()->settings['ShowHint'] ? ' class="pma_hint"' : '';
@@ -165,6 +168,7 @@ class Generator
      *
      * @return string an html snippet
      */
+    #[AsTwigFunction('get_icon', isSafe: ['html'])]
     public static function getIcon(
         string $icon,
         string $alternate = '',
@@ -638,6 +642,7 @@ class Generator
      *
      * @return string  the html link
      */
+    #[AsTwigFunction('show_php_docu', isSafe: ['html'])]
     public static function showPHPDocumentation(string $target): string
     {
         return self::showDocumentationLink(Core::getPHPDocLink($target));
@@ -867,6 +872,7 @@ class Generator
      *
      * @return string an html IMG tag
      */
+    #[AsTwigFunction('get_image', isSafe: ['html'])]
     public static function getImage(string $image, string $alternate = '', array $attributes = []): string
     {
         $alternate = htmlspecialchars($alternate);
@@ -917,6 +923,7 @@ class Generator
      *
      * @return string  the results to be echoed or saved in an array
      */
+    #[AsTwigFunction('link_or_button', isSafe: ['html'])]
     public static function linkOrButton(
         string $urlPath,
         array|null $urlParams,
@@ -1014,6 +1021,7 @@ class Generator
      *
      * @todo    use $pos from $_url_params
      */
+    #[AsTwigFunction('get_list_navigator', isSafe: ['html'])]
     public static function getListNavigator(
         int $count,
         int $pos,
@@ -1061,6 +1069,7 @@ class Generator
      *
      * @return string the formatted sql
      */
+    #[AsTwigFunction('format_sql', isSafe: ['html'])]
     public static function formatSql(string $sqlQuery, bool $truncate = false): string
     {
         $config = Config::getInstance();
@@ -1080,6 +1089,7 @@ class Generator
      *
      * @param string $selected The value to mark as selected in HTML mode
      */
+    #[AsTwigFunction('get_supported_datatypes', isSafe: ['html'])]
     public static function getSupportedDatatypes(string $selected): string
     {
         // NOTE: the SELECT tag is not included in this snippet.

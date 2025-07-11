@@ -204,7 +204,7 @@ return [
         'table_maintenance' => ['class' => PhpMyAdmin\Table\Maintenance::class, 'arguments' => ['$dbi' => '@dbi']],
         'table_search' => ['class' => Search::class, 'arguments' => ['$dbi' => '@dbi']],
         'template' => ['class' => Template::class, 'arguments' => ['$config' => '@config']],
-        ThemeManager::class => ['class' => PhpMyAdmin\Theme\ThemeManager::class],
+        ThemeManager::class => ['class' => ThemeManager::class],
         'tracking' => [
             'class' => Tracking::class,
             'arguments' => [
