@@ -101,15 +101,13 @@ final class RoutesTest extends TestCase
             ['GET' => $this->getExpectedGetRoutes(), 'POST' => $this->getExpectedPostRoutes()],
             ['GET' => $this->getExpectedRegexGetRoutes(), 'POST' => $this->getExpectedRegexPostRoutes()],
         ];
-        self::assertEquals($expected, $routeCollector->getData());
+        self::assertSame($expected, $routeCollector->getData());
     }
 
     /** @return array<string, class-string> */
     private function getExpectedGetRoutes(): array
     {
         return [
-            '' => HomeController::class,
-            '/' => HomeController::class,
             '/browse-foreigners' => BrowseForeignersController::class,
             '/changelog' => ChangeLogController::class,
             '/check-relations' => CheckRelationsController::class,
@@ -185,8 +183,8 @@ final class RoutesTest extends TestCase
             '/table/import' => Table\ImportController::class,
             '/table/indexes' => Table\IndexesController::class,
             '/table/indexes/rename' => Table\IndexRenameController::class,
-            '/table/privileges' => Table\PrivilegesController::class,
             '/table/operations' => Operations\TableController::class,
+            '/table/privileges' => Table\PrivilegesController::class,
             '/table/recent-favorite' => Table\RecentFavoriteController::class,
             '/table/relation' => Table\RelationController::class,
             '/table/replace' => Table\ReplaceController::class,
@@ -204,6 +202,8 @@ final class RoutesTest extends TestCase
             '/version-check' => VersionCheckController::class,
             '/view/create' => View\CreateController::class,
             '/view/operations' => Operations\ViewController::class,
+            '' => HomeController::class,
+            '/' => HomeController::class,
         ];
     }
 
@@ -211,8 +211,6 @@ final class RoutesTest extends TestCase
     private function getExpectedPostRoutes(): array
     {
         return [
-            '' => HomeController::class,
-            '/' => HomeController::class,
             '/browse-foreigners' => BrowseForeignersController::class,
             '/check-relations' => CheckRelationsController::class,
             '/collation-connection' => CollationConnectionController::class,
@@ -263,8 +261,8 @@ final class RoutesTest extends TestCase
             '/gis-data-editor' => GisDataEditorController::class,
             '/git-revision' => GitInfoController::class,
             '/import' => Import\ImportController::class,
-            '/import/simulate-dml' => Import\SimulateDmlController::class,
             '/import-status' => Import\StatusController::class,
+            '/import/simulate-dml' => Import\SimulateDmlController::class,
             '/lint' => LintController::class,
             '/logout' => LogoutController::class,
             '/navigation' => NavigationController::class,
@@ -281,8 +279,8 @@ final class RoutesTest extends TestCase
             '/normalization/3nf/new-tables' => Normalization\ThirdNormalForm\NewTablesController::class,
             '/normalization/3nf/step1' => Normalization\ThirdNormalForm\FirstStepController::class,
             '/normalization/add-new-primary' => Normalization\AddNewPrimaryController::class,
-            '/normalization/get-columns' => Normalization\GetColumnsController::class,
             '/normalization/create-new-column' => Normalization\CreateNewColumnController::class,
+            '/normalization/get-columns' => Normalization\GetColumnsController::class,
             '/normalization/move-repeating-group' => Normalization\MoveRepeatingGroup::class,
             '/normalization/partial-dependencies' => Normalization\PartialDependenciesController::class,
             '/preferences/export' => Preferences\ExportController::class,
@@ -306,19 +304,20 @@ final class RoutesTest extends TestCase
             '/server/replication' => Server\ReplicationController::class,
             '/server/sql' => Server\SqlController::class,
             '/server/status/monitor/chart' => Server\Status\Monitor\ChartingDataController::class,
-            '/server/status/monitor/slow-log' => Server\Status\Monitor\SlowLogController::class,
             '/server/status/monitor/general-log' => Server\Status\Monitor\GeneralLogController::class,
             '/server/status/monitor/log-vars' => Server\Status\Monitor\LogVarsController::class,
             '/server/status/monitor/query' => Server\Status\Monitor\QueryAnalyzerController::class,
+            '/server/status/monitor/slow-log' => Server\Status\Monitor\SlowLogController::class,
             '/server/status/processes' => Server\Status\ProcessesController::class,
             '/server/status/processes/refresh' => Server\Status\Processes\RefreshController::class,
             '/server/status/variables' => Server\Status\VariablesController::class,
             '/server/user-groups' => Server\UserGroupsController::class,
             '/sql' => Sql\SqlController::class,
-            '/sql/get-relational-values' => Sql\RelationalValuesController::class,
             '/sql/get-enum-values' => Sql\EnumValuesController::class,
+            '/sql/get-relational-values' => Sql\RelationalValuesController::class,
             '/sql/get-set-values' => Sql\SetValuesController::class,
             '/sql/set-column-preferences' => Sql\ColumnPreferencesController::class,
+            '/sync-favorite-tables' => SyncFavoriteTablesController::class,
             '/table/add-field' => Table\AddFieldController::class,
             '/table/change' => Table\ChangeController::class,
             '/table/change/rows' => Table\ChangeRowsController::class,
@@ -339,6 +338,7 @@ final class RoutesTest extends TestCase
             '/table/maintenance/checksum' => Table\Maintenance\ChecksumController::class,
             '/table/maintenance/optimize' => Table\Maintenance\OptimizeController::class,
             '/table/maintenance/repair' => Table\Maintenance\RepairController::class,
+            '/table/operations' => Operations\TableController::class,
             '/table/partition/analyze' => Table\Partition\AnalyzeController::class,
             '/table/partition/check' => Table\Partition\CheckController::class,
             '/table/partition/drop' => Table\Partition\DropController::class,
@@ -346,7 +346,6 @@ final class RoutesTest extends TestCase
             '/table/partition/rebuild' => Table\Partition\RebuildController::class,
             '/table/partition/repair' => Table\Partition\RepairController::class,
             '/table/partition/truncate' => Table\Partition\TruncateController::class,
-            '/table/operations' => Operations\TableController::class,
             '/table/recent-favorite' => Table\RecentFavoriteController::class,
             '/table/relation' => Table\RelationController::class,
             '/table/replace' => Table\ReplaceController::class,
@@ -380,7 +379,8 @@ final class RoutesTest extends TestCase
             '/version-check' => VersionCheckController::class,
             '/view/create' => View\CreateController::class,
             '/view/operations' => Operations\ViewController::class,
-            '/sync-favorite-tables' => SyncFavoriteTablesController::class,
+            '' => HomeController::class,
+            '/' => HomeController::class,
         ];
     }
 
