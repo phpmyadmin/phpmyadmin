@@ -47,17 +47,67 @@ use PhpMyAdmin\Controllers\UserPasswordController;
 use PhpMyAdmin\Controllers\VersionCheckController;
 use PhpMyAdmin\Controllers\View;
 use PhpMyAdmin\Routing\Routes;
+use PhpMyAdmin\Tests\Routing\Fixtures\Controllers\FooController;
+use PhpMyAdmin\Tests\Routing\Fixtures\Controllers\One\BarController;
+use PhpMyAdmin\Tests\Routing\Fixtures\Controllers\One\FooBarController;
+use PhpMyAdmin\Tests\Routing\Fixtures\Controllers\One\Two\VariableController;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
+use ReflectionProperty;
 
 #[CoversClass(Routes::class)]
 final class RoutesTest extends TestCase
 {
     public function testCollect(): void
     {
+        $reflectorPath = new ReflectionProperty(Routes::class, 'controllersPath');
+        $reflectorPath->setValue(null, __DIR__ . '/Fixtures/Controllers');
+        $reflectorNamespace = new ReflectionProperty(Routes::class, 'controllersNamespace');
+        $reflectorNamespace->setValue(null, 'PhpMyAdmin\Tests\Routing\Fixtures\Controllers');
+
         $expectedGetRoutes = [
-            '' => HomeController::class,
-            '/' => HomeController::class,
+            '/another-route' => FooBarController::class,
+            '/bar-route' => BarController::class,
+            '/foo' => FooController::class,
+            '/foo/route' => FooController::class,
+            '' => FooBarController::class,
+            '/' => FooBarController::class,
+        ];
+        $expectedPostRoutes = ['/foo' => FooController::class, '/foo/route' => FooController::class];
+        $expectedRegexRoutes = [
+            [
+                'regex' => '~^(?|/route\-with\-var/([^/]+))$~',
+                'routeMap' => [2 => [VariableController::class, ['variable' => 'variable']]],
+            ],
+        ];
+        $expected = [
+            ['GET' => $expectedGetRoutes, 'POST' => $expectedPostRoutes],
+            ['GET' => $expectedRegexRoutes, 'POST' => $expectedRegexRoutes],
+        ];
+
+        $routeCollector = new RouteCollector(new RouteParserStd(), new DataGeneratorGroupCountBased());
+        Routes::collect($routeCollector);
+        self::assertSame($expected, $routeCollector->getData());
+
+        $reflectorPath->setValue(null, $reflectorPath->getDefaultValue());
+        $reflectorNamespace->setValue(null, $reflectorNamespace->getDefaultValue());
+    }
+
+    public function testCollectFromControllers(): void
+    {
+        $routeCollector = new RouteCollector(new RouteParserStd(), new DataGeneratorGroupCountBased());
+        Routes::collect($routeCollector);
+        $expected = [
+            ['GET' => $this->getExpectedGetRoutes(), 'POST' => $this->getExpectedPostRoutes()],
+            ['GET' => $this->getExpectedRegexGetRoutes(), 'POST' => $this->getExpectedRegexPostRoutes()],
+        ];
+        self::assertSame($expected, $routeCollector->getData());
+    }
+
+    /** @return array<string, class-string> */
+    private function getExpectedGetRoutes(): array
+    {
+        return [
             '/browse-foreigners' => BrowseForeignersController::class,
             '/changelog' => ChangeLogController::class,
             '/check-relations' => CheckRelationsController::class,
@@ -133,8 +183,8 @@ final class RoutesTest extends TestCase
             '/table/import' => Table\ImportController::class,
             '/table/indexes' => Table\IndexesController::class,
             '/table/indexes/rename' => Table\IndexRenameController::class,
-            '/table/privileges' => Table\PrivilegesController::class,
             '/table/operations' => Operations\TableController::class,
+            '/table/privileges' => Table\PrivilegesController::class,
             '/table/recent-favorite' => Table\RecentFavoriteController::class,
             '/table/relation' => Table\RelationController::class,
             '/table/replace' => Table\ReplaceController::class,
@@ -152,11 +202,15 @@ final class RoutesTest extends TestCase
             '/version-check' => VersionCheckController::class,
             '/view/create' => View\CreateController::class,
             '/view/operations' => Operations\ViewController::class,
-        ];
-
-        $expectedPostRoutes = [
             '' => HomeController::class,
             '/' => HomeController::class,
+        ];
+    }
+
+    /** @return array<string, class-string> */
+    private function getExpectedPostRoutes(): array
+    {
+        return [
             '/browse-foreigners' => BrowseForeignersController::class,
             '/check-relations' => CheckRelationsController::class,
             '/collation-connection' => CollationConnectionController::class,
@@ -207,8 +261,8 @@ final class RoutesTest extends TestCase
             '/gis-data-editor' => GisDataEditorController::class,
             '/git-revision' => GitInfoController::class,
             '/import' => Import\ImportController::class,
-            '/import/simulate-dml' => Import\SimulateDmlController::class,
             '/import-status' => Import\StatusController::class,
+            '/import/simulate-dml' => Import\SimulateDmlController::class,
             '/lint' => LintController::class,
             '/logout' => LogoutController::class,
             '/navigation' => NavigationController::class,
@@ -225,8 +279,8 @@ final class RoutesTest extends TestCase
             '/normalization/3nf/new-tables' => Normalization\ThirdNormalForm\NewTablesController::class,
             '/normalization/3nf/step1' => Normalization\ThirdNormalForm\FirstStepController::class,
             '/normalization/add-new-primary' => Normalization\AddNewPrimaryController::class,
-            '/normalization/get-columns' => Normalization\GetColumnsController::class,
             '/normalization/create-new-column' => Normalization\CreateNewColumnController::class,
+            '/normalization/get-columns' => Normalization\GetColumnsController::class,
             '/normalization/move-repeating-group' => Normalization\MoveRepeatingGroup::class,
             '/normalization/partial-dependencies' => Normalization\PartialDependenciesController::class,
             '/preferences/export' => Preferences\ExportController::class,
@@ -250,19 +304,20 @@ final class RoutesTest extends TestCase
             '/server/replication' => Server\ReplicationController::class,
             '/server/sql' => Server\SqlController::class,
             '/server/status/monitor/chart' => Server\Status\Monitor\ChartingDataController::class,
-            '/server/status/monitor/slow-log' => Server\Status\Monitor\SlowLogController::class,
             '/server/status/monitor/general-log' => Server\Status\Monitor\GeneralLogController::class,
             '/server/status/monitor/log-vars' => Server\Status\Monitor\LogVarsController::class,
             '/server/status/monitor/query' => Server\Status\Monitor\QueryAnalyzerController::class,
+            '/server/status/monitor/slow-log' => Server\Status\Monitor\SlowLogController::class,
             '/server/status/processes' => Server\Status\ProcessesController::class,
             '/server/status/processes/refresh' => Server\Status\Processes\RefreshController::class,
             '/server/status/variables' => Server\Status\VariablesController::class,
             '/server/user-groups' => Server\UserGroupsController::class,
             '/sql' => Sql\SqlController::class,
-            '/sql/get-relational-values' => Sql\RelationalValuesController::class,
             '/sql/get-enum-values' => Sql\EnumValuesController::class,
+            '/sql/get-relational-values' => Sql\RelationalValuesController::class,
             '/sql/get-set-values' => Sql\SetValuesController::class,
             '/sql/set-column-preferences' => Sql\ColumnPreferencesController::class,
+            '/sync-favorite-tables' => SyncFavoriteTablesController::class,
             '/table/add-field' => Table\AddFieldController::class,
             '/table/change' => Table\ChangeController::class,
             '/table/change/rows' => Table\ChangeRowsController::class,
@@ -283,6 +338,7 @@ final class RoutesTest extends TestCase
             '/table/maintenance/checksum' => Table\Maintenance\ChecksumController::class,
             '/table/maintenance/optimize' => Table\Maintenance\OptimizeController::class,
             '/table/maintenance/repair' => Table\Maintenance\RepairController::class,
+            '/table/operations' => Operations\TableController::class,
             '/table/partition/analyze' => Table\Partition\AnalyzeController::class,
             '/table/partition/check' => Table\Partition\CheckController::class,
             '/table/partition/drop' => Table\Partition\DropController::class,
@@ -290,7 +346,6 @@ final class RoutesTest extends TestCase
             '/table/partition/rebuild' => Table\Partition\RebuildController::class,
             '/table/partition/repair' => Table\Partition\RepairController::class,
             '/table/partition/truncate' => Table\Partition\TruncateController::class,
-            '/table/operations' => Operations\TableController::class,
             '/table/recent-favorite' => Table\RecentFavoriteController::class,
             '/table/relation' => Table\RelationController::class,
             '/table/replace' => Table\ReplaceController::class,
@@ -324,11 +379,17 @@ final class RoutesTest extends TestCase
             '/version-check' => VersionCheckController::class,
             '/view/create' => View\CreateController::class,
             '/view/operations' => Operations\ViewController::class,
-            '/sync-favorite-tables' => SyncFavoriteTablesController::class,
+            '' => HomeController::class,
+            '/' => HomeController::class,
         ];
+    }
 
+    /** @return array{array{regex: string, routeMap: array<int, array{class-string, array<string, string>}>}} */
+    private function getExpectedRegexGetRoutes(): array
+    {
         $regex = '~^(?|/server/engines/([^/]+)|/server/engines/([^/]+)/([^/]+)|/server/variables/get/([^/]+)()())$~';
-        $expectedRegexGetRoutes = [
+
+        return [
             [
                 'regex' => $regex,
                 'routeMap' => [
@@ -338,8 +399,12 @@ final class RoutesTest extends TestCase
                 ],
             ],
         ];
+    }
 
-        $expectedRegexPostRoutes = [
+    /** @return array{array{regex: string, routeMap: array<int, array{class-string, array<string, string>}>}} */
+    private function getExpectedRegexPostRoutes(): array
+    {
+        return [
             [
                 'regex' => '~^(?|/server/status/processes/kill/(\d+)|/server/variables/set/([^/]+)())$~',
                 'routeMap' => [
@@ -348,15 +413,5 @@ final class RoutesTest extends TestCase
                 ],
             ],
         ];
-
-        $routeCollector = new RouteCollector(new RouteParserStd(), new DataGeneratorGroupCountBased());
-        Routes::collect($routeCollector);
-        self::assertSame(
-            [
-                ['GET' => $expectedGetRoutes, 'POST' => $expectedPostRoutes],
-                ['GET' => $expectedRegexGetRoutes, 'POST' => $expectedRegexPostRoutes],
-            ],
-            $routeCollector->getData(),
-        );
     }
 }

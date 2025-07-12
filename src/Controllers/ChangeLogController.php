@@ -10,6 +10,7 @@ use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
@@ -26,6 +27,7 @@ use function readgzfile;
 use function sprintf;
 use function str_ends_with;
 
+#[Route('/changelog', ['GET'])]
 final class ChangeLogController implements InvocableController
 {
     public function __construct(

@@ -19,6 +19,7 @@ use PhpMyAdmin\Indexes\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Table\Indexes;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\UrlParams;
@@ -33,6 +34,7 @@ use function min;
 /**
  * Displays index edit/creation form and handles it.
  */
+#[Route('/table/indexes', ['GET', 'POST'])]
 final readonly class IndexesController implements InvocableController
 {
     public function __construct(

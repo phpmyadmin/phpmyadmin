@@ -10,6 +10,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Table\MoveMode;
 use PhpMyAdmin\Table\MoveScope;
 use PhpMyAdmin\Table\TableMover;
@@ -17,6 +18,7 @@ use PhpMyAdmin\Table\TableMover;
 use function mb_strlen;
 use function mb_substr;
 
+#[Route('/database/structure/copy-table-with-prefix', ['POST'])]
 final class CopyTableWithPrefixController implements InvocableController
 {
     public function __construct(

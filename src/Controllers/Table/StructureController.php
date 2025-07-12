@@ -27,6 +27,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Partitioning\Partition;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Template;
@@ -45,6 +46,7 @@ use function strtoupper;
  * Displays table structure infos like columns, indexes, size, rows
  * and allows manipulation of indexes and columns.
  */
+#[Route('/table/structure', ['GET', 'POST'])]
 readonly class StructureController implements InvocableController
 {
     private Table $tableObj;

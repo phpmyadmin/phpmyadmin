@@ -11,11 +11,13 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Table\MoveMode;
 use PhpMyAdmin\Table\MoveScope;
 use PhpMyAdmin\Table\TableMover;
 use PhpMyAdmin\UserPrivilegesFactory;
 
+#[Route('/database/structure/copy-table', ['POST'])]
 final class CopyTableController implements InvocableController
 {
     public function __construct(

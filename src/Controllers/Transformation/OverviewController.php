@@ -8,6 +8,7 @@ use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Transformations;
 
 use function array_keys;
@@ -15,6 +16,7 @@ use function array_keys;
 /**
  * Lists available transformation plugins
  */
+#[Route('/transformation/overview', ['GET', 'POST'])]
 final class OverviewController implements InvocableController
 {
     public function __construct(

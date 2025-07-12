@@ -13,12 +13,14 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Util;
 
 use function __;
 use function _ngettext;
 use function count;
 
+#[Route('/table/structure/drop', ['POST'])]
 final class DropColumnController implements InvocableController
 {
     public function __construct(

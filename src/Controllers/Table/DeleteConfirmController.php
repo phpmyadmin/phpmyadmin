@@ -13,12 +13,14 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Utils\ForeignKey;
 
 use function __;
 use function is_array;
 
+#[Route('/table/delete/confirm', ['POST'])]
 final class DeleteConfirmController implements InvocableController
 {
     public function __construct(

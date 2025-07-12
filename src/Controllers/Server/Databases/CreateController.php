@@ -15,6 +15,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -25,6 +26,7 @@ use function is_string;
 use function mb_strtolower;
 use function str_contains;
 
+#[Route('/server/databases/create', ['POST'])]
 final readonly class CreateController implements InvocableController
 {
     public function __construct(

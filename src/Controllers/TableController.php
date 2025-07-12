@@ -9,7 +9,9 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 
+#[Route('/tables', ['POST'])]
 final class TableController implements InvocableController
 {
     public function __construct(private readonly ResponseRenderer $response, private readonly DatabaseInterface $dbi)

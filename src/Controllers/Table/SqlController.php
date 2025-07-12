@@ -14,6 +14,7 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
@@ -24,6 +25,7 @@ use function htmlspecialchars;
 /**
  * Table SQL executor
  */
+#[Route('/table/sql', ['GET', 'POST'])]
 class SqlController implements InvocableController
 {
     public function __construct(

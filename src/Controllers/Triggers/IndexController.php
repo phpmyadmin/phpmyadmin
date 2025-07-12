@@ -15,6 +15,7 @@ use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Identifiers\TriggerName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Triggers\Trigger;
 use PhpMyAdmin\Triggers\Triggers;
@@ -31,6 +32,7 @@ use function trim;
 /**
  * Triggers management.
  */
+#[Route('/triggers', ['GET', 'POST'])]
 final class IndexController implements InvocableController
 {
     public function __construct(

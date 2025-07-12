@@ -15,6 +15,7 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
 
@@ -22,6 +23,7 @@ use function __;
 use function count;
 use function is_array;
 
+#[Route('/table/structure/primary', ['POST'])]
 final class PrimaryController implements InvocableController
 {
     public function __construct(

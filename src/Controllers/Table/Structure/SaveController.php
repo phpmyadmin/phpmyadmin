@@ -18,6 +18,7 @@ use PhpMyAdmin\Indexes\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Table\UiProperty;
 use PhpMyAdmin\Transformations;
@@ -35,6 +36,7 @@ use function sprintf;
 use function str_contains;
 use function strlen;
 
+#[Route('/table/structure/save', ['POST'])]
 final class SaveController implements InvocableController
 {
     private Table $tableObj;

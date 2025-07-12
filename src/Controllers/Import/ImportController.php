@@ -24,6 +24,7 @@ use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Plugins\Import\ImportFormat;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
@@ -49,6 +50,7 @@ use function preg_quote;
 use function preg_replace;
 use function time;
 
+#[Route('/import', ['GET', 'POST'])]
 final readonly class ImportController implements InvocableController
 {
     public function __construct(

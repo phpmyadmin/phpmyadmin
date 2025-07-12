@@ -16,6 +16,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\TokensList;
@@ -36,6 +37,7 @@ use function substr;
 /**
  * Handles creation of VIEWs.
  */
+#[Route('/view/create', ['GET', 'POST'])]
 final class CreateController implements InvocableController
 {
     /** @todo Move the whole view rebuilding logic to SQL parser */

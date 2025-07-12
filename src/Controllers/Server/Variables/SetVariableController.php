@@ -10,6 +10,7 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Providers\ServerVariables\ServerVariablesProvider;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
@@ -23,6 +24,7 @@ use function mb_strtolower;
 use function preg_match;
 use function trim;
 
+#[Route('/server/variables/set/{name}', ['POST'])]
 final class SetVariableController implements InvocableController
 {
     public function __construct(

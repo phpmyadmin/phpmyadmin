@@ -17,6 +17,7 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\SqlParser\Components\Limit;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
@@ -32,6 +33,7 @@ use function min;
 /**
  * Handles creation of the chart.
  */
+#[Route('/table/chart', ['GET', 'POST'])]
 final readonly class ChartController implements InvocableController
 {
     public function __construct(

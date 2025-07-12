@@ -16,6 +16,7 @@ use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
 
@@ -27,6 +28,7 @@ use function strval;
 /**
  * View manipulations
  */
+#[Route('/view/operations', ['GET', 'POST'])]
 final class ViewController implements InvocableController
 {
     public function __construct(

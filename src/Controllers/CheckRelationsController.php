@@ -11,6 +11,7 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Tracking\Tracker;
 
 use const SQL_DIR;
@@ -18,6 +19,7 @@ use const SQL_DIR;
 /**
  * Displays status of phpMyAdmin configuration storage
  */
+#[Route('/check-relations', ['GET', 'POST'])]
 final readonly class CheckRelationsController implements InvocableController
 {
     public function __construct(private ResponseRenderer $response, private Relation $relation, private Config $config)

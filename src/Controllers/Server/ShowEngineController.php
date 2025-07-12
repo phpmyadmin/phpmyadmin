@@ -9,6 +9,7 @@ use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\StorageEngine;
 
 use function is_array;
@@ -17,6 +18,7 @@ use function is_string;
 /**
  * Displays details about a given Storage Engine.
  */
+#[Route('/server/engines/{engine}[/{page}]', ['GET'])]
 final class ShowEngineController implements InvocableController
 {
     private string $engine = '';

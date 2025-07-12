@@ -9,11 +9,13 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 
 use function __;
 use function array_values;
 use function is_array;
 
+#[Route('/table/change/rows', ['POST'])]
 final class ChangeRowsController implements InvocableController
 {
     public function __construct(

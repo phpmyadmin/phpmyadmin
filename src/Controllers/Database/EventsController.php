@@ -14,6 +14,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
@@ -23,6 +24,7 @@ use function mb_strtoupper;
 use function sprintf;
 use function trim;
 
+#[Route('/database/events', ['GET', 'POST'])]
 final class EventsController implements InvocableController
 {
     public function __construct(

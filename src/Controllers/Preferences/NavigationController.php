@@ -14,6 +14,7 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Url;
@@ -22,6 +23,7 @@ use PhpMyAdmin\UserPreferences;
 use function define;
 use function ltrim;
 
+#[Route('/preferences/navigation', ['GET', 'POST'])]
 final readonly class NavigationController implements InvocableController
 {
     public function __construct(

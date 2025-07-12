@@ -13,12 +13,14 @@ use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 use function mb_strlen;
 use function mb_substr;
 
+#[Route('/database/structure/replace-prefix', ['POST'])]
 final class ReplacePrefixController implements InvocableController
 {
     public function __construct(

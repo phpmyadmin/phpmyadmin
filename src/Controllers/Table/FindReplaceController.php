@@ -17,6 +17,7 @@ use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
@@ -37,6 +38,7 @@ use function strncasecmp;
  *
  * Displays find and replace form, allows previewing and do the replacing.
  */
+#[Route('/table/find-replace', ['GET', 'POST'])]
 final class FindReplaceController implements InvocableController
 {
     /** @var mixed[] */

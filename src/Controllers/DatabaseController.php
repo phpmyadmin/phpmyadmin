@@ -8,7 +8,9 @@ use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 
+#[Route('/databases', ['POST'])]
 final class DatabaseController implements InvocableController
 {
     public function __construct(private readonly ResponseRenderer $response, private readonly DatabaseInterface $dbi)

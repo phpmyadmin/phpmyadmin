@@ -12,12 +12,14 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Indexes\Index;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
 
 use function is_array;
 use function str_replace;
 
+#[Route('/database/data-dictionary', ['GET'])]
 final class DataDictionaryController implements InvocableController
 {
     public function __construct(

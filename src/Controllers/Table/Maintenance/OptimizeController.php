@@ -15,6 +15,7 @@ use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Table\Maintenance;
 use Webmozart\Assert\Assert;
 use Webmozart\Assert\InvalidArgumentException;
@@ -22,6 +23,7 @@ use Webmozart\Assert\InvalidArgumentException;
 use function __;
 use function count;
 
+#[Route('/table/maintenance/optimize', ['POST'])]
 final class OptimizeController implements InvocableController
 {
     public function __construct(

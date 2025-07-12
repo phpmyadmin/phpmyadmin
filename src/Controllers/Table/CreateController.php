@@ -14,6 +14,7 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Table\ColumnsDefinition;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
@@ -30,6 +31,7 @@ use function strlen;
 /**
  * Displays table create form and handles it.
  */
+#[Route('/table/create', ['GET', 'POST'])]
 final class CreateController implements InvocableController
 {
     public function __construct(
