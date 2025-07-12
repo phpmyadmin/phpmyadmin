@@ -518,7 +518,12 @@ class Table implements Stringable
                         } elseif ($type === 'BINARY' || $type === 'VARBINARY') {
                             $query .= ' DEFAULT 0x' . $defaultValue;
                         } else {
-                            $query .= ' DEFAULT ' . $dbi->quoteString($defaultValue);
+                            // if default value is a current timestamp sql function then it does not needs to be quoted
+                            if (str_contains($defaultValue, 'current_timestamp') || str_contains($defaultValue, 'CURRENT_TIMESTAMP')) {
+                                $query .= ' DEFAULT CURRENT_TIMESTAMP(' . $length . ')';
+                            } else {
+                                $query .= ' DEFAULT ' . $dbi->quoteString($defaultValue);
+                            }
                         }
 
                         break;
