@@ -86,7 +86,7 @@ final class RoutesTest extends TestCase
         ];
 
         $routeCollector = new RouteCollector(new RouteParserStd(), new DataGeneratorGroupCountBased());
-        Routes::collectFromAttributes($routeCollector);
+        Routes::collect($routeCollector);
         self::assertSame($expected, $routeCollector->getData());
 
         $reflectorPath->setValue(null, $reflectorPath->getDefaultValue());
@@ -96,23 +96,12 @@ final class RoutesTest extends TestCase
     public function testCollectFromControllers(): void
     {
         $routeCollector = new RouteCollector(new RouteParserStd(), new DataGeneratorGroupCountBased());
-        Routes::collectFromAttributes($routeCollector);
-        $expected = [
-            ['GET' => $this->getExpectedGetRoutes(), 'POST' => $this->getExpectedPostRoutes()],
-            ['GET' => $this->getExpectedRegexGetRoutes(), 'POST' => $this->getExpectedRegexPostRoutes()],
-        ];
-        self::assertEquals($expected, $routeCollector->getData());
-    }
-
-    public function testCollectFromControllers2(): void
-    {
-        $routeCollector = new RouteCollector(new RouteParserStd(), new DataGeneratorGroupCountBased());
         Routes::collect($routeCollector);
         $expected = [
             ['GET' => $this->getExpectedGetRoutes(), 'POST' => $this->getExpectedPostRoutes()],
             ['GET' => $this->getExpectedRegexGetRoutes(), 'POST' => $this->getExpectedRegexPostRoutes()],
         ];
-        self::assertSame($expected, $routeCollector->getData());
+        self::assertEquals($expected, $routeCollector->getData());
     }
 
     /** @return array<string, class-string> */
