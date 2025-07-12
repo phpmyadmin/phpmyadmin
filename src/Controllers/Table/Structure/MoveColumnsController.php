@@ -93,12 +93,12 @@ final class MoveColumnsController implements InvocableController
         $parser = new Parser($createTableSql);
         /** @var CreateStatement $statement */
         $statement = $parser->statements[0];
-        /** @var CreateDefinition[] $fields */
+        /** @var CreateDefinition[] $fields For CREATE TABLE statement the type is CreateDefinition[] */
         $fields = $statement->fields;
         $columns = [];
         $columnNames = [];
         foreach ($fields as $field) {
-            if ($field->name === null) {
+            if ($field->name === null || $field->isConstraint === true || $field->key !== null) {
                 continue;
             }
 
