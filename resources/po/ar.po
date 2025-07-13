@@ -180,7 +180,7 @@ msgstr "تعبير"
 
 #: resources/templates/columns_definitions/column_attributes.twig:185
 msgid "first"
-msgstr "اول"
+msgstr "أولاً"
 
 #: resources/templates/columns_definitions/column_attributes.twig:190
 #: resources/templates/table/structure/display_structure.twig:439
