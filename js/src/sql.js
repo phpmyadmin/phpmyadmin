@@ -55,12 +55,7 @@ Sql.autoSave = function (query) {
             }
         } catch (e) {
             console.error(e);
-            Functions.ajaxShowMessage(
-                '<div class="alert alert-danger" role="alert">' +
-                e +
-                '</div>',
-                false
-            );
+            Functions.ajaxShowMessage(e.message, false, 'error');
         }
     }
 };
