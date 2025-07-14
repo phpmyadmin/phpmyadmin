@@ -7,24 +7,32 @@ namespace PhpMyAdmin\Tests\Http\Handler;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Http\Handler\QueueRequestHandler;
+use PhpMyAdmin\Tests\Http\Handler\Fixtures\FallbackHandler;
+use PhpMyAdmin\Tests\Http\Handler\Fixtures\Middleware\EarlyReturn;
+use PhpMyAdmin\Tests\Http\Handler\Fixtures\Middleware\First;
+use PhpMyAdmin\Tests\Http\Handler\Fixtures\Middleware\Second;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
-use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Http\Message\ServerRequestInterface as ServerRequest;
-use Psr\Http\Server\MiddlewareInterface as Middleware;
-use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
-
-use function implode;
+use Psr\Container\ContainerInterface;
 
 #[CoversClass(QueueRequestHandler::class)]
 final class QueueRequestHandlerTest extends TestCase
 {
     public function testQueue(): void
     {
-        $handler = new QueueRequestHandler($this->getFallbackHandler());
-        $handler->add($this->getFirstMiddleware());
-        $handler->add($this->getEarlyReturnMiddleware());
-        $handler->add($this->getSecondMiddleware());
+        $responseFactory = ResponseFactory::create();
+        $container = self::createMock(ContainerInterface::class);
+        $container->expects(self::exactly(3))->method('get')->willReturnMap([
+            [EarlyReturn::class, new EarlyReturn($responseFactory)],
+            [First::class, new First()],
+            [Second::class, new Second()],
+        ]);
+
+        $handler = new QueueRequestHandler($container, new FallbackHandler($responseFactory));
+        $handler->add(First::class);
+        $handler->add(EarlyReturn::class);
+        $handler->add(Second::class);
+
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
             ->withAttribute('attribute', ['Initial']);
         $response = $handler->handle($request);
@@ -37,83 +45,23 @@ final class QueueRequestHandlerTest extends TestCase
 
     public function testQueueWithEarlyReturn(): void
     {
-        $handler = new QueueRequestHandler($this->getFallbackHandler());
-        $handler->add($this->getFirstMiddleware());
-        $handler->add($this->getEarlyReturnMiddleware());
-        $handler->add($this->getSecondMiddleware());
+        $responseFactory = ResponseFactory::create();
+        $container = self::createMock(ContainerInterface::class);
+        $container->expects(self::exactly(2))->method('get')->willReturnMap([
+            [EarlyReturn::class, new EarlyReturn($responseFactory)],
+            [First::class, new First()],
+        ]);
+
+        $handler = new QueueRequestHandler($container, new FallbackHandler($responseFactory));
+        $handler->add(First::class);
+        $handler->add(EarlyReturn::class);
+        $handler->add(Second::class);
+
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
             ->withAttribute('attribute', ['Initial'])
             ->withAttribute('early', true);
         $response = $handler->handle($request);
         $response->getBody()->write('Last');
         self::assertSame('Initial, First before, Early, First after, Last', (string) $response->getBody());
-    }
-
-    private function getFallbackHandler(): RequestHandler
-    {
-        return new class implements RequestHandler {
-            public function handle(ServerRequest $request): Response
-            {
-                /** @var string[] $attribute */
-                $attribute = $request->getAttribute('attribute');
-                $response = ResponseFactory::create()->createResponse();
-                $response->getBody()->write(implode(', ', $attribute) . ', ');
-                $response->getBody()->write('Fallback, ');
-
-                return $response;
-            }
-        };
-    }
-
-    private function getFirstMiddleware(): Middleware
-    {
-        return new class implements Middleware {
-            public function process(ServerRequest $request, RequestHandler $handler): Response
-            {
-                /** @var string[] $attribute */
-                $attribute = $request->getAttribute('attribute');
-                $attribute[] = 'First before';
-                $response = $handler->handle($request->withAttribute('attribute', $attribute));
-                $response->getBody()->write('First after, ');
-
-                return $response;
-            }
-        };
-    }
-
-    private function getSecondMiddleware(): Middleware
-    {
-        return new class implements Middleware {
-            public function process(ServerRequest $request, RequestHandler $handler): Response
-            {
-                /** @var string[] $attribute */
-                $attribute = $request->getAttribute('attribute');
-                $attribute[] = 'Second before';
-                $response = $handler->handle($request->withAttribute('attribute', $attribute));
-                $response->getBody()->write('Second after, ');
-
-                return $response;
-            }
-        };
-    }
-
-    private function getEarlyReturnMiddleware(): Middleware
-    {
-        return new class implements Middleware {
-            public function process(ServerRequest $request, RequestHandler $handler): Response
-            {
-                if ($request->getAttribute('early') !== true) {
-                    return $handler->handle($request);
-                }
-
-                 /** @var string[] $attribute */
-                $attribute = $request->getAttribute('attribute');
-                $response = ResponseFactory::create()->createResponse();
-                $response->getBody()->write(implode(', ', $attribute) . ', ');
-                $response->getBody()->write('Early, ');
-
-                return $response;
-            }
-        };
     }
 }

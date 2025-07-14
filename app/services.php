@@ -27,6 +27,7 @@ use PhpMyAdmin\Export\TemplateModel;
 use PhpMyAdmin\FileListing;
 use PhpMyAdmin\FlashMessenger;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
+use PhpMyAdmin\Http\Middleware;
 use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\SimulateDml;
 use PhpMyAdmin\InsertEdit;
@@ -69,16 +70,7 @@ return [
             'class' => Advisor::class,
             'arguments' => ['$dbi' => '@dbi', '$expression' => '@expression_language'],
         ],
-        Application::class => [
-            'class' => Application::class,
-            'arguments' => [
-                '$errorHandler' => '@error_handler',
-                '$config' => '@config',
-                '$template' => '@template',
-                '$responseFactory' => '@' . ResponseFactory::class,
-                '$history' => '@history',
-            ],
-        ],
+        Application::class => ['class' => Application::class, 'arguments' => ['@' . ResponseFactory::class]],
         'browse_foreigners' => [
             'class' => BrowseForeigners::class,
             'arguments' => ['@template', '@config', '@' . ThemeManager::class],
@@ -126,6 +118,104 @@ return [
         'insert_edit' => [
             'class' => InsertEdit::class,
             'arguments' => ['@dbi', '@relation', '@transformations', '@file_listing', '@template', '@config'],
+        ],
+        Middleware\ErrorHandling::class => [
+            'class' => Middleware\ErrorHandling::class,
+            'arguments' => ['@error_handler'],
+        ],
+        Middleware\OutputBuffering::class => ['class' => Middleware\OutputBuffering::class],
+        Middleware\PhpExtensionsChecking::class => [
+            'class' => Middleware\PhpExtensionsChecking::class,
+            'arguments' => ['@template', '@' . ResponseFactory::class],
+        ],
+        Middleware\ServerConfigurationChecking::class => [
+            'class' => Middleware\ServerConfigurationChecking::class,
+            'arguments' => ['@template', '@' . ResponseFactory::class],
+        ],
+        Middleware\PhpSettingsConfiguration::class => ['class' => Middleware\PhpSettingsConfiguration::class],
+        Middleware\RouteParsing::class => ['class' => Middleware\RouteParsing::class],
+        Middleware\ConfigLoading::class => [
+            'class' => Middleware\ConfigLoading::class,
+            'arguments' => ['@config', '@template', '@' . ResponseFactory::class],
+        ],
+        Middleware\UriSchemeUpdating::class => [
+            'class' => Middleware\UriSchemeUpdating::class,
+            'arguments' => ['@config'],
+        ],
+        Middleware\SessionHandling::class => [
+            'class' => Middleware\SessionHandling::class,
+            'arguments' => ['@config', '@error_handler', '@template', '@' . ResponseFactory::class],
+        ],
+        Middleware\EncryptedQueryParamsHandling::class => ['class' => Middleware\EncryptedQueryParamsHandling::class],
+        Middleware\UrlParamsSetting::class => [
+            'class' => Middleware\UrlParamsSetting::class,
+            'arguments' => ['@config'],
+        ],
+        Middleware\TokenRequestParamChecking::class => ['class' => Middleware\TokenRequestParamChecking::class],
+        Middleware\DatabaseAndTableSetting::class => ['class' => Middleware\DatabaseAndTableSetting::class],
+        Middleware\SqlQueryGlobalSetting::class => ['class' => Middleware\SqlQueryGlobalSetting::class],
+        Middleware\LanguageLoading::class => ['class' => Middleware\LanguageLoading::class],
+        Middleware\ConfigErrorAndPermissionChecking::class => [
+            'class' => Middleware\ConfigErrorAndPermissionChecking::class,
+            'arguments' => ['@config', '@template', '@' . ResponseFactory::class],
+        ],
+        Middleware\RequestProblemChecking::class => [
+            'class' => Middleware\RequestProblemChecking::class,
+            'arguments' => ['@template', '@' . ResponseFactory::class],
+        ],
+        Middleware\CurrentServerGlobalSetting::class => [
+            'class' => Middleware\CurrentServerGlobalSetting::class,
+            'arguments' => ['@config'],
+        ],
+        Middleware\ThemeInitialization::class => ['class' => Middleware\ThemeInitialization::class],
+        Middleware\UrlRedirection::class => [
+            'class' => Middleware\UrlRedirection::class,
+            'arguments' => ['@config', '@template', '@' . ResponseFactory::class],
+        ],
+        Middleware\SetupPageRedirection::class => [
+            'class' => Middleware\SetupPageRedirection::class,
+            'arguments' => ['@config', '@' . ResponseFactory::class],
+        ],
+        Middleware\MinimumCommonRedirection::class => [
+            'class' => Middleware\MinimumCommonRedirection::class,
+            'arguments' => ['@config', '@' . ResponseFactory::class],
+        ],
+        Middleware\LanguageAndThemeCookieSaving::class => [
+            'class' => Middleware\LanguageAndThemeCookieSaving::class,
+            'arguments' => ['@config'],
+        ],
+        Middleware\LoginCookieValiditySetting::class => [
+            'class' => Middleware\LoginCookieValiditySetting::class,
+            'arguments' => ['@config'],
+        ],
+        Middleware\Authentication::class => [
+            'class' => Middleware\Authentication::class,
+            'arguments' => ['@config', '@template', '@' . ResponseFactory::class],
+        ],
+        Middleware\DatabaseServerVersionChecking::class => [
+            'class' => Middleware\DatabaseServerVersionChecking::class,
+            'arguments' => ['@config', '@template', '@' . ResponseFactory::class],
+        ],
+        Middleware\SqlDelimiterSetting::class => [
+            'class' => Middleware\SqlDelimiterSetting::class,
+            'arguments' => ['@config'],
+        ],
+        Middleware\ResponseRendererLoading::class => [
+            'class' => Middleware\ResponseRendererLoading::class,
+            'arguments' => ['@config'],
+        ],
+        Middleware\ProfilingChecking::class => ['class' => Middleware\ProfilingChecking::class],
+        Middleware\UserPreferencesLoading::class => [
+            'class' => Middleware\UserPreferencesLoading::class,
+            'arguments' => ['@config'],
+        ],
+        Middleware\RecentTableHandling::class => [
+            'class' => Middleware\RecentTableHandling::class,
+            'arguments' => ['@config'],
+        ],
+        Middleware\StatementHistory::class => [
+            'class' => Middleware\StatementHistory::class,
+            'arguments' => ['@config', '@history'],
         ],
         'navigation' => [
             'class' => Navigation::class,

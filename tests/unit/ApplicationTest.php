@@ -6,9 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Application;
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Console\History;
 use PhpMyAdmin\Container\ContainerBuilder;
-use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Exceptions\ConfigException;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Template;
@@ -28,12 +26,13 @@ final class ApplicationTest extends AbstractTestCase
     #[BackupStaticProperties(true)]
     public function testRunWithConfigError(): void
     {
-        $errorHandler = self::createStub(ErrorHandler::class);
-
         $config = self::createMock(Config::class);
         $config->expects(self::once())->method('loadFromFile')
             ->willThrowException(new ConfigException('Failed to load phpMyAdmin configuration.'));
         $config->config = new Config\Settings([]);
+
+        Config::$instance = $config;
+        ContainerBuilder::$container = null;
 
         $template = new Template($config);
         $expected = $template->render('error/generic', [
@@ -41,11 +40,13 @@ final class ApplicationTest extends AbstractTestCase
             'error_message' => 'Failed to load phpMyAdmin configuration.',
         ]);
 
-        $history = self::createMock(History::class);
-        $application = new Application($errorHandler, $config, $template, ResponseFactory::create(), $history);
+        $application = new Application(ResponseFactory::create());
         $application->run();
 
         $output = $this->getActualOutputForAssertion();
         self::assertSame($expected, $output);
+
+        Config::$instance = null;
+        ContainerBuilder::$container = null;
     }
 }
