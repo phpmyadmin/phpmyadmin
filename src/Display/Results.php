@@ -1117,7 +1117,6 @@ class Results
             $urlParamsFullText['pftext'] = self::DISPLAY_FULL_TEXT;
         }
 
-        /** @var ThemeManager $themeManager */
         $themeManager = ContainerBuilder::getContainer()->get(ThemeManager::class);
 
         $tmpImage = '<img class="fulltext" src="'

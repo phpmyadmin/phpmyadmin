@@ -51,7 +51,6 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Throwable;
 
-use function assert;
 use function sprintf;
 
 readonly class Application
@@ -62,10 +61,7 @@ readonly class Application
 
     public static function init(): self
     {
-        $application = ContainerBuilder::getContainer()->get(self::class);
-        assert($application instanceof self);
-
-        return $application;
+        return ContainerBuilder::getContainer()->get(self::class);
     }
 
     public function run(bool $isSetupPage = false): void

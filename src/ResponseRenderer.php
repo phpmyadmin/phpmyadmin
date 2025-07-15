@@ -164,7 +164,6 @@ class ResponseRenderer
             return self::$instance;
         }
 
-        /** @var Console $console */
         $console = ContainerBuilder::getContainer()->get(Console::class);
 
         $config = Config::getInstance();

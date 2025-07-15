@@ -289,7 +289,6 @@ final readonly class ExportController implements InvocableController
                     Current::$message = Message::error(
                         __('No tables found in database.'),
                     );
-                    /** @var DatabaseExportController $controller */
                     $controller = ContainerBuilder::getContainer()->get(DatabaseExportController::class);
 
                     return $controller($request);

@@ -99,7 +99,8 @@ return [
             'arguments' => ['@http_request', '@relation', '@template', '@config'],
         ],
         'events' => ['class' => Events::class, 'arguments' => ['@dbi']],
-        'export' => ['class' => Export::class, 'arguments' => ['@dbi']],
+        Export::class => ['class' => Export::class, 'arguments' => ['@dbi']],
+        'export' => Export::class,
         'export_options' => [
             'class' => Options::class,
             'arguments' => ['@relation', '@export_template_model'],
@@ -239,7 +240,8 @@ return [
             'arguments' => ['$dbi' => '@dbi'],
         ],
         AuthenticationPluginFactory::class => ['class' => AuthenticationPluginFactory::class],
-        'relation' => ['class' => Relation::class, 'arguments' => ['$dbi' => '@dbi', '$config' => '@config']],
+        Relation::class => ['class' => Relation::class, 'arguments' => ['$dbi' => '@dbi', '$config' => '@config']],
+        'relation' => Relation::class,
         'relation_cleanup' => ['class' => RelationCleanup::class, 'arguments' => ['@dbi', '@relation']],
         'replication' => ['class' => Replication::class, 'arguments' => ['$dbi' => '@dbi']],
         'replication_gui' => [
@@ -293,7 +295,8 @@ return [
         ],
         'table_maintenance' => ['class' => PhpMyAdmin\Table\Maintenance::class, 'arguments' => ['$dbi' => '@dbi']],
         'table_search' => ['class' => Search::class, 'arguments' => ['$dbi' => '@dbi']],
-        'template' => ['class' => Template::class, 'arguments' => ['$config' => '@config']],
+        Template::class => ['class' => Template::class, 'arguments' => ['$config' => '@config']],
+        'template' => Template::class,
         ThemeManager::class => ['class' => ThemeManager::class],
         'tracking' => [
             'class' => Tracking::class,
@@ -309,8 +312,8 @@ return [
             'class' => TrackingChecker::class,
             'arguments' => ['$dbi' => '@dbi', '$relation' => '@relation'],
         ],
-        'transformations' => ['class' => Transformations::class, 'arguments' => ['@dbi', '@relation']],
-        Transformations::class => 'transformations',
+        Transformations::class => ['class' => Transformations::class, 'arguments' => ['@dbi', '@relation']],
+        'transformations' => Transformations::class,
         'triggers' => ['class' => Triggers::class, 'arguments' => ['@dbi']],
         'user_password' => [
             'class' => UserPassword::class,

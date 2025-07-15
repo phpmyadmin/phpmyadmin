@@ -208,7 +208,6 @@ class Header
     /** @return mixed[] */
     public function getDisplay(): array
     {
-        /** @var ThemeManager $themeManager */
         $themeManager = ContainerBuilder::getContainer()->get(ThemeManager::class);
         $theme = $themeManager->theme;
 
