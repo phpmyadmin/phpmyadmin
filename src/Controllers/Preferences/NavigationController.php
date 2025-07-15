@@ -61,9 +61,8 @@ final readonly class NavigationController implements InvocableController
                 // reload config
                 $this->config->loadUserPreferences($this->themeManager);
                 $hash = ltrim($request->getParsedBodyParamAsString('tab_hash'), '#');
-                $this->userPreferences->redirect('index.php?route=/preferences/navigation', null, $hash);
 
-                return $this->response->response();
+                return $this->userPreferences->redirect('index.php?route=/preferences/navigation', null, $hash);
             }
         }
 

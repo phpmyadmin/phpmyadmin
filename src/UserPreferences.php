@@ -9,6 +9,7 @@ use PhpMyAdmin\Config\Forms\User\UserFormList;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Identifiers\DatabaseName;
 
 use function __;
@@ -259,7 +260,7 @@ class UserPreferences
         string $fileName,
         array|null $params = null,
         string|null $hash = null,
-    ): void {
+    ): Response {
         // redirect
         $urlParams = ['saved' => 1];
         if (is_array($params)) {
@@ -270,9 +271,12 @@ class UserPreferences
             $hash = '#' . urlencode($hash);
         }
 
-        ResponseRenderer::getInstance()->redirect(
+        $responseRenderer = ResponseRenderer::getInstance();
+        $responseRenderer->redirect(
             './' . $fileName . Url::getCommonRaw($urlParams, ! str_contains($fileName, '?') ? '?' : '&') . $hash,
         );
+
+        return $responseRenderer->response();
     }
 
     /**

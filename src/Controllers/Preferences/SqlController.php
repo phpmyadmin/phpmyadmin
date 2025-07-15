@@ -61,9 +61,8 @@ final readonly class SqlController implements InvocableController
                 // reload config
                 $this->config->loadUserPreferences($this->themeManager);
                 $hash = ltrim($request->getParsedBodyParamAsString('tab_hash'), '#');
-                $this->userPreferences->redirect('index.php?route=/preferences/sql', null, $hash);
 
-                return $this->response->response();
+                return $this->userPreferences->redirect('index.php?route=/preferences/sql', null, $hash);
             }
         }
 
