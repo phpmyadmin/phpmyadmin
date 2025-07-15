@@ -219,9 +219,8 @@ final class ManageController implements InvocableController
 
                     // reload config
                     $this->config->loadUserPreferences($this->themeManager);
-                    $this->userPreferences->redirect($returnUrl ?? '', $redirectParams);
 
-                    return $this->response->response();
+                    return $this->userPreferences->redirect($returnUrl ?? '', $redirectParams);
                 }
 
                 $error = $result;
@@ -230,9 +229,8 @@ final class ManageController implements InvocableController
             $result = $this->userPreferences->save([]);
             if ($result === true) {
                 $this->config->removeCookie('pma_lang');
-                $this->userPreferences->redirect('index.php?route=/preferences/manage');
 
-                return $this->response->response();
+                return $this->userPreferences->redirect('index.php?route=/preferences/manage');
             }
 
             return $this->response->response();

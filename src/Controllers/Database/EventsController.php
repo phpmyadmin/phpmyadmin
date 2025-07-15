@@ -47,9 +47,10 @@ final class EventsController implements InvocableController
 
             $databaseName = DatabaseName::tryFrom($request->getParam('db'));
             if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
-                $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
-
-                return $this->response->response();
+                return $this->response->redirectToRoute(
+                    '/',
+                    ['reload' => true, 'message' => __('No databases selected.')],
+                );
             }
         } elseif (Current::$database !== '') {
             $this->dbi->selectDb(Current::$database);

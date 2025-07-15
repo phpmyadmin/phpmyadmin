@@ -287,9 +287,8 @@ class AuthenticationCookieTest extends AbstractTestCase
         $config->selectedServer['LogoutURL'] = 'https://example.com/logout';
         $config->selectedServer['auth_type'] = 'cookie';
 
-        $this->object->logOut();
+        $response = $this->object->logOut();
 
-        $response = $responseStub->getResponse();
         self::assertSame(['https://example.com/logout'], $response->getHeader('Location'));
         self::assertSame(302, $response->getStatusCode());
     }
@@ -307,9 +306,8 @@ class AuthenticationCookieTest extends AbstractTestCase
         $responseStub = new ResponseRendererStub();
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
-        $this->object->logOut();
+        $response = $this->object->logOut();
 
-        $response = $responseStub->getResponse();
         self::assertSame(['/phpmyadmin/index.php?route=/&server=2&lang=en'], $response->getHeader('Location'));
         self::assertSame(302, $response->getStatusCode());
     }
@@ -352,9 +350,8 @@ class AuthenticationCookieTest extends AbstractTestCase
 
         $_COOKIE['pmaAuth-0'] = 'test';
 
-        $this->object->logOut();
+        $response = $this->object->logOut();
 
-        $response = $responseStub->getResponse();
         self::assertSame(['/phpmyadmin/index.php?route=/'], $response->getHeader('Location'));
         self::assertSame(302, $response->getStatusCode());
 
@@ -379,9 +376,8 @@ class AuthenticationCookieTest extends AbstractTestCase
 
         $_COOKIE['pmaAuth-1'] = 'test';
 
-        $this->object->logOut();
+        $response = $this->object->logOut();
 
-        $response = $responseStub->getResponse();
         self::assertSame(['/phpmyadmin/index.php?route=/'], $response->getHeader('Location'));
         self::assertSame(302, $response->getStatusCode());
 

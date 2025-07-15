@@ -71,9 +71,10 @@ final class PrimaryController implements InvocableController
                     return $this->response->response();
                 }
 
-                $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
-
-                return $this->response->response();
+                return $this->response->redirectToRoute(
+                    '/',
+                    ['reload' => true, 'message' => __('No databases selected.')],
+                );
             }
 
             $tableName = TableName::tryFrom($request->getParam('table'));
@@ -85,9 +86,7 @@ final class PrimaryController implements InvocableController
                     return $this->response->response();
                 }
 
-                $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
-
-                return $this->response->response();
+                return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
             }
 
             $this->response->render('table/structure/primary', [

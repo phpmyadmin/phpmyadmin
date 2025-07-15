@@ -627,7 +627,7 @@ class AuthenticationCookie extends AuthenticationPlugin
     /**
      * Perform logout
      */
-    public function logOut(): void
+    public function logOut(): Response
     {
         $config = Config::getInstance();
         // -> delete password cookie(s)
@@ -648,6 +648,6 @@ class AuthenticationCookie extends AuthenticationPlugin
             }
         }
 
-        parent::logOut();
+        return parent::logOut();
     }
 }

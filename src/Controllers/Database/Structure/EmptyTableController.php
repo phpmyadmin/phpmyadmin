@@ -41,9 +41,8 @@ final readonly class EmptyTableController implements InvocableController
 
         if ($multBtn !== __('Yes')) {
             $this->flashMessenger->addMessage('success', __('No change'));
-            $this->response->redirectToRoute('/database/structure', ['db' => Current::$database]);
 
-            return $this->response->response();
+            return $this->response->redirectToRoute('/database/structure', ['db' => Current::$database]);
         }
 
         $defaultFkCheckValue = ForeignKey::handleDisableCheckInit();

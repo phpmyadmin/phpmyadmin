@@ -54,9 +54,7 @@ final class DropColumnConfirmationController implements InvocableController
                 return $this->response->response();
             }
 
-            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
-
-            return $this->response->response();
+            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
         }
 
         if (! $this->dbTableExists->hasTable($db, $table)) {
@@ -67,9 +65,7 @@ final class DropColumnConfirmationController implements InvocableController
                 return $this->response->response();
             }
 
-            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
-
-            return $this->response->response();
+            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
         }
 
         $this->response->render('table/structure/drop_confirm', [

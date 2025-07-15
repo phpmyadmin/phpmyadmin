@@ -155,9 +155,7 @@ readonly class SqlController implements InvocableController
         $storeBkm = $request->hasBodyParam('store_bkm');
         $bkmAllUsers = $request->getParsedBodyParam('bkm_all_users'); // Should this be hasBodyParam?
         if ($storeBkm && $bkmFields !== null) {
-            $this->addBookmark(UrlParams::$goto, $bkmFields, (bool) $bkmAllUsers);
-
-            return $this->response->response();
+            return $this->addBookmark(UrlParams::$goto, $bkmFields, (bool) $bkmAllUsers);
         }
 
         /**
@@ -190,7 +188,7 @@ readonly class SqlController implements InvocableController
     }
 
     /** @param array<string> $bkmFields */
-    private function addBookmark(string $goto, array $bkmFields, bool $bkmAllUsers): void
+    private function addBookmark(string $goto, array $bkmFields, bool $bkmAllUsers): Response
     {
         $bookmark = $this->bookmarkRepository->createBookmark(
             $bkmFields['bkm_sql_query'],
@@ -208,7 +206,7 @@ readonly class SqlController implements InvocableController
         if (! $this->response->isAjax()) {
             $this->response->redirect('./' . $goto . '&label=' . $bkmFields['bkm_label']);
 
-            return;
+            return $this->response->response();
         }
 
         if ($result) {
@@ -216,11 +214,13 @@ readonly class SqlController implements InvocableController
             $msg->addParam($bkmFields['bkm_label']);
             $this->response->addJSON('message', $msg);
 
-            return;
+            return $this->response->response();
         }
 
         $msg = Message::error(__('Bookmark not created!'));
         $this->response->setRequestStatus(false);
         $this->response->addJSON('message', $msg);
+
+        return $this->response->response();
     }
 }

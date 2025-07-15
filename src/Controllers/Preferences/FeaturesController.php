@@ -45,9 +45,8 @@ final readonly class FeaturesController implements InvocableController
         if ($request->hasBodyParam('revert')) {
             // revert erroneous fields to their default values
             $formDisplay->fixErrors();
-            $this->response->redirectToRoute('/preferences/features', []);
 
-            return $this->response->response();
+            return $this->response->redirectToRoute('/preferences/features');
         }
 
         $result = null;
@@ -62,9 +61,8 @@ final readonly class FeaturesController implements InvocableController
                 // reload config
                 $this->config->loadUserPreferences($this->themeManager);
                 $hash = ltrim($request->getParsedBodyParamAsString('tab_hash'), '#');
-                $this->userPreferences->redirect('index.php?route=/preferences/features', null, $hash);
 
-                return $this->response->response();
+                return $this->userPreferences->redirect('index.php?route=/preferences/features', null, $hash);
             }
         }
 

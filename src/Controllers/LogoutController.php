@@ -27,8 +27,7 @@ final class LogoutController implements InvocableController
         }
 
         $authPlugin = $this->authPluginFactory->create();
-        $authPlugin->logOut();
 
-        return $responseRenderer->response();
+        return $authPlugin->logOut();
     }
 }

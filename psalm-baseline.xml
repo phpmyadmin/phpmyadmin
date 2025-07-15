@@ -1456,11 +1456,6 @@
       <code><![CDATA[$options]]></code>
     </MixedAssignment>
   </file>
-  <file src="src/Controllers/LogoutController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
   <file src="src/Controllers/Navigation/UpdateNavWidthConfigController.php">
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>

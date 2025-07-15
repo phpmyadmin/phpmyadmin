@@ -141,9 +141,7 @@ final class StructureController implements InvocableController
                 return $this->response->response();
             }
 
-            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
-
-            return $this->response->response();
+            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
         }
 
         $this->response->addScriptFiles(['database/structure.js', 'table/change.js']);
@@ -155,7 +153,7 @@ final class StructureController implements InvocableController
         // If there are no tables, the user is redirected to the last page
         // having any.
         if ($this->totalNumTables > 0 && $this->position > $this->totalNumTables) {
-            $this->response->redirectToRoute('/database/structure', [
+            return $this->response->redirectToRoute('/database/structure', [
                 'db' => Current::$database,
                 'pos' => max(0, $this->totalNumTables - $this->config->settings['MaxTableList']),
                 'reload' => 1,

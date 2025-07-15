@@ -45,9 +45,8 @@ final readonly class ExportController implements InvocableController
         if ($request->hasBodyParam('revert')) {
             // revert erroneous fields to their default values
             $formDisplay->fixErrors();
-            $this->response->redirectToRoute('/preferences/export', []);
 
-            return $this->response->response();
+            return $this->response->redirectToRoute('/preferences/export');
         }
 
         $result = null;
@@ -62,9 +61,8 @@ final readonly class ExportController implements InvocableController
                 // reload config
                 $this->config->loadUserPreferences($this->themeManager);
                 $hash = ltrim($request->getParsedBodyParamAsString('tab_hash'), '#');
-                $this->userPreferences->redirect('index.php?route=/preferences/export', null, $hash);
 
-                return $this->response->response();
+                return $this->userPreferences->redirect('index.php?route=/preferences/export', null, $hash);
             }
         }
 

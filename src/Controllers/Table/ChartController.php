@@ -89,9 +89,10 @@ final readonly class ChartController implements InvocableController
                     return $this->response->response();
                 }
 
-                $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
-
-                return $this->response->response();
+                return $this->response->redirectToRoute(
+                    '/',
+                    ['reload' => true, 'message' => __('No databases selected.')],
+                );
             }
 
             $tableName = TableName::tryFrom($request->getParam('table'));
@@ -103,9 +104,7 @@ final readonly class ChartController implements InvocableController
                     return $this->response->response();
                 }
 
-                $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
-
-                return $this->response->response();
+                return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
             }
 
             $urlParams['goto'] = Url::getFromRoute($this->config->settings['DefaultTabTable']);
@@ -124,9 +123,10 @@ final readonly class ChartController implements InvocableController
                     return $this->response->response();
                 }
 
-                $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
-
-                return $this->response->response();
+                return $this->response->redirectToRoute(
+                    '/',
+                    ['reload' => true, 'message' => __('No databases selected.')],
+                );
             }
         } else {
             $urlParams['goto'] = Url::getFromRoute($this->config->settings['DefaultTabServer']);

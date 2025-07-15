@@ -67,9 +67,7 @@ final readonly class GisVisualizationController implements InvocableController
                 return $this->response->response();
             }
 
-            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
-
-            return $this->response->response();
+            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
         }
 
         // SQL query for retrieving GIS data
