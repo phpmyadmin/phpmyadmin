@@ -72,9 +72,7 @@ class ChangeController implements InvocableController
                 return $this->response->response();
             }
 
-            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
-
-            return $this->response->response();
+            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
         }
 
         $tableName = TableName::tryFrom($request->getParam('table'));
@@ -86,9 +84,7 @@ class ChangeController implements InvocableController
                 return $this->response->response();
             }
 
-            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
-
-            return $this->response->response();
+            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
         }
 
         $this->setInsertRowsParam($request->getParsedBodyParam('insert_rows'));

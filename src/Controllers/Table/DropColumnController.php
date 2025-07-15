@@ -75,8 +75,10 @@ final class DropColumnController implements InvocableController
         }
 
         $this->flashMessenger->addMessage($message->isError() ? 'danger' : 'success', $message->getMessage());
-        $this->response->redirectToRoute('/table/structure', ['db' => Current::$database, 'table' => Current::$table]);
 
-        return $this->response->response();
+        return $this->response->redirectToRoute(
+            '/table/structure',
+            ['db' => Current::$database, 'table' => Current::$table],
+        );
     }
 }

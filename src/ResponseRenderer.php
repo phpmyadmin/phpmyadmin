@@ -430,9 +430,11 @@ class ResponseRenderer
     }
 
     /** @param array<string, mixed> $params */
-    public function redirectToRoute(string $route, array $params = []): void
+    public function redirectToRoute(string $route, array $params = []): Response
     {
         $this->redirect('./index.php?route=' . $route . Url::getCommonRaw($params, '&'));
+
+        return $this->response();
     }
 
     /** @psalm-param list<string> $files */

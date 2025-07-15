@@ -88,9 +88,7 @@ final readonly class TableController implements InvocableController
                 return $this->response->response();
             }
 
-            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
-
-            return $this->response->response();
+            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
         }
 
         $tableName = TableName::tryFrom($request->getParam('table'));
@@ -102,9 +100,7 @@ final readonly class TableController implements InvocableController
                 return $this->response->response();
             }
 
-            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
-
-            return $this->response->response();
+            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
         }
 
         UrlParams::$params['goto'] = UrlParams::$params['back'] = Url::getFromRoute('/table/operations');

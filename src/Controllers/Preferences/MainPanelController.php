@@ -45,9 +45,8 @@ final readonly class MainPanelController implements InvocableController
         if ($request->hasBodyParam('revert')) {
             // revert erroneous fields to their default values
             $formDisplay->fixErrors();
-            $this->response->redirectToRoute('/preferences/main-panel', []);
 
-            return $this->response->response();
+            return $this->response->redirectToRoute('/preferences/main-panel');
         }
 
         $result = null;
