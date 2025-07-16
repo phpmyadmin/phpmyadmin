@@ -19,7 +19,6 @@ final class ApplicationTest extends AbstractTestCase
     public function testInit(): void
     {
         $application = ContainerBuilder::getContainer()->get(Application::class);
-        self::assertInstanceOf(Application::class, $application);
         self::assertSame($application, Application::init());
     }
 

@@ -34,6 +34,7 @@
     </projectFiles>
 
     <stubs>
+        <file name="tests/stubs/psr.stub"/>
         <file name="tests/stubs/uploadprogress.stub"/>
     </stubs>
 

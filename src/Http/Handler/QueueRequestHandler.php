@@ -11,7 +11,6 @@ use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
 use function array_shift;
-use function assert;
 
 final class QueueRequestHandler implements RequestHandlerInterface
 {
@@ -37,7 +36,6 @@ final class QueueRequestHandler implements RequestHandlerInterface
         }
 
         $middleware = $this->container->get(array_shift($this->middleware));
-        assert($middleware instanceof MiddlewareInterface);
 
         return $middleware->process($request, $this);
     }

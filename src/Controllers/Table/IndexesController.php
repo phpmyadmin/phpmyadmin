@@ -159,7 +159,6 @@ final readonly class IndexesController implements InvocableController
                 return $this->response->response();
             }
 
-            /** @var StructureController $controller */
             $controller = ContainerBuilder::getContainer()->get(StructureController::class);
 
             return $controller($request);

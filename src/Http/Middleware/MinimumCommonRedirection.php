@@ -32,7 +32,6 @@ final class MinimumCommonRedirection implements MiddlewareInterface
         }
 
         $container = ContainerBuilder::getContainer();
-        /** @var ThemeManager $themeManager */
         $themeManager = $container->get(ThemeManager::class);
         $this->config->loadUserPreferences($themeManager, true);
         assert($request instanceof ServerRequest);

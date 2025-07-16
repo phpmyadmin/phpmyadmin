@@ -219,7 +219,6 @@ final class CreateController implements InvocableController
 
         if ($ajaxdialog) {
             Current::$message = Message::success();
-            /** @var StructureController $controller */
             $controller = ContainerBuilder::getContainer()->get(StructureController::class);
 
             return $controller($request);

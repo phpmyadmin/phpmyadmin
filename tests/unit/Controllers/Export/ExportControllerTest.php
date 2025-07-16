@@ -504,8 +504,7 @@ final class ExportControllerTest extends AbstractTestCase
             SQL;
 
         $container = ContainerBuilder::getContainer();
-        $export = $container->get('export');
-        self::assertInstanceOf(Export::class, $export);
+        $export = $container->get(Export::class);
         (new ReflectionProperty(Export::class, 'dbi'))->setValue($export, $dbi);
 
         $exportController = new ExportController(new ResponseRenderer(), $export, ResponseFactory::create(), $config);
@@ -658,8 +657,7 @@ final class ExportControllerTest extends AbstractTestCase
             SQL;
 
         $container = ContainerBuilder::getContainer();
-        $export = $container->get('export');
-        self::assertInstanceOf(Export::class, $export);
+        $export = $container->get(Export::class);
         (new ReflectionProperty(Export::class, 'dbi'))->setValue($export, $dbi);
 
         $exportController = new ExportController(new ResponseRenderer(), $export, ResponseFactory::create(), $config);
