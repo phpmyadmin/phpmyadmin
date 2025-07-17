@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2025-01-21 21:05+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@mfauth.net>\n"
+"PO-Revision-Date: 2025-07-18 11:01+0000\n"
+"Last-Translator: Ricky Tigg <ricky.tigg@gmail.com>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "fi/>\n"
 "Language: fi\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -1119,10 +1119,8 @@ msgid "Y values"
 msgstr "Y-Arvot"
 
 #: js/messages.php:142
-#, fuzzy
-#| msgid "Please enter the same value again"
 msgid "Please enter the SQL query first."
-msgstr "Ole hyvä ja annat saman arvon uudelleen"
+msgstr "Syötä ensin SQL-kysely."
 
 #: js/messages.php:145
 msgid "The host name is empty!"
@@ -1795,7 +1793,7 @@ msgid ""
 "network connectivity and server status."
 msgstr ""
 "Yhteys palvelimeen näyttäisi katkenneen. Tarkasta verkkoyhteytesi ja "
-"palvelimen tila,"
+"palvelimen tila."
 
 #: js/messages.php:373
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:194
@@ -2314,10 +2312,8 @@ msgstr ""
 
 #: js/messages.php:565 templates/database/designer/side_menu.twig:34
 #: templates/database/designer/side_menu.twig:37
-#, fuzzy
-#| msgid "No tables found in database."
 msgid "Add tables from other databases"
-msgstr "Tietokannassa ei ole tauluja."
+msgstr "Lisää taulukoita muista tietokannoista"
 
 #: js/messages.php:566
 msgid "Page name"
@@ -3076,10 +3072,9 @@ msgid "Error"
 msgstr "Virhe"
 
 #: libraries/classes/Advisor.php:259
-#, fuzzy, php-format
-#| msgid "Error while creating PDF:"
+#, php-format
 msgid "Error when evaluating: %s"
-msgstr "Virhe luotaessa PDF-tiedostoa:"
+msgstr "Virhe arvioitaessa: %s"
 
 #: libraries/classes/Advisor.php:290
 #, php-format
@@ -6226,14 +6221,10 @@ msgid "Show current browsing query"
 msgstr "Näytä tämän hetkinen selaushakulause"
 
 #: libraries/classes/Config/Descriptions.php:1472
-#, fuzzy
-#| msgid ""
-#| "Execute queries on Enter and insert new line with Shift + Enter. To make "
-#| "this permanent, view settings."
 msgid "Execute queries on Enter and insert new line with Shift + Enter"
 msgstr ""
-"Suorita hakukyselyt painamalla Enter ja lisää uusi rivi painamalla Shift + "
-"Enter. Mikäli haluat tehdä tästä pysyvän, katso asetukset."
+"Suorita kyselyt Syötä-näppäimellä ja lisää uusi rivi näppäimillä Vaihto + "
+"Syötä"
 
 #: libraries/classes/Config/Descriptions.php:1474
 #: templates/console/display.twig:168
@@ -6264,10 +6255,8 @@ msgid "Order"
 msgstr "Toinen"
 
 #: libraries/classes/Config/Descriptions.php:1484
-#, fuzzy
-#| msgid "Order by:"
 msgid "Order by"
-msgstr "Järjestä mukaan:"
+msgstr "Lajitteluperuste"
 
 #: libraries/classes/Config/FormDisplay.php:99
 #: libraries/classes/Config/Validator.php:528
@@ -6513,19 +6502,15 @@ msgstr ""
 "Avaimen pitäisi sisältää kirjaimia, numeroita [em]ja[/em] erikoismerkkejä."
 
 #: libraries/classes/Config/ServerConfigChecks.php:418
-#, fuzzy, php-format
-#| msgid ""
-#| "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may "
-#| "cause random session invalidation (currently session.gc_maxlifetime is "
-#| "%d)."
+#, php-format
 msgid ""
 "%1$sLogin cookie validity%2$s greater than %3$ssession.gc_maxlifetime%4$s "
 "may cause random session invalidation (currently session.gc_maxlifetime is "
 "%5$d)."
 msgstr ""
-"%sKirjautumisevästeen voimassaoloaika%s joka on suurempi kuin %ssession."
-"gc_maxlifetime%s voi aiheuttaa satunnaisen session mitätöitymisen (tällä "
-"hetkellä session.gc_maxlifetime on %d)."
+"%1$sKirjautumisevästeen voimassaoloaika%2$s joka on suurempi kuin "
+"%3$ssession.gc_maxlifetime%4$s voi aiheuttaa satunnaisen session "
+"mitätöitymisen (tällä hetkellä session.gc_maxlifetime on %5$d)."
 
 #: libraries/classes/Config/ServerConfigChecks.php:442
 #, php-format
@@ -6548,28 +6533,22 @@ msgstr ""
 "verran."
 
 #: libraries/classes/Config/ServerConfigChecks.php:506
-#, fuzzy, php-format
-#| msgid ""
-#| "%sBzip2 compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"%sBzip2-pakkaukseen ja -purkuun%s tarvitaan funktioita (%s), jotka eivät ole "
-"käytettävissä tässä järjestelmässä."
+"%1$sBzip2-pakkaukseen ja -purkuun%2$s tarvitaan funktioita (%3$s), jotka "
+"eivät ole käytettävissä tässä järjestelmässä."
 
 #: libraries/classes/Config/ServerConfigChecks.php:538
-#, fuzzy, php-format
-#| msgid ""
-#| "%sGZip compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"%sGZip-pakkaukseen ja -purkuun%s tarvitaan funktioita (%s), jotka eivät ole "
-"käytettävissä tässä järjestelmässä."
+"%1$sGZip-pakkaukseen ja -purkuun%2$s tarvitaan funktioita (%3$s), jotka "
+"eivät ole käytettävissä tässä järjestelmässä."
 
 #: libraries/classes/Config/Validator.php:214
 #: libraries/classes/Config/Validator.php:221
@@ -6828,10 +6807,8 @@ msgid "Your SQL query has been executed successfully."
 msgstr "SQL-kyselysi on suoritettu onnistuneesti."
 
 #: libraries/classes/Controllers/Table/TableRelationController.php:304
-#, fuzzy
-#| msgid "Internal relation added"
 msgid "Internal relationships were successfully updated."
-msgstr "Sisäinen relaatio luotu"
+msgstr "Sisäiset suhteet päivitettiin onnistuneesti."
 
 #: libraries/classes/Controllers/Table/TableSearchController.php:792
 #, fuzzy
@@ -6870,10 +6847,9 @@ msgid "The columns have been moved successfully."
 msgstr "Valitsemiesi käyttäjien poisto onnistui."
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:535
-#, fuzzy, php-format
-#| msgid "Failed to get real row count."
+#, php-format
 msgid "Failed to get description of column %s!"
-msgstr "Oikean rivimäärän nouto epäonnistui."
+msgstr "Sarakkeen %s kuvauksen hakeminen epäonnistui!"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:771
 #: libraries/classes/Controllers/Table/TableStructureController.php:1067
@@ -7017,16 +6993,12 @@ msgid "Error: relationship already exists."
 msgstr "Virhe: relaatio on jo olemassa."
 
 #: libraries/classes/Database/Designer/Common.php:611
-#, fuzzy
-#| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relationship has been added."
-msgstr "FOREIGN KEY -relaatio lisätty"
+msgstr "FORIGN KEY -suhde on lisätty."
 
 #: libraries/classes/Database/Designer/Common.php:617
-#, fuzzy
-#| msgid "Error: Relation not added."
 msgid "Error: FOREIGN KEY relationship could not be added!"
-msgstr "Virhe: Relaatiota ei luotu."
+msgstr "Virhe: FORIGN KEY -suhdetta ei voitu lisätä!"
 
 #: libraries/classes/Database/Designer/Common.php:622
 msgid "Error: Missing index on column(s)."
@@ -7037,40 +7009,28 @@ msgid "Error: Relational features are disabled!"
 msgstr "Virhe: Relaatio ominaisuudet ovat poissa käytöstä!"
 
 #: libraries/classes/Database/Designer/Common.php:649
-#, fuzzy
-#| msgid "Internal relation added"
 msgid "Internal relationship has been added."
-msgstr "Sisäinen relaatio luotu"
+msgstr "Sisäinen suhde on lisätty."
 
 #: libraries/classes/Database/Designer/Common.php:655
-#, fuzzy
-#| msgid "Error: Relation not added."
 msgid "Error: Internal relationship could not be added!"
-msgstr "Virhe: Relaatiota ei luotu."
+msgstr "Virhe: Sisäistä suhdetta ei voitu lisätä!"
 
 #: libraries/classes/Database/Designer/Common.php:693
-#, fuzzy
-#| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relationship has been removed."
-msgstr "FOREIGN KEY -relaatio lisätty"
+msgstr "FORIGN KEY -suhde on poistettu."
 
 #: libraries/classes/Database/Designer/Common.php:699
-#, fuzzy
-#| msgid "Error: Relation not added."
 msgid "Error: FOREIGN KEY relationship could not be removed!"
-msgstr "Virhe: Relaatiota ei luotu."
+msgstr "Virhe: FORIGN KEY -suhdetta ei voitu poistaa!"
 
 #: libraries/classes/Database/Designer/Common.php:726
-#, fuzzy
-#| msgid "Error: Relation not added."
 msgid "Error: Internal relationship could not be removed!"
-msgstr "Virhe: Relaatiota ei luotu."
+msgstr "Virhe: Sisäistä suhdetta ei voitu poistaa!"
 
 #: libraries/classes/Database/Designer/Common.php:730
-#, fuzzy
-#| msgid "Internal relation added"
 msgid "Internal relationship has been removed."
-msgstr "Sisäinen relaatio luotu"
+msgstr "Sisäinen suhde on poistettu."
 
 #: libraries/classes/Database/Qbe.php:456
 #: templates/table/search/search_and_replace.twig:6
@@ -8004,25 +7964,19 @@ msgid ""
 msgstr "Seuraavat rakenteet on joko luotu tai niitä on muutettu. Voit:"
 
 #: libraries/classes/Import.php:1216
-#, fuzzy
-#| msgid "View a structure's contents by clicking on its name"
 msgid "View a structure's contents by clicking on its name."
-msgstr "Tarkastele rakenteen sisältöä napsauttamalla sen nimeä"
+msgstr "Tarkastele rakenteen sisältöä napsauttamalla sen nimeä."
 
 #: libraries/classes/Import.php:1219
-#, fuzzy
-#| msgid ""
-#| "Change any of its settings by clicking the corresponding \"Options\" link"
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
-"muuttaa mitä tahansa sen asetuksia painamalla vastaavaa \"Valinnat\"-linkkiä"
+"Muuta mitä tahansa sen asetuksia napsauttamalla vastaavaa Vaihtoehdot-"
+"linkkiä."
 
 #: libraries/classes/Import.php:1221
-#, fuzzy
-#| msgid "Edit structure by following the \"Structure\" link"
 msgid "Edit structure by following the \"Structure\" link."
-msgstr "Muokkaa rakennetta seuraamalla \"Rakenne\" linkkiä"
+msgstr "Muokkaa rakennetta seuraamalla \"Rakenne\" linkkiä."
 
 #: libraries/classes/Import.php:1225 libraries/classes/Import.php:1260
 #: libraries/classes/MultSubmits.php:397
@@ -8169,10 +8123,8 @@ msgid "Or"
 msgstr "Tai"
 
 #: libraries/classes/InsertEdit.php:1501
-#, fuzzy
-#| msgid "web server upload directory"
 msgid "web server upload directory:"
-msgstr "palvelimen lähetyshakemisto"
+msgstr "verkkopalvelimen ulospäinlataushakemisto:"
 
 #: libraries/classes/InsertEdit.php:1703
 #: templates/table/search/input_box.twig:38
@@ -8213,14 +8165,11 @@ msgid "Edit next row"
 msgstr "Muokkaa seuraavaa riviä"
 
 #: libraries/classes/InsertEdit.php:1885
-#, fuzzy
-#| msgid ""
-#| "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere."
 msgstr ""
-"Sarkaimella voi siirtyä arvosta seuraavaan, Ctrl- ja nuolinäppäimillä pystyy "
-"siirtymään minne suuntaan tahansa"
+"Siirry arvosta toiseen sarkain-näppäimellä tai mihin tahansa painamalla "
+"CTRL+nuolinäppäinyhdistelmää."
 
 #: libraries/classes/InsertEdit.php:1923
 #: libraries/classes/ReplicationGui.php:552
@@ -8420,8 +8369,8 @@ msgstr "Liitännäiset"
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "%1$d rivi(ä) muutettu."
-msgstr[1] "%1$d rivi(ä) muutettu."
+msgstr[0] "Vaikuttaa %1$d riviin."
+msgstr[1] "Vaikuttaa %1$d riviin."
 
 #: libraries/classes/Message.php:266
 #, php-format
@@ -8500,41 +8449,29 @@ msgid "An error has occurred while loading the navigation display"
 msgstr ""
 
 #: libraries/classes/Navigation/Navigation.php:207
-#, fuzzy
-#| msgid "Column names"
 msgid "Groups:"
-msgstr "Sarakkeiden nimet"
+msgstr "Ryhmät:"
 
 #: libraries/classes/Navigation/Navigation.php:208
-#, fuzzy
-#| msgid "Events"
 msgid "Events:"
-msgstr "Tapahtumat"
+msgstr "Tapahtumat:"
 
 #: libraries/classes/Navigation/Navigation.php:209
-#, fuzzy
-#| msgid "Functions"
 msgid "Functions:"
-msgstr "Funktiot"
+msgstr "Funktiot:"
 
 #: libraries/classes/Navigation/Navigation.php:210
-#, fuzzy
-#| msgid "Procedures"
 msgid "Procedures:"
-msgstr "Proseduurit"
+msgstr "Menettelyt:"
 
 #: libraries/classes/Navigation/Navigation.php:211
 #: templates/display/export/selection.twig:5
-#, fuzzy
-#| msgid "Tables"
 msgid "Tables:"
-msgstr "Taulut"
+msgstr "Taulukot:"
 
 #: libraries/classes/Navigation/Navigation.php:212
-#, fuzzy
-#| msgid "Views"
 msgid "Views:"
-msgstr "Näkymät"
+msgstr "Näkymät:"
 
 #: libraries/classes/Navigation/Navigation.php:236
 #: libraries/classes/Tracking.php:164 tbl_change.php:147
@@ -8609,10 +8546,9 @@ msgid "Invalid class name \"%1$s\", using default of \"Node\""
 msgstr ""
 
 #: libraries/classes/Navigation/NodeFactory.php:61
-#, fuzzy, php-format
-#| msgid "Could not add columns!"
+#, php-format
 msgid "Could not load class \"%1$s\""
-msgstr "Sarakkeita ei voida lisätä!"
+msgstr "Luokkaa \"%1$s\" ei voitu ladata"
 
 #: libraries/classes/Navigation/Nodes/Node.php:802
 msgid "Expand/Collapse"
@@ -8742,10 +8678,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Normalization.php:206 normalization.php:19
-#, fuzzy
-#| msgid "Select two columns"
 msgid "Select one…"
-msgstr "Valitse kaksi saraketta"
+msgstr "Valitse yksi…"
 
 #: libraries/classes/Normalization.php:207 normalization.php:20
 #, fuzzy
@@ -8923,10 +8857,8 @@ msgstr ""
 #: libraries/classes/Normalization.php:545
 #: libraries/classes/Normalization.php:695
 #: libraries/classes/Normalization.php:767
-#, fuzzy
-#| msgid "Error in Processing Request"
 msgid "Error in processing!"
-msgstr "Virhe pyynnön käsittelyssä"
+msgstr "Virhe käsittelyssä!"
 
 #: libraries/classes/Normalization.php:591
 #, php-format
@@ -8940,16 +8872,13 @@ msgid "The third step of normalization is complete."
 msgstr ""
 
 #: libraries/classes/Normalization.php:746
-#, fuzzy, php-format
-#| msgid "Selected target tables have been synchronized with source tables."
+#, php-format
 msgid "Selected repeating group has been moved to the table '%s'"
-msgstr "Valitut kohdetaulut on yhtenäistetty lähdetaulujen kanssa."
+msgstr "Valittu toistuva ryhmä on siirretty taulukkoon '%s'"
 
 #: libraries/classes/Normalization.php:793
-#, fuzzy
-#| msgid "Sep"
 msgid "Step 3."
-msgstr "Syys"
+msgstr "Vaihe 3."
 
 #: libraries/classes/Normalization.php:793
 msgid "Find transitive dependencies"
@@ -8974,10 +8903,8 @@ msgid "Table is already in Third normal form!"
 msgstr ""
 
 #: libraries/classes/Normalization.php:879
-#, fuzzy
-#| msgid "Hide table structure actions"
 msgid "Improve table structure (Normalization):"
-msgstr "Esitä taulun rakennetoimet"
+msgstr "Paranna taulukon rakennetta (normalisointi):"
 
 #: libraries/classes/Normalization.php:880
 msgid "Select up to what step you want to normalize"
@@ -9341,10 +9268,8 @@ msgid "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
 msgstr ""
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:344
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "You are not allowed to log in to this MySQL server!"
-msgstr "MySQL-palvelimelle ei voitu kirjautua"
+msgstr "Sinulla ei ole lupaa kirjautua tälle MySQL-palvelimelle!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:88
 msgid "Wrong username/password. Access denied."
@@ -9390,17 +9315,13 @@ msgstr "Sarakkeiden erotin:"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:68
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:64
-#, fuzzy
-#| msgid "Fields enclosed by"
 msgid "Columns enclosed with:"
-msgstr "Sarakkeiden rajausmerkki"
+msgstr "Sarakkeiden rajausmerkit:"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:73
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:71
-#, fuzzy
-#| msgid "Fields escaped by"
 msgid "Columns escaped with:"
-msgstr "Koodinvaihtomerkki"
+msgstr "Sarakkeiden pakenemistapa:"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:78
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:78
@@ -9540,24 +9461,18 @@ msgstr "Objektin luontivaihtoehdot"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:121
 #: libraries/classes/Plugins/Export/ExportLatex.php:173
-#, fuzzy
-#| msgid "Table caption"
 msgid "Table caption:"
-msgstr "Taulun otsikko"
+msgstr "Taulukon kuvateksti:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:127
 #: libraries/classes/Plugins/Export/ExportLatex.php:179
-#, fuzzy
-#| msgid "Table caption (continued)"
 msgid "Table caption (continued):"
-msgstr "Taulun otsikko (jatkuu)"
+msgstr "Taulukon kuvateksti (jatkuu):"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:133
 #: libraries/classes/Plugins/Export/ExportLatex.php:185
-#, fuzzy
-#| msgid "Label key"
 msgid "Label key:"
-msgstr "Tunniste"
+msgstr "Tunnisteavain:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:140
 #: libraries/classes/Plugins/Export/ExportOdt.php:101
@@ -9577,58 +9492,44 @@ msgid "Display MIME types"
 msgstr "Näytä MIME-tyypit"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:168
-#, fuzzy
-#| msgid "Put columns names in the first row"
 msgid "Put columns names in the first row:"
-msgstr "Aseta sarakkeiden nimet ensimmäiselle riville"
+msgstr "Aseta sarakkeiden nimet ensimmäiselle riville:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:216
 #: libraries/classes/Plugins/Export/ExportSql.php:695
 #: libraries/classes/Plugins/Export/ExportXml.php:238
 #: libraries/classes/ReplicationGui.php:443
 #: libraries/classes/ReplicationGui.php:709
-#, fuzzy
-#| msgid "Host"
 msgid "Host:"
-msgstr "Palvelin"
+msgstr "Isäntä:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:221
 #: libraries/classes/Plugins/Export/ExportSql.php:701
 #: libraries/classes/Plugins/Export/ExportXml.php:243
-#, fuzzy
-#| msgid "Generation Time"
 msgid "Generation Time:"
-msgstr "Luontiaika"
+msgstr "Luontiaika:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:224
 #: libraries/classes/Plugins/Export/ExportSql.php:707
 #: libraries/classes/Plugins/Export/ExportXml.php:246
-#, fuzzy
-#| msgid "PHP Version"
 msgid "PHP Version:"
-msgstr "PHP:n versio"
+msgstr "PHP-versio"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:254
 #: libraries/classes/Plugins/Export/ExportSql.php:896
 #: libraries/classes/Plugins/Export/ExportXml.php:411
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:158
-#, fuzzy
-#| msgid "Database"
 msgid "Database:"
-msgstr "Tietokanta"
+msgstr "Tietokanta:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:327
 #: libraries/classes/Plugins/Export/ExportSql.php:2195
-#, fuzzy
-#| msgid "Data"
 msgid "Data:"
-msgstr "Tietoa"
+msgstr "Tiedot:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:507
-#, fuzzy
-#| msgid "Structure"
 msgid "Structure:"
-msgstr "Rakenne"
+msgstr "Rakenne:"
 
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:81
 msgid "Export table names"
@@ -9707,10 +9608,9 @@ msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:298
-#, fuzzy, php-format
-#| msgid "Session value"
+#, php-format
 msgid "%s value"
-msgstr "Tämän istunnon arvo"
+msgstr "%s-arvo"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:332
 msgid ""
@@ -9832,10 +9732,9 @@ msgid "Last check:"
 msgstr "Viimeksi tarkistettu:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1493
-#, fuzzy, php-format
-#| msgid "Table structure for table"
+#, php-format
 msgid "Error reading structure for table %s:"
-msgstr "Rakenne taululle"
+msgstr "Virhe luettaessa taulukon %s rakennetta:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1547
 msgid "It appears your database uses views;"
@@ -9856,10 +9755,8 @@ msgid "Indexes for dumped tables"
 msgstr "Rajoitteet vedostauluille"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1756
-#, fuzzy
-#| msgid "Inside tables:"
 msgid "Indexes for table"
-msgstr "Tauluissa:"
+msgstr "Indeksit taulukolle"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1789
 #, fuzzy
@@ -9888,20 +9785,18 @@ msgid "It appears your table uses triggers;"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2106
-#, fuzzy, php-format
-#| msgid "Structure for view"
+#, php-format
 msgid "Structure for view %s exported as a table"
-msgstr "Näkymän rakenne"
+msgstr "Rakenne näkymälle %s viety taulukkona"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2130
 msgid "(See below for the actual view)"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2210
-#, fuzzy, php-format
-#| msgid "Allows reading data."
+#, php-format
 msgid "Error reading data for table %s:"
-msgstr "Sallii tietojen lukemisen."
+msgstr "Virhe luettaessa taulukon %s tietoja:"
 
 #: libraries/classes/Plugins/Export/ExportXml.php:100
 msgid "Object creation options (all are recommended)"
@@ -9912,10 +9807,8 @@ msgid "Export contents"
 msgstr "Vie sisällöt"
 
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:159
-#, fuzzy
-#| msgid "Table"
 msgid "Table:"
-msgstr "Taulu"
+msgstr "Taulukko:"
 
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:160
 msgid "Purpose:"
@@ -11102,10 +10995,9 @@ msgstr "%s on onnistuneesti vaihdettu isäntäpalvelimeksi"
 #: libraries/classes/Rte/Routines.php:1495
 #: libraries/classes/Rte/Triggers.php:97 libraries/classes/Rte/Triggers.php:106
 #: libraries/classes/Rte/Triggers.php:138
-#, fuzzy, php-format
-#| msgid "The following queries have been executed:"
+#, php-format
 msgid "The following query has failed: \"%s\""
-msgstr "Seuraavat kyselyt on suoritettu:"
+msgstr "Seuraava kysely epäonnistui: \"%s\""
 
 #: libraries/classes/Rte/Events.php:126 libraries/classes/Rte/Events.php:135
 #: libraries/classes/Rte/Events.php:166 libraries/classes/Rte/General.php:48
@@ -11124,10 +11016,9 @@ msgid "Sorry, we failed to restore the dropped event."
 msgstr ""
 
 #: libraries/classes/Rte/Events.php:149
-#, fuzzy, php-format
-#| msgid "Table %s has been dropped."
+#, php-format
 msgid "Event %1$s has been modified."
-msgstr "Taulu %s on poistettu"
+msgstr "Tapahtumaa %1$s on muokattu."
 
 #: libraries/classes/Rte/Events.php:169
 #, fuzzy, php-format
@@ -11148,10 +11039,8 @@ msgstr "Muokkaa palvelinta"
 
 #: libraries/classes/Rte/Events.php:404 libraries/classes/Rte/Routines.php:906
 #: libraries/classes/Rte/Triggers.php:339 templates/view_create.twig:8
-#, fuzzy
-#| msgid "Details…"
 msgid "Details"
-msgstr "Lisätiedot…"
+msgstr "Yksityiskohdat"
 
 #: libraries/classes/Rte/Events.php:407
 #, fuzzy
@@ -11160,10 +11049,9 @@ msgid "Event name"
 msgstr "Tapahtuman tyyppi"
 
 #: libraries/classes/Rte/Events.php:450 libraries/classes/Rte/Routines.php:929
-#, fuzzy, php-format
-#| msgid "Change"
+#, php-format
 msgid "Change to %s"
-msgstr "Muokkaa"
+msgstr "Vaihda %s:ksi"
 
 #: libraries/classes/Rte/Events.php:456
 msgid "Execute at"
@@ -11206,10 +11094,8 @@ msgid "The definer must be in the \"username@hostname\" format!"
 msgstr ""
 
 #: libraries/classes/Rte/Events.php:562
-#, fuzzy
-#| msgid "Invalid table name"
 msgid "You must provide an event name!"
-msgstr "Virheellinen taulun nimi"
+msgstr "Sinun on annettava tapahtuman nimi!"
 
 #: libraries/classes/Rte/Events.php:577
 msgid "You must provide a valid interval value for the event."
@@ -11231,10 +11117,8 @@ msgstr ""
 #: libraries/classes/Rte/Routines.php:172
 #: libraries/classes/Rte/Routines.php:1332
 #: libraries/classes/Rte/Routines.php:1542
-#, fuzzy
-#| msgid "Error in Processing Request"
 msgid "Error in processing request:"
-msgstr "Virhe pyynnön käsittelyssä"
+msgstr "Virhe pyynnön käsittelyssä:"
 
 #: libraries/classes/Rte/Footer.php:102
 msgid "OFF"
@@ -11284,16 +11168,14 @@ msgid "Sorry, we failed to restore the dropped routine."
 msgstr ""
 
 #: libraries/classes/Rte/Routines.php:449
-#, fuzzy, php-format
-#| msgid "Table %s has been dropped."
+#, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
-msgstr "Taulu %s on poistettu"
+msgstr "Rutiinia %1$s on muokattu. Oikeuksia on säädetty."
 
 #: libraries/classes/Rte/Routines.php:454
-#, fuzzy, php-format
-#| msgid "Table %s has been dropped."
+#, php-format
 msgid "Routine %1$s has been modified."
-msgstr "Taulu %s on poistettu"
+msgstr "Rutiinia %1$s on muokattu."
 
 #: libraries/classes/Rte/Routines.php:909
 #, fuzzy
@@ -11360,10 +11242,8 @@ msgid "SQL data access"
 msgstr ""
 
 #: libraries/classes/Rte/Routines.php:1143
-#, fuzzy
-#| msgid "Invalid table name"
 msgid "You must provide a routine name!"
-msgstr "Virheellinen taulun nimi"
+msgstr "Sinun on annettava rutiinin nimi!"
 
 #: libraries/classes/Rte/Routines.php:1177
 #, php-format
@@ -11390,10 +11270,9 @@ msgid "You must provide a routine definition."
 msgstr ""
 
 #: libraries/classes/Rte/Routines.php:1418
-#, fuzzy, php-format
-#| msgid "Allows executing stored routines."
+#, php-format
 msgid "Execution results of routine %s"
-msgstr "Sallii talletettujen rutiinien suorittamisen."
+msgstr "Rutiinin %s suorituksen tulokset"
 
 #: libraries/classes/Rte/Routines.php:1473
 #, php-format
@@ -11425,10 +11304,9 @@ msgid "Sorry, we failed to restore the dropped trigger."
 msgstr ""
 
 #: libraries/classes/Rte/Triggers.php:125
-#, fuzzy, php-format
-#| msgid "Table %s has been dropped."
+#, php-format
 msgid "Trigger %1$s has been modified."
-msgstr "Taulu %s on poistettu"
+msgstr "Liipaisinta %1$s on muokattu."
 
 #: libraries/classes/Rte/Triggers.php:145
 #, fuzzy, php-format
@@ -11456,28 +11334,20 @@ msgid "Time"
 msgstr "Aika"
 
 #: libraries/classes/Rte/Triggers.php:445
-#, fuzzy
-#| msgid "Invalid table name"
 msgid "You must provide a trigger name!"
-msgstr "Virheellinen taulun nimi"
+msgstr "Sinun on annettava liipaisimen nimi!"
 
 #: libraries/classes/Rte/Triggers.php:452
-#, fuzzy
-#| msgid "Invalid table name"
 msgid "You must provide a valid timing for the trigger!"
-msgstr "Virheellinen taulun nimi"
+msgstr "Sinun on annettava kelvollinen ajoitus liipaisimelle!"
 
 #: libraries/classes/Rte/Triggers.php:459
-#, fuzzy
-#| msgid "Invalid table name"
 msgid "You must provide a valid event for the trigger!"
-msgstr "Virheellinen taulun nimi"
+msgstr "Sinun on annettava kelvollinen tapahtuma liipaisimelle!"
 
 #: libraries/classes/Rte/Triggers.php:467
-#, fuzzy
-#| msgid "Invalid table name"
 msgid "You must provide a valid table name!"
-msgstr "Virheellinen taulun nimi"
+msgstr "Sinun on annettava kelvollinen taulukon nimi!"
 
 #: libraries/classes/Rte/Triggers.php:473
 msgid "You must provide a trigger definition."
@@ -11490,10 +11360,9 @@ msgid "Add routine"
 msgstr "Lisää rutiini"
 
 #: libraries/classes/Rte/Words.php:34
-#, fuzzy, php-format
-#| msgid "Export defaults"
+#, php-format
 msgid "Export of routine %s"
-msgstr "Vie oletusarvot"
+msgstr "Rutiinin %s vienti"
 
 #: libraries/classes/Rte/Words.php:35
 #, fuzzy
@@ -11522,10 +11391,9 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Rte/Words.php:47
-#, fuzzy, php-format
-#| msgid "No tables found in database."
+#, php-format
 msgid "No routine with name %1$s found in database %2$s."
-msgstr "Tietokannassa ei ole tauluja."
+msgstr "Tietokannasta %2$s ei löytynyt rutiinia nimeltä %1$s."
 
 #: libraries/classes/Rte/Words.php:48
 #, fuzzy
@@ -11540,10 +11408,9 @@ msgid "Add trigger"
 msgstr "Lisää uusi palvelin"
 
 #: libraries/classes/Rte/Words.php:56
-#, fuzzy, php-format
-#| msgid "Export contents"
+#, php-format
 msgid "Export of trigger %s"
-msgstr "Vie sisällöt"
+msgstr "Liipaisimen %s vienti"
 
 #: libraries/classes/Rte/Words.php:57
 #, fuzzy
@@ -11558,10 +11425,9 @@ msgid "You do not have the necessary privileges to create a trigger."
 msgstr "Sinulla ei ole riittäviä oikeuksia!"
 
 #: libraries/classes/Rte/Words.php:61
-#, fuzzy, php-format
-#| msgid "No tables found in database."
+#, php-format
 msgid "No trigger with name %1$s found in database %2$s."
-msgstr "Tietokannassa ei ole tauluja."
+msgstr "Tietokannasta %2$s ei löytynyt liipaisinta nimeltä %1$s."
 
 #: libraries/classes/Rte/Words.php:62
 #, fuzzy
@@ -11576,10 +11442,9 @@ msgid "Add event"
 msgstr "Lisää uusi palvelin"
 
 #: libraries/classes/Rte/Words.php:70
-#, fuzzy, php-format
-#| msgid "Export contents"
+#, php-format
 msgid "Export of event %s"
-msgstr "Vie sisällöt"
+msgstr "Tapahtuman %s vienti"
 
 #: libraries/classes/Rte/Words.php:71
 #, fuzzy
@@ -11594,10 +11459,9 @@ msgid "You do not have the necessary privileges to create an event."
 msgstr "Sinulla ei ole riittäviä oikeuksia!"
 
 #: libraries/classes/Rte/Words.php:75
-#, fuzzy, php-format
-#| msgid "No tables found in database."
+#, php-format
 msgid "No event with name %1$s found in database %2$s."
-msgstr "Tietokannassa ei ole tauluja."
+msgstr "Tietokannasta %2$s ei löytynyt tapahtumaa nimeltä %1$s."
 
 #: libraries/classes/Rte/Words.php:76
 #, fuzzy
@@ -12035,10 +11899,8 @@ msgid "Users having access to \"%s\""
 msgstr "Käyttäjät, joilla on oikeus käyttää kohdetta \"%s\""
 
 #: libraries/classes/Server/Privileges.php:2432
-#, fuzzy
-#| msgid "View %s has been dropped."
 msgid "User has been added."
-msgstr "Näkymä %s on poistettu"
+msgstr "Käyttäjä on lisätty."
 
 #: libraries/classes/Server/Privileges.php:2585
 #: libraries/classes/Server/Privileges.php:3570
@@ -12760,10 +12622,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Server/Status/Variables.php:345
-#, fuzzy
-#| msgid "Could not connect to MySQL server"
 msgid "The number of failed attempts to connect to the MySQL server."
-msgstr "MySQL-palvelimeen ei voitu yhdistää"
+msgstr "Epäonnistuneiden MySQL-palvelimeen yhdistämisyritysten määrä."
 
 #: libraries/classes/Server/Status/Variables.php:348
 msgid ""
@@ -13446,10 +13306,8 @@ msgstr ""
 "suorituskykyyn.)"
 
 #: libraries/classes/Server/Status/Variables.php:769
-#, fuzzy
-#| msgid "Tracking is not active."
 msgid "Thread cache hit rate (calculated value)"
-msgstr "Seuranta ei ole käytössä."
+msgstr "Säikeiden välimuistin osumisprosentti (laskettu arvo)"
 
 #: libraries/classes/Server/Status/Variables.php:772
 msgid "The number of threads that are not sleeping."
@@ -13597,10 +13455,8 @@ msgid "Let every user access this bookmark"
 msgstr "Anna kaikkien käyttäjien käyttää tätä kirjanmerkkiä"
 
 #: libraries/classes/Sql.php:831
-#, fuzzy
-#| msgid "Bookmark %s created"
 msgid "Bookmark not created!"
-msgstr "Kirjanmerkki %s luotu"
+msgstr "Kirjanmerkkiä ei luotu!"
 
 #: libraries/classes/Sql.php:941
 #, php-format
@@ -14687,16 +14543,12 @@ msgid "You can reset all your settings and restore them to default values."
 msgstr ""
 
 #: prefs_twofactor.php:29
-#, fuzzy
-#| msgid "Internal relation added"
 msgid "Two-factor authentication has been removed."
-msgstr "Sisäinen relaatio luotu"
+msgstr "Kaksivaiheinen todennus on poistettu."
 
 #: prefs_twofactor.php:39
-#, fuzzy
-#| msgid "Invalid authentication method set in configuration:"
 msgid "Two-factor authentication has been configured."
-msgstr "Asetuksissa on virheellinen todennustapa:"
+msgstr "Kaksivaiheinen todennus on määritetty."
 
 #: server_export.php:25
 msgid "View dump (schema) of databases"
@@ -14961,10 +14813,8 @@ msgstr "Virheellinen taulun nimi"
 
 #. l10n: In case a SQL query did not pass a security check
 #: tbl_get_field.php:46 transformation_wrapper.php:69
-#, fuzzy
-#| msgid "There are no files to upload"
 msgid "There is an issue with your request."
-msgstr "Lähetettäviä tiedostoja ei ole"
+msgstr "Pyyntösi kanssa on vika."
 
 #: tbl_replace.php:258
 #, php-format
@@ -14972,16 +14822,13 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
 
 #: tbl_row_action.php:73
-#, fuzzy
-#| msgid "No rows selected"
 msgid "No row selected."
-msgstr "Ei yhtään riviä valittu"
+msgstr "Ei yhtään riviä valittu."
 
 #: tbl_tracking.php:34
-#, fuzzy, php-format
-#| msgid "Tracking of %s.%s is activated."
+#, php-format
 msgid "Tracking of %s is activated."
-msgstr "Kohteen %s.%s seuranta on käytössä."
+msgstr "%s:n seuranta on aktivoitu."
 
 #: tbl_tracking.php:103
 #, fuzzy
@@ -14990,10 +14837,8 @@ msgid "Tracking versions deleted successfully."
 msgstr "Valitsemiesi käyttäjien poisto onnistui."
 
 #: tbl_tracking.php:108
-#, fuzzy
-#| msgid "No rows selected"
 msgid "No versions selected."
-msgstr "Ei yhtään riviä valittu"
+msgstr "Ei valittuja versioita."
 
 #: tbl_tracking.php:139
 msgid "SQL statements executed."
@@ -17314,6 +17159,8 @@ msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr ""
+"Tarkempien keskiarvojen saamiseksi on suositeltavaa antaa palvelimen olla "
+"päällä yli vuorokauden ennen tämän analysaattorin käyttämistä."
 
 #: libraries/advisory_rules_generic.txt:54
 #, php-format
@@ -17339,10 +17186,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.txt:61
-#, fuzzy, php-format
-#| msgid "Current connection"
+#, php-format
 msgid "Current amount of Questions: %s"
-msgstr "Nykyinen yhteys"
+msgstr "Kysymysten nykyinen määrä: %s"
 
 #: libraries/advisory_rules_generic.txt:63
 #, fuzzy
@@ -17429,10 +17275,8 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.txt:89
-#, fuzzy
-#| msgid "long_query_time is set to %d second(s)."
 msgid "log_slow_queries is set to 'OFF'"
-msgstr "long_query_time on asetettu %d sekuntiin."
+msgstr "log_slow_queries on asetettu 'OFFi':ksi"
 
 #: libraries/advisory_rules_generic.txt:95
 msgid ""
@@ -17465,10 +17309,9 @@ msgstr ""
 #: libraries/advisory_rules_generic.txt:105
 #: libraries/advisory_rules_generic.txt:112
 #: libraries/advisory_rules_generic.txt:119
-#, fuzzy, php-format
-#| msgid "Create version"
+#, php-format
 msgid "Current version: %s"
-msgstr "Luo versio"
+msgstr "Nykyinen versio: %s"
 
 #: libraries/advisory_rules_generic.txt:107
 #: libraries/advisory_rules_generic.txt:114
@@ -17562,10 +17405,8 @@ msgid "Query caching method"
 msgstr "Kyselyvälimuisti"
 
 #: libraries/advisory_rules_generic.txt:148
-#, fuzzy
-#| msgid "Query cache"
 msgid "Suboptimal caching method."
-msgstr "Kyselyvälimuisti"
+msgstr "Alioptimaalinen välimuistimenetelmä."
 
 #: libraries/advisory_rules_generic.txt:149
 msgid ""
@@ -17583,10 +17424,8 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.txt:154
-#, fuzzy
-#| msgid "Allows creating temporary tables."
 msgid "Percentage of sorts that cause temporary tables"
-msgstr "Sallii tilapäisten taulujen luomisen."
+msgstr "Tilapäisiä taulukoita aiheuttavien lajittelujen prosenttiosuus"
 
 #: libraries/advisory_rules_generic.txt:157
 #: libraries/advisory_rules_generic.txt:164
@@ -17610,17 +17449,16 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.txt:161
-#, fuzzy
-#| msgid "Allows creating temporary tables."
 msgid "Rate of sorts that cause temporary tables"
-msgstr "Sallii tilapäisten taulujen luomisen."
+msgstr "Tilapäisiä taulukoita aiheuttavien lajittelujen osuus"
 
 #: libraries/advisory_rules_generic.txt:166
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
-msgstr "Lajittelupuskurin koko"
+msgstr ""
+"Väliaikaisten taulukoiden keskiarvo: %s, tämän arvon tulisi olla alle yksi "
+"tunnissa."
 
 #: libraries/advisory_rules_generic.txt:168
 #, fuzzy
@@ -17652,10 +17490,8 @@ msgid "Rate of joins without indexes"
 msgstr "Lähetettäviä tiedostoja ei ole"
 
 #: libraries/advisory_rules_generic.txt:179
-#, fuzzy
-#| msgid "There are no files to upload"
 msgid "There are too many joins without indexes."
-msgstr "Lähetettäviä tiedostoja ei ole"
+msgstr "Liian monta liitosta ilman indeksejä."
 
 #: libraries/advisory_rules_generic.txt:180
 msgid ""
@@ -17664,10 +17500,11 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.txt:181
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
-msgstr "Lajittelupuskurin koko"
+msgstr ""
+"Taulukkoihin liittymisten keskiarvo: %s, tämän arvon tulisi olla alle yksi "
+"tunnissa"
 
 #: libraries/advisory_rules_generic.txt:183
 #, fuzzy
@@ -17692,10 +17529,10 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.txt:188
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid "Index scans average: %s, this value should be less than 1 per hour"
-msgstr "Lajittelupuskurin koko"
+msgstr ""
+"Indeksiskannausten keskiarvo: %s, tämän arvon tulisi olla alle yksi tunnissa"
 
 #: libraries/advisory_rules_generic.txt:190
 #, fuzzy
@@ -17742,11 +17579,12 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.txt:202
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
-msgstr "Lajittelupuskurin koko"
+msgstr ""
+"Seuraavan taulukkorivin lukunopeus: %s, tämän arvon tulisi olla alle yksi "
+"tunnissa"
 
 #: libraries/advisory_rules_generic.txt:205
 msgid "Different tmp_table_size and max_heap_table_size"
@@ -17928,10 +17766,10 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.txt:264
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
-msgstr "Lajittelupuskurin koko"
+msgstr ""
+"Avattujen pöytien määrä: %s, tämän arvon tulisi olla alle kymmenen tunnissa"
 
 #: libraries/advisory_rules_generic.txt:266
 #, fuzzy
@@ -17971,10 +17809,10 @@ msgid "The rate of opening files is high."
 msgstr "Lokitiedoston avointen fsync-synkronointien määrä."
 
 #: libraries/advisory_rules_generic.txt:278
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
-msgstr "Lajittelupuskurin koko"
+msgstr ""
+"Avattujen tiedostojen määrä: %s, tämän arvon tulisi olla alle viisi tunnissa"
 
 #: libraries/advisory_rules_generic.txt:280
 #, fuzzy, php-format
@@ -18005,10 +17843,10 @@ msgid "Table lock wait rate"
 msgstr ""
 
 #: libraries/advisory_rules_generic.txt:292
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
-msgstr "Lajittelupuskurin koko"
+msgstr ""
+"Pöydän lukituksen odotusmäärä: %s, tämän arvon tulisi olla alle yksi tunnissa"
 
 #: libraries/advisory_rules_generic.txt:294
 #, fuzzy
@@ -18027,10 +17865,8 @@ msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr ""
 
 #: libraries/advisory_rules_generic.txt:299
-#, fuzzy
-#| msgid "Tracking is not active."
 msgid "The thread cache is set to 0"
-msgstr "Seuranta ei ole käytössä."
+msgstr "Säikeen välimuisti on asetettu 0:ksi"
 
 #: libraries/advisory_rules_generic.txt:301
 #, fuzzy, php-format
@@ -18055,10 +17891,8 @@ msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr "Lajittelupuskurin koko"
 
 #: libraries/advisory_rules_generic.txt:308
-#, fuzzy
-#| msgid "The number of threads that are not sleeping."
 msgid "Threads that are slow to launch"
-msgstr "Hereillä olevien säikeiden määrä."
+msgstr "Hitaasti käynnistyvät säikeet"
 
 #: libraries/advisory_rules_generic.txt:311
 #, fuzzy
@@ -18096,10 +17930,9 @@ msgid ""
 msgstr "Hereillä olevien säikeiden määrä."
 
 #: libraries/advisory_rules_generic.txt:320
-#, fuzzy, php-format
-#| msgid "long_query_time is set to %d second(s)."
+#, php-format
 msgid "slow_launch_time is set to %s"
-msgstr "long_query_time on asetettu %d sekuntiin."
+msgstr "slow_launch_time on asetettu %s:ksi"
 
 #: libraries/advisory_rules_generic.txt:324
 #, fuzzy
@@ -18196,20 +18029,19 @@ msgid "Rate of aborted clients"
 msgstr "Tuotavan tiedoston muoto"
 
 #: libraries/advisory_rules_generic.txt:357
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
-msgstr "Lajittelupuskurin koko"
+msgstr ""
+"Keskeytettyjen asiakkaiden määrä on %s, tämän arvon tulisi olla alle yksi "
+"tunnissa"
 
 #: libraries/advisory_rules_generic.txt:361
 msgid "Is InnoDB disabled?"
 msgstr "Onko InnoDB poistettu käytöstä?"
 
 #: libraries/advisory_rules_generic.txt:364
-#, fuzzy
-#| msgid "Cannot load or save configuration"
 msgid "You do not have InnoDB enabled."
-msgstr "Asetuksia ei voi ladata tai tallentaa"
+msgstr "InnoDB ei ole käytössä."
 
 #: libraries/advisory_rules_generic.txt:365
 msgid "InnoDB is usually the better choice for table engines."
@@ -18292,10 +18124,8 @@ msgid "InnoDB buffer pool size"
 msgstr "InnoDB-puskurivarannon koko"
 
 #: libraries/advisory_rules_generic.txt:385
-#, fuzzy
-#| msgid "Buffer pool size"
 msgid "Your InnoDB buffer pool is fairly small."
-msgstr "Puskurivarannon koko"
+msgstr "InnoDB-puskurivarastosi on melko pieni."
 
 #: libraries/advisory_rules_generic.txt:386
 #, php-format
@@ -18355,10 +18185,8 @@ msgid "Query cache disabled"
 msgstr "Kyselyvälimuisti"
 
 #: libraries/advisory_rules_mysql_before80003.txt:13
-#, fuzzy
-#| msgid "The server is not responding"
 msgid "The query cache is not enabled."
-msgstr "Palvelin ei vastaa"
+msgstr "Kyselyvälimuistia ei ole otettu käyttöön."
 
 #: libraries/advisory_rules_mysql_before80003.txt:14
 msgid ""
@@ -18408,13 +18236,13 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_mysql_before80003.txt:29
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "The current ratio of free query cache memory to total query cache size is %s"
 "%%. It should be above 80%%"
 msgstr ""
 "Vapaan kyselyvälimuistin nykyinen suhde kyselyn välimuistin kokonaiskokoon "
-"on %s %%. Sen pitäisi olla yli 80%%"
+"on %s %%. Sen pitäisi olla yli 80 %%"
 
 #: libraries/advisory_rules_mysql_before80003.txt:31
 #, fuzzy
@@ -18423,10 +18251,8 @@ msgid "Query cache fragmentation"
 msgstr "Kyselyvälimuisti"
 
 #: libraries/advisory_rules_mysql_before80003.txt:34
-#, fuzzy
-#| msgid "The server is not responding"
 msgid "The query cache is considerably fragmented."
-msgstr "Palvelin ei vastaa"
+msgstr "Kyselyvälimuisti on huomattavasti pirstaloitunut."
 
 #: libraries/advisory_rules_mysql_before80003.txt:35
 msgid ""
@@ -18500,10 +18326,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_mysql_before80003.txt:50
-#, fuzzy, php-format
-#| msgid "Create version"
+#, php-format
 msgid "Current query cache size: %s"
-msgstr "Luo versio"
+msgstr "Nykyinen kyselyvälimuistin koko: %s"
 
 #: libraries/advisory_rules_mysql_before80003.txt:52
 #, fuzzy
