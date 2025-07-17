@@ -12,11 +12,13 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use Webmozart\Assert\Assert;
 
 use function __;
 use function is_array;
 
+#[Route('/table/structure/central-columns-remove', ['POST'])]
 final class CentralColumnsRemoveController implements InvocableController
 {
     public function __construct(

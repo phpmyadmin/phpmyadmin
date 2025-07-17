@@ -65,7 +65,7 @@ abstract class SubstringTransformationsPlugin extends TransformationsPlugin
                 $newtext = $options[2] . $newtext;
             }
 
-            if ($length + $optionZero != $baselength) {
+            if ($length + $optionZero !== $baselength) {
                 $newtext .= $options[2];
             }
         }

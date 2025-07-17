@@ -121,7 +121,7 @@ class Tracker
             $dbi->quoteString($tableName, ConnectionType::ControlUser),
         );
 
-        $result = $dbi->fetchValue($sqlQuery, 0, ConnectionType::ControlUser) == 1;
+        $result = (int) $dbi->fetchValue($sqlQuery, 0, ConnectionType::ControlUser) === 1;
 
         self::$trackingCache[$dbName][$tableName] = $result;
 
@@ -199,12 +199,12 @@ class Tracker
         // Get DROP TABLE / DROP VIEW and CREATE TABLE SQL statements
         $createSql = '';
 
-        if ($config->selectedServer['tracking_add_drop_table'] == true && ! $isView) {
+        if ($config->selectedServer['tracking_add_drop_table'] && ! $isView) {
             $createSql .= self::getLogComment()
                 . 'DROP TABLE IF EXISTS ' . Util::backquote($tableName) . ";\n";
         }
 
-        if ($config->selectedServer['tracking_add_drop_view'] == true && $isView) {
+        if ($config->selectedServer['tracking_add_drop_view'] && $isView) {
             $createSql .= self::getLogComment()
                 . 'DROP VIEW IF EXISTS ' . Util::backquote($tableName) . ";\n";
         }
@@ -267,7 +267,7 @@ class Tracker
 
         $createSql = '';
 
-        if ($config->selectedServer['tracking_add_drop_database'] == true) {
+        if ($config->selectedServer['tracking_add_drop_database']) {
             $createSql .= self::getLogComment() . 'DROP DATABASE IF EXISTS ' . Util::backquote($dbName) . ";\n";
         }
 
@@ -387,7 +387,7 @@ class Tracker
             $dbi->quoteString($tablename, ConnectionType::ControlUser),
         );
 
-        if ($statement != '') {
+        if ($statement !== null && $statement !== '') {
             $sqlQuery .= " AND FIND_IN_SET('" . $statement . "',tracking) > 0";
         }
 
@@ -592,7 +592,7 @@ class Tracker
         $version = self::getVersion($dbname, $result['tablename'], $result['identifier']);
 
         // If version not exists and auto-creation is enabled
-        if (Config::getInstance()->selectedServer['tracking_version_auto_create'] == true && $version == -1) {
+        if (Config::getInstance()->selectedServer['tracking_version_auto_create'] && $version === -1) {
             // Create the version
 
             switch ($result['identifier']) {
@@ -609,7 +609,7 @@ class Tracker
         }
 
         // If version exists
-        if ($version == -1) {
+        if ($version === -1) {
             return;
         }
 

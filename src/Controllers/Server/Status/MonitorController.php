@@ -9,6 +9,7 @@ use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\SysInfo\SysInfo;
 use PhpMyAdmin\Template;
@@ -16,6 +17,7 @@ use PhpMyAdmin\Template;
 use function is_numeric;
 use function microtime;
 
+#[Route('/server/status/monitor', ['GET'])]
 final class MonitorController extends AbstractController implements InvocableController
 {
     public function __construct(

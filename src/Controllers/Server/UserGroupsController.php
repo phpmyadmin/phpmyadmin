@@ -12,6 +12,7 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 
 use function __;
 use function is_string;
@@ -19,6 +20,7 @@ use function is_string;
 /**
  * Displays the 'User groups' sub page under 'Users' page.
  */
+#[Route('/server/user-groups', ['GET', 'POST'])]
 final class UserGroupsController implements InvocableController
 {
     public function __construct(

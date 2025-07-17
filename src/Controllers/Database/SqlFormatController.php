@@ -8,11 +8,13 @@ use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\SqlParser\Utils\Formatter;
 
 /**
  * Format SQL for SQL editors.
  */
+#[Route('/database/sql/format', ['POST'])]
 final class SqlFormatController implements InvocableController
 {
     public function __construct(private readonly ResponseRenderer $response)

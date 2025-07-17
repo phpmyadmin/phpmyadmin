@@ -9,6 +9,7 @@ use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Server\Plugins;
 
 use function array_keys;
@@ -19,6 +20,7 @@ use function preg_replace;
 /**
  * Handles viewing server plugin details
  */
+#[Route('/server/plugins', ['GET'])]
 final class PluginsController implements InvocableController
 {
     public function __construct(

@@ -23,10 +23,3 @@ if (! defined('TESTSUITE')) {
 include_once ROOT_PATH . 'examples/signon-script.php';
 require_once ROOT_PATH . 'app/constants.php';
 require_once AUTOLOAD_FILE;
-
-// phpcs:disable PSR1.Files.SideEffects
-if (! defined('PMA_PATH_TO_BASEDIR')) {
-    define('PMA_PATH_TO_BASEDIR', '');
-}
-
-// phpcs:enable

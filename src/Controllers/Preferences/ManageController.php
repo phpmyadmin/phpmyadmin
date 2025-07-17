@@ -17,6 +17,7 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\Util;
@@ -45,6 +46,7 @@ use const UPLOAD_ERR_OK;
 /**
  * User preferences management page.
  */
+#[Route('/preferences/manage', ['GET', 'POST'])]
 final class ManageController implements InvocableController
 {
     public function __construct(
@@ -217,9 +219,8 @@ final class ManageController implements InvocableController
 
                     // reload config
                     $this->config->loadUserPreferences($this->themeManager);
-                    $this->userPreferences->redirect($returnUrl ?? '', $redirectParams);
 
-                    return $this->response->response();
+                    return $this->userPreferences->redirect($returnUrl ?? '', $redirectParams);
                 }
 
                 $error = $result;
@@ -228,9 +229,8 @@ final class ManageController implements InvocableController
             $result = $this->userPreferences->save([]);
             if ($result === true) {
                 $this->config->removeCookie('pma_lang');
-                $this->userPreferences->redirect('index.php?route=/preferences/manage');
 
-                return $this->response->response();
+                return $this->userPreferences->redirect('index.php?route=/preferences/manage');
             }
 
             return $this->response->response();

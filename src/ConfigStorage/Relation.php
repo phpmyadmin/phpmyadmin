@@ -160,43 +160,43 @@ class Relation
         }
 
         foreach ($tables as $table) {
-            if ($table == $this->config->selectedServer['bookmarktable']) {
+            if ($table === $this->config->selectedServer['bookmarktable']) {
                 $relationParams['bookmark'] = $table;
-            } elseif ($table == $this->config->selectedServer['relation']) {
+            } elseif ($table === $this->config->selectedServer['relation']) {
                 $relationParams['relation'] = $table;
-            } elseif ($table == $this->config->selectedServer['table_info']) {
+            } elseif ($table === $this->config->selectedServer['table_info']) {
                 $relationParams['table_info'] = $table;
-            } elseif ($table == $this->config->selectedServer['table_coords']) {
+            } elseif ($table === $this->config->selectedServer['table_coords']) {
                 $relationParams['table_coords'] = $table;
-            } elseif ($table == $this->config->selectedServer['column_info']) {
+            } elseif ($table === $this->config->selectedServer['column_info']) {
                 $relationParams['column_info'] = $table;
-            } elseif ($table == $this->config->selectedServer['pdf_pages']) {
+            } elseif ($table === $this->config->selectedServer['pdf_pages']) {
                 $relationParams['pdf_pages'] = $table;
-            } elseif ($table == $this->config->selectedServer['history']) {
+            } elseif ($table === $this->config->selectedServer['history']) {
                 $relationParams['history'] = $table;
-            } elseif ($table == $this->config->selectedServer['recent']) {
+            } elseif ($table === $this->config->selectedServer['recent']) {
                 $relationParams['recent'] = $table;
-            } elseif ($table == $this->config->selectedServer['favorite']) {
+            } elseif ($table === $this->config->selectedServer['favorite']) {
                 $relationParams['favorite'] = $table;
-            } elseif ($table == $this->config->selectedServer['table_uiprefs']) {
+            } elseif ($table === $this->config->selectedServer['table_uiprefs']) {
                 $relationParams['table_uiprefs'] = $table;
-            } elseif ($table == $this->config->selectedServer['tracking']) {
+            } elseif ($table === $this->config->selectedServer['tracking']) {
                 $relationParams['tracking'] = $table;
-            } elseif ($table == $this->config->selectedServer['userconfig']) {
+            } elseif ($table === $this->config->selectedServer['userconfig']) {
                 $relationParams['userconfig'] = $table;
-            } elseif ($table == $this->config->selectedServer['users']) {
+            } elseif ($table === $this->config->selectedServer['users']) {
                 $relationParams['users'] = $table;
-            } elseif ($table == $this->config->selectedServer['usergroups']) {
+            } elseif ($table === $this->config->selectedServer['usergroups']) {
                 $relationParams['usergroups'] = $table;
-            } elseif ($table == $this->config->selectedServer['navigationhiding']) {
+            } elseif ($table === $this->config->selectedServer['navigationhiding']) {
                 $relationParams['navigationhiding'] = $table;
-            } elseif ($table == $this->config->selectedServer['savedsearches']) {
+            } elseif ($table === $this->config->selectedServer['savedsearches']) {
                 $relationParams['savedsearches'] = $table;
-            } elseif ($table == $this->config->selectedServer['central_columns']) {
+            } elseif ($table === $this->config->selectedServer['central_columns']) {
                 $relationParams['central_columns'] = $table;
-            } elseif ($table == $this->config->selectedServer['designer_settings']) {
+            } elseif ($table === $this->config->selectedServer['designer_settings']) {
                 $relationParams['designer_settings'] = $table;
-            } elseif ($table == $this->config->selectedServer['export_templates']) {
+            } elseif ($table === $this->config->selectedServer['export_templates']) {
                 $relationParams['export_templates'] = $table;
             }
         }
@@ -421,7 +421,7 @@ class Relation
                 foreach ($internalRelations[$table] as $field => $relations) {
                     if (
                         ($column !== '' && $column !== $field)
-                        || (isset($foreign[$field]) && $foreign[$field] != '')
+                        || (isset($foreign[$field]) && $foreign[$field] !== '')
                     ) {
                         continue;
                     }
@@ -750,7 +750,7 @@ class Relation
         // beginning of dropdown
         $ret = '<option value="">&nbsp;</option>';
         $topCount = count($top);
-        if ($max == -1 || $topCount < $max) {
+        if ($max === -1 || $topCount < $max) {
             $ret .= implode('', $top);
             if ($foreignDisplay && $topCount > 0) {
                 // this empty option is to visually mark the beginning of the
@@ -796,7 +796,7 @@ class Relation
             }
 
             $foreigner = $this->searchColumnInForeigners($foreigners, $field);
-            if ($foreigner == false) {
+            if ($foreigner === false || $foreigner === []) {
                 break;
             }
 

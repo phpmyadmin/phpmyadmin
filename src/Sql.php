@@ -40,6 +40,7 @@ use function count;
 use function defined;
 use function htmlspecialchars;
 use function in_array;
+use function is_string;
 use function session_start;
 use function session_write_close;
 use function sprintf;
@@ -153,18 +154,18 @@ class Sql
         $justOneTable = true;
         $prevTable = '';
         foreach ($fieldsMeta as $oneFieldMeta) {
-            if ($oneFieldMeta->table != '' && $prevTable != '' && $oneFieldMeta->table != $prevTable) {
+            if ($oneFieldMeta->table !== '' && $prevTable !== '' && $oneFieldMeta->table !== $prevTable) {
                 $justOneTable = false;
             }
 
-            if ($oneFieldMeta->table == '') {
+            if ($oneFieldMeta->table === '') {
                 continue;
             }
 
             $prevTable = $oneFieldMeta->table;
         }
 
-        return $justOneTable && $prevTable != '';
+        return $justOneTable && $prevTable !== '';
     }
 
     /**
@@ -576,10 +577,10 @@ class Sql
             return false;
         }
 
+        /** Is false, except when a USE statement was sent. */
         $currentDb = $this->dbi->fetchValue('SELECT DATABASE()');
 
-        // $current_db is false, except when a USE statement was sent
-        return ($currentDb != false) && ($db !== $currentDb);
+        return is_string($currentDb) && $db !== $currentDb;
     }
 
     /**
@@ -1082,7 +1083,7 @@ class Sql
         StatementInfo $statementInfo,
         bool $isLimitedDisplay = false,
     ): string {
-        $printView = isset($_POST['printview']) && $_POST['printview'] == '1';
+        $printView = isset($_POST['printview']) && $_POST['printview'];
         $isBrowseDistinct = ! empty($_POST['is_browse_distinct']);
 
         if ($statementInfo->flags->isProcedure) {
@@ -1273,7 +1274,7 @@ class Sql
     ): string {
         // If we are retrieving the full value of a truncated field or the original
         // value of a transformed field, show it here
-        if (isset($_POST['grid_edit']) && $_POST['grid_edit'] == true) {
+        if (isset($_POST['grid_edit']) && $_POST['grid_edit']) {
             $this->getResponseForGridEdit($result);
             ResponseRenderer::getInstance()->callExit();
         }
@@ -1343,7 +1344,7 @@ class Sql
             ]);
         }
 
-        if (isset($_POST['printview']) && $_POST['printview'] == '1') {
+        if (isset($_POST['printview']) && $_POST['printview']) {
             $displayParts = DisplayParts::fromArray([
                 'hasEditLink' => false,
                 'deleteLink' => DeleteLinkEnum::NO_DELETE,
@@ -1355,7 +1356,7 @@ class Sql
             ]);
         }
 
-        if (! isset($_POST['printview']) || $_POST['printview'] != '1') {
+        if (! isset($_POST['printview']) || ! $_POST['printview']) {
             $scripts->addFile('makegrid.js');
             $scripts->addFile('sql.js');
             Current::$message = null;
@@ -1561,7 +1562,7 @@ class Sql
         $warningMessages = $this->dbi->getWarnings();
 
         // No rows returned -> move back to the calling page
-        if (($numRows == 0 && $unlimNumRows == 0) || $statementInfo->flags->isAffected || $result === false) {
+        if (($numRows === 0 && $unlimNumRows === 0) || $statementInfo->flags->isAffected || $result === false) {
             $htmlOutput = $this->getQueryResponseForNoResultsReturned(
                 $statementInfo,
                 $db,
@@ -1631,13 +1632,13 @@ class Sql
     public function calculatePosForLastPage(string $db, string $table, int|null $pos): int
     {
         if ($pos === null) {
-            $pos = $_SESSION['tmpval']['pos'];
+            $pos = (int) $_SESSION['tmpval']['pos'];
         }
 
         $tableObject = new Table($table, $db, $this->dbi);
         $unlimNumRows = $tableObject->countRecords(true);
         //If position is higher than number of rows
-        if ($unlimNumRows <= $pos && $pos != 0) {
+        if ($unlimNumRows <= $pos && $pos !== 0) {
             return $this->getStartPosToDisplayRow($unlimNumRows);
         }
 

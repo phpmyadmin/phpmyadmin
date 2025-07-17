@@ -10,7 +10,9 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 
+#[Route('/normalization/partial-dependencies', ['POST'])]
 final class PartialDependenciesController implements InvocableController
 {
     public function __construct(

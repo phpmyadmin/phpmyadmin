@@ -11,6 +11,7 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 
@@ -18,6 +19,7 @@ use function __;
 use function is_array;
 use function is_numeric;
 
+#[Route('/server/status/processes/kill/{id:\d+}', ['POST'])]
 final class KillController extends AbstractController implements InvocableController
 {
     public function __construct(

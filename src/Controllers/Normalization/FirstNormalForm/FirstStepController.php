@@ -10,9 +10,11 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 
 use function in_array;
 
+#[Route('/normalization/1nf/step1', ['POST'])]
 final class FirstStepController implements InvocableController
 {
     public function __construct(

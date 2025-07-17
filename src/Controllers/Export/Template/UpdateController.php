@@ -12,7 +12,9 @@ use PhpMyAdmin\Export\TemplateModel;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 
+#[Route('/export/template/update', ['POST'])]
 final readonly class UpdateController implements InvocableController
 {
     public function __construct(

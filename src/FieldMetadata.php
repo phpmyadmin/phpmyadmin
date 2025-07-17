@@ -223,7 +223,7 @@ final class FieldMetadata
             $type === MYSQLI_TYPE_LONG_BLOB ||
             $type === MYSQLI_TYPE_VAR_STRING ||
             $type === MYSQLI_TYPE_STRING
-        ) && $this->charsetnr == 63;
+        ) && $this->charsetnr === 63;
     }
 
     /**

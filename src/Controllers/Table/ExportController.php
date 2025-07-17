@@ -15,6 +15,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\SqlParser\Utils\Query;
@@ -26,6 +27,7 @@ use function array_merge;
 use function implode;
 use function is_array;
 
+#[Route('/table/export', ['GET', 'POST'])]
 class ExportController implements InvocableController
 {
     public function __construct(

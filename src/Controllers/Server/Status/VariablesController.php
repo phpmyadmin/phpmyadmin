@@ -13,6 +13,7 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 
@@ -21,6 +22,7 @@ use function in_array;
 use function is_numeric;
 use function str_contains;
 
+#[Route('/server/status/variables', ['GET', 'POST'])]
 final class VariablesController extends AbstractController implements InvocableController
 {
     public function __construct(

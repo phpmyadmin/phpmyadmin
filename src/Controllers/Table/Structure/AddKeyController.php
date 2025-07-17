@@ -8,10 +8,12 @@ use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 
 use function __;
 use function in_array;
 
+#[Route('/table/structure/add-key', ['POST'])]
 final class AddKeyController extends AbstractIndexController implements InvocableController
 {
     public function __invoke(ServerRequest $request): Response

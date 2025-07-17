@@ -15,12 +15,14 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 
 use function hash;
 use function is_array;
 use function json_decode;
 use function json_encode;
 
+#[Route('/sync-favorite-tables', ['POST'])]
 final readonly class SyncFavoriteTablesController implements InvocableController
 {
     public function __construct(private ResponseRenderer $response, private Relation $relation, private Config $config)

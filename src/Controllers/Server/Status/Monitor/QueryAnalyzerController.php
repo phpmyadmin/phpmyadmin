@@ -10,10 +10,12 @@ use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Monitor;
 use PhpMyAdmin\Template;
 
+#[Route('/server/status/monitor/query', ['POST'])]
 final class QueryAnalyzerController extends AbstractController implements InvocableController
 {
     public function __construct(

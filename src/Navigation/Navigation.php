@@ -262,7 +262,6 @@ class Navigation
     /** @return string Logo source */
     private function getLogoSource(): string
     {
-        /** @var ThemeManager $themeManager */
         $themeManager = ContainerBuilder::getContainer()->get(ThemeManager::class);
         $theme = $themeManager->theme;
 

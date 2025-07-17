@@ -609,7 +609,7 @@ class File
             return feof($this->handle);
         }
 
-        return $this->offset == strlen($this->content ?? '');
+        return $this->offset === strlen($this->content ?? '');
     }
 
     /**

@@ -16,6 +16,7 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\InvalidDatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Url;
 
@@ -25,6 +26,7 @@ use function mb_strtolower;
 /**
  * Controller for database privileges
  */
+#[Route('/database/privileges', ['GET'])]
 final readonly class PrivilegesController implements InvocableController
 {
     public function __construct(

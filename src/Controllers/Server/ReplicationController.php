@@ -14,6 +14,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Replication\ReplicationGui;
 use PhpMyAdmin\Replication\ReplicationInfo;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\UrlParams;
 
 use function is_array;
@@ -21,6 +22,7 @@ use function is_array;
 /**
  * Server replications
  */
+#[Route('/server/replication', ['GET', 'POST'])]
 final class ReplicationController implements InvocableController
 {
     public function __construct(

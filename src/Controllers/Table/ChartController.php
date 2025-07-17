@@ -17,6 +17,7 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\SqlParser\Components\Limit;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
@@ -32,6 +33,7 @@ use function min;
 /**
  * Handles creation of the chart.
  */
+#[Route('/table/chart', ['GET', 'POST'])]
 final readonly class ChartController implements InvocableController
 {
     public function __construct(
@@ -87,9 +89,10 @@ final readonly class ChartController implements InvocableController
                     return $this->response->response();
                 }
 
-                $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
-
-                return $this->response->response();
+                return $this->response->redirectToRoute(
+                    '/',
+                    ['reload' => true, 'message' => __('No databases selected.')],
+                );
             }
 
             $tableName = TableName::tryFrom($request->getParam('table'));
@@ -101,9 +104,7 @@ final readonly class ChartController implements InvocableController
                     return $this->response->response();
                 }
 
-                $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
-
-                return $this->response->response();
+                return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
             }
 
             $urlParams['goto'] = Url::getFromRoute($this->config->settings['DefaultTabTable']);
@@ -122,9 +123,10 @@ final readonly class ChartController implements InvocableController
                     return $this->response->response();
                 }
 
-                $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
-
-                return $this->response->response();
+                return $this->response->redirectToRoute(
+                    '/',
+                    ['reload' => true, 'message' => __('No databases selected.')],
+                );
             }
         } else {
             $urlParams['goto'] = Url::getFromRoute($this->config->settings['DefaultTabServer']);

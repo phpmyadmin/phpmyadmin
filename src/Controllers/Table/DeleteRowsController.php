@@ -10,6 +10,7 @@ use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
@@ -18,6 +19,7 @@ use PhpMyAdmin\Utils\ForeignKey;
 use function __;
 use function sprintf;
 
+#[Route('/table/delete/rows', ['POST'])]
 final readonly class DeleteRowsController implements InvocableController
 {
     public function __construct(private ResponseRenderer $response, private DatabaseInterface $dbi, private Sql $sql)

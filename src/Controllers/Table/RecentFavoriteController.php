@@ -14,12 +14,14 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\InvalidIdentifier;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 
 use function __;
 
 /**
  * Browse recent and favorite tables chosen from navigation.
  */
+#[Route('/table/recent-favorite', ['GET', 'POST'])]
 final class RecentFavoriteController implements InvocableController
 {
     public function __construct(private readonly ResponseRenderer $response)
@@ -32,17 +34,13 @@ final class RecentFavoriteController implements InvocableController
             $db = DatabaseName::from($request->getParam('db'));
             $table = TableName::from($request->getParam('table'));
         } catch (InvalidIdentifier) {
-            $this->response->redirectToRoute('/', ['message' => __('Invalid database or table name.')]);
-
-            return $this->response->response();
+            return $this->response->redirectToRoute('/', ['message' => __('Invalid database or table name.')]);
         }
 
         $favoriteTable = new RecentFavoriteTable($db, $table);
         RecentFavoriteTables::getInstance(TableType::Recent)->removeIfInvalid($favoriteTable);
         RecentFavoriteTables::getInstance(TableType::Favorite)->removeIfInvalid($favoriteTable);
 
-        $this->response->redirectToRoute('/sql', ['db' => $db->getName(), 'table' => $table->getName()]);
-
-        return $this->response->response();
+        return $this->response->redirectToRoute('/sql', ['db' => $db->getName(), 'table' => $table->getName()]);
     }
 }

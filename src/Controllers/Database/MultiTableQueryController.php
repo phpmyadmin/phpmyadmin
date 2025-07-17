@@ -11,11 +11,13 @@ use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Template;
 
 /**
  * Handles database multi-table querying
  */
+#[Route('/database/multi-table-query', ['GET'])]
 final class MultiTableQueryController implements InvocableController
 {
     public function __construct(

@@ -10,7 +10,9 @@ use PhpMyAdmin\Database\CentralColumns;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 
+#[Route('/database/central-columns/populate', ['POST'])]
 final class PopulateColumnsController implements InvocableController
 {
     public function __construct(

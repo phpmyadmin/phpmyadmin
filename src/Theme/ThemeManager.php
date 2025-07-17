@@ -8,6 +8,7 @@ use DirectoryIterator;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Exceptions\MissingTheme;
+use Twig\Attribute\AsTwigFunction;
 
 use function __;
 use function array_key_exists;
@@ -257,5 +258,11 @@ class ThemeManager
     public static function getThemesDir(): string
     {
         return './themes/';// This is an URL
+    }
+
+    #[AsTwigFunction('image')]
+    public function getThemeImagePath(string|null $filename = null, string|null $fallback = null): string
+    {
+        return $this->theme->getImgPath($filename, $fallback);
     }
 }

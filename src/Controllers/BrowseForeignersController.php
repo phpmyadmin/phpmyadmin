@@ -9,10 +9,12 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 
 /**
  * Display selection for relational field values
  */
+#[Route('/browse-foreigners', ['GET', 'POST'])]
 final class BrowseForeignersController implements InvocableController
 {
     public function __construct(

@@ -7,6 +7,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Exceptions\MissingExtensionException;
 use PhpMyAdmin\Http\ServerRequest;
+use Twig\Attribute\AsTwigFilter;
 
 use function __;
 use function array_pop;
@@ -411,6 +412,7 @@ class Core
      *
      * @return string URL for a link.
      */
+    #[AsTwigFilter('link')]
     public static function linkURL(string $url): string
     {
         if (preg_match('#^https?://#', $url) !== 1) {

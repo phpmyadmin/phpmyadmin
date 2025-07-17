@@ -22,7 +22,6 @@ final class LanguageAndThemeCookieSaving implements MiddlewareInterface
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
         $this->config->setCookie('pma_lang', Current::$lang);
-        /** @var ThemeManager $themeManager */
         $themeManager = ContainerBuilder::getContainer()->get(ThemeManager::class);
         $themeManager->setThemeCookie();
 

@@ -13,6 +13,7 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Util;
@@ -20,6 +21,7 @@ use PhpMyAdmin\Utils\ForeignKey;
 
 use function __;
 
+#[Route('/database/structure/empty-table', ['POST'])]
 final readonly class EmptyTableController implements InvocableController
 {
     public function __construct(
@@ -39,9 +41,8 @@ final readonly class EmptyTableController implements InvocableController
 
         if ($multBtn !== __('Yes')) {
             $this->flashMessenger->addMessage('success', __('No change'));
-            $this->response->redirectToRoute('/database/structure', ['db' => Current::$database]);
 
-            return $this->response->response();
+            return $this->response->redirectToRoute('/database/structure', ['db' => Current::$database]);
         }
 
         $defaultFkCheckValue = ForeignKey::handleDisableCheckInit();

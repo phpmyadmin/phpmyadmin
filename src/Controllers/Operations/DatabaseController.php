@@ -25,6 +25,7 @@ use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\UserPrivilegesFactory;
@@ -36,6 +37,7 @@ use function mb_strtolower;
 /**
  * Handles miscellaneous database operations.
  */
+#[Route('/database/operations', ['GET', 'POST'])]
 final readonly class DatabaseController implements InvocableController
 {
     public function __construct(
@@ -234,9 +236,7 @@ final readonly class DatabaseController implements InvocableController
                 return $this->response->response();
             }
 
-            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
-
-            return $this->response->response();
+            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
         }
 
         UrlParams::$params['goto'] = Url::getFromRoute('/database/operations');
@@ -270,7 +270,7 @@ final readonly class DatabaseController implements InvocableController
         $collations = Charsets::getCollations($this->dbi, $this->config->selectedServer['DisableIS']);
 
         if (
-            ! $relationParameters->hasAllFeatures() && $this->config->settings['PmaNoRelation_DisableWarning'] == false
+            ! $relationParameters->hasAllFeatures() && ! $this->config->settings['PmaNoRelation_DisableWarning']
         ) {
             Current::$message = Message::notice(
                 __(

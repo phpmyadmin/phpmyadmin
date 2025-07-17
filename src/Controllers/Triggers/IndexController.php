@@ -15,6 +15,7 @@ use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Identifiers\TriggerName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Triggers\Trigger;
 use PhpMyAdmin\Triggers\Triggers;
@@ -31,6 +32,7 @@ use function trim;
 /**
  * Triggers management.
  */
+#[Route('/triggers', ['GET', 'POST'])]
 final class IndexController implements InvocableController
 {
     public function __construct(
@@ -59,31 +61,28 @@ final class IndexController implements InvocableController
 
                 $databaseName = DatabaseName::tryFrom($request->getParam('db'));
                 if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
-                    $this->response->redirectToRoute(
+                    return $this->response->redirectToRoute(
                         '/',
                         ['reload' => true, 'message' => __('No databases selected.')],
                     );
-
-                    return $this->response->response();
                 }
 
                 $tableName = TableName::tryFrom($request->getParam('table'));
                 if ($tableName === null || ! $this->dbTableExists->hasTable($databaseName, $tableName)) {
-                    $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
-
-                    return $this->response->response();
+                    return $this->response->redirectToRoute(
+                        '/',
+                        ['reload' => true, 'message' => __('No table selected.')],
+                    );
                 }
             } else {
                 Current::$table = '';
 
                 $databaseName = DatabaseName::tryFrom($request->getParam('db'));
                 if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
-                    $this->response->redirectToRoute(
+                    return $this->response->redirectToRoute(
                         '/',
                         ['reload' => true, 'message' => __('No databases selected.')],
                     );
-
-                    return $this->response->response();
                 }
             }
         } elseif (Current::$database !== '') {

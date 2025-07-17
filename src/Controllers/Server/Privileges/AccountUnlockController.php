@@ -10,11 +10,13 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Server\Privileges\AccountLocking;
 use Throwable;
 
 use function __;
 
+#[Route('/server/privileges/account-unlock', ['POST'])]
 final class AccountUnlockController implements InvocableController
 {
     public function __construct(

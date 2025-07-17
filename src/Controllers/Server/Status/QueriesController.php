@@ -12,6 +12,7 @@ use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 
@@ -26,6 +27,7 @@ use function str_replace;
 
 use const MB_CASE_TITLE;
 
+#[Route('/server/status/queries', ['GET'])]
 final class QueriesController extends AbstractController implements InvocableController
 {
     public function __construct(

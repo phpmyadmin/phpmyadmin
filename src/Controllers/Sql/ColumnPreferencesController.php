@@ -11,6 +11,7 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Table\UiProperty;
 
 use function array_map;
@@ -18,6 +19,7 @@ use function explode;
 use function intval;
 use function is_string;
 
+#[Route('/sql/set-column-preferences', ['POST'])]
 final class ColumnPreferencesController implements InvocableController
 {
     public function __construct(private readonly ResponseRenderer $response, private readonly DatabaseInterface $dbi)

@@ -10,6 +10,7 @@ use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 
 use function ob_get_clean;
 use function ob_start;
@@ -22,6 +23,7 @@ use const INFO_MODULES;
 /**
  * phpinfo() wrapper to allow displaying only when configured to do so.
  */
+#[Route('/phpinfo', ['GET'])]
 final class PhpInfoController implements InvocableController
 {
     public function __construct(

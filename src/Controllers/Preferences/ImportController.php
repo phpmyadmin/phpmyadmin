@@ -14,6 +14,7 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Url;
@@ -22,6 +23,7 @@ use PhpMyAdmin\UserPreferences;
 use function define;
 use function ltrim;
 
+#[Route('/preferences/import', ['GET', 'POST'])]
 final readonly class ImportController implements InvocableController
 {
     public function __construct(
@@ -43,9 +45,8 @@ final readonly class ImportController implements InvocableController
         if ($request->hasBodyParam('revert')) {
             // revert erroneous fields to their default values
             $formDisplay->fixErrors();
-            $this->response->redirectToRoute('/preferences/import', []);
 
-            return $this->response->response();
+            return $this->response->redirectToRoute('/preferences/import');
         }
 
         $result = null;
@@ -60,9 +61,8 @@ final readonly class ImportController implements InvocableController
                 // reload config
                 $this->config->loadUserPreferences($this->themeManager);
                 $hash = ltrim($request->getParsedBodyParamAsString('tab_hash'), '#');
-                $this->userPreferences->redirect('index.php?route=/preferences/import', null, $hash);
 
-                return $this->response->response();
+                return $this->userPreferences->redirect('index.php?route=/preferences/import', null, $hash);
             }
         }
 

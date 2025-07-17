@@ -105,7 +105,7 @@ abstract class AuthenticationPlugin
     /**
      * Perform logout
      */
-    public function logOut(): void
+    public function logOut(): Response
     {
         $config = Config::getInstance();
         /* Obtain redirect URL (before doing logout) */
@@ -141,11 +141,15 @@ abstract class AuthenticationPlugin
 
             /* Redirect to login form (or configured URL) */
             $response->redirect($redirectUrl);
-        } else {
-            /* Redirect to other authenticated server */
-            $_SESSION['partial_logout'] = true;
-            $response->redirect('./index.php?route=/' . Url::getCommonRaw(['server' => $server], '&'));
+
+            return $response->response();
         }
+
+        /* Redirect to other authenticated server */
+        $_SESSION['partial_logout'] = true;
+        $response->redirect('./index.php?route=/' . Url::getCommonRaw(['server' => $server], '&'));
+
+        return $response->response();
     }
 
     /**

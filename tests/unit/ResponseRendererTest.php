@@ -105,7 +105,6 @@ final class ResponseRendererTest extends AbstractTestCase
                 'header' => [
                     'lang' => 'en',
                     'allow_third_party_framing' => false,
-                    'base_dir' => '',
                     'theme_path' => '',
                     'server' => 0,
                     'title' => 'phpMyAdmin',

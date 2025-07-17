@@ -10,6 +10,7 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Linter;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 
 use function is_array;
 use function is_string;
@@ -18,6 +19,7 @@ use function json_encode;
 /**
  * Represents the interface between the linter and the query editor.
  */
+#[Route('/lint', ['GET', 'POST'])]
 final class LintController implements InvocableController
 {
     private const EDITOR_SQL_PREFIX = [

@@ -351,7 +351,7 @@ class ServerConfigChecks
         // $cfg['LoginCookieStore']
         // LoginCookieValidity must be less or equal to LoginCookieStore
         if (
-            $this->cfg->getValue('LoginCookieStore') == 0
+            $this->cfg->getValue('LoginCookieStore') === 0
             || $loginCookieValidity <= $this->cfg->getValue('LoginCookieStore')
         ) {
             return;

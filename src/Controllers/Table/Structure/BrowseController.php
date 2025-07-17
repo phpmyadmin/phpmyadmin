@@ -10,6 +10,7 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
@@ -18,6 +19,7 @@ use function __;
 use function implode;
 use function sprintf;
 
+#[Route('/table/structure/browse', ['POST'])]
 final class BrowseController implements InvocableController
 {
     public function __construct(private readonly ResponseRenderer $response, private readonly Sql $sql)

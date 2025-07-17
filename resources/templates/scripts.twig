@@ -1,6 +1,5 @@
 {% for file in files %}
-  <script data-cfasync="false" src="{{ base_dir }}
-    {{- file.filename starts with 'index.php' ? file.filename : 'js/' ~ file.filename -}}
+  <script data-cfasync="false" src="{{ file.filename starts with 'index.php' ? file.filename : 'js/' ~ file.filename -}}
     {{- '.php' in file.filename ? get_common(file.params|merge({'v': pma.version})) : '?v=' ~ pma.version|url_encode }}"></script>
 {% endfor %}
 

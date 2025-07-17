@@ -9,10 +9,12 @@ use PhpMyAdmin\Controllers\Server\Status\AbstractController;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Processes;
 use PhpMyAdmin\Template;
 
+#[Route('/server/status/processes/refresh', ['POST'])]
 final class RefreshController extends AbstractController implements InvocableController
 {
     public function __construct(

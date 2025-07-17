@@ -15,6 +15,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Mime;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -26,6 +27,7 @@ use function sprintf;
 /**
  * Provides download to a given field defined in parameters.
  */
+#[Route('/table/get-field', ['GET', 'POST'])]
 final class GetFieldController implements InvocableController
 {
     public function __construct(

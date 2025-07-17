@@ -744,7 +744,7 @@ class Import
         ImportSettings::$importNotice = '';
 
         /* Run the $additional_sql statements supplied by the caller plug-in */
-        if ($additionalSql != null) {
+        if ($additionalSql !== null) {
             /* Clean the SQL first */
 
             /**
@@ -1056,7 +1056,7 @@ class Import
 
         $result = $dbi->tryQuery($checkQuery);
 
-        return $result && $result->numRows() == 1;
+        return $result && $result->numRows() === 1;
     }
 
     /** @return string[] */
