@@ -13,6 +13,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Navigation\Navigation;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Theme\ThemeManager;
@@ -20,7 +21,6 @@ use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
 
-use function define;
 use function ltrim;
 
 #[Route('/preferences/navigation', ['GET', 'POST'])]
@@ -93,7 +93,7 @@ final readonly class NavigationController implements InvocableController
             return $this->response->response();
         }
 
-        define('PMA_DISABLE_NAVI_SETTINGS', true);
+        Navigation::$isSettingsEnabled = false;
 
         return $this->response->response();
     }
