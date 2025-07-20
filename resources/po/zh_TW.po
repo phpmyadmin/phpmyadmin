@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-07-13 00:32+0000\n"
+"POT-Creation-Date: 2025-07-20 00:32+0000\n"
 "PO-Revision-Date: 2024-07-03 07:27+0000\n"
 "Last-Translator: Ricky From Hong Kong <lamricky11@hotmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -136,7 +136,7 @@ msgstr "您的權限不足以執行此操作；請參閱說明文件了解詳細
 #: resources/templates/table/structure/display_structure.twig:143
 #: resources/templates/table/structure/display_structure.twig:284
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:25
-#: src/Controllers/Table/StructureController.php:219
+#: src/Controllers/Table/StructureController.php:215
 msgid "Primary"
 msgstr "主鍵"
 
@@ -158,7 +158,7 @@ msgstr "唯一"
 #: resources/templates/table/structure/display_structure.twig:290
 #: resources/templates/table/structure/display_table_stats.twig:24
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:27
-#: src/Controllers/Table/StructureController.php:223
+#: src/Controllers/Table/StructureController.php:219
 #: src/Navigation/Nodes/NodeIndex.php:26
 msgid "Index"
 msgstr "索引"
@@ -900,7 +900,7 @@ msgstr "已關閉"
 #: src/Controllers/JavaScriptMessagesController.php:481
 #: src/Controllers/Table/DeleteRowsController.php:34
 #: src/Controllers/Table/DropColumnController.php:46
-#: src/Controllers/Table/Structure/PrimaryController.php:102
+#: src/Controllers/Table/Structure/PrimaryController.php:101
 #: src/Indexes/IndexColumn.php:148 src/Indexes/Index.php:472
 #: src/Plugins/Export/ExportHtmlword.php:562
 #: src/Plugins/Export/ExportLatex.php:567 src/Plugins/Export/ExportOdt.php:685
@@ -1005,7 +1005,7 @@ msgstr "重新查詢"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:379
-#: src/Display/Results.php:1805 src/Html/Generator.php:520
+#: src/Display/Results.php:1804 src/Html/Generator.php:520
 #: src/Html/Generator.php:789
 msgid "Edit"
 msgstr "編輯"
@@ -1024,7 +1024,7 @@ msgstr "編輯"
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:189
 #: src/Controllers/JavaScriptMessagesController.php:381
-#: src/Display/Results.php:2428 src/Tracking/Tracking.php:224
+#: src/Display/Results.php:2427 src/Tracking/Tracking.php:224
 msgid "Delete"
 msgstr "刪除"
 
@@ -1997,7 +1997,7 @@ msgid "Exporting tables from \"%s\" database"
 msgstr "正在匯出「%s」資料庫的資料表"
 
 #: resources/templates/database/export/index.twig:14
-#: src/Navigation/Navigation.php:219
+#: src/Navigation/Navigation.php:220
 msgid "Tables:"
 msgstr "資料表："
 
@@ -2056,7 +2056,7 @@ msgstr "選擇欄位"
 #: resources/templates/database/tracking/tables.twig:19
 #: resources/templates/table/tracking/main.twig:33
 #: src/Controllers/JavaScriptMessagesController.php:693
-#: src/Controllers/Table/ChangeController.php:215
+#: src/Controllers/Table/ChangeController.php:211
 msgid "Show"
 msgstr "顯示"
 
@@ -2088,8 +2088,8 @@ msgstr "排序"
 #: resources/templates/server/status/processes/list.twig:14
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:158
-#: src/Config/ConfigFile.php:554 src/Display/Results.php:1392
-#: src/Display/Results.php:1398 src/Util.php:1844 src/Util.php:1861
+#: src/Config/ConfigFile.php:554 src/Display/Results.php:1391
+#: src/Display/Results.php:1397 src/Util.php:1844 src/Util.php:1861
 msgid "Ascending"
 msgstr "遞增"
 
@@ -2100,8 +2100,8 @@ msgstr "遞增"
 #: resources/templates/server/status/processes/list.twig:12
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:162
-#: src/Config/ConfigFile.php:554 src/Display/Results.php:1387
-#: src/Display/Results.php:1403 src/Util.php:1849 src/Util.php:1866
+#: src/Config/ConfigFile.php:554 src/Display/Results.php:1386
+#: src/Display/Results.php:1402 src/Util.php:1849 src/Util.php:1866
 msgid "Descending"
 msgstr "遞減"
 
@@ -2492,8 +2492,8 @@ msgid "Export routine"
 msgstr "匯出預存程序 %s"
 
 #: resources/templates/database/routines/index.twig:113
-#: src/Controllers/Database/RoutinesController.php:357
-#: src/Controllers/Database/RoutinesController.php:367
+#: src/Controllers/Database/RoutinesController.php:354
+#: src/Controllers/Database/RoutinesController.php:364
 msgid "Execute routine"
 msgstr "執行預存程序"
 
@@ -2781,8 +2781,8 @@ msgstr "資料字典"
 
 #: resources/templates/database/structure/index.twig:19
 #: resources/templates/navigation/tree/path.twig:9
-#: src/Controllers/Database/ExportController.php:75
-#: src/Controllers/Database/TrackingController.php:126
+#: src/Controllers/Database/ExportController.php:73
+#: src/Controllers/Database/TrackingController.php:124
 #: src/Controllers/Export/ExportController.php:290
 msgid "No tables found in database."
 msgstr "資料庫沒有資料表。"
@@ -2822,9 +2822,9 @@ msgstr "檢視表"
 #: resources/templates/database/structure/show_create.twig:35
 #: resources/templates/database/structure/structure_table_row.twig:122
 #: resources/templates/database/structure/structure_table_row.twig:186
-#: src/Controllers/Operations/TableController.php:122
-#: src/Controllers/Operations/TableController.php:316
-#: src/Controllers/Table/StructureController.php:153
+#: src/Controllers/Operations/TableController.php:118
+#: src/Controllers/Operations/TableController.php:312
+#: src/Controllers/Table/StructureController.php:149
 #: src/Navigation/Nodes/NodeView.php:24
 msgid "View"
 msgstr "檢視表"
@@ -3104,7 +3104,7 @@ msgstr "易懂的二進位檔"
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:467
-#: src/Display/Results.php:1806 src/Html/Generator.php:84
+#: src/Display/Results.php:1805 src/Html/Generator.php:84
 msgid "Copy"
 msgstr "複製"
 
@@ -3141,7 +3141,7 @@ msgstr "轉換為假名"
 
 #: resources/templates/error/generic.twig:39
 #: resources/templates/table/structure/display_structure.twig:361
-#: src/Controllers/Operations/ViewController.php:117
+#: src/Controllers/Operations/ViewController.php:113
 #: src/Controllers/Table/Partition/DropController.php:56
 #: src/Controllers/Table/Partition/RebuildController.php:56
 #: src/Controllers/Table/Partition/TruncateController.php:56
@@ -4221,7 +4221,7 @@ msgstr "已啟用雙因素認證。"
 #: resources/templates/preview_sql.twig:3
 #: src/Controllers/Database/Structure/DropTableController.php:44
 #: src/Controllers/Database/Structure/EmptyTableController.php:43
-#: src/Controllers/Operations/TableController.php:332
+#: src/Controllers/Operations/TableController.php:328
 #: src/Controllers/Table/DropColumnController.php:63
 #: src/Controllers/Table/ReplaceController.php:289 src/Core.php:518
 msgid "No change"
@@ -6034,7 +6034,7 @@ msgid "Start auto refresh"
 msgstr "開始自動更新"
 
 #: resources/templates/server/status/processes/list.twig:44
-#: src/Display/Results.php:2447
+#: src/Display/Results.php:2446
 msgid "Kill"
 msgstr "中止"
 
@@ -6409,9 +6409,9 @@ msgid "Pie chart with profiling results."
 msgstr "研判結果。"
 
 #: resources/templates/sql/query.twig:7
-#: src/Controllers/Operations/ViewController.php:114
+#: src/Controllers/Operations/ViewController.php:110
 #: src/Controllers/Table/DeleteRowsController.php:60
-#: src/Controllers/Table/FindReplaceController.php:121
+#: src/Controllers/Table/FindReplaceController.php:117
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:75
 #: src/Controllers/Table/Maintenance/CheckController.php:75
 #: src/Controllers/Table/Maintenance/ChecksumController.php:75
@@ -6425,7 +6425,7 @@ msgstr "研判結果。"
 #: src/Controllers/Table/Partition/RepairController.php:49
 #: src/Controllers/Table/Partition/TruncateController.php:50
 #: src/Controllers/Table/RelationController.php:143
-#: src/Database/Routines.php:1019 src/Display/Results.php:3013
+#: src/Database/Routines.php:1019 src/Display/Results.php:3012
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "SQL 查詢已順利執行。"
@@ -6898,7 +6898,7 @@ msgstr "更新資料表 (FLUSH)"
 
 #: resources/templates/table/operations/index.twig:411
 #: resources/templates/table/operations/index.twig:429
-#: src/Controllers/Database/StructureController.php:403
+#: src/Controllers/Database/StructureController.php:401
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "已清空資料表 %s。"
@@ -6915,13 +6915,13 @@ msgstr "清空資料表 (TRUNCATE)"
 
 #: resources/templates/table/operations/index.twig:452
 #: resources/templates/table/operations/view.twig:32
-#: src/Controllers/Database/StructureController.php:356
+#: src/Controllers/Database/StructureController.php:354
 #, php-format
 msgid "View %s has been dropped."
 msgstr "已刪除檢視表 %s。"
 
 #: resources/templates/table/operations/index.twig:452
-#: src/Controllers/Database/StructureController.php:356
+#: src/Controllers/Database/StructureController.php:354
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "已刪除資料表 %s。"
@@ -7401,7 +7401,7 @@ msgid "Event"
 msgstr "事件"
 
 #: resources/templates/triggers/export.twig:2
-#: src/Controllers/Triggers/IndexController.php:235
+#: src/Controllers/Triggers/IndexController.php:232
 #, php-format
 msgid "Export of trigger %s"
 msgstr "匯出觸發器 %s"
@@ -11793,13 +11793,13 @@ msgstr "已存在名為 “%s” 的頁面，請重新命名。"
 
 #: src/Controllers/Database/DesignerController.php:171
 #: src/Controllers/Database/DesignerController.php:176
-#: src/Controllers/Database/EventsController.php:50
+#: src/Controllers/Database/EventsController.php:52
 #: src/Controllers/Database/ExportController.php:57
 #: src/Controllers/Database/ExportController.php:62
 #: src/Controllers/Database/ImportController.php:60
 #: src/Controllers/Database/ImportController.php:65
 #: src/Controllers/Database/RoutinesController.php:80
-#: src/Controllers/Database/RoutinesController.php:99
+#: src/Controllers/Database/RoutinesController.php:98
 #: src/Controllers/Database/SearchController.php:53
 #: src/Controllers/Database/SearchController.php:58
 #: src/Controllers/Database/SqlController.php:54
@@ -11824,9 +11824,9 @@ msgstr "已存在名為 “%s” 的頁面，請重新命名。"
 #: src/Controllers/Table/ChangeController.php:70
 #: src/Controllers/Table/ChangeController.php:75
 #: src/Controllers/Table/ChartController.php:87
-#: src/Controllers/Table/ChartController.php:92
-#: src/Controllers/Table/ChartController.php:122
-#: src/Controllers/Table/ChartController.php:127
+#: src/Controllers/Table/ChartController.php:94
+#: src/Controllers/Table/ChartController.php:121
+#: src/Controllers/Table/ChartController.php:128
 #: src/Controllers/Table/ChartController.php:201
 #: src/Controllers/Table/DeleteConfirmController.php:57
 #: src/Controllers/Table/DeleteConfirmController.php:62
@@ -11839,7 +11839,7 @@ msgstr "已存在名為 “%s” 的頁面，請重新命名。"
 #: src/Controllers/Table/ImportController.php:69
 #: src/Controllers/Table/ImportController.php:74
 #: src/Controllers/Table/IndexesController.php:67
-#: src/Controllers/Table/IndexesController.php:72
+#: src/Controllers/Table/IndexesController.php:74
 #: src/Controllers/Table/IndexRenameController.php:55
 #: src/Controllers/Table/IndexRenameController.php:60
 #: src/Controllers/Table/SearchController.php:174
@@ -11849,59 +11849,59 @@ msgstr "已存在名為 “%s” 的頁面，請重新命名。"
 #: src/Controllers/Table/StructureController.php:93
 #: src/Controllers/Table/StructureController.php:98
 #: src/Controllers/Table/Structure/PrimaryController.php:69
-#: src/Controllers/Table/Structure/PrimaryController.php:74
+#: src/Controllers/Table/Structure/PrimaryController.php:76
 #: src/Controllers/Table/TrackingController.php:68
 #: src/Controllers/Table/TrackingController.php:73
 #: src/Controllers/Table/ZoomSearchController.php:102
 #: src/Controllers/Table/ZoomSearchController.php:107
 #: src/Controllers/Triggers/IndexController.php:66
-#: src/Controllers/Triggers/IndexController.php:85
+#: src/Controllers/Triggers/IndexController.php:84
 #: src/Controllers/View/CreateController.php:67
 #: src/Controllers/View/CreateController.php:72
 msgid "No databases selected."
 msgstr "尚未選擇資料庫。"
 
-#: src/Controllers/Database/EventsController.php:124
+#: src/Controllers/Database/EventsController.php:125
 msgid "Add event"
 msgstr "新增事件"
 
-#: src/Controllers/Database/EventsController.php:128
+#: src/Controllers/Database/EventsController.php:129
 msgid "Edit event"
 msgstr "編輯事件"
 
-#: src/Controllers/Database/EventsController.php:177
-#: src/Controllers/Database/RoutinesController.php:276
-#: src/Controllers/Database/RoutinesController.php:306
-#: src/Controllers/Database/RoutinesController.php:374
-#: src/Controllers/Triggers/IndexController.php:209
+#: src/Controllers/Database/EventsController.php:178
+#: src/Controllers/Database/RoutinesController.php:273
+#: src/Controllers/Database/RoutinesController.php:303
+#: src/Controllers/Database/RoutinesController.php:371
+#: src/Controllers/Triggers/IndexController.php:206
 msgid "Error in processing request:"
 msgstr "處理請求時發生錯誤："
 
-#: src/Controllers/Database/EventsController.php:179
+#: src/Controllers/Database/EventsController.php:180
 #, php-format
 msgid "No event with name %1$s found in database %2$s."
 msgstr "在資料庫 %2$s 中查無名稱為 %1$s 的事件。"
 
-#: src/Controllers/Database/EventsController.php:205
+#: src/Controllers/Database/EventsController.php:206
 #, php-format
 msgid "Export of event %s"
 msgstr "匯出事件 %s"
 
-#: src/Controllers/Database/EventsController.php:223
+#: src/Controllers/Database/EventsController.php:224
 #, php-format
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "請求出現問題：資料庫 %2$s 沒有名為 %1$s 的事件。"
 
-#: src/Controllers/Database/ExportController.php:131
+#: src/Controllers/Database/ExportController.php:129
 #: src/Controllers/Server/ExportController.php:57
 #: src/Controllers/Table/ExportController.php:90
 msgid "Could not load export plugins, please check your installation!"
 msgstr "無法載入匯出外掛程式，請檢查安裝！"
 
-#: src/Controllers/Database/ImportController.php:77
+#: src/Controllers/Database/ImportController.php:75
 #: src/Controllers/Server/ImportController.php:60
-#: src/Controllers/Table/ImportController.php:103
+#: src/Controllers/Table/ImportController.php:99
 msgid "Could not load import plugins, please check your installation!"
 msgstr "無法載入匯入外掛程式，請檢查安裝是否有誤！"
 
@@ -11930,57 +11930,57 @@ msgstr "沒有管理使用者的權限！"
 #: src/Controllers/Database/Structure/ShowCreateController.php:36
 #: src/Controllers/Export/TablesController.php:29
 #: src/Controllers/JavaScriptMessagesController.php:331
-#: src/Controllers/Operations/TableController.php:100
-#: src/Controllers/Operations/TableController.php:105
-#: src/Controllers/Operations/ViewController.php:75
-#: src/Controllers/Operations/ViewController.php:80
-#: src/Controllers/Table/AddFieldController.php:175
-#: src/Controllers/Table/AddFieldController.php:180
-#: src/Controllers/Table/ChangeController.php:84
-#: src/Controllers/Table/ChangeController.php:89
-#: src/Controllers/Table/ChartController.php:101
-#: src/Controllers/Table/ChartController.php:106
+#: src/Controllers/Operations/TableController.php:98
+#: src/Controllers/Operations/TableController.php:103
+#: src/Controllers/Operations/ViewController.php:73
+#: src/Controllers/Operations/ViewController.php:78
+#: src/Controllers/Table/AddFieldController.php:173
+#: src/Controllers/Table/AddFieldController.php:178
+#: src/Controllers/Table/ChangeController.php:82
+#: src/Controllers/Table/ChangeController.php:87
+#: src/Controllers/Table/ChartController.php:102
+#: src/Controllers/Table/ChartController.php:107
 #: src/Controllers/Table/ChartController.php:209
-#: src/Controllers/Table/DeleteConfirmController.php:71
-#: src/Controllers/Table/DeleteConfirmController.php:76
-#: src/Controllers/Table/DropColumnConfirmationController.php:65
-#: src/Controllers/Table/DropColumnConfirmationController.php:70
-#: src/Controllers/Table/FindReplaceController.php:89
-#: src/Controllers/Table/FindReplaceController.php:94
-#: src/Controllers/Table/ImportController.php:83
-#: src/Controllers/Table/ImportController.php:88
-#: src/Controllers/Table/IndexesController.php:81
-#: src/Controllers/Table/IndexesController.php:86
-#: src/Controllers/Table/IndexRenameController.php:69
-#: src/Controllers/Table/IndexRenameController.php:74
+#: src/Controllers/Table/DeleteConfirmController.php:69
+#: src/Controllers/Table/DeleteConfirmController.php:74
+#: src/Controllers/Table/DropColumnConfirmationController.php:63
+#: src/Controllers/Table/DropColumnConfirmationController.php:68
+#: src/Controllers/Table/FindReplaceController.php:87
+#: src/Controllers/Table/FindReplaceController.php:92
+#: src/Controllers/Table/ImportController.php:81
+#: src/Controllers/Table/ImportController.php:86
+#: src/Controllers/Table/IndexesController.php:82
+#: src/Controllers/Table/IndexesController.php:87
+#: src/Controllers/Table/IndexRenameController.php:67
+#: src/Controllers/Table/IndexRenameController.php:72
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:46
 #: src/Controllers/Table/Maintenance/CheckController.php:46
 #: src/Controllers/Table/Maintenance/ChecksumController.php:46
 #: src/Controllers/Table/Maintenance/OptimizeController.php:46
 #: src/Controllers/Table/Maintenance/RepairController.php:46
-#: src/Controllers/Table/SearchController.php:188
-#: src/Controllers/Table/SearchController.php:193
-#: src/Controllers/Table/SqlController.php:73
-#: src/Controllers/Table/SqlController.php:78
-#: src/Controllers/Table/StructureController.php:107
-#: src/Controllers/Table/StructureController.php:112
-#: src/Controllers/Table/Structure/PrimaryController.php:83
-#: src/Controllers/Table/Structure/PrimaryController.php:88
-#: src/Controllers/Table/ZoomSearchController.php:116
-#: src/Controllers/Table/ZoomSearchController.php:121
+#: src/Controllers/Table/SearchController.php:186
+#: src/Controllers/Table/SearchController.php:191
+#: src/Controllers/Table/SqlController.php:71
+#: src/Controllers/Table/SqlController.php:76
+#: src/Controllers/Table/StructureController.php:105
+#: src/Controllers/Table/StructureController.php:110
+#: src/Controllers/Table/Structure/PrimaryController.php:84
+#: src/Controllers/Table/Structure/PrimaryController.php:89
+#: src/Controllers/Table/ZoomSearchController.php:114
+#: src/Controllers/Table/ZoomSearchController.php:119
 #: src/Controllers/Triggers/IndexController.php:74
 msgid "No table selected."
 msgstr "尚未選擇資料表。"
 
-#: src/Controllers/Database/RoutinesController.php:176
+#: src/Controllers/Database/RoutinesController.php:173
 msgid "Add routine"
 msgstr "新增預存程序"
 
-#: src/Controllers/Database/RoutinesController.php:180
+#: src/Controllers/Database/RoutinesController.php:177
 msgid "Edit routine"
 msgstr "編輯預存程序"
 
-#: src/Controllers/Database/RoutinesController.php:279
+#: src/Controllers/Database/RoutinesController.php:276
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
@@ -11988,18 +11988,18 @@ msgid ""
 msgstr ""
 "資料庫 %2$s 中查無名稱為 %1$s 的預存程序，您可能缺少能夠編輯該程序的權限。"
 
-#: src/Controllers/Database/RoutinesController.php:308
-#: src/Controllers/Database/RoutinesController.php:376
+#: src/Controllers/Database/RoutinesController.php:305
+#: src/Controllers/Database/RoutinesController.php:373
 #, php-format
 msgid "No routine with name %1$s found in database %2$s."
 msgstr "在資料庫 %2$s 中查無名稱為 %1$s 的預存程序。"
 
-#: src/Controllers/Database/RoutinesController.php:419
+#: src/Controllers/Database/RoutinesController.php:416
 #, php-format
 msgid "Export of routine %s"
 msgstr "匯出預存程序 %s"
 
-#: src/Controllers/Database/RoutinesController.php:438
+#: src/Controllers/Database/RoutinesController.php:435
 #, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
@@ -12009,7 +12009,7 @@ msgstr ""
 "請求出現問題：資料庫 %2$s 沒有名為 %1$s 的預存程序。您可能缺少能夠檢視/匯出該"
 "程序的權限。"
 
-#: src/Controllers/Database/SearchController.php:65
+#: src/Controllers/Database/SearchController.php:63
 msgid ""
 "Searching inside the database is disabled by the [code]$cfg['UseDbSearch'][/"
 "code] configuration."
@@ -12021,15 +12021,15 @@ msgstr ""
 msgid "Success!"
 msgstr "成功！"
 
-#: src/Controllers/Database/StructureController.php:569
-#: src/Display/Results.php:3286
+#: src/Controllers/Database/StructureController.php:567
+#: src/Display/Results.php:3285
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
 "%sdocumentation%s."
 msgstr "這個檢視表至少需有此數量的資料列，請參閱%sdocumentation%s。"
 
-#: src/Controllers/Database/StructureController.php:736
+#: src/Controllers/Database/StructureController.php:734
 msgid "unknown"
 msgstr "未知"
 
@@ -12037,22 +12037,22 @@ msgstr "未知"
 msgid "Favorite List is full!"
 msgstr "最愛清單已滿！"
 
-#: src/Controllers/Database/TrackingController.php:73
-#: src/Controllers/Database/TrackingController.php:99
+#: src/Controllers/Database/TrackingController.php:71
+#: src/Controllers/Database/TrackingController.php:97
 msgid "Tracking data deleted successfully."
 msgstr "已刪除追蹤資料。"
 
-#: src/Controllers/Database/TrackingController.php:84
+#: src/Controllers/Database/TrackingController.php:82
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr "已建立資料表的 %1$s 版本，已對所選的版本啟用追蹤。"
 
-#: src/Controllers/Database/TrackingController.php:116
+#: src/Controllers/Database/TrackingController.php:114
 msgid "No tables selected."
 msgstr "尚未選擇資料表。"
 
-#: src/Controllers/Database/TrackingController.php:151
+#: src/Controllers/Database/TrackingController.php:149
 msgid "Database Log"
 msgstr "資料庫記錄"
 
@@ -14213,7 +14213,7 @@ msgid "String"
 msgstr "字串"
 
 #: src/Controllers/Operations/Database/CollationController.php:42
-#: src/Controllers/Operations/TableController.php:266
+#: src/Controllers/Operations/TableController.php:262
 msgid "No collation provided."
 msgstr "沒有提供編碼與排序。"
 
@@ -14231,7 +14231,7 @@ msgstr "資料庫 %1$s 已改名為 %2$s。"
 msgid "Database %1$s has been copied to %2$s."
 msgstr "資料庫 %1$s 已複製為 %2$s。"
 
-#: src/Controllers/Operations/DatabaseController.php:279
+#: src/Controllers/Operations/DatabaseController.php:277
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
@@ -14259,7 +14259,7 @@ msgstr "已設定雙因素認證。"
 
 #: src/Controllers/SchemaExportController.php:40
 #: src/Controllers/Server/UserGroupsFormController.php:46
-#: src/ResponseRenderer.php:448
+#: src/ResponseRenderer.php:449
 msgid "Missing parameter:"
 msgstr "未填寫必要的參數："
 
@@ -15014,18 +15014,18 @@ msgstr "資料錯誤"
 msgid "Wrong data or no validation for %s"
 msgstr "資料錯誤或未通過 %s 審核"
 
-#: src/Controllers/Sql/SqlController.php:215 src/Sql.php:1055
+#: src/Controllers/Sql/SqlController.php:213 src/Sql.php:1055
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "已建立書籤 %s。"
 
-#: src/Controllers/Sql/SqlController.php:222
+#: src/Controllers/Sql/SqlController.php:220
 msgid "Bookmark not created!"
 msgstr "書籤尚未建立！"
 
 #: src/Controllers/Table/AddFieldController.php:136
-#: src/Controllers/Table/IndexesController.php:140
-#: src/Controllers/Table/IndexRenameController.php:127
+#: src/Controllers/Table/IndexesController.php:139
+#: src/Controllers/Table/IndexRenameController.php:123
 #: src/Controllers/Table/Structure/PartitioningController.php:267
 #: src/Controllers/Table/Structure/SaveController.php:217
 #, php-format
@@ -15039,7 +15039,7 @@ msgid "No row selected."
 msgstr "尚未選擇列。"
 
 #: src/Controllers/Table/ChartController.php:59
-#: src/Controllers/Table/GisVisualizationController.php:82
+#: src/Controllers/Table/GisVisualizationController.php:80
 msgid "No SQL query was set to fetch data."
 msgstr "尚未設定 SQL 查詢來檢索資料。"
 
@@ -15095,7 +15095,7 @@ msgstr "請求發生問題。"
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL 傳回空的查詢結果 (即0列資料)。"
 
-#: src/Controllers/Table/GisVisualizationController.php:93
+#: src/Controllers/Table/GisVisualizationController.php:91
 #, fuzzy
 #| msgid "Has no effect in this MySQL version."
 msgid "No spatial column found for this SQL query."
@@ -15172,37 +15172,37 @@ msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "已成功修改資料表 %1$s 。已調整權限。"
 
-#: src/Controllers/Table/TrackingController.php:92
+#: src/Controllers/Table/TrackingController.php:90
 #, php-format
 msgid "Tracking of %s is activated."
 msgstr "%s 的追蹤已啓用。"
 
-#: src/Controllers/Table/TrackingController.php:145
+#: src/Controllers/Table/TrackingController.php:143
 msgid "SQL statements executed."
 msgstr "已執行 SQL 指令。"
 
-#: src/Controllers/Table/TrackingController.php:199
+#: src/Controllers/Table/TrackingController.php:197
 msgid "Tracking versions deleted successfully."
 msgstr "已成功刪除追蹤版本。"
 
-#: src/Controllers/Table/TrackingController.php:204
+#: src/Controllers/Table/TrackingController.php:202
 msgid "No versions selected."
 msgstr "尚未選擇版本。"
 
-#: src/Controllers/Triggers/IndexController.php:165
+#: src/Controllers/Triggers/IndexController.php:162
 msgid "Add trigger"
 msgstr "新增觸發器"
 
-#: src/Controllers/Triggers/IndexController.php:169
+#: src/Controllers/Triggers/IndexController.php:166
 msgid "Edit trigger"
 msgstr "編輯觸發器"
 
-#: src/Controllers/Triggers/IndexController.php:211
+#: src/Controllers/Triggers/IndexController.php:208
 #, php-format
 msgid "No trigger with name %1$s found in database %2$s."
 msgstr "在資料庫 %2$s 中查無名稱為 %1$s 的觸發器。"
 
-#: src/Controllers/Triggers/IndexController.php:252
+#: src/Controllers/Triggers/IndexController.php:249
 #, php-format
 msgid ""
 "Error in processing request: No trigger with name %1$s found in database "
@@ -15213,7 +15213,7 @@ msgstr "請求出現問題：資料庫 %2$s 沒有名為 %1$s 的觸發器。"
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "現時並沒有足夠權限！"
 
-#: src/Controllers/View/CreateController.php:85
+#: src/Controllers/View/CreateController.php:83
 msgid "View name can not be empty!"
 msgstr "檢視表名稱不可以是空的！"
 
@@ -15459,31 +15459,31 @@ msgid ""
 "available, but is being hidden by the %s configuration directive."
 msgstr "錯誤1045：使用者被拒絕。可能有其他錯誤訊息，但被%s設定隱藏。"
 
-#: src/Display/Results.php:2404 src/Display/Results.php:2419
+#: src/Display/Results.php:2403 src/Display/Results.php:2418
 msgid "The row has been deleted."
 msgstr "已刪除該行。"
 
-#: src/Display/Results.php:3295
+#: src/Display/Results.php:3294
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "顯示第 %1s - %2s 列"
 
-#: src/Display/Results.php:3309
+#: src/Display/Results.php:3308
 #, php-format
 msgid "%1$s total, %2$s in query"
 msgstr "總計 %1$s 筆，目前查詢 %2$s 筆"
 
-#: src/Display/Results.php:3314
+#: src/Display/Results.php:3313
 #, php-format
 msgid "%s total"
 msgstr "總計 %s 筆"
 
-#: src/Display/Results.php:3327 src/Sql.php:871
+#: src/Display/Results.php:3326 src/Sql.php:871
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "查詢用了 %01.4f 秒。"
 
-#: src/Display/Results.php:3623
+#: src/Display/Results.php:3622
 msgid "Link not found!"
 msgstr "無此連結！"
 
@@ -16203,23 +16203,23 @@ msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
 msgstr[0] "新增了 %1$d 列。"
 
-#: src/Navigation/Navigation.php:215
+#: src/Navigation/Navigation.php:216
 msgid "Groups:"
 msgstr "群組："
 
-#: src/Navigation/Navigation.php:216
+#: src/Navigation/Navigation.php:217
 msgid "Events:"
 msgstr "事件："
 
-#: src/Navigation/Navigation.php:217
+#: src/Navigation/Navigation.php:218
 msgid "Functions:"
 msgstr "函式："
 
-#: src/Navigation/Navigation.php:218
+#: src/Navigation/Navigation.php:219
 msgid "Procedures:"
 msgstr "程序："
 
-#: src/Navigation/Navigation.php:220
+#: src/Navigation/Navigation.php:221
 msgid "Views:"
 msgstr "檢視表："
 
@@ -16662,7 +16662,7 @@ msgstr "找不到 signon 認證指令：%s"
 msgid "Invalid authentication method set in configuration:"
 msgstr "在設定檔中設定的認證方式無效："
 
-#: src/Plugins/AuthenticationPlugin.php:313
+#: src/Plugins/AuthenticationPlugin.php:317
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr "已啟用雙因素認證，請確認登入。"
 
@@ -17214,7 +17214,7 @@ msgstr "不在零值使用自動遞增 (<code>AUTO_INCREMENT</code>)"
 msgid "XML"
 msgstr "XML"
 
-#: src/Plugins.php:575
+#: src/Plugins.php:577
 msgid "This format has no options"
 msgstr "該格式沒有選項"
 
@@ -17676,19 +17676,19 @@ msgstr "無法更改主要備援伺服器！"
 msgid "Primary server changed successfully to %s."
 msgstr "主要備援伺服器成功更改至 %s。"
 
-#: src/Routing/Routing.php:124
+#: src/Routing/Routing.php:123
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr "無法寫入路由緩存，您需要調整資料夾／檔案「%s」的權限"
 
-#: src/Routing/Routing.php:157 src/Routing/Routing.php:200
+#: src/Routing/Routing.php:156 src/Routing/Routing.php:198
 #, php-format
 msgid "Error 404! The page %s was not found."
 msgstr "錯誤 404！找不到 %s 頁面。"
 
-#: src/Routing/Routing.php:165
+#: src/Routing/Routing.php:164
 msgid "Error 405! Request method not allowed."
 msgstr "錯誤405！請求方法不允許。"
 
@@ -18494,11 +18494,11 @@ msgstr "已更新設定檔案。"
 msgid "Password is too long!"
 msgstr "密碼過長！"
 
-#: src/UserPreferences.php:161
+#: src/UserPreferences.php:162
 msgid "Could not save configuration"
 msgstr "無法儲存設定"
 
-#: src/UserPreferences.php:172
+#: src/UserPreferences.php:173
 msgid "The phpMyAdmin configuration storage database could not be accessed."
 msgstr "無法存取phpMyAdmin設定儲存空間資料庫。"
 

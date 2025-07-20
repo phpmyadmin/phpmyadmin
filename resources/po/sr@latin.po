@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-07-13 00:32+0000\n"
+"POT-Creation-Date: 2025-07-20 00:32+0000\n"
 "PO-Revision-Date: 2022-12-13 20:50+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Serbian (latin) <https://hosted.weblate.org/projects/"
@@ -147,7 +147,7 @@ msgstr "Nije Vam dozvoljeno da budete ovde!"
 #: resources/templates/table/structure/display_structure.twig:143
 #: resources/templates/table/structure/display_structure.twig:284
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:25
-#: src/Controllers/Table/StructureController.php:219
+#: src/Controllers/Table/StructureController.php:215
 msgid "Primary"
 msgstr "Primarni"
 
@@ -169,7 +169,7 @@ msgstr "Jedinstveni"
 #: resources/templates/table/structure/display_structure.twig:290
 #: resources/templates/table/structure/display_table_stats.twig:24
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:27
-#: src/Controllers/Table/StructureController.php:223
+#: src/Controllers/Table/StructureController.php:219
 #: src/Navigation/Nodes/NodeIndex.php:26
 msgid "Index"
 msgstr "Ključ"
@@ -993,7 +993,7 @@ msgstr "Onemogućeno"
 #: src/Controllers/JavaScriptMessagesController.php:481
 #: src/Controllers/Table/DeleteRowsController.php:34
 #: src/Controllers/Table/DropColumnController.php:46
-#: src/Controllers/Table/Structure/PrimaryController.php:102
+#: src/Controllers/Table/Structure/PrimaryController.php:101
 #: src/Indexes/IndexColumn.php:148 src/Indexes/Index.php:472
 #: src/Plugins/Export/ExportHtmlword.php:562
 #: src/Plugins/Export/ExportLatex.php:567 src/Plugins/Export/ExportOdt.php:685
@@ -1100,7 +1100,7 @@ msgstr "podupit"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:379
-#: src/Display/Results.php:1805 src/Html/Generator.php:520
+#: src/Display/Results.php:1804 src/Html/Generator.php:520
 #: src/Html/Generator.php:789
 msgid "Edit"
 msgstr "Promeni"
@@ -1119,7 +1119,7 @@ msgstr "Promeni"
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:189
 #: src/Controllers/JavaScriptMessagesController.php:381
-#: src/Display/Results.php:2428 src/Tracking/Tracking.php:224
+#: src/Display/Results.php:2427 src/Tracking/Tracking.php:224
 msgid "Delete"
 msgstr "Obriši"
 
@@ -2219,7 +2219,7 @@ msgid "Exporting tables from \"%s\" database"
 msgstr "Izvoz tabela iz \"%s\" baze"
 
 #: resources/templates/database/export/index.twig:14
-#: src/Navigation/Navigation.php:219
+#: src/Navigation/Navigation.php:220
 #, fuzzy
 #| msgid "Tables"
 msgid "Tables:"
@@ -2286,7 +2286,7 @@ msgstr "Izaberi dve kolone"
 #: resources/templates/database/tracking/tables.twig:19
 #: resources/templates/table/tracking/main.twig:33
 #: src/Controllers/JavaScriptMessagesController.php:693
-#: src/Controllers/Table/ChangeController.php:215
+#: src/Controllers/Table/ChangeController.php:211
 msgid "Show"
 msgstr "Prikaži"
 
@@ -2324,8 +2324,8 @@ msgstr "Sortiranje"
 #: resources/templates/server/status/processes/list.twig:14
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:158
-#: src/Config/ConfigFile.php:554 src/Display/Results.php:1392
-#: src/Display/Results.php:1398 src/Util.php:1844 src/Util.php:1861
+#: src/Config/ConfigFile.php:554 src/Display/Results.php:1391
+#: src/Display/Results.php:1397 src/Util.php:1844 src/Util.php:1861
 msgid "Ascending"
 msgstr "Rastući"
 
@@ -2336,8 +2336,8 @@ msgstr "Rastući"
 #: resources/templates/server/status/processes/list.twig:12
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:162
-#: src/Config/ConfigFile.php:554 src/Display/Results.php:1387
-#: src/Display/Results.php:1403 src/Util.php:1849 src/Util.php:1866
+#: src/Config/ConfigFile.php:554 src/Display/Results.php:1386
+#: src/Display/Results.php:1402 src/Util.php:1849 src/Util.php:1866
 msgid "Descending"
 msgstr "Opadajući"
 
@@ -2760,8 +2760,8 @@ msgid "Export routine"
 msgstr "Izvoz rutine %s"
 
 #: resources/templates/database/routines/index.twig:113
-#: src/Controllers/Database/RoutinesController.php:357
-#: src/Controllers/Database/RoutinesController.php:367
+#: src/Controllers/Database/RoutinesController.php:354
+#: src/Controllers/Database/RoutinesController.php:364
 msgid "Execute routine"
 msgstr ""
 
@@ -3096,8 +3096,8 @@ msgstr "Rečnik podataka"
 
 #: resources/templates/database/structure/index.twig:19
 #: resources/templates/navigation/tree/path.twig:9
-#: src/Controllers/Database/ExportController.php:75
-#: src/Controllers/Database/TrackingController.php:126
+#: src/Controllers/Database/ExportController.php:73
+#: src/Controllers/Database/TrackingController.php:124
 #: src/Controllers/Export/ExportController.php:290
 msgid "No tables found in database."
 msgstr "Tabele nisu pronađene u bazi."
@@ -3139,9 +3139,9 @@ msgstr "Pogledi"
 #: resources/templates/database/structure/show_create.twig:35
 #: resources/templates/database/structure/structure_table_row.twig:122
 #: resources/templates/database/structure/structure_table_row.twig:186
-#: src/Controllers/Operations/TableController.php:122
-#: src/Controllers/Operations/TableController.php:316
-#: src/Controllers/Table/StructureController.php:153
+#: src/Controllers/Operations/TableController.php:118
+#: src/Controllers/Operations/TableController.php:312
+#: src/Controllers/Table/StructureController.php:149
 #: src/Navigation/Nodes/NodeView.php:24
 msgid "View"
 msgstr "Pogled"
@@ -3436,7 +3436,7 @@ msgstr ""
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:467
-#: src/Display/Results.php:1806 src/Html/Generator.php:84
+#: src/Display/Results.php:1805 src/Html/Generator.php:84
 msgid "Copy"
 msgstr "Kopiraj"
 
@@ -3473,7 +3473,7 @@ msgstr ""
 
 #: resources/templates/error/generic.twig:39
 #: resources/templates/table/structure/display_structure.twig:361
-#: src/Controllers/Operations/ViewController.php:117
+#: src/Controllers/Operations/ViewController.php:113
 #: src/Controllers/Table/Partition/DropController.php:56
 #: src/Controllers/Table/Partition/RebuildController.php:56
 #: src/Controllers/Table/Partition/TruncateController.php:56
@@ -4679,7 +4679,7 @@ msgstr ""
 #: resources/templates/preview_sql.twig:3
 #: src/Controllers/Database/Structure/DropTableController.php:44
 #: src/Controllers/Database/Structure/EmptyTableController.php:43
-#: src/Controllers/Operations/TableController.php:332
+#: src/Controllers/Operations/TableController.php:328
 #: src/Controllers/Table/DropColumnController.php:63
 #: src/Controllers/Table/ReplaceController.php:289 src/Core.php:518
 msgid "No change"
@@ -6625,7 +6625,7 @@ msgid "Start auto refresh"
 msgstr ""
 
 #: resources/templates/server/status/processes/list.twig:44
-#: src/Display/Results.php:2447
+#: src/Display/Results.php:2446
 msgid "Kill"
 msgstr "Obustavi"
 
@@ -7029,9 +7029,9 @@ msgid "Pie chart with profiling results."
 msgstr "Rezultat profilisanja"
 
 #: resources/templates/sql/query.twig:7
-#: src/Controllers/Operations/ViewController.php:114
+#: src/Controllers/Operations/ViewController.php:110
 #: src/Controllers/Table/DeleteRowsController.php:60
-#: src/Controllers/Table/FindReplaceController.php:121
+#: src/Controllers/Table/FindReplaceController.php:117
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:75
 #: src/Controllers/Table/Maintenance/CheckController.php:75
 #: src/Controllers/Table/Maintenance/ChecksumController.php:75
@@ -7045,7 +7045,7 @@ msgstr "Rezultat profilisanja"
 #: src/Controllers/Table/Partition/RepairController.php:49
 #: src/Controllers/Table/Partition/TruncateController.php:50
 #: src/Controllers/Table/RelationController.php:143
-#: src/Database/Routines.php:1019 src/Display/Results.php:3013
+#: src/Database/Routines.php:1019 src/Display/Results.php:3012
 #: src/Message.php:122
 #, fuzzy
 #| msgid "Your SQL query has been executed successfully."
@@ -7582,7 +7582,7 @@ msgstr "Snimi sve baferovane izmene nad tabelom (FLUSH)"
 
 #: resources/templates/table/operations/index.twig:411
 #: resources/templates/table/operations/index.twig:429
-#: src/Controllers/Database/StructureController.php:403
+#: src/Controllers/Database/StructureController.php:401
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "Tabela %s je ispražnjena."
@@ -7599,14 +7599,14 @@ msgstr "Brisanje tabele (DROP)"
 
 #: resources/templates/table/operations/index.twig:452
 #: resources/templates/table/operations/view.twig:32
-#: src/Controllers/Database/StructureController.php:356
+#: src/Controllers/Database/StructureController.php:354
 #, fuzzy, php-format
 #| msgid "View %s has been dropped."
 msgid "View %s has been dropped."
 msgstr "Pogled %s je odbačen"
 
 #: resources/templates/table/operations/index.twig:452
-#: src/Controllers/Database/StructureController.php:356
+#: src/Controllers/Database/StructureController.php:354
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
@@ -8171,7 +8171,7 @@ msgid "Event"
 msgstr "Događaji"
 
 #: resources/templates/triggers/export.twig:2
-#: src/Controllers/Triggers/IndexController.php:235
+#: src/Controllers/Triggers/IndexController.php:232
 #, php-format
 msgid "Export of trigger %s"
 msgstr "Izvoz okidača %s"
@@ -13012,13 +13012,13 @@ msgstr ""
 
 #: src/Controllers/Database/DesignerController.php:171
 #: src/Controllers/Database/DesignerController.php:176
-#: src/Controllers/Database/EventsController.php:50
+#: src/Controllers/Database/EventsController.php:52
 #: src/Controllers/Database/ExportController.php:57
 #: src/Controllers/Database/ExportController.php:62
 #: src/Controllers/Database/ImportController.php:60
 #: src/Controllers/Database/ImportController.php:65
 #: src/Controllers/Database/RoutinesController.php:80
-#: src/Controllers/Database/RoutinesController.php:99
+#: src/Controllers/Database/RoutinesController.php:98
 #: src/Controllers/Database/SearchController.php:53
 #: src/Controllers/Database/SearchController.php:58
 #: src/Controllers/Database/SqlController.php:54
@@ -13043,9 +13043,9 @@ msgstr ""
 #: src/Controllers/Table/ChangeController.php:70
 #: src/Controllers/Table/ChangeController.php:75
 #: src/Controllers/Table/ChartController.php:87
-#: src/Controllers/Table/ChartController.php:92
-#: src/Controllers/Table/ChartController.php:122
-#: src/Controllers/Table/ChartController.php:127
+#: src/Controllers/Table/ChartController.php:94
+#: src/Controllers/Table/ChartController.php:121
+#: src/Controllers/Table/ChartController.php:128
 #: src/Controllers/Table/ChartController.php:201
 #: src/Controllers/Table/DeleteConfirmController.php:57
 #: src/Controllers/Table/DeleteConfirmController.php:62
@@ -13058,7 +13058,7 @@ msgstr ""
 #: src/Controllers/Table/ImportController.php:69
 #: src/Controllers/Table/ImportController.php:74
 #: src/Controllers/Table/IndexesController.php:67
-#: src/Controllers/Table/IndexesController.php:72
+#: src/Controllers/Table/IndexesController.php:74
 #: src/Controllers/Table/IndexRenameController.php:55
 #: src/Controllers/Table/IndexRenameController.php:60
 #: src/Controllers/Table/SearchController.php:174
@@ -13068,64 +13068,64 @@ msgstr ""
 #: src/Controllers/Table/StructureController.php:93
 #: src/Controllers/Table/StructureController.php:98
 #: src/Controllers/Table/Structure/PrimaryController.php:69
-#: src/Controllers/Table/Structure/PrimaryController.php:74
+#: src/Controllers/Table/Structure/PrimaryController.php:76
 #: src/Controllers/Table/TrackingController.php:68
 #: src/Controllers/Table/TrackingController.php:73
 #: src/Controllers/Table/ZoomSearchController.php:102
 #: src/Controllers/Table/ZoomSearchController.php:107
 #: src/Controllers/Triggers/IndexController.php:66
-#: src/Controllers/Triggers/IndexController.php:85
+#: src/Controllers/Triggers/IndexController.php:84
 #: src/Controllers/View/CreateController.php:67
 #: src/Controllers/View/CreateController.php:72
 msgid "No databases selected."
 msgstr "Nije izabrana ni jedna baza."
 
-#: src/Controllers/Database/EventsController.php:124
+#: src/Controllers/Database/EventsController.php:125
 msgid "Add event"
 msgstr "Dodaj događaj"
 
-#: src/Controllers/Database/EventsController.php:128
+#: src/Controllers/Database/EventsController.php:129
 msgid "Edit event"
 msgstr "Izmeni događaj"
 
-#: src/Controllers/Database/EventsController.php:177
-#: src/Controllers/Database/RoutinesController.php:276
-#: src/Controllers/Database/RoutinesController.php:306
-#: src/Controllers/Database/RoutinesController.php:374
-#: src/Controllers/Triggers/IndexController.php:209
+#: src/Controllers/Database/EventsController.php:178
+#: src/Controllers/Database/RoutinesController.php:273
+#: src/Controllers/Database/RoutinesController.php:303
+#: src/Controllers/Database/RoutinesController.php:371
+#: src/Controllers/Triggers/IndexController.php:206
 #, fuzzy
 #| msgid "Error in processing request"
 msgid "Error in processing request:"
 msgstr "Greška u procesiranju zahteva"
 
-#: src/Controllers/Database/EventsController.php:179
+#: src/Controllers/Database/EventsController.php:180
 #, fuzzy, php-format
 #| msgid "No event with name %1$s found in database %2$s"
 msgid "No event with name %1$s found in database %2$s."
 msgstr "Događaj sa imenom %1$s nije pronađen u bazi %2$s"
 
-#: src/Controllers/Database/EventsController.php:205
+#: src/Controllers/Database/EventsController.php:206
 #, php-format
 msgid "Export of event %s"
 msgstr "Izvoz događaja %s"
 
-#: src/Controllers/Database/EventsController.php:223
+#: src/Controllers/Database/EventsController.php:224
 #, fuzzy, php-format
 #| msgid "No event with name %1$s found in database %2$s"
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "Događaj sa imenom %1$s nije pronađen u bazi %2$s"
 
-#: src/Controllers/Database/ExportController.php:131
+#: src/Controllers/Database/ExportController.php:129
 #: src/Controllers/Server/ExportController.php:57
 #: src/Controllers/Table/ExportController.php:90
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 "Nije moguće učitati dodatke za izvoz, molimo proverite svoju instalaciju!"
 
-#: src/Controllers/Database/ImportController.php:77
+#: src/Controllers/Database/ImportController.php:75
 #: src/Controllers/Server/ImportController.php:60
-#: src/Controllers/Table/ImportController.php:103
+#: src/Controllers/Table/ImportController.php:99
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Ne mogu da učitam dodatke za uvoz, molim proverite svoju instalaciju!"
 
@@ -13156,78 +13156,78 @@ msgstr "Nemate neophodna prava pristupa da bi ste kreirali okidač"
 #: src/Controllers/Database/Structure/ShowCreateController.php:36
 #: src/Controllers/Export/TablesController.php:29
 #: src/Controllers/JavaScriptMessagesController.php:331
-#: src/Controllers/Operations/TableController.php:100
-#: src/Controllers/Operations/TableController.php:105
-#: src/Controllers/Operations/ViewController.php:75
-#: src/Controllers/Operations/ViewController.php:80
-#: src/Controllers/Table/AddFieldController.php:175
-#: src/Controllers/Table/AddFieldController.php:180
-#: src/Controllers/Table/ChangeController.php:84
-#: src/Controllers/Table/ChangeController.php:89
-#: src/Controllers/Table/ChartController.php:101
-#: src/Controllers/Table/ChartController.php:106
+#: src/Controllers/Operations/TableController.php:98
+#: src/Controllers/Operations/TableController.php:103
+#: src/Controllers/Operations/ViewController.php:73
+#: src/Controllers/Operations/ViewController.php:78
+#: src/Controllers/Table/AddFieldController.php:173
+#: src/Controllers/Table/AddFieldController.php:178
+#: src/Controllers/Table/ChangeController.php:82
+#: src/Controllers/Table/ChangeController.php:87
+#: src/Controllers/Table/ChartController.php:102
+#: src/Controllers/Table/ChartController.php:107
 #: src/Controllers/Table/ChartController.php:209
-#: src/Controllers/Table/DeleteConfirmController.php:71
-#: src/Controllers/Table/DeleteConfirmController.php:76
-#: src/Controllers/Table/DropColumnConfirmationController.php:65
-#: src/Controllers/Table/DropColumnConfirmationController.php:70
-#: src/Controllers/Table/FindReplaceController.php:89
-#: src/Controllers/Table/FindReplaceController.php:94
-#: src/Controllers/Table/ImportController.php:83
-#: src/Controllers/Table/ImportController.php:88
-#: src/Controllers/Table/IndexesController.php:81
-#: src/Controllers/Table/IndexesController.php:86
-#: src/Controllers/Table/IndexRenameController.php:69
-#: src/Controllers/Table/IndexRenameController.php:74
+#: src/Controllers/Table/DeleteConfirmController.php:69
+#: src/Controllers/Table/DeleteConfirmController.php:74
+#: src/Controllers/Table/DropColumnConfirmationController.php:63
+#: src/Controllers/Table/DropColumnConfirmationController.php:68
+#: src/Controllers/Table/FindReplaceController.php:87
+#: src/Controllers/Table/FindReplaceController.php:92
+#: src/Controllers/Table/ImportController.php:81
+#: src/Controllers/Table/ImportController.php:86
+#: src/Controllers/Table/IndexesController.php:82
+#: src/Controllers/Table/IndexesController.php:87
+#: src/Controllers/Table/IndexRenameController.php:67
+#: src/Controllers/Table/IndexRenameController.php:72
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:46
 #: src/Controllers/Table/Maintenance/CheckController.php:46
 #: src/Controllers/Table/Maintenance/ChecksumController.php:46
 #: src/Controllers/Table/Maintenance/OptimizeController.php:46
 #: src/Controllers/Table/Maintenance/RepairController.php:46
-#: src/Controllers/Table/SearchController.php:188
-#: src/Controllers/Table/SearchController.php:193
-#: src/Controllers/Table/SqlController.php:73
-#: src/Controllers/Table/SqlController.php:78
-#: src/Controllers/Table/StructureController.php:107
-#: src/Controllers/Table/StructureController.php:112
-#: src/Controllers/Table/Structure/PrimaryController.php:83
-#: src/Controllers/Table/Structure/PrimaryController.php:88
-#: src/Controllers/Table/ZoomSearchController.php:116
-#: src/Controllers/Table/ZoomSearchController.php:121
+#: src/Controllers/Table/SearchController.php:186
+#: src/Controllers/Table/SearchController.php:191
+#: src/Controllers/Table/SqlController.php:71
+#: src/Controllers/Table/SqlController.php:76
+#: src/Controllers/Table/StructureController.php:105
+#: src/Controllers/Table/StructureController.php:110
+#: src/Controllers/Table/Structure/PrimaryController.php:84
+#: src/Controllers/Table/Structure/PrimaryController.php:89
+#: src/Controllers/Table/ZoomSearchController.php:114
+#: src/Controllers/Table/ZoomSearchController.php:119
 #: src/Controllers/Triggers/IndexController.php:74
 #, fuzzy
 #| msgid "No tables selected."
 msgid "No table selected."
 msgstr "Nije izabrana ni jedna tabela."
 
-#: src/Controllers/Database/RoutinesController.php:176
+#: src/Controllers/Database/RoutinesController.php:173
 msgid "Add routine"
 msgstr "Dodaj rutinu"
 
-#: src/Controllers/Database/RoutinesController.php:180
+#: src/Controllers/Database/RoutinesController.php:177
 msgid "Edit routine"
 msgstr "Izmena rutine"
 
-#: src/Controllers/Database/RoutinesController.php:279
+#: src/Controllers/Database/RoutinesController.php:276
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
 msgstr ""
 
-#: src/Controllers/Database/RoutinesController.php:308
-#: src/Controllers/Database/RoutinesController.php:376
+#: src/Controllers/Database/RoutinesController.php:305
+#: src/Controllers/Database/RoutinesController.php:373
 #, fuzzy, php-format
 #| msgid "No routine with name %1$s found in database %2$s"
 msgid "No routine with name %1$s found in database %2$s."
 msgstr "Rutina sa imenom %1$s nije pronađena u bazi %2$s"
 
-#: src/Controllers/Database/RoutinesController.php:419
+#: src/Controllers/Database/RoutinesController.php:416
 #, php-format
 msgid "Export of routine %s"
 msgstr "Izvoz rutine %s"
 
-#: src/Controllers/Database/RoutinesController.php:438
+#: src/Controllers/Database/RoutinesController.php:435
 #, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
@@ -13235,7 +13235,7 @@ msgid ""
 "routine."
 msgstr ""
 
-#: src/Controllers/Database/SearchController.php:65
+#: src/Controllers/Database/SearchController.php:63
 msgid ""
 "Searching inside the database is disabled by the [code]$cfg['UseDbSearch'][/"
 "code] configuration."
@@ -13247,8 +13247,8 @@ msgstr ""
 msgid "Success!"
 msgstr ""
 
-#: src/Controllers/Database/StructureController.php:569
-#: src/Display/Results.php:3286
+#: src/Controllers/Database/StructureController.php:567
+#: src/Display/Results.php:3285
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -13257,7 +13257,7 @@ msgstr ""
 "Ovaj pogled ima najmanje ovaj broj redova. Molimo vas pogledajte "
 "%sdokumentaciju%s."
 
-#: src/Controllers/Database/StructureController.php:736
+#: src/Controllers/Database/StructureController.php:734
 msgid "unknown"
 msgstr "nepoznat"
 
@@ -13265,23 +13265,23 @@ msgstr "nepoznat"
 msgid "Favorite List is full!"
 msgstr ""
 
-#: src/Controllers/Database/TrackingController.php:73
-#: src/Controllers/Database/TrackingController.php:99
+#: src/Controllers/Database/TrackingController.php:71
+#: src/Controllers/Database/TrackingController.php:97
 msgid "Tracking data deleted successfully."
 msgstr "Podaci o praćenju su uspešno izbrisani."
 
-#: src/Controllers/Database/TrackingController.php:84
+#: src/Controllers/Database/TrackingController.php:82
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr ""
 "Verzija %1$s je kreirana za izabrane tabele, praćenje je aktivirano za njih."
 
-#: src/Controllers/Database/TrackingController.php:116
+#: src/Controllers/Database/TrackingController.php:114
 msgid "No tables selected."
 msgstr "Nije izabrana ni jedna tabela."
 
-#: src/Controllers/Database/TrackingController.php:151
+#: src/Controllers/Database/TrackingController.php:149
 msgid "Database Log"
 msgstr "Log baze podataka"
 
@@ -15665,7 +15665,7 @@ msgid "String"
 msgstr "Linije se završavaju sa"
 
 #: src/Controllers/Operations/Database/CollationController.php:42
-#: src/Controllers/Operations/TableController.php:266
+#: src/Controllers/Operations/TableController.php:262
 msgid "No collation provided."
 msgstr ""
 
@@ -15683,7 +15683,7 @@ msgstr "Baza %1$s je preimenovana u %2$s."
 msgid "Database %1$s has been copied to %2$s."
 msgstr "Baza %1$s je iskopirana u %2$s."
 
-#: src/Controllers/Operations/DatabaseController.php:279
+#: src/Controllers/Operations/DatabaseController.php:277
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
@@ -15719,7 +15719,7 @@ msgstr "Neispravan metod autentikacije je zadat u konfiguraciji:"
 
 #: src/Controllers/SchemaExportController.php:40
 #: src/Controllers/Server/UserGroupsFormController.php:46
-#: src/ResponseRenderer.php:448
+#: src/ResponseRenderer.php:449
 msgid "Missing parameter:"
 msgstr "Nedostaje parametar:"
 
@@ -16535,20 +16535,20 @@ msgstr "Pogrešan podatak"
 msgid "Wrong data or no validation for %s"
 msgstr ""
 
-#: src/Controllers/Sql/SqlController.php:215 src/Sql.php:1055
+#: src/Controllers/Sql/SqlController.php:213 src/Sql.php:1055
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Napravljen marker %s."
 
-#: src/Controllers/Sql/SqlController.php:222
+#: src/Controllers/Sql/SqlController.php:220
 #, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created!"
 msgstr "Napravljen marker %s"
 
 #: src/Controllers/Table/AddFieldController.php:136
-#: src/Controllers/Table/IndexesController.php:140
-#: src/Controllers/Table/IndexRenameController.php:127
+#: src/Controllers/Table/IndexesController.php:139
+#: src/Controllers/Table/IndexRenameController.php:123
 #: src/Controllers/Table/Structure/PartitioningController.php:267
 #: src/Controllers/Table/Structure/SaveController.php:217
 #, php-format
@@ -16564,7 +16564,7 @@ msgid "No row selected."
 msgstr "Nema odabranih redova"
 
 #: src/Controllers/Table/ChartController.php:59
-#: src/Controllers/Table/GisVisualizationController.php:82
+#: src/Controllers/Table/GisVisualizationController.php:80
 msgid "No SQL query was set to fetch data."
 msgstr ""
 
@@ -16629,7 +16629,7 @@ msgstr "Ima previše spajanja koja ne koriste indekse."
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL je vratio prazan rezultat (nula redova)."
 
-#: src/Controllers/Table/GisVisualizationController.php:93
+#: src/Controllers/Table/GisVisualizationController.php:91
 #, fuzzy
 #| msgid "Has no effect in this MySQL version."
 msgid "No spatial column found for this SQL query."
@@ -16719,43 +16719,43 @@ msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "Tabela %1$s je uspešno izmenjena."
 
-#: src/Controllers/Table/TrackingController.php:92
+#: src/Controllers/Table/TrackingController.php:90
 #, fuzzy, php-format
 #| msgid "Tracking is active."
 msgid "Tracking of %s is activated."
 msgstr "Praćenje je aktivno."
 
-#: src/Controllers/Table/TrackingController.php:145
+#: src/Controllers/Table/TrackingController.php:143
 msgid "SQL statements executed."
 msgstr ""
 
-#: src/Controllers/Table/TrackingController.php:199
+#: src/Controllers/Table/TrackingController.php:197
 #, fuzzy
 #| msgid "The selected users have been deleted successfully."
 msgid "Tracking versions deleted successfully."
 msgstr "Izabrani korisnici su uspešno obrisani."
 
-#: src/Controllers/Table/TrackingController.php:204
+#: src/Controllers/Table/TrackingController.php:202
 #, fuzzy
 #| msgid "No rows selected"
 msgid "No versions selected."
 msgstr "Nema odabranih redova"
 
-#: src/Controllers/Triggers/IndexController.php:165
+#: src/Controllers/Triggers/IndexController.php:162
 msgid "Add trigger"
 msgstr "Dodaj okidač"
 
-#: src/Controllers/Triggers/IndexController.php:169
+#: src/Controllers/Triggers/IndexController.php:166
 msgid "Edit trigger"
 msgstr "Izmeni okidač"
 
-#: src/Controllers/Triggers/IndexController.php:211
+#: src/Controllers/Triggers/IndexController.php:208
 #, fuzzy, php-format
 #| msgid "No trigger with name %1$s found in database %2$s"
 msgid "No trigger with name %1$s found in database %2$s."
 msgstr "Okidač sa imenom %1$s nije pronađen u bazi %2$s"
 
-#: src/Controllers/Triggers/IndexController.php:252
+#: src/Controllers/Triggers/IndexController.php:249
 #, fuzzy, php-format
 #| msgid "No trigger with name %1$s found in database %2$s"
 msgid ""
@@ -16767,7 +16767,7 @@ msgstr "Okidač sa imenom %1$s nije pronađen u bazi %2$s"
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "Nije Vam dozvoljeno da budete ovde!"
 
-#: src/Controllers/View/CreateController.php:85
+#: src/Controllers/View/CreateController.php:83
 msgid "View name can not be empty!"
 msgstr ""
 
@@ -17043,36 +17043,36 @@ msgid ""
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
 
-#: src/Display/Results.php:2404 src/Display/Results.php:2419
+#: src/Display/Results.php:2403 src/Display/Results.php:2418
 #, fuzzy
 #| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "Red je obrisan"
 
-#: src/Display/Results.php:3295
+#: src/Display/Results.php:3294
 #, fuzzy, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
 msgstr "Prikaz zapisa"
 
-#: src/Display/Results.php:3309
+#: src/Display/Results.php:3308
 #, php-format
 msgid "%1$s total, %2$s in query"
 msgstr ""
 
-#: src/Display/Results.php:3314
+#: src/Display/Results.php:3313
 #, fuzzy, php-format
 #| msgid "total"
 msgid "%s total"
 msgstr "ukupno"
 
-#: src/Display/Results.php:3327 src/Sql.php:871
+#: src/Display/Results.php:3326 src/Sql.php:871
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
 msgstr "Upit je trajao %01.4f sekundi"
 
-#: src/Display/Results.php:3623
+#: src/Display/Results.php:3622
 #, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
@@ -17836,31 +17836,31 @@ msgstr[0] "%1$d red umetnut."
 msgstr[1] "%1$d redova umetnuto."
 msgstr[2] "%1$d redova umetnuto."
 
-#: src/Navigation/Navigation.php:215
+#: src/Navigation/Navigation.php:216
 #, fuzzy
 #| msgid "Column names: "
 msgid "Groups:"
 msgstr "Imena kolona: "
 
-#: src/Navigation/Navigation.php:216
+#: src/Navigation/Navigation.php:217
 #, fuzzy
 #| msgid "Events"
 msgid "Events:"
 msgstr "Događaji"
 
-#: src/Navigation/Navigation.php:217
+#: src/Navigation/Navigation.php:218
 #, fuzzy
 #| msgid "Functions"
 msgid "Functions:"
 msgstr "Funkcije"
 
-#: src/Navigation/Navigation.php:218
+#: src/Navigation/Navigation.php:219
 #, fuzzy
 #| msgid "Procedures"
 msgid "Procedures:"
 msgstr "Procedure"
 
-#: src/Navigation/Navigation.php:220
+#: src/Navigation/Navigation.php:221
 #, fuzzy
 #| msgid "Views"
 msgid "Views:"
@@ -18323,7 +18323,7 @@ msgstr "Ne mogu da nađem signon skript za autentikaciju:"
 msgid "Invalid authentication method set in configuration:"
 msgstr "Neispravan metod autentikacije je zadat u konfiguraciji:"
 
-#: src/Plugins/AuthenticationPlugin.php:313
+#: src/Plugins/AuthenticationPlugin.php:317
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 
@@ -18926,7 +18926,7 @@ msgstr ""
 msgid "XML"
 msgstr "XML"
 
-#: src/Plugins.php:575
+#: src/Plugins.php:577
 msgid "This format has no options"
 msgstr "Ovaj format nema opcije"
 
@@ -19398,19 +19398,19 @@ msgstr ""
 msgid "Primary server changed successfully to %s."
 msgstr "Master server uspešno promenjen u %s"
 
-#: src/Routing/Routing.php:124
+#: src/Routing/Routing.php:123
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
 
-#: src/Routing/Routing.php:157 src/Routing/Routing.php:200
+#: src/Routing/Routing.php:156 src/Routing/Routing.php:198
 #, fuzzy, php-format
 msgid "Error 404! The page %s was not found."
 msgstr "Pretraživanje baze"
 
-#: src/Routing/Routing.php:165
+#: src/Routing/Routing.php:164
 msgid "Error 405! Request method not allowed."
 msgstr ""
 
@@ -20225,11 +20225,11 @@ msgstr "Profil je promenjen."
 msgid "Password is too long!"
 msgstr "Heširanje lozinke"
 
-#: src/UserPreferences.php:161
+#: src/UserPreferences.php:162
 msgid "Could not save configuration"
 msgstr "Nije moguće snimiti konfiguraciju"
 
-#: src/UserPreferences.php:172
+#: src/UserPreferences.php:173
 #, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "The phpMyAdmin configuration storage database could not be accessed."

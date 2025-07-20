@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-07-13 00:32+0000\n"
+"POT-Creation-Date: 2025-07-20 00:32+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Sinhala <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -144,7 +144,7 @@ msgstr ""
 #: resources/templates/table/structure/display_structure.twig:143
 #: resources/templates/table/structure/display_structure.twig:284
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:25
-#: src/Controllers/Table/StructureController.php:219
+#: src/Controllers/Table/StructureController.php:215
 msgid "Primary"
 msgstr "ප්‍රාථමික"
 
@@ -166,7 +166,7 @@ msgstr "අනන්‍ය"
 #: resources/templates/table/structure/display_structure.twig:290
 #: resources/templates/table/structure/display_table_stats.twig:24
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:27
-#: src/Controllers/Table/StructureController.php:223
+#: src/Controllers/Table/StructureController.php:219
 #: src/Navigation/Nodes/NodeIndex.php:26
 msgid "Index"
 msgstr "සූචිය"
@@ -987,7 +987,7 @@ msgstr "අක්‍රිය"
 #: src/Controllers/JavaScriptMessagesController.php:481
 #: src/Controllers/Table/DeleteRowsController.php:34
 #: src/Controllers/Table/DropColumnController.php:46
-#: src/Controllers/Table/Structure/PrimaryController.php:102
+#: src/Controllers/Table/Structure/PrimaryController.php:101
 #: src/Indexes/IndexColumn.php:148 src/Indexes/Index.php:472
 #: src/Plugins/Export/ExportHtmlword.php:562
 #: src/Plugins/Export/ExportLatex.php:567 src/Plugins/Export/ExportOdt.php:685
@@ -1094,7 +1094,7 @@ msgstr "උප විමසුම"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:379
-#: src/Display/Results.php:1805 src/Html/Generator.php:520
+#: src/Display/Results.php:1804 src/Html/Generator.php:520
 #: src/Html/Generator.php:789
 msgid "Edit"
 msgstr "සංස්කරණය කරන්න"
@@ -1113,7 +1113,7 @@ msgstr "සංස්කරණය කරන්න"
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:189
 #: src/Controllers/JavaScriptMessagesController.php:381
-#: src/Display/Results.php:2428 src/Tracking/Tracking.php:224
+#: src/Display/Results.php:2427 src/Tracking/Tracking.php:224
 msgid "Delete"
 msgstr "ඉවත් කරන්න"
 
@@ -2211,7 +2211,7 @@ msgid "Exporting tables from \"%s\" database"
 msgstr "\"%s\" දත්තගබඩාවෙන් වගු අපනයනය කිරීම"
 
 #: resources/templates/database/export/index.twig:14
-#: src/Navigation/Navigation.php:219
+#: src/Navigation/Navigation.php:220
 #, fuzzy
 #| msgid "Tables"
 msgid "Tables:"
@@ -2278,7 +2278,7 @@ msgstr "තීර දෙකක් තෝරන්න"
 #: resources/templates/database/tracking/tables.twig:19
 #: resources/templates/table/tracking/main.twig:33
 #: src/Controllers/JavaScriptMessagesController.php:693
-#: src/Controllers/Table/ChangeController.php:215
+#: src/Controllers/Table/ChangeController.php:211
 msgid "Show"
 msgstr "පෙන්වන්න"
 
@@ -2318,8 +2318,8 @@ msgstr "සුබෙදන්න"
 #: resources/templates/server/status/processes/list.twig:14
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:158
-#: src/Config/ConfigFile.php:554 src/Display/Results.php:1392
-#: src/Display/Results.php:1398 src/Util.php:1844 src/Util.php:1861
+#: src/Config/ConfigFile.php:554 src/Display/Results.php:1391
+#: src/Display/Results.php:1397 src/Util.php:1844 src/Util.php:1861
 msgid "Ascending"
 msgstr "ආරෝහන"
 
@@ -2330,8 +2330,8 @@ msgstr "ආරෝහන"
 #: resources/templates/server/status/processes/list.twig:12
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:162
-#: src/Config/ConfigFile.php:554 src/Display/Results.php:1387
-#: src/Display/Results.php:1403 src/Util.php:1849 src/Util.php:1866
+#: src/Config/ConfigFile.php:554 src/Display/Results.php:1386
+#: src/Display/Results.php:1402 src/Util.php:1849 src/Util.php:1866
 msgid "Descending"
 msgstr "අවරෝහන"
 
@@ -2742,8 +2742,8 @@ msgid "Export routine"
 msgstr "%s නෛත්‍යකයේ අපනයනය"
 
 #: resources/templates/database/routines/index.twig:113
-#: src/Controllers/Database/RoutinesController.php:357
-#: src/Controllers/Database/RoutinesController.php:367
+#: src/Controllers/Database/RoutinesController.php:354
+#: src/Controllers/Database/RoutinesController.php:364
 msgid "Execute routine"
 msgstr "නෛත්‍යකය ක්‍රියාත්මක කරන්න"
 
@@ -3066,8 +3066,8 @@ msgstr "දත්ත කෝෂය"
 
 #: resources/templates/database/structure/index.twig:19
 #: resources/templates/navigation/tree/path.twig:9
-#: src/Controllers/Database/ExportController.php:75
-#: src/Controllers/Database/TrackingController.php:126
+#: src/Controllers/Database/ExportController.php:73
+#: src/Controllers/Database/TrackingController.php:124
 #: src/Controllers/Export/ExportController.php:290
 msgid "No tables found in database."
 msgstr "දත්තගබඩාවේ වගු කිසිවක් සොයා ගැනීමට නොමැත."
@@ -3109,9 +3109,9 @@ msgstr "දසුන්"
 #: resources/templates/database/structure/show_create.twig:35
 #: resources/templates/database/structure/structure_table_row.twig:122
 #: resources/templates/database/structure/structure_table_row.twig:186
-#: src/Controllers/Operations/TableController.php:122
-#: src/Controllers/Operations/TableController.php:316
-#: src/Controllers/Table/StructureController.php:153
+#: src/Controllers/Operations/TableController.php:118
+#: src/Controllers/Operations/TableController.php:312
+#: src/Controllers/Table/StructureController.php:149
 #: src/Navigation/Nodes/NodeView.php:24
 msgid "View"
 msgstr "දසුන"
@@ -3402,7 +3402,7 @@ msgstr "Well Known Binary"
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:467
-#: src/Display/Results.php:1806 src/Html/Generator.php:84
+#: src/Display/Results.php:1805 src/Html/Generator.php:84
 msgid "Copy"
 msgstr "පිටපත් කරන්න"
 
@@ -3439,7 +3439,7 @@ msgstr "Kana වෙත පරිවර්තනය කරන්න"
 
 #: resources/templates/error/generic.twig:39
 #: resources/templates/table/structure/display_structure.twig:361
-#: src/Controllers/Operations/ViewController.php:117
+#: src/Controllers/Operations/ViewController.php:113
 #: src/Controllers/Table/Partition/DropController.php:56
 #: src/Controllers/Table/Partition/RebuildController.php:56
 #: src/Controllers/Table/Partition/TruncateController.php:56
@@ -4622,7 +4622,7 @@ msgstr ""
 #: resources/templates/preview_sql.twig:3
 #: src/Controllers/Database/Structure/DropTableController.php:44
 #: src/Controllers/Database/Structure/EmptyTableController.php:43
-#: src/Controllers/Operations/TableController.php:332
+#: src/Controllers/Operations/TableController.php:328
 #: src/Controllers/Table/DropColumnController.php:63
 #: src/Controllers/Table/ReplaceController.php:289 src/Core.php:518
 msgid "No change"
@@ -6565,7 +6565,7 @@ msgid "Start auto refresh"
 msgstr "ස්වයංක්‍රීය යාවත්කාලීන කිරීම අරඹන්න"
 
 #: resources/templates/server/status/processes/list.twig:44
-#: src/Display/Results.php:2447
+#: src/Display/Results.php:2446
 msgid "Kill"
 msgstr "නවතා දමන්න"
 
@@ -6975,9 +6975,9 @@ msgid "Pie chart with profiling results."
 msgstr "විමසුම් ප්‍රථිඵල සඳහා මෙහෙයුම්"
 
 #: resources/templates/sql/query.twig:7
-#: src/Controllers/Operations/ViewController.php:114
+#: src/Controllers/Operations/ViewController.php:110
 #: src/Controllers/Table/DeleteRowsController.php:60
-#: src/Controllers/Table/FindReplaceController.php:121
+#: src/Controllers/Table/FindReplaceController.php:117
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:75
 #: src/Controllers/Table/Maintenance/CheckController.php:75
 #: src/Controllers/Table/Maintenance/ChecksumController.php:75
@@ -6991,7 +6991,7 @@ msgstr "විමසුම් ප්‍රථිඵල සඳහා මෙහෙ
 #: src/Controllers/Table/Partition/RepairController.php:49
 #: src/Controllers/Table/Partition/TruncateController.php:50
 #: src/Controllers/Table/RelationController.php:143
-#: src/Database/Routines.php:1019 src/Display/Results.php:3013
+#: src/Database/Routines.php:1019 src/Display/Results.php:3012
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "ඔබගේ SQL විමසුම සාර්ථකව ක්‍රියාවට නංවන ලදි."
@@ -7509,7 +7509,7 @@ msgstr "Flush the table (FLUSH)"
 
 #: resources/templates/table/operations/index.twig:411
 #: resources/templates/table/operations/index.twig:429
-#: src/Controllers/Database/StructureController.php:403
+#: src/Controllers/Database/StructureController.php:401
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "%s වගුව හිස් කරන ලදි."
@@ -7526,13 +7526,13 @@ msgstr "වගුව හිස් කරන්න (TRUNCATE)"
 
 #: resources/templates/table/operations/index.twig:452
 #: resources/templates/table/operations/view.twig:32
-#: src/Controllers/Database/StructureController.php:356
+#: src/Controllers/Database/StructureController.php:354
 #, php-format
 msgid "View %s has been dropped."
 msgstr "%s දසුන හලන ලදි."
 
 #: resources/templates/table/operations/index.twig:452
-#: src/Controllers/Database/StructureController.php:356
+#: src/Controllers/Database/StructureController.php:354
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "%s වගුව හලන ලදි."
@@ -8076,7 +8076,7 @@ msgid "Event"
 msgstr "සිද්ධිය"
 
 #: resources/templates/triggers/export.twig:2
-#: src/Controllers/Triggers/IndexController.php:235
+#: src/Controllers/Triggers/IndexController.php:232
 #, php-format
 msgid "Export of trigger %s"
 msgstr "%s ප්‍රේරකයේ අපනයන"
@@ -12945,13 +12945,13 @@ msgstr ""
 
 #: src/Controllers/Database/DesignerController.php:171
 #: src/Controllers/Database/DesignerController.php:176
-#: src/Controllers/Database/EventsController.php:50
+#: src/Controllers/Database/EventsController.php:52
 #: src/Controllers/Database/ExportController.php:57
 #: src/Controllers/Database/ExportController.php:62
 #: src/Controllers/Database/ImportController.php:60
 #: src/Controllers/Database/ImportController.php:65
 #: src/Controllers/Database/RoutinesController.php:80
-#: src/Controllers/Database/RoutinesController.php:99
+#: src/Controllers/Database/RoutinesController.php:98
 #: src/Controllers/Database/SearchController.php:53
 #: src/Controllers/Database/SearchController.php:58
 #: src/Controllers/Database/SqlController.php:54
@@ -12976,9 +12976,9 @@ msgstr ""
 #: src/Controllers/Table/ChangeController.php:70
 #: src/Controllers/Table/ChangeController.php:75
 #: src/Controllers/Table/ChartController.php:87
-#: src/Controllers/Table/ChartController.php:92
-#: src/Controllers/Table/ChartController.php:122
-#: src/Controllers/Table/ChartController.php:127
+#: src/Controllers/Table/ChartController.php:94
+#: src/Controllers/Table/ChartController.php:121
+#: src/Controllers/Table/ChartController.php:128
 #: src/Controllers/Table/ChartController.php:201
 #: src/Controllers/Table/DeleteConfirmController.php:57
 #: src/Controllers/Table/DeleteConfirmController.php:62
@@ -12991,7 +12991,7 @@ msgstr ""
 #: src/Controllers/Table/ImportController.php:69
 #: src/Controllers/Table/ImportController.php:74
 #: src/Controllers/Table/IndexesController.php:67
-#: src/Controllers/Table/IndexesController.php:72
+#: src/Controllers/Table/IndexesController.php:74
 #: src/Controllers/Table/IndexRenameController.php:55
 #: src/Controllers/Table/IndexRenameController.php:60
 #: src/Controllers/Table/SearchController.php:174
@@ -13001,61 +13001,61 @@ msgstr ""
 #: src/Controllers/Table/StructureController.php:93
 #: src/Controllers/Table/StructureController.php:98
 #: src/Controllers/Table/Structure/PrimaryController.php:69
-#: src/Controllers/Table/Structure/PrimaryController.php:74
+#: src/Controllers/Table/Structure/PrimaryController.php:76
 #: src/Controllers/Table/TrackingController.php:68
 #: src/Controllers/Table/TrackingController.php:73
 #: src/Controllers/Table/ZoomSearchController.php:102
 #: src/Controllers/Table/ZoomSearchController.php:107
 #: src/Controllers/Triggers/IndexController.php:66
-#: src/Controllers/Triggers/IndexController.php:85
+#: src/Controllers/Triggers/IndexController.php:84
 #: src/Controllers/View/CreateController.php:67
 #: src/Controllers/View/CreateController.php:72
 msgid "No databases selected."
 msgstr "දත්තගබඩාවක් තෝරාගෙන නොමැත."
 
-#: src/Controllers/Database/EventsController.php:124
+#: src/Controllers/Database/EventsController.php:125
 msgid "Add event"
 msgstr "සිද්ධියක් එක් කරන්න"
 
-#: src/Controllers/Database/EventsController.php:128
+#: src/Controllers/Database/EventsController.php:129
 msgid "Edit event"
 msgstr "සිද්ධිය සංස්කරණය කරන්න"
 
-#: src/Controllers/Database/EventsController.php:177
-#: src/Controllers/Database/RoutinesController.php:276
-#: src/Controllers/Database/RoutinesController.php:306
-#: src/Controllers/Database/RoutinesController.php:374
-#: src/Controllers/Triggers/IndexController.php:209
+#: src/Controllers/Database/EventsController.php:178
+#: src/Controllers/Database/RoutinesController.php:273
+#: src/Controllers/Database/RoutinesController.php:303
+#: src/Controllers/Database/RoutinesController.php:371
+#: src/Controllers/Triggers/IndexController.php:206
 msgid "Error in processing request:"
 msgstr "ඉල්ලීම පිරිසැකසීමේදී දෝශ ඇතිවිය:"
 
-#: src/Controllers/Database/EventsController.php:179
+#: src/Controllers/Database/EventsController.php:180
 #, fuzzy, php-format
 #| msgid "No event with name %1$s found in database %2$s"
 msgid "No event with name %1$s found in database %2$s."
 msgstr "%2$s දත්තගබඩාවේ %1$s නමින් සිද්ධි කිසිවක් හමු නොවිණි"
 
-#: src/Controllers/Database/EventsController.php:205
+#: src/Controllers/Database/EventsController.php:206
 #, php-format
 msgid "Export of event %s"
 msgstr "%s සිද්ධියේ අපනයන"
 
-#: src/Controllers/Database/EventsController.php:223
+#: src/Controllers/Database/EventsController.php:224
 #, fuzzy, php-format
 #| msgid "No event with name %1$s found in database %2$s"
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "%2$s දත්තගබඩාවේ %1$s නමින් සිද්ධි කිසිවක් හමු නොවිණි"
 
-#: src/Controllers/Database/ExportController.php:131
+#: src/Controllers/Database/ExportController.php:129
 #: src/Controllers/Server/ExportController.php:57
 #: src/Controllers/Table/ExportController.php:90
 msgid "Could not load export plugins, please check your installation!"
 msgstr "අපනයන පේණු පූරණය කල නොහැකි විය, ඔබගේ ස්ථාපනය පරීක්ෂා කර බලන්න!"
 
-#: src/Controllers/Database/ImportController.php:77
+#: src/Controllers/Database/ImportController.php:75
 #: src/Controllers/Server/ImportController.php:60
-#: src/Controllers/Table/ImportController.php:103
+#: src/Controllers/Table/ImportController.php:99
 msgid "Could not load import plugins, please check your installation!"
 msgstr "ආනයනය පේනු පූරණය අසමත් විය. ඔබගේ ස්ථාපිතය පරීක්ෂා කරන්න!"
 
@@ -13086,78 +13086,78 @@ msgstr "ප්‍රේරකයක් සැදීම සඳහා ඔබට �
 #: src/Controllers/Database/Structure/ShowCreateController.php:36
 #: src/Controllers/Export/TablesController.php:29
 #: src/Controllers/JavaScriptMessagesController.php:331
-#: src/Controllers/Operations/TableController.php:100
-#: src/Controllers/Operations/TableController.php:105
-#: src/Controllers/Operations/ViewController.php:75
-#: src/Controllers/Operations/ViewController.php:80
-#: src/Controllers/Table/AddFieldController.php:175
-#: src/Controllers/Table/AddFieldController.php:180
-#: src/Controllers/Table/ChangeController.php:84
-#: src/Controllers/Table/ChangeController.php:89
-#: src/Controllers/Table/ChartController.php:101
-#: src/Controllers/Table/ChartController.php:106
+#: src/Controllers/Operations/TableController.php:98
+#: src/Controllers/Operations/TableController.php:103
+#: src/Controllers/Operations/ViewController.php:73
+#: src/Controllers/Operations/ViewController.php:78
+#: src/Controllers/Table/AddFieldController.php:173
+#: src/Controllers/Table/AddFieldController.php:178
+#: src/Controllers/Table/ChangeController.php:82
+#: src/Controllers/Table/ChangeController.php:87
+#: src/Controllers/Table/ChartController.php:102
+#: src/Controllers/Table/ChartController.php:107
 #: src/Controllers/Table/ChartController.php:209
-#: src/Controllers/Table/DeleteConfirmController.php:71
-#: src/Controllers/Table/DeleteConfirmController.php:76
-#: src/Controllers/Table/DropColumnConfirmationController.php:65
-#: src/Controllers/Table/DropColumnConfirmationController.php:70
-#: src/Controllers/Table/FindReplaceController.php:89
-#: src/Controllers/Table/FindReplaceController.php:94
-#: src/Controllers/Table/ImportController.php:83
-#: src/Controllers/Table/ImportController.php:88
-#: src/Controllers/Table/IndexesController.php:81
-#: src/Controllers/Table/IndexesController.php:86
-#: src/Controllers/Table/IndexRenameController.php:69
-#: src/Controllers/Table/IndexRenameController.php:74
+#: src/Controllers/Table/DeleteConfirmController.php:69
+#: src/Controllers/Table/DeleteConfirmController.php:74
+#: src/Controllers/Table/DropColumnConfirmationController.php:63
+#: src/Controllers/Table/DropColumnConfirmationController.php:68
+#: src/Controllers/Table/FindReplaceController.php:87
+#: src/Controllers/Table/FindReplaceController.php:92
+#: src/Controllers/Table/ImportController.php:81
+#: src/Controllers/Table/ImportController.php:86
+#: src/Controllers/Table/IndexesController.php:82
+#: src/Controllers/Table/IndexesController.php:87
+#: src/Controllers/Table/IndexRenameController.php:67
+#: src/Controllers/Table/IndexRenameController.php:72
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:46
 #: src/Controllers/Table/Maintenance/CheckController.php:46
 #: src/Controllers/Table/Maintenance/ChecksumController.php:46
 #: src/Controllers/Table/Maintenance/OptimizeController.php:46
 #: src/Controllers/Table/Maintenance/RepairController.php:46
-#: src/Controllers/Table/SearchController.php:188
-#: src/Controllers/Table/SearchController.php:193
-#: src/Controllers/Table/SqlController.php:73
-#: src/Controllers/Table/SqlController.php:78
-#: src/Controllers/Table/StructureController.php:107
-#: src/Controllers/Table/StructureController.php:112
-#: src/Controllers/Table/Structure/PrimaryController.php:83
-#: src/Controllers/Table/Structure/PrimaryController.php:88
-#: src/Controllers/Table/ZoomSearchController.php:116
-#: src/Controllers/Table/ZoomSearchController.php:121
+#: src/Controllers/Table/SearchController.php:186
+#: src/Controllers/Table/SearchController.php:191
+#: src/Controllers/Table/SqlController.php:71
+#: src/Controllers/Table/SqlController.php:76
+#: src/Controllers/Table/StructureController.php:105
+#: src/Controllers/Table/StructureController.php:110
+#: src/Controllers/Table/Structure/PrimaryController.php:84
+#: src/Controllers/Table/Structure/PrimaryController.php:89
+#: src/Controllers/Table/ZoomSearchController.php:114
+#: src/Controllers/Table/ZoomSearchController.php:119
 #: src/Controllers/Triggers/IndexController.php:74
 #, fuzzy
 #| msgid "No tables selected."
 msgid "No table selected."
 msgstr "වගුවක් තෝරාගෙන නොමැත."
 
-#: src/Controllers/Database/RoutinesController.php:176
+#: src/Controllers/Database/RoutinesController.php:173
 msgid "Add routine"
 msgstr "නෛත්‍යකයක් එක් කරන්න"
 
-#: src/Controllers/Database/RoutinesController.php:180
+#: src/Controllers/Database/RoutinesController.php:177
 msgid "Edit routine"
 msgstr "නෛත්‍යකය සංස්කරණ කරන්න"
 
-#: src/Controllers/Database/RoutinesController.php:279
+#: src/Controllers/Database/RoutinesController.php:276
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
 msgstr ""
 
-#: src/Controllers/Database/RoutinesController.php:308
-#: src/Controllers/Database/RoutinesController.php:376
+#: src/Controllers/Database/RoutinesController.php:305
+#: src/Controllers/Database/RoutinesController.php:373
 #, fuzzy, php-format
 #| msgid "No routine with name %1$s found in database %2$s"
 msgid "No routine with name %1$s found in database %2$s."
 msgstr "%2$s දත්තගබඩාවේ %1$s නමින් නෛත්‍යක කිසිවක් හමු නොවිණි"
 
-#: src/Controllers/Database/RoutinesController.php:419
+#: src/Controllers/Database/RoutinesController.php:416
 #, php-format
 msgid "Export of routine %s"
 msgstr "%s නෛත්‍යකයේ අපනයනය"
 
-#: src/Controllers/Database/RoutinesController.php:438
+#: src/Controllers/Database/RoutinesController.php:435
 #, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
@@ -13165,7 +13165,7 @@ msgid ""
 "routine."
 msgstr ""
 
-#: src/Controllers/Database/SearchController.php:65
+#: src/Controllers/Database/SearchController.php:63
 msgid ""
 "Searching inside the database is disabled by the [code]$cfg['UseDbSearch'][/"
 "code] configuration."
@@ -13177,8 +13177,8 @@ msgstr ""
 msgid "Success!"
 msgstr ""
 
-#: src/Controllers/Database/StructureController.php:569
-#: src/Display/Results.php:3286
+#: src/Controllers/Database/StructureController.php:567
+#: src/Display/Results.php:3285
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -13186,7 +13186,7 @@ msgid ""
 msgstr ""
 "මෙම දසුනේ අවම වශයෙන් පේළි මෙතරම් සංඛයාවක් ඇත. කරුණාකර %s ලේඛනය %s අධ්‍යනය කරන්න."
 
-#: src/Controllers/Database/StructureController.php:736
+#: src/Controllers/Database/StructureController.php:734
 msgid "unknown"
 msgstr "නොදන්නා"
 
@@ -13194,22 +13194,22 @@ msgstr "නොදන්නා"
 msgid "Favorite List is full!"
 msgstr ""
 
-#: src/Controllers/Database/TrackingController.php:73
-#: src/Controllers/Database/TrackingController.php:99
+#: src/Controllers/Database/TrackingController.php:71
+#: src/Controllers/Database/TrackingController.php:97
 msgid "Tracking data deleted successfully."
 msgstr "අනුරූ කරණ දත්ත ඉවත් කරන ලදි."
 
-#: src/Controllers/Database/TrackingController.php:84
+#: src/Controllers/Database/TrackingController.php:82
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr "තේරු වගු සඳහා %1$s වන අනුවාදය සාදන ලදි. එම වගු සඳහා අවධානය සක්‍රීයයි."
 
-#: src/Controllers/Database/TrackingController.php:116
+#: src/Controllers/Database/TrackingController.php:114
 msgid "No tables selected."
 msgstr "වගුවක් තෝරාගෙන නොමැත."
 
-#: src/Controllers/Database/TrackingController.php:151
+#: src/Controllers/Database/TrackingController.php:149
 msgid "Database Log"
 msgstr "දත්තගබඩා ලොගය"
 
@@ -15565,7 +15565,7 @@ msgid "String"
 msgstr "පෙළ"
 
 #: src/Controllers/Operations/Database/CollationController.php:42
-#: src/Controllers/Operations/TableController.php:266
+#: src/Controllers/Operations/TableController.php:262
 msgid "No collation provided."
 msgstr ""
 
@@ -15583,7 +15583,7 @@ msgstr "%1$s දත්තගබඩාව %2$s බවට නම වෙනස් �
 msgid "Database %1$s has been copied to %2$s."
 msgstr "%1$s දත්තගබඩාව %2$s වෙතට පිටපත් කරන ලදි."
 
-#: src/Controllers/Operations/DatabaseController.php:279
+#: src/Controllers/Operations/DatabaseController.php:277
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
@@ -15617,7 +15617,7 @@ msgstr "වින්‍යසයන්හි වලංගු නැති සත
 
 #: src/Controllers/SchemaExportController.php:40
 #: src/Controllers/Server/UserGroupsFormController.php:46
-#: src/ResponseRenderer.php:448
+#: src/ResponseRenderer.php:449
 msgid "Missing parameter:"
 msgstr "නොමැති පරාමිතිය:"
 
@@ -16318,18 +16318,18 @@ msgstr "වැරදි දත්ත"
 msgid "Wrong data or no validation for %s"
 msgstr ""
 
-#: src/Controllers/Sql/SqlController.php:215 src/Sql.php:1055
+#: src/Controllers/Sql/SqlController.php:213 src/Sql.php:1055
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "%s පොත් සලකුණ සාදන ලදි."
 
-#: src/Controllers/Sql/SqlController.php:222
+#: src/Controllers/Sql/SqlController.php:220
 msgid "Bookmark not created!"
 msgstr "පොත් සලකුණ නොසාදන ලදි!"
 
 #: src/Controllers/Table/AddFieldController.php:136
-#: src/Controllers/Table/IndexesController.php:140
-#: src/Controllers/Table/IndexRenameController.php:127
+#: src/Controllers/Table/IndexesController.php:139
+#: src/Controllers/Table/IndexRenameController.php:123
 #: src/Controllers/Table/Structure/PartitioningController.php:267
 #: src/Controllers/Table/Structure/SaveController.php:217
 #, php-format
@@ -16345,7 +16345,7 @@ msgid "No row selected."
 msgstr "පේළි කිසිවක් තෝරගෙන නැත"
 
 #: src/Controllers/Table/ChartController.php:59
-#: src/Controllers/Table/GisVisualizationController.php:82
+#: src/Controllers/Table/GisVisualizationController.php:80
 msgid "No SQL query was set to fetch data."
 msgstr ""
 
@@ -16408,7 +16408,7 @@ msgstr "උඩුගත කිරීම සඳහා ගොනු නොමැ�
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL හිස් ප්‍රතිඵල කුලකයක් (පේළි කිසිවක් අඩංගු නොවන) සපයන ලදි."
 
-#: src/Controllers/Table/GisVisualizationController.php:93
+#: src/Controllers/Table/GisVisualizationController.php:91
 #, fuzzy
 #| msgid "%s has been disabled for this MySQL server."
 msgid "No spatial column found for this SQL query."
@@ -16495,42 +16495,42 @@ msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "%1$s වගුව සාර්ථකව වෙනස් කරන ලදි"
 
-#: src/Controllers/Table/TrackingController.php:92
+#: src/Controllers/Table/TrackingController.php:90
 #, php-format
 msgid "Tracking of %s is activated."
 msgstr "%s සඳහා අවධානය සක්‍රීයයි."
 
-#: src/Controllers/Table/TrackingController.php:145
+#: src/Controllers/Table/TrackingController.php:143
 msgid "SQL statements executed."
 msgstr "SQL ය ක්‍රියාත්මක කරන ලදි."
 
-#: src/Controllers/Table/TrackingController.php:199
+#: src/Controllers/Table/TrackingController.php:197
 #, fuzzy
 #| msgid "The selected users have been deleted successfully."
 msgid "Tracking versions deleted successfully."
 msgstr "තෝරාගත් භාවිතා කරන්නන් සාර්ථකව ඉවත් කරන ලදි."
 
-#: src/Controllers/Table/TrackingController.php:204
+#: src/Controllers/Table/TrackingController.php:202
 #, fuzzy
 #| msgid "No rows selected"
 msgid "No versions selected."
 msgstr "පේළි කිසිවක් තෝරගෙන නැත"
 
-#: src/Controllers/Triggers/IndexController.php:165
+#: src/Controllers/Triggers/IndexController.php:162
 msgid "Add trigger"
 msgstr "ප්‍රේරකයක් එක් කරන්න"
 
-#: src/Controllers/Triggers/IndexController.php:169
+#: src/Controllers/Triggers/IndexController.php:166
 msgid "Edit trigger"
 msgstr "ප්‍රේරකය සංස්කරණය කරන්න"
 
-#: src/Controllers/Triggers/IndexController.php:211
+#: src/Controllers/Triggers/IndexController.php:208
 #, fuzzy, php-format
 #| msgid "No trigger with name %1$s found in database %2$s"
 msgid "No trigger with name %1$s found in database %2$s."
 msgstr "%2$s දත්තගබඩාවේ %1$s නමින් ප්‍රේරක කිසිවක් හමු නොවිණි"
 
-#: src/Controllers/Triggers/IndexController.php:252
+#: src/Controllers/Triggers/IndexController.php:249
 #, fuzzy, php-format
 #| msgid "No trigger with name %1$s found in database %2$s"
 msgid ""
@@ -16542,7 +16542,7 @@ msgstr "%2$s දත්තගබඩාවේ %1$s නමින් ප්‍රේ
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr ""
 
-#: src/Controllers/View/CreateController.php:85
+#: src/Controllers/View/CreateController.php:83
 msgid "View name can not be empty!"
 msgstr ""
 
@@ -16815,32 +16815,32 @@ msgid ""
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
 
-#: src/Display/Results.php:2404 src/Display/Results.php:2419
+#: src/Display/Results.php:2403 src/Display/Results.php:2418
 msgid "The row has been deleted."
 msgstr "පේළිය ඉවත් කරන ලදි."
 
-#: src/Display/Results.php:3295
+#: src/Display/Results.php:3294
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "%1s - %2s පේළි පෙන්වමින්"
 
-#: src/Display/Results.php:3309
+#: src/Display/Results.php:3308
 #, php-format
 msgid "%1$s total, %2$s in query"
 msgstr ""
 
-#: src/Display/Results.php:3314
+#: src/Display/Results.php:3313
 #, fuzzy, php-format
 #| msgid "%d total"
 msgid "%s total"
 msgstr "මුළු එකතුව %d"
 
-#: src/Display/Results.php:3327 src/Sql.php:871
+#: src/Display/Results.php:3326 src/Sql.php:871
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "විමසුම තත්පර %01.4f ගන්නා ලදි."
 
-#: src/Display/Results.php:3623
+#: src/Display/Results.php:3622
 msgid "Link not found!"
 msgstr "සබැඳිය හමු නොවිණි!"
 
@@ -17566,31 +17566,31 @@ msgid_plural "%1$d rows inserted."
 msgstr[0] "පේළි %1$d ක් ඇතුල් කෙරුනි."
 msgstr[1] "පේළි %1$d ක් ඇතුල් කෙරුනි."
 
-#: src/Navigation/Navigation.php:215
+#: src/Navigation/Navigation.php:216
 #, fuzzy
 #| msgid "Column names: "
 msgid "Groups:"
 msgstr "තීර නම්: "
 
-#: src/Navigation/Navigation.php:216
+#: src/Navigation/Navigation.php:217
 #, fuzzy
 #| msgid "Events"
 msgid "Events:"
 msgstr "සිද්ධි"
 
-#: src/Navigation/Navigation.php:217
+#: src/Navigation/Navigation.php:218
 #, fuzzy
 #| msgid "Functions"
 msgid "Functions:"
 msgstr "ශ්‍රිත"
 
-#: src/Navigation/Navigation.php:218
+#: src/Navigation/Navigation.php:219
 #, fuzzy
 #| msgid "Procedures"
 msgid "Procedures:"
 msgstr "ක්‍රියාපටිපාටි"
 
-#: src/Navigation/Navigation.php:220
+#: src/Navigation/Navigation.php:221
 #, fuzzy
 #| msgid "Views"
 msgid "Views:"
@@ -18056,7 +18056,7 @@ msgstr "signon සත්‍යාපන විධානාවලිය සොය
 msgid "Invalid authentication method set in configuration:"
 msgstr "වින්‍යසයන්හි වලංගු නැති සත්‍යාපන ක්‍රමයක් සිටුවා ඇත:"
 
-#: src/Plugins/AuthenticationPlugin.php:313
+#: src/Plugins/AuthenticationPlugin.php:317
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 
@@ -18653,7 +18653,7 @@ msgstr "ශුන්‍ය අගයන් සඳහා <code>AUTO_INCREMENT</co
 msgid "XML"
 msgstr "XML"
 
-#: src/Plugins.php:575
+#: src/Plugins.php:577
 msgid "This format has no options"
 msgstr "මෙම ආකෘතියේ ආකෘති-විශේෂී තෝරා ගැනීම් කිසිවක් නැත"
 
@@ -19113,20 +19113,20 @@ msgstr "ප්‍රධාන සේවාදායකය වෙනස් කල
 msgid "Primary server changed successfully to %s."
 msgstr "ප්‍රධාන සේවාදායකය %s වෙත සාර්ථකව වෙනස් කරන ලදි."
 
-#: src/Routing/Routing.php:124
+#: src/Routing/Routing.php:123
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
 
-#: src/Routing/Routing.php:157 src/Routing/Routing.php:200
+#: src/Routing/Routing.php:156 src/Routing/Routing.php:198
 #, fuzzy, php-format
 #| msgid "Source database `%s` was not found!"
 msgid "Error 404! The page %s was not found."
 msgstr "`%s` මූලාශ්‍ර දත්තගබඩාව හමු නොවිණි!"
 
-#: src/Routing/Routing.php:165
+#: src/Routing/Routing.php:164
 msgid "Error 405! Request method not allowed."
 msgstr ""
 
@@ -19968,11 +19968,11 @@ msgstr "පරිශීලක පැතිකඩ යාවත්කාලීන 
 msgid "Password is too long!"
 msgstr "මුරපදය hash කිරීම:"
 
-#: src/UserPreferences.php:161
+#: src/UserPreferences.php:162
 msgid "Could not save configuration"
 msgstr "වින්‍යාස සුරැකීම අසමත් විය"
 
-#: src/UserPreferences.php:172
+#: src/UserPreferences.php:173
 #, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "The phpMyAdmin configuration storage database could not be accessed."
