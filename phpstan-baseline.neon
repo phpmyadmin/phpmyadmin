@@ -328,7 +328,7 @@ parameters:
 			path: src/BrowseForeigners.php
 
 		-
-			message: '#^Parameter \#1 \$state of static method PhpMyAdmin\\Charsets\\Charset\:\:fromServer\(\) expects array\{Charset\?\: string, Description\?\: string, Default collation\?\: string, Maxlen\?\: string\}, array\<string\|null\> given\.$#'
+			message: '#^Parameter \#1 \$state of static method PhpMyAdmin\\Charsets\\Charset\:\:fromServer\(\) expects array\{Charset\?\: string, Description\?\: string, ''Default collation''\?\: string, Maxlen\?\: string\}, array\<string\|null\> given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Charsets.php
@@ -7035,17 +7035,11 @@ parameters:
 		-
 			message: '#^Cannot access offset int\<0, max\> on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 6
+			count: 8
 			path: src/Gis/GisMultiPolygon.php
 
 		-
 			message: '#^Cannot access offset int\<0, max\> on non\-empty\-array\<''data_length''\|int\<0, max\>, array\{data_length\: int\<0, max\>, 0\?\: array\{x\: float, y\: float\}\}\|int\<1, max\>\>\|int\<1, max\>\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Gis/GisMultiPolygon.php
-
-		-
-			message: '#^Cannot access offset int\<0, max\> on non\-empty\-array\<''data_length''\|int\<0, max\>, array\{x\: float, y\: float\}\|int\<0, max\>\>\|int\<1, max\>\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
 			path: src/Gis/GisMultiPolygon.php
@@ -8325,12 +8319,6 @@ parameters:
 		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
-			count: 1
-			path: src/Navigation/NavigationTree.php
-
-		-
-			message: '#^Method PhpMyAdmin\\Navigation\\NavigationTree\:\:parsePath\(\) should return non\-empty\-list\<string\> but returns non\-empty\-list\<string\|false\>\.$#'
-			identifier: return.type
 			count: 1
 			path: src/Navigation/NavigationTree.php
 
@@ -10866,7 +10854,7 @@ parameters:
 		-
 			message: '#^Cannot access offset ''tables'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 4
+			count: 5
 			path: src/Plugins/ExportPlugin.php
 
 		-
@@ -10957,13 +10945,7 @@ parameters:
 			path: src/Plugins/Import/ImportCsv.php
 
 		-
-			message: '#^Parameter \#1 \$columnNames of method PhpMyAdmin\\Plugins\\Import\\ImportCsv\:\:getColumnNames\(\) expects list\<string\>, array\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Plugins/Import/ImportCsv.php
-
-		-
-			message: '#^Parameter \#3 \$rows of class PhpMyAdmin\\Import\\ImportTable constructor expects list\<list\<mixed\>\>, list\<array\> given\.$#'
+			message: '#^Parameter \#1 \$columnNames of method PhpMyAdmin\\Plugins\\Import\\ImportCsv\:\:getColumnNames\(\) expects list\<string\>, list\<string\|null\>\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Plugins/Import/ImportCsv.php
@@ -11054,12 +11036,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#2 \$text of method PhpMyAdmin\\Plugins\\Import\\ImportOds\:\:getValue\(\) expects SimpleXMLElement, \(SimpleXMLElement\|null\) given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Plugins/Import/ImportOds.php
-
-		-
-			message: '#^Parameter \#3 \$rows of class PhpMyAdmin\\Import\\ImportTable constructor expects list\<list\<mixed\>\>, non\-empty\-list\<array\> given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Plugins/Import/ImportOds.php
@@ -11209,25 +11185,7 @@ parameters:
 			path: src/Plugins/Import/Upload/UploadNoplugin.php
 
 		-
-			message: '#^Binary operation "/" between int and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Plugins/Import/Upload/UploadProgress.php
-
-		-
-			message: '#^Cannot access offset ''complete'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Plugins/Import/Upload/UploadProgress.php
-
-		-
 			message: '#^Cannot access offset ''finished'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Plugins/Import/Upload/UploadProgress.php
-
-		-
-			message: '#^Cannot access offset ''percent'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
 			path: src/Plugins/Import/Upload/UploadProgress.php
@@ -11235,7 +11193,7 @@ parameters:
 		-
 			message: '#^Cannot access offset ''total'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 4
+			count: 2
 			path: src/Plugins/Import/Upload/UploadProgress.php
 
 		-
@@ -11257,9 +11215,15 @@ parameters:
 			path: src/Plugins/Import/Upload/UploadProgress.php
 
 		-
+			message: '#^Method PhpMyAdmin\\Plugins\\Import\\Upload\\UploadProgress\:\:getUploadStatus\(\) should return array\|null but returns array\|ArrayAccess\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Plugins/Import/Upload/UploadProgress.php
+
+		-
 			message: '#^Method PhpMyAdmin\\Plugins\\Import\\Upload\\UploadProgress\:\:getUploadStatus\(\) should return array\|null but returns mixed\.$#'
 			identifier: return.type
-			count: 2
+			count: 1
 			path: src/Plugins/Import/Upload/UploadProgress.php
 
 		-
@@ -11293,12 +11257,6 @@ parameters:
 			path: src/Plugins/Import/Upload/UploadSession.php
 
 		-
-			message: '#^Cannot access offset ''complete'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Plugins/Import/Upload/UploadSession.php
-
-		-
 			message: '#^Cannot access offset ''content_length'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
@@ -11317,15 +11275,9 @@ parameters:
 			path: src/Plugins/Import/Upload/UploadSession.php
 
 		-
-			message: '#^Cannot access offset ''percent'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Plugins/Import/Upload/UploadSession.php
-
-		-
 			message: '#^Cannot access offset ''total'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 4
+			count: 2
 			path: src/Plugins/Import/Upload/UploadSession.php
 
 		-
@@ -11341,9 +11293,15 @@ parameters:
 			path: src/Plugins/Import/Upload/UploadSession.php
 
 		-
+			message: '#^Method PhpMyAdmin\\Plugins\\Import\\Upload\\UploadSession\:\:getUploadStatus\(\) should return array\|null but returns array\|ArrayAccess\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Plugins/Import/Upload/UploadSession.php
+
+		-
 			message: '#^Method PhpMyAdmin\\Plugins\\Import\\Upload\\UploadSession\:\:getUploadStatus\(\) should return array\|null but returns mixed\.$#'
 			identifier: return.type
-			count: 2
+			count: 1
 			path: src/Plugins/Import/Upload/UploadSession.php
 
 		-
@@ -12338,12 +12296,6 @@ parameters:
 			identifier: return.type
 			count: 1
 			path: src/Properties/Options/OptionsPropertyGroup.php
-
-		-
-			message: '#^Loose comparison using \=\= between \(int\|string\|null\) and null will always evaluate to true\.$#'
-			identifier: equal.alwaysTrue
-			count: 1
-			path: src/Query/Compatibility.php
 
 		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
@@ -19144,15 +19096,15 @@ parameters:
 			path: tests/unit/UserPreferencesTest.php
 
 		-
-			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\) does not accept array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\.$#'
+			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\) does not accept array\{''Server/hide_db''\: ''testval123'', ''Server/port''\: ''213''\}\.$#'
 			identifier: assign.propertyType
-			count: 2
+			count: 1
 			path: tests/unit/UserPreferencesTest.php
 
 		-
-			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\) does not accept array\{Server/hide_db\: ''testval123'', Server/port\: ''213''\}\.$#'
+			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\) does not accept array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\.$#'
 			identifier: assign.propertyType
-			count: 1
+			count: 2
 			path: tests/unit/UserPreferencesTest.php
 
 		-
