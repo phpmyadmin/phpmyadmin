@@ -554,7 +554,6 @@ class UtilTest extends AbstractTestCase
                 $a,
                 $b,
                 $c,
-                false,
             ),
         );
     }
@@ -573,7 +572,7 @@ class UtilTest extends AbstractTestCase
         $this->assertFormatNumber($a, $b, $c, $d);
 
         // Test with various precisions
-        $oldPrecision = (string) ini_get('precision');
+        $oldPrecision = ini_get('precision');
         try {
             ini_set('precision', '20');
             $this->assertFormatNumber($a, $b, $c, $d);
@@ -637,6 +636,23 @@ class UtilTest extends AbstractTestCase
             [123456789, 6, 0, '123,457 k'],
             [-123456789, 4, 2, '-123.46 M'],
             [0, 6, 0, '0'],
+            [0.000001, 0, 3, ' <0.001'],
+            [0.005, 3, 0, '5 m'],
+            [0.000005, 3, 0, '5 µ'],
+            [0.000000005, 3, 0, '5 n'],
+            [0.000000000005, 3, 0, '5 p'],
+            [0.000000000000005, 3, 0, '5 f'],
+            [0.000000000000000005, 3, 0, '5 a'],
+            [0.000000000000000000005, 3, 0, '5 z'],
+            [0.000000000000000000000005, 3, 0, '5 y'],
+            [5000, 3, 0, '5 k'],
+            [5000000, 3, 0, '5 M'],
+            [5000000000, 3, 0, '5 G'],
+            [5000000000000, 3, 0, '5 T'],
+            [5000000000000000, 3, 0, '5 P'],
+            [5000000000000000000, 3, 0, '5 E'],
+            [5000000000000000000000, 3, 0, '5 Z'],
+            [5000000000000000000000000, 3, 0, '5 Y'],
         ];
     }
 

@@ -389,19 +389,17 @@ class Util
             $value = (float) $value;
         }
 
+        /* l10n: Decimal separator */
+        $decimalSep = __('.');
+        /* l10n: Thousands separator */
+        $thousandsSep = __(',');
+
         $originalValue = $value;
         //number_format is not multibyte safe, str_replace is safe
         if ($digitsLeft === 0) {
-            $value = number_format(
-                (float) $value,
-                $digitsRight,
-                /* l10n: Decimal separator */
-                __('.'),
-                /* l10n: Thousands separator */
-                __(','),
-            );
+            $value = number_format((float) $value, $digitsRight, $decimalSep, $thousandsSep);
             if ($originalValue != 0 && (float) $value == 0) {
-                return ' <' . (1 / 10 ** $digitsRight);
+                return ' <' . number_format((1 / 10 ** $digitsRight), $digitsRight, $decimalSep, $thousandsSep);
             }
 
             return $value;
@@ -427,10 +425,6 @@ class Util
             7 => 'Z',
             8 => 'Y',
         ];
-        /* l10n: Decimal separator */
-        $decimalSep = __('.');
-        /* l10n: Thousands separator */
-        $thousandsSep = __(',');
 
         // check for negative value to retain sign
         if ($value < 0) {
