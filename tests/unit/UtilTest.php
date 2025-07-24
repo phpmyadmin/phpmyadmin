@@ -538,7 +538,7 @@ class UtilTest extends AbstractTestCase
         ];
     }
 
-    /** @psalm-param list{0: float|int|string, 1?: int, 2?: int, 3?: bool, 4?: bool} $arguments */
+    /** @psalm-param list{0: float|int|numeric-string, 1?: int, 2?: int, 3?: bool, 4?: bool} $arguments */
     #[DataProvider('providerFormatNumber')]
     public function testFormatNumber(string $expected, array $arguments): void
     {
@@ -594,16 +594,16 @@ class UtilTest extends AbstractTestCase
         }
     }
 
-    /** @psalm-return array<array{string, list{0: float|int|string, 1?: int, 2?: int, 3?: bool, 4?: bool}}> */
+    /** @psalm-return array<array{string, list{0: float|int|numeric-string, 1?: int, 2?: int, 3?: bool, 4?: bool}}> */
     public static function providerFormatNumber(): array
     {
         return [
-            ['10  ', [10, 2, 2]],
-            ['100  ', [100, 2, 0]],
-            ['100  ', [100, 2, 2]],
-            ['100  ', ['100', 2, 2]],
-            ['-1,000.45  ', [-1000.454, 4, 2]],
-            ['-1,000.45  ', ['-1000.454', 4, 2]],
+            ['10', [10, 2, 2]],
+            ['100', [100, 2, 0]],
+            ['100', [100, 2, 2]],
+            ['100', ['100', 2, 2]],
+            ['-1,000.45', [-1000.454, 4, 2]],
+            ['-1,000.45', ['-1000.454', 4, 2]],
             ['30 µ', [0.00003, 3, 2]],
             ['3 m', [0.003, 3, 3]],
             ['-3,000 µ', [-0.003, 6, 0]],
@@ -619,7 +619,7 @@ class UtilTest extends AbstractTestCase
             ['0', [0.0]],
             ['0', ['0']],
             ['0', ['0.0']],
-            [' <0.001', [0.000001, 0, 3]],
+            ['<0.001', [0.000001, 0, 3]],
             ['5 m', [0.005]],
             ['5 µ', [0.000005]],
             ['5 n', [0.000000005]],
@@ -628,6 +628,9 @@ class UtilTest extends AbstractTestCase
             ['5 a', [0.000000000000000005]],
             ['5 z', [0.000000000000000000005]],
             ['5 y', [0.000000000000000000000005]],
+            ['5 r', [0.000000000000000000000000005]],
+            ['5 q', [0.000000000000000000000000000005]],
+            ['<1 q', [0.000000000000000000000000000000005]],
             ['5 k', [5000]],
             ['5 M', [5000000]],
             ['5 G', [5000000000]],
@@ -636,8 +639,11 @@ class UtilTest extends AbstractTestCase
             ['5 E', [5000000000000000000]],
             ['5 Z', [5000000000000000000000]],
             ['5 Y', [5000000000000000000000000]],
+            ['5 R', [5000000000000000000000000000]],
+            ['5 Q', [5000000000000000000000000000000]],
+            ['5,000 Q', [5000000000000000000000000000000000]],
             ['100 m', [0.1, 3, 0]],
-            [' <1  ', [0.1, 3, 0, true]],
+            ['<1', [0.1, 3, 0, true]],
             ['1.000 k', [1000, 3, 3, false, false]],
         ];
     }

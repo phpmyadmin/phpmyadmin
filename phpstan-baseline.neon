@@ -2884,7 +2884,13 @@ parameters:
 			path: src/Controllers/Server/Status/StatusController.php
 
 		-
-			message: '#^Parameter \#1 \$value of static method PhpMyAdmin\\Util\:\:formatNumber\(\) expects float\|int\|string, mixed given\.$#'
+			message: '#^Parameter \#1 \$value of static method PhpMyAdmin\\Util\:\:formatNumber\(\) expects float\|int\|numeric\-string, float\|int\|string given\.$#'
+			identifier: argument.type
+			count: 4
+			path: src/Controllers/Server/Status/StatusController.php
+
+		-
+			message: '#^Parameter \#1 \$value of static method PhpMyAdmin\\Util\:\:formatNumber\(\) expects float\|int\|numeric\-string, mixed given\.$#'
 			identifier: argument.type
 			count: 5
 			path: src/Controllers/Server/Status/StatusController.php
@@ -6058,7 +6064,7 @@ parameters:
 			path: src/Engines/Innodb.php
 
 		-
-			message: '#^Parameter \#1 \$value of static method PhpMyAdmin\\Util\:\:formatNumber\(\) expects float\|int\|string, mixed given\.$#'
+			message: '#^Parameter \#1 \$value of static method PhpMyAdmin\\Util\:\:formatNumber\(\) expects float\|int\|numeric\-string, mixed given\.$#'
 			identifier: argument.type
 			count: 11
 			path: src/Engines/Innodb.php
@@ -13888,7 +13894,7 @@ parameters:
 			path: src/StorageEngine.php
 
 		-
-			message: '#^Parameter \#1 \$value of static method PhpMyAdmin\\Util\:\:formatNumber\(\) expects float\|int\|string, mixed given\.$#'
+			message: '#^Parameter \#1 \$value of static method PhpMyAdmin\\Util\:\:formatNumber\(\) expects float\|int\|numeric\-string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/StorageEngine.php
@@ -15010,18 +15016,6 @@ parameters:
 			message: '#^Foreach overwrites \$quote with its value variable\.$#'
 			identifier: foreach.valueOverwrite
 			count: 1
-			path: src/Util.php
-
-		-
-			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
-			identifier: notEqual.notAllowed
-			count: 2
-			path: src/Util.php
-
-		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 3
 			path: src/Util.php
 
 		-
@@ -16888,7 +16882,7 @@ parameters:
 			path: tests/unit/Controllers/Server/Status/QueriesControllerTest.php
 
 		-
-			message: '#^Parameter \#1 \$value of static method PhpMyAdmin\\Util\:\:formatNumber\(\) expects float\|int\|string, mixed given\.$#'
+			message: '#^Parameter \#1 \$value of static method PhpMyAdmin\\Util\:\:formatNumber\(\) expects float\|int\|numeric\-string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: tests/unit/Controllers/Server/Status/QueriesControllerTest.php

@@ -194,7 +194,7 @@ class InnodbTest extends AbstractTestCase
             '        </tr>' . "\n" .
             '        <tr>' . "\n" .
             '            <th scope="row">Read misses in %</th>' . "\n" .
-            '            <td class="font-monospace text-end">50   %' . "\n" .
+            '            <td class="font-monospace text-end">50 %' . "\n" .
             '</td>' . "\n" .
             '        </tr>' . "\n" .
             '        <tr>' . "\n" .

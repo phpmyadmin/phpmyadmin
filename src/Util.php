@@ -47,6 +47,7 @@ use function is_object;
 use function is_scalar;
 use function is_string;
 use function log10;
+use function max;
 use function mb_detect_encoding;
 use function mb_strlen;
 use function mb_strpos;
@@ -365,11 +366,11 @@ class Util
      * echo formatNumber(0, 6);             //       0
      * </code>
      *
-     * @param float|int|string $value          the value to format
-     * @param int              $digitsLeft     number of digits left of the comma
-     * @param int              $digitsRight    number of digits right of the comma
-     * @param bool             $onlyDown       do not reformat numbers below 1
-     * @param bool             $noTrailingZero removes trailing zeros right of the comma (default: true)
+     * @param float|int|numeric-string $value          the value to format
+     * @param int                      $digitsLeft     number of digits left of the comma
+     * @param int                      $digitsRight    number of digits right of the comma
+     * @param bool                     $onlyDown       do not reformat numbers below 1
+     * @param bool                     $noTrailingZero removes trailing zeros right of the comma (default: true)
      *
      * @return string   the formatted value and its unit
      */
@@ -381,12 +382,9 @@ class Util
         bool $onlyDown = false,
         bool $noTrailingZero = true,
     ): string {
-        if ($value == 0) {
+        $value = (float) $value;
+        if ($value === 0.0) {
             return '0';
-        }
-
-        if (is_string($value)) {
-            $value = (float) $value;
         }
 
         /* l10n: Decimal separator */
@@ -394,37 +392,15 @@ class Util
         /* l10n: Thousands separator */
         $thousandsSep = __(',');
 
-        $originalValue = $value;
         //number_format is not multibyte safe, str_replace is safe
         if ($digitsLeft === 0) {
-            $value = number_format((float) $value, $digitsRight, $decimalSep, $thousandsSep);
-            if ($originalValue != 0 && (float) $value == 0) {
-                return ' <' . number_format((1 / 10 ** $digitsRight), $digitsRight, $decimalSep, $thousandsSep);
+            $value = number_format($value, $digitsRight, $decimalSep, $thousandsSep);
+            if ((float) $value === 0.0) {
+                return '<' . number_format((1 / 10 ** $digitsRight), $digitsRight, $decimalSep, $thousandsSep);
             }
 
             return $value;
         }
-
-        // this units needs no translation, ISO
-        $units = [
-            -8 => 'y',
-            -7 => 'z',
-            -6 => 'a',
-            -5 => 'f',
-            -4 => 'p',
-            -3 => 'n',
-            -2 => 'µ',
-            -1 => 'm',
-            0 => ' ',
-            1 => 'k',
-            2 => 'M',
-            3 => 'G',
-            4 => 'T',
-            5 => 'P',
-            6 => 'E',
-            7 => 'Z',
-            8 => 'Y',
-        ];
 
         // check for negative value to retain sign
         if ($value < 0) {
@@ -437,9 +413,9 @@ class Util
         $dh = 10 ** $digitsRight;
 
         // This gives us the right SI prefix already, but $digits_left parameter not incorporated
-        $d = floor(log10((float) $value) / 3);
+        $d = floor(log10($value) / 3);
         // Lowering the SI prefix by 1 gives us an additional 3 zeros
-        // So if we have 3,6,9,12.. free digits ($digits_left - $cur_digits) to use, then lower the SI prefix
+        // So if we have 3,6,9,12... free digits ($digits_left - $cur_digits) to use, then lower the SI prefix
         $curDigits = floor(log10($value / 1000 ** $d) + 1);
         if ($digitsLeft > $curDigits) {
             $d -= floor(($digitsLeft - $curDigits) / 3);
@@ -449,6 +425,32 @@ class Util
             $d = 0;
         }
 
+        // SI unit prefixes need no translation
+        $units = [
+            -10 => 'q', // quecto
+            -9 => 'r', // ronto
+            -8 => 'y', // yocto
+            -7 => 'z', // zepto
+            -6 => 'a', // atto
+            -5 => 'f', // femto
+            -4 => 'p', // pico
+            -3 => 'n', // nano
+            -2 => 'µ', // micro
+            -1 => 'm', // milli
+            0 => '',
+            1 => 'k', // kilo
+            2 => 'M', // mega
+            3 => 'G', // giga
+            4 => 'T', // tera
+            5 => 'P', // peta
+            6 => 'E', // exa
+            7 => 'Z', // zetta
+            8 => 'Y', // yotta
+            9 => 'R', // ronna
+            10 => 'Q', // quetta
+        ];
+
+        $d = min(max((int) $d, -10), 10);
         $value = round($value / (1000 ** $d / $dh)) / $dh;
         $unit = $units[$d];
 
@@ -459,11 +461,13 @@ class Util
             $formattedValue = preg_replace('/' . preg_quote($decimalSep, '/') . '?0+$/', '', $formattedValue);
         }
 
-        if ($originalValue != 0 && $value == 0) {
-            return ' <' . number_format(1 / 10 ** $digitsRight, $digitsRight, $decimalSep, $thousandsSep) . ' ' . $unit;
+        if ($value === 0.0) {
+            return '<'
+                . number_format(1 / 10 ** $digitsRight, $digitsRight, $decimalSep, $thousandsSep)
+                . ($unit === '' ? '' : ' ' . $unit);
         }
 
-        return $sign . $formattedValue . ' ' . $unit;
+        return $sign . $formattedValue . ($unit === '' ? '' : ' ' . $unit);
     }
 
     /**
