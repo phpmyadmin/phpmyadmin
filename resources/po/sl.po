@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-07-20 00:32+0000\n"
-"PO-Revision-Date: 2025-05-12 23:02+0000\n"
+"PO-Revision-Date: 2025-07-25 17:03+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -1946,10 +1946,8 @@ msgid "OFF"
 msgstr "IZKL"
 
 #: resources/templates/database/events/index.twig:161
-#, fuzzy
-#| msgid "Excel edition"
 msgid "Event editor"
-msgstr "Izdaja za Excel"
+msgstr "Urejevalnik dogodkov"
 
 #: resources/templates/database/events/index.twig:166
 #: resources/templates/database/routines/index.twig:83
@@ -1974,10 +1972,8 @@ msgid "Save changes"
 msgstr "Shrani spremembe"
 
 #: resources/templates/database/events/index.twig:181
-#, fuzzy
-#| msgid "Export of event %s"
 msgid "Export event"
-msgstr "Izvoz dogodka %s"
+msgstr "Izvoz dogodka"
 
 #: resources/templates/database/export/index.twig:61
 msgid ""
@@ -5742,10 +5738,8 @@ msgstr ""
 "zapleteno nastavitev, jo boste morda želeli izvoziti."
 
 #: resources/templates/server/status/monitor/index.twig:58
-#, fuzzy
-#| msgid "Import monitor configuration"
 msgid "Importing system monitor configuration"
-msgstr "Uvozi konfiguracijo nadziranja"
+msgstr "Uvažanje konfiguracije nadziranja sistema"
 
 #: resources/templates/server/status/monitor/index.twig:63
 #: src/Controllers/JavaScriptMessagesController.php:301
@@ -5757,10 +5751,8 @@ msgid "Reset to default"
 msgstr "Povrni na privzeto"
 
 #: resources/templates/server/status/monitor/index.twig:87
-#, fuzzy
-#| msgid "Monitor Instructions"
 msgid "System monitor instructions"
-msgstr "Navodila nadziranja"
+msgstr "Navodila nadziranja sistema"
 
 #: resources/templates/server/status/monitor/index.twig:92
 msgid ""
@@ -5939,8 +5931,6 @@ msgid "Cancel request"
 msgstr "Prekliči zahtevo"
 
 #: resources/templates/server/status/monitor/index.twig:294
-#, fuzzy
-#| msgid "Analysing & loading logs. This may take a while."
 msgid "Analysing and loading logs. This may take a while."
 msgstr "Analiziranje in nalaganje dnevnikov. To lahko traja nekaj časa."
 
@@ -5963,8 +5953,6 @@ msgstr ""
 "Podatki dnevnika so naloženi. Poizvedbe, izvedene v tem časovnem razponu:"
 
 #: resources/templates/server/status/monitor/index.twig:336
-#, fuzzy
-#| msgid "Jump to Log table"
 msgid "Jump to the log table"
 msgstr "Pojdi v dnevniško tabelo"
 
@@ -5974,10 +5962,8 @@ msgstr "Osvežitev nadziranja je spodletela"
 
 #: resources/templates/server/status/monitor/index.twig:350
 #: resources/templates/server/status/monitor/index.twig:369
-#, fuzzy
-#| msgid "Warning"
 msgid "Warning:"
-msgstr "Opozorilo"
+msgstr "Opozorilo:"
 
 #: resources/templates/server/status/monitor/index.twig:351
 msgid ""
@@ -5998,12 +5984,6 @@ msgid "Local monitor configuration incompatible!"
 msgstr "Konfiguracija lokalnega nadziranja ni združljiva!"
 
 #: resources/templates/server/status/monitor/index.twig:370
-#, fuzzy
-#| msgid ""
-#| "The chart arrangement configuration in your browsers local storage is not "
-#| "compatible anymore to the newer version of the monitor dialog. It is very "
-#| "likely that your current configuration will not work anymore. Please "
-#| "reset your configuration to default in the <i>Settings</i> menu."
 msgid ""
 "The chart arrangement configuration in your browsers local storage is not "
 "compatible anymore to the newer version of the monitor dialog. It is very "
@@ -6013,7 +5993,7 @@ msgstr ""
 "Konfiguracija razvrstitve grafikonov v lokalni shrambi brskalnika ni več "
 "združljiva z novejšo različico pogovornega okna nadziranja. Zelo verjetno "
 "je, da vaša trenutna konfiguracija ne bo več delovala. Prosimo, ponastavite "
-"svojo konfiguracijo na privzeto v meniju <i>Nastavitve</i>."
+"svojo konfiguracijo na privzeto v meniju [em]Nastavitve[/em]."
 
 #: resources/templates/server/status/processes/index.twig:14
 msgid "Show only active"
@@ -7410,16 +7390,12 @@ msgid "There are no triggers to display."
 msgstr "Ni sprožilcev za prikaz."
 
 #: resources/templates/triggers/list.twig:81
-#, fuzzy
-#| msgid "Trigger name"
 msgid "Trigger editor"
-msgstr "Ime sprožilca"
+msgstr "Urejevalnik sprožilcev"
 
 #: resources/templates/triggers/list.twig:101
-#, fuzzy
-#| msgid "Export of trigger %s"
 msgid "Export trigger"
-msgstr "Izvoz sprožilca %s"
+msgstr "Izvoz sprožilca"
 
 #: resources/templates/view_create.twig:75
 msgid "VIEW name"
@@ -15673,10 +15649,8 @@ msgid "You must provide a valid return type for the routine."
 msgstr "Navesti morate veljavno vrsto vrnjene vrednosti dogodka."
 
 #: src/Database/Routines.php:809
-#, fuzzy
-#| msgid "Invalid routine type: \"%s\""
 msgid "Invalid routine type!"
-msgstr "Neveljavna vrsta rutine: \"%s\""
+msgstr "Neveljavna vrsta rutine!"
 
 #: src/Database/Routines.php:815
 msgid "You must provide a routine name!"
