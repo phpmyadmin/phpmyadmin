@@ -218,7 +218,6 @@ class GisMultiPolygon extends GisGeometry
                 $row .= $this->drawPath($wktRing, $scaleData);
             }
 
-            $polygonOptions['id'] = $label . $this->getRandomId();
             $row .= '"';
             foreach ($polygonOptions as $option => $val) {
                 $row .= ' ' . $option . '="' . $val . '"';

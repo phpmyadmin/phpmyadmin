@@ -164,7 +164,6 @@ class GisPolygon extends GisGeometry
     {
         $polygonOptions = [
             'data-label' => $label,
-            'id' => $label . $this->getRandomId(),
             'class' => 'polygon vector',
             'stroke' => 'black',
             'stroke-width' => 0.5,

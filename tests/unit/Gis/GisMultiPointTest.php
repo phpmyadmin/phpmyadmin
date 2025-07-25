@@ -238,16 +238,16 @@ class GisMultiPointTest extends GisGeomTestCase
                 [176, 46, 224],
                 new ScaleData(offsetX: 12, offsetY: 69, scale: 2, height: 150),
                 '<circle cx="72" cy="138" r="3" data-label="svg" class="multipoint '
-                . 'vector" fill="white" stroke="#b02ee0" stroke-width="2" id="'
-                . 'svg1234567890"/><circle cx="114" cy="242" r="3" data-label="svg" class="mult'
-                . 'ipoint vector" fill="white" stroke="#b02ee0" stroke-width="2" id'
-                . '="svg1234567890"/><circle cx="26" cy="198" r="3" data-label="svg" class='
+                . 'vector" fill="white" stroke="#b02ee0" stroke-width="2"'
+                . '/><circle cx="114" cy="242" r="3" data-label="svg" class="mult'
+                . 'ipoint vector" fill="white" stroke="#b02ee0" stroke-width="2"'
+                . '/><circle cx="26" cy="198" r="3" data-label="svg" class='
                 . '"multipoint vector" fill="white" stroke="#b02ee0" stroke-width='
-                . '"2" id="svg1234567890"/><circle cx="4" cy="182" r="3" data-label="svg" '
+                . '"2"/><circle cx="4" cy="182" r="3" data-label="svg" '
                 . 'class="multipoint vector" fill="white" stroke="#b02ee0" stroke-'
-                . 'width="2" id="svg1234567890"/><circle cx="46" cy="132" r="3" data-label='
+                . 'width="2"/><circle cx="46" cy="132" r="3" data-label='
                 . '"svg" class="multipoint vector" fill="white" stroke="#b02ee0" '
-                . 'stroke-width="2" id="svg1234567890"/>',
+                . 'stroke-width="2"/>',
             ],
         ];
     }

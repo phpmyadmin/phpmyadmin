@@ -161,7 +161,6 @@ class GisPoint extends GisGeometry
     {
         $pointOptions = [
             'data-label' => $label,
-            'id' => $label . $this->getRandomId(),
             'class' => 'point vector',
             'fill' => 'white',
             'stroke' => sprintf('#%02x%02x%02x', $color[0], $color[1], $color[2]),
@@ -174,8 +173,7 @@ class GisPoint extends GisGeometry
 
         $row = '';
         if ($pointsArr[0] !== 0.0 && $pointsArr[1] !== 0.0) {
-            $row .= '<circle cx="' . $pointsArr[0]
-                . '" cy="' . $pointsArr[1] . '" r="3"';
+            $row .= '<circle cx="' . $pointsArr[0] . '" cy="' . $pointsArr[1] . '" r="3"';
             foreach ($pointOptions as $option => $val) {
                 $row .= ' ' . $option . '="' . $val . '"';
             }

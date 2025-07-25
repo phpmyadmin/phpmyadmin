@@ -210,7 +210,6 @@ class GisMultiLineString extends GisGeometry
             }
 
             $row .= '"';
-            $lineOptions['id'] = $label . $this->getRandomId();
             foreach ($lineOptions as $option => $val) {
                 $row .= ' ' . $option . '="' . $val . '"';
             }

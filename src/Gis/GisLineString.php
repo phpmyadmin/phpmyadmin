@@ -168,7 +168,6 @@ class GisLineString extends GisGeometry
     {
         $lineOptions = [
             'data-label' => $label,
-            'id' => $label . $this->getRandomId(),
             'class' => 'linestring vector',
             'fill' => 'none',
             'stroke' => sprintf('#%02x%02x%02x', $color[0], $color[1], $color[2]),

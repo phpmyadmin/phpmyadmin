@@ -178,9 +178,7 @@ class GisMultiPoint extends GisGeometry
                 continue;
             }
 
-            $row .= '<circle cx="' . $point[0] . '" cy="'
-                . $point[1] . '" r="3"';
-            $pointOptions['id'] = $label . $this->getRandomId();
+            $row .= '<circle cx="' . $point[0] . '" cy="' . $point[1] . '" r="3"';
             foreach ($pointOptions as $option => $val) {
                 $row .= ' ' . $option . '="' . $val . '"';
             }
