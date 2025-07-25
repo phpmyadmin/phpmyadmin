@@ -254,9 +254,9 @@ class GisPolygonTest extends GisGeomTestCase
                 'svg',
                 [176, 46, 224],
                 new ScaleData(offsetX: 12, offsetY: 69, scale: 2, height: 150),
-                '<path d="M222,288L22,228L10,162ZM174,264L36,218L26,178Z" data-label="svg"'
+                '<path d="M222,288L22,228L10,162ZM174,264L36,218L26,178Z"'
                 . ' class="polygon vector" stroke="black" stroke-width="0.5" fill="#b02ee0" fill-rule="evenod'
-                . 'd" fill-opacity="0.8"/>',
+                . 'd" fill-opacity="0.8" data-label="svg"/>',
             ],
         ];
     }

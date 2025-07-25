@@ -193,8 +193,7 @@ class GisMultiPolygon extends GisGeometry
      */
     public function prepareRowAsSvg(string $spatial, string $label, array $color, ScaleData $scaleData): string
     {
-        $polygonOptions = [
-            'data-label' => $label,
+        $options = [
             'class' => 'multipolygon vector',
             'stroke' => 'black',
             'stroke-width' => 0.5,
@@ -202,6 +201,9 @@ class GisMultiPolygon extends GisGeometry
             'fill-rule' => 'evenodd',
             'fill-opacity' => 0.8,
         ];
+        if ($label !== '') {
+            $options['data-label'] = $label;
+        }
 
         $row = '';
 
@@ -219,7 +221,7 @@ class GisMultiPolygon extends GisGeometry
             }
 
             $row .= '"';
-            foreach ($polygonOptions as $option => $val) {
+            foreach ($options as $option => $val) {
                 $row .= ' ' . $option . '="' . $val . '"';
             }
 

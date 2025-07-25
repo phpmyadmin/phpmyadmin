@@ -349,12 +349,12 @@ class GisMultiPolygonTest extends GisGeomTestCase
                 [176, 46, 224],
                 new ScaleData(offsetX: -50, offsetY: -50, scale: 2, height: 400),
                 '<path d="M110,290L290,290L290,110L110,110ZM120,280L120,220L180,220L180,280ZM220,180L280,180L280,120'
-                . 'L220,120Z" data-label="svg" class="multipolygon vector" stroke='
-                . '"black" stroke-width="0.5" fill="#b02ee0" fill-rule="evenodd" fill-opacity="0.8"'
+                . 'L220,120Z" class="multipolygon vector" stroke='
+                . '"black" stroke-width="0.5" fill="#b02ee0" fill-rule="evenodd" fill-opacity="0.8" data-label="svg"'
                 . '/><path d="M90,310L-90,310L-90,490L90,490ZM80,320L80,380L20,380L20,320Z'
-                . 'M-20,420L-80,420L-80,480L-20,480Z" data-label="svg" class="multipolygon vector"'
-                . ' stroke="bla'
-                . 'ck" stroke-width="0.5" fill="#b02ee0" fill-rule="evenodd" fill-opacity="0.8"/>',
+                . 'M-20,420L-80,420L-80,480L-20,480Z" class="multipolygon vector"'
+                . ' stroke="black" stroke-width="0.5" fill="#b02ee0" fill-rule="evenodd" fill-opacity="0.8"'
+                . ' data-label="svg"/>',
             ],
         ];
     }

@@ -159,13 +159,15 @@ class GisPoint extends GisGeometry
      */
     public function prepareRowAsSvg(string $spatial, string $label, array $color, ScaleData $scaleData): string
     {
-        $pointOptions = [
-            'data-label' => $label,
+        $options = [
             'class' => 'point vector',
             'fill' => 'white',
             'stroke' => sprintf('#%02x%02x%02x', $color[0], $color[1], $color[2]),
             'stroke-width' => 2,
         ];
+        if ($label !== '') {
+            $options['data-label'] = $label;
+        }
 
         // Trim to remove leading 'POINT(' and trailing ')'
         $point = mb_substr($spatial, 6, -1);
@@ -174,7 +176,7 @@ class GisPoint extends GisGeometry
         $row = '';
         if ($pointsArr[0] !== 0.0 && $pointsArr[1] !== 0.0) {
             $row .= '<circle cx="' . $pointsArr[0] . '" cy="' . $pointsArr[1] . '" r="3"';
-            foreach ($pointOptions as $option => $val) {
+            foreach ($options as $option => $val) {
                 $row .= ' ' . $option . '="' . $val . '"';
             }
 

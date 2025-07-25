@@ -166,13 +166,15 @@ class GisLineString extends GisGeometry
      */
     public function prepareRowAsSvg(string $spatial, string $label, array $color, ScaleData $scaleData): string
     {
-        $lineOptions = [
-            'data-label' => $label,
+        $options = [
             'class' => 'linestring vector',
             'fill' => 'none',
             'stroke' => sprintf('#%02x%02x%02x', $color[0], $color[1], $color[2]),
             'stroke-width' => 2,
         ];
+        if ($label !== '') {
+            $options['data-label'] = $label;
+        }
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
         $linestring = mb_substr($spatial, 11, -1);
@@ -184,7 +186,7 @@ class GisLineString extends GisGeometry
         }
 
         $row .= '"';
-        foreach ($lineOptions as $option => $val) {
+        foreach ($options as $option => $val) {
             $row .= ' ' . $option . '="' . $val . '"';
         }
 

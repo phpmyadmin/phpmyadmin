@@ -379,9 +379,9 @@ class GisGeometryCollectionTest extends GisGeomTestCase
                 'svg',
                 [176, 46, 224],
                 new ScaleData(offsetX: 12, offsetY: 69, scale: 2, height: 150),
-                '<path d="M46,268L-4,248L6,208L66,198ZM16,228L46,224L36,248Z" data-label="svg"'
+                '<path d="M46,268L-4,248L6,208L66,198ZM16,228L46,224L36,248Z"'
                 . ' class="polygon vector" stroke="black" stroke-width="0.5"'
-                . ' fill="#b02ee0" fill-rule="evenodd" fill-opacity="0.8"/>',
+                . ' fill="#b02ee0" fill-rule="evenodd" fill-opacity="0.8" data-label="svg"/>',
             ],
         ];
     }

@@ -160,13 +160,15 @@ class GisMultiPoint extends GisGeometry
      */
     public function prepareRowAsSvg(string $spatial, string $label, array $color, ScaleData $scaleData): string
     {
-        $pointOptions = [
-            'data-label' => $label,
+        $options = [
             'class' => 'multipoint vector',
             'fill' => 'white',
             'stroke' => sprintf('#%02x%02x%02x', $color[0], $color[1], $color[2]),
             'stroke-width' => 2,
         ];
+        if ($label !== '') {
+            $options['data-label'] = $label;
+        }
 
         // Trim to remove leading 'MULTIPOINT(' and trailing ')'
         $multipoint = mb_substr($spatial, 11, -1);
@@ -179,7 +181,7 @@ class GisMultiPoint extends GisGeometry
             }
 
             $row .= '<circle cx="' . $point[0] . '" cy="' . $point[1] . '" r="3"';
-            foreach ($pointOptions as $option => $val) {
+            foreach ($options as $option => $val) {
                 $row .= ' ' . $option . '="' . $val . '"';
             }
 
