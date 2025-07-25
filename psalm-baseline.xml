@@ -1925,6 +1925,12 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Server/Status/StatusController.php">
+    <ArgumentTypeCoercion>
+      <code><![CDATA[$this->data->status['Aborted_clients']]]></code>
+      <code><![CDATA[$this->data->status['Aborted_connects']]]></code>
+      <code><![CDATA[$this->data->status['Connections']]]></code>
+      <code><![CDATA[$this->data->status['Max_used_connections']]]></code>
+    </ArgumentTypeCoercion>
     <PossiblyInvalidOperand>
       <code><![CDATA[$this->data->status['Aborted_clients']]]></code>
       <code><![CDATA[$this->data->status['Aborted_clients']]]></code>
@@ -9256,6 +9262,10 @@
     </MixedArgument>
   </file>
   <file src="src/Util.php">
+    <ArgumentTypeCoercion>
+      <code><![CDATA[$value]]></code>
+      <code><![CDATA[$value]]></code>
+    </ArgumentTypeCoercion>
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
@@ -9275,9 +9285,6 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$units[$d]]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$array]]></code>
     </MixedArgument>
@@ -9296,12 +9303,9 @@
     <MixedAssignment>
       <code><![CDATA[$array]]></code>
       <code><![CDATA[$columnNames[]]]></code>
-      <code><![CDATA[$unit]]></code>
       <code><![CDATA[$value]]></code>
     </MixedAssignment>
     <MixedOperand>
-      <code><![CDATA[$unit]]></code>
-      <code><![CDATA[$unit]]></code>
       <code><![CDATA[$value]]></code>
     </MixedOperand>
     <MixedReturnStatement>
@@ -11910,7 +11914,6 @@
       <code><![CDATA[$_SESSION['cache']['server_2']['mysql_cur_user']]]></code>
     </MixedArrayAccess>
     <MixedReturnStatement>
-      <code><![CDATA[mixed[]]]></code>
       <code><![CDATA[mixed[]]]></code>
       <code><![CDATA[mixed[]]]></code>
       <code><![CDATA[mixed[]]]></code>
