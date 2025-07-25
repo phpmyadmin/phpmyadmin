@@ -300,10 +300,9 @@ function loadGISEditor (value, field, type, inputName) {
             return;
         }
 
-        disposeGISEditorVisualization();
-
         $gisEditorModal.find('.modal-title').first().html(data.gis_editor_title);
         $gisEditorModal.find('.modal-body').first().html(data.gis_editor);
+        $gisEditorModal.on('hidden.bs.modal', disposeGISEditorVisualization);
         initGISEditorVisualization(
             JSON.parse($('#visualization-placeholder').attr('data-ol-data')),
         );
