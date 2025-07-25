@@ -272,13 +272,13 @@ class GisMultiPolygon extends GisGeometry
     {
         $pointsArr = $this->extractPoints1d($polygon, $scaleData);
 
-        $row = ' M ' . $pointsArr[0][0] . ', ' . $pointsArr[0][1];
+        $row = 'M' . $pointsArr[0][0] . ',' . $pointsArr[0][1];
         $otherPoints = array_slice($pointsArr, 1, count($pointsArr) - 2);
         foreach ($otherPoints as $point) {
-            $row .= ' L ' . $point[0] . ', ' . $point[1];
+            $row .= 'L' . $point[0] . ',' . $point[1];
         }
 
-        $row .= ' Z ';
+        $row .= 'Z';
 
         return $row;
     }
