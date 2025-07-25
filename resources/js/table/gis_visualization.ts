@@ -396,8 +396,8 @@ class SvgVisualization extends GisVisualization {
         $('#tooltip').remove();
 
         const target = event.target as SVGElement;
-        const contents = target.getAttribute('data-label').trim();
-        if (contents === '') {
+        const contents = target.getAttribute('data-label');
+        if (!contents) {
             return;
         }
 
