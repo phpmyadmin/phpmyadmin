@@ -3700,8 +3700,19 @@ class Results
 
             $sqlQueryMessage = Generator::getMessage($message, $this->properties['sql_query'], 'success');
         } elseif (($printView === null || $printView != '1') && ! $isLimitedDisplay) {
+            $message = Message::success(__('Your SQL query has been executed successfully.'));
+
+            if ($this->properties['querytime'] > 0) {
+                $message->addText('(');
+
+                $messageQueryTime = Message::notice(__('Query took %01.4f seconds.') . ')');
+                $messageQueryTime->addParam($this->properties['querytime']);
+
+                $message->addMessage($messageQueryTime, '');
+            }
+
             $sqlQueryMessage = Generator::getMessage(
-                __('Your SQL query has been executed successfully.'),
+                $message,
                 $this->properties['sql_query'],
                 'success'
             );
