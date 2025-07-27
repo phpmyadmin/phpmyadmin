@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-02-17 10:36+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
+"PO-Revision-Date: 2025-07-28 19:12+0000\n"
+"Last-Translator: Robin van der Vliet <info@robinvandervliet.com>\n"
 "Language-Team: Esperanto <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "eo/>\n"
 "Language: eo\n"
@@ -16,11 +16,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
-msgstr ""
+msgstr "Malĝusta tipo!"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -306,7 +306,7 @@ msgstr "Datumoj"
 #: templates/display/export/select_options.twig:4
 #: templates/database/search/selection_form.twig:32
 msgid "Select all"
-msgstr ""
+msgstr "Elekti ĉion"
 
 #: db_operations.php:58 tbl_create.php:27
 msgid "The database name is empty!"
@@ -532,7 +532,7 @@ msgstr "Ek"
 
 #: gis_data_editor.php:420
 msgid "Output"
-msgstr ""
+msgstr "Eligo"
 
 #: gis_data_editor.php:423
 msgid ""
@@ -542,11 +542,11 @@ msgstr ""
 
 #: import.php:73
 msgid "Succeeded"
-msgstr ""
+msgstr "Sukcesa"
 
 #: import.php:77 js/messages.php:619
 msgid "Failed"
-msgstr ""
+msgstr "Malsukcesa"
 
 #: import.php:81
 msgid "Incomplete params"
@@ -971,7 +971,7 @@ msgstr ""
 #: prefs_manage.php:357 prefs_manage.php:368
 #: templates/config/form_display/fieldset_bottom.twig:9
 msgid "Reset"
-msgstr ""
+msgstr "Restarigi"
 
 #: js/messages.php:114
 msgid "Reset all"
@@ -1257,7 +1257,7 @@ msgstr "Demandoj"
 
 #: js/messages.php:214 libraries/classes/Server/Status.php:151
 msgid "Traffic"
-msgstr ""
+msgstr "Trafiko"
 
 #: js/messages.php:215 libraries/classes/Menu.php:625
 #: libraries/classes/Server/Status/Monitor.php:264
@@ -1400,7 +1400,7 @@ msgstr ""
 
 #: js/messages.php:261
 msgid "Unit"
-msgstr ""
+msgstr "Unuo"
 
 #: js/messages.php:263
 msgid "From slow log"
@@ -1458,7 +1458,7 @@ msgstr ""
 
 #: js/messages.php:290
 msgid "Analyzing…"
-msgstr ""
+msgstr "Analizado…"
 
 #: js/messages.php:291
 msgid "Explain output"
@@ -1499,7 +1499,7 @@ msgstr "Tabelo"
 
 #: js/messages.php:297
 msgid "Chart"
-msgstr ""
+msgstr "Diagramo"
 
 #: js/messages.php:299 libraries/classes/Display/Export.php:579
 msgctxt "Alias"
@@ -1614,7 +1614,7 @@ msgstr "Problemo"
 
 #: js/messages.php:343
 msgid "Recommendation"
-msgstr ""
+msgstr "Rekomendo"
 
 #: js/messages.php:344
 msgid "Rule details"
@@ -1662,7 +1662,7 @@ msgstr "Apliki"
 #: js/messages.php:362 libraries/classes/Navigation/NavigationHeader.php:61
 #: libraries/classes/Server/Status/Monitor.php:130
 msgid "Loading…"
-msgstr ""
+msgstr "Ŝargado…"
 
 #: js/messages.php:363
 msgid "Request aborted!!"
@@ -2124,7 +2124,7 @@ msgstr ""
 
 #: js/messages.php:526
 msgid "Polygon"
-msgstr ""
+msgstr "Poligono"
 
 #: js/messages.php:527 templates/display/results/options_block.twig:79
 msgid "Geometry"
@@ -2260,7 +2260,7 @@ msgstr "Kolumnoj"
 
 #: js/messages.php:583 libraries/classes/SqlQueryForm.php:419
 msgid "Submit"
-msgstr ""
+msgstr "Sendi"
 
 #: js/messages.php:586
 msgid "Press escape to cancel editing."
@@ -2336,7 +2336,7 @@ msgstr ""
 
 #: js/messages.php:620
 msgid "Success"
-msgstr ""
+msgstr "Sukcesa"
 
 #: js/messages.php:621
 msgid "Import status"
@@ -2388,7 +2388,7 @@ msgstr "Generi"
 #: js/messages.php:655
 #: templates/table/structure/actions_in_table_structure.twig:4
 msgid "More"
-msgstr ""
+msgstr "Pli"
 
 #: js/messages.php:658
 msgid "Show panel"
@@ -3869,7 +3869,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:260
 msgid "Compression"
-msgstr ""
+msgstr "Densigo"
 
 #: libraries/classes/Config/Descriptions.php:262
 #: libraries/classes/Config/Descriptions.php:276
@@ -6019,7 +6019,7 @@ msgstr ""
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:19
 msgid "Quick"
-msgstr ""
+msgstr "Rapida"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:23
 msgid "Custom"
@@ -6495,7 +6495,7 @@ msgstr "Indekso"
 #: templates/columns_definitions/column_indexes.twig:8
 #: templates/table/structure/check_all_table_column.twig:40
 msgid "Unique"
-msgstr ""
+msgstr "Unika"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1234
 #: libraries/classes/Controllers/Table/TableStructureController.php:1239
@@ -6621,7 +6621,7 @@ msgstr ""
 
 #: libraries/classes/Database/Qbe.php:665
 msgid "Show:"
-msgstr ""
+msgstr "Montri:"
 
 #: libraries/classes/Database/Qbe.php:714
 msgid "Criteria:"
@@ -6904,7 +6904,7 @@ msgstr ""
 #: libraries/classes/Util.php:2370
 msgctxt "Last page"
 msgid "End"
-msgstr ""
+msgstr "Fino"
 
 #: libraries/classes/Display/Results.php:1114
 msgid "All"
@@ -7741,7 +7741,7 @@ msgstr "Serĉi"
 #: libraries/config.values.php:41 libraries/config.values.php:49
 #: libraries/config.values.php:119
 msgid "Insert"
-msgstr ""
+msgstr "Enmeti"
 
 #: libraries/classes/Menu.php:401 libraries/classes/Menu.php:512
 #: libraries/classes/Server/Privileges.php:2584
@@ -7791,7 +7791,7 @@ msgstr "Peto"
 #: libraries/classes/Menu.php:517 libraries/classes/Rte/Words.php:49
 #: libraries/classes/Util.php:4012
 msgid "Routines"
-msgstr ""
+msgstr "Rutinoj"
 
 #: libraries/classes/Menu.php:522
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:25
@@ -12911,7 +12911,7 @@ msgstr ""
 #: libraries/classes/Util.php:3349 libraries/classes/Util.php:3350
 #: templates/database/structure/check_all_tables.twig:15
 msgid "Empty"
-msgstr ""
+msgstr "Malplenigi"
 
 #: libraries/classes/Util.php:3355 libraries/classes/Util.php:3356
 msgid "Execute"
@@ -13552,7 +13552,7 @@ msgstr "Datumbazoj:"
 #: templates/display/export/options_output.twig:2
 #: templates/display/export/options_quick_export.twig:2
 msgid "Output:"
-msgstr ""
+msgstr "Eligo:"
 
 #: templates/display/export/options_output.twig:26
 msgid "Save output to a file"
@@ -13621,7 +13621,7 @@ msgstr "Repeti"
 
 #: templates/console/display.twig:31 templates/console/display.twig:175
 msgid "Explain"
-msgstr ""
+msgstr "Klarigi"
 
 #: templates/console/display.twig:40 templates/console/display.twig:184
 msgid "Bookmark"
@@ -13649,7 +13649,7 @@ msgstr ""
 
 #: templates/console/display.twig:64
 msgid "Order:"
-msgstr ""
+msgstr "Ordo:"
 
 #: templates/console/display.twig:64 templates/console/display.twig:84
 #: templates/table/search/replace_preview.twig:17
@@ -13693,7 +13693,7 @@ msgstr "Aldoni legosignon"
 
 #: templates/console/display.twig:121
 msgid "Label"
-msgstr ""
+msgstr "Etikedo"
 
 #: templates/console/display.twig:124
 msgid "Target database"
@@ -13959,7 +13959,7 @@ msgstr ""
 
 #: templates/display/export/options_output_compression.twig:4
 msgid "Compression:"
-msgstr ""
+msgstr "Densigo:"
 
 #: templates/display/export/options_output_compression.twig:11
 msgid "zipped"
@@ -14463,7 +14463,7 @@ msgstr "Grando"
 
 #: templates/display/export/options_rows.twig:2
 msgid "Rows:"
-msgstr ""
+msgstr "Vicoj:"
 
 #: templates/display/export/options_rows.twig:7
 msgid "Dump some row(s)"
