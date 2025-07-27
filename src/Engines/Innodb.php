@@ -1,13 +1,11 @@
 <?php
-/**
- * The InnoDB storage engine
- */
 
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Engines;
 
 use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Engines\Innodb\BufferPool;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Util;
 
@@ -110,18 +108,11 @@ class Innodb extends StorageEngine
      *
      * @return string  html table with stats
      */
-    public function getPageBufferpool(): string
+    public function getPageBufferPool(): string
     {
-        // The following query is only possible because we know
-        // that we are on MySQL 5 here (checked above)!
-        // side note: I love MySQL 5 for this. :-)
-        $sql = 'SHOW STATUS'
-            . ' WHERE Variable_name LIKE \'Innodb\\_buffer\\_pool\\_%\''
-            . ' OR Variable_name = \'Innodb_page_size\';';
-        $status = DatabaseInterface::getInstance()->fetchResult($sql, 0, 1);
+        $status = $this->getBufferPoolStatus();
 
-        /** @var string[] $bytes */
-        $bytes = Util::formatByteDown($status['Innodb_buffer_pool_pages_total'] * $status['Innodb_page_size']);
+        $bytes = Util::formatByteDown($status->pagesTotal * $status->innodbPageSize);
 
         $output = '<table class="table table-striped table-hover w-auto float-start caption-top">' . "\n"
             . '    <caption>' . "\n"
@@ -131,7 +122,7 @@ class Innodb extends StorageEngine
             . '        <tr>' . "\n"
             . '            <th colspan="2">' . "\n"
             . '                ' . __('Total:') . ' '
-            . Util::formatNumber($status['Innodb_buffer_pool_pages_total'], 0)
+            . Util::formatNumber($status->pagesTotal, 0)
             . '&nbsp;' . __('pages')
             . ' / '
             . implode('&nbsp;', $bytes) . "\n"
@@ -142,40 +133,39 @@ class Innodb extends StorageEngine
             . '        <tr>' . "\n"
             . '            <th scope="row">' . __('Free pages') . '</th>' . "\n"
             . '            <td class="font-monospace text-end">'
-            . Util::formatNumber($status['Innodb_buffer_pool_pages_free'], 0)
+            . Util::formatNumber($status->pagesFree, 0)
             . '</td>' . "\n"
             . '        </tr>' . "\n"
             . '        <tr>' . "\n"
             . '            <th scope="row">' . __('Dirty pages') . '</th>' . "\n"
             . '            <td class="font-monospace text-end">'
-            . Util::formatNumber($status['Innodb_buffer_pool_pages_dirty'], 0)
+            . Util::formatNumber($status->pagesDirty, 0)
             . '</td>' . "\n"
             . '        </tr>' . "\n"
             . '        <tr>' . "\n"
             . '            <th scope="row">' . __('Pages containing data') . '</th>' . "\n"
             . '            <td class="font-monospace text-end">'
-            . Util::formatNumber($status['Innodb_buffer_pool_pages_data'], 0)
+            . Util::formatNumber($status->pagesData, 0)
             . '</td>' . "\n"
             . '        </tr>' . "\n"
             . '        <tr>' . "\n"
             . '            <th scope="row">' . __('Pages to be flushed') . '</th>' . "\n"
             . '            <td class="font-monospace text-end">'
-            . Util::formatNumber($status['Innodb_buffer_pool_pages_flushed'], 0)
+            . Util::formatNumber($status->pagesFlushed, 0)
             . '</td>' . "\n"
             . '        </tr>' . "\n"
             . '        <tr>' . "\n"
             . '            <th scope="row">' . __('Busy pages') . '</th>' . "\n"
             . '            <td class="font-monospace text-end">'
-            . Util::formatNumber($status['Innodb_buffer_pool_pages_misc'], 0)
+            . Util::formatNumber($status->pagesMisc, 0)
             . '</td>' . "\n"
             . '        </tr>' . "\n";
 
-        // not present at least since MySQL 5.1.40
-        if (isset($status['Innodb_buffer_pool_pages_latched'])) {
+        if ($status->pagesLatched !== null) {
             $output .= '        <tr>' . "\n"
                 . '            <th scope="row">' . __('Latched pages') . '</th>' . "\n"
                 . '            <td class="font-monospace text-end">'
-                . Util::formatNumber($status['Innodb_buffer_pool_pages_latched'], 0)
+                . Util::formatNumber($status->pagesLatched, 0)
                 . '</td>' . "\n"
                 . '        </tr>' . "\n";
         }
@@ -190,55 +180,41 @@ class Innodb extends StorageEngine
             . '        <tr>' . "\n"
             . '            <th scope="row">' . __('Read requests') . '</th>' . "\n"
             . '            <td class="font-monospace text-end">'
-            . Util::formatNumber($status['Innodb_buffer_pool_read_requests'], 0)
+            . Util::formatNumber($status->readRequests, 0)
             . '</td>' . "\n"
             . '        </tr>' . "\n"
             . '        <tr>' . "\n"
             . '            <th scope="row">' . __('Write requests') . '</th>' . "\n"
             . '            <td class="font-monospace text-end">'
-            . Util::formatNumber($status['Innodb_buffer_pool_write_requests'], 0)
+            . Util::formatNumber($status->writeRequests, 0)
             . '</td>' . "\n"
             . '        </tr>' . "\n"
             . '        <tr>' . "\n"
             . '            <th scope="row">' . __('Read misses') . '</th>' . "\n"
             . '            <td class="font-monospace text-end">'
-            . Util::formatNumber($status['Innodb_buffer_pool_reads'], 0)
+            . Util::formatNumber($status->reads, 0)
             . '</td>' . "\n"
             . '        </tr>' . "\n"
             . '        <tr>' . "\n"
             . '            <th scope="row">' . __('Write waits') . '</th>' . "\n"
             . '            <td class="font-monospace text-end">'
-            . Util::formatNumber($status['Innodb_buffer_pool_wait_free'], 0)
+            . Util::formatNumber($status->waitFree, 0)
             . '</td>' . "\n"
             . '        </tr>' . "\n"
             . '        <tr>' . "\n"
             . '            <th scope="row">' . __('Read misses in %') . '</th>' . "\n"
             . '            <td class="font-monospace text-end">'
-            . ($status['Innodb_buffer_pool_read_requests'] == 0
+            . ((float) $status->readRequests === 0.0
                 ? '---'
-                : htmlspecialchars(
-                    Util::formatNumber(
-                        $status['Innodb_buffer_pool_reads'] * 100
-                        / $status['Innodb_buffer_pool_read_requests'],
-                        3,
-                        2,
-                    ),
-                ) . ' %')
+                : htmlspecialchars(Util::formatNumber($status->reads * 100 / $status->readRequests, 3, 2)) . ' %')
             . '</td>' . "\n"
             . '        </tr>' . "\n"
             . '        <tr>' . "\n"
             . '            <th scope="row">' . __('Write waits in %') . '</th>' . "\n"
             . '            <td class="font-monospace text-end">'
-            . ($status['Innodb_buffer_pool_write_requests'] == 0
+            . ((float) $status->writeRequests === 0.0
                 ? '---'
-                : htmlspecialchars(
-                    Util::formatNumber(
-                        $status['Innodb_buffer_pool_wait_free'] * 100
-                        / $status['Innodb_buffer_pool_write_requests'],
-                        3,
-                        2,
-                    ),
-                ) . ' %')
+                : htmlspecialchars(Util::formatNumber($status->waitFree * 100 / $status->writeRequests, 3, 2)) . ' %')
             . '</td>' . "\n"
             . '        </tr>' . "\n"
             . '    </tbody>' . "\n"
@@ -312,5 +288,15 @@ class Innodb extends StorageEngine
         $dbi = DatabaseInterface::getInstance();
 
         return $dbi->fetchValue("SHOW GLOBAL VARIABLES LIKE 'innodb_file_per_table';", 1) === 'ON';
+    }
+
+    private function getBufferPoolStatus(): BufferPool
+    {
+        $result = DatabaseInterface::getInstance()->tryQuery(
+            "SHOW STATUS WHERE Variable_name LIKE 'Innodb\\_buffer\\_pool\\_%' OR Variable_name = 'Innodb_page_size';",
+            cacheAffectedRows: false,
+        );
+
+        return BufferPool::fromResult($result !== false ? $result->fetchAllKeyPair() : []);
     }
 }

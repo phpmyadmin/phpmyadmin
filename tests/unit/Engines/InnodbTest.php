@@ -141,13 +141,12 @@ class InnodbTest extends AbstractTestCase
     ): void {
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addResult(
-            'SHOW STATUS WHERE Variable_name LIKE \'Innodb\\_buffer\\_pool\\_%\''
-            . ' OR Variable_name = \'Innodb_page_size\';',
+            "SHOW STATUS WHERE Variable_name LIKE 'Innodb\\_buffer\\_pool\\_%' OR Variable_name = 'Innodb_page_size';",
             $variables,
         );
         DatabaseInterface::$instance = $this->createDatabaseInterface($dbiDummy);
 
-        $pageBufferPool = (new Innodb('innodb'))->getPageBufferpool();
+        $pageBufferPool = (new Innodb('innodb'))->getPageBufferPool();
         $dbiDummy->assertAllQueriesConsumed();
 
         $expected = '<table class="table table-striped table-hover w-auto float-start caption-top">' . "\n" .

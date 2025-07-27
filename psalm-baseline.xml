@@ -4096,29 +4096,6 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <MixedArgument>
-      <code><![CDATA[$status['Innodb_buffer_pool_pages_data']]]></code>
-      <code><![CDATA[$status['Innodb_buffer_pool_pages_dirty']]]></code>
-      <code><![CDATA[$status['Innodb_buffer_pool_pages_flushed']]]></code>
-      <code><![CDATA[$status['Innodb_buffer_pool_pages_free']]]></code>
-      <code><![CDATA[$status['Innodb_buffer_pool_pages_latched']]]></code>
-      <code><![CDATA[$status['Innodb_buffer_pool_pages_misc']]]></code>
-      <code><![CDATA[$status['Innodb_buffer_pool_pages_total']]]></code>
-      <code><![CDATA[$status['Innodb_buffer_pool_pages_total'] * $status['Innodb_page_size']]]></code>
-      <code><![CDATA[$status['Innodb_buffer_pool_read_requests']]]></code>
-      <code><![CDATA[$status['Innodb_buffer_pool_reads']]]></code>
-      <code><![CDATA[$status['Innodb_buffer_pool_reads'] * 100
-                        / $status['Innodb_buffer_pool_read_requests']]]></code>
-      <code><![CDATA[$status['Innodb_buffer_pool_wait_free']]]></code>
-      <code><![CDATA[$status['Innodb_buffer_pool_wait_free'] * 100
-                        / $status['Innodb_buffer_pool_write_requests']]]></code>
-      <code><![CDATA[$status['Innodb_buffer_pool_write_requests']]]></code>
-    </MixedArgument>
-    <MixedOperand>
-      <code><![CDATA[$status['Innodb_buffer_pool_pages_total']]]></code>
-      <code><![CDATA[$status['Innodb_buffer_pool_reads']]]></code>
-      <code><![CDATA[$status['Innodb_buffer_pool_wait_free']]]></code>
-    </MixedOperand>
   </file>
   <file src="src/Engines/Pbxt.php">
     <PossiblyUnusedMethod>
