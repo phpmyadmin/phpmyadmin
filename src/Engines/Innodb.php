@@ -154,30 +154,30 @@ class Innodb extends StorageEngine
             . '        <tr>' . "\n"
             . '            <th scope="row">' . __('Pages containing data') . '</th>' . "\n"
             . '            <td class="font-monospace text-end">'
-            . Util::formatNumber($status['Innodb_buffer_pool_pages_data'], 0) . "\n"
+            . Util::formatNumber($status['Innodb_buffer_pool_pages_data'], 0)
             . '</td>' . "\n"
             . '        </tr>' . "\n"
             . '        <tr>' . "\n"
             . '            <th scope="row">' . __('Pages to be flushed') . '</th>' . "\n"
             . '            <td class="font-monospace text-end">'
-            . Util::formatNumber($status['Innodb_buffer_pool_pages_flushed'], 0) . "\n"
+            . Util::formatNumber($status['Innodb_buffer_pool_pages_flushed'], 0)
             . '</td>' . "\n"
             . '        </tr>' . "\n"
             . '        <tr>' . "\n"
             . '            <th scope="row">' . __('Busy pages') . '</th>' . "\n"
             . '            <td class="font-monospace text-end">'
-            . Util::formatNumber($status['Innodb_buffer_pool_pages_misc'], 0) . "\n"
+            . Util::formatNumber($status['Innodb_buffer_pool_pages_misc'], 0)
             . '</td>' . "\n"
-            . '        </tr>';
+            . '        </tr>' . "\n";
 
         // not present at least since MySQL 5.1.40
         if (isset($status['Innodb_buffer_pool_pages_latched'])) {
-            $output .= '        <tr>'
-                . '            <th scope="row">' . __('Latched pages') . '</th>'
+            $output .= '        <tr>' . "\n"
+                . '            <th scope="row">' . __('Latched pages') . '</th>' . "\n"
                 . '            <td class="font-monospace text-end">'
                 . Util::formatNumber($status['Innodb_buffer_pool_pages_latched'], 0)
-                . '</td>'
-                . '        </tr>';
+                . '</td>' . "\n"
+                . '        </tr>' . "\n";
         }
 
         $output .= '    </tbody>' . "\n"
@@ -190,25 +190,25 @@ class Innodb extends StorageEngine
             . '        <tr>' . "\n"
             . '            <th scope="row">' . __('Read requests') . '</th>' . "\n"
             . '            <td class="font-monospace text-end">'
-            . Util::formatNumber($status['Innodb_buffer_pool_read_requests'], 0) . "\n"
+            . Util::formatNumber($status['Innodb_buffer_pool_read_requests'], 0)
             . '</td>' . "\n"
             . '        </tr>' . "\n"
             . '        <tr>' . "\n"
             . '            <th scope="row">' . __('Write requests') . '</th>' . "\n"
             . '            <td class="font-monospace text-end">'
-            . Util::formatNumber($status['Innodb_buffer_pool_write_requests'], 0) . "\n"
+            . Util::formatNumber($status['Innodb_buffer_pool_write_requests'], 0)
             . '</td>' . "\n"
             . '        </tr>' . "\n"
             . '        <tr>' . "\n"
             . '            <th scope="row">' . __('Read misses') . '</th>' . "\n"
             . '            <td class="font-monospace text-end">'
-            . Util::formatNumber($status['Innodb_buffer_pool_reads'], 0) . "\n"
+            . Util::formatNumber($status['Innodb_buffer_pool_reads'], 0)
             . '</td>' . "\n"
             . '        </tr>' . "\n"
             . '        <tr>' . "\n"
             . '            <th scope="row">' . __('Write waits') . '</th>' . "\n"
             . '            <td class="font-monospace text-end">'
-            . Util::formatNumber($status['Innodb_buffer_pool_wait_free'], 0) . "\n"
+            . Util::formatNumber($status['Innodb_buffer_pool_wait_free'], 0)
             . '</td>' . "\n"
             . '        </tr>' . "\n"
             . '        <tr>' . "\n"
@@ -223,7 +223,7 @@ class Innodb extends StorageEngine
                         3,
                         2,
                     ),
-                ) . ' %') . "\n"
+                ) . ' %')
             . '</td>' . "\n"
             . '        </tr>' . "\n"
             . '        <tr>' . "\n"
@@ -238,7 +238,7 @@ class Innodb extends StorageEngine
                         3,
                         2,
                     ),
-                ) . ' %') . "\n"
+                ) . ' %')
             . '</td>' . "\n"
             . '        </tr>' . "\n"
             . '    </tbody>' . "\n"

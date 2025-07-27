@@ -8,6 +8,7 @@ use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Engines\Innodb;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 use function __;
 
@@ -126,86 +127,153 @@ class InnodbTest extends AbstractTestCase
     }
 
     /**
-     * Test for getPageBufferpool
+     * @param list<array{string, string}> $variables
+     * @param list<array{string, string}> $usageTableRows
+     * @param list<array{string, string}> $activityTableRows
      */
-    public function testGetPageBufferpool(): void
-    {
-        self::assertSame(
-            '<table class="table table-striped table-hover w-auto float-start caption-top">' . "\n" .
+    #[DataProvider('pageBufferPoolProvider')]
+    public function testGetPageBufferPool(
+        array $variables,
+        string $totalPages,
+        string $totalBytes,
+        array $usageTableRows,
+        array $activityTableRows,
+    ): void {
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addResult(
+            'SHOW STATUS WHERE Variable_name LIKE \'Innodb\\_buffer\\_pool\\_%\''
+            . ' OR Variable_name = \'Innodb_page_size\';',
+            $variables,
+        );
+        DatabaseInterface::$instance = $this->createDatabaseInterface($dbiDummy);
+
+        $pageBufferPool = (new Innodb('innodb'))->getPageBufferpool();
+        $dbiDummy->assertAllQueriesConsumed();
+
+        $expected = '<table class="table table-striped table-hover w-auto float-start caption-top">' . "\n" .
             '    <caption>' . "\n" .
             '        Buffer Pool Usage' . "\n" .
             '    </caption>' . "\n" .
             '    <tfoot>' . "\n" .
             '        <tr>' . "\n" .
             '            <th colspan="2">' . "\n" .
-            '                Total: 4,096&nbsp;pages / 65,536&nbsp;KiB' . "\n" .
+            '                Total: ' . $totalPages . '&nbsp;pages / ' . $totalBytes . "\n" .
             '            </th>' . "\n" .
             '        </tr>' . "\n" .
             '    </tfoot>' . "\n" .
-            '    <tbody>' . "\n" .
-            '        <tr>' . "\n" .
-            '            <th scope="row">Free pages</th>' . "\n" .
-            '            <td class="font-monospace text-end">0</td>' . "\n" .
-            '        </tr>' . "\n" .
-            '        <tr>' . "\n" .
-            '            <th scope="row">Dirty pages</th>' . "\n" .
-            '            <td class="font-monospace text-end">0</td>' . "\n" .
-            '        </tr>' . "\n" .
-            '        <tr>' . "\n" .
-            '            <th scope="row">Pages containing data</th>' . "\n" .
-            '            <td class="font-monospace text-end">0' . "\n" .
-            '</td>' . "\n" .
-            '        </tr>' . "\n" .
-            '        <tr>' . "\n" .
-            '            <th scope="row">Pages to be flushed</th>' . "\n" .
-            '            <td class="font-monospace text-end">0' . "\n" .
-            '</td>' . "\n" .
-            '        </tr>' . "\n" .
-            '        <tr>' . "\n" .
-            '            <th scope="row">Busy pages</th>' . "\n" .
-            '            <td class="font-monospace text-end">0' . "\n" .
-            '</td>' . "\n" .
-            '        </tr>    </tbody>' . "\n" .
+            '    <tbody>' . "\n";
+
+        foreach ($usageTableRows as $tableRow) {
+            $expected .= '        <tr>' . "\n" .
+                '            <th scope="row">' . $tableRow[0] . '</th>' . "\n" .
+                '            <td class="font-monospace text-end">' . $tableRow[1] . '</td>' . "\n" .
+                '        </tr>' . "\n";
+        }
+
+        $expected .= '    </tbody>' . "\n" .
             '</table>' . "\n\n" .
             '<table class="table table-striped table-hover w-auto ms-4 float-start caption-top">' . "\n" .
             '    <caption>' . "\n" .
             '        Buffer Pool Activity' . "\n" .
             '    </caption>' . "\n" .
-            '    <tbody>' . "\n" .
-            '        <tr>' . "\n" .
-            '            <th scope="row">Read requests</th>' . "\n" .
-            '            <td class="font-monospace text-end">64' . "\n" .
-            '</td>' . "\n" .
-            '        </tr>' . "\n" .
-            '        <tr>' . "\n" .
-            '            <th scope="row">Write requests</th>' . "\n" .
-            '            <td class="font-monospace text-end">64' . "\n" .
-            '</td>' . "\n" .
-            '        </tr>' . "\n" .
-            '        <tr>' . "\n" .
-            '            <th scope="row">Read misses</th>' . "\n" .
-            '            <td class="font-monospace text-end">32' . "\n" .
-            '</td>' . "\n" .
-            '        </tr>' . "\n" .
-            '        <tr>' . "\n" .
-            '            <th scope="row">Write waits</th>' . "\n" .
-            '            <td class="font-monospace text-end">0' . "\n" .
-            '</td>' . "\n" .
-            '        </tr>' . "\n" .
-            '        <tr>' . "\n" .
-            '            <th scope="row">Read misses in %</th>' . "\n" .
-            '            <td class="font-monospace text-end">50 %' . "\n" .
-            '</td>' . "\n" .
-            '        </tr>' . "\n" .
-            '        <tr>' . "\n" .
-            '            <th scope="row">Write waits in %</th>' . "\n" .
-            '            <td class="font-monospace text-end">0 %' . "\n" .
-            '</td>' . "\n" .
-            '        </tr>' . "\n" .
-            '    </tbody>' . "\n" .
-            '</table>' . "\n",
-            $this->object->getPageBufferpool(),
-        );
+            '    <tbody>' . "\n";
+
+        foreach ($activityTableRows as $tableRow) {
+            $expected .= '        <tr>' . "\n" .
+                '            <th scope="row">' . $tableRow[0] . '</th>' . "\n" .
+                '            <td class="font-monospace text-end">' . $tableRow[1] . '</td>' . "\n" .
+                '        </tr>' . "\n";
+        }
+
+        $expected .= '    </tbody>' . "\n" . '</table>' . "\n";
+
+        self::assertSame($expected, $pageBufferPool);
+    }
+
+    /**
+     * @return iterable<array-key, array{
+     *   list<array{string, string}>,
+     *   string,
+     *   string,
+     *   list<array{string, string}>,
+     *   list<array{string, string}>
+     * }>
+     */
+    public static function pageBufferPoolProvider(): iterable
+    {
+        yield [
+            [
+                ['Innodb_buffer_pool_pages_data', '0'],
+                ['Innodb_buffer_pool_pages_dirty', '0'],
+                ['Innodb_buffer_pool_pages_flushed', '0'],
+                ['Innodb_buffer_pool_pages_free', '0'],
+                ['Innodb_buffer_pool_pages_misc', '0'],
+                ['Innodb_buffer_pool_pages_total', '4096'],
+                ['Innodb_buffer_pool_read_ahead_rnd', '0'],
+                ['Innodb_buffer_pool_read_ahead', '0'],
+                ['Innodb_buffer_pool_read_ahead_evicted', '0'],
+                ['Innodb_buffer_pool_read_requests', '64'],
+                ['Innodb_buffer_pool_reads', '32'],
+                ['Innodb_buffer_pool_wait_free', '0'],
+                ['Innodb_buffer_pool_write_requests', '64'],
+                ['Innodb_page_size', '16384'],
+            ],
+            '4,096',
+            '65,536&nbsp;KiB',
+            [
+                ['Free pages', '0'],
+                ['Dirty pages', '0'],
+                ['Pages containing data', '0'],
+                ['Pages to be flushed', '0'],
+                ['Busy pages', '0'],
+            ],
+            [
+                ['Read requests', '64'],
+                ['Write requests', '64'],
+                ['Read misses', '32'],
+                ['Write waits', '0'],
+                ['Read misses in %', '50 %'],
+                ['Write waits in %', '0 %'],
+            ],
+        ];
+
+        yield [
+            [
+                ['Innodb_buffer_pool_pages_data', '0'],
+                ['Innodb_buffer_pool_pages_dirty', '0'],
+                ['Innodb_buffer_pool_pages_flushed', '0'],
+                ['Innodb_buffer_pool_pages_free', '0'],
+                ['Innodb_buffer_pool_pages_latched', '0'],
+                ['Innodb_buffer_pool_pages_misc', '0'],
+                ['Innodb_buffer_pool_pages_total', '4096'],
+                ['Innodb_buffer_pool_read_ahead_rnd', '0'],
+                ['Innodb_buffer_pool_read_ahead', '0'],
+                ['Innodb_buffer_pool_read_ahead_evicted', '0'],
+                ['Innodb_buffer_pool_read_requests', '0'],
+                ['Innodb_buffer_pool_reads', '32'],
+                ['Innodb_buffer_pool_wait_free', '0'],
+                ['Innodb_buffer_pool_write_requests', '0'],
+                ['Innodb_page_size', '16384'],
+            ],
+            '4,096',
+            '65,536&nbsp;KiB',
+            [
+                ['Free pages', '0'],
+                ['Dirty pages', '0'],
+                ['Pages containing data', '0'],
+                ['Pages to be flushed', '0'],
+                ['Busy pages', '0'],
+                ['Latched pages', '0'],
+            ],
+            [
+                ['Read requests', '0'],
+                ['Write requests', '0'],
+                ['Read misses', '32'],
+                ['Write waits', '0'],
+                ['Read misses in %', '---'],
+                ['Write waits in %', '---'],
+            ],
+        ];
     }
 
     /**
