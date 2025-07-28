@@ -150,41 +150,37 @@ class InnodbTest extends AbstractTestCase
         $dbiDummy->assertAllQueriesConsumed();
 
         $expected = '<table class="table table-striped table-hover w-auto float-start caption-top">' . "\n" .
-            '    <caption>' . "\n" .
-            '        Buffer Pool Usage' . "\n" .
-            '    </caption>' . "\n" .
-            '    <tfoot>' . "\n" .
-            '        <tr>' . "\n" .
-            '            <th colspan="2">' . "\n" .
-            '                Total: ' . $totalPages . '&nbsp;pages / ' . $totalBytes . "\n" .
-            '            </th>' . "\n" .
-            '        </tr>' . "\n" .
-            '    </tfoot>' . "\n" .
-            '    <tbody>' . "\n";
+            '  <caption>Buffer pool usage</caption>' . "\n" .
+            '  <tbody>' . "\n";
 
         foreach ($usageTableRows as $tableRow) {
-            $expected .= '        <tr>' . "\n" .
-                '            <th scope="row">' . $tableRow[0] . '</th>' . "\n" .
-                '            <td class="font-monospace text-end">' . $tableRow[1] . '</td>' . "\n" .
-                '        </tr>' . "\n";
+            $expected .= '    <tr>' . "\n" .
+                '      <th scope="row">' . $tableRow[0] . '</th>' . "\n" .
+                '      <td class="font-monospace text-end">' . $tableRow[1] . '</td>' . "\n" .
+                '    </tr>' . "\n";
         }
 
-        $expected .= '    </tbody>' . "\n" .
+        $expected .= '  </tbody>' . "\n" .
+            '  <tfoot>' . "\n" .
+            '    <tr>' . "\n" .
+            '      <th colspan="2">' . "\n" .
+            '        Total: ' . $totalPages . ' pages / ' . $totalBytes . "\n" .
+            '      </th>' . "\n" .
+            '    </tr>' . "\n" .
+            '  </tfoot>' . "\n" .
             '</table>' . "\n\n" .
             '<table class="table table-striped table-hover w-auto ms-4 float-start caption-top">' . "\n" .
-            '    <caption>' . "\n" .
-            '        Buffer Pool Activity' . "\n" .
-            '    </caption>' . "\n" .
-            '    <tbody>' . "\n";
+            '  <caption>Buffer pool activity</caption>' . "\n" .
+            '  <tbody>' . "\n";
 
         foreach ($activityTableRows as $tableRow) {
-            $expected .= '        <tr>' . "\n" .
-                '            <th scope="row">' . $tableRow[0] . '</th>' . "\n" .
-                '            <td class="font-monospace text-end">' . $tableRow[1] . '</td>' . "\n" .
-                '        </tr>' . "\n";
+            $expected .= '    <tr>' . "\n" .
+                '      <th scope="row">' . $tableRow[0] . '</th>' . "\n" .
+                '      <td class="font-monospace text-end">' . $tableRow[1] . '</td>' . "\n" .
+                '    </tr>' . "\n";
         }
 
-        $expected .= '    </tbody>' . "\n" . '</table>' . "\n";
+        $expected .= '  </tbody>' . "\n" . '</table>' . "\n";
 
         self::assertSame($expected, $pageBufferPool);
     }
@@ -218,7 +214,7 @@ class InnodbTest extends AbstractTestCase
                 ['Innodb_page_size', '16384'],
             ],
             '4,096',
-            '65,536&nbsp;KiB',
+            '65,536 KiB',
             [
                 ['Free pages', '0'],
                 ['Dirty pages', '0'],
@@ -231,8 +227,8 @@ class InnodbTest extends AbstractTestCase
                 ['Write requests', '64'],
                 ['Read misses', '32'],
                 ['Write waits', '0'],
-                ['Read misses in %', '50 %'],
-                ['Write waits in %', '0 %'],
+                ['Read misses in %', '50%'],
+                ['Write waits in %', '0%'],
             ],
         ];
 
@@ -255,7 +251,7 @@ class InnodbTest extends AbstractTestCase
                 ['Innodb_page_size', '16384'],
             ],
             '4,096',
-            '65,536&nbsp;KiB',
+            '65,536 KiB',
             [
                 ['Free pages', '0'],
                 ['Dirty pages', '0'],
@@ -271,6 +267,41 @@ class InnodbTest extends AbstractTestCase
                 ['Write waits', '0'],
                 ['Read misses in %', '---'],
                 ['Write waits in %', '---'],
+            ],
+        ];
+
+        yield [
+            [
+                ['Innodb_buffer_pool_pages_data', '1000'],
+                ['Innodb_buffer_pool_pages_dirty', '2000'],
+                ['Innodb_buffer_pool_pages_flushed', '3000'],
+                ['Innodb_buffer_pool_pages_free', '4000'],
+                ['Innodb_buffer_pool_pages_misc', '5000'],
+                ['Innodb_buffer_pool_reads', '6000'],
+                ['Innodb_buffer_pool_read_requests', '7000'],
+                ['Innodb_buffer_pool_wait_free', '8000'],
+                ['Innodb_buffer_pool_write_requests', '9000'],
+                ['Innodb_buffer_pool_pages_latched', '10000'],
+                ['Innodb_page_size', '11000'],
+                ['Innodb_buffer_pool_pages_total', '12000'],
+            ],
+            '12,000',
+            '129 k KiB',
+            [
+                ['Free pages', '4,000'],
+                ['Dirty pages', '2,000'],
+                ['Pages containing data', '1,000'],
+                ['Pages to be flushed', '3,000'],
+                ['Busy pages', '5,000'],
+                ['Latched pages', '10,000'],
+            ],
+            [
+                ['Read requests', '7,000'],
+                ['Write requests', '9,000'],
+                ['Read misses', '6,000'],
+                ['Write waits', '8,000'],
+                ['Read misses in %', '85.71%'],
+                ['Write waits in %', '88.89%'],
             ],
         ];
     }
