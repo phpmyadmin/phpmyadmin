@@ -7,11 +7,10 @@ namespace PhpMyAdmin\Engines;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Engines\Innodb\BufferPool;
 use PhpMyAdmin\StorageEngine;
-use PhpMyAdmin\Util;
+use PhpMyAdmin\Template;
 
 use function __;
 use function htmlspecialchars;
-use function implode;
 
 /**
  * The InnoDB storage engine
@@ -110,117 +109,9 @@ class Innodb extends StorageEngine
      */
     public function getPageBufferPool(): string
     {
-        $status = $this->getBufferPoolStatus();
-
-        $bytes = Util::formatByteDown($status->pagesTotal * $status->innodbPageSize);
-
-        $output = '<table class="table table-striped table-hover w-auto float-start caption-top">' . "\n"
-            . '    <caption>' . "\n"
-            . '        ' . __('Buffer Pool Usage') . "\n"
-            . '    </caption>' . "\n"
-            . '    <tfoot>' . "\n"
-            . '        <tr>' . "\n"
-            . '            <th colspan="2">' . "\n"
-            . '                ' . __('Total:') . ' '
-            . Util::formatNumber($status->pagesTotal, 0)
-            . '&nbsp;' . __('pages')
-            . ' / '
-            . implode('&nbsp;', $bytes) . "\n"
-            . '            </th>' . "\n"
-            . '        </tr>' . "\n"
-            . '    </tfoot>' . "\n"
-            . '    <tbody>' . "\n"
-            . '        <tr>' . "\n"
-            . '            <th scope="row">' . __('Free pages') . '</th>' . "\n"
-            . '            <td class="font-monospace text-end">'
-            . Util::formatNumber($status->pagesFree, 0)
-            . '</td>' . "\n"
-            . '        </tr>' . "\n"
-            . '        <tr>' . "\n"
-            . '            <th scope="row">' . __('Dirty pages') . '</th>' . "\n"
-            . '            <td class="font-monospace text-end">'
-            . Util::formatNumber($status->pagesDirty, 0)
-            . '</td>' . "\n"
-            . '        </tr>' . "\n"
-            . '        <tr>' . "\n"
-            . '            <th scope="row">' . __('Pages containing data') . '</th>' . "\n"
-            . '            <td class="font-monospace text-end">'
-            . Util::formatNumber($status->pagesData, 0)
-            . '</td>' . "\n"
-            . '        </tr>' . "\n"
-            . '        <tr>' . "\n"
-            . '            <th scope="row">' . __('Pages to be flushed') . '</th>' . "\n"
-            . '            <td class="font-monospace text-end">'
-            . Util::formatNumber($status->pagesFlushed, 0)
-            . '</td>' . "\n"
-            . '        </tr>' . "\n"
-            . '        <tr>' . "\n"
-            . '            <th scope="row">' . __('Busy pages') . '</th>' . "\n"
-            . '            <td class="font-monospace text-end">'
-            . Util::formatNumber($status->pagesMisc, 0)
-            . '</td>' . "\n"
-            . '        </tr>' . "\n";
-
-        if ($status->pagesLatched !== null) {
-            $output .= '        <tr>' . "\n"
-                . '            <th scope="row">' . __('Latched pages') . '</th>' . "\n"
-                . '            <td class="font-monospace text-end">'
-                . Util::formatNumber($status->pagesLatched, 0)
-                . '</td>' . "\n"
-                . '        </tr>' . "\n";
-        }
-
-        $output .= '    </tbody>' . "\n"
-            . '</table>' . "\n\n"
-            . '<table class="table table-striped table-hover w-auto ms-4 float-start caption-top">' . "\n"
-            . '    <caption>' . "\n"
-            . '        ' . __('Buffer Pool Activity') . "\n"
-            . '    </caption>' . "\n"
-            . '    <tbody>' . "\n"
-            . '        <tr>' . "\n"
-            . '            <th scope="row">' . __('Read requests') . '</th>' . "\n"
-            . '            <td class="font-monospace text-end">'
-            . Util::formatNumber($status->readRequests, 0)
-            . '</td>' . "\n"
-            . '        </tr>' . "\n"
-            . '        <tr>' . "\n"
-            . '            <th scope="row">' . __('Write requests') . '</th>' . "\n"
-            . '            <td class="font-monospace text-end">'
-            . Util::formatNumber($status->writeRequests, 0)
-            . '</td>' . "\n"
-            . '        </tr>' . "\n"
-            . '        <tr>' . "\n"
-            . '            <th scope="row">' . __('Read misses') . '</th>' . "\n"
-            . '            <td class="font-monospace text-end">'
-            . Util::formatNumber($status->reads, 0)
-            . '</td>' . "\n"
-            . '        </tr>' . "\n"
-            . '        <tr>' . "\n"
-            . '            <th scope="row">' . __('Write waits') . '</th>' . "\n"
-            . '            <td class="font-monospace text-end">'
-            . Util::formatNumber($status->waitFree, 0)
-            . '</td>' . "\n"
-            . '        </tr>' . "\n"
-            . '        <tr>' . "\n"
-            . '            <th scope="row">' . __('Read misses in %') . '</th>' . "\n"
-            . '            <td class="font-monospace text-end">'
-            . ((float) $status->readRequests === 0.0
-                ? '---'
-                : htmlspecialchars(Util::formatNumber($status->reads * 100 / $status->readRequests, 3, 2)) . ' %')
-            . '</td>' . "\n"
-            . '        </tr>' . "\n"
-            . '        <tr>' . "\n"
-            . '            <th scope="row">' . __('Write waits in %') . '</th>' . "\n"
-            . '            <td class="font-monospace text-end">'
-            . ((float) $status->writeRequests === 0.0
-                ? '---'
-                : htmlspecialchars(Util::formatNumber($status->waitFree * 100 / $status->writeRequests, 3, 2)) . ' %')
-            . '</td>' . "\n"
-            . '        </tr>' . "\n"
-            . '    </tbody>' . "\n"
-            . '</table>' . "\n";
-
-        return $output;
+        return (new Template())->render('server/engines/_innodb_buffer_pool', [
+            'buffer_pool' => $this->getBufferPoolStatus(),
+        ]);
     }
 
     /**
