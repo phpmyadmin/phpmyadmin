@@ -371,7 +371,7 @@ class Header
          *
          * @see https://developer.mozilla.org/docs/Web/HTTP/Headers/Permissions-Policy
          */
-        $headers['Permissions-Policy'] = 'fullscreen=(self), oversized-images=(self), interest-cohort=()';
+        $headers['Permissions-Policy'] = 'fullscreen=(self), interest-cohort=()';
 
         $headers = array_merge($headers, Core::getNoCacheHeaders());
 

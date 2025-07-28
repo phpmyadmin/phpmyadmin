@@ -192,7 +192,7 @@ class HeaderTest extends AbstractTestCase
             'X-Content-Type-Options' => 'nosniff',
             'X-Permitted-Cross-Domain-Policies' => 'none',
             'X-Robots-Tag' => 'noindex, nofollow',
-            'Permissions-Policy' => 'fullscreen=(self), oversized-images=(self), interest-cohort=()',
+            'Permissions-Policy' => 'fullscreen=(self), interest-cohort=()',
             'Expires' => $date,
             'Cache-Control' => 'no-store, no-cache, must-revalidate, pre-check=0, post-check=0, max-age=0',
             'Pragma' => 'no-cache',
