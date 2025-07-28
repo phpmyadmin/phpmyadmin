@@ -1,0 +1,72 @@
+<table class="table table-striped table-hover w-auto float-start caption-top">
+  <caption>{{ t('Buffer pool usage') }}</caption>
+  <tbody>
+    <tr>
+      <th scope="row">{{ t('Free pages') }}</th>
+      <td class="font-monospace text-end">{{ format_number(buffer_pool.pagesFree, 0) }}</td>
+    </tr>
+    <tr>
+      <th scope="row">{{ t('Dirty pages') }}</th>
+      <td class="font-monospace text-end">{{ format_number(buffer_pool.pagesDirty, 0) }}</td>
+    </tr>
+    <tr>
+      <th scope="row">{{ t('Pages containing data') }}</th>
+      <td class="font-monospace text-end">{{ format_number(buffer_pool.pagesData, 0) }}</td>
+    </tr>
+    <tr>
+      <th scope="row">{{ t('Pages to be flushed') }}</th>
+      <td class="font-monospace text-end">{{ format_number(buffer_pool.pagesFlushed, 0) }}</td>
+    </tr>
+    <tr>
+      <th scope="row">{{ t('Busy pages') }}</th>
+      <td class="font-monospace text-end">{{ format_number(buffer_pool.pagesMisc, 0) }}</td>
+    </tr>
+{% if buffer_pool.pagesLatched != null %}
+    <tr>
+      <th scope="row">{{ t('Latched pages') }}</th>
+      <td class="font-monospace text-end">{{ format_number(buffer_pool.pagesLatched, 0) }}</td>
+    </tr>
+{% endif %}
+  </tbody>
+  <tfoot>
+    <tr>
+      <th colspan="2">
+        {{ t('Total:') }} {{ t('%s pages')|format(format_number(buffer_pool.pagesTotal, 0)) }} / {{ format_byte_down(buffer_pool.pagesTotal * buffer_pool.innodbPageSize)|join(' ') }}
+      </th>
+    </tr>
+  </tfoot>
+</table>
+
+<table class="table table-striped table-hover w-auto ms-4 float-start caption-top">
+  <caption>{{ t('Buffer pool activity') }}</caption>
+  <tbody>
+    <tr>
+      <th scope="row">{{ t('Read requests') }}</th>
+      <td class="font-monospace text-end">{{ format_number(buffer_pool.readRequests, 0) }}</td>
+    </tr>
+    <tr>
+      <th scope="row">{{ t('Write requests') }}</th>
+      <td class="font-monospace text-end">{{ format_number(buffer_pool.writeRequests, 0) }}</td>
+    </tr>
+    <tr>
+      <th scope="row">{{ t('Read misses') }}</th>
+      <td class="font-monospace text-end">{{ format_number(buffer_pool.reads, 0) }}</td>
+    </tr>
+    <tr>
+      <th scope="row">{{ t('Write waits') }}</th>
+      <td class="font-monospace text-end">{{ format_number(buffer_pool.waitFree, 0) }}</td>
+    </tr>
+    <tr>
+      <th scope="row">{{ t('Read misses in %') }}</th>
+      <td class="font-monospace text-end">
+        {{- buffer_pool.readRequests != 0 ? format_number(buffer_pool.reads * 100 / buffer_pool.readRequests, 3, 2) ~ '%' : '---' -}}
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">{{ t('Write waits in %') }}</th>
+      <td class="font-monospace text-end">
+        {{- buffer_pool.writeRequests != 0 ? format_number(buffer_pool.waitFree * 100 / buffer_pool.writeRequests, 3, 2) ~ '%' : '---' -}}
+      </td>
+    </tr>
+  </tbody>
+</table>

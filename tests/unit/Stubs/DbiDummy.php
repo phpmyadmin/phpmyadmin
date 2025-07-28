@@ -400,27 +400,6 @@ class DbiDummy implements DbiExtension
                     ['Pbxt', 'NO', 'Pbxt storage engine'],
                 ],
             ],
-            [
-                'query' => 'SHOW STATUS WHERE Variable_name'
-                    . ' LIKE \'Innodb\\_buffer\\_pool\\_%\''
-                    . ' OR Variable_name = \'Innodb_page_size\';',
-                'result' => [
-                    ['Innodb_buffer_pool_pages_data', 0],
-                    ['Innodb_buffer_pool_pages_dirty', 0],
-                    ['Innodb_buffer_pool_pages_flushed', 0],
-                    ['Innodb_buffer_pool_pages_free', 0],
-                    ['Innodb_buffer_pool_pages_misc', 0],
-                    ['Innodb_buffer_pool_pages_total', 4096],
-                    ['Innodb_buffer_pool_read_ahead_rnd', 0],
-                    ['Innodb_buffer_pool_read_ahead', 0],
-                    ['Innodb_buffer_pool_read_ahead_evicted', 0],
-                    ['Innodb_buffer_pool_read_requests', 64],
-                    ['Innodb_buffer_pool_reads', 32],
-                    ['Innodb_buffer_pool_wait_free', 0],
-                    ['Innodb_buffer_pool_write_requests', 64],
-                    ['Innodb_page_size', 16384],
-                ],
-            ],
             ['query' => 'SHOW ENGINE INNODB STATUS;', 'result' => false],
             ['query' => 'SELECT @@innodb_version;', 'result' => [['1.1.8']]],
             ['query' => 'SELECT @@disabled_storage_engines', 'result' => [['']]],
