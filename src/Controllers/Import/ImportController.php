@@ -661,6 +661,18 @@ final readonly class ImportController implements InvocableController
                 }
             }
 
+            if (Import::$hasError) {
+                $this->response->setRequestStatus(false);
+                // Add the Current::$message to the JSON response
+                if (Current::$message instanceof Message) {
+                    $this->response->addJSON('message', Current::$message);
+                }
+            } else {
+                // If there was no error and we are in a 'goSql' context, it's a success
+                // This ensures it's explicitly set for non-error paths too
+                $this->response->setRequestStatus(true); // <--- CONSIDER ADDING THIS FOR SUCCESS PATHS
+            }
+
             // sql_query_for_bookmark is not included in Sql::executeQueryAndGetQueryResponse
             // since only one bookmark has to be added for all the queries submitted through
             // the SQL tab
