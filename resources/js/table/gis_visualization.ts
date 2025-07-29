@@ -238,8 +238,6 @@ class SvgVisualization extends GisVisualization {
 
     show () {
         super.show();
-
-        this.resize();
     }
 
     dispose () {
