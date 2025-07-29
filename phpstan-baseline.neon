@@ -328,7 +328,7 @@ parameters:
 			path: src/BrowseForeigners.php
 
 		-
-			message: '#^Parameter \#1 \$state of static method PhpMyAdmin\\Charsets\\Charset\:\:fromServer\(\) expects array\{Charset\?\: string, Description\?\: string, Default collation\?\: string, Maxlen\?\: string\}, array\<string\|null\> given\.$#'
+			message: '#^Parameter \#1 \$state of static method PhpMyAdmin\\Charsets\\Charset\:\:fromServer\(\) expects array\{Charset\?\: string, Description\?\: string, ''Default collation''\?\: string, Maxlen\?\: string\}, array\<string\|null\> given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Charsets.php
@@ -2884,7 +2884,13 @@ parameters:
 			path: src/Controllers/Server/Status/StatusController.php
 
 		-
-			message: '#^Parameter \#1 \$value of static method PhpMyAdmin\\Util\:\:formatNumber\(\) expects float\|int\|string, mixed given\.$#'
+			message: '#^Parameter \#1 \$value of static method PhpMyAdmin\\Util\:\:formatNumber\(\) expects float\|int\|numeric\-string, float\|int\|string given\.$#'
+			identifier: argument.type
+			count: 4
+			path: src/Controllers/Server/Status/StatusController.php
+
+		-
+			message: '#^Parameter \#1 \$value of static method PhpMyAdmin\\Util\:\:formatNumber\(\) expects float\|int\|numeric\-string, mixed given\.$#'
 			identifier: argument.type
 			count: 5
 			path: src/Controllers/Server/Status/StatusController.php
@@ -6025,42 +6031,12 @@ parameters:
 			path: src/Encoding.php
 
 		-
-			message: '#^Binary operation "\*" between mixed and 100 results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 2
-			path: src/Engines/Innodb.php
-
-		-
-			message: '#^Binary operation "\*" between mixed and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Engines/Innodb.php
-
-		-
-			message: '#^Binary operation "/" between \(float\|int\) and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 2
-			path: src/Engines/Innodb.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
 			count: 5
-			path: src/Engines/Innodb.php
-
-		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 2
-			path: src/Engines/Innodb.php
-
-		-
-			message: '#^Parameter \#1 \$value of static method PhpMyAdmin\\Util\:\:formatNumber\(\) expects float\|int\|string, mixed given\.$#'
-			identifier: argument.type
-			count: 11
 			path: src/Engines/Innodb.php
 
 		-
@@ -7035,17 +7011,11 @@ parameters:
 		-
 			message: '#^Cannot access offset int\<0, max\> on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 6
+			count: 8
 			path: src/Gis/GisMultiPolygon.php
 
 		-
 			message: '#^Cannot access offset int\<0, max\> on non\-empty\-array\<''data_length''\|int\<0, max\>, array\{data_length\: int\<0, max\>, 0\?\: array\{x\: float, y\: float\}\}\|int\<1, max\>\>\|int\<1, max\>\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Gis/GisMultiPolygon.php
-
-		-
-			message: '#^Cannot access offset int\<0, max\> on non\-empty\-array\<''data_length''\|int\<0, max\>, array\{x\: float, y\: float\}\|int\<0, max\>\>\|int\<1, max\>\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
 			path: src/Gis/GisMultiPolygon.php
@@ -8325,12 +8295,6 @@ parameters:
 		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
-			count: 1
-			path: src/Navigation/NavigationTree.php
-
-		-
-			message: '#^Method PhpMyAdmin\\Navigation\\NavigationTree\:\:parsePath\(\) should return non\-empty\-list\<string\> but returns non\-empty\-list\<string\|false\>\.$#'
-			identifier: return.type
 			count: 1
 			path: src/Navigation/NavigationTree.php
 
@@ -10866,7 +10830,7 @@ parameters:
 		-
 			message: '#^Cannot access offset ''tables'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 4
+			count: 5
 			path: src/Plugins/ExportPlugin.php
 
 		-
@@ -10957,13 +10921,7 @@ parameters:
 			path: src/Plugins/Import/ImportCsv.php
 
 		-
-			message: '#^Parameter \#1 \$columnNames of method PhpMyAdmin\\Plugins\\Import\\ImportCsv\:\:getColumnNames\(\) expects list\<string\>, array\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Plugins/Import/ImportCsv.php
-
-		-
-			message: '#^Parameter \#3 \$rows of class PhpMyAdmin\\Import\\ImportTable constructor expects list\<list\<mixed\>\>, list\<array\> given\.$#'
+			message: '#^Parameter \#1 \$columnNames of method PhpMyAdmin\\Plugins\\Import\\ImportCsv\:\:getColumnNames\(\) expects list\<string\>, list\<string\|null\>\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Plugins/Import/ImportCsv.php
@@ -11054,12 +11012,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#2 \$text of method PhpMyAdmin\\Plugins\\Import\\ImportOds\:\:getValue\(\) expects SimpleXMLElement, \(SimpleXMLElement\|null\) given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Plugins/Import/ImportOds.php
-
-		-
-			message: '#^Parameter \#3 \$rows of class PhpMyAdmin\\Import\\ImportTable constructor expects list\<list\<mixed\>\>, non\-empty\-list\<array\> given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Plugins/Import/ImportOds.php
@@ -11209,25 +11161,7 @@ parameters:
 			path: src/Plugins/Import/Upload/UploadNoplugin.php
 
 		-
-			message: '#^Binary operation "/" between int and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Plugins/Import/Upload/UploadProgress.php
-
-		-
-			message: '#^Cannot access offset ''complete'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Plugins/Import/Upload/UploadProgress.php
-
-		-
 			message: '#^Cannot access offset ''finished'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Plugins/Import/Upload/UploadProgress.php
-
-		-
-			message: '#^Cannot access offset ''percent'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
 			path: src/Plugins/Import/Upload/UploadProgress.php
@@ -11235,7 +11169,7 @@ parameters:
 		-
 			message: '#^Cannot access offset ''total'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 4
+			count: 2
 			path: src/Plugins/Import/Upload/UploadProgress.php
 
 		-
@@ -11257,9 +11191,15 @@ parameters:
 			path: src/Plugins/Import/Upload/UploadProgress.php
 
 		-
+			message: '#^Method PhpMyAdmin\\Plugins\\Import\\Upload\\UploadProgress\:\:getUploadStatus\(\) should return array\|null but returns array\|ArrayAccess\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Plugins/Import/Upload/UploadProgress.php
+
+		-
 			message: '#^Method PhpMyAdmin\\Plugins\\Import\\Upload\\UploadProgress\:\:getUploadStatus\(\) should return array\|null but returns mixed\.$#'
 			identifier: return.type
-			count: 2
+			count: 1
 			path: src/Plugins/Import/Upload/UploadProgress.php
 
 		-
@@ -11293,12 +11233,6 @@ parameters:
 			path: src/Plugins/Import/Upload/UploadSession.php
 
 		-
-			message: '#^Cannot access offset ''complete'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Plugins/Import/Upload/UploadSession.php
-
-		-
 			message: '#^Cannot access offset ''content_length'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
@@ -11317,15 +11251,9 @@ parameters:
 			path: src/Plugins/Import/Upload/UploadSession.php
 
 		-
-			message: '#^Cannot access offset ''percent'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Plugins/Import/Upload/UploadSession.php
-
-		-
 			message: '#^Cannot access offset ''total'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 4
+			count: 2
 			path: src/Plugins/Import/Upload/UploadSession.php
 
 		-
@@ -11341,9 +11269,15 @@ parameters:
 			path: src/Plugins/Import/Upload/UploadSession.php
 
 		-
+			message: '#^Method PhpMyAdmin\\Plugins\\Import\\Upload\\UploadSession\:\:getUploadStatus\(\) should return array\|null but returns array\|ArrayAccess\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Plugins/Import/Upload/UploadSession.php
+
+		-
 			message: '#^Method PhpMyAdmin\\Plugins\\Import\\Upload\\UploadSession\:\:getUploadStatus\(\) should return array\|null but returns mixed\.$#'
 			identifier: return.type
-			count: 2
+			count: 1
 			path: src/Plugins/Import/Upload/UploadSession.php
 
 		-
@@ -12338,12 +12272,6 @@ parameters:
 			identifier: return.type
 			count: 1
 			path: src/Properties/Options/OptionsPropertyGroup.php
-
-		-
-			message: '#^Loose comparison using \=\= between \(int\|string\|null\) and null will always evaluate to true\.$#'
-			identifier: equal.alwaysTrue
-			count: 1
-			path: src/Query/Compatibility.php
 
 		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
@@ -13936,7 +13864,7 @@ parameters:
 			path: src/StorageEngine.php
 
 		-
-			message: '#^Parameter \#1 \$value of static method PhpMyAdmin\\Util\:\:formatNumber\(\) expects float\|int\|string, mixed given\.$#'
+			message: '#^Parameter \#1 \$value of static method PhpMyAdmin\\Util\:\:formatNumber\(\) expects float\|int\|numeric\-string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/StorageEngine.php
@@ -15058,18 +14986,6 @@ parameters:
 			message: '#^Foreach overwrites \$quote with its value variable\.$#'
 			identifier: foreach.valueOverwrite
 			count: 1
-			path: src/Util.php
-
-		-
-			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
-			identifier: notEqual.notAllowed
-			count: 2
-			path: src/Util.php
-
-		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 3
 			path: src/Util.php
 
 		-
@@ -16936,7 +16852,7 @@ parameters:
 			path: tests/unit/Controllers/Server/Status/QueriesControllerTest.php
 
 		-
-			message: '#^Parameter \#1 \$value of static method PhpMyAdmin\\Util\:\:formatNumber\(\) expects float\|int\|string, mixed given\.$#'
+			message: '#^Parameter \#1 \$value of static method PhpMyAdmin\\Util\:\:formatNumber\(\) expects float\|int\|numeric\-string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: tests/unit/Controllers/Server/Status/QueriesControllerTest.php
@@ -19144,15 +19060,15 @@ parameters:
 			path: tests/unit/UserPreferencesTest.php
 
 		-
-			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\) does not accept array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\.$#'
+			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\) does not accept array\{''Server/hide_db''\: ''testval123'', ''Server/port''\: ''213''\}\.$#'
 			identifier: assign.propertyType
-			count: 2
+			count: 1
 			path: tests/unit/UserPreferencesTest.php
 
 		-
-			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\) does not accept array\{Server/hide_db\: ''testval123'', Server/port\: ''213''\}\.$#'
+			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\) does not accept array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\.$#'
 			identifier: assign.propertyType
-			count: 1
+			count: 2
 			path: tests/unit/UserPreferencesTest.php
 
 		-
@@ -19186,12 +19102,6 @@ parameters:
 			message: '#^Cannot access offset ''server_2'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 4
-			path: tests/unit/UtilTest.php
-
-		-
-			message: '#^Casting to string something that''s already string\.$#'
-			identifier: cast.useless
-			count: 1
 			path: tests/unit/UtilTest.php
 
 		-

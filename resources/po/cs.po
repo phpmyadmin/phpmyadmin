@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-07-13 00:32+0000\n"
+"POT-Creation-Date: 2025-07-27 00:32+0000\n"
 "PO-Revision-Date: 2024-03-29 10:58+0000\n"
 "Last-Translator: Vaniron CZ <vanironcz@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -67,7 +67,7 @@ msgstr "Tmavý"
 #: resources/templates/base.twig:95
 #: resources/templates/server/status/monitor/index.twig:8
 #: src/Controllers/JavaScriptMessagesController.php:215 src/Menu.php:475
-#: src/Util.php:1365
+#: src/Util.php:1363
 msgid "Settings"
 msgstr "Nastavení"
 
@@ -140,7 +140,7 @@ msgstr ""
 #: resources/templates/table/structure/display_structure.twig:143
 #: resources/templates/table/structure/display_structure.twig:284
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:25
-#: src/Controllers/Table/StructureController.php:219
+#: src/Controllers/Table/StructureController.php:215
 msgid "Primary"
 msgstr "Primární"
 
@@ -162,7 +162,7 @@ msgstr "Unikátní"
 #: resources/templates/table/structure/display_structure.twig:290
 #: resources/templates/table/structure/display_table_stats.twig:24
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:27
-#: src/Controllers/Table/StructureController.php:223
+#: src/Controllers/Table/StructureController.php:219
 #: src/Navigation/Nodes/NodeIndex.php:26
 msgid "Index"
 msgstr "Index"
@@ -592,8 +592,8 @@ msgstr "Skupina uzlů"
 #: src/Import/Import.php:1169 src/Menu.php:214 src/Menu.php:318
 #: src/Navigation/Nodes/NodeColumn.php:37
 #: src/Navigation/Nodes/NodeDatabase.php:59
-#: src/Navigation/Nodes/NodeTable.php:268 src/Util.php:1064 src/Util.php:1374
-#: src/Util.php:1391
+#: src/Navigation/Nodes/NodeTable.php:268 src/Util.php:1062 src/Util.php:1372
+#: src/Util.php:1389
 msgid "Structure"
 msgstr "Struktura"
 
@@ -912,7 +912,7 @@ msgstr "Vypnuto"
 #: src/Controllers/JavaScriptMessagesController.php:481
 #: src/Controllers/Table/DeleteRowsController.php:34
 #: src/Controllers/Table/DropColumnController.php:46
-#: src/Controllers/Table/Structure/PrimaryController.php:102
+#: src/Controllers/Table/Structure/PrimaryController.php:101
 #: src/Indexes/IndexColumn.php:148 src/Indexes/Index.php:472
 #: src/Plugins/Export/ExportHtmlword.php:562
 #: src/Plugins/Export/ExportLatex.php:567 src/Plugins/Export/ExportOdt.php:685
@@ -1017,7 +1017,7 @@ msgstr "Znovu"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:379
-#: src/Display/Results.php:1805 src/Html/Generator.php:520
+#: src/Display/Results.php:1804 src/Html/Generator.php:520
 #: src/Html/Generator.php:789
 msgid "Edit"
 msgstr "Upravit"
@@ -1036,7 +1036,7 @@ msgstr "Upravit"
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:189
 #: src/Controllers/JavaScriptMessagesController.php:381
-#: src/Display/Results.php:2428 src/Tracking/Tracking.php:224
+#: src/Display/Results.php:2427 src/Tracking/Tracking.php:224
 msgid "Delete"
 msgstr "Odstranit"
 
@@ -1770,7 +1770,7 @@ msgstr "Název události"
 #: resources/templates/table/tracking/main.twig:31
 #: src/Config/ConfigFile.php:578
 #: src/Controllers/JavaScriptMessagesController.php:275 src/Menu.php:446
-#: src/Server/Status/Processes.php:96 src/Util.php:1361
+#: src/Server/Status/Processes.php:96 src/Util.php:1359
 msgid "Status"
 msgstr "Stav"
 
@@ -1838,7 +1838,7 @@ msgstr "Zadavatel"
 #: src/Navigation/Nodes/NodeEventContainer.php:22
 #: src/Navigation/Nodes/NodeEventContainer.php:24
 #: src/Plugins/Export/ExportSql.php:997 src/Plugins/Export/ExportXml.php:97
-#: src/Util.php:1383
+#: src/Util.php:1381
 msgid "Events"
 msgstr "Události"
 
@@ -1900,7 +1900,7 @@ msgstr "Zaškrtnout vše"
 #: src/Config/Forms/User/ExportForm.php:148
 #: src/Controllers/JavaScriptMessagesController.php:361 src/Menu.php:241
 #: src/Menu.php:343 src/Menu.php:465 src/Server/Privileges.php:1283
-#: src/Util.php:1363 src/Util.php:1378 src/Util.php:1395
+#: src/Util.php:1361 src/Util.php:1376 src/Util.php:1393
 msgid "Export"
 msgstr "Export"
 
@@ -2009,7 +2009,7 @@ msgid "Exporting tables from \"%s\" database"
 msgstr "Exportuji tabulky z databáze „%s“"
 
 #: resources/templates/database/export/index.twig:14
-#: src/Navigation/Navigation.php:219
+#: src/Navigation/Navigation.php:220
 msgid "Tables:"
 msgstr "Tabulky:"
 
@@ -2066,7 +2066,7 @@ msgstr "vyberte sloupec"
 #: resources/templates/database/tracking/tables.twig:19
 #: resources/templates/table/tracking/main.twig:33
 #: src/Controllers/JavaScriptMessagesController.php:693
-#: src/Controllers/Table/ChangeController.php:215
+#: src/Controllers/Table/ChangeController.php:211
 msgid "Show"
 msgstr "Zobrazit"
 
@@ -2087,7 +2087,7 @@ msgid "criteria"
 msgstr "kritéria"
 
 #: resources/templates/database/multi_table_query/form.twig:56
-#: src/Util.php:1836
+#: src/Util.php:1834
 msgid "Sort"
 msgstr "Řadit"
 
@@ -2098,8 +2098,8 @@ msgstr "Řadit"
 #: resources/templates/server/status/processes/list.twig:14
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:158
-#: src/Config/ConfigFile.php:554 src/Display/Results.php:1392
-#: src/Display/Results.php:1398 src/Util.php:1844 src/Util.php:1861
+#: src/Config/ConfigFile.php:554 src/Display/Results.php:1391
+#: src/Display/Results.php:1397 src/Util.php:1842 src/Util.php:1859
 msgid "Ascending"
 msgstr "Vzestupně"
 
@@ -2110,8 +2110,8 @@ msgstr "Vzestupně"
 #: resources/templates/server/status/processes/list.twig:12
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:162
-#: src/Config/ConfigFile.php:554 src/Display/Results.php:1387
-#: src/Display/Results.php:1403 src/Util.php:1849 src/Util.php:1866
+#: src/Config/ConfigFile.php:554 src/Display/Results.php:1386
+#: src/Display/Results.php:1402 src/Util.php:1847 src/Util.php:1864
 msgid "Descending"
 msgstr "Sestupně"
 
@@ -2302,7 +2302,7 @@ msgstr "Název počítače"
 #: resources/templates/table/privileges/index.twig:22
 #: src/Config/ConfigFile.php:582
 #: src/Controllers/Server/PrivilegesController.php:429 src/Menu.php:257
-#: src/Menu.php:365 src/Util.php:1381 src/Util.php:1397
+#: src/Menu.php:365 src/Util.php:1379 src/Util.php:1395
 msgid "Privileges"
 msgstr "Oprávnění"
 
@@ -2462,7 +2462,7 @@ msgid "This routine does not require any parameters."
 msgstr "Tato stránka neobsahuje žádné tabulky!"
 
 #: resources/templates/database/routines/index.twig:3 src/Menu.php:371
-#: src/Util.php:1382
+#: src/Util.php:1380
 msgid "Routines"
 msgstr "Rutiny"
 
@@ -2474,8 +2474,8 @@ msgstr "Rutiny"
 #: resources/templates/server/databases/index.twig:77
 #: src/Config/ConfigFile.php:522 src/Config/ConfigFile.php:536
 #: src/Config/ConfigFile.php:590 src/Config/ConfigFile.php:600 src/Menu.php:223
-#: src/Menu.php:327 src/Navigation/Nodes/NodeTable.php:269 src/Util.php:1066
-#: src/Util.php:1376 src/Util.php:1393
+#: src/Menu.php:327 src/Navigation/Nodes/NodeTable.php:269 src/Util.php:1064
+#: src/Util.php:1374 src/Util.php:1391
 msgid "Search"
 msgstr "Vyhledávání"
 
@@ -2504,8 +2504,8 @@ msgid "Export routine"
 msgstr "Export rutiny %s"
 
 #: resources/templates/database/routines/index.twig:113
-#: src/Controllers/Database/RoutinesController.php:357
-#: src/Controllers/Database/RoutinesController.php:367
+#: src/Controllers/Database/RoutinesController.php:354
+#: src/Controllers/Database/RoutinesController.php:364
 msgid "Execute routine"
 msgstr "Spustit rutinu"
 
@@ -2594,7 +2594,7 @@ msgstr[2] "%1$s odpovídajících záznamů v <strong>%2$s</strong>"
 #: resources/templates/table/structure/display_structure.twig:271
 #: src/Config/ConfigFile.php:526 src/Config/ConfigFile.php:540
 #: src/Config/ConfigFile.php:604 src/Menu.php:207
-#: src/Navigation/Nodes/NodeTable.php:272 src/Util.php:1068 src/Util.php:1390
+#: src/Navigation/Nodes/NodeTable.php:272 src/Util.php:1066 src/Util.php:1388
 msgid "Browse"
 msgstr "Projít"
 
@@ -2623,7 +2623,7 @@ msgstr[2] "%s tabulek"
 #: resources/templates/database/structure/body_for_table_summary.twig:8
 #: resources/templates/database/structure/table_header.twig:10
 #: resources/templates/server/replication/index.twig:5 src/Menu.php:497
-#: src/Server/Status/Data.php:124 src/Util.php:1367
+#: src/Server/Status/Data.php:124 src/Util.php:1365
 msgid "Replication"
 msgstr "Replikace"
 
@@ -2727,7 +2727,7 @@ msgid "Copy table with prefix"
 msgstr "Zkopírovat tabulku s předponou"
 
 #: resources/templates/database/structure/check_all_tables.twig:32
-#: src/Menu.php:405 src/Util.php:1387
+#: src/Menu.php:405 src/Util.php:1385
 msgid "Central columns"
 msgstr "Centrální sloupce"
 
@@ -2802,8 +2802,8 @@ msgstr "Datový slovník"
 
 #: resources/templates/database/structure/index.twig:19
 #: resources/templates/navigation/tree/path.twig:9
-#: src/Controllers/Database/ExportController.php:75
-#: src/Controllers/Database/TrackingController.php:126
+#: src/Controllers/Database/ExportController.php:73
+#: src/Controllers/Database/TrackingController.php:124
 #: src/Controllers/Export/ExportController.php:290
 msgid "No tables found in database."
 msgstr "V databázi nebyly nalezeny žádné tabulky."
@@ -2843,9 +2843,9 @@ msgstr "Pohledy"
 #: resources/templates/database/structure/show_create.twig:35
 #: resources/templates/database/structure/structure_table_row.twig:122
 #: resources/templates/database/structure/structure_table_row.twig:186
-#: src/Controllers/Operations/TableController.php:122
-#: src/Controllers/Operations/TableController.php:316
-#: src/Controllers/Table/StructureController.php:153
+#: src/Controllers/Operations/TableController.php:118
+#: src/Controllers/Operations/TableController.php:312
+#: src/Controllers/Table/StructureController.php:149
 #: src/Navigation/Nodes/NodeView.php:24
 msgid "View"
 msgstr "Pohled"
@@ -2873,7 +2873,7 @@ msgstr "Replikováno"
 #: resources/templates/database/structure/structure_table_row.twig:59
 #: resources/templates/sql/query.twig:76 src/Config/ConfigFile.php:524
 #: src/Config/ConfigFile.php:538 src/Config/ConfigFile.php:602 src/Menu.php:234
-#: src/Navigation/Nodes/NodeTable.php:270 src/Util.php:1067 src/Util.php:1394
+#: src/Navigation/Nodes/NodeTable.php:270 src/Util.php:1065 src/Util.php:1392
 msgid "Insert"
 msgstr "Vložit"
 
@@ -3122,7 +3122,7 @@ msgstr "Binární (WKB)"
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:467
-#: src/Display/Results.php:1806 src/Html/Generator.php:84
+#: src/Display/Results.php:1805 src/Html/Generator.php:84
 msgid "Copy"
 msgstr "Kopírovat"
 
@@ -3159,7 +3159,7 @@ msgstr "Převést na Kanu"
 
 #: resources/templates/error/generic.twig:39
 #: resources/templates/table/structure/display_structure.twig:361
-#: src/Controllers/Operations/ViewController.php:117
+#: src/Controllers/Operations/ViewController.php:113
 #: src/Controllers/Table/Partition/DropController.php:56
 #: src/Controllers/Table/Partition/RebuildController.php:56
 #: src/Controllers/Table/Partition/TruncateController.php:56
@@ -3670,7 +3670,7 @@ msgstr "Zpět"
 #: resources/templates/server/status/monitor/index.twig:53
 #: resources/templates/server/status/monitor/index.twig:69
 #: src/Config/Forms/User/ImportForm.php:58 src/Menu.php:250 src/Menu.php:353
-#: src/Menu.php:470 src/Util.php:1364 src/Util.php:1379 src/Util.php:1396
+#: src/Menu.php:470 src/Util.php:1362 src/Util.php:1377 src/Util.php:1394
 msgid "Import"
 msgstr "Import"
 
@@ -4010,7 +4010,7 @@ msgstr "Nahrání SQL"
 #: resources/templates/server/export/index.twig:14
 #: resources/templates/server/privileges/user_properties.twig:20
 #: src/Config/ConfigFile.php:576 src/Config/Descriptions.php:728
-#: src/Config/Descriptions.php:739 src/Menu.php:436 src/Util.php:1359
+#: src/Config/Descriptions.php:739 src/Menu.php:436 src/Util.php:1357
 msgid "Databases"
 msgstr "Databáze"
 
@@ -4245,7 +4245,7 @@ msgstr "Povolili jste dvoustupňové ověřování."
 #: resources/templates/preview_sql.twig:3
 #: src/Controllers/Database/Structure/DropTableController.php:44
 #: src/Controllers/Database/Structure/EmptyTableController.php:43
-#: src/Controllers/Operations/TableController.php:332
+#: src/Controllers/Operations/TableController.php:328
 #: src/Controllers/Table/DropColumnController.php:63
 #: src/Controllers/Table/ReplaceController.php:289 src/Core.php:518
 msgid "No change"
@@ -4465,7 +4465,7 @@ msgstr ""
 "Prosím přihlašte se znovu, aby se projevily změny v konfiguračním souboru."
 
 #: resources/templates/server/binlog/index.twig:3 src/Menu.php:490
-#: src/Server/Status/Data.php:119 src/Util.php:1366
+#: src/Server/Status/Data.php:119 src/Util.php:1364
 msgid "Binary log"
 msgstr "Binární log"
 
@@ -4605,7 +4605,7 @@ msgstr "Popis"
 #: resources/templates/server/engines/show.twig:18
 #: resources/templates/server/engines/show.twig:21
 #: resources/templates/sql/query.twig:194 src/Config/ConfigFile.php:580
-#: src/Menu.php:503 src/Server/Status/Data.php:186 src/Util.php:1368
+#: src/Menu.php:503 src/Server/Status/Data.php:186 src/Util.php:1366
 msgid "Variables"
 msgstr "Proměnné"
 
@@ -4626,7 +4626,7 @@ msgid "Importing into the current server"
 msgstr "Importuji na aktuální server"
 
 #: resources/templates/server/plugins/index.twig:4 src/Menu.php:518
-#: src/Util.php:1370
+#: src/Util.php:1368
 msgid "Plugins"
 msgstr "Rozšíření"
 
@@ -5866,13 +5866,13 @@ msgstr "Vynásobit"
 
 #. l10n: shortcuts for Kilobyte
 #: resources/templates/server/status/monitor/index.twig:181
-#: src/Controllers/JavaScriptMessagesController.php:204 src/Util.php:312
+#: src/Controllers/JavaScriptMessagesController.php:204 src/Util.php:313
 msgid "KiB"
 msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
 #: resources/templates/server/status/monitor/index.twig:182
-#: src/Controllers/JavaScriptMessagesController.php:205 src/Util.php:314
+#: src/Controllers/JavaScriptMessagesController.php:205 src/Util.php:315
 msgid "MiB"
 msgstr "MiB"
 
@@ -5934,7 +5934,7 @@ msgid "Query analyzer"
 msgstr "Analýza dotazu"
 
 #: resources/templates/server/status/monitor/index.twig:273 src/Menu.php:335
-#: src/Util.php:1377
+#: src/Util.php:1375
 msgid "Query"
 msgstr "Dotaz"
 
@@ -6047,7 +6047,7 @@ msgid "Start auto refresh"
 msgstr "Zapnout automatické obnovování"
 
 #: resources/templates/server/status/processes/list.twig:44
-#: src/Display/Results.php:2447
+#: src/Display/Results.php:2446
 msgid "Kill"
 msgstr "Ukončit"
 
@@ -6413,9 +6413,9 @@ msgid "Pie chart with profiling results."
 msgstr "Výsledky profilování"
 
 #: resources/templates/sql/query.twig:7
-#: src/Controllers/Operations/ViewController.php:114
+#: src/Controllers/Operations/ViewController.php:110
 #: src/Controllers/Table/DeleteRowsController.php:60
-#: src/Controllers/Table/FindReplaceController.php:121
+#: src/Controllers/Table/FindReplaceController.php:117
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:75
 #: src/Controllers/Table/Maintenance/CheckController.php:75
 #: src/Controllers/Table/Maintenance/ChecksumController.php:75
@@ -6429,7 +6429,7 @@ msgstr "Výsledky profilování"
 #: src/Controllers/Table/Partition/RepairController.php:49
 #: src/Controllers/Table/Partition/TruncateController.php:50
 #: src/Controllers/Table/RelationController.php:143
-#: src/Database/Routines.php:1019 src/Display/Results.php:3013
+#: src/Database/Routines.php:1019 src/Display/Results.php:3012
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "Váš SQL-dotaz byl úspěšně vykonán."
@@ -6900,7 +6900,7 @@ msgstr "Vyprázdnit vyrovnávací paměť pro tabulku („FLUSH“)"
 
 #: resources/templates/table/operations/index.twig:411
 #: resources/templates/table/operations/index.twig:429
-#: src/Controllers/Database/StructureController.php:403
+#: src/Controllers/Database/StructureController.php:401
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "Tabulka %s byla vyprázdněna."
@@ -6915,13 +6915,13 @@ msgstr "Vyprázdnit tabulku (DELETE FROM)"
 
 #: resources/templates/table/operations/index.twig:452
 #: resources/templates/table/operations/view.twig:32
-#: src/Controllers/Database/StructureController.php:356
+#: src/Controllers/Database/StructureController.php:354
 #, php-format
 msgid "View %s has been dropped."
 msgstr "Pohled %s byl odstraněn."
 
 #: resources/templates/table/operations/index.twig:452
-#: src/Controllers/Database/StructureController.php:356
+#: src/Controllers/Database/StructureController.php:354
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "Tabulka %s byla odstraněna."
@@ -6945,7 +6945,7 @@ msgstr "Zkontrolovat integritu odkazů"
 
 #: resources/templates/table/operations/view.twig:8
 #: src/Config/ConfigFile.php:592 src/Menu.php:268 src/Menu.php:278
-#: src/Menu.php:358 src/Util.php:1069 src/Util.php:1380 src/Util.php:1398
+#: src/Menu.php:358 src/Util.php:1067 src/Util.php:1378 src/Util.php:1396
 msgid "Operations"
 msgstr "Úpravy"
 
@@ -7404,7 +7404,7 @@ msgid "Event"
 msgstr "Událost"
 
 #: resources/templates/triggers/export.twig:2
-#: src/Controllers/Triggers/IndexController.php:235
+#: src/Controllers/Triggers/IndexController.php:232
 #, php-format
 msgid "Export of trigger %s"
 msgstr "Exportovat trigger %s"
@@ -7416,7 +7416,7 @@ msgstr "Exportovat trigger %s"
 #: src/Plugins/Export/ExportOdt.php:626 src/Plugins/Export/ExportPdf.php:235
 #: src/Plugins/Export/ExportSql.php:1907
 #: src/Plugins/Export/ExportTexytext.php:465
-#: src/Plugins/Export/ExportXml.php:117 src/Util.php:1384 src/Util.php:1400
+#: src/Plugins/Export/ExportXml.php:117 src/Util.php:1382 src/Util.php:1398
 msgid "Triggers"
 msgstr "Triggery"
 
@@ -9016,8 +9016,8 @@ msgstr "Vietnamština"
 #: src/Config/ConfigFile.php:520 src/Config/ConfigFile.php:534
 #: src/Config/ConfigFile.php:588 src/Config/ConfigFile.php:598
 #: src/Config/Descriptions.php:755 src/Menu.php:219 src/Menu.php:323
-#: src/Menu.php:441 src/Navigation/Nodes/NodeTable.php:271 src/Util.php:1065
-#: src/Util.php:1360 src/Util.php:1375 src/Util.php:1392
+#: src/Menu.php:441 src/Navigation/Nodes/NodeTable.php:271 src/Util.php:1063
+#: src/Util.php:1358 src/Util.php:1373 src/Util.php:1390
 msgid "SQL"
 msgstr "SQL"
 
@@ -11998,13 +11998,13 @@ msgstr "Stránka s názvem \"%s\" již existuje. Přejmenuje ji na něco jiného
 
 #: src/Controllers/Database/DesignerController.php:171
 #: src/Controllers/Database/DesignerController.php:176
-#: src/Controllers/Database/EventsController.php:50
+#: src/Controllers/Database/EventsController.php:52
 #: src/Controllers/Database/ExportController.php:57
 #: src/Controllers/Database/ExportController.php:62
 #: src/Controllers/Database/ImportController.php:60
 #: src/Controllers/Database/ImportController.php:65
 #: src/Controllers/Database/RoutinesController.php:80
-#: src/Controllers/Database/RoutinesController.php:99
+#: src/Controllers/Database/RoutinesController.php:98
 #: src/Controllers/Database/SearchController.php:53
 #: src/Controllers/Database/SearchController.php:58
 #: src/Controllers/Database/SqlController.php:54
@@ -12029,9 +12029,9 @@ msgstr "Stránka s názvem \"%s\" již existuje. Přejmenuje ji na něco jiného
 #: src/Controllers/Table/ChangeController.php:70
 #: src/Controllers/Table/ChangeController.php:75
 #: src/Controllers/Table/ChartController.php:87
-#: src/Controllers/Table/ChartController.php:92
-#: src/Controllers/Table/ChartController.php:122
-#: src/Controllers/Table/ChartController.php:127
+#: src/Controllers/Table/ChartController.php:94
+#: src/Controllers/Table/ChartController.php:121
+#: src/Controllers/Table/ChartController.php:128
 #: src/Controllers/Table/ChartController.php:201
 #: src/Controllers/Table/DeleteConfirmController.php:57
 #: src/Controllers/Table/DeleteConfirmController.php:62
@@ -12044,7 +12044,7 @@ msgstr "Stránka s názvem \"%s\" již existuje. Přejmenuje ji na něco jiného
 #: src/Controllers/Table/ImportController.php:69
 #: src/Controllers/Table/ImportController.php:74
 #: src/Controllers/Table/IndexesController.php:67
-#: src/Controllers/Table/IndexesController.php:72
+#: src/Controllers/Table/IndexesController.php:74
 #: src/Controllers/Table/IndexRenameController.php:55
 #: src/Controllers/Table/IndexRenameController.php:60
 #: src/Controllers/Table/SearchController.php:174
@@ -12054,45 +12054,45 @@ msgstr "Stránka s názvem \"%s\" již existuje. Přejmenuje ji na něco jiného
 #: src/Controllers/Table/StructureController.php:93
 #: src/Controllers/Table/StructureController.php:98
 #: src/Controllers/Table/Structure/PrimaryController.php:69
-#: src/Controllers/Table/Structure/PrimaryController.php:74
+#: src/Controllers/Table/Structure/PrimaryController.php:76
 #: src/Controllers/Table/TrackingController.php:68
 #: src/Controllers/Table/TrackingController.php:73
 #: src/Controllers/Table/ZoomSearchController.php:102
 #: src/Controllers/Table/ZoomSearchController.php:107
 #: src/Controllers/Triggers/IndexController.php:66
-#: src/Controllers/Triggers/IndexController.php:85
+#: src/Controllers/Triggers/IndexController.php:84
 #: src/Controllers/View/CreateController.php:67
 #: src/Controllers/View/CreateController.php:72
 msgid "No databases selected."
 msgstr "Nebyla vybrána žádná databáze."
 
-#: src/Controllers/Database/EventsController.php:124
+#: src/Controllers/Database/EventsController.php:125
 msgid "Add event"
 msgstr "Přidat událost"
 
-#: src/Controllers/Database/EventsController.php:128
+#: src/Controllers/Database/EventsController.php:129
 msgid "Edit event"
 msgstr "Upravit událost"
 
-#: src/Controllers/Database/EventsController.php:177
-#: src/Controllers/Database/RoutinesController.php:276
-#: src/Controllers/Database/RoutinesController.php:306
-#: src/Controllers/Database/RoutinesController.php:374
-#: src/Controllers/Triggers/IndexController.php:209
+#: src/Controllers/Database/EventsController.php:178
+#: src/Controllers/Database/RoutinesController.php:273
+#: src/Controllers/Database/RoutinesController.php:303
+#: src/Controllers/Database/RoutinesController.php:371
+#: src/Controllers/Triggers/IndexController.php:206
 msgid "Error in processing request:"
 msgstr "Chyba při zpracování požadavku:"
 
-#: src/Controllers/Database/EventsController.php:179
+#: src/Controllers/Database/EventsController.php:180
 #, php-format
 msgid "No event with name %1$s found in database %2$s."
 msgstr "V databázi %2$s nebyla nalezena žádná událost s názvem %1$s."
 
-#: src/Controllers/Database/EventsController.php:205
+#: src/Controllers/Database/EventsController.php:206
 #, php-format
 msgid "Export of event %s"
 msgstr "Exportovat událost %s"
 
-#: src/Controllers/Database/EventsController.php:223
+#: src/Controllers/Database/EventsController.php:224
 #, php-format
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
@@ -12100,16 +12100,16 @@ msgstr ""
 "Chyba při zpracování požadavku: V databázi %2$s nebyla nalezena žádná "
 "událost s názvem %1$s."
 
-#: src/Controllers/Database/ExportController.php:131
+#: src/Controllers/Database/ExportController.php:129
 #: src/Controllers/Server/ExportController.php:57
 #: src/Controllers/Table/ExportController.php:90
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 "Nepodařilo se nahrát pluginy pro export, zkontrolujte prosím vaší instalaci!"
 
-#: src/Controllers/Database/ImportController.php:77
+#: src/Controllers/Database/ImportController.php:75
 #: src/Controllers/Server/ImportController.php:60
-#: src/Controllers/Table/ImportController.php:103
+#: src/Controllers/Table/ImportController.php:99
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Nepodařilo se nahrát pluginy pro import, zkontrolujte prosím vaší instalaci!"
@@ -12139,57 +12139,57 @@ msgstr "Nemáte oprávnění ke správě uživatelů!"
 #: src/Controllers/Database/Structure/ShowCreateController.php:36
 #: src/Controllers/Export/TablesController.php:29
 #: src/Controllers/JavaScriptMessagesController.php:331
-#: src/Controllers/Operations/TableController.php:100
-#: src/Controllers/Operations/TableController.php:105
-#: src/Controllers/Operations/ViewController.php:75
-#: src/Controllers/Operations/ViewController.php:80
-#: src/Controllers/Table/AddFieldController.php:175
-#: src/Controllers/Table/AddFieldController.php:180
-#: src/Controllers/Table/ChangeController.php:84
-#: src/Controllers/Table/ChangeController.php:89
-#: src/Controllers/Table/ChartController.php:101
-#: src/Controllers/Table/ChartController.php:106
+#: src/Controllers/Operations/TableController.php:98
+#: src/Controllers/Operations/TableController.php:103
+#: src/Controllers/Operations/ViewController.php:73
+#: src/Controllers/Operations/ViewController.php:78
+#: src/Controllers/Table/AddFieldController.php:173
+#: src/Controllers/Table/AddFieldController.php:178
+#: src/Controllers/Table/ChangeController.php:82
+#: src/Controllers/Table/ChangeController.php:87
+#: src/Controllers/Table/ChartController.php:102
+#: src/Controllers/Table/ChartController.php:107
 #: src/Controllers/Table/ChartController.php:209
-#: src/Controllers/Table/DeleteConfirmController.php:71
-#: src/Controllers/Table/DeleteConfirmController.php:76
-#: src/Controllers/Table/DropColumnConfirmationController.php:65
-#: src/Controllers/Table/DropColumnConfirmationController.php:70
-#: src/Controllers/Table/FindReplaceController.php:89
-#: src/Controllers/Table/FindReplaceController.php:94
-#: src/Controllers/Table/ImportController.php:83
-#: src/Controllers/Table/ImportController.php:88
-#: src/Controllers/Table/IndexesController.php:81
-#: src/Controllers/Table/IndexesController.php:86
-#: src/Controllers/Table/IndexRenameController.php:69
-#: src/Controllers/Table/IndexRenameController.php:74
+#: src/Controllers/Table/DeleteConfirmController.php:69
+#: src/Controllers/Table/DeleteConfirmController.php:74
+#: src/Controllers/Table/DropColumnConfirmationController.php:63
+#: src/Controllers/Table/DropColumnConfirmationController.php:68
+#: src/Controllers/Table/FindReplaceController.php:87
+#: src/Controllers/Table/FindReplaceController.php:92
+#: src/Controllers/Table/ImportController.php:81
+#: src/Controllers/Table/ImportController.php:86
+#: src/Controllers/Table/IndexesController.php:82
+#: src/Controllers/Table/IndexesController.php:87
+#: src/Controllers/Table/IndexRenameController.php:67
+#: src/Controllers/Table/IndexRenameController.php:72
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:46
 #: src/Controllers/Table/Maintenance/CheckController.php:46
 #: src/Controllers/Table/Maintenance/ChecksumController.php:46
 #: src/Controllers/Table/Maintenance/OptimizeController.php:46
 #: src/Controllers/Table/Maintenance/RepairController.php:46
-#: src/Controllers/Table/SearchController.php:188
-#: src/Controllers/Table/SearchController.php:193
-#: src/Controllers/Table/SqlController.php:73
-#: src/Controllers/Table/SqlController.php:78
-#: src/Controllers/Table/StructureController.php:107
-#: src/Controllers/Table/StructureController.php:112
-#: src/Controllers/Table/Structure/PrimaryController.php:83
-#: src/Controllers/Table/Structure/PrimaryController.php:88
-#: src/Controllers/Table/ZoomSearchController.php:116
-#: src/Controllers/Table/ZoomSearchController.php:121
+#: src/Controllers/Table/SearchController.php:186
+#: src/Controllers/Table/SearchController.php:191
+#: src/Controllers/Table/SqlController.php:71
+#: src/Controllers/Table/SqlController.php:76
+#: src/Controllers/Table/StructureController.php:105
+#: src/Controllers/Table/StructureController.php:110
+#: src/Controllers/Table/Structure/PrimaryController.php:84
+#: src/Controllers/Table/Structure/PrimaryController.php:89
+#: src/Controllers/Table/ZoomSearchController.php:114
+#: src/Controllers/Table/ZoomSearchController.php:119
 #: src/Controllers/Triggers/IndexController.php:74
 msgid "No table selected."
 msgstr "Nebyla vybrána žádná tabulka."
 
-#: src/Controllers/Database/RoutinesController.php:176
+#: src/Controllers/Database/RoutinesController.php:173
 msgid "Add routine"
 msgstr "Přidat rutinu"
 
-#: src/Controllers/Database/RoutinesController.php:180
+#: src/Controllers/Database/RoutinesController.php:177
 msgid "Edit routine"
 msgstr "Upravit rutinu"
 
-#: src/Controllers/Database/RoutinesController.php:279
+#: src/Controllers/Database/RoutinesController.php:276
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
@@ -12198,18 +12198,18 @@ msgstr ""
 "V databázi %2$s nebyla nalezena žádná rutina s názvem %1$s. Je možné, že "
 "nemáte potřebná oprávnění k úpravě této rutiny."
 
-#: src/Controllers/Database/RoutinesController.php:308
-#: src/Controllers/Database/RoutinesController.php:376
+#: src/Controllers/Database/RoutinesController.php:305
+#: src/Controllers/Database/RoutinesController.php:373
 #, php-format
 msgid "No routine with name %1$s found in database %2$s."
 msgstr "V databázi %2$s nebyla nalezena žádná rutina s názvem %1$s."
 
-#: src/Controllers/Database/RoutinesController.php:419
+#: src/Controllers/Database/RoutinesController.php:416
 #, php-format
 msgid "Export of routine %s"
 msgstr "Export rutiny %s"
 
-#: src/Controllers/Database/RoutinesController.php:438
+#: src/Controllers/Database/RoutinesController.php:435
 #, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
@@ -12220,7 +12220,7 @@ msgstr ""
 "s názvem %1$s. Je možné, že nemáte potřebná oprávnění k zobrazení/exportu "
 "této rutiny."
 
-#: src/Controllers/Database/SearchController.php:65
+#: src/Controllers/Database/SearchController.php:63
 msgid ""
 "Searching inside the database is disabled by the [code]$cfg['UseDbSearch'][/"
 "code] configuration."
@@ -12233,8 +12233,8 @@ msgstr ""
 msgid "Success!"
 msgstr "Úspěch!"
 
-#: src/Controllers/Database/StructureController.php:569
-#: src/Display/Results.php:3286
+#: src/Controllers/Database/StructureController.php:567
+#: src/Display/Results.php:3285
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -12242,7 +12242,7 @@ msgid ""
 msgstr ""
 "Tento pohled má alespoň tolik řádků. Podrobnosti naleznete v %sdokumentaci%s."
 
-#: src/Controllers/Database/StructureController.php:736
+#: src/Controllers/Database/StructureController.php:734
 msgid "unknown"
 msgstr "neznámý"
 
@@ -12250,23 +12250,23 @@ msgstr "neznámý"
 msgid "Favorite List is full!"
 msgstr "Seznam oblíbených je plný!"
 
-#: src/Controllers/Database/TrackingController.php:73
-#: src/Controllers/Database/TrackingController.php:99
+#: src/Controllers/Database/TrackingController.php:71
+#: src/Controllers/Database/TrackingController.php:97
 msgid "Tracking data deleted successfully."
 msgstr "Sledovací údaje byly úspěšně smazány."
 
-#: src/Controllers/Database/TrackingController.php:84
+#: src/Controllers/Database/TrackingController.php:82
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr ""
 "Verze %1$s vytvořena pro vybrané tabulky a jejich sledování je zapnuté."
 
-#: src/Controllers/Database/TrackingController.php:116
+#: src/Controllers/Database/TrackingController.php:114
 msgid "No tables selected."
 msgstr "Nebyly vybrány žádné tabulky."
 
-#: src/Controllers/Database/TrackingController.php:151
+#: src/Controllers/Database/TrackingController.php:149
 msgid "Database Log"
 msgstr "Záznam databáze"
 
@@ -12769,14 +12769,12 @@ msgid "Other"
 msgstr "Ostatní"
 
 #. l10n: Thousands separator
-#: src/Controllers/JavaScriptMessagesController.php:169 src/Util.php:401
-#: src/Util.php:433
+#: src/Controllers/JavaScriptMessagesController.php:169 src/Util.php:393
 msgid ","
 msgstr " "
 
 #. l10n: Decimal separator
-#: src/Controllers/JavaScriptMessagesController.php:171 src/Util.php:399
-#: src/Util.php:431
+#: src/Controllers/JavaScriptMessagesController.php:171 src/Util.php:391
 msgid "."
 msgstr ","
 
@@ -12861,27 +12859,27 @@ msgid "Bytes received"
 msgstr "Přijato bajtů"
 
 #. l10n: shortcuts for Byte
-#: src/Controllers/JavaScriptMessagesController.php:203 src/Util.php:310
+#: src/Controllers/JavaScriptMessagesController.php:203 src/Util.php:311
 msgid "B"
 msgstr "B"
 
 #. l10n: shortcuts for Gigabyte
-#: src/Controllers/JavaScriptMessagesController.php:206 src/Util.php:316
+#: src/Controllers/JavaScriptMessagesController.php:206 src/Util.php:317
 msgid "GiB"
 msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
-#: src/Controllers/JavaScriptMessagesController.php:207 src/Util.php:318
+#: src/Controllers/JavaScriptMessagesController.php:207 src/Util.php:319
 msgid "TiB"
 msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
-#: src/Controllers/JavaScriptMessagesController.php:208 src/Util.php:320
+#: src/Controllers/JavaScriptMessagesController.php:208 src/Util.php:321
 msgid "PiB"
 msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
-#: src/Controllers/JavaScriptMessagesController.php:209 src/Util.php:322
+#: src/Controllers/JavaScriptMessagesController.php:209 src/Util.php:323
 msgid "EiB"
 msgstr "EiB"
 
@@ -14045,97 +14043,97 @@ msgctxt "Month name"
 msgid "December"
 msgstr "prosinec"
 
-#: src/Controllers/JavaScriptMessagesController.php:708 src/Util.php:507
+#: src/Controllers/JavaScriptMessagesController.php:708 src/Util.php:505
 msgctxt "Short month name for January"
 msgid "Jan"
 msgstr "led"
 
-#: src/Controllers/JavaScriptMessagesController.php:709 src/Util.php:508
+#: src/Controllers/JavaScriptMessagesController.php:709 src/Util.php:506
 msgctxt "Short month name for February"
 msgid "Feb"
 msgstr "úno"
 
-#: src/Controllers/JavaScriptMessagesController.php:710 src/Util.php:509
+#: src/Controllers/JavaScriptMessagesController.php:710 src/Util.php:507
 msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "bře"
 
-#: src/Controllers/JavaScriptMessagesController.php:711 src/Util.php:510
+#: src/Controllers/JavaScriptMessagesController.php:711 src/Util.php:508
 msgctxt "Short month name for April"
 msgid "Apr"
 msgstr "dub"
 
-#: src/Controllers/JavaScriptMessagesController.php:712 src/Util.php:511
+#: src/Controllers/JavaScriptMessagesController.php:712 src/Util.php:509
 msgctxt "Short month name for May"
 msgid "May"
 msgstr "kvě"
 
-#: src/Controllers/JavaScriptMessagesController.php:713 src/Util.php:512
+#: src/Controllers/JavaScriptMessagesController.php:713 src/Util.php:510
 msgctxt "Short month name for June"
 msgid "Jun"
 msgstr "čen"
 
-#: src/Controllers/JavaScriptMessagesController.php:714 src/Util.php:513
+#: src/Controllers/JavaScriptMessagesController.php:714 src/Util.php:511
 msgctxt "Short month name for July"
 msgid "Jul"
 msgstr "čec"
 
-#: src/Controllers/JavaScriptMessagesController.php:715 src/Util.php:514
+#: src/Controllers/JavaScriptMessagesController.php:715 src/Util.php:512
 msgctxt "Short month name for August"
 msgid "Aug"
 msgstr "srp"
 
-#: src/Controllers/JavaScriptMessagesController.php:716 src/Util.php:515
+#: src/Controllers/JavaScriptMessagesController.php:716 src/Util.php:513
 msgctxt "Short month name for September"
 msgid "Sep"
 msgstr "zář"
 
-#: src/Controllers/JavaScriptMessagesController.php:717 src/Util.php:516
+#: src/Controllers/JavaScriptMessagesController.php:717 src/Util.php:514
 msgctxt "Short month name for October"
 msgid "Oct"
 msgstr "říj"
 
-#: src/Controllers/JavaScriptMessagesController.php:718 src/Util.php:517
+#: src/Controllers/JavaScriptMessagesController.php:718 src/Util.php:515
 msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "lis"
 
-#: src/Controllers/JavaScriptMessagesController.php:719 src/Util.php:518
+#: src/Controllers/JavaScriptMessagesController.php:719 src/Util.php:516
 msgctxt "Short month name for December"
 msgid "Dec"
 msgstr "pro"
 
-#: src/Controllers/JavaScriptMessagesController.php:727 src/Util.php:521
+#: src/Controllers/JavaScriptMessagesController.php:727 src/Util.php:519
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "Ned"
 
-#: src/Controllers/JavaScriptMessagesController.php:728 src/Util.php:522
+#: src/Controllers/JavaScriptMessagesController.php:728 src/Util.php:520
 msgctxt "Short week day name for Monday"
 msgid "Mon"
 msgstr "Po"
 
-#: src/Controllers/JavaScriptMessagesController.php:729 src/Util.php:523
+#: src/Controllers/JavaScriptMessagesController.php:729 src/Util.php:521
 msgctxt "Short week day name for Tuesday"
 msgid "Tue"
 msgstr "Út"
 
-#: src/Controllers/JavaScriptMessagesController.php:730 src/Util.php:524
+#: src/Controllers/JavaScriptMessagesController.php:730 src/Util.php:522
 msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr "St"
 
-#: src/Controllers/JavaScriptMessagesController.php:731 src/Util.php:525
+#: src/Controllers/JavaScriptMessagesController.php:731 src/Util.php:523
 msgctxt "Short week day name for Thursday"
 msgid "Thu"
 msgstr "Čt"
 
-#: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:526
+#: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:524
 msgctxt "Short week day name for Friday"
 msgid "Fri"
 msgstr "Pá"
 
-#: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:527
+#: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:525
 msgctxt "Short week day name for Saturday"
 msgid "Sat"
 msgstr "So"
@@ -14389,7 +14387,7 @@ msgid "String"
 msgstr "Řetězce"
 
 #: src/Controllers/Operations/Database/CollationController.php:42
-#: src/Controllers/Operations/TableController.php:266
+#: src/Controllers/Operations/TableController.php:262
 msgid "No collation provided."
 msgstr "Není uvedeno kódování."
 
@@ -14409,7 +14407,7 @@ msgstr "Databáze %1$s byla přejmenována na %2$s."
 msgid "Database %1$s has been copied to %2$s."
 msgstr "Databáze %1$s byla zkopírována do %2$s."
 
-#: src/Controllers/Operations/DatabaseController.php:279
+#: src/Controllers/Operations/DatabaseController.php:277
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
@@ -14438,7 +14436,7 @@ msgstr "Dvoustupňové ověřování bylo nastaveno."
 
 #: src/Controllers/SchemaExportController.php:40
 #: src/Controllers/Server/UserGroupsFormController.php:46
-#: src/ResponseRenderer.php:448
+#: src/ResponseRenderer.php:449
 msgid "Missing parameter:"
 msgstr "Chybějící parametr:"
 
@@ -15226,18 +15224,18 @@ msgstr "Chybná data"
 msgid "Wrong data or no validation for %s"
 msgstr "Chybná data nebo chybějící ověření pro %s"
 
-#: src/Controllers/Sql/SqlController.php:215 src/Sql.php:1055
+#: src/Controllers/Sql/SqlController.php:213 src/Sql.php:1055
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Byl vytvořen oblíbený dotaz %s."
 
-#: src/Controllers/Sql/SqlController.php:222
+#: src/Controllers/Sql/SqlController.php:220
 msgid "Bookmark not created!"
 msgstr "Nepodařilo se uložit oblíbený dotaz!"
 
 #: src/Controllers/Table/AddFieldController.php:136
-#: src/Controllers/Table/IndexesController.php:140
-#: src/Controllers/Table/IndexRenameController.php:127
+#: src/Controllers/Table/IndexesController.php:139
+#: src/Controllers/Table/IndexRenameController.php:123
 #: src/Controllers/Table/Structure/PartitioningController.php:267
 #: src/Controllers/Table/Structure/SaveController.php:217
 #, php-format
@@ -15251,7 +15249,7 @@ msgid "No row selected."
 msgstr "Nebyl vybrán žádný řádek."
 
 #: src/Controllers/Table/ChartController.php:59
-#: src/Controllers/Table/GisVisualizationController.php:82
+#: src/Controllers/Table/GisVisualizationController.php:80
 msgid "No SQL query was set to fetch data."
 msgstr "Nebyl zadán SQL dotaz pro načtení dat."
 
@@ -15310,7 +15308,7 @@ msgstr "Na vašem požadavku došlo k problému."
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL vrátil prázdný výsledek (tj. nulový počet řádků)."
 
-#: src/Controllers/Table/GisVisualizationController.php:93
+#: src/Controllers/Table/GisVisualizationController.php:91
 msgid "No spatial column found for this SQL query."
 msgstr "Pro tento SQL dotaz nebyl nalezen žádný prostorový sloupec."
 
@@ -15392,37 +15390,37 @@ msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "Tabulka %1$s byla úspěšně změněna. Práva byla upravena."
 
-#: src/Controllers/Table/TrackingController.php:92
+#: src/Controllers/Table/TrackingController.php:90
 #, php-format
 msgid "Tracking of %s is activated."
 msgstr "Je zapnuté sledování %s."
 
-#: src/Controllers/Table/TrackingController.php:145
+#: src/Controllers/Table/TrackingController.php:143
 msgid "SQL statements executed."
 msgstr "SQL příkazy byly provedeny."
 
-#: src/Controllers/Table/TrackingController.php:199
+#: src/Controllers/Table/TrackingController.php:197
 msgid "Tracking versions deleted successfully."
 msgstr "Verze sledování byly úspěšně smazány."
 
-#: src/Controllers/Table/TrackingController.php:204
+#: src/Controllers/Table/TrackingController.php:202
 msgid "No versions selected."
 msgstr "Nebyly vybrány žádné verze."
 
-#: src/Controllers/Triggers/IndexController.php:165
+#: src/Controllers/Triggers/IndexController.php:162
 msgid "Add trigger"
 msgstr "Přidat trigger"
 
-#: src/Controllers/Triggers/IndexController.php:169
+#: src/Controllers/Triggers/IndexController.php:166
 msgid "Edit trigger"
 msgstr "Upravit trigger"
 
-#: src/Controllers/Triggers/IndexController.php:211
+#: src/Controllers/Triggers/IndexController.php:208
 #, php-format
 msgid "No trigger with name %1$s found in database %2$s."
 msgstr "V databázi %2$s nebyl nalezen žádný trigger s názvem %1$s."
 
-#: src/Controllers/Triggers/IndexController.php:252
+#: src/Controllers/Triggers/IndexController.php:249
 #, php-format
 msgid ""
 "Error in processing request: No trigger with name %1$s found in database "
@@ -15435,7 +15433,7 @@ msgstr ""
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "Nemáte dostatečná práva na provedení této akce!"
 
-#: src/Controllers/View/CreateController.php:85
+#: src/Controllers/View/CreateController.php:83
 msgid "View name can not be empty!"
 msgstr "Název pohledu nemůže být prázdný!"
 
@@ -15689,33 +15687,33 @@ msgstr ""
 "Chyba 1045. Přístup pro uživatele je zakázán. Další informace o chybě mohou "
 "být dostupné, ale jsou skryté nastavením %s."
 
-#: src/Display/Results.php:2404 src/Display/Results.php:2419
+#: src/Display/Results.php:2403 src/Display/Results.php:2418
 msgid "The row has been deleted."
 msgstr "Řádek byl smazán."
 
-#: src/Display/Results.php:3295
+#: src/Display/Results.php:3294
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Zobrazeny záznamy %1s - %2s"
 
-#: src/Display/Results.php:3309
+#: src/Display/Results.php:3308
 #, fuzzy, php-format
 #| msgid "%1$d total, %2$d in query"
 msgid "%1$s total, %2$s in query"
 msgstr "%1$d celkem, %2$d v dotazu"
 
-#: src/Display/Results.php:3314
+#: src/Display/Results.php:3313
 #, fuzzy, php-format
 #| msgid "%d total"
 msgid "%s total"
 msgstr "%d celkem"
 
-#: src/Display/Results.php:3327 src/Sql.php:871
+#: src/Display/Results.php:3326 src/Sql.php:871
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Dotaz trval %01.4f sekund."
 
-#: src/Display/Results.php:3623
+#: src/Display/Results.php:3622
 msgid "Link not found!"
 msgstr "Odkaz nebyl nalezen!"
 
@@ -16430,7 +16428,7 @@ msgstr ""
 msgid "%1$s (near <code>%2$s</code>)"
 msgstr "%1$s (poblíž <code>%2$s</code>)"
 
-#: src/Menu.php:284 src/Menu.php:391 src/Util.php:1385 src/Util.php:1399
+#: src/Menu.php:284 src/Menu.php:391 src/Util.php:1383 src/Util.php:1397
 msgid "Tracking"
 msgstr "Sledování"
 
@@ -16438,7 +16436,7 @@ msgstr "Sledování"
 msgid "Database seems to be empty!"
 msgstr "Databáze se zdá být prázdná!"
 
-#: src/Menu.php:398 src/Util.php:1386
+#: src/Menu.php:398 src/Util.php:1384
 msgid "Designer"
 msgstr "Návrhář"
 
@@ -16446,11 +16444,11 @@ msgstr "Návrhář"
 msgid "User accounts"
 msgstr "Uživatelské účty"
 
-#: src/Menu.php:508 src/Util.php:1369
+#: src/Menu.php:508 src/Util.php:1367
 msgid "Charsets"
 msgstr "Znakové sady"
 
-#: src/Menu.php:513 src/Util.php:1371
+#: src/Menu.php:513 src/Util.php:1369
 msgid "Engines"
 msgstr "Úložiště"
 
@@ -16478,23 +16476,23 @@ msgstr[0] "Byl vložen %1$d řádek."
 msgstr[1] "Byly vloženy %1$d řádky."
 msgstr[2] "Bylo vloženo %1$d řádků."
 
-#: src/Navigation/Navigation.php:215
+#: src/Navigation/Navigation.php:216
 msgid "Groups:"
 msgstr "Skupiny:"
 
-#: src/Navigation/Navigation.php:216
+#: src/Navigation/Navigation.php:217
 msgid "Events:"
 msgstr "Události:"
 
-#: src/Navigation/Navigation.php:217
+#: src/Navigation/Navigation.php:218
 msgid "Functions:"
 msgstr "Funkce:"
 
-#: src/Navigation/Navigation.php:218
+#: src/Navigation/Navigation.php:219
 msgid "Procedures:"
 msgstr "Procedury:"
 
-#: src/Navigation/Navigation.php:220
+#: src/Navigation/Navigation.php:221
 msgid "Views:"
 msgstr "Pohledy:"
 
@@ -16978,7 +16976,7 @@ msgstr "Nepodařilo se nalézt přihlašovací skript pro signon:"
 msgid "Invalid authentication method set in configuration:"
 msgstr "V konfiguraci je nastavena neplatná metoda přihlášení:"
 
-#: src/Plugins/AuthenticationPlugin.php:313
+#: src/Plugins/AuthenticationPlugin.php:317
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 "Aktivovali jste dvoustupňové ověřování. Potvrďte, prosím, své přihlašovací "
@@ -17549,7 +17547,7 @@ msgstr "Nepoužívat <code>AUTO_INCREMENT</code> pro nulové hodnoty"
 msgid "XML"
 msgstr "XML"
 
-#: src/Plugins.php:575
+#: src/Plugins.php:577
 msgid "This format has no options"
 msgstr "Tento formát nemá žádná nastavení"
 
@@ -17662,7 +17660,7 @@ msgstr ""
 
 #. l10n: See https://www.php.net/manual/en/function.strftime.php
 #: src/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:129
-#: src/Util.php:532
+#: src/Util.php:530
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%a %d. %b %Y, %H:%M"
 
@@ -18017,7 +18015,7 @@ msgstr "Nepodařilo se změnit primární server!"
 msgid "Primary server changed successfully to %s."
 msgstr "Primární server byl úspěšně změněn na %s."
 
-#: src/Routing/Routing.php:124
+#: src/Routing/Routing.php:123
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
@@ -18026,12 +18024,12 @@ msgstr ""
 "Nelze zapisovat do mezipaměti směrování, je třeba upravit oprávnění pro "
 "složku/soubor „%s“"
 
-#: src/Routing/Routing.php:157 src/Routing/Routing.php:200
+#: src/Routing/Routing.php:156 src/Routing/Routing.php:198
 #, php-format
 msgid "Error 404! The page %s was not found."
 msgstr "Chyba 404! Stránka %s nebyla nalezena."
 
-#: src/Routing/Routing.php:165
+#: src/Routing/Routing.php:164
 msgid "Error 405! Request method not allowed."
 msgstr "Chyba 405! Nepovolená metoda požadavku."
 
@@ -18849,35 +18847,35 @@ msgstr "Přístup byl změněn."
 msgid "Password is too long!"
 msgstr "Heslo je příliš dlouhé!"
 
-#: src/UserPreferences.php:161
+#: src/UserPreferences.php:162
 msgid "Could not save configuration"
 msgstr "Nepodařilo se uložit nastavení"
 
-#: src/UserPreferences.php:172
+#: src/UserPreferences.php:173
 msgid "The phpMyAdmin configuration storage database could not be accessed."
 msgstr "Nelze přistoupit k databázi nastavení phpMyAdmina."
 
-#: src/Util.php:132
+#: src/Util.php:133
 #, php-format
 msgid "Max: %s%s"
 msgstr "Maximální velikost: %s%s"
 
-#: src/Util.php:541
+#: src/Util.php:539
 msgctxt "AM/PM indication in time"
 msgid "PM"
 msgstr "odp."
 
-#: src/Util.php:543
+#: src/Util.php:541
 msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr "dop."
 
-#: src/Util.php:616
+#: src/Util.php:614
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s dnů, %s hodin, %s minut a %s sekund"
 
-#: src/Util.php:1362
+#: src/Util.php:1360
 msgid "Users"
 msgstr "Uživatelé"
 

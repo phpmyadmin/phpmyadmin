@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="6.12.1@e71404b0465be25cf7f8a631b298c01c5ddd864f">
+<files psalm-version="6.13.0@70cdf647255a1362b426bb0f522a85817b8c791c">
   <file src="app/services_loader.php">
     <MixedArgument>
       <code><![CDATA[$argumentName]]></code>
@@ -1925,6 +1925,12 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Server/Status/StatusController.php">
+    <ArgumentTypeCoercion>
+      <code><![CDATA[$this->data->status['Aborted_clients']]]></code>
+      <code><![CDATA[$this->data->status['Aborted_connects']]]></code>
+      <code><![CDATA[$this->data->status['Connections']]]></code>
+      <code><![CDATA[$this->data->status['Max_used_connections']]]></code>
+    </ArgumentTypeCoercion>
     <PossiblyInvalidOperand>
       <code><![CDATA[$this->data->status['Aborted_clients']]]></code>
       <code><![CDATA[$this->data->status['Aborted_clients']]]></code>
@@ -4090,29 +4096,6 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <MixedArgument>
-      <code><![CDATA[$status['Innodb_buffer_pool_pages_data']]]></code>
-      <code><![CDATA[$status['Innodb_buffer_pool_pages_dirty']]]></code>
-      <code><![CDATA[$status['Innodb_buffer_pool_pages_flushed']]]></code>
-      <code><![CDATA[$status['Innodb_buffer_pool_pages_free']]]></code>
-      <code><![CDATA[$status['Innodb_buffer_pool_pages_latched']]]></code>
-      <code><![CDATA[$status['Innodb_buffer_pool_pages_misc']]]></code>
-      <code><![CDATA[$status['Innodb_buffer_pool_pages_total']]]></code>
-      <code><![CDATA[$status['Innodb_buffer_pool_pages_total'] * $status['Innodb_page_size']]]></code>
-      <code><![CDATA[$status['Innodb_buffer_pool_read_requests']]]></code>
-      <code><![CDATA[$status['Innodb_buffer_pool_reads']]]></code>
-      <code><![CDATA[$status['Innodb_buffer_pool_reads'] * 100
-                        / $status['Innodb_buffer_pool_read_requests']]]></code>
-      <code><![CDATA[$status['Innodb_buffer_pool_wait_free']]]></code>
-      <code><![CDATA[$status['Innodb_buffer_pool_wait_free'] * 100
-                        / $status['Innodb_buffer_pool_write_requests']]]></code>
-      <code><![CDATA[$status['Innodb_buffer_pool_write_requests']]]></code>
-    </MixedArgument>
-    <MixedOperand>
-      <code><![CDATA[$status['Innodb_buffer_pool_pages_total']]]></code>
-      <code><![CDATA[$status['Innodb_buffer_pool_reads']]]></code>
-      <code><![CDATA[$status['Innodb_buffer_pool_wait_free']]]></code>
-    </MixedOperand>
   </file>
   <file src="src/Engines/Pbxt.php">
     <PossiblyUnusedMethod>
@@ -9256,6 +9239,10 @@
     </MixedArgument>
   </file>
   <file src="src/Util.php">
+    <ArgumentTypeCoercion>
+      <code><![CDATA[$value]]></code>
+      <code><![CDATA[$value]]></code>
+    </ArgumentTypeCoercion>
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
@@ -9275,9 +9262,6 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$units[$d]]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$array]]></code>
     </MixedArgument>
@@ -9296,12 +9280,9 @@
     <MixedAssignment>
       <code><![CDATA[$array]]></code>
       <code><![CDATA[$columnNames[]]]></code>
-      <code><![CDATA[$unit]]></code>
       <code><![CDATA[$value]]></code>
     </MixedAssignment>
     <MixedOperand>
-      <code><![CDATA[$unit]]></code>
-      <code><![CDATA[$unit]]></code>
       <code><![CDATA[$value]]></code>
     </MixedOperand>
     <MixedReturnStatement>
@@ -11910,7 +11891,6 @@
       <code><![CDATA[$_SESSION['cache']['server_2']['mysql_cur_user']]]></code>
     </MixedArrayAccess>
     <MixedReturnStatement>
-      <code><![CDATA[mixed[]]]></code>
       <code><![CDATA[mixed[]]]></code>
       <code><![CDATA[mixed[]]]></code>
       <code><![CDATA[mixed[]]]></code>

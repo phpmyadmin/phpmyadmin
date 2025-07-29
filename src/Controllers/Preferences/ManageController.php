@@ -16,6 +16,7 @@ use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Navigation\Navigation;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Theme\ThemeManager;
@@ -24,7 +25,6 @@ use PhpMyAdmin\Util;
 
 use function __;
 use function array_merge;
-use function define;
 use function file_exists;
 use function is_array;
 use function is_string;
@@ -254,7 +254,7 @@ final class ManageController implements InvocableController
         if ($request->isAjax()) {
             $this->response->addJSON('disableNaviSettings', true);
         } else {
-            define('PMA_DISABLE_NAVI_SETTINGS', true);
+            Navigation::$isSettingsEnabled = false;
         }
 
         return $this->response->response();

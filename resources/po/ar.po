@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-07-13 00:32+0000\n"
+"POT-Creation-Date: 2025-07-27 00:32+0000\n"
 "PO-Revision-Date: 2025-07-14 12:01+0000\n"
 "Last-Translator: \"Ali H.Abdulhadi\" <a.h.alsaady1998@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -58,7 +58,7 @@ msgstr "داكن"
 #: resources/templates/base.twig:95
 #: resources/templates/server/status/monitor/index.twig:8
 #: src/Controllers/JavaScriptMessagesController.php:215 src/Menu.php:475
-#: src/Util.php:1365
+#: src/Util.php:1363
 msgid "Settings"
 msgstr "الإعدادات"
 
@@ -132,7 +132,7 @@ msgstr ""
 #: resources/templates/table/structure/display_structure.twig:143
 #: resources/templates/table/structure/display_structure.twig:284
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:25
-#: src/Controllers/Table/StructureController.php:219
+#: src/Controllers/Table/StructureController.php:215
 msgid "Primary"
 msgstr "أساسي"
 
@@ -154,7 +154,7 @@ msgstr "فريد"
 #: resources/templates/table/structure/display_structure.twig:290
 #: resources/templates/table/structure/display_table_stats.twig:24
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:27
-#: src/Controllers/Table/StructureController.php:223
+#: src/Controllers/Table/StructureController.php:219
 #: src/Navigation/Nodes/NodeIndex.php:26
 msgid "Index"
 msgstr "فهرست"
@@ -594,8 +594,8 @@ msgstr "المستخدمون"
 #: src/Import/Import.php:1169 src/Menu.php:214 src/Menu.php:318
 #: src/Navigation/Nodes/NodeColumn.php:37
 #: src/Navigation/Nodes/NodeDatabase.php:59
-#: src/Navigation/Nodes/NodeTable.php:268 src/Util.php:1064 src/Util.php:1374
-#: src/Util.php:1391
+#: src/Navigation/Nodes/NodeTable.php:268 src/Util.php:1062 src/Util.php:1372
+#: src/Util.php:1389
 msgid "Structure"
 msgstr "بناء"
 
@@ -923,7 +923,7 @@ msgstr "معطل"
 #: src/Controllers/JavaScriptMessagesController.php:481
 #: src/Controllers/Table/DeleteRowsController.php:34
 #: src/Controllers/Table/DropColumnController.php:46
-#: src/Controllers/Table/Structure/PrimaryController.php:102
+#: src/Controllers/Table/Structure/PrimaryController.php:101
 #: src/Indexes/IndexColumn.php:148 src/Indexes/Index.php:472
 #: src/Plugins/Export/ExportHtmlword.php:562
 #: src/Plugins/Export/ExportLatex.php:567 src/Plugins/Export/ExportOdt.php:685
@@ -1029,7 +1029,7 @@ msgstr "في الاستعلام"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:379
-#: src/Display/Results.php:1805 src/Html/Generator.php:520
+#: src/Display/Results.php:1804 src/Html/Generator.php:520
 #: src/Html/Generator.php:789
 msgid "Edit"
 msgstr "تعديل"
@@ -1048,7 +1048,7 @@ msgstr "تعديل"
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:189
 #: src/Controllers/JavaScriptMessagesController.php:381
-#: src/Display/Results.php:2428 src/Tracking/Tracking.php:224
+#: src/Display/Results.php:2427 src/Tracking/Tracking.php:224
 msgid "Delete"
 msgstr "حذف"
 
@@ -1828,7 +1828,7 @@ msgstr "نوع الحدث"
 #: resources/templates/table/tracking/main.twig:31
 #: src/Config/ConfigFile.php:578
 #: src/Controllers/JavaScriptMessagesController.php:275 src/Menu.php:446
-#: src/Server/Status/Processes.php:96 src/Util.php:1361
+#: src/Server/Status/Processes.php:96 src/Util.php:1359
 msgid "Status"
 msgstr "الحالة"
 
@@ -1902,7 +1902,7 @@ msgstr "محدد"
 #: src/Navigation/Nodes/NodeEventContainer.php:22
 #: src/Navigation/Nodes/NodeEventContainer.php:24
 #: src/Plugins/Export/ExportSql.php:997 src/Plugins/Export/ExportXml.php:97
-#: src/Util.php:1383
+#: src/Util.php:1381
 msgid "Events"
 msgstr "أحداث"
 
@@ -1964,7 +1964,7 @@ msgstr "تحقق من الكل"
 #: src/Config/Forms/User/ExportForm.php:148
 #: src/Controllers/JavaScriptMessagesController.php:361 src/Menu.php:241
 #: src/Menu.php:343 src/Menu.php:465 src/Server/Privileges.php:1283
-#: src/Util.php:1363 src/Util.php:1378 src/Util.php:1395
+#: src/Util.php:1361 src/Util.php:1376 src/Util.php:1393
 msgid "Export"
 msgstr "تصدير"
 
@@ -2075,7 +2075,7 @@ msgid "Exporting tables from \"%s\" database"
 msgstr "تصدير الجداول من قاعدة المعطيات \"%s\""
 
 #: resources/templates/database/export/index.twig:14
-#: src/Navigation/Navigation.php:219
+#: src/Navigation/Navigation.php:220
 msgid "Tables:"
 msgstr "جداول :"
 
@@ -2135,7 +2135,7 @@ msgstr "إختر عمودين"
 #: resources/templates/database/tracking/tables.twig:19
 #: resources/templates/table/tracking/main.twig:33
 #: src/Controllers/JavaScriptMessagesController.php:693
-#: src/Controllers/Table/ChangeController.php:215
+#: src/Controllers/Table/ChangeController.php:211
 msgid "Show"
 msgstr "عرض"
 
@@ -2158,7 +2158,7 @@ msgid "criteria"
 msgstr "معايير"
 
 #: resources/templates/database/multi_table_query/form.twig:56
-#: src/Util.php:1836
+#: src/Util.php:1834
 msgid "Sort"
 msgstr "ترتيب"
 
@@ -2169,8 +2169,8 @@ msgstr "ترتيب"
 #: resources/templates/server/status/processes/list.twig:14
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:158
-#: src/Config/ConfigFile.php:554 src/Display/Results.php:1392
-#: src/Display/Results.php:1398 src/Util.php:1844 src/Util.php:1861
+#: src/Config/ConfigFile.php:554 src/Display/Results.php:1391
+#: src/Display/Results.php:1397 src/Util.php:1842 src/Util.php:1859
 msgid "Ascending"
 msgstr "تصاعديا"
 
@@ -2181,8 +2181,8 @@ msgstr "تصاعديا"
 #: resources/templates/server/status/processes/list.twig:12
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:162
-#: src/Config/ConfigFile.php:554 src/Display/Results.php:1387
-#: src/Display/Results.php:1403 src/Util.php:1849 src/Util.php:1866
+#: src/Config/ConfigFile.php:554 src/Display/Results.php:1386
+#: src/Display/Results.php:1402 src/Util.php:1847 src/Util.php:1864
 msgid "Descending"
 msgstr "تنازليا"
 
@@ -2380,7 +2380,7 @@ msgstr "اسم السجل"
 #: resources/templates/table/privileges/index.twig:22
 #: src/Config/ConfigFile.php:582
 #: src/Controllers/Server/PrivilegesController.php:429 src/Menu.php:257
-#: src/Menu.php:365 src/Util.php:1381 src/Util.php:1397
+#: src/Menu.php:365 src/Util.php:1379 src/Util.php:1395
 msgid "Privileges"
 msgstr "الإمتيازات"
 
@@ -2548,7 +2548,7 @@ msgid "This routine does not require any parameters."
 msgstr ""
 
 #: resources/templates/database/routines/index.twig:3 src/Menu.php:371
-#: src/Util.php:1382
+#: src/Util.php:1380
 msgid "Routines"
 msgstr "روتينات"
 
@@ -2560,8 +2560,8 @@ msgstr "روتينات"
 #: resources/templates/server/databases/index.twig:77
 #: src/Config/ConfigFile.php:522 src/Config/ConfigFile.php:536
 #: src/Config/ConfigFile.php:590 src/Config/ConfigFile.php:600 src/Menu.php:223
-#: src/Menu.php:327 src/Navigation/Nodes/NodeTable.php:269 src/Util.php:1066
-#: src/Util.php:1376 src/Util.php:1393
+#: src/Menu.php:327 src/Navigation/Nodes/NodeTable.php:269 src/Util.php:1064
+#: src/Util.php:1374 src/Util.php:1391
 msgid "Search"
 msgstr "إبحث"
 
@@ -2591,8 +2591,8 @@ msgid "Export routine"
 msgstr "تصدير %s"
 
 #: resources/templates/database/routines/index.twig:113
-#: src/Controllers/Database/RoutinesController.php:357
-#: src/Controllers/Database/RoutinesController.php:367
+#: src/Controllers/Database/RoutinesController.php:354
+#: src/Controllers/Database/RoutinesController.php:364
 msgid "Execute routine"
 msgstr "تنفيذ"
 
@@ -2684,7 +2684,7 @@ msgstr[5] "%1$s مطابقة في الجدول <strong>%2$s</strong>"
 #: resources/templates/table/structure/display_structure.twig:271
 #: src/Config/ConfigFile.php:526 src/Config/ConfigFile.php:540
 #: src/Config/ConfigFile.php:604 src/Menu.php:207
-#: src/Navigation/Nodes/NodeTable.php:272 src/Util.php:1068 src/Util.php:1390
+#: src/Navigation/Nodes/NodeTable.php:272 src/Util.php:1066 src/Util.php:1388
 msgid "Browse"
 msgstr "استعراض"
 
@@ -2719,7 +2719,7 @@ msgstr[5] "%s جدول"
 #: resources/templates/database/structure/body_for_table_summary.twig:8
 #: resources/templates/database/structure/table_header.twig:10
 #: resources/templates/server/replication/index.twig:5 src/Menu.php:497
-#: src/Server/Status/Data.php:124 src/Util.php:1367
+#: src/Server/Status/Data.php:124 src/Util.php:1365
 msgid "Replication"
 msgstr "إستنساخ"
 
@@ -2828,7 +2828,7 @@ msgid "Copy table with prefix"
 msgstr "نسخ الجدول مع البادئة"
 
 #: resources/templates/database/structure/check_all_tables.twig:32
-#: src/Menu.php:405 src/Util.php:1387
+#: src/Menu.php:405 src/Util.php:1385
 msgid "Central columns"
 msgstr "الأعمدة المركزية"
 
@@ -2908,8 +2908,8 @@ msgstr "قاموس البيانات"
 
 #: resources/templates/database/structure/index.twig:19
 #: resources/templates/navigation/tree/path.twig:9
-#: src/Controllers/Database/ExportController.php:75
-#: src/Controllers/Database/TrackingController.php:126
+#: src/Controllers/Database/ExportController.php:73
+#: src/Controllers/Database/TrackingController.php:124
 #: src/Controllers/Export/ExportController.php:290
 msgid "No tables found in database."
 msgstr "لم يعثر على جداول في قاعدة البيانات."
@@ -2950,9 +2950,9 @@ msgstr ""
 #: resources/templates/database/structure/show_create.twig:35
 #: resources/templates/database/structure/structure_table_row.twig:122
 #: resources/templates/database/structure/structure_table_row.twig:186
-#: src/Controllers/Operations/TableController.php:122
-#: src/Controllers/Operations/TableController.php:316
-#: src/Controllers/Table/StructureController.php:153
+#: src/Controllers/Operations/TableController.php:118
+#: src/Controllers/Operations/TableController.php:312
+#: src/Controllers/Table/StructureController.php:149
 #: src/Navigation/Nodes/NodeView.php:24
 msgid "View"
 msgstr "عرض"
@@ -2980,7 +2980,7 @@ msgstr "مستنسخة"
 #: resources/templates/database/structure/structure_table_row.twig:59
 #: resources/templates/sql/query.twig:76 src/Config/ConfigFile.php:524
 #: src/Config/ConfigFile.php:538 src/Config/ConfigFile.php:602 src/Menu.php:234
-#: src/Navigation/Nodes/NodeTable.php:270 src/Util.php:1067 src/Util.php:1394
+#: src/Navigation/Nodes/NodeTable.php:270 src/Util.php:1065 src/Util.php:1392
 msgid "Insert"
 msgstr "إدخال"
 
@@ -3232,7 +3232,7 @@ msgstr "ثنائي معروف جيّداً"
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:467
-#: src/Display/Results.php:1806 src/Html/Generator.php:84
+#: src/Display/Results.php:1805 src/Html/Generator.php:84
 msgid "Copy"
 msgstr "نسخ"
 
@@ -3269,7 +3269,7 @@ msgstr ""
 
 #: resources/templates/error/generic.twig:39
 #: resources/templates/table/structure/display_structure.twig:361
-#: src/Controllers/Operations/ViewController.php:117
+#: src/Controllers/Operations/ViewController.php:113
 #: src/Controllers/Table/Partition/DropController.php:56
 #: src/Controllers/Table/Partition/RebuildController.php:56
 #: src/Controllers/Table/Partition/TruncateController.php:56
@@ -3781,7 +3781,7 @@ msgstr "رجوع"
 #: resources/templates/server/status/monitor/index.twig:53
 #: resources/templates/server/status/monitor/index.twig:69
 #: src/Config/Forms/User/ImportForm.php:58 src/Menu.php:250 src/Menu.php:353
-#: src/Menu.php:470 src/Util.php:1364 src/Util.php:1379 src/Util.php:1396
+#: src/Menu.php:470 src/Util.php:1362 src/Util.php:1377 src/Util.php:1394
 msgid "Import"
 msgstr "استيراد"
 
@@ -4112,7 +4112,7 @@ msgstr "ناتج استعلام SQL"
 #: resources/templates/server/export/index.twig:14
 #: resources/templates/server/privileges/user_properties.twig:20
 #: src/Config/ConfigFile.php:576 src/Config/Descriptions.php:728
-#: src/Config/Descriptions.php:739 src/Menu.php:436 src/Util.php:1359
+#: src/Config/Descriptions.php:739 src/Menu.php:436 src/Util.php:1357
 msgid "Databases"
 msgstr "قاعدة بيانات"
 
@@ -4344,7 +4344,7 @@ msgstr ""
 #: resources/templates/preview_sql.twig:3
 #: src/Controllers/Database/Structure/DropTableController.php:44
 #: src/Controllers/Database/Structure/EmptyTableController.php:43
-#: src/Controllers/Operations/TableController.php:332
+#: src/Controllers/Operations/TableController.php:328
 #: src/Controllers/Table/DropColumnController.php:63
 #: src/Controllers/Table/ReplaceController.php:289 src/Core.php:518
 msgid "No change"
@@ -4561,7 +4561,7 @@ msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 
 #: resources/templates/server/binlog/index.twig:3 src/Menu.php:490
-#: src/Server/Status/Data.php:119 src/Util.php:1366
+#: src/Server/Status/Data.php:119 src/Util.php:1364
 msgid "Binary log"
 msgstr "سجل ثنائي"
 
@@ -4709,7 +4709,7 @@ msgstr "الوصف"
 #: resources/templates/server/engines/show.twig:18
 #: resources/templates/server/engines/show.twig:21
 #: resources/templates/sql/query.twig:194 src/Config/ConfigFile.php:580
-#: src/Menu.php:503 src/Server/Status/Data.php:186 src/Util.php:1368
+#: src/Menu.php:503 src/Server/Status/Data.php:186 src/Util.php:1366
 msgid "Variables"
 msgstr "متغيرات"
 
@@ -4730,7 +4730,7 @@ msgid "Importing into the current server"
 msgstr "يتم التحميل إلى الخادم الحالي"
 
 #: resources/templates/server/plugins/index.twig:4 src/Menu.php:518
-#: src/Util.php:1370
+#: src/Util.php:1368
 msgid "Plugins"
 msgstr "القوابس"
 
@@ -5947,13 +5947,13 @@ msgstr ""
 
 #. l10n: shortcuts for Kilobyte
 #: resources/templates/server/status/monitor/index.twig:181
-#: src/Controllers/JavaScriptMessagesController.php:204 src/Util.php:312
+#: src/Controllers/JavaScriptMessagesController.php:204 src/Util.php:313
 msgid "KiB"
 msgstr "كيلوبايت"
 
 #. l10n: shortcuts for Megabyte
 #: resources/templates/server/status/monitor/index.twig:182
-#: src/Controllers/JavaScriptMessagesController.php:205 src/Util.php:314
+#: src/Controllers/JavaScriptMessagesController.php:205 src/Util.php:315
 msgid "MiB"
 msgstr "ميجابايت"
 
@@ -6019,7 +6019,7 @@ msgid "Query analyzer"
 msgstr "نوع الاستعلام"
 
 #: resources/templates/server/status/monitor/index.twig:273 src/Menu.php:335
-#: src/Util.php:1377
+#: src/Util.php:1375
 msgid "Query"
 msgstr "استعلام بواسطة مثال"
 
@@ -6131,7 +6131,7 @@ msgid "Start auto refresh"
 msgstr "بدء التحديث التلقائي"
 
 #: resources/templates/server/status/processes/list.twig:44
-#: src/Display/Results.php:2447
+#: src/Display/Results.php:2446
 msgid "Kill"
 msgstr "حذف"
 
@@ -6500,9 +6500,9 @@ msgid "Pie chart with profiling results."
 msgstr "نتائج التنميط"
 
 #: resources/templates/sql/query.twig:7
-#: src/Controllers/Operations/ViewController.php:114
+#: src/Controllers/Operations/ViewController.php:110
 #: src/Controllers/Table/DeleteRowsController.php:60
-#: src/Controllers/Table/FindReplaceController.php:121
+#: src/Controllers/Table/FindReplaceController.php:117
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:75
 #: src/Controllers/Table/Maintenance/CheckController.php:75
 #: src/Controllers/Table/Maintenance/ChecksumController.php:75
@@ -6516,7 +6516,7 @@ msgstr "نتائج التنميط"
 #: src/Controllers/Table/Partition/RepairController.php:49
 #: src/Controllers/Table/Partition/TruncateController.php:50
 #: src/Controllers/Table/RelationController.php:143
-#: src/Database/Routines.php:1019 src/Display/Results.php:3013
+#: src/Database/Routines.php:1019 src/Display/Results.php:3012
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "تم تنفيذ استعلام SQL الخاص بك بنجاح."
@@ -7010,7 +7010,7 @@ msgstr "إعادة تحميل الجدول (FLUSH)"
 
 #: resources/templates/table/operations/index.twig:411
 #: resources/templates/table/operations/index.twig:429
-#: src/Controllers/Database/StructureController.php:403
+#: src/Controllers/Database/StructureController.php:401
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "تم إفراغ محتويات الجدول %s."
@@ -7026,13 +7026,13 @@ msgstr "إفراغ الجدول (TRUNCATE)"
 
 #: resources/templates/table/operations/index.twig:452
 #: resources/templates/table/operations/view.twig:32
-#: src/Controllers/Database/StructureController.php:356
+#: src/Controllers/Database/StructureController.php:354
 #, php-format
 msgid "View %s has been dropped."
 msgstr "تم إسقاط عرض %s."
 
 #: resources/templates/table/operations/index.twig:452
-#: src/Controllers/Database/StructureController.php:356
+#: src/Controllers/Database/StructureController.php:354
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "تم إسقاط الجدول %s."
@@ -7056,7 +7056,7 @@ msgstr "تحقق من التكامل المرجعي"
 
 #: resources/templates/table/operations/view.twig:8
 #: src/Config/ConfigFile.php:592 src/Menu.php:268 src/Menu.php:278
-#: src/Menu.php:358 src/Util.php:1069 src/Util.php:1380 src/Util.php:1398
+#: src/Menu.php:358 src/Util.php:1067 src/Util.php:1378 src/Util.php:1396
 msgid "Operations"
 msgstr "عمليات"
 
@@ -7539,7 +7539,7 @@ msgid "Event"
 msgstr "حدث"
 
 #: resources/templates/triggers/export.twig:2
-#: src/Controllers/Triggers/IndexController.php:235
+#: src/Controllers/Triggers/IndexController.php:232
 #, php-format
 msgid "Export of trigger %s"
 msgstr ""
@@ -7551,7 +7551,7 @@ msgstr ""
 #: src/Plugins/Export/ExportOdt.php:626 src/Plugins/Export/ExportPdf.php:235
 #: src/Plugins/Export/ExportSql.php:1907
 #: src/Plugins/Export/ExportTexytext.php:465
-#: src/Plugins/Export/ExportXml.php:117 src/Util.php:1384 src/Util.php:1400
+#: src/Plugins/Export/ExportXml.php:117 src/Util.php:1382 src/Util.php:1398
 msgid "Triggers"
 msgstr "القوادح"
 
@@ -8996,8 +8996,8 @@ msgstr "الفيتنامية"
 #: src/Config/ConfigFile.php:520 src/Config/ConfigFile.php:534
 #: src/Config/ConfigFile.php:588 src/Config/ConfigFile.php:598
 #: src/Config/Descriptions.php:755 src/Menu.php:219 src/Menu.php:323
-#: src/Menu.php:441 src/Navigation/Nodes/NodeTable.php:271 src/Util.php:1065
-#: src/Util.php:1360 src/Util.php:1375 src/Util.php:1392
+#: src/Menu.php:441 src/Navigation/Nodes/NodeTable.php:271 src/Util.php:1063
+#: src/Util.php:1358 src/Util.php:1373 src/Util.php:1390
 msgid "SQL"
 msgstr "SQL"
 
@@ -11820,13 +11820,13 @@ msgstr ""
 
 #: src/Controllers/Database/DesignerController.php:171
 #: src/Controllers/Database/DesignerController.php:176
-#: src/Controllers/Database/EventsController.php:50
+#: src/Controllers/Database/EventsController.php:52
 #: src/Controllers/Database/ExportController.php:57
 #: src/Controllers/Database/ExportController.php:62
 #: src/Controllers/Database/ImportController.php:60
 #: src/Controllers/Database/ImportController.php:65
 #: src/Controllers/Database/RoutinesController.php:80
-#: src/Controllers/Database/RoutinesController.php:99
+#: src/Controllers/Database/RoutinesController.php:98
 #: src/Controllers/Database/SearchController.php:53
 #: src/Controllers/Database/SearchController.php:58
 #: src/Controllers/Database/SqlController.php:54
@@ -11851,9 +11851,9 @@ msgstr ""
 #: src/Controllers/Table/ChangeController.php:70
 #: src/Controllers/Table/ChangeController.php:75
 #: src/Controllers/Table/ChartController.php:87
-#: src/Controllers/Table/ChartController.php:92
-#: src/Controllers/Table/ChartController.php:122
-#: src/Controllers/Table/ChartController.php:127
+#: src/Controllers/Table/ChartController.php:94
+#: src/Controllers/Table/ChartController.php:121
+#: src/Controllers/Table/ChartController.php:128
 #: src/Controllers/Table/ChartController.php:201
 #: src/Controllers/Table/DeleteConfirmController.php:57
 #: src/Controllers/Table/DeleteConfirmController.php:62
@@ -11866,7 +11866,7 @@ msgstr ""
 #: src/Controllers/Table/ImportController.php:69
 #: src/Controllers/Table/ImportController.php:74
 #: src/Controllers/Table/IndexesController.php:67
-#: src/Controllers/Table/IndexesController.php:72
+#: src/Controllers/Table/IndexesController.php:74
 #: src/Controllers/Table/IndexRenameController.php:55
 #: src/Controllers/Table/IndexRenameController.php:60
 #: src/Controllers/Table/SearchController.php:174
@@ -11876,46 +11876,46 @@ msgstr ""
 #: src/Controllers/Table/StructureController.php:93
 #: src/Controllers/Table/StructureController.php:98
 #: src/Controllers/Table/Structure/PrimaryController.php:69
-#: src/Controllers/Table/Structure/PrimaryController.php:74
+#: src/Controllers/Table/Structure/PrimaryController.php:76
 #: src/Controllers/Table/TrackingController.php:68
 #: src/Controllers/Table/TrackingController.php:73
 #: src/Controllers/Table/ZoomSearchController.php:102
 #: src/Controllers/Table/ZoomSearchController.php:107
 #: src/Controllers/Triggers/IndexController.php:66
-#: src/Controllers/Triggers/IndexController.php:85
+#: src/Controllers/Triggers/IndexController.php:84
 #: src/Controllers/View/CreateController.php:67
 #: src/Controllers/View/CreateController.php:72
 msgid "No databases selected."
 msgstr "لا قواعد بيانات محددة."
 
-#: src/Controllers/Database/EventsController.php:124
+#: src/Controllers/Database/EventsController.php:125
 msgid "Add event"
 msgstr "إضافة حدث"
 
-#: src/Controllers/Database/EventsController.php:128
+#: src/Controllers/Database/EventsController.php:129
 #, fuzzy
 msgid "Edit event"
 msgstr "حدث"
 
-#: src/Controllers/Database/EventsController.php:177
-#: src/Controllers/Database/RoutinesController.php:276
-#: src/Controllers/Database/RoutinesController.php:306
-#: src/Controllers/Database/RoutinesController.php:374
-#: src/Controllers/Triggers/IndexController.php:209
+#: src/Controllers/Database/EventsController.php:178
+#: src/Controllers/Database/RoutinesController.php:273
+#: src/Controllers/Database/RoutinesController.php:303
+#: src/Controllers/Database/RoutinesController.php:371
+#: src/Controllers/Triggers/IndexController.php:206
 msgid "Error in processing request:"
 msgstr "خطأ في معالجة الطلب:"
 
-#: src/Controllers/Database/EventsController.php:179
+#: src/Controllers/Database/EventsController.php:180
 #, php-format
 msgid "No event with name %1$s found in database %2$s."
 msgstr "لم يتم العثور على حدث يحمل الاسم %1$s في قاعدة البيانات %2$s."
 
-#: src/Controllers/Database/EventsController.php:205
+#: src/Controllers/Database/EventsController.php:206
 #, php-format
 msgid "Export of event %s"
 msgstr ""
 
-#: src/Controllers/Database/EventsController.php:223
+#: src/Controllers/Database/EventsController.php:224
 #, php-format
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
@@ -11923,15 +11923,15 @@ msgstr ""
 "خطأ في طلب المعالجة: لم يتم العثور على حدث يحمل الاسم %1$s في قاعدة البيانات "
 "%2$s."
 
-#: src/Controllers/Database/ExportController.php:131
+#: src/Controllers/Database/ExportController.php:129
 #: src/Controllers/Server/ExportController.php:57
 #: src/Controllers/Table/ExportController.php:90
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 
-#: src/Controllers/Database/ImportController.php:77
+#: src/Controllers/Database/ImportController.php:75
 #: src/Controllers/Server/ImportController.php:60
-#: src/Controllers/Table/ImportController.php:103
+#: src/Controllers/Table/ImportController.php:99
 msgid "Could not load import plugins, please check your installation!"
 msgstr "لم يمكن تحميل قوابس الاستيراد، الرجاء فحص تثبيتك!"
 
@@ -11961,76 +11961,76 @@ msgstr "ليس لديك الحقوق الكافية بأن تكون هنا ال�
 #: src/Controllers/Database/Structure/ShowCreateController.php:36
 #: src/Controllers/Export/TablesController.php:29
 #: src/Controllers/JavaScriptMessagesController.php:331
-#: src/Controllers/Operations/TableController.php:100
-#: src/Controllers/Operations/TableController.php:105
-#: src/Controllers/Operations/ViewController.php:75
-#: src/Controllers/Operations/ViewController.php:80
-#: src/Controllers/Table/AddFieldController.php:175
-#: src/Controllers/Table/AddFieldController.php:180
-#: src/Controllers/Table/ChangeController.php:84
-#: src/Controllers/Table/ChangeController.php:89
-#: src/Controllers/Table/ChartController.php:101
-#: src/Controllers/Table/ChartController.php:106
+#: src/Controllers/Operations/TableController.php:98
+#: src/Controllers/Operations/TableController.php:103
+#: src/Controllers/Operations/ViewController.php:73
+#: src/Controllers/Operations/ViewController.php:78
+#: src/Controllers/Table/AddFieldController.php:173
+#: src/Controllers/Table/AddFieldController.php:178
+#: src/Controllers/Table/ChangeController.php:82
+#: src/Controllers/Table/ChangeController.php:87
+#: src/Controllers/Table/ChartController.php:102
+#: src/Controllers/Table/ChartController.php:107
 #: src/Controllers/Table/ChartController.php:209
-#: src/Controllers/Table/DeleteConfirmController.php:71
-#: src/Controllers/Table/DeleteConfirmController.php:76
-#: src/Controllers/Table/DropColumnConfirmationController.php:65
-#: src/Controllers/Table/DropColumnConfirmationController.php:70
-#: src/Controllers/Table/FindReplaceController.php:89
-#: src/Controllers/Table/FindReplaceController.php:94
-#: src/Controllers/Table/ImportController.php:83
-#: src/Controllers/Table/ImportController.php:88
-#: src/Controllers/Table/IndexesController.php:81
-#: src/Controllers/Table/IndexesController.php:86
-#: src/Controllers/Table/IndexRenameController.php:69
-#: src/Controllers/Table/IndexRenameController.php:74
+#: src/Controllers/Table/DeleteConfirmController.php:69
+#: src/Controllers/Table/DeleteConfirmController.php:74
+#: src/Controllers/Table/DropColumnConfirmationController.php:63
+#: src/Controllers/Table/DropColumnConfirmationController.php:68
+#: src/Controllers/Table/FindReplaceController.php:87
+#: src/Controllers/Table/FindReplaceController.php:92
+#: src/Controllers/Table/ImportController.php:81
+#: src/Controllers/Table/ImportController.php:86
+#: src/Controllers/Table/IndexesController.php:82
+#: src/Controllers/Table/IndexesController.php:87
+#: src/Controllers/Table/IndexRenameController.php:67
+#: src/Controllers/Table/IndexRenameController.php:72
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:46
 #: src/Controllers/Table/Maintenance/CheckController.php:46
 #: src/Controllers/Table/Maintenance/ChecksumController.php:46
 #: src/Controllers/Table/Maintenance/OptimizeController.php:46
 #: src/Controllers/Table/Maintenance/RepairController.php:46
-#: src/Controllers/Table/SearchController.php:188
-#: src/Controllers/Table/SearchController.php:193
-#: src/Controllers/Table/SqlController.php:73
-#: src/Controllers/Table/SqlController.php:78
-#: src/Controllers/Table/StructureController.php:107
-#: src/Controllers/Table/StructureController.php:112
-#: src/Controllers/Table/Structure/PrimaryController.php:83
-#: src/Controllers/Table/Structure/PrimaryController.php:88
-#: src/Controllers/Table/ZoomSearchController.php:116
-#: src/Controllers/Table/ZoomSearchController.php:121
+#: src/Controllers/Table/SearchController.php:186
+#: src/Controllers/Table/SearchController.php:191
+#: src/Controllers/Table/SqlController.php:71
+#: src/Controllers/Table/SqlController.php:76
+#: src/Controllers/Table/StructureController.php:105
+#: src/Controllers/Table/StructureController.php:110
+#: src/Controllers/Table/Structure/PrimaryController.php:84
+#: src/Controllers/Table/Structure/PrimaryController.php:89
+#: src/Controllers/Table/ZoomSearchController.php:114
+#: src/Controllers/Table/ZoomSearchController.php:119
 #: src/Controllers/Triggers/IndexController.php:74
 #, fuzzy
 msgid "No table selected."
 msgstr "لم يتم تحديد جداول."
 
-#: src/Controllers/Database/RoutinesController.php:176
+#: src/Controllers/Database/RoutinesController.php:173
 msgid "Add routine"
 msgstr "إضافة روتين"
 
-#: src/Controllers/Database/RoutinesController.php:180
+#: src/Controllers/Database/RoutinesController.php:177
 msgid "Edit routine"
 msgstr "تعديل الإجراء"
 
-#: src/Controllers/Database/RoutinesController.php:279
+#: src/Controllers/Database/RoutinesController.php:276
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
 msgstr ""
 
-#: src/Controllers/Database/RoutinesController.php:308
-#: src/Controllers/Database/RoutinesController.php:376
+#: src/Controllers/Database/RoutinesController.php:305
+#: src/Controllers/Database/RoutinesController.php:373
 #, php-format
 msgid "No routine with name %1$s found in database %2$s."
 msgstr "لم يتم العثور على إجراء بالاسم %1$s في قاعدة البيانات %2$s."
 
-#: src/Controllers/Database/RoutinesController.php:419
+#: src/Controllers/Database/RoutinesController.php:416
 #, php-format
 msgid "Export of routine %s"
 msgstr "تصدير %s"
 
-#: src/Controllers/Database/RoutinesController.php:438
+#: src/Controllers/Database/RoutinesController.php:435
 #, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
@@ -12038,7 +12038,7 @@ msgid ""
 "routine."
 msgstr ""
 
-#: src/Controllers/Database/SearchController.php:65
+#: src/Controllers/Database/SearchController.php:63
 msgid ""
 "Searching inside the database is disabled by the [code]$cfg['UseDbSearch'][/"
 "code] configuration."
@@ -12050,8 +12050,8 @@ msgstr ""
 msgid "Success!"
 msgstr "نجاح!"
 
-#: src/Controllers/Database/StructureController.php:569
-#: src/Display/Results.php:3286
+#: src/Controllers/Database/StructureController.php:567
+#: src/Display/Results.php:3285
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -12060,7 +12060,7 @@ msgstr ""
 "لدى هذا العرض على الأقل هذا العدد من الأسطر. الرجاء مراجعة الـ "
 "%sdocumentation%s."
 
-#: src/Controllers/Database/StructureController.php:736
+#: src/Controllers/Database/StructureController.php:734
 msgid "unknown"
 msgstr "غير معروفة"
 
@@ -12068,22 +12068,22 @@ msgstr "غير معروفة"
 msgid "Favorite List is full!"
 msgstr "قائمة المفضلة ممتلئة!"
 
-#: src/Controllers/Database/TrackingController.php:73
-#: src/Controllers/Database/TrackingController.php:99
+#: src/Controllers/Database/TrackingController.php:71
+#: src/Controllers/Database/TrackingController.php:97
 msgid "Tracking data deleted successfully."
 msgstr "تم مسح بيانات تتبع التغيرات بنجاح ."
 
-#: src/Controllers/Database/TrackingController.php:84
+#: src/Controllers/Database/TrackingController.php:82
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr "تم إنشاء الإصدار %1$s للجداول المحددة، التتبع نشط بالنسبة لهم."
 
-#: src/Controllers/Database/TrackingController.php:116
+#: src/Controllers/Database/TrackingController.php:114
 msgid "No tables selected."
 msgstr "لم يتم تحديد جداول."
 
-#: src/Controllers/Database/TrackingController.php:151
+#: src/Controllers/Database/TrackingController.php:149
 msgid "Database Log"
 msgstr "سجل قاعدة البيانات"
 
@@ -12577,14 +12577,12 @@ msgid "Other"
 msgstr "آخر"
 
 #. l10n: Thousands separator
-#: src/Controllers/JavaScriptMessagesController.php:169 src/Util.php:401
-#: src/Util.php:433
+#: src/Controllers/JavaScriptMessagesController.php:169 src/Util.php:393
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: src/Controllers/JavaScriptMessagesController.php:171 src/Util.php:399
-#: src/Util.php:431
+#: src/Controllers/JavaScriptMessagesController.php:171 src/Util.php:391
 msgid "."
 msgstr "."
 
@@ -12669,27 +12667,27 @@ msgid "Bytes received"
 msgstr "تم استلام وحدات البايت"
 
 #. l10n: shortcuts for Byte
-#: src/Controllers/JavaScriptMessagesController.php:203 src/Util.php:310
+#: src/Controllers/JavaScriptMessagesController.php:203 src/Util.php:311
 msgid "B"
 msgstr "بايت"
 
 #. l10n: shortcuts for Gigabyte
-#: src/Controllers/JavaScriptMessagesController.php:206 src/Util.php:316
+#: src/Controllers/JavaScriptMessagesController.php:206 src/Util.php:317
 msgid "GiB"
 msgstr "جيجا بايت"
 
 #. l10n: shortcuts for Terabyte
-#: src/Controllers/JavaScriptMessagesController.php:207 src/Util.php:318
+#: src/Controllers/JavaScriptMessagesController.php:207 src/Util.php:319
 msgid "TiB"
 msgstr "تيرا بايت"
 
 #. l10n: shortcuts for Petabyte
-#: src/Controllers/JavaScriptMessagesController.php:208 src/Util.php:320
+#: src/Controllers/JavaScriptMessagesController.php:208 src/Util.php:321
 msgid "PiB"
 msgstr "بيتا بايت"
 
 #. l10n: shortcuts for Exabyte
-#: src/Controllers/JavaScriptMessagesController.php:209 src/Util.php:322
+#: src/Controllers/JavaScriptMessagesController.php:209 src/Util.php:323
 msgid "EiB"
 msgstr "إكسابايت"
 
@@ -13855,115 +13853,115 @@ msgctxt "Month name"
 msgid "December"
 msgstr "ديسمبر"
 
-#: src/Controllers/JavaScriptMessagesController.php:708 src/Util.php:507
+#: src/Controllers/JavaScriptMessagesController.php:708 src/Util.php:505
 #, fuzzy
 msgctxt "Short month name for January"
 msgid "Jan"
 msgstr "يناير"
 
-#: src/Controllers/JavaScriptMessagesController.php:709 src/Util.php:508
+#: src/Controllers/JavaScriptMessagesController.php:709 src/Util.php:506
 #, fuzzy
 msgctxt "Short month name for February"
 msgid "Feb"
 msgstr "فبراير"
 
-#: src/Controllers/JavaScriptMessagesController.php:710 src/Util.php:509
+#: src/Controllers/JavaScriptMessagesController.php:710 src/Util.php:507
 #, fuzzy
 msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "مارس"
 
-#: src/Controllers/JavaScriptMessagesController.php:711 src/Util.php:510
+#: src/Controllers/JavaScriptMessagesController.php:711 src/Util.php:508
 #, fuzzy
 msgctxt "Short month name for April"
 msgid "Apr"
 msgstr "أبريل"
 
-#: src/Controllers/JavaScriptMessagesController.php:712 src/Util.php:511
+#: src/Controllers/JavaScriptMessagesController.php:712 src/Util.php:509
 #, fuzzy
 msgctxt "Short month name for May"
 msgid "May"
 msgstr "مايو"
 
-#: src/Controllers/JavaScriptMessagesController.php:713 src/Util.php:512
+#: src/Controllers/JavaScriptMessagesController.php:713 src/Util.php:510
 #, fuzzy
 msgctxt "Short month name for June"
 msgid "Jun"
 msgstr "يونيو"
 
-#: src/Controllers/JavaScriptMessagesController.php:714 src/Util.php:513
+#: src/Controllers/JavaScriptMessagesController.php:714 src/Util.php:511
 #, fuzzy
 msgctxt "Short month name for July"
 msgid "Jul"
 msgstr "يوليو"
 
-#: src/Controllers/JavaScriptMessagesController.php:715 src/Util.php:514
+#: src/Controllers/JavaScriptMessagesController.php:715 src/Util.php:512
 #, fuzzy
 msgctxt "Short month name for August"
 msgid "Aug"
 msgstr "أغسطس"
 
-#: src/Controllers/JavaScriptMessagesController.php:716 src/Util.php:515
+#: src/Controllers/JavaScriptMessagesController.php:716 src/Util.php:513
 #, fuzzy
 msgctxt "Short month name for September"
 msgid "Sep"
 msgstr "سبتمبر"
 
-#: src/Controllers/JavaScriptMessagesController.php:717 src/Util.php:516
+#: src/Controllers/JavaScriptMessagesController.php:717 src/Util.php:514
 #, fuzzy
 msgctxt "Short month name for October"
 msgid "Oct"
 msgstr "أكتوبر"
 
-#: src/Controllers/JavaScriptMessagesController.php:718 src/Util.php:517
+#: src/Controllers/JavaScriptMessagesController.php:718 src/Util.php:515
 #, fuzzy
 msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "نوفمبر"
 
-#: src/Controllers/JavaScriptMessagesController.php:719 src/Util.php:518
+#: src/Controllers/JavaScriptMessagesController.php:719 src/Util.php:516
 #, fuzzy
 msgctxt "Short month name for December"
 msgid "Dec"
 msgstr "ديسمبر"
 
-#: src/Controllers/JavaScriptMessagesController.php:727 src/Util.php:521
+#: src/Controllers/JavaScriptMessagesController.php:727 src/Util.php:519
 #, fuzzy
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "الأحد"
 
-#: src/Controllers/JavaScriptMessagesController.php:728 src/Util.php:522
+#: src/Controllers/JavaScriptMessagesController.php:728 src/Util.php:520
 #, fuzzy
 msgctxt "Short week day name for Monday"
 msgid "Mon"
 msgstr "الإثنين"
 
-#: src/Controllers/JavaScriptMessagesController.php:729 src/Util.php:523
+#: src/Controllers/JavaScriptMessagesController.php:729 src/Util.php:521
 #, fuzzy
 msgctxt "Short week day name for Tuesday"
 msgid "Tue"
 msgstr "الثلاثاء"
 
-#: src/Controllers/JavaScriptMessagesController.php:730 src/Util.php:524
+#: src/Controllers/JavaScriptMessagesController.php:730 src/Util.php:522
 #, fuzzy
 msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr "الأربعاء"
 
-#: src/Controllers/JavaScriptMessagesController.php:731 src/Util.php:525
+#: src/Controllers/JavaScriptMessagesController.php:731 src/Util.php:523
 #, fuzzy
 msgctxt "Short week day name for Thursday"
 msgid "Thu"
 msgstr "الخميس"
 
-#: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:526
+#: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:524
 #, fuzzy
 msgctxt "Short week day name for Friday"
 msgid "Fri"
 msgstr "الجمعة"
 
-#: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:527
+#: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:525
 #, fuzzy
 msgctxt "Short week day name for Saturday"
 msgid "Sat"
@@ -14234,7 +14232,7 @@ msgid "String"
 msgstr "السلسلة"
 
 #: src/Controllers/Operations/Database/CollationController.php:42
-#: src/Controllers/Operations/TableController.php:266
+#: src/Controllers/Operations/TableController.php:262
 msgid "No collation provided."
 msgstr ""
 
@@ -14252,7 +14250,7 @@ msgstr "تمت إعادة تسمية قاعدة البيانات %1$s إلى %2$
 msgid "Database %1$s has been copied to %2$s."
 msgstr "تم نسخ قاعدة البيانات %1$s إلى %2$s."
 
-#: src/Controllers/Operations/DatabaseController.php:279
+#: src/Controllers/Operations/DatabaseController.php:277
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
@@ -14281,7 +14279,7 @@ msgstr "تم تكوين المصادقة الثنائية."
 
 #: src/Controllers/SchemaExportController.php:40
 #: src/Controllers/Server/UserGroupsFormController.php:46
-#: src/ResponseRenderer.php:448
+#: src/ResponseRenderer.php:449
 msgid "Missing parameter:"
 msgstr "مدخلات مفقودة:"
 
@@ -14971,18 +14969,18 @@ msgstr "لايوجد بيانات"
 msgid "Wrong data or no validation for %s"
 msgstr ""
 
-#: src/Controllers/Sql/SqlController.php:215 src/Sql.php:1055
+#: src/Controllers/Sql/SqlController.php:213 src/Sql.php:1055
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "تم إنشاء العلامة المرجعية %s."
 
-#: src/Controllers/Sql/SqlController.php:222
+#: src/Controllers/Sql/SqlController.php:220
 msgid "Bookmark not created!"
 msgstr "المرجعية لم يتم إنشاؤها!"
 
 #: src/Controllers/Table/AddFieldController.php:136
-#: src/Controllers/Table/IndexesController.php:140
-#: src/Controllers/Table/IndexRenameController.php:127
+#: src/Controllers/Table/IndexesController.php:139
+#: src/Controllers/Table/IndexRenameController.php:123
 #: src/Controllers/Table/Structure/PartitioningController.php:267
 #: src/Controllers/Table/Structure/SaveController.php:217
 #, php-format
@@ -14996,7 +14994,7 @@ msgid "No row selected."
 msgstr "لم يتم تحديد صف."
 
 #: src/Controllers/Table/ChartController.php:59
-#: src/Controllers/Table/GisVisualizationController.php:82
+#: src/Controllers/Table/GisVisualizationController.php:80
 msgid "No SQL query was set to fetch data."
 msgstr ""
 
@@ -15057,7 +15055,7 @@ msgstr ""
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "قام MySQL بإرجاع نتيجة فارغة."
 
-#: src/Controllers/Table/GisVisualizationController.php:93
+#: src/Controllers/Table/GisVisualizationController.php:91
 #, fuzzy
 msgid "No spatial column found for this SQL query."
 msgstr "ليس له أي تأثير في نسخة MySQL الحالية."
@@ -15141,39 +15139,39 @@ msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "تم تغيير الجدول %1$s بنجاح. تم تعديل الامتيازات."
 
-#: src/Controllers/Table/TrackingController.php:92
+#: src/Controllers/Table/TrackingController.php:90
 #, php-format
 msgid "Tracking of %s is activated."
 msgstr "تم تنشيط تتبع %s."
 
-#: src/Controllers/Table/TrackingController.php:145
+#: src/Controllers/Table/TrackingController.php:143
 msgid "SQL statements executed."
 msgstr "تم تنفيذ جمل SQL."
 
-#: src/Controllers/Table/TrackingController.php:199
+#: src/Controllers/Table/TrackingController.php:197
 #, fuzzy
 msgid "Tracking versions deleted successfully."
 msgstr "تم حذف المستخدمين المحددين بنجاح."
 
-#: src/Controllers/Table/TrackingController.php:204
+#: src/Controllers/Table/TrackingController.php:202
 msgid "No versions selected."
 msgstr "لم يتم تحديد إصدارات."
 
-#: src/Controllers/Triggers/IndexController.php:165
+#: src/Controllers/Triggers/IndexController.php:162
 msgid "Add trigger"
 msgstr "إضافة زناد"
 
-#: src/Controllers/Triggers/IndexController.php:169
+#: src/Controllers/Triggers/IndexController.php:166
 #, fuzzy
 msgid "Edit trigger"
 msgstr "أضف مستخدم جديد"
 
-#: src/Controllers/Triggers/IndexController.php:211
+#: src/Controllers/Triggers/IndexController.php:208
 #, php-format
 msgid "No trigger with name %1$s found in database %2$s."
 msgstr "لم يتم العثور على مشغل بالاسم %1$s في قاعدة البيانات %2$s."
 
-#: src/Controllers/Triggers/IndexController.php:252
+#: src/Controllers/Triggers/IndexController.php:249
 #, php-format
 msgid ""
 "Error in processing request: No trigger with name %1$s found in database "
@@ -15186,7 +15184,7 @@ msgstr ""
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "ليس لديك الحقوق الكافية بأن تكون هنا الآن!"
 
-#: src/Controllers/View/CreateController.php:85
+#: src/Controllers/View/CreateController.php:83
 msgid "View name can not be empty!"
 msgstr ""
 
@@ -15435,33 +15433,33 @@ msgid ""
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
 
-#: src/Display/Results.php:2404 src/Display/Results.php:2419
+#: src/Display/Results.php:2403 src/Display/Results.php:2418
 msgid "The row has been deleted."
 msgstr "تم حذف الصف."
 
-#: src/Display/Results.php:3295
+#: src/Display/Results.php:3294
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "عرض الصفوف من %1s إلى %2s"
 
-#: src/Display/Results.php:3309
+#: src/Display/Results.php:3308
 #, fuzzy, php-format
 #| msgid "%1$d total, %2$d in query"
 msgid "%1$s total, %2$s in query"
 msgstr "%1$d جملة %2$d طلب بحث"
 
-#: src/Display/Results.php:3314
+#: src/Display/Results.php:3313
 #, fuzzy, php-format
 #| msgid "%d total"
 msgid "%s total"
 msgstr "المجموع %d"
 
-#: src/Display/Results.php:3327 src/Sql.php:871
+#: src/Display/Results.php:3326 src/Sql.php:871
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "استغرق الاستعلام %01.4f ثانية."
 
-#: src/Display/Results.php:3623
+#: src/Display/Results.php:3622
 msgid "Link not found!"
 msgstr "لم يتم العثور على الرابط!"
 
@@ -16115,7 +16113,7 @@ msgstr "تم تعطيل ميزة Linting لهذا الاستعلام لأنه ي
 msgid "%1$s (near <code>%2$s</code>)"
 msgstr "%1$s (بالقرب من <code>%2$s</code>)"
 
-#: src/Menu.php:284 src/Menu.php:391 src/Util.php:1385 src/Util.php:1399
+#: src/Menu.php:284 src/Menu.php:391 src/Util.php:1383 src/Util.php:1397
 msgid "Tracking"
 msgstr "تتبع"
 
@@ -16123,7 +16121,7 @@ msgstr "تتبع"
 msgid "Database seems to be empty!"
 msgstr "قاعدة البيانات فارغة!"
 
-#: src/Menu.php:398 src/Util.php:1386
+#: src/Menu.php:398 src/Util.php:1384
 msgid "Designer"
 msgstr "المصمم"
 
@@ -16131,11 +16129,11 @@ msgstr "المصمم"
 msgid "User accounts"
 msgstr "حسابات المستخدمين"
 
-#: src/Menu.php:508 src/Util.php:1369
+#: src/Menu.php:508 src/Util.php:1367
 msgid "Charsets"
 msgstr "مجموعات المحارف"
 
-#: src/Menu.php:513 src/Util.php:1371
+#: src/Menu.php:513 src/Util.php:1369
 msgid "Engines"
 msgstr "محركات"
 
@@ -16172,23 +16170,23 @@ msgstr[3] "%1$d صفوف أضيفت."
 msgstr[4] "%1$d صفوف أضيفت."
 msgstr[5] "%1$d صفوف أضيفت."
 
-#: src/Navigation/Navigation.php:215
+#: src/Navigation/Navigation.php:216
 msgid "Groups:"
 msgstr "المجموعات:"
 
-#: src/Navigation/Navigation.php:216
+#: src/Navigation/Navigation.php:217
 msgid "Events:"
 msgstr "أحداث :"
 
-#: src/Navigation/Navigation.php:217
+#: src/Navigation/Navigation.php:218
 msgid "Functions:"
 msgstr "دوال :"
 
-#: src/Navigation/Navigation.php:218
+#: src/Navigation/Navigation.php:219
 msgid "Procedures:"
 msgstr "الاجراءات :"
 
-#: src/Navigation/Navigation.php:220
+#: src/Navigation/Navigation.php:221
 msgid "Views:"
 msgstr "عرض :"
 
@@ -16627,7 +16625,7 @@ msgstr "لايمكن إيجاد برنامج مصادقة التوقيع:"
 msgid "Invalid authentication method set in configuration:"
 msgstr "اسلوب مصادقة غير صحيح في الإعدادات:"
 
-#: src/Plugins/AuthenticationPlugin.php:313
+#: src/Plugins/AuthenticationPlugin.php:317
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 
@@ -17181,7 +17179,7 @@ msgstr ""
 msgid "XML"
 msgstr "إكس إم إل"
 
-#: src/Plugins.php:575
+#: src/Plugins.php:577
 #, fuzzy
 msgid "This format has no options"
 msgstr "هذا التنسيق ليس له أي خيارات"
@@ -17291,7 +17289,7 @@ msgstr ""
 
 #. l10n: See https://www.php.net/manual/en/function.strftime.php
 #: src/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:129
-#: src/Util.php:532
+#: src/Util.php:530
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d %B %Y الساعة %H:%M"
 
@@ -17612,19 +17610,19 @@ msgstr ""
 msgid "Primary server changed successfully to %s."
 msgstr "تم تغيير الخادم الأساسي بنجاح إلى %s."
 
-#: src/Routing/Routing.php:124
+#: src/Routing/Routing.php:123
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
 
-#: src/Routing/Routing.php:157 src/Routing/Routing.php:200
+#: src/Routing/Routing.php:156 src/Routing/Routing.php:198
 #, php-format
 msgid "Error 404! The page %s was not found."
 msgstr "خطأ 404! لم يتم العثور على الصفحة %s."
 
-#: src/Routing/Routing.php:165
+#: src/Routing/Routing.php:164
 msgid "Error 405! Request method not allowed."
 msgstr "خطأ 405! طريقة الطلب غير مسموح بها."
 
@@ -18379,36 +18377,36 @@ msgstr "لقد تم تجديد الملف الشخصي."
 msgid "Password is too long!"
 msgstr "كلمة المرور طويلة جدا!"
 
-#: src/UserPreferences.php:161
+#: src/UserPreferences.php:162
 msgid "Could not save configuration"
 msgstr ""
 
-#: src/UserPreferences.php:172
+#: src/UserPreferences.php:173
 #, fuzzy
 msgid "The phpMyAdmin configuration storage database could not be accessed."
 msgstr "تم تعطيل phpMyAdmin لتهيئة التخزين . لمعرفة السبب اضغط %sهنا%s."
 
-#: src/Util.php:132
+#: src/Util.php:133
 #, php-format
 msgid "Max: %s%s"
 msgstr "كبير: %s%s"
 
-#: src/Util.php:541
+#: src/Util.php:539
 msgctxt "AM/PM indication in time"
 msgid "PM"
 msgstr "مساء"
 
-#: src/Util.php:543
+#: src/Util.php:541
 msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr "صباحا"
 
-#: src/Util.php:616
+#: src/Util.php:614
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s يوم، %s ساعة، %s دقيقة و%s ثانية"
 
-#: src/Util.php:1362
+#: src/Util.php:1360
 msgid "Users"
 msgstr "المستخدمون"
 
