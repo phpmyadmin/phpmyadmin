@@ -258,11 +258,11 @@ class GisMultiLineStringTest extends GisGeomTestCase
                 'svg',
                 [176, 46, 224],
                 new ScaleData(offsetX: 12, offsetY: 69, scale: 2, height: 150),
-                '<polyline points="48,260 70,242 100,138 " data-label="svg" '
+                '<polyline points="48,260 70,242 100,138 " '
                 . 'class="linestring vector" fill="none" stroke="#b02ee0" '
-                . 'stroke-width="2" id="svg1234567890"/><polyline points="48,268 10,'
-                . '242 332,182 " data-label="svg" class="linestring vector" fill="none" '
-                . 'stroke="#b02ee0" stroke-width="2" id="svg1234567890"/>',
+                . 'stroke-width="2" data-label="svg"/><polyline points="48,268 10,'
+                . '242 332,182 " class="linestring vector" fill="none" '
+                . 'stroke="#b02ee0" stroke-width="2" data-label="svg"/>',
             ],
         ];
     }
