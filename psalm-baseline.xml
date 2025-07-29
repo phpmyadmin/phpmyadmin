@@ -4070,9 +4070,6 @@
       <code><![CDATA[$preCount]]></code>
       <code><![CDATA[$total]]></code>
     </UnusedParam>
-    <UnusedProperty>
-      <code><![CDATA[$queryTime]]></code>
-    </UnusedProperty>
   </file>
   <file src="src/Encoding.php">
     <DeprecatedMethod>

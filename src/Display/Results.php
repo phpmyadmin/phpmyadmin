@@ -3008,11 +3008,18 @@ class Results
 
             $sqlQueryMessage = Generator::getMessage($message, $this->sqlQuery, MessageType::Success);
         } elseif (! $this->printView && ! $isLimitedDisplay) {
-            $sqlQueryMessage = Generator::getMessage(
-                __('Your SQL query has been executed successfully.'),
-                $this->sqlQuery,
-                MessageType::Success,
-            );
+            $message = Message::success(__('Your SQL query has been executed successfully.'));
+
+            if ($this->queryTime > 0) {
+                $message->addText('(');
+
+                $messageQueryTime = Message::notice(__('Query took %01.4f seconds.') . ')');
+                $messageQueryTime->addParam($this->queryTime);
+
+                $message->addMessage($messageQueryTime, '');
+            }
+
+            $sqlQueryMessage = Generator::getMessage($message, $this->sqlQuery, MessageType::Success);
         }
 
         // 2.3 Prepare the navigation bars
