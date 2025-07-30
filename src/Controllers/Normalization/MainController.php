@@ -9,10 +9,12 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 
 /**
  * Normalization process (temporarily specific to 1NF).
  */
+#[Route('/normalization', ['GET', 'POST'])]
 final class MainController implements InvocableController
 {
     public function __construct(private readonly ResponseRenderer $response)

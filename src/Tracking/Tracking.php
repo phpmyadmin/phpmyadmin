@@ -887,55 +887,55 @@ class Tracking
 
         // a key is absent from the request if it has been removed from
         // tracking_default_statements in the config
-        if (isset($_POST['alter_table']) && $_POST['alter_table'] == true) {
+        if (isset($_POST['alter_table']) && $_POST['alter_table']) {
             $trackingSet .= 'ALTER TABLE,';
         }
 
-        if (isset($_POST['rename_table']) && $_POST['rename_table'] == true) {
+        if (isset($_POST['rename_table']) && $_POST['rename_table']) {
             $trackingSet .= 'RENAME TABLE,';
         }
 
-        if (isset($_POST['create_table']) && $_POST['create_table'] == true) {
+        if (isset($_POST['create_table']) && $_POST['create_table']) {
             $trackingSet .= 'CREATE TABLE,';
         }
 
-        if (isset($_POST['drop_table']) && $_POST['drop_table'] == true) {
+        if (isset($_POST['drop_table']) && $_POST['drop_table']) {
             $trackingSet .= 'DROP TABLE,';
         }
 
-        if (isset($_POST['alter_view']) && $_POST['alter_view'] == true) {
+        if (isset($_POST['alter_view']) && $_POST['alter_view']) {
             $trackingSet .= 'ALTER VIEW,';
         }
 
-        if (isset($_POST['create_view']) && $_POST['create_view'] == true) {
+        if (isset($_POST['create_view']) && $_POST['create_view']) {
             $trackingSet .= 'CREATE VIEW,';
         }
 
-        if (isset($_POST['drop_view']) && $_POST['drop_view'] == true) {
+        if (isset($_POST['drop_view']) && $_POST['drop_view']) {
             $trackingSet .= 'DROP VIEW,';
         }
 
-        if (isset($_POST['create_index']) && $_POST['create_index'] == true) {
+        if (isset($_POST['create_index']) && $_POST['create_index']) {
             $trackingSet .= 'CREATE INDEX,';
         }
 
-        if (isset($_POST['drop_index']) && $_POST['drop_index'] == true) {
+        if (isset($_POST['drop_index']) && $_POST['drop_index']) {
             $trackingSet .= 'DROP INDEX,';
         }
 
-        if (isset($_POST['insert']) && $_POST['insert'] == true) {
+        if (isset($_POST['insert']) && $_POST['insert']) {
             $trackingSet .= 'INSERT,';
         }
 
-        if (isset($_POST['update']) && $_POST['update'] == true) {
+        if (isset($_POST['update']) && $_POST['update']) {
             $trackingSet .= 'UPDATE,';
         }
 
-        if (isset($_POST['delete']) && $_POST['delete'] == true) {
+        if (isset($_POST['delete']) && $_POST['delete']) {
             $trackingSet .= 'DELETE,';
         }
 
-        if (isset($_POST['truncate']) && $_POST['truncate'] == true) {
+        if (isset($_POST['truncate']) && $_POST['truncate']) {
             $trackingSet .= 'TRUNCATE,';
         }
 

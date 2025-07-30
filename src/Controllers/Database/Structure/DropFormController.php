@@ -10,12 +10,14 @@ use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
 
 use function __;
 use function htmlspecialchars;
 
+#[Route('/database/structure/drop-form', ['POST'])]
 final class DropFormController implements InvocableController
 {
     public function __construct(private readonly ResponseRenderer $response, private readonly DatabaseInterface $dbi)

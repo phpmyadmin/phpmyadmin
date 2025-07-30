@@ -17,6 +17,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
 
@@ -25,6 +26,7 @@ use function array_merge;
 use function count;
 use function is_array;
 
+#[Route('/database/export', ['GET', 'POST'])]
 final class ExportController implements InvocableController
 {
     public function __construct(
@@ -57,9 +59,7 @@ final class ExportController implements InvocableController
                 return $this->response->response();
             }
 
-            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
-
-            return $this->response->response();
+            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
         }
 
         UrlParams::$params['goto'] = Url::getFromRoute('/database/export');

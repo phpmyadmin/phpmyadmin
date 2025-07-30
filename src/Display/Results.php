@@ -449,8 +449,8 @@ class Results
             // Displays edit/delete/sort/insert links?
             if (
                 $isLink
-                && $previousTable != ''
-                && $field->table != ''
+                && $previousTable !== ''
+                && $field->table !== ''
                 && $field->table !== $previousTable
             ) {
                 // don't display links
@@ -461,14 +461,14 @@ class Results
 
             // Always display print view link
             $hasPrintLink = true;
-            if ($field->table == '') {
+            if ($field->table === '') {
                 continue;
             }
 
             $previousTable = $field->table;
         }
 
-        if ($previousTable == '') { // no table for any of the columns
+        if ($previousTable === '') { // no table for any of the columns
             // don't display links
             $hasEditLink = false;
             $deleteLink = DeleteLinkEnum::NO_DELETE;
@@ -1072,7 +1072,7 @@ class Results
     {
         if (
             isset($_SESSION['tmpval']['possible_as_geometry'])
-            && $_SESSION['tmpval']['possible_as_geometry'] == false
+            && ! $_SESSION['tmpval']['possible_as_geometry']
             && $_SESSION['tmpval']['geoOption'] === self::GEOMETRY_DISP_GEOM
         ) {
             $_SESSION['tmpval']['geoOption'] = self::GEOMETRY_DISP_WKT;
@@ -1117,11 +1117,10 @@ class Results
             $urlParamsFullText['pftext'] = self::DISPLAY_FULL_TEXT;
         }
 
-        /** @var ThemeManager $themeManager */
         $themeManager = ContainerBuilder::getContainer()->get(ThemeManager::class);
 
         $tmpImage = '<img class="fulltext" src="'
-            . $themeManager->theme->getImgPath($tmpImageFile)
+            . $themeManager->getThemeImagePath($tmpImageFile)
             . '" alt="' . $tmpTxt . '" title="' . $tmpTxt . '">';
 
         return Generator::linkOrButton(Url::getFromRoute('/sql', $urlParamsFullText, false), null, $tmpImage);
@@ -1742,11 +1741,11 @@ class Results
             }
 
             $trClass = [];
-            if ($this->config->settings['BrowsePointerEnable'] != true) {
+            if (! $this->config->settings['BrowsePointerEnable']) {
                 $trClass[] = 'nopointer';
             }
 
-            if ($this->config->settings['BrowseMarkerEnable'] != true) {
+            if (! $this->config->settings['BrowseMarkerEnable']) {
                 $trClass[] = 'nomarker';
             }
 
@@ -2033,7 +2032,7 @@ class Results
                 : '';
 
             $gridEdit = '';
-            if ($meta->orgtable != '' && $gridEditConfig !== 'disabled') {
+            if ($meta->orgtable !== '' && $gridEditConfig !== 'disabled') {
                 $gridEdit = $gridEditConfig === 'click' ? 'grid_edit click1' : 'grid_edit click2';
             }
 
@@ -3009,11 +3008,18 @@ class Results
 
             $sqlQueryMessage = Generator::getMessage($message, $this->sqlQuery, MessageType::Success);
         } elseif (! $this->printView && ! $isLimitedDisplay) {
-            $sqlQueryMessage = Generator::getMessage(
-                __('Your SQL query has been executed successfully.'),
-                $this->sqlQuery,
-                MessageType::Success,
-            );
+            $message = Message::success(__('Your SQL query has been executed successfully.'));
+
+            if ($this->queryTime > 0) {
+                $message->addText('(');
+
+                $messageQueryTime = Message::notice(__('Query took %01.4f seconds.') . ')');
+                $messageQueryTime->addParam($this->queryTime);
+
+                $message->addMessage($messageQueryTime, '');
+            }
+
+            $sqlQueryMessage = Generator::getMessage($message, $this->sqlQuery, MessageType::Success);
         }
 
         // 2.3 Prepare the navigation bars
@@ -3304,7 +3310,7 @@ class Results
         $message->addText('(');
 
         if ($messageViewWarning === false) {
-            if ($this->unlimNumRows != $total) {
+            if ($this->unlimNumRows !== $total) {
                 $messageTotal = Message::notice(
                     $preCount . __('%1$s total, %2$s in query'),
                 );

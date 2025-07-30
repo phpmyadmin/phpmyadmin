@@ -12,6 +12,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\UserPassword;
 
 use function __;
@@ -19,6 +20,7 @@ use function __;
 /**
  * Displays and handles the form where the user can change their password.
  */
+#[Route('/user-password', ['GET', 'POST'])]
 final readonly class UserPasswordController implements InvocableController
 {
     public function __construct(

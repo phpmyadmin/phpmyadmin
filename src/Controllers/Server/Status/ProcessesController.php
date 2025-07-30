@@ -9,10 +9,12 @@ use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Processes;
 use PhpMyAdmin\Template;
 
+#[Route('/server/status/processes', ['GET', 'POST'])]
 final class ProcessesController extends AbstractController implements InvocableController
 {
     public function __construct(

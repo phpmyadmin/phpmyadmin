@@ -22,6 +22,7 @@ use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
@@ -31,6 +32,7 @@ use function __;
 use function is_numeric;
 use function is_string;
 
+#[Route('/table/import', ['GET', 'POST'])]
 final readonly class ImportController implements InvocableController
 {
     public function __construct(
@@ -69,9 +71,7 @@ final readonly class ImportController implements InvocableController
                 return $this->response->response();
             }
 
-            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
-
-            return $this->response->response();
+            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
         }
 
         $tableName = TableName::tryFrom($request->getParam('table'));
@@ -83,9 +83,7 @@ final readonly class ImportController implements InvocableController
                 return $this->response->response();
             }
 
-            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
-
-            return $this->response->response();
+            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
         }
 
         UrlParams::$params['goto'] = Url::getFromRoute('/table/import');

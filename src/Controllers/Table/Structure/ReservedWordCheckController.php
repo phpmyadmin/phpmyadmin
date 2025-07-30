@@ -10,6 +10,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\SqlParser\Context;
 
 use function _ngettext;
@@ -18,6 +19,7 @@ use function implode;
 use function sprintf;
 use function trim;
 
+#[Route('/table/structure/reserved-word-check', ['POST'])]
 final readonly class ReservedWordCheckController implements InvocableController
 {
     public function __construct(private ResponseRenderer $response, private Config $config)

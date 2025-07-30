@@ -430,7 +430,7 @@ class ConfigFile
 
         unset($_SESSION[$this->id]['Servers'][$lastServer]);
 
-        if (! isset($_SESSION[$this->id]['ServerDefault']) || $_SESSION[$this->id]['ServerDefault'] != $lastServer) {
+        if (! isset($_SESSION[$this->id]['ServerDefault']) || $_SESSION[$this->id]['ServerDefault'] !== $lastServer) {
             return;
         }
 

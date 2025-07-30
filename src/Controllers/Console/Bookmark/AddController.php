@@ -10,9 +10,11 @@ use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 
 use function __;
 
+#[Route('/console/bookmark/add', ['POST'])]
 final readonly class AddController implements InvocableController
 {
     public function __construct(

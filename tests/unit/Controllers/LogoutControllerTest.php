@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers;
 
 use PhpMyAdmin\Controllers\LogoutController;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\Plugins\AuthenticationPluginFactory;
@@ -25,13 +26,17 @@ class LogoutControllerTest extends AbstractTestCase
         $request = self::createStub(ServerRequest::class);
         $request->method('isPost')->willReturn(true);
 
+        $expectedResponse = ResponseFactory::create()->createResponse();
+
         $authPlugin = self::createMock(AuthenticationPlugin::class);
-        $authPlugin->expects(self::once())->method('logOut');
+        $authPlugin->expects(self::once())->method('logOut')->willReturn($expectedResponse);
 
         $factory = self::createStub(AuthenticationPluginFactory::class);
         $factory->method('create')->willReturn($authPlugin);
 
-        (new LogoutController($factory))($request);
+        $response = (new LogoutController($factory))($request);
+
+        self::assertSame($expectedResponse, $response);
 
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
     }

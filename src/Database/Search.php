@@ -193,7 +193,7 @@ class Search
             foreach ($allColumns as $column) {
                 if (
                     $this->criteriaColumnName !== ''
-                    && $column->field != $this->criteriaColumnName
+                    && $column->field !== $this->criteriaColumnName
                 ) {
                     continue;
                 }

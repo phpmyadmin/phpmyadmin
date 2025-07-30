@@ -9,6 +9,7 @@ use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 
 use function __;
 use function basename;
@@ -21,6 +22,7 @@ use function sprintf;
 /**
  * Simple script to set correct charset for the license
  */
+#[Route('/license', ['GET'])]
 final class LicenseController implements InvocableController
 {
     public function __construct(

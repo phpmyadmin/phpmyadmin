@@ -10,11 +10,13 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPrivilegesFactory;
 
 use function min;
 
+#[Route('/normalization/create-new-column', ['POST'])]
 final class CreateNewColumnController implements InvocableController
 {
     public function __construct(

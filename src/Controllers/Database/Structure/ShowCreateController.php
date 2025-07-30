@@ -11,10 +11,12 @@ use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Template;
 
 use function __;
 
+#[Route('/database/structure/show-create', ['POST'])]
 final class ShowCreateController implements InvocableController
 {
     public function __construct(

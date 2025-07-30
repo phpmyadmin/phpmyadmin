@@ -7,7 +7,9 @@ namespace PhpMyAdmin\Controllers\Table\Structure;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Routing\Route;
 
+#[Route('/table/structure/spatial', ['POST'])]
 final class SpatialController extends AbstractIndexController implements InvocableController
 {
     public function __invoke(ServerRequest $request): Response

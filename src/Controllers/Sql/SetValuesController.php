@@ -9,12 +9,14 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
 
 use function __;
 use function explode;
 
+#[Route('/sql/get-set-values', ['POST'])]
 final class SetValuesController implements InvocableController
 {
     public function __construct(

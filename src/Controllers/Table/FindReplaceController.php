@@ -17,6 +17,7 @@ use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
@@ -37,6 +38,7 @@ use function strncasecmp;
  *
  * Displays find and replace form, allows previewing and do the replacing.
  */
+#[Route('/table/find-replace', ['GET', 'POST'])]
 final class FindReplaceController implements InvocableController
 {
     /** @var mixed[] */
@@ -75,9 +77,7 @@ final class FindReplaceController implements InvocableController
                 return $this->response->response();
             }
 
-            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
-
-            return $this->response->response();
+            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
         }
 
         $tableName = TableName::tryFrom($request->getParam('table'));
@@ -89,9 +89,7 @@ final class FindReplaceController implements InvocableController
                 return $this->response->response();
             }
 
-            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
-
-            return $this->response->response();
+            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
         }
 
         $this->loadTableInfo();
@@ -143,7 +141,7 @@ final class FindReplaceController implements InvocableController
 
             $type = $row->type;
             // reformat mysql query output
-            if (strncasecmp($type, 'set', 3) == 0 || strncasecmp($type, 'enum', 4) == 0) {
+            if (strncasecmp($type, 'set', 3) === 0 || strncasecmp($type, 'enum', 4) === 0) {
                 $type = str_replace(',', ', ', $type);
             } else {
                 // strip the "BINARY" attribute, except if we find "BINARY(" because

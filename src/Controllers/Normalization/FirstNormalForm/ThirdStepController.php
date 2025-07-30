@@ -10,7 +10,9 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 
+#[Route('/normalization/1nf/step3', ['POST'])]
 final class ThirdStepController implements InvocableController
 {
     public function __construct(

@@ -164,7 +164,6 @@ class ResponseRenderer
             return self::$instance;
         }
 
-        /** @var Console $console */
         $console = ContainerBuilder::getContainer()->get(Console::class);
 
         $config = Config::getInstance();
@@ -430,9 +429,11 @@ class ResponseRenderer
     }
 
     /** @param array<string, mixed> $params */
-    public function redirectToRoute(string $route, array $params = []): void
+    public function redirectToRoute(string $route, array $params = []): Response
     {
         $this->redirect('./index.php?route=' . $route . Url::getCommonRaw($params, '&'));
+
+        return $this->response();
     }
 
     /** @psalm-param list<string> $files */

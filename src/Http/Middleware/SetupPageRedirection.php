@@ -35,7 +35,6 @@ final class SetupPageRedirection implements MiddlewareInterface
         }
 
         $container = ContainerBuilder::getContainer();
-        /** @var ThemeManager $themeManager */
         $themeManager = $container->get(ThemeManager::class);
         $this->config->loadUserPreferences($themeManager, true);
         $this->setupPageBootstrap();

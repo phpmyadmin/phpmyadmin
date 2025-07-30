@@ -178,6 +178,45 @@ class MoveColumnsControllerTest extends AbstractTestCase
                       CHANGE `0` `0` enum('yes','no') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'no' FIRST
                     SQL,
             ],
+            // with foreign key
+            [
+                <<<'SQL'
+                    CREATE TABLE orders (
+                      order_id INT AUTO_INCREMENT PRIMARY KEY,
+                      user_id INT NOT NULL,
+                      order_date DATE NOT NULL,
+                      amount DECIMAL(10, 2) NOT NULL,
+                      status VARCHAR(50) DEFAULT 'pending',
+                      CONSTRAINT fk_user
+                        FOREIGN KEY (user_id)
+                        REFERENCES users(user_id)
+                        ON DELETE CASCADE
+                        ON UPDATE CASCADE
+                    )
+                    SQL,
+                ['order_id','user_id','order_date','status','amount'],
+                <<<'SQL'
+                    ALTER TABLE `orders`
+                      CHANGE `status` `status` varchar(50) DEFAULT 'pending' AFTER `order_date`
+                    SQL,
+            ],
+            // With non-primary index
+            [
+                <<<'SQL'
+                    CREATE TABLE `test_table` (
+                      `id` int(11) NOT NULL AUTO_INCREMENT,
+                      `val` int(11) DEFAULT NULL,
+                      `note` varchar(100) DEFAULT NULL,
+                      PRIMARY KEY (`id`),
+                      KEY `val_index` (`val`)
+                    ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
+                    SQL,
+                ['id', 'note', 'val'],
+                <<<'SQL'
+                    ALTER TABLE `test_table`
+                      CHANGE `note` `note` varchar(100) DEFAULT NULL AFTER `id`
+                    SQL,
+            ],
         ];
         // phpcs:enable
     }

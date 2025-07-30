@@ -7,9 +7,7 @@ namespace PhpMyAdmin;
 use Fig\Http\Message\StatusCodeInterface;
 use Laminas\HttpHandlerRunner\Emitter\SapiEmitter;
 use Laminas\HttpHandlerRunner\RequestHandlerRunner;
-use PhpMyAdmin\Console\History;
 use PhpMyAdmin\Container\ContainerBuilder;
-use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Http\Handler\ApplicationHandler;
@@ -55,69 +53,53 @@ use Throwable;
 
 use function sprintf;
 
-class Application
+readonly class Application
 {
-    public function __construct(
-        private readonly ErrorHandler $errorHandler,
-        private readonly Config $config,
-        private readonly Template $template,
-        private readonly ResponseFactory $responseFactory,
-        private readonly History $history,
-    ) {
+    public function __construct(private ResponseFactory $responseFactory)
+    {
     }
 
     public static function init(): self
     {
-        /** @var Application $application */
-        $application = ContainerBuilder::getContainer()->get(self::class);
-
-        return $application;
+        return ContainerBuilder::getContainer()->get(self::class);
     }
 
     public function run(bool $isSetupPage = false): void
     {
-        $requestHandler = new QueueRequestHandler(new ApplicationHandler($this));
-        $requestHandler->add(new ErrorHandling($this->errorHandler));
-        $requestHandler->add(new OutputBuffering());
-        $requestHandler->add(new PhpExtensionsChecking($this->template, $this->responseFactory));
-        $requestHandler->add(new ServerConfigurationChecking($this->template, $this->responseFactory));
-        $requestHandler->add(new PhpSettingsConfiguration());
-        $requestHandler->add(new RouteParsing());
-        $requestHandler->add(new ConfigLoading($this->config, $this->template, $this->responseFactory));
-        $requestHandler->add(new UriSchemeUpdating($this->config));
-        $requestHandler->add(new SessionHandling(
-            $this->config,
-            $this->errorHandler,
-            $this->template,
-            $this->responseFactory,
-        ));
-        $requestHandler->add(new EncryptedQueryParamsHandling());
-        $requestHandler->add(new UrlParamsSetting($this->config));
-        $requestHandler->add(new TokenRequestParamChecking());
-        $requestHandler->add(new DatabaseAndTableSetting());
-        $requestHandler->add(new SqlQueryGlobalSetting());
-        $requestHandler->add(new LanguageLoading());
-        $requestHandler->add(new ConfigErrorAndPermissionChecking(
-            $this->config,
-            $this->template,
-            $this->responseFactory,
-        ));
-        $requestHandler->add(new RequestProblemChecking($this->template, $this->responseFactory));
-        $requestHandler->add(new CurrentServerGlobalSetting($this->config));
-        $requestHandler->add(new ThemeInitialization());
-        $requestHandler->add(new UrlRedirection($this->config, $this->template, $this->responseFactory));
-        $requestHandler->add(new SetupPageRedirection($this->config, $this->responseFactory));
-        $requestHandler->add(new MinimumCommonRedirection($this->config, $this->responseFactory));
-        $requestHandler->add(new LanguageAndThemeCookieSaving($this->config));
-        $requestHandler->add(new LoginCookieValiditySetting($this->config));
-        $requestHandler->add(new Authentication($this->config, $this->template, $this->responseFactory));
-        $requestHandler->add(new DatabaseServerVersionChecking($this->config, $this->template, $this->responseFactory));
-        $requestHandler->add(new SqlDelimiterSetting($this->config));
-        $requestHandler->add(new ResponseRendererLoading($this->config));
-        $requestHandler->add(new ProfilingChecking());
-        $requestHandler->add(new UserPreferencesLoading($this->config));
-        $requestHandler->add(new RecentTableHandling($this->config));
-        $requestHandler->add(new StatementHistory($this->config, $this->history));
+        $container = ContainerBuilder::getContainer();
+        $requestHandler = new QueueRequestHandler($container, new ApplicationHandler($this));
+        $requestHandler->add(ErrorHandling::class);
+        $requestHandler->add(OutputBuffering::class);
+        $requestHandler->add(PhpExtensionsChecking::class);
+        $requestHandler->add(ServerConfigurationChecking::class);
+        $requestHandler->add(PhpSettingsConfiguration::class);
+        $requestHandler->add(RouteParsing::class);
+        $requestHandler->add(ConfigLoading::class);
+        $requestHandler->add(UriSchemeUpdating::class);
+        $requestHandler->add(SessionHandling::class);
+        $requestHandler->add(EncryptedQueryParamsHandling::class);
+        $requestHandler->add(UrlParamsSetting::class);
+        $requestHandler->add(TokenRequestParamChecking::class);
+        $requestHandler->add(DatabaseAndTableSetting::class);
+        $requestHandler->add(SqlQueryGlobalSetting::class);
+        $requestHandler->add(LanguageLoading::class);
+        $requestHandler->add(ConfigErrorAndPermissionChecking::class);
+        $requestHandler->add(RequestProblemChecking::class);
+        $requestHandler->add(CurrentServerGlobalSetting::class);
+        $requestHandler->add(ThemeInitialization::class);
+        $requestHandler->add(UrlRedirection::class);
+        $requestHandler->add(SetupPageRedirection::class);
+        $requestHandler->add(MinimumCommonRedirection::class);
+        $requestHandler->add(LanguageAndThemeCookieSaving::class);
+        $requestHandler->add(LoginCookieValiditySetting::class);
+        $requestHandler->add(Authentication::class);
+        $requestHandler->add(DatabaseServerVersionChecking::class);
+        $requestHandler->add(SqlDelimiterSetting::class);
+        $requestHandler->add(ResponseRendererLoading::class);
+        $requestHandler->add(ProfilingChecking::class);
+        $requestHandler->add(UserPreferencesLoading::class);
+        $requestHandler->add(RecentTableHandling::class);
+        $requestHandler->add(StatementHistory::class);
 
         $runner = new RequestHandlerRunner(
             $requestHandler,

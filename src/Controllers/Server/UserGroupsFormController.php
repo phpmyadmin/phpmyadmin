@@ -13,12 +13,14 @@ use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
 use function __;
 use function sprintf;
 
+#[Route('/server/user-groups/edit-form', ['GET'])]
 final class UserGroupsFormController implements InvocableController
 {
     public function __construct(

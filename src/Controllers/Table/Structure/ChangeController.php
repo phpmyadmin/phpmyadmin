@@ -11,6 +11,7 @@ use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Table\ColumnsDefinition;
 use PhpMyAdmin\UserPrivilegesFactory;
 
@@ -22,6 +23,7 @@ use function count;
 use function in_array;
 use function is_array;
 
+#[Route('/table/structure/change', ['GET', 'POST'])]
 final class ChangeController implements InvocableController
 {
     public function __construct(

@@ -660,7 +660,7 @@ class Table implements Stringable
             $rowCount = $this->dbi->fetchValue(
                 'SELECT COUNT(*) FROM ' . Util::backquote($this->dbName) . '.' . Util::backquote($this->name),
             );
-        } elseif ($config->settings['MaxExactCountViews'] == 0) {
+        } elseif ($config->settings['MaxExactCountViews'] === 0) {
             // For complex views, even trying to get a partial record
             // count could bring down a server, so we offer an
             // alternative: setting MaxExactCountViews to 0 will bypass
@@ -1208,7 +1208,7 @@ class Table implements Stringable
         }
 
         // check if the table has not been modified
-        if ($this->getStatusInfo('Create_time') == $this->uiprefs['CREATE_TIME']) {
+        if ($this->getStatusInfo('Create_time') === $this->uiprefs['CREATE_TIME']) {
             return array_map(intval(...), $this->uiprefs[$property->value]);
         }
 
@@ -1241,7 +1241,7 @@ class Table implements Stringable
             && ($property === UiProperty::ColumnOrder || $property === UiProperty::ColumnVisibility)
         ) {
             $currCreateTime = $this->getStatusInfo('CREATE_TIME');
-            if ($tableCreateTime === null || $tableCreateTime != $currCreateTime) {
+            if ($tableCreateTime === null || $tableCreateTime !== $currCreateTime) {
                 // there is no $table_create_time, or
                 // supplied $table_create_time is older than current create time,
                 // so don't save
@@ -1396,9 +1396,9 @@ class Table implements Stringable
                         . $this->dbi->quoteString($foreignTable, ConnectionType::ControlUser) . ','
                         . $this->dbi->quoteString($foreignField, ConnectionType::ControlUser) . ')';
                 } elseif (
-                    $existrel[$masterField]['foreign_db'] != $foreignDb
-                    || $existrel[$masterField]['foreign_table'] != $foreignTable
-                    || $existrel[$masterField]['foreign_field'] != $foreignField
+                    $existrel[$masterField]['foreign_db'] !== $foreignDb
+                    || $existrel[$masterField]['foreign_table'] !== $foreignTable
+                    || $existrel[$masterField]['foreign_field'] !== $foreignField
                 ) {
                     $updQuery = 'UPDATE '
                         . Util::backquote($relationFeature->database)
@@ -1507,11 +1507,11 @@ class Table implements Stringable
                     if (
                         $refDbName != $foreignDb
                         || $existrelForeign[$masterFieldMd5]->refTableName != $foreignTable
-                        || $existrelForeign[$masterFieldMd5]->refIndexList != $foreignField
-                        || $existrelForeign[$masterFieldMd5]->indexList != $masterField
+                        || $existrelForeign[$masterFieldMd5]->refIndexList !== $foreignField
+                        || $existrelForeign[$masterFieldMd5]->indexList !== $masterField
                         || $_POST['constraint_name'][$masterFieldMd5] != $constraintName
-                        || ($_POST['on_delete'][$masterFieldMd5] != $onDelete)
-                        || ($_POST['on_update'][$masterFieldMd5] != $onUpdate)
+                        || ($_POST['on_delete'][$masterFieldMd5] !== $onDelete)
+                        || ($_POST['on_update'][$masterFieldMd5] !== $onUpdate)
                     ) {
                         // another foreign key is already defined for this field
                         // or an option has been changed for ON DELETE or ON UPDATE
@@ -1716,7 +1716,7 @@ class Table implements Stringable
             $fields = TableUtils::getFields($stmt);
         }
 
-        if ($column != null) {
+        if ($column !== null && $column !== '') {
             $expression = isset($fields[$column]['expr']) ? substr($fields[$column]['expr'], 1, -1) : '';
 
             return [$column => $expression];

@@ -352,7 +352,7 @@ class Common
         }
 
         $defaultPageNo = $this->getDefaultPage($db);
-        if ($defaultPageNo != -1) {
+        if ($defaultPageNo !== -1) {
             return $defaultPageNo;
         }
 

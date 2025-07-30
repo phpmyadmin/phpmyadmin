@@ -179,7 +179,7 @@ class UserPrivilegesFactory
                         $dbNameToTest,
                     ),
                 )
-                || mb_substr($this->dbi->getError(), 1, 4) == 1044)
+                || (int) mb_substr($this->dbi->getError(), 1, 4) === 1044)
             ) {
                 continue;
             }

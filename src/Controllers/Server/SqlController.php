@@ -10,11 +10,13 @@ use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\SqlQueryForm;
 
 /**
  * Server SQL executor
  */
+#[Route('/server/sql', ['GET', 'POST'])]
 final class SqlController implements InvocableController
 {
     public function __construct(

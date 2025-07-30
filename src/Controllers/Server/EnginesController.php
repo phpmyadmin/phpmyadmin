@@ -9,11 +9,13 @@ use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\StorageEngine;
 
 /**
  * Handles viewing storage engine details
  */
+#[Route('/server/engines', ['GET'])]
 final class EnginesController implements InvocableController
 {
     public function __construct(private readonly ResponseRenderer $response, private readonly DatabaseInterface $dbi)

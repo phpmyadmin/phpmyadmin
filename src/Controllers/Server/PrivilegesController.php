@@ -15,6 +15,7 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Server\Plugins;
 use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Template;
@@ -32,6 +33,7 @@ use function urlencode;
 /**
  * Server privileges and users manipulations.
  */
+#[Route('/server/privileges', ['GET', 'POST'])]
 final class PrivilegesController implements InvocableController
 {
     public function __construct(

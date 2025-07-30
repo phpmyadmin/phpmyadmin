@@ -9,12 +9,14 @@ use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 
 /**
  * Displays the advisor feature
  */
+#[Route('/server/status/advisor', ['GET'])]
 final class AdvisorController extends AbstractController implements InvocableController
 {
     public function __construct(

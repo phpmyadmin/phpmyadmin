@@ -10,9 +10,11 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 
 use function json_decode;
 
+#[Route('/normalization/3nf/create-new-tables', ['POST'])]
 final class CreateNewTablesController implements InvocableController
 {
     public function __construct(

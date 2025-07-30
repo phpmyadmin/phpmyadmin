@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use function array_key_exists;
-use function defined;
 use function md5;
 use function str_contains;
 
@@ -120,12 +119,6 @@ class Scripts
      */
     public function getDisplay(): string
     {
-        $baseDir = defined('PMA_PATH_TO_BASEDIR') ? PMA_PATH_TO_BASEDIR : '';
-
-        return $this->template->render('scripts', [
-            'base_dir' => $baseDir,
-            'files' => $this->files,
-            'code' => $this->code,
-        ]);
+        return $this->template->render('scripts', ['files' => $this->files, 'code' => $this->code]);
     }
 }

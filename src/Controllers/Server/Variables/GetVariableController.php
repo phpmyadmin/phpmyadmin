@@ -10,12 +10,14 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Providers\ServerVariables\ServerVariablesProvider;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Util;
 
 use function implode;
 use function is_array;
 use function is_string;
 
+#[Route('/server/variables/get/{name}', ['GET'])]
 final class GetVariableController implements InvocableController
 {
     public function __construct(private readonly ResponseRenderer $response, private readonly DatabaseInterface $dbi)

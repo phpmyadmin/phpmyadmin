@@ -1392,7 +1392,7 @@ export function previewSql ($form): void {
 export function confirmPreviewSql (sqlData, url, callback): void {
     $('#previewSqlConfirmModal').modal('show');
     $('#previewSqlConfirmModalLabel').first().html(window.Messages.strPreviewSQL);
-    $('#previewSqlConfirmCode').first().text(sqlData);
+    $('#previewSqlConfirmCode > code.sql').first().text(sqlData);
     $('#previewSqlConfirmModal').on('shown.bs.modal', function () {
         highlightSql($('#previewSqlConfirmModal'));
     });

@@ -11,6 +11,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Import\Ajax;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Template;
 
 use function __;
@@ -25,6 +26,7 @@ use function usleep;
 /**
  * Import progress bar backend
  */
+#[Route('/import-status', ['GET', 'POST'])]
 class StatusController implements InvocableController
 {
     public function __construct(private readonly Template $template)

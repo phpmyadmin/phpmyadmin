@@ -544,13 +544,13 @@ class ImportCsv extends AbstractImportCsv
                 $i = 0;
                 $lasti = -1;
                 $ch = mb_substr($buffer, 0, 1);
-                if ($this->maxLines > 0 && $line == $maxLinesConstraint) {
+                if ($this->maxLines > 0 && $line === $maxLinesConstraint) {
                     ImportSettings::$finished = true;
                     break;
                 }
             }
 
-            if ($this->maxLines > 0 && $line == $maxLinesConstraint) {
+            if ($this->maxLines > 0 && $line === $maxLinesConstraint) {
                 ImportSettings::$finished = true;
                 break;
             }
@@ -664,7 +664,7 @@ class ImportCsv extends AbstractImportCsv
             Current::$message->addParam(__('Columns escaped with'));
             Import::$hasError = true;
             $paramError = true;
-        } elseif (mb_strlen($csvNewLine) != 1 && $csvNewLine !== 'auto') {
+        } elseif (mb_strlen($csvNewLine) !== 1 && $csvNewLine !== 'auto') {
             Current::$message = Message::error(
                 __('Invalid parameter for CSV import: %s'),
             );

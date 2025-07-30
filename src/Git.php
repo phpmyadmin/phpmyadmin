@@ -219,7 +219,7 @@ class Git
         $firstbyte = intval(substr($hash, 0, 2), 16);
         // array is indexed from 1 and we need to get
         // previous entry for start
-        $start = $firstbyte == 0 ? 0 : $fanout[$firstbyte];
+        $start = $firstbyte === 0 ? 0 : $fanout[$firstbyte];
 
         $end = $fanout[$firstbyte + 1];
 
@@ -487,7 +487,7 @@ class Git
             // parse line
             $parts = explode(' ', $line);
             // care only about named refs
-            if (count($parts) != 2) {
+            if (count($parts) !== 2) {
                 continue;
             }
 

@@ -27,7 +27,6 @@ use PhpMyAdmin\Util;
 
 use function __;
 use function count;
-use function defined;
 use function file_exists;
 use function parse_url;
 use function str_contains;
@@ -40,6 +39,8 @@ use const PHP_URL_HOST;
  */
 class Navigation
 {
+    public static bool $isSettingsEnabled = true;
+
     private NavigationTree $tree;
     private readonly UserPrivilegesFactory $userPrivilegesFactory;
 
@@ -98,7 +99,7 @@ class Navigation
                 $serverSelect = Select::render(true);
             }
 
-            if (! defined('PMA_DISABLE_NAVI_SETTINGS')) {
+            if (self::$isSettingsEnabled) {
                 $pageSettings = new PageSettings(
                     new UserPreferences($this->dbi, new Relation($this->dbi), $this->template),
                 );
@@ -133,7 +134,7 @@ class Navigation
             'servers' => $this->config->settings['Servers'],
             'server_select' => $serverSelect ?? '',
             'navigation_tree' => $navRender,
-            'is_navigation_settings_enabled' => ! defined('PMA_DISABLE_NAVI_SETTINGS'),
+            'is_navigation_settings_enabled' => self::$isSettingsEnabled,
             'navigation_settings' => $navigationSettings ?? '',
             'is_drag_drop_import_enabled' => $this->config->settings['enable_drag_drop_import'] === true,
             'is_mariadb' => $this->dbi->isMariaDB(),
@@ -262,7 +263,6 @@ class Navigation
     /** @return string Logo source */
     private function getLogoSource(): string
     {
-        /** @var ThemeManager $themeManager */
         $themeManager = ContainerBuilder::getContainer()->get(ThemeManager::class);
         $theme = $themeManager->theme;
 

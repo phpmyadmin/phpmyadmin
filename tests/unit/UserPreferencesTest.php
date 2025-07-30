@@ -327,13 +327,12 @@ class UserPreferencesTest extends AbstractTestCase
 
         $dbi = DatabaseInterface::getInstance();
         $userPreferences = new UserPreferences($dbi, new Relation($dbi), new Template());
-        $userPreferences->redirect(
+        $response = $userPreferences->redirect(
             'file.html',
             ['a' => 'b'],
             'h ash',
         );
 
-        $response = $responseStub->getResponse();
         self::assertSame(['/phpmyadmin/file.html?a=b&saved=1&server=2#h+ash'], $response->getHeader('Location'));
         self::assertSame(302, $response->getStatusCode());
     }

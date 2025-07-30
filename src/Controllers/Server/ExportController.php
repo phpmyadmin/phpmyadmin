@@ -16,10 +16,12 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 
 use function __;
 use function array_merge;
 
+#[Route('/server/export', ['GET', 'POST'])]
 final class ExportController implements InvocableController
 {
     public function __construct(

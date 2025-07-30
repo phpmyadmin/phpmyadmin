@@ -16,6 +16,7 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\UserPreferences;
 
@@ -28,6 +29,7 @@ use function time;
 /**
  * Handle error report submission
  */
+#[Route('/error-report', ['GET', 'POST'])]
 final readonly class ErrorReportController implements InvocableController
 {
     public function __construct(

@@ -16,14 +16,15 @@ use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Navigation\Navigation;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\Util;
 
 use function __;
 use function array_merge;
-use function define;
 use function file_exists;
 use function is_array;
 use function is_string;
@@ -45,6 +46,7 @@ use const UPLOAD_ERR_OK;
 /**
  * User preferences management page.
  */
+#[Route('/preferences/manage', ['GET', 'POST'])]
 final class ManageController implements InvocableController
 {
     public function __construct(
@@ -217,9 +219,8 @@ final class ManageController implements InvocableController
 
                     // reload config
                     $this->config->loadUserPreferences($this->themeManager);
-                    $this->userPreferences->redirect($returnUrl ?? '', $redirectParams);
 
-                    return $this->response->response();
+                    return $this->userPreferences->redirect($returnUrl ?? '', $redirectParams);
                 }
 
                 $error = $result;
@@ -228,9 +229,8 @@ final class ManageController implements InvocableController
             $result = $this->userPreferences->save([]);
             if ($result === true) {
                 $this->config->removeCookie('pma_lang');
-                $this->userPreferences->redirect('index.php?route=/preferences/manage');
 
-                return $this->response->response();
+                return $this->userPreferences->redirect('index.php?route=/preferences/manage');
             }
 
             return $this->response->response();
@@ -254,7 +254,7 @@ final class ManageController implements InvocableController
         if ($request->isAjax()) {
             $this->response->addJSON('disableNaviSettings', true);
         } else {
-            define('PMA_DISABLE_NAVI_SETTINGS', true);
+            Navigation::$isSettingsEnabled = false;
         }
 
         return $this->response->response();

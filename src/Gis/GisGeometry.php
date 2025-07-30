@@ -13,13 +13,10 @@ use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
 use function array_map;
-use function defined;
 use function explode;
 use function mb_strripos;
 use function mb_substr;
-use function mt_getrandmax;
 use function preg_match;
-use function random_int;
 use function str_replace;
 use function trim;
 
@@ -322,10 +319,5 @@ abstract class GisGeometry
         $parts = explode(')),((', $wktCoords);
 
         return array_map(fn (string $coord): array => $this->extractPoints2d($coord, $scaleData), $parts);
-    }
-
-    protected function getRandomId(): int
-    {
-        return ! defined('TESTSUITE') ? random_int(0, mt_getrandmax()) : 1234567890;
     }
 }

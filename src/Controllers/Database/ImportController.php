@@ -21,6 +21,7 @@ use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
 
@@ -28,6 +29,7 @@ use function __;
 use function is_numeric;
 use function is_string;
 
+#[Route('/database/import', ['GET', 'POST'])]
 final readonly class ImportController implements InvocableController
 {
     public function __construct(
@@ -60,9 +62,7 @@ final readonly class ImportController implements InvocableController
                 return $this->response->response();
             }
 
-            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
-
-            return $this->response->response();
+            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
         }
 
         [$uploadId] = Ajax::uploadProgressSetup();

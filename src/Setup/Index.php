@@ -69,7 +69,7 @@ class Index
         foreach ($_SESSION['messages'] as &$messages) {
             $removeIds = [];
             foreach ($messages as $id => $msg) {
-                if ($msg['active'] != false) {
+                if ($msg['active']) {
                     continue;
                 }
 
@@ -132,7 +132,7 @@ class Index
         }
 
         $latestCompatible = $versionInformation->getLatestCompatibleVersion($versionData);
-        if ($latestCompatible == null) {
+        if ($latestCompatible === null) {
             return;
         }
 

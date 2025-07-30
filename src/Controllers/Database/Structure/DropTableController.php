@@ -13,11 +13,13 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
 
 use function __;
 
+#[Route('/database/structure/drop-table', ['POST'])]
 final class DropTableController implements InvocableController
 {
     public function __construct(

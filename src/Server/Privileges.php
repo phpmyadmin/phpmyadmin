@@ -237,7 +237,7 @@ class Privileges
                 ($grantValue === 'Y')
                 || ($row === null
                 && is_array($grantValue)
-                && count($grantValue) == $_REQUEST['column_count']
+                && count($grantValue) === (int) $_REQUEST['column_count']
                 && empty($_POST[$currentGrant[0] . '_none']))
             ) {
                 if ($enableHTML) {
@@ -275,7 +275,7 @@ class Privileges
             } else {
                 $privs[] = 'USAGE';
             }
-        } elseif ($allPrivileges && (! isset($_POST['grant_count']) || count($privs) == $_POST['grant_count'])) {
+        } elseif ($allPrivileges && (! isset($_POST['grant_count']) || count($privs) === (int) $_POST['grant_count'])) {
             if ($enableHTML) {
                 $privs = ['<dfn title="' . __('Includes all privileges except GRANT.') . '">ALL PRIVILEGES</dfn>'];
             } else {

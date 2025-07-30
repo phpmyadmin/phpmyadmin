@@ -62,9 +62,8 @@ class AuthenticationHttpTest extends AbstractTestCase
         $responseStub = new ResponseRendererStub();
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
-        $this->object->logOut();
+        $response = $this->object->logOut();
 
-        $response = $responseStub->getResponse();
         self::assertSame(['https://example.com/logout'], $response->getHeader('Location'));
         self::assertSame(302, $response->getStatusCode());
     }

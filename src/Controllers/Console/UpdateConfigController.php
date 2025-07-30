@@ -11,11 +11,13 @@ use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 
 use function __;
 use function in_array;
 use function is_numeric;
 
+#[Route('/console/update-config', ['POST'])]
 final class UpdateConfigController implements InvocableController
 {
     public function __construct(

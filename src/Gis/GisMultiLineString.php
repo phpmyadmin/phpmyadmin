@@ -187,13 +187,15 @@ class GisMultiLineString extends GisGeometry
      */
     public function prepareRowAsSvg(string $spatial, string $label, array $color, ScaleData $scaleData): string
     {
-        $lineOptions = [
-            'data-label' => $label,
+        $options = [
             'class' => 'linestring vector',
             'fill' => 'none',
             'stroke' => sprintf('#%02x%02x%02x', $color[0], $color[1], $color[2]),
             'stroke-width' => 2,
         ];
+        if ($label !== '') {
+            $options['data-label'] = $label;
+        }
 
         // Trim to remove leading 'MULTILINESTRING((' and trailing '))'
         $multilineString = mb_substr($spatial, 17, -2);
@@ -210,8 +212,7 @@ class GisMultiLineString extends GisGeometry
             }
 
             $row .= '"';
-            $lineOptions['id'] = $label . $this->getRandomId();
-            foreach ($lineOptions as $option => $val) {
+            foreach ($options as $option => $val) {
                 $row .= ' ' . $option . '="' . $val . '"';
             }
 

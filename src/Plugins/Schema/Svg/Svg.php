@@ -129,7 +129,7 @@ class Svg extends XMLWriter
         $width = (int) $width;
         $height = (int) $height;
 
-        if ($x != 0 || $y != 0) {
+        if ((float) $x !== 0.0 || (float) $y !== 0.0) {
             $this->writeAttribute('viewBox', sprintf('%d %d %d %d', $x, $y, $width, $height));
         }
 

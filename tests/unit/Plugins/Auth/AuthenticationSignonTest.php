@@ -73,9 +73,8 @@ class AuthenticationSignonTest extends AbstractTestCase
         $config->selectedServer['SignonURL'] = 'https://example.com/SignonURL';
         $config->selectedServer['LogoutURL'] = 'https://example.com/logoutURL';
 
-        $this->object->logOut();
+        $response = $this->object->logOut();
 
-        $response = $responseStub->getResponse();
         self::assertSame(['https://example.com/logoutURL'], $response->getHeader('Location'));
         self::assertSame(302, $response->getStatusCode());
     }
@@ -89,9 +88,8 @@ class AuthenticationSignonTest extends AbstractTestCase
         $config->selectedServer['SignonURL'] = 'https://example.com/SignonURL';
         $config->selectedServer['LogoutURL'] = '';
 
-        $this->object->logOut();
+        $response = $this->object->logOut();
 
-        $response = $responseStub->getResponse();
         self::assertSame(['https://example.com/SignonURL'], $response->getHeader('Location'));
         self::assertSame(302, $response->getStatusCode());
     }
@@ -156,9 +154,8 @@ class AuthenticationSignonTest extends AbstractTestCase
         $sessionName = session_name();
         $sessionID = session_id();
 
-        $this->object->logOut();
+        $response = $this->object->logOut();
 
-        $response = $responseStub->getResponse();
         self::assertSame(['https://example.com/SignonURL'], $response->getHeader('Location'));
         self::assertSame(302, $response->getStatusCode());
 

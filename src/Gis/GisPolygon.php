@@ -162,9 +162,7 @@ class GisPolygon extends GisGeometry
      */
     public function prepareRowAsSvg(string $spatial, string $label, array $color, ScaleData $scaleData): string
     {
-        $polygonOptions = [
-            'data-label' => $label,
-            'id' => $label . $this->getRandomId(),
+        $options = [
             'class' => 'polygon vector',
             'stroke' => 'black',
             'stroke-width' => 0.5,
@@ -172,6 +170,9 @@ class GisPolygon extends GisGeometry
             'fill-rule' => 'evenodd',
             'fill-opacity' => 0.8,
         ];
+        if ($label !== '') {
+            $options['data-label'] = $label;
+        }
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $polygon = mb_substr($spatial, 9, -2);
@@ -184,7 +185,7 @@ class GisPolygon extends GisGeometry
         }
 
         $row .= '"';
-        foreach ($polygonOptions as $option => $val) {
+        foreach ($options as $option => $val) {
             $row .= ' ' . $option . '="' . $val . '"';
         }
 
@@ -236,13 +237,13 @@ class GisPolygon extends GisGeometry
     {
         $pointsArr = $this->extractPoints1d($polygon, $scaleData);
 
-        $row = ' M ' . $pointsArr[0][0] . ', ' . $pointsArr[0][1];
+        $row = 'M' . $pointsArr[0][0] . ',' . $pointsArr[0][1];
         $otherPoints = array_slice($pointsArr, 1, count($pointsArr) - 2);
         foreach ($otherPoints as $point) {
-            $row .= ' L ' . $point[0] . ', ' . $point[1];
+            $row .= 'L' . $point[0] . ',' . $point[1];
         }
 
-        $row .= ' Z ';
+        $row .= 'Z';
 
         return $row;
     }

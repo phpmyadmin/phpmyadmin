@@ -9,12 +9,14 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
 
 use function __;
 use function htmlspecialchars;
 
+#[Route('/database/structure/empty-form', ['POST'])]
 final class EmptyFormController implements InvocableController
 {
     public function __construct(private readonly ResponseRenderer $response)

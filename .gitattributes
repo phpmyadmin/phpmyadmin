@@ -3,6 +3,7 @@
 .gitattributes export-ignore
 .gitignore export-ignore
 .github export-ignore
+.phpstorm.meta.php export-ignore
 .scrutinizer.yml export-ignore
 .jshintrc export-ignore
 .stylelintrc.json export-ignore
