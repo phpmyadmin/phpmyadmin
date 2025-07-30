@@ -327,9 +327,6 @@ const DatabaseRoutines = {
                     addDatepicker($(this).css('width', '95%'), 'datetime');
                 });
 
-                // @ts-ignore
-                $.datepicker.initialized = false;
-
                 if ($('input[name=editor_process_edit]').length > 0) {
                     isEditMode = true;
                 }
@@ -900,8 +897,6 @@ const DatabaseRoutines = {
 AJAX.registerOnload('database/routines.js', function () {
     $(document).on('click', 'a.ajax.add_anchor', function (event) {
         event.preventDefault();
-        // @ts-ignore
-        $.datepicker.initialized = false;
         DatabaseRoutines.editorDialog(true, $(this));
     });
 

@@ -1687,55 +1687,8 @@ input#auto_increment_opt {
   }
 }
 
-// css for timepicker
-.ui-timepicker-div {
-  .ui-widget-header {
-    margin-bottom: 8px;
-  }
-
-  dl {
-    text-align: left;
-
-    dt {
-      height: 25px;
-      margin-bottom: -25px;
-    }
-
-    dd {
-      margin: 0 10px 10px 85px;
-    }
-  }
-
-  td {
-    font-size: 90%;
-  }
-}
-
-.ui-tpicker-grid-label {
-  background: none;
-  border: none;
-  margin: 0;
-  padding: 0;
-}
-
-.ui-timepicker-rtl {
-  direction: rtl;
-
-  dl {
-    text-align: right;
-
-    dd {
-      margin: 0 65px 10px 10px;
-    }
-  }
-}
-
 body .ui-widget {
   font-size: 1em;
-}
-
-body #ui-datepicker-div {
-  z-index: 9999 !important;
 }
 
 .ui-draggable {
@@ -2478,20 +2431,6 @@ meter {
 
 #filterQueryText {
   vertical-align: baseline;
-}
-
-.ui_tpicker_hour_slider,
-.ui_tpicker_minute_slider,
-.ui_tpicker_second_slider,
-.ui_tpicker_millisec_slider,
-.ui_tpicker_microsec_slider {
-  margin-left: 20px;
-  margin-top: 4px;
-  height: 0.75rem;
-}
-
-.ui_tpicker_time_input {
-  width: 100%;
 }
 
 // Enable scrollable blocks of code

@@ -225,12 +225,29 @@
       </div>
       <div class="modal-body">
         <div id="logAnalyseDialog">
-          <p>
-            {{ t('Selected time range:') }}
-            <input type="text" name="dateStart" class="datetimefield" value="">
-            -
-            <input type="text" name="dateEnd" class="datetimefield" value="">
-          </p>
+          <fieldset class="row mb-3">
+            <legend>{{ t('Selected time range:') }}</legend>
+            <div class="col">
+              <div class="input-group" id="timeRangeStartInputGroup" data-td-target-input="nearest" data-td-target-toggle="nearest">
+                <input type="text" name="dateStart" class="form-control datetimefield" id="timeRangeStartInput" value=""
+                  aria-label="{{ t('From date') }}" aria-describedby="timeRangeStartButton" data-td-target="#timeRangeStartInputGroup">
+                <button type="button" class="btn btn-outline-secondary" id="timeRangeStartButton"
+                  data-td-target="#timeRangeStartInputGroup" data-td-toggle="datetimepicker">
+                  {{- get_image('b_calendar', t('Open date picker')) -}}
+                </button>
+              </div>
+            </div>
+            <div class="col">
+              <div class="input-group" id="timeRangeEndInputGroup" data-td-target-input="nearest" data-td-target-toggle="nearest">
+                <input type="text" name="dateEnd" class="form-control datetimefield" id="timeRangeEndInput" value=""
+                  aria-label="{{ t('To date') }}" aria-describedby="timeRangeEndButton" data-td-target="#timeRangeEndInputGroup">
+                <button type="button" class="btn btn-outline-secondary" id="timeRangeEndButton"
+                  data-td-target="#timeRangeEndInputGroup" data-td-toggle="datetimepicker">
+                  {{- get_image('b_calendar', t('Open date picker')) -}}
+                </button>
+              </div>
+            </div>
+          </fieldset>
 
           <input type="checkbox" id="limitTypes" value="1" checked>
           <label for="limitTypes">

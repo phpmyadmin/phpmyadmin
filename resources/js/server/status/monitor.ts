@@ -1362,6 +1362,9 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             loadLog('general', min, max);
         }
 
+        let datePickerStart = null;
+        let datePickerEnd = null;
+
         logAnalyseModal.addEventListener('shown.bs.modal', function () {
             const logAnalyseModalSlowLogButton = document.getElementById('logAnalyseModalSlowLogButton');
             logAnalyseModalSlowLogButton?.addEventListener('click', logAnalyseModalSlowLogEventHandler);
@@ -1375,22 +1378,22 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             $dateStart.prop('readonly', true);
             $dateEnd.prop('readonly', true);
 
-            addDatepicker($dateStart, 'datetime', {
+            datePickerStart = addDatepicker($dateStart, 'datetime', {
                 showMillisec: false,
                 showMicrosec: false,
                 timeFormat: 'HH:mm:ss',
                 firstDay: window.firstDayOfCalendar
             });
 
-            addDatepicker($dateEnd, 'datetime', {
+            datePickerEnd = addDatepicker($dateEnd, 'datetime', {
                 showMillisec: false,
                 showMicrosec: false,
                 timeFormat: 'HH:mm:ss',
                 firstDay: window.firstDayOfCalendar
             });
 
-            $dateStart.datepicker('setDate', min);
-            $dateEnd.datepicker('setDate', max);
+            datePickerStart.dates.setValue(datePickerStart.dates.parseInput(min));
+            datePickerEnd.dates.setValue(datePickerEnd.dates.parseInput(max));
         });
 
         logAnalyseModal.addEventListener('hidden.bs.modal', function () {
@@ -1399,14 +1402,19 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
             const logAnalyseModalGeneralLogButton = document.getElementById('logAnalyseModalGeneralLogButton');
             logAnalyseModalGeneralLogButton?.removeEventListener('click', logAnalyseModalGeneralLogEventHandler);
+
+            datePickerStart?.dispose();
+            datePickerEnd?.dispose();
         });
 
         bootstrap.Modal.getOrCreateInstance(logAnalyseModal).show();
     }
 
     function loadLog (type: string, min: Date, max: Date) {
-        var dateStart = Date.parse($('#logAnalyseDialog').find('input[name="dateStart"]').datepicker('getDate').toString()) || min;
-        var dateEnd = Date.parse($('#logAnalyseDialog').find('input[name="dateEnd"]').datepicker('getDate').toString()) || max;
+        const fromDate = (document.getElementById('timeRangeStartInput') as HTMLInputElement).value;
+        const toDate = (document.getElementById('timeRangeEndInput') as HTMLInputElement).value;
+        const dateStart = Date.parse(fromDate || min.toISOString());
+        const dateEnd = Date.parse(toDate || max.toISOString());
 
         loadLogStatistics({
             src: type,

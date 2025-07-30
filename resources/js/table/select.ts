@@ -309,7 +309,6 @@ AJAX.registerOnload('table/select.js', function () {
         const $targetField = $(this).closest('tr').find('[name*="criteriaValues"]');
 
         $targetField.prop('disabled', opIsUnary(operator));
-        $targetField.siblings('.ui-datepicker-trigger').eq(0).toggle(!opIsUnary(operator));
 
         if ((operator === 'BETWEEN' || operator === 'NOT BETWEEN') && dataType) {
             var $msgbox = ajaxShowMessage();

@@ -46,3 +46,10 @@
 // Utilities
 @import "../../../../node_modules/bootstrap/scss/utilities/api";
 // scss-docs-end import-stack
+
+// Update the import directory to point to it‘s location within node_modules
+$bootstrap-icons-font-dir: "../../../../node_modules/bootstrap-icons/font/fonts";
+
+// Import the Sass files as usual
+@import "../../../../node_modules/bootstrap-icons/font/bootstrap-icons";
+@import "../../../../node_modules/@eonasdan/tempus-dominus/src/scss/tempus-dominus";
