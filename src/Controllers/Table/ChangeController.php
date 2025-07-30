@@ -150,7 +150,7 @@ class ChangeController implements InvocableController
             'makegrid.js',
             'sql.js',
             'table/change.js',
-            'vendor/jquery/additional-methods.js',
+            'vendor/jquery/additional-methods.min.js',
             'gis_data_editor.js',
         ]);
 
