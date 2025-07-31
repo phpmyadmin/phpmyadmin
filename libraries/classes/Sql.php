@@ -750,7 +750,8 @@ class Sql
                 $changeExpression = $analyzedSqlResults['is_group'] === false
                     && $analyzedSqlResults['distinct'] === false
                     && $analyzedSqlResults['union'] === false
-                    && count($statement->expr) === 1;
+                    && count($statement->expr) === 1
+                    && !$this->hasDuplicateColumnNames($statement);
 
                 if ($changeOrder || $changeLimit || $changeExpression) {
                     $statement = clone $statement;
@@ -1818,5 +1819,29 @@ class Sql
         }
 
         return $pos;
+    }
+
+    /**
+     * Check if the SELECT statement has duplicate column names
+     *
+     * @param SelectStatement $statement The SELECT statement to check
+     *
+     * @return bool True if there are duplicate column names, false otherwise
+     */
+    private function hasDuplicateColumnNames(SelectStatement $statement): bool
+    {
+        $columnNames = [];
+        
+        foreach ($statement->expr as $expr) {
+            $columnName = $expr->alias ?? $expr->column ?? '';
+            if ($columnName !== '' && in_array($columnName, $columnNames, true)) {
+                return true;
+            }
+            if ($columnName !== '') {
+                $columnNames[] = $columnName;
+            }
+        }
+        
+        return false;
     }
 }

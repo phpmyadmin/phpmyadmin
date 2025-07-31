@@ -584,6 +584,70 @@ class SqlTest extends AbstractTestCase
         $this->assertAllQueriesConsumed();
     }
 
+    public function testCountQueryResultsWithDuplicateColumnNames(): void
+    {
+        $sqlQuery = 'SELECT id, name as "id" FROM `City` WHERE district > "k"';
+        $sessionTmpVal = ['max_rows' => 25, 'pos' => 0];
+        $numRows = 25;
+        $expectedNumRows = 2416; // Expected result count for the filtered query
+
+        $_SESSION['tmpval'] = $sessionTmpVal;
+
+        $analyzed_sql_results = $this->parseAndAnalyze($sqlQuery);
+
+        // Mock the count query that should be generated (with correct SQL format)
+        $expectedCountQuery = 'SELECT COUNT(*) FROM (SELECT id, name AS `id` FROM `City` WHERE district > "k" ) as cnt';
+        $this->dummyDbi->addResult($expectedCountQuery, [[$expectedNumRows]], [], []);
+
+        $result = $this->callFunction(
+            $this->sql,
+            Sql::class,
+            'countQueryResults',
+            [
+                $numRows,
+                false, // not just browsing
+                'world', // db
+                'City', // table
+                $analyzed_sql_results,
+            ]
+        );
+        
+        self::assertSame($expectedNumRows, $result);
+        $this->assertAllQueriesConsumed();
+    }
+
+    public function testCountQueryResultsWithUniqueColumnNames(): void
+    {
+        $sqlQuery = 'SELECT id, name FROM `City` WHERE district > "k"';
+        $sessionTmpVal = ['max_rows' => 25, 'pos' => 0];
+        $numRows = 25;
+        $expectedNumRows = 2416; // Expected result count for the filtered query
+
+        $_SESSION['tmpval'] = $sessionTmpVal;
+
+        $analyzed_sql_results = $this->parseAndAnalyze($sqlQuery);
+
+        // Mock the count query that should be generated
+        $expectedCountQuery = 'SELECT COUNT(*) FROM (SELECT id, name FROM `City` WHERE district > "k" ) as cnt';
+        $this->dummyDbi->addResult($expectedCountQuery, [[$expectedNumRows]], [], []);
+
+        $result = $this->callFunction(
+            $this->sql,
+            Sql::class,
+            'countQueryResults',
+            [
+                $numRows,
+                false, // not just browsing
+                'world', // db
+                'City', // table
+                $analyzed_sql_results,
+            ]
+        );
+        
+        self::assertSame($expectedNumRows, $result);
+        $this->assertAllQueriesConsumed();
+    }
+
     public function testExecuteQueryAndSendQueryResponse(): void
     {
         $this->dummyDbi->addSelectDb('sakila');
