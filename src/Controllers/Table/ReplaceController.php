@@ -368,7 +368,7 @@ final class ReplaceController implements InvocableController
             Current::$sqlQuery = $returnToSqlQuery;
         }
 
-        $this->response->addScriptFiles(['vendor/jquery/additional-methods.js', 'table/change.js']);
+        $this->response->addScriptFiles(['vendor/jquery/additional-methods.min.js', 'table/change.js']);
 
         /**
          * If user asked for "and then Insert another new row" we have to remove
