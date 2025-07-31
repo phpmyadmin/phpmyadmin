@@ -284,7 +284,7 @@ class HeaderTest extends AbstractTestCase
             ['name' => 'vendor/bootstrap/bootstrap.js', 'fire' => 0],
             ['name' => 'vendor/js.cookie.min.js', 'fire' => 0],
             ['name' => 'vendor/jquery/jquery.validate.min.js', 'fire' => 0],
-            ['name' => 'vendor/jquery/jquery-ui-timepicker-addon.js', 'fire' => 0],
+            ['name' => 'vendor/jquery/jquery-ui-timepicker-addon.min.js', 'fire' => 0],
             ['name' => 'index.php', 'fire' => 0],
             ['name' => 'shared.js', 'fire' => 0],
             ['name' => 'menu_resizer.js', 'fire' => 1],
