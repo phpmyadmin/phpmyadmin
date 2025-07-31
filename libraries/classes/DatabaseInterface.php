@@ -1125,7 +1125,7 @@ class DatabaseInterface implements DbalInterface
         /* Locale for messages */
         $locale = LanguageManager::getInstance()->getCurrentLanguage()->getMySQLLocale();
         if ($locale) {
-            $this->query("SET lc_messages = '" . $locale . "';");
+            $this->tryQuery("SET lc_messages = '" . $locale . "';");
         }
 
         // Set timezone for the session, if required.
