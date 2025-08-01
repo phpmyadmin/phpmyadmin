@@ -18958,12 +18958,6 @@ parameters:
 			path: tests/unit/TwoFactorTest.php
 
 		-
-			message: '#^Class PhpMyAdmin\\Tests\\TypesByDatabaseVersionTest has an uninitialized property \$object\. Give it default value or assign it in the constructor\.$#'
-			identifier: property.uninitialized
-			count: 1
-			path: tests/unit/TypesByDatabaseVersionTest.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
 				Use dependency injection instead\.$#
