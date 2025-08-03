@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-07-27 00:32+0000\n"
+"POT-Creation-Date: 2025-08-03 00:33+0000\n"
 "PO-Revision-Date: 2024-10-17 16:16+0000\n"
 "Last-Translator: \"Yong Kim (Neatnet)\" <neatnet@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -4515,8 +4515,8 @@ msgid "Check privileges"
 msgstr "사용권한 검사"
 
 #: resources/templates/server/databases/index.twig:249
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:34
 #: src/Controllers/JavaScriptMessagesController.php:293
-#: src/Engines/Innodb.php:133
 msgid "Total:"
 msgstr "전체:"
 
@@ -4556,6 +4556,72 @@ msgstr "스토리지 엔진"
 #: src/BrowseForeigners.php:196 src/BrowseForeigners.php:198
 msgid "Description"
 msgstr "설명"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:2
+#, fuzzy
+#| msgid "Buffer Pool Usage"
+msgid "Buffer pool usage"
+msgstr "버퍼풀 사용량"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:5
+msgid "Free pages"
+msgstr "프리 페이지 수"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:9
+msgid "Dirty pages"
+msgstr "더티 페이지 수"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:13
+msgid "Pages containing data"
+msgstr "데이터가 포함된 페이지"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:17
+msgid "Pages to be flushed"
+msgstr "플러시될 페이지 수"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:21
+msgid "Busy pages"
+msgstr "사용 중인 페이지"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:26
+msgid "Latched pages"
+msgstr "래치된 페이지"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:34
+#, fuzzy, php-format
+#| msgid "Busy pages"
+msgid "%s pages"
+msgstr "사용 중인 페이지"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:41
+#, fuzzy
+#| msgid "Buffer Pool Activity"
+msgid "Buffer pool activity"
+msgstr "버퍼 풀 사용상태"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:44
+msgid "Read requests"
+msgstr "읽기 요청"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:48
+msgid "Write requests"
+msgstr "쓰기 요청"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:52
+msgid "Read misses"
+msgstr "읽기 미스"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:56
+msgid "Write waits"
+msgstr "쓰기 대기"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:60
+msgid "Read misses in %"
+msgstr "읽기 미스 %"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:66
+msgid "Write waits in %"
+msgstr "쓰기 대기 %"
 
 #: resources/templates/server/engines/show.twig:18
 #: resources/templates/server/engines/show.twig:21
@@ -6339,7 +6405,7 @@ msgstr "프로파일링 결과로 파이 차트."
 #: src/Controllers/Table/Partition/RepairController.php:49
 #: src/Controllers/Table/Partition/TruncateController.php:50
 #: src/Controllers/Table/RelationController.php:143
-#: src/Database/Routines.php:1019 src/Display/Results.php:3012
+#: src/Database/Routines.php:1019 src/Display/Results.php:3011
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "쿼리가 정상적으로 실행되었습니다."
@@ -12027,7 +12093,7 @@ msgid "Success!"
 msgstr "성공!"
 
 #: src/Controllers/Database/StructureController.php:567
-#: src/Display/Results.php:3285
+#: src/Display/Results.php:3292
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -15423,27 +15489,27 @@ msgstr ""
 msgid "The row has been deleted."
 msgstr "행을 삭제 하였습니다."
 
-#: src/Display/Results.php:3294
-#, php-format
-msgid "Showing rows %1s - %2s"
-msgstr "%1s - %2s행 표시 중"
-
-#: src/Display/Results.php:3308
-#, php-format
-msgid "%1$s total, %2$s in query"
-msgstr "총 %1$s개 중 현재 쿼리에 %2$s개"
-
-#: src/Display/Results.php:3313
-#, php-format
-msgid "%s total"
-msgstr "합계 %s"
-
-#: src/Display/Results.php:3326 src/Sql.php:871
+#: src/Display/Results.php:3016 src/Display/Results.php:3333 src/Sql.php:871
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "질의 실행시간 %01.4f 초."
 
-#: src/Display/Results.php:3622
+#: src/Display/Results.php:3301
+#, php-format
+msgid "Showing rows %1s - %2s"
+msgstr "%1s - %2s행 표시 중"
+
+#: src/Display/Results.php:3315
+#, php-format
+msgid "%1$s total, %2$s in query"
+msgstr "총 %1$s개 중 현재 쿼리에 %2$s개"
+
+#: src/Display/Results.php:3320
+#, php-format
+msgid "%s total"
+msgstr "합계 %s"
+
+#: src/Display/Results.php:3629
 msgid "Link not found!"
 msgstr "링크를 찾을 수 없습니다!"
 
@@ -15451,33 +15517,33 @@ msgstr "링크를 찾을 수 없습니다!"
 msgid "Version information"
 msgstr "버전 정보"
 
-#: src/Engines/Innodb.php:32
+#: src/Engines/Innodb.php:29
 msgid "Data home directory"
 msgstr "데이터 홈 디렉토리"
 
-#: src/Engines/Innodb.php:33
+#: src/Engines/Innodb.php:30
 msgid "The common part of the directory path for all InnoDB data files."
 msgstr "모든 InnoDB 데이터 파일에 대한, 파일 경로의 공통 부분."
 
-#: src/Engines/Innodb.php:35
+#: src/Engines/Innodb.php:32
 msgid "Data files"
 msgstr "데이터 파일"
 
-#: src/Engines/Innodb.php:37
+#: src/Engines/Innodb.php:34
 msgid "Autoextend increment"
 msgstr "자동 확장 시 늘어나는 테이블 크기"
 
-#: src/Engines/Innodb.php:39
+#: src/Engines/Innodb.php:36
 msgid ""
 "The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr "테이블이 가득 찼을 때 자동 확장되는 테이블 공간의 증가량입니다."
 
-#: src/Engines/Innodb.php:44
+#: src/Engines/Innodb.php:41
 msgid "Buffer pool size"
 msgstr "버퍼풀 크기"
 
-#: src/Engines/Innodb.php:45
+#: src/Engines/Innodb.php:42
 msgid ""
 "The size of the memory buffer InnoDB uses to cache data and indexes of its "
 "tables."
@@ -15485,73 +15551,13 @@ msgstr ""
 "InnoDB가 테이블의 데이터 및 인덱스를 캐시하는 데 사용하는 메모리 버퍼의 크기"
 "입니다."
 
-#: src/Engines/Innodb.php:105
+#: src/Engines/Innodb.php:102
 msgid "Buffer Pool"
 msgstr "버퍼풀"
 
-#: src/Engines/Innodb.php:105 src/Server/Status/Data.php:187
+#: src/Engines/Innodb.php:102 src/Server/Status/Data.php:187
 msgid "InnoDB Status"
 msgstr "InnoDB 상태"
-
-#: src/Engines/Innodb.php:128
-msgid "Buffer Pool Usage"
-msgstr "버퍼풀 사용량"
-
-#: src/Engines/Innodb.php:135
-msgid "pages"
-msgstr "페이지"
-
-#: src/Engines/Innodb.php:143
-msgid "Free pages"
-msgstr "프리 페이지 수"
-
-#: src/Engines/Innodb.php:149
-msgid "Dirty pages"
-msgstr "더티 페이지 수"
-
-#: src/Engines/Innodb.php:155
-msgid "Pages containing data"
-msgstr "데이터가 포함된 페이지"
-
-#: src/Engines/Innodb.php:161
-msgid "Pages to be flushed"
-msgstr "플러시될 페이지 수"
-
-#: src/Engines/Innodb.php:167
-msgid "Busy pages"
-msgstr "사용 중인 페이지"
-
-#: src/Engines/Innodb.php:176
-msgid "Latched pages"
-msgstr "래치된 페이지"
-
-#: src/Engines/Innodb.php:187
-msgid "Buffer Pool Activity"
-msgstr "버퍼 풀 사용상태"
-
-#: src/Engines/Innodb.php:191
-msgid "Read requests"
-msgstr "읽기 요청"
-
-#: src/Engines/Innodb.php:197
-msgid "Write requests"
-msgstr "쓰기 요청"
-
-#: src/Engines/Innodb.php:203
-msgid "Read misses"
-msgstr "읽기 미스"
-
-#: src/Engines/Innodb.php:209
-msgid "Write waits"
-msgstr "쓰기 대기"
-
-#: src/Engines/Innodb.php:215
-msgid "Read misses in %"
-msgstr "읽기 미스 %"
-
-#: src/Engines/Innodb.php:230
-msgid "Write waits in %"
-msgstr "쓰기 대기 %"
 
 #: src/Engines/Myisam.php:28
 msgid "Data pointer size"
@@ -18531,6 +18537,9 @@ msgstr "ZIP 압축파일 오류:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "ZIP 압축 안에서 파일을 발견하지 못했습니다!"
+
+#~ msgid "pages"
+#~ msgstr "페이지"
 
 #~ msgid "Connection for controluser as defined in your configuration failed."
 #~ msgstr "관리사용자(controluser, 설정에 정의됨)로서의 접속에 실패."

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-07-27 00:32+0000\n"
+"POT-Creation-Date: 2025-08-03 00:33+0000\n"
 "PO-Revision-Date: 2024-04-18 08:29+0000\n"
 "Last-Translator: Nicoara Alex <alex.nicoara@yahoo.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -4621,8 +4621,8 @@ msgid "Check privileges"
 msgstr "Verifică privilegiile"
 
 #: resources/templates/server/databases/index.twig:249
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:34
 #: src/Controllers/JavaScriptMessagesController.php:293
-#: src/Engines/Innodb.php:133
 msgid "Total:"
 msgstr "Total:"
 
@@ -4663,6 +4663,72 @@ msgstr "Motor de stocare"
 #: src/BrowseForeigners.php:196 src/BrowseForeigners.php:198
 msgid "Description"
 msgstr "Descriere"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:2
+#, fuzzy
+#| msgid "Buffer Pool Usage"
+msgid "Buffer pool usage"
+msgstr "Folosire Buffer Pool"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:5
+msgid "Free pages"
+msgstr "Pagini libere"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:9
+msgid "Dirty pages"
+msgstr "Pagini murdare"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:13
+msgid "Pages containing data"
+msgstr "Pagini care conțin date"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:17
+msgid "Pages to be flushed"
+msgstr "Pagini care trebuie golite"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:21
+msgid "Busy pages"
+msgstr "Pagini ocupate"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:26
+msgid "Latched pages"
+msgstr "Pagini închise"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:34
+#, fuzzy, php-format
+#| msgid "Busy pages"
+msgid "%s pages"
+msgstr "Pagini ocupate"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:41
+#, fuzzy
+#| msgid "Buffer Pool Activity"
+msgid "Buffer pool activity"
+msgstr "Activitate Buffer Pool"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:44
+msgid "Read requests"
+msgstr "Cereri de citire"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:48
+msgid "Write requests"
+msgstr "Cereri de scriere"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:52
+msgid "Read misses"
+msgstr "Neînțelegeri de citire"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:56
+msgid "Write waits"
+msgstr "Întârzieri de scriere"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:60
+msgid "Read misses in %"
+msgstr "Neînțelegeri de citire în %"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:66
+msgid "Write waits in %"
+msgstr "Întârzieri de scriere în %"
 
 #: resources/templates/server/engines/show.twig:18
 #: resources/templates/server/engines/show.twig:21
@@ -6549,7 +6615,7 @@ msgstr "Profilez rezultatele"
 #: src/Controllers/Table/Partition/RepairController.php:49
 #: src/Controllers/Table/Partition/TruncateController.php:50
 #: src/Controllers/Table/RelationController.php:143
-#: src/Database/Routines.php:1019 src/Display/Results.php:3012
+#: src/Database/Routines.php:1019 src/Display/Results.php:3011
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "Interogarea SQL a fost executată cu succes."
@@ -12481,7 +12547,7 @@ msgid "Success!"
 msgstr "Succes!"
 
 #: src/Controllers/Database/StructureController.php:567
-#: src/Display/Results.php:3285
+#: src/Display/Results.php:3292
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -15949,27 +16015,27 @@ msgstr ""
 msgid "The row has been deleted."
 msgstr "Rândul a fost șters."
 
-#: src/Display/Results.php:3294
-#, php-format
-msgid "Showing rows %1s - %2s"
-msgstr "Arăt rândurile %1s - %2s"
-
-#: src/Display/Results.php:3308
-#, php-format
-msgid "%1$s total, %2$s in query"
-msgstr "%1$s în total, %2$s în interogare"
-
-#: src/Display/Results.php:3313
-#, php-format
-msgid "%s total"
-msgstr "%s total"
-
-#: src/Display/Results.php:3326 src/Sql.php:871
+#: src/Display/Results.php:3016 src/Display/Results.php:3333 src/Sql.php:871
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Interogarea a durat %01.4f secunde."
 
-#: src/Display/Results.php:3622
+#: src/Display/Results.php:3301
+#, php-format
+msgid "Showing rows %1s - %2s"
+msgstr "Arăt rândurile %1s - %2s"
+
+#: src/Display/Results.php:3315
+#, php-format
+msgid "%1$s total, %2$s in query"
+msgstr "%1$s în total, %2$s în interogare"
+
+#: src/Display/Results.php:3320
+#, php-format
+msgid "%s total"
+msgstr "%s total"
+
+#: src/Display/Results.php:3629
 msgid "Link not found!"
 msgstr "Legătură negăsită!"
 
@@ -15977,24 +16043,24 @@ msgstr "Legătură negăsită!"
 msgid "Version information"
 msgstr "Informații despre versiune"
 
-#: src/Engines/Innodb.php:32
+#: src/Engines/Innodb.php:29
 msgid "Data home directory"
 msgstr "Director de date la bază"
 
-#: src/Engines/Innodb.php:33
+#: src/Engines/Innodb.php:30
 msgid "The common part of the directory path for all InnoDB data files."
 msgstr ""
 "Partea comună a căii directorilor pentru toate fișierele de date InnoDB."
 
-#: src/Engines/Innodb.php:35
+#: src/Engines/Innodb.php:32
 msgid "Data files"
 msgstr "Fișiere cu date"
 
-#: src/Engines/Innodb.php:37
+#: src/Engines/Innodb.php:34
 msgid "Autoextend increment"
 msgstr "Extinde automat incrementarea"
 
-#: src/Engines/Innodb.php:39
+#: src/Engines/Innodb.php:36
 msgid ""
 "The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
@@ -16002,83 +16068,23 @@ msgstr ""
 "Dimensiunea incrementării pentru extinderea dimensiunii unui spațiu de tabel "
 "cu extindere automată atunci când se umple."
 
-#: src/Engines/Innodb.php:44
+#: src/Engines/Innodb.php:41
 msgid "Buffer pool size"
 msgstr "Dimensiune Buffer pool"
 
-#: src/Engines/Innodb.php:45
+#: src/Engines/Innodb.php:42
 msgid ""
 "The size of the memory buffer InnoDB uses to cache data and indexes of its "
 "tables."
 msgstr ""
 
-#: src/Engines/Innodb.php:105
+#: src/Engines/Innodb.php:102
 msgid "Buffer Pool"
 msgstr "Buffer Pool"
 
-#: src/Engines/Innodb.php:105 src/Server/Status/Data.php:187
+#: src/Engines/Innodb.php:102 src/Server/Status/Data.php:187
 msgid "InnoDB Status"
 msgstr "Stare InnoDB"
-
-#: src/Engines/Innodb.php:128
-msgid "Buffer Pool Usage"
-msgstr "Folosire Buffer Pool"
-
-#: src/Engines/Innodb.php:135
-msgid "pages"
-msgstr "pagini"
-
-#: src/Engines/Innodb.php:143
-msgid "Free pages"
-msgstr "Pagini libere"
-
-#: src/Engines/Innodb.php:149
-msgid "Dirty pages"
-msgstr "Pagini murdare"
-
-#: src/Engines/Innodb.php:155
-msgid "Pages containing data"
-msgstr "Pagini care conțin date"
-
-#: src/Engines/Innodb.php:161
-msgid "Pages to be flushed"
-msgstr "Pagini care trebuie golite"
-
-#: src/Engines/Innodb.php:167
-msgid "Busy pages"
-msgstr "Pagini ocupate"
-
-#: src/Engines/Innodb.php:176
-msgid "Latched pages"
-msgstr "Pagini închise"
-
-#: src/Engines/Innodb.php:187
-msgid "Buffer Pool Activity"
-msgstr "Activitate Buffer Pool"
-
-#: src/Engines/Innodb.php:191
-msgid "Read requests"
-msgstr "Cereri de citire"
-
-#: src/Engines/Innodb.php:197
-msgid "Write requests"
-msgstr "Cereri de scriere"
-
-#: src/Engines/Innodb.php:203
-msgid "Read misses"
-msgstr "Neînțelegeri de citire"
-
-#: src/Engines/Innodb.php:209
-msgid "Write waits"
-msgstr "Întârzieri de scriere"
-
-#: src/Engines/Innodb.php:215
-msgid "Read misses in %"
-msgstr "Neînțelegeri de citire în %"
-
-#: src/Engines/Innodb.php:230
-msgid "Write waits in %"
-msgstr "Întârzieri de scriere în %"
 
 #: src/Engines/Myisam.php:28
 msgid "Data pointer size"
@@ -19166,6 +19172,9 @@ msgstr "Eroare în arhiva ZIP:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "Niciun fișier găsit în arhiva ZIP!"
+
+#~ msgid "pages"
+#~ msgstr "pagini"
 
 #~ msgid "Connection for controluser as defined in your configuration failed."
 #~ msgstr ""

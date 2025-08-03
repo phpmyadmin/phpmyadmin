@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-07-27 00:32+0000\n"
+"POT-Creation-Date: 2025-08-03 00:33+0000\n"
 "PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -4755,8 +4755,8 @@ msgid "Check privileges"
 msgstr "Tjek privilegier"
 
 #: resources/templates/server/databases/index.twig:249
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:34
 #: src/Controllers/JavaScriptMessagesController.php:293
-#: src/Engines/Innodb.php:133
 msgid "Total:"
 msgstr "Total:"
 
@@ -4799,6 +4799,72 @@ msgstr "Datalager"
 #: src/BrowseForeigners.php:196 src/BrowseForeigners.php:198
 msgid "Description"
 msgstr "Beskrivelse"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:2
+#, fuzzy
+#| msgid "Buffer Pool Usage"
+msgid "Buffer pool usage"
+msgstr "Bufferpoolsforbrug"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:5
+msgid "Free pages"
+msgstr "Frie sider"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:9
+msgid "Dirty pages"
+msgstr "Ændrede sider"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:13
+msgid "Pages containing data"
+msgstr "Sider med data"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:17
+msgid "Pages to be flushed"
+msgstr "Sider til udskrift"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:21
+msgid "Busy pages"
+msgstr "Travle sider"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:26
+msgid "Latched pages"
+msgstr "Eksklusivt låste (latched) sider"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:34
+#, fuzzy, php-format
+#| msgid "Busy pages"
+msgid "%s pages"
+msgstr "Travle sider"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:41
+#, fuzzy
+#| msgid "Buffer Pool Activity"
+msgid "Buffer pool activity"
+msgstr "Bufferpoolaktivitet"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:44
+msgid "Read requests"
+msgstr "Read-anmodninger"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:48
+msgid "Write requests"
+msgstr "Write-anmodninger"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:52
+msgid "Read misses"
+msgstr "Missede læsninger"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:56
+msgid "Write waits"
+msgstr "Write-ventetider"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:60
+msgid "Read misses in %"
+msgstr "Read misses i %"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:66
+msgid "Write waits in %"
+msgstr "Write waits i %"
 
 #: resources/templates/server/engines/show.twig:18
 #: resources/templates/server/engines/show.twig:21
@@ -6771,7 +6837,7 @@ msgstr "Resultat af profilering"
 #: src/Controllers/Table/Partition/RepairController.php:49
 #: src/Controllers/Table/Partition/TruncateController.php:50
 #: src/Controllers/Table/RelationController.php:143
-#: src/Database/Routines.php:1019 src/Display/Results.php:3012
+#: src/Database/Routines.php:1019 src/Display/Results.php:3011
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "Din SQL-forespørgsel blev udført korrekt."
@@ -12781,7 +12847,7 @@ msgid "Success!"
 msgstr "Gennemført!"
 
 #: src/Controllers/Database/StructureController.php:567
-#: src/Display/Results.php:3285
+#: src/Display/Results.php:3292
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -16425,29 +16491,29 @@ msgstr ""
 msgid "The row has been deleted."
 msgstr "Rækken er slettet."
 
-#: src/Display/Results.php:3294
+#: src/Display/Results.php:3016 src/Display/Results.php:3333 src/Sql.php:871
+#, php-format
+msgid "Query took %01.4f seconds."
+msgstr "Forespørgsel tog %01.4f sekunder."
+
+#: src/Display/Results.php:3301
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Viser rækkerne %1s - %2s"
 
-#: src/Display/Results.php:3308
+#: src/Display/Results.php:3315
 #, fuzzy, php-format
 #| msgid "%1$d total, %2$d in query"
 msgid "%1$s total, %2$s in query"
 msgstr "%1$d i alt, %2$d i forespørgsel"
 
-#: src/Display/Results.php:3313
+#: src/Display/Results.php:3320
 #, fuzzy, php-format
 #| msgid "%d total"
 msgid "%s total"
 msgstr "%d i alt"
 
-#: src/Display/Results.php:3326 src/Sql.php:871
-#, php-format
-msgid "Query took %01.4f seconds."
-msgstr "Forespørgsel tog %01.4f sekunder."
-
-#: src/Display/Results.php:3622
+#: src/Display/Results.php:3629
 msgid "Link not found!"
 msgstr "Link ikke fundet!"
 
@@ -16455,23 +16521,23 @@ msgstr "Link ikke fundet!"
 msgid "Version information"
 msgstr "Versionsinformation"
 
-#: src/Engines/Innodb.php:32
+#: src/Engines/Innodb.php:29
 msgid "Data home directory"
 msgstr "Data hovedmappe"
 
-#: src/Engines/Innodb.php:33
+#: src/Engines/Innodb.php:30
 msgid "The common part of the directory path for all InnoDB data files."
 msgstr "Den fælles del af stien til mappen med alle InnoDB datafiler."
 
-#: src/Engines/Innodb.php:35
+#: src/Engines/Innodb.php:32
 msgid "Data files"
 msgstr "Datafiler"
 
-#: src/Engines/Innodb.php:37
+#: src/Engines/Innodb.php:34
 msgid "Autoextend increment"
 msgstr "Autoextend forøgelse"
 
-#: src/Engines/Innodb.php:39
+#: src/Engines/Innodb.php:36
 msgid ""
 "The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
@@ -16479,11 +16545,11 @@ msgstr ""
 "Størrelsen på den udvidelse der vil forekomme, når pladsen i en "
 "autoudvidende tabel udvides fordi den løber fuld."
 
-#: src/Engines/Innodb.php:44
+#: src/Engines/Innodb.php:41
 msgid "Buffer pool size"
 msgstr "Buffer pool størrelse"
 
-#: src/Engines/Innodb.php:45
+#: src/Engines/Innodb.php:42
 msgid ""
 "The size of the memory buffer InnoDB uses to cache data and indexes of its "
 "tables."
@@ -16491,73 +16557,13 @@ msgstr ""
 "Størrelse på memorybufferen InnoDB bruger til at mellemlagre data og indeks "
 "på dens tabeller."
 
-#: src/Engines/Innodb.php:105
+#: src/Engines/Innodb.php:102
 msgid "Buffer Pool"
 msgstr "Bufferpool"
 
-#: src/Engines/Innodb.php:105 src/Server/Status/Data.php:187
+#: src/Engines/Innodb.php:102 src/Server/Status/Data.php:187
 msgid "InnoDB Status"
 msgstr "InnoDB status"
-
-#: src/Engines/Innodb.php:128
-msgid "Buffer Pool Usage"
-msgstr "Bufferpoolsforbrug"
-
-#: src/Engines/Innodb.php:135
-msgid "pages"
-msgstr "sider"
-
-#: src/Engines/Innodb.php:143
-msgid "Free pages"
-msgstr "Frie sider"
-
-#: src/Engines/Innodb.php:149
-msgid "Dirty pages"
-msgstr "Ændrede sider"
-
-#: src/Engines/Innodb.php:155
-msgid "Pages containing data"
-msgstr "Sider med data"
-
-#: src/Engines/Innodb.php:161
-msgid "Pages to be flushed"
-msgstr "Sider til udskrift"
-
-#: src/Engines/Innodb.php:167
-msgid "Busy pages"
-msgstr "Travle sider"
-
-#: src/Engines/Innodb.php:176
-msgid "Latched pages"
-msgstr "Eksklusivt låste (latched) sider"
-
-#: src/Engines/Innodb.php:187
-msgid "Buffer Pool Activity"
-msgstr "Bufferpoolaktivitet"
-
-#: src/Engines/Innodb.php:191
-msgid "Read requests"
-msgstr "Read-anmodninger"
-
-#: src/Engines/Innodb.php:197
-msgid "Write requests"
-msgstr "Write-anmodninger"
-
-#: src/Engines/Innodb.php:203
-msgid "Read misses"
-msgstr "Missede læsninger"
-
-#: src/Engines/Innodb.php:209
-msgid "Write waits"
-msgstr "Write-ventetider"
-
-#: src/Engines/Innodb.php:215
-msgid "Read misses in %"
-msgstr "Read misses i %"
-
-#: src/Engines/Innodb.php:230
-msgid "Write waits in %"
-msgstr "Write waits i %"
 
 #: src/Engines/Myisam.php:28
 msgid "Data pointer size"
@@ -19673,6 +19679,9 @@ msgstr "Fejl i ZIP arkiv:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "Ingen filer fundet i ZIP arkivet!"
+
+#~ msgid "pages"
+#~ msgstr "sider"
 
 #~ msgid "Connection for controluser as defined in your configuration failed."
 #~ msgstr ""

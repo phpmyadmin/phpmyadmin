@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-07-27 00:32+0000\n"
+"POT-Creation-Date: 2025-08-03 00:33+0000\n"
 "PO-Revision-Date: 2022-07-05 15:20+0000\n"
 "Last-Translator: Ugnius Vaičeskas <ugninis.vai@gmail.com>\n"
 "Language-Team: Lithuanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -5098,8 +5098,8 @@ msgid "Check privileges"
 msgstr "Patikrinti privilegijas"
 
 #: resources/templates/server/databases/index.twig:249
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:34
 #: src/Controllers/JavaScriptMessagesController.php:293
-#: src/Engines/Innodb.php:133
 msgid "Total:"
 msgstr "Iš viso:"
 
@@ -5142,6 +5142,73 @@ msgstr "Saugojimo variklis"
 #: src/BrowseForeigners.php:196 src/BrowseForeigners.php:198
 msgid "Description"
 msgstr "Paaiškinimas"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:2
+#, fuzzy
+#| msgid "Buffer Pool Usage"
+msgid "Buffer pool usage"
+msgstr "Buferio Pool'o naudojimas"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:5
+msgid "Free pages"
+msgstr "Tušti puslapiai"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:9
+#, fuzzy
+msgid "Dirty pages"
+msgstr "Tušti puslapiai"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:13
+msgid "Pages containing data"
+msgstr "Puslapiai su duomenimis"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:17
+msgid "Pages to be flushed"
+msgstr ""
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:21
+msgid "Busy pages"
+msgstr ""
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:26
+msgid "Latched pages"
+msgstr ""
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:34
+#, fuzzy, php-format
+#| msgid "pages"
+msgid "%s pages"
+msgstr "puslapiai"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:41
+#, fuzzy
+#| msgid "Buffer Pool Activity"
+msgid "Buffer pool activity"
+msgstr "Buferio pool'o veikla"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:44
+msgid "Read requests"
+msgstr "Skaitymo užklausos"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:48
+msgid "Write requests"
+msgstr "Įrašymo užklausos"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:52
+msgid "Read misses"
+msgstr "Skaitymo nepataikymai"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:56
+msgid "Write waits"
+msgstr "Rašymas laukia"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:60
+msgid "Read misses in %"
+msgstr "Skaitymo nepataikymai %"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:66
+msgid "Write waits in %"
+msgstr "Rašymas laukia %"
 
 #: resources/templates/server/engines/show.twig:18
 #: resources/templates/server/engines/show.twig:21
@@ -7160,7 +7227,7 @@ msgstr "Profiliavimo rezultatai"
 #: src/Controllers/Table/Partition/RepairController.php:49
 #: src/Controllers/Table/Partition/TruncateController.php:50
 #: src/Controllers/Table/RelationController.php:143
-#: src/Database/Routines.php:1019 src/Display/Results.php:3012
+#: src/Database/Routines.php:1019 src/Display/Results.php:3011
 #: src/Message.php:122
 #, fuzzy
 #| msgid "Your SQL query has been executed successfully."
@@ -13637,7 +13704,7 @@ msgid "Success!"
 msgstr ""
 
 #: src/Controllers/Database/StructureController.php:567
-#: src/Display/Results.php:3285
+#: src/Display/Results.php:3292
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -17309,30 +17376,30 @@ msgstr ""
 msgid "The row has been deleted."
 msgstr "Eilutė buvo ištrinta"
 
-#: src/Display/Results.php:3294
-#, fuzzy, php-format
-#| msgid "Showing rows"
-msgid "Showing rows %1s - %2s"
-msgstr "Rodomi įrašai"
-
-#: src/Display/Results.php:3308
-#, php-format
-msgid "%1$s total, %2$s in query"
-msgstr ""
-
-#: src/Display/Results.php:3313
-#, fuzzy, php-format
-#| msgid "total"
-msgid "%s total"
-msgstr "iš viso"
-
-#: src/Display/Results.php:3326 src/Sql.php:871
+#: src/Display/Results.php:3016 src/Display/Results.php:3333 src/Sql.php:871
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
 msgstr "Užklausa užtruko %01.4f sek."
 
-#: src/Display/Results.php:3622
+#: src/Display/Results.php:3301
+#, fuzzy, php-format
+#| msgid "Showing rows"
+msgid "Showing rows %1s - %2s"
+msgstr "Rodomi įrašai"
+
+#: src/Display/Results.php:3315
+#, php-format
+msgid "%1$s total, %2$s in query"
+msgstr ""
+
+#: src/Display/Results.php:3320
+#, fuzzy, php-format
+#| msgid "total"
+msgid "%s total"
+msgstr "iš viso"
+
+#: src/Display/Results.php:3629
 #, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
@@ -17342,106 +17409,45 @@ msgstr "Sąryšis nerastas"
 msgid "Version information"
 msgstr "Versijos informacija"
 
-#: src/Engines/Innodb.php:32
+#: src/Engines/Innodb.php:29
 msgid "Data home directory"
 msgstr "Duomenų pradinis (home) katalogas"
 
-#: src/Engines/Innodb.php:33
+#: src/Engines/Innodb.php:30
 msgid "The common part of the directory path for all InnoDB data files."
 msgstr "Bendra direktorijų kelio dalis visiems InnoDB duomenų failams."
 
-#: src/Engines/Innodb.php:35
+#: src/Engines/Innodb.php:32
 msgid "Data files"
 msgstr "Duomenų failai"
 
-#: src/Engines/Innodb.php:37
+#: src/Engines/Innodb.php:34
 msgid "Autoextend increment"
 msgstr "Automatinis didėjimas"
 
-#: src/Engines/Innodb.php:39
+#: src/Engines/Innodb.php:36
 msgid ""
 "The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
 
-#: src/Engines/Innodb.php:44
+#: src/Engines/Innodb.php:41
 msgid "Buffer pool size"
 msgstr "Buferio pool'o dydis"
 
-#: src/Engines/Innodb.php:45
+#: src/Engines/Innodb.php:42
 msgid ""
 "The size of the memory buffer InnoDB uses to cache data and indexes of its "
 "tables."
 msgstr ""
 
-#: src/Engines/Innodb.php:105
+#: src/Engines/Innodb.php:102
 msgid "Buffer Pool"
 msgstr "Buferio Pool'as"
 
-#: src/Engines/Innodb.php:105 src/Server/Status/Data.php:187
+#: src/Engines/Innodb.php:102 src/Server/Status/Data.php:187
 msgid "InnoDB Status"
 msgstr "InnoDB būsena"
-
-#: src/Engines/Innodb.php:128
-msgid "Buffer Pool Usage"
-msgstr "Buferio Pool'o naudojimas"
-
-#: src/Engines/Innodb.php:135
-msgid "pages"
-msgstr "puslapiai"
-
-#: src/Engines/Innodb.php:143
-msgid "Free pages"
-msgstr "Tušti puslapiai"
-
-#: src/Engines/Innodb.php:149
-#, fuzzy
-msgid "Dirty pages"
-msgstr "Tušti puslapiai"
-
-#: src/Engines/Innodb.php:155
-msgid "Pages containing data"
-msgstr "Puslapiai su duomenimis"
-
-#: src/Engines/Innodb.php:161
-msgid "Pages to be flushed"
-msgstr ""
-
-#: src/Engines/Innodb.php:167
-msgid "Busy pages"
-msgstr ""
-
-#: src/Engines/Innodb.php:176
-msgid "Latched pages"
-msgstr ""
-
-#: src/Engines/Innodb.php:187
-msgid "Buffer Pool Activity"
-msgstr "Buferio pool'o veikla"
-
-#: src/Engines/Innodb.php:191
-msgid "Read requests"
-msgstr "Skaitymo užklausos"
-
-#: src/Engines/Innodb.php:197
-msgid "Write requests"
-msgstr "Įrašymo užklausos"
-
-#: src/Engines/Innodb.php:203
-msgid "Read misses"
-msgstr "Skaitymo nepataikymai"
-
-#: src/Engines/Innodb.php:209
-msgid "Write waits"
-msgstr "Rašymas laukia"
-
-#: src/Engines/Innodb.php:215
-msgid "Read misses in %"
-msgstr "Skaitymo nepataikymai %"
-
-#: src/Engines/Innodb.php:230
-msgid "Write waits in %"
-msgstr "Rašymas laukia %"
 
 #: src/Engines/Myisam.php:28
 msgid "Data pointer size"

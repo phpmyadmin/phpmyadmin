@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-07-27 00:32+0000\n"
+"POT-Creation-Date: 2025-08-03 00:33+0000\n"
 "PO-Revision-Date: 2025-05-26 13:03+0000\n"
 "Last-Translator: Marijn Scholtus <linkable@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -4548,8 +4548,8 @@ msgid "Check privileges"
 msgstr "Controleer rechten"
 
 #: resources/templates/server/databases/index.twig:249
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:34
 #: src/Controllers/JavaScriptMessagesController.php:293
-#: src/Engines/Innodb.php:133
 msgid "Total:"
 msgstr "Totaal:"
 
@@ -4590,6 +4590,72 @@ msgstr "Opslag-engine"
 #: src/BrowseForeigners.php:196 src/BrowseForeigners.php:198
 msgid "Description"
 msgstr "Beschrijving"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:2
+#, fuzzy
+#| msgid "Buffer Pool Usage"
+msgid "Buffer pool usage"
+msgstr "Gebruik van Buffer Pool"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:5
+msgid "Free pages"
+msgstr "Vrije pages"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:9
+msgid "Dirty pages"
+msgstr "Vervuilde pagina's"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:13
+msgid "Pages containing data"
+msgstr "Pagina's die gegevens bevatten"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:17
+msgid "Pages to be flushed"
+msgstr "Pages te schonen"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:21
+msgid "Busy pages"
+msgstr "Pagina's in gebruik"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:26
+msgid "Latched pages"
+msgstr "Latched pagina's"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:34
+#, fuzzy, php-format
+#| msgid "Busy pages"
+msgid "%s pages"
+msgstr "Pagina's in gebruik"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:41
+#, fuzzy
+#| msgid "Buffer Pool Activity"
+msgid "Buffer pool activity"
+msgstr "Activiteit van Buffer Pool"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:44
+msgid "Read requests"
+msgstr "Leesverzoeken"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:48
+msgid "Write requests"
+msgstr "Schrijfverzoeken"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:52
+msgid "Read misses"
+msgstr "Leesfouten"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:56
+msgid "Write waits"
+msgstr "Schrijfvertragingen"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:60
+msgid "Read misses in %"
+msgstr "Leesfouten in %"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:66
+msgid "Write waits in %"
+msgstr "Schrijfvertragingen in %"
 
 #: resources/templates/server/engines/show.twig:18
 #: resources/templates/server/engines/show.twig:21
@@ -6415,7 +6481,7 @@ msgstr "Taartdiagram met profiling resultaten."
 #: src/Controllers/Table/Partition/RepairController.php:49
 #: src/Controllers/Table/Partition/TruncateController.php:50
 #: src/Controllers/Table/RelationController.php:143
-#: src/Database/Routines.php:1019 src/Display/Results.php:3012
+#: src/Database/Routines.php:1019 src/Display/Results.php:3011
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "Uw SQL-query is succesvol uitgevoerd."
@@ -12324,7 +12390,7 @@ msgid "Success!"
 msgstr "Geslaagd!"
 
 #: src/Controllers/Database/StructureController.php:567
-#: src/Display/Results.php:3285
+#: src/Display/Results.php:3292
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -15846,27 +15912,27 @@ msgstr ""
 msgid "The row has been deleted."
 msgstr "De rij is verwijderd."
 
-#: src/Display/Results.php:3294
-#, php-format
-msgid "Showing rows %1s - %2s"
-msgstr "Weergave van records %1s - %2s"
-
-#: src/Display/Results.php:3308
-#, php-format
-msgid "%1$s total, %2$s in query"
-msgstr "%1$s in totaal, %2$s in de query"
-
-#: src/Display/Results.php:3313
-#, php-format
-msgid "%s total"
-msgstr "%s totaal"
-
-#: src/Display/Results.php:3326 src/Sql.php:871
+#: src/Display/Results.php:3016 src/Display/Results.php:3333 src/Sql.php:871
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Query duurde %01.4f seconden."
 
-#: src/Display/Results.php:3622
+#: src/Display/Results.php:3301
+#, php-format
+msgid "Showing rows %1s - %2s"
+msgstr "Weergave van records %1s - %2s"
+
+#: src/Display/Results.php:3315
+#, php-format
+msgid "%1$s total, %2$s in query"
+msgstr "%1$s in totaal, %2$s in de query"
+
+#: src/Display/Results.php:3320
+#, php-format
+msgid "%s total"
+msgstr "%s totaal"
+
+#: src/Display/Results.php:3629
 msgid "Link not found!"
 msgstr "Link niet gevonden!"
 
@@ -15874,25 +15940,25 @@ msgstr "Link niet gevonden!"
 msgid "Version information"
 msgstr "Versie-informatie"
 
-#: src/Engines/Innodb.php:32
+#: src/Engines/Innodb.php:29
 msgid "Data home directory"
 msgstr "Data homemap"
 
-#: src/Engines/Innodb.php:33
+#: src/Engines/Innodb.php:30
 msgid "The common part of the directory path for all InnoDB data files."
 msgstr ""
 "Het gemeenschappelijke deel van de map waar alle InnoDB-gegevensbestanden "
 "staan."
 
-#: src/Engines/Innodb.php:35
+#: src/Engines/Innodb.php:32
 msgid "Data files"
 msgstr "Gegevensbestanden"
 
-#: src/Engines/Innodb.php:37
+#: src/Engines/Innodb.php:34
 msgid "Autoextend increment"
 msgstr "Zelfgroei stapgrootte"
 
-#: src/Engines/Innodb.php:39
+#: src/Engines/Innodb.php:36
 msgid ""
 "The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
@@ -15900,11 +15966,11 @@ msgstr ""
 "De hoeveelheid waarmee een zelfgroeiende tabelruimte groeit wanneer deze "
 "dreigt vol te raken."
 
-#: src/Engines/Innodb.php:44
+#: src/Engines/Innodb.php:41
 msgid "Buffer pool size"
 msgstr "Bufferpoolgrootte"
 
-#: src/Engines/Innodb.php:45
+#: src/Engines/Innodb.php:42
 msgid ""
 "The size of the memory buffer InnoDB uses to cache data and indexes of its "
 "tables."
@@ -15912,73 +15978,13 @@ msgstr ""
 "De grootte van de geheugenbuffer dat InnoDB gebruikt voor het cachen van "
 "gegevens en indexen van zijn tabellen."
 
-#: src/Engines/Innodb.php:105
+#: src/Engines/Innodb.php:102
 msgid "Buffer Pool"
 msgstr "Buffer Pool"
 
-#: src/Engines/Innodb.php:105 src/Server/Status/Data.php:187
+#: src/Engines/Innodb.php:102 src/Server/Status/Data.php:187
 msgid "InnoDB Status"
 msgstr "InnoDB-status"
-
-#: src/Engines/Innodb.php:128
-msgid "Buffer Pool Usage"
-msgstr "Gebruik van Buffer Pool"
-
-#: src/Engines/Innodb.php:135
-msgid "pages"
-msgstr "pagina's"
-
-#: src/Engines/Innodb.php:143
-msgid "Free pages"
-msgstr "Vrije pages"
-
-#: src/Engines/Innodb.php:149
-msgid "Dirty pages"
-msgstr "Vervuilde pagina's"
-
-#: src/Engines/Innodb.php:155
-msgid "Pages containing data"
-msgstr "Pagina's die gegevens bevatten"
-
-#: src/Engines/Innodb.php:161
-msgid "Pages to be flushed"
-msgstr "Pages te schonen"
-
-#: src/Engines/Innodb.php:167
-msgid "Busy pages"
-msgstr "Pagina's in gebruik"
-
-#: src/Engines/Innodb.php:176
-msgid "Latched pages"
-msgstr "Latched pagina's"
-
-#: src/Engines/Innodb.php:187
-msgid "Buffer Pool Activity"
-msgstr "Activiteit van Buffer Pool"
-
-#: src/Engines/Innodb.php:191
-msgid "Read requests"
-msgstr "Leesverzoeken"
-
-#: src/Engines/Innodb.php:197
-msgid "Write requests"
-msgstr "Schrijfverzoeken"
-
-#: src/Engines/Innodb.php:203
-msgid "Read misses"
-msgstr "Leesfouten"
-
-#: src/Engines/Innodb.php:209
-msgid "Write waits"
-msgstr "Schrijfvertragingen"
-
-#: src/Engines/Innodb.php:215
-msgid "Read misses in %"
-msgstr "Leesfouten in %"
-
-#: src/Engines/Innodb.php:230
-msgid "Write waits in %"
-msgstr "Schrijfvertragingen in %"
 
 #: src/Engines/Myisam.php:28
 msgid "Data pointer size"
@@ -19070,6 +19076,9 @@ msgstr "Fout in het ZIP-archief:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "Geen bestanden gevonden in ZIP-archief!"
+
+#~ msgid "pages"
+#~ msgstr "pagina's"
 
 #~ msgid "Connection for controluser as defined in your configuration failed."
 #~ msgstr ""

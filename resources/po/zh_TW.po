@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-07-27 00:32+0000\n"
+"POT-Creation-Date: 2025-08-03 00:33+0000\n"
 "PO-Revision-Date: 2024-07-03 07:27+0000\n"
 "Last-Translator: Ricky From Hong Kong <lamricky11@hotmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -4538,8 +4538,8 @@ msgid "Check privileges"
 msgstr "檢查權限"
 
 #: resources/templates/server/databases/index.twig:249
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:34
 #: src/Controllers/JavaScriptMessagesController.php:293
-#: src/Engines/Innodb.php:133
 msgid "Total:"
 msgstr "總計："
 
@@ -4579,6 +4579,72 @@ msgstr "儲存引擎"
 #: src/BrowseForeigners.php:196 src/BrowseForeigners.php:198
 msgid "Description"
 msgstr "說明"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:2
+#, fuzzy
+#| msgid "Buffer Pool Usage"
+msgid "Buffer pool usage"
+msgstr "緩衝池使用情況"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:5
+msgid "Free pages"
+msgstr "空閒頁"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:9
+msgid "Dirty pages"
+msgstr "異動(未儲存)頁"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:13
+msgid "Pages containing data"
+msgstr "非空頁"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:17
+msgid "Pages to be flushed"
+msgstr "要重新整理的頁"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:21
+msgid "Busy pages"
+msgstr "負載頁"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:26
+msgid "Latched pages"
+msgstr "鎖定頁"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:34
+#, fuzzy, php-format
+#| msgid "Busy pages"
+msgid "%s pages"
+msgstr "負載頁"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:41
+#, fuzzy
+#| msgid "Buffer Pool Activity"
+msgid "Buffer pool activity"
+msgstr "緩衝池操作"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:44
+msgid "Read requests"
+msgstr "讀取請求"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:48
+msgid "Write requests"
+msgstr "寫入請求"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:52
+msgid "Read misses"
+msgstr "讀取缺失數"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:56
+msgid "Write waits"
+msgstr "寫入等待數"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:60
+msgid "Read misses in %"
+msgstr "讀取缺失率"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:66
+msgid "Write waits in %"
+msgstr "寫入等待率"
 
 #: resources/templates/server/engines/show.twig:18
 #: resources/templates/server/engines/show.twig:21
@@ -6425,7 +6491,7 @@ msgstr "研判結果。"
 #: src/Controllers/Table/Partition/RepairController.php:49
 #: src/Controllers/Table/Partition/TruncateController.php:50
 #: src/Controllers/Table/RelationController.php:143
-#: src/Database/Routines.php:1019 src/Display/Results.php:3012
+#: src/Database/Routines.php:1019 src/Display/Results.php:3011
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "SQL 查詢已順利執行。"
@@ -12022,7 +12088,7 @@ msgid "Success!"
 msgstr "成功！"
 
 #: src/Controllers/Database/StructureController.php:567
-#: src/Display/Results.php:3285
+#: src/Display/Results.php:3292
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -15461,27 +15527,27 @@ msgstr "錯誤1045：使用者被拒絕。可能有其他錯誤訊息，但被%s
 msgid "The row has been deleted."
 msgstr "已刪除該行。"
 
-#: src/Display/Results.php:3294
-#, php-format
-msgid "Showing rows %1s - %2s"
-msgstr "顯示第 %1s - %2s 列"
-
-#: src/Display/Results.php:3308
-#, php-format
-msgid "%1$s total, %2$s in query"
-msgstr "總計 %1$s 筆，目前查詢 %2$s 筆"
-
-#: src/Display/Results.php:3313
-#, php-format
-msgid "%s total"
-msgstr "總計 %s 筆"
-
-#: src/Display/Results.php:3326 src/Sql.php:871
+#: src/Display/Results.php:3016 src/Display/Results.php:3333 src/Sql.php:871
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "查詢用了 %01.4f 秒。"
 
-#: src/Display/Results.php:3622
+#: src/Display/Results.php:3301
+#, php-format
+msgid "Showing rows %1s - %2s"
+msgstr "顯示第 %1s - %2s 列"
+
+#: src/Display/Results.php:3315
+#, php-format
+msgid "%1$s total, %2$s in query"
+msgstr "總計 %1$s 筆，目前查詢 %2$s 筆"
+
+#: src/Display/Results.php:3320
+#, php-format
+msgid "%s total"
+msgstr "總計 %s 筆"
+
+#: src/Display/Results.php:3629
 msgid "Link not found!"
 msgstr "無此連結！"
 
@@ -15489,105 +15555,45 @@ msgstr "無此連結！"
 msgid "Version information"
 msgstr "版本資訊"
 
-#: src/Engines/Innodb.php:32
+#: src/Engines/Innodb.php:29
 msgid "Data home directory"
 msgstr "資料的主資料夾"
 
-#: src/Engines/Innodb.php:33
+#: src/Engines/Innodb.php:30
 msgid "The common part of the directory path for all InnoDB data files."
 msgstr "所有 InnoDB 資料檔案路徑的共有部分。"
 
-#: src/Engines/Innodb.php:35
+#: src/Engines/Innodb.php:32
 msgid "Data files"
 msgstr "資料檔案"
 
-#: src/Engines/Innodb.php:37
+#: src/Engines/Innodb.php:34
 msgid "Autoextend increment"
 msgstr "自動增加"
 
-#: src/Engines/Innodb.php:39
+#: src/Engines/Innodb.php:36
 msgid ""
 "The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr "資料表空間不足時自動增加的大小。"
 
-#: src/Engines/Innodb.php:44
+#: src/Engines/Innodb.php:41
 msgid "Buffer pool size"
 msgstr "緩衝池大小"
 
-#: src/Engines/Innodb.php:45
+#: src/Engines/Innodb.php:42
 msgid ""
 "The size of the memory buffer InnoDB uses to cache data and indexes of its "
 "tables."
 msgstr "InnoDB 用於快取資料和索引，所要使用的記憶體緩衝區大小。"
 
-#: src/Engines/Innodb.php:105
+#: src/Engines/Innodb.php:102
 msgid "Buffer Pool"
 msgstr "緩衝池"
 
-#: src/Engines/Innodb.php:105 src/Server/Status/Data.php:187
+#: src/Engines/Innodb.php:102 src/Server/Status/Data.php:187
 msgid "InnoDB Status"
 msgstr "InnoDB 狀態"
-
-#: src/Engines/Innodb.php:128
-msgid "Buffer Pool Usage"
-msgstr "緩衝池使用情況"
-
-#: src/Engines/Innodb.php:135
-msgid "pages"
-msgstr "頁數"
-
-#: src/Engines/Innodb.php:143
-msgid "Free pages"
-msgstr "空閒頁"
-
-#: src/Engines/Innodb.php:149
-msgid "Dirty pages"
-msgstr "異動(未儲存)頁"
-
-#: src/Engines/Innodb.php:155
-msgid "Pages containing data"
-msgstr "非空頁"
-
-#: src/Engines/Innodb.php:161
-msgid "Pages to be flushed"
-msgstr "要重新整理的頁"
-
-#: src/Engines/Innodb.php:167
-msgid "Busy pages"
-msgstr "負載頁"
-
-#: src/Engines/Innodb.php:176
-msgid "Latched pages"
-msgstr "鎖定頁"
-
-#: src/Engines/Innodb.php:187
-msgid "Buffer Pool Activity"
-msgstr "緩衝池操作"
-
-#: src/Engines/Innodb.php:191
-msgid "Read requests"
-msgstr "讀取請求"
-
-#: src/Engines/Innodb.php:197
-msgid "Write requests"
-msgstr "寫入請求"
-
-#: src/Engines/Innodb.php:203
-msgid "Read misses"
-msgstr "讀取缺失數"
-
-#: src/Engines/Innodb.php:209
-msgid "Write waits"
-msgstr "寫入等待數"
-
-#: src/Engines/Innodb.php:215
-msgid "Read misses in %"
-msgstr "讀取缺失率"
-
-#: src/Engines/Innodb.php:230
-msgid "Write waits in %"
-msgstr "寫入等待率"
 
 #: src/Engines/Myisam.php:28
 msgid "Data pointer size"
@@ -18531,6 +18537,9 @@ msgstr "ZIP 壓縮檔出錯："
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "ZIP 壓縮檔中沒有檔案！"
+
+#~ msgid "pages"
+#~ msgstr "頁數"
 
 #~ msgid "Connection for controluser as defined in your configuration failed."
 #~ msgstr "使用設定檔案定義的控制使用者連線失敗。"

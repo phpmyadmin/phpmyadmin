@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-07-27 00:32+0000\n"
+"POT-Creation-Date: 2025-08-03 00:33+0000\n"
 "PO-Revision-Date: 2025-01-12 23:24+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -4537,8 +4537,8 @@ msgid "Check privileges"
 msgstr "権限をチェックする"
 
 #: resources/templates/server/databases/index.twig:249
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:34
 #: src/Controllers/JavaScriptMessagesController.php:293
-#: src/Engines/Innodb.php:133
 msgid "Total:"
 msgstr "合計:"
 
@@ -4579,6 +4579,72 @@ msgstr "ストレージエンジン"
 #: src/BrowseForeigners.php:196 src/BrowseForeigners.php:198
 msgid "Description"
 msgstr "説明"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:2
+#, fuzzy
+#| msgid "Buffer Pool Usage"
+msgid "Buffer pool usage"
+msgstr "バッファプールの使用量"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:5
+msgid "Free pages"
+msgstr "フリーページ数"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:9
+msgid "Dirty pages"
+msgstr "ダーティページ"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:13
+msgid "Pages containing data"
+msgstr "データが含まれているページ数"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:17
+msgid "Pages to be flushed"
+msgstr "フラッシュ待ちページ数"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:21
+msgid "Busy pages"
+msgstr "ビジーなページ数"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:26
+msgid "Latched pages"
+msgstr "ラッチされているページ"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:34
+#, fuzzy, php-format
+#| msgid "Busy pages"
+msgid "%s pages"
+msgstr "ビジーなページ数"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:41
+#, fuzzy
+#| msgid "Buffer Pool Activity"
+msgid "Buffer pool activity"
+msgstr "バッファプールの利用状況"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:44
+msgid "Read requests"
+msgstr "読み込みリクエスト数"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:48
+msgid "Write requests"
+msgstr "書き込みリクエスト数"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:52
+msgid "Read misses"
+msgstr "読み込みミス"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:56
+msgid "Write waits"
+msgstr "書き込み待ち"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:60
+msgid "Read misses in %"
+msgstr "読み込みミス (%)"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:66
+msgid "Write waits in %"
+msgstr "書き込み待ち (%)"
 
 #: resources/templates/server/engines/show.twig:18
 #: resources/templates/server/engines/show.twig:21
@@ -6381,7 +6447,7 @@ msgstr "プロファイリング結果の円グラフ。"
 #: src/Controllers/Table/Partition/RepairController.php:49
 #: src/Controllers/Table/Partition/TruncateController.php:50
 #: src/Controllers/Table/RelationController.php:143
-#: src/Database/Routines.php:1019 src/Display/Results.php:3012
+#: src/Database/Routines.php:1019 src/Display/Results.php:3011
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "SQL は正常に実行されました。"
@@ -12187,7 +12253,7 @@ msgid "Success!"
 msgstr "成功！"
 
 #: src/Controllers/Database/StructureController.php:567
-#: src/Display/Results.php:3285
+#: src/Display/Results.php:3292
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -15616,27 +15682,27 @@ msgstr ""
 msgid "The row has been deleted."
 msgstr "行を削除しました。"
 
-#: src/Display/Results.php:3294
-#, php-format
-msgid "Showing rows %1s - %2s"
-msgstr "行 %1s - %2s の表示"
-
-#: src/Display/Results.php:3308
-#, php-format
-msgid "%1$s total, %2$s in query"
-msgstr "合計 %1$s, クエリで %2$s"
-
-#: src/Display/Results.php:3313
-#, php-format
-msgid "%s total"
-msgstr "合計 %s"
-
-#: src/Display/Results.php:3326 src/Sql.php:871
+#: src/Display/Results.php:3016 src/Display/Results.php:3333 src/Sql.php:871
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "クエリの実行時間： %01.4f 秒。"
 
-#: src/Display/Results.php:3622
+#: src/Display/Results.php:3301
+#, php-format
+msgid "Showing rows %1s - %2s"
+msgstr "行 %1s - %2s の表示"
+
+#: src/Display/Results.php:3315
+#, php-format
+msgid "%1$s total, %2$s in query"
+msgstr "合計 %1$s, クエリで %2$s"
+
+#: src/Display/Results.php:3320
+#, php-format
+msgid "%s total"
+msgstr "合計 %s"
+
+#: src/Display/Results.php:3629
 msgid "Link not found!"
 msgstr "リンクが見つかりません！"
 
@@ -15644,23 +15710,23 @@ msgstr "リンクが見つかりません！"
 msgid "Version information"
 msgstr "バージョン情報"
 
-#: src/Engines/Innodb.php:32
+#: src/Engines/Innodb.php:29
 msgid "Data home directory"
 msgstr "データのホームディレクトリ"
 
-#: src/Engines/Innodb.php:33
+#: src/Engines/Innodb.php:30
 msgid "The common part of the directory path for all InnoDB data files."
 msgstr "すべての InnoDB データファイルに共通するディレクトリパス。"
 
-#: src/Engines/Innodb.php:35
+#: src/Engines/Innodb.php:32
 msgid "Data files"
 msgstr "データファイル"
 
-#: src/Engines/Innodb.php:37
+#: src/Engines/Innodb.php:34
 msgid "Autoextend increment"
 msgstr "自動拡張時に追加されるテーブルの大きさ"
 
-#: src/Engines/Innodb.php:39
+#: src/Engines/Innodb.php:36
 msgid ""
 "The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
@@ -15668,11 +15734,11 @@ msgstr ""
 "スペースがいっぱいになったときに自動的にテーブルを拡張する場合に追加される"
 "テーブルの大きさ。"
 
-#: src/Engines/Innodb.php:44
+#: src/Engines/Innodb.php:41
 msgid "Buffer pool size"
 msgstr "バッファプールの大きさ"
 
-#: src/Engines/Innodb.php:45
+#: src/Engines/Innodb.php:42
 msgid ""
 "The size of the memory buffer InnoDB uses to cache data and indexes of its "
 "tables."
@@ -15680,73 +15746,13 @@ msgstr ""
 "InnoDB がテーブルのデータやインデックスをキャッシュするのに使うメモリバッファ"
 "量。"
 
-#: src/Engines/Innodb.php:105
+#: src/Engines/Innodb.php:102
 msgid "Buffer Pool"
 msgstr "バッファプール"
 
-#: src/Engines/Innodb.php:105 src/Server/Status/Data.php:187
+#: src/Engines/Innodb.php:102 src/Server/Status/Data.php:187
 msgid "InnoDB Status"
 msgstr "InnoDB ステータス"
-
-#: src/Engines/Innodb.php:128
-msgid "Buffer Pool Usage"
-msgstr "バッファプールの使用量"
-
-#: src/Engines/Innodb.php:135
-msgid "pages"
-msgstr "ページ"
-
-#: src/Engines/Innodb.php:143
-msgid "Free pages"
-msgstr "フリーページ数"
-
-#: src/Engines/Innodb.php:149
-msgid "Dirty pages"
-msgstr "ダーティページ"
-
-#: src/Engines/Innodb.php:155
-msgid "Pages containing data"
-msgstr "データが含まれているページ数"
-
-#: src/Engines/Innodb.php:161
-msgid "Pages to be flushed"
-msgstr "フラッシュ待ちページ数"
-
-#: src/Engines/Innodb.php:167
-msgid "Busy pages"
-msgstr "ビジーなページ数"
-
-#: src/Engines/Innodb.php:176
-msgid "Latched pages"
-msgstr "ラッチされているページ"
-
-#: src/Engines/Innodb.php:187
-msgid "Buffer Pool Activity"
-msgstr "バッファプールの利用状況"
-
-#: src/Engines/Innodb.php:191
-msgid "Read requests"
-msgstr "読み込みリクエスト数"
-
-#: src/Engines/Innodb.php:197
-msgid "Write requests"
-msgstr "書き込みリクエスト数"
-
-#: src/Engines/Innodb.php:203
-msgid "Read misses"
-msgstr "読み込みミス"
-
-#: src/Engines/Innodb.php:209
-msgid "Write waits"
-msgstr "書き込み待ち"
-
-#: src/Engines/Innodb.php:215
-msgid "Read misses in %"
-msgstr "読み込みミス (%)"
-
-#: src/Engines/Innodb.php:230
-msgid "Write waits in %"
-msgstr "書き込み待ち (%)"
 
 #: src/Engines/Myisam.php:28
 msgid "Data pointer size"
@@ -18765,6 +18771,9 @@ msgstr "ZIP アーカイブにエラーがあります:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "ZIP アーカイブにファイルが含まれていません!"
+
+#~ msgid "pages"
+#~ msgstr "ページ"
 
 #~ msgid "Connection for controluser as defined in your configuration failed."
 #~ msgstr ""

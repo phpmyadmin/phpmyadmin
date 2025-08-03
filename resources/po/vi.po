@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-07-27 00:32+0000\n"
+"POT-Creation-Date: 2025-08-03 00:33+0000\n"
 "PO-Revision-Date: 2025-05-14 19:50+0000\n"
 "Last-Translator: Xuan Hung <mr.hungdx@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -4544,8 +4544,8 @@ msgid "Check privileges"
 msgstr "Kiểm tra đặc quyền"
 
 #: resources/templates/server/databases/index.twig:249
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:34
 #: src/Controllers/JavaScriptMessagesController.php:293
-#: src/Engines/Innodb.php:133
 msgid "Total:"
 msgstr "Tổng cộng:"
 
@@ -4588,6 +4588,72 @@ msgstr "Bộ máy lưu trữ"
 #: src/BrowseForeigners.php:196 src/BrowseForeigners.php:198
 msgid "Description"
 msgstr "Mô tả"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:2
+#, fuzzy
+#| msgid "Buffer Pool Usage"
+msgid "Buffer pool usage"
+msgstr "Mức dùng Bể đệm"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:5
+msgid "Free pages"
+msgstr "Trang còn rảnh rỗi"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:9
+msgid "Dirty pages"
+msgstr "Trang bẩn"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:13
+msgid "Pages containing data"
+msgstr "Trang chứa dữ liệu"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:17
+msgid "Pages to be flushed"
+msgstr "Các trang đã được đẩy từ bộ nhớ lên đĩa"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:21
+msgid "Busy pages"
+msgstr "Các trang bận"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:26
+msgid "Latched pages"
+msgstr "Số trang chốt"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:34
+#, fuzzy, php-format
+#| msgid "Busy pages"
+msgid "%s pages"
+msgstr "Các trang bận"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:41
+#, fuzzy
+#| msgid "Buffer Pool Activity"
+msgid "Buffer pool activity"
+msgstr "Hoạt động Bể bộ đệm"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:44
+msgid "Read requests"
+msgstr "Các yêu cầu đọc"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:48
+msgid "Write requests"
+msgstr "Các yêu cầu ghi"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:52
+msgid "Read misses"
+msgstr "Thiếu đọc"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:56
+msgid "Write waits"
+msgstr "Chờ ghi"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:60
+msgid "Read misses in %"
+msgstr "Thiếu đọc trong %s"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:66
+msgid "Write waits in %"
+msgstr "Chờ ghi trong %s"
 
 #: resources/templates/server/engines/show.twig:18
 #: resources/templates/server/engines/show.twig:21
@@ -6470,7 +6536,7 @@ msgstr "Không có kết quả"
 #: src/Controllers/Table/Partition/RepairController.php:49
 #: src/Controllers/Table/Partition/TruncateController.php:50
 #: src/Controllers/Table/RelationController.php:143
-#: src/Database/Routines.php:1019 src/Display/Results.php:3012
+#: src/Database/Routines.php:1019 src/Display/Results.php:3011
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "Truy vấn SQL của bạn đã được thực hiện thành công."
@@ -12346,7 +12412,7 @@ msgid "Success!"
 msgstr "Thành công!"
 
 #: src/Controllers/Database/StructureController.php:567
-#: src/Display/Results.php:3285
+#: src/Display/Results.php:3292
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -15872,29 +15938,29 @@ msgstr ""
 msgid "The row has been deleted."
 msgstr "Hàng đã bị xóa bỏ."
 
-#: src/Display/Results.php:3294
+#: src/Display/Results.php:3016 src/Display/Results.php:3333 src/Sql.php:871
+#, php-format
+msgid "Query took %01.4f seconds."
+msgstr "Truy vấn cần %01.4f giây."
+
+#: src/Display/Results.php:3301
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Hiển thị các hàng %1s - %2s"
 
-#: src/Display/Results.php:3308
+#: src/Display/Results.php:3315
 #, fuzzy, php-format
 #| msgid "%1$d total, %2$d in query"
 msgid "%1$s total, %2$s in query"
 msgstr "Tổng %1$d, %2$d trong truy vấn"
 
-#: src/Display/Results.php:3313
+#: src/Display/Results.php:3320
 #, fuzzy, php-format
 #| msgid "%d total"
 msgid "%s total"
 msgstr "tổng %d"
 
-#: src/Display/Results.php:3326 src/Sql.php:871
-#, php-format
-msgid "Query took %01.4f seconds."
-msgstr "Truy vấn cần %01.4f giây."
-
-#: src/Display/Results.php:3622
+#: src/Display/Results.php:3629
 msgid "Link not found!"
 msgstr "Không tìm thấy liên kết!"
 
@@ -15902,35 +15968,35 @@ msgstr "Không tìm thấy liên kết!"
 msgid "Version information"
 msgstr "Thông tin phiên bản"
 
-#: src/Engines/Innodb.php:32
+#: src/Engines/Innodb.php:29
 msgid "Data home directory"
 msgstr "Thư mục chính của dữ liệu"
 
-#: src/Engines/Innodb.php:33
+#: src/Engines/Innodb.php:30
 msgid "The common part of the directory path for all InnoDB data files."
 msgstr ""
 "Bộ phận dùng chung của đường dẫn thư mục cho mọi tập tin dữ liệu InnoDB."
 
-#: src/Engines/Innodb.php:35
+#: src/Engines/Innodb.php:32
 msgid "Data files"
 msgstr "Những tập tin dữ liệu"
 
-#: src/Engines/Innodb.php:37
+#: src/Engines/Innodb.php:34
 msgid "Autoextend increment"
 msgstr "Số gia Autoextend"
 
-#: src/Engines/Innodb.php:39
+#: src/Engines/Innodb.php:36
 msgid ""
 "The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
 "Cỡ gia số cho mở rộng cỡ của không gian bảng autoextending khi nó bị đầy."
 
-#: src/Engines/Innodb.php:44
+#: src/Engines/Innodb.php:41
 msgid "Buffer pool size"
 msgstr "Kích thước bể bộ đệm"
 
-#: src/Engines/Innodb.php:45
+#: src/Engines/Innodb.php:42
 msgid ""
 "The size of the memory buffer InnoDB uses to cache data and indexes of its "
 "tables."
@@ -15938,73 +16004,13 @@ msgstr ""
 "Cỡ của bộ nhớ đệm InnoDB dùng để lưu tạm dữ liệu và đánh chỉ số các bảng của "
 "nó."
 
-#: src/Engines/Innodb.php:105
+#: src/Engines/Innodb.php:102
 msgid "Buffer Pool"
 msgstr "Bể bộ đệm"
 
-#: src/Engines/Innodb.php:105 src/Server/Status/Data.php:187
+#: src/Engines/Innodb.php:102 src/Server/Status/Data.php:187
 msgid "InnoDB Status"
 msgstr "Trạng thái InnoDB"
-
-#: src/Engines/Innodb.php:128
-msgid "Buffer Pool Usage"
-msgstr "Mức dùng Bể đệm"
-
-#: src/Engines/Innodb.php:135
-msgid "pages"
-msgstr "trang"
-
-#: src/Engines/Innodb.php:143
-msgid "Free pages"
-msgstr "Trang còn rảnh rỗi"
-
-#: src/Engines/Innodb.php:149
-msgid "Dirty pages"
-msgstr "Trang bẩn"
-
-#: src/Engines/Innodb.php:155
-msgid "Pages containing data"
-msgstr "Trang chứa dữ liệu"
-
-#: src/Engines/Innodb.php:161
-msgid "Pages to be flushed"
-msgstr "Các trang đã được đẩy từ bộ nhớ lên đĩa"
-
-#: src/Engines/Innodb.php:167
-msgid "Busy pages"
-msgstr "Các trang bận"
-
-#: src/Engines/Innodb.php:176
-msgid "Latched pages"
-msgstr "Số trang chốt"
-
-#: src/Engines/Innodb.php:187
-msgid "Buffer Pool Activity"
-msgstr "Hoạt động Bể bộ đệm"
-
-#: src/Engines/Innodb.php:191
-msgid "Read requests"
-msgstr "Các yêu cầu đọc"
-
-#: src/Engines/Innodb.php:197
-msgid "Write requests"
-msgstr "Các yêu cầu ghi"
-
-#: src/Engines/Innodb.php:203
-msgid "Read misses"
-msgstr "Thiếu đọc"
-
-#: src/Engines/Innodb.php:209
-msgid "Write waits"
-msgstr "Chờ ghi"
-
-#: src/Engines/Innodb.php:215
-msgid "Read misses in %"
-msgstr "Thiếu đọc trong %s"
-
-#: src/Engines/Innodb.php:230
-msgid "Write waits in %"
-msgstr "Chờ ghi trong %s"
 
 #: src/Engines/Myisam.php:28
 msgid "Data pointer size"
@@ -18942,6 +18948,9 @@ msgstr "Lỗi trong kho nén ZIP:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "Không tìm thấy tập tin nào trong kho ZIP!"
+
+#~ msgid "pages"
+#~ msgstr "trang"
 
 #~ msgid "Connection for controluser as defined in your configuration failed."
 #~ msgstr ""

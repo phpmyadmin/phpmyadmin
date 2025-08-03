@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-07-27 00:32+0000\n"
+"POT-Creation-Date: 2025-08-03 00:33+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Sinhala <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -4989,8 +4989,8 @@ msgid "Check privileges"
 msgstr "වරප්‍රසාද පරීක්ෂා කරන්න"
 
 #: resources/templates/server/databases/index.twig:249
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:34
 #: src/Controllers/JavaScriptMessagesController.php:293
-#: src/Engines/Innodb.php:133
 msgid "Total:"
 msgstr "මුළු එකතුව:"
 
@@ -5033,6 +5033,72 @@ msgstr "ගබඩා යන්ත්‍ර‍"
 #: src/BrowseForeigners.php:196 src/BrowseForeigners.php:198
 msgid "Description"
 msgstr "විස්තරය"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:2
+#, fuzzy
+#| msgid "Buffer Pool"
+msgid "Buffer pool usage"
+msgstr "අන්තරාච එකතුව"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:5
+msgid "Free pages"
+msgstr "නිදහස් පිටු"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:9
+msgid "Dirty pages"
+msgstr "අපවිත්‍ර පිටු"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:13
+msgid "Pages containing data"
+msgstr "දත්ත අඩංගු පිටු"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:17
+msgid "Pages to be flushed"
+msgstr ""
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:21
+msgid "Busy pages"
+msgstr "කාර්ය බහුල පිටු"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:26
+msgid "Latched pages"
+msgstr ""
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:34
+#, fuzzy, php-format
+#| msgid "Busy pages"
+msgid "%s pages"
+msgstr "කාර්ය බහුල පිටු"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:41
+#, fuzzy
+#| msgid "Buffer Pool"
+msgid "Buffer pool activity"
+msgstr "අන්තරාච එකතුව"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:44
+msgid "Read requests"
+msgstr "කියවීම සඳහා වූ ඉල්ලීම්"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:48
+msgid "Write requests"
+msgstr "ලිවීම සඳහා වූ ඉල්ලීම්"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:52
+msgid "Read misses"
+msgstr "කියවීම් අතෑරුම්"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:56
+msgid "Write waits"
+msgstr "ලිවීම් ප්‍රමාද"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:60
+msgid "Read misses in %"
+msgstr ""
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:66
+msgid "Write waits in %"
+msgstr ""
 
 #: resources/templates/server/engines/show.twig:18
 #: resources/templates/server/engines/show.twig:21
@@ -6991,7 +7057,7 @@ msgstr "විමසුම් ප්‍රථිඵල සඳහා මෙහෙ
 #: src/Controllers/Table/Partition/RepairController.php:49
 #: src/Controllers/Table/Partition/TruncateController.php:50
 #: src/Controllers/Table/RelationController.php:143
-#: src/Database/Routines.php:1019 src/Display/Results.php:3012
+#: src/Database/Routines.php:1019 src/Display/Results.php:3011
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "ඔබගේ SQL විමසුම සාර්ථකව ක්‍රියාවට නංවන ලදි."
@@ -13178,7 +13244,7 @@ msgid "Success!"
 msgstr ""
 
 #: src/Controllers/Database/StructureController.php:567
-#: src/Display/Results.php:3285
+#: src/Display/Results.php:3292
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -16817,28 +16883,28 @@ msgstr ""
 msgid "The row has been deleted."
 msgstr "පේළිය ඉවත් කරන ලදි."
 
-#: src/Display/Results.php:3294
+#: src/Display/Results.php:3016 src/Display/Results.php:3333 src/Sql.php:871
+#, php-format
+msgid "Query took %01.4f seconds."
+msgstr "විමසුම තත්පර %01.4f ගන්නා ලදි."
+
+#: src/Display/Results.php:3301
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "%1s - %2s පේළි පෙන්වමින්"
 
-#: src/Display/Results.php:3308
+#: src/Display/Results.php:3315
 #, php-format
 msgid "%1$s total, %2$s in query"
 msgstr ""
 
-#: src/Display/Results.php:3313
+#: src/Display/Results.php:3320
 #, fuzzy, php-format
 #| msgid "%d total"
 msgid "%s total"
 msgstr "මුළු එකතුව %d"
 
-#: src/Display/Results.php:3326 src/Sql.php:871
-#, php-format
-msgid "Query took %01.4f seconds."
-msgstr "විමසුම තත්පර %01.4f ගන්නා ලදි."
-
-#: src/Display/Results.php:3622
+#: src/Display/Results.php:3629
 msgid "Link not found!"
 msgstr "සබැඳිය හමු නොවිණි!"
 
@@ -16846,105 +16912,45 @@ msgstr "සබැඳිය හමු නොවිණි!"
 msgid "Version information"
 msgstr "අනුවාදය පිළිබඳ තොරතුරු"
 
-#: src/Engines/Innodb.php:32
+#: src/Engines/Innodb.php:29
 msgid "Data home directory"
 msgstr "දත්ත මුල් පිටුව"
 
-#: src/Engines/Innodb.php:33
+#: src/Engines/Innodb.php:30
 msgid "The common part of the directory path for all InnoDB data files."
 msgstr "සියලුම InnoBD දත්ත ගොනු වල පෙතෙහි පොදු කොටස."
 
-#: src/Engines/Innodb.php:35
+#: src/Engines/Innodb.php:32
 msgid "Data files"
 msgstr "දත්ත ගොනු"
 
-#: src/Engines/Innodb.php:37
+#: src/Engines/Innodb.php:34
 msgid "Autoextend increment"
 msgstr "ස්වයංක්‍රීය-විස්තීරණ ප්‍රමාණය"
 
-#: src/Engines/Innodb.php:39
+#: src/Engines/Innodb.php:36
 msgid ""
 "The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr "වගුවේ ඉඩ මදිවී වගුව ස්වයංක්‍රීයව විශාල කිරීමේදී විශාල කල යුතු ප්‍රමාණය."
 
-#: src/Engines/Innodb.php:44
+#: src/Engines/Innodb.php:41
 msgid "Buffer pool size"
 msgstr ""
 
-#: src/Engines/Innodb.php:45
+#: src/Engines/Innodb.php:42
 msgid ""
 "The size of the memory buffer InnoDB uses to cache data and indexes of its "
 "tables."
 msgstr "තම වගු වල දත්ත සහ සුචි කෑෂ්ගත කිරීමට InnoDB භාවිතා කරන මතක බෆරයේ ප්‍රමාණය."
 
-#: src/Engines/Innodb.php:105
+#: src/Engines/Innodb.php:102
 msgid "Buffer Pool"
 msgstr "අන්තරාච එකතුව"
 
-#: src/Engines/Innodb.php:105 src/Server/Status/Data.php:187
+#: src/Engines/Innodb.php:102 src/Server/Status/Data.php:187
 msgid "InnoDB Status"
 msgstr "InnoDB තත්වය"
-
-#: src/Engines/Innodb.php:128
-msgid "Buffer Pool Usage"
-msgstr ""
-
-#: src/Engines/Innodb.php:135
-msgid "pages"
-msgstr "පිටු"
-
-#: src/Engines/Innodb.php:143
-msgid "Free pages"
-msgstr "නිදහස් පිටු"
-
-#: src/Engines/Innodb.php:149
-msgid "Dirty pages"
-msgstr "අපවිත්‍ර පිටු"
-
-#: src/Engines/Innodb.php:155
-msgid "Pages containing data"
-msgstr "දත්ත අඩංගු පිටු"
-
-#: src/Engines/Innodb.php:161
-msgid "Pages to be flushed"
-msgstr ""
-
-#: src/Engines/Innodb.php:167
-msgid "Busy pages"
-msgstr "කාර්ය බහුල පිටු"
-
-#: src/Engines/Innodb.php:176
-msgid "Latched pages"
-msgstr ""
-
-#: src/Engines/Innodb.php:187
-msgid "Buffer Pool Activity"
-msgstr ""
-
-#: src/Engines/Innodb.php:191
-msgid "Read requests"
-msgstr "කියවීම සඳහා වූ ඉල්ලීම්"
-
-#: src/Engines/Innodb.php:197
-msgid "Write requests"
-msgstr "ලිවීම සඳහා වූ ඉල්ලීම්"
-
-#: src/Engines/Innodb.php:203
-msgid "Read misses"
-msgstr "කියවීම් අතෑරුම්"
-
-#: src/Engines/Innodb.php:209
-msgid "Write waits"
-msgstr "ලිවීම් ප්‍රමාද"
-
-#: src/Engines/Innodb.php:215
-msgid "Read misses in %"
-msgstr ""
-
-#: src/Engines/Innodb.php:230
-msgid "Write waits in %"
-msgstr ""
 
 #: src/Engines/Myisam.php:28
 msgid "Data pointer size"
@@ -20007,6 +20013,9 @@ msgstr "ZIP ආරක්ෂණයේ දෝෂයක් ඇත:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr ""
+
+#~ msgid "pages"
+#~ msgstr "පිටු"
 
 #~ msgid "Connection for controluser as defined in your configuration failed."
 #~ msgstr "වින්‍යාසයන් හි අර්ථදක්වා ඇති පරිදි පරිපාලක භාවිතා කරන්නා ලෙස සම්බන්ධ වීම අසමත් විය."

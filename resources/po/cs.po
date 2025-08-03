@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-07-27 00:32+0000\n"
+"POT-Creation-Date: 2025-08-03 00:33+0000\n"
 "PO-Revision-Date: 2024-03-29 10:58+0000\n"
 "Last-Translator: Vaniron CZ <vanironcz@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -4559,8 +4559,8 @@ msgid "Check privileges"
 msgstr "Zkontrolovat oprávnění"
 
 #: resources/templates/server/databases/index.twig:249
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:34
 #: src/Controllers/JavaScriptMessagesController.php:293
-#: src/Engines/Innodb.php:133
 msgid "Total:"
 msgstr "Celkem:"
 
@@ -4601,6 +4601,72 @@ msgstr "Úložiště"
 #: src/BrowseForeigners.php:196 src/BrowseForeigners.php:198
 msgid "Description"
 msgstr "Popis"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:2
+#, fuzzy
+#| msgid "Buffer Pool Usage"
+msgid "Buffer pool usage"
+msgstr "Využití vyrovnávací paměti"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:5
+msgid "Free pages"
+msgstr "Volných stránek"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:9
+msgid "Dirty pages"
+msgstr "Změněných stránek"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:13
+msgid "Pages containing data"
+msgstr "Stránek obsahujících data"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:17
+msgid "Pages to be flushed"
+msgstr "Stránek určených k uvolnění"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:21
+msgid "Busy pages"
+msgstr "Zpracovávaných stránek"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:26
+msgid "Latched pages"
+msgstr "Zamčených stránek"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:34
+#, fuzzy, php-format
+#| msgid "Busy pages"
+msgid "%s pages"
+msgstr "Zpracovávaných stránek"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:41
+#, fuzzy
+#| msgid "Buffer Pool Activity"
+msgid "Buffer pool activity"
+msgstr "Aktivita vyrovnávací paměti"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:44
+msgid "Read requests"
+msgstr "Požadavků na zápis"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:48
+msgid "Write requests"
+msgstr "Požadavků na čtení"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:52
+msgid "Read misses"
+msgstr "Výpadků při čtení"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:56
+msgid "Write waits"
+msgstr "Čekání na zápis"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:60
+msgid "Read misses in %"
+msgstr "Výpadků při čtení v %"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:66
+msgid "Write waits in %"
+msgstr "Čekání na zápis v %"
 
 #: resources/templates/server/engines/show.twig:18
 #: resources/templates/server/engines/show.twig:21
@@ -6429,7 +6495,7 @@ msgstr "Výsledky profilování"
 #: src/Controllers/Table/Partition/RepairController.php:49
 #: src/Controllers/Table/Partition/TruncateController.php:50
 #: src/Controllers/Table/RelationController.php:143
-#: src/Database/Routines.php:1019 src/Display/Results.php:3012
+#: src/Database/Routines.php:1019 src/Display/Results.php:3011
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "Váš SQL-dotaz byl úspěšně vykonán."
@@ -12234,7 +12300,7 @@ msgid "Success!"
 msgstr "Úspěch!"
 
 #: src/Controllers/Database/StructureController.php:567
-#: src/Display/Results.php:3285
+#: src/Display/Results.php:3292
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -15691,29 +15757,29 @@ msgstr ""
 msgid "The row has been deleted."
 msgstr "Řádek byl smazán."
 
-#: src/Display/Results.php:3294
+#: src/Display/Results.php:3016 src/Display/Results.php:3333 src/Sql.php:871
+#, php-format
+msgid "Query took %01.4f seconds."
+msgstr "Dotaz trval %01.4f sekund."
+
+#: src/Display/Results.php:3301
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Zobrazeny záznamy %1s - %2s"
 
-#: src/Display/Results.php:3308
+#: src/Display/Results.php:3315
 #, fuzzy, php-format
 #| msgid "%1$d total, %2$d in query"
 msgid "%1$s total, %2$s in query"
 msgstr "%1$d celkem, %2$d v dotazu"
 
-#: src/Display/Results.php:3313
+#: src/Display/Results.php:3320
 #, fuzzy, php-format
 #| msgid "%d total"
 msgid "%s total"
 msgstr "%d celkem"
 
-#: src/Display/Results.php:3326 src/Sql.php:871
-#, php-format
-msgid "Query took %01.4f seconds."
-msgstr "Dotaz trval %01.4f sekund."
-
-#: src/Display/Results.php:3622
+#: src/Display/Results.php:3629
 msgid "Link not found!"
 msgstr "Odkaz nebyl nalezen!"
 
@@ -15721,33 +15787,33 @@ msgstr "Odkaz nebyl nalezen!"
 msgid "Version information"
 msgstr "Informace o verzi"
 
-#: src/Engines/Innodb.php:32
+#: src/Engines/Innodb.php:29
 msgid "Data home directory"
 msgstr "Domovský adresář pro data"
 
-#: src/Engines/Innodb.php:33
+#: src/Engines/Innodb.php:30
 msgid "The common part of the directory path for all InnoDB data files."
 msgstr "Společná část cesty pro všechny soubory obsahující data InnoDB."
 
-#: src/Engines/Innodb.php:35
+#: src/Engines/Innodb.php:32
 msgid "Data files"
 msgstr "Soubor s daty"
 
-#: src/Engines/Innodb.php:37
+#: src/Engines/Innodb.php:34
 msgid "Autoextend increment"
 msgstr "Krok automatického zvětšování"
 
-#: src/Engines/Innodb.php:39
+#: src/Engines/Innodb.php:36
 msgid ""
 "The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr "Velikost o kterou je zvětšen soubor s daty, pokud je zaplněný."
 
-#: src/Engines/Innodb.php:44
+#: src/Engines/Innodb.php:41
 msgid "Buffer pool size"
 msgstr "Velikost vyrovnávací paměti"
 
-#: src/Engines/Innodb.php:45
+#: src/Engines/Innodb.php:42
 msgid ""
 "The size of the memory buffer InnoDB uses to cache data and indexes of its "
 "tables."
@@ -15755,73 +15821,13 @@ msgstr ""
 "Velikost mezipaměti, kterou InnoDB používá pro mezipaměť dat a indexů "
 "tabulek."
 
-#: src/Engines/Innodb.php:105
+#: src/Engines/Innodb.php:102
 msgid "Buffer Pool"
 msgstr "Vyrovnávací paměť"
 
-#: src/Engines/Innodb.php:105 src/Server/Status/Data.php:187
+#: src/Engines/Innodb.php:102 src/Server/Status/Data.php:187
 msgid "InnoDB Status"
 msgstr "Stav InnoDB"
-
-#: src/Engines/Innodb.php:128
-msgid "Buffer Pool Usage"
-msgstr "Využití vyrovnávací paměti"
-
-#: src/Engines/Innodb.php:135
-msgid "pages"
-msgstr "stránek"
-
-#: src/Engines/Innodb.php:143
-msgid "Free pages"
-msgstr "Volných stránek"
-
-#: src/Engines/Innodb.php:149
-msgid "Dirty pages"
-msgstr "Změněných stránek"
-
-#: src/Engines/Innodb.php:155
-msgid "Pages containing data"
-msgstr "Stránek obsahujících data"
-
-#: src/Engines/Innodb.php:161
-msgid "Pages to be flushed"
-msgstr "Stránek určených k uvolnění"
-
-#: src/Engines/Innodb.php:167
-msgid "Busy pages"
-msgstr "Zpracovávaných stránek"
-
-#: src/Engines/Innodb.php:176
-msgid "Latched pages"
-msgstr "Zamčených stránek"
-
-#: src/Engines/Innodb.php:187
-msgid "Buffer Pool Activity"
-msgstr "Aktivita vyrovnávací paměti"
-
-#: src/Engines/Innodb.php:191
-msgid "Read requests"
-msgstr "Požadavků na zápis"
-
-#: src/Engines/Innodb.php:197
-msgid "Write requests"
-msgstr "Požadavků na čtení"
-
-#: src/Engines/Innodb.php:203
-msgid "Read misses"
-msgstr "Výpadků při čtení"
-
-#: src/Engines/Innodb.php:209
-msgid "Write waits"
-msgstr "Čekání na zápis"
-
-#: src/Engines/Innodb.php:215
-msgid "Read misses in %"
-msgstr "Výpadků při čtení v %"
-
-#: src/Engines/Innodb.php:230
-msgid "Write waits in %"
-msgstr "Čekání na zápis v %"
 
 #: src/Engines/Myisam.php:28
 msgid "Data pointer size"
@@ -18886,6 +18892,9 @@ msgstr "Chyba v ZIP archívu:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "V ZIP archívu nebyly nalezeny žádné soubory!"
+
+#~ msgid "pages"
+#~ msgstr "stránek"
 
 #~ msgid "Connection for controluser as defined in your configuration failed."
 #~ msgstr ""

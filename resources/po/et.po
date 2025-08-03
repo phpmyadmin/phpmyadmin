@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-07-27 00:32+0000\n"
+"POT-Creation-Date: 2025-08-03 00:33+0000\n"
 "PO-Revision-Date: 2023-11-25 02:27+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -4555,8 +4555,8 @@ msgid "Check privileges"
 msgstr "Kontrolli õigusi"
 
 #: resources/templates/server/databases/index.twig:249
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:34
 #: src/Controllers/JavaScriptMessagesController.php:293
-#: src/Engines/Innodb.php:133
 msgid "Total:"
 msgstr "Kokku:"
 
@@ -4597,6 +4597,72 @@ msgstr "Varundusmootor"
 #: src/BrowseForeigners.php:196 src/BrowseForeigners.php:198
 msgid "Description"
 msgstr "Kirjeldus"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:2
+#, fuzzy
+#| msgid "Buffer Pool Usage"
+msgid "Buffer pool usage"
+msgstr "Puhvertsooni kasutus"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:5
+msgid "Free pages"
+msgstr "Vabad lehed"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:9
+msgid "Dirty pages"
+msgstr "Räpased lehed"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:13
+msgid "Pages containing data"
+msgstr "Lehed andmetega"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:17
+msgid "Pages to be flushed"
+msgstr "Puhastada vajavad lehed"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:21
+msgid "Busy pages"
+msgstr "Hõivatud lehed"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:26
+msgid "Latched pages"
+msgstr "Lukustatud lehed"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:34
+#, fuzzy, php-format
+#| msgid "Busy pages"
+msgid "%s pages"
+msgstr "Hõivatud lehed"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:41
+#, fuzzy
+#| msgid "Buffer Pool Activity"
+msgid "Buffer pool activity"
+msgstr "Puhvertsooni aktiivsus"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:44
+msgid "Read requests"
+msgstr "Lugemise taotlused"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:48
+msgid "Write requests"
+msgstr "Kirjutamise taotlused"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:52
+msgid "Read misses"
+msgstr "Lugemisvead"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:56
+msgid "Write waits"
+msgstr "Kirjutamise järjekord"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:60
+msgid "Read misses in %"
+msgstr "Lugemisvigade %"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:66
+msgid "Write waits in %"
+msgstr "Kirjutamise järjekorra %"
 
 #: resources/templates/server/engines/show.twig:18
 #: resources/templates/server/engines/show.twig:21
@@ -6413,7 +6479,7 @@ msgstr "Pirukagraafik profileerimise tulemustega."
 #: src/Controllers/Table/Partition/RepairController.php:49
 #: src/Controllers/Table/Partition/TruncateController.php:50
 #: src/Controllers/Table/RelationController.php:143
-#: src/Database/Routines.php:1019 src/Display/Results.php:3012
+#: src/Database/Routines.php:1019 src/Display/Results.php:3011
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "Sinu SQL päring teostati edukalt."
@@ -12209,7 +12275,7 @@ msgid "Success!"
 msgstr "Õnnestus!"
 
 #: src/Controllers/Database/StructureController.php:567
-#: src/Display/Results.php:3285
+#: src/Display/Results.php:3292
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -15681,27 +15747,27 @@ msgstr ""
 msgid "The row has been deleted."
 msgstr "Rida on kustutatud."
 
-#: src/Display/Results.php:3294
-#, php-format
-msgid "Showing rows %1s - %2s"
-msgstr "Kuvatakse read %1s - %2s"
-
-#: src/Display/Results.php:3308
-#, php-format
-msgid "%1$s total, %2$s in query"
-msgstr "Kokku %1$s, päringus %2$s"
-
-#: src/Display/Results.php:3313
-#, php-format
-msgid "%s total"
-msgstr "kokku: %s"
-
-#: src/Display/Results.php:3326 src/Sql.php:871
+#: src/Display/Results.php:3016 src/Display/Results.php:3333 src/Sql.php:871
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "päring kestis %01.4f sekundit."
 
-#: src/Display/Results.php:3622
+#: src/Display/Results.php:3301
+#, php-format
+msgid "Showing rows %1s - %2s"
+msgstr "Kuvatakse read %1s - %2s"
+
+#: src/Display/Results.php:3315
+#, php-format
+msgid "%1$s total, %2$s in query"
+msgstr "Kokku %1$s, päringus %2$s"
+
+#: src/Display/Results.php:3320
+#, php-format
+msgid "%s total"
+msgstr "kokku: %s"
+
+#: src/Display/Results.php:3629
 msgid "Link not found!"
 msgstr "Linki ei leitud!"
 
@@ -15709,107 +15775,47 @@ msgstr "Linki ei leitud!"
 msgid "Version information"
 msgstr "Versioon"
 
-#: src/Engines/Innodb.php:32
+#: src/Engines/Innodb.php:29
 msgid "Data home directory"
 msgstr "Andmete kodukataloog"
 
-#: src/Engines/Innodb.php:33
+#: src/Engines/Innodb.php:30
 msgid "The common part of the directory path for all InnoDB data files."
 msgstr "Ühine kataloogi nimeosa kõigi InnoDB andmefailide jaoks."
 
-#: src/Engines/Innodb.php:35
+#: src/Engines/Innodb.php:32
 msgid "Data files"
 msgstr "Andmefailid"
 
-#: src/Engines/Innodb.php:37
+#: src/Engines/Innodb.php:34
 msgid "Autoextend increment"
 msgstr "Automaatse laiendamise suurendamine"
 
-#: src/Engines/Innodb.php:39
+#: src/Engines/Innodb.php:36
 msgid ""
 "The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
 "Tabeliruumi täitumisel selle suurendamine antud suurendamise mahu võrra."
 
-#: src/Engines/Innodb.php:44
+#: src/Engines/Innodb.php:41
 msgid "Buffer pool size"
 msgstr "Puhvertsooni maht"
 
-#: src/Engines/Innodb.php:45
+#: src/Engines/Innodb.php:42
 msgid ""
 "The size of the memory buffer InnoDB uses to cache data and indexes of its "
 "tables."
 msgstr ""
 "Mälupuhvri maht, mida InnoDB kasutab oma andmete ja indeksite puhverdamiseks."
 
-#: src/Engines/Innodb.php:105
+#: src/Engines/Innodb.php:102
 msgid "Buffer Pool"
 msgstr "Puhvertsoon"
 
-#: src/Engines/Innodb.php:105 src/Server/Status/Data.php:187
+#: src/Engines/Innodb.php:102 src/Server/Status/Data.php:187
 msgid "InnoDB Status"
 msgstr "InnoDB staatus"
-
-#: src/Engines/Innodb.php:128
-msgid "Buffer Pool Usage"
-msgstr "Puhvertsooni kasutus"
-
-#: src/Engines/Innodb.php:135
-msgid "pages"
-msgstr "lehte"
-
-#: src/Engines/Innodb.php:143
-msgid "Free pages"
-msgstr "Vabad lehed"
-
-#: src/Engines/Innodb.php:149
-msgid "Dirty pages"
-msgstr "Räpased lehed"
-
-#: src/Engines/Innodb.php:155
-msgid "Pages containing data"
-msgstr "Lehed andmetega"
-
-#: src/Engines/Innodb.php:161
-msgid "Pages to be flushed"
-msgstr "Puhastada vajavad lehed"
-
-#: src/Engines/Innodb.php:167
-msgid "Busy pages"
-msgstr "Hõivatud lehed"
-
-#: src/Engines/Innodb.php:176
-msgid "Latched pages"
-msgstr "Lukustatud lehed"
-
-#: src/Engines/Innodb.php:187
-msgid "Buffer Pool Activity"
-msgstr "Puhvertsooni aktiivsus"
-
-#: src/Engines/Innodb.php:191
-msgid "Read requests"
-msgstr "Lugemise taotlused"
-
-#: src/Engines/Innodb.php:197
-msgid "Write requests"
-msgstr "Kirjutamise taotlused"
-
-#: src/Engines/Innodb.php:203
-msgid "Read misses"
-msgstr "Lugemisvead"
-
-#: src/Engines/Innodb.php:209
-msgid "Write waits"
-msgstr "Kirjutamise järjekord"
-
-#: src/Engines/Innodb.php:215
-msgid "Read misses in %"
-msgstr "Lugemisvigade %"
-
-#: src/Engines/Innodb.php:230
-msgid "Write waits in %"
-msgstr "Kirjutamise järjekorra %"
 
 #: src/Engines/Myisam.php:28
 msgid "Data pointer size"
@@ -18854,6 +18860,9 @@ msgstr "Viga ZIP arhiivis:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "ZIP arhiivist ei leitud ühtegi faili!"
+
+#~ msgid "pages"
+#~ msgstr "lehte"
 
 #~ msgid "Connection for controluser as defined in your configuration failed."
 #~ msgstr ""

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-07-27 00:32+0000\n"
+"POT-Creation-Date: 2025-08-03 00:33+0000\n"
 "PO-Revision-Date: 2025-05-19 07:01+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -4646,8 +4646,8 @@ msgid "Check privileges"
 msgstr "בדיקת הרשאות"
 
 #: resources/templates/server/databases/index.twig:249
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:34
 #: src/Controllers/JavaScriptMessagesController.php:293
-#: src/Engines/Innodb.php:133
 msgid "Total:"
 msgstr "סה״כ:"
 
@@ -4689,6 +4689,72 @@ msgstr "מנוע אחסון"
 #: src/BrowseForeigners.php:196 src/BrowseForeigners.php:198
 msgid "Description"
 msgstr "תיאור"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:2
+#, fuzzy
+#| msgid "InnoDB buffer pool size"
+msgid "Buffer pool usage"
+msgstr "גודל מאגר החוצצים של InnoDB"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:5
+msgid "Free pages"
+msgstr "דפים חופשיים"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:9
+msgid "Dirty pages"
+msgstr "דפים מלוכלכים"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:13
+msgid "Pages containing data"
+msgstr "דפים מכילים מידע"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:17
+msgid "Pages to be flushed"
+msgstr "דפים לריקון"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:21
+msgid "Busy pages"
+msgstr "עמודים עסוקים"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:26
+msgid "Latched pages"
+msgstr ""
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:34
+#, fuzzy, php-format
+#| msgid "Busy pages"
+msgid "%s pages"
+msgstr "עמודים עסוקים"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:41
+#, fuzzy
+#| msgid "InnoDB buffer pool size"
+msgid "Buffer pool activity"
+msgstr "גודל מאגר החוצצים של InnoDB"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:44
+msgid "Read requests"
+msgstr "בקשות קריאה"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:48
+msgid "Write requests"
+msgstr "בקשות כתיבה"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:52
+msgid "Read misses"
+msgstr ""
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:56
+msgid "Write waits"
+msgstr ""
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:60
+msgid "Read misses in %"
+msgstr ""
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:66
+msgid "Write waits in %"
+msgstr ""
 
 #: resources/templates/server/engines/show.twig:18
 #: resources/templates/server/engines/show.twig:21
@@ -6480,7 +6546,7 @@ msgstr "תוצאות החקירה"
 #: src/Controllers/Table/Partition/RepairController.php:49
 #: src/Controllers/Table/Partition/TruncateController.php:50
 #: src/Controllers/Table/RelationController.php:143
-#: src/Database/Routines.php:1019 src/Display/Results.php:3012
+#: src/Database/Routines.php:1019 src/Display/Results.php:3011
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "שאילתת ה־SQL שלך רצה בהצלחה."
@@ -11938,7 +12004,7 @@ msgid "Success!"
 msgstr ""
 
 #: src/Controllers/Database/StructureController.php:567
-#: src/Display/Results.php:3285
+#: src/Display/Results.php:3292
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -15249,27 +15315,27 @@ msgstr ""
 msgid "The row has been deleted."
 msgstr "השורה נמחקה."
 
-#: src/Display/Results.php:3294
-#, php-format
-msgid "Showing rows %1s - %2s"
-msgstr "מוצגות שורות %1s‏ - %2s"
-
-#: src/Display/Results.php:3308
-#, fuzzy, php-format
-msgid "%1$s total, %2$s in query"
-msgstr "%1$d סה״כ, %2$d בשאילתה"
-
-#: src/Display/Results.php:3313
-#, fuzzy, php-format
-msgid "%s total"
-msgstr "%d סה״כ"
-
-#: src/Display/Results.php:3326 src/Sql.php:871
+#: src/Display/Results.php:3016 src/Display/Results.php:3333 src/Sql.php:871
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "השאילתה ארכה %01.4f שניות."
 
-#: src/Display/Results.php:3622
+#: src/Display/Results.php:3301
+#, php-format
+msgid "Showing rows %1s - %2s"
+msgstr "מוצגות שורות %1s‏ - %2s"
+
+#: src/Display/Results.php:3315
+#, fuzzy, php-format
+msgid "%1$s total, %2$s in query"
+msgstr "%1$d סה״כ, %2$d בשאילתה"
+
+#: src/Display/Results.php:3320
+#, fuzzy, php-format
+msgid "%s total"
+msgstr "%d סה״כ"
+
+#: src/Display/Results.php:3629
 msgid "Link not found!"
 msgstr "קישור לא נמצא!"
 
@@ -15277,105 +15343,45 @@ msgstr "קישור לא נמצא!"
 msgid "Version information"
 msgstr "פרטי גרסה"
 
-#: src/Engines/Innodb.php:32
+#: src/Engines/Innodb.php:29
 msgid "Data home directory"
 msgstr "תיקיית בית של נתונים"
 
-#: src/Engines/Innodb.php:33
+#: src/Engines/Innodb.php:30
 msgid "The common part of the directory path for all InnoDB data files."
 msgstr ""
 
-#: src/Engines/Innodb.php:35
+#: src/Engines/Innodb.php:32
 msgid "Data files"
 msgstr "קובצי נתונים"
 
-#: src/Engines/Innodb.php:37
+#: src/Engines/Innodb.php:34
 msgid "Autoextend increment"
 msgstr ""
 
-#: src/Engines/Innodb.php:39
+#: src/Engines/Innodb.php:36
 msgid ""
 "The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
 
-#: src/Engines/Innodb.php:44
+#: src/Engines/Innodb.php:41
 msgid "Buffer pool size"
 msgstr ""
 
-#: src/Engines/Innodb.php:45
+#: src/Engines/Innodb.php:42
 msgid ""
 "The size of the memory buffer InnoDB uses to cache data and indexes of its "
 "tables."
 msgstr ""
 
-#: src/Engines/Innodb.php:105
+#: src/Engines/Innodb.php:102
 msgid "Buffer Pool"
 msgstr ""
 
-#: src/Engines/Innodb.php:105 src/Server/Status/Data.php:187
+#: src/Engines/Innodb.php:102 src/Server/Status/Data.php:187
 msgid "InnoDB Status"
 msgstr "מצב InnoDB"
-
-#: src/Engines/Innodb.php:128
-msgid "Buffer Pool Usage"
-msgstr ""
-
-#: src/Engines/Innodb.php:135
-msgid "pages"
-msgstr "דפים"
-
-#: src/Engines/Innodb.php:143
-msgid "Free pages"
-msgstr "דפים חופשיים"
-
-#: src/Engines/Innodb.php:149
-msgid "Dirty pages"
-msgstr "דפים מלוכלכים"
-
-#: src/Engines/Innodb.php:155
-msgid "Pages containing data"
-msgstr "דפים מכילים מידע"
-
-#: src/Engines/Innodb.php:161
-msgid "Pages to be flushed"
-msgstr "דפים לריקון"
-
-#: src/Engines/Innodb.php:167
-msgid "Busy pages"
-msgstr "עמודים עסוקים"
-
-#: src/Engines/Innodb.php:176
-msgid "Latched pages"
-msgstr ""
-
-#: src/Engines/Innodb.php:187
-msgid "Buffer Pool Activity"
-msgstr ""
-
-#: src/Engines/Innodb.php:191
-msgid "Read requests"
-msgstr "בקשות קריאה"
-
-#: src/Engines/Innodb.php:197
-msgid "Write requests"
-msgstr "בקשות כתיבה"
-
-#: src/Engines/Innodb.php:203
-msgid "Read misses"
-msgstr ""
-
-#: src/Engines/Innodb.php:209
-msgid "Write waits"
-msgstr ""
-
-#: src/Engines/Innodb.php:215
-msgid "Read misses in %"
-msgstr ""
-
-#: src/Engines/Innodb.php:230
-msgid "Write waits in %"
-msgstr ""
 
 #: src/Engines/Myisam.php:28
 msgid "Data pointer size"
@@ -18201,6 +18207,9 @@ msgstr "שגיאה בארכיון ZIP:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "לא נמצאו קבצים בתוך ארכיון ה־ZIP!"
+
+#~ msgid "pages"
+#~ msgstr "דפים"
 
 #~ msgid "Cannot connect: invalid settings."
 #~ msgstr "חיבור נכשל: הגדרות לא תקינות."

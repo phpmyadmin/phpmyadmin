@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-07-27 00:32+0000\n"
+"POT-Creation-Date: 2025-08-03 00:33+0000\n"
 "PO-Revision-Date: 2025-02-24 01:46+0000\n"
 "Last-Translator: Salvador Peña <salvadorp74@hotmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -4588,8 +4588,8 @@ msgid "Check privileges"
 msgstr "Seleccionar privilegios"
 
 #: resources/templates/server/databases/index.twig:249
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:34
 #: src/Controllers/JavaScriptMessagesController.php:293
-#: src/Engines/Innodb.php:133
 msgid "Total:"
 msgstr "Total:"
 
@@ -4630,6 +4630,72 @@ msgstr "Motor de almacenamiento"
 #: src/BrowseForeigners.php:196 src/BrowseForeigners.php:198
 msgid "Description"
 msgstr "Descripción"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:2
+#, fuzzy
+#| msgid "Buffer Pool Usage"
+msgid "Buffer pool usage"
+msgstr "Uso de la reserva de búfers"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:5
+msgid "Free pages"
+msgstr "Páginas libres"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:9
+msgid "Dirty pages"
+msgstr "Páginas que requieren ser depuradas"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:13
+msgid "Pages containing data"
+msgstr "Páginas que contienen datos"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:17
+msgid "Pages to be flushed"
+msgstr "Páginas que serán eliminadas"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:21
+msgid "Busy pages"
+msgstr "Páginas activas"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:26
+msgid "Latched pages"
+msgstr "Páginas vinculadas"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:34
+#, fuzzy, php-format
+#| msgid "Busy pages"
+msgid "%s pages"
+msgstr "Páginas activas"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:41
+#, fuzzy
+#| msgid "Buffer Pool Activity"
+msgid "Buffer pool activity"
+msgstr "Actividad de la reserva de búfers"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:44
+msgid "Read requests"
+msgstr "Lea las solicitudes"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:48
+msgid "Write requests"
+msgstr "Escribir las solicitudes"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:52
+msgid "Read misses"
+msgstr "Leer los fallos"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:56
+msgid "Write waits"
+msgstr "Escribir las esperas"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:60
+msgid "Read misses in %"
+msgstr "Leer los fallos en %"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:66
+msgid "Write waits in %"
+msgstr "Escribir las esperas en %"
 
 #: resources/templates/server/engines/show.twig:18
 #: resources/templates/server/engines/show.twig:21
@@ -6471,7 +6537,7 @@ msgstr "Gráfica de pastel perfilando resultados."
 #: src/Controllers/Table/Partition/RepairController.php:49
 #: src/Controllers/Table/Partition/TruncateController.php:50
 #: src/Controllers/Table/RelationController.php:143
-#: src/Database/Routines.php:1019 src/Display/Results.php:3012
+#: src/Database/Routines.php:1019 src/Display/Results.php:3011
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "Su consulta se ejecutó con éxito."
@@ -12422,7 +12488,7 @@ msgid "Success!"
 msgstr "¡Éxito!"
 
 #: src/Controllers/Database/StructureController.php:567
-#: src/Display/Results.php:3285
+#: src/Display/Results.php:3292
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -15957,27 +16023,27 @@ msgstr ""
 msgid "The row has been deleted."
 msgstr "La fila se ha borrado."
 
-#: src/Display/Results.php:3294
-#, php-format
-msgid "Showing rows %1s - %2s"
-msgstr "Mostrando filas %1s - %2s"
-
-#: src/Display/Results.php:3308
-#, php-format
-msgid "%1$s total, %2$s in query"
-msgstr "%1$s en total, %2$s en la consulta"
-
-#: src/Display/Results.php:3313
-#, php-format
-msgid "%s total"
-msgstr "total de %s"
-
-#: src/Display/Results.php:3326 src/Sql.php:871
+#: src/Display/Results.php:3016 src/Display/Results.php:3333 src/Sql.php:871
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "La consulta tardó %01.4f segundos."
 
-#: src/Display/Results.php:3622
+#: src/Display/Results.php:3301
+#, php-format
+msgid "Showing rows %1s - %2s"
+msgstr "Mostrando filas %1s - %2s"
+
+#: src/Display/Results.php:3315
+#, php-format
+msgid "%1$s total, %2$s in query"
+msgstr "%1$s en total, %2$s en la consulta"
+
+#: src/Display/Results.php:3320
+#, php-format
+msgid "%s total"
+msgstr "total de %s"
+
+#: src/Display/Results.php:3629
 msgid "Link not found!"
 msgstr "¡No se encontró el enlace!"
 
@@ -15985,25 +16051,25 @@ msgstr "¡No se encontró el enlace!"
 msgid "Version information"
 msgstr "Acerca de esta versión"
 
-#: src/Engines/Innodb.php:32
+#: src/Engines/Innodb.php:29
 msgid "Data home directory"
 msgstr "Directorio raíz de los datos"
 
-#: src/Engines/Innodb.php:33
+#: src/Engines/Innodb.php:30
 msgid "The common part of the directory path for all InnoDB data files."
 msgstr ""
 "La parte constante de la ruta del directorio para todos los archivos de "
 "datos InnoDB."
 
-#: src/Engines/Innodb.php:35
+#: src/Engines/Innodb.php:32
 msgid "Data files"
 msgstr "Archivos de datos"
 
-#: src/Engines/Innodb.php:37
+#: src/Engines/Innodb.php:34
 msgid "Autoextend increment"
 msgstr "Incremente el valor AUTOEXTEND"
 
-#: src/Engines/Innodb.php:39
+#: src/Engines/Innodb.php:36
 msgid ""
 "The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
@@ -16011,11 +16077,11 @@ msgstr ""
 "El tamaño a incrementar para que se extienda el ancho de una tabla capaz de "
 "autoextenderse cuando se llena."
 
-#: src/Engines/Innodb.php:44
+#: src/Engines/Innodb.php:41
 msgid "Buffer pool size"
 msgstr "Tamaño de la reserva de búfers"
 
-#: src/Engines/Innodb.php:45
+#: src/Engines/Innodb.php:42
 msgid ""
 "The size of the memory buffer InnoDB uses to cache data and indexes of its "
 "tables."
@@ -16023,73 +16089,13 @@ msgstr ""
 "El tamaño del búfer de memoria usado por InnoDB para almacenar, en el cache, "
 "los datos e índices de sus tablas."
 
-#: src/Engines/Innodb.php:105
+#: src/Engines/Innodb.php:102
 msgid "Buffer Pool"
 msgstr "Reserva de búfers"
 
-#: src/Engines/Innodb.php:105 src/Server/Status/Data.php:187
+#: src/Engines/Innodb.php:102 src/Server/Status/Data.php:187
 msgid "InnoDB Status"
 msgstr "Estado del InnoDB"
-
-#: src/Engines/Innodb.php:128
-msgid "Buffer Pool Usage"
-msgstr "Uso de la reserva de búfers"
-
-#: src/Engines/Innodb.php:135
-msgid "pages"
-msgstr "páginas"
-
-#: src/Engines/Innodb.php:143
-msgid "Free pages"
-msgstr "Páginas libres"
-
-#: src/Engines/Innodb.php:149
-msgid "Dirty pages"
-msgstr "Páginas que requieren ser depuradas"
-
-#: src/Engines/Innodb.php:155
-msgid "Pages containing data"
-msgstr "Páginas que contienen datos"
-
-#: src/Engines/Innodb.php:161
-msgid "Pages to be flushed"
-msgstr "Páginas que serán eliminadas"
-
-#: src/Engines/Innodb.php:167
-msgid "Busy pages"
-msgstr "Páginas activas"
-
-#: src/Engines/Innodb.php:176
-msgid "Latched pages"
-msgstr "Páginas vinculadas"
-
-#: src/Engines/Innodb.php:187
-msgid "Buffer Pool Activity"
-msgstr "Actividad de la reserva de búfers"
-
-#: src/Engines/Innodb.php:191
-msgid "Read requests"
-msgstr "Lea las solicitudes"
-
-#: src/Engines/Innodb.php:197
-msgid "Write requests"
-msgstr "Escribir las solicitudes"
-
-#: src/Engines/Innodb.php:203
-msgid "Read misses"
-msgstr "Leer los fallos"
-
-#: src/Engines/Innodb.php:209
-msgid "Write waits"
-msgstr "Escribir las esperas"
-
-#: src/Engines/Innodb.php:215
-msgid "Read misses in %"
-msgstr "Leer los fallos en %"
-
-#: src/Engines/Innodb.php:230
-msgid "Write waits in %"
-msgstr "Escribir las esperas en %"
 
 #: src/Engines/Myisam.php:28
 msgid "Data pointer size"
@@ -19209,6 +19215,9 @@ msgstr "Error en el archivo ZIP:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "¡No se hallaron archivos dentro del archivo ZIP!"
+
+#~ msgid "pages"
+#~ msgstr "páginas"
 
 #~ msgid "Connection for controluser as defined in your configuration failed."
 #~ msgstr ""

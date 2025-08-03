@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-07-27 00:32+0000\n"
+"POT-Creation-Date: 2025-08-03 00:33+0000\n"
 "PO-Revision-Date: 2025-06-17 13:34+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@mfauth.net>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -4535,8 +4535,8 @@ msgid "Check privileges"
 msgstr "சலுகைகளை சரிபார்க்கவும்"
 
 #: resources/templates/server/databases/index.twig:249
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:34
 #: src/Controllers/JavaScriptMessagesController.php:293
-#: src/Engines/Innodb.php:133
 msgid "Total:"
 msgstr "மொத்தம்:"
 
@@ -4577,6 +4577,72 @@ msgstr "சேமிப்பக இயந்திரம்"
 #: src/BrowseForeigners.php:196 src/BrowseForeigners.php:198
 msgid "Description"
 msgstr "சிறுகுறிப்பு"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:2
+#, fuzzy
+#| msgid "Buffer Pool Usage"
+msgid "Buffer pool usage"
+msgstr "இடையக பூல் பயன்பாடு"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:5
+msgid "Free pages"
+msgstr "இலவச பக்கங்கள்"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:9
+msgid "Dirty pages"
+msgstr "அழுக்கு பக்கங்கள்"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:13
+msgid "Pages containing data"
+msgstr "தரவைக் கொண்ட பக்கங்கள்"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:17
+msgid "Pages to be flushed"
+msgstr "பக்கங்கள் சுத்தப்படுத்தப்பட வேண்டும்"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:21
+msgid "Busy pages"
+msgstr "பிசியான பக்கங்கள்"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:26
+msgid "Latched pages"
+msgstr "இணைக்கப்பட்ட பக்கங்கள்"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:34
+#, fuzzy, php-format
+#| msgid "Busy pages"
+msgid "%s pages"
+msgstr "பிசியான பக்கங்கள்"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:41
+#, fuzzy
+#| msgid "Buffer Pool Activity"
+msgid "Buffer pool activity"
+msgstr "இடையக பூல் செயல்பாடு"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:44
+msgid "Read requests"
+msgstr "கோரிக்கைகளைப் படியுங்கள்"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:48
+msgid "Write requests"
+msgstr "கோரிக்கைகளை எழுதுங்கள்"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:52
+msgid "Read misses"
+msgstr "மிச்சைப் படியுங்கள்"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:56
+msgid "Write waits"
+msgstr "காத்திருப்பதை எழுதுங்கள்"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:60
+msgid "Read misses in %"
+msgstr "% இல் மிச்சைப் படியுங்கள்"
+
+#: resources/templates/server/engines/_innodb_buffer_pool.twig:66
+msgid "Write waits in %"
+msgstr "எழுது % காத்திருக்கிறது"
 
 #: resources/templates/server/engines/show.twig:18
 #: resources/templates/server/engines/show.twig:21
@@ -6378,7 +6444,7 @@ msgstr "விவரக்குறிப்பு முடிவுகளு�
 #: src/Controllers/Table/Partition/RepairController.php:49
 #: src/Controllers/Table/Partition/TruncateController.php:50
 #: src/Controllers/Table/RelationController.php:143
-#: src/Database/Routines.php:1019 src/Display/Results.php:3012
+#: src/Database/Routines.php:1019 src/Display/Results.php:3011
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "உங்கள் SQL வினவல் வெற்றிகரமாக நிறைவேற்றப்பட்டது."
@@ -12172,7 +12238,7 @@ msgid "Success!"
 msgstr "வெற்றி!"
 
 #: src/Controllers/Database/StructureController.php:567
-#: src/Display/Results.php:3285
+#: src/Display/Results.php:3292
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -15624,27 +15690,27 @@ msgstr ""
 msgid "The row has been deleted."
 msgstr "இந்நிரைவரிசை அழிக்கப்பட்டது."
 
-#: src/Display/Results.php:3294
-#, php-format
-msgid "Showing rows %1s - %2s"
-msgstr "%1s - %2s நிரைவரிசைகள் காட்டப்படுகின்றன"
-
-#: src/Display/Results.php:3308
-#, php-format
-msgid "%1$s total, %2$s in query"
-msgstr "%1$s மொத்தம், வினவலில் %2$s"
-
-#: src/Display/Results.php:3313
-#, fuzzy, php-format
-msgid "%s total"
-msgstr "மொத்தம்"
-
-#: src/Display/Results.php:3326 src/Sql.php:871
+#: src/Display/Results.php:3016 src/Display/Results.php:3333 src/Sql.php:871
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "வினவல் %01.4f நொடிகள் எடுத்துக்கொண்டது."
 
-#: src/Display/Results.php:3622
+#: src/Display/Results.php:3301
+#, php-format
+msgid "Showing rows %1s - %2s"
+msgstr "%1s - %2s நிரைவரிசைகள் காட்டப்படுகின்றன"
+
+#: src/Display/Results.php:3315
+#, php-format
+msgid "%1$s total, %2$s in query"
+msgstr "%1$s மொத்தம், வினவலில் %2$s"
+
+#: src/Display/Results.php:3320
+#, fuzzy, php-format
+msgid "%s total"
+msgstr "மொத்தம்"
+
+#: src/Display/Results.php:3629
 msgid "Link not found!"
 msgstr "இணைப்பை காணவில்லை!"
 
@@ -15652,34 +15718,34 @@ msgstr "இணைப்பை காணவில்லை!"
 msgid "Version information"
 msgstr "பதிப்பு செய்தி"
 
-#: src/Engines/Innodb.php:32
+#: src/Engines/Innodb.php:29
 msgid "Data home directory"
 msgstr "தரவின் முகப்பு அடைவு"
 
-#: src/Engines/Innodb.php:33
+#: src/Engines/Innodb.php:30
 msgid "The common part of the directory path for all InnoDB data files."
 msgstr "அனைத்து INNODB தரவுக் கோப்புகளுக்கும் அடைவு பாதையின் பொதுவான பகுதி."
 
-#: src/Engines/Innodb.php:35
+#: src/Engines/Innodb.php:32
 msgid "Data files"
 msgstr "தரவுக் கோப்புகள்"
 
-#: src/Engines/Innodb.php:37
+#: src/Engines/Innodb.php:34
 msgid "Autoextend increment"
 msgstr "தன்வய எதிர்பார்ப்பு அதிகரிப்பு"
 
-#: src/Engines/Innodb.php:39
+#: src/Engines/Innodb.php:36
 msgid ""
 "The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
 "ஒரு ஆட்டோ எக்ச்ட்ரெண்டிங் டேபிள்ச்பேச் நிரம்பும்போது அதை நீட்டிப்பதற்கான அதிகரிப்பு அளவு."
 
-#: src/Engines/Innodb.php:44
+#: src/Engines/Innodb.php:41
 msgid "Buffer pool size"
 msgstr "இடையக பூல் அளவு"
 
-#: src/Engines/Innodb.php:45
+#: src/Engines/Innodb.php:42
 msgid ""
 "The size of the memory buffer InnoDB uses to cache data and indexes of its "
 "tables."
@@ -15687,73 +15753,13 @@ msgstr ""
 "நினைவக பஃபர் இன்னோடிபி அதன் அட்டவணைகளின் தரவு மற்றும் குறியீடுகளை கேச் செய்ய "
 "பயன்படுத்துகிறது."
 
-#: src/Engines/Innodb.php:105
+#: src/Engines/Innodb.php:102
 msgid "Buffer Pool"
 msgstr "இடையகக் குளம்"
 
-#: src/Engines/Innodb.php:105 src/Server/Status/Data.php:187
+#: src/Engines/Innodb.php:102 src/Server/Status/Data.php:187
 msgid "InnoDB Status"
 msgstr "InnoDB நிகழ்நிலை"
-
-#: src/Engines/Innodb.php:128
-msgid "Buffer Pool Usage"
-msgstr "இடையக பூல் பயன்பாடு"
-
-#: src/Engines/Innodb.php:135
-msgid "pages"
-msgstr "பக்கங்கள்"
-
-#: src/Engines/Innodb.php:143
-msgid "Free pages"
-msgstr "இலவச பக்கங்கள்"
-
-#: src/Engines/Innodb.php:149
-msgid "Dirty pages"
-msgstr "அழுக்கு பக்கங்கள்"
-
-#: src/Engines/Innodb.php:155
-msgid "Pages containing data"
-msgstr "தரவைக் கொண்ட பக்கங்கள்"
-
-#: src/Engines/Innodb.php:161
-msgid "Pages to be flushed"
-msgstr "பக்கங்கள் சுத்தப்படுத்தப்பட வேண்டும்"
-
-#: src/Engines/Innodb.php:167
-msgid "Busy pages"
-msgstr "பிசியான பக்கங்கள்"
-
-#: src/Engines/Innodb.php:176
-msgid "Latched pages"
-msgstr "இணைக்கப்பட்ட பக்கங்கள்"
-
-#: src/Engines/Innodb.php:187
-msgid "Buffer Pool Activity"
-msgstr "இடையக பூல் செயல்பாடு"
-
-#: src/Engines/Innodb.php:191
-msgid "Read requests"
-msgstr "கோரிக்கைகளைப் படியுங்கள்"
-
-#: src/Engines/Innodb.php:197
-msgid "Write requests"
-msgstr "கோரிக்கைகளை எழுதுங்கள்"
-
-#: src/Engines/Innodb.php:203
-msgid "Read misses"
-msgstr "மிச்சைப் படியுங்கள்"
-
-#: src/Engines/Innodb.php:209
-msgid "Write waits"
-msgstr "காத்திருப்பதை எழுதுங்கள்"
-
-#: src/Engines/Innodb.php:215
-msgid "Read misses in %"
-msgstr "% இல் மிச்சைப் படியுங்கள்"
-
-#: src/Engines/Innodb.php:230
-msgid "Write waits in %"
-msgstr "எழுது % காத்திருக்கிறது"
 
 #: src/Engines/Myisam.php:28
 msgid "Data pointer size"
@@ -18795,6 +18801,9 @@ msgstr "சிப் காப்பகத்தில் பிழை:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "சிப் காப்பகத்திற்குள் கோப்புகள் எதுவும் இல்லை!"
+
+#~ msgid "pages"
+#~ msgstr "பக்கங்கள்"
 
 #~ msgid "Connection for controluser as defined in your configuration failed."
 #~ msgstr "அமைப்பாக்கத்தில் உள்ளவாறு அமைத்த கட்டுபாட்டுபயனருக்கான இணைப்பு தோல்வியடைந்தது."
