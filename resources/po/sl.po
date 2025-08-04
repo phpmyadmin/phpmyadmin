@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-08-03 00:33+0000\n"
-"PO-Revision-Date: 2025-07-25 17:03+0000\n"
+"PO-Revision-Date: 2025-08-05 17:43+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
@@ -4586,8 +4586,6 @@ msgid "Description"
 msgstr "Opis"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:2
-#, fuzzy
-#| msgid "Buffer Pool Usage"
 msgid "Buffer pool usage"
 msgstr "Uporaba zaloge medpomnilnika"
 
@@ -4616,14 +4614,11 @@ msgid "Latched pages"
 msgstr "Zapahnjene strani"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:34
-#, fuzzy, php-format
-#| msgid "Busy pages"
+#, php-format
 msgid "%s pages"
-msgstr "Zasedene strani"
+msgstr "%s strani"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:41
-#, fuzzy
-#| msgid "Buffer Pool Activity"
 msgid "Buffer pool activity"
 msgstr "Dejavnost zaloge medpomnilnika"
 
