@@ -19,11 +19,16 @@
       <div class="fst-italic">
     {% endif %}
 
-    {% if node.isGroup %}
+    {% if node.isGroup and text_link.route %}
       <div class="block second{{ has_second_icon ? ' double' }}">
         <u>{{ get_image(node.icon['image'], node.icon['title']) }}</u>
       </div>
-      &nbsp;{{ node.name }}
+      &nbsp;<a class="hover_show_full" href="{{ url(text_link.route, text_link.params) }}">{{ node.name }}</a>
+    {% elseif node.isGroup %}
+      <div class="block second{{ has_second_icon ? ' double' }}">
+        <u>{{ get_image(node.icon['image'], node.icon['title']) }}</u>
+      </div>
+      &nbsp; {{ node.name }}
     {% else %}
       <div class="block second{{ has_second_icon ? ' double' }}">
         {% for link in icon_links %}
