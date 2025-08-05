@@ -10552,21 +10552,6 @@
             )]]></code>
     </MixedArgument>
   </file>
-  <file src="tests/unit/Database/Designer/CommonTest.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-    </DeprecatedMethod>
-  </file>
   <file src="tests/unit/Database/DesignerTest.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
