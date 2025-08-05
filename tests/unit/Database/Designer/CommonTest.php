@@ -4,136 +4,100 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Database\Designer;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
-use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Designer\Common;
-use PhpMyAdmin\Dbal\ConnectionType;
-use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
-use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionProperty;
 
 use function sprintf;
 
 #[CoversClass(Common::class)]
-class CommonTest extends AbstractTestCase
+final class CommonTest extends AbstractTestCase
 {
-    protected DatabaseInterface $dbi;
-
-    protected DbiDummy $dummyDbi;
-
-    private Common $designerCommon;
-
-    /**
-     * Setup for test cases
-     */
-    protected function setUp(): void
+    public function testGetTablePositionsWithoutRelationParameters(): void
     {
-        parent::setUp();
-
-        $this->dummyDbi = $this->createDbiDummy();
-        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        DatabaseInterface::$instance = $this->dbi;
-        $relationParameters = RelationParameters::fromArray([
-            'db' => 'pmadb',
-            'pdf_pages' => 'pdf_pages',
-            'pdfwork' => true,
-            'table_coords' => 'table_coords',
-        ]);
-        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
+        self::clearRelationParameters();
+        $dbi = $this->createDatabaseInterface();
+        self::assertSame([], (new Common($dbi, new Relation($dbi)))->getTablePositions(1));
     }
 
-    /**
-     * Test for getTablePositions()
-     */
     public function testGetTablePositions(): void
     {
-        $pg = 1;
+        self::setRelationParameters();
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addResult(
+            // phpcs:ignore Generic.Files.LineLength.TooLong
+            "SELECT CONCAT_WS('.', `db_name`, `table_name`) AS `name`, `db_name` as `dbName`, `table_name` as `tableName`, `x` AS `X`, `y` AS `Y`, 1 AS `V`, 1 AS `H` FROM `pmadb`.`table_coords` WHERE pdf_page_number = 1",
+            [
+                ['sakila.actor', 'sakila', 'actor', '78', '211', '1', '1'],
+                ['sakila.address', 'sakila', 'address', '550', '526', '1', '1'],
+            ],
+            ['name', 'dbName', 'tableName', 'X', 'Y', 'V', 'H'],
+        );
+        $dbi = $this->createDatabaseInterface($dbiDummy);
 
-        $dbi->expects(self::once())
-            ->method('fetchResult')
-            ->with(
-                "
-            SELECT CONCAT_WS('.', `db_name`, `table_name`) AS `name`,
-                `db_name` as `dbName`, `table_name` as `tableName`,
-                `x` AS `X`,
-                `y` AS `Y`,
-                1 AS `V`,
-                1 AS `H`
-            FROM `pmadb`.`table_coords`
-            WHERE pdf_page_number = " . $pg,
-                'name',
-                null,
-                ConnectionType::ControlUser,
-            );
-        DatabaseInterface::$instance = $dbi;
+        self::assertSame(
+            [
+                // phpcs:ignore Generic.Files.LineLength.TooLong
+                'sakila.actor' => ['name' => 'sakila.actor', 'dbName' => 'sakila', 'tableName' => 'actor', 'X' => '78', 'Y' => '211', 'V' => '1', 'H' => '1'],
+                // phpcs:ignore Generic.Files.LineLength.TooLong
+                'sakila.address' => ['name' => 'sakila.address', 'dbName' => 'sakila', 'tableName' => 'address', 'X' => '550', 'Y' => '526', 'V' => '1', 'H' => '1'],
+            ],
+            (new Common($dbi, new Relation($dbi)))->getTablePositions(1),
+        );
 
-        $this->designerCommon = new Common(DatabaseInterface::getInstance(), new Relation($dbi));
-
-        $this->designerCommon->getTablePositions($pg);
+        $dbiDummy->assertAllQueriesConsumed();
     }
 
-    /**
-     * Test for getPageName()
-     */
+    public function testGetPageNameWithoutRelationParameters(): void
+    {
+        self::clearRelationParameters();
+        $dbi = $this->createDatabaseInterface();
+        self::assertNull((new Common($dbi, new Relation($dbi)))->getPageName(1));
+    }
+
     public function testGetPageName(): void
     {
-        $pg = 1;
-        $pageName = 'pageName';
+        self::setRelationParameters();
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addResult('SELECT `page_descr` FROM `pmadb`.`pdf_pages` WHERE `page_nr` = 1', [['pageName']]);
+        $dbi = $this->createDatabaseInterface($dbiDummy);
 
-        $dbi->expects(self::once())
-            ->method('fetchValue')
-            ->with(
-                'SELECT `page_descr` FROM `pmadb`.`pdf_pages`'
-                . ' WHERE `page_nr` = ' . $pg,
-                0,
-                ConnectionType::ControlUser,
-            )
-            ->willReturn($pageName);
-        DatabaseInterface::$instance = $dbi;
-
-        $this->designerCommon = new Common(DatabaseInterface::getInstance(), new Relation($dbi));
-
-        $result = $this->designerCommon->getPageName($pg);
-
-        self::assertSame($pageName, $result);
+        self::assertSame('pageName', (new Common($dbi, new Relation($dbi)))->getPageName(1));
+        $dbiDummy->assertAllQueriesConsumed();
     }
 
-    /**
-     * Test for deletePage()
-     */
+    public function testDeletePageWithoutRelationParameters(): void
+    {
+        self::clearRelationParameters();
+        $dbi = $this->createDatabaseInterface();
+        self::assertFalse((new Common($dbi, new Relation($dbi)))->deletePage(1));
+    }
+
     public function testDeletePage(): void
     {
-        $pg = 1;
+        self::setRelationParameters();
 
-        $resultStub = self::createMock(DummyResult::class);
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addResult('DELETE FROM `pmadb`.`table_coords` WHERE `pdf_page_number` = 1', true);
+        $dbiDummy->addResult('DELETE FROM `pmadb`.`pdf_pages` WHERE `page_nr` = 1', true);
+        $dbi = $this->createDatabaseInterface($dbiDummy);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        self::assertTrue((new Common($dbi, new Relation($dbi)))->deletePage(1));
+        $dbiDummy->assertAllQueriesConsumed();
+    }
 
-        $dbi->expects(self::exactly(2))
-            ->method('queryAsControlUser')
-            ->willReturn($resultStub, $resultStub);
-
-        DatabaseInterface::$instance = $dbi;
-        $this->designerCommon = new Common(DatabaseInterface::getInstance(), new Relation($dbi));
-
-        $result = $this->designerCommon->deletePage($pg);
-        self::assertTrue($result);
+    public function testGetDefaultPageWithoutRelationParameters(): void
+    {
+        self::clearRelationParameters();
+        $dbi = $this->createDatabaseInterface();
+        self::assertSame(-1, (new Common($dbi, new Relation($dbi)))->getDefaultPage('test_db'));
     }
 
     /**
@@ -142,31 +106,17 @@ class CommonTest extends AbstractTestCase
      */
     public function testGetDefaultPage(): void
     {
-        $db = 'db';
-        $defaultPg = '2';
+        self::setRelationParameters();
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addResult(
+            "SELECT `page_nr` FROM `pmadb`.`pdf_pages` WHERE `db_name` = 'test_db' AND `page_descr` = 'test_db'",
+            [['2']],
+        );
+        $dbi = $this->createDatabaseInterface($dbiDummy);
 
-        $dbi->expects(self::once())
-            ->method('fetchValue')
-            ->with(
-                'SELECT `page_nr` FROM `pmadb`.`pdf_pages`'
-                . " WHERE `db_name` = '" . $db . "'"
-                . " AND `page_descr` = '" . $db . "'",
-                0,
-                ConnectionType::ControlUser,
-            )
-            ->willReturn($defaultPg);
-        $dbi->expects(self::any())->method('quoteString')
-            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
-
-        DatabaseInterface::$instance = $dbi;
-        $this->designerCommon = new Common(DatabaseInterface::getInstance(), new Relation($dbi));
-
-        $result = $this->designerCommon->getDefaultPage($db);
-        self::assertSame((int) $defaultPg, $result);
+        self::assertSame(2, (new Common($dbi, new Relation($dbi)))->getDefaultPage('test_db'));
+        $dbiDummy->assertAllQueriesConsumed();
     }
 
     /**
@@ -174,30 +124,24 @@ class CommonTest extends AbstractTestCase
      */
     public function testGetDefaultPageWithNoDefaultPage(): void
     {
-        $db = 'db';
+        self::setRelationParameters();
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addResult(
+            "SELECT `page_nr` FROM `pmadb`.`pdf_pages` WHERE `db_name` = 'test_db' AND `page_descr` = 'test_db'",
+            false,
+        );
+        $dbi = $this->createDatabaseInterface($dbiDummy);
 
-        $dbi->expects(self::once())
-            ->method('fetchValue')
-            ->with(
-                'SELECT `page_nr` FROM `pmadb`.`pdf_pages`'
-                . " WHERE `db_name` = '" . $db . "'"
-                . " AND `page_descr` = '" . $db . "'",
-                0,
-                ConnectionType::ControlUser,
-            )
-            ->willReturn(false);
-        $dbi->expects(self::any())->method('quoteString')
-            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
+        self::assertSame(-1, (new Common($dbi, new Relation($dbi)))->getDefaultPage('test_db'));
+        $dbiDummy->assertAllQueriesConsumed();
+    }
 
-        DatabaseInterface::$instance = $dbi;
-        $this->designerCommon = new Common(DatabaseInterface::getInstance(), new Relation($dbi));
-
-        $result = $this->designerCommon->getDefaultPage($db);
-        self::assertSame(-1, $result);
+    public function testGetLoadingPageWithoutRelationParameters(): void
+    {
+        self::clearRelationParameters();
+        $dbi = $this->createDatabaseInterface();
+        self::assertSame(-1, (new Common($dbi, new Relation($dbi)))->getLoadingPage('test_db'));
     }
 
     /**
@@ -205,31 +149,17 @@ class CommonTest extends AbstractTestCase
      */
     public function testGetLoadingPageWithDefaultPage(): void
     {
-        $db = 'db';
-        $defaultPg = '2';
+        self::setRelationParameters();
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addResult(
+            "SELECT `page_nr` FROM `pmadb`.`pdf_pages` WHERE `db_name` = 'test_db' AND `page_descr` = 'test_db'",
+            [['2']],
+        );
+        $dbi = $this->createDatabaseInterface($dbiDummy);
 
-        $dbi->expects(self::once())
-            ->method('fetchValue')
-            ->with(
-                'SELECT `page_nr` FROM `pmadb`.`pdf_pages`'
-                . " WHERE `db_name` = '" . $db . "'"
-                . " AND `page_descr` = '" . $db . "'",
-                0,
-                ConnectionType::ControlUser,
-            )
-            ->willReturn($defaultPg);
-        $dbi->expects(self::any())->method('quoteString')
-            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
-
-        DatabaseInterface::$instance = $dbi;
-        $this->designerCommon = new Common(DatabaseInterface::getInstance(), new Relation($dbi));
-
-        $result = $this->designerCommon->getLoadingPage($db);
-        self::assertSame((int) $defaultPg, $result);
+        self::assertSame(2, (new Common($dbi, new Relation($dbi)))->getLoadingPage('test_db'));
+        $dbiDummy->assertAllQueriesConsumed();
     }
 
     /**
@@ -237,25 +167,24 @@ class CommonTest extends AbstractTestCase
      */
     public function testGetLoadingPageWithNoDefaultPage(): void
     {
-        $db = 'db';
-        $firstPg = '1';
+        self::setRelationParameters();
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addResult(
+            "SELECT `page_nr` FROM `pmadb`.`pdf_pages` WHERE `db_name` = 'test_db' AND `page_descr` = 'test_db'",
+            false,
+        );
+        $dbiDummy->addResult(
+            "SELECT MIN(`page_nr`) FROM `pmadb`.`pdf_pages` WHERE `db_name` = 'test_db'",
+            [['1']],
+        );
+        $dbi = $this->createDatabaseInterface($dbiDummy);
 
-        $dbi->expects(self::exactly(2))
-            ->method('fetchValue')
-            ->willReturn(false, $firstPg);
-
-        DatabaseInterface::$instance = $dbi;
-        $this->designerCommon = new Common(DatabaseInterface::getInstance(), new Relation($dbi));
-
-        $result = $this->designerCommon->getLoadingPage($db);
-        self::assertSame((int) $firstPg, $result);
+        self::assertSame(1, (new Common($dbi, new Relation($dbi)))->getLoadingPage('test_db'));
+        $dbiDummy->assertAllQueriesConsumed();
     }
 
-    private function loadTestDataForRelationDeleteAddTests(string $createTableString): void
+    private function loadTestDataForRelationDeleteAddTests(DbiDummy $dbiDummy, string $createTableString): void
     {
         $tableSearchQuery = 'SELECT *, `TABLE_SCHEMA` AS `Db`, `TABLE_NAME` AS `Name`, `TABLE_TYPE` AS `TABLE_TYPE`,'
             . ' `ENGINE` AS `Engine`, `ENGINE` AS `Type`, `VERSION` AS `Version`, `ROW_FORMAT` AS `Row_format`,'
@@ -269,9 +198,7 @@ class CommonTest extends AbstractTestCase
 
         $tableStatusQuery = 'SHOW TABLE STATUS FROM `%s` WHERE `Name` LIKE \'%s\'';
 
-        $this->designerCommon = new Common($this->dbi, new Relation($this->dbi));
-
-        $this->dummyDbi->addResult(
+        $dbiDummy->addResult(
             sprintf(
                 $tableSearchQuery,
                 'db\\\'1',
@@ -280,7 +207,7 @@ class CommonTest extends AbstractTestCase
             false, // Make it fallback onto SHOW TABLE STATUS
         );
 
-        $this->dummyDbi->addResult(
+        $dbiDummy->addResult(
             sprintf(
                 $tableSearchQuery,
                 'db\\\'2',
@@ -289,7 +216,7 @@ class CommonTest extends AbstractTestCase
             false, // Make it fallback onto SHOW TABLE STATUS
         );
 
-        $this->dummyDbi->addResult(
+        $dbiDummy->addResult(
             sprintf(
                 $tableStatusQuery,
                 'db\'1',
@@ -309,7 +236,7 @@ class CommonTest extends AbstractTestCase
             ],
         );
 
-        $this->dummyDbi->addResult(
+        $dbiDummy->addResult(
             sprintf(
                 $tableStatusQuery,
                 'db\'2',
@@ -329,7 +256,7 @@ class CommonTest extends AbstractTestCase
             ],
         );
 
-        $this->dummyDbi->addResult(
+        $dbiDummy->addResult(
             'SHOW CREATE TABLE `db\'2`.`table\'2`',
             [['table\'2', $createTableString]],
             ['Table', 'Create Table'],
@@ -338,44 +265,31 @@ class CommonTest extends AbstractTestCase
 
     public function testRemoveRelationRelationDbNotWorking(): void
     {
-        $config = Config::getInstance();
-        $config->selectedServer['DisableIS'] = false;
-        $config->settings['NaturalOrder'] = false;
-        $relationParameters = RelationParameters::fromArray([
-            'db' => 'pmadb',
-            'relation' => 'rel db',
-        ]);
-        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
+        self::clearRelationParameters();
 
-        $this->dummyDbi = $this->createDbiDummy();
-        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        DatabaseInterface::$instance = $this->dbi;
+        $dbiDummy = $this->createDbiDummy();
+
         $this->loadTestDataForRelationDeleteAddTests(
+            $dbiDummy,
             'CREATE TABLE `table\'2` (`field\'1` int(11) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1',
         );
+        $dbi = $this->createDatabaseInterface($dbiDummy);
 
-        $result = $this->designerCommon->removeRelation('db\'1.table\'1', 'field\'1', 'db\'2.table\'2', 'field\'2');
+        $designerCommon = new Common($dbi, new Relation($dbi));
+        $result = $designerCommon->removeRelation('db\'1.table\'1', 'field\'1', 'db\'2.table\'2', 'field\'2');
 
         self::assertEquals(Message::error('Error: Relational features are disabled!'), $result);
+        $dbiDummy->assertAllQueriesConsumed();
     }
 
     public function testRemoveRelationWorkingRelationDb(): void
     {
-        $config = Config::getInstance();
-        $config->selectedServer['DisableIS'] = false;
-        $config->settings['NaturalOrder'] = false;
-        $relationParameters = RelationParameters::fromArray([
-            'db' => 'pmadb',
-            'relwork' => true,
-            'relation' => 'rel db',
-        ]);
-        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
+        self::setRelationParameters();
 
-        $this->dummyDbi = $this->createDbiDummy();
-        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        DatabaseInterface::$instance = $this->dbi;
+        $dbiDummy = $this->createDbiDummy();
 
         $this->loadTestDataForRelationDeleteAddTests(
+            $dbiDummy,
             'CREATE TABLE `table\'2` (`field\'1` int(11) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1',
         );
 
@@ -384,7 +298,7 @@ class CommonTest extends AbstractTestCase
             . ' AND master_field = \'%s\' AND foreign_db = \'%s\''
             . ' AND foreign_table = \'%s\' AND foreign_field = \'%s\'';
 
-        $this->dummyDbi->addResult(
+        $dbiDummy->addResult(
             sprintf(
                 $configurationStorageDeleteQuery,
                 'db\\\'2', // master_db
@@ -396,29 +310,23 @@ class CommonTest extends AbstractTestCase
             ),
             true,
         );
+        $dbi = $this->createDatabaseInterface($dbiDummy);
 
-        $result = $this->designerCommon->removeRelation('db\'1.table\'1', 'field\'1', 'db\'2.table\'2', 'field\'2');
+        $designerCommon = new Common($dbi, new Relation($dbi));
+        $result = $designerCommon->removeRelation('db\'1.table\'1', 'field\'1', 'db\'2.table\'2', 'field\'2');
 
         self::assertEquals(Message::success('Internal relationship has been removed.'), $result);
+        $dbiDummy->assertAllQueriesConsumed();
     }
 
     public function testRemoveRelationWorkingRelationDbFoundFk(): void
     {
-        $config = Config::getInstance();
-        $config->selectedServer['DisableIS'] = false;
-        $config->settings['NaturalOrder'] = false;
-        $relationParameters = RelationParameters::fromArray([
-            'db' => 'pmadb',
-            'relwork' => true,
-            'relation' => 'rel db',
-        ]);
-        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
+        self::clearRelationParameters();
 
-        $this->dummyDbi = $this->createDbiDummy();
-        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        DatabaseInterface::$instance = $this->dbi;
+        $dbiDummy = $this->createDbiDummy();
 
         $this->loadTestDataForRelationDeleteAddTests(
+            $dbiDummy,
             'CREATE TABLE `table\'2` ('
                 . '    `field\'1` int(11) NOT NULL,'
                 . '    `field\'2` int(5) DEFAULT NULL,'
@@ -430,27 +338,7 @@ class CommonTest extends AbstractTestCase
                 . ') ENGINE=InnoDB DEFAULT CHARSET=latin1',
         );
 
-        Current::$database = 'db\'1';// Fallback for Relation::searchColumnInForeigners
-
-        $configurationStorageDeleteQuery = 'DELETE FROM `pmadb`.`rel db`'
-            . ' WHERE master_db = \'%s\' AND master_table = \'%s\''
-            . ' AND master_field = \'%s\' AND foreign_db = \'%s\''
-            . ' AND foreign_table = \'%s\' AND foreign_field = \'%s\'';
-
-        $this->dummyDbi->addResult(
-            sprintf(
-                $configurationStorageDeleteQuery,
-                'db\\\'2', // master_db
-                'table\\\'2', // master_table
-                'field\\\'2', // master_field
-                'db\\\'1', // foreign_db
-                'table\\\'1', // foreign_table
-                'field\\\'1', // foreign_field
-            ),
-            true,
-        );
-
-        $this->dummyDbi->addResult(
+        $dbiDummy->addResult(
             sprintf(
                 'ALTER TABLE `%s`.`%s` DROP FOREIGN KEY `%s`;',
                 'db\'2', // db
@@ -460,28 +348,23 @@ class CommonTest extends AbstractTestCase
             true,
         );
 
-        $result = $this->designerCommon->removeRelation('db\'1.table\'1', 'field\'1', 'db\'2.table\'2', 'field\'2');
+        $dbi = $this->createDatabaseInterface($dbiDummy);
+
+        $designerCommon = new Common($dbi, new Relation($dbi));
+        $result = $designerCommon->removeRelation('db\'1.table\'1', 'field\'1', 'db\'2.table\'2', 'field\'2');
+        $dbiDummy->assertAllQueriesConsumed();
 
         self::assertEquals(Message::success('FOREIGN KEY relationship has been removed.'), $result);
     }
 
     public function testRemoveRelationWorkingRelationDbDeleteFails(): void
     {
-        $config = Config::getInstance();
-        $config->selectedServer['DisableIS'] = false;
-        $config->settings['NaturalOrder'] = false;
-        $relationParameters = RelationParameters::fromArray([
-            'db' => 'pmadb',
-            'relwork' => true,
-            'relation' => 'rel db',
-        ]);
-        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
+        self::setRelationParameters();
 
-        $this->dummyDbi = $this->createDbiDummy();
-        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        DatabaseInterface::$instance = $this->dbi;
+        $dbiDummy = $this->createDbiDummy();
 
         $this->loadTestDataForRelationDeleteAddTests(
+            $dbiDummy,
             'CREATE TABLE `table\'2` (`field\'1` int(11) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1',
         );
 
@@ -490,7 +373,7 @@ class CommonTest extends AbstractTestCase
             . ' AND master_field = \'%s\' AND foreign_db = \'%s\''
             . ' AND foreign_table = \'%s\' AND foreign_field = \'%s\'';
 
-        $this->dummyDbi->addResult(
+        $dbiDummy->addResult(
             sprintf(
                 $configurationStorageDeleteQuery,
                 'db\\\'2', // master_db
@@ -503,8 +386,31 @@ class CommonTest extends AbstractTestCase
             false, // Delete failed
         );
 
-        $result = $this->designerCommon->removeRelation('db\'1.table\'1', 'field\'1', 'db\'2.table\'2', 'field\'2');
+        $dbi = $this->createDatabaseInterface($dbiDummy);
+
+        $designerCommon = new Common($dbi, new Relation($dbi));
+
+        $result = $designerCommon->removeRelation('db\'1.table\'1', 'field\'1', 'db\'2.table\'2', 'field\'2');
+        $dbiDummy->assertAllQueriesConsumed();
 
         self::assertEquals(Message::error('Error: Internal relationship could not be removed!<br>'), $result);
+    }
+
+    private static function clearRelationParameters(): void
+    {
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
+    }
+
+    private static function setRelationParameters(): void
+    {
+        $relationParameters = RelationParameters::fromArray([
+            'db' => 'pmadb',
+            'pdfwork' => true,
+            'pdf_pages' => 'pdf_pages',
+            'table_coords' => 'table_coords',
+            'relwork' => true,
+            'relation' => 'rel db',
+        ]);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
     }
 }

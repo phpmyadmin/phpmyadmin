@@ -17250,30 +17250,6 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 4
-			path: tests/unit/Database/Designer/CommonTest.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 7
-			path: tests/unit/Database/Designer/CommonTest.php
-
-		-
-			message: '#^Class PhpMyAdmin\\Tests\\Database\\Designer\\CommonTest has an uninitialized property \$designerCommon\. Give it default value or assign it in the constructor\.$#'
-			identifier: property.uninitialized
-			count: 1
-			path: tests/unit/Database/Designer/CommonTest.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
 			count: 1
 			path: tests/unit/Database/DesignerTest.php
 
