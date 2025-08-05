@@ -52,16 +52,16 @@ class SystemDatabaseTest extends AbstractTestCase
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $relationParameters = RelationParameters::fromArray([
-            'table_coords' => 'table_name',
-            'displaywork' => true,
-            'db' => 'information_schema',
-            'table_info' => 'table_info',
-            'relwork' => true,
-            'commwork' => true,
-            'pdfwork' => true,
-            'mimework' => true,
-            'column_info' => 'column_info',
-            'relation' => 'relation',
+            RelationParameters::TABLE_COORDS => 'table_name',
+            RelationParameters::DISPLAY_WORK => true,
+            RelationParameters::DATABASE => 'information_schema',
+            RelationParameters::TABLE_INFO => 'table_info',
+            RelationParameters::REL_WORK => true,
+            RelationParameters::COMM_WORK => true,
+            RelationParameters::PDF_WORK => true,
+            RelationParameters::MIME_WORK => true,
+            RelationParameters::COLUMN_INFO => 'column_info',
+            RelationParameters::RELATION => 'relation',
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 

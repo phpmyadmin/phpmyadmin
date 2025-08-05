@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Plugins\Export;
 use DateTimeImmutable;
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config;
+use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\Database\Routines;
@@ -1093,14 +1094,18 @@ class ExportSql extends ExportPlugin
         $relationParams = $relationParameters->toArray();
 
         if (isset($table)) {
-            $types = ['column_info' => 'db_name', 'table_uiprefs' => 'db_name', 'tracking' => 'db_name'];
+            $types = [
+                RelationParameters::COLUMN_INFO => 'db_name',
+                RelationParameters::TABLE_UI_PREFS => 'db_name',
+                RelationParameters::TRACKING => 'db_name',
+            ];
         } else {
             $types = [
-                'bookmark' => 'dbase',
-                'relation' => 'master_db',
-                'pdf_pages' => 'db_name',
-                'savedsearches' => 'db_name',
-                'central_columns' => 'db_name',
+                RelationParameters::BOOKMARK => 'dbase',
+                RelationParameters::RELATION => 'master_db',
+                RelationParameters::PDF_PAGES => 'db_name',
+                RelationParameters::SAVED_SEARCHES => 'db_name',
+                RelationParameters::CENTRAL_COLUMNS => 'db_name',
             ];
         }
 
@@ -1131,13 +1136,13 @@ class ExportSql extends ExportPlugin
         }
 
         foreach ($types as $type => $dbNameColumn) {
-            if (! in_array($type, $metadataTypes) || ! isset($relationParams[$type])) {
+            if (! in_array($type, $metadataTypes, true) || ! isset($relationParams[$type])) {
                 continue;
             }
 
             $dbi = DatabaseInterface::getInstance();
             // special case, designer pages and their coordinates
-            if ($type === 'pdf_pages') {
+            if ($type === RelationParameters::PDF_PAGES) {
                 if ($relationParameters->pdfFeature === null) {
                     continue;
                 }
@@ -1203,12 +1208,13 @@ class ExportSql extends ExportPlugin
 
             // remove auto_incrementing id field for some tables
             $sqlQuery = match ($type) {
-                'bookmark' => 'SELECT `dbase`, `user`, `label`, `query` FROM ',
-                'column_info' => 'SELECT `db_name`, `table_name`, `column_name`,'
+                RelationParameters::BOOKMARK => 'SELECT `dbase`, `user`, `label`, `query` FROM ',
+                RelationParameters::COLUMN_INFO => 'SELECT `db_name`, `table_name`, `column_name`,'
                     . ' `comment`, `mimetype`, `transformation`,'
                     . ' `transformation_options`, `input_transformation`,'
-                    . ' `input_transformation_options` FROM',
-                'savedsearches' => 'SELECT `username`, `db_name`, `search_name`, `search_data` FROM',
+                    . ' `input_transformation_options` FROM ',
+                RelationParameters::SAVED_SEARCHES => 'SELECT `username`, `db_name`, `search_name`, `search_data`'
+                    . ' FROM ',
                 default => 'SELECT * FROM ',
             };
 

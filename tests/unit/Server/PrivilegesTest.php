@@ -1228,10 +1228,10 @@ class PrivilegesTest extends AbstractTestCase
     public function testGetUserGroupForUser(): void
     {
         $relationParameters = RelationParameters::fromArray([
-            'db' => 'pmadb',
-            'users' => 'users',
-            'usergroups' => 'usergroups',
-            'menuswork' => true,
+            RelationParameters::DATABASE => 'pmadb',
+            RelationParameters::USERS => 'users',
+            RelationParameters::USER_GROUPS => 'usergroups',
+            RelationParameters::MENUS_WORK => true,
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
@@ -1251,12 +1251,12 @@ class PrivilegesTest extends AbstractTestCase
         Config::getInstance()->selectedServer['DisableIS'] = false;
 
         $relationParameters = RelationParameters::fromArray([
-            'db' => 'pmadb',
-            'users' => 'users',
-            'usergroups' => 'usergroups',
-            'menuswork' => true,
-            'trackingwork' => true,
-            'tracking' => 'tracking',
+            RelationParameters::DATABASE => 'pmadb',
+            RelationParameters::USERS => 'users',
+            RelationParameters::USER_GROUPS => 'usergroups',
+            RelationParameters::MENUS_WORK => true,
+            RelationParameters::TRACKING_WORK => true,
+            RelationParameters::TRACKING => 'tracking',
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 

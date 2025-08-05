@@ -81,51 +81,51 @@ class Relation
      */
     private function checkTableAccess(array $relationParams): array
     {
-        if (isset($relationParams['relation'], $relationParams['table_info'])) {
-            if ($this->canAccessStorageTable((string) $relationParams['table_info'])) {
-                $relationParams['displaywork'] = true;
+        if (isset($relationParams[RelationParameters::RELATION], $relationParams[RelationParameters::TABLE_INFO])) {
+            if ($this->canAccessStorageTable((string) $relationParams[RelationParameters::TABLE_INFO])) {
+                $relationParams[RelationParameters::DISPLAY_WORK] = true;
             }
         }
 
-        if (isset($relationParams['table_coords'], $relationParams['pdf_pages'])) {
-            if ($this->canAccessStorageTable((string) $relationParams['table_coords'])) {
-                if ($this->canAccessStorageTable((string) $relationParams['pdf_pages'])) {
-                    $relationParams['pdfwork'] = true;
+        if (isset($relationParams[RelationParameters::TABLE_COORDS], $relationParams[RelationParameters::PDF_PAGES])) {
+            if ($this->canAccessStorageTable((string) $relationParams[RelationParameters::TABLE_COORDS])) {
+                if ($this->canAccessStorageTable((string) $relationParams[RelationParameters::PDF_PAGES])) {
+                    $relationParams[RelationParameters::PDF_WORK] = true;
                 }
             }
         }
 
-        if (isset($relationParams['column_info'])) {
-            if ($this->canAccessStorageTable((string) $relationParams['column_info'])) {
-                $relationParams['commwork'] = true;
+        if (isset($relationParams[RelationParameters::COLUMN_INFO])) {
+            if ($this->canAccessStorageTable((string) $relationParams[RelationParameters::COLUMN_INFO])) {
+                $relationParams[RelationParameters::COMM_WORK] = true;
                 // phpMyAdmin 4.3+
                 // Check for input transformations upgrade.
-                $relationParams['mimework'] = $this->tryUpgradeTransformations();
+                $relationParams[RelationParameters::MIME_WORK] = $this->tryUpgradeTransformations();
             }
         }
 
-        if (isset($relationParams['users'], $relationParams['usergroups'])) {
-            if ($this->canAccessStorageTable((string) $relationParams['users'])) {
-                if ($this->canAccessStorageTable((string) $relationParams['usergroups'])) {
-                    $relationParams['menuswork'] = true;
+        if (isset($relationParams[RelationParameters::USERS], $relationParams[RelationParameters::USER_GROUPS])) {
+            if ($this->canAccessStorageTable((string) $relationParams[RelationParameters::USERS])) {
+                if ($this->canAccessStorageTable((string) $relationParams[RelationParameters::USER_GROUPS])) {
+                    $relationParams[RelationParameters::MENUS_WORK] = true;
                 }
             }
         }
 
         $settings = [
-            'export_templates' => 'exporttemplateswork',
-            'designer_settings' => 'designersettingswork',
-            'central_columns' => 'centralcolumnswork',
-            'savedsearches' => 'savedsearcheswork',
-            'navigationhiding' => 'navwork',
-            'bookmark' => 'bookmarkwork',
-            'userconfig' => 'userconfigwork',
-            'tracking' => 'trackingwork',
-            'table_uiprefs' => 'uiprefswork',
-            'favorite' => 'favoritework',
-            'recent' => 'recentwork',
-            'history' => 'historywork',
-            'relation' => 'relwork',
+            RelationParameters::EXPORT_TEMPLATES => RelationParameters::EXPORT_TEMPLATES_WORK,
+            RelationParameters::DESIGNER_SETTINGS => RelationParameters::DESIGNER_SETTINGS_WORK,
+            RelationParameters::CENTRAL_COLUMNS => RelationParameters::CENTRAL_COLUMNS_WORK,
+            RelationParameters::SAVED_SEARCHES => RelationParameters::SAVED_SEARCHES_WORK,
+            RelationParameters::NAVIGATION_HIDING => RelationParameters::NAV_WORK,
+            RelationParameters::BOOKMARK => RelationParameters::BOOKMARK_WORK,
+            RelationParameters::USER_CONFIG => RelationParameters::USER_CONFIG_WORK,
+            RelationParameters::TRACKING => RelationParameters::TRACKING_WORK,
+            RelationParameters::TABLE_UI_PREFS => RelationParameters::UI_PREFS_WORK,
+            RelationParameters::FAVORITE => RelationParameters::FAVORITE_WORK,
+            RelationParameters::RECENT => RelationParameters::RECENT_WORK,
+            RelationParameters::HISTORY => RelationParameters::HISTORY_WORK,
+            RelationParameters::RELATION => RelationParameters::REL_WORK,
         ];
 
         foreach ($settings as $setingName => $worksKey) {
@@ -161,43 +161,43 @@ class Relation
 
         foreach ($tables as $table) {
             if ($table === $this->config->selectedServer['bookmarktable']) {
-                $relationParams['bookmark'] = $table;
+                $relationParams[RelationParameters::BOOKMARK] = $table;
             } elseif ($table === $this->config->selectedServer['relation']) {
-                $relationParams['relation'] = $table;
+                $relationParams[RelationParameters::RELATION] = $table;
             } elseif ($table === $this->config->selectedServer['table_info']) {
-                $relationParams['table_info'] = $table;
+                $relationParams[RelationParameters::TABLE_INFO] = $table;
             } elseif ($table === $this->config->selectedServer['table_coords']) {
-                $relationParams['table_coords'] = $table;
+                $relationParams[RelationParameters::TABLE_COORDS] = $table;
             } elseif ($table === $this->config->selectedServer['column_info']) {
-                $relationParams['column_info'] = $table;
+                $relationParams[RelationParameters::COLUMN_INFO] = $table;
             } elseif ($table === $this->config->selectedServer['pdf_pages']) {
-                $relationParams['pdf_pages'] = $table;
+                $relationParams[RelationParameters::PDF_PAGES] = $table;
             } elseif ($table === $this->config->selectedServer['history']) {
-                $relationParams['history'] = $table;
+                $relationParams[RelationParameters::HISTORY] = $table;
             } elseif ($table === $this->config->selectedServer['recent']) {
-                $relationParams['recent'] = $table;
+                $relationParams[RelationParameters::RECENT] = $table;
             } elseif ($table === $this->config->selectedServer['favorite']) {
-                $relationParams['favorite'] = $table;
+                $relationParams[RelationParameters::FAVORITE] = $table;
             } elseif ($table === $this->config->selectedServer['table_uiprefs']) {
-                $relationParams['table_uiprefs'] = $table;
+                $relationParams[RelationParameters::TABLE_UI_PREFS] = $table;
             } elseif ($table === $this->config->selectedServer['tracking']) {
-                $relationParams['tracking'] = $table;
+                $relationParams[RelationParameters::TRACKING] = $table;
             } elseif ($table === $this->config->selectedServer['userconfig']) {
-                $relationParams['userconfig'] = $table;
+                $relationParams[RelationParameters::USER_CONFIG] = $table;
             } elseif ($table === $this->config->selectedServer['users']) {
-                $relationParams['users'] = $table;
+                $relationParams[RelationParameters::USERS] = $table;
             } elseif ($table === $this->config->selectedServer['usergroups']) {
-                $relationParams['usergroups'] = $table;
+                $relationParams[RelationParameters::USER_GROUPS] = $table;
             } elseif ($table === $this->config->selectedServer['navigationhiding']) {
-                $relationParams['navigationhiding'] = $table;
+                $relationParams[RelationParameters::NAVIGATION_HIDING] = $table;
             } elseif ($table === $this->config->selectedServer['savedsearches']) {
-                $relationParams['savedsearches'] = $table;
+                $relationParams[RelationParameters::SAVED_SEARCHES] = $table;
             } elseif ($table === $this->config->selectedServer['central_columns']) {
-                $relationParams['central_columns'] = $table;
+                $relationParams[RelationParameters::CENTRAL_COLUMNS] = $table;
             } elseif ($table === $this->config->selectedServer['designer_settings']) {
-                $relationParams['designer_settings'] = $table;
+                $relationParams[RelationParameters::DESIGNER_SETTINGS] = $table;
             } elseif ($table === $this->config->selectedServer['export_templates']) {
-                $relationParams['export_templates'] = $table;
+                $relationParams[RelationParameters::EXPORT_TEMPLATES] = $table;
             }
         }
 
@@ -214,32 +214,32 @@ class Relation
     private function checkRelationsParam(): array
     {
         $workToTable = [
-            'relwork' => 'relation',
-            'displaywork' => ['relation', 'table_info'],
-            'bookmarkwork' => 'bookmarktable',
-            'pdfwork' => ['table_coords', 'pdf_pages'],
-            'commwork' => 'column_info',
-            'mimework' => 'column_info',
-            'historywork' => 'history',
-            'recentwork' => 'recent',
-            'favoritework' => 'favorite',
-            'uiprefswork' => 'table_uiprefs',
-            'trackingwork' => 'tracking',
-            'userconfigwork' => 'userconfig',
-            'menuswork' => ['users', 'usergroups'],
-            'navwork' => 'navigationhiding',
-            'savedsearcheswork' => 'savedsearches',
-            'centralcolumnswork' => 'central_columns',
-            'designersettingswork' => 'designer_settings',
-            'exporttemplateswork' => 'export_templates',
+            RelationParameters::REL_WORK => 'relation',
+            RelationParameters::DISPLAY_WORK => ['relation', 'table_info'],
+            RelationParameters::BOOKMARK_WORK => 'bookmarktable',
+            RelationParameters::PDF_WORK => ['table_coords', 'pdf_pages'],
+            RelationParameters::COMM_WORK => 'column_info',
+            RelationParameters::MIME_WORK => 'column_info',
+            RelationParameters::HISTORY_WORK => 'history',
+            RelationParameters::RECENT_WORK => 'recent',
+            RelationParameters::FAVORITE_WORK => 'favorite',
+            RelationParameters::UI_PREFS_WORK => 'table_uiprefs',
+            RelationParameters::TRACKING_WORK => 'tracking',
+            RelationParameters::USER_CONFIG_WORK => 'userconfig',
+            RelationParameters::MENUS_WORK => ['users', 'usergroups'],
+            RelationParameters::NAV_WORK => 'navigationhiding',
+            RelationParameters::SAVED_SEARCHES_WORK => 'savedsearches',
+            RelationParameters::CENTRAL_COLUMNS_WORK => 'central_columns',
+            RelationParameters::DESIGNER_SETTINGS_WORK => 'designer_settings',
+            RelationParameters::EXPORT_TEMPLATES_WORK => 'export_templates',
         ];
 
         $relationParams = array_fill_keys(array_keys($workToTable), false);
 
-        $relationParams['version'] = Version::VERSION;
-        $relationParams['allworks'] = false;
-        $relationParams['user'] = null;
-        $relationParams['db'] = null;
+        $relationParams[RelationParameters::VERSION] = Version::VERSION;
+        $relationParams[RelationParameters::ALL_WORKS] = false;
+        $relationParams[RelationParameters::USER] = null;
+        $relationParams[RelationParameters::DATABASE] = null;
 
         if (
             Current::$server === 0
@@ -251,8 +251,8 @@ class Relation
             return $relationParams;
         }
 
-        $relationParams['user'] = $this->config->selectedServer['user'];
-        $relationParams['db'] = $this->config->selectedServer['pmadb'];
+        $relationParams[RelationParameters::USER] = $this->config->selectedServer['user'];
+        $relationParams[RelationParameters::DATABASE] = $this->config->selectedServer['pmadb'];
 
         $relationParamsFilled = $this->fillRelationParamsWithTableNames($relationParams);
 
@@ -289,7 +289,7 @@ class Relation
             }
         }
 
-        $relationParams['allworks'] = $allWorks;
+        $relationParams[RelationParameters::ALL_WORKS] = $allWorks;
 
         return $relationParams;
     }

@@ -92,10 +92,10 @@ class TwoFactorTest extends AbstractTestCase
         DatabaseInterface::$instance = $this->dbi;
 
         $relationParameters = RelationParameters::fromArray([
-            'db' => 'phpmyadmin',
-            'user' => 'groot',
-            'userconfigwork' => true,
-            'userconfig' => 'pma__userconfig',
+            RelationParameters::DATABASE => 'phpmyadmin',
+            RelationParameters::USER => 'groot',
+            RelationParameters::USER_CONFIG_WORK => true,
+            RelationParameters::USER_CONFIG => 'pma__userconfig',
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
     }

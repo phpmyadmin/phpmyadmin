@@ -349,9 +349,9 @@ final class NodeTest extends AbstractTestCase
         $expectedSql .= 'ORDER BY SCHEMA_NAME ASC';
 
         $relationParameters = RelationParameters::fromArray([
-            'db' => 'pmadb',
-            'navwork' => true,
-            'navigationhiding' => 'navigationhiding',
+            RelationParameters::DATABASE => 'pmadb',
+            RelationParameters::NAV_WORK => true,
+            RelationParameters::NAVIGATION_HIDING => 'navigationhiding',
         ]);
 
         $node = new Node($config, 'node');
@@ -381,9 +381,9 @@ final class NodeTest extends AbstractTestCase
         $expectedSql .= 'LIMIT 10, 20';
 
         $relationParameters = RelationParameters::fromArray([
-            'db' => 'pmadb',
-            'navwork' => true,
-            'navigationhiding' => 'navigationhiding',
+            RelationParameters::DATABASE => 'pmadb',
+            RelationParameters::NAV_WORK => true,
+            RelationParameters::NAVIGATION_HIDING => 'navigationhiding',
         ]);
 
         $node = new Node($config, 'node');
@@ -407,9 +407,9 @@ final class NodeTest extends AbstractTestCase
         $config->settings['NavigationTreeDbSeparator'] = '_';
 
         $relationParameters = RelationParameters::fromArray([
-            'db' => 'pmadb',
-            'navwork' => true,
-            'navigationhiding' => 'navigationhiding',
+            RelationParameters::DATABASE => 'pmadb',
+            RelationParameters::NAV_WORK => true,
+            RelationParameters::NAVIGATION_HIDING => 'navigationhiding',
         ]);
 
         $node = new Node($config, 'node');

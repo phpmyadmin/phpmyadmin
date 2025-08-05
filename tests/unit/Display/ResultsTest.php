@@ -652,9 +652,9 @@ class ResultsTest extends AbstractTestCase
         // Fake relation settings
         $_SESSION['tmpval']['relational_display'] = 'K';
         $relationParameters = RelationParameters::fromArray([
-            'db' => 'db',
-            'mimework' => true,
-            'column_info' => 'column_info',
+            RelationParameters::DATABASE => 'db',
+            RelationParameters::MIME_WORK => true,
+            RelationParameters::COLUMN_INFO => 'column_info',
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
         $config = Config::getInstance();

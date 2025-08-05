@@ -31,9 +31,9 @@ class TrackingCheckerTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
 
         $relationParameters = RelationParameters::fromArray([
-            'db' => 'pmadb',
-            'tracking' => 'tracking',
-            'trackingwork' => true,
+            RelationParameters::DATABASE => 'pmadb',
+            RelationParameters::TRACKING => 'tracking',
+            RelationParameters::TRACKING_WORK => true,
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 

@@ -32,6 +32,50 @@ use function is_string;
 /** @psalm-immutable */
 final readonly class RelationParameters
 {
+    public const VERSION = 'version';
+    public const USER = 'user';
+    public const DATABASE = 'db';
+
+    public const BOOKMARK = 'bookmark';
+    public const CENTRAL_COLUMNS = 'central_columns';
+    public const COLUMN_INFO = 'column_info';
+    public const DESIGNER_SETTINGS = 'designer_settings';
+    public const EXPORT_TEMPLATES = 'export_templates';
+    public const FAVORITE = 'favorite';
+    public const HISTORY = 'history';
+    public const NAVIGATION_HIDING = 'navigationhiding';
+    public const PDF_PAGES = 'pdf_pages';
+    public const RECENT = 'recent';
+    public const RELATION = 'relation';
+    public const SAVED_SEARCHES = 'savedsearches';
+    public const TABLE_COORDS = 'table_coords';
+    public const TABLE_INFO = 'table_info';
+    public const TABLE_UI_PREFS = 'table_uiprefs';
+    public const TRACKING = 'tracking';
+    public const USERS = 'users';
+    public const USER_CONFIG = 'userconfig';
+    public const USER_GROUPS = 'usergroups';
+
+    public const ALL_WORKS = 'allworks';
+    public const BOOKMARK_WORK = 'bookmarkwork';
+    public const CENTRAL_COLUMNS_WORK = 'centralcolumnswork';
+    public const COMM_WORK = 'commwork';
+    public const DESIGNER_SETTINGS_WORK = 'designersettingswork';
+    public const DISPLAY_WORK = 'displaywork';
+    public const EXPORT_TEMPLATES_WORK = 'exporttemplateswork';
+    public const FAVORITE_WORK = 'favoritework';
+    public const HISTORY_WORK = 'historywork';
+    public const MENUS_WORK = 'menuswork';
+    public const MIME_WORK = 'mimework';
+    public const NAV_WORK = 'navwork';
+    public const PDF_WORK = 'pdfwork';
+    public const RECENT_WORK = 'recentwork';
+    public const REL_WORK = 'relwork';
+    public const SAVED_SEARCHES_WORK = 'savedsearcheswork';
+    public const TRACKING_WORK = 'trackingwork';
+    public const UI_PREFS_WORK = 'uiprefswork';
+    public const USER_CONFIG_WORK = 'userconfigwork';
+
     /** @param non-empty-string|null $user */
     public function __construct(
         public string|null $user,
@@ -61,150 +105,171 @@ final readonly class RelationParameters
     public static function fromArray(array $params): self
     {
         $user = null;
-        if (isset($params['user']) && is_string($params['user']) && $params['user'] !== '') {
-            $user = $params['user'];
+        if (isset($params[self::USER]) && is_string($params[self::USER]) && $params[self::USER] !== '') {
+            $user = $params[self::USER];
         }
 
         try {
-            $db = DatabaseName::from($params['db'] ?? null);
+            $db = DatabaseName::from($params[self::DATABASE] ?? null);
         } catch (InvalidDatabaseName) {
             return new self($user, null);
         }
 
         $bookmarkFeature = null;
-        if (isset($params['bookmarkwork'], $params['bookmark']) && $params['bookmarkwork']) {
-            $bookmark = TableName::tryFrom($params['bookmark']);
+        if (isset($params[self::BOOKMARK_WORK], $params[self::BOOKMARK]) && $params[self::BOOKMARK_WORK]) {
+            $bookmark = TableName::tryFrom($params[self::BOOKMARK]);
             if ($bookmark !== null) {
                 $bookmarkFeature = new BookmarkFeature($db, $bookmark);
             }
         }
 
-        $columnInfo = TableName::tryFrom($params['column_info'] ?? null);
+        $columnInfo = TableName::tryFrom($params[self::COLUMN_INFO] ?? null);
         $browserTransformationFeature = null;
-        if (isset($params['mimework']) && $params['mimework'] && $columnInfo !== null) {
+        if (isset($params[self::MIME_WORK]) && $params[self::MIME_WORK] && $columnInfo !== null) {
             $browserTransformationFeature = new BrowserTransformationFeature($db, $columnInfo);
         }
 
         $columnCommentsFeature = null;
-        if (isset($params['commwork']) && $params['commwork'] && $columnInfo !== null) {
+        if (isset($params[self::COMM_WORK]) && $params[self::COMM_WORK] && $columnInfo !== null) {
             $columnCommentsFeature = new ColumnCommentsFeature($db, $columnInfo);
         }
 
         $centralColumnsFeature = null;
-        if (isset($params['centralcolumnswork'], $params['central_columns']) && $params['centralcolumnswork']) {
-            $centralColumns = TableName::tryFrom($params['central_columns']);
+        if (
+            isset($params[self::CENTRAL_COLUMNS_WORK], $params[self::CENTRAL_COLUMNS])
+            && $params[self::CENTRAL_COLUMNS_WORK]
+        ) {
+            $centralColumns = TableName::tryFrom($params[self::CENTRAL_COLUMNS]);
             if ($centralColumns !== null) {
                 $centralColumnsFeature = new CentralColumnsFeature($db, $centralColumns);
             }
         }
 
         $configurableMenusFeature = null;
-        if (isset($params['menuswork'], $params['usergroups'], $params['users']) && $params['menuswork']) {
-            $userGroups = TableName::tryFrom($params['usergroups']);
-            $users = TableName::tryFrom($params['users']);
+        if (
+            isset($params[self::MENUS_WORK], $params[self::USER_GROUPS], $params[self::USERS])
+            && $params[self::MENUS_WORK]
+        ) {
+            $userGroups = TableName::tryFrom($params[self::USER_GROUPS]);
+            $users = TableName::tryFrom($params[self::USERS]);
             if ($userGroups !== null && $users !== null) {
                 $configurableMenusFeature = new ConfigurableMenusFeature($db, $userGroups, $users);
             }
         }
 
         $databaseDesignerSettingsFeature = null;
-        if (isset($params['designersettingswork'], $params['designer_settings']) && $params['designersettingswork']) {
-            $designerSettings = TableName::tryFrom($params['designer_settings']);
+        if (
+            isset($params[self::DESIGNER_SETTINGS_WORK], $params[self::DESIGNER_SETTINGS])
+            && $params[self::DESIGNER_SETTINGS_WORK]
+        ) {
+            $designerSettings = TableName::tryFrom($params[self::DESIGNER_SETTINGS]);
             if ($designerSettings !== null) {
                 $databaseDesignerSettingsFeature = new DatabaseDesignerSettingsFeature($db, $designerSettings);
             }
         }
 
-        $relation = TableName::tryFrom($params['relation'] ?? null);
+        $relation = TableName::tryFrom($params[self::RELATION] ?? null);
         $displayFeature = null;
-        if (isset($params['displaywork'], $params['table_info']) && $params['displaywork'] && $relation !== null) {
-            $tableInfo = TableName::tryFrom($params['table_info']);
+        if (
+            isset($params[self::DISPLAY_WORK], $params[self::TABLE_INFO])
+            && $params[self::DISPLAY_WORK] && $relation !== null
+        ) {
+            $tableInfo = TableName::tryFrom($params[self::TABLE_INFO]);
             if ($tableInfo !== null) {
                 $displayFeature = new DisplayFeature($db, $relation, $tableInfo);
             }
         }
 
         $exportTemplatesFeature = null;
-        if (isset($params['exporttemplateswork'], $params['export_templates']) && $params['exporttemplateswork']) {
-            $exportTemplates = TableName::tryFrom($params['export_templates']);
+        if (
+            isset($params[self::EXPORT_TEMPLATES_WORK], $params[self::EXPORT_TEMPLATES])
+            && $params[self::EXPORT_TEMPLATES_WORK]
+        ) {
+            $exportTemplates = TableName::tryFrom($params[self::EXPORT_TEMPLATES]);
             if ($exportTemplates !== null) {
                 $exportTemplatesFeature = new ExportTemplatesFeature($db, $exportTemplates);
             }
         }
 
         $favoriteTablesFeature = null;
-        if (isset($params['favoritework'], $params['favorite']) && $params['favoritework']) {
-            $favorite = TableName::tryFrom($params['favorite']);
+        if (isset($params[self::FAVORITE_WORK], $params[self::FAVORITE]) && $params[self::FAVORITE_WORK]) {
+            $favorite = TableName::tryFrom($params[self::FAVORITE]);
             if ($favorite !== null) {
                 $favoriteTablesFeature = new FavoriteTablesFeature($db, $favorite);
             }
         }
 
         $navigationItemsHidingFeature = null;
-        if (isset($params['navwork'], $params['navigationhiding']) && $params['navwork']) {
-            $navigationHiding = TableName::tryFrom($params['navigationhiding']);
+        if (isset($params[self::NAV_WORK], $params[self::NAVIGATION_HIDING]) && $params[self::NAV_WORK]) {
+            $navigationHiding = TableName::tryFrom($params[self::NAVIGATION_HIDING]);
             if ($navigationHiding !== null) {
                 $navigationItemsHidingFeature = new NavigationItemsHidingFeature($db, $navigationHiding);
             }
         }
 
         $pdfFeature = null;
-        if (isset($params['pdfwork'], $params['pdf_pages'], $params['table_coords']) && $params['pdfwork']) {
-            $pdfPages = TableName::tryFrom($params['pdf_pages']);
-            $tableCoords = TableName::tryFrom($params['table_coords']);
+        if (
+            isset($params[self::PDF_WORK], $params[self::PDF_PAGES], $params[self::TABLE_COORDS])
+            && $params[self::PDF_WORK]
+        ) {
+            $pdfPages = TableName::tryFrom($params[self::PDF_PAGES]);
+            $tableCoords = TableName::tryFrom($params[self::TABLE_COORDS]);
             if ($pdfPages !== null && $tableCoords !== null) {
                 $pdfFeature = new PdfFeature($db, $pdfPages, $tableCoords);
             }
         }
 
         $recentlyUsedTablesFeature = null;
-        if (isset($params['recentwork'], $params['recent']) && $params['recentwork']) {
-            $recent = TableName::tryFrom($params['recent']);
+        if (isset($params[self::RECENT_WORK], $params[self::RECENT]) && $params[self::RECENT_WORK]) {
+            $recent = TableName::tryFrom($params[self::RECENT]);
             if ($recent !== null) {
                 $recentlyUsedTablesFeature = new RecentlyUsedTablesFeature($db, $recent);
             }
         }
 
         $relationFeature = null;
-        if (isset($params['relwork']) && $params['relwork'] && $relation !== null) {
+        if (isset($params[self::REL_WORK]) && $params[self::REL_WORK] && $relation !== null) {
             $relationFeature = new RelationFeature($db, $relation);
         }
 
         $savedQueryByExampleSearchesFeature = null;
-        if (isset($params['savedsearcheswork'], $params['savedsearches']) && $params['savedsearcheswork']) {
-            $savedSearches = TableName::tryFrom($params['savedsearches']);
+        if (
+            isset($params[self::SAVED_SEARCHES_WORK], $params[self::SAVED_SEARCHES])
+            && $params[self::SAVED_SEARCHES_WORK]
+        ) {
+            $savedSearches = TableName::tryFrom($params[self::SAVED_SEARCHES]);
             if ($savedSearches !== null) {
                 $savedQueryByExampleSearchesFeature = new SavedQueryByExampleSearchesFeature($db, $savedSearches);
             }
         }
 
         $sqlHistoryFeature = null;
-        if (isset($params['historywork'], $params['history']) && $params['historywork']) {
-            $history = TableName::tryFrom($params['history']);
+        if (isset($params[self::HISTORY_WORK], $params[self::HISTORY]) && $params[self::HISTORY_WORK]) {
+            $history = TableName::tryFrom($params[self::HISTORY]);
             if ($history !== null) {
                 $sqlHistoryFeature = new SqlHistoryFeature($db, $history);
             }
         }
 
         $trackingFeature = null;
-        if (isset($params['trackingwork'], $params['tracking']) && $params['trackingwork']) {
-            $tracking = TableName::tryFrom($params['tracking']);
+        if (isset($params[self::TRACKING_WORK], $params[self::TRACKING]) && $params[self::TRACKING_WORK]) {
+            $tracking = TableName::tryFrom($params[self::TRACKING]);
             if ($tracking !== null) {
                 $trackingFeature = new TrackingFeature($db, $tracking);
             }
         }
 
         $uiPreferencesFeature = null;
-        if (isset($params['uiprefswork'], $params['table_uiprefs']) && $params['uiprefswork']) {
-            $tableUiPrefs = TableName::tryFrom($params['table_uiprefs']);
+        if (isset($params[self::UI_PREFS_WORK], $params[self::TABLE_UI_PREFS]) && $params[self::UI_PREFS_WORK]) {
+            $tableUiPrefs = TableName::tryFrom($params[self::TABLE_UI_PREFS]);
             if ($tableUiPrefs !== null) {
                 $uiPreferencesFeature = new UiPreferencesFeature($db, $tableUiPrefs);
             }
         }
 
         $userPreferencesFeature = null;
-        if (isset($params['userconfigwork'], $params['userconfig']) && $params['userconfigwork']) {
-            $userConfig = TableName::tryFrom($params['userconfig']);
+        if (isset($params[self::USER_CONFIG_WORK], $params[self::USER_CONFIG]) && $params[self::USER_CONFIG_WORK]) {
+            $userConfig = TableName::tryFrom($params[self::USER_CONFIG]);
             if ($userConfig !== null) {
                 $userPreferencesFeature = new UserPreferencesFeature($db, $userConfig);
             }
@@ -235,30 +300,29 @@ final readonly class RelationParameters
     }
 
     /**
-     * @return array<string, bool|string|null>
-     * @psalm-return array{
+     * @return array{
      *   version: string,
-     *   user: (string|null),
-     *   db: (string|null),
-     *   bookmark: (string|null),
-     *   central_columns: (string|null),
-     *   column_info: (string|null),
-     *   designer_settings: (string|null),
-     *   export_templates: (string|null),
-     *   favorite: (string|null),
-     *   history: (string|null),
-     *   navigationhiding: (string|null),
-     *   pdf_pages: (string|null),
-     *   recent: (string|null),
-     *   relation: (string|null),
-     *   savedsearches: (string|null),
-     *   table_coords: (string|null),
-     *   table_info: (string|null),
-     *   table_uiprefs: (string|null),
-     *   tracking: (string|null),
-     *   userconfig: (string|null),
-     *   usergroups: (string|null),
-     *   users: (string|null),
+     *   user: (non-empty-string|null),
+     *   db: (non-empty-string|null),
+     *   bookmark: (non-empty-string|null),
+     *   central_columns: (non-empty-string|null),
+     *   column_info: (non-empty-string|null),
+     *   designer_settings: (non-empty-string|null),
+     *   export_templates: (non-empty-string|null),
+     *   favorite: (non-empty-string|null),
+     *   history: (non-empty-string|null),
+     *   navigationhiding: (non-empty-string|null),
+     *   pdf_pages: (non-empty-string|null),
+     *   recent: (non-empty-string|null),
+     *   relation: (non-empty-string|null),
+     *   savedsearches: (non-empty-string|null),
+     *   table_coords: (non-empty-string|null),
+     *   table_info: (non-empty-string|null),
+     *   table_uiprefs: (non-empty-string|null),
+     *   tracking: (non-empty-string|null),
+     *   userconfig: (non-empty-string|null),
+     *   usergroups: (non-empty-string|null),
+     *   users: (non-empty-string|null),
      *   bookmarkwork: bool,
      *   mimework: bool,
      *   centralcolumnswork: bool,
@@ -297,47 +361,47 @@ final readonly class RelationParameters
         }
 
         return [
-            'version' => Version::VERSION,
-            'user' => $this->user,
-            'db' => $this->db?->getName(),
-            'bookmark' => $this->bookmarkFeature?->bookmark->getName(),
-            'central_columns' => $this->centralColumnsFeature?->centralColumns->getName(),
-            'column_info' => $columnInfo,
-            'designer_settings' => $this->databaseDesignerSettingsFeature?->designerSettings->getName(),
-            'export_templates' => $this->exportTemplatesFeature?->exportTemplates->getName(),
-            'favorite' => $this->favoriteTablesFeature?->favorite->getName(),
-            'history' => $this->sqlHistoryFeature?->history->getName(),
-            'navigationhiding' => $this->navigationItemsHidingFeature?->navigationHiding->getName(),
-            'pdf_pages' => $this->pdfFeature?->pdfPages->getName(),
-            'recent' => $this->recentlyUsedTablesFeature?->recent->getName(),
-            'relation' => $relation,
-            'savedsearches' => $this->savedQueryByExampleSearchesFeature?->savedSearches->getName(),
-            'table_coords' => $this->pdfFeature?->tableCoords->getName(),
-            'table_info' => $this->displayFeature?->tableInfo->getName(),
-            'table_uiprefs' => $this->uiPreferencesFeature?->tableUiPrefs->getName(),
-            'tracking' => $this->trackingFeature?->tracking->getName(),
-            'userconfig' => $this->userPreferencesFeature?->userConfig->getName(),
-            'usergroups' => $this->configurableMenusFeature?->userGroups->getName(),
-            'users' => $this->configurableMenusFeature?->users->getName(),
-            'bookmarkwork' => $this->bookmarkFeature !== null,
-            'mimework' => $this->browserTransformationFeature !== null,
-            'centralcolumnswork' => $this->centralColumnsFeature !== null,
-            'commwork' => $this->columnCommentsFeature !== null,
-            'menuswork' => $this->configurableMenusFeature !== null,
-            'designersettingswork' => $this->databaseDesignerSettingsFeature !== null,
-            'displaywork' => $this->displayFeature !== null,
-            'exporttemplateswork' => $this->exportTemplatesFeature !== null,
-            'favoritework' => $this->favoriteTablesFeature !== null,
-            'navwork' => $this->navigationItemsHidingFeature !== null,
-            'pdfwork' => $this->pdfFeature !== null,
-            'recentwork' => $this->recentlyUsedTablesFeature !== null,
-            'relwork' => $this->relationFeature !== null,
-            'savedsearcheswork' => $this->savedQueryByExampleSearchesFeature !== null,
-            'historywork' => $this->sqlHistoryFeature !== null,
-            'trackingwork' => $this->trackingFeature !== null,
-            'uiprefswork' => $this->uiPreferencesFeature !== null,
-            'userconfigwork' => $this->userPreferencesFeature !== null,
-            'allworks' => $this->hasAllFeatures(),
+            self::VERSION => Version::VERSION,
+            self::USER => $this->user,
+            self::DATABASE => $this->db?->getName(),
+            self::BOOKMARK => $this->bookmarkFeature?->bookmark->getName(),
+            self::CENTRAL_COLUMNS => $this->centralColumnsFeature?->centralColumns->getName(),
+            self::COLUMN_INFO => $columnInfo,
+            self::DESIGNER_SETTINGS => $this->databaseDesignerSettingsFeature?->designerSettings->getName(),
+            self::EXPORT_TEMPLATES => $this->exportTemplatesFeature?->exportTemplates->getName(),
+            self::FAVORITE => $this->favoriteTablesFeature?->favorite->getName(),
+            self::HISTORY => $this->sqlHistoryFeature?->history->getName(),
+            self::NAVIGATION_HIDING => $this->navigationItemsHidingFeature?->navigationHiding->getName(),
+            self::PDF_PAGES => $this->pdfFeature?->pdfPages->getName(),
+            self::RECENT => $this->recentlyUsedTablesFeature?->recent->getName(),
+            self::RELATION => $relation,
+            self::SAVED_SEARCHES => $this->savedQueryByExampleSearchesFeature?->savedSearches->getName(),
+            self::TABLE_COORDS => $this->pdfFeature?->tableCoords->getName(),
+            self::TABLE_INFO => $this->displayFeature?->tableInfo->getName(),
+            self::TABLE_UI_PREFS => $this->uiPreferencesFeature?->tableUiPrefs->getName(),
+            self::TRACKING => $this->trackingFeature?->tracking->getName(),
+            self::USER_CONFIG => $this->userPreferencesFeature?->userConfig->getName(),
+            self::USER_GROUPS => $this->configurableMenusFeature?->userGroups->getName(),
+            self::USERS => $this->configurableMenusFeature?->users->getName(),
+            self::BOOKMARK_WORK => $this->bookmarkFeature !== null,
+            self::MIME_WORK => $this->browserTransformationFeature !== null,
+            self::CENTRAL_COLUMNS_WORK => $this->centralColumnsFeature !== null,
+            self::COMM_WORK => $this->columnCommentsFeature !== null,
+            self::MENUS_WORK => $this->configurableMenusFeature !== null,
+            self::DESIGNER_SETTINGS_WORK => $this->databaseDesignerSettingsFeature !== null,
+            self::DISPLAY_WORK => $this->displayFeature !== null,
+            self::EXPORT_TEMPLATES_WORK => $this->exportTemplatesFeature !== null,
+            self::FAVORITE_WORK => $this->favoriteTablesFeature !== null,
+            self::NAV_WORK => $this->navigationItemsHidingFeature !== null,
+            self::PDF_WORK => $this->pdfFeature !== null,
+            self::RECENT_WORK => $this->recentlyUsedTablesFeature !== null,
+            self::REL_WORK => $this->relationFeature !== null,
+            self::SAVED_SEARCHES_WORK => $this->savedQueryByExampleSearchesFeature !== null,
+            self::HISTORY_WORK => $this->sqlHistoryFeature !== null,
+            self::TRACKING_WORK => $this->trackingFeature !== null,
+            self::UI_PREFS_WORK => $this->uiPreferencesFeature !== null,
+            self::USER_CONFIG_WORK => $this->userPreferencesFeature !== null,
+            self::ALL_WORKS => $this->hasAllFeatures(),
         ];
     }
 

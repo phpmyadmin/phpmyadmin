@@ -404,12 +404,12 @@ final class CommonTest extends AbstractTestCase
     private static function setRelationParameters(): void
     {
         $relationParameters = RelationParameters::fromArray([
-            'db' => 'pmadb',
-            'pdfwork' => true,
-            'pdf_pages' => 'pdf_pages',
-            'table_coords' => 'table_coords',
-            'relwork' => true,
-            'relation' => 'rel db',
+            RelationParameters::DATABASE => 'pmadb',
+            RelationParameters::PDF_WORK => true,
+            RelationParameters::PDF_PAGES => 'pdf_pages',
+            RelationParameters::TABLE_COORDS => 'table_coords',
+            RelationParameters::REL_WORK => true,
+            RelationParameters::RELATION => 'rel db',
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
     }

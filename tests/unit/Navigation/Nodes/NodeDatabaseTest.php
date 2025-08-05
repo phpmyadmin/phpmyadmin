@@ -73,9 +73,9 @@ class NodeDatabaseTest extends AbstractTestCase
         $userPrivileges = new UserPrivileges();
 
         $relationParameters = RelationParameters::fromArray([
-            'db' => 'pmadb',
-            'navwork' => true,
-            'navigationhiding' => 'navigationhiding',
+            RelationParameters::DATABASE => 'pmadb',
+            RelationParameters::NAV_WORK => true,
+            RelationParameters::NAVIGATION_HIDING => 'navigationhiding',
         ]);
 
         $parent = new NodeDatabase($config, 'default');

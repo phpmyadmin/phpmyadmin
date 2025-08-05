@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Table;
 
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
@@ -159,18 +160,36 @@ class TableMover
         $getFields = ['display_field'];
         $whereFields = ['db_name' => $sourceDb, 'table_name' => $sourceTable];
         $newFields = ['db_name' => $targetDb, 'table_name' => $targetTable];
-        $this->duplicateInfo('displaywork', 'table_info', $getFields, $whereFields, $newFields);
+        $this->duplicateInfo(
+            RelationParameters::DISPLAY_WORK,
+            RelationParameters::TABLE_INFO,
+            $getFields,
+            $whereFields,
+            $newFields,
+        );
 
         /** @todo revise this code when we support cross-db relations */
         $getFields = ['master_field', 'foreign_table', 'foreign_field'];
         $whereFields = ['master_db' => $sourceDb, 'master_table' => $sourceTable];
         $newFields = ['master_db' => $targetDb, 'foreign_db' => $targetDb, 'master_table' => $targetTable];
-        $this->duplicateInfo('relwork', 'relation', $getFields, $whereFields, $newFields);
+        $this->duplicateInfo(
+            RelationParameters::REL_WORK,
+            RelationParameters::RELATION,
+            $getFields,
+            $whereFields,
+            $newFields,
+        );
 
         $getFields = ['foreign_field', 'master_table', 'master_field'];
         $whereFields = ['foreign_db' => $sourceDb, 'foreign_table' => $sourceTable];
         $newFields = ['master_db' => $targetDb, 'foreign_db' => $targetDb, 'foreign_table' => $targetTable];
-        $this->duplicateInfo('relwork', 'relation', $getFields, $whereFields, $newFields);
+        $this->duplicateInfo(
+            RelationParameters::REL_WORK,
+            RelationParameters::RELATION,
+            $getFields,
+            $whereFields,
+            $newFields,
+        );
 
         return true;
     }

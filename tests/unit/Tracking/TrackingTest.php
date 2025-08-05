@@ -58,9 +58,9 @@ class TrackingTest extends AbstractTestCase
         $config->selectedServer['tracking_default_statements'] = 'DELETE';
 
         $relationParameters = RelationParameters::fromArray([
-            'db' => 'pmadb',
-            'tracking' => 'tracking',
-            'trackingwork' => true,
+            RelationParameters::DATABASE => 'pmadb',
+            RelationParameters::TRACKING => 'tracking',
+            RelationParameters::TRACKING_WORK => true,
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 

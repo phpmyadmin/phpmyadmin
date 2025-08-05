@@ -166,10 +166,10 @@ class TransformationsTest extends AbstractTestCase
     public function testGetMime(): void
     {
         $relationParameters = RelationParameters::fromArray([
-            'db' => 'pmadb',
-            'mimework' => true,
-            'trackingwork' => true,
-            'column_info' => 'column_info',
+            RelationParameters::DATABASE => 'pmadb',
+            RelationParameters::MIME_WORK => true,
+            RelationParameters::TRACKING_WORK => true,
+            RelationParameters::COLUMN_INFO => 'column_info',
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
         self::assertSame(
@@ -216,9 +216,9 @@ class TransformationsTest extends AbstractTestCase
         self::assertFalse($actual);
 
         $relationParameters = RelationParameters::fromArray([
-            'db' => 'pmadb',
-            'mimework' => true,
-            'column_info' => 'column_info',
+            RelationParameters::DATABASE => 'pmadb',
+            RelationParameters::MIME_WORK => true,
+            RelationParameters::COLUMN_INFO => 'column_info',
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 

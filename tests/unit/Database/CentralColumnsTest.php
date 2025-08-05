@@ -117,11 +117,11 @@ class CentralColumnsTest extends AbstractTestCase
         Current::$table = 'PMA_table';
 
         $relationParameters = RelationParameters::fromArray([
-            'centralcolumnswork' => true,
-            'relwork' => true,
-            'db' => 'phpmyadmin',
-            'relation' => 'relation',
-            'central_columns' => 'pma_central_columns',
+            RelationParameters::CENTRAL_COLUMNS_WORK => true,
+            RelationParameters::REL_WORK => true,
+            RelationParameters::DATABASE => 'phpmyadmin',
+            RelationParameters::RELATION => 'relation',
+            RelationParameters::CENTRAL_COLUMNS => 'pma_central_columns',
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 

@@ -433,12 +433,12 @@ class ExportHtmlwordTest extends AbstractTestCase
             ->willReturn('1');
 
         $relationParameters = RelationParameters::fromArray([
-            'relwork' => true,
-            'commwork' => true,
-            'mimework' => true,
-            'db' => 'database',
-            'relation' => 'rel',
-            'column_info' => 'col',
+            RelationParameters::REL_WORK => true,
+            RelationParameters::COMM_WORK => true,
+            RelationParameters::MIME_WORK => true,
+            RelationParameters::DATABASE => 'database',
+            RelationParameters::RELATION => 'rel',
+            RelationParameters::COLUMN_INFO => 'col',
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
@@ -506,12 +506,12 @@ class ExportHtmlwordTest extends AbstractTestCase
         $this->object->transformations = new Transformations($dbi, $relation);
 
         $relationParameters = RelationParameters::fromArray([
-            'relwork' => true,
-            'commwork' => true,
-            'mimework' => true,
-            'db' => 'database',
-            'relation' => 'rel',
-            'column_info' => 'col',
+            RelationParameters::REL_WORK => true,
+            RelationParameters::COMM_WORK => true,
+            RelationParameters::MIME_WORK => true,
+            RelationParameters::DATABASE => 'database',
+            RelationParameters::RELATION => 'rel',
+            RelationParameters::COLUMN_INFO => 'col',
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
@@ -545,9 +545,9 @@ class ExportHtmlwordTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
 
         $relationParameters = RelationParameters::fromArray([
-            'db' => 'database',
-            'relation' => 'rel',
-            'column_info' => 'col',
+            RelationParameters::DATABASE => 'database',
+            RelationParameters::RELATION => 'rel',
+            RelationParameters::COLUMN_INFO => 'col',
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 

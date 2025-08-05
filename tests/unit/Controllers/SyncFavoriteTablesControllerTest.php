@@ -45,9 +45,9 @@ final class SyncFavoriteTablesControllerTest extends AbstractTestCase
         ')', true);
 
         $relationParameters = RelationParameters::fromArray([
-            'db' => 'pmadb',
-            'favoritework' => 'favoritework',
-            'favorite' => 'favorite',
+            RelationParameters::DATABASE => 'pmadb',
+            RelationParameters::FAVORITE_WORK => 'favoritework',
+            RelationParameters::FAVORITE => 'favorite',
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 

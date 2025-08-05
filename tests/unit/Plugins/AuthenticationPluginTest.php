@@ -60,10 +60,10 @@ final class AuthenticationPluginTest extends AbstractTestCase
         $_SESSION['two_factor_check'] = false;
 
         $relationParameters = RelationParameters::fromArray([
-            'user' => 'test_user',
-            'db' => 'db_pma',
-            'userconfigwork' => true,
-            'userconfig' => 'pma__userconfig',
+            RelationParameters::USER => 'test_user',
+            RelationParameters::DATABASE => 'db_pma',
+            RelationParameters::USER_CONFIG_WORK => true,
+            RelationParameters::USER_CONFIG => 'pma__userconfig',
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
@@ -122,10 +122,10 @@ final class AuthenticationPluginTest extends AbstractTestCase
         $_SESSION['two_factor_check'] = false;
 
         $relationParameters = RelationParameters::fromArray([
-            'user' => 'test_user',
-            'db' => 'db_pma',
-            'userconfigwork' => true,
-            'userconfig' => 'pma__userconfig',
+            RelationParameters::USER => 'test_user',
+            RelationParameters::DATABASE => 'db_pma',
+            RelationParameters::USER_CONFIG_WORK => true,
+            RelationParameters::USER_CONFIG => 'pma__userconfig',
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);

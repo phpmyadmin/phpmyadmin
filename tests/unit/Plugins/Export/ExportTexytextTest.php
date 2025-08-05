@@ -314,12 +314,12 @@ class ExportTexytextTest extends AbstractTestCase
             ->willReturn('1');
 
         $relationParameters = RelationParameters::fromArray([
-            'relwork' => true,
-            'commwork' => true,
-            'mimework' => true,
-            'db' => 'database',
-            'relation' => 'rel',
-            'column_info' => 'col',
+            RelationParameters::REL_WORK => true,
+            RelationParameters::COMM_WORK => true,
+            RelationParameters::MIME_WORK => true,
+            RelationParameters::DATABASE => 'database',
+            RelationParameters::RELATION => 'rel',
+            RelationParameters::COLUMN_INFO => 'col',
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 

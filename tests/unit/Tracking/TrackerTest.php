@@ -44,9 +44,9 @@ class TrackerTest extends AbstractTestCase
         $config->selectedServer['DisableIS'] = false;
 
         $relationParameters = RelationParameters::fromArray([
-            'db' => 'pmadb',
-            'trackingwork' => true,
-            'tracking' => 'tracking',
+            RelationParameters::DATABASE => 'pmadb',
+            RelationParameters::TRACKING_WORK => true,
+            RelationParameters::TRACKING => 'tracking',
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
     }
@@ -84,9 +84,9 @@ class TrackerTest extends AbstractTestCase
         );
 
         $relationParameters = RelationParameters::fromArray([
-            'trackingwork' => true,
-            'db' => 'pmadb',
-            'tracking' => 'tracking',
+            RelationParameters::TRACKING_WORK => true,
+            RelationParameters::DATABASE => 'pmadb',
+            RelationParameters::TRACKING => 'tracking',
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
@@ -116,9 +116,9 @@ class TrackerTest extends AbstractTestCase
         );
 
         $relationParameters = RelationParameters::fromArray([
-            'trackingwork' => true,
-            'db' => 'pmadb',
-            'tracking' => 'tracking',
+            RelationParameters::TRACKING_WORK => true,
+            RelationParameters::DATABASE => 'pmadb',
+            RelationParameters::TRACKING => 'tracking',
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
