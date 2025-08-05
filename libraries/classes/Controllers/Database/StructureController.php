@@ -612,7 +612,7 @@ class StructureController extends AbstractController
                 || $this->hasTable($replicaInfo['Wild_Ignore_Table'], $table);
 
             // Only set do = true if table is not ignored
-            if (!$ignored) {
+            if (! $ignored) {
                 $do = (is_string($searchDoDBInTruename) && strlen($searchDoDBInTruename) > 0)
                     || (is_string($searchDoDBInDB) && strlen($searchDoDBInDB) > 0)
                     || ($nbServReplicaDoDb == 0 && $nbServReplicaIgnoreDb == 0)
