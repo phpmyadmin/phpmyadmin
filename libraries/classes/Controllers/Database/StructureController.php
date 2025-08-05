@@ -605,16 +605,19 @@ class StructureController extends AbstractController
             $searchDoDBInTruename = array_search($table, $replicaInfo['Do_DB']);
             $searchDoDBInDB = array_search($this->db, $replicaInfo['Do_DB']);
 
-            $do = (is_string($searchDoDBInTruename) && strlen($searchDoDBInTruename) > 0)
-                || (is_string($searchDoDBInDB) && strlen($searchDoDBInDB) > 0)
-                || ($nbServReplicaDoDb == 0 && $nbServReplicaIgnoreDb == 0)
-                || $this->hasTable($replicaInfo['Wild_Do_Table'], $table);
-
             $searchDb = array_search($this->db, $replicaInfo['Ignore_DB']);
             $searchTable = array_search($table, $replicaInfo['Ignore_Table']);
             $ignored = (is_string($searchTable) && strlen($searchTable) > 0)
                 || (is_string($searchDb) && strlen($searchDb) > 0)
                 || $this->hasTable($replicaInfo['Wild_Ignore_Table'], $table);
+
+            // Only set do = true if table is not ignored
+            if (! $ignored) {
+                $do = (is_string($searchDoDBInTruename) && strlen($searchDoDBInTruename) > 0)
+                    || (is_string($searchDoDBInDB) && strlen($searchDoDBInDB) > 0)
+                    || ($nbServReplicaDoDb == 0 && $nbServReplicaIgnoreDb == 0)
+                    || $this->hasTable($replicaInfo['Wild_Do_Table'], $table);
+            }
         }
 
         return [
