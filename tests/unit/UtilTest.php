@@ -538,53 +538,25 @@ class UtilTest extends AbstractTestCase
         ];
     }
 
-    /**
-     * Core test for formatNumber
-     *
-     * @param float|int|string $a Value to format
-     * @param int              $b Sensitiveness
-     * @param int              $c Number of decimals to retain
-     * @param string           $d Expected value
-     */
-    private function assertFormatNumber(float|int|string $a, int $b, int $c, string $d): void
-    {
-        self::assertSame(
-            $d,
-            Util::formatNumber(
-                $a,
-                $b,
-                $c,
-                false,
-            ),
-        );
-    }
-
-    /**
-     * format number test, globals are defined
-     *
-     * @param float|int|string $a Value to format
-     * @param int              $b Sensitiveness
-     * @param int              $c Number of decimals to retain
-     * @param string           $d Expected value
-     */
+    /** @psalm-param list{0: float|int|numeric-string, 1?: int, 2?: int, 3?: bool, 4?: bool} $arguments */
     #[DataProvider('providerFormatNumber')]
-    public function testFormatNumber(float|int|string $a, int $b, int $c, string $d): void
+    public function testFormatNumber(string $expected, array $arguments): void
     {
-        $this->assertFormatNumber($a, $b, $c, $d);
+        self::assertSame($expected, Util::formatNumber(...$arguments));
 
         // Test with various precisions
-        $oldPrecision = (string) ini_get('precision');
+        $oldPrecision = ini_get('precision');
         try {
             ini_set('precision', '20');
-            $this->assertFormatNumber($a, $b, $c, $d);
+            self::assertSame($expected, Util::formatNumber(...$arguments));
             ini_set('precision', '14');
-            $this->assertFormatNumber($a, $b, $c, $d);
+            self::assertSame($expected, Util::formatNumber(...$arguments));
             ini_set('precision', '10');
-            $this->assertFormatNumber($a, $b, $c, $d);
+            self::assertSame($expected, Util::formatNumber(...$arguments));
             ini_set('precision', '5');
-            $this->assertFormatNumber($a, $b, $c, $d);
+            self::assertSame($expected, Util::formatNumber(...$arguments));
             ini_set('precision', '-1');
-            $this->assertFormatNumber($a, $b, $c, $d);
+            self::assertSame($expected, Util::formatNumber(...$arguments));
         } finally {
             ini_set('precision', $oldPrecision);
         }
@@ -593,17 +565,28 @@ class UtilTest extends AbstractTestCase
         $translator = Loader::getInstance()->getTranslator();
 
         try {
+            $translator->setTranslation('.', '/');
+            self::assertSame(
+                str_replace('.', '/', $expected),
+                Util::formatNumber(...$arguments),
+                'Decimal separator should be escaped for regex.',
+            );
+
             // German
             $translator->setTranslation(',', '.');
             $translator->setTranslation('.', ',');
-            $expected = str_replace([',', 'X'], ['.', ','], str_replace('.', 'X', $d));
-            $this->assertFormatNumber($a, $b, $c, $expected);
+            self::assertSame(
+                str_replace([',', 'X'], ['.', ','], str_replace('.', 'X', $expected)),
+                Util::formatNumber(...$arguments),
+            );
 
             // Czech
             $translator->setTranslation(',', ' ');
             $translator->setTranslation('.', ',');
-            $expected = str_replace([',', 'X'], [' ', ','], str_replace('.', 'X', $d));
-            $this->assertFormatNumber($a, $b, $c, $expected);
+            self::assertSame(
+                str_replace([',', 'X'], [' ', ','], str_replace('.', 'X', $expected)),
+                Util::formatNumber(...$arguments),
+            );
         } finally {
             // Restore
             $translator->setTranslation(',', ',');
@@ -611,32 +594,57 @@ class UtilTest extends AbstractTestCase
         }
     }
 
-    /**
-     * format number data provider
-     *
-     * @return mixed[]
-     */
+    /** @psalm-return array<array{string, list{0: float|int|numeric-string, 1?: int, 2?: int, 3?: bool, 4?: bool}}> */
     public static function providerFormatNumber(): array
     {
         return [
-            [10, 2, 2, '10  '],
-            [100, 2, 0, '100  '],
-            [100, 2, 2, '100  '],
-            ['100', 2, 2, '100  '],
-            [-1000.454, 4, 2, '-1,000.45  '],
-            ['-1000.454', 4, 2, '-1,000.45  '],
-            [0.00003, 3, 2, '30 µ'],
-            [0.003, 3, 3, '3 m'],
-            [-0.003, 6, 0, '-3,000 µ'],
-            [100.98, 0, 2, '100.98'],
-            [21010101, 0, 2, '21,010,101.00'],
-            [1100000000, 5, 0, '1,100 M'],
-            ['1100000000', 5, 0, '1,100 M'],
-            [20000, 2, 2, '20 k'],
-            [20011, 2, 2, '20.01 k'],
-            [123456789, 6, 0, '123,457 k'],
-            [-123456789, 4, 2, '-123.46 M'],
-            [0, 6, 0, '0'],
+            ['10', [10, 2, 2]],
+            ['100', [100, 2, 0]],
+            ['100', [100, 2, 2]],
+            ['100', ['100', 2, 2]],
+            ['-1,000.45', [-1000.454, 4, 2]],
+            ['-1,000.45', ['-1000.454', 4, 2]],
+            ['30 µ', [0.00003, 3, 2]],
+            ['3 m', [0.003, 3, 3]],
+            ['-3,000 µ', [-0.003, 6, 0]],
+            ['100.98', [100.98, 0, 2]],
+            ['21,010,101.00', [21010101, 0, 2]],
+            ['1,100 M', [1100000000, 5, 0]],
+            ['1,100 M', ['1100000000', 5, 0]],
+            ['20 k', [20000, 2, 2]],
+            ['20.01 k', [20011, 2, 2]],
+            ['123,457 k', [123456789, 6, 0]],
+            ['-123.46 M', [-123456789, 4, 2]],
+            ['0', [0]],
+            ['0', [0.0]],
+            ['0', ['0']],
+            ['0', ['0.0']],
+            ['<0.001', [0.000001, 0, 3]],
+            ['5 m', [0.005]],
+            ['5 µ', [0.000005]],
+            ['5 n', [0.000000005]],
+            ['5 p', [0.000000000005]],
+            ['5 f', [0.000000000000005]],
+            ['5 a', [0.000000000000000005]],
+            ['5 z', [0.000000000000000000005]],
+            ['5 y', [0.000000000000000000000005]],
+            ['5 r', [0.000000000000000000000000005]],
+            ['5 q', [0.000000000000000000000000000005]],
+            ['<1 q', [0.000000000000000000000000000000005]],
+            ['5 k', [5000]],
+            ['5 M', [5000000]],
+            ['5 G', [5000000000]],
+            ['5 T', [5000000000000]],
+            ['5 P', [5000000000000000]],
+            ['5 E', [5000000000000000000]],
+            ['5 Z', [5000000000000000000000]],
+            ['5 Y', [5000000000000000000000000]],
+            ['5 R', [5000000000000000000000000000]],
+            ['5 Q', [5000000000000000000000000000000]],
+            ['5,000 Q', [5000000000000000000000000000000000]],
+            ['100 m', [0.1, 3, 0]],
+            ['<1', [0.1, 3, 0, true]],
+            ['1.000 k', [1000, 3, 3, false, false]],
         ];
     }
 

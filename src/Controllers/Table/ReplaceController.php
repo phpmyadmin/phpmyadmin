@@ -23,6 +23,7 @@ use PhpMyAdmin\MessageType;
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\UrlParams;
@@ -41,6 +42,7 @@ use function sprintf;
 /**
  * Manipulation of table data like inserting, replacing and updating.
  */
+#[Route('/table/replace', ['GET', 'POST'])]
 final class ReplaceController implements InvocableController
 {
     public function __construct(
@@ -366,7 +368,7 @@ final class ReplaceController implements InvocableController
             Current::$sqlQuery = $returnToSqlQuery;
         }
 
-        $this->response->addScriptFiles(['vendor/jquery/additional-methods.js', 'table/change.js']);
+        $this->response->addScriptFiles(['vendor/jquery/additional-methods.min.js', 'table/change.js']);
 
         /**
          * If user asked for "and then Insert another new row" we have to remove
@@ -414,7 +416,7 @@ final class ReplaceController implements InvocableController
             }
         }
 
-        if ($request->getParsedBodyParam('do_transformations') == true) {
+        if ($request->getParsedBodyParam('do_transformations')) {
             $editedValues = [];
             parse_str($request->getParsedBodyParamAsString('transform_fields_list'), $editedValues);
 

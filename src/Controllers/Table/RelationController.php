@@ -18,6 +18,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Indexes\Index;
 use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\UrlParams;
@@ -35,6 +36,7 @@ use function usort;
  *
  * Includes phpMyAdmin relations and InnoDB relations.
  */
+#[Route('/table/relation', ['GET', 'POST'])]
 final readonly class RelationController implements InvocableController
 {
     public function __construct(

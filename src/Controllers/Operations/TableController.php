@@ -24,6 +24,7 @@ use PhpMyAdmin\Partitioning\Partition;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
@@ -41,6 +42,7 @@ use function preg_replace;
 use function str_contains;
 use function urldecode;
 
+#[Route('/table/operations', ['GET', 'POST'])]
 final readonly class TableController implements InvocableController
 {
     public function __construct(
@@ -86,9 +88,7 @@ final readonly class TableController implements InvocableController
                 return $this->response->response();
             }
 
-            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
-
-            return $this->response->response();
+            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
         }
 
         $tableName = TableName::tryFrom($request->getParam('table'));
@@ -100,9 +100,7 @@ final readonly class TableController implements InvocableController
                 return $this->response->response();
             }
 
-            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
-
-            return $this->response->response();
+            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
         }
 
         UrlParams::$params['goto'] = UrlParams::$params['back'] = Url::getFromRoute('/table/operations');

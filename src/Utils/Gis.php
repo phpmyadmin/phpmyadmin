@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Utils;
 
 use PhpMyAdmin\Dbal\DatabaseInterface;
+use Twig\Attribute\AsTwigFunction;
 
 use function array_map;
 use function bin2hex;
@@ -69,6 +70,7 @@ final class Gis
      *
      * @return string[] GIS data types
      */
+    #[AsTwigFunction('get_gis_datatypes')]
     public static function getDataTypes(bool $upperCase = false): array
     {
         $gisDataTypes = [
@@ -126,6 +128,7 @@ final class Gis
      * @return array<int|string,array<string,int|string>> names and details of the functions that can be applied on
      *                                                    geometry data types.
      */
+    #[AsTwigFunction('get_gis_functions')]
     public static function getFunctions(
         string|null $geomType = null,
         bool $binary = true,

@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use FilesystemIterator;
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Container\ContainerBuilder;
+use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins\ExportPlugin;
@@ -74,9 +76,9 @@ class Plugins
 
             /** @psalm-suppress MixedMethodCall */
             return new $class(
-                $container->get('relation'),
-                $container->get('export'),
-                $container->get('transformations'),
+                $container->get(Relation::class),
+                $container->get(Export::class),
+                $container->get(Transformations::class),
             );
         }
 
@@ -154,9 +156,9 @@ class Plugins
             if ($type === 'Export' && is_subclass_of($class, ExportPlugin::class)) {
                 $container = ContainerBuilder::getContainer();
                 $plugins[] = new $class(
-                    $container->get('relation'),
-                    $container->get('export'),
-                    $container->get('transformations'),
+                    $container->get(Relation::class),
+                    $container->get(Export::class),
+                    $container->get(Transformations::class),
                 );
             } elseif ($type === 'Import' && is_subclass_of($class, ImportPlugin::class)) {
                 $plugins[] = new $class();
@@ -285,7 +287,7 @@ class Plugins
                     $text = $propertyGroup->getText();
                 }
 
-                if ($text != null) {
+                if ($text !== null && $text !== '') {
                     $ret .= '<h5 class="card-title mt-4 mb-2">' . $plugin->getTranslatedText($text) . '</h5>';
                 }
 

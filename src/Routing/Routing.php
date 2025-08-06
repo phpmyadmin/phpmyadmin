@@ -29,7 +29,6 @@ use Psr\Container\ContainerInterface;
 
 use function __;
 use function array_pop;
-use function assert;
 use function explode;
 use function file_exists;
 use function file_put_contents;
@@ -173,7 +172,6 @@ class Routing
         $controllerName = $routeInfo[1];
 
         $controller = $container->get($controllerName);
-        assert($controller instanceof InvocableController);
 
         return $controller($request->withAttribute('routeVars', $routeInfo[2]));
     }
@@ -181,6 +179,7 @@ class Routing
     public static function callSetupController(ServerRequest $request, ResponseFactory $responseFactory): Response
     {
         $route = $request->getRoute();
+        /** @psalm-var class-string<InvocableController>|null $controllerName */
         $controllerName = match ($route) {
             '/', '/setup' => MainController::class,
             '/setup/show-config' => ShowConfigController::class,
@@ -190,8 +189,7 @@ class Routing
 
         $container = ContainerBuilder::getContainer();
         if ($controllerName === null) {
-            $template = $container->get('template');
-            assert($template instanceof Template);
+            $template = $container->get(Template::class);
             $response = $responseFactory->createResponse(StatusCodeInterface::STATUS_NOT_FOUND);
 
             return $response->write($template->render('error/generic', [
@@ -204,7 +202,6 @@ class Routing
         }
 
         $controller = $container->get($controllerName);
-        assert($controller instanceof InvocableController);
 
         return $controller($request);
     }
@@ -223,7 +220,7 @@ class Routing
         $pathInfo = Core::getEnv('PATH_INFO');
         if ($pathInfo !== '' && $pmaPhpSelf !== '') {
             $questionPos = mb_strpos($pmaPhpSelf, '?');
-            if ($questionPos != false) {
+            if ($questionPos) {
                 $pmaPhpSelf = mb_substr($pmaPhpSelf, 0, $questionPos);
             }
 

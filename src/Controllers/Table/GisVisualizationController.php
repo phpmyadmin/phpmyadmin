@@ -20,6 +20,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\SqlParser\Components\Limit;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
@@ -38,6 +39,7 @@ use function ob_start;
 /**
  * Handles creation of the GIS visualizations.
  */
+#[Route('/table/gis-visualization', ['GET', 'POST'])]
 final readonly class GisVisualizationController implements InvocableController
 {
     public function __construct(
@@ -65,9 +67,7 @@ final readonly class GisVisualizationController implements InvocableController
                 return $this->response->response();
             }
 
-            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
-
-            return $this->response->response();
+            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
         }
 
         // SQL query for retrieving GIS data

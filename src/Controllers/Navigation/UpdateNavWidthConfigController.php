@@ -10,10 +10,12 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 
 use function __;
 use function is_numeric;
 
+#[Route('/navigation/update-width', ['POST'])]
 final class UpdateNavWidthConfigController implements InvocableController
 {
     public function __construct(private readonly ResponseRenderer $response, private readonly Config $config)

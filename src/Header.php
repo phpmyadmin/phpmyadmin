@@ -17,7 +17,6 @@ use PhpMyAdmin\Navigation\Navigation;
 use PhpMyAdmin\Theme\ThemeManager;
 
 use function array_merge;
-use function defined;
 use function htmlspecialchars;
 use function ini_get;
 use function json_encode;
@@ -88,7 +87,7 @@ class Header
         $this->scripts->addFile('vendor/bootstrap/bootstrap.js');
         $this->scripts->addFile('vendor/js.cookie.min.js');
         $this->scripts->addFile('vendor/jquery/jquery.validate.min.js');
-        $this->scripts->addFile('vendor/jquery/jquery-ui-timepicker-addon.js');
+        $this->scripts->addFile('vendor/jquery/jquery-ui-timepicker-addon.min.js');
         $this->scripts->addFile('index.php', ['route' => '/messages', 'l' => Current::$lang]);
         $this->scripts->addFile('shared.js');
         $this->scripts->addFile('menu_resizer.js');
@@ -209,9 +208,6 @@ class Header
     /** @return mixed[] */
     public function getDisplay(): array
     {
-        $baseDir = defined('PMA_PATH_TO_BASEDIR') ? PMA_PATH_TO_BASEDIR : '';
-
-        /** @var ThemeManager $themeManager */
         $themeManager = ContainerBuilder::getContainer()->get(ThemeManager::class);
         $theme = $themeManager->theme;
 
@@ -278,7 +274,6 @@ class Header
         return [
             'lang' => Current::$lang,
             'allow_third_party_framing' => $this->config->settings['AllowThirdPartyFraming'],
-            'base_dir' => $baseDir,
             'theme_path' => $theme->getPath(),
             'server' => Current::$server,
             'title' => $this->getPageTitle(),
@@ -376,7 +371,7 @@ class Header
          *
          * @see https://developer.mozilla.org/docs/Web/HTTP/Headers/Permissions-Policy
          */
-        $headers['Permissions-Policy'] = 'fullscreen=(self), oversized-images=(self), interest-cohort=()';
+        $headers['Permissions-Policy'] = 'fullscreen=(self), interest-cohort=()';
 
         $headers = array_merge($headers, Core::getNoCacheHeaders());
 

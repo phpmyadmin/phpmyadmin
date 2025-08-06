@@ -13,12 +13,14 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Utils\ForeignKey;
 
 use function __;
 use function is_array;
 
+#[Route('/table/delete/confirm', ['POST'])]
 final class DeleteConfirmController implements InvocableController
 {
     public function __construct(
@@ -57,9 +59,7 @@ final class DeleteConfirmController implements InvocableController
                 return $this->response->response();
             }
 
-            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
-
-            return $this->response->response();
+            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
         }
 
         $tableName = TableName::tryFrom($request->getParam('table'));
@@ -71,9 +71,7 @@ final class DeleteConfirmController implements InvocableController
                 return $this->response->response();
             }
 
-            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
-
-            return $this->response->response();
+            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
         }
 
         $this->response->render('table/delete/confirm', [

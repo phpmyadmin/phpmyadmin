@@ -21,6 +21,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Plugins\TransformationsInterface;
+use Twig\Attribute\AsTwigFunction;
 
 use function array_shift;
 use function class_exists;
@@ -86,10 +87,10 @@ class Transformations
 
         while (($option = array_shift($transformOptions)) !== null) {
             $trimmed = trim($option);
-            if (strlen($trimmed) > 1 && $trimmed[0] == "'" && $trimmed[strlen($trimmed) - 1] == "'") {
+            if (strlen($trimmed) > 1 && $trimmed[0] === "'" && $trimmed[strlen($trimmed) - 1] === "'") {
                 // '...'
                 $option = mb_substr($trimmed, 1, -1);
-            } elseif (isset($trimmed[0]) && $trimmed[0] == "'") {
+            } elseif (isset($trimmed[0]) && $trimmed[0] === "'") {
                 // '...,
                 $trimmed = ltrim($option);
                 $rtrimmed = '';
@@ -98,7 +99,7 @@ class Transformations
                     // ...,
                     $trimmed .= ',' . $option;
                     $rtrimmed = rtrim($trimmed);
-                    if ($rtrimmed[strlen($rtrimmed) - 1] == "'") {
+                    if ($rtrimmed[strlen($rtrimmed) - 1] === "'") {
                         // ,...'
                         break;
                     }
@@ -214,6 +215,7 @@ class Transformations
      *
      * @return string the description of the transformation
      */
+    #[AsTwigFunction('get_description')]
     public function getDescription(string $file): string
     {
         $className = $this->getClassName($file);
@@ -231,6 +233,7 @@ class Transformations
      *
      * @return string the name of the transformation
      */
+    #[AsTwigFunction('get_name')]
     public function getName(string $file): string
     {
         $className = $this->getClassName($file);
@@ -403,7 +406,7 @@ class Transformations
         if ($testRs->numRows() > 0) {
             $row = $testRs->fetchAssoc();
 
-            if (! $forcedelete && ($hasValue || $row['comment'] != '')) {
+            if (! $forcedelete && ($hasValue || $row['comment'] !== null && $row['comment'] !== '')) {
                 $updQuery = 'UPDATE '
                     . Util::backquote($browserTransformationFeature->database) . '.'
                     . Util::backquote($browserTransformationFeature->columnInfo)

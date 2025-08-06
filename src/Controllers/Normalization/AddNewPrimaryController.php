@@ -12,9 +12,11 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPrivilegesFactory;
 
+#[Route('/normalization/add-new-primary', ['POST'])]
 final class AddNewPrimaryController implements InvocableController
 {
     public function __construct(

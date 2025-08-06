@@ -12,6 +12,7 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Util;
 
 use function array_key_exists;
@@ -19,6 +20,7 @@ use function array_key_exists;
 /**
  * Handles viewing binary logs
  */
+#[Route('/server/binlog', ['GET', 'POST'])]
 final class BinlogController implements InvocableController
 {
     /**

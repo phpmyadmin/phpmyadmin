@@ -11,6 +11,7 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Replication\ReplicationGui;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
@@ -21,6 +22,7 @@ use function implode;
 /**
  * Object the server status page: processes, connections and traffic.
  */
+#[Route('/server/status', ['GET'])]
 final class StatusController extends AbstractController implements InvocableController
 {
     public function __construct(

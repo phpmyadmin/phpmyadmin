@@ -14,6 +14,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 
 use function __;
 use function mb_strlen;
@@ -21,6 +22,7 @@ use function mb_strlen;
 /**
  * Schema export handler
  */
+#[Route('/schema-export', ['GET', 'POST'])]
 final class SchemaExportController implements InvocableController
 {
     public function __construct(

@@ -19,6 +19,7 @@ use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
@@ -37,6 +38,7 @@ use function trim;
 /**
  * Displays form for editing and inserting new table rows.
  */
+#[Route('/table/change', ['GET', 'POST'])]
 class ChangeController implements InvocableController
 {
     /** @var array<mixed> */
@@ -70,9 +72,7 @@ class ChangeController implements InvocableController
                 return $this->response->response();
             }
 
-            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
-
-            return $this->response->response();
+            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
         }
 
         $tableName = TableName::tryFrom($request->getParam('table'));
@@ -84,9 +84,7 @@ class ChangeController implements InvocableController
                 return $this->response->response();
             }
 
-            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
-
-            return $this->response->response();
+            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
         }
 
         $this->setInsertRowsParam($request->getParsedBodyParam('insert_rows'));
@@ -152,7 +150,7 @@ class ChangeController implements InvocableController
             'makegrid.js',
             'sql.js',
             'table/change.js',
-            'vendor/jquery/additional-methods.js',
+            'vendor/jquery/additional-methods.min.js',
             'gis_data_editor.js',
         ]);
 

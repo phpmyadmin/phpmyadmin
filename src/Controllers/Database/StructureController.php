@@ -26,6 +26,7 @@ use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Replication\Replication;
 use PhpMyAdmin\Replication\ReplicationInfo;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Template;
@@ -56,6 +57,7 @@ use function urlencode;
 /**
  * Handles database structure logic
  */
+#[Route('/database/structure', ['GET', 'POST'])]
 final class StructureController implements InvocableController
 {
     /** @var int Number of tables */
@@ -139,9 +141,7 @@ final class StructureController implements InvocableController
                 return $this->response->response();
             }
 
-            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
-
-            return $this->response->response();
+            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
         }
 
         $this->response->addScriptFiles(['database/structure.js', 'table/change.js']);
@@ -153,7 +153,7 @@ final class StructureController implements InvocableController
         // If there are no tables, the user is redirected to the last page
         // having any.
         if ($this->totalNumTables > 0 && $this->position > $this->totalNumTables) {
-            $this->response->redirectToRoute('/database/structure', [
+            return $this->response->redirectToRoute('/database/structure', [
                 'db' => Current::$database,
                 'pos' => max(0, $this->totalNumTables - $this->config->settings['MaxTableList']),
                 'reload' => 1,
@@ -596,7 +596,7 @@ final class StructureController implements InvocableController
 
             $do = (is_string($searchDoDBInTruename) && $searchDoDBInTruename !== '')
                 || (is_string($searchDoDBInDB) && $searchDoDBInDB !== '')
-                || ($nbServReplicaDoDb == 0 && $nbServReplicaIgnoreDb == 0)
+                || ($nbServReplicaDoDb === 0 && $nbServReplicaIgnoreDb === 0)
                 || $this->hasTable($replicaInfo['Wild_Do_Table'], $table);
 
             $searchDb = array_search(Current::$database, $replicaInfo['Ignore_DB']);

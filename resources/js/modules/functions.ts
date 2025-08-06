@@ -157,7 +157,7 @@ export function addDatepicker ($thisElement, type = undefined, options = undefin
 
 /**
  * Add a date/time picker to each element that needs it
- * (only when jquery-ui-timepicker-addon.js is loaded)
+ * (only when jquery-ui-timepicker-addon.min.js is loaded)
  */
 export function addDateTimePicker () {
     if ($.timepicker === undefined) {
@@ -1392,7 +1392,7 @@ export function previewSql ($form): void {
 export function confirmPreviewSql (sqlData, url, callback): void {
     $('#previewSqlConfirmModal').modal('show');
     $('#previewSqlConfirmModalLabel').first().html(window.Messages.strPreviewSQL);
-    $('#previewSqlConfirmCode').first().text(sqlData);
+    $('#previewSqlConfirmCode > code.sql').first().text(sqlData);
     $('#previewSqlConfirmModal').on('shown.bs.modal', function () {
         highlightSql($('#previewSqlConfirmModal'));
     });

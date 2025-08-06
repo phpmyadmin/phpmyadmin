@@ -11,6 +11,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Import\SimulateDml;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\DeleteStatement;
@@ -24,6 +25,7 @@ use function array_filter;
 use function array_values;
 use function count;
 
+#[Route('/import/simulate-dml', ['POST'])]
 final class SimulateDmlController implements InvocableController
 {
     private string $error = '';

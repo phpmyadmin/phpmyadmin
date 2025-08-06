@@ -9,9 +9,11 @@ use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 
 use function __;
 
+#[Route('/export/tables', ['POST'])]
 final class TablesController implements InvocableController
 {
     public function __construct(

@@ -13,6 +13,7 @@ use PhpMyAdmin\Gis\GisVisualizationSettings;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Template;
 
 use function __;
@@ -27,6 +28,7 @@ use function trim;
 /**
  * Editor for Geometry data types.
  */
+#[Route('/gis-data-editor', ['GET', 'POST'])]
 final class GisDataEditorController implements InvocableController
 {
     public function __construct(private readonly ResponseRenderer $response, private readonly Template $template)

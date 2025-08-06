@@ -14,11 +14,13 @@ use PhpMyAdmin\Identifiers\InvalidIdentifier;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use Webmozart\Assert\Assert;
 use Webmozart\Assert\InvalidArgumentException;
 
 use function __;
 
+#[Route('/table/structure/drop-confirm', ['POST'])]
 final class DropColumnConfirmationController implements InvocableController
 {
     public function __construct(
@@ -52,9 +54,7 @@ final class DropColumnConfirmationController implements InvocableController
                 return $this->response->response();
             }
 
-            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
-
-            return $this->response->response();
+            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
         }
 
         if (! $this->dbTableExists->hasTable($db, $table)) {
@@ -65,9 +65,7 @@ final class DropColumnConfirmationController implements InvocableController
                 return $this->response->response();
             }
 
-            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
-
-            return $this->response->response();
+            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
         }
 
         $this->response->render('table/structure/drop_confirm', [

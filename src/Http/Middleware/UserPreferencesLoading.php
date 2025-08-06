@@ -20,7 +20,6 @@ final class UserPreferencesLoading implements MiddlewareInterface
 
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
-        /** @var ThemeManager $themeManager */
         $themeManager = ContainerBuilder::getContainer()->get(ThemeManager::class);
         $this->config->loadUserPreferences($themeManager);
 

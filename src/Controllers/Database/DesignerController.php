@@ -14,6 +14,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
@@ -23,6 +24,7 @@ use function in_array;
 use function json_encode;
 use function sprintf;
 
+#[Route('/database/designer', ['GET', 'POST'])]
 final class DesignerController implements InvocableController
 {
     public function __construct(
@@ -171,9 +173,7 @@ final class DesignerController implements InvocableController
                 return $this->response->response();
             }
 
-            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
-
-            return $this->response->response();
+            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
         }
 
         $scriptDisplayField = $this->designerCommon->getTablesInfo();
@@ -189,7 +189,7 @@ final class DesignerController implements InvocableController
         }
 
         $selectedPage = null;
-        if ($displayPage != -1) {
+        if ($displayPage !== -1) {
             $selectedPage = $this->designerCommon->getPageName($displayPage);
         }
 

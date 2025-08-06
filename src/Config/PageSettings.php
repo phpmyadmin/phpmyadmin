@@ -55,7 +55,7 @@ class PageSettings
             return;
         }
 
-        if (isset($_REQUEST['printview']) && $_REQUEST['printview'] == '1') {
+        if (isset($_REQUEST['printview']) && $_REQUEST['printview']) {
             return;
         }
 
@@ -72,7 +72,7 @@ class PageSettings
 
         // Process form
         $error = null;
-        if (isset($_POST['submit_save']) && $_POST['submit_save'] == $formGroupName) {
+        if (isset($_POST['submit_save']) && $_POST['submit_save'] === $formGroupName) {
             $error = $this->processPageSettings($formDisplay, $configFile);
         }
 

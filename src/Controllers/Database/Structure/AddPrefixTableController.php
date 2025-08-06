@@ -11,8 +11,10 @@ use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Util;
 
+#[Route('/database/structure/add-prefix-table', ['POST'])]
 final class AddPrefixTableController implements InvocableController
 {
     public function __construct(

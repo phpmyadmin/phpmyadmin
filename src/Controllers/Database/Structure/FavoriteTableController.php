@@ -17,6 +17,7 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Template;
 
 use function __;
@@ -27,6 +28,7 @@ use function json_decode;
 use function json_encode;
 use function md5;
 
+#[Route('/database/structure/favorite-table', ['POST'])]
 final readonly class FavoriteTableController implements InvocableController
 {
     public function __construct(
@@ -80,7 +82,7 @@ final readonly class FavoriteTableController implements InvocableController
         } elseif (isset($_REQUEST['add_favorite'])) {
             if (! $alreadyFavorite) {
                 $numTables = count($favoriteInstance->getTables());
-                if ($numTables == $this->config->settings['NumFavoriteTables']) {
+                if ($numTables === $this->config->settings['NumFavoriteTables']) {
                     $changes = false;
                 } else {
                     // Otherwise add to favorite list.

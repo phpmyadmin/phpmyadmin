@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Http\Handler;
 
+use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
@@ -13,14 +14,17 @@ use function array_shift;
 
 final class QueueRequestHandler implements RequestHandlerInterface
 {
-    /** @psalm-var list<MiddlewareInterface> */
+    /** @psalm-var list<class-string<MiddlewareInterface>> */
     private array $middleware = [];
 
-    public function __construct(private readonly RequestHandlerInterface $fallbackHandler)
-    {
+    public function __construct(
+        private readonly ContainerInterface $container,
+        private readonly RequestHandlerInterface $fallbackHandler,
+    ) {
     }
 
-    public function add(MiddlewareInterface $middleware): void
+    /** @param class-string<MiddlewareInterface> $middleware */
+    public function add(string $middleware): void
     {
         $this->middleware[] = $middleware;
     }
@@ -31,7 +35,7 @@ final class QueueRequestHandler implements RequestHandlerInterface
             return $this->fallbackHandler->handle($request);
         }
 
-        $middleware = array_shift($this->middleware);
+        $middleware = $this->container->get(array_shift($this->middleware));
 
         return $middleware->process($request, $this);
     }

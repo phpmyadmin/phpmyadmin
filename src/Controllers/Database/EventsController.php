@@ -14,6 +14,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
@@ -23,6 +24,7 @@ use function mb_strtoupper;
 use function sprintf;
 use function trim;
 
+#[Route('/database/events', ['GET', 'POST'])]
 final class EventsController implements InvocableController
 {
     public function __construct(
@@ -45,9 +47,10 @@ final class EventsController implements InvocableController
 
             $databaseName = DatabaseName::tryFrom($request->getParam('db'));
             if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
-                $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
-
-                return $this->response->response();
+                return $this->response->redirectToRoute(
+                    '/',
+                    ['reload' => true, 'message' => __('No databases selected.')],
+                );
             }
         } elseif (Current::$database !== '') {
             $this->dbi->selectDb(Current::$database);

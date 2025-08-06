@@ -237,7 +237,7 @@ parameters:
 		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
-			count: 2
+			count: 1
 			path: src/Advisory/Advisor.php
 
 		-
@@ -328,7 +328,7 @@ parameters:
 			path: src/BrowseForeigners.php
 
 		-
-			message: '#^Parameter \#1 \$state of static method PhpMyAdmin\\Charsets\\Charset\:\:fromServer\(\) expects array\{Charset\?\: string, Description\?\: string, Default collation\?\: string, Maxlen\?\: string\}, array\<string\|null\> given\.$#'
+			message: '#^Parameter \#1 \$state of static method PhpMyAdmin\\Charsets\\Charset\:\:fromServer\(\) expects array\{Charset\?\: string, Description\?\: string, ''Default collation''\?\: string, Maxlen\?\: string\}, array\<string\|null\> given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Charsets.php
@@ -496,18 +496,6 @@ parameters:
 			path: src/Config.php
 
 		-
-			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
-			identifier: notEqual.notAllowed
-			count: 2
-			path: src/Config.php
-
-		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 1
-			path: src/Config.php
-
-		-
 			message: '#^Method PhpMyAdmin\\Config\:\:getChangeLogFilePath\(\) should return string but returns mixed\.$#'
 			identifier: return.type
 			count: 1
@@ -640,12 +628,6 @@ parameters:
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
 			count: 5
-			path: src/Config/ConfigFile.php
-
-		-
-			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
-			identifier: notEqual.notAllowed
-			count: 1
 			path: src/Config/ConfigFile.php
 
 		-
@@ -1078,9 +1060,9 @@ parameters:
 			path: src/Config/PageSettings.php
 
 		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 2
+			message: '#^Only booleans are allowed in &&, mixed given on the right side\.$#'
+			identifier: booleanAnd.rightNotBoolean
+			count: 1
 			path: src/Config/PageSettings.php
 
 		-
@@ -1093,12 +1075,6 @@ parameters:
 			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
 			identifier: notEqual.notAllowed
 			count: 4
-			path: src/Config/ServerConfigChecks.php
-
-		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 1
 			path: src/Config/ServerConfigChecks.php
 
 		-
@@ -1477,18 +1453,6 @@ parameters:
 			path: src/ConfigStorage/Relation.php
 
 		-
-			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
-			identifier: notEqual.notAllowed
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 21
-			path: src/ConfigStorage/Relation.php
-
-		-
 			message: '#^Method PhpMyAdmin\\ConfigStorage\\Relation\:\:getChildReferences\(\) should return array\<list\<array\<mixed\>\>\> but returns array\<mixed\>\.$#'
 			identifier: return.type
 			count: 1
@@ -1699,6 +1663,12 @@ parameters:
 			path: src/ConfigStorage/Relation.php
 
 		-
+			message: '#^Strict comparison using \!\=\= between array\<string\|null\> and '''' will always evaluate to true\.$#'
+			identifier: notIdentical.alwaysTrue
+			count: 1
+			path: src/ConfigStorage/Relation.php
+
+		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
 				Use dependency injection instead\.$#
@@ -1809,12 +1779,6 @@ parameters:
 		-
 			message: '#^Cannot cast mixed to int\.$#'
 			identifier: cast.int
-			count: 1
-			path: src/Controllers/Database/DesignerController.php
-
-		-
-			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
-			identifier: notEqual.notAllowed
 			count: 1
 			path: src/Controllers/Database/DesignerController.php
 
@@ -2104,12 +2068,6 @@ parameters:
 			path: src/Controllers/Database/Structure/EmptyTableController.php
 
 		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 1
-			path: src/Controllers/Database/Structure/FavoriteTableController.php
-
-		-
 			message: '#^Cannot cast mixed to string\.$#'
 			identifier: cast.string
 			count: 1
@@ -2178,12 +2136,6 @@ parameters:
 		-
 			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
 			identifier: notEqual.notAllowed
-			count: 2
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
 			count: 2
 			path: src/Controllers/Database/StructureController.php
 
@@ -2398,15 +2350,9 @@ parameters:
 			path: src/Controllers/HomeController.php
 
 		-
-			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
-			identifier: notEqual.notAllowed
-			count: 1
-			path: src/Controllers/HomeController.php
-
-		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
-			count: 6
+			count: 1
 			path: src/Controllers/HomeController.php
 
 		-
@@ -2470,12 +2416,6 @@ parameters:
 			path: src/Controllers/Import/ImportController.php
 
 		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 1
-			path: src/Controllers/Import/ImportController.php
-
-		-
 			message: '#^Negated boolean expression is always true\.$#'
 			identifier: booleanNot.alwaysTrue
 			count: 1
@@ -2484,6 +2424,12 @@ parameters:
 		-
 			message: '#^Parameter \#4 \$backUrl of static method PhpMyAdmin\\Html\\Generator\:\:mysqlDie\(\) expects string, mixed given\.$#'
 			identifier: argument.type
+			count: 1
+			path: src/Controllers/Import/ImportController.php
+
+		-
+			message: '#^Result of && is always false\.$#'
+			identifier: booleanAnd.alwaysFalse
 			count: 1
 			path: src/Controllers/Import/ImportController.php
 
@@ -2514,6 +2460,12 @@ parameters:
 		-
 			message: '#^Strict comparison using \=\=\= between false and false will always evaluate to true\.$#'
 			identifier: identical.alwaysTrue
+			count: 1
+			path: src/Controllers/Import/ImportController.php
+
+		-
+			message: '#^Strict comparison using \=\=\= between int and \*NEVER\* will always evaluate to false\.$#'
+			identifier: identical.alwaysFalse
 			count: 1
 			path: src/Controllers/Import/ImportController.php
 
@@ -2610,12 +2562,6 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 1
-			path: src/Controllers/Operations/DatabaseController.php
-
-		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
 			count: 1
 			path: src/Controllers/Operations/DatabaseController.php
 
@@ -2938,7 +2884,13 @@ parameters:
 			path: src/Controllers/Server/Status/StatusController.php
 
 		-
-			message: '#^Parameter \#1 \$value of static method PhpMyAdmin\\Util\:\:formatNumber\(\) expects float\|int\|string, mixed given\.$#'
+			message: '#^Parameter \#1 \$value of static method PhpMyAdmin\\Util\:\:formatNumber\(\) expects float\|int\|numeric\-string, float\|int\|string given\.$#'
+			identifier: argument.type
+			count: 4
+			path: src/Controllers/Server/Status/StatusController.php
+
+		-
+			message: '#^Parameter \#1 \$value of static method PhpMyAdmin\\Util\:\:formatNumber\(\) expects float\|int\|numeric\-string, mixed given\.$#'
 			identifier: argument.type
 			count: 5
 			path: src/Controllers/Server/Status/StatusController.php
@@ -3358,12 +3310,6 @@ parameters:
 			path: src/Controllers/Table/FindReplaceController.php
 
 		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 2
-			path: src/Controllers/Table/FindReplaceController.php
-
-		-
 			message: '#^Parameter \#1 \$identifier of static method PhpMyAdmin\\Util\:\:backquote\(\) expects string\|Stringable\|null, mixed given\.$#'
 			identifier: argument.type
 			count: 16
@@ -3598,12 +3544,6 @@ parameters:
 			path: src/Controllers/Table/ReplaceController.php
 
 		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 1
-			path: src/Controllers/Table/ReplaceController.php
-
-		-
 			message: '#^Method PhpMyAdmin\\Controllers\\Table\\ReplaceController\:\:getParamsForUpdateOrInsert\(\) return type has no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
 			count: 1
@@ -3612,6 +3552,12 @@ parameters:
 		-
 			message: '#^Only booleans are allowed in a ternary operator condition, mixed given\.$#'
 			identifier: ternary.condNotBoolean
+			count: 1
+			path: src/Controllers/Table/ReplaceController.php
+
+		-
+			message: '#^Only booleans are allowed in an if condition, mixed given\.$#'
+			identifier: if.condNotBoolean
 			count: 1
 			path: src/Controllers/Table/ReplaceController.php
 
@@ -3721,12 +3667,6 @@ parameters:
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
 			count: 1
-			path: src/Controllers/Table/SearchController.php
-
-		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 2
 			path: src/Controllers/Table/SearchController.php
 
 		-
@@ -4224,7 +4164,13 @@ parameters:
 		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
-			count: 5
+			count: 2
+			path: src/Controllers/Table/ZoomSearchController.php
+
+		-
+			message: '#^Only booleans are allowed in &&, mixed given on the right side\.$#'
+			identifier: booleanAnd.rightNotBoolean
+			count: 1
 			path: src/Controllers/Table/ZoomSearchController.php
 
 		-
@@ -4334,12 +4280,6 @@ parameters:
 			identifier: argument.type
 			count: 2
 			path: src/Controllers/Triggers/IndexController.php
-
-		-
-			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
-			identifier: notEqual.notAllowed
-			count: 1
-			path: src/Controllers/VersionCheckController.php
 
 		-
 			message: '#^Binary operation "\." between "\\r\\n \(" and mixed results in an error\.$#'
@@ -4777,12 +4717,6 @@ parameters:
 			path: src/Database/CentralColumns.php
 
 		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 2
-			path: src/Database/CentralColumns.php
-
-		-
 			message: '#^Method PhpMyAdmin\\Database\\CentralColumns\:\:findExistingColNames\(\) should return array\<string\> but returns list\<string\|null\>\.$#'
 			identifier: return.type
 			count: 1
@@ -4953,12 +4887,6 @@ parameters:
 		-
 			message: '#^For loop initial assignment overwrites variable \$i\.$#'
 			identifier: for.variableOverwrite
-			count: 1
-			path: src/Database/Designer/Common.php
-
-		-
-			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
-			identifier: notEqual.notAllowed
 			count: 1
 			path: src/Database/Designer/Common.php
 
@@ -5353,12 +5281,6 @@ parameters:
 			path: src/Database/Search.php
 
 		-
-			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
-			identifier: notEqual.notAllowed
-			count: 1
-			path: src/Database/Search.php
-
-		-
 			message: '#^Property PhpMyAdmin\\Database\\Search\:\:\$criteriaTables \(array\<string\>\) does not accept array\<mixed\>\.$#'
 			identifier: assign.propertyType
 			count: 1
@@ -5433,12 +5355,6 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 1
-			path: src/Dbal/DatabaseInterface.php
-
-		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
 			count: 1
 			path: src/Dbal/DatabaseInterface.php
 
@@ -5848,18 +5764,6 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
-			identifier: notEqual.notAllowed
-			count: 6
-			path: src/Display/Results.php
-
-		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 3
-			path: src/Display/Results.php
-
-		-
 			message: '#^Method PhpMyAdmin\\Display\\Results\:\:getSortByKeyDropDown\(\) return type has no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
 			count: 2
@@ -5898,7 +5802,7 @@ parameters:
 		-
 			message: '#^Only booleans are allowed in a negated boolean, mixed given\.$#'
 			identifier: booleanNot.exprNotBoolean
-			count: 4
+			count: 5
 			path: src/Display/Results.php
 
 		-
@@ -6109,12 +6013,6 @@ parameters:
 			path: src/Encoding.php
 
 		-
-			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
-			identifier: notEqual.notAllowed
-			count: 2
-			path: src/Encoding.php
-
-		-
 			message: '#^Method PhpMyAdmin\\Encoding\:\:convertString\(\) should return string but returns string\|false\.$#'
 			identifier: return.type
 			count: 1
@@ -6133,42 +6031,12 @@ parameters:
 			path: src/Encoding.php
 
 		-
-			message: '#^Binary operation "\*" between mixed and 100 results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 2
-			path: src/Engines/Innodb.php
-
-		-
-			message: '#^Binary operation "\*" between mixed and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Engines/Innodb.php
-
-		-
-			message: '#^Binary operation "/" between \(float\|int\) and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 2
-			path: src/Engines/Innodb.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
 			count: 5
-			path: src/Engines/Innodb.php
-
-		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 2
-			path: src/Engines/Innodb.php
-
-		-
-			message: '#^Parameter \#1 \$value of static method PhpMyAdmin\\Util\:\:formatNumber\(\) expects float\|int\|string, mixed given\.$#'
-			identifier: argument.type
-			count: 11
 			path: src/Engines/Innodb.php
 
 		-
@@ -6355,12 +6223,6 @@ parameters:
 			path: src/Error/ErrorReport.php
 
 		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 1
-			path: src/Error/ErrorReport.php
-
-		-
 			message: '#^Only booleans are allowed in a negated boolean, int given\.$#'
 			identifier: booleanNot.exprNotBoolean
 			count: 1
@@ -6457,12 +6319,6 @@ parameters:
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
 			count: 4
-			path: src/Export/Export.php
-
-		-
-			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
-			identifier: notEqual.notAllowed
-			count: 1
 			path: src/Export/Export.php
 
 		-
@@ -6676,12 +6532,6 @@ parameters:
 			path: src/Favorites/RecentFavoriteTables.php
 
 		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 1
-			path: src/FieldMetadata.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -6736,12 +6586,6 @@ parameters:
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
 			count: 2
-			path: src/File.php
-
-		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 1
 			path: src/File.php
 
 		-
@@ -7167,17 +7011,11 @@ parameters:
 		-
 			message: '#^Cannot access offset int\<0, max\> on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 6
+			count: 8
 			path: src/Gis/GisMultiPolygon.php
 
 		-
 			message: '#^Cannot access offset int\<0, max\> on non\-empty\-array\<''data_length''\|int\<0, max\>, array\{data_length\: int\<0, max\>, 0\?\: array\{x\: float, y\: float\}\}\|int\<1, max\>\>\|int\<1, max\>\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Gis/GisMultiPolygon.php
-
-		-
-			message: '#^Cannot access offset int\<0, max\> on non\-empty\-array\<''data_length''\|int\<0, max\>, array\{x\: float, y\: float\}\|int\<0, max\>\>\|int\<1, max\>\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
 			path: src/Gis/GisMultiPolygon.php
@@ -7413,13 +7251,7 @@ parameters:
 		-
 			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
 			identifier: notEqual.notAllowed
-			count: 3
-			path: src/Git.php
-
-		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 1
+			count: 2
 			path: src/Git.php
 
 		-
@@ -7603,12 +7435,6 @@ parameters:
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
 			count: 7
-			path: src/Html/Generator.php
-
-		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 1
 			path: src/Html/Generator.php
 
 		-
@@ -7923,18 +7749,6 @@ parameters:
 		-
 			message: '#^Foreach overwrites \$sqlQuery with its value variable\.$#'
 			identifier: foreach.valueOverwrite
-			count: 1
-			path: src/Import/Import.php
-
-		-
-			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
-			identifier: notEqual.notAllowed
-			count: 1
-			path: src/Import/Import.php
-
-		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
 			count: 1
 			path: src/Import/Import.php
 
@@ -8386,12 +8200,6 @@ parameters:
 			path: src/Menu.php
 
 		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 3
-			path: src/Menu.php
-
-		-
 			message: '#^Method PhpMyAdmin\\Menu\:\:getAllowedTabs\(\) should return array\<mixed\> but returns mixed\.$#'
 			identifier: return.type
 			count: 1
@@ -8481,18 +8289,12 @@ parameters:
 		-
 			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
 			identifier: notEqual.notAllowed
-			count: 2
+			count: 1
 			path: src/Navigation/NavigationTree.php
 
 		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
-			count: 1
-			path: src/Navigation/NavigationTree.php
-
-		-
-			message: '#^Method PhpMyAdmin\\Navigation\\NavigationTree\:\:parsePath\(\) should return non\-empty\-list\<string\> but returns non\-empty\-list\<string\|false\>\.$#'
-			identifier: return.type
 			count: 1
 			path: src/Navigation/NavigationTree.php
 
@@ -8629,12 +8431,6 @@ parameters:
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
 			count: 4
-			path: src/Navigation/Nodes/Node.php
-
-		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 2
 			path: src/Navigation/Nodes/Node.php
 
 		-
@@ -8844,7 +8640,7 @@ parameters:
 		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
-			count: 2
+			count: 1
 			path: src/Normalization.php
 
 		-
@@ -9049,18 +8845,6 @@ parameters:
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
 			count: 8
-			path: src/Operations.php
-
-		-
-			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
-			identifier: notEqual.notAllowed
-			count: 1
-			path: src/Operations.php
-
-		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 3
 			path: src/Operations.php
 
 		-
@@ -9378,7 +9162,7 @@ parameters:
 		-
 			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
 			identifier: notEqual.notAllowed
-			count: 2
+			count: 1
 			path: src/Plugins.php
 
 		-
@@ -9454,12 +9238,6 @@ parameters:
 			path: src/Plugins/Auth/AuthenticationConfig.php
 
 		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 1
-			path: src/Plugins/Auth/AuthenticationConfig.php
-
-		-
 			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
 			identifier: foreach.nonIterable
 			count: 1
@@ -9514,12 +9292,6 @@ parameters:
 			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
 			identifier: notEqual.notAllowed
 			count: 1
-			path: src/Plugins/Auth/AuthenticationCookie.php
-
-		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 2
 			path: src/Plugins/Auth/AuthenticationCookie.php
 
 		-
@@ -9661,12 +9433,6 @@ parameters:
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
 			count: 2
-			path: src/Plugins/Auth/AuthenticationSignon.php
-
-		-
-			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
-			identifier: notEqual.notAllowed
-			count: 1
 			path: src/Plugins/Auth/AuthenticationSignon.php
 
 		-
@@ -10099,12 +9865,6 @@ parameters:
 			path: src/Plugins/Export/ExportMediawiki.php
 
 		-
-			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
-			identifier: notEqual.notAllowed
-			count: 1
-			path: src/Plugins/Export/ExportMediawiki.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
 				Use dependency injection instead\.$#
@@ -10219,12 +9979,6 @@ parameters:
 			path: src/Plugins/Export/ExportOdt.php
 
 		-
-			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
-			identifier: notEqual.notAllowed
-			count: 1
-			path: src/Plugins/Export/ExportOdt.php
-
-		-
 			message: '#^Only booleans are allowed in an if condition, array\|false given\.$#'
 			identifier: if.condNotBoolean
 			count: 1
@@ -10245,7 +9999,7 @@ parameters:
 		-
 			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, string\|null given\.$#'
 			identifier: argument.type
-			count: 7
+			count: 8
 			path: src/Plugins/Export/ExportOdt.php
 
 		-
@@ -10590,7 +10344,7 @@ parameters:
 		-
 			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
 			identifier: notEqual.notAllowed
-			count: 3
+			count: 2
 			path: src/Plugins/Export/ExportTexytext.php
 
 		-
@@ -10890,13 +10644,19 @@ parameters:
 		-
 			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
 			identifier: notEqual.notAllowed
-			count: 4
+			count: 3
 			path: src/Plugins/Export/Helpers/Pdf.php
 
 		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
 			count: 6
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '#^Only booleans are allowed in an if condition, mixed given\.$#'
+			identifier: if.condNotBoolean
+			count: 1
 			path: src/Plugins/Export/Helpers/Pdf.php
 
 		-
@@ -11070,7 +10830,7 @@ parameters:
 		-
 			message: '#^Cannot access offset ''tables'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 4
+			count: 5
 			path: src/Plugins/ExportPlugin.php
 
 		-
@@ -11145,13 +10905,13 @@ parameters:
 		-
 			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
 			identifier: notEqual.notAllowed
-			count: 4
+			count: 3
 			path: src/Plugins/Import/ImportCsv.php
 
 		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
-			count: 19
+			count: 17
 			path: src/Plugins/Import/ImportCsv.php
 
 		-
@@ -11161,13 +10921,7 @@ parameters:
 			path: src/Plugins/Import/ImportCsv.php
 
 		-
-			message: '#^Parameter \#1 \$columnNames of method PhpMyAdmin\\Plugins\\Import\\ImportCsv\:\:getColumnNames\(\) expects list\<string\>, array\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Plugins/Import/ImportCsv.php
-
-		-
-			message: '#^Parameter \#3 \$rows of class PhpMyAdmin\\Import\\ImportTable constructor expects list\<list\<mixed\>\>, list\<array\> given\.$#'
+			message: '#^Parameter \#1 \$columnNames of method PhpMyAdmin\\Plugins\\Import\\ImportCsv\:\:getColumnNames\(\) expects list\<string\>, list\<string\|null\>\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Plugins/Import/ImportCsv.php
@@ -11233,18 +10987,6 @@ parameters:
 			path: src/Plugins/Import/ImportOds.php
 
 		-
-			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
-			identifier: notEqual.notAllowed
-			count: 1
-			path: src/Plugins/Import/ImportOds.php
-
-		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 1
-			path: src/Plugins/Import/ImportOds.php
-
-		-
 			message: '#^Offset ''name'' might not exist on SimpleXMLElement\|null\.$#'
 			identifier: offsetAccess.notFound
 			count: 1
@@ -11270,12 +11012,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#2 \$text of method PhpMyAdmin\\Plugins\\Import\\ImportOds\:\:getValue\(\) expects SimpleXMLElement, \(SimpleXMLElement\|null\) given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Plugins/Import/ImportOds.php
-
-		-
-			message: '#^Parameter \#3 \$rows of class PhpMyAdmin\\Import\\ImportTable constructor expects list\<list\<mixed\>\>, non\-empty\-list\<array\> given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Plugins/Import/ImportOds.php
@@ -11310,12 +11046,6 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 1
-			path: src/Plugins/Import/ImportShp.php
-
-		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
 			count: 1
 			path: src/Plugins/Import/ImportShp.php
 
@@ -11431,25 +11161,7 @@ parameters:
 			path: src/Plugins/Import/Upload/UploadNoplugin.php
 
 		-
-			message: '#^Binary operation "/" between int and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Plugins/Import/Upload/UploadProgress.php
-
-		-
-			message: '#^Cannot access offset ''complete'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Plugins/Import/Upload/UploadProgress.php
-
-		-
 			message: '#^Cannot access offset ''finished'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Plugins/Import/Upload/UploadProgress.php
-
-		-
-			message: '#^Cannot access offset ''percent'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
 			path: src/Plugins/Import/Upload/UploadProgress.php
@@ -11457,7 +11169,7 @@ parameters:
 		-
 			message: '#^Cannot access offset ''total'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 4
+			count: 2
 			path: src/Plugins/Import/Upload/UploadProgress.php
 
 		-
@@ -11479,9 +11191,15 @@ parameters:
 			path: src/Plugins/Import/Upload/UploadProgress.php
 
 		-
+			message: '#^Method PhpMyAdmin\\Plugins\\Import\\Upload\\UploadProgress\:\:getUploadStatus\(\) should return array\|null but returns array\|ArrayAccess\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Plugins/Import/Upload/UploadProgress.php
+
+		-
 			message: '#^Method PhpMyAdmin\\Plugins\\Import\\Upload\\UploadProgress\:\:getUploadStatus\(\) should return array\|null but returns mixed\.$#'
 			identifier: return.type
-			count: 2
+			count: 1
 			path: src/Plugins/Import/Upload/UploadProgress.php
 
 		-
@@ -11515,12 +11233,6 @@ parameters:
 			path: src/Plugins/Import/Upload/UploadSession.php
 
 		-
-			message: '#^Cannot access offset ''complete'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Plugins/Import/Upload/UploadSession.php
-
-		-
 			message: '#^Cannot access offset ''content_length'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
@@ -11539,15 +11251,9 @@ parameters:
 			path: src/Plugins/Import/Upload/UploadSession.php
 
 		-
-			message: '#^Cannot access offset ''percent'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Plugins/Import/Upload/UploadSession.php
-
-		-
 			message: '#^Cannot access offset ''total'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 4
+			count: 2
 			path: src/Plugins/Import/Upload/UploadSession.php
 
 		-
@@ -11563,9 +11269,15 @@ parameters:
 			path: src/Plugins/Import/Upload/UploadSession.php
 
 		-
+			message: '#^Method PhpMyAdmin\\Plugins\\Import\\Upload\\UploadSession\:\:getUploadStatus\(\) should return array\|null but returns array\|ArrayAccess\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Plugins/Import/Upload/UploadSession.php
+
+		-
 			message: '#^Method PhpMyAdmin\\Plugins\\Import\\Upload\\UploadSession\:\:getUploadStatus\(\) should return array\|null but returns mixed\.$#'
 			identifier: return.type
-			count: 2
+			count: 1
 			path: src/Plugins/Import/Upload/UploadSession.php
 
 		-
@@ -11781,7 +11493,7 @@ parameters:
 		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
-			count: 5
+			count: 2
 			path: src/Plugins/Schema/Pdf/Pdf.php
 
 		-
@@ -11890,15 +11602,9 @@ parameters:
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
-			identifier: notEqual.notAllowed
-			count: 1
-			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
-			count: 2
+			count: 1
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
@@ -12112,12 +11818,6 @@ parameters:
 			path: src/Plugins/Schema/Svg/RelationStatsSvg.php
 
 		-
-			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
-			identifier: notEqual.notAllowed
-			count: 2
-			path: src/Plugins/Schema/Svg/Svg.php
-
-		-
 			message: '#^Parameter \#4 \$masterField of method PhpMyAdmin\\Plugins\\Schema\\Svg\\SvgRelationSchema\:\:addRelation\(\) expects string, \(int\|string\) given\.$#'
 			identifier: argument.type
 			count: 1
@@ -12187,12 +11887,6 @@ parameters:
 			'''
 			identifier: staticMethod.deprecated
 			count: 1
-			path: src/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php
-
-		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 2
 			path: src/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php
 
 		-
@@ -12328,12 +12022,6 @@ parameters:
 			path: src/Plugins/Transformations/Abs/SubstringTransformationsPlugin.php
 
 		-
-			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
-			identifier: notEqual.notAllowed
-			count: 1
-			path: src/Plugins/Transformations/Abs/SubstringTransformationsPlugin.php
-
-		-
 			message: '#^Binary operation "\." between mixed and string results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
@@ -12374,12 +12062,6 @@ parameters:
 			identifier: argument.type
 			count: 2
 			path: src/Plugins/Transformations/Abs/TextLinkTransformationsPlugin.php
-
-		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 2
-			path: src/Plugins/Transformations/Input/Text_Plain_Iptobinary.php
 
 		-
 			message: '''
@@ -12592,12 +12274,6 @@ parameters:
 			path: src/Properties/Options/OptionsPropertyGroup.php
 
 		-
-			message: '#^Loose comparison using \=\= between \(int\|string\|null\) and null will always evaluate to true\.$#'
-			identifier: equal.alwaysTrue
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
 			count: 1
@@ -12640,12 +12316,6 @@ parameters:
 			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 2
-			path: src/Replication/Replication.php
-
-		-
-			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
-			identifier: notEqual.notAllowed
-			count: 1
 			path: src/Replication/Replication.php
 
 		-
@@ -12862,14 +12532,14 @@ parameters:
 			path: src/Routing/Routing.php
 
 		-
-			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
-			identifier: notEqual.notAllowed
+			message: '#^Only booleans are allowed in &&, mixed given on the right side\.$#'
+			identifier: booleanAnd.rightNotBoolean
 			count: 1
 			path: src/Routing/Routing.php
 
 		-
-			message: '#^Only booleans are allowed in &&, mixed given on the right side\.$#'
-			identifier: booleanAnd.rightNotBoolean
+			message: '#^Only booleans are allowed in an if condition, int\<0, max\>\|false given\.$#'
+			identifier: if.condNotBoolean
 			count: 1
 			path: src/Routing/Routing.php
 
@@ -13137,7 +12807,7 @@ parameters:
 		-
 			message: '#^Cannot cast mixed to int\.$#'
 			identifier: cast.int
-			count: 4
+			count: 6
 			path: src/Server/Privileges.php
 
 		-
@@ -13167,7 +12837,7 @@ parameters:
 		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
-			count: 6
+			count: 4
 			path: src/Server/Privileges.php
 
 		-
@@ -13666,12 +13336,6 @@ parameters:
 			path: src/Server/Status/Processes.php
 
 		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 1
-			path: src/Server/Status/Processes.php
-
-		-
 			message: '#^Method PhpMyAdmin\\Server\\Status\\Processes\:\:getList\(\) return type has no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
 			count: 1
@@ -13816,20 +13480,14 @@ parameters:
 			path: src/Setup/Index.php
 
 		-
-			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
-			identifier: notEqual.notAllowed
-			count: 1
-			path: src/Setup/Index.php
-
-		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 1
-			path: src/Setup/Index.php
-
-		-
 			message: '#^Only booleans are allowed in a negated boolean, mixed given\.$#'
 			identifier: booleanNot.exprNotBoolean
+			count: 1
+			path: src/Setup/Index.php
+
+		-
+			message: '#^Only booleans are allowed in an if condition, mixed given\.$#'
+			identifier: if.condNotBoolean
 			count: 1
 			path: src/Setup/Index.php
 
@@ -13936,27 +13594,15 @@ parameters:
 			path: src/Sql.php
 
 		-
+			message: '#^Cannot cast mixed to int\.$#'
+			identifier: cast.int
+			count: 1
+			path: src/Sql.php
+
+		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
 			count: 10
-			path: src/Sql.php
-
-		-
-			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
-			identifier: notEqual.notAllowed
-			count: 7
-			path: src/Sql.php
-
-		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 6
-			path: src/Sql.php
-
-		-
-			message: '#^Method PhpMyAdmin\\Sql\:\:calculatePosForLastPage\(\) should return int but returns mixed\.$#'
-			identifier: return.type
-			count: 1
 			path: src/Sql.php
 
 		-
@@ -13984,6 +13630,12 @@ parameters:
 			path: src/Sql.php
 
 		-
+			message: '#^Only booleans are allowed in &&, mixed given on the right side\.$#'
+			identifier: booleanAnd.rightNotBoolean
+			count: 3
+			path: src/Sql.php
+
+		-
 			message: '#^Only booleans are allowed in &&, string given on the left side\.$#'
 			identifier: booleanAnd.leftNotBoolean
 			count: 1
@@ -14003,6 +13655,12 @@ parameters:
 
 		-
 			message: '#^Only booleans are allowed in a negated boolean, bool\|string given\.$#'
+			identifier: booleanNot.exprNotBoolean
+			count: 1
+			path: src/Sql.php
+
+		-
+			message: '#^Only booleans are allowed in a negated boolean, mixed given\.$#'
 			identifier: booleanNot.exprNotBoolean
 			count: 1
 			path: src/Sql.php
@@ -14206,7 +13864,7 @@ parameters:
 			path: src/StorageEngine.php
 
 		-
-			message: '#^Parameter \#1 \$value of static method PhpMyAdmin\\Util\:\:formatNumber\(\) expects float\|int\|string, mixed given\.$#'
+			message: '#^Parameter \#1 \$value of static method PhpMyAdmin\\Util\:\:formatNumber\(\) expects float\|int\|numeric\-string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/StorageEngine.php
@@ -14371,12 +14029,6 @@ parameters:
 			path: src/Table/Search.php
 
 		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 1
-			path: src/Table/Search.php
-
-		-
 			message: '#^Parameter \#1 \$gisString of static method PhpMyAdmin\\Utils\\Gis\:\:createData\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 2
@@ -14523,13 +14175,7 @@ parameters:
 		-
 			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
 			identifier: notEqual.notAllowed
-			count: 12
-			path: src/Table/Table.php
-
-		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 2
+			count: 3
 			path: src/Table/Table.php
 
 		-
@@ -14791,18 +14437,6 @@ parameters:
 			path: src/Tracking/Tracker.php
 
 		-
-			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
-			identifier: notEqual.notAllowed
-			count: 1
-			path: src/Tracking/Tracker.php
-
-		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 7
-			path: src/Tracking/Tracker.php
-
-		-
 			message: '#^Method PhpMyAdmin\\Tracking\\Tracker\:\:isTracked\(\) should return bool but returns mixed\.$#'
 			identifier: return.type
 			count: 1
@@ -14920,8 +14554,8 @@ parameters:
 			path: src/Tracking/Tracking.php
 
 		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
+			message: '#^Only booleans are allowed in &&, mixed given on the right side\.$#'
+			identifier: booleanAnd.rightNotBoolean
 			count: 13
 			path: src/Tracking/Tracking.php
 
@@ -14966,18 +14600,6 @@ parameters:
 			identifier: argument.type
 			count: 1
 			path: src/Tracking/Tracking.php
-
-		-
-			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
-			identifier: notEqual.notAllowed
-			count: 1
-			path: src/Transformations.php
-
-		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 4
-			path: src/Transformations.php
 
 		-
 			message: '#^Method PhpMyAdmin\\Transformations\:\:getClassName\(\) should return class\-string\<PhpMyAdmin\\Plugins\\TransformationsInterface\> but returns string\.$#'
@@ -15084,13 +14706,7 @@ parameters:
 		-
 			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
 			identifier: notEqual.notAllowed
-			count: 3
-			path: src/UniqueCondition.php
-
-		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 1
+			count: 2
 			path: src/UniqueCondition.php
 
 		-
@@ -15235,12 +14851,6 @@ parameters:
 			path: src/UserPreferences.php
 
 		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 1
-			path: src/UserPrivilegesFactory.php
-
-		-
 			message: '#^Only booleans are allowed in a negated boolean, PhpMyAdmin\\Dbal\\ResultInterface\|false given\.$#'
 			identifier: booleanNot.exprNotBoolean
 			count: 1
@@ -15376,18 +14986,6 @@ parameters:
 			message: '#^Foreach overwrites \$quote with its value variable\.$#'
 			identifier: foreach.valueOverwrite
 			count: 1
-			path: src/Util.php
-
-		-
-			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
-			identifier: notEqual.notAllowed
-			count: 3
-			path: src/Util.php
-
-		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 6
 			path: src/Util.php
 
 		-
@@ -17254,7 +16852,7 @@ parameters:
 			path: tests/unit/Controllers/Server/Status/QueriesControllerTest.php
 
 		-
-			message: '#^Parameter \#1 \$value of static method PhpMyAdmin\\Util\:\:formatNumber\(\) expects float\|int\|string, mixed given\.$#'
+			message: '#^Parameter \#1 \$value of static method PhpMyAdmin\\Util\:\:formatNumber\(\) expects float\|int\|numeric\-string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: tests/unit/Controllers/Server/Status/QueriesControllerTest.php
@@ -17645,30 +17243,6 @@ parameters:
 			identifier: assign.propertyType
 			count: 2
 			path: tests/unit/Database/CentralColumnsTest.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 4
-			path: tests/unit/Database/Designer/CommonTest.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 7
-			path: tests/unit/Database/Designer/CommonTest.php
-
-		-
-			message: '#^Class PhpMyAdmin\\Tests\\Database\\Designer\\CommonTest has an uninitialized property \$designerCommon\. Give it default value or assign it in the constructor\.$#'
-			identifier: property.uninitialized
-			count: 1
-			path: tests/unit/Database/Designer/CommonTest.php
 
 		-
 			message: '''
@@ -19360,12 +18934,6 @@ parameters:
 			path: tests/unit/TwoFactorTest.php
 
 		-
-			message: '#^Class PhpMyAdmin\\Tests\\TypesByDatabaseVersionTest has an uninitialized property \$object\. Give it default value or assign it in the constructor\.$#'
-			identifier: property.uninitialized
-			count: 1
-			path: tests/unit/TypesByDatabaseVersionTest.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
 				Use dependency injection instead\.$#
@@ -19462,15 +19030,15 @@ parameters:
 			path: tests/unit/UserPreferencesTest.php
 
 		-
-			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\) does not accept array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\.$#'
+			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\) does not accept array\{''Server/hide_db''\: ''testval123'', ''Server/port''\: ''213''\}\.$#'
 			identifier: assign.propertyType
-			count: 2
+			count: 1
 			path: tests/unit/UserPreferencesTest.php
 
 		-
-			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\) does not accept array\{Server/hide_db\: ''testval123'', Server/port\: ''213''\}\.$#'
+			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\) does not accept array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\.$#'
 			identifier: assign.propertyType
-			count: 1
+			count: 2
 			path: tests/unit/UserPreferencesTest.php
 
 		-
@@ -19504,12 +19072,6 @@ parameters:
 			message: '#^Cannot access offset ''server_2'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 4
-			path: tests/unit/UtilTest.php
-
-		-
-			message: '#^Casting to string something that''s already string\.$#'
-			identifier: cast.useless
-			count: 1
 			path: tests/unit/UtilTest.php
 
 		-

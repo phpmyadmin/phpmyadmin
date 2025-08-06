@@ -9,11 +9,13 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
 
 use function __;
 
+#[Route('/sql/get-enum-values', ['POST'])]
 final class EnumValuesController implements InvocableController
 {
     public function __construct(

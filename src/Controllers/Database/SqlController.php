@@ -13,6 +13,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
@@ -23,6 +24,7 @@ use function htmlspecialchars;
 /**
  * Database SQL executor
  */
+#[Route('/database/sql', ['GET', 'POST'])]
 class SqlController implements InvocableController
 {
     public function __construct(
@@ -54,9 +56,7 @@ class SqlController implements InvocableController
                 return $this->response->response();
             }
 
-            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
-
-            return $this->response->response();
+            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
         }
 
         /**

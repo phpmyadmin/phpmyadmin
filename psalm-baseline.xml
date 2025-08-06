@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="6.12.0@cf420941d061a57050b6c468ef2c778faf40aee2">
+<files psalm-version="6.13.0@70cdf647255a1362b426bb0f522a85817b8c791c">
   <file src="app/services_loader.php">
     <MixedArgument>
       <code><![CDATA[$argumentName]]></code>
@@ -480,6 +480,9 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$_REQUEST['printview']]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Config/ServerConfigChecks.php">
     <MixedAssignment>
@@ -613,6 +616,9 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
+    <DocblockTypeContradiction>
+      <code><![CDATA[$foreign[$field] !== '']]></code>
+    </DocblockTypeContradiction>
     <InvalidReturnStatement>
       <code><![CDATA[$tableNameReplacements]]></code>
     </InvalidReturnStatement>
@@ -660,6 +666,9 @@
     <PossiblyUnusedReturnValue>
       <code><![CDATA[bool]]></code>
     </PossiblyUnusedReturnValue>
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[isset($foreign[$field]) && $foreign[$field] !== '']]></code>
+    </RedundantConditionGivenDocblockType>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$relationParams[$work]]]></code>
       <code><![CDATA[empty($this->config->selectedServer[$feature])]]></code>
@@ -1447,11 +1456,6 @@
       <code><![CDATA[$options]]></code>
     </MixedAssignment>
   </file>
-  <file src="src/Controllers/LogoutController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
   <file src="src/Controllers/Navigation/UpdateNavWidthConfigController.php">
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
@@ -1921,6 +1925,12 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Server/Status/StatusController.php">
+    <ArgumentTypeCoercion>
+      <code><![CDATA[$this->data->status['Aborted_clients']]]></code>
+      <code><![CDATA[$this->data->status['Aborted_connects']]]></code>
+      <code><![CDATA[$this->data->status['Connections']]]></code>
+      <code><![CDATA[$this->data->status['Max_used_connections']]]></code>
+    </ArgumentTypeCoercion>
     <PossiblyInvalidOperand>
       <code><![CDATA[$this->data->status['Aborted_clients']]]></code>
       <code><![CDATA[$this->data->status['Aborted_clients']]]></code>
@@ -2933,6 +2943,7 @@
       <code><![CDATA[$_POST['maxPlotLimit']]]></code>
     </RiskyCast>
     <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$_POST['get_data_row']]]></code>
       <code><![CDATA[empty($_POST['maxPlotLimit'])]]></code>
       <code><![CDATA[empty($row->collation)]]></code>
     </RiskyTruthyFalsyComparison>
@@ -4059,9 +4070,6 @@
       <code><![CDATA[$preCount]]></code>
       <code><![CDATA[$total]]></code>
     </UnusedParam>
-    <UnusedProperty>
-      <code><![CDATA[$queryTime]]></code>
-    </UnusedProperty>
   </file>
   <file src="src/Encoding.php">
     <DeprecatedMethod>
@@ -4085,29 +4093,6 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <MixedArgument>
-      <code><![CDATA[$status['Innodb_buffer_pool_pages_data']]]></code>
-      <code><![CDATA[$status['Innodb_buffer_pool_pages_dirty']]]></code>
-      <code><![CDATA[$status['Innodb_buffer_pool_pages_flushed']]]></code>
-      <code><![CDATA[$status['Innodb_buffer_pool_pages_free']]]></code>
-      <code><![CDATA[$status['Innodb_buffer_pool_pages_latched']]]></code>
-      <code><![CDATA[$status['Innodb_buffer_pool_pages_misc']]]></code>
-      <code><![CDATA[$status['Innodb_buffer_pool_pages_total']]]></code>
-      <code><![CDATA[$status['Innodb_buffer_pool_pages_total'] * $status['Innodb_page_size']]]></code>
-      <code><![CDATA[$status['Innodb_buffer_pool_read_requests']]]></code>
-      <code><![CDATA[$status['Innodb_buffer_pool_reads']]]></code>
-      <code><![CDATA[$status['Innodb_buffer_pool_reads'] * 100
-                        / $status['Innodb_buffer_pool_read_requests']]]></code>
-      <code><![CDATA[$status['Innodb_buffer_pool_wait_free']]]></code>
-      <code><![CDATA[$status['Innodb_buffer_pool_wait_free'] * 100
-                        / $status['Innodb_buffer_pool_write_requests']]]></code>
-      <code><![CDATA[$status['Innodb_buffer_pool_write_requests']]]></code>
-    </MixedArgument>
-    <MixedOperand>
-      <code><![CDATA[$status['Innodb_buffer_pool_pages_total']]]></code>
-      <code><![CDATA[$status['Innodb_buffer_pool_reads']]]></code>
-      <code><![CDATA[$status['Innodb_buffer_pool_wait_free']]]></code>
-    </MixedOperand>
   </file>
   <file src="src/Engines/Pbxt.php">
     <PossiblyUnusedMethod>
@@ -4942,16 +4927,92 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Http/Middleware/ConfigErrorAndPermissionChecking.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Http/Middleware/ConfigLoading.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Http/Middleware/CurrentServerGlobalSetting.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="src/Http/Middleware/DatabaseServerVersionChecking.php">
     <DeprecatedMethod>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Http/Middleware/ErrorHandling.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Http/Middleware/LanguageAndThemeCookieSaving.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Http/Middleware/LoginCookieValiditySetting.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Http/Middleware/MinimumCommonRedirection.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Http/Middleware/PhpExtensionsChecking.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="src/Http/Middleware/ProfilingChecking.php">
     <DeprecatedMethod>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
+  </file>
+  <file src="src/Http/Middleware/RequestProblemChecking.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Http/Middleware/ResponseRendererLoading.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Http/Middleware/ServerConfigurationChecking.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Http/Middleware/SessionHandling.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Http/Middleware/SetupPageRedirection.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Http/Middleware/SqlDelimiterSetting.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="src/Http/Middleware/StatementHistory.php">
     <DeprecatedMethod>
@@ -4965,6 +5026,21 @@
     <MixedArgument>
       <code><![CDATA[$_SESSION[' PMA_token ']]]></code>
     </MixedArgument>
+  </file>
+  <file src="src/Http/Middleware/UriSchemeUpdating.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Http/Middleware/UrlRedirection.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Http/Middleware/UserPreferencesLoading.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="src/I18n/LanguageManager.php">
     <DeprecatedMethod>
@@ -5887,9 +5963,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <DocblockTypeContradiction>
-      <code><![CDATA[$resp == null]]></code>
-    </DocblockTypeContradiction>
     <MixedArgument>
       <code><![CDATA[$serverCookie]]></code>
       <code><![CDATA[$serverCookie]]></code>
@@ -6071,6 +6144,9 @@
       <code><![CDATA[$colAs]]></code>
       <code><![CDATA[$insertFields[]]]></code>
     </MixedAssignment>
+    <PossiblyInvalidOperand>
+      <code><![CDATA[str_replace($this->enclosed, $this->escaped . $this->enclosed, $colAs)]]></code>
+    </PossiblyInvalidOperand>
   </file>
   <file src="src/Plugins/Export/ExportExcel.php">
     <DeprecatedMethod>
@@ -6087,6 +6163,9 @@
       <code><![CDATA[$colAs]]></code>
       <code><![CDATA[$insertFields[]]]></code>
     </MixedAssignment>
+    <PossiblyInvalidOperand>
+      <code><![CDATA[str_replace($this->enclosed, $this->escaped . $this->enclosed, $colAs)]]></code>
+    </PossiblyInvalidOperand>
   </file>
   <file src="src/Plugins/Export/ExportHtmlword.php">
     <DeprecatedMethod>
@@ -7905,6 +7984,9 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$questionPos]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Sanitize.php">
     <DeprecatedMethod>
@@ -8124,10 +8206,12 @@
       <code><![CDATA[$row1[0]]]></code>
     </PossiblyUndefinedArrayOffset>
     <RiskyCast>
+      <code><![CDATA[$_POST['grant_count']]]></code>
       <code><![CDATA[$_POST['max_connections']]]></code>
       <code><![CDATA[$_POST['max_questions']]]></code>
       <code><![CDATA[$_POST['max_updates']]]></code>
       <code><![CDATA[$_POST['max_user_connections']]]></code>
+      <code><![CDATA[$_REQUEST['column_count']]]></code>
     </RiskyCast>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($_POST[$currentGrant[0] . '_none'])]]></code>
@@ -8402,7 +8486,6 @@
     </MixedArrayAssignment>
     <MixedAssignment>
       <code><![CDATA[$maxRows]]></code>
-      <code><![CDATA[$pos]]></code>
       <code><![CDATA[$sortCol]]></code>
       <code><![CDATA[$unlimNumRows]]></code>
     </MixedAssignment>
@@ -8417,8 +8500,6 @@
       <code><![CDATA[$statementInfo->statement->where[0]->expr]]></code>
     </MixedPropertyFetch>
     <MixedReturnStatement>
-      <code><![CDATA[$pos]]></code>
-      <code><![CDATA[$pos]]></code>
       <code><![CDATA[$unlimNumRows]]></code>
       <code><![CDATA[$unlimNumRows]]></code>
       <code><![CDATA[@((int) ceil($numberOfLine / $maxRows) - 1) * $maxRows]]></code>
@@ -8465,6 +8546,9 @@
     </RedundantCondition>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! $index->isUnique()]]></code>
+      <code><![CDATA[$_POST['grid_edit']]]></code>
+      <code><![CDATA[$_POST['printview']]]></code>
+      <code><![CDATA[$_POST['printview']]]></code>
       <code><![CDATA[$table]]></code>
       <code><![CDATA[empty($_GET['id_bookmark'])]]></code>
       <code><![CDATA[empty($_GET['id_bookmark'])]]></code>
@@ -8910,9 +8994,6 @@
       <code><![CDATA[$tokens[0]]]></code>
       <code><![CDATA[$tokens[2]]]></code>
     </PossiblyNullArrayAccess>
-    <PossiblyNullOperand>
-      <code><![CDATA[$statement]]></code>
-    </PossiblyNullOperand>
     <PossiblyNullPropertyFetch>
       <code><![CDATA[$parser->list->tokens]]></code>
       <code><![CDATA[$statement->fields[0]->table]]></code>
@@ -8988,6 +9069,21 @@
       <code><![CDATA[$tableName]]></code>
       <code><![CDATA[$versionNumber]]></code>
     </PossiblyNullArgument>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$_POST['alter_table']]]></code>
+      <code><![CDATA[$_POST['alter_view']]]></code>
+      <code><![CDATA[$_POST['create_index']]]></code>
+      <code><![CDATA[$_POST['create_table']]]></code>
+      <code><![CDATA[$_POST['create_view']]]></code>
+      <code><![CDATA[$_POST['delete']]]></code>
+      <code><![CDATA[$_POST['drop_index']]]></code>
+      <code><![CDATA[$_POST['drop_table']]]></code>
+      <code><![CDATA[$_POST['drop_view']]]></code>
+      <code><![CDATA[$_POST['insert']]]></code>
+      <code><![CDATA[$_POST['rename_table']]]></code>
+      <code><![CDATA[$_POST['truncate']]]></code>
+      <code><![CDATA[$_POST['update']]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Transformations.php">
     <LessSpecificReturnStatement>
@@ -9140,6 +9236,10 @@
     </MixedArgument>
   </file>
   <file src="src/Util.php">
+    <ArgumentTypeCoercion>
+      <code><![CDATA[$value]]></code>
+      <code><![CDATA[$value]]></code>
+    </ArgumentTypeCoercion>
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
@@ -9159,9 +9259,6 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$units[$d]]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$array]]></code>
     </MixedArgument>
@@ -9180,12 +9277,9 @@
     <MixedAssignment>
       <code><![CDATA[$array]]></code>
       <code><![CDATA[$columnNames[]]]></code>
-      <code><![CDATA[$unit]]></code>
       <code><![CDATA[$value]]></code>
     </MixedAssignment>
     <MixedOperand>
-      <code><![CDATA[$unit]]></code>
-      <code><![CDATA[$unit]]></code>
       <code><![CDATA[$value]]></code>
     </MixedOperand>
     <MixedReturnStatement>
@@ -10457,21 +10551,6 @@
                 [self::MODIFIED_COLUMN_DATA[0], 0],
             )]]></code>
     </MixedArgument>
-  </file>
-  <file src="tests/unit/Database/Designer/CommonTest.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-    </DeprecatedMethod>
   </file>
   <file src="tests/unit/Database/DesignerTest.php">
     <DeprecatedMethod>
@@ -11794,7 +11873,6 @@
       <code><![CDATA[$_SESSION['cache']['server_2']['mysql_cur_user']]]></code>
     </MixedArrayAccess>
     <MixedReturnStatement>
-      <code><![CDATA[mixed[]]]></code>
       <code><![CDATA[mixed[]]]></code>
       <code><![CDATA[mixed[]]]></code>
       <code><![CDATA[mixed[]]]></code>

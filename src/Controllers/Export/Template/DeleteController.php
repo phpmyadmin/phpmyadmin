@@ -11,7 +11,9 @@ use PhpMyAdmin\Export\TemplateModel;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 
+#[Route('/export/template/delete', ['POST'])]
 final readonly class DeleteController implements InvocableController
 {
     public function __construct(

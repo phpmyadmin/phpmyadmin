@@ -15,6 +15,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Replication\ReplicationInfo;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPrivilegesFactory;
 use Webmozart\Assert\Assert;
@@ -29,6 +30,7 @@ use function strtolower;
 /**
  * Handles viewing and creating and deleting databases
  */
+#[Route('/server/databases', ['GET', 'POST'])]
 final class DatabasesController implements InvocableController
 {
     /** @var mixed[] array of database details */

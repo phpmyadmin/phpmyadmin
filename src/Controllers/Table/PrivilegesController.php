@@ -17,6 +17,7 @@ use PhpMyAdmin\Identifiers\InvalidIdentifier;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Url;
 
@@ -26,6 +27,7 @@ use function mb_strtolower;
 /**
  * Controller for table privileges
  */
+#[Route('/table/privileges', ['GET'])]
 final readonly class PrivilegesController implements InvocableController
 {
     public function __construct(

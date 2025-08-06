@@ -92,7 +92,7 @@ class AuthenticationConfig extends AuthenticationPlugin
             $errorHandler->addNotice($failure->getMessage());
         } else {
             // Check whether user has configured something
-            if ($config->sourceMtime == 0) {
+            if ($config->sourceMtime === 0) {
                 echo '<p>' , sprintf(
                     __(
                         'You probably did not create a configuration file.'

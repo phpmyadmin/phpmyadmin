@@ -8,7 +8,9 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\AuthenticationPluginFactory;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 
+#[Route('/logout', ['GET', 'POST'])]
 final class LogoutController implements InvocableController
 {
     public function __construct(private readonly AuthenticationPluginFactory $authPluginFactory)
@@ -25,8 +27,7 @@ final class LogoutController implements InvocableController
         }
 
         $authPlugin = $this->authPluginFactory->create();
-        $authPlugin->logOut();
 
-        return $responseRenderer->response();
+        return $authPlugin->logOut();
     }
 }

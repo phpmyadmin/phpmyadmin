@@ -46,7 +46,6 @@ final class Authentication implements MiddlewareInterface
             return $handler->handle($request);
         }
 
-        /** @var AuthenticationPluginFactory $authPluginFactory */
         $authPluginFactory = ContainerBuilder::getContainer()->get(AuthenticationPluginFactory::class);
         try {
             $authPlugin = $authPluginFactory->create();
@@ -93,8 +92,7 @@ final class Authentication implements MiddlewareInterface
             }
 
             // Relation should only be initialized after the connection is successful
-            /** @var Relation $relation */
-            $relation = ContainerBuilder::getContainer()->get('relation');
+            $relation = ContainerBuilder::getContainer()->get(Relation::class);
             $relation->initRelationParamsCache();
 
             // Tracker can only be activated after the relation has been initialized

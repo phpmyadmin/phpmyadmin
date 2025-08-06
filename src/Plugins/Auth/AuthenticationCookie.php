@@ -122,7 +122,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         // Show error message
         if (self::$connectionError !== '') {
             $errorMessages = Message::rawError(self::$connectionError)->getDisplay();
-        } elseif (isset($_GET['session_expired']) && (int) $_GET['session_expired'] == 1) {
+        } elseif (isset($_GET['session_expired']) && (int) $_GET['session_expired'] === 1) {
             $errorMessages = Message::rawError(
                 __('Your session has expired. Please log in again.'),
             )->getDisplay();
@@ -264,7 +264,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                 );
 
                 // Check if the captcha entered is valid, if not stop the login.
-                if ($resp == null || ! $resp->isSuccess()) {
+                if (! $resp->isSuccess()) {
                     $codes = $resp->getErrorCodes();
 
                     if (in_array('invalid-json', $codes)) {
@@ -627,7 +627,7 @@ class AuthenticationCookie extends AuthenticationPlugin
     /**
      * Perform logout
      */
-    public function logOut(): void
+    public function logOut(): Response
     {
         $config = Config::getInstance();
         // -> delete password cookie(s)
@@ -648,6 +648,6 @@ class AuthenticationCookie extends AuthenticationPlugin
             }
         }
 
-        parent::logOut();
+        return parent::logOut();
     }
 }

@@ -11,6 +11,7 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Providers\ServerVariables\ServerVariablesProvider;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
@@ -24,6 +25,7 @@ use function trim;
 /**
  * Handles viewing and editing server variables
  */
+#[Route('/server/variables', ['GET'])]
 final class VariablesController implements InvocableController
 {
     public function __construct(

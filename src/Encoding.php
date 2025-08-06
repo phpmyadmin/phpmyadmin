@@ -118,7 +118,7 @@ class Encoding
             self::initEngine();
         }
 
-        return self::$engine != self::ENGINE_NONE;
+        return self::$engine !== self::ENGINE_NONE;
     }
 
     /**
@@ -300,7 +300,7 @@ class Encoding
 
         /* Most engines do not support listing */
         $config = Config::getInstance();
-        if (self::$engine != self::ENGINE_MBSTRING) {
+        if (self::$engine !== self::ENGINE_MBSTRING) {
             return array_filter($config->settings['AvailableCharsets'], static function (string $charset): bool {
                 // Removes any ignored character
                 $normalizedCharset = strtoupper((string) preg_replace(['/[^A-Za-z0-9\-\/]/'], '', $charset));

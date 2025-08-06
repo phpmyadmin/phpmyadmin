@@ -13,12 +13,14 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Util;
 
 use function __;
 use function _ngettext;
 use function count;
 
+#[Route('/table/structure/drop', ['POST'])]
 final class DropColumnController implements InvocableController
 {
     public function __construct(
@@ -73,8 +75,10 @@ final class DropColumnController implements InvocableController
         }
 
         $this->flashMessenger->addMessage($message->isError() ? 'danger' : 'success', $message->getMessage());
-        $this->response->redirectToRoute('/table/structure', ['db' => Current::$database, 'table' => Current::$table]);
 
-        return $this->response->response();
+        return $this->response->redirectToRoute(
+            '/table/structure',
+            ['db' => Current::$database, 'table' => Current::$table],
+        );
     }
 }

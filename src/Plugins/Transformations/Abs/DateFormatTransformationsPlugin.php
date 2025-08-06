@@ -77,7 +77,7 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
             // (Note: prior to MySQL 4.1, TIMESTAMP has a display size
             // for example TIMESTAMP(8) means YYYYMMDD)
         } elseif (preg_match('/^(\d{2}){3,7}$/', $buffer) === 1) {
-            if (mb_strlen($buffer) == 14 || mb_strlen($buffer) == 8) {
+            if (mb_strlen($buffer) === 14 || mb_strlen($buffer) === 8) {
                 $offset = 4;
             } else {
                 $offset = 2;

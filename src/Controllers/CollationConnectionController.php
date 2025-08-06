@@ -8,8 +8,10 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Url;
 
+#[Route('/collation-connection', ['POST'])]
 final class CollationConnectionController implements InvocableController
 {
     public function __construct(private readonly ResponseRenderer $response, private readonly Config $config)

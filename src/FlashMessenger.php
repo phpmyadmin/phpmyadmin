@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use RuntimeException;
+use Twig\Attribute\AsTwigFunction;
 
 use function __;
 
@@ -47,6 +48,7 @@ final class FlashMessenger
     }
 
     /** @psalm-return FlashMessageList */
+    #[AsTwigFunction('flash_messages')]
     public function getMessages(): array
     {
         $this->initSessionStorage();

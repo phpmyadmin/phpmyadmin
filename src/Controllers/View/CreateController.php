@@ -16,6 +16,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\TokensList;
@@ -36,6 +37,7 @@ use function substr;
 /**
  * Handles creation of VIEWs.
  */
+#[Route('/view/create', ['GET', 'POST'])]
 final class CreateController implements InvocableController
 {
     /** @todo Move the whole view rebuilding logic to SQL parser */
@@ -67,9 +69,7 @@ final class CreateController implements InvocableController
                 return $this->response->response();
             }
 
-            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
-
-            return $this->response->response();
+            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
         }
 
         UrlParams::$params['goto'] = Url::getFromRoute('/table/structure');
@@ -219,7 +219,6 @@ final class CreateController implements InvocableController
 
         if ($ajaxdialog) {
             Current::$message = Message::success();
-            /** @var StructureController $controller */
             $controller = ContainerBuilder::getContainer()->get(StructureController::class);
 
             return $controller($request);

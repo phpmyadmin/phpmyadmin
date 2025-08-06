@@ -18,6 +18,7 @@ use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Image\ImageWrapper;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
 
@@ -37,6 +38,7 @@ use function strtolower;
 /**
  * Wrapper script for rendering transformations
  */
+#[Route('/transformation/wrapper', ['GET', 'POST'])]
 final class WrapperController implements InvocableController
 {
     public function __construct(

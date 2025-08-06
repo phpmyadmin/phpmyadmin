@@ -687,7 +687,7 @@ class Node
                 }
 
                 $prefixMap[$prefix] = 1;
-                if (count($prefixMap) == $total) {
+                if (count($prefixMap) === $total) {
                     break;
                 }
             }
@@ -779,7 +779,7 @@ class Node
                 }
 
                 $prefixMap[$prefix] = 1;
-                if (count($prefixMap) == $total) {
+                if (count($prefixMap) === $total) {
                     break 2;
                 }
             }

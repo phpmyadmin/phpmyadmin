@@ -4,63 +4,29 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
-use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\TypeClass;
 use PhpMyAdmin\Types;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
-use PHPUnit\Framework\MockObject\Stub;
 
 #[CoversClass(Types::class)]
-class TypesByDatabaseVersionTest extends AbstractTestCase
+final class TypesByDatabaseVersionTest extends AbstractTestCase
 {
-    private DatabaseInterface&Stub $dbiStub;
-
-    protected Types $object;
-
     /**
-     * Sets up the fixture, for example, opens a network connection.
-     * This method is called before a test is executed.
-     */
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        $this->dbiStub = self::createStub(DatabaseInterface::class);
-    }
-
-    /**
-     * Tears down the fixture, for example, closes a network connection.
-     * This method is called after a test is executed.
-     */
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-
-        unset($this->dbiStub);
-        unset($this->object);
-    }
-
-    /**
-     * @param string    $database  Database
-     * @param int       $dbVersion Database Version
-     * @param TypeClass $class     The class to get function list.
-     * @param array     $includes  Expected elements should contain in result
-     * @param array     $excludes  Expected elements should not contain in result
+     * @param TypeClass $class    The class to get function list.
+     * @param array     $includes Expected elements should contain in result
+     * @param array     $excludes Expected elements should not contain in result
      * @phpstan-param array<string> $includes
      * @phpstan-param array<string> $excludes
      */
     #[DataProvider('providerFortTestGetFunctionsClass')]
-    public function testGetFunctionsClass(
-        string $database,
-        int $dbVersion,
-        TypeClass $class,
-        array $includes,
-        array $excludes,
-    ): void {
-        $this->createObject($database, $dbVersion);
+    public function testGetFunctionsClass(string $version, TypeClass $class, array $includes, array $excludes): void
+    {
+        $dbi = $this->createDatabaseInterface();
+        $dbi->setVersion(['@@version' => $version]);
+        $types = new Types($dbi);
 
-        $result = $this->object->getFunctionsClass($class);
+        $result = $types->getFunctionsClass($class);
 
         foreach ($includes as $value) {
             self::assertContains($value, $result);
@@ -78,104 +44,93 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
     /**
      * Data provider for testing function lists
      *
-     * @psalm-return array<string, array{string, int, TypeClass, array<string>, array<string>}>
+     * @return array<string, array{string, TypeClass, array<string>, array<string>}>
      */
     public static function providerFortTestGetFunctionsClass(): array
     {
         return [
             'mysql 5.1.0 - CHAR - not support INET6 Converter' => [
-                'mysql',
-                50100,
+                '5.1.0',
                 TypeClass::Char,
                 // should contains
                 [],
                 // should not exist
-                [ 'INET6_NTOA' ],
+                ['INET6_NTOA'],
             ],
             'mysql 8.0.30 - CHAR - support INET6 Converter' => [
-                'mysql',
-                80030,
+                '8.0.30',
                 TypeClass::Char,
                 // should contains
-                [ 'INET6_NTOA' ],
+                ['INET6_NTOA'],
                 // should not exist
                 [],
             ],
             'mariadb 5.1.0 - CHAR - not support INET6 Converter' => [
-                'mariadb',
-                50100,
+                '5.1.0-MariaDB',
                 TypeClass::Char,
                 // should contains
                 [],
                 // should not exist
-                [ 'INET6_NTOA' ],
+                ['INET6_NTOA'],
             ],
             'mariadb 10.0.12 - CHAR - support INET6 Converter' => [
-                'mariadb',
-                100012,
+                '10.0.12-MariaDB',
                 TypeClass::Char,
                 // should contains
-                [ 'INET6_NTOA' ],
+                ['INET6_NTOA'],
                 // should not exist
                 [],
             ],
             'mariadb 10.9.3 - CHAR - support INET6 Converter and UUID' => [
-                'mariadb',
-                100903,
+                '10.9.3-MariaDB',
                 TypeClass::Char,
                 // should contains
-                [ 'INET6_NTOA', 'UUID' ],
+                ['INET6_NTOA', 'UUID'],
                 // should not exist
                 [],
             ],
             'mysql 5.1.0 - NUMBER - not support INET6 Converter' => [
-                'mysql',
-                50100,
+                '5.1.0',
                 TypeClass::Number,
                 // should contains
                 [],
                 // should not exist
-                [ 'INET6_ATON' ],
+                ['INET6_ATON'],
             ],
             'mysql 8.0.30 - NUMBER - support INET6 Converter' => [
-                'mysql',
-                80030,
+                '8.0.30',
                 TypeClass::Number,
                 // should contains
-                [ 'INET6_ATON' ],
+                ['INET6_ATON'],
                 // should not exist
                 [],
             ],
             'mariadb 5.1.0 - NUMBER - not support INET6 Converter' => [
-                'mariadb',
-                50100,
+                '5.1.0-MariaDB',
                 TypeClass::Number,
                 // should contains
                 [],
                 // should not exist
-                [ 'INET6_ATON' ],
+                ['INET6_ATON'],
             ],
             'mariadb 10.0.12 - NUMBER - support INET6 Converter' => [
-                'mariadb',
-                100012,
+                '10.0.12-MariaDB',
                 TypeClass::Number,
                 // should contains
-                [ 'INET6_ATON' ],
+                ['INET6_ATON'],
                 // should not exist
                 [],
             ],
             'mariadb 10.9.3 - NUMBER - support INET6 Converter and UUID' => [
-                'mariadb',
-                100903,
+                '10.9.3-MariaDB',
                 TypeClass::Number,
                 // should contains
-                [ 'INET6_ATON', 'UUID_SHORT' ],
+                ['INET6_ATON', 'UUID_SHORT'],
                 // should not exist
                 [],
             ],
             'mysql 5.1.0 - SPATIAL - not support ST_Geometry' => [
-                'mysql',
-                50100,
+                '5.1.0',
                 TypeClass::Spatial,
                 // should contains
                 [
@@ -217,8 +172,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
                 ],
             ],
             'mysql 8.0.30 - SPATIAL - support ST_Geometry' => [
-                'mysql',
-                80030,
+                '8.0.30',
                 TypeClass::Spatial,
                 // should contains
                 [
@@ -263,21 +217,19 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
     }
 
     /**
-     * Test for getAllFunctions
-     *
-     * @param string $database  Database
-     * @param int    $dbVersion Database Version
-     * @param array  $includes  Expected elements should contain in result
-     * @param array  $excludes  Expected elements should not contain in result
+     * @param array $includes Expected elements should contain in result
+     * @param array $excludes Expected elements should not contain in result
      * @phpstan-param array<string> $includes
      * @phpstan-param array<string> $excludes
      */
     #[DataProvider('providerFortTestGetAllFunctions')]
-    public function testGetAllFunctions(string $database, int $dbVersion, array $includes, array $excludes): void
+    public function testGetAllFunctions(string $version, array $includes, array $excludes): void
     {
-        $this->createObject($database, $dbVersion);
+        $dbi = $this->createDatabaseInterface();
+        $dbi->setVersion(['@@version' => $version]);
+        $types = new Types($dbi);
 
-        $result = $this->object->getAllFunctions();
+        $result = $types->getAllFunctions();
 
         foreach ($includes as $value) {
             self::assertContains($value, $result);
@@ -295,14 +247,13 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
     /**
      * Data provider for testing get all functions
      *
-     * @psalm-return array<string, array{string, int, array<string>, array<string>}>
+     * @psalm-return array<string, array{string, array<string>, array<string>}>
      */
     public static function providerFortTestGetAllFunctions(): array
     {
         return [
             'mysql 5.1.0 - not support INET6_ATON, ST_Geometry' => [
-                'mysql',
-                50100,
+                '5.1.0',
                 [
                     'GeomFromText',
                     'GeomFromWKB',
@@ -343,8 +294,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
                 ],
             ],
             'mysql 8.0.30 - support INET6_ATON and ST_Geometry' => [
-                'mysql',
-                80030,
+                '8.0.30',
                 [
                     'INET6_ATON',
                     'INET6_ATON',
@@ -387,8 +337,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
                 ],
             ],
             'mariadb 5.1.0 - not support INET6_ATON and ST_Geometry' => [
-                'mariadb',
-                50100,
+                '5.1.0-MariaDB',
                 [
                     'GeomFromText',
                     'GeomFromWKB',
@@ -431,8 +380,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
                 ],
             ],
             'mariadb 10.6.0 - support INET6_ATON and ST_Geometry' => [
-                'mariadb',
-                100600,
+                '10.6.0-MariaDB',
                 [
                     'INET6_ATON',
                     'INET6_ATON',
@@ -475,8 +423,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
                 ],
             ],
             'mariadb 10.9.3 - support INET6_ATON, ST_Geometry and UUID' => [
-                'mariadb',
-                100903,
+                '10.9.3-MariaDB',
                 [
                     'INET6_ATON',
                     'INET6_ATON',
@@ -521,33 +468,27 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
         ];
     }
 
-    /**
-     * Test for getColumns
-     *
-     * @param string $database  Database
-     * @param int    $dbVersion Database Version
-     * @param array  $expected  Expected Result
-     * @phpstan-param array<int|string, array<int, string>|string> $expected
-     */
+    /** @phpstan-param array<int|string, array<int, string>|string> $expected */
     #[DataProvider('providerFortTestGetColumns')]
-    public function testGetColumns(string $database, int $dbVersion, array $expected): void
+    public function testGetColumns(string $version, array $expected): void
     {
-        $this->createObject($database, $dbVersion);
+        $dbi = $this->createDatabaseInterface();
+        $dbi->setVersion(['@@version' => $version]);
+        $types = new Types($dbi);
 
-        self::assertSame($expected, $this->object->getColumns());
+        self::assertSame($expected, $types->getColumns());
     }
 
     /**
      * Data provider for testing test columns
      *
-     * @psalm-return array<string, array{string, int, array<int|string, array<int, string>|string>}>
+     * @psalm-return array<string, array{string, array<int|string, array<int, string>|string>}>
      */
     public static function providerFortTestGetColumns(): array
     {
         return [
             'mysql 5.1.0 - not support INET6, JSON and UUID' => [
-                'mysql',
-                50100,
+                '5.1.0',
                 [
                     0 => 'INT',
                     1 => 'VARCHAR',
@@ -603,8 +544,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
                 ],
             ],
             'mysql 8.0.30 - support JSON but not support INET6 and UUID' => [
-                'mysql',
-                80030,
+                '8.0.30',
                 [
                     0 => 'INT',
                     1 => 'VARCHAR',
@@ -661,8 +601,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
                 ],
             ],
             'mariadb 5.1.0 - not support INET6, JSON and UUID' => [
-                'mariadb',
-                50100,
+                '5.1.0-MariaDB',
                 [
                     0 => 'INT',
                     1 => 'VARCHAR',
@@ -718,8 +657,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
                 ],
             ],
             'mariadb 10.2.8 - support JSON but not support INET6 and UUID' => [
-                'mariadb',
-                100208,
+                '10.2.8-MariaDB',
                 [
                     0 => 'INT',
                     1 => 'VARCHAR',
@@ -772,12 +710,11 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
                         'MULTIPOLYGON',
                         'GEOMETRYCOLLECTION',
                     ],
-                    'JSON' => [ 'JSON' ],
+                    'JSON' => ['JSON'],
                 ],
             ],
             'mariadb 10.5.0 - support JSON and INET6 but not support UUID' => [
-                'mariadb',
-                100500,
+                '10.5.0-MariaDB',
                 [
                     0 => 'INT',
                     1 => 'VARCHAR',
@@ -832,12 +769,11 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
                         'MULTIPOLYGON',
                         'GEOMETRYCOLLECTION',
                     ],
-                    'JSON' => [ 'JSON' ],
+                    'JSON' => ['JSON'],
                 ],
             ],
             'mariadb 10.9.3 - support INET6, JSON and UUID' => [
-                'mariadb',
-                100903,
+                '10.9.3-MariaDB',
                 [
                     0 => 'INT',
                     1 => 'VARCHAR',
@@ -893,21 +829,10 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
                         'MULTIPOLYGON',
                         'GEOMETRYCOLLECTION',
                     ],
-                    'JSON' => [ 'JSON' ],
-                    'UUID' => [ 'UUID' ],
+                    'JSON' => ['JSON'],
+                    'UUID' => ['UUID'],
                 ],
             ],
         ];
-    }
-
-    /**
-     * @param string $database Database
-     * @param int    $version  Database Version
-     */
-    private function createObject(string $database, int $version): void
-    {
-        $this->dbiStub->method('isMariaDB')->willReturn($database === 'mariadb');
-        $this->dbiStub->method('getVersion')->willReturn($version);
-        $this->object = new Types($this->dbiStub);
     }
 }

@@ -9,6 +9,7 @@ use JsonException;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Routing\Route;
 
 use function __;
 use function _pgettext;
@@ -22,6 +23,7 @@ use const JSON_THROW_ON_ERROR;
 /**
  * Exporting of translated messages from PHP to JavaScript.
  */
+#[Route('/messages', ['GET'])]
 final class JavaScriptMessagesController implements InvocableController
 {
     public function __construct(private readonly ResponseFactory $responseFactory)

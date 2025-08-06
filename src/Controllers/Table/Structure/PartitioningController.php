@@ -17,6 +17,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\MessageType;
 use PhpMyAdmin\Partitioning\TablePartitionDefinition;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\StorageEngine;
@@ -30,6 +31,7 @@ use function strrpos;
 use function substr;
 use function trim;
 
+#[Route('/table/structure/partitioning', ['POST'])]
 final class PartitioningController implements InvocableController
 {
     public function __construct(

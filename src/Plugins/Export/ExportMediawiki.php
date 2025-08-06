@@ -242,7 +242,7 @@ class ExportMediawiki extends ExportPlugin
 
         // Print data comment
         $output = $this->exportComment(
-            $tableAlias != ''
+            $tableAlias !== ''
                 ? 'Table data for ' . Util::backquote($tableAlias)
                 : 'Query results',
         );

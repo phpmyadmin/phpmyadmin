@@ -24,6 +24,7 @@ use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Url;
@@ -43,6 +44,7 @@ use function sprintf;
 use const PHP_VERSION;
 use const SODIUM_CRYPTO_SECRETBOX_KEYBYTES;
 
+#[Route('[/]', ['GET', 'POST'])]
 final class HomeController implements InvocableController
 {
     /**
@@ -102,7 +104,7 @@ final class HomeController implements InvocableController
 
         $hasServer = Current::$server > 0 || count($this->config->settings['Servers']) > 1;
         if ($hasServer) {
-            $hasServerSelection = $this->config->settings['ServerDefault'] == 0
+            $hasServerSelection = $this->config->settings['ServerDefault'] === 0
                 || (
                     $this->config->settings['NavigationDisplayServers']
                     && (
@@ -188,14 +190,14 @@ final class HomeController implements InvocableController
             $relationParameters = $relation->getRelationParameters();
             if (
                 ! $relationParameters->hasAllFeatures()
-                && $this->config->settings['PmaNoRelation_DisableWarning'] == false
+                && ! $this->config->settings['PmaNoRelation_DisableWarning']
             ) {
                 $messageText = __(
                     'The phpMyAdmin configuration storage is not completely '
                     . 'configured, some extended features have been deactivated. '
                     . '%sFind out why%s. ',
                 );
-                if ($this->config->settings['ZeroConf'] == true) {
+                if ($this->config->settings['ZeroConf']) {
                     $messageText .= '<br>'
                         . __('Or alternately go to \'Operations\' tab of any database to set it up there.');
                 }
@@ -253,7 +255,7 @@ final class HomeController implements InvocableController
     {
         $this->checkPhpExtensionsRequirements();
 
-        if ($this->config->settings['LoginCookieValidityDisableWarning'] == false) {
+        if (! $this->config->settings['LoginCookieValidityDisableWarning']) {
             /**
              * Check whether session.gc_maxlifetime limits session validity.
              */
@@ -276,7 +278,7 @@ final class HomeController implements InvocableController
          * Check whether LoginCookieValidity is limited by LoginCookieStore.
          */
         if (
-            $this->config->settings['LoginCookieStore'] != 0
+            $this->config->settings['LoginCookieStore'] !== 0
             && $this->config->settings['LoginCookieStore'] < $this->config->settings['LoginCookieValidity']
         ) {
             $this->errors[] = [
@@ -361,7 +363,7 @@ final class HomeController implements InvocableController
          * Warning about Suhosin only if its simulation mode is not enabled
          */
         if (
-            $this->config->settings['SuhosinDisableWarning'] == false
+            ! $this->config->settings['SuhosinDisableWarning']
             && ini_get('suhosin.request.max_value_length')
             && ini_get('suhosin.simulation') == '0'
         ) {

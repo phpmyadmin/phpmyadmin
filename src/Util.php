@@ -14,6 +14,8 @@ use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\Utils\SessionCache;
 use Stringable;
+use Twig\Attribute\AsTwigFilter;
+use Twig\Attribute\AsTwigFunction;
 
 use function __;
 use function _pgettext;
@@ -45,6 +47,7 @@ use function is_object;
 use function is_scalar;
 use function is_string;
 use function log10;
+use function max;
 use function mb_detect_encoding;
 use function mb_strlen;
 use function mb_strpos;
@@ -97,6 +100,7 @@ class Util
      *
      * @param string $value Configuration option name
      */
+    #[AsTwigFunction('show_icons')]
     public static function showIcons(string $value): bool
     {
         return in_array(Config::getInstance()->settings[$value], ['icons', 'both'], true);
@@ -107,6 +111,7 @@ class Util
      *
      * @param string $value Configuration option name
      */
+    #[AsTwigFunction('show_text')]
     public static function showText(string $value): bool
     {
         return in_array(Config::getInstance()->settings[$value], ['text', 'both'], true);
@@ -168,6 +173,7 @@ class Util
      *
      * @return string  the URL link
      */
+    #[AsTwigFunction('get_mysql_docu_url', isSafe: ['html'])]
     public static function getMySQLDocuURL(string $link, string $anchor = ''): string
     {
         // Fixup for newly used names:
@@ -209,6 +215,7 @@ class Util
      *
      * @return string The URL link
      */
+    #[AsTwigFunction('get_docu_url', isSafe: ['html'])]
     public static function getDocuURL(bool $isMariaDB = false): string
     {
         if ($isMariaDB) {
@@ -234,6 +241,7 @@ class Util
      *
      * @param Stringable|string|null $identifier the database, table or field name to "backquote"
      */
+    #[AsTwigFunction('backquote')]
     public static function backquote(Stringable|string|null $identifier): string
     {
         return static::backquoteCompat($identifier, 'NONE');
@@ -287,6 +295,7 @@ class Util
      * @return string[]|null the formatted value and its unit
      * @psalm-return ($value is null ? null : array{string, string})
      */
+    #[AsTwigFunction('format_byte_down')]
     public static function formatByteDown(float|int|string|null $value, int $limes = 6, int $comma = 0): array|null
     {
         if ($value === null) {
@@ -357,14 +366,15 @@ class Util
      * echo formatNumber(0, 6);             //       0
      * </code>
      *
-     * @param float|int|string $value          the value to format
-     * @param int              $digitsLeft     number of digits left of the comma
-     * @param int              $digitsRight    number of digits right of the comma
-     * @param bool             $onlyDown       do not reformat numbers below 1
-     * @param bool             $noTrailingZero removes trailing zeros right of the comma (default: true)
+     * @param float|int|numeric-string $value          the value to format
+     * @param int                      $digitsLeft     number of digits left of the comma
+     * @param int                      $digitsRight    number of digits right of the comma
+     * @param bool                     $onlyDown       do not reformat numbers below 1
+     * @param bool                     $noTrailingZero removes trailing zeros right of the comma (default: true)
      *
      * @return string   the formatted value and its unit
      */
+    #[AsTwigFunction('format_number')]
     public static function formatNumber(
         float|int|string $value,
         int $digitsLeft = 3,
@@ -372,56 +382,25 @@ class Util
         bool $onlyDown = false,
         bool $noTrailingZero = true,
     ): string {
-        if ($value == 0) {
+        $value = (float) $value;
+        if ($value === 0.0) {
             return '0';
         }
 
-        if (is_string($value)) {
-            $value = (float) $value;
-        }
-
-        $originalValue = $value;
-        //number_format is not multibyte safe, str_replace is safe
-        if ($digitsLeft === 0) {
-            $value = number_format(
-                (float) $value,
-                $digitsRight,
-                /* l10n: Decimal separator */
-                __('.'),
-                /* l10n: Thousands separator */
-                __(','),
-            );
-            if ($originalValue != 0 && (float) $value == 0) {
-                return ' <' . (1 / 10 ** $digitsRight);
-            }
-
-            return $value;
-        }
-
-        // this units needs no translation, ISO
-        $units = [
-            -8 => 'y',
-            -7 => 'z',
-            -6 => 'a',
-            -5 => 'f',
-            -4 => 'p',
-            -3 => 'n',
-            -2 => 'µ',
-            -1 => 'm',
-            0 => ' ',
-            1 => 'k',
-            2 => 'M',
-            3 => 'G',
-            4 => 'T',
-            5 => 'P',
-            6 => 'E',
-            7 => 'Z',
-            8 => 'Y',
-        ];
         /* l10n: Decimal separator */
         $decimalSep = __('.');
         /* l10n: Thousands separator */
         $thousandsSep = __(',');
+
+        //number_format is not multibyte safe, str_replace is safe
+        if ($digitsLeft === 0) {
+            $value = number_format($value, $digitsRight, $decimalSep, $thousandsSep);
+            if ((float) $value === 0.0) {
+                return '<' . number_format((1 / 10 ** $digitsRight), $digitsRight, $decimalSep, $thousandsSep);
+            }
+
+            return $value;
+        }
 
         // check for negative value to retain sign
         if ($value < 0) {
@@ -434,9 +413,9 @@ class Util
         $dh = 10 ** $digitsRight;
 
         // This gives us the right SI prefix already, but $digits_left parameter not incorporated
-        $d = floor(log10((float) $value) / 3);
+        $d = floor(log10($value) / 3);
         // Lowering the SI prefix by 1 gives us an additional 3 zeros
-        // So if we have 3,6,9,12.. free digits ($digits_left - $cur_digits) to use, then lower the SI prefix
+        // So if we have 3,6,9,12... free digits ($digits_left - $cur_digits) to use, then lower the SI prefix
         $curDigits = floor(log10($value / 1000 ** $d) + 1);
         if ($digitsLeft > $curDigits) {
             $d -= floor(($digitsLeft - $curDigits) / 3);
@@ -446,6 +425,32 @@ class Util
             $d = 0;
         }
 
+        // SI unit prefixes need no translation
+        $units = [
+            -10 => 'q', // quecto
+            -9 => 'r', // ronto
+            -8 => 'y', // yocto
+            -7 => 'z', // zepto
+            -6 => 'a', // atto
+            -5 => 'f', // femto
+            -4 => 'p', // pico
+            -3 => 'n', // nano
+            -2 => 'µ', // micro
+            -1 => 'm', // milli
+            0 => '',
+            1 => 'k', // kilo
+            2 => 'M', // mega
+            3 => 'G', // giga
+            4 => 'T', // tera
+            5 => 'P', // peta
+            6 => 'E', // exa
+            7 => 'Z', // zetta
+            8 => 'Y', // yotta
+            9 => 'R', // ronna
+            10 => 'Q', // quetta
+        ];
+
+        $d = min(max((int) $d, -10), 10);
         $value = round($value / (1000 ** $d / $dh)) / $dh;
         $unit = $units[$d];
 
@@ -456,11 +461,13 @@ class Util
             $formattedValue = preg_replace('/' . preg_quote($decimalSep, '/') . '?0+$/', '', $formattedValue);
         }
 
-        if ($originalValue != 0 && $value == 0) {
-            return ' <' . number_format(1 / 10 ** $digitsRight, $digitsRight, $decimalSep, $thousandsSep) . ' ' . $unit;
+        if ($value === 0.0) {
+            return '<'
+                . number_format(1 / 10 ** $digitsRight, $digitsRight, $decimalSep, $thousandsSep)
+                . ($unit === '' ? '' : ' ' . $unit);
         }
 
-        return $sign . $formattedValue . ' ' . $unit;
+        return $sign . $formattedValue . ($unit === '' ? '' : ' ' . $unit);
     }
 
     /**
@@ -585,6 +592,7 @@ class Util
      *
      * @return string the formatted value
      */
+    #[AsTwigFunction('timespan_format')]
     public static function timespanFormat(int $seconds): string
     {
         $days = floor($seconds / 86400);
@@ -765,7 +773,7 @@ class Util
         }
 
         foreach ($pages as $i) {
-            if ($i == $pageNow) {
+            if ($i === $pageNow) {
                 $selected = 'selected style="font-weight: bold"';
             } else {
                 $selected = '';
@@ -842,7 +850,7 @@ class Util
     public static function printableBitValue(int $value, int $length): string
     {
         // if running on a 64-bit server or the length is safe for decbin()
-        if (PHP_INT_SIZE == 8 || $length < 33) {
+        if (PHP_INT_SIZE === 8 || $length < 33) {
             $printable = decbin($value);
         } else {
             // FIXME: does not work for the leftmost bit of a 64-bit value
@@ -881,6 +889,7 @@ class Util
      *
      * @return string the converted value
      */
+    #[AsTwigFilter('convert_bit_default_value')]
     public static function convertBitDefaultValue(string|null $bitDefaultValue): string
     {
         return (string) preg_replace(
@@ -909,6 +918,7 @@ class Util
      *  displayed_type : string,
      * }
      */
+    #[AsTwigFunction('extract_column_spec')]
     public static function extractColumnSpec(string $columnSpecification): array
     {
         $firstBracketPos = mb_strpos($columnSpecification, '(');
@@ -1174,6 +1184,7 @@ class Util
     /**
      * This function is to check whether database support UUID
      */
+    #[AsTwigFunction('is_uuid_supported')]
     public static function isUUIDSupported(): bool
     {
         return Compatibility::isUUIDSupported(DatabaseInterface::getInstance());
@@ -1311,6 +1322,7 @@ class Util
      *
      * @return string[]
      */
+    #[AsTwigFunction('parse_enum_set_values')]
     public static function parseEnumSetValues(string $definition, bool $escapeHtml = true): array
     {
         // There is a JS port of the below parser in functions.js
@@ -1801,7 +1813,10 @@ class Util
      * @param string $initialSortOrder Initial sort order
      *
      * @return string Link to be displayed in the table header
+     *
+     * @psalm-api
      */
+    #[AsTwigFunction('sortable_table_header', isSafe: ['html'])]
     public static function sortableTableHeader(string $title, string $sort, string $initialSortOrder = 'ASC'): string
     {
         $requestedSort = 'table';
@@ -1818,7 +1833,7 @@ class Util
         $orderLinkParams = [];
         $orderLinkParams['title'] = __('Sort');
         // If this column was requested to be sorted.
-        if ($requestedSort == $sort) {
+        if ($requestedSort === $sort) {
             if ($requestedSortOrder === 'ASC') {
                 $futureSortOrder = 'DESC';
                 // current sort order is ASC
@@ -1917,7 +1932,10 @@ class Util
 
     public static function getTableListPosition(ServerRequest $request, string $db): int
     {
-        if (! isset($_SESSION['tmpval']['table_limit_offset']) || $_SESSION['tmpval']['table_limit_offset_db'] != $db) {
+        if (
+            ! isset($_SESSION['tmpval']['table_limit_offset'])
+            || $_SESSION['tmpval']['table_limit_offset_db'] !== $db
+        ) {
             $_SESSION['tmpval']['table_limit_offset'] = 0;
             $_SESSION['tmpval']['table_limit_offset_db'] = $db;
         }

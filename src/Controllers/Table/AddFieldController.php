@@ -19,6 +19,7 @@ use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Table\ColumnsDefinition;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
@@ -33,6 +34,7 @@ use function strlen;
 /**
  * Displays add field form and handles it.
  */
+#[Route('/table/add-field', ['GET', 'POST'])]
 final class AddFieldController implements InvocableController
 {
     public function __construct(
@@ -161,9 +163,7 @@ final class AddFieldController implements InvocableController
                 return $this->response->response();
             }
 
-            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
-
-            return $this->response->response();
+            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
         }
 
         $tableName = TableName::tryFrom($request->getParam('table'));
@@ -175,9 +175,7 @@ final class AddFieldController implements InvocableController
                 return $this->response->response();
             }
 
-            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
-
-            return $this->response->response();
+            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
         }
 
         $this->response->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js']);

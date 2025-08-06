@@ -243,7 +243,7 @@ class ImportOds extends ImportPlugin
             $text = $cell->children('text', true);
             $cellAttrs = $cell->attributes('office', true);
 
-            if ($text->count() != 0) {
+            if ($text->count() !== 0) {
                 $attr = $cell->attributes('table', true);
                 $numRepeat = (int) $attr['number-columns-repeated'];
                 $numIterations = $numRepeat !== 0 ? $numRepeat : 1;
@@ -256,7 +256,7 @@ class ImportOds extends ImportPlugin
             }
 
             // skip empty repeats in the last row
-            if ($a == $cellCount) {
+            if ($a === $cellCount) {
                 continue;
             }
 

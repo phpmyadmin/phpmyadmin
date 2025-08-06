@@ -8,6 +8,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\VersionInformation;
 
 use function json_encode;
@@ -15,6 +16,7 @@ use function json_encode;
 /**
  * A caching proxy for retrieving version information from https://www.phpmyadmin.net/.
  */
+#[Route('/version-check', ['GET', 'POST'])]
 final class VersionCheckController implements InvocableController
 {
     public function __construct(
@@ -39,7 +41,7 @@ final class VersionCheckController implements InvocableController
         $latestCompatible = $this->versionInformation->getLatestCompatibleVersion($versionDetails);
         $version = '';
         $date = '';
-        if ($latestCompatible != null) {
+        if ($latestCompatible !== null) {
             $version = $latestCompatible->version;
             $date = $latestCompatible->date;
         }
