@@ -20,6 +20,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Utils\SessionCache;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\TestWith;
 use ReflectionProperty;
 
 use function array_keys;
@@ -958,5 +959,48 @@ class DatabaseInterfaceTest extends AbstractTestCase
 
         self::assertSame([], $dbi->getTables(''));
         $dbiDummy->assertAllQueriesConsumed();
+    }
+
+    /** @param list<non-empty-list<string>>|false $result */
+    #[TestWith([true, [['1']]])]
+    #[TestWith([false, []])]
+    #[TestWith([false, false])]
+    public function testIsSuperUser(bool $expected, array|false $result): void
+    {
+        SessionCache::remove('is_superuser');
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->removeDefaultResults();
+        $dbiDummy->addResult('SELECT 1 FROM mysql.user LIMIT 1', $result);
+        $dbi = $this->createDatabaseInterface($dbiDummy);
+
+        self::assertSame($expected, $dbi->isSuperUser());
+        $dbiDummy->assertAllQueriesConsumed();
+        self::assertSame($expected, SessionCache::get('is_superuser'));
+    }
+
+    #[TestWith([true])]
+    #[TestWith([false])]
+    public function testIsSuperUserFromCache(bool $expected): void
+    {
+        SessionCache::set('is_superuser', $expected);
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->removeDefaultResults();
+        $dbi = $this->createDatabaseInterface($dbiDummy);
+
+        self::assertSame($expected, $dbi->isSuperUser());
+        $dbiDummy->assertAllQueriesConsumed();
+    }
+
+    public function testIsSuperUserWhenNotConnected(): void
+    {
+        SessionCache::remove('is_superuser');
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->removeDefaultResults();
+        $dbi = $this->createDatabaseInterface($dbiDummy);
+        (new ReflectionProperty(DatabaseInterface::class, 'connections'))->setValue($dbi, []);
+
+        self::assertFalse($dbi->isSuperUser());
+        $dbiDummy->assertAllQueriesConsumed();
+        self::assertFalse(SessionCache::has('is_superuser'));
     }
 }
