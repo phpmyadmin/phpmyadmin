@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests;
+namespace PhpMyAdmin\Tests\Dbal;
 
 use PhpMyAdmin\Column;
 use PhpMyAdmin\Config;
@@ -16,6 +16,7 @@ use PhpMyAdmin\I18n\LanguageManager;
 use PhpMyAdmin\Indexes\Index;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\SqlParser\Context;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Utils\SessionCache;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -910,6 +911,52 @@ class DatabaseInterfaceTest extends AbstractTestCase
             '',
         );
         self::assertEquals($column, $dbi->getColumn('test_db', 'test_table', 'test_column'));
+        $dbiDummy->assertAllQueriesConsumed();
+    }
+
+    /**
+     * @param list<non-empty-string>             $expected
+     * @param list<array{non-empty-string}>|bool $result
+     */
+    #[DataProvider('getTablesProvider')]
+    public function testGetTables(array $expected, array|bool $result, bool $isNaturalOrder): void
+    {
+        $config = new Config();
+        $config->settings['NaturalOrder'] = $isNaturalOrder;
+
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addResult('SHOW TABLES FROM `test_db`;', $result, ['Tables_in_test_db']);
+        $dbi = $this->createDatabaseInterface($dbiDummy, $config);
+
+        self::assertSame($expected, $dbi->getTables('test_db'));
+        $dbiDummy->assertAllQueriesConsumed();
+    }
+
+    /** @return iterable<string, array{list<non-empty-string>, list<array{non-empty-string}>|bool, bool}> */
+    public static function getTablesProvider(): iterable
+    {
+        yield 'false' => [[], false, true];
+        yield 'no tables' => [[], [], true];
+        yield 'tables with NaturalOrder sort' => [
+            ['table1', 'table2', 'Table3', 'table10', 'table20', 'table200'],
+            [['Table3'], ['table1'], ['table10'], ['table2'], ['table20'], ['table200']],
+            true,
+        ];
+
+        yield 'tables without NaturalOrder sort' => [
+            ['Table3', 'table1', 'table10', 'table2', 'table20', 'table200'],
+            [['Table3'], ['table1'], ['table10'], ['table2'], ['table20'], ['table200']],
+            false,
+        ];
+    }
+
+    public function testGetTablesWithEmptyDatabaseName(): void
+    {
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->removeDefaultResults();
+        $dbi = $this->createDatabaseInterface($dbiDummy, new Config());
+
+        self::assertSame([], $dbi->getTables(''));
         $dbiDummy->assertAllQueriesConsumed();
     }
 }
