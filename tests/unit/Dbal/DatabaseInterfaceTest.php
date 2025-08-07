@@ -1336,4 +1336,11 @@ final class DatabaseInterfaceTest extends AbstractTestCase
         self::assertSame([], $this->createDatabaseInterface($dbiDummy)->getWarnings());
         $dbiDummy->assertAllQueriesConsumed();
     }
+
+    public function testGetTable(): void
+    {
+        $table = $this->createDatabaseInterface()->getTable('sakila', 'actor');
+        self::assertSame('sakila', $table->getDbName());
+        self::assertSame('actor', $table->getName());
+    }
 }
