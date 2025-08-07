@@ -1140,4 +1140,143 @@ final class DatabaseInterfaceTest extends AbstractTestCase
         $dbiDummy->assertAllQueriesConsumed();
         self::assertFalse(SessionCache::has('is_grantuser'));
     }
+
+    #[TestWith([true, 'CREATE USER ON *.*'])]
+    #[TestWith([true, 'ALL PRIVILEGES ON *.*'])]
+    #[TestWith([false, 'ALL PRIVILEGES ON `test_db_one`.*'])]
+    #[TestWith([false, 'SELECT ON *.*'])]
+    public function testIsCreateUserWithISDisabled(bool $expected, string $privilege): void
+    {
+        $config = new Config();
+        $config->selectedServer['DisableIS'] = true;
+
+        SessionCache::remove('is_createuser');
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->removeDefaultResults();
+        $dbiDummy->addResult(
+            'SHOW GRANTS FOR CURRENT_USER();',
+            [
+                ['GRANT ' . $privilege . ' TO `test_user`@`localhost`'],
+                ['GRANT SELECT ON `test_db_two`.* TO `test_user`@`localhost`'],
+            ],
+        );
+        $dbi = $this->createDatabaseInterface($dbiDummy, $config);
+
+        self::assertSame($expected, $dbi->isCreateUser());
+        $dbiDummy->assertAllQueriesConsumed();
+        self::assertSame($expected, SessionCache::get('is_createuser'));
+    }
+
+    /** @param list<non-empty-list<string>>|false $result */
+    #[TestWith([true, [['1']]])]
+    #[TestWith([false, []])]
+    #[TestWith([false, false])]
+    public function testIsCreateUserWithISEnabled(bool $expected, array|false $result): void
+    {
+        $config = new Config();
+        $config->selectedServer['DisableIS'] = false;
+
+        SessionCache::remove('is_createuser');
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->removeDefaultResults();
+        $dbiDummy->addResult('SELECT CURRENT_USER();', [['test_user@localhost']]);
+        $dbiDummy->addResult(
+            // phpcs:ignore Generic.Files.LineLength.TooLong
+            "SELECT 1 FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE `PRIVILEGE_TYPE` = 'CREATE USER' AND '''test_user''@''localhost''' LIKE `GRANTEE` UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_general_ci AND 'test_user' LIKE `User` AND '' LIKE `Host` LIMIT 1",
+            $result,
+        );
+        $dbi = $this->createDatabaseInterface($dbiDummy, $config);
+
+        self::assertSame($expected, $dbi->isCreateUser());
+        $dbiDummy->assertAllQueriesConsumed();
+        self::assertSame($expected, SessionCache::get('is_createuser'));
+    }
+
+    /** @param list<non-empty-list<string>>|false $result */
+    #[TestWith([true, [['1']]])]
+    #[TestWith([false, []])]
+    #[TestWith([false, false])]
+    public function testIsCreateUserWithPrivilegeOnRole(bool $expected, array|false $result): void
+    {
+        $config = new Config();
+        $config->selectedServer['DisableIS'] = false;
+
+        SessionCache::remove('mysql_cur_role');
+        SessionCache::remove('is_createuser');
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->removeDefaultResults();
+        $dbiDummy->addResult('SELECT CURRENT_USER();', [['test_user@localhost']]);
+        $dbiDummy->addResult(
+            // phpcs:ignore Generic.Files.LineLength.TooLong
+            "SELECT 1 FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE `PRIVILEGE_TYPE` = 'CREATE USER' AND '''test_user''@''localhost''' LIKE `GRANTEE` UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_general_ci AND 'test_user' LIKE `User` AND '' LIKE `Host` LIMIT 1",
+            [],
+        );
+        $dbiDummy->addResult('SELECT CURRENT_ROLE();', [['`role`@`localhost`']]);
+        $dbiDummy->addResult(
+            // phpcs:ignore Generic.Files.LineLength.TooLong
+            "SELECT 1 FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE `PRIVILEGE_TYPE` = 'CREATE USER' AND '''role''@''localhost''' LIKE `GRANTEE` UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_general_ci AND 'role' LIKE `User` AND '' LIKE `Host` LIMIT 1",
+            $result,
+        );
+        $dbi = $this->createDatabaseInterface($dbiDummy, $config);
+        $dbi->setVersion(['@@version' => '10.5.0-MariaDB']);
+
+        self::assertSame($expected, $dbi->isCreateUser());
+        $dbiDummy->assertAllQueriesConsumed();
+        self::assertSame($expected, SessionCache::get('is_createuser'));
+    }
+
+    /** @param list<non-empty-list<string>>|false $result */
+    #[TestWith([[['NONE']]])]
+    #[TestWith([[[null]]])]
+    #[TestWith([[]])]
+    #[TestWith([false])]
+    public function testIsCreateUserWithoutPrivilegeOnRole(array|false $result): void
+    {
+        $config = new Config();
+        $config->selectedServer['DisableIS'] = false;
+
+        SessionCache::remove('mysql_cur_role');
+        SessionCache::remove('is_createuser');
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->removeDefaultResults();
+        $dbiDummy->addResult('SELECT CURRENT_USER();', [['test_user@localhost']]);
+        $dbiDummy->addResult(
+            // phpcs:ignore Generic.Files.LineLength.TooLong
+            "SELECT 1 FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE `PRIVILEGE_TYPE` = 'CREATE USER' AND '''test_user''@''localhost''' LIKE `GRANTEE` UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_general_ci AND 'test_user' LIKE `User` AND '' LIKE `Host` LIMIT 1",
+            [],
+        );
+        $dbiDummy->addResult('SELECT CURRENT_ROLE();', $result);
+        $dbi = $this->createDatabaseInterface($dbiDummy, $config);
+        $dbi->setVersion(['@@version' => '10.5.0-MariaDB']);
+
+        self::assertFalse($dbi->isCreateUser());
+        $dbiDummy->assertAllQueriesConsumed();
+        self::assertFalse(SessionCache::get('is_createuser'));
+    }
+
+    #[TestWith([true])]
+    #[TestWith([false])]
+    public function testIsCreateUserFromCache(bool $expected): void
+    {
+        SessionCache::set('is_createuser', $expected);
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->removeDefaultResults();
+        $dbi = $this->createDatabaseInterface($dbiDummy);
+
+        self::assertSame($expected, $dbi->isCreateUser());
+        $dbiDummy->assertAllQueriesConsumed();
+    }
+
+    public function testIsCreateUserWhenNotConnected(): void
+    {
+        SessionCache::remove('is_createuser');
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->removeDefaultResults();
+        $dbi = $this->createDatabaseInterface($dbiDummy);
+        (new ReflectionProperty(DatabaseInterface::class, 'connections'))->setValue($dbi, []);
+
+        self::assertFalse($dbi->isCreateUser());
+        $dbiDummy->assertAllQueriesConsumed();
+        self::assertFalse(SessionCache::has('is_createuser'));
+    }
 }
