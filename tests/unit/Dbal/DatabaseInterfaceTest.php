@@ -1363,4 +1363,13 @@ final class DatabaseInterfaceTest extends AbstractTestCase
     {
         self::assertSame($expected, $this->createDatabaseInterface()->escapeMysqlWildcards($unescapedString));
     }
+
+    public function testInsertId(): void
+    {
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->removeDefaultResults();
+        $dbiDummy->addResult('SELECT LAST_INSERT_ID();', [['1234']], ['LAST_INSERT_ID()']);
+        self::assertSame(1234, $this->createDatabaseInterface($dbiDummy)->insertId());
+        $dbiDummy->assertAllQueriesConsumed();
+    }
 }
