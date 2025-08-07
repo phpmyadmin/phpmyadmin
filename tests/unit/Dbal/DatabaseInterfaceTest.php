@@ -28,7 +28,7 @@ use function array_keys;
 #[CoversClass(DatabaseInterface::class)]
 #[CoversClass(Column::class)]
 #[CoversClass(Column::class)]
-class DatabaseInterfaceTest extends AbstractTestCase
+final class DatabaseInterfaceTest extends AbstractTestCase
 {
     protected function setUp(): void
     {
@@ -1002,5 +1002,142 @@ class DatabaseInterfaceTest extends AbstractTestCase
         self::assertFalse($dbi->isSuperUser());
         $dbiDummy->assertAllQueriesConsumed();
         self::assertFalse(SessionCache::has('is_superuser'));
+    }
+
+    #[TestWith([true, ' WITH GRANT OPTION'])]
+    #[TestWith([false, ''])]
+    public function testIsGrantUserWithISDisabled(bool $expected, string $grantOption): void
+    {
+        $config = new Config();
+        $config->selectedServer['DisableIS'] = true;
+
+        SessionCache::remove('is_grantuser');
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->removeDefaultResults();
+        $dbiDummy->addResult(
+            'SHOW GRANTS FOR CURRENT_USER();',
+            [
+                ['GRANT ALL PRIVILEGES ON `test_db_one`.* TO `test_user`@`localhost`'],
+                ['GRANT ALL PRIVILEGES ON `test_db_two`.* TO `test_user`@`localhost`' . $grantOption],
+            ],
+        );
+        $dbi = $this->createDatabaseInterface($dbiDummy, $config);
+
+        self::assertSame($expected, $dbi->isGrantUser());
+        $dbiDummy->assertAllQueriesConsumed();
+        self::assertSame($expected, SessionCache::get('is_grantuser'));
+    }
+
+    /** @param list<non-empty-list<string>>|false $result */
+    #[TestWith([true, [['1']]])]
+    #[TestWith([false, []])]
+    #[TestWith([false, false])]
+    public function testIsGrantUserWithISEnabled(bool $expected, array|false $result): void
+    {
+        $config = new Config();
+        $config->selectedServer['DisableIS'] = false;
+
+        SessionCache::remove('is_grantuser');
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->removeDefaultResults();
+        $dbiDummy->addResult('SELECT CURRENT_USER();', [['test_user@localhost']]);
+        $dbiDummy->addResult(
+            // phpcs:ignore Generic.Files.LineLength.TooLong
+            "SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''test_user''@''localhost''' LIKE `GRANTEE` UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_general_ci AND 'test_user' LIKE `User` AND '' LIKE `Host` LIMIT 1",
+            $result,
+        );
+        $dbi = $this->createDatabaseInterface($dbiDummy, $config);
+
+        self::assertSame($expected, $dbi->isGrantUser());
+        $dbiDummy->assertAllQueriesConsumed();
+        self::assertSame($expected, SessionCache::get('is_grantuser'));
+    }
+
+    /** @param list<non-empty-list<string>>|false $result */
+    #[TestWith([true, [['1']]])]
+    #[TestWith([false, []])]
+    #[TestWith([false, false])]
+    public function testIsGrantUserWithGrantOnRole(bool $expected, array|false $result): void
+    {
+        $config = new Config();
+        $config->selectedServer['DisableIS'] = false;
+
+        SessionCache::remove('mysql_cur_role');
+        SessionCache::remove('is_grantuser');
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->removeDefaultResults();
+        $dbiDummy->addResult('SELECT CURRENT_USER();', [['test_user@localhost']]);
+        $dbiDummy->addResult(
+            // phpcs:ignore Generic.Files.LineLength.TooLong
+            "SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''test_user''@''localhost''' LIKE `GRANTEE` UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_general_ci AND 'test_user' LIKE `User` AND '' LIKE `Host` LIMIT 1",
+            [],
+        );
+        $dbiDummy->addResult('SELECT CURRENT_ROLE();', [['`role`@`localhost`']]);
+        $dbiDummy->addResult(
+            // phpcs:ignore Generic.Files.LineLength.TooLong
+            "SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''role''@''localhost''' LIKE `GRANTEE` UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_general_ci AND 'role' LIKE `User` AND '' LIKE `Host` LIMIT 1",
+            $result,
+        );
+        $dbi = $this->createDatabaseInterface($dbiDummy, $config);
+        $dbi->setVersion(['@@version' => '10.5.0-MariaDB']);
+
+        self::assertSame($expected, $dbi->isGrantUser());
+        $dbiDummy->assertAllQueriesConsumed();
+        self::assertSame($expected, SessionCache::get('is_grantuser'));
+    }
+
+    /** @param list<non-empty-list<string>>|false $result */
+    #[TestWith([[['NONE']]])]
+    #[TestWith([[[null]]])]
+    #[TestWith([[]])]
+    #[TestWith([false])]
+    public function testIsGrantUserWithoutGrantOnRole(array|false $result): void
+    {
+        $config = new Config();
+        $config->selectedServer['DisableIS'] = false;
+
+        SessionCache::remove('mysql_cur_role');
+        SessionCache::remove('is_grantuser');
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->removeDefaultResults();
+        $dbiDummy->addResult('SELECT CURRENT_USER();', [['test_user@localhost']]);
+        $dbiDummy->addResult(
+            // phpcs:ignore Generic.Files.LineLength.TooLong
+            "SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''test_user''@''localhost''' LIKE `GRANTEE` UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_general_ci AND 'test_user' LIKE `User` AND '' LIKE `Host` LIMIT 1",
+            [],
+        );
+        $dbiDummy->addResult('SELECT CURRENT_ROLE();', $result);
+        $dbi = $this->createDatabaseInterface($dbiDummy, $config);
+        $dbi->setVersion(['@@version' => '10.5.0-MariaDB']);
+
+        self::assertFalse($dbi->isGrantUser());
+        $dbiDummy->assertAllQueriesConsumed();
+        self::assertFalse(SessionCache::get('is_grantuser'));
+    }
+
+    #[TestWith([true])]
+    #[TestWith([false])]
+    public function testIsGrantUserFromCache(bool $expected): void
+    {
+        SessionCache::set('is_grantuser', $expected);
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->removeDefaultResults();
+        $dbi = $this->createDatabaseInterface($dbiDummy);
+
+        self::assertSame($expected, $dbi->isGrantUser());
+        $dbiDummy->assertAllQueriesConsumed();
+    }
+
+    public function testIsGrantUserWhenNotConnected(): void
+    {
+        SessionCache::remove('is_grantuser');
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->removeDefaultResults();
+        $dbi = $this->createDatabaseInterface($dbiDummy);
+        (new ReflectionProperty(DatabaseInterface::class, 'connections'))->setValue($dbi, []);
+
+        self::assertFalse($dbi->isGrantUser());
+        $dbiDummy->assertAllQueriesConsumed();
+        self::assertFalse(SessionCache::has('is_grantuser'));
     }
 }
