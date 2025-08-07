@@ -1343,4 +1343,15 @@ final class DatabaseInterfaceTest extends AbstractTestCase
         self::assertSame('sakila', $table->getDbName());
         self::assertSame('actor', $table->getName());
     }
+
+    #[TestWith(['KILL 1234;', false, false])]
+    #[TestWith(['KILL 1234;', true, false])]
+    #[TestWith(['KILL 1234;', false, true])]
+    #[TestWith(['CALL mysql.rds_kill(1234);', true, true])]
+    public function testGetKillQuery(string $expected, bool $isSuperUser, bool $isAmazonRds): void
+    {
+        SessionCache::set('is_superuser', $isSuperUser);
+        SessionCache::set('is_amazon_rds', $isAmazonRds);
+        self::assertSame($expected, $this->createDatabaseInterface()->getKillQuery(1234));
+    }
 }
