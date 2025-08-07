@@ -233,6 +233,7 @@ final class DatabaseInterfaceTest extends AbstractTestCase
     public function testPostConnectShouldSetVersion(
         array $version,
         int $versionInt,
+        bool $isMySql,
         bool $isMariaDb,
         bool $isPercona,
     ): void {
@@ -250,9 +251,12 @@ final class DatabaseInterfaceTest extends AbstractTestCase
 
         $mock->postConnect(new Server(['SessionTimeZone' => '']));
 
-        self::assertSame($mock->getVersion(), $versionInt);
-        self::assertSame($mock->isMariaDB(), $isMariaDb);
-        self::assertSame($mock->isPercona(), $isPercona);
+        self::assertSame($versionInt, $mock->getVersion());
+        self::assertSame($isMySql, $mock->isMySql());
+        self::assertSame($isMariaDb, $mock->isMariaDB());
+        self::assertSame($isPercona, $mock->isPercona());
+        self::assertSame($version['@@version'], $mock->getVersionString());
+        self::assertSame($version['@@version_comment'], $mock->getVersionComment());
     }
 
     /**
@@ -784,6 +788,7 @@ final class DatabaseInterfaceTest extends AbstractTestCase
     public function testSetVersion(
         array $version,
         int $versionInt,
+        bool $isMySql,
         bool $isMariaDb,
         bool $isPercona,
     ): void {
@@ -793,16 +798,17 @@ final class DatabaseInterfaceTest extends AbstractTestCase
         $dbi->setVersion($version);
 
         self::assertSame($versionInt, $dbi->getVersion());
+        self::assertSame($isMySql, $dbi->isMySql());
         self::assertSame($isMariaDb, $dbi->isMariaDB());
         self::assertSame($isPercona, $dbi->isPercona());
         self::assertSame($version['@@version'], $dbi->getVersionString());
+        self::assertSame($version['@@version_comment'], $dbi->getVersionComment());
     }
 
     /**
      * Data provider for setVersion() tests.
      *
-     * @return mixed[]
-     * @psalm-return array<int, array{array<array-key, mixed>, int, bool, bool}>
+     * @return array<int, array{array<array-key, mixed>, int, bool, bool, bool}>
      */
     public static function provideDatabaseVersionData(): array
     {
@@ -813,6 +819,7 @@ final class DatabaseInterfaceTest extends AbstractTestCase
                     '@@version_comment' => "Percona Server (GPL), Release '11', Revision 'c1y2gr1df4a'",
                 ],
                 60100,
+                true,
                 false,
                 true,
             ],
@@ -822,11 +829,18 @@ final class DatabaseInterfaceTest extends AbstractTestCase
                     '@@version_comment' => 'mariadb.org binary distribution',
                 ],
                 100140,
+                false,
                 true,
                 false,
             ],
-            [['@@version' => '7.10.3', '@@version_comment' => 'MySQL Community Server (GPL)'], 71003, false, false],
-            [['@@version' => '5.5.0', '@@version_comment' => ''], 50500, false, false],
+            [
+                ['@@version' => '7.10.3', '@@version_comment' => 'MySQL Community Server (GPL)'],
+                71003,
+                true,
+                false,
+                false,
+            ],
+            [['@@version' => '5.5.0', '@@version_comment' => ''], 50500, true, false, false],
         ];
     }
 
