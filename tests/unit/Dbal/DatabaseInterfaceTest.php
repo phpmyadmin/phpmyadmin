@@ -1354,4 +1354,13 @@ final class DatabaseInterfaceTest extends AbstractTestCase
         SessionCache::set('is_amazon_rds', $isAmazonRds);
         self::assertSame($expected, $this->createDatabaseInterface()->getKillQuery(1234));
     }
+
+    #[TestWith(['test\\\string\\\\', 'test\string\\'])]
+    #[TestWith(['test\_string\_', 'test_string_'])]
+    #[TestWith(['test\%string\%', 'test%string%'])]
+    #[TestWith(['\%test\\\string\_', '%test\string_'])]
+    public function testEscapeMysqlWildcards(string $expected, string $unescapedString): void
+    {
+        self::assertSame($expected, $this->createDatabaseInterface()->escapeMysqlWildcards($unescapedString));
+    }
 }
