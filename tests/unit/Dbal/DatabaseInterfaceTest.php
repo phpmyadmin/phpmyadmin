@@ -1287,4 +1287,39 @@ final class DatabaseInterfaceTest extends AbstractTestCase
             $this->createDatabaseInterface()->getCompatibilities(),
         );
     }
+
+    public function testGetWarnings(): void
+    {
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->removeDefaultResults();
+        $dbiDummy->addResult(
+            'SHOW WARNINGS',
+            [['Note', '1051', "Unknown table 'test.no_such_table'"], ['Error', '1046', 'No database selected']],
+            ['Level', 'Code', 'Message'],
+        );
+        $dbi = $this->createDatabaseInterface($dbiDummy);
+        $warnings = $dbi->getWarnings();
+        $dbiDummy->assertAllQueriesConsumed();
+        self::assertCount(2, $warnings);
+        $warning = $warnings[0];
+        self::assertSame('Note', $warning->level);
+        self::assertSame(1051, $warning->code);
+        self::assertSame("Unknown table 'test.no_such_table'", $warning->message);
+        $warning = $warnings[1];
+        self::assertSame('Error', $warning->level);
+        self::assertSame(1046, $warning->code);
+        self::assertSame('No database selected', $warning->message);
+    }
+
+    /** @param list<non-empty-list<string>>|false $result */
+    #[TestWith([[]])]
+    #[TestWith([false])]
+    public function testGetWarningsReturnsEmpty(array|false $result): void
+    {
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->removeDefaultResults();
+        $dbiDummy->addResult('SHOW WARNINGS', $result, ['Level', 'Code', 'Message']);
+        self::assertSame([], $this->createDatabaseInterface($dbiDummy)->getWarnings());
+        $dbiDummy->assertAllQueriesConsumed();
+    }
 }
