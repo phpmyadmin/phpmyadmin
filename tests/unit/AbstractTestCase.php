@@ -73,9 +73,11 @@ abstract class AbstractTestCase extends TestCase
         ContainerBuilder::$container = null;
     }
 
-    protected function createDatabaseInterface(DbiExtension|null $extension = null): DatabaseInterface
-    {
-        return DatabaseInterface::getInstanceForTest($extension ?? $this->createDbiDummy());
+    protected function createDatabaseInterface(
+        DbiExtension|null $extension = null,
+        Config|null $config = null,
+    ): DatabaseInterface {
+        return DatabaseInterface::getInstanceForTest($extension ?? $this->createDbiDummy(), $config);
     }
 
     protected function createDbiDummy(): DbiDummy

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests;
+namespace PhpMyAdmin\Tests\Dbal;
 
 use PhpMyAdmin\Column;
 use PhpMyAdmin\Config;
@@ -16,9 +16,11 @@ use PhpMyAdmin\I18n\LanguageManager;
 use PhpMyAdmin\Indexes\Index;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\SqlParser\Context;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Utils\SessionCache;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\TestWith;
 use ReflectionProperty;
 
 use function array_keys;
@@ -26,7 +28,7 @@ use function array_keys;
 #[CoversClass(DatabaseInterface::class)]
 #[CoversClass(Column::class)]
 #[CoversClass(Column::class)]
-class DatabaseInterfaceTest extends AbstractTestCase
+final class DatabaseInterfaceTest extends AbstractTestCase
 {
     protected function setUp(): void
     {
@@ -231,6 +233,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
     public function testPostConnectShouldSetVersion(
         array $version,
         int $versionInt,
+        bool $isMySql,
         bool $isMariaDb,
         bool $isPercona,
     ): void {
@@ -248,9 +251,12 @@ class DatabaseInterfaceTest extends AbstractTestCase
 
         $mock->postConnect(new Server(['SessionTimeZone' => '']));
 
-        self::assertSame($mock->getVersion(), $versionInt);
-        self::assertSame($mock->isMariaDB(), $isMariaDb);
-        self::assertSame($mock->isPercona(), $isPercona);
+        self::assertSame($versionInt, $mock->getVersion());
+        self::assertSame($isMySql, $mock->isMySql());
+        self::assertSame($isMariaDb, $mock->isMariaDB());
+        self::assertSame($isPercona, $mock->isPercona());
+        self::assertSame($version['@@version'], $mock->getVersionString());
+        self::assertSame($version['@@version_comment'], $mock->getVersionComment());
     }
 
     /**
@@ -782,6 +788,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
     public function testSetVersion(
         array $version,
         int $versionInt,
+        bool $isMySql,
         bool $isMariaDb,
         bool $isPercona,
     ): void {
@@ -791,16 +798,17 @@ class DatabaseInterfaceTest extends AbstractTestCase
         $dbi->setVersion($version);
 
         self::assertSame($versionInt, $dbi->getVersion());
+        self::assertSame($isMySql, $dbi->isMySql());
         self::assertSame($isMariaDb, $dbi->isMariaDB());
         self::assertSame($isPercona, $dbi->isPercona());
         self::assertSame($version['@@version'], $dbi->getVersionString());
+        self::assertSame($version['@@version_comment'], $dbi->getVersionComment());
     }
 
     /**
      * Data provider for setVersion() tests.
      *
-     * @return mixed[]
-     * @psalm-return array<int, array{array<array-key, mixed>, int, bool, bool}>
+     * @return array<int, array{array<array-key, mixed>, int, bool, bool, bool}>
      */
     public static function provideDatabaseVersionData(): array
     {
@@ -811,6 +819,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
                     '@@version_comment' => "Percona Server (GPL), Release '11', Revision 'c1y2gr1df4a'",
                 ],
                 60100,
+                true,
                 false,
                 true,
             ],
@@ -820,11 +829,18 @@ class DatabaseInterfaceTest extends AbstractTestCase
                     '@@version_comment' => 'mariadb.org binary distribution',
                 ],
                 100140,
+                false,
                 true,
                 false,
             ],
-            [['@@version' => '7.10.3', '@@version_comment' => 'MySQL Community Server (GPL)'], 71003, false, false],
-            [['@@version' => '5.5.0', '@@version_comment' => ''], 50500, false, false],
+            [
+                ['@@version' => '7.10.3', '@@version_comment' => 'MySQL Community Server (GPL)'],
+                71003,
+                true,
+                false,
+                false,
+            ],
+            [['@@version' => '5.5.0', '@@version_comment' => ''], 50500, true, false, false],
         ];
     }
 
@@ -910,6 +926,450 @@ class DatabaseInterfaceTest extends AbstractTestCase
             '',
         );
         self::assertEquals($column, $dbi->getColumn('test_db', 'test_table', 'test_column'));
+        $dbiDummy->assertAllQueriesConsumed();
+    }
+
+    /**
+     * @param list<non-empty-string>             $expected
+     * @param list<array{non-empty-string}>|bool $result
+     */
+    #[DataProvider('getTablesProvider')]
+    public function testGetTables(array $expected, array|bool $result, bool $isNaturalOrder): void
+    {
+        $config = new Config();
+        $config->settings['NaturalOrder'] = $isNaturalOrder;
+
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addResult('SHOW TABLES FROM `test_db`;', $result, ['Tables_in_test_db']);
+        $dbi = $this->createDatabaseInterface($dbiDummy, $config);
+
+        self::assertSame($expected, $dbi->getTables('test_db'));
+        $dbiDummy->assertAllQueriesConsumed();
+    }
+
+    /** @return iterable<string, array{list<non-empty-string>, list<array{non-empty-string}>|bool, bool}> */
+    public static function getTablesProvider(): iterable
+    {
+        yield 'false' => [[], false, true];
+        yield 'no tables' => [[], [], true];
+        yield 'tables with NaturalOrder sort' => [
+            ['table1', 'table2', 'Table3', 'table10', 'table20', 'table200'],
+            [['Table3'], ['table1'], ['table10'], ['table2'], ['table20'], ['table200']],
+            true,
+        ];
+
+        yield 'tables without NaturalOrder sort' => [
+            ['Table3', 'table1', 'table10', 'table2', 'table20', 'table200'],
+            [['Table3'], ['table1'], ['table10'], ['table2'], ['table20'], ['table200']],
+            false,
+        ];
+    }
+
+    public function testGetTablesWithEmptyDatabaseName(): void
+    {
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->removeDefaultResults();
+        $dbi = $this->createDatabaseInterface($dbiDummy, new Config());
+
+        self::assertSame([], $dbi->getTables(''));
+        $dbiDummy->assertAllQueriesConsumed();
+    }
+
+    /** @param list<non-empty-list<string>>|false $result */
+    #[TestWith([true, [['1']]])]
+    #[TestWith([false, []])]
+    #[TestWith([false, false])]
+    public function testIsSuperUser(bool $expected, array|false $result): void
+    {
+        SessionCache::remove('is_superuser');
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->removeDefaultResults();
+        $dbiDummy->addResult('SELECT 1 FROM mysql.user LIMIT 1', $result);
+        $dbi = $this->createDatabaseInterface($dbiDummy);
+
+        self::assertSame($expected, $dbi->isSuperUser());
+        $dbiDummy->assertAllQueriesConsumed();
+        self::assertSame($expected, SessionCache::get('is_superuser'));
+    }
+
+    #[TestWith([true])]
+    #[TestWith([false])]
+    public function testIsSuperUserFromCache(bool $expected): void
+    {
+        SessionCache::set('is_superuser', $expected);
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->removeDefaultResults();
+        $dbi = $this->createDatabaseInterface($dbiDummy);
+
+        self::assertSame($expected, $dbi->isSuperUser());
+        $dbiDummy->assertAllQueriesConsumed();
+    }
+
+    public function testIsSuperUserWhenNotConnected(): void
+    {
+        SessionCache::remove('is_superuser');
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->removeDefaultResults();
+        $dbi = $this->createDatabaseInterface($dbiDummy);
+        (new ReflectionProperty(DatabaseInterface::class, 'connections'))->setValue($dbi, []);
+
+        self::assertFalse($dbi->isSuperUser());
+        $dbiDummy->assertAllQueriesConsumed();
+        self::assertFalse(SessionCache::has('is_superuser'));
+    }
+
+    #[TestWith([true, ' WITH GRANT OPTION'])]
+    #[TestWith([false, ''])]
+    public function testIsGrantUserWithISDisabled(bool $expected, string $grantOption): void
+    {
+        $config = new Config();
+        $config->selectedServer['DisableIS'] = true;
+
+        SessionCache::remove('is_grantuser');
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->removeDefaultResults();
+        $dbiDummy->addResult(
+            'SHOW GRANTS FOR CURRENT_USER();',
+            [
+                ['GRANT ALL PRIVILEGES ON `test_db_one`.* TO `test_user`@`localhost`'],
+                ['GRANT ALL PRIVILEGES ON `test_db_two`.* TO `test_user`@`localhost`' . $grantOption],
+            ],
+        );
+        $dbi = $this->createDatabaseInterface($dbiDummy, $config);
+
+        self::assertSame($expected, $dbi->isGrantUser());
+        $dbiDummy->assertAllQueriesConsumed();
+        self::assertSame($expected, SessionCache::get('is_grantuser'));
+    }
+
+    /** @param list<non-empty-list<string>>|false $result */
+    #[TestWith([true, [['1']]])]
+    #[TestWith([false, []])]
+    #[TestWith([false, false])]
+    public function testIsGrantUserWithISEnabled(bool $expected, array|false $result): void
+    {
+        $config = new Config();
+        $config->selectedServer['DisableIS'] = false;
+
+        SessionCache::remove('is_grantuser');
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->removeDefaultResults();
+        $dbiDummy->addResult('SELECT CURRENT_USER();', [['test_user@localhost']]);
+        $dbiDummy->addResult(
+            // phpcs:ignore Generic.Files.LineLength.TooLong
+            "SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''test_user''@''localhost''' LIKE `GRANTEE` UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_general_ci AND 'test_user' LIKE `User` AND '' LIKE `Host` LIMIT 1",
+            $result,
+        );
+        $dbi = $this->createDatabaseInterface($dbiDummy, $config);
+
+        self::assertSame($expected, $dbi->isGrantUser());
+        $dbiDummy->assertAllQueriesConsumed();
+        self::assertSame($expected, SessionCache::get('is_grantuser'));
+    }
+
+    /** @param list<non-empty-list<string>>|false $result */
+    #[TestWith([true, [['1']]])]
+    #[TestWith([false, []])]
+    #[TestWith([false, false])]
+    public function testIsGrantUserWithGrantOnRole(bool $expected, array|false $result): void
+    {
+        $config = new Config();
+        $config->selectedServer['DisableIS'] = false;
+
+        SessionCache::remove('mysql_cur_role');
+        SessionCache::remove('is_grantuser');
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->removeDefaultResults();
+        $dbiDummy->addResult('SELECT CURRENT_USER();', [['test_user@localhost']]);
+        $dbiDummy->addResult(
+            // phpcs:ignore Generic.Files.LineLength.TooLong
+            "SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''test_user''@''localhost''' LIKE `GRANTEE` UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_general_ci AND 'test_user' LIKE `User` AND '' LIKE `Host` LIMIT 1",
+            [],
+        );
+        $dbiDummy->addResult('SELECT CURRENT_ROLE();', [['`role`@`localhost`']]);
+        $dbiDummy->addResult(
+            // phpcs:ignore Generic.Files.LineLength.TooLong
+            "SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''role''@''localhost''' LIKE `GRANTEE` UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_general_ci AND 'role' LIKE `User` AND '' LIKE `Host` LIMIT 1",
+            $result,
+        );
+        $dbi = $this->createDatabaseInterface($dbiDummy, $config);
+        $dbi->setVersion(['@@version' => '10.5.0-MariaDB']);
+
+        self::assertSame($expected, $dbi->isGrantUser());
+        $dbiDummy->assertAllQueriesConsumed();
+        self::assertSame($expected, SessionCache::get('is_grantuser'));
+    }
+
+    /** @param list<non-empty-list<string>>|false $result */
+    #[TestWith([[['NONE']]])]
+    #[TestWith([[[null]]])]
+    #[TestWith([[]])]
+    #[TestWith([false])]
+    public function testIsGrantUserWithoutGrantOnRole(array|false $result): void
+    {
+        $config = new Config();
+        $config->selectedServer['DisableIS'] = false;
+
+        SessionCache::remove('mysql_cur_role');
+        SessionCache::remove('is_grantuser');
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->removeDefaultResults();
+        $dbiDummy->addResult('SELECT CURRENT_USER();', [['test_user@localhost']]);
+        $dbiDummy->addResult(
+            // phpcs:ignore Generic.Files.LineLength.TooLong
+            "SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''test_user''@''localhost''' LIKE `GRANTEE` UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_general_ci AND 'test_user' LIKE `User` AND '' LIKE `Host` LIMIT 1",
+            [],
+        );
+        $dbiDummy->addResult('SELECT CURRENT_ROLE();', $result);
+        $dbi = $this->createDatabaseInterface($dbiDummy, $config);
+        $dbi->setVersion(['@@version' => '10.5.0-MariaDB']);
+
+        self::assertFalse($dbi->isGrantUser());
+        $dbiDummy->assertAllQueriesConsumed();
+        self::assertFalse(SessionCache::get('is_grantuser'));
+    }
+
+    #[TestWith([true])]
+    #[TestWith([false])]
+    public function testIsGrantUserFromCache(bool $expected): void
+    {
+        SessionCache::set('is_grantuser', $expected);
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->removeDefaultResults();
+        $dbi = $this->createDatabaseInterface($dbiDummy);
+
+        self::assertSame($expected, $dbi->isGrantUser());
+        $dbiDummy->assertAllQueriesConsumed();
+    }
+
+    public function testIsGrantUserWhenNotConnected(): void
+    {
+        SessionCache::remove('is_grantuser');
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->removeDefaultResults();
+        $dbi = $this->createDatabaseInterface($dbiDummy);
+        (new ReflectionProperty(DatabaseInterface::class, 'connections'))->setValue($dbi, []);
+
+        self::assertFalse($dbi->isGrantUser());
+        $dbiDummy->assertAllQueriesConsumed();
+        self::assertFalse(SessionCache::has('is_grantuser'));
+    }
+
+    #[TestWith([true, 'CREATE USER ON *.*'])]
+    #[TestWith([true, 'ALL PRIVILEGES ON *.*'])]
+    #[TestWith([false, 'ALL PRIVILEGES ON `test_db_one`.*'])]
+    #[TestWith([false, 'SELECT ON *.*'])]
+    public function testIsCreateUserWithISDisabled(bool $expected, string $privilege): void
+    {
+        $config = new Config();
+        $config->selectedServer['DisableIS'] = true;
+
+        SessionCache::remove('is_createuser');
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->removeDefaultResults();
+        $dbiDummy->addResult(
+            'SHOW GRANTS FOR CURRENT_USER();',
+            [
+                ['GRANT ' . $privilege . ' TO `test_user`@`localhost`'],
+                ['GRANT SELECT ON `test_db_two`.* TO `test_user`@`localhost`'],
+            ],
+        );
+        $dbi = $this->createDatabaseInterface($dbiDummy, $config);
+
+        self::assertSame($expected, $dbi->isCreateUser());
+        $dbiDummy->assertAllQueriesConsumed();
+        self::assertSame($expected, SessionCache::get('is_createuser'));
+    }
+
+    /** @param list<non-empty-list<string>>|false $result */
+    #[TestWith([true, [['1']]])]
+    #[TestWith([false, []])]
+    #[TestWith([false, false])]
+    public function testIsCreateUserWithISEnabled(bool $expected, array|false $result): void
+    {
+        $config = new Config();
+        $config->selectedServer['DisableIS'] = false;
+
+        SessionCache::remove('is_createuser');
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->removeDefaultResults();
+        $dbiDummy->addResult('SELECT CURRENT_USER();', [['test_user@localhost']]);
+        $dbiDummy->addResult(
+            // phpcs:ignore Generic.Files.LineLength.TooLong
+            "SELECT 1 FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE `PRIVILEGE_TYPE` = 'CREATE USER' AND '''test_user''@''localhost''' LIKE `GRANTEE` UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_general_ci AND 'test_user' LIKE `User` AND '' LIKE `Host` LIMIT 1",
+            $result,
+        );
+        $dbi = $this->createDatabaseInterface($dbiDummy, $config);
+
+        self::assertSame($expected, $dbi->isCreateUser());
+        $dbiDummy->assertAllQueriesConsumed();
+        self::assertSame($expected, SessionCache::get('is_createuser'));
+    }
+
+    /** @param list<non-empty-list<string>>|false $result */
+    #[TestWith([true, [['1']]])]
+    #[TestWith([false, []])]
+    #[TestWith([false, false])]
+    public function testIsCreateUserWithPrivilegeOnRole(bool $expected, array|false $result): void
+    {
+        $config = new Config();
+        $config->selectedServer['DisableIS'] = false;
+
+        SessionCache::remove('mysql_cur_role');
+        SessionCache::remove('is_createuser');
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->removeDefaultResults();
+        $dbiDummy->addResult('SELECT CURRENT_USER();', [['test_user@localhost']]);
+        $dbiDummy->addResult(
+            // phpcs:ignore Generic.Files.LineLength.TooLong
+            "SELECT 1 FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE `PRIVILEGE_TYPE` = 'CREATE USER' AND '''test_user''@''localhost''' LIKE `GRANTEE` UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_general_ci AND 'test_user' LIKE `User` AND '' LIKE `Host` LIMIT 1",
+            [],
+        );
+        $dbiDummy->addResult('SELECT CURRENT_ROLE();', [['`role`@`localhost`']]);
+        $dbiDummy->addResult(
+            // phpcs:ignore Generic.Files.LineLength.TooLong
+            "SELECT 1 FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE `PRIVILEGE_TYPE` = 'CREATE USER' AND '''role''@''localhost''' LIKE `GRANTEE` UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_general_ci AND 'role' LIKE `User` AND '' LIKE `Host` LIMIT 1",
+            $result,
+        );
+        $dbi = $this->createDatabaseInterface($dbiDummy, $config);
+        $dbi->setVersion(['@@version' => '10.5.0-MariaDB']);
+
+        self::assertSame($expected, $dbi->isCreateUser());
+        $dbiDummy->assertAllQueriesConsumed();
+        self::assertSame($expected, SessionCache::get('is_createuser'));
+    }
+
+    /** @param list<non-empty-list<string>>|false $result */
+    #[TestWith([[['NONE']]])]
+    #[TestWith([[[null]]])]
+    #[TestWith([[]])]
+    #[TestWith([false])]
+    public function testIsCreateUserWithoutPrivilegeOnRole(array|false $result): void
+    {
+        $config = new Config();
+        $config->selectedServer['DisableIS'] = false;
+
+        SessionCache::remove('mysql_cur_role');
+        SessionCache::remove('is_createuser');
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->removeDefaultResults();
+        $dbiDummy->addResult('SELECT CURRENT_USER();', [['test_user@localhost']]);
+        $dbiDummy->addResult(
+            // phpcs:ignore Generic.Files.LineLength.TooLong
+            "SELECT 1 FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE `PRIVILEGE_TYPE` = 'CREATE USER' AND '''test_user''@''localhost''' LIKE `GRANTEE` UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_general_ci AND 'test_user' LIKE `User` AND '' LIKE `Host` LIMIT 1",
+            [],
+        );
+        $dbiDummy->addResult('SELECT CURRENT_ROLE();', $result);
+        $dbi = $this->createDatabaseInterface($dbiDummy, $config);
+        $dbi->setVersion(['@@version' => '10.5.0-MariaDB']);
+
+        self::assertFalse($dbi->isCreateUser());
+        $dbiDummy->assertAllQueriesConsumed();
+        self::assertFalse(SessionCache::get('is_createuser'));
+    }
+
+    #[TestWith([true])]
+    #[TestWith([false])]
+    public function testIsCreateUserFromCache(bool $expected): void
+    {
+        SessionCache::set('is_createuser', $expected);
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->removeDefaultResults();
+        $dbi = $this->createDatabaseInterface($dbiDummy);
+
+        self::assertSame($expected, $dbi->isCreateUser());
+        $dbiDummy->assertAllQueriesConsumed();
+    }
+
+    public function testIsCreateUserWhenNotConnected(): void
+    {
+        SessionCache::remove('is_createuser');
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->removeDefaultResults();
+        $dbi = $this->createDatabaseInterface($dbiDummy);
+        (new ReflectionProperty(DatabaseInterface::class, 'connections'))->setValue($dbi, []);
+
+        self::assertFalse($dbi->isCreateUser());
+        $dbiDummy->assertAllQueriesConsumed();
+        self::assertFalse(SessionCache::has('is_createuser'));
+    }
+
+    public function testGetCompatibilities(): void
+    {
+        self::assertEquals(
+            ['NONE', 'ANSI', 'DB2', 'MAXDB', 'MYSQL323', 'MYSQL40', 'MSSQL', 'ORACLE', 'TRADITIONAL'],
+            $this->createDatabaseInterface()->getCompatibilities(),
+        );
+    }
+
+    public function testGetWarnings(): void
+    {
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->removeDefaultResults();
+        $dbiDummy->addResult(
+            'SHOW WARNINGS',
+            [['Note', '1051', "Unknown table 'test.no_such_table'"], ['Error', '1046', 'No database selected']],
+            ['Level', 'Code', 'Message'],
+        );
+        $dbi = $this->createDatabaseInterface($dbiDummy);
+        $warnings = $dbi->getWarnings();
+        $dbiDummy->assertAllQueriesConsumed();
+        self::assertCount(2, $warnings);
+        $warning = $warnings[0];
+        self::assertSame('Note', $warning->level);
+        self::assertSame(1051, $warning->code);
+        self::assertSame("Unknown table 'test.no_such_table'", $warning->message);
+        $warning = $warnings[1];
+        self::assertSame('Error', $warning->level);
+        self::assertSame(1046, $warning->code);
+        self::assertSame('No database selected', $warning->message);
+    }
+
+    /** @param list<non-empty-list<string>>|false $result */
+    #[TestWith([[]])]
+    #[TestWith([false])]
+    public function testGetWarningsReturnsEmpty(array|false $result): void
+    {
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->removeDefaultResults();
+        $dbiDummy->addResult('SHOW WARNINGS', $result, ['Level', 'Code', 'Message']);
+        self::assertSame([], $this->createDatabaseInterface($dbiDummy)->getWarnings());
+        $dbiDummy->assertAllQueriesConsumed();
+    }
+
+    public function testGetTable(): void
+    {
+        $table = $this->createDatabaseInterface()->getTable('sakila', 'actor');
+        self::assertSame('sakila', $table->getDbName());
+        self::assertSame('actor', $table->getName());
+    }
+
+    #[TestWith(['KILL 1234;', false, false])]
+    #[TestWith(['KILL 1234;', true, false])]
+    #[TestWith(['KILL 1234;', false, true])]
+    #[TestWith(['CALL mysql.rds_kill(1234);', true, true])]
+    public function testGetKillQuery(string $expected, bool $isSuperUser, bool $isAmazonRds): void
+    {
+        SessionCache::set('is_superuser', $isSuperUser);
+        SessionCache::set('is_amazon_rds', $isAmazonRds);
+        self::assertSame($expected, $this->createDatabaseInterface()->getKillQuery(1234));
+    }
+
+    #[TestWith(['test\\\string\\\\', 'test\string\\'])]
+    #[TestWith(['test\_string\_', 'test_string_'])]
+    #[TestWith(['test\%string\%', 'test%string%'])]
+    #[TestWith(['\%test\\\string\_', '%test\string_'])]
+    public function testEscapeMysqlWildcards(string $expected, string $unescapedString): void
+    {
+        self::assertSame($expected, $this->createDatabaseInterface()->escapeMysqlWildcards($unescapedString));
+    }
+
+    public function testInsertId(): void
+    {
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->removeDefaultResults();
+        $dbiDummy->addResult('SELECT LAST_INSERT_ID();', [['1234']], ['LAST_INSERT_ID()']);
+        self::assertSame(1234, $this->createDatabaseInterface($dbiDummy)->insertId());
         $dbiDummy->assertAllQueriesConsumed();
     }
 }

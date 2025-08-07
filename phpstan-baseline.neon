@@ -17305,7 +17305,7 @@ parameters:
 			message: '#^@readonly property PhpMyAdmin\\Config\\Settings\\Debug\:\:\$sql is assigned outside of its declaring class\.$#'
 			identifier: property.readOnlyByPhpDocAssignOutOfClass
 			count: 2
-			path: tests/unit/DatabaseInterfaceTest.php
+			path: tests/unit/Dbal/DatabaseInterfaceTest.php
 
 		-
 			message: '''
@@ -17314,7 +17314,7 @@ parameters:
 			'''
 			identifier: staticMethod.deprecated
 			count: 7
-			path: tests/unit/DatabaseInterfaceTest.php
+			path: tests/unit/Dbal/DatabaseInterfaceTest.php
 
 		-
 			message: '''
@@ -17323,19 +17323,19 @@ parameters:
 			'''
 			identifier: staticMethod.deprecated
 			count: 2
-			path: tests/unit/DatabaseInterfaceTest.php
+			path: tests/unit/Dbal/DatabaseInterfaceTest.php
 
 		-
 			message: '#^Parameter \#2 \$result of method PhpMyAdmin\\Tests\\Stubs\\DbiDummy\:\:addResult\(\) expects bool\|list\<non\-empty\-list\<float\|int\|string\|null\>\>, array\<array\<string\>\>\|false given\.$#'
 			identifier: argument.type
 			count: 1
-			path: tests/unit/DatabaseInterfaceTest.php
+			path: tests/unit/Dbal/DatabaseInterfaceTest.php
 
 		-
 			message: '#^Property PhpMyAdmin\\Config\:\:\$selectedServer \(array\{host\: string, port\: string, socket\: string, ssl\: bool, ssl_key\: string\|null, ssl_cert\: string\|null, ssl_ca\: string\|null, ssl_ca_path\: string\|null, \.\.\.\}\) does not accept array\{host\: string, port\: string, socket\: string, ssl\: bool, ssl_key\: string\|null, ssl_cert\: string\|null, ssl_ca\: string\|null, ssl_ca_path\: string\|null, \.\.\.\}\.$#'
 			identifier: assign.propertyType
 			count: 1
-			path: tests/unit/DatabaseInterfaceTest.php
+			path: tests/unit/Dbal/DatabaseInterfaceTest.php
 
 		-
 			message: '''

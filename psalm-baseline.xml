@@ -10585,7 +10585,7 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
   </file>
-  <file src="tests/unit/DatabaseInterfaceTest.php">
+  <file src="tests/unit/Dbal/DatabaseInterfaceTest.php">
     <ArgumentTypeCoercion>
       <code><![CDATA[$value]]></code>
     </ArgumentTypeCoercion>
