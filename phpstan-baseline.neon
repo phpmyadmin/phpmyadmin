@@ -10111,12 +10111,6 @@ parameters:
 			path: src/Plugins/Export/ExportSql.php
 
 		-
-			message: '#^Call to function in_array\(\) requires parameter \#3 to be set\.$#'
-			identifier: function.strict
-			count: 1
-			path: src/Plugins/Export/ExportSql.php
-
-		-
 			message: '#^Cannot access offset ''alias'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 4
@@ -16120,12 +16114,6 @@ parameters:
 			'''
 			identifier: staticMethod.deprecated
 			count: 15
-			path: tests/unit/ConfigStorage/RelationTest.php
-
-		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) with arguments ''relation'', array\{version\: string, user\: string\|null, db\: string\|null, bookmark\: string\|null, central_columns\: string\|null, column_info\: string\|null, designer_settings\: string\|null, export_templates\: string\|null, \.\.\.\} and ''The cache is…'' will always evaluate to true\.$#'
-			identifier: staticMethod.alreadyNarrowedType
-			count: 3
 			path: tests/unit/ConfigStorage/RelationTest.php
 
 		-

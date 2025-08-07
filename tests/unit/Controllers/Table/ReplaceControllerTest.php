@@ -52,20 +52,20 @@ class ReplaceControllerTest extends AbstractTestCase
         $config->selectedServer['DisableIS'] = false;
 
         $relationParameters = RelationParameters::fromArray([
-            'table_coords' => 'table_name',
-            'displaywork' => true,
-            'db' => 'information_schema',
-            'table_info' => 'table_info',
-            'relwork' => true,
-            'relation' => 'relation',
-            'mimework' => true,
-            'commwork' => true,
-            'column_info' => 'column_info',
-            'pdf_pages' => 'pdf_pages',
-            'bookmarkwork' => true,
-            'bookmark' => 'bookmark',
-            'uiprefswork' => true,
-            'table_uiprefs' => 'table_uiprefs',
+            RelationParameters::TABLE_COORDS => 'table_name',
+            RelationParameters::DISPLAY_WORK => true,
+            RelationParameters::DATABASE => 'information_schema',
+            RelationParameters::TABLE_INFO => 'table_info',
+            RelationParameters::REL_WORK => true,
+            RelationParameters::RELATION => 'relation',
+            RelationParameters::MIME_WORK => true,
+            RelationParameters::COMM_WORK => true,
+            RelationParameters::COLUMN_INFO => 'column_info',
+            RelationParameters::PDF_PAGES => 'pdf_pages',
+            RelationParameters::BOOKMARK_WORK => true,
+            RelationParameters::BOOKMARK => 'bookmark',
+            RelationParameters::UI_PREFS_WORK => true,
+            RelationParameters::TABLE_UI_PREFS => 'table_uiprefs',
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
     }

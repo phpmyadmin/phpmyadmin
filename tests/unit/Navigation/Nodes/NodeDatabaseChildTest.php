@@ -34,9 +34,9 @@ class NodeDatabaseChildTest extends AbstractTestCase
         $config->settings['DefaultTabDatabase'] = '/database/structure';
         $config->settings['ServerDefault'] = 1;
         $relationParameters = RelationParameters::fromArray([
-            'db' => 'pmadb',
-            'navwork' => true,
-            'navigationhiding' => 'navigationhiding',
+            RelationParameters::DATABASE => 'pmadb',
+            RelationParameters::NAV_WORK => true,
+            RelationParameters::NAVIGATION_HIDING => 'navigationhiding',
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
         $this->object = $this->getMockBuilder(NodeDatabaseChild::class)
@@ -61,9 +61,9 @@ class NodeDatabaseChildTest extends AbstractTestCase
     public function testGetHtmlForControlButtons(): void
     {
         $relationParameters = RelationParameters::fromArray([
-            'db' => 'pmadb',
-            'navwork' => true,
-            'navigationhiding' => 'navigationhiding',
+            RelationParameters::DATABASE => 'pmadb',
+            RelationParameters::NAV_WORK => true,
+            RelationParameters::NAVIGATION_HIDING => 'navigationhiding',
         ]);
 
         $parent = new NodeDatabase(Config::getInstance(), 'parent');

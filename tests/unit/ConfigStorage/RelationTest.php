@@ -77,10 +77,10 @@ class RelationTest extends AbstractTestCase
         );
 
         $relationParameters = RelationParameters::fromArray([
-            'displaywork' => true,
-            'db' => 'pmadb',
-            'table_info' => 'table_info',
-            'relation' => 'relation',
+            RelationParameters::DISPLAY_WORK => true,
+            RelationParameters::DATABASE => 'pmadb',
+            RelationParameters::TABLE_INFO => 'table_info',
+            RelationParameters::RELATION => 'relation',
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
@@ -304,9 +304,9 @@ class RelationTest extends AbstractTestCase
         $relation->fixPmaTables('db_pma', false);
 
         $relationParameters = RelationParameters::fromArray([
-            'db' => 'db_pma',
-            'userconfigwork' => true,
-            'userconfig' => 'pma__userconfig',
+            RelationParameters::DATABASE => 'db_pma',
+            RelationParameters::USER_CONFIG_WORK => true,
+            RelationParameters::USER_CONFIG => 'pma__userconfig',
         ]);
         self::assertSame($relationParameters->toArray(), $relation->getRelationParameters()->toArray());
 
@@ -575,9 +575,9 @@ class RelationTest extends AbstractTestCase
         self::assertSame('db_pma', $config->selectedServer['pmadb']);
 
         $relationParameters = RelationParameters::fromArray([
-            'db' => 'db_pma',
-            'userconfigwork' => true,
-            'userconfig' => 'pma__userconfig',
+            RelationParameters::DATABASE => 'db_pma',
+            RelationParameters::USER_CONFIG_WORK => true,
+            RelationParameters::USER_CONFIG => 'pma__userconfig',
         ]);
         self::assertSame($relationParameters->toArray(), $relation->getRelationParameters()->toArray());
 
@@ -856,9 +856,9 @@ class RelationTest extends AbstractTestCase
         self::assertSame('db_pma', $config->selectedServer['pmadb']);
 
         $relationParameters = RelationParameters::fromArray([
-            'db' => 'db_pma',
-            'userconfigwork' => true,
-            'userconfig' => 'pma__userconfig',
+            RelationParameters::DATABASE => 'db_pma',
+            RelationParameters::USER_CONFIG_WORK => true,
+            RelationParameters::USER_CONFIG => 'pma__userconfig',
         ]);
         self::assertSame($relationParameters->toArray(), $relation->getRelationParameters()->toArray());
 
@@ -1547,9 +1547,9 @@ class RelationTest extends AbstractTestCase
 
         // Should all be false for server = 0
         $relationParameters = RelationParameters::fromArray([
-            'db' => 'phpmyadmin',
-            'userconfigwork' => true,
-            'userconfig' => 'pma__userconfig',
+            RelationParameters::DATABASE => 'phpmyadmin',
+            RelationParameters::USER_CONFIG_WORK => true,
+            RelationParameters::USER_CONFIG => 'pma__userconfig',
         ]);
         self::assertSame($relationParameters->toArray(), $relation->getRelationParameters()->toArray());
 
@@ -1633,9 +1633,9 @@ class RelationTest extends AbstractTestCase
         $dummyDbi->assertAllSelectsConsumed();
 
         $relationParameters = RelationParameters::fromArray([
-            'db' => 'phpmyadmin',
-            'userconfigwork' => false,
-            'userconfig' => 'pma__userconfig',
+            RelationParameters::DATABASE => 'phpmyadmin',
+            RelationParameters::USER_CONFIG_WORK => false,
+            RelationParameters::USER_CONFIG => 'pma__userconfig',
         ]);
         self::assertSame($relationParameters->toArray(), $relation->getRelationParameters()->toArray());
 
@@ -1718,9 +1718,9 @@ class RelationTest extends AbstractTestCase
         $relation = new Relation($dbi);
         $relation->initRelationParamsCache();
 
-        self::assertArrayHasKey(
-            'relation',
-            $relation->getRelationParameters()->toArray(),
+        self::assertSame(
+            'pma__userconfig_custom',
+            $relation->getRelationParameters()->toArray()[RelationParameters::USER_CONFIG],
             'The cache is expected to be filled because the custom override'
             . 'was understood (pma__userconfig vs pma__userconfig_custom)',
         );
@@ -1742,9 +1742,9 @@ class RelationTest extends AbstractTestCase
         $dummyDbi->assertAllSelectsConsumed();
 
         $relationParameters = RelationParameters::fromArray([
-            'db' => 'PMA-storage',
-            'userconfigwork' => true,
-            'userconfig' => 'pma__userconfig_custom',
+            RelationParameters::DATABASE => 'PMA-storage',
+            RelationParameters::USER_CONFIG_WORK => true,
+            RelationParameters::USER_CONFIG => 'pma__userconfig_custom',
         ]);
         self::assertSame($relationParameters->toArray(), $relationData->toArray());
 
@@ -1828,14 +1828,8 @@ class RelationTest extends AbstractTestCase
         $relation = new Relation($dbi);
         $relation->initRelationParamsCache();
 
-        /**
-         * TODO: Warning! This test doesn't actually test anything.
-         * The method above does't initialize Relation param cache.
-         * A proper test is needed to verify that the user disabled features result in disabled Relation cache.
-         */
-        self::assertArrayHasKey(
-            'relation',
-            $relation->getRelationParameters()->toArray(),
+        self::assertNull(
+            $relation->getRelationParameters()->toArray()[RelationParameters::TRACKING],
             'The cache is expected to be filled because the custom override'
             . 'was understood',
         );
@@ -1860,9 +1854,9 @@ class RelationTest extends AbstractTestCase
         $dummyDbi->assertAllSelectsConsumed();
 
         $relationParameters = RelationParameters::fromArray([
-            'db' => 'PMA-storage',
-            'trackingwork' => false,
-            'tracking' => false,
+            RelationParameters::DATABASE => 'PMA-storage',
+            RelationParameters::TRACKING_WORK => false,
+            RelationParameters::TRACKING => false,
         ]);
         self::assertSame($relationParameters->toArray(), $relationData->toArray());
         self::assertNull($relationParameters->trackingFeature, 'The feature should not be enabled');
@@ -1952,9 +1946,9 @@ class RelationTest extends AbstractTestCase
         $relation = new Relation($dbi);
         $relation->initRelationParamsCache();
 
-        self::assertArrayHasKey(
-            'relation',
-            $relation->getRelationParameters()->toArray(),
+        self::assertSame(
+            'pma__favorite_custom',
+            $relation->getRelationParameters()->toArray()[RelationParameters::FAVORITE],
             'The cache is expected to be filled because the custom override'
             . 'was understood',
         );
@@ -1966,11 +1960,11 @@ class RelationTest extends AbstractTestCase
         $dummyDbi->assertAllSelectsConsumed();
 
         $relationParameters = RelationParameters::fromArray([
-            'db' => 'PMA-storage',
-            'trackingwork' => false,
-            'tracking' => false,
-            'favorite' => 'pma__favorite_custom',
-            'favoritework' => true,
+            RelationParameters::DATABASE => 'PMA-storage',
+            RelationParameters::TRACKING_WORK => false,
+            RelationParameters::TRACKING => false,
+            RelationParameters::FAVORITE => 'pma__favorite_custom',
+            RelationParameters::FAVORITE_WORK => true,
         ]);
         self::assertSame($relationParameters->toArray(), $relationData->toArray());
         self::assertNull($relationParameters->trackingFeature, 'The feature should not be enabled');
@@ -2184,30 +2178,30 @@ class RelationTest extends AbstractTestCase
         // phpcs:disable Generic.Files.LineLength.TooLong
         return [
             [
-                ['user' => 'user', 'db' => 'pmadb', 'commwork' => true, 'column_info' => 'column_info'],
+                [RelationParameters::USER => 'user', RelationParameters::DATABASE => 'pmadb', RelationParameters::COMM_WORK => true, RelationParameters::COLUMN_INFO => 'column_info'],
                 ['UPDATE `pmadb`.`column_info` SET db_name = \'db_2\', table_name = \'table_2\' WHERE db_name = \'db_1\' AND table_name = \'table_1\''],
             ],
             [
-                ['user' => 'user', 'db' => 'pmadb', 'displaywork' => true, 'relation' => 'relation', 'table_info' => 'table_info'],
+                [RelationParameters::USER => 'user', RelationParameters::DATABASE => 'pmadb', RelationParameters::DISPLAY_WORK => true, RelationParameters::RELATION => 'relation', RelationParameters::TABLE_INFO => 'table_info'],
                 ['UPDATE `pmadb`.`table_info` SET db_name = \'db_2\', table_name = \'table_2\' WHERE db_name = \'db_1\' AND table_name = \'table_1\''],
             ],
             [
-                ['user' => 'user', 'db' => 'pmadb', 'relwork' => true, 'relation' => 'relation'],
+                [RelationParameters::USER => 'user', RelationParameters::DATABASE => 'pmadb', RelationParameters::REL_WORK => true, RelationParameters::RELATION => 'relation'],
                 [
                     'UPDATE `pmadb`.`relation` SET foreign_db = \'db_2\', foreign_table = \'table_2\' WHERE foreign_db = \'db_1\' AND foreign_table = \'table_1\'',
                     'UPDATE `pmadb`.`relation` SET master_db = \'db_2\', master_table = \'table_2\' WHERE master_db = \'db_1\' AND master_table = \'table_1\'',
                 ],
             ],
             [
-                ['user' => 'user', 'db' => 'pmadb', 'pdfwork' => true, 'pdf_pages' => 'pdf_pages', 'table_coords' => 'table_coords'],
+                [RelationParameters::USER => 'user', RelationParameters::DATABASE => 'pmadb', RelationParameters::PDF_WORK => true, RelationParameters::PDF_PAGES => 'pdf_pages', RelationParameters::TABLE_COORDS => 'table_coords'],
                 ['DELETE FROM `pmadb`.`table_coords` WHERE db_name = \'db_1\' AND table_name = \'table_1\''],
             ],
             [
-                ['user' => 'user', 'db' => 'pmadb', 'uiprefswork' => true, 'table_uiprefs' => 'table_uiprefs'],
+                [RelationParameters::USER => 'user', RelationParameters::DATABASE => 'pmadb', RelationParameters::UI_PREFS_WORK => true, RelationParameters::TABLE_UI_PREFS => 'table_uiprefs'],
                 ['UPDATE `pmadb`.`table_uiprefs` SET db_name = \'db_2\', table_name = \'table_2\' WHERE db_name = \'db_1\' AND table_name = \'table_1\''],
             ],
             [
-                ['user' => 'user', 'db' => 'pmadb', 'navwork' => true, 'navigationhiding' => 'navigationhiding'],
+                [RelationParameters::USER => 'user', RelationParameters::DATABASE => 'pmadb', RelationParameters::NAV_WORK => true, RelationParameters::NAVIGATION_HIDING => 'navigationhiding'],
                 [
                     'UPDATE `pmadb`.`navigationhiding` SET db_name = \'db_2\', table_name = \'table_2\' WHERE db_name = \'db_1\' AND table_name = \'table_1\'',
                     'UPDATE `pmadb`.`navigationhiding` SET db_name = \'db_2\', item_name = \'table_2\' WHERE db_name = \'db_1\' AND item_name = \'table_1\' AND item_type = \'table\'',
@@ -2225,11 +2219,11 @@ class RelationTest extends AbstractTestCase
         $relation = new Relation($dbi);
 
         $relationParameters = RelationParameters::fromArray([
-            'user' => 'user',
-            'db' => 'pma`db',
-            'pdfwork' => true,
-            'pdf_pages' => 'pdf_pages',
-            'table_coords' => 'table`coords',
+            RelationParameters::USER => 'user',
+            RelationParameters::DATABASE => 'pma`db',
+            RelationParameters::PDF_WORK => true,
+            RelationParameters::PDF_PAGES => 'pdf_pages',
+            RelationParameters::TABLE_COORDS => 'table`coords',
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 

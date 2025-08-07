@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Export;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
@@ -1000,16 +1001,16 @@ class Export
     public function getMetadataTypes(): array
     {
         return [
-            'column_info',
-            'table_uiprefs',
-            'tracking',
-            'bookmark',
-            'relation',
-            'table_coords',
-            'pdf_pages',
-            'savedsearches',
-            'central_columns',
-            'export_templates',
+            RelationParameters::COLUMN_INFO,
+            RelationParameters::TABLE_UI_PREFS,
+            RelationParameters::TRACKING,
+            RelationParameters::BOOKMARK,
+            RelationParameters::RELATION,
+            RelationParameters::TABLE_COORDS,
+            RelationParameters::PDF_PAGES,
+            RelationParameters::SAVED_SEARCHES,
+            RelationParameters::CENTRAL_COLUMNS,
+            RelationParameters::EXPORT_TEMPLATES,
         ];
     }
 

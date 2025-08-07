@@ -38,9 +38,9 @@ class CreateControllerTest extends AbstractTestCase
     public function testCreate(): void
     {
         $relationParameters = RelationParameters::fromArray([
-            'exporttemplateswork' => true,
-            'db' => 'db',
-            'export_templates' => 'table',
+            RelationParameters::EXPORT_TEMPLATES_WORK => true,
+            RelationParameters::DATABASE => 'db',
+            RelationParameters::EXPORT_TEMPLATES => 'table',
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 

@@ -90,10 +90,10 @@ class UserPreferencesTest extends AbstractTestCase
 
         // case 2
         $relationParameters = RelationParameters::fromArray([
-            'user' => 'user',
-            'db' => "pma'db",
-            'userconfig' => 'testconf',
-            'userconfigwork' => true,
+            RelationParameters::USER => 'user',
+            RelationParameters::DATABASE => "pma'db",
+            RelationParameters::USER_CONFIG => 'testconf',
+            RelationParameters::USER_CONFIG_WORK => true,
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
@@ -163,10 +163,10 @@ class UserPreferencesTest extends AbstractTestCase
 
         // case 2
         $relationParameters = RelationParameters::fromArray([
-            'userconfigwork' => true,
-            'db' => 'pmadb',
-            'userconfig' => 'testconf',
-            'user' => 'user',
+            RelationParameters::USER_CONFIG_WORK => true,
+            RelationParameters::DATABASE => 'pmadb',
+            RelationParameters::USER_CONFIG => 'testconf',
+            RelationParameters::USER => 'user',
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 

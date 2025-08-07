@@ -77,12 +77,12 @@ class SqlQueryFormTest extends AbstractTestCase
         $config->settings['DefaultForeignKeyChecks'] = 'default';
 
         $relationParameters = RelationParameters::fromArray([
-            'table_coords' => 'table_name',
-            'displaywork' => true,
-            'db' => 'information_schema',
-            'table_info' => 'table_info',
-            'relwork' => true,
-            'relation' => 'relation',
+            RelationParameters::TABLE_COORDS => 'table_name',
+            RelationParameters::DISPLAY_WORK => true,
+            RelationParameters::DATABASE => 'information_schema',
+            RelationParameters::TABLE_INFO => 'table_info',
+            RelationParameters::REL_WORK => true,
+            RelationParameters::RELATION => 'relation',
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 

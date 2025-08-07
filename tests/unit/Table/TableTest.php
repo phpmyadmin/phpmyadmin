@@ -927,14 +927,20 @@ class TableTest extends AbstractTestCase
         $newFields = ['field3', 'filed4'];
 
         $relationParameters = RelationParameters::fromArray([
-            'db' => 'PMA_db',
-            'relwork' => true,
-            'relation' => 'relation',
+            RelationParameters::DATABASE => 'PMA_db',
+            RelationParameters::REL_WORK => true,
+            RelationParameters::RELATION => 'relation',
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         $object = new TableMover($this->mockedDbi, new Relation($this->mockedDbi));
-        $ret = $object->duplicateInfo('relwork', 'relation', $getFields, $whereFields, $newFields);
+        $ret = $object->duplicateInfo(
+            RelationParameters::REL_WORK,
+            RelationParameters::RELATION,
+            $getFields,
+            $whereFields,
+            $newFields,
+        );
         self::assertSame(-1, $ret);
     }
 

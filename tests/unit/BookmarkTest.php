@@ -40,9 +40,9 @@ class BookmarkTest extends AbstractTestCase
         $config->settings['ServerDefault'] = 1;
 
         $relationParameters = RelationParameters::fromArray([
-            'bookmarkwork' => true,
-            'db' => 'phpmyadmin',
-            'bookmark' => 'pma_bookmark',
+            RelationParameters::BOOKMARK_WORK => true,
+            RelationParameters::DATABASE => 'phpmyadmin',
+            RelationParameters::BOOKMARK => 'pma_bookmark',
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
     }

@@ -61,10 +61,10 @@ class AddControllerTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->selectedServer['user'] = 'test_user';
         $relationParameters = RelationParameters::fromArray([
-            'user' => 'test_user',
-            'db' => 'pmadb',
-            'bookmarkwork' => true,
-            'bookmark' => 'bookmark',
+            RelationParameters::USER => 'test_user',
+            RelationParameters::DATABASE => 'pmadb',
+            RelationParameters::BOOKMARK_WORK => true,
+            RelationParameters::BOOKMARK => 'bookmark',
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 

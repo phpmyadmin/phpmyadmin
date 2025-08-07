@@ -40,9 +40,9 @@ class NavigationTest extends AbstractTestCase
         $config->settings['ActionLinksMode'] = 'both';
 
         $relationParameters = RelationParameters::fromArray([
-            'db' => 'pmadb',
-            'navwork' => true,
-            'navigationhiding' => 'navigationhiding',
+            RelationParameters::DATABASE => 'pmadb',
+            RelationParameters::NAV_WORK => true,
+            RelationParameters::NAVIGATION_HIDING => 'navigationhiding',
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 

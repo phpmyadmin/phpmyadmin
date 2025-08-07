@@ -39,10 +39,10 @@ class DesignerTest extends AbstractTestCase
 
         $_SESSION = [' PMA_token ' => 'token'];
         $relationParameters = RelationParameters::fromArray([
-            'db' => 'pmadb',
-            'pdf_pages' => 'pdf_pages',
-            'table_coords' => 'table_coords',
-            'pdfwork' => true,
+            RelationParameters::DATABASE => 'pmadb',
+            RelationParameters::PDF_PAGES => 'pdf_pages',
+            RelationParameters::TABLE_COORDS => 'table_coords',
+            RelationParameters::PDF_WORK => true,
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
     }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\Database\RoutineType;
@@ -466,7 +467,13 @@ class Operations
         $getFields = ['user', 'label', 'query'];
         $whereFields = ['dbase' => $db];
         $newFields = ['dbase' => $newDatabaseName->getName()];
-        $this->tableMover->duplicateInfo('bookmarkwork', 'bookmark', $getFields, $whereFields, $newFields);
+        $this->tableMover->duplicateInfo(
+            RelationParameters::BOOKMARK_WORK,
+            RelationParameters::BOOKMARK,
+            $getFields,
+            $whereFields,
+            $newFields,
+        );
     }
 
     /**
