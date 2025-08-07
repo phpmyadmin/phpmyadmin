@@ -1279,4 +1279,12 @@ final class DatabaseInterfaceTest extends AbstractTestCase
         $dbiDummy->assertAllQueriesConsumed();
         self::assertFalse(SessionCache::has('is_createuser'));
     }
+
+    public function testGetCompatibilities(): void
+    {
+        self::assertEquals(
+            ['NONE', 'ANSI', 'DB2', 'MAXDB', 'MYSQL323', 'MYSQL40', 'MSSQL', 'ORACLE', 'TRADITIONAL'],
+            $this->createDatabaseInterface()->getCompatibilities(),
+        );
+    }
 }
