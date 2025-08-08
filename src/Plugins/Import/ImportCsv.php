@@ -64,6 +64,7 @@ class ImportCsv extends AbstractImportCsv
     private string $columns = '';
     private int $maxLines = 0;
     private bool $csvHasColumnNames = false;
+    private bool $emptyValueAsNull = false;
     private string $newDatabaseName = '';
     private string $newTableName = '';
 
@@ -154,6 +155,12 @@ class ImportCsv extends AbstractImportCsv
         }
 
         $leaf = new BoolPropertyItem(
+            'empty_is_null',
+            __('Import empty values as NULL'),
+        );
+        $generalOptions->addProperty($leaf);
+
+        $leaf = new BoolPropertyItem(
             'ignore',
             __('Do not abort on INSERT error'),
         );
@@ -179,6 +186,7 @@ class ImportCsv extends AbstractImportCsv
         $this->columns = $request->getParsedBodyParamAsString('csv_columns', '');
         $this->maxLines = min(0, (int) $request->getParsedBodyParamAsStringOrNull('csv_partial_import'));
         $this->csvHasColumnNames = $request->getParsedBodyParam('csv_col_names') !== null;
+        $this->emptyValueAsNull = $request->getParsedBodyParam('csv_empty_is_null') !== null;
         $this->newDatabaseName = $request->getParsedBodyParamAsString('csv_new_db_name', '');
         $this->newTableName = $request->getParsedBodyParamAsString('csv_new_tbl_name', '');
     }
