@@ -394,11 +394,6 @@ class ImportCsv extends AbstractImportCsv
                         $i += $csvTerminatedLen - 1;
                     }
 
-                    // unquoted NULL string
-                    if ($needEnd === false && $value === 'NULL') {
-                        $value = null;
-                    }
-
                     if ($fail) {
                         $i = $fallbacki;
                         $ch = mb_substr($buffer, $i, 1);
@@ -517,7 +512,7 @@ class ImportCsv extends AbstractImportCsv
                             $sql .= ', ';
                         }
 
-                        if ($val === null || ($this->emptyValueAsNull && $val === '')) {
+                        if ($val === null || ($this->emptyValueAsNull && $val === '') || $val === 'NULL') {
                             $sql .= 'NULL';
                         } else {
                             $sql .= $dbi->quoteString($val);
