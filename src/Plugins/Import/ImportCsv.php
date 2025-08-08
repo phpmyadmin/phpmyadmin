@@ -512,7 +512,7 @@ class ImportCsv extends AbstractImportCsv
                             $sql .= ', ';
                         }
 
-                        if ($val === null || ($this->emptyValueAsNull && $val === '') || $val === 'NULL') {
+                        if ($val === 'NULL' || ($this->emptyValueAsNull && $val === '')) {
                             $sql .= 'NULL';
                         } else {
                             $sql .= $dbi->quoteString($val);
@@ -568,12 +568,16 @@ class ImportCsv extends AbstractImportCsv
             if ($this->emptyValueAsNull) {
                 foreach ($rows as &$row) {
                     foreach ($row as &$value) {
-                        if ($value === '') {
-                            $value = 'NULL';
+                        if ($value !== '') {
+                            continue;
                         }
+
+                        $value = 'NULL';
                     }
+
                     unset($value);
                 }
+
                 unset($row);
             }
 
