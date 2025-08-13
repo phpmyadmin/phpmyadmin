@@ -594,16 +594,19 @@ final class StructureController implements InvocableController
             $searchDoDBInTruename = array_search($table, $replicaInfo['Do_DB']);
             $searchDoDBInDB = array_search(Current::$database, $replicaInfo['Do_DB']);
 
-            $do = (is_string($searchDoDBInTruename) && $searchDoDBInTruename !== '')
-                || (is_string($searchDoDBInDB) && $searchDoDBInDB !== '')
-                || ($nbServReplicaDoDb === 0 && $nbServReplicaIgnoreDb === 0)
-                || $this->hasTable($replicaInfo['Wild_Do_Table'], $table);
-
             $searchDb = array_search(Current::$database, $replicaInfo['Ignore_DB']);
             $searchTable = array_search($table, $replicaInfo['Ignore_Table']);
             $ignored = (is_string($searchTable) && $searchTable !== '')
                 || (is_string($searchDb) && $searchDb !== '')
                 || $this->hasTable($replicaInfo['Wild_Ignore_Table'], $table);
+
+            // Only set do = true if table is not ignored
+            if (! $ignored) {
+                $do = (is_string($searchDoDBInTruename) && $searchDoDBInTruename !== '')
+                    || (is_string($searchDoDBInDB) && $searchDoDBInDB !== '')
+                    || ($nbServReplicaDoDb === 0 && $nbServReplicaIgnoreDb === 0)
+                    || $this->hasTable($replicaInfo['Wild_Do_Table'], $table);
+            }
         }
 
         return [$do, $ignored];

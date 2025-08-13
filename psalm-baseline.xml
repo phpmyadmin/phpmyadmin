@@ -8367,8 +8367,9 @@
       <code><![CDATA[0 !== --$sortableColCount]]></code>
     </RedundantCondition>
     <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($process['Progress'])]]></code>
+      <code><![CDATA[empty($process['Progress'])]]></code>
       <code><![CDATA[empty($process['info'])]]></code>
-      <code><![CDATA[empty($process['progress'])]]></code>
       <code><![CDATA[empty($process['state'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
