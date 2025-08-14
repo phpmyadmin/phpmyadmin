@@ -55,10 +55,10 @@ final class Processes
             // to display column values
             $process = array_change_key_case($process, CASE_LOWER);
 
-            $progress = ! empty($process['Progress']) ? $process['Progress'] : '---';
-            if ($useIS && ! empty($process['Progress'])) {
-                $stage = array_key_exists('Stage', $process) ? (int) $process['Stage'] : null;
-                $maxStage = array_key_exists('Max_stage', $process) ? (int) $process['Max_stage'] : null;
+            $progress = ! empty($process['progress']) ? $process['progress'] : '---';
+            if ($useIS && ! empty($process['progress'])) {
+                $stage = array_key_exists('stage', $process) ? (int) $process['stage'] : null;
+                $maxStage = array_key_exists('max_stage', $process) ? (int) $process['max_stage'] : null;
                 if ($stage !== null && $maxStage !== null && $maxStage > 1) {
                     $progress = number_format(($stage - 1) / $maxStage * 100 + ((float) $progress) / $maxStage, 3);
                 }
