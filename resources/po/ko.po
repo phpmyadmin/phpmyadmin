@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-08-10 00:31+0000\n"
+"POT-Creation-Date: 2025-08-17 00:30+0000\n"
 "PO-Revision-Date: 2024-10-17 16:16+0000\n"
 "Last-Translator: \"Yong Kim (Neatnet)\" <neatnet@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1044,7 +1044,7 @@ msgstr "삭제"
 #: src/Config/Descriptions.php:934 src/Plugins/Export/ExportHtmlword.php:146
 #: src/Plugins/Export/ExportOdt.php:191
 #: src/Plugins/Export/ExportTexytext.php:131 src/Server/Privileges.php:1567
-#: src/Server/Privileges.php:1569 src/Server/Status/Processes.php:93
+#: src/Server/Privileges.php:1569 src/Server/Status/Processes.php:103
 msgid "Database"
 msgstr "데이터베이스"
 
@@ -1752,7 +1752,7 @@ msgstr "이벤트 이름"
 #: resources/templates/table/tracking/main.twig:31
 #: src/Config/ConfigFile.php:578
 #: src/Controllers/JavaScriptMessagesController.php:275 src/Menu.php:446
-#: src/Server/Status/Processes.php:96 src/Util.php:1359
+#: src/Server/Status/Processes.php:106 src/Util.php:1359
 msgid "Status"
 msgstr "상태"
 
@@ -5401,7 +5401,7 @@ msgstr "텍스트 필드를 사용합니다:"
 #: resources/templates/server/replication/primary_add_replica_user.twig:32
 #: resources/templates/server/replication/primary_add_replica_user.twig:43
 #: resources/templates/server/replication/primary_replication.twig:25
-#: src/Server/Status/Processes.php:92
+#: src/Server/Status/Processes.php:102
 msgid "Host"
 msgstr "호스트"
 
@@ -6202,7 +6202,7 @@ msgstr "이 사용자 그룹에 속한 사용자를 찾을 수 없습니다."
 
 #: resources/templates/server/user_groups/user_listings.twig:9
 #: src/Controllers/Server/PrivilegesController.php:432
-#: src/Server/Status/Processes.php:91
+#: src/Server/Status/Processes.php:101
 msgid "User"
 msgstr "사용자"
 
@@ -6359,7 +6359,7 @@ msgstr "상태"
 #: src/Plugins/Export/ExportHtmlword.php:440
 #: src/Plugins/Export/ExportOdt.php:559
 #: src/Plugins/Export/ExportTexytext.php:425
-#: src/Plugins/Export/Helpers/Pdf.php:333 src/Server/Status/Processes.php:95
+#: src/Plugins/Export/Helpers/Pdf.php:333 src/Server/Status/Processes.php:105
 msgid "Time"
 msgstr "시간"
 
@@ -6411,7 +6411,7 @@ msgid "Your SQL query has been executed successfully."
 msgstr "쿼리가 정상적으로 실행되었습니다."
 
 #: resources/templates/sql/query.twig:20 src/Server/Status/Data.php:113
-#: src/Server/Status/Processes.php:103
+#: src/Server/Status/Processes.php:113
 msgid "SQL query"
 msgstr "SQL 질의"
 
@@ -12101,7 +12101,7 @@ msgid ""
 msgstr ""
 "이 뷰는 최소 이 숫자 이상의 열을 가지고 있습니다. %s문서%s를 참조해 주십시오."
 
-#: src/Controllers/Database/StructureController.php:734
+#: src/Controllers/Database/StructureController.php:737
 msgid "unknown"
 msgstr "알수없음"
 
@@ -17869,15 +17869,15 @@ msgstr "복제본 상태 표시"
 msgid "Flush query cache"
 msgstr "쿼리 캐시를 비움"
 
-#: src/Server/Status/Processes.php:90
+#: src/Server/Status/Processes.php:100
 msgid "ID"
 msgstr "아이디"
 
-#: src/Server/Status/Processes.php:94
+#: src/Server/Status/Processes.php:104
 msgid "Command"
 msgstr "커맨드"
 
-#: src/Server/Status/Processes.php:100
+#: src/Server/Status/Processes.php:110
 msgid "Progress"
 msgstr "진행"
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-08-10 00:31+0000\n"
+"POT-Creation-Date: 2025-08-17 00:30+0000\n"
 "PO-Revision-Date: 2025-03-20 18:17+0000\n"
 "Last-Translator: 吴绮 <rs2.free@qq.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
@@ -1039,7 +1039,7 @@ msgstr "删除"
 #: src/Config/Descriptions.php:934 src/Plugins/Export/ExportHtmlword.php:146
 #: src/Plugins/Export/ExportOdt.php:191
 #: src/Plugins/Export/ExportTexytext.php:131 src/Server/Privileges.php:1567
-#: src/Server/Privileges.php:1569 src/Server/Status/Processes.php:93
+#: src/Server/Privileges.php:1569 src/Server/Status/Processes.php:103
 msgid "Database"
 msgstr "数据库"
 
@@ -1745,7 +1745,7 @@ msgstr "事件名称"
 #: resources/templates/table/tracking/main.twig:31
 #: src/Config/ConfigFile.php:578
 #: src/Controllers/JavaScriptMessagesController.php:275 src/Menu.php:446
-#: src/Server/Status/Processes.php:96 src/Util.php:1359
+#: src/Server/Status/Processes.php:106 src/Util.php:1359
 msgid "Status"
 msgstr "状态"
 
@@ -5358,7 +5358,7 @@ msgstr "使用文本域："
 #: resources/templates/server/replication/primary_add_replica_user.twig:32
 #: resources/templates/server/replication/primary_add_replica_user.twig:43
 #: resources/templates/server/replication/primary_replication.twig:25
-#: src/Server/Status/Processes.php:92
+#: src/Server/Status/Processes.php:102
 msgid "Host"
 msgstr "主机"
 
@@ -6146,7 +6146,7 @@ msgstr "未找到属于此用户组的用户。"
 
 #: resources/templates/server/user_groups/user_listings.twig:9
 #: src/Controllers/Server/PrivilegesController.php:432
-#: src/Server/Status/Processes.php:91
+#: src/Server/Status/Processes.php:101
 msgid "User"
 msgstr "用户"
 
@@ -6303,7 +6303,7 @@ msgstr "状态"
 #: src/Plugins/Export/ExportHtmlword.php:440
 #: src/Plugins/Export/ExportOdt.php:559
 #: src/Plugins/Export/ExportTexytext.php:425
-#: src/Plugins/Export/Helpers/Pdf.php:333 src/Server/Status/Processes.php:95
+#: src/Plugins/Export/Helpers/Pdf.php:333 src/Server/Status/Processes.php:105
 msgid "Time"
 msgstr "时间"
 
@@ -6355,7 +6355,7 @@ msgid "Your SQL query has been executed successfully."
 msgstr "您的 SQL 语句已成功运行。"
 
 #: resources/templates/sql/query.twig:20 src/Server/Status/Data.php:113
-#: src/Server/Status/Processes.php:103
+#: src/Server/Status/Processes.php:113
 msgid "SQL query"
 msgstr "SQL 查询"
 
@@ -11853,7 +11853,7 @@ msgid ""
 "%sdocumentation%s."
 msgstr "此视图的行数最少有这么多。请参阅%s档案%s。"
 
-#: src/Controllers/Database/StructureController.php:734
+#: src/Controllers/Database/StructureController.php:737
 msgid "unknown"
 msgstr "未知"
 
@@ -17453,15 +17453,15 @@ msgstr "显示从服务器状态"
 msgid "Flush query cache"
 msgstr "刷新查询缓存"
 
-#: src/Server/Status/Processes.php:90
+#: src/Server/Status/Processes.php:100
 msgid "ID"
 msgstr "ID"
 
-#: src/Server/Status/Processes.php:94
+#: src/Server/Status/Processes.php:104
 msgid "Command"
 msgstr "命令"
 
-#: src/Server/Status/Processes.php:100
+#: src/Server/Status/Processes.php:110
 msgid "Progress"
 msgstr "进度"
 

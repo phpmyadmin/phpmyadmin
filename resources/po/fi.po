@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-08-10 00:31+0000\n"
+"POT-Creation-Date: 2025-08-17 00:30+0000\n"
 "PO-Revision-Date: 2025-07-18 11:01+0000\n"
 "Last-Translator: Ricky Tigg <ricky.tigg@gmail.com>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1133,7 +1133,7 @@ msgstr "Poista"
 #: src/Config/Descriptions.php:934 src/Plugins/Export/ExportHtmlword.php:146
 #: src/Plugins/Export/ExportOdt.php:191
 #: src/Plugins/Export/ExportTexytext.php:131 src/Server/Privileges.php:1567
-#: src/Server/Privileges.php:1569 src/Server/Status/Processes.php:93
+#: src/Server/Privileges.php:1569 src/Server/Status/Processes.php:103
 msgid "Database"
 msgstr "Tietokanta"
 
@@ -1917,7 +1917,7 @@ msgstr "Tapahtuman tyyppi"
 #: resources/templates/table/tracking/main.twig:31
 #: src/Config/ConfigFile.php:578
 #: src/Controllers/JavaScriptMessagesController.php:275 src/Menu.php:446
-#: src/Server/Status/Processes.php:96 src/Util.php:1359
+#: src/Server/Status/Processes.php:106 src/Util.php:1359
 msgid "Status"
 msgstr "Tila"
 
@@ -6012,7 +6012,7 @@ msgstr "Käytä tekstikenttää"
 #: resources/templates/server/replication/primary_add_replica_user.twig:32
 #: resources/templates/server/replication/primary_add_replica_user.twig:43
 #: resources/templates/server/replication/primary_replication.twig:25
-#: src/Server/Status/Processes.php:92
+#: src/Server/Status/Processes.php:102
 msgid "Host"
 msgstr "Palvelin"
 
@@ -6948,7 +6948,7 @@ msgstr ""
 
 #: resources/templates/server/user_groups/user_listings.twig:9
 #: src/Controllers/Server/PrivilegesController.php:432
-#: src/Server/Status/Processes.php:91
+#: src/Server/Status/Processes.php:101
 msgid "User"
 msgstr "Käyttäjä"
 
@@ -7121,7 +7121,7 @@ msgstr "Käynnistys"
 #: src/Plugins/Export/ExportHtmlword.php:440
 #: src/Plugins/Export/ExportOdt.php:559
 #: src/Plugins/Export/ExportTexytext.php:425
-#: src/Plugins/Export/Helpers/Pdf.php:333 src/Server/Status/Processes.php:95
+#: src/Plugins/Export/Helpers/Pdf.php:333 src/Server/Status/Processes.php:105
 msgid "Time"
 msgstr "Aika"
 
@@ -7183,7 +7183,7 @@ msgid "Your SQL query has been executed successfully."
 msgstr "SQL-kyselysi on suoritettu onnistuneesti."
 
 #: resources/templates/sql/query.twig:20 src/Server/Status/Data.php:113
-#: src/Server/Status/Processes.php:103
+#: src/Server/Status/Processes.php:113
 msgid "SQL query"
 msgstr "SQL-kysely"
 
@@ -13248,7 +13248,7 @@ msgstr ""
 "Tässä näkymässä on vähintään tämän luvun verran rivejä. Katso lisätietoja "
 "%sohjeista%s."
 
-#: src/Controllers/Database/StructureController.php:734
+#: src/Controllers/Database/StructureController.php:737
 msgid "unknown"
 msgstr "tuntematon"
 
@@ -19427,15 +19427,15 @@ msgstr "Näytä alipalvelimen tila"
 msgid "Flush query cache"
 msgstr "Tyhjennä kyselymuisti"
 
-#: src/Server/Status/Processes.php:90
+#: src/Server/Status/Processes.php:100
 msgid "ID"
 msgstr "Tunnus"
 
-#: src/Server/Status/Processes.php:94
+#: src/Server/Status/Processes.php:104
 msgid "Command"
 msgstr "Komento"
 
-#: src/Server/Status/Processes.php:100
+#: src/Server/Status/Processes.php:110
 msgid "Progress"
 msgstr ""
 

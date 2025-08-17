@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-08-10 00:31+0000\n"
+"POT-Creation-Date: 2025-08-17 00:30+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Malayalam <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1066,7 +1066,7 @@ msgstr ""
 #: src/Config/Descriptions.php:934 src/Plugins/Export/ExportHtmlword.php:146
 #: src/Plugins/Export/ExportOdt.php:191
 #: src/Plugins/Export/ExportTexytext.php:131 src/Server/Privileges.php:1567
-#: src/Server/Privileges.php:1569 src/Server/Status/Processes.php:93
+#: src/Server/Privileges.php:1569 src/Server/Status/Processes.php:103
 msgid "Database"
 msgstr ""
 
@@ -1827,7 +1827,7 @@ msgstr "കീനാമം"
 #: resources/templates/table/tracking/main.twig:31
 #: src/Config/ConfigFile.php:578
 #: src/Controllers/JavaScriptMessagesController.php:275 src/Menu.php:446
-#: src/Server/Status/Processes.php:96 src/Util.php:1359
+#: src/Server/Status/Processes.php:106 src/Util.php:1359
 msgid "Status"
 msgstr ""
 
@@ -5572,7 +5572,7 @@ msgstr ""
 #: resources/templates/server/replication/primary_add_replica_user.twig:32
 #: resources/templates/server/replication/primary_add_replica_user.twig:43
 #: resources/templates/server/replication/primary_replication.twig:25
-#: src/Server/Status/Processes.php:92
+#: src/Server/Status/Processes.php:102
 msgid "Host"
 msgstr ""
 
@@ -6339,7 +6339,7 @@ msgstr ""
 
 #: resources/templates/server/user_groups/user_listings.twig:9
 #: src/Controllers/Server/PrivilegesController.php:432
-#: src/Server/Status/Processes.php:91
+#: src/Server/Status/Processes.php:101
 msgid "User"
 msgstr ""
 
@@ -6500,7 +6500,7 @@ msgstr ""
 #: src/Plugins/Export/ExportHtmlword.php:440
 #: src/Plugins/Export/ExportOdt.php:559
 #: src/Plugins/Export/ExportTexytext.php:425
-#: src/Plugins/Export/Helpers/Pdf.php:333 src/Server/Status/Processes.php:95
+#: src/Plugins/Export/Helpers/Pdf.php:333 src/Server/Status/Processes.php:105
 msgid "Time"
 msgstr ""
 
@@ -6554,7 +6554,7 @@ msgid "Your SQL query has been executed successfully."
 msgstr "%s എന്ന വിവരശേഖരം ഉപേക്ഷിച്ചിരിക്കുന്നു."
 
 #: resources/templates/sql/query.twig:20 src/Server/Status/Data.php:113
-#: src/Server/Status/Processes.php:103
+#: src/Server/Status/Processes.php:113
 msgid "SQL query"
 msgstr ""
 
@@ -12052,7 +12052,7 @@ msgid ""
 "%sdocumentation%s."
 msgstr ""
 
-#: src/Controllers/Database/StructureController.php:734
+#: src/Controllers/Database/StructureController.php:737
 msgid "unknown"
 msgstr ""
 
@@ -17610,15 +17610,15 @@ msgstr "എല്ലാം കാണിക്കൂ"
 msgid "Flush query cache"
 msgstr ""
 
-#: src/Server/Status/Processes.php:90
+#: src/Server/Status/Processes.php:100
 msgid "ID"
 msgstr ""
 
-#: src/Server/Status/Processes.php:94
+#: src/Server/Status/Processes.php:104
 msgid "Command"
 msgstr ""
 
-#: src/Server/Status/Processes.php:100
+#: src/Server/Status/Processes.php:110
 msgid "Progress"
 msgstr ""
 

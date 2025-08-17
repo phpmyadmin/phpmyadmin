@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-08-10 00:31+0000\n"
+"POT-Creation-Date: 2025-08-17 00:30+0000\n"
 "PO-Revision-Date: 2025-05-14 19:50+0000\n"
 "Last-Translator: Xuan Hung <mr.hungdx@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1053,7 +1053,7 @@ msgstr "Xóa bỏ"
 #: src/Config/Descriptions.php:934 src/Plugins/Export/ExportHtmlword.php:146
 #: src/Plugins/Export/ExportOdt.php:191
 #: src/Plugins/Export/ExportTexytext.php:131 src/Server/Privileges.php:1567
-#: src/Server/Privileges.php:1569 src/Server/Status/Processes.php:93
+#: src/Server/Privileges.php:1569 src/Server/Status/Processes.php:103
 msgid "Database"
 msgstr "Cơ sở dữ liệu"
 
@@ -1761,7 +1761,7 @@ msgstr "Tên sự kiện"
 #: resources/templates/table/tracking/main.twig:31
 #: src/Config/ConfigFile.php:578
 #: src/Controllers/JavaScriptMessagesController.php:275 src/Menu.php:446
-#: src/Server/Status/Processes.php:96 src/Util.php:1359
+#: src/Server/Status/Processes.php:106 src/Util.php:1359
 msgid "Status"
 msgstr "Trạng thái"
 
@@ -5465,7 +5465,7 @@ msgstr "Trường nhập văn bản:"
 #: resources/templates/server/replication/primary_add_replica_user.twig:32
 #: resources/templates/server/replication/primary_add_replica_user.twig:43
 #: resources/templates/server/replication/primary_replication.twig:25
-#: src/Server/Status/Processes.php:92
+#: src/Server/Status/Processes.php:102
 msgid "Host"
 msgstr "Máy chủ"
 
@@ -6323,7 +6323,7 @@ msgstr "Không tìm thấy người dùng nào trong nhóm người dùng này."
 
 #: resources/templates/server/user_groups/user_listings.twig:9
 #: src/Controllers/Server/PrivilegesController.php:432
-#: src/Server/Status/Processes.php:91
+#: src/Server/Status/Processes.php:101
 msgid "User"
 msgstr "Người dùng"
 
@@ -6488,7 +6488,7 @@ msgstr "Tình trạng"
 #: src/Plugins/Export/ExportHtmlword.php:440
 #: src/Plugins/Export/ExportOdt.php:559
 #: src/Plugins/Export/ExportTexytext.php:425
-#: src/Plugins/Export/Helpers/Pdf.php:333 src/Server/Status/Processes.php:95
+#: src/Plugins/Export/Helpers/Pdf.php:333 src/Server/Status/Processes.php:105
 msgid "Time"
 msgstr "Thời gian"
 
@@ -6542,7 +6542,7 @@ msgid "Your SQL query has been executed successfully."
 msgstr "Truy vấn SQL của bạn đã được thực hiện thành công."
 
 #: resources/templates/sql/query.twig:20 src/Server/Status/Data.php:113
-#: src/Server/Status/Processes.php:103
+#: src/Server/Status/Processes.php:113
 msgid "SQL query"
 msgstr "Truy vấn SQL"
 
@@ -12420,7 +12420,7 @@ msgid ""
 msgstr ""
 "View này có ít nhất số lượng dòng này. Vui lòng tham khảo %stài liệu%s."
 
-#: src/Controllers/Database/StructureController.php:734
+#: src/Controllers/Database/StructureController.php:737
 msgid "unknown"
 msgstr "không hiểu"
 
@@ -18270,15 +18270,15 @@ msgstr "Hiển thị trạng thái bản sao"
 msgid "Flush query cache"
 msgstr "Đẩy lên đĩa bộ đệm truy vấn"
 
-#: src/Server/Status/Processes.php:90
+#: src/Server/Status/Processes.php:100
 msgid "ID"
 msgstr "MÃ SỐ"
 
-#: src/Server/Status/Processes.php:94
+#: src/Server/Status/Processes.php:104
 msgid "Command"
 msgstr "Lệnh"
 
-#: src/Server/Status/Processes.php:100
+#: src/Server/Status/Processes.php:110
 msgid "Progress"
 msgstr "Diễn biến"
 
