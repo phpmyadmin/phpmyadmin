@@ -46421,6 +46421,11 @@ parameters:
 			path: test/classes/Plugins/Auth/AuthenticationHttpTest.php
 
 		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with array\\{lifetime\\: 0, path\\: '/', domain\\: '', secure\\: false, partitioned\\?\\: false, httponly\\: false, samesite\\?\\: ''\\} and array\\{lifetime\\: int\\<0, max\\>, path\\: non\\-falsy\\-string, domain\\: string, secure\\: bool, httponly\\: bool, samesite\\: string\\} will always evaluate to false\\.$#"
+			count: 1
+			path: test/classes/Plugins/Auth/AuthenticationSignonTest.php
+
+		-
 			message: "#^Cannot access offset 'LoginCookieValidity' on mixed\\.$#"
 			count: 1
 			path: test/classes/Plugins/Auth/AuthenticationSignonTest.php

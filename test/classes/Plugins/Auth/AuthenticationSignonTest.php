@@ -17,6 +17,8 @@ use function session_id;
 use function session_name;
 use function version_compare;
 
+use const PHP_VERSION_ID;
+
 /**
  * @covers \PhpMyAdmin\Plugins\Auth\AuthenticationSignon
  */
@@ -324,12 +326,17 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
             'path' => '/',
             'domain' => '',
             'secure' => false,
+            'partitioned' => false,
             'httponly' => false,
             'samesite' => '',
         ];
         // php did not set 'samesite' attribute in session_get_cookie_params since not yet implemented
         if (version_compare((string) phpversion(), '7.3.0', '<')) {
             unset($defaultOptions['samesite']);
+        }
+
+        if (PHP_VERSION_ID < 80500) {
+            unset($defaultOptions['partitioned']);
         }
 
         self::assertSame($defaultOptions, session_get_cookie_params());
