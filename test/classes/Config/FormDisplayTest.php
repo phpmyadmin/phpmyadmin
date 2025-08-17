@@ -15,6 +15,8 @@ use ReflectionProperty;
 use function function_exists;
 use function gettype;
 
+use const PHP_VERSION_ID;
+
 /**
  * @covers \PhpMyAdmin\Config\FormDisplay
  */
@@ -55,7 +57,9 @@ class FormDisplayTest extends AbstractTestCase
         $reflection = new ReflectionClass(FormDisplay::class);
 
         $attrForms = $reflection->getProperty('forms');
-        $attrForms->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $attrForms->setAccessible(true);
+        }
 
         $array = [
             'Servers' => [
@@ -71,7 +75,9 @@ class FormDisplayTest extends AbstractTestCase
         self::assertInstanceOf(Form::class, $_forms['pma_testform']);
 
         $attrSystemPaths = $reflection->getProperty('systemPaths');
-        $attrSystemPaths->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $attrSystemPaths->setAccessible(true);
+        }
 
         self::assertSame([
             'Servers/2/test' => 'Servers/1/test',
@@ -79,7 +85,9 @@ class FormDisplayTest extends AbstractTestCase
         ], $attrSystemPaths->getValue($this->object));
 
         $attrTranslatedPaths = $reflection->getProperty('translatedPaths');
-        $attrTranslatedPaths->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $attrTranslatedPaths->setAccessible(true);
+        }
 
         self::assertSame([
             'Servers/2/test' => 'Servers-2-test',
@@ -102,7 +110,10 @@ class FormDisplayTest extends AbstractTestCase
             ->getMock();
 
         $attrForms = new ReflectionProperty(FormDisplay::class, 'forms');
-        $attrForms->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $attrForms->setAccessible(true);
+        }
+
         $attrForms->setValue($this->object, [1, 2, 3]);
 
         $this->object->expects($this->once())
@@ -125,11 +136,17 @@ class FormDisplayTest extends AbstractTestCase
         $reflection = new ReflectionClass(FormDisplay::class);
 
         $attrIsValidated = $reflection->getProperty('isValidated');
-        $attrIsValidated->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $attrIsValidated->setAccessible(true);
+        }
+
         $attrIsValidated->setValue($this->object, true);
 
         $attrIsValidated = $reflection->getProperty('errors');
-        $attrIsValidated->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $attrIsValidated->setAccessible(true);
+        }
+
         $attrIsValidated->setValue($this->object, []);
 
         $result = $this->object->displayErrors();
@@ -147,7 +164,10 @@ class FormDisplayTest extends AbstractTestCase
         $sysArr = ['Servers/1/test' => 'Servers/1/test2'];
 
         $attrSystemPaths = $reflection->getProperty('systemPaths');
-        $attrSystemPaths->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $attrSystemPaths->setAccessible(true);
+        }
+
         $attrSystemPaths->setValue($this->object, $sysArr);
 
         $attrIsValidated->setValue($this->object, $arr);
@@ -170,11 +190,17 @@ class FormDisplayTest extends AbstractTestCase
         $reflection = new ReflectionClass(FormDisplay::class);
 
         $attrIsValidated = $reflection->getProperty('isValidated');
-        $attrIsValidated->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $attrIsValidated->setAccessible(true);
+        }
+
         $attrIsValidated->setValue($this->object, true);
 
         $attrIsValidated = $reflection->getProperty('errors');
-        $attrIsValidated->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $attrIsValidated->setAccessible(true);
+        }
+
         $attrIsValidated->setValue($this->object, []);
 
         $this->object->fixErrors();
@@ -191,7 +217,10 @@ class FormDisplayTest extends AbstractTestCase
         $sysArr = ['Servers/1/test' => 'Servers/1/host'];
 
         $attrSystemPaths = $reflection->getProperty('systemPaths');
-        $attrSystemPaths->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $attrSystemPaths->setAccessible(true);
+        }
+
         $attrSystemPaths->setValue($this->object, $sysArr);
 
         $attrIsValidated->setValue($this->object, $arr);
@@ -211,7 +240,9 @@ class FormDisplayTest extends AbstractTestCase
     public function testValidateSelect(): void
     {
         $attrValidateSelect = new ReflectionMethod(FormDisplay::class, 'validateSelect');
-        $attrValidateSelect->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $attrValidateSelect->setAccessible(true);
+        }
 
         $arr = ['foo' => 'var'];
         $value = 'foo';
@@ -261,7 +292,9 @@ class FormDisplayTest extends AbstractTestCase
     public function testHasErrors(): void
     {
         $attrErrors = new ReflectionProperty(FormDisplay::class, 'errors');
-        $attrErrors->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $attrErrors->setAccessible(true);
+        }
 
         self::assertFalse($this->object->hasErrors());
 
@@ -297,7 +330,9 @@ class FormDisplayTest extends AbstractTestCase
     public function testGetOptName(): void
     {
         $method = new ReflectionMethod(FormDisplay::class, 'getOptName');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
 
         self::assertSame('Servers_', $method->invoke($this->object, 'Servers/1/'));
 
@@ -310,11 +345,16 @@ class FormDisplayTest extends AbstractTestCase
     public function testLoadUserprefsInfo(): void
     {
         $method = new ReflectionMethod(FormDisplay::class, 'loadUserprefsInfo');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
 
         $attrUserprefs = new ReflectionProperty(FormDisplay::class, 'userprefsDisallow');
 
-        $attrUserprefs->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $attrUserprefs->setAccessible(true);
+        }
+
         $method->invoke($this->object, null);
         self::assertSame([], $attrUserprefs->getValue($this->object));
     }
@@ -325,7 +365,9 @@ class FormDisplayTest extends AbstractTestCase
     public function testSetComments(): void
     {
         $method = new ReflectionMethod(FormDisplay::class, 'setComments');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
 
         // recoding
         $opts = ['values' => []];

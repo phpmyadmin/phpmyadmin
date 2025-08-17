@@ -12,6 +12,8 @@ use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Util;
 use ReflectionMethod;
 
+use const PHP_VERSION_ID;
+
 /**
  * @covers \PhpMyAdmin\Tracker
  */
@@ -331,7 +333,10 @@ class TrackerTest extends AbstractTestCase
 
         if ($type === null) {
             $method = new ReflectionMethod(Tracker::class, 'changeTracking');
-            $method->setAccessible(true);
+            if (PHP_VERSION_ID < 80100) {
+                $method->setAccessible(true);
+            }
+
             $method->invoke(null, $dbname, $tablename, $version, $new_state);
         } elseif ($type === 'activate') {
             Tracker::activateTracking($dbname, $tablename, $version);

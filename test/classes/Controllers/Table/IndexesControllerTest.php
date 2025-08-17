@@ -21,6 +21,8 @@ use ReflectionMethod;
 use function __;
 use function sprintf;
 
+use const PHP_VERSION_ID;
+
 /**
  * @covers \PhpMyAdmin\Controllers\Table\IndexesController
  */
@@ -102,7 +104,9 @@ class IndexesControllerTest extends AbstractTestCase
         $template = new Template();
 
         $method = new ReflectionMethod(IndexesController::class, 'displayForm');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
 
         $ctrl = new IndexesController(
             $response,

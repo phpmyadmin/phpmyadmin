@@ -30,6 +30,8 @@ use function htmlspecialchars;
 use function implode;
 use function preg_quote;
 
+use const PHP_VERSION_ID;
+
 /**
  * @covers \PhpMyAdmin\Server\Privileges
  */
@@ -1669,7 +1671,9 @@ class PrivilegesTest extends AbstractTestCase
             new Plugins($this->dbi)
         );
         $method = new ReflectionMethod(Privileges::class, 'getUserPrivileges');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
 
         /** @var array|null $actual */
         $actual = $method->invokeArgs($serverPrivileges, ['test.user', 'test.host', true]);

@@ -19,6 +19,8 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
 use ReflectionClass;
 use ReflectionException;
 
+use const PHP_VERSION_ID;
+
 /**
  * @covers \PhpMyAdmin\Controllers\Database\StructureController
  */
@@ -92,7 +94,10 @@ class StructureControllerTest extends AbstractTestCase
     {
         $class = new ReflectionClass(StructureController::class);
         $method = $class->getMethod('getValuesForInnodbTable');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
+
         $controller = new StructureController(
             $this->response,
             $this->template,
@@ -106,7 +111,10 @@ class StructureControllerTest extends AbstractTestCase
         );
         // Showing statistics
         $property = $class->getProperty('isShowStats');
-        $property->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $property->setAccessible(true);
+        }
+
         $property->setValue($controller, true);
 
         $GLOBALS['cfg']['MaxExactCount'] = 10;
@@ -171,7 +179,9 @@ class StructureControllerTest extends AbstractTestCase
     {
         $class = new ReflectionClass(StructureController::class);
         $method = $class->getMethod('getValuesForAriaTable');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
 
         $controller = new StructureController(
             $this->response,
@@ -186,10 +196,16 @@ class StructureControllerTest extends AbstractTestCase
         );
         // Showing statistics
         $property = $class->getProperty('isShowStats');
-        $property->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $property->setAccessible(true);
+        }
+
         $property->setValue($controller, true);
         $property = $class->getProperty('dbIsSystemSchema');
-        $property->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $property->setAccessible(true);
+        }
+
         $property->setValue($controller, true);
 
         $currentTable = [
@@ -287,7 +303,9 @@ class StructureControllerTest extends AbstractTestCase
     {
         $class = new ReflectionClass(StructureController::class);
         $method = $class->getMethod('hasTable');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
 
         $controller = new StructureController(
             $this->response,
@@ -320,7 +338,9 @@ class StructureControllerTest extends AbstractTestCase
     {
         $class = new ReflectionClass(StructureController::class);
         $method = $class->getMethod('checkFavoriteTable');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
 
         $GLOBALS['db'] = 'sakila';
         $GLOBALS['dbi'] = $this->dbi;
@@ -374,7 +394,9 @@ class StructureControllerTest extends AbstractTestCase
     {
         $class = new ReflectionClass(StructureController::class);
         $method = $class->getMethod('displayTableList');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
 
         $controller = new StructureController(
             $this->response,
@@ -390,14 +412,22 @@ class StructureControllerTest extends AbstractTestCase
         // Showing statistics
         $class = new ReflectionClass(StructureController::class);
         $showStatsProperty = $class->getProperty('isShowStats');
-        $showStatsProperty->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $showStatsProperty->setAccessible(true);
+        }
+
         $showStatsProperty->setValue($controller, true);
 
         $tablesProperty = $class->getProperty('tables');
-        $tablesProperty->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $tablesProperty->setAccessible(true);
+        }
 
         $numTables = $class->getProperty('numTables');
-        $numTables->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $numTables->setAccessible(true);
+        }
+
         $numTables->setValue($controller, 1);
 
         //no tables

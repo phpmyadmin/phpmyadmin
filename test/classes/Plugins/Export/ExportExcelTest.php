@@ -18,6 +18,8 @@ use ReflectionProperty;
 
 use function array_shift;
 
+use const PHP_VERSION_ID;
+
 /**
  * @covers \PhpMyAdmin\Plugins\Export\ExportExcel
  * @group medium
@@ -49,11 +51,17 @@ class ExportExcelTest extends AbstractTestCase
     public function testSetProperties(): void
     {
         $method = new ReflectionMethod(ExportExcel::class, 'setProperties');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
+
         $method->invoke($this->object, null);
 
         $attrProperties = new ReflectionProperty(ExportExcel::class, 'properties');
-        $attrProperties->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $attrProperties->setAccessible(true);
+        }
+
         $properties = $attrProperties->getValue($this->object);
 
         self::assertInstanceOf(ExportPluginProperties::class, $properties);

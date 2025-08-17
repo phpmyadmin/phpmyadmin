@@ -12,6 +12,8 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
 use PhpMyAdmin\Transformations;
 use ReflectionClass;
 
+use const PHP_VERSION_ID;
+
 /**
  * @covers \PhpMyAdmin\Controllers\Table\Structure\ChangeController
  */
@@ -31,7 +33,9 @@ class ChangeControllerTest extends AbstractTestCase
 
         $class = new ReflectionClass(ChangeController::class);
         $method = $class->getMethod('displayHtmlForColumnChange');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
 
         $ctrl = new ChangeController(
             $response,

@@ -12,6 +12,8 @@ use ReflectionClass;
 
 use function preg_replace;
 
+use const PHP_VERSION_ID;
+
 /**
  * @covers \PhpMyAdmin\Controllers\Table\Structure\MoveColumnsController
  */
@@ -27,7 +29,9 @@ class MoveColumnsControllerTest extends AbstractTestCase
     {
         $class = new ReflectionClass(MoveColumnsController::class);
         $method = $class->getMethod('generateAlterTableSql');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
 
         $controller = new MoveColumnsController(
             new ResponseStub(),

@@ -18,6 +18,7 @@ use stdClass;
 use const MYSQLI_TYPE_SHORT;
 use const MYSQLI_TYPE_TIMESTAMP;
 use const MYSQLI_TYPE_VAR_STRING;
+use const PHP_VERSION_ID;
 
 /**
  * @covers \PhpMyAdmin\Sql
@@ -760,7 +761,10 @@ class SqlTest extends AbstractTestCase
     public function testGetDetailedProfilingStatsWithoutData(): void
     {
         $method = new ReflectionMethod($this->sql, 'getDetailedProfilingStats');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
+
         self::assertSame(
             ['total_time' => 0, 'states' => [], 'chart' => [], 'profile' => []],
             $method->invoke($this->sql, [])
@@ -770,7 +774,10 @@ class SqlTest extends AbstractTestCase
     public function testGetDetailedProfilingStatsWithData(): void
     {
         $method = new ReflectionMethod($this->sql, 'getDetailedProfilingStats');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
+
         $profiling = [
             ['Status' => 'Starting', 'Duration' => '0.000017'],
             ['Status' => 'checking permissions', 'Duration' => '0.000003'],
