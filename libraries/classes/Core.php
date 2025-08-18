@@ -57,6 +57,7 @@ use const DATE_RFC1123;
 use const E_USER_ERROR;
 use const E_USER_WARNING;
 use const FILTER_VALIDATE_IP;
+use const PHP_VERSION_ID;
 
 /**
  * Core functions used all over the scripts.
@@ -375,7 +376,10 @@ class Core
 
         session_write_close();
         if ($response->headersSent()) {
-            trigger_error('Core::sendHeaderLocation called when headers are already sent!', E_USER_ERROR);
+            trigger_error(
+                'Core::sendHeaderLocation called when headers are already sent!',
+                PHP_VERSION_ID < 80400 ? E_USER_ERROR : E_USER_WARNING
+            );
         }
 
         // bug #1523784: IE6 does not like 'Refresh: 0', it
