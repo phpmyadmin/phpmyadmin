@@ -64,15 +64,15 @@ class ColumnsDefinitionTest extends AbstractTestCase
             ['actor_id', 'first_name', 'last_name', 'last_update'],
         );
         $createTable = <<<'SQL'
-CREATE TABLE `actor` (
-  `actor_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(45) NOT NULL,
-  `last_name` varchar(45) NOT NULL,
-  `last_update` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  PRIMARY KEY (`actor_id`),
-  KEY `idx_actor_last_name` (`last_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=201 DEFAULT CHARSET=utf8mb4
-SQL;
+            CREATE TABLE `actor` (
+            `actor_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+            `first_name` varchar(45) NOT NULL,
+            `last_name` varchar(45) NOT NULL,
+            `last_update` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+            PRIMARY KEY (`actor_id`),
+            KEY `idx_actor_last_name` (`last_name`)
+            ) ENGINE=InnoDB AUTO_INCREMENT=201 DEFAULT CHARSET=utf8mb4
+            SQL;
         $dummyDbi->addResult(
             'SHOW CREATE TABLE `sakila`.`actor`',
             [['actor', $createTable]],
