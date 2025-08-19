@@ -30,6 +30,7 @@ use const MYSQLI_PRI_KEY_FLAG;
 use const MYSQLI_TYPE_DECIMAL;
 use const MYSQLI_TYPE_TIMESTAMP;
 use const MYSQLI_TYPE_TINY;
+use const PHP_VERSION_ID;
 
 /**
  * @covers \PhpMyAdmin\InsertEdit
@@ -94,8 +95,15 @@ class InsertEditTest extends AbstractTestCase
     {
         parent::tearDown();
         $response = new ReflectionProperty(ResponseRenderer::class, 'instance');
-        $response->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $response->setAccessible(true);
+        }
+
         $response->setValue(null, null);
+        if (PHP_VERSION_ID >= 80100) {
+            return;
+        }
+
         $response->setAccessible(false);
     }
 
@@ -312,7 +320,10 @@ class InsertEditTest extends AbstractTestCase
 
         $restoreInstance = ResponseRenderer::getInstance();
         $response = new ReflectionProperty(ResponseRenderer::class, 'instance');
-        $response->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $response->setAccessible(true);
+        }
+
         $response->setValue(null, $responseMock);
 
         $result = $this->callFunction(
@@ -2693,7 +2704,10 @@ class InsertEditTest extends AbstractTestCase
 
         $restoreInstance = ResponseRenderer::getInstance();
         $response = new ReflectionProperty(ResponseRenderer::class, 'instance');
-        $response->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $response->setAccessible(true);
+        }
+
         $response->setValue(null, $responseMock);
 
         $this->insertEdit = new InsertEdit($dbi);

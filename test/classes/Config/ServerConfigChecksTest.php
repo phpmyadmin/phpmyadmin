@@ -14,6 +14,7 @@ use function array_keys;
 use function mb_strlen;
 use function str_repeat;
 
+use const PHP_VERSION_ID;
 use const SODIUM_CRYPTO_SECRETBOX_KEYBYTES;
 
 /**
@@ -39,7 +40,10 @@ class ServerConfigChecksTest extends AbstractTestCase
         $GLOBALS['ConfigFile'] = $cf;
 
         $reflection = new ReflectionProperty(ConfigFile::class, 'id');
-        $reflection->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $reflection->setAccessible(true);
+        }
+
         $this->sessionID = $reflection->getValue($cf);
 
         unset($_SESSION['messages']);

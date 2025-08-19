@@ -28,6 +28,7 @@ use const MYSQLI_NUM_FLAG;
 use const MYSQLI_TYPE_BLOB;
 use const MYSQLI_TYPE_DECIMAL;
 use const MYSQLI_TYPE_STRING;
+use const PHP_VERSION_ID;
 
 /**
  * @covers \PhpMyAdmin\Plugins\Export\ExportOdt
@@ -82,7 +83,10 @@ class ExportOdtTest extends AbstractTestCase
         $_SESSION = ['relation' => [$GLOBALS['server'] => $relationParameters->toArray()]];
 
         $method = new ReflectionMethod(ExportOdt::class, 'setProperties');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
+
         $properties = $method->invoke($this->object, null);
 
         self::assertInstanceOf(ExportPluginProperties::class, $properties);
@@ -647,7 +651,10 @@ class ExportOdtTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
 
         $method = new ReflectionMethod(ExportOdt::class, 'getTriggers');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
+
         $result = $method->invoke($this->object, 'database', 'ta<ble');
 
         self::assertSame($result, $GLOBALS['odt_buffer']);
@@ -806,7 +813,9 @@ class ExportOdtTest extends AbstractTestCase
     public function testFormatOneColumnDefinition(): void
     {
         $method = new ReflectionMethod(ExportOdt::class, 'formatOneColumnDefinition');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
 
         $cols = [
             'Null' => 'Yes',

@@ -13,6 +13,8 @@ use function parse_str;
 use function str_repeat;
 use function urldecode;
 
+use const PHP_VERSION_ID;
+
 /**
  * @covers \PhpMyAdmin\Url
  */
@@ -246,7 +248,10 @@ class UrlTest extends AbstractTestCase
     public function testGetArgSeparator(string $expected, $iniValue, ?string $cacheValue): void
     {
         $property = new ReflectionProperty(Url::class, 'inputArgSeparator');
-        $property->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $property->setAccessible(true);
+        }
+
         $property->setValue(null, $cacheValue);
 
         self::$inputArgSeparator = $iniValue;

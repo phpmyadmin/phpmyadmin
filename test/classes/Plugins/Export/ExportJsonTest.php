@@ -16,6 +16,8 @@ use ReflectionProperty;
 
 use function array_shift;
 
+use const PHP_VERSION_ID;
+
 /**
  * @covers \PhpMyAdmin\Plugins\Export\ExportJson
  * @group medium
@@ -52,11 +54,17 @@ class ExportJsonTest extends AbstractTestCase
     public function testSetProperties(): void
     {
         $method = new ReflectionMethod(ExportJson::class, 'setProperties');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
+
         $method->invoke($this->object, null);
 
         $attrProperties = new ReflectionProperty(ExportJson::class, 'properties');
-        $attrProperties->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $attrProperties->setAccessible(true);
+        }
+
         $properties = $attrProperties->getValue($this->object);
 
         self::assertInstanceOf(ExportPluginProperties::class, $properties);

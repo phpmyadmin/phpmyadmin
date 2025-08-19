@@ -24,6 +24,7 @@ use function in_array;
 use function method_exists;
 
 use const DIRECTORY_SEPARATOR;
+use const PHP_VERSION_ID;
 
 /**
  * Abstract class to hold some usefull methods used in tests
@@ -302,7 +303,9 @@ abstract class AbstractTestCase extends TestCase
     {
         $class = new ReflectionClass($className);
         $method = $class->getMethod($methodName);
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
 
         return $method->invokeArgs($object, $params);
     }
@@ -321,7 +324,9 @@ abstract class AbstractTestCase extends TestCase
     {
         $class = new ReflectionClass($className);
         $property = $class->getProperty($propertyName);
-        $property->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $property->setAccessible(true);
+        }
 
         return $property->getValue($object);
     }

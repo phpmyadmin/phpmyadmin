@@ -17,6 +17,8 @@ use function array_shift;
 use function ob_get_clean;
 use function ob_start;
 
+use const PHP_VERSION_ID;
+
 /**
  * @covers \PhpMyAdmin\Plugins\Export\ExportPhparray
  * @group medium
@@ -58,11 +60,17 @@ class ExportPhparrayTest extends AbstractTestCase
     public function testSetProperties(): void
     {
         $method = new ReflectionMethod(ExportPhparray::class, 'setProperties');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
+
         $method->invoke($this->object, null);
 
         $attrProperties = new ReflectionProperty(ExportPhparray::class, 'properties');
-        $attrProperties->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $attrProperties->setAccessible(true);
+        }
+
         $properties = $attrProperties->getValue($this->object);
 
         self::assertInstanceOf(ExportPluginProperties::class, $properties);

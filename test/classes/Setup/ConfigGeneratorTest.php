@@ -15,6 +15,7 @@ use function hex2bin;
 use function mb_strlen;
 use function str_repeat;
 
+use const PHP_VERSION_ID;
 use const SODIUM_CRYPTO_SECRETBOX_KEYBYTES;
 
 /**
@@ -74,7 +75,9 @@ class ConfigGeneratorTest extends AbstractTestCase
     {
         $reflection = new ReflectionClass(ConfigGenerator::class);
         $method = $reflection->getMethod('getVarExport');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
 
         self::assertSame('$cfg[\'var_name\'] = 1;' . "\n", $method->invoke(null, 'var_name', 1, "\n"));
 
@@ -108,7 +111,9 @@ class ConfigGeneratorTest extends AbstractTestCase
     {
         $reflection = new ReflectionClass(ConfigGenerator::class);
         $method = $reflection->getMethod('getVarExport');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
 
         self::assertSame(
             '$cfg[\'blowfish_secret\'] = \sodium_hex2bin(\''
@@ -134,7 +139,9 @@ class ConfigGeneratorTest extends AbstractTestCase
     {
         $reflection = new ReflectionClass(ConfigGenerator::class);
         $method = $reflection->getMethod('isZeroBasedArray');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
 
         self::assertFalse($method->invoke(
             null,
@@ -175,7 +182,9 @@ class ConfigGeneratorTest extends AbstractTestCase
     {
         $reflection = new ReflectionClass(ConfigGenerator::class);
         $method = $reflection->getMethod('exportZeroBasedArray');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
 
         $arr = [
             1,

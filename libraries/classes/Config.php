@@ -63,6 +63,7 @@ use function trim;
 use const ARRAY_FILTER_USE_KEY;
 use const DIRECTORY_SEPARATOR;
 use const E_USER_ERROR;
+use const E_USER_WARNING;
 use const PHP_OS;
 use const PHP_URL_PATH;
 use const PHP_URL_SCHEME;
@@ -707,7 +708,7 @@ class Config
             . __('This usually means there is a syntax error in it, please check any errors shown below.')
             . '[br][br]'
             . '[conferr]';
-        trigger_error($error, E_USER_ERROR);
+        trigger_error($error, PHP_VERSION_ID < 80400 ? E_USER_ERROR : E_USER_WARNING);
     }
 
     /**
@@ -1232,7 +1233,7 @@ class Config
             if (! is_int($server_index) || $server_index < 1) {
                 trigger_error(
                     sprintf(__('Invalid server index: %s'), $server_index),
-                    E_USER_ERROR
+                    PHP_VERSION_ID < 80400 ? E_USER_ERROR : E_USER_WARNING
                 );
             }
 

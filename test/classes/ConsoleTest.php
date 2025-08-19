@@ -7,6 +7,8 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Console;
 use ReflectionProperty;
 
+use const PHP_VERSION_ID;
+
 /**
  * @covers \PhpMyAdmin\Console
  */
@@ -21,7 +23,10 @@ class ConsoleTest extends AbstractTestCase
     public function testSetAjax(): void
     {
         $isAjax = new ReflectionProperty(Console::class, 'isAjax');
-        $isAjax->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $isAjax->setAccessible(true);
+        }
+
         $console = new Console();
 
         self::assertFalse($isAjax->getValue($console));

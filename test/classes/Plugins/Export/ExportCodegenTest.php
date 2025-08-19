@@ -18,6 +18,8 @@ use ReflectionProperty;
 use function ob_get_clean;
 use function ob_start;
 
+use const PHP_VERSION_ID;
+
 /**
  * @covers \PhpMyAdmin\Plugins\Export\ExportCodegen
  * @group medium
@@ -49,11 +51,16 @@ class ExportCodegenTest extends AbstractTestCase
     public function testInitSpecificVariables(): void
     {
         $method = new ReflectionMethod(ExportCodegen::class, 'init');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
+
         $method->invoke($this->object, null);
 
         $attrCgFormats = new ReflectionProperty(ExportCodegen::class, 'cgFormats');
-        $attrCgFormats->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $attrCgFormats->setAccessible(true);
+        }
 
         self::assertSame([
             'NHibernate C# DO',
@@ -64,11 +71,17 @@ class ExportCodegenTest extends AbstractTestCase
     public function testSetProperties(): void
     {
         $method = new ReflectionMethod(ExportCodegen::class, 'setProperties');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
+
         $method->invoke($this->object, null);
 
         $attrProperties = new ReflectionProperty(ExportCodegen::class, 'properties');
-        $attrProperties->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $attrProperties->setAccessible(true);
+        }
+
         $properties = $attrProperties->getValue($this->object);
 
         self::assertInstanceOf(ExportPluginProperties::class, $properties);
@@ -185,7 +198,10 @@ class ExportCodegenTest extends AbstractTestCase
     public function testHandleNHibernateCSBody(): void
     {
         $method = new ReflectionMethod(ExportCodegen::class, 'handleNHibernateCSBody');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
+
         $result = $method->invoke($this->object, 'test_db', 'test_table', "\n");
 
         self::assertSame('using System;' . "\n" .
@@ -235,7 +251,10 @@ class ExportCodegenTest extends AbstractTestCase
     public function testHandleNHibernateXMLBody(): void
     {
         $method = new ReflectionMethod(ExportCodegen::class, 'handleNHibernateXMLBody');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
+
         $result = $method->invoke($this->object, 'test_db', 'test_table', "\n");
 
         self::assertSame('<?xml version="1.0" encoding="utf-8" ?>' . "\n" .
@@ -267,8 +286,10 @@ class ExportCodegenTest extends AbstractTestCase
         $getter = $reflection->getMethod('getCgFormats');
         $setter = $reflection->getMethod('setCgFormats');
 
-        $getter->setAccessible(true);
-        $setter->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $getter->setAccessible(true);
+            $setter->setAccessible(true);
+        }
 
         $setter->invoke($this->object, [1, 2]);
 

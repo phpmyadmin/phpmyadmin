@@ -329,7 +329,7 @@
     <InvalidArrayOffset occurrences="1">
       <code>$cfg['Server']['hide_connection_errors']</code>
     </InvalidArrayOffset>
-    <MixedArgument occurrences="15">
+    <MixedArgument occurrences="16">
       <code>$collation_connection</code>
       <code>$config_data</code>
       <code>$config_data</code>
@@ -339,6 +339,7 @@
       <code>$gd_nfo['GD Version']</code>
       <code>$path</code>
       <code>$server['verbose']</code>
+      <code>$server_index</code>
       <code>$server_index</code>
       <code>$this-&gt;settings['Servers']</code>
       <code>$this-&gt;settings['ThemeDefault']</code>
@@ -365,11 +366,12 @@
       <code>$_SESSION['cache'][$cache_key]</code>
       <code>$temp_dir[$name]</code>
     </MixedArrayAssignment>
-    <MixedArrayOffset occurrences="2">
+    <MixedArrayOffset occurrences="3">
+      <code>$new_servers[$server_index]</code>
       <code>$this-&gt;settings['Servers'][$server]</code>
       <code>$this-&gt;settings['Servers'][$this-&gt;settings['ServerDefault']]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="25">
+    <MixedAssignment occurrences="26">
       <code>$cfg['LoginCookieValidity']</code>
       <code>$collation_connection</code>
       <code>$config_data</code>
@@ -390,6 +392,7 @@
       <code>$server['host']</code>
       <code>$server['port']</code>
       <code>$server[substr($key, 8)]</code>
+      <code>$server_index</code>
       <code>$url</code>
       <code>$url</code>
       <code>$user</code>
@@ -536,8 +539,7 @@
       <code>$v</code>
       <code>$value</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="2">
-      <code>array</code>
+    <MixedInferredReturnType occurrences="1">
       <code>string|null</code>
     </MixedInferredReturnType>
     <MixedOperand occurrences="4">
@@ -558,10 +560,6 @@
       <code>$fieldsTypes</code>
       <code>$name</code>
     </PropertyNotSetInConstructor>
-    <UnevaluatedCode occurrences="2">
-      <code>return [];</code>
-      <code>return [];</code>
-    </UnevaluatedCode>
   </file>
   <file src="libraries/classes/Config/FormDisplay.php">
     <MixedArgument occurrences="20">
@@ -13843,9 +13841,6 @@
       <code>$data['name']</code>
       <code>$data['version']</code>
     </MixedArgument>
-    <UnevaluatedCode occurrences="1">
-      <code>return false;</code>
-    </UnevaluatedCode>
   </file>
   <file src="libraries/classes/ThemeManager.php">
     <DocblockTypeContradiction occurrences="2">
@@ -13873,16 +13868,9 @@
       <code>(bool) $perServer</code>
       <code>(string) $this-&gt;theme-&gt;id</code>
     </RedundantCastGivenDocblockType>
-    <RedundantCondition occurrences="1">
-      <code>$configThemeExists</code>
-    </RedundantCondition>
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>$this-&gt;theme !== null</code>
     </RedundantConditionGivenDocblockType>
-    <UnevaluatedCode occurrences="2">
-      <code>$configThemeExists = false;</code>
-      <code>return false;</code>
-    </UnevaluatedCode>
   </file>
   <file src="libraries/classes/Tracker.php">
     <DocblockTypeContradiction occurrences="1">

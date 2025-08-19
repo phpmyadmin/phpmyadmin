@@ -14,13 +14,18 @@ use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use ReflectionProperty;
 
+use const PHP_VERSION_ID;
+
 /** @covers \PhpMyAdmin\Controllers\Table\IndexRenameController */
 final class IndexRenameControllerTest extends AbstractTestCase
 {
     public function testPreviewSqlWithOldStatement(): void
     {
         $indexRegistry = new ReflectionProperty(Index::class, 'registry');
-        $indexRegistry->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $indexRegistry->setAccessible(true);
+        }
+
         $indexRegistry->setValue(null, []);
 
         $GLOBALS['cfg']['Server'] = $GLOBALS['cfg']['Servers'][1];

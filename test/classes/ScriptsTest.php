@@ -10,6 +10,8 @@ use ReflectionProperty;
 
 use function rawurlencode;
 
+use const PHP_VERSION_ID;
+
 /**
  * @covers \PhpMyAdmin\Scripts
  */
@@ -91,7 +93,9 @@ class ScriptsTest extends AbstractTestCase
     public function testAddFile(): void
     {
         $reflection = new ReflectionProperty(Scripts::class, 'files');
-        $reflection->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $reflection->setAccessible(true);
+        }
 
         // Assert empty _files property of
         // Scripts
@@ -117,7 +121,9 @@ class ScriptsTest extends AbstractTestCase
     public function testAddFiles(): void
     {
         $reflection = new ReflectionProperty(Scripts::class, 'files');
-        $reflection->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $reflection->setAccessible(true);
+        }
 
         $filenames = [
             'common.js',

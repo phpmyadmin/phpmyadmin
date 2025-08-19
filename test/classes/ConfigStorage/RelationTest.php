@@ -14,6 +14,8 @@ use ReflectionClass;
 
 use function implode;
 
+use const PHP_VERSION_ID;
+
 /**
  * @covers \PhpMyAdmin\ConfigStorage\Relation
  * @group medium
@@ -1939,7 +1941,10 @@ class RelationTest extends AbstractTestCase
         $_SESSION['relation'] = [];
         $_SESSION['tmpval'] = [];
         $recentFavoriteTableInstances = (new ReflectionClass(RecentFavoriteTable::class))->getProperty('instances');
-        $recentFavoriteTableInstances->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $recentFavoriteTableInstances->setAccessible(true);
+        }
+
         $recentFavoriteTableInstances->setValue(null, []);
 
         $relation = new Relation($this->dbi);

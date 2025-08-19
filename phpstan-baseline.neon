@@ -1197,7 +1197,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\.\\.\\.\\$values of function sprintf expects bool\\|float\\|int\\|string\\|null, mixed given\\.$#"
-			count: 1
+			count: 2
 			path: libraries/classes/Config.php
 
 		-
@@ -1548,11 +1548,6 @@ parameters:
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\\\Form\\:\\:\\$index \\(int\\) does not accept int\\|null\\.$#"
 			count: 1
-			path: libraries/classes/Config/Form.php
-
-		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 2
 			path: libraries/classes/Config/Form.php
 
 		-
@@ -36001,11 +35996,6 @@ parameters:
 			path: libraries/classes/Theme.php
 
 		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 1
-			path: libraries/classes/Theme.php
-
-		-
 			message: "#^Cannot access offset 'ThemeDefault' on mixed\\.$#"
 			count: 3
 			path: libraries/classes/ThemeManager.php
@@ -36047,11 +36037,6 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 1
-			path: libraries/classes/ThemeManager.php
-
-		-
-			message: "#^If condition is always true\\.$#"
 			count: 1
 			path: libraries/classes/ThemeManager.php
 
@@ -36103,11 +36088,6 @@ parameters:
 		-
 			message: "#^Static property PhpMyAdmin\\\\ThemeManager\\:\\:\\$instance \\(PhpMyAdmin\\\\ThemeManager\\) in empty\\(\\) is not falsy\\.$#"
 			count: 1
-			path: libraries/classes/ThemeManager.php
-
-		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 2
 			path: libraries/classes/ThemeManager.php
 
 		-
@@ -46419,6 +46399,11 @@ parameters:
 			message: "#^Parameter \\#1 \\$count of method PHPUnit\\\\Framework\\\\TestCase\\:\\:exactly\\(\\) expects int, mixed given\\.$#"
 			count: 6
 			path: test/classes/Plugins/Auth/AuthenticationHttpTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with array\\{lifetime\\: 0, path\\: '/', domain\\: '', secure\\: false, partitioned\\?\\: false, httponly\\: false, samesite\\?\\: ''\\} and array\\{lifetime\\: int\\<0, max\\>, path\\: non\\-falsy\\-string, domain\\: string, secure\\: bool, httponly\\: bool, samesite\\: string\\} will always evaluate to false\\.$#"
+			count: 1
+			path: test/classes/Plugins/Auth/AuthenticationSignonTest.php
 
 		-
 			message: "#^Cannot access offset 'LoginCookieValidity' on mixed\\.$#"

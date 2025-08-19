@@ -9,6 +9,8 @@ use PhpMyAdmin\Header;
 use PhpMyAdmin\ResponseRenderer;
 use ReflectionProperty;
 
+use const PHP_VERSION_ID;
+
 /**
  * @covers \PhpMyAdmin\ResponseRenderer
  */
@@ -34,13 +36,21 @@ class ResponseRendererTest extends AbstractTestCase
         $response = ResponseRenderer::getInstance();
         $header = $response->getHeader();
         $footerReflection = new ReflectionProperty(ResponseRenderer::class, 'footer');
-        $footerReflection->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $footerReflection->setAccessible(true);
+        }
+
         $footer = $footerReflection->getValue($response);
         self::assertInstanceOf(Footer::class, $footer);
         $headerIsAjax = new ReflectionProperty(Header::class, 'isAjax');
-        $headerIsAjax->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $headerIsAjax->setAccessible(true);
+        }
+
         $footerIsAjax = new ReflectionProperty(Footer::class, 'isAjax');
-        $footerIsAjax->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $footerIsAjax->setAccessible(true);
+        }
 
         self::assertFalse($response->isAjax());
         self::assertFalse($headerIsAjax->getValue($header));
