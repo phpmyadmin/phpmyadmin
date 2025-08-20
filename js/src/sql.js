@@ -47,10 +47,15 @@ Sql.urlEncode = function (str) {
 Sql.autoSave = function (query) {
     if (query) {
         var key = Sql.getAutoSavedKey();
-        if (isStorageSupported('localStorage')) {
-            window.localStorage.setItem(key, query);
-        } else {
-            Cookies.set(key, query);
+        try {
+            if (isStorageSupported('localStorage')) {
+                window.localStorage.setItem(key, query);
+            } else {
+                Cookies.set(key, query);
+            }
+        } catch (e) {
+            console.error(e);
+            Functions.ajaxShowMessage(e.message, false, 'error');
         }
     }
 };
