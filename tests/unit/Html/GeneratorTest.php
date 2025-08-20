@@ -479,33 +479,33 @@ class GeneratorTest extends AbstractTestCase
 
         // phpcs:disable Generic.Files.LineLength.TooLong
         $expected = <<<'HTML'
-<div class="alert alert-primary" role="alert">
-  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice"> Bookmark message
-</div>
-<div class="card mb-3 result_query">
-<div class="alert alert-primary border-top-0 border-start-0 border-end-0 rounded-bottom-0 mb-0" role="alert">
-  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice"> Message <em>one</em>.
-</div>
-<div class="card-body sqlOuter"><pre><code class="sql" dir="ltr">SELECT 1;</code></pre></div>
-<div class="card-footer tools d-print-none">
-<div class="row align-items-center">
-<div class="col-auto">
-<form action="index.php?route=/sql&db=test_db&table=test_table&server=2&lang=en" method="post" class="disableAjax">
-<input type="hidden" name="db" value="test_db"><input type="hidden" name="table" value="test_table"><input type="hidden" name="server" value="2"><input type="hidden" name="lang" value="en"><input type="hidden" name="token" value="token">
-<input type="hidden" name="sql_query" value="SELECT 1;">
-<input type="hidden" name="profiling_form" value="1">
-<div class="form-check form-switch">
-<input type="checkbox" name="profiling" id="profilingCheckbox" role="switch" class="form-check-input autosubmit">
-<label class="form-check-label" for="profilingCheckbox">Profiling</label>
-</div>
-</form></div>
-<div class="col-auto"><a href="#" class="btn btn-link inline_edit_sql">Edit inline</a></div>
-<div class="col-auto"><a href="index.php" data-post="route=/table/sql&db=test_db&table=test_table&sql_query=SELECT+1%3B&show_query=1&server=2&lang=en" class="btn btn-link">Edit</a></div>
-<div class="col-auto"><a href="index.php" data-post="route=/import&db=test_db&table=test_table&sql_query=EXPLAIN+SELECT+1%3B&server=2&lang=en" class="btn btn-link">Explain SQL</a></div>
-<div class="col-auto"><a href="index.php" data-post="route=/import&db=test_db&table=test_table&sql_query=SELECT+1%3B&show_query=1&show_as_php=1&server=2&lang=en" class="btn btn-link">Create PHP code</a></div>
-<div class="col-auto"><a href="index.php" data-post="route=/sql&db=test_db&table=test_table&sql_query=SELECT+1%3B&show_query=1&server=2&lang=en" class="btn btn-link">Refresh</a></div>
-</div></div></div>
-HTML;
+            <div class="alert alert-primary" role="alert">
+              <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice"> Bookmark message
+            </div>
+            <div class="card mb-3 result_query">
+            <div class="alert alert-primary border-top-0 border-start-0 border-end-0 rounded-bottom-0 mb-0" role="alert">
+              <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice"> Message <em>one</em>.
+            </div>
+            <div class="card-body sqlOuter"><pre><code class="sql" dir="ltr">SELECT 1;</code></pre></div>
+            <div class="card-footer tools d-print-none">
+            <div class="row align-items-center">
+            <div class="col-auto">
+            <form action="index.php?route=/sql&db=test_db&table=test_table&server=2&lang=en" method="post" class="disableAjax">
+            <input type="hidden" name="db" value="test_db"><input type="hidden" name="table" value="test_table"><input type="hidden" name="server" value="2"><input type="hidden" name="lang" value="en"><input type="hidden" name="token" value="token">
+            <input type="hidden" name="sql_query" value="SELECT 1;">
+            <input type="hidden" name="profiling_form" value="1">
+            <div class="form-check form-switch">
+            <input type="checkbox" name="profiling" id="profilingCheckbox" role="switch" class="form-check-input autosubmit">
+            <label class="form-check-label" for="profilingCheckbox">Profiling</label>
+            </div>
+            </form></div>
+            <div class="col-auto"><a href="#" class="btn btn-link inline_edit_sql">Edit inline</a></div>
+            <div class="col-auto"><a href="index.php" data-post="route=/table/sql&db=test_db&table=test_table&sql_query=SELECT+1%3B&show_query=1&server=2&lang=en" class="btn btn-link">Edit</a></div>
+            <div class="col-auto"><a href="index.php" data-post="route=/import&db=test_db&table=test_table&sql_query=EXPLAIN+SELECT+1%3B&server=2&lang=en" class="btn btn-link">Explain SQL</a></div>
+            <div class="col-auto"><a href="index.php" data-post="route=/import&db=test_db&table=test_table&sql_query=SELECT+1%3B&show_query=1&show_as_php=1&server=2&lang=en" class="btn btn-link">Create PHP code</a></div>
+            <div class="col-auto"><a href="index.php" data-post="route=/sql&db=test_db&table=test_table&sql_query=SELECT+1%3B&show_query=1&server=2&lang=en" class="btn btn-link">Refresh</a></div>
+            </div></div></div>
+            HTML;
         // phpcs:enable
 
         self::assertSame($expected, Generator::getMessage('Message [em]one[/em].'));
@@ -529,23 +529,23 @@ HTML;
 
         // phpcs:disable Generic.Files.LineLength.TooLong
         $expected = <<<'HTML'
-<div class="card mb-3 result_query">
-<div class="alert alert-success border-top-0 border-start-0 border-end-0 rounded-bottom-0 mb-0" role="alert">
-  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_success"> Message <em>one</em>.
-</div>
-<div class="card-body sqlOuter"><pre><code class="php" dir="ltr">$sql = "EXPLAIN SELECT 1;";</code></pre></div>
-<div class="card-footer tools d-print-none">
-<div class="row align-items-center">
-<div class="col-auto">
-<form action="index.php?route=/sql&db=test_db&table=test_table&server=2&lang=en" method="post" class="disableAjax">
-<input type="hidden" name="db" value="test_db"><input type="hidden" name="table" value="test_table"><input type="hidden" name="server" value="2"><input type="hidden" name="lang" value="en"><input type="hidden" name="token" value="token">
-<input type="hidden" name="sql_query" value="EXPLAIN SELECT 1;">
-</form></div>
-<div class="col-auto"><a href="index.php" data-post="route=/import&db=test_db&table=test_table&sql_query=SELECT+1%3B&server=2&lang=en" class="btn btn-link">Skip Explain SQL</a></div>
-<div class="col-auto"><a href="index.php" data-post="route=/import&db=test_db&table=test_table&sql_query=EXPLAIN+SELECT+1%3B&show_query=1&server=2&lang=en" class="btn btn-link">Without PHP code</a></div>
-<div class="col-auto"><a href="index.php" data-post="route=/import&db=test_db&table=test_table&sql_query=EXPLAIN+SELECT+1%3B&show_query=1&server=2&lang=en" class="btn btn-link">Submit query</a></div>
-</div></div></div>
-HTML;
+            <div class="card mb-3 result_query">
+            <div class="alert alert-success border-top-0 border-start-0 border-end-0 rounded-bottom-0 mb-0" role="alert">
+              <img src="themes/dot.gif" title="" alt="" class="icon ic_s_success"> Message <em>one</em>.
+            </div>
+            <div class="card-body sqlOuter"><pre><code class="php" dir="ltr">$sql = "EXPLAIN SELECT 1;";</code></pre></div>
+            <div class="card-footer tools d-print-none">
+            <div class="row align-items-center">
+            <div class="col-auto">
+            <form action="index.php?route=/sql&db=test_db&table=test_table&server=2&lang=en" method="post" class="disableAjax">
+            <input type="hidden" name="db" value="test_db"><input type="hidden" name="table" value="test_table"><input type="hidden" name="server" value="2"><input type="hidden" name="lang" value="en"><input type="hidden" name="token" value="token">
+            <input type="hidden" name="sql_query" value="EXPLAIN SELECT 1;">
+            </form></div>
+            <div class="col-auto"><a href="index.php" data-post="route=/import&db=test_db&table=test_table&sql_query=SELECT+1%3B&server=2&lang=en" class="btn btn-link">Skip Explain SQL</a></div>
+            <div class="col-auto"><a href="index.php" data-post="route=/import&db=test_db&table=test_table&sql_query=EXPLAIN+SELECT+1%3B&show_query=1&server=2&lang=en" class="btn btn-link">Without PHP code</a></div>
+            <div class="col-auto"><a href="index.php" data-post="route=/import&db=test_db&table=test_table&sql_query=EXPLAIN+SELECT+1%3B&show_query=1&server=2&lang=en" class="btn btn-link">Submit query</a></div>
+            </div></div></div>
+            HTML;
         // phpcs:enable
 
         self::assertSame($expected, Generator::getMessage(Message::success('Message [em]one[/em].')));

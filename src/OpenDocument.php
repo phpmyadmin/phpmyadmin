@@ -17,13 +17,13 @@ use const DATE_W3C;
 class OpenDocument
 {
     public const NS = <<<'EOT'
-xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0"
-xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"
-xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0"
-xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0"
-xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0"
-xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0"
-EOT;
+        xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0"
+        xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"
+        xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0"
+        xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0"
+        xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0"
+        xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0"
+        EOT;
 
     /**
      * Minimalistic creator of OASIS OpenDocument

@@ -105,25 +105,25 @@ final class ZoomSearchControllerTest extends AbstractTestCase
 
         // phpcs:disable Generic.Files.LineLength.TooLong
         $operators = <<<'HTML'
-<select class="column-operator" id="ColumnOperator0" name="criteriaColumnOperators[0]">
-  <option value="=">=</option><option value="&gt;">&gt;</option><option value="&gt;=">&gt;=</option><option value="&lt;">&lt;</option><option value="&lt;=">&lt;=</option><option value="!=">!=</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="NOT LIKE %...%">NOT LIKE %...%</option><option value="IN (...)">IN (...)</option><option value="NOT IN (...)">NOT IN (...)</option><option value="BETWEEN">BETWEEN</option><option value="NOT BETWEEN">NOT BETWEEN</option>
-</select>
+            <select class="column-operator" id="ColumnOperator0" name="criteriaColumnOperators[0]">
+              <option value="=">=</option><option value="&gt;">&gt;</option><option value="&gt;=">&gt;=</option><option value="&lt;">&lt;</option><option value="&lt;=">&lt;=</option><option value="!=">!=</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="NOT LIKE %...%">NOT LIKE %...%</option><option value="IN (...)">IN (...)</option><option value="NOT IN (...)">NOT IN (...)</option><option value="BETWEEN">BETWEEN</option><option value="NOT BETWEEN">NOT BETWEEN</option>
+            </select>
 
-HTML;
+            HTML;
         // phpcs:enable
 
         $value = <<<'HTML'
-                        <input
-                    type="text"
-        name="criteriaValues[0]"
-        data-type="DATETIME"
-         onfocus="return verifyAfterSearchFieldChange(0, '#zoom_search_form')"
-        size="40"
-        class="textfield datetimefield"
-        id="fieldID_0"
-        >
+                                    <input
+                                type="text"
+                    name="criteriaValues[0]"
+                    data-type="DATETIME"
+                     onfocus="return verifyAfterSearchFieldChange(0, '#zoom_search_form')"
+                    size="40"
+                    class="textfield datetimefield"
+                    id="fieldID_0"
+                    >
 
-HTML;
+            HTML;
 
         $expected = [
             'field_type' => 'datetime',

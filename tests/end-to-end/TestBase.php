@@ -1003,11 +1003,11 @@ abstract class TestBase extends TestCase
     {
         // 70pt offset by-default so that the topmenu does not cover the element
         $script = <<<'JS'
-const elementId = arguments[0];
-const yOffset = arguments[1];
-const position = document.getElementById(elementId).getBoundingClientRect();
-window.scrollBy({left: 0, top: position.top - yOffset, behavior: 'instant'});
-JS;
+            const elementId = arguments[0];
+            const yOffset = arguments[1];
+            const position = document.getElementById(elementId).getBoundingClientRect();
+            window.scrollBy({left: 0, top: position.top - yOffset, behavior: 'instant'});
+            JS;
         $this->webDriver->executeScript($script, [$elementId, $yOffset]);
     }
 
@@ -1021,10 +1021,10 @@ JS;
     public function scrollToElement(WebDriverElement $element, int $xOffset = 0, int $yOffset = 0): void
     {
         $script = <<<'JS'
-const leftValue = arguments[0];
-const topValue = arguments[1];
-window.scrollBy({left: leftValue, top: topValue, behavior: 'instant'});
-JS;
+            const leftValue = arguments[0];
+            const topValue = arguments[1];
+            window.scrollBy({left: leftValue, top: topValue, behavior: 'instant'});
+            JS;
         $this->webDriver->executeScript($script, [
             $element->getLocation()->getX() + $xOffset,
             $element->getLocation()->getY() + $yOffset,
@@ -1037,8 +1037,8 @@ JS;
     public function scrollToBottom(): void
     {
         $script = <<<'JS'
-window.scrollTo({left: 0, top: document.body.scrollHeight, behavior: 'instant'});
-JS;
+            window.scrollTo({left: 0, top: document.body.scrollHeight, behavior: 'instant'});
+            JS;
         $this->webDriver->executeScript($script);
     }
 

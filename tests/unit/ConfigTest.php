@@ -101,10 +101,10 @@ class ConfigTest extends AbstractTestCase
         self::assertEquals($defaultConfig->getSettings(), $config->getSettings());
 
         $contents = <<<'PHP'
-<?php
-$cfg['environment'] = 'development';
-$cfg['UnknownKey'] = true;
-PHP;
+            <?php
+            $cfg['environment'] = 'development';
+            $cfg['UnknownKey'] = true;
+            PHP;
         file_put_contents($tmpConfig, $contents);
 
         // Test loading a config changes the setup

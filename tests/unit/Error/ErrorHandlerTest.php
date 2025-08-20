@@ -314,12 +314,12 @@ class ErrorHandlerTest extends AbstractTestCase
         self::assertInstanceOf(ExitException::class, $exception ?? null);
         // phpcs:disable Generic.Files.LineLength.TooLong
         $expectedStart = <<<'HTML'
-<!DOCTYPE html>
-<html lang="en">
-<head><title>Error: Fatal error message!</title></head>
-<body>
-<div class="alert alert-danger" role="alert"><p><strong>Error</strong> in name#1</p><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> Fatal error message!<p class="mt-3"><strong>Backtrace</strong></p><ol class="list-group"><li class="list-group-item">
-HTML;
+            <!DOCTYPE html>
+            <html lang="en">
+            <head><title>Error: Fatal error message!</title></head>
+            <body>
+            <div class="alert alert-danger" role="alert"><p><strong>Error</strong> in name#1</p><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> Fatal error message!<p class="mt-3"><strong>Backtrace</strong></p><ol class="list-group"><li class="list-group-item">
+            HTML;
         // phpcs:enable
         $output = $this->getActualOutputForAssertion();
         self::assertStringStartsWith($expectedStart, $output);
