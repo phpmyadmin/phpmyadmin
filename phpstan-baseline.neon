@@ -205,7 +205,7 @@ parameters:
 			path: public/index.php
 
 		-
-			message: '#^Comparison operation "\<" between int\<80200, 80499\> and 80200 is always false\.$#'
+			message: '#^Comparison operation "\<" between int\<80200, 80599\> and 80200 is always false\.$#'
 			identifier: smaller.alwaysFalse
 			count: 1
 			path: public/index.php
@@ -223,7 +223,7 @@ parameters:
 			path: public/setup/index.php
 
 		-
-			message: '#^Comparison operation "\<" between int\<80200, 80499\> and 80200 is always false\.$#'
+			message: '#^Comparison operation "\<" between int\<80200, 80599\> and 80200 is always false\.$#'
 			identifier: smaller.alwaysFalse
 			count: 1
 			path: public/setup/index.php
@@ -2695,12 +2695,6 @@ parameters:
 			message: '#^Cannot cast mixed to int\.$#'
 			identifier: cast.int
 			count: 3
-			path: src/Controllers/Server/DatabasesController.php
-
-		-
-			message: '#^Cannot cast mixed to string\.$#'
-			identifier: cast.string
-			count: 4
 			path: src/Controllers/Server/DatabasesController.php
 
 		-
@@ -10824,7 +10818,7 @@ parameters:
 		-
 			message: '#^Cannot access offset ''tables'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 5
+			count: 4
 			path: src/Plugins/ExportPlugin.php
 
 		-
@@ -10969,18 +10963,6 @@ parameters:
 			path: src/Plugins/Import/ImportOds.php
 
 		-
-			message: '#^Cannot cast mixed to int\.$#'
-			identifier: cast.int
-			count: 2
-			path: src/Plugins/Import/ImportOds.php
-
-		-
-			message: '#^Cannot cast mixed to string\.$#'
-			identifier: cast.string
-			count: 1
-			path: src/Plugins/Import/ImportOds.php
-
-		-
 			message: '#^Offset ''name'' might not exist on SimpleXMLElement\|null\.$#'
 			identifier: offsetAccess.notFound
 			count: 1
@@ -11101,12 +11083,6 @@ parameters:
 			path: src/Plugins/Import/ImportXml.php
 
 		-
-			message: '#^Cannot cast mixed to string\.$#'
-			identifier: cast.string
-			count: 6
-			path: src/Plugins/Import/ImportXml.php
-
-		-
 			message: '#^Offset ''charset'' might not exist on SimpleXMLElement\|null\.$#'
 			identifier: offsetAccess.notFound
 			count: 1
@@ -11155,7 +11131,25 @@ parameters:
 			path: src/Plugins/Import/Upload/UploadNoplugin.php
 
 		-
+			message: '#^Binary operation "/" between int and mixed results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/Plugins/Import/Upload/UploadProgress.php
+
+		-
+			message: '#^Cannot access offset ''complete'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Plugins/Import/Upload/UploadProgress.php
+
+		-
 			message: '#^Cannot access offset ''finished'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Plugins/Import/Upload/UploadProgress.php
+
+		-
+			message: '#^Cannot access offset ''percent'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
 			path: src/Plugins/Import/Upload/UploadProgress.php
@@ -11163,7 +11157,7 @@ parameters:
 		-
 			message: '#^Cannot access offset ''total'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
+			count: 4
 			path: src/Plugins/Import/Upload/UploadProgress.php
 
 		-
@@ -11185,15 +11179,9 @@ parameters:
 			path: src/Plugins/Import/Upload/UploadProgress.php
 
 		-
-			message: '#^Method PhpMyAdmin\\Plugins\\Import\\Upload\\UploadProgress\:\:getUploadStatus\(\) should return array\|null but returns array\|ArrayAccess\.$#'
-			identifier: return.type
-			count: 1
-			path: src/Plugins/Import/Upload/UploadProgress.php
-
-		-
 			message: '#^Method PhpMyAdmin\\Plugins\\Import\\Upload\\UploadProgress\:\:getUploadStatus\(\) should return array\|null but returns mixed\.$#'
 			identifier: return.type
-			count: 1
+			count: 2
 			path: src/Plugins/Import/Upload/UploadProgress.php
 
 		-
@@ -11227,6 +11215,12 @@ parameters:
 			path: src/Plugins/Import/Upload/UploadSession.php
 
 		-
+			message: '#^Cannot access offset ''complete'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: src/Plugins/Import/Upload/UploadSession.php
+
+		-
 			message: '#^Cannot access offset ''content_length'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
@@ -11245,9 +11239,15 @@ parameters:
 			path: src/Plugins/Import/Upload/UploadSession.php
 
 		-
+			message: '#^Cannot access offset ''percent'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Plugins/Import/Upload/UploadSession.php
+
+		-
 			message: '#^Cannot access offset ''total'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
+			count: 4
 			path: src/Plugins/Import/Upload/UploadSession.php
 
 		-
@@ -11263,15 +11263,9 @@ parameters:
 			path: src/Plugins/Import/Upload/UploadSession.php
 
 		-
-			message: '#^Method PhpMyAdmin\\Plugins\\Import\\Upload\\UploadSession\:\:getUploadStatus\(\) should return array\|null but returns array\|ArrayAccess\.$#'
-			identifier: return.type
-			count: 1
-			path: src/Plugins/Import/Upload/UploadSession.php
-
-		-
 			message: '#^Method PhpMyAdmin\\Plugins\\Import\\Upload\\UploadSession\:\:getUploadStatus\(\) should return array\|null but returns mixed\.$#'
 			identifier: return.type
-			count: 1
+			count: 2
 			path: src/Plugins/Import/Upload/UploadSession.php
 
 		-
@@ -18262,7 +18256,7 @@ parameters:
 			path: tests/unit/Plugins/Auth/AuthenticationSignonTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\) with array\{lifetime\: 0, path\: ''/'', domain\: '''', secure\: false, httponly\: false, samesite\: ''''\} and array\{lifetime\: int\<0, max\>, path\: non\-falsy\-string, domain\: string, secure\: bool, httponly\: bool, samesite\: ''Lax''\|''lax''\|''None''\|''none''\|''Strict''\|''strict''\} will always evaluate to false\.$#'
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\) with array\{lifetime\: 0, path\: ''/'', domain\: '''', secure\: false, partitioned\?\: false, httponly\: false, samesite\: ''''\} and array\{lifetime\: int\<0, max\>, path\: non\-falsy\-string, domain\: string, secure\: bool, httponly\: bool, samesite\: ''Lax''\|''lax''\|''None''\|''none''\|''Strict''\|''strict''\} will always evaluate to false\.$#'
 			identifier: staticMethod.impossibleType
 			count: 1
 			path: tests/unit/Plugins/Auth/AuthenticationSignonTest.php

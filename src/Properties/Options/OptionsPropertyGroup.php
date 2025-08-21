@@ -40,7 +40,7 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem implements Count
      */
     public function addProperty(OptionsPropertyItem $property): void
     {
-        $this->properties->attach($property);
+        $this->properties->offsetSet($property);
     }
 
     /**
@@ -51,7 +51,7 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem implements Count
      */
     public function removeProperty(OptionsPropertyItem $property): void
     {
-        $this->properties->detach($property);
+        $this->properties->offsetUnset($property);
     }
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */

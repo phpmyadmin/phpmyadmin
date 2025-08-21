@@ -99,73 +99,73 @@ final class BrowseForeignersControllerTest extends AbstractTestCase
 
         // phpcs:disable Generic.Files.LineLength.TooLong
         $expected = <<<'HTML'
-<form class="ajax" id="browse_foreign_form" name="browse_foreign_from" action="index.php?route=/browse-foreigners&server=2&lang=en" method="post"><fieldset class="row g-3 align-items-center mb-3">
-<input type="hidden" name="db" value="sakila"><input type="hidden" name="table" value="film_actor"><input type="hidden" name="server" value="2"><input type="hidden" name="lang" value="en"><input type="hidden" name="token" value="token">
-<input type="hidden" name="field" value="actor_id">
-<input type="hidden" name="fieldkey" value="">
-<div class="col-auto"><label class="form-label" for="input_foreign_filter">Search:</label></div>
-<div class="col-auto"><input class="form-control" type="text" name="foreign_filter" id="input_foreign_filter" value="" data-old="">
-</div><div class="col-auto"><input class="btn btn-primary" type="submit" name="submit_foreign_filter" value="Go"></div>
-<div class="col-auto"></div><div class="col-auto"></div></fieldset></form>
-<table class="table table-striped table-hover" id="browse_foreign_table">
-<thead><tr>
-            <th>Keyname</th>
-            <th>Description</th>
-            <td width="20%"></td>
-            <th>Description</th>
-            <th>Keyname</th>
-        </tr>
-</thead>
-<tfoot><tr>
-            <th>Keyname</th>
-            <th>Description</th>
-            <td width="20%"></td>
-            <th>Description</th>
-            <th>Keyname</th>
-        </tr>
-</tfoot>
-<tbody>
-<tr class="noclick"><td class="text-nowrap">
-    <a class="foreign_value" data-key="71" href="#" title="Use this value">71</a>
-</td>
-<td>
-    <a class="foreign_value" data-key="71" href="#" title="Use this value">ADAM</a>
-</td>
-<td width="20%"><img src="./themes/pmahomme/img/spacer.png" alt="" width="1" height="1"></td><td>
-    <a class="foreign_value" data-key="71" href="#" title="Use this value">ADAM</a>
-</td>
-<td class="text-nowrap">
-    <a class="foreign_value" data-key="71" href="#" title="Use this value">71</a>
-</td>
-</tr>
-<tr class="noclick"><td class="text-nowrap">
-    <a class="foreign_value" data-key="125" href="#" title="Use this value">125</a>
-</td>
-<td>
-    <a class="foreign_value" data-key="125" href="#" title="Use this value">ALBERT</a>
-</td>
-<td width="20%"><img src="./themes/pmahomme/img/spacer.png" alt="" width="1" height="1"></td><td>
-    <a class="foreign_value" data-key="173" href="#" title="Use this value">ALAN</a>
-</td>
-<td class="text-nowrap">
-    <a class="foreign_value" data-key="173" href="#" title="Use this value">173</a>
-</td>
-</tr>
-<tr class="noclick"><td class="text-nowrap">
-    <a class="foreign_value" data-key="173" href="#" title="Use this value">173</a>
-</td>
-<td>
-    <a class="foreign_value" data-key="173" href="#" title="Use this value">ALAN</a>
-</td>
-<td width="20%"><img src="./themes/pmahomme/img/spacer.png" alt="" width="1" height="1"></td><td>
-    <a class="foreign_value" data-key="125" href="#" title="Use this value">ALBERT</a>
-</td>
-<td class="text-nowrap">
-    <a class="foreign_value" data-key="125" href="#" title="Use this value">125</a>
-</td>
-</tr>
-</tbody></table>
-HTML;
+            <form class="ajax" id="browse_foreign_form" name="browse_foreign_from" action="index.php?route=/browse-foreigners&server=2&lang=en" method="post"><fieldset class="row g-3 align-items-center mb-3">
+            <input type="hidden" name="db" value="sakila"><input type="hidden" name="table" value="film_actor"><input type="hidden" name="server" value="2"><input type="hidden" name="lang" value="en"><input type="hidden" name="token" value="token">
+            <input type="hidden" name="field" value="actor_id">
+            <input type="hidden" name="fieldkey" value="">
+            <div class="col-auto"><label class="form-label" for="input_foreign_filter">Search:</label></div>
+            <div class="col-auto"><input class="form-control" type="text" name="foreign_filter" id="input_foreign_filter" value="" data-old="">
+            </div><div class="col-auto"><input class="btn btn-primary" type="submit" name="submit_foreign_filter" value="Go"></div>
+            <div class="col-auto"></div><div class="col-auto"></div></fieldset></form>
+            <table class="table table-striped table-hover" id="browse_foreign_table">
+            <thead><tr>
+                        <th>Keyname</th>
+                        <th>Description</th>
+                        <td width="20%"></td>
+                        <th>Description</th>
+                        <th>Keyname</th>
+                    </tr>
+            </thead>
+            <tfoot><tr>
+                        <th>Keyname</th>
+                        <th>Description</th>
+                        <td width="20%"></td>
+                        <th>Description</th>
+                        <th>Keyname</th>
+                    </tr>
+            </tfoot>
+            <tbody>
+            <tr class="noclick"><td class="text-nowrap">
+                <a class="foreign_value" data-key="71" href="#" title="Use this value">71</a>
+            </td>
+            <td>
+                <a class="foreign_value" data-key="71" href="#" title="Use this value">ADAM</a>
+            </td>
+            <td width="20%"><img src="./themes/pmahomme/img/spacer.png" alt="" width="1" height="1"></td><td>
+                <a class="foreign_value" data-key="71" href="#" title="Use this value">ADAM</a>
+            </td>
+            <td class="text-nowrap">
+                <a class="foreign_value" data-key="71" href="#" title="Use this value">71</a>
+            </td>
+            </tr>
+            <tr class="noclick"><td class="text-nowrap">
+                <a class="foreign_value" data-key="125" href="#" title="Use this value">125</a>
+            </td>
+            <td>
+                <a class="foreign_value" data-key="125" href="#" title="Use this value">ALBERT</a>
+            </td>
+            <td width="20%"><img src="./themes/pmahomme/img/spacer.png" alt="" width="1" height="1"></td><td>
+                <a class="foreign_value" data-key="173" href="#" title="Use this value">ALAN</a>
+            </td>
+            <td class="text-nowrap">
+                <a class="foreign_value" data-key="173" href="#" title="Use this value">173</a>
+            </td>
+            </tr>
+            <tr class="noclick"><td class="text-nowrap">
+                <a class="foreign_value" data-key="173" href="#" title="Use this value">173</a>
+            </td>
+            <td>
+                <a class="foreign_value" data-key="173" href="#" title="Use this value">ALAN</a>
+            </td>
+            <td width="20%"><img src="./themes/pmahomme/img/spacer.png" alt="" width="1" height="1"></td><td>
+                <a class="foreign_value" data-key="125" href="#" title="Use this value">ALBERT</a>
+            </td>
+            <td class="text-nowrap">
+                <a class="foreign_value" data-key="125" href="#" title="Use this value">125</a>
+            </td>
+            </tr>
+            </tbody></table>
+            HTML;
         // phpcs:enable
 
         (new BrowseForeignersController(

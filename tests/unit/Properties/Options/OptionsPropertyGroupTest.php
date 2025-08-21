@@ -43,13 +43,8 @@ class OptionsPropertyGroupTest extends AbstractTestCase
         $this->stub->addProperty($propertyItem);
         $this->stub->addProperty($propertyItem);
 
-        self::assertTrue(
-            $this->stub->getProperties()->contains($propertyItem),
-        );
-        self::assertSame(
-            1,
-            $this->stub->getNrOfProperties(),
-        );
+        self::assertTrue($this->stub->getProperties()->offsetExists($propertyItem));
+        self::assertSame(1, $this->stub->getNrOfProperties());
     }
 
     public function testRemoveProperty(): void
@@ -57,14 +52,10 @@ class OptionsPropertyGroupTest extends AbstractTestCase
         $propertyItem = new BoolPropertyItem();
 
         $this->stub->addProperty($propertyItem);
-        self::assertTrue(
-            $this->stub->getProperties()->contains($propertyItem),
-        );
+        self::assertTrue($this->stub->getProperties()->offsetExists($propertyItem));
 
         $this->stub->removeProperty($propertyItem);
-        self::assertFalse(
-            $this->stub->getProperties()->contains($propertyItem),
-        );
+        self::assertFalse($this->stub->getProperties()->offsetExists($propertyItem));
     }
 
     public function testGetProperties(): void
@@ -72,9 +63,7 @@ class OptionsPropertyGroupTest extends AbstractTestCase
         $propertyItem = new BoolPropertyItem();
         $this->stub->addProperty($propertyItem);
 
-        self::assertTrue(
-            $this->stub->getProperties()->contains($propertyItem),
-        );
+        self::assertTrue($this->stub->getProperties()->offsetExists($propertyItem));
     }
 
     public function testGetNrOfProperties(): void
@@ -84,9 +73,6 @@ class OptionsPropertyGroupTest extends AbstractTestCase
         $this->stub->addProperty($propertyItem);
         $propertyItem2 = new BoolPropertyItem();
         $this->stub->addProperty($propertyItem2);
-        self::assertSame(
-            2,
-            $this->stub->getNrOfProperties(),
-        );
+        self::assertSame(2, $this->stub->getNrOfProperties());
     }
 }

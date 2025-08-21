@@ -48,10 +48,15 @@ function urlEncode (str) {
 function autoSave (query): void {
     if (query) {
         var key = Sql.getAutoSavedKey();
-        if (isStorageSupported('localStorage')) {
-            window.localStorage.setItem(key, query);
-        } else {
-            window.Cookies.set(key, query, { path: CommonParams.get('rootPath') });
+        try {
+            if (isStorageSupported('localStorage')) {
+                window.localStorage.setItem(key, query);
+            } else {
+                window.Cookies.set(key, query, { path: CommonParams.get('rootPath') });
+            }
+        } catch (e) {
+            console.error(e);
+            ajaxShowMessage(e.message, false, 'error');
         }
 
         checkSavedQuery();
