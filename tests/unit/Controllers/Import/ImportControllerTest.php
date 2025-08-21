@@ -13,6 +13,8 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Import\Import;
+use PhpMyAdmin\Import\ImportSettings;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -20,6 +22,7 @@ use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\MockObject\MockObject; // Make sure this is imported
 
 #[CoversClass(ImportController::class)]
 class ImportControllerTest extends AbstractTestCase
@@ -28,6 +31,9 @@ class ImportControllerTest extends AbstractTestCase
 
     protected DbiDummy $dummyDbi;
 
+    // Declare a mock property for Sql
+    private Sql&MockObject $sqlMock; // Correct declaration
+
     protected function setUp(): void
     {
         parent::setUp();
@@ -35,6 +41,73 @@ class ImportControllerTest extends AbstractTestCase
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
+        $this->sqlMock = $this->createMock(Sql::class);
+    }
+
+    // Add a new test method specifically for the empty HTML output scenario
+    public function testQueryExecutionFailedWithTrulyEmptyHtmlOutput(): void
+    {
+        $this->setLanguage();
+
+        $config = Config::getInstance();
+        $config->selectedServer['user'] = 'user';
+        $config->settings['MaxCharactersInDisplayedSQL'] = 10000;
+
+        Current::$sqlQuery = 'SELECT * FROM table1;';
+        Current::$database = 'test_db';
+        Current::$table = 'test_table';
+
+        $this->dummyDbi->addSelectDb('test_db');
+
+        // Configure the mock Sql object to return an EMPTY STRING for executeQueryAndGetQueryResponse
+        $this->sqlMock->expects($this->once())
+                      ->method('executeQueryAndGetQueryResponse')
+                      ->willReturn('');
+
+        // Configure the mock Sql object for hasNoRightsToDropDatabase
+        $this->sqlMock->method('hasNoRightsToDropDatabase')->willReturn(false);
+
+        ImportSettings::$goSql = true;
+
+        $request = self::createStub(ServerRequest::class);
+        $request->method('getParsedBodyParamAsString')->willReturn('');
+        $request->method('getParsedBodyParamAsStringOrNull')->willReturn(null);
+        $request->method('hasBodyParam')->willReturn(false);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['format', null, 'sql'],
+        ]);
+
+        $responseRenderer = new ResponseRenderer();
+        $relation = new Relation($this->dbi);
+        $bookmarkRepository = new BookmarkRepository($this->dbi, $relation);
+
+        $importController = new ImportController(
+            $responseRenderer,
+            new Import(),
+            $this->sqlMock,
+            $this->dbi,
+            $bookmarkRepository,
+            $config,
+        );
+
+        $importController($request);
+
+        self::assertTrue(Import::$hasError, 'Import::$hasError should be true when query returns empty string.');
+        self::assertInstanceOf(Message::class, Current::$message);
+        self::assertStringContainsString(
+            'Query execution failed with empty response',
+            Current::$message->getMessage(),
+            'The error message should indicate an empty response.'
+        );
+
+        self::assertFalse($responseRenderer->hasSuccessState(), 'Expected the request to fail.');
+        self::assertStringContainsString(
+            'Query execution failed with empty response',
+            $responseRenderer->getJSONResult()['message']
+        );
+        // Assert that all expected DbiDummy calls were consumed
+        $this->dummyDbi->assertAllSelectsConsumed();
+        $this->dummyDbi->assertAllQueriesConsumed();
     }
 
     public function testIndexParametrized(): void
