@@ -19,6 +19,7 @@ use function __;
 use function array_key_last;
 use function array_replace_recursive;
 use function array_slice;
+use function constant;
 use function count;
 use function defined;
 use function explode;
@@ -29,7 +30,6 @@ use function fileperms;
 use function fopen;
 use function fread;
 use function function_exists;
-use function gd_info;
 use function implode;
 use function ini_get;
 use function is_array;
@@ -48,7 +48,6 @@ use function realpath;
 use function rtrim;
 use function setcookie;
 use function sprintf;
-use function str_contains;
 use function str_ends_with;
 use function stripos;
 use function strtolower;
@@ -153,6 +152,12 @@ class Config
         $this->baseSettings = $this->settings;
     }
 
+    /**
+     * Determines if GD2+ is available.
+     *
+     * Respects the config override ('yes' / 'no') if set,
+     * otherwise checks the `GD_MAJOR_VERSION` constant (>= 2).
+     */
     public function isGd2Available(): bool
     {
         if ($this->config->GD2Available === 'yes') {
@@ -163,11 +168,7 @@ class Config
             return false;
         }
 
-        if (! function_exists('imagecreatetruecolor')) {
-            return false;
-        }
-
-        return function_exists('gd_info') && str_contains(gd_info()['GD Version'], '2.');
+        return defined('GD_MAJOR_VERSION') && constant('GD_MAJOR_VERSION') >= 2;
     }
 
     public function isWindows(): bool
