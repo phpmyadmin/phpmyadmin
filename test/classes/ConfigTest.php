@@ -15,23 +15,14 @@ use function defined;
 use function file_exists;
 use function file_put_contents;
 use function fileperms;
-use function function_exists;
-use function gd_info;
-use function mb_strstr;
-use function ob_end_clean;
-use function ob_get_contents;
-use function ob_start;
-use function phpinfo;
-use function preg_match;
+use function get_defined_constants;
 use function realpath;
-use function strip_tags;
 use function stristr;
 use function sys_get_temp_dir;
 use function tempnam;
 use function unlink;
 
 use const DIRECTORY_SEPARATOR;
-use const INFO_MODULES;
 use const PHP_EOL;
 use const PHP_OS;
 use const TEST_PATH;
@@ -335,41 +326,11 @@ class ConfigTest extends AbstractTestCase
         self::assertSame(0, $this->object->get('PMA_IS_GD2'));
 
         $this->object->set('GD2Available', 'auto');
-
-        if (! function_exists('imagecreatetruecolor')) {
-            $this->object->checkGd2();
-            self::assertSame(
-                0,
-                $this->object->get('PMA_IS_GD2'),
-                'imagecreatetruecolor does not exist, PMA_IS_GD2 should be 0'
-            );
-        }
-
-        if (function_exists('gd_info')) {
-            $this->object->checkGd2();
-            $gd_nfo = gd_info();
-            if (mb_strstr($gd_nfo['GD Version'], '2.')) {
-                self::assertSame(1, $this->object->get('PMA_IS_GD2'), 'GD Version >= 2, PMA_IS_GD2 should be 1');
-            } else {
-                self::assertSame(0, $this->object->get('PMA_IS_GD2'), 'GD Version < 2, PMA_IS_GD2 should be 0');
-            }
-        }
-
-        /* Get GD version string from phpinfo output */
-        ob_start();
-        phpinfo(INFO_MODULES); /* Only modules */
-        $a = strip_tags((string) ob_get_contents());
-        ob_end_clean();
-
-        if (! preg_match('@GD Version[[:space:]]*\(.*\)@', $a, $v)) {
-            return;
-        }
-
-        if (mb_strstr($v, '2.')) {
-            self::assertSame(1, $this->object->get('PMA_IS_GD2'), 'PMA_IS_GD2 should be 1');
-        } else {
-            self::assertSame(0, $this->object->get('PMA_IS_GD2'), 'PMA_IS_GD2 should be 0');
-        }
+        $this->object->checkGd2();
+        self::assertSame(
+            (get_defined_constants()['GD_MAJOR_VERSION'] ?? 0) >= 2 ? 1 : 0,
+            $this->object->get('PMA_IS_GD2')
+        );
     }
 
     /**
