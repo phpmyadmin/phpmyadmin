@@ -19,7 +19,6 @@ use function __;
 use function array_key_last;
 use function array_replace_recursive;
 use function array_slice;
-use function constant;
 use function count;
 use function defined;
 use function explode;
@@ -30,6 +29,7 @@ use function fileperms;
 use function fopen;
 use function fread;
 use function function_exists;
+use function get_defined_constants;
 use function implode;
 use function ini_get;
 use function is_array;
@@ -168,7 +168,7 @@ class Config
             return false;
         }
 
-        return defined('GD_MAJOR_VERSION') && constant('GD_MAJOR_VERSION') >= 2;
+        return (get_defined_constants()['GD_MAJOR_VERSION'] ?? 0) >= 2;
     }
 
     public function isWindows(): bool

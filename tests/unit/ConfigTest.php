@@ -16,9 +16,8 @@ use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Medium;
 use ReflectionProperty;
 
-use function constant;
-use function defined;
 use function file_put_contents;
+use function get_defined_constants;
 use function md5;
 use function realpath;
 use function stristr;
@@ -127,18 +126,10 @@ class ConfigTest extends AbstractTestCase
         self::assertFalse($this->object->isGd2Available());
 
         $this->object->set('GD2Available', 'auto');
-
-        if (! defined('GD_MAJOR_VERSION')) {
-            self::assertFalse(
-                $this->object->isGd2Available(),
-                'constant GD_MAJOR_VERSION is undefined, isGd2Available should return false',
-            );
-        } else {
-            self::assertSame(
-                constant('GD_MAJOR_VERSION') >= 2,
-                $this->object->isGd2Available(),
-            );
-        }
+        self::assertSame(
+            (get_defined_constants()['GD_MAJOR_VERSION'] ?? 0) >= 2,
+            $this->object->isGd2Available(),
+        );
     }
 
     /**
