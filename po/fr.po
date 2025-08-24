@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2024-10-20 10:15+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2025-08-24 20:20+0000\n"
+"Last-Translator: Marc Delisle <marcdelisle60@gmail.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/4-9/fr/"
 ">\n"
 "Language: fr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.8-rc\n"
+"X-Generator: Weblate 5.13\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -651,7 +651,7 @@ msgstr ""
 #: index.php:202 libraries/classes/Footer.php:81
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:115
 msgid "phpMyAdmin Demo Server"
-msgstr "Serveur de démo phpMyAdmin"
+msgstr "Serveur de démonstration phpMyAdmin"
 
 #: index.php:206 libraries/classes/Plugins/Auth/AuthenticationCookie.php:118
 #, php-format
@@ -7935,7 +7935,7 @@ msgstr "La révision Git %1$s de la branche %2$s est en cours d'exécution."
 
 #: libraries/classes/Footer.php:92
 msgid "Git information missing!"
-msgstr "Information Git manquante !"
+msgstr "Information Git manquante !"
 
 #: libraries/classes/Footer.php:207 libraries/classes/Footer.php:211
 #: libraries/classes/Footer.php:214
@@ -7948,11 +7948,11 @@ msgstr "Version imprimable"
 
 #: libraries/classes/Header.php:468
 msgid "Click on the bar to scroll to top of page"
-msgstr "Cliquer sur la barre pour faire défiler en haut de page"
+msgstr "Cliquer sur la barre pour faire défiler vers le haut de la page"
 
 #: libraries/classes/Header.php:775 templates/login/header.twig:8
 msgid "Javascript must be enabled past this point!"
-msgstr "JavaScript doit être activé !"
+msgstr "JavaScript doit être activé au-delà de ce point !"
 
 #: libraries/classes/Import.php:130 libraries/classes/InsertEdit.php:179
 #: libraries/classes/Rte/Routines.php:1486 libraries/classes/Sql.php:1429
@@ -8976,7 +8976,7 @@ msgid ""
 "to the documentation for more details"
 msgstr ""
 "L'utilisateur n'a pas les privilèges suffisants pour effectuer cette "
-"opération ; merci de se référer à la documentation pour plus de détails"
+"opération ; merci de se référer à la documentation pour plus de détails"
 
 #: libraries/classes/Operations.php:158
 #, php-format
@@ -15381,7 +15381,7 @@ msgstr "Aucun(e)"
 
 #: templates/columns_definitions/column_default.twig:5
 msgid "As defined:"
-msgstr "Tel que défini :"
+msgstr "Tel que défini :"
 
 #: templates/server/databases/table_row.twig:13
 #, php-format
