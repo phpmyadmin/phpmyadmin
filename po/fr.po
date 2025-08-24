@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-02-27 14:25-0300\n"
-"PO-Revision-Date: 2024-08-30 14:09+0000\n"
-"Last-Translator: kjo-sdds <kjo@domo-supply.com>\n"
+"PO-Revision-Date: 2025-08-24 20:20+0000\n"
+"Last-Translator: Marc Delisle <marcdelisle60@gmail.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/5-2/fr/"
 ">\n"
 "Language: fr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.7.1-dev\n"
+"X-Generator: Weblate 5.13\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -13811,7 +13811,7 @@ msgstr "Aucun(e)"
 #: templates/database/central_columns/main.twig:77
 #: templates/database/central_columns/main.twig:312
 msgid "As defined:"
-msgstr "Tel que défini :"
+msgstr "Tel que défini :"
 
 #: templates/columns_definitions/column_attributes.twig:102
 msgid ""
@@ -13819,7 +13819,7 @@ msgid ""
 "to the documentation for more details"
 msgstr ""
 "L'utilisateur n'a pas les privilèges suffisants pour effectuer cette "
-"opération ; merci de se référer à la documentation pour plus de détails"
+"opération ; merci de se référer à la documentation pour plus de détails"
 
 #: templates/columns_definitions/column_attributes.twig:116
 #: templates/database/data_dictionary/index.twig:75 templates/indexes.twig:18
@@ -15788,7 +15788,7 @@ msgstr "La révision Git %1$s de la branche %2$s est en cours d'exécution."
 
 #: templates/footer.twig:36
 msgid "Git information missing!"
-msgstr "Information Git manquante !"
+msgstr "Information Git manquante !"
 
 #: templates/gis_data_editor_form.twig:4
 #, php-format
@@ -15868,11 +15868,11 @@ msgstr ""
 
 #: templates/header.twig:35 templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
-msgstr "JavaScript doit être activé !"
+msgstr "JavaScript doit être activé au-delà de ce point !"
 
 #: templates/header.twig:46
 msgid "Click on the bar to scroll to top of page"
-msgstr "Cliquer sur la barre pour faire défiler en haut de page"
+msgstr "Cliquer sur la barre pour faire défiler vers le haut de la page"
 
 #: templates/home/git_info.twig:2
 msgid "Git revision:"
