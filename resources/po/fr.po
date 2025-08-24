@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-08-24 00:29+0000\n"
-"PO-Revision-Date: 2024-10-16 15:51+0000\n"
-"Last-Translator: kjo-sdds <kjo@domo-supply.com>\n"
+"PO-Revision-Date: 2025-08-24 20:20+0000\n"
+"Last-Translator: Marc Delisle <marcdelisle60@gmail.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -13,11 +13,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.8-rc\n"
+"X-Generator: Weblate 5.13\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
-msgstr "JavaScript doit être activé !"
+msgstr "JavaScript doit être activé au-delà de ce point !"
 
 #: resources/templates/base.twig:46
 msgid "Open user account menu"
@@ -30,15 +30,15 @@ msgstr "Documentation de phpMyAdmin"
 
 #: resources/templates/base.twig:62
 msgid "MariaDB documentation"
-msgstr "Documentation MariaDB"
+msgstr "Documentation de MariaDB"
 
 #: resources/templates/base.twig:62
 msgid "MySQL documentation"
-msgstr "Documentation MySQL"
+msgstr "Documentation de MySQL"
 
 #: resources/templates/base.twig:73
 msgid "Appearance:"
-msgstr "Affichage :"
+msgstr "Aspect :"
 
 #: resources/templates/base.twig:76 resources/templates/home/index.twig:150
 msgid "Color mode for the theme"
@@ -73,7 +73,7 @@ msgstr "Paramètres relatifs à la page"
 
 #: resources/templates/base.twig:110
 msgid "Click on the bar to scroll to top of page"
-msgstr "Cliquer sur la barre pour faire défiler en haut de page"
+msgstr "Cliquer sur la barre pour faire défiler vers le haut de la page"
 
 #: resources/templates/base.twig:132 resources/templates/base.twig:134
 #: resources/templates/base.twig:136
@@ -92,7 +92,7 @@ msgstr "La révision Git %1$s de la branche %2$s est en cours d'exécution."
 
 #: resources/templates/base.twig:161
 msgid "Git information missing!"
-msgstr "Information Git manquante !"
+msgstr "Information Git manquante !"
 
 #: resources/templates/columns_definitions/column_attributes.twig:31
 #: resources/templates/database/central_columns/edit_table_row.twig:23
@@ -114,7 +114,7 @@ msgstr "Aucun(e)"
 #: resources/templates/database/central_columns/main.twig:77
 #: resources/templates/database/central_columns/main.twig:318
 msgid "As defined:"
-msgstr "Tel que défini :"
+msgstr "Tel que défini :"
 
 #: resources/templates/columns_definitions/column_attributes.twig:102
 msgid ""
@@ -122,7 +122,7 @@ msgid ""
 "to the documentation for more details"
 msgstr ""
 "L'utilisateur n'a pas les privilèges suffisants pour effectuer cette "
-"opération ; merci de se référer à la documentation pour plus de détails"
+"opération ; merci de se référer à la documentation pour plus de détails"
 
 #: resources/templates/columns_definitions/column_attributes.twig:112
 #: resources/templates/database/data_dictionary/index.twig:41
