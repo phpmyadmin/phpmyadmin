@@ -17,16 +17,9 @@ use PHPUnit\Framework\Attributes\Medium;
 use ReflectionProperty;
 
 use function file_put_contents;
-use function function_exists;
-use function gd_info;
+use function get_defined_constants;
 use function md5;
-use function ob_get_clean;
-use function ob_start;
-use function phpinfo;
-use function preg_match;
 use function realpath;
-use function str_contains;
-use function strip_tags;
 use function stristr;
 use function sys_get_temp_dir;
 use function tempnam;
@@ -35,7 +28,6 @@ use function unlink;
 use const CHANGELOG_FILE;
 use const CONFIG_FILE;
 use const DIRECTORY_SEPARATOR;
-use const INFO_MODULES;
 use const PHP_OS;
 
 #[CoversClass(Config::class)]
@@ -123,7 +115,7 @@ class ConfigTest extends AbstractTestCase
     }
 
     /**
-     * test for CheckGd2
+     * test for isGd2Available
      */
     public function testCheckGd2(): void
     {
@@ -134,38 +126,10 @@ class ConfigTest extends AbstractTestCase
         self::assertFalse($this->object->isGd2Available());
 
         $this->object->set('GD2Available', 'auto');
-
-        if (! function_exists('imagecreatetruecolor')) {
-            self::assertFalse(
-                $this->object->isGd2Available(),
-                'imagecreatetruecolor does not exist, isGd2 should be false',
-            );
-        }
-
-        if (function_exists('gd_info')) {
-            $gdNfo = gd_info();
-            if (str_contains($gdNfo['GD Version'], '2.')) {
-                self::assertTrue($this->object->isGd2Available(), 'GD Version >= 2, isGd2 should be true');
-            } else {
-                self::assertFalse($this->object->isGd2Available(), 'GD Version < 2, isGd2 should be false');
-            }
-        }
-
-        /* Get GD version string from phpinfo output */
-        ob_start();
-        phpinfo(INFO_MODULES); /* Only modules */
-        $a = strip_tags((string) ob_get_clean());
-
-        if (preg_match('@GD Version[[:space:]]*\(.*\)@', $a, $v) !== 1) {
-            return;
-        }
-
-        // TODO: The variable $v clearly is incorrect. Was this meant to be $a?
-        if (str_contains($v, '2.')) {
-            self::assertTrue($this->object->isGd2Available(), 'isGd2 should be true');
-        } else {
-            self::assertFalse($this->object->isGd2Available(), 'isGd2 should be false');
-        }
+        self::assertSame(
+            (get_defined_constants()['GD_MAJOR_VERSION'] ?? 0) >= 2,
+            $this->object->isGd2Available(),
+        );
     }
 
     /**
