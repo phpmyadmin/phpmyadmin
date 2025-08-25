@@ -526,12 +526,6 @@ parameters:
 			path: src/Config.php
 
 		-
-			message: '#^Parameter \#1 \$haystack of function str_contains expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Config.php
-
-		-
 			message: '#^Parameter \#1 \$theme of method PhpMyAdmin\\Theme\\ThemeManager\:\:setActiveTheme\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -16158,18 +16152,6 @@ parameters:
 		-
 			message: '#^Only booleans are allowed in an if condition, string\|false given\.$#'
 			identifier: if.condNotBoolean
-			count: 1
-			path: tests/unit/ConfigTest.php
-
-		-
-			message: '#^Parameter \#1 \$haystack of function str_contains expects string, array\<int, string\> given\.$#'
-			identifier: argument.type
-			count: 1
-			path: tests/unit/ConfigTest.php
-
-		-
-			message: '#^Parameter \#1 \$haystack of function str_contains expects string, mixed given\.$#'
-			identifier: argument.type
 			count: 1
 			path: tests/unit/ConfigTest.php
 

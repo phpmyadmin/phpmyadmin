@@ -165,7 +165,6 @@
       <code><![CDATA[$defaultValue]]></code>
       <code><![CDATA[$this->settings['ThemeDefault']]]></code>
       <code><![CDATA[$this->settings['ThemeDefault']]]></code>
-      <code><![CDATA[gd_info()['GD Version']]]></code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['cache'][$cacheKey]['userprefs']]]></code>
@@ -9905,16 +9904,10 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArgument>
-      <code><![CDATA[$v]]></code>
-    </InvalidArgument>
     <InvalidArrayOffset>
       <code><![CDATA[$config->settings['Server']]]></code>
       <code><![CDATA[$config->settings['Server']]]></code>
     </InvalidArrayOffset>
-    <MixedArgument>
-      <code><![CDATA[$gdNfo['GD Version']]]></code>
-    </MixedArgument>
     <PossiblyInvalidArgument>
       <code><![CDATA[testIsHttps]]></code>
       <code><![CDATA[testIsHttps]]></code>
@@ -9937,9 +9930,6 @@
       <code><![CDATA[stristr(PHP_OS, 'darwin')]]></code>
       <code><![CDATA[stristr(PHP_OS, 'win')]]></code>
     </RiskyTruthyFalsyComparison>
-    <TypeDoesNotContainType>
-      <code><![CDATA[str_contains($v, '2.')]]></code>
-    </TypeDoesNotContainType>
   </file>
   <file src="tests/unit/ConsoleTest.php">
     <DeprecatedMethod>
