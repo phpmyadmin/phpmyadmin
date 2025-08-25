@@ -329,14 +329,13 @@
     <InvalidArrayOffset occurrences="1">
       <code>$cfg['Server']['hide_connection_errors']</code>
     </InvalidArrayOffset>
-    <MixedArgument occurrences="16">
+    <MixedArgument occurrences="15">
       <code>$collation_connection</code>
       <code>$config_data</code>
       <code>$config_data</code>
       <code>$config_data['lang']</code>
       <code>$default_value</code>
       <code>$each_server</code>
-      <code>$gd_nfo['GD Version']</code>
       <code>$path</code>
       <code>$server['verbose']</code>
       <code>$server_index</code>
@@ -14852,15 +14851,6 @@
     </TypeDoesNotContainType>
   </file>
   <file src="test/classes/ConfigTest.php">
-    <InvalidArgument occurrences="1">
-      <code>$v</code>
-    </InvalidArgument>
-    <InvalidCast occurrences="1">
-      <code>$v</code>
-    </InvalidCast>
-    <MixedArgument occurrences="1">
-      <code>$gd_nfo['GD Version']</code>
-    </MixedArgument>
     <MixedInferredReturnType occurrences="8">
       <code>array</code>
       <code>array</code>
