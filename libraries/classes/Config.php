@@ -24,7 +24,7 @@ use function fileperms;
 use function fopen;
 use function fread;
 use function function_exists;
-use function gd_info;
+use function get_defined_constants;
 use function get_object_vars;
 use function implode;
 use function ini_get;
@@ -247,38 +247,20 @@ class Config
     }
 
     /**
-     * Whether GD2 is present
+     * Determines if GD2+ is available
+     *
+     * Respects the config override ('yes' / 'no') if set,
+     * otherwise checks the `GD_MAJOR_VERSION` constant (>= 2).
      */
     public function checkGd2(): void
     {
         if ($this->get('GD2Available') === 'yes') {
             $this->set('PMA_IS_GD2', 1);
-
-            return;
-        }
-
-        if ($this->get('GD2Available') === 'no') {
+        } elseif ($this->get('GD2Available') === 'no') {
             $this->set('PMA_IS_GD2', 0);
-
-            return;
+        } else {
+            $this->set('PMA_IS_GD2', (get_defined_constants()['GD_MAJOR_VERSION'] ?? 0) >= 2 ? 1 : 0);
         }
-
-        if (! function_exists('imagecreatetruecolor')) {
-            $this->set('PMA_IS_GD2', 0);
-
-            return;
-        }
-
-        if (function_exists('gd_info')) {
-            $gd_nfo = gd_info();
-            if (mb_strstr($gd_nfo['GD Version'], '2.')) {
-                $this->set('PMA_IS_GD2', 1);
-
-                return;
-            }
-        }
-
-        $this->set('PMA_IS_GD2', 0);
     }
 
     /**
