@@ -28451,6 +28451,11 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportCsv.php
 
 		-
+			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, array\\|false given\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Import/ImportCsv.php
+
+		-
 			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, mixed given\\.$#"
 			count: 4
 			path: libraries/classes/Plugins/Import/ImportCsv.php
@@ -28462,7 +28467,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$input of function preg_grep expects array, mixed given\\.$#"
-			count: 2
+			count: 3
 			path: libraries/classes/Plugins/Import/ImportCsv.php
 
 		-

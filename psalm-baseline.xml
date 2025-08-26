@@ -10623,7 +10623,8 @@
       <code>$options</code>
       <code>$table</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="2">
+    <MixedArgumentTypeCoercion occurrences="3">
+      <code>$result</code>
       <code>$result</code>
       <code>$result</code>
     </MixedArgumentTypeCoercion>
