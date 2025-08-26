@@ -18,8 +18,8 @@ function setColorModeToHtmlTag (themeColorMode: string): void {
 }
 
 export const ThemeColorModeToggle: EventListenerObject = {
-    handleEvent: (): void => {
-        const toggleSelect = document.getElementById('themeColorModeToggle') as HTMLSelectElement;
+    handleEvent: (event: Event): void => {
+        const toggleSelect = event.target as HTMLSelectElement;
         setColorModeToHtmlTag(toggleSelect.options.item(toggleSelect.selectedIndex).value);
         const toggleForm = toggleSelect.form;
         const formData = new FormData(toggleForm);
