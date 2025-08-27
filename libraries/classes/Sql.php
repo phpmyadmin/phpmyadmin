@@ -769,6 +769,17 @@ class Sql
 
                 $countQuery = 'SELECT COUNT(*) FROM (' . $statement->build() . ' ) as cnt';
 
+                // Check if SQL_NO_CACHE is present in options
+                $hasSqlNoCache = in_array('SQL_NO_CACHE', $statement->options->options, true);
+
+                if ($hasSqlNoCache) {
+                    // Remove SQL_NO_CACHE from subqueries
+                    $countQuery = preg_replace('/\b SQL_NO_CACHE\b/i', '', $countQuery);
+
+                    // Add back SQL_NO_CACHE after first SELECT
+                    $countQuery = preg_replace('/^(\s*SELECT)/i', '\\1 SQL_NO_CACHE', $countQuery);
+                }
+
                 $unlimNumRows = $this->dbi->fetchValue($countQuery);
                 if ($unlimNumRows === false) {
                     $unlimNumRows = 0;
