@@ -383,7 +383,7 @@ class Advisor
         if (! isset($variables['innodb_log_files_in_group'])) {
             $variables['innodb_log_files_in_group'] = 0;
         }
-        
+
         return $this->expression->evaluate($expression, $variables);
     }
 

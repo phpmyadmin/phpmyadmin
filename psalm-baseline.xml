@@ -9356,6 +9356,7 @@
     <MixedAssignment>
       <code><![CDATA[$context['http']['content']]]></code>
       <code><![CDATA[$httpStatus]]></code>
+      <code><![CDATA[$http_response_header]]></code>
     </MixedAssignment>
     <MixedReturnStatement>
       <code><![CDATA[$response]]></code>

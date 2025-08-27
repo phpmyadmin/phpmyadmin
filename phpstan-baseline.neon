@@ -15145,6 +15145,12 @@ parameters:
 			path: src/Utils/HttpRequest.php
 
 		-
+			message: '#^Cannot access offset 0 on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Utils/HttpRequest.php
+
+		-
 			message: '#^Method PhpMyAdmin\\Utils\\HttpRequest\:\:response\(\) should return bool\|string\|null but returns mixed\.$#'
 			identifier: return.type
 			count: 1
@@ -15153,6 +15159,12 @@ parameters:
 		-
 			message: '#^Only booleans are allowed in an if condition, string\|false given\.$#'
 			identifier: if.condNotBoolean
+			count: 1
+			path: src/Utils/HttpRequest.php
+
+		-
+			message: '#^Parameter \#2 \$subject of function preg_match expects string, mixed given\.$#'
+			identifier: argument.type
 			count: 1
 			path: src/Utils/HttpRequest.php
 
@@ -15172,12 +15184,6 @@ parameters:
 			message: '#^Parameter \#3 \$value of function curl_setopt expects non\-empty\-string, string given\.$#'
 			identifier: argument.type
 			count: 2
-			path: src/Utils/HttpRequest.php
-
-		-
-			message: '#^Variable \$http_response_header in isset\(\) always exists and is not nullable\.$#'
-			identifier: isset.variable
-			count: 1
 			path: src/Utils/HttpRequest.php
 
 		-
