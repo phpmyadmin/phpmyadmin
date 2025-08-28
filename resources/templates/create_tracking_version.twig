@@ -1,5 +1,5 @@
 <div class="card mt-3">
-    <form method="post" action="{{ url(route, url_params) }}">
+    <form method="post" action="{{ url(route, url_params) }}" class="disableAjax">
         {{ get_hidden_inputs(db) }}
         {% for selected_table in selected %}
             <input type="hidden" name="selected[]" value="{{ selected_table }}">
