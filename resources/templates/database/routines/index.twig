@@ -42,7 +42,7 @@
     {{ list_navigator_html|raw }}
   {%- endif -%}
 
-  <form id="rteListForm" class="ajax" action="{{ url('/database/routines') }}">
+  <form id="rteListForm" class="disableAjax" action="{{ url('/database/routines') }}">
     {{ get_hidden_inputs(db, table) }}
 
     <div id="nothing2display"{{ has_any_routines ? ' class="hide"' }}>

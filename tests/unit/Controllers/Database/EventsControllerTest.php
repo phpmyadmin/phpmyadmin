@@ -95,7 +95,7 @@ final class EventsControllerTest extends AbstractTestCase
                 </div>
               </div>
 
-              <form id="rteListForm" class="ajax" action="index.php?route=/database/events&server=2&lang=en">
+              <form id="rteListForm" class="disableAjax" action="index.php?route=/database/events&server=2&lang=en">
                 <input type="hidden" name="db" value="test_db"><input type="hidden" name="server" value="2"><input type="hidden" name="lang" value="en"><input type="hidden" name="token" value="token">
 
                 <div id="nothing2display" class="hide">
@@ -284,7 +284,7 @@ final class EventsControllerTest extends AbstractTestCase
                 </div>
               </div>
 
-              <form id="rteListForm" class="ajax" action="index.php?route=/database/events&server=2&lang=en">
+              <form id="rteListForm" class="disableAjax" action="index.php?route=/database/events&server=2&lang=en">
                 <input type="hidden" name="db" value="test_db"><input type="hidden" name="server" value="2"><input type="hidden" name="lang" value="en"><input type="hidden" name="token" value="token">
 
                 <div id="nothing2display">

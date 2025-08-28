@@ -31,7 +31,7 @@
     </div>
   </div>
 
-  <form id="rteListForm" class="ajax" action="{{ url('/database/events') }}">
+  <form id="rteListForm" class="disableAjax" action="{{ url('/database/events') }}">
     {{ get_hidden_inputs(db) }}
 
     <div id="nothing2display"{{ items is not empty ? ' class="hide"' }}>
