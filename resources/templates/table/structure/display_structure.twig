@@ -408,6 +408,14 @@
         <a href="{{ url('/normalization', {'db': db, 'table': table}) }}">
             {{ get_icon('normalize', t('Normalize'), true) }}
         </a>
+        <a href="{{ url('/database/structure/show-create') }}" data-post="{{ get_common({
+            'db': db,
+            'selected_tbl[]': table,
+            'sql_query': '',
+            'session_max_rows': 'all'
+          }, '', false) }}">
+            {{ get_icon('b_sql', t('Show create'), true) }}
+        </a>
     {% endif %}
     {% if tbl_is_view and not db_is_system_schema %}
         {% if is_active %}
