@@ -87,7 +87,7 @@ class MonitorControllerTest extends AbstractTestCase
         self::assertStringContainsString('<option>Processes</option>', $html);
         self::assertStringContainsString('<option>Connections</option>', $html);
 
-        self::assertStringContainsString('<form id="js_data" class="hide">', $html);
+        self::assertStringContainsString('<form id="js_data" class="d-none disableAjax">', $html);
         self::assertStringContainsString('<input type="hidden" name="server_time"', $html);
         //validate 2: inputs
         self::assertStringContainsString('<input type="hidden" name="is_superuser"', $html);
