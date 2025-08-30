@@ -24,7 +24,7 @@ final class Template
         return new self(
             $state['id'] ?? 0,
             $state['username'],
-            ExportType::from($state['exportType'] ?? ''),
+            ExportType::tryFrom($state['exportType'] ?? '') ?? ExportType::Server,
             $state['name'] ?? '',
             $state['data'],
         );
