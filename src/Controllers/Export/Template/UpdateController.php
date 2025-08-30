@@ -29,6 +29,7 @@ final readonly class UpdateController implements InvocableController
     {
         $templateId = (int) $request->getParsedBodyParamAsStringOrNull('templateId');
         $templateData = $request->getParsedBodyParamAsString('templateData', '');
+        $exportType = $request->getParsedBodyParamAsString('exportType', '');
 
         $exportTemplatesFeature = $this->relation->getRelationParameters()->exportTemplatesFeature;
         if ($exportTemplatesFeature === null) {
@@ -37,6 +38,7 @@ final readonly class UpdateController implements InvocableController
 
         $template = ExportTemplate::fromArray([
             'id' => $templateId,
+            'exportType' => $exportType,
             'username' => $this->config->selectedServer['user'],
             'data' => $templateData,
         ]);

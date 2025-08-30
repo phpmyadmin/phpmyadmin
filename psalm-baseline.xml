@@ -1365,11 +1365,6 @@
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
-  <file src="src/Controllers/Export/Template/UpdateController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
   <file src="src/Controllers/GitInfoController.php">
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
