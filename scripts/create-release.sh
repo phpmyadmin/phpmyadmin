@@ -562,19 +562,17 @@ composer config platform.php "$PHP_REQ"
 composer update --no-interaction --no-dev
 
 # Parse the required versions from composer.json
+PACKAGES_VERSIONS=''
 PACKAGE_LIST='tecnickcom/tcpdf pragmarx/google2fa-qrcode bacon/bacon-qr-code code-lts/u2f-php-server web-auth/webauthn-lib thecodingmachine/safe'
 
-set --
-
-for PACKAGES in $PACKAGE_LIST
+for PACKAGE in $PACKAGE_LIST
 do
-    PKG_VERSION="$(get_composer_package_version "$PACKAGES")"
-    set -- "$@" "$PACKAGES:$PKG_VERSION"
+    PKG_VERSION="$(get_composer_package_version "$PACKAGE")"
+    PACKAGES_VERSIONS="$PACKAGES_VERSIONS\n$PACKAGE:$PKG_VERSION"
 done
 
-echo "* Installing composer packages '$@'"
-
-composer require --no-interaction --update-no-dev "$@"
+echo "* Installing composer packages '$(echo "$PACKAGES_VERSIONS" | tr $'\n' ' ')'"
+IFS=$'\n' composer require --no-interaction --update-no-dev $PACKAGES_VERSION
 
 echo "* Running a security checkup"
 security_checkup
