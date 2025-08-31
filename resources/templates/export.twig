@@ -15,7 +15,7 @@
     <div class="card mb-3">
       <div class="card-header">{{ t('Export templates:') }}</div>
       <div class="card-body row gy-3">
-        <form method="post" action="{{ url('/export/template/create') }}" class="col-12 col-md ajax">
+        <form method="post" action="{{ url('/export/template/create') }}" class="col-12 col-md disableAjax">
           <fieldset>
             <legend>{{ t('New template:') }}</legend>
             <div class="row g-3 align-items-center">
@@ -32,7 +32,7 @@
           </fieldset>
         </form>
 
-        <form method="post" id="existingTemplatesForm" class="col-12 col-md ajax">
+        <form method="post" id="existingTemplatesForm" class="col-12 col-md disableAjax">
           <fieldset>
             <legend>{{ t('Existing templates:') }}</legend>
             <div class="row g-3 align-items-center">

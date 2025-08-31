@@ -15,7 +15,7 @@
   <div id="importmain">
     <img src="{{ image('ajax_clock_small.gif') }}" width="16" height="16" alt="ajax clock" class="hide">
 
-    <form id="import_file_form" action="{{ url('/import') }}" method="post" enctype="multipart/form-data" name="import" class="ajax"
+    <form id="import_file_form" action="{{ url('/import') }}" method="post" enctype="multipart/form-data" name="import" class="disableAjax"
       {%- if handler != 'PhpMyAdmin\\Plugins\\Import\\Upload\\UploadNoplugin' %} target="import_upload_iframe"{% endif %}>
       {{ get_hidden_inputs(hidden_inputs) }}
 

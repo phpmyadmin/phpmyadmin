@@ -388,7 +388,7 @@
   ];
 </script>
 
-<form id="js_data" class="hide">
+<form id="js_data" class="d-none disableAjax">
   {% for name, value in form %}
     <input type="hidden" name="{{ name }}" value="{{ value }}">
   {% endfor %}

@@ -33,7 +33,7 @@
 
   {{ error_message|raw -}}
 
-  <form id="rteListForm" class="ajax" action="{{ url('/triggers') }}">
+  <form id="rteListForm" class="disableAjax" action="{{ url('/triggers') }}">
     {{ get_hidden_inputs(db, table) }}
 
     <div id="nothing2display"{{ triggers is not empty ? ' class="hide"' }}>
