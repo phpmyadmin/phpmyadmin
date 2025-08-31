@@ -153,9 +153,9 @@ class Results
      *     transformation_options?: string,
      *     input_transformation?: string,
      *     input_transformation_options?: string
-     * }>
+     * }>|null
      */
-    private array $mediaTypeMap = [];
+    private ?array $mediaTypeMap = null;
 
     /**
      * where clauses for each row, each table in the row
@@ -1868,7 +1868,7 @@ class Results
             }
 
             // 2. Displays the rows' values
-            if ($this->mediaTypeMap === []) {
+            if ($this->mediaTypeMap === null) {
                 $this->setMimeMap();
             }
 
