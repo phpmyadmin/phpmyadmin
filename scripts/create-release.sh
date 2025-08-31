@@ -573,7 +573,7 @@ done
 
 echo "* Installing composer packages '$PACKAGES_VERSIONS'"
 
-composer require --no-interaction --update-no-dev $PACKAGES_VERSIONS
+composer require --no-interaction --update-no-dev "$PACKAGES_VERSIONS"
 
 echo "* Running a security checkup"
 security_checkup
