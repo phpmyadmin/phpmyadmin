@@ -572,7 +572,7 @@ do
 done
 
 echo "* Installing composer packages '$(echo "$PACKAGES_VERSIONS" | tr $'\n' ' ')'"
-IFS=$'\n' composer require --no-interaction --update-no-dev $PACKAGES_VERSION
+IFS=$'\n' composer require --no-interaction --update-no-dev $PACKAGES_VERSIONS
 
 echo "* Running a security checkup"
 security_checkup
