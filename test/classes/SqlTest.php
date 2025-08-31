@@ -538,6 +538,14 @@ class SqlTest extends AbstractTestCase
                 false,
                 'SELECT COUNT(*) FROM (SELECT * FROM t1 UNION SELECT * FROM t2 ) as cnt',
             ],
+            [
+                'SELECT SQL_NO_CACHE * FROM t1 WHERE id <> 0',
+                ['max_rows' => -1, 'pos' => 0],
+                25,
+                100,
+                false,
+                'SELECT COUNT(*) FROM (SELECT 1 FROM t1 WHERE id <> 0 ) as cnt',
+            ],
         ];
     }
 
