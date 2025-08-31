@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Import;
 
+use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Import\Ajax;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Template;
 
@@ -29,6 +30,12 @@ use function usleep;
 #[Route('/import-status', ['GET', 'POST'])]
 class StatusController implements InvocableController
 {
+    /** Time to wait before checking for the $_SESSION variable. Default is 0.3 seconds. */
+    private static int $sleepMicroseconds = 300000;
+
+    /** Time to wait before rechecking for the $_SESSION variable. Default is 0.25 seconds. */
+    private static int $sleepMicrosecondsRetry = 250000;
+
     public function __construct(private readonly Template $template)
     {
     }
@@ -47,7 +54,7 @@ class StatusController implements InvocableController
             header('Content-type: text/html');
 
             // wait 0.3 sec before we check for $_SESSION variable
-            usleep(300000);
+            usleep(self::$sleepMicroseconds);
 
             $maximumTime = ini_get('max_execution_time');
             $timestamp = time();
@@ -56,7 +63,7 @@ class StatusController implements InvocableController
                 // close session before sleeping
                 session_write_close();
                 // sleep
-                usleep(250000); // 0.25 sec
+                usleep(self::$sleepMicrosecondsRetry);
                 // reopen session
                 session_start();
 
@@ -79,6 +86,6 @@ class StatusController implements InvocableController
             Ajax::status($request->getQueryParam('id'));
         }
 
-        return ResponseRenderer::getInstance()->response();
+        return ResponseFactory::create()->createResponse(StatusCodeInterface::STATUS_OK, 'OK');
     }
 }

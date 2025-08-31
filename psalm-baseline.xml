@@ -1440,9 +1440,6 @@
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION['Import_message']['message']]]></code>
     </MixedArrayAssignment>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/LintController.php">
     <MixedAssignment>
