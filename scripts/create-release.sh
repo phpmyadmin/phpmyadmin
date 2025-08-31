@@ -568,12 +568,16 @@ PACKAGE_LIST='tecnickcom/tcpdf pragmarx/google2fa-qrcode bacon/bacon-qr-code cod
 for PACKAGES in $PACKAGE_LIST
 do
     PKG_VERSION="$(get_composer_package_version "$PACKAGES")"
-    PACKAGES_VERSIONS="$PACKAGES_VERSIONS $PACKAGES:$PKG_VERSION"
+    if echo "$PKG_VERSION" | grep -q '||'; then
+        PACKAGES_VERSIONS="$PACKAGES_VERSIONS \"$PACKAGE:$PKG_VERSION\""
+    else
+        PACKAGES_VERSIONS="$PACKAGES_VERSIONS $PACKAGE:$PKG_VERSION"
+    fi
 done
 
 echo "* Installing composer packages '$PACKAGES_VERSIONS'"
 
-composer require --no-interaction --update-no-dev "$PACKAGES_VERSIONS"
+composer require --no-interaction --update-no-dev $PACKAGES_VERSIONS
 
 echo "* Running a security checkup"
 security_checkup
