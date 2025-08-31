@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-08-24 00:29+0000\n"
+"POT-Creation-Date: 2025-08-31 00:29+0000\n"
 "PO-Revision-Date: 2025-07-14 12:01+0000\n"
 "Last-Translator: \"Ali H.Abdulhadi\" <a.h.alsaady1998@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -142,7 +142,7 @@ msgstr "أساسي"
 #: resources/templates/table/structure/display_structure.twig:150
 #: resources/templates/table/structure/display_structure.twig:156
 #: resources/templates/table/structure/display_structure.twig:287
-#: resources/templates/table/structure/display_structure.twig:466
+#: resources/templates/table/structure/display_structure.twig:474
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:7
 msgid "Unique"
 msgstr "فريد"
@@ -183,7 +183,7 @@ msgid "first"
 msgstr "أولاً"
 
 #: resources/templates/columns_definitions/column_attributes.twig:190
-#: resources/templates/table/structure/display_structure.twig:439
+#: resources/templates/table/structure/display_structure.twig:447
 #, fuzzy, php-format
 msgid "after %s"
 msgstr "بعد %s"
@@ -269,8 +269,8 @@ msgstr "العمود (الأعمدة)"
 #: resources/templates/table/search/index.twig:195
 #: resources/templates/table/start_and_number_of_rows_fieldset.twig:15
 #: resources/templates/table/structure/display_structure.twig:332
-#: resources/templates/table/structure/display_structure.twig:443
-#: resources/templates/table/structure/display_structure.twig:561
+#: resources/templates/table/structure/display_structure.twig:451
+#: resources/templates/table/structure/display_structure.twig:569
 #: resources/templates/table/zoom_search/index.twig:152
 #: resources/templates/triggers/editor_form.twig:75
 #: resources/templates/view_create.twig:123 src/BrowseForeigners.php:180
@@ -470,7 +470,7 @@ msgstr "هو مفتاح خارجي."
 #: resources/templates/table/relation/foreign_key_row.twig:114
 #: resources/templates/table/relation/foreign_key_row.twig:124
 #: resources/templates/table/search/index.twig:38
-#: resources/templates/table/structure/display_structure.twig:468
+#: resources/templates/table/structure/display_structure.twig:476
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:6
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:9
 #: resources/templates/table/zoom_search/index.twig:36
@@ -545,7 +545,7 @@ msgstr "محركات"
 #: resources/templates/database/structure/table_header.twig:46
 #: resources/templates/indexes.twig:25
 #: resources/templates/table/structure/display_partitions.twig:32
-#: resources/templates/table/structure/display_structure.twig:472
+#: resources/templates/table/structure/display_structure.twig:480
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:12
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:13
 msgid "Comment"
@@ -634,7 +634,7 @@ msgstr "الاسم"
 #: resources/templates/table/privileges/index.twig:21
 #: resources/templates/table/search/index.twig:39
 #: resources/templates/table/structure/display_structure.twig:22
-#: resources/templates/table/structure/display_structure.twig:465
+#: resources/templates/table/structure/display_structure.twig:473
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:7
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:6
 #: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:258
@@ -713,7 +713,7 @@ msgstr ""
 #: resources/templates/table/operations/index.twig:152
 #: resources/templates/table/search/index.twig:40
 #: resources/templates/table/structure/display_structure.twig:23
-#: resources/templates/table/structure/display_structure.twig:470
+#: resources/templates/table/structure/display_structure.twig:478
 #: resources/templates/table/structure/display_table_stats.twig:108
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:8
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:11
@@ -738,7 +738,7 @@ msgstr "الخواص"
 #: resources/templates/indexes.twig:24
 #: resources/templates/table/insert/get_head_and_foot_of_insert_row_table.twig:13
 #: resources/templates/table/structure/display_structure.twig:25
-#: resources/templates/table/structure/display_structure.twig:471
+#: resources/templates/table/structure/display_structure.twig:479
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:9
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:12
 #: resources/templates/table/zoom_search/result_form.twig:34
@@ -912,7 +912,7 @@ msgstr "معطل"
 #: resources/templates/table/delete/confirm.twig:30
 #: resources/templates/table/privileges/index.twig:73
 #: resources/templates/table/structure/display_structure.twig:80
-#: resources/templates/table/structure/display_structure.twig:521
+#: resources/templates/table/structure/display_structure.twig:529
 #: resources/templates/table/structure/drop_confirm.twig:19
 #: resources/templates/table/structure/primary.twig:19
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:33
@@ -953,7 +953,7 @@ msgstr "نعم"
 #: resources/templates/table/delete/confirm.twig:31
 #: resources/templates/table/privileges/index.twig:73
 #: resources/templates/table/structure/display_structure.twig:80
-#: resources/templates/table/structure/display_structure.twig:521
+#: resources/templates/table/structure/display_structure.twig:529
 #: resources/templates/table/structure/drop_confirm.twig:20
 #: resources/templates/table/structure/primary.twig:20
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:33
@@ -1024,7 +1024,7 @@ msgstr "في الاستعلام"
 #: resources/templates/server/variables/index.twig:41
 #: resources/templates/server/variables/index.twig:44
 #: resources/templates/setup/home/index.twig:64
-#: resources/templates/table/structure/display_structure.twig:486
+#: resources/templates/table/structure/display_structure.twig:494
 #: resources/templates/triggers/row.twig:28
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
@@ -1365,7 +1365,7 @@ msgid "Search this table"
 msgstr "ابحث في هذا الجدول"
 
 #: resources/templates/database/central_columns/main.twig:184
-#: resources/templates/table/structure/display_structure.twig:424
+#: resources/templates/table/structure/display_structure.twig:432
 msgid "Add column"
 msgstr "إضافة عمود"
 
@@ -1395,7 +1395,7 @@ msgstr "اضغط للترتيب."
 #: resources/templates/table/privileges/index.twig:24
 #: resources/templates/table/structure/display_partitions.twig:34
 #: resources/templates/table/structure/display_structure.twig:34
-#: resources/templates/table/structure/display_structure.twig:463
+#: resources/templates/table/structure/display_structure.twig:471
 #: resources/templates/table/tracking/main.twig:32
 #: resources/templates/table/tracking/report_table.twig:8
 msgid "Action"
@@ -1471,7 +1471,7 @@ msgstr "مرتبط بـ"
 
 #: resources/templates/database/data_dictionary/index.twig:68
 #: resources/templates/indexes.twig:3
-#: resources/templates/table/structure/display_structure.twig:450
+#: resources/templates/table/structure/display_structure.twig:458
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:1
 #: src/Controllers/Server/DatabasesController.php:261
 #: src/Navigation/Nodes/NodeIndexContainer.php:23
@@ -1481,7 +1481,7 @@ msgstr "فهارس"
 
 #: resources/templates/database/data_dictionary/index.twig:73
 #: resources/templates/indexes.twig:17
-#: resources/templates/table/structure/display_structure.twig:464
+#: resources/templates/table/structure/display_structure.twig:472
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:5
 #: src/BrowseForeigners.php:195 src/BrowseForeigners.php:199
 msgid "Keyname"
@@ -1489,21 +1489,21 @@ msgstr "اسم المفتاح"
 
 #: resources/templates/database/data_dictionary/index.twig:76
 #: resources/templates/indexes.twig:20
-#: resources/templates/table/structure/display_structure.twig:467
+#: resources/templates/table/structure/display_structure.twig:475
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:8
 msgid "Packed"
 msgstr "محزم"
 
 #: resources/templates/database/data_dictionary/index.twig:78
 #: resources/templates/indexes.twig:22
-#: resources/templates/table/structure/display_structure.twig:469
+#: resources/templates/table/structure/display_structure.twig:477
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:10
 msgid "Cardinality"
 msgstr "عدد العناصر في المجموعة"
 
 #: resources/templates/database/data_dictionary/index.twig:117
 #: resources/templates/indexes.twig:93
-#: resources/templates/table/structure/display_structure.twig:548
+#: resources/templates/table/structure/display_structure.twig:556
 msgid "No index defined!"
 msgstr "لم يتم تعريف الفهرس!"
 
@@ -1988,7 +1988,7 @@ msgstr "تصدير"
 #: resources/templates/table/structure/display_partitions.twig:146
 #: resources/templates/table/structure/display_structure.twig:120
 #: resources/templates/table/structure/display_structure.twig:279
-#: resources/templates/table/structure/display_structure.twig:514
+#: resources/templates/table/structure/display_structure.twig:522
 #: resources/templates/triggers/list.twig:20
 #: resources/templates/triggers/list.twig:21
 #: resources/templates/triggers/row.twig:52
@@ -2757,6 +2757,7 @@ msgid "Copy table"
 msgstr "لا يوجد جداول"
 
 #: resources/templates/database/structure/check_all_tables.twig:11
+#: resources/templates/table/structure/display_structure.twig:417
 #, fuzzy
 msgid "Show create"
 msgstr "أظهر اللون"
@@ -3875,18 +3876,18 @@ msgid "Other options"
 msgstr "خيارات أخرى"
 
 #: resources/templates/indexes.twig:40
-#: resources/templates/table/structure/display_structure.twig:495
+#: resources/templates/table/structure/display_structure.twig:503
 #, fuzzy
 msgid "Rename"
 msgstr "تغيير اسم جدول إلى"
 
 #: resources/templates/indexes.twig:46
-#: resources/templates/table/structure/display_structure.twig:501
+#: resources/templates/table/structure/display_structure.twig:509
 msgid "The primary key has been dropped."
 msgstr "لقد تم إسقاط المفتاح الأساسي."
 
 #: resources/templates/indexes.twig:51
-#: resources/templates/table/structure/display_structure.twig:506
+#: resources/templates/table/structure/display_structure.twig:514
 #, php-format
 msgid "Index %s has been dropped."
 msgstr "تم حذف إسقاط %s."
@@ -7278,7 +7279,7 @@ msgid "Start row:"
 msgstr "صف البداية:"
 
 #: resources/templates/table/structure/display_partitions.twig:3
-#: resources/templates/table/structure/display_structure.twig:586
+#: resources/templates/table/structure/display_structure.twig:594
 msgid "Partitions"
 msgstr "الأقسام"
 
@@ -7420,21 +7421,21 @@ msgstr "اقترح بناء الجدول"
 msgid "Normalize"
 msgstr ""
 
-#: resources/templates/table/structure/display_structure.twig:415
+#: resources/templates/table/structure/display_structure.twig:423
 msgid "Track view"
 msgstr "تتبع الجدول"
 
-#: resources/templates/table/structure/display_structure.twig:429
+#: resources/templates/table/structure/display_structure.twig:437
 #, php-format
 msgid "Add %s column(s)"
 msgstr "إضافة عمود (أعمدة) %s"
 
-#: resources/templates/table/structure/display_structure.twig:434
+#: resources/templates/table/structure/display_structure.twig:442
 #, fuzzy
 msgid "at beginning of table"
 msgstr "في بداية الجدول"
 
-#: resources/templates/table/structure/display_structure.twig:558
+#: resources/templates/table/structure/display_structure.twig:566
 #, php-format
 msgid "Create an index on %s columns"
 msgstr "إنشاء فهرس على %s عمود (أعمدة)"
@@ -7669,19 +7670,19 @@ msgstr "فشلت في تشغيل الإختبار للقاعدة '%s'."
 msgid "Failed formatting string for rule '%s'."
 msgstr "فشل تنسيق النص لـ '%s'."
 
-#: src/Advisory/Advisor.php:386
+#: src/Advisory/Advisor.php:401
 msgid "per second"
 msgstr "لكل ثانية"
 
-#: src/Advisory/Advisor.php:389
+#: src/Advisory/Advisor.php:404
 msgid "per minute"
 msgstr "لكل دقيقة"
 
-#: src/Advisory/Advisor.php:392
+#: src/Advisory/Advisor.php:407
 msgid "per hour"
 msgstr "لكل ساعة"
 
-#: src/Advisory/Advisor.php:395
+#: src/Advisory/Advisor.php:410
 msgid "per day"
 msgstr "يومياً"
 
@@ -11611,12 +11612,12 @@ msgstr "تحويل المتصفح"
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr "لا يمكن حفظ الإعدادات، نموذج التكوين المقدم يحتوي على أخطاء!"
 
-#: src/Config.php:433
+#: src/Config.php:434
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "ملف الإعدادت (%s) غير قابل للقراءة."
 
-#: src/Config.php:466
+#: src/Config.php:467
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr "صلاحيات خاطئة على ملف الإعدادات , لاينبغى أن يكون قابل للكتابة!"
 
