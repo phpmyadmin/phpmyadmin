@@ -1408,7 +1408,7 @@ input#auto_increment_opt {
   }
 
   .edit_area {
-    background: $white;
+    background: var(--bs-body-bg);
     border: 1px solid #999;
     min-width: 10em;
     padding: 0.3em 0.5em;
@@ -1420,7 +1420,7 @@ input#auto_increment_opt {
   }
 
   .cell_edit_hint {
-    color: #555;
+    color: var(--bs-body-color);
     font-size: 0.8em;
     margin: 0.3em 0.2em;
   }
@@ -1434,12 +1434,12 @@ input#auto_increment_opt {
   }
 
   .edit_box_posting {
-    background: $white url('../img/ajax_clock_small.gif') no-repeat right center;
+    background: var(--bs-body-bg) url('../img/ajax_clock_small.gif') no-repeat right center;
     padding-right: 1.5em;
   }
 
   .edit_area_loading {
-    background: $white url("../img/ajax_clock_small.gif") no-repeat center;
+    background: var(--bs-body-bg) url("../img/ajax_clock_small.gif") no-repeat center;
     height: 10em;
   }
 
