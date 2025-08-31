@@ -155,7 +155,7 @@ class Results
      *     input_transformation_options?: string
      * }>|null
      */
-    private ?array $mediaTypeMap = null;
+    private array|null $mediaTypeMap = null;
 
     /**
      * where clauses for each row, each table in the row
