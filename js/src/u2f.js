@@ -50,7 +50,7 @@ AJAX.registerOnload('u2f.js', function () {
             // Magic JavaScript talking to your HID
             // appid, challenge, authenticateRequests
             var request = JSON.parse($inputAuth.attr('data-request'));
-            
+
             if (!(window.u2f && typeof window.u2f.sign === 'function')) {
                 return;
             }
