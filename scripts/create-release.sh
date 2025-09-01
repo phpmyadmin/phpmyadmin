@@ -568,7 +568,7 @@ PACKAGE_LIST='tecnickcom/tcpdf pragmarx/google2fa-qrcode bacon/bacon-qr-code cod
 for PACKAGE in $PACKAGE_LIST
 do
     PKG_VERSION="$(get_composer_package_version "$PACKAGE")"
-    PACKAGES_VERSIONS="$PACKAGES_VERSIONS\n$PACKAGE:$PKG_VERSION"
+    PACKAGES_VERSIONS="$PACKAGES_VERSIONS\n$PACKAGE:\"$PKG_VERSION\""
 done
 
 echo "* Installing composer packages '$(echo "$PACKAGES_VERSIONS" | tr $'\n' ' ')'"
