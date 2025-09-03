@@ -1,15 +1,16 @@
 import { CommonParams } from '../common.ts';
 
 /**
- * Creates a Profiling Chart. Used in sql.js
- * and in server/status/monitor.js
+ * Creates a Profiling Chart. Used in sql.ts
+ * and in server/status/monitor.ts
  *
  * @param {string} target
- * @param {any[]} data
+ * @param {any[]} chartData
+ * @param {string} legendPosition
  *
  * @return {object}
  */
-export default function createProfilingChart (target, data) {
+export default function createProfilingChart (target, chartData, legendPosition) {
     const lang = CommonParams.get('lang');
     const numberFormat = new Intl.NumberFormat(lang.replace('_', '-'), {
         style: 'unit',
@@ -20,10 +21,10 @@ export default function createProfilingChart (target, data) {
 
     return new window.Chart(target, {
         type: 'pie',
-        data: { labels: data.map(row => row[0]), datasets: [{ data: data.map(row => row[1]) }] },
+        data: { labels: chartData.labels, datasets: [{ data: chartData.data }] },
         options: {
             plugins: {
-                legend: { position: 'right' },
+                legend: { position: legendPosition },
                 tooltip: { callbacks: { label: context => context.parsed ? numberFormat.format(context.parsed) : '' } },
             },
         },

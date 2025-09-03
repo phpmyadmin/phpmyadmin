@@ -2211,7 +2211,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                     return false;
                 });
 
-                profilingChart = createProfilingChart('queryProfilingCanvas', chartData);
+                profilingChart = createProfilingChart('queryProfilingCanvas', chartData, 'right');
             }
         });
 

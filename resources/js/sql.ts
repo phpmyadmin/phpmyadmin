@@ -4,6 +4,7 @@ import { AJAX } from './modules/ajax.ts';
 import { checkFormElementInRange, checkSqlQuery, prepareForAjaxRequest } from './modules/functions.ts';
 import { Navigation } from './modules/navigation.ts';
 import { CommonParams } from './modules/common.ts';
+import createProfilingChart from './modules/functions/createProfilingChart.ts';
 import highlightSql from './modules/sql-highlight.ts';
 import { ajaxRemoveMessage, ajaxShowMessage } from './modules/ajax-message.ts';
 import { escapeBacktick, escapeHtml } from './modules/functions/escape.ts';
@@ -1369,27 +1370,7 @@ function buildProfilingChart () {
         return;
     }
 
-    const lang = CommonParams.get('lang');
-    const numberFormat = new Intl.NumberFormat(lang.replace('_', '-'), {
-        style: 'unit',
-        unit: 'second',
-        unitDisplay: 'long',
-        notation: 'engineering',
-    });
-
-    new window.Chart(profilingChartCanvas, {
-        type: 'pie',
-        data: {
-            labels: chartData.labels,
-            datasets: [{ data: chartData.data }],
-        },
-        options: {
-            plugins: {
-                legend: { position: 'bottom' },
-                tooltip: { callbacks: { label: context => context.parsed ? numberFormat.format(context.parsed) : '' } },
-            },
-        },
-    });
+    createProfilingChart('profilingChartCanvas', chartData, 'bottom');
 }
 
 /**
