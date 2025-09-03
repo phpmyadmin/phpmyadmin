@@ -38156,6 +38156,11 @@ parameters:
 			path: libraries/classes/Utils/HttpRequest.php
 
 		-
+			message: "#^Cannot access offset 0 on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Utils/HttpRequest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Utils\\\\HttpRequest\\:\\:handleContext\\(\\) has parameter \\$context with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Utils/HttpRequest.php
@@ -38191,6 +38196,11 @@ parameters:
 			path: libraries/classes/Utils/HttpRequest.php
 
 		-
+			message: "#^Parameter \\#2 \\$subject of function preg_match expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Utils/HttpRequest.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\Utils\\\\HttpRequest\\:\\:\\$proxyPass \\(string\\) does not accept mixed\\.$#"
 			count: 1
 			path: libraries/classes/Utils/HttpRequest.php
@@ -38202,11 +38212,6 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Utils\\\\HttpRequest\\:\\:\\$proxyUser \\(string\\) does not accept mixed\\.$#"
-			count: 1
-			path: libraries/classes/Utils/HttpRequest.php
-
-		-
-			message: "#^Variable \\$http_response_header in isset\\(\\) always exists and is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Utils/HttpRequest.php
 

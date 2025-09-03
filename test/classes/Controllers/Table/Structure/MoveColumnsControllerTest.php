@@ -167,6 +167,7 @@ SQL
 ALTER TABLE `test_table`
   CHANGE `note` `note` varchar(100) DEFAULT NULL AFTER `id`
 SQL
+,
             ],
         ];
     }
