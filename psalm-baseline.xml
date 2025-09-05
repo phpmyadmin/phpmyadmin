@@ -14485,9 +14485,10 @@
     <MixedArgument occurrences="1">
       <code>$httpStatus</code>
     </MixedArgument>
-    <MixedAssignment occurrences="2">
+    <MixedAssignment occurrences="3">
       <code>$context['http']['content']</code>
       <code>$httpStatus</code>
+      <code>$http_response_header</code>
     </MixedAssignment>
     <MixedInferredReturnType occurrences="1">
       <code>string|bool|null</code>
