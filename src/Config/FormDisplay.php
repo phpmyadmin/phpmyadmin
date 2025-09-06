@@ -837,4 +837,10 @@ class FormDisplay
             $_POST[$key][] = $v;
         }
     }
+
+    /** @return array<string, Form> */
+    public function getRegisteredForms(): array
+    {
+        return $this->forms;
+    }
 }

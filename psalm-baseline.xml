@@ -50,9 +50,6 @@
     <MixedAssignment>
       <code><![CDATA[$var]]></code>
     </MixedAssignment>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[getDatabase]]></code>
-    </PossiblyUnusedMethod>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[bool]]></code>
     </PossiblyUnusedReturnValue>
@@ -9584,7 +9581,7 @@
       <code><![CDATA[testAdvisorBytime]]></code>
     </PossiblyInvalidArgument>
   </file>
-  <file src="tests/unit/BookmarkTest.php">
+  <file src="tests/unit/Bookmarks/BookmarkTest.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>

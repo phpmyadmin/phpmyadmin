@@ -15766,7 +15766,7 @@ parameters:
 			'''
 			identifier: staticMethod.deprecated
 			count: 3
-			path: tests/unit/BookmarkTest.php
+			path: tests/unit/Bookmarks/BookmarkTest.php
 
 		-
 			message: '''
@@ -15775,7 +15775,7 @@ parameters:
 			'''
 			identifier: staticMethod.deprecated
 			count: 3
-			path: tests/unit/BookmarkTest.php
+			path: tests/unit/Bookmarks/BookmarkTest.php
 
 		-
 			message: '#^Parameter \#2 \$haystack of static method PHPUnit\\Framework\\Assert\:\:assertStringContainsString\(\) expects string, mixed given\.$#'
