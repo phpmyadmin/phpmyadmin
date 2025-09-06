@@ -76,6 +76,7 @@
         "symfony/dependency-injection": "^5.2.3",
         "symfony/expression-language": "^5.2.3",
         "symfony/polyfill-ctype": "^1.17.0",
+        "symfony/polyfill-iconv": "^1.33",
         "symfony/polyfill-mbstring": "^1.17.0",
         "symfony/polyfill-php80": "^1.16",
         "twig/twig": "^3.3.5",
