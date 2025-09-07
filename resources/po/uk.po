@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-08-31 00:29+0000\n"
+"POT-Creation-Date: 2025-09-07 00:27+0000\n"
 "PO-Revision-Date: 2025-08-11 09:01+0000\n"
 "Last-Translator: Hotripak <hotr1pak@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -12574,7 +12574,7 @@ msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 "Тільки однією з таблиць UPDATE і DELETE запити можуть бути змодельовані."
 
-#: src/Controllers/Import/StatusController.php:65
+#: src/Controllers/Import/StatusController.php:72
 msgid "Could not load the progress of the import."
 msgstr "Не вдалося завантажити, щоб розпочати імпорт."
 

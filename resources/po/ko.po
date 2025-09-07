@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-08-31 00:29+0000\n"
+"POT-Creation-Date: 2025-09-07 00:27+0000\n"
 "PO-Revision-Date: 2024-10-17 16:16+0000\n"
 "Last-Translator: \"Yong Kim (Neatnet)\" <neatnet@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -12349,7 +12349,7 @@ msgstr "[ROLLBACK이 발생했습니다.]"
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr "단일 테이블 UPDATE 및 DELETE 쿼리만 시뮬레이션할 수 있습니다."
 
-#: src/Controllers/Import/StatusController.php:65
+#: src/Controllers/Import/StatusController.php:72
 msgid "Could not load the progress of the import."
 msgstr "가져오기에 필요한 절차를 로드할 수 없습니다."
 

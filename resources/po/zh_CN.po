@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-08-31 00:29+0000\n"
+"POT-Creation-Date: 2025-09-07 00:27+0000\n"
 "PO-Revision-Date: 2025-03-20 18:17+0000\n"
 "Last-Translator: 吴绮 <rs2.free@qq.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
@@ -12090,7 +12090,7 @@ msgstr "[发生 ROLLBACK.]"
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr "只能预览单一数据表的UPDATE和DELETE查询。"
 
-#: src/Controllers/Import/StatusController.php:65
+#: src/Controllers/Import/StatusController.php:72
 msgid "Could not load the progress of the import."
 msgstr "无法加载导入进度。"
 

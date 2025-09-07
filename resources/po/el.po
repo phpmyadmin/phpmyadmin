@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-08-31 00:29+0000\n"
+"POT-Creation-Date: 2025-09-07 00:27+0000\n"
 "PO-Revision-Date: 2025-07-08 09:02+0000\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -13008,7 +13008,7 @@ msgstr "[συνέβει ROLLBACK.]"
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr "Μονο ερωτήματα UPDATE και DELETE μονού πίνακα μπορούν να εξομοιωθούν."
 
-#: src/Controllers/Import/StatusController.php:65
+#: src/Controllers/Import/StatusController.php:72
 msgid "Could not load the progress of the import."
 msgstr "Αδύνατη η φόρτωση της διαδικασίας της εισαγωγής."
 

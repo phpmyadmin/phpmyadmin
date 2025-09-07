@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-08-31 00:29+0000\n"
+"POT-Creation-Date: 2025-09-07 00:27+0000\n"
 "PO-Revision-Date: 2025-02-24 01:46+0000\n"
 "Last-Translator: Salvador Peña <salvadorp74@hotmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -12763,7 +12763,7 @@ msgstr "[Ocurrió un ROLLBACK.]"
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr "Sólo se pueden simular consultas UPDATE y DELETE sobre sólo una tabla."
 
-#: src/Controllers/Import/StatusController.php:65
+#: src/Controllers/Import/StatusController.php:72
 msgid "Could not load the progress of the import."
 msgstr "No se pudo cargar el progreso de la importación."
 

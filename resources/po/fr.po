@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-08-31 00:29+0000\n"
+"POT-Creation-Date: 2025-09-07 00:27+0000\n"
 "PO-Revision-Date: 2025-08-24 20:20+0000\n"
 "Last-Translator: Marc Delisle <marcdelisle60@gmail.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -12755,7 +12755,7 @@ msgstr ""
 "Seulement les requêtes UPDATE et DELETE portant sur une seule table peuvent "
 "être simulées."
 
-#: src/Controllers/Import/StatusController.php:65
+#: src/Controllers/Import/StatusController.php:72
 msgid "Could not load the progress of the import."
 msgstr "Impossible de charger l'état d'avancement de l'importation."
 

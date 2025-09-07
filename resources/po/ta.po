@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-08-31 00:29+0000\n"
+"POT-Creation-Date: 2025-09-07 00:27+0000\n"
 "PO-Revision-Date: 2025-06-17 13:34+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@mfauth.net>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -12511,7 +12511,7 @@ msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 "ஒற்றை அட்டவணை புதுப்பிப்பு மற்றும் நீக்குதல் வினவல்களை மட்டுமே உருவகப்படுத்த முடியும்."
 
-#: src/Controllers/Import/StatusController.php:65
+#: src/Controllers/Import/StatusController.php:72
 msgid "Could not load the progress of the import."
 msgstr "இறக்குமதி தரவை ஏற்ற முடியவில்லை."
 
