@@ -239,7 +239,7 @@ final readonly class ExportController implements InvocableController
         // Generate filename and mime type if needed
         $mimeType = '';
         if (Export::$asFile) {
-            $filenameTemplate = $request->getParsedBodyParamAsString('filename_template');
+            $filenameTemplate = $request->getParsedBodyParamAsString('filename_template', '');
 
             if ((bool) $rememberTemplate) {
                 $this->export->rememberFilename($this->config, $exportType, $filenameTemplate);
