@@ -79,6 +79,7 @@
         "symfony/polyfill-iconv": "^1.33",
         "symfony/polyfill-mbstring": "^1.17.0",
         "symfony/polyfill-php80": "^1.16",
+        "symfony/polyfill-php84": "^1.33",
         "twig/twig": "^3.3.5",
         "webmozart/assert": "^1.10",
         "williamdes/mariadb-mysql-kbs": "^1.2"
