@@ -30,10 +30,12 @@ use PhpMyAdmin\Utils\ForeignKey;
 
 use function __;
 use function array_column;
+use function array_find_key;
 use function array_key_exists;
 use function array_keys;
 use function array_sum;
 use function arsort;
+use function assert;
 use function bin2hex;
 use function ceil;
 use function count;
@@ -46,6 +48,7 @@ use function session_write_close;
 use function sprintf;
 use function str_contains;
 use function str_replace;
+use function strtoupper;
 use function ucwords;
 
 /**
@@ -671,13 +674,33 @@ class Sql
                 /** @var SelectStatement $statement */
                 $statement = $statementInfo->statement;
 
+                assert($statement->options !== null);
+                /** @var int|null $noCacheIndex */
+                $noCacheIndex = array_find_key(
+                    $statement->options->options,
+                    static function (mixed $value): bool {
+                        return is_string($value) && strtoupper($value) === 'SQL_NO_CACHE';
+                    },
+                );
+
                 $changeExpression = ! $statementInfo->flags->isGroup
                     && ! $statementInfo->flags->distinct
                     && ! $statementInfo->flags->union
                     && count($statement->expr) === 1;
 
-                if ($statementInfo->flags->order || $statementInfo->flags->limit || $changeExpression) {
+                if (
+                    $statementInfo->flags->order
+                    || $statementInfo->flags->limit
+                    || $changeExpression
+                    || $noCacheIndex !== null
+                ) {
                     $statement = clone $statement;
+                    // Remove SQL_NO_CACHE from subquery because it is not valid sql
+                    if ($noCacheIndex !== null) {
+                        assert($statement->options !== null);
+                        $statement->options = clone $statement->options;
+                        unset($statement->options->options[$noCacheIndex]);
+                    }
                 }
 
                 // Remove ORDER BY to decrease unnecessary sorting time

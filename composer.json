@@ -76,6 +76,7 @@
         "symfony/polyfill-ctype": "^1.24",
         "symfony/polyfill-iconv": "^1.33",
         "symfony/polyfill-mbstring": "^1.24",
+        "symfony/polyfill-php84": "^1.33",
         "twig/twig": "^3.21",
         "webmozart/assert": "^1.10",
         "williamdes/mariadb-mysql-kbs": "^1.2"
