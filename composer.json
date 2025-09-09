@@ -105,7 +105,7 @@
         "web-auth/webauthn-lib": "For better WebAuthn/FIDO2 authentication support"
     },
     "require-dev": {
-        "bacon/bacon-qr-code": "^2.0",
+        "bacon/bacon-qr-code": "^2.0 || ^3.0",
         "code-lts/u2f-php-server": "^1.2",
         "php-webdriver/webdriver": "^1.13",
         "phpmyadmin/coding-standard": "^3.0.0",
