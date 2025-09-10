@@ -98,7 +98,7 @@
         "pragmarx/google2fa-qrcode": "^2.1 or ^3.0 - For 2FA authentication",
         "bacon/bacon-qr-code": "^2.0 - For 2FA authentication",
         "code-lts/u2f-php-server": "For FIDO U2F authentication",
-        "web-auth/webauthn-lib": "For better WebAuthn/FIDO2 authentication support"
+        "web-auth/webauthn-framework": "For better WebAuthn/FIDO2 authentication support"
     },
     "require-dev": {
         "bacon/bacon-qr-code": "^2.0 || ^3.0",
@@ -122,7 +122,7 @@
         "symfony/console": "^7.1",
         "tecnickcom/tcpdf": "^6.4.4",
         "vimeo/psalm": "^6.0",
-        "web-auth/webauthn-lib": "^4.9"
+        "web-auth/webauthn-framework": "^5.2.2"
     },
     "extra": {
         "branch-alias": {
