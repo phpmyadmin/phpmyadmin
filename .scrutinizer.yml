@@ -22,7 +22,7 @@ build:
     analysis:
       environment:
         php: 8.2
-        node: 16
+        node: 20
       dependencies:
         before:
           - composer config --unset repositories.0

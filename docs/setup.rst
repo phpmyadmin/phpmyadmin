@@ -90,7 +90,7 @@ In order to install from Git, you'll need a few supporting applications:
 
 * `Git <https://git-scm.com/downloads>`_ to download the source, or you can download the most recent source directly from `Github <https://codeload.github.com/phpmyadmin/phpmyadmin/zip/QA_5_2>`_
 * `Composer <https://getcomposer.org/download/>`__
-* `Node.js <https://nodejs.org/en/download/>`_ (version 16 or higher)
+* `Node.js <https://nodejs.org/en/download/>`_ (version 20 or higher)
 * `Yarn <https://classic.yarnpkg.com/en/docs/install>`_
 
 You can clone current phpMyAdmin source from

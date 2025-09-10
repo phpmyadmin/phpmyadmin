@@ -22,7 +22,7 @@ jobs:
       matrix:
         include:
           - { version: '5.2', branch: 'QA_5_2', php-version: '7.2', node-version: '12', python-version: '3.11' }
-          - { version: '6.0', branch: 'master', php-version: '8.2', node-version: '16', python-version: '3.11' }
+          - { version: '6.0', branch: 'master', php-version: '8.2', node-version: '20', python-version: '3.11' }
     steps:
       - name: Check out code
         uses: actions/checkout@v4
