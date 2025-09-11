@@ -96,12 +96,12 @@
         "ext-mbstring": "For best performance",
         "tecnickcom/tcpdf": "For PDF support",
         "pragmarx/google2fa-qrcode": "^2.1 or ^3.0 - For 2FA authentication",
-        "bacon/bacon-qr-code": "^2.0 - For 2FA authentication",
+        "bacon/bacon-qr-code": "^3.0 - For 2FA authentication",
         "code-lts/u2f-php-server": "For FIDO U2F authentication",
         "web-auth/webauthn-lib": "For better WebAuthn/FIDO2 authentication support"
     },
     "require-dev": {
-        "bacon/bacon-qr-code": "^2.0 || ^3.0",
+        "bacon/bacon-qr-code": "^3.0",
         "code-lts/u2f-php-server": "^1.2",
         "guzzlehttp/psr7": "^2.5",
         "httpsoft/http-message": "^1.1",
