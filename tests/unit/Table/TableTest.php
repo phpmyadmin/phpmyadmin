@@ -200,7 +200,7 @@ class TableTest extends AbstractTestCase
             ],
         ];
 
-        $fetchResult = [
+        $fetchResultMultidimensional = [
             [
                 $getUniqueColumnsSql . ' WHERE (Non_unique = 0)',
                 ['Key_name', null],
@@ -208,6 +208,9 @@ class TableTest extends AbstractTestCase
                 ConnectionType::User,
                 [['index1'], ['index3'], ['index5']],
             ],
+        ];
+
+        $fetchResult = [
             [
                 $getUniqueColumnsSql,
                 'Column_name',
@@ -257,8 +260,11 @@ class TableTest extends AbstractTestCase
         $dbi->expects(self::any())->method('fetchResult')
             ->willReturnMap($fetchResult);
 
-            $dbi->expects(self::any())->method('fetchResultSimple')
-                ->willReturnMap($fetchResultSimple);
+        $dbi->expects(self::any())->method('fetchResultSimple')
+            ->willReturnMap($fetchResultSimple);
+
+        $dbi->expects(self::any())->method('fetchResultMultidimensional')
+            ->willReturnMap($fetchResultMultidimensional);
 
         $dbi->expects(self::any())->method('fetchValue')
             ->willReturnMap($fetchValue);
@@ -1257,11 +1263,15 @@ class TableTest extends AbstractTestCase
         $dbi->expects(self::any())
             ->method('fetchResult')
             ->willReturn(
-                [['`one_pk`']],
-                [], // No Uniques found
                 ['`one_ind`', '`sec_ind`'],
                 [], // No Uniques found
+            );
+        $dbi->expects(self::any())
+            ->method('fetchResultMultidimensional')
+            ->willReturn(
+                [['`one_pk`']],
                 [], // No Indexed found
+                [], // No Uniques found
             );
 
         DatabaseInterface::$instance = $dbi;

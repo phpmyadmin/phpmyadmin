@@ -416,7 +416,7 @@ class DatabaseInterface
             }
 
             /** @var (string|int|null)[][][] $tables */
-            $tables = $this->fetchResult(
+            $tables = $this->fetchResultMultidimensional(
                 $sql,
                 ['TABLE_SCHEMA', 'TABLE_NAME'],
                 null,
@@ -762,7 +762,6 @@ class DatabaseInterface
             $this->quoteString($table, $connectionType),
             $this->quoteString($column, $connectionType),
         );
-        /** @var (string|null)[][] $fields */
         $fields = $this->fetchResult($sql, 'Field', null, $connectionType);
 
         /**
@@ -802,7 +801,6 @@ class DatabaseInterface
             $this->quoteString($database, $connectionType),
             $this->quoteString($table, $connectionType),
         );
-        /** @var (string|null)[][] $fields */
         $fields = $this->fetchResult($sql, 'Field', null, $connectionType);
 
         /**
@@ -1175,11 +1173,6 @@ class DatabaseInterface
      * returns all rows in the resultset in one array
      *
      * <code>
-     * $sql = 'SELECT * FROM `user`';
-     * $users = $dbi->fetchResult($sql);
-     * // produces
-     * // $users[] = array('id' => 123, 'name' => 'John Doe')
-     *
      * $sql = 'SELECT `id`, `name` FROM `user`';
      * $users = $dbi->fetchResult($sql, 'id');
      * // produces
@@ -1196,35 +1189,14 @@ class DatabaseInterface
      * $users = $dbi->fetchResult($sql, 0, 1);
      * // produces
      * // $users['123'] = 'John Doe'
-     *
-     * $sql = 'SELECT `name` FROM `user`';
-     * $users = $dbi->fetchResult($sql);
-     * // produces
-     * // $users[] = 'John Doe'
-     *
-     * $sql = 'SELECT `group`, `name` FROM `user`'
-     * $users = $dbi->fetchResult($sql, array('group', null), 'name');
-     * // produces
-     * // $users['admin'][] = 'John Doe'
-     *
-     * $sql = 'SELECT `group`, `name` FROM `user`'
-     * $users = $dbi->fetchResult($sql, array('group', 'name'), 'id');
-     * // produces
-     * // $users['admin']['John Doe'] = '123'
      * </code>
      *
-     * @param string             $query query to execute
-     * @param string|int|mixed[] $key   field-name or offset
-     *                                     used as key for array
-     *                                     or array of those
-     * @param string|int|null    $value value-name or offset used as value for array
-     *
-     * @return mixed[] resultrows or values indexed by $key
+     * @psalm-return ($column is null ? array<array<string|null>> : array<string|null>)
      */
     public function fetchResult(
         string $query,
-        string|int|array $key,
-        string|int|null $value = null,
+        string|int $key,
+        string|int|null $column = null,
         ConnectionType $connectionType = ConnectionType::User,
     ): array {
         $resultRows = [];
@@ -1236,29 +1208,7 @@ class DatabaseInterface
             return [];
         }
 
-        if (is_array($key)) {
-            while ($row = $result->fetchAssoc()) {
-                $resultTarget =& $resultRows;
-                foreach ($key as $keyIndex) {
-                    if ($keyIndex === null) {
-                        $resultTarget =& $resultTarget[];
-                        continue;
-                    }
-
-                    if (! isset($resultTarget[$row[$keyIndex]])) {
-                        $resultTarget[$row[$keyIndex]] = [];
-                    }
-
-                    $resultTarget =& $resultTarget[$row[$keyIndex]];
-                }
-
-                $resultTarget = $value === null ? $row : $row[$value];
-            }
-
-            return $resultRows;
-        }
-
-        if ($key === 0 && $value === 1) {
+        if ($key === 0 && $column === 1) {
             return $result->fetchAllKeyPair();
         }
 
@@ -1266,7 +1216,62 @@ class DatabaseInterface
         $fetchFunction = is_int($key) ? self::FETCH_NUM : self::FETCH_ASSOC;
 
         while ($row = $this->fetchByMode($result, $fetchFunction)) {
-            $resultRows[$row[$key]] = $value === null ? $row : $row[$value];
+            $resultRows[$row[$key]] = $column === null ? $row : $row[$column];
+        }
+
+        return $resultRows;
+    }
+
+    /**
+     * returns all rows in the resultset in one array
+     *
+     * <code>
+     * $sql = 'SELECT `group`, `name` FROM `user`'
+     * $users = $dbi->fetchResult($sql, array('group', null), 'name');
+     * // produces
+     * // $users['admin'][] = 'John Doe'
+     *
+     * $sql = 'SELECT `group`, `name` FROM `user`'
+     * $users = $dbi->fetchResult($sql, array('group', 'name'), 'id');
+     * // produces
+     * // $users['admin']['John Doe'] = '123'
+     * </code>
+     *
+     * @param array<array-key|null> $keys
+     *
+     * @return array<mixed>
+     */
+    public function fetchResultMultidimensional(
+        string $query,
+        array $keys,
+        string|int|null $column = null,
+        ConnectionType $connectionType = ConnectionType::User,
+    ): array {
+        $resultRows = [];
+
+        $result = $this->tryQuery($query, $connectionType, cacheAffectedRows: false);
+
+        // return empty array if result is empty or false
+        if ($result === false) {
+            return [];
+        }
+
+        while ($row = $result->fetchAssoc()) {
+            $resultTarget =& $resultRows;
+            foreach ($keys as $keyIndex) {
+                if ($keyIndex === null) {
+                    $resultTarget =& $resultTarget[];
+                    continue;
+                }
+
+                if (! isset($resultTarget[$row[$keyIndex]])) {
+                    $resultTarget[$row[$keyIndex]] = [];
+                }
+
+                $resultTarget =& $resultTarget[$row[$keyIndex]];
+            }
+
+            $resultTarget = $column === null ? $row : $row[$column];
         }
 
         return $resultRows;

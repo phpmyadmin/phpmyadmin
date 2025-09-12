@@ -405,7 +405,6 @@ class Relation
                 $relQuery .= ' AND `master_field` = ' . $this->dbi->quoteString($column);
             }
 
-            /** @var array<array<string|null>> $foreign */
             $foreign = $this->dbi->fetchResult($relQuery, 'master_field', null, ConnectionType::ControlUser);
         }
 
@@ -1143,7 +1142,7 @@ class Relation
                     . $this->dbi->quoteString($column);
             }
 
-            return $this->dbi->fetchResult(
+            return $this->dbi->fetchResultMultidimensional(
                 $relQuery,
                 ['referenced_column_name', null],
             );

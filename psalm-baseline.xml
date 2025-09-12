@@ -619,7 +619,7 @@
       <code><![CDATA[$foreigners[$column]]]></code>
     </MixedReturnStatement>
     <MixedReturnTypeCoercion>
-      <code><![CDATA[$this->dbi->fetchResult(
+      <code><![CDATA[$this->dbi->fetchResultMultidimensional(
                 $relQuery,
                 ['referenced_column_name', null],
             )]]></code>
@@ -661,6 +661,9 @@
       <code><![CDATA[empty($this->config->selectedServer['usergroups'])]]></code>
       <code><![CDATA[empty($this->config->selectedServer['users'])]]></code>
     </RiskyTruthyFalsyComparison>
+    <UnnecessaryVarAnnotation>
+      <code><![CDATA[array<array<string|null>>]]></code>
+    </UnnecessaryVarAnnotation>
   </file>
   <file src="src/ConfigStorage/UserGroups.php">
     <DeprecatedMethod>
@@ -2277,24 +2280,21 @@
   <file src="src/Controllers/Table/FindReplaceController.php">
     <MixedArgument>
       <code><![CDATA[$row[0]]]></code>
-      <code><![CDATA[$row[0]]]></code>
       <code><![CDATA[$row[1]]]></code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$row[0]]]></code>
-      <code><![CDATA[$row[0]]]></code>
       <code><![CDATA[$row[1]]]></code>
     </MixedArrayAccess>
-    <MixedArrayAssignment>
-      <code><![CDATA[$result[$index][1]]]></code>
-    </MixedArrayAssignment>
     <MixedAssignment>
-      <code><![CDATA[$row]]></code>
       <code><![CDATA[$row]]></code>
     </MixedAssignment>
     <MixedPropertyTypeCoercion>
       <code><![CDATA[['db' => Current::$database, 'table' => Current::$table]]]></code>
     </MixedPropertyTypeCoercion>
+    <PossiblyNullArgument>
+      <code><![CDATA[$row[0]]]></code>
+    </PossiblyNullArgument>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
@@ -3414,6 +3414,12 @@
     <InvalidArrayOffset>
       <code><![CDATA[$retval['item_param_dir'][$key]]]></code>
     </InvalidArrayOffset>
+    <InvalidReturnStatement>
+      <code><![CDATA[$this->dbi->fetchResult($privilegesBackupQuery, 0)]]></code>
+    </InvalidReturnStatement>
+    <InvalidReturnType>
+      <code><![CDATA[string[][]]]></code>
+    </InvalidReturnType>
     <MixedArgument>
       <code><![CDATA[$_POST['funcs'][$routine['item_param_name'][$i]]]]></code>
       <code><![CDATA[$itemParamOpsNum[$i]]]></code>
@@ -3503,10 +3509,6 @@
       <code><![CDATA[$itemParamType[$i]]]></code>
       <code><![CDATA[$itemParamType[$i]]]></code>
     </MixedOperand>
-    <MixedReturnTypeCoercion>
-      <code><![CDATA[$this->dbi->fetchResult($privilegesBackupQuery, 0)]]></code>
-      <code><![CDATA[string[][]]]></code>
-    </MixedReturnTypeCoercion>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['funcs'][$routine['item_param_name'][$i]]]]></code>
       <code><![CDATA[$_POST['item_isdeterministic']]]></code>
@@ -3632,7 +3634,7 @@
       <code><![CDATA[$resultRows]]></code>
     </InvalidReturnStatement>
     <InvalidReturnType>
-      <code><![CDATA[mixed[]]]></code>
+      <code><![CDATA[array<mixed>]]></code>
     </InvalidReturnType>
     <MixedArgument>
       <code><![CDATA[$a]]></code>
@@ -3651,13 +3653,9 @@
     <MixedArrayAssignment>
       <code><![CDATA[$resultTarget[$row[$keyIndex]]]]></code>
     </MixedArrayAssignment>
-    <MixedArrayOffset>
-      <code><![CDATA[$row[$keyIndex]]]></code>
-    </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$aLength]]></code>
       <code><![CDATA[$bLength]]></code>
-      <code><![CDATA[$keyIndex]]></code>
       <code><![CDATA[$resultTarget]]></code>
       <code><![CDATA[$resultTarget]]></code>
       <code><![CDATA[$this->versionComment]]></code>
@@ -3713,7 +3711,6 @@
       <code><![CDATA[$_SERVER['SCRIPT_NAME']]]></code>
     </PossiblyNullArgument>
     <PossiblyNullArrayAccess>
-      <code><![CDATA[$resultTarget[$row[$keyIndex]]]]></code>
       <code><![CDATA[$resultTarget[]]]></code>
     </PossiblyNullArrayAccess>
     <PossiblyNullArrayOffset>
@@ -3751,6 +3748,10 @@
       <code><![CDATA[$limitCount]]></code>
       <code><![CDATA[empty($fieldData['Key'])]]></code>
     </RiskyTruthyFalsyComparison>
+    <UnnecessaryVarAnnotation>
+      <code><![CDATA[(string|null)[][]]]></code>
+      <code><![CDATA[(string|null)[][]]]></code>
+    </UnnecessaryVarAnnotation>
     <UnsupportedReferenceUsage>
       <code><![CDATA[$resultTarget =& $resultTarget[$row[$keyIndex]]]]></code>
       <code><![CDATA[$resultTarget =& $resultTarget[]]]></code>
@@ -5595,91 +5596,14 @@
       <code><![CDATA[$arr['foreign_field']]]></code>
       <code><![CDATA[$arr['foreign_table']]]></code>
       <code><![CDATA[$foreignTable]]></code>
-      <code><![CDATA[$oldPriv]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$master]]></code>
       <code><![CDATA[$master]]></code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess>
-      <code><![CDATA[$oldPriv[$i]]]></code>
-      <code><![CDATA[$oldPriv[0]]]></code>
-      <code><![CDATA[$oldPriv[0]]]></code>
-      <code><![CDATA[$oldPriv[0]]]></code>
-      <code><![CDATA[$oldPriv[0]]]></code>
-      <code><![CDATA[$oldPriv[0]]]></code>
-      <code><![CDATA[$oldPriv[0]]]></code>
-      <code><![CDATA[$oldPriv[2]]]></code>
-      <code><![CDATA[$oldPriv[2]]]></code>
-      <code><![CDATA[$oldPriv[2]]]></code>
-      <code><![CDATA[$oldPriv[2]]]></code>
-      <code><![CDATA[$oldPriv[2]]]></code>
-      <code><![CDATA[$oldPriv[3]]]></code>
-      <code><![CDATA[$oldPriv[3]]]></code>
-      <code><![CDATA[$oldPriv[3]]]></code>
-      <code><![CDATA[$oldPriv[4]]]></code>
-      <code><![CDATA[$oldPriv[4]]]></code>
-      <code><![CDATA[$oldPriv[4]]]></code>
-      <code><![CDATA[$oldPriv[4]]]></code>
-      <code><![CDATA[$oldPriv[4]]]></code>
-      <code><![CDATA[$oldPriv[5]]]></code>
-      <code><![CDATA[$oldPriv[5]]]></code>
-      <code><![CDATA[$oldPriv[5]]]></code>
-      <code><![CDATA[$oldPriv[5]]]></code>
-      <code><![CDATA[$oldPriv[5]]]></code>
-      <code><![CDATA[$oldPriv[6]]]></code>
-      <code><![CDATA[$oldPriv[6]]]></code>
-      <code><![CDATA[$oldPriv[6]]]></code>
-      <code><![CDATA[$oldPriv[6]]]></code>
-      <code><![CDATA[$oldPriv[6]]]></code>
-      <code><![CDATA[$oldPriv[7]]]></code>
-      <code><![CDATA[$oldPriv[7]]]></code>
-      <code><![CDATA[$oldPriv[7]]]></code>
-    </MixedArrayAccess>
     <MixedAssignment>
       <code><![CDATA[$foreignTable]]></code>
-      <code><![CDATA[$oldPriv]]></code>
-      <code><![CDATA[$oldPriv]]></code>
-      <code><![CDATA[$oldPriv]]></code>
-      <code><![CDATA[$oldPriv]]></code>
-      <code><![CDATA[$oldPriv]]></code>
-      <code><![CDATA[$oldPriv]]></code>
     </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[$oldPriv[$i]]]></code>
-      <code><![CDATA[$oldPriv[0]]]></code>
-      <code><![CDATA[$oldPriv[0]]]></code>
-      <code><![CDATA[$oldPriv[0]]]></code>
-      <code><![CDATA[$oldPriv[0]]]></code>
-      <code><![CDATA[$oldPriv[0]]]></code>
-      <code><![CDATA[$oldPriv[0]]]></code>
-      <code><![CDATA[$oldPriv[2]]]></code>
-      <code><![CDATA[$oldPriv[2]]]></code>
-      <code><![CDATA[$oldPriv[2]]]></code>
-      <code><![CDATA[$oldPriv[2]]]></code>
-      <code><![CDATA[$oldPriv[2]]]></code>
-      <code><![CDATA[$oldPriv[3]]]></code>
-      <code><![CDATA[$oldPriv[3]]]></code>
-      <code><![CDATA[$oldPriv[3]]]></code>
-      <code><![CDATA[$oldPriv[4]]]></code>
-      <code><![CDATA[$oldPriv[4]]]></code>
-      <code><![CDATA[$oldPriv[4]]]></code>
-      <code><![CDATA[$oldPriv[4]]]></code>
-      <code><![CDATA[$oldPriv[4]]]></code>
-      <code><![CDATA[$oldPriv[5]]]></code>
-      <code><![CDATA[$oldPriv[5]]]></code>
-      <code><![CDATA[$oldPriv[5]]]></code>
-      <code><![CDATA[$oldPriv[5]]]></code>
-      <code><![CDATA[$oldPriv[5]]]></code>
-      <code><![CDATA[$oldPriv[6]]]></code>
-      <code><![CDATA[$oldPriv[6]]]></code>
-      <code><![CDATA[$oldPriv[6]]]></code>
-      <code><![CDATA[$oldPriv[6]]]></code>
-      <code><![CDATA[$oldPriv[6]]]></code>
-      <code><![CDATA[$oldPriv[7]]]></code>
-      <code><![CDATA[$oldPriv[7]]]></code>
-      <code><![CDATA[$oldPriv[7]]]></code>
-    </MixedOperand>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['comment']]]></code>
       <code><![CDATA[$_POST['db_collation']]]></code>
@@ -5703,6 +5627,39 @@
       <code><![CDATA[$query]]></code>
     </PossiblyNullArgument>
     <PossiblyNullOperand>
+      <code><![CDATA[$oldPriv[$i]]]></code>
+      <code><![CDATA[$oldPriv[0]]]></code>
+      <code><![CDATA[$oldPriv[0]]]></code>
+      <code><![CDATA[$oldPriv[0]]]></code>
+      <code><![CDATA[$oldPriv[0]]]></code>
+      <code><![CDATA[$oldPriv[0]]]></code>
+      <code><![CDATA[$oldPriv[0]]]></code>
+      <code><![CDATA[$oldPriv[2]]]></code>
+      <code><![CDATA[$oldPriv[2]]]></code>
+      <code><![CDATA[$oldPriv[2]]]></code>
+      <code><![CDATA[$oldPriv[2]]]></code>
+      <code><![CDATA[$oldPriv[2]]]></code>
+      <code><![CDATA[$oldPriv[3]]]></code>
+      <code><![CDATA[$oldPriv[3]]]></code>
+      <code><![CDATA[$oldPriv[3]]]></code>
+      <code><![CDATA[$oldPriv[4]]]></code>
+      <code><![CDATA[$oldPriv[4]]]></code>
+      <code><![CDATA[$oldPriv[4]]]></code>
+      <code><![CDATA[$oldPriv[4]]]></code>
+      <code><![CDATA[$oldPriv[4]]]></code>
+      <code><![CDATA[$oldPriv[5]]]></code>
+      <code><![CDATA[$oldPriv[5]]]></code>
+      <code><![CDATA[$oldPriv[5]]]></code>
+      <code><![CDATA[$oldPriv[5]]]></code>
+      <code><![CDATA[$oldPriv[5]]]></code>
+      <code><![CDATA[$oldPriv[6]]]></code>
+      <code><![CDATA[$oldPriv[6]]]></code>
+      <code><![CDATA[$oldPriv[6]]]></code>
+      <code><![CDATA[$oldPriv[6]]]></code>
+      <code><![CDATA[$oldPriv[6]]]></code>
+      <code><![CDATA[$oldPriv[7]]]></code>
+      <code><![CDATA[$oldPriv[7]]]></code>
+      <code><![CDATA[$oldPriv[7]]]></code>
       <code><![CDATA[$query]]></code>
     </PossiblyNullOperand>
     <RedundantCast>
@@ -6517,9 +6474,6 @@
     <MixedArgument>
       <code><![CDATA[$colAs]]></code>
     </MixedArgument>
-    <MixedArrayAccess>
-      <code><![CDATA[$result[$table][1]]]></code>
-    </MixedArrayAccess>
     <MixedAssignment>
       <code><![CDATA[$colAs]]></code>
     </MixedAssignment>
