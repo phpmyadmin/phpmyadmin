@@ -2276,14 +2276,9 @@
   </file>
   <file src="src/Controllers/Table/FindReplaceController.php">
     <MixedArgument>
-      <code><![CDATA[$column]]></code>
-      <code><![CDATA[$column]]></code>
-      <code><![CDATA[$column]]></code>
-      <code><![CDATA[$column]]></code>
       <code><![CDATA[$row[0]]]></code>
       <code><![CDATA[$row[0]]]></code>
       <code><![CDATA[$row[1]]]></code>
-      <code><![CDATA[$this->columnTypes[$i]]]></code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$row[0]]]></code>
@@ -2293,14 +2288,7 @@
     <MixedArrayAssignment>
       <code><![CDATA[$result[$index][1]]]></code>
     </MixedArrayAssignment>
-    <MixedArrayOffset>
-      <code><![CDATA[$types[$columnName]]]></code>
-    </MixedArrayOffset>
     <MixedAssignment>
-      <code><![CDATA[$column]]></code>
-      <code><![CDATA[$column]]></code>
-      <code><![CDATA[$column]]></code>
-      <code><![CDATA[$columnName]]></code>
       <code><![CDATA[$row]]></code>
       <code><![CDATA[$row]]></code>
     </MixedAssignment>
