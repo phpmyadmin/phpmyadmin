@@ -9035,15 +9035,11 @@
       <code><![CDATA[$additionalParameters]]></code>
       <code><![CDATA[$name]]></code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayOffset>
-      <code><![CDATA[$params[$skipping]]]></code>
-    </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$paramValue]]></code>
       <code><![CDATA[$paramsToEncrypt[$paramKey]]]></code>
       <code><![CDATA[$params['server']]]></code>
       <code><![CDATA[$params['server']]]></code>
-      <code><![CDATA[$skipping]]></code>
       <code><![CDATA[$value]]></code>
       <code><![CDATA[$values['token']]]></code>
     </MixedAssignment>

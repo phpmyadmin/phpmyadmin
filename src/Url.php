@@ -36,9 +36,9 @@ class Url
      *
      * @see Url::getCommon()
      *
-     * @param string|mixed[] $db    optional database name (can also be an array of parameters)
-     * @param string         $table optional table name
-     * @param string|mixed[] $skip  do not generate a hidden field for this parameter (can be an array of strings)
+     * @param string|mixed[]  $db    optional database name (can also be an array of parameters)
+     * @param string          $table optional table name
+     * @param string|string[] $skip  do not generate a hidden field for this parameter (can be an array of strings)
      *
      * @return string   string with input fields
      */
