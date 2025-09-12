@@ -1728,7 +1728,7 @@ class DatabaseInterface
      *
      * @param ResultInterface $result result set identifier
      *
-     * @return FieldMetadata[] meta info for fields in $result
+     * @return list<FieldMetadata> meta info for fields in $result
      */
     public function getFieldsMeta(ResultInterface $result): array
     {

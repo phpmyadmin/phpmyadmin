@@ -661,9 +661,6 @@
       <code><![CDATA[empty($this->config->selectedServer['usergroups'])]]></code>
       <code><![CDATA[empty($this->config->selectedServer['users'])]]></code>
     </RiskyTruthyFalsyComparison>
-    <UnnecessaryVarAnnotation>
-      <code><![CDATA[array<array<string|null>>]]></code>
-    </UnnecessaryVarAnnotation>
   </file>
   <file src="src/ConfigStorage/UserGroups.php">
     <DeprecatedMethod>
@@ -3748,10 +3745,6 @@
       <code><![CDATA[$limitCount]]></code>
       <code><![CDATA[empty($fieldData['Key'])]]></code>
     </RiskyTruthyFalsyComparison>
-    <UnnecessaryVarAnnotation>
-      <code><![CDATA[(string|null)[][]]]></code>
-      <code><![CDATA[(string|null)[][]]]></code>
-    </UnnecessaryVarAnnotation>
     <UnsupportedReferenceUsage>
       <code><![CDATA[$resultTarget =& $resultTarget[$row[$keyIndex]]]]></code>
       <code><![CDATA[$resultTarget =& $resultTarget[]]]></code>
@@ -3907,11 +3900,6 @@
       <code><![CDATA[$row[$i]]]></code>
       <code><![CDATA[$row[$i]]]></code>
       <code><![CDATA[$row[$i]]]></code>
-      <code><![CDATA[$row[$m]]]></code>
-      <code><![CDATA[$row[$sortedColumnIndex]]]></code>
-      <code><![CDATA[$row[$sortedColumnIndex]]]></code>
-      <code><![CDATA[$row[$sortedColumnIndex]]]></code>
-      <code><![CDATA[$row[$sortedColumnIndex]]]></code>
       <code><![CDATA[$this->fieldsMeta[$i]]]></code>
       <code><![CDATA[$this->fieldsMeta[$i]]]></code>
     </MixedArrayTypeCoercion>
@@ -6341,9 +6329,6 @@
       <code><![CDATA[$aliases[$oldDatabase]['tables'][$oldTable]['columns']]]></code>
       <code><![CDATA[$columnAliases[$column['name']]]]></code>
     </MixedArrayAccess>
-    <MixedArrayTypeCoercion>
-      <code><![CDATA[$row[$j]]]></code>
-    </MixedArrayTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$colAlias]]></code>
       <code><![CDATA[$colAlias]]></code>

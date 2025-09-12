@@ -123,7 +123,7 @@ class Results
     /**
      * meta information about fields
      *
-     * @var FieldMetadata[]
+     * @var list<FieldMetadata>
      */
     private array $fieldsMeta = [];
 
@@ -319,21 +319,21 @@ class Results
     /**
      * Set properties which were not initialized at the constructor
      *
-     * @param int|string      $unlimNumRows     the total number of rows returned by the SQL query without
-     *                                          any appended "LIMIT" clause programmatically
-     * @param FieldMetadata[] $fieldsMeta       meta information about fields
-     * @param bool            $isCount          statement is SELECT COUNT
-     * @param bool            $isExport         statement contains INTO OUTFILE
-     * @param bool            $isFunction       statement contains a function like SUM()
-     * @param bool            $isAnalyse        statement contains PROCEDURE ANALYSE
-     * @param int|string      $numRows          total no. of rows returned by SQL query
-     * @param float           $queryTime        time taken for execute the SQL query
-     * @param bool            $isMaintenance    statement contains a maintenance command
-     * @param bool            $isExplain        statement contains EXPLAIN
-     * @param bool            $isShow           statement contains SHOW
-     * @param bool            $printView        print view was requested
-     * @param bool            $editable         whether the results set is editable
-     * @param bool            $isBrowseDistinct whether browsing distinct values
+     * @param int|string          $unlimNumRows     the total number of rows returned by the SQL query without
+     *                                              any appended "LIMIT" clause programmatically
+     * @param list<FieldMetadata> $fieldsMeta       meta information about fields
+     * @param bool                $isCount          statement is SELECT COUNT
+     * @param bool                $isExport         statement contains INTO OUTFILE
+     * @param bool                $isFunction       statement contains a function like SUM()
+     * @param bool                $isAnalyse        statement contains PROCEDURE ANALYSE
+     * @param int|string          $numRows          total no. of rows returned by SQL query
+     * @param float               $queryTime        time taken for execute the SQL query
+     * @param bool                $isMaintenance    statement contains a maintenance command
+     * @param bool                $isExplain        statement contains EXPLAIN
+     * @param bool                $isShow           statement contains SHOW
+     * @param bool                $printView        print view was requested
+     * @param bool                $editable         whether the results set is editable
+     * @param bool                $isBrowseDistinct whether browsing distinct values
      * @psalm-param int|numeric-string $unlimNumRows
      * @psalm-param int|numeric-string $numRows
      */
