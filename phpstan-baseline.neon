@@ -13807,12 +13807,6 @@ parameters:
 			path: src/Table/ColumnsDefinition.php
 
 		-
-			message: '#^Cannot access offset ''isEditable'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Table/ColumnsDefinition.php
-
-		-
 			message: '#^Cannot cast mixed to string\.$#'
 			identifier: cast.string
 			count: 2
@@ -13834,6 +13828,12 @@ parameters:
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
 			count: 2
+			path: src/Table/ColumnsDefinition.php
+
+		-
+			message: '#^Offset ''DefaultValue'' might not exist on array\{Field\: mixed, Type\: mixed, Collation\: mixed, Null\: mixed, DefaultType\: mixed, DefaultValue\: mixed, Extra\: mixed, Virtuality\: mixed, \.\.\.\}\|array\{Field\: string, Type\: string, Collation\: string\|null, Null\: ''NO''\|''YES'', Key\: string, Default\: string\|null, Extra\: string, Privileges\: string, \.\.\.\}\|array\{Type\: ''''\}\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
 			path: src/Table/ColumnsDefinition.php
 
 		-

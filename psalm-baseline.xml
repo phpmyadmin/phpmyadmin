@@ -8549,10 +8549,6 @@
       <code><![CDATA[$formParams['table']]]></code>
       <code><![CDATA[Util::getValueByKey($_POST, ['field_key', $columnNumber], '')]]></code>
     </MixedArgument>
-    <MixedArrayAccess>
-      <code><![CDATA[$columnMeta['column_status']['isEditable']]]></code>
-      <code><![CDATA[$columnMeta['column_status']['isEditable']]]></code>
-    </MixedArrayAccess>
     <MixedArrayOffset>
       <code><![CDATA[$commentsMap[$columnMeta['Field']]]]></code>
       <code><![CDATA[$mimeMap[$columnMeta['Field']]]]></code>
@@ -8581,14 +8577,13 @@
       <code><![CDATA[$formParams['table']]]></code>
     </PossiblyInvalidCast>
     <PossiblyUndefinedArrayOffset>
+      <code><![CDATA[$columnMeta['Default']]]></code>
       <code><![CDATA[$columnMeta['DefaultValue']]]></code>
     </PossiblyUndefinedArrayOffset>
     <RedundantCastGivenDocblockType>
       <code><![CDATA[(int) $config->settings['MaxRows']]]></code>
     </RedundantCastGivenDocblockType>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[! $columnMeta['column_status']['isEditable']]]></code>
-      <code><![CDATA[! $columnMeta['column_status']['isEditable']]]></code>
       <code><![CDATA[empty($columnMeta['DefaultValue'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
