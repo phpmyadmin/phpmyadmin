@@ -7943,20 +7943,12 @@
       <code><![CDATA[$row['Table_priv']]]></code>
       <code><![CDATA[$sqlQuery]]></code>
       <code><![CDATA[$sqlQuery]]></code>
-      <code><![CDATA[$user]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$queries]]></code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$groupAssignment[$host['User']]]]></code>
-      <code><![CDATA[$host['Grant_priv']]]></code>
-      <code><![CDATA[$host['Host']]]></code>
-      <code><![CDATA[$host['Host']]]></code>
-      <code><![CDATA[$host['User']]]></code>
-      <code><![CDATA[$host['User']]]></code>
-      <code><![CDATA[$host['User']]]></code>
-      <code><![CDATA[$host['privs']]]></code>
       <code><![CDATA[$row['Db']]]></code>
       <code><![CDATA[$row['Grant_priv']]]></code>
       <code><![CDATA[$row['Proc_priv']]]></code>
@@ -7968,17 +7960,10 @@
       <code><![CDATA[$sqlQuery[0]]]></code>
       <code><![CDATA[$sqlQuery[0]]]></code>
     </MixedArrayAccess>
-    <MixedArrayAssignment>
-      <code><![CDATA[$dbRights[$row['User']][$row['Host']]]]></code>
-    </MixedArrayAssignment>
-    <MixedArrayOffset>
-      <code><![CDATA[$groupAssignment[$host['User']]]]></code>
-    </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$extraData['db_wildcard_privs']]]></code>
       <code><![CDATA[$foundRows[]]]></code>
       <code><![CDATA[$grantValue]]></code>
-      <code><![CDATA[$host]]></code>
       <code><![CDATA[$name]]></code>
       <code><![CDATA[$name]]></code>
       <code><![CDATA[$name]]></code>
@@ -7992,7 +7977,6 @@
       <code><![CDATA[$row]]></code>
       <code><![CDATA[$sqlQuery]]></code>
       <code><![CDATA[$sqlQuery]]></code>
-      <code><![CDATA[$user]]></code>
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$origValue]]></code>
@@ -8047,6 +8031,8 @@
       <code><![CDATA[$_POST['userGroup']]]></code>
       <code><![CDATA[$_POST['username']]]></code>
       <code><![CDATA[$hashedPassword]]></code>
+      <code><![CDATA[$host['Host']]]></code>
+      <code><![CDATA[$host['User']]]></code>
       <code><![CDATA[$oldUserGroup]]></code>
     </PossiblyInvalidCast>
     <PossiblyInvalidOperand>
@@ -8083,6 +8069,7 @@
       <code><![CDATA[$dbRights]]></code>
       <code><![CDATA[$dbRights]]></code>
       <code><![CDATA[$dbRights[$row['User']]]]></code>
+      <code><![CDATA[$groupAssignment]]></code>
       <code><![CDATA[$groupAssignment]]></code>
       <code><![CDATA[$row]]></code>
     </PossiblyNullArrayOffset>

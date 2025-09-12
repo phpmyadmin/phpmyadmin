@@ -12657,13 +12657,7 @@ parameters:
 		-
 			message: '#^Cannot access offset ''Grant_priv'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Server/Privileges.php
-
-		-
-			message: '#^Cannot access offset ''Host'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
+			count: 1
 			path: src/Server/Privileges.php
 
 		-
@@ -12679,12 +12673,6 @@ parameters:
 			path: src/Server/Privileges.php
 
 		-
-			message: '#^Cannot access offset ''Select_priv'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Server/Privileges.php
-
-		-
 			message: '#^Cannot access offset ''Table_name'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 2
@@ -12697,19 +12685,7 @@ parameters:
 			path: src/Server/Privileges.php
 
 		-
-			message: '#^Cannot access offset ''User'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 3
-			path: src/Server/Privileges.php
-
-		-
 			message: '#^Cannot access offset ''can_delete'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Server/Privileges.php
-
-		-
-			message: '#^Cannot access offset ''privs'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
 			path: src/Server/Privileges.php
@@ -12721,9 +12697,9 @@ parameters:
 			path: src/Server/Privileges.php
 
 		-
-			message: '#^Cannot access offset array\<string\>\|string\|null on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
+			message: '#^Cannot cast array\<string\>\|string\|null to string\.$#'
+			identifier: cast.string
+			count: 2
 			path: src/Server/Privileges.php
 
 		-
@@ -12735,7 +12711,7 @@ parameters:
 		-
 			message: '#^Cannot cast mixed to string\.$#'
 			identifier: cast.string
-			count: 6
+			count: 4
 			path: src/Server/Privileges.php
 
 		-
@@ -12808,12 +12784,6 @@ parameters:
 			message: '#^PHPDoc tag @var with type array\<string, string\|null\>\|null is not subtype of native type array\.$#'
 			identifier: varTag.nativeType
 			count: 2
-			path: src/Server/Privileges.php
-
-		-
-			message: '#^Parameter \#1 \$array of function ksort expects array, mixed given\.$#'
-			identifier: argument.type
-			count: 1
 			path: src/Server/Privileges.php
 
 		-
@@ -12901,7 +12871,19 @@ parameters:
 			path: src/Server/Privileges.php
 
 		-
+			message: '#^Parameter \#1 \$user of method PhpMyAdmin\\Server\\Privileges\:\:getUserPrivileges\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Server/Privileges.php
+
+		-
 			message: '#^Parameter \#1 \$username of method PhpMyAdmin\\Server\\Privileges\:\:setUserGroup\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Server/Privileges.php
+
+		-
+			message: '#^Parameter \#2 \$host of method PhpMyAdmin\\Server\\Privileges\:\:getUserPrivileges\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Server/Privileges.php
@@ -12951,7 +12933,7 @@ parameters:
 		-
 			message: '#^Possibly invalid array key type array\<string\>\|string\|null\.$#'
 			identifier: offsetAccess.invalidOffset
-			count: 1
+			count: 3
 			path: src/Server/Privileges.php
 
 		-
