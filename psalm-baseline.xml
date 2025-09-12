@@ -314,9 +314,7 @@
       <code><![CDATA[$canonicalPath]]></code>
       <code><![CDATA[$errorList]]></code>
       <code><![CDATA[$ip]]></code>
-      <code><![CDATA[$key]]></code>
       <code><![CDATA[$this->systemPaths[$systemPath]]]></code>
-      <code><![CDATA[$translatedPath]]></code>
       <code><![CDATA[$userPrefsDisallow ?? []]]></code>
       <code><![CDATA[$val]]></code>
       <code><![CDATA[$validators[$path]]]></code>
@@ -336,24 +334,17 @@
     <MixedArrayAssignment>
       <code><![CDATA[$opts['values']['iconv']]]></code>
     </MixedArrayAssignment>
-    <MixedArrayOffset>
-      <code><![CDATA[$_POST[$key]]]></code>
-      <code><![CDATA[$_POST[$key]]]></code>
-      <code><![CDATA[$_POST[$key]]]></code>
-      <code><![CDATA[$_POST[$key]]]></code>
-      <code><![CDATA[$_POST[$key]]]></code>
-      <code><![CDATA[$_POST[$key]]]></code>
-      <code><![CDATA[$_POST[$key]]]></code>
-    </MixedArrayOffset>
+    <MixedArrayTypeCoercion>
+      <code><![CDATA[$this->translatedPaths[$workPath]]]></code>
+      <code><![CDATA[$this->translatedPaths[$workPath]]]></code>
+    </MixedArrayTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$canonicalPath]]></code>
       <code><![CDATA[$errorList]]></code>
       <code><![CDATA[$errorList]]></code>
       <code><![CDATA[$ip]]></code>
-      <code><![CDATA[$key]]></code>
       <code><![CDATA[$opts['errors']]]></code>
       <code><![CDATA[$proxies['-' . $i]]]></code>
-      <code><![CDATA[$translatedPath]]></code>
       <code><![CDATA[$userPrefsDisallow]]></code>
       <code><![CDATA[$v]]></code>
       <code><![CDATA[$v]]></code>
@@ -367,8 +358,6 @@
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$ip]]></code>
-      <code><![CDATA[$key]]></code>
-      <code><![CDATA[$key]]></code>
       <code><![CDATA[$opts['values']['iconv']]]></code>
       <code><![CDATA[$v]]></code>
     </MixedOperand>
