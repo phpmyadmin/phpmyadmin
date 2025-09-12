@@ -5746,12 +5746,6 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: '#^Offset int\|string might not exist on non\-empty\-list\<string\|null\>\.$#'
-			identifier: offsetAccess.notFound
-			count: 4
-			path: src/Display/Results.php
-
-		-
 			message: '#^Only booleans are allowed in &&, array\<mixed\>\|bool given on the left side\.$#'
 			identifier: booleanAnd.leftNotBoolean
 			count: 1
@@ -12949,12 +12943,6 @@ parameters:
 			path: src/Server/Privileges.php
 
 		-
-			message: '#^Possibly invalid array key type mixed\.$#'
-			identifier: offsetAccess.invalidOffset
-			count: 1
-			path: src/Server/Privileges.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -14674,12 +14662,6 @@ parameters:
 			message: '#^Parameter \#2 \$pre of static method PhpMyAdmin\\Url\:\:getHiddenFields\(\) expects string, \(int\|string\) given\.$#'
 			identifier: argument.type
 			count: 1
-			path: src/Url.php
-
-		-
-			message: '#^Possibly invalid array key type mixed\.$#'
-			identifier: offsetAccess.invalidOffset
-			count: 2
 			path: src/Url.php
 
 		-
@@ -18731,12 +18713,6 @@ parameters:
 			identifier: staticMethod.deprecated
 			count: 1
 			path: tests/unit/Theme/ThemeManagerTest.php
-
-		-
-			message: '#^Casting to int something that''s already int\<0, max\>\.$#'
-			identifier: cast.useless
-			count: 1
-			path: tests/unit/Theme/ThemeTest.php
 
 		-
 			message: '''
