@@ -22,7 +22,7 @@ build:
     analysis:
       environment:
         php: 8.2
-        node: 20
+        node: 23 # Scrutinizer does not have NodeJS 20 anymore
       dependencies:
         before:
           - composer config --unset repositories.0
