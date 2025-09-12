@@ -735,9 +735,6 @@
     <MixedArgument>
       <code><![CDATA[Current::$database]]></code>
     </MixedArgument>
-    <MixedArrayOffset>
-      <code><![CDATA[$pkArray[$row['Column_name']]]]></code>
-    </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$relation]]></code>
     </MixedAssignment>
@@ -745,6 +742,9 @@
       <code><![CDATA[$foreigner['foreign_field']]]></code>
       <code><![CDATA[$relation]]></code>
     </MixedOperand>
+    <PossiblyNullArrayOffset>
+      <code><![CDATA[$pkArray]]></code>
+    </PossiblyNullArrayOffset>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
