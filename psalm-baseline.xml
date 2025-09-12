@@ -631,16 +631,10 @@
     <MixedArgumentTypeCoercion>
       <code><![CDATA[uksort($foreign, strnatcasecmp(...))]]></code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayOffset>
-      <code><![CDATA[$foreign[$key]]]></code>
-    </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$foreignDb]]></code>
       <code><![CDATA[$foreignField]]></code>
       <code><![CDATA[$foreignTable]]></code>
-      <code><![CDATA[$foreign[$key]]]></code>
-      <code><![CDATA[$key]]></code>
-      <code><![CDATA[$value]]></code>
       <code><![CDATA[$value]]></code>
     </MixedAssignment>
     <MixedReturnStatement>
@@ -657,6 +651,9 @@
       <code><![CDATA[$this->config->selectedServer['column_info']]]></code>
       <code><![CDATA[$this->config->selectedServer['column_info']]]></code>
     </PossiblyFalseArgument>
+    <PossiblyNullArrayOffset>
+      <code><![CDATA[$foreign]]></code>
+    </PossiblyNullArrayOffset>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[bool]]></code>
     </PossiblyUnusedReturnValue>
