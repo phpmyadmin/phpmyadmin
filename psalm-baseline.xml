@@ -3628,6 +3628,12 @@
       <code><![CDATA[$row['Max_data_length']]]></code>
       <code><![CDATA[$row['Rows']]]></code>
     </InvalidOperand>
+    <InvalidReturnStatement>
+      <code><![CDATA[$resultRows]]></code>
+    </InvalidReturnStatement>
+    <InvalidReturnType>
+      <code><![CDATA[mixed[]]]></code>
+    </InvalidReturnType>
     <MixedArgument>
       <code><![CDATA[$a]]></code>
       <code><![CDATA[$b]]></code>
@@ -3652,8 +3658,6 @@
       <code><![CDATA[$aLength]]></code>
       <code><![CDATA[$bLength]]></code>
       <code><![CDATA[$keyIndex]]></code>
-      <code><![CDATA[$resultRows[$row[$key]]]]></code>
-      <code><![CDATA[$resultTarget]]></code>
       <code><![CDATA[$resultTarget]]></code>
       <code><![CDATA[$resultTarget]]></code>
       <code><![CDATA[$this->versionComment]]></code>
@@ -3664,7 +3668,6 @@
       <code><![CDATA[$b['Data_length']]]></code>
     </MixedOperand>
     <MixedReturnStatement>
-      <code><![CDATA[$resultRows]]></code>
       <code><![CDATA[SessionCache::get('mysql_cur_role')]]></code>
       <code><![CDATA[SessionCache::get('mysql_cur_user')]]></code>
     </MixedReturnStatement>
@@ -3692,13 +3695,15 @@
       <code><![CDATA[list<string>]]></code>
     </MixedReturnTypeCoercion>
     <NullableReturnStatement>
+      <code><![CDATA[$resultRows]]></code>
       <code><![CDATA[$user]]></code>
     </NullableReturnStatement>
     <PossiblyInvalidArgument>
       <code><![CDATA[$tableData[$sortBy] ?? '']]></code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidArrayOffset>
-      <code><![CDATA[$row[$value]]]></code>
+      <code><![CDATA[$resultTarget[$row[$keyIndex]]]]></code>
+      <code><![CDATA[$resultTarget[$row[$keyIndex]]]]></code>
     </PossiblyInvalidArrayOffset>
     <PossiblyInvalidOperand>
       <code><![CDATA[$tableData['Data_length']]]></code>
@@ -3707,6 +3712,10 @@
     <PossiblyNullArgument>
       <code><![CDATA[$_SERVER['SCRIPT_NAME']]]></code>
     </PossiblyNullArgument>
+    <PossiblyNullArrayAccess>
+      <code><![CDATA[$resultTarget[$row[$keyIndex]]]]></code>
+      <code><![CDATA[$resultTarget[]]]></code>
+    </PossiblyNullArrayAccess>
     <PossiblyNullArrayOffset>
       <code><![CDATA[$resultRows]]></code>
       <code><![CDATA[$resultTarget]]></code>

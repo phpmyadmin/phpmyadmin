@@ -1158,17 +1158,6 @@ class DatabaseInterface
     }
 
     /**
-     * Returns row or element of a row
-     *
-     * @param mixed[]|string  $row   Row to process
-     * @param string|int|null $value Which column to return
-     */
-    private function fetchValueOrValueByIndex(array|string $row, string|int|null $value): mixed
-    {
-        return $value === null ? $row : $row[$value];
-    }
-
-    /**
      * returns array of rows with numeric or associative keys
      *
      * @param ResultInterface $result result set identifier
@@ -1263,7 +1252,7 @@ class DatabaseInterface
                     $resultTarget =& $resultTarget[$row[$keyIndex]];
                 }
 
-                $resultTarget = $this->fetchValueOrValueByIndex($row, $value);
+                $resultTarget = $value === null ? $row : $row[$value];
             }
 
             return $resultRows;
@@ -1277,7 +1266,7 @@ class DatabaseInterface
         $fetchFunction = is_int($key) ? self::FETCH_NUM : self::FETCH_ASSOC;
 
         while ($row = $this->fetchByMode($result, $fetchFunction)) {
-            $resultRows[$row[$key]] = $this->fetchValueOrValueByIndex($row, $value);
+            $resultRows[$row[$key]] = $value === null ? $row : $row[$value];
         }
 
         return $resultRows;
