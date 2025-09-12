@@ -313,7 +313,7 @@ class Generator
      *
      * @return string An HTML snippet of a dropdown list with function names appropriate for the requested column.
      */
-    public static function getFunctionsForField(string $defaultFunction, mixed $foreignField = null): string
+    public static function getFunctionsForField(string $defaultFunction, bool $hasForeignField = false): string
     {
         // Create the output
         $retval = '<option></option>' . "\n";
@@ -322,7 +322,7 @@ class Generator
         $functions = DatabaseInterface::getInstance()->types->getAllFunctions();
         foreach ($functions as $function) {
             $retval .= '<option';
-            if ($function === $defaultFunction && $foreignField === null) {
+            if ($function === $defaultFunction && ! $hasForeignField) {
                 $retval .= ' selected';
             }
 

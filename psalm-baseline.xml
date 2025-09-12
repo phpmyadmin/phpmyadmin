@@ -68,9 +68,6 @@
     </PossiblyNullArgument>
   </file>
   <file src="src/BrowseForeigners.php">
-    <MixedArrayOffset>
-      <code><![CDATA[$relrow[$foreignData->foreignField]]]></code>
-    </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$leftKeyname]]></code>
       <code><![CDATA[$rightKeyname]]></code>
@@ -626,6 +623,7 @@
       <code><![CDATA[$columns['table_schema']]]></code>
       <code><![CDATA[$foreignDb]]></code>
       <code><![CDATA[$foreignDb]]></code>
+      <code><![CDATA[$foreignField]]></code>
       <code><![CDATA[$foreignField]]></code>
       <code><![CDATA[$foreignTable]]></code>
       <code><![CDATA[$foreignTable]]></code>
@@ -2595,9 +2593,6 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Table/SearchController.php">
-    <MixedArgument>
-      <code><![CDATA[$foreignData->foreignField]]></code>
-    </MixedArgument>
     <MixedPropertyTypeCoercion>
       <code><![CDATA[['db' => Current::$database, 'table' => Current::$table]]]></code>
     </MixedPropertyTypeCoercion>
@@ -2891,7 +2886,6 @@
       <code><![CDATA[$row[$_POST['criteriaColumnNames'][1]]]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$foreignData->foreignField]]></code>
       <code><![CDATA[$properties['type']]]></code>
       <code><![CDATA[Current::$database]]></code>
       <code><![CDATA[Current::$table]]></code>
@@ -5189,7 +5183,6 @@
     <MixedArgument>
       <code><![CDATA[$currentRow[$column->field] ?? '']]></code>
       <code><![CDATA[$defaultValue]]></code>
-      <code><![CDATA[$foreignData->foreignField]]></code>
       <code><![CDATA[$foreigner['foreign_db']]]></code>
       <code><![CDATA[$foreigner['foreign_db']]]></code>
       <code><![CDATA[$foreigner['foreign_db']]]></code>
@@ -8456,7 +8449,6 @@
       <code><![CDATA[string]]></code>
     </InvalidNullableReturnType>
     <MixedArgument>
-      <code><![CDATA[$foreignData->foreignField]]></code>
       <code><![CDATA[$numberOfLine / $maxRows]]></code>
       <code><![CDATA[$sortCol]]></code>
     </MixedArgument>

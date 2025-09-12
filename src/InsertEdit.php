@@ -1572,7 +1572,7 @@ class InsertEdit
                 $column->type,
                 $insertMode,
             );
-            $functionOptions = Generator::getFunctionsForField($defaultFunction, $foreignData->foreignField);
+            $functionOptions = Generator::getFunctionsForField($defaultFunction, true);
         }
 
         // nullify code is needed by the js nullify() function to be able to generate calls to nullify() in jQuery

@@ -12,7 +12,7 @@ class ForeignData
         public int $theTotal,
         public string $foreignDisplay,
         public array|null $dispRow,
-        public mixed $foreignField,
+        public string $foreignField,
     ) {
     }
 }

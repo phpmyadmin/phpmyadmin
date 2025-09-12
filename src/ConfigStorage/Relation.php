@@ -789,7 +789,8 @@ class Relation
         // we always show the foreign field in the drop-down; if a display
         // field is defined, we show it besides the foreign field
         $foreignLink = false;
-        $dispRow = $foreignDisplay = $theTotal = $foreignField = null;
+        $dispRow = $foreignDisplay = $theTotal = null;
+        $foreignField = '';
         do {
             if ($foreigners === []) {
                 break;
