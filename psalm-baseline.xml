@@ -222,14 +222,9 @@
       <code><![CDATA[$c]]></code>
       <code><![CDATA[$c]]></code>
       <code><![CDATA[$c]]></code>
-      <code><![CDATA[$mapFrom]]></code>
-      <code><![CDATA[$path]]></code>
-      <code><![CDATA[$path]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$k]]></code>
-      <code><![CDATA[$mapTo]]></code>
-      <code><![CDATA[$mapTo]]></code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION[$this->id]['Servers'][$i + 1]]]></code>
@@ -238,9 +233,6 @@
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION[$this->id]['Servers'][$i]]]></code>
     </MixedArrayAssignment>
-    <MixedArrayOffset>
-      <code><![CDATA[$c[$mapFrom]]]></code>
-    </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$_SESSION[$this->id]['Servers'][$i]]]></code>
       <code><![CDATA[$c]]></code>
@@ -249,9 +241,6 @@
       <code><![CDATA[$defaultValue]]></code>
       <code><![CDATA[$host]]></code>
       <code><![CDATA[$instanceDefaultValue]]></code>
-      <code><![CDATA[$mapFrom]]></code>
-      <code><![CDATA[$mapFrom]]></code>
-      <code><![CDATA[$path]]></code>
       <code><![CDATA[$port]]></code>
       <code><![CDATA[$result[$prefix . $key]]]></code>
       <code><![CDATA[$value]]></code>

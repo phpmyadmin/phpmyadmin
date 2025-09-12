@@ -59,7 +59,7 @@ class ConfigFile
      * Changes keys while updating config in {@link updateWithGlobalConfig()}
      * or reading by {@link getConfig()} or {@link getConfigArray()}
      *
-     * @var mixed[]
+     * @var array<string, string>
      */
     private array $cfgUpdateReadMapping = [];
 
@@ -146,7 +146,7 @@ class ConfigFile
      * {@link updateWithGlobalConfig()} or reading
      * by {@link getConfig()} or {@link getConfigArray()}
      *
-     * @param mixed[] $mapping Contains the mapping of "Server/config options"
+     * @param array<string, string> $mapping Contains the mapping of "Server/config options"
      *                       to "Server/1/config options"
      */
     public function setCfgUpdateReadMapping(array $mapping): void
@@ -222,7 +222,7 @@ class ConfigFile
      * @param mixed[] $array  Multidimensional array
      * @param string  $prefix Prefix
      *
-     * @return mixed[]
+     * @return array<string, mixed>
      */
     private function getFlatArray(array $array, string $prefix = ''): array
     {
@@ -241,7 +241,7 @@ class ConfigFile
     /**
      * Returns default config in a flattened array
      *
-     * @return mixed[]
+     * @return array<string, mixed>
      */
     public function getFlatDefaultConfig(): array
     {
