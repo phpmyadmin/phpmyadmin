@@ -398,7 +398,7 @@ class HomeController extends AbstractController
                 'severity' => 'warning',
             ];
         }
-        
+
         /**
         * Check for missing HTTP_HOST
         * This commonly occurs with nginx >= 1.25.0 and HTTP/3 configurations
