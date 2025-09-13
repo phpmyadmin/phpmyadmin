@@ -83,7 +83,7 @@ class ThemeTest extends AbstractTestCase
         );
 
         $this->object->setPath(ROOT_PATH . 'public/themes/original');
-        $this->object->mtimeInfo = (int) filemtime($infofile);
+        $this->object->mtimeInfo = filemtime($infofile);
         self::assertTrue($this->object->loadInfo());
         self::assertSame('Original', $this->object->getName());
     }

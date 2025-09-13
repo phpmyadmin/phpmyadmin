@@ -405,7 +405,6 @@ class Relation
                 $relQuery .= ' AND `master_field` = ' . $this->dbi->quoteString($column);
             }
 
-            /** @var array<array<string|null>> $foreign */
             $foreign = $this->dbi->fetchResult($relQuery, 'master_field', null, ConnectionType::ControlUser);
         }
 
@@ -700,11 +699,7 @@ class Relation
     /**
      * Outputs dropdown with values of foreign fields
      *
-     * @param mixed[][] $dispRow        array of the displayed row
-     * @param string    $foreignField   the foreign field
-     * @param string    $foreignDisplay the foreign field to display
-     * @param string    $data           the current data of the dropdown (field in row)
-     * @param int|null  $max            maximum number of items in the dropdown
+     * @param list<array<array-key, string|null>> $dispRow
      *
      * @return string   the <option value=""><option>s
      */
@@ -713,10 +708,10 @@ class Relation
         string $foreignField,
         string $foreignDisplay,
         string $data,
-        int|null $max = null,
+        int|null $maxNumberOfItems = null,
     ): string {
-        if ($max === null) {
-            $max = $this->config->settings['ForeignKeyMaxLimit'];
+        if ($maxNumberOfItems === null) {
+            $maxNumberOfItems = $this->config->settings['ForeignKeyMaxLimit'];
         }
 
         $foreign = [];
@@ -750,7 +745,7 @@ class Relation
         // beginning of dropdown
         $ret = '<option value="">&nbsp;</option>';
         $topCount = count($top);
-        if ($max === -1 || $topCount < $max) {
+        if ($maxNumberOfItems === -1 || $topCount < $maxNumberOfItems) {
             $ret .= implode('', $top);
             if ($foreignDisplay && $topCount > 0) {
                 // this empty option is to visually mark the beginning of the
@@ -789,7 +784,8 @@ class Relation
         // we always show the foreign field in the drop-down; if a display
         // field is defined, we show it besides the foreign field
         $foreignLink = false;
-        $dispRow = $foreignDisplay = $theTotal = $foreignField = null;
+        $dispRow = $foreignDisplay = $theTotal = null;
+        $foreignField = '';
         do {
             if ($foreigners === []) {
                 break;
@@ -1146,7 +1142,7 @@ class Relation
                     . $this->dbi->quoteString($column);
             }
 
-            return $this->dbi->fetchResult(
+            return $this->dbi->fetchResultMultidimensional(
                 $relQuery,
                 ['referenced_column_name', null],
             );

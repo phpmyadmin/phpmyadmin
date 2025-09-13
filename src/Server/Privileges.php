@@ -1736,8 +1736,8 @@ class Privileges
      * Get HTML for display the users overview
      * (if less than 50 users, display them immediately)
      *
-     * @param ResultInterface $result   ran sql query
-     * @param mixed[]         $dbRights user's database rights array
+     * @param ResultInterface         $result   ran sql query
+     * @param (string|string[])[][][] $dbRights user's database rights array
      *
      * @return string HTML snippet
      */
@@ -3216,7 +3216,7 @@ class Privileges
         return (bool) $this->dbi->fetchValue($sql);
     }
 
-    /** @param array<array<array<mixed>>> $dbRights */
+    /** @param (string|string[])[][][] $dbRights */
     private function getEmptyUserNotice(array $dbRights): string
     {
         foreach ($dbRights as $user => $userRights) {

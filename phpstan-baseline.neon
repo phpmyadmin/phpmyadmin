@@ -334,12 +334,6 @@ parameters:
 			path: src/BrowseForeigners.php
 
 		-
-			message: '#^Possibly invalid array key type mixed\.$#'
-			identifier: offsetAccess.invalidOffset
-			count: 1
-			path: src/BrowseForeigners.php
-
-		-
 			message: '#^Parameter \#1 \$state of static method PhpMyAdmin\\Charsets\\Charset\:\:fromServer\(\) expects array\{Charset\?\: string, Description\?\: string, ''Default collation''\?\: string, Maxlen\?\: string\}, array\<string\|null\> given\.$#'
 			identifier: argument.type
 			count: 1
@@ -679,36 +673,6 @@ parameters:
 			path: src/Config/ConfigFile.php
 
 		-
-			message: '#^Parameter \#1 \$path of method PhpMyAdmin\\Config\\ConfigFile\:\:set\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Config/ConfigFile.php
-
-		-
-			message: '#^Parameter \#1 \$path of static method PhpMyAdmin\\Core\:\:arrayRead\(\) expects string, \(int\|string\) given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Config/ConfigFile.php
-
-		-
-			message: '#^Parameter \#1 \$path of static method PhpMyAdmin\\Core\:\:arrayRead\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Config/ConfigFile.php
-
-		-
-			message: '#^Parameter \#1 \$path of static method PhpMyAdmin\\Core\:\:arrayRemove\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Config/ConfigFile.php
-
-		-
-			message: '#^Parameter \#1 \$path of static method PhpMyAdmin\\Core\:\:arrayWrite\(\) expects string, \(int\|string\) given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Config/ConfigFile.php
-
-		-
 			message: '#^Parameter \#1 \$value of function count expects array\|Countable, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -735,18 +699,6 @@ parameters:
 		-
 			message: '#^Parameter \#2 \$array of static method PhpMyAdmin\\Core\:\:arrayWrite\(\) expects array\<mixed\>, mixed given\.$#'
 			identifier: argument.type
-			count: 3
-			path: src/Config/ConfigFile.php
-
-		-
-			message: '#^Parameter \#3 \$canonicalPath of method PhpMyAdmin\\Config\\ConfigFile\:\:set\(\) expects string\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Config/ConfigFile.php
-
-		-
-			message: '#^Possibly invalid array key type mixed\.$#'
-			identifier: offsetAccess.invalidOffset
 			count: 3
 			path: src/Config/ConfigFile.php
 
@@ -789,12 +741,6 @@ parameters:
 		-
 			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
 			identifier: foreach.nonIterable
-			count: 2
-			path: src/Config/FormDisplay.php
-
-		-
-			message: '#^Binary operation "\." between mixed and ''\-userprefs\-allow'' results in an error\.$#'
-			identifier: binaryOp.invalid
 			count: 2
 			path: src/Config/FormDisplay.php
 
@@ -874,6 +820,12 @@ parameters:
 			path: src/Config/FormDisplay.php
 
 		-
+			message: '#^Offset int\|string\|false might not exist on array\<string, string\>\.$#'
+			identifier: offsetAccess.notFound
+			count: 2
+			path: src/Config/FormDisplay.php
+
+		-
 			message: '#^Only booleans are allowed in a negated boolean, int\|string\|false given\.$#'
 			identifier: booleanNot.exprNotBoolean
 			count: 1
@@ -887,12 +839,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#1 \$canonicalPath of method PhpMyAdmin\\Config\\ConfigFile\:\:getDefault\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Config/FormDisplay.php
-
-		-
-			message: '#^Parameter \#1 \$fieldId of method PhpMyAdmin\\Config\\FormDisplayTemplate\:\:addJsValidate\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Config/FormDisplay.php
@@ -952,12 +898,6 @@ parameters:
 			path: src/Config/FormDisplay.php
 
 		-
-			message: '#^Parameter \#2 \$key of method PhpMyAdmin\\Config\\FormDisplay\:\:fillPostArrayParameters\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Config/FormDisplay.php
-
-		-
 			message: '#^Parameter \#2 \$string of function explode expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -985,18 +925,6 @@ parameters:
 			message: '#^Parameter \#4 \$workPath of method PhpMyAdmin\\Config\\FormDisplay\:\:displayFieldInput\(\) expects string, int\|string\|false given\.$#'
 			identifier: argument.type
 			count: 1
-			path: src/Config/FormDisplay.php
-
-		-
-			message: '#^Parameter \#5 \$translatedPath of method PhpMyAdmin\\Config\\FormDisplay\:\:displayFieldInput\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Config/FormDisplay.php
-
-		-
-			message: '#^Possibly invalid array key type mixed\.$#'
-			identifier: offsetAccess.invalidOffset
-			count: 18
 			path: src/Config/FormDisplay.php
 
 		-
@@ -1687,8 +1615,8 @@ parameters:
 			path: src/ConfigStorage/Relation.php
 
 		-
-			message: '#^Possibly invalid array key type mixed\.$#'
-			identifier: offsetAccess.invalidOffset
+			message: '#^Parameter \#5 \$foreignField of class PhpMyAdmin\\ConfigStorage\\ForeignData constructor expects string, mixed given\.$#'
+			identifier: argument.type
 			count: 1
 			path: src/ConfigStorage/Relation.php
 
@@ -1779,12 +1707,6 @@ parameters:
 		-
 			message: '#^Binary operation "\.\=" between non\-falsy\-string and mixed results in an error\.$#'
 			identifier: assignOp.invalid
-			count: 1
-			path: src/Controllers/Database/DataDictionaryController.php
-
-		-
-			message: '#^Possibly invalid array key type mixed\.$#'
-			identifier: offsetAccess.invalidOffset
 			count: 1
 			path: src/Controllers/Database/DataDictionaryController.php
 
@@ -3336,19 +3258,13 @@ parameters:
 		-
 			message: '#^Cannot access offset 0 on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
+			count: 1
 			path: src/Controllers/Table/FindReplaceController.php
 
 		-
 			message: '#^Cannot access offset 1 on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Controllers/Table/FindReplaceController.php
-
-		-
-			message: '#^Parameter \#1 \$identifier of static method PhpMyAdmin\\Util\:\:backquote\(\) expects string\|Stringable\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 16
+			count: 1
 			path: src/Controllers/Table/FindReplaceController.php
 
 		-
@@ -3358,14 +3274,8 @@ parameters:
 			path: src/Controllers/Table/FindReplaceController.php
 
 		-
-			message: '#^Parameter \#3 \$subject of function preg_replace expects array\<float\|int\|string\>\|string, mixed given\.$#'
+			message: '#^Parameter \#3 \$subject of function preg_replace expects array\<float\|int\|string\>\|string, string\|null given\.$#'
 			identifier: argument.type
-			count: 2
-			path: src/Controllers/Table/FindReplaceController.php
-
-		-
-			message: '#^Possibly invalid array key type mixed\.$#'
-			identifier: offsetAccess.invalidOffset
 			count: 1
 			path: src/Controllers/Table/FindReplaceController.php
 
@@ -3737,12 +3647,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#1 \$type of method PhpMyAdmin\\Types\:\:getTypeOperatorsHtml\(\) expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Table/SearchController.php
-
-		-
-			message: '#^Parameter \#2 \$foreignField of method PhpMyAdmin\\ConfigStorage\\Relation\:\:foreignDropdown\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Table/SearchController.php
@@ -4198,12 +4102,6 @@ parameters:
 			path: src/Controllers/Table/ZoomSearchController.php
 
 		-
-			message: '#^Cannot cast mixed to string\.$#'
-			identifier: cast.string
-			count: 1
-			path: src/Controllers/Table/ZoomSearchController.php
-
-		-
 			message: '#^Casting to int something that''s already int\<1, max\>\.$#'
 			identifier: cast.useless
 			count: 1
@@ -4277,12 +4175,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#2 \$columnIndex of method PhpMyAdmin\\Controllers\\Table\\ZoomSearchController\:\:getColumnProperties\(\) expects int, int\<0, max\>\|false given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Table/ZoomSearchController.php
-
-		-
-			message: '#^Parameter \#2 \$foreignField of method PhpMyAdmin\\ConfigStorage\\Relation\:\:foreignDropdown\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Table/ZoomSearchController.php
@@ -5215,7 +5107,7 @@ parameters:
 			path: src/Database/Routines.php
 
 		-
-			message: '#^Method PhpMyAdmin\\Database\\Routines\:\:backupPrivileges\(\) should return array\<array\<string\>\> but returns array\<mixed\>\.$#'
+			message: '#^Method PhpMyAdmin\\Database\\Routines\:\:backupPrivileges\(\) should return array\<array\<string\>\> but returns array\<array\<string\|null\>\>\.$#'
 			identifier: return.type
 			count: 1
 			path: src/Database/Routines.php
@@ -5461,12 +5353,6 @@ parameters:
 			path: src/Dbal/DatabaseInterface.php
 
 		-
-			message: '#^Offset int\|string might not exist on array\<mixed\>\|string\.$#'
-			identifier: offsetAccess.notFound
-			count: 1
-			path: src/Dbal/DatabaseInterface.php
-
-		-
 			message: '#^Only booleans are allowed in &&, int\|false given on the left side\.$#'
 			identifier: booleanAnd.leftNotBoolean
 			count: 3
@@ -5491,8 +5377,14 @@ parameters:
 			path: src/Dbal/DatabaseInterface.php
 
 		-
-			message: '#^Parameter \#1 \$a of static method PhpMyAdmin\\Query\\Utilities\:\:usortComparisonCallback\(\) expects array\<mixed\>, mixed given\.$#'
-			identifier: argument.type
+			message: '#^PHPDoc tag @var with type array\<array\<int\|string\|null\>\> is not subtype of type array\<array\<string\|null\>\>\.$#'
+			identifier: varTag.type
+			count: 1
+			path: src/Dbal/DatabaseInterface.php
+
+		-
+			message: '#^Parameter \#1 \$array of function usort contains unresolvable type\.$#'
+			identifier: argument.unresolvableType
 			count: 1
 			path: src/Dbal/DatabaseInterface.php
 
@@ -5521,15 +5413,9 @@ parameters:
 			path: src/Dbal/DatabaseInterface.php
 
 		-
-			message: '#^Parameter \#2 \$b of static method PhpMyAdmin\\Query\\Utilities\:\:usortComparisonCallback\(\) expects array\<mixed\>, mixed given\.$#'
-			identifier: argument.type
+			message: '#^Parameter \#2 \$callback of function usort contains unresolvable type\.$#'
+			identifier: argument.unresolvableType
 			count: 1
-			path: src/Dbal/DatabaseInterface.php
-
-		-
-			message: '#^Possibly invalid array key type mixed\.$#'
-			identifier: offsetAccess.invalidOffset
-			count: 3
 			path: src/Dbal/DatabaseInterface.php
 
 		-
@@ -5857,12 +5743,6 @@ parameters:
 			message: '#^Method PhpMyAdmin\\Display\\Results\:\:getTableHeaders\(\) return type has no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
 			count: 2
-			path: src/Display/Results.php
-
-		-
-			message: '#^Offset int\|string might not exist on non\-empty\-list\<string\|null\>\.$#'
-			identifier: offsetAccess.notFound
-			count: 4
 			path: src/Display/Results.php
 
 		-
@@ -8176,12 +8056,6 @@ parameters:
 			path: src/InsertEdit.php
 
 		-
-			message: '#^Parameter \#2 \$foreignField of method PhpMyAdmin\\ConfigStorage\\Relation\:\:foreignDropdown\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/InsertEdit.php
-
-		-
 			message: '#^Parameter \#2 \$signature of static method PhpMyAdmin\\Core\:\:checkSqlQuerySignature\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -8884,68 +8758,8 @@ parameters:
 			path: src/Normalization.php
 
 		-
-			message: '#^Binary operation "\." between '', "'' and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Operations.php
-
-		-
 			message: '#^Binary operation "\." between ''pack_keys \= '' and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
-			count: 1
-			path: src/Operations.php
-
-		-
-			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 32
-			path: src/Operations.php
-
-		-
-			message: '#^Cannot access offset 0 on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 6
-			path: src/Operations.php
-
-		-
-			message: '#^Cannot access offset 2 on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 5
-			path: src/Operations.php
-
-		-
-			message: '#^Cannot access offset 3 on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 3
-			path: src/Operations.php
-
-		-
-			message: '#^Cannot access offset 4 on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 5
-			path: src/Operations.php
-
-		-
-			message: '#^Cannot access offset 5 on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 5
-			path: src/Operations.php
-
-		-
-			message: '#^Cannot access offset 6 on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 5
-			path: src/Operations.php
-
-		-
-			message: '#^Cannot access offset 7 on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 3
-			path: src/Operations.php
-
-		-
-			message: '#^Cannot access offset int\<2, max\> on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
 			path: src/Operations.php
 
@@ -8999,12 +8813,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#1 \$string of function urldecode expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Operations.php
-
-		-
-			message: '#^Parameter \#1 \$value of function count expects array\|Countable, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Operations.php
@@ -10504,21 +10312,9 @@ parameters:
 			path: src/Plugins/Export/ExportXml.php
 
 		-
-			message: '#^Cannot access offset 1 on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Plugins/Export/ExportXml.php
-
-		-
 			message: '#^Cannot access offset string on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 2
-			path: src/Plugins/Export/ExportXml.php
-
-		-
-			message: '#^Cannot cast mixed to string\.$#'
-			identifier: cast.string
-			count: 1
 			path: src/Plugins/Export/ExportXml.php
 
 		-
@@ -12855,13 +12651,7 @@ parameters:
 		-
 			message: '#^Cannot access offset ''Grant_priv'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Server/Privileges.php
-
-		-
-			message: '#^Cannot access offset ''Host'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
+			count: 1
 			path: src/Server/Privileges.php
 
 		-
@@ -12877,12 +12667,6 @@ parameters:
 			path: src/Server/Privileges.php
 
 		-
-			message: '#^Cannot access offset ''Select_priv'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Server/Privileges.php
-
-		-
 			message: '#^Cannot access offset ''Table_name'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 2
@@ -12895,19 +12679,7 @@ parameters:
 			path: src/Server/Privileges.php
 
 		-
-			message: '#^Cannot access offset ''User'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 3
-			path: src/Server/Privileges.php
-
-		-
 			message: '#^Cannot access offset ''can_delete'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Server/Privileges.php
-
-		-
-			message: '#^Cannot access offset ''privs'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
 			path: src/Server/Privileges.php
@@ -12919,9 +12691,9 @@ parameters:
 			path: src/Server/Privileges.php
 
 		-
-			message: '#^Cannot access offset array\<string\>\|string\|null on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
+			message: '#^Cannot cast array\<string\>\|string\|null to string\.$#'
+			identifier: cast.string
+			count: 2
 			path: src/Server/Privileges.php
 
 		-
@@ -12933,7 +12705,7 @@ parameters:
 		-
 			message: '#^Cannot cast mixed to string\.$#'
 			identifier: cast.string
-			count: 6
+			count: 4
 			path: src/Server/Privileges.php
 
 		-
@@ -13006,12 +12778,6 @@ parameters:
 			message: '#^PHPDoc tag @var with type array\<string, string\|null\>\|null is not subtype of native type array\.$#'
 			identifier: varTag.nativeType
 			count: 2
-			path: src/Server/Privileges.php
-
-		-
-			message: '#^Parameter \#1 \$array of function ksort expects array, mixed given\.$#'
-			identifier: argument.type
-			count: 1
 			path: src/Server/Privileges.php
 
 		-
@@ -13099,7 +12865,19 @@ parameters:
 			path: src/Server/Privileges.php
 
 		-
+			message: '#^Parameter \#1 \$user of method PhpMyAdmin\\Server\\Privileges\:\:getUserPrivileges\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Server/Privileges.php
+
+		-
 			message: '#^Parameter \#1 \$username of method PhpMyAdmin\\Server\\Privileges\:\:setUserGroup\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Server/Privileges.php
+
+		-
+			message: '#^Parameter \#2 \$host of method PhpMyAdmin\\Server\\Privileges\:\:getUserPrivileges\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Server/Privileges.php
@@ -13149,7 +12927,7 @@ parameters:
 		-
 			message: '#^Possibly invalid array key type array\<string\>\|string\|null\.$#'
 			identifier: offsetAccess.invalidOffset
-			count: 1
+			count: 3
 			path: src/Server/Privileges.php
 
 		-
@@ -13160,12 +12938,6 @@ parameters:
 
 		-
 			message: '#^Possibly invalid array key type list\<string\>\|string\|true\|null\.$#'
-			identifier: offsetAccess.invalidOffset
-			count: 1
-			path: src/Server/Privileges.php
-
-		-
-			message: '#^Possibly invalid array key type mixed\.$#'
 			identifier: offsetAccess.invalidOffset
 			count: 1
 			path: src/Server/Privileges.php
@@ -13834,12 +13606,6 @@ parameters:
 			path: src/Sql.php
 
 		-
-			message: '#^Parameter \#2 \$foreignField of method PhpMyAdmin\\ConfigStorage\\Relation\:\:foreignDropdown\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Sql.php
-
-		-
 			message: '#^Parameter \#2 \$list of static method PhpMyAdmin\\SqlParser\\Utils\\Query\:\:getClause\(\) expects PhpMyAdmin\\SqlParser\\TokensList, PhpMyAdmin\\SqlParser\\TokensList\|null given\.$#'
 			identifier: argument.type
 			count: 1
@@ -14029,12 +13795,6 @@ parameters:
 			path: src/Table/ColumnsDefinition.php
 
 		-
-			message: '#^Cannot access offset ''isEditable'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Table/ColumnsDefinition.php
-
-		-
 			message: '#^Cannot cast mixed to string\.$#'
 			identifier: cast.string
 			count: 2
@@ -14056,6 +13816,12 @@ parameters:
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
 			count: 2
+			path: src/Table/ColumnsDefinition.php
+
+		-
+			message: '#^Offset ''DefaultValue'' might not exist on array\{Field\: mixed, Type\: mixed, Collation\: mixed, Null\: mixed, DefaultType\: mixed, DefaultValue\: mixed, Extra\: mixed, Virtuality\: mixed, \.\.\.\}\|array\{Field\: string, Type\: string, Collation\: string\|null, Null\: ''NO''\|''YES'', Key\: string, Default\: string\|null, Extra\: string, Privileges\: string, \.\.\.\}\|array\{Type\: ''''\}\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
 			path: src/Table/ColumnsDefinition.php
 
 		-
@@ -14896,12 +14662,6 @@ parameters:
 			message: '#^Parameter \#2 \$pre of static method PhpMyAdmin\\Url\:\:getHiddenFields\(\) expects string, \(int\|string\) given\.$#'
 			identifier: argument.type
 			count: 1
-			path: src/Url.php
-
-		-
-			message: '#^Possibly invalid array key type mixed\.$#'
-			identifier: offsetAccess.invalidOffset
-			count: 2
 			path: src/Url.php
 
 		-
@@ -18953,12 +18713,6 @@ parameters:
 			identifier: staticMethod.deprecated
 			count: 1
 			path: tests/unit/Theme/ThemeManagerTest.php
-
-		-
-			message: '#^Casting to int something that''s already int\<0, max\>\.$#'
-			identifier: cast.useless
-			count: 1
-			path: tests/unit/Theme/ThemeTest.php
 
 		-
 			message: '''

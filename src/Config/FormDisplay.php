@@ -64,7 +64,7 @@ class FormDisplay
     /**
      * Paths changed so that they can be used as HTML ids, indexed by paths
      *
-     * @var mixed[]
+     * @var array<string, string>
      */
     private array $translatedPaths = [];
 

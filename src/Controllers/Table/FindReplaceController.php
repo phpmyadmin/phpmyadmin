@@ -41,10 +41,10 @@ use function strncasecmp;
 #[Route('/table/find-replace', ['GET', 'POST'])]
 final class FindReplaceController implements InvocableController
 {
-    /** @var mixed[] */
+    /** @var list<string> */
     private array $columnNames = [];
 
-    /** @var mixed[] */
+    /** @var list<string> */
     private array $columnTypes = [];
 
     public function __construct(

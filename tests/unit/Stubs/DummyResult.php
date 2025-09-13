@@ -245,8 +245,7 @@ class DummyResult implements ResultInterface
     /**
      * returns meta info for fields in $result
      *
-     * @return array<int, FieldMetadata> meta info for fields in $result
-     * @psalm-return list<FieldMetadata>
+     * @return list<FieldMetadata> meta info for fields in $result
      */
     public function getFieldsMeta(): array
     {

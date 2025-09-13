@@ -391,7 +391,22 @@ final class ColumnsDefinition
         return $metaDefault;
     }
 
-    /** @return mixed[] */
+    /**
+     * @return array{
+     *  Field: mixed,
+     *  Type: mixed,
+     *  Collation: mixed,
+     *  Null: mixed,
+     *  DefaultType: mixed,
+     *  DefaultValue: mixed,
+     *  Extra: mixed,
+     *  Virtuality: mixed,
+     *  Expression: mixed,
+     *  Key: string,
+     *  Comment: false,
+     *  Default: mixed
+     * }
+     */
     private function getColumnMetaForRegeneratedFields(int $columnNumber): array
     {
         $columnMeta = [

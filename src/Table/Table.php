@@ -904,7 +904,7 @@ class Table implements Stringable
             $this->getName(),
             'Non_unique = 0',
         );
-        $uniques = $this->dbi->fetchResult(
+        $uniques = $this->dbi->fetchResultMultidimensional(
             $sql,
             ['Key_name', null],
             'Column_name',
