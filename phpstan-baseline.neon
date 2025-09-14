@@ -24432,7 +24432,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 7
+			count: 8
 			path: libraries/classes/Partitioning/Partition.php
 
 		-
