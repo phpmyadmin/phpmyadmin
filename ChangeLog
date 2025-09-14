@@ -50,6 +50,7 @@ phpMyAdmin - ChangeLog
 - issue #18437 Fix SQL editor's alignment in rtl
 - issue #18472 Fix responsive table edit-box in rtl mode
 - issue #19109 Do not enforce character encoding when checking roles
+- issue #19611 Restore text operators order (`LIKE %...%` vs `LIKE` before)
 
 5.2.2 (2025-01-21)
 - issue        [security] Fix for a path disclosure leak in the Monitoring tab
