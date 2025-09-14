@@ -9484,12 +9484,6 @@ parameters:
 			path: src/Plugins/Export/ExportCodegen.php
 
 		-
-			message: '#^Parameter \#1 \$str of static method PhpMyAdmin\\Plugins\\Export\\ExportCodegen\:\:cgMakeIdentifier\(\) expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 6
-			path: src/Plugins/Export/ExportCodegen.php
-
-		-
 			message: '#^Parameter \#2 \$id of method PhpMyAdmin\\Plugins\\ExportPlugin\:\:getAlias\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 2
@@ -9634,12 +9628,6 @@ parameters:
 			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
-			path: src/Plugins/Export/ExportHtmlword.php
-
-		-
-			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 5
 			path: src/Plugins/Export/ExportHtmlword.php
 
 		-
@@ -9838,12 +9826,6 @@ parameters:
 			path: src/Plugins/Export/ExportOds.php
 
 		-
-			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Plugins/Export/ExportOds.php
-
-		-
 			message: '#^Parameter \#2 \$timestamp of function date expects int\|null, int\|false given\.$#'
 			identifier: argument.type
 			count: 3
@@ -9925,18 +9907,6 @@ parameters:
 			path: src/Plugins/Export/ExportOdt.php
 
 		-
-			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 8
-			path: src/Plugins/Export/ExportOdt.php
-
-		-
-			message: '#^Parameter \#1 \$table of method PhpMyAdmin\\Plugins\\Export\\ExportOdt\:\:getTriggers\(\) expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Plugins/Export/ExportOdt.php
-
-		-
 			message: '#^Parameter \#2 \$colAs of method PhpMyAdmin\\Plugins\\Export\\ExportOdt\:\:formatOneColumnDefinition\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 2
@@ -10010,12 +9980,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#2 \$subject of function preg_match expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/Plugins/Export/ExportPhparray.php
-
-		-
-			message: '#^Parameter \#3 \$subject of function preg_replace expects array\<float\|int\|string\>\|string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Plugins/Export/ExportPhparray.php
@@ -10201,12 +10165,6 @@ parameters:
 			path: src/Plugins/Export/ExportSql.php
 
 		-
-			message: '#^Parameter \#4 \$tableAlias of method PhpMyAdmin\\Plugins\\Export\\ExportSql\:\:generateComment\(\) expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 3
-			path: src/Plugins/Export/ExportSql.php
-
-		-
 			message: '#^Property PhpMyAdmin\\SqlParser\\Components\\CreateDefinition\:\:\$name \(string\|null\) does not accept mixed\.$#'
 			identifier: assign.propertyType
 			count: 1
@@ -10338,7 +10296,7 @@ parameters:
 		-
 			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, string\|null given\.$#'
 			identifier: argument.type
-			count: 4
+			count: 2
 			path: src/Plugins/Export/ExportXml.php
 
 		-
@@ -10762,7 +10720,7 @@ parameters:
 			path: src/Plugins/ExportPlugin.php
 
 		-
-			message: '#^Cannot access offset string\|null on mixed\.$#'
+			message: '#^Cannot access offset string on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
 			path: src/Plugins/ExportPlugin.php
@@ -10798,7 +10756,7 @@ parameters:
 			path: src/Plugins/ExportPlugin.php
 
 		-
-			message: '#^Parameter &\$table by\-ref type of method PhpMyAdmin\\Plugins\\ExportPlugin\:\:initAlias\(\) expects string\|null, mixed given\.$#'
+			message: '#^Parameter &\$table by\-ref type of method PhpMyAdmin\\Plugins\\ExportPlugin\:\:initAlias\(\) expects string, mixed given\.$#'
 			identifier: parameterByRef.type
 			count: 1
 			path: src/Plugins/ExportPlugin.php
