@@ -6025,8 +6025,6 @@
     <PossiblyNullArgument>
       <code><![CDATA[$row[0]]]></code>
       <code><![CDATA[$row[0]]]></code>
-      <code><![CDATA[$tableAlias]]></code>
-      <code><![CDATA[$tableAlias]]></code>
     </PossiblyNullArgument>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[bool]]></code>
@@ -6097,13 +6095,6 @@
     <PossiblyInvalidArgument>
       <code><![CDATA[str_replace('_', '/', $mimeMap[$fieldName]['mimetype'])]]></code>
     </PossiblyInvalidArgument>
-    <PossiblyNullArgument>
-      <code><![CDATA[$tableAlias]]></code>
-      <code><![CDATA[$tableAlias]]></code>
-      <code><![CDATA[$tableAlias]]></code>
-      <code><![CDATA[$tableAlias]]></code>
-      <code><![CDATA[$tableAlias]]></code>
-    </PossiblyNullArgument>
     <PossiblyUndefinedVariable>
       <code><![CDATA[$comments]]></code>
       <code><![CDATA[$mimeMap]]></code>
@@ -6159,10 +6150,6 @@
     <PossiblyNullArgument>
       <code><![CDATA[$record[$columns[$i]]]]></code>
     </PossiblyNullArgument>
-    <PossiblyNullOperand>
-      <code><![CDATA[$tableAlias]]></code>
-      <code><![CDATA[$tableAlias]]></code>
-    </PossiblyNullOperand>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($config->selectedServer['port'])]]></code>
     </RiskyTruthyFalsyComparison>
@@ -6183,8 +6170,6 @@
     </MixedOperand>
     <PossiblyNullOperand>
       <code><![CDATA[$row[$i]]]></code>
-      <code><![CDATA[$tableAlias]]></code>
-      <code><![CDATA[$tableAlias]]></code>
     </PossiblyNullOperand>
   </file>
   <file src="src/Plugins/Export/ExportOds.php">
@@ -6200,7 +6185,6 @@
     </MixedAssignment>
     <PossiblyNullArgument>
       <code><![CDATA[$row[$j]]]></code>
-      <code><![CDATA[$tableAlias]]></code>
     </PossiblyNullArgument>
   </file>
   <file src="src/Plugins/Export/ExportOdt.php">
@@ -6244,13 +6228,6 @@
     </PossiblyInvalidArgument>
     <PossiblyNullArgument>
       <code><![CDATA[$row[$j]]]></code>
-      <code><![CDATA[$tableAlias]]></code>
-      <code><![CDATA[$tableAlias]]></code>
-      <code><![CDATA[$tableAlias]]></code>
-      <code><![CDATA[$tableAlias]]></code>
-      <code><![CDATA[$tableAlias]]></code>
-      <code><![CDATA[$tableAlias]]></code>
-      <code><![CDATA[$viewAlias]]></code>
     </PossiblyNullArgument>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[string]]></code>
@@ -6285,10 +6262,6 @@
       <code><![CDATA[$colAs]]></code>
       <code><![CDATA[$columns[$i]]]></code>
     </MixedAssignment>
-    <PossiblyNullArgument>
-      <code><![CDATA[$tableAlias]]></code>
-      <code><![CDATA[$tableAlias]]></code>
-    </PossiblyNullArgument>
   </file>
   <file src="src/Plugins/Export/ExportSql.php">
     <ArgumentTypeCoercion>
@@ -6360,9 +6333,6 @@
       <code><![CDATA[$createQuery]]></code>
       <code><![CDATA[$definition]]></code>
       <code><![CDATA[$eventName]]></code>
-      <code><![CDATA[$tableAlias]]></code>
-      <code><![CDATA[$tableAlias]]></code>
-      <code><![CDATA[$tableAlias]]></code>
     </PossiblyNullArgument>
     <PossiblyNullArrayOffset>
       <code><![CDATA[$aliases[$oldDatabase]['tables']]]></code>
@@ -6440,12 +6410,6 @@
     <PossiblyInvalidArgument>
       <code><![CDATA[str_replace('_', '/', $mimeMap[$fieldName]['mimetype'])]]></code>
     </PossiblyInvalidArgument>
-    <PossiblyNullOperand>
-      <code><![CDATA[$tableAlias]]></code>
-      <code><![CDATA[$tableAlias]]></code>
-      <code><![CDATA[$tableAlias]]></code>
-      <code><![CDATA[$tableAlias]]></code>
-    </PossiblyNullOperand>
     <PossiblyUndefinedVariable>
       <code><![CDATA[$comments]]></code>
       <code><![CDATA[$mimeMap]]></code>
@@ -6471,7 +6435,6 @@
       <code><![CDATA[$dbCharset]]></code>
       <code><![CDATA[$dbCollation]]></code>
       <code><![CDATA[$record[$i]]]></code>
-      <code><![CDATA[$tableAlias]]></code>
     </PossiblyNullArgument>
     <PossiblyNullOperand>
       <code><![CDATA[$charset]]></code>
@@ -6494,9 +6457,6 @@
       <code><![CDATA[$columns[$i]]]></code>
       <code><![CDATA[$columns[$i]]]></code>
     </MixedOperand>
-    <PossiblyNullOperand>
-      <code><![CDATA[$tableAlias]]></code>
-    </PossiblyNullOperand>
   </file>
   <file src="src/Plugins/Export/Helpers/Pdf.php">
     <DeprecatedMethod>

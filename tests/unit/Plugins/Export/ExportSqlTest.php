@@ -1322,11 +1322,11 @@ class ExportSqlTest extends AbstractTestCase
             ],
         ];
         $db = 'a';
-        $table = null;
+        $table = '';
 
         $this->object->initAlias($aliases, $db, $table);
         self::assertSame('aliastest', $db);
-        self::assertNull($table);
+        self::assertSame('', $table);
 
         $db = 'foo';
         $table = 'qwerty';

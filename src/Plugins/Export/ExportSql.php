@@ -612,9 +612,6 @@ class ExportSql extends ExportPlugin
      */
     public function exportRoutines(string $db, array $aliases = []): bool
     {
-        $dbAlias = $db;
-        $this->initAlias($aliases, $dbAlias);
-
         $text = '';
         $delimiter = '$$';
 
