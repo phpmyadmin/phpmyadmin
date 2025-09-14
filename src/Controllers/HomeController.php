@@ -9,6 +9,7 @@ use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Favorites\RecentFavoriteTables;
@@ -389,6 +390,21 @@ final class HomeController implements InvocableController
                         'be slow because of this.',
                     ),
                     $this->config->config->TempDir,
+                ),
+                'severity' => 'warning',
+            ];
+        }
+
+        /**
+         * Check for missing HTTP_HOST
+         * This commonly occurs with nginx >= 1.25.0 and HTTP/3 configurations
+         */
+        if (Core::getEnv('HTTP_HOST') === '') {
+            $this->errors[] = [
+                'message' => __(
+                    'The [code]HTTP_HOST[/code] variable is missing,'
+                    . ' which might cause phpMyAdmin to not work properly.'
+                    . ' Please refer to [doc@faq1-46]documentation[/doc] for possible issues.',
                 ),
                 'severity' => 'warning',
             ];

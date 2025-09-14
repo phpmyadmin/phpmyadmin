@@ -5692,10 +5692,6 @@
       <code><![CDATA[$this->method]]></code>
       <code><![CDATA[$this->name]]></code>
     </MixedAssignment>
-    <PossiblyNullArrayOffset>
-      <code><![CDATA[$partitionMap]]></code>
-      <code><![CDATA[$partitionMap]]></code>
-    </PossiblyNullArrayOffset>
     <PossiblyUnusedMethod>
       <code><![CDATA[getDescription]]></code>
       <code><![CDATA[getSubPartitions]]></code>
@@ -5703,6 +5699,7 @@
     </PossiblyUnusedMethod>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$dbi->fetchValue('SELECT @@have_partitioning;')]]></code>
+      <code><![CDATA[empty($row['PARTITION_NAME'])]]></code>
       <code><![CDATA[empty($row['SUBPARTITION_NAME'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
