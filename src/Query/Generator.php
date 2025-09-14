@@ -294,7 +294,7 @@ class Generator
             . "'''" . $user . "''@''" . $host . "''' LIKE `GRANTEE`"
             . ' UNION '
             . 'SELECT 1 FROM mysql.user '
-            . "WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_general_ci AND "
+            . "WHERE `create_user_priv` = 'Y' AND "
             . "'" . $user . "' LIKE `User` AND '' LIKE `Host`"
             . ' LIMIT 1';
     }
@@ -315,7 +315,7 @@ class Generator
             . "'''" . $user . "''@''" . $host . "''' LIKE `GRANTEE` "
             . ' UNION '
             . 'SELECT 1 FROM mysql.user '
-            . "WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_general_ci AND "
+            . "WHERE `create_user_priv` = 'Y' AND "
             . "'" . $user . "' LIKE `User` AND '' LIKE `Host`"
             . ' LIMIT 1';
     }

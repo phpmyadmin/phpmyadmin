@@ -2518,6 +2518,10 @@ body {
   z-index: 9;
 }
 
+.table-responsive-md {
+  max-width: fit-content;
+}
+
 pre {
   margin: 0;
 }

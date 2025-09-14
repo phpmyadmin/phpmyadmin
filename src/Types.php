@@ -31,8 +31,8 @@ class Types
     private const NULL_OPERATORS = ['IS NULL', 'IS NOT NULL'];
     private const ENUM_OPERATORS = ['=', '!='];
     private const TEXT_OPERATORS = [
-        'LIKE %...%',
         'LIKE',
+        'LIKE %...%',
         'NOT LIKE',
         'NOT LIKE %...%',
         '=',
