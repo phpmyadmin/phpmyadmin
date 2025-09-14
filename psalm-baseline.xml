@@ -9512,11 +9512,9 @@
     </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportCodegen.php">
-    <PossiblyNullArgument occurrences="4">
+    <PossiblyNullArgument occurrences="2">
       <code>$row[0]</code>
       <code>$row[0]</code>
-      <code>$table_alias</code>
-      <code>$table_alias</code>
     </PossiblyNullArgument>
     <PropertyNotSetInConstructor occurrences="1">
       <code>$cgFormats</code>
@@ -9627,13 +9625,6 @@
     <PossiblyInvalidCast occurrences="1">
       <code>$value</code>
     </PossiblyInvalidCast>
-    <PossiblyNullArgument occurrences="5">
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-    </PossiblyNullArgument>
     <PossiblyUndefinedVariable occurrences="2">
       <code>$comments</code>
       <code>$mime_map</code>
@@ -9705,10 +9696,6 @@
     <PossiblyNullArgument occurrences="1">
       <code>$record[$columns[$i]]</code>
     </PossiblyNullArgument>
-    <PossiblyNullOperand occurrences="2">
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-    </PossiblyNullOperand>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportMediawiki.php">
     <MixedArrayOffset occurrences="1">
@@ -9732,10 +9719,8 @@
       <code>$do_mime</code>
       <code>$do_relation</code>
     </ParamNameMismatch>
-    <PossiblyNullOperand occurrences="3">
+    <PossiblyNullOperand occurrences="1">
       <code>$row[$i]</code>
-      <code>$table_alias</code>
-      <code>$table_alias</code>
     </PossiblyNullOperand>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportOds.php">
@@ -9752,9 +9737,8 @@
       <code>$what</code>
       <code>$what</code>
     </MixedOperand>
-    <PossiblyNullArgument occurrences="2">
+    <PossiblyNullArgument occurrences="1">
       <code>$row[$j]</code>
-      <code>$table_alias</code>
     </PossiblyNullArgument>
     <UnnecessaryVarAnnotation occurrences="1">
       <code>FieldMetadata[]</code>
@@ -9820,17 +9804,9 @@
       <code>$do_mime</code>
       <code>$do_relation</code>
     </ParamNameMismatch>
-    <PossiblyNullArgument occurrences="10">
+    <PossiblyNullArgument occurrences="2">
       <code>$col_as</code>
       <code>$row[$j]</code>
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-      <code>$view_alias</code>
     </PossiblyNullArgument>
     <UnnecessaryVarAnnotation occurrences="1">
       <code>FieldMetadata[]</code>
@@ -9859,9 +9835,6 @@
     <MixedAssignment occurrences="1">
       <code>$col_as</code>
     </MixedAssignment>
-    <PossiblyNullArgument occurrences="1">
-      <code>$table_alias</code>
-    </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportSql.php">
     <InvalidArgument occurrences="2">
@@ -10033,13 +10006,10 @@
     <PossiblyInvalidPropertyAssignmentValue occurrences="1">
       <code>Context::escape($alias)</code>
     </PossiblyInvalidPropertyAssignmentValue>
-    <PossiblyNullArgument occurrences="6">
+    <PossiblyNullArgument occurrences="3">
       <code>$createQuery</code>
       <code>$dbi-&gt;getDefinition($db, $type, $routine)</code>
       <code>$field-&gt;name</code>
-      <code>$tableAlias</code>
-      <code>$tableAlias</code>
-      <code>$tableAlias</code>
     </PossiblyNullArgument>
     <PossiblyNullArrayOffset occurrences="1">
       <code>$aliases[$oldDatabase]['tables']</code>
@@ -10151,12 +10121,6 @@
     <PossiblyNullArgument occurrences="1">
       <code>$col_as</code>
     </PossiblyNullArgument>
-    <PossiblyNullOperand occurrences="4">
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-    </PossiblyNullOperand>
     <PossiblyUndefinedVariable occurrences="2">
       <code>$comments</code>
       <code>$mime_map</code>
@@ -10235,9 +10199,8 @@
       <code>$crlf</code>
       <code>$crlf</code>
     </MixedOperand>
-    <PossiblyNullArgument occurrences="2">
+    <PossiblyNullArgument occurrences="1">
       <code>$sql</code>
-      <code>$table_alias</code>
     </PossiblyNullArgument>
     <PropertyNotSetInConstructor occurrences="1">
       <code>$table</code>
@@ -10253,9 +10216,6 @@
     <MixedAssignment occurrences="1">
       <code>$col_as</code>
     </MixedAssignment>
-    <PossiblyNullOperand occurrences="1">
-      <code>$table_alias</code>
-    </PossiblyNullOperand>
   </file>
   <file src="libraries/classes/Plugins/Export/Helpers/Pdf.php">
     <MixedArgument occurrences="79">

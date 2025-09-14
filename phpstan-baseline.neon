@@ -28191,7 +28191,7 @@ parameters:
 			path: libraries/classes/Plugins/ExportPlugin.php
 
 		-
-			message: "#^Cannot access offset string\\|null on mixed\\.$#"
+			message: "#^Cannot access offset string on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/ExportPlugin.php
 
@@ -28257,11 +28257,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\ExportPlugin\\:\\:getTableDefStandIn\\(\\) has parameter \\$aliases with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/ExportPlugin.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\ExportPlugin\\:\\:initAlias\\(\\) has parameter \\$aliases with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/ExportPlugin.php
 
@@ -49236,7 +49231,7 @@ parameters:
 			path: test/classes/VersionTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsInt\\(\\) with 3 will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsInt\\(\\) with 4 will always evaluate to true\\.$#"
 			count: 1
 			path: test/classes/VersionTest.php
 
