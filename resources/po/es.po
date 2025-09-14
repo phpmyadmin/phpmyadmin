@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-09-07 00:27+0000\n"
+"POT-Creation-Date: 2025-09-14 00:27+0000\n"
 "PO-Revision-Date: 2025-02-24 01:46+0000\n"
 "Last-Translator: Salvador Peña <salvadorp74@hotmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -12094,11 +12094,11 @@ msgstr ""
 msgid "Server %d"
 msgstr "Servidor %d"
 
-#: src/ConfigStorage/Relation.php:1116
+#: src/ConfigStorage/Relation.php:1112
 msgid "no description"
 msgstr "Sin descripción"
 
-#: src/ConfigStorage/Relation.php:1322
+#: src/ConfigStorage/Relation.php:1318
 #, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
@@ -12755,7 +12755,7 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Las sentencias \"DROP DATABASE\" están desactivadas."
 
-#: src/Controllers/Import/ImportController.php:680 src/Sql.php:879
+#: src/Controllers/Import/ImportController.php:680 src/Sql.php:902
 msgid "[ROLLBACK occurred.]"
 msgstr "[Ocurrió un ROLLBACK.]"
 
@@ -15560,7 +15560,7 @@ msgstr "Datos incorrectos"
 msgid "Wrong data or no validation for %s"
 msgstr "Datos erróneos o sin validación para %s"
 
-#: src/Controllers/Sql/SqlController.php:213 src/Sql.php:1055
+#: src/Controllers/Sql/SqlController.php:213 src/Sql.php:1078
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Se creó el favorito %s."
@@ -15638,7 +15638,7 @@ msgstr "Hay un problema con tu petición."
 
 #: src/Controllers/Table/GetFieldController.php:87
 #: src/Database/Routines.php:1036 src/Import/Import.php:135
-#: src/InsertEdit.php:159 src/Sql.php:865
+#: src/InsertEdit.php:159 src/Sql.php:888
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr ""
 "MySQL ha devuelto un conjunto de valores vacío (es decir: cero columnas)."
@@ -15994,7 +15994,7 @@ msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] "%d fila afectada por la última sentencia del procedimiento."
 msgstr[1] "%d filas afectadas por la última sentencia del procedimiento."
 
-#: src/Dbal/DatabaseInterface.php:1054
+#: src/Dbal/DatabaseInterface.php:1052
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -16006,7 +16006,7 @@ msgstr ""
 "em]. phpMyAdmin está utilizando actualmente la zona horaria predeterminada "
 "del servidor de base de datos."
 
-#: src/Dbal/DatabaseInterface.php:1095
+#: src/Dbal/DatabaseInterface.php:1093
 msgid "Failed to set configured collation connection!"
 msgstr "¡Fallo al definir la conexión de colacion configurada!"
 
@@ -16024,7 +16024,7 @@ msgstr ""
 msgid "The row has been deleted."
 msgstr "La fila se ha borrado."
 
-#: src/Display/Results.php:3016 src/Display/Results.php:3333 src/Sql.php:871
+#: src/Display/Results.php:3016 src/Display/Results.php:3333 src/Sql.php:894
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "La consulta tardó %01.4f segundos."
@@ -16689,11 +16689,11 @@ msgstr ""
 msgid "web server upload directory:"
 msgstr "directorio en el servidor web para subir los archivos:"
 
-#: src/InsertEdit.php:855 src/Sql.php:862
+#: src/InsertEdit.php:855 src/Sql.php:885
 msgid "Showing SQL query"
 msgstr "Mostrando la consulta SQL"
 
-#: src/InsertEdit.php:879 src/Sql.php:842
+#: src/InsertEdit.php:879 src/Sql.php:865
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "La Id de la fila insertada es: %1$d"
@@ -18550,17 +18550,17 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "No existe una versión estable más reciente"
 
-#: src/Sql.php:445
+#: src/Sql.php:448
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 "Utilizando el favorito \"%s\" como consulta predeterminada para examinar."
 
-#: src/Sql.php:859
+#: src/Sql.php:882
 msgid "Showing as PHP code"
 msgstr "Mostrar como código PHP"
 
-#: src/Sql.php:1213
+#: src/Sql.php:1236
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -18569,7 +18569,7 @@ msgstr ""
 "La selección actual no contiene una columna única. La edición de la grilla y "
 "los enlaces de copiado, eliminación y edición no están disponibles. %s"
 
-#: src/Sql.php:1227
+#: src/Sql.php:1250
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
