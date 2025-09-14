@@ -23,7 +23,9 @@ build:
   nodes:
     analysis:
       environment:
-        php: 7.2
+        php:
+          version: 7.2
+          compile_options: '--enable-zip --enable-gd --with-openssl --with-curl --with-mysqli'
         node: 12  # Scrutinizer uses nvm
       dependencies:
         before:
