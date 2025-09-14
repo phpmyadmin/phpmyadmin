@@ -81,7 +81,7 @@ class ExportPhparray extends ExportPlugin
         $this->export->outputHandler(
             '<?php' . "\n"
             . '/**' . "\n"
-            . ' * Export to PHP Array plugin for PHPMyAdmin' . "\n"
+            . ' * Export to PHP Array plugin for phpMyAdmin' . "\n"
             . ' * @version ' . Version::VERSION . "\n"
             . ' */' . "\n\n",
         );

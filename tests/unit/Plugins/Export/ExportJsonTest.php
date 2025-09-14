@@ -120,7 +120,7 @@ class ExportJsonTest extends AbstractTestCase
         $this->expectOutputString(
             "[\n"
             . '{"type":"header","version":"' . Version::VERSION
-            . '","comment":"Export to JSON plugin for PHPMyAdmin"},'
+            . '","comment":"Export to JSON plugin for phpMyAdmin"},'
             . "\n",
         );
 
