@@ -186,9 +186,8 @@ class ExportCodegen extends ExportPlugin
      */
     private function handleNHibernateCSBody(string $db, string $table, array $aliases = []): string
     {
-        $dbAlias = $db;
-        $tableAlias = $table;
-        $this->initAlias($aliases, $dbAlias, $tableAlias);
+        $dbAlias = $this->getDbAlias($aliases, $db);
+        $tableAlias = $this->getTableAlias($aliases, $db, $table);
 
         $result = DatabaseInterface::getInstance()->query(
             sprintf(
@@ -291,9 +290,8 @@ class ExportCodegen extends ExportPlugin
         string $table,
         array $aliases = [],
     ): string {
-        $dbAlias = $db;
-        $tableAlias = $table;
-        $this->initAlias($aliases, $dbAlias, $tableAlias);
+        $dbAlias = $this->getDbAlias($aliases, $db);
+        $tableAlias = $this->getTableAlias($aliases, $db, $table);
         $lines = [];
         $lines[] = '<?xml version="1.0" encoding="utf-8" ?>';
         $lines[] = '<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" '

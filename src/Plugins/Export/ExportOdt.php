@@ -229,9 +229,7 @@ class ExportOdt extends ExportPlugin
         string $sqlQuery,
         array $aliases = [],
     ): bool {
-        $dbAlias = $db;
-        $tableAlias = $table;
-        $this->initAlias($aliases, $dbAlias, $tableAlias);
+        $tableAlias = $this->getTableAlias($aliases, $db, $table);
         $dbi = DatabaseInterface::getInstance();
         // Gets the data from the database
         $result = $dbi->query($sqlQuery, ConnectionType::User, DatabaseInterface::QUERY_UNBUFFERED);
@@ -341,9 +339,7 @@ class ExportOdt extends ExportPlugin
      */
     public function getTableDefStandIn(string $db, string $view, array $aliases = []): string
     {
-        $dbAlias = $db;
-        $viewAlias = $view;
-        $this->initAlias($aliases, $dbAlias, $viewAlias);
+        $viewAlias = $this->getTableAlias($aliases, $db, $view);
         $dbi = DatabaseInterface::getInstance();
         /**
          * Gets fields properties
@@ -399,9 +395,7 @@ class ExportOdt extends ExportPlugin
      */
     public function getTableDef(string $db, string $table, array $aliases = []): bool
     {
-        $dbAlias = $db;
-        $tableAlias = $table;
-        $this->initAlias($aliases, $dbAlias, $tableAlias);
+        $tableAlias = $this->getTableAlias($aliases, $db, $table);
 
         $relationParameters = $this->relation->getRelationParameters();
 
@@ -488,9 +482,7 @@ class ExportOdt extends ExportPlugin
                         $rfield = $aliases[$db]['tables'][$rtable]['columns'][$rfield];
                     }
 
-                    if (! empty($aliases[$db]['tables'][$rtable]['alias'])) {
-                        $rtable = $aliases[$db]['tables'][$rtable]['alias'];
-                    }
+                    $rtable = $this->getTableAlias($aliases, $db, $rtable);
 
                     $relation = htmlspecialchars($rtable . ' (' . $rfield . ')');
                     $this->buffer .= '<table:table-cell office:value-type="string">'
@@ -606,9 +598,7 @@ class ExportOdt extends ExportPlugin
      */
     public function exportStructure(string $db, string $table, string $exportMode, array $aliases = []): bool
     {
-        $dbAlias = $db;
-        $tableAlias = $table;
-        $this->initAlias($aliases, $dbAlias, $tableAlias);
+        $tableAlias = $this->getTableAlias($aliases, $db, $table);
         switch ($exportMode) {
             case 'create_table':
                 $this->buffer .= '<text:h text:outline-level="2" text:style-name="Heading_2"'

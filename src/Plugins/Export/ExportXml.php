@@ -420,9 +420,7 @@ class ExportXml extends ExportPlugin
             return true;
         }
 
-        $dbAlias = $db;
-        $tableAlias = $table;
-        $this->initAlias($aliases, $dbAlias, $tableAlias);
+        $tableAlias = $this->getTableAlias($aliases, $db, $table);
         if ($this->exportContents) {
             $result = $dbi->query($sqlQuery, ConnectionType::User, DatabaseInterface::QUERY_UNBUFFERED);
 

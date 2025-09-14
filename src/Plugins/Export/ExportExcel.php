@@ -179,10 +179,6 @@ class ExportExcel extends ExportPlugin
         string $sqlQuery,
         array $aliases = [],
     ): bool {
-        $dbAlias = $db;
-        $tableAlias = $table;
-        $this->initAlias($aliases, $dbAlias, $tableAlias);
-
         $dbi = DatabaseInterface::getInstance();
         /**
          * Gets the data from the database
