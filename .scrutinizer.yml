@@ -19,11 +19,12 @@ tools:
     runs: 4 # php 7.x versions
     timeout: 900 # 15 min
 build:
+  image: default-jammy # New NodeJS versions require newer versions of glibc (noble was not available on 12/09/2025)
   nodes:
     analysis:
       environment:
         php: 7.2
-        node: 12
+        node: 12  # Scrutinizer uses nvm
       dependencies:
         before:
           - composer config --unset repositories.0
