@@ -162,9 +162,7 @@ class ExportPhparray extends ExportPlugin
         $columnsCnt = $result->numFields();
         $columns = [];
         foreach ($result->getFieldNames() as $i => $colAs) {
-            if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
-                $colAs = $aliases[$db]['tables'][$table]['columns'][$colAs];
-            }
+            $colAs = $this->getColumnAlias($aliases, $db, $table, $colAs);
 
             $columns[$i] = $colAs;
         }

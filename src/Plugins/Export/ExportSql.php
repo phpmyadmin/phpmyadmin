@@ -1267,10 +1267,7 @@ class ExportSql extends ExportPlugin
         $tmp = [];
         $columns = DatabaseInterface::getInstance()->getColumns($db, $view);
         foreach ($columns as $column) {
-            $colAlias = $column->field;
-            if (! empty($aliases[$db]['tables'][$view]['columns'][$colAlias])) {
-                $colAlias = $aliases[$db]['tables'][$view]['columns'][$colAlias];
-            }
+            $colAlias = $this->getColumnAlias($aliases, $db, $view, $column->field);
 
             $tmp[] = Util::backquote($colAlias) . ' ' . $column->type . "\n";
         }
@@ -1305,10 +1302,7 @@ class ExportSql extends ExportPlugin
 
         $firstCol = true;
         foreach ($columns as $column) {
-            $colAlias = $column->field;
-            if (! empty($aliases[$db]['tables'][$view]['columns'][$colAlias])) {
-                $colAlias = $aliases[$db]['tables'][$view]['columns'][$colAlias];
-            }
+            $colAlias = $this->getColumnAlias($aliases, $db, $view, $column->field);
 
             $extractedColumnspec = Util::extractColumnSpec($column->type);
 
@@ -1783,10 +1777,7 @@ class ExportSql extends ExportPlugin
                 );
 
             foreach ($foreigners as $relField => $rel) {
-                $relFieldAlias = ! empty(
-                    $aliases[$db]['tables'][$table]['columns'][$relField]
-                ) ? $aliases[$db]['tables'][$table]['columns'][$relField]
-                    : $relField;
+                $relFieldAlias = $this->getColumnAlias($aliases, $db, $table, $relField);
                 $schemaCreate .= $this->exportComment(
                     '  '
                     . Util::backquoteCompat(
@@ -1813,10 +1804,7 @@ class ExportSql extends ExportPlugin
 
             foreach ($this->relation->getForeignKeysData($db, $table) as $oneKey) {
                 foreach ($oneKey->indexList as $index => $field) {
-                    $relFieldAlias = ! empty(
-                        $aliases[$db]['tables'][$table]['columns'][$field]
-                    ) ? $aliases[$db]['tables'][$table]['columns'][$field]
-                        : $field;
+                    $relFieldAlias = $this->getColumnAlias($aliases, $db, $table, $field);
                     $schemaCreate .= $this->exportComment(
                         '  '
                         . Util::backquoteCompat(
@@ -2056,10 +2044,7 @@ class ExportSql extends ExportPlugin
         $fieldSet = [];
         /** @infection-ignore-all */
         for ($j = 0; $j < $fieldsCnt; $j++) {
-            $colAs = $fieldsMeta[$j]->name;
-            if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
-                $colAs = $aliases[$db]['tables'][$table]['columns'][$colAs];
-            }
+            $colAs = $this->getColumnAlias($aliases, $db, $table, $fieldsMeta[$j]->name);
 
             $fieldSet[$j] = Util::backquoteCompat($colAs, $this->compatibility, $this->useSqlBackquotes);
         }
@@ -2431,11 +2416,8 @@ class ExportSql extends ExportPlugin
             $fields = $statement->fields;
             foreach ($fields as $field) {
                 // Column name.
-                if (
-                    $field->type !== null
-                    && ! empty($aliases[$oldDatabase]['tables'][$oldTable]['columns'][$field->name])
-                ) {
-                    $field->name = $aliases[$oldDatabase]['tables'][$oldTable]['columns'][$field->name];
+                if ($field->type !== null) {
+                    $field->name = $this->getColumnAlias($aliases, $oldDatabase, $oldTable, $field->name ?? '');
                     $flag = true;
                 }
 
@@ -2447,12 +2429,12 @@ class ExportSql extends ExportPlugin
                             continue;
                         }
 
-                        if (empty($aliases[$oldDatabase]['tables'][$oldTable]['columns'][$column['name']])) {
+                        $columnAlias = $this->getColumnAlias($aliases, $oldDatabase, $oldTable, $column['name']);
+                        if ($columnAlias === $column['name']) {
                             continue;
                         }
 
-                        $columnAliases = $aliases[$oldDatabase]['tables'][$oldTable]['columns'];
-                        $field->key->columns[$key]['name'] = $columnAliases[$column['name']];
+                        $field->key->columns[$key]['name'] = $columnAlias;
                         $flag = true;
                     }
                 }
@@ -2463,20 +2445,26 @@ class ExportSql extends ExportPlugin
                 }
 
                 $refTable = $field->references->table->table;
+                if ($refTable === null) {
+                    continue;
+                }
+
                 // Replacing table.
-                if (! empty($aliases[$oldDatabase]['tables'][$refTable]['alias'])) {
-                    $field->references->table->table = $aliases[$oldDatabase]['tables'][$refTable]['alias'];
+                $columnAlias = $this->getTableAlias($aliases, $oldDatabase, $refTable);
+                if ($columnAlias !== $refTable) {
+                    $field->references->table->table = $columnAlias;
                     $field->references->table->expr = '';
                     $flag = true;
                 }
 
                 // Replacing column names.
                 foreach ($field->references->columns as $key => $column) {
-                    if (empty($aliases[$oldDatabase]['tables'][$refTable]['columns'][$column])) {
+                    $columnAlias = $this->getColumnAlias($aliases, $oldDatabase, $refTable, $column);
+                    if ($columnAlias === $column) {
                         continue;
                     }
 
-                    $field->references->columns[$key] = $aliases[$oldDatabase]['tables'][$refTable]['columns'][$column];
+                    $field->references->columns[$key] = $columnAlias;
                     $flag = true;
                 }
             }
@@ -2516,6 +2504,7 @@ class ExportSql extends ExportPlugin
                     continue;
                 }
 
+                // TODO: Figure out a better way to find the alias
                 $alias = $this->getAlias($aliases, $token->value);
                 if ($alias === '') {
                     continue;

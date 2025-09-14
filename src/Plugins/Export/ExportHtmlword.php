@@ -208,9 +208,7 @@ class ExportHtmlword extends ExportPlugin
         if ($this->columns) {
             $schemaInsert = '<tr class="print-category">';
             foreach ($result->getFieldNames() as $colAs) {
-                if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
-                    $colAs = $aliases[$db]['tables'][$table]['columns'][$colAs];
-                }
+                $colAs = $this->getColumnAlias($aliases, $db, $table, $colAs);
 
                 $schemaInsert .= '<td class="print"><strong>'
                     . htmlspecialchars($colAs)
@@ -284,10 +282,7 @@ class ExportHtmlword extends ExportPlugin
 
         $columns = $dbi->getColumns($db, $view);
         foreach ($columns as $column) {
-            $colAs = $column->field;
-            if (! empty($aliases[$db]['tables'][$view]['columns'][$colAs])) {
-                $colAs = $aliases[$db]['tables'][$view]['columns'][$colAs];
-            }
+            $colAs = $this->getColumnAlias($aliases, $db, $view, $column->field);
 
             $schemaInsert .= $this->formatOneColumnDefinition($column, $uniqueKeys, $colAs);
             $schemaInsert .= '</tr>';
@@ -379,10 +374,7 @@ class ExportHtmlword extends ExportPlugin
         }
 
         foreach ($columns as $column) {
-            $colAs = $column->field;
-            if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
-                $colAs = $aliases[$db]['tables'][$table]['columns'][$colAs];
-            }
+            $colAs = $this->getColumnAlias($aliases, $db, $table, $column->field);
 
             $schemaInsert .= $this->formatOneColumnDefinition($column, $uniqueKeys, $colAs);
             $fieldName = $column->field;

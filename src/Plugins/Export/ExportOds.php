@@ -214,10 +214,7 @@ class ExportOds extends ExportPlugin
         if ($this->columns) {
             $this->buffer .= '<table:table-row>';
             foreach ($fieldsMeta as $field) {
-                $colAs = $field->name;
-                if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
-                    $colAs = $aliases[$db]['tables'][$table]['columns'][$colAs];
-                }
+                $colAs = $this->getColumnAlias($aliases, $db, $table, $field->name);
 
                 $this->buffer .= '<table:table-cell office:value-type="string">'
                     . '<text:p>'

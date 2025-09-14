@@ -189,9 +189,7 @@ class ExportExcel extends ExportPlugin
         if ($this->columns) {
             $insertFields = [];
             foreach ($result->getFieldNames() as $colAs) {
-                if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
-                    $colAs = $aliases[$db]['tables'][$table]['columns'][$colAs];
-                }
+                $colAs = $this->getColumnAlias($aliases, $db, $table, $colAs);
 
                 if ($this->enclosed === '') {
                     $insertFields[] = $colAs;

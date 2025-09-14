@@ -242,9 +242,8 @@ class ExportJson extends ExportPlugin
             $colAs = $field->name;
             if (
                 $db !== null && $table !== null && $aliases !== null
-                && ! empty($aliases[$db]['tables'][$table]['columns'][$colAs])
             ) {
-                $colAs = $aliases[$db]['tables'][$table]['columns'][$colAs];
+                $colAs = $this->getColumnAlias($aliases, $db, $table, $colAs);
             }
 
             $columns[$i] = $colAs;

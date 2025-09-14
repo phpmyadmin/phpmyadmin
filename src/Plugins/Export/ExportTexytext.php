@@ -189,9 +189,7 @@ class ExportTexytext extends ExportPlugin
         if ($this->columns) {
             $textOutput = "|------\n";
             foreach ($result->getFieldNames() as $colAs) {
-                if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
-                    $colAs = $aliases[$db]['tables'][$table]['columns'][$colAs];
-                }
+                $colAs = $this->getColumnAlias($aliases, $db, $table, $colAs);
 
                 $textOutput .= '|' . htmlspecialchars($colAs);
             }
@@ -291,10 +289,7 @@ class ExportTexytext extends ExportPlugin
 
         $columns = $dbi->getColumns($db, $view);
         foreach ($columns as $column) {
-            $colAs = $column->field;
-            if (! empty($aliases[$db]['tables'][$view]['columns'][$colAs])) {
-                $colAs = $aliases[$db]['tables'][$view]['columns'][$colAs];
-            }
+            $colAs = $this->getColumnAlias($aliases, $db, $view, $column->field);
 
             $textOutput .= $this->formatOneColumnDefinition($column, $uniqueKeys, $colAs);
             $textOutput .= "\n";
@@ -369,10 +364,7 @@ class ExportTexytext extends ExportPlugin
 
         $columns = $dbi->getColumns($db, $table);
         foreach ($columns as $column) {
-            $colAs = $column->field;
-            if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
-                $colAs = $aliases[$db]['tables'][$table]['columns'][$colAs];
-            }
+            $colAs = $this->getColumnAlias($aliases, $db, $table, $column->field);
 
             $textOutput .= $this->formatOneColumnDefinition($column, $uniqueKeys, $colAs);
             $fieldName = $column->field;
