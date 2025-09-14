@@ -251,10 +251,7 @@ class ExportOdt extends ExportPlugin
         if ($this->columns) {
             $this->buffer .= '<table:table-row>';
             foreach ($fieldsMeta as $field) {
-                $colAs = $field->name;
-                if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
-                    $colAs = $aliases[$db]['tables'][$table]['columns'][$colAs];
-                }
+                $colAs = $this->getColumnAlias($aliases, $db, $table, $field->name);
 
                 $this->buffer .= '<table:table-cell office:value-type="string">'
                     . '<text:p>'
@@ -372,10 +369,7 @@ class ExportOdt extends ExportPlugin
 
         $columns = $dbi->getColumns($db, $view);
         foreach ($columns as $column) {
-            $colAs = $column->field;
-            if (! empty($aliases[$db]['tables'][$view]['columns'][$colAs])) {
-                $colAs = $aliases[$db]['tables'][$view]['columns'][$colAs];
-            }
+            $colAs = $this->getColumnAlias($aliases, $db, $view, $column->field);
 
             $this->buffer .= $this->formatOneColumnDefinition($column, $colAs);
             $this->buffer .= '</table:table-row>';
@@ -467,20 +461,15 @@ class ExportOdt extends ExportPlugin
 
         $columns = $dbi->getColumns($db, $table);
         foreach ($columns as $column) {
-            $colAs = $fieldName = $column->field;
-            if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
-                $colAs = $aliases[$db]['tables'][$table]['columns'][$colAs];
-            }
+            $fieldName = $column->field;
+            $colAs = $this->getColumnAlias($aliases, $db, $table, $column->field);
 
             $this->buffer .= $this->formatOneColumnDefinition($column, $colAs);
             if ($this->doRelation && $foreigners !== []) {
                 $foreigner = $this->relation->searchColumnInForeigners($foreigners, $fieldName);
                 if ($foreigner) {
                     $rtable = $foreigner['foreign_table'];
-                    $rfield = $foreigner['foreign_field'];
-                    if (! empty($aliases[$db]['tables'][$rtable]['columns'][$rfield])) {
-                        $rfield = $aliases[$db]['tables'][$rtable]['columns'][$rfield];
-                    }
+                    $rfield = $this->getColumnAlias($aliases, $db, $rtable, $foreigner['foreign_field']);
 
                     $rtable = $this->getTableAlias($aliases, $db, $rtable);
 

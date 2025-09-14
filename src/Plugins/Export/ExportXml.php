@@ -437,10 +437,7 @@ class ExportXml extends ExportPlugin
                 $buffer = '        <table name="'
                     . htmlspecialchars($tableAlias) . '">' . "\n";
                 for ($i = 0; $i < $columnsCnt; $i++) {
-                    $colAs = $columns[$i];
-                    if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
-                        $colAs = $aliases[$db]['tables'][$table]['columns'][$colAs];
-                    }
+                    $colAs = $this->getColumnAlias($aliases, $db, $table, $columns[$i]);
 
                     // If a cell is NULL, still export it to preserve
                     // the XML structure

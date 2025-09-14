@@ -9484,18 +9484,12 @@ parameters:
 			path: src/Plugins/Export/ExportCodegen.php
 
 		-
-			message: '#^Parameter \#2 \$id of method PhpMyAdmin\\Plugins\\ExportPlugin\:\:getAlias\(\) expects string, string\|null given\.$#'
+			message: '#^Parameter \#4 \$column of method PhpMyAdmin\\Plugins\\ExportPlugin\:\:getColumnAlias\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 2
 			path: src/Plugins/Export/ExportCodegen.php
 
 		-
-			message: '#^Binary operation "\." between non\-empty\-string and \(array\<string\>\|string\) results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Plugins/Export/ExportCsv.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
 				Use dependency injection instead\.$#
@@ -9505,78 +9499,12 @@ parameters:
 			path: src/Plugins/Export/ExportCsv.php
 
 		-
-			message: '#^Cannot access offset ''columns'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Plugins/Export/ExportCsv.php
-
-		-
-			message: '#^Cannot access offset ''tables'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Plugins/Export/ExportCsv.php
-
-		-
-			message: '#^Cannot access offset string on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Plugins/Export/ExportCsv.php
-
-		-
-			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
-			identifier: empty.notAllowed
-			count: 1
-			path: src/Plugins/Export/ExportCsv.php
-
-		-
-			message: '#^Parameter \#3 \$subject of function str_replace expects array\<string\>\|string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Plugins/Export/ExportCsv.php
-
-		-
-			message: '#^Binary operation "\." between non\-empty\-string and \(array\<string\>\|string\) results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Plugins/Export/ExportExcel.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
 			count: 2
-			path: src/Plugins/Export/ExportExcel.php
-
-		-
-			message: '#^Cannot access offset ''columns'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Plugins/Export/ExportExcel.php
-
-		-
-			message: '#^Cannot access offset ''tables'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Plugins/Export/ExportExcel.php
-
-		-
-			message: '#^Cannot access offset string on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Plugins/Export/ExportExcel.php
-
-		-
-			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
-			identifier: empty.notAllowed
-			count: 1
-			path: src/Plugins/Export/ExportExcel.php
-
-		-
-			message: '#^Parameter \#3 \$subject of function str_replace expects array\<string\>\|string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
 			path: src/Plugins/Export/ExportExcel.php
 
 		-
@@ -9595,44 +9523,8 @@ parameters:
 			path: src/Plugins/Export/ExportHtmlword.php
 
 		-
-			message: '#^Cannot access offset ''columns'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 3
-			path: src/Plugins/Export/ExportHtmlword.php
-
-		-
-			message: '#^Cannot access offset ''tables'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 3
-			path: src/Plugins/Export/ExportHtmlword.php
-
-		-
-			message: '#^Cannot access offset string on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 6
-			path: src/Plugins/Export/ExportHtmlword.php
-
-		-
-			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
-			identifier: empty.notAllowed
-			count: 3
-			path: src/Plugins/Export/ExportHtmlword.php
-
-		-
 			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
 			identifier: notEqual.notAllowed
-			count: 2
-			path: src/Plugins/Export/ExportHtmlword.php
-
-		-
-			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Plugins/Export/ExportHtmlword.php
-
-		-
-			message: '#^Parameter \#3 \$colAlias of method PhpMyAdmin\\Plugins\\Export\\ExportHtmlword\:\:formatOneColumnDefinition\(\) expects string, mixed given\.$#'
-			identifier: argument.type
 			count: 2
 			path: src/Plugins/Export/ExportHtmlword.php
 
@@ -9646,22 +9538,10 @@ parameters:
 			path: src/Plugins/Export/ExportJson.php
 
 		-
-			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
-			identifier: empty.notAllowed
-			count: 1
-			path: src/Plugins/Export/ExportJson.php
-
-		-
 			message: '#^Parameter \#4 \$aliases of method PhpMyAdmin\\Plugins\\Export\\ExportJson\:\:doExportForQuery\(\) expects array\<string, array\{tables\: array\<string, array\{columns\: array\<string, string\>\}\>\}\>\|null, array\<mixed\> given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Plugins/Export/ExportJson.php
-
-		-
-			message: '#^Binary operation "\." between mixed and "\\000" results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Plugins/Export/ExportLatex.php
 
 		-
 			message: '''
@@ -9678,24 +9558,6 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 4
-			path: src/Plugins/Export/ExportLatex.php
-
-		-
-			message: '#^Cannot access offset ''columns'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Plugins/Export/ExportLatex.php
-
-		-
-			message: '#^Cannot access offset ''tables'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Plugins/Export/ExportLatex.php
-
-		-
-			message: '#^Cannot access offset string on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
 			count: 4
 			path: src/Plugins/Export/ExportLatex.php
 
@@ -9720,7 +9582,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 4
+			count: 2
 			path: src/Plugins/Export/ExportLatex.php
 
 		-
@@ -9728,24 +9590,6 @@ parameters:
 			identifier: notEqual.notAllowed
 			count: 1
 			path: src/Plugins/Export/ExportLatex.php
-
-		-
-			message: '#^Parameter \#1 \$string of static method PhpMyAdmin\\Plugins\\Export\\ExportLatex\:\:texEscape\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Plugins/Export/ExportLatex.php
-
-		-
-			message: '#^Binary operation "\." between '' \! '' and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Plugins/Export/ExportMediawiki.php
-
-		-
-			message: '#^Binary operation "\." between '' \| '' and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Plugins/Export/ExportMediawiki.php
 
 		-
 			message: '''
@@ -9757,30 +9601,6 @@ parameters:
 			path: src/Plugins/Export/ExportMediawiki.php
 
 		-
-			message: '#^Cannot access offset ''columns'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Plugins/Export/ExportMediawiki.php
-
-		-
-			message: '#^Cannot access offset ''tables'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Plugins/Export/ExportMediawiki.php
-
-		-
-			message: '#^Cannot access offset string on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 4
-			path: src/Plugins/Export/ExportMediawiki.php
-
-		-
-			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
-			identifier: empty.notAllowed
-			count: 2
-			path: src/Plugins/Export/ExportMediawiki.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
 				Use dependency injection instead\.$#
@@ -9790,37 +9610,7 @@ parameters:
 			path: src/Plugins/Export/ExportOds.php
 
 		-
-			message: '#^Cannot access offset ''columns'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Plugins/Export/ExportOds.php
-
-		-
-			message: '#^Cannot access offset ''tables'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Plugins/Export/ExportOds.php
-
-		-
-			message: '#^Cannot access offset string on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Plugins/Export/ExportOds.php
-
-		-
-			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
-			identifier: empty.notAllowed
-			count: 1
-			path: src/Plugins/Export/ExportOds.php
-
-		-
 			message: '#^Parameter \#1 \$string of function bin2hex expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Plugins/Export/ExportOds.php
-
-		-
-			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Plugins/Export/ExportOds.php
@@ -9832,48 +9622,12 @@ parameters:
 			path: src/Plugins/Export/ExportOds.php
 
 		-
-			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Plugins/Export/ExportOdt.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
 			count: 5
-			path: src/Plugins/Export/ExportOdt.php
-
-		-
-			message: '#^Cannot access offset ''columns'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 4
-			path: src/Plugins/Export/ExportOdt.php
-
-		-
-			message: '#^Cannot access offset ''tables'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 4
-			path: src/Plugins/Export/ExportOdt.php
-
-		-
-			message: '#^Cannot access offset mixed on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Plugins/Export/ExportOdt.php
-
-		-
-			message: '#^Cannot access offset string on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 6
-			path: src/Plugins/Export/ExportOdt.php
-
-		-
-			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
-			identifier: empty.notAllowed
-			count: 4
 			path: src/Plugins/Export/ExportOdt.php
 
 		-
@@ -9889,19 +9643,19 @@ parameters:
 			path: src/Plugins/Export/ExportOdt.php
 
 		-
-			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, mixed given\.$#'
+			message: '#^Parameter \#3 \$table of method PhpMyAdmin\\Plugins\\ExportPlugin\:\:getColumnAlias\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Plugins/Export/ExportOdt.php
 
 		-
-			message: '#^Parameter \#2 \$colAs of method PhpMyAdmin\\Plugins\\Export\\ExportOdt\:\:formatOneColumnDefinition\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#3 \$table of method PhpMyAdmin\\Plugins\\ExportPlugin\:\:getTableAlias\(\) expects string, mixed given\.$#'
 			identifier: argument.type
-			count: 2
+			count: 1
 			path: src/Plugins/Export/ExportOdt.php
 
 		-
-			message: '#^Parameter \#3 \$table of method PhpMyAdmin\\Plugins\\ExportPlugin\:\:getTableAlias\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#4 \$column of method PhpMyAdmin\\Plugins\\ExportPlugin\:\:getColumnAlias\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Plugins/Export/ExportOdt.php
@@ -9949,30 +9703,6 @@ parameters:
 			path: src/Plugins/Export/ExportPhparray.php
 
 		-
-			message: '#^Cannot access offset ''columns'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Plugins/Export/ExportPhparray.php
-
-		-
-			message: '#^Cannot access offset ''tables'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Plugins/Export/ExportPhparray.php
-
-		-
-			message: '#^Cannot access offset string on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Plugins/Export/ExportPhparray.php
-
-		-
-			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
-			identifier: empty.notAllowed
-			count: 1
-			path: src/Plugins/Export/ExportPhparray.php
-
-		-
 			message: '#^Parameter \#2 \$subject of function preg_match expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
@@ -9994,42 +9724,6 @@ parameters:
 			'''
 			identifier: staticMethod.deprecated
 			count: 15
-			path: src/Plugins/Export/ExportSql.php
-
-		-
-			message: '#^Cannot access offset ''alias'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Plugins/Export/ExportSql.php
-
-		-
-			message: '#^Cannot access offset ''columns'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 8
-			path: src/Plugins/Export/ExportSql.php
-
-		-
-			message: '#^Cannot access offset ''tables'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 10
-			path: src/Plugins/Export/ExportSql.php
-
-		-
-			message: '#^Cannot access offset \(int\|string\) on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Plugins/Export/ExportSql.php
-
-		-
-			message: '#^Cannot access offset string on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 12
-			path: src/Plugins/Export/ExportSql.php
-
-		-
-			message: '#^Cannot access offset string\|null on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 6
 			path: src/Plugins/Export/ExportSql.php
 
 		-
@@ -10077,7 +9771,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 21
+			count: 11
 			path: src/Plugins/Export/ExportSql.php
 
 		-
@@ -10117,15 +9811,9 @@ parameters:
 			path: src/Plugins/Export/ExportSql.php
 
 		-
-			message: '#^Parameter \#1 \$identifier of static method PhpMyAdmin\\Util\:\:backquote\(\) expects string\|Stringable\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/Plugins/Export/ExportSql.php
-
-		-
 			message: '#^Parameter \#1 \$identifier of static method PhpMyAdmin\\Util\:\:backquoteCompat\(\) expects string\|Stringable\|null, mixed given\.$#'
 			identifier: argument.type
-			count: 5
+			count: 2
 			path: src/Plugins/Export/ExportSql.php
 
 		-
@@ -10159,26 +9847,20 @@ parameters:
 			path: src/Plugins/Export/ExportSql.php
 
 		-
+			message: '#^Parameter \#3 \$table of method PhpMyAdmin\\Plugins\\ExportPlugin\:\:getColumnAlias\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 2
+			path: src/Plugins/Export/ExportSql.php
+
+		-
 			message: '#^Parameter \#3 \$table of method PhpMyAdmin\\Plugins\\ExportPlugin\:\:getTableAlias\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
-			count: 1
+			count: 2
 			path: src/Plugins/Export/ExportSql.php
 
 		-
-			message: '#^Property PhpMyAdmin\\SqlParser\\Components\\CreateDefinition\:\:\$name \(string\|null\) does not accept mixed\.$#'
-			identifier: assign.propertyType
-			count: 1
-			path: src/Plugins/Export/ExportSql.php
-
-		-
-			message: '#^Property PhpMyAdmin\\SqlParser\\Components\\Key\:\:\$columns \(array\<array\{name\?\: string, length\?\: int, order\?\: string\}\>\) does not accept non\-empty\-array\<array\{name\?\: mixed, length\?\: int, order\?\: string\}\>\.$#'
-			identifier: assign.propertyType
-			count: 1
-			path: src/Plugins/Export/ExportSql.php
-
-		-
-			message: '#^Property PhpMyAdmin\\SqlParser\\Components\\Reference\:\:\$columns \(array\<string\>\) does not accept array\<mixed\>\.$#'
-			identifier: assign.propertyType
+			message: '#^Parameter \#4 \$column of method PhpMyAdmin\\Plugins\\ExportPlugin\:\:getColumnAlias\(\) expects string, \(int\|string\) given\.$#'
+			identifier: argument.type
 			count: 1
 			path: src/Plugins/Export/ExportSql.php
 
@@ -10198,44 +9880,14 @@ parameters:
 			path: src/Plugins/Export/ExportTexytext.php
 
 		-
-			message: '#^Cannot access offset ''columns'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 3
-			path: src/Plugins/Export/ExportTexytext.php
-
-		-
-			message: '#^Cannot access offset ''tables'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 3
-			path: src/Plugins/Export/ExportTexytext.php
-
-		-
-			message: '#^Cannot access offset string on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 6
-			path: src/Plugins/Export/ExportTexytext.php
-
-		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 4
+			count: 1
 			path: src/Plugins/Export/ExportTexytext.php
 
 		-
 			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
 			identifier: notEqual.notAllowed
-			count: 2
-			path: src/Plugins/Export/ExportTexytext.php
-
-		-
-			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Plugins/Export/ExportTexytext.php
-
-		-
-			message: '#^Parameter \#3 \$colAlias of method PhpMyAdmin\\Plugins\\Export\\ExportTexytext\:\:formatOneColumnDefinition\(\) expects string, mixed given\.$#'
-			identifier: argument.type
 			count: 2
 			path: src/Plugins/Export/ExportTexytext.php
 
@@ -10258,38 +9910,14 @@ parameters:
 			path: src/Plugins/Export/ExportXml.php
 
 		-
-			message: '#^Cannot access offset ''columns'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Plugins/Export/ExportXml.php
-
-		-
-			message: '#^Cannot access offset ''tables'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Plugins/Export/ExportXml.php
-
-		-
-			message: '#^Cannot access offset string on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Plugins/Export/ExportXml.php
-
-		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 2
+			count: 1
 			path: src/Plugins/Export/ExportXml.php
 
 		-
 			message: '#^Foreach overwrites \$table with its value variable\.$#'
 			identifier: foreach.valueOverwrite
-			count: 1
-			path: src/Plugins/Export/ExportXml.php
-
-		-
-			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, mixed given\.$#'
-			identifier: argument.type
 			count: 1
 			path: src/Plugins/Export/ExportXml.php
 
@@ -10306,42 +9934,12 @@ parameters:
 			path: src/Plugins/Export/ExportXml.php
 
 		-
-			message: '#^Binary operation "\." between ''  '' and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 3
-			path: src/Plugins/Export/ExportYaml.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
 			count: 2
-			path: src/Plugins/Export/ExportYaml.php
-
-		-
-			message: '#^Cannot access offset ''columns'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Plugins/Export/ExportYaml.php
-
-		-
-			message: '#^Cannot access offset ''tables'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Plugins/Export/ExportYaml.php
-
-		-
-			message: '#^Cannot access offset string on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Plugins/Export/ExportYaml.php
-
-		-
-			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
-			identifier: empty.notAllowed
-			count: 1
 			path: src/Plugins/Export/ExportYaml.php
 
 		-
@@ -10678,12 +10276,6 @@ parameters:
 			path: src/Plugins/ExportPlugin.php
 
 		-
-			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Plugins/ExportPlugin.php
-
-		-
 			message: '#^Cannot access offset ''alias'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 4
@@ -10702,21 +10294,9 @@ parameters:
 			path: src/Plugins/ExportPlugin.php
 
 		-
-			message: '#^Cannot access offset mixed on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Plugins/ExportPlugin.php
-
-		-
-			message: '#^Cannot access offset non\-empty\-string on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Plugins/ExportPlugin.php
-
-		-
 			message: '#^Cannot access offset string on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
+			count: 3
 			path: src/Plugins/ExportPlugin.php
 
 		-
@@ -10726,15 +10306,15 @@ parameters:
 			path: src/Plugins/ExportPlugin.php
 
 		-
-			message: '#^Foreach overwrites \$db with its value variable\.$#'
-			identifier: foreach.valueOverwrite
-			count: 1
-			path: src/Plugins/ExportPlugin.php
-
-		-
 			message: '#^Method PhpMyAdmin\\Plugins\\ExportPlugin\:\:getAlias\(\) should return string but returns mixed\.$#'
 			identifier: return.type
 			count: 3
+			path: src/Plugins/ExportPlugin.php
+
+		-
+			message: '#^Method PhpMyAdmin\\Plugins\\ExportPlugin\:\:getColumnAlias\(\) should return string but returns mixed\.$#'
+			identifier: return.type
+			count: 1
 			path: src/Plugins/ExportPlugin.php
 
 		-
@@ -10756,7 +10336,19 @@ parameters:
 			path: src/Plugins/ExportPlugin.php
 
 		-
+			message: '#^Parameter \#3 \$table of method PhpMyAdmin\\Plugins\\ExportPlugin\:\:getColumnAlias\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Plugins/ExportPlugin.php
+
+		-
 			message: '#^Parameter \#3 \$table of method PhpMyAdmin\\Plugins\\ExportPlugin\:\:getTableAlias\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Plugins/ExportPlugin.php
+
+		-
+			message: '#^Parameter \#4 \$column of method PhpMyAdmin\\Plugins\\ExportPlugin\:\:getColumnAlias\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Plugins/ExportPlugin.php

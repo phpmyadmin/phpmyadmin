@@ -200,10 +200,7 @@ class ExportCodegen extends ExportPlugin
         /** @var TableProperty[] $tableProperties */
         $tableProperties = [];
         while ($row = $result->fetchRow()) {
-            $colAs = $this->getAlias($aliases, $row[0], 'col', $db, $table);
-            if ($colAs !== '') {
-                $row[0] = $colAs;
-            }
+            $row[0] = $this->getColumnAlias($aliases, $db, $table, $row[0]);
 
             $tableProperties[] = new TableProperty($row);
         }
@@ -309,10 +306,7 @@ class ExportCodegen extends ExportPlugin
         );
 
         while ($row = $result->fetchRow()) {
-            $colAs = $this->getAlias($aliases, $row[0], 'col', $db, $table);
-            if ($colAs !== '') {
-                $row[0] = $colAs;
-            }
+            $row[0] = $this->getColumnAlias($aliases, $db, $table, $row[0]);
 
             $tableProperty = new TableProperty($row);
             if ($tableProperty->isPK()) {
