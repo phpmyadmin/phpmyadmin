@@ -1249,9 +1249,7 @@ class ExportSql extends ExportPlugin
      */
     public function getTableDefStandIn(string $db, string $view, array $aliases = []): string
     {
-        $dbAlias = $db;
-        $viewAlias = $view;
-        $this->initAlias($aliases, $dbAlias, $viewAlias);
+        $viewAlias = $this->getTableAlias($aliases, $db, $view);
         $createQuery = '';
         if ($this->dropTable) {
             $createQuery .= 'DROP VIEW IF EXISTS '
@@ -1294,9 +1292,7 @@ class ExportSql extends ExportPlugin
         string $view,
         array $aliases = [],
     ): string {
-        $dbAlias = $db;
-        $viewAlias = $view;
-        $this->initAlias($aliases, $dbAlias, $viewAlias);
+        $viewAlias = $this->getTableAlias($aliases, $db, $view);
         $createQuery = 'CREATE TABLE';
         if ($this->ifNotExists) {
             $createQuery .= ' IF NOT EXISTS ';
@@ -1374,9 +1370,7 @@ class ExportSql extends ExportPlugin
         bool $updateIndexesIncrements = true,
         array $aliases = [],
     ): string {
-        $dbAlias = $db;
-        $tableAlias = $table;
-        $this->initAlias($aliases, $dbAlias, $tableAlias);
+        $tableAlias = $this->getTableAlias($aliases, $db, $table);
 
         $schemaCreate = $this->getTableStatus($db, $table);
 
@@ -1738,9 +1732,7 @@ class ExportSql extends ExportPlugin
      */
     private function getTableComments(string $db, string $table, array $aliases = []): string
     {
-        $dbAlias = $db;
-        $tableAlias = $table;
-        $this->initAlias($aliases, $dbAlias, $tableAlias);
+        $tableAlias = $this->getTableAlias($aliases, $db, $table);
 
         $relationParameters = $this->relation->getRelationParameters();
 
@@ -1881,9 +1873,7 @@ class ExportSql extends ExportPlugin
      */
     public function exportStructure(string $db, string $table, string $exportMode, array $aliases = []): bool
     {
-        $dbAlias = $db;
-        $tableAlias = $table;
-        $this->initAlias($aliases, $dbAlias, $tableAlias);
+        $tableAlias = $this->getTableAlias($aliases, $db, $table);
         $formattedTableName = Util::backquoteCompat($tableAlias, $this->compatibility, $this->useSqlBackquotes);
         $dump = $this->possibleCRLF()
             . $this->exportComment(str_repeat('-', 56))
@@ -2027,9 +2017,7 @@ class ExportSql extends ExportPlugin
             return true;
         }
 
-        $dbAlias = $db;
-        $tableAlias = $table;
-        $this->initAlias($aliases, $dbAlias, $tableAlias);
+        $tableAlias = $this->getTableAlias($aliases, $db, $table);
 
         $formattedTableName = Util::backquoteCompat($tableAlias, $this->compatibility, $this->useSqlBackquotes);
 
@@ -2404,9 +2392,6 @@ class ExportSql extends ExportPlugin
     ): string {
         $flag = false;
 
-        /**
-         * The parser of this query.
-         */
         $parser = new Parser($delimiter === '' ? $sqlQuery : 'DELIMITER ' . $delimiter . "\n" . $sqlQuery);
 
         if (empty($parser->statements[0])) {
@@ -2420,39 +2405,19 @@ class ExportSql extends ExportPlugin
          */
         $statement = $parser->statements[0];
 
-        /**
-         * Old database name.
-         */
         $oldDatabase = $db;
 
         // Replacing aliases in `CREATE TABLE` statement.
         if ($statement->options->has('TABLE')) {
-            // Extracting the name of the old database and table from the
-            // statement to make sure the parameters are correct.
-            if (! empty($statement->name->database)) {
-                $oldDatabase = $statement->name->database;
-            }
-
-            /**
-             * Old table name.
-             */
             $oldTable = $statement->name->table;
 
-            // Finding the aliased database name.
-            // The database might be empty so we have to add a few checks.
             $newDatabase = null;
             if (! empty($statement->name->database)) {
-                $newDatabase = $statement->name->database;
-                if (! empty($aliases[$oldDatabase]['alias'])) {
-                    $newDatabase = $aliases[$oldDatabase]['alias'];
-                }
+                $oldDatabase = $statement->name->database;
+                $newDatabase = $this->getDbAlias($aliases, $oldDatabase);
             }
 
-            // Finding the aliases table name.
-            $newTable = $oldTable;
-            if (! empty($aliases[$oldDatabase]['tables'][$oldTable]['alias'])) {
-                $newTable = $aliases[$oldDatabase]['tables'][$oldTable]['alias'];
-            }
+            $newTable = $this->getTableAlias($aliases, $oldDatabase, $oldTable);
 
             // Replacing new values.
             if ($statement->name->database !== $newDatabase || $statement->name->table !== $newTable) {
@@ -2522,13 +2487,11 @@ class ExportSql extends ExportPlugin
                 $oldDatabase = $statement->table->database;
             }
 
-            /**
-             * Old table name.
-             */
             $oldTable = $statement->table->table;
+            $newTable = $this->getTableAlias($aliases, $oldDatabase, $oldTable);
 
-            if (! empty($aliases[$oldDatabase]['tables'][$oldTable]['alias'])) {
-                $statement->table->table = $aliases[$oldDatabase]['tables'][$oldTable]['alias'];
+            if ($newTable !== $oldTable) {
+                $statement->table->table = $newTable;
                 $statement->table->expr = ''; // Force rebuild.
                 $flag = true;
             }

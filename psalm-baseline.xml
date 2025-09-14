@@ -6201,12 +6201,12 @@
       <code><![CDATA[$colAs]]></code>
       <code><![CDATA[$comments[$fieldName]]]></code>
       <code><![CDATA[$mimeMap[$fieldName]['mimetype']]]></code>
+      <code><![CDATA[$rtable]]></code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$mimeMap[$fieldName]['mimetype']]]></code>
     </MixedArrayAccess>
     <MixedArrayOffset>
-      <code><![CDATA[$aliases[$db]['tables'][$rtable]]]></code>
       <code><![CDATA[$aliases[$db]['tables'][$rtable]]]></code>
       <code><![CDATA[$aliases[$db]['tables'][$rtable]['columns'][$rfield]]]></code>
     </MixedArrayOffset>
@@ -6217,11 +6217,9 @@
       <code><![CDATA[$rfield]]></code>
       <code><![CDATA[$rfield]]></code>
       <code><![CDATA[$rtable]]></code>
-      <code><![CDATA[$rtable]]></code>
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$rfield]]></code>
-      <code><![CDATA[$rtable]]></code>
     </MixedOperand>
     <PossiblyInvalidArgument>
       <code><![CDATA[str_replace('_', '/', $mimeMap[$fieldName]['mimetype'])]]></code>
@@ -6314,12 +6312,8 @@
       <code><![CDATA[$columnAliases]]></code>
       <code><![CDATA[$field->name]]></code>
       <code><![CDATA[$field->references->table->table]]></code>
-      <code><![CDATA[$newDatabase]]></code>
-      <code><![CDATA[$newTable]]></code>
       <code><![CDATA[$relFieldAlias]]></code>
       <code><![CDATA[$relFieldAlias]]></code>
-      <code><![CDATA[$statement->name->database]]></code>
-      <code><![CDATA[$statement->name->table]]></code>
       <code><![CDATA[$statement->table->table]]></code>
     </MixedAssignment>
     <MixedPropertyTypeCoercion>
@@ -6333,10 +6327,8 @@
       <code><![CDATA[$createQuery]]></code>
       <code><![CDATA[$definition]]></code>
       <code><![CDATA[$eventName]]></code>
+      <code><![CDATA[$oldTable]]></code>
     </PossiblyNullArgument>
-    <PossiblyNullArrayOffset>
-      <code><![CDATA[$aliases[$oldDatabase]['tables']]]></code>
-    </PossiblyNullArrayOffset>
     <PossiblyNullOperand>
       <code><![CDATA[$eventDef]]></code>
     </PossiblyNullOperand>
@@ -6371,7 +6363,6 @@
       <code><![CDATA[empty($column->collation)]]></code>
       <code><![CDATA[empty($config->selectedServer['port'])]]></code>
       <code><![CDATA[empty($statement->fields)]]></code>
-      <code><![CDATA[empty($statement->name->database)]]></code>
       <code><![CDATA[empty($statement->name->database)]]></code>
       <code><![CDATA[empty($statement->table->database)]]></code>
       <code><![CDATA[empty($tmpres['Check_time'])]]></code>
@@ -6723,6 +6714,9 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/Plugins/ExportPlugin.php">
+    <MixedArgument>
+      <code><![CDATA[$ftable]]></code>
+    </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$db['alias']]]></code>
       <code><![CDATA[$db['tables']]]></code>
@@ -6736,27 +6730,26 @@
     </MixedArrayAssignment>
     <MixedArrayOffset>
       <code><![CDATA[$aliases[$db]['tables'][$ftable]]]></code>
-      <code><![CDATA[$aliases[$db]['tables'][$ftable]]]></code>
       <code><![CDATA[$aliases[$db]['tables'][$ftable]['columns'][$ffield]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$col]]></code>
       <code><![CDATA[$colKey]]></code>
       <code><![CDATA[$db]]></code>
-      <code><![CDATA[$db]]></code>
       <code><![CDATA[$ffield]]></code>
       <code><![CDATA[$ffield]]></code>
       <code><![CDATA[$ftable]]></code>
-      <code><![CDATA[$ftable]]></code>
-      <code><![CDATA[$table]]></code>
       <code><![CDATA[$table]]></code>
       <code><![CDATA[$tableKey]]></code>
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$ffield]]></code>
-      <code><![CDATA[$ftable]]></code>
     </MixedOperand>
     <MixedReturnStatement>
+      <code><![CDATA[! empty($aliases[$db]['alias']) ? $aliases[$db]['alias'] : $db]]></code>
+      <code><![CDATA[! empty($aliases[$db]['alias']) ? $aliases[$db]['alias'] : $db]]></code>
+      <code><![CDATA[! empty($aliases[$db]['tables'][$table]['alias']) ? $aliases[$db]['tables'][$table]['alias'] : $table]]></code>
+      <code><![CDATA[! empty($aliases[$db]['tables'][$table]['alias']) ? $aliases[$db]['tables'][$table]['alias'] : $table]]></code>
       <code><![CDATA[$col]]></code>
       <code><![CDATA[$db['alias']]]></code>
       <code><![CDATA[$table['alias']]]></code>

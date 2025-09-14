@@ -201,24 +201,16 @@ abstract class ExportPlugin implements Plugin
      * below methods unless you want to override them.
      */
 
-    /**
-     * Initialize aliases
-     *
-     * @param mixed[] $aliases Alias information for db/table/column
-     * @param string  $db      the database
-     * @param string  $table   the table
-     */
-    public function initAlias(array $aliases, string &$db, string &$table): void
+    /** @param mixed[] $aliases Alias information for db/table/columns */
+    public function getDbAlias(array $aliases, string $db): string
     {
-        if (! empty($aliases[$db]['tables'][$table]['alias'])) {
-            $table = $aliases[$db]['tables'][$table]['alias'];
-        }
+        return ! empty($aliases[$db]['alias']) ? $aliases[$db]['alias'] : $db;
+    }
 
-        if (empty($aliases[$db]['alias'])) {
-            return;
-        }
-
-        $db = $aliases[$db]['alias'];
+    /** @param mixed[] $aliases Alias information for db/table/columns */
+    public function getTableAlias(array $aliases, string $db, string $table): string
+    {
+        return ! empty($aliases[$db]['tables'][$table]['alias']) ? $aliases[$db]['tables'][$table]['alias'] : $table;
     }
 
     /**
@@ -310,9 +302,7 @@ abstract class ExportPlugin implements Plugin
                 $ffield = $aliases[$db]['tables'][$ftable]['columns'][$ffield];
             }
 
-            if (! empty($aliases[$db]['tables'][$ftable]['alias'])) {
-                $ftable = $aliases[$db]['tables'][$ftable]['alias'];
-            }
+            $ftable = $this->getTableAlias($aliases, $db, $ftable);
 
             return $ftable . ' (' . $ffield . ')';
         }
