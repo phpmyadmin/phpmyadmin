@@ -1794,8 +1794,10 @@ class DatabaseInterface implements DbalInterface
             return $hasGrantPrivilege;
         }
 
+        $collation = $this->getServerCollation();
+
         [$user, $host] = $this->getCurrentUserAndHost();
-        $query = QueryGenerator::getInformationSchemaDataForGranteeRequest($user, $host);
+        $query = QueryGenerator::getInformationSchemaDataForGranteeRequest($user, $host, $collation);
         $result = $this->tryQuery($query);
 
         if ($result) {
@@ -1804,7 +1806,7 @@ class DatabaseInterface implements DbalInterface
 
         if (! $hasGrantPrivilege) {
             foreach ($this->getCurrentRolesAndHost() as [$role, $roleHost]) {
-                $query = QueryGenerator::getInformationSchemaDataForGranteeRequest($role, $roleHost ?? '');
+                $query = QueryGenerator::getInformationSchemaDataForGranteeRequest($role, $roleHost ?? '', $collation);
                 $result = $this->tryQuery($query);
 
                 if ($result) {
@@ -1851,8 +1853,10 @@ class DatabaseInterface implements DbalInterface
             return $hasCreatePrivilege;
         }
 
+        $collation = $this->getServerCollation();
+
         [$user, $host] = $this->getCurrentUserAndHost();
-        $query = QueryGenerator::getInformationSchemaDataForCreateRequest($user, $host);
+        $query = QueryGenerator::getInformationSchemaDataForCreateRequest($user, $host, $collation);
         $result = $this->tryQuery($query);
 
         if ($result) {
@@ -1861,7 +1865,7 @@ class DatabaseInterface implements DbalInterface
 
         if (! $hasCreatePrivilege) {
             foreach ($this->getCurrentRolesAndHost() as [$role, $roleHost]) {
-                $query = QueryGenerator::getInformationSchemaDataForCreateRequest($role, $roleHost ?? '');
+                $query = QueryGenerator::getInformationSchemaDataForCreateRequest($role, $roleHost ?? '', $collation);
                 $result = $this->tryQuery($query);
 
                 if ($result) {
