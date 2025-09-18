@@ -109,7 +109,7 @@ class OutputBuffering
         }
 
         ob_start();
-        $this->sendHeader('X-ob_mode', (string) $this->mode);
+        $this->sendHeader('X-ob-mode', (string) $this->mode);
 
         register_shutdown_function(
             [
