@@ -142,12 +142,7 @@ class OutputBuffering
         }
 
         $buffer->on = false;
-        $buffer->content = ob_get_contents();
-        if (ob_get_length() <= 0) {
-            return;
-        }
-
-        ob_end_clean();
+        $buffer->content = ob_get_clean();
     }
 
     /**
@@ -165,7 +160,7 @@ class OutputBuffering
      */
     public function flush(): void
     {
-        if (ob_get_status() && $this->mode) {
+        if (ob_get_level() && $this->mode) {
             ob_flush();
         } else {
             flush();
