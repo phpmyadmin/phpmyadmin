@@ -162,8 +162,8 @@ class OutputBuffering
     {
         if (ob_get_level() && $this->mode) {
             ob_flush();
-        } else {
-            flush();
         }
+
+        flush();
     }
 }
