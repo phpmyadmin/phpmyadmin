@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-09-14 00:27+0000\n"
-"PO-Revision-Date: 2025-05-01 11:02+0000\n"
-"Last-Translator: M393 <maximilian.kroeg@geocept.com>\n"
+"PO-Revision-Date: 2025-09-20 04:06+0000\n"
+"Last-Translator: Phil Jope <Phil.Jope@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "de/>\n"
 "Language: de\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -1944,10 +1944,8 @@ msgid "OFF"
 msgstr "AUS"
 
 #: resources/templates/database/events/index.twig:161
-#, fuzzy
-#| msgid "Excel edition"
 msgid "Event editor"
-msgstr "Excel-Ausgabe"
+msgstr "Event Editor"
 
 #: resources/templates/database/events/index.twig:166
 #: resources/templates/database/routines/index.twig:83
@@ -1972,10 +1970,8 @@ msgid "Save changes"
 msgstr "Änderungen speichern"
 
 #: resources/templates/database/events/index.twig:181
-#, fuzzy
-#| msgid "Export of event %s"
 msgid "Export event"
-msgstr "Export des Ereignisses %s"
+msgstr "Ereignis exportieren"
 
 #: resources/templates/database/export/index.twig:61
 msgid ""
@@ -2440,10 +2436,8 @@ msgid "Function"
 msgstr "Funktion"
 
 #: resources/templates/database/routines/execute_form.twig:54
-#, fuzzy
-#| msgid "This page does not contain any tables!"
 msgid "This routine does not require any parameters."
-msgstr "Diese Seite enthält keine Tabellen!"
+msgstr "Diese Routine enthält keine parameter!"
 
 #: resources/templates/database/routines/index.twig:3 src/Menu.php:371
 #: src/Util.php:1380
@@ -4634,10 +4628,9 @@ msgid "Latched pages"
 msgstr "Belegte Seiten"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:34
-#, fuzzy, php-format
-#| msgid "Busy pages"
+#, php-format
 msgid "%s pages"
-msgstr "Ausgelastete Seiten"
+msgstr "%s Seiten"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:41
 #, fuzzy
@@ -6069,10 +6062,8 @@ msgstr "Aktualisierung der Überwachung fehlgeschlagen"
 
 #: resources/templates/server/status/monitor/index.twig:350
 #: resources/templates/server/status/monitor/index.twig:369
-#, fuzzy
-#| msgid "Warning"
 msgid "Warning:"
-msgstr "Achtung"
+msgstr "Achtung:"
 
 #: resources/templates/server/status/monitor/index.twig:351
 msgid ""
@@ -6093,12 +6084,6 @@ msgid "Local monitor configuration incompatible!"
 msgstr "Die lokale Bildschirmkonfiguration ist nicht kompatibel!"
 
 #: resources/templates/server/status/monitor/index.twig:370
-#, fuzzy
-#| msgid ""
-#| "The chart arrangement configuration in your browsers local storage is not "
-#| "compatible anymore to the newer version of the monitor dialog. It is very "
-#| "likely that your current configuration will not work anymore. Please "
-#| "reset your configuration to default in the <i>Settings</i> menu."
 msgid ""
 "The chart arrangement configuration in your browsers local storage is not "
 "compatible anymore to the newer version of the monitor dialog. It is very "
@@ -6108,7 +6093,7 @@ msgstr ""
 "Die Diagram-Anordnung in Ihrem lokalen Browser-Speicher ist nicht mehr "
 "kompatibel zur neuen Version des Monitor Dialogs. Es ist sehr "
 "wahrscheinlich, dass Ihre aktuellen Einstellungen nicht mehr funktionieren. "
-"Bitte setzen Sie die Konfiguration im <i>Einstellungen</i>-Menü auf die "
+"Bitte setzen Sie die Konfiguration im [em]Einstellungen[/em]-Menü auf die "
 "Standardwerte zurück."
 
 #: resources/templates/server/status/processes/index.twig:14
@@ -7518,16 +7503,12 @@ msgid "There are no triggers to display."
 msgstr "Es sind keine Trigger zum Anzeigen vorhanden."
 
 #: resources/templates/triggers/list.twig:81
-#, fuzzy
-#| msgid "Trigger name"
 msgid "Trigger editor"
-msgstr "Trigger-Name"
+msgstr "Trigger-Editor"
 
 #: resources/templates/triggers/list.twig:101
-#, fuzzy
-#| msgid "Export of trigger %s"
 msgid "Export trigger"
-msgstr "Export des Triggers %s"
+msgstr "Trigger exportieren"
 
 #: resources/templates/view_create.twig:75
 msgid "VIEW name"
@@ -15970,10 +15951,8 @@ msgstr ""
 "Sie müssen einen Namen und einen Typ für jeden Prozeduren-Parameter angeben."
 
 #: src/Database/Routines.php:809
-#, fuzzy
-#| msgid "Invalid routine type: \"%s\""
 msgid "Invalid routine type!"
-msgstr "Ungültiger Prozeduren-Typ: \"%s\""
+msgstr "Ungültiger Prozeduren-Typ!"
 
 #: src/Database/Routines.php:815
 msgid "You must provide a routine name!"
@@ -18958,19 +18937,16 @@ msgstr ""
 "%2$s"
 
 #: src/Types.php:208
-#, fuzzy
-#| msgid ""
-#| "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
-#| "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-19 03:14:07 UTC on "
 "32-bit platforms (MariaDB 11.3 and earlier), and up to 2106-02-07 06:28:15 "
 "UTC on 64-bit platforms (MariaDB 11.5 and later), stored as the number of "
 "seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
-"Ein Zeitstempel, Bereich ist 1970-01-01 00:00:01 UTC bis 2038-01-09 03:14:07 "
-"UTC, gespeichert als Anzahl Sekunden seit Beginn der UNIX-Epoche (1970-01-01 "
-"00:00:00 UTC)"
+"Ein Zeit Stempel, Bereich ist 1970-01-01 00:00:01 UTC bis 2038-01-19 03:14:"
+"07 UTC auf 32-Bit-Plattformen (MariaDB 11.3 und früher) und bis 2106-02-07 "
+"06:28:15 UTC auf 64-Bit-Plattformen (MariaDB 11.5 und später), gespeichert "
+"als Anzahl der Sekunden seit der Epoche (1970-01-01 00:00:00 UTC)"
 
 #: src/Types.php:214
 #, php-format
