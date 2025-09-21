@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-09-14 00:27+0000\n"
+"POT-Creation-Date: 2025-09-21 00:28+0000\n"
 "PO-Revision-Date: 2025-06-17 13:34+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@mfauth.net>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -12315,7 +12315,7 @@ msgstr "தகா வகை!"
 msgid "Value for the column \"%s\""
 msgstr "\"%s\" நிரல்வரிசையின் மதிப்பு"
 
-#: src/Controllers/HomeController.php:96
+#: src/Controllers/HomeController.php:97
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
@@ -12323,7 +12323,7 @@ msgstr ""
 "நீங்கள் ஒரு சர்வரிலிருந்து வெளியேற்றப்பட்டிர்கள். முழுவதும் வெளியேற அனைத்து "
 "சர்வேரிலிருந்தும் வெளியேற வேண்டும்."
 
-#: src/Controllers/HomeController.php:196
+#: src/Controllers/HomeController.php:197
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -12332,14 +12332,14 @@ msgstr ""
 "phpMyAdminனின் கட்டமைப்பு சேமிப்பகம் இன்னும் முழுமையாய் கட்டமைக்கப்படவில்லை.சில "
 "நீட்டிக்கப்பட்ட வசதிகள் முடக்கப்படுள்ளன. %sஏனென்று அறிக%s. "
 
-#: src/Controllers/HomeController.php:202
+#: src/Controllers/HomeController.php:203
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 "<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;அல்லது மாற்றாக எதேனும் தரவுத்தளத்தின் "
 "'செயல்பாடுகள்' தத்தலுக்கு சென்று அங்கு அமைத்தத்தல்."
 
-#: src/Controllers/HomeController.php:266
+#: src/Controllers/HomeController.php:267
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -12352,7 +12352,7 @@ msgstr ""
 "உள்ளது, இதனால் உங்கள் புகுபதிகை(login) phpMyAdmin கட்டமைக்கப்பட்டதை விட விரைவில் "
 "காலாவதியாகிவிடும்."
 
-#: src/Controllers/HomeController.php:286
+#: src/Controllers/HomeController.php:287
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -12361,7 +12361,7 @@ msgstr ""
 "பதிவுத்துணுக்கு ஏற்புடைமைகாலத்தை விட குறைவாக உள்ளதால் உங்கள் புகுபதிவு phpMyAdmin ல் "
 "கட்டமைக்கப்பட்டதை விட விரைவில் காலாவதியாகும்."
 
-#: src/Controllers/HomeController.php:305
+#: src/Controllers/HomeController.php:306
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
@@ -12371,7 +12371,7 @@ msgstr ""
 "(கட்டுப்பாட்டு பாச்) மற்றும் ஊடுருவலுக்கு திறந்திருக்கும்; Controluser 'PMA' க்கான "
 "கடவுச்சொல்லை மாற்றுவதன் மூலம் இந்த பாதுகாப்பு பலவீனத்தை நீங்கள் உண்மையில் சரிசெய்ய வேண்டும்."
 
-#: src/Controllers/HomeController.php:324
+#: src/Controllers/HomeController.php:325
 msgid ""
 "The configuration file needs a valid key for cookie encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
@@ -12381,7 +12381,7 @@ msgstr ""
 "விசை தானாக உருவாக்கப்பட்டது. தயவுசெய்து [doc@cfg_blowfish_secret] ஆவணங்களைப் "
 "பார்க்கவும் [/doc]."
 
-#: src/Controllers/HomeController.php:334
+#: src/Controllers/HomeController.php:335
 #, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
@@ -12392,7 +12392,7 @@ msgstr ""
 "மட்டுமே நீளமாக இருக்க வேண்டும். தயவுசெய்து [doc@cfg_blowfish_secret] ஆவணங்களைப் "
 "பார்க்கவும் [/doc]."
 
-#: src/Controllers/HomeController.php:352
+#: src/Controllers/HomeController.php:353
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -12404,7 +12404,7 @@ msgstr ""
 "பரிந்துரைக்கிறது. இல்லையெனில் உங்கள் சர்வர் பாதுகாப்பு கட்டமைப்பு கோவையை அங்கீகரிக்கப்படாத "
 "பயனர் பதிவிறக்குவதால் பாதிப்பு ஏற்படும்."
 
-#: src/Controllers/HomeController.php:373
+#: src/Controllers/HomeController.php:374
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -12413,7 +12413,7 @@ msgstr ""
 "வழங்கி SUSHOSIN உடன் இயங்குகிறது. நிகழக்கூடிய பிழைமுறைகளுக்கு தயவுசெய்து "
 "%sஆவணச்சான்றை%s காண்க."
 
-#: src/Controllers/HomeController.php:387
+#: src/Controllers/HomeController.php:388
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -12422,7 +12422,14 @@ msgstr ""
 "$ Cfg ['tempdir'] (%s) அணுக முடியாது. Phpmyadmin வார்ப்புருக்களை கேச் செய்ய "
 "முடியவில்லை, இதன் காரணமாக மெதுவாக இருக்கும்."
 
-#: src/Controllers/HomeController.php:442
+#: src/Controllers/HomeController.php:405
+msgid ""
+"The [code]HTTP_HOST[/code] variable is missing, which might cause phpMyAdmin "
+"to not work properly. Please refer to [doc@faq1-46]documentation[/doc] for "
+"possible issues."
+msgstr ""
+
+#: src/Controllers/HomeController.php:458
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -12432,7 +12439,7 @@ msgstr ""
 "பயன்படுத்துகின்றீர்கள். mbstring PHP நீட்சி இல்லாமல் PHPMyAdminஆல் சரங்களை சரியாக "
 "பிரிக்கவியலாது அதனால் எதிர்பாரா முடிவுகள் கிடைக்கலாம்."
 
-#: src/Controllers/HomeController.php:460
+#: src/Controllers/HomeController.php:476
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."

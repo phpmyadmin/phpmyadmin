@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-09-14 00:27+0000\n"
+"POT-Creation-Date: 2025-09-21 00:28+0000\n"
 "PO-Revision-Date: 2025-02-07 22:02+0000\n"
 "Last-Translator: Horus68 <horus68@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -12575,7 +12575,7 @@ msgstr "Mau tipo!"
 msgid "Value for the column \"%s\""
 msgstr "Valor para a coluna \"%s\""
 
-#: src/Controllers/HomeController.php:96
+#: src/Controllers/HomeController.php:97
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
@@ -12583,7 +12583,7 @@ msgstr ""
 "Apenas foi desconectado de um servidor, para se desconectar completamente do "
 "phpMyAdmin, precisa de se desconectar de todos os servidores."
 
-#: src/Controllers/HomeController.php:196
+#: src/Controllers/HomeController.php:197
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -12593,14 +12593,14 @@ msgstr ""
 "configurada, algumas funcionalidades adicionais foram desactivadas. %sSaiba "
 "porquê%s. "
 
-#: src/Controllers/HomeController.php:202
+#: src/Controllers/HomeController.php:203
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 "Ou, alternativamente, vá ao separador 'Operações' de qualquer base de dados "
 "para o configurar."
 
-#: src/Controllers/HomeController.php:266
+#: src/Controllers/HomeController.php:267
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -12612,7 +12612,7 @@ msgstr ""
 "o valor válido para o cookie configurado no phpMyAdmin, e por isso, a sua "
 "autenticação poderá expirar mais cedo que o configurado no phpMyAdmin."
 
-#: src/Controllers/HomeController.php:286
+#: src/Controllers/HomeController.php:287
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -12620,7 +12620,7 @@ msgstr ""
 "Os parâmetros de validade do cookie de início de sessão armazenado não "
 "correspondem aos do cookie de validade configurado no phpMyAdmin."
 
-#: src/Controllers/HomeController.php:305
+#: src/Controllers/HomeController.php:306
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
@@ -12630,7 +12630,7 @@ msgstr ""
 "(controlpass) e está aberto a intrusão; deve mesmo corrigir esta falha de "
 "segurança ao alterar a palavra-passe para o utilizador 'pma'."
 
-#: src/Controllers/HomeController.php:324
+#: src/Controllers/HomeController.php:325
 msgid ""
 "The configuration file needs a valid key for cookie encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
@@ -12640,7 +12640,7 @@ msgstr ""
 "de cookies. Uma chave temporária foi gerada automaticamente para si. "
 "Consulte a documentação [doc@cfg_blowfish_secret][/doc]."
 
-#: src/Controllers/HomeController.php:334
+#: src/Controllers/HomeController.php:335
 #, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
@@ -12651,7 +12651,7 @@ msgstr ""
 "necessário. Deve ter apenas %d bytes de comprimento. Consulte a documentação "
 "[doc@cfg_blowfish_secret][/doc]."
 
-#: src/Controllers/HomeController.php:352
+#: src/Controllers/HomeController.php:353
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -12664,7 +12664,7 @@ msgstr ""
 "segurança do seu servidor pode ser comprometida por pessoas não autorizadas "
 "ao transferir a configuração."
 
-#: src/Controllers/HomeController.php:373
+#: src/Controllers/HomeController.php:374
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -12673,7 +12673,7 @@ msgstr ""
 "Servidor a correr com Suhosin. Por favor verifique a %sdocumentação%s para "
 "eventuais problemas."
 
-#: src/Controllers/HomeController.php:387
+#: src/Controllers/HomeController.php:388
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -12682,7 +12682,14 @@ msgstr ""
 "A $cfg['TempDir'] (%s 1) não se encontra acessível. phpMyAdmin não "
 "conseguirá pôr os modelos no cache e devido a isso irá ser mais lento."
 
-#: src/Controllers/HomeController.php:442
+#: src/Controllers/HomeController.php:405
+msgid ""
+"The [code]HTTP_HOST[/code] variable is missing, which might cause phpMyAdmin "
+"to not work properly. Please refer to [doc@faq1-46]documentation[/doc] for "
+"possible issues."
+msgstr ""
+
+#: src/Controllers/HomeController.php:458
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -12692,7 +12699,7 @@ msgstr ""
 "um charset de multibyte. Sem a extensão mbstring, o phpMyAdmin não pode "
 "separar as cadeias corretamente e pode resultar em resultados inesperados."
 
-#: src/Controllers/HomeController.php:460
+#: src/Controllers/HomeController.php:476
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."

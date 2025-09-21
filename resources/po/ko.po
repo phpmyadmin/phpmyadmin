@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-09-14 00:27+0000\n"
+"POT-Creation-Date: 2025-09-21 00:28+0000\n"
 "PO-Revision-Date: 2024-10-17 16:16+0000\n"
 "Last-Translator: \"Yong Kim (Neatnet)\" <neatnet@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -12163,7 +12163,7 @@ msgstr "잘못된 타입!"
 msgid "Value for the column \"%s\""
 msgstr "\"%s\"행의 값"
 
-#: src/Controllers/HomeController.php:96
+#: src/Controllers/HomeController.php:97
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
@@ -12171,7 +12171,7 @@ msgstr ""
 "한 서버에서만 로그아웃 되었습니다. phpMyAdmin에서 완전히 로그아웃 하시려면 모"
 "든 서버에서 로그아웃 하셔야 합니다."
 
-#: src/Controllers/HomeController.php:196
+#: src/Controllers/HomeController.php:197
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -12180,12 +12180,12 @@ msgstr ""
 "phpMyAdmin 설정 스토리지가 완전히 설정되지 않아, 일부 확장 기능들이 비활성화 "
 "된 상태입니다. 원인을 확인하려면 %s여기%s를 클릭하세요. "
 
-#: src/Controllers/HomeController.php:202
+#: src/Controllers/HomeController.php:203
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr "대신 데이터베이스 작업 탭을 사용하여 설정할 수도 있습니다."
 
-#: src/Controllers/HomeController.php:266
+#: src/Controllers/HomeController.php:267
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -12197,7 +12197,7 @@ msgstr ""
 "cookie 유효기간보다 작게 설정되어 있어, 로그인이 phpMyAdmin 설정값보다 빨리 "
 "만료될 수 있습니다."
 
-#: src/Controllers/HomeController.php:286
+#: src/Controllers/HomeController.php:287
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -12205,7 +12205,7 @@ msgstr ""
 "로그인 쿠키의 저장 시간이 phpMyAdmin에서 설정한 쿠키 유효 시간보다 짧게 설정"
 "되어 있어, 로그인이 설정한 것보다 일찍 만료됩니다."
 
-#: src/Controllers/HomeController.php:305
+#: src/Controllers/HomeController.php:306
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
@@ -12215,7 +12215,7 @@ msgstr ""
 "침입할 수 있으므로, 제어 사용자 'pma'의 암호를 변경하여 이러한 보안 취약점을 "
 "해결하십시오."
 
-#: src/Controllers/HomeController.php:324
+#: src/Controllers/HomeController.php:325
 msgid ""
 "The configuration file needs a valid key for cookie encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
@@ -12224,7 +12224,7 @@ msgstr ""
 "설정 파일에는 쿠키 암호화를 위한 유효한 키가 필요합니다. 임시 키가 자동으로 "
 "생성됩니다. 이 [doc@cfg_blowfish_secret]문서[/doc]를 참조하세요."
 
-#: src/Controllers/HomeController.php:334
+#: src/Controllers/HomeController.php:335
 #, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
@@ -12234,7 +12234,7 @@ msgstr ""
 "구성 파일의 쿠키 암호화 키가 필요 이상으로 깁니다. 이 키는 %d 바이트 길이 여"
 "야합니다. 이 [doc@cfg_blowfish_secret]문서[/doc]를 참조하세요."
 
-#: src/Controllers/HomeController.php:352
+#: src/Controllers/HomeController.php:353
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -12245,7 +12245,7 @@ msgstr ""
 "도 존재합니다. phpMyAdmin 설정 완료후 꼭 삭제하세요. 그렇지 않으며 보안에 취"
 "약해 집니다."
 
-#: src/Controllers/HomeController.php:373
+#: src/Controllers/HomeController.php:374
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -12254,7 +12254,7 @@ msgstr ""
 "Server 가 Suhosin 으로 운영중입니다. 이로 인해 발생할 수 있는 문제는 "
 "%sdocumentation%s 에서 확인이 가능합니다."
 
-#: src/Controllers/HomeController.php:387
+#: src/Controllers/HomeController.php:388
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -12263,7 +12263,14 @@ msgstr ""
 "$cfg['TempDir'] (%s) 에 접근할 수 없습니다. 이로 인해 phpMyAdmin이 템플릿을 "
 "캐싱할 수 없어 느려질 수 있습니다."
 
-#: src/Controllers/HomeController.php:442
+#: src/Controllers/HomeController.php:405
+msgid ""
+"The [code]HTTP_HOST[/code] variable is missing, which might cause phpMyAdmin "
+"to not work properly. Please refer to [doc@faq1-46]documentation[/doc] for "
+"possible issues."
+msgstr ""
+
+#: src/Controllers/HomeController.php:458
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -12273,7 +12280,7 @@ msgstr ""
 "니다. mbstring PHP extension 이 없다면 phpMyAdmin 에서 문자열을 정확하게 나"
 "눌 수 없으며 이로 인해 예상하지 못한 결과가 발생 할 수 있습니다."
 
-#: src/Controllers/HomeController.php:460
+#: src/Controllers/HomeController.php:476
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."

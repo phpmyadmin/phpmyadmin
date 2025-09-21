@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-09-14 00:27+0000\n"
+"POT-Creation-Date: 2025-09-21 00:28+0000\n"
 "PO-Revision-Date: 2023-11-25 02:27+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -12347,7 +12347,7 @@ msgstr "Halb tüüp!"
 msgid "Value for the column \"%s\""
 msgstr "\"%s\" veeru väärtus"
 
-#: src/Controllers/HomeController.php:96
+#: src/Controllers/HomeController.php:97
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
@@ -12355,7 +12355,7 @@ msgstr ""
 "Sind logiti väja ühest serverist. phpMyAdminist täielikuks välja logimiseks "
 "pead logima välja kõigist serveritest."
 
-#: src/Controllers/HomeController.php:196
+#: src/Controllers/HomeController.php:197
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -12364,14 +12364,14 @@ msgstr ""
 "phpMyAdmini häälestuse salvestuskoht ei ole lõplikult häälestatud; mõned "
 "laiendatud funktsioonid ei ole aktiveeritud. %sVaata põhjust%s. "
 
-#: src/Controllers/HomeController.php:202
+#: src/Controllers/HomeController.php:203
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 "Alternatiivina mine suvalises andmebaasis sakile 'Operatsioonid' ja seadista "
 "ta seal."
 
-#: src/Controllers/HomeController.php:266
+#: src/Controllers/HomeController.php:267
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -12383,7 +12383,7 @@ msgstr ""
 "väiksem, kui phpMyAdminis seadistatud küpsise kehtivus. Seetõttu võib "
 "sessioon aeguda kiiremini, kui phpMyAdminis seadistatud."
 
-#: src/Controllers/HomeController.php:286
+#: src/Controllers/HomeController.php:287
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -12392,7 +12392,7 @@ msgstr ""
 "küpsise kehtivus, seetõttu sinu sisselogimine aegub varem, kui phpMyAdminis "
 "seadistatud."
 
-#: src/Controllers/HomeController.php:305
+#: src/Controllers/HomeController.php:306
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
@@ -12402,7 +12402,7 @@ msgstr ""
 "ning on seetõttu sissetungimiseks avatud. Sa peaksid vahetama "
 "kontrollkasutaja 'pma' salasõna, et parandada see turvanõrkus."
 
-#: src/Controllers/HomeController.php:324
+#: src/Controllers/HomeController.php:325
 msgid ""
 "The configuration file needs a valid key for cookie encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
@@ -12412,7 +12412,7 @@ msgstr ""
 "loodi automaatselt ajutine võti. Palun loe "
 "[doc@cfg_blowfish_secret]dokumentatsiooni[/doc]."
 
-#: src/Controllers/HomeController.php:334
+#: src/Controllers/HomeController.php:335
 #, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
@@ -12423,7 +12423,7 @@ msgstr ""
 "kui. See peaks olema ainult %d baiti pikk. Palun tutvu "
 "[doc@cfg_blowfish_secret]dokumentatsiooniga[/doc]."
 
-#: src/Controllers/HomeController.php:352
+#: src/Controllers/HomeController.php:353
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -12435,7 +12435,7 @@ msgstr ""
 "kataloogi kindlasti kustutama. Vastasel korral võivad su serveri turvalisust "
 "ohustada isikud, kes on alla laadinud serveri seadistuste faili."
 
-#: src/Controllers/HomeController.php:373
+#: src/Controllers/HomeController.php:374
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -12444,7 +12444,7 @@ msgstr ""
 "Server töötab koos Suhosin'iga. Võimalike probleemide kohta loe "
 "%sdokumentatsioonist%s."
 
-#: src/Controllers/HomeController.php:387
+#: src/Controllers/HomeController.php:388
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -12453,7 +12453,14 @@ msgstr ""
 "$cfg['TempDir'] (%s) ei ole kasutatav. phpMyAdmin ei saa malle puhvermälus "
 "hoida ja on seetõttu aeglane."
 
-#: src/Controllers/HomeController.php:442
+#: src/Controllers/HomeController.php:405
+msgid ""
+"The [code]HTTP_HOST[/code] variable is missing, which might cause phpMyAdmin "
+"to not work properly. Please refer to [doc@faq1-46]documentation[/doc] for "
+"possible issues."
+msgstr ""
+
+#: src/Controllers/HomeController.php:458
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -12463,7 +12470,7 @@ msgstr ""
 "märgitabelit. Ilma mbstring laiendita ei suuda phpMyAdmin sõnesid "
 "korralikult poolitada ja see võib viia ettearvamatute tulemusteni."
 
-#: src/Controllers/HomeController.php:460
+#: src/Controllers/HomeController.php:476
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
