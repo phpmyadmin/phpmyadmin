@@ -408,7 +408,7 @@ class HomeController extends AbstractController
                 'message' => __(
                     'The [code]HTTP_HOST[/code] variable is missing,'
                     . ' which might cause phpMyAdmin to not work properly.'
-                    . ' Please refer to [doc@faq1-46]documentation[/doc] for possible issues.',
+                    . ' Please refer to [doc@faq1-46]documentation[/doc] for possible issues.'
                 ),
                 'severity' => 'warning',
             ];
