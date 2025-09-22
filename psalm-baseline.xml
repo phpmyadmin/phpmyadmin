@@ -9163,8 +9163,7 @@
     <MixedArrayAccess occurrences="1">
       <code>$value['Name']</code>
     </MixedArrayAccess>
-    <MixedArrayOffset occurrences="3">
-      <code>$partitionMap[$row['PARTITION_NAME']]</code>
+    <MixedArrayOffset occurrences="2">
       <code>$partitionMap[$row['PARTITION_NAME']]</code>
       <code>$partitionMap[$row['PARTITION_NAME']]</code>
     </MixedArrayOffset>

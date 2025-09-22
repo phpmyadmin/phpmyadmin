@@ -41666,11 +41666,6 @@ parameters:
 			path: test/classes/Controllers/Database/PrivilegesControllerTest.php
 
 		-
-			message: "#^Parameter \\#5 \\$dbi of class PhpMyAdmin\\\\Controllers\\\\Database\\\\PrivilegesController constructor expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
-			count: 1
-			path: test/classes/Controllers/Database/PrivilegesControllerTest.php
-
-		-
 			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
 			count: 2
 			path: test/classes/Controllers/Database/RoutinesControllerTest.php
@@ -42607,11 +42602,6 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/PrivilegesControllerTest.php
-
-		-
-			message: "#^Parameter \\#6 \\$dbi of class PhpMyAdmin\\\\Controllers\\\\Table\\\\PrivilegesController constructor expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
 			count: 1
 			path: test/classes/Controllers/Table/PrivilegesControllerTest.php
 
