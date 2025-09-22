@@ -5,5 +5,9 @@ FILES=`find . -name '*.php' -not -path './vendor/*'`
 for FILE in $FILES ; do
     if [ -f $FILE ] ; then
         php -l $FILE
+        test_ret=$?
+        if [ $test_ret -ne 0 ] ; then
+            exit $test_ret
+        fi
     fi
 done
