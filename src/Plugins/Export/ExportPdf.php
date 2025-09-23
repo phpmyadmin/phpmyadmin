@@ -173,9 +173,8 @@ class ExportPdf extends ExportPlugin
         string $sqlQuery,
         array $aliases = [],
     ): bool {
-        $dbAlias = $db;
-        $tableAlias = $table;
-        $this->initAlias($aliases, $dbAlias, $tableAlias);
+        $dbAlias = $this->getDbAlias($aliases, $db);
+        $tableAlias = $this->getTableAlias($aliases, $db, $table);
         $pdf = $this->getPdf();
         $pdf->setCurrentDb($db);
         $pdf->setCurrentTable($table);
@@ -221,10 +220,9 @@ class ExportPdf extends ExportPlugin
      */
     public function exportStructure(string $db, string $table, string $exportMode, array $aliases = []): bool
     {
-        $dbAlias = $db;
-        $tableAlias = $table;
         $purpose = '';
-        $this->initAlias($aliases, $dbAlias, $tableAlias);
+        $dbAlias = $this->getDbAlias($aliases, $db);
+        $tableAlias = $this->getTableAlias($aliases, $db, $table);
         $pdf = $this->getPdf();
         // getting purpose to show at top
         switch ($exportMode) {

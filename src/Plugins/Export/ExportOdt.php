@@ -229,9 +229,7 @@ class ExportOdt extends ExportPlugin
         string $sqlQuery,
         array $aliases = [],
     ): bool {
-        $dbAlias = $db;
-        $tableAlias = $table;
-        $this->initAlias($aliases, $dbAlias, $tableAlias);
+        $tableAlias = $this->getTableAlias($aliases, $db, $table);
         $dbi = DatabaseInterface::getInstance();
         // Gets the data from the database
         $result = $dbi->query($sqlQuery, ConnectionType::User, DatabaseInterface::QUERY_UNBUFFERED);
@@ -253,10 +251,7 @@ class ExportOdt extends ExportPlugin
         if ($this->columns) {
             $this->buffer .= '<table:table-row>';
             foreach ($fieldsMeta as $field) {
-                $colAs = $field->name;
-                if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
-                    $colAs = $aliases[$db]['tables'][$table]['columns'][$colAs];
-                }
+                $colAs = $this->getColumnAlias($aliases, $db, $table, $field->name);
 
                 $this->buffer .= '<table:table-cell office:value-type="string">'
                     . '<text:p>'
@@ -341,9 +336,7 @@ class ExportOdt extends ExportPlugin
      */
     public function getTableDefStandIn(string $db, string $view, array $aliases = []): string
     {
-        $dbAlias = $db;
-        $viewAlias = $view;
-        $this->initAlias($aliases, $dbAlias, $viewAlias);
+        $viewAlias = $this->getTableAlias($aliases, $db, $view);
         $dbi = DatabaseInterface::getInstance();
         /**
          * Gets fields properties
@@ -376,10 +369,7 @@ class ExportOdt extends ExportPlugin
 
         $columns = $dbi->getColumns($db, $view);
         foreach ($columns as $column) {
-            $colAs = $column->field;
-            if (! empty($aliases[$db]['tables'][$view]['columns'][$colAs])) {
-                $colAs = $aliases[$db]['tables'][$view]['columns'][$colAs];
-            }
+            $colAs = $this->getColumnAlias($aliases, $db, $view, $column->field);
 
             $this->buffer .= $this->formatOneColumnDefinition($column, $colAs);
             $this->buffer .= '</table:table-row>';
@@ -399,9 +389,7 @@ class ExportOdt extends ExportPlugin
      */
     public function getTableDef(string $db, string $table, array $aliases = []): bool
     {
-        $dbAlias = $db;
-        $tableAlias = $table;
-        $this->initAlias($aliases, $dbAlias, $tableAlias);
+        $tableAlias = $this->getTableAlias($aliases, $db, $table);
 
         $relationParameters = $this->relation->getRelationParameters();
 
@@ -473,24 +461,17 @@ class ExportOdt extends ExportPlugin
 
         $columns = $dbi->getColumns($db, $table);
         foreach ($columns as $column) {
-            $colAs = $fieldName = $column->field;
-            if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
-                $colAs = $aliases[$db]['tables'][$table]['columns'][$colAs];
-            }
+            $fieldName = $column->field;
+            $colAs = $this->getColumnAlias($aliases, $db, $table, $column->field);
 
             $this->buffer .= $this->formatOneColumnDefinition($column, $colAs);
             if ($this->doRelation && $foreigners !== []) {
                 $foreigner = $this->relation->searchColumnInForeigners($foreigners, $fieldName);
                 if ($foreigner) {
                     $rtable = $foreigner['foreign_table'];
-                    $rfield = $foreigner['foreign_field'];
-                    if (! empty($aliases[$db]['tables'][$rtable]['columns'][$rfield])) {
-                        $rfield = $aliases[$db]['tables'][$rtable]['columns'][$rfield];
-                    }
+                    $rfield = $this->getColumnAlias($aliases, $db, $rtable, $foreigner['foreign_field']);
 
-                    if (! empty($aliases[$db]['tables'][$rtable]['alias'])) {
-                        $rtable = $aliases[$db]['tables'][$rtable]['alias'];
-                    }
+                    $rtable = $this->getTableAlias($aliases, $db, $rtable);
 
                     $relation = htmlspecialchars($rtable . ' (' . $rfield . ')');
                     $this->buffer .= '<table:table-cell office:value-type="string">'
@@ -606,9 +587,7 @@ class ExportOdt extends ExportPlugin
      */
     public function exportStructure(string $db, string $table, string $exportMode, array $aliases = []): bool
     {
-        $dbAlias = $db;
-        $tableAlias = $table;
-        $this->initAlias($aliases, $dbAlias, $tableAlias);
+        $tableAlias = $this->getTableAlias($aliases, $db, $table);
         switch ($exportMode) {
             case 'create_table':
                 $this->buffer .= '<text:h text:outline-level="2" text:style-name="Heading_2"'
