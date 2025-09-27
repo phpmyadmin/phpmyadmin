@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-09-21 00:28+0000\n"
-"PO-Revision-Date: 2023-10-24 11:03+0000\n"
-"Last-Translator: Pavol Linet <linet.pavol@gmail.com>\n"
+"PO-Revision-Date: 2025-09-28 00:28+0000\n"
+"Last-Translator: Miroslav Janega <micoj@seznam.cz>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 5.1.1-dev\n"
+"Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -48,19 +48,17 @@ msgstr "Nastavenia vzhľadu"
 
 #: resources/templates/base.twig:76 resources/templates/home/index.twig:150
 msgid "Color mode for the theme"
-msgstr ""
+msgstr "Farebný režim pre tému"
 
 #: resources/templates/base.twig:80 resources/templates/home/index.twig:154
-#, fuzzy
-#| msgid "Right"
 msgctxt "Light color mode of the theme"
 msgid "Light"
-msgstr "Vpravo"
+msgstr "Svetlo"
 
 #: resources/templates/base.twig:82 resources/templates/home/index.twig:156
 msgctxt "Dark color mode of the theme"
 msgid "Dark"
-msgstr ""
+msgstr "Tmavý"
 
 #: resources/templates/base.twig:95
 #: resources/templates/server/status/monitor/index.twig:8
