@@ -21,7 +21,6 @@ msgstr "Pokiaľ chcete pokračovať, JavaScript musí byť povolený!"
 
 #: resources/templates/base.twig:46
 #, fuzzy
-#| msgid "Add user account"
 msgid "Open user account menu"
 msgstr "Pridať používateľský účet"
 
@@ -42,25 +41,22 @@ msgstr "Dokumentácia"
 
 #: resources/templates/base.twig:73
 #, fuzzy
-#| msgid "Appearance settings"
 msgid "Appearance:"
 msgstr "Nastavenia vzhľadu"
 
 #: resources/templates/base.twig:76 resources/templates/home/index.twig:150
 msgid "Color mode for the theme"
-msgstr ""
+msgstr "Farebný režim pre tému"
 
 #: resources/templates/base.twig:80 resources/templates/home/index.twig:154
-#, fuzzy
-#| msgid "Right"
 msgctxt "Light color mode of the theme"
 msgid "Light"
-msgstr "Vpravo"
+msgstr "Svetlo"
 
 #: resources/templates/base.twig:82 resources/templates/home/index.twig:156
 msgctxt "Dark color mode of the theme"
 msgid "Dark"
-msgstr ""
+msgstr "Tmavý"
 
 #: resources/templates/base.twig:95
 #: resources/templates/server/status/monitor/index.twig:8
@@ -1262,7 +1258,6 @@ msgstr "OK"
 
 #: resources/templates/console/display.twig:178
 #, fuzzy
-#| msgid "Restore default value"
 msgid "Restore default values"
 msgstr "Obnoviť východziu hodnotu"
 
@@ -1344,7 +1339,6 @@ msgstr "Ústredný zoznam stĺpcov pre aktuálnu databázu je prázdny."
 #: resources/templates/database/central_columns/main.twig:168
 #: resources/templates/display/results/table.twig:139
 #, fuzzy
-#| msgid "Filter rows"
 msgid "Filter rows:"
 msgstr "Filtrovať riadky"
 
@@ -1777,7 +1771,6 @@ msgstr "Zvoliť stránku"
 
 #: resources/templates/database/designer/schema_export.twig:6
 #, fuzzy
-#| msgid "Edit or export relational schema"
 msgid "Select export relational type:"
 msgstr "Upraviť alebo exportovať relačnú schému"
 
@@ -1988,7 +1981,6 @@ msgstr "OFF"
 
 #: resources/templates/database/events/index.twig:161
 #, fuzzy
-#| msgid "Excel edition"
 msgid "Event editor"
 msgstr "Verzia Excelu"
 
@@ -2017,7 +2009,6 @@ msgstr "Uložiť stránku"
 
 #: resources/templates/database/events/index.twig:181
 #, fuzzy
-#| msgid "Export of event %s"
 msgid "Export event"
 msgstr "Exportovať udalosť %s"
 
@@ -2538,13 +2529,11 @@ msgstr ""
 
 #: resources/templates/database/routines/index.twig:78
 #, fuzzy
-#| msgid "Routine name"
 msgid "Routine editor"
 msgstr "Meno rutiny"
 
 #: resources/templates/database/routines/index.twig:98
 #, fuzzy
-#| msgid "Export of routine %s"
 msgid "Export routine"
 msgstr "Export rutiny %s"
 
@@ -3507,7 +3496,6 @@ msgstr "Obsahujúca slovo:"
 
 #: resources/templates/gis_data_editor_form.twig:26
 #, fuzzy
-#| msgid "Geometry %d:"
 msgid "Geometry type:"
 msgstr "Geometria %d:"
 
@@ -3620,7 +3608,6 @@ msgstr "Server:"
 
 #: resources/templates/home/index.twig:186
 #, fuzzy
-#| msgid "Host name:"
 msgid "Hostname:"
 msgstr "Názov počítača:"
 
@@ -3940,7 +3927,6 @@ msgstr "%sVytvoriť%s chýbajúce tabuľky pre uloženie phpMyAdmin konfiguráci
 #: resources/templates/login/twofactor/key.twig:3
 #: resources/templates/preferences/two_factor/main.twig:56
 #, fuzzy
-#| msgid "Replicated"
 msgid "Deprecated!"
 msgstr "Replikované"
 
@@ -4091,7 +4077,6 @@ msgstr "Vymazať filter"
 
 #: resources/templates/navigation/tree/quick_warp.twig:5
 #, fuzzy
-#| msgid "Recently used tables"
 msgid "Recently visited tables"
 msgstr "Nedávno použité tabuľky"
 
@@ -4693,7 +4678,6 @@ msgstr "Popis"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:2
 #, fuzzy
-#| msgid "Buffer Pool Usage"
 msgid "Buffer pool usage"
 msgstr "Využitie Vyrovnávacej Pamäte"
 
@@ -4723,13 +4707,11 @@ msgstr "Uzavretých stránok"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:34
 #, fuzzy, php-format
-#| msgid "Busy pages"
 msgid "%s pages"
 msgstr "Spracovávaných stránok"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:41
 #, fuzzy
-#| msgid "Buffer Pool Activity"
 msgid "Buffer pool activity"
 msgstr "Aktivita Vyrovnávacej Pamäte"
 
@@ -5849,13 +5831,11 @@ msgstr "Poradca"
 
 #: resources/templates/server/status/monitor/index.twig:4
 #, fuzzy
-#| msgid "System memory"
 msgid "System monitor"
 msgstr "Systémová pamäť"
 
 #: resources/templates/server/status/monitor/index.twig:7
 #, fuzzy
-#| msgid "Start Monitor"
 msgid "Start monitor"
 msgstr "Spustiť monitor"
 
@@ -5914,7 +5894,6 @@ msgstr ""
 
 #: resources/templates/server/status/monitor/index.twig:58
 #, fuzzy
-#| msgid "Import monitor configuration"
 msgid "Importing system monitor configuration"
 msgstr "Importovať konfiguráciu monitora"
 
@@ -5929,7 +5908,6 @@ msgstr "Obnoviť predvolené"
 
 #: resources/templates/server/status/monitor/index.twig:87
 #, fuzzy
-#| msgid "Monitor Instructions"
 msgid "System monitor instructions"
 msgstr "Monitor inštrukcie"
 
@@ -6094,7 +6072,6 @@ msgstr "Zrušiť požiadavku"
 
 #: resources/templates/server/status/monitor/index.twig:294
 #, fuzzy
-#| msgid "Analysing & loading logs. This may take a while."
 msgid "Analysing and loading logs. This may take a while."
 msgstr "Načítavam a analyzujem záznamy. Môže to chvíľu trvať."
 
@@ -6120,7 +6097,6 @@ msgstr ""
 
 #: resources/templates/server/status/monitor/index.twig:336
 #, fuzzy
-#| msgid "Jump to Log table"
 msgid "Jump to the log table"
 msgstr "Prejsť na tabuľku so záznamami"
 
@@ -6131,7 +6107,6 @@ msgstr "Obnovenie monitora zlyhalo"
 #: resources/templates/server/status/monitor/index.twig:350
 #: resources/templates/server/status/monitor/index.twig:369
 #, fuzzy
-#| msgid "Warning"
 msgid "Warning:"
 msgstr "Upozornenie"
 
@@ -6155,11 +6130,6 @@ msgstr "Vaše nastavenie monitoru nie je kompatibilné!"
 
 #: resources/templates/server/status/monitor/index.twig:370
 #, fuzzy
-#| msgid ""
-#| "The chart arrangement configuration in your browsers local storage is not "
-#| "compatible anymore to the newer version of the monitor dialog. It is very "
-#| "likely that your current configuration will not work anymore. Please "
-#| "reset your configuration to default in the <i>Settings</i> menu."
 msgid ""
 "The chart arrangement configuration in your browsers local storage is not "
 "compatible anymore to the newer version of the monitor dialog. It is very "
@@ -6211,14 +6181,12 @@ msgstr "za hodinu"
 #. l10n: Average per minute
 #: resources/templates/server/status/queries/index.twig:16
 #, fuzzy, php-format
-#| msgid "per minute:"
 msgid "ø per minute: %s"
 msgstr "za minútu:"
 
 #. l10n: Average per second
 #: resources/templates/server/status/queries/index.twig:18
 #, fuzzy, php-format
-#| msgid "per second:"
 msgid "ø per second: %s"
 msgstr "za sekundu:"
 
@@ -6560,7 +6528,6 @@ msgstr "ø Čas"
 
 #: resources/templates/sql/profiling_chart.twig:66
 #, fuzzy
-#| msgid "Profiling results"
 msgid "Pie chart with profiling results."
 msgstr "Výsledky profilovania"
 
@@ -7005,7 +6972,6 @@ msgstr "Tretí krok normalizácie (1NF+2NF+3NF)"
 
 #: resources/templates/table/operations/index.twig:2
 #, fuzzy
-#| msgid "Table options"
 msgid "Table operations"
 msgstr "Parametre tabuľky"
 
@@ -7607,13 +7573,11 @@ msgstr "Neboli nájdené žiadne spúšťače."
 
 #: resources/templates/triggers/list.twig:81
 #, fuzzy
-#| msgid "Trigger name"
 msgid "Trigger editor"
 msgstr "Meno spúšťača"
 
 #: resources/templates/triggers/list.twig:101
 #, fuzzy
-#| msgid "Edit trigger"
 msgid "Export trigger"
 msgstr "Upraviť trigger"
 
@@ -9199,7 +9163,6 @@ msgstr "Zatvorené"
 #: src/Config/ConfigFile.php:608
 #: src/Controllers/JavaScriptMessagesController.php:721
 #, fuzzy
-#| msgid "Monday"
 msgctxt "Week day name"
 msgid "Monday"
 msgstr "Pondelok"
@@ -9207,7 +9170,6 @@ msgstr "Pondelok"
 #: src/Config/ConfigFile.php:609
 #: src/Controllers/JavaScriptMessagesController.php:722
 #, fuzzy
-#| msgid "Tuesday"
 msgctxt "Week day name"
 msgid "Tuesday"
 msgstr "Utorok"
@@ -9215,7 +9177,6 @@ msgstr "Utorok"
 #: src/Config/ConfigFile.php:610
 #: src/Controllers/JavaScriptMessagesController.php:723
 #, fuzzy
-#| msgid "Wednesday"
 msgctxt "Week day name"
 msgid "Wednesday"
 msgstr "Streda"
@@ -9223,7 +9184,6 @@ msgstr "Streda"
 #: src/Config/ConfigFile.php:611
 #: src/Controllers/JavaScriptMessagesController.php:724
 #, fuzzy
-#| msgid "Thursday"
 msgctxt "Week day name"
 msgid "Thursday"
 msgstr "Štvrtok"
@@ -9231,7 +9191,6 @@ msgstr "Štvrtok"
 #: src/Config/ConfigFile.php:612
 #: src/Controllers/JavaScriptMessagesController.php:725
 #, fuzzy
-#| msgid "Friday"
 msgctxt "Week day name"
 msgid "Friday"
 msgstr "Piatok"
@@ -9239,7 +9198,6 @@ msgstr "Piatok"
 #: src/Config/ConfigFile.php:613
 #: src/Controllers/JavaScriptMessagesController.php:726
 #, fuzzy
-#| msgid "Saturday"
 msgctxt "Week day name"
 msgid "Saturday"
 msgstr "Sobota"
@@ -9247,7 +9205,6 @@ msgstr "Sobota"
 #: src/Config/ConfigFile.php:614
 #: src/Controllers/JavaScriptMessagesController.php:720
 #, fuzzy
-#| msgid "Sunday"
 msgctxt "Week day name"
 msgid "Sunday"
 msgstr "Nedeľa"
@@ -12110,7 +12067,6 @@ msgstr "Úspešný"
 
 #: src/Controllers/Console/UpdateConfigController.php:51
 #, fuzzy
-#| msgid "Table %1$s has been altered successfully."
 msgid "Console settings has been updated successfully."
 msgstr "Tabuľka %1$s bola úspešné upravená."
 
@@ -12118,7 +12074,6 @@ msgstr "Tabuľka %1$s bola úspešné upravená."
 #: src/Controllers/Console/UpdateConfigController.php:112
 #: src/Controllers/Navigation/UpdateNavWidthConfigController.php:30
 #, fuzzy
-#| msgid "Unexpected character."
 msgid "Unexpected parameter value."
 msgstr "Neočakávaný znak."
 
@@ -12573,7 +12528,6 @@ msgstr ""
 
 #: src/Controllers/Import/ImportController.php:189
 #, fuzzy
-#| msgid "Remove last parameter"
 msgid "Incorrect format parameter"
 msgstr "Odstrániť posledný parameter"
 
@@ -12651,8 +12605,6 @@ msgstr "Chystáte sa ZMAZAŤ celú databázu!"
 
 #: src/Controllers/JavaScriptMessagesController.php:58
 #, fuzzy
-#| msgid ""
-#| "Cannot rename database to the same name. Change the name and try again"
 msgid "Cannot rename database to the same name. Change the name and try again."
 msgstr ""
 "Nemôžem premenovať databázu na rovnaké meno. Zmeňte meno a skúste to znovu"
@@ -12911,7 +12863,6 @@ msgstr "Spojenia / Procesy"
 
 #: src/Controllers/JavaScriptMessagesController.php:175
 #, fuzzy
-#| msgid "Number of tables:"
 msgid "Number of statements"
 msgstr "Počet tabuliek:"
 
@@ -13398,7 +13349,6 @@ msgstr "Zobrazit vyhľadávacie pole"
 
 #: src/Controllers/JavaScriptMessagesController.php:380
 #, fuzzy
-#| msgid "Submit query"
 msgid "Edit query"
 msgstr "Odošli dopyt"
 
@@ -13542,13 +13492,11 @@ msgstr "Neboli vybrané žiadne závislosti!"
 
 #: src/Controllers/JavaScriptMessagesController.php:427
 #, fuzzy
-#| msgid "Use this value"
 msgid "Enter first value"
 msgstr "Použiť túto hodnotu"
 
 #: src/Controllers/JavaScriptMessagesController.php:428
 #, fuzzy
-#| msgid "Session value"
 msgid "Enter second value"
 msgstr "Hodnota sedenia"
 
@@ -13801,7 +13749,6 @@ msgstr "Dvakrát kliknite pre skopírovanie názvu stĺpca."
 
 #: src/Controllers/JavaScriptMessagesController.php:553
 #, fuzzy
-#| msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgid "Click the drop-down arrow to toggle column's visibility."
 msgstr ""
 "Kliknite na šípku rozbaľovacieho zoznamu<br>pre zmenu viditeľnosti stĺpca."
@@ -13893,7 +13840,6 @@ msgstr "aktuálna"
 
 #: src/Controllers/JavaScriptMessagesController.php:597
 #, fuzzy
-#| msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgid "There was an error in loading the Git information."
 msgstr "Vyskytla sa chyba pri importe ESRI shape súboru : \"%s\"."
 
@@ -14101,168 +14047,144 @@ msgstr "Skryť"
 
 #: src/Controllers/JavaScriptMessagesController.php:696
 #, fuzzy
-#| msgid "January"
 msgctxt "Month name"
 msgid "January"
 msgstr "Január"
 
 #: src/Controllers/JavaScriptMessagesController.php:697
 #, fuzzy
-#| msgid "February"
 msgctxt "Month name"
 msgid "February"
 msgstr "Február"
 
 #: src/Controllers/JavaScriptMessagesController.php:698
 #, fuzzy
-#| msgid "March"
 msgctxt "Month name"
 msgid "March"
 msgstr "Marec"
 
 #: src/Controllers/JavaScriptMessagesController.php:699
 #, fuzzy
-#| msgid "April"
 msgctxt "Month name"
 msgid "April"
 msgstr "Apríl"
 
 #: src/Controllers/JavaScriptMessagesController.php:700
 #, fuzzy
-#| msgid "May"
 msgctxt "Month name"
 msgid "May"
 msgstr "Máj"
 
 #: src/Controllers/JavaScriptMessagesController.php:701
 #, fuzzy
-#| msgid "June"
 msgctxt "Month name"
 msgid "June"
 msgstr "Jún"
 
 #: src/Controllers/JavaScriptMessagesController.php:702
 #, fuzzy
-#| msgid "July"
 msgctxt "Month name"
 msgid "July"
 msgstr "Júl"
 
 #: src/Controllers/JavaScriptMessagesController.php:703
 #, fuzzy
-#| msgid "August"
 msgctxt "Month name"
 msgid "August"
 msgstr "August"
 
 #: src/Controllers/JavaScriptMessagesController.php:704
 #, fuzzy
-#| msgid "September"
 msgctxt "Month name"
 msgid "September"
 msgstr "September"
 
 #: src/Controllers/JavaScriptMessagesController.php:705
 #, fuzzy
-#| msgid "October"
 msgctxt "Month name"
 msgid "October"
 msgstr "Október"
 
 #: src/Controllers/JavaScriptMessagesController.php:706
 #, fuzzy
-#| msgid "November"
 msgctxt "Month name"
 msgid "November"
 msgstr "November"
 
 #: src/Controllers/JavaScriptMessagesController.php:707
 #, fuzzy
-#| msgid "December"
 msgctxt "Month name"
 msgid "December"
 msgstr "December"
 
 #: src/Controllers/JavaScriptMessagesController.php:708 src/Util.php:505
 #, fuzzy
-#| msgid "Jan"
 msgctxt "Short month name for January"
 msgid "Jan"
 msgstr "Jan"
 
 #: src/Controllers/JavaScriptMessagesController.php:709 src/Util.php:506
 #, fuzzy
-#| msgid "Feb"
 msgctxt "Short month name for February"
 msgid "Feb"
 msgstr "Feb"
 
 #: src/Controllers/JavaScriptMessagesController.php:710 src/Util.php:507
 #, fuzzy
-#| msgid "Mar"
 msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "Mar"
 
 #: src/Controllers/JavaScriptMessagesController.php:711 src/Util.php:508
 #, fuzzy
-#| msgid "Apr"
 msgctxt "Short month name for April"
 msgid "Apr"
 msgstr "Apr"
 
 #: src/Controllers/JavaScriptMessagesController.php:712 src/Util.php:509
 #, fuzzy
-#| msgid "May"
 msgctxt "Short month name for May"
 msgid "May"
 msgstr "Máj"
 
 #: src/Controllers/JavaScriptMessagesController.php:713 src/Util.php:510
 #, fuzzy
-#| msgid "Jun"
 msgctxt "Short month name for June"
 msgid "Jun"
 msgstr "Jún"
 
 #: src/Controllers/JavaScriptMessagesController.php:714 src/Util.php:511
 #, fuzzy
-#| msgid "Jul"
 msgctxt "Short month name for July"
 msgid "Jul"
 msgstr "Júl"
 
 #: src/Controllers/JavaScriptMessagesController.php:715 src/Util.php:512
 #, fuzzy
-#| msgid "Aug"
 msgctxt "Short month name for August"
 msgid "Aug"
 msgstr "Aug"
 
 #: src/Controllers/JavaScriptMessagesController.php:716 src/Util.php:513
 #, fuzzy
-#| msgid "Sep"
 msgctxt "Short month name for September"
 msgid "Sep"
 msgstr "Sep"
 
 #: src/Controllers/JavaScriptMessagesController.php:717 src/Util.php:514
 #, fuzzy
-#| msgid "Oct"
 msgctxt "Short month name for October"
 msgid "Oct"
 msgstr "Okt"
 
 #: src/Controllers/JavaScriptMessagesController.php:718 src/Util.php:515
 #, fuzzy
-#| msgid "Nov"
 msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "Nov"
 
 #: src/Controllers/JavaScriptMessagesController.php:719 src/Util.php:516
 #, fuzzy
-#| msgid "Dec"
 msgctxt "Short month name for December"
 msgid "Dec"
 msgstr "Dec"
@@ -14275,98 +14197,84 @@ msgstr "Ned"
 
 #: src/Controllers/JavaScriptMessagesController.php:728 src/Util.php:520
 #, fuzzy
-#| msgid "Mon"
 msgctxt "Short week day name for Monday"
 msgid "Mon"
 msgstr "Po"
 
 #: src/Controllers/JavaScriptMessagesController.php:729 src/Util.php:521
 #, fuzzy
-#| msgid "Tue"
 msgctxt "Short week day name for Tuesday"
 msgid "Tue"
 msgstr "Út"
 
 #: src/Controllers/JavaScriptMessagesController.php:730 src/Util.php:522
 #, fuzzy
-#| msgid "Wed"
 msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr "St"
 
 #: src/Controllers/JavaScriptMessagesController.php:731 src/Util.php:523
 #, fuzzy
-#| msgid "Thu"
 msgctxt "Short week day name for Thursday"
 msgid "Thu"
 msgstr "Št"
 
 #: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:524
 #, fuzzy
-#| msgid "Fri"
 msgctxt "Short week day name for Friday"
 msgid "Fri"
 msgstr "Pi"
 
 #: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:525
 #, fuzzy
-#| msgid "Sat"
 msgctxt "Short week day name for Saturday"
 msgid "Sat"
 msgstr "So"
 
 #: src/Controllers/JavaScriptMessagesController.php:734
 #, fuzzy
-#| msgid "Su"
 msgctxt "Minimal week day name for Sunday"
 msgid "Su"
 msgstr "Ne"
 
 #: src/Controllers/JavaScriptMessagesController.php:735
 #, fuzzy
-#| msgid "Mo"
 msgctxt "Minimal week day name for Monday"
 msgid "Mo"
 msgstr "Po"
 
 #: src/Controllers/JavaScriptMessagesController.php:736
 #, fuzzy
-#| msgid "Tu"
 msgctxt "Minimal week day name for Tuesday"
 msgid "Tu"
 msgstr "Ut"
 
 #: src/Controllers/JavaScriptMessagesController.php:737
 #, fuzzy
-#| msgid "We"
 msgctxt "Minimal week day name for Wednesday"
 msgid "We"
 msgstr "St"
 
 #: src/Controllers/JavaScriptMessagesController.php:738
 #, fuzzy
-#| msgid "Th"
 msgctxt "Minimal week day name for Thursday"
 msgid "Th"
 msgstr "Št"
 
 #: src/Controllers/JavaScriptMessagesController.php:739
 #, fuzzy
-#| msgid "Fr"
 msgctxt "Minimal week day name for Friday"
 msgid "Fr"
 msgstr "Pi"
 
 #: src/Controllers/JavaScriptMessagesController.php:740
 #, fuzzy
-#| msgid "Sa"
 msgctxt "Minimal week day name for Saturday"
 msgid "Sa"
 msgstr "So"
 
 #: src/Controllers/JavaScriptMessagesController.php:741
 #, fuzzy
-#| msgid "Wk"
 msgctxt "Column header for week of the year in calendar"
 msgid "Wk"
 msgstr "Týž"
@@ -14386,50 +14294,42 @@ msgstr "žiadny"
 
 #: src/Controllers/JavaScriptMessagesController.php:745
 #, fuzzy
-#| msgid "Time"
 msgctxt "A specific point in the day, as shown on a clock"
 msgid "Time"
 msgstr "Čas"
 
 #: src/Controllers/JavaScriptMessagesController.php:746
 #, fuzzy
-#| msgid "Hour"
 msgctxt "Unit of time"
 msgid "Hour"
 msgstr "Hodiny"
 
 #: src/Controllers/JavaScriptMessagesController.php:747
 #, fuzzy
-#| msgid "Minute"
 msgctxt "Unit of time"
 msgid "Minute"
 msgstr "Minúty"
 
 #: src/Controllers/JavaScriptMessagesController.php:748
 #, fuzzy
-#| msgid "Second"
 msgctxt "Unit of time"
 msgid "Second"
 msgstr "Sekundy"
 
 #: src/Controllers/JavaScriptMessagesController.php:749
 #, fuzzy
-#| msgid "seconds"
 msgctxt "Unit of time"
 msgid "Millisecond"
 msgstr "Sekundy"
 
 #: src/Controllers/JavaScriptMessagesController.php:750
 #, fuzzy
-#| msgid "per second"
 msgctxt "Unit of time"
 msgid "Microsecond"
 msgstr "za sekundu"
 
 #: src/Controllers/JavaScriptMessagesController.php:751
 #, fuzzy
-#| msgctxt "Chart type"
-#| msgid "Timeline"
 msgctxt "The time zone for a time of day"
 msgid "Time zone"
 msgstr "Časová os"
@@ -14537,10 +14437,6 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:789
 #, fuzzy
-#| msgid ""
-#| "The file being uploaded is probably larger than the maximum allowed size "
-#| "or this is a known bug in webkit based (Safari, Google Chrome, Arora "
-#| "etc.) browsers."
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size."
 msgstr ""
@@ -14701,7 +14597,6 @@ msgstr ""
 
 #: src/Controllers/Server/Status/QueriesController.php:91
 #, fuzzy
-#| msgid "Add statements:"
 msgid "Other statements"
 msgstr "Pridať príkazy:"
 
@@ -15565,7 +15460,6 @@ msgstr "Tabuľka je prázdna!"
 
 #: src/Controllers/Table/RecentFavoriteController.php:37
 #, fuzzy
-#| msgid "Invalid table name"
 msgid "Invalid database or table name."
 msgstr "Chybné meno tabuľky"
 
@@ -15593,7 +15487,6 @@ msgstr "Stĺpce boli úspešne presunuté."
 
 #: src/Controllers/Table/Structure/MoveColumnsController.php:114
 #, fuzzy
-#| msgid "The selected user was not found in the privilege table."
 msgid "The selected columns do not match the columns in the table."
 msgstr "Zvolený používateľ nebol nájdený v tabuľke práv."
 
@@ -15873,7 +15766,6 @@ msgstr ""
 
 #: src/Database/Routines.php:809
 #, fuzzy
-#| msgid "Invalid routine type: \"%s\""
 msgid "Invalid routine type!"
 msgstr "Chybný typ rutiny: \"%s\""
 
@@ -15934,13 +15826,11 @@ msgstr "Zobrazené riadky %1s - %2s"
 
 #: src/Display/Results.php:3315
 #, fuzzy, php-format
-#| msgid "%1$d total, %2$d in query"
 msgid "%1$s total, %2$s in query"
 msgstr "%1$d celkom, %2$d v dotaze"
 
 #: src/Display/Results.php:3320
 #, fuzzy, php-format
-#| msgid "%d total"
 msgid "%s total"
 msgstr "celkom %d"
 
@@ -16216,7 +16106,6 @@ msgstr "Nahlásiť"
 
 #: src/Exceptions/AuthenticationFailure.php:35
 #, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "Cannot log in to the database server."
 msgstr "Nedá sa prihlásiť k MySQL serveru"
 
@@ -16229,9 +16118,6 @@ msgstr "Prístup odmietnutý!"
 
 #: src/Exceptions/AuthenticationFailure.php:61
 #, fuzzy
-#| msgid ""
-#| "Login without a password is forbidden by configuration (see "
-#| "AllowNoPassword)"
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)."
 msgstr ""
@@ -17058,7 +16944,6 @@ msgstr "Zlé používateľské meno alebo heslo. Prístup zamietnutý."
 
 #: src/Plugins/Auth/AuthenticationSignon.php:129
 #, fuzzy, php-format
-#| msgid "Can not find signon authentication script:"
 msgid "Can not find signon authentication script: %s"
 msgstr "Nepodarilo sa nájsť autorizačný skript pre prihlásenie:"
 
@@ -18551,7 +18436,6 @@ msgstr ""
 
 #: src/Types.php:97
 #, fuzzy
-#| msgid "Empty"
 msgid "empty"
 msgstr "Vyprázdniť"
 
@@ -18663,9 +18547,6 @@ msgstr "Dátum a čas, podporovaný rozsah je od %1$s do %2$s"
 
 #: src/Types.php:208
 #, fuzzy
-#| msgid ""
-#| "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
-#| "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-19 03:14:07 UTC on "
 "32-bit platforms (MariaDB 11.3 and earlier), and up to 2106-02-07 06:28:15 "
@@ -18925,9 +18806,6 @@ msgstr "V ZIP archíve neboli nájdené žiadne súbory!"
 #~ msgstr "Nepodarilo sa načítať konfiguračný súbor!"
 
 #, fuzzy
-#~| msgid ""
-#~| "This usually means there is a syntax error in it, please check any "
-#~| "errors shown below."
 #~ msgid "This usually means there is a syntax error in it."
 #~ msgstr ""
 #~ "Toto je často spôsobené syntaktickou chybou v súbore, prosím skontrolujte "
