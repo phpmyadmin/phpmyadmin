@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-02-27 14:25-0300\n"
-"PO-Revision-Date: 2024-11-10 01:36+0000\n"
+"PO-Revision-Date: 2025-09-29 01:02+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-2/mk/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 5.8.2\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -30,7 +30,7 @@ msgid ""
 "longer than a day before running this analyzer"
 msgstr ""
 "За да имате попрецизни просеци, препорачано е да го оставите серверот да "
-"работи за подолго од еден ден пред да ја извршите оваа анализа"
+"работи подолго од еден ден пред да ја почнете оваа анализа"
 
 #: libraries/advisory_rules_generic.php:17
 #, php-format
