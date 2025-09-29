@@ -182,9 +182,8 @@ class ExportJson extends ExportPlugin
         string $sqlQuery,
         array $aliases = [],
     ): bool {
-        $dbAlias = $db;
-        $tableAlias = $table;
-        $this->initAlias($aliases, $dbAlias, $tableAlias);
+        $dbAlias = $this->getDbAlias($aliases, $db);
+        $tableAlias = $this->getTableAlias($aliases, $db, $table);
 
         if (! $this->first) {
             if (! $this->export->outputHandler(',')) {
@@ -243,9 +242,8 @@ class ExportJson extends ExportPlugin
             $colAs = $field->name;
             if (
                 $db !== null && $table !== null && $aliases !== null
-                && ! empty($aliases[$db]['tables'][$table]['columns'][$colAs])
             ) {
-                $colAs = $aliases[$db]['tables'][$table]['columns'][$colAs];
+                $colAs = $this->getColumnAlias($aliases, $db, $table, $colAs);
             }
 
             $columns[$i] = $colAs;
