@@ -2,21 +2,90 @@ phpMyAdmin - ChangeLog
 ======================
 
 6.0.0 (not yet released)
-- issue        Bump minimum PHP version to 8.2.0
+- issue #17029 Enable Twig's `strict_variables` option in development environment
+- issue #17361 Add webpack bundler
+- issue #16500 Add paging to Routines page
+- issue #17753 Adding `inputmode` numeric to integer fields
+- issue #17765 Make search input field types match columns types (integer and float)
+- issue #17809 Adds support for SHA2 function
+- issue #18098 Added reCaptcha example for Cloudflare Turnstile
+- issue #18223 Add a configuration option to (dis)allow shared bookmarks: `$cfg['AllowSharedBookmarks'] = true;`
+- issue #18225 Make database and web server info separately configurable on `$cfg['ShowServerInfo']`
+- issue #18257 Add support for theme color modes
+- issue #17009 Implement the security header `Permissions-Policy`
+- issue #18349 Allow rollbacking SET queries
+- issue #18589 Add support for PSR-15 middleware
+- issue #18649 Add color mode toggle at the top navigation bar
+- issue #18668 Add number formatting to Total on Browse
+- issue #18747 Add `composer.lock` to version control
+- issue #18799 Add an user account menu button at top right
+- issue #18812 Add role based auth for MySQL 8.x and compatibles
+- issue #18916 Add format button to routine, event and trigger
+- issue #18537 Add copy to clipboard for export as text
+- issue #19287 Add optional support for binary data in database search
+- issue #19308 Added an option in the SQL box to "Format as a single line"
+- issue #19352 Added support for `BETWEEN` and `NOT BETWEEN` on the query generator
+- issue #19525 Add support for `INSERT IGNORE` into for non table imports
+- issue #19555 Add button for Copy Query in Query Generator
+- issue #19691 Show hostname on main page
+- issue #19751 Add Go button at the top of the insert row table
+- issue #19812 Add show create table shortcuts when viewing tables
+- issue #17116 Replace Change Password dialog to modal
+- issue #17125 Replace Add Index dialog with modal
+- issue #17127 Replace Page settings dialog with modal
+- issue #17278 Improve NULL div design
+- issue #17280 Improve theme card heights
+- issue #17399 Handle connection errors with Exception instead of warnings
+- issue #17515 Bump js-cookie version from 2.2.1 to 3.0.1
+- issue #17561 Improve Change Password modal UI
+- issue #17676 Extract `url.php` entry point into a route
+- issue #17677 Extract `js/messages.php` entry point into `/messages` route
+- issue #17801 Export page of Settings is not responsive
 - issue #17842 Change js.cookie.js to js.cookie.min.js
 - issue #17632 Improve tab keypress to text fields on the login form
-- issue        Make database and web server info separately configurable on `$cfg['ShowServerInfo']`
-- issue        Add a configuration option to (dis)allow shared bookmarks: `$cfg['AllowSharedBookmarks'] = true;`
+- issue #18124 Invert svg gis viewer mouse wheel zoom direction
+- issue #18136 Force a full page reload for top menu links
+- issue #18145 Move public files to the public directory
+- issue #18300 Convert JavaScript files to TypeScript
+- issue #18310 Minimize form label column width in Routine, Event and Trigger modals
+- issue #18311 Only allow resizing textarea vertically
+- issue #18365 Change 'reCaptcha' text to 'Captcha'
+- issue #18439 Redesign the SQL message card
+- issue #18576 Wrap the Application::run() code with an HTTP handler
+- issue #18652 Disable AJAX for navigation sidebar links
+- issue #18658 Update OpenLayers
+- issue #18703 Limit label width in create-view table
+- issue #18512 New directory structure
+- issue #18994 Refactor name generation of file imports
+- issue #19110 Refactor recent/favorite tables buttons
+- issue #19182 Refactor GIS editor modal
+- issue #19214 Replace jqPlot library with Chart.js library
+- issue #19294 Simplify IN, NOT IN criteria text in Query Generator
+- issue #19327 Prevent IN / NOT IN duplicates in Query Generator
 - issue        Redesign the User Groups form page
 - issue        Redesign the database and table privileges pages
-- issue #17009 Implement the security header `Permissions-Policy`
-- issue #17951 Allow rollbacking SET queries
-- issue #18529 Add copy to clipboard for export as text
 - issue #19398 Use `application/json` instead of `text/plain` for JSON export
-- issue #19242 Removed the popup that warned about having an auto-saved query
-- issue        Added support for `BETWEEN` and `NOT BETWEEN` on the query generator
-- issue #17480 Added an option in the SQL box to "Format as a single line"
-- issue        Add support for `INSERT IGNORE` into for non table imports
+- issue #19496 Update CODE_OF_CONDUCT.md
+- issue #19513 Hide unwanted input depending on chosen Op type in Query Generator
+- issue #19536 Disable Search input on unary operators
+- issue #19542 Made Search operators `= ''`/`!= ''` more obvious
+- issue #19651 Stay the on same page when deleting a foreign key
+- issue #19712 Import OpenLayers and Bootstrap directly using Webpack
+- issue #19794 Use `jquery-ui-timepicker-addon.min.js` instead of `jquery-ui-timepicker-addon.js`
+- issue #19795 Use `additional-methods.min.js` instead of `additional-methods.js`
+- issue #17351 Drop `stripslashes`
+- issue #17516 Remove `jquery-debounce-throttle` JavaScript dependency
+- issue #17752 Remove Sodium polyfill and require the PHP sodium extension
+- issue #18430 Remove Query-By-Example feature
+- issue #18547 Remove support for the Recode extension
+- issue #18587 Remove the `public/show_config_errors.php` file
+- issue #19128 Remove the `phpmyadmin/twig-i18n-extension` package
+- issue #19243 Bump minimum PHP version to 8.2.0
+- issue #19408 Removed the popup that warned about having an auto-saved query
+- issue #19409 Drop Protocol version
+- issue #19550 Replace jQuery UI's tooltip with Bootstrap's Tooltip
+- issue #19852 Bump Node version to 20
+- issue #19854 Drop support for BaconQrCode v2
 
 5.2.3 (not yet released)
 - issue #19548 Fix missing tooltip in status monitor log table
