@@ -1299,15 +1299,12 @@ function getAutoSavedKey () {
 
 function checkSavedQuery () {
     let key = Sql.getAutoSavedKey();
-    let buttonGetAutoSavedQuery = $('#saved');
 
-    if (isStorageSupported('localStorage') && typeof window.localStorage.getItem(key) === 'string') {
-        buttonGetAutoSavedQuery.prop('disabled', false);
-    // @ts-ignore
-    } else if (window.Cookies.get(key, { path: CommonParams.get('rootPath') })) {
-        buttonGetAutoSavedQuery.prop('disabled', false);
+    if ((isStorageSupported('localStorage') && typeof window.localStorage.getItem(key) === 'string') ||
+         window.Cookies.withAttributes({ path: CommonParams.get('rootPath') }).get(key)) {
+        $('#saved').prop('disabled', false);
     } else {
-        buttonGetAutoSavedQuery.prop('disabled', true);
+        $('#saved').prop('disabled', true);
     }
 }
 
