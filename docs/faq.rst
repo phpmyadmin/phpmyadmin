@@ -883,13 +883,10 @@ Here are a few points to check:
 ---------------------------------
 
 To be able to see a progress bar during your uploads, your server must
-have the `uploadprogress <https://pecl.php.net/package/uploadprogress>`_ extension, and
-you must be running PHP 5.4.0 or higher. Moreover, the JSON extension
-has to be enabled in your PHP.
+have the `uploadprogress <https://pecl.php.net/package/uploadprogress>`_ extension enabled.
 
-If using PHP 5.4.0 or higher, you must set
-``session.upload_progress.enabled`` to ``1`` in your :file:`php.ini`. However,
-starting from phpMyAdmin version 4.0.4, session-based upload progress has
+You must set ``session.upload_progress.enabled`` to ``1`` in your :file:`php.ini`.
+However, starting from phpMyAdmin version 4.0.4, session-based upload progress has
 been temporarily deactivated due to its problematic behavior.
 
 .. _faq2_10:
