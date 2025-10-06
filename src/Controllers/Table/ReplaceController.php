@@ -504,9 +504,7 @@ final class ReplaceController implements InvocableController
                 : [$whereClause];
             $usingKey = true;
             $submitType = $request->getParsedBodyParam('submit_type');
-            $isInsert = $submitType === 'insert'
-                    || $submitType === 'showinsert'
-                    || $submitType === 'insertignore';
+            $isInsert = in_array($submitType, ['insert', 'showinsert', 'insertignore'], true);
         } else {
             // new row => use indexes
             $loopArray = [];

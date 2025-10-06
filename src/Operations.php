@@ -534,12 +534,7 @@ class Operations
         $partitionMethod = Partition::getPartitionMethod(Current::$database, Current::$table);
 
         // add COALESCE or DROP option to choices array depending on Partition method
-        if (
-            $partitionMethod === 'RANGE'
-            || $partitionMethod === 'RANGE COLUMNS'
-            || $partitionMethod === 'LIST'
-            || $partitionMethod === 'LIST COLUMNS'
-        ) {
+        if (in_array($partitionMethod, ['RANGE', 'RANGE COLUMNS', 'LIST', 'LIST COLUMNS'], true)) {
             $choices['DROP'] = __('Drop');
         } else {
             $choices['COALESCE'] = __('Coalesce');

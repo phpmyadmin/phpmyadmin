@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Partitioning;
 use function array_intersect_key;
 use function array_merge;
 use function array_splice;
+use function in_array;
 use function is_numeric;
 use function min;
 
@@ -20,17 +21,11 @@ final class TablePartitionDefinition
         // Only LIST and RANGE type parameters allow subpartitioning
         $partitionDetails['can_have_subpartitions'] = $partitionDetails['partition_count'] > 1
             && isset($partitionDetails['partition_by'])
-            && ($partitionDetails['partition_by'] === 'RANGE'
-                || $partitionDetails['partition_by'] === 'RANGE COLUMNS'
-                || $partitionDetails['partition_by'] === 'LIST'
-                || $partitionDetails['partition_by'] === 'LIST COLUMNS');
+            && in_array($partitionDetails['partition_by'], ['RANGE', 'RANGE COLUMNS', 'LIST', 'LIST COLUMNS'], true);
 
         // Values are specified only for LIST and RANGE type partitions
         $partitionDetails['value_enabled'] = isset($partitionDetails['partition_by'])
-            && ($partitionDetails['partition_by'] === 'RANGE'
-                || $partitionDetails['partition_by'] === 'RANGE COLUMNS'
-                || $partitionDetails['partition_by'] === 'LIST'
-                || $partitionDetails['partition_by'] === 'LIST COLUMNS');
+            && in_array($partitionDetails['partition_by'], ['RANGE', 'RANGE COLUMNS', 'LIST', 'LIST COLUMNS'], true);
 
         return self::extractPartitions($partitionDetails);
     }
