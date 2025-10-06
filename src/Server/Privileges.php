@@ -1081,7 +1081,7 @@ class Privileges
     }
 
     /**
-     * @param mixed[] $row Array with user privileges
+     * @param array<string|null> $row Array with user privileges
      *
      * @return mixed[]
      */

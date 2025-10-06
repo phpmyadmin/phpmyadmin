@@ -92,9 +92,9 @@ class Monitor
     /**
      * Assign the variables for real-time charting data
      *
-     * @param mixed[] $ret             Real-time charting data
-     * @param mixed[] $statusVarValues Status variable values
-     * @param mixed[] $serverVarValues Server variable values
+     * @param mixed[]         $ret             Real-time charting data
+     * @param string[]|null[] $statusVarValues Status variable values
+     * @param string[]|null[] $serverVarValues Server variable values
      *
      * @return mixed[]
      */

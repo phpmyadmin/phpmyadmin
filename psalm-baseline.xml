@@ -28,8 +28,6 @@
       <code><![CDATA[$pattern]]></code>
     </ArgumentTypeCoercion>
     <MixedArgument>
-      <code><![CDATA[$matches[1]]]></code>
-      <code><![CDATA[$matches[2]]]></code>
       <code><![CDATA[$params]]></code>
       <code><![CDATA[$this->variables['version']]]></code>
     </MixedArgument>
@@ -66,12 +64,6 @@
     <PossiblyNullArgument>
       <code><![CDATA[$this->bookmarkFeature]]></code>
     </PossiblyNullArgument>
-  </file>
-  <file src="src/BrowseForeigners.php">
-    <MixedAssignment>
-      <code><![CDATA[$leftKeyname]]></code>
-      <code><![CDATA[$rightKeyname]]></code>
-    </MixedAssignment>
   </file>
   <file src="src/Cache.php">
     <MixedAssignment>
@@ -5314,7 +5306,6 @@
     <MixedAssignment>
       <code><![CDATA[$db]]></code>
       <code><![CDATA[$item]]></code>
-      <code><![CDATA[$part]]></code>
       <code><![CDATA[$path]]></code>
       <code><![CDATA[$path]]></code>
       <code><![CDATA[$path]]></code>
@@ -5556,15 +5547,11 @@
       <code><![CDATA[$dependents]]></code>
       <code><![CDATA[$dependents]]></code>
       <code><![CDATA[$dropCols]]></code>
-      <code><![CDATA[$element]]></code>
       <code><![CDATA[$key]]></code>
       <code><![CDATA[$table]]></code>
       <code><![CDATA[$table]]></code>
       <code><![CDATA[$tablesList]]></code>
     </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[$element]]></code>
-    </MixedOperand>
     <RedundantCast>
       <code><![CDATA[(string) $dependon]]></code>
     </RedundantCast>
@@ -7932,10 +7919,6 @@
       <code><![CDATA[$row]]></code>
       <code><![CDATA[$row['Proc_priv']]]></code>
       <code><![CDATA[$row['Proc_priv']]]></code>
-      <code><![CDATA[$row['Proc_priv']]]></code>
-      <code><![CDATA[$row['Proc_priv']]]></code>
-      <code><![CDATA[$row['Table_priv']]]></code>
-      <code><![CDATA[$row['Table_priv']]]></code>
       <code><![CDATA[$row['Table_priv']]]></code>
       <code><![CDATA[$row['Table_priv']]]></code>
       <code><![CDATA[$sqlQuery]]></code>
@@ -7968,8 +7951,6 @@
       <code><![CDATA[$paramDbName]]></code>
       <code><![CDATA[$paramRoutineName]]></code>
       <code><![CDATA[$paramTableName]]></code>
-      <code><![CDATA[$privilege['routine']]]></code>
-      <code><![CDATA[$privilege['table']]]></code>
       <code><![CDATA[$queries[$tmpCount]]]></code>
       <code><![CDATA[$row]]></code>
       <code><![CDATA[$sqlQuery]]></code>
@@ -8053,7 +8034,11 @@
       <code><![CDATA[$row1[1]]]></code>
       <code><![CDATA[$row2['Column_priv']]]></code>
       <code><![CDATA[$row['Db']]]></code>
+      <code><![CDATA[$row['Proc_priv']]]></code>
+      <code><![CDATA[$row['Proc_priv']]]></code>
       <code><![CDATA[$row['Table_name']]]></code>
+      <code><![CDATA[$row['Table_priv']]]></code>
+      <code><![CDATA[$row['Table_priv']]]></code>
       <code><![CDATA[$row['Table_priv']]]></code>
     </PossiblyNullArgument>
     <PossiblyNullArrayOffset>
@@ -8202,8 +8187,6 @@
       <code><![CDATA[$pointId]]></code>
       <code><![CDATA[$pointId]]></code>
       <code><![CDATA[$ret]]></code>
-      <code><![CDATA[$ret[$chartId][$nodeId][$pointId]['value']]]></code>
-      <code><![CDATA[$ret[$chartId][$nodeId][$pointId]['value']]]></code>
       <code><![CDATA[$ret['busy']]]></code>
       <code><![CDATA[$ret['idle']]]></code>
       <code><![CDATA[$ret['value']]]></code>
