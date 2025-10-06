@@ -282,7 +282,7 @@ class ImportCsv extends AbstractImportCsv
 
             while ($i < $len) {
                 // Deadlock protection
-                if ($lasti == $i && $lastlen == $len) {
+                if ($lasti === $i && $lastlen == $len) {
                     Current::$message = Message::error(
                         __('Invalid format of CSV input on line %d.'),
                     );
