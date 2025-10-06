@@ -1041,7 +1041,7 @@ class Normalization
     /**
      * find all the possible partial keys
      *
-     * @param mixed[] $primaryKey array containing all the column present in primary key
+     * @param list<string> $primaryKey array containing all the column present in primary key
      *
      * @return string[] containing all the possible partial keys(subset of primary key)
      */

@@ -1131,7 +1131,7 @@ class Results
      *
      * @see getTableHeaders()
      *
-     * @param mixed[]       $commentsMap comments array
+     * @param string[][]    $commentsMap comments array
      * @param FieldMetadata $fieldsMeta  set of field properties
      *
      * @return string html content
@@ -2565,7 +2565,7 @@ class Results
      * @param string                   $class            the html class for column
      * @param FieldMetadata            $meta             the meta-information about this field
      * @param ForeignKeyRelatedTable[] $map              the list of relations
-     * @param mixed[]                  $urlParams        the parameters for generate url
+     * @param array<string, string>    $urlParams        the parameters for generate url
      * @param bool                     $conditionField   the column should highlighted or not
      * @param mixed[]                  $transformOptions the transformation parameters
      *
@@ -2673,7 +2673,7 @@ class Results
      * @param string                   $class            the html class for column
      * @param FieldMetadata            $meta             the meta-information about the field
      * @param ForeignKeyRelatedTable[] $map              the list of relations
-     * @param mixed[]                  $urlParams        the parameters for generate url
+     * @param array<string, string>    $urlParams        the parameters for generate url
      * @param bool                     $conditionField   the column should highlighted or not
      * @param mixed[]                  $transformOptions the transformation parameters
      *

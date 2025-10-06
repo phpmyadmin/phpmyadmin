@@ -519,9 +519,9 @@ class ExportHtmlword extends ExportPlugin
     /**
      * Formats the definition for one column
      *
-     * @param Column  $column     info about this column
-     * @param mixed[] $uniqueKeys unique keys of the table
-     * @param string  $colAlias   Column Alias
+     * @param Column                $column     info about this column
+     * @param list<(string | null)> $uniqueKeys unique keys of the table
+     * @param string                $colAlias   Column Alias
      *
      * @return string Formatted column definition
      */

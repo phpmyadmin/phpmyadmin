@@ -265,18 +265,6 @@ parameters:
 			path: src/Advisory/Advisor.php
 
 		-
-			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Advisory/Advisor.php
-
-		-
-			message: '#^Parameter \#1 \$url of static method PhpMyAdmin\\Core\:\:linkURL\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Advisory/Advisor.php
-
-		-
 			message: '#^Parameter \#2 \$values of function vsprintf expects array\<bool\|float\|int\|string\|null\>, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -8575,12 +8563,6 @@ parameters:
 			path: src/Normalization.php
 
 		-
-			message: '#^Binary operation "\." between mixed and '','' results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Normalization.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -12799,7 +12781,7 @@ parameters:
 			path: src/Server/Privileges.php
 
 		-
-			message: '#^Parameter \#1 \$haystack of function str_contains expects string, mixed given\.$#'
+			message: '#^Parameter \#1 \$haystack of function str_contains expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 2
 			path: src/Server/Privileges.php
@@ -12885,13 +12867,13 @@ parameters:
 		-
 			message: '#^Parameter \#2 \$string of function explode expects string, mixed given\.$#'
 			identifier: argument.type
-			count: 6
+			count: 4
 			path: src/Server/Privileges.php
 
 		-
 			message: '#^Parameter \#2 \$string of function explode expects string, string\|null given\.$#'
 			identifier: argument.type
-			count: 3
+			count: 5
 			path: src/Server/Privileges.php
 
 		-
