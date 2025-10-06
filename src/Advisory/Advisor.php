@@ -180,7 +180,7 @@ class Advisor
         ];
     }
 
-    /** @psalm-return array{fired:mixed[], notfired:mixed[], unchecked:mixed[], errors:mixed[]} */
+    /** @return array{fired:mixed[], notfired:mixed[], unchecked:mixed[], errors:mixed[]} */
     public function run(): array
     {
         $this->setVariables();

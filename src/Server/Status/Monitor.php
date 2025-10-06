@@ -131,7 +131,7 @@ class Monitor
      * @param mixed   $cpuload    CPU load
      * @param mixed   $memory     Memory
      *
-     * @return mixed[]
+     * @return array<int, mixed>
      */
     private function getJsonForChartingDataGet(
         array $ret,
@@ -176,7 +176,7 @@ class Monitor
      * @param mixed   $cpuload    CPU load
      * @param mixed   $memory     Memory
      *
-     * @return mixed[]
+     * @return array<int, mixed[]>
      */
     private function getJsonForChartingDataSwitch(
         string $type,

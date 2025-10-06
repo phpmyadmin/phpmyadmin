@@ -490,7 +490,7 @@ final class ReplaceController implements InvocableController
     /**
      * Prepares the update/insert of a row
      *
-     * @return mixed[] $loop_array, $using_key, $is_insert
+     * @return array<int, bool|mixed[]> $loop_array, $using_key, $is_insert
      * @psalm-return array{array, bool, bool}
      */
     private function getParamsForUpdateOrInsert(ServerRequest $request): array

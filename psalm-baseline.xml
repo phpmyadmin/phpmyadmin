@@ -1131,6 +1131,19 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Database/StructureController.php">
+    <LessSpecificReturnStatement>
+      <code><![CDATA[[
+            $currentTable,
+            $formattedSize,
+            $unit,
+            $formattedOverhead,
+            $overheadUnit,
+            $overheadSize,
+            $tableIsView,
+            $sumSize,
+        ]]]></code>
+      <code><![CDATA[[$currentTable, $formattedSize, $unit, $formattedOverhead, $overheadUnit, $overheadSize, $sumSize]]]></code>
+    </LessSpecificReturnStatement>
     <MixedArgument>
       <code><![CDATA[$currentTable['Collation']]]></code>
       <code><![CDATA[$currentTable['Data_free']]]></code>
@@ -1160,13 +1173,6 @@
       <code><![CDATA[$replicaInfo['Wild_Ignore_Table']]]></code>
       <code><![CDATA[$truename]]></code>
     </MixedArgument>
-    <MixedArrayAccess>
-      <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
-      <code><![CDATA[$currentTable['TABLE_TYPE']]]></code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment>
-      <code><![CDATA[$currentTable['TABLE_ROWS']]]></code>
-    </MixedArrayAssignment>
     <MixedAssignment>
       <code><![CDATA[$charset]]></code>
       <code><![CDATA[$dbTable]]></code>
@@ -1193,19 +1199,10 @@
       <code><![CDATA[$dataLength + $quotesLength]]></code>
       <code><![CDATA[$quotesLength]]></code>
     </MixedOperand>
-    <MixedReturnTypeCoercion>
-      <code><![CDATA[[
-            $currentTable,
-            $formattedSize,
-            $unit,
-            $formattedOverhead,
-            $overheadUnit,
-            $overheadSize,
-            $tableIsView,
-            $sumSize,
-        ]]]></code>
+    <MoreSpecificReturnType>
+      <code><![CDATA[array{mixed[], string, string, string, string, int|float, int}]]></code>
       <code><![CDATA[list{mixed[], string, string, string, string, int, bool, int}]]></code>
-    </MixedReturnTypeCoercion>
+    </MoreSpecificReturnType>
     <PossiblyFalseOperand>
       <code><![CDATA[$columnNames]]></code>
     </PossiblyFalseOperand>
@@ -2838,7 +2835,6 @@
       <code><![CDATA[$row[$_POST['criteriaColumnNames'][1]]]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$properties['type']]]></code>
       <code><![CDATA[Current::$database]]></code>
       <code><![CDATA[Current::$table]]></code>
     </MixedArgument>
@@ -3787,7 +3783,6 @@
       <code><![CDATA[$rel['foreign_table']]]></code>
       <code><![CDATA[$rel['foreign_table']]]></code>
       <code><![CDATA[$statementInfo->statement->from]]></code>
-      <code><![CDATA[$urlParams['where_clause']]]></code>
       <code><![CDATA[(int) $this->unlimNumRows / $_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[(int) $this->unlimNumRows / $_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[empty($field->database) ? $this->db : $field->database]]></code>
@@ -4386,6 +4381,26 @@
     <MixedAssignment>
       <code><![CDATA[$subObject]]></code>
     </MixedAssignment>
+    <MixedReturnTypeCoercion>
+      <code><![CDATA[[
+            'is_minimal' => $this->isMinimal,
+            'self_url' => $url ?? null,
+            'error_messages' => $errorMessages ?? '',
+            'scripts' => $scripts ?? '',
+            'is_demo' => $this->config->config->debug->demo,
+            'git_revision_info' => $gitRevisionInfo ?? [],
+            'footer' => $footer ?? '',
+        ]]]></code>
+      <code><![CDATA[array{
+     *   is_minimal: bool,
+     *   self_url: string|null,
+     *   error_messages: string,
+     *   scripts: string,
+     *   is_demo: bool,
+     *   git_revision_info: array<mixed>,
+     *   footer: string
+     * }]]></code>
+    </MixedReturnTypeCoercion>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$object]]></code>
       <code><![CDATA[empty($_REQUEST['no_debug'])]]></code>
@@ -7364,28 +7379,6 @@
     </MixedArrayAssignment>
   </file>
   <file src="src/Plugins/Schema/RelationStats.php">
-    <MixedArgument>
-      <code><![CDATA[$srcLeft - $destLeft]]></code>
-      <code><![CDATA[$srcLeft - $destRight]]></code>
-      <code><![CDATA[$srcRight - $destLeft]]></code>
-      <code><![CDATA[$srcRight - $destRight]]></code>
-    </MixedArgument>
-    <MixedAssignment>
-      <code><![CDATA[$destLeft]]></code>
-      <code><![CDATA[$destRight]]></code>
-      <code><![CDATA[$srcLeft]]></code>
-      <code><![CDATA[$srcRight]]></code>
-    </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[$destPos[0]]]></code>
-      <code><![CDATA[$destPos[1]]]></code>
-      <code><![CDATA[$srcLeft]]></code>
-      <code><![CDATA[$srcLeft]]></code>
-      <code><![CDATA[$srcPos[0]]]></code>
-      <code><![CDATA[$srcPos[1]]]></code>
-      <code><![CDATA[$srcRight]]></code>
-      <code><![CDATA[$srcRight]]></code>
-    </MixedOperand>
     <PossiblyFalseOperand>
       <code><![CDATA[$pos]]></code>
     </PossiblyFalseOperand>
@@ -8137,8 +8130,6 @@
       <code><![CDATA[$ret]]></code>
       <code><![CDATA[$ret[$chartId][$nodeId][$pointId]]]></code>
       <code><![CDATA[$serverVars]]></code>
-      <code><![CDATA[$serverVars]]></code>
-      <code><![CDATA[$statusVars]]></code>
       <code><![CDATA[$statusVars]]></code>
       <code><![CDATA[$temp[strlen($temp) - 1]]]></code>
     </MixedArgument>
