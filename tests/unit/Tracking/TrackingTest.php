@@ -659,8 +659,8 @@ class TrackingTest extends AbstractTestCase
     /**
      * Test for getTrackedData()
      *
-     * @param mixed[]     $fetchArrayReturn Value to be returned by mocked fetchArray
-     * @param TrackedData $expected         Expected value
+     * @param array<string, string> $fetchArrayReturn Value to be returned by mocked fetchArray
+     * @param TrackedData           $expected         Expected value
      */
     #[DataProvider('getTrackedDataProvider')]
     public function testGetTrackedData(array $fetchArrayReturn, TrackedData $expected): void
@@ -695,35 +695,33 @@ class TrackingTest extends AbstractTestCase
     /**
      * Data provider for testGetTrackedData
      *
-     * @return mixed[] Test data
+     * @return iterable<array-key, array{array<string, string>, TrackedData}>
      */
-    public static function getTrackedDataProvider(): array
+    public static function getTrackedDataProvider(): iterable
     {
         $fetchArrayReturn = [
+            'schema_sql' => "# log 20-03-2013 23:33:58 user1\nstat1" .
+            "# log 20-03-2013 23:39:58 user2\n",
+            'data_sql' => '# log ',
+            'schema_snapshot' => 'dataschema',
+            'tracking' => 'SELECT, DELETE',
+        ];
+
+        $data = new TrackedData(
+            '20-03-2013 23:33:58',
+            '20-03-2013 23:39:58',
             [
-                'schema_sql' => "# log 20-03-2013 23:33:58 user1\nstat1" .
-                "# log 20-03-2013 23:39:58 user2\n",
-                'data_sql' => '# log ',
-                'schema_snapshot' => 'dataschema',
-                'tracking' => 'SELECT, DELETE',
+                ['date' => '20-03-2013 23:33:58', 'username' => 'user1', 'statement' => "\nstat1"],
+                ['date' => '20-03-2013 23:39:58', 'username' => 'user2', 'statement' => ''],
             ],
-        ];
+            [],
+            'SELECT, DELETE',
+            'dataschema',
+        );
 
-        $data = [
-            new TrackedData(
-                '20-03-2013 23:33:58',
-                '20-03-2013 23:39:58',
-                [
-                    ['date' => '20-03-2013 23:33:58', 'username' => 'user1', 'statement' => "\nstat1"],
-                    ['date' => '20-03-2013 23:39:58', 'username' => 'user2', 'statement' => ''],
-                ],
-                [],
-                'SELECT, DELETE',
-                'dataschema',
-            ),
-        ];
+        yield [$fetchArrayReturn, $data];
 
-        $fetchArrayReturn[1] = [
+        $fetchArrayReturn = [
             'schema_sql' => "# log 20-03-2012 23:33:58 user1\n" .
             "# log 20-03-2012 23:39:58 user2\n",
             'data_sql' => "# log 20-03-2013 23:33:58 user3\n" .
@@ -732,7 +730,7 @@ class TrackingTest extends AbstractTestCase
             'tracking' => 'SELECT, DELETE',
         ];
 
-        $data[1] = new TrackedData(
+        $data = new TrackedData(
             '20-03-2012 23:33:58',
             '20-03-2013 23:39:58',
             [
@@ -747,6 +745,6 @@ class TrackingTest extends AbstractTestCase
             'dataschema',
         );
 
-        return [[$fetchArrayReturn[0], $data[0]], [$fetchArrayReturn[1], $data[1]]];
+        yield [$fetchArrayReturn, $data];
     }
 }

@@ -121,7 +121,7 @@ class TwoFactorTest extends AbstractTestCase
         return new TwoFactor($user);
     }
 
-    /** @param mixed[] $backendSettings */
+    /** @param array<string, mixed> $backendSettings */
     private function loadQueriesForConfigure(string $backend, array $backendSettings = []): void
     {
         $this->dummyDbi->addResult(

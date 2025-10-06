@@ -421,7 +421,7 @@ class SqlTest extends AbstractTestCase
         ];
     }
 
-    /** @param mixed[] $sessionTmpVal */
+    /** @param array<string, int|string> $sessionTmpVal */
     #[DataProvider('dataProviderCountQueryResults')]
     public function testCountQueryResults(
         string|null $sqlQuery,

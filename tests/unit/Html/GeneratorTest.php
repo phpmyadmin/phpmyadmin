@@ -197,7 +197,7 @@ class GeneratorTest extends AbstractTestCase
     /**
      * Data provider for Generator::linkOrButton test
      *
-     * @return mixed[]
+     * @return array<int, array{array<string, string>[]|string[]|null[]|bool[], int, string}>
      */
     public static function linksOrButtons(): array
     {

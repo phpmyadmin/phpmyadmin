@@ -636,7 +636,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         );
     }
 
-    /** @return mixed[] */
+    /** @return array<array{string, bool, string}> */
     public static function dataProviderPasswordLength(): array
     {
         return [
@@ -979,7 +979,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         self::assertSame($expected, $exception->failureType);
     }
 
-    /** @return mixed[] */
+    /** @return array<string, array{string, string, string, bool, bool, array<string, string[]|string>, string}> */
     public static function checkRulesProvider(): array
     {
         return [

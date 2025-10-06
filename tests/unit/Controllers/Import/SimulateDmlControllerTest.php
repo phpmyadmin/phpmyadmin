@@ -82,7 +82,7 @@ final class SimulateDmlControllerTest extends AbstractTestCase
     }
 
     /**
-     * @psalm-return array<
+     * @return array<
      *   array{
      *     string,
      *     list<array{

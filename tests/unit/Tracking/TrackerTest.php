@@ -342,7 +342,7 @@ class TrackerTest extends AbstractTestCase
     /**
      * Data provider for testParseQuery
      *
-     * @return mixed[] Test data
+     * @return array<array<string|null>>
      */
     public static function parseQueryData(): array
     {

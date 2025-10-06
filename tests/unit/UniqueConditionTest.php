@@ -254,9 +254,9 @@ class UniqueConditionTest extends AbstractTestCase
      * Test for new UniqueCondition
      * note: GROUP_FLAG = MYSQLI_NUM_FLAG = 32769
      *
-     * @param FieldMetadata[] $meta     Meta Information for Field
-     * @param array           $row      Current Ddata Row
-     * @param array           $expected Expected Result
+     * @param FieldMetadata[]                         $meta     Meta Information for Field
+     * @param int[]|string[]                          $row      Current Ddata Row
+     * @param array<string, string>[]|string[]|bool[] $expected Expected Result
      * @psalm-param array<int, string|int|float|null> $row
      * @psalm-param array{string, bool, array<string, string>} $expected
      */

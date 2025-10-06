@@ -367,7 +367,7 @@ class MessageTest extends AbstractTestCase
     /**
      * Data provider for testAffectedRows
      *
-     * @return mixed[] Test-data
+     * @return array<int, array{int, string}> Test-data
      */
     public static function providerAffectedRows(): array
     {
@@ -410,7 +410,7 @@ class MessageTest extends AbstractTestCase
     /**
      * Data provider for testInsertedRows
      *
-     * @return mixed[] Test-data
+     * @return array<int, array{int, string}> Test-data
      */
     public static function providerInsertedRows(): array
     {
@@ -453,7 +453,7 @@ class MessageTest extends AbstractTestCase
     /**
      * Data provider for testDeletedRows
      *
-     * @return mixed[] Test-data
+     * @return array<int, array{int, string}> Test-data
      */
     public static function providerDeletedRows(): array
     {

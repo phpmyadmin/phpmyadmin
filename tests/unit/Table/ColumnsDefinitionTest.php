@@ -221,7 +221,7 @@ class ColumnsDefinitionTest extends AbstractTestCase
     /**
      * test for ColumnsDefinition::decorateColumnMetaDefault
      *
-     * @phpstan-param array<string, string> $expected
+     * @param array<string, string> $expected
      */
     #[DataProvider('providerColumnMetaDefault')]
     public function testDecorateColumnMetaDefault(
@@ -237,7 +237,7 @@ class ColumnsDefinitionTest extends AbstractTestCase
     /**
      * Data provider for testDecorateColumnMetaDefault
      *
-     * @psalm-return array<string, array{string|null, bool, array<string, string>}>
+     * @return array<string, array{string|null, bool, array<string, string>}>
      */
     public static function providerColumnMetaDefault(): array
     {

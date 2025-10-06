@@ -156,8 +156,8 @@ class GisMultiPolygonTest extends GisGeomTestCase
     /**
      * test getShape method
      *
-     * @param mixed[] $rowData array of GIS data
-     * @param string  $shape   expected shape in WKT
+     * @param array<string, array<int, array<string, array<int, int[]>>>> $rowData array of GIS data
+     * @param string                                                      $shape   expected shape in WKT
      */
     #[DataProvider('providerForTestGetShape')]
     public function testGetShape(array $rowData, string $shape): void
@@ -169,7 +169,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
     /**
      * data provider for testGetShape
      *
-     * @return array<array{mixed[], string}>
+     * @return array<array{array<string, array<int, array<string, array<int, int[]>>>>, string}>
      */
     public static function providerForTestGetShape(): array
     {
@@ -362,11 +362,11 @@ class GisMultiPolygonTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsOl() method
      *
-     * @param string  $spatial  GIS MULTIPOLYGON object
-     * @param int     $srid     spatial reference ID
-     * @param string  $label    label for the GIS MULTIPOLYGON object
-     * @param int[]   $color    color for the GIS MULTIPOLYGON object
-     * @param mixed[] $expected
+     * @param string                              $spatial  GIS MULTIPOLYGON object
+     * @param int                                 $srid     spatial reference ID
+     * @param string                              $label    label for the GIS MULTIPOLYGON object
+     * @param int[]                               $color    color for the GIS MULTIPOLYGON object
+     * @param array<string, array<string, mixed>> $expected
      */
     #[DataProvider('providerForPrepareRowAsOl')]
     public function testPrepareRowAsOl(
@@ -383,7 +383,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
     /**
      * data provider for testPrepareRowAsOl() test case
      *
-     * @return array<array{string, int, string, int[], mixed[]}>
+     * @return array<array{string, int, string, int[], array<string, array<string, mixed>>}>
      */
     public static function providerForPrepareRowAsOl(): array
     {

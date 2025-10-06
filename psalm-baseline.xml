@@ -10463,11 +10463,6 @@
       <code><![CDATA[$config->config->debug->sql]]></code>
       <code><![CDATA[$config->config->debug->sql]]></code>
     </InaccessibleProperty>
-    <MixedReturnStatement>
-      <code><![CDATA[mixed[]]]></code>
-      <code><![CDATA[mixed[]]]></code>
-      <code><![CDATA[mixed[]]]></code>
-    </MixedReturnStatement>
     <PossiblyInvalidArgument>
       <code><![CDATA[testFormatError]]></code>
       <code><![CDATA[testFormatError]]></code>
@@ -10550,8 +10545,6 @@
     </MixedAssignment>
     <MixedReturnStatement>
       <code><![CDATA[mixed[]]]></code>
-      <code><![CDATA[mixed[]]]></code>
-      <code><![CDATA[mixed[]]]></code>
     </MixedReturnStatement>
     <PossiblyInvalidArgument>
       <code><![CDATA[testGetSortOrderHiddenInputs]]></code>
@@ -10577,11 +10570,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-  </file>
-  <file src="tests/unit/Engines/PbxtTest.php">
-    <MixedReturnStatement>
-      <code><![CDATA[mixed[]]]></code>
-    </MixedReturnStatement>
   </file>
   <file src="tests/unit/Error/ErrorHandlerTest.php">
     <DeprecatedMethod>
@@ -10773,9 +10761,6 @@
       <code><![CDATA[$params]]></code>
       <code><![CDATA[$params]]></code>
     </MixedArgument>
-    <MixedReturnStatement>
-      <code><![CDATA[mixed[]]]></code>
-    </MixedReturnStatement>
     <PropertyTypeCoercion>
       <code><![CDATA[$config->settings]]></code>
     </PropertyTypeCoercion>
@@ -10814,10 +10799,6 @@
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[Config::getInstance()->settings]]></code>
     </InvalidPropertyAssignmentValue>
-    <MixedReturnStatement>
-      <code><![CDATA[mixed[]]]></code>
-      <code><![CDATA[mixed[]]]></code>
-    </MixedReturnStatement>
     <PossiblyInvalidArgument>
       <code><![CDATA[testSkipByteOrderMarksFromContents]]></code>
       <code><![CDATA[testSkipByteOrderMarksFromContents]]></code>
@@ -10921,24 +10902,15 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <MixedReturnStatement>
-      <code><![CDATA[mixed[]]]></code>
-    </MixedReturnStatement>
+    <PossiblyInvalidArgument>
+      <code><![CDATA[testGetIp]]></code>
+      <code><![CDATA[testGetIp]]></code>
+      <code><![CDATA[testGetIp]]></code>
+      <code><![CDATA[testGetIp]]></code>
+    </PossiblyInvalidArgument>
     <PossiblyNullArrayOffset>
       <code><![CDATA[$config->settings['TrustedProxies']]]></code>
     </PossiblyNullArrayOffset>
-  </file>
-  <file src="tests/unit/MessageTest.php">
-    <MixedReturnStatement>
-      <code><![CDATA[mixed[]]]></code>
-      <code><![CDATA[mixed[]]]></code>
-      <code><![CDATA[mixed[]]]></code>
-    </MixedReturnStatement>
-  </file>
-  <file src="tests/unit/MimeTest.php">
-    <MixedReturnStatement>
-      <code><![CDATA[mixed[]]]></code>
-    </MixedReturnStatement>
   </file>
   <file src="tests/unit/Navigation/NavigationTest.php">
     <DeprecatedMethod>
@@ -11013,11 +10985,6 @@
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
     </InvalidPropertyAssignmentValue>
-  </file>
-  <file src="tests/unit/OperationsTest.php">
-    <TypeDoesNotContainType>
-      <code><![CDATA[assertSame]]></code>
-    </TypeDoesNotContainType>
   </file>
   <file src="tests/unit/PdfTest.php">
     <MixedArgument>
@@ -11107,10 +11074,6 @@
     <MixedPropertyTypeCoercion>
       <code><![CDATA[$config->selectedServer]]></code>
     </MixedPropertyTypeCoercion>
-    <MixedReturnStatement>
-      <code><![CDATA[mixed[]]]></code>
-      <code><![CDATA[mixed[]]]></code>
-    </MixedReturnStatement>
     <PropertyTypeCoercion>
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
@@ -11265,14 +11228,6 @@
       <code><![CDATA[$config->selectedServer]]></code>
     </InvalidPropertyAssignmentValue>
   </file>
-  <file src="tests/unit/Plugins/Export/Helpers/TablePropertyTest.php">
-    <MixedReturnStatement>
-      <code><![CDATA[mixed[]]]></code>
-      <code><![CDATA[mixed[]]]></code>
-      <code><![CDATA[mixed[]]]></code>
-      <code><![CDATA[mixed[]]]></code>
-    </MixedReturnStatement>
-  </file>
   <file src="tests/unit/Plugins/Import/ImportLdiTest.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
@@ -11360,13 +11315,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-  </file>
-  <file src="tests/unit/SanitizeTest.php">
-    <MixedReturnStatement>
-      <code><![CDATA[mixed[]]]></code>
-      <code><![CDATA[mixed[]]]></code>
-      <code><![CDATA[mixed[]]]></code>
-    </MixedReturnStatement>
   </file>
   <file src="tests/unit/Server/PluginsTest.php">
     <DeprecatedMethod>
@@ -11480,11 +11428,6 @@
       <code><![CDATA[testCountQueryResults]]></code>
     </PossiblyInvalidArgument>
   </file>
-  <file src="tests/unit/StorageEngineTest.php">
-    <MixedReturnStatement>
-      <code><![CDATA[mixed[]]]></code>
-    </MixedReturnStatement>
-  </file>
   <file src="tests/unit/Stubs/DummyResult.php">
     <InvalidReturnStatement>
       <code><![CDATA[array_column($this->result, 1, 0)]]></code>
@@ -11538,22 +11481,10 @@
       <code><![CDATA[$sql]]></code>
     </MixedAssignment>
   </file>
-  <file src="tests/unit/TemplateTest.php">
-    <MixedReturnStatement>
-      <code><![CDATA[mixed[]]]></code>
-      <code><![CDATA[mixed[]]]></code>
-      <code><![CDATA[mixed[]]]></code>
-    </MixedReturnStatement>
-  </file>
   <file src="tests/unit/Theme/ThemeManagerTest.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-  </file>
-  <file src="tests/unit/Theme/ThemeTest.php">
-    <MixedReturnStatement>
-      <code><![CDATA[mixed[]]]></code>
-    </MixedReturnStatement>
   </file>
   <file src="tests/unit/Tracking/TrackerTest.php">
     <DeprecatedMethod>
@@ -11570,9 +11501,11 @@
       <code><![CDATA[$config->selectedServer]]></code>
       <code><![CDATA[$config->selectedServer]]></code>
     </InvalidPropertyAssignmentValue>
-    <MixedReturnStatement>
-      <code><![CDATA[mixed[]]]></code>
-    </MixedReturnStatement>
+    <PossiblyInvalidArgument>
+      <code><![CDATA[testParseQuery]]></code>
+      <code><![CDATA[testParseQuery]]></code>
+      <code><![CDATA[testParseQuery]]></code>
+    </PossiblyInvalidArgument>
   </file>
   <file src="tests/unit/Tracking/TrackingTest.php">
     <DeprecatedMethod>
@@ -11587,13 +11520,6 @@
       <code><![CDATA[$ret[0]['statement']]]></code>
       <code><![CDATA[$ret[0]['username']]]></code>
     </MixedArrayAccess>
-    <MixedReturnStatement>
-      <code><![CDATA[mixed[]]]></code>
-    </MixedReturnStatement>
-    <PossiblyUndefinedArrayOffset>
-      <code><![CDATA[$data[0]]]></code>
-      <code><![CDATA[$fetchArrayReturn[0]]]></code>
-    </PossiblyUndefinedArrayOffset>
   </file>
   <file src="tests/unit/TransformationsTest.php">
     <DeprecatedMethod>
@@ -11731,22 +11657,6 @@
       <code><![CDATA[$_SESSION['cache']['server_2']['is_superuser']]]></code>
       <code><![CDATA[$_SESSION['cache']['server_2']['mysql_cur_user']]]></code>
     </MixedArrayAccess>
-    <MixedReturnStatement>
-      <code><![CDATA[mixed[]]]></code>
-      <code><![CDATA[mixed[]]]></code>
-      <code><![CDATA[mixed[]]]></code>
-      <code><![CDATA[mixed[]]]></code>
-      <code><![CDATA[mixed[]]]></code>
-      <code><![CDATA[mixed[]]]></code>
-      <code><![CDATA[mixed[]]]></code>
-      <code><![CDATA[mixed[]]]></code>
-      <code><![CDATA[mixed[]]]></code>
-      <code><![CDATA[mixed[]]]></code>
-      <code><![CDATA[mixed[]]]></code>
-      <code><![CDATA[mixed[]]]></code>
-      <code><![CDATA[mixed[]]]></code>
-      <code><![CDATA[mixed[]]]></code>
-    </MixedReturnStatement>
     <PossiblyInvalidArgument>
       <code><![CDATA[testBackquote]]></code>
       <code><![CDATA[testBackquote]]></code>
@@ -11757,9 +11667,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <MixedReturnStatement>
-      <code><![CDATA[mixed[]]]></code>
-    </MixedReturnStatement>
     <PossiblyInvalidArgument>
       <code><![CDATA[testHandleDisableCheckCleanup]]></code>
       <code><![CDATA[testHandleDisableCheckCleanup]]></code>
@@ -11768,13 +11675,6 @@
       <code><![CDATA[testHandleDisableCheckInitVarFalse]]></code>
       <code><![CDATA[testHandleDisableCheckInitVarFalse]]></code>
     </PossiblyInvalidArgument>
-  </file>
-  <file src="tests/unit/Utils/FormatConverterTest.php">
-    <MixedReturnStatement>
-      <code><![CDATA[mixed[]]]></code>
-      <code><![CDATA[mixed[]]]></code>
-      <code><![CDATA[mixed[]]]></code>
-    </MixedReturnStatement>
   </file>
   <file src="tests/unit/Utils/GisTest.php">
     <PossiblyInvalidArgument>
@@ -11864,8 +11764,5 @@
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['cache']['version_check']]]></code>
     </MixedArrayAccess>
-    <MixedReturnStatement>
-      <code><![CDATA[mixed[]]]></code>
-    </MixedReturnStatement>
   </file>
 </files>
