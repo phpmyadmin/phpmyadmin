@@ -2062,31 +2062,13 @@ parameters:
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: '#^Cannot access offset ''TABLE_NAME'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: '#^Cannot access offset ''TABLE_ROWS'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: '#^Cannot access offset ''TABLE_TYPE'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
 			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
 			identifier: notEqual.notAllowed
 			count: 2
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: '#^Method PhpMyAdmin\\Controllers\\Database\\StructureController\:\:getStuffForEngineTypeTable\(\) should return array\{array\<mixed\>, string, string, string, string, int, bool, int\} but returns array\{mixed, mixed, mixed, mixed, mixed, mixed, bool, mixed\}\.$#'
+			message: '#^Method PhpMyAdmin\\Controllers\\Database\\StructureController\:\:getStuffForEngineTypeTable\(\) should return array\{array\<mixed\>, string, string, string, string, int, bool, int\} but returns array\{non\-empty\-array, string, string, string, string, float\|int, bool, int\}\.$#'
 			identifier: return.type
 			count: 1
 			path: src/Controllers/Database/StructureController.php
@@ -4138,12 +4120,6 @@ parameters:
 			path: src/Controllers/Table/ZoomSearchController.php
 
 		-
-			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Table/ZoomSearchController.php
-
-		-
 			message: '#^Parameter \#1 \$string of function strtoupper expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
@@ -5827,12 +5803,6 @@ parameters:
 			message: '#^Parameter \#1 \$params of static method PhpMyAdmin\\Url\:\:getCommonRaw\(\) expects array\<int\|string, bool\|int\|string\>, array\<string, string\|null\> given\.$#'
 			identifier: argument.type
 			count: 2
-			path: src/Display/Results.php
-
-		-
-			message: '#^Parameter \#1 \$sqlQuery of static method PhpMyAdmin\\Core\:\:signSqlQuery\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
 			path: src/Display/Results.php
 
 		-
@@ -11626,18 +11596,6 @@ parameters:
 			path: src/Plugins/Schema/Pdf/TableStatsPdf.php
 
 		-
-			message: '#^Binary operation "\+" between mixed and int results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 2
-			path: src/Plugins/Schema/RelationStats.php
-
-		-
-			message: '#^Binary operation "\-" between mixed and int results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 2
-			path: src/Plugins/Schema/RelationStats.php
-
-		-
 			message: '#^Call to function array_search\(\) requires parameter \#3 to be set\.$#'
 			identifier: function.strict
 			count: 1
@@ -13189,18 +13147,6 @@ parameters:
 			message: '#^Parameter \#2 \$subject of function preg_match expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 2
-			path: src/Server/Status/Monitor.php
-
-		-
-			message: '#^Parameter \#3 \$serverVars of method PhpMyAdmin\\Server\\Status\\Monitor\:\:getJsonForChartingDataSwitch\(\) expects array\<mixed\>, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Server/Status/Monitor.php
-
-		-
-			message: '#^Parameter \#4 \$statusVars of method PhpMyAdmin\\Server\\Status\\Monitor\:\:getJsonForChartingDataSwitch\(\) expects array\<mixed\>, mixed given\.$#'
-			identifier: argument.type
-			count: 1
 			path: src/Server/Status/Monitor.php
 
 		-

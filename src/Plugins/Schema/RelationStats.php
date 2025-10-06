@@ -98,7 +98,7 @@ abstract class RelationStats
      * @param TableStats $table  The table
      * @param string     $column The relation column name
      *
-     * @return mixed[] Arrows coordinates
+     * @return array<int, int|float> Arrows coordinates
      */
     private function getXy(TableStats $table, string $column): array
     {

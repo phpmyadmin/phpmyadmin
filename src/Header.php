@@ -205,7 +205,7 @@ class Header
         $this->warningsEnabled = false;
     }
 
-    /** @return mixed[] */
+    /** @return array<string, mixed> */
     public function getDisplay(): array
     {
         $themeManager = ContainerBuilder::getContainer()->get(ThemeManager::class);

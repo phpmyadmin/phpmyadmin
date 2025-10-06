@@ -100,7 +100,7 @@ final class StatusController extends AbstractController implements InvocableCont
         return (int) $this->dbi->fetchValue('SELECT UNIX_TIMESTAMP() - ' . $this->data->status['Uptime']);
     }
 
-    /** @return mixed[] */
+    /** @return list<array<string, string>> */
     private function getTrafficInfo(): array
     {
         $hourFactor = 3600 / $this->data->status['Uptime'];
@@ -145,7 +145,7 @@ final class StatusController extends AbstractController implements InvocableCont
         ];
     }
 
-    /** @return mixed[] */
+    /** @return list<array<string, string>> */
     private function getConnectionsInfo(): array
     {
         $hourFactor = 3600 / $this->data->status['Uptime'];
