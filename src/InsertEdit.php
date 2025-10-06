@@ -679,10 +679,8 @@ class InsertEdit
                 ? $currentValue
                 : Util::printableBitValue((int) $currentValue, (int) $specInBrackets);
         } elseif (
-            ($column->trueType === 'timestamp'
-                || $column->trueType === 'datetime'
-                || $column->trueType === 'time')
-            && (str_contains($currentValue, '.'))
+            in_array($column->trueType, ['timestamp', 'datetime', 'time'], true)
+            && str_contains($currentValue, '.')
         ) {
             $currentValue = $asIs
                 ? $currentValue
@@ -748,7 +746,7 @@ class InsertEdit
             return Util::convertBitDefaultValue($defaultValue);
         }
 
-        if ($trueType === 'timestamp' || $trueType === 'datetime' || $trueType === 'time') {
+        if (in_array($trueType, ['timestamp', 'datetime', 'time'], true)) {
             return Util::addMicroseconds($defaultValue);
         }
 
@@ -1093,13 +1091,9 @@ class InsertEdit
         ) {
             if (
                 ($editField->salt !== null
-                    && ($editField->function === 'AES_ENCRYPT'
-                        || $editField->function === 'AES_DECRYPT'
-                        || $editField->function === 'SHA2'))
+                    && in_array($editField->function, ['AES_ENCRYPT', 'AES_DECRYPT', 'SHA2'], true))
                 || ($editField->salt
-                    && ($editField->function === 'DES_ENCRYPT'
-                        || $editField->function === 'DES_DECRYPT'
-                        || $editField->function === 'ENCRYPT'))
+                    && in_array($editField->function, ['DES_ENCRYPT', 'DES_DECRYPT', 'ENCRYPT'], true))
             ) {
                 return $editField->function . '(' . $this->dbi->quoteString($editField->value) . ','
                     . $this->dbi->quoteString($editField->salt) . ')';

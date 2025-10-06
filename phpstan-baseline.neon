@@ -486,7 +486,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 3
+			count: 2
 			path: src/Config.php
 
 		-
@@ -9022,6 +9022,12 @@ parameters:
 			path: src/Plugins.php
 
 		-
+			message: '#^Call to function in_array\(\) with arguments \(class\-string\<PhpMyAdmin\\Properties\\Options\\Groups\\OptionsPropertySubgroup\>&literal\-string\)\|null, array\{''PhpMyAdmin\\\\Properties\\\\Options\\\\Items\\\\BoolPropertyItem'', ''PhpMyAdmin\\\\Properties\\\\Options\\\\Items\\\\MessageOnlyPropertyItem'', ''PhpMyAdmin\\\\Properties\\\\Options\\\\Items\\\\SelectPropertyItem'', ''PhpMyAdmin\\\\Properties\\\\Options\\\\Items\\\\TextPropertyItem''\} and true will always evaluate to false\.$#'
+			identifier: function.impossibleType
+			count: 1
+			path: src/Plugins.php
+
+		-
 			message: '#^Call to function method_exists\(\) with PhpMyAdmin\\Properties\\Options\\OptionsPropertyItem and ''getText'' will always evaluate to true\.$#'
 			identifier: function.alreadyNarrowedType
 			count: 1
@@ -9066,36 +9072,6 @@ parameters:
 		-
 			message: '#^Parameter \#5 \$anchor of static method PhpMyAdmin\\Html\\MySQLDocumentation\:\:show\(\) expects string, mixed given\.$#'
 			identifier: argument.type
-			count: 1
-			path: src/Plugins.php
-
-		-
-			message: '#^Result of \|\| is always false\.$#'
-			identifier: booleanOr.alwaysFalse
-			count: 3
-			path: src/Plugins.php
-
-		-
-			message: '#^Strict comparison using \=\=\= between \(class\-string\<PhpMyAdmin\\Properties\\Options\\Groups\\OptionsPropertySubgroup\>&literal\-string\)\|null and ''PhpMyAdmin\\\\Properties\\\\Options\\\\Items\\\\BoolPropertyItem'' will always evaluate to false\.$#'
-			identifier: identical.alwaysFalse
-			count: 1
-			path: src/Plugins.php
-
-		-
-			message: '#^Strict comparison using \=\=\= between \(class\-string\<PhpMyAdmin\\Properties\\Options\\Groups\\OptionsPropertySubgroup\>&literal\-string\)\|null and ''PhpMyAdmin\\\\Properties\\\\Options\\\\Items\\\\MessageOnlyPropertyItem'' will always evaluate to false\.$#'
-			identifier: identical.alwaysFalse
-			count: 1
-			path: src/Plugins.php
-
-		-
-			message: '#^Strict comparison using \=\=\= between \(class\-string\<PhpMyAdmin\\Properties\\Options\\Groups\\OptionsPropertySubgroup\>&literal\-string\)\|null and ''PhpMyAdmin\\\\Properties\\\\Options\\\\Items\\\\SelectPropertyItem'' will always evaluate to false\.$#'
-			identifier: identical.alwaysFalse
-			count: 1
-			path: src/Plugins.php
-
-		-
-			message: '#^Strict comparison using \=\=\= between \(class\-string\<PhpMyAdmin\\Properties\\Options\\Groups\\OptionsPropertySubgroup\>&literal\-string\)\|null and ''PhpMyAdmin\\\\Properties\\\\Options\\\\Items\\\\TextPropertyItem'' will always evaluate to false\.$#'
-			identifier: identical.alwaysFalse
 			count: 1
 			path: src/Plugins.php
 
