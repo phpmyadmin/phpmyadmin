@@ -40,7 +40,7 @@ final class UriFactoryTest extends TestCase
         self::assertInstanceOf($expectedUri, $uri);
     }
 
-    /** @psalm-return iterable<string, array{class-string<UriFactoryInterface>, class-string<UriInterface>}> */
+    /** @return iterable<string, array{class-string<UriFactoryInterface>, class-string<UriInterface>}> */
     public static function providerForTestCreateUri(): iterable
     {
         yield 'slim/psr7' => [SlimUriFactory::class, Uri::class];
@@ -62,7 +62,7 @@ final class UriFactoryTest extends TestCase
         self::assertInstanceOf($provider, $actual);
     }
 
-    /** @psalm-return iterable<string, array{class-string<UriFactoryInterface>}> */
+    /** @return iterable<string, array{class-string<UriFactoryInterface>}> */
     public static function uriFactoryProviders(): iterable
     {
         yield 'slim/psr7' => [SlimUriFactory::class];

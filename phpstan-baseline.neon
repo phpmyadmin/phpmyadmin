@@ -17326,15 +17326,9 @@ parameters:
 			path: tests/unit/Display/ResultsTest.php
 
 		-
-			message: '#^Method PhpMyAdmin\\Tests\\Display\\ResultsTest\:\:dataProviderForTestGetDataCellForNonNumericColumns\(\) return type has no value type specified in iterable type array\.$#'
-			identifier: missingType.iterableValue
-			count: 3
-			path: tests/unit/Display/ResultsTest.php
-
-		-
 			message: '#^Method PhpMyAdmin\\Tests\\Display\\ResultsTest\:\:dataProviderForTestHandleNonPrintableContents\(\) return type has no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
-			count: 2
+			count: 1
 			path: tests/unit/Display/ResultsTest.php
 
 		-
@@ -18998,6 +18992,12 @@ parameters:
 			identifier: staticMethod.deprecated
 			count: 1
 			path: tests/unit/Utils/ForeignKeyTest.php
+
+		-
+			message: '#^Method PhpMyAdmin\\Tests\\Utils\\FormatConverterTest\:\:providerBinaryToIp\(\) should return array\<array\{string, string, bool\}\> but returns array\{array\{''10\.11\.12\.13'', ''0x0a0b0c0d'', false\}, array\{''my ip'', ''my ip'', false\}, array\{''10\.11\.12\.13'', ''0x0a0b0c0d'', true\}, array\{''6d79206970'', ''my ip'', true\}, array\{''10\.11\.12\.13'', ''0x0a0b0c0d'', true\}, array\{''666566'', ''fef'', true\}, array\{''0ded'', string\|false, true\}, array\{''127\.0\.0\.1'', string\|false, true\}\}\.$#'
+			identifier: return.type
+			count: 1
+			path: tests/unit/Utils/FormatConverterTest.php
 
 		-
 			message: '#^Binary operation "\." between ''Not supported in…'' and mixed results in an error\.$#'

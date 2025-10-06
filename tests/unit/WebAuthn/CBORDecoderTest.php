@@ -29,7 +29,7 @@ class CBORDecoderTest extends TestCase
         self::assertSame($expected, $decoder->decode(new DataStream($data)));
     }
 
-    /** @psalm-return iterable<int, array{string, mixed}> */
+    /** @return iterable<int, array{string, mixed}> */
     public static function dataProviderForTestDecode(): iterable
     {
         return [
@@ -164,7 +164,7 @@ class CBORDecoderTest extends TestCase
         $decoder->decode(new DataStream($data));
     }
 
-    /** @psalm-return iterable<int, array{string}> */
+    /** @return iterable<int, array{string}> */
     public static function indefiniteLengthValuesProvider(): iterable
     {
         return [

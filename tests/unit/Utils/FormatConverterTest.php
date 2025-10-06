@@ -31,7 +31,7 @@ class FormatConverterTest extends AbstractTestCase
     /**
      * Data provider for binaryToIp
      *
-     * @return mixed[]
+     * @return array<array{string, string, bool}>
      */
     public static function providerBinaryToIp(): array
     {
@@ -66,7 +66,7 @@ class FormatConverterTest extends AbstractTestCase
     /**
      * Data provider for ipToBinary
      *
-     * @return mixed[]
+     * @return string[][]
      */
     public static function providerIpToBinary(): array
     {
@@ -75,9 +75,6 @@ class FormatConverterTest extends AbstractTestCase
 
     /**
      * Test for ipToLong
-     *
-     * @param string $expected Expected result given an input
-     * @param string $input    Input to convert
      */
     #[DataProvider('providerIpToLong')]
     public function testIpToLong(string|int $expected, string $input): void
@@ -89,7 +86,7 @@ class FormatConverterTest extends AbstractTestCase
     /**
      * Data provider for ipToLong
      *
-     * @return mixed[]
+     * @return array<array{int|string, string}>
      */
     public static function providerIpToLong(): array
     {

@@ -53,9 +53,9 @@ class AdvisorTest extends AbstractTestCase
     /**
      * Test for adding rule
      *
-     * @param mixed[]     $rule     Rule to test
-     * @param mixed[]     $expected Expected rendered rule in fired/errors list
-     * @param string|null $error    Expected error string (null if none error expected)
+     * @param array<string, string> $rule     Rule to test
+     * @param array<string, string> $expected Expected rendered rule in fired/errors list
+     * @param string|null           $error    Expected error string (null if none error expected)
      * @psalm-param RuleType $rule
      * @psalm-param RuleType|array<empty> $expected
      */

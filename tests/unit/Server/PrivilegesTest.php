@@ -1940,7 +1940,7 @@ class PrivilegesTest extends AbstractTestCase
     /**
      * data provider for testEscapeMysqlWildcards and testUnescapeMysqlWildcards
      *
-     * @psalm-return list<array{string, string}>
+     * @return list<array{string, string}>
      */
     public static function providerUnEscapeMysqlWildcards(): array
     {

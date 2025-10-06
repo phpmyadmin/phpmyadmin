@@ -69,7 +69,7 @@ class SanitizeTest extends AbstractTestCase
     /**
      * Data provider for sanitize [doc@foo] markup
      *
-     * @return mixed[]
+     * @return string[][]
      */
     public static function docLinks(): array
     {
@@ -166,7 +166,7 @@ class SanitizeTest extends AbstractTestCase
     /**
      * Provider for testFormat
      *
-     * @return mixed[]
+     * @return array<int, array{string, bool|int|string|string[], string}>
      */
     public static function variables(): array
     {
@@ -186,7 +186,7 @@ class SanitizeTest extends AbstractTestCase
     /**
      * Data provider for sanitize links
      *
-     * @return mixed[]
+     * @return array<int, array{bool, string, bool, bool}>
      */
     public static function dataProviderCheckLinks(): array
     {

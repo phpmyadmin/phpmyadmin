@@ -36,7 +36,7 @@ class OperationsTest extends AbstractTestCase
         $this->object = new Operations($this->dbi, $relation, new TableMover($this->dbi, $relation));
     }
 
-    /** @param mixed[] $extraChoice */
+    /** @param array<string, string> $extraChoice */
     #[DataProvider('providerGetPartitionMaintenanceChoices')]
     public function testGetPartitionMaintenanceChoices(string $tableName, array $extraChoice): void
     {
@@ -57,7 +57,7 @@ class OperationsTest extends AbstractTestCase
         self::assertSame($expected, $actual);
     }
 
-    /** @psalm-return array<string, array{0: string, 1: array<string, string>}> */
+    /** @return array<string, array{0: string, 1: array<string, string>}> */
     public static function providerGetPartitionMaintenanceChoices(): array
     {
         return [
