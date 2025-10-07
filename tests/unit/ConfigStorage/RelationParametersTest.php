@@ -259,8 +259,8 @@ final class RelationParametersTest extends TestCase
     }
 
     /**
-     * @param mixed[] $params
-     * @param mixed[] $expected
+     * @param array<string, bool|string|int|null> $params
+     * @param array<string, bool|string|null>     $expected
      */
     #[DataProvider('providerForTestToArray')]
     public function testToArray(array $params, array $expected): void
@@ -268,7 +268,7 @@ final class RelationParametersTest extends TestCase
         self::assertSame($expected, RelationParameters::fromArray($params)->toArray());
     }
 
-    /** @return array<string, array<int, array<string, mixed>>> */
+    /** @return array<string, array{array<string, bool|string|int|null>, array<string, bool|string|null>}> */
     public static function providerForTestToArray(): array
     {
         return [

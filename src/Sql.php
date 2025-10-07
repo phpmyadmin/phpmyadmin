@@ -916,17 +916,8 @@ class Sql
      * 6-> When searching using the SEARCH tab which returns zero results
      * 7-> When changing the structure of the table except change operation
      *
-     * @param string                $db                   current database
-     * @param string|null           $table                current table
-     * @param string                $messageToShow        message to show
-     * @param int|string            $numRows              number of rows
-     * @param DisplayResults        $displayResultsObject DisplayResult instance
-     * @param string                $errorMessage         error message from tryQuery
-     * @param ResultInterface|false $result               executed query results
-     * @param string                $sqlQuery             sql query
-     * @param string                $completeQuery        complete sql query
-     * @psalm-param int|numeric-string $numRows
-     * @psalm-param list<array{Status: non-empty-string, Duration: numeric-string}> $profilingResults
+     * @param int|numeric-string                                              $numRows
+     * @param list<array{Status: non-empty-string, Duration: numeric-string}> $profilingResults
      *
      * @return string html
      */
@@ -1265,19 +1256,9 @@ class Sql
     /**
      * Function to display results when the executed query returns non empty results
      *
-     * @param ResultInterface $result               executed query results
-     * @param string          $db                   current database
-     * @param string|null     $table                current table
-     * @param DisplayResults  $displayResultsObject Instance of DisplayResults
-     * @param int|string      $unlimNumRows         unlimited number of rows
-     * @param int|string      $numRows              number of rows
-     * @param string|null     $dispQuery            display query
-     * @param Message|string  $dispMessage          display message
-     * @param string          $sqlQuery             sql query
-     * @param string          $completeQuery        complete sql query
-     * @psalm-param int|numeric-string $unlimNumRows
-     * @psalm-param int|numeric-string $numRows
-     * @psalm-param list<array{Status: non-empty-string, Duration: numeric-string}> $profilingResults
+     * @param int|numeric-string                                              $unlimNumRows
+     * @param int|numeric-string                                              $numRows
+     * @param list<array{Status: non-empty-string, Duration: numeric-string}> $profilingResults
      *
      * @return string html
      */
@@ -1681,7 +1662,7 @@ class Sql
         ]);
     }
 
-    /** @psalm-param list<array{Status: non-empty-string, Duration: numeric-string}> $profilingResults */
+    /** @param list<array{Status: non-empty-string, Duration: numeric-string}> $profilingResults */
     private function getProfilingChart(array $profilingResults): string
     {
         if ($profilingResults === []) {

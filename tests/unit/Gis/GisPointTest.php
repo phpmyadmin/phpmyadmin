@@ -56,8 +56,8 @@ class GisPointTest extends GisGeomTestCase
     /**
      * test getShape method
      *
-     * @param mixed[] $rowData array of GIS data
-     * @param string  $shape   expected shape in WKT
+     * @param array<string, float> $rowData array of GIS data
+     * @param string               $shape   expected shape in WKT
      */
     #[DataProvider('providerForTestGetShape')]
     public function testGetShape(array $rowData, string $shape): void
@@ -69,7 +69,7 @@ class GisPointTest extends GisGeomTestCase
     /**
      * data provider for testGetShape
      *
-     * @return array<array{mixed[], string}>
+     * @return array<array{array<string, float>, string}>
      */
     public static function providerForTestGetShape(): array
     {
@@ -256,11 +256,11 @@ class GisPointTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsOl() method
      *
-     * @param string  $spatial  GIS POINT object
-     * @param int     $srid     spatial reference ID
-     * @param string  $label    label for the GIS POINT object
-     * @param int[]   $color    color for the GIS POINT object
-     * @param mixed[] $expected
+     * @param string                              $spatial  GIS POINT object
+     * @param int                                 $srid     spatial reference ID
+     * @param string                              $label    label for the GIS POINT object
+     * @param int[]                               $color    color for the GIS POINT object
+     * @param array<string, array<string, mixed>> $expected
      */
     #[DataProvider('providerForPrepareRowAsOl')]
     public function testPrepareRowAsOl(
@@ -277,7 +277,7 @@ class GisPointTest extends GisGeomTestCase
     /**
      * data provider for testPrepareRowAsOl() test case
      *
-     * @return array<array{string, int, string, int[], mixed[]}>
+     * @return array<array{string, int, string, int[], array<string, array<string, mixed>>}>
      */
     public static function providerForPrepareRowAsOl(): array
     {

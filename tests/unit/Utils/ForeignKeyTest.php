@@ -39,7 +39,7 @@ class ForeignKeyTest extends AbstractTestCase
     /**
      * data provider for foreign key supported test
      *
-     * @return mixed[]
+     * @return array<array{string, bool}>
      */
     public static function providerIsSupported(): array
     {

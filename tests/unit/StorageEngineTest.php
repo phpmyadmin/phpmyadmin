@@ -103,7 +103,7 @@ class StorageEngineTest extends AbstractTestCase
     /**
      * Provider for testGetEngine
      *
-     * @return mixed[]
+     * @return array<int, array{class-string, string}>
      */
     public static function providerGetEngine(): array
     {

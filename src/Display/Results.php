@@ -1131,7 +1131,7 @@ class Results
      *
      * @see getTableHeaders()
      *
-     * @param mixed[]       $commentsMap comments array
+     * @param string[][]    $commentsMap comments array
      * @param FieldMetadata $fieldsMeta  set of field properties
      *
      * @return string html content
@@ -2565,7 +2565,7 @@ class Results
      * @param string                   $class            the html class for column
      * @param FieldMetadata            $meta             the meta-information about this field
      * @param ForeignKeyRelatedTable[] $map              the list of relations
-     * @param mixed[]                  $urlParams        the parameters for generate url
+     * @param array<string, string>    $urlParams        the parameters for generate url
      * @param bool                     $conditionField   the column should highlighted or not
      * @param mixed[]                  $transformOptions the transformation parameters
      *
@@ -2673,7 +2673,7 @@ class Results
      * @param string                   $class            the html class for column
      * @param FieldMetadata            $meta             the meta-information about the field
      * @param ForeignKeyRelatedTable[] $map              the list of relations
-     * @param mixed[]                  $urlParams        the parameters for generate url
+     * @param array<string, string>    $urlParams        the parameters for generate url
      * @param bool                     $conditionField   the column should highlighted or not
      * @param mixed[]                  $transformOptions the transformation parameters
      *
@@ -3516,12 +3516,12 @@ class Results
      *
      * @see getDataCellForGeometryColumns(), getDataCellForNonNumericColumns(), getSortedColumnMessage()
      *
-     * @param string        $category         BLOB|BINARY|GEOMETRY
-     * @param string|null   $content          the binary content
-     * @param mixed[]       $transformOptions transformation parameters
-     * @param FieldMetadata $meta             the meta-information about the field
-     * @param mixed[]       $urlParams        parameters that should go to the download link
-     * @param bool          $isTruncated      the result is truncated or not
+     * @param string                $category         BLOB|BINARY|GEOMETRY
+     * @param string|null           $content          the binary content
+     * @param mixed[]               $transformOptions transformation parameters
+     * @param FieldMetadata         $meta             the meta-information about the field
+     * @param array<string, string> $urlParams        parameters that should go to the download link
+     * @param bool                  $isTruncated      the result is truncated or not
      */
     private function handleNonPrintableContents(
         string $category,

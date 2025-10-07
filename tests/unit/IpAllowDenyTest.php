@@ -81,7 +81,7 @@ class IpAllowDenyTest extends AbstractTestCase
     /**
      * Data provider for Core::getIp tests
      *
-     * @return mixed[]
+     * @return array<int, array<string|bool|null>>
      */
     public static function proxyIPs(): array
     {

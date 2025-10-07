@@ -242,7 +242,7 @@ class UrlTest extends AbstractTestCase
         $property->setValue(null, null);
     }
 
-    /** @psalm-return array<string, array{string, string|false, string|null}> */
+    /** @return array<string, array{string, string|false, string|null}> */
     public static function getArgSeparatorProvider(): array
     {
         return [

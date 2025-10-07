@@ -434,9 +434,9 @@ class ConfigTest extends AbstractTestCase
     /**
      * Test for selectServer
      *
-     * @param mixed[]        $settings settings array
-     * @param string|mixed[] $request  request
-     * @param int            $expected expected result
+     * @param array<int, array<string, string>> $settings settings array
+     * @param string|mixed[]                    $request  request
+     * @param int                               $expected expected result
      */
     #[DataProvider('selectServerProvider')]
     public function testSelectServer(array $settings, string|array $request, int $expected): void
@@ -463,7 +463,7 @@ class ConfigTest extends AbstractTestCase
     /**
      * Data provider for selectServer test
      *
-     * @return array<string, array{mixed[], string|mixed[], int}>
+     * @return array<string, array{array<int, array<string, string>>, string|mixed[], int}>
      */
     public static function selectServerProvider(): array
     {
@@ -485,8 +485,8 @@ class ConfigTest extends AbstractTestCase
     /**
      * Test for getConnectionParams
      *
-     * @param mixed[] $serverCfg Server configuration
-     * @param mixed[] $expected  Expected result
+     * @param array<string, bool|string>          $serverCfg Server configuration
+     * @param array<string, bool|string|int|null> $expected  Expected result
      */
     #[DataProvider('connectionParams')]
     public function testGetConnectionParams(array $serverCfg, ConnectionType $connectionType, array $expected): void
@@ -498,7 +498,7 @@ class ConfigTest extends AbstractTestCase
     /**
      * Data provider for getConnectionParams test
      *
-     * @return array<array{mixed[], ConnectionType, mixed[]}>
+     * @return array<array{array<string, bool|string>, ConnectionType, array<string, bool|string|int|null>}>
      */
     public static function connectionParams(): array
     {
@@ -637,7 +637,7 @@ class ConfigTest extends AbstractTestCase
         self::assertEquals($expected, $actual);
     }
 
-    /** @psalm-return iterable<string, array{ConnectionType, string, string, string, string}> */
+    /** @return iterable<string, array{ConnectionType, string, string, string, string}> */
     public static function connectionParamsWhenConnectionIsUserOrAuxiliaryProvider(): iterable
     {
         yield 'user with only port empty' => [ConnectionType::User, 'test.host', '', 'test.host', '0'];

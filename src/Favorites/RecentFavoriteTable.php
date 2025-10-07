@@ -26,6 +26,7 @@ final readonly class RecentFavoriteTable implements JsonSerializable
         return ['db' => $this->db->getName(), 'table' => $this->table->getName()];
     }
 
+    /** @return array<string, string> */
     public function jsonSerialize(): mixed
     {
         return [

@@ -27,7 +27,7 @@ final class TransExpressionTest extends AbstractTestCase
         self::assertSame($expected, $compiler->getSource());
     }
 
-    /** @psalm-return iterable<string, array{Node[], non-empty-string}> */
+    /** @return iterable<string, array{Node[], non-empty-string}> */
     public static function transExpressionsProvider(): iterable
     {
         yield 't("Message")' => [[self::getConstantExpression('Message')], '\\_gettext("Message")'];
@@ -150,7 +150,7 @@ final class TransExpressionTest extends AbstractTestCase
         (new TransExpression('t', new Node($arguments), 1))->compile($this->getCompiler());
     }
 
-    /** @psalm-return iterable<string, array{Node[], non-empty-string}> */
+    /** @return iterable<string, array{Node[], non-empty-string}> */
     public static function transExpressionsWithErrorProvider(): iterable
     {
         yield 't()' => [[], 'Value for argument "message" must be a non-empty literal string at line 1.'];

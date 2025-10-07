@@ -8,7 +8,6 @@ use Stringable;
 
 use function in_array;
 use function is_numeric;
-use function is_string;
 
 /**
  * @see https://mariadb.com/kb/en/show-warnings/
@@ -30,14 +29,14 @@ final class Warning implements Stringable
         $this->code = $code >= 1 ? $code : 0;
     }
 
-    /** @param mixed[] $row */
+    /** @param array<string|null> $row */
     public static function fromArray(array $row): self
     {
         $level = '';
         $code = 0;
         $message = '';
 
-        if (isset($row['Level']) && is_string($row['Level'])) {
+        if (isset($row['Level'])) {
             $level = $row['Level'];
         }
 
@@ -45,7 +44,7 @@ final class Warning implements Stringable
             $code = (int) $row['Code'];
         }
 
-        if (isset($row['Message']) && is_string($row['Message'])) {
+        if (isset($row['Message'])) {
             $message = $row['Message'];
         }
 

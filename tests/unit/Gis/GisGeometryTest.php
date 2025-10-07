@@ -90,8 +90,8 @@ class GisGeometryTest extends AbstractTestCase
     /**
      * tests parseWktAndSrid method
      *
-     * @param string  $value  Geometry data
-     * @param mixed[] $output Expected output
+     * @param string                    $value  Geometry data
+     * @param array<string, int|string> $output Expected output
      */
     #[DataProvider('providerForTestParseWktAndSrid')]
     public function testParseWktAndSrid(string $value, array $output): void
@@ -110,7 +110,7 @@ class GisGeometryTest extends AbstractTestCase
     /**
      * data provider for testParseWktAndSrid
      *
-     * @return array<array{string, mixed[]}>
+     * @return array<array{string, array<string, int|string>}>
      */
     public static function providerForTestParseWktAndSrid(): array
     {
@@ -133,7 +133,7 @@ class GisGeometryTest extends AbstractTestCase
      * @param string         $pointSet  String of comma separated points
      * @param ScaleData|null $scaleData Data related to scaling
      * @param bool           $linear    If true, as a 1D array, else as a 2D array
-     * @param mixed[]        $output    Expected output
+     * @param int[][]|int[]  $output    Expected output
      */
     #[DataProvider('providerForTestExtractPointsInternal')]
     public function testExtractPointsInternal(
@@ -154,7 +154,7 @@ class GisGeometryTest extends AbstractTestCase
     /**
      * data provider for testExtractPointsInternal
      *
-     * @return array<array{string, ScaleData|null, bool, mixed[]}>
+     * @return array<array{string, ScaleData|null, bool, int[][]|int[]}>
      */
     public static function providerForTestExtractPointsInternal(): array
     {

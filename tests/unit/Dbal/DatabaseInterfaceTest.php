@@ -62,7 +62,7 @@ final class DatabaseInterfaceTest extends AbstractTestCase
      *
      * @param string[][]|false $value           value
      * @param string           $string          string
-     * @param mixed[]          $expected        expected result
+     * @param string[]         $expected        expected result
      * @param bool             $needsSecondCall The test will need to call another time the DB
      * @psalm-param list<non-empty-list<string>>|false $value
      */
@@ -89,7 +89,7 @@ final class DatabaseInterfaceTest extends AbstractTestCase
     /**
      * Data provider for getCurrentUser() tests.
      *
-     * @return mixed[]
+     * @return array{list<non-empty-list<string>>|false, string, string[], bool}[]
      */
     public static function currentUserData(): array
     {
@@ -135,7 +135,7 @@ final class DatabaseInterfaceTest extends AbstractTestCase
     /**
      * Data provider for getCurrentRole() tests.
      *
-     * @return mixed[]
+     * @return array{string, bool, string[][]|false, string[], string[][]}[]
      */
     public static function currentRolesData(): array
     {
@@ -223,10 +223,10 @@ final class DatabaseInterfaceTest extends AbstractTestCase
      * Tests for DBI::postConnect() method.
      * should set version int, isMariaDB and isPercona
      *
-     * @param array $version    Database version
-     * @param int   $versionInt Database version as integer
-     * @param bool  $isMariaDb  True if mariadb
-     * @param bool  $isPercona  True if percona
+     * @param array<string, string> $version    Database version
+     * @param int                   $versionInt Database version as integer
+     * @param bool                  $isMariaDb  True if mariadb
+     * @param bool                  $isPercona  True if percona
      * @phpstan-param array<array-key, mixed> $version
      */
     #[DataProvider('provideDatabaseVersionData')]
@@ -355,7 +355,7 @@ final class DatabaseInterfaceTest extends AbstractTestCase
     /**
      * Data provider for isAmazonRds() tests.
      *
-     * @return mixed[]
+     * @return array{list<non-empty-list<string>>, bool}[]
      */
     public static function isAmazonRdsData(): array
     {
@@ -778,10 +778,10 @@ final class DatabaseInterfaceTest extends AbstractTestCase
     /**
      * Tests for setVersion method.
      *
-     * @param array $version    Database version
-     * @param int   $versionInt Database version as integer
-     * @param bool  $isMariaDb  True if mariadb
-     * @param bool  $isPercona  True if percona
+     * @param array<string, string> $version    Database version
+     * @param int                   $versionInt Database version as integer
+     * @param bool                  $isMariaDb  True if mariadb
+     * @param bool                  $isPercona  True if percona
      * @phpstan-param array<array-key, mixed> $version
      */
     #[DataProvider('provideDatabaseVersionData')]

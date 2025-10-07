@@ -769,7 +769,7 @@ final class StructureController implements InvocableController
      * @param string  $formattedOverhead overhead formatted
      * @param string  $overheadUnit      overhead unit
      *
-     * @return mixed[]
+     * @return array{mixed[], string, string, string, string, int|float, int}
      */
     private function getValuesForAriaTable(
         array $currentTable,
@@ -807,7 +807,7 @@ final class StructureController implements InvocableController
      * @param mixed[] $currentTable current table
      * @param int     $sumSize      sum size
      *
-     * @return mixed[]
+     * @return array{mixed[], string, string, int}
      */
     private function getValuesForInnodbTable(
         array $currentTable,
@@ -846,7 +846,7 @@ final class StructureController implements InvocableController
      *
      * @param mixed[] $currentTable
      *
-     * @return mixed[]
+     * @return array{mixed[], string, string, int}
      */
     private function getValuesForCsvTable(array $currentTable, int $sumSize): array
     {
@@ -906,7 +906,7 @@ final class StructureController implements InvocableController
      * @param mixed[] $currentTable current table
      * @param int     $sumSize      sum size
      *
-     * @return mixed[]
+     * @return array{mixed[], string, string, int}
      */
     private function getValuesForMroongaTable(
         array $currentTable,

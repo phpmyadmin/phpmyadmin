@@ -26,6 +26,7 @@ use PhpMyAdmin\SqlParser\Statements\TruncateStatement;
 use PhpMyAdmin\SqlParser\Statements\UpdateStatement;
 use PhpMyAdmin\Util;
 
+use function in_array;
 use function preg_quote;
 use function preg_replace;
 use function serialize;
@@ -456,12 +457,7 @@ class Tracker
 
                     // In case of CREATE DATABASE, database field of the CreateStatement is the name of the database
                     Current::$database = $statement->name?->database;
-                } elseif (
-                    $options[6] === 'INDEX'
-                          || $options[6] === 'UNIQUE INDEX'
-                          || $options[6] === 'FULLTEXT INDEX'
-                          || $options[6] === 'SPATIAL INDEX'
-                ) {
+                } elseif (in_array($options[6], ['INDEX', 'UNIQUE INDEX', 'FULLTEXT INDEX', 'SPATIAL INDEX'], true)) {
                     $result['identifier'] = 'CREATE INDEX';
 
                     // In case of CREATE INDEX, we have to get the table name from body of the statement

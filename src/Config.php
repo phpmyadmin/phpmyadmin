@@ -31,6 +31,7 @@ use function fread;
 use function function_exists;
 use function get_defined_constants;
 use function implode;
+use function in_array;
 use function ini_get;
 use function is_array;
 use function is_dir;
@@ -751,7 +752,7 @@ class Config
         $dirs = [$this->getTempDir('upload'), ini_get('upload_tmp_dir'), sys_get_temp_dir()];
 
         foreach ($dirs as $dir) {
-            if (! empty($dir) && @is_writable($dir)) {
+            if (! in_array($dir, ['', '0', null, false], true) && @is_writable($dir)) {
                 return realpath($dir);
             }
         }

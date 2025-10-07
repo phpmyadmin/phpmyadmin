@@ -319,8 +319,8 @@ class ErrorReportTest extends AbstractTestCase
     /**
      * Test the url sanitization
      *
-     * @param string  $url    The url to test
-     * @param mixed[] $result The result
+     * @param string   $url    The url to test
+     * @param string[] $result The result
      */
     #[DataProvider('urlsToSanitize')]
     public function testSanitizeUrl(string $url, array $result): void

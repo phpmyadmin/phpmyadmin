@@ -141,7 +141,7 @@ class TablePartitionDefinitionTest extends TestCase
     }
 
     /**
-     * @psalm-return array<string, array{
+     * @return array<string, array{
      *   0: string, 1: bool, 2: bool, 3: int, 4: int, 5: array<string, string|array<string, string>[]>[]|null
      * }>
      */
@@ -246,7 +246,7 @@ class TablePartitionDefinitionTest extends TestCase
         self::assertCount($partitionCount, $actual['partitions']);
     }
 
-    /** @psalm-return array{0: int, 1: string}[] */
+    /** @return array{0: int, 1: string}[] */
     public static function providerGetDetailsWithMaxPartitions(): array
     {
         return ['count within the limit' => [8192, '8192'], 'count above the limit' => [8192, '8193']];

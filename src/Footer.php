@@ -150,7 +150,16 @@ class Footer
         return $this->scripts;
     }
 
-    /** @return mixed[] */
+    /** @return array{
+     *   is_minimal: bool,
+     *   self_url: string|null,
+     *   error_messages: string,
+     *   scripts: string,
+     *   is_demo: bool,
+     *   git_revision_info: array<mixed>,
+     *   footer: string
+     * }
+     */
     public function getDisplay(): array
     {
         if (! $this->isMinimal) {

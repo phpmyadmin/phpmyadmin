@@ -189,7 +189,7 @@ class ResultsTest extends AbstractTestCase
     /**
      * Data provider for testGetSpecialLinkUrl
      *
-     * @return mixed[] parameters and output
+     * @return array<int, array{string, string, string, array<string, string>, string, string}>
      */
     public static function dataProviderForTestGetSpecialLinkUrl(): array
     {
@@ -217,12 +217,12 @@ class ResultsTest extends AbstractTestCase
     /**
      * Test getSpecialLinkUrl
      *
-     * @param string  $db          the database name
-     * @param string  $table       the table name
-     * @param string  $columnValue column value
-     * @param mixed[] $rowInfo     information about row
-     * @param string  $fieldName   column name
-     * @param string  $output      output of getSpecialLinkUrl
+     * @param string                $db          the database name
+     * @param string                $table       the table name
+     * @param string                $columnValue column value
+     * @param array<string, string> $rowInfo     information about row
+     * @param string                $fieldName   column name
+     * @param string                $output      output of getSpecialLinkUrl
      */
     #[DataProvider('dataProviderForTestGetSpecialLinkUrl')]
     public function testGetSpecialLinkUrl(
@@ -297,9 +297,9 @@ class ResultsTest extends AbstractTestCase
     /**
      * Test getRowInfoForSpecialLinks
      *
-     * @param FieldMetadata[] $fieldsMeta meta information about fields
-     * @param mixed[]         $row        current row data
-     * @param mixed[]         $output     output of getRowInfoForSpecialLinks
+     * @param FieldMetadata[]       $fieldsMeta meta information about fields
+     * @param string[]              $row        current row data
+     * @param array<string, string> $output     output of getRowInfoForSpecialLinks
      */
     #[DataProvider('dataProviderForTestGetRowInfoForSpecialLinks')]
     public function testGetRowInfoForSpecialLinks(
@@ -340,7 +340,7 @@ class ResultsTest extends AbstractTestCase
     /**
      * Data provider for testGetPartialText
      *
-     * @return mixed[] parameters and output
+     * @return array<int, array{string, int, string, string}>
      */
     public static function dataProviderForTestGetPartialText(): array
     {
@@ -386,7 +386,7 @@ class ResultsTest extends AbstractTestCase
      *   TransformationsPlugin|null,
      *   array|object,
      *   object,
-     *   array,
+     *   array<string, string>,
      *   bool,
      *   string
      * }>
@@ -418,15 +418,15 @@ class ResultsTest extends AbstractTestCase
     }
 
     /**
-     * @param bool           $displayBinary    show binary contents?
-     * @param bool           $displayBlob      show blob contents?
-     * @param string         $category         BLOB|BINARY|GEOMETRY
-     * @param string|null    $content          the binary content
-     * @param mixed[]|object $transformOptions transformation parameters
-     * @param object         $meta             the meta-information about the field
-     * @param mixed[]        $urlParams        parameters that should go to the download link
-     * @param bool           $isTruncated      the result is truncated or not
-     * @param string         $output           the output of this function
+     * @param bool                  $displayBinary    show binary contents?
+     * @param bool                  $displayBlob      show blob contents?
+     * @param string                $category         BLOB|BINARY|GEOMETRY
+     * @param string|null           $content          the binary content
+     * @param mixed[]|object        $transformOptions transformation parameters
+     * @param object                $meta             the meta-information about the field
+     * @param array<string, string> $urlParams        parameters that should go to the download link
+     * @param bool                  $isTruncated      the result is truncated or not
+     * @param string                $output           the output of this function
      */
     #[DataProvider('dataProviderForTestHandleNonPrintableContents')]
     public function testHandleNonPrintableContents(
@@ -456,17 +456,16 @@ class ResultsTest extends AbstractTestCase
     }
 
     /**
-     * @return mixed[][]
-     * @psalm-return array<array{
+     * @return array<array{
      *   string,
      *   string|null,
      *   string,
      *   object,
-     *   array,
-     *   array,
+     *   array{},
+     *   string[],
      *   bool,
      *   TransformationsPlugin|null,
-     *   array,
+     *   string[],
      *   string
      * }>
      */
@@ -597,7 +596,7 @@ class ResultsTest extends AbstractTestCase
      * @param mixed[]     $map              the list of relations
      * @param mixed[]     $urlParams        the parameters for generate url
      * @param bool        $conditionField   the column should highlighted or not
-     * @param mixed[]     $transformOptions the transformation parameters
+     * @param string[]    $transformOptions the transformation parameters
      * @param string      $output           the output of this function
      */
     #[DataProvider('dataProviderForTestGetDataCellForNonNumericColumns')]
@@ -793,7 +792,7 @@ class ResultsTest extends AbstractTestCase
         ];
     }
 
-    /** @param mixed[] $urlParams */
+    /** @param array<string, string> $urlParams */
     #[DataProvider('dataProviderGetSortOrderHiddenInputs')]
     public function testGetSortOrderHiddenInputs(
         string $sqlAdd,
@@ -893,11 +892,11 @@ class ResultsTest extends AbstractTestCase
     }
 
     /**
-     * @param mixed[] $session
-     * @param mixed[] $get
-     * @param mixed[] $post
-     * @param mixed[] $request
-     * @param mixed[] $expected
+     * @param array<string, array<string, array<string, array<string, bool|int|string>>>|string> $session
+     * @param array<string, string>                                                              $get
+     * @param array<string, string>                                                              $post
+     * @param array<string, string>                                                              $request
+     * @param array<string, bool|array<string, array<string, bool|int|string>>|string|int>       $expected
      */
     #[DataProvider('providerSetConfigParamsForDisplayTable')]
     public function testSetConfigParamsForDisplayTable(

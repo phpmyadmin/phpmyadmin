@@ -92,9 +92,9 @@ class Monitor
     /**
      * Assign the variables for real-time charting data
      *
-     * @param mixed[] $ret             Real-time charting data
-     * @param mixed[] $statusVarValues Status variable values
-     * @param mixed[] $serverVarValues Server variable values
+     * @param mixed[]         $ret             Real-time charting data
+     * @param string[]|null[] $statusVarValues Status variable values
+     * @param string[]|null[] $serverVarValues Server variable values
      *
      * @return mixed[]
      */
@@ -131,7 +131,7 @@ class Monitor
      * @param mixed   $cpuload    CPU load
      * @param mixed   $memory     Memory
      *
-     * @return mixed[]
+     * @return array<int, mixed>
      */
     private function getJsonForChartingDataGet(
         array $ret,
@@ -176,7 +176,7 @@ class Monitor
      * @param mixed   $cpuload    CPU load
      * @param mixed   $memory     Memory
      *
-     * @return mixed[]
+     * @return array<int, mixed[]>
      */
     private function getJsonForChartingDataSwitch(
         string $type,

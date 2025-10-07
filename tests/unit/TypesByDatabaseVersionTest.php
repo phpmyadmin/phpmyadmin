@@ -14,8 +14,8 @@ final class TypesByDatabaseVersionTest extends AbstractTestCase
 {
     /**
      * @param TypeClass $class    The class to get function list.
-     * @param array     $includes Expected elements should contain in result
-     * @param array     $excludes Expected elements should not contain in result
+     * @param string[]  $includes Expected elements should contain in result
+     * @param string[]  $excludes Expected elements should not contain in result
      * @phpstan-param array<string> $includes
      * @phpstan-param array<string> $excludes
      */
@@ -217,8 +217,8 @@ final class TypesByDatabaseVersionTest extends AbstractTestCase
     }
 
     /**
-     * @param array $includes Expected elements should contain in result
-     * @param array $excludes Expected elements should not contain in result
+     * @param string[] $includes Expected elements should contain in result
+     * @param string[] $excludes Expected elements should not contain in result
      * @phpstan-param array<string> $includes
      * @phpstan-param array<string> $excludes
      */
@@ -247,7 +247,7 @@ final class TypesByDatabaseVersionTest extends AbstractTestCase
     /**
      * Data provider for testing get all functions
      *
-     * @psalm-return array<string, array{string, array<string>, array<string>}>
+     * @return array<string, array{string, array<string>, array<string>}>
      */
     public static function providerFortTestGetAllFunctions(): array
     {
@@ -468,7 +468,7 @@ final class TypesByDatabaseVersionTest extends AbstractTestCase
         ];
     }
 
-    /** @phpstan-param array<int|string, array<int, string>|string> $expected */
+    /** @param array<int|string, array<int, string>|string> $expected */
     #[DataProvider('providerFortTestGetColumns')]
     public function testGetColumns(string $version, array $expected): void
     {
@@ -482,7 +482,7 @@ final class TypesByDatabaseVersionTest extends AbstractTestCase
     /**
      * Data provider for testing test columns
      *
-     * @psalm-return array<string, array{string, array<int|string, array<int, string>|string>}>
+     * @return array<string, array{string, array<int|string, array<int, string>|string>}>
      */
     public static function providerFortTestGetColumns(): array
     {

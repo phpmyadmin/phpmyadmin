@@ -962,8 +962,8 @@ class NavigationTree
     /**
      * Finds whether given tree matches this tree.
      *
-     * @param mixed[] $tree  Tree to check
-     * @param mixed[] $paths Paths to check
+     * @param mixed[]  $tree  Tree to check
+     * @param string[] $paths Paths to check
      */
     private function findTreeMatch(array $tree, array $paths): bool
     {

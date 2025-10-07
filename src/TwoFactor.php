@@ -67,7 +67,7 @@ class TwoFactor
     /**
      * Reads the configuration
      *
-     * @psalm-return array{backend: string, settings: mixed[], type: 'session'|'db'}
+     * @return array{backend: string, settings: mixed[], type: 'session'|'db'}
      */
     public function readConfig(): array
     {

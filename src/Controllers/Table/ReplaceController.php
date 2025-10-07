@@ -490,7 +490,7 @@ final class ReplaceController implements InvocableController
     /**
      * Prepares the update/insert of a row
      *
-     * @return mixed[] $loop_array, $using_key, $is_insert
+     * @return array<int, bool|mixed[]> $loop_array, $using_key, $is_insert
      * @psalm-return array{array, bool, bool}
      */
     private function getParamsForUpdateOrInsert(ServerRequest $request): array
@@ -504,9 +504,7 @@ final class ReplaceController implements InvocableController
                 : [$whereClause];
             $usingKey = true;
             $submitType = $request->getParsedBodyParam('submit_type');
-            $isInsert = $submitType === 'insert'
-                    || $submitType === 'showinsert'
-                    || $submitType === 'insertignore';
+            $isInsert = in_array($submitType, ['insert', 'showinsert', 'insertignore'], true);
         } else {
             // new row => use indexes
             $loopArray = [];

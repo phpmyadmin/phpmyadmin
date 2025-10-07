@@ -46,8 +46,8 @@ class TransformationsTest extends AbstractTestCase
     /**
      * Test for parsing options.
      *
-     * @param string  $input    String to parse
-     * @param mixed[] $expected Expected result
+     * @param string   $input    String to parse
+     * @param string[] $expected Expected result
      */
     #[DataProvider('getOptionsData')]
     public function testGetOptions(string $input, array $expected): void

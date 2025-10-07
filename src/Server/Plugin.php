@@ -64,7 +64,7 @@ final class Plugin
         );
     }
 
-    /** @return mixed[] */
+    /** @return array<string, string|null> */
     public function toArray(): array
     {
         return [

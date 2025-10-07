@@ -389,11 +389,11 @@ class GisGeometryCollectionTest extends GisGeomTestCase
     /**
      * Test for prepareRowAsOl
      *
-     * @param string  $spatial  string to parse
-     * @param int     $srid     SRID
-     * @param string  $label    field label
-     * @param int[]   $color    line color
-     * @param mixed[] $expected
+     * @param string               $spatial  string to parse
+     * @param int                  $srid     SRID
+     * @param string               $label    field label
+     * @param int[]                $color    line color
+     * @param array<string, mixed> $expected
      */
     #[DataProvider('providerForPrepareRowAsOl')]
     public function testPrepareRowAsOl(
@@ -410,7 +410,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
     /**
      * Data provider for testPrepareRowAsOl() test case
      *
-     * @return array<array{string, int, string, int[], mixed[]}>
+     * @return array<array{string, int, string, int[], array<string, mixed>}>
      */
     public static function providerForPrepareRowAsOl(): array
     {

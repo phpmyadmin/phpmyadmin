@@ -33,6 +33,7 @@ use function __;
 use function class_exists;
 use function count;
 use function htmlspecialchars;
+use function in_array;
 use function is_array;
 use function is_string;
 use function is_subclass_of;
@@ -357,10 +358,12 @@ class Plugins
 
         // Close the list element after $doc link is displayed
         if (
-            $propertyClass === BoolPropertyItem::class
-            || $propertyClass === MessageOnlyPropertyItem::class
-            || $propertyClass === SelectPropertyItem::class
-            || $propertyClass === TextPropertyItem::class
+            in_array($propertyClass, [
+                BoolPropertyItem::class,
+                MessageOnlyPropertyItem::class,
+                SelectPropertyItem::class,
+                TextPropertyItem::class,
+            ], true)
         ) {
             $ret .= '</li>';
         }

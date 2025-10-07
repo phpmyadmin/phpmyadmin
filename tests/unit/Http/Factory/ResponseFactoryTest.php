@@ -42,7 +42,7 @@ final class ResponseFactoryTest extends TestCase
         self::assertInstanceOf($expectedResponse, $actual);
     }
 
-    /** @psalm-return iterable<string, array{class-string<ResponseFactoryInterface>, class-string<ResponseInterface>}> */
+    /** @return iterable<string, array{class-string<ResponseFactoryInterface>, class-string<ResponseInterface>}> */
     public static function providerForTestCreateResponse(): iterable
     {
         yield 'slim/psr7' => [SlimResponseFactory::class, \Slim\Psr7\Response::class];
@@ -64,7 +64,7 @@ final class ResponseFactoryTest extends TestCase
         self::assertInstanceOf($provider, $actual);
     }
 
-    /** @psalm-return iterable<string, array{class-string<ResponseFactoryInterface>}> */
+    /** @return iterable<string, array{class-string<ResponseFactoryInterface>}> */
     public static function providerForTestCreate(): iterable
     {
         yield 'slim/psr7' => [SlimResponseFactory::class];

@@ -71,7 +71,7 @@ final class ServerRequestFactoryTest extends TestCase
     }
 
     /**
-     * @psalm-return iterable<string, array{
+     * @return iterable<string, array{
      *     class-string<ServerRequestFactoryInterface>,
      *     class-string<ServerRequestInterface>
      * }>
@@ -99,7 +99,7 @@ final class ServerRequestFactoryTest extends TestCase
         self::assertInstanceOf($provider, $actual);
     }
 
-    /** @psalm-return iterable<string, array{class-string<ServerRequestFactoryInterface>}> */
+    /** @return iterable<string, array{class-string<ServerRequestFactoryInterface>}> */
     public static function providerForTestCreate(): iterable
     {
         yield 'slim/psr7' => [SlimServerRequestFactory::class];
@@ -246,7 +246,7 @@ final class ServerRequestFactoryTest extends TestCase
     }
 
     /**
-     * @psalm-return iterable<string, array{
+     * @return iterable<string, array{
      *     class-string<ServerRequestFactoryInterface>,
      *     class-string<UriFactoryInterface>,
      *     class-string<UriInterface>

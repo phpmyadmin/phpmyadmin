@@ -32,7 +32,7 @@ final class ResponseTest extends TestCase
         return (new ResponseFactory(new $provider()))->createResponse();
     }
 
-    /** @psalm-return iterable<string, array{class-string<ResponseFactoryInterface>}> */
+    /** @return iterable<string, array{class-string<ResponseFactoryInterface>}> */
     public static function responseFactoryProviders(): iterable
     {
         yield 'slim/psr7' => [SlimResponseFactory::class];

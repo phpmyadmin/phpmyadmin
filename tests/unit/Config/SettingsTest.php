@@ -1434,7 +1434,7 @@ class SettingsTest extends TestCase
         yield 'valid value with type coercion' => [0, false];
     }
 
-    /** @param mixed[] $expected */
+    /** @param array<string, bool> $expected */
     #[DataProvider('valuesForDebugProvider')]
     public function testDebug(mixed $actual, array $expected): void
     {
@@ -1445,7 +1445,7 @@ class SettingsTest extends TestCase
         self::assertSame($expectedDebug->asArray(), $settingsArray['DBG']);
     }
 
-    /** @return iterable<string, array{mixed, mixed[]}> */
+    /** @return iterable<string, array{mixed, array<string, bool>}> */
     public static function valuesForDebugProvider(): iterable
     {
         yield 'null value' => [null, []];

@@ -26,7 +26,7 @@ final class BinlogController implements InvocableController
     /**
      * binary log files
      *
-     * @var mixed[]
+     * @var array<array<string|null>>
      */
     private array $binaryLogs;
 

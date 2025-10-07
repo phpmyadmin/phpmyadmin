@@ -78,28 +78,6 @@ class HttpRequest
     }
 
     /**
-     * Returns information with regards to handling the http request
-     *
-     * @param mixed[] $context Data about the context for which
-     *                       to http request is sent
-     *
-     * @return mixed[] of updated context information
-     */
-    private function handleContext(array $context): array
-    {
-        if ($this->proxyUrl !== '') {
-            $context['http'] = ['proxy' => $this->proxyUrl, 'request_fulluri' => true];
-            if ($this->proxyUser !== '') {
-                $auth = base64_encode($this->proxyUser . ':' . $this->proxyPass);
-                $context['http']['header'] = 'Proxy-Authorization: Basic '
-                    . $auth . "\r\n";
-            }
-        }
-
-        return $context;
-    }
-
-    /**
      * Creates HTTP request using curl
      *
      * @param mixed $response         HTTP response
@@ -244,7 +222,15 @@ class HttpRequest
             $context['ssl']['cafile'] = $caPathOrFile;
         }
 
-        $context = $this->handleContext($context);
+        if ($this->proxyUrl !== '') {
+            $context['http'] = ['proxy' => $this->proxyUrl, 'request_fulluri' => true];
+            if ($this->proxyUser !== '') {
+                $auth = base64_encode($this->proxyUser . ':' . $this->proxyPass);
+                $context['http']['header'] = 'Proxy-Authorization: Basic '
+                    . $auth . "\r\n";
+            }
+        }
+
         $response = @file_get_contents(
             $url,
             false,

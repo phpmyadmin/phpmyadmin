@@ -265,18 +265,6 @@ parameters:
 			path: src/Advisory/Advisor.php
 
 		-
-			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Advisory/Advisor.php
-
-		-
-			message: '#^Parameter \#1 \$url of static method PhpMyAdmin\\Core\:\:linkURL\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Advisory/Advisor.php
-
-		-
 			message: '#^Parameter \#2 \$values of function vsprintf expects array\<bool\|float\|int\|string\|null\>, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -498,7 +486,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 3
+			count: 2
 			path: src/Config.php
 
 		-
@@ -2074,31 +2062,13 @@ parameters:
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: '#^Cannot access offset ''TABLE_NAME'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: '#^Cannot access offset ''TABLE_ROWS'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: '#^Cannot access offset ''TABLE_TYPE'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
 			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
 			identifier: notEqual.notAllowed
 			count: 2
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: '#^Method PhpMyAdmin\\Controllers\\Database\\StructureController\:\:getStuffForEngineTypeTable\(\) should return array\{array\<mixed\>, string, string, string, string, int, bool, int\} but returns array\{mixed, mixed, mixed, mixed, mixed, mixed, bool, mixed\}\.$#'
+			message: '#^Method PhpMyAdmin\\Controllers\\Database\\StructureController\:\:getStuffForEngineTypeTable\(\) should return array\{array\<mixed\>, string, string, string, string, int, bool, int\} but returns array\{non\-empty\-array, string, string, string, string, float\|int, bool, int\}\.$#'
 			identifier: return.type
 			count: 1
 			path: src/Controllers/Database/StructureController.php
@@ -4150,12 +4120,6 @@ parameters:
 			path: src/Controllers/Table/ZoomSearchController.php
 
 		-
-			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Table/ZoomSearchController.php
-
-		-
 			message: '#^Parameter \#1 \$string of function strtoupper expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
@@ -5839,12 +5803,6 @@ parameters:
 			message: '#^Parameter \#1 \$params of static method PhpMyAdmin\\Url\:\:getCommonRaw\(\) expects array\<int\|string, bool\|int\|string\>, array\<string, string\|null\> given\.$#'
 			identifier: argument.type
 			count: 2
-			path: src/Display/Results.php
-
-		-
-			message: '#^Parameter \#1 \$sqlQuery of static method PhpMyAdmin\\Core\:\:signSqlQuery\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
 			path: src/Display/Results.php
 
 		-
@@ -8575,12 +8533,6 @@ parameters:
 			path: src/Normalization.php
 
 		-
-			message: '#^Binary operation "\." between mixed and '','' results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Normalization.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -9070,6 +9022,12 @@ parameters:
 			path: src/Plugins.php
 
 		-
+			message: '#^Call to function in_array\(\) with arguments \(class\-string\<PhpMyAdmin\\Properties\\Options\\Groups\\OptionsPropertySubgroup\>&literal\-string\)\|null, array\{''PhpMyAdmin\\\\Properties\\\\Options\\\\Items\\\\BoolPropertyItem'', ''PhpMyAdmin\\\\Properties\\\\Options\\\\Items\\\\MessageOnlyPropertyItem'', ''PhpMyAdmin\\\\Properties\\\\Options\\\\Items\\\\SelectPropertyItem'', ''PhpMyAdmin\\\\Properties\\\\Options\\\\Items\\\\TextPropertyItem''\} and true will always evaluate to false\.$#'
+			identifier: function.impossibleType
+			count: 1
+			path: src/Plugins.php
+
+		-
 			message: '#^Call to function method_exists\(\) with PhpMyAdmin\\Properties\\Options\\OptionsPropertyItem and ''getText'' will always evaluate to true\.$#'
 			identifier: function.alreadyNarrowedType
 			count: 1
@@ -9114,36 +9072,6 @@ parameters:
 		-
 			message: '#^Parameter \#5 \$anchor of static method PhpMyAdmin\\Html\\MySQLDocumentation\:\:show\(\) expects string, mixed given\.$#'
 			identifier: argument.type
-			count: 1
-			path: src/Plugins.php
-
-		-
-			message: '#^Result of \|\| is always false\.$#'
-			identifier: booleanOr.alwaysFalse
-			count: 3
-			path: src/Plugins.php
-
-		-
-			message: '#^Strict comparison using \=\=\= between \(class\-string\<PhpMyAdmin\\Properties\\Options\\Groups\\OptionsPropertySubgroup\>&literal\-string\)\|null and ''PhpMyAdmin\\\\Properties\\\\Options\\\\Items\\\\BoolPropertyItem'' will always evaluate to false\.$#'
-			identifier: identical.alwaysFalse
-			count: 1
-			path: src/Plugins.php
-
-		-
-			message: '#^Strict comparison using \=\=\= between \(class\-string\<PhpMyAdmin\\Properties\\Options\\Groups\\OptionsPropertySubgroup\>&literal\-string\)\|null and ''PhpMyAdmin\\\\Properties\\\\Options\\\\Items\\\\MessageOnlyPropertyItem'' will always evaluate to false\.$#'
-			identifier: identical.alwaysFalse
-			count: 1
-			path: src/Plugins.php
-
-		-
-			message: '#^Strict comparison using \=\=\= between \(class\-string\<PhpMyAdmin\\Properties\\Options\\Groups\\OptionsPropertySubgroup\>&literal\-string\)\|null and ''PhpMyAdmin\\\\Properties\\\\Options\\\\Items\\\\SelectPropertyItem'' will always evaluate to false\.$#'
-			identifier: identical.alwaysFalse
-			count: 1
-			path: src/Plugins.php
-
-		-
-			message: '#^Strict comparison using \=\=\= between \(class\-string\<PhpMyAdmin\\Properties\\Options\\Groups\\OptionsPropertySubgroup\>&literal\-string\)\|null and ''PhpMyAdmin\\\\Properties\\\\Options\\\\Items\\\\TextPropertyItem'' will always evaluate to false\.$#'
-			identifier: identical.alwaysFalse
 			count: 1
 			path: src/Plugins.php
 
@@ -10827,7 +10755,7 @@ parameters:
 		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
-			count: 17
+			count: 16
 			path: src/Plugins/Import/ImportCsv.php
 
 		-
@@ -11642,18 +11570,6 @@ parameters:
 			identifier: argument.type
 			count: 2
 			path: src/Plugins/Schema/Pdf/TableStatsPdf.php
-
-		-
-			message: '#^Binary operation "\+" between mixed and int results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 2
-			path: src/Plugins/Schema/RelationStats.php
-
-		-
-			message: '#^Binary operation "\-" between mixed and int results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 2
-			path: src/Plugins/Schema/RelationStats.php
 
 		-
 			message: '#^Call to function array_search\(\) requires parameter \#3 to be set\.$#'
@@ -12799,7 +12715,7 @@ parameters:
 			path: src/Server/Privileges.php
 
 		-
-			message: '#^Parameter \#1 \$haystack of function str_contains expects string, mixed given\.$#'
+			message: '#^Parameter \#1 \$haystack of function str_contains expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 2
 			path: src/Server/Privileges.php
@@ -12885,13 +12801,13 @@ parameters:
 		-
 			message: '#^Parameter \#2 \$string of function explode expects string, mixed given\.$#'
 			identifier: argument.type
-			count: 6
+			count: 4
 			path: src/Server/Privileges.php
 
 		-
 			message: '#^Parameter \#2 \$string of function explode expects string, string\|null given\.$#'
 			identifier: argument.type
-			count: 3
+			count: 5
 			path: src/Server/Privileges.php
 
 		-
@@ -13207,18 +13123,6 @@ parameters:
 			message: '#^Parameter \#2 \$subject of function preg_match expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 2
-			path: src/Server/Status/Monitor.php
-
-		-
-			message: '#^Parameter \#3 \$serverVars of method PhpMyAdmin\\Server\\Status\\Monitor\:\:getJsonForChartingDataSwitch\(\) expects array\<mixed\>, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Server/Status/Monitor.php
-
-		-
-			message: '#^Parameter \#4 \$statusVars of method PhpMyAdmin\\Server\\Status\\Monitor\:\:getJsonForChartingDataSwitch\(\) expects array\<mixed\>, mixed given\.$#'
-			identifier: argument.type
-			count: 1
 			path: src/Server/Status/Monitor.php
 
 		-
@@ -17326,15 +17230,9 @@ parameters:
 			path: tests/unit/Display/ResultsTest.php
 
 		-
-			message: '#^Method PhpMyAdmin\\Tests\\Display\\ResultsTest\:\:dataProviderForTestGetDataCellForNonNumericColumns\(\) return type has no value type specified in iterable type array\.$#'
-			identifier: missingType.iterableValue
-			count: 3
-			path: tests/unit/Display/ResultsTest.php
-
-		-
 			message: '#^Method PhpMyAdmin\\Tests\\Display\\ResultsTest\:\:dataProviderForTestHandleNonPrintableContents\(\) return type has no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
-			count: 2
+			count: 1
 			path: tests/unit/Display/ResultsTest.php
 
 		-
@@ -18998,6 +18896,12 @@ parameters:
 			identifier: staticMethod.deprecated
 			count: 1
 			path: tests/unit/Utils/ForeignKeyTest.php
+
+		-
+			message: '#^Method PhpMyAdmin\\Tests\\Utils\\FormatConverterTest\:\:providerBinaryToIp\(\) should return array\<array\{string, string, bool\}\> but returns array\{array\{''10\.11\.12\.13'', ''0x0a0b0c0d'', false\}, array\{''my ip'', ''my ip'', false\}, array\{''10\.11\.12\.13'', ''0x0a0b0c0d'', true\}, array\{''6d79206970'', ''my ip'', true\}, array\{''10\.11\.12\.13'', ''0x0a0b0c0d'', true\}, array\{''666566'', ''fef'', true\}, array\{''0ded'', string\|false, true\}, array\{''127\.0\.0\.1'', string\|false, true\}\}\.$#'
+			identifier: return.type
+			count: 1
+			path: tests/unit/Utils/FormatConverterTest.php
 
 		-
 			message: '#^Binary operation "\." between ''Not supported in…'' and mixed results in an error\.$#'
