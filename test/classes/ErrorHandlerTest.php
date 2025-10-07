@@ -25,6 +25,7 @@ use const E_USER_ERROR;
 use const E_USER_NOTICE;
 use const E_USER_WARNING;
 use const E_WARNING;
+use const PHP_VERSION_ID;
 
 /**
  * @covers \PhpMyAdmin\ErrorHandler
@@ -317,7 +318,10 @@ class ErrorHandlerTest extends AbstractTestCase
         $GLOBALS['config']->set('environment', 'development');
         $responseStub = new ResponseRendererStub();
         $property = new ReflectionProperty(ResponseRenderer::class, 'instance');
-        $property->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $property->setAccessible(true);
+        }
+
         $property->setValue(null, $responseStub);
         $responseStub->setHeadersSent(true);
         $errorHandler = new ErrorHandler();
@@ -343,7 +347,10 @@ class ErrorHandlerTest extends AbstractTestCase
         $GLOBALS['config']->set('environment', 'production');
         $responseStub = new ResponseRendererStub();
         $property = new ReflectionProperty(ResponseRenderer::class, 'instance');
-        $property->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $property->setAccessible(true);
+        }
+
         $property->setValue(null, $responseStub);
         $responseStub->setHeadersSent(true);
         $errorHandler = new ErrorHandler();
@@ -369,7 +376,10 @@ class ErrorHandlerTest extends AbstractTestCase
         $GLOBALS['config']->set('environment', 'production');
         $responseStub = new ResponseRendererStub();
         $property = new ReflectionProperty(ResponseRenderer::class, 'instance');
-        $property->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $property->setAccessible(true);
+        }
+
         $property->setValue(null, $responseStub);
         $responseStub->setHeadersSent(true);
         $errorHandler = new ErrorHandler();
@@ -395,7 +405,10 @@ HTML;
         $GLOBALS['config']->set('environment', 'production');
         $responseStub = new ResponseRendererStub();
         $property = new ReflectionProperty(ResponseRenderer::class, 'instance');
-        $property->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $property->setAccessible(true);
+        }
+
         $property->setValue(null, $responseStub);
         $responseStub->setHeadersSent(false);
         $errorHandler = new ErrorHandler();

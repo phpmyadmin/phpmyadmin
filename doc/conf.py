@@ -44,14 +44,14 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'phpMyAdmin'
-copyright = u'2012 - 2024, The phpMyAdmin devel team'
+copyright = u'2012 - 2025, The phpMyAdmin devel team'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 #
 # The short X.Y version.
-version = '5.2.2'
+version = '5.2.3'
 # The full version, including alpha/beta/rc tags.
 release = version
 

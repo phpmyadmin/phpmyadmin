@@ -28,6 +28,7 @@ use const MYSQLI_TYPE_DECIMAL;
 use const MYSQLI_TYPE_STRING;
 use const MYSQLI_TYPE_TIME;
 use const MYSQLI_TYPE_TINY_BLOB;
+use const PHP_VERSION_ID;
 
 /**
  * @covers \PhpMyAdmin\Plugins\Export\ExportOds
@@ -66,11 +67,17 @@ class ExportOdsTest extends AbstractTestCase
     public function testSetProperties(): void
     {
         $method = new ReflectionMethod(ExportOds::class, 'setProperties');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
+
         $method->invoke($this->object, null);
 
         $attrProperties = new ReflectionProperty(ExportOds::class, 'properties');
-        $attrProperties->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $attrProperties->setAccessible(true);
+        }
+
         $properties = $attrProperties->getValue($this->object);
 
         self::assertInstanceOf(ExportPluginProperties::class, $properties);

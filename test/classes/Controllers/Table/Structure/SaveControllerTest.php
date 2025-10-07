@@ -13,6 +13,8 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
 use PhpMyAdmin\Transformations;
 use ReflectionClass;
 
+use const PHP_VERSION_ID;
+
 /**
  * @covers \PhpMyAdmin\Controllers\Table\Structure\SaveController
  */
@@ -28,7 +30,9 @@ class SaveControllerTest extends AbstractTestCase
 
         $class = new ReflectionClass(SaveController::class);
         $method = $class->getMethod('adjustColumnPrivileges');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
 
         $ctrl = new SaveController(
             new ResponseStub(),

@@ -14,6 +14,8 @@ use ReflectionClass;
 
 use function json_encode;
 
+use const PHP_VERSION_ID;
+
 /**
  * @covers \PhpMyAdmin\Controllers\Database\Structure\FavoriteTableController
  */
@@ -34,7 +36,9 @@ class FavoriteTableControllerTest extends AbstractTestCase
 
         $class = new ReflectionClass(FavoriteTableController::class);
         $method = $class->getMethod('synchronizeFavoriteTables');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
 
         $controller = new FavoriteTableController(
             new ResponseStub(),

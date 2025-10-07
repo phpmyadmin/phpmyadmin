@@ -4,11 +4,11 @@
 # Automatically generated, 2014.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
+"Project-Id-Version: phpMyAdmin 5.2.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-01-12 15:57-0300\n"
-"PO-Revision-Date: 2022-07-30 08:21+0000\n"
-"Last-Translator: zeecho <lachose44@gmail.com>\n"
+"POT-Creation-Date: 2025-02-27 14:25-0300\n"
+"PO-Revision-Date: 2025-07-28 21:10+0000\n"
+"Last-Translator: Robin van der Vliet <info@robinvandervliet.com>\n"
 "Language-Team: Esperanto <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "eo/>\n"
 "Language: eo\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -1608,30 +1608,30 @@ msgstr ""
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/classes/Common.php:491
+#: libraries/classes/Common.php:498
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
 
-#: libraries/classes/Common.php:552
+#: libraries/classes/Common.php:559
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
 
-#: libraries/classes/Common.php:569
+#: libraries/classes/Common.php:576
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
 
-#: libraries/classes/Common.php:580
+#: libraries/classes/Common.php:587
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/classes/Common.php:590
+#: libraries/classes/Common.php:597
 msgid "possible exploit"
 msgstr ""
 
@@ -2866,7 +2866,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:659
 msgid "Compression"
-msgstr ""
+msgstr "Densigo"
 
 #: libraries/classes/Config/Descriptions.php:660
 #: libraries/classes/Config/Descriptions.php:667
@@ -3928,7 +3928,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:946
 #: libraries/classes/ConfigStorage/UserGroups.php:122
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:387
-#: libraries/classes/Display/Results.php:2965
+#: libraries/classes/Display/Results.php:2978
 #: libraries/classes/Html/Generator.php:614
 #: libraries/classes/Html/Generator.php:868
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
@@ -4225,7 +4225,7 @@ msgstr ""
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:25
 msgid "Quick"
-msgstr ""
+msgstr "Rapida"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:29
 msgid "Custom"
@@ -4235,7 +4235,7 @@ msgstr "Propra"
 #: libraries/classes/Config/Forms/User/ExportForm.php:100
 #: libraries/classes/Config/Forms/User/ExportForm.php:128
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:712
-#: libraries/classes/Import.php:1308 libraries/classes/Menu.php:247
+#: libraries/classes/Import.php:1307 libraries/classes/Menu.php:247
 #: libraries/classes/Menu.php:357
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:42
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:51
@@ -4585,7 +4585,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/AbstractController.php:73
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:342
-#: libraries/classes/Controllers/Server/Databases/DestroyController.php:68
+#: libraries/classes/Controllers/Server/Databases/DestroyController.php:73
 #: libraries/classes/DbTableExists.php:47
 msgid "No databases selected."
 msgstr ""
@@ -4614,7 +4614,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Database/ExportController.php:81
 #: libraries/classes/Controllers/Database/TrackingController.php:130
-#: libraries/classes/Controllers/Export/ExportController.php:442
+#: libraries/classes/Controllers/Export/ExportController.php:443
 #: libraries/classes/Database/Qbe.php:322
 #: templates/database/structure/index.twig:25
 #: templates/navigation/tree/path.twig:9
@@ -4720,7 +4720,7 @@ msgid "Table %s has been emptied."
 msgstr ""
 
 #: libraries/classes/Controllers/Database/StructureController.php:575
-#: libraries/classes/Display/Results.php:3976
+#: libraries/classes/Display/Results.php:3989
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -4778,11 +4778,11 @@ msgstr "Jes"
 #: libraries/classes/Controllers/Table/DropColumnController.php:74
 #: libraries/classes/Controllers/Table/OperationsController.php:318
 #: libraries/classes/Controllers/Table/ReplaceController.php:415
-#: libraries/classes/Core.php:719 templates/preview_sql.twig:3
+#: libraries/classes/Core.php:737 templates/preview_sql.twig:3
 msgid "No change"
 msgstr ""
 
-#: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php:109
+#: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php:113
 msgid "Favorite List is full!"
 msgstr ""
 
@@ -4934,12 +4934,12 @@ msgstr ""
 
 #: libraries/classes/Controllers/Import/ImportController.php:123
 msgid "Succeeded"
-msgstr ""
+msgstr "Sukcesa"
 
 #: libraries/classes/Controllers/Import/ImportController.php:127
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:576
 msgid "Failed"
-msgstr ""
+msgstr "Malsukcesa"
 
 #: libraries/classes/Controllers/Import/ImportController.php:217
 #, php-format
@@ -5158,7 +5158,7 @@ msgstr ""
 #: templates/preferences/manage/main.twig:122
 #: templates/table/insert/actions_panel.twig:36
 msgid "Reset"
-msgstr ""
+msgstr "Restarigi"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:99
 msgid "Reset all"
@@ -5533,7 +5533,7 @@ msgstr "Demandoj"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:203
 #: templates/server/status/status/index.twig:14
 msgid "Traffic"
-msgstr ""
+msgstr "Trafiko"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:204
 #: libraries/classes/Menu.php:520 libraries/classes/Util.php:1944
@@ -5551,7 +5551,7 @@ msgid "Please add at least one variable to the series!"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:207
-#: libraries/classes/Display/Results.php:1261
+#: libraries/classes/Display/Results.php:1274
 #: libraries/classes/Plugins/Export/ExportSql.php:2259
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:99
 #: libraries/config.values.php:111
@@ -5688,7 +5688,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:248
 msgid "Unit"
-msgstr ""
+msgstr "Unuo"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:250
 msgid "From slow log"
@@ -5746,7 +5746,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:272
 msgid "Analyzing…"
-msgstr ""
+msgstr "Analizado…"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:273
 msgid "Explain output"
@@ -5789,7 +5789,7 @@ msgstr "Tabelo"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:279
 msgid "Chart"
-msgstr ""
+msgstr "Diagramo"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:281
 #: templates/export.twig:210
@@ -5943,7 +5943,7 @@ msgstr "Apliki"
 #: templates/server/status/monitor/index.twig:95
 #: templates/table/structure/display_structure.twig:359
 msgid "Loading…"
-msgstr ""
+msgstr "Ŝargado…"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:332
 msgid "Request aborted!!"
@@ -6138,7 +6138,7 @@ msgid "Edit query"
 msgstr "Ĝisdatigi peton"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:389
-#: libraries/classes/Display/Results.php:3033
+#: libraries/classes/Display/Results.php:3046
 #: libraries/classes/Tracking.php:260 templates/console/bookmark_content.twig:7
 #: templates/database/central_columns/main.twig:268
 #: templates/database/central_columns/main.twig:380
@@ -6390,7 +6390,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:475
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:633
-#: libraries/classes/ErrorHandler.php:422 libraries/classes/InsertEdit.php:2012
+#: libraries/classes/ErrorHandler.php:427 libraries/classes/InsertEdit.php:2012
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "Ignori"
@@ -6401,7 +6401,7 @@ msgid "Copy to clipboard"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:477
-#: libraries/classes/Display/Results.php:2969
+#: libraries/classes/Display/Results.php:2982
 #: libraries/classes/Html/Generator.php:75
 #: templates/display/results/table.twig:234
 #: templates/display/results/table.twig:235
@@ -6439,7 +6439,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:483
 msgid "Polygon"
-msgstr ""
+msgstr "Poligono"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:484
 #: templates/display/results/table.twig:177
@@ -6607,7 +6607,7 @@ msgstr "Kolumnoj"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:544
 #: templates/modals/build_query.twig:17 templates/sql/query.twig:178
 msgid "Submit"
-msgstr ""
+msgstr "Sendi"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:547
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
@@ -6677,7 +6677,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:577
 msgid "Success"
-msgstr ""
+msgstr "Sukcesa"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:578
 msgid "Import status"
@@ -6723,7 +6723,7 @@ msgstr "Ŝanĝi pasvorton"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:597
 #: templates/table/structure/display_structure.twig:130
 msgid "More"
-msgstr ""
+msgstr "Pli"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:600
 msgid "Show panel"
@@ -6796,7 +6796,7 @@ msgid "Please look at the bottom of this window."
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:636
-#: libraries/classes/ErrorHandler.php:427
+#: libraries/classes/ErrorHandler.php:432
 msgid "Ignore All"
 msgstr ""
 
@@ -7051,7 +7051,7 @@ msgstr ""
 msgid "Database %1$s has been created."
 msgstr ""
 
-#: libraries/classes/Controllers/Server/Databases/DestroyController.php:93
+#: libraries/classes/Controllers/Server/Databases/DestroyController.php:98
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
@@ -7782,7 +7782,7 @@ msgstr ""
 #: libraries/classes/Controllers/Table/RelationController.php:241
 #: libraries/classes/Controllers/View/OperationsController.php:87
 #: libraries/classes/Database/Routines.php:1222
-#: libraries/classes/Display/Results.php:3691 libraries/classes/Message.php:172
+#: libraries/classes/Display/Results.php:3704 libraries/classes/Message.php:172
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr ""
@@ -8413,44 +8413,44 @@ msgid ""
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
 
-#: libraries/classes/Display/Results.php:897 templates/list_navigator.twig:8
+#: libraries/classes/Display/Results.php:910 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
 msgctxt "First page"
 msgid "Begin"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:904 templates/list_navigator.twig:16
+#: libraries/classes/Display/Results.php:917 templates/list_navigator.twig:16
 #: templates/list_navigator.twig:21 templates/server/binlog/index.twig:47
 #: templates/server/binlog/index.twig:52
 msgctxt "Previous page"
 msgid "Previous"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:930 templates/list_navigator.twig:33
+#: libraries/classes/Display/Results.php:943 templates/list_navigator.twig:33
 #: templates/list_navigator.twig:35 templates/server/binlog/index.twig:72
 #: templates/server/binlog/index.twig:77
 msgctxt "Next page"
 msgid "Next"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:960 templates/list_navigator.twig:42
+#: libraries/classes/Display/Results.php:973 templates/list_navigator.twig:42
 #: templates/list_navigator.twig:44
 msgctxt "Last page"
 msgid "End"
-msgstr ""
+msgstr "Fino"
 
-#: libraries/classes/Display/Results.php:1468
+#: libraries/classes/Display/Results.php:1481
 #: templates/display/results/table.twig:132
 msgid "Partial texts"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:1472
+#: libraries/classes/Display/Results.php:1485
 #: templates/display/results/table.twig:136
 msgid "Full texts"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:1815
-#: libraries/classes/Display/Results.php:1841 libraries/classes/Util.php:2567
+#: libraries/classes/Display/Results.php:1828
+#: libraries/classes/Display/Results.php:1854 libraries/classes/Util.php:2567
 #: libraries/classes/Util.php:2590 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:69
 #: templates/database/qbe/sort_select_cell.twig:7
@@ -8463,8 +8463,8 @@ msgstr ""
 msgid "Descending"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:1823
-#: libraries/classes/Display/Results.php:1833 libraries/classes/Util.php:2559
+#: libraries/classes/Display/Results.php:1836
+#: libraries/classes/Display/Results.php:1846 libraries/classes/Util.php:2559
 #: libraries/classes/Util.php:2582 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:68
 #: templates/database/qbe/sort_select_cell.twig:5
@@ -8477,41 +8477,41 @@ msgstr ""
 msgid "Ascending"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:3009
-#: libraries/classes/Display/Results.php:3024
+#: libraries/classes/Display/Results.php:3022
+#: libraries/classes/Display/Results.php:3037
 msgid "The row has been deleted."
 msgstr ""
 
-#: libraries/classes/Display/Results.php:3056
+#: libraries/classes/Display/Results.php:3069
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:3624
+#: libraries/classes/Display/Results.php:3637
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr ""
 
-#: libraries/classes/Display/Results.php:3985
+#: libraries/classes/Display/Results.php:3998
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:3999
+#: libraries/classes/Display/Results.php:4012
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:4004
+#: libraries/classes/Display/Results.php:4017
 #, php-format
 msgid "%d total"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:4017 libraries/classes/Sql.php:988
+#: libraries/classes/Display/Results.php:4030 libraries/classes/Sql.php:988
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr ""
 
-#: libraries/classes/Display/Results.php:4348
+#: libraries/classes/Display/Results.php:4361
 msgid "Link not found!"
 msgstr ""
 
@@ -8825,11 +8825,11 @@ msgstr ""
 msgid "Too many error messages, some are not displayed."
 msgstr ""
 
-#: libraries/classes/ErrorHandler.php:411
+#: libraries/classes/ErrorHandler.php:416
 msgid "Report"
 msgstr "Raporti"
 
-#: libraries/classes/ErrorHandler.php:416 templates/error/report_form.twig:25
+#: libraries/classes/ErrorHandler.php:421 templates/error/report_form.twig:25
 msgid "Automatically send report next time"
 msgstr ""
 
@@ -8998,25 +8998,25 @@ msgstr ""
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
-#: libraries/classes/Import.php:1267
+#: libraries/classes/Import.php:1266
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 
-#: libraries/classes/Import.php:1269
+#: libraries/classes/Import.php:1268
 msgid "View a structure's contents by clicking on its name."
 msgstr ""
 
-#: libraries/classes/Import.php:1270
+#: libraries/classes/Import.php:1269
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 
-#: libraries/classes/Import.php:1271
+#: libraries/classes/Import.php:1270
 msgid "Edit structure by following the \"Structure\" link."
 msgstr ""
 
-#: libraries/classes/Import.php:1275 libraries/classes/Import.php:1309
+#: libraries/classes/Import.php:1274 libraries/classes/Import.php:1308
 #: libraries/classes/Plugins/Export/ExportCodegen.php:66
 #: libraries/classes/Plugins/Export/ExportCsv.php:46
 #: libraries/classes/Plugins/Export/ExportExcel.php:39
@@ -9046,32 +9046,32 @@ msgstr ""
 msgid "Options"
 msgstr "Opcioj"
 
-#: libraries/classes/Import.php:1278
+#: libraries/classes/Import.php:1277
 #, php-format
 msgid "Go to database: %s"
 msgstr ""
 
-#: libraries/classes/Import.php:1284 libraries/classes/Import.php:1327
+#: libraries/classes/Import.php:1283 libraries/classes/Import.php:1326
 #, php-format
 msgid "Edit settings for %s"
 msgstr ""
 
-#: libraries/classes/Import.php:1312
+#: libraries/classes/Import.php:1311
 #, php-format
 msgid "Go to table: %s"
 msgstr ""
 
-#: libraries/classes/Import.php:1320
+#: libraries/classes/Import.php:1319
 #, php-format
 msgid "Structure of %s"
 msgstr ""
 
-#: libraries/classes/Import.php:1338
+#: libraries/classes/Import.php:1337
 #, php-format
 msgid "Go to view: %s"
 msgstr ""
 
-#: libraries/classes/Import.php:1366
+#: libraries/classes/Import.php:1365
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -9154,7 +9154,7 @@ msgstr ""
 msgid "Inserted row id: %1$d"
 msgstr ""
 
-#: libraries/classes/LanguageManager.php:979
+#: libraries/classes/LanguageManager.php:980
 msgid "Ignoring unsupported language code."
 msgstr ""
 
@@ -9200,7 +9200,7 @@ msgstr "Serĉi"
 #: templates/database/structure/structure_table_row.twig:59
 #: templates/sql/query.twig:75
 msgid "Insert"
-msgstr ""
+msgstr "Enmeti"
 
 #: libraries/classes/Menu.php:296 libraries/classes/Menu.php:406
 #: libraries/classes/Server/Privileges.php:2843 libraries/classes/Util.php:1960
@@ -9250,7 +9250,7 @@ msgstr "Peto"
 #: libraries/classes/Menu.php:412 libraries/classes/Util.php:1961
 #: templates/database/routines/index.twig:3
 msgid "Routines"
-msgstr ""
+msgstr "Rutinoj"
 
 #: libraries/classes/Menu.php:418
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:25
@@ -11763,7 +11763,7 @@ msgstr ""
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr ""
 
-#: libraries/classes/Table/Maintenance.php:122
+#: libraries/classes/Table/Maintenance.php:123
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr ""
@@ -12598,7 +12598,7 @@ msgstr ""
 #: templates/table/structure/display_structure.twig:477
 #: templates/table/tracking/structure_snapshot_indexes.twig:7
 msgid "Unique"
-msgstr ""
+msgstr "Unika"
 
 #: templates/columns_definitions/column_attributes.twig:124
 #: templates/table/structure/display_structure.twig:219
@@ -12936,7 +12936,7 @@ msgstr ""
 
 #: templates/console/display.twig:31 templates/console/display.twig:175
 msgid "Explain"
-msgstr ""
+msgstr "Klarigi"
 
 #: templates/console/display.twig:40 templates/console/display.twig:184
 msgid "Bookmark"
@@ -12964,7 +12964,7 @@ msgstr ""
 
 #: templates/console/display.twig:64
 msgid "Order:"
-msgstr ""
+msgstr "Ordo:"
 
 #: templates/console/display.twig:64 templates/console/display.twig:84
 #: templates/table/find_replace/replace_preview.twig:16
@@ -13001,7 +13001,7 @@ msgstr "Aldoni legosignon"
 
 #: templates/console/display.twig:121
 msgid "Label"
-msgstr ""
+msgstr "Etikedo"
 
 #: templates/console/display.twig:124
 msgid "Target database"
@@ -13175,7 +13175,7 @@ msgstr ""
 #: templates/server/privileges/privileges_table.twig:109
 #: templates/server/replication/database_multibox.twig:7
 msgid "Select all"
-msgstr ""
+msgstr "Elekti ĉion"
 
 #: templates/database/designer/database_tables.twig:37
 msgid "Show/hide columns"
@@ -13815,7 +13815,7 @@ msgstr ""
 
 #: templates/database/qbe/selection_form.twig:22
 msgid "Show:"
-msgstr ""
+msgstr "Montri:"
 
 #: templates/database/qbe/selection_form.twig:27
 msgid "Sort:"
@@ -14038,7 +14038,7 @@ msgstr ""
 #: templates/database/structure/check_all_tables.twig:15
 #: templates/database/structure/structure_table_row.twig:74
 msgid "Empty"
-msgstr ""
+msgstr "Malplenigi"
 
 #: templates/database/structure/check_all_tables.twig:18
 #: templates/table/operations/index.twig:334
@@ -14425,7 +14425,7 @@ msgstr "Importi / eksporti"
 
 #: templates/export.twig:137
 msgid "Rows:"
-msgstr ""
+msgstr "Vicoj:"
 
 #: templates/export.twig:141
 msgid "Dump all rows"
@@ -14441,7 +14441,7 @@ msgstr ""
 
 #: templates/export.twig:170 templates/export.twig:332
 msgid "Output:"
-msgstr ""
+msgstr "Eligo:"
 
 #: templates/export.twig:175 templates/export.twig:370
 #, php-format
@@ -14526,7 +14526,7 @@ msgstr ""
 
 #: templates/export.twig:429
 msgid "Compression:"
-msgstr ""
+msgstr "Densigo:"
 
 #: templates/export.twig:437
 msgid "zipped"
@@ -14656,7 +14656,7 @@ msgstr "Aldoni geometrion"
 
 #: templates/gis_data_editor_form.twig:239
 msgid "Output"
-msgstr ""
+msgstr "Eligo"
 
 #: templates/gis_data_editor_form.twig:241
 msgid ""

@@ -24,6 +24,8 @@ use function array_shift;
 use function ob_get_clean;
 use function ob_start;
 
+use const PHP_VERSION_ID;
+
 /**
  * @covers \PhpMyAdmin\Plugins\Export\ExportHtmlword
  * @group medium
@@ -66,11 +68,17 @@ class ExportHtmlwordTest extends AbstractTestCase
     public function testSetProperties(): void
     {
         $method = new ReflectionMethod(ExportHtmlword::class, 'setProperties');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
+
         $method->invoke($this->object, null);
 
         $attrProperties = new ReflectionProperty(ExportHtmlword::class, 'properties');
-        $attrProperties->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $attrProperties->setAccessible(true);
+        }
+
         $properties = $attrProperties->getValue($this->object);
 
         self::assertInstanceOf(ExportPluginProperties::class, $properties);
@@ -529,7 +537,10 @@ class ExportHtmlwordTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
 
         $method = new ReflectionMethod(ExportHtmlword::class, 'getTriggers');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
+
         $result = $method->invoke($this->object, 'database', 'table');
 
         self::assertStringContainsString('<td class="print">tna&quot;me</td>' .
@@ -633,7 +644,9 @@ class ExportHtmlwordTest extends AbstractTestCase
     public function testFormatOneColumnDefinition(): void
     {
         $method = new ReflectionMethod(ExportHtmlword::class, 'formatOneColumnDefinition');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
 
         $cols = [
             'Null' => 'Yes',

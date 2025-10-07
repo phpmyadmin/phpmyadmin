@@ -11,6 +11,8 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use ReflectionMethod;
 
+use const PHP_VERSION_ID;
+
 /**
  * @covers \PhpMyAdmin\Navigation\Nodes\Node
  */
@@ -221,7 +223,9 @@ class NodeTest extends AbstractTestCase
     public function testGetWhereClause(): void
     {
         $method = new ReflectionMethod(Node::class, 'getWhereClause');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
 
         // Vanilla case
         $node = NodeFactory::getInstance();

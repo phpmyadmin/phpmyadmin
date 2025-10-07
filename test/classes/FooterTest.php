@@ -11,6 +11,8 @@ use ReflectionProperty;
 
 use function json_encode;
 
+use const PHP_VERSION_ID;
+
 /**
  * @covers \PhpMyAdmin\Footer
  */
@@ -154,7 +156,10 @@ class FooterTest extends AbstractTestCase
     public function testSetAjax(): void
     {
         $isAjax = new ReflectionProperty(Footer::class, 'isAjax');
-        $isAjax->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $isAjax->setAccessible(true);
+        }
+
         $footer = new Footer();
 
         self::assertFalse($isAjax->getValue($footer));

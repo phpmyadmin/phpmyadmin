@@ -701,22 +701,7 @@ parameters:
 			path: libraries/classes/Command/TwigLintCommand.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Command\\\\TwigLintCommand\\:\\:findFiles\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Command/TwigLintCommand.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Command\\\\TwigLintCommand\\:\\:getContext\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Command/TwigLintCommand.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Command\\\\TwigLintCommand\\:\\:getFilesInfo\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Command/TwigLintCommand.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Command\\\\TwigLintCommand\\:\\:validate\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Command/TwigLintCommand.php
 
@@ -742,16 +727,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$callback of function set_error_handler expects \\(callable\\(int, string, string, int, array\\)\\: bool\\)\\|null, Closure\\(int, string, string, int\\)\\: mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Command/TwigLintCommand.php
-
-		-
-			message: "#^Parameter \\#1 \\$filePath of method PhpMyAdmin\\\\Command\\\\TwigLintCommand\\:\\:getTemplateContents\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Command/TwigLintCommand.php
-
-		-
-			message: "#^Parameter \\#2 \\$file of method PhpMyAdmin\\\\Command\\\\TwigLintCommand\\:\\:validate\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Command/TwigLintCommand.php
 
@@ -1137,7 +1112,7 @@ parameters:
 
 		-
 			message: "#^Only booleans are allowed in an if condition, string\\|false given\\.$#"
-			count: 4
+			count: 3
 			path: libraries/classes/Config.php
 
 		-
@@ -1158,11 +1133,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$filename of static method PhpMyAdmin\\\\Config\\:\\:renderCustom\\(\\) expects string, mixed given\\.$#"
 			count: 2
-			path: libraries/classes/Config.php
-
-		-
-			message: "#^Parameter \\#1 \\$haystack of function mb_strstr expects string, mixed given\\.$#"
-			count: 1
 			path: libraries/classes/Config.php
 
 		-
@@ -1222,7 +1192,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\.\\.\\.\\$values of function sprintf expects bool\\|float\\|int\\|string\\|null, mixed given\\.$#"
-			count: 1
+			count: 2
 			path: libraries/classes/Config.php
 
 		-
@@ -1573,11 +1543,6 @@ parameters:
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\\\Form\\:\\:\\$index \\(int\\) does not accept int\\|null\\.$#"
 			count: 1
-			path: libraries/classes/Config/Form.php
-
-		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 2
 			path: libraries/classes/Config/Form.php
 
 		-
@@ -5137,7 +5102,7 @@ parameters:
 
 		-
 			message: "#^Cannot use array destructuring on array\\|null\\.$#"
-			count: 4
+			count: 5
 			path: libraries/classes/Controllers/Database/StructureController.php
 
 		-
@@ -5182,6 +5147,16 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:getValuesForAriaTable\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/StructureController.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:getValuesForCsvTable\\(\\) has parameter \\$currentTable with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/StructureController.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:getValuesForCsvTable\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/StructureController.php
 
@@ -5257,7 +5232,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 2
+			count: 3
 			path: libraries/classes/Controllers/Database/StructureController.php
 
 		-
@@ -5268,6 +5243,11 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$str of function md5 expects string, mixed given\\.$#"
 			count: 1
+			path: libraries/classes/Controllers/Database/StructureController.php
+
+		-
+			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeString\\(\\) expects string, mixed given\\.$#"
+			count: 2
 			path: libraries/classes/Controllers/Database/StructureController.php
 
 		-
@@ -5337,7 +5317,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$table_name of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
-			count: 4
+			count: 5
 			path: libraries/classes/Controllers/Database/StructureController.php
 
 		-
@@ -9211,7 +9191,7 @@ parameters:
 			path: libraries/classes/Controllers/Table/GisVisualizationController.php
 
 		-
-			message: "#^Parameter \\#1 \\$query of method PhpMyAdmin\\\\DatabaseInterface\\:\\:tryQuery\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$sqlQuery of method PhpMyAdmin\\\\Controllers\\\\Table\\\\GisVisualizationController\\:\\:getCandidateColumns\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/GisVisualizationController.php
 
@@ -12062,7 +12042,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 8
+			count: 7
 			path: libraries/classes/Core.php
 
 		-
@@ -15647,7 +15627,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'MaxExactCount' on mixed\\.$#"
-			count: 1
+			count: 2
 			path: libraries/classes/Display/Results.php
 
 		-
@@ -15757,7 +15737,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'max_rows' on mixed\\.$#"
-			count: 19
+			count: 20
 			path: libraries/classes/Display/Results.php
 
 		-
@@ -15922,7 +15902,7 @@ parameters:
 
 		-
 			message: "#^Cannot cast mixed to int\\.$#"
-			count: 4
+			count: 6
 			path: libraries/classes/Display/Results.php
 
 		-
@@ -16527,7 +16507,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$var of function intval expects array\\|bool\\|float\\|int\\|resource\\|string\\|null, mixed given\\.$#"
-			count: 4
+			count: 2
 			path: libraries/classes/Display/Results.php
 
 		-
@@ -16752,6 +16732,11 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Encoding\\:\\:convertString\\(\\) should return string but returns string\\|false\\.$#"
+			count: 2
+			path: libraries/classes/Encoding.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Encoding\\:\\:kanjiStrConv\\(\\) should return string but returns string\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Encoding.php
 
@@ -24447,7 +24432,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 7
+			count: 8
 			path: libraries/classes/Partitioning/Partition.php
 
 		-
@@ -28466,6 +28451,11 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportCsv.php
 
 		-
+			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, array\\|false given\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Import/ImportCsv.php
+
+		-
 			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, mixed given\\.$#"
 			count: 4
 			path: libraries/classes/Plugins/Import/ImportCsv.php
@@ -28477,7 +28467,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$input of function preg_grep expects array, mixed given\\.$#"
-			count: 2
+			count: 3
 			path: libraries/classes/Plugins/Import/ImportCsv.php
 
 		-
@@ -28861,16 +28851,6 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportOds.php
 
 		-
-			message: "#^Variable property access on \\(SimpleXMLElement\\|null\\)\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportOds.php
-
-		-
-			message: "#^Variable property access on SimpleXMLElement\\.$#"
-			count: 2
-			path: libraries/classes/Plugins/Import/ImportOds.php
-
-		-
 			message: "#^Variable property access on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportOds.php
@@ -29087,11 +29067,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$str1 of function strcmp expects string, array\\<int\\<0, max\\>, array\\<int\\<0, max\\>, string\\>\\|string\\>\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportXml.php
-
-		-
-			message: "#^Variable property access on \\(SimpleXMLElement\\|null\\)\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportXml.php
 
@@ -33582,7 +33557,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 12
+			count: 13
 			path: libraries/classes/Server/Status/Processes.php
 
 		-
@@ -35052,7 +35027,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'index_list' on mixed\\.$#"
-			count: 1
+			count: 2
 			path: libraries/classes/Table.php
 
 		-
@@ -35187,7 +35162,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 41
+			count: 30
 			path: libraries/classes/Table.php
 
 		-
@@ -36021,11 +35996,6 @@ parameters:
 			path: libraries/classes/Theme.php
 
 		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 1
-			path: libraries/classes/Theme.php
-
-		-
 			message: "#^Cannot access offset 'ThemeDefault' on mixed\\.$#"
 			count: 3
 			path: libraries/classes/ThemeManager.php
@@ -36067,11 +36037,6 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 1
-			path: libraries/classes/ThemeManager.php
-
-		-
-			message: "#^If condition is always true\\.$#"
 			count: 1
 			path: libraries/classes/ThemeManager.php
 
@@ -36123,11 +36088,6 @@ parameters:
 		-
 			message: "#^Static property PhpMyAdmin\\\\ThemeManager\\:\\:\\$instance \\(PhpMyAdmin\\\\ThemeManager\\) in empty\\(\\) is not falsy\\.$#"
 			count: 1
-			path: libraries/classes/ThemeManager.php
-
-		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 2
 			path: libraries/classes/ThemeManager.php
 
 		-
@@ -38196,6 +38156,11 @@ parameters:
 			path: libraries/classes/Utils/HttpRequest.php
 
 		-
+			message: "#^Cannot access offset 0 on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Utils/HttpRequest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Utils\\\\HttpRequest\\:\\:handleContext\\(\\) has parameter \\$context with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Utils/HttpRequest.php
@@ -38231,6 +38196,11 @@ parameters:
 			path: libraries/classes/Utils/HttpRequest.php
 
 		-
+			message: "#^Parameter \\#2 \\$subject of function preg_match expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Utils/HttpRequest.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\Utils\\\\HttpRequest\\:\\:\\$proxyPass \\(string\\) does not accept mixed\\.$#"
 			count: 1
 			path: libraries/classes/Utils/HttpRequest.php
@@ -38242,11 +38212,6 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Utils\\\\HttpRequest\\:\\:\\$proxyUser \\(string\\) does not accept mixed\\.$#"
-			count: 1
-			path: libraries/classes/Utils/HttpRequest.php
-
-		-
-			message: "#^Variable \\$http_response_header in isset\\(\\) always exists and is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Utils/HttpRequest.php
 
@@ -40976,11 +40941,6 @@ parameters:
 			path: test/classes/Command/TwigLintCommandTest.php
 
 		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:exactly\\(\\)\\.$#"
-			count: 2
-			path: test/classes/Command/TwigLintCommandTest.php
-
-		-
 			message: "#^Parameter \\#1 \\$array_arg of function sort expects TArray of array\\<T\\>, mixed given\\.$#"
 			count: 2
 			path: test/classes/Command/TwigLintCommandTest.php
@@ -41666,27 +41626,12 @@ parameters:
 			path: test/classes/ConfigTest.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
-			count: 1
-			path: test/classes/ConfigTest.php
-
-		-
 			message: "#^Only booleans are allowed in an elseif condition, string\\|false given\\.$#"
 			count: 3
 			path: test/classes/ConfigTest.php
 
 		-
 			message: "#^Only booleans are allowed in an if condition, string\\|false given\\.$#"
-			count: 3
-			path: test/classes/ConfigTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$haystack of function mb_strstr expects string, array\\<int, string\\> given\\.$#"
-			count: 1
-			path: test/classes/ConfigTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$haystack of function mb_strstr expects string, mixed given\\.$#"
 			count: 1
 			path: test/classes/ConfigTest.php
 
@@ -41717,11 +41662,6 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Database/PrivilegesControllerTest.php
-
-		-
-			message: "#^Parameter \\#5 \\$dbi of class PhpMyAdmin\\\\Controllers\\\\Database\\\\PrivilegesController constructor expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
 			count: 1
 			path: test/classes/Controllers/Database/PrivilegesControllerTest.php
 
@@ -42666,11 +42606,6 @@ parameters:
 			path: test/classes/Controllers/Table/PrivilegesControllerTest.php
 
 		-
-			message: "#^Parameter \\#6 \\$dbi of class PhpMyAdmin\\\\Controllers\\\\Table\\\\PrivilegesController constructor expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/PrivilegesControllerTest.php
-
-		-
 			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
 			count: 1
 			path: test/classes/Controllers/Table/RelationControllerTest.php
@@ -42927,7 +42862,7 @@ parameters:
 
 		-
 			message: "#^Cannot call method set\\(\\) on mixed\\.$#"
-			count: 10
+			count: 8
 			path: test/classes/CoreTest.php
 
 		-
@@ -46446,6 +46381,11 @@ parameters:
 			path: test/classes/Plugins/Auth/AuthenticationHttpTest.php
 
 		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with array\\{lifetime\\: 0, path\\: '/', domain\\: '', secure\\: false, partitioned\\?\\: false, httponly\\: false, samesite\\?\\: ''\\} and array\\{lifetime\\: int\\<0, max\\>, path\\: non\\-falsy\\-string, domain\\: string, secure\\: bool, httponly\\: bool, samesite\\: string\\} will always evaluate to false\\.$#"
+			count: 1
+			path: test/classes/Plugins/Auth/AuthenticationSignonTest.php
+
+		-
 			message: "#^Cannot access offset 'LoginCookieValidity' on mixed\\.$#"
 			count: 1
 			path: test/classes/Plugins/Auth/AuthenticationSignonTest.php
@@ -49292,7 +49232,12 @@ parameters:
 
 		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsInt\\(\\) with 2 will always evaluate to true\\.$#"
-			count: 2
+			count: 1
+			path: test/classes/VersionTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsInt\\(\\) with 3 will always evaluate to true\\.$#"
+			count: 1
 			path: test/classes/VersionTest.php
 
 		-

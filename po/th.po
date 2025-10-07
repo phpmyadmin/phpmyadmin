@@ -1,72 +1,73 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
+"Project-Id-Version: phpMyAdmin 5.2.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-01-12 15:57-0300\n"
-"PO-Revision-Date: 2022-11-07 12:05+0000\n"
+"POT-Creation-Date: 2025-02-27 14:25-0300\n"
+"PO-Revision-Date: 2025-03-18 14:23+0000\n"
 "Last-Translator: AefghThreenine <aefgh39622@gmail.com>\n"
-"Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/5-2/th/"
-">\n"
+"Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/5-2/th/>"
+"\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.14.2\n"
+"X-Generator: Weblate 5.11-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
-msgstr ""
+msgstr "เวลาทำงานไม่ถึงหนึ่งวัน"
 
 #: libraries/advisory_rules_generic.php:12
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
-msgstr ""
+msgstr "เนื่องจากเวลาทำงานมีน้อยกว่า 1 วัน การปรับประสิทธิภาพอาจจะไม่แม่นยำ"
 
 #: libraries/advisory_rules_generic.php:14
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr ""
+"หากต้องการให้ความแม่นยำโดยเฉลี่ยมีมากขึ้น "
+"แนะนำให้ปล่อยเซิร์ฟเวอร์ทำงานเป็นเวลานานกว่าหนึ่งวันแล้วค่อยเรียกใช้เครื่องมือวิเคราะห์นี้"
 
 #: libraries/advisory_rules_generic.php:17
 #, php-format
 msgid "The uptime is only %s"
-msgstr ""
+msgstr "เวลาทำงานมีเพียง %s เท่านั้น"
 
 #: libraries/advisory_rules_generic.php:22
-#, fuzzy
-#| msgid "Versions"
 msgid "Questions below 1,000"
-msgstr "รุ่น"
+msgstr "จำนวนคำถามไม่ถึง 1,000"
 
 #: libraries/advisory_rules_generic.php:26
 msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
 msgstr ""
+"มีคำถามที่ถูกเรียกใช้ผ่านเซิร์ฟเวอร์นี้น้อยกว่า 1,000 คำถาม คำแนะนำอาจจะไม่แม่นยำ"
 
 #: libraries/advisory_rules_generic.php:30
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
 msgstr ""
+"ให้ปล่อยเซิร์ฟเวอร์ทำงานเป็นเวลานานกว่านี้จนกว่าเซิร์ฟเวอร์จะดำเนินงานกับแบบสอบถามได้ในจำนวนที่"
+"มากกว่านี้"
 
 #: libraries/advisory_rules_generic.php:32
-#, fuzzy, php-format
-#| msgid "Connections"
+#, php-format
 msgid "Current amount of Questions: %s"
-msgstr "การเชื่อมต่อ"
+msgstr "จำนวนคำถามปัจจุบัน: %s"
 
 #: libraries/advisory_rules_generic.php:37
-#, fuzzy
 msgid "Percentage of slow queries"
-msgstr "แสดงคำค้นแบบเต็ม"
+msgstr "ค่าเปอร์เซ็นต์ของแบบสอบถามที่ทำงานช้า"
 
 #: libraries/advisory_rules_generic.php:41
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
-msgstr ""
+msgstr "มีแบบสอบถามที่ทำงานช้าจำนวนมากเมื่อเทียบกับจำนวนแบบสอบถามโดยรวม"
 
 #: libraries/advisory_rules_generic.php:43
 #: libraries/advisory_rules_generic.php:56
@@ -74,21 +75,23 @@ msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
 msgstr ""
+"คุณอาจต้องเพิ่ม {long_query_time} "
+"หรือเร่งประสิทธิภาพแบบสอบถามที่แสดงในข้อมูลบันทึกแบบสอบถามที่ทำงานช้า"
 
 #: libraries/advisory_rules_generic.php:45
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
-msgstr ""
+msgstr "อัตราแบบสอบถามที่ทำงานช้าควรจะต่ำกว่า 5%% แต่ค่าของคุณอยู่ที่ %s%%"
 
 #: libraries/advisory_rules_generic.php:50
-#, fuzzy
 msgid "Slow query rate"
-msgstr "คำค้น SQL"
+msgstr "อัตราแบบสอบถามที่ทำงานช้า"
 
 #: libraries/advisory_rules_generic.php:54
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
+"มีค่าเปอร์เซ็นต์ของแบบสอบถามที่ทำงานช้าสูงเมื่อเทียบกับเวลาทำงานของเซิร์ฟเวอร์"
 
 #: libraries/advisory_rules_generic.php:58
 #, php-format
@@ -96,27 +99,30 @@ msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr ""
+"คุณมีอัตราแบบสอบถามที่ทำงานช้าอยู่ที่ %s ต่อชั่วโมง ซึ่งค่าของคุณควรจะน้อยกว่า 1%% ต่อชั่วโมง"
 
 #: libraries/advisory_rules_generic.php:63
-#, fuzzy
 msgid "Long query time"
-msgstr "คำค้น SQL"
+msgstr "เวลาแบบสอบถามที่ทำงานนาน"
 
 #: libraries/advisory_rules_generic.php:67
 msgid ""
 "{long_query_time} is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
+"{long_query_time} ถูกตั้งค่าเป็น 10 วินาทีขึ้นไป "
+"ดังนั้นจะบันทึกเฉพาะแบบสอบถามที่ทำงานช้าซึ่งใช้เวลาเกิน 10 วินาทีขึ้นไปเท่านั้น"
 
 #: libraries/advisory_rules_generic.php:71
 msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
 msgstr ""
+"แนะนำให้ตั้งค่า {long_query_time} เป็นค่าที่ต่ำลง โดยขึ้นอยู่กับสภาพแวดล้อมของคุณ "
+"ซึ่งปกติแล้วแนะนำให้ตั้งค่าที่ 1-5 วินาที"
 
 #: libraries/advisory_rules_generic.php:74
-#, fuzzy, php-format
-#| msgid "long_query_time is set to %d second(s)."
+#, php-format
 msgid "long_query_time is currently set to %ds."
 msgstr "long_query_time ถูกตั้งไว้ที่ %d วินาที"
 
@@ -159,10 +165,8 @@ msgid "slow_query_log is set to 'OFF'"
 msgstr "long_query_time ถูกตั้งไว้ที่ %d วินาที"
 
 #: libraries/advisory_rules_generic.php:106
-#, fuzzy
-#| msgid "Select Tables"
 msgid "Release Series"
-msgstr "เลือกตาราง"
+msgstr "ชุดการออกรุ่น"
 
 #: libraries/advisory_rules_generic.php:109
 msgid "The MySQL server version less than 5.1."
@@ -202,20 +206,20 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:136
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
-msgstr ""
+msgstr "รุ่นต่ำกว่า 5.5.8 (GA รุ่นแรกของ 5.5)"
 
 #: libraries/advisory_rules_generic.php:137
 msgid "You should upgrade, to a stable version of MySQL 5.5."
-msgstr ""
+msgstr "คุณควรอัพเกรดเป็น MySQL 5.5 รุ่นเสถียร"
 
 #: libraries/advisory_rules_generic.php:143
 #: libraries/advisory_rules_generic.php:156
 msgid "Distribution"
-msgstr "การกระจาย"
+msgstr "ชุดเผยแพร่"
 
 #: libraries/advisory_rules_generic.php:146
 msgid "Version is compiled from source, not a MySQL official binary."
-msgstr ""
+msgstr "รุ่นนี้ถูกคอมไพล์จากซอร์ส ไม่ได้คอมไพล์จากไบนารีทางการของ MySQL"
 
 #: libraries/advisory_rules_generic.php:148
 msgid ""
@@ -223,6 +227,9 @@ msgid ""
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
 "not any package distributions (such as RedHat, Debian/Ubuntu etc)."
 msgstr ""
+"หากคุณไม่ได้คอมไพล์จากซอร์ส คุณอาจกำลังใช้แพ็กเกจที่มีการดัดแปลงโดยชุดเผยแพร่ คู่มือ MySQL "
+"นั้นจะมีความแม่นยำสำหรับไบนารี MySQL ทางการเท่านั้น ไม่ใช่ชุดเผยแพร่แพ็กเกจ (เช่น RedHat, "
+"Debian/Ubuntu และอื่นๆ)"
 
 #: libraries/advisory_rules_generic.php:152
 msgid "'source' found in version_comment"
@@ -248,7 +255,7 @@ msgstr "สถาปัตยกรรม ของ MySQL"
 
 #: libraries/advisory_rules_generic.php:172
 msgid "MySQL is not compiled as a 64-bit package."
-msgstr ""
+msgstr "MySQL ไม่ได้ถูกคอมไพล์เป็นแพ็กเกจแบบ 64 บิต"
 
 #: libraries/advisory_rules_generic.php:174
 msgid ""
@@ -256,11 +263,13 @@ msgid ""
 "so MySQL might not be able to access all of your memory. You might want to "
 "consider installing the 64-bit version of MySQL."
 msgstr ""
+"ความจุหน่วยความจำของคุณสูงกว่า 3 GiB (สมมุติว่าเซิร์ฟเวอร์อยู่บน localhost) ดังนั้น MySQL "
+"จึงอาจจะไม่สามารถเข้าถึงหน่วยความจำของคุณได้ทั้งหมด คุณอาจต้องพิจารณาติดตั้ง MySQL รุ่น 64 บิต"
 
 #: libraries/advisory_rules_generic.php:178
 #, php-format
 msgid "Available memory on this host: %s"
-msgstr ""
+msgstr "หน่วยความจำที่ใช้ได้บนโฮสต์นี้: %s"
 
 #: libraries/advisory_rules_generic.php:184
 msgid "Query caching method"
@@ -1679,19 +1688,19 @@ msgstr "เวียดนาม"
 #: libraries/classes/Common.php:245
 #, php-format
 msgid "You should upgrade to %s %s or later."
-msgstr ""
+msgstr "คุณควรอัพเกรดเป็น %s%s ขึ้นไป"
 
 #: libraries/classes/Common.php:277
 msgid "Error: Token mismatch"
 msgstr "เกิดข้อผิดพลาด: โทเค็นไม่ตรงกัน"
 
-#: libraries/classes/Common.php:491
+#: libraries/classes/Common.php:498
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
 
-#: libraries/classes/Common.php:552
+#: libraries/classes/Common.php:559
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1700,17 +1709,17 @@ msgstr ""
 "คุณได้เปิดใช้งาน mbstring.func_overload ในการกำหนดค่าของ PHP ตัวเลือกนี้ไม่เข้ากันกับ "
 "phpMyAdmin และอาจทำให้ข้อมูลบางอย่างจะเสียหายได้!"
 
-#: libraries/classes/Common.php:569
+#: libraries/classes/Common.php:576
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
 
-#: libraries/classes/Common.php:580
+#: libraries/classes/Common.php:587
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/classes/Common.php:590
+#: libraries/classes/Common.php:597
 msgid "possible exploit"
 msgstr "﻿ใช้ประโยชน์ได้"
 
@@ -4230,7 +4239,7 @@ msgstr "ข้ามตารางที่ถูกล็อก"
 #: libraries/classes/Config/Descriptions.php:946
 #: libraries/classes/ConfigStorage/UserGroups.php:122
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:387
-#: libraries/classes/Display/Results.php:2965
+#: libraries/classes/Display/Results.php:2978
 #: libraries/classes/Html/Generator.php:614
 #: libraries/classes/Html/Generator.php:868
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
@@ -4559,7 +4568,7 @@ msgstr ""
 #: libraries/classes/Config/Forms/User/ExportForm.php:100
 #: libraries/classes/Config/Forms/User/ExportForm.php:128
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:712
-#: libraries/classes/Import.php:1308 libraries/classes/Menu.php:247
+#: libraries/classes/Import.php:1307 libraries/classes/Menu.php:247
 #: libraries/classes/Menu.php:357
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:42
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:51
@@ -4946,7 +4955,7 @@ msgstr "คำค้น SQL"
 
 #: libraries/classes/Controllers/AbstractController.php:73
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:342
-#: libraries/classes/Controllers/Server/Databases/DestroyController.php:68
+#: libraries/classes/Controllers/Server/Databases/DestroyController.php:73
 #: libraries/classes/DbTableExists.php:47
 msgid "No databases selected."
 msgstr "ไม่มีฐานข้อมูลที่ถูกเลือก"
@@ -4973,7 +4982,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Database/ExportController.php:81
 #: libraries/classes/Controllers/Database/TrackingController.php:130
-#: libraries/classes/Controllers/Export/ExportController.php:442
+#: libraries/classes/Controllers/Export/ExportController.php:443
 #: libraries/classes/Database/Qbe.php:322
 #: templates/database/structure/index.twig:25
 #: templates/navigation/tree/path.twig:9
@@ -5081,7 +5090,7 @@ msgid "Table %s has been emptied."
 msgstr "ลบข้อมูลในตาราง %s เรียบร้อยแล้ว"
 
 #: libraries/classes/Controllers/Database/StructureController.php:575
-#: libraries/classes/Display/Results.php:3976
+#: libraries/classes/Display/Results.php:3989
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -5139,11 +5148,11 @@ msgstr "ใช่"
 #: libraries/classes/Controllers/Table/DropColumnController.php:74
 #: libraries/classes/Controllers/Table/OperationsController.php:318
 #: libraries/classes/Controllers/Table/ReplaceController.php:415
-#: libraries/classes/Core.php:719 templates/preview_sql.twig:3
+#: libraries/classes/Core.php:737 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "ไม่มีการเปลี่ยนแปลง"
 
-#: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php:109
+#: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php:113
 msgid "Favorite List is full!"
 msgstr ""
 
@@ -5960,7 +5969,7 @@ msgid "Please add at least one variable to the series!"
 msgstr "กรุณาเพิ่มค่าตัวแปรอย่างน้อยหนึ่งตัวเข้าไปในลำดับ!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:207
-#: libraries/classes/Display/Results.php:1261
+#: libraries/classes/Display/Results.php:1274
 #: libraries/classes/Plugins/Export/ExportSql.php:2259
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:99
 #: libraries/config.values.php:111
@@ -6558,7 +6567,7 @@ msgid "Edit query"
 msgstr "ประมวลผลคำค้น"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:389
-#: libraries/classes/Display/Results.php:3033
+#: libraries/classes/Display/Results.php:3046
 #: libraries/classes/Tracking.php:260 templates/console/bookmark_content.twig:7
 #: templates/database/central_columns/main.twig:268
 #: templates/database/central_columns/main.twig:380
@@ -6814,7 +6823,7 @@ msgstr "สารบัญ"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:475
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:633
-#: libraries/classes/ErrorHandler.php:422 libraries/classes/InsertEdit.php:2012
+#: libraries/classes/ErrorHandler.php:427 libraries/classes/InsertEdit.php:2012
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "ข้าม"
@@ -6825,7 +6834,7 @@ msgid "Copy to clipboard"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:477
-#: libraries/classes/Display/Results.php:2969
+#: libraries/classes/Display/Results.php:2982
 #: libraries/classes/Html/Generator.php:75
 #: templates/display/results/table.twig:234
 #: templates/display/results/table.twig:235
@@ -7233,7 +7242,7 @@ msgid "Please look at the bottom of this window."
 msgstr "กรุณาดูที่ด้านล่างของหน้าต่าง"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:636
-#: libraries/classes/ErrorHandler.php:427
+#: libraries/classes/ErrorHandler.php:432
 msgid "Ignore All"
 msgstr "ไม่สนใจทั้งหมด"
 
@@ -7505,7 +7514,7 @@ msgstr "เกินความจำเป็น"
 msgid "Database %1$s has been created."
 msgstr "ฐานข้อมูล %1$s ถูกสร้างเรียบร้อยแล้ว"
 
-#: libraries/classes/Controllers/Server/Databases/DestroyController.php:93
+#: libraries/classes/Controllers/Server/Databases/DestroyController.php:98
 #, fuzzy, php-format
 #| msgid "%s databases have been dropped successfully."
 msgid "%1$d database has been dropped successfully."
@@ -8257,7 +8266,7 @@ msgstr "มีผู้ใช้ %s อยู่แล้ว!"
 #: libraries/classes/Controllers/Table/RelationController.php:241
 #: libraries/classes/Controllers/View/OperationsController.php:87
 #: libraries/classes/Database/Routines.php:1222
-#: libraries/classes/Display/Results.php:3691 libraries/classes/Message.php:172
+#: libraries/classes/Display/Results.php:3704 libraries/classes/Message.php:172
 #: templates/sql/query.twig:7
 #, fuzzy
 #| msgid "Your SQL query has been executed successfully."
@@ -8974,13 +8983,13 @@ msgid ""
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
 
-#: libraries/classes/Display/Results.php:897 templates/list_navigator.twig:8
+#: libraries/classes/Display/Results.php:910 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
 msgctxt "First page"
 msgid "Begin"
 msgstr "เริ่มต้น"
 
-#: libraries/classes/Display/Results.php:904 templates/list_navigator.twig:16
+#: libraries/classes/Display/Results.php:917 templates/list_navigator.twig:16
 #: templates/list_navigator.twig:21 templates/server/binlog/index.twig:47
 #: templates/server/binlog/index.twig:52
 #, fuzzy
@@ -8989,35 +8998,35 @@ msgctxt "Previous page"
 msgid "Previous"
 msgstr "ก่อนหน้า"
 
-#: libraries/classes/Display/Results.php:930 templates/list_navigator.twig:33
+#: libraries/classes/Display/Results.php:943 templates/list_navigator.twig:33
 #: templates/list_navigator.twig:35 templates/server/binlog/index.twig:72
 #: templates/server/binlog/index.twig:77
 msgctxt "Next page"
 msgid "Next"
 msgstr "ถัดไป"
 
-#: libraries/classes/Display/Results.php:960 templates/list_navigator.twig:42
+#: libraries/classes/Display/Results.php:973 templates/list_navigator.twig:42
 #: templates/list_navigator.twig:44
 msgctxt "Last page"
 msgid "End"
 msgstr "สุดท้าย"
 
-#: libraries/classes/Display/Results.php:1468
+#: libraries/classes/Display/Results.php:1481
 #: templates/display/results/table.twig:132
 #, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
 msgstr "ข้อความบางส่วน"
 
-#: libraries/classes/Display/Results.php:1472
+#: libraries/classes/Display/Results.php:1485
 #: templates/display/results/table.twig:136
 #, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
 msgstr "ทั้งข้อความ"
 
-#: libraries/classes/Display/Results.php:1815
-#: libraries/classes/Display/Results.php:1841 libraries/classes/Util.php:2567
+#: libraries/classes/Display/Results.php:1828
+#: libraries/classes/Display/Results.php:1854 libraries/classes/Util.php:2567
 #: libraries/classes/Util.php:2590 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:69
 #: templates/database/qbe/sort_select_cell.twig:7
@@ -9030,8 +9039,8 @@ msgstr "ทั้งข้อความ"
 msgid "Descending"
 msgstr "มากไปน้อย"
 
-#: libraries/classes/Display/Results.php:1823
-#: libraries/classes/Display/Results.php:1833 libraries/classes/Util.php:2559
+#: libraries/classes/Display/Results.php:1836
+#: libraries/classes/Display/Results.php:1846 libraries/classes/Util.php:2559
 #: libraries/classes/Util.php:2582 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:68
 #: templates/database/qbe/sort_select_cell.twig:5
@@ -9044,46 +9053,46 @@ msgstr "มากไปน้อย"
 msgid "Ascending"
 msgstr "น้อยไปมาก"
 
-#: libraries/classes/Display/Results.php:3009
-#: libraries/classes/Display/Results.php:3024
+#: libraries/classes/Display/Results.php:3022
+#: libraries/classes/Display/Results.php:3037
 #, fuzzy
 #| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "ลบเรียบร้อยแล้ว"
 
-#: libraries/classes/Display/Results.php:3056
+#: libraries/classes/Display/Results.php:3069
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "ฆ่าทิ้ง"
 
-#: libraries/classes/Display/Results.php:3624
+#: libraries/classes/Display/Results.php:3637
 #, fuzzy
 #| msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "มีข้อผิดพลาดระหว่างการอัพโหลด กรุณาดู [doc@faq1-11]FAQ 1.11[/doc]"
 
-#: libraries/classes/Display/Results.php:3985
+#: libraries/classes/Display/Results.php:3998
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "กำลังแสดงแถวที่ %1s - %2s"
 
-#: libraries/classes/Display/Results.php:3999
+#: libraries/classes/Display/Results.php:4012
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "ทั้งหมด %1$d, %2$d ในคำค้น"
 
-#: libraries/classes/Display/Results.php:4004
+#: libraries/classes/Display/Results.php:4017
 #, php-format
 msgid "%d total"
 msgstr "ทั้งหมด %d"
 
-#: libraries/classes/Display/Results.php:4017 libraries/classes/Sql.php:988
+#: libraries/classes/Display/Results.php:4030 libraries/classes/Sql.php:988
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
 msgstr "คำค้นใช้เวลา %01.4f วินาที"
 
-#: libraries/classes/Display/Results.php:4348
+#: libraries/classes/Display/Results.php:4361
 #, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
@@ -9401,13 +9410,13 @@ msgstr ""
 msgid "Too many error messages, some are not displayed."
 msgstr "มีข้อความผิดพลาดจำนวนมาก บางส่วนจึงซ่อนไว้ไม่แสดง"
 
-#: libraries/classes/ErrorHandler.php:411
+#: libraries/classes/ErrorHandler.php:416
 #, fuzzy
 #| msgid "Import"
 msgid "Report"
 msgstr "นำเข้า"
 
-#: libraries/classes/ErrorHandler.php:416 templates/error/report_form.twig:25
+#: libraries/classes/ErrorHandler.php:421 templates/error/report_form.twig:25
 #, fuzzy
 #| msgid "Automatically create versions"
 msgid "Automatically send report next time"
@@ -9591,25 +9600,25 @@ msgstr ""
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
-#: libraries/classes/Import.php:1267
+#: libraries/classes/Import.php:1266
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 
-#: libraries/classes/Import.php:1269
+#: libraries/classes/Import.php:1268
 msgid "View a structure's contents by clicking on its name."
 msgstr ""
 
-#: libraries/classes/Import.php:1270
+#: libraries/classes/Import.php:1269
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 
-#: libraries/classes/Import.php:1271
+#: libraries/classes/Import.php:1270
 msgid "Edit structure by following the \"Structure\" link."
 msgstr ""
 
-#: libraries/classes/Import.php:1275 libraries/classes/Import.php:1309
+#: libraries/classes/Import.php:1274 libraries/classes/Import.php:1308
 #: libraries/classes/Plugins/Export/ExportCodegen.php:66
 #: libraries/classes/Plugins/Export/ExportCsv.php:46
 #: libraries/classes/Plugins/Export/ExportExcel.php:39
@@ -9639,33 +9648,33 @@ msgstr ""
 msgid "Options"
 msgstr "ตัวเลือก"
 
-#: libraries/classes/Import.php:1278
+#: libraries/classes/Import.php:1277
 #, fuzzy, php-format
 msgid "Go to database: %s"
 msgstr "ไม่มีฐานข้อมูล"
 
-#: libraries/classes/Import.php:1284 libraries/classes/Import.php:1327
+#: libraries/classes/Import.php:1283 libraries/classes/Import.php:1326
 #, php-format
 msgid "Edit settings for %s"
 msgstr ""
 
-#: libraries/classes/Import.php:1312
+#: libraries/classes/Import.php:1311
 #, fuzzy, php-format
 msgid "Go to table: %s"
 msgstr "ไม่มีฐานข้อมูล"
 
-#: libraries/classes/Import.php:1320
+#: libraries/classes/Import.php:1319
 #, fuzzy, php-format
 #| msgid "Structure only"
 msgid "Structure of %s"
 msgstr "เฉพาะโครงสร้าง"
 
-#: libraries/classes/Import.php:1338
+#: libraries/classes/Import.php:1337
 #, php-format
 msgid "Go to view: %s"
 msgstr ""
 
-#: libraries/classes/Import.php:1366
+#: libraries/classes/Import.php:1365
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -9750,7 +9759,7 @@ msgstr ""
 msgid "Inserted row id: %1$d"
 msgstr ""
 
-#: libraries/classes/LanguageManager.php:979
+#: libraries/classes/LanguageManager.php:980
 msgid "Ignoring unsupported language code."
 msgstr ""
 
@@ -12557,7 +12566,7 @@ msgstr "MySQL ไม่รองรับ %s"
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "ชื่อขอคีย์หลักจะต้องเป็น \"PRIMARY\" เท่านั้น!"
 
-#: libraries/classes/Table/Maintenance.php:122
+#: libraries/classes/Table/Maintenance.php:123
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr ""

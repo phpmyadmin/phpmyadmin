@@ -36,6 +36,7 @@ use const MYSQLI_TYPE_FLOAT;
 use const MYSQLI_TYPE_LONG;
 use const MYSQLI_TYPE_STRING;
 use const MYSQLI_UNIQUE_KEY_FLAG;
+use const PHP_VERSION_ID;
 
 /**
  * @covers \PhpMyAdmin\Plugins\Export\ExportSql
@@ -88,7 +89,10 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['plugin_param']['single_table'] = false;
 
         $method = new ReflectionMethod(ExportSql::class, 'setProperties');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
+
         $properties = $method->invoke($this->object, null);
 
         self::assertInstanceOf(ExportPluginProperties::class, $properties);
@@ -127,7 +131,10 @@ class ExportSqlTest extends AbstractTestCase
         $_SESSION = ['relation' => [$GLOBALS['server'] => $relationParameters->toArray()]];
 
         $method = new ReflectionMethod(ExportSql::class, 'setProperties');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
+
         $properties = $method->invoke($this->object, null);
 
         self::assertInstanceOf(ExportPluginProperties::class, $properties);
@@ -267,7 +274,9 @@ class ExportSqlTest extends AbstractTestCase
     public function testExportComment(): void
     {
         $method = new ReflectionMethod(ExportSql::class, 'exportComment');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
 
         $GLOBALS['crlf'] = '##';
         $GLOBALS['sql_include_comments'] = true;
@@ -288,7 +297,9 @@ class ExportSqlTest extends AbstractTestCase
     public function testPossibleCRLF(): void
     {
         $method = new ReflectionMethod(ExportSql::class, 'possibleCRLF');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
 
         $GLOBALS['crlf'] = '##';
         $GLOBALS['sql_include_comments'] = true;
@@ -629,7 +640,10 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['sql_compatibility'] = 'MSSQL';
 
         $method = new ReflectionMethod(ExportSql::class, 'getTableDefForView');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
+
         $result = $method->invoke($this->object, 'db', 'view', "\n");
 
         self::assertSame("CREATE TABLE `view`(\n" .
@@ -921,7 +935,10 @@ class ExportSqlTest extends AbstractTestCase
         $this->object->relation = new Relation($dbi);
 
         $method = new ReflectionMethod(ExportSql::class, 'getTableComments');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
+
         $result = $method->invoke($this->object, 'db', '', true, true);
 
         self::assertStringContainsString("-- MEDIA TYPES FOR TABLE :\n" .
@@ -1001,7 +1018,10 @@ class ExportSqlTest extends AbstractTestCase
         ));
         $result = ob_get_clean();
         $sqlViewsProp = new ReflectionProperty(ExportSql::class, 'sqlViews');
-        $sqlViewsProp->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $sqlViewsProp->setAccessible(true);
+        }
+
         $sqlViews = $sqlViewsProp->getValue($this->object);
 
         self::assertSame('', $result);
@@ -1358,7 +1378,10 @@ class ExportSqlTest extends AbstractTestCase
             " \" double NOT NULL DEFAULT '213'\n";
 
         $method = new ReflectionMethod(ExportSql::class, 'makeCreateTableMSSQLCompatible');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
+
         $result = $method->invoke($this->object, $query);
 
         self::assertSame("CREATE TABLE (\" datetime DEFAULT NULL,\n" .

@@ -26,6 +26,7 @@ use function str_repeat;
 use function str_shuffle;
 use function time;
 
+use const PHP_VERSION_ID;
 use const SODIUM_CRYPTO_SECRETBOX_KEYBYTES;
 
 /**
@@ -878,7 +879,9 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
     public function testGetEncryptionSecretEmpty(): void
     {
         $method = new ReflectionMethod(AuthenticationCookie::class, 'getEncryptionSecret');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
 
         $GLOBALS['cfg']['blowfish_secret'] = '';
         $_SESSION['encryption_key'] = '';
@@ -892,7 +895,9 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
     public function testGetEncryptionSecretConfigured(): void
     {
         $method = new ReflectionMethod(AuthenticationCookie::class, 'getEncryptionSecret');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
 
         $key = str_repeat('a', SODIUM_CRYPTO_SECRETBOX_KEYBYTES);
         $GLOBALS['cfg']['blowfish_secret'] = $key;
@@ -906,7 +911,9 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
     public function testGetSessionEncryptionSecretConfigured(): void
     {
         $method = new ReflectionMethod(AuthenticationCookie::class, 'getEncryptionSecret');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
 
         $key = str_repeat('a', SODIUM_CRYPTO_SECRETBOX_KEYBYTES);
         $GLOBALS['cfg']['blowfish_secret'] = 'blowfish_secret';

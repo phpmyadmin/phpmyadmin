@@ -31,12 +31,22 @@ class PrivilegesControllerTest extends AbstractTestCase
 
     public function testIndex(): void
     {
-        global $dbi, $db, $server, $cfg, $PMA_PHP_SELF;
+        global $db, $server, $cfg, $PMA_PHP_SELF;
 
         $db = 'db';
         $server = 0;
         $cfg['Server']['DisableIS'] = false;
         $PMA_PHP_SELF = 'index.php';
+
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addResult('SELECT @@collation_server', [['utf8mb4_uca1400_ai_ci']]);
+        // phpcs:ignore Generic.Files.LineLength.TooLong
+        $dbiDummy->addResult("SELECT 1 FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE `PRIVILEGE_TYPE` = 'CREATE USER' AND '''pma_test''@''localhost''' LIKE `GRANTEE` UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_uca1400_ai_ci AND 'pma_test' LIKE `User` AND '' LIKE `Host` LIMIT 1", [['1']]);
+        $dbiDummy->addResult('SELECT @@collation_server', [['utf8mb4_uca1400_ai_ci']]);
+        // phpcs:ignore Generic.Files.LineLength.TooLong
+        $dbiDummy->addResult("SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''pma_test''@''localhost''' LIKE `GRANTEE` UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_uca1400_ai_ci AND 'pma_test' LIKE `User` AND '' LIKE `Host` LIMIT 1", [['1']]);
+        $dbi = $this->createDatabaseInterface($dbiDummy);
+        $GLOBALS['dbi'] = $dbi;
 
         $privileges = [];
 

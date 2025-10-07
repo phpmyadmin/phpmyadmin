@@ -23,6 +23,8 @@ use function array_shift;
 use function ob_get_clean;
 use function ob_start;
 
+use const PHP_VERSION_ID;
+
 /**
  * @covers \PhpMyAdmin\Plugins\Export\ExportLatex
  * @group medium
@@ -76,7 +78,10 @@ class ExportLatexTest extends AbstractTestCase
         $_SESSION = ['relation' => [$GLOBALS['server'] => $relationParameters->toArray()]];
 
         $method = new ReflectionMethod(ExportLatex::class, 'setProperties');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
+
         $properties = $method->invoke($this->object, null);
 
         self::assertInstanceOf(ExportPluginProperties::class, $properties);

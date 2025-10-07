@@ -13,6 +13,8 @@ use ReflectionProperty;
 use function array_keys;
 use function preg_match;
 
+use const PHP_VERSION_ID;
+
 /**
  * @covers \PhpMyAdmin\Config\Form
  */
@@ -68,7 +70,10 @@ class FormTest extends AbstractTestCase
     public function testGetOptionType(): void
     {
         $attrFieldsTypes = new ReflectionProperty(Form::class, 'fieldsTypes');
-        $attrFieldsTypes->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $attrFieldsTypes->setAccessible(true);
+        }
+
         $attrFieldsTypes->setValue(
             $this->object,
             ['7' => 'Seven']
@@ -110,7 +115,9 @@ class FormTest extends AbstractTestCase
     {
         $reflection = new ReflectionClass(Form::class);
         $method = $reflection->getMethod('readFormPathsCallback');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
 
         $array = [
             'foo' => [
@@ -146,7 +153,9 @@ class FormTest extends AbstractTestCase
     {
         $reflection = new ReflectionClass(Form::class);
         $method = $reflection->getMethod('readFormPaths');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
 
         $array = [
             'foo' => [
@@ -187,7 +196,9 @@ class FormTest extends AbstractTestCase
     {
         $reflection = new ReflectionClass(Form::class);
         $method = $reflection->getMethod('readTypes');
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
 
         $this->object->fields = [
             'pma_form1' => 'Servers/1/port',
@@ -197,7 +208,9 @@ class FormTest extends AbstractTestCase
         ];
 
         $attrFieldsTypes = $reflection->getProperty('fieldsTypes');
-        $attrFieldsTypes->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $attrFieldsTypes->setAccessible(true);
+        }
 
         $method->invoke($this->object, null);
 

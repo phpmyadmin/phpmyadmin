@@ -20,6 +20,8 @@ use function end;
 use function is_array;
 use function is_int;
 
+use const PHP_VERSION_ID;
+
 /**
  * Base class for phpMyAdmin tests
  */
@@ -89,7 +91,10 @@ abstract class AbstractNetworkTestCase extends AbstractTestCase
         }
 
         $attrInstance = new ReflectionProperty(ResponseRenderer::class, 'instance');
-        $attrInstance->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $attrInstance->setAccessible(true);
+        }
+
         $attrInstance->setValue(null, $mockResponse);
 
         return $mockResponse;
@@ -102,8 +107,15 @@ abstract class AbstractNetworkTestCase extends AbstractTestCase
     {
         parent::tearDown();
         $response = new ReflectionProperty(ResponseRenderer::class, 'instance');
-        $response->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $response->setAccessible(true);
+        }
+
         $response->setValue(null, null);
+        if (PHP_VERSION_ID >= 80100) {
+            return;
+        }
+
         $response->setAccessible(false);
     }
 }

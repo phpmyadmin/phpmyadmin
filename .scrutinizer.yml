@@ -19,13 +19,18 @@ tools:
     runs: 4 # php 7.x versions
     timeout: 900 # 15 min
 build:
+  image: default-bionic # Needed to make PHP 7.2 compile
   nodes:
     analysis:
       environment:
-        php: 7.2
-        node: 12
+        php:
+          version: 7.2
+          compile_options: '--enable-zip --enable-gd --with-openssl --with-curl --with-mysqli'
+        node: 12  # Scrutinizer uses nvm
       dependencies:
         before:
+          - sudo /home/scrutinizer/.phpenv/shims/php -f /usr/bin/composer.phar self-update --2
+          - composer --version
           - composer config --unset repositories.0
           - composer install
           - composer require tecnickcom/tcpdf pragmarx/google2fa-qrcode bacon/bacon-qr-code code-lts/u2f-php-server

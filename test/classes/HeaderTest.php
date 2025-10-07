@@ -12,6 +12,7 @@ use ReflectionProperty;
 use function gmdate;
 
 use const DATE_RFC1123;
+use const PHP_VERSION_ID;
 
 /**
  * @covers \PhpMyAdmin\Header
@@ -106,7 +107,9 @@ class HeaderTest extends AbstractTestCase
     public function testDisableWarnings(): void
     {
         $reflection = new ReflectionProperty(Header::class, 'warningsEnabled');
-        $reflection->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $reflection->setAccessible(true);
+        }
 
         $header = new Header();
         $header->disableWarnings();
@@ -233,13 +236,21 @@ class HeaderTest extends AbstractTestCase
     {
         $header = new Header();
         $consoleReflection = new ReflectionProperty(Header::class, 'console');
-        $consoleReflection->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $consoleReflection->setAccessible(true);
+        }
+
         $console = $consoleReflection->getValue($header);
         self::assertInstanceOf(Console::class, $console);
         $isAjax = new ReflectionProperty(Header::class, 'isAjax');
-        $isAjax->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $isAjax->setAccessible(true);
+        }
+
         $consoleIsAjax = new ReflectionProperty(Console::class, 'isAjax');
-        $consoleIsAjax->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $consoleIsAjax->setAccessible(true);
+        }
 
         self::assertFalse($isAjax->getValue($header));
         self::assertFalse($consoleIsAjax->getValue($console));
