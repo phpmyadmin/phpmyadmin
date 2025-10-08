@@ -14,12 +14,12 @@ use const VERSION_SUFFIX;
 final class Version
 {
     // The VERSION_SUFFIX constant is defined at libraries/constants.php
-    public const VERSION = '5.2.3' . VERSION_SUFFIX;
+    public const VERSION = '5.2.4-dev' . VERSION_SUFFIX;
     public const SERIES = '5.2';
     public const MAJOR = 5;
     public const MINOR = 2;
-    public const PATCH = 3;
-    public const ID = 50203;
-    public const PRE_RELEASE_NAME = '';
-    public const IS_DEV = false;
+    public const PATCH = 4;
+    public const ID = 50204;
+    public const PRE_RELEASE_NAME = 'dev';
+    public const IS_DEV = true;
 }

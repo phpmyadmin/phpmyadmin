@@ -1,6 +1,8 @@
 phpMyAdmin - ChangeLog
 ======================
 
+5.2.4 (not yet released)
+
 5.2.3 (2025-10-07)
 - issue #19548 Fix missing tooltip in status monitor log table
 - issue #19619 Fix horizontal scrollbar in server status pages
