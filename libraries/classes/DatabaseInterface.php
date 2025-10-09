@@ -1806,7 +1806,7 @@ class DatabaseInterface implements DbalInterface
 
         if (! $hasGrantPrivilege) {
             foreach ($this->getCurrentRolesAndHost() as [$role, $roleHost]) {
-                $query = QueryGenerator::getInformationSchemaDataForGranteeRequest($role, $roleHost ?? '', $collation);
+                $query = QueryGenerator::getInformationSchemaDataForGranteeRequest($role, $roleHost, $collation);
                 $result = $this->tryQuery($query);
 
                 if ($result) {
@@ -1865,7 +1865,7 @@ class DatabaseInterface implements DbalInterface
 
         if (! $hasCreatePrivilege) {
             foreach ($this->getCurrentRolesAndHost() as [$role, $roleHost]) {
-                $query = QueryGenerator::getInformationSchemaDataForCreateRequest($role, $roleHost ?? '', $collation);
+                $query = QueryGenerator::getInformationSchemaDataForCreateRequest($role, $roleHost, $collation);
                 $result = $this->tryQuery($query);
 
                 if ($result) {
@@ -1919,7 +1919,7 @@ class DatabaseInterface implements DbalInterface
             $roles = $this->getCurrentRoles();
 
             $this->currentRoleAndHost = array_map(static function (string $role) {
-                return explode('@', $role);
+                return str_contains($role, '@') ? explode('@', $role) : [$role, ''];
             }, $roles);
         }
 
