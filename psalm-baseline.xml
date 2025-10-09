@@ -5684,10 +5684,8 @@
     </PossiblyNullArrayAccess>
   </file>
   <file src="libraries/classes/DatabaseInterface.php">
-    <DocblockTypeContradiction occurrences="3">
+    <DocblockTypeContradiction occurrences="1">
       <code>$this-&gt;extension === null</code>
-      <code>''</code>
-      <code>''</code>
     </DocblockTypeContradiction>
     <EmptyArrayAccess occurrences="1">
       <code>$result_target[]</code>
@@ -5908,10 +5906,6 @@
       <code>$databases[$database_name]['SCHEMA_TABLES']</code>
       <code>$databases[$database_name]['SCHEMA_TABLE_ROWS']</code>
     </PossiblyUndefinedArrayOffset>
-    <RedundantConditionGivenDocblockType occurrences="2">
-      <code>$roleHost</code>
-      <code>$roleHost</code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/DbTableExists.php">
     <MixedArgument occurrences="2">
