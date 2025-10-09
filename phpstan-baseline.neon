@@ -49231,7 +49231,7 @@ parameters:
 			path: test/classes/VersionTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsInt\\(\\) with 3 will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsInt\\(\\) with 4 will always evaluate to true\\.$#"
 			count: 1
 			path: test/classes/VersionTest.php
 
