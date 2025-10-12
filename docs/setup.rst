@@ -741,7 +741,7 @@ setup feature. The file can be generated using the setup and you can download it
 for upload to the server.
 
 Next, open your browser and visit the location where you installed phpMyAdmin,
-with the ``/setup`` suffix. The changes are not saved to the server, you need to
+with the ``/public/setup`` suffix. The changes are not saved to the server, you need to
 use the :guilabel:`Download` button to save them to your computer and then upload
 to the server.
 
@@ -787,7 +787,7 @@ Setup script on openSUSE
 Some openSUSE releases do not include setup script in the package. In case you
 want to generate configuration on these you can either download original
 package from <https://www.phpmyadmin.net/> or use setup script on our demo
-server: <https://demo.phpmyadmin.net/master/setup/>.
+server: <https://demo.phpmyadmin.net/master/public/setup/>.
 
 .. _verify:
 
