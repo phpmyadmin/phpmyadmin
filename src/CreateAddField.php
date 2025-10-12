@@ -30,7 +30,7 @@ class CreateAddField
     /**
      * Transforms the radio button field_key into 4 arrays
      *
-     * @return mixed[] An array of arrays which represents column keys for each index type
+     * @return array<int, mixed> An array of arrays which represents column keys for each index type
      * @psalm-return array{int, array, array, array, array, array}
      */
     private function getIndexedColumns(): array

@@ -277,7 +277,7 @@ final class IndexController implements InvocableController
     /**
      * This function will generate the values that are required to for the editor
      *
-     * @return mixed[]    Data necessary to create the editor.
+     * @return array<string, mixed> Data necessary to create the editor.
      */
     private function getDataFromRequest(ServerRequest $request): array
     {
@@ -296,7 +296,7 @@ final class IndexController implements InvocableController
      * This function will generate the values that are required to complete
      * the "Edit trigger" form given the trigger.
      *
-     * @return mixed[]    Data necessary to create the editor.
+     * @return array<string, string> Data necessary to create the editor.
      */
     private function getDataFromTrigger(Trigger $trigger): array
     {

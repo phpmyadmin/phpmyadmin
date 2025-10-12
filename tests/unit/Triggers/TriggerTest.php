@@ -19,7 +19,7 @@ class TriggerTest extends TestCase
         self::assertNull(Trigger::tryFromArray([]));
     }
 
-    /** @param mixed[] $trigger */
+    /** @param array<string, string> $trigger */
     #[DataProvider('arrayWithValidValuesProvider')]
     public function testTryFromArrayWithValidValues(array $trigger): void
     {
@@ -33,7 +33,7 @@ class TriggerTest extends TestCase
         self::assertSame('definer@localhost', $actual->definer);
     }
 
-    /** @return iterable<array-key, array{mixed[]}> */
+    /** @return iterable<array-key, array{array<string, string>}> */
     public static function arrayWithValidValuesProvider(): iterable
     {
         yield [
@@ -59,14 +59,14 @@ class TriggerTest extends TestCase
         ];
     }
 
-    /** @param mixed[] $trigger */
+    /** @param array<string, null> $trigger */
     #[DataProvider('arrayWithInvalidValuesProvider')]
     public function testTryFromArrayWithInvalidValues(array $trigger): void
     {
         self::assertNull(Trigger::tryFromArray($trigger));
     }
 
-    /** @return iterable<array-key, array{mixed[]}> */
+    /** @return iterable<array-key, array{array<string, null>}> */
     public static function arrayWithInvalidValuesProvider(): iterable
     {
         yield [

@@ -119,7 +119,7 @@ class ImportTest extends AbstractTestCase
     /**
      * Data provider for testGetColumnAlphaName
      *
-     * @return mixed[]
+     * @return array<int, array{string, int}>
      */
     public static function provGetColumnAlphaName(): array
     {
@@ -141,7 +141,7 @@ class ImportTest extends AbstractTestCase
     /**
      * Data provider for testGetColumnNumberFromName
      *
-     * @return mixed[]
+     * @return array<int, array{int, string}>
      */
     public static function provGetColumnNumberFromName(): array
     {

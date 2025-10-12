@@ -85,7 +85,7 @@ class TablePropertyTest extends AbstractTestCase
     /**
      * Data provider for testIsNotNull
      *
-     * @return mixed[] Test Data
+     * @return string[][] Test Data
      */
     public static function isNotNullProvider(): array
     {
@@ -110,7 +110,7 @@ class TablePropertyTest extends AbstractTestCase
     /**
      * Data provider for testIsUnique
      *
-     * @return mixed[] Test Data
+     * @return string[][] Test Data
      */
     public static function isUniqueProvider(): array
     {
@@ -135,7 +135,7 @@ class TablePropertyTest extends AbstractTestCase
     /**
      * Data provider for testGetDotNetPrimitiveType
      *
-     * @return mixed[] Test Data
+     * @return string[][] Test Data
      */
     public static function getDotNetPrimitiveTypeProvider(): array
     {
@@ -172,7 +172,7 @@ class TablePropertyTest extends AbstractTestCase
     /**
      * Data provider for testGetDotNetObjectType
      *
-     * @return mixed[] Test Data
+     * @return string[][] Test Data
      */
     public static function getDotNetObjectTypeProvider(): array
     {

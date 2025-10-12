@@ -6,6 +6,7 @@ namespace PhpMyAdmin;
 
 use function define;
 use function defined;
+use function in_array;
 
 use const MYSQLI_BLOB_FLAG;
 use const MYSQLI_ENUM_FLAG;
@@ -216,14 +217,15 @@ final class FieldMetadata
         $this->length = $field->length;
 
         // 63 is the number for the MySQL charset "binary"
-        $this->isBinary = (
-            $type === MYSQLI_TYPE_TINY_BLOB ||
-            $type === MYSQLI_TYPE_BLOB ||
-            $type === MYSQLI_TYPE_MEDIUM_BLOB ||
-            $type === MYSQLI_TYPE_LONG_BLOB ||
-            $type === MYSQLI_TYPE_VAR_STRING ||
-            $type === MYSQLI_TYPE_STRING
-        ) && $this->charsetnr === 63;
+        $this->isBinary = in_array($type, [
+            MYSQLI_TYPE_TINY_BLOB,
+            MYSQLI_TYPE_BLOB,
+            MYSQLI_TYPE_MEDIUM_BLOB,
+            MYSQLI_TYPE_LONG_BLOB,
+            MYSQLI_TYPE_VAR_STRING,
+            MYSQLI_TYPE_STRING,
+        ], true)
+            && $this->charsetnr === 63;
     }
 
     /**

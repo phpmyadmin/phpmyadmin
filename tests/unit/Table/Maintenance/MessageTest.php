@@ -12,7 +12,7 @@ use PHPUnit\Framework\TestCase;
 #[CoversClass(Message::class)]
 class MessageTest extends TestCase
 {
-    /** @param mixed[] $row */
+    /** @param array<string, string|bool> $row */
     #[DataProvider('providerForTestFromArray')]
     public function testFromArray(array $row, string $table, string $operation, string $type, string $text): void
     {
@@ -23,10 +23,7 @@ class MessageTest extends TestCase
         self::assertSame($message->text, $text);
     }
 
-    /**
-     * @return array<int|string, array<int, array<string, mixed>|string>>
-     * @psalm-return array{mixed[], string, string, string, string}[]
-     */
+    /** @return array{array<string, string|false>, string, string, string, string}[] */
     public static function providerForTestFromArray(): array
     {
         return [

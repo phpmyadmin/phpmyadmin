@@ -76,7 +76,7 @@ class VersionInformationTest extends AbstractTestCase
     /**
      * Data provider for version parsing
      *
-     * @return mixed[]
+     * @return array<int, array{string, int}>
      */
     public static function dataVersions(): array
     {

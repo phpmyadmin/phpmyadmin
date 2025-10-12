@@ -180,7 +180,7 @@ class Advisor
         ];
     }
 
-    /** @psalm-return array{fired:mixed[], notfired:mixed[], unchecked:mixed[], errors:mixed[]} */
+    /** @return array{fired:mixed[], notfired:mixed[], unchecked:mixed[], errors:mixed[]} */
     public function run(): array
     {
         $this->setVariables();
@@ -340,7 +340,7 @@ class Advisor
     /**
      * Callback for wrapping links with Core::linkURL
      *
-     * @param mixed[] $matches List of matched elements form preg_replace_callback
+     * @param string[] $matches List of matched elements form preg_replace_callback
      *
      * @return string Replacement value
      */
@@ -352,7 +352,7 @@ class Advisor
     /**
      * Callback for wrapping variable edit links
      *
-     * @param mixed[] $matches List of matched elements form preg_replace_callback
+     * @param string[] $matches List of matched elements form preg_replace_callback
      *
      * @return string Replacement value
      */

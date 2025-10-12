@@ -93,8 +93,8 @@ class ServerRequestTest extends TestCase
     }
 
     /**
-     * @psalm-param array<string, string> $headers
-     * @psalm-param array<string, string>|null $body
+     * @param array<string, string>      $headers
+     * @param array<string, string>|null $body
      */
     #[DataProvider('isAjaxProvider')]
     public function testIsAjax(bool $expected, string $method, string $uri, array $headers, array|null $body): void

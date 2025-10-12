@@ -64,7 +64,7 @@ class FormListTest extends AbstractTestCase
         self::assertSame('', $forms->displayErrors());
     }
 
-    /** @psalm-return array<array{class-string<BaseFormList>, class-string<BaseForm>}> */
+    /** @return array<array{class-string<BaseFormList>, class-string<BaseForm>}> */
     public static function formObjects(): array
     {
         return [

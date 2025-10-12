@@ -323,7 +323,7 @@ final readonly class RelationController implements InvocableController
     /**
      * Update for internal relation
      *
-     * @param mixed[] $relations Relations
+     * @param mixed[][] $relations Relations
      */
     private function updateForInternalRelation(
         Table $table,

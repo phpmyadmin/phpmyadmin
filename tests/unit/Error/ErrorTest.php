@@ -87,7 +87,7 @@ class ErrorTest extends AbstractTestCase
         self::assertStringEndsWith($expected, $filePath);
     }
 
-    /** @psalm-return non-empty-string[][] */
+    /** @return non-empty-string[][] */
     public static function validFilePathsProvider(): array
     {
         return [
@@ -107,7 +107,7 @@ class ErrorTest extends AbstractTestCase
         self::assertSame($expected, $filePath);
     }
 
-    /** @psalm-return non-empty-string[][] */
+    /** @return non-empty-string[][] */
     public static function invalidFilePathsProvider(): array
     {
         return [

@@ -145,7 +145,7 @@ final class VariablesController extends AbstractController implements InvocableC
         $this->dbi->query('FLUSH ' . $flush . ';');
     }
 
-    /** @return mixed[] */
+    /** @return array<string, mixed> */
     private function getAlerts(): array
     {
         // name => max value before alert

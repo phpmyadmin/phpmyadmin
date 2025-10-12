@@ -309,7 +309,7 @@ final class SearchController implements InvocableController
      * @param int $searchIndex Row number in table search form
      * @param int $columnIndex Column index in ColumnNames array
      *
-     * @return mixed[] Array containing column's properties
+     * @return array<string, string> Array containing column's properties
      */
     private function getColumnProperties(int $searchIndex, int $columnIndex): array
     {

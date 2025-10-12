@@ -26,6 +26,7 @@ use PhpMyAdmin\Util;
 
 use function __;
 use function count;
+use function in_array;
 use function strpos;
 use function strrpos;
 use function substr;
@@ -143,17 +144,11 @@ final class PartitioningController implements InvocableController
 
         // Only LIST and RANGE type parameters allow subpartitioning
         $partitionDetails['can_have_subpartitions'] = $partitionDetails['partition_count'] > 1
-            && ($partitionDetails['partition_by'] === 'RANGE'
-                || $partitionDetails['partition_by'] === 'RANGE COLUMNS'
-                || $partitionDetails['partition_by'] === 'LIST'
-                || $partitionDetails['partition_by'] === 'LIST COLUMNS');
+            && in_array($partitionDetails['partition_by'], ['RANGE', 'RANGE COLUMNS', 'LIST', 'LIST COLUMNS'], true);
 
         // Values are specified only for LIST and RANGE type partitions
         $partitionDetails['value_enabled'] = isset($partitionDetails['partition_by'])
-            && ($partitionDetails['partition_by'] === 'RANGE'
-                || $partitionDetails['partition_by'] === 'RANGE COLUMNS'
-                || $partitionDetails['partition_by'] === 'LIST'
-                || $partitionDetails['partition_by'] === 'LIST COLUMNS');
+            && in_array($partitionDetails['partition_by'], ['RANGE', 'RANGE COLUMNS', 'LIST', 'LIST COLUMNS'], true);
 
         $partitionDetails['partitions'] = [];
 

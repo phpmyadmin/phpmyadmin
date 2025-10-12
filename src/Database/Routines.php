@@ -1062,7 +1062,7 @@ class Routines
      *
      * @param mixed[] $routine Data for the routine returned by getDataFromName()
      *
-     * @psalm-return array{mixed[], mixed[]}
+     * @return array{mixed[], mixed[]}
      */
     public function getExecuteForm(array $routine): array
     {

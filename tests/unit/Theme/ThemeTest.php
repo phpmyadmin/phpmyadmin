@@ -218,7 +218,7 @@ class ThemeTest extends AbstractTestCase
     /**
      * Provider for testGetImgPath
      *
-     * @return mixed[]
+     * @return array<int, array{string|null, string|null, string}>
      */
     public static function providerForGetImgPath(): array
     {

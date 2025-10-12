@@ -57,7 +57,7 @@ class TemplateTest extends AbstractTestCase
     /**
      * Data provider for testSet
      *
-     * @return mixed[]
+     * @return array<int, string[]>
      */
     public static function providerTestSet(): array
     {
@@ -83,7 +83,7 @@ class TemplateTest extends AbstractTestCase
     /**
      * Data provider for testDynamicRender
      *
-     * @return mixed[]
+     * @return array<int, string[]>
      */
     public static function providerTestDynamicRender(): array
     {
@@ -117,7 +117,7 @@ class TemplateTest extends AbstractTestCase
     /**
      * Data provider for testSet
      *
-     * @return mixed[]
+     * @return array<int, string[]>
      */
     public static function providerTestRender(): array
     {
