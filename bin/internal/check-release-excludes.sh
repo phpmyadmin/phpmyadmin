@@ -144,8 +144,6 @@ validateExtension() {
                 foundFileExt
             fi
         ;;
-        ChangeLog)
-        ;;
         CHANGELOG-[5-9].[0-9].md)
         ;;
         LICENSE)
