@@ -20,10 +20,21 @@ final class ChangeLogControllerTest extends AbstractTestCase
 {
     public function testWithValidFile(): void
     {
-        $config = self::createStub(Config::class);
-        $config->method('getChangeLogFilePath')->willReturn(__DIR__ . '/../../test_data/changelog/ChangeLog');
+        $this->assertChangelogOutputIsValid(__DIR__ . '/../../test_data/changelog/CHANGELOG-5.2.md');
+    }
 
-        $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/');
+    #[RequiresPhpExtension('zlib')]
+    public function testWithCompressedFile(): void
+    {
+        $this->assertChangelogOutputIsValid(__DIR__ . '/../../test_data/changelog/CHANGELOG-5.2.md.gz');
+    }
+
+    private function assertChangelogOutputIsValid(string $changelogPath): void
+    {
+        $config = self::createStub(Config::class);
+        $config->method('getChangeLogFilePath')->willReturn($changelogPath);
+
+        $request = ServerRequestFactory::create()->createServerRequest('GET', 'https://example.com/');
 
         $responseRenderer = new ResponseRenderer();
         $template = new Template();
@@ -35,19 +46,52 @@ final class ChangeLogControllerTest extends AbstractTestCase
 
         // phpcs:disable Generic.Files.LineLength.TooLong
         $changelog = <<<'HTML'
-            phpMyAdmin - ChangeLog
-            ======================
+            <h1>Changes in phpMyAdmin 5.2</h1>
 
-            5.2.2 (not yet released)
-            - <a target="_blank" rel="noopener noreferrer" href="index.php?route=/url&lang=en&url=https://github.com/phpmyadmin/phpmyadmin/issues/17522">issue #17522</a> Fix case where the routes cache file is invalid
-            - issue        Upgrade slim/psr7 to 1.4.1 for <a target="_blank" rel="noopener noreferrer" href="index.php?route=/url&lang=en&url=https://www.cve.org/CVERecord?id=CVE-2023-30536">CVE-2023-30536</a> - GHSA-q2qj-628g-vhfw
+            All notable changes of the phpMyAdmin 5.2 release series are documented in this file following the Keep a Changelog format.
 
-            5.2.1 (2023-02-07)
-            - <a target="_blank" rel="noopener noreferrer" href="index.php?route=/url&lang=en&url=https://github.com/phpmyadmin/phpmyadmin/issues/16418">issue #16418</a> Fix <a target="_blank" rel="noopener noreferrer" href="index.php?route=/url&lang=en&url=https://docs.phpmyadmin.net/en/latest/faq.html#faq1-44">FAQ 1.44</a> about manually removing vendor folders
-            - issue        [security] Fix an XSS attack through the drag-and-drop upload feature (<a target="_blank" rel="noopener noreferrer" href="index.php?route=/url&lang=en&url=https://www.phpmyadmin.net/security/PMASA-2023-01/">PMASA-2023-01</a>)
+            <h2><a target="_blank" rel="noopener noreferrer" href="index.php?route=/url&lang=en&url=https://github.com/phpmyadmin/phpmyadmin/compare/RELEASE_5_2_1...QA_5_2">5.2.2</a> (not yet released)</h2>
 
-                     --- Older ChangeLogs can be found on our project website ---
-                                 <a target="_blank" rel="noopener noreferrer" href="index.php?route=/url&lang=en&url=https://www.phpmyadmin.net/old-stuff/ChangeLogs/">https://www.phpmyadmin.net/old-stuff/ChangeLogs/</a>
+            <h3>Fixed</h3>
+
+            * <a target="_blank" rel="noopener noreferrer" href="index.php?route=/url&lang=en&url=https://github.com/phpmyadmin/phpmyadmin/issues/17522">#17522</a>: Fix case where the routes cache file is invalid
+
+            <h3>Security</h3>
+
+            * Upgrade slim/psr7 to 1.4.1 for <a target="_blank" rel="noopener noreferrer" href="index.php?route=/url&lang=en&url=https://www.cve.org/CVERecord?id=CVE-2023-30536">CVE-2023-30536</a> - GHSA-q2qj-628g-vhfw
+
+            <h2><a target="_blank" rel="noopener noreferrer" href="index.php?route=/url&lang=en&url=https://github.com/phpmyadmin/phpmyadmin/compare/RELEASE_5_2_0...RELEASE_5_2_1">5.2.1</a> 2023-02-07</h2>
+
+            <h3>Added</h3>
+
+            * <a target="_blank" rel="noopener noreferrer" href="index.php?route=/url&lang=en&url=https://github.com/phpmyadmin/phpmyadmin/issues/17519">#17519</a>: Fix Export pages not working in certain conditions
+            * <a target="_blank" rel="noopener noreferrer" href="index.php?route=/url&lang=en&url=https://github.com/phpmyadmin/phpmyadmin/issues/17496">#17496</a>: Fix error in table operation page when partitions are broken
+
+            <h3>Changed</h3>
+
+            * <a target="_blank" rel="noopener noreferrer" href="index.php?route=/url&lang=en&url=https://github.com/phpmyadmin/phpmyadmin/issues/17519">#17519</a>: Fix Export pages not working in certain conditions
+            * <a target="_blank" rel="noopener noreferrer" href="index.php?route=/url&lang=en&url=https://github.com/phpmyadmin/phpmyadmin/issues/17496">#17496</a>: Fix error in table operation page when partitions are broken
+
+            <h3>Deprecated</h3>
+
+            * <a target="_blank" rel="noopener noreferrer" href="index.php?route=/url&lang=en&url=https://github.com/phpmyadmin/phpmyadmin/issues/17519">#17519</a>: Fix Export pages not working in certain conditions
+            * <a target="_blank" rel="noopener noreferrer" href="index.php?route=/url&lang=en&url=https://github.com/phpmyadmin/phpmyadmin/issues/17496">#17496</a>: Fix error in table operation page when partitions are broken
+
+            <h3>Removed</h3>
+
+            * <a target="_blank" rel="noopener noreferrer" href="index.php?route=/url&lang=en&url=https://github.com/phpmyadmin/phpmyadmin/issues/17519">#17519</a>: Fix Export pages not working in certain conditions
+            * <a target="_blank" rel="noopener noreferrer" href="index.php?route=/url&lang=en&url=https://github.com/phpmyadmin/phpmyadmin/issues/17496">#17496</a>: Fix error in table operation page when partitions are broken
+
+            <h3>Fixed</h3>
+
+            * <a target="_blank" rel="noopener noreferrer" href="index.php?route=/url&lang=en&url=https://github.com/phpmyadmin/phpmyadmin/issues/17519">#17519</a>: Fix Export pages not working in certain conditions
+            * <a target="_blank" rel="noopener noreferrer" href="index.php?route=/url&lang=en&url=https://github.com/phpmyadmin/phpmyadmin/issues/17496">#17496</a>: Fix error in table operation page when partitions are broken
+            * <a target="_blank" rel="noopener noreferrer" href="index.php?route=/url&lang=en&url=https://github.com/phpmyadmin/phpmyadmin/issues/16418">#16418</a>: Fix <a target="_blank" rel="noopener noreferrer" href="index.php?route=/url&lang=en&url=https://docs.phpmyadmin.net/en/latest/faq.html#faq1-44">FAQ 1.44</a> about manually removing vendor folders
+
+            <h3>Security</h3>
+
+            * Fix an XSS attack through the drag-and-drop upload feature (<a target="_blank" rel="noopener noreferrer" href="index.php?route=/url&lang=en&url=https://www.phpmyadmin.net/security/PMASA-2023-01/">PMASA-2023-01</a>)
+
 
             HTML;
         // phpcs:enable
@@ -56,36 +100,12 @@ final class ChangeLogControllerTest extends AbstractTestCase
         self::assertSame($expected, (string) $response->getBody());
     }
 
-    #[RequiresPhpExtension('zlib')]
-    public function testWithCompressedFile(): void
-    {
-        $config = self::createStub(Config::class);
-        $config->method('getChangeLogFilePath')->willReturn(__DIR__ . '/../../test_data/changelog/ChangeLog.gz');
-
-        $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/');
-
-        $responseRenderer = new ResponseRenderer();
-        $controller = new ChangeLogController($responseRenderer, $config, ResponseFactory::create(), new Template());
-        $response = $controller($request);
-
-        self::assertSame(StatusCodeInterface::STATUS_OK, $response->getStatusCode());
-        self::assertSame(['text/html; charset=utf-8'], $response->getHeader('Content-Type'));
-        self::assertStringContainsString(
-            '- <a target="_blank" rel="noopener noreferrer"'
-            . ' href="index.php?route=/url&lang=en&url=https://github.com/phpmyadmin/phpmyadmin/issues/16418">'
-            . 'issue #16418</a> Fix <a target="_blank" rel="noopener noreferrer"'
-            . ' href="index.php?route=/url&lang=en&url=https://docs.phpmyadmin.net/en/latest/faq.html#faq1-44">'
-            . 'FAQ 1.44</a> about manually removing vendor folders',
-            (string) $response->getBody(),
-        );
-    }
-
     public function testWithInvalidFile(): void
     {
         $config = self::createStub(Config::class);
         $config->method('getChangeLogFilePath')->willReturn(__DIR__ . '/../../test_data/changelog/InvalidChangeLog');
 
-        $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/');
+        $request = ServerRequestFactory::create()->createServerRequest('GET', 'https://example.com/');
 
         $responseRenderer = new ResponseRenderer();
         $controller = new ChangeLogController($responseRenderer, $config, ResponseFactory::create(), new Template());

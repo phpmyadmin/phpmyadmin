@@ -146,6 +146,8 @@ validateExtension() {
         ;;
         ChangeLog)
         ;;
+        CHANGELOG-[5-9].[0-9].md)
+        ;;
         LICENSE)
         ;;
         RELEASE-DATE-[1-9].[0-9].[0-9])

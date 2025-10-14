@@ -701,6 +701,11 @@
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
+  <file src="src/Controllers/ChangeLogController.php">
+    <MixedOperand>
+      <code><![CDATA[$releaseLinks[$matches[1]]]]></code>
+    </MixedOperand>
+  </file>
   <file src="src/Controllers/CollationConnectionController.php">
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>

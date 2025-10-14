@@ -24,7 +24,7 @@ return [
      * Path to changelog file, can be gzip compressed.
      * Useful when you want to have documentation somewhere else, e.g. /usr/share/doc.
      */
-    'changeLogFile' => ROOT_PATH . 'ChangeLog',
+    'changeLogFile' => ROOT_PATH . 'CHANGELOG-6.0.md',
 
     /**
      * Path to license file. Useful when you want to have documentation somewhere else, e.g. /usr/share/doc.
