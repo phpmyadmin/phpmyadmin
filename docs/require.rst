@@ -12,16 +12,32 @@ web server (such as Apache, nginx, :term:`IIS`) to install phpMyAdmin's files in
 PHP
 ---
 
-* You need PHP 8.2.0 or newer, with ``session`` support, the Standard PHP Library
-  (SPL) extension, hash, ctype, and JSON support.
+* You need PHP 8.2.0 or newer.
 
-* The ``mbstring`` extension (see :term:`mbstring`) is strongly recommended
+* You need the following PHP extensions
+  (``php -m`` or ``phpinfo()`` will indicate the enabled ones):
+
+  * normally bundled into PHP and enabled by default:
+
+    - `json <https://www.php.net/json>`_ provides JSON functions
+    - `session <https://www.php.net/session>`_ provides session storage
+    - `pcre <https://www.php.net/pcre>`_ provides regular expression functions
+    - `hash <https://www.php.net/hash>`_ provides basic hashing functions
+    - `spl <https://www.php.net/spl>`_ the Standard PHP Library (SPL) extension
+    - `sodium <https://www.php.net/sodium>`_ a modern cryptography library
+
+  * manual installation required:
+
+    - `mysqli <https://www.php.net/mysqli>`_ To connect to MySQL/MariaDB databases
+    - `ctype <https://www.php.net/ctype>`_ To check the type of strings
+
+* The `mbstring <https://www.php.net/mbstring>`_ extension (see :term:`mbstring`) is strongly recommended
   for performance reasons.
 
-* To support uploading of ZIP files, you need the PHP ``zip`` extension.
+* To support uploading of ZIP files, you need the PHP `zip <https://www.php.net/zip>`_ extension.
 
-* You need GD2 support in PHP to display inline thumbnails of JPEGs
-  ("image/jpeg: inline") with their original aspect ratio.
+* You need `GD2 <https://www.php.net/gd>`_ support in PHP to display inline thumbnails of JPEGs
+  (``"image/jpeg: inline"``) with their original aspect ratio.
 
 * When using the cookie authentication (the default), the `openssl
   <https://www.php.net/openssl>`_ extension is strongly suggested.
