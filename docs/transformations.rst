@@ -14,7 +14,7 @@ Introduction
 ++++++++++++
 
 To enable transformations, you have to set up the ``column_info``
-table and the proper directives. Please see the :ref:`config` on how to do so.
+table and the proper configuration directives. Please see the :ref:`config` on how to do so.
 
 phpMyAdmin has two different types of transformations: browser display
 transformations, which affect only how the data is shown when browsing

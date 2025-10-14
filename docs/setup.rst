@@ -964,7 +964,7 @@ If you already had this infrastructure and:
 and then create new tables by importing :file:`resources/sql/create_tables.sql`.
 
 You can use your phpMyAdmin to create the tables for you. Please be
-aware that you may need special (administrator) privileges to create
+aware that you may need administrator privileges to create
 the database and tables, and that the script may need some tuning,
 depending on the database name.
 
@@ -976,9 +976,9 @@ You will also need to have a controluser
 (:config:option:`$cfg['Servers'][$i]['controluser']` and
 :config:option:`$cfg['Servers'][$i]['controlpass']` settings)
 with the proper rights to those tables. For example you can create it
-using following statement:
+using the following statement:
 
-And for any MariaDB version:
+For any MariaDB version:
 
 .. code-block:: mysql
 
@@ -1055,9 +1055,8 @@ Using authentication modes
 
 :term:`HTTP` and cookie authentication modes are recommended in a **multi-user
 environment** where you want to give users access to their own database and
-don't want them to play around with others. Nevertheless, be aware that MS
-Internet Explorer seems to be really buggy about cookies, at least till version
-6. Even in a **single-user environment**, you might prefer to use :term:`HTTP`
+don't want them to play around with others.
+Even in a **single-user environment**, you might prefer to use :term:`HTTP`
 or cookie mode so that your user/password pair are not in clear in the
 configuration file.
 
@@ -1065,7 +1064,7 @@ configuration file.
 modes are more secure: the MySQL login information does not need to be
 set in the phpMyAdmin configuration file (except possibly for the
 :config:option:`$cfg['Servers'][$i]['controluser']`).
-However, keep in mind that the password travels in plain text unless
+However, keep in mind that the password travels in plain text between your browser and the server unless
 you are using the HTTPS protocol. In cookie mode, the password is
 stored, encrypted with the AES algorithm, in a temporary cookie.
 
@@ -1130,6 +1129,7 @@ HTTP authentication mode
 Cookie authentication mode
 --------------------------
 
+* The recommended and most popular authentication type.
 * Username and password are stored in cookies during the session and password
   is deleted when it ends.
 * With this mode, the user can truly log out of phpMyAdmin and log
@@ -1208,9 +1208,7 @@ Config authentication mode
   loading the phpMyAdmin site. This is by design but could allow any
   user to access your installation. Use of some restriction method is
   suggested, perhaps a :term:`.htaccess` file with the HTTP-AUTH directive or disallowing
-  incoming HTTP requests at one’s router or firewall will suffice (both
-  of which are beyond the scope of this manual but easily searchable
-  with Google).
+  incoming HTTP requests at one's router or firewall.
 
 .. _securing:
 
@@ -1227,13 +1225,13 @@ are always ways to make your installation more secure:
 * Ensure your PHP setup follows recommendations for production sites, for example
   `display_errors <https://www.php.net/manual/en/errorfunc.configuration.php#ini.display-errors>`_
   should be disabled.
-* Remove the ``tests`` directory from phpMyAdmin, unless you are developing and need a test suite.
-* Remove the ``setup`` directory from phpMyAdmin, you will probably not
+* Remove the :file:`tests/` directory from phpMyAdmin, unless you are developing and need a test suite.
+* Remove the :file:`public/setup/` directory from phpMyAdmin, you will probably not
   use it after the initial setup.
 * Properly choose an authentication method - :ref:`cookie`
   is probably the best choice for shared hosting.
-* Deny access to auxiliary files in :file:`./libraries/` or
-  :file:`./templates/` subfolders in your webserver configuration.
+* Deny access to auxiliary files in :file:`libraries/` or
+  :file:`resources/templates/` subfolders in your webserver configuration.
   Such configuration prevents from possible path exposure and cross side
   scripting vulnerabilities that might happen to be found in that code. For the
   Apache webserver, this is often accomplished with a :term:`.htaccess` file in
@@ -1248,6 +1246,8 @@ are always ways to make your installation more secure:
   phpMyAdmin, you can use :config:option:`$cfg['Servers'][$i]['AllowDeny']['rules']` to limit them
   or :config:option:`$cfg['Servers'][$i]['AllowRoot']` to deny root user access.
 * Enable :ref:`2fa` for your account.
+* Consider hiding connection errors from the login page by setting
+  :config:option:`$cfg['Servers'][$i]['hide_connection_errors']` to ``true``.
 * Consider hiding phpMyAdmin behind an authentication proxy, so that
   users need to authenticate prior to providing MySQL credentials
   to phpMyAdmin. You can achieve this by configuring your web server to request

@@ -4,9 +4,9 @@ Import and export
 Import
 ++++++
 
-To import data, go to the "Import" tab in phpMyAdmin. To import data into a
+To import data, go to the :guilabel:`Import` tab in phpMyAdmin. To import data into a
 specific database or table, open the database or table before going to the
-"Import" tab.
+:guilabel:`Import` tab.
 
 In addition to the standard Import and Export tab, you can also import an SQL
 file directly by dragging and dropping it from your local file manager to the
@@ -14,7 +14,7 @@ phpMyAdmin interface in your web browser.
 
 If you are having troubles importing big files, please consult :ref:`faq1_16`.
 
-You can import using following methods:
+You can import using any of these methods:
 
 Form based upload
 
@@ -274,15 +274,15 @@ including table names or headers.
 OpenDocument Spreadsheet
 ------------------------
 
-Open standard for spreadsheet data, which is being widely adopted. Many recent
+Open standard for spreadsheet data, which has being widely adopted. Many recent
 spreadsheet programs, such as LibreOffice, OpenOffice, Microsoft Office or
 Google Docs can handle this format.
 
 OpenDocument Text
 -----------------
 
-New standard for text data which is being widely adopted. Most recent word
-processors (such as LibreOffice, OpenOffice, Microsoft Word, AbiWord or KWord)
+Open standard for text data which has being widely adopted. Most recent word
+processors (such as LibreOffice, OpenOffice, Microsoft Word, AbiWord or Google Docs)
 can handle this.
 
 PDF
@@ -315,12 +315,12 @@ file, for large tables you avoid the error "Got a packet bigger than
 Data Options
 ~~~~~~~~~~~~
 
-**Complete inserts** adds the column names to the SQL dump. This parameter
+:guilabel:`Complete inserts` adds the column names to the SQL dump. This parameter
 improves the readability and reliability of the dump. Adding the column names
 increases the size of the dump, but when combined with Extended inserts it's
 negligible.
 
-**Extended inserts** combines multiple rows of data into a single INSERT query.
+:guilabel:`Extended inserts` combines multiple rows of data into a single INSERT query.
 This will significantly decrease filesize for large SQL dumps, increases the
 INSERT speed when imported, and is generally recommended.
 
