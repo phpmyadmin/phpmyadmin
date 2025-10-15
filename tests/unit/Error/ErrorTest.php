@@ -91,7 +91,7 @@ class ErrorTest extends AbstractTestCase
     public static function validFilePathsProvider(): array
     {
         return [
-            ['./ChangeLog', '/ChangeLog'],
+            ['./LICENSE', '/LICENSE'],
             [__FILE__, '/tests/unit/Error/ErrorTest.php'],
             [__DIR__ . '/ErrorTest.php', '/tests/unit/Error/ErrorTest.php'],
             [__DIR__ . '/../Error/ErrorTest.php', '/tests/unit/Error/ErrorTest.php'],
