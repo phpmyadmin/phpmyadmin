@@ -16,7 +16,6 @@ use PhpMyAdmin\Properties\Plugins\PluginPropertyItem;
 use PhpMyAdmin\Transformations;
 
 use function is_string;
-use function stripos;
 
 /**
  * Provides a common interface that will have to be implemented by all of the
@@ -201,24 +200,24 @@ abstract class ExportPlugin implements Plugin
      * below methods unless you want to override them.
      */
 
-    /**
-     * Initialize aliases
-     *
-     * @param mixed[]     $aliases Alias information for db/table/column
-     * @param string      $db      the database
-     * @param string|null $table   the table
-     */
-    public function initAlias(array $aliases, string &$db, string|null &$table = null): void
+    /** @param mixed[] $aliases Alias information for db/table/columns */
+    public function getDbAlias(array $aliases, string $db): string
     {
-        if (! empty($aliases[$db]['tables'][$table]['alias'])) {
-            $table = $aliases[$db]['tables'][$table]['alias'];
-        }
+        return ! empty($aliases[$db]['alias']) ? $aliases[$db]['alias'] : $db;
+    }
 
-        if (empty($aliases[$db]['alias'])) {
-            return;
-        }
+    /** @param mixed[] $aliases Alias information for db/table/columns */
+    public function getTableAlias(array $aliases, string $db, string $table): string
+    {
+        return ! empty($aliases[$db]['tables'][$table]['alias']) ? $aliases[$db]['tables'][$table]['alias'] : $table;
+    }
 
-        $db = $aliases[$db]['alias'];
+    /** @param mixed[] $aliases Alias information for db/table/columns */
+    public function getColumnAlias(array $aliases, string $db, string $table, string $column): string
+    {
+        return ! empty($aliases[$db]['tables'][$table]['columns'][$column])
+            ? $aliases[$db]['tables'][$table]['columns'][$column]
+            : $column;
     }
 
     /**
@@ -226,28 +225,17 @@ abstract class ExportPlugin implements Plugin
      *
      * @param mixed[] $aliases Alias information for db/table/column
      * @param string  $id      the identifier to be searched
-     * @param string  $type    db/tbl/col or any combination of them
-     *                         representing what to be searched
-     * @param string  $db      the database in which search is to be done
-     * @param string  $tbl     the table in which search is to be done
      *
      * @return string alias of the identifier if found or ''
      */
     public function getAlias(
         array $aliases,
         string $id,
-        string $type = 'dbtblcol',
-        string $db = '',
-        string $tbl = '',
     ): string {
-        if ($db !== '' && isset($aliases[$db])) {
-            $aliases = [$db => $aliases[$db]];
-        }
-
         // search each database
         foreach ($aliases as $dbKey => $db) {
             // check if id is database and has alias
-            if (stripos($type, 'db') !== false && $dbKey === $id && ! empty($db['alias'])) {
+            if ($dbKey === $id && ! empty($db['alias'])) {
                 return $db['alias'];
             }
 
@@ -255,14 +243,10 @@ abstract class ExportPlugin implements Plugin
                 continue;
             }
 
-            if ($tbl !== '' && isset($db['tables'][$tbl])) {
-                $db['tables'] = [$tbl => $db['tables'][$tbl]];
-            }
-
             // search each of its tables
             foreach ($db['tables'] as $tableKey => $table) {
                 // check if id is table and has alias
-                if (stripos($type, 'tbl') !== false && $tableKey === $id && ! empty($table['alias'])) {
+                if ($tableKey === $id && ! empty($table['alias'])) {
                     return $table['alias'];
                 }
 
@@ -273,7 +257,7 @@ abstract class ExportPlugin implements Plugin
                 // search each of its columns
                 foreach ($table['columns'] as $colKey => $col) {
                     // check if id is column
-                    if (stripos($type, 'col') !== false && $colKey === $id && ! empty($col)) {
+                    if ($colKey === $id && ! empty($col)) {
                         return $col;
                     }
                 }
@@ -304,15 +288,8 @@ abstract class ExportPlugin implements Plugin
     ): string {
         $foreigner = $this->relation->searchColumnInForeigners($foreigners, $fieldName);
         if ($foreigner) {
-            $ftable = $foreigner['foreign_table'];
-            $ffield = $foreigner['foreign_field'];
-            if (! empty($aliases[$db]['tables'][$ftable]['columns'][$ffield])) {
-                $ffield = $aliases[$db]['tables'][$ftable]['columns'][$ffield];
-            }
-
-            if (! empty($aliases[$db]['tables'][$ftable]['alias'])) {
-                $ftable = $aliases[$db]['tables'][$ftable]['alias'];
-            }
+            $ffield = $this->getColumnAlias($aliases, $db, $foreigner['foreign_table'], $foreigner['foreign_field']);
+            $ftable = $this->getTableAlias($aliases, $db, $foreigner['foreign_table']);
 
             return $ftable . ' (' . $ffield . ')';
         }

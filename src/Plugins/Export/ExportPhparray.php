@@ -153,9 +153,8 @@ class ExportPhparray extends ExportPlugin
         string $sqlQuery,
         array $aliases = [],
     ): bool {
-        $dbAlias = $db;
-        $tableAlias = $table;
-        $this->initAlias($aliases, $dbAlias, $tableAlias);
+        $dbAlias = $this->getDbAlias($aliases, $db);
+        $tableAlias = $this->getTableAlias($aliases, $db, $table);
 
         $dbi = DatabaseInterface::getInstance();
         $result = $dbi->query($sqlQuery, ConnectionType::User, DatabaseInterface::QUERY_UNBUFFERED);
@@ -163,9 +162,7 @@ class ExportPhparray extends ExportPlugin
         $columnsCnt = $result->numFields();
         $columns = [];
         foreach ($result->getFieldNames() as $i => $colAs) {
-            if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
-                $colAs = $aliases[$db]['tables'][$table]['columns'][$colAs];
-            }
+            $colAs = $this->getColumnAlias($aliases, $db, $table, $colAs);
 
             $columns[$i] = $colAs;
         }

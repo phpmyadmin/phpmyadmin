@@ -179,10 +179,6 @@ class ExportExcel extends ExportPlugin
         string $sqlQuery,
         array $aliases = [],
     ): bool {
-        $dbAlias = $db;
-        $tableAlias = $table;
-        $this->initAlias($aliases, $dbAlias, $tableAlias);
-
         $dbi = DatabaseInterface::getInstance();
         /**
          * Gets the data from the database
@@ -193,9 +189,7 @@ class ExportExcel extends ExportPlugin
         if ($this->columns) {
             $insertFields = [];
             foreach ($result->getFieldNames() as $colAs) {
-                if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
-                    $colAs = $aliases[$db]['tables'][$table]['columns'][$colAs];
-                }
+                $colAs = $this->getColumnAlias($aliases, $db, $table, $colAs);
 
                 if ($this->enclosed === '') {
                     $insertFields[] = $colAs;

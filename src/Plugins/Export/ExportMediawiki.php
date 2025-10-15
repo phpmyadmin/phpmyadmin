@@ -152,9 +152,7 @@ class ExportMediawiki extends ExportPlugin
      */
     public function exportStructure(string $db, string $table, string $exportMode, array $aliases = []): bool
     {
-        $dbAlias = $db;
-        $tableAlias = $table;
-        $this->initAlias($aliases, $dbAlias, $tableAlias);
+        $tableAlias = $this->getTableAlias($aliases, $db, $table);
 
         $output = '';
         if ($exportMode === 'create_table') {
@@ -182,10 +180,7 @@ class ExportMediawiki extends ExportPlugin
                 $output .= '! style="background:#ffffff" | '
                     . $this->exportCRLF();
                 foreach ($columns as $column) {
-                    $colAs = $column->field;
-                    if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
-                        $colAs = $aliases[$db]['tables'][$table]['columns'][$colAs];
-                    }
+                    $colAs = $this->getColumnAlias($aliases, $db, $table, $column->field);
 
                     $output .= ' | ' . $colAs . $this->exportCRLF();
                 }
@@ -236,9 +231,7 @@ class ExportMediawiki extends ExportPlugin
         string $sqlQuery,
         array $aliases = [],
     ): bool {
-        $dbAlias = $db;
-        $tableAlias = $table;
-        $this->initAlias($aliases, $dbAlias, $tableAlias);
+        $tableAlias = $this->getTableAlias($aliases, $db, $table);
 
         // Print data comment
         $output = $this->exportComment(
@@ -271,9 +264,7 @@ class ExportMediawiki extends ExportPlugin
 
                 // Use '!' for separating table headers
                 foreach ($columnNames as $column) {
-                    if (! empty($aliases[$db]['tables'][$table]['columns'][$column])) {
-                        $column = $aliases[$db]['tables'][$table]['columns'][$column];
-                    }
+                    $column = $this->getColumnAlias($aliases, $db, $table, $column);
 
                     $output .= ' ! ' . $column . $this->exportCRLF();
                 }

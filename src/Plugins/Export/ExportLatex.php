@@ -298,9 +298,8 @@ class ExportLatex extends ExportPlugin
         string $sqlQuery,
         array $aliases = [],
     ): bool {
-        $dbAlias = $db;
-        $tableAlias = $table;
-        $this->initAlias($aliases, $dbAlias, $tableAlias);
+        $dbAlias = $this->getDbAlias($aliases, $db);
+        $tableAlias = $this->getTableAlias($aliases, $db, $table);
 
         $dbi = DatabaseInterface::getInstance();
         $result = $dbi->tryQuery($sqlQuery, ConnectionType::User, DatabaseInterface::QUERY_UNBUFFERED);
@@ -310,9 +309,7 @@ class ExportLatex extends ExportPlugin
         $columnsAlias = [];
         foreach ($result->getFieldNames() as $i => $colAs) {
             $columns[$i] = $colAs;
-            if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
-                $colAs = $aliases[$db]['tables'][$table]['columns'][$colAs];
-            }
+            $colAs = $this->getColumnAlias($aliases, $db, $table, $colAs);
 
             $columnsAlias[$i] = $colAs;
         }
@@ -437,9 +434,8 @@ class ExportLatex extends ExportPlugin
      */
     public function exportStructure(string $db, string $table, string $exportMode, array $aliases = []): bool
     {
-        $dbAlias = $db;
-        $tableAlias = $table;
-        $this->initAlias($aliases, $dbAlias, $tableAlias);
+        $dbAlias = $this->getDbAlias($aliases, $db);
+        $tableAlias = $this->getTableAlias($aliases, $db, $table);
 
         $relationParameters = $this->relation->getRelationParameters();
 
@@ -558,10 +554,8 @@ class ExportLatex extends ExportPlugin
                 $type = ' ';
             }
 
-            $fieldName = $colAs = $row->field;
-            if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
-                $colAs = $aliases[$db]['tables'][$table]['columns'][$colAs];
-            }
+            $fieldName = $row->field;
+            $colAs = $this->getColumnAlias($aliases, $db, $table, $row->field);
 
             $localBuffer = $colAs . "\000" . $type . "\000"
                 . ($row->isNull ? __('Yes') : __('No'))

@@ -201,9 +201,7 @@ class ExportOds extends ExportPlugin
         string $sqlQuery,
         array $aliases = [],
     ): bool {
-        $dbAlias = $db;
-        $tableAlias = $table;
-        $this->initAlias($aliases, $dbAlias, $tableAlias);
+        $tableAlias = $this->getTableAlias($aliases, $db, $table);
         $dbi = DatabaseInterface::getInstance();
         // Gets the data from the database
         $result = $dbi->query($sqlQuery, ConnectionType::User, DatabaseInterface::QUERY_UNBUFFERED);
@@ -216,10 +214,7 @@ class ExportOds extends ExportPlugin
         if ($this->columns) {
             $this->buffer .= '<table:table-row>';
             foreach ($fieldsMeta as $field) {
-                $colAs = $field->name;
-                if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
-                    $colAs = $aliases[$db]['tables'][$table]['columns'][$colAs];
-                }
+                $colAs = $this->getColumnAlias($aliases, $db, $table, $field->name);
 
                 $this->buffer .= '<table:table-cell office:value-type="string">'
                     . '<text:p>'

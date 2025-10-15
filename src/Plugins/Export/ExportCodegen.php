@@ -186,9 +186,8 @@ class ExportCodegen extends ExportPlugin
      */
     private function handleNHibernateCSBody(string $db, string $table, array $aliases = []): string
     {
-        $dbAlias = $db;
-        $tableAlias = $table;
-        $this->initAlias($aliases, $dbAlias, $tableAlias);
+        $dbAlias = $this->getDbAlias($aliases, $db);
+        $tableAlias = $this->getTableAlias($aliases, $db, $table);
 
         $result = DatabaseInterface::getInstance()->query(
             sprintf(
@@ -201,10 +200,7 @@ class ExportCodegen extends ExportPlugin
         /** @var TableProperty[] $tableProperties */
         $tableProperties = [];
         while ($row = $result->fetchRow()) {
-            $colAs = $this->getAlias($aliases, $row[0], 'col', $db, $table);
-            if ($colAs !== '') {
-                $row[0] = $colAs;
-            }
+            $row[0] = $this->getColumnAlias($aliases, $db, $table, $row[0]);
 
             $tableProperties[] = new TableProperty($row);
         }
@@ -291,9 +287,8 @@ class ExportCodegen extends ExportPlugin
         string $table,
         array $aliases = [],
     ): string {
-        $dbAlias = $db;
-        $tableAlias = $table;
-        $this->initAlias($aliases, $dbAlias, $tableAlias);
+        $dbAlias = $this->getDbAlias($aliases, $db);
+        $tableAlias = $this->getTableAlias($aliases, $db, $table);
         $lines = [];
         $lines[] = '<?xml version="1.0" encoding="utf-8" ?>';
         $lines[] = '<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" '
@@ -311,10 +306,7 @@ class ExportCodegen extends ExportPlugin
         );
 
         while ($row = $result->fetchRow()) {
-            $colAs = $this->getAlias($aliases, $row[0], 'col', $db, $table);
-            if ($colAs !== '') {
-                $row[0] = $colAs;
-            }
+            $row[0] = $this->getColumnAlias($aliases, $db, $table, $row[0]);
 
             $tableProperty = new TableProperty($row);
             if ($tableProperty->isPK()) {
