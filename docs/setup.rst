@@ -1248,6 +1248,8 @@ are always ways to make your installation more secure:
   phpMyAdmin, you can use :config:option:`$cfg['Servers'][$i]['AllowDeny']['rules']` to limit them
   or :config:option:`$cfg['Servers'][$i]['AllowRoot']` to deny root user access.
 * Enable :ref:`2fa` for your account.
+* Consider hiding connection errors from the login page by setting
+  :config:option:`$cfg['Servers'][$i]['hide_connection_errors']` to true.
 * Consider hiding phpMyAdmin behind an authentication proxy, so that
   users need to authenticate prior to providing MySQL credentials
   to phpMyAdmin. You can achieve this by configuring your web server to request
