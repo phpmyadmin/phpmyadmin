@@ -286,21 +286,27 @@ class Generator
         );
     }
 
-    public static function getInformationSchemaDataForCreateRequest(string $user, string $host): string
-    {
+    public static function getInformationSchemaDataForCreateRequest(
+        string $user,
+        string $host,
+        string $collation,
+    ): string {
         // second part of query is for MariaDB that not show roles inside INFORMATION_SCHEMA db
         return 'SELECT 1 FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` '
             . "WHERE `PRIVILEGE_TYPE` = 'CREATE USER' AND "
             . "'''" . $user . "''@''" . $host . "''' LIKE `GRANTEE`"
             . ' UNION '
             . 'SELECT 1 FROM mysql.user '
-            . "WHERE `create_user_priv` = 'Y' AND "
+            . "WHERE `create_user_priv` = 'Y' COLLATE " . $collation . ' AND '
             . "'" . $user . "' LIKE `User` AND '' LIKE `Host`"
             . ' LIMIT 1';
     }
 
-    public static function getInformationSchemaDataForGranteeRequest(string $user, string $host): string
-    {
+    public static function getInformationSchemaDataForGranteeRequest(
+        string $user,
+        string $host,
+        string $collation,
+    ): string {
         // second part of query is for MariaDB that not show roles inside INFORMATION_SCHEMA db
         return 'SELECT 1 FROM ('
             . 'SELECT `GRANTEE`, `IS_GRANTABLE` FROM '
@@ -315,7 +321,7 @@ class Generator
             . "'''" . $user . "''@''" . $host . "''' LIKE `GRANTEE` "
             . ' UNION '
             . 'SELECT 1 FROM mysql.user '
-            . "WHERE `create_user_priv` = 'Y' AND "
+            . "WHERE `create_user_priv` = 'Y' COLLATE " . $collation . ' AND '
             . "'" . $user . "' LIKE `User` AND '' LIKE `Host`"
             . ' LIMIT 1';
     }

@@ -1263,6 +1263,8 @@ class PrivilegesTest extends AbstractTestCase
         $dummyDbi = $this->createDbiDummy();
         $dummyDbi->addResult('SELECT * FROM `pmadb`.`users`', []);
         $dummyDbi->addResult('SELECT COUNT(*) FROM `pmadb`.`usergroups`', [['0']]);
+        // phpcs:ignore Generic.Files.LineLength.TooLong
+        $dummyDbi->addResult("SELECT 1 FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE `PRIVILEGE_TYPE` = 'CREATE USER' AND '''pma_test''@''localhost''' LIKE `GRANTEE` UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8_general_ci AND 'pma_test' LIKE `User` AND '' LIKE `Host` LIMIT 1", [['1']]);
 
         $serverPrivileges = $this->getPrivileges($this->createDatabaseInterface($dummyDbi));
 
@@ -1270,6 +1272,8 @@ class PrivilegesTest extends AbstractTestCase
         $dbRights = [];
 
         $html = $serverPrivileges->getUsersOverview($resultStub, $dbRights);
+
+        $dummyDbi->assertAllQueriesConsumed();
 
         //Url::getHiddenInputs
         self::assertStringContainsString(
@@ -1564,12 +1568,14 @@ class PrivilegesTest extends AbstractTestCase
             [['pma', 'localhost'], ['root', 'localhost']],
             ['User', 'Host'],
         );
+        $dummyDbi->addResult("SELECT 1 FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE `PRIVILEGE_TYPE` = 'CREATE USER' AND '''pma_test''@''localhost''' LIKE `GRANTEE` UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8_general_ci AND 'pma_test' LIKE `User` AND '' LIKE `Host` LIMIT 1", [['1']]);
         // phpcs:enable
 
         $serverPrivileges = $this->getPrivileges($this->createDatabaseInterface($dummyDbi));
 
         $_REQUEST = ['ajax_page_request' => '1'];
         $actual = $serverPrivileges->getHtmlForUserOverview($userPrivileges, null);
+        $dummyDbi->assertAllQueriesConsumed();
         self::assertStringContainsString('Note: MySQL privilege names are expressed in English.', $actual);
         self::assertStringContainsString(
             'Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege tables.',
