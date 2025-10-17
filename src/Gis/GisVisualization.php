@@ -66,7 +66,7 @@ class GisVisualization
 
     private string $spatialColumn;
 
-    private string|null $labelColumn;
+    private string $labelColumn;
 
     public function getWidth(): int
     {
@@ -95,7 +95,7 @@ class GisVisualization
 
     public function getLabelColumn(): string|null
     {
-        return $this->labelColumn;
+        return $this->labelColumn === '' ? null : $this->labelColumn;
     }
 
     /**
@@ -202,7 +202,7 @@ class GisVisualization
         }
 
         // If label column is chosen add it to the query
-        if ($this->labelColumn !== null) {
+        if ($this->labelColumn !== '') {
             $modifiedQuery .= Util::backquote($this->labelColumn)
             . ', ';
         }
