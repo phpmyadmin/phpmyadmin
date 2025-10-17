@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-10-16 23:57-0300\n"
-"PO-Revision-Date: 2025-06-22 06:47+0000\n"
+"PO-Revision-Date: 2025-10-20 04:51+0000\n"
 "Last-Translator: \"Lisek (Damian Bartyś)\" <damianbart22@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/5-2/pl/"
 ">\n"
@@ -12,9 +12,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.13-dev\n"
+"Plural-Forms: nplurals=3; plural="
+"(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -5391,6 +5391,9 @@ msgid ""
 "to not work properly. Please refer to [doc@faq1-46]documentation[/doc] for "
 "possible issues."
 msgstr ""
+"Brakuje zmiennej [code]HTTP_HOST[/code], co może spowodować nieprawidłowe "
+"działanie phpMyAdmin. Zapoznaj się z [doc@faq1-46]dokumentacją[/doc], aby "
+"uzyskać informacje o możliwych problemach."
 
 #: libraries/classes/Controllers/HomeController.php:464
 msgid ""
@@ -7247,7 +7250,6 @@ msgstr "anuluj"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:575
 #: libraries/classes/Controllers/Server/Status/StatusController.php:193
-#, fuzzy
 msgid "Aborted"
 msgstr "Przerwane"
 
@@ -7289,7 +7291,6 @@ msgstr "Wygeneruj hasło"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:593
 #: templates/server/replication/primary_add_replica_user.twig:73
-#, fuzzy
 msgid "Generate"
 msgstr "Generuj"
 
@@ -7429,9 +7430,9 @@ msgid "%s queries executed %s times in %s seconds."
 msgstr "%s kwerend wykonanych %s razy w %s sekund."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:659
-#, fuzzy, php-format
+#, php-format
 msgid "%s argument(s) passed"
-msgstr "%s argumentów spełniło kryteria"
+msgstr "Przekazano %s argument(ów)"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:660
 msgid "Show arguments"
@@ -8589,7 +8590,6 @@ msgid "Error"
 msgstr "Błąd"
 
 #: libraries/classes/Controllers/Table/RelationController.php:182
-#, fuzzy
 msgid "Display column was successfully updated."
 msgstr "Kolumna wyświetlania została pomyślnie zaktualizowana."
 
@@ -8710,7 +8710,6 @@ msgstr ""
 "centralnych kolumn!"
 
 #: libraries/classes/Database/CentralColumns.php:464
-#, fuzzy
 msgid "Could not remove columns!"
 msgstr "Nie można usunąć kolumn!"
 
@@ -8745,7 +8744,6 @@ msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "Błąd: nie można dodać relacji FOREIGN KEY!"
 
 #: libraries/classes/Database/Designer/Common.php:640
-#, fuzzy
 msgid "Error: Missing index on column(s)."
 msgstr "Błąd: Brak indeksu w kolumnie(ach)."
 
@@ -8763,12 +8761,10 @@ msgid "Error: Internal relationship could not be added!"
 msgstr "Błąd: nie można dodać relacji wewnętrznej!"
 
 #: libraries/classes/Database/Designer/Common.php:718
-#, fuzzy
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "Relacja FOREIGN KEY została usunięta."
 
 #: libraries/classes/Database/Designer/Common.php:749
-#, fuzzy
 msgid "Error: Internal relationship could not be removed!"
 msgstr "Błąd: nie można usunąć relacji wewnętrznej!"
 
@@ -8812,7 +8808,7 @@ msgid "MySQL said: "
 msgstr "MySQL zwrócił komunikat: "
 
 #: libraries/classes/Database/Events.php:126
-#, fuzzy, php-format
+#, php-format
 msgid "Event %1$s has been modified."
 msgstr "Zdarzenie %1$s zostało zmodyfikowane."
 
@@ -8832,7 +8828,6 @@ msgid "Add event"
 msgstr "Dodaj zdarzenie"
 
 #: libraries/classes/Database/Events.php:243
-#, fuzzy
 msgid "Edit event"
 msgstr "Edytuj wydarzenie"
 
@@ -8918,7 +8913,6 @@ msgid "Missing connection parameters!"
 msgstr "Brakujące parametry połączenia!"
 
 #: libraries/classes/DatabaseInterface.php:1988
-#, fuzzy
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Połączenie dla użytkownika kontrolnego zdefiniowanego w pliku "
@@ -8936,7 +8930,6 @@ msgstr "Lub:"
 
 #: libraries/classes/Database/Qbe.php:760
 #: templates/database/qbe/ins_del_and_or_cell.twig:9
-#, fuzzy
 msgid "And:"
 msgstr "Oraz:"
 
@@ -8945,7 +8938,6 @@ msgid "Ins"
 msgstr "Wstaw"
 
 #: libraries/classes/Database/Qbe.php:769
-#, fuzzy
 msgid "Del"
 msgstr "Usuń"
 
