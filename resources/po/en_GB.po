@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-10-12 00:28+0000\n"
-"PO-Revision-Date: 2025-04-24 14:25+0000\n"
+"PO-Revision-Date: 2025-10-20 04:50+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/en_GB/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11.1-dev\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -1947,10 +1947,8 @@ msgid "OFF"
 msgstr "OFF"
 
 #: resources/templates/database/events/index.twig:161
-#, fuzzy
-#| msgid "Excel edition"
 msgid "Event editor"
-msgstr "Excel edition"
+msgstr "Event editor"
 
 #: resources/templates/database/events/index.twig:166
 #: resources/templates/database/routines/index.twig:83
@@ -1975,10 +1973,8 @@ msgid "Save changes"
 msgstr "Save changes"
 
 #: resources/templates/database/events/index.twig:181
-#, fuzzy
-#| msgid "Export of event %s"
 msgid "Export event"
-msgstr "Export of event %s"
+msgstr "Export event"
 
 #: resources/templates/database/export/index.twig:61
 msgid ""
@@ -3536,10 +3532,8 @@ msgid "Server:"
 msgstr "Server:"
 
 #: resources/templates/home/index.twig:186
-#, fuzzy
-#| msgid "Host name:"
 msgid "Hostname:"
-msgstr "Host name:"
+msgstr "Hostname:"
 
 #: resources/templates/home/index.twig:190
 msgid "Server type:"
@@ -4581,10 +4575,8 @@ msgid "Description"
 msgstr "Description"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:2
-#, fuzzy
-#| msgid "Buffer Pool Usage"
 msgid "Buffer pool usage"
-msgstr "Buffer Pool Usage"
+msgstr "Buffer pool usage"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:5
 msgid "Free pages"
@@ -4611,16 +4603,13 @@ msgid "Latched pages"
 msgstr "Latched pages"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:34
-#, fuzzy, php-format
-#| msgid "Busy pages"
+#, php-format
 msgid "%s pages"
-msgstr "Busy pages"
+msgstr "%s pages"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:41
-#, fuzzy
-#| msgid "Buffer Pool Activity"
 msgid "Buffer pool activity"
-msgstr "Buffer Pool Activity"
+msgstr "Buffer pool activity"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:44
 msgid "Read requests"
@@ -5784,10 +5773,8 @@ msgstr ""
 "may want to export it if you have a complicated set up."
 
 #: resources/templates/server/status/monitor/index.twig:58
-#, fuzzy
-#| msgid "Import monitor configuration"
 msgid "Importing system monitor configuration"
-msgstr "Import monitor configuration"
+msgstr "Importing system monitor configuration"
 
 #: resources/templates/server/status/monitor/index.twig:63
 #: src/Controllers/JavaScriptMessagesController.php:301
@@ -12409,6 +12396,9 @@ msgid ""
 "to not work properly. Please refer to [doc@faq1-46]documentation[/doc] for "
 "possible issues."
 msgstr ""
+"The [code]HTTP_HOST[/code] variable is missing, which might cause phpMyAdmin "
+"to not work properly. Please refer to [doc@faq1-46]documentation[/doc] for "
+"possible issues."
 
 #: src/Controllers/HomeController.php:458
 msgid ""
@@ -18539,18 +18529,16 @@ msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr "A date and time combination, supported range is %1$s to %2$s"
 
 #: src/Types.php:208
-#, fuzzy
-#| msgid ""
-#| "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
-#| "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-19 03:14:07 UTC on "
 "32-bit platforms (MariaDB 11.3 and earlier), and up to 2106-02-07 06:28:15 "
 "UTC on 64-bit platforms (MariaDB 11.5 and later), stored as the number of "
 "seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
-"A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
-"stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
+"A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-19 03:14:07 UTC on "
+"32-bit platforms (MariaDB 11.3 and earlier), and up to 2106-02-07 06:28:15 "
+"UTC on 64-bit platforms (MariaDB 11.5 and later), stored as the number of "
+"seconds since the epoch (1970-01-01 00:00:00 UTC)"
 
 #: src/Types.php:214
 #, php-format
