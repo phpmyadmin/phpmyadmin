@@ -608,9 +608,6 @@ class ExportSql extends ExportPlugin
     {
         global $crlf, $dbi;
 
-        $dbAlias = $db;
-        $this->initAlias($aliases, $dbAlias);
-
         $text = '';
         $delimiter = '$$';
 
