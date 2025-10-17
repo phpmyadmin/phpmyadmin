@@ -419,7 +419,7 @@ final class FieldMetadata
             self::TYPE_YEAR => 'year',
         ];
 
-        return $types[$this->mappedType] ?? '';
+        return isset($this->mappedType, $types[$this->mappedType]) ? $types[$this->mappedType] : '';
     }
 
     /**
