@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-10-16 23:57-0300\n"
-"PO-Revision-Date: 2024-10-13 04:15+0000\n"
+"PO-Revision-Date: 2025-10-20 04:50+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
 "phpmyadmin/5-2/en_GB/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.8-dev\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -5300,6 +5300,9 @@ msgid ""
 "to not work properly. Please refer to [doc@faq1-46]documentation[/doc] for "
 "possible issues."
 msgstr ""
+"The [code]HTTP_HOST[/code] variable is missing, which might cause phpMyAdmin "
+"to not work properly. Please refer to [doc@faq1-46]documentation[/doc] for "
+"possible issues."
 
 #: libraries/classes/Controllers/HomeController.php:464
 msgid ""
@@ -12928,18 +12931,16 @@ msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr "A date and time combination, supported range is %1$s to %2$s"
 
 #: libraries/classes/Types.php:306
-#, fuzzy
-#| msgid ""
-#| "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
-#| "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-19 03:14:07 UTC on "
 "32-bit platforms (MariaDB 11.3 and earlier), and up to 2106-02-07 06:28:15 "
 "UTC on 64-bit platforms (MariaDB 11.5 and later), stored as the number of "
 "seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
-"A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
-"stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
+"A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-19 03:14:07 UTC on "
+"32-bit platforms (MariaDB 11.3 and earlier), and up to 2106-02-07 06:28:15 "
+"UTC on 64-bit platforms (MariaDB 11.5 and later), stored as the number of "
+"seconds since the epoch (1970-01-01 00:00:00 UTC)"
 
 #: libraries/classes/Types.php:314
 #, php-format
