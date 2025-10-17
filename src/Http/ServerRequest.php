@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Http;
 
 use Fig\Http\Message\RequestMethodInterface;
+use Psr\Http\Message\MessageInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\StreamInterface;
 use Psr\Http\Message\UriInterface;
@@ -21,14 +22,13 @@ class ServerRequest implements ServerRequestInterface
     {
     }
 
-    /** @inheritDoc */
-    public function getProtocolVersion()
+    public function getProtocolVersion(): string
     {
         return $this->serverRequest->getProtocolVersion();
     }
 
     /** @inheritDoc */
-    public function withProtocolVersion($version)
+    public function withProtocolVersion($version): MessageInterface
     {
         $serverRequest = $this->serverRequest->withProtocolVersion($version);
 
@@ -36,31 +36,29 @@ class ServerRequest implements ServerRequestInterface
     }
 
     /** @inheritDoc */
-    public function getHeaders()
+    public function getHeaders(): array
     {
         return $this->serverRequest->getHeaders();
     }
 
-    /** @inheritDoc */
-    public function hasHeader($name)
+    public function hasHeader(string $name): bool
     {
         return $this->serverRequest->hasHeader($name);
     }
 
     /** @inheritDoc */
-    public function getHeader($name)
+    public function getHeader(string $name): array
     {
         return $this->serverRequest->getHeader($name);
     }
 
-    /** @inheritDoc */
-    public function getHeaderLine($name)
+    public function getHeaderLine(string $name): string
     {
         return $this->serverRequest->getHeaderLine($name);
     }
 
     /** @inheritDoc */
-    public function withHeader($name, $value)
+    public function withHeader(string $name, $value): MessageInterface
     {
         $serverRequest = $this->serverRequest->withHeader($name, $value);
 
@@ -68,71 +66,65 @@ class ServerRequest implements ServerRequestInterface
     }
 
     /** @inheritDoc */
-    public function withAddedHeader($name, $value)
+    public function withAddedHeader(string $name, $value): MessageInterface
     {
         $serverRequest = $this->serverRequest->withAddedHeader($name, $value);
 
         return new static($serverRequest);
     }
 
-    /** @inheritDoc */
-    public function withoutHeader($name)
+    public function withoutHeader(string $name): MessageInterface
     {
         $serverRequest = $this->serverRequest->withoutHeader($name);
 
         return new static($serverRequest);
     }
 
-    /** @inheritDoc */
-    public function getBody()
+    public function getBody(): StreamInterface
     {
         return $this->serverRequest->getBody();
     }
 
-    /** @inheritDoc */
-    public function withBody(StreamInterface $body)
+    public function withBody(StreamInterface $body): MessageInterface
     {
         $serverRequest = $this->serverRequest->withBody($body);
 
         return new static($serverRequest);
     }
 
-    /** @inheritDoc */
-    public function getRequestTarget()
+    public function getRequestTarget(): string
     {
         return $this->serverRequest->getRequestTarget();
     }
 
     /** @inheritDoc */
-    public function withRequestTarget($requestTarget)
+    public function withRequestTarget($requestTarget): ServerRequestInterface
     {
         $serverRequest = $this->serverRequest->withRequestTarget($requestTarget);
 
         return new static($serverRequest);
     }
 
-    /** @inheritDoc */
-    public function getMethod()
+    public function getMethod(): string
     {
         return $this->serverRequest->getMethod();
     }
 
     /** @inheritDoc */
-    public function withMethod($method)
+    public function withMethod($method): ServerRequestInterface
     {
         $serverRequest = $this->serverRequest->withMethod($method);
 
         return new static($serverRequest);
     }
 
-    /** @inheritDoc */
-    public function getUri()
+    public function getUri(): UriInterface
     {
         return $this->serverRequest->getUri();
     }
 
     /** @inheritDoc */
-    public function withUri(UriInterface $uri, $preserveHost = false)
+    public function withUri(UriInterface $uri, $preserveHost = false): ServerRequestInterface
     {
         $serverRequest = $this->serverRequest->withUri($uri, $preserveHost);
 
@@ -140,19 +132,19 @@ class ServerRequest implements ServerRequestInterface
     }
 
     /** @inheritDoc */
-    public function getServerParams()
+    public function getServerParams(): array
     {
         return $this->serverRequest->getServerParams();
     }
 
     /** @inheritDoc */
-    public function getCookieParams()
+    public function getCookieParams(): array
     {
         return $this->serverRequest->getCookieParams();
     }
 
     /** @inheritDoc */
-    public function withCookieParams(array $cookies)
+    public function withCookieParams(array $cookies): ServerRequestInterface
     {
         $serverRequest = $this->serverRequest->withCookieParams($cookies);
 
@@ -160,13 +152,13 @@ class ServerRequest implements ServerRequestInterface
     }
 
     /** @inheritDoc */
-    public function getQueryParams()
+    public function getQueryParams(): array
     {
         return $this->serverRequest->getQueryParams();
     }
 
     /** @inheritDoc */
-    public function withQueryParams(array $query)
+    public function withQueryParams(array $query): ServerRequestInterface
     {
         $serverRequest = $this->serverRequest->withQueryParams($query);
 
@@ -174,13 +166,13 @@ class ServerRequest implements ServerRequestInterface
     }
 
     /** @inheritDoc */
-    public function getUploadedFiles()
+    public function getUploadedFiles(): array
     {
         return $this->serverRequest->getUploadedFiles();
     }
 
     /** @inheritDoc */
-    public function withUploadedFiles(array $uploadedFiles)
+    public function withUploadedFiles(array $uploadedFiles): ServerRequestInterface
     {
         $serverRequest = $this->serverRequest->withUploadedFiles($uploadedFiles);
 
@@ -194,7 +186,7 @@ class ServerRequest implements ServerRequestInterface
     }
 
     /** @inheritDoc */
-    public function withParsedBody($data)
+    public function withParsedBody($data): ServerRequestInterface
     {
         $serverRequest = $this->serverRequest->withParsedBody($data);
 
@@ -202,7 +194,7 @@ class ServerRequest implements ServerRequestInterface
     }
 
     /** @inheritDoc */
-    public function getAttributes()
+    public function getAttributes(): array
     {
         return $this->serverRequest->getAttributes();
     }
@@ -214,15 +206,14 @@ class ServerRequest implements ServerRequestInterface
     }
 
     /** @inheritDoc */
-    public function withAttribute($name, $value)
+    public function withAttribute($name, $value): ServerRequestInterface
     {
         $serverRequest = $this->serverRequest->withAttribute($name, $value);
 
         return new static($serverRequest);
     }
 
-    /** @inheritDoc */
-    public function withoutAttribute($name)
+    public function withoutAttribute(string $name): ServerRequestInterface
     {
         $serverRequest = $this->serverRequest->withoutAttribute($name);
 
