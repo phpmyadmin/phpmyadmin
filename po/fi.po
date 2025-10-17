@@ -1,9 +1,9 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 5.2.3-dev\n"
+"Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-02-27 14:25-0300\n"
+"POT-Creation-Date: 2025-10-16 23:57-0300\n"
 "PO-Revision-Date: 2025-07-18 11:02+0000\n"
 "Last-Translator: Ricky Tigg <ricky.tigg@gmail.com>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
@@ -1254,19 +1254,19 @@ msgstr "Säännön '%s' testin suorittaminen epäonnistui."
 msgid "Failed formatting string for rule '%s'."
 msgstr "Merkkijonon muotoilu epäonnistui '%s' säännöllä."
 
-#: libraries/classes/Advisor.php:413
+#: libraries/classes/Advisor.php:428
 msgid "per second"
 msgstr "sekunnissa"
 
-#: libraries/classes/Advisor.php:416
+#: libraries/classes/Advisor.php:431
 msgid "per minute"
 msgstr "minuutissa"
 
-#: libraries/classes/Advisor.php:419
+#: libraries/classes/Advisor.php:434
 msgid "per hour"
 msgstr "tunnissa"
 
-#: libraries/classes/Advisor.php:422
+#: libraries/classes/Advisor.php:437
 msgid "per day"
 msgstr "päivässä"
 
@@ -1681,22 +1681,22 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Vietnamilainen"
 
-#: libraries/classes/Common.php:245
+#: libraries/classes/Common.php:247
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Sinun tulisi päivittää versioon %s %s tai sitä uudempaan."
 
-#: libraries/classes/Common.php:277
+#: libraries/classes/Common.php:279
 msgid "Error: Token mismatch"
 msgstr "Virhe: Tunnus ei täsmää"
 
-#: libraries/classes/Common.php:498
+#: libraries/classes/Common.php:500
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
 
-#: libraries/classes/Common.php:559
+#: libraries/classes/Common.php:561
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1706,17 +1706,17 @@ msgstr ""
 "valinta ei sovi yhteen phpMyAdminin kanssa ja saattaa johtaa tietojen "
 "katoamiseen!"
 
-#: libraries/classes/Common.php:576
+#: libraries/classes/Common.php:578
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
 
-#: libraries/classes/Common.php:587
+#: libraries/classes/Common.php:589
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS ylikirjoitus yritys"
 
-#: libraries/classes/Common.php:597
+#: libraries/classes/Common.php:599
 msgid "possible exploit"
 msgstr "mahdollinen turva-aukko"
 
@@ -1902,7 +1902,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:184
 #: libraries/classes/Config/Descriptions.php:728
-#: libraries/classes/Plugins/Export/ExportSql.php:348
+#: libraries/classes/Plugins/Export/ExportSql.php:350
 msgid "Exclude definition of current user"
 msgstr ""
 
@@ -2213,7 +2213,8 @@ msgstr "Mikäli haluat näyttää tietokannan prosessit navigaatiopuussa"
 
 #: libraries/classes/Config/Descriptions.php:313
 msgid "Whether to expand single database in the navigation tree automatically."
-msgstr "Laajennetaanko yksittäinen tietokanta navigointipuussa automaattisesti."
+msgstr ""
+"Laajennetaanko yksittäinen tietokanta navigointipuussa automaattisesti."
 
 #: libraries/classes/Config/Descriptions.php:315
 #, fuzzy
@@ -3298,8 +3299,8 @@ msgstr "Taulunimen pohja"
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:55
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:61
 #: libraries/classes/Plugins/Export/ExportOdt.php:69
-#: libraries/classes/Plugins/Export/ExportPdf.php:86
-#: libraries/classes/Plugins/Export/ExportSql.php:240
+#: libraries/classes/Plugins/Export/ExportPdf.php:87
+#: libraries/classes/Plugins/Export/ExportSql.php:242
 #: libraries/classes/Plugins/Export/ExportTexytext.php:55
 msgid "Dump table"
 msgstr "Luo tauluvedos"
@@ -3414,12 +3415,12 @@ msgid "Use delayed inserts"
 msgstr "Käytä viivästettyjä lisäyslauseita"
 
 #: libraries/classes/Config/Descriptions.php:712
-#: libraries/classes/Plugins/Export/ExportSql.php:186
+#: libraries/classes/Plugins/Export/ExportSql.php:188
 msgid "Disable foreign key checks"
 msgstr "Älä tarkista viiteavaimia"
 
 #: libraries/classes/Config/Descriptions.php:713
-#: libraries/classes/Plugins/Export/ExportSql.php:200
+#: libraries/classes/Plugins/Export/ExportSql.php:202
 msgid "Export views as tables"
 msgstr "Vie näkymiä tauluina"
 
@@ -3453,7 +3454,7 @@ msgstr ""
 "taulua luodessa)"
 
 #: libraries/classes/Config/Descriptions.php:729
-#: libraries/classes/Plugins/Export/ExportSql.php:354
+#: libraries/classes/Plugins/Export/ExportSql.php:356
 #, php-format
 msgid "%s view"
 msgstr "%s näkymä"
@@ -3467,7 +3468,7 @@ msgid "Syntax to use when inserting data"
 msgstr "Tietoa lisättäessä käytettävä syntaksi"
 
 #: libraries/classes/Config/Descriptions.php:733
-#: libraries/classes/Plugins/Export/ExportSql.php:491
+#: libraries/classes/Plugins/Export/ExportSql.php:493
 msgid "Maximal length of created query"
 msgstr "Luodun kyselyn enimmäispituus"
 
@@ -3476,7 +3477,7 @@ msgid "Export type"
 msgstr "Viennin tyyppi"
 
 #: libraries/classes/Config/Descriptions.php:739
-#: libraries/classes/Plugins/Export/ExportSql.php:172
+#: libraries/classes/Plugins/Export/ExportSql.php:174
 msgid "Enclose export in a transaction"
 msgstr "Lisää transaktio"
 
@@ -3645,7 +3646,7 @@ msgid "Database structure"
 msgstr "Tietokannan rakenne"
 
 #: libraries/classes/Config/Descriptions.php:780
-#: libraries/classes/Plugins/Export/ExportPdf.php:267
+#: libraries/classes/Plugins/Export/ExportPdf.php:268
 #: templates/table/page_with_secondary_tabs.twig:5
 msgid "Table structure"
 msgstr "Taulun rakenne"
@@ -4341,7 +4342,7 @@ msgstr "Tekstikenttä rivit"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:125
 #: libraries/classes/Server/Privileges.php:1819
 #: libraries/classes/Server/Privileges.php:1821
-#: libraries/classes/Server/Status/Processes.php:122
+#: libraries/classes/Server/Status/Processes.php:131
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
 #: templates/console/display.twig:184 templates/server/databases/index.twig:106
 #: templates/server/privileges/edit_routine_privileges.twig:17
@@ -4717,22 +4718,22 @@ msgstr ""
 "Asetuksia ei voitu tallentaa, sillä lähetetyssä konfiguraatiolomakkeessa on "
 "virheitä!"
 
-#: libraries/classes/Config.php:652
+#: libraries/classes/Config.php:635
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Olemassa oleva asetustiedosto (%s) ei ole luettavissa."
 
-#: libraries/classes/Config.php:690
+#: libraries/classes/Config.php:673
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Väärät pääsyasetukset asetustiedostolla, sen ei kuuluisi olla kaikkien "
 "kirjoitettavissa!"
 
-#: libraries/classes/Config.php:705
+#: libraries/classes/Config.php:688
 msgid "Failed to read configuration file!"
 msgstr "Asetustiedoston lukeminen epäonnistui!"
 
-#: libraries/classes/Config.php:707
+#: libraries/classes/Config.php:690
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -4740,12 +4741,12 @@ msgstr ""
 "Tämä johtuu tavallisesti siinä olevasta syntaksivirheestä, tarkista kaikki "
 "alla näkyvät virheet."
 
-#: libraries/classes/Config.php:1234
+#: libraries/classes/Config.php:1217
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Virheellinen palvelimen indeksi: %s"
 
-#: libraries/classes/Config.php:1247
+#: libraries/classes/Config.php:1230
 #, php-format
 msgid "Server %d"
 msgstr "Palvelin %d"
@@ -5159,7 +5160,7 @@ msgid "Table %s has been emptied."
 msgstr "Taulu %s on tyhjennetty."
 
 #: libraries/classes/Controllers/Database/StructureController.php:575
-#: libraries/classes/Display/Results.php:3989
+#: libraries/classes/Display/Results.php:4000
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -5168,7 +5169,7 @@ msgstr ""
 "Tässä näkymässä on vähintään tämän luvun verran rivejä. Katso lisätietoja "
 "%sohjeista%s."
 
-#: libraries/classes/Controllers/Database/StructureController.php:763
+#: libraries/classes/Controllers/Database/StructureController.php:772
 msgid "unknown"
 msgstr "tuntematon"
 
@@ -5218,8 +5219,8 @@ msgstr "Kyllä"
 #: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:75
 #: libraries/classes/Controllers/Table/DropColumnController.php:74
 #: libraries/classes/Controllers/Table/OperationsController.php:318
-#: libraries/classes/Controllers/Table/ReplaceController.php:415
-#: libraries/classes/Core.php:737 templates/preview_sql.twig:3
+#: libraries/classes/Controllers/Table/ReplaceController.php:416
+#: libraries/classes/Core.php:741 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Ei muutoksia"
 
@@ -5283,7 +5284,7 @@ msgstr "Virheellinen tyyppi!"
 msgid "Bad parameters!"
 msgstr "Virheelliset parametrit!"
 
-#: libraries/classes/Controllers/HomeController.php:99
+#: libraries/classes/Controllers/HomeController.php:100
 #, fuzzy
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
@@ -5292,7 +5293,7 @@ msgstr ""
 "Kirjauduit ulos yhdeltä palvelimelta. Kirjautuaksesi kokonaan ulos "
 "phpMyAdminista, sinun tulee kirjautua ulos kaikilta palvelimilta."
 
-#: libraries/classes/Controllers/HomeController.php:200
+#: libraries/classes/Controllers/HomeController.php:201
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -5302,14 +5303,14 @@ msgstr ""
 "tauluihin liittyvät lisäominaisuudet eivät ole käytössä. Katso miksi "
 "%slisätietoja%s. "
 
-#: libraries/classes/Controllers/HomeController.php:206
+#: libraries/classes/Controllers/HomeController.php:207
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 "Vaihtoehtoisesti, navigoi minkä tahansa tietokannan \"Toiminnot\" - "
 "välilehdelle."
 
-#: libraries/classes/Controllers/HomeController.php:270
+#: libraries/classes/Controllers/HomeController.php:271
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/"
 "session.configuration.php#ini.session.gc-"
@@ -5323,7 +5324,7 @@ msgstr ""
 "phpMyAdminissa määritetty evästekelpoisuus. Siksi kirjautumisesi saattaa "
 "erääntyä nopeammin kuin phpMyAdminissa on määritetty."
 
-#: libraries/classes/Controllers/HomeController.php:287
+#: libraries/classes/Controllers/HomeController.php:288
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -5331,21 +5332,21 @@ msgstr ""
 "Kirjautumistunnuksesi vanhenee nopeammin kuin phpMyAdminissa määritetty. "
 "Siksi kirjautumisesi erääntyy nopeammin kuin phpMyAdminissa on määritetty."
 
-#: libraries/classes/Controllers/HomeController.php:306
+#: libraries/classes/Controllers/HomeController.php:307
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
 
-#: libraries/classes/Controllers/HomeController.php:328
+#: libraries/classes/Controllers/HomeController.php:329
 msgid ""
 "The configuration file needs a valid key for cookie encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: libraries/classes/Controllers/HomeController.php:338
+#: libraries/classes/Controllers/HomeController.php:339
 #, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
@@ -5353,7 +5354,7 @@ msgid ""
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: libraries/classes/Controllers/HomeController.php:356
+#: libraries/classes/Controllers/HomeController.php:357
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -5365,7 +5366,7 @@ msgstr ""
 "asetukset on määritetty. Muuten palvelimen turvallisuus saattaa vaarantua "
 "luvattoman asetuksien lataamisen takia."
 
-#: libraries/classes/Controllers/HomeController.php:377
+#: libraries/classes/Controllers/HomeController.php:378
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -5374,7 +5375,7 @@ msgstr ""
 "Palvelin käyttää Suhosin-suojausjärjestelmää. Lue %sohjeista%s tietoja "
 "mahdollisista ongelmista."
 
-#: libraries/classes/Controllers/HomeController.php:391
+#: libraries/classes/Controllers/HomeController.php:392
 #, fuzzy, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -5383,7 +5384,14 @@ msgstr ""
 "Ei kyetä avaamaan hakemistoa $cfg['TempDir'] (%s). phpMyAdmin ei kykene "
 "tallentamaan mallipohjia välimuistiin ja se aiheuttaa hidastelua."
 
-#: libraries/classes/Controllers/HomeController.php:448
+#: libraries/classes/Controllers/HomeController.php:409
+msgid ""
+"The [code]HTTP_HOST[/code] variable is missing, which might cause phpMyAdmin "
+"to not work properly. Please refer to [doc@faq1-46]documentation[/doc] for "
+"possible issues."
+msgstr ""
+
+#: libraries/classes/Controllers/HomeController.php:464
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -5393,7 +5401,7 @@ msgstr ""
 "olevan käytössä. Ilman mbstring-laajennusta phpMyAdmin ei osaa jaotella "
 "merkkijonoja oikein, ja tästä saattaa koitua odottamattomia seurauksia."
 
-#: libraries/classes/Controllers/HomeController.php:466
+#: libraries/classes/Controllers/HomeController.php:482
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -5474,7 +5482,7 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" -kyselyjen käyttö on estetty."
 
-#: libraries/classes/Controllers/Import/SimulateDmlController.php:90
+#: libraries/classes/Controllers/Import/SimulateDmlController.php:96
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 
@@ -6066,7 +6074,7 @@ msgstr "Lisää sarjaan vähintään yksi muuttuja!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:207
 #: libraries/classes/Display/Results.php:1274
-#: libraries/classes/Plugins/Export/ExportSql.php:2259
+#: libraries/classes/Plugins/Export/ExportSql.php:2261
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:99
 #: libraries/config.values.php:111
 #: templates/columns_definitions/column_attributes.twig:217
@@ -6282,7 +6290,7 @@ msgstr "Selitä SQL-kysely"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:274
 #: libraries/classes/Menu.php:487
-#: libraries/classes/Server/Status/Processes.php:134
+#: libraries/classes/Server/Status/Processes.php:143
 #: libraries/classes/Util.php:1940 libraries/config.values.php:157
 #: templates/database/events/editor_form.twig:25
 #: templates/database/events/index.twig:46
@@ -6296,7 +6304,7 @@ msgstr "Tila"
 #: libraries/classes/Plugins/Export/ExportOdt.php:602
 #: libraries/classes/Plugins/Export/ExportTexytext.php:462
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:361
-#: libraries/classes/Server/Status/Processes.php:130
+#: libraries/classes/Server/Status/Processes.php:139
 #: templates/database/triggers/list.twig:49
 #: templates/javascript/variables.twig:81 templates/sql/profiling_chart.twig:17
 msgid "Time"
@@ -6937,7 +6945,7 @@ msgstr "Tietopisteen sisältö"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:475
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:633
-#: libraries/classes/ErrorHandler.php:427 libraries/classes/InsertEdit.php:2012
+#: libraries/classes/ErrorHandler.php:427 libraries/classes/InsertEdit.php:2020
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "Älä huomioi"
@@ -7544,7 +7552,7 @@ msgid "Table %s already exists!"
 msgstr "Taulu %s on jo olemassa!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:710
-#: libraries/classes/InsertEdit.php:335
+#: libraries/classes/InsertEdit.php:336
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:53
 msgid "Hide"
 msgstr "Kätke"
@@ -7574,7 +7582,7 @@ msgid "No such column"
 msgstr "Poista sarake/sarakkeet"
 
 #: libraries/classes/Controllers/NormalizationController.php:46
-#: libraries/classes/Normalization.php:250 libraries/classes/Types.php:843
+#: libraries/classes/Normalization.php:250 libraries/classes/Types.php:844
 msgctxt "string types"
 msgid "String"
 msgstr "Merkkijono"
@@ -8464,7 +8472,7 @@ msgid "Insecure connection"
 msgstr "Salaamaton yhteys"
 
 #: libraries/classes/Controllers/Sql/SqlController.php:235
-#: libraries/classes/Sql.php:1168
+#: libraries/classes/Sql.php:1187
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Kirjanmerkki %s on nyt luotu."
@@ -8488,7 +8496,7 @@ msgid "No row selected."
 msgstr "Ei yhtään riviä valittu."
 
 #: libraries/classes/Controllers/Table/ChartController.php:60
-#: libraries/classes/Controllers/Table/GisVisualizationController.php:70
+#: libraries/classes/Controllers/Table/GisVisualizationController.php:73
 msgid "No SQL query was set to fetch data."
 msgstr "SQL-hakukyselyä tietojen hakemiseksi ei olla asetettu."
 
@@ -8528,7 +8536,7 @@ msgstr "Taulu %s on jo olemassa!"
 #: libraries/classes/Controllers/Table/RelationController.php:241
 #: libraries/classes/Controllers/View/OperationsController.php:87
 #: libraries/classes/Database/Routines.php:1222
-#: libraries/classes/Display/Results.php:3704 libraries/classes/Message.php:172
+#: libraries/classes/Display/Results.php:3703 libraries/classes/Message.php:172
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "SQL-kyselysi on suoritettu onnistuneesti."
@@ -8568,8 +8576,8 @@ msgstr "Pyyntösi kanssa on vika."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:86
 #: libraries/classes/Database/Routines.php:1241
-#: libraries/classes/Import.php:149 libraries/classes/InsertEdit.php:229
-#: libraries/classes/Sql.php:982
+#: libraries/classes/Import.php:149 libraries/classes/InsertEdit.php:230
+#: libraries/classes/Sql.php:1001
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL palautti tyhjän tulosjoukon (siis nolla riviä)."
 
@@ -8596,7 +8604,7 @@ msgstr "Näkymä"
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:62
 #: libraries/classes/Controllers/View/OperationsController.php:90
 #: libraries/classes/Html/Generator.php:816 libraries/classes/Import.php:133
-#: libraries/classes/InsertEdit.php:724 libraries/classes/Message.php:192
+#: libraries/classes/InsertEdit.php:725 libraries/classes/Message.php:192
 #: templates/error/generic.twig:37
 #: templates/table/structure/display_structure.twig:372
 msgid "Error"
@@ -8612,7 +8620,7 @@ msgstr "Säikeen %s lopetus onnistui."
 msgid "Internal relationships were successfully updated."
 msgstr "Sisäiset suhteet päivitettiin onnistuneesti."
 
-#: libraries/classes/Controllers/Table/ReplaceController.php:294
+#: libraries/classes/Controllers/Table/ReplaceController.php:295
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
@@ -8699,7 +8707,7 @@ msgstr "Sinulla ei ole riittäviä oikeuksia!"
 msgid "View name can not be empty!"
 msgstr ""
 
-#: libraries/classes/Core.php:203 libraries/classes/ZipExtension.php:62
+#: libraries/classes/Core.php:204 libraries/classes/ZipExtension.php:62
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "Pääte %s puuttuu. Tarkista PHP-määritykset."
@@ -8946,16 +8954,16 @@ msgstr ""
 msgid "Failed to set configured collation connection!"
 msgstr "Konfiguroidun lajitteluyhteyden asettaminen epäonnistui!"
 
-#: libraries/classes/DatabaseInterface.php:1959
+#: libraries/classes/DatabaseInterface.php:1963
 msgid "Missing connection parameters!"
 msgstr "Puuttuvat yhteysparametrit!"
 
-#: libraries/classes/DatabaseInterface.php:1984
+#: libraries/classes/DatabaseInterface.php:1988
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Yhteyden muodostus asetuksissa määriteltyyn superuser-käyttäjään epäonnistui."
 
-#: libraries/classes/DatabaseInterface.php:2405
+#: libraries/classes/DatabaseInterface.php:2409
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr "Katso lisätietoa %sdokumentoinnistamme%s."
@@ -9206,12 +9214,12 @@ msgstr ""
 "Virhe pyynnön käsittelyssä: Tietokannasta %2$s ei löytynyt liipaisinta "
 "nimeltä %1$s."
 
-#: libraries/classes/Dbal/DbiMysqli.php:152
+#: libraries/classes/Dbal/DbiMysqli.php:153
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
 "Palvelin vaatii SSL-yhteyden, ja se on otettu automaattisesti käyttöön."
 
-#: libraries/classes/Dbal/DbiMysqli.php:164
+#: libraries/classes/Dbal/DbiMysqli.php:165
 #, php-format
 msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
@@ -9296,27 +9304,28 @@ msgstr "Lopeta"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Saattaa olla likimääräinen. Katso [doc@faq3-11]FAQ 3.11[/doc]."
 
-#: libraries/classes/Display/Results.php:3998
-#, php-format
-msgid "Showing rows %1s - %2s"
-msgstr "Näytetään rivit %1s–%2s"
-
-#: libraries/classes/Display/Results.php:4012
-#, php-format
-msgid "%1$d total, %2$d in query"
-msgstr "%1$d kokonaisuudessaan, %2$d hakulauseessa"
-
-#: libraries/classes/Display/Results.php:4017
-#, php-format
-msgid "%d total"
-msgstr "%d tulos"
-
-#: libraries/classes/Display/Results.php:4030 libraries/classes/Sql.php:988
+#: libraries/classes/Display/Results.php:3708
+#: libraries/classes/Display/Results.php:4041 libraries/classes/Sql.php:1007
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Kysely kesti %01.4f sekuntia."
 
-#: libraries/classes/Display/Results.php:4361
+#: libraries/classes/Display/Results.php:4009
+#, php-format
+msgid "Showing rows %1s - %2s"
+msgstr "Näytetään rivit %1s–%2s"
+
+#: libraries/classes/Display/Results.php:4023
+#, php-format
+msgid "%1$d total, %2$d in query"
+msgstr "%1$d kokonaisuudessaan, %2$d hakulauseessa"
+
+#: libraries/classes/Display/Results.php:4028
+#, php-format
+msgid "%d total"
+msgstr "%d tulos"
+
+#: libraries/classes/Display/Results.php:4372
 msgid "Link not found!"
 msgstr "Linkkiä ei löydy!"
 
@@ -9853,7 +9862,7 @@ msgstr "Staattinen analyysi:"
 msgid "%d errors were found during analysis."
 msgstr "%d virhettä havaittu analyysin aikana."
 
-#: libraries/classes/Import.php:292 libraries/classes/Sql.php:996
+#: libraries/classes/Import.php:292 libraries/classes/Sql.php:1015
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -9887,9 +9896,9 @@ msgstr "Muokkaa rakennetta seuraamalla \"Rakenne\" linkkiä."
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:45
 #: libraries/classes/Plugins/Export/ExportOds.php:53
 #: libraries/classes/Plugins/Export/ExportOdt.php:59
-#: libraries/classes/Plugins/Export/ExportPdf.php:65
+#: libraries/classes/Plugins/Export/ExportPdf.php:66
 #: libraries/classes/Plugins/Export/ExportPhparray.php:45
-#: libraries/classes/Plugins/Export/ExportSql.php:118
+#: libraries/classes/Plugins/Export/ExportSql.php:120
 #: libraries/classes/Plugins/Export/ExportTexytext.php:45
 #: libraries/classes/Plugins/Export/ExportXml.php:76
 #: libraries/classes/Plugins/Export/ExportYaml.php:44
@@ -9947,7 +9956,7 @@ msgstr ""
 "Indeksit %1$s ja %2$s ovat ehkä samoja, ja niistä jompikumpi kannattanee "
 "poistaa."
 
-#: libraries/classes/InsertEdit.php:351
+#: libraries/classes/InsertEdit.php:352
 #: libraries/classes/Navigation/Nodes/NodeFunction.php:28
 #: templates/database/routines/execute_form.twig:18
 #: templates/table/search/index.twig:36
@@ -9955,7 +9964,7 @@ msgstr ""
 msgid "Function"
 msgstr "Funktio"
 
-#: libraries/classes/InsertEdit.php:354
+#: libraries/classes/InsertEdit.php:355
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:275
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:370
 #: libraries/classes/Plugins/Export/ExportLatex.php:543
@@ -9989,12 +9998,12 @@ msgstr "Funktio"
 msgid "Type"
 msgstr "Tyyppi"
 
-#: libraries/classes/InsertEdit.php:725 templates/import.twig:60
+#: libraries/classes/InsertEdit.php:726 templates/import.twig:60
 #: templates/import.twig:85
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Tiedostojen lähetykseen valittua hakemistoa ei voida käyttää."
 
-#: libraries/classes/InsertEdit.php:733
+#: libraries/classes/InsertEdit.php:734
 #: templates/database/qbe/ins_del_and_or_cell.twig:24
 #: templates/server/privileges/privileges_table.twig:32
 #: templates/server/privileges/privileges_table.twig:59
@@ -10004,20 +10013,20 @@ msgstr "Tiedostojen lähetykseen valittua hakemistoa ei voida käyttää."
 msgid "Or"
 msgstr "Tai"
 
-#: libraries/classes/InsertEdit.php:734
+#: libraries/classes/InsertEdit.php:735
 msgid "web server upload directory:"
 msgstr "verkkopalvelimen ulospäinlataushakemisto:"
 
-#: libraries/classes/InsertEdit.php:1344 libraries/classes/Sql.php:979
+#: libraries/classes/InsertEdit.php:1345 libraries/classes/Sql.php:998
 msgid "Showing SQL query"
 msgstr "Näytetään SQL-kysely"
 
-#: libraries/classes/InsertEdit.php:1368 libraries/classes/Sql.php:959
+#: libraries/classes/InsertEdit.php:1369 libraries/classes/Sql.php:978
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Lisätyn rivin tunnus: %1$d"
 
-#: libraries/classes/LanguageManager.php:980
+#: libraries/classes/LanguageManager.php:982
 msgid "Ignoring unsupported language code."
 msgstr "Tukematon kielikoodi ohitettiin."
 
@@ -10094,8 +10103,8 @@ msgstr "Seuranta"
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:26
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:558
 #: libraries/classes/Plugins/Export/ExportOdt.php:708
-#: libraries/classes/Plugins/Export/ExportPdf.php:270
-#: libraries/classes/Plugins/Export/ExportSql.php:2116
+#: libraries/classes/Plugins/Export/ExportPdf.php:271
+#: libraries/classes/Plugins/Export/ExportSql.php:2118
 #: libraries/classes/Plugins/Export/ExportTexytext.php:548
 #: libraries/classes/Plugins/Export/ExportXml.php:120
 #: libraries/classes/Util.php:1963 libraries/classes/Util.php:1979
@@ -10120,7 +10129,7 @@ msgstr "Rutiinit"
 #: libraries/classes/Menu.php:418
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:1026
+#: libraries/classes/Plugins/Export/ExportSql.php:1028
 #: libraries/classes/Plugins/Export/ExportXml.php:100
 #: libraries/classes/Util.php:1962 templates/database/events/index.twig:3
 msgid "Events"
@@ -10242,12 +10251,12 @@ msgid "Collapse all"
 msgstr ""
 
 #. l10n: The word "Node" must not be translated here
-#: libraries/classes/Navigation/NodeFactory.php:43
+#: libraries/classes/Navigation/NodeFactory.php:45
 #, php-format
 msgid "Invalid class name \"%1$s\", using default of \"Node\""
 msgstr ""
 
-#: libraries/classes/Navigation/NodeFactory.php:73
+#: libraries/classes/Navigation/NodeFactory.php:75
 #, php-format
 msgid "Could not load class \"%1$s\""
 msgstr "Luokkaa \"%1$s\" ei voitu ladata"
@@ -10330,7 +10339,7 @@ msgstr "Tapahtuma"
 
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:638
+#: libraries/classes/Plugins/Export/ExportSql.php:640
 #: libraries/classes/Plugins/Export/ExportXml.php:105
 msgid "Functions"
 msgstr "Funktiot"
@@ -10351,7 +10360,7 @@ msgstr ""
 
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:627
+#: libraries/classes/Plugins/Export/ExportSql.php:629
 #: libraries/classes/Plugins/Export/ExportXml.php:110
 msgid "Procedures"
 msgstr "Proseduurit"
@@ -10915,8 +10924,8 @@ msgstr "Excel-muotoilu:"
 #: libraries/classes/Plugins/Export/ExportLatex.php:94
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:66
 #: libraries/classes/Plugins/Export/ExportOdt.php:75
-#: libraries/classes/Plugins/Export/ExportPdf.php:91
-#: libraries/classes/Plugins/Export/ExportSql.php:245
+#: libraries/classes/Plugins/Export/ExportPdf.php:92
+#: libraries/classes/Plugins/Export/ExportSql.php:247
 #: libraries/classes/Plugins/Export/ExportTexytext.php:61
 #: libraries/config.values.php:254 libraries/config.values.php:318
 #: libraries/config.values.php:334 libraries/config.values.php:342
@@ -10928,8 +10937,8 @@ msgstr "rakenne"
 #: libraries/classes/Plugins/Export/ExportLatex.php:95
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:67
 #: libraries/classes/Plugins/Export/ExportOdt.php:76
-#: libraries/classes/Plugins/Export/ExportPdf.php:92
-#: libraries/classes/Plugins/Export/ExportSql.php:246
+#: libraries/classes/Plugins/Export/ExportPdf.php:93
+#: libraries/classes/Plugins/Export/ExportSql.php:248
 #: libraries/classes/Plugins/Export/ExportTexytext.php:62
 #: libraries/config.values.php:255 libraries/config.values.php:319
 #: libraries/config.values.php:335 libraries/config.values.php:343
@@ -10941,8 +10950,8 @@ msgstr "tiedot"
 #: libraries/classes/Plugins/Export/ExportLatex.php:96
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:68
 #: libraries/classes/Plugins/Export/ExportOdt.php:77
-#: libraries/classes/Plugins/Export/ExportPdf.php:93
-#: libraries/classes/Plugins/Export/ExportSql.php:247
+#: libraries/classes/Plugins/Export/ExportPdf.php:94
+#: libraries/classes/Plugins/Export/ExportSql.php:249
 #: libraries/classes/Plugins/Export/ExportTexytext.php:63
 #: libraries/config.values.php:256 libraries/config.values.php:320
 #: libraries/config.values.php:336 libraries/config.values.php:344
@@ -10960,7 +10969,7 @@ msgstr "Tiedon vedostusasetukset"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:194
 #: libraries/classes/Plugins/Export/ExportOdt.php:245
-#: libraries/classes/Plugins/Export/ExportSql.php:2380
+#: libraries/classes/Plugins/Export/ExportSql.php:2382
 #: libraries/classes/Plugins/Export/ExportTexytext.php:178
 msgid "Dumping data for table"
 msgstr "Vedos taulusta"
@@ -11052,21 +11061,21 @@ msgstr "Määritys"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:548
 #: libraries/classes/Plugins/Export/ExportOdt.php:686
-#: libraries/classes/Plugins/Export/ExportSql.php:2102
+#: libraries/classes/Plugins/Export/ExportSql.php:2104
 #: libraries/classes/Plugins/Export/ExportTexytext.php:528
 msgid "Table structure for table"
 msgstr "Rakenne taululle"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:566
 #: libraries/classes/Plugins/Export/ExportOdt.php:718
-#: libraries/classes/Plugins/Export/ExportSql.php:2160
+#: libraries/classes/Plugins/Export/ExportSql.php:2162
 #: libraries/classes/Plugins/Export/ExportTexytext.php:554
 msgid "Structure for view"
 msgstr "Näkymän rakenne"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:572
 #: libraries/classes/Plugins/Export/ExportOdt.php:738
-#: libraries/classes/Plugins/Export/ExportSql.php:2199
+#: libraries/classes/Plugins/Export/ExportSql.php:2201
 #: libraries/classes/Plugins/Export/ExportTexytext.php:570
 msgid "Stand-in structure for view"
 msgstr "Näkymän vararakenne"
@@ -11093,7 +11102,7 @@ msgstr "Taulun @TABLE@ rakenne"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:107
 #: libraries/classes/Plugins/Export/ExportOdt.php:88
-#: libraries/classes/Plugins/Export/ExportSql.php:260
+#: libraries/classes/Plugins/Export/ExportSql.php:262
 msgid "Object creation options"
 msgstr "Objektin luontivaihtoehdot"
 
@@ -11114,7 +11123,7 @@ msgstr "Tunnisteavain:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:133
 #: libraries/classes/Plugins/Export/ExportOdt.php:96
-#: libraries/classes/Plugins/Export/ExportSql.php:154
+#: libraries/classes/Plugins/Export/ExportSql.php:156
 msgid "Display foreign key relationships"
 msgstr "Näytä viiteavaimien suhteet"
 
@@ -11125,7 +11134,7 @@ msgstr "Näytä kommentit"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:146
 #: libraries/classes/Plugins/Export/ExportOdt.php:109
-#: libraries/classes/Plugins/Export/ExportSql.php:162
+#: libraries/classes/Plugins/Export/ExportSql.php:164
 #, fuzzy
 #| msgid "Display MIME types"
 msgid "Display media types"
@@ -11136,7 +11145,7 @@ msgid "Put columns names in the first row:"
 msgstr "Aseta sarakkeiden nimet ensimmäiselle riville:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:210
-#: libraries/classes/Plugins/Export/ExportSql.php:758
+#: libraries/classes/Plugins/Export/ExportSql.php:760
 #: libraries/classes/Plugins/Export/ExportXml.php:232
 #: templates/server/replication/change_primary.twig:22
 #: templates/server/replication/primary_add_replica_user.twig:29
@@ -11144,26 +11153,26 @@ msgid "Host:"
 msgstr "Isäntä:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:216
-#: libraries/classes/Plugins/Export/ExportSql.php:765
+#: libraries/classes/Plugins/Export/ExportSql.php:767
 #: libraries/classes/Plugins/Export/ExportXml.php:238
 msgid "Generation Time:"
 msgstr "Luontiaika:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:218
-#: libraries/classes/Plugins/Export/ExportSql.php:769
+#: libraries/classes/Plugins/Export/ExportSql.php:771
 #: libraries/classes/Plugins/Export/ExportXml.php:240
 #: templates/home/index.twig:175
 msgid "Server version:"
 msgstr "Palvelimen versio:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:219
-#: libraries/classes/Plugins/Export/ExportSql.php:771
+#: libraries/classes/Plugins/Export/ExportSql.php:773
 #: libraries/classes/Plugins/Export/ExportXml.php:241
 msgid "PHP Version:"
 msgstr "PHP-versio"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:246
-#: libraries/classes/Plugins/Export/ExportSql.php:953
+#: libraries/classes/Plugins/Export/ExportSql.php:955
 #: libraries/classes/Plugins/Export/ExportXml.php:395
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:201
 #: templates/database/structure/copy_form.twig:5
@@ -11172,7 +11181,7 @@ msgid "Database:"
 msgstr "Tietokanta:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:312
-#: libraries/classes/Plugins/Export/ExportSql.php:2259
+#: libraries/classes/Plugins/Export/ExportSql.php:2261
 msgid "Data:"
 msgstr "Tiedot:"
 
@@ -11195,274 +11204,274 @@ msgstr "Vie taulun otsikot"
 msgid "Dumping data for query result"
 msgstr "Vedos taulusta"
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:77
+#: libraries/classes/Plugins/Export/ExportPdf.php:78
 msgid "Report title:"
 msgstr "Raportin otsikko:"
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:192
+#: libraries/classes/Plugins/Export/ExportPdf.php:193
 #, fuzzy
 #| msgid "Dumping data for table"
 msgid "Dumping data"
 msgstr "Vedos taulusta"
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:213
+#: libraries/classes/Plugins/Export/ExportPdf.php:214
 #, fuzzy
 #| msgid "Query results"
 msgid "Query result data"
 msgstr "Kyselyn tulokset"
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:273
+#: libraries/classes/Plugins/Export/ExportPdf.php:274
 #, fuzzy
 #| msgid "structure"
 msgid "View structure"
 msgstr "rakenne"
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:276
+#: libraries/classes/Plugins/Export/ExportPdf.php:277
 #, fuzzy
 #| msgid "and then"
 msgid "Stand in"
 msgstr "ja sen jälkeen"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:133
+#: libraries/classes/Plugins/Export/ExportSql.php:135
 msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:140
+#: libraries/classes/Plugins/Export/ExportSql.php:142
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr "Lisää oma kommentti otsikkoon (\\n on rivinvaihto):"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:146
+#: libraries/classes/Plugins/Export/ExportSql.php:148
 msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:207
+#: libraries/classes/Plugins/Export/ExportSql.php:209
 #, fuzzy
 #| msgid "Export method"
 msgid "Export metadata"
 msgstr "Vientimetodi"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:222
+#: libraries/classes/Plugins/Export/ExportSql.php:224
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:268
+#: libraries/classes/Plugins/Export/ExportSql.php:270
 msgid "Add statements:"
 msgstr "Lisää lausekkeet:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:276
-#: libraries/classes/Plugins/Export/ExportSql.php:285
-#: libraries/classes/Plugins/Export/ExportSql.php:302
-#: libraries/classes/Plugins/Export/ExportSql.php:311
-#: libraries/classes/Plugins/Export/ExportSql.php:335
-#: libraries/classes/Plugins/Export/ExportSql.php:363
-#: libraries/classes/Plugins/Export/ExportSql.php:372
+#: libraries/classes/Plugins/Export/ExportSql.php:278
+#: libraries/classes/Plugins/Export/ExportSql.php:287
+#: libraries/classes/Plugins/Export/ExportSql.php:304
+#: libraries/classes/Plugins/Export/ExportSql.php:313
+#: libraries/classes/Plugins/Export/ExportSql.php:337
+#: libraries/classes/Plugins/Export/ExportSql.php:365
+#: libraries/classes/Plugins/Export/ExportSql.php:374
 #, php-format
 msgid "Add %s statement"
 msgstr "Lisää %s lauseke"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:318
+#: libraries/classes/Plugins/Export/ExportSql.php:320
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:325
+#: libraries/classes/Plugins/Export/ExportSql.php:327
 #, php-format
 msgid "%s value"
 msgstr "%s-arvo"
 
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
-#: libraries/classes/Plugins/Export/ExportSql.php:342
+#: libraries/classes/Plugins/Export/ExportSql.php:344
 msgid "Use simple view export"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:381
+#: libraries/classes/Plugins/Export/ExportSql.php:383
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:396
+#: libraries/classes/Plugins/Export/ExportSql.php:398
 #, fuzzy
 #| msgid "Object creation options"
 msgid "Data creation options"
 msgstr "Objektin luontivaihtoehdot"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:401
-#: libraries/classes/Plugins/Export/ExportSql.php:2337
+#: libraries/classes/Plugins/Export/ExportSql.php:403
+#: libraries/classes/Plugins/Export/ExportSql.php:2339
 msgid "Truncate table before insert"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:408
+#: libraries/classes/Plugins/Export/ExportSql.php:410
 msgid "Instead of <code>INSERT</code> statements, use:"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:414
+#: libraries/classes/Plugins/Export/ExportSql.php:416
 msgid "<code>INSERT DELAYED</code> statements"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:426
-#: libraries/classes/Plugins/Export/ExportSql.php:460
+#: libraries/classes/Plugins/Export/ExportSql.php:428
+#: libraries/classes/Plugins/Export/ExportSql.php:462
 msgid "<code>INSERT IGNORE</code> statements"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:440
+#: libraries/classes/Plugins/Export/ExportSql.php:442
 msgid "Function to use when dumping data:"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:455
+#: libraries/classes/Plugins/Export/ExportSql.php:457
 msgid "Syntax to use when inserting data:"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:465
+#: libraries/classes/Plugins/Export/ExportSql.php:467
 msgid ""
 "include column names in every <code>INSERT</code> statement <br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:470
+#: libraries/classes/Plugins/Export/ExportSql.php:472
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:475
+#: libraries/classes/Plugins/Export/ExportSql.php:477
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:480
+#: libraries/classes/Plugins/Export/ExportSql.php:482
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:499
+#: libraries/classes/Plugins/Export/ExportSql.php:501
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:508
+#: libraries/classes/Plugins/Export/ExportSql.php:510
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:586
+#: libraries/classes/Plugins/Export/ExportSql.php:588
 msgid "It appears your database uses routines;"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:589
-#: libraries/classes/Plugins/Export/ExportSql.php:1626
-#: libraries/classes/Plugins/Export/ExportSql.php:2148
+#: libraries/classes/Plugins/Export/ExportSql.php:591
+#: libraries/classes/Plugins/Export/ExportSql.php:1628
+#: libraries/classes/Plugins/Export/ExportSql.php:2150
 msgid "alias export may not work reliably in all cases."
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1078
+#: libraries/classes/Plugins/Export/ExportSql.php:1080
 #, fuzzy
 #| msgid "Missing data for %s"
 msgid "Metadata"
 msgstr "Kohteesta %s puuttuu tiedot"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1146
+#: libraries/classes/Plugins/Export/ExportSql.php:1148
 #, fuzzy, php-format
 #| msgid "Missing data for %s"
 msgid "Metadata for table %s"
 msgstr "Kohteesta %s puuttuu tiedot"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1153
+#: libraries/classes/Plugins/Export/ExportSql.php:1155
 #, fuzzy, php-format
 #| msgid "Missing data for %s"
 msgid "Metadata for database %s"
 msgstr "Kohteesta %s puuttuu tiedot"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1470
+#: libraries/classes/Plugins/Export/ExportSql.php:1472
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:631
 msgid "Creation:"
 msgstr "Luotu:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1480
+#: libraries/classes/Plugins/Export/ExportSql.php:1482
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:642
 msgid "Last update:"
 msgstr "Viimeksi päivitetty:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1490
+#: libraries/classes/Plugins/Export/ExportSql.php:1492
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:653
 msgid "Last check:"
 msgstr "Viimeksi tarkistettu:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1541
+#: libraries/classes/Plugins/Export/ExportSql.php:1543
 #, php-format
 msgid "Error reading structure for table %s:"
 msgstr "Virhe luettaessa taulukon %s rakennetta:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1623
+#: libraries/classes/Plugins/Export/ExportSql.php:1625
 msgid "It appears your database uses views;"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1790
+#: libraries/classes/Plugins/Export/ExportSql.php:1792
 msgid "Constraints for dumped tables"
 msgstr "Rajoitteet vedostauluille"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1791
+#: libraries/classes/Plugins/Export/ExportSql.php:1793
 msgid "Constraints for table"
 msgstr "Rajoitteet taululle"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1818
+#: libraries/classes/Plugins/Export/ExportSql.php:1820
 #, fuzzy
 #| msgid "Constraints for dumped tables"
 msgid "Indexes for dumped tables"
 msgstr "Rajoitteet vedostauluille"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1819
+#: libraries/classes/Plugins/Export/ExportSql.php:1821
 msgid "Indexes for table"
 msgstr "Indeksit taulukolle"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1855
+#: libraries/classes/Plugins/Export/ExportSql.php:1857
 #, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "Älä käytä nolla-arvoissa AUTO_INCREMENT:iä"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1856
+#: libraries/classes/Plugins/Export/ExportSql.php:1858
 #, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for table"
 msgstr "Lisää AUTO_INCREMENT-arvo"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1931
+#: libraries/classes/Plugins/Export/ExportSql.php:1933
 #, fuzzy
 #| msgid "MIME TYPES FOR TABLE"
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "MIME-TYYPIT TAULULLE"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1956
+#: libraries/classes/Plugins/Export/ExportSql.php:1958
 #, fuzzy
 #| msgid "RELATIONS FOR TABLE"
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "RELAATIOT TAULULLE"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2145
+#: libraries/classes/Plugins/Export/ExportSql.php:2147
 msgid "It appears your table uses triggers;"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2175
+#: libraries/classes/Plugins/Export/ExportSql.php:2177
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "Rakenne näkymälle %s viety taulukkona"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2202
+#: libraries/classes/Plugins/Export/ExportSql.php:2204
 msgid "(See below for the actual view)"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2270
+#: libraries/classes/Plugins/Export/ExportSql.php:2272
 #, php-format
 msgid "Error reading data for table %s:"
 msgstr "Virhe luettaessa taulukon %s tietoja:"
@@ -11542,7 +11551,7 @@ msgstr "Virheellinen kenttien määrä CSV-syötteessä rivillä %d."
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Virheellinen CSV-tuonnin parametri: %s"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:813
+#: libraries/classes/Plugins/Import/ImportCsv.php:816
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -12642,7 +12651,7 @@ msgid "Privileges for %s"
 msgstr "Käyttöoikeudet"
 
 #: libraries/classes/Server/Privileges.php:2869
-#: libraries/classes/Server/Status/Processes.php:114
+#: libraries/classes/Server/Status/Processes.php:123
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "Käyttäjä"
@@ -12696,7 +12705,7 @@ msgid "You have added a new user."
 msgstr "Uusi käyttäjä lisätty."
 
 #: libraries/classes/Server/Status/Data.php:146
-#: libraries/classes/Server/Status/Processes.php:147
+#: libraries/classes/Server/Status/Processes.php:156
 #: templates/database/qbe/selection_form.twig:109 templates/sql/query.twig:20
 msgid "SQL query"
 msgstr "SQL-kysely"
@@ -12773,22 +12782,22 @@ msgstr "Näytä alipalvelimen tila"
 msgid "Flush query cache"
 msgstr "Tyhjennä kyselymuisti"
 
-#: libraries/classes/Server/Status/Processes.php:110
+#: libraries/classes/Server/Status/Processes.php:119
 msgid "ID"
 msgstr "Tunnus"
 
-#: libraries/classes/Server/Status/Processes.php:118
+#: libraries/classes/Server/Status/Processes.php:127
 #: templates/server/replication/primary_add_replica_user.twig:32
 #: templates/server/replication/primary_add_replica_user.twig:43
 #: templates/server/replication/primary_replication.twig:25
 msgid "Host"
 msgstr "Palvelin"
 
-#: libraries/classes/Server/Status/Processes.php:126
+#: libraries/classes/Server/Status/Processes.php:135
 msgid "Command"
 msgstr "Komento"
 
-#: libraries/classes/Server/Status/Processes.php:141
+#: libraries/classes/Server/Status/Processes.php:150
 msgid "Progress"
 msgstr ""
 
@@ -12824,16 +12833,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "Saatavilla ei ole uudempaa vakaata versiota"
 
-#: libraries/classes/Sql.php:504
+#: libraries/classes/Sql.php:508
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: libraries/classes/Sql.php:976
+#: libraries/classes/Sql.php:995
 msgid "Showing as PHP code"
 msgstr "Näytetään PHP-koodina"
 
-#: libraries/classes/Sql.php:1351
+#: libraries/classes/Sql.php:1370
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -12846,7 +12855,7 @@ msgstr ""
 "valintaneliöihin, Muokkaa-, Kopioi- ja Poista-linkkeihin liittyvät "
 "ominaisuudet eivät ehkä ole toiminnassa tallennuksen jälkeen."
 
-#: libraries/classes/Sql.php:1365
+#: libraries/classes/Sql.php:1384
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -12971,7 +12980,7 @@ msgstr "Indeksiä ei voi muuttaa PRIMARY-nimiseksi!"
 msgid "No index parts defined!"
 msgstr "Indeksin osia ei ole määritelty!"
 
-#: libraries/classes/Table.php:2444
+#: libraries/classes/Table.php:2448
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Virhe luotaessa kohteen %1$s viiteavainta (tarkista tietotyypit)"
@@ -12982,17 +12991,17 @@ msgstr "Virhe luotaessa kohteen %1$s viiteavainta (tarkista tietotyypit)"
 msgid "Error while working with template cache: %s"
 msgstr "Virhe ladattaessa hakua."
 
-#: libraries/classes/ThemeManager.php:83
+#: libraries/classes/ThemeManager.php:84
 #, php-format
 msgid "Default theme %s not found!"
 msgstr "Oletusteemaa %s ei löydy!"
 
-#: libraries/classes/ThemeManager.php:142
+#: libraries/classes/ThemeManager.php:143
 #, php-format
 msgid "Theme %s not found!"
 msgstr "Teemaa %s ei löydy!"
 
-#: libraries/classes/Theme.php:168
+#: libraries/classes/Theme.php:169
 #, php-format
 msgid "No valid image path for theme %s found!"
 msgstr "Kelvollista kuvapolkua teemalle %s ei löytynyt!"
@@ -13247,19 +13256,25 @@ msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr "Päivämäärän ja ajan yhdistelmä, tuettu alue on %1$s - %2$s"
 
 #: libraries/classes/Types.php:306
+#, fuzzy
+#| msgid ""
+#| "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
+#| "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgid ""
-"A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
-"stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
+"A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-19 03:14:07 UTC on "
+"32-bit platforms (MariaDB 11.3 and earlier), and up to 2106-02-07 06:28:15 "
+"UTC on 64-bit platforms (MariaDB 11.5 and later), stored as the number of "
+"seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
 "Aikaleima, alue on 1970-01-01 00:00:01 UTC 01.09.2038 03:14:07 UTC, "
 "tallentaa monta sekunteina, koska aikakausi on (1970-01-01 00:00:00 UTC )"
 
-#: libraries/classes/Types.php:313
+#: libraries/classes/Types.php:314
 #, php-format
 msgid "A time, range is %1$s to %2$s"
 msgstr "Aika, mahdollinen välillä %1$s - %2$s"
 
-#: libraries/classes/Types.php:320
+#: libraries/classes/Types.php:321
 msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
@@ -13267,7 +13282,7 @@ msgstr ""
 "Vuosi on nelinumeroinen (4, oletus) tai kaksinumeroinen (2) muodossa, "
 "sallitut arvot ovat 70 (1970), 69 (2069) tai 1901-2155 ja 0000"
 
-#: libraries/classes/Types.php:327
+#: libraries/classes/Types.php:328
 msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
@@ -13275,7 +13290,7 @@ msgstr ""
 "Pituudeltaan (0-255, oletus 1) merkkijono, johon on lisätty välilyöntejä "
 "määrittämään pituutta tallennettuna"
 
-#: libraries/classes/Types.php:334
+#: libraries/classes/Types.php:335
 #, php-format
 msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
@@ -13283,7 +13298,7 @@ msgid ""
 msgstr ""
 "Vaihtelevan pituinen (%s) merkkijono, tehokas enimmäispituus on enimmäisarvo"
 
-#: libraries/classes/Types.php:341
+#: libraries/classes/Types.php:342
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
@@ -13291,7 +13306,7 @@ msgstr ""
 "A TEXT sarakkeen enimmäispituus 255 (2 ^ 8 - 1) merkkiä, tallennettu "
 "yksitavuisena etuliitteenä, joka osoittaa arvon pituuden tavuina"
 
-#: libraries/classes/Types.php:348
+#: libraries/classes/Types.php:349
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
@@ -13299,7 +13314,7 @@ msgstr ""
 "A TEXT sarakkeen enimmäispituus 65,535 (2^16-1) merkkiä, tallennettu "
 "kaksitavuisena etuliitteenä, joka osoittaa arvon pituuden tavuina"
 
-#: libraries/classes/Types.php:355
+#: libraries/classes/Types.php:356
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
@@ -13307,7 +13322,7 @@ msgstr ""
 "A TEXT sarakkeen enimmäispituus 16,777,215 (2^24-1) merkkiä, tallennettu "
 "kolmen tavun etuliitteenä, joka osoittaa arvon pituuden tavuina"
 
-#: libraries/classes/Types.php:362
+#: libraries/classes/Types.php:363
 msgid ""
 "A TEXT column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "characters, stored with a four-byte prefix indicating the length of the "
@@ -13316,7 +13331,7 @@ msgstr ""
 "A TEXT sarakkeen enimmäispituus 4,294,967,295 tai 4GiB (2^32-1) merkkiä, "
 "tallennetaan neljän tavun etuliirteenä, joka osoittaa arvon pituuden tavuina"
 
-#: libraries/classes/Types.php:369
+#: libraries/classes/Types.php:370
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
@@ -13324,7 +13339,7 @@ msgstr ""
 "Samanlainen kuin CHAR tyyppi, mutta tallentaa binaariset merkkijonot "
 "mieluummin kuin ei binaariset merkkijonot"
 
-#: libraries/classes/Types.php:374
+#: libraries/classes/Types.php:375
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
@@ -13332,7 +13347,7 @@ msgstr ""
 "Samanlainen kuin VARCHAR tyyppi, mutta tallentaa binaariset merkkijonot "
 "mieluummin ei binaariset merkkijonot"
 
-#: libraries/classes/Types.php:380
+#: libraries/classes/Types.php:381
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
@@ -13340,7 +13355,7 @@ msgstr ""
 "A BLOB sarakkeen enimmäispituus 255 (2^8-1) tavua, tallennettu yksitavuisena "
 "etuliitteenä, joka ilmaisee arvon pituuden"
 
-#: libraries/classes/Types.php:386
+#: libraries/classes/Types.php:387
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
@@ -13348,7 +13363,7 @@ msgstr ""
 "A BLOB sarakkeen enimmäispituus 16,777,215 (2^24-1) tavua, tallennetaan "
 "kolmen tavun etuliiteenä, joka ilmaisee arvon pituuden"
 
-#: libraries/classes/Types.php:393
+#: libraries/classes/Types.php:394
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
@@ -13356,7 +13371,7 @@ msgstr ""
 "A BLOB sarakkeen enimmäispituus 65,535 (2^16-1) tavua, tallennettu "
 "kaksitavuisena etuliiteenä, joka ilmaisee arvon pituuden"
 
-#: libraries/classes/Types.php:399
+#: libraries/classes/Types.php:400
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
@@ -13364,50 +13379,50 @@ msgstr ""
 "A BLOB sarakkeen enimmäispituus 4,294,967,295 tai 4GiB (2^32-1) tavua, "
 "varastoitu nelitavuisena etuliiteenä, joka ilmaisee arvon pituuden"
 
-#: libraries/classes/Types.php:406
+#: libraries/classes/Types.php:407
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
 msgstr ""
 "Luettelo, listalta valittu jopa 65,535 arvoa tai erityinen \" virhe arvo"
 
-#: libraries/classes/Types.php:410
+#: libraries/classes/Types.php:411
 msgid "A single value chosen from a set of up to 64 members"
 msgstr "Yksittäinen arvo, joka on valittu 64 jäsenen joukosta"
 
-#: libraries/classes/Types.php:413
+#: libraries/classes/Types.php:414
 msgid "A type that can store a geometry of any type"
 msgstr "Tyyppi, joka voi tallentaa mitä tahansa geometriaa"
 
-#: libraries/classes/Types.php:416
+#: libraries/classes/Types.php:417
 msgid "A point in 2-dimensional space"
 msgstr "Kohta 2-ulotteisessa avaruudessa"
 
-#: libraries/classes/Types.php:419
+#: libraries/classes/Types.php:420
 msgid "A curve with linear interpolation between points"
 msgstr "Käyrän pisteiden välisen lineaarinen interpolointi"
 
-#: libraries/classes/Types.php:422
+#: libraries/classes/Types.php:423
 msgid "A polygon"
 msgstr "Monikulmio"
 
-#: libraries/classes/Types.php:425
+#: libraries/classes/Types.php:426
 msgid "A collection of points"
 msgstr "Kokoelma pisteitä"
 
-#: libraries/classes/Types.php:428
+#: libraries/classes/Types.php:429
 msgid "A collection of curves with linear interpolation between points"
 msgstr "Käyrien pisteiden välisen lineaarisen interpolointi kokoelma"
 
-#: libraries/classes/Types.php:431
+#: libraries/classes/Types.php:432
 msgid "A collection of polygons"
 msgstr "Kokoelma polygoneja"
 
-#: libraries/classes/Types.php:434
+#: libraries/classes/Types.php:435
 msgid "A collection of geometry objects of any type"
 msgstr "Kokoelma mitä tahansa geometrisiä objekteja"
 
-#: libraries/classes/Types.php:437
+#: libraries/classes/Types.php:438
 msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
@@ -13415,29 +13430,29 @@ msgstr ""
 "Mahdollistaa tehokkaan pääsyn JSON-tiedostojen (JavaScript Object Notation) "
 "tietoihin"
 
-#: libraries/classes/Types.php:440
+#: libraries/classes/Types.php:441
 msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
 msgstr ""
 
-#: libraries/classes/Types.php:445
+#: libraries/classes/Types.php:446
 #, fuzzy
 #| msgid "Stores a Universally Unique Identifier (UUID)"
 msgid "128-bit UUID (Universally Unique Identifier)"
 msgstr "Tallentaa maailmanlaajuista yksilöllistä tunnistetta (UUID)"
 
-#: libraries/classes/Types.php:791
+#: libraries/classes/Types.php:792
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr "Lukuarvo"
 
-#: libraries/classes/Types.php:809
+#: libraries/classes/Types.php:810
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "Päiväys ja aika"
 
-#: libraries/classes/Types.php:845
+#: libraries/classes/Types.php:846
 msgctxt "spatial types"
 msgid "Spatial"
 msgstr "Geometrinen"
