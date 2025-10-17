@@ -158,6 +158,7 @@ final class DatabaseInterfaceTest extends AbstractTestCase
             ],
             ['8.0.0 - MySQL Community Server - GPL', true, [['@`localhost`']], ['@localhost'], [['', 'localhost']]],
             ['10.5.0-MariaDB', true, [['`role`@`localhost`']], ['role@localhost'], [['role', 'localhost']]],
+            ['10.5.0-MariaDB', true, [['`role`']], ['role'], [['role', '']]],
             [
                 '10.5.0-MariaDB',
                 true,

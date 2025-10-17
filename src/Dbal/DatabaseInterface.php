@@ -1453,7 +1453,7 @@ class DatabaseInterface
 
         if (! $hasGrantPrivilege) {
             foreach ($this->getCurrentRolesAndHost() as [$role, $roleHost]) {
-                $query = QueryGenerator::getInformationSchemaDataForGranteeRequest($role, $roleHost ?? '', $collation);
+                $query = QueryGenerator::getInformationSchemaDataForGranteeRequest($role, $roleHost, $collation);
                 $hasGrantPrivilege = (bool) $this->fetchValue($query);
 
                 if ($hasGrantPrivilege) {
@@ -1502,7 +1502,7 @@ class DatabaseInterface
 
         if (! $hasCreatePrivilege) {
             foreach ($this->getCurrentRolesAndHost() as [$role, $roleHost]) {
-                $query = QueryGenerator::getInformationSchemaDataForCreateRequest($role, $roleHost ?? '', $collation);
+                $query = QueryGenerator::getInformationSchemaDataForCreateRequest($role, $roleHost, $collation);
                 $hasCreatePrivilege = (bool) $this->fetchValue($query);
 
                 if ($hasCreatePrivilege) {
@@ -1556,7 +1556,7 @@ class DatabaseInterface
             $roles = $this->getCurrentRoles();
 
             $this->currentRoleAndHost = array_map(static function (string $role) {
-                return explode('@', $role);
+                return str_contains($role, '@') ? explode('@', $role) : [$role, ''];
             }, $roles);
         }
 
