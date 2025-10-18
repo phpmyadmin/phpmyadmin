@@ -198,7 +198,7 @@ final readonly class GisVisualizationController implements InvocableController
             return new GisVisualizationSettings(600, 450, $spatialCandidates[0]);
         }
 
-        $labelColumn = null;
+        $labelColumn = '';
         if (
             isset($settingsIn['labelColumn']) &&
             in_array($settingsIn['labelColumn'], $labelCandidates, true)

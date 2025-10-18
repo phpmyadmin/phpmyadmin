@@ -14,7 +14,7 @@ final readonly class GisVisualizationSettings
         public int $width,
         public int $height,
         public string $spatialColumn,
-        public string|null $labelColumn = null,
+        public string $labelColumn = '',
     ) {
     }
 }
