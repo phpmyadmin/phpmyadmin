@@ -474,7 +474,7 @@ parameters:
 		-
 			message: '#^Cannot access offset non\-falsy\-string on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 10
+			count: 4
 			path: src/Config.php
 
 		-
@@ -603,7 +603,7 @@ parameters:
 		-
 			message: '#^Cannot access offset ''Servers'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 8
+			count: 5
 			path: src/Config/ConfigFile.php
 
 		-
@@ -1417,6 +1417,12 @@ parameters:
 			path: src/ConfigStorage/Relation.php
 
 		-
+			message: '#^Offset ''bookmarktable''\|''central_columns''\|''column_info''\|''designer_settings''\|''export_templates''\|''favorite''\|''history''\|''navigationhiding''\|''pdf_pages''\|''recent''\|''relation''\|''savedsearches''\|''table_coords''\|''table_info''\|''table_uiprefs''\|''tracking''\|''userconfig''\|''usergroups''\|''users'' on array\{host\: string, port\: string, socket\: string, ssl\: bool, ssl_key\: string\|null, ssl_cert\: string\|null, ssl_ca\: string\|null, ssl_ca_path\: string\|null, \.\.\.\} in isset\(\) always exists and is not nullable\.$#'
+			identifier: isset.offset
+			count: 1
+			path: src/ConfigStorage/Relation.php
+
+		-
 			message: '#^Offset ''bookmarktable''\|''central_columns''\|''column_info''\|''designer_settings''\|''export_templates''\|''favorite''\|''history''\|''navigationhiding''\|''recent''\|''relation''\|''savedsearches''\|''table_uiprefs''\|''tracking''\|''userconfig'' on array\{host\: string, port\: string, socket\: string, ssl\: bool, ssl_key\: string\|null, ssl_cert\: string\|null, ssl_ca\: string\|null, ssl_ca_path\: string\|null, \.\.\.\} in isset\(\) always exists and is not nullable\.$#'
 			identifier: isset.offset
 			count: 1
@@ -1839,6 +1845,12 @@ parameters:
 		-
 			message: '#^Cannot call static method getIdKey\(\) on mixed\.$#'
 			identifier: staticMethod.nonObject
+			count: 1
+			path: src/Controllers/Database/ImportController.php
+
+		-
+			message: '#^Possibly invalid array key type mixed\.$#'
+			identifier: array.invalidKey
 			count: 1
 			path: src/Controllers/Database/ImportController.php
 
@@ -2680,6 +2692,12 @@ parameters:
 			path: src/Controllers/Server/ImportController.php
 
 		-
+			message: '#^Possibly invalid array key type mixed\.$#'
+			identifier: array.invalidKey
+			count: 1
+			path: src/Controllers/Server/ImportController.php
+
+		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
 			count: 1
@@ -3292,6 +3310,12 @@ parameters:
 			path: src/Controllers/Table/ImportController.php
 
 		-
+			message: '#^Possibly invalid array key type mixed\.$#'
+			identifier: array.invalidKey
+			count: 1
+			path: src/Controllers/Table/ImportController.php
+
+		-
 			message: '#^Binary operation "\+\=" between int and mixed results in an error\.$#'
 			identifier: assignOp.invalid
 			count: 1
@@ -3430,7 +3454,7 @@ parameters:
 			path: src/Controllers/Table/ReplaceController.php
 
 		-
-			message: '#^Cannot access an offset on mixed\.$#'
+			message: '#^Cannot access an offset on bool\|int\|list\<string\>\|string\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
 			path: src/Controllers/Table/ReplaceController.php
@@ -4157,6 +4181,12 @@ parameters:
 
 		-
 			message: '#^Possibly invalid array key type mixed\.$#'
+			identifier: array.invalidKey
+			count: 2
+			path: src/Controllers/Table/ZoomSearchController.php
+
+		-
+			message: '#^Possibly invalid array key type mixed\.$#'
 			identifier: offsetAccess.invalidOffset
 			count: 2
 			path: src/Controllers/Table/ZoomSearchController.php
@@ -4641,7 +4671,7 @@ parameters:
 		-
 			message: '#^Cannot access offset int\<0, max\> on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 11
+			count: 10
 			path: src/Database/CentralColumns.php
 
 		-
@@ -5242,7 +5272,7 @@ parameters:
 			path: src/Dbal/DatabaseInterface.php
 
 		-
-			message: '#^Binary operation "\+\=" between \(float\|int\) and mixed results in an error\.$#'
+			message: '#^Binary operation "\+\=" between mixed and mixed results in an error\.$#'
 			identifier: assignOp.invalid
 			count: 1
 			path: src/Dbal/DatabaseInterface.php
@@ -5271,12 +5301,18 @@ parameters:
 		-
 			message: '#^Cannot access offset string\|null on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 3
+			count: 2
 			path: src/Dbal/DatabaseInterface.php
 
 		-
 			message: '#^Cannot cast mixed to string\.$#'
 			identifier: cast.string
+			count: 1
+			path: src/Dbal/DatabaseInterface.php
+
+		-
+			message: '#^Cannot use \+\+ on mixed\.$#'
+			identifier: postInc.type
 			count: 1
 			path: src/Dbal/DatabaseInterface.php
 
@@ -5580,7 +5616,7 @@ parameters:
 		-
 			message: '#^Cannot access offset ''query'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 6
+			count: 4
 			path: src/Display/Results.php
 
 		-
@@ -5904,7 +5940,7 @@ parameters:
 		-
 			message: '#^Possibly invalid array key type mixed\.$#'
 			identifier: offsetAccess.invalidOffset
-			count: 17
+			count: 16
 			path: src/Display/Results.php
 
 		-
@@ -6420,7 +6456,7 @@ parameters:
 		-
 			message: '#^Cannot access offset ''favoriteTables''\|''recentTables'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 5
+			count: 3
 			path: src/Favorites/RecentFavoriteTables.php
 
 		-
@@ -6432,7 +6468,7 @@ parameters:
 		-
 			message: '#^Cannot access offset int\<0, max\> on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 5
+			count: 3
 			path: src/Favorites/RecentFavoriteTables.php
 
 		-
@@ -6949,15 +6985,9 @@ parameters:
 			path: src/Gis/GisMultiPolygon.php
 
 		-
-			message: '#^Cannot access offset int\<0, max\> on non\-empty\-array\<''data_length''\|int\<0, max\>, array\{data_length\: int\<0, max\>, 0\?\: array\{x\: float, y\: float\}\}\|int\<1, max\>\>\|int\<1, max\>\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Gis/GisMultiPolygon.php
-
-		-
 			message: '#^Cannot access offset mixed on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 6
+			count: 4
 			path: src/Gis/GisMultiPolygon.php
 
 		-
@@ -7960,7 +7990,7 @@ parameters:
 			path: src/InsertEdit.php
 
 		-
-			message: '#^Parameter \#1 \$currentRow of method PhpMyAdmin\\InsertEdit\:\:getSpecialCharsAndBackupFieldForExistingRow\(\) expects array\<string\|null\>, array\<mixed\> given\.$#'
+			message: '#^Parameter \#1 \$currentRow of method PhpMyAdmin\\InsertEdit\:\:getSpecialCharsAndBackupFieldForExistingRow\(\) expects array\<string\|null\>, array given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/InsertEdit.php
@@ -10513,7 +10543,7 @@ parameters:
 			path: src/Plugins/Import/ShapeFileImport.php
 
 		-
-			message: '#^Cannot access offset string on mixed\.$#'
+			message: '#^Cannot access offset non\-empty\-string on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
 			path: src/Plugins/Import/Upload/UploadNoplugin.php
@@ -10567,7 +10597,7 @@ parameters:
 			path: src/Plugins/Import/Upload/UploadProgress.php
 
 		-
-			message: '#^Cannot access offset string on mixed\.$#'
+			message: '#^Cannot access offset non\-empty\-string on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
 			path: src/Plugins/Import/Upload/UploadProgress.php
@@ -10623,7 +10653,7 @@ parameters:
 		-
 			message: '#^Cannot access offset ''complete'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
+			count: 1
 			path: src/Plugins/Import/Upload/UploadSession.php
 
 		-
@@ -10657,7 +10687,7 @@ parameters:
 			path: src/Plugins/Import/Upload/UploadSession.php
 
 		-
-			message: '#^Cannot access offset string on mixed\.$#'
+			message: '#^Cannot access offset non\-empty\-string on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
 			path: src/Plugins/Import/Upload/UploadSession.php
@@ -10968,7 +10998,7 @@ parameters:
 		-
 			message: '#^Cannot access offset ''\-'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 10
+			count: 5
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
@@ -10980,7 +11010,7 @@ parameters:
 		-
 			message: '#^Cannot access offset string on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 14
+			count: 8
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
@@ -13491,7 +13521,7 @@ parameters:
 		-
 			message: '#^Cannot access offset ''table_uiprefs'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 3
+			count: 2
 			path: src/Table/Table.php
 
 		-
@@ -13509,13 +13539,13 @@ parameters:
 		-
 			message: '#^Cannot access offset int\<0, max\> on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 3
+			count: 2
 			path: src/Table/Table.php
 
 		-
 			message: '#^Cannot access offset string on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 6
+			count: 4
 			path: src/Table/Table.php
 
 		-
@@ -14275,12 +14305,6 @@ parameters:
 			path: src/UserPrivilegesFactory.php
 
 		-
-			message: '#^Property PhpMyAdmin\\UserPrivileges\:\:\$databasesToTest \(array\<string\>\|false\) does not accept mixed\.$#'
-			identifier: assign.propertyType
-			count: 1
-			path: src/UserPrivilegesFactory.php
-
-		-
 			message: '#^Binary operation "\." between bool\|float\|int\|string and array\<string\>\|string\|false results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
@@ -14748,7 +14772,7 @@ parameters:
 		-
 			message: '#^Cannot access offset ''response'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 6
+			count: 4
 			path: src/WebAuthn/WebauthnLibServer.php
 
 		-
@@ -14823,7 +14847,7 @@ parameters:
 		-
 			message: '#^Cannot access offset ''Servers'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 3
+			count: 1
 			path: tests/config.e2e.inc.php
 
 		-
@@ -14848,12 +14872,6 @@ parameters:
 			message: '#^Cannot access offset ''verbose'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
-			path: tests/config.e2e.inc.php
-
-		-
-			message: '#^Cannot access offset 1 on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
 			path: tests/config.e2e.inc.php
 
 		-
@@ -15036,7 +15054,7 @@ parameters:
 		-
 			message: '#^Cannot access offset ''Servers'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 5
+			count: 1
 			path: tests/test_data/config.inc.php
 
 		-
@@ -15072,7 +15090,7 @@ parameters:
 		-
 			message: '#^Cannot access offset 1 on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 5
+			count: 1
 			path: tests/test_data/config.inc.php
 
 		-
@@ -15298,12 +15316,6 @@ parameters:
 			path: tests/unit/Config/FormDisplayTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\) with null will always evaluate to false\.$#'
-			identifier: staticMethod.impossibleType
-			count: 1
-			path: tests/unit/Config/FormDisplayTest.php
-
-		-
 			message: '#^Cannot access offset ''pma_testform'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
@@ -15414,7 +15426,7 @@ parameters:
 		-
 			message: '#^Cannot access offset ''blowfish_secret'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 6
+			count: 3
 			path: tests/unit/Config/ServerConfigChecksTest.php
 
 		-
@@ -17110,12 +17122,6 @@ parameters:
 			path: tests/unit/Http/Middleware/TokenRequestParamCheckingTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\) with ''test'' and ''test'' will always evaluate to true\.$#'
-			identifier: staticMethod.alreadyNarrowedType
-			count: 1
-			path: tests/unit/Http/Middleware/TokenRequestParamCheckingTest.php
-
-		-
 			message: '#^Binary operation "\." between mixed and ''/'' results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
@@ -17593,12 +17599,6 @@ parameters:
 			path: tests/unit/Plugins/Auth/AuthenticationHttpTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\) with ''testUser'' and ''testUser'' will always evaluate to true\.$#'
-			identifier: staticMethod.alreadyNarrowedType
-			count: 1
-			path: tests/unit/Plugins/Auth/AuthenticationHttpTest.php
-
-		-
 			message: '#^Property PhpMyAdmin\\Config\:\:\$selectedServer \(array\{host\: string, port\: string, socket\: string, ssl\: bool, ssl_key\: string\|null, ssl_cert\: string\|null, ssl_ca\: string\|null, ssl_ca_path\: string\|null, \.\.\.\}\) does not accept array\{host\: ''a'', user\: ''user2''\}\.$#'
 			identifier: assign.propertyType
 			count: 2
@@ -17617,12 +17617,6 @@ parameters:
 			'''
 			identifier: staticMethod.deprecated
 			count: 13
-			path: tests/unit/Plugins/Auth/AuthenticationSignonTest.php
-
-		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\) with ''https\://example\.com…'' and ''https\://example\.com…'' will always evaluate to true\.$#'
-			identifier: staticMethod.alreadyNarrowedType
-			count: 1
 			path: tests/unit/Plugins/Auth/AuthenticationSignonTest.php
 
 		-
@@ -18025,12 +18019,6 @@ parameters:
 			path: tests/unit/Setup/IndexTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\) with array\{array\{array\{0\: ''foo'', fresh\: false, active\: false\}, array\{0\: ''bar'', fresh\: false, active\: false\}\}\} and array\{array\{array\{''foo''\}, array\{''bar''\}\}\} will always evaluate to false\.$#'
-			identifier: staticMethod.impossibleType
-			count: 1
-			path: tests/unit/Setup/IndexTest.php
-
-		-
 			message: '#^Cannot access offset ''123'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
@@ -18331,12 +18319,6 @@ parameters:
 			'''
 			identifier: staticMethod.deprecated
 			count: 8
-			path: tests/unit/UserPreferencesTest.php
-
-		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\) with false will always evaluate to false\.$#'
-			identifier: staticMethod.impossibleType
-			count: 1
 			path: tests/unit/UserPreferencesTest.php
 
 		-
