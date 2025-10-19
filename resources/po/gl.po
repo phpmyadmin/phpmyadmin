@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-10-12 00:28+0000\n"
+"POT-Creation-Date: 2025-10-19 00:30+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Galician <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -211,7 +211,7 @@ msgstr "despois de %s"
 #: resources/templates/table/zoom_search/index.twig:120
 #: src/Config/ConfigFile.php:554
 #: src/Controllers/JavaScriptMessagesController.php:218
-#: src/Display/Results.php:930 src/Plugins/Export/ExportSql.php:2045
+#: src/Display/Results.php:930 src/Plugins/Export/ExportSql.php:2018
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "Ningunha"
@@ -497,12 +497,12 @@ msgstr "Escoller unha chave externa"
 #: resources/templates/table/zoom_search/index.twig:36
 #: resources/templates/table/zoom_search/result_form.twig:33
 #: src/Navigation/Nodes/NodeColumn.php:32
-#: src/Plugins/Export/ExportHtmlword.php:260
-#: src/Plugins/Export/ExportHtmlword.php:336
-#: src/Plugins/Export/ExportLatex.php:499 src/Plugins/Export/ExportOdt.php:364
-#: src/Plugins/Export/ExportOdt.php:441
-#: src/Plugins/Export/ExportTexytext.php:288
-#: src/Plugins/Export/ExportTexytext.php:352
+#: src/Plugins/Export/ExportHtmlword.php:256
+#: src/Plugins/Export/ExportHtmlword.php:329
+#: src/Plugins/Export/ExportLatex.php:495 src/Plugins/Export/ExportOdt.php:357
+#: src/Plugins/Export/ExportOdt.php:429
+#: src/Plugins/Export/ExportTexytext.php:284
+#: src/Plugins/Export/ExportTexytext.php:345
 #: src/Plugins/Export/Helpers/Pdf.php:487
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:602
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:624
@@ -653,9 +653,9 @@ msgstr "Estrutura"
 #: resources/templates/setup/home/index.twig:50
 #: resources/templates/table/structure/display_structure.twig:21
 #: resources/templates/triggers/list.twig:47
-#: src/Plugins/Export/ExportHtmlword.php:439
-#: src/Plugins/Export/ExportOdt.php:556
-#: src/Plugins/Export/ExportTexytext.php:424
+#: src/Plugins/Export/ExportHtmlword.php:429
+#: src/Plugins/Export/ExportOdt.php:537
+#: src/Plugins/Export/ExportTexytext.php:414
 #: src/Plugins/Export/Helpers/Pdf.php:331
 msgid "Name"
 msgstr "Nome"
@@ -681,12 +681,12 @@ msgstr "Nome"
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:7
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:6
 #: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:258
-#: src/Plugins/Export/ExportHtmlword.php:263
-#: src/Plugins/Export/ExportHtmlword.php:339
-#: src/Plugins/Export/ExportLatex.php:500 src/Plugins/Export/ExportOdt.php:367
-#: src/Plugins/Export/ExportOdt.php:444
-#: src/Plugins/Export/ExportTexytext.php:289
-#: src/Plugins/Export/ExportTexytext.php:353
+#: src/Plugins/Export/ExportHtmlword.php:259
+#: src/Plugins/Export/ExportHtmlword.php:332
+#: src/Plugins/Export/ExportLatex.php:496 src/Plugins/Export/ExportOdt.php:360
+#: src/Plugins/Export/ExportOdt.php:432
+#: src/Plugins/Export/ExportTexytext.php:285
+#: src/Plugins/Export/ExportTexytext.php:346
 #: src/Plugins/Export/Helpers/Pdf.php:489
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:603
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:625
@@ -720,12 +720,12 @@ msgstr ""
 #: resources/templates/server/replication/replica_configuration.twig:9
 #: resources/templates/table/structure/display_structure.twig:26
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:10
-#: src/Plugins/Export/ExportHtmlword.php:269
-#: src/Plugins/Export/ExportHtmlword.php:345
-#: src/Plugins/Export/ExportLatex.php:502 src/Plugins/Export/ExportOdt.php:373
-#: src/Plugins/Export/ExportOdt.php:450
-#: src/Plugins/Export/ExportTexytext.php:291
-#: src/Plugins/Export/ExportTexytext.php:355
+#: src/Plugins/Export/ExportHtmlword.php:265
+#: src/Plugins/Export/ExportHtmlword.php:338
+#: src/Plugins/Export/ExportLatex.php:498 src/Plugins/Export/ExportOdt.php:366
+#: src/Plugins/Export/ExportOdt.php:438
+#: src/Plugins/Export/ExportTexytext.php:287
+#: src/Plugins/Export/ExportTexytext.php:348
 #: src/Plugins/Export/Helpers/Pdf.php:493
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:606
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:628
@@ -784,12 +784,12 @@ msgstr "Atributos"
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:9
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:12
 #: resources/templates/table/zoom_search/result_form.twig:34
-#: src/Plugins/Export/ExportHtmlword.php:266
-#: src/Plugins/Export/ExportHtmlword.php:342
-#: src/Plugins/Export/ExportLatex.php:501 src/Plugins/Export/ExportOdt.php:370
-#: src/Plugins/Export/ExportOdt.php:447
-#: src/Plugins/Export/ExportTexytext.php:290
-#: src/Plugins/Export/ExportTexytext.php:354
+#: src/Plugins/Export/ExportHtmlword.php:262
+#: src/Plugins/Export/ExportHtmlword.php:335
+#: src/Plugins/Export/ExportLatex.php:497 src/Plugins/Export/ExportOdt.php:363
+#: src/Plugins/Export/ExportOdt.php:435
+#: src/Plugins/Export/ExportTexytext.php:286
+#: src/Plugins/Export/ExportTexytext.php:347
 #: src/Plugins/Export/Helpers/Pdf.php:491
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:605
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:627
@@ -813,9 +813,9 @@ msgstr "Modificar os privilexios"
 #: resources/templates/database/data_dictionary/index.twig:29
 #: resources/templates/table/structure/display_structure.twig:28
 #: src/Config/Descriptions.php:660 src/Config/Descriptions.php:675
-#: src/Config/Descriptions.php:711 src/Plugins/Export/ExportHtmlword.php:355
-#: src/Plugins/Export/ExportLatex.php:508 src/Plugins/Export/ExportOdt.php:460
-#: src/Plugins/Export/ExportTexytext.php:361
+#: src/Config/Descriptions.php:711 src/Plugins/Export/ExportHtmlword.php:348
+#: src/Plugins/Export/ExportLatex.php:504 src/Plugins/Export/ExportOdt.php:448
+#: src/Plugins/Export/ExportTexytext.php:354
 #: src/Plugins/Export/Helpers/Pdf.php:510
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:618
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:631
@@ -833,9 +833,9 @@ msgstr "Mover columna"
 #: resources/templates/columns_definitions/table_fields_definitions.twig:71
 #: resources/templates/database/data_dictionary/index.twig:31
 #: src/Config/Descriptions.php:664 src/Config/Descriptions.php:676
-#: src/Config/Descriptions.php:714 src/Plugins/Export/ExportHtmlword.php:362
-#: src/Plugins/Export/ExportOdt.php:467
-#: src/Plugins/Export/ExportTexytext.php:366
+#: src/Config/Descriptions.php:714 src/Plugins/Export/ExportHtmlword.php:355
+#: src/Plugins/Export/ExportOdt.php:455
+#: src/Plugins/Export/ExportTexytext.php:359
 #: src/Plugins/Export/Helpers/Pdf.php:518
 #, fuzzy
 #| msgid "MIME type"
@@ -974,9 +974,9 @@ msgstr "Desactivado"
 #: src/Controllers/Table/DropColumnController.php:46
 #: src/Controllers/Table/Structure/PrimaryController.php:101
 #: src/Indexes/IndexColumn.php:148 src/Indexes/Index.php:472
-#: src/Plugins/Export/ExportHtmlword.php:562
-#: src/Plugins/Export/ExportLatex.php:567 src/Plugins/Export/ExportOdt.php:685
-#: src/Plugins/Export/ExportTexytext.php:522
+#: src/Plugins/Export/ExportHtmlword.php:550
+#: src/Plugins/Export/ExportLatex.php:561 src/Plugins/Export/ExportOdt.php:664
+#: src/Plugins/Export/ExportTexytext.php:510
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:670
 msgid "Yes"
 msgstr "Si"
@@ -1010,9 +1010,9 @@ msgstr "Si"
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:24
 #: src/Controllers/JavaScriptMessagesController.php:343
 #: src/Indexes/IndexColumn.php:145 src/Indexes/Index.php:446
-#: src/Indexes/Index.php:472 src/Plugins/Export/ExportHtmlword.php:562
-#: src/Plugins/Export/ExportLatex.php:567 src/Plugins/Export/ExportOdt.php:685
-#: src/Plugins/Export/ExportTexytext.php:522
+#: src/Indexes/Index.php:472 src/Plugins/Export/ExportHtmlword.php:550
+#: src/Plugins/Export/ExportLatex.php:561 src/Plugins/Export/ExportOdt.php:664
+#: src/Plugins/Export/ExportTexytext.php:510
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:670
 msgid "No"
 msgstr "Non"
@@ -1509,9 +1509,9 @@ msgid "Print"
 msgstr "Imprimir"
 
 #: resources/templates/database/data_dictionary/index.twig:27
-#: src/Plugins/Export/ExportHtmlword.php:349
-#: src/Plugins/Export/ExportLatex.php:504 src/Plugins/Export/ExportOdt.php:454
-#: src/Plugins/Export/ExportTexytext.php:357
+#: src/Plugins/Export/ExportHtmlword.php:342
+#: src/Plugins/Export/ExportLatex.php:500 src/Plugins/Export/ExportOdt.php:442
+#: src/Plugins/Export/ExportTexytext.php:350
 #: src/Plugins/Export/Helpers/Pdf.php:502
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:608
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:630
@@ -1924,9 +1924,9 @@ msgstr "Fin"
 #: resources/templates/database/events/editor_form.twig:87
 #: resources/templates/database/routines/editor_form.twig:118
 #: resources/templates/triggers/editor_form.twig:62
-#: src/Plugins/Export/ExportHtmlword.php:442
-#: src/Plugins/Export/ExportOdt.php:565
-#: src/Plugins/Export/ExportTexytext.php:427
+#: src/Plugins/Export/ExportHtmlword.php:432
+#: src/Plugins/Export/ExportOdt.php:546
+#: src/Plugins/Export/ExportTexytext.php:417
 #: src/Plugins/Export/Helpers/Pdf.php:337
 msgid "Definition"
 msgstr "Definición"
@@ -1955,7 +1955,7 @@ msgstr "Definidor"
 #: resources/templates/database/events/index.twig:3 src/Menu.php:377
 #: src/Navigation/Nodes/NodeEventContainer.php:22
 #: src/Navigation/Nodes/NodeEventContainer.php:24
-#: src/Plugins/Export/ExportSql.php:998 src/Plugins/Export/ExportXml.php:97
+#: src/Plugins/Export/ExportSql.php:995 src/Plugins/Export/ExportXml.php:97
 #: src/Util.php:1381
 msgid "Events"
 msgstr "Acontecementos"
@@ -2046,7 +2046,7 @@ msgstr "Exportar"
 #: resources/templates/triggers/list.twig:20
 #: resources/templates/triggers/list.twig:21
 #: resources/templates/triggers/row.twig:52
-#: resources/templates/triggers/row.twig:58 src/Operations.php:543
+#: resources/templates/triggers/row.twig:58 src/Operations.php:538
 msgid "Drop"
 msgstr "Eliminar"
 
@@ -2941,7 +2941,7 @@ msgstr ""
 
 #: resources/templates/database/structure/copy_form.twig:5
 #: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:260
-#: src/Plugins/Export/ExportSql.php:929 src/Plugins/Export/ExportXml.php:367
+#: src/Plugins/Export/ExportSql.php:926 src/Plugins/Export/ExportXml.php:367
 #: src/Plugins/Export/Helpers/Pdf.php:177
 msgid "Database:"
 msgstr "Base de datos:"
@@ -3021,7 +3021,7 @@ msgstr "Mostrar as consultas de SQL"
 #: resources/templates/table/relation/foreign_key_row.twig:102
 #: resources/templates/triggers/editor_form.twig:32
 #: resources/templates/triggers/list.twig:49 src/Config/Descriptions.php:937
-#: src/Plugins/Export/ExportXml.php:432 src/Server/Privileges.php:1573
+#: src/Plugins/Export/ExportXml.php:430 src/Server/Privileges.php:1573
 #: src/Server/Privileges.php:1575
 msgid "Table"
 msgstr "Táboa"
@@ -3824,7 +3824,7 @@ msgid "Server connection:"
 msgstr "A conexión non é segura"
 
 #: resources/templates/home/index.twig:198
-#: src/Plugins/Export/ExportLatex.php:233 src/Plugins/Export/ExportSql.php:767
+#: src/Plugins/Export/ExportLatex.php:233 src/Plugins/Export/ExportSql.php:764
 #: src/Plugins/Export/ExportXml.php:216
 msgid "Server version:"
 msgstr "Versión do servidor:"
@@ -5883,7 +5883,7 @@ msgstr ""
 
 #: resources/templates/server/replication/change_primary.twig:25
 #: resources/templates/server/replication/primary_add_replica_user.twig:29
-#: src/Plugins/Export/ExportLatex.php:225 src/Plugins/Export/ExportSql.php:756
+#: src/Plugins/Export/ExportLatex.php:225 src/Plugins/Export/ExportSql.php:753
 #: src/Plugins/Export/ExportXml.php:207
 msgid "Host:"
 msgstr "Servidor:"
@@ -7033,9 +7033,9 @@ msgstr "Estado"
 #: resources/templates/sql/profiling_chart.twig:13
 #: resources/templates/triggers/list.twig:51
 #: src/Controllers/JavaScriptMessagesController.php:276
-#: src/Plugins/Export/ExportHtmlword.php:440
-#: src/Plugins/Export/ExportOdt.php:559
-#: src/Plugins/Export/ExportTexytext.php:425
+#: src/Plugins/Export/ExportHtmlword.php:430
+#: src/Plugins/Export/ExportOdt.php:540
+#: src/Plugins/Export/ExportTexytext.php:415
 #: src/Plugins/Export/Helpers/Pdf.php:333 src/Server/Status/Processes.php:105
 msgid "Time"
 msgstr "Tempo"
@@ -7421,7 +7421,7 @@ msgstr "Arrastre para reordenar"
 #: resources/templates/table/index_form.twig:203
 #: src/Controllers/JavaScriptMessagesController.php:465
 #: src/Controllers/JavaScriptMessagesController.php:617
-#: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1437
+#: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1431
 msgid "Ignore"
 msgstr "Ignorar"
 
@@ -7664,7 +7664,7 @@ msgid "Delete the view (DROP)"
 msgstr "Eliminar a táboa (DROP)"
 
 #: resources/templates/table/page_with_secondary_tabs.twig:5
-#: src/Config/Descriptions.php:760 src/Plugins/Export/ExportPdf.php:232
+#: src/Config/Descriptions.php:760 src/Plugins/Export/ExportPdf.php:230
 msgid "Table structure"
 msgstr "Estrutura da táboa"
 
@@ -8167,9 +8167,9 @@ msgstr "Tempo"
 #: resources/templates/triggers/list.twig:52
 #: src/Controllers/JavaScriptMessagesController.php:365
 #: src/Navigation/Nodes/NodeEvent.php:26
-#: src/Plugins/Export/ExportHtmlword.php:441
-#: src/Plugins/Export/ExportOdt.php:562
-#: src/Plugins/Export/ExportTexytext.php:426
+#: src/Plugins/Export/ExportHtmlword.php:431
+#: src/Plugins/Export/ExportOdt.php:543
+#: src/Plugins/Export/ExportTexytext.php:416
 #: src/Plugins/Export/Helpers/Pdf.php:335
 msgid "Event"
 msgstr "Acontecemento"
@@ -8183,10 +8183,10 @@ msgstr "Exportar o disparador %s"
 #: resources/templates/triggers/list.twig:3 src/Menu.php:291 src/Menu.php:384
 #: src/Navigation/Nodes/NodeTriggerContainer.php:23
 #: src/Navigation/Nodes/NodeTriggerContainer.php:25
-#: src/Plugins/Export/ExportHtmlword.php:495
-#: src/Plugins/Export/ExportOdt.php:626 src/Plugins/Export/ExportPdf.php:235
-#: src/Plugins/Export/ExportSql.php:1913
-#: src/Plugins/Export/ExportTexytext.php:465
+#: src/Plugins/Export/ExportHtmlword.php:483
+#: src/Plugins/Export/ExportOdt.php:605 src/Plugins/Export/ExportPdf.php:233
+#: src/Plugins/Export/ExportSql.php:1888
+#: src/Plugins/Export/ExportTexytext.php:453
 #: src/Plugins/Export/ExportXml.php:117 src/Util.php:1382 src/Util.php:1398
 msgid "Triggers"
 msgstr "Disparadores"
@@ -12964,12 +12964,12 @@ msgstr ""
 "Non é posíbel gardar a configuración; o formulario de configuración enviado "
 "contén erros!"
 
-#: src/Config.php:434
+#: src/Config.php:435
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "O ficheiro de configuración existente (%s) non e lexíbel."
 
-#: src/Config.php:467
+#: src/Config.php:468
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Os permisos do ficheiro de configuración son incorrectos; non debería poder "
@@ -13262,7 +13262,7 @@ msgstr[1] ""
 msgid "No bookmarks"
 msgstr "Non hai marcadores"
 
-#: src/Controllers/ChangeLogController.php:56
+#: src/Controllers/ChangeLogController.php:61
 #: src/Controllers/LicenseController.php:46
 #, php-format
 msgid ""
@@ -16740,7 +16740,7 @@ msgstr "Os datos son incorrectos"
 msgid "Wrong data or no validation for %s"
 msgstr ""
 
-#: src/Controllers/Sql/SqlController.php:213 src/Sql.php:1078
+#: src/Controllers/Sql/SqlController.php:213 src/Sql.php:1069
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Creouse o marcador %s."
@@ -16754,7 +16754,7 @@ msgstr "Non se creou o marcador"
 #: src/Controllers/Table/AddFieldController.php:136
 #: src/Controllers/Table/IndexesController.php:139
 #: src/Controllers/Table/IndexRenameController.php:123
-#: src/Controllers/Table/Structure/PartitioningController.php:267
+#: src/Controllers/Table/Structure/PartitioningController.php:262
 #: src/Controllers/Table/Structure/SaveController.php:217
 #, php-format
 msgid "Table %1$s has been altered successfully."
@@ -16899,7 +16899,7 @@ msgstr "Non se atopou o usuario escollido na táboa de privilexios."
 msgid "The selected columns are already in the correct order."
 msgstr ""
 
-#: src/Controllers/Table/Structure/PartitioningController.php:259
+#: src/Controllers/Table/Structure/PartitioningController.php:254
 #: src/Controllers/Table/Structure/SaveController.php:267
 #: src/Tracking/Tracking.php:731
 msgid "Query error"
@@ -17933,11 +17933,11 @@ msgstr ""
 msgid "web server upload directory:"
 msgstr "directorio de recepción do servidor web:"
 
-#: src/InsertEdit.php:855 src/Sql.php:885
+#: src/InsertEdit.php:853 src/Sql.php:885
 msgid "Showing SQL query"
 msgstr "Mostrar a consulta de SQL"
 
-#: src/InsertEdit.php:879 src/Sql.php:865
+#: src/InsertEdit.php:877 src/Sql.php:865
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Identificador da fileira inserida: %1$d"
@@ -18078,7 +18078,7 @@ msgstr "Novo"
 
 #: src/Navigation/Nodes/NodeFunctionContainer.php:22
 #: src/Navigation/Nodes/NodeFunctionContainer.php:26
-#: src/Plugins/Export/ExportSql.php:645 src/Plugins/Export/ExportXml.php:102
+#: src/Plugins/Export/ExportSql.php:642 src/Plugins/Export/ExportXml.php:102
 msgid "Functions"
 msgstr "Funcións"
 
@@ -18098,7 +18098,7 @@ msgstr ""
 
 #: src/Navigation/Nodes/NodeProcedureContainer.php:22
 #: src/Navigation/Nodes/NodeProcedureContainer.php:26
-#: src/Plugins/Export/ExportSql.php:634 src/Plugins/Export/ExportXml.php:107
+#: src/Plugins/Export/ExportSql.php:631 src/Plugins/Export/ExportXml.php:107
 msgid "Procedures"
 msgstr "Procedementos"
 
@@ -18374,43 +18374,43 @@ msgstr ""
 msgid "No partial dependencies found!"
 msgstr ""
 
-#: src/Operations.php:545
+#: src/Operations.php:540
 #, fuzzy
 #| msgid "Close"
 msgid "Coalesce"
 msgstr "Fechar"
 
-#: src/Operations.php:896
+#: src/Operations.php:891
 msgid "Can't move table to same one!"
 msgstr "Non se pode mover unha táboa sobre si mesma!"
 
-#: src/Operations.php:898
+#: src/Operations.php:893
 msgid "Can't copy table to same one!"
 msgstr "Non se pode copiar unha táboa sobre si mesma!"
 
-#: src/Operations.php:934
+#: src/Operations.php:929
 #, fuzzy, php-format
 #| msgid "Table %s has been moved to %s."
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "Moveuse a táboa %s para %s."
 
-#: src/Operations.php:940
+#: src/Operations.php:935
 #, fuzzy, php-format
 #| msgid "Table %s has been copied to %s."
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "Copiouse a táboa %s para %s."
 
-#: src/Operations.php:946
+#: src/Operations.php:941
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "Moveuse a táboa %s para %s."
 
-#: src/Operations.php:950
+#: src/Operations.php:945
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "Copiouse a táboa %s para %s."
 
-#: src/Operations.php:973
+#: src/Operations.php:968
 msgid "The table name is empty!"
 msgstr "O nome da táboa está baleiro!"
 
@@ -18539,27 +18539,27 @@ msgstr "Versión de Excel:"
 msgid "Data dump options"
 msgstr "Opcións de  envorcado dos datos"
 
-#: src/Plugins/Export/ExportHtmlword.php:192
-#: src/Plugins/Export/ExportOdt.php:244 src/Plugins/Export/ExportSql.php:2155
-#: src/Plugins/Export/ExportTexytext.php:177
+#: src/Plugins/Export/ExportHtmlword.php:190
+#: src/Plugins/Export/ExportOdt.php:242 src/Plugins/Export/ExportSql.php:2125
+#: src/Plugins/Export/ExportTexytext.php:175
 msgid "Dumping data for table"
 msgstr "A extraer os datos da táboa"
 
-#: src/Plugins/Export/ExportHtmlword.php:486
-#: src/Plugins/Export/ExportOdt.php:616 src/Plugins/Export/ExportSql.php:1899
-#: src/Plugins/Export/ExportTexytext.php:458
+#: src/Plugins/Export/ExportHtmlword.php:474
+#: src/Plugins/Export/ExportOdt.php:595 src/Plugins/Export/ExportSql.php:1874
+#: src/Plugins/Export/ExportTexytext.php:446
 msgid "Table structure for table"
 msgstr "Estrutura da táboa"
 
-#: src/Plugins/Export/ExportHtmlword.php:503
-#: src/Plugins/Export/ExportOdt.php:636 src/Plugins/Export/ExportSql.php:1957
-#: src/Plugins/Export/ExportTexytext.php:471
+#: src/Plugins/Export/ExportHtmlword.php:491
+#: src/Plugins/Export/ExportOdt.php:615 src/Plugins/Export/ExportSql.php:1932
+#: src/Plugins/Export/ExportTexytext.php:459
 msgid "Structure for view"
 msgstr "Estrutura para a vista"
 
-#: src/Plugins/Export/ExportHtmlword.php:509
-#: src/Plugins/Export/ExportOdt.php:644 src/Plugins/Export/ExportSql.php:1996
-#: src/Plugins/Export/ExportTexytext.php:475
+#: src/Plugins/Export/ExportHtmlword.php:497
+#: src/Plugins/Export/ExportOdt.php:623 src/Plugins/Export/ExportSql.php:1971
+#: src/Plugins/Export/ExportTexytext.php:463
 msgid "Stand-in structure for view"
 msgstr "Estrutura existente para a vista"
 
@@ -18623,21 +18623,21 @@ msgstr "Mostrar os tipos MIME"
 msgid "Put columns names in the first row:"
 msgstr "Pór os nomes das columnas na primeira fila:"
 
-#: src/Plugins/Export/ExportLatex.php:231 src/Plugins/Export/ExportSql.php:763
+#: src/Plugins/Export/ExportLatex.php:231 src/Plugins/Export/ExportSql.php:760
 #: src/Plugins/Export/ExportXml.php:214
 msgid "Generation Time:"
 msgstr "Xerado en:"
 
-#: src/Plugins/Export/ExportLatex.php:234 src/Plugins/Export/ExportSql.php:769
+#: src/Plugins/Export/ExportLatex.php:234 src/Plugins/Export/ExportSql.php:766
 #: src/Plugins/Export/ExportXml.php:217
 msgid "PHP Version:"
 msgstr "Versión do PHP:"
 
-#: src/Plugins/Export/ExportLatex.php:320 src/Plugins/Export/ExportSql.php:2045
+#: src/Plugins/Export/ExportLatex.php:317 src/Plugins/Export/ExportSql.php:2018
 msgid "Data:"
 msgstr "Datos:"
 
-#: src/Plugins/Export/ExportLatex.php:477
+#: src/Plugins/Export/ExportLatex.php:473
 msgid "Structure:"
 msgstr "Estrutura:"
 
@@ -18649,8 +18649,8 @@ msgstr "Exportar os nomes das táboas"
 msgid "Export table headers"
 msgstr "Exportar os cabezallos das táboas"
 
-#: src/Plugins/Export/ExportOdt.php:245
-#: src/Plugins/Export/ExportTexytext.php:178
+#: src/Plugins/Export/ExportOdt.php:243
+#: src/Plugins/Export/ExportTexytext.php:176
 #, fuzzy
 #| msgid "Dumping data for table"
 msgid "Dumping data for query result"
@@ -18660,25 +18660,25 @@ msgstr "A extraer os datos da táboa"
 msgid "Report title:"
 msgstr "Título do informe:"
 
-#: src/Plugins/Export/ExportPdf.php:185
+#: src/Plugins/Export/ExportPdf.php:184
 #, fuzzy
 #| msgid "Dumping data for table"
 msgid "Dumping data"
 msgstr "A extraer os datos da táboa"
 
-#: src/Plugins/Export/ExportPdf.php:202
+#: src/Plugins/Export/ExportPdf.php:201
 #, fuzzy
 #| msgid "Query results"
 msgid "Query result data"
 msgstr "Resultados da consulta"
 
-#: src/Plugins/Export/ExportPdf.php:238
+#: src/Plugins/Export/ExportPdf.php:236
 #, fuzzy
 #| msgid "structure"
 msgid "View structure"
 msgstr "estrutura"
 
-#: src/Plugins/Export/ExportPdf.php:241
+#: src/Plugins/Export/ExportPdf.php:239
 #, fuzzy
 #| msgid "and then"
 msgid "Stand in"
@@ -18750,7 +18750,7 @@ msgstr ""
 msgid "Data creation options"
 msgstr "Opcións de creación de datos"
 
-#: src/Plugins/Export/ExportSql.php:420 src/Plugins/Export/ExportSql.php:2118
+#: src/Plugins/Export/ExportSql.php:420 src/Plugins/Export/ExportSql.php:2088
 msgid "Truncate table before insert"
 msgstr "Baleirar a táboa antes de inserir"
 
@@ -18831,119 +18831,119 @@ msgstr ""
 msgid "It appears your database uses routines;"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:597 src/Plugins/Export/ExportSql.php:1512
-#: src/Plugins/Export/ExportSql.php:1945
+#: src/Plugins/Export/ExportSql.php:597 src/Plugins/Export/ExportSql.php:1497
+#: src/Plugins/Export/ExportSql.php:1920
 msgid "alias export may not work reliably in all cases."
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1054
+#: src/Plugins/Export/ExportSql.php:1051
 #, fuzzy
 #| msgid "Missing data for %s"
 msgid "Metadata"
 msgstr "Faltan datos de %s"
 
-#: src/Plugins/Export/ExportSql.php:1119
+#: src/Plugins/Export/ExportSql.php:1116
 #, fuzzy, php-format
 #| msgid "Missing data for %s"
 msgid "Metadata for table %s"
 msgstr "Faltan datos de %s"
 
-#: src/Plugins/Export/ExportSql.php:1126
+#: src/Plugins/Export/ExportSql.php:1123
 #, fuzzy, php-format
 #| msgid "Missing data for %s"
 msgid "Metadata for database %s"
 msgstr "Faltan datos de %s"
 
-#: src/Plugins/Export/ExportSql.php:1426
+#: src/Plugins/Export/ExportSql.php:1411
 #, fuzzy, php-format
 #| msgid "Table structure for table"
 msgid "Error reading structure for table %s:"
 msgstr "Estrutura da táboa"
 
-#: src/Plugins/Export/ExportSql.php:1509
+#: src/Plugins/Export/ExportSql.php:1494
 msgid "It appears your database uses views;"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1653
+#: src/Plugins/Export/ExportSql.php:1638
 msgid "Constraints for dumped tables"
 msgstr "Restricións para os envorcados das táboas"
 
-#: src/Plugins/Export/ExportSql.php:1654
+#: src/Plugins/Export/ExportSql.php:1639
 msgid "Constraints for table"
 msgstr "Restricións para a táboa"
 
-#: src/Plugins/Export/ExportSql.php:1680
+#: src/Plugins/Export/ExportSql.php:1665
 #, fuzzy
 #| msgid "Constraints for dumped tables"
 msgid "Indexes for dumped tables"
 msgstr "Restricións para os envorcados das táboas"
 
-#: src/Plugins/Export/ExportSql.php:1681
+#: src/Plugins/Export/ExportSql.php:1666
 #, fuzzy
 #| msgid "Inside tables:"
 msgid "Indexes for table"
 msgstr "Dentro das táboas:"
 
-#: src/Plugins/Export/ExportSql.php:1704
+#: src/Plugins/Export/ExportSql.php:1689
 #, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "Non empregar AUTO_INCREMENT cos valores cero"
 
-#: src/Plugins/Export/ExportSql.php:1705
+#: src/Plugins/Export/ExportSql.php:1690
 #, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for table"
 msgstr "Engadir o valor incremental (AUTO_INCREMENT)"
 
-#: src/Plugins/Export/ExportSql.php:1761
+#: src/Plugins/Export/ExportSql.php:1744
 #, fuzzy
 #| msgid "MIME TYPES FOR TABLE"
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "TIPOS MIME PARA A TÁBOA"
 
-#: src/Plugins/Export/ExportSql.php:1791
+#: src/Plugins/Export/ExportSql.php:1774
 #, fuzzy
 #| msgid "RELATIONS FOR TABLE"
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "RELACIÓNS PARA A TÁBOA"
 
-#: src/Plugins/Export/ExportSql.php:1942
+#: src/Plugins/Export/ExportSql.php:1917
 msgid "It appears your table uses triggers;"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1972
+#: src/Plugins/Export/ExportSql.php:1947
 #, fuzzy, php-format
 #| msgid "Structure for view"
 msgid "Structure for view %s exported as a table"
 msgstr "Estrutura para a vista"
 
-#: src/Plugins/Export/ExportSql.php:1999
+#: src/Plugins/Export/ExportSql.php:1974
 msgid "(See below for the actual view)"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:2056
+#: src/Plugins/Export/ExportSql.php:2029
 #, fuzzy, php-format
 #| msgid "Error reading data:"
 msgid "Error reading data for table %s:"
 msgstr "Produciuse un erro ao ler os datos:"
 
-#: src/Plugins/Export/ExportSql.php:2632
+#: src/Plugins/Export/ExportSql.php:2581
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:566
 msgid "Creation:"
 msgstr "Creación:"
 
-#: src/Plugins/Export/ExportSql.php:2640
+#: src/Plugins/Export/ExportSql.php:2589
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:577
 msgid "Last update:"
 msgstr "Última actualización:"
 
-#: src/Plugins/Export/ExportSql.php:2648
+#: src/Plugins/Export/ExportSql.php:2597
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:588
 msgid "Last check:"
 msgstr "Última revisión:"
 
-#: src/Plugins/Export/ExportSql.php:2669
+#: src/Plugins/Export/ExportSql.php:2618
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
@@ -19100,7 +19100,7 @@ msgstr "Non empregar <code>AUTO_INCREMENT</code> cos valores cero"
 msgid "XML"
 msgstr "XML"
 
-#: src/Plugins.php:577
+#: src/Plugins.php:580
 msgid "This format has no options"
 msgstr "Este formato non ten opcións"
 
@@ -19875,7 +19875,7 @@ msgstr "A empregar o marcador «%s» como consulta de navegación por omisión."
 msgid "Showing as PHP code"
 msgstr "Mostrar como código PHP"
 
-#: src/Sql.php:1236
+#: src/Sql.php:1227
 #, fuzzy, php-format
 #| msgid ""
 #| "Table %s does not contain a unique column. Grid edit, checkbox, Edit, "
@@ -19888,7 +19888,7 @@ msgstr ""
 "relacionadas coa edición da grella, caixa de selección, editar, copiar e "
 "eliminar non están dispoñíbeis."
 
-#: src/Sql.php:1250
+#: src/Sql.php:1241
 #, fuzzy, php-format
 #| msgid ""
 #| "Table %s does not contain a unique column. Grid edit, checkbox, Edit, "
