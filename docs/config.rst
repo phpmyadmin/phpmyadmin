@@ -2347,8 +2347,7 @@ Navigation panel setup
     :default: ``'structure'``
 
     Defines the tab displayed by default when clicking the small icon next
-    to each table name in the navigation panel. The possible values are the
-    localized equivalent of:
+    to each table name in the navigation panel. The possible values are:
 
     * ``structure``
     * ``sql``
@@ -2362,8 +2361,7 @@ Navigation panel setup
     :default: null
 
     Defines the tab displayed by default when clicking the second small icon next
-    to each table name in the navigation panel. The possible values are the
-    localized equivalent of:
+    to each table name in the navigation panel. The possible values are:
 
     * ``(empty)``
     * ``structure``
