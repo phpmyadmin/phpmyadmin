@@ -53,8 +53,7 @@
                 {% if free_size is defined
                     and (tbl_storage_engine == 'MYISAM'
                     or tbl_storage_engine == 'ARIA'
-                    or tbl_storage_engine == 'MARIA'
-                    or tbl_storage_engine == 'BDB')
+                    or tbl_storage_engine == 'MARIA')
                     or (tbl_storage_engine == 'INNODB' and innodb_file_per_table == true) %}
                 <tfoot>
                     <tr class="d-print-none">

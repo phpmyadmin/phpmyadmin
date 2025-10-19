@@ -707,8 +707,7 @@ final class StructureController implements InvocableController
             case 'MRG_MyISAM':
             case 'MRG_MYISAM':
             case 'MERGE':
-            case 'BerkeleyDB':
-                // Merge or BerkleyDB table: Only row count is accurate.
+                // Merge table: Only row count is accurate.
                 if ($this->isShowStats) {
                     $formattedSize = ' - ';
                 }

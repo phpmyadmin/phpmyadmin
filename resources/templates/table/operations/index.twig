@@ -334,7 +334,7 @@
 <div class="card mb-2">
   <div class="card-header">{{ t('Table maintenance') }}</div>
   <ul class="list-group list-group-flush" id="tbl_maintenance">
-    {% if storage_engine in ['MYISAM', 'ARIA', 'INNODB', 'BERKELEYDB', 'TOKUDB'] %}
+    {% if storage_engine in ['MYISAM', 'ARIA', 'INNODB', 'TOKUDB'] %}
       <li class="list-group-item">
         <a href="{{ url('/table/maintenance/analyze') }}" data-post="{{ get_common({'db': db, 'table': table, 'selected_tbl': [table]}, '', false) }}">
           {{ t('Analyze table') }}
@@ -379,7 +379,7 @@
       {{ show_mysql_docu('FLUSH') }}
     </li>
 
-    {% if storage_engine in ['MYISAM', 'ARIA', 'INNODB', 'BERKELEYDB', 'TOKUDB'] %}
+    {% if storage_engine in ['MYISAM', 'ARIA', 'INNODB', 'TOKUDB'] %}
       <li class="list-group-item">
         <a href="{{ url('/table/maintenance/optimize') }}" data-post="{{ get_common({'db': db, 'table': table, 'selected_tbl': [table]}, '', false) }}">
           {{ t('Optimize table') }}

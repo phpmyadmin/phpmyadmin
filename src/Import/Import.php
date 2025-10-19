@@ -1042,7 +1042,6 @@ class Import
             'TOKUDB',
             'XTRADB',
             'SEQUENCE',
-            'BDB',
             'ROCKSDB',
         ];
 
