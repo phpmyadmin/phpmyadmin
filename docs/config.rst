@@ -923,6 +923,10 @@ Server connection settings
     browse view. They can also be shown in a table dump. Please see the
     relevant configuration directives later on.
 
+    Comments are generally stored using database
+    metadata directly, which makes them portable across systems and tools. In
+    a case where the database can't be used, that information is stored in this table.
+
     You can also use a MIME-transformation system which is also
     based on the following table structure. This allows you to perform transformations
     on table data such as viewing images inline, formatting dates, or convering binary
@@ -937,6 +941,13 @@ Server connection settings
       ``pma__column_info``)
 
     This feature can be disabled by setting the configuration to ``false``.
+
+    .. seealso::
+
+        :config:option:`$cfg['ShowDbStructureComment']`,
+        :config:option:`$cfg['ShowColumnComments']`,
+        :config:option:`$cfg['ShowBrowseComments']`,
+        :config:option:`$cfg['ShowPropertyComments']`.
 
     .. note::
 
@@ -958,7 +969,7 @@ Server connection settings
         :samp:`$cfg['Servers'][$i]['column\_comments']` to
         :config:option:`$cfg['Servers'][$i]['column\_info']`
 
-        This SQL command is used to update an existing table:
+        This SQL command is used to update an existing table from prior to 2.5.0:
 
         .. code-block:: mysql
 
@@ -997,11 +1008,9 @@ Server connection settings
     :type: string or false
     :default: ``''``
 
-    .. versionadded:: 3.5.0
-
-    Since release 3.5.0 you can show recently used tables in the
-    navigation panel. It helps you to jump across table directly, without
-    the need to select the database, and then select the table. Using
+    You can show recently used tables in the
+    navigation panel. It helps you to jump to another table directly, without
+    the need to select the database and then select the table. Using
     :config:option:`$cfg['NumRecentTables']` you can configure the maximum number
     of recent tables shown. When you select a table from the list, it will jump to
     the page specified in :config:option:`$cfg['NavigationTreeDefaultTabTable']`.
@@ -1053,9 +1062,7 @@ Server connection settings
     :type: string or false
     :default: ``''``
 
-    .. versionadded:: 3.5.0
-
-    Since release 3.5.0 phpMyAdmin can be configured to remember several
+    phpMyAdmin can remember several
     things (sorted column :config:option:`$cfg['RememberSorting']`, column order,
     and column visibility from a database table) for browsing tables. Without
     configuring the storage, these features still can be used, but the values will
@@ -1205,9 +1212,7 @@ Server connection settings
     :type: string or false
     :default: ``''``
 
-    .. versionadded:: 3.3.x
-
-    Since release 3.3.x a tracking mechanism is available. It helps you to
+    A tracking mechanism is available which can
     track every :term:`SQL` command which is
     executed by phpMyAdmin. The mechanism supports logging of data
     manipulation and data definition statements. After enabling it you can
@@ -1294,9 +1299,7 @@ Server connection settings
     :type: string or false
     :default: ``''``
 
-    .. versionadded:: 3.4.x
-
-    Since release 3.4.x phpMyAdmin allows users to set most preferences by
+    phpMyAdmin allows users to set most preferences by
     themselves and store them in the database.
 
     If you don't allow for storing preferences in
@@ -1352,7 +1355,7 @@ Server connection settings
 
     Whether to allow logins without a password. The default value of
     ``false`` for this parameter prevents unintended access to a MySQL
-    server with was left with an empty password for root or on which an
+    server which was left with an empty password for root or on which an
     anonymous (blank) user is defined.
 
 .. _servers_allowdeny_order:
@@ -1469,6 +1472,10 @@ Server connection settings
     ``SHOW`` commands instead), because of speed issues when many
     databases are present.
 
+    The performance penalty for using ``INFORMATION_SCHEMA`` has largely been
+    resolved in most database servers, so for most users keeping this set to
+    false is recommended.
+
     .. note::
 
         Enabling this option might give you a big performance boost on older
@@ -1478,8 +1485,6 @@ Server connection settings
 
     :type: string
     :default: ``''``
-
-    .. versionadded:: 3.5.0
 
     Name of PHP script to be sourced and executed to obtain login
     credentials. This is alternative approach to session based single
@@ -1698,14 +1703,14 @@ Generic settings
     :type: array
     :default: ``['127.0.0.1', 'localhost']``
 
+    .. versionadded:: 5.1.0
+
     This search is case-sensitive and will match the exact string only.
     If your setup does not use SSL but is safe because you are using a
     local connection or private network, you can add your hostname or :term:`IP` to the list.
     You can also remove the default entries to only include yours.
 
     This check uses the value of :config:option:`$cfg['Servers'][$i]['host']`.
-
-    .. versionadded:: 5.1.0
 
     Example configuration
 
@@ -1748,7 +1753,7 @@ Generic settings
     used.
 
     This setting is used while importing/exporting dump files
-    so you definitely don't want to put here a too low
+    so you definitely don't want to put here too low a
     value. It has no effect when PHP is running in safe mode.
 
     You can also use any string as in :file:`php.ini`, eg. ``'16M'``. Ensure you
@@ -1821,7 +1826,7 @@ Generic settings
     Defines whether normal users (non-administrator) are allowed to delete
     their own database or not. If set as false, the link :guilabel:`Drop
     Database` will not be shown, and even a ``DROP DATABASE mydatabase`` will
-    be rejected. Quite practical for :term:`ISP` 's with many customers.
+    be rejected. Quite practical for :term:`ISPs <ISP>` with many customers.
 
     This limitation of :term:`SQL` queries is not as strict as when using MySQL
     privileges. This is due to nature of :term:`SQL` queries which might be
@@ -1881,7 +1886,9 @@ Generic settings
     A secret key used to encrypt/decrypt the URL query string.
     Should be 32 bytes long.
 
-    .. seealso:: :ref:`faq2_10`
+    .. seealso::
+        :config:option:`$cfg['URLQueryEncryption']`,
+        :ref:`faq2_10`
 
 .. config:option:: $cfg['maxRowPlotLimit']
 
@@ -1924,19 +1931,13 @@ Cookie authentication options
 
         The encryption key must be 32 bytes long. If it is longer than the length of bytes, only the first 32 bytes will
         be used, and if it is shorter, a new temporary key will be automatically generated for you. However, this
-        temporary key will only last for the duration of the session.
+        temporary key will only last for the duration of the session and the username will not be automatically recalled
+        for the next login.
 
     .. note::
 
         The configuration is called blowfish_secret for historical reasons as
         Blowfish algorithm was originally used to do the encryption.
-
-    .. versionchanged:: 3.1.0
-
-        Since version 3.1.0 phpMyAdmin can generate this on the fly, but it
-        makes a bit weaker security as this generated secret is stored in
-        session and furthermore it makes impossible to recall user name from
-        cookie.
 
     .. versionchanged:: 5.2.0
 
@@ -1994,7 +1995,7 @@ Cookie authentication options
 
     Define how long login cookie should be stored in browser. Default 0
     means that it will be kept for existing session. This is recommended
-    for not trusted environments.
+    for untrusted environments.
 
 .. config:option:: $cfg['LoginCookieDeleteAll']
 
@@ -2002,8 +2003,8 @@ Cookie authentication options
     :default: true
 
     If enabled (default), logout deletes cookies for all servers,
-    otherwise only for current one. Setting this to false makes it easy to
-    forget to log out from other server, when you are using more of them.
+    otherwise (false) it will only delete delete the cookies for the current server. Setting this to false makes it easy to
+    forget to log out from other servers when you are using more than one.
 
 .. _AllowArbitraryServer:
 .. config:option:: $cfg['AllowArbitraryServer']
@@ -2012,7 +2013,7 @@ Cookie authentication options
     :default: false
 
     If enabled, allows you to log in to arbitrary servers using cookie
-    authentication.
+    authentication. An additional form for the hostname is shown from the login page.
 
     .. note::
 
@@ -2060,12 +2061,12 @@ Cookie authentication options
     :type: string
     :default: ``'invisible'``
 
+    .. versionadded:: 5.0.3
+
     Valid values are:
 
     * ``'invisible'`` Use an invisible captcha checking method;
     * ``'checkbox'`` Use a checkbox to confirm the user is not a robot.
-
-    .. versionadded:: 5.0.3
 
 .. config:option:: $cfg['CaptchaApi']
 
@@ -2109,6 +2110,8 @@ Cookie authentication options
     :type: string
     :default: ``''``
 
+    .. versionadded:: 4.1.0
+
     The public key for the reCaptcha service that can be obtained from the
     "Admin Console" on https://www.google.com/recaptcha/about/.
 
@@ -2116,12 +2119,12 @@ Cookie authentication options
 
     reCaptcha will be then used in :ref:`cookie`.
 
-    .. versionadded:: 4.1.0
-
 .. config:option:: $cfg['CaptchaLoginPrivateKey']
 
     :type: string
     :default: ``''``
+
+    .. versionadded:: 4.1.0
 
     The private key for the reCaptcha service that can be obtained from the
     "Admin Console" on https://www.google.com/recaptcha/about/.
@@ -2130,18 +2133,16 @@ Cookie authentication options
 
     reCaptcha will be then used in :ref:`cookie`.
 
-    .. versionadded:: 4.1.0
-
 .. config:option:: $cfg['CaptchaSiteVerifyURL']
 
     :type: string
     :default: ``''``
 
+    .. versionadded:: 5.1.0
+
     The URL for the reCaptcha service to do siteverify action.
 
     reCaptcha will be then used in :ref:`cookie`.
-
-    .. versionadded:: 5.1.0
 
 Navigation panel setup
 ----------------------
@@ -2408,9 +2409,7 @@ Main panel
     :default: true
 
     Defines whether or not to display space usage and statistics about
-    databases and tables. Note that statistics requires at least MySQL
-    3.23.3 and that, at this date, MySQL doesn't return such information
-    for Berkeley DB tables.
+    databases and tables.
 
 .. config:option:: $cfg['ShowServerInfo']
 
@@ -2436,15 +2435,10 @@ Main panel
     :type: boolean
     :default: false
 
-    Defines whether to display the :guilabel:`PHP information` or not at
-    the starting main (right) frame.
-
-    Please note that to block the usage of ``phpinfo()`` in scripts, you have to
-    put this in your :file:`php.ini`:
-
-    .. code-block:: ini
-
-        disable_functions = phpinfo()
+    Defines whether to show the user a link for :guilabel:`PHP information`
+    in the starting main (right) frame. This allows the user to view detailed
+    output from ``phpinfo()``, which can show helpful information about PHP, but
+    that information could be considered a security risk.
 
     .. warning::
 
@@ -2459,7 +2453,7 @@ Main panel
     :type: boolean
     :default: true
 
-    Defines whether to display the :guilabel:`Change password` link or not at
+    Defines whether to display the :guilabel:`Change password` link in
     the starting main (right) frame. This setting does not check MySQL commands
     entered directly.
 
@@ -2490,7 +2484,7 @@ Main panel
     :type: array
 
     Defines the minimum supported MySQL version. The default is chosen
-    by the phpMyAdmin team; however this directive was asked by a developer
+    by the phpMyAdmin team; however this directive was requested by a developer
     of the Plesk control panel to ease integration with older MySQL servers
     (where most of the phpMyAdmin features work).
 
@@ -2595,7 +2589,7 @@ Browse mode
 
     Number of rows displayed when browsing a result set and no LIMIT
     clause is used. If the result set contains more rows, ":guilabel:`Previous`" and
-    ":guilabel:`Next`" links will be shown. Possible values: 25,50,100,250,500.
+    ":guilabel:`Next`" links will be shown.
 
 .. config:option:: $cfg['Order']
 
@@ -2603,25 +2597,21 @@ Browse mode
     :default: ``'SMART'``
 
     Defines whether columns are displayed in ascending (``ASC``) order, in
-    descending (``DESC``) order or in a "smart" (``SMART``) order - I.E.
+    descending (``DESC``) order, or in a "smart" (``SMART``) order - I.E.
     descending order for columns of type TIME, DATE, DATETIME and
-    TIMESTAMP, ascending order else- by default.
-
-    .. versionchanged:: 3.4.0
-        Since phpMyAdmin 3.4.0 the default value is ``'SMART'``.
+    TIMESTAMP, ascending order for other types - by default.
 
 .. config:option:: $cfg['DisplayBinaryAsHex']
 
     :type: boolean
     :default: true
 
-    Defines whether the ":guilabel:`Show binary contents as HEX`" browse option is
-    ticked by default.
-
-    .. versionadded:: 3.3.0
     .. deprecated:: 4.3.0
 
         This setting was removed.
+
+    Defines whether the ":guilabel:`Show binary contents as HEX`" browse option is
+    ticked by default.
 
 .. config:option:: $cfg['GridEditing']
 
@@ -2670,7 +2660,7 @@ Editing mode
     :default: true
 
     Defines whether or not MySQL functions fields should be initially
-    displayed in edit/insert mode. Since version 2.10, the user can toggle
+    displayed in edit/insert mode. The user can toggle
     this setting from the interface.
 
 .. config:option:: $cfg['ShowFieldTypesInDataEditView']
@@ -2737,8 +2727,8 @@ Export and import settings
 
     Defines whether to allow on the fly compression for GZip/BZip2
     compressed exports. This doesn't affect smaller dumps and allows users
-    to create larger dumps that won't otherwise fit in memory due to php
-    memory limit. Produced files contain more GZip/BZip2 headers, but all
+    to create larger dumps that won't otherwise fit in memory due to PHP's
+    memory limit for scripts. Produced files contain more GZip/BZip2 headers, but all
     normal programs handle this correctly.
 
 .. config:option:: $cfg['Export']
@@ -2748,7 +2738,7 @@ Export and import settings
 
     In this array are defined default parameters for export, names of
     items are similar to texts seen on export page, so you can easily
-    identify what they mean.
+    identify what they mean. Those are:
 
 .. config:option:: $cfg['Export']['format']
 
@@ -2756,6 +2746,24 @@ Export and import settings
     :default: ``'sql'``
 
     Default export format.
+
+    Value values are:
+
+    * ``'codegen'`` NHibernate code generation output
+    * ``'csv'`` :term:`Comma--separated text<CSV>`
+    * ``'excel'`` CSV file optimized for use with Microsoft Excel
+    * ``'htmlexcel'`` **DOES NOT SEEM TO WORK**
+    * ``'htmlword'`` HTML file for opening in or importing into Microsoft Word
+    * ``'latex'`` :term:`LaTeX<LATEX>` typesetting markup file
+    * ``'ods'`` OpenDocument format spreadsheet as used in LibreOffice
+    * ``'odt'`` OpenDocument format text document as used in LibreOffice
+    * ``'pdf'`` :term:`PDF`
+    * ``'sql'`` :term:`SQL` is the standard import and export format for database servers
+    * ``'texytext'`` Text format for the Texy! markup language
+    * ``'xml'`` :term:`eXtensible Markup Language<XML>` format for sharing documents and marking up text
+    * ``'yaml'`` Another variation of markup language used for data serialization, designed to be easier for humans to read
+
+    ** MISSING MediaWiki table and PHP array AS OPTIONS **
 
 .. config:option:: $cfg['Export']['method']
 
