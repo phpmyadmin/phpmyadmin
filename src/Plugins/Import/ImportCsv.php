@@ -64,6 +64,7 @@ class ImportCsv extends AbstractImportCsv
     private string $columns = '';
     private int $maxLines = 0;
     private bool $csvHasColumnNames = false;
+    private bool $emptyValueAsNull = false;
     private string $newDatabaseName = '';
     private string $newTableName = '';
 
@@ -154,6 +155,12 @@ class ImportCsv extends AbstractImportCsv
         }
 
         $leaf = new BoolPropertyItem(
+            'empty_is_null',
+            __('Import empty values as NULL'),
+        );
+        $generalOptions->addProperty($leaf);
+
+        $leaf = new BoolPropertyItem(
             'ignore',
             __('Do not abort on INSERT error'),
         );
@@ -179,6 +186,7 @@ class ImportCsv extends AbstractImportCsv
         $this->columns = $request->getParsedBodyParamAsString('csv_columns', '');
         $this->maxLines = min(0, (int) $request->getParsedBodyParamAsStringOrNull('csv_partial_import'));
         $this->csvHasColumnNames = $request->getParsedBodyParam('csv_col_names') !== null;
+        $this->emptyValueAsNull = $request->getParsedBodyParam('csv_empty_is_null') !== null;
         $this->newDatabaseName = $request->getParsedBodyParamAsString('csv_new_db_name', '');
         $this->newTableName = $request->getParsedBodyParamAsString('csv_new_tbl_name', '');
     }
@@ -386,11 +394,6 @@ class ImportCsv extends AbstractImportCsv
                         $i += $csvTerminatedLen - 1;
                     }
 
-                    // unquoted NULL string
-                    if ($needEnd === false && $value === 'NULL') {
-                        $value = null;
-                    }
-
                     if ($fail) {
                         $i = $fallbacki;
                         $ch = mb_substr($buffer, $i, 1);
@@ -509,7 +512,7 @@ class ImportCsv extends AbstractImportCsv
                             $sql .= ', ';
                         }
 
-                        if ($val === null) {
+                        if ($val === 'NULL' || ($this->emptyValueAsNull && $val === '')) {
                             $sql .= 'NULL';
                         } else {
                             $sql .= $dbi->quoteString($val);
@@ -560,6 +563,22 @@ class ImportCsv extends AbstractImportCsv
             /* Fill out all rows */
             foreach ($rows as $i => $row) {
                 $rows[$i] = array_pad($row, $maxCols, 'NULL');
+            }
+
+            if ($this->emptyValueAsNull) {
+                foreach ($rows as &$row) {
+                    foreach ($row as &$value) {
+                        if ($value !== '') {
+                            continue;
+                        }
+
+                        $value = 'NULL';
+                    }
+
+                    unset($value);
+                }
+
+                unset($row);
             }
 
             $colNames = [];
