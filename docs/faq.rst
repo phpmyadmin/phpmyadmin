@@ -920,6 +920,10 @@ And then this hexadecimal value can be used in the configuration file.
 The `sodium_hex2bin <https://www.php.net/sodium_hex2bin>`_ function is used here to convert the hexadecimal value back to the
 binary format.
 
+.. seealso::
+    :config:option:`$cfg['URLQueryEncryptionSecretKey']`,
+    :config:option:`$cfg['blowfish_secret']`
+
 .. _faqlimitations:
 
 Known limitations
