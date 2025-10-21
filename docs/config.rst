@@ -2909,7 +2909,7 @@ PDF Options
 
     Array of possible paper sizes for creating PDF pages.
 
-    You should never need to change this.
+    You should never need to change this. To change your default setting, use :config:option:`$cfg['PDFDefaultPageSize']`.
 
 .. config:option:: $cfg['PDFDefaultPageSize']
 
@@ -3014,9 +3014,7 @@ Web server settings
     :term:`HTTP` transfers. Set to
     true/false for enabling/disabling. When set to 'auto' (string),
     phpMyAdmin tries to enable output buffering and will automatically
-    disable it if your browser has some problems with buffering. IE6 with
-    a certain patch is known to cause data corruption when having enabled
-    buffering.
+    disable it if your browser has some problems with buffering.
 
     .. deprecated:: 6.0.0
 
@@ -3071,8 +3069,8 @@ Web server settings
     :type: integer
     :default: 1000
 
-    Limit for length of :term:`URL` in links.  When length would be above this
-    limit, it is replaced by form with button. This is required as some web
+    Limit for length of :term:`URL` in links.  When the length would be above this
+    limit, it is replaced by a form with a button. This is required as some web
     servers (:term:`IIS`) have problems with long :term:`URL` .
 
 .. config:option:: $cfg['CSPAllow']
@@ -3152,8 +3150,9 @@ Design customization
     :default: ``'left'``
 
     Defines the place where table row links (Edit, Copy, Delete) would be
-    put when tables contents are displayed (you may have them displayed at
-    the left side, right side, both sides or nowhere).
+    put when tables contents are displayed.
+
+    Possible values are: ``'left'``, ``'right'``, ``'both'``, or ``'none'``.
 
 .. config:option:: $cfg['RowActionLinksWithoutUnique']
 
@@ -3502,8 +3501,8 @@ Various display setting
     If :config:option:`$cfg['QueryHistoryDB']` is set to ``true``, all your
     Queries are logged to a table, which has to be created by you (see
     :config:option:`$cfg['Servers'][$i]['history']`). If set to false, all your
-    queries will be appended to the form, but only as long as your window is
-    opened they remain saved.
+    queries will be appended to the form, but only remain saved as long as
+    your web browser window is opened.
 
     When using the JavaScript based query window, it will always get updated
     when you click on a new table/db to browse and will focus if you click on
@@ -3901,8 +3900,8 @@ configuration options, only the most frequently used ones.
 
 .. warning::
 
-    Don't use the controluser 'pma' if it does not yet exist and don't use 'pmapass'
-    as password.
+    Don't define the controluser 'pma' if it does not yet exist and you should select
+    your own more secure password instead of 'pmapass'.
 
 .. _example-signon:
 
@@ -3939,13 +3938,13 @@ for a password when accessing remotely, you can achieve it using following snipp
 .. note::
 
     Filtering based on IP addresses isn't reliable over the internet, use it
-    only for local address.
+    only for local addresses.
 
 Example for using multiple MySQL servers
 ++++++++++++++++++++++++++++++++++++++++
 
 You can configure any number of servers using :config:option:`$cfg['Servers']`,
-following example shows two of them:
+the following example shows using two of them:
 
 .. code-block:: php
 
@@ -3978,7 +3977,7 @@ following example shows two of them:
 Google Cloud SQL with SSL
 +++++++++++++++++++++++++
 
-To connect to Google Could SQL, you currently need to disable certificate
+To connect to Google Cloud SQL, you currently need to disable certificate
 verification. This is caused by the certificate being issued for CN matching
 your instance name, but you connect to an IP address and PHP tries to match
 these two. With verification you end up with error message like:
@@ -4096,7 +4095,7 @@ reCaptcha using Google reCaptcha v2/v3
 
     $cfg['CaptchaLoginPublicKey'] = 'xxxxxxxxxxxxxxxx-xxxxxxxxxxxx';
     $cfg['CaptchaLoginPrivateKey'] = 'xxxxxxxxx-xxxxxxxxxxxxxx';
-    // Remove it if you dot not want the checkbox mode
+    // Remove it if you do not want the checkbox mode
     $cfg['CaptchaMethod'] = 'checkbox';
 
 .. seealso:: `Google reCaptcha Developer's Guide <https://developers.google.com/recaptcha/intro>`_
