@@ -1726,8 +1726,7 @@ Generic settings
 
     Set the number of seconds a script is allowed to run. If seconds is
     set to zero, no time limit is imposed. This setting is used while
-    importing/exporting dump files but has
-    no effect when PHP is running in safe mode.
+    importing/exporting dump files.
 
 .. config:option:: $cfg['SessionSavePath']
 
@@ -1754,7 +1753,7 @@ Generic settings
 
     This setting is used while importing/exporting dump files
     so you definitely don't want to put here too low a
-    value. It has no effect when PHP is running in safe mode.
+    value.
 
     You can also use any string as in :file:`php.ini`, eg. ``'16M'``. Ensure you
     don't omit the suffix (16 means 16 bytes!)
@@ -3339,9 +3338,6 @@ SQL query box settings
 
 Web server upload/save/import directories
 -----------------------------------------
-
-If PHP is running in safe mode, all directories must be owned by the same user
-as the owner of the phpMyAdmin scripts.
 
 If the directory where phpMyAdmin is installed is subject to an
 ``open_basedir`` restriction, you need to create a temporary directory in some
