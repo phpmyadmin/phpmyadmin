@@ -75,8 +75,8 @@ Safe Mode or not, and so on). So, you must have Zlib support
 
 Your uploaded file is saved by PHP in the "upload dir", as defined in
 :file:`php.ini` by the variable ``upload_tmp_dir`` (usually the system
-default is */tmp*). We recommend the following setup for Apache
-servers running in safe mode, to enable uploads of files while being
+default is */tmp*). We recommend the following setup
+to enable uploads of files while being
 reasonably secure:
 
 * create a separate directory for uploads: :command:`mkdir /tmp/php`
