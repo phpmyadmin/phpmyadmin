@@ -81,11 +81,11 @@ They are called ':term:`Media type`', 'Browser transformation' and
   to specify a MIME character set you can define it in the
   transformation\_options. You have to put that outside of the pre-
   defined options of the specific mime-transform, as the last value of
-  the set. Use the format "'; charset=XXX'". If you use a transform, for
+  the set. Use the format ``'; charset=XXX'``. If you use a transform, for
   which you can specify 2 options and you want to append a character
-  set, enter "'first parameter','second parameter','charset=us-ascii'".
-  You can, however use the defaults for the parameters: "'','','charset
-  =us-ascii'". The default options can be configured using
+  set, enter ``'first parameter','second parameter','charset=us-ascii'``.
+  You can, however use the defaults for the parameters: ``'','','charset
+  =us-ascii'``. The default options can be configured using
   :config:option:`$cfg['DefaultTransformations']`.
 * 'Input transformation' is another drop-down menu that corresponds exactly
   with the instructions above for "Browser display transformation" except
