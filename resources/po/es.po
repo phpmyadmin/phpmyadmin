@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-10-19 00:30+0000\n"
-"PO-Revision-Date: 2025-02-24 01:46+0000\n"
-"Last-Translator: Salvador Peña <salvadorp74@hotmail.com>\n"
+"PO-Revision-Date: 2025-10-23 14:02+0000\n"
+"Last-Translator: Rolando Rivas <rolandorafaelrivas@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/es/>\n"
 "Language: es\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.1-dev\n"
+"X-Generator: Weblate 5.14.1-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -1952,10 +1952,8 @@ msgstr "Apagado"
 # Used on libraries/export/csv.php to decide what level of compatibility needs
 # due to excel version
 #: resources/templates/database/events/index.twig:161
-#, fuzzy
-#| msgid "Excel edition"
 msgid "Event editor"
-msgstr "Versión de Excel"
+msgstr "Editor de eventos"
 
 #: resources/templates/database/events/index.twig:166
 #: resources/templates/database/routines/index.twig:83
@@ -1980,10 +1978,8 @@ msgid "Save changes"
 msgstr "Guardar cambios"
 
 #: resources/templates/database/events/index.twig:181
-#, fuzzy
-#| msgid "Export of event %s"
 msgid "Export event"
-msgstr "Exportar evento %s"
+msgstr "Exportar evento"
 
 #: resources/templates/database/export/index.twig:61
 msgid ""
@@ -2143,10 +2139,8 @@ msgid "Update query"
 msgstr "Actualizar la consulta"
 
 #: resources/templates/database/multi_table_query/form.twig:175
-#, fuzzy
-#| msgid "Update query"
 msgid "Copy query"
-msgstr "Actualizar la consulta"
+msgstr "Copiar consulta"
 
 #: resources/templates/database/multi_table_query/form.twig:176
 #: src/Html/Generator.php:545
@@ -2453,10 +2447,8 @@ msgid "Function"
 msgstr "Función"
 
 #: resources/templates/database/routines/execute_form.twig:54
-#, fuzzy
-#| msgid "This page does not contain any tables!"
 msgid "This routine does not require any parameters."
-msgstr "¡Esta página no contiene ninguna tabla!"
+msgstr "Esta rutina no requiere ningún parámetro"
 
 #: resources/templates/database/routines/index.twig:3 src/Menu.php:371
 #: src/Util.php:1380
@@ -2489,16 +2481,12 @@ msgid "Returns"
 msgstr "Retorna"
 
 #: resources/templates/database/routines/index.twig:78
-#, fuzzy
-#| msgid "Routine name"
 msgid "Routine editor"
-msgstr "Nombre de rutina"
+msgstr "Editor de rutina"
 
 #: resources/templates/database/routines/index.twig:98
-#, fuzzy
-#| msgid "Export of routine %s"
 msgid "Export routine"
-msgstr "Exportar la rutina %s"
+msgstr "Exportar rutina"
 
 #: resources/templates/database/routines/index.twig:113
 #: src/Controllers/Database/RoutinesController.php:354
