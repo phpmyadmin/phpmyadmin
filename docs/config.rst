@@ -2437,9 +2437,7 @@ Main panel
     :default: true
 
     Defines whether or not to display space usage and statistics about
-    databases and tables. Note that statistics requires at least MySQL
-    3.23.3 and that, at this date, MySQL doesn't return such information
-    for Berkeley DB tables.
+    databases and tables.
 
 .. config:option:: $cfg['ShowServerInfo']
 

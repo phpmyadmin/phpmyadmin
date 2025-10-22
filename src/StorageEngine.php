@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Dbal\DatabaseInterface;
-use PhpMyAdmin\Engines\Bdb;
-use PhpMyAdmin\Engines\Berkeleydb;
 use PhpMyAdmin\Engines\Binlog;
 use PhpMyAdmin\Engines\Innobase;
 use PhpMyAdmin\Engines\Innodb;
@@ -241,8 +239,6 @@ class StorageEngine
     public static function getEngine(string $engine): StorageEngine
     {
         return match (mb_strtolower($engine)) {
-            'bdb' => new Bdb($engine),
-            'berkeleydb' => new Berkeleydb($engine),
             'binlog' => new Binlog($engine),
             'innobase' => new Innobase($engine),
             'innodb' => new Innodb($engine),

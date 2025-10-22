@@ -6,8 +6,6 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Cache;
 use PhpMyAdmin\Dbal\DatabaseInterface;
-use PhpMyAdmin\Engines\Bdb;
-use PhpMyAdmin\Engines\Berkeleydb;
 use PhpMyAdmin\Engines\Binlog;
 use PhpMyAdmin\Engines\Innobase;
 use PhpMyAdmin\Engines\Innodb;
@@ -109,8 +107,6 @@ class StorageEngineTest extends AbstractTestCase
     {
         return [
             [StorageEngine::class, 'unknown engine'],
-            [Bdb::class, 'Bdb'],
-            [Berkeleydb::class, 'Berkeleydb'],
             [Binlog::class, 'Binlog'],
             [Innobase::class, 'Innobase'],
             [Innodb::class, 'Innodb'],
