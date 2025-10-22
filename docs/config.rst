@@ -2904,7 +2904,7 @@ Tabs display settings
     :default: ``'welcome'``
 
     Defines the tab displayed by default on server view. The possible values
-    are the localized equivalent of:
+    are:
 
     * ``welcome`` (recommended for multi-user setups)
     * ``databases``,
@@ -2918,7 +2918,7 @@ Tabs display settings
     :default: ``'structure'``
 
     Defines the tab displayed by default on database view. The possible values
-    are the localized equivalent of:
+    are:
 
     * ``structure``
     * ``sql``
@@ -2931,7 +2931,7 @@ Tabs display settings
     :default: ``'browse'``
 
     Defines the tab displayed by default on table view. The possible values
-    are the localized equivalent of:
+    are:
 
     * ``structure``
     * ``sql``
