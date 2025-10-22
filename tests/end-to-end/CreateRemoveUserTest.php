@@ -49,7 +49,7 @@ class CreateRemoveUserTest extends TestBase
     {
         $this->waitForElement('partialLinkText', 'User accounts')->click();
 
-        // Let the User Accounts page load
+        // Let the User Accounts page load.
         $this->waitAjax();
 
         $this->scrollIntoView('add_user_anchor');
