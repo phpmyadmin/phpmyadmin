@@ -29,16 +29,15 @@ class ExportTest extends TestCase
         yield 'valid value' => ['codegen', 'codegen'];
         yield 'valid value 2' => ['csv', 'csv'];
         yield 'valid value 3' => ['excel', 'excel'];
-        yield 'valid value 4' => ['htmlexcel', 'htmlexcel'];
-        yield 'valid value 5' => ['htmlword', 'htmlword'];
-        yield 'valid value 6' => ['latex', 'latex'];
-        yield 'valid value 7' => ['ods', 'ods'];
-        yield 'valid value 8' => ['odt', 'odt'];
-        yield 'valid value 9' => ['pdf', 'pdf'];
-        yield 'valid value 10' => ['sql', 'sql'];
-        yield 'valid value 11' => ['texytext', 'texytext'];
-        yield 'valid value 12' => ['xml', 'xml'];
-        yield 'valid value 13' => ['yaml', 'yaml'];
+        yield 'valid value 4' => ['htmlword', 'htmlword'];
+        yield 'valid value 5' => ['latex', 'latex'];
+        yield 'valid value 6' => ['ods', 'ods'];
+        yield 'valid value 7' => ['odt', 'odt'];
+        yield 'valid value 8' => ['pdf', 'pdf'];
+        yield 'valid value 9' => ['sql', 'sql'];
+        yield 'valid value 10' => ['texytext', 'texytext'];
+        yield 'valid value 11' => ['xml', 'xml'];
+        yield 'valid value 12' => ['yaml', 'yaml'];
         yield 'invalid value' => ['invalid', 'sql'];
     }
 

@@ -674,7 +674,6 @@ class ConfigFile
                     'codegen',
                     'csv',
                     'excel',
-                    'htmlexcel',
                     'htmlword',
                     'latex',
                     'ods',
