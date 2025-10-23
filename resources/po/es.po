@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-10-19 00:30+0000\n"
-"PO-Revision-Date: 2025-10-23 14:02+0000\n"
-"Last-Translator: Rolando Rivas <rolandorafaelrivas@gmail.com>\n"
+"PO-Revision-Date: 2025-10-24 20:03+0000\n"
+"Last-Translator: Gustavo Gutierrez <gustavoegutierrezg23@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/es/>\n"
 "Language: es\n"
@@ -3551,10 +3551,8 @@ msgid "Server:"
 msgstr "Servidor:"
 
 #: resources/templates/home/index.twig:186
-#, fuzzy
-#| msgid "Host name:"
 msgid "Hostname:"
-msgstr "Nombre de Host:"
+msgstr "Nombre del Host:"
 
 #: resources/templates/home/index.twig:190
 msgid "Server type:"
@@ -4621,10 +4619,8 @@ msgid "Description"
 msgstr "Descripción"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:2
-#, fuzzy
-#| msgid "Buffer Pool Usage"
 msgid "Buffer pool usage"
-msgstr "Uso de la reserva de búfers"
+msgstr "Uso de la reserva de buffers"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:5
 msgid "Free pages"
@@ -4651,16 +4647,13 @@ msgid "Latched pages"
 msgstr "Páginas vinculadas"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:34
-#, fuzzy, php-format
-#| msgid "Busy pages"
+#, php-format
 msgid "%s pages"
-msgstr "Páginas activas"
+msgstr "%s paginas"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:41
-#, fuzzy
-#| msgid "Buffer Pool Activity"
 msgid "Buffer pool activity"
-msgstr "Actividad de la reserva de búfers"
+msgstr "Actividad de la reserva de buffers"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:44
 msgid "Read requests"
@@ -5851,10 +5844,8 @@ msgstr ""
 "complicada."
 
 #: resources/templates/server/status/monitor/index.twig:58
-#, fuzzy
-#| msgid "Import monitor configuration"
 msgid "Importing system monitor configuration"
-msgstr "Importar configuración"
+msgstr "Importar configuración del sistema de monitoreo"
 
 #: resources/templates/server/status/monitor/index.twig:63
 #: src/Controllers/JavaScriptMessagesController.php:301
@@ -5866,10 +5857,8 @@ msgid "Reset to default"
 msgstr "Restaurar valor predeterminado"
 
 #: resources/templates/server/status/monitor/index.twig:87
-#, fuzzy
-#| msgid "Monitor Instructions"
 msgid "System monitor instructions"
-msgstr "Instrucciones de monitorización"
+msgstr "Instrucciones del sistema de monitor"
 
 #: resources/templates/server/status/monitor/index.twig:92
 msgid ""
@@ -6049,8 +6038,6 @@ msgid "Cancel request"
 msgstr "Cancelar petición"
 
 #: resources/templates/server/status/monitor/index.twig:294
-#, fuzzy
-#| msgid "Analysing & loading logs. This may take a while."
 msgid "Analysing and loading logs. This may take a while."
 msgstr "Analizando y cargando registros. Esto puede demorar."
 
@@ -6074,10 +6061,8 @@ msgstr ""
 "período de tiempo:"
 
 #: resources/templates/server/status/monitor/index.twig:336
-#, fuzzy
-#| msgid "Jump to Log table"
 msgid "Jump to the log table"
-msgstr "Saltar a la tabla de registros"
+msgstr "Saltar a la tabla de registro"
 
 #: resources/templates/server/status/monitor/index.twig:346
 msgid "Monitor refresh failed"
@@ -6085,10 +6070,8 @@ msgstr "Falló la actualización del monitorizador"
 
 #: resources/templates/server/status/monitor/index.twig:350
 #: resources/templates/server/status/monitor/index.twig:369
-#, fuzzy
-#| msgid "Warning"
 msgid "Warning:"
-msgstr "Advertencia"
+msgstr "Advertencia:"
 
 #: resources/templates/server/status/monitor/index.twig:351
 msgid ""
@@ -6109,12 +6092,6 @@ msgid "Local monitor configuration incompatible!"
 msgstr "¡Configuración local de monitorización incompatible!"
 
 #: resources/templates/server/status/monitor/index.twig:370
-#, fuzzy
-#| msgid ""
-#| "The chart arrangement configuration in your browsers local storage is not "
-#| "compatible anymore to the newer version of the monitor dialog. It is very "
-#| "likely that your current configuration will not work anymore. Please "
-#| "reset your configuration to default in the <i>Settings</i> menu."
 msgid ""
 "The chart arrangement configuration in your browsers local storage is not "
 "compatible anymore to the newer version of the monitor dialog. It is very "
@@ -6122,9 +6099,10 @@ msgid ""
 "your configuration to default in the [em]Settings[/em] menu."
 msgstr ""
 "La configuración de distribución de gráficos en el almacenamiento local del "
-"navegador no es compatible con la nueva versión del sistema de "
-"monitorización. Es probable que la configuración no funcione. Reinicie la "
-"configuración a la predeterminada en el menú <i>Configuración</i>."
+"navegador ya no es compatible con la nueva versión del sistema de "
+"monitorización. Es probable que la configuración actual no funcione. Por "
+"favor reinicie la configuración a la predeterminada en el menú "
+"<em>Configuración</em>."
 
 #: resources/templates/server/status/processes/index.twig:14
 msgid "Show only active"
@@ -7530,16 +7508,12 @@ msgid "There are no triggers to display."
 msgstr "No hay disparadores para mostrar."
 
 #: resources/templates/triggers/list.twig:81
-#, fuzzy
-#| msgid "Trigger name"
 msgid "Trigger editor"
-msgstr "Nombre del disparador"
+msgstr "Editor de disparador"
 
 #: resources/templates/triggers/list.twig:101
-#, fuzzy
-#| msgid "Export of trigger %s"
 msgid "Export trigger"
-msgstr "Exportar disparador %s"
+msgstr "Exportar disparador"
 
 #: resources/templates/view_create.twig:75
 msgid "VIEW name"
@@ -12667,6 +12641,9 @@ msgid ""
 "to not work properly. Please refer to [doc@faq1-46]documentation[/doc] for "
 "possible issues."
 msgstr ""
+"La variable [code]HTTP_HOST[/code] no se encuentra, lo cual puede causar que "
+"phpMyAdmin no funcione correctamente. Por favor consulte [doc@faq1-46]"
+"documentation[/doc] para posibles problemas."
 
 #: src/Controllers/HomeController.php:458
 msgid ""
@@ -15686,14 +15663,12 @@ msgid "The columns have been moved successfully."
 msgstr "Las columnas fueron movidas exitosamente."
 
 #: src/Controllers/Table/Structure/MoveColumnsController.php:114
-#, fuzzy
-#| msgid "The selected user was not found in the privilege table."
 msgid "The selected columns do not match the columns in the table."
-msgstr "El usuario que seleccionó no se encontró en la tabla de privilegios."
+msgstr "Las columna seleccionadas no concuerdan con las columnas de la tabla."
 
 #: src/Controllers/Table/Structure/MoveColumnsController.php:141
 msgid "The selected columns are already in the correct order."
-msgstr ""
+msgstr "Las columnas seleccionadas ya se encuentran en el orden correcto."
 
 #: src/Controllers/Table/Structure/PartitioningController.php:254
 #: src/Controllers/Table/Structure/SaveController.php:267
@@ -15964,10 +15939,8 @@ msgid "You must provide a valid return type for the routine."
 msgstr "Debe proveer un tipo de retorno válido para la rutina."
 
 #: src/Database/Routines.php:809
-#, fuzzy
-#| msgid "Invalid routine type: \"%s\""
 msgid "Invalid routine type!"
-msgstr "Tipo de rutina inválido: \"%s\""
+msgstr "Tipo de rutina inválido!"
 
 #: src/Database/Routines.php:815
 msgid "You must provide a routine name!"
@@ -18833,14 +18806,12 @@ msgid "You must provide a trigger definition."
 msgstr "Debe proveer una definición del disparador."
 
 #: src/Types.php:97
-#, fuzzy
-#| msgid "Empty"
 msgid "empty"
-msgstr "Vaciar"
+msgstr "vaciar"
 
 #: src/Types.php:98
 msgid "not empty"
-msgstr ""
+msgstr "no vacío"
 
 #: src/Types.php:161
 msgid ""
