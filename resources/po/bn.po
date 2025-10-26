@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-10-19 00:30+0000\n"
+"POT-Creation-Date: 2025-10-26 00:29+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -640,7 +640,7 @@ msgstr "ব্যাবহারকারীর দল"
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
 #: src/Controllers/JavaScriptMessagesController.php:694
-#: src/Import/Import.php:1169 src/Menu.php:214 src/Menu.php:318
+#: src/Import/Import.php:1168 src/Menu.php:214 src/Menu.php:318
 #: src/Navigation/Nodes/NodeColumn.php:37
 #: src/Navigation/Nodes/NodeDatabase.php:59
 #: src/Navigation/Nodes/NodeTable.php:268 src/Util.php:1062 src/Util.php:1372
@@ -759,7 +759,7 @@ msgstr "স্বাভাবিক মানের জন্য, ব্যা�
 #: resources/templates/table/search/index.twig:40
 #: resources/templates/table/structure/display_structure.twig:23
 #: resources/templates/table/structure/display_structure.twig:478
-#: resources/templates/table/structure/display_table_stats.twig:108
+#: resources/templates/table/structure/display_table_stats.twig:107
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:8
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:11
 #: resources/templates/table/zoom_search/index.twig:38
@@ -1155,8 +1155,8 @@ msgstr "এসকিউএল ইতিহাস"
 #: resources/templates/console/display.twig:175
 #: resources/templates/database/designer/database_tables.twig:116
 #: resources/templates/database/routines/editor_form.twig:58
-#: resources/templates/table/structure/display_table_stats.twig:97
-#: src/Import/Import.php:1170 src/Import/Import.php:1228
+#: resources/templates/table/structure/display_table_stats.twig:96
+#: src/Import/Import.php:1169 src/Import/Import.php:1227
 #: src/Plugins/Export/ExportCodegen.php:58 src/Plugins/Export/ExportCsv.php:53
 #: src/Plugins/Export/ExportExcel.php:57
 #: src/Plugins/Export/ExportHtmlword.php:57
@@ -1999,7 +1999,7 @@ msgstr "সংজ্ঞা"
 #: resources/templates/database/routines/editor_form.twig:121
 #: resources/templates/import.twig:160 resources/templates/import.twig:162
 #: resources/templates/sql/query.twig:40
-#: resources/templates/table/structure/display_table_stats.twig:84
+#: resources/templates/table/structure/display_table_stats.twig:83
 #: resources/templates/triggers/editor_form.twig:64
 #: src/Config/Descriptions.php:638 src/Config/Descriptions.php:654
 msgid "Format"
@@ -2871,7 +2871,7 @@ msgid "Sum"
 msgstr "যোগ"
 
 #: resources/templates/database/structure/body_for_table_summary.twig:37
-#: src/StorageEngine.php:413
+#: src/StorageEngine.php:409
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s এই মাইএসকিউএল সার্ভার এর স্বাভাবিক মজুদ ব্যবস্থা।"
@@ -2947,7 +2947,7 @@ msgstr "টেবল পরীক্ষা"
 #: resources/templates/database/structure/check_all_tables.twig:22
 #: resources/templates/table/maintenance/optimize.twig:3
 #: resources/templates/table/operations/index.twig:385
-#: resources/templates/table/structure/display_table_stats.twig:68
+#: resources/templates/table/structure/display_table_stats.twig:67
 msgid "Optimize table"
 msgstr "টেবিল সর্বোচ্চ কার্যপযোগী কর"
 
@@ -3151,7 +3151,7 @@ msgstr "ব্যবহৃত"
 #: resources/templates/database/structure/table_header.twig:26
 #: resources/templates/table/structure/display_partitions.twig:29
 #: resources/templates/table/structure/display_structure.twig:220
-#: resources/templates/table/structure/display_table_stats.twig:119
+#: resources/templates/table/structure/display_table_stats.twig:118
 #: src/Controllers/Server/DatabasesController.php:259 src/Import/Import.php:130
 msgid "Rows"
 msgstr "সারির #"
@@ -3176,17 +3176,17 @@ msgid "Overhead"
 msgstr "অতিরিক্ত"
 
 #: resources/templates/database/structure/table_header.twig:51
-#: resources/templates/table/structure/display_table_stats.twig:154
+#: resources/templates/table/structure/display_table_stats.twig:153
 msgid "Creation"
 msgstr "প্রস্তুত"
 
 #: resources/templates/database/structure/table_header.twig:56
-#: resources/templates/table/structure/display_table_stats.twig:161
+#: resources/templates/table/structure/display_table_stats.twig:160
 msgid "Last update"
 msgstr "সর্বশেষ আপডেট"
 
 #: resources/templates/database/structure/table_header.twig:61
-#: resources/templates/table/structure/display_table_stats.twig:168
+#: resources/templates/table/structure/display_table_stats.twig:167
 msgid "Last check"
 msgstr "সর্বশেষ যাচাই"
 
@@ -8046,31 +8046,31 @@ msgstr "কার্যকর"
 msgid "Total"
 msgstr "মোট"
 
-#: resources/templates/table/structure/display_table_stats.twig:80
+#: resources/templates/table/structure/display_table_stats.twig:79
 msgid "Row statistics"
 msgstr "রো'র পরিসংখ্যান"
 
-#: resources/templates/table/structure/display_table_stats.twig:86
+#: resources/templates/table/structure/display_table_stats.twig:85
 msgid "static"
 msgstr "স্থায়ী"
 
-#: resources/templates/table/structure/display_table_stats.twig:88
+#: resources/templates/table/structure/display_table_stats.twig:87
 msgid "dynamic"
 msgstr "পরিবর্তনশীল"
 
-#: resources/templates/table/structure/display_table_stats.twig:99
+#: resources/templates/table/structure/display_table_stats.twig:98
 msgid "partitioned"
 msgstr "খন্ড করা হয়েছে"
 
-#: resources/templates/table/structure/display_table_stats.twig:128
+#: resources/templates/table/structure/display_table_stats.twig:127
 msgid "Row length"
 msgstr "রো'র দৈর্ঘ্য"
 
-#: resources/templates/table/structure/display_table_stats.twig:140
+#: resources/templates/table/structure/display_table_stats.twig:139
 msgid "Row size"
 msgstr "রো'র আকার"
 
-#: resources/templates/table/structure/display_table_stats.twig:147
+#: resources/templates/table/structure/display_table_stats.twig:146
 msgid "Next autoindex"
 msgstr "পরবর্তী অটোইনডেক্স"
 
@@ -9943,9 +9943,9 @@ msgstr "কার্যকর"
 msgid "Disable"
 msgstr "অকার্যকর"
 
-#: src/Config/ConfigFile.php:664 src/Config/ConfigFile.php:717
-#: src/Config/ConfigFile.php:729 src/Config/ConfigFile.php:737
-#: src/Config/ConfigFile.php:742 src/Plugins/Export/ExportHtmlword.php:72
+#: src/Config/ConfigFile.php:664 src/Config/ConfigFile.php:716
+#: src/Config/ConfigFile.php:728 src/Config/ConfigFile.php:736
+#: src/Config/ConfigFile.php:741 src/Plugins/Export/ExportHtmlword.php:72
 #: src/Plugins/Export/ExportLatex.php:113
 #: src/Plugins/Export/ExportMediawiki.php:68
 #: src/Plugins/Export/ExportOdt.php:84 src/Plugins/Export/ExportPdf.php:92
@@ -9954,9 +9954,9 @@ msgstr "অকার্যকর"
 msgid "structure"
 msgstr "কাঠামো"
 
-#: src/Config/ConfigFile.php:665 src/Config/ConfigFile.php:718
-#: src/Config/ConfigFile.php:730 src/Config/ConfigFile.php:738
-#: src/Config/ConfigFile.php:743 src/Plugins/Export/ExportHtmlword.php:72
+#: src/Config/ConfigFile.php:665 src/Config/ConfigFile.php:717
+#: src/Config/ConfigFile.php:729 src/Config/ConfigFile.php:737
+#: src/Config/ConfigFile.php:742 src/Plugins/Export/ExportHtmlword.php:72
 #: src/Plugins/Export/ExportLatex.php:113
 #: src/Plugins/Export/ExportMediawiki.php:68
 #: src/Plugins/Export/ExportOdt.php:84 src/Plugins/Export/ExportPdf.php:92
@@ -9965,9 +9965,9 @@ msgstr "কাঠামো"
 msgid "data"
 msgstr "তথ্য"
 
-#: src/Config/ConfigFile.php:666 src/Config/ConfigFile.php:719
-#: src/Config/ConfigFile.php:731 src/Config/ConfigFile.php:739
-#: src/Config/ConfigFile.php:744 src/Plugins/Export/ExportHtmlword.php:72
+#: src/Config/ConfigFile.php:666 src/Config/ConfigFile.php:718
+#: src/Config/ConfigFile.php:730 src/Config/ConfigFile.php:738
+#: src/Config/ConfigFile.php:743 src/Plugins/Export/ExportHtmlword.php:72
 #: src/Plugins/Export/ExportLatex.php:113
 #: src/Plugins/Export/ExportMediawiki.php:68
 #: src/Plugins/Export/ExportOdt.php:84 src/Plugins/Export/ExportPdf.php:92
@@ -9988,19 +9988,19 @@ msgstr "কাষ্টম - কনফিগারের সাম্ভাব�
 msgid "Custom - like above, but without the quick/custom choice"
 msgstr "কাষ্টম - উপরের মতই, দ্রুত এবং কাষ্টম বাদ দিয়ে"
 
-#: src/Config/ConfigFile.php:723
+#: src/Config/ConfigFile.php:722
 msgid "complete inserts"
 msgstr "সম্পুর্ন ইনর্সাট"
 
-#: src/Config/ConfigFile.php:724
+#: src/Config/ConfigFile.php:723
 msgid "extended inserts"
 msgstr "বর্ধিত ইনসার্ট"
 
-#: src/Config/ConfigFile.php:725
+#: src/Config/ConfigFile.php:724
 msgid "both of the above"
 msgstr "উপরের দুটিই"
 
-#: src/Config/ConfigFile.php:726
+#: src/Config/ConfigFile.php:725
 msgid "neither of the above"
 msgstr "উপরের কোনটি নয়"
 
@@ -13233,7 +13233,7 @@ msgid ""
 msgstr ""
 "এই ভিউটির অন্তত পক্ষে এক সারি তথ্য রয়েছে। অনুগ্রহ করে %sdocumentation%s দেখুন।"
 
-#: src/Controllers/Database/StructureController.php:737
+#: src/Controllers/Database/StructureController.php:736
 msgid "unknown"
 msgstr "অজানা"
 
@@ -17029,10 +17029,6 @@ msgstr "%d মোট"
 msgid "Link not found!"
 msgstr "সংযোগটি পাওয়া যায়নি!"
 
-#: src/Engines/Bdb.php:27
-msgid "Version information"
-msgstr "সংস্করন সম্পর্কিত তথ্য"
-
 #: src/Engines/Innodb.php:29
 msgid "Data home directory"
 msgstr "তথ্যের হোম ডিরেক্টরী"
@@ -17605,38 +17601,38 @@ msgid ""
 "SQL queries containing transactional engine tables can be rolled back."
 msgstr ""
 
-#: src/Import/Import.php:1173
+#: src/Import/Import.php:1172
 #, php-format
 msgid "Go to table: %s"
 msgstr "টেবল এ যাও: %s"
 
-#: src/Import/Import.php:1181
+#: src/Import/Import.php:1180
 #, php-format
 msgid "Structure of %s"
 msgstr "%s এর আকৃতি"
 
-#: src/Import/Import.php:1188 src/Import/Import.php:1237
+#: src/Import/Import.php:1187 src/Import/Import.php:1236
 #, php-format
 msgid "Edit settings for %s"
 msgstr "%s এর সেটিংস সম্পাদনা"
 
-#: src/Import/Import.php:1199
+#: src/Import/Import.php:1198
 #, php-format
 msgid "Go to view: %s"
 msgstr "ভিউ এ যাও : %s"
 
-#: src/Import/Import.php:1220
+#: src/Import/Import.php:1219
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr "এই আকৃতিটি তৈরী করা বা পরিবর্তন করা হয়েছে। এখানে আপনি:"
 
-#: src/Import/Import.php:1222
+#: src/Import/Import.php:1221
 #, fuzzy
 #| msgid "View a structure's contents by clicking on its name"
 msgid "View a structure's contents by clicking on its name."
 msgstr "একটি আকৃতির বিশদ দেখুন তার নামে ক্লিক করে"
 
-#: src/Import/Import.php:1223
+#: src/Import/Import.php:1222
 #, fuzzy
 #| msgid ""
 #| "Change any of its settings by clicking the corresponding \"Options\" link"
@@ -17644,13 +17640,13 @@ msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr "\"Options\" এ ক্লীক করে যে কোন সেটিংস পরিবর্তন করুন"
 
-#: src/Import/Import.php:1224
+#: src/Import/Import.php:1223
 #, fuzzy
 #| msgid "Edit structure by following the \"Structure\" link"
 msgid "Edit structure by following the \"Structure\" link."
 msgstr "আকৃতি সম্পাদনা কর এই \"Structure\" সংযোগের দ্বারা"
 
-#: src/Import/Import.php:1231
+#: src/Import/Import.php:1230
 #, php-format
 msgid "Go to database: %s"
 msgstr "ডাটাবেইজ এ যাও: %s"
@@ -19588,22 +19584,22 @@ msgstr "ডাটাবেইজ %s এ SQL অনুসন্ধান/অন�
 msgid "Run SQL query/queries on table %s"
 msgstr "ডাটাবেইজ %s এ SQL অনুসন্ধান/অনুসন্ধানসমূহ চালাও"
 
-#: src/StorageEngine.php:317
+#: src/StorageEngine.php:313
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr "মজুদ ব্যবস্থার অবস্থা সর্ম্পকে বিশদ তথ্য নাই।"
 
-#: src/StorageEngine.php:414
+#: src/StorageEngine.php:410
 #, php-format
 msgid "%s is available on this MySQL server."
 msgstr "%s এই সার্ভারে আছে।"
 
-#: src/StorageEngine.php:415
+#: src/StorageEngine.php:411
 #, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr "%s এই সার্ভারে অকার্যকর।"
 
-#: src/StorageEngine.php:416
+#: src/StorageEngine.php:412
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "এই MySQL সার্ভারটি %s মজুদ ব্যবস্থা সমর্থন করে না।"
@@ -20188,6 +20184,9 @@ msgstr "জিপ আর্কাইভের ভুল:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "জিপ আর্কাইভের ভিতর কোন ফাইল পাওয়া যায়নি!"
+
+#~ msgid "Version information"
+#~ msgstr "সংস্করন সম্পর্কিত তথ্য"
 
 #~ msgid "pages"
 #~ msgstr "পাতাসমূহ"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-10-19 00:30+0000\n"
+"POT-Creation-Date: 2025-10-26 00:29+0000\n"
 "PO-Revision-Date: 2024-06-13 15:09+0000\n"
 "Last-Translator: Ricky From Hong Kong <lamricky11@hotmail.com>\n"
 "Language-Team: Azerbaijani <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -632,7 +632,7 @@ msgstr "İstifadəçi qrupu"
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
 #: src/Controllers/JavaScriptMessagesController.php:694
-#: src/Import/Import.php:1169 src/Menu.php:214 src/Menu.php:318
+#: src/Import/Import.php:1168 src/Menu.php:214 src/Menu.php:318
 #: src/Navigation/Nodes/NodeColumn.php:37
 #: src/Navigation/Nodes/NodeDatabase.php:59
 #: src/Navigation/Nodes/NodeTable.php:268 src/Util.php:1062 src/Util.php:1372
@@ -760,7 +760,7 @@ msgstr ""
 #: resources/templates/table/search/index.twig:40
 #: resources/templates/table/structure/display_structure.twig:23
 #: resources/templates/table/structure/display_structure.twig:478
-#: resources/templates/table/structure/display_table_stats.twig:108
+#: resources/templates/table/structure/display_table_stats.twig:107
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:8
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:11
 #: resources/templates/table/zoom_search/index.twig:38
@@ -1151,8 +1151,8 @@ msgstr "Tarixçə"
 #: resources/templates/console/display.twig:175
 #: resources/templates/database/designer/database_tables.twig:116
 #: resources/templates/database/routines/editor_form.twig:58
-#: resources/templates/table/structure/display_table_stats.twig:97
-#: src/Import/Import.php:1170 src/Import/Import.php:1228
+#: resources/templates/table/structure/display_table_stats.twig:96
+#: src/Import/Import.php:1169 src/Import/Import.php:1227
 #: src/Plugins/Export/ExportCodegen.php:58 src/Plugins/Export/ExportCsv.php:53
 #: src/Plugins/Export/ExportExcel.php:57
 #: src/Plugins/Export/ExportHtmlword.php:57
@@ -1953,7 +1953,7 @@ msgstr "Tərif"
 #: resources/templates/database/routines/editor_form.twig:121
 #: resources/templates/import.twig:160 resources/templates/import.twig:162
 #: resources/templates/sql/query.twig:40
-#: resources/templates/table/structure/display_table_stats.twig:84
+#: resources/templates/table/structure/display_table_stats.twig:83
 #: resources/templates/triggers/editor_form.twig:64
 #: src/Config/Descriptions.php:638 src/Config/Descriptions.php:654
 msgid "Format"
@@ -2817,7 +2817,7 @@ msgid "Sum"
 msgstr "Cəmi"
 
 #: resources/templates/database/structure/body_for_table_summary.twig:37
-#: src/StorageEngine.php:413
+#: src/StorageEngine.php:409
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s bu MySQL serverinde esas depolama motoru olaraq qurulmuşdur."
@@ -2889,7 +2889,7 @@ msgstr "Cədvəli yoxla"
 #: resources/templates/database/structure/check_all_tables.twig:22
 #: resources/templates/table/maintenance/optimize.twig:3
 #: resources/templates/table/operations/index.twig:385
-#: resources/templates/table/structure/display_table_stats.twig:68
+#: resources/templates/table/structure/display_table_stats.twig:67
 msgid "Optimize table"
 msgstr "Cədvəli optimallaşdır"
 
@@ -3082,7 +3082,7 @@ msgstr "istifadede"
 #: resources/templates/database/structure/table_header.twig:26
 #: resources/templates/table/structure/display_partitions.twig:29
 #: resources/templates/table/structure/display_structure.twig:220
-#: resources/templates/table/structure/display_table_stats.twig:119
+#: resources/templates/table/structure/display_table_stats.twig:118
 #: src/Controllers/Server/DatabasesController.php:259 src/Import/Import.php:130
 msgid "Rows"
 msgstr "Sıra sayı"
@@ -3105,17 +3105,17 @@ msgid "Overhead"
 msgstr "Aşma dəyəri"
 
 #: resources/templates/database/structure/table_header.twig:51
-#: resources/templates/table/structure/display_table_stats.twig:154
+#: resources/templates/table/structure/display_table_stats.twig:153
 msgid "Creation"
 msgstr "Quruluş"
 
 #: resources/templates/database/structure/table_header.twig:56
-#: resources/templates/table/structure/display_table_stats.twig:161
+#: resources/templates/table/structure/display_table_stats.twig:160
 msgid "Last update"
 msgstr "En son yenilenme"
 
 #: resources/templates/database/structure/table_header.twig:61
-#: resources/templates/table/structure/display_table_stats.twig:168
+#: resources/templates/table/structure/display_table_stats.twig:167
 msgid "Last check"
 msgstr "En son yoxlama"
 
@@ -7807,31 +7807,31 @@ msgstr "Effektiv"
 msgid "Total"
 msgstr "Cəmi"
 
-#: resources/templates/table/structure/display_table_stats.twig:80
+#: resources/templates/table/structure/display_table_stats.twig:79
 msgid "Row statistics"
 msgstr "Sətir Statistikası"
 
-#: resources/templates/table/structure/display_table_stats.twig:86
+#: resources/templates/table/structure/display_table_stats.twig:85
 msgid "static"
 msgstr "statik"
 
-#: resources/templates/table/structure/display_table_stats.twig:88
+#: resources/templates/table/structure/display_table_stats.twig:87
 msgid "dynamic"
 msgstr "dinamik"
 
-#: resources/templates/table/structure/display_table_stats.twig:99
+#: resources/templates/table/structure/display_table_stats.twig:98
 msgid "partitioned"
 msgstr "bölündü"
 
-#: resources/templates/table/structure/display_table_stats.twig:128
+#: resources/templates/table/structure/display_table_stats.twig:127
 msgid "Row length"
 msgstr "Sıra uzunluğu"
 
-#: resources/templates/table/structure/display_table_stats.twig:140
+#: resources/templates/table/structure/display_table_stats.twig:139
 msgid "Row size"
 msgstr "Sıra boyu"
 
-#: resources/templates/table/structure/display_table_stats.twig:147
+#: resources/templates/table/structure/display_table_stats.twig:146
 msgid "Next autoindex"
 msgstr "Növbəti avtoindeks"
 
@@ -9643,9 +9643,9 @@ msgstr "Enabled"
 msgid "Disable"
 msgstr "Söndürülüb"
 
-#: src/Config/ConfigFile.php:664 src/Config/ConfigFile.php:717
-#: src/Config/ConfigFile.php:729 src/Config/ConfigFile.php:737
-#: src/Config/ConfigFile.php:742 src/Plugins/Export/ExportHtmlword.php:72
+#: src/Config/ConfigFile.php:664 src/Config/ConfigFile.php:716
+#: src/Config/ConfigFile.php:728 src/Config/ConfigFile.php:736
+#: src/Config/ConfigFile.php:741 src/Plugins/Export/ExportHtmlword.php:72
 #: src/Plugins/Export/ExportLatex.php:113
 #: src/Plugins/Export/ExportMediawiki.php:68
 #: src/Plugins/Export/ExportOdt.php:84 src/Plugins/Export/ExportPdf.php:92
@@ -9654,9 +9654,9 @@ msgstr "Söndürülüb"
 msgid "structure"
 msgstr "struktur"
 
-#: src/Config/ConfigFile.php:665 src/Config/ConfigFile.php:718
-#: src/Config/ConfigFile.php:730 src/Config/ConfigFile.php:738
-#: src/Config/ConfigFile.php:743 src/Plugins/Export/ExportHtmlword.php:72
+#: src/Config/ConfigFile.php:665 src/Config/ConfigFile.php:717
+#: src/Config/ConfigFile.php:729 src/Config/ConfigFile.php:737
+#: src/Config/ConfigFile.php:742 src/Plugins/Export/ExportHtmlword.php:72
 #: src/Plugins/Export/ExportLatex.php:113
 #: src/Plugins/Export/ExportMediawiki.php:68
 #: src/Plugins/Export/ExportOdt.php:84 src/Plugins/Export/ExportPdf.php:92
@@ -9665,9 +9665,9 @@ msgstr "struktur"
 msgid "data"
 msgstr ""
 
-#: src/Config/ConfigFile.php:666 src/Config/ConfigFile.php:719
-#: src/Config/ConfigFile.php:731 src/Config/ConfigFile.php:739
-#: src/Config/ConfigFile.php:744 src/Plugins/Export/ExportHtmlword.php:72
+#: src/Config/ConfigFile.php:666 src/Config/ConfigFile.php:718
+#: src/Config/ConfigFile.php:730 src/Config/ConfigFile.php:738
+#: src/Config/ConfigFile.php:743 src/Plugins/Export/ExportHtmlword.php:72
 #: src/Plugins/Export/ExportLatex.php:113
 #: src/Plugins/Export/ExportMediawiki.php:68
 #: src/Plugins/Export/ExportOdt.php:84 src/Plugins/Export/ExportPdf.php:92
@@ -9688,19 +9688,19 @@ msgstr "Fərdi - Konfiqurasiya üçün mümkün bütün seçimləri göstər"
 msgid "Custom - like above, but without the quick/custom choice"
 msgstr ""
 
-#: src/Config/ConfigFile.php:723
+#: src/Config/ConfigFile.php:722
 msgid "complete inserts"
 msgstr "tam əlavələr"
 
-#: src/Config/ConfigFile.php:724
+#: src/Config/ConfigFile.php:723
 msgid "extended inserts"
 msgstr "Genişlədilmiş əlavələr"
 
-#: src/Config/ConfigFile.php:725
+#: src/Config/ConfigFile.php:724
 msgid "both of the above"
 msgstr "yuxarıdakının ikisidə"
 
-#: src/Config/ConfigFile.php:726
+#: src/Config/ConfigFile.php:725
 msgid "neither of the above"
 msgstr "yuxarıdakından heç biri"
 
@@ -12684,7 +12684,7 @@ msgstr ""
 "Bu görünüş ən az bu sətirin sayı qədər olur. Zəhmət olmasa "
 "%sdokumentasiyaya%s baxın."
 
-#: src/Controllers/Database/StructureController.php:737
+#: src/Controllers/Database/StructureController.php:736
 msgid "unknown"
 msgstr "bilinmir"
 
@@ -16283,10 +16283,6 @@ msgstr "cəmi %d"
 msgid "Link not found!"
 msgstr "Link tapılmadı!"
 
-#: src/Engines/Bdb.php:27
-msgid "Version information"
-msgstr "Versiya informasiyası"
-
 #: src/Engines/Innodb.php:29
 msgid "Data home directory"
 msgstr ""
@@ -16811,45 +16807,45 @@ msgid ""
 "SQL queries containing transactional engine tables can be rolled back."
 msgstr ""
 
-#: src/Import/Import.php:1173
+#: src/Import/Import.php:1172
 #, php-format
 msgid "Go to table: %s"
 msgstr "%s Cədvəlinə get"
 
-#: src/Import/Import.php:1181
+#: src/Import/Import.php:1180
 #, php-format
 msgid "Structure of %s"
 msgstr "%s Strukturu"
 
-#: src/Import/Import.php:1188 src/Import/Import.php:1237
+#: src/Import/Import.php:1187 src/Import/Import.php:1236
 #, php-format
 msgid "Edit settings for %s"
 msgstr ""
 
-#: src/Import/Import.php:1199
+#: src/Import/Import.php:1198
 #, php-format
 msgid "Go to view: %s"
 msgstr ""
 
-#: src/Import/Import.php:1220
+#: src/Import/Import.php:1219
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 
-#: src/Import/Import.php:1222
+#: src/Import/Import.php:1221
 msgid "View a structure's contents by clicking on its name."
 msgstr ""
 
-#: src/Import/Import.php:1223
+#: src/Import/Import.php:1222
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 
-#: src/Import/Import.php:1224
+#: src/Import/Import.php:1223
 msgid "Edit structure by following the \"Structure\" link."
 msgstr ""
 
-#: src/Import/Import.php:1231
+#: src/Import/Import.php:1230
 #, php-format
 msgid "Go to database: %s"
 msgstr "%s Verilənlər Bazasına get"
@@ -18715,22 +18711,22 @@ msgstr "%s verilənlər bazasına SQL sorğusu(ları) göndər"
 msgid "Run SQL query/queries on table %s"
 msgstr "%s verilənlər bazasına SQL sorğusu(ları) göndər"
 
-#: src/StorageEngine.php:317
+#: src/StorageEngine.php:313
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr "Bu depolama motoru haqqında etrafli status me'lumatı mövcud deyildir."
 
-#: src/StorageEngine.php:414
+#: src/StorageEngine.php:410
 #, php-format
 msgid "%s is available on this MySQL server."
 msgstr "%s bu MySQL serverində vardır."
 
-#: src/StorageEngine.php:415
+#: src/StorageEngine.php:411
 #, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr "%s motoru bu serverde söndürülmüşdür."
 
-#: src/StorageEngine.php:416
+#: src/StorageEngine.php:412
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Bu MySQL server %s depolama motorunu desteklememektedir."
@@ -19285,6 +19281,9 @@ msgstr ""
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr ""
+
+#~ msgid "Version information"
+#~ msgstr "Versiya informasiyası"
 
 #~ msgid "Connection for controluser as defined in your configuration failed."
 #~ msgstr ""

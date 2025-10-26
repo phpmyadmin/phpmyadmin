@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-10-19 00:30+0000\n"
+"POT-Creation-Date: 2025-10-26 00:29+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Sinhala <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -642,7 +642,7 @@ msgstr "භාවිතා කරන්නන් කණ්ඩායම"
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
 #: src/Controllers/JavaScriptMessagesController.php:694
-#: src/Import/Import.php:1169 src/Menu.php:214 src/Menu.php:318
+#: src/Import/Import.php:1168 src/Menu.php:214 src/Menu.php:318
 #: src/Navigation/Nodes/NodeColumn.php:37
 #: src/Navigation/Nodes/NodeDatabase.php:59
 #: src/Navigation/Nodes/NodeTable.php:268 src/Util.php:1062 src/Util.php:1372
@@ -768,7 +768,7 @@ msgstr ""
 #: resources/templates/table/search/index.twig:40
 #: resources/templates/table/structure/display_structure.twig:23
 #: resources/templates/table/structure/display_structure.twig:478
-#: resources/templates/table/structure/display_table_stats.twig:108
+#: resources/templates/table/structure/display_table_stats.twig:107
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:8
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:11
 #: resources/templates/table/zoom_search/index.twig:38
@@ -1165,8 +1165,8 @@ msgstr "SQL ඉතිහාසය"
 #: resources/templates/console/display.twig:175
 #: resources/templates/database/designer/database_tables.twig:116
 #: resources/templates/database/routines/editor_form.twig:58
-#: resources/templates/table/structure/display_table_stats.twig:97
-#: src/Import/Import.php:1170 src/Import/Import.php:1228
+#: resources/templates/table/structure/display_table_stats.twig:96
+#: src/Import/Import.php:1169 src/Import/Import.php:1227
 #: src/Plugins/Export/ExportCodegen.php:58 src/Plugins/Export/ExportCsv.php:53
 #: src/Plugins/Export/ExportExcel.php:57
 #: src/Plugins/Export/ExportHtmlword.php:57
@@ -2011,7 +2011,7 @@ msgstr "අර්ථ දැක්වීම"
 #: resources/templates/database/routines/editor_form.twig:121
 #: resources/templates/import.twig:160 resources/templates/import.twig:162
 #: resources/templates/sql/query.twig:40
-#: resources/templates/table/structure/display_table_stats.twig:84
+#: resources/templates/table/structure/display_table_stats.twig:83
 #: resources/templates/triggers/editor_form.twig:64
 #: src/Config/Descriptions.php:638 src/Config/Descriptions.php:654
 msgid "Format"
@@ -2877,7 +2877,7 @@ msgid "Sum"
 msgstr "එකතුව"
 
 #: resources/templates/database/structure/body_for_table_summary.twig:37
-#: src/StorageEngine.php:413
+#: src/StorageEngine.php:409
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s මෙම සේවාදායකයේ පෙරනිමි ගබඩා යන්ත්‍රයයි."
@@ -2953,7 +2953,7 @@ msgstr "වගුව පරීක්ෂා කරන්න"
 #: resources/templates/database/structure/check_all_tables.twig:22
 #: resources/templates/table/maintenance/optimize.twig:3
 #: resources/templates/table/operations/index.twig:385
-#: resources/templates/table/structure/display_table_stats.twig:68
+#: resources/templates/table/structure/display_table_stats.twig:67
 msgid "Optimize table"
 msgstr "වගුව ප්‍රශස්තගත කරන්න"
 
@@ -3151,7 +3151,7 @@ msgstr "භාවිතා වෙමින් පවතී"
 #: resources/templates/database/structure/table_header.twig:26
 #: resources/templates/table/structure/display_partitions.twig:29
 #: resources/templates/table/structure/display_structure.twig:220
-#: resources/templates/table/structure/display_table_stats.twig:119
+#: resources/templates/table/structure/display_table_stats.twig:118
 #: src/Controllers/Server/DatabasesController.php:259 src/Import/Import.php:130
 msgid "Rows"
 msgstr "පේළි"
@@ -3176,17 +3176,17 @@ msgid "Overhead"
 msgstr "පිරිවැය"
 
 #: resources/templates/database/structure/table_header.twig:51
-#: resources/templates/table/structure/display_table_stats.twig:154
+#: resources/templates/table/structure/display_table_stats.twig:153
 msgid "Creation"
 msgstr "සෑදීම"
 
 #: resources/templates/database/structure/table_header.twig:56
-#: resources/templates/table/structure/display_table_stats.twig:161
+#: resources/templates/table/structure/display_table_stats.twig:160
 msgid "Last update"
 msgstr "අවසන් යාවත්කාලීන කිරීම"
 
 #: resources/templates/database/structure/table_header.twig:61
-#: resources/templates/table/structure/display_table_stats.twig:168
+#: resources/templates/table/structure/display_table_stats.twig:167
 msgid "Last check"
 msgstr "අවසන් පරීක්ෂාව"
 
@@ -7996,31 +7996,31 @@ msgstr "එලදායී"
 msgid "Total"
 msgstr "මුළු එකතුව"
 
-#: resources/templates/table/structure/display_table_stats.twig:80
+#: resources/templates/table/structure/display_table_stats.twig:79
 msgid "Row statistics"
 msgstr "පේළි සංඛ්‍ය ලේඛන"
 
-#: resources/templates/table/structure/display_table_stats.twig:86
+#: resources/templates/table/structure/display_table_stats.twig:85
 msgid "static"
 msgstr "ස්ථිතික"
 
-#: resources/templates/table/structure/display_table_stats.twig:88
+#: resources/templates/table/structure/display_table_stats.twig:87
 msgid "dynamic"
 msgstr "ගතික"
 
-#: resources/templates/table/structure/display_table_stats.twig:99
+#: resources/templates/table/structure/display_table_stats.twig:98
 msgid "partitioned"
 msgstr "කොටස් කරන ලද"
 
-#: resources/templates/table/structure/display_table_stats.twig:128
+#: resources/templates/table/structure/display_table_stats.twig:127
 msgid "Row length"
 msgstr "පේළියේ දිග"
 
-#: resources/templates/table/structure/display_table_stats.twig:140
+#: resources/templates/table/structure/display_table_stats.twig:139
 msgid "Row size"
 msgstr "පේළියේ ප්‍රමාණය"
 
-#: resources/templates/table/structure/display_table_stats.twig:147
+#: resources/templates/table/structure/display_table_stats.twig:146
 msgid "Next autoindex"
 msgstr "මීළඟ ක්‍රමාංකය"
 
@@ -9904,9 +9904,9 @@ msgstr "සක්‍රිය කරන ලද"
 msgid "Disable"
 msgstr "අක්‍රිය"
 
-#: src/Config/ConfigFile.php:664 src/Config/ConfigFile.php:717
-#: src/Config/ConfigFile.php:729 src/Config/ConfigFile.php:737
-#: src/Config/ConfigFile.php:742 src/Plugins/Export/ExportHtmlword.php:72
+#: src/Config/ConfigFile.php:664 src/Config/ConfigFile.php:716
+#: src/Config/ConfigFile.php:728 src/Config/ConfigFile.php:736
+#: src/Config/ConfigFile.php:741 src/Plugins/Export/ExportHtmlword.php:72
 #: src/Plugins/Export/ExportLatex.php:113
 #: src/Plugins/Export/ExportMediawiki.php:68
 #: src/Plugins/Export/ExportOdt.php:84 src/Plugins/Export/ExportPdf.php:92
@@ -9915,9 +9915,9 @@ msgstr "අක්‍රිය"
 msgid "structure"
 msgstr "සැකිල්ල"
 
-#: src/Config/ConfigFile.php:665 src/Config/ConfigFile.php:718
-#: src/Config/ConfigFile.php:730 src/Config/ConfigFile.php:738
-#: src/Config/ConfigFile.php:743 src/Plugins/Export/ExportHtmlword.php:72
+#: src/Config/ConfigFile.php:665 src/Config/ConfigFile.php:717
+#: src/Config/ConfigFile.php:729 src/Config/ConfigFile.php:737
+#: src/Config/ConfigFile.php:742 src/Plugins/Export/ExportHtmlword.php:72
 #: src/Plugins/Export/ExportLatex.php:113
 #: src/Plugins/Export/ExportMediawiki.php:68
 #: src/Plugins/Export/ExportOdt.php:84 src/Plugins/Export/ExportPdf.php:92
@@ -9926,9 +9926,9 @@ msgstr "සැකිල්ල"
 msgid "data"
 msgstr "දත්ත"
 
-#: src/Config/ConfigFile.php:666 src/Config/ConfigFile.php:719
-#: src/Config/ConfigFile.php:731 src/Config/ConfigFile.php:739
-#: src/Config/ConfigFile.php:744 src/Plugins/Export/ExportHtmlword.php:72
+#: src/Config/ConfigFile.php:666 src/Config/ConfigFile.php:718
+#: src/Config/ConfigFile.php:730 src/Config/ConfigFile.php:738
+#: src/Config/ConfigFile.php:743 src/Plugins/Export/ExportHtmlword.php:72
 #: src/Plugins/Export/ExportLatex.php:113
 #: src/Plugins/Export/ExportMediawiki.php:68
 #: src/Plugins/Export/ExportOdt.php:84 src/Plugins/Export/ExportPdf.php:92
@@ -9949,19 +9949,19 @@ msgstr "අභිමත - සියලුම තෝරා ගැනීම් ප
 msgid "Custom - like above, but without the quick/custom choice"
 msgstr "අභිමත - ඉහත මෙන්, නමුත් අභිමත/කඩිනම් තෝරාගැනීම් නොමෙතිව"
 
-#: src/Config/ConfigFile.php:723
+#: src/Config/ConfigFile.php:722
 msgid "complete inserts"
 msgstr "සම්පූර්ණ ඇතුළු කිරීම්"
 
-#: src/Config/ConfigFile.php:724
+#: src/Config/ConfigFile.php:723
 msgid "extended inserts"
 msgstr "විස්තෘත ඇතුළු කිරීම්"
 
-#: src/Config/ConfigFile.php:725
+#: src/Config/ConfigFile.php:724
 msgid "both of the above"
 msgstr "ඉහත ද්විත්වයම"
 
-#: src/Config/ConfigFile.php:726
+#: src/Config/ConfigFile.php:725
 msgid "neither of the above"
 msgstr "ඉහත එක් වර්ගයක්වත් නොව"
 
@@ -13253,7 +13253,7 @@ msgid ""
 msgstr ""
 "මෙම දසුනේ අවම වශයෙන් පේළි මෙතරම් සංඛයාවක් ඇත. කරුණාකර %s ලේඛනය %s අධ්‍යනය කරන්න."
 
-#: src/Controllers/Database/StructureController.php:737
+#: src/Controllers/Database/StructureController.php:736
 msgid "unknown"
 msgstr "නොදන්නා"
 
@@ -16916,10 +16916,6 @@ msgstr "මුළු එකතුව %d"
 msgid "Link not found!"
 msgstr "සබැඳිය හමු නොවිණි!"
 
-#: src/Engines/Bdb.php:27
-msgid "Version information"
-msgstr "අනුවාදය පිළිබඳ තොරතුරු"
-
 #: src/Engines/Innodb.php:29
 msgid "Data home directory"
 msgstr "දත්ත මුල් පිටුව"
@@ -17453,38 +17449,38 @@ msgid ""
 "SQL queries containing transactional engine tables can be rolled back."
 msgstr ""
 
-#: src/Import/Import.php:1173
+#: src/Import/Import.php:1172
 #, php-format
 msgid "Go to table: %s"
 msgstr "%s වගුව වෙත යන්න"
 
-#: src/Import/Import.php:1181
+#: src/Import/Import.php:1180
 #, php-format
 msgid "Structure of %s"
 msgstr "%s හි සැකිල්ල"
 
-#: src/Import/Import.php:1188 src/Import/Import.php:1237
+#: src/Import/Import.php:1187 src/Import/Import.php:1236
 #, php-format
 msgid "Edit settings for %s"
 msgstr "%s සඳහා සිටුවම් සංස්කරණය කරන්න"
 
-#: src/Import/Import.php:1199
+#: src/Import/Import.php:1198
 #, php-format
 msgid "Go to view: %s"
 msgstr "%s දසුන වෙත යන්න"
 
-#: src/Import/Import.php:1220
+#: src/Import/Import.php:1219
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr "පහත සැකිලි අලුතින් සාදා හෝ වෙනස් කර ඇත. මෙහිදී ඔබට:"
 
-#: src/Import/Import.php:1222
+#: src/Import/Import.php:1221
 #, fuzzy
 #| msgid "View a structure's contents by clicking on its name"
 msgid "View a structure's contents by clicking on its name."
 msgstr "සැකිල්ලක අන්තර්ගතය එහි නම මත ක්ලික් කිරීමෙන් බලන්න"
 
-#: src/Import/Import.php:1223
+#: src/Import/Import.php:1222
 #, fuzzy
 #| msgid ""
 #| "Change any of its settings by clicking the corresponding \"Options\" link"
@@ -17492,13 +17488,13 @@ msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr "අදාල \"විකල්ප\" සබැඳිය මත ක්ලික් කිරීමෙන් එහි ඕනෑම සිටුවමක් වෙනස් කරන්න"
 
-#: src/Import/Import.php:1224
+#: src/Import/Import.php:1223
 #, fuzzy
 #| msgid "Edit structure by following the \"Structure\" link"
 msgid "Edit structure by following the \"Structure\" link."
 msgstr "\"සැකිල්ල\" සබැඳිය ඔස්සේ යාමෙන් සැකිල්ල සංස්කරණය කරන්න"
 
-#: src/Import/Import.php:1231
+#: src/Import/Import.php:1230
 #, php-format
 msgid "Go to database: %s"
 msgstr "%s දත්තගබඩාව වෙත යන්න"
@@ -19426,22 +19422,22 @@ msgstr "SQL විමසුමක් සිදු කරන්න/%s දත්�
 msgid "Run SQL query/queries on table %s"
 msgstr "SQL විමසුමක් සිදු කරන්න/%s දත්තගබඩාව මත විමසුම්"
 
-#: src/StorageEngine.php:317
+#: src/StorageEngine.php:313
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr "ගබඩා යන්ත්‍රයෙහි තත්වය පිලිබඳ වැඩිදුර තොරතුරු නැත."
 
-#: src/StorageEngine.php:414
+#: src/StorageEngine.php:410
 #, php-format
 msgid "%s is available on this MySQL server."
 msgstr "මෙම MySQL සේවාදායකයේ %s ඇත."
 
-#: src/StorageEngine.php:415
+#: src/StorageEngine.php:411
 #, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr "මෙම MySQL සේවාදායකයේ %s අක්‍රීය කර ඇත."
 
-#: src/StorageEngine.php:416
+#: src/StorageEngine.php:412
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "මෙම MySQL සේවාදායකයේ %s ගබඩා යන්ත්‍රය භාවිත කල නොහැක."
@@ -20021,6 +20017,9 @@ msgstr "ZIP ආරක්ෂණයේ දෝෂයක් ඇත:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr ""
+
+#~ msgid "Version information"
+#~ msgstr "අනුවාදය පිළිබඳ තොරතුරු"
 
 #~ msgid "pages"
 #~ msgstr "පිටු"

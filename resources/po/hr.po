@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-10-19 00:30+0000\n"
+"POT-Creation-Date: 2025-10-26 00:29+0000\n"
 "PO-Revision-Date: 2023-12-08 16:06+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -653,7 +653,7 @@ msgstr "Korisnik"
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
 #: src/Controllers/JavaScriptMessagesController.php:694
-#: src/Import/Import.php:1169 src/Menu.php:214 src/Menu.php:318
+#: src/Import/Import.php:1168 src/Menu.php:214 src/Menu.php:318
 #: src/Navigation/Nodes/NodeColumn.php:37
 #: src/Navigation/Nodes/NodeDatabase.php:59
 #: src/Navigation/Nodes/NodeTable.php:268 src/Util.php:1062 src/Util.php:1372
@@ -781,7 +781,7 @@ msgstr ""
 #: resources/templates/table/search/index.twig:40
 #: resources/templates/table/structure/display_structure.twig:23
 #: resources/templates/table/structure/display_structure.twig:478
-#: resources/templates/table/structure/display_table_stats.twig:108
+#: resources/templates/table/structure/display_table_stats.twig:107
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:8
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:11
 #: resources/templates/table/zoom_search/index.twig:38
@@ -1182,8 +1182,8 @@ msgstr "SQL povijest"
 #: resources/templates/console/display.twig:175
 #: resources/templates/database/designer/database_tables.twig:116
 #: resources/templates/database/routines/editor_form.twig:58
-#: resources/templates/table/structure/display_table_stats.twig:97
-#: src/Import/Import.php:1170 src/Import/Import.php:1228
+#: resources/templates/table/structure/display_table_stats.twig:96
+#: src/Import/Import.php:1169 src/Import/Import.php:1227
 #: src/Plugins/Export/ExportCodegen.php:58 src/Plugins/Export/ExportCsv.php:53
 #: src/Plugins/Export/ExportExcel.php:57
 #: src/Plugins/Export/ExportHtmlword.php:57
@@ -2059,7 +2059,7 @@ msgstr "Opis"
 #: resources/templates/database/routines/editor_form.twig:121
 #: resources/templates/import.twig:160 resources/templates/import.twig:162
 #: resources/templates/sql/query.twig:40
-#: resources/templates/table/structure/display_table_stats.twig:84
+#: resources/templates/table/structure/display_table_stats.twig:83
 #: resources/templates/triggers/editor_form.twig:64
 #: src/Config/Descriptions.php:638 src/Config/Descriptions.php:654
 msgid "Format"
@@ -2963,7 +2963,7 @@ msgid "Sum"
 msgstr "Zbroj"
 
 #: resources/templates/database/structure/body_for_table_summary.twig:37
-#: src/StorageEngine.php:413
+#: src/StorageEngine.php:409
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s je zadani pogon pohranjivanja na ovom MySQL poslužitelju."
@@ -3043,7 +3043,7 @@ msgstr "Provjeri tablicu"
 #: resources/templates/database/structure/check_all_tables.twig:22
 #: resources/templates/table/maintenance/optimize.twig:3
 #: resources/templates/table/operations/index.twig:385
-#: resources/templates/table/structure/display_table_stats.twig:68
+#: resources/templates/table/structure/display_table_stats.twig:67
 msgid "Optimize table"
 msgstr "Optimiziraj tablicu"
 
@@ -3254,7 +3254,7 @@ msgstr "u upotrebi"
 #: resources/templates/database/structure/table_header.twig:26
 #: resources/templates/table/structure/display_partitions.twig:29
 #: resources/templates/table/structure/display_structure.twig:220
-#: resources/templates/table/structure/display_table_stats.twig:119
+#: resources/templates/table/structure/display_table_stats.twig:118
 #: src/Controllers/Server/DatabasesController.php:259 src/Import/Import.php:130
 msgid "Rows"
 msgstr "Redaka"
@@ -3279,17 +3279,17 @@ msgid "Overhead"
 msgstr "Prepunjenje"
 
 #: resources/templates/database/structure/table_header.twig:51
-#: resources/templates/table/structure/display_table_stats.twig:154
+#: resources/templates/table/structure/display_table_stats.twig:153
 msgid "Creation"
 msgstr "Izrada"
 
 #: resources/templates/database/structure/table_header.twig:56
-#: resources/templates/table/structure/display_table_stats.twig:161
+#: resources/templates/table/structure/display_table_stats.twig:160
 msgid "Last update"
 msgstr "Posljednje ažuriranje"
 
 #: resources/templates/database/structure/table_header.twig:61
-#: resources/templates/table/structure/display_table_stats.twig:168
+#: resources/templates/table/structure/display_table_stats.twig:167
 msgid "Last check"
 msgstr "Posljednja provjera"
 
@@ -8257,33 +8257,33 @@ msgstr "Na snazi"
 msgid "Total"
 msgstr "Ukupno"
 
-#: resources/templates/table/structure/display_table_stats.twig:80
+#: resources/templates/table/structure/display_table_stats.twig:79
 #, fuzzy
 #| msgid "Row Statistics"
 msgid "Row statistics"
 msgstr "Statistike redova"
 
-#: resources/templates/table/structure/display_table_stats.twig:86
+#: resources/templates/table/structure/display_table_stats.twig:85
 msgid "static"
 msgstr ""
 
-#: resources/templates/table/structure/display_table_stats.twig:88
+#: resources/templates/table/structure/display_table_stats.twig:87
 msgid "dynamic"
 msgstr "dinamički"
 
-#: resources/templates/table/structure/display_table_stats.twig:99
+#: resources/templates/table/structure/display_table_stats.twig:98
 msgid "partitioned"
 msgstr "particionirano"
 
-#: resources/templates/table/structure/display_table_stats.twig:128
+#: resources/templates/table/structure/display_table_stats.twig:127
 msgid "Row length"
 msgstr "Duljina retka"
 
-#: resources/templates/table/structure/display_table_stats.twig:140
+#: resources/templates/table/structure/display_table_stats.twig:139
 msgid "Row size"
 msgstr "Veličina retka"
 
-#: resources/templates/table/structure/display_table_stats.twig:147
+#: resources/templates/table/structure/display_table_stats.twig:146
 msgid "Next autoindex"
 msgstr ""
 
@@ -10230,9 +10230,9 @@ msgstr "Omogućeno"
 msgid "Disable"
 msgstr "Onemogućeno"
 
-#: src/Config/ConfigFile.php:664 src/Config/ConfigFile.php:717
-#: src/Config/ConfigFile.php:729 src/Config/ConfigFile.php:737
-#: src/Config/ConfigFile.php:742 src/Plugins/Export/ExportHtmlword.php:72
+#: src/Config/ConfigFile.php:664 src/Config/ConfigFile.php:716
+#: src/Config/ConfigFile.php:728 src/Config/ConfigFile.php:736
+#: src/Config/ConfigFile.php:741 src/Plugins/Export/ExportHtmlword.php:72
 #: src/Plugins/Export/ExportLatex.php:113
 #: src/Plugins/Export/ExportMediawiki.php:68
 #: src/Plugins/Export/ExportOdt.php:84 src/Plugins/Export/ExportPdf.php:92
@@ -10242,9 +10242,9 @@ msgstr "Onemogućeno"
 msgid "structure"
 msgstr "Strukturu"
 
-#: src/Config/ConfigFile.php:665 src/Config/ConfigFile.php:718
-#: src/Config/ConfigFile.php:730 src/Config/ConfigFile.php:738
-#: src/Config/ConfigFile.php:743 src/Plugins/Export/ExportHtmlword.php:72
+#: src/Config/ConfigFile.php:665 src/Config/ConfigFile.php:717
+#: src/Config/ConfigFile.php:729 src/Config/ConfigFile.php:737
+#: src/Config/ConfigFile.php:742 src/Plugins/Export/ExportHtmlword.php:72
 #: src/Plugins/Export/ExportLatex.php:113
 #: src/Plugins/Export/ExportMediawiki.php:68
 #: src/Plugins/Export/ExportOdt.php:84 src/Plugins/Export/ExportPdf.php:92
@@ -10253,9 +10253,9 @@ msgstr "Strukturu"
 msgid "data"
 msgstr "Podatci"
 
-#: src/Config/ConfigFile.php:666 src/Config/ConfigFile.php:719
-#: src/Config/ConfigFile.php:731 src/Config/ConfigFile.php:739
-#: src/Config/ConfigFile.php:744 src/Plugins/Export/ExportHtmlword.php:72
+#: src/Config/ConfigFile.php:666 src/Config/ConfigFile.php:718
+#: src/Config/ConfigFile.php:730 src/Config/ConfigFile.php:738
+#: src/Config/ConfigFile.php:743 src/Plugins/Export/ExportHtmlword.php:72
 #: src/Plugins/Export/ExportLatex.php:113
 #: src/Plugins/Export/ExportMediawiki.php:68
 #: src/Plugins/Export/ExportOdt.php:84 src/Plugins/Export/ExportPdf.php:92
@@ -10278,23 +10278,23 @@ msgstr ""
 msgid "Custom - like above, but without the quick/custom choice"
 msgstr ""
 
-#: src/Config/ConfigFile.php:723
+#: src/Config/ConfigFile.php:722
 #, fuzzy
 #| msgid "Complete inserts"
 msgid "complete inserts"
 msgstr "Dovrši umetanja"
 
-#: src/Config/ConfigFile.php:724
+#: src/Config/ConfigFile.php:723
 #, fuzzy
 #| msgid "Extended inserts"
 msgid "extended inserts"
 msgstr "Proširena umetanja"
 
-#: src/Config/ConfigFile.php:725
+#: src/Config/ConfigFile.php:724
 msgid "both of the above"
 msgstr "oboje navedeno"
 
-#: src/Config/ConfigFile.php:726
+#: src/Config/ConfigFile.php:725
 msgid "neither of the above"
 msgstr "ništa od navedenog"
 
@@ -13394,7 +13394,7 @@ msgid ""
 msgstr ""
 "Ovaj prikaz sadrži najmanje ovoliko redaka. Proučite %sdokumentaciju%s."
 
-#: src/Controllers/Database/StructureController.php:737
+#: src/Controllers/Database/StructureController.php:736
 msgid "unknown"
 msgstr "nepoznato"
 
@@ -17259,10 +17259,6 @@ msgstr "ukupno"
 msgid "Link not found!"
 msgstr "Veza nije pronađena"
 
-#: src/Engines/Bdb.php:27
-msgid "Version information"
-msgstr "Podaci o verziji"
-
 #: src/Engines/Innodb.php:29
 msgid "Data home directory"
 msgstr "Osnovna mapa podataka"
@@ -17853,47 +17849,47 @@ msgid ""
 "SQL queries containing transactional engine tables can be rolled back."
 msgstr ""
 
-#: src/Import/Import.php:1173
+#: src/Import/Import.php:1172
 #, fuzzy, php-format
 msgid "Go to table: %s"
 msgstr "Nema baza podataka"
 
-#: src/Import/Import.php:1181
+#: src/Import/Import.php:1180
 #, fuzzy, php-format
 #| msgid "Structure only"
 msgid "Structure of %s"
 msgstr "Samo strukturu"
 
-#: src/Import/Import.php:1188 src/Import/Import.php:1237
+#: src/Import/Import.php:1187 src/Import/Import.php:1236
 #, php-format
 msgid "Edit settings for %s"
 msgstr "Uredi postavke za %s"
 
-#: src/Import/Import.php:1199
+#: src/Import/Import.php:1198
 #, fuzzy, php-format
 #| msgid "Export views"
 msgid "Go to view: %s"
 msgstr "Vrsta izvoza"
 
-#: src/Import/Import.php:1220
+#: src/Import/Import.php:1219
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 
-#: src/Import/Import.php:1222
+#: src/Import/Import.php:1221
 msgid "View a structure's contents by clicking on its name."
 msgstr ""
 
-#: src/Import/Import.php:1223
+#: src/Import/Import.php:1222
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 
-#: src/Import/Import.php:1224
+#: src/Import/Import.php:1223
 msgid "Edit structure by following the \"Structure\" link."
 msgstr ""
 
-#: src/Import/Import.php:1231
+#: src/Import/Import.php:1230
 #, fuzzy, php-format
 msgid "Go to database: %s"
 msgstr "Nema baza podataka"
@@ -19914,22 +19910,22 @@ msgstr "Pokreni SQL upit na bazi podataka %s"
 msgid "Run SQL query/queries on table %s"
 msgstr "Pokreni SQL upit na bazi podataka %s"
 
-#: src/StorageEngine.php:317
+#: src/StorageEngine.php:313
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr "Za ovaj pogon pohranjivanje ne postoje raspoloživi podaci."
 
-#: src/StorageEngine.php:414
+#: src/StorageEngine.php:410
 #, php-format
 msgid "%s is available on this MySQL server."
 msgstr "%s je raspoloživ na ovom MySQL poslužitelju."
 
-#: src/StorageEngine.php:415
+#: src/StorageEngine.php:411
 #, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr "%s je onemogućen za ovaj MySQL poslužitelj."
 
-#: src/StorageEngine.php:416
+#: src/StorageEngine.php:412
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Ovaj MySQL poslužitelj ne podržava pogon pohranjivanja %s."
@@ -20490,6 +20486,9 @@ msgstr "Pogreška u ZIP arhivi:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "Datoteke nisu pronađene unutar ZIP arhive!"
+
+#~ msgid "Version information"
+#~ msgstr "Podaci o verziji"
 
 #~ msgid "pages"
 #~ msgstr "stranice"

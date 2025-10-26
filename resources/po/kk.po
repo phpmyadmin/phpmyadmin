@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-10-19 00:30+0000\n"
+"POT-Creation-Date: 2025-10-26 00:29+0000\n"
 "PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Kazakh <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -597,7 +597,7 @@ msgstr "Túıin toby"
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
 #: src/Controllers/JavaScriptMessagesController.php:694
-#: src/Import/Import.php:1169 src/Menu.php:214 src/Menu.php:318
+#: src/Import/Import.php:1168 src/Menu.php:214 src/Menu.php:318
 #: src/Navigation/Nodes/NodeColumn.php:37
 #: src/Navigation/Nodes/NodeDatabase.php:59
 #: src/Navigation/Nodes/NodeTable.php:268 src/Util.php:1062 src/Util.php:1372
@@ -719,7 +719,7 @@ msgstr ""
 #: resources/templates/table/search/index.twig:40
 #: resources/templates/table/structure/display_structure.twig:23
 #: resources/templates/table/structure/display_structure.twig:478
-#: resources/templates/table/structure/display_table_stats.twig:108
+#: resources/templates/table/structure/display_table_stats.twig:107
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:8
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:11
 #: resources/templates/table/zoom_search/index.twig:38
@@ -1094,8 +1094,8 @@ msgstr "Tarıh"
 #: resources/templates/console/display.twig:175
 #: resources/templates/database/designer/database_tables.twig:116
 #: resources/templates/database/routines/editor_form.twig:58
-#: resources/templates/table/structure/display_table_stats.twig:97
-#: src/Import/Import.php:1170 src/Import/Import.php:1228
+#: resources/templates/table/structure/display_table_stats.twig:96
+#: src/Import/Import.php:1169 src/Import/Import.php:1227
 #: src/Plugins/Export/ExportCodegen.php:58 src/Plugins/Export/ExportCsv.php:53
 #: src/Plugins/Export/ExportExcel.php:57
 #: src/Plugins/Export/ExportHtmlword.php:57
@@ -1840,7 +1840,7 @@ msgstr "Anyqtamasy"
 #: resources/templates/database/routines/editor_form.twig:121
 #: resources/templates/import.twig:160 resources/templates/import.twig:162
 #: resources/templates/sql/query.twig:40
-#: resources/templates/table/structure/display_table_stats.twig:84
+#: resources/templates/table/structure/display_table_stats.twig:83
 #: resources/templates/triggers/editor_form.twig:64
 #: src/Config/Descriptions.php:638 src/Config/Descriptions.php:654
 msgid "Format"
@@ -2674,7 +2674,7 @@ msgid "Sum"
 msgstr "Somasy"
 
 #: resources/templates/database/structure/body_for_table_summary.twig:37
-#: src/StorageEngine.php:413
+#: src/StorageEngine.php:409
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "Bul MySQL serverindegi %s ádepki saqtaýysh mehanızmy bolyp tabylady."
@@ -2742,7 +2742,7 @@ msgstr "Kesteniń baqylaý somasy"
 #: resources/templates/database/structure/check_all_tables.twig:22
 #: resources/templates/table/maintenance/optimize.twig:3
 #: resources/templates/table/operations/index.twig:385
-#: resources/templates/table/structure/display_table_stats.twig:68
+#: resources/templates/table/structure/display_table_stats.twig:67
 msgid "Optimize table"
 msgstr "Kesteni ońtaılandyrý"
 
@@ -2928,7 +2928,7 @@ msgstr "paıdalanýda"
 #: resources/templates/database/structure/table_header.twig:26
 #: resources/templates/table/structure/display_partitions.twig:29
 #: resources/templates/table/structure/display_structure.twig:220
-#: resources/templates/table/structure/display_table_stats.twig:119
+#: resources/templates/table/structure/display_table_stats.twig:118
 #: src/Controllers/Server/DatabasesController.php:259 src/Import/Import.php:130
 msgid "Rows"
 msgstr "Joldar"
@@ -2953,17 +2953,17 @@ msgid "Overhead"
 msgstr "Ústeme"
 
 #: resources/templates/database/structure/table_header.twig:51
-#: resources/templates/table/structure/display_table_stats.twig:154
+#: resources/templates/table/structure/display_table_stats.twig:153
 msgid "Creation"
 msgstr "Jasalys"
 
 #: resources/templates/database/structure/table_header.twig:56
-#: resources/templates/table/structure/display_table_stats.twig:161
+#: resources/templates/table/structure/display_table_stats.twig:160
 msgid "Last update"
 msgstr "Sońǵy jańartý"
 
 #: resources/templates/database/structure/table_header.twig:61
-#: resources/templates/table/structure/display_table_stats.twig:168
+#: resources/templates/table/structure/display_table_stats.twig:167
 msgid "Last check"
 msgstr "Sońǵy tekserý"
 
@@ -7681,31 +7681,31 @@ msgstr "Tıimdi"
 msgid "Total"
 msgstr "Qorytyndy"
 
-#: resources/templates/table/structure/display_table_stats.twig:80
+#: resources/templates/table/structure/display_table_stats.twig:79
 msgid "Row statistics"
 msgstr "Jol statıstıkasy"
 
-#: resources/templates/table/structure/display_table_stats.twig:86
+#: resources/templates/table/structure/display_table_stats.twig:85
 msgid "static"
 msgstr "statıkalyq"
 
-#: resources/templates/table/structure/display_table_stats.twig:88
+#: resources/templates/table/structure/display_table_stats.twig:87
 msgid "dynamic"
 msgstr "dınamıkalyq"
 
-#: resources/templates/table/structure/display_table_stats.twig:99
+#: resources/templates/table/structure/display_table_stats.twig:98
 msgid "partitioned"
 msgstr "bólingen"
 
-#: resources/templates/table/structure/display_table_stats.twig:128
+#: resources/templates/table/structure/display_table_stats.twig:127
 msgid "Row length"
 msgstr "Jol uzyndyǵy"
 
-#: resources/templates/table/structure/display_table_stats.twig:140
+#: resources/templates/table/structure/display_table_stats.twig:139
 msgid "Row size"
 msgstr "Jol ólshemi"
 
-#: resources/templates/table/structure/display_table_stats.twig:147
+#: resources/templates/table/structure/display_table_stats.twig:146
 msgid "Next autoindex"
 msgstr "Kelesi avtoındeks"
 
@@ -9642,9 +9642,9 @@ msgstr "Qosý"
 msgid "Disable"
 msgstr "Óshirý"
 
-#: src/Config/ConfigFile.php:664 src/Config/ConfigFile.php:717
-#: src/Config/ConfigFile.php:729 src/Config/ConfigFile.php:737
-#: src/Config/ConfigFile.php:742 src/Plugins/Export/ExportHtmlword.php:72
+#: src/Config/ConfigFile.php:664 src/Config/ConfigFile.php:716
+#: src/Config/ConfigFile.php:728 src/Config/ConfigFile.php:736
+#: src/Config/ConfigFile.php:741 src/Plugins/Export/ExportHtmlword.php:72
 #: src/Plugins/Export/ExportLatex.php:113
 #: src/Plugins/Export/ExportMediawiki.php:68
 #: src/Plugins/Export/ExportOdt.php:84 src/Plugins/Export/ExportPdf.php:92
@@ -9653,9 +9653,9 @@ msgstr "Óshirý"
 msgid "structure"
 msgstr "qurylym"
 
-#: src/Config/ConfigFile.php:665 src/Config/ConfigFile.php:718
-#: src/Config/ConfigFile.php:730 src/Config/ConfigFile.php:738
-#: src/Config/ConfigFile.php:743 src/Plugins/Export/ExportHtmlword.php:72
+#: src/Config/ConfigFile.php:665 src/Config/ConfigFile.php:717
+#: src/Config/ConfigFile.php:729 src/Config/ConfigFile.php:737
+#: src/Config/ConfigFile.php:742 src/Plugins/Export/ExportHtmlword.php:72
 #: src/Plugins/Export/ExportLatex.php:113
 #: src/Plugins/Export/ExportMediawiki.php:68
 #: src/Plugins/Export/ExportOdt.php:84 src/Plugins/Export/ExportPdf.php:92
@@ -9664,9 +9664,9 @@ msgstr "qurylym"
 msgid "data"
 msgstr "derekter"
 
-#: src/Config/ConfigFile.php:666 src/Config/ConfigFile.php:719
-#: src/Config/ConfigFile.php:731 src/Config/ConfigFile.php:739
-#: src/Config/ConfigFile.php:744 src/Plugins/Export/ExportHtmlword.php:72
+#: src/Config/ConfigFile.php:666 src/Config/ConfigFile.php:718
+#: src/Config/ConfigFile.php:730 src/Config/ConfigFile.php:738
+#: src/Config/ConfigFile.php:743 src/Plugins/Export/ExportHtmlword.php:72
 #: src/Plugins/Export/ExportLatex.php:113
 #: src/Plugins/Export/ExportMediawiki.php:68
 #: src/Plugins/Export/ExportOdt.php:84 src/Plugins/Export/ExportPdf.php:92
@@ -9687,19 +9687,19 @@ msgstr "Teńsheletin - teńsheý úshin barlyq yqtımal opsıalardy beıneleý"
 msgid "Custom - like above, but without the quick/custom choice"
 msgstr "Teńsheletin - joǵarydaǵydaı, biraq jyldam/teńsheletin tańdaýysyz"
 
-#: src/Config/ConfigFile.php:723
+#: src/Config/ConfigFile.php:722
 msgid "complete inserts"
 msgstr "tolyq kiristirýler"
 
-#: src/Config/ConfigFile.php:724
+#: src/Config/ConfigFile.php:723
 msgid "extended inserts"
 msgstr "keńeıtilgen kiristirýler"
 
-#: src/Config/ConfigFile.php:725
+#: src/Config/ConfigFile.php:724
 msgid "both of the above"
 msgstr "joǵarydaǵy ekeýi de"
 
-#: src/Config/ConfigFile.php:726
+#: src/Config/ConfigFile.php:725
 msgid "neither of the above"
 msgstr "joǵarydaǵy bireýi de joq"
 
@@ -12815,7 +12815,7 @@ msgid ""
 "%sdocumentation%s."
 msgstr "Bul kóriniste keminde osy jol sany bar. %sQujattamany%s qarańyz."
 
-#: src/Controllers/Database/StructureController.php:737
+#: src/Controllers/Database/StructureController.php:736
 msgid "unknown"
 msgstr "belgisiz"
 
@@ -16474,10 +16474,6 @@ msgstr "%d qorytyndy"
 msgid "Link not found!"
 msgstr "Silteme tabylmady!"
 
-#: src/Engines/Bdb.php:27
-msgid "Version information"
-msgstr "Nusqa aqparaty"
-
 #: src/Engines/Innodb.php:29
 msgid "Data home directory"
 msgstr "Derekterdiń basqy katalogi"
@@ -17064,46 +17060,46 @@ msgstr ""
 "Tek tranzaksıalyq mehanızmniń kesteleri bar INSERT, UPDATE, DELETE jáne "
 "REPLACE SQL-saýaldaryn qaıta oraltýǵa bolady."
 
-#: src/Import/Import.php:1173
+#: src/Import/Import.php:1172
 #, php-format
 msgid "Go to table: %s"
 msgstr "Kestege ótý: %s"
 
-#: src/Import/Import.php:1181
+#: src/Import/Import.php:1180
 #, php-format
 msgid "Structure of %s"
 msgstr "%s qurylymy"
 
-#: src/Import/Import.php:1188 src/Import/Import.php:1237
+#: src/Import/Import.php:1187 src/Import/Import.php:1236
 #, php-format
 msgid "Edit settings for %s"
 msgstr "%s úshin parametrlerdi óńdeý"
 
-#: src/Import/Import.php:1199
+#: src/Import/Import.php:1198
 #, php-format
 msgid "Go to view: %s"
 msgstr "Kóriniske ótý: %s"
 
-#: src/Import/Import.php:1220
+#: src/Import/Import.php:1219
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr "Kelesi qurylymdar jasaldy nemese ózgertildi. Munda múmkinsiz:"
 
-#: src/Import/Import.php:1222
+#: src/Import/Import.php:1221
 msgid "View a structure's contents by clicking on its name."
 msgstr "Qurylymnyń mazmunyn onyń atyn basý arqyly qarańyz."
 
-#: src/Import/Import.php:1223
+#: src/Import/Import.php:1222
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 "Sáıkes «Opsıalar» siltemesin basý arqyly onyń kez parametrlerin ózgertińiz."
 
-#: src/Import/Import.php:1224
+#: src/Import/Import.php:1223
 msgid "Edit structure by following the \"Structure\" link."
 msgstr "Qurylymdy kelesi «Qurylym» siltemesi boıynsha óńdeý."
 
-#: src/Import/Import.php:1231
+#: src/Import/Import.php:1230
 #, php-format
 msgid "Go to database: %s"
 msgstr "Derekqorǵa ótý: %s"
@@ -19043,23 +19039,23 @@ msgstr "«%s» derekqorynda SQL-saýal(dar)dy iske qosý"
 msgid "Run SQL query/queries on table %s"
 msgstr "%s kestesinde SQL saýal(dar)dy iske qosý"
 
-#: src/StorageEngine.php:317
+#: src/StorageEngine.php:313
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr ""
 "Bul saqtaýysh mehanizmy úshin mártebe týraly qoljetimdi egjeıly aqparat joq."
 
-#: src/StorageEngine.php:414
+#: src/StorageEngine.php:410
 #, php-format
 msgid "%s is available on this MySQL server."
 msgstr "%s bul MySQL serverinde qoljetimdi."
 
-#: src/StorageEngine.php:415
+#: src/StorageEngine.php:411
 #, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr "%s bul MySQL serveri úshin óshirilgen."
 
-#: src/StorageEngine.php:416
+#: src/StorageEngine.php:412
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Bul MySQL server %s saqtaýysh mehanızmyn qoldamaıdy."
@@ -19655,6 +19651,9 @@ msgstr "ZIP-muraǵatyndaǵy qate:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "ZIP-muraǵat isinde faıldar tabylmady!"
+
+#~ msgid "Version information"
+#~ msgstr "Nusqa aqparaty"
 
 #~ msgid "pages"
 #~ msgstr "bet"

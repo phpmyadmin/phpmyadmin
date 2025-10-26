@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-10-19 00:30+0000\n"
+"POT-Creation-Date: 2025-10-26 00:29+0000\n"
 "PO-Revision-Date: 2025-09-23 19:02+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -580,7 +580,7 @@ msgstr "Node groep"
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
 #: src/Controllers/JavaScriptMessagesController.php:694
-#: src/Import/Import.php:1169 src/Menu.php:214 src/Menu.php:318
+#: src/Import/Import.php:1168 src/Menu.php:214 src/Menu.php:318
 #: src/Navigation/Nodes/NodeColumn.php:37
 #: src/Navigation/Nodes/NodeDatabase.php:59
 #: src/Navigation/Nodes/NodeTable.php:268 src/Util.php:1062 src/Util.php:1372
@@ -702,7 +702,7 @@ msgstr ""
 #: resources/templates/table/search/index.twig:40
 #: resources/templates/table/structure/display_structure.twig:23
 #: resources/templates/table/structure/display_structure.twig:478
-#: resources/templates/table/structure/display_table_stats.twig:108
+#: resources/templates/table/structure/display_table_stats.twig:107
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:8
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:11
 #: resources/templates/table/zoom_search/index.twig:38
@@ -1077,8 +1077,8 @@ msgstr "Geschiedenis"
 #: resources/templates/console/display.twig:175
 #: resources/templates/database/designer/database_tables.twig:116
 #: resources/templates/database/routines/editor_form.twig:58
-#: resources/templates/table/structure/display_table_stats.twig:97
-#: src/Import/Import.php:1170 src/Import/Import.php:1228
+#: resources/templates/table/structure/display_table_stats.twig:96
+#: src/Import/Import.php:1169 src/Import/Import.php:1227
 #: src/Plugins/Export/ExportCodegen.php:58 src/Plugins/Export/ExportCsv.php:53
 #: src/Plugins/Export/ExportExcel.php:57
 #: src/Plugins/Export/ExportHtmlword.php:57
@@ -1806,7 +1806,7 @@ msgstr "Definitie"
 #: resources/templates/database/routines/editor_form.twig:121
 #: resources/templates/import.twig:160 resources/templates/import.twig:162
 #: resources/templates/sql/query.twig:40
-#: resources/templates/table/structure/display_table_stats.twig:84
+#: resources/templates/table/structure/display_table_stats.twig:83
 #: resources/templates/triggers/editor_form.twig:64
 #: src/Config/Descriptions.php:638 src/Config/Descriptions.php:654
 msgid "Format"
@@ -2606,7 +2606,7 @@ msgid "Sum"
 msgstr "Som"
 
 #: resources/templates/database/structure/body_for_table_summary.twig:37
-#: src/StorageEngine.php:413
+#: src/StorageEngine.php:409
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s is de standaard storage engine op deze MySQL-server."
@@ -2674,7 +2674,7 @@ msgstr "Checksum tabel"
 #: resources/templates/database/structure/check_all_tables.twig:22
 #: resources/templates/table/maintenance/optimize.twig:3
 #: resources/templates/table/operations/index.twig:385
-#: resources/templates/table/structure/display_table_stats.twig:68
+#: resources/templates/table/structure/display_table_stats.twig:67
 msgid "Optimize table"
 msgstr "Optimaliseer tabel"
 
@@ -2860,7 +2860,7 @@ msgstr "in gebruik"
 #: resources/templates/database/structure/table_header.twig:26
 #: resources/templates/table/structure/display_partitions.twig:29
 #: resources/templates/table/structure/display_structure.twig:220
-#: resources/templates/table/structure/display_table_stats.twig:119
+#: resources/templates/table/structure/display_table_stats.twig:118
 #: src/Controllers/Server/DatabasesController.php:259 src/Import/Import.php:130
 msgid "Rows"
 msgstr "Rijen"
@@ -2885,17 +2885,17 @@ msgid "Overhead"
 msgstr "Overhead"
 
 #: resources/templates/database/structure/table_header.twig:51
-#: resources/templates/table/structure/display_table_stats.twig:154
+#: resources/templates/table/structure/display_table_stats.twig:153
 msgid "Creation"
 msgstr "Gecreëerd"
 
 #: resources/templates/database/structure/table_header.twig:56
-#: resources/templates/table/structure/display_table_stats.twig:161
+#: resources/templates/table/structure/display_table_stats.twig:160
 msgid "Last update"
 msgstr "Laatst bijgewerkt"
 
 #: resources/templates/database/structure/table_header.twig:61
-#: resources/templates/table/structure/display_table_stats.twig:168
+#: resources/templates/table/structure/display_table_stats.twig:167
 msgid "Last check"
 msgstr "Laatst gecontroleerd"
 
@@ -7319,31 +7319,31 @@ msgstr "Effectief"
 msgid "Total"
 msgstr "Totaal"
 
-#: resources/templates/table/structure/display_table_stats.twig:80
+#: resources/templates/table/structure/display_table_stats.twig:79
 msgid "Row statistics"
 msgstr "Rijstatistieken"
 
-#: resources/templates/table/structure/display_table_stats.twig:86
+#: resources/templates/table/structure/display_table_stats.twig:85
 msgid "static"
 msgstr "statisch"
 
-#: resources/templates/table/structure/display_table_stats.twig:88
+#: resources/templates/table/structure/display_table_stats.twig:87
 msgid "dynamic"
 msgstr "dynamisch"
 
-#: resources/templates/table/structure/display_table_stats.twig:99
+#: resources/templates/table/structure/display_table_stats.twig:98
 msgid "partitioned"
 msgstr "gepartitioneerd"
 
-#: resources/templates/table/structure/display_table_stats.twig:128
+#: resources/templates/table/structure/display_table_stats.twig:127
 msgid "Row length"
 msgstr "Lengte van de rij"
 
-#: resources/templates/table/structure/display_table_stats.twig:140
+#: resources/templates/table/structure/display_table_stats.twig:139
 msgid "Row size"
 msgstr "Grootte van de rij"
 
-#: resources/templates/table/structure/display_table_stats.twig:147
+#: resources/templates/table/structure/display_table_stats.twig:146
 msgid "Next autoindex"
 msgstr "Volgende automatische indexwaarde"
 
@@ -9238,9 +9238,9 @@ msgstr "Inschakelen"
 msgid "Disable"
 msgstr "Uitschakelen"
 
-#: src/Config/ConfigFile.php:664 src/Config/ConfigFile.php:717
-#: src/Config/ConfigFile.php:729 src/Config/ConfigFile.php:737
-#: src/Config/ConfigFile.php:742 src/Plugins/Export/ExportHtmlword.php:72
+#: src/Config/ConfigFile.php:664 src/Config/ConfigFile.php:716
+#: src/Config/ConfigFile.php:728 src/Config/ConfigFile.php:736
+#: src/Config/ConfigFile.php:741 src/Plugins/Export/ExportHtmlword.php:72
 #: src/Plugins/Export/ExportLatex.php:113
 #: src/Plugins/Export/ExportMediawiki.php:68
 #: src/Plugins/Export/ExportOdt.php:84 src/Plugins/Export/ExportPdf.php:92
@@ -9249,9 +9249,9 @@ msgstr "Uitschakelen"
 msgid "structure"
 msgstr "structuur"
 
-#: src/Config/ConfigFile.php:665 src/Config/ConfigFile.php:718
-#: src/Config/ConfigFile.php:730 src/Config/ConfigFile.php:738
-#: src/Config/ConfigFile.php:743 src/Plugins/Export/ExportHtmlword.php:72
+#: src/Config/ConfigFile.php:665 src/Config/ConfigFile.php:717
+#: src/Config/ConfigFile.php:729 src/Config/ConfigFile.php:737
+#: src/Config/ConfigFile.php:742 src/Plugins/Export/ExportHtmlword.php:72
 #: src/Plugins/Export/ExportLatex.php:113
 #: src/Plugins/Export/ExportMediawiki.php:68
 #: src/Plugins/Export/ExportOdt.php:84 src/Plugins/Export/ExportPdf.php:92
@@ -9260,9 +9260,9 @@ msgstr "structuur"
 msgid "data"
 msgstr "data"
 
-#: src/Config/ConfigFile.php:666 src/Config/ConfigFile.php:719
-#: src/Config/ConfigFile.php:731 src/Config/ConfigFile.php:739
-#: src/Config/ConfigFile.php:744 src/Plugins/Export/ExportHtmlword.php:72
+#: src/Config/ConfigFile.php:666 src/Config/ConfigFile.php:718
+#: src/Config/ConfigFile.php:730 src/Config/ConfigFile.php:738
+#: src/Config/ConfigFile.php:743 src/Plugins/Export/ExportHtmlword.php:72
 #: src/Plugins/Export/ExportLatex.php:113
 #: src/Plugins/Export/ExportMediawiki.php:68
 #: src/Plugins/Export/ExportOdt.php:84 src/Plugins/Export/ExportPdf.php:92
@@ -9283,19 +9283,19 @@ msgstr "Uitgebreid - toon alle mogelijke opties om te configureren"
 msgid "Custom - like above, but without the quick/custom choice"
 msgstr "Uitgebreid - zoals bovenstaande maar zonder keuze snel/uitgebreid"
 
-#: src/Config/ConfigFile.php:723
+#: src/Config/ConfigFile.php:722
 msgid "complete inserts"
 msgstr "volledige invoegingen"
 
-#: src/Config/ConfigFile.php:724
+#: src/Config/ConfigFile.php:723
 msgid "extended inserts"
 msgstr "uitgebreide invoegingen"
 
-#: src/Config/ConfigFile.php:725
+#: src/Config/ConfigFile.php:724
 msgid "both of the above"
 msgstr "beide bovenstaande opties"
 
-#: src/Config/ConfigFile.php:726
+#: src/Config/ConfigFile.php:725
 msgid "neither of the above"
 msgstr "geen van bovenstaande opties"
 
@@ -12394,7 +12394,7 @@ msgid ""
 msgstr ""
 "Deze view heeft minimaal deze hoeveelheid aan rijen. Zie de %sdocumentatie%s."
 
-#: src/Controllers/Database/StructureController.php:737
+#: src/Controllers/Database/StructureController.php:736
 msgid "unknown"
 msgstr "onbekend"
 
@@ -15942,10 +15942,6 @@ msgstr "%s totaal"
 msgid "Link not found!"
 msgstr "Link niet gevonden!"
 
-#: src/Engines/Bdb.php:27
-msgid "Version information"
-msgstr "Versie-informatie"
-
 #: src/Engines/Innodb.php:29
 msgid "Data home directory"
 msgstr "Data homemap"
@@ -16522,45 +16518,45 @@ msgstr ""
 "SQL-query's die transactionele tabellen bevatten, kunnen teruggedraaid "
 "worden."
 
-#: src/Import/Import.php:1173
+#: src/Import/Import.php:1172
 #, php-format
 msgid "Go to table: %s"
 msgstr "Ga naar tabel: %s"
 
-#: src/Import/Import.php:1181
+#: src/Import/Import.php:1180
 #, php-format
 msgid "Structure of %s"
 msgstr "Structuur van %s"
 
-#: src/Import/Import.php:1188 src/Import/Import.php:1237
+#: src/Import/Import.php:1187 src/Import/Import.php:1236
 #, php-format
 msgid "Edit settings for %s"
 msgstr "Instellingen voor %s wijzigen"
 
-#: src/Import/Import.php:1199
+#: src/Import/Import.php:1198
 #, php-format
 msgid "Go to view: %s"
 msgstr "Ga naar view: %s"
 
-#: src/Import/Import.php:1220
+#: src/Import/Import.php:1219
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr "De volgende structuren zijn aangemaakt of aangepast. Hier kunt u:"
 
-#: src/Import/Import.php:1222
+#: src/Import/Import.php:1221
 msgid "View a structure's contents by clicking on its name."
 msgstr "Bekijk de inhoud van een structuur door op de naam te klikken."
 
-#: src/Import/Import.php:1223
+#: src/Import/Import.php:1222
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr "Een instelling wijzigen door op \"Opties\" te klikken."
 
-#: src/Import/Import.php:1224
+#: src/Import/Import.php:1223
 msgid "Edit structure by following the \"Structure\" link."
 msgstr "Klik op de \"Structuur\"-link om de structuur aan te passen."
 
-#: src/Import/Import.php:1231
+#: src/Import/Import.php:1230
 #, php-format
 msgid "Go to database: %s"
 msgstr "Ga naar database: %s"
@@ -18467,24 +18463,24 @@ msgstr "Voer SQL-query/-query's uit op database %s"
 msgid "Run SQL query/queries on table %s"
 msgstr "Voer SQL-query/-query's uit op tabel %s"
 
-#: src/StorageEngine.php:317
+#: src/StorageEngine.php:313
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr ""
 "Er is geen gedetailleerde status informatie beschikbaar voor deze opslag-"
 "engine."
 
-#: src/StorageEngine.php:414
+#: src/StorageEngine.php:410
 #, php-format
 msgid "%s is available on this MySQL server."
 msgstr "%s is beschikbaar op deze MySQL-server."
 
-#: src/StorageEngine.php:415
+#: src/StorageEngine.php:411
 #, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr "%s is uitgeschakeld op deze MySQL-server."
 
-#: src/StorageEngine.php:416
+#: src/StorageEngine.php:412
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Deze MySQL-server ondersteund de %s opslag-engine niet."
@@ -19082,6 +19078,9 @@ msgstr "Fout in het ZIP-archief:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "Geen bestanden gevonden in ZIP-archief!"
+
+#~ msgid "Version information"
+#~ msgstr "Versie-informatie"
 
 #~ msgid "pages"
 #~ msgstr "pagina's"
