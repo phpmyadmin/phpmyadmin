@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-10-26 00:29+0000\n"
-"PO-Revision-Date: 2025-06-20 21:02+0000\n"
+"PO-Revision-Date: 2025-10-27 19:02+0000\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ug/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.14.1-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -13276,7 +13276,7 @@ msgstr "قىممىتى چوقۇم% s دىن تۆۋەن ياكى تەڭ بولۇ�
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
-msgstr[0] ""
+msgstr[0] "%1$d خەتكۈچنى كۆرسىتىۋاتىدۇ (شەخسىي ۋە ھەمبەھىر ھەر ئىككىسى)"
 
 #: src/Console/Console.php:71
 #, fuzzy
