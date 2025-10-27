@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-10-26 00:29+0000\n"
-"PO-Revision-Date: 2025-06-21 23:01+0000\n"
-"Last-Translator: \"Lisek (Damian Bartyś)\" <damianbart22@gmail.com>\n"
+"PO-Revision-Date: 2025-10-27 19:02+0000\n"
+"Last-Translator: Janusz Duda <janusz.duda.niewiem@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.13-dev\n"
+"Plural-Forms: nplurals=3; plural="
+"(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.14.1-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -4583,7 +4583,6 @@ msgid "Description"
 msgstr "Opis"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:2
-#, fuzzy
 msgid "Buffer pool usage"
 msgstr "Użycie rezerw buforowych"
 
@@ -4612,12 +4611,11 @@ msgid "Latched pages"
 msgstr "Zablokowane strony"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:34
-#, fuzzy, php-format
+#, php-format
 msgid "%s pages"
-msgstr "Strony używane"
+msgstr "%s stron"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:41
-#, fuzzy
 msgid "Buffer pool activity"
 msgstr "Aktywność rezerw buforowych"
 
