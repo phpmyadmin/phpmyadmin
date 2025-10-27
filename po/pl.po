@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2024-07-09 14:09+0000\n"
-"Last-Translator: sebastians17 <sebastians117.ss@gmail.com>\n"
+"PO-Revision-Date: 2025-10-27 19:02+0000\n"
+"Last-Translator: Janusz Duda <janusz.duda.niewiem@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/4-9/pl/"
 ">\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.7-dev\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && "
+"(n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.14.1-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -2014,7 +2014,6 @@ msgid "See more"
 msgstr "Zobacz więcej"
 
 #: js/messages.php:438
-#, fuzzy
 msgid "Are you sure?"
 msgstr "Jesteś pewny?"
 
@@ -2027,7 +2026,6 @@ msgstr ""
 "chcesz kontynuować?"
 
 #: js/messages.php:443
-#, fuzzy
 msgid "Continue"
 msgstr "Kontynuuj"
 
@@ -2052,7 +2050,6 @@ msgstr "Pierwszy etap dostosowywania dla tabeli '%s' został ukończony."
 #: libraries/classes/Normalization.php:557
 #: libraries/classes/Normalization.php:643
 #: libraries/classes/Normalization.php:707
-#, fuzzy
 msgid "End of step"
 msgstr "Koniec kroku"
 
@@ -2124,7 +2121,6 @@ msgid "Third step of normalization (3NF)"
 msgstr "Trzeci krok normalizacji (3NF)"
 
 #: js/messages.php:477
-#, fuzzy
 msgid "Confirm transitive dependencies"
 msgstr "Potwierdź zależności przejściowe"
 
@@ -2159,12 +2155,10 @@ msgid "Range search"
 msgstr "Zakres wyszukiwania"
 
 #: js/messages.php:488
-#, fuzzy
 msgid "Column maximum:"
 msgstr "Maksimum kolumny:"
 
 #: js/messages.php:489
-#, fuzzy
 msgid "Column minimum:"
 msgstr "Minimum kolumny:"
 
@@ -2189,7 +2183,6 @@ msgid "Each point represents a data row."
 msgstr "Każdy punkt reprezentuje wiersz danych."
 
 #: js/messages.php:501
-#, fuzzy
 msgid "Hovering over a point will show its label."
 msgstr "Najechanie nad punkt pokaże jego etykietę."
 
@@ -2363,7 +2356,6 @@ msgid "Please enter a valid page name"
 msgstr "Proszę podać poprawną nazwę strony"
 
 #: js/messages.php:575
-#, fuzzy
 msgid "Do you want to save the changes to the current page?"
 msgstr "Czy chcesz zapisać zmiany na obecnej stronie?"
 
@@ -2424,9 +2416,8 @@ msgstr ""
 "BY"
 
 #: js/messages.php:598
-#, fuzzy
 msgid "Click to mark/unmark."
-msgstr "Kliknij, by zaznaczyć/odznaczyć."
+msgstr "Kliknij, aby zaznaczyć/odznaczyć."
 
 #: js/messages.php:599
 #, fuzzy
