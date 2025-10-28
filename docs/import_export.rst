@@ -18,7 +18,7 @@ You can import using any of these methods:
 
 Form based upload
 
-    Can be used with any supported format, also (b|g)zipped files, e.g., mydump.sql.gz .
+    Can be used with any supported format including files compressed with zip, bzip, and gzip, e.g. ``mydump.sql.gz``.
 
 Form based SQL Query
 
@@ -63,8 +63,8 @@ among Esri and other software products.
 MediaWiki
 ---------
 
-MediaWiki files, which can be exported by phpMyAdmin (version 4.0 or later),
-can now also be imported. This is the format used by Wikipedia to display
+MediaWiki files, which can be exported by phpMyAdmin
+can also be imported. This is the format used by Wikipedia to display
 tables.
 
 Open Document Spreadsheet (ODS)
@@ -104,7 +104,7 @@ SQL can be used to make any manipulation on data, it is also useful for restorin
 XML
 ---
 
-XML files exported by phpMyAdmin (version 3.3.0 or later) can now be imported.
+XML files exported by phpMyAdmin can be imported.
 Structures (databases, tables, views, triggers, etc.) and/or data will be
 created depending on the contents of the file.
 
@@ -114,15 +114,13 @@ Export
 ++++++
 
 phpMyAdmin can export into text files (even compressed) on your local disk (or
-a special the webserver :config:option:`$cfg['SaveDir']` folder) in various
+a special :config:option:`$cfg['SaveDir']` folder on the webserver) in various
 commonly used formats:
 
 CodeGen
 -------
 
-`NHibernate <https://en.wikipedia.org/wiki/NHibernate>`_ file format. Planned
-versions: Java, Hibernate, PHP PDO, JSON, etc. So the preliminary name is
-codegen.
+`NHibernate <https://en.wikipedia.org/wiki/NHibernate>`_ code generation file format.
 
 CSV
 ---
@@ -133,15 +131,16 @@ other programs for export/import.
 CSV for Microsoft Excel
 -----------------------
 
-This is just preconfigured version of CSV export which can be imported into
+This is just a preconfigured version of CSV export which can be imported into
 most English versions of Microsoft Excel. Some localised versions (like
-"Danish") are expecting ";" instead of "," as field separator.
+"Danish") are expecting ";" instead of "," as the field separator.
 
 Microsoft Word 2000
 -------------------
 
-If you're using Microsoft Word 2000 or newer (or compatible such as
-OpenOffice.org), you can use this export.
+Export format compatible with Microsoft Word 2000 or newer (or any compatible
+program that can import Word documents). LibreOffice also supports this format,
+but the OpenDocument Text (ODT) format is recommended for best compatibility.
 
 JSON
 ----
@@ -277,6 +276,8 @@ OpenDocument Spreadsheet
 Open standard for spreadsheet data, which has being widely adopted. Many recent
 spreadsheet programs, such as LibreOffice, OpenOffice, Microsoft Office or
 Google Docs can handle this format.
+
+.. _ODT:
 
 OpenDocument Text
 -----------------
