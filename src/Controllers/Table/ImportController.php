@@ -103,12 +103,12 @@ final readonly class ImportController implements InvocableController
         }
 
         $offset = null;
-        if (isset($request->getParami('offset')) && is_numeric($request->getParam('offset'))) {
+        if ( is_numeric($request->getParam('offset'))) {
             $offset = (int) $request->getParam('offset');
         }
 
-        $timeoutPassed = $request->getParam('timeout_passed') ?? null;
-        $localImportFile = $request->getParam('local_import_file') ?? null;
+        $timeoutPassed = $request->getParam('timeout_passed') ;
+        $localImportFile = $request->getParam('local_import_file') ;
         $compressions = Import::getCompressions();
 
         $charsets = Charsets::getCharsets($this->dbi, $this->config->selectedServer['DisableIS']);
