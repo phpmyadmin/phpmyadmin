@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-10-26 00:29+0000\n"
-"PO-Revision-Date: 2025-01-12 23:24+0000\n"
+"PO-Revision-Date: 2025-10-29 09:45+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.10-dev\n"
+"X-Generator: Weblate 5.14.1-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -1942,10 +1942,8 @@ msgid "OFF"
 msgstr "オフ"
 
 #: resources/templates/database/events/index.twig:161
-#, fuzzy
-#| msgid "Excel edition"
 msgid "Event editor"
-msgstr "Excel のエディション"
+msgstr "イベントエディタ"
 
 #: resources/templates/database/events/index.twig:166
 #: resources/templates/database/routines/index.twig:83
@@ -1970,10 +1968,8 @@ msgid "Save changes"
 msgstr "変更の保存"
 
 #: resources/templates/database/events/index.twig:181
-#, fuzzy
-#| msgid "Export of event %s"
 msgid "Export event"
-msgstr "イベント %s をエクスポートする"
+msgstr "イベントのエクスポート"
 
 #: resources/templates/database/export/index.twig:61
 msgid ""
@@ -2131,10 +2127,8 @@ msgid "Update query"
 msgstr "クエリを更新する"
 
 #: resources/templates/database/multi_table_query/form.twig:175
-#, fuzzy
-#| msgid "Update query"
 msgid "Copy query"
-msgstr "クエリを更新する"
+msgstr "クエリをコピー"
 
 #: resources/templates/database/multi_table_query/form.twig:176
 #: src/Html/Generator.php:545
@@ -2440,10 +2434,8 @@ msgid "Function"
 msgstr "関数"
 
 #: resources/templates/database/routines/execute_form.twig:54
-#, fuzzy
-#| msgid "This page does not contain any tables!"
 msgid "This routine does not require any parameters."
-msgstr "このページにはテーブルがありません！"
+msgstr "このルーチンは引数を必要としません。"
 
 #: resources/templates/database/routines/index.twig:3 src/Menu.php:371
 #: src/Util.php:1380
@@ -2476,16 +2468,12 @@ msgid "Returns"
 msgstr "返り値"
 
 #: resources/templates/database/routines/index.twig:78
-#, fuzzy
-#| msgid "Routine name"
 msgid "Routine editor"
-msgstr "ルーチン名"
+msgstr "ルーチンエディタ"
 
 #: resources/templates/database/routines/index.twig:98
-#, fuzzy
-#| msgid "Export of routine %s"
 msgid "Export routine"
-msgstr "ルーチン %s のエクスポート"
+msgstr "ルーチンのエクスポート"
 
 #: resources/templates/database/routines/index.twig:113
 #: src/Controllers/Database/RoutinesController.php:354
@@ -3530,8 +3518,6 @@ msgid "Server:"
 msgstr "サーバ："
 
 #: resources/templates/home/index.twig:186
-#, fuzzy
-#| msgid "Host name:"
 msgid "Hostname:"
 msgstr "ホスト名:"
 
@@ -4612,10 +4598,9 @@ msgid "Latched pages"
 msgstr "ラッチされているページ"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:34
-#, fuzzy, php-format
-#| msgid "Busy pages"
+#, php-format
 msgid "%s pages"
-msgstr "ビジーなページ数"
+msgstr "%s ページ"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:41
 #, fuzzy
@@ -5780,10 +5765,8 @@ msgstr ""
 "トできます。"
 
 #: resources/templates/server/status/monitor/index.twig:58
-#, fuzzy
-#| msgid "Import monitor configuration"
 msgid "Importing system monitor configuration"
-msgstr "モニタ環境設定のインポート"
+msgstr "システムモニタ環境設定のインポート"
 
 #: resources/templates/server/status/monitor/index.twig:63
 #: src/Controllers/JavaScriptMessagesController.php:301
@@ -5795,10 +5778,8 @@ msgid "Reset to default"
 msgstr "デフォルトに戻す"
 
 #: resources/templates/server/status/monitor/index.twig:87
-#, fuzzy
-#| msgid "Monitor Instructions"
 msgid "System monitor instructions"
-msgstr "モニタの使用方法"
+msgstr "システムモニタの使用方法"
 
 #: resources/templates/server/status/monitor/index.twig:92
 msgid ""
@@ -5977,11 +5958,8 @@ msgid "Cancel request"
 msgstr "キャンセル"
 
 #: resources/templates/server/status/monitor/index.twig:294
-#, fuzzy
-#| msgid "Analysing & loading logs. This may take a while."
 msgid "Analysing and loading logs. This may take a while."
-msgstr ""
-"ログの解析および読み込みを行っています。少し時間がかかることがあります。"
+msgstr "ログの解析および読み込みを行っています。少し時間がかかることがあります。"
 
 #: resources/templates/server/status/monitor/index.twig:310
 msgid "No data found"
@@ -6000,10 +5978,8 @@ msgid "Log data loaded. Queries executed in this time span:"
 msgstr "ログデータを読み込みました。この期間に行われたクエリは以下の通りです。"
 
 #: resources/templates/server/status/monitor/index.twig:336
-#, fuzzy
-#| msgid "Jump to Log table"
 msgid "Jump to the log table"
-msgstr "ログの表に移動する"
+msgstr "ログの表へ移動する"
 
 #: resources/templates/server/status/monitor/index.twig:346
 msgid "Monitor refresh failed"
@@ -6011,10 +5987,8 @@ msgstr "モニタの更新に失敗しました"
 
 #: resources/templates/server/status/monitor/index.twig:350
 #: resources/templates/server/status/monitor/index.twig:369
-#, fuzzy
-#| msgid "Warning"
 msgid "Warning:"
-msgstr "警告"
+msgstr "警告:"
 
 #: resources/templates/server/status/monitor/index.twig:351
 msgid ""
@@ -6035,12 +6009,6 @@ msgid "Local monitor configuration incompatible!"
 msgstr "ローカルモニタの環境設定に互換性がありません!"
 
 #: resources/templates/server/status/monitor/index.twig:370
-#, fuzzy
-#| msgid ""
-#| "The chart arrangement configuration in your browsers local storage is not "
-#| "compatible anymore to the newer version of the monitor dialog. It is very "
-#| "likely that your current configuration will not work anymore. Please "
-#| "reset your configuration to default in the <i>Settings</i> menu."
 msgid ""
 "The chart arrangement configuration in your browsers local storage is not "
 "compatible anymore to the newer version of the monitor dialog. It is very "
@@ -6048,8 +6016,8 @@ msgid ""
 "your configuration to default in the [em]Settings[/em] menu."
 msgstr ""
 "ローカルに保存されていたモニタ環境設定は、新しいモニタ環境との互換性がありま"
-"せん。この環境設定ではおそらく機能させることはできないでしょう。<i>設定</i>項"
-"目よりモニタ環境設定をデフォルトに戻してください。"
+"せん。この環境設定ではおそらく機能させることはできないでしょう。[em]設定[em]"
+"項目よりモニタ環境設定をデフォルトに戻してください。"
 
 #: resources/templates/server/status/processes/index.twig:14
 msgid "Show only active"
@@ -7447,16 +7415,12 @@ msgid "There are no triggers to display."
 msgstr "表示できるトリガがありません。"
 
 #: resources/templates/triggers/list.twig:81
-#, fuzzy
-#| msgid "Trigger name"
 msgid "Trigger editor"
-msgstr "トリガ名"
+msgstr "トリガエディタ"
 
 #: resources/templates/triggers/list.twig:101
-#, fuzzy
-#| msgid "Export of trigger %s"
 msgid "Export trigger"
-msgstr "トリガ %s をエクスポートする"
+msgstr "トリガをエクスポート"
 
 #: resources/templates/view_create.twig:75
 msgid "VIEW name"
@@ -12434,6 +12398,9 @@ msgid ""
 "to not work properly. Please refer to [doc@faq1-46]documentation[/doc] for "
 "possible issues."
 msgstr ""
+"変数 [code]HTTP_HOST[/code] がないため、phpMyAdmin が正しく動作しない可能性が"
+"あります。発生しうる問題は [doc@faq1-46]documentation[/doc] を参照してくださ"
+"い。"
 
 #: src/Controllers/HomeController.php:458
 msgid ""
@@ -13435,16 +13402,12 @@ msgid "No dependencies selected!"
 msgstr "依存関係が選択されていません！"
 
 #: src/Controllers/JavaScriptMessagesController.php:427
-#, fuzzy
-#| msgid "Use this value"
 msgid "Enter first value"
-msgstr "この値を利用する"
+msgstr "最初の値を入力"
 
 #: src/Controllers/JavaScriptMessagesController.php:428
-#, fuzzy
-#| msgid "Session value"
 msgid "Enter second value"
-msgstr "セッション値"
+msgstr "2番目の値を入力"
 
 #: src/Controllers/JavaScriptMessagesController.php:434
 msgid "Hide search criteria"
@@ -13697,10 +13660,8 @@ msgid "Double-click to copy column name."
 msgstr "ダブルクリックでカラム名をコピーします。"
 
 #: src/Controllers/JavaScriptMessagesController.php:553
-#, fuzzy
-#| msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgid "Click the drop-down arrow to toggle column's visibility."
-msgstr "カラムの表示／非表示<br />状態を変更する場合、「▼」をクリック。"
+msgstr "カラムの表示／非表示を変更する場合、「▼」をクリック。"
 
 #: src/Controllers/JavaScriptMessagesController.php:556
 msgid ""
@@ -15366,14 +15327,12 @@ msgid "The columns have been moved successfully."
 msgstr "カラムは正常に移動されました。"
 
 #: src/Controllers/Table/Structure/MoveColumnsController.php:114
-#, fuzzy
-#| msgid "The selected user was not found in the privilege table."
 msgid "The selected columns do not match the columns in the table."
-msgstr "選択したユーザが権限テーブルで見つかりません。"
+msgstr "選択したカラムがテーブル内の列の中に見つかりません。"
 
 #: src/Controllers/Table/Structure/MoveColumnsController.php:141
 msgid "The selected columns are already in the correct order."
-msgstr ""
+msgstr "選択されたカラムは既に正しい順序で並んでいます。"
 
 #: src/Controllers/Table/Structure/PartitioningController.php:254
 #: src/Controllers/Table/Structure/SaveController.php:267
@@ -15638,10 +15597,8 @@ msgid "You must provide a valid return type for the routine."
 msgstr "ルーチンに対して、有効な返り値の種類を指定してください。"
 
 #: src/Database/Routines.php:809
-#, fuzzy
-#| msgid "Invalid routine type: \"%s\""
 msgid "Invalid routine type!"
-msgstr "ルーチンタイプが不正です: \"%s\""
+msgstr "ルーチンタイプが不正です。"
 
 #: src/Database/Routines.php:815
 msgid "You must provide a routine name!"
@@ -17559,7 +17516,8 @@ msgstr "%Y 年 %B %d 日 %H:%M"
 msgid ""
 "Displays a link to download the binary data of the column. You can use the "
 "option to specify the filename."
-msgstr ""
+msgstr "そのカラムのバイナリデータをダウンロードするためのリンクを表示します。ファイ"
+"ル名を指定するオプションが利用できます。"
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:38
 msgid ""
@@ -18416,16 +18374,12 @@ msgid "You must provide a trigger definition."
 msgstr "トリガの定義は必須です。"
 
 #: src/Types.php:97
-#, fuzzy
-#| msgid "Empty"
 msgid "empty"
-msgstr "空にする"
+msgstr "空"
 
 #: src/Types.php:98
-#, fuzzy
-#| msgid "not present"
 msgid "not empty"
-msgstr "存在しません"
+msgstr "空ではない"
 
 #: src/Types.php:161
 msgid ""
