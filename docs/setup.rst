@@ -1208,7 +1208,7 @@ Config authentication mode
   loading the phpMyAdmin site. This is by design but could allow any
   user to access your installation. Use of some restriction method is
   suggested, perhaps a :term:`.htaccess` file with the HTTP-AUTH directive or disallowing
-  incoming HTTP requests at one’s router or firewall.
+  incoming HTTP requests at one's router or firewall.
 
 .. _securing:
 
@@ -1247,7 +1247,7 @@ are always ways to make your installation more secure:
   or :config:option:`$cfg['Servers'][$i]['AllowRoot']` to deny root user access.
 * Enable :ref:`2fa` for your account.
 * Consider hiding connection errors from the login page by setting
-  :config:option:`$cfg['Servers'][$i]['hide_connection_errors']` to true.
+  :config:option:`$cfg['Servers'][$i]['hide_connection_errors']` to ``true``.
 * Consider hiding phpMyAdmin behind an authentication proxy, so that
   users need to authenticate prior to providing MySQL credentials
   to phpMyAdmin. You can achieve this by configuring your web server to request

@@ -296,7 +296,7 @@ Server connection settings
     :type: string
     :default: ``''``
 
-    The path to the socket to use. Leave blank for the PHP default socket. To determine
+    The path to the socket to use. Leave blank for the system default socket used by PHP. To determine
     the correct socket, check your MySQL configuration or, using the
     :command:`mysql` command–line client, issue the ``status`` command. Among the
     resulting information displayed will be the socket used.
@@ -737,7 +737,7 @@ Server connection settings
 
     Sets a custom, descriptive label for the server which will be shown
     in multiple locations instead of the host name.
-    With auth_type cookie,
+    When ``$cfg['Servers'][$i]['auth_type'] = 'cookie';``,
     this string will be displayed instead of the hostname in the
     pull-down menu on the main page.
     For HTTP
@@ -797,8 +797,10 @@ Server connection settings
     :type: string or false
     :default: ``''``
 
-    You can describe, in a special 'relation' table,
-    which column is a key in another table (a foreign key). phpMyAdmin
+    When the database table type does not natively support relations, this table
+    can be used by phpMyAdmin to create a similar effect. Internal relations are used
+    only by phpMyAdmin. For more information, refer to the :ref:`relations` user guide.
+    phpMyAdmin
     currently uses this to:
 
     * make clickable, when you browse the master table, the data values that
@@ -1474,7 +1476,7 @@ Server connection settings
 
     The performance penalty for using ``INFORMATION_SCHEMA`` has largely been
     resolved in most database servers, so for most users keeping this set to
-    false is recommended.
+    ``false`` is recommended.
 
     .. note::
 
