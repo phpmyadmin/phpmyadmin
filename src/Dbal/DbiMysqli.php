@@ -89,6 +89,8 @@ class DbiMysqli implements DbiExtension
             $host = $server->host;
         }
 
+        $mysqli->options(MYSQLI_OPT_LOCAL_INFILE, (int) defined('PMA_ENABLE_LDI'));
+
         try {
             $mysqli->real_connect(
                 $host,
@@ -126,8 +128,6 @@ class DbiMysqli implements DbiExtension
 
             throw new ConnectionException($errorNumber . ': ' . $errorMessage, $errorNumber, $exception);
         }
-
-        $mysqli->options(MYSQLI_OPT_LOCAL_INFILE, (int) defined('PMA_ENABLE_LDI'));
 
         mysqli_report(MYSQLI_REPORT_OFF);
 
