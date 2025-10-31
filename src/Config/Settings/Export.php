@@ -136,7 +136,7 @@ final class Export
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Export_format
      *
-     * @psalm-var 'codegen'|'csv'|'excel'|'htmlword'|'latex'|'ods'|'odt'|'pdf'|'sql'|'texytext'|'xml'|'yaml'
+     * @psalm-var 'codegen'|'csv'|'excel'|'htmlword'|'json'|'latex'|'mediawiki'|'ods'|'odt'|'pdf'|'phparray'|'sql'|'texytext'|'xml'|'yaml'
      */
     public string $format;
 
@@ -1222,7 +1222,7 @@ final class Export
     /**
      * @param array<int|string, mixed> $export
      *
-     * @psalm-return 'codegen'|'csv'|'excel'|'htmlword'|'latex'|'ods'|'odt'|'pdf'|'sql'|'texytext'|'xml'|'yaml'
+     * @psalm-return 'codegen'|'csv'|'excel'|'htmlword'|'json'|'latex'|'mediawiki'|'ods'|'odt'|'pdf'|'phparray'|'sql'|'texytext'|'xml'|'yaml'
      */
     private function setFormat(array $export): string
     {
@@ -1232,10 +1232,14 @@ final class Export
                 'csv',
                 'excel',
                 'htmlword',
+                'json',
                 'latex',
+                'mediawiki',
                 'ods',
                 'odt',
                 'pdf',
+                'phparray',
+                'sql',
                 'texytext',
                 'xml',
                 'yaml',
