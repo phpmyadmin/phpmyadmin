@@ -611,6 +611,11 @@ class Table implements Stringable
                             }
                         } elseif ($type === 'BINARY' || $type === 'VARBINARY') {
                             $query .= ' DEFAULT 0x' . $defaultValue;
+                        } elseif (
+                            str_contains($defaultValue, 'current_timestamp')
+                                 || str_contains($defaultValue, 'CURRENT_TIMESTAMP')
+                        ) {
+                            $query .= ' DEFAULT CURRENT_TIMESTAMP(' . $length . ')';
                         } else {
                             $query .= ' DEFAULT \''
                             . $dbi->escapeString((string) $defaultValue) . '\'';
