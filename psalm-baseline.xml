@@ -2322,6 +2322,8 @@
     </MixedArrayAccess>
     <MixedAssignment>
       <code><![CDATA[$idKey]]></code>
+      <code><![CDATA[$localImportFile]]></code>
+      <code><![CDATA[$timeoutPassed]]></code>
     </MixedAssignment>
     <MixedMethodCall>
       <code><![CDATA[$_SESSION[Ajax::SESSION_KEY]['handler']::getIdKey()]]></code>
