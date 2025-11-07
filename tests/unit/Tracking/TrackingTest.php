@@ -36,7 +36,8 @@ use function ini_set;
 use function sprintf;
 
 #[CoversClass(Tracking::class)]
-class TrackingTest extends AbstractTestCase
+#[CoversClass(TrackedData::class)]
+final class TrackingTest extends AbstractTestCase
 {
     private Tracking $tracking;
 

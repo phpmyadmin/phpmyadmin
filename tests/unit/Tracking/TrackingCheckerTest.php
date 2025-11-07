@@ -16,7 +16,8 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionProperty;
 
 #[CoversClass(TrackingChecker::class)]
-class TrackingCheckerTest extends AbstractTestCase
+#[CoversClass(TrackedTable::class)]
+final class TrackingCheckerTest extends AbstractTestCase
 {
     private TrackingChecker $trackingChecker;
 
