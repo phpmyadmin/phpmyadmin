@@ -1794,7 +1794,7 @@ class DatabaseInterface implements DbalInterface
             return $hasGrantPrivilege;
         }
 
-        $collation = $this->getServerCollation();
+        $collation = (string) $this->getVariable('collation_connection');
 
         [$user, $host] = $this->getCurrentUserAndHost();
         $query = QueryGenerator::getInformationSchemaDataForGranteeRequest($user, $host, $collation);
@@ -1853,7 +1853,7 @@ class DatabaseInterface implements DbalInterface
             return $hasCreatePrivilege;
         }
 
-        $collation = $this->getServerCollation();
+        $collation = (string) $this->getVariable('collation_connection');
 
         [$user, $host] = $this->getCurrentUserAndHost();
         $query = QueryGenerator::getInformationSchemaDataForCreateRequest($user, $host, $collation);

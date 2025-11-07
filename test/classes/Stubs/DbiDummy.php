@@ -582,6 +582,10 @@ class DbiDummy implements DbiExtension
                 'result' => [['1']],
             ],
             [
+                'query' => "SHOW SESSION VARIABLES LIKE 'collation_connection';",
+                'result' => [['collation_connection', 'utf8_general_ci']],
+            ],
+            [
                 'query' => 'SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE`'
                     . ' FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES`'
                     . ' UNION SELECT `GRANTEE`, `IS_GRANTABLE`'
