@@ -40656,11 +40656,6 @@ parameters:
 			path: test/classes/AbstractTestCase.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\) with true will always evaluate to true\\.$#"
-			count: 1
-			path: test/classes/AbstractTestCase.php
-
-		-
 			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
 			count: 5
 			path: test/classes/AbstractTestCase.php
@@ -40673,11 +40668,6 @@ parameters:
 		-
 			message: "#^Cannot call method setAlias\\(\\) on mixed\\.$#"
 			count: 2
-			path: test/classes/AbstractTestCase.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:fail\\(\\)\\.$#"
-			count: 1
 			path: test/classes/AbstractTestCase.php
 
 		-

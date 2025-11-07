@@ -135,23 +135,25 @@ class DbiDummy implements DbiExtension
         Assert::fail('Non expected select of database: ' . $databaseName);
     }
 
-    public function hasUnUsedErrors(): bool
+    public function assertAllQueriesConsumed(): void
     {
-        return $this->fifoErrorCodes !== [];
+        Assert::assertSame([], $this->getUnUsedQueries(), 'Some queries were not used!');
     }
 
-    /**
-     * @return string[]
-     */
-    public function getUnUsedDatabaseSelects(): array
+    public function assertAllSelectsConsumed(): void
     {
-        return $this->fifoDatabasesToSelect;
+        Assert::assertSame([], $this->fifoDatabasesToSelect, 'Some database selects were not used!');
+    }
+
+    public function assertAllErrorCodesConsumed(): void
+    {
+        Assert::assertSame([], $this->fifoErrorCodes, 'Some error codes were not used!');
     }
 
     /**
      * @return array[]
      */
-    public function getUnUsedQueries(): array
+    private function getUnUsedQueries(): array
     {
         $unUsed = [];
         foreach ($this->filoQueries as $query) {
