@@ -42,12 +42,12 @@ class PrivilegesControllerTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = false;
 
-        $this->dummyDbi->addResult('SELECT @@collation_server', [['utf8mb4_uca1400_ai_ci']]);
-        // phpcs:ignore Generic.Files.LineLength.TooLong
+        // phpcs:disable Generic.Files.LineLength.TooLong
+        $this->dummyDbi->addResult("SHOW SESSION VARIABLES LIKE 'collation_connection';", [['collation_connection', 'utf8mb4_uca1400_ai_ci']]);
         $this->dummyDbi->addResult("SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''pma_test''@''localhost''' LIKE `GRANTEE` UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_uca1400_ai_ci AND 'pma_test' LIKE `User` AND '' LIKE `Host` LIMIT 1", [['1']]);
-        $this->dummyDbi->addResult('SELECT @@collation_server', [['utf8mb4_uca1400_ai_ci']]);
-        // phpcs:ignore Generic.Files.LineLength.TooLong
+        $this->dummyDbi->addResult("SHOW SESSION VARIABLES LIKE 'collation_connection';", [['collation_connection', 'utf8mb4_uca1400_ai_ci']]);
         $this->dummyDbi->addResult("SELECT 1 FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE `PRIVILEGE_TYPE` = 'CREATE USER' AND '''pma_test''@''localhost''' LIKE `GRANTEE` UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_uca1400_ai_ci AND 'pma_test' LIKE `User` AND '' LIKE `Host` LIMIT 1", [['1']]);
+        // phpcs:enable
 
         $privileges = [];
 

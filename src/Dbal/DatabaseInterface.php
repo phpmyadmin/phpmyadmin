@@ -1445,7 +1445,7 @@ class DatabaseInterface
             return $hasGrantPrivilege;
         }
 
-        $collation = $this->getServerCollation();
+        $collation = (string) $this->getVariable('collation_connection');
 
         [$user, $host] = $this->getCurrentUserAndHost();
         $query = QueryGenerator::getInformationSchemaDataForGranteeRequest($user, $host, $collation);
@@ -1494,7 +1494,7 @@ class DatabaseInterface
             return $hasCreatePrivilege;
         }
 
-        $collation = $this->getServerCollation();
+        $collation = (string) $this->getVariable('collation_connection');
 
         [$user, $host] = $this->getCurrentUserAndHost();
         $query = QueryGenerator::getInformationSchemaDataForCreateRequest($user, $host, $collation);

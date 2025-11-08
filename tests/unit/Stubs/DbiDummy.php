@@ -363,6 +363,10 @@ class DbiDummy implements DbiExtension
             ['query' => "SHOW VARIABLES LIKE 'lower_case_table_names'", 'result' => [['lower_case_table_names','1']]],
             ['query' => 'SELECT 1 FROM mysql.user LIMIT 1', 'result' => [['1']]],
             [
+                'query' => "SHOW SESSION VARIABLES LIKE 'collation_connection';",
+                'result' => [['collation_connection', 'utf8_general_ci']],
+            ],
+            [
                 'query' => 'SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE`'
                     . ' FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES`'
                     . ' UNION SELECT `GRANTEE`, `IS_GRANTABLE`'

@@ -1055,7 +1055,10 @@ final class DatabaseInterfaceTest extends AbstractTestCase
         SessionCache::remove('is_grantuser');
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->removeDefaultResults();
-        $dbiDummy->addResult('SELECT @@collation_server', [['utf8_general_ci']]);
+        $dbiDummy->addResult(
+            "SHOW SESSION VARIABLES LIKE 'collation_connection';",
+            [['collation_connection', 'utf8_general_ci']],
+        );
         $dbiDummy->addResult('SELECT CURRENT_USER();', [['test_user@localhost']]);
         $dbiDummy->addResult(
             // phpcs:ignore Generic.Files.LineLength.TooLong
@@ -1082,7 +1085,10 @@ final class DatabaseInterfaceTest extends AbstractTestCase
         SessionCache::remove('is_grantuser');
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->removeDefaultResults();
-        $dbiDummy->addResult('SELECT @@collation_server', [['utf8_general_ci']]);
+        $dbiDummy->addResult(
+            "SHOW SESSION VARIABLES LIKE 'collation_connection';",
+            [['collation_connection', 'utf8_general_ci']],
+        );
         $dbiDummy->addResult('SELECT CURRENT_USER();', [['test_user@localhost']]);
         $dbiDummy->addResult(
             // phpcs:ignore Generic.Files.LineLength.TooLong
@@ -1117,7 +1123,10 @@ final class DatabaseInterfaceTest extends AbstractTestCase
         SessionCache::remove('is_grantuser');
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->removeDefaultResults();
-        $dbiDummy->addResult('SELECT @@collation_server', [['utf8_general_ci']]);
+        $dbiDummy->addResult(
+            "SHOW SESSION VARIABLES LIKE 'collation_connection';",
+            [['collation_connection', 'utf8_general_ci']],
+        );
         $dbiDummy->addResult('SELECT CURRENT_USER();', [['test_user@localhost']]);
         $dbiDummy->addResult(
             // phpcs:ignore Generic.Files.LineLength.TooLong
@@ -1197,7 +1206,10 @@ final class DatabaseInterfaceTest extends AbstractTestCase
         SessionCache::remove('is_createuser');
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->removeDefaultResults();
-        $dbiDummy->addResult('SELECT @@collation_server', [['utf8_general_ci']]);
+        $dbiDummy->addResult(
+            "SHOW SESSION VARIABLES LIKE 'collation_connection';",
+            [['collation_connection', 'utf8_general_ci']],
+        );
         $dbiDummy->addResult('SELECT CURRENT_USER();', [['test_user@localhost']]);
         $dbiDummy->addResult(
             // phpcs:ignore Generic.Files.LineLength.TooLong
@@ -1224,7 +1236,10 @@ final class DatabaseInterfaceTest extends AbstractTestCase
         SessionCache::remove('is_createuser');
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->removeDefaultResults();
-        $dbiDummy->addResult('SELECT @@collation_server', [['utf8_general_ci']]);
+        $dbiDummy->addResult(
+            "SHOW SESSION VARIABLES LIKE 'collation_connection';",
+            [['collation_connection', 'utf8_general_ci']],
+        );
         $dbiDummy->addResult('SELECT CURRENT_USER();', [['test_user@localhost']]);
         $dbiDummy->addResult(
             // phpcs:ignore Generic.Files.LineLength.TooLong
@@ -1259,7 +1274,10 @@ final class DatabaseInterfaceTest extends AbstractTestCase
         SessionCache::remove('is_createuser');
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->removeDefaultResults();
-        $dbiDummy->addResult('SELECT @@collation_server', [['utf8_general_ci']]);
+        $dbiDummy->addResult(
+            "SHOW SESSION VARIABLES LIKE 'collation_connection';",
+            [['collation_connection', 'utf8_general_ci']],
+        );
         $dbiDummy->addResult('SELECT CURRENT_USER();', [['test_user@localhost']]);
         $dbiDummy->addResult(
             // phpcs:ignore Generic.Files.LineLength.TooLong
