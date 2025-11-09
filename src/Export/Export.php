@@ -818,12 +818,12 @@ class Export
         $isView = $tableObject->isView();
         if ($structureOrData !== StructureOrData::Data) {
             if ($isView) {
-                if ($exportPlugin instanceof ExportSql && $exportPlugin->hasCreateView()) {
+                if ($exportPlugin instanceof ExportSql && $exportPlugin->hasCreateView() || ! $exportPlugin instanceof ExportSql) {
                     if (! $exportPlugin->exportStructure($db, $table, 'create_view', $aliases)) {
                         return;
                     }
                 }
-            } elseif ($exportPlugin instanceof ExportSql && $exportPlugin->hasCreateTable()) {
+            } elseif ($exportPlugin instanceof ExportSql && $exportPlugin->hasCreateTable() || ! $exportPlugin instanceof ExportSql) {
                 if (! $exportPlugin->exportStructure($db, $table, 'create_table', $aliases)) {
                     return;
                 }
