@@ -65,8 +65,10 @@ use function preg_replace;
 use function random_bytes;
 use function range;
 use function reset;
+use function restore_error_handler;
 use function round;
 use function rtrim;
+use function set_error_handler;
 use function set_time_limit;
 use function sort;
 use function sprintf;
@@ -85,6 +87,7 @@ use function time;
 use function trim;
 use function uksort;
 
+use const E_DEPRECATED;
 use const ENT_COMPAT;
 use const ENT_QUOTES;
 use const PHP_INT_SIZE;
@@ -716,14 +719,12 @@ class Util
 
         $date = (string) preg_replace(
             '@%[aA]@',
-            // phpcs:ignore Generic.PHP.DeprecatedFunctions.Deprecated
-            $dayOfWeek[(int) @strftime('%w', (int) $timestamp)],
+            $dayOfWeek[(int) self::strftime('%w', (int) $timestamp)],
             $format
         );
         $date = (string) preg_replace(
             '@%[bB]@',
-            // phpcs:ignore Generic.PHP.DeprecatedFunctions.Deprecated
-            $month[(int) @strftime('%m', (int) $timestamp) - 1],
+            $month[(int) self::strftime('%m', (int) $timestamp) - 1],
             $date
         );
 
@@ -739,8 +740,7 @@ class Util
 
         // Can return false on windows for Japanese language
         // See https://github.com/phpmyadmin/phpmyadmin/issues/15830
-        // phpcs:ignore Generic.PHP.DeprecatedFunctions.Deprecated
-        $ret = @strftime($date, (int) $timestamp);
+        $ret = self::strftime($date, (int) $timestamp);
         // Some OSes such as Win8.1 Traditional Chinese version did not produce UTF-8
         // output here. See https://github.com/phpmyadmin/phpmyadmin/issues/10598
         if ($ret === false || mb_detect_encoding($ret, 'UTF-8', true) !== 'UTF-8') {
@@ -748,6 +748,20 @@ class Util
         }
 
         return $ret;
+    }
+
+    /** @return string|false */
+    private static function strftime(string $format, ?int $timestamp = null)
+    {
+        set_error_handler(static function (int $level): bool {
+            return $level === E_DEPRECATED;
+        });
+        try {
+            // phpcs:ignore Generic.PHP.DeprecatedFunctions.Deprecated
+            return $timestamp === null ? strftime($format) : strftime($format, $timestamp);
+        } finally {
+            restore_error_handler();
+        }
     }
 
     /**
@@ -1710,8 +1724,7 @@ class Util
         }
 
         /* Do the replacement */
-        // phpcs:ignore Generic.PHP.DeprecatedFunctions.Deprecated
-        return strtr((string) @strftime($string), $replace);
+        return strtr((string) self::strftime($string), $replace);
     }
 
     /**
