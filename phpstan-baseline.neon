@@ -205,38 +205,14 @@ parameters:
 			path: examples/signon.php
 
 		-
-			message: '#^Binary operation "\." between ''\<p\>File \<samp\>'' and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: public/index.php
-
-		-
 			message: '#^Comparison operation "\<" between int\<80200, 80599\> and 80200 is always false\.$#'
 			identifier: smaller.alwaysFalse
 			count: 1
 			path: public/index.php
 
 		-
-			message: '#^Parameter \#1 \$filename of function is_readable expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: public/index.php
-
-		-
-			message: '#^Binary operation "\." between ''\<p\>File \<samp\>'' and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: public/setup/index.php
-
-		-
 			message: '#^Comparison operation "\<" between int\<80200, 80599\> and 80200 is always false\.$#'
 			identifier: smaller.alwaysFalse
-			count: 1
-			path: public/setup/index.php
-
-		-
-			message: '#^Parameter \#1 \$filename of function is_readable expects string, mixed given\.$#'
-			identifier: argument.type
 			count: 1
 			path: public/setup/index.php
 
@@ -339,18 +315,6 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Command/CacheWarmupCommand.php
-
-		-
-			message: '#^Parameter \#1 \$source of method PhpMyAdmin\\Config\:\:loadFromFile\(\) expects string\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Command/CacheWarmupCommand.php
-
-		-
-			message: '#^Parameter \#2 \.\.\.\$values of function sprintf expects bool\|float\|int\|string\|null, mixed given\.$#'
-			identifier: argument.type
 			count: 1
 			path: src/Command/CacheWarmupCommand.php
 
@@ -487,12 +451,6 @@ parameters:
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
 			count: 2
-			path: src/Config.php
-
-		-
-			message: '#^Method PhpMyAdmin\\Config\:\:getChangeLogFilePath\(\) should return string but returns mixed\.$#'
-			identifier: return.type
-			count: 1
 			path: src/Config.php
 
 		-
@@ -1042,18 +1000,6 @@ parameters:
 			path: src/Config/Settings.php
 
 		-
-			message: '#^Method PhpMyAdmin\\Config\\Settings\:\:setTempDir\(\) should return string but returns mixed\.$#'
-			identifier: return.type
-			count: 1
-			path: src/Config/Settings.php
-
-		-
-			message: '#^Method PhpMyAdmin\\Config\\Settings\:\:setVersionCheck\(\) should return bool but returns mixed\.$#'
-			identifier: return.type
-			count: 1
-			path: src/Config/Settings.php
-
-		-
 			message: '#^Cannot cast mixed to int\.$#'
 			identifier: cast.int
 			count: 1
@@ -1346,18 +1292,6 @@ parameters:
 			identifier: assign.propertyType
 			count: 1
 			path: src/Config/Validator.php
-
-		-
-			message: '#^Binary operation "\." between mixed and ''create_tables\.sql'' results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
-			message: '#^Binary operation "\." between mixed and ''upgrade_column_info…'' results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/ConfigStorage/Relation.php
 
 		-
 			message: '''
@@ -2446,18 +2380,6 @@ parameters:
 			path: src/Controllers/Import/StatusController.php
 
 		-
-			message: '#^Parameter \#1 \$filename of function is_readable expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/LicenseController.php
-
-		-
-			message: '#^Parameter \#1 \$path of function basename expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/LicenseController.php
-
-		-
 			message: '#^Parameter \#1 \$partialDependencies of method PhpMyAdmin\\Normalization\:\:createNewTablesFor2NF\(\) expects array\<mixed\>, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -2567,12 +2489,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#1 \$fileName of method PhpMyAdmin\\UserPreferences\:\:redirect\(\) expects string, string\|false given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Preferences/ManageController.php
-
-		-
-			message: '#^Parameter \#1 \$filename of function file_exists expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Preferences/ManageController.php
@@ -2902,24 +2818,6 @@ parameters:
 			path: src/Controllers/Server/Variables/SetVariableController.php
 
 		-
-			message: '#^Parameter \#1 \$filename of function file_exists expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Setup/ConfigController.php
-
-		-
-			message: '#^Parameter \#1 \$filename of function file_exists expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Setup/FormController.php
-
-		-
-			message: '#^Parameter \#1 \$filename of function file_exists expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Setup/HomeController.php
-
-		-
 			message: '#^Parameter \#1 \$id of method PhpMyAdmin\\Config\\ConfigFile\:\:getServerName\(\) expects int, \(int\|string\) given\.$#'
 			identifier: argument.type
 			count: 1
@@ -2930,30 +2828,6 @@ parameters:
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Setup/HomeController.php
-
-		-
-			message: '#^Parameter \#1 \$filename of function file_exists expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Setup/ServerDestroyController.php
-
-		-
-			message: '#^Parameter \#1 \$filename of function file_exists expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Setup/ServersController.php
-
-		-
-			message: '#^Parameter \#1 \$filename of function file_exists expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Setup/ShowConfigController.php
-
-		-
-			message: '#^Parameter \#1 \$filename of function file_exists expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Setup/ValidateController.php
 
 		-
 			message: '#^Cannot access offset ''relational_display'' on mixed\.$#'
@@ -6691,12 +6565,6 @@ parameters:
 			path: src/Footer.php
 
 		-
-			message: '#^Parameter \#1 \$filename of static method PhpMyAdmin\\Html\\Generator\:\:renderCustom\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Footer.php
-
-		-
 			message: '#^Parameter \#1 \$params of static method PhpMyAdmin\\Url\:\:getCommonRaw\(\) expects array\<int\|string, bool\|int\|string\>, array\<string, mixed\> given\.$#'
 			identifier: argument.type
 			count: 1
@@ -7330,12 +7198,6 @@ parameters:
 			path: src/Header.php
 
 		-
-			message: '#^Parameter \#1 \$filename of static method PhpMyAdmin\\Html\\Generator\:\:renderCustom\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Header.php
-
-		-
 			message: '#^Parameter \#1 \$message of static method PhpMyAdmin\\Html\\Generator\:\:getMessage\(\) expects PhpMyAdmin\\Message\|string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -7462,12 +7324,6 @@ parameters:
 			path: src/Http/Middleware/Authentication.php
 
 		-
-			message: '#^Parameter \#1 \$source of method PhpMyAdmin\\Config\:\:loadFromFile\(\) expects string\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Http/Middleware/ConfigLoading.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
 				Use dependency injection instead\.$#
@@ -7576,12 +7432,6 @@ parameters:
 			path: src/Http/ServerRequest.php
 
 		-
-			message: '#^Binary operation "\." between mixed and ''/'' results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/I18n/LanguageManager.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -7593,24 +7443,6 @@ parameters:
 		-
 			message: '#^Method PhpMyAdmin\\I18n\\LanguageManager\:\:availableLocales\(\) should return array\<string\> but returns array\.$#'
 			identifier: return.type
-			count: 1
-			path: src/I18n/LanguageManager.php
-
-		-
-			message: '#^Parameter \#1 \$directory of function opendir expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/I18n/LanguageManager.php
-
-		-
-			message: '#^Parameter \#1 \$filename of function is_dir expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/I18n/LanguageManager.php
-
-		-
-			message: '#^Parameter \#2 \$path of function _bindtextdomain expects string, mixed given\.$#'
-			identifier: argument.type
 			count: 1
 			path: src/I18n/LanguageManager.php
 
@@ -10705,12 +10537,6 @@ parameters:
 			path: src/Plugins/Import/Upload/UploadSession.php
 
 		-
-			message: '#^Only booleans are allowed in an if condition, mixed given\.$#'
-			identifier: if.condNotBoolean
-			count: 1
-			path: src/Plugins/Import/Upload/UploadSession.php
-
-		-
 			message: '#^Only booleans are allowed in \|\|, mixed given on the right side\.$#'
 			identifier: booleanOr.rightNotBoolean
 			count: 1
@@ -11929,12 +11755,6 @@ parameters:
 			path: src/ResponseRenderer.php
 
 		-
-			message: '#^Binary operation "\." between mixed and ''routes\.cache\.php'' results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Routing/Routing.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -11952,12 +11772,6 @@ parameters:
 		-
 			message: '#^Only booleans are allowed in an if condition, int\<0, max\>\|false given\.$#'
 			identifier: if.condNotBoolean
-			count: 1
-			path: src/Routing/Routing.php
-
-		-
-			message: '#^Parameter \#1 \$filename of function is_writable expects string, mixed given\.$#'
-			identifier: argument.type
 			count: 1
 			path: src/Routing/Routing.php
 
@@ -13711,12 +13525,6 @@ parameters:
 			path: src/Table/TableMover.php
 
 		-
-			message: '#^Binary operation "\." between mixed and ''twig'' results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Template.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -14606,12 +14414,6 @@ parameters:
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 8
 			path: src/Utils/SessionCache.php
-
-		-
-			message: '#^Binary operation "\." between ''6\.0\.0\-dev'' and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Version.php
 
 		-
 			message: '#^Binary operation "\+" between mixed and 21600 results in an error\.$#'
@@ -15558,12 +15360,6 @@ parameters:
 		-
 			message: '#^Only booleans are allowed in an if condition, string\|false given\.$#'
 			identifier: if.condNotBoolean
-			count: 1
-			path: tests/unit/ConfigTest.php
-
-		-
-			message: '#^Parameter \#1 \$source of method PhpMyAdmin\\Config\:\:loadFromFile\(\) expects string\|null, mixed given\.$#'
-			identifier: argument.type
 			count: 1
 			path: tests/unit/ConfigTest.php
 
@@ -17122,18 +16918,6 @@ parameters:
 			path: tests/unit/Http/Middleware/TokenRequestParamCheckingTest.php
 
 		-
-			message: '#^Binary operation "\." between mixed and ''/'' results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: tests/unit/I18n/LanguageManagerTest.php
-
-		-
-			message: '#^Binary operation "\." between mixed and ''/cs/LC_MESSAGES…'' results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: tests/unit/I18n/LanguageManagerTest.php
-
-		-
 			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\) with true will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
@@ -17533,12 +17317,6 @@ parameters:
 			path: tests/unit/Plugins/Auth/AuthenticationConfigTest.php
 
 		-
-			message: '#^Binary operation "\." between mixed and ''/cs/LC_MESSAGES…'' results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 2
-			path: tests/unit/Plugins/Auth/AuthenticationCookieTest.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -17899,12 +17677,6 @@ parameters:
 			message: '#^Cannot access offset ''GET'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
-			path: tests/unit/Routing/RoutingTest.php
-
-		-
-			message: '#^Parameter \#1 \$directory of static method PHPUnit\\Framework\\Assert\:\:assertDirectoryIsWritable\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 3
 			path: tests/unit/Routing/RoutingTest.php
 
 		-
@@ -18370,12 +18142,6 @@ parameters:
 			path: tests/unit/UserPreferencesTest.php
 
 		-
-			message: '#^Binary operation "\." between mixed and ''/cs/LC_MESSAGES…'' results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 2
-			path: tests/unit/UtilTest.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -18563,6 +18329,12 @@ parameters:
 
 		-
 			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertIsString\(\) with non\-falsy\-string will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/unit/VersionTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertIsString\(\) with string will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: tests/unit/VersionTest.php
