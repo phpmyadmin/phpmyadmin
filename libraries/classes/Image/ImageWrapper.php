@@ -66,13 +66,19 @@ final class ImageWrapper
 
         $backgroundColor = imagecolorallocate($image, $background['red'], $background['green'], $background['blue']);
         if ($backgroundColor === false) {
-            imagedestroy($image);
+            if (PHP_VERSION_ID < 80000) {
+                // phpcs:ignore Generic.PHP.DeprecatedFunctions.Deprecated
+                imagedestroy($image);
+            }
 
             return null;
         }
 
         if (! imagefilledrectangle($image, 0, 0, $width - 1, $height - 1, $backgroundColor)) {
-            imagedestroy($image);
+            if (PHP_VERSION_ID < 80000) {
+                // phpcs:ignore Generic.PHP.DeprecatedFunctions.Deprecated
+                imagedestroy($image);
+            }
 
             return null;
         }
@@ -145,6 +151,7 @@ final class ImageWrapper
             return true;
         }
 
+        // phpcs:ignore Generic.PHP.DeprecatedFunctions.Deprecated
         return imagedestroy($this->image);
     }
 
