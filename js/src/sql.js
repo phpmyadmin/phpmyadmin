@@ -675,6 +675,7 @@ AJAX.registerOnload('sql.js', function () {
                 .html(data.message)
                 .trigger('makeGrid');
             Functions.highlightSql($sqlqueryresults);
+            Functions.highlightJson($sqlqueryresults);
         }); // end $.post()
     }); // end displayOptionsForm handler
 
