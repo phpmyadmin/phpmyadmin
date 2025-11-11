@@ -226,6 +226,23 @@ class UserPreferencesTest extends AbstractNetworkTestCase
         self::assertInstanceOf(Message::class, $result);
         self::assertSame('Could not save configuration<br><br>err1'
         . '<br><br>The phpMyAdmin configuration storage database could not be accessed.', $result->getMessage());
+
+        // Test 2fa preservation on partial save
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([])->toArray();
+
+        // Initial save with 2fa
+        $initialConfig = ['2fa' => ['backend' => 'application', 'settings' => ['secret' => 'thisisasecret']], 'theme' => 'dark'];
+        $this->userPreferences->save($initialConfig);
+
+        // Partial save without 2fa
+        $partialConfig = ['Console/Mode' => 'collapse'];
+        $this->userPreferences->save($partialConfig);
+
+        // Check that 2fa is still present
+        $resultConfig = $_SESSION['userconfig']['db'];
+        self::assertSame('thisisasecret', $resultConfig['2fa']['settings']['secret']);
+        self::assertSame('collapse', $resultConfig['Console/Mode']);
     }
 
     /**
