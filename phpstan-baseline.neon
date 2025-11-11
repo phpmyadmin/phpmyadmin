@@ -5880,41 +5880,11 @@ parameters:
 		-
 			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
 			identifier: foreach.nonIterable
-			count: 3
-			path: src/Error/Error.php
-
-		-
-			message: '#^Binary operation "\." between mixed and ''\('' results in an error\.$#'
-			identifier: binaryOp.invalid
 			count: 1
-			path: src/Error/Error.php
-
-		-
-			message: '#^Binary operation "\." between mixed and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Error/Error.php
-
-		-
-			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Error/Error.php
-
-		-
-			message: '#^Binary operation "\.\=" between non\-falsy\-string and mixed results in an error\.$#'
-			identifier: assignOp.invalid
-			count: 2
 			path: src/Error/Error.php
 
 		-
 			message: '#^Cannot access offset ''args'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Error/Error.php
-
-		-
-			message: '#^Cannot access offset ''class'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
 			path: src/Error/Error.php
@@ -5928,23 +5898,11 @@ parameters:
 		-
 			message: '#^Cannot access offset ''file'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
+			count: 1
 			path: src/Error/Error.php
 
 		-
 			message: '#^Cannot access offset ''function'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Error/Error.php
-
-		-
-			message: '#^Cannot access offset ''line'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Error/Error.php
-
-		-
-			message: '#^Cannot access offset ''type'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
 			path: src/Error/Error.php
@@ -5964,19 +5922,7 @@ parameters:
 		-
 			message: '#^Parameter \#1 \$path of static method PhpMyAdmin\\Error\\Error\:\:relPath\(\) expects string, mixed given\.$#'
 			identifier: argument.type
-			count: 2
-			path: src/Error/Error.php
-
-		-
-			message: '#^Parameter \#1 \$step of static method PhpMyAdmin\\Error\\Error\:\:getFunctionCall\(\) expects array\<mixed\>, mixed given\.$#'
-			identifier: argument.type
 			count: 1
-			path: src/Error/Error.php
-
-		-
-			message: '#^Parameter \#1 \$value of function count expects array\|Countable, mixed given\.$#'
-			identifier: argument.type
-			count: 2
 			path: src/Error/Error.php
 
 		-
@@ -5997,7 +5943,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 6
+			count: 5
 			path: src/Error/ErrorHandler.php
 
 		-

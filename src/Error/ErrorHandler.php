@@ -224,8 +224,7 @@ class ErrorHandler
      */
     public function handleException(Throwable $exception): void
     {
-        $message = $exception::class;
-        $message .= ': ' . $exception->getMessage();
+        $message = $exception::class . ': ' . $exception->getMessage();
 
         $this->addError(
             $message,

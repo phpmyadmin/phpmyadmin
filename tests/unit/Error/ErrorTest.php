@@ -130,17 +130,6 @@ class ErrorTest extends AbstractTestCase
     }
 
     /**
-     * Test for getBacktraceDisplay
-     */
-    public function testGetBacktraceDisplay(): void
-    {
-        self::assertStringContainsString(
-            'PHPUnit\Framework\TestRunner->run(<Class:PhpMyAdmin\Tests\Error\ErrorTest>)',
-            $this->object->getBacktraceDisplay(),
-        );
-    }
-
-    /**
      * Test for getDisplay
      */
     public function testGetDisplay(): void

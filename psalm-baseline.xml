@@ -4029,42 +4029,24 @@
   </file>
   <file src="src/Error/Error.php">
     <MixedArgument>
-      <code><![CDATA[$step]]></code>
-      <code><![CDATA[$step['args']]]></code>
-      <code><![CDATA[$step['args']]]></code>
-      <code><![CDATA[$step['file']]]></code>
       <code><![CDATA[$step['file']]]></code>
       <code><![CDATA[$step['function']]]></code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$step[$name]]]></code>
       <code><![CDATA[$step['args']]]></code>
-      <code><![CDATA[$step['class']]]></code>
-      <code><![CDATA[$step['file']]]></code>
       <code><![CDATA[$step['file']]]></code>
       <code><![CDATA[$step['function']]]></code>
-      <code><![CDATA[$step['line']]]></code>
-      <code><![CDATA[$step['type']]]></code>
     </MixedArrayAccess>
     <MixedArrayOffset>
       <code><![CDATA[$result[$idx]['args'][$key]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$arg]]></code>
-      <code><![CDATA[$arg]]></code>
-      <code><![CDATA[$arg]]></code>
       <code><![CDATA[$key]]></code>
       <code><![CDATA[$result[$idx][$name]]]></code>
       <code><![CDATA[$step]]></code>
-      <code><![CDATA[$step]]></code>
     </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[$arg]]></code>
-      <code><![CDATA[$arg]]></code>
-      <code><![CDATA[$step['class']]]></code>
-      <code><![CDATA[$step['function']]]></code>
-      <code><![CDATA[$step['line']]]></code>
-    </MixedOperand>
   </file>
   <file src="src/Error/ErrorHandler.php">
     <DeprecatedMethod>
