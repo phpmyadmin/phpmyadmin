@@ -716,11 +716,13 @@ class Util
 
         $date = (string) preg_replace(
             '@%[aA]@',
+            // phpcs:ignore Generic.PHP.DeprecatedFunctions.Deprecated
             $dayOfWeek[(int) @strftime('%w', (int) $timestamp)],
             $format
         );
         $date = (string) preg_replace(
             '@%[bB]@',
+            // phpcs:ignore Generic.PHP.DeprecatedFunctions.Deprecated
             $month[(int) @strftime('%m', (int) $timestamp) - 1],
             $date
         );
@@ -737,6 +739,7 @@ class Util
 
         // Can return false on windows for Japanese language
         // See https://github.com/phpmyadmin/phpmyadmin/issues/15830
+        // phpcs:ignore Generic.PHP.DeprecatedFunctions.Deprecated
         $ret = @strftime($date, (int) $timestamp);
         // Some OSes such as Win8.1 Traditional Chinese version did not produce UTF-8
         // output here. See https://github.com/phpmyadmin/phpmyadmin/issues/10598
@@ -1707,6 +1710,7 @@ class Util
         }
 
         /* Do the replacement */
+        // phpcs:ignore Generic.PHP.DeprecatedFunctions.Deprecated
         return strtr((string) @strftime($string), $replace);
     }
 

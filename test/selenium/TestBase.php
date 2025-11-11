@@ -60,6 +60,7 @@ use const DIRECTORY_SEPARATOR;
 use const JSON_PRETTY_PRINT;
 use const JSON_UNESCAPED_SLASHES;
 use const PHP_EOL;
+use const PHP_VERSION_ID;
 
 abstract class TestBase extends TestCase
 {
@@ -1153,6 +1154,11 @@ JS;
             echo 'Error: ' . curl_error($ch) . PHP_EOL;
         }
 
+        if (PHP_VERSION_ID >= 80000) {
+            return;
+        }
+
+        // phpcs:ignore Generic.PHP.DeprecatedFunctions.Deprecated
         curl_close($ch);
     }
 
@@ -1188,6 +1194,11 @@ JS;
             echo 'Error: ' . curl_error($ch) . PHP_EOL;
         }
 
+        if (PHP_VERSION_ID >= 80000) {
+            return;
+        }
+
+        // phpcs:ignore Generic.PHP.DeprecatedFunctions.Deprecated
         curl_close($ch);
     }
 
