@@ -1731,6 +1731,28 @@ Functions.highlightSql = function ($base) {
 };
 
 /**
+ * Applies JSON syntax highlighting transformation using CodeMirror
+ *
+ * @param {JQuery} $base base element which contains the JSON code blocks
+ */
+Functions.highlightJson = function ($base) {
+    var $elm = $base.find('code.json');
+    $elm.each(function () {
+        var $json = $(this);
+        var $pre = $json.find('pre');
+        /* We only care about visible elements to avoid double processing */
+        if ($pre.is(':visible')) {
+            var $highlight = $('<div class="json-highlight cm-s-default"></div>');
+            $json.append($highlight);
+            if (typeof CodeMirror !== 'undefined' && typeof CodeMirror.runMode === 'function') {
+                CodeMirror.runMode($json.text(), 'application/json', $highlight[0]);
+                $pre.hide();
+            }
+        }
+    });
+};
+
+/**
  * Updates an element containing code.
  *
  * @param {JQuery} $base     base element which contains the raw and the
