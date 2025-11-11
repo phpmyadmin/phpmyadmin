@@ -146,18 +146,12 @@ class ErrorTest extends AbstractTestCase
     public function testGetDisplay(): void
     {
         $actual = $this->object->getDisplay();
-        self::assertStringStartsWith(
+        self::assertSame(
             '<div class="alert alert-danger" role="alert"><p><strong>Warning</strong> in error.txt#15</p>'
-            . '<img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> Compile Error'
-            . '<p class="mt-3"><strong>Backtrace</strong></p><ol class="list-group"><li class="list-group-item">',
+            . '<img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> Compile Error' . "\n"
+            . '</div>' . "\n",
             $actual,
         );
-        self::assertStringContainsString(
-            'PHPUnit\Framework\TestRunner->run(<Class:PhpMyAdmin\Tests\Error\ErrorTest>)</li>'
-            . '<li class="list-group-item">',
-            $actual,
-        );
-        self::assertStringEndsWith('</li></ol></div>' . "\n", $actual);
     }
 
     #[DataProvider('errorLevelProvider')]

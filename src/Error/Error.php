@@ -431,7 +431,6 @@ class Error extends Message
             'file' => $this->getFile(),
             'line' => $this->getLine(),
             'message' => $this->getMessage(),
-            'formatted_backtrace' => $this->getBacktraceDisplay(),
         ]);
     }
 
