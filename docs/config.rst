@@ -2199,6 +2199,13 @@ Navigation panel setup
     beginning or end of a table name or multiple times after another without
     any other characters in between.
 
+    .. note::
+
+        The table group will automatically expand and won't appear as a group if its
+        tables are the only tables in that database. Once another table
+        is added (making the grouping relevant), the grouping will be shown.
+        See also `issue 15777 <https://github.com/phpmyadmin/phpmyadmin/issues/15777>`_
+
 .. config:option:: $cfg['NavigationTreeTableLevel']
 
     :type: integer
