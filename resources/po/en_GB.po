@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-11-09 00:29+0000\n"
-"PO-Revision-Date: 2025-11-12 11:51+0000\n"
+"PO-Revision-Date: 2025-11-13 15:51+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/en_GB/>\n"
@@ -5984,9 +5984,8 @@ msgid "Log data loaded. Queries executed in this time span:"
 msgstr "Log data loaded. Queries executed in this time span:"
 
 #: resources/templates/server/status/monitor/index.twig:336
-#, fuzzy
 msgid "Jump to the log table"
-msgstr "Jump to Log table"
+msgstr "Jump to the log table"
 
 #: resources/templates/server/status/monitor/index.twig:346
 msgid "Monitor refresh failed"
@@ -5994,9 +5993,8 @@ msgstr "Monitor refresh failed"
 
 #: resources/templates/server/status/monitor/index.twig:350
 #: resources/templates/server/status/monitor/index.twig:369
-#, fuzzy
 msgid "Warning:"
-msgstr "Warning"
+msgstr "Warning:"
 
 #: resources/templates/server/status/monitor/index.twig:351
 msgid ""
@@ -6017,7 +6015,6 @@ msgid "Local monitor configuration incompatible!"
 msgstr "Local monitor configuration incompatible!"
 
 #: resources/templates/server/status/monitor/index.twig:370
-#, fuzzy
 msgid ""
 "The chart arrangement configuration in your browsers local storage is not "
 "compatible anymore to the newer version of the monitor dialog. It is very "
@@ -6025,9 +6022,9 @@ msgid ""
 "your configuration to default in the [em]Settings[/em] menu."
 msgstr ""
 "The chart arrangement configuration in your browsers local storage is not "
-"compatible any more to the newer version of the monitor dialogue. It is very "
-"likely that your current configuration will not work any more. Please reset "
-"your configuration to default in the <i>Settings</i> menu."
+"compatible anymore to the newer version of the monitor dialog. It is very "
+"likely that your current configuration will not work anymore. Please reset "
+"your configuration to default in the [em]Settings[/em] menu."
 
 #: resources/templates/server/status/processes/index.twig:14
 msgid "Show only active"
@@ -7423,14 +7420,12 @@ msgid "There are no triggers to display."
 msgstr "There are no triggers to display."
 
 #: resources/templates/triggers/list.twig:81
-#, fuzzy
 msgid "Trigger editor"
-msgstr "Trigger name"
+msgstr "Trigger editor"
 
 #: resources/templates/triggers/list.twig:101
-#, fuzzy
 msgid "Export trigger"
-msgstr "Export of trigger %s"
+msgstr "Export trigger"
 
 #: resources/templates/view_create.twig:75
 msgid "VIEW name"
@@ -15608,9 +15603,8 @@ msgid "You must provide a valid return type for the routine."
 msgstr "You must provide a valid return type for the routine."
 
 #: src/Database/Routines.php:809
-#, fuzzy
 msgid "Invalid routine type!"
-msgstr "Invalid routine type: \"%s\""
+msgstr "Invalid routine type!"
 
 #: src/Database/Routines.php:815
 msgid "You must provide a routine name!"
