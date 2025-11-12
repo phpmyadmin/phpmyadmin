@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-<title>phpMyAdmin</title>
+<title>PHPMyAdmin</title>
 <meta http-equiv="expires" content="0">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Cache-Control" content="no-cache">
