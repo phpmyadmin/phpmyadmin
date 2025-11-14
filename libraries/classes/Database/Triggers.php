@@ -488,12 +488,12 @@ class Triggers
         }
 
         $itemName = $_GET['item_name'];
-        $triggers = $this->dbi->getTriggers($db, $table, '');
+        $triggers = $this->dbi->getTriggers($db, $table, '$$');
         $exportData = false;
 
         foreach ($triggers as $trigger) {
             if ($trigger['name'] === $itemName) {
-                $exportData = $trigger['create'];
+                $exportData = "DELIMITER $$\n" . $trigger['create'];
                 break;
             }
         }
