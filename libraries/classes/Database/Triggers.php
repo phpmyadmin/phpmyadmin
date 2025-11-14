@@ -308,7 +308,7 @@ class Triggers
     {
         global $db, $table;
 
-        $temp = [];
+        $temp = null;
         $items = $this->dbi->getTriggers($db, $table, '');
         foreach ($items as $value) {
             if ($value['name'] != $name) {
@@ -318,7 +318,7 @@ class Triggers
             $temp = $value;
         }
 
-        if (empty($temp)) {
+        if ($temp === null) {
             return null;
         }
 

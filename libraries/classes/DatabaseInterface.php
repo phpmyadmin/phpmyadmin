@@ -1630,7 +1630,18 @@ class DatabaseInterface implements DbalInterface
      * @param string $table     table name
      * @param string $delimiter the delimiter to use (may be empty)
      *
-     * @return array information about triggers (may be empty)
+     * @return array<array<string,string>> information about triggers (may be empty)
+     * @psalm-return list<array{
+     *   name: string,
+     *   table: string,
+     *   action_timing: string,
+     *   event_manipulation: string,
+     *   definition: string,
+     *   definer: string,
+     *   full_trigger_name: string,
+     *   drop: string,
+     *   create: string,
+     * }>
      */
     public function getTriggers(string $db, string $table = '', string $delimiter = '//'): array
     {
