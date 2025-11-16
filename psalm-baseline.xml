@@ -5998,7 +5998,7 @@
       <code>$GLOBALS['cfg']['Order']</code>
       <code>$delUrlParams</code>
     </InvalidArrayOffset>
-    <MixedArgument occurrences="61">
+    <MixedArgument occurrences="64">
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['pos'] / $_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['query']</code>
@@ -6039,6 +6039,9 @@
       <code>$newSortExpressionNoDirection</code>
       <code>$oneKey['ref_db_name'] ?? $GLOBALS['db']</code>
       <code>$oneKey['ref_table_name']</code>
+      <code>$posNext</code>
+      <code>$posNext</code>
+      <code>$posPrev</code>
       <code>$rel['foreign_db']</code>
       <code>$rel['foreign_table']</code>
       <code>$row[$i]</code>
@@ -6286,7 +6289,8 @@
       <code>$firstShownRec</code>
       <code>$sortExpressionNoDirection[$indexInExpression]</code>
     </MixedOperand>
-    <MixedPropertyFetch occurrences="17">
+    <MixedPropertyFetch occurrences="18">
+      <code>$analyzedSqlResults['parser']-&gt;errors</code>
       <code>$analyzedSqlResults['parser']-&gt;list</code>
       <code>$analyzedSqlResults['parser']-&gt;list</code>
       <code>$analyzedSqlResults['parser']-&gt;list</code>
