@@ -590,23 +590,38 @@ class NavigationTree
 
         $retval = [];
         if (! $db->hasChildren()) {
-            if (! in_array('tables', $hidden, true) && $db->getPresence($userPrivileges, 'tables')) {
+            if (
+                ! in_array('tables', $hidden, true)
+                && $db->getPresence($userPrivileges, 'tables', $this->searchClause2)
+            ) {
                 $retval['tables'] = new NodeTableContainer($this->config);
             }
 
-            if (! in_array('views', $hidden, true) && $db->getPresence($userPrivileges, 'views')) {
+            if (
+                ! in_array('views', $hidden, true)
+                && $db->getPresence($userPrivileges, 'views', $this->searchClause2)
+            ) {
                 $retval['views'] = new NodeViewContainer($this->config);
             }
 
-            if (! in_array('functions', $hidden, true) && $db->getPresence($userPrivileges, 'functions')) {
+            if (
+                ! in_array('functions', $hidden, true)
+                && $db->getPresence($userPrivileges, 'functions', $this->searchClause2)
+            ) {
                 $retval['functions'] = new NodeFunctionContainer($this->config);
             }
 
-            if (! in_array('procedures', $hidden, true) && $db->getPresence($userPrivileges, 'procedures')) {
+            if (
+                ! in_array('procedures', $hidden, true)
+                && $db->getPresence($userPrivileges, 'procedures', $this->searchClause2)
+            ) {
                 $retval['procedures'] = new NodeProcedureContainer($this->config);
             }
 
-            if (! in_array('events', $hidden, true) && $db->getPresence($userPrivileges, 'events')) {
+            if (
+                ! in_array('events', $hidden, true)
+                && $db->getPresence($userPrivileges, 'events', $this->searchClause2)
+            ) {
                 $retval['events'] = new NodeEventContainer($this->config);
             }
 
