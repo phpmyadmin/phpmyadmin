@@ -14336,53 +14336,13 @@ parameters:
 			path: libraries/classes/Database/Triggers.php
 
 		-
-			message: "#^Cannot access offset 'action_timing' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Database/Triggers.php
-
-		-
-			message: "#^Cannot access offset 'create' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Database/Triggers.php
-
-		-
-			message: "#^Cannot access offset 'definer' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Database/Triggers.php
-
-		-
-			message: "#^Cannot access offset 'definition' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Database/Triggers.php
-
-		-
-			message: "#^Cannot access offset 'drop' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Database/Triggers.php
-
-		-
-			message: "#^Cannot access offset 'event_manipulation' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Database/Triggers.php
-
-		-
-			message: "#^Cannot access offset 'name' on mixed\\.$#"
-			count: 4
-			path: libraries/classes/Database/Triggers.php
-
-		-
-			message: "#^Cannot access offset 'table' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Database/Triggers.php
-
-		-
 			message: "#^Cannot call method isSuccess\\(\\) on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Database/Triggers.php
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 22
+			count: 21
 			path: libraries/classes/Database/Triggers.php
 
 		-
@@ -14482,11 +14442,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$str of function mb_strtoupper expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Database/Triggers.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of function trim expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Database/Triggers.php
 
@@ -14901,7 +14856,7 @@ parameters:
 			path: libraries/classes/DatabaseInterface.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTriggers\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTriggers\\(\\) should return array\\<int, array\\{name\\: string, table\\: string, action_timing\\: string, event_manipulation\\: string, definition\\: string, definer\\: string, full_trigger_name\\: string, drop\\: string, \\.\\.\\.\\}\\> but returns array\\<int\\<0, max\\>, array\\{name\\: mixed, table\\: mixed, action_timing\\: mixed, event_manipulation\\: mixed, definition\\: mixed, definer\\: mixed, full_trigger_name\\: string, drop\\: non\\-falsy\\-string, \\.\\.\\.\\}\\>\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php
 
@@ -24066,11 +24021,6 @@ parameters:
 			path: libraries/classes/OpenDocument.php
 
 		-
-			message: "#^Cannot access offset 'create' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Operations.php
-
-		-
 			message: "#^Cannot access offset 'foreign_db' on mixed\\.$#"
 			count: 4
 			path: libraries/classes/Operations.php
@@ -24192,7 +24142,12 @@ parameters:
 
 		-
 			message: "#^Only booleans are allowed in an if condition, array given\\.$#"
-			count: 2
+			count: 1
+			path: libraries/classes/Operations.php
+
+		-
+			message: "#^Only booleans are allowed in an if condition, array\\<int, array\\<string, string\\>\\> given\\.$#"
+			count: 1
 			path: libraries/classes/Operations.php
 
 		-
@@ -24227,7 +24182,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$query of method PhpMyAdmin\\\\DatabaseInterface\\:\\:query\\(\\) expects string, mixed given\\.$#"
-			count: 2
+			count: 1
 			path: libraries/classes/Operations.php
 
 		-
@@ -34996,11 +34951,6 @@ parameters:
 			path: libraries/classes/Table.php
 
 		-
-			message: "#^Cannot access offset 'create' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Table.php
-
-		-
 			message: "#^Cannot access offset 'foreign_db' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Table.php
@@ -35022,11 +34972,6 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'mimetype' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Table.php
-
-		-
-			message: "#^Cannot access offset 'name' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Table.php
 
@@ -35361,7 +35306,7 @@ parameters:
 			path: libraries/classes/Table.php
 
 		-
-			message: "#^Only booleans are allowed in &&, array given on the right side\\.$#"
+			message: "#^Only booleans are allowed in &&, array\\<int, array\\<string, string\\>\\> given on the right side\\.$#"
 			count: 1
 			path: libraries/classes/Table.php
 
@@ -35452,7 +35397,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 9
+			count: 8
 			path: libraries/classes/Table.php
 
 		-
@@ -35462,11 +35407,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$main_str of function substr_compare expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Table.php
-
-		-
-			message: "#^Parameter \\#1 \\$query of method PhpMyAdmin\\\\DatabaseInterface\\:\\:query\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Table.php
 
