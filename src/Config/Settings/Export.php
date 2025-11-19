@@ -282,7 +282,7 @@ final class Export
 
     /**
      * ```php
-     * $cfg['Export']['ods_columns'] = false;
+     * $cfg['Export']['ods_columns'] = true;
      * ```
      */
     public bool $ods_columns;
