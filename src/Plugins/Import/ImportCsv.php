@@ -274,7 +274,7 @@ class ImportCsv extends AbstractImportCsv
 
             $ch = mb_substr($buffer, $i, 1);
             if ($csvTerminatedLen > 1 && $ch == $this->terminated[0]) {
-                $ch = $this->readCsvTerminatedString($buffer, $ch, $i, $csvTerminatedLen);
+                $ch .= $this->readCsvTerminatedString($buffer, $i, $csvTerminatedLen);
                 $i += $csvTerminatedLen - 1;
             }
 
@@ -304,7 +304,7 @@ class ImportCsv extends AbstractImportCsv
                         $i++;
                         $ch = mb_substr($buffer, $i, 1);
                         if ($csvTerminatedLen > 1 && $ch == $this->terminated[0]) {
-                            $ch = $this->readCsvTerminatedString($buffer, $ch, $i, $csvTerminatedLen);
+                            $ch .= $this->readCsvTerminatedString($buffer, $i, $csvTerminatedLen);
                             $i += $csvTerminatedLen - 1;
                         }
 
@@ -322,7 +322,7 @@ class ImportCsv extends AbstractImportCsv
                         $i++;
                         $ch = mb_substr($buffer, $i, 1);
                         if ($csvTerminatedLen > 1 && $ch == $this->terminated[0]) {
-                            $ch = $this->readCsvTerminatedString($buffer, $ch, $i, $csvTerminatedLen);
+                            $ch .= $this->readCsvTerminatedString($buffer, $i, $csvTerminatedLen);
                             $i += $csvTerminatedLen - 1;
                         }
                     } else {
@@ -350,7 +350,7 @@ class ImportCsv extends AbstractImportCsv
                             $i++;
                             $ch = mb_substr($buffer, $i, 1);
                             if ($csvTerminatedLen > 1 && $ch == $this->terminated[0]) {
-                                $ch = $this->readCsvTerminatedString($buffer, $ch, $i, $csvTerminatedLen);
+                                $ch .= $this->readCsvTerminatedString($buffer, $i, $csvTerminatedLen);
                                 $i += $csvTerminatedLen - 1;
                             }
 
@@ -380,7 +380,7 @@ class ImportCsv extends AbstractImportCsv
                             continue;
                         }
 
-                        $ch = $this->readCsvTerminatedString($buffer, $ch, $i, $csvTerminatedLen);
+                        $ch .= $this->readCsvTerminatedString($buffer, $i, $csvTerminatedLen);
                         $i += $csvTerminatedLen - 1;
                     }
 
@@ -415,7 +415,7 @@ class ImportCsv extends AbstractImportCsv
                             $i++;
                             $ch = mb_substr($buffer, $i, 1);
                             if ($csvTerminatedLen > 1 && $ch == $this->terminated[0]) {
-                                $ch = $this->readCsvTerminatedString($buffer, $ch, $i, $csvTerminatedLen);
+                                $ch .= $this->readCsvTerminatedString($buffer, $i, $csvTerminatedLen);
                                 $i += $csvTerminatedLen - 1;
                             }
                         }
@@ -445,7 +445,7 @@ class ImportCsv extends AbstractImportCsv
                         $i++;
                         $ch = mb_substr($buffer, $i, 1);
                         if ($csvTerminatedLen > 1 && $ch == $this->terminated[0]) {
-                            $ch = $this->readCsvTerminatedString($buffer, $ch, $i, $csvTerminatedLen);
+                            $ch .= $this->readCsvTerminatedString($buffer, $i, $csvTerminatedLen);
                             $i += $csvTerminatedLen - 1;
                         }
                     }
@@ -804,18 +804,11 @@ class ImportCsv extends AbstractImportCsv
      * into variable $ch and return the read string $ch
      *
      * @param string $buffer           The original string buffer read from csv file
-     * @param string $ch               Partially read "column Separated with" string, also used to return after
-     *                                 reading length equal $csv_terminated_len
      * @param int    $i                Current read counter of buffer string
      * @param int    $csvTerminatedLen The length of "column separated with" String
      */
-    public function readCsvTerminatedString(string $buffer, string $ch, int $i, int $csvTerminatedLen): string
+    public function readCsvTerminatedString(string $buffer, int $i, int $csvTerminatedLen): string
     {
-        for ($j = 0; $j < $csvTerminatedLen - 1; $j++) {
-            $i++;
-            $ch .= mb_substr($buffer, $i, 1);
-        }
-
-        return $ch;
+        return mb_substr($buffer, $i + 1, $csvTerminatedLen - 1);
     }
 }
