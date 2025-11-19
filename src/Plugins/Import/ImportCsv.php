@@ -30,6 +30,7 @@ use function array_map;
 use function array_pad;
 use function array_shift;
 use function count;
+use function implode;
 use function in_array;
 use function max;
 use function mb_strlen;
@@ -206,11 +207,8 @@ class ImportCsv extends AbstractImportCsv
             Import::$errorUrl,
         );
 
-        [$sqlTemplate, $fields] = $this->getSqlTemplateAndRequiredFields(
-            Current::$database,
-            Current::$table,
-            $this->columns,
-        );
+        $fields = $this->getSqlRequiredFields(Current::$database, Current::$table);
+        $sqlTemplate = $this->getSqlTemplate(Current::$database, Current::$table, $fields);
 
         $sqlStatements = [];
 
@@ -723,66 +721,81 @@ class ImportCsv extends AbstractImportCsv
         return $columnNames;
     }
 
-    /** @return array{string, string[]} */
-    private function getSqlTemplateAndRequiredFields(
+    /** @return string[] */
+    private function getSqlRequiredFields(
         string|null $db,
         string|null $table,
-        string $csvColumns,
     ): array {
-        $sqlTemplate = '';
-        $fields = [];
-        if (! $this->analyze && $db !== null && $table !== null) {
-            $sqlTemplate = 'INSERT';
-            if ($this->ignore) {
-                $sqlTemplate .= ' IGNORE';
-            }
-
-            $sqlTemplate .= ' INTO ' . Util::backquote($table);
-
-            $tmpFields = DatabaseInterface::getInstance()->getColumnNames($db, $table);
-
-            if ($csvColumns === '') {
-                $fields = $tmpFields;
-            } else {
-                $sqlTemplate .= ' (';
-                $tmp = preg_split('/,( ?)/', $csvColumns);
-                if ($tmp === false) {
-                    $tmp = [];
-                }
-
-                foreach ($tmp as $val) {
-                    if ($fields !== []) {
-                        $sqlTemplate .= ', ';
-                    }
-
-                    /* Trim also `, if user already included backquoted fields */
-                    $val = trim($val, " \t\r\n\0\x0B`");
-
-                    if (! in_array($val, $tmpFields, true)) {
-                        Current::$message = Message::error(
-                            __(
-                                'Invalid column (%s) specified! Ensure that columns'
-                                . ' names are spelled correctly, separated by commas'
-                                . ', and not enclosed in quotes.',
-                            ),
-                        );
-                        Current::$message->addParam($val);
-                        Import::$hasError = true;
-                        break;
-                    }
-
-                    $fields[] = $val;
-
-                    $sqlTemplate .= Util::backquote($val);
-                }
-
-                $sqlTemplate .= ') ';
-            }
-
-            $sqlTemplate .= ' VALUES (';
+        if ($this->analyze || $db === null || $table === null) {
+            return [];
         }
 
-        return [$sqlTemplate, $fields];
+        $tmpFields = DatabaseInterface::getInstance()->getColumnNames($db, $table);
+
+        if ($this->columns === '') {
+            return $tmpFields;
+        }
+
+        $fields = [];
+        $tmp = preg_split('/,( ?)/', $this->columns);
+        if ($tmp === false) {
+            $tmp = [];
+        }
+
+        foreach ($tmp as $val) {
+            /* Trim also `, if user already included backquoted fields */
+            $val = trim($val, " \t\r\n\0\x0B`");
+
+            if (! in_array($val, $tmpFields, true)) {
+                Current::$message = Message::error(
+                    __(
+                        'Invalid column (%s) specified! Ensure that columns'
+                        . ' names are spelled correctly, separated by commas'
+                        . ', and not enclosed in quotes.',
+                    ),
+                );
+                Current::$message->addParam($val);
+                Import::$hasError = true;
+                break;
+            }
+
+            $fields[] = $val;
+        }
+
+        return $fields;
+    }
+
+    /** @param string[] $fields */
+    private function getSqlTemplate(
+        string|null $db,
+        string|null $table,
+        array $fields,
+    ): string {
+        if ($this->analyze || $db === null || $table === null) {
+            return '';
+        }
+
+        $sqlTemplate = 'INSERT';
+        if ($this->ignore) {
+            $sqlTemplate .= ' IGNORE';
+        }
+
+        $sqlTemplate .= ' INTO ' . Util::backquote($table);
+
+        if ($this->columns !== '') {
+            $sqlTemplate .= ' (';
+
+            $sqlTemplate .= implode(
+                ', ',
+                array_map(Util::backquote(...), $fields),
+            );
+
+            $sqlTemplate .= ') ';
+        }
+
+        $sqlTemplate .= ' VALUES (';
+
+        return $sqlTemplate;
     }
 
     /**
