@@ -555,53 +555,7 @@ class ImportCsv extends AbstractImportCsv
         }
 
         if ($this->analyze) {
-            /* Fill out all rows */
-            foreach ($rows as $i => $row) {
-                $rows[$i] = array_pad($row, $maxCols, 'NULL');
-            }
-
-            $colNames = [];
-            /* Remove the first row if it contains the column names */
-            if ($this->csvHasColumnNames) {
-                $colNames = array_shift($rows);
-            }
-
-            $colNames = $this->getColumnNames($colNames, $maxCols);
-
-            $tblName = $this->getTableNameFromImport(Current::$database);
-
-            $table = new ImportTable($tblName, $colNames, $rows);
-
-            /* Obtain the best-fit MySQL types for each column */
-            $analysis = $this->import->analyzeTable($table);
-
-            /**
-             * Set database name to the currently selected one, if applicable,
-             * Otherwise, check if user provided the database name in the request,
-             * if not, set the default name
-             */
-            if ($this->newDatabaseName !== '') {
-                $newDb = $this->newDatabaseName;
-            } else {
-                $result = $dbi->fetchSingleColumn('SHOW DATABASES');
-
-                $newDb = 'CSV_DB ' . (count($result) + 1);
-            }
-
-            $dbName = Current::$database !== '' ? Current::$database : $newDb;
-            $createDb = Current::$database === '';
-
-            if ($createDb) {
-                $sqlStatements = $this->import->createDatabase($dbName, 'utf8', 'utf8_general_ci', $sqlStatements);
-            }
-
-            $this->import->buildSql(
-                $dbName,
-                [$table],
-                [$analysis],
-                sqlData: $sqlStatements,
-                insertMode: $this->ignore ? 'INSERT IGNORE' : 'INSERT',
-            );
+            $this->buildSqlStructures($rows, $maxCols, $dbi, $sqlStatements);
         }
 
         // Commit any possible data in buffers
@@ -618,6 +572,65 @@ class ImportCsv extends AbstractImportCsv
         Import::$hasError = true;
 
         return $sqlStatements;
+    }
+
+    /**
+     * @param (null|string)[][] $rows
+     * @param string[] $sqlStatements
+     */
+    private function buildSqlStructures(
+        array $rows,
+        int $maxCols,
+        DatabaseInterface $dbi,
+        array &$sqlStatements,
+    ): void {
+        /* Fill out all rows */
+        foreach ($rows as $i => $row) {
+            $rows[$i] = array_pad($row, $maxCols, 'NULL');
+        }
+
+        $colNames = [];
+        /* Remove the first row if it contains the column names */
+        if ($this->csvHasColumnNames) {
+            $colNames = array_shift($rows);
+        }
+
+        $colNames = $this->getColumnNames($colNames, $maxCols);
+
+        $tblName = $this->getTableNameFromImport(Current::$database);
+
+        $table = new ImportTable($tblName, $colNames, $rows);
+
+        /* Obtain the best-fit MySQL types for each column */
+        $analysis = $this->import->analyzeTable($table);
+
+        /**
+         * Set database name to the currently selected one, if applicable,
+         * Otherwise, check if user provided the database name in the request,
+         * if not, set the default name
+         */
+        if ($this->newDatabaseName !== '') {
+            $newDb = $this->newDatabaseName;
+        } else {
+            $result = $dbi->fetchSingleColumn('SHOW DATABASES');
+
+            $newDb = 'CSV_DB ' . (count($result) + 1);
+        }
+
+        $dbName = Current::$database !== '' ? Current::$database : $newDb;
+        $createDb = Current::$database === '';
+
+        if ($createDb) {
+            $sqlStatements = $this->import->createDatabase($dbName, 'utf8', 'utf8_general_ci', $sqlStatements);
+        }
+
+        $this->import->buildSql(
+            $dbName,
+            [$table],
+            [$analysis],
+            sqlData: $sqlStatements,
+            insertMode: $this->ignore ? 'INSERT IGNORE' : 'INSERT',
+        );
     }
 
     /** @return array{bool, Message|null} */
