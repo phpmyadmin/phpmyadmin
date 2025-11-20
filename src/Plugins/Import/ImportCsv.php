@@ -500,23 +500,11 @@ class ImportCsv extends AbstractImportCsv
                         unset($values[count($values) - 1]);
                     }
 
-                    $first = true;
-                    $sql = $sqlTemplate;
+                    $quotedValues = [];
                     foreach ($values as $val) {
-                        if (! $first) {
-                            $sql .= ', ';
-                        }
-
-                        if ($val === null) {
-                            $sql .= 'NULL';
-                        } else {
-                            $sql .= $dbi->quoteString($val);
-                        }
-
-                        $first = false;
+                        $quotedValues[] = $val === null ? 'NULL' : $dbi->quoteString($val);
                     }
-
-                    $sql .= ')';
+                    $sql = $sqlTemplate . implode(', ', $quotedValues) . ')';
                     if ($this->replace) {
                         $sql .= ' ON DUPLICATE KEY UPDATE ';
                         foreach ($fields as $field) {
