@@ -500,26 +500,7 @@ class ImportCsv extends AbstractImportCsv
                         unset($values[count($values) - 1]);
                     }
 
-                    $quotedValues = [];
-                    foreach ($values as $val) {
-                        $quotedValues[] = $val === null ? 'NULL' : $dbi->quoteString($val);
-                    }
-                    $sql = $sqlTemplate . implode(', ', $quotedValues) . ')';
-                    if ($this->replace) {
-                        $sql .= ' ON DUPLICATE KEY UPDATE ';
-                        foreach ($fields as $field) {
-                            $fieldName = Util::backquote($field);
-                            $sql .= $fieldName . ' = VALUES(' . $fieldName . '), ';
-                        }
-
-                        $sql = rtrim($sql, ', ');
-                    }
-
-                    /**
-                     * @todo maybe we could add original line to verbose
-                     * SQL in comment
-                     */
-                    $this->import->runQuery($sql, $sqlStatements);
+                    $sqlStatements = $this->addRowToDatabase($values, $dbi, $sqlTemplate, $fields, $sqlStatements);
                 }
 
                 $line++;
@@ -563,8 +544,48 @@ class ImportCsv extends AbstractImportCsv
     }
 
     /**
-     * @param (null|string)[][] $rows
-     * @param string[] $sqlStatements
+     * @param (string|null)[] $values
+     * @param string[]        $fields
+     * @param string[]        $sqlStatements
+     *
+     * @return string[]
+     */
+    private function addRowToDatabase(
+        array $values,
+        DatabaseInterface $dbi,
+        string $sqlTemplate,
+        array $fields,
+        array $sqlStatements,
+    ): array {
+        $quotedValues = [];
+        foreach ($values as $val) {
+            $quotedValues[] = $val === null ? 'NULL' : $dbi->quoteString($val);
+        }
+
+        $sql = $sqlTemplate . implode(', ', $quotedValues) . ')';
+
+        if ($this->replace) {
+            $sql .= ' ON DUPLICATE KEY UPDATE ';
+            foreach ($fields as $field) {
+                $fieldName = Util::backquote($field);
+                $sql .= $fieldName . ' = VALUES(' . $fieldName . '), ';
+            }
+
+            $sql = rtrim($sql, ', ');
+        }
+
+        /**
+         * @todo maybe we could add original line to verbose
+         * SQL in comment
+         */
+        $this->import->runQuery($sql, $sqlStatements);
+
+        return $sqlStatements;
+    }
+
+    /**
+     * @param list<list<string|null>> $rows
+     * @param string[]                $sqlStatements
      */
     private function buildSqlStructures(
         array $rows,
