@@ -51,10 +51,7 @@ use const PATHINFO_FILENAME;
  */
 class ImportCsv extends AbstractImportCsv
 {
-    /**
-     * Whether to analyze tables
-     */
-    private bool $analyze = false;
+    private bool $intoExistingTable = true;
 
     private bool $replace = false;
     private bool $ignore = false;
@@ -76,11 +73,7 @@ class ImportCsv extends AbstractImportCsv
 
     protected function setProperties(): ImportPluginProperties
     {
-        $this->analyze = false;
-
-        if (ImportSettings::$importType !== 'table') {
-            $this->analyze = true;
-        }
+        $this->intoExistingTable = ImportSettings::$importType === 'table';
 
         $importPluginProperties = new ImportPluginProperties();
         $importPluginProperties->setText('CSV');
@@ -479,7 +472,7 @@ class ImportCsv extends AbstractImportCsv
                     $values[] = '';
                 }
 
-                if ($this->analyze) {
+                if (! $this->intoExistingTable) {
                     $maxCols = max($maxCols, count($values));
                     $rows[] = $values;
                 } else {
@@ -523,7 +516,7 @@ class ImportCsv extends AbstractImportCsv
             }
         }
 
-        if ($this->analyze) {
+        if (! $this->intoExistingTable) {
             $this->buildSqlStructures($rows, $maxCols, $dbi, $sqlStatements);
         }
 
@@ -748,7 +741,7 @@ class ImportCsv extends AbstractImportCsv
         string|null $db,
         string|null $table,
     ): array {
-        if ($this->analyze || $db === null || $table === null) {
+        if (! $this->intoExistingTable || $db === null || $table === null) {
             return [];
         }
 
@@ -793,7 +786,7 @@ class ImportCsv extends AbstractImportCsv
         string|null $table,
         array $fields,
     ): string {
-        if ($this->analyze || $db === null || $table === null) {
+        if (! $this->intoExistingTable || $db === null || $table === null) {
             return '';
         }
 
