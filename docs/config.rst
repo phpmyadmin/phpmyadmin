@@ -2753,6 +2753,24 @@ Export and import settings
 
     Default export format.
 
+    Possible values are:
+
+    * ``'codegen'`` NHibernate code generation output
+    * ``'csv'`` :term:`Comma--separated text<CSV>`
+    * ``'excel'`` CSV file optimized for use with Microsoft Excel
+    * ``'htmlword'`` HTML file for opening in or importing into Microsoft Word
+    * ``'json'`` a lightweight data--interchange format
+    * ``'latex'`` :term:`LaTeX<LATEX>` typesetting markup file
+    * ``'mediawiki'`` MediaWiki markdown for a table layout
+    * ``'ods'`` OpenDocument format spreadsheet as used in LibreOffice
+    * ``'odt'`` OpenDocument format text document as used in LibreOffice
+    * ``'phparray'`` A PHP array suitable to copy and paste in to some PHP block
+    * ``'pdf'`` :term:`PDF`, a document format for human--readable text
+    * ``'sql'`` :term:`SQL` is the standard import and export format for database servers
+    * ``'texytext'`` Text format for the Texy! markup language
+    * ``'xml'`` :term:`eXtensible Markup Language<XML>` format for sharing documents and marking up text
+    * ``'yaml'`` Another variation of markup language used for data serialization, designed to be easier for humans to read
+
 .. config:option:: $cfg['Export']['method']
 
     :type: string
