@@ -66,6 +66,7 @@ class Import
     public static string $importText = '';
     public static ResultInterface|false $result = false;
     public static string $errorUrl = '';
+    private bool $forceExecute = false;
 
     public function __construct()
     {
@@ -198,7 +199,7 @@ class Import
 
         ImportSettings::$executedQueries++;
 
-        if (ImportSettings::$runQuery && ImportSettings::$executedQueries < 50) {
+        if (ImportSettings::$runQuery && ImportSettings::$executedQueries < 50 && ! $this->forceExecute) {
             ImportSettings::$goSql = true;
 
             if (! ImportSettings::$sqlQueryDisabled) {
@@ -823,6 +824,12 @@ class Import
             $tempSQLStr .= implode(', ', array_map(Util::backquote(...), $table->columns));
 
             $tempSQLStr .= ') VALUES ';
+
+            // This line is added to trick the runQuery method into thinking it executed more than one query
+            // Without this, large imports will be redirected to the /sql page and suffer performance issues
+            if (count($table->rows) > 50) {
+                $this->forceExecute = true;
+            }
 
             $lastRowKey = array_key_last($table->rows);
             foreach ($table->rows as $rowIndex => $row) {
