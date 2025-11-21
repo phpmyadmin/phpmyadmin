@@ -310,72 +310,6 @@ class Error extends Message
     }
 
     /**
-     * Get HTML backtrace
-     */
-    public function getBacktraceDisplay(): string
-    {
-        return self::formatBacktrace($this->getBacktrace());
-    }
-
-    /**
-     * return formatted backtrace field
-     *
-     * @param mixed[] $backtrace Backtrace data
-     *
-     * @return string formatted backtrace
-     */
-    public static function formatBacktrace(array $backtrace): string
-    {
-        if ($backtrace === []) {
-            return '';
-        }
-
-        $retval = '<ol class="list-group">';
-
-        foreach ($backtrace as $step) {
-            $retval .= '<li class="list-group-item">';
-            if (isset($step['file'], $step['line'])) {
-                $retval .= self::relPath($step['file']) . '#' . $step['line'] . ': ';
-            }
-
-            if (isset($step['class'])) {
-                $retval .= $step['class'] . $step['type'];
-            }
-
-            $retval .= self::getFunctionCall($step);
-            $retval .= '</li>';
-        }
-
-        return $retval . '</ol>';
-    }
-
-    /**
-     * Formats function call in a backtrace
-     *
-     * @param mixed[] $step backtrace step
-     */
-    public static function getFunctionCall(array $step): string
-    {
-        $retval = $step['function'] . '(';
-        if (isset($step['args'])) {
-            if (count($step['args']) > 1) {
-                $retval .= '<br>';
-                foreach ($step['args'] as $arg) {
-                    $retval .= "\t";
-                    $retval .= $arg;
-                    $retval .= ',<br>';
-                }
-            } elseif (count($step['args']) > 0) {
-                foreach ($step['args'] as $arg) {
-                    $retval .= $arg;
-                }
-            }
-        }
-
-        return $retval . ')';
-    }
-
-    /**
      * Get a single function argument
      *
      * if $function is one of include/require
@@ -431,7 +365,6 @@ class Error extends Message
             'file' => $this->getFile(),
             'line' => $this->getLine(),
             'message' => $this->getMessage(),
-            'formatted_backtrace' => $this->getBacktraceDisplay(),
         ]);
     }
 
