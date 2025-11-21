@@ -93,17 +93,6 @@ class ExportMediawiki extends ExportPlugin
     }
 
     /**
-     * Outputs CREATE DATABASE statement
-     *
-     * @param string $db      Database name
-     * @param string $dbAlias Aliases of db
-     */
-    public function exportDBCreate(string $db, string $dbAlias = ''): bool
-    {
-        return true;
-    }
-
-    /**
      * Outputs table's structure
      *
      * @param string  $db         database name
