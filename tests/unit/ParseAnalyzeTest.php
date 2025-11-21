@@ -29,7 +29,7 @@ class ParseAnalyzeTest extends AbstractTestCase
 
         self::assertSame('sakila', $actual[1]);
         self::assertSame('actor', $actual[2]);
-        self::assertTrue($actual[0]->flags->reload);
+        self::assertTrue($actual[3]);
         self::assertNotEmpty($actual[0]->selectTables);
         self::assertSame([['actor', 'sakila']], $actual[0]->selectTables);
         self::assertNotEmpty($actual[0]->selectExpressions);
