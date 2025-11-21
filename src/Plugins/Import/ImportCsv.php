@@ -33,7 +33,6 @@ use function count;
 use function implode;
 use function in_array;
 use function max;
-use function substr;
 use function min;
 use function pathinfo;
 use function preg_split;
@@ -41,6 +40,7 @@ use function rtrim;
 use function str_contains;
 use function strlen;
 use function strtr;
+use function substr;
 use function trim;
 
 use const PATHINFO_FILENAME;
