@@ -40,7 +40,6 @@ abstract class ExportPlugin implements Plugin
         protected Export $export,
         public Transformations $transformations,
     ) {
-        $this->init();
         $this->properties = $this->setProperties();
     }
 
@@ -184,13 +183,6 @@ abstract class ExportPlugin implements Plugin
     public function getTableDefStandIn(string $db, string $view, array $aliases = []): string
     {
         return '';
-    }
-
-    /**
-     * Plugin specific initializations.
-     */
-    protected function init(): void
-    {
     }
 
     /**

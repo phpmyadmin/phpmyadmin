@@ -37,11 +37,6 @@ class ExportOds extends ExportPlugin
     private bool $columns = false;
     private string $null = '';
 
-    protected function init(): void
-    {
-        $this->buffer = '';
-    }
-
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {

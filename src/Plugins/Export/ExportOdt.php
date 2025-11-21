@@ -43,11 +43,6 @@ class ExportOdt extends ExportPlugin
     private bool $doRelation = false;
     private string $null = '';
 
-    protected function init(): void
-    {
-        $this->buffer = '';
-    }
-
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {

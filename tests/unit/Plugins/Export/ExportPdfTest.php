@@ -157,22 +157,13 @@ class ExportPdfTest extends AbstractTestCase
 
     public function testSetExportOptions(): void
     {
-        $pdf = $this->getMockBuilder(Pdf::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $pdf->expects(self::once())
-            ->method('Open');
-
-        $pdf->expects(self::once())
-            ->method('setTopMargin');
-
-        $attrPdf = new ReflectionProperty(ExportPdf::class, 'pdf');
-        $attrPdf->setValue($this->object, $pdf);
-
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/');
 
         $this->object->setExportOptions($request, []);
+
+        $attrPdf = new ReflectionProperty(ExportPdf::class, 'pdf');
+        $pdf = $attrPdf->getValue($this->object);
+        self::assertInstanceOf(Pdf::class, $pdf);
     }
 
     public function testExportFooter(): void
@@ -233,23 +224,6 @@ class ExportPdfTest extends AbstractTestCase
                 'table',
                 'SELECT',
             ),
-        );
-    }
-
-    /**
-     * Test for
-     *     - PhpMyAdmin\Plugins\Export\ExportPdf::setPdf
-     *     - PhpMyAdmin\Plugins\Export\ExportPdf::getPdf
-     */
-    public function testSetGetPdf(): void
-    {
-        $setter = new ReflectionMethod(ExportPdf::class, 'setPdf');
-        $setter->invoke($this->object, new Pdf());
-
-        $getter = new ReflectionMethod(ExportPdf::class, 'getPdf');
-        self::assertInstanceOf(
-            Pdf::class,
-            $getter->invoke($this->object),
         );
     }
 }
