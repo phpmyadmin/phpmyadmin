@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-10-16 23:57-0300\n"
-"PO-Revision-Date: 2025-07-03 11:01+0000\n"
+"PO-Revision-Date: 2025-11-22 05:51+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "ka/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.15-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -36,7 +36,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:22
 msgid "Questions below 1,000"
-msgstr "1, 000-ზე ნაკლები კითხვა"
+msgstr "1,000-ზე ნაკლები კითხვა"
 
 #: libraries/advisory_rules_generic.php:26
 msgid ""
