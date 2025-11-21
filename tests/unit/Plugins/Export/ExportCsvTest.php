@@ -281,17 +281,19 @@ class ExportCsvTest extends AbstractTestCase
             ->withParsedBody(['csv_terminated' => ';', 'csv_columns' => 'On']);
 
         $this->object->setExportOptions($request, []);
+        $this->object->exportHeader();
 
         ob_start();
         self::assertTrue($this->object->exportData(
             'test_db',
             'test_table',
-            'SELECT * FROM `test_db`.`test_table`;',
+            'SELECT * FROM `test_db`.`test_table_csv_export`;',
         ));
         $result = ob_get_clean();
 
         self::assertSame(
-            'idnamedatetimefield;1abcd2011-01-20 02:00:02;2foo2010-01-20 02:00:02;3Abcd2012-01-20 02:00:02;',
+            'id,name,datetimefield;1,"ab""cd",2011-01-20 02:00:02;2,"foo;",2010-01-20 02:00:02;3,'
+                . "\n" . 'Abcd,2012-01-20 02:00:02;',
             $result,
         );
 
@@ -300,63 +302,42 @@ class ExportCsvTest extends AbstractTestCase
             ->withParsedBody(['csv_enclosed' => '"', 'csv_terminated' => ';', 'csv_columns' => 'On']);
 
         $this->object->setExportOptions($request, []);
+        $this->object->exportHeader();
 
         ob_start();
         self::assertTrue($this->object->exportData(
             'test_db',
-            'test_table',
-            'SELECT * FROM `test_db`.`test_table`;',
+            'test_table_csv_export',
+            'SELECT * FROM `test_db`.`test_table_csv_export`;',
         ));
         $result = ob_get_clean();
 
         self::assertSame(
-            '"id""name""datetimefield";"1""abcd""2011-01-20 02:00:02";'
-            . '"2""foo""2010-01-20 02:00:02";"3""Abcd""2012-01-20 02:00:02";',
+            'id,name,datetimefield;1,"ab""cd",2011-01-20 02:00:02;2,"foo;",2010-01-20 02:00:02;3,'
+                . "\n" . 'Abcd,2012-01-20 02:00:02;',
             $result,
         );
 
         // case 4
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['csv_enclosed' => '|', 'csv_terminated' => "\n", 'csv_escaped' => '\\', 'csv_columns' => 'On']);
+
+        $this->object->setExportOptions($request, []);
+        $this->object->exportHeader();
+
         ob_start();
         self::assertTrue($this->object->exportData(
             'test_db',
-            'test_table',
-            'SELECT * FROM `test_db`.`test_table`;',
+            'test_table_csv_export',
+            'SELECT * FROM `test_db`.`test_table_csv_export`;',
         ));
         $result = ob_get_clean();
 
         self::assertSame(
-            '"id""name""datetimefield";"1""abcd""2011-01-20 02:00:02";'
-            . '"2""foo""2010-01-20 02:00:02";"3""Abcd""2012-01-20 02:00:02";',
-            $result,
-        );
-
-        // case 5
-        ob_start();
-        self::assertTrue($this->object->exportData(
-            'test_db',
-            'test_table',
-            'SELECT * FROM `test_db`.`test_table`;',
-        ));
-        $result = ob_get_clean();
-
-        self::assertSame(
-            '"id""name""datetimefield";"1""abcd""2011-01-20 02:00:02";'
-            . '"2""foo""2010-01-20 02:00:02";"3""Abcd""2012-01-20 02:00:02";',
-            $result,
-        );
-
-        // case 6
-        ob_start();
-        self::assertTrue($this->object->exportData(
-            'test_db',
-            'test_table',
-            'SELECT * FROM `test_db`.`test_table`;',
-        ));
-        $result = ob_get_clean();
-
-        self::assertSame(
-            '"id""name""datetimefield";"1""abcd""2011-01-20 02:00:02";'
-            . '"2""foo""2010-01-20 02:00:02";"3""Abcd""2012-01-20 02:00:02";',
+            'id,name,datetimefield' . "\n"
+                . '1,ab"cd,2011-01-20 02:00:02' . "\n"
+                . '2,foo;,2010-01-20 02:00:02' . "\n"
+                . '3,|' . "\n" . 'Abcd|,2012-01-20 02:00:02' . "\n",
             $result,
         );
     }

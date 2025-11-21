@@ -297,27 +297,27 @@ class ExportCsv extends ExportPlugin
         );
         $this->terminated = $this->setStringValue(
             $request->getParsedBodyParam('csv_terminated'),
-            $exportConfig['csv_terminated'] ?? null,
+            $exportConfig['csv_terminated'] ?? $this->terminated,
         );
         $this->separator = $this->setStringValue(
             $request->getParsedBodyParam('csv_separator'),
-            $exportConfig['csv_separator'] ?? null,
+            $exportConfig['csv_separator'] ?? $this->separator,
         );
         $this->columns = (bool) ($request->getParsedBodyParam('csv_columns')
             ?? $exportConfig['csv_columns'] ?? false);
         $this->enclosed = $this->setStringValue(
             $request->getParsedBodyParam('csv_enclosed'),
-            $exportConfig['csv_enclosed'] ?? null,
+            $exportConfig['csv_enclosed'] ?? $this->enclosed,
         );
         $this->escaped = $this->setStringValue(
             $request->getParsedBodyParam('csv_escaped'),
-            $exportConfig['csv_escaped'] ?? null,
+            $exportConfig['csv_escaped'] ?? $this->escaped,
         );
         $this->removeCrLf = (bool) ($request->getParsedBodyParam('csv_removeCRLF')
             ?? $exportConfig['csv_removeCRLF'] ?? false);
         $this->null = $this->setStringValue(
             $request->getParsedBodyParam('csv_null'),
-            $exportConfig['csv_null'] ?? null,
+            $exportConfig['csv_null'] ?? $this->null,
         );
     }
 
