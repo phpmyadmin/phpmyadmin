@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-11-16 00:29+0000\n"
-"PO-Revision-Date: 2025-05-10 06:01+0000\n"
-"Last-Translator: ClearanceClarence <adrian.thomassen92@gmail.com>\n"
+"PO-Revision-Date: 2025-11-21 11:51+0000\n"
+"Last-Translator: IsakBH <isak@brunhenriksen.net>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/nb_NO/>\n"
 "Language: nb\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Weblate 5.15-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -183,10 +183,8 @@ msgstr ""
 
 #: resources/templates/columns_definitions/column_attributes.twig:165
 #: resources/templates/table/structure/display_partitions.twig:27
-#, fuzzy
-#| msgid "Compression"
 msgid "Expression"
-msgstr "Kompresjon"
+msgstr "Spørring"
 
 #: resources/templates/columns_definitions/column_attributes.twig:185
 msgid "first"
@@ -314,18 +312,14 @@ msgid "Storage Engine:"
 msgstr "Lagringsmotor"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:78
-#, fuzzy
-#| msgid "Connections"
 msgid "Connection:"
-msgstr "tilkoblinger"
+msgstr "Tilkobling:"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:109
 #: resources/templates/columns_definitions/partitions.twig:137
 #: resources/templates/table/operations/index.twig:134
-#, fuzzy
-#| msgid "Storage Engines"
 msgid "Storage engine"
-msgstr "Lagringsmotorer"
+msgstr "Lagringsmotor"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:132
 #, fuzzy
@@ -334,11 +328,9 @@ msgid "PARTITION definition:"
 msgstr "Partisjonsdefinisjon"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:151
-#, fuzzy
-#| msgid "Enclose export in a transaction"
 msgctxt "Online transaction part of the SQL DDL for InnoDB"
 msgid "Online transaction"
-msgstr "Inneslutt eksport i en transaksjon"
+msgstr "Online transaksjon"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:154
 #: resources/templates/modals/index_dialog_modal.twig:11
@@ -372,6 +364,8 @@ msgid ""
 "The column width of integer types is ignored in your MySQL version unless "
 "defining a TINYINT(1) column"
 msgstr ""
+"Kolonnebredden av integer typer er ignorert i din versjon av MySQL med "
+"mindre du definerer en TINYINT(1) kolonne"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:173
 #: resources/templates/database/designer/main.twig:1094
@@ -472,16 +466,13 @@ msgid "Close"
 msgstr "Lukk"
 
 #: resources/templates/columns_definitions/column_name.twig:4
-#, fuzzy, php-format
-#| msgid "Select referenced key"
+#, php-format
 msgid "Referenced by %s."
-msgstr "Velg referert nøkkel"
+msgstr "Referert av %s."
 
 #: resources/templates/columns_definitions/column_name.twig:12
-#, fuzzy
-#| msgid "Select Foreign Key"
 msgid "Is a foreign key."
-msgstr "Velg fremmednøkkel"
+msgstr "Er en fremmednøkkel."
 
 #: resources/templates/columns_definitions/column_name.twig:16
 #: resources/templates/database/data_dictionary/index.twig:22
@@ -517,67 +508,47 @@ msgid "Column"
 msgstr "Kolonne"
 
 #: resources/templates/columns_definitions/column_name.twig:39
-#, fuzzy
-#| msgid "Remove column(s)"
 msgid "Pick from Central Columns"
-msgstr "Fjern kolonne(r)"
+msgstr "Velg fra sentrale kolonner"
 
 #: resources/templates/columns_definitions/partitions.twig:17
-#, fuzzy
-#| msgid "partitioned"
 msgid "Partition by:"
-msgstr "partisjonert"
+msgstr "Partisjonert av:"
 
 #: resources/templates/columns_definitions/partitions.twig:32
 #: resources/templates/columns_definitions/partitions.twig:60
-#, fuzzy
-#| msgid "Values for column %s"
 msgid "Expression or column list"
-msgstr "Verdier for kolonne %s"
+msgstr "Spørring eller kolonneliste"
 
 #: resources/templates/columns_definitions/partitions.twig:37
-#, fuzzy
-#| msgid "Partition %s"
 msgid "Partitions:"
-msgstr "Partisjon %s"
+msgstr "Partisjoner:"
 
 #: resources/templates/columns_definitions/partitions.twig:45
-#, fuzzy
-#| msgid "partitioned"
 msgid "Subpartition by:"
-msgstr "partisjonert"
+msgstr "Underpartisjon av:"
 
 #: resources/templates/columns_definitions/partitions.twig:65
-#, fuzzy
-#| msgid "partitioned"
 msgid "Subpartitions:"
-msgstr "partisjonert"
+msgstr "Underpartisjoner:"
 
 #: resources/templates/columns_definitions/partitions.twig:76
 #: resources/templates/table/operations/index.twig:481
 #: resources/templates/table/structure/display_partitions.twig:25
-#, fuzzy
-#| msgid "Partition %s"
 msgid "Partition"
-msgstr "Partisjon %s"
+msgstr "Partisjon"
 
 #: resources/templates/columns_definitions/partitions.twig:78
-#, fuzzy
-#| msgid "Value"
 msgid "Values"
-msgstr "Verdi"
+msgstr "Verdier"
 
 #: resources/templates/columns_definitions/partitions.twig:82
-#, fuzzy
-#| msgid "partitioned"
 msgid "Subpartition"
-msgstr "partisjonert"
+msgstr "Underpartisjon"
 
 #: resources/templates/columns_definitions/partitions.twig:84
-#, fuzzy
-#| msgid "Engines"
 msgid "Engine"
-msgstr "Motorer"
+msgstr "Motor"
 
 #: resources/templates/columns_definitions/partitions.twig:85
 #: resources/templates/config/form_display/input.twig:53
@@ -594,40 +565,28 @@ msgid "Comment"
 msgstr "Kommentar"
 
 #: resources/templates/columns_definitions/partitions.twig:86
-#, fuzzy
-#| msgid "Data home directory"
 msgid "Data directory"
-msgstr "Datalagringsmappe"
+msgstr "Datamappe"
 
 #: resources/templates/columns_definitions/partitions.twig:87
-#, fuzzy
-#| msgid "Save directory"
 msgid "Index directory"
-msgstr "Lagringsmappe"
+msgstr "Index mappe"
 
 #: resources/templates/columns_definitions/partitions.twig:88
-#, fuzzy
-#| msgid "Matched rows:"
 msgid "Max rows"
-msgstr "Matchede rader:"
+msgstr "Maksimum rader"
 
 #: resources/templates/columns_definitions/partitions.twig:89
-#, fuzzy
-#| msgid "rows"
 msgid "Min rows"
-msgstr "Se på"
+msgstr "Minimum rader"
 
 #: resources/templates/columns_definitions/partitions.twig:90
-#, fuzzy
-#| msgid "Table search"
 msgid "Table space"
-msgstr "Tabellsøk"
+msgstr "Tabellplass"
 
 #: resources/templates/columns_definitions/partitions.twig:91
-#, fuzzy
-#| msgid "Users"
 msgid "Node group"
-msgstr "Brukere"
+msgstr "Node gruppe"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:4
 #: resources/templates/database/central_columns/edit.twig:3
@@ -831,13 +790,11 @@ msgstr "Kommentarer"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:59
 msgid "Virtuality"
-msgstr ""
+msgstr "Virtualitet"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:65
-#, fuzzy
-#| msgid "Remove column(s)"
 msgid "Move column"
-msgstr "Fjern kolonne(r)"
+msgstr "Flytt kolonne"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:71
 #: resources/templates/database/data_dictionary/index.twig:31
@@ -846,30 +803,22 @@ msgstr "Fjern kolonne(r)"
 #: src/Plugins/Export/ExportOdt.php:455
 #: src/Plugins/Export/ExportTexytext.php:359
 #: src/Plugins/Export/Helpers/Pdf.php:518
-#, fuzzy
-#| msgid "MIME type"
 msgid "Media type"
-msgstr "MIME-type"
+msgstr "Media type"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:75
 #: resources/templates/columns_definitions/table_fields_definitions.twig:86
-#, fuzzy
-#| msgid "Available transformations"
 msgid "List of available transformations and their options"
-msgstr "Tilgjengelige transformationer"
+msgstr "Tilgjengelige transformasjoner og innstillingene deres"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:77
 #: resources/templates/transformation_overview.twig:18
-#, fuzzy
-#| msgid "Browser transformation"
 msgid "Browser display transformation"
-msgstr "Nettvisertransformasjon"
+msgstr "Nettleser visningstransformasjon"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:81
-#, fuzzy
-#| msgid "Browser transformation"
 msgid "Browser display transformation options"
-msgstr "Nettvisertransformasjon"
+msgstr "Nettleser visningstransformasjon innstillinger"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:82
 #: resources/templates/columns_definitions/table_fields_definitions.twig:93
@@ -1623,10 +1572,8 @@ msgid "Page to open"
 msgstr "Sidetitler"
 
 #: resources/templates/database/designer/edit_delete_pages.twig:5
-#, fuzzy
-#| msgid "Relation deleted"
 msgid "Page to delete"
-msgstr "Relasjon slettet"
+msgstr "Side for å slettes"
 
 #: resources/templates/database/designer/main.twig:10
 #: src/Controllers/JavaScriptMessagesController.php:525
@@ -1635,20 +1582,18 @@ msgstr "Ikke navngitt"
 
 #: resources/templates/database/designer/main.twig:19
 #: resources/templates/database/designer/main.twig:25
-#, fuzzy
-#| msgid "Show tables"
 msgid "Show/Hide tables list"
-msgstr "Vis tabeller"
+msgstr "Vis/Gjem tabell listen"
 
 #: resources/templates/database/designer/main.twig:29
 #: resources/templates/database/designer/main.twig:35
 #: resources/templates/database/designer/main.twig:36
 msgid "View in fullscreen"
-msgstr ""
+msgstr "Se i fullskjerm"
 
 #: resources/templates/database/designer/main.twig:34
 msgid "Exit fullscreen"
-msgstr ""
+msgstr "Forlat fullskjerm"
 
 #: resources/templates/database/designer/main.twig:40
 #: resources/templates/database/designer/main.twig:43
@@ -1658,10 +1603,8 @@ msgstr "Legg til tabeller fra andre databaser"
 
 #: resources/templates/database/designer/main.twig:48
 #: resources/templates/database/designer/main.twig:52
-#, fuzzy
-#| msgid "User name"
 msgid "New page"
-msgstr "Brukernavn"
+msgstr "Ny side"
 
 #: resources/templates/database/designer/main.twig:56
 #: resources/templates/database/designer/main.twig:59
