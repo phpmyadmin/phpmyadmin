@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-11-16 00:29+0000\n"
-"PO-Revision-Date: 2025-05-25 12:31+0000\n"
+"PO-Revision-Date: 2025-11-21 11:51+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ka/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Weblate 5.15-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -1932,10 +1932,8 @@ msgid "OFF"
 msgstr "გამორთული"
 
 #: resources/templates/database/events/index.twig:161
-#, fuzzy
-#| msgid "Excel edition"
 msgid "Event editor"
-msgstr "Excel-ის ვერსია"
+msgstr "მოვლენის რედაქტორი"
 
 #: resources/templates/database/events/index.twig:166
 #: resources/templates/database/routines/index.twig:83
@@ -1960,10 +1958,8 @@ msgid "Save changes"
 msgstr "ცვლილებების შენახვა"
 
 #: resources/templates/database/events/index.twig:181
-#, fuzzy
-#| msgid "Export of event %s"
 msgid "Export event"
-msgstr "%s მოვლენის გატანა"
+msgstr "მოვლენის გატანა"
 
 #: resources/templates/database/export/index.twig:61
 msgid ""
@@ -2121,10 +2117,8 @@ msgid "Update query"
 msgstr "მოთხოვნის განახლება"
 
 #: resources/templates/database/multi_table_query/form.twig:175
-#, fuzzy
-#| msgid "Update query"
 msgid "Copy query"
-msgstr "მოთხოვნის განახლება"
+msgstr "მოთხოვნის კოპირება"
 
 #: resources/templates/database/multi_table_query/form.twig:176
 #: src/Html/Generator.php:545
@@ -2460,16 +2454,12 @@ msgid "Returns"
 msgstr "აბრუნებს"
 
 #: resources/templates/database/routines/index.twig:78
-#, fuzzy
-#| msgid "Routine name"
 msgid "Routine editor"
-msgstr "პროცედურის სახელი"
+msgstr "პროცედურის რედაქტორი"
 
 #: resources/templates/database/routines/index.twig:98
-#, fuzzy
-#| msgid "Export of routine %s"
 msgid "Export routine"
-msgstr "პროცედურის %s გატანა"
+msgstr "პროცედურის გატანა"
 
 #: resources/templates/database/routines/index.twig:113
 #: src/Controllers/Database/RoutinesController.php:354
@@ -3508,8 +3498,6 @@ msgid "Server:"
 msgstr "სერვერი:"
 
 #: resources/templates/home/index.twig:186
-#, fuzzy
-#| msgid "Host name:"
 msgid "Hostname:"
 msgstr "ჰოსტის სახელი:"
 
@@ -4502,10 +4490,8 @@ msgid "Description"
 msgstr "აღწერილობა"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:2
-#, fuzzy
-#| msgid "Buffer Pool"
 msgid "Buffer pool usage"
-msgstr "Buffer Pool"
+msgstr "ბუფერის პულის გამოყენება"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:5
 msgid "Free pages"
@@ -4532,16 +4518,13 @@ msgid "Latched pages"
 msgstr ""
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:34
-#, fuzzy, php-format
-#| msgid "pages"
+#, php-format
 msgid "%s pages"
-msgstr "გვერდები"
+msgstr "%s გვერდი"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:41
-#, fuzzy
-#| msgid "Buffer Pool"
 msgid "Buffer pool activity"
-msgstr "Buffer Pool"
+msgstr "ბუფერის პულის აქტივობა"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:44
 msgid "Read requests"
@@ -5651,10 +5634,8 @@ msgid ""
 msgstr ""
 
 #: resources/templates/server/status/monitor/index.twig:58
-#, fuzzy
-#| msgid "Import monitor configuration"
 msgid "Importing system monitor configuration"
-msgstr "მონიტორის კონფიგურაციის შემოტანა"
+msgstr "მიმდინარეობს სისტემის მონიტორის კონფიგურაციის შემოტანა"
 
 #: resources/templates/server/status/monitor/index.twig:63
 #: src/Controllers/JavaScriptMessagesController.php:301
@@ -5666,10 +5647,8 @@ msgid "Reset to default"
 msgstr "ნაგულისხმებ მნიშვნელობაზე დაბრუნება"
 
 #: resources/templates/server/status/monitor/index.twig:87
-#, fuzzy
-#| msgid "Monitor Instructions"
 msgid "System monitor instructions"
-msgstr "მონიტორის ინსტრუქციები"
+msgstr "სისტემის მონიტორის ინსტრუქციები"
 
 #: resources/templates/server/status/monitor/index.twig:92
 msgid ""
@@ -5851,10 +5830,8 @@ msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
 
 #: resources/templates/server/status/monitor/index.twig:336
-#, fuzzy
-#| msgid "Jump to Log table"
 msgid "Jump to the log table"
-msgstr "ჟურნალის ცხრილზე გადასვლა"
+msgstr "გადასვლა ჟურნალის ცხრილზე"
 
 #: resources/templates/server/status/monitor/index.twig:346
 msgid "Monitor refresh failed"
@@ -7267,16 +7244,12 @@ msgid "There are no triggers to display."
 msgstr "საჩვენებელი ტრიგერების გარეშე."
 
 #: resources/templates/triggers/list.twig:81
-#, fuzzy
-#| msgid "Trigger name"
 msgid "Trigger editor"
-msgstr "ტრიგერის სახელი"
+msgstr "ტრიგერის რედაქტორი"
 
 #: resources/templates/triggers/list.twig:101
-#, fuzzy
-#| msgid "Export of trigger %s"
 msgid "Export trigger"
-msgstr "ტრიგერის %s გატანა"
+msgstr "ტრიგერის გატანა"
 
 #: resources/templates/view_create.twig:75
 msgid "VIEW name"
@@ -7348,7 +7321,7 @@ msgstr ""
 
 #: src/Advisory/Rules.php:47
 msgid "Questions below 1,000"
-msgstr "1, 000-ზე ნაკლები კითხვა"
+msgstr "1,000-ზე ნაკლები კითხვა"
 
 #: src/Advisory/Rules.php:51
 msgid ""
@@ -17390,8 +17363,6 @@ msgid "You must provide a trigger definition."
 msgstr ""
 
 #: src/Types.php:97
-#, fuzzy
-#| msgid "Empty"
 msgid "empty"
 msgstr "ცარიელი"
 
