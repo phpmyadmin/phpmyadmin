@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2025-07-03 11:07+0000\n"
+"PO-Revision-Date: 2025-11-22 05:51+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "ka/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.15-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -35,9 +35,8 @@ msgid "The uptime is only %s"
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:22
-#, fuzzy
 msgid "Questions below 1,000"
-msgstr "სპარსული"
+msgstr "1,000-ზე ნაკლები კითხვა"
 
 #: libraries/advisory_rules_generic.php:26
 msgid ""
@@ -57,10 +56,8 @@ msgid "Current amount of Questions: %s"
 msgstr "კითხვებს მიმდინარე რაოდენობა: %s"
 
 #: libraries/advisory_rules_generic.php:37
-#, fuzzy
-#| msgid "Show SQL queries"
 msgid "Percentage of slow queries"
-msgstr "SQL მოთხოვნების ჩვენება"
+msgstr "ნელი მოთხოვნების პროცენტულობა"
 
 #: libraries/advisory_rules_generic.php:41
 msgid ""
@@ -80,10 +77,8 @@ msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:51
-#, fuzzy
-#| msgid "Flush query cache"
 msgid "Slow query rate"
-msgstr "Flush query cache"
+msgstr "ნელი მოთხოვნების სიხშირე"
 
 #: libraries/advisory_rules_generic.php:55
 msgid ""
@@ -98,10 +93,8 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:65
-#, fuzzy
-#| msgid "SQL queries"
 msgid "Long query time"
-msgstr "SQL მოთხოვნები"
+msgstr "გრძელი მოთხოვნის დრო"
 
 #: libraries/advisory_rules_generic.php:69
 msgid ""
@@ -122,10 +115,8 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:81
 #: libraries/advisory_rules_generic.php:94
-#, fuzzy
-#| msgid "SQL Query box"
 msgid "Slow query logging"
-msgstr "SQL Query box"
+msgstr "ნელი მოთხოვნების ჟურნალში ჩაწერა"
 
 #: libraries/advisory_rules_generic.php:85
 #: libraries/advisory_rules_generic.php:98
@@ -153,10 +144,8 @@ msgid "slow_query_log is set to 'OFF'"
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:108
-#, fuzzy
-#| msgid "Select Tables"
 msgid "Release Series"
-msgstr "ცხრილების არჩევა"
+msgstr "გამოშვების სერიები"
 
 #: libraries/advisory_rules_generic.php:111
 msgid "The MySQL server version less than 5.1."
@@ -177,9 +166,8 @@ msgstr "მიმდინარე ვერსია: %s"
 
 #: libraries/advisory_rules_generic.php:120
 #: libraries/advisory_rules_generic.php:134
-#, fuzzy
 msgid "Minor Version"
-msgstr "სპარსული"
+msgstr "მინორული ვერსია"
 
 #: libraries/advisory_rules_generic.php:124
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
@@ -18312,29 +18300,21 @@ msgid ""
 msgstr ""
 
 #: templates/table/relation/common_form.twig:28
-#, fuzzy
-#| msgid "Foreign key limit"
 msgid "Foreign key constraint"
-msgstr "Foreign key limit"
+msgstr "უცხო გასაღების შეზღუდვა"
 
 #: templates/table/relation/common_form.twig:93
-#, fuzzy
-#| msgid "Foreign key limit"
 msgid "+ Add constraint"
-msgstr "Foreign key limit"
+msgstr "+ შეზღუდვის დამატება"
 
 #: templates/table/relation/common_form.twig:105
 #: templates/table/relation/common_form.twig:111
-#, fuzzy
-#| msgid "Internal relations"
 msgid "Internal relationships"
-msgstr "Internal relations"
+msgstr "შიდა ურთიერთობები"
 
 #: templates/table/relation/common_form.twig:119
-#, fuzzy
-#| msgid "Internal relations"
 msgid "Internal relation"
-msgstr "Internal relations"
+msgstr "შიდა ურთიერთობა"
 
 #: templates/table/relation/common_form.twig:121
 msgid ""
