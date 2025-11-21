@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Plugins\Export;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Plugins\Export\ExportPdf;
 use PhpMyAdmin\Plugins\Export\Helpers\Pdf;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -154,7 +155,7 @@ class ExportPdfTest extends AbstractTestCase
         );
     }
 
-    public function testExportHeader(): void
+    public function testSetExportOptions(): void
     {
         $pdf = $this->getMockBuilder(Pdf::class)
             ->disableOriginalConstructor()
@@ -169,9 +170,9 @@ class ExportPdfTest extends AbstractTestCase
         $attrPdf = new ReflectionProperty(ExportPdf::class, 'pdf');
         $attrPdf->setValue($this->object, $pdf);
 
-        self::assertTrue(
-            $this->object->exportHeader(),
-        );
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/');
+
+        $this->object->setExportOptions($request, []);
     }
 
     public function testExportFooter(): void

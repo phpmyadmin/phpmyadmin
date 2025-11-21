@@ -93,14 +93,6 @@ class ExportMediawiki extends ExportPlugin
     }
 
     /**
-     * Outputs export header
-     */
-    public function exportHeader(): bool
-    {
-        return true;
-    }
-
-    /**
      * Outputs export footer
      */
     public function exportFooter(): bool

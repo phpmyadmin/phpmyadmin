@@ -107,12 +107,8 @@ class ExportCsv extends ExportPlugin
         return $exportPluginProperties;
     }
 
-    /**
-     * Outputs export header
-     */
-    public function exportHeader(): bool
+    private function setupExportConfiguration(): void
     {
-        // Here we just prepare some values for export
         if ($this->terminated === '' || strtolower($this->terminated) === 'auto') {
             $this->terminated = "\n";
         } else {
@@ -124,8 +120,6 @@ class ExportCsv extends ExportPlugin
         }
 
         $this->separator = str_replace('\\t', "\011", $this->separator);
-
-        return true;
     }
 
     /**
@@ -319,6 +313,8 @@ class ExportCsv extends ExportPlugin
             $request->getParsedBodyParam('csv_null'),
             $exportConfig['csv_null'] ?? $this->null,
         );
+
+        $this->setupExportConfiguration();
     }
 
     private function setStringValue(mixed $fromRequest, mixed $fromConfig): string

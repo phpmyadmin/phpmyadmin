@@ -101,10 +101,7 @@ class ExportPdf extends ExportPlugin
         return $exportPluginProperties;
     }
 
-    /**
-     * Outputs export header
-     */
-    public function exportHeader(): bool
+    private function setupExportConfiguration(): void
     {
         $pdf = $this->getPdf();
         $pdf->Open();
@@ -112,8 +109,6 @@ class ExportPdf extends ExportPlugin
         $pdf->setTitleFontSize(18);
         $pdf->setTitleText($this->pdfReportTitle);
         $pdf->setTopMargin(30);
-
-        return true;
     }
 
     /**
@@ -291,5 +286,7 @@ class ExportPdf extends ExportPlugin
         $this->doRelation = (bool) ($request->getParsedBodyParam('pdf_relation')
             ?? $exportConfig['pdf_relation'] ?? false);
         $this->doMime = (bool) ($request->getParsedBodyParam('pdf_mime') ?? $exportConfig['pdf_mime'] ?? false);
+
+        $this->setupExportConfiguration();
     }
 }
