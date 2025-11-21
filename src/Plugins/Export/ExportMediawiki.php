@@ -93,16 +93,6 @@ class ExportMediawiki extends ExportPlugin
     }
 
     /**
-     * Outputs database footer
-     *
-     * @param string $db Database name
-     */
-    public function exportDBFooter(string $db): bool
-    {
-        return true;
-    }
-
-    /**
      * Outputs CREATE DATABASE statement
      *
      * @param string $db      Database name

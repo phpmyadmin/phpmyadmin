@@ -76,7 +76,10 @@ abstract class ExportPlugin implements Plugin
      *
      * @param string $db Database name
      */
-    abstract public function exportDBFooter(string $db): bool;
+    public function exportDBFooter(string $db): bool
+    {
+        return true;
+    }
 
     /**
      * Outputs CREATE DATABASE statement
