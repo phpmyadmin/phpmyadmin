@@ -66,7 +66,10 @@ abstract class ExportPlugin implements Plugin
      * @param string $db      Database name
      * @param string $dbAlias Aliases of db
      */
-    abstract public function exportDBHeader(string $db, string $dbAlias = ''): bool;
+    public function exportDBHeader(string $db, string $dbAlias = ''): bool
+    {
+        return true;
+    }
 
     /**
      * Outputs database footer

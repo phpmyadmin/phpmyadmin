@@ -120,17 +120,6 @@ class ExportExcel extends ExportPlugin
     }
 
     /**
-     * Outputs database header
-     *
-     * @param string $db      Database name
-     * @param string $dbAlias Alias of db
-     */
-    public function exportDBHeader(string $db, string $dbAlias = ''): bool
-    {
-        return true;
-    }
-
-    /**
      * Outputs database footer
      *
      * @param string $db Database name
