@@ -55,7 +55,10 @@ abstract class ExportPlugin implements Plugin
     /**
      * Outputs export footer
      */
-    abstract public function exportFooter(): bool;
+    public function exportFooter(): bool
+    {
+        return true;
+    }
 
     /**
      * Outputs database header

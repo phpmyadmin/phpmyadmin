@@ -90,14 +90,6 @@ class ExportPhparray extends ExportPlugin
     }
 
     /**
-     * Outputs export footer
-     */
-    public function exportFooter(): bool
-    {
-        return true;
-    }
-
-    /**
      * Outputs database header
      *
      * @param string $db      Database name
