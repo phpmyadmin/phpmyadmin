@@ -33,8 +33,7 @@ use function count;
 use function implode;
 use function in_array;
 use function max;
-use function mb_strlen;
-use function mb_substr;
+use function substr;
 use function min;
 use function pathinfo;
 use function preg_split;
@@ -223,7 +222,7 @@ class ImportCsv extends AbstractImportCsv
         $rows = [];
         $buffer = '';
         $maxCols = 0;
-        $csvTerminatedLen = mb_strlen($this->terminated);
+        $csvTerminatedLen = strlen($this->terminated);
         $dbi = DatabaseInterface::getInstance();
         while (! (ImportSettings::$finished && $i >= $len) && ! Import::$hasError && ! ImportSettings::$timeoutPassed) {
             $data = $this->import->getNextChunk($importHandle);
@@ -240,7 +239,7 @@ class ImportCsv extends AbstractImportCsv
 
                 // Force a trailing new line at EOF to prevent parsing problems
                 if (ImportSettings::$finished && $buffer) {
-                    $finalch = mb_substr($buffer, -1);
+                    $finalch = substr($buffer, -1);
                     if ($this->newLine === 'auto' && $finalch !== "\r" && $finalch !== "\n") {
                         $buffer .= "\n";
                     } elseif ($this->newLine !== 'auto' && $finalch !== $this->newLine) {
@@ -262,12 +261,12 @@ class ImportCsv extends AbstractImportCsv
             }
 
             // Current length of our buffer
-            $len = mb_strlen($buffer);
+            $len = strlen($buffer);
             // Currently parsed char
 
-            $ch = mb_substr($buffer, $i, 1);
+            $ch = substr($buffer, $i, 1);
             if ($csvTerminatedLen > 1 && $ch === $this->terminated[0]) {
-                $ch .= $this->readCsvTerminatedString($buffer, $i, $csvTerminatedLen);
+                $ch .= substr($buffer, $i + 1, $csvTerminatedLen - 1);
                 $i += $csvTerminatedLen - 1;
             }
 
@@ -295,9 +294,9 @@ class ImportCsv extends AbstractImportCsv
 
                         $values[] = '';
                         $i++;
-                        $ch = mb_substr($buffer, $i, 1);
+                        $ch = substr($buffer, $i, 1);
                         if ($csvTerminatedLen > 1 && $ch === $this->terminated[0]) {
-                            $ch .= $this->readCsvTerminatedString($buffer, $i, $csvTerminatedLen);
+                            $ch .= substr($buffer, $i + 1, $csvTerminatedLen - 1);
                             $i += $csvTerminatedLen - 1;
                         }
 
@@ -313,9 +312,9 @@ class ImportCsv extends AbstractImportCsv
 
                         $needEnd = true;
                         $i++;
-                        $ch = mb_substr($buffer, $i, 1);
+                        $ch = substr($buffer, $i, 1);
                         if ($csvTerminatedLen > 1 && $ch === $this->terminated[0]) {
-                            $ch .= $this->readCsvTerminatedString($buffer, $i, $csvTerminatedLen);
+                            $ch .= substr($buffer, $i + 1, $csvTerminatedLen - 1);
                             $i += $csvTerminatedLen - 1;
                         }
                     } else {
@@ -341,9 +340,9 @@ class ImportCsv extends AbstractImportCsv
                             }
 
                             $i++;
-                            $ch = mb_substr($buffer, $i, 1);
+                            $ch = substr($buffer, $i, 1);
                             if ($csvTerminatedLen > 1 && $ch === $this->terminated[0]) {
-                                $ch .= $this->readCsvTerminatedString($buffer, $i, $csvTerminatedLen);
+                                $ch .= substr($buffer, $i + 1, $csvTerminatedLen - 1);
                                 $i += $csvTerminatedLen - 1;
                             }
 
@@ -368,12 +367,12 @@ class ImportCsv extends AbstractImportCsv
                         }
 
                         $i++;
-                        $ch = mb_substr($buffer, $i, 1);
+                        $ch = substr($buffer, $i, 1);
                         if ($csvTerminatedLen <= 1 || $ch != $this->terminated[0]) {
                             continue;
                         }
 
-                        $ch .= $this->readCsvTerminatedString($buffer, $i, $csvTerminatedLen);
+                        $ch .= substr($buffer, $i + 1, $csvTerminatedLen - 1);
                         $i += $csvTerminatedLen - 1;
                     }
 
@@ -384,7 +383,7 @@ class ImportCsv extends AbstractImportCsv
 
                     if ($fail) {
                         $i = $fallbacki;
-                        $ch = mb_substr($buffer, $i, 1);
+                        $ch = substr($buffer, $i, 1);
                         if ($csvTerminatedLen > 1 && $ch === $this->terminated[0]) {
                             $i += $csvTerminatedLen - 1;
                         }
@@ -398,7 +397,7 @@ class ImportCsv extends AbstractImportCsv
                             $ch = null;
                         } elseif ($i === $len - 1) {
                             $i = $fallbacki;
-                            $ch = mb_substr($buffer, $i, 1);
+                            $ch = substr($buffer, $i, 1);
                             if ($csvTerminatedLen > 1 && $ch === $this->terminated[0]) {
                                 $i += $csvTerminatedLen - 1;
                             }
@@ -406,9 +405,9 @@ class ImportCsv extends AbstractImportCsv
                             break;
                         } else {
                             $i++;
-                            $ch = mb_substr($buffer, $i, 1);
+                            $ch = substr($buffer, $i, 1);
                             if ($csvTerminatedLen > 1 && $ch === $this->terminated[0]) {
-                                $ch .= $this->readCsvTerminatedString($buffer, $i, $csvTerminatedLen);
+                                $ch .= substr($buffer, $i + 1, $csvTerminatedLen - 1);
                                 $i += $csvTerminatedLen - 1;
                             }
                         }
@@ -427,7 +426,7 @@ class ImportCsv extends AbstractImportCsv
                     if ($ch === $this->terminated) {
                         if ($i === $len - 1) {
                             $i = $fallbacki;
-                            $ch = mb_substr($buffer, $i, 1);
+                            $ch = substr($buffer, $i, 1);
                             if ($csvTerminatedLen > 1 && $ch === $this->terminated[0]) {
                                 $i += $csvTerminatedLen - 1;
                             }
@@ -436,9 +435,9 @@ class ImportCsv extends AbstractImportCsv
                         }
 
                         $i++;
-                        $ch = mb_substr($buffer, $i, 1);
+                        $ch = substr($buffer, $i, 1);
                         if ($csvTerminatedLen > 1 && $ch === $this->terminated[0]) {
-                            $ch .= $this->readCsvTerminatedString($buffer, $i, $csvTerminatedLen);
+                            $ch .= substr($buffer, $i + 1, $csvTerminatedLen - 1);
                             $i += $csvTerminatedLen - 1;
                         }
                     }
@@ -461,7 +460,7 @@ class ImportCsv extends AbstractImportCsv
                         break; // We need more data to decide new line
                     }
 
-                    if (mb_substr($buffer, $i + 1, 1) === "\n") {
+                    if (substr($buffer, $i + 1, 1) === "\n") {
                         $i++;
                     }
                 }
@@ -499,11 +498,11 @@ class ImportCsv extends AbstractImportCsv
                 $line++;
                 $csvFinish = false;
                 $values = [];
-                $buffer = mb_substr($buffer, $i + 1);
-                $len = mb_strlen($buffer);
+                $buffer = substr($buffer, $i + 1);
+                $len = strlen($buffer);
                 $i = 0;
                 $lasti = -1;
-                $ch = mb_substr($buffer, 0, 1);
+                $ch = substr($buffer, 0, 1);
                 if ($this->maxLines > 0 && $line === $maxLinesConstraint) {
                     ImportSettings::$finished = true;
                     break;
@@ -659,7 +658,7 @@ class ImportCsv extends AbstractImportCsv
             // confuses this script.
             // But the parser won't work correctly with strings so we allow just
             // one character.
-        } elseif (mb_strlen($csvEnclosed) > 1) {
+        } elseif (strlen($csvEnclosed) > 1) {
             Current::$message = Message::error(
                 __('Invalid parameter for CSV import: %s'),
             );
@@ -670,14 +669,14 @@ class ImportCsv extends AbstractImportCsv
             // confuses this script.
             // But the parser won't work correctly with strings so we allow just
             // one character.
-        } elseif (mb_strlen($csvEscaped) > 1) {
+        } elseif (strlen($csvEscaped) > 1) {
             Current::$message = Message::error(
                 __('Invalid parameter for CSV import: %s'),
             );
             Current::$message->addParam(__('Columns escaped with'));
             Import::$hasError = true;
             $paramError = true;
-        } elseif (mb_strlen($csvNewLine) !== 1 && $csvNewLine !== 'auto') {
+        } elseif (strlen($csvNewLine) !== 1 && $csvNewLine !== 'auto') {
             Current::$message = Message::error(
                 __('Invalid parameter for CSV import: %s'),
             );
@@ -824,6 +823,6 @@ class ImportCsv extends AbstractImportCsv
      */
     public function readCsvTerminatedString(string $buffer, int $i, int $csvTerminatedLen): string
     {
-        return mb_substr($buffer, $i + 1, $csvTerminatedLen - 1);
+        return substr($buffer, $i + 1, $csvTerminatedLen - 1);
     }
 }
