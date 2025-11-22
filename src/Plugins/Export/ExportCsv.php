@@ -22,8 +22,9 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use function __;
 use function implode;
 use function is_string;
-use function mb_strtolower;
+use function str_contains;
 use function str_replace;
+use function strtolower;
 
 /**
  * Handles the export for the CSV format
@@ -112,7 +113,7 @@ class ExportCsv extends ExportPlugin
     public function exportHeader(): bool
     {
         // Here we just prepare some values for export
-        if ($this->terminated === '' || mb_strtolower($this->terminated) === 'auto') {
+        if ($this->terminated === '' || strtolower($this->terminated) === 'auto') {
             $this->terminated = "\n";
         } else {
             $this->terminated = str_replace(
@@ -193,7 +194,13 @@ class ExportCsv extends ExportPlugin
             foreach ($result->getFieldNames() as $colAs) {
                 $colAs = $this->getColumnAlias($aliases, $db, $table, $colAs);
 
-                if ($this->enclosed === '') {
+                if (
+                    $this->enclosed === ''
+                    || (! str_contains($colAs, $this->separator)
+                        && ! str_contains($colAs, $this->enclosed)
+                        && ! str_contains($colAs, $this->terminated)
+                    )
+                ) {
                     $insertFields[] = $colAs;
                 } else {
                     $insertFields[] = $this->enclosed
@@ -224,7 +231,13 @@ class ExportCsv extends ExportPlugin
                         );
                     }
 
-                    if ($this->enclosed === '') {
+                    if (
+                        $this->enclosed === ''
+                        || (! str_contains($field, $this->separator)
+                            && ! str_contains($field, $this->enclosed)
+                            && ! str_contains($field, $this->terminated)
+                        )
+                    ) {
                         $insertValues[] = $field;
                     } elseif ($this->escaped !== $this->enclosed) {
                         // also double the escape string if found in the data
@@ -284,27 +297,27 @@ class ExportCsv extends ExportPlugin
         );
         $this->terminated = $this->setStringValue(
             $request->getParsedBodyParam('csv_terminated'),
-            $exportConfig['csv_terminated'] ?? null,
+            $exportConfig['csv_terminated'] ?? $this->terminated,
         );
         $this->separator = $this->setStringValue(
             $request->getParsedBodyParam('csv_separator'),
-            $exportConfig['csv_separator'] ?? null,
+            $exportConfig['csv_separator'] ?? $this->separator,
         );
         $this->columns = (bool) ($request->getParsedBodyParam('csv_columns')
             ?? $exportConfig['csv_columns'] ?? false);
         $this->enclosed = $this->setStringValue(
             $request->getParsedBodyParam('csv_enclosed'),
-            $exportConfig['csv_enclosed'] ?? null,
+            $exportConfig['csv_enclosed'] ?? $this->enclosed,
         );
         $this->escaped = $this->setStringValue(
             $request->getParsedBodyParam('csv_escaped'),
-            $exportConfig['csv_escaped'] ?? null,
+            $exportConfig['csv_escaped'] ?? $this->escaped,
         );
         $this->removeCrLf = (bool) ($request->getParsedBodyParam('csv_removeCRLF')
             ?? $exportConfig['csv_removeCRLF'] ?? false);
         $this->null = $this->setStringValue(
             $request->getParsedBodyParam('csv_null'),
-            $exportConfig['csv_null'] ?? null,
+            $exportConfig['csv_null'] ?? $this->null,
         );
     }
 

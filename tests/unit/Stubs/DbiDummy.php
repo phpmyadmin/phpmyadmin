@@ -1740,6 +1740,15 @@ class DbiDummy implements DbiExtension
                 ],
             ],
             [
+                'query' => 'SELECT * FROM `test_db`.`test_table_csv_export`;',
+                'columns' => ['id', 'name', 'datetimefield'],
+                'result' => [
+                    ['1', 'ab"cd', '2011-01-20 02:00:02'],
+                    ['2', 'foo;', '2010-01-20 02:00:02'],
+                    ['3', "\nAbcd", '2012-01-20 02:00:02'],
+                ],
+            ],
+            [
                 'query' => 'SELECT * FROM `test_db`.`test_table_complex`;',
                 'columns' => ['f1', 'f2', 'f3', 'f4'],
                 'result' => [
