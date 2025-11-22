@@ -141,6 +141,8 @@ final readonly class ExportController implements InvocableController
         // Is it a quick or custom export?
         $isQuickExport = $quickOrCustom === 'quick';
 
+        $saveOnServer = false;
+
         if ($outputFormat === 'astext') {
             OutputHandler::$asFile = false;
         } else {
@@ -156,7 +158,7 @@ final readonly class ExportController implements InvocableController
 
             if (($isQuickExport && $quickExportOnServer) || (! $isQuickExport && $onServerParam)) {
                 // Will we save dump on server?
-                $this->export->outputHandler->saveOnServer = $this->config->settings['SaveDir'] !== '';
+                $saveOnServer = $this->config->settings['SaveDir'] !== '';
             }
         }
 
@@ -246,7 +248,7 @@ final readonly class ExportController implements InvocableController
         }
 
         // Open file on server if needed
-        if ($this->export->outputHandler->saveOnServer) {
+        if ($saveOnServer) {
             $message = $this->export->openFile($filename, $isQuickExport);
 
             // problem opening export file on server?
@@ -389,7 +391,7 @@ final readonly class ExportController implements InvocableController
             // Ignore
         }
 
-        if ($this->export->outputHandler->saveOnServer && Current::$message !== null) {
+        if ($saveOnServer && Current::$message !== null) {
             $location = $this->export->getPageLocationAndSaveMessage($exportType, Current::$message);
             $this->response->redirect($location);
 
@@ -411,8 +413,7 @@ final readonly class ExportController implements InvocableController
         // Compression needed?
         $this->export->outputHandler->compress($separateFiles !== '', $filename);
 
-        /* If we saved on server, we have to close file now */
-        if ($this->export->outputHandler->saveOnServer) {
+        if ($saveOnServer) {
             $message = $this->export->outputHandler->closeFile();
             $location = $this->export->getPageLocationAndSaveMessage($exportType, $message);
             $this->response->redirect($location);

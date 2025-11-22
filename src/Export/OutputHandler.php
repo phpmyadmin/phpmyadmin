@@ -40,7 +40,6 @@ class OutputHandler
     public bool $outputKanjiConversion = false;
 
     public static bool $asFile = false;
-    public bool $saveOnServer = false;
     public string $saveFilename = '';
     /** @var resource|null */
     public mixed $fileHandle = null;
@@ -81,7 +80,7 @@ class OutputHandler
                         $this->dumpBuffer = (string) gzencode($this->dumpBuffer);
                     }
 
-                    if ($this->saveOnServer && $this->fileHandle !== null) {
+                    if ($this->fileHandle !== null) {
                         $writeResult = @fwrite($this->fileHandle, $this->dumpBuffer);
                         // Here, use strlen rather than mb_strlen to get the length
                         // in bytes to compare against the number of bytes written.
@@ -112,7 +111,7 @@ class OutputHandler
                 $line = Encoding::convertString('utf-8', Current::$charset ?? 'utf-8', $line);
             }
 
-            if ($this->saveOnServer && $this->fileHandle !== null && $line !== '') {
+            if ($this->fileHandle !== null && $line !== '') {
                 $writeResult = @fwrite($this->fileHandle, $line);
                 // Here, use strlen rather than mb_strlen to get the length
                 // in bytes to compare against the number of bytes written.
@@ -240,7 +239,7 @@ class OutputHandler
         return function_exists('gzencode')
             && ((! ini_get('zlib.output_compression')
                     && ! $this->isGzHandlerEnabled())
-                || $this->saveOnServer
+                || $this->fileHandle !== null
                 || (new UserAgentParser(Core::getEnv('HTTP_USER_AGENT')))->getUserBrowserAgent() === 'CHROME');
     }
 
