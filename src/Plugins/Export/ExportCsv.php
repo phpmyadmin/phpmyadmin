@@ -22,8 +22,9 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use function __;
 use function implode;
 use function is_string;
-use function str_contains;
 use function str_replace;
+use function strcspn;
+use function strlen;
 use function strtolower;
 
 /**
@@ -137,30 +138,24 @@ class ExportCsv extends ExportPlugin
         array $aliases = [],
     ): bool {
         $dbi = DatabaseInterface::getInstance();
-        /**
-         * Gets the data from the database
-         */
         $result = $dbi->query($sqlQuery, ConnectionType::User, DatabaseInterface::QUERY_UNBUFFERED);
+
+        $charsNeedingEnclosure = $this->separator . $this->enclosed . $this->terminated;
 
         // If required, get fields name at the first line
         if ($this->columns) {
             $insertFields = [];
             foreach ($result->getFieldNames() as $colAs) {
                 $colAs = $this->getColumnAlias($aliases, $db, $table, $colAs);
-
-                if (
-                    $this->enclosed === ''
-                    || (! str_contains($colAs, $this->separator)
-                        && ! str_contains($colAs, $this->enclosed)
-                        && ! str_contains($colAs, $this->terminated)
-                    )
-                ) {
+                $needsEnclosing = strcspn($colAs, $charsNeedingEnclosure) !== strlen($colAs);
+                if ($this->enclosed === '' || ! $needsEnclosing) {
                     $insertFields[] = $colAs;
-                } else {
-                    $insertFields[] = $this->enclosed
-                        . str_replace($this->enclosed, $this->escaped . $this->enclosed, $colAs)
-                        . $this->enclosed;
+                    continue;
                 }
+
+                $insertFields[] = $this->enclosed
+                    . str_replace($this->enclosed, $this->escaped . $this->enclosed, $colAs)
+                    . $this->enclosed;
             }
 
             $schemaInsert = implode($this->separator, $insertFields);
@@ -175,46 +170,41 @@ class ExportCsv extends ExportPlugin
             foreach ($row as $field) {
                 if ($field === null) {
                     $insertValues[] = $this->null;
-                } elseif ($field !== '') {
-                    // remove CRLF characters within field
-                    if ($this->removeCrLf) {
-                        $field = str_replace(
-                            ["\r", "\n"],
-                            '',
-                            $field,
-                        );
-                    }
-
-                    if (
-                        $this->enclosed === ''
-                        || (! str_contains($field, $this->separator)
-                            && ! str_contains($field, $this->enclosed)
-                            && ! str_contains($field, $this->terminated)
-                        )
-                    ) {
-                        $insertValues[] = $field;
-                    } elseif ($this->escaped !== $this->enclosed) {
-                        // also double the escape string if found in the data
-                        $insertValues[] = $this->enclosed
-                            . str_replace(
-                                $this->enclosed,
-                                $this->escaped . $this->enclosed,
-                                str_replace(
-                                    $this->escaped,
-                                    $this->escaped . $this->escaped,
-                                    $field,
-                                ),
-                            )
-                            . $this->enclosed;
-                    } else {
-                        // avoid a problem when escape string equals enclose
-                        $insertValues[] = $this->enclosed
-                            . str_replace($this->enclosed, $this->escaped . $this->enclosed, $field)
-                            . $this->enclosed;
-                    }
-                } else {
-                    $insertValues[] = '';
+                    continue;
                 }
+
+                if ($field === '') {
+                    $insertValues[] = '';
+                    continue;
+                }
+
+                // remove CRLF characters within field
+                if ($this->removeCrLf) {
+                    $field = str_replace(["\r", "\n"], '', $field);
+                }
+
+                if ($this->enclosed === '') {
+                    $insertValues[] = $field;
+                    continue;
+                }
+
+                $needsEnclosing = strcspn($field, $charsNeedingEnclosure) !== strlen($field);
+
+                if (! $needsEnclosing) {
+                    $insertValues[] = $field;
+                    continue;
+                }
+
+                if ($this->escaped !== $this->enclosed) {
+                    // also double the escape string if found in the data
+                    $field = str_replace($this->escaped, $this->escaped . $this->escaped, $field);
+                    $field = str_replace($this->enclosed, $this->escaped . $this->enclosed, $field);
+                } else {
+                    // avoid a problem when escape string equals enclose
+                    $field = str_replace($this->enclosed, $this->escaped . $this->enclosed, $field);
+                }
+
+                $insertValues[] = $this->enclosed . $field . $this->enclosed;
             }
 
             $schemaInsert = implode($this->separator, $insertValues);
