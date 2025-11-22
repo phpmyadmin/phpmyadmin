@@ -274,7 +274,7 @@ class Index
             // $columns[collations][]
             foreach ($columns['names'] as $key => $name) {
                 $sub_part = $columns['sub_parts'][$key] ?? '';
-                $collation = $columns['collations'][$key] ??
+                $collation = $columns['collations'][$key] ?? null;
                 $_columns[] = [
                     'Column_name' => $name,
                     'Sub_part' => $sub_part,
