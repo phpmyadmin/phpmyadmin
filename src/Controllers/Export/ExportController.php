@@ -152,7 +152,10 @@ final readonly class ExportController implements InvocableController
             }
 
             if (in_array($compressionParam, $compressionMethods, true)) {
-                $this->export->outputHandler->setCompression($compressionParam, $this->config->settings['CompressOnFly']);
+                $this->export->outputHandler->setCompression(
+                    $compressionParam,
+                    $this->config->settings['CompressOnFly'],
+                );
             }
 
             if (($isQuickExport && $quickExportOnServer) || (! $isQuickExport && $onServerParam)) {
