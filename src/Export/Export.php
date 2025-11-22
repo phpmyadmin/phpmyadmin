@@ -58,11 +58,8 @@ class Export
     /** @var array<string> */
     public static array $tableData = [];
 
-    public OutputHandler $outputHandler;
-
-    public function __construct(private DatabaseInterface $dbi)
+    public function __construct(private DatabaseInterface $dbi, public OutputHandler $outputHandler)
     {
-        $this->outputHandler = new OutputHandler();
     }
 
     /**
