@@ -101,32 +101,38 @@ class OutputHandler
                     header('X-pmaPing: Pong');
                 }
             }
-        } elseif (self::$asFile) {
-            if ($this->outputCharsetConversion) {
-                $line = Encoding::convertString('utf-8', Current::$charset ?? 'utf-8', $line);
-            }
 
-            if ($this->fileHandle !== null && $line !== '') {
-                $writeResult = @fwrite($this->fileHandle, $line);
-                if ($writeResult !== strlen($line)) {
-                    Current::$message = Message::error(__('Insufficient space to save the file %s.'));
-                    Current::$message->addParam($this->saveFilename);
+            return true;
+        }
 
-                    return false;
-                }
-
-                $timeNow = time();
-                if ($this->timeStart >= $timeNow + 30) {
-                    $this->timeStart = $timeNow;
-                    header('X-pmaPing: Pong');
-                }
-            } else {
-                // We export as file - output normally
-                echo $line;
-            }
-        } else {
+        if (! self::$asFile) {
             // We export as html - replace special chars
             echo htmlspecialchars($line, ENT_COMPAT);
+
+            return true;
+        }
+
+        if ($this->outputCharsetConversion) {
+            $line = Encoding::convertString('utf-8', Current::$charset ?? 'utf-8', $line);
+        }
+
+        if ($this->fileHandle !== null && $line !== '') {
+            $writeResult = @fwrite($this->fileHandle, $line);
+            if ($writeResult !== strlen($line)) {
+                Current::$message = Message::error(__('Insufficient space to save the file %s.'));
+                Current::$message->addParam($this->saveFilename);
+
+                return false;
+            }
+
+            $timeNow = time();
+            if ($this->timeStart >= $timeNow + 30) {
+                $this->timeStart = $timeNow;
+                header('X-pmaPing: Pong');
+            }
+        } else {
+            // We export as file - output normally
+            echo $line;
         }
 
         return true;
