@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Export;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Encoding;
@@ -47,9 +46,9 @@ class OutputHandler
     public bool $outputKanjiConversion = false;
 
     public static bool $asFile = false;
-    public string $saveFilename = '';
+    private string $saveFilename = '';
     /** @var resource|null */
-    public mixed $fileHandle = null;
+    private mixed $fileHandle = null;
     /** @var ''|'zip'|'gzip' */
     public string $compression = '';
     public string $kanjiEncoding = '';
@@ -185,16 +184,17 @@ class OutputHandler
         }
     }
 
-    public function openFile(string $filename, bool $quickExport, bool $quickOverwriteFile, bool $overwriteFile): Message|null
-    {
-        $fileHandle = null;
-        $message = null;
-
-        $saveFilename = Util::userDir(Config::getInstance()->settings['SaveDir'] ?? '')
-            . preg_replace('@[/\\\\]@', '_', $filename);
+    public function openFile(
+        string $saveDirectory,
+        string $filename,
+        bool $quickExport,
+        bool $quickOverwriteFile,
+        bool $overwriteFile,
+    ): Message|null {
+        $this->saveFilename = Util::userDir($saveDirectory) . preg_replace('@[/\\\\]@', '_', $filename);
 
         if (
-            @file_exists($saveFilename)
+            @file_exists($this->saveFilename)
             && ((! $quickExport && ! $overwriteFile)
             || ($quickExport && ! $quickOverwriteFile))
         ) {
@@ -203,31 +203,37 @@ class OutputHandler
                     'File %s already exists on server, change filename or check overwrite option.',
                 ),
             );
-            $message->addParam($saveFilename);
-        } elseif (@is_file($saveFilename) && ! @is_writable($saveFilename)) {
+            $message->addParam($this->saveFilename);
+
+            return $message;
+        }
+
+        if (@is_file($this->saveFilename) && ! @is_writable($this->saveFilename)) {
             $message = Message::error(
                 __(
                     'The web server does not have permission to save the file %s.',
                 ),
             );
-            $message->addParam($saveFilename);
-        } else {
-            $fileHandle = @fopen($saveFilename, 'w');
-            if ($fileHandle === false) {
-                $fileHandle = null;
-                $message = Message::error(
-                    __(
-                        'The web server does not have permission to save the file %s.',
-                    ),
-                );
-                $message->addParam($saveFilename);
-            }
+            $message->addParam($this->saveFilename);
+
+            return $message;
         }
 
-        $this->saveFilename = $saveFilename;
+        $fileHandle = @fopen($this->saveFilename, 'w');
+        if ($fileHandle === false) {
+            $message = Message::error(
+                __(
+                    'The web server does not have permission to save the file %s.',
+                ),
+            );
+            $message->addParam($this->saveFilename);
+
+            return $message;
+        }
+
         $this->fileHandle = $fileHandle;
 
-        return $message;
+        return null;
     }
 
     public function closeFile(): Message
