@@ -4,16 +4,20 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Export;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\MessageType;
+use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\UserAgentParser;
 use PhpMyAdmin\ZipExtension;
 
 use function __;
 use function fclose;
+use function file_exists;
+use function fopen;
 use function function_exists;
 use function fwrite;
 use function gzencode;
@@ -21,8 +25,11 @@ use function header;
 use function htmlspecialchars;
 use function in_array;
 use function ini_get;
+use function is_file;
 use function is_string;
+use function is_writable;
 use function ob_list_handlers;
+use function preg_replace;
 use function strlen;
 use function substr;
 use function time;
@@ -176,6 +183,51 @@ class OutputHandler
             // without the optional parameter level because it bugs
             $this->dumpBuffer = gzencode($dumpBuffer);
         }
+    }
+
+    public function openFile(string $filename, bool $quickExport, bool $quickOverwriteFile, bool $overwriteFile): Message|null
+    {
+        $fileHandle = null;
+        $message = null;
+
+        $saveFilename = Util::userDir(Config::getInstance()->settings['SaveDir'] ?? '')
+            . preg_replace('@[/\\\\]@', '_', $filename);
+
+        if (
+            @file_exists($saveFilename)
+            && ((! $quickExport && ! $overwriteFile)
+            || ($quickExport && ! $quickOverwriteFile))
+        ) {
+            $message = Message::error(
+                __(
+                    'File %s already exists on server, change filename or check overwrite option.',
+                ),
+            );
+            $message->addParam($saveFilename);
+        } elseif (@is_file($saveFilename) && ! @is_writable($saveFilename)) {
+            $message = Message::error(
+                __(
+                    'The web server does not have permission to save the file %s.',
+                ),
+            );
+            $message->addParam($saveFilename);
+        } else {
+            $fileHandle = @fopen($saveFilename, 'w');
+            if ($fileHandle === false) {
+                $fileHandle = null;
+                $message = Message::error(
+                    __(
+                        'The web server does not have permission to save the file %s.',
+                    ),
+                );
+                $message->addParam($saveFilename);
+            }
+        }
+
+        $this->saveFilename = $saveFilename;
+        $this->fileHandle = $fileHandle;
+
+        return $message;
     }
 
     public function closeFile(): Message

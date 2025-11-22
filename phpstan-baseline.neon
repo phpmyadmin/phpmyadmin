@@ -6091,15 +6091,6 @@ parameters:
 			path: src/Export/Export.php
 
 		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Export/Export.php
-
-		-
 			message: '#^Call to function in_array\(\) requires parameter \#3 to be set\.$#'
 			identifier: function.strict
 			count: 1
@@ -6224,6 +6215,15 @@ parameters:
 			identifier: argument.type
 			count: 1
 			path: src/Export/Options.php
+
+		-
+			message: '''
+				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
+				Use dependency injection instead\.$#
+			'''
+			identifier: staticMethod.deprecated
+			count: 1
+			path: src/Export/OutputHandler.php
 
 		-
 			message: '#^Only booleans are allowed in a negated boolean, string\|false given\.$#'

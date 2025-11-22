@@ -28,8 +28,6 @@ use function __;
 use function array_filter;
 use function array_merge_recursive;
 use function error_get_last;
-use function file_exists;
-use function fopen;
 use function htmlentities;
 use function http_build_query;
 use function implode;
@@ -37,9 +35,7 @@ use function in_array;
 use function ini_get;
 use function ini_parse_quantity;
 use function is_array;
-use function is_file;
 use function is_numeric;
-use function is_writable;
 use function mb_strlen;
 use function mb_strtolower;
 use function mb_substr;
@@ -181,51 +177,6 @@ class Export
         } else {
             $config->setUserValue('pma_table_filename_template', 'Export/file_template_table', $filenameTemplate);
         }
-    }
-
-    public function openFile(string $filename, bool $quickExport, bool $quickOverwriteFile, bool $overwriteFile): Message|null
-    {
-        $fileHandle = null;
-        $message = null;
-
-        $saveFilename = Util::userDir(Config::getInstance()->settings['SaveDir'] ?? '')
-            . preg_replace('@[/\\\\]@', '_', $filename);
-
-        if (
-            @file_exists($saveFilename)
-            && ((! $quickExport && ! $overwriteFile)
-            || ($quickExport && ! $quickOverwriteFile))
-        ) {
-            $message = Message::error(
-                __(
-                    'File %s already exists on server, change filename or check overwrite option.',
-                ),
-            );
-            $message->addParam($saveFilename);
-        } elseif (@is_file($saveFilename) && ! @is_writable($saveFilename)) {
-            $message = Message::error(
-                __(
-                    'The web server does not have permission to save the file %s.',
-                ),
-            );
-            $message->addParam($saveFilename);
-        } else {
-            $fileHandle = @fopen($saveFilename, 'w');
-            if ($fileHandle === false) {
-                $fileHandle = null;
-                $message = Message::error(
-                    __(
-                        'The web server does not have permission to save the file %s.',
-                    ),
-                );
-                $message->addParam($saveFilename);
-            }
-        }
-
-        $this->outputHandler->saveFilename = $saveFilename;
-        $this->outputHandler->fileHandle = $fileHandle;
-
-        return $message;
     }
 
     /**

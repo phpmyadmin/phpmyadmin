@@ -4108,9 +4108,6 @@
     <ArgumentTypeCoercion>
       <code><![CDATA[(string) ini_get('memory_limit')]]></code>
     </ArgumentTypeCoercion>
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[$dbAlias]]></code>
       <code><![CDATA[$dbAlias]]></code>
@@ -4191,6 +4188,9 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Export/OutputHandler.php">
+    <DeprecatedMethod>
+      <code><![CDATA[Config::getInstance()]]></code>
+    </DeprecatedMethod>
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[$this->fileHandle]]></code>
     </InvalidPropertyAssignmentValue>
