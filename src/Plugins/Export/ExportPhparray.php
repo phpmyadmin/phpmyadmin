@@ -78,7 +78,7 @@ class ExportPhparray extends ExportPlugin
      */
     public function exportHeader(): bool
     {
-        ($this->export->outputHandler)(
+        $this->outputHandler->addLine(
             '<?php' . "\n"
             . '/**' . "\n"
             . ' * Export to PHP Array plugin for phpMyAdmin' . "\n"
@@ -101,7 +101,7 @@ class ExportPhparray extends ExportPlugin
             $dbAlias = $db;
         }
 
-        ($this->export->outputHandler)(
+        $this->outputHandler->addLine(
             '/**' . "\n"
             . ' * Database ' . $this->commentString(Util::backquote($dbAlias))
             . "\n" . ' */' . "\n",
@@ -160,7 +160,7 @@ class ExportPhparray extends ExportPlugin
             . $this->commentString(Util::backquote($dbAlias)) . '.'
             . $this->commentString(Util::backquote($tableAlias)) . ' */' . "\n";
         $buffer .= '$' . $tableFixed . ' = array(';
-        if (! ($this->export->outputHandler)($buffer)) {
+        if (! $this->outputHandler->addLine($buffer)) {
             return false;
         }
 
@@ -183,7 +183,7 @@ class ExportPhparray extends ExportPlugin
             }
 
             $buffer .= ')';
-            if (! ($this->export->outputHandler)($buffer)) {
+            if (! $this->outputHandler->addLine($buffer)) {
                 return false;
             }
 
@@ -193,7 +193,7 @@ class ExportPhparray extends ExportPlugin
 
         $buffer .= "\n" . ');' . "\n";
 
-        return ($this->export->outputHandler)($buffer);
+        return $this->outputHandler->addLine($buffer);
     }
 
     /**

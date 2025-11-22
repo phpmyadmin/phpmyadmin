@@ -8,7 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins;
 
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\Export\StructureOrData;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
@@ -37,7 +37,7 @@ abstract class ExportPlugin implements Plugin
 
     final public function __construct(
         public Relation $relation,
-        protected Export $export,
+        protected OutputHandler $outputHandler,
         public Transformations $transformations,
     ) {
         $this->properties = $this->setProperties();

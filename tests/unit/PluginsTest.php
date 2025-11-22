@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\DatabaseInterface;
-use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ExportPlugin;
@@ -105,12 +105,12 @@ class PluginsTest extends AbstractTestCase
         $dbi = DatabaseInterface::getInstance();
         $relation = new Relation($dbi);
         $transformations = new Transformations($dbi, $relation);
-        $export = new Export($dbi);
+        $outputHandler = new OutputHandler();
         $exportList = [
-            new Plugins\Export\ExportJson($relation, $export, $transformations),
-            new Plugins\Export\ExportOds($relation, $export, $transformations),
-            new Plugins\Export\ExportSql($relation, $export, $transformations),
-            new Plugins\Export\ExportXml($relation, $export, $transformations),
+            new Plugins\Export\ExportJson($relation, $outputHandler, $transformations),
+            new Plugins\Export\ExportOds($relation, $outputHandler, $transformations),
+            new Plugins\Export\ExportSql($relation, $outputHandler, $transformations),
+            new Plugins\Export\ExportXml($relation, $outputHandler, $transformations),
         ];
         $actual = Plugins::getChoice($exportList, 'xml');
         $expected = [

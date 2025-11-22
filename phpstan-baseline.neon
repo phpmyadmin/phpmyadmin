@@ -9436,7 +9436,7 @@ parameters:
 			path: src/Plugins/Export/ExportPdf.php
 
 		-
-			message: '#^Parameter \#1 \$line of callable PhpMyAdmin\\Export\\OutputHandler expects string, mixed given\.$#'
+			message: '#^Parameter \#1 \$line of method PhpMyAdmin\\Export\\OutputHandler\:\:addLine\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Plugins/Export/ExportPdf.php

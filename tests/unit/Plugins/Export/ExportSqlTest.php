@@ -12,7 +12,6 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Exceptions\ExportException;
-use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Plugins\Export\ExportSql;
@@ -73,7 +72,7 @@ class ExportSqlTest extends AbstractTestCase
         ExportPlugin::$singleTable = false;
 
         $relation = new Relation($dbi);
-        $this->object = new ExportSql($relation, new Export($dbi), new Transformations($dbi, $relation));
+        $this->object = new ExportSql($relation, new OutputHandler(), new Transformations($dbi, $relation));
         $this->object->useSqlBackquotes(false);
     }
 
@@ -883,7 +882,7 @@ class ExportSqlTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $dbi;
         $relation = new Relation($dbi);
-        $this->object = new ExportSql($relation, new Export($dbi), new Transformations($dbi, $relation));
+        $this->object = new ExportSql($relation, new OutputHandler(), new Transformations($dbi, $relation));
         $this->object->useSqlBackquotes(false);
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')

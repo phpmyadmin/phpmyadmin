@@ -51,7 +51,7 @@ class OutputHandler
     public bool $onFlyCompression = false;
     public int $timeStart = 0;
 
-    public function __invoke(string $line): bool
+    public function addLine(string $line): bool
     {
         // Kanji encoding convert feature
         if ($this->outputKanjiConversion) {

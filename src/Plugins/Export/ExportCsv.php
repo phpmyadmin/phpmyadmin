@@ -164,7 +164,7 @@ class ExportCsv extends ExportPlugin
             }
 
             $schemaInsert = implode($this->separator, $insertFields);
-            if (! ($this->export->outputHandler)($schemaInsert . $this->terminated)) {
+            if (! $this->outputHandler->addLine($schemaInsert . $this->terminated)) {
                 return false;
             }
         }
@@ -218,7 +218,7 @@ class ExportCsv extends ExportPlugin
             }
 
             $schemaInsert = implode($this->separator, $insertValues);
-            if (! ($this->export->outputHandler)($schemaInsert . $this->terminated)) {
+            if (! $this->outputHandler->addLine($schemaInsert . $this->terminated)) {
                 return false;
             }
         }

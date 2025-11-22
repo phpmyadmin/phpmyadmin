@@ -8,7 +8,6 @@ use PhpMyAdmin\Column;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
-use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Plugins\Export\ExportMediawiki;
@@ -49,7 +48,7 @@ class ExportMediawikiTest extends AbstractTestCase
         Current::$table = '';
         Current::$lang = 'en';
         $relation = new Relation($dbi);
-        $this->object = new ExportMediawiki($relation, new Export($dbi), new Transformations($dbi, $relation));
+        $this->object = new ExportMediawiki($relation, new OutputHandler(), new Transformations($dbi, $relation));
     }
 
     /**

@@ -7,7 +7,6 @@ namespace PhpMyAdmin\Tests\Plugins\Export;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
-use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Plugins\Export\ExportCsv;
@@ -47,7 +46,7 @@ class ExportCsvTest extends AbstractTestCase
         Current::$lang = '';
 
         $relation = new Relation($dbi);
-        $this->object = new ExportCsv($relation, new Export($dbi), new Transformations($dbi, $relation));
+        $this->object = new ExportCsv($relation, new OutputHandler(), new Transformations($dbi, $relation));
     }
 
     /**

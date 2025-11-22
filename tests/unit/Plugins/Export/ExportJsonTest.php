@@ -6,7 +6,6 @@ namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\DatabaseInterface;
-use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\Plugins\Export\ExportJson;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -38,7 +37,7 @@ class ExportJsonTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         OutputHandler::$asFile = true;
         $relation = new Relation($dbi);
-        $this->object = new ExportJson($relation, new Export($dbi), new Transformations($dbi, $relation));
+        $this->object = new ExportJson($relation, new OutputHandler(), new Transformations($dbi, $relation));
     }
 
     /**

@@ -163,7 +163,7 @@ class ExportOdt extends ExportPlugin
     {
         $this->buffer .= '</office:text></office:body></office:document-content>';
 
-        return ($this->export->outputHandler)(OpenDocument::create(
+        return $this->outputHandler->addLine(OpenDocument::create(
             'application/vnd.oasis.opendocument.text',
             $this->buffer,
         ));

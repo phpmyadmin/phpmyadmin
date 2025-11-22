@@ -7,7 +7,6 @@ namespace PhpMyAdmin\Tests\Plugins\Export;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
-use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\Plugins\Export\ExportPhparray;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -44,7 +43,7 @@ class ExportPhparrayTest extends AbstractTestCase
         Current::$table = '';
         Current::$lang = 'en';
         $relation = new Relation($dbi);
-        $this->object = new ExportPhparray($relation, new Export($dbi), new Transformations($dbi, $relation));
+        $this->object = new ExportPhparray($relation, new OutputHandler(), new Transformations($dbi, $relation));
     }
 
     /**

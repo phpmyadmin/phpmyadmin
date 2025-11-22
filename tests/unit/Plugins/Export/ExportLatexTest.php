@@ -10,7 +10,6 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
-use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Plugins\Export\ExportLatex;
@@ -56,7 +55,7 @@ class ExportLatexTest extends AbstractTestCase
         Current::$database = 'db';
         Current::$table = 'table';
         $relation = new Relation($dbi);
-        $this->object = new ExportLatex($relation, new Export($dbi), new Transformations($dbi, $relation));
+        $this->object = new ExportLatex($relation, new OutputHandler(), new Transformations($dbi, $relation));
     }
 
     /**

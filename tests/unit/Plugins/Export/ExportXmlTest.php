@@ -8,7 +8,6 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
-use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Plugins\Export\ExportXml;
@@ -50,7 +49,7 @@ class ExportXmlTest extends AbstractTestCase
         Current::$database = 'db';
         Config::getInstance()->selectedServer['DisableIS'] = true;
         $relation = new Relation($dbi);
-        $this->object = new ExportXml($relation, new Export($dbi), new Transformations($dbi, $relation));
+        $this->object = new ExportXml($relation, new OutputHandler(), new Transformations($dbi, $relation));
     }
 
     /**

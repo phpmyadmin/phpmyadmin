@@ -142,7 +142,7 @@ class ExportOds extends ExportPlugin
     {
         $this->buffer .= '</office:spreadsheet></office:body></office:document-content>';
 
-        return ($this->export->outputHandler)(
+        return $this->outputHandler->addLine(
             OpenDocument::create('application/vnd.oasis.opendocument.spreadsheet', $this->buffer),
         );
     }
