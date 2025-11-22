@@ -152,8 +152,7 @@ final readonly class ExportController implements InvocableController
             }
 
             if (in_array($compressionParam, $compressionMethods, true)) {
-                $this->export->outputHandler->compression = $compressionParam;
-                $this->export->outputHandler->bufferNeeded = true;
+                $this->export->outputHandler->setCompression($compressionParam, $this->config->settings['CompressOnFly']);
             }
 
             if (($isQuickExport && $quickExportOnServer) || (! $isQuickExport && $onServerParam)) {
@@ -219,7 +218,6 @@ final readonly class ExportController implements InvocableController
             && in_array(Current::$charset, Encoding::listEncodings(), true);
 
         // Use on the fly compression?
-        $this->export->outputHandler->onFlyCompression = $this->config->settings['CompressOnFly'] && ($this->export->outputHandler)->compression === 'gzip';
         if ($this->export->outputHandler->onFlyCompression) {
             $this->export->outputHandler->memoryLimit = $this->export->getMemoryLimit();
         }
@@ -235,16 +233,15 @@ final readonly class ExportController implements InvocableController
 
             $filename = $this->export->getFinalFilename(
                 $exportPlugin,
-                $this->export->outputHandler->compression,
                 Sanitize::sanitizeFilename(Util::expandUserString($filenameTemplate), true),
             );
 
-            $mimeType = $this->export->getMimeType($exportPlugin, $this->export->outputHandler->compression);
+            $mimeType = $this->export->getMimeType($exportPlugin);
         }
 
         // For raw query export, filename will be export.extension
         if ($exportType === ExportType::Raw) {
-            $filename = $this->export->getFinalFilename($exportPlugin, $this->export->outputHandler->compression, 'export');
+            $filename = $this->export->getFinalFilename($exportPlugin, 'export');
         }
 
         // Open file on server if needed

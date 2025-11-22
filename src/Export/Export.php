@@ -139,7 +139,6 @@ class Export
 
     public function getFinalFilename(
         ExportPlugin $exportPlugin,
-        string $compression,
         string $filename,
     ): string {
         // Grab basic dump extension and mime type
@@ -153,18 +152,18 @@ class Export
         }
 
         // If dump is going to be compressed, add compression to extension
-        if ($compression === 'gzip') {
+        if ($this->outputHandler->compression === 'gzip') {
             $filename .= '.gz';
-        } elseif ($compression === 'zip') {
+        } elseif ($this->outputHandler->compression === 'zip') {
             $filename .= '.zip';
         }
 
         return $filename;
     }
 
-    public function getMimeType(ExportPlugin $exportPlugin, string $compression): string
+    public function getMimeType(ExportPlugin $exportPlugin): string
     {
-        return match ($compression) {
+        return match ($this->outputHandler->compression) {
             'gzip' => 'application/x-gzip',
             'zip' => 'application/zip',
             default => $exportPlugin->getProperties()->getMimeType(),

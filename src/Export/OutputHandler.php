@@ -43,14 +43,13 @@ class OutputHandler
     public string $saveFilename = '';
     /** @var resource|null */
     public mixed $fileHandle = null;
-    /** @var ''|'none'|'zip'|'gzip' */
+    /** @var ''|'zip'|'gzip' */
     public string $compression = '';
     public string $kanjiEncoding = '';
     public string $xkana = '';
     public int $memoryLimit = 0;
     public bool $onFlyCompression = false;
     public int $timeStart = 0;
-    public bool $bufferNeeded = false;
 
     public function __invoke(string $line): bool
     {
@@ -60,7 +59,7 @@ class OutputHandler
         }
 
         // If we have to buffer data, we will perform everything at once at the end
-        if ($this->bufferNeeded) {
+        if ($this->compression !== '') {
             $this->dumpBuffer .= $line;
             if ($this->onFlyCompression) {
                 $this->dumpBufferLength += strlen($line);
@@ -161,6 +160,21 @@ class OutputHandler
         // Re - initialize
         $this->dumpBuffer = '';
         $this->dumpBufferLength = 0;
+    }
+
+    /**
+     * Sets the compression method
+     *
+     * @param 'zip'|'gzip' $compression
+     */
+    public function setCompression(string $compression, bool $compressOnFly = false): void
+    {
+        $this->compression = $compression;
+        if ($compression !== 'gzip' || ! $compressOnFly) {
+            return;
+        }
+
+        $this->onFlyCompression = true;
     }
 
     public function compress(bool $separateFiles, string $filename): void

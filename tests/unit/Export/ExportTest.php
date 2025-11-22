@@ -70,11 +70,15 @@ class ExportTest extends AbstractTestCase
         $export = new Export($dbi);
         $relation = new Relation($dbi);
         $exportPlugin = new ExportPhparray($relation, new Export($dbi), new Transformations($dbi, $relation));
-        $finalFileName = $export->getFinalFilename($exportPlugin, 'zip', 'myfilename');
+
+        $export->outputHandler->setCompression('zip');
+        $finalFileName = $export->getFinalFilename($exportPlugin, 'myfilename');
         self::assertSame('myfilename.php.zip', $finalFileName);
-        $finalFileName = $export->getFinalFilename($exportPlugin, 'gzip', 'myfilename');
+
+        $export->outputHandler->setCompression('gzip');
+        $finalFileName = $export->getFinalFilename($exportPlugin, 'myfilename');
         self::assertSame('myfilename.php.gz', $finalFileName);
-        $finalFileName = $export->getFinalFilename($exportPlugin, 'gzip', 'export.db1.table1.file');
+        $finalFileName = $export->getFinalFilename($exportPlugin, 'export.db1.table1.file');
         self::assertSame('export.db1.table1.file.php.gz', $finalFileName);
     }
 
@@ -85,9 +89,13 @@ class ExportTest extends AbstractTestCase
         $export = new Export($dbi);
         $relation = new Relation($dbi);
         $exportPlugin = new ExportPhparray($relation, new Export($dbi), new Transformations($dbi, $relation));
-        $mimeType = $export->getMimeType($exportPlugin, 'zip');
+
+        $export->outputHandler->setCompression('zip');
+        $mimeType = $export->getMimeType($exportPlugin);
         self::assertSame('application/zip', $mimeType);
-        $mimeType = $export->getMimeType($exportPlugin, 'gzip');
+
+        $export->outputHandler->setCompression('gzip');
+        $mimeType = $export->getMimeType($exportPlugin);
         self::assertSame('application/x-gzip', $mimeType);
     }
 
