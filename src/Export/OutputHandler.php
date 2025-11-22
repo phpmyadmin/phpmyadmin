@@ -20,7 +20,6 @@ use function fopen;
 use function function_exists;
 use function fwrite;
 use function gzencode;
-use function header;
 use function htmlspecialchars;
 use function in_array;
 use function ini_get;
@@ -31,7 +30,6 @@ use function ob_list_handlers;
 use function preg_replace;
 use function strlen;
 use function substr;
-use function time;
 
 use const ENT_COMPAT;
 
@@ -55,7 +53,6 @@ class OutputHandler
     public string $xkana = '';
     public int $memoryLimit = 0;
     public bool $onFlyCompression = false;
-    public int $timeStart = 0;
 
     public function addLine(string $line): bool
     {
@@ -94,12 +91,6 @@ class OutputHandler
                     $this->dumpBuffer = '';
                     $this->dumpBufferLength = 0;
                 }
-            } else {
-                $timeNow = time();
-                if ($this->timeStart >= $timeNow + 30) {
-                    $this->timeStart = $timeNow;
-                    header('X-pmaPing: Pong');
-                }
             }
 
             return true;
@@ -123,12 +114,6 @@ class OutputHandler
                 Current::$message->addParam($this->saveFilename);
 
                 return false;
-            }
-
-            $timeNow = time();
-            if ($this->timeStart >= $timeNow + 30) {
-                $this->timeStart = $timeNow;
-                header('X-pmaPing: Pong');
             }
         } else {
             // We export as file - output normally

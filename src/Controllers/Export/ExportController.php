@@ -38,7 +38,6 @@ use function in_array;
 use function ini_set;
 use function is_array;
 use function register_shutdown_function;
-use function time;
 
 #[Route('/export', ['GET', 'POST'])]
 final readonly class ExportController implements InvocableController
@@ -208,9 +207,6 @@ final readonly class ExportController implements InvocableController
         }
 
         register_shutdown_function([$this->export, 'shutdown']);
-
-        // We send fake headers to avoid browser timeout when buffering
-        $this->export->outputHandler->timeStart = time();
 
         $this->export->outputHandler->outputKanjiConversion = Encoding::canConvertKanji();
 
