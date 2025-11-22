@@ -4191,9 +4191,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidPropertyAssignmentValue>
-      <code><![CDATA[$this->fileHandle]]></code>
-    </InvalidPropertyAssignmentValue>
     <PossiblyFalsePropertyAssignmentValue>
       <code><![CDATA[$zipExtension->createFile($dumpBuffer, $filename)]]></code>
     </PossiblyFalsePropertyAssignmentValue>

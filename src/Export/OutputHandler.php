@@ -232,21 +232,19 @@ class OutputHandler
 
     public function closeFile(): Message
     {
-        $writeResult = false;
         if ($this->fileHandle !== null) {
-            $writeResult = @fwrite($this->fileHandle, $this->dumpBuffer);
-            fclose($this->fileHandle);
+            $fileHandle = $this->fileHandle;
             $this->fileHandle = null;
-        }
+            $writeResult = @fwrite($fileHandle, $this->dumpBuffer);
+            fclose($fileHandle);
 
-        // Here, use strlen rather than mb_strlen to get the length
-        // in bytes to compare against the number of bytes written.
-        if ($this->dumpBuffer !== '' && $writeResult !== strlen($this->dumpBuffer)) {
-            return new Message(
-                __('Insufficient space to save the file %s.'),
-                MessageType::Error,
-                [$this->saveFilename],
-            );
+            if ($this->dumpBuffer !== '' && $writeResult !== strlen($this->dumpBuffer)) {
+                return new Message(
+                    __('Insufficient space to save the file %s.'),
+                    MessageType::Error,
+                    [$this->saveFilename],
+                );
+            }
         }
 
         return new Message(
