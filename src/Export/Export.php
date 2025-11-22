@@ -183,30 +183,18 @@ class Export
         }
     }
 
-    /**
-     * Open the export file
-     *
-     * @param string $filename    the export filename
-     * @param bool   $quickExport whether it's a quick export or not
-     */
-    public function openFile(string $filename, bool $quickExport): Message|null
+    public function openFile(string $filename, bool $quickExport, bool $quickOverwriteFile, bool $overwriteFile): Message|null
     {
         $fileHandle = null;
         $message = null;
-        $doNotSaveItOver = true;
-
-        if (isset($_POST['quick_export_onserver_overwrite'])) {
-            $doNotSaveItOver = $_POST['quick_export_onserver_overwrite'] !== 'saveitover';
-        }
 
         $saveFilename = Util::userDir(Config::getInstance()->settings['SaveDir'] ?? '')
             . preg_replace('@[/\\\\]@', '_', $filename);
 
         if (
             @file_exists($saveFilename)
-            && ((! $quickExport && empty($_POST['onserver_overwrite']))
-            || ($quickExport
-            && $doNotSaveItOver))
+            && ((! $quickExport && ! $overwriteFile)
+            || ($quickExport && ! $quickOverwriteFile))
         ) {
             $message = Message::error(
                 __(

@@ -249,7 +249,12 @@ final readonly class ExportController implements InvocableController
 
         // Open file on server if needed
         if ($saveOnServer) {
-            $message = $this->export->openFile($filename, $isQuickExport);
+            $message = $this->export->openFile(
+                $filename,
+                $isQuickExport,
+                $request->getParsedBodyParam('quick_export_onserver_overwrite') === 'saveitover',
+                $request->getParsedBodyParam('onserver_overwrite') === 'saveitover',
+            );
 
             // problem opening export file on server?
             if ($message !== null) {

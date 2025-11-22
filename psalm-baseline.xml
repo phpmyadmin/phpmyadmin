@@ -4164,7 +4164,6 @@
       <code><![CDATA[$error['message']]]></code>
     </PossiblyNullArrayAccess>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($_POST['onserver_overwrite'])]]></code>
       <code><![CDATA[empty($postParams['structure_or_data_forced'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
