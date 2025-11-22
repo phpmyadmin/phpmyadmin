@@ -143,6 +143,9 @@
                     <th>
                         {% trans 'Size' %}
                     </th>
+                    <th>
+                        {% trans 'Collation' %}
+                    </th>
                 </tr>
             </thead>
             {% set spatial_types = [
@@ -189,6 +192,13 @@
                                 name="index[columns][sub_parts][]"
                                 value="{{ index.getChoice() != 'SPATIAL' ?
                                     column.getSubPart() }}">
+                        </td>
+                        <td>
+                            <select name="index[columns][collations][]">
+                                <option value="None"{{ column.Collation ? ' selected' }}>None</option>
++                               <option value="A"{{ column.Collation == 'A' ? ' selected' }}>A</option>
++                               <option value="D"{{ column.Collation == 'D' ? ' selected' }}>D</option>
+                            </select>
                         </td>
                     </tr>
                 {% endfor %}
