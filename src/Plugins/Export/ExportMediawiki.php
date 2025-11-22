@@ -166,7 +166,7 @@ class ExportMediawiki extends ExportPlugin
             $output .= '|}' . str_repeat($this->exportCRLF(), 2);
         }
 
-        return $this->export->outputHandler($output);
+        return ($this->export->outputHandler)($output);
     }
 
     /**
@@ -240,7 +240,7 @@ class ExportMediawiki extends ExportPlugin
         // End table construction
         $output .= '|}' . str_repeat($this->exportCRLF(), 2);
 
-        return $this->export->outputHandler($output);
+        return ($this->export->outputHandler)($output);
     }
 
     /**

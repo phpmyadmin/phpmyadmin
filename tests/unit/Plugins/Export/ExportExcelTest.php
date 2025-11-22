@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Plugins\Export;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Plugins\Export\ExportExcel;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -216,27 +217,7 @@ class ExportExcelTest extends AbstractTestCase
     public function testExportData(): void
     {
         // case 1
-        Export::$outputKanjiConversion = false;
-        Export::$outputCharsetConversion = false;
-        Export::$bufferNeeded = false;
-        Export::$asFile = true;
-        Export::$saveOnServer = true;
-        Export::$fileHandle = null;
-
-        ob_start();
-        self::assertFalse($this->object->exportData(
-            'test_db',
-            'test_table',
-            'SELECT * FROM `test_db`.`test_table`;',
-        ));
-        ob_get_clean();
-
-        // case 2
-        Export::$outputKanjiConversion = false;
-        Export::$outputCharsetConversion = false;
-        Export::$bufferNeeded = false;
-        Export::$asFile = true;
-        Export::$saveOnServer = false;
+        OutputHandler::$asFile = true;
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['excel_columns' => 'On']);

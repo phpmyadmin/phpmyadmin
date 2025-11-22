@@ -9,6 +9,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Plugins\Export\ExportXml;
 use PhpMyAdmin\Plugins\ExportPlugin;
@@ -43,10 +44,7 @@ class ExportXmlTest extends AbstractTestCase
 
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
-        Export::$outputKanjiConversion = false;
-        Export::$bufferNeeded = false;
-        Export::$asFile = false;
-        Export::$saveOnServer = false;
+        OutputHandler::$asFile = false;
         ExportPlugin::$exportType = ExportType::Table;
         ExportPlugin::$singleTable = false;
         Current::$database = 'db';
@@ -168,7 +166,6 @@ class ExportXmlTest extends AbstractTestCase
 
     public function testExportHeader(): void
     {
-        Export::$outputCharsetConversion = true;
         Current::$charset = 'iso-8859-1';
         $config = Config::getInstance();
         $config->selectedServer['port'] = 80;
@@ -290,8 +287,6 @@ class ExportXmlTest extends AbstractTestCase
 
         // case 2 with isView as true and false
 
-        Export::$outputCharsetConversion = false;
-
         $dbiDummy->addResult(
             'SELECT `DEFAULT_CHARACTER_SET_NAME`, `DEFAULT_COLLATION_NAME`'
             . " FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME` = 'd<\\\"b' LIMIT 1",
@@ -408,8 +403,7 @@ class ExportXmlTest extends AbstractTestCase
 
     public function testExportData(): void
     {
-        Export::$asFile = true;
-        Export::$outputCharsetConversion = false;
+        OutputHandler::$asFile = true;
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['xml_export_contents' => 'On']);

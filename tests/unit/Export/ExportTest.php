@@ -9,6 +9,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\FlashMessenger;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
@@ -92,9 +93,7 @@ class ExportTest extends AbstractTestCase
 
     public function testExportDatabase(): void
     {
-        Export::$outputKanjiConversion = false;
-        Export::$bufferNeeded = false;
-        Export::$asFile = false;
+        OutputHandler::$asFile = false;
         Config::getInstance()->selectedServer['DisableIS'] = false;
 
         // phpcs:disable Generic.Files.LineLength.TooLong
@@ -150,9 +149,7 @@ class ExportTest extends AbstractTestCase
 
     public function testExportServer(): void
     {
-        Export::$outputKanjiConversion = false;
-        Export::$bufferNeeded = false;
-        Export::$asFile = false;
+        OutputHandler::$asFile = false;
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = false;
         $config->selectedServer['only_db'] = '';

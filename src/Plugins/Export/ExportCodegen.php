@@ -97,10 +97,10 @@ class ExportCodegen extends ExportPlugin
         array $aliases = [],
     ): bool {
         if ($this->format === self::HANDLER_NHIBERNATE_XML) {
-            return $this->export->outputHandler($this->handleNHibernateXMLBody($db, $table, $aliases));
+            return ($this->export->outputHandler)($this->handleNHibernateXMLBody($db, $table, $aliases));
         }
 
-        return $this->export->outputHandler($this->handleNHibernateCSBody($db, $table, $aliases));
+        return ($this->export->outputHandler)($this->handleNHibernateCSBody($db, $table, $aliases));
     }
 
     /**

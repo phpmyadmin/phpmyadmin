@@ -116,7 +116,7 @@ class ExportJson extends ExportPlugin
             return false;
         }
 
-        return $this->export->outputHandler('[' . "\n" . $data . ',' . "\n");
+        return ($this->export->outputHandler)('[' . "\n" . $data . ',' . "\n");
     }
 
     /**
@@ -124,7 +124,7 @@ class ExportJson extends ExportPlugin
      */
     public function exportFooter(): bool
     {
-        return $this->export->outputHandler(']' . "\n");
+        return ($this->export->outputHandler)(']' . "\n");
     }
 
     /**
@@ -144,7 +144,7 @@ class ExportJson extends ExportPlugin
             return false;
         }
 
-        return $this->export->outputHandler($data . ',' . "\n");
+        return ($this->export->outputHandler)($data . ',' . "\n");
     }
 
     /**
@@ -165,7 +165,7 @@ class ExportJson extends ExportPlugin
         $tableAlias = $this->getTableAlias($aliases, $db, $table);
 
         if (! $this->first) {
-            if (! $this->export->outputHandler(',')) {
+            if (! ($this->export->outputHandler)(',')) {
                 return false;
             }
         } else {
@@ -208,7 +208,7 @@ class ExportJson extends ExportPlugin
     ): bool {
         [$header, $footer] = explode('"@@DATA@@"', $buffer);
 
-        if (! $this->export->outputHandler($header . "\n" . '[' . "\n")) {
+        if (! ($this->export->outputHandler)($header . "\n" . '[' . "\n")) {
             return false;
         }
 
@@ -234,7 +234,7 @@ class ExportJson extends ExportPlugin
 
             // Output table name as comment if this is the first record of the table
             if ($recordCnt > 1) {
-                if (! $this->export->outputHandler(',' . "\n")) {
+                if (! ($this->export->outputHandler)(',' . "\n")) {
                     return false;
                 }
             }
@@ -272,12 +272,12 @@ class ExportJson extends ExportPlugin
                 return false;
             }
 
-            if (! $this->export->outputHandler($encodedData)) {
+            if (! ($this->export->outputHandler)($encodedData)) {
                 return false;
             }
         }
 
-        return $this->export->outputHandler("\n" . ']' . "\n" . $footer . "\n");
+        return ($this->export->outputHandler)("\n" . ']' . "\n" . $footer . "\n");
     }
 
     /**

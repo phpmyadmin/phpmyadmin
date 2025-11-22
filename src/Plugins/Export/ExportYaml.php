@@ -67,7 +67,7 @@ class ExportYaml extends ExportPlugin
      */
     public function exportHeader(): bool
     {
-        $this->export->outputHandler('%YAML 1.1' . "\n" . '---' . "\n");
+        ($this->export->outputHandler)('%YAML 1.1' . "\n" . '---' . "\n");
 
         return true;
     }
@@ -77,7 +77,7 @@ class ExportYaml extends ExportPlugin
      */
     public function exportFooter(): bool
     {
-        $this->export->outputHandler('...' . "\n");
+        ($this->export->outputHandler)('...' . "\n");
 
         return true;
     }
@@ -148,7 +148,7 @@ class ExportYaml extends ExportPlugin
                 $buffer .= '  ' . $columns[$i] . ': "' . $record[$i] . '"' . "\n";
             }
 
-            if (! $this->export->outputHandler($buffer)) {
+            if (! ($this->export->outputHandler)($buffer)) {
                 return false;
             }
         }

@@ -106,7 +106,7 @@ class ExportHtmlword extends ExportPlugin
      */
     public function exportHeader(): bool
     {
-        return $this->export->outputHandler(
+        return ($this->export->outputHandler)(
             '<html xmlns:o="urn:schemas-microsoft-com:office:office"
             xmlns:x="urn:schemas-microsoft-com:office:word"
             xmlns="http://www.w3.org/TR/REC-html40">
@@ -127,7 +127,7 @@ class ExportHtmlword extends ExportPlugin
      */
     public function exportFooter(): bool
     {
-        return $this->export->outputHandler('</body></html>');
+        return ($this->export->outputHandler)('</body></html>');
     }
 
     /**
@@ -142,7 +142,7 @@ class ExportHtmlword extends ExportPlugin
             $dbAlias = $db;
         }
 
-        return $this->export->outputHandler(
+        return ($this->export->outputHandler)(
             '<h1>' . __('Database') . ' ' . htmlspecialchars($dbAlias) . '</h1>',
         );
     }
@@ -164,7 +164,7 @@ class ExportHtmlword extends ExportPlugin
         $tableAlias = $this->getTableAlias($aliases, $db, $table);
 
         if (
-            ! $this->export->outputHandler(
+            ! ($this->export->outputHandler)(
                 '<h2>'
                 . __('Dumping data for table') . ' ' . htmlspecialchars($tableAlias)
                 . '</h2>',
@@ -173,7 +173,7 @@ class ExportHtmlword extends ExportPlugin
             return false;
         }
 
-        if (! $this->export->outputHandler('<table width="100%" cellspacing="1">')) {
+        if (! ($this->export->outputHandler)('<table width="100%" cellspacing="1">')) {
             return false;
         }
 
@@ -195,7 +195,7 @@ class ExportHtmlword extends ExportPlugin
             }
 
             $schemaInsert .= '</tr>';
-            if (! $this->export->outputHandler($schemaInsert)) {
+            if (! ($this->export->outputHandler)($schemaInsert)) {
                 return false;
             }
         }
@@ -210,12 +210,12 @@ class ExportHtmlword extends ExportPlugin
             }
 
             $schemaInsert .= '</tr>';
-            if (! $this->export->outputHandler($schemaInsert)) {
+            if (! ($this->export->outputHandler)($schemaInsert)) {
                 return false;
             }
         }
 
-        return $this->export->outputHandler('</table>');
+        return ($this->export->outputHandler)('</table>');
     }
 
     /**
@@ -480,7 +480,7 @@ class ExportHtmlword extends ExportPlugin
                 $dump .= $this->getTableDefStandIn($db, $table, $aliases);
         }
 
-        return $this->export->outputHandler($dump);
+        return ($this->export->outputHandler)($dump);
     }
 
     /**

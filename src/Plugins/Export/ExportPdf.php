@@ -104,7 +104,7 @@ class ExportPdf extends ExportPlugin
     public function exportFooter(): bool
     {
         // instead of $pdf->Output():
-        return $this->export->outputHandler($this->pdf->getPDFData());
+        return ($this->export->outputHandler)($this->pdf->getPDFData());
     }
 
     /**

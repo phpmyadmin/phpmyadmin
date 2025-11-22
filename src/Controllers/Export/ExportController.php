@@ -13,6 +13,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Exceptions\ExportException;
 use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -76,12 +77,8 @@ final readonly class ExportController implements InvocableController
             Current::$charset = $request->getParsedBodyParamAsString('charset');
         }
 
-        if ($request->hasBodyParam('compression')) {
-            Export::$compression = $request->getParsedBodyParamAsString('compression');
-        }
-
         if ($request->hasBodyParam('knjenc')) {
-            Export::$kanjiEncoding = $request->getParsedBodyParamAsString('knjenc');
+            $this->export->outputHandler->kanjiEncoding = $request->getParsedBodyParamAsString('knjenc');
         }
 
         if ($request->hasBodyParam('maxsize')) {
@@ -99,7 +96,7 @@ final readonly class ExportController implements InvocableController
         }
 
         if ($request->hasBodyParam('xkana')) {
-            Export::$xkana = $request->getParsedBodyParamAsString('xkana');
+            $this->export->outputHandler->xkana = $request->getParsedBodyParamAsString('xkana');
         }
 
         // sanitize this parameter which will be used below in a file inclusion
@@ -138,11 +135,6 @@ final readonly class ExportController implements InvocableController
         /**
          * init and variable checking
          */
-        Export::$compression = '';
-        Export::$saveOnServer = false;
-        Export::$bufferNeeded = false;
-        Export::$saveFilename = '';
-        Export::$fileHandle = null;
         $filename = '';
         $separateFiles = '';
 
@@ -150,21 +142,21 @@ final readonly class ExportController implements InvocableController
         $isQuickExport = $quickOrCustom === 'quick';
 
         if ($outputFormat === 'astext') {
-            Export::$asFile = false;
+            OutputHandler::$asFile = false;
         } else {
-            Export::$asFile = true;
+            OutputHandler::$asFile = true;
             if ($asSeparateFiles && $compressionParam === 'zip') {
                 $separateFiles = $asSeparateFiles;
             }
 
             if (in_array($compressionParam, $compressionMethods, true)) {
-                Export::$compression = $compressionParam;
-                Export::$bufferNeeded = true;
+                $this->export->outputHandler->compression = $compressionParam;
+                $this->export->outputHandler->bufferNeeded = true;
             }
 
             if (($isQuickExport && $quickExportOnServer) || (! $isQuickExport && $onServerParam)) {
                 // Will we save dump on server?
-                Export::$saveOnServer = $this->config->settings['SaveDir'] !== '';
+                $this->export->outputHandler->saveOnServer = $this->config->settings['SaveDir'] !== '';
             }
         }
 
@@ -212,33 +204,27 @@ final readonly class ExportController implements InvocableController
         }
 
         register_shutdown_function([$this->export, 'shutdown']);
-        // Start with empty buffer
-        $this->export->dumpBuffer = '';
-        $this->export->dumpBufferLength = 0;
-
-        // Array of dump buffers - used in separate file exports
-        $this->export->dumpBufferObjects = [];
 
         // We send fake headers to avoid browser timeout when buffering
-        Export::$timeStart = time();
+        $this->export->outputHandler->timeStart = time();
 
-        Export::$outputKanjiConversion = Encoding::canConvertKanji();
+        $this->export->outputHandler->outputKanjiConversion = Encoding::canConvertKanji();
 
         // Do we need to convert charset?
-        Export::$outputCharsetConversion = Export::$asFile
+        $this->export->outputHandler->outputCharsetConversion = OutputHandler::$asFile
             && Encoding::isSupported()
             && isset(Current::$charset) && Current::$charset !== 'utf-8'
             && in_array(Current::$charset, Encoding::listEncodings(), true);
 
         // Use on the fly compression?
-        Export::$onFlyCompression = $this->config->settings['CompressOnFly'] && Export::$compression === 'gzip';
-        if (Export::$onFlyCompression) {
-            Export::$memoryLimit = $this->export->getMemoryLimit();
+        $this->export->outputHandler->onFlyCompression = $this->config->settings['CompressOnFly'] && ($this->export->outputHandler)->compression === 'gzip';
+        if ($this->export->outputHandler->onFlyCompression) {
+            $this->export->outputHandler->memoryLimit = $this->export->getMemoryLimit();
         }
 
         // Generate filename and mime type if needed
         $mimeType = '';
-        if (Export::$asFile) {
+        if (OutputHandler::$asFile) {
             $filenameTemplate = $request->getParsedBodyParamAsString('filename_template', '');
 
             if ((bool) $rememberTemplate) {
@@ -247,21 +233,21 @@ final readonly class ExportController implements InvocableController
 
             $filename = $this->export->getFinalFilename(
                 $exportPlugin,
-                Export::$compression,
+                $this->export->outputHandler->compression,
                 Sanitize::sanitizeFilename(Util::expandUserString($filenameTemplate), true),
             );
 
-            $mimeType = $this->export->getMimeType($exportPlugin, Export::$compression);
+            $mimeType = $this->export->getMimeType($exportPlugin, $this->export->outputHandler->compression);
         }
 
         // For raw query export, filename will be export.extension
         if ($exportType === ExportType::Raw) {
-            $filename = $this->export->getFinalFilename($exportPlugin, Export::$compression, 'export');
+            $filename = $this->export->getFinalFilename($exportPlugin, $this->export->outputHandler->compression, 'export');
         }
 
         // Open file on server if needed
-        if (Export::$saveOnServer) {
-            [Export::$saveFilename, $message, Export::$fileHandle] = $this->export->openFile($filename, $isQuickExport);
+        if ($this->export->outputHandler->saveOnServer) {
+            $message = $this->export->openFile($filename, $isQuickExport);
 
             // problem opening export file on server?
             if ($message !== null) {
@@ -270,7 +256,7 @@ final readonly class ExportController implements InvocableController
 
                 return $this->response->response();
             }
-        } elseif (Export::$asFile) {
+        } elseif (OutputHandler::$asFile) {
             /**
              * Send headers depending on whether the user chose to download a dump file
              * or not
@@ -300,8 +286,7 @@ final readonly class ExportController implements InvocableController
 
         try {
             // Re - initialize
-            $this->export->dumpBuffer = '';
-            $this->export->dumpBufferLength = 0;
+            $this->export->outputHandler->clearBuffer();
 
             // TODO: This is a temporary hack to avoid GLOBALS. Replace this with something better.
             if ($exportPlugin instanceof ExportXml) {
@@ -404,7 +389,7 @@ final readonly class ExportController implements InvocableController
             // Ignore
         }
 
-        if (Export::$saveOnServer && Current::$message !== null) {
+        if ($this->export->outputHandler->saveOnServer && Current::$message !== null) {
             $location = $this->export->getPageLocationAndSaveMessage($exportType, Current::$message);
             $this->response->redirect($location);
 
@@ -414,47 +399,27 @@ final readonly class ExportController implements InvocableController
         /**
          * Send the dump as a file...
          */
-        if (! Export::$asFile) {
+        if (! OutputHandler::$asFile) {
             echo $this->export->getHtmlForDisplayedExportFooter($exportType, Current::$database, Current::$table);
 
             return $this->response->response();
         }
 
         // Convert the charset if required.
-        if (Export::$outputCharsetConversion) {
-            $this->export->dumpBuffer = Encoding::convertString(
-                'utf-8',
-                Current::$charset ?? 'utf-8',
-                $this->export->dumpBuffer,
-            );
-        }
+        ($this->export->outputHandler)->convertBufferCharset();
 
         // Compression needed?
-        if (Export::$compression !== '') {
-            if ($separateFiles !== '') {
-                $this->export->dumpBuffer = $this->export->compress(
-                    $this->export->dumpBufferObjects,
-                    Export::$compression,
-                    $filename,
-                );
-            } else {
-                $this->export->dumpBuffer = $this->export->compress(
-                    $this->export->dumpBuffer,
-                    Export::$compression,
-                    $filename,
-                );
-            }
-        }
+        $this->export->outputHandler->compress($separateFiles !== '', $filename);
 
         /* If we saved on server, we have to close file now */
-        if (Export::$saveOnServer) {
-            $message = $this->export->closeFile(Export::$fileHandle, $this->export->dumpBuffer, Export::$saveFilename);
+        if ($this->export->outputHandler->saveOnServer) {
+            $message = $this->export->outputHandler->closeFile();
             $location = $this->export->getPageLocationAndSaveMessage($exportType, $message);
             $this->response->redirect($location);
 
             return $this->response->response();
         }
 
-        return $this->responseFactory->createResponse()->write($this->export->dumpBuffer);
+        return $this->responseFactory->createResponse()->write($this->export->outputHandler->getBuffer());
     }
 }

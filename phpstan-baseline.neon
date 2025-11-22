@@ -2182,27 +2182,9 @@ parameters:
 			path: src/Controllers/Export/ExportController.php
 
 		-
-			message: '#^Parameter \#1 \$fileHandle of method PhpMyAdmin\\Export\\Export\:\:closeFile\(\) expects resource, resource\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Export/ExportController.php
-
-		-
 			message: '#^Parameter \#3 \$tableStructure of method PhpMyAdmin\\Export\\Export\:\:exportDatabase\(\) expects array\<string\>, array\<mixed\> given\.$#'
 			identifier: argument.type
 			count: 2
-			path: src/Controllers/Export/ExportController.php
-
-		-
-			message: '#^Property PhpMyAdmin\\Export\\Export\:\:\$dumpBuffer \(string\) does not accept array\|bool\|string\.$#'
-			identifier: assign.propertyType
-			count: 2
-			path: src/Controllers/Export/ExportController.php
-
-		-
-			message: '#^Static property PhpMyAdmin\\Export\\Export\:\:\$compression \(''''\|''gzip''\|''none''\|''zip''\) does not accept string\.$#'
-			identifier: assign.propertyType
-			count: 1
 			path: src/Controllers/Export/ExportController.php
 
 		-
@@ -6166,25 +6148,7 @@ parameters:
 			path: src/Export/Export.php
 
 		-
-			message: '#^Method PhpMyAdmin\\Export\\Export\:\:compress\(\) return type has no value type specified in iterable type array\.$#'
-			identifier: missingType.iterableValue
-			count: 1
-			path: src/Export/Export.php
-
-		-
-			message: '#^Only booleans are allowed in a negated boolean, string\|false given\.$#'
-			identifier: booleanNot.exprNotBoolean
-			count: 1
-			path: src/Export/Export.php
-
-		-
 			message: '#^Parameter \#1 \$identifier of static method PhpMyAdmin\\Util\:\:backquote\(\) expects string\|Stringable\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Export/Export.php
-
-		-
-			message: '#^Parameter \#1 \$stream of function fwrite expects resource, resource\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Export/Export.php
@@ -6260,6 +6224,18 @@ parameters:
 			identifier: argument.type
 			count: 1
 			path: src/Export/Options.php
+
+		-
+			message: '#^Only booleans are allowed in a negated boolean, string\|false given\.$#'
+			identifier: booleanNot.exprNotBoolean
+			count: 1
+			path: src/Export/OutputHandler.php
+
+		-
+			message: '#^Property PhpMyAdmin\\Export\\OutputHandler\:\:\$dumpBuffer \(string\) does not accept string\|false\.$#'
+			identifier: assign.propertyType
+			count: 2
+			path: src/Export/OutputHandler.php
 
 		-
 			message: '#^Parameter \#1 \$id of class PhpMyAdmin\\Export\\Template constructor expects int, mixed given\.$#'
@@ -9460,13 +9436,7 @@ parameters:
 			path: src/Plugins/Export/ExportPdf.php
 
 		-
-			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
-			identifier: empty.notAllowed
-			count: 1
-			path: src/Plugins/Export/ExportPdf.php
-
-		-
-			message: '#^Parameter \#1 \$line of method PhpMyAdmin\\Export\\Export\:\:outputHandler\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#1 \$line of callable PhpMyAdmin\\Export\\OutputHandler expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Plugins/Export/ExportPdf.php
