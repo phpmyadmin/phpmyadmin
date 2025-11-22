@@ -405,7 +405,7 @@ final readonly class ExportController implements InvocableController
         }
 
         // Convert the charset if required.
-        ($this->export->outputHandler)->convertBufferCharset();
+        $this->export->outputHandler->convertBufferCharset();
 
         // Compression needed?
         $this->export->outputHandler->compress($separateFiles !== '', $filename);

@@ -65,13 +65,7 @@ class OutputHandler
                 $this->dumpBufferLength += strlen($line);
 
                 if ($this->dumpBufferLength > $this->memoryLimit) {
-                    if ($this->outputCharsetConversion) {
-                        $this->dumpBuffer = Encoding::convertString(
-                            'utf-8',
-                            Current::$charset ?? 'utf-8',
-                            $this->dumpBuffer,
-                        );
-                    }
+                    $this->convertBufferCharset();
 
                     if ($this->compression === 'gzip' && $this->gzencodeNeeded()) {
                         // as a gzipped file
@@ -81,12 +75,8 @@ class OutputHandler
 
                     if ($this->fileHandle !== null) {
                         $writeResult = @fwrite($this->fileHandle, $this->dumpBuffer);
-                        // Here, use strlen rather than mb_strlen to get the length
-                        // in bytes to compare against the number of bytes written.
                         if ($writeResult !== strlen($this->dumpBuffer)) {
-                            Current::$message = Message::error(
-                                __('Insufficient space to save the file %s.'),
-                            );
+                            Current::$message = Message::error(__('Insufficient space to save the file %s.'));
                             Current::$message->addParam($this->saveFilename);
 
                             return false;
@@ -112,12 +102,8 @@ class OutputHandler
 
             if ($this->fileHandle !== null && $line !== '') {
                 $writeResult = @fwrite($this->fileHandle, $line);
-                // Here, use strlen rather than mb_strlen to get the length
-                // in bytes to compare against the number of bytes written.
                 if ($writeResult !== strlen($line)) {
-                    Current::$message = Message::error(
-                        __('Insufficient space to save the file %s.'),
-                    );
+                    Current::$message = Message::error(__('Insufficient space to save the file %s.'));
                     Current::$message->addParam($this->saveFilename);
 
                     return false;
