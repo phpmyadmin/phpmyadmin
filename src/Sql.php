@@ -414,18 +414,12 @@ class Sql
             || $statementInfo->flags->queryType === StatementType::Drop;
     }
 
-    /**
-     * Function to check whether the user has rights to drop the database
-     *
-     * @param bool $allowUserDropDatabase whether the user is allowed to drop db
-     * @param bool $isSuperUser           whether this user is a superuser
-     */
     public function hasNoRightsToDropDatabase(
         StatementInfo $statementInfo,
-        bool $allowUserDropDatabase,
-        bool $isSuperUser,
     ): bool {
-        return ! $allowUserDropDatabase && $statementInfo->flags->dropDatabase && ! $isSuperUser;
+        return ! $this->config->settings['AllowUserDropDatabase']
+            && $statementInfo->flags->dropDatabase
+            && ! $this->dbi->isSuperUser();
     }
 
     /**

@@ -933,7 +933,6 @@ return [
             'arguments' => [
                 '$response' => '@response',
                 '$sql' => '@sql',
-                '$dbi' => '@dbi',
                 '$pageSettings' => '@' . PageSettings::class,
                 '$bookmarkRepository' => '@bookmarkRepository',
                 '$config' => '@config',

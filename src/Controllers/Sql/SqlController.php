@@ -10,7 +10,6 @@ use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -35,7 +34,6 @@ readonly class SqlController implements InvocableController
     public function __construct(
         private ResponseRenderer $response,
         private Sql $sql,
-        private DatabaseInterface $dbi,
         private PageSettings $pageSettings,
         private BookmarkRepository $bookmarkRepository,
         private Config $config,
@@ -134,13 +132,7 @@ readonly class SqlController implements InvocableController
          * but since a malicious user may pass this variable by url/form, we don't take
          * into account this case.
          */
-        if (
-            $this->sql->hasNoRightsToDropDatabase(
-                $statementInfo,
-                $this->config->settings['AllowUserDropDatabase'],
-                $this->dbi->isSuperUser(),
-            )
-        ) {
+        if ($this->sql->hasNoRightsToDropDatabase($statementInfo)) {
             Generator::mysqlDie(
                 __('"DROP DATABASE" statements are disabled.'),
                 '',
