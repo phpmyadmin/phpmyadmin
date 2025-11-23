@@ -10147,21 +10147,9 @@ parameters:
 			path: src/Plugins/Import/ImportCsv.php
 
 		-
-			message: '#^Foreach overwrites \$i with its key variable\.$#'
-			identifier: foreach.keyOverwrite
-			count: 1
-			path: src/Plugins/Import/ImportCsv.php
-
-		-
 			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
 			identifier: notEqual.notAllowed
 			count: 3
-			path: src/Plugins/Import/ImportCsv.php
-
-		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 16
 			path: src/Plugins/Import/ImportCsv.php
 
 		-
