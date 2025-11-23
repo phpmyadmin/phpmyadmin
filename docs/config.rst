@@ -14,7 +14,7 @@ parameters you want to change from their corresponding default value.
 
     :ref:`config-examples` for examples of configurations
 
-If a directive is missing from your file, you can just add another line with
+If a desired directive is missing from your file, you can just add another line within
 the file. This file is for over-writing the defaults; if you wish to use the
 default value there's no need to add a line here.
 
@@ -40,15 +40,15 @@ Basic settings
 
         This setting was not available in phpMyAdmin 4.6.0 - 4.6.4.
 
-    Sets here the complete :term:`URL` (with full path) to your phpMyAdmin
+    Sets the complete :term:`URL` (with full path) to your phpMyAdmin
     installation's directory. E.g.
     ``https://www.example.net/path_to_your_phpMyAdmin_directory/``. Note also
     that the :term:`URL` on most of web servers are case sensitive (even on
     Windows). Don’t forget the trailing slash at the end.
 
-    Starting with version 2.3.0, it is advisable to try leaving this blank. In
+    It is recommended to try leaving this blank. In
     most cases phpMyAdmin automatically detects the proper setting. Users of
-    port forwarding or complex reverse proxy setup might need to set this.
+    port forwarding or complex reverse proxy setups might need to set this.
 
     A good test is to browse a table, edit a row and save it. There should be
     an error message if phpMyAdmin is having trouble auto–detecting the correct
@@ -63,8 +63,8 @@ Basic settings
     :type: boolean
     :default: false
 
-    Starting with version 2.3.0 phpMyAdmin offers a lot of features to
-    work with master / foreign – tables (see :config:option:`$cfg['Servers'][$i]['pmadb']`).
+    phpMyAdmin offers a lot of features to
+    work with master / foreign tables (see :config:option:`$cfg['Servers'][$i]['pmadb']`).
 
     If you tried to set this
     up and it does not work for you, have a look on the :guilabel:`Structure` page
@@ -93,9 +93,9 @@ Basic settings
         Log using syslog, using AUTH facility, on most systems this ends up
         in :file:`/var/log/auth.log`.
     ``php``
-        Log into PHP error log.
+        Log to PHP error log.
     ``sapi``
-        Log into PHP SAPI logging.
+        Log to PHP SAPI logging.
     ``/path/to/file``
         Any other value is treated as a filename and log entries are written there.
 
@@ -166,7 +166,7 @@ Basic settings
     :type: integer
     :default: 80
 
-    Show warning about incomplete translations on certain threshold.
+    Show a warning when a translation is below a certain percentage complete.
 
 .. config:option:: $cfg['SendErrorReports']
 
@@ -186,10 +186,10 @@ Basic settings
 
     The default setting of ``'ask'`` will ask the user everytime there is a new
     error report. However you can set this parameter to ``'always'`` to send error
-    reports without asking for confirmation or you can set it to ``'never'`` to
+    reports without asking for confirmation or ``'never'`` to
     never send error reports.
 
-    This directive is available both in the configuration file and in users
+    This directive is available both in the configuration file and in user
     preferences. If the person in charge of a multi-user installation prefers
     to disable this feature for all users, a value of ``'never'`` should be
     set, and the :config:option:`$cfg['UserprefsDisallow']` directive should
@@ -213,8 +213,8 @@ Basic settings
 
     Setting this to ``true`` allows phpMyAdmin to be included inside a frame,
     and is a potential security hole allowing cross-frame scripting attacks or
-    clickjacking. Setting this to 'sameorigin' prevents phpMyAdmin to be
-    included from another document in a frame, unless that document belongs
+    clickjacking. Setting this to ``'sameorigin'`` only allows phpMyAdmin to be
+    included from another document in a frame if that document belongs
     to the same domain.
 
 Server connection settings
@@ -225,14 +225,13 @@ Server connection settings
     :type: array
     :default: one server array with settings listed below
 
-    Since version 1.4.2, phpMyAdmin supports the administration of multiple
-    MySQL servers. Therefore, a :config:option:`$cfg['Servers']`-array has been
-    added which contains the login information for the different servers. The
+    To supports the administration of multiple
+    MySQL servers, :config:option:`$cfg['Servers']` is an array
+    contains the login information for the different servers. The
     first :config:option:`$cfg['Servers'][$i]['host']` contains the hostname of
     the first server, the second :config:option:`$cfg['Servers'][$i]['host']`
     the hostname of the second server, etc. You can put as many sections for server definition as you need in
-    :file:`config.inc.php`, copy that block or needed parts (you don't have to
-    define all settings, just those you need to change).
+    :file:`config.inc.php`.
 
     .. note::
 
@@ -240,7 +239,7 @@ Server connection settings
         ``$cfg['Servers'][1]``. Do not use ``$cfg['Servers'][0]``. If you want more
         than one server, just copy following section (including ``$i``
         increment) several times. There is no need to define full server
-        array, just define values you need to change.
+        array, just define values you need to change from the defaults.
 
 .. config:option:: $cfg['Servers'][$i]['host']
 
@@ -261,10 +260,11 @@ Server connection settings
     .. note::
 
         The hostname ``localhost`` is handled specially by MySQL and it uses
-        the socket based connection protocol. To use TCP/IP networking, use an
-        IP address or hostname such as ``127.0.0.1`` or ``db.example.com``. You
+        the socket based connection protocol. You
         can configure the path to the socket with
         :config:option:`$cfg['Servers'][$i]['socket']`.
+        To use TCP/IP networking, use an
+        IP address or hostname such as ``127.0.0.1`` or ``db.example.com``.
 
     .. seealso::
 
@@ -276,7 +276,7 @@ Server connection settings
     :type: string
     :default: ``''``
 
-    The port-number of your ``$i``-th MySQL-server. Default is 3306 (leave
+    The port number of your ``$i``-th MySQL-server. Default is 3306 (leave
     blank).
 
     .. note::
@@ -296,7 +296,7 @@ Server connection settings
     :type: string
     :default: ``''``
 
-    The path to the socket to use. Leave blank for default. To determine
+    The path to the socket to use. Leave blank for the system default socket used by PHP. To determine
     the correct socket, check your MySQL configuration or, using the
     :command:`mysql` command–line client, issue the ``status`` command. Among the
     resulting information displayed will be the socket used.
@@ -318,11 +318,6 @@ Server connection settings
 
     Whether to enable SSL for the connection between phpMyAdmin and the MySQL
     server to secure the connection.
-
-    When using the ``'mysql'`` extension,
-    none of the remaining ``'ssl...'`` configuration options apply.
-
-    We strongly recommend the ``'mysqli'`` extension when using this option.
 
     .. seealso::
 
@@ -462,10 +457,6 @@ Server connection settings
         Disabling the certificate verification defeats purpose of using SSL.
         This will make the connection vulnerable to man in the middle attacks.
 
-    .. note::
-
-        This flag only works with PHP 5.6.16 or later.
-
     .. seealso::
 
         :ref:`ssl`,
@@ -487,7 +478,7 @@ Server connection settings
     .. deprecated:: 4.7.0
 
        This setting is no longer used as of 4.7.0, since MySQL decides the
-       connection type based on host, so it could lead to unexpected results.
+       connection type based on host.
        Please set :config:option:`$cfg['Servers'][$i]['host']` accordingly
        instead.
 
@@ -502,8 +493,8 @@ Server connection settings
     :type: boolean
     :default: false
 
-    Whether to use a compressed protocol for the MySQL server connection
-    or not (experimental).
+    Whether to use a compressed protocol for the MySQL server connection,
+    when supported by your PHP extension such as ``MYSQLI_CLIENT_COMPRESS``.
 
 .. _controlhost:
 .. config:option:: $cfg['Servers'][$i]['controlhost']
@@ -543,13 +534,10 @@ Server connection settings
     :default: ``''``
 
     This special account is used to access :ref:`linked-tables`.
-    You don't need it in single user case, but if phpMyAdmin is shared it
+    You don't need it in single user installations, but if phpMyAdmin is shared it
     is recommended to give access to :ref:`linked-tables` only to this user
     and configure phpMyAdmin to use it. All users will then be able to use
     the features without need to have direct access to :ref:`linked-tables`.
-
-    .. versionchanged:: 2.2.5
-        those were called ``stduser`` and ``stdpass``
 
     .. seealso::
 
@@ -604,17 +592,17 @@ Server connection settings
     :type: string
     :default: ``'cookie'``
 
-    Whether config or cookie or :term:`HTTP` or signon authentication should be
-    used for this server.
+    Which authentication type should be used for this server. phpMyAdmin provides
+    several methods of authenticating the user to MySQL:
 
-    * 'config' authentication (``$auth_type = 'config'``) is the plain old
+    * 'config' authentication (``$auth_type = 'config'``) is the simplest
       way: username and password are stored in :file:`config.inc.php`.
     * 'cookie' authentication mode (``$auth_type = 'cookie'``) allows you to
       log in as any valid MySQL user with the help of cookies.
     * 'http' authentication allows you to log in as any
       valid MySQL user via HTTP-Auth.
     * 'signon' authentication mode (``$auth_type = 'signon'``) allows you to
-      log in from prepared PHP session data or using supplied PHP script.
+      log in from prepared PHP session data or using an additional PHP script.
 
     .. seealso:: :ref:`authentication_modes`
 
@@ -635,10 +623,6 @@ Server connection settings
 
     :type: string
     :default: ``''``
-
-    .. versionadded:: 3.0.0.0
-
-        This setting was named ``$cfg['Servers'][$i]['auth_feebee_config']`` and was renamed before the `3.0.0.0` release.
 
     .. deprecated:: 4.6.4
 
@@ -696,11 +680,11 @@ Server connection settings
     :type: string or array
     :default: ``''``
 
-    If set to a (an array of) database name(s), only this (these)
-    database(s) will be shown to the user. Since phpMyAdmin 2.2.1,
-    this/these database(s) name(s) may contain MySQL wildcards characters
-    ("\_" and "%"): if you want to use literal instances of these
-    characters, escape them (I.E. use ``'my\_db'`` and not ``'my_db'``).
+    If set to a database name or array of database names, only those
+    databases will be shown to the user.
+    Database names may contain MySQL wildcard characters
+    ("\_" and "%"). To use literal instances of these
+    characters, escape them (i.e. use ``'my\_db'`` and not ``'my_db'``).
 
     This setting is an efficient way to lower the server load since the
     latter does not need to send MySQL requests to build the available
@@ -725,8 +709,10 @@ Server connection settings
 
     Regular expression for hiding some databases from unprivileged users.
     This only hides them from listing, but a user is still able to access
-    them (using, for example, the SQL query area). To limit access, use
-    the MySQL privilege system.  For example, to hide all databases
+    them (using, for example, the SQL query area). To securely limit access, use
+    the MySQL privilege system.
+
+    For example, to hide all databases
     starting with the letter "a", use
 
     .. code-block:: php
@@ -749,10 +735,12 @@ Server connection settings
     :type: string
     :default: ``''``
 
-    Only useful when using phpMyAdmin with multiple server entries. If
-    set, this string will be displayed instead of the hostname in the
-    pull-down menu on the main page. This can be useful if you want to
-    show only certain databases on your system, for example. For HTTP
+    Sets a custom, descriptive label for the server which will be shown
+    in multiple locations instead of the host name.
+    When ``$cfg['Servers'][$i]['auth_type'] = 'cookie';``,
+    this string will be displayed instead of the hostname in the
+    pull-down menu on the main page.
+    For HTTP
     auth, all non-US-ASCII characters will be stripped.
 
 .. config:option:: $cfg['Servers'][$i]['extension']
@@ -794,9 +782,7 @@ Server connection settings
     :type: string or false
     :default: ``''``
 
-    .. versionadded:: 2.2.0
-
-    Since release 2.2.0 phpMyAdmin allows users to bookmark queries. This
+    phpMyAdmin allows users to bookmark queries. This
     can be useful for queries you often run. To allow the usage of this
     functionality:
 
@@ -811,10 +797,10 @@ Server connection settings
     :type: string or false
     :default: ``''``
 
-    .. versionadded:: 2.2.4
-
-    Since release 2.2.4 you can describe, in a special 'relation' table,
-    which column is a key in another table (a foreign key). phpMyAdmin
+    When the database table type does not natively support relations, this table
+    can be used by phpMyAdmin to create a similar effect. Internal relations are used
+    only by phpMyAdmin. For more information, refer to the :ref:`relations` user guide.
+    phpMyAdmin
     currently uses this to:
 
     * make clickable, when you browse the master table, the data values that
@@ -854,9 +840,7 @@ Server connection settings
     :type: string or false
     :default: ``''``
 
-    .. versionadded:: 2.3.0
-
-    Since release 2.3.0 you can describe, in a special ``table_info``
+    You can describe, in a special ``table_info``
     table, which column is to be displayed as a tool-tip when moving the
     cursor over the corresponding key. This configuration variable will
     hold the name of this special table. To allow the usage of this
@@ -890,9 +874,7 @@ Server connection settings
     :type: string or false
     :default: ``''``
 
-    .. versionadded:: 2.3.0
-
-    Since release 2.3.0 you can have phpMyAdmin create :term:`PDF` pages
+    phpMyAdmin can create :term:`PDF` pages
     showing the relations between your tables. Further, the designer interface
     permits visually managing the relations. To do this it needs two tables
     "``pdf_pages``" (storing information about the available :term:`PDF` pages)
@@ -916,11 +898,6 @@ Server connection settings
     :type: string
     :default: ``''``
 
-    .. versionadded:: 2.10.0
-
-        Since release 2.10.0 a Designer interface is available; it permits to
-        visually manage the relations.
-
     .. deprecated:: 4.3.0
 
         This setting was removed and the Designer table positioning data is now stored into :config:option:`$cfg['Servers'][$i]['table\_coords']`.
@@ -928,60 +905,51 @@ Server connection settings
     .. note::
         You can now delete the table `pma__designer_coords` from your phpMyAdmin configuration storage database and remove :config:option:`$cfg['Servers'][$i]['designer\_coords']` from your configuration file.
 
+    This setting permits to visually manage table relations.
+
 .. _col_com:
 .. config:option:: $cfg['Servers'][$i]['column_info']
 
     :type: string or false
     :default: ``''``
 
-    .. versionadded:: 2.3.0
+    This table stores extra information about tables that is used in several
+    places through phpMyAdmin.
 
-    This part requires a content update!  Since release 2.3.0 you can
+    You can
     store comments to describe each column for each table. These will then
     be shown on the "printview".
-
-    Starting with release 2.5.0, comments are consequently used on the table
+    Comments are also used on the table
     property pages and table browse view, showing up as tool-tips above the
     column name (properties page) or embedded within the header of table in
     browse view. They can also be shown in a table dump. Please see the
     relevant configuration directives later on.
 
-    Also new in release 2.5.0 is a MIME- transformation system which is also
-    based on the following table structure. See :ref:`transformations` for
-    further information. To use the MIME- transformation system, your
-    ``column_info`` table has to have the three new columns ``'mimetype'``,
-    ``'transformation'``, ``'transformation_options'``.
+    Comments are generally stored using database
+    metadata directly, which makes them portable across systems and tools. In
+    a case where the database can't be used, that information is stored in this table.
 
-    Starting with release 4.3.0, a new input-oriented transformation system
-    has been introduced. Also, backward compatibility code used in the old
-    transformations system was removed. As a result, an update to ``column_info``
-    table is necessary for previous transformations and the new input-oriented
-    transformation system to work. phpMyAdmin will upgrade it automatically
-    for you by analyzing your current ``column_info`` table structure.
-    However, if something goes wrong with the auto-upgrade then you can
-    use the SQL script found in ``./resources/sql/upgrade_column_info_4_3_0+.sql``
-    to upgrade it manually.
+    You can also use a MIME-transformation system which is also
+    based on the following table structure. This allows you to perform transformations
+    on table data such as viewing images inline, formatting dates, or convering binary
+    data to an IP address for viewing. See :ref:`transformations` for
+    further information. Transformations can be used to format data for output
+    and to transform input data.
 
     To allow the usage of this functionality:
 
     * set up :config:option:`$cfg['Servers'][$i]['pmadb']` and the phpMyAdmin configuration storage
     * put the table name in :config:option:`$cfg['Servers'][$i]['column\_info']` (e.g.
       ``pma__column_info``)
-    * to update your PRE-2.5.0 ``column_comments`` table use this:  and
-      remember that the Variable in :file:`config.inc.php` has been renamed from
-      :samp:`$cfg['Servers'][$i]['column\_comments']` to
-      :config:option:`$cfg['Servers'][$i]['column\_info']`
-
-      .. code-block:: mysql
-
-           ALTER TABLE `pma__column_comments`
-           ADD `mimetype` VARCHAR( 255 ) NOT NULL,
-           ADD `transformation` VARCHAR( 255 ) NOT NULL,
-           ADD `transformation_options` VARCHAR( 255 ) NOT NULL;
-    * to update your PRE-4.3.0 ``column_info`` table manually use this
-      ``./resources/sql/upgrade_column_info_4_3_0+.sql`` SQL script.
 
     This feature can be disabled by setting the configuration to ``false``.
+
+    .. seealso::
+
+        :config:option:`$cfg['ShowDbStructureComment']`,
+        :config:option:`$cfg['ShowColumnComments']`,
+        :config:option:`$cfg['ShowBrowseComments']`,
+        :config:option:`$cfg['ShowPropertyComments']`.
 
     .. note::
 
@@ -991,15 +959,34 @@ Server connection settings
         <https://dev.mysql.com/doc/refman/8.0/en/grant.html>`_ on how to
         ``GRANT`` privileges to a user.
 
+    .. versionchanged:: 4.3.0
+
+        When upgrading from a version prior to 4.3.0, phpMyAdmin should automatically upgrade
+        the table structure. The upgrade can also be run manually with the
+        ``./resources/sql/upgrade_column_info_4_3_0+.sql`` SQL script.
+
+    .. versionchanged:: 2.5.0
+
+        When upgrading from a version prior to 2.5.0, the configuration directive changed from
+        :samp:`$cfg['Servers'][$i]['column\_comments']` to
+        :config:option:`$cfg['Servers'][$i]['column\_info']`
+
+        This SQL command is used to update an existing table from prior to 2.5.0:
+
+        .. code-block:: mysql
+
+            ALTER TABLE `pma__column_comments`
+            ADD `mimetype` VARCHAR( 255 ) NOT NULL,
+            ADD `transformation` VARCHAR( 255 ) NOT NULL,
+            ADD `transformation_options` VARCHAR( 255 ) NOT NULL;
+
 .. _history:
 .. config:option:: $cfg['Servers'][$i]['history']
 
     :type: string or false
     :default: ``''``
 
-    .. versionadded:: 2.5.0
-
-    Since release 2.5.0 you can store your :term:`SQL` history, which means all
+    You can store your :term:`SQL` history, which means all
     queries you entered manually into the phpMyAdmin interface. If you don't
     want to use a table-based history, you can use the JavaScript-based
     history.
@@ -1008,9 +995,6 @@ Server connection settings
     Using :config:option:`$cfg['QueryHistoryMax']` you can specify an amount of
     history items you want to have on hold. On every login, this list gets cut
     to the maximum amount.
-
-    The query history is only available if JavaScript is enabled in
-    your browser.
 
     To allow the usage of this functionality:
 
@@ -1026,11 +1010,9 @@ Server connection settings
     :type: string or false
     :default: ``''``
 
-    .. versionadded:: 3.5.0
-
-    Since release 3.5.0 you can show recently used tables in the
-    navigation panel. It helps you to jump across table directly, without
-    the need to select the database, and then select the table. Using
+    You can show recently used tables in the
+    navigation panel. It helps you to jump to another table directly, without
+    the need to select the database and then select the table. Using
     :config:option:`$cfg['NumRecentTables']` you can configure the maximum number
     of recent tables shown. When you select a table from the list, it will jump to
     the page specified in :config:option:`$cfg['NavigationTreeDefaultTabTable']`.
@@ -1082,9 +1064,7 @@ Server connection settings
     :type: string or false
     :default: ``''``
 
-    .. versionadded:: 3.5.0
-
-    Since release 3.5.0 phpMyAdmin can be configured to remember several
+    phpMyAdmin can remember several
     things (sorted column :config:option:`$cfg['RememberSorting']`, column order,
     and column visibility from a database table) for browsing tables. Without
     configuring the storage, these features still can be used, but the values will
@@ -1234,9 +1214,7 @@ Server connection settings
     :type: string or false
     :default: ``''``
 
-    .. versionadded:: 3.3.x
-
-    Since release 3.3.x a tracking mechanism is available. It helps you to
+    A tracking mechanism is available which can
     track every :term:`SQL` command which is
     executed by phpMyAdmin. The mechanism supports logging of data
     manipulation and data definition statements. After enabling it you can
@@ -1323,9 +1301,7 @@ Server connection settings
     :type: string or false
     :default: ``''``
 
-    .. versionadded:: 3.4.x
-
-    Since release 3.4.x phpMyAdmin allows users to set most preferences by
+    phpMyAdmin allows users to set most preferences by
     themselves and store them in the database.
 
     If you don't allow for storing preferences in
@@ -1381,7 +1357,7 @@ Server connection settings
 
     Whether to allow logins without a password. The default value of
     ``false`` for this parameter prevents unintended access to a MySQL
-    server with was left with an empty password for root or on which an
+    server which was left with an empty password for root or on which an
     anonymous (blank) user is defined.
 
 .. _servers_allowdeny_order:
@@ -1498,6 +1474,10 @@ Server connection settings
     ``SHOW`` commands instead), because of speed issues when many
     databases are present.
 
+    The performance penalty for using ``INFORMATION_SCHEMA`` has largely been
+    resolved in most database servers, so for most users keeping this set to
+    ``false`` is recommended.
+
     .. note::
 
         Enabling this option might give you a big performance boost on older
@@ -1507,8 +1487,6 @@ Server connection settings
 
     :type: string
     :default: ``''``
-
-    .. versionadded:: 3.5.0
 
     Name of PHP script to be sourced and executed to obtain login
     credentials. This is alternative approach to session based single
@@ -1727,14 +1705,14 @@ Generic settings
     :type: array
     :default: ``['127.0.0.1', 'localhost']``
 
+    .. versionadded:: 5.1.0
+
     This search is case-sensitive and will match the exact string only.
     If your setup does not use SSL but is safe because you are using a
     local connection or private network, you can add your hostname or :term:`IP` to the list.
     You can also remove the default entries to only include yours.
 
     This check uses the value of :config:option:`$cfg['Servers'][$i]['host']`.
-
-    .. versionadded:: 5.1.0
 
     Example configuration
 
@@ -1750,8 +1728,7 @@ Generic settings
 
     Set the number of seconds a script is allowed to run. If seconds is
     set to zero, no time limit is imposed. This setting is used while
-    importing/exporting dump files but has
-    no effect when PHP is running in safe mode.
+    importing/exporting dump files.
 
 .. config:option:: $cfg['SessionSavePath']
 
@@ -1777,8 +1754,8 @@ Generic settings
     used.
 
     This setting is used while importing/exporting dump files
-    so you definitely don't want to put here a too low
-    value. It has no effect when PHP is running in safe mode.
+    so you definitely don't want to put here too low a
+    value.
 
     You can also use any string as in :file:`php.ini`, eg. ``'16M'``. Ensure you
     don't omit the suffix (16 means 16 bytes!)
@@ -1850,7 +1827,7 @@ Generic settings
     Defines whether normal users (non-administrator) are allowed to delete
     their own database or not. If set as false, the link :guilabel:`Drop
     Database` will not be shown, and even a ``DROP DATABASE mydatabase`` will
-    be rejected. Quite practical for :term:`ISP` 's with many customers.
+    be rejected. Quite practical for :term:`ISPs <ISP>` with many customers.
 
     This limitation of :term:`SQL` queries is not as strict as when using MySQL
     privileges. This is due to nature of :term:`SQL` queries which might be
@@ -1910,7 +1887,9 @@ Generic settings
     A secret key used to encrypt/decrypt the URL query string.
     Should be 32 bytes long.
 
-    .. seealso:: :ref:`faq2_10`
+    .. seealso::
+        :config:option:`$cfg['URLQueryEncryption']`,
+        :ref:`faq2_10`
 
 .. config:option:: $cfg['maxRowPlotLimit']
 
@@ -1953,19 +1932,13 @@ Cookie authentication options
 
         The encryption key must be 32 bytes long. If it is longer than the length of bytes, only the first 32 bytes will
         be used, and if it is shorter, a new temporary key will be automatically generated for you. However, this
-        temporary key will only last for the duration of the session.
+        temporary key will only last for the duration of the session and the username will not be automatically recalled
+        for the next login.
 
     .. note::
 
         The configuration is called blowfish_secret for historical reasons as
         Blowfish algorithm was originally used to do the encryption.
-
-    .. versionchanged:: 3.1.0
-
-        Since version 3.1.0 phpMyAdmin can generate this on the fly, but it
-        makes a bit weaker security as this generated secret is stored in
-        session and furthermore it makes impossible to recall user name from
-        cookie.
 
     .. versionchanged:: 5.2.0
 
@@ -2023,7 +1996,7 @@ Cookie authentication options
 
     Define how long login cookie should be stored in browser. Default 0
     means that it will be kept for existing session. This is recommended
-    for not trusted environments.
+    for untrusted environments.
 
 .. config:option:: $cfg['LoginCookieDeleteAll']
 
@@ -2031,8 +2004,8 @@ Cookie authentication options
     :default: true
 
     If enabled (default), logout deletes cookies for all servers,
-    otherwise only for current one. Setting this to false makes it easy to
-    forget to log out from other server, when you are using more of them.
+    otherwise (false) it will only delete delete the cookies for the current server. Setting this to false makes it easy to
+    forget to log out from other servers when you are using more than one.
 
 .. _AllowArbitraryServer:
 .. config:option:: $cfg['AllowArbitraryServer']
@@ -2041,7 +2014,7 @@ Cookie authentication options
     :default: false
 
     If enabled, allows you to log in to arbitrary servers using cookie
-    authentication.
+    authentication. An additional form for the hostname is shown from the login page.
 
     .. note::
 
@@ -2089,12 +2062,12 @@ Cookie authentication options
     :type: string
     :default: ``'invisible'``
 
+    .. versionadded:: 5.0.3
+
     Valid values are:
 
     * ``'invisible'`` Use an invisible captcha checking method;
     * ``'checkbox'`` Use a checkbox to confirm the user is not a robot.
-
-    .. versionadded:: 5.0.3
 
 .. config:option:: $cfg['CaptchaApi']
 
@@ -2138,6 +2111,8 @@ Cookie authentication options
     :type: string
     :default: ``''``
 
+    .. versionadded:: 4.1.0
+
     The public key for the reCaptcha service that can be obtained from the
     "Admin Console" on https://www.google.com/recaptcha/about/.
 
@@ -2145,12 +2120,12 @@ Cookie authentication options
 
     reCaptcha will be then used in :ref:`cookie`.
 
-    .. versionadded:: 4.1.0
-
 .. config:option:: $cfg['CaptchaLoginPrivateKey']
 
     :type: string
     :default: ``''``
+
+    .. versionadded:: 4.1.0
 
     The private key for the reCaptcha service that can be obtained from the
     "Admin Console" on https://www.google.com/recaptcha/about/.
@@ -2159,18 +2134,16 @@ Cookie authentication options
 
     reCaptcha will be then used in :ref:`cookie`.
 
-    .. versionadded:: 4.1.0
-
 .. config:option:: $cfg['CaptchaSiteVerifyURL']
 
     :type: string
     :default: ``''``
 
+    .. versionadded:: 5.1.0
+
     The URL for the reCaptcha service to do siteverify action.
 
     reCaptcha will be then used in :ref:`cookie`.
-
-    .. versionadded:: 5.1.0
 
 Navigation panel setup
 ----------------------
@@ -2225,6 +2198,13 @@ Navigation panel setup
     feature is disabled. NOTE: You should not use this separator at the
     beginning or end of a table name or multiple times after another without
     any other characters in between.
+
+    .. note::
+
+        The table group will automatically expand and won't appear as a group if its
+        tables are the only tables in that database. Once another table
+        is added (making the grouping relevant), the grouping will be shown.
+        See also `issue 15777 <https://github.com/phpmyadmin/phpmyadmin/issues/15777>`_
 
 .. config:option:: $cfg['NavigationTreeTableLevel']
 
@@ -2461,15 +2441,10 @@ Main panel
     :type: boolean
     :default: false
 
-    Defines whether to display the :guilabel:`PHP information` or not at
-    the starting main (right) frame.
-
-    Please note that to block the usage of ``phpinfo()`` in scripts, you have to
-    put this in your :file:`php.ini`:
-
-    .. code-block:: ini
-
-        disable_functions = phpinfo()
+    Defines whether to show the user a link for :guilabel:`PHP information`
+    in the starting main (right) frame. This allows the user to view detailed
+    output from ``phpinfo()``, which can show helpful information about PHP, but
+    that information could be considered a security risk.
 
     .. warning::
 
@@ -2484,7 +2459,7 @@ Main panel
     :type: boolean
     :default: true
 
-    Defines whether to display the :guilabel:`Change password` link or not at
+    Defines whether to display the :guilabel:`Change password` link in
     the starting main (right) frame. This setting does not check MySQL commands
     entered directly.
 
@@ -2515,7 +2490,7 @@ Main panel
     :type: array
 
     Defines the minimum supported MySQL version. The default is chosen
-    by the phpMyAdmin team; however this directive was asked by a developer
+    by the phpMyAdmin team; however this directive was requested by a developer
     of the Plesk control panel to ease integration with older MySQL servers
     (where most of the phpMyAdmin features work).
 
@@ -2620,7 +2595,7 @@ Browse mode
 
     Number of rows displayed when browsing a result set and no LIMIT
     clause is used. If the result set contains more rows, ":guilabel:`Previous`" and
-    ":guilabel:`Next`" links will be shown. Possible values: 25,50,100,250,500.
+    ":guilabel:`Next`" links will be shown.
 
 .. config:option:: $cfg['Order']
 
@@ -2628,25 +2603,21 @@ Browse mode
     :default: ``'SMART'``
 
     Defines whether columns are displayed in ascending (``ASC``) order, in
-    descending (``DESC``) order or in a "smart" (``SMART``) order - I.E.
+    descending (``DESC``) order, or in a "smart" (``SMART``) order - I.E.
     descending order for columns of type TIME, DATE, DATETIME and
-    TIMESTAMP, ascending order else- by default.
-
-    .. versionchanged:: 3.4.0
-        Since phpMyAdmin 3.4.0 the default value is ``'SMART'``.
+    TIMESTAMP, ascending order for other types - by default.
 
 .. config:option:: $cfg['DisplayBinaryAsHex']
 
     :type: boolean
     :default: true
 
-    Defines whether the ":guilabel:`Show binary contents as HEX`" browse option is
-    ticked by default.
-
-    .. versionadded:: 3.3.0
     .. deprecated:: 4.3.0
 
         This setting was removed.
+
+    Defines whether the ":guilabel:`Show binary contents as HEX`" browse option is
+    ticked by default.
 
 .. config:option:: $cfg['GridEditing']
 
@@ -2695,7 +2666,7 @@ Editing mode
     :default: true
 
     Defines whether or not MySQL functions fields should be initially
-    displayed in edit/insert mode. Since version 2.10, the user can toggle
+    displayed in edit/insert mode. The user can toggle
     this setting from the interface.
 
 .. config:option:: $cfg['ShowFieldTypesInDataEditView']
@@ -2762,8 +2733,8 @@ Export and import settings
 
     Defines whether to allow on the fly compression for GZip/BZip2
     compressed exports. This doesn't affect smaller dumps and allows users
-    to create larger dumps that won't otherwise fit in memory due to php
-    memory limit. Produced files contain more GZip/BZip2 headers, but all
+    to create larger dumps that won't otherwise fit in memory due to PHP's
+    memory limit for scripts. Produced files contain more GZip/BZip2 headers, but all
     normal programs handle this correctly.
 
 .. config:option:: $cfg['Export']
@@ -2773,7 +2744,7 @@ Export and import settings
 
     In this array are defined default parameters for export, names of
     items are similar to texts seen on export page, so you can easily
-    identify what they mean.
+    identify what they mean. Those are:
 
 .. config:option:: $cfg['Export']['format']
 
@@ -2781,6 +2752,24 @@ Export and import settings
     :default: ``'sql'``
 
     Default export format.
+
+    Possible values are:
+
+    * ``'codegen'`` NHibernate code generation output
+    * ``'csv'`` :term:`Comma--separated text<CSV>`
+    * ``'excel'`` CSV file optimized for use with Microsoft Excel
+    * ``'htmlword'`` HTML file for opening in or importing into Microsoft Word
+    * ``'json'`` a lightweight data--interchange format
+    * ``'latex'`` :term:`LaTeX<LATEX>` typesetting markup file
+    * ``'mediawiki'`` MediaWiki markdown for a table layout
+    * ``'ods'`` OpenDocument format spreadsheet as used in LibreOffice
+    * ``'odt'`` OpenDocument format text document as used in LibreOffice
+    * ``'phparray'`` A PHP array suitable to copy and paste in to some PHP block
+    * ``'pdf'`` :term:`PDF`, a document format for human--readable text
+    * ``'sql'`` :term:`SQL` is the standard import and export format for database servers
+    * ``'texytext'`` Text format for the Texy! markup language
+    * ``'xml'`` :term:`eXtensible Markup Language<XML>` format for sharing documents and marking up text
+    * ``'yaml'`` Another variation of markup language used for data serialization, designed to be easier for humans to read
 
 .. config:option:: $cfg['Export']['method']
 
@@ -2945,7 +2934,7 @@ PDF Options
 
     Array of possible paper sizes for creating PDF pages.
 
-    You should never need to change this.
+    You should never need to change this. To change your default setting, use :config:option:`$cfg['PDFDefaultPageSize']`.
 
 .. config:option:: $cfg['PDFDefaultPageSize']
 
@@ -3050,9 +3039,7 @@ Web server settings
     :term:`HTTP` transfers. Set to
     true/false for enabling/disabling. When set to 'auto' (string),
     phpMyAdmin tries to enable output buffering and will automatically
-    disable it if your browser has some problems with buffering. IE6 with
-    a certain patch is known to cause data corruption when having enabled
-    buffering.
+    disable it if your browser has some problems with buffering.
 
     .. deprecated:: 6.0.0
 
@@ -3107,8 +3094,8 @@ Web server settings
     :type: integer
     :default: 1000
 
-    Limit for length of :term:`URL` in links.  When length would be above this
-    limit, it is replaced by form with button. This is required as some web
+    Limit for length of :term:`URL` in links.  When the length would be above this
+    limit, it is replaced by a form with a button. This is required as some web
     servers (:term:`IIS`) have problems with long :term:`URL` .
 
 .. config:option:: $cfg['CSPAllow']
@@ -3188,8 +3175,9 @@ Design customization
     :default: ``'left'``
 
     Defines the place where table row links (Edit, Copy, Delete) would be
-    put when tables contents are displayed (you may have them displayed at
-    the left side, right side, both sides or nowhere).
+    put when tables contents are displayed.
+
+    Possible values are: ``'left'``, ``'right'``, ``'both'``, or ``'none'``.
 
 .. config:option:: $cfg['RowActionLinksWithoutUnique']
 
@@ -3375,9 +3363,6 @@ SQL query box settings
 Web server upload/save/import directories
 -----------------------------------------
 
-If PHP is running in safe mode, all directories must be owned by the same user
-as the owner of the phpMyAdmin scripts.
-
 If the directory where phpMyAdmin is installed is subject to an
 ``open_basedir`` restriction, you need to create a temporary directory in some
 directory accessible by the PHP interpreter.
@@ -3541,8 +3526,8 @@ Various display setting
     If :config:option:`$cfg['QueryHistoryDB']` is set to ``true``, all your
     Queries are logged to a table, which has to be created by you (see
     :config:option:`$cfg['Servers'][$i]['history']`). If set to false, all your
-    queries will be appended to the form, but only as long as your window is
-    opened they remain saved.
+    queries will be appended to the form, but only remain saved as long as
+    your web browser window is opened.
 
     When using the JavaScript based query window, it will always get updated
     when you click on a new table/db to browse and will focus if you click on
@@ -3940,8 +3925,8 @@ configuration options, only the most frequently used ones.
 
 .. warning::
 
-    Don't use the controluser 'pma' if it does not yet exist and don't use 'pmapass'
-    as password.
+    Don't define the controluser 'pma' if it does not yet exist and you should select
+    your own more secure password instead of 'pmapass'.
 
 .. _example-signon:
 
@@ -3978,13 +3963,13 @@ for a password when accessing remotely, you can achieve it using following snipp
 .. note::
 
     Filtering based on IP addresses isn't reliable over the internet, use it
-    only for local address.
+    only for local addresses.
 
 Example for using multiple MySQL servers
 ++++++++++++++++++++++++++++++++++++++++
 
 You can configure any number of servers using :config:option:`$cfg['Servers']`,
-following example shows two of them:
+the following example shows using two of them:
 
 .. code-block:: php
 
@@ -4017,7 +4002,7 @@ following example shows two of them:
 Google Cloud SQL with SSL
 +++++++++++++++++++++++++
 
-To connect to Google Could SQL, you currently need to disable certificate
+To connect to Google Cloud SQL, you currently need to disable certificate
 verification. This is caused by the certificate being issued for CN matching
 your instance name, but you connect to an IP address and PHP tries to match
 these two. With verification you end up with error message like:
@@ -4135,7 +4120,7 @@ reCaptcha using Google reCaptcha v2/v3
 
     $cfg['CaptchaLoginPublicKey'] = 'xxxxxxxxxxxxxxxx-xxxxxxxxxxxx';
     $cfg['CaptchaLoginPrivateKey'] = 'xxxxxxxxx-xxxxxxxxxxxxxx';
-    // Remove it if you dot not want the checkbox mode
+    // Remove it if you do not want the checkbox mode
     $cfg['CaptchaMethod'] = 'checkbox';
 
 .. seealso:: `Google reCaptcha Developer's Guide <https://developers.google.com/recaptcha/intro>`_
