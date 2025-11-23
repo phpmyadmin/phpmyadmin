@@ -12,7 +12,6 @@ use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\Database\RoutineType;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
-use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Export\StructureOrData;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\ExportPlugin;
@@ -195,7 +194,7 @@ class ExportXml extends ExportPlugin
             || $this->exportTriggers
             || $this->exportViews;
 
-        $charset = Export::$outputCharsetConversion ? Current::$charset : 'utf-8';
+        $charset = $this->outputHandler->outputCharsetConversion ? Current::$charset : 'utf-8';
 
         $config = Config::getInstance();
         $head = '<?xml version="1.0" encoding="' . $charset . '"?>' . "\n"
@@ -337,7 +336,7 @@ class ExportXml extends ExportPlugin
             }
         }
 
-        return $this->export->outputHandler($head);
+        return $this->outputHandler->addLine($head);
     }
 
     /**
@@ -347,7 +346,7 @@ class ExportXml extends ExportPlugin
     {
         $foot = '</pma_xml_export>';
 
-        return $this->export->outputHandler($foot);
+        return $this->outputHandler->addLine($foot);
     }
 
     /**
@@ -369,7 +368,7 @@ class ExportXml extends ExportPlugin
                 . '    -->' . "\n" . '    <database name="'
                 . htmlspecialchars($dbAlias) . '">' . "\n";
 
-            return $this->export->outputHandler($head);
+            return $this->outputHandler->addLine($head);
         }
 
         return true;
@@ -383,20 +382,9 @@ class ExportXml extends ExportPlugin
     public function exportDBFooter(string $db): bool
     {
         if ($this->exportContents) {
-            return $this->export->outputHandler('    </database>' . "\n");
+            return $this->outputHandler->addLine('    </database>' . "\n");
         }
 
-        return true;
-    }
-
-    /**
-     * Outputs CREATE DATABASE statement
-     *
-     * @param string $db      Database name
-     * @param string $dbAlias Aliases of db
-     */
-    public function exportDBCreate(string $db, string $dbAlias = ''): bool
-    {
         return true;
     }
 
@@ -429,7 +417,7 @@ class ExportXml extends ExportPlugin
 
             $buffer = '        <!-- ' . __('Table') . ' '
                 . htmlspecialchars($tableAlias) . ' -->' . "\n";
-            if (! $this->export->outputHandler($buffer)) {
+            if (! $this->outputHandler->addLine($buffer)) {
                 return false;
             }
 
@@ -453,7 +441,7 @@ class ExportXml extends ExportPlugin
 
                 $buffer .= '        </table>' . "\n";
 
-                if (! $this->export->outputHandler($buffer)) {
+                if (! $this->outputHandler->addLine($buffer)) {
                     return false;
                 }
             }

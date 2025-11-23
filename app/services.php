@@ -23,6 +23,7 @@ use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Error\ErrorReport;
 use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Export\Options;
+use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\Export\TemplateModel;
 use PhpMyAdmin\FileListing;
 use PhpMyAdmin\FlashMessenger;
@@ -99,7 +100,7 @@ return [
             'arguments' => ['@http_request', '@relation', '@template', '@config'],
         ],
         'events' => ['class' => Events::class, 'arguments' => ['@dbi']],
-        Export::class => ['class' => Export::class, 'arguments' => ['@dbi']],
+        Export::class => ['class' => Export::class, 'arguments' => ['@dbi', '@' . OutputHandler::class]],
         'export' => Export::class,
         'export_options' => [
             'class' => Options::class,
@@ -235,6 +236,7 @@ return [
             'class' => Operations::class,
             'arguments' => ['$dbi' => '@dbi', '$relation' => '@relation', '$tableMover' => '@table_mover'],
         ],
+        OutputHandler::class => ['class' => OutputHandler::class],
         'partitioning_maintenance' => [
             'class' => Maintenance::class,
             'arguments' => ['$dbi' => '@dbi'],

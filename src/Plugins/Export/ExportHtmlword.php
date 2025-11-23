@@ -106,7 +106,7 @@ class ExportHtmlword extends ExportPlugin
      */
     public function exportHeader(): bool
     {
-        return $this->export->outputHandler(
+        return $this->outputHandler->addLine(
             '<html xmlns:o="urn:schemas-microsoft-com:office:office"
             xmlns:x="urn:schemas-microsoft-com:office:word"
             xmlns="http://www.w3.org/TR/REC-html40">
@@ -127,7 +127,7 @@ class ExportHtmlword extends ExportPlugin
      */
     public function exportFooter(): bool
     {
-        return $this->export->outputHandler('</body></html>');
+        return $this->outputHandler->addLine('</body></html>');
     }
 
     /**
@@ -142,30 +142,9 @@ class ExportHtmlword extends ExportPlugin
             $dbAlias = $db;
         }
 
-        return $this->export->outputHandler(
+        return $this->outputHandler->addLine(
             '<h1>' . __('Database') . ' ' . htmlspecialchars($dbAlias) . '</h1>',
         );
-    }
-
-    /**
-     * Outputs database footer
-     *
-     * @param string $db Database name
-     */
-    public function exportDBFooter(string $db): bool
-    {
-        return true;
-    }
-
-    /**
-     * Outputs CREATE DATABASE statement
-     *
-     * @param string $db      Database name
-     * @param string $dbAlias Aliases of db
-     */
-    public function exportDBCreate(string $db, string $dbAlias = ''): bool
-    {
-        return true;
     }
 
     /**
@@ -185,7 +164,7 @@ class ExportHtmlword extends ExportPlugin
         $tableAlias = $this->getTableAlias($aliases, $db, $table);
 
         if (
-            ! $this->export->outputHandler(
+            ! $this->outputHandler->addLine(
                 '<h2>'
                 . __('Dumping data for table') . ' ' . htmlspecialchars($tableAlias)
                 . '</h2>',
@@ -194,7 +173,7 @@ class ExportHtmlword extends ExportPlugin
             return false;
         }
 
-        if (! $this->export->outputHandler('<table width="100%" cellspacing="1">')) {
+        if (! $this->outputHandler->addLine('<table width="100%" cellspacing="1">')) {
             return false;
         }
 
@@ -216,7 +195,7 @@ class ExportHtmlword extends ExportPlugin
             }
 
             $schemaInsert .= '</tr>';
-            if (! $this->export->outputHandler($schemaInsert)) {
+            if (! $this->outputHandler->addLine($schemaInsert)) {
                 return false;
             }
         }
@@ -231,12 +210,12 @@ class ExportHtmlword extends ExportPlugin
             }
 
             $schemaInsert .= '</tr>';
-            if (! $this->export->outputHandler($schemaInsert)) {
+            if (! $this->outputHandler->addLine($schemaInsert)) {
                 return false;
             }
         }
 
-        return $this->export->outputHandler('</table>');
+        return $this->outputHandler->addLine('</table>');
     }
 
     /**
@@ -501,7 +480,7 @@ class ExportHtmlword extends ExportPlugin
                 $dump .= $this->getTableDefStandIn($db, $table, $aliases);
         }
 
-        return $this->export->outputHandler($dump);
+        return $this->outputHandler->addLine($dump);
     }
 
     /**

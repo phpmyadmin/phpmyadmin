@@ -11,6 +11,7 @@ use PhpMyAdmin\Controllers\Export\ExportController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Http\ServerRequest;
@@ -190,7 +191,7 @@ final class ExportControllerTest extends AbstractTestCase
 
         $exportController = new ExportController(
             new ResponseRenderer(),
-            new Export($dbi),
+            new Export($dbi, new OutputHandler()),
             ResponseFactory::create(),
             $config,
         );
@@ -355,7 +356,7 @@ final class ExportControllerTest extends AbstractTestCase
 
         $exportController = new ExportController(
             new ResponseRenderer(),
-            new Export($dbi),
+            new Export($dbi, new OutputHandler()),
             ResponseFactory::create(),
             $config,
         );
