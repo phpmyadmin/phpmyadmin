@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-11-16 00:29+0000\n"
+"POT-Creation-Date: 2025-11-23 00:31+0000\n"
 "PO-Revision-Date: 2025-09-20 04:06+0000\n"
 "Last-Translator: Phil Jope <Phil.Jope@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1076,7 +1076,7 @@ msgstr "Verlaufsprotokoll"
 #: resources/templates/database/routines/editor_form.twig:58
 #: resources/templates/table/structure/display_table_stats.twig:96
 #: src/Import/Import.php:1169 src/Import/Import.php:1227
-#: src/Plugins/Export/ExportCodegen.php:58 src/Plugins/Export/ExportCsv.php:53
+#: src/Plugins/Export/ExportCodegen.php:58 src/Plugins/Export/ExportCsv.php:54
 #: src/Plugins/Export/ExportExcel.php:57
 #: src/Plugins/Export/ExportHtmlword.php:57
 #: src/Plugins/Export/ExportJson.php:71 src/Plugins/Export/ExportLatex.php:87
@@ -10792,7 +10792,7 @@ msgstr "Kompression"
 #: src/Config/Descriptions.php:640 src/Config/Descriptions.php:647
 #: src/Config/Descriptions.php:655 src/Config/Descriptions.php:659
 #: src/Config/Descriptions.php:672 src/Config/Descriptions.php:674
-#: src/Config/Descriptions.php:721 src/Plugins/Export/ExportCsv.php:95
+#: src/Config/Descriptions.php:721 src/Plugins/Export/ExportCsv.php:96
 #: src/Plugins/Export/ExportExcel.php:79
 #: src/Plugins/Export/ExportHtmlword.php:92 src/Plugins/Export/ExportOds.php:75
 #: src/Plugins/Export/ExportOdt.php:133
@@ -17249,27 +17249,27 @@ msgstr ""
 "Sie haben Zwei-Faktor-Authentifizierung aktiviert. Bitte bestätigen Sie Ihre "
 "Anmeldung."
 
-#: src/Plugins/Export/ExportCsv.php:65
+#: src/Plugins/Export/ExportCsv.php:66
 #: src/Plugins/Import/AbstractImportCsv.php:36
 msgid "Columns separated with:"
 msgstr "Spalten getrennt mit:"
 
-#: src/Plugins/Export/ExportCsv.php:70
+#: src/Plugins/Export/ExportCsv.php:71
 #: src/Plugins/Import/AbstractImportCsv.php:42
 msgid "Columns enclosed with:"
 msgstr "Spalten eingeschlossen von:"
 
-#: src/Plugins/Export/ExportCsv.php:75
+#: src/Plugins/Export/ExportCsv.php:76
 #: src/Plugins/Import/AbstractImportCsv.php:49
 msgid "Columns escaped with:"
 msgstr "Spalten escaped mit:"
 
-#: src/Plugins/Export/ExportCsv.php:80
+#: src/Plugins/Export/ExportCsv.php:81
 #: src/Plugins/Import/AbstractImportCsv.php:56
 msgid "Lines terminated with:"
 msgstr "Zeilen enden auf:"
 
-#: src/Plugins/Export/ExportCsv.php:85 src/Plugins/Export/ExportExcel.php:69
+#: src/Plugins/Export/ExportCsv.php:86 src/Plugins/Export/ExportExcel.php:69
 #: src/Plugins/Export/ExportHtmlword.php:87
 #: src/Plugins/Export/ExportLatex.php:203 src/Plugins/Export/ExportOds.php:70
 #: src/Plugins/Export/ExportOdt.php:138
@@ -17277,7 +17277,7 @@ msgstr "Zeilen enden auf:"
 msgid "Replace NULL with:"
 msgstr "Ersetze NULL durch:"
 
-#: src/Plugins/Export/ExportCsv.php:90 src/Plugins/Export/ExportExcel.php:74
+#: src/Plugins/Export/ExportCsv.php:91 src/Plugins/Export/ExportExcel.php:74
 msgid "Remove carriage return/line feed characters within columns"
 msgstr "CRLF-Zeichen aus Feldern entfernen"
 

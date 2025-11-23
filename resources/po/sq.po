@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-11-16 00:29+0000\n"
+"POT-Creation-Date: 2025-11-23 00:31+0000\n"
 "PO-Revision-Date: 2022-02-15 16:20+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Albanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1094,7 +1094,7 @@ msgstr "Historia"
 #: resources/templates/database/routines/editor_form.twig:58
 #: resources/templates/table/structure/display_table_stats.twig:96
 #: src/Import/Import.php:1169 src/Import/Import.php:1227
-#: src/Plugins/Export/ExportCodegen.php:58 src/Plugins/Export/ExportCsv.php:53
+#: src/Plugins/Export/ExportCodegen.php:58 src/Plugins/Export/ExportCsv.php:54
 #: src/Plugins/Export/ExportExcel.php:57
 #: src/Plugins/Export/ExportHtmlword.php:57
 #: src/Plugins/Export/ExportJson.php:71 src/Plugins/Export/ExportLatex.php:87
@@ -11282,7 +11282,7 @@ msgstr "Kompresim"
 #: src/Config/Descriptions.php:640 src/Config/Descriptions.php:647
 #: src/Config/Descriptions.php:655 src/Config/Descriptions.php:659
 #: src/Config/Descriptions.php:672 src/Config/Descriptions.php:674
-#: src/Config/Descriptions.php:721 src/Plugins/Export/ExportCsv.php:95
+#: src/Config/Descriptions.php:721 src/Plugins/Export/ExportCsv.php:96
 #: src/Plugins/Export/ExportExcel.php:79
 #: src/Plugins/Export/ExportHtmlword.php:92 src/Plugins/Export/ExportOds.php:75
 #: src/Plugins/Export/ExportOdt.php:133
@@ -17893,27 +17893,27 @@ msgstr "Metodë e pavlefshme autentifikimi e vendosur në konfigurim:"
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 
-#: src/Plugins/Export/ExportCsv.php:65
+#: src/Plugins/Export/ExportCsv.php:66
 #: src/Plugins/Import/AbstractImportCsv.php:36
 msgid "Columns separated with:"
 msgstr "Kolonat e ndara me:"
 
-#: src/Plugins/Export/ExportCsv.php:70
+#: src/Plugins/Export/ExportCsv.php:71
 #: src/Plugins/Import/AbstractImportCsv.php:42
 msgid "Columns enclosed with:"
 msgstr "Kolonat e mbyllura me:"
 
-#: src/Plugins/Export/ExportCsv.php:75
+#: src/Plugins/Export/ExportCsv.php:76
 #: src/Plugins/Import/AbstractImportCsv.php:49
 msgid "Columns escaped with:"
 msgstr "Kolonat ikin nga:"
 
-#: src/Plugins/Export/ExportCsv.php:80
+#: src/Plugins/Export/ExportCsv.php:81
 #: src/Plugins/Import/AbstractImportCsv.php:56
 msgid "Lines terminated with:"
 msgstr "Rreshta që përfundojnë me:"
 
-#: src/Plugins/Export/ExportCsv.php:85 src/Plugins/Export/ExportExcel.php:69
+#: src/Plugins/Export/ExportCsv.php:86 src/Plugins/Export/ExportExcel.php:69
 #: src/Plugins/Export/ExportHtmlword.php:87
 #: src/Plugins/Export/ExportLatex.php:203 src/Plugins/Export/ExportOds.php:70
 #: src/Plugins/Export/ExportOdt.php:138
@@ -17921,7 +17921,7 @@ msgstr "Rreshta që përfundojnë me:"
 msgid "Replace NULL with:"
 msgstr "Zëvendëso NULL me:"
 
-#: src/Plugins/Export/ExportCsv.php:90 src/Plugins/Export/ExportExcel.php:74
+#: src/Plugins/Export/ExportCsv.php:91 src/Plugins/Export/ExportExcel.php:74
 msgid "Remove carriage return/line feed characters within columns"
 msgstr ""
 "Largo transportin e karaktereve të furnizimit kthim/linjë brenda kolonave"
