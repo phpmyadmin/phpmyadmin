@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-10-16 23:57-0300\n"
-"PO-Revision-Date: 2025-11-15 13:51+0000\n"
+"PO-Revision-Date: 2025-11-25 03:51+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "ru/>\n"
@@ -5402,6 +5402,9 @@ msgid ""
 "to not work properly. Please refer to [doc@faq1-46]documentation[/doc] for "
 "possible issues."
 msgstr ""
+"Переменная [код]HTTP_HOST[/code] отсутствует, что может привести к "
+"неправильной работе phpMyAdmin. Возможные проблемы описаны в [doc@faq1-46]"
+"документации[/doc]."
 
 #: libraries/classes/Controllers/HomeController.php:464
 msgid ""
@@ -13119,19 +13122,16 @@ msgstr ""
 "Совмещение даты и времени, поддерживаемый диапазон от \"%1$s\" до \"%2$s\""
 
 #: libraries/classes/Types.php:306
-#, fuzzy
-#| msgid ""
-#| "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
-#| "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-19 03:14:07 UTC on "
 "32-bit platforms (MariaDB 11.3 and earlier), and up to 2106-02-07 06:28:15 "
 "UTC on 64-bit platforms (MariaDB 11.5 and later), stored as the number of "
 "seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
-"Временная метка, диапазон от \"1970-01-01 00:00:01\" UTC до \"2038-01-09 "
-"03:14:07\" UTC, содержит количество секунд прошедших со времени "
-"(\"1970-01-01 00:00:00\" UTC)"
+"Временная метка, диапазон от 1970-01-01 00:00:01 UTC до 2038-01-19 03:14:07 "
+"UTC на 32-битных платформах (MariaDB 11.3 и ранее), и до 2106-02-07 06:28:15 "
+"UTC на 64-битных платформах (MariaDB 11.5 и поздние версии), содержит "
+"количество секунд с начала эпохи (1970-01-01 00:00:00 UTC)"
 
 #: libraries/classes/Types.php:314
 #, php-format
