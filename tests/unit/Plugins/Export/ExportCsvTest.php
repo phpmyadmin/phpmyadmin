@@ -320,7 +320,12 @@ class ExportCsvTest extends AbstractTestCase
 
         // case 4
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
-            ->withParsedBody(['csv_enclosed' => '|', 'csv_terminated' => "\n", 'csv_escaped' => '\\', 'csv_columns' => 'On']);
+            ->withParsedBody([
+                'csv_enclosed' => '|',
+                'csv_terminated' => "\n",
+                'csv_escaped' => '\\',
+                'csv_columns' => 'On',
+            ]);
 
         $this->object->setExportOptions($request, []);
         $this->object->exportHeader();
