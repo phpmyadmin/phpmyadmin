@@ -15851,6 +15851,11 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
+			message: "#^Cannot access property \\$errors on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Display/Results.php
+
+		-
 			message: "#^Cannot access property \\$expr on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
@@ -16451,6 +16456,11 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
+			message: "#^Parameter \\#1 \\$posNext of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getTableNavigation\\(\\) expects int, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Display/Results.php
+
+		-
 			message: "#^Parameter \\#1 \\$printLink of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getResultsOperations\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
@@ -16551,6 +16561,11 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
+			message: "#^Parameter \\#2 \\$posPrevious of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getTableNavigation\\(\\) expects int, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Display/Results.php
+
+		-
 			message: "#^Parameter \\#2 \\$rows of static method PhpMyAdmin\\\\Util\\:\\:pageselector\\(\\) expects int, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
@@ -16607,6 +16622,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#4 \\$deleteLink of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDeleteAndKillLinks\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Display/Results.php
+
+		-
+			message: "#^Parameter \\#4 \\$posNext of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setMessageInformation\\(\\) expects int, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 

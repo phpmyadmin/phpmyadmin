@@ -3652,11 +3652,12 @@ class Results
             $total,
         ] = $this->setDisplayPartsAndTotal($displayParts);
 
+        $hasParserError = isset($analyzedSqlResults['parser']) && $analyzedSqlResults['parser']->errors !== [];
         // 1.2 Defines offsets for the next and previous pages
         $posNext = 0;
         $posPrev = 0;
         if ($displayParts['nav_bar'] == '1') {
-            [$posNext, $posPrev] = $this->getOffsets();
+            [$posNext, $posPrev] = $hasParserError ? [$total, 0] : $this->getOffsets();
         }
 
         // 1.3 Extract sorting expressions.
@@ -3746,7 +3747,12 @@ class Results
         }
 
         $navigation = [];
-        if ($displayParts['nav_bar'] == '1' && $statement !== null && empty($statement->limit)) {
+        if (
+            $displayParts['nav_bar'] == '1' &&
+            ! $hasParserError &&
+            $statement !== null &&
+            empty($statement->limit)
+        ) {
             $navigation = $this->getTableNavigation($posNext, $posPrev, $isInnodb, $sortByKeyData);
         }
 
