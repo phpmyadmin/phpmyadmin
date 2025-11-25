@@ -1521,7 +1521,7 @@ export function dismissNotifications () {
             displayCopyStatus(this, copyStatus);
         });
 
-        $(document).on('mouseover mouseleave', 'a.copyQueryBtn', function (event) {
+        $(document).on('mouseover mouseleave', 'span.ajax_notification.dismissable a', function (event) {
             let message = window.Messages.strDismiss;
 
             if (event.type === 'mouseover') {
