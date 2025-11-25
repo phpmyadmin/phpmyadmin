@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import * as bootstrap from 'bootstrap';
 import { AJAX } from '../modules/ajax.ts';
 import { addDatepicker, prepareForAjaxRequest } from '../modules/functions.ts';
 import { CommonParams } from '../modules/common.ts';
@@ -117,6 +118,14 @@ AJAX.registerOnload('table/select.js', function () {
         // jQuery object to reuse
         var $searchForm = $(this);
         event.preventDefault();
+
+        // Dispose tooltips. See #19950
+        $('input.datefield, input.timefield').each(function () {
+            const tooltipInstance = bootstrap.Tooltip.getInstance(this);
+            if (tooltipInstance) {
+                tooltipInstance.dispose();
+            }
+        });
 
         // empty previous search results while we are waiting for new results
         $('#sqlqueryresultsouter').empty();
