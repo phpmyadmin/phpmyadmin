@@ -647,8 +647,7 @@ class InsertEditTest extends AbstractTestCase
                 'a',
                 'b',
                 'c',
-                '&lt;',
-                '&lt;',
+                '\'"<>&',
                 "foo\nbar",
                 $extractedColumnSpec,
             ],
@@ -659,7 +658,7 @@ class InsertEditTest extends AbstractTestCase
             . '<textarea name="fieldsb" class="charField" '
             . 'data-maxlength="25" rows="7" cols="1" dir="ltr" '
             . 'id="field_22_3" onchange="c" tabindex="22" data-type="CHAR">'
-            . '&lt;</textarea>',
+            . '\'&quot;&lt;&gt;&amp;</textarea>',
             $result,
         );
 
@@ -687,8 +686,7 @@ class InsertEditTest extends AbstractTestCase
                 'a',
                 'b',
                 'c',
-                '&lt;',
-                '&lt;',
+                '\'"<>&',
                 "foo\nbar",
                 $extractedColumnSpec,
             ],
@@ -699,7 +697,7 @@ class InsertEditTest extends AbstractTestCase
             <<<'HTML'
             a
               <input type="text" name="fieldsb"
-                value="&amp;lt;" size="20"    data-type="DATE"
+                value="&#039;&quot;&lt;&gt;&amp;" size="20"    data-type="DATE"
                 class="textfield datetimefield"
                 onchange="c"
                 tabindex="22"
@@ -733,8 +731,7 @@ class InsertEditTest extends AbstractTestCase
                 'a',
                 'b',
                 'c',
-                '&lt;',
-                '&lt;',
+                '\'"<>&',
                 "foo\nbar",
                 $extractedColumnSpec,
             ],
@@ -756,8 +753,7 @@ class InsertEditTest extends AbstractTestCase
                 'a',
                 'b',
                 'c',
-                '&lt;',
-                '&lt;',
+                '\'"<>&',
                 "foo\nbar",
                 $extractedColumnSpec,
             ],
@@ -779,8 +775,7 @@ class InsertEditTest extends AbstractTestCase
                 'a',
                 'b',
                 'c',
-                '&lt;',
-                '&lt;',
+                '\'"<>&',
                 "foo\nbar",
                 $extractedColumnSpec,
             ],
@@ -802,8 +797,7 @@ class InsertEditTest extends AbstractTestCase
                 'a',
                 'b',
                 'c',
-                '&lt;',
-                '&lt;',
+                '\'"<>&',
                 "foo\nbar",
                 $extractedColumnSpec,
             ],
@@ -947,7 +941,7 @@ class InsertEditTest extends AbstractTestCase
     }
 
     /**
-     * Test for getSpecialCharsAndBackupFieldForExistingRow
+     * Test for getDefaultValueAndBackupFieldForExistingRow
      */
     public function testGetSpecialCharsAndBackupFieldForExistingRow(): void
     {
@@ -971,12 +965,12 @@ class InsertEditTest extends AbstractTestCase
         $result = $this->callFunction(
             $this->insertEdit,
             InsertEdit::class,
-            'getSpecialCharsAndBackupFieldForExistingRow',
+            'getDefaultValueAndBackupFieldForExistingRow',
             [$currentRow, $column, '', 'a', false],
         );
 
         self::assertEquals(
-            [true, null, null, null, '<input type="hidden" name="fields_preva" value="">'],
+            [true, null, null, '<input type="hidden" name="fields_preva" value="">'],
             $result,
         );
 
@@ -1002,12 +996,12 @@ class InsertEditTest extends AbstractTestCase
         $result = $this->callFunction(
             $this->insertEdit,
             InsertEdit::class,
-            'getSpecialCharsAndBackupFieldForExistingRow',
+            'getDefaultValueAndBackupFieldForExistingRow',
             [$currentRow, $column, $extractedColumnSpec, 'a', false],
         );
 
         self::assertEquals(
-            [false, '', '00000000000001111011', null, '<input type="hidden" name="fields_preva" value="123">'],
+            [false, '00000000000001111011', null, '<input type="hidden" name="fields_preva" value="123">'],
             $result,
         );
 
@@ -1015,12 +1009,12 @@ class InsertEditTest extends AbstractTestCase
         $result = $this->callFunction(
             $this->insertEdit,
             InsertEdit::class,
-            'getSpecialCharsAndBackupFieldForExistingRow',
+            'getDefaultValueAndBackupFieldForExistingRow',
             [$currentRow, $column, $extractedColumnSpec, 'a', true],
         );
 
         self::assertEquals(
-            [false, '', 'abcd', null, '<input type="hidden" name="fields_preva" value="abcd">'],
+            [false, 'abcd', null, '<input type="hidden" name="fields_preva" value="abcd">'],
             $result,
         );
 
@@ -1059,12 +1053,12 @@ class InsertEditTest extends AbstractTestCase
         $result = $this->callFunction(
             $this->insertEdit,
             InsertEdit::class,
-            'getSpecialCharsAndBackupFieldForExistingRow',
+            'getDefaultValueAndBackupFieldForExistingRow',
             [$currentRow, $column, $extractedColumnSpec, 'a', false],
         );
 
         self::assertEquals(
-            [false, '', "'',", null, '<input type="hidden" name="fields_preva" value="\'\',">'],
+            [false, "'',", null, '<input type="hidden" name="fields_preva" value="\'\',">'],
             $result,
         );
 
@@ -1091,14 +1085,13 @@ class InsertEditTest extends AbstractTestCase
         $result = $this->callFunction(
             $this->insertEdit,
             InsertEdit::class,
-            'getSpecialCharsAndBackupFieldForExistingRow',
+            'getDefaultValueAndBackupFieldForExistingRow',
             [$currentRow, $column, $extractedColumnSpec, 'a', false],
         );
 
         self::assertSame(
             [
                 false,
-                '3131303031',
                 '3131303031',
                 '3131303031',
                 '<input type="hidden" name="fields_preva" value="3131303031">',
@@ -1112,14 +1105,13 @@ class InsertEditTest extends AbstractTestCase
         $result = $this->callFunction(
             $this->insertEdit,
             InsertEdit::class,
-            'getSpecialCharsAndBackupFieldForExistingRow',
+            'getDefaultValueAndBackupFieldForExistingRow',
             [$currentRow, $column, $extractedColumnSpec, 'a', false],
         );
 
         self::assertSame(
             [
                 false,
-                '313130303100',
                 '313130303100',
                 '313130303100',
                 '<input type="hidden" name="fields_preva" value="313130303100">',
