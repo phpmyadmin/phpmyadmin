@@ -7822,7 +7822,7 @@ parameters:
 			path: src/InsertEdit.php
 
 		-
-			message: '#^Parameter \#1 \$currentRow of method PhpMyAdmin\\InsertEdit\:\:getSpecialCharsAndBackupFieldForExistingRow\(\) expects array\<string\|null\>, array given\.$#'
+			message: '#^Parameter \#1 \$currentRow of method PhpMyAdmin\\InsertEdit\:\:getDefaultValueAndBackupFieldForExistingRow\(\) expects array\<string\|null\>, array given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/InsertEdit.php

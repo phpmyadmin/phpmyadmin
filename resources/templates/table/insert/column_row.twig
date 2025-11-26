@@ -36,7 +36,7 @@
 
   <td data-type="{{ type }}" data-decimals="{{ decimals }}">
     {# Will be used by table/change.js to set the default value for the "Continue insertion" feature. #}
-    <span class="default_value hide">{{ special_chars|raw }}</span>
+    <span class="default_value hide">{{ special_chars }}</span>
 
     {% if transformed_value is not empty %}
       {{ transformed_value|raw }}
@@ -57,7 +57,7 @@
         <textarea name="fields[multi_edit][{{ row_id }}][{{ column.md5 }}]" id="field_{{ id_index }}_3" data-type="{{ data_type }}" dir="{{ pma.text_dir }}" rows="{{ textarea_rows }}" cols="{{ textarea_cols }}" tabindex="{{ id_index }}"
           {{- max_length ? ' data-maxlength="' ~ max_length ~ '"' }}{{ column.isChar ? ' class="charField"' }} onchange="return verificationsAfterFieldChange('{{ column.md5|escape('js') }}', '{{ row_id|escape('js') }}', '{{ column.trueType }}')">
           {#- We need to duplicate the first \n or otherwise we will lose the first newline entered in a VARCHAR or TEXT column -#}
-          {{- special_chars starts with "\r\n" ? "\n" }}{{ special_chars|raw -}}
+          {{- special_chars starts with "\r\n" ? "\n" }}{{ special_chars -}}
         </textarea>
         {% if 'text' in column.trueType and special_chars|length > 32000 %}
           </td>
@@ -100,7 +100,7 @@
           <textarea name="fields[multi_edit][{{ row_id }}][{{ column.md5 }}]" id="field_{{ id_index }}_3" data-type="HEX" dir="{{ pma.text_dir }}" rows="{{ textarea_rows }}" cols="{{ textarea_cols }}" tabindex="{{ id_index }}"
             {{- max_length ? ' data-maxlength="' ~ max_length ~ '"' }}{{ column.isChar ? ' class="charField"' }} onchange="return verificationsAfterFieldChange('{{ column.md5|escape('js') }}', '{{ row_id|escape('js') }}', '{{ column.trueType }}')">
             {#- We need to duplicate the first \n or otherwise we will lose the first newline entered in a VARCHAR or TEXT column -#}
-            {{- special_chars starts with "\r\n" ? "\n" }}{{ special_chars|raw -}}
+            {{- special_chars starts with "\r\n" ? "\n" }}{{ special_chars -}}
           </textarea>
         {% else %}
           {{ backup_field|raw }}

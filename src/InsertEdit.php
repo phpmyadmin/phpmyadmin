@@ -327,13 +327,11 @@ class InsertEdit
     /**
      * Get HTML textarea for insert form
      *
-     * @param InsertEditColumn $column              column information
-     * @param string           $backupField         hidden input field
-     * @param string           $columnNameAppendix  the name attribute
-     * @param string           $onChangeClause      onchange clause for fields
-     * @param string           $specialCharsEncoded replaced char if the string starts
-     *                                                with a \r\n pair (0x0d0a) add an extra \n
-     * @param TypeClass        $dataType            the html5 data-* attribute type
+     * @param InsertEditColumn $column             column information
+     * @param string           $backupField        hidden input field
+     * @param string           $columnNameAppendix the name attribute
+     * @param string           $onChangeClause     onchange clause for fields
+     * @param TypeClass        $dataType           the html5 data-* attribute type
      *
      * @return string                       an html snippet
      */
@@ -342,7 +340,7 @@ class InsertEdit
         string $backupField,
         string $columnNameAppendix,
         string $onChangeClause,
-        string $specialCharsEncoded,
+        string $formattedDefaultValue,
         TypeClass $dataType,
     ): string {
         $theClass = '';
@@ -364,6 +362,10 @@ class InsertEdit
             $textareaCols = $this->config->settings['TextareaCols'] * 2;
         }
 
+        //We need to duplicate the first \n or otherwise we will lose
+        //the first newline entered in a VARCHAR or TEXT column
+        $specialCharsEncoded = Util::duplicateFirstNewline($formattedDefaultValue);
+
         return $backupField . "\n"
             . '<textarea name="fields' . $columnNameAppendix . '"'
             . ' class="' . $theClass . '"'
@@ -375,7 +377,7 @@ class InsertEdit
             . ($onChangeClause !== '' ? ' onchange="' . htmlspecialchars($onChangeClause, ENT_COMPAT) . '"' : '')
             . ' tabindex="' . $this->fieldIndex . '"'
             . ' data-type="' . $dataType->value . '">'
-            . $specialCharsEncoded
+            . htmlspecialchars($specialCharsEncoded, ENT_COMPAT)
             . '</textarea>';
     }
 
@@ -462,16 +464,13 @@ class InsertEdit
      * Get HTML for the Value column of other datatypes
      * (here, "column" is used in the sense of HTML column in HTML table)
      *
-     * @param InsertEditColumn $column              description of column in given table
-     * @param string           $defaultCharEditing  default char editing mode which is stored
-     *                                                 in the config.inc.php script
-     * @param string           $backupField         hidden input field
-     * @param string           $columnNameAppendix  the name attribute
-     * @param string           $onChangeClause      onchange clause for fields
-     * @param string           $specialChars        special characters
-     * @param string           $specialCharsEncoded replaced char if the string starts
-     *                                                with a \r\n pair (0x0d0a) add an extra \n
-     * @param string           $data                data to edit
+     * @param InsertEditColumn $column             description of column in given table
+     * @param string           $defaultCharEditing default char editing mode which is stored
+     *                                                in the config.inc.php script
+     * @param string           $backupField        hidden input field
+     * @param string           $columnNameAppendix the name attribute
+     * @param string           $onChangeClause     onchange clause for fields
+     * @param string           $data               data to edit
      *
      * @return string an html snippet
      */
@@ -481,8 +480,7 @@ class InsertEdit
         string $backupField,
         string $columnNameAppendix,
         string $onChangeClause,
-        string $specialChars,
-        string $specialCharsEncoded,
+        string $formattedDefaultValue,
         string $data,
         string $specInBrackets,
     ): string {
@@ -501,13 +499,13 @@ class InsertEdit
                 $backupField,
                 $columnNameAppendix,
                 $onChangeClause,
-                $specialCharsEncoded,
+                $formattedDefaultValue,
                 $dataType,
             );
         } else {
             $integerRange = $this->getIntegerRange($column);
             $input = [
-                'value' => $specialChars,
+                'value' => $formattedDefaultValue,
                 'size' => $fieldsize,
                 'is_char' => $column->isChar,
                 'is_integer' => $integerRange->isInteger,
@@ -655,16 +653,15 @@ class InsertEdit
      * @param string             $columnNameAppendix string to append to column name in input
      * @param bool               $asIs               use the data as is, used in repopulating
      *
-     * @return array{bool, string, string, string, string}
+     * @return array{bool, string, string, string}
      */
-    private function getSpecialCharsAndBackupFieldForExistingRow(
+    private function getDefaultValueAndBackupFieldForExistingRow(
         array $currentRow,
         InsertEditColumn $column,
         string $specInBrackets,
         string $columnNameAppendix,
         bool $asIs,
     ): array {
-        $specialCharsEncoded = '';
         $data = '';
         $realNullValue = false;
         $currentValue = $currentRow[$column->field] ?? null;
@@ -672,10 +669,10 @@ class InsertEdit
         if ($currentValue === null) {
             $realNullValue = true;
             $currentValue = '';
-            $specialChars = '';
+            $formattedDefaultValue = '';
             $data = '';
         } elseif ($column->trueType === 'bit') {
-            $specialChars = $asIs
+            $formattedDefaultValue = $asIs
                 ? $currentValue
                 : Util::printableBitValue((int) $currentValue, (int) $specInBrackets);
         } elseif (
@@ -685,13 +682,13 @@ class InsertEdit
             $currentValue = $asIs
                 ? $currentValue
                 : Util::addMicroseconds($currentValue);
-            $specialChars = htmlspecialchars($currentValue, ENT_COMPAT);
+            $formattedDefaultValue = $currentValue;
         } elseif (in_array($column->trueType, Gis::getDataTypes(), true)) {
             // Convert gis data to Well Know Text format
             $currentValue = $asIs
                 ? $currentValue
                 : Gis::convertToWellKnownText($currentValue, true);
-            $specialChars = htmlspecialchars($currentValue, ENT_COMPAT);
+            $formattedDefaultValue = $currentValue;
         } else {
             // special binary "characters"
             if ($column->isBinary || ($column->isBlob && $this->config->settings['ProtectBinary'] !== 'all')) {
@@ -700,11 +697,7 @@ class InsertEdit
                     : bin2hex($currentValue);
             }
 
-            $specialChars = htmlspecialchars($currentValue, ENT_COMPAT);
-
-            //We need to duplicate the first \n or otherwise we will lose
-            //the first newline entered in a VARCHAR or TEXT column
-            $specialCharsEncoded = Util::duplicateFirstNewline($specialChars);
+            $formattedDefaultValue = $currentValue;
 
             $data = $currentValue;
         }
@@ -717,7 +710,7 @@ class InsertEdit
             && str_contains($column->extra, 'auto_increment')
         ) {
             // When copying row, it is useful to empty auto-increment column to prevent duplicate key error.
-            $data = $specialCharsEncoded = $specialChars = '';
+            $data = $formattedDefaultValue = '';
         }
 
         // If a timestamp field value is not included in an update
@@ -728,7 +721,7 @@ class InsertEdit
             . $columnNameAppendix . '" value="'
             . htmlspecialchars($currentValue, ENT_COMPAT) . '">';
 
-        return [$realNullValue, $specialCharsEncoded, $specialChars, $data, $backupField];
+        return [$realNullValue, $formattedDefaultValue, $data, $backupField];
     }
 
     /**
@@ -1524,11 +1517,10 @@ class InsertEdit
             // (we are editing)
             [
                 $realNullValue,
-                $specialCharsEncoded,
-                $specialChars,
+                $formattedDefaultValue,
                 $data,
                 $backupField,
-            ] = $this->getSpecialCharsAndBackupFieldForExistingRow(
+            ] = $this->getDefaultValueAndBackupFieldForExistingRow(
                 $currentRow,
                 $column,
                 $extractedColumnspec['spec_in_brackets'],
@@ -1542,8 +1534,7 @@ class InsertEdit
 
             $realNullValue = $defaultValue === null;
             $data = (string) $defaultValue;
-            $specialChars = htmlspecialchars($this->getDefaultValue($defaultValue, $column->trueType));
-            $specialCharsEncoded = Util::duplicateFirstNewline($specialChars);
+            $formattedDefaultValue = $this->getDefaultValue($defaultValue, $column->trueType);
             $backupField = '';
         }
 
@@ -1689,8 +1680,7 @@ class InsertEdit
                     $backupField,
                     $columnNameAppendix,
                     $onChangeClause,
-                    $specialChars,
-                    $specialCharsEncoded,
+                    $formattedDefaultValue,
                     $data,
                     $extractedColumnspec['spec_in_brackets'],
                 );
@@ -1712,7 +1702,7 @@ class InsertEdit
             'type' => $column->trueType,
             'displayType' => $column->getDisplayType(),
             'decimals' => $column->getFractionalSecondsPrecision(),
-            'special_chars' => $specialChars,
+            'special_chars' => $formattedDefaultValue,
             'transformed_value' => $transformedHtml,
             'value' => $columnValue,
             'is_value_foreign_link' => $foreignData->foreignLink,
