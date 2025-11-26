@@ -456,6 +456,45 @@ class ImportTest extends AbstractTestCase
     }
 
     /**
+     * Test for detectSize
+     *
+     * @param string|int $lastCumulativeSize Last cumulative column size
+     * @param int|null   $lastCumulativeType Last cumulative column type (NONE or VARCHAR or DECIMAL or INT or BIGINT)
+     * @param int        $currentCellType    Type of the current cell (NONE or VARCHAR or DECIMAL or INT or BIGINT)
+     * @param string     $cell               The current cell
+     *
+     * @dataProvider provTestDetectSize
+     */
+    public function testDetectSize(
+        string $expected,
+        $lastCumulativeSize,
+        ?int $lastCumulativeType,
+        int $currentCellType,
+        string $cell
+    ): void {
+        $actual = $this->import->detectSize($lastCumulativeSize, $lastCumulativeType, $currentCellType, $cell);
+        self::assertSame($expected, $actual);
+    }
+
+    /**
+     * Data provider for testDetectSize
+     *
+     * @return array<array{string,string|int,int,int,string}>
+     */
+    public function provTestDetectSize(): array
+    {
+        return [
+            [
+                '8,3',
+                '7,2',
+                Import::DECIMAL,
+                Import::DECIMAL,
+                '11.555',
+            ],
+        ];
+    }
+
+    /**
      * Test for checkIfRollbackPossible
      */
     public function testPMACheckIfRollbackPossible(): void
