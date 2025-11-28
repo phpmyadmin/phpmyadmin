@@ -204,8 +204,22 @@ class Compatibility
     }
 
     /**
+     * Check whether the database supports JSON data type
+     *
+     * @return bool true if JSON is supported
+     */
+    public static function isJsonSupported(DatabaseInterface $dbi): bool
+    {
+        // @see: https://mariadb.com/kb/en/mariadb-1027-release-notes/#json
+        // @see: https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-8.html#mysqld-5-7-8-json
+        return $dbi->isMariaDB() && $dbi->getVersion() >= 100207 || // 10.2.7
+            ! $dbi->isMariaDB() && $dbi->getVersion() >= 50708; // 5.7.8
+    }
+
+    /**
      * Check whether the database supports UUID data type
-     * true if uuid is supported
+     *
+     * @return bool true if UUID is supported
      */
     public static function isUUIDSupported(DatabaseInterface $dbi): bool
     {
