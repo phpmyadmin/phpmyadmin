@@ -775,6 +775,7 @@ class Types
         $isMariaDB = $this->dbi->isMariaDB();
         $serverVersion = $this->dbi->getVersion();
         $isUUIDSupported = Compatibility::isUUIDSupported($this->dbi);
+        $isVectorSupported = Compatibility::isVectorSupported($this->dbi);
 
         // most used types
         $ret = [
@@ -860,6 +861,10 @@ class Types
 
         if ($isUUIDSupported) {
             $ret['UUID'] = ['UUID'];
+        }
+
+        if ($isVectorSupported) {
+            $ret['VECTOR'] = ['VECTOR'];
         }
 
         return $ret;
