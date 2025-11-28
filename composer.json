@@ -118,7 +118,6 @@
         "phpunit/phpunit": "^11.5",
         "pragmarx/google2fa-qrcode": "^3.0",
         "psalm/plugin-phpunit": "^0.19",
-        "roave/security-advisories": "dev-latest",
         "symfony/console": "^7.1",
         "tecnickcom/tcpdf": "^6.4.4",
         "vimeo/psalm": "^6.0",
