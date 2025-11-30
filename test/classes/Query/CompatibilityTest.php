@@ -65,6 +65,33 @@ class CompatibilityTest extends TestCase
         ];
     }
 
+    /**
+     * @dataProvider providerForTestIsJsonSupported
+     */
+    public function testIsJsonSupported(bool $expected, bool $isMariaDb, int $version): void
+    {
+        $dbiStub = $this->createStub(DatabaseInterface::class);
+
+        $dbiStub->method('isMariaDB')->willReturn($isMariaDb);
+        $dbiStub->method('getVersion')->willReturn($version);
+
+        self::assertSame($expected, Compatibility::isJsonSupported($dbiStub));
+    }
+
+    /**
+     * @return array[]
+     * @psalm-return array<string, array{bool, bool, int}>
+     */
+    public static function providerForTestIsJsonSupported(): array
+    {
+        return [
+            'MySQL 5.7.7' => [false, false, 50707],
+            'MySQL 5.7.8' => [false, true, 50708],
+            'MariaDB 10.2.6' => [false, true, 100206],
+            'MariaDB 10.2.7' => [true, true, 100207],
+        ];
+    }
+
     /** @dataProvider showBinLogStatusProvider */
     public function testGetShowBinLogStatusStmt(string $serverName, int $version, string $expected): void
     {

@@ -774,6 +774,7 @@ class Types
     {
         $isMariaDB = $this->dbi->isMariaDB();
         $serverVersion = $this->dbi->getVersion();
+        $isJsonSupported = Compatibility::isJsonSupported($this->dbi);
         $isUUIDSupported = Compatibility::isUUIDSupported($this->dbi);
 
         // most used types
@@ -854,7 +855,7 @@ class Types
             'GEOMETRYCOLLECTION',
         ];
 
-        if (($isMariaDB && $serverVersion > 100207) || (! $isMariaDB && $serverVersion >= 50708)) {
+        if ($isJsonSupported) {
             $ret['JSON'] = ['JSON'];
         }
 
