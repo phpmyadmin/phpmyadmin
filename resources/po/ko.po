@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-11-23 00:31+0000\n"
+"POT-Creation-Date: 2025-11-30 00:31+0000\n"
 "PO-Revision-Date: 2024-10-17 16:16+0000\n"
 "Last-Translator: \"Yong Kim (Neatnet)\" <neatnet@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -3137,7 +3137,7 @@ msgstr "전각 가나로 변환"
 #: src/Controllers/Table/Partition/DropController.php:56
 #: src/Controllers/Table/Partition/RebuildController.php:56
 #: src/Controllers/Table/Partition/TruncateController.php:56
-#: src/Html/Generator.php:740 src/Import/Import.php:119 src/InsertEdit.php:421
+#: src/Html/Generator.php:740 src/Import/Import.php:119 src/InsertEdit.php:423
 #: src/Message.php:138
 msgid "Error"
 msgstr "오류"
@@ -3680,7 +3680,7 @@ msgid "You may also drag and drop a file on any page."
 msgstr "어느 페이지에서나 파일을 끌어다 놓을 수 있습니다."
 
 #: resources/templates/import.twig:56 resources/templates/import.twig:80
-#: src/InsertEdit.php:422
+#: src/InsertEdit.php:424
 msgid "The directory you set for upload work cannot be reached."
 msgstr "설정한 업로드 디렉토리에 접근할 수 없습니다."
 
@@ -4946,7 +4946,7 @@ msgstr "데이터 읽기 허용."
 #: resources/templates/server/privileges/privileges_table.twig:60
 #: resources/templates/server/privileges/privileges_table.twig:87
 #: resources/templates/server/privileges/privileges_table.twig:114
-#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:430
+#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:432
 msgid "Or"
 msgstr "또는"
 
@@ -6716,7 +6716,7 @@ msgstr "재정렬하려면 드래그"
 #: resources/templates/table/index_form.twig:203
 #: src/Controllers/JavaScriptMessagesController.php:465
 #: src/Controllers/JavaScriptMessagesController.php:617
-#: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1431
+#: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1424
 msgid "Ignore"
 msgstr "무시"
 
@@ -16121,15 +16121,15 @@ msgid ""
 msgstr ""
 "인덱스 %1$s와 %2$s는 동일한 것으로, 두 가지 중 하나는 제거해도 상관없습니다."
 
-#: src/InsertEdit.php:431
+#: src/InsertEdit.php:433
 msgid "web server upload directory:"
 msgstr "웹 서버 업로드 디렉터리:"
 
-#: src/InsertEdit.php:853 src/Sql.php:885
+#: src/InsertEdit.php:846 src/Sql.php:885
 msgid "Showing SQL query"
 msgstr "SQL 쿼리 보기"
 
-#: src/InsertEdit.php:877 src/Sql.php:865
+#: src/InsertEdit.php:870 src/Sql.php:865
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "삽입된 행의 id: %1$d"

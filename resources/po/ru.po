@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-11-23 00:31+0000\n"
+"POT-Creation-Date: 2025-11-30 00:31+0000\n"
 "PO-Revision-Date: 2025-11-25 03:52+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -12,9 +12,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural="
-"(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? "
-"1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Weblate 5.15-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
@@ -3142,7 +3141,7 @@ msgstr "Конвертировать в Кану"
 #: src/Controllers/Table/Partition/DropController.php:56
 #: src/Controllers/Table/Partition/RebuildController.php:56
 #: src/Controllers/Table/Partition/TruncateController.php:56
-#: src/Html/Generator.php:740 src/Import/Import.php:119 src/InsertEdit.php:421
+#: src/Html/Generator.php:740 src/Import/Import.php:119 src/InsertEdit.php:423
 #: src/Message.php:138
 msgid "Error"
 msgstr "Ошибка"
@@ -3686,7 +3685,7 @@ msgid "You may also drag and drop a file on any page."
 msgstr "Вы также можете просто перетащить файл на любой странице."
 
 #: resources/templates/import.twig:56 resources/templates/import.twig:80
-#: src/InsertEdit.php:422
+#: src/InsertEdit.php:424
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Установленный каталог загрузки не доступен."
 
@@ -4984,7 +4983,7 @@ msgstr "Разрешает выборку данных."
 #: resources/templates/server/privileges/privileges_table.twig:60
 #: resources/templates/server/privileges/privileges_table.twig:87
 #: resources/templates/server/privileges/privileges_table.twig:114
-#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:430
+#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:432
 msgid "Or"
 msgstr "Или"
 
@@ -6772,7 +6771,7 @@ msgstr "Перетяните для изменения порядка сорти
 #: resources/templates/table/index_form.twig:203
 #: src/Controllers/JavaScriptMessagesController.php:465
 #: src/Controllers/JavaScriptMessagesController.php:617
-#: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1431
+#: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1424
 msgid "Ignore"
 msgstr "Игнорировать"
 
@@ -12531,8 +12530,8 @@ msgid ""
 "possible issues."
 msgstr ""
 "Переменная [код]HTTP_HOST[/code] отсутствует, что может привести к "
-"неправильной работе phpMyAdmin. Возможные проблемы описаны в [doc@faq1-46]"
-"документации[/doc]."
+"неправильной работе phpMyAdmin. Возможные проблемы описаны в "
+"[doc@faq1-46]документации[/doc]."
 
 #: src/Controllers/HomeController.php:458
 msgid ""
@@ -16494,15 +16493,15 @@ msgid ""
 "removed."
 msgstr "Индексы %1$s и %2$s равнозначны и один из них может быть удалён."
 
-#: src/InsertEdit.php:431
+#: src/InsertEdit.php:433
 msgid "web server upload directory:"
 msgstr "Из каталога загрузки:"
 
-#: src/InsertEdit.php:853 src/Sql.php:885
+#: src/InsertEdit.php:846 src/Sql.php:885
 msgid "Showing SQL query"
 msgstr "Отображает SQL-запрос"
 
-#: src/InsertEdit.php:877 src/Sql.php:865
+#: src/InsertEdit.php:870 src/Sql.php:865
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Идентификатор вставленной строки: %1$d"

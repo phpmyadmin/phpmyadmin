@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-11-23 00:31+0000\n"
+"POT-Creation-Date: 2025-11-30 00:31+0000\n"
 "PO-Revision-Date: 2025-10-29 09:45+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -3127,7 +3127,7 @@ msgstr "全角カナに変換する"
 #: src/Controllers/Table/Partition/DropController.php:56
 #: src/Controllers/Table/Partition/RebuildController.php:56
 #: src/Controllers/Table/Partition/TruncateController.php:56
-#: src/Html/Generator.php:740 src/Import/Import.php:119 src/InsertEdit.php:421
+#: src/Html/Generator.php:740 src/Import/Import.php:119 src/InsertEdit.php:423
 #: src/Message.php:138
 msgid "Error"
 msgstr "エラー"
@@ -3668,7 +3668,7 @@ msgid "You may also drag and drop a file on any page."
 msgstr "ファイルを任意のページにドラッグアンドドロップすることもできます。"
 
 #: resources/templates/import.twig:56 resources/templates/import.twig:80
-#: src/InsertEdit.php:422
+#: src/InsertEdit.php:424
 msgid "The directory you set for upload work cannot be reached."
 msgstr "指定したアップロードディレクトリが利用できません。"
 
@@ -4958,7 +4958,7 @@ msgstr "データの読み込みを許可する。"
 #: resources/templates/server/privileges/privileges_table.twig:60
 #: resources/templates/server/privileges/privileges_table.twig:87
 #: resources/templates/server/privileges/privileges_table.twig:114
-#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:430
+#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:432
 msgid "Or"
 msgstr "または"
 
@@ -6727,7 +6727,7 @@ msgstr "ドラッグで並び替えができます"
 #: resources/templates/table/index_form.twig:203
 #: src/Controllers/JavaScriptMessagesController.php:465
 #: src/Controllers/JavaScriptMessagesController.php:617
-#: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1431
+#: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1424
 msgid "Ignore"
 msgstr "無視"
 
@@ -16287,15 +16287,15 @@ msgstr ""
 "インデックス %1$s と %2$s は同一のもののようです。一方は削除してもよいかもし"
 "れません。"
 
-#: src/InsertEdit.php:431
+#: src/InsertEdit.php:433
 msgid "web server upload directory:"
 msgstr "ウェブサーバ上のアップロードディレクトリ:"
 
-#: src/InsertEdit.php:853 src/Sql.php:885
+#: src/InsertEdit.php:846 src/Sql.php:885
 msgid "Showing SQL query"
 msgstr "SQL クエリを表示"
 
-#: src/InsertEdit.php:877 src/Sql.php:865
+#: src/InsertEdit.php:870 src/Sql.php:865
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "id %1$d の行を挿入しました"

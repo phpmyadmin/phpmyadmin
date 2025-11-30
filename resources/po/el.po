@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-11-23 00:31+0000\n"
+"POT-Creation-Date: 2025-11-30 00:31+0000\n"
 "PO-Revision-Date: 2025-07-08 09:02+0000\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -3159,7 +3159,7 @@ msgstr "Μετατροπή σε Kana"
 #: src/Controllers/Table/Partition/DropController.php:56
 #: src/Controllers/Table/Partition/RebuildController.php:56
 #: src/Controllers/Table/Partition/TruncateController.php:56
-#: src/Html/Generator.php:740 src/Import/Import.php:119 src/InsertEdit.php:421
+#: src/Html/Generator.php:740 src/Import/Import.php:119 src/InsertEdit.php:423
 #: src/Message.php:138
 msgid "Error"
 msgstr "Σφάλμα"
@@ -3720,7 +3720,7 @@ msgid "You may also drag and drop a file on any page."
 msgstr "Μπορείτε να σύρετε και να αφήσετε ένα αρχείο σε οποιαδήποτε σελίδα."
 
 #: resources/templates/import.twig:56 resources/templates/import.twig:80
-#: src/InsertEdit.php:422
+#: src/InsertEdit.php:424
 msgid "The directory you set for upload work cannot be reached."
 msgstr ""
 "Ο φάκελος που ορίσατε για την αποθήκευση αρχείων δεν μπόρεσε να βρεθεί."
@@ -5103,7 +5103,7 @@ msgstr "Επιτρέπει την ανάγνωση δεδομένων."
 #: resources/templates/server/privileges/privileges_table.twig:60
 #: resources/templates/server/privileges/privileges_table.twig:87
 #: resources/templates/server/privileges/privileges_table.twig:114
-#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:430
+#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:432
 msgid "Or"
 msgstr "Ενωση"
 
@@ -7033,7 +7033,7 @@ msgstr "Σύρτε για ανακατανομή"
 #: resources/templates/table/index_form.twig:203
 #: src/Controllers/JavaScriptMessagesController.php:465
 #: src/Controllers/JavaScriptMessagesController.php:617
-#: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1431
+#: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1424
 msgid "Ignore"
 msgstr "Παράληψη"
 
@@ -17111,15 +17111,15 @@ msgstr ""
 "Τα ευρετήρια %1$s και %2$s φαίνεται να είναι ίσα και ένα από αυτά μπορεί να "
 "απομακρυνθεί."
 
-#: src/InsertEdit.php:431
+#: src/InsertEdit.php:433
 msgid "web server upload directory:"
 msgstr "κατάλογος αποθήκευσης αρχείων διακομιστή:"
 
-#: src/InsertEdit.php:853 src/Sql.php:885
+#: src/InsertEdit.php:846 src/Sql.php:885
 msgid "Showing SQL query"
 msgstr "Εμφάνιση ερωτήματος SQL"
 
-#: src/InsertEdit.php:877 src/Sql.php:865
+#: src/InsertEdit.php:870 src/Sql.php:865
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Ταυτότητα εισερχόμενης εγγραφής: %1$d"
