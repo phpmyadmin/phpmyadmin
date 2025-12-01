@@ -7838,14 +7838,11 @@
       <code>$sql_query</code>
       <code>$table</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="1">
-      <code>string|int</code>
-    </MixedInferredReturnType>
     <MixedMethodCall occurrences="2">
       <code>getExtension</code>
       <code>getProperties</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="19">
+    <MixedOperand occurrences="16">
       <code>$complete_query</code>
       <code>$display_query</code>
       <code>$executed_queries</code>
@@ -7855,9 +7852,6 @@
       <code>$read_multiply</code>
       <code>$size</code>
       <code>$size</code>
-      <code>$size[self::D]</code>
-      <code>$size[self::D] &gt; $oldD ? $size[self::D] : $oldD</code>
-      <code>$size[self::M] &gt; $oldM ? $size[self::M] : $oldM</code>
       <code>$skip_queries</code>
       <code>$sqlData['valid_queries']</code>
       <code>$sqlData['valid_queries']</code>
@@ -7866,11 +7860,6 @@
       <code>$sql_query</code>
       <code>$timestamp</code>
     </MixedOperand>
-    <MixedReturnStatement occurrences="3">
-      <code>$size[self::FULL]</code>
-      <code>$size[self::FULL]</code>
-      <code>$size[self::M]</code>
-    </MixedReturnStatement>
     <PossiblyFalseOperand occurrences="3">
       <code>$decPos</code>
       <code>strpos($lastCumulativeSize, ',')</code>
@@ -7890,7 +7879,7 @@
     <PossiblyNullArrayAccess occurrences="1">
       <code>$additionalSql[$i]</code>
     </PossiblyNullArrayAccess>
-    <RedundantCast occurrences="4">
+    <RedundantCast occurrences="3">
       <code>(string) $cell</code>
       <code>(string) $cell</code>
       <code>(string) $cell</code>

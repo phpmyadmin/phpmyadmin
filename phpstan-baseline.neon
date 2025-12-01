@@ -20522,7 +20522,7 @@ parameters:
 
 		-
 			message: "#^Casting to string something that's already string\\.$#"
-			count: 4
+			count: 3
 			path: libraries/classes/Import.php
 
 		-
@@ -20571,17 +20571,7 @@ parameters:
 			path: libraries/classes/Import.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Import\\:\\:detectSize\\(\\) should return int\\|string but returns mixed\\.$#"
-			count: 3
-			path: libraries/classes/Import.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Import\\:\\:executeQuery\\(\\) has parameter \\$sqlData with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Import.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Import\\:\\:getDecimalSize\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Import.php
 
