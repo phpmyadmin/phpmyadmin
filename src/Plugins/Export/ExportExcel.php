@@ -102,12 +102,8 @@ class ExportExcel extends ExportPlugin
         return $exportPluginProperties;
     }
 
-    /**
-     * Outputs export header
-     */
-    public function exportHeader(): bool
+    private function setupExportConfiguration(): void
     {
-        // Here we just prepare some values for export
         $this->terminated = "\015\012";
         switch ($this->edition) {
             case 'win': // as tested on Windows with Excel 2002 and Excel 2007
@@ -121,48 +117,6 @@ class ExportExcel extends ExportPlugin
 
         $this->enclosed = '"';
         $this->escaped = '"';
-
-        return true;
-    }
-
-    /**
-     * Outputs export footer
-     */
-    public function exportFooter(): bool
-    {
-        return true;
-    }
-
-    /**
-     * Outputs database header
-     *
-     * @param string $db      Database name
-     * @param string $dbAlias Alias of db
-     */
-    public function exportDBHeader(string $db, string $dbAlias = ''): bool
-    {
-        return true;
-    }
-
-    /**
-     * Outputs database footer
-     *
-     * @param string $db Database name
-     */
-    public function exportDBFooter(string $db): bool
-    {
-        return true;
-    }
-
-    /**
-     * Outputs CREATE DATABASE statement
-     *
-     * @param string $db      Database name
-     * @param string $dbAlias Aliases of db
-     */
-    public function exportDBCreate(string $db, string $dbAlias = ''): bool
-    {
-        return true;
     }
 
     /**
@@ -201,7 +155,7 @@ class ExportExcel extends ExportPlugin
             }
 
             $schemaInsert = implode($this->separator, $insertFields);
-            if (! $this->export->outputHandler($schemaInsert . $this->terminated)) {
+            if (! $this->outputHandler->addLine($schemaInsert . $this->terminated)) {
                 return false;
             }
         }
@@ -252,7 +206,7 @@ class ExportExcel extends ExportPlugin
             }
 
             $schemaInsert = implode($this->separator, $insertValues);
-            if (! $this->export->outputHandler($schemaInsert . $this->terminated)) {
+            if (! $this->outputHandler->addLine($schemaInsert . $this->terminated)) {
                 return false;
             }
         }
@@ -295,22 +249,8 @@ class ExportExcel extends ExportPlugin
             $request->getParsedBodyParam('excel_null'),
             $exportConfig['excel_null'] ?? null,
         );
-        $this->separator = $this->setStringValue(
-            $request->getParsedBodyParam('excel_separator'),
-            $exportConfig['excel_separator'] ?? null,
-        );
-        $this->enclosed = $this->setStringValue(
-            $request->getParsedBodyParam('excel_enclosed'),
-            $exportConfig['excel_enclosed'] ?? null,
-        );
-        $this->escaped = $this->setStringValue(
-            $request->getParsedBodyParam('excel_escaped'),
-            $exportConfig['excel_escaped'] ?? null,
-        );
-        $this->terminated = $this->setStringValue(
-            $request->getParsedBodyParam('excel_terminated'),
-            $exportConfig['excel_terminated'] ?? null,
-        );
+
+        $this->setupExportConfiguration();
     }
 
     private function setStringValue(mixed $fromRequest, mixed $fromConfig): string

@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\DatabaseInterface;
-use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Plugins\Export\ExportExcel;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -42,7 +42,7 @@ class ExportExcelTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
         $relation = new Relation($dbi);
-        $this->object = new ExportExcel($relation, new Export($dbi), new Transformations($dbi, $relation));
+        $this->object = new ExportExcel($relation, new OutputHandler(), new Transformations($dbi, $relation));
     }
 
     /**
@@ -216,30 +216,10 @@ class ExportExcelTest extends AbstractTestCase
     public function testExportData(): void
     {
         // case 1
-        Export::$outputKanjiConversion = false;
-        Export::$outputCharsetConversion = false;
-        Export::$bufferNeeded = false;
-        Export::$asFile = true;
-        Export::$saveOnServer = true;
-        Export::$fileHandle = null;
-
-        ob_start();
-        self::assertFalse($this->object->exportData(
-            'test_db',
-            'test_table',
-            'SELECT * FROM `test_db`.`test_table`;',
-        ));
-        ob_get_clean();
-
-        // case 2
-        Export::$outputKanjiConversion = false;
-        Export::$outputCharsetConversion = false;
-        Export::$bufferNeeded = false;
-        Export::$asFile = true;
-        Export::$saveOnServer = false;
+        OutputHandler::$asFile = true;
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
-            ->withParsedBody(['excel_columns' => 'On', 'excel_terminated' => ';']);
+            ->withParsedBody(['excel_columns' => 'On']);
 
         $this->object->setExportOptions($request, []);
 
@@ -252,72 +232,10 @@ class ExportExcelTest extends AbstractTestCase
         $result = ob_get_clean();
 
         self::assertSame(
-            'idnamedatetimefield;1abcd2011-01-20 02:00:02;2foo2010-01-20 02:00:02;3Abcd2012-01-20 02:00:02;',
-            $result,
-        );
-
-        // case 3
-        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
-            ->withParsedBody(['excel_columns' => 'On', 'excel_enclosed' => '"', 'excel_terminated' => ';']);
-
-        $this->object->setExportOptions($request, []);
-
-        ob_start();
-        self::assertTrue($this->object->exportData(
-            'test_db',
-            'test_table',
-            'SELECT * FROM `test_db`.`test_table`;',
-        ));
-        $result = ob_get_clean();
-
-        self::assertSame(
-            '"id""name""datetimefield";"1""abcd""2011-01-20 02:00:02";'
-            . '"2""foo""2010-01-20 02:00:02";"3""Abcd""2012-01-20 02:00:02";',
-            $result,
-        );
-
-        // case 4
-        ob_start();
-        self::assertTrue($this->object->exportData(
-            'test_db',
-            'test_table',
-            'SELECT * FROM `test_db`.`test_table`;',
-        ));
-        $result = ob_get_clean();
-
-        self::assertSame(
-            '"id""name""datetimefield";"1""abcd""2011-01-20 02:00:02";'
-            . '"2""foo""2010-01-20 02:00:02";"3""Abcd""2012-01-20 02:00:02";',
-            $result,
-        );
-
-        // case 5
-        ob_start();
-        self::assertTrue($this->object->exportData(
-            'test_db',
-            'test_table',
-            'SELECT * FROM `test_db`.`test_table`;',
-        ));
-        $result = ob_get_clean();
-
-        self::assertSame(
-            '"id""name""datetimefield";"1""abcd""2011-01-20 02:00:02";'
-            . '"2""foo""2010-01-20 02:00:02";"3""Abcd""2012-01-20 02:00:02";',
-            $result,
-        );
-
-        // case 6
-        ob_start();
-        self::assertTrue($this->object->exportData(
-            'test_db',
-            'test_table',
-            'SELECT * FROM `test_db`.`test_table`;',
-        ));
-        $result = ob_get_clean();
-
-        self::assertSame(
-            '"id""name""datetimefield";"1""abcd""2011-01-20 02:00:02";'
-            . '"2""foo""2010-01-20 02:00:02";"3""Abcd""2012-01-20 02:00:02";',
+            '"id";"name";"datetimefield"' . "\015\012"
+                . '"1";"abcd";"2011-01-20 02:00:02"' . "\015\012"
+                . '"2";"foo";"2010-01-20 02:00:02"' . "\015\012"
+                . '"3";"Abcd";"2012-01-20 02:00:02"' . "\015\012",
             $result,
         );
     }

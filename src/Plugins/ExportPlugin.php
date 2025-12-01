@@ -8,7 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins;
 
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\Export\StructureOrData;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
@@ -37,22 +37,27 @@ abstract class ExportPlugin implements Plugin
 
     final public function __construct(
         public Relation $relation,
-        protected Export $export,
+        protected OutputHandler $outputHandler,
         public Transformations $transformations,
     ) {
-        $this->init();
         $this->properties = $this->setProperties();
     }
 
     /**
      * Outputs export header
      */
-    abstract public function exportHeader(): bool;
+    public function exportHeader(): bool
+    {
+        return true;
+    }
 
     /**
      * Outputs export footer
      */
-    abstract public function exportFooter(): bool;
+    public function exportFooter(): bool
+    {
+        return true;
+    }
 
     /**
      * Outputs database header
@@ -60,14 +65,20 @@ abstract class ExportPlugin implements Plugin
      * @param string $db      Database name
      * @param string $dbAlias Aliases of db
      */
-    abstract public function exportDBHeader(string $db, string $dbAlias = ''): bool;
+    public function exportDBHeader(string $db, string $dbAlias = ''): bool
+    {
+        return true;
+    }
 
     /**
      * Outputs database footer
      *
      * @param string $db Database name
      */
-    abstract public function exportDBFooter(string $db): bool;
+    public function exportDBFooter(string $db): bool
+    {
+        return true;
+    }
 
     /**
      * Outputs CREATE DATABASE statement
@@ -75,7 +86,10 @@ abstract class ExportPlugin implements Plugin
      * @param string $db      Database name
      * @param string $dbAlias Aliases of db
      */
-    abstract public function exportDBCreate(string $db, string $dbAlias = ''): bool;
+    public function exportDBCreate(string $db, string $dbAlias = ''): bool
+    {
+        return true;
+    }
 
     /**
      * Outputs the content of a table
@@ -169,13 +183,6 @@ abstract class ExportPlugin implements Plugin
     public function getTableDefStandIn(string $db, string $view, array $aliases = []): string
     {
         return '';
-    }
-
-    /**
-     * Plugin specific initializations.
-     */
-    protected function init(): void
-    {
     }
 
     /**
