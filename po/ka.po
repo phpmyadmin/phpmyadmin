@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-10-16 23:57-0300\n"
-"PO-Revision-Date: 2025-11-22 05:51+0000\n"
+"PO-Revision-Date: 2025-12-04 08:03+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "ka/>\n"
@@ -1280,17 +1280,17 @@ msgstr "რეგისტრზე-დამოკიდებული"
 #: libraries/classes/Charsets/Collation.php:304
 msgctxt "Collation variant"
 msgid "accent-insensitive"
-msgstr ""
+msgstr "აქცენტისგან-დამოუკიდებელი"
 
 #: libraries/classes/Charsets/Collation.php:307
 msgctxt "Collation variant"
 msgid "accent-sensitive"
-msgstr ""
+msgstr "აქცენტზე-დამოკიდებული"
 
 #: libraries/classes/Charsets/Collation.php:310
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr ""
+msgstr "კანა-დამოკიდებული"
 
 #: libraries/classes/Charsets/Collation.php:314
 msgctxt "Collation variant"
@@ -1305,7 +1305,7 @@ msgstr "ბინარული"
 #: libraries/classes/Charsets/Collation.php:320
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr ""
+msgstr "სწორების-გარეშე"
 
 #: libraries/classes/Charsets/Collation.php:339
 msgctxt "Collation"
@@ -2753,7 +2753,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:635
 #: templates/console/display.twig:11 templates/console/display.twig:64
 msgid "Debug SQL"
-msgstr ""
+msgstr "SQL-ის გამართვა"
 
 #: libraries/classes/Config/Descriptions.php:636
 #: libraries/classes/Plugins/Schema/SchemaDia.php:66
@@ -6857,7 +6857,7 @@ msgstr "არგუმენტების დამალვა"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:662
 msgid "Time taken:"
-msgstr ""
+msgstr "დასჭირდა დრო:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:664
 msgid ""
@@ -9839,7 +9839,7 @@ msgstr "გადაგდება"
 
 #: libraries/classes/Operations.php:571
 msgid "Coalesce"
-msgstr ""
+msgstr "შეერთება"
 
 #: libraries/classes/Operations.php:925
 msgid "Can't move table to same one!"
@@ -12568,7 +12568,7 @@ msgstr "არცერთი"
 #: templates/database/central_columns/main.twig:77
 #: templates/database/central_columns/main.twig:312
 msgid "As defined:"
-msgstr ""
+msgstr "როგორც აღწერილია:"
 
 #: templates/columns_definitions/column_attributes.twig:102
 msgid ""
@@ -12652,7 +12652,7 @@ msgstr "საცავის ძრავა"
 
 #: templates/columns_definitions/column_definitions_form.twig:136
 msgid "PARTITION definition:"
-msgstr ""
+msgstr "დანაყოფის (PARTITION) აღწერა:"
 
 #: templates/columns_definitions/column_definitions_form.twig:154
 msgctxt "Online transaction part of the SQL DDL for InnoDB"
@@ -12965,7 +12965,7 @@ msgstr "გაშვების მიმდევრობა"
 
 #: templates/console/display.twig:64 templates/console/display.twig:84
 msgid "Time taken"
-msgstr ""
+msgstr "დასჭირდა დრო"
 
 #: templates/console/display.twig:64 templates/table/search/index.twig:146
 msgid "Order by:"
@@ -17284,7 +17284,7 @@ msgstr ""
 #: templates/table/operations/index.twig:20
 msgctxt "Alter table order by a single field."
 msgid "(singly)"
-msgstr ""
+msgstr "(ერთი)"
 
 #: templates/table/operations/index.twig:50
 msgid "Move table to (database.table)"
