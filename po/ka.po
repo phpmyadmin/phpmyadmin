@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2025-11-22 05:51+0000\n"
+"PO-Revision-Date: 2025-12-04 08:00+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "ka/>\n"
@@ -2530,7 +2530,7 @@ msgstr "არგუმენტების დამალვა"
 
 #: js/messages.php:735
 msgid "Time taken:"
-msgstr ""
+msgstr "დასჭირდა დრო:"
 
 #: js/messages.php:736
 msgid ""
@@ -3404,17 +3404,17 @@ msgstr "რეგისტრზე-დამოკიდებული"
 #: libraries/classes/Charsets.php:673
 msgctxt "Collation variant"
 msgid "accent-insensitive"
-msgstr ""
+msgstr "აქცენტისგან-დამოუკიდებელი"
 
 #: libraries/classes/Charsets.php:676
 msgctxt "Collation variant"
 msgid "accent-sensitive"
-msgstr ""
+msgstr "აქცენტზე-დამოკიდებული"
 
 #: libraries/classes/Charsets.php:679
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr ""
+msgstr "კანა-დამოკიდებული"
 
 #: libraries/classes/Charsets.php:683
 msgctxt "Collation variant"
@@ -3429,7 +3429,7 @@ msgstr "ბინარული"
 #: libraries/classes/Charsets.php:689
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr ""
+msgstr "სწორების-გარეშე"
 
 #: libraries/classes/Config.php:1132
 #, php-format
@@ -3643,7 +3643,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:169
 #: templates/console/display.twig:11 templates/console/display.twig:64
 msgid "Debug SQL"
-msgstr ""
+msgstr "SQL-ის გამართვა"
 
 #: libraries/classes/Config/Descriptions.php:171
 msgid "Tab that is displayed when entering a database."
@@ -8573,7 +8573,7 @@ msgstr "გასუფთავება"
 
 #: libraries/classes/Operations.php:1608
 msgid "Coalesce"
-msgstr ""
+msgstr "შეერთება"
 
 #: libraries/classes/Operations.php:1617
 msgid "Partition maintenance"
@@ -13715,7 +13715,7 @@ msgstr "გაშვების მიმდევრობა"
 
 #: templates/console/display.twig:64 templates/console/display.twig:84
 msgid "Time taken"
-msgstr ""
+msgstr "დასჭირდა დრო"
 
 #: templates/console/display.twig:64
 msgid "Order by:"
@@ -14289,7 +14289,7 @@ msgstr "არცერთი"
 
 #: templates/columns_definitions/column_default.twig:5
 msgid "As defined:"
-msgstr ""
+msgstr "როგორც აღწერილია:"
 
 #: templates/server/databases/table_row.twig:13
 #, php-format
@@ -14375,7 +14375,7 @@ msgstr "კავშირები:"
 
 #: templates/columns_definitions/column_definitions_form.twig:128
 msgid "PARTITION definition:"
-msgstr ""
+msgstr "დანაყოფის (PARTITION) აღწერა:"
 
 #: templates/prefs_twofactor_confirm.twig:2
 msgid "Confirm disabling two-factor authentication"
