@@ -198,10 +198,10 @@ export function addDateTimePicker () {
 
         // Add a tip regarding entering MySQL allowed-values for TIME and DATE data-type
         if (this.classList.contains('timefield')) {
-            bootstrap.Tooltip.getOrCreateInstance(this, { title: window.Messages.strMysqlAllowedValuesTipTime })
+            bootstrap.Tooltip.getOrCreateInstance(this, { title: window.Messages.strMysqlAllowedValuesTipTime, trigger: 'hover' })
                 .setContent({ '.tooltip-inner': window.Messages.strMysqlAllowedValuesTipTime });
         } else if (this.classList.contains('datefield')) {
-            bootstrap.Tooltip.getOrCreateInstance(this, { title: window.Messages.strMysqlAllowedValuesTipDate })
+            bootstrap.Tooltip.getOrCreateInstance(this, { title: window.Messages.strMysqlAllowedValuesTipDate, trigger: 'hover' })
                 .setContent({ '.tooltip-inner': window.Messages.strMysqlAllowedValuesTipDate });
         }
     });
@@ -1521,7 +1521,7 @@ export function dismissNotifications () {
             displayCopyStatus(this, copyStatus);
         });
 
-        $(document).on('mouseover mouseleave', '.ajax_notification a', function (event) {
+        $(document).on('mouseover mouseleave', 'span.ajax_notification.dismissable a', function (event) {
             let message = window.Messages.strDismiss;
 
             if (event.type === 'mouseover') {
