@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2025-11-22 05:51+0000\n"
+"PO-Revision-Date: 2025-12-04 08:00+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "ka/>\n"
@@ -1376,17 +1376,17 @@ msgstr "რეგისტრზე-დამოკიდებული"
 #: libraries/classes/Charsets/Collation.php:294
 msgctxt "Collation variant"
 msgid "accent-insensitive"
-msgstr ""
+msgstr "აქცენტისგან-დამოუკიდებელი"
 
 #: libraries/classes/Charsets/Collation.php:297
 msgctxt "Collation variant"
 msgid "accent-sensitive"
-msgstr ""
+msgstr "აქცენტზე-დამოკიდებული"
 
 #: libraries/classes/Charsets/Collation.php:300
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr ""
+msgstr "კანა-დამოკიდებული"
 
 #: libraries/classes/Charsets/Collation.php:304
 msgctxt "Collation variant"
@@ -1401,7 +1401,7 @@ msgstr "ბინარული"
 #: libraries/classes/Charsets/Collation.php:310
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr ""
+msgstr "სწორების-გარეშე"
 
 #: libraries/classes/Charsets/Collation.php:326
 msgctxt "Collation"
@@ -2834,7 +2834,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:641
 #: templates/console/display.twig:11 templates/console/display.twig:64
 msgid "Debug SQL"
-msgstr ""
+msgstr "SQL-ის გამართვა"
 
 #: libraries/classes/Config/Descriptions.php:642
 #: libraries/classes/Plugins/Schema/SchemaDia.php:65
@@ -7268,7 +7268,7 @@ msgstr "SQL Query box"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:693
 msgid "Time taken:"
-msgstr ""
+msgstr "დასჭირდა დრო:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:695
 msgid ""
@@ -10692,10 +10692,8 @@ msgid "Drop"
 msgstr "გადაგდება"
 
 #: libraries/classes/Operations.php:618
-#, fuzzy
-#| msgid "Count tables"
 msgid "Coalesce"
-msgstr "ცხრილების დათვლა"
+msgstr "შეერთება"
 
 #: libraries/classes/Operations.php:1053
 msgid "Can't move table to same one!"
@@ -13628,7 +13626,7 @@ msgstr "არცერთი"
 #: templates/database/central_columns/main.twig:79
 #: templates/database/central_columns/main.twig:316
 msgid "As defined:"
-msgstr ""
+msgstr "როგორც აღწერილია:"
 
 #: templates/columns_definitions/column_attributes.twig:97
 msgid ""
@@ -13713,7 +13711,7 @@ msgstr "Storage Engine"
 
 #: templates/columns_definitions/column_definitions_form.twig:136
 msgid "PARTITION definition:"
-msgstr ""
+msgstr "დანაყოფის (PARTITION) აღწერა:"
 
 #: templates/columns_definitions/column_definitions_form.twig:154
 #, fuzzy
@@ -14008,7 +14006,7 @@ msgstr "ჩანიშნული მოთხოვნის გაშვე�
 
 #: templates/console/display.twig:64 templates/console/display.twig:84
 msgid "Time taken"
-msgstr ""
+msgstr "დასჭირდა დრო"
 
 #: templates/console/display.twig:64
 msgid "Order by:"
@@ -18140,7 +18138,7 @@ msgstr ""
 #: templates/table/operations/index.twig:20
 msgctxt "Alter table order by a single field."
 msgid "(singly)"
-msgstr ""
+msgstr "(ერთი)"
 
 #: templates/table/operations/index.twig:50
 msgid "Move table to (database.table)"
