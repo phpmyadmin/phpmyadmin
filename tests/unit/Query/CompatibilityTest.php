@@ -46,6 +46,28 @@ class CompatibilityTest extends TestCase
         self::assertSame($expected, Compatibility::isUUIDSupported($dbiStub));
     }
 
+    /** @return array<string, array{bool, bool, int}> */
+    public static function providerForTestIsVectorSupported(): array
+    {
+        return [
+            'MySQL 8.99.99' => [false, false, 89999],
+            'MySQL 9.0.0' => [false, false, 90000],
+            'MariaDB 11.6.99' => [false, true, 110699],
+            'MariaDB 11.7.1' => [true, true, 110701],
+        ];
+    }
+
+    #[DataProvider('providerForTestIsVectorSupported')]
+    public function testIsVectorSupported(bool $expected, bool $isMariaDb, int $version): void
+    {
+        $dbiStub = self::createStub(DatabaseInterface::class);
+
+        $dbiStub->method('isMariaDB')->willReturn($isMariaDb);
+        $dbiStub->method('getVersion')->willReturn($version);
+
+        self::assertSame($expected, Compatibility::isVectorSupported($dbiStub));
+    }
+
     /**
      * @return mixed[][]
      * @psalm-return array<string, array{bool, bool, int}>
@@ -57,6 +79,28 @@ class CompatibilityTest extends TestCase
             'MySQL 8.0.30' => [false, false, 80030],
             'MariaDB 10.6.0' => [false, true, 100600],
             'MariaDB 10.7.0' => [true, true, 100700],
+        ];
+    }
+
+    #[DataProvider('providerForTestIsJsonSupported')]
+    public function testIsJsonSupported(bool $expected, bool $isMariaDb, int $version): void
+    {
+        $dbiStub = self::createStub(DatabaseInterface::class);
+
+        $dbiStub->method('isMariaDB')->willReturn($isMariaDb);
+        $dbiStub->method('getVersion')->willReturn($version);
+
+        self::assertSame($expected, Compatibility::isJsonSupported($dbiStub));
+    }
+
+    /** @return array<string, array{bool, bool, int}> */
+    public static function providerForTestIsJsonSupported(): array
+    {
+        return [
+            'MySQL 5.7.7' => [false, false, 50707],
+            'MySQL 5.7.8' => [false, true, 50708],
+            'MariaDB 10.2.6' => [false, true, 100206],
+            'MariaDB 10.2.7' => [true, true, 100207],
         ];
     }
 

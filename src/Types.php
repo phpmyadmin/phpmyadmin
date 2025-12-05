@@ -587,7 +587,9 @@ class Types
     {
         $isMariaDB = $this->dbi->isMariaDB();
         $serverVersion = $this->dbi->getVersion();
+        $isJsonSupported = Compatibility::isJsonSupported($this->dbi);
         $isUUIDSupported = Compatibility::isUUIDSupported($this->dbi);
+        $isVectorSupported = Compatibility::isVectorSupported($this->dbi);
 
         // most used types
         $ret = ['INT', 'VARCHAR', 'TEXT', 'DATE'];
@@ -656,12 +658,16 @@ class Types
             'GEOMETRYCOLLECTION',
         ];
 
-        if (($isMariaDB && $serverVersion > 100207) || (! $isMariaDB && $serverVersion >= 50708)) {
+        if ($isJsonSupported) {
             $ret['JSON'] = ['JSON'];
         }
 
         if ($isUUIDSupported) {
             $ret['UUID'] = ['UUID'];
+        }
+
+        if ($isVectorSupported) {
+            $ret['VECTOR'] = ['VECTOR'];
         }
 
         return $ret;

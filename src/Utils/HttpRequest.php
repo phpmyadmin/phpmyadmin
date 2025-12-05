@@ -16,7 +16,6 @@ use function curl_setopt;
 use function file_get_contents;
 use function function_exists;
 use function getenv;
-use function http_get_last_response_headers;
 use function ini_get;
 use function is_array;
 use function is_dir;
@@ -238,7 +237,8 @@ class HttpRequest
         );
 
         if (function_exists('http_get_last_response_headers')) {
-            $http_response_header = http_get_last_response_headers();
+            // phpcs:ignore SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly.ReferenceViaFullyQualifiedName
+            $http_response_header = \http_get_last_response_headers();
         }
 
         if (! isset($http_response_header)) {

@@ -2,10 +2,8 @@
     <div class="card-header">{{ t('Information') }}</div>
     <div class="card-body">
         {% if showtable['TABLE_COMMENT'] %}
-            <p>
-                <strong>{{ t('Table comments:') }}</strong>
-                {{ showtable['TABLE_COMMENT'] }}
-            </p>
+            <strong>{{ t('Table comments:') }}</strong>
+            <em><pre>{{ showtable['TABLE_COMMENT'] }}</pre></em>
         {% endif %}
         <a id="showusage"></a>
 

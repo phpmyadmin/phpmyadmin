@@ -156,13 +156,40 @@ class Compatibility
     }
 
     /**
+     * Check whether the database supports JSON data type
+     *
+     * @return bool true if JSON is supported
+     */
+    public static function isJsonSupported(DatabaseInterface $dbi): bool
+    {
+        // @see: https://mariadb.com/kb/en/mariadb-1027-release-notes/#json
+        // @see: https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-8.html#mysqld-5-7-8-json
+        return $dbi->isMariaDB() && $dbi->getVersion() >= 100207 || // 10.2.7
+            ! $dbi->isMariaDB() && $dbi->getVersion() >= 50708; // 5.7.8
+    }
+
+    /**
      * Check whether the database supports UUID data type
-     * true if uuid is supported
+     *
+     * @return bool true if UUID is supported
      */
     public static function isUUIDSupported(DatabaseInterface $dbi): bool
     {
         // @see: https://mariadb.com/kb/en/mariadb-1070-release-notes/#uuid
         return $dbi->isMariaDB() && $dbi->getVersion() >= 100700; // 10.7.0
+    }
+
+    /**
+     * Check whether the database supports VECTOR data type
+     *
+     * @return bool true if VECTOR is supported
+     */
+    public static function isVectorSupported(DatabaseInterface $dbi): bool
+    {
+        // @see: https://mariadb.com/docs/release-notes/community-server/old-releases/mariadb-11-7-rolling-releases/mariadb-11-7-1-release-notes#vectors
+        // @see: https://dev.mysql.com/doc/relnotes/mysql/9.0/en/news-9-0-0.html#mysqld-9-0-0-vectors
+        return $dbi->isMariaDB() && $dbi->getVersion() >= 110701 || // 11.7.1
+            $dbi->isMySql() && $dbi->getVersion() >= 90000; // 9.0.0
     }
 
     /**

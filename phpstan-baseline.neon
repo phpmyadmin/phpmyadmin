@@ -14395,12 +14395,6 @@ parameters:
 			path: src/Utils/HttpRequest.php
 
 		-
-			message: '#^Used function http_get_last_response_headers not found\.$#'
-			identifier: function.notFound
-			count: 1
-			path: src/Utils/HttpRequest.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#

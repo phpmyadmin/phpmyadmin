@@ -13,7 +13,8 @@
       <div>
         <h2>{{ table.name }}</h2>
         {% if table.comment is not empty %}
-          <p>{{ t('Table comments:') }} <em>{{ table.comment }}</em></p>
+          {{ t('Table comments:') }}
+          <em><pre>{{ table.comment }}</pre></em>
         {% endif %}
 
         <table class="table table-striped align-middle">
