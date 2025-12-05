@@ -228,6 +228,19 @@ class Compatibility
     }
 
     /**
+     * Check whether the database supports VECTOR data type
+     *
+     * @return bool true if VECTOR is supported
+     */
+    public static function isVectorSupported(DatabaseInterface $dbi): bool
+    {
+        // @see: https://mariadb.com/docs/release-notes/community-server/old-releases/mariadb-11-7-rolling-releases/mariadb-11-7-1-release-notes#vectors
+        // @see: https://dev.mysql.com/doc/relnotes/mysql/9.0/en/news-9-0-0.html#mysqld-9-0-0-vectors
+        return $dbi->isMariaDB() && $dbi->getVersion() >= 110701 || // 11.7.1
+            $dbi->isMySql() && $dbi->getVersion() >= 90000; // 9.0.0
+    }
+
+    /**
      * Returns whether the database server supports virtual columns
      */
     public static function supportsStoredKeywordForVirtualColumns(int $serverVersion): bool

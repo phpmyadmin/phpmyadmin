@@ -776,6 +776,7 @@ class Types
         $serverVersion = $this->dbi->getVersion();
         $isJsonSupported = Compatibility::isJsonSupported($this->dbi);
         $isUUIDSupported = Compatibility::isUUIDSupported($this->dbi);
+        $isVectorSupported = Compatibility::isVectorSupported($this->dbi);
 
         // most used types
         $ret = [
@@ -861,6 +862,10 @@ class Types
 
         if ($isUUIDSupported) {
             $ret['UUID'] = ['UUID'];
+        }
+
+        if ($isVectorSupported) {
+            $ret['VECTOR'] = ['VECTOR'];
         }
 
         return $ret;

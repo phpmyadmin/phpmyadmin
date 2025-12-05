@@ -55,6 +55,33 @@ class CompatibilityTest extends TestCase
      * @return array[]
      * @psalm-return array<string, array{bool, bool, int}>
      */
+    public static function providerForTestIsVectorSupported(): array
+    {
+        return [
+            'MySQL 8.99.99' => [false, false, 89999],
+            'MySQL 9.0.0' => [false, false, 90000],
+            'MariaDB 11.6.99' => [false, true, 110699],
+            'MariaDB 11.7.1' => [true, true, 110701],
+        ];
+    }
+
+    /**
+     * @dataProvider providerForTestIsVectorSupported
+     */
+    public function testIsVectorSupported(bool $expected, bool $isMariaDb, int $version): void
+    {
+        $dbiStub = $this->createStub(DatabaseInterface::class);
+
+        $dbiStub->method('isMariaDB')->willReturn($isMariaDb);
+        $dbiStub->method('getVersion')->willReturn($version);
+
+        self::assertSame($expected, Compatibility::isVectorSupported($dbiStub));
+    }
+
+    /**
+     * @return array[]
+     * @psalm-return array<string, array{bool, bool, int}>
+     */
     public static function providerForTestIsUUIDSupported(): array
     {
         return [
