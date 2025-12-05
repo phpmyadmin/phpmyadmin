@@ -1069,8 +1069,7 @@ class InsertEdit
         }
 
         if ($editField->function === 'ULID') {
-            /* generate ULID */
-            $ulid = (string) Ulid::generate();
+            $ulid = Ulid::generate();
 
             return $this->dbi->quoteString($ulid);
         }
