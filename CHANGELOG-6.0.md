@@ -80,6 +80,7 @@ All notable changes of the phpMyAdmin 6.0 release series are documented in this 
 * [#19712](https://github.com/phpmyadmin/phpmyadmin/pull/19712): Import OpenLayers and Bootstrap directly using Webpack
 * [#19794](https://github.com/phpmyadmin/phpmyadmin/pull/19794): Use `jquery-ui-timepicker-addon.min.js` instead of `jquery-ui-timepicker-addon.js`
 * [#19795](https://github.com/phpmyadmin/phpmyadmin/pull/19795): Use `additional-methods.min.js` instead of `additional-methods.js`
+* [#19564](https://github.com/phpmyadmin/phpmyadmin/pull/19564): Update the table comment field to a textarea
 
 ### Removed
 
