@@ -282,6 +282,11 @@ class ColumnsDefinitionTest extends AbstractTestCase
                 false,
                 ['DefaultType' => 'USER_DEFINED', 'DefaultValue' => '"some\/thing"'],
             ],
+            'when Default is an empty string' => [
+                '',
+                false,
+                ['DefaultType' => 'USER_DEFINED', 'DefaultValue' => ''],
+            ],
         ];
     }
 }
