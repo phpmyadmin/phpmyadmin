@@ -130,13 +130,18 @@
     {% endfor %}
 </table>
 <script>
-  document.querySelectorAll('.collation-select').forEach((select, index) => {
+  function populate_collation_select() {
+    const select = this;
     const selectOptions = document.getElementById('collation_select_options').content.cloneNode(true);
     select.appendChild(selectOptions);
     const selectedValue = select.dataset.selected;
     if (selectedValue) {
       select.value = selectedValue;
     }
-  });
+    $(select).off('focus', populate_collation_select);
+  }
+
+  $('.collation-select').on('focus', populate_collation_select);
+  $('.collation-select[data-selected]').each(populate_collation_select);
 </script>
 </div>
