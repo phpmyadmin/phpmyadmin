@@ -365,30 +365,12 @@ final class ColumnsDefinition
      */
     public static function decorateColumnMetaDefault(string|null $default, bool $isNull): array
     {
-        $metaDefault = ['DefaultType' => 'USER_DEFINED', 'DefaultValue' => ''];
-
-        switch ($default) {
-            case null:
-                $metaDefault['DefaultType'] = $isNull ? 'NULL' : 'NONE';
-
-                break;
-            case 'CURRENT_TIMESTAMP':
-            case 'current_timestamp()':
-                $metaDefault['DefaultType'] = 'CURRENT_TIMESTAMP';
-
-                break;
-            case 'UUID':
-            case 'uuid()':
-                $metaDefault['DefaultType'] = 'UUID';
-
-                break;
-            default:
-                $metaDefault['DefaultValue'] = $default;
-
-                break;
-        }
-
-        return $metaDefault;
+        return match ($default) {
+            null => ['DefaultType' => $isNull ? 'NULL' : 'NONE', 'DefaultValue' => ''],
+            'CURRENT_TIMESTAMP', 'current_timestamp()' => ['DefaultType' => 'CURRENT_TIMESTAMP', 'DefaultValue' => ''],
+            'UUID', 'uuid()' => ['DefaultType' => 'UUID', 'DefaultValue' => ''],
+            default => ['DefaultType' => 'USER_DEFINED', 'DefaultValue' => $default],
+        };
     }
 
     /**
