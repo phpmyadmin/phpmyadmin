@@ -1,4 +1,16 @@
 <div class="responsivetable">
+<template id="collation_select_options">
+  <option value=""></option>
+  {% for charset in charsets %}
+    <optgroup label="{{ charset.name }}" title="{{ charset.description }}">
+      {% for collation in charset.collations %}
+        <option value="{{ collation.name }}" title="{{ collation.description }}">
+          {{- collation.name -}}
+        </option>
+      {% endfor %}
+    </optgroup>
+  {% endfor %}
+</template>
 <table id="table_columns" class="table table-striped caption-top align-middle mb-0 noclick">
     <caption>
         {{ t('Structure') }}
@@ -112,10 +124,24 @@
                 'attribute_types': attribute_types,
                 'privs_available': privs_available,
                 'max_length': max_length,
-                'charsets': charsets,
                 'relation_parameters': relation_parameters
             }) only %}
         </tr>
     {% endfor %}
 </table>
+<script>
+  function populate_collation_select() {
+    const select = this;
+    const selectOptions = document.getElementById('collation_select_options').content.cloneNode(true);
+    select.appendChild(selectOptions);
+    const selectedValue = select.dataset.selected;
+    if (selectedValue) {
+      select.value = selectedValue;
+    }
+    $(select).off('focus', populate_collation_select);
+  }
+
+  $('.collation-select').on('focus', populate_collation_select);
+  $('.collation-select[data-selected]').each(populate_collation_select);
+</script>
 </div>

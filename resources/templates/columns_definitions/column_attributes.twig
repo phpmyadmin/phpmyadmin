@@ -61,19 +61,8 @@
 </td>
 <td class="text-center">
   {# column collation #}
-  <select lang="en" dir="ltr" name="field_collation[{{ column_number }}]" id="field_{{ column_number }}_{{ ci - ci_offset }}" class="form-select">
-    <option value=""></option>
-    {% for charset in charsets %}
-      <optgroup label="{{ charset.name }}" title="{{ charset.description }}">
-        {% for collation in charset.collations %}
-          <option value="{{ collation.name }}" title="{{ collation.description }}"
-            {{- column_meta['Collation'] is defined and collation.name == column_meta['Collation'] ? ' selected' }}>
-            {{- collation.name -}}
-          </option>
-        {% endfor %}
-      </optgroup>
-    {% endfor %}
-  </select>
+  <select lang="en" dir="ltr" name="field_collation[{{ column_number }}]" id="field_{{ column_number }}_{{ ci - ci_offset }}" class="form-select collation-select"
+  {{- column_meta['Collation'] is defined ? ('data-selected="' ~ column_meta['Collation'] ~ '"')|raw : '' }}></select>
   {% set ci = ci + 1 %}
 </td>
 <td class="text-center">
