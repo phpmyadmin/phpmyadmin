@@ -263,7 +263,7 @@ AJAX.registerOnload('table/zoom_search.js', function () {
      ** Prepare a div containing a link, otherwise it's incorrectly displayed
      ** after a couple of clicks
      **/
-    $('<div id="togglesearchformdiv"><a id="togglesearchformlink"></a></div>')
+    $('<div id="togglesearchformdiv"><button class="btn btn-sm btn-secondary" type="button" id="togglesearchformlink"></button></div>')
         .insertAfter('#zoom_search_form')
         // don't show it until we have results on-screen
         .hide();
