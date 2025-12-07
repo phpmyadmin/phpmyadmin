@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-11-30 00:31+0000\n"
+"POT-Creation-Date: 2025-12-07 00:30+0000\n"
 "PO-Revision-Date: 2025-09-20 04:06+0000\n"
 "Last-Translator: Phil Jope <Phil.Jope@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -125,7 +125,7 @@ msgstr ""
 "mehr Details an die Dokumentation"
 
 #: resources/templates/columns_definitions/column_attributes.twig:112
-#: resources/templates/database/data_dictionary/index.twig:41
+#: resources/templates/database/data_dictionary/index.twig:42
 #: resources/templates/table/structure/display_structure.twig:137
 #: resources/templates/table/structure/display_structure.twig:143
 #: resources/templates/table/structure/display_structure.twig:284
@@ -135,7 +135,7 @@ msgid "Primary"
 msgstr "Primärschlüssel"
 
 #: resources/templates/columns_definitions/column_attributes.twig:116
-#: resources/templates/database/data_dictionary/index.twig:75
+#: resources/templates/database/data_dictionary/index.twig:76
 #: resources/templates/indexes.twig:19
 #: resources/templates/table/structure/display_structure.twig:150
 #: resources/templates/table/structure/display_structure.twig:156
@@ -150,7 +150,7 @@ msgstr "Unique"
 #: resources/templates/table/structure/display_structure.twig:163
 #: resources/templates/table/structure/display_structure.twig:169
 #: resources/templates/table/structure/display_structure.twig:290
-#: resources/templates/table/structure/display_table_stats.twig:24
+#: resources/templates/table/structure/display_table_stats.twig:22
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:27
 #: src/Controllers/Table/StructureController.php:219
 #: src/Navigation/Nodes/NodeIndex.php:26
@@ -259,9 +259,9 @@ msgstr "Spalte(n)"
 #: resources/templates/table/normalization/normalization.twig:26
 #: resources/templates/table/operations/index.twig:39
 #: resources/templates/table/operations/index.twig:87
-#: resources/templates/table/operations/index.twig:242
-#: resources/templates/table/operations/index.twig:329
-#: resources/templates/table/operations/index.twig:506
+#: resources/templates/table/operations/index.twig:249
+#: resources/templates/table/operations/index.twig:336
+#: resources/templates/table/operations/index.twig:513
 #: resources/templates/table/operations/view.twig:20
 #: resources/templates/table/search/index.twig:171
 #: resources/templates/table/search/index.twig:195
@@ -281,7 +281,7 @@ msgstr "OK"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:68
 #: resources/templates/database/data_dictionary/index.twig:16
-#: resources/templates/table/structure/display_table_stats.twig:6
+#: resources/templates/table/structure/display_table_stats.twig:5
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:555
 msgid "Table comments:"
 msgstr "Tabellenkommentar:"
@@ -300,7 +300,7 @@ msgstr "Verbindung:"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:109
 #: resources/templates/columns_definitions/partitions.twig:137
-#: resources/templates/table/operations/index.twig:134
+#: resources/templates/table/operations/index.twig:141
 msgid "Storage engine"
 msgstr "Speicher-Engines"
 
@@ -454,8 +454,8 @@ msgid "Is a foreign key."
 msgstr "Ist ein Fremdschlüssel."
 
 #: resources/templates/columns_definitions/column_name.twig:16
-#: resources/templates/database/data_dictionary/index.twig:22
-#: resources/templates/database/data_dictionary/index.twig:77
+#: resources/templates/database/data_dictionary/index.twig:23
+#: resources/templates/database/data_dictionary/index.twig:78
 #: resources/templates/indexes.twig:21
 #: resources/templates/table/index_form.twig:141
 #: resources/templates/table/insert/get_head_and_foot_of_insert_row_table.twig:10
@@ -512,7 +512,7 @@ msgid "Subpartitions:"
 msgstr "Unterpartitionen:"
 
 #: resources/templates/columns_definitions/partitions.twig:76
-#: resources/templates/table/operations/index.twig:481
+#: resources/templates/table/operations/index.twig:488
 #: resources/templates/table/structure/display_partitions.twig:25
 msgid "Partition"
 msgstr "Partition"
@@ -531,7 +531,7 @@ msgstr "Format"
 
 #: resources/templates/columns_definitions/partitions.twig:85
 #: resources/templates/config/form_display/input.twig:53
-#: resources/templates/database/data_dictionary/index.twig:81
+#: resources/templates/database/data_dictionary/index.twig:82
 #: resources/templates/database/events/editor_form.twig:108
 #: resources/templates/database/routines/editor_form.twig:173
 #: resources/templates/database/structure/table_header.twig:46
@@ -609,8 +609,8 @@ msgstr "Name"
 #: resources/templates/database/central_columns/edit.twig:9
 #: resources/templates/database/central_columns/main.twig:20
 #: resources/templates/database/central_columns/main.twig:230
-#: resources/templates/database/data_dictionary/index.twig:23
-#: resources/templates/database/data_dictionary/index.twig:74
+#: resources/templates/database/data_dictionary/index.twig:24
+#: resources/templates/database/data_dictionary/index.twig:75
 #: resources/templates/database/events/index.twig:47
 #: resources/templates/database/privileges/index.twig:19
 #: resources/templates/database/routines/editor_form.twig:31
@@ -660,7 +660,7 @@ msgstr ""
 #: resources/templates/database/central_columns/edit.twig:11
 #: resources/templates/database/central_columns/main.twig:28
 #: resources/templates/database/central_columns/main.twig:238
-#: resources/templates/database/data_dictionary/index.twig:25
+#: resources/templates/database/data_dictionary/index.twig:26
 #: resources/templates/database/structure/body_for_table_summary.twig:43
 #: resources/templates/server/replication/replica_configuration.twig:9
 #: resources/templates/table/structure/display_structure.twig:26
@@ -689,7 +689,7 @@ msgstr ""
 #: resources/templates/database/central_columns/edit.twig:12
 #: resources/templates/database/central_columns/main.twig:32
 #: resources/templates/database/central_columns/main.twig:242
-#: resources/templates/database/data_dictionary/index.twig:79
+#: resources/templates/database/data_dictionary/index.twig:80
 #: resources/templates/database/operations/index.twig:195
 #: resources/templates/database/operations/index.twig:199
 #: resources/templates/database/structure/table_header.twig:31
@@ -697,11 +697,11 @@ msgstr ""
 #: resources/templates/server/databases/index.twig:29
 #: resources/templates/server/databases/index.twig:30
 #: resources/templates/server/databases/index.twig:123
-#: resources/templates/table/operations/index.twig:152
+#: resources/templates/table/operations/index.twig:159
 #: resources/templates/table/search/index.twig:40
 #: resources/templates/table/structure/display_structure.twig:23
 #: resources/templates/table/structure/display_structure.twig:478
-#: resources/templates/table/structure/display_table_stats.twig:107
+#: resources/templates/table/structure/display_table_stats.twig:105
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:8
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:11
 #: resources/templates/table/zoom_search/index.twig:38
@@ -720,8 +720,8 @@ msgstr "Attribute"
 #: resources/templates/database/central_columns/edit.twig:14
 #: resources/templates/database/central_columns/main.twig:40
 #: resources/templates/database/central_columns/main.twig:250
-#: resources/templates/database/data_dictionary/index.twig:24
-#: resources/templates/database/data_dictionary/index.twig:80
+#: resources/templates/database/data_dictionary/index.twig:25
+#: resources/templates/database/data_dictionary/index.twig:81
 #: resources/templates/indexes.twig:24
 #: resources/templates/table/insert/get_head_and_foot_of_insert_row_table.twig:13
 #: resources/templates/table/structure/display_structure.twig:25
@@ -748,12 +748,12 @@ msgstr "Null"
 #: resources/templates/database/structure/copy_form.twig:45
 #: resources/templates/table/operations/index.twig:80
 #: resources/templates/table/operations/index.twig:116
-#: resources/templates/table/operations/index.twig:316
+#: resources/templates/table/operations/index.twig:323
 msgid "Adjust privileges"
 msgstr "Rechte anpassen"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:54
-#: resources/templates/database/data_dictionary/index.twig:29
+#: resources/templates/database/data_dictionary/index.twig:30
 #: resources/templates/table/structure/display_structure.twig:28
 #: src/Config/Descriptions.php:660 src/Config/Descriptions.php:675
 #: src/Config/Descriptions.php:711 src/Plugins/Export/ExportHtmlword.php:348
@@ -774,7 +774,7 @@ msgid "Move column"
 msgstr "Spalte verschieben"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:71
-#: resources/templates/database/data_dictionary/index.twig:31
+#: resources/templates/database/data_dictionary/index.twig:32
 #: src/Config/Descriptions.php:664 src/Config/Descriptions.php:676
 #: src/Config/Descriptions.php:714 src/Plugins/Export/ExportHtmlword.php:355
 #: src/Plugins/Export/ExportOdt.php:455
@@ -872,8 +872,8 @@ msgstr "Deaktiviert"
 
 #: resources/templates/config/form_display/input.twig:42
 #: resources/templates/database/central_columns/main.twig:362
-#: resources/templates/database/data_dictionary/index.twig:47
-#: resources/templates/database/data_dictionary/index.twig:91
+#: resources/templates/database/data_dictionary/index.twig:48
+#: resources/templates/database/data_dictionary/index.twig:92
 #: resources/templates/database/designer/main.twig:1114
 #: resources/templates/database/privileges/index.twig:69
 #: resources/templates/database/structure/drop_form.twig:20
@@ -913,8 +913,8 @@ msgstr "Ja"
 
 #: resources/templates/config/form_display/input.twig:42
 #: resources/templates/database/central_columns/main.twig:362
-#: resources/templates/database/data_dictionary/index.twig:47
-#: resources/templates/database/data_dictionary/index.twig:91
+#: resources/templates/database/data_dictionary/index.twig:48
+#: resources/templates/database/data_dictionary/index.twig:92
 #: resources/templates/database/designer/main.twig:1115
 #: resources/templates/database/privileges/index.twig:69
 #: resources/templates/database/structure/drop_form.twig:21
@@ -1040,8 +1040,8 @@ msgstr "Löschen"
 #: resources/templates/server/privileges/user_properties.twig:70
 #: resources/templates/table/operations/index.twig:57
 #: resources/templates/table/operations/index.twig:63
-#: resources/templates/table/operations/index.twig:258
-#: resources/templates/table/operations/index.twig:264
+#: resources/templates/table/operations/index.twig:265
+#: resources/templates/table/operations/index.twig:271
 #: resources/templates/table/relation/common_form.twig:38
 #: resources/templates/table/relation/common_form.twig:95
 #: resources/templates/table/relation/foreign_key_row.twig:91
@@ -1074,7 +1074,7 @@ msgstr "Verlaufsprotokoll"
 #: resources/templates/console/display.twig:175
 #: resources/templates/database/designer/database_tables.twig:116
 #: resources/templates/database/routines/editor_form.twig:58
-#: resources/templates/table/structure/display_table_stats.twig:96
+#: resources/templates/table/structure/display_table_stats.twig:94
 #: src/Import/Import.php:1169 src/Import/Import.php:1227
 #: src/Plugins/Export/ExportCodegen.php:58 src/Plugins/Export/ExportCsv.php:54
 #: src/Plugins/Export/ExportExcel.php:57
@@ -1408,14 +1408,14 @@ msgid "Database comment:"
 msgstr "Datenbankkommentar:"
 
 #: resources/templates/database/data_dictionary/index.twig:8
-#: resources/templates/database/data_dictionary/index.twig:124
+#: resources/templates/database/data_dictionary/index.twig:125
 #: resources/templates/database/structure/index.twig:13
 #: resources/templates/display/results/table.twig:351
 #: resources/templates/table/structure/display_structure.twig:382
 msgid "Print"
 msgstr "Drucken"
 
-#: resources/templates/database/data_dictionary/index.twig:27
+#: resources/templates/database/data_dictionary/index.twig:28
 #: src/Plugins/Export/ExportHtmlword.php:342
 #: src/Plugins/Export/ExportLatex.php:500 src/Plugins/Export/ExportOdt.php:442
 #: src/Plugins/Export/ExportTexytext.php:350
@@ -1425,7 +1425,7 @@ msgstr "Drucken"
 msgid "Links to"
 msgstr "Verweise"
 
-#: resources/templates/database/data_dictionary/index.twig:68
+#: resources/templates/database/data_dictionary/index.twig:69
 #: resources/templates/indexes.twig:3
 #: resources/templates/table/structure/display_structure.twig:458
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:1
@@ -1435,7 +1435,7 @@ msgstr "Verweise"
 msgid "Indexes"
 msgstr "Indizes"
 
-#: resources/templates/database/data_dictionary/index.twig:73
+#: resources/templates/database/data_dictionary/index.twig:74
 #: resources/templates/indexes.twig:17
 #: resources/templates/table/structure/display_structure.twig:472
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:5
@@ -1443,21 +1443,21 @@ msgstr "Indizes"
 msgid "Keyname"
 msgstr "Schlüsselname"
 
-#: resources/templates/database/data_dictionary/index.twig:76
+#: resources/templates/database/data_dictionary/index.twig:77
 #: resources/templates/indexes.twig:20
 #: resources/templates/table/structure/display_structure.twig:475
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:8
 msgid "Packed"
 msgstr "Gepackt"
 
-#: resources/templates/database/data_dictionary/index.twig:78
+#: resources/templates/database/data_dictionary/index.twig:79
 #: resources/templates/indexes.twig:22
 #: resources/templates/table/structure/display_structure.twig:477
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:10
 msgid "Cardinality"
 msgstr "Kardinalität"
 
-#: resources/templates/database/data_dictionary/index.twig:117
+#: resources/templates/database/data_dictionary/index.twig:118
 #: resources/templates/indexes.twig:93
 #: resources/templates/table/structure/display_structure.twig:556
 msgid "No index defined!"
@@ -1803,7 +1803,7 @@ msgstr "Definition"
 #: resources/templates/database/routines/editor_form.twig:121
 #: resources/templates/import.twig:160 resources/templates/import.twig:162
 #: resources/templates/sql/query.twig:40
-#: resources/templates/table/structure/display_table_stats.twig:83
+#: resources/templates/table/structure/display_table_stats.twig:81
 #: resources/templates/triggers/editor_form.twig:64
 #: src/Config/Descriptions.php:638 src/Config/Descriptions.php:654
 msgid "Format"
@@ -2007,7 +2007,7 @@ msgstr "Tabellen"
 
 #: resources/templates/database/export/index.twig:24
 #: resources/templates/server/privileges/privileges_table.twig:280
-#: resources/templates/table/structure/display_table_stats.twig:17
+#: resources/templates/table/structure/display_table_stats.twig:15
 #: src/Config/Forms/User/ExportForm.php:69
 #: src/Config/Forms/User/ExportForm.php:106
 #: src/Config/Forms/User/ExportForm.php:131
@@ -2160,7 +2160,7 @@ msgstr "Neuer Datenbankname"
 #: resources/templates/database/operations/index.twig:172
 #: resources/templates/table/operations/index.twig:78
 #: resources/templates/table/operations/index.twig:114
-#: resources/templates/table/operations/index.twig:314
+#: resources/templates/table/operations/index.twig:321
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details."
@@ -2193,21 +2193,21 @@ msgstr "Datenbankname"
 
 #: resources/templates/database/operations/index.twig:132
 #: resources/templates/database/structure/copy_form.twig:21
-#: resources/templates/table/operations/index.twig:276
+#: resources/templates/table/operations/index.twig:283
 #: src/Tracking/Tracking.php:272
 msgid "Structure only"
 msgstr "Nur Struktur"
 
 #: resources/templates/database/operations/index.twig:138
 #: resources/templates/database/structure/copy_form.twig:17
-#: resources/templates/table/operations/index.twig:282
+#: resources/templates/table/operations/index.twig:289
 #: src/Tracking/Tracking.php:278
 msgid "Structure and data"
 msgstr "Struktur und Daten"
 
 #: resources/templates/database/operations/index.twig:144
 #: resources/templates/database/structure/copy_form.twig:25
-#: resources/templates/table/operations/index.twig:288
+#: resources/templates/table/operations/index.twig:295
 #: src/Tracking/Tracking.php:275
 msgid "Data only"
 msgstr "Nur Daten"
@@ -2217,7 +2217,7 @@ msgid "CREATE DATABASE before copying"
 msgstr "Vor dem Kopieren CREATE DATABASE ausführen"
 
 #: resources/templates/database/operations/index.twig:156
-#: resources/templates/table/operations/index.twig:296
+#: resources/templates/table/operations/index.twig:303
 #: src/Config/Descriptions.php:695 src/Config/Descriptions.php:696
 #: src/Config/Descriptions.php:698 src/Config/Descriptions.php:701
 #: src/Config/Descriptions.php:702 src/Config/Descriptions.php:703
@@ -2228,14 +2228,14 @@ msgstr "%s hinzufügen"
 
 #: resources/templates/database/operations/index.twig:161
 #: resources/templates/table/operations/index.twig:73
-#: resources/templates/table/operations/index.twig:301
+#: resources/templates/table/operations/index.twig:308
 #: src/Config/Descriptions.php:687
 msgid "Add AUTO_INCREMENT value"
 msgstr "AUTO_INCREMENT-Wert hinzufügen"
 
 #: resources/templates/database/operations/index.twig:166
 #: resources/templates/database/structure/copy_form.twig:39
-#: resources/templates/table/operations/index.twig:307
+#: resources/templates/table/operations/index.twig:314
 msgid "Add constraints"
 msgstr "Constraints hinzufügen"
 
@@ -2633,7 +2633,7 @@ msgid "Show create"
 msgstr "Erzeugung anzeigen"
 
 #: resources/templates/database/structure/check_all_tables.twig:14
-#: resources/templates/table/operations/index.twig:404
+#: resources/templates/table/operations/index.twig:411
 #: resources/templates/table/operations/view.twig:26
 msgid "Delete data or table"
 msgstr "Daten oder Tabelle löschen"
@@ -2644,38 +2644,38 @@ msgid "Empty"
 msgstr "Leeren"
 
 #: resources/templates/database/structure/check_all_tables.twig:18
-#: resources/templates/table/operations/index.twig:335
+#: resources/templates/table/operations/index.twig:342
 msgid "Table maintenance"
 msgstr "Hilfsmittel"
 
 #: resources/templates/database/structure/check_all_tables.twig:19
 #: resources/templates/table/maintenance/analyze.twig:3
-#: resources/templates/table/operations/index.twig:340
+#: resources/templates/table/operations/index.twig:347
 msgid "Analyze table"
 msgstr "Analysiere Tabelle"
 
 #: resources/templates/database/structure/check_all_tables.twig:20
 #: resources/templates/table/maintenance/check.twig:3
-#: resources/templates/table/operations/index.twig:349
+#: resources/templates/table/operations/index.twig:356
 msgid "Check table"
 msgstr "Überprüfe Tabelle"
 
 #: resources/templates/database/structure/check_all_tables.twig:21
 #: resources/templates/table/maintenance/checksum.twig:3
-#: resources/templates/table/operations/index.twig:357
+#: resources/templates/table/operations/index.twig:364
 msgid "Checksum table"
 msgstr "Prüfsummentabelle"
 
 #: resources/templates/database/structure/check_all_tables.twig:22
 #: resources/templates/table/maintenance/optimize.twig:3
-#: resources/templates/table/operations/index.twig:385
-#: resources/templates/table/structure/display_table_stats.twig:67
+#: resources/templates/table/operations/index.twig:392
+#: resources/templates/table/structure/display_table_stats.twig:65
 msgid "Optimize table"
 msgstr "Optimiere Tabelle"
 
 #: resources/templates/database/structure/check_all_tables.twig:23
 #: resources/templates/table/maintenance/repair.twig:3
-#: resources/templates/table/operations/index.twig:394
+#: resources/templates/table/operations/index.twig:401
 msgid "Repair table"
 msgstr "Repariere Tabelle"
 
@@ -2793,7 +2793,7 @@ msgstr "Zeige Erzeugungsabfrage"
 #: resources/templates/server/privileges/user_properties.twig:81
 #: resources/templates/table/maintenance/checksum.twig:12
 #: resources/templates/table/operations/index.twig:66
-#: resources/templates/table/operations/index.twig:267
+#: resources/templates/table/operations/index.twig:274
 #: resources/templates/table/relation/common_form.twig:39
 #: resources/templates/table/relation/common_form.twig:102
 #: resources/templates/table/relation/foreign_key_row.twig:102
@@ -2855,7 +2855,7 @@ msgstr "in Benutzung"
 #: resources/templates/database/structure/table_header.twig:26
 #: resources/templates/table/structure/display_partitions.twig:29
 #: resources/templates/table/structure/display_structure.twig:220
-#: resources/templates/table/structure/display_table_stats.twig:118
+#: resources/templates/table/structure/display_table_stats.twig:116
 #: src/Controllers/Server/DatabasesController.php:259 src/Import/Import.php:130
 msgid "Rows"
 msgstr "Datensätze"
@@ -2875,23 +2875,23 @@ msgid "Size"
 msgstr "Größe"
 
 #: resources/templates/database/structure/table_header.twig:38
-#: resources/templates/table/structure/display_table_stats.twig:32
+#: resources/templates/table/structure/display_table_stats.twig:30
 #: src/Controllers/Server/DatabasesController.php:263
 msgid "Overhead"
 msgstr "Überhang"
 
 #: resources/templates/database/structure/table_header.twig:51
-#: resources/templates/table/structure/display_table_stats.twig:153
+#: resources/templates/table/structure/display_table_stats.twig:151
 msgid "Creation"
 msgstr "Erzeugt am"
 
 #: resources/templates/database/structure/table_header.twig:56
-#: resources/templates/table/structure/display_table_stats.twig:160
+#: resources/templates/table/structure/display_table_stats.twig:158
 msgid "Last update"
 msgstr "Aktualisiert am"
 
 #: resources/templates/database/structure/table_header.twig:61
-#: resources/templates/table/structure/display_table_stats.twig:167
+#: resources/templates/table/structure/display_table_stats.twig:165
 msgid "Last check"
 msgstr "Letzter Check am"
 
@@ -6497,7 +6497,7 @@ msgstr "Kuchendiagramm mit den Profiler-Ergebnissen."
 #: src/Controllers/Table/Partition/RepairController.php:49
 #: src/Controllers/Table/Partition/TruncateController.php:50
 #: src/Controllers/Table/RelationController.php:143
-#: src/Database/Routines.php:1019 src/Display/Results.php:3011
+#: src/Database/Routines.php:1019 src/Display/Results.php:3012
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "Ihr SQL-Befehl wurde erfolgreich ausgeführt."
@@ -6943,74 +6943,74 @@ msgstr "Tabelle umbenennen in"
 msgid "Table comments"
 msgstr "Tabellen-Kommentar"
 
-#: resources/templates/table/operations/index.twig:171
+#: resources/templates/table/operations/index.twig:178
 msgid "Change all column collations"
 msgstr "Alle Spaltenkollationen ändern"
 
-#: resources/templates/table/operations/index.twig:252
+#: resources/templates/table/operations/index.twig:259
 msgid "Copy table to (database.table)"
 msgstr "Kopiere Tabelle nach (Datenbank.Tabellenname)"
 
-#: resources/templates/table/operations/index.twig:323
+#: resources/templates/table/operations/index.twig:330
 msgid "Switch to copied table"
 msgstr "Zur kopierten Tabelle wechseln"
 
-#: resources/templates/table/operations/index.twig:365
+#: resources/templates/table/operations/index.twig:372
 msgid "Defragment table"
 msgstr "Tabelle defragmentieren"
 
-#: resources/templates/table/operations/index.twig:373
+#: resources/templates/table/operations/index.twig:380
 #, php-format
 msgid "Table %s has been flushed."
 msgstr ""
 "Die Tabelle %s wurde geschlossen und zwischengespeicherte Daten gespeichert."
 
-#: resources/templates/table/operations/index.twig:377
+#: resources/templates/table/operations/index.twig:384
 msgid "Flush the table (FLUSH)"
 msgstr "Leeren des Tabellenzwischenspeichers (FLUSH)"
 
-#: resources/templates/table/operations/index.twig:411
-#: resources/templates/table/operations/index.twig:429
+#: resources/templates/table/operations/index.twig:418
+#: resources/templates/table/operations/index.twig:436
 #: src/Controllers/Database/StructureController.php:401
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "Die Tabelle %s wurde geleert."
 
-#: resources/templates/table/operations/index.twig:414
+#: resources/templates/table/operations/index.twig:421
 msgid "Empty the table (TRUNCATE)"
 msgstr "Tabelle leeren (TRUNCATE)"
 
-#: resources/templates/table/operations/index.twig:432
+#: resources/templates/table/operations/index.twig:439
 msgid "Empty the table (DELETE FROM)"
 msgstr "Tabelle leeren (DELETE FROM)"
 
-#: resources/templates/table/operations/index.twig:452
+#: resources/templates/table/operations/index.twig:459
 #: resources/templates/table/operations/view.twig:32
 #: src/Controllers/Database/StructureController.php:354
 #, php-format
 msgid "View %s has been dropped."
 msgstr "Die Ansicht %s wurde gelöscht."
 
-#: resources/templates/table/operations/index.twig:452
+#: resources/templates/table/operations/index.twig:459
 #: src/Controllers/Database/StructureController.php:354
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "Die Tabelle %s wurde gelöscht."
 
-#: resources/templates/table/operations/index.twig:453
+#: resources/templates/table/operations/index.twig:460
 msgid "Delete the table (DROP)"
 msgstr "Tabelle löschen (DROP)"
 
-#: resources/templates/table/operations/index.twig:475
+#: resources/templates/table/operations/index.twig:482
 msgid "Partition maintenance"
 msgstr "Partitions-Hilfsmittel"
 
-#: resources/templates/table/operations/index.twig:501
+#: resources/templates/table/operations/index.twig:508
 #: resources/templates/table/structure/display_partitions.twig:202
 msgid "Remove partitioning"
 msgstr "Entferne die Partitionierung"
 
-#: resources/templates/table/operations/index.twig:514
+#: resources/templates/table/operations/index.twig:521
 msgid "Check referential integrity"
 msgstr "Prüfe referentielle Integrität"
 
@@ -7324,46 +7324,46 @@ msgstr "am Tabellenanfang"
 msgid "Create an index on %s columns"
 msgstr "Erstelle Index über %s Spalten"
 
-#: resources/templates/table/structure/display_table_stats.twig:14
+#: resources/templates/table/structure/display_table_stats.twig:12
 msgid "Space usage"
 msgstr "Speicherplatzverbrauch"
 
-#: resources/templates/table/structure/display_table_stats.twig:37
+#: resources/templates/table/structure/display_table_stats.twig:35
 msgid "Effective"
 msgstr "Effektiv"
 
-#: resources/templates/table/structure/display_table_stats.twig:45
+#: resources/templates/table/structure/display_table_stats.twig:43
 #: src/Controllers/Server/DatabasesController.php:262
 #: src/Controllers/Server/Status/StatusController.php:141
 #: src/Controllers/Server/Status/StatusController.php:191
 msgid "Total"
 msgstr "Insgesamt"
 
-#: resources/templates/table/structure/display_table_stats.twig:79
+#: resources/templates/table/structure/display_table_stats.twig:77
 msgid "Row statistics"
 msgstr "Datensatz-Statistiken"
 
-#: resources/templates/table/structure/display_table_stats.twig:85
+#: resources/templates/table/structure/display_table_stats.twig:83
 msgid "static"
 msgstr "statisch"
 
-#: resources/templates/table/structure/display_table_stats.twig:87
+#: resources/templates/table/structure/display_table_stats.twig:85
 msgid "dynamic"
 msgstr "dynamisch"
 
-#: resources/templates/table/structure/display_table_stats.twig:98
+#: resources/templates/table/structure/display_table_stats.twig:96
 msgid "partitioned"
 msgstr "partitioniert"
 
-#: resources/templates/table/structure/display_table_stats.twig:127
+#: resources/templates/table/structure/display_table_stats.twig:125
 msgid "Row length"
 msgstr "Zeilenlänge"
 
-#: resources/templates/table/structure/display_table_stats.twig:139
+#: resources/templates/table/structure/display_table_stats.twig:137
 msgid "Row size"
 msgstr "Zeilengröße"
 
-#: resources/templates/table/structure/display_table_stats.twig:146
+#: resources/templates/table/structure/display_table_stats.twig:144
 msgid "Next autoindex"
 msgstr "Nächster Autoindex"
 
@@ -11230,7 +11230,7 @@ msgstr "Navigationspanelbreite"
 
 #: src/Config/Descriptions.php:811
 #: src/Controllers/JavaScriptMessagesController.php:586
-#: src/Navigation/NavigationTree.php:1267
+#: src/Navigation/NavigationTree.php:1282
 msgid "Link with main panel"
 msgstr "Mit Hauptpanel verknüpfen"
 
@@ -12432,7 +12432,7 @@ msgid "Success!"
 msgstr "Erfolg!"
 
 #: src/Controllers/Database/StructureController.php:567
-#: src/Display/Results.php:3292
+#: src/Display/Results.php:3298
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -13996,7 +13996,7 @@ msgid "Hide panel"
 msgstr "Panel ausblenden"
 
 #: src/Controllers/JavaScriptMessagesController.php:587
-#: src/Navigation/NavigationTree.php:1270
+#: src/Navigation/NavigationTree.php:1285
 msgid "Unlink from main panel"
 msgstr "Verknüpfung mit Hauptpanel aufheben"
 
@@ -14642,7 +14642,7 @@ msgid "No such column"
 msgstr "Keine solche Spalte"
 
 #: src/Controllers/Normalization/GetColumnsController.php:35
-#: src/Normalization.php:226 src/Types.php:646
+#: src/Normalization.php:226 src/Types.php:648
 msgctxt "string types"
 msgid "String"
 msgstr "Zeichenkette"
@@ -16017,27 +16017,27 @@ msgstr "Der Datensatz wurde gelöscht."
 
 # (s is the abbreviation of "Sekunde", sec is it not (according to
 # International System of Units), so we wrote the complete one.)
-#: src/Display/Results.php:3016 src/Display/Results.php:3333 src/Sql.php:894
+#: src/Display/Results.php:3017 src/Display/Results.php:3339 src/Sql.php:894
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Die Abfrage dauerte %01.4f Sekunden."
 
-#: src/Display/Results.php:3301
+#: src/Display/Results.php:3307
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Zeige Datensätze %1s - %2s"
 
-#: src/Display/Results.php:3315
+#: src/Display/Results.php:3321
 #, php-format
 msgid "%1$s total, %2$s in query"
 msgstr "%1$s insgesamt, %2$s in Abfragen"
 
-#: src/Display/Results.php:3320
+#: src/Display/Results.php:3326
 #, php-format
 msgid "%s total"
 msgstr "%s insgesamt"
 
-#: src/Display/Results.php:3629
+#: src/Display/Results.php:3635
 msgid "Link not found!"
 msgstr "Der Verweis wurde nicht gefunden!"
 
@@ -16756,7 +16756,7 @@ msgstr "Prozeduren:"
 msgid "Views:"
 msgstr "Ansichten:"
 
-#: src/Navigation/NavigationTree.php:743
+#: src/Navigation/NavigationTree.php:758
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
@@ -16765,18 +16765,18 @@ msgstr ""
 "Geschwindigkeit leiden. Eventuell sollten Sie das Gruppieren von Elementen "
 "im Navigations-Panel abschalten."
 
-#: src/Navigation/NavigationTree.php:808
+#: src/Navigation/NavigationTree.php:823
 msgid "Groups"
 msgstr "Gruppen"
 
-#: src/Navigation/NavigationTree.php:913
+#: src/Navigation/NavigationTree.php:928
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
 msgstr[0] "%s Ergebnis gefunden"
 msgstr[1] "%s Ergebnisse gefunden"
 
-#: src/Navigation/NavigationTree.php:1262
+#: src/Navigation/NavigationTree.php:1277
 msgid "Collapse all"
 msgstr "Alles auf-/zuklappen"
 
@@ -19132,17 +19132,17 @@ msgstr ""
 msgid "128-bit UUID (Universally Unique Identifier)"
 msgstr "128-Bit UUID (Universell eindeutiger Bezeichner)"
 
-#: src/Types.php:600
+#: src/Types.php:602
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr "Numerisch"
 
-#: src/Types.php:618
+#: src/Types.php:620
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "Datum und Uhrzeit"
 
-#: src/Types.php:648
+#: src/Types.php:650
 msgctxt "spatial types"
 msgid "Spatial"
 msgstr "Räumlich"
