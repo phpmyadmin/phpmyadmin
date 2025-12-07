@@ -15,7 +15,7 @@ AJAX.registerTeardown('table/find_replace.js', function () {
  * Bind events
  */
 AJAX.registerOnload('table/find_replace.js', function () {
-    $('<div id="toggle_find_div"><a id="toggle_find"></a></div>')
+    $('<div id="toggle_find_div"><button class="btn btn-sm btn-secondary" type="button" id="toggle_find"></button></div>')
         .insertAfter('#find_replace_form')
         .hide();
 
