@@ -927,7 +927,7 @@ final class StructureController implements InvocableController
      *
      * @return array{(string|int|null)[][], int|null}
      */
-    public function getDbInfo(ServerRequest $request, string $db, bool $isResultLimited = true): array
+    public function getDbInfo(ServerRequest $request, string $db): array
     {
         /**
          * information about tables in db
@@ -1004,11 +1004,9 @@ final class StructureController implements InvocableController
             //  (needed for proper working of the MaxTableList feature)
             $tables = $this->dbi->getTables($db);
             $totalNumTables = count($tables);
-            if ($isResultLimited) {
-                // fetch the details for a possible limited subset
-                $limitOffset = $this->getTableListPosition($request, $db);
-                $limitCount = true;
-            }
+            // fetch the details for a possible limited subset
+            $limitOffset = $this->getTableListPosition($request, $db);
+            $limitCount = true;
         }
 
         // We must use union operator here instead of array_merge to preserve numerical keys
