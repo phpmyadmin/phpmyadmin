@@ -103,13 +103,21 @@ final class StructureController implements InvocableController
         // Special speedup for newer MySQL Versions (in 4.0 format changed)
         if ($this->config->settings['SkipLockedTables'] === true) {
             $tables = $this->getTablesWhenOpen(Current::$database);
+            $totalNumTables = count($tables);
         } else {
-            [$tables, $totalNumTables] = $this->getDbInfo($request, Current::$database);
+            [$tables, $totalNumTables] = $this->getDbInfo(
+                Current::$database,
+                $request->getParam('sort'),
+                $request->getParam('sort_order'),
+                $request->getParam('tbl_group'),
+                $request->getParam('tbl_type'),
+                $request->getParam('pos'),
+            );
         }
 
         $this->tables = $tables;
         $this->numTables = count($tables);
-        $this->position = $this->getTableListPosition($request, Current::$database);
+        $this->position = $this->getTableListPosition($request->getParam('pos'), Current::$database);
         $this->totalNumTables = $totalNumTables ?? count($tables);
 
         /**
@@ -927,8 +935,14 @@ final class StructureController implements InvocableController
      *
      * @return array{(string|int|null)[][], int|null}
      */
-    public function getDbInfo(ServerRequest $request, string $db): array
-    {
+    public function getDbInfo(
+        string $db,
+        mixed $sortParam,
+        mixed $sortOrderParam,
+        mixed $tableGroupParam,
+        mixed $tableTypeParam,
+        string|null $posParam,
+    ): array {
         /**
          * information about tables in db
          */
@@ -939,8 +953,6 @@ final class StructureController implements InvocableController
         $sort = 'Name';
         $sortOrder = 'ASC';
 
-        /** @var mixed $sortParam */
-        $sortParam = $request->getParam('sort');
         if (is_string($sortParam)) {
             $sortableNameMappings = [
                 'table' => 'Name',
@@ -958,7 +970,7 @@ final class StructureController implements InvocableController
             // Make sure the sort type is implemented
             if (isset($sortableNameMappings[$sortParam])) {
                 $sort = $sortableNameMappings[$sortParam];
-                if ($request->getParam('sort_order') === 'DESC') {
+                if ($sortOrderParam === 'DESC') {
                     $sortOrder = 'DESC';
                 }
             }
@@ -970,10 +982,6 @@ final class StructureController implements InvocableController
         $limitCount = false;
         $groupTable = [];
 
-        /** @var mixed $tableGroupParam */
-        $tableGroupParam = $request->getParam('tbl_group');
-        /** @var mixed $tableTypeParam */
-        $tableTypeParam = $request->getParam('tbl_type');
         if (
             is_string($tableGroupParam) && $tableGroupParam !== ''
             || is_string($tableTypeParam) && $tableTypeParam !== ''
@@ -1005,7 +1013,7 @@ final class StructureController implements InvocableController
             $tables = $this->dbi->getTables($db);
             $totalNumTables = count($tables);
             // fetch the details for a possible limited subset
-            $limitOffset = $this->getTableListPosition($request, $db);
+            $limitOffset = $this->getTableListPosition($posParam, $db);
             $limitCount = true;
         }
 
@@ -1112,7 +1120,7 @@ final class StructureController implements InvocableController
         return $tables;
     }
 
-    public function getTableListPosition(ServerRequest $request, string $db): int
+    public function getTableListPosition(string|null $posParam, string $db): int
     {
         if (
             ! isset($_SESSION['tmpval']['table_limit_offset'])
@@ -1122,8 +1130,6 @@ final class StructureController implements InvocableController
             $_SESSION['tmpval']['table_limit_offset_db'] = $db;
         }
 
-        /** @var string|null $posParam */
-        $posParam = $request->getParam('pos');
         if (is_numeric($posParam)) {
             $_SESSION['tmpval']['table_limit_offset'] = (int) $posParam;
         }

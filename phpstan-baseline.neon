@@ -2074,6 +2074,12 @@ parameters:
 			path: src/Controllers/Database/StructureController.php
 
 		-
+			message: '#^Parameter \#1 \$posParam of method PhpMyAdmin\\Controllers\\Database\\StructureController\:\:getTableListPosition\(\) expects string\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Controllers/Database/StructureController.php
+
+		-
 			message: '#^Parameter \#1 \$str of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:escapeMysqlWildcards\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -2141,6 +2147,12 @@ parameters:
 
 		-
 			message: '#^Parameter \#3 \$name of static method PhpMyAdmin\\Charsets\:\:findCollationByName\(\) expects string, int\|string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Controllers/Database/StructureController.php
+
+		-
+			message: '#^Parameter \#6 \$posParam of method PhpMyAdmin\\Controllers\\Database\\StructureController\:\:getDbInfo\(\) expects string\|null, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Database/StructureController.php

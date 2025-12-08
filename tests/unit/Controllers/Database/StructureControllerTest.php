@@ -19,7 +19,6 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
 use PhpMyAdmin\Tracking\TrackingChecker;
 use PHPUnit\Framework\Attributes\CoversClass;
-use Psr\Http\Message\ServerRequestInterface;
 use ReflectionClass;
 use ReflectionException;
 
@@ -446,7 +445,7 @@ class StructureControllerTest extends AbstractTestCase
             'TABLE_TYPE' => 'BASE TABLE',
         ];
         $expected = [['test_table' => $tableInfo], 1];
-        $actual = $structureController->getDbInfo(self::createStub(ServerRequest::class), 'test_db');
+        $actual = $structureController->getDbInfo('test_db', null, null, null, null, null);
         self::assertSame($expected, $actual);
     }
 
@@ -466,19 +465,15 @@ class StructureControllerTest extends AbstractTestCase
         );
 
         // Default 0
-        $actual = $structureController->getTableListPosition(self::createStub(ServerRequest::class), 'test_db');
+        $actual = $structureController->getTableListPosition(null, 'test_db');
         self::assertSame(0, $actual);
 
         // From POST
-        $requestStub = self::createStub(ServerRequestInterface::class);
-        $requestStub->method('getQueryParams')->willReturn([]);
-        $requestStub->method('getParsedBody')->willReturn(['pos' => '250']);
-        $request = new ServerRequest($requestStub);
-        $actual = $structureController->getTableListPosition($request, 'test_db');
+        $actual = $structureController->getTableListPosition('250', 'test_db');
         self::assertSame(250, $actual);
 
         // From SESSION
-        $actual = $structureController->getTableListPosition(self::createStub(ServerRequest::class), 'test_db');
+        $actual = $structureController->getTableListPosition(null, 'test_db');
         self::assertSame(250, $actual);
     }
 }
