@@ -162,6 +162,7 @@ readonly class SqlController implements InvocableController
             ]);
         }
 
+        Current::$messageToShow = $request->getParsedBodyParamAsString('message_to_show', '');
         $this->response->addHTML($this->sql->executeQueryAndSendQueryResponse(
             $statementInfo,
             $isGotofile,

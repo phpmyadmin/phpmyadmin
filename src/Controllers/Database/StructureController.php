@@ -41,7 +41,6 @@ use function __;
 use function array_search;
 use function ceil;
 use function count;
-use function htmlspecialchars;
 use function implode;
 use function in_array;
 use function is_string;
@@ -51,8 +50,6 @@ use function md5;
 use function preg_match;
 use function preg_quote;
 use function sprintf;
-use function str_replace;
-use function urlencode;
 
 /**
  * Handles database structure logic
@@ -349,11 +346,7 @@ final class StructureController implements InvocableController
                 );
                 $dropMessage = sprintf(
                     ($tableIsView ? __('View %s has been dropped.') : __('Table %s has been dropped.')),
-                    str_replace(
-                        ' ',
-                        '&nbsp;',
-                        htmlspecialchars($currentTable['TABLE_NAME']),
-                    ),
+                    $currentTable['TABLE_NAME'],
                 );
             }
 
@@ -393,14 +386,6 @@ final class StructureController implements InvocableController
                 'browse_table_label_title' => $currentTable['TABLE_COMMENT'],
                 'browse_table_label_truename' => $truename,
                 'empty_table_sql_query' => 'TRUNCATE ' . Util::backquote($currentTable['TABLE_NAME']),
-                'empty_table_message_to_show' => urlencode(
-                    sprintf(
-                        __('Table %s has been emptied.'),
-                        htmlspecialchars(
-                            $currentTable['TABLE_NAME'],
-                        ),
-                    ),
-                ),
                 'tracking_icon' => $this->getTrackingIcon($truename, $trackedTables[$truename] ?? null),
                 'server_replica_status' => $replicaInfo['status'],
                 'table_url_params' => $tableUrlParams,
@@ -639,8 +624,8 @@ final class StructureController implements InvocableController
      * @internal param bool $table_is_view whether table is view or not
      *
      * @param (string|int|null)[] $currentTable current table
-     * @param int     $sumSize      total table size
-     * @param int     $overheadSize overhead size
+     * @param int                 $sumSize      total table size
+     * @param int                 $overheadSize overhead size
      *
      * @return list{(string|int|null)[], string, string, string, string, int, bool, int}
      */
@@ -758,12 +743,12 @@ final class StructureController implements InvocableController
      * Get values for ARIA/MARIA tables
      *
      * @param (string|int|null)[] $currentTable      current table
-     * @param int     $sumSize           sum size
-     * @param int     $overheadSize      overhead size
-     * @param string  $formattedSize     formatted size
-     * @param string  $unit              unit
-     * @param string  $formattedOverhead overhead formatted
-     * @param string  $overheadUnit      overhead unit
+     * @param int                 $sumSize           sum size
+     * @param int                 $overheadSize      overhead size
+     * @param string              $formattedSize     formatted size
+     * @param string              $unit              unit
+     * @param string              $formattedOverhead overhead formatted
+     * @param string              $overheadUnit      overhead unit
      *
      * @return array{(string|int|null)[], string, string, string, string, int|float, int}
      */
@@ -800,7 +785,7 @@ final class StructureController implements InvocableController
      * Get values for InnoDB table
      *
      * @param (string|int|null)[] $currentTable current table
-     * @param int     $sumSize      sum size
+     * @param int                 $sumSize      sum size
      *
      * @return array{(string|int|null)[], string, string, int}
      */
@@ -899,7 +884,7 @@ final class StructureController implements InvocableController
      * Get values for Mroonga table
      *
      * @param (string|int|null)[] $currentTable current table
-     * @param int     $sumSize      sum size
+     * @param int                 $sumSize      sum size
      *
      * @return array{(string|int|null)[], string, string, int}
      */

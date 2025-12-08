@@ -69,7 +69,7 @@
           <td class="text-center d-print-none">
                 <a class="truncate_table_anchor ajax" href="{{ url('/sql') }}" data-post="{{ get_common(table_url_params|merge({
                   'sql_query': empty_table_sql_query,
-                  'message_to_show': empty_table_message_to_show
+                  'message_to_show': t('Table %s has been emptied.')|format(current_table['TABLE_NAME']),
                 }), '') }}">
                   {{ may_have_rows ? get_icon('b_empty', t('Empty')) : get_icon('bd_empty', t('Empty')) }}
                 </a>

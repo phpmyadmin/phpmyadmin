@@ -2080,12 +2080,6 @@ parameters:
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, int\|string\|null given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/Controllers/Database/StructureController.php
-
-		-
 			message: '#^Parameter \#1 \$string of function md5 expects string, int\|string\|null given\.$#'
 			identifier: argument.type
 			count: 1

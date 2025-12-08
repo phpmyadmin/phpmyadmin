@@ -1200,8 +1200,6 @@
       <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
       <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
       <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
-      <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
-      <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
       <code><![CDATA[$truename]]></code>
       <code><![CDATA[$truename]]></code>
     </PossiblyInvalidArgument>
@@ -1215,6 +1213,9 @@
       <code><![CDATA[$currentTable['TABLE_ROWS']]]></code>
       <code><![CDATA[$currentTable['TABLE_ROWS']]]></code>
     </PossiblyInvalidOperand>
+    <PossiblyNullArgument>
+      <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
+    </PossiblyNullArgument>
     <PossiblyNullOperand>
       <code><![CDATA[$columnNames]]></code>
       <code><![CDATA[$currentTable['Data_length']]]></code>

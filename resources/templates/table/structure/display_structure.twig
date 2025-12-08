@@ -115,7 +115,7 @@
                       'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' DROP ' ~ backquote(row.field) ~ ';',
                       'dropped_column': row.field,
                       'purge': true,
-                      'message_to_show': t('Column %s has been dropped.')|format(row.field|e)
+                      'message_to_show': t('Column %s has been dropped.')|format(row.field)
                     }, '', false) }}">
                       {{ get_icon('b_drop', t('Drop')) }}
                     </a>
