@@ -324,8 +324,7 @@ final class StructureController implements InvocableController
 
             $rowCount++;
             if ($tableIsView) {
-                $hiddenFields[] = '<input type="hidden" name="views[]" value="'
-                    . htmlspecialchars($currentTable['TABLE_NAME']) . '">';
+                $hiddenFields[] = ['name' => 'views[]', 'value' => $currentTable['TABLE_NAME']];
             }
 
             /**

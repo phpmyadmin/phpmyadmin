@@ -1203,7 +1203,6 @@
       <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
       <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
       <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
-      <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
       <code><![CDATA[$truename]]></code>
       <code><![CDATA[$truename]]></code>
     </PossiblyInvalidArgument>

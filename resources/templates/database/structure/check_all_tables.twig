@@ -36,7 +36,9 @@
             </optgroup>
         {% endif %}
     </select>
-    {{ hidden_fields|join('\n')|raw }}
+    {% for hidden_field in hidden_fields %}
+        <input type="hidden" name="{{ hidden_field.name }}" value="{{ hidden_field.value }}">
+    {% endfor %}
 </div>
 
 {% if central_columns_work is defined and central_columns_work %}
