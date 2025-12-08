@@ -924,106 +924,109 @@ final class StructureController implements InvocableController
      */
     public function getDbInfo(ServerRequest $request, string $db, bool $isResultLimited = true): array
     {
+        // Special speedup for newer MySQL Versions (in 4.0 format changed)
+        if ($this->config->settings['SkipLockedTables'] === true) {
+            $tables = $this->getTablesWhenOpen($db);
+
+            return [
+                $tables,
+                count($tables), // needed for proper working of the MaxTableList feature
+            ];
+        }
+
         /**
          * information about tables in db
          */
         $tables = [];
-
-        // Special speedup for newer MySQL Versions (in 4.0 format changed)
-        if ($this->config->settings['SkipLockedTables'] === true) {
-            $tables = $this->getTablesWhenOpen($db);
-        }
-
         $totalNumTables = null;
-        if ($tables === []) {
-            // Set some sorting defaults
-            $sort = 'Name';
-            $sortOrder = 'ASC';
 
-            /** @var mixed $sortParam */
-            $sortParam = $request->getParam('sort');
-            if (is_string($sortParam)) {
-                $sortableNameMappings = [
-                    'table' => 'Name',
-                    'records' => 'Rows',
-                    'type' => 'Engine',
-                    'collation' => 'Collation',
-                    'size' => 'Data_length',
-                    'overhead' => 'Data_free',
-                    'creation' => 'Create_time',
-                    'last_update' => 'Update_time',
-                    'last_check' => 'Check_time',
-                    'comment' => 'Comment',
-                ];
+        // Set some sorting defaults
+        $sort = 'Name';
+        $sortOrder = 'ASC';
 
-                // Make sure the sort type is implemented
-                if (isset($sortableNameMappings[$sortParam])) {
-                    $sort = $sortableNameMappings[$sortParam];
-                    if ($request->getParam('sort_order') === 'DESC') {
-                        $sortOrder = 'DESC';
-                    }
+        /** @var mixed $sortParam */
+        $sortParam = $request->getParam('sort');
+        if (is_string($sortParam)) {
+            $sortableNameMappings = [
+                'table' => 'Name',
+                'records' => 'Rows',
+                'type' => 'Engine',
+                'collation' => 'Collation',
+                'size' => 'Data_length',
+                'overhead' => 'Data_free',
+                'creation' => 'Create_time',
+                'last_update' => 'Update_time',
+                'last_check' => 'Check_time',
+                'comment' => 'Comment',
+            ];
+
+            // Make sure the sort type is implemented
+            if (isset($sortableNameMappings[$sortParam])) {
+                $sort = $sortableNameMappings[$sortParam];
+                if ($request->getParam('sort_order') === 'DESC') {
+                    $sortOrder = 'DESC';
                 }
             }
-
-            $groupWithSeparator = false;
-            $tableType = null;
-            $limitOffset = 0;
-            $limitCount = false;
-            $groupTable = [];
-
-            /** @var mixed $tableGroupParam */
-            $tableGroupParam = $request->getParam('tbl_group');
-            /** @var mixed $tableTypeParam */
-            $tableTypeParam = $request->getParam('tbl_type');
-            if (
-                is_string($tableGroupParam) && $tableGroupParam !== ''
-                || is_string($tableTypeParam) && $tableTypeParam !== ''
-            ) {
-                if (is_string($tableTypeParam) && $tableTypeParam !== '') {
-                    // only tables for selected type
-                    $tableType = $tableTypeParam;
-                }
-
-                if (is_string($tableGroupParam) && $tableGroupParam !== '') {
-                    // only tables for selected group
-                    // include the table with the exact name of the group if such exists
-                    $groupTable = $this->dbi->getTablesFull(
-                        $db,
-                        $tableGroupParam,
-                        false,
-                        0,
-                        false,
-                        $sort,
-                        $sortOrder,
-                        $tableType,
-                    );
-                    $groupWithSeparator = $tableGroupParam . $this->config->settings['NavigationTreeTableSeparator'];
-                }
-            } else {
-                // all tables in db
-                // - get the total number of tables
-                //  (needed for proper working of the MaxTableList feature)
-                $tables = $this->dbi->getTables($db);
-                $totalNumTables = count($tables);
-                if ($isResultLimited) {
-                    // fetch the details for a possible limited subset
-                    $limitOffset = $this->getTableListPosition($request, $db);
-                    $limitCount = true;
-                }
-            }
-
-            // We must use union operator here instead of array_merge to preserve numerical keys
-            $tables = $groupTable + $this->dbi->getTablesFull(
-                $db,
-                $groupWithSeparator !== false ? $groupWithSeparator : $tables,
-                $groupWithSeparator !== false,
-                $limitOffset,
-                $limitCount,
-                $sort,
-                $sortOrder,
-                $tableType,
-            );
         }
+
+        $groupWithSeparator = false;
+        $tableType = null;
+        $limitOffset = 0;
+        $limitCount = false;
+        $groupTable = [];
+
+        /** @var mixed $tableGroupParam */
+        $tableGroupParam = $request->getParam('tbl_group');
+        /** @var mixed $tableTypeParam */
+        $tableTypeParam = $request->getParam('tbl_type');
+        if (
+            is_string($tableGroupParam) && $tableGroupParam !== ''
+            || is_string($tableTypeParam) && $tableTypeParam !== ''
+        ) {
+            if (is_string($tableTypeParam) && $tableTypeParam !== '') {
+                // only tables for selected type
+                $tableType = $tableTypeParam;
+            }
+
+            if (is_string($tableGroupParam) && $tableGroupParam !== '') {
+                // only tables for selected group
+                // include the table with the exact name of the group if such exists
+                $groupTable = $this->dbi->getTablesFull(
+                    $db,
+                    $tableGroupParam,
+                    false,
+                    0,
+                    false,
+                    $sort,
+                    $sortOrder,
+                    $tableType,
+                );
+                $groupWithSeparator = $tableGroupParam . $this->config->settings['NavigationTreeTableSeparator'];
+            }
+        } else {
+            // all tables in db
+            // - get the total number of tables
+            //  (needed for proper working of the MaxTableList feature)
+            $tables = $this->dbi->getTables($db);
+            $totalNumTables = count($tables);
+            if ($isResultLimited) {
+                // fetch the details for a possible limited subset
+                $limitOffset = $this->getTableListPosition($request, $db);
+                $limitCount = true;
+            }
+        }
+
+        // We must use union operator here instead of array_merge to preserve numerical keys
+        $tables = $groupTable + $this->dbi->getTablesFull(
+            $db,
+            $groupWithSeparator !== false ? $groupWithSeparator : $tables,
+            $groupWithSeparator !== false,
+            $limitOffset,
+            $limitCount,
+            $sort,
+            $sortOrder,
+            $tableType,
+        );
 
         return [
             $tables,
