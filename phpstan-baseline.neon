@@ -1966,24 +1966,6 @@ parameters:
 			path: src/Controllers/Database/Structure/RealRowCountController.php
 
 		-
-			message: '#^Binary operation "\*" between bool\|int\|string\|null and int results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: '#^Binary operation "\*" between mixed and 2 results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: '#^Binary operation "\+" between \(float\|int\) and bool\|int\|string\|null results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
 			message: '#^Binary operation "\+" between bool\|int\|string\|null and bool\|int\|string\|null results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
@@ -2032,12 +2014,6 @@ parameters:
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: '#^Method PhpMyAdmin\\Controllers\\Database\\StructureController\:\:getValuesForCsvTable\(\) should return array\{array\<int\|string\|null\>, string, string, int\} but returns array\{non\-empty\-array\<bool\|int\|string\|null\>, string, string, int\}\.$#'
-			identifier: return.type
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
 			message: '#^Method PhpMyAdmin\\Controllers\\Database\\StructureController\:\:getValuesForInnodbTable\(\) should return array\{array\<int\|string\|null\>, string, string, int\} but returns array\{non\-empty\-array\<bool\|int\|string\|null\>, string, string, int\}\.$#'
 			identifier: return.type
 			count: 1
@@ -2062,19 +2038,13 @@ parameters:
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: '#^Parameter \#1 \$identifier of static method PhpMyAdmin\\Util\:\:backquote\(\) expects string\|Stringable\|null, bool\|int\|string\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
 			message: '#^Parameter \#1 \$identifier of static method PhpMyAdmin\\Util\:\:backquote\(\) expects string\|Stringable\|null, int\|string\|null given\.$#'
 			identifier: argument.type
-			count: 2
+			count: 3
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: '#^Parameter \#1 \$str of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, bool\|int\|string\|null given\.$#'
+			message: '#^Parameter \#1 \$str of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, int\|string\|null given\.$#'
 			identifier: argument.type
 			count: 2
 			path: src/Controllers/Database/StructureController.php
@@ -2118,13 +2088,13 @@ parameters:
 		-
 			message: '#^Parameter \#2 \$tableName of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:getTable\(\) expects string, int\|string\|null given\.$#'
 			identifier: argument.type
-			count: 3
+			count: 4
 			path: src/Controllers/Database/StructureController.php
 
 		-
 			message: '#^Parameter \#2 \$tableName of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:getTable\(\) expects string, int\|string\|true\|null given\.$#'
 			identifier: argument.type
-			count: 2
+			count: 1
 			path: src/Controllers/Database/StructureController.php
 
 		-

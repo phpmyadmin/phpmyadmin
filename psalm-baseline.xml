@@ -1141,10 +1141,8 @@
     </InvalidOperand>
     <InvalidReturnStatement>
       <code><![CDATA[[$currentTable, $formattedSize, $unit, $sumSize]]]></code>
-      <code><![CDATA[[$currentTable, $formattedSize, $unit, $sumSize]]]></code>
     </InvalidReturnStatement>
     <InvalidReturnType>
-      <code><![CDATA[array{(string|int|null)[], string, string, int}]]></code>
       <code><![CDATA[array{(string|int|null)[], string, string, int}]]></code>
     </InvalidReturnType>
     <LessSpecificReturnStatement>
@@ -1210,8 +1208,6 @@
       <code><![CDATA[$currentTable['Index_length']]]></code>
       <code><![CDATA[$currentTable['Index_length']]]></code>
       <code><![CDATA[$currentTable['Index_length']]]></code>
-      <code><![CDATA[$currentTable['TABLE_ROWS']]]></code>
-      <code><![CDATA[$currentTable['TABLE_ROWS']]]></code>
     </PossiblyInvalidOperand>
     <PossiblyNullArgument>
       <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
@@ -1226,12 +1222,7 @@
       <code><![CDATA[$currentTable['Index_length']]]></code>
       <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
       <code><![CDATA[$currentTable['TABLE_ROWS']]]></code>
-      <code><![CDATA[$currentTable['TABLE_ROWS']]]></code>
-      <code><![CDATA[$currentTable['TABLE_ROWS']]]></code>
     </PossiblyNullOperand>
-    <PossiblyUndefinedArrayOffset>
-      <code><![CDATA[$currentTable['TABLE_ROWS']]]></code>
-    </PossiblyUndefinedArrayOffset>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! $currentTable['COUNTED']]]></code>
     </RiskyTruthyFalsyComparison>

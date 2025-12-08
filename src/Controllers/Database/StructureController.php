@@ -537,7 +537,7 @@ final class StructureController implements InvocableController
         if (isset($currentTable['TABLE_ROWS']) && ($currentTable['ENGINE'] != null || $tableIsView)) {
             // InnoDB/TokuDB table: we did not get an accurate row count
             $approxRows = ! $tableIsView
-                && in_array($currentTable['ENGINE'], ['CSV', 'InnoDB', 'TokuDB'], true)
+                && in_array($currentTable['ENGINE'], ['InnoDB', 'TokuDB'], true)
                 && ! $currentTable['COUNTED'];
 
             if ($tableIsView && $currentTable['TABLE_ROWS'] >= $this->config->settings['MaxExactCountViews']) {
@@ -832,14 +832,9 @@ final class StructureController implements InvocableController
     {
         $formattedSize = $unit = '';
 
-        if ($currentTable['ENGINE'] === 'CSV') {
-            $currentTable['COUNTED'] = true;
-            $currentTable['TABLE_ROWS'] = $this->dbi
-                ->getTable(Current::$database, $currentTable['TABLE_NAME'])
-                ->countRecords(true);
-        } else {
-            $currentTable['COUNTED'] = false;
-        }
+        $currentTable['TABLE_ROWS'] = $this->dbi
+            ->getTable(Current::$database, $currentTable['TABLE_NAME'])
+            ->countRecords(true);
 
         if ($this->isShowStats) {
             // Only count columns that have double quotes
