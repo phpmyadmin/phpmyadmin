@@ -1486,8 +1486,7 @@ class Util
     /**
      * Gets the list of tables in the current db and information about these tables if possible.
      *
-     * @return array<int, array|int>
-     * @psalm-return array{array, int}
+     * @return array{(string|int|null)[][], int}
      */
     public static function getDbInfo(ServerRequest $request, string $db, bool $isResultLimited = true): array
     {
@@ -1604,7 +1603,7 @@ class Util
      * Gets the list of tables in the current db, taking into account
      * that they might be "in use"
      *
-     * @return mixed[] list of tables
+     * @return (string|int|null)[][] list of tables
      */
     private static function getTablesWhenOpen(string $db): array
     {

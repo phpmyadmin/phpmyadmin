@@ -72,7 +72,7 @@ final class StructureController implements InvocableController
     /** @var int Number of tables */
     private int $totalNumTables = 0;
 
-    /** @var mixed[] Tables in the database */
+    /** @var (string|int|null)[][] Tables in the database */
     private array $tables = [];
 
     /** @var bool whether stats show or not */
@@ -231,7 +231,6 @@ final class StructureController implements InvocableController
         $structureTableRows = [];
         $trackedTables = $this->trackingChecker->getTrackedTables(Current::$database);
         $recentFavoriteTables = RecentFavoriteTables::getInstance(TableType::Favorite);
-        /** @var mixed[] $currentTable */
         foreach ($this->tables as $currentTable) {
             // Get valid statistics whatever is the table type
 
@@ -255,8 +254,7 @@ final class StructureController implements InvocableController
                 $sumSize,
             ] = $this->getStuffForEngineTypeTable($currentTable, $sumSize, $overheadSize);
 
-            $curTable = $this->dbi
-                ->getTable(Current::$database, $currentTable['TABLE_NAME']);
+            $curTable = $this->dbi->getTable(Current::$database, $currentTable['TABLE_NAME']);
             if (! $curTable->isMerge()) {
                 $sumEntries += $currentTable['TABLE_ROWS'];
             }
@@ -535,8 +533,8 @@ final class StructureController implements InvocableController
     /**
      * Returns whether the row count is approximated
      *
-     * @param mixed[] $currentTable array containing details about the table
-     * @param bool    $tableIsView  whether the table is a view
+     * @param (string|int|null)[] $currentTable array containing details about the table
+     * @param bool                $tableIsView  whether the table is a view
      *
      * @return array{bool, string}
      */
@@ -641,11 +639,11 @@ final class StructureController implements InvocableController
      *
      * @internal param bool $table_is_view whether table is view or not
      *
-     * @param mixed[] $currentTable current table
+     * @param (string|int|null)[] $currentTable current table
      * @param int     $sumSize      total table size
      * @param int     $overheadSize overhead size
      *
-     * @psalm-return list{mixed[], string, string, string, string, int, bool, int}
+     * @return list{(string|int|null)[], string, string, string, string, int, bool, int}
      */
     private function getStuffForEngineTypeTable(
         array $currentTable,
@@ -760,7 +758,7 @@ final class StructureController implements InvocableController
     /**
      * Get values for ARIA/MARIA tables
      *
-     * @param mixed[] $currentTable      current table
+     * @param (string|int|null)[] $currentTable      current table
      * @param int     $sumSize           sum size
      * @param int     $overheadSize      overhead size
      * @param string  $formattedSize     formatted size
@@ -768,7 +766,7 @@ final class StructureController implements InvocableController
      * @param string  $formattedOverhead overhead formatted
      * @param string  $overheadUnit      overhead unit
      *
-     * @return array{mixed[], string, string, string, string, int|float, int}
+     * @return array{(string|int|null)[], string, string, string, string, int|float, int}
      */
     private function getValuesForAriaTable(
         array $currentTable,
@@ -787,8 +785,7 @@ final class StructureController implements InvocableController
 
         if ($this->isShowStats) {
             /** @var int $tblsize */
-            $tblsize = $currentTable['Data_length']
-                + $currentTable['Index_length'];
+            $tblsize = $currentTable['Data_length'] + $currentTable['Index_length'];
             $sumSize += $tblsize;
             [$formattedSize, $unit] = Util::formatByteDown($tblsize, 3, $tblsize > 0 ? 1 : 0);
             if (isset($currentTable['Data_free']) && $currentTable['Data_free'] > 0) {
@@ -803,10 +800,10 @@ final class StructureController implements InvocableController
     /**
      * Get values for InnoDB table
      *
-     * @param mixed[] $currentTable current table
+     * @param (string|int|null)[] $currentTable current table
      * @param int     $sumSize      sum size
      *
-     * @return array{mixed[], string, string, int}
+     * @return array{(string|int|null)[], string, string, int}
      */
     private function getValuesForInnodbTable(
         array $currentTable,
@@ -843,9 +840,9 @@ final class StructureController implements InvocableController
      *
      * https://bugs.mysql.com/bug.php?id=53929
      *
-     * @param mixed[] $currentTable
+     * @param (string|int|null)[] $currentTable
      *
-     * @return array{mixed[], string, string, int}
+     * @return array{(string|int|null)[], string, string, int}
      */
     private function getValuesForCsvTable(array $currentTable, int $sumSize): array
     {
@@ -902,10 +899,10 @@ final class StructureController implements InvocableController
     /**
      * Get values for Mroonga table
      *
-     * @param mixed[] $currentTable current table
+     * @param (string|int|null)[] $currentTable current table
      * @param int     $sumSize      sum size
      *
-     * @return array{mixed[], string, string, int}
+     * @return array{(string|int|null)[], string, string, int}
      */
     private function getValuesForMroongaTable(
         array $currentTable,

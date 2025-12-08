@@ -1135,6 +1135,18 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Database/StructureController.php">
+    <InvalidOperand>
+      <code><![CDATA[$currentTable['Data_free']]]></code>
+      <code><![CDATA[$currentTable['TABLE_ROWS']]]></code>
+    </InvalidOperand>
+    <InvalidReturnStatement>
+      <code><![CDATA[[$currentTable, $formattedSize, $unit, $sumSize]]]></code>
+      <code><![CDATA[[$currentTable, $formattedSize, $unit, $sumSize]]]></code>
+    </InvalidReturnStatement>
+    <InvalidReturnType>
+      <code><![CDATA[array{(string|int|null)[], string, string, int}]]></code>
+      <code><![CDATA[array{(string|int|null)[], string, string, int}]]></code>
+    </InvalidReturnType>
     <LessSpecificReturnStatement>
       <code><![CDATA[[
             $currentTable,
@@ -1146,11 +1158,37 @@
             $tableIsView,
             $sumSize,
         ]]]></code>
-      <code><![CDATA[[$currentTable, $formattedSize, $unit, $formattedOverhead, $overheadUnit, $overheadSize, $sumSize]]]></code>
     </LessSpecificReturnStatement>
     <MixedArgument>
+      <code><![CDATA[$dbTable]]></code>
+      <code><![CDATA[$replicaInfo['Do_DB']]]></code>
+      <code><![CDATA[$replicaInfo['Do_DB']]]></code>
+      <code><![CDATA[$replicaInfo['Do_DB']]]></code>
+      <code><![CDATA[$replicaInfo['Ignore_DB']]]></code>
+      <code><![CDATA[$replicaInfo['Ignore_DB']]]></code>
+      <code><![CDATA[$replicaInfo['Ignore_Table']]]></code>
+      <code><![CDATA[$replicaInfo['Wild_Do_Table']]]></code>
+      <code><![CDATA[$replicaInfo['Wild_Ignore_Table']]]></code>
+    </MixedArgument>
+    <MixedAssignment>
+      <code><![CDATA[$charset]]></code>
+      <code><![CDATA[$dbTable]]></code>
+      <code><![CDATA[$searchDb]]></code>
+      <code><![CDATA[$searchDoDBInDB]]></code>
+      <code><![CDATA[$searchDoDBInTruename]]></code>
+      <code><![CDATA[$searchTable]]></code>
+    </MixedAssignment>
+    <MixedMethodCall>
+      <code><![CDATA[getCharset]]></code>
+    </MixedMethodCall>
+    <MoreSpecificReturnType>
+      <code><![CDATA[list{(string|int|null)[], string, string, string, string, int, bool, int}]]></code>
+    </MoreSpecificReturnType>
+    <PossiblyFalseOperand>
+      <code><![CDATA[$columnNames]]></code>
+    </PossiblyFalseOperand>
+    <PossiblyInvalidArgument>
       <code><![CDATA[$currentTable['Collation']]]></code>
-      <code><![CDATA[$currentTable['Data_free']]]></code>
       <code><![CDATA[$currentTable['Name']]]></code>
       <code><![CDATA[$currentTable['TABLE_COMMENT']]]></code>
       <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
@@ -1166,58 +1204,44 @@
       <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
       <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
       <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
-      <code><![CDATA[$dbTable]]></code>
-      <code><![CDATA[$replicaInfo['Do_DB']]]></code>
-      <code><![CDATA[$replicaInfo['Do_DB']]]></code>
-      <code><![CDATA[$replicaInfo['Do_DB']]]></code>
-      <code><![CDATA[$replicaInfo['Ignore_DB']]]></code>
-      <code><![CDATA[$replicaInfo['Ignore_DB']]]></code>
-      <code><![CDATA[$replicaInfo['Ignore_Table']]]></code>
-      <code><![CDATA[$replicaInfo['Wild_Do_Table']]]></code>
-      <code><![CDATA[$replicaInfo['Wild_Ignore_Table']]]></code>
       <code><![CDATA[$truename]]></code>
-    </MixedArgument>
-    <MixedAssignment>
-      <code><![CDATA[$charset]]></code>
-      <code><![CDATA[$dbTable]]></code>
-      <code><![CDATA[$overheadSize]]></code>
-      <code><![CDATA[$quotesLength]]></code>
-      <code><![CDATA[$searchDb]]></code>
-      <code><![CDATA[$searchDoDBInDB]]></code>
-      <code><![CDATA[$searchDoDBInTruename]]></code>
-      <code><![CDATA[$searchTable]]></code>
-      <code><![CDATA[$sumEntries]]></code>
       <code><![CDATA[$truename]]></code>
-    </MixedAssignment>
-    <MixedMethodCall>
-      <code><![CDATA[getCharset]]></code>
-    </MixedMethodCall>
-    <MixedOperand>
-      <code><![CDATA[$currentTable['Data_free']]]></code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidOperand>
       <code><![CDATA[$currentTable['Data_length']]]></code>
       <code><![CDATA[$currentTable['Data_length']]]></code>
       <code><![CDATA[$currentTable['Data_length']]]></code>
-      <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
+      <code><![CDATA[$currentTable['Index_length']]]></code>
+      <code><![CDATA[$currentTable['Index_length']]]></code>
+      <code><![CDATA[$currentTable['Index_length']]]></code>
       <code><![CDATA[$currentTable['TABLE_ROWS']]]></code>
       <code><![CDATA[$currentTable['TABLE_ROWS']]]></code>
-      <code><![CDATA[$dataLength + $quotesLength]]></code>
-      <code><![CDATA[$quotesLength]]></code>
-    </MixedOperand>
-    <MoreSpecificReturnType>
-      <code><![CDATA[array{mixed[], string, string, string, string, int|float, int}]]></code>
-      <code><![CDATA[list{mixed[], string, string, string, string, int, bool, int}]]></code>
-    </MoreSpecificReturnType>
-    <PossiblyFalseOperand>
-      <code><![CDATA[$columnNames]]></code>
-    </PossiblyFalseOperand>
+    </PossiblyInvalidOperand>
     <PossiblyNullOperand>
       <code><![CDATA[$columnNames]]></code>
+      <code><![CDATA[$currentTable['Data_length']]]></code>
+      <code><![CDATA[$currentTable['Data_length']]]></code>
+      <code><![CDATA[$currentTable['Data_length']]]></code>
+      <code><![CDATA[$currentTable['Index_length']]]></code>
+      <code><![CDATA[$currentTable['Index_length']]]></code>
+      <code><![CDATA[$currentTable['Index_length']]]></code>
+      <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
+      <code><![CDATA[$currentTable['TABLE_ROWS']]]></code>
       <code><![CDATA[$currentTable['TABLE_ROWS']]]></code>
       <code><![CDATA[$currentTable['TABLE_ROWS']]]></code>
     </PossiblyNullOperand>
     <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$currentTable['TABLE_ROWS']]]></code>
     </PossiblyUndefinedArrayOffset>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[! $currentTable['COUNTED']]]></code>
+    </RiskyTruthyFalsyComparison>
+    <UnnecessaryVarAnnotation>
+      <code><![CDATA[int]]></code>
+      <code><![CDATA[int]]></code>
+      <code><![CDATA[int]]></code>
+      <code><![CDATA[int]]></code>
+    </UnnecessaryVarAnnotation>
   </file>
   <file src="src/Controllers/Database/TrackingController.php">
     <MixedArgument>

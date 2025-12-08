@@ -1966,38 +1966,44 @@ parameters:
 			path: src/Controllers/Database/Structure/RealRowCountController.php
 
 		-
-			message: '#^Binary operation "\*" between mixed and int results in an error\.$#'
+			message: '#^Binary operation "\*" between bool\|int\|string\|null and int results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: '#^Binary operation "\+" between \(float\|int\) and mixed results in an error\.$#'
+			message: '#^Binary operation "\*" between mixed and 2 results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: '#^Binary operation "\+" between mixed and mixed results in an error\.$#'
+			message: '#^Binary operation "\+" between \(float\|int\) and bool\|int\|string\|null results in an error\.$#'
 			identifier: binaryOp.invalid
-			count: 3
+			count: 1
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: '#^Binary operation "\+\=" between \(float\|int\) and mixed results in an error\.$#'
+			message: '#^Binary operation "\+" between bool\|int\|string\|null and bool\|int\|string\|null results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/Controllers/Database/StructureController.php
+
+		-
+			message: '#^Binary operation "\+" between int\|string\|null and int\|string\|null results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 2
+			path: src/Controllers/Database/StructureController.php
+
+		-
+			message: '#^Binary operation "\+\=" between int and int\<1, max\>\|string results in an error\.$#'
 			identifier: assignOp.invalid
 			count: 1
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: '#^Binary operation "\+\=" between int and mixed results in an error\.$#'
+			message: '#^Binary operation "\+\=" between mixed and int\|string\|null results in an error\.$#'
 			identifier: assignOp.invalid
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
 			count: 1
 			path: src/Controllers/Database/StructureController.php
 
@@ -2014,8 +2020,32 @@ parameters:
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: '#^Method PhpMyAdmin\\Controllers\\Database\\StructureController\:\:getStuffForEngineTypeTable\(\) should return array\{array\<mixed\>, string, string, string, string, int, bool, int\} but returns array\{non\-empty\-array, string, string, string, string, float\|int, bool, int\}\.$#'
+			message: '#^Method PhpMyAdmin\\Controllers\\Database\\StructureController\:\:getStuffForEngineTypeTable\(\) should return array\{array\<int\|string\|null\>, string, string, string, string, int, bool, int\} but returns array\{non\-empty\-array\<int\|string\|null\>, string, string, string, string, float\|int, bool, int\}\.$#'
 			identifier: return.type
+			count: 1
+			path: src/Controllers/Database/StructureController.php
+
+		-
+			message: '#^Method PhpMyAdmin\\Controllers\\Database\\StructureController\:\:getValuesForAriaTable\(\) should return array\{array\<int\|string\|null\>, string, string, string, string, float\|int, int\} but returns array\{array\<int\|string\|null\>, string, string, string, string, mixed, int\}\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Controllers/Database/StructureController.php
+
+		-
+			message: '#^Method PhpMyAdmin\\Controllers\\Database\\StructureController\:\:getValuesForCsvTable\(\) should return array\{array\<int\|string\|null\>, string, string, int\} but returns array\{non\-empty\-array\<bool\|int\|string\|null\>, string, string, int\}\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Controllers/Database/StructureController.php
+
+		-
+			message: '#^Method PhpMyAdmin\\Controllers\\Database\\StructureController\:\:getValuesForInnodbTable\(\) should return array\{array\<int\|string\|null\>, string, string, int\} but returns array\{non\-empty\-array\<bool\|int\|string\|null\>, string, string, int\}\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Controllers/Database/StructureController.php
+
+		-
+			message: '#^Only booleans are allowed in a negated boolean, int\|string\|null given\.$#'
+			identifier: booleanNot.exprNotBoolean
 			count: 1
 			path: src/Controllers/Database/StructureController.php
 
@@ -2032,25 +2062,31 @@ parameters:
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: '#^Parameter \#1 \$identifier of static method PhpMyAdmin\\Util\:\:backquote\(\) expects string\|Stringable\|null, mixed given\.$#'
+			message: '#^Parameter \#1 \$identifier of static method PhpMyAdmin\\Util\:\:backquote\(\) expects string\|Stringable\|null, bool\|int\|string\|null given\.$#'
 			identifier: argument.type
-			count: 3
+			count: 1
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: '#^Parameter \#1 \$str of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#1 \$identifier of static method PhpMyAdmin\\Util\:\:backquote\(\) expects string\|Stringable\|null, int\|string\|null given\.$#'
 			identifier: argument.type
 			count: 2
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, mixed given\.$#'
+			message: '#^Parameter \#1 \$str of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, bool\|int\|string\|null given\.$#'
+			identifier: argument.type
+			count: 2
+			path: src/Controllers/Database/StructureController.php
+
+		-
+			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, int\|string\|null given\.$#'
 			identifier: argument.type
 			count: 4
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: '#^Parameter \#1 \$string of function md5 expects string, mixed given\.$#'
+			message: '#^Parameter \#1 \$string of function md5 expects string, int\|string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Database/StructureController.php
@@ -2062,7 +2098,7 @@ parameters:
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: '#^Parameter \#1 \$table of method PhpMyAdmin\\Controllers\\Database\\StructureController\:\:getTrackingIcon\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#1 \$table of method PhpMyAdmin\\Controllers\\Database\\StructureController\:\:getTrackingIcon\(\) expects string, int\|string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Database/StructureController.php
@@ -2074,38 +2110,32 @@ parameters:
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: '#^Parameter \#1 \$value of static method PhpMyAdmin\\Util\:\:formatByteDown\(\) expects float\|int\|string\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
 			message: '#^Parameter \#2 \$haystack of function array_search expects array, mixed given\.$#'
 			identifier: argument.type
 			count: 4
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: '#^Parameter \#2 \$table of method PhpMyAdmin\\Controllers\\Database\\StructureController\:\:getReplicationStatus\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#2 \$table of method PhpMyAdmin\\Controllers\\Database\\StructureController\:\:getReplicationStatus\(\) expects string, int\|string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: '#^Parameter \#2 \$tableName of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:getTable\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#2 \$tableName of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:getTable\(\) expects string, int\|string\|null given\.$#'
 			identifier: argument.type
-			count: 5
+			count: 3
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: '#^Parameter \#3 \$name of static method PhpMyAdmin\\Charsets\:\:findCollationByName\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#2 \$tableName of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:getTable\(\) expects string, int\|string\|true\|null given\.$#'
 			identifier: argument.type
-			count: 1
+			count: 2
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: '#^Possibly invalid array key type mixed\.$#'
-			identifier: offsetAccess.invalidOffset
+			message: '#^Parameter \#3 \$name of static method PhpMyAdmin\\Charsets\:\:findCollationByName\(\) expects string, int\|string given\.$#'
+			identifier: argument.type
 			count: 1
 			path: src/Controllers/Database/StructureController.php
 
@@ -14169,12 +14199,6 @@ parameters:
 		-
 			message: '#^Foreach overwrites \$quote with its value variable\.$#'
 			identifier: foreach.valueOverwrite
-			count: 1
-			path: src/Util.php
-
-		-
-			message: '#^Method PhpMyAdmin\\Util\:\:getDbInfo\(\) return type has no value type specified in iterable type array\.$#'
-			identifier: missingType.iterableValue
 			count: 1
 			path: src/Util.php
 
