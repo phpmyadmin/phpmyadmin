@@ -1168,7 +1168,6 @@
       <code><![CDATA[$replicaInfo['Wild_Do_Table']]]></code>
       <code><![CDATA[$replicaInfo['Wild_Ignore_Table']]]></code>
       <code><![CDATA[$request->getParam('pos')]]></code>
-      <code><![CDATA[$request->getParam('pos')]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[uksort($tables, strnatcasecmp(...))]]></code>

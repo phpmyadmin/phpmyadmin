@@ -2152,12 +2152,6 @@ parameters:
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: '#^Parameter \#6 \$posParam of method PhpMyAdmin\\Controllers\\Database\\StructureController\:\:getDbInfo\(\) expects string\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
 			message: '#^Parameter \#2 \$selected of method PhpMyAdmin\\Tracking\\Tracking\:\:createTrackingForMultipleTables\(\) expects array\<mixed\>, mixed given\.$#'
 			identifier: argument.type
 			count: 1

@@ -445,7 +445,7 @@ class StructureControllerTest extends AbstractTestCase
             'TABLE_TYPE' => 'BASE TABLE',
         ];
         $expected = [['test_table' => $tableInfo], 1];
-        $actual = $structureController->getDbInfo('test_db', null, null, null, null, null);
+        $actual = $structureController->getDbInfo('test_db', null, null, null, null);
         self::assertSame($expected, $actual);
     }
 

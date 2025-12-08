@@ -100,6 +100,8 @@ final class StructureController implements InvocableController
      */
     private function getDatabaseInfo(ServerRequest $request): void
     {
+        $this->position = $this->getTableListPosition($request->getParam('pos'), Current::$database);
+
         // Special speedup for newer MySQL Versions (in 4.0 format changed)
         if ($this->config->settings['SkipLockedTables'] === true) {
             $tables = $this->getTablesWhenOpen(Current::$database);
@@ -111,13 +113,11 @@ final class StructureController implements InvocableController
                 $request->getParam('sort_order'),
                 $request->getParam('tbl_group'),
                 $request->getParam('tbl_type'),
-                $request->getParam('pos'),
             );
         }
 
         $this->tables = $tables;
         $this->numTables = count($tables);
-        $this->position = $this->getTableListPosition($request->getParam('pos'), Current::$database);
         $this->totalNumTables = $totalNumTables ?? count($tables);
 
         /**
@@ -941,7 +941,6 @@ final class StructureController implements InvocableController
         mixed $sortOrderParam,
         mixed $tableGroupParam,
         mixed $tableTypeParam,
-        string|null $posParam,
     ): array {
         /**
          * information about tables in db
@@ -1013,7 +1012,7 @@ final class StructureController implements InvocableController
             $tables = $this->dbi->getTables($db);
             $totalNumTables = count($tables);
             // fetch the details for a possible limited subset
-            $limitOffset = $this->getTableListPosition($posParam, $db);
+            $limitOffset = $this->position;
             $limitCount = true;
         }
 
