@@ -1190,7 +1190,6 @@
     <PossiblyInvalidArgument>
       <code><![CDATA[$currentTable['Collation']]]></code>
       <code><![CDATA[$currentTable['Name']]]></code>
-      <code><![CDATA[$currentTable['TABLE_COMMENT']]]></code>
       <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
       <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
       <code><![CDATA[$currentTable['TABLE_NAME']]]></code>

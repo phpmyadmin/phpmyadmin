@@ -390,7 +390,7 @@ final class StructureController implements InvocableController
                 'table_is_view' => $tableIsView,
                 'current_table' => $currentTable,
                 'may_have_rows' => $mayHaveRows,
-                'browse_table_label_title' => htmlspecialchars($currentTable['TABLE_COMMENT']),
+                'browse_table_label_title' => $currentTable['TABLE_COMMENT'],
                 'browse_table_label_truename' => $truename,
                 'empty_table_sql_query' => 'TRUNCATE ' . Util::backquote($currentTable['TABLE_NAME']),
                 'empty_table_message_to_show' => urlencode(
