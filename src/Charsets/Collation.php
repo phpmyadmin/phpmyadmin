@@ -22,6 +22,8 @@ final class Collation
      */
     private string $description;
 
+    private static array $suffixesCache = [];
+
     /**
      * @param string $name         The collation name
      * @param string $charset      The name of the character set with which the collation is associated
@@ -214,7 +216,11 @@ final class Collation
 
     private function addSuffixes(string $part): string|null
     {
-        return match ($part) {
+        if (isset(self::$suffixesCache[$part])) {
+            return self::$suffixesCache[$part];
+        }
+
+        return self::$suffixesCache[$part] = match ($part) {
             'ci' => _pgettext('Collation variant', 'case-insensitive'),
             'cs' => _pgettext('Collation variant', 'case-sensitive'),
             'ai' => _pgettext('Collation variant', 'accent-insensitive'),
