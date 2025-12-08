@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-12-07 00:30+0000\n"
-"PO-Revision-Date: 2025-03-18 14:23+0000\n"
-"Last-Translator: AefghThreenine <aefgh39622@gmail.com>\n"
+"PO-Revision-Date: 2025-12-08 11:00+0000\n"
+"Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "th/>\n"
 "Language: th\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.11-dev\n"
+"X-Generator: Weblate 5.15-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 #, fuzzy
@@ -2868,12 +2868,10 @@ msgid "Browse"
 msgstr "เปิดดู"
 
 #: resources/templates/database/search/results.twig:43
-#, fuzzy, php-format
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
+#, php-format
 msgid "<strong>Total:</strong> <em>%s</em> match"
 msgid_plural "<strong>Total:</strong> <em>%s</em> matches"
-msgstr[0] "<b>รวม:</b> <i>%s</i> ผลลัพธ์ที่ตรง"
+msgstr[0] "<strong>ทั้งหมด:</strong> <em>%s</em> ค้นพบ"
 
 #: resources/templates/database/structure/add_prefix.twig:4
 #, fuzzy
@@ -3635,9 +3633,9 @@ msgid "Output:"
 msgstr ""
 
 #: resources/templates/export.twig:171 resources/templates/export.twig:366
-#, fuzzy, php-format
+#, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "ไดเรกทอรีสำหรับอัพโหลด ที่เว็บเซิร์ฟเวอร์"
+msgstr "บันทึกไว้ในไดเรกทอรีบนเซิร์ฟเวอร์ <strong>%s</strong>"
 
 #: resources/templates/export.twig:178 resources/templates/export.twig:373
 #: src/Config/Descriptions.php:681 src/Config/Descriptions.php:684
@@ -3713,10 +3711,9 @@ msgid "Save & close"
 msgstr "บันทึกและปิด"
 
 #: resources/templates/export.twig:343
-#, fuzzy, php-format
-#| msgid "Statements"
+#, php-format
 msgid "Use %s statement"
-msgstr "คำสั่ง"
+msgstr "ใช้คำสั่ง %s"
 
 #: resources/templates/export.twig:352
 #, fuzzy
@@ -12663,26 +12660,22 @@ msgid ""
 msgstr ""
 
 #: src/Config/ServerConfigChecks.php:401
-#, fuzzy, php-format
-#| msgid ""
-#| "%sBzip2 compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"การบีบอัดและการคลาย %sBzip2%s ต้องใช้ฟังก์ชั่น (%s) ซึ่งเป็นสิ่งที่ไม่สามารถใช้งานได้ในระบบนี้"
+"%1$sBzip2 การบีบอัด และการคลายการบีบอัด %2$s จำเป็นต้องใช้ฟังก์ชัน (%3$s) ซึ่งไม่สามารถใช้ง"
+"านได้ในระบบนี้"
 
 #: src/Config/ServerConfigChecks.php:432
-#, fuzzy, php-format
-#| msgid ""
-#| "%sGZip compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"การบีบอัดและการคลาย %sGZip%s ต้องใช้ฟังก์ชั่น (%s) ซึ่งเป็นสิ่งที่ไม่สามารถใช้งานได้ในระบบนี้"
+"%1$sGZip การบีบอัด และการคลายการบีบอัด %2$s จำเป็นต้องใช้ฟังก์ชัน (%3$s) ซึ่งไม่สามารถใช้งา"
+"นได้ในระบบนี้"
 
 #: src/Config/Settings.php:3165
 #, php-format
@@ -13159,7 +13152,7 @@ msgstr "คุณอาจจะต้องการรีเฟรซหน้
 
 #: src/Controllers/Export/ExportController.php:119 src/Export/Export.php:1057
 msgid "Bad type!"
-msgstr "ประเภทไม่ถูกต้อง!"
+msgstr "รูปแบบไม่ดี!"
 
 #: src/Controllers/GisDataEditorController.php:118
 #, php-format
@@ -16241,10 +16234,10 @@ msgid_plural "The names '%s' are MySQL reserved keywords."
 msgstr[0] ""
 
 #: src/Controllers/Table/Structure/SaveController.php:212
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
-msgstr "ลบผู้ใช้ที่เลือกไว้เรียบร้อยแล้ว."
+msgstr "ตาราง %1$s ได้รับการแก้ไขเรียบร้อยแล้ว สิทธิ์การใช้งานปรับปรุงแล้ว"
 
 #: src/Controllers/Table/TrackingController.php:90
 #, fuzzy, php-format
@@ -16429,10 +16422,9 @@ msgid "The backed up query was:"
 msgstr ""
 
 #: src/Database/Events.php:123
-#, fuzzy, php-format
-#| msgid "Table %s has been dropped."
+#, php-format
 msgid "Event %1$s has been modified."
-msgstr "โยนตาราง %s ทิ้งไปเรียบร้อยแล้ว"
+msgstr "กิจกรรม %1$s ได้รับการแก้ไขแล้ว"
 
 #: src/Database/Events.php:143
 #, fuzzy, php-format
@@ -17137,15 +17129,14 @@ msgid ""
 msgstr ""
 
 #: src/Import/Import.php:1172
-#, fuzzy, php-format
+#, php-format
 msgid "Go to table: %s"
-msgstr "ไม่มีฐานข้อมูล"
+msgstr "ไปที่ตาราง: %s"
 
 #: src/Import/Import.php:1180
-#, fuzzy, php-format
-#| msgid "Structure only"
+#, php-format
 msgid "Structure of %s"
-msgstr "เฉพาะโครงสร้าง"
+msgstr "โครงสร้างของ %s"
 
 #: src/Import/Import.php:1187 src/Import/Import.php:1236
 #, php-format
@@ -17176,9 +17167,9 @@ msgid "Edit structure by following the \"Structure\" link."
 msgstr ""
 
 #: src/Import/Import.php:1230
-#, fuzzy, php-format
+#, php-format
 msgid "Go to database: %s"
-msgstr "ไม่มีฐานข้อมูล"
+msgstr "ไปที่ฐานข้อมูล: %s"
 
 #: src/Indexes/Index.php:566
 #, php-format
@@ -17346,7 +17337,7 @@ msgstr ""
 
 #: src/Navigation/Nodes/Node.php:568
 msgid "Expand/Collapse"
-msgstr ""
+msgstr "ขยาย/ย่อ"
 
 #: src/Navigation/Nodes/NodeProcedureContainer.php:22
 #: src/Navigation/Nodes/NodeProcedureContainer.php:26
@@ -17999,20 +17990,18 @@ msgstr "คำสั่ง"
 #: src/Plugins/Export/ExportSql.php:321 src/Plugins/Export/ExportSql.php:330
 #: src/Plugins/Export/ExportSql.php:354 src/Plugins/Export/ExportSql.php:382
 #: src/Plugins/Export/ExportSql.php:391
-#, fuzzy, php-format
-#| msgid "Statements"
+#, php-format
 msgid "Add %s statement"
-msgstr "คำสั่ง"
+msgstr "เพิ่ม %s คำสั่ง"
 
 #: src/Plugins/Export/ExportSql.php:337
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
 
 #: src/Plugins/Export/ExportSql.php:344
-#, fuzzy, php-format
-#| msgid "Session value"
+#, php-format
 msgid "%s value"
-msgstr "ค่าเซสชั่น"
+msgstr "%s ค่า"
 
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
 #: src/Plugins/Export/ExportSql.php:361
@@ -18121,10 +18110,9 @@ msgid "Metadata for database %s"
 msgstr "ข้อมูลที่หายไปสำหรับ %s"
 
 #: src/Plugins/Export/ExportSql.php:1411
-#, fuzzy, php-format
-#| msgid "Table structure for table"
+#, php-format
 msgid "Error reading structure for table %s:"
-msgstr "โครงสร้างตาราง"
+msgstr "การอ่านโครงสร้างตารางผิดพลาดของ %s:"
 
 #: src/Plugins/Export/ExportSql.php:1494
 msgid "It appears your database uses views;"
@@ -18175,19 +18163,18 @@ msgid "It appears your table uses triggers;"
 msgstr ""
 
 #: src/Plugins/Export/ExportSql.php:1947
-#, fuzzy, php-format
+#, php-format
 msgid "Structure for view %s exported as a table"
-msgstr "เฉพาะโครงสร้าง"
+msgstr "โครงสร้างมุมมองของ %s ถูกส่งออกเป็นตารางแล้ว"
 
 #: src/Plugins/Export/ExportSql.php:1974
 msgid "(See below for the actual view)"
 msgstr ""
 
 #: src/Plugins/Export/ExportSql.php:2029
-#, fuzzy, php-format
-#| msgid "Allows reading data."
+#, php-format
 msgid "Error reading data for table %s:"
-msgstr "อนุญาตให้อ่านข้อมูลได้."
+msgstr "การอ่านข้อมูลผิดพลาดของตาราง %s:"
 
 #: src/Plugins/Export/ExportSql.php:2581
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:566
@@ -18385,10 +18372,9 @@ msgid "PDF export page"
 msgstr "ประเภทที่ส่งออกไม่ถูกต้อง!"
 
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:119
-#, fuzzy, php-format
-#| msgid "Schema of the \"%s\" database - Page %s"
+#, php-format
 msgid "Schema of the %s database"
-msgstr "schema ของฐานข้อมูล \"%s\" - หน้า %s"
+msgstr "โครงร่างของฐานข้อมูล %s"
 
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:147
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:495
@@ -18657,10 +18643,9 @@ msgid ""
 msgstr ""
 
 #: src/Plugins/TwoFactorPlugin.php:57
-#, fuzzy, php-format
-#| msgid "Hardware authentication failed!"
+#, php-format
 msgid "Two-factor authentication failed: %s"
-msgstr "﻿ตรวจสอบฮาร์ดแวร์ล้มเหลว"
+msgstr "การยืนยันตัวตนสองขั้นตอนล้มเหลว: %s"
 
 #: src/Plugins/TwoFactorPlugin.php:62
 #, fuzzy
