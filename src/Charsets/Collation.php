@@ -22,6 +22,7 @@ final class Collation
      */
     private string $description;
 
+    /** @var array<string, string|null> */
     private static array $suffixesCache = [];
 
     /**
@@ -233,10 +234,7 @@ final class Collation
         };
     }
 
-    /**
-     * @return array<int, bool|string|null>
-     * @psalm-return array{string, bool, bool, string|null}
-     */
+    /** @return array{string, bool, bool, string|null} */
     private function getNameForLevel0(
         bool $unicode,
         bool $unknown,
@@ -353,10 +351,7 @@ final class Collation
         return [$name, $unicode, $unknown, $variant];
     }
 
-    /**
-     * @return array<int, bool|int|string>
-     * @psalm-return array{string, int, bool}
-     */
+    /** @return array{string, int, bool} */
     private function getNameForLevel1(
         bool $unicode,
         bool $unknown,
