@@ -1168,6 +1168,17 @@
       <code><![CDATA[$replicaInfo['Wild_Do_Table']]]></code>
       <code><![CDATA[$replicaInfo['Wild_Ignore_Table']]]></code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[uksort($tables, strnatcasecmp(...))]]></code>
+    </MixedArgumentTypeCoercion>
+    <MixedArrayAccess>
+      <code><![CDATA[$_SESSION['tmpval']['table_limit_offset']]]></code>
+    </MixedArrayAccess>
+    <MixedArrayAssignment>
+      <code><![CDATA[$_SESSION['tmpval']['table_limit_offset']]]></code>
+      <code><![CDATA[$_SESSION['tmpval']['table_limit_offset']]]></code>
+      <code><![CDATA[$_SESSION['tmpval']['table_limit_offset_db']]]></code>
+    </MixedArrayAssignment>
     <MixedAssignment>
       <code><![CDATA[$charset]]></code>
       <code><![CDATA[$dbTable]]></code>
@@ -1179,11 +1190,17 @@
     <MixedMethodCall>
       <code><![CDATA[getCharset]]></code>
     </MixedMethodCall>
+    <MixedReturnStatement>
+      <code><![CDATA[$_SESSION['tmpval']['table_limit_offset']]]></code>
+      <code><![CDATA[$_SESSION['tmpval']['table_limit_offset']]]></code>
+    </MixedReturnStatement>
     <MoreSpecificReturnType>
       <code><![CDATA[list{(string|int|null)[], string, string, string, string, int, bool, int}]]></code>
     </MoreSpecificReturnType>
     <PossiblyFalseOperand>
       <code><![CDATA[$columnNames]]></code>
+      <code><![CDATA[$this->config->settings['NavigationTreeTableSeparator']]]></code>
+      <code><![CDATA[$this->config->settings['NavigationTreeTableSeparator']]]></code>
     </PossiblyFalseOperand>
     <PossiblyInvalidArgument>
       <code><![CDATA[$currentTable['Collation']]]></code>
@@ -1208,6 +1225,8 @@
       <code><![CDATA[$currentTable['Index_length']]]></code>
       <code><![CDATA[$currentTable['Index_length']]]></code>
       <code><![CDATA[$currentTable['Index_length']]]></code>
+      <code><![CDATA[$this->config->settings['NavigationTreeTableSeparator']]]></code>
+      <code><![CDATA[$this->config->settings['NavigationTreeTableSeparator']]]></code>
     </PossiblyInvalidOperand>
     <PossiblyNullArgument>
       <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
@@ -1223,6 +1242,10 @@
       <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
       <code><![CDATA[$currentTable['TABLE_ROWS']]]></code>
     </PossiblyNullOperand>
+    <RedundantCast>
+      <code><![CDATA[(string) $_REQUEST['tbl_group']]]></code>
+      <code><![CDATA[(string) $_REQUEST['tbl_group']]]></code>
+    </RedundantCast>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! $currentTable['COUNTED']]]></code>
     </RiskyTruthyFalsyComparison>
@@ -8903,10 +8926,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
@@ -8920,16 +8939,7 @@
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$columnNames]]></code>
-      <code><![CDATA[uksort($tables, strnatcasecmp(...))]]></code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess>
-      <code><![CDATA[$_SESSION['tmpval']['table_limit_offset']]]></code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment>
-      <code><![CDATA[$_SESSION['tmpval']['table_limit_offset']]]></code>
-      <code><![CDATA[$_SESSION['tmpval']['table_limit_offset']]]></code>
-      <code><![CDATA[$_SESSION['tmpval']['table_limit_offset_db']]]></code>
-    </MixedArrayAssignment>
     <MixedAssignment>
       <code><![CDATA[$array]]></code>
       <code><![CDATA[$columnNames[]]]></code>
@@ -8938,27 +8948,13 @@
     <MixedOperand>
       <code><![CDATA[$value]]></code>
     </MixedOperand>
-    <MixedReturnStatement>
-      <code><![CDATA[$_SESSION['tmpval']['table_limit_offset']]]></code>
-      <code><![CDATA[$_SESSION['tmpval']['table_limit_offset']]]></code>
-    </MixedReturnStatement>
     <PossiblyFalseOperand>
-      <code><![CDATA[$config->settings['NavigationTreeTableSeparator']]]></code>
-      <code><![CDATA[$config->settings['NavigationTreeTableSeparator']]]></code>
       <code><![CDATA[mb_strpos($value, '.')]]></code>
       <code><![CDATA[mb_strrpos($columnSpecification, ')')]]></code>
     </PossiblyFalseOperand>
-    <PossiblyInvalidOperand>
-      <code><![CDATA[$config->settings['NavigationTreeTableSeparator']]]></code>
-      <code><![CDATA[$config->settings['NavigationTreeTableSeparator']]]></code>
-    </PossiblyInvalidOperand>
     <PossiblyNullArgument>
       <code><![CDATA[$value]]></code>
     </PossiblyNullArgument>
-    <RedundantCast>
-      <code><![CDATA[(string) $_REQUEST['tbl_group']]]></code>
-      <code><![CDATA[(string) $_REQUEST['tbl_group']]]></code>
-    </RedundantCast>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$firstBracketPos]]></code>
       <code><![CDATA[$schemaPrivileges]]></code>
@@ -9653,6 +9649,11 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
+      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
@@ -11418,7 +11419,6 @@
       <code><![CDATA[$tz]]></code>
     </ArgumentTypeCoercion>
     <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>

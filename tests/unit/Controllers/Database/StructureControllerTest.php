@@ -19,6 +19,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
 use PhpMyAdmin\Tracking\TrackingChecker;
 use PHPUnit\Framework\Attributes\CoversClass;
+use Psr\Http\Message\ServerRequestInterface;
 use ReflectionClass;
 use ReflectionException;
 
@@ -378,5 +379,106 @@ class StructureControllerTest extends AbstractTestCase
                 [['Data_length' => 45, 'Index_length' => 60], 75],
             ),
         );
+    }
+
+    public function testGetDbInfo(): void
+    {
+        Config::getInstance()->selectedServer['DisableIS'] = true;
+
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addResult('SHOW TABLES FROM `test_db`;', [['test_table']], ['Tables_in_test_db']);
+        DatabaseInterface::$instance = $this->createDatabaseInterface($dbiDummy);
+
+        $dbi = DatabaseInterface::getInstance();
+        $structureController = new StructureController(
+            $this->response,
+            $this->template,
+            $this->relation,
+            $this->replication,
+            $dbi,
+            self::createStub(TrackingChecker::class),
+            self::createStub(PageSettings::class),
+            new DbTableExists($dbi),
+            Config::getInstance(),
+        );
+
+        $tableInfo = [
+            'Name' => 'test_table',
+            'Engine' => 'InnoDB',
+            'Version' => '10',
+            'Row_format' => 'Dynamic',
+            'Rows' => '3',
+            'Avg_row_length' => '5461',
+            'Data_length' => '16384',
+            'Max_data_length' => '0',
+            'Index_length' => '0',
+            'Data_free' => '0',
+            'Auto_increment' => '4',
+            'Create_time' => '2011-12-13 14:15:16',
+            'Update_time' => null,
+            'Check_time' => null,
+            'Collation' => 'utf8mb4_general_ci',
+            'Checksum' => null,
+            'Create_options' => '',
+            'Comment' => '',
+            'Max_index_length' => '0',
+            'Temporary' => 'N',
+            'Type' => 'InnoDB',
+            'TABLE_SCHEMA' => 'test_db',
+            'TABLE_NAME' => 'test_table',
+            'ENGINE' => 'InnoDB',
+            'VERSION' => '10',
+            'ROW_FORMAT' => 'Dynamic',
+            'TABLE_ROWS' => '3',
+            'AVG_ROW_LENGTH' => '5461',
+            'DATA_LENGTH' => '16384',
+            'MAX_DATA_LENGTH' => '0',
+            'INDEX_LENGTH' => '0',
+            'DATA_FREE' => '0',
+            'AUTO_INCREMENT' => '4',
+            'CREATE_TIME' => '2011-12-13 14:15:16',
+            'UPDATE_TIME' => null,
+            'CHECK_TIME' => null,
+            'TABLE_COLLATION' => 'utf8mb4_general_ci',
+            'CHECKSUM' => null,
+            'CREATE_OPTIONS' => '',
+            'TABLE_COMMENT' => '',
+            'TABLE_TYPE' => 'BASE TABLE',
+        ];
+        $expected = [['test_table' => $tableInfo], 1];
+        $actual = $structureController->getDbInfo(self::createStub(ServerRequest::class), 'test_db');
+        self::assertSame($expected, $actual);
+    }
+
+    public function testGetTableListPosition(): void
+    {
+        $dbi = DatabaseInterface::getInstance();
+        $structureController = new StructureController(
+            $this->response,
+            $this->template,
+            $this->relation,
+            $this->replication,
+            $dbi,
+            self::createStub(TrackingChecker::class),
+            self::createStub(PageSettings::class),
+            new DbTableExists($dbi),
+            Config::getInstance(),
+        );
+
+        // Default 0
+        $actual = $structureController->getTableListPosition(self::createStub(ServerRequest::class), 'test_db');
+        self::assertSame(0, $actual);
+
+        // From POST
+        $requestStub = self::createStub(ServerRequestInterface::class);
+        $requestStub->method('getQueryParams')->willReturn([]);
+        $requestStub->method('getParsedBody')->willReturn(['pos' => '250']);
+        $request = new ServerRequest($requestStub);
+        $actual = $structureController->getTableListPosition($request, 'test_db');
+        self::assertSame(250, $actual);
+
+        // From SESSION
+        $actual = $structureController->getTableListPosition(self::createStub(ServerRequest::class), 'test_db');
+        self::assertSame(250, $actual);
     }
 }
