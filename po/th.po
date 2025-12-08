@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2025-03-18 14:23+0000\n"
-"Last-Translator: AefghThreenine <aefgh39622@gmail.com>\n"
+"PO-Revision-Date: 2025-12-08 11:00+0000\n"
+"Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/4-9/th/>"
 "\n"
 "Language: th\n"
@@ -13,11 +13,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.11-dev\n"
+"X-Generator: Weblate 5.15-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
-msgstr "ประเภทไม่ถูกต้อง!"
+msgstr "รูปแบบไม่ดี!"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -3856,10 +3856,9 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:251
 #: templates/display/export/options_output.twig:17
-#, fuzzy, php-format
-#| msgid "Statements"
+#, php-format
 msgid "Use %s statement"
-msgstr "คำสั่ง"
+msgstr "ใช้คำสั่ง %s"
 
 #: libraries/classes/Config/Descriptions.php:254
 msgid "Save as file"
@@ -6384,26 +6383,22 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/ServerConfigChecks.php:506
-#, fuzzy, php-format
-#| msgid ""
-#| "%sBzip2 compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"การบีบอัดและการคลาย %sBzip2%s ต้องใช้ฟังก์ชั่น (%s) ซึ่งเป็นสิ่งที่ไม่สามารถใช้งานได้ในระบบนี้"
+"%1$sBzip2 การบีบอัด และการคลายการบีบอัด %2$s จำเป็นต้องใช้ฟังก์ชัน (%3$s) ซึ่งไม่สามารถใช้ง"
+"านได้ในระบบนี้"
 
 #: libraries/classes/Config/ServerConfigChecks.php:538
-#, fuzzy, php-format
-#| msgid ""
-#| "%sGZip compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"การบีบอัดและการคลาย %sGZip%s ต้องใช้ฟังก์ชั่น (%s) ซึ่งเป็นสิ่งที่ไม่สามารถใช้งานได้ในระบบนี้"
+"%1$sGZip การบีบอัด และการคลายการบีบอัด %2$s จำเป็นต้องใช้ฟังก์ชัน (%3$s) ซึ่งไม่สามารถใช้งา"
+"นได้ในระบบนี้"
 
 #: libraries/classes/Config/Validator.php:214
 #: libraries/classes/Config/Validator.php:221
@@ -6715,10 +6710,9 @@ msgid "The columns have been moved successfully."
 msgstr "ลบผู้ใช้ที่เลือกไว้เรียบร้อยแล้ว."
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:535
-#, fuzzy, php-format
-#| msgid "Failed to fetch headers"
+#, php-format
 msgid "Failed to get description of column %s!"
-msgstr "การดึงค่าส่วนหัวไม่สำเร็จ"
+msgstr "ไม่สามารถดึงรายละเอียดของคอลัมน์ %s!"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:771
 #: libraries/classes/Controllers/Table/TableStructureController.php:1067
@@ -6729,10 +6723,10 @@ msgid "Query error"
 msgstr "ชนิดคำค้น"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1012
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
-msgstr "ลบผู้ใช้ที่เลือกไว้เรียบร้อยแล้ว."
+msgstr "ตาราง %1$s ได้รับการแก้ไขเรียบร้อยแล้ว สิทธิ์การใช้งานปรับปรุงแล้ว"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1228
 #: templates/table/structure/check_all_table_column.twig:17
@@ -7884,9 +7878,9 @@ msgid "Options"
 msgstr "ตัวเลือก"
 
 #: libraries/classes/Import.php:1228
-#, fuzzy, php-format
+#, php-format
 msgid "Go to database: %s"
-msgstr "ไม่มีฐานข้อมูล"
+msgstr "ไปที่ฐานข้อมูล: %s"
 
 #: libraries/classes/Import.php:1234 libraries/classes/Import.php:1278
 #, php-format
@@ -7894,15 +7888,14 @@ msgid "Edit settings for %s"
 msgstr ""
 
 #: libraries/classes/Import.php:1263
-#, fuzzy, php-format
+#, php-format
 msgid "Go to table: %s"
-msgstr "ไม่มีฐานข้อมูล"
+msgstr "ไปที่ตาราง: %s"
 
 #: libraries/classes/Import.php:1271
-#, fuzzy, php-format
-#| msgid "Structure only"
+#, php-format
 msgid "Structure of %s"
-msgstr "เฉพาะโครงสร้าง"
+msgstr "โครงสร้างของ %s"
 
 #: libraries/classes/Import.php:1289
 #, php-format
@@ -8430,14 +8423,13 @@ msgid "Invalid class name \"%1$s\", using default of \"Node\""
 msgstr ""
 
 #: libraries/classes/Navigation/NodeFactory.php:61
-#, fuzzy, php-format
-#| msgid "Add columns"
+#, php-format
 msgid "Could not load class \"%1$s\""
-msgstr "เพิ่มฟิลด์ใหม่"
+msgstr "ไม่สามารถโหลดคลาส \"%1$s\""
 
 #: libraries/classes/Navigation/Nodes/Node.php:802
 msgid "Expand/Collapse"
-msgstr ""
+msgstr "ขยาย/ย่อ"
 
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:26
@@ -9536,20 +9528,18 @@ msgstr "คำสั่ง"
 #: libraries/classes/Plugins/Export/ExportSql.php:307
 #: libraries/classes/Plugins/Export/ExportSql.php:314
 #: libraries/classes/Plugins/Export/ExportSql.php:323
-#, fuzzy, php-format
-#| msgid "Statements"
+#, php-format
 msgid "Add %s statement"
-msgstr "คำสั่ง"
+msgstr "เพิ่ม %s คำสั่ง"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:290
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:298
-#, fuzzy, php-format
-#| msgid "Session value"
+#, php-format
 msgid "%s value"
-msgstr "ค่าเซสชั่น"
+msgstr "%s ค่า"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:332
 msgid ""
@@ -9671,10 +9661,9 @@ msgid "Last check:"
 msgstr "ตรวจสอบครั้งสุดท้าย:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1493
-#, fuzzy, php-format
-#| msgid "Table structure for table"
+#, php-format
 msgid "Error reading structure for table %s:"
-msgstr "โครงสร้างตาราง"
+msgstr "การอ่านโครงสร้างตารางผิดพลาดของ %s:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1547
 msgid "It appears your database uses views;"
@@ -9725,19 +9714,18 @@ msgid "It appears your table uses triggers;"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2106
-#, fuzzy, php-format
+#, php-format
 msgid "Structure for view %s exported as a table"
-msgstr "เฉพาะโครงสร้าง"
+msgstr "โครงสร้างมุมมองของ %s ถูกส่งออกเป็นตารางแล้ว"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2130
 msgid "(See below for the actual view)"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2210
-#, fuzzy, php-format
-#| msgid "Allows reading data."
+#, php-format
 msgid "Error reading data for table %s:"
-msgstr "อนุญาตให้อ่านข้อมูลได้."
+msgstr "การอ่านข้อมูลผิดพลาดของตาราง %s:"
 
 #: libraries/classes/Plugins/Export/ExportXml.php:100
 msgid "Object creation options (all are recommended)"
@@ -9908,10 +9896,9 @@ msgid "PDF export page"
 msgstr "ประเภทที่ส่งออกไม่ถูกต้อง!"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:102
-#, fuzzy, php-format
-#| msgid "Schema of the \"%s\" database - Page %s"
+#, php-format
 msgid "Schema of the %s database"
-msgstr "schema ของฐานข้อมูล \"%s\" - หน้า %s"
+msgstr "โครงร่างของฐานข้อมูล %s"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:130
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:525
@@ -10211,10 +10198,9 @@ msgid "For testing purposes only!"
 msgstr ""
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:70
-#, fuzzy, php-format
-#| msgid "Hardware authentication failed!"
+#, php-format
 msgid "Two-factor authentication failed: %s"
-msgstr "﻿ตรวจสอบฮาร์ดแวร์ล้มเหลว"
+msgstr "การยืนยันตัวตนสองขั้นตอนล้มเหลว: %s"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:74
 #, fuzzy
@@ -10572,16 +10558,13 @@ msgid "Change or reconfigure master server"
 msgstr ""
 
 #: libraries/classes/ReplicationGui.php:293
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as slave in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
-"เซิร์ฟเวอร์นี้ไม่ได้กำหนดค่าให้เป็นสเลฟในกระบวนการการจำลองแบบ คุณต้องการที่จะ <a href=\"%s"
-"\">กำหนดค่า</a> หรือไม่?"
+"เซิร์ฟเวอร์นี้ไม่ได้กำหนดค่าให้เป็นสเลฟในกระบวนการการจำลองแบบ คุณต้องการที่จะ %กำหนดค่า%s หรื"
+"อไม่?"
 
 #: libraries/classes/ReplicationGui.php:316
 msgid "Error management:"
@@ -10601,16 +10584,13 @@ msgid "Skip next %s errors."
 msgstr ""
 
 #: libraries/classes/ReplicationGui.php:355
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as master in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
-"เซิร์ฟเวอร์นี้ไม่ได้กำหนดค่าให้เป็นมาสเตอร์ในกระบวนการการจำลองแบบ คุณต้องการที่จะ <a href="
-"\"%s\">กำหนดค่า</a> หรือไม่?"
+"เซิร์ฟเวอร์นี้ไม่ได้กำหนดค่าให้เป็นมาสเตอร์ในกระบวนการการจำลองแบบ คุณต้องการที่จะ %กำหนดค่"
+"า%s หรือไม่?"
 
 #: libraries/classes/ReplicationGui.php:389
 #: templates/display/export/select_options.twig:8
@@ -10812,10 +10792,9 @@ msgid "Unable to change master!"
 msgstr ""
 
 #: libraries/classes/ReplicationGui.php:1029
-#, fuzzy, php-format
-#| msgid "The privileges were reloaded successfully."
+#, php-format
 msgid "Master server changed successfully to %s."
-msgstr "สิทธิได้ถูกเรียกใช้ใหม่เรียบร้อยแล้ว"
+msgstr "เซิร์ฟเวอร์มาสเตอร์เปลี่ยนแปลงเรียบร้อยแล้วเป็น %s."
 
 #: libraries/classes/Rte/Events.php:122 libraries/classes/Rte/Events.php:131
 #: libraries/classes/Rte/Events.php:162 libraries/classes/Rte/Routines.php:240
@@ -10845,10 +10824,9 @@ msgid "Sorry, we failed to restore the dropped event."
 msgstr ""
 
 #: libraries/classes/Rte/Events.php:149
-#, fuzzy, php-format
-#| msgid "Table %s has been dropped."
+#, php-format
 msgid "Event %1$s has been modified."
-msgstr "โยนตาราง %s ทิ้งไปเรียบร้อยแล้ว"
+msgstr "กิจกรรม %1$s ได้รับการแก้ไขแล้ว"
 
 #: libraries/classes/Rte/Events.php:169
 #, fuzzy, php-format
@@ -14904,9 +14882,9 @@ msgstr "เพิ่มตัวเลือกสำหรับคอลัม
 
 #: templates/display/export/options_output_save_dir.twig:5
 #: templates/display/export/options_quick_export.twig:8
-#, fuzzy, php-format
+#, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "ไดเรกทอรีสำหรับอัพโหลด ที่เว็บเซิร์ฟเวอร์"
+msgstr "บันทึกไว้ในไดเรกทอรีบนเซิร์ฟเวอร์ <strong>%s</strong>"
 
 #: templates/login/twofactor.twig:5
 msgid "Verify"
@@ -15971,12 +15949,9 @@ msgid_plural "%1$s matches in <strong>%2$s</strong>"
 msgstr[0] "พบ %s ผลลัพธ์ที่ตรงในตาราง <i>%s</i>"
 
 #: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>รวม:</b> <i>%s</i> ผลลัพธ์ที่ตรง"
+msgstr[0] "<strong>ทั้งหมด:</strong> <em>%count%</em> ค้นพบ"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
 #, fuzzy
