@@ -100,12 +100,17 @@ final class StructureController implements InvocableController
      */
     private function getDatabaseInfo(ServerRequest $request): void
     {
-        [$tables, $totalNumTables] = $this->getDbInfo($request, Current::$database);
+        // Special speedup for newer MySQL Versions (in 4.0 format changed)
+        if ($this->config->settings['SkipLockedTables'] === true) {
+            $tables = $this->getTablesWhenOpen(Current::$database);
+        } else {
+            [$tables, $totalNumTables] = $this->getDbInfo($request, Current::$database);
+        }
 
         $this->tables = $tables;
         $this->numTables = count($tables);
         $this->position = $this->getTableListPosition($request, Current::$database);
-        $this->totalNumTables = $totalNumTables;
+        $this->totalNumTables = $totalNumTables ?? count($tables);
 
         /**
          * whether to display extended stats
@@ -920,20 +925,10 @@ final class StructureController implements InvocableController
     /**
      * Gets the list of tables in the current db and information about these tables if possible.
      *
-     * @return array{(string|int|null)[][], int}
+     * @return array{(string|int|null)[][], int|null}
      */
     public function getDbInfo(ServerRequest $request, string $db, bool $isResultLimited = true): array
     {
-        // Special speedup for newer MySQL Versions (in 4.0 format changed)
-        if ($this->config->settings['SkipLockedTables'] === true) {
-            $tables = $this->getTablesWhenOpen($db);
-
-            return [
-                $tables,
-                count($tables), // needed for proper working of the MaxTableList feature
-            ];
-        }
-
         /**
          * information about tables in db
          */
@@ -1030,7 +1025,7 @@ final class StructureController implements InvocableController
 
         return [
             $tables,
-            $totalNumTables ?? count($tables), // needed for proper working of the MaxTableList feature
+            $totalNumTables, // needed for proper working of the MaxTableList feature
         ];
     }
 
