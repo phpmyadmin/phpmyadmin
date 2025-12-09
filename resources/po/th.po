@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-12-07 00:30+0000\n"
-"PO-Revision-Date: 2025-12-08 11:00+0000\n"
+"PO-Revision-Date: 2025-12-09 12:00+0000\n"
 "Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "th/>\n"
@@ -146,7 +146,7 @@ msgstr "คุณไม่มีสิทธิที่จะเข้ามา
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:25
 #: src/Controllers/Table/StructureController.php:215
 msgid "Primary"
-msgstr "คีย์หลัก"
+msgstr "หลัก"
 
 #: resources/templates/columns_definitions/column_attributes.twig:116
 #: resources/templates/database/data_dictionary/index.twig:76
@@ -303,7 +303,7 @@ msgstr "ไป"
 #: resources/templates/table/structure/display_table_stats.twig:5
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:555
 msgid "Table comments:"
-msgstr "หมายเหตุของตาราง:"
+msgstr "คำอธิบายตาราง:"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:70
 msgid "Collation:"
@@ -801,7 +801,7 @@ msgstr "แอตทริบิวต์"
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:605
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:627
 msgid "Null"
-msgstr "ค่าว่าง"
+msgstr "ไม่มีค่า"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:36
 #: resources/templates/database/operations/index.twig:69
@@ -2386,7 +2386,7 @@ msgstr "สถิติฐานข้อมูล"
 #: resources/templates/database/operations/index.twig:10
 #: resources/templates/database/operations/index.twig:14
 msgid "Database comment"
-msgstr "หมายเหตุของฐานข้อมูล"
+msgstr "คำอธิบายฐานข้อมูล"
 
 #: resources/templates/database/operations/index.twig:55
 #, fuzzy
@@ -3100,7 +3100,7 @@ msgstr "พจนานุกรมข้อมูล"
 #: src/Controllers/Database/TrackingController.php:124
 #: src/Controllers/Export/ExportController.php:290
 msgid "No tables found in database."
-msgstr "ไม่พบตารางใดๆ ในฐานข้อมูล"
+msgstr "ไม่พบตารางในฐานข้อมูล"
 
 #: resources/templates/database/structure/show_create.twig:2
 #, fuzzy
@@ -3830,7 +3830,7 @@ msgstr "ใช้ OpenStreetMaps เป็นชั้นพื้นฐาน"
 
 #: resources/templates/gis_data_editor_form.twig:70
 msgid "Output"
-msgstr "ส่งออก"
+msgstr "เอาท์พุต"
 
 #: resources/templates/home/git_info.twig:2
 msgid "Git revision:"
@@ -3865,7 +3865,7 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
-"คุณกำลังใช้งานเครื่องแม่ข่ายตัวอย่าง คุณสามารถทำอะไรก็ได้ในนี้ เพียงอย่าแก้ไขผู้ใช้ root, debian-"
+"คุณกำลังใช้งานเซิร์ฟเวอร์ทดลอง คุณสามารถทำอะไรก็ได้ในนี้ แต่กรุณาอย่าแก้ไขผู้ใช้ root, debian-"
 "sys-maint และ pma ข้อมูลเพิ่มเติมสามารถดูได้ที่ %s"
 
 #: resources/templates/home/index.twig:30
@@ -3889,11 +3889,11 @@ msgstr "ตรวจทานการเชื่อมต่อเซิร์
 #: resources/templates/home/index.twig:82
 #: resources/templates/preferences/manage/main.twig:55
 msgid "More settings"
-msgstr "ตั้งค่าเพิ่มเติม"
+msgstr "การตั้งค่าเพิ่มเติม"
 
 #: resources/templates/home/index.twig:93
 msgid "Appearance settings"
-msgstr "การตั้งค่าลักษณะ"
+msgstr "การตั้งค่ารูปลักษณ์"
 
 #: resources/templates/home/index.twig:103
 #: resources/templates/home/index.twig:104
@@ -12474,7 +12474,7 @@ msgstr "อื่นๆ"
 
 #: src/Config/Descriptions.php:967
 msgid "Server connection collation"
-msgstr "การเรียงลำดับสำหรับการเชื่อมต่อเซิร์ฟเวอร์"
+msgstr "การรวบรวมการเชื่อมต่อเซิร์ฟเวอร์"
 
 #: src/Config/FormDisplay.php:579
 #, php-format
@@ -12815,7 +12815,7 @@ msgstr "ค้นหา"
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
-msgstr "แฟ้ม %s ไม่สามารถใช้งานได้ในระบบนี้ สำหรับข้อมูลเพิ่มเติมกรุณาเยี่ยมชม %s"
+msgstr "ไฟล์ %s ไม่พร้อมใช้งานในระบบนี้ กรุณาไปที่ %s เพื่อดูข้อมูลเพิ่มเติม"
 
 #: src/Controllers/Console/Bookmark/AddController.php:42
 #: src/Controllers/JavaScriptMessagesController.php:568
@@ -12842,7 +12842,7 @@ msgstr "ตัวอักษรที่ไม่คาดหวังบนบ
 #: src/Controllers/Database/CentralColumnsController.php:148
 #, php-format
 msgid "Showing rows %1$s - %2$s."
-msgstr "กำลังแสดงแถวที่ %1$s - %2$s"
+msgstr "แสดงแถว %1$s - %2$s"
 
 #. l10n: The user tries to save a page with an existing name in Designer
 #: src/Controllers/Database/DesignerController.php:105
@@ -12969,7 +12969,7 @@ msgstr ""
 #: src/Controllers/Server/ImportController.php:60
 #: src/Controllers/Table/ImportController.php:99
 msgid "Could not load import plugins, please check your installation!"
-msgstr "ไม่สามารถโหลดนำเข้าปลั๊กอินได้ กรุณาตรวจสอบการติดตั้งของคุณ!"
+msgstr "ไม่สามารถนำเข้าปลั๊กอินได้ กรุณาตรวจสอบการติดตั้งของคุณ!"
 
 #: src/Controllers/Database/PrivilegesController.php:64
 #: src/Controllers/Server/PrivilegesController.php:98
@@ -13110,45 +13110,46 @@ msgstr ""
 #: src/Controllers/Database/TrackingController.php:71
 #: src/Controllers/Database/TrackingController.php:97
 msgid "Tracking data deleted successfully."
-msgstr "ลบข้อมูลติดตามเรียบร้อยแล้ว"
+msgstr "ลบข้อมูลการติดตามเรียบร้อยแล้ว"
 
 #: src/Controllers/Database/TrackingController.php:82
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
-msgstr "เวอร์ชัน %1$s ถูกสร้างขึ้นสำหรับตารางที่เลือก การติดตามจะเปิดใช้งานกับตารางพวกนั้น"
+msgstr ""
+"เวอร์ชัน %1$s ถูกสร้างขึ้นสำหรับตารางที่เลือก การติดตามเปิดใช้งานกับตารางพวกนั้น"
 
 #: src/Controllers/Database/TrackingController.php:114
 msgid "No tables selected."
-msgstr "ไม่มีตารางที่ถูกเลือก"
+msgstr "ไม่มีตารางที่เลือกไว้"
 
 #: src/Controllers/Database/TrackingController.php:149
 msgid "Database Log"
-msgstr "ประวัติการเข้าใช้ของฐานข้อมูล"
+msgstr "บันทึกฐานข้อมูล"
 
 #: src/Controllers/ErrorReportController.php:94
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
-msgstr "ตรวจพบข้อผิดพลาด และรายงานตามที่ได้ตั้งค่าไว้เรียบร้อยแล้ว"
+msgstr "ตรวจพบข้อผิดพลาด และได้แจ้งรายงานตามที่ตั้งค่าไว้โดยอัตโนมัติ"
 
 #: src/Controllers/ErrorReportController.php:98
 msgid "Thank you for submitting this report."
-msgstr "ขอบคุณสำหรับการรายงานครั้งนี้"
+msgstr "ขอบคุณสำหรับการรายงาน"
 
 #: src/Controllers/ErrorReportController.php:102
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
-msgstr "ตรวจพบข้อผิดพลาด และรายงานได้ถูกสร้างขึ้นแล้ว แต่ไม่สามารถส่งได้ในขณะนี้"
+msgstr "ตรวจพบข้อผิดพลาด และรายงานได้ถูกสร้างขึ้นแล้ว แต่การส่งล้มเหลว"
 
 #: src/Controllers/ErrorReportController.php:105
 msgid "If you experience any problems please submit a bug report manually."
-msgstr "หากคุณพบปัญหาในการใช้งานบางอย่าง กรุณารายงานข้อผิดพลาด้วยตัวคุณเอง"
+msgstr "หากคุณพบปัญหาใด ๆ ในการใช้งาน กรุณารายงานข้อผิดพลาดด้วยตนเอง"
 
 #: src/Controllers/ErrorReportController.php:108
 msgid "You may want to refresh the page."
-msgstr "คุณอาจจะต้องการรีเฟรซหน้านี้"
+msgstr "คุณอาจต้องการรีเฟรชหน้าเพจ"
 
 #: src/Controllers/Export/ExportController.php:119 src/Export/Export.php:1057
 msgid "Bad type!"
@@ -13164,8 +13165,8 @@ msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
-"คุณได้ออกจากระบบจากเครื่องแม่ข่ายหนึ่งแล้ว หากต้องการออกจากระบบ phpMyAdmin โดยสมบูรณ์ "
-"คุณต้องออกจากระบบจากเครื่องแม่ข่ายทั้งหมด"
+"คุณได้ลงชื่อออกจากเซิร์ฟเวอร์ หากต้องการลงชื่อออกจาก phpMyAdmin โดยสมบูรณ์ คุณต้องลงชื่อออกจา"
+"กเซิร์ฟเวอร์ทั้งหมด"
 
 #: src/Controllers/HomeController.php:197
 #, php-format
@@ -13173,13 +13174,13 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
-"พื้นที่จัดเก็บการกำหนดค่า phpMyAdmin ยังตั้งค่าไม่เสร็จสมบูรณ์ "
-"คุณลักษณะเพิ่มเติมบางอย่างได้ถูกปิดใช้งานแล้ว %sเรียนรู้เพิ่มเติม%s "
+"พื้นที่จัดเก็บการกำหนดค่า phpMyAdmin ยังตั้งค่าไม่เสร็จสมบูรณ์ คุณลักษณะเพิ่มเติมบางอย่างได้ถูกปิดใช้ง"
+"านแล้ว %sค้นหาสาเหตุ%s "
 
 #: src/Controllers/HomeController.php:203
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
-msgstr "หรือเข้าไปที่แท็บ 'การดำเนินการ' ของฐานข้อมูลใดๆ เพื่อตั้งค่า"
+msgstr "หรือไปที่แท็บ 'การดำเนินการ' ของฐานข้อมูลใด ๆ เพื่อตั้งค่าที่นั่น"
 
 #: src/Controllers/HomeController.php:267
 msgid ""
@@ -13198,8 +13199,8 @@ msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
-"การจัดเก็บคุกกี้เข้าสู่ระบบต่ำกว่าระยะเวลามีผลของคุกกี้ที่ได้กำหนดไว้ใน phpMyAdmin "
-"สิ่งนี้จะทำให้การเข้าสู่ระบบของคุณอาจหมดอายุเร็วกว่าที่กำหนดไว้ใน phpMyAdmin"
+"การจัดเก็บคุกกี้สำหรับการเข้าสู่ระบบนั้นต่ำกว่าความถูกต้องของคุกกี้ที่กำหนดค่าไว้ใน phpMyAdmin ด้วยส"
+"าเหตุนี้การเข้าสู่ระบบของคุณจะหมดอายุเร็วกว่าที่กำหนดค่าไว้ใน phpMyAdmin"
 
 #: src/Controllers/HomeController.php:306
 msgid ""
@@ -13230,9 +13231,9 @@ msgid ""
 "once phpMyAdmin has been configured. Otherwise the security of your server "
 "may be compromised by unauthorized people downloading your configuration."
 msgstr ""
-"ไดเรกทอรี [code]config[/code] ซึ่งถูกใช้โดยสคริปต์ตัวติดตั้งยังคงอยู่ในไดเรกทอรี phpMyAdmin "
-"ของคุณ เราขอแนะนำเป็นอย่างยิ่งว่าให้ลบออกหากได้กำหนดค่า phpMyAdmin เรียบร้อยแล้ว "
-"มิเช่นนั้นความปลอดภัยของเครื่องแม่ข่ายของคุณอาจถูกบุกรุกโดยบุคคลที่ไม่ได้รับอนุญาตที่เข้ามาดาวน์โหลดไฟล์กำหนดค่าของคุณ"
+"ไดเรกทอรี [code]config[/code] ซึ่งใช้โดยสคริปต์ติดตั้ง ยังคงอยู่ในไดเรกทอรี phpMyAdmin ของ"
+"คุณ ขอแนะนำอย่างยิ่งให้ลบไดเรกทอรีนี้ออกเมื่อกำหนดค่า phpMyAdmin เรียบร้อยแล้ว มิฉะนั้น ความปล"
+"อดภัยของเซิร์ฟเวอร์ของคุณอาจถูกบุกรุกโดยผู้ที่ไม่ได้รับอนุญาตที่ดาวน์โหลดการกำหนดค่าของคุณ"
 
 #: src/Controllers/HomeController.php:374
 #, php-format
@@ -13240,8 +13241,7 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"เครื่องแม่ข่ายกำลังทำงานโดยใช้ Suhosin "
-"โปรดศึกษา%sเอกสารกำกับโปรแกรม%sเพื่อดูปัญหาที่อาจเกิดขึ้นได้"
+"เซิร์ฟเวอร์ทำงานด้วย Suhosin กรุณาดู %sเอกสารประกอบ%s สำหรับปัญหาที่อาจเกิดขึ้น"
 
 #: src/Controllers/HomeController.php:388
 #, php-format
@@ -13249,8 +13249,8 @@ msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
 "templates and will be slow because of this."
 msgstr ""
-"ไม่สามารถเข้าถึง $cfg['TempDir'] (%s) ได้ phpMyAdmin "
-"จึงไม่สามารถทำการแคชแม่แบบได้และจะทำงานช้าลง"
+"ไม่สามารถเข้าถึง $cfg['TempDir'] (%s) ได้ phpMyAdmin จึงไม่สามารถทำการแคชแม่แบบได้และ"
+"จะทำงานช้าลงเพราะสาเหตุนี้"
 
 #: src/Controllers/HomeController.php:405
 msgid ""
@@ -13265,16 +13265,17 @@ msgid ""
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
 "split strings correctly and it may result in unexpected results."
 msgstr ""
-"ไม่พบส่วนขยาย mbstring ของ PHP และดูเหมือนคุณต้องใช้ชุดอักขระโดยไม่มีส่วนขยาย mbstring "
-"ของ phpMyAdmin ซึ่งไม่สามารถแยกอักขระได้อย่างถูกต้อง และอาจทำให้ผลลัพธ์ที่ไม่คาดคิดได้"
+"ไม่พบส่วนขยาย mbstring ของ PHP และดูเหมือนคุณกำลังใช้ชุดอักขระมัลติไบต์ เมื่อปราศจากส่วนขยา"
+"ย mbstring ของ phpMyAdmin ซึ่งไม่สามารถแยกอักขระได้อย่างถูกต้อง และอาจส่งผลให้เกิดผลลัพธ์ที่"
+"ไม่คาดคิดได้"
 
 #: src/Controllers/HomeController.php:476
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
 msgstr ""
-"ไม่พบส่วนขยาย curl และ allow_url_fopen ถูกปิดใช้งานอยู่ "
-"ทำให้บางคุณลักษณะอย่างการรายงานข้อผิดพลาดหรือตรวจสอบรุ่นล่าสุดจะถูกปิดไว้"
+"ไม่พบส่วนขยาย curl และ allow_url_fopen ถูกปิดการใช้งานอยู่ ทำให้บางคุณลักษณะ เช่น การราย"
+"งานข้อผิดพลาดหรือตรวจสอบเวอร์ชันจะถูกปิดไว้"
 
 #: src/Controllers/Import/ImportController.php:163
 #, php-format
@@ -13282,8 +13283,8 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"คุณพยายามที่จะอัพโหลดไฟล์ที่มีขนาดใหญ่เกินไป กรุณาดูที่ %s เอกสารช่วยเหลือ%s "
-"เพื่อแก้ไขปัญหาดังกล่าวนี้"
+"อาจเป็นเพราะคุณพยายามอัปโหลดไฟล์ที่มีขนาดใหญ่เกินไป กรุณาดูที่ %sdocumentation%s เพื่อแนวทาง"
+"แก้ปัญหาสำหรับข้อจำกัดนี้"
 
 #: src/Controllers/Import/ImportController.php:189
 #, fuzzy
@@ -13294,12 +13295,12 @@ msgstr "เอาฐานข้อมูลออก"
 #: src/Controllers/Import/ImportController.php:299
 #: src/Controllers/Import/ImportController.php:513
 msgid "Showing bookmark"
-msgstr "แสดงบุ๊คมาร์ค"
+msgstr "แสดงบุ๊กมาร์ก"
 
 #: src/Controllers/Import/ImportController.php:319
 #: src/Controllers/Import/ImportController.php:509
 msgid "The bookmark has been deleted."
-msgstr "ลบคำค้นที่จดไว้เรียบร้อยแล้ว"
+msgstr "บุ๊กมาร์กถูกลบแล้ว"
 
 #: src/Controllers/Import/ImportController.php:431
 msgid ""
@@ -13307,14 +13308,14 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
-"ไม่มีข้อมูลสำหรับการนำเข้า อาจจะไม่ได้ใส่ชื่อไฟล์ หรือขนาดไฟล์เกินขนาดสูงสุดที่ระบบตั้งไว้ "
-"กรุณาแก้ไขไฟล์ตั้งค่าของ PHP ดูเอกสารเพิ่มเติมได้ที่ [doc@faq1-16]FAQ 1.16[/doc]"
+"ไม่ได้รับข้อมูลที่จะนำเข้า อีกทั้งไม่มีชื่อไฟล์ด้วย หรือไฟล์มีขนาดใหญ่เกินกว่าการอนุญาตสูงสุดตามการกำหน"
+"ดค่า PHP ของคุณ ดู [doc@faq1-16]FAQ 1.16[/doc]"
 
 #: src/Controllers/Import/ImportController.php:521
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] "นำเข้าสำเร็จเรียบร้อย การเรียกใช้ %d รายการได้ถูกดำเนินการแล้ว"
+msgstr[0] "การนำเข้าเรียบร้อย %d การเรียกดูดำเนินการแล้ว"
 
 #: src/Controllers/Import/ImportController.php:558
 #, php-format
@@ -13322,16 +13323,16 @@ msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
-"หมดเวลาการเรียกใช้สคริปต์แล้ว หากคุณต้องการนำเข้าให้เรียบร้อย กรุณา %sนำเข้าไฟล์เดิม%s "
-"อีกรอบ และการนำเข้าจะดำเนินต่อไป"
+"สคริปต์หมดเวลาแล้ว หากคุณต้องการนำเข้าให้เสร็จ กรุณา %sresubmit the same file%s และการ"
+"นำเข้าจะดำเนินการต่อให้"
 
 #: src/Controllers/Import/ImportController.php:568
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
-"ชุดข้อมูลที่นำเข้าล่าสุดไม่ได้สามารถนำเข้าได้ หมายความว่า phpMyAdmin ไม่สามารถนำเข้าได้ทัน "
-"ตามเวลารันสูงสุดที่กำหนดใน PHP"
+"อย่างไรก็ตามจากการรันครั้งล่าสุดไม่มีการแยกวิเคราะห์ข้อมูล ซึ่งโดยปกติจะหมายความว่า "
+"phpMyAdmin จะไม่สามารถดำเนินการนำเข้านี้ให้เสร็จสิ้นได้ เว้นแต่คุณจะเพิ่มขีดจำกัดเวลาของ php"
 
 #: src/Controllers/Import/ImportController.php:631
 #: src/Controllers/Sql/SqlController.php:145
@@ -13353,11 +13354,11 @@ msgstr "ไม่สามารถโหลดข้อมูลความค
 #: src/Controllers/JavaScriptMessagesController.php:55
 #, php-format
 msgid "Do you really want to execute \"%s\"?"
-msgstr "คุณแน่ใจหรือว่าต้องการดำเนินการ \"%s\"?"
+msgstr "คุณต้องการดำเนินการ \"%s\" จริงหรือไม่?"
 
 #: src/Controllers/JavaScriptMessagesController.php:56
 msgid "You are about to DESTROY a complete database!"
-msgstr "คุณกำลังจะ ทํ า ล า ย ฐานข้อมูลหนึ่งโดยสมบูรณ์!"
+msgstr "คุณกำลังจะใช้คำสั่ง DESTROY ฐานข้อมูลโดยสมบูรณ์!"
 
 #: src/Controllers/JavaScriptMessagesController.php:58
 #, fuzzy
@@ -13368,11 +13369,11 @@ msgstr "ไม่สามารถเปลี่ยนชื่อฐานข
 
 #: src/Controllers/JavaScriptMessagesController.php:60
 msgid "You are about to DESTROY a complete table!"
-msgstr "คุณกำลังจะ ทํ า ล า ย ตารางหนึ่งโดยสมบูรณ์!"
+msgstr "คุณกำลังจะใช้คำสั่ง DESTROY ตารางโดยสมบูรณ์!"
 
 #: src/Controllers/JavaScriptMessagesController.php:61
 msgid "You are about to TRUNCATE a complete table!"
-msgstr "คุณกำลังจะ ล้ า ง ข้ อ มู ล ตารางหนึ่งโดยสมบูรณ์!"
+msgstr "คุณกำลังจะใช้คำสั่ง TRUNCATE ตารางโดยสมบูรณ์!"
 
 #: src/Controllers/JavaScriptMessagesController.php:62
 #, fuzzy
@@ -13390,15 +13391,15 @@ msgstr "ลบข้อมูลการติดตามของตารา
 
 #: src/Controllers/JavaScriptMessagesController.php:65
 msgid "Delete tracking data for this version?"
-msgstr "ลบข้อมูลการติดตามของรุ่นนี้?"
+msgstr "ลบข้อมูลการติดตามของเวอร์ชันนี้?"
 
 #: src/Controllers/JavaScriptMessagesController.php:66
 msgid "Delete tracking data for these versions?"
-msgstr "ลบข้อมูลการติดตามของรุ่นเหล่านี้?"
+msgstr "ลบข้อมูลการติดตามของเวอร์ชันเหล่านี้?"
 
 #: src/Controllers/JavaScriptMessagesController.php:67
 msgid "Delete entry from tracking report?"
-msgstr "ลบแถวข้อมูลจากรายงานการติดตาม?"
+msgstr "ลบรายการออกจากรายงานการติดตาม?"
 
 #: src/Controllers/JavaScriptMessagesController.php:68
 msgid "Deleting tracking data"
@@ -14345,11 +14346,11 @@ msgstr "รูปหลายเหลี่ยม"
 
 #: src/Controllers/JavaScriptMessagesController.php:474
 msgid "Inner ring"
-msgstr "วงแหวนด้านใน"
+msgstr "กลุ่มวงใน"
 
 #: src/Controllers/JavaScriptMessagesController.php:475
 msgid "Outer ring"
-msgstr "วงแหวนด้านนอก"
+msgstr "กลุ่มวงนอก"
 
 #: src/Controllers/JavaScriptMessagesController.php:476
 msgid "Add a point"
@@ -14361,7 +14362,7 @@ msgstr "เพิ่มแถวข้อความ"
 
 #: src/Controllers/JavaScriptMessagesController.php:478
 msgid "Add an inner ring"
-msgstr "เพิ่มด้านใน"
+msgstr "เพิ่มกลุ่มวงใน"
 
 #: src/Controllers/JavaScriptMessagesController.php:479
 msgid "Add a polygon"
@@ -15321,7 +15322,8 @@ msgstr ""
 
 #: src/Controllers/Operations/DatabaseController.php:84
 msgid "Cannot copy database to the same name. Change the name and try again."
-msgstr "ไม่สามารถคัดลอกฐานข้อมูลเป็นชื่อเดียวกันได้ เปลี่ยนชื่อแล้วลองใหม่อีกครั้ง"
+msgstr ""
+"ไม่สามารถคัดลอกฐานข้อมูลแล้วใช้ชื่อซ้ำกันได้ เปลี่ยนชื่อแล้วลองใหม่อีกครั้ง"
 
 #: src/Controllers/Operations/DatabaseController.php:164
 #, php-format
@@ -15331,13 +15333,13 @@ msgstr "ฐานข้อมูล %1$s ได้ถูกเปลี่ยน
 #: src/Controllers/Operations/DatabaseController.php:178
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
-msgstr "ฐานข้อมูล %1$s ได้ทำสำเนาในชื่อ %2$s แล้ว"
+msgstr "ฐานข้อมูล %1$s ได้ถูกคัดลอกเป็น %2$s แล้ว"
 
 #: src/Controllers/Operations/DatabaseController.php:277
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
-msgstr "การจัดเก็บการตั้งค่าของ phpMyAdmin ได้ถูกระงับเอาไว้ %sรายละเอียดเพิ่มเติม%s"
+msgstr "ที่จัดเก็บการกำหนดค่า phpMyAdmin ถูกปิดใช้งานแล้ว %sค้นหาสาเหตุ%s"
 
 #: src/Controllers/Preferences/ManageController.php:87
 #, fuzzy
@@ -16062,7 +16064,7 @@ msgstr ""
 #: src/Controllers/Sql/SqlController.php:213 src/Sql.php:1069
 #, php-format
 msgid "Bookmark %s has been created."
-msgstr "บุ๊คมาร์ค %s ได้ถูกสร้างขึ้น"
+msgstr "บุ๊กมาร์ก %s ถูกสร้างขึ้นแล้ว"
 
 #: src/Controllers/Sql/SqlController.php:220
 #, fuzzy
