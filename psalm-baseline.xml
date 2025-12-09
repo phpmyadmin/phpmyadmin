@@ -2639,7 +2639,6 @@
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($stmt->partitionBy)]]></code>
       <code><![CDATA[empty($stmt->subpartitionBy)]]></code>
     </RiskyTruthyFalsyComparison>
   </file>

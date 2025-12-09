@@ -102,7 +102,7 @@ final class PartitioningController implements InvocableController
         $partitionDetails['partition_expr'] = '';
         $partitionDetails['partition_count'] = 0;
 
-        if (! empty($stmt->partitionBy)) {
+        if ($stmt->partitionBy !== '' && $stmt->partitionBy !== null) {
             $openPos = strpos($stmt->partitionBy, '(');
             $closePos = strrpos($stmt->partitionBy, ')');
 
@@ -147,8 +147,11 @@ final class PartitioningController implements InvocableController
             && in_array($partitionDetails['partition_by'], ['RANGE', 'RANGE COLUMNS', 'LIST', 'LIST COLUMNS'], true);
 
         // Values are specified only for LIST and RANGE type partitions
-        $partitionDetails['value_enabled'] = isset($partitionDetails['partition_by'])
-            && in_array($partitionDetails['partition_by'], ['RANGE', 'RANGE COLUMNS', 'LIST', 'LIST COLUMNS'], true);
+        $partitionDetails['value_enabled'] = in_array(
+            $partitionDetails['partition_by'],
+            ['RANGE', 'RANGE COLUMNS', 'LIST', 'LIST COLUMNS'],
+            true,
+        );
 
         $partitionDetails['partitions'] = [];
 

@@ -3582,18 +3582,12 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 2
+			count: 1
 			path: src/Controllers/Table/Structure/PartitioningController.php
 
 		-
 			message: '#^Method PhpMyAdmin\\Controllers\\Table\\Structure\\PartitioningController\:\:extractPartitionDetails\(\) should return array\<string, array\<int, array\<string, mixed\>\>\|bool\|int\|string\>\|null but returns array\<string, mixed\>\.$#'
 			identifier: return.type
-			count: 1
-			path: src/Controllers/Table/Structure/PartitioningController.php
-
-		-
-			message: '#^Offset ''partition_by'' on array\{partition_by\: string, partition_expr\: string, partition_count\: mixed, subpartition_by\: string, subpartition_expr\: string, subpartition_count\: mixed, can_have_subpartitions\: bool\} in isset\(\) always exists and is not nullable\.$#'
-			identifier: isset.offset
 			count: 1
 			path: src/Controllers/Table/Structure/PartitioningController.php
 
