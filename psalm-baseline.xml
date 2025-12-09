@@ -4426,9 +4426,6 @@
       <code><![CDATA[$geomCount]]></code>
       <code><![CDATA[$type]]></code>
     </MixedAssignment>
-    <RedundantPropertyInitializationCheck>
-      <code><![CDATA[isset(self::$instance)]]></code>
-    </RedundantPropertyInitializationCheck>
   </file>
   <file src="src/Gis/GisLineString.php">
     <MixedArgument>
@@ -4458,9 +4455,6 @@
       <code><![CDATA[$dataRow[$i]]]></code>
       <code><![CDATA[$dataRow['data_length']]]></code>
     </PossiblyNullArrayAccess>
-    <RedundantPropertyInitializationCheck>
-      <code><![CDATA[isset(self::$instance)]]></code>
-    </RedundantPropertyInitializationCheck>
   </file>
   <file src="src/Gis/GisMultiLineString.php">
     <MixedArgument>
@@ -4506,9 +4500,6 @@
       <code><![CDATA[$dataRow[$i]['data_length']]]></code>
       <code><![CDATA[$dataRow['data_length']]]></code>
     </PossiblyNullArrayAccess>
-    <RedundantPropertyInitializationCheck>
-      <code><![CDATA[isset(self::$instance)]]></code>
-    </RedundantPropertyInitializationCheck>
   </file>
   <file src="src/Gis/GisMultiPoint.php">
     <MixedArgument>
@@ -4538,9 +4529,6 @@
       <code><![CDATA[$dataRow[$i]]]></code>
       <code><![CDATA[$dataRow['data_length']]]></code>
     </PossiblyNullArrayAccess>
-    <RedundantPropertyInitializationCheck>
-      <code><![CDATA[isset(self::$instance)]]></code>
-    </RedundantPropertyInitializationCheck>
   </file>
   <file src="src/Gis/GisMultiPolygon.php">
     <InvalidArgument>
@@ -4642,9 +4630,6 @@
       <code><![CDATA[$dataRow[$k]['data_length']]]></code>
       <code><![CDATA[$dataRow['data_length']]]></code>
     </PossiblyNullArrayAccess>
-    <RedundantPropertyInitializationCheck>
-      <code><![CDATA[isset(self::$instance)]]></code>
-    </RedundantPropertyInitializationCheck>
   </file>
   <file src="src/Gis/GisPoint.php">
     <MixedArgument>
@@ -4658,9 +4643,6 @@
       <code><![CDATA[$black]]></code>
       <code><![CDATA[$pointColor]]></code>
     </PossiblyFalseArgument>
-    <RedundantPropertyInitializationCheck>
-      <code><![CDATA[isset(self::$instance)]]></code>
-    </RedundantPropertyInitializationCheck>
   </file>
   <file src="src/Gis/GisPolygon.php">
     <InvalidArgument>
@@ -4692,9 +4674,6 @@
       <code><![CDATA[$dataRow[$i]['data_length']]]></code>
       <code><![CDATA[$dataRow['data_length']]]></code>
     </PossiblyNullArrayAccess>
-    <RedundantPropertyInitializationCheck>
-      <code><![CDATA[isset(self::$instance)]]></code>
-    </RedundantPropertyInitializationCheck>
   </file>
   <file src="src/Gis/GisVisualization.php">
     <DeprecatedMethod>

@@ -70,7 +70,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
     #[DataProvider('providerForTestGenerateWkt')]
     public function testGenerateWkt(array $gisData, int $index, string $empty, string $output): void
     {
-        $object = GisMultiLineString::singleton();
+        $object = new GisMultiLineString();
         self::assertSame($output, $object->generateWkt($gisData, $index, $empty));
     }
 
@@ -87,7 +87,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
             ],
         ];
 
-        $object = GisMultiLineString::singleton();
+        $object = new GisMultiLineString();
         self::assertSame(
             'MULTILINESTRING((5.02 8.45,6.14 0.15),(1.23 4.25,9.15 0.47))',
             $object->getShape($rowData),
@@ -103,7 +103,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
     #[DataProvider('providerForTestGenerateParams')]
     public function testGenerateParams(string $wkt, array $params): void
     {
-        $object = GisMultiLineString::singleton();
+        $object = new GisMultiLineString();
         self::assertSame($params, $object->generateParams($wkt));
     }
 
@@ -140,7 +140,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
     #[DataProvider('providerForTestGetExtent')]
     public function testGetExtent(string $spatial, Extent $extent): void
     {
-        $object = GisMultiLineString::singleton();
+        $object = new GisMultiLineString();
         self::assertEquals($extent, $object->getExtent($spatial));
     }
 
@@ -162,7 +162,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
     #[RequiresPhpExtension('gd')]
     public function testPrepareRowAsPng(): void
     {
-        $object = GisMultiLineString::singleton();
+        $object = new GisMultiLineString();
         $image = ImageWrapper::create(200, 124, ['red' => 229, 'green' => 229, 'blue' => 229]);
         self::assertNotNull($image);
         $object->prepareRowAsPng(
@@ -197,7 +197,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
         ScaleData $scaleData,
         TCPDF $pdf,
     ): void {
-        $object = GisMultiLineString::singleton();
+        $object = new GisMultiLineString();
         $object->prepareRowAsPdf($spatial, $label, $color, $scaleData, $pdf);
 
         $fileExpected = $this->testDir . '/multilinestring-expected.pdf';
@@ -240,7 +240,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
         ScaleData $scaleData,
         string $output,
     ): void {
-        $object = GisMultiLineString::singleton();
+        $object = new GisMultiLineString();
         $svg = $object->prepareRowAsSvg($spatial, $label, $color, $scaleData);
         self::assertSame($output, $svg);
     }
@@ -284,7 +284,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
         array $color,
         array $expected,
     ): void {
-        $object = GisMultiLineString::singleton();
+        $object = new GisMultiLineString();
         self::assertSame($expected, $object->prepareRowAsOl($spatial, $srid, $label, $color));
     }
 

@@ -23,29 +23,6 @@ use function str_split;
  */
 class GisGeometryCollection extends GisGeometry
 {
-    private static self $instance;
-
-    /**
-     * A private constructor; prevents direct creation of object.
-     */
-    private function __construct()
-    {
-    }
-
-    /**
-     * Returns the singleton.
-     *
-     * @return GisGeometryCollection the singleton
-     */
-    public static function singleton(): GisGeometryCollection
-    {
-        if (! isset(self::$instance)) {
-            self::$instance = new GisGeometryCollection();
-        }
-
-        return self::$instance;
-    }
-
     /**
      * Get coordinate extent for this wkt.
      *

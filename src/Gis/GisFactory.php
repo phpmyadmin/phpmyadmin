@@ -16,29 +16,22 @@ use function strtoupper;
  */
 class GisFactory
 {
-    /**
-     * Returns the singleton instance of geometric class of the given type.
-     *
-     * @param string $type type of the geometric object
-     *
-     * @return GisGeometry|null the singleton instance of geometric class of the given type
-     */
     public static function fromType(string $type): GisGeometry|null
     {
         return match (strtoupper($type)) {
-            'MULTIPOLYGON' => GisMultiPolygon::singleton(),
-            'POLYGON' => GisPolygon::singleton(),
-            'MULTIPOINT' => GisMultiPoint::singleton(),
-            'POINT' => GisPoint::singleton(),
-            'MULTILINESTRING' => GisMultiLineString::singleton(),
-            'LINESTRING' => GisLineString::singleton(),
-            'GEOMETRYCOLLECTION' => GisGeometryCollection::singleton(),
+            'MULTIPOLYGON' => new GisMultiPolygon(),
+            'POLYGON' => new GisPolygon(),
+            'MULTIPOINT' => new GisMultiPoint(),
+            'POINT' => new GisPoint(),
+            'MULTILINESTRING' => new GisMultiLineString(),
+            'LINESTRING' => new GisLineString(),
+            'GEOMETRYCOLLECTION' => new GisGeometryCollection(),
             default => null,
         };
     }
 
     /**
-     * Returns the singleton instance of geometric class of the given wkt type.
+     * Returns the instance of geometric class of the given wkt type.
      */
     public static function fromWkt(string $wkt): GisGeometry|null
     {

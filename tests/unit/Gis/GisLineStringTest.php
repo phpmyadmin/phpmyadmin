@@ -70,7 +70,7 @@ class GisLineStringTest extends GisGeomTestCase
     #[DataProvider('providerForTestGenerateWkt')]
     public function testGenerateWkt(array $gisData, int $index, string $empty, string $output): void
     {
-        $object = GisLineString::singleton();
+        $object = new GisLineString();
         self::assertSame($output, $object->generateWkt($gisData, $index, $empty));
     }
 
@@ -83,7 +83,7 @@ class GisLineStringTest extends GisGeomTestCase
     #[DataProvider('providerForTestGenerateParams')]
     public function testGenerateParams(string $wkt, array $params): void
     {
-        $object = GisLineString::singleton();
+        $object = new GisLineString();
         self::assertEquals($params, $object->generateParams($wkt));
     }
 
@@ -135,7 +135,7 @@ class GisLineStringTest extends GisGeomTestCase
     #[DataProvider('providerForTestGetExtent')]
     public function testGetExtent(string $spatial, Extent $extent): void
     {
-        $object = GisLineString::singleton();
+        $object = new GisLineString();
         self::assertEquals($extent, $object->getExtent($spatial));
     }
 
@@ -154,7 +154,7 @@ class GisLineStringTest extends GisGeomTestCase
     #[RequiresPhpExtension('gd')]
     public function testPrepareRowAsPng(): void
     {
-        $object = GisLineString::singleton();
+        $object = new GisLineString();
         $image = ImageWrapper::create(200, 124, ['red' => 229, 'green' => 229, 'blue' => 229]);
         self::assertNotNull($image);
         $object->prepareRowAsPng(
@@ -189,7 +189,7 @@ class GisLineStringTest extends GisGeomTestCase
         ScaleData $scaleData,
         TCPDF $pdf,
     ): void {
-        $object = GisLineString::singleton();
+        $object = new GisLineString();
         $object->prepareRowAsPdf($spatial, $label, $color, $scaleData, $pdf);
 
         $fileExpected = $this->testDir . '/linestring-expected.pdf';
@@ -232,7 +232,7 @@ class GisLineStringTest extends GisGeomTestCase
         ScaleData $scaleData,
         string $output,
     ): void {
-        $object = GisLineString::singleton();
+        $object = new GisLineString();
         $svg = $object->prepareRowAsSvg($spatial, $label, $color, $scaleData);
         self::assertSame($output, $svg);
     }
@@ -274,7 +274,7 @@ class GisLineStringTest extends GisGeomTestCase
         array $color,
         array $expected,
     ): void {
-        $object = GisLineString::singleton();
+        $object = new GisLineString();
         self::assertSame($expected, $object->prepareRowAsOl($spatial, $srid, $label, $color));
     }
 
