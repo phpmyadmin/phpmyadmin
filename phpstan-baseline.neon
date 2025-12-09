@@ -14185,12 +14185,6 @@ parameters:
 			path: src/Util.php
 
 		-
-			message: '#^Offset int\<1, 6\> on array\{string, string, string, string, string, string, string\} in isset\(\) always exists and is not nullable\.$#'
-			identifier: isset.offset
-			count: 1
-			path: src/Util.php
-
-		-
 			message: '#^Only booleans are allowed in a negated boolean, int\<0, 2\> given\.$#'
 			identifier: booleanNot.exprNotBoolean
 			count: 1
