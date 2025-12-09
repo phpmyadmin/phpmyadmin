@@ -460,7 +460,7 @@ class Monitor
      */
     public function getJsonForLoggingVars(string|null $name, string|null $value): array
     {
-        if (isset($name, $value)) {
+        if ($name !== null && $value !== null) {
             if (preg_match('/[^a-zA-Z0-9_]+/', $name) !== 1) {
                 if (! is_numeric($value)) {
                     $value = $this->dbi->quoteString($value);

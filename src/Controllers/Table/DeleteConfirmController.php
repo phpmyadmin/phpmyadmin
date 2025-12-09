@@ -33,7 +33,7 @@ final class DeleteConfirmController implements InvocableController
     {
         $selected = $_POST['rows_to_delete'] ?? null;
 
-        if (! isset($selected) || ! is_array($selected)) {
+        if (! is_array($selected)) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No row selected.'));
 

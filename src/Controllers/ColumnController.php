@@ -23,7 +23,7 @@ final class ColumnController implements InvocableController
         $db = $request->getParsedBodyParamAsStringOrNull('db');
         $table = $request->getParsedBodyParamAsStringOrNull('table');
 
-        if (! isset($db, $table)) {
+        if ($db === null || $table === null) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON(['message' => Message::error()]);
 

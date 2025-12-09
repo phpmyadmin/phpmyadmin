@@ -166,7 +166,7 @@ final class PrivilegesController implements InvocableController
                 $relationParameters->configurableMenusFeature !== null,
             );
             //update the old variables
-            if (isset($retMessage)) {
+            if ($retMessage !== null) {
                 Current::$message = $retMessage;
                 unset($retMessage);
             }

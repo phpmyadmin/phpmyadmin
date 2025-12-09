@@ -1090,7 +1090,7 @@ class ExportSql extends ExportPlugin
         $relationParameters = $this->relation->getRelationParameters();
         $relationParams = $relationParameters->toArray();
 
-        if (isset($table)) {
+        if ($table !== null) {
             $types = [
                 RelationParameters::COLUMN_INFO => 'db_name',
                 RelationParameters::TABLE_UI_PREFS => 'db_name',
@@ -1219,7 +1219,7 @@ class ExportSql extends ExportPlugin
                 . '.' . Util::backquote((string) $relationParams[$type])
                 . ' WHERE ' . Util::backquote($dbNameColumn)
                 . ' = ' . $dbi->quoteString($db);
-            if (isset($table)) {
+            if ($table !== null) {
                 $sqlQuery .= ' AND `table_name` = ' . $dbi->quoteString($table);
             }
 

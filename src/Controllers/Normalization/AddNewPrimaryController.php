@@ -34,8 +34,8 @@ final class AddNewPrimaryController implements InvocableController
 
         $db = DatabaseName::tryFrom(Current::$database);
         $table = TableName::tryFrom(Current::$table);
-        $dbName = isset($db) ? $db->getName() : '';
-        $tableName = isset($table) ? $table->getName() : '';
+        $dbName = $db?->getName() ?? '';
+        $tableName = $table?->getName() ?? '';
 
         $columnMeta = ['Field' => $tableName . '_id', 'Extra' => 'auto_increment'];
         $html = $this->normalization->getHtmlForCreateNewColumn(
