@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2025-12-08 11:00+0000\n"
+"PO-Revision-Date: 2025-12-09 12:00+0000\n"
 "Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/4-9/th/>"
 "\n"
@@ -24,11 +24,11 @@ msgstr "รูปแบบไม่ดี!"
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
-msgstr "แฟ้ม %s ไม่สามารถใช้งานได้ในระบบนี้ สำหรับข้อมูลเพิ่มเติมกรุณาเยี่ยมชม %s"
+msgstr "ไฟล์ %s ไม่พร้อมใช้งานในระบบนี้ กรุณาไปที่ %s เพื่อดูข้อมูลเพิ่มเติม"
 
 #: db_central_columns.php:129
 msgid "The central list of columns for the current database is empty."
-msgstr "ไม่พบรายการกลางของฐานข้อมูลปัจจุบัน"
+msgstr "รายการชุดกลางของคอลัมน์สำหรับฐานข้อมูลปัจจุบันว่างเปล่า"
 
 #: db_central_columns.php:158
 msgid "Click to sort."
@@ -37,18 +37,18 @@ msgstr "คลิกเพื่อเรียงลำดับ"
 #: db_central_columns.php:177
 #, php-format
 msgid "Showing rows %1$s - %2$s."
-msgstr "กำลังแสดงแถวที่ %1$s - %2$s"
+msgstr "แสดงแถว %1$s - %2$s"
 
 #: db_datadict.php:61 libraries/classes/Operations.php:60
 msgid "Database comment"
-msgstr "หมายเหตุของฐานข้อมูล"
+msgstr "คำอธิบายฐานข้อมูล"
 
 #: db_datadict.php:108
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:596
 #: templates/table/structure/display_table_stats.twig:6
 #: templates/columns_definitions/column_definitions_form.twig:72
 msgid "Table comments:"
-msgstr "หมายเหตุของตาราง:"
+msgstr "คำอธิบายตาราง:"
 
 #: db_datadict.php:117 libraries/classes/Index.php:723
 #: libraries/classes/InsertEdit.php:1913
@@ -125,7 +125,7 @@ msgstr "ชนิด"
 #: templates/table/search/zoom_result_form.twig:35
 #: templates/table/tracking/structure_snapshot_columns.twig:9
 msgid "Null"
-msgstr "ค่าว่าง"
+msgstr "ไม่มีค่า"
 
 #: db_datadict.php:120 libraries/classes/CentralColumns.php:748
 #: libraries/classes/CentralColumns.php:1428
@@ -180,7 +180,7 @@ msgstr "หมายเหตุ"
 #: templates/table/tracking/structure_snapshot_columns.twig:25
 #: templates/table/structure/check_all_table_column.twig:33
 msgid "Primary"
-msgstr "คีย์หลัก"
+msgstr "หลัก"
 
 #: db_datadict.php:166 js/messages.php:384
 #: libraries/classes/CentralColumns.php:998
@@ -246,14 +246,14 @@ msgstr "ใช่"
 
 #: db_export.php:48
 msgid "View dump (schema) of database"
-msgstr "ดูโครงสร้างของฐานข้อมูล"
+msgstr "ดูการถ่ายโอนข้อมูล (โครงร่าง) ของฐานข้อมูล"
 
 #: db_export.php:53 db_tracking.php:105 export.php:390
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:161
 #: libraries/classes/Database/Qbe.php:341
 #: libraries/classes/Navigation/NavigationTree.php:926
 msgid "No tables found in database."
-msgstr "ไม่พบตารางใดๆ ในฐานข้อมูล"
+msgstr "ไม่พบตารางในฐานข้อมูล"
 
 #: db_export.php:68 libraries/classes/Config/Descriptions.php:490
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:338
@@ -309,7 +309,8 @@ msgstr "ชื่อฐานข้อมูลว่างเปล่า!"
 
 #: db_operations.php:69
 msgid "Cannot copy database to the same name. Change the name and try again."
-msgstr "ไม่สามารถคัดลอกฐานข้อมูลด้วยชื่อเดียวกันได้ เปลี่ยนชื่อแล้วลองใหม่อีกครั้ง"
+msgstr ""
+"ไม่สามารถคัดลอกฐานข้อมูลแล้วใช้ชื่อซ้ำกันได้ เปลี่ยนชื่อแล้วลองใหม่อีกครั้ง"
 
 #: db_operations.php:156
 #, php-format
@@ -319,25 +320,25 @@ msgstr "ฐานข้อมูล %1$s ได้ถูกเปลี่ยน
 #: db_operations.php:168
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
-msgstr "ฐานข้อมูล %1$s ได้ถูกคัดลอกไปยัง %2$s แล้ว"
+msgstr "ฐานข้อมูล %1$s ได้ถูกคัดลอกเป็น %2$s แล้ว"
 
 #: db_operations.php:297
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
-msgstr "การจัดเก็บการตั้งค่าของ phpMyAdmin ถูกปิดใช้งานไว้ %sรายละเอียดเพิ่มเติม%s"
+msgstr "ที่จัดเก็บการกำหนดค่า phpMyAdmin ถูกปิดใช้งานแล้ว %sค้นหาสาเหตุ%s"
 
 #: db_qbe.php:133
 msgid "You have to choose at least one column to display!"
-msgstr "คุณต้องเลือกแสดงผลอย่างน้อยหนึ่งคอลัมน์!"
+msgstr "คุณต้องเลือกอย่างน้อยหนึ่งคอลัมน์เพื่อแสดงผล!"
 
 #: db_qbe.php:145 templates/database/multi_table_query/form.twig:3
 msgid "Multi-table query"
-msgstr "คิวรี่หลายตาราง"
+msgstr "การเรียกดูหลายตาราง"
 
 #: db_qbe.php:149 templates/database/multi_table_query/form.twig:3
 msgid "Query by example"
-msgstr "คิวรี่ด้วยตัวอย่าง"
+msgstr "การเรียกดูโดยใช้ตัวอย่าง"
 
 #: db_qbe.php:168
 #, php-format
@@ -353,49 +354,50 @@ msgstr "การเข้าถึงถูกปฏิเสธ!"
 
 #: db_tracking.php:55 db_tracking.php:80
 msgid "Tracking data deleted successfully."
-msgstr "ลบข้อมูลติดตามเรียบร้อยแล้ว"
+msgstr "ลบข้อมูลการติดตามเรียบร้อยแล้ว"
 
 #: db_tracking.php:64
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
-msgstr "เวอร์ชัน %1$s ถูกสร้างขึ้นสำหรับตารางที่เลือก การติดตามจะเปิดใช้งานกับตารางพวกนั้น"
+msgstr ""
+"เวอร์ชัน %1$s ถูกสร้างขึ้นสำหรับตารางที่เลือก การติดตามเปิดใช้งานกับตารางพวกนั้น"
 
 #: db_tracking.php:95
 msgid "No tables selected."
-msgstr "ไม่มีตารางที่ถูกเลือก"
+msgstr "ไม่มีตารางที่เลือกไว้"
 
 #: db_tracking.php:153
 msgid "Database Log"
-msgstr "ประวัติการเข้าใช้ของฐานข้อมูล"
+msgstr "บันทึกฐานข้อมูล"
 
 #: error_report.php:73
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
-msgstr "ตรวจพบข้อผิดพลาด และรายงานตามที่ได้ตั้งค่าไว้เรียบร้อยแล้ว"
+msgstr "ตรวจพบข้อผิดพลาด และได้แจ้งรายงานตามที่ตั้งค่าไว้โดยอัตโนมัติ"
 
 #: error_report.php:77
 msgid "Thank you for submitting this report."
-msgstr "ขอบคุณสำหรับการรายงานครั้งนี้"
+msgstr "ขอบคุณสำหรับการรายงาน"
 
 #: error_report.php:81
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
-msgstr "ตรวจพบข้อผิดพลาด และรายงานได้ถูกสร้างขึ้นแล้ว แต่ไม่สามารถส่งได้ในขณะนี้"
+msgstr "ตรวจพบข้อผิดพลาด และรายงานได้ถูกสร้างขึ้นแล้ว แต่การส่งล้มเหลว"
 
 #: error_report.php:86
 msgid "If you experience any problems please submit a bug report manually."
-msgstr "หากคุณพบปัญหาในการใช้งานบางอย่าง กรุณารายงานข้อผิดพลาด้วยตัวคุณเอง"
+msgstr "หากคุณพบปัญหาใด ๆ ในการใช้งาน กรุณารายงานข้อผิดพลาดด้วยตนเอง"
 
 #: error_report.php:90
 msgid "You may want to refresh the page."
-msgstr "คุณอาจจะต้องการรีเฟรซหน้านี้"
+msgstr "คุณอาจต้องการรีเฟรชหน้าเพจ"
 
 #: export.php:290
 msgid "Bad parameters!"
-msgstr "พารามิเตอร์ไม่ถูกต้อง!"
+msgstr "พารามิเตอร์ไม่ดี!"
 
 #: gis_data_editor.php:122
 #, php-format
@@ -449,12 +451,12 @@ msgstr "แถวข้อความ %d:"
 
 #: gis_data_editor.php:280 gis_data_editor.php:357
 msgid "Outer ring:"
-msgstr "ด้านนอก:"
+msgstr "กลุ่มวงนอก:"
 
 #: gis_data_editor.php:282 gis_data_editor.php:359
 #, php-format
 msgid "Inner ring %d:"
-msgstr "ด้านใน %d:"
+msgstr "กลุ่มวงใน %d:"
 
 #: gis_data_editor.php:319
 msgid "Add a linestring"
@@ -462,7 +464,7 @@ msgstr "เพิ่มแถวข้อความ"
 
 #: gis_data_editor.php:320 gis_data_editor.php:399 js/messages.php:531
 msgid "Add an inner ring"
-msgstr "เพิ่มด้านใน"
+msgstr "เพิ่มกลุ่มวงใน"
 
 #: gis_data_editor.php:341
 #, php-format
@@ -525,13 +527,14 @@ msgstr "ไป"
 
 #: gis_data_editor.php:420
 msgid "Output"
-msgstr "ส่งออก"
+msgstr "เอาท์พุต"
 
 #: gis_data_editor.php:423
 msgid ""
 "Choose \"ST_GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
-msgstr "เลือก \"ST_GeomFromText\" จากแถวฟังก์ชัน และวางลงในข้อความช่อง \"ค่า\""
+msgstr ""
+"เลือก \"ST_GeomFromText\" จากคอลัมภ์ \"ฟังก์ชัน\" และวางข้อความด้านล่างลงในช่อง \"ค่า\""
 
 #: import.php:73
 msgid "Succeeded"
@@ -551,16 +554,16 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"คุณพยายามที่จะอัพโหลดไฟล์ที่มีขนาดใหญ่เกินไป กรุณาดูที่ %s เอกสารช่วยเหลือ%s "
-"เพื่อแก้ไขปัญหาดังกล่าวนี้"
+"อาจเป็นเพราะคุณพยายามอัปโหลดไฟล์ที่มีขนาดใหญ่เกินไป กรุณาดูที่ %sdocumentation%s เพื่อแนวทาง"
+"แก้ปัญหาสำหรับข้อจำกัดนี้"
 
 #: import.php:382 import.php:584
 msgid "Showing bookmark"
-msgstr "แสดงบุ๊คมาร์ค"
+msgstr "แสดงบุ๊กมาร์ก"
 
 #: import.php:403 import.php:580
 msgid "The bookmark has been deleted."
-msgstr "ลบคำค้นที่จดไว้เรียบร้อยแล้ว"
+msgstr "บุ๊กมาร์กถูกลบแล้ว"
 
 #: import.php:497
 msgid ""
@@ -568,23 +571,23 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
-"ไม่มีข้อมูลสำหรับการนำเข้า อาจจะไม่ได้ใส่ชื่อไฟล์ หรือขนาดไฟล์เกินขนาดสูงสุดที่ระบบตั้งไว้ "
-"กรุณาแก้ไขไฟล์ตั้งค่าของ PHP ดูเอกสารเพิ่มเติมได้ที่ [doc@faq1-16]FAQ 1.16[/doc]"
+"ไม่ได้รับข้อมูลที่จะนำเข้า อีกทั้งไม่มีชื่อไฟล์ด้วย หรือไฟล์มีขนาดใหญ่เกินกว่าการอนุญาตสูงสุดตามการกำหน"
+"ดค่า PHP ของคุณ ดู [doc@faq1-16]FAQ 1.16[/doc]"
 
 #: import.php:547 libraries/classes/Display/Import.php:56
 msgid "Could not load import plugins, please check your installation!"
-msgstr "ไม่สามารถโหลดนำเข้าปลั๊กอินได้ กรุณาตรวจสอบการติดตั้งของคุณ!"
+msgstr "ไม่สามารถนำเข้าปลั๊กอินได้ กรุณาตรวจสอบการติดตั้งของคุณ!"
 
 #: import.php:587 libraries/classes/Sql.php:827 libraries/classes/Sql.php:1631
 #, php-format
 msgid "Bookmark %s has been created."
-msgstr "บุ๊คมาร์ค %s ได้ถูกสร้างขึ้น"
+msgstr "บุ๊กมาร์ก %s ถูกสร้างขึ้นแล้ว"
 
 #: import.php:597
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] "นำเข้าสำเร็จเรียบร้อย การเรียกใช้ %d รายการได้ถูกดำเนินการแล้ว"
+msgstr[0] "การนำเข้าเรียบร้อย %d การเรียกดูดำเนินการแล้ว"
 
 #: import.php:628
 #, php-format
@@ -592,16 +595,16 @@ msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
-"หมดเวลาการเรียกใช้สคริปต์แล้ว หากคุณต้องการนำเข้าให้เรียบร้อย กรุณา %sนำเข้าไฟล์เดิม%s "
-"อีกรอบ และการนำเข้าจะดำเนินต่อไป"
+"สคริปต์หมดเวลาแล้ว หากคุณต้องการนำเข้าให้เสร็จ กรุณา %sresubmit the same file%s และการ"
+"นำเข้าจะดำเนินการต่อให้"
 
 #: import.php:638
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
-"ชุดข้อมูลที่นำเข้าล่าสุดไม่ได้สามารถนำเข้าได้ หมายความว่า phpMyAdmin ไม่สามารถนำเข้าได้ทัน "
-"ตามเวลารันสูงสุดที่กำหนดใน PHP"
+"อย่างไรก็ตามจากการรันครั้งล่าสุดไม่มีการแยกวิเคราะห์ข้อมูล ซึ่งโดยปกติจะหมายความว่า "
+"phpMyAdmin จะไม่สามารถดำเนินการนำเข้านี้ให้เสร็จสิ้นได้ เว้นแต่คุณจะเพิ่มขีดจำกัดเวลาของ php"
 
 #: import.php:706 sql.php:164
 msgid "\"DROP DATABASE\" statements are disabled."
@@ -623,8 +626,8 @@ msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
-"คุณได้ออกจากระบบจากเครื่องแม่ข่ายหนึ่งแล้ว หากต้องการออกจากระบบ phpMyAdmin โดยสมบูรณ์ "
-"คุณต้องออกจากระบบจากเครื่องแม่ข่ายทั้งหมด"
+"คุณได้ลงชื่อออกจากเซิร์ฟเวอร์ หากต้องการลงชื่อออกจาก phpMyAdmin โดยสมบูรณ์ คุณต้องลงชื่อออกจา"
+"กเซิร์ฟเวอร์ทั้งหมด"
 
 #: index.php:202 libraries/classes/Footer.php:81
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:115
@@ -638,7 +641,7 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
-"คุณกำลังใช้งานเครื่องแม่ข่ายตัวอย่าง คุณสามารถทำอะไรก็ได้ในนี้ เพียงอย่าแก้ไขผู้ใช้ root, debian-"
+"คุณกำลังใช้งานเซิร์ฟเวอร์ทดลอง คุณสามารถทำอะไรก็ได้ในนี้ แต่กรุณาอย่าแก้ไขผู้ใช้ root, debian-"
 "sys-maint และ pma ข้อมูลเพิ่มเติมสามารถดูได้ที่ %s"
 
 #: index.php:216
@@ -654,15 +657,15 @@ msgstr "เปลี่ยนรหัสผ่าน"
 
 #: index.php:262 libraries/classes/Config/Descriptions.php:1488
 msgid "Server connection collation"
-msgstr "ตรวจทานการเชื่อมต่อเซิร์ฟเวอร์"
+msgstr "การรวบรวมการเชื่อมต่อเซิร์ฟเวอร์"
 
 #: index.php:285
 msgid "Appearance settings"
-msgstr "การตั้งค่าลักษณะ"
+msgstr "การตั้งค่ารูปลักษณ์"
 
 #: index.php:318 prefs_manage.php:276
 msgid "More settings"
-msgstr "ตั้งค่าเพิ่มเติม"
+msgstr "การตั้งค่าเพิ่มเติม"
 
 #: index.php:340
 msgid "Database server"
@@ -688,7 +691,7 @@ msgstr "เวอร์ชันของเซิร์ฟเวอร์:"
 
 #: index.php:361
 msgid "Protocol version:"
-msgstr "เวอร์ชันของโพรโทคอล:"
+msgstr "เวอร์ชันของโปรโตคอล:"
 
 #: index.php:365
 msgid "User:"
@@ -758,16 +761,17 @@ msgid ""
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
 "split strings correctly and it may result in unexpected results."
 msgstr ""
-"ไม่พบส่วนขยาย mbstring ของ PHP และดูเหมือนคุณต้องใช้ชุดอักขระโดยไม่มีส่วนขยาย mbstring "
-"ของ phpMyAdmin ซึ่งไม่สามารถแยกอักขระได้อย่างถูกต้อง และอาจทำให้ผลลัพธ์ที่ไม่คาดคิดได้"
+"ไม่พบส่วนขยาย mbstring ของ PHP และดูเหมือนคุณกำลังใช้ชุดอักขระมัลติไบต์ เมื่อปราศจากส่วนขยา"
+"ย mbstring ของ phpMyAdmin ซึ่งไม่สามารถแยกอักขระได้อย่างถูกต้อง และอาจส่งผลให้เกิดผลลัพธ์ที่"
+"ไม่คาดคิดได้"
 
 #: index.php:528
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
 msgstr ""
-"ไม่พบส่วนขยาย curl และ allow_url_fopen ถูกปิดใช้งานอยู่ "
-"ทำให้บางคุณลักษณะอย่างการรายงานข้อผิดพลาดหรือตรวจสอบรุ่นล่าสุดจะถูกปิดไว้"
+"ไม่พบส่วนขยาย curl และ allow_url_fopen ถูกปิดการใช้งานอยู่ ทำให้บางคุณลักษณะ เช่น การราย"
+"งานข้อผิดพลาดหรือตรวจสอบเวอร์ชันจะถูกปิดไว้"
 
 #: index.php:543
 msgid ""
@@ -776,22 +780,24 @@ msgid ""
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
-"พารามิเตอร์ PHP [a@https://secure.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetim[/a] "
-"ของคุณต่ำกว่าระยะเวลามีผลของคุกกี้ที่ได้กำหนดไว้ใน phpMyAdmin "
-"สิ่งนี้จะทำให้การเข้าสู่ระบบของคุณอาจหมดอายุเร็วกว่าที่กำหนดไว้ใน phpMyAdmin"
+"พารามิเตอร์ PHP ของคุณ [a@https://secure.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] ต่ำกว่าค่าความถูกต้องของคุกกี้ที่กำหนดค่าไ"
+"ว้ใน phpMyAdmin ด้วยสาเหตุนี้การลงชื่อเข้าสู่ระบบของคุณอาจหมดอายุเร็วกว่าที่กำหนดค่าไว้ใน "
+"phpMyAdmin"
 
 #: index.php:562
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
-"การจัดเก็บคุกกี้เข้าสู่ระบบต่ำกว่าระยะเวลามีผลของคุกกี้ที่ได้กำหนดไว้ใน phpMyAdmin "
-"สิ่งนี้จะทำให้การเข้าสู่ระบบของคุณอาจหมดอายุเร็วกว่าที่กำหนดไว้ใน phpMyAdmin"
+"การจัดเก็บคุกกี้สำหรับการเข้าสู่ระบบนั้นต่ำกว่าความถูกต้องของคุกกี้ที่กำหนดค่าไว้ใน phpMyAdmin ด้วยส"
+"าเหตุนี้การเข้าสู่ระบบของคุณจะหมดอายุเร็วกว่าที่กำหนดค่าไว้ใน phpMyAdmin"
 
 #: index.php:577
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
-msgstr "จากนี้ไป ไฟล์การกำหนดค่าจะต้องมีการระบุชุดรหัสผ่านลับ (blowfish_secret)"
+msgstr ""
+"ขณะนี้ไฟล์การกำหนดค่าจำเป็นต้องมีการระบุชุดรหัสผ่านลับ (blowfish_secret)"
 
 #: index.php:584
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
@@ -804,9 +810,9 @@ msgid ""
 "once phpMyAdmin has been configured. Otherwise the security of your server "
 "may be compromised by unauthorized people downloading your configuration."
 msgstr ""
-"ไดเรกทอรี [code]config[/code] ซึ่งถูกใช้โดยสคริปต์ตัวติดตั้งยังคงอยู่ในไดเรกทอรี phpMyAdmin "
-"ของคุณ เราขอแนะนำเป็นอย่างยิ่งว่าให้ลบออกหากได้กำหนดค่า phpMyAdmin เรียบร้อยแล้ว "
-"มิเช่นนั้นความปลอดภัยของเครื่องแม่ข่ายของคุณอาจถูกบุกรุกโดยบุคคลที่ไม่ได้รับอนุญาตที่เข้ามาดาวน์โหลดไฟล์กำหนดค่าของคุณ"
+"ไดเรกทอรี [code]config[/code] ซึ่งใช้โดยสคริปต์ติดตั้ง ยังคงอยู่ในไดเรกทอรี phpMyAdmin ของ"
+"คุณ ขอแนะนำอย่างยิ่งให้ลบไดเรกทอรีนี้ออกเมื่อกำหนดค่า phpMyAdmin เรียบร้อยแล้ว มิฉะนั้น ความปล"
+"อดภัยของเซิร์ฟเวอร์ของคุณอาจถูกบุกรุกโดยผู้ที่ไม่ได้รับอนุญาตที่ดาวน์โหลดการกำหนดค่าของคุณ"
 
 #: index.php:616
 #, php-format
@@ -814,13 +820,13 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
-"พื้นที่จัดเก็บการกำหนดค่า phpMyAdmin ยังตั้งค่าไม่เสร็จสมบูรณ์ "
-"คุณลักษณะเพิ่มเติมบางอย่างได้ถูกปิดใช้งานแล้ว %sเรียนรู้เพิ่มเติม%s "
+"พื้นที่จัดเก็บการกำหนดค่า phpMyAdmin ยังตั้งค่าไม่เสร็จสมบูรณ์ คุณลักษณะเพิ่มเติมบางอย่างได้ถูกปิดใช้ง"
+"านแล้ว %sค้นหาสาเหตุ%s "
 
 #: index.php:623
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
-msgstr "หรือเข้าไปที่แท็บ 'การดำเนินการ' ของฐานข้อมูลใดๆ เพื่อตั้งค่า"
+msgstr "หรือไปที่แท็บ 'การดำเนินการ' ของฐานข้อมูลใด ๆ เพื่อตั้งค่าที่นั่น"
 
 #: index.php:648
 #, php-format
@@ -828,8 +834,7 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"เครื่องแม่ข่ายกำลังทำงานโดยใช้ Suhosin โปรดศึกษา%sเอกสารกำกับโปรแกรม"
-"%sเพื่อดูปัญหาที่อาจเกิดขึ้นได้"
+"เซิร์ฟเวอร์ทำงานด้วย Suhosin กรุณาดู %sเอกสารประกอบ%s สำหรับปัญหาที่อาจเกิดขึ้น"
 
 #: index.php:662
 #, php-format
@@ -837,8 +842,8 @@ msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
 "templates and will be slow because of this."
 msgstr ""
-"ไม่สามารถเข้าถึง $cfg['TempDir'] (%s) ได้ phpMyAdmin "
-"จึงไม่สามารถทำการแคชแม่แบบได้และจะทำงานช้าลง"
+"ไม่สามารถเข้าถึง $cfg['TempDir'] (%s) ได้ phpMyAdmin จึงไม่สามารถทำการแคชแม่แบบได้และ"
+"จะทำงานช้าลงเพราะสาเหตุนี้"
 
 #: js/messages.php:42
 msgid "Confirm"
@@ -847,23 +852,24 @@ msgstr "ยืนยัน"
 #: js/messages.php:43
 #, php-format
 msgid "Do you really want to execute \"%s\"?"
-msgstr "คุณแน่ใจหรือว่าต้องการดำเนินการ \"%s\"?"
+msgstr "คุณต้องการดำเนินการ \"%s\" จริงหรือไม่?"
 
 #: js/messages.php:45 libraries/classes/MultSubmits.php:498
 msgid "You are about to DESTROY a complete database!"
-msgstr "คุณกำลังจะ ทํ า ล า ย ฐานข้อมูลหนึ่งโดยสมบูรณ์!"
+msgstr "คุณกำลังจะใช้คำสั่ง DESTROY ฐานข้อมูลโดยสมบูรณ์!"
 
 #: js/messages.php:47
 msgid "Cannot rename database to the same name. Change the name and try again"
-msgstr "ไม่สามารถเปลี่ยนชื่อฐานข้อมูลให้เป็นชื่อเดิมได้ ให้แก้ไขชื่อแล้วลองใหม่"
+msgstr ""
+"ไม่สามารถแก้ไขชื่อฐานข้อมูลให้เป็นชื่อซ้ำกันได้ ให้เปลี่ยนชื่อแล้วลองอีกครั้ง"
 
 #: js/messages.php:49
 msgid "You are about to DESTROY a complete table!"
-msgstr "คุณกำลังจะ ทํ า ล า ย ตารางหนึ่งโดยสมบูรณ์!"
+msgstr "คุณกำลังจะใช้คำสั่ง DESTROY ตารางโดยสมบูรณ์!"
 
 #: js/messages.php:51
 msgid "You are about to TRUNCATE a complete table!"
-msgstr "คุณกำลังจะ ล้ า ง ข้ อ มู ล ตารางหนึ่งโดยสมบูรณ์!"
+msgstr "คุณกำลังจะใช้คำสั่ง TRUNCATE ตารางโดยสมบูรณ์!"
 
 #: js/messages.php:52
 msgid "Delete tracking data for this table?"
@@ -875,15 +881,15 @@ msgstr "ลบข้อมูลการติดตามของตารา
 
 #: js/messages.php:56
 msgid "Delete tracking data for this version?"
-msgstr "ลบข้อมูลการติดตามของรุ่นนี้?"
+msgstr "ลบข้อมูลการติดตามของเวอร์ชันนี้?"
 
 #: js/messages.php:58
 msgid "Delete tracking data for these versions?"
-msgstr "ลบข้อมูลการติดตามของรุ่นเหล่านี้?"
+msgstr "ลบข้อมูลการติดตามของเวอร์ชันเหล่านี้?"
 
 #: js/messages.php:59
 msgid "Delete entry from tracking report?"
-msgstr "ลบแถวข้อมูลจากรายงานการติดตาม?"
+msgstr "ลบรายการออกจากรายงานการติดตาม?"
 
 #: js/messages.php:60
 msgid "Deleting tracking data"
@@ -2183,11 +2189,11 @@ msgstr "เรขาคณิต"
 
 #: js/messages.php:528
 msgid "Inner ring"
-msgstr "วงแหวนด้านใน"
+msgstr "กลุ่มวงใน"
 
 #: js/messages.php:529
 msgid "Outer ring"
-msgstr "วงแหวนด้านนอก"
+msgstr "กลุ่มวงนอก"
 
 #: js/messages.php:533
 msgid "Do you want to copy encryption key?"
