@@ -25,29 +25,6 @@ use function sprintf;
  */
 class GisMultiLineString extends GisGeometry
 {
-    private static self $instance;
-
-    /**
-     * A private constructor; prevents direct creation of object.
-     */
-    private function __construct()
-    {
-    }
-
-    /**
-     * Returns the singleton.
-     *
-     * @return GisMultiLineString the singleton
-     */
-    public static function singleton(): GisMultiLineString
-    {
-        if (! isset(self::$instance)) {
-            self::$instance = new GisMultiLineString();
-        }
-
-        return self::$instance;
-    }
-
     /**
      * Get coordinate extent for this wkt.
      *

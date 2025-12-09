@@ -60,7 +60,7 @@ class GisPolygonTest extends GisGeomTestCase
     #[DataProvider('providerForTestGenerateWkt')]
     public function testGenerateWkt(array $gisData, int $index, string $empty, string $output): void
     {
-        $object = GisPolygon::singleton();
+        $object = new GisPolygon();
         self::assertSame($output, $object->generateWkt($gisData, $index, $empty));
     }
 
@@ -106,7 +106,7 @@ class GisPolygonTest extends GisGeomTestCase
     #[DataProvider('providerForTestGenerateParams')]
     public function testGenerateParams(string $wkt, array $params): void
     {
-        $object = GisPolygon::singleton();
+        $object = new GisPolygon();
         self::assertEquals($params, $object->generateParams($wkt));
     }
 
@@ -134,7 +134,7 @@ class GisPolygonTest extends GisGeomTestCase
     #[DataProvider('providerForTestGetExtent')]
     public function testGetExtent(string $spatial, Extent $extent): void
     {
-        $object = GisPolygon::singleton();
+        $object = new GisPolygon();
         self::assertEquals($extent, $object->getExtent($spatial));
     }
 
@@ -157,7 +157,7 @@ class GisPolygonTest extends GisGeomTestCase
     #[RequiresPhpExtension('gd')]
     public function testPrepareRowAsPng(): void
     {
-        $object = GisPolygon::singleton();
+        $object = new GisPolygon();
         $image = ImageWrapper::create(200, 124, ['red' => 229, 'green' => 229, 'blue' => 229]);
         self::assertNotNull($image);
         $object->prepareRowAsPng(
@@ -192,7 +192,7 @@ class GisPolygonTest extends GisGeomTestCase
         ScaleData $scaleData,
         TCPDF $pdf,
     ): void {
-        $object = GisPolygon::singleton();
+        $object = new GisPolygon();
         $object->prepareRowAsPdf($spatial, $label, $color, $scaleData, $pdf);
 
         $fileExpected = $this->testDir . '/polygon-expected.pdf';
@@ -236,7 +236,7 @@ class GisPolygonTest extends GisGeomTestCase
         ScaleData $scaleData,
         string $output,
     ): void {
-        $object = GisPolygon::singleton();
+        $object = new GisPolygon();
         $svg = $object->prepareRowAsSvg($spatial, $label, $color, $scaleData);
         self::assertSame($output, $svg);
     }
@@ -278,7 +278,7 @@ class GisPolygonTest extends GisGeomTestCase
         array $color,
         array $expected,
     ): void {
-        $object = GisPolygon::singleton();
+        $object = new GisPolygon();
         self::assertSame($expected, $object->prepareRowAsOl($spatial, $srid, $label, $color));
     }
 

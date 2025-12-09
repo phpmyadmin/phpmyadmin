@@ -49,7 +49,7 @@ class GisPointTest extends GisGeomTestCase
     #[DataProvider('providerForTestGenerateWkt')]
     public function testGenerateWkt(array $gisData, int $index, string $empty, string $output): void
     {
-        $object = GisPoint::singleton();
+        $object = new GisPoint();
         self::assertSame($output, $object->generateWkt($gisData, $index, $empty));
     }
 
@@ -62,7 +62,7 @@ class GisPointTest extends GisGeomTestCase
     #[DataProvider('providerForTestGetShape')]
     public function testGetShape(array $rowData, string $shape): void
     {
-        $object = GisPoint::singleton();
+        $object = new GisPoint();
         self::assertSame($shape, $object->getShape($rowData));
     }
 
@@ -85,7 +85,7 @@ class GisPointTest extends GisGeomTestCase
     #[DataProvider('providerForTestGenerateParams')]
     public function testGenerateParams(string $wkt, array $params): void
     {
-        $object = GisPoint::singleton();
+        $object = new GisPoint();
         self::assertSame($params, $object->generateParams($wkt));
     }
 
@@ -133,7 +133,7 @@ class GisPointTest extends GisGeomTestCase
     #[DataProvider('providerForTestGetExtent')]
     public function testGetExtent(string $spatial, Extent $extent): void
     {
-        $object = GisPoint::singleton();
+        $object = new GisPoint();
         self::assertEquals($extent, $object->getExtent($spatial));
     }
 
@@ -150,7 +150,7 @@ class GisPointTest extends GisGeomTestCase
     #[RequiresPhpExtension('gd')]
     public function testPrepareRowAsPng(): void
     {
-        $object = GisPoint::singleton();
+        $object = new GisPoint();
         $image = ImageWrapper::create(200, 124, ['red' => 229, 'green' => 229, 'blue' => 229]);
         self::assertNotNull($image);
         $object->prepareRowAsPng(
@@ -185,7 +185,7 @@ class GisPointTest extends GisGeomTestCase
         ScaleData $scaleData,
         TCPDF $pdf,
     ): void {
-        $object = GisPoint::singleton();
+        $object = new GisPoint();
         $object->prepareRowAsPdf($spatial, $label, $color, $scaleData, $pdf);
 
         $fileExpectedArch = $this->testDir . '/point-expected-' . $this->getArch() . '.pdf';
@@ -230,7 +230,7 @@ class GisPointTest extends GisGeomTestCase
         ScaleData $scaleData,
         string $output,
     ): void {
-        $object = GisPoint::singleton();
+        $object = new GisPoint();
         $svg = $object->prepareRowAsSvg($spatial, $label, $color, $scaleData);
         self::assertSame($output, $svg);
     }
@@ -270,7 +270,7 @@ class GisPointTest extends GisGeomTestCase
         array $color,
         array $expected,
     ): void {
-        $object = GisPoint::singleton();
+        $object = new GisPoint();
         self::assertSame($expected, $object->prepareRowAsOl($spatial, $srid, $label, $color));
     }
 

@@ -44,7 +44,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
     #[DataProvider('providerForTestGetExtent')]
     public function testGetExtent(string $spatial, Extent $extent): void
     {
-        $object = GisGeometryCollection::singleton();
+        $object = new GisGeometryCollection();
         self::assertEquals($extent, $object->getExtent($spatial));
     }
 
@@ -59,7 +59,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
     #[DataProvider('providerForTestGenerateWkt')]
     public function testGenerateWkt(array $gisData, int $index, string $empty, string $output): void
     {
-        $object = GisGeometryCollection::singleton();
+        $object = new GisGeometryCollection();
         self::assertSame($output, $object->generateWkt($gisData, $index, $empty));
     }
 
@@ -157,7 +157,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
     #[DataProvider('providerForTestGenerateParams')]
     public function testGenerateParams(string $wkt, array $params): void
     {
-        $object = GisGeometryCollection::singleton();
+        $object = new GisGeometryCollection();
         self::assertSame($params, $object->generateParams($wkt));
     }
 
@@ -280,7 +280,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
     #[RequiresPhpExtension('gd')]
     public function testPrepareRowAsPng(): void
     {
-        $object = GisGeometryCollection::singleton();
+        $object = new GisGeometryCollection();
         $image = ImageWrapper::create(200, 124, ['red' => 229, 'green' => 229, 'blue' => 229]);
         self::assertNotNull($image);
         $object->prepareRowAsPng(
@@ -317,7 +317,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
         ScaleData $scaleData,
         TCPDF $pdf,
     ): void {
-        $object = GisGeometryCollection::singleton();
+        $object = new GisGeometryCollection();
         $object->prepareRowAsPdf($spatial, $label, $color, $scaleData, $pdf);
 
         $fileExpected = $this->testDir . '/geometrycollection-expected.pdf';
@@ -361,7 +361,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
         ScaleData $scaleData,
         string $output,
     ): void {
-        $object = GisGeometryCollection::singleton();
+        $object = new GisGeometryCollection();
         $svg = $object->prepareRowAsSvg($spatial, $label, $color, $scaleData);
         self::assertSame($output, $svg);
     }
@@ -403,7 +403,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
         array $color,
         array $expected,
     ): void {
-        $object = GisGeometryCollection::singleton();
+        $object = new GisGeometryCollection();
         self::assertSame($expected, $object->prepareRowAsOl($spatial, $srid, $label, $color));
     }
 

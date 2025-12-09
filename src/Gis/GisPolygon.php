@@ -27,29 +27,6 @@ use function sprintf;
  */
 class GisPolygon extends GisGeometry
 {
-    private static self $instance;
-
-    /**
-     * A private constructor; prevents direct creation of object.
-     */
-    private function __construct()
-    {
-    }
-
-    /**
-     * Returns the singleton.
-     *
-     * @return GisPolygon the singleton
-     */
-    public static function singleton(): GisPolygon
-    {
-        if (! isset(self::$instance)) {
-            self::$instance = new GisPolygon();
-        }
-
-        return self::$instance;
-    }
-
     /**
      * Get coordinate extent for this wkt.
      *

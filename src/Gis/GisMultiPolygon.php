@@ -28,29 +28,6 @@ use function sprintf;
  */
 class GisMultiPolygon extends GisGeometry
 {
-    private static self $instance;
-
-    /**
-     * A private constructor; prevents direct creation of object.
-     */
-    private function __construct()
-    {
-    }
-
-    /**
-     * Returns the singleton.
-     *
-     * @return GisMultiPolygon the singleton
-     */
-    public static function singleton(): GisMultiPolygon
-    {
-        if (! isset(self::$instance)) {
-            self::$instance = new GisMultiPolygon();
-        }
-
-        return self::$instance;
-    }
-
     /**
      * Get coordinates extent for this wkt.
      *

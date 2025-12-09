@@ -21,29 +21,6 @@ use function sprintf;
  */
 class GisPoint extends GisGeometry
 {
-    private static self $instance;
-
-    /**
-     * A private constructor; prevents direct creation of object.
-     */
-    private function __construct()
-    {
-    }
-
-    /**
-     * Returns the singleton.
-     *
-     * @return GisPoint the singleton
-     */
-    public static function singleton(): GisPoint
-    {
-        if (! isset(self::$instance)) {
-            self::$instance = new GisPoint();
-        }
-
-        return self::$instance;
-    }
-
     /**
      * Get coordinate extent for this wkt.
      *
