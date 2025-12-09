@@ -1639,12 +1639,10 @@
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
     <RedundantCondition>
-      <code><![CDATA[$request->hasBodyParam('import_type')
-                && $request->getParsedBodyParam('import_type') === 'text_file'
+      <code><![CDATA[$request->getParsedBodyParam('import_type') === 'text_file'
                 && isset($_FILES['import_file'])
                 && is_array($_FILES['import_file'])]]></code>
-      <code><![CDATA[$request->hasBodyParam('import_type')
-                && $request->getParsedBodyParam('import_type') === 'text_file'
+      <code><![CDATA[$request->getParsedBodyParam('import_type') === 'text_file'
                 && isset($_FILES['import_file'])
                 && is_array($_FILES['import_file'])
                 && $_FILES['import_file']['error'] == UPLOAD_ERR_OK
