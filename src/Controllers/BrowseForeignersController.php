@@ -35,7 +35,7 @@ final class BrowseForeignersController implements InvocableController
         $foreignFilter = $request->getParsedBodyParamAsString('foreign_filter', '');
         $rownumber = $request->getParsedBodyParamAsStringOrNull('rownumber');
 
-        if (! isset($database, $table, $field)) {
+        if ($database === null || $table === null || $field === null) {
             return $this->response->response();
         }
 

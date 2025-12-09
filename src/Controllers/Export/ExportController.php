@@ -227,7 +227,7 @@ final readonly class ExportController implements InvocableController
         // Do we need to convert charset?
         Export::$outputCharsetConversion = Export::$asFile
             && Encoding::isSupported()
-            && isset(Current::$charset) && Current::$charset !== 'utf-8'
+            && Current::$charset !== null && Current::$charset !== 'utf-8'
             && in_array(Current::$charset, Encoding::listEncodings(), true);
 
         // Use on the fly compression?

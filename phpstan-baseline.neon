@@ -3582,18 +3582,12 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 2
+			count: 1
 			path: src/Controllers/Table/Structure/PartitioningController.php
 
 		-
 			message: '#^Method PhpMyAdmin\\Controllers\\Table\\Structure\\PartitioningController\:\:extractPartitionDetails\(\) should return array\<string, array\<int, array\<string, mixed\>\>\|bool\|int\|string\>\|null but returns array\<string, mixed\>\.$#'
 			identifier: return.type
-			count: 1
-			path: src/Controllers/Table/Structure/PartitioningController.php
-
-		-
-			message: '#^Offset ''partition_by'' on array\{partition_by\: string, partition_expr\: string, partition_count\: mixed, subpartition_by\: string, subpartition_expr\: string, subpartition_count\: mixed, can_have_subpartitions\: bool\} in isset\(\) always exists and is not nullable\.$#'
-			identifier: isset.offset
 			count: 1
 			path: src/Controllers/Table/Structure/PartitioningController.php
 
@@ -7770,7 +7764,7 @@ parameters:
 		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
-			count: 3
+			count: 1
 			path: src/InsertEdit.php
 
 		-
@@ -14191,12 +14185,6 @@ parameters:
 			path: src/Util.php
 
 		-
-			message: '#^Offset int\<1, 6\> on array\{string, string, string, string, string, string, string\} in isset\(\) always exists and is not nullable\.$#'
-			identifier: isset.offset
-			count: 1
-			path: src/Util.php
-
-		-
 			message: '#^Only booleans are allowed in a negated boolean, int\<0, 2\> given\.$#'
 			identifier: booleanNot.exprNotBoolean
 			count: 1
@@ -17056,21 +17044,9 @@ parameters:
 			path: tests/unit/Navigation/Nodes/NodeTest.php
 
 		-
-			message: '#^Property PhpMyAdmin\\Config\:\:\$selectedServer \(array\{host\: string, port\: string, socket\: string, ssl\: bool, ssl_key\: string\|null, ssl_cert\: string\|null, ssl_ca\: string\|null, ssl_ca_path\: string\|null, \.\.\.\}\) does not accept array\<''AllowDeny''\|''AllowNoPassword''\|''AllowRoot''\|''auth_http_realm''\|''auth_type''\|''bookmarktable''\|''central_columns''\|''column_info''\|''compress''\|''control_compress''\|''control_hide…''\|''control_socket''\|''control_ssl''\|''control_ssl_ca''\|''control_ssl_ca_path''\|''control_ssl_cert''\|''control_ssl_ciphers''\|''control_ssl_key''\|''control_ssl_verify''\|''controlhost''\|''controlpass''\|''controlport''\|''controluser''\|''designer_settings''\|''DisableIS''\|''export_templates''\|''favorite''\|''history''\|''host''\|''LogoutURL''\|''MaxTableUiprefs''\|''navigationhiding''\|''only_db''\|''password''\|''pdf_pages''\|''pmadb''\|''port''\|''recent''\|''relation''\|''savedsearches''\|''SessionTimeZone''\|''SignonCookieParams''\|''SignonScript''\|''SignonSession''\|''SignonURL''\|''socket''\|''ssl''\|''ssl_ca''\|''ssl_ca_path''\|''ssl_cert''\|''ssl_ciphers''\|''ssl_key''\|''ssl_verify''\|''table_coords''\|''table_info''\|''table_uiprefs''\|''tracking''\|''user''\|''userconfig''\|''usergroups''\|''users''\|''verbose'', array\<array\<string\>\|bool\|int\<0, max\>\|string\>\|bool\|int\<1, max\>\|string\|null\>\.$#'
+			message: '#^Property PhpMyAdmin\\Config\:\:\$selectedServer \(array\{host\: string, port\: string, socket\: string, ssl\: bool, ssl_key\: string\|null, ssl_cert\: string\|null, ssl_ca\: string\|null, ssl_ca_path\: string\|null, \.\.\.\}\) does not accept array\{host\: string, port\: string, socket\: string, ssl\: bool, ssl_key\: string\|null, ssl_cert\: string\|null, ssl_ca\: string\|null, ssl_ca_path\: string\|null, \.\.\.\}\.$#'
 			identifier: assign.propertyType
-			count: 1
-			path: tests/unit/Navigation/Nodes/NodeTest.php
-
-		-
-			message: '#^Property PhpMyAdmin\\Config\:\:\$selectedServer \(array\{host\: string, port\: string, socket\: string, ssl\: bool, ssl_key\: string\|null, ssl_cert\: string\|null, ssl_ca\: string\|null, ssl_ca_path\: string\|null, \.\.\.\}\) does not accept array\<''AllowDeny''\|''AllowNoPassword''\|''AllowRoot''\|''auth_http_realm''\|''auth_type''\|''bookmarktable''\|''central_columns''\|''column_info''\|''compress''\|''control_compress''\|''control_hide…''\|''control_socket''\|''control_ssl''\|''control_ssl_ca''\|''control_ssl_ca_path''\|''control_ssl_cert''\|''control_ssl_ciphers''\|''control_ssl_key''\|''control_ssl_verify''\|''controlhost''\|''controlpass''\|''controlport''\|''controluser''\|''designer_settings''\|''DisableIS''\|''export_templates''\|''favorite''\|''history''\|''host''\|''LogoutURL''\|''MaxTableUiprefs''\|''navigationhiding''\|''password''\|''pdf_pages''\|''pmadb''\|''port''\|''recent''\|''relation''\|''savedsearches''\|''SessionTimeZone''\|''SignonCookieParams''\|''SignonScript''\|''SignonSession''\|''SignonURL''\|''socket''\|''ssl''\|''ssl_ca''\|''ssl_ca_path''\|''ssl_cert''\|''ssl_ciphers''\|''ssl_key''\|''ssl_verify''\|''table_coords''\|''table_info''\|''table_uiprefs''\|''tracking''\|''user''\|''userconfig''\|''usergroups''\|''users''\|''verbose'', array\<array\<string\>\|bool\|int\<0, max\>\|string\>\|bool\|int\<1, max\>\|string\|null\>\.$#'
-			identifier: assign.propertyType
-			count: 2
-			path: tests/unit/Navigation/Nodes/NodeTest.php
-
-		-
-			message: '#^Property PhpMyAdmin\\Config\:\:\$selectedServer \(array\{host\: string, port\: string, socket\: string, ssl\: bool, ssl_key\: string\|null, ssl_cert\: string\|null, ssl_ca\: string\|null, ssl_ca_path\: string\|null, \.\.\.\}\) does not accept array\{\}\.$#'
-			identifier: assign.propertyType
-			count: 1
+			count: 3
 			path: tests/unit/Navigation/Nodes/NodeTest.php
 
 		-

@@ -1640,9 +1640,9 @@ class InsertEdit
 
                 foreach ($enumValues as $enumValue) {
                     if (
-                        $data == $enumValue || ($data == ''
+                        $data === $enumValue || ($data == ''
                             && (! isset($_POST['where_clause']) || ! $column->isNull)
-                            && isset($column->default) && $enumValue == $column->default)
+                            && $enumValue === $column->default)
                     ) {
                         $enumSelectedValue = $enumValue;
                         break;

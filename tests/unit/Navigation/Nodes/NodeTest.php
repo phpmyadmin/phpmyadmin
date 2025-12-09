@@ -290,10 +290,6 @@ final class NodeTest extends AbstractTestCase
             $method->invoke($node, 'SCHEMA_NAME', 'schemaName'),
         );
 
-        if (! isset($config->selectedServer)) {
-            $config->selectedServer = [];
-        }
-
         // When hide_db regular expression is present
         $config->selectedServer['hide_db'] = 'regexpHideDb';
         self::assertSame(

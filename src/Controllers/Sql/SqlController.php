@@ -178,7 +178,7 @@ readonly class SqlController implements InvocableController
             Import::$importText,
             Current::$messageToShow,
             UrlParams::$goto,
-            isset(Current::$dispQuery) ? Current::$displayQuery : null,
+            Current::$dispQuery !== null ? Current::$displayQuery : null,
             Current::$displayMessage ?? '',
             Current::$sqlQuery,
             Current::$completeQuery ?? Current::$sqlQuery,

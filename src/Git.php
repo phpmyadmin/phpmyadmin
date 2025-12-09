@@ -498,7 +498,7 @@ class Git
             }
         }
 
-        if (! isset($hash)) {
+        if ($hash === null) {
             $this->hasGit = false;
 
             // Could not find ref

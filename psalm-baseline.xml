@@ -1639,12 +1639,10 @@
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
     <RedundantCondition>
-      <code><![CDATA[$request->hasBodyParam('import_type')
-                && $request->getParsedBodyParam('import_type') === 'text_file'
+      <code><![CDATA[$request->getParsedBodyParam('import_type') === 'text_file'
                 && isset($_FILES['import_file'])
                 && is_array($_FILES['import_file'])]]></code>
-      <code><![CDATA[$request->hasBodyParam('import_type')
-                && $request->getParsedBodyParam('import_type') === 'text_file'
+      <code><![CDATA[$request->getParsedBodyParam('import_type') === 'text_file'
                 && isset($_FILES['import_file'])
                 && is_array($_FILES['import_file'])
                 && $_FILES['import_file']['error'] == UPLOAD_ERR_OK
@@ -2639,7 +2637,6 @@
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($stmt->partitionBy)]]></code>
       <code><![CDATA[empty($stmt->subpartitionBy)]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
@@ -10731,14 +10728,9 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <DocblockTypeContradiction>
-      <code><![CDATA[isset($config->selectedServer)]]></code>
-    </DocblockTypeContradiction>
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[$config->selectedServer]]></code>
       <code><![CDATA[$config->selectedServer]]></code>
-      <code><![CDATA[$config->selectedServer]]></code>
-      <code><![CDATA[[]]]></code>
     </InvalidPropertyAssignmentValue>
   </file>
   <file src="tests/unit/Navigation/Nodes/ObjectFetcherTest.php">

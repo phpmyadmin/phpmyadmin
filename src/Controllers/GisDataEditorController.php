@@ -54,7 +54,7 @@ final class GisDataEditorController implements InvocableController
         $value = $request->getParsedBodyParamAsStringOrNull('value');
         $inputName = $request->getParsedBodyParamAsStringOrNull('input_name');
 
-        if (! isset($field)) {
+        if ($field === null) {
             return $this->response->response();
         }
 
@@ -70,7 +70,7 @@ final class GisDataEditorController implements InvocableController
             return $this->response->response();
         }
 
-        if (isset($value)) {
+        if ($value !== null) {
             $gisData = array_merge($gisData, $gisObj->generateParams($value));
         }
 

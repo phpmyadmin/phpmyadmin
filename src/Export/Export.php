@@ -950,7 +950,7 @@ class Export
                 }
 
                 foreach ($tbl['columns'] as $col => $colAs) {
-                    if (! isset($colAs) || ! is_array($colAs)) {
+                    if (! is_array($colAs)) {
                         continue;
                     }
 

@@ -1428,7 +1428,7 @@ class Table implements Stringable
                     . $this->dbi->quoteString($masterField, ConnectionType::ControlUser);
             }
 
-            if (! isset($updQuery)) {
+            if ($updQuery === null) {
                 continue;
             }
 

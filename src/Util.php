@@ -330,7 +330,7 @@ class Util
         /** @infection-ignore-all */
         for ($d = 6, $ex = 15; $d >= 1; $d--, $ex -= 3) {
             $unitSize = $li * 10 ** $ex;
-            if (isset($byteUnits[$d]) && $value >= $unitSize) {
+            if ($value >= $unitSize) {
                 // use 1024.0 to avoid integer overflow on 64-bit machines
                 $value = round($value / (1024 ** $d / $dh)) / $dh;
                 $unit = $byteUnits[$d];

@@ -106,8 +106,7 @@ final class ManageController implements InvocableController
             // load from JSON file
             $json = '';
             if (
-                $request->hasBodyParam('import_type')
-                && $request->getParsedBodyParam('import_type') === 'text_file'
+                $request->getParsedBodyParam('import_type') === 'text_file'
                 && isset($_FILES['import_file'])
                 && is_array($_FILES['import_file'])
                 && $_FILES['import_file']['error'] == UPLOAD_ERR_OK
