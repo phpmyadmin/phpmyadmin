@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\ConfigStorage;
 
 use PhpMyAdmin\Column;
 use PhpMyAdmin\Config;
+use PhpMyAdmin\ConfigStorage\Foreigners;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Current;
@@ -200,7 +201,7 @@ class RelationTest extends AbstractTestCase
     public function testSearchColumnInForeignersError(): void
     {
         $relation = new Relation($this->createDatabaseInterface());
-        self::assertFalse($relation->searchColumnInForeigners([], 'id'));
+        self::assertFalse($relation->searchColumnInForeigners(new Foreigners(), 'id'));
     }
 
     /**
@@ -222,8 +223,8 @@ class RelationTest extends AbstractTestCase
                 'foreign_table' => 'test',
                 'foreign_field' => 'value',
             ],
-            'foreign_keys_data' => [$foreignerKey],
         ];
+        $foreigners = new Foreigners($foreigners, [$foreignerKey]);
 
         $relation = new Relation($this->createDatabaseInterface());
 

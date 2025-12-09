@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\ConfigStorage\Foreigners;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Dbal\ResultInterface;
@@ -301,12 +302,11 @@ class InsertEdit
     /**
      * Retrieve the nullify code for the null column
      *
-     * @param InsertEditColumn $column     description of column in given table
-     * @param mixed[]          $foreigners keys into foreign fields
+     * @param InsertEditColumn $column description of column in given table
      */
     private function getNullifyCodeForNullColumn(
         InsertEditColumn $column,
-        array $foreigners,
+        Foreigners $foreigners,
         bool $foreignLink,
     ): string {
         if ($column->trueType === 'enum') {
@@ -897,16 +897,14 @@ class InsertEdit
     /**
      * Column to display from the foreign table?
      *
-     * @param string  $whereComparison string that contain relation field value
-     * @param mixed[] $foreigners      all Relations to foreign tables for a given
-     *                                     table or optionally a given column in a table
-     * @param string  $relationField   relation field
+     * @param string $whereComparison string that contain relation field value
+     * @param string $relationField   relation field
      *
      * @return string display value from the foreign table
      */
     public function getDisplayValueForForeignTableColumn(
         string $whereComparison,
-        array $foreigners,
+        Foreigners $foreigners,
         string $relationField,
     ): string {
         $foreigner = $this->relation->searchColumnInForeigners($foreigners, $relationField);
@@ -935,17 +933,15 @@ class InsertEdit
     /**
      * Display option in the cell according to user choices
      *
-     * @param mixed[] $foreigners         all Relations to foreign tables for a given
-     *                                           table or optionally a given column in a table
-     * @param string  $relationField      relation field
-     * @param string  $whereComparison    string that contain relation field value
-     * @param string  $dispval            display value from the foreign table
-     * @param string  $relationFieldValue relation field value
+     * @param string $relationField      relation field
+     * @param string $whereComparison    string that contain relation field value
+     * @param string $dispval            display value from the foreign table
+     * @param string $relationFieldValue relation field value
      *
      * @return string HTML <a> tag
      */
     public function getLinkForRelationalDisplayField(
-        array $foreigners,
+        Foreigners $foreigners,
         string $relationField,
         string $whereComparison,
         string $dispval,
@@ -1452,7 +1448,6 @@ class InsertEdit
      * @param array<string|null> $currentRow         current row
      * @param int                $columnsCnt         columns count
      * @param bool               $isUpload           whether upload
-     * @param mixed[]            $foreigners         foreigners
      * @param string             $table              table
      * @param string             $db                 database
      * @param int                $rowId              row id
@@ -1470,7 +1465,7 @@ class InsertEdit
         array $currentRow,
         int $columnsCnt,
         bool $isUpload,
-        array $foreigners,
+        Foreigners $foreigners,
         string $table,
         string $db,
         int $rowId,
@@ -1752,7 +1747,6 @@ class InsertEdit
      * @param bool                           $insertMode       whether insert mode
      * @param array<string|null>             $currentRow       current row
      * @param bool                           $isUpload         whether upload
-     * @param mixed[]                        $foreigners       foreigners
      * @param string                         $table            table
      * @param string                         $db               database
      * @param int                            $rowId            row id
@@ -1767,7 +1761,7 @@ class InsertEdit
         bool $insertMode,
         array $currentRow,
         bool $isUpload,
-        array $foreigners,
+        Foreigners $foreigners,
         string $table,
         string $db,
         int $rowId,

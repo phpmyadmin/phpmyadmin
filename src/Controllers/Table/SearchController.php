@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\ConfigStorage\Foreigners;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
@@ -80,12 +81,8 @@ final class SearchController implements InvocableController
      * Whether a geometry column is present
      */
     private bool $geomColumnFlag = false;
-    /**
-     * Foreign Keys
-     *
-     * @var mixed[]
-     */
-    private array $foreigners = [];
+
+    private Foreigners $foreigners;
 
     public function __construct(
         private readonly ResponseRenderer $response,

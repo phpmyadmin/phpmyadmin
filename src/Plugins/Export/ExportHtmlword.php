@@ -317,7 +317,7 @@ class ExportHtmlword extends ExportPlugin
         // Check if we can use Relations
         $foreigners = $this->doRelation && $relationParameters->relationFeature !== null
             ? $this->relation->getForeigners($db, $table)
-            : [];
+            : null;
 
         /**
          * Displays the table structure
@@ -337,7 +337,7 @@ class ExportHtmlword extends ExportPlugin
         $schemaInsert .= '<td class="print"><strong>'
             . __('Default')
             . '</strong></td>';
-        if ($this->doRelation && $foreigners !== []) {
+        if ($this->doRelation && $foreigners !== null && ! $foreigners->isEmpty()) {
             $schemaInsert .= '<td class="print"><strong>'
                 . __('Links to')
                 . '</strong></td>';
@@ -378,7 +378,7 @@ class ExportHtmlword extends ExportPlugin
 
             $schemaInsert .= $this->formatOneColumnDefinition($column, $uniqueKeys, $colAs);
             $fieldName = $column->field;
-            if ($this->doRelation && $foreigners !== []) {
+            if ($this->doRelation && $foreigners !== null && ! $foreigners->isEmpty()) {
                 $schemaInsert .= '<td class="print">'
                     . htmlspecialchars(
                         $this->getRelationString(

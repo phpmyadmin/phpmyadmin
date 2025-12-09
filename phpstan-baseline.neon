@@ -1345,12 +1345,6 @@ parameters:
 			path: src/ConfigStorage/Relation.php
 
 		-
-			message: '#^Method PhpMyAdmin\\ConfigStorage\\Relation\:\:searchColumnInForeigners\(\) should return array\|false but returns mixed\.$#'
-			identifier: return.type
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
 			message: '#^Offset ''bookmarktable''\|''central_columns''\|''column_info''\|''designer_settings''\|''export_templates''\|''favorite''\|''history''\|''navigationhiding''\|''pdf_pages''\|''recent''\|''relation''\|''savedsearches''\|''table_coords''\|''table_info''\|''table_uiprefs''\|''tracking''\|''userconfig''\|''usergroups''\|''users'' on array\{host\: string, port\: string, socket\: string, ssl\: bool, ssl_key\: string\|null, ssl_cert\: string\|null, ssl_ca\: string\|null, ssl_ca_path\: string\|null, \.\.\.\} in isset\(\) always exists and is not nullable\.$#'
 			identifier: isset.offset
 			count: 1
@@ -3484,6 +3478,12 @@ parameters:
 			path: src/Controllers/Table/SearchController.php
 
 		-
+			message: '#^Class PhpMyAdmin\\Controllers\\Table\\SearchController has an uninitialized property \$foreigners\. Give it default value or assign it in the constructor\.$#'
+			identifier: property.uninitialized
+			count: 1
+			path: src/Controllers/Table/SearchController.php
+
+		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
 			count: 1
@@ -3966,6 +3966,12 @@ parameters:
 		-
 			message: '#^Casting to int something that''s already int\<1, max\>\.$#'
 			identifier: cast.useless
+			count: 1
+			path: src/Controllers/Table/ZoomSearchController.php
+
+		-
+			message: '#^Class PhpMyAdmin\\Controllers\\Table\\ZoomSearchController has an uninitialized property \$foreigners\. Give it default value or assign it in the constructor\.$#'
+			identifier: property.uninitialized
 			count: 1
 			path: src/Controllers/Table/ZoomSearchController.php
 
@@ -9751,15 +9757,9 @@ parameters:
 			path: src/Plugins/Export/Helpers/Pdf.php
 
 		-
-			message: '#^Binary operation "\." between mixed and '' \('' results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Plugins/Export/Helpers/Pdf.php
-
-		-
 			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
-			count: 16
+			count: 15
 			path: src/Plugins/Export/Helpers/Pdf.php
 
 		-

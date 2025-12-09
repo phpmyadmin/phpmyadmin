@@ -603,9 +603,6 @@
       <code><![CDATA[$foreignTable]]></code>
       <code><![CDATA[$value]]></code>
     </MixedAssignment>
-    <MixedReturnStatement>
-      <code><![CDATA[$foreigners[$column]]]></code>
-    </MixedReturnStatement>
     <MixedReturnTypeCoercion>
       <code><![CDATA[$this->dbi->fetchResultMultidimensional(
                 $relQuery,
@@ -2555,6 +2552,9 @@
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
+    <PropertyNotSetInConstructor>
+      <code><![CDATA[$foreigners]]></code>
+    </PropertyNotSetInConstructor>
     <RedundantCastGivenDocblockType>
       <code><![CDATA[(int) $this->config->settings['MaxRows']]]></code>
     </RedundantCastGivenDocblockType>
@@ -2866,6 +2866,9 @@
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
+    <PropertyNotSetInConstructor>
+      <code><![CDATA[$foreigners]]></code>
+    </PropertyNotSetInConstructor>
     <RedundantCastGivenDocblockType>
       <code><![CDATA[(int) $this->config->settings['maxRowPlotLimit']]]></code>
     </RedundantCastGivenDocblockType>
@@ -6387,10 +6390,10 @@
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$comments[$fieldName]]]></code>
-      <code><![CDATA[$foreigners[$fieldName]]]></code>
-      <code><![CDATA[$foreigners[$fieldName]]]></code>
-      <code><![CDATA[$foreigners[$fieldName]['foreign_field']]]></code>
-      <code><![CDATA[$foreigners[$fieldName]['foreign_table']]]></code>
+      <code><![CDATA[$foreigners->data[$fieldName]]]></code>
+      <code><![CDATA[$foreigners->data[$fieldName]]]></code>
+      <code><![CDATA[$foreigners->data[$fieldName]['foreign_field']]]></code>
+      <code><![CDATA[$foreigners->data[$fieldName]['foreign_table']]]></code>
       <code><![CDATA[$mimeMap[$fieldName]]]></code>
       <code><![CDATA[$mimeMap[$fieldName]['mimetype']]]></code>
       <code><![CDATA[$this->pagedim[$oldpage]]]></code>
@@ -6489,8 +6492,8 @@
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$availableWidth]]></code>
-      <code><![CDATA[$foreigners[$fieldName]['foreign_field']]]></code>
-      <code><![CDATA[$foreigners[$fieldName]['foreign_table']]]></code>
+      <code><![CDATA[$foreigners->data[$fieldName]['foreign_field']]]></code>
+      <code><![CDATA[$foreigners->data[$fieldName]['foreign_table']]]></code>
       <code><![CDATA[$fullwidth]]></code>
       <code><![CDATA[$fullwidth]]></code>
       <code><![CDATA[$fullwidth]]></code>
@@ -6546,6 +6549,9 @@
       <code><![CDATA[$y]]></code>
       <code><![CDATA[count($colFits) * $sColWidth]]></code>
     </MixedOperand>
+    <MixedPropertyFetch>
+      <code><![CDATA[$foreigners->data]]></code>
+    </MixedPropertyFetch>
     <PossiblyUndefinedVariable>
       <code><![CDATA[$comments]]></code>
       <code><![CDATA[$data]]></code>

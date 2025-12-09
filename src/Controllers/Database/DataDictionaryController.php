@@ -54,7 +54,7 @@ final class DataDictionaryController implements InvocableController
 
             $foreigners = $relationParameters->relationFeature !== null
                 ? $this->relation->getForeigners(Current::$database, $tableName)
-                : [];
+                : null;
 
             $columnsComments = $this->relation->getComments(Current::$database, $tableName);
 
@@ -64,7 +64,7 @@ final class DataDictionaryController implements InvocableController
                 $extractedColumnSpec = Util::extractColumnSpec($row->type);
 
                 $relation = '';
-                if ($foreigners !== []) {
+                if ($foreigners !== null && ! $foreigners->isEmpty()) {
                     $foreigner = $this->relation->searchColumnInForeigners($foreigners, $row->field);
                     if (is_array($foreigner) && isset($foreigner['foreign_table'], $foreigner['foreign_field'])) {
                         $relation = $foreigner['foreign_table'];
@@ -97,7 +97,7 @@ final class DataDictionaryController implements InvocableController
             $tables[$tableName] = [
                 'name' => $tableName,
                 'comment' => $showComment,
-                'has_relation' => $foreigners !== [],
+                'has_relation' => $foreigners !== null && ! $foreigners->isEmpty(),
                 'has_mime' => $relationParameters->browserTransformationFeature !== null,
                 'columns' => $rows,
                 'indexes' => Index::getFromTable($this->dbi, $tableName, Current::$database),
