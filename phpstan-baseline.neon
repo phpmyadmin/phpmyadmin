@@ -17044,21 +17044,9 @@ parameters:
 			path: tests/unit/Navigation/Nodes/NodeTest.php
 
 		-
-			message: '#^Property PhpMyAdmin\\Config\:\:\$selectedServer \(array\{host\: string, port\: string, socket\: string, ssl\: bool, ssl_key\: string\|null, ssl_cert\: string\|null, ssl_ca\: string\|null, ssl_ca_path\: string\|null, \.\.\.\}\) does not accept array\<''AllowDeny''\|''AllowNoPassword''\|''AllowRoot''\|''auth_http_realm''\|''auth_type''\|''bookmarktable''\|''central_columns''\|''column_info''\|''compress''\|''control_compress''\|''control_hide…''\|''control_socket''\|''control_ssl''\|''control_ssl_ca''\|''control_ssl_ca_path''\|''control_ssl_cert''\|''control_ssl_ciphers''\|''control_ssl_key''\|''control_ssl_verify''\|''controlhost''\|''controlpass''\|''controlport''\|''controluser''\|''designer_settings''\|''DisableIS''\|''export_templates''\|''favorite''\|''history''\|''host''\|''LogoutURL''\|''MaxTableUiprefs''\|''navigationhiding''\|''only_db''\|''password''\|''pdf_pages''\|''pmadb''\|''port''\|''recent''\|''relation''\|''savedsearches''\|''SessionTimeZone''\|''SignonCookieParams''\|''SignonScript''\|''SignonSession''\|''SignonURL''\|''socket''\|''ssl''\|''ssl_ca''\|''ssl_ca_path''\|''ssl_cert''\|''ssl_ciphers''\|''ssl_key''\|''ssl_verify''\|''table_coords''\|''table_info''\|''table_uiprefs''\|''tracking''\|''user''\|''userconfig''\|''usergroups''\|''users''\|''verbose'', array\<array\<string\>\|bool\|int\<0, max\>\|string\>\|bool\|int\<1, max\>\|string\|null\>\.$#'
+			message: '#^Property PhpMyAdmin\\Config\:\:\$selectedServer \(array\{host\: string, port\: string, socket\: string, ssl\: bool, ssl_key\: string\|null, ssl_cert\: string\|null, ssl_ca\: string\|null, ssl_ca_path\: string\|null, \.\.\.\}\) does not accept array\{host\: string, port\: string, socket\: string, ssl\: bool, ssl_key\: string\|null, ssl_cert\: string\|null, ssl_ca\: string\|null, ssl_ca_path\: string\|null, \.\.\.\}\.$#'
 			identifier: assign.propertyType
-			count: 1
-			path: tests/unit/Navigation/Nodes/NodeTest.php
-
-		-
-			message: '#^Property PhpMyAdmin\\Config\:\:\$selectedServer \(array\{host\: string, port\: string, socket\: string, ssl\: bool, ssl_key\: string\|null, ssl_cert\: string\|null, ssl_ca\: string\|null, ssl_ca_path\: string\|null, \.\.\.\}\) does not accept array\<''AllowDeny''\|''AllowNoPassword''\|''AllowRoot''\|''auth_http_realm''\|''auth_type''\|''bookmarktable''\|''central_columns''\|''column_info''\|''compress''\|''control_compress''\|''control_hide…''\|''control_socket''\|''control_ssl''\|''control_ssl_ca''\|''control_ssl_ca_path''\|''control_ssl_cert''\|''control_ssl_ciphers''\|''control_ssl_key''\|''control_ssl_verify''\|''controlhost''\|''controlpass''\|''controlport''\|''controluser''\|''designer_settings''\|''DisableIS''\|''export_templates''\|''favorite''\|''history''\|''host''\|''LogoutURL''\|''MaxTableUiprefs''\|''navigationhiding''\|''password''\|''pdf_pages''\|''pmadb''\|''port''\|''recent''\|''relation''\|''savedsearches''\|''SessionTimeZone''\|''SignonCookieParams''\|''SignonScript''\|''SignonSession''\|''SignonURL''\|''socket''\|''ssl''\|''ssl_ca''\|''ssl_ca_path''\|''ssl_cert''\|''ssl_ciphers''\|''ssl_key''\|''ssl_verify''\|''table_coords''\|''table_info''\|''table_uiprefs''\|''tracking''\|''user''\|''userconfig''\|''usergroups''\|''users''\|''verbose'', array\<array\<string\>\|bool\|int\<0, max\>\|string\>\|bool\|int\<1, max\>\|string\|null\>\.$#'
-			identifier: assign.propertyType
-			count: 2
-			path: tests/unit/Navigation/Nodes/NodeTest.php
-
-		-
-			message: '#^Property PhpMyAdmin\\Config\:\:\$selectedServer \(array\{host\: string, port\: string, socket\: string, ssl\: bool, ssl_key\: string\|null, ssl_cert\: string\|null, ssl_ca\: string\|null, ssl_ca_path\: string\|null, \.\.\.\}\) does not accept array\{\}\.$#'
-			identifier: assign.propertyType
-			count: 1
+			count: 3
 			path: tests/unit/Navigation/Nodes/NodeTest.php
 
 		-

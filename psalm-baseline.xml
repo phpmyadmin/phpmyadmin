@@ -10749,14 +10749,9 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <DocblockTypeContradiction>
-      <code><![CDATA[isset($config->selectedServer)]]></code>
-    </DocblockTypeContradiction>
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[$config->selectedServer]]></code>
       <code><![CDATA[$config->selectedServer]]></code>
-      <code><![CDATA[$config->selectedServer]]></code>
-      <code><![CDATA[[]]]></code>
     </InvalidPropertyAssignmentValue>
   </file>
   <file src="tests/unit/Navigation/Nodes/ObjectFetcherTest.php">
