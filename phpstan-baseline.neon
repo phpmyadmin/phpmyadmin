@@ -1549,12 +1549,6 @@ parameters:
 			path: src/ConfigStorage/Relation.php
 
 		-
-			message: '#^Strict comparison using \!\=\= between array\<string\|null\> and '''' will always evaluate to true\.$#'
-			identifier: notIdentical.alwaysTrue
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
 				Use dependency injection instead\.$#
@@ -4684,18 +4678,6 @@ parameters:
 			path: src/Database/Designer/Common.php
 
 		-
-			message: '#^Binary operation "\." between mixed and ''\.'' results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Database/Designer/Common.php
-
-		-
-			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Database/Designer/Common.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -4759,15 +4741,9 @@ parameters:
 			path: src/Database/Designer/Common.php
 
 		-
-			message: '#^Parameter \#1 \$string of function rawurlencode expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Database/Designer/Common.php
-
-		-
 			message: '#^Parameter \#1 \$string of function rawurlencode expects string, string\|null given\.$#'
 			identifier: argument.type
-			count: 1
+			count: 2
 			path: src/Database/Designer/Common.php
 
 		-
@@ -5692,7 +5668,7 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: '#^Parameter \#1 \$db of method PhpMyAdmin\\ConfigStorage\\Relation\:\:getDisplayField\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#1 \$db of method PhpMyAdmin\\ConfigStorage\\Relation\:\:getDisplayField\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Display/Results.php
@@ -5716,15 +5692,9 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: '#^Parameter \#1 \$table of class PhpMyAdmin\\Display\\ForeignKeyRelatedTable constructor expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Display/Results.php
-
-		-
 			message: '#^Parameter \#1 \$table of class PhpMyAdmin\\Display\\ForeignKeyRelatedTable constructor expects string, string\|null given\.$#'
 			identifier: argument.type
-			count: 1
+			count: 2
 			path: src/Display/Results.php
 
 		-
@@ -5734,7 +5704,7 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: '#^Parameter \#2 \$field of class PhpMyAdmin\\Display\\ForeignKeyRelatedTable constructor expects string, mixed given\.$#'
+			message: '#^Parameter \#2 \$field of class PhpMyAdmin\\Display\\ForeignKeyRelatedTable constructor expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Display/Results.php
@@ -5770,15 +5740,9 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: '#^Parameter \#2 \$table of method PhpMyAdmin\\ConfigStorage\\Relation\:\:getDisplayField\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Display/Results.php
-
-		-
 			message: '#^Parameter \#2 \$table of method PhpMyAdmin\\ConfigStorage\\Relation\:\:getDisplayField\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
-			count: 1
+			count: 2
 			path: src/Display/Results.php
 
 		-
@@ -5788,7 +5752,7 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: '#^Parameter \#4 \$database of class PhpMyAdmin\\Display\\ForeignKeyRelatedTable constructor expects string, mixed given\.$#'
+			message: '#^Parameter \#4 \$database of class PhpMyAdmin\\Display\\ForeignKeyRelatedTable constructor expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Display/Results.php
@@ -8596,12 +8560,6 @@ parameters:
 			path: src/Operations.php
 
 		-
-			message: '#^Parameter \#1 \$identifier of static method PhpMyAdmin\\Util\:\:backquote\(\) expects string\|Stringable\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 8
-			path: src/Operations.php
-
-		-
 			message: '#^Parameter \#1 \$query of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:query\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
@@ -9595,12 +9553,6 @@ parameters:
 			path: src/Plugins/Export/ExportSql.php
 
 		-
-			message: '#^Parameter \#1 \$identifier of static method PhpMyAdmin\\Util\:\:backquoteCompat\(\) expects string\|Stringable\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/Plugins/Export/ExportSql.php
-
-		-
 			message: '#^Parameter \#2 \$id of method PhpMyAdmin\\Plugins\\ExportPlugin\:\:getAlias\(\) expects string, bool\|float\|int\|string given\.$#'
 			identifier: argument.type
 			count: 1
@@ -10561,7 +10513,7 @@ parameters:
 			path: src/Plugins/Schema/Dia/DiaRelationSchema.php
 
 		-
-			message: '#^Parameter \#4 \$foreignField of method PhpMyAdmin\\Plugins\\Schema\\Dia\\DiaRelationSchema\:\:addRelation\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#4 \$foreignField of method PhpMyAdmin\\Plugins\\Schema\\Dia\\DiaRelationSchema\:\:addRelation\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Plugins/Schema/Dia/DiaRelationSchema.php
@@ -10609,7 +10561,7 @@ parameters:
 			path: src/Plugins/Schema/Eps/EpsRelationSchema.php
 
 		-
-			message: '#^Parameter \#6 \$foreignField of method PhpMyAdmin\\Plugins\\Schema\\Eps\\EpsRelationSchema\:\:addRelation\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#6 \$foreignField of method PhpMyAdmin\\Plugins\\Schema\\Eps\\EpsRelationSchema\:\:addRelation\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Plugins/Schema/Eps/EpsRelationSchema.php
@@ -10894,7 +10846,7 @@ parameters:
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: '#^Parameter \#4 \$foreignField of method PhpMyAdmin\\Plugins\\Schema\\Pdf\\PdfRelationSchema\:\:addRelation\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#4 \$foreignField of method PhpMyAdmin\\Plugins\\Schema\\Pdf\\PdfRelationSchema\:\:addRelation\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
@@ -11062,7 +11014,7 @@ parameters:
 			path: src/Plugins/Schema/Svg/SvgRelationSchema.php
 
 		-
-			message: '#^Parameter \#6 \$foreignField of method PhpMyAdmin\\Plugins\\Schema\\Svg\\SvgRelationSchema\:\:addRelation\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#6 \$foreignField of method PhpMyAdmin\\Plugins\\Schema\\Svg\\SvgRelationSchema\:\:addRelation\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Plugins/Schema/Svg/SvgRelationSchema.php

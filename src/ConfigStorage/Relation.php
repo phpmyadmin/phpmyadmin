@@ -387,7 +387,7 @@ class Relation
      * Gets all Relations to foreign tables for a given table or
      * optionally a given column in a table
      *
-     * @return array<array<mixed>>
+     * @return array<array<string|null>>
      */
     public function getForeignersInternal(string $db, string $table, string $column = ''): array
     {
@@ -418,10 +418,7 @@ class Relation
 
             if (isset($internalRelations[$table])) {
                 foreach ($internalRelations[$table] as $field => $relations) {
-                    if (
-                        ($column !== '' && $column !== $field)
-                        || (isset($foreign[$field]) && $foreign[$field] !== '')
-                    ) {
+                    if (($column !== '' && $column !== $field) || isset($foreign[$field])) {
                         continue;
                     }
 
