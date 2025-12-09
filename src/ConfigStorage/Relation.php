@@ -598,9 +598,9 @@ class Relation
     /**
      * Prepares the dropdown for one mode
      *
-     * @param mixed[] $foreign the keys and values for foreigns
-     * @param string  $data    the current data of the dropdown
-     * @param string  $mode    the needed mode
+     * @param array<string|null> $foreign the keys and values for foreigns
+     * @param string             $data    the current data of the dropdown
+     * @param string             $mode    the needed mode
      *
      * @return string[] the <option value=""><option>s
      */

@@ -601,7 +601,6 @@
       <code><![CDATA[$foreignDb]]></code>
       <code><![CDATA[$foreignField]]></code>
       <code><![CDATA[$foreignTable]]></code>
-      <code><![CDATA[$value]]></code>
     </MixedAssignment>
     <MixedReturnTypeCoercion>
       <code><![CDATA[$this->dbi->fetchResultMultidimensional(
@@ -8479,9 +8478,6 @@
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['tmpval']['table_uiprefs'][$serverId][$this->dbName][$this->name]]]></code>
-      <code><![CDATA[$existrel[$masterField]['foreign_db']]]></code>
-      <code><![CDATA[$existrel[$masterField]['foreign_field']]]></code>
-      <code><![CDATA[$existrel[$masterField]['foreign_table']]]></code>
       <code><![CDATA[$index[0]]]></code>
       <code><![CDATA[$index[0]]]></code>
     </MixedArrayAccess>

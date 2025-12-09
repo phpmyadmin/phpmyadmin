@@ -1309,12 +1309,6 @@ parameters:
 			path: src/ConfigStorage/Relation.php
 
 		-
-			message: '#^Cannot cast mixed to string\.$#'
-			identifier: cast.string
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
 			count: 21
@@ -13264,24 +13258,6 @@ parameters:
 			message: '#^Call to function in_array\(\) requires parameter \#3 to be set\.$#'
 			identifier: function.strict
 			count: 2
-			path: src/Table/Table.php
-
-		-
-			message: '#^Cannot access offset ''foreign_db'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Table/Table.php
-
-		-
-			message: '#^Cannot access offset ''foreign_field'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Table/Table.php
-
-		-
-			message: '#^Cannot access offset ''foreign_table'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
 			path: src/Table/Table.php
 
 		-
