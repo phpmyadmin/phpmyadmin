@@ -618,13 +618,7 @@ final readonly class ImportController implements InvocableController
                 ResponseRenderer::$reload = $reloadNeeded;
 
                 // Check if User is allowed to issue a 'DROP DATABASE' Statement
-                if (
-                    $this->sql->hasNoRightsToDropDatabase(
-                        $statementInfo,
-                        $this->config->settings['AllowUserDropDatabase'],
-                        $this->dbi->isSuperUser(),
-                    )
-                ) {
+                if ($this->sql->hasNoRightsToDropDatabase($statementInfo)) {
                     Generator::mysqlDie(
                         __('"DROP DATABASE" statements are disabled.'),
                         '',

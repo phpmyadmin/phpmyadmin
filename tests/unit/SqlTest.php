@@ -197,27 +197,26 @@ class SqlTest extends AbstractTestCase
      */
     public function testHasNoRightsToDropDatabase(): void
     {
+        $this->dummyDbi->addResult(
+            'SELECT 1 FROM mysql.user LIMIT 1',
+            [],
+        );
+
         self::assertTrue(
             $this->sql->hasNoRightsToDropDatabase(
                 ParseAnalyze::sqlQuery('DROP DATABASE db', Current::$database)[0],
-                false,
-                false,
             ),
         );
 
         self::assertFalse(
             $this->sql->hasNoRightsToDropDatabase(
                 ParseAnalyze::sqlQuery('DROP TABLE tbl', Current::$database)[0],
-                false,
-                false,
             ),
         );
 
         self::assertFalse(
             $this->sql->hasNoRightsToDropDatabase(
                 ParseAnalyze::sqlQuery('SELECT * from tbl', Current::$database)[0],
-                false,
-                false,
             ),
         );
     }
