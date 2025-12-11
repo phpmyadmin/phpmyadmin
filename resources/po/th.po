@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-12-07 00:30+0000\n"
-"PO-Revision-Date: 2025-12-10 17:00+0000\n"
+"PO-Revision-Date: 2025-12-12 05:00+0000\n"
 "Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "th/>\n"
@@ -81,7 +81,7 @@ msgstr "ออกจากระบบ"
 #: resources/templates/base.twig:108
 #: src/Controllers/JavaScriptMessagesController.php:315
 msgid "Page-related settings"
-msgstr "การตั้งค่าที่เกี่ยวข้องกับหน้า"
+msgstr "การตั้งค่าหน้าที่เกี่ยวข้อง"
 
 #: resources/templates/base.twig:110
 msgid "Click on the bar to scroll to top of page"
@@ -6264,7 +6264,7 @@ msgstr "มีข้อผิดพลาดบางส่วนเกิดข
 
 #: resources/templates/server/status/advisor/index.twig:55
 msgid "Possible performance issues"
-msgstr "ปัญหาเรื่องสมรรถนะ"
+msgstr "ปัญหาด้านประสิทธิภาพที่อาจเกิดขึ้น"
 
 #: resources/templates/server/status/advisor/index.twig:68
 #, fuzzy
@@ -7467,7 +7467,7 @@ msgstr "ลากเพื่อเปลี่ยนลำดับ"
 #: src/Controllers/JavaScriptMessagesController.php:617
 #: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1424
 msgid "Ignore"
-msgstr "ข้าม"
+msgstr "เพิกเฉย"
 
 #: resources/templates/table/index_form.twig:237
 #: src/Controllers/JavaScriptMessagesController.php:123
@@ -7865,7 +7865,7 @@ msgstr "ลำดับการแสดง:"
 
 #: resources/templates/table/search/index.twig:180
 msgid "Range search"
-msgstr "ระยะการค้นหา"
+msgstr "ช่วงการค้นหา"
 
 #: resources/templates/table/search/index.twig:186
 msgid "Minimum value:"
@@ -13989,7 +13989,7 @@ msgstr "การร้องขอถูกยกเลิก!!"
 
 #: src/Controllers/JavaScriptMessagesController.php:321
 msgid "Processing request"
-msgstr "กำลังประมวลผลคำร้องขอ"
+msgstr "ร้องขอการประมวลผล"
 
 #: src/Controllers/JavaScriptMessagesController.php:322
 msgid "Request failed!!"
@@ -13999,7 +13999,7 @@ msgstr "การร้องขอล้มเหลว!!"
 #: src/Controllers/Sql/EnumValuesController.php:38
 #: src/Controllers/Sql/SetValuesController.php:41
 msgid "Error in processing request"
-msgstr "ข้อผิดพลาดในการประมวลผลคำร้องขอ"
+msgstr "ข้อผิดพลาดในการร้องขอการประมวลผล"
 
 #: src/Controllers/JavaScriptMessagesController.php:324
 #, php-format
@@ -14037,7 +14037,7 @@ msgstr "กดเพื่อยกเลิกการแจ้งเตือ
 
 #: src/Controllers/JavaScriptMessagesController.php:340
 msgid "Renaming databases"
-msgstr "กำลังเปลี่ยนชื่อฐานข้อมูล"
+msgstr "กำลังเแก้ไขชื่อฐานข้อมูล"
 
 #: src/Controllers/JavaScriptMessagesController.php:341
 msgid "Copying database"
@@ -14049,7 +14049,7 @@ msgstr "กำลังเปลี่ยนชุดตัวอักษร"
 
 #: src/Controllers/JavaScriptMessagesController.php:349
 msgid "Failed to get real row count."
-msgstr "การรับจำนวนแถวจริงล้มเหลว"
+msgstr "ไม่สามารถนับจำนวนแถวที่แท้จริงได้"
 
 #: src/Controllers/JavaScriptMessagesController.php:352
 msgid "Searching"
@@ -14057,32 +14057,32 @@ msgstr "กำลังค้นหา"
 
 #: src/Controllers/JavaScriptMessagesController.php:353
 msgid "Hide search results"
-msgstr "ซ่อนผลคำสั่ง SQL"
+msgstr "ซ่อนผลการค้นหา"
 
 #: src/Controllers/JavaScriptMessagesController.php:354
 msgid "Show search results"
-msgstr "แสดงผลคำค้น SQL"
+msgstr "แสดงผลการค้นหา"
 
 #: src/Controllers/JavaScriptMessagesController.php:355
 msgid "Browsing"
-msgstr "กำลังเปิด"
+msgstr "การเรียกดู"
 
 #: src/Controllers/JavaScriptMessagesController.php:356
 msgid "Deleting"
-msgstr "กำลังลบ %s"
+msgstr "กำลังลบ"
 
 #: src/Controllers/JavaScriptMessagesController.php:357
 #, php-format
 msgid "Delete the matches for the %s table?"
-msgstr "ลบตรงกับที่ตาราง %s หรือไม่?"
+msgstr "ลบข้อมูลที่ตรงกันในตาราง %s หรือไม่?"
 
 #: src/Controllers/JavaScriptMessagesController.php:360
 msgid "The definition of a stored function must contain a RETURN statement!"
-msgstr "ฟังก์ชั่นภายในจะต้องมีค่า RETURN!"
+msgstr "นิยามของฟังก์ชันที่จัดเก็บไว้จะต้องมีคำสั่ง RETURN อยู่ด้วย!"
 
 #: src/Controllers/JavaScriptMessagesController.php:362
 msgid "No routine is exportable. Required privileges may be lacking."
-msgstr "ไม่มีรูทีนที่สามารถส่งออกได้ อาจมีการขาดสิทธิที่จำเป็น"
+msgstr "ไม่สามารถส่งออกขั้นตอนการทำงานใด ๆ ได้ อาจขาดสิทธิ์ที่จำเป็น"
 
 #: src/Controllers/JavaScriptMessagesController.php:364
 #: src/Navigation/Nodes/NodeTrigger.php:26
@@ -14094,7 +14094,7 @@ msgstr "ทริกเกอร์"
 #: src/Controllers/JavaScriptMessagesController.php:368
 #, php-format
 msgid "Values for column %s"
-msgstr "ค่าสำหรับคอลัมน์ \"%s\""
+msgstr "ค่าสำหรับคอลัมน์ %s"
 
 #: src/Controllers/JavaScriptMessagesController.php:369
 msgid "Values for a new column"
@@ -14102,7 +14102,7 @@ msgstr "ค่าสำหรับคอลัมน์ใหม่"
 
 #: src/Controllers/JavaScriptMessagesController.php:370
 msgid "Enter each value in a separate field."
-msgstr "ป้อนค่าในช่องต่าง ๆ"
+msgstr "ป้อนแต่ละค่าลงในช่องแยกกัน"
 
 #: src/Controllers/JavaScriptMessagesController.php:371
 #, php-format
@@ -14112,15 +14112,15 @@ msgstr "เพิ่มค่า %d"
 #: src/Controllers/JavaScriptMessagesController.php:374
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
-msgstr "เตือน: ถ้าไฟล์มีหลายตาราง จะถูกรวมเป็นหนึ่ง"
+msgstr "หมายเหตุ: หากไฟล์มีหลายตาราง มันจะถูกรวมเข้าด้วยกัน"
 
 #: src/Controllers/JavaScriptMessagesController.php:377
 msgid "Hide query box"
-msgstr "ซ่อนช่องใส่คำค้น SQL"
+msgstr "ซ่อนช่องระบุ SQL"
 
 #: src/Controllers/JavaScriptMessagesController.php:378
 msgid "Show query box"
-msgstr "แสดงช่องคำค้น SQL"
+msgstr "แสดงช่องระบุ SQL"
 
 #: src/Controllers/JavaScriptMessagesController.php:380
 #, fuzzy
@@ -14180,7 +14180,7 @@ msgstr "กำลังพาคุณไปยังขั้นตอนต่
 #: src/Controllers/JavaScriptMessagesController.php:400
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
-msgstr "ขั้นตอนแรกของการฟื้นฟูเสร็จสมบูรณ์สำหรับตาราง '%s '"
+msgstr "การนอร์มัลไลเซชันขั้นตอนแรกเสร็จสมบูรณ์สำหรับตาราง '%s '"
 
 #: src/Controllers/JavaScriptMessagesController.php:401
 #: src/Normalization.php:513 src/Normalization.php:572
@@ -14201,31 +14201,31 @@ msgstr "จบ"
 
 #: src/Controllers/JavaScriptMessagesController.php:404
 msgid "Confirm partial dependencies"
-msgstr "ยืนยันอ้างอิงบางส่วน"
+msgstr "ยืนยันการพึ่งพาบางส่วน"
 
 #: src/Controllers/JavaScriptMessagesController.php:405
 msgid "Selected partial dependencies are as follows:"
-msgstr "เลือกอ้างอิงบางส่วนตามกำหนดแล้ว:"
+msgstr "การพึ่งพาบางส่วนที่เลือกไว้มีดังต่อไปนี้:"
 
 #: src/Controllers/JavaScriptMessagesController.php:407
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
-"หมายเหตุ: a b -> d f หมายถึงค่าของคอลัมน์ a และ b ที่รวมกันสามารถกำหนดค่าของคอลัมน์ d "
-"และคอลัมน์ f"
+"หมายเหตุ: a, b -> d, f มีหมายความในเชิงว่า ค่าของคอลัมน์ a และ b ที่นำมารวมกันสามารถกำห"
+"นดค่าของคอลัมน์ d และคอลัมน์ f ได้"
 
 #: src/Controllers/JavaScriptMessagesController.php:410
 msgid "No partial dependencies selected!"
-msgstr "ไม่มีการอ้างอิงบางส่วนที่ถูกเลือก!"
+msgstr "ไม่ได้เลือกการพึ่งพาบางส่วน!"
 
 #: src/Controllers/JavaScriptMessagesController.php:412
 msgid "Show me the possible partial dependencies based on data in the table"
-msgstr "แสดงอ้างอิงบางส่วนตามข้อมูลที่อยู่ในตาราง"
+msgstr "แสดงความสัมพันธ์แบบพึ่งพาบางส่วนที่เป็นไปได้โดยอิงจากข้อมูลในตาราง"
 
 #: src/Controllers/JavaScriptMessagesController.php:413
 msgid "Hide partial dependencies list"
-msgstr "ซ่อนรายการอ้างอิงบางส่วน"
+msgstr "ซ่อนรายการพึ่งพาบางส่วน"
 
 #: src/Controllers/JavaScriptMessagesController.php:415
 msgid ""
@@ -14239,12 +14239,12 @@ msgstr "ขั้นตอน"
 
 #: src/Controllers/JavaScriptMessagesController.php:418
 msgid "The following actions will be performed:"
-msgstr "การดำเนินการต่อไปนี้จะถูกดำเนินการ:"
+msgstr "จะมีการดำเนินการดังต่อไปนี้:"
 
 #: src/Controllers/JavaScriptMessagesController.php:419
 #, php-format
 msgid "DROP columns %s from the table %s"
-msgstr "ทิ้งคอลัมน์ %s จากตาราง %s"
+msgstr "ลบคอลัมน์ %s ทิ้งจากตาราง %s"
 
 #: src/Controllers/JavaScriptMessagesController.php:420
 msgid "Create the following table"
@@ -14260,11 +14260,11 @@ msgstr "การยืนยันการพึ่งพาในช่วง
 
 #: src/Controllers/JavaScriptMessagesController.php:425
 msgid "Selected dependencies are as follows:"
-msgstr "เลือกอ้างอิงตามนี้:"
+msgstr "การพึ่งพาที่เลือกไว้มีดังต่อไปนี้:"
 
 #: src/Controllers/JavaScriptMessagesController.php:426
 msgid "No dependencies selected!"
-msgstr "ไม่มีการอ้างอิงที่ถูกเลือก!"
+msgstr "ไม่มีการพึ่งพาที่ถูกเลือก!"
 
 #: src/Controllers/JavaScriptMessagesController.php:427
 #, fuzzy
@@ -14280,11 +14280,11 @@ msgstr "ค่าเซสชั่น"
 
 #: src/Controllers/JavaScriptMessagesController.php:434
 msgid "Hide search criteria"
-msgstr "ซ่อนหลักในการค้นหา"
+msgstr "ซ่อนเงื่อนไขการค้นหา"
 
 #: src/Controllers/JavaScriptMessagesController.php:435
 msgid "Show search criteria"
-msgstr "แสดงหลักการค้นหา"
+msgstr "แสดงเงื่อนไขการค้นหา"
 
 #: src/Controllers/JavaScriptMessagesController.php:436
 msgid "Column maximum:"
@@ -14296,39 +14296,39 @@ msgstr "คอลัมน์ต่ำสุด:"
 
 #: src/Controllers/JavaScriptMessagesController.php:440
 msgid "Hide find and replace criteria"
-msgstr "ซ่อนการค้นหาและแทนที่เกณฑ์"
+msgstr "ซ่อนเงื่อนไขการค้นหาและแทนที่"
 
 #: src/Controllers/JavaScriptMessagesController.php:441
 msgid "Show find and replace criteria"
-msgstr "แสดงเกณฑ์การค้นหาและแทนที่"
+msgstr "แสดงเงื่อนไขการค้นหาและแทนที่"
 
 #: src/Controllers/JavaScriptMessagesController.php:445
 msgid "Each point represents a data row."
-msgstr "แต่ละจุดแสดงข้อมูลระเบียน"
+msgstr "แต่ละจุดแสดงถึงแถวข้อมูลหนึ่งแถว"
 
 #: src/Controllers/JavaScriptMessagesController.php:447
 msgid "Hovering over a point will show its label."
-msgstr "นำตัวชี้วางเพื่อแสดงคำกำกับ"
+msgstr "เลื่อนไปวางเหนือจุดใดจุดหนึ่ง จะแสดงป้ายกำกับของจุดนั้น"
 
 #: src/Controllers/JavaScriptMessagesController.php:449
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr "เมื่อต้องการย่อ/ขยาย ให้เลือกส่วนของจุดโดยใช้เมาส์"
+msgstr "ในการซูมเข้า ให้เลือกส่วนใดส่วนหนึ่งของกราฟด้วยเมาส์"
 
 #: src/Controllers/JavaScriptMessagesController.php:451
 msgid "Click reset zoom button to come back to original state."
-msgstr "คลิก ตั้งการซูมใหม่ เพื่อกลับไปขนาดเริ่มต้น"
+msgstr "คลิกปุ่มรีเซ็ตการซูมเพื่อกลับสู่สถานะเดิม"
 
 #: src/Controllers/JavaScriptMessagesController.php:453
 msgid "Click a data point to view and possibly edit the data row."
-msgstr "คลิก จุดข้อมูล เพื่อดูหรือแก้ไขแถวข้อมูล"
+msgstr "คลิกที่จุดข้อมูลเพื่อดูและอาจแก้ไขข้อมูลในแถวนั้นได้"
 
 #: src/Controllers/JavaScriptMessagesController.php:455
 msgid "The plot can be resized by dragging it along the bottom right corner."
-msgstr "﻿จุดสามารถปรับขนาดได้โดยการลากที่มุมขวาด้านล่าง"
+msgstr "สามารถปรับขนาดกราฟได้โดยการลากที่มุมล่างขวา"
 
 #: src/Controllers/JavaScriptMessagesController.php:458
 msgid "Select two columns"
-msgstr "เพิ่มสองคอลัมน์"
+msgstr "เลือกสองคอลัมน์"
 
 #: src/Controllers/JavaScriptMessagesController.php:460
 msgid "Select two different columns"
@@ -14336,7 +14336,7 @@ msgstr "เลือกสองคอลัมน์ที่แตกต่า
 
 #: src/Controllers/JavaScriptMessagesController.php:462
 msgid "Data point content"
-msgstr "สารบัญ"
+msgstr "เนื้อหาจุดข้อมูล"
 
 #: src/Controllers/JavaScriptMessagesController.php:468
 msgid "X"
@@ -14405,14 +14405,14 @@ msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr ""
-"MySQL ยอมรับค่าเพิ่มเติมที่ไม่สามารถเลือกได้ด้วยแถบเลื่อน คีย์ในค่าเหล่านั้นโดยตรง หากต้องการ"
+"MySQL ยอมรับค่าเพิ่มเติมที่ไม่สามารถเลือกได้ด้วยแถบเลื่อน; กรอกค่าเหล่านั้นโดยตรง หากต้องการ"
 
 #: src/Controllers/JavaScriptMessagesController.php:497
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
-"MySQL ยอมรับค่าเพิ่มเติมที่ไม่สามารถเลือกได้ด้วยตัวเลือกวันที่ คีย์ในค่าเหล่านั้นโดยตรง หากต้องการ"
+"MySQL ยอมรับค่าเพิ่มเติมที่ไม่สามารถเลือกได้ด้วยตัวเลือกวันที่; กรอกค่าเหล่านั้นโดยตรง หากต้องการ"
 
 #: src/Controllers/JavaScriptMessagesController.php:503
 msgid ""
@@ -14505,11 +14505,11 @@ msgstr "คุณได้ทำการแก้ไขข้อมูลบา
 
 #: src/Controllers/JavaScriptMessagesController.php:544
 msgid "Drag to reorder."
-msgstr "ลากเพื่อเปลี่ยนลำดับ"
+msgstr "ลากเพื่อเรียงลำดับใหม่"
 
 #: src/Controllers/JavaScriptMessagesController.php:545
 msgid "Click to sort results by this column."
-msgstr "คลิกเพื่อเรียงตามคอลัมน์"
+msgstr "คลิกเพื่อเรียงผลลัพธ์ด้วยคอลัมน์นี้"
 
 #: src/Controllers/JavaScriptMessagesController.php:547
 msgid ""
@@ -14562,7 +14562,7 @@ msgstr "ยกเลิก"
 #: src/Controllers/JavaScriptMessagesController.php:567
 #: src/Controllers/Server/Status/StatusController.php:185
 msgid "Aborted"
-msgstr "ยกเลิก"
+msgstr "ยกเลิกแล้ว"
 
 #: src/Controllers/JavaScriptMessagesController.php:569
 msgid "Success"
