@@ -12,7 +12,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Exceptions\ExportException;
-use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\Plugins\ExportPlugin;
@@ -67,15 +67,12 @@ class ExportSqlTest extends AbstractTestCase
         Current::$table = '';
         Current::$lang = 'en';
         Config::getInstance()->selectedServer['DisableIS'] = true;
-        Export::$outputKanjiConversion = false;
-        Export::$bufferNeeded = false;
-        Export::$asFile = false;
-        Export::$saveOnServer = false;
+        OutputHandler::$asFile = false;
         ExportPlugin::$exportType = ExportType::Table;
         ExportPlugin::$singleTable = false;
 
         $relation = new Relation($dbi);
-        $this->object = new ExportSql($relation, new Export($dbi), new Transformations($dbi, $relation));
+        $this->object = new ExportSql($relation, new OutputHandler(), new Transformations($dbi, $relation));
         $this->object->useSqlBackquotes(false);
     }
 
@@ -385,8 +382,7 @@ class ExportSqlTest extends AbstractTestCase
     {
         Current::$charset = 'utf-8';
         ExportSql::$oldTimezone = 'GMT';
-        Export::$asFile = true;
-        Export::$outputCharsetConversion = true;
+        OutputHandler::$asFile = true;
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -416,8 +412,7 @@ class ExportSqlTest extends AbstractTestCase
         $config->selectedServer['host'] = 'localhost';
         $config->selectedServer['port'] = 80;
         ExportSql::$oldTimezone = 'GMT';
-        Export::$asFile = true;
-        Export::$outputCharsetConversion = true;
+        OutputHandler::$asFile = true;
         Current::$charset = 'utf-8';
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -887,7 +882,7 @@ class ExportSqlTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $dbi;
         $relation = new Relation($dbi);
-        $this->object = new ExportSql($relation, new Export($dbi), new Transformations($dbi, $relation));
+        $this->object = new ExportSql($relation, new OutputHandler(), new Transformations($dbi, $relation));
         $this->object->useSqlBackquotes(false);
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')

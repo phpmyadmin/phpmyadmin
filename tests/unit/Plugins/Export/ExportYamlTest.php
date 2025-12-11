@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Tests\Plugins\Export;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
-use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\Plugins\Export\ExportYaml;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -38,15 +38,12 @@ class ExportYamlTest extends AbstractTestCase
 
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
-        Export::$outputKanjiConversion = false;
-        Export::$bufferNeeded = false;
-        Export::$asFile = false;
-        Export::$saveOnServer = false;
+        OutputHandler::$asFile = false;
         Current::$database = '';
         Current::$table = '';
         Current::$lang = 'en';
         $relation = new Relation($dbi);
-        $this->object = new ExportYaml($relation, new Export($dbi), new Transformations($dbi, $relation));
+        $this->object = new ExportYaml($relation, new OutputHandler(), new Transformations($dbi, $relation));
     }
 
     /**

@@ -9,7 +9,7 @@ use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
-use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\Export\ExportSql;
@@ -65,9 +65,6 @@ class TableMover
 
             return false;
         }
-
-        // Setting required export settings.
-        Export::$asFile = true;
 
         // Selecting the database could avoid some problems with replicated
         // databases, when moving table from replicated one to not replicated one.
@@ -484,6 +481,8 @@ class TableMover
          * @var ExportSql $exportSqlPlugin
          */
         $exportSqlPlugin = Plugins::getPlugin('export', 'sql', ExportType::Table);
+        // Setting required export settings.
+        OutputHandler::$asFile = true;
         // It is better that all identifiers are quoted
         $exportSqlPlugin->useSqlBackquotes(true);
 

@@ -100,22 +100,6 @@ class ExportTexytext extends ExportPlugin
     }
 
     /**
-     * Outputs export header
-     */
-    public function exportHeader(): bool
-    {
-        return true;
-    }
-
-    /**
-     * Outputs export footer
-     */
-    public function exportFooter(): bool
-    {
-        return true;
-    }
-
-    /**
      * Outputs database header
      *
      * @param string $db      Database name
@@ -127,30 +111,9 @@ class ExportTexytext extends ExportPlugin
             $dbAlias = $db;
         }
 
-        return $this->export->outputHandler(
+        return $this->outputHandler->addLine(
             '===' . __('Database') . ' ' . $dbAlias . "\n\n",
         );
-    }
-
-    /**
-     * Outputs database footer
-     *
-     * @param string $db Database name
-     */
-    public function exportDBFooter(string $db): bool
-    {
-        return true;
-    }
-
-    /**
-     * Outputs CREATE DATABASE statement
-     *
-     * @param string $db      Database name
-     * @param string $dbAlias Aliases of db
-     */
-    public function exportDBCreate(string $db, string $dbAlias = ''): bool
-    {
-        return true;
     }
 
     /**
@@ -170,7 +133,7 @@ class ExportTexytext extends ExportPlugin
         $tableAlias = $this->getTableAlias($aliases, $db, $table);
 
         if (
-            ! $this->export->outputHandler(
+            ! $this->outputHandler->addLine(
                 $tableAlias !== ''
                 ? '== ' . __('Dumping data for table') . ' ' . $tableAlias . "\n\n"
                 : '==' . __('Dumping data for query result') . "\n\n",
@@ -195,7 +158,7 @@ class ExportTexytext extends ExportPlugin
             }
 
             $textOutput .= "\n|------\n";
-            if (! $this->export->outputHandler($textOutput)) {
+            if (! $this->outputHandler->addLine($textOutput)) {
                 return false;
             }
         }
@@ -221,7 +184,7 @@ class ExportTexytext extends ExportPlugin
             }
 
             $textOutput .= "\n";
-            if (! $this->export->outputHandler($textOutput)) {
+            if (! $this->outputHandler->addLine($textOutput)) {
                 return false;
             }
         }
@@ -466,7 +429,7 @@ class ExportTexytext extends ExportPlugin
                 $dump .= $this->getTableDefStandIn($db, $table, $aliases);
         }
 
-        return $this->export->outputHandler($dump);
+        return $this->outputHandler->addLine($dump);
     }
 
     /**
