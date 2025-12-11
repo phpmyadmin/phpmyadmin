@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2025-12-10 17:00+0000\n"
+"PO-Revision-Date: 2025-12-12 05:00+0000\n"
 "Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/4-9/th/>"
 "\n"
@@ -1663,7 +1663,7 @@ msgstr "ระบบที่ปรึกษา"
 
 #: js/messages.php:341
 msgid "Possible performance issues"
-msgstr "ปัญหาเรื่องสมรรถนะ"
+msgstr "ปัญหาด้านประสิทธิภาพที่อาจเกิดขึ้น"
 
 #: js/messages.php:342
 msgid "Issue"
@@ -1671,15 +1671,15 @@ msgstr "ปัญหา"
 
 #: js/messages.php:343
 msgid "Recommendation"
-msgstr "เอกสารอ้างอิง"
+msgstr "คำแนะนำ"
 
 #: js/messages.php:344
 msgid "Rule details"
-msgstr "กฎเกณฑ์ต่างๆ"
+msgstr "รายละเอียดกฎเกณฑ์"
 
 #: js/messages.php:345
 msgid "Justification"
-msgstr "เอกสารอ้างอิง"
+msgstr "การให้เหตุผล"
 
 #: js/messages.php:346
 msgid "Used variable / formula"
@@ -1710,7 +1710,7 @@ msgstr "ยกเลิก"
 
 #: js/messages.php:358 libraries/classes/Header.php:461
 msgid "Page-related settings"
-msgstr "การตั้งค่าที่เกี่ยวข้องกับหน้า"
+msgstr "การตั้งค่าหน้าที่เกี่ยวข้อง"
 
 #: js/messages.php:359 templates/config/form_display/fieldset_bottom.twig:8
 msgid "Apply"
@@ -1727,7 +1727,7 @@ msgstr "การร้องขอถูกยกเลิก!!"
 
 #: js/messages.php:364
 msgid "Processing request"
-msgstr "กำลังประมวลผลคำร้องขอ"
+msgstr "ร้องขอการประมวลผล"
 
 #: js/messages.php:365
 msgid "Request failed!!"
@@ -1735,7 +1735,7 @@ msgstr "การร้องขอล้มเหลว!!"
 
 #: js/messages.php:366
 msgid "Error in processing request"
-msgstr "ข้อผิดพลาดในการประมวลผลคำร้องขอ"
+msgstr "ข้อผิดพลาดในการร้องขอการประมวลผล"
 
 #: js/messages.php:367
 #, php-format
@@ -1789,7 +1789,7 @@ msgstr "กดเพื่อยกเลิกการแจ้งเตือ
 
 #: js/messages.php:381
 msgid "Renaming databases"
-msgstr "กำลังเปลี่ยนชื่อฐานข้อมูล"
+msgstr "กำลังเแก้ไขชื่อฐานข้อมูล"
 
 #: js/messages.php:382
 msgid "Copying database"
@@ -1805,7 +1805,7 @@ msgstr "เปิดการตรวจสอบคีย์นอก"
 
 #: js/messages.php:390
 msgid "Failed to get real row count."
-msgstr "การรับจำนวนแถวจริงล้มเหลว"
+msgstr "ไม่สามารถนับจำนวนแถวที่แท้จริงได้"
 
 #: js/messages.php:393
 msgid "Searching"
@@ -1813,28 +1813,28 @@ msgstr "กำลังค้นหา"
 
 #: js/messages.php:394
 msgid "Hide search results"
-msgstr "ซ่อนผลคำสั่ง SQL"
+msgstr "ซ่อนผลการค้นหา"
 
 #: js/messages.php:395
 msgid "Show search results"
-msgstr "แสดงผลคำค้น SQL"
+msgstr "แสดงผลการค้นหา"
 
 #: js/messages.php:396
 msgid "Browsing"
-msgstr "กำลังเปิด"
+msgstr "การเรียกดู"
 
 #: js/messages.php:397
 msgid "Deleting"
-msgstr "กำลังลบ %s"
+msgstr "กำลังลบ"
 
 #: js/messages.php:398
 #, php-format
 msgid "Delete the matches for the %s table?"
-msgstr "ลบตรงกับที่ตาราง %s หรือไม่?"
+msgstr "ลบข้อมูลที่ตรงกันในตาราง %s หรือไม่?"
 
 #: js/messages.php:402
 msgid "The definition of a stored function must contain a RETURN statement!"
-msgstr "ฟังก์ชั่นภายในจะต้องมีค่า RETURN!"
+msgstr "นิยามของฟังก์ชันที่จัดเก็บไว้จะต้องมีคำสั่ง RETURN อยู่ด้วย!"
 
 #: js/messages.php:403 libraries/classes/Config/Forms/User/ExportForm.php:140
 #: libraries/classes/Display/Results.php:4716
@@ -1856,7 +1856,7 @@ msgstr "ส่งออก"
 
 #: js/messages.php:405
 msgid "No routine is exportable. Required privileges may be lacking."
-msgstr "ไม่มีรูทีนที่สามารถส่งออกได้ อาจมีการขาดสิทธิที่จำเป็น"
+msgstr "ไม่สามารถส่งออกขั้นตอนการทำงานใด ๆ ได้ อาจขาดสิทธิ์ที่จำเป็น"
 
 #: js/messages.php:408 libraries/classes/Rte/Routines.php:761
 msgid "ENUM/SET editor"
@@ -1865,7 +1865,7 @@ msgstr "ตัวแก้ไข ENUM/SET"
 #: js/messages.php:409
 #, php-format
 msgid "Values for column %s"
-msgstr "ค่าสำหรับคอลัมน์ \"%s\""
+msgstr "ค่าสำหรับคอลัมน์ %s"
 
 #: js/messages.php:410
 msgid "Values for a new column"
@@ -1873,7 +1873,7 @@ msgstr "ค่าสำหรับคอลัมน์ใหม่"
 
 #: js/messages.php:411
 msgid "Enter each value in a separate field."
-msgstr "ป้อนค่าในช่องต่าง ๆ"
+msgstr "ป้อนแต่ละค่าลงในช่องแยกกัน"
 
 #: js/messages.php:412
 #, php-format
@@ -1883,15 +1883,15 @@ msgstr "เพิ่มค่า %d"
 #: js/messages.php:416
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
-msgstr "เตือน: ถ้าไฟล์มีหลายตาราง จะถูกรวมเป็นหนึ่ง"
+msgstr "หมายเหตุ: หากไฟล์มีหลายตาราง มันจะถูกรวมเข้าด้วยกัน"
 
 #: js/messages.php:420
 msgid "Hide query box"
-msgstr "ซ่อนช่องใส่คำค้น SQL"
+msgstr "ซ่อนช่องระบุ SQL"
 
 #: js/messages.php:421
 msgid "Show query box"
-msgstr "แสดงช่องคำค้น SQL"
+msgstr "แสดงช่องระบุ SQL"
 
 #: js/messages.php:422 libraries/classes/CentralColumns.php:879
 #: libraries/classes/CentralColumns.php:1234
@@ -1978,7 +1978,7 @@ msgid ""
 "This action may change some of the columns definition.<br/>Are you sure you "
 "want to continue?"
 msgstr ""
-"การกระทำนี้อาจเปลี่ยนแปลงข้อกำหนดคอลัมน์บางส่วน<br/>คุณแน่ใจว่าต้องการดำเนินการต่อหรือไม่?"
+"การดำเนินการนี้อาจเปลี่ยนแปลงข้อกำหนดคอลัมน์บางส่วน<br/>คุณแน่ใจว่าต้องการดำเนินการต่อหรือไม่?"
 
 #: js/messages.php:443
 msgid "Continue"
@@ -1999,7 +1999,7 @@ msgstr "กำลังพาคุณไปยังขั้นตอนต่
 #: js/messages.php:450
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
-msgstr "ขั้นตอนแรกของการฟื้นฟูเสร็จสมบูรณ์สำหรับตาราง '%s '"
+msgstr "การนอร์มัลไลเซชันขั้นตอนแรกเสร็จสมบูรณ์สำหรับตาราง '%s '"
 
 #: js/messages.php:451 libraries/classes/Normalization.php:510
 #: libraries/classes/Normalization.php:557
@@ -2020,31 +2020,31 @@ msgstr "จบ"
 
 #: js/messages.php:454
 msgid "Confirm partial dependencies"
-msgstr "ยืนยันอ้างอิงบางส่วน"
+msgstr "ยืนยันการพึ่งพาบางส่วน"
 
 #: js/messages.php:455
 msgid "Selected partial dependencies are as follows:"
-msgstr "เลือกอ้างอิงบางส่วนตามกำหนดแล้ว:"
+msgstr "การพึ่งพาบางส่วนที่เลือกไว้มีดังต่อไปนี้:"
 
 #: js/messages.php:457
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
-"หมายเหตุ: a b -> d f หมายถึงค่าของคอลัมน์ a และ b ที่รวมกันสามารถกำหนดค่าของคอลัมน์ d "
-"และคอลัมน์ f"
+"หมายเหตุ: a, b -> d, f มีหมายความในเชิงว่า ค่าของคอลัมน์ a และ b ที่นำมารวมกันสามารถกำห"
+"นดค่าของคอลัมน์ d และคอลัมน์ f ได้"
 
 #: js/messages.php:460
 msgid "No partial dependencies selected!"
-msgstr "ไม่มีการอ้างอิงบางส่วนที่ถูกเลือก!"
+msgstr "ไม่ได้เลือกการพึ่งพาบางส่วน!"
 
 #: js/messages.php:463
 msgid "Show me the possible partial dependencies based on data in the table"
-msgstr "แสดงอ้างอิงบางส่วนตามข้อมูลที่อยู่ในตาราง"
+msgstr "แสดงความสัมพันธ์แบบพึ่งพาบางส่วนที่เป็นไปได้โดยอิงจากข้อมูลในตาราง"
 
 #: js/messages.php:464
 msgid "Hide partial dependencies list"
-msgstr "ซ่อนรายการอ้างอิงบางส่วน"
+msgstr "ซ่อนรายการพึ่งพาบางส่วน"
 
 #: js/messages.php:466
 msgid ""
@@ -2058,12 +2058,12 @@ msgstr "ขั้นตอน"
 
 #: js/messages.php:471
 msgid "The following actions will be performed:"
-msgstr "การดำเนินการต่อไปนี้จะถูกดำเนินการ:"
+msgstr "จะมีการดำเนินการดังต่อไปนี้:"
 
 #: js/messages.php:472
 #, php-format
 msgid "DROP columns %s from the table %s"
-msgstr "ทิ้งคอลัมน์ %s จากตาราง %s"
+msgstr "ลบคอลัมน์ %s ทิ้งจากตาราง %s"
 
 #: js/messages.php:473
 msgid "Create the following table"
@@ -2079,11 +2079,11 @@ msgstr "การยืนยันการพึ่งพาในช่วง
 
 #: js/messages.php:478
 msgid "Selected dependencies are as follows:"
-msgstr "เลือกอ้างอิงตามนี้:"
+msgstr "การพึ่งพาที่เลือกไว้มีดังต่อไปนี้:"
 
 #: js/messages.php:479
 msgid "No dependencies selected!"
-msgstr "ไม่มีการอ้างอิงที่ถูกเลือก!"
+msgstr "ไม่มีการพึ่งพาที่ถูกเลือก!"
 
 #: js/messages.php:482 libraries/classes/CentralColumns.php:1254
 #: libraries/classes/InsertEdit.php:1805
@@ -2097,15 +2097,15 @@ msgstr "บันทึก"
 
 #: js/messages.php:485
 msgid "Hide search criteria"
-msgstr "ซ่อนหลักในการค้นหา"
+msgstr "ซ่อนเงื่อนไขการค้นหา"
 
 #: js/messages.php:486
 msgid "Show search criteria"
-msgstr "แสดงหลักการค้นหา"
+msgstr "แสดงเงื่อนไขการค้นหา"
 
 #: js/messages.php:487
 msgid "Range search"
-msgstr "ระยะการค้นหา"
+msgstr "ช่วงการค้นหา"
 
 #: js/messages.php:488
 msgid "Column maximum:"
@@ -2125,39 +2125,39 @@ msgstr "ค่าสูงสุด:"
 
 #: js/messages.php:494
 msgid "Hide find and replace criteria"
-msgstr "ซ่อนการค้นหาและแทนที่เกณฑ์"
+msgstr "ซ่อนเงื่อนไขการค้นหาและแทนที่"
 
 #: js/messages.php:495
 msgid "Show find and replace criteria"
-msgstr "แสดงเกณฑ์การค้นหาและแทนที่"
+msgstr "แสดงเงื่อนไขการค้นหาและแทนที่"
 
 #: js/messages.php:499
 msgid "Each point represents a data row."
-msgstr "แต่ละจุดแสดงข้อมูลระเบียน"
+msgstr "แต่ละจุดแสดงถึงแถวข้อมูลหนึ่งแถว"
 
 #: js/messages.php:501
 msgid "Hovering over a point will show its label."
-msgstr "นำตัวชี้วางเพื่อแสดงคำกำกับ"
+msgstr "เลื่อนไปวางเหนือจุดใดจุดหนึ่ง จะแสดงป้ายกำกับของจุดนั้น"
 
 #: js/messages.php:503
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr "เมื่อต้องการย่อ/ขยาย ให้เลือกส่วนของจุดโดยใช้เมาส์"
+msgstr "ในการซูมเข้า ให้เลือกส่วนใดส่วนหนึ่งของกราฟด้วยเมาส์"
 
 #: js/messages.php:505
 msgid "Click reset zoom button to come back to original state."
-msgstr "คลิก ตั้งการซูมใหม่ เพื่อกลับไปขนาดเริ่มต้น"
+msgstr "คลิกปุ่มรีเซ็ตการซูมเพื่อกลับสู่สถานะเดิม"
 
 #: js/messages.php:507
 msgid "Click a data point to view and possibly edit the data row."
-msgstr "คลิก จุดข้อมูล เพื่อดูหรือแก้ไขแถวข้อมูล"
+msgstr "คลิกที่จุดข้อมูลเพื่อดูและอาจแก้ไขข้อมูลในแถวนั้นได้"
 
 #: js/messages.php:509
 msgid "The plot can be resized by dragging it along the bottom right corner."
-msgstr "﻿จุดสามารถปรับขนาดได้โดยการลากที่มุมขวาด้านล่าง"
+msgstr "สามารถปรับขนาดกราฟได้โดยการลากที่มุมล่างขวา"
 
 #: js/messages.php:512
 msgid "Select two columns"
-msgstr "เพิ่มสองคอลัมน์"
+msgstr "เลือกสองคอลัมน์"
 
 #: js/messages.php:514
 msgid "Select two different columns"
@@ -2165,13 +2165,13 @@ msgstr "เลือกสองคอลัมน์ที่แตกต่า
 
 #: js/messages.php:516
 msgid "Data point content"
-msgstr "สารบัญ"
+msgstr "เนื้อหาจุดข้อมูล"
 
 #: js/messages.php:519 js/messages.php:687 js/messages.php:704
 #: libraries/classes/ErrorHandler.php:382 libraries/classes/InsertEdit.php:2979
 #: templates/table/index_form.twig:141 templates/table/index_form.twig:177
 msgid "Ignore"
-msgstr "ข้าม"
+msgstr "เพิกเฉย"
 
 #: js/messages.php:520 libraries/classes/Display/Results.php:3344
 #: libraries/classes/Display/Results.php:4705
@@ -2215,14 +2215,14 @@ msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr ""
-"MySQL ยอมรับค่าเพิ่มเติมที่ไม่สามารถเลือกได้ด้วยแถบเลื่อน คีย์ในค่าเหล่านั้นโดยตรง หากต้องการ"
+"MySQL ยอมรับค่าเพิ่มเติมที่ไม่สามารถเลือกได้ด้วยแถบเลื่อน; กรอกค่าเหล่านั้นโดยตรง หากต้องการ"
 
 #: js/messages.php:544
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
-"MySQL ยอมรับค่าเพิ่มเติมที่ไม่สามารถเลือกได้ด้วยตัวเลือกวันที่ คีย์ในค่าเหล่านั้นโดยตรง หากต้องการ"
+"MySQL ยอมรับค่าเพิ่มเติมที่ไม่สามารถเลือกได้ด้วยตัวเลือกวันที่; กรอกค่าเหล่านั้นโดยตรง หากต้องการ"
 
 #: js/messages.php:550
 msgid ""
@@ -2341,11 +2341,11 @@ msgstr "คุณได้ทำการแก้ไขข้อมูลบา
 
 #: js/messages.php:591
 msgid "Drag to reorder."
-msgstr "ลากเพื่อเปลี่ยนลำดับ"
+msgstr "ลากเพื่อเรียงลำดับใหม่"
 
 #: js/messages.php:592
 msgid "Click to sort results by this column."
-msgstr "คลิกเพื่อเรียงตามคอลัมน์"
+msgstr "คลิกเพื่อเรียงผลลัพธ์ด้วยคอลัมน์นี้"
 
 #: js/messages.php:594
 msgid ""
@@ -2353,8 +2353,8 @@ msgid ""
 ">- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column from "
 "ORDER BY clause"
 msgstr ""
-"Shift + คลิก เพื่อเพิ่มคอลัมน์นี้ในประโยค ORDER BY หรือเพื่อสลับ ASC / DESC <br/> - Ctrl "
-"+ คลิกหรือ Alt + คลิก (Mac: Shift + Option + คลิก) เพื่อลบคอลัมน์จากประโยค ORDER BY"
+"Shift+คลิก เพื่อเพิ่มคอลัมน์นี้ในประโยค ORDER BY หรือเพื่อสลับ ASC / DESC <br/> - Ctrl+คลิ"
+"ก หรือ Alt+คลิก (Mac: Shift+Option+คลิก) เพื่อลบคอลัมน์จากประโยค ORDER BY"
 
 #: js/messages.php:598
 msgid "Click to mark/unmark."
@@ -2403,7 +2403,7 @@ msgstr "ยกเลิก"
 
 #: js/messages.php:618 libraries/classes/Server/Status.php:288
 msgid "Aborted"
-msgstr "ยกเลิก"
+msgstr "ยกเลิกแล้ว"
 
 #: js/messages.php:620
 msgid "Success"
