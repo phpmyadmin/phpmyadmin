@@ -124,12 +124,12 @@
           <label for="tableCommentsInput">{{ t('Table comments') }}</label>
         </div>
         <div class="col-6">
-          <textarea 
+          <textarea
             id="tableCommentsInput"
             class="form-control"
-            name="comment" 
-            maxlength="2048" 
-            class="textfield" 
+            name="comment"
+            maxlength="2048"
+            class="textfield"
             rows="1"
             cols="30">{{ table_comment }}</textarea>
         </div>
@@ -378,7 +378,7 @@
     <li class="list-group-item">
       <a class="maintain_action ajax" href="{{ url('/sql') }}" data-post="{{ get_common(url_params|merge({
         'sql_query': 'FLUSH TABLE ' ~ backquote(table),
-        'message_to_show': t('Table %s has been flushed.')|format(table|e),
+        'message_to_show': t('Table %s has been flushed.')|format(table),
         'reload': true
       }), '', false) }}">
         {{ t('Flush the table (FLUSH)') }}
@@ -418,7 +418,7 @@
               'sql_query': 'TRUNCATE TABLE ' ~ backquote(db) ~ '.' ~ backquote(table),
               'goto': url('/table/structure'),
               'reload': true,
-              'message_to_show': t('Table %s has been emptied.')|format(table)|e
+              'message_to_show': t('Table %s has been emptied.')|format(table)
             }),
             t('Empty the table (TRUNCATE)'),
             {
@@ -436,7 +436,7 @@
               'sql_query': 'DELETE FROM ' ~ backquote(db) ~ '.' ~ backquote(table),
               'goto': url('/table/structure'),
               'reload': true,
-              'message_to_show': t('Table %s has been emptied.')|format(table)|e
+              'message_to_show': t('Table %s has been emptied.')|format(table)
             }),
             t('Empty the table (DELETE FROM)'),
             {
@@ -456,7 +456,7 @@
             'goto': url('/database/operations'),
             'reload': true,
             'purge': true,
-            'message_to_show': is_view ? t('View %s has been dropped.')|format(table)|e : t('Table %s has been dropped.')|format(table)|e,
+            'message_to_show': is_view ? t('View %s has been dropped.')|format(table) : t('Table %s has been dropped.')|format(table),
             'table': table
           }),
           t('Delete the table (DROP)'),

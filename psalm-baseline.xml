@@ -1135,6 +1135,16 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Database/StructureController.php">
+    <InvalidOperand>
+      <code><![CDATA[$currentTable['Data_free']]]></code>
+      <code><![CDATA[$currentTable['TABLE_ROWS']]]></code>
+    </InvalidOperand>
+    <InvalidReturnStatement>
+      <code><![CDATA[[$currentTable, $formattedSize, $unit, $sumSize]]]></code>
+    </InvalidReturnStatement>
+    <InvalidReturnType>
+      <code><![CDATA[array{(string|int|null)[], string, string, int}]]></code>
+    </InvalidReturnType>
     <LessSpecificReturnStatement>
       <code><![CDATA[[
             $currentTable,
@@ -1146,26 +1156,8 @@
             $tableIsView,
             $sumSize,
         ]]]></code>
-      <code><![CDATA[[$currentTable, $formattedSize, $unit, $formattedOverhead, $overheadUnit, $overheadSize, $sumSize]]]></code>
     </LessSpecificReturnStatement>
     <MixedArgument>
-      <code><![CDATA[$currentTable['Collation']]]></code>
-      <code><![CDATA[$currentTable['Data_free']]]></code>
-      <code><![CDATA[$currentTable['Name']]]></code>
-      <code><![CDATA[$currentTable['TABLE_COMMENT']]]></code>
-      <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
-      <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
-      <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
-      <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
-      <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
-      <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
-      <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
-      <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
-      <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
-      <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
-      <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
-      <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
-      <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
       <code><![CDATA[$dbTable]]></code>
       <code><![CDATA[$replicaInfo['Do_DB']]]></code>
       <code><![CDATA[$replicaInfo['Do_DB']]]></code>
@@ -1175,49 +1167,95 @@
       <code><![CDATA[$replicaInfo['Ignore_Table']]]></code>
       <code><![CDATA[$replicaInfo['Wild_Do_Table']]]></code>
       <code><![CDATA[$replicaInfo['Wild_Ignore_Table']]]></code>
-      <code><![CDATA[$truename]]></code>
+      <code><![CDATA[$request->getParam('pos')]]></code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[uksort($tables, strnatcasecmp(...))]]></code>
+    </MixedArgumentTypeCoercion>
+    <MixedArrayAccess>
+      <code><![CDATA[$_SESSION['tmpval']['table_limit_offset']]]></code>
+    </MixedArrayAccess>
+    <MixedArrayAssignment>
+      <code><![CDATA[$_SESSION['tmpval']['table_limit_offset']]]></code>
+      <code><![CDATA[$_SESSION['tmpval']['table_limit_offset']]]></code>
+      <code><![CDATA[$_SESSION['tmpval']['table_limit_offset_db']]]></code>
+    </MixedArrayAssignment>
     <MixedAssignment>
       <code><![CDATA[$charset]]></code>
       <code><![CDATA[$dbTable]]></code>
-      <code><![CDATA[$overheadSize]]></code>
-      <code><![CDATA[$quotesLength]]></code>
       <code><![CDATA[$searchDb]]></code>
       <code><![CDATA[$searchDoDBInDB]]></code>
       <code><![CDATA[$searchDoDBInTruename]]></code>
       <code><![CDATA[$searchTable]]></code>
-      <code><![CDATA[$sumEntries]]></code>
-      <code><![CDATA[$truename]]></code>
     </MixedAssignment>
     <MixedMethodCall>
       <code><![CDATA[getCharset]]></code>
     </MixedMethodCall>
-    <MixedOperand>
-      <code><![CDATA[$currentTable['Data_free']]]></code>
-      <code><![CDATA[$currentTable['Data_length']]]></code>
-      <code><![CDATA[$currentTable['Data_length']]]></code>
-      <code><![CDATA[$currentTable['Data_length']]]></code>
-      <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
-      <code><![CDATA[$currentTable['TABLE_ROWS']]]></code>
-      <code><![CDATA[$currentTable['TABLE_ROWS']]]></code>
-      <code><![CDATA[$dataLength + $quotesLength]]></code>
-      <code><![CDATA[$quotesLength]]></code>
-    </MixedOperand>
+    <MixedReturnStatement>
+      <code><![CDATA[$_SESSION['tmpval']['table_limit_offset']]]></code>
+      <code><![CDATA[$_SESSION['tmpval']['table_limit_offset']]]></code>
+    </MixedReturnStatement>
     <MoreSpecificReturnType>
-      <code><![CDATA[array{mixed[], string, string, string, string, int|float, int}]]></code>
-      <code><![CDATA[list{mixed[], string, string, string, string, int, bool, int}]]></code>
+      <code><![CDATA[list{(string|int|null)[], string, string, string, string, int, bool, int}]]></code>
     </MoreSpecificReturnType>
     <PossiblyFalseOperand>
       <code><![CDATA[$columnNames]]></code>
+      <code><![CDATA[$this->config->settings['NavigationTreeTableSeparator']]]></code>
+      <code><![CDATA[$this->config->settings['NavigationTreeTableSeparator']]]></code>
     </PossiblyFalseOperand>
+    <PossiblyInvalidArgument>
+      <code><![CDATA[$currentTable['Collation']]]></code>
+      <code><![CDATA[$currentTable['Name']]]></code>
+      <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
+      <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
+      <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
+      <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
+      <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
+      <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
+      <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
+      <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
+      <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
+      <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
+      <code><![CDATA[$truename]]></code>
+      <code><![CDATA[$truename]]></code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidOperand>
+      <code><![CDATA[$currentTable['Data_length']]]></code>
+      <code><![CDATA[$currentTable['Data_length']]]></code>
+      <code><![CDATA[$currentTable['Data_length']]]></code>
+      <code><![CDATA[$currentTable['Index_length']]]></code>
+      <code><![CDATA[$currentTable['Index_length']]]></code>
+      <code><![CDATA[$currentTable['Index_length']]]></code>
+      <code><![CDATA[$this->config->settings['NavigationTreeTableSeparator']]]></code>
+      <code><![CDATA[$this->config->settings['NavigationTreeTableSeparator']]]></code>
+    </PossiblyInvalidOperand>
+    <PossiblyNullArgument>
+      <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
+    </PossiblyNullArgument>
     <PossiblyNullOperand>
       <code><![CDATA[$columnNames]]></code>
-      <code><![CDATA[$currentTable['TABLE_ROWS']]]></code>
+      <code><![CDATA[$currentTable['Data_length']]]></code>
+      <code><![CDATA[$currentTable['Data_length']]]></code>
+      <code><![CDATA[$currentTable['Data_length']]]></code>
+      <code><![CDATA[$currentTable['Index_length']]]></code>
+      <code><![CDATA[$currentTable['Index_length']]]></code>
+      <code><![CDATA[$currentTable['Index_length']]]></code>
+      <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
       <code><![CDATA[$currentTable['TABLE_ROWS']]]></code>
     </PossiblyNullOperand>
-    <PossiblyUndefinedArrayOffset>
-      <code><![CDATA[$currentTable['TABLE_ROWS']]]></code>
-    </PossiblyUndefinedArrayOffset>
+    <RedundantCast>
+      <code><![CDATA[(string) $_REQUEST['tbl_group']]]></code>
+      <code><![CDATA[(string) $_REQUEST['tbl_group']]]></code>
+    </RedundantCast>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[! $currentTable['COUNTED']]]></code>
+    </RiskyTruthyFalsyComparison>
+    <UnnecessaryVarAnnotation>
+      <code><![CDATA[int]]></code>
+      <code><![CDATA[int]]></code>
+      <code><![CDATA[int]]></code>
+      <code><![CDATA[int]]></code>
+    </UnnecessaryVarAnnotation>
   </file>
   <file src="src/Controllers/Database/TrackingController.php">
     <MixedArgument>
@@ -8889,10 +8927,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
@@ -8906,16 +8940,7 @@
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$columnNames]]></code>
-      <code><![CDATA[uksort($tables, strnatcasecmp(...))]]></code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess>
-      <code><![CDATA[$_SESSION['tmpval']['table_limit_offset']]]></code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment>
-      <code><![CDATA[$_SESSION['tmpval']['table_limit_offset']]]></code>
-      <code><![CDATA[$_SESSION['tmpval']['table_limit_offset']]]></code>
-      <code><![CDATA[$_SESSION['tmpval']['table_limit_offset_db']]]></code>
-    </MixedArrayAssignment>
     <MixedAssignment>
       <code><![CDATA[$array]]></code>
       <code><![CDATA[$columnNames[]]]></code>
@@ -8924,27 +8949,13 @@
     <MixedOperand>
       <code><![CDATA[$value]]></code>
     </MixedOperand>
-    <MixedReturnStatement>
-      <code><![CDATA[$_SESSION['tmpval']['table_limit_offset']]]></code>
-      <code><![CDATA[$_SESSION['tmpval']['table_limit_offset']]]></code>
-    </MixedReturnStatement>
     <PossiblyFalseOperand>
-      <code><![CDATA[$config->settings['NavigationTreeTableSeparator']]]></code>
-      <code><![CDATA[$config->settings['NavigationTreeTableSeparator']]]></code>
       <code><![CDATA[mb_strpos($value, '.')]]></code>
       <code><![CDATA[mb_strrpos($columnSpecification, ')')]]></code>
     </PossiblyFalseOperand>
-    <PossiblyInvalidOperand>
-      <code><![CDATA[$config->settings['NavigationTreeTableSeparator']]]></code>
-      <code><![CDATA[$config->settings['NavigationTreeTableSeparator']]]></code>
-    </PossiblyInvalidOperand>
     <PossiblyNullArgument>
       <code><![CDATA[$value]]></code>
     </PossiblyNullArgument>
-    <RedundantCast>
-      <code><![CDATA[(string) $_REQUEST['tbl_group']]]></code>
-      <code><![CDATA[(string) $_REQUEST['tbl_group']]]></code>
-    </RedundantCast>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$firstBracketPos]]></code>
       <code><![CDATA[$schemaPrivileges]]></code>
@@ -9639,6 +9650,11 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
+      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
@@ -11404,7 +11420,6 @@
       <code><![CDATA[$tz]]></code>
     </ArgumentTypeCoercion>
     <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>

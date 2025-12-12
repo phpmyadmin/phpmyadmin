@@ -8,7 +8,6 @@ use DateTimeImmutable;
 use PhpMyAdmin\ConfigStorage\UserGroupLevel;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
-use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Query\Compatibility;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Token;
@@ -42,7 +41,6 @@ use function implode;
 use function in_array;
 use function ini_get;
 use function is_array;
-use function is_numeric;
 use function is_object;
 use function is_scalar;
 use function is_string;
@@ -77,13 +75,11 @@ use function str_replace;
 use function str_starts_with;
 use function strftime;
 use function strlen;
-use function strnatcasecmp;
 use function strrev;
 use function strtolower;
 use function strtr;
 use function substr;
 use function trim;
-use function uksort;
 
 use const ENT_COMPAT;
 use const ENT_QUOTES;
@@ -1484,211 +1480,6 @@ class Util
     }
 
     /**
-     * Gets the list of tables in the current db and information about these tables if possible.
-     *
-     * @return array<int, array|int>
-     * @psalm-return array{array, int}
-     */
-    public static function getDbInfo(ServerRequest $request, string $db, bool $isResultLimited = true): array
-    {
-        /**
-         * information about tables in db
-         */
-        $tables = [];
-
-        $dbi = DatabaseInterface::getInstance();
-        $config = Config::getInstance();
-        // Special speedup for newer MySQL Versions (in 4.0 format changed)
-        if ($config->settings['SkipLockedTables'] === true) {
-            $tables = self::getTablesWhenOpen($db);
-        }
-
-        $totalNumTables = null;
-        if ($tables === []) {
-            // Set some sorting defaults
-            $sort = 'Name';
-            $sortOrder = 'ASC';
-
-            /** @var mixed $sortParam */
-            $sortParam = $request->getParam('sort');
-            if (is_string($sortParam)) {
-                $sortableNameMappings = [
-                    'table' => 'Name',
-                    'records' => 'Rows',
-                    'type' => 'Engine',
-                    'collation' => 'Collation',
-                    'size' => 'Data_length',
-                    'overhead' => 'Data_free',
-                    'creation' => 'Create_time',
-                    'last_update' => 'Update_time',
-                    'last_check' => 'Check_time',
-                    'comment' => 'Comment',
-                ];
-
-                // Make sure the sort type is implemented
-                if (isset($sortableNameMappings[$sortParam])) {
-                    $sort = $sortableNameMappings[$sortParam];
-                    if ($request->getParam('sort_order') === 'DESC') {
-                        $sortOrder = 'DESC';
-                    }
-                }
-            }
-
-            $groupWithSeparator = false;
-            $tableType = null;
-            $limitOffset = 0;
-            $limitCount = false;
-            $groupTable = [];
-
-            /** @var mixed $tableGroupParam */
-            $tableGroupParam = $request->getParam('tbl_group');
-            /** @var mixed $tableTypeParam */
-            $tableTypeParam = $request->getParam('tbl_type');
-            if (
-                is_string($tableGroupParam) && $tableGroupParam !== ''
-                || is_string($tableTypeParam) && $tableTypeParam !== ''
-            ) {
-                if (is_string($tableTypeParam) && $tableTypeParam !== '') {
-                    // only tables for selected type
-                    $tableType = $tableTypeParam;
-                }
-
-                if (is_string($tableGroupParam) && $tableGroupParam !== '') {
-                    // only tables for selected group
-                    // include the table with the exact name of the group if such exists
-                    $groupTable = $dbi->getTablesFull(
-                        $db,
-                        $tableGroupParam,
-                        false,
-                        0,
-                        false,
-                        $sort,
-                        $sortOrder,
-                        $tableType,
-                    );
-                    $groupWithSeparator = $tableGroupParam . $config->settings['NavigationTreeTableSeparator'];
-                }
-            } else {
-                // all tables in db
-                // - get the total number of tables
-                //  (needed for proper working of the MaxTableList feature)
-                $tables = $dbi->getTables($db);
-                $totalNumTables = count($tables);
-                if ($isResultLimited) {
-                    // fetch the details for a possible limited subset
-                    $limitOffset = self::getTableListPosition($request, $db);
-                    $limitCount = true;
-                }
-            }
-
-            // We must use union operator here instead of array_merge to preserve numerical keys
-            $tables = $groupTable + $dbi->getTablesFull(
-                $db,
-                $groupWithSeparator !== false ? $groupWithSeparator : $tables,
-                $groupWithSeparator !== false,
-                $limitOffset,
-                $limitCount,
-                $sort,
-                $sortOrder,
-                $tableType,
-            );
-        }
-
-        return [
-            $tables,
-            $totalNumTables ?? count($tables), // needed for proper working of the MaxTableList feature
-        ];
-    }
-
-    /**
-     * Gets the list of tables in the current db, taking into account
-     * that they might be "in use"
-     *
-     * @return mixed[] list of tables
-     */
-    private static function getTablesWhenOpen(string $db): array
-    {
-        $dbi = DatabaseInterface::getInstance();
-
-        $openTables = $dbi->query(
-            'SHOW OPEN TABLES FROM ' . self::backquote($db) . ' WHERE In_use > 0;',
-        );
-
-        // Blending out tables in use
-        $openTableNames = [];
-
-        /** @var string $tableName */
-        foreach ($openTables as ['Table' => $tableName]) {
-            $openTableNames[] = $tableName;
-        }
-
-        // is there at least one "in use" table?
-        if ($openTableNames === []) {
-            return [];
-        }
-
-        $tables = [];
-        $tblGroupSql = '';
-        $whereAdded = false;
-        $config = Config::getInstance();
-        if (
-            isset($_REQUEST['tbl_group'])
-            && is_scalar($_REQUEST['tbl_group'])
-            && (string) $_REQUEST['tbl_group'] !== ''
-        ) {
-            $group = $dbi->escapeMysqlWildcards((string) $_REQUEST['tbl_group']);
-            $groupWithSeparator = $dbi->escapeMysqlWildcards(
-                $_REQUEST['tbl_group'] . $config->settings['NavigationTreeTableSeparator'],
-            );
-            $tblGroupSql .= ' WHERE ('
-                . self::backquote('Tables_in_' . $db)
-                . ' LIKE ' . $dbi->quoteString($groupWithSeparator . '%')
-                . ' OR '
-                . self::backquote('Tables_in_' . $db)
-                . ' LIKE ' . $dbi->quoteString($group) . ')';
-            $whereAdded = true;
-        }
-
-        if (isset($_REQUEST['tbl_type']) && in_array($_REQUEST['tbl_type'], ['table', 'view'], true)) {
-            $tblGroupSql .= $whereAdded ? ' AND' : ' WHERE';
-            if ($_REQUEST['tbl_type'] === 'view') {
-                $tblGroupSql .= " `Table_type` NOT IN ('BASE TABLE', 'SYSTEM VERSIONED')";
-            } else {
-                $tblGroupSql .= " `Table_type` IN ('BASE TABLE', 'SYSTEM VERSIONED')";
-            }
-        }
-
-        $dbInfoResult = $dbi->query('SHOW FULL TABLES FROM ' . self::backquote($db) . $tblGroupSql);
-
-        if ($dbInfoResult->numRows() > 0) {
-            $names = [];
-            while ($tableName = $dbInfoResult->fetchValue()) {
-                if (! in_array($tableName, $openTableNames, true)) {
-                    $names[] = $tableName;
-                } else { // table in use
-                    $tables[$tableName] = [
-                        'TABLE_NAME' => $tableName,
-                        'ENGINE' => '',
-                        'TABLE_TYPE' => '',
-                        'TABLE_ROWS' => 0,
-                        'TABLE_COMMENT' => '',
-                    ];
-                }
-            }
-
-            if ($names !== []) {
-                $tables += $dbi->getTablesFull($db, $names);
-            }
-
-            if ($config->settings['NaturalOrder']) {
-                uksort($tables, strnatcasecmp(...));
-            }
-        }
-
-        return $tables;
-    }
-
-    /**
      * Returns list of used PHP extensions.
      *
      * @return string[]
@@ -1928,25 +1719,6 @@ class Util
         }
 
         return '';
-    }
-
-    public static function getTableListPosition(ServerRequest $request, string $db): int
-    {
-        if (
-            ! isset($_SESSION['tmpval']['table_limit_offset'])
-            || $_SESSION['tmpval']['table_limit_offset_db'] !== $db
-        ) {
-            $_SESSION['tmpval']['table_limit_offset'] = 0;
-            $_SESSION['tmpval']['table_limit_offset_db'] = $db;
-        }
-
-        /** @var string|null $posParam */
-        $posParam = $request->getParam('pos');
-        if (is_numeric($posParam)) {
-            $_SESSION['tmpval']['table_limit_offset'] = (int) $posParam;
-        }
-
-        return $_SESSION['tmpval']['table_limit_offset'];
     }
 
     /**

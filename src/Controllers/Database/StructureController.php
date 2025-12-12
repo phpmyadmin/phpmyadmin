@@ -41,9 +41,10 @@ use function __;
 use function array_search;
 use function ceil;
 use function count;
-use function htmlspecialchars;
 use function implode;
 use function in_array;
+use function is_numeric;
+use function is_scalar;
 use function is_string;
 use function max;
 use function mb_substr;
@@ -51,8 +52,8 @@ use function md5;
 use function preg_match;
 use function preg_quote;
 use function sprintf;
-use function str_replace;
-use function urlencode;
+use function strnatcasecmp;
+use function uksort;
 
 /**
  * Handles database structure logic
@@ -72,7 +73,7 @@ final class StructureController implements InvocableController
     /** @var int Number of tables */
     private int $totalNumTables = 0;
 
-    /** @var mixed[] Tables in the database */
+    /** @var (string|int|null)[][] Tables in the database */
     private array $tables = [];
 
     /** @var bool whether stats show or not */
@@ -99,12 +100,25 @@ final class StructureController implements InvocableController
      */
     private function getDatabaseInfo(ServerRequest $request): void
     {
-        [$tables, $totalNumTables] = Util::getDbInfo($request, Current::$database);
+        $this->position = $this->getTableListPosition($request->getParam('pos'), Current::$database);
+
+        // Special speedup for newer MySQL Versions (in 4.0 format changed)
+        if ($this->config->settings['SkipLockedTables'] === true) {
+            $tables = $this->getTablesWhenOpen(Current::$database);
+            $totalNumTables = count($tables);
+        } else {
+            [$tables, $totalNumTables] = $this->getDbInfo(
+                Current::$database,
+                $request->getParam('sort'),
+                $request->getParam('sort_order'),
+                $request->getParam('tbl_group'),
+                $request->getParam('tbl_type'),
+            );
+        }
 
         $this->tables = $tables;
         $this->numTables = count($tables);
-        $this->position = Util::getTableListPosition($request, Current::$database);
-        $this->totalNumTables = $totalNumTables;
+        $this->totalNumTables = $totalNumTables ?? count($tables);
 
         /**
          * whether to display extended stats
@@ -231,7 +245,6 @@ final class StructureController implements InvocableController
         $structureTableRows = [];
         $trackedTables = $this->trackingChecker->getTrackedTables(Current::$database);
         $recentFavoriteTables = RecentFavoriteTables::getInstance(TableType::Favorite);
-        /** @var mixed[] $currentTable */
         foreach ($this->tables as $currentTable) {
             // Get valid statistics whatever is the table type
 
@@ -255,8 +268,7 @@ final class StructureController implements InvocableController
                 $sumSize,
             ] = $this->getStuffForEngineTypeTable($currentTable, $sumSize, $overheadSize);
 
-            $curTable = $this->dbi
-                ->getTable(Current::$database, $currentTable['TABLE_NAME']);
+            $curTable = $this->dbi->getTable(Current::$database, $currentTable['TABLE_NAME']);
             if (! $curTable->isMerge()) {
                 $sumEntries += $currentTable['TABLE_ROWS'];
             }
@@ -326,8 +338,7 @@ final class StructureController implements InvocableController
 
             $rowCount++;
             if ($tableIsView) {
-                $hiddenFields[] = '<input type="hidden" name="views[]" value="'
-                    . htmlspecialchars($currentTable['TABLE_NAME']) . '">';
+                $hiddenFields[] = ['name' => 'views[]', 'value' => $currentTable['TABLE_NAME']];
             }
 
             /**
@@ -352,11 +363,7 @@ final class StructureController implements InvocableController
                 );
                 $dropMessage = sprintf(
                     ($tableIsView ? __('View %s has been dropped.') : __('Table %s has been dropped.')),
-                    str_replace(
-                        ' ',
-                        '&nbsp;',
-                        htmlspecialchars($currentTable['TABLE_NAME']),
-                    ),
+                    $currentTable['TABLE_NAME'],
                 );
             }
 
@@ -393,17 +400,9 @@ final class StructureController implements InvocableController
                 'table_is_view' => $tableIsView,
                 'current_table' => $currentTable,
                 'may_have_rows' => $mayHaveRows,
-                'browse_table_label_title' => htmlspecialchars($currentTable['TABLE_COMMENT']),
+                'browse_table_label_title' => $currentTable['TABLE_COMMENT'],
                 'browse_table_label_truename' => $truename,
                 'empty_table_sql_query' => 'TRUNCATE ' . Util::backquote($currentTable['TABLE_NAME']),
-                'empty_table_message_to_show' => urlencode(
-                    sprintf(
-                        __('Table %s has been emptied.'),
-                        htmlspecialchars(
-                            $currentTable['TABLE_NAME'],
-                        ),
-                    ),
-                ),
                 'tracking_icon' => $this->getTrackingIcon($truename, $trackedTables[$truename] ?? null),
                 'server_replica_status' => $replicaInfo['status'],
                 'table_url_params' => $tableUrlParams,
@@ -535,8 +534,8 @@ final class StructureController implements InvocableController
     /**
      * Returns whether the row count is approximated
      *
-     * @param mixed[] $currentTable array containing details about the table
-     * @param bool    $tableIsView  whether the table is a view
+     * @param (string|int|null)[] $currentTable array containing details about the table
+     * @param bool                $tableIsView  whether the table is a view
      *
      * @return array{bool, string}
      */
@@ -555,7 +554,7 @@ final class StructureController implements InvocableController
         if (isset($currentTable['TABLE_ROWS']) && ($currentTable['ENGINE'] != null || $tableIsView)) {
             // InnoDB/TokuDB table: we did not get an accurate row count
             $approxRows = ! $tableIsView
-                && in_array($currentTable['ENGINE'], ['CSV', 'InnoDB', 'TokuDB'], true)
+                && in_array($currentTable['ENGINE'], ['InnoDB', 'TokuDB'], true)
                 && ! $currentTable['COUNTED'];
 
             if ($tableIsView && $currentTable['TABLE_ROWS'] >= $this->config->settings['MaxExactCountViews']) {
@@ -641,11 +640,11 @@ final class StructureController implements InvocableController
      *
      * @internal param bool $table_is_view whether table is view or not
      *
-     * @param mixed[] $currentTable current table
-     * @param int     $sumSize      total table size
-     * @param int     $overheadSize overhead size
+     * @param (string|int|null)[] $currentTable current table
+     * @param int                 $sumSize      total table size
+     * @param int                 $overheadSize overhead size
      *
-     * @psalm-return list{mixed[], string, string, string, string, int, bool, int}
+     * @return list{(string|int|null)[], string, string, string, string, int, bool, int}
      */
     private function getStuffForEngineTypeTable(
         array $currentTable,
@@ -760,15 +759,15 @@ final class StructureController implements InvocableController
     /**
      * Get values for ARIA/MARIA tables
      *
-     * @param mixed[] $currentTable      current table
-     * @param int     $sumSize           sum size
-     * @param int     $overheadSize      overhead size
-     * @param string  $formattedSize     formatted size
-     * @param string  $unit              unit
-     * @param string  $formattedOverhead overhead formatted
-     * @param string  $overheadUnit      overhead unit
+     * @param (string|int|null)[] $currentTable      current table
+     * @param int                 $sumSize           sum size
+     * @param int                 $overheadSize      overhead size
+     * @param string              $formattedSize     formatted size
+     * @param string              $unit              unit
+     * @param string              $formattedOverhead overhead formatted
+     * @param string              $overheadUnit      overhead unit
      *
-     * @return array{mixed[], string, string, string, string, int|float, int}
+     * @return array{(string|int|null)[], string, string, string, string, int|float, int}
      */
     private function getValuesForAriaTable(
         array $currentTable,
@@ -787,8 +786,7 @@ final class StructureController implements InvocableController
 
         if ($this->isShowStats) {
             /** @var int $tblsize */
-            $tblsize = $currentTable['Data_length']
-                + $currentTable['Index_length'];
+            $tblsize = $currentTable['Data_length'] + $currentTable['Index_length'];
             $sumSize += $tblsize;
             [$formattedSize, $unit] = Util::formatByteDown($tblsize, 3, $tblsize > 0 ? 1 : 0);
             if (isset($currentTable['Data_free']) && $currentTable['Data_free'] > 0) {
@@ -803,10 +801,10 @@ final class StructureController implements InvocableController
     /**
      * Get values for InnoDB table
      *
-     * @param mixed[] $currentTable current table
-     * @param int     $sumSize      sum size
+     * @param (string|int|null)[] $currentTable current table
+     * @param int                 $sumSize      sum size
      *
-     * @return array{mixed[], string, string, int}
+     * @return array{(string|int|null)[], string, string, int}
      */
     private function getValuesForInnodbTable(
         array $currentTable,
@@ -843,22 +841,17 @@ final class StructureController implements InvocableController
      *
      * https://bugs.mysql.com/bug.php?id=53929
      *
-     * @param mixed[] $currentTable
+     * @param (string|int|null)[] $currentTable
      *
-     * @return array{mixed[], string, string, int}
+     * @return array{(string|int|null)[], string, string, int}
      */
     private function getValuesForCsvTable(array $currentTable, int $sumSize): array
     {
         $formattedSize = $unit = '';
 
-        if ($currentTable['ENGINE'] === 'CSV') {
-            $currentTable['COUNTED'] = true;
-            $currentTable['TABLE_ROWS'] = $this->dbi
-                ->getTable(Current::$database, $currentTable['TABLE_NAME'])
-                ->countRecords(true);
-        } else {
-            $currentTable['COUNTED'] = false;
-        }
+        $currentTable['TABLE_ROWS'] = $this->dbi
+            ->getTable(Current::$database, $currentTable['TABLE_NAME'])
+            ->countRecords(true);
 
         if ($this->isShowStats) {
             // Only count columns that have double quotes
@@ -902,10 +895,10 @@ final class StructureController implements InvocableController
     /**
      * Get values for Mroonga table
      *
-     * @param mixed[] $currentTable current table
-     * @param int     $sumSize      sum size
+     * @param (string|int|null)[] $currentTable current table
+     * @param int                 $sumSize      sum size
      *
-     * @return array{mixed[], string, string, int}
+     * @return array{(string|int|null)[], string, string, int}
      */
     private function getValuesForMroongaTable(
         array $currentTable,
@@ -935,5 +928,211 @@ final class StructureController implements InvocableController
         } catch (Throwable) {
             return null;
         }
+    }
+
+    /**
+     * Gets the list of tables in the current db and information about these tables if possible.
+     *
+     * @return array{(string|int|null)[][], int|null}
+     */
+    public function getDbInfo(
+        string $db,
+        mixed $sortParam,
+        mixed $sortOrderParam,
+        mixed $tableGroupParam,
+        mixed $tableTypeParam,
+    ): array {
+        /**
+         * information about tables in db
+         */
+        $tables = [];
+        $totalNumTables = null;
+
+        // Set some sorting defaults
+        $sort = 'Name';
+        $sortOrder = 'ASC';
+
+        if (is_string($sortParam)) {
+            $sortableNameMappings = [
+                'table' => 'Name',
+                'records' => 'Rows',
+                'type' => 'Engine',
+                'collation' => 'Collation',
+                'size' => 'Data_length',
+                'overhead' => 'Data_free',
+                'creation' => 'Create_time',
+                'last_update' => 'Update_time',
+                'last_check' => 'Check_time',
+                'comment' => 'Comment',
+            ];
+
+            // Make sure the sort type is implemented
+            if (isset($sortableNameMappings[$sortParam])) {
+                $sort = $sortableNameMappings[$sortParam];
+                if ($sortOrderParam === 'DESC') {
+                    $sortOrder = 'DESC';
+                }
+            }
+        }
+
+        $groupWithSeparator = false;
+        $tableType = null;
+        $limitOffset = 0;
+        $limitCount = false;
+        $groupTable = [];
+
+        if (
+            is_string($tableGroupParam) && $tableGroupParam !== ''
+            || is_string($tableTypeParam) && $tableTypeParam !== ''
+        ) {
+            if (is_string($tableTypeParam) && $tableTypeParam !== '') {
+                // only tables for selected type
+                $tableType = $tableTypeParam;
+            }
+
+            if (is_string($tableGroupParam) && $tableGroupParam !== '') {
+                // only tables for selected group
+                // include the table with the exact name of the group if such exists
+                $groupTable = $this->dbi->getTablesFull(
+                    $db,
+                    $tableGroupParam,
+                    false,
+                    0,
+                    false,
+                    $sort,
+                    $sortOrder,
+                    $tableType,
+                );
+                $groupWithSeparator = $tableGroupParam . $this->config->settings['NavigationTreeTableSeparator'];
+            }
+        } else {
+            // all tables in db
+            // - get the total number of tables
+            //  (needed for proper working of the MaxTableList feature)
+            $tables = $this->dbi->getTables($db);
+            $totalNumTables = count($tables);
+            // fetch the details for a possible limited subset
+            $limitOffset = $this->position;
+            $limitCount = true;
+        }
+
+        // We must use union operator here instead of array_merge to preserve numerical keys
+        $tables = $groupTable + $this->dbi->getTablesFull(
+            $db,
+            $groupWithSeparator !== false ? $groupWithSeparator : $tables,
+            $groupWithSeparator !== false,
+            $limitOffset,
+            $limitCount,
+            $sort,
+            $sortOrder,
+            $tableType,
+        );
+
+        return [
+            $tables,
+            $totalNumTables, // needed for proper working of the MaxTableList feature
+        ];
+    }
+
+    /**
+     * Gets the list of tables in the current db, taking into account
+     * that they might be "in use"
+     *
+     * @return (string|int|null)[][] list of tables
+     */
+    private function getTablesWhenOpen(string $db): array
+    {
+        $openTables = $this->dbi->query(
+            'SHOW OPEN TABLES FROM ' . Util::backquote($db) . ' WHERE In_use > 0;',
+        );
+
+        // Blending out tables in use
+        $openTableNames = [];
+
+        /** @var string $tableName */
+        foreach ($openTables as ['Table' => $tableName]) {
+            $openTableNames[] = $tableName;
+        }
+
+        // is there at least one "in use" table?
+        if ($openTableNames === []) {
+            return [];
+        }
+
+        $tables = [];
+        $tblGroupSql = '';
+        $whereAdded = false;
+        if (
+            isset($_REQUEST['tbl_group'])
+            && is_scalar($_REQUEST['tbl_group'])
+            && (string) $_REQUEST['tbl_group'] !== ''
+        ) {
+            $group = $this->dbi->escapeMysqlWildcards((string) $_REQUEST['tbl_group']);
+            $groupWithSeparator = $this->dbi->escapeMysqlWildcards(
+                $_REQUEST['tbl_group'] . $this->config->settings['NavigationTreeTableSeparator'],
+            );
+            $tblGroupSql .= ' WHERE ('
+                . Util::backquote('Tables_in_' . $db)
+                . ' LIKE ' . $this->dbi->quoteString($groupWithSeparator . '%')
+                . ' OR '
+                . Util::backquote('Tables_in_' . $db)
+                . ' LIKE ' . $this->dbi->quoteString($group) . ')';
+            $whereAdded = true;
+        }
+
+        if (isset($_REQUEST['tbl_type']) && in_array($_REQUEST['tbl_type'], ['table', 'view'], true)) {
+            $tblGroupSql .= $whereAdded ? ' AND' : ' WHERE';
+            if ($_REQUEST['tbl_type'] === 'view') {
+                $tblGroupSql .= " `Table_type` NOT IN ('BASE TABLE', 'SYSTEM VERSIONED')";
+            } else {
+                $tblGroupSql .= " `Table_type` IN ('BASE TABLE', 'SYSTEM VERSIONED')";
+            }
+        }
+
+        $dbInfoResult = $this->dbi->query('SHOW FULL TABLES FROM ' . Util::backquote($db) . $tblGroupSql);
+
+        if ($dbInfoResult->numRows() > 0) {
+            $names = [];
+            while ($tableName = $dbInfoResult->fetchValue()) {
+                if (! in_array($tableName, $openTableNames, true)) {
+                    $names[] = $tableName;
+                } else { // table in use
+                    $tables[$tableName] = [
+                        'TABLE_NAME' => $tableName,
+                        'ENGINE' => '',
+                        'TABLE_TYPE' => '',
+                        'TABLE_ROWS' => 0,
+                        'TABLE_COMMENT' => '',
+                    ];
+                }
+            }
+
+            if ($names !== []) {
+                $tables += $this->dbi->getTablesFull($db, $names);
+            }
+
+            if ($this->config->settings['NaturalOrder']) {
+                uksort($tables, strnatcasecmp(...));
+            }
+        }
+
+        return $tables;
+    }
+
+    public function getTableListPosition(string|null $posParam, string $db): int
+    {
+        if (
+            ! isset($_SESSION['tmpval']['table_limit_offset'])
+            || $_SESSION['tmpval']['table_limit_offset_db'] !== $db
+        ) {
+            $_SESSION['tmpval']['table_limit_offset'] = 0;
+            $_SESSION['tmpval']['table_limit_offset_db'] = $db;
+        }
+
+        if (is_numeric($posParam)) {
+            $_SESSION['tmpval']['table_limit_offset'] = (int) $posParam;
+        }
+
+        return $_SESSION['tmpval']['table_limit_offset'];
     }
 }
