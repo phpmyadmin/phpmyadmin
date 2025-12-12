@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-12-07 00:30+0000\n"
-"PO-Revision-Date: 2025-12-12 05:00+0000\n"
+"PO-Revision-Date: 2025-12-13 08:00+0000\n"
 "Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "th/>\n"
@@ -768,7 +768,7 @@ msgstr ""
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:11
 #: resources/templates/table/zoom_search/index.twig:38
 msgid "Collation"
-msgstr "การตรวจทาน"
+msgstr "ชุดเทียบเคียงอักษร"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:27
 #: resources/templates/database/central_columns/edit.twig:13
@@ -1135,7 +1135,7 @@ msgstr "คำค้น SQL"
 
 #: resources/templates/console/display.twig:16 src/Config/Descriptions.php:766
 msgid "Console"
-msgstr ""
+msgstr "คอนโซล"
 
 #: resources/templates/console/display.twig:19
 #: resources/templates/setup/home/index.twig:169
@@ -1182,7 +1182,7 @@ msgstr "ค้นหา"
 #: resources/templates/console/display.twig:34
 #: resources/templates/console/display.twig:88 src/Config/Descriptions.php:615
 msgid "Debug SQL"
-msgstr "แก้จุดบกพร่อง SQL"
+msgstr "ดีบั๊ก SQL"
 
 #: resources/templates/console/display.twig:43
 #, fuzzy
@@ -1723,7 +1723,7 @@ msgstr "สร้างเวอร์ชั่น"
 #: resources/templates/database/designer/main.twig:101
 #: src/Controllers/JavaScriptMessagesController.php:511
 msgid "Choose column to display"
-msgstr "เลือกฟิลด์ที่ต้องการแสดง"
+msgstr "เลือกคอลัมน์ที่จะแสดง"
 
 #: resources/templates/database/designer/main.twig:105
 #: resources/templates/database/designer/main.twig:108
@@ -3002,7 +3002,7 @@ msgstr "แทนที่คำนำไปยังตาราง"
 #: resources/templates/database/structure/check_all_tables.twig:28
 #: src/Controllers/JavaScriptMessagesController.php:656
 msgid "Copy table with prefix"
-msgstr "คัดลอกคำนำไปยังตาราง"
+msgstr "คัดลอกตารางพร้อมคำนำหน้า"
 
 #: resources/templates/database/structure/check_all_tables.twig:32
 #: src/Menu.php:405 src/Util.php:1385
@@ -3513,11 +3513,11 @@ msgstr "สร้างเวอร์ชั่นโดยอัตโนมั
 
 #: resources/templates/error/report_modal.twig:5
 msgid "Submit error report"
-msgstr "เสนอรายงานการผิดพลาด"
+msgstr "ยืนยันส่งรายงานข้อผิดพลาด"
 
 #: resources/templates/error/report_modal.twig:12
 msgid "Send error report"
-msgstr "ส่งรายงานการผิดพลาด"
+msgstr "ส่งรายงานข้อผิดพลาด"
 
 #: resources/templates/error/simple.twig:2
 msgid "Something went wrong"
@@ -4328,7 +4328,7 @@ msgstr ""
 
 #: resources/templates/modals/unhide_nav_item.twig:5
 msgid "Show hidden navigation tree items."
-msgstr "แสดงรายการต้นไม้นำทางที่ถูกซ่อน"
+msgstr "แสดงรายการโครงสร้างการนำทางที่ซ่อนอยู่"
 
 #: resources/templates/navigation/item_unhide_dialog.twig:19
 msgid "Unhide"
@@ -4381,7 +4381,7 @@ msgstr ""
 #: resources/templates/navigation/main.twig:84
 #: src/Controllers/JavaScriptMessagesController.php:571
 msgid "Drop files here"
-msgstr "วางไฟล์ที่นี่"
+msgstr "หย่อนไฟล์ลงที่นี่"
 
 #: resources/templates/navigation/main.twig:88
 #, fuzzy
@@ -4469,7 +4469,7 @@ msgstr "คุณสมบัติ"
 #: resources/templates/preferences/header.twig:24
 #: src/Config/Descriptions.php:757 src/Config/Forms/User/SqlForm.php:38
 msgid "SQL queries"
-msgstr "แบบสอบถาม SQL"
+msgstr "คำสั่ง SQL"
 
 #: resources/templates/preferences/header.twig:30
 #: src/Config/Descriptions.php:740 src/Config/Forms/User/NaviForm.php:57
@@ -8288,12 +8288,12 @@ msgstr "ชื่อคอลัมน์"
 #: src/Advisory/Advisor.php:207
 #, php-format
 msgid "Error when evaluating: %s"
-msgstr "เกิกข้อผิดพลาดในขณะที่คำนวณ: %s"
+msgstr "เกิดข้อผิดพลาดขณะประเมิน: %s"
 
 #: src/Advisory/Advisor.php:232
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
-msgstr "การประเมินเงื่อนไขกฎ '%s' ล้มเหลว"
+msgstr "ไม่สามารถประเมินเงื่อนไขเบื้องต้นสำหรับกฎ '%s' ได้"
 
 #: src/Advisory/Advisor.php:252
 #, php-format
@@ -9573,12 +9573,12 @@ msgstr "สเปน (ใหม่)"
 #: src/Charsets/Collation.php:218
 msgctxt "Collation variant"
 msgid "case-insensitive"
-msgstr "ไม่สนใจพิมพ์เล็ก-ใหญ่"
+msgstr "ไม่สนใจตัวพิมพ์เล็กใหญ่"
 
 #: src/Charsets/Collation.php:219
 msgctxt "Collation variant"
 msgid "case-sensitive"
-msgstr "สนใจพิมพ์เล็ก-ใหญ่"
+msgstr "สนใจตัวพิมพ์เล็กใหญ่"
 
 #: src/Charsets/Collation.php:220
 msgctxt "Collation variant"
@@ -9593,7 +9593,7 @@ msgstr "สนใจสำเนียง"
 #: src/Charsets/Collation.php:222
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "สนใจการเรียงลำดับตามตัวอักษรคาตาคานะ"
+msgstr "สนใจระบบตัวอักษรภาษาญี่ปุ่น"
 
 #: src/Charsets/Collation.php:223
 msgctxt "Collation variant"
@@ -9603,17 +9603,17 @@ msgstr "หลายระดับ"
 #: src/Charsets/Collation.php:224
 msgctxt "Collation variant"
 msgid "binary"
-msgstr "ข้อมูลไบนารี"
+msgstr "ไบนารี"
 
 #: src/Charsets/Collation.php:225
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr "ไม่ต้องเลื่อนช่องว่าง"
+msgstr "ไม่ต้องเติม"
 
 #: src/Charsets/Collation.php:242
 msgctxt "Collation"
 msgid "Binary"
-msgstr "ข้อมูลไบนารี"
+msgstr "ไบนารี"
 
 #: src/Charsets/Collation.php:255 src/Charsets/Collation.php:505
 msgctxt "Collation"
@@ -9668,12 +9668,12 @@ msgstr "อาร์เมเนีย"
 #: src/Charsets/Collation.php:309
 msgctxt "Collation"
 msgid "Cyrillic"
-msgstr "ซิริลิค"
+msgstr "ซีริลลิก"
 
 #: src/Charsets/Collation.php:312
 msgctxt "Collation"
 msgid "Arabic"
-msgstr "อารบิค"
+msgstr "อาหรับ"
 
 #: src/Charsets/Collation.php:315 src/Charsets/Collation.php:438
 msgctxt "Collation"
@@ -9698,7 +9698,7 @@ msgstr "กรีก"
 #: src/Charsets/Collation.php:327
 msgctxt "Collation"
 msgid "Czech-Slovak"
-msgstr "เช็ค-สโลวัก"
+msgstr "เช็ก-สโลวัก"
 
 #: src/Charsets/Collation.php:330 src/Charsets/Collation.php:497
 msgctxt "Collation"
@@ -9738,7 +9738,7 @@ msgstr "โครเอเชีย"
 #: src/Charsets/Collation.php:384
 msgctxt "Collation"
 msgid "Czech"
-msgstr "เช็ค"
+msgstr "เช็ก"
 
 #: src/Charsets/Collation.php:388
 msgctxt "Collation"
@@ -9773,7 +9773,7 @@ msgstr "ไอซ์แลนด์"
 #: src/Charsets/Collation.php:426
 msgctxt "Collation"
 msgid "Classical Latin"
-msgstr "ละตินเก่า"
+msgstr "ละตินคลาสสิก"
 
 #: src/Charsets/Collation.php:430
 msgctxt "Collation"
@@ -9818,7 +9818,7 @@ msgstr "สโลวัก"
 #: src/Charsets/Collation.php:471
 msgctxt "Collation"
 msgid "Slovenian"
-msgstr "สโลเวเนีย"
+msgstr "สโลวีเนีย"
 
 #: src/Charsets/Collation.php:501
 msgctxt "Collation"
@@ -10054,7 +10054,8 @@ msgstr ""
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
-"หากถูกเปิดใช้งาน ผู้ใช้จะสามารถเข้าเซิร์ฟเวอร์ MySQL ในฟอร์มเข้าสู่ระบบเพื่อคุกกี้รับรองความถูกต่อง"
+"หากเปิดใช้งาน ผู้ใช้จะสามารถเข้าเซิร์ฟเวอร์ MySQL ผ่านแบบฟอร์มลงชื่อเข้าสู่ระบบเพื่อคุกกี้รับรองควา"
+"มถูกต้องได้"
 
 #: src/Config/Descriptions.php:79
 msgid ""
@@ -10062,8 +10063,8 @@ msgid ""
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
 "to the given regular expression."
 msgstr ""
-"การจำกัดเซิร์ฟเวอร์ MySQL ที่ผู้ใช้สามารถป้อนเมื่อเปิดใช้งานการเข้าสู่ระบบเซิร์ฟเวอร์ MySQL "
-"โดยการจับคู่ IP หรือชื่อโฮสต์ของเซิร์ฟเวอร์ MySQL เพื่อการแสดงออกปกติ"
+"จำกัดเซิร์ฟเวอร์ MySQL ที่ผู้ใช้สามารถเข้าถึงได้เมื่อเปิดใช้งานการลงชื่อเข้าสู่ระบบไปยังเซิร์ฟเวอร์ "
+"MySQL ใดๆ โดยการจับคู่ IP หรือชื่อโฮสต์ของเซิร์ฟเวอร์ MySQL กับนิพจน์ปกติที่กำหนด"
 
 #: src/Config/Descriptions.php:84
 msgid ""
@@ -10072,18 +10073,18 @@ msgid ""
 "cross-frame scripting (XSS) attacks."
 msgstr ""
 "การเปิดใช้งานสิ่งนี้จะช่วยให้หน้าเว็บที่อยู่ในโดเมนอื่นสามารถเรียก phpMyAdmin ภายในเฟรมและเป็น "
-"[strong]ช่องโหว่ด้านความปลอดภัย[/strong] ที่อนุญาตการโจมตี cross-frame scripting "
-"(XSS)"
+"[strong]ช่องโหว่ด้านความปลอดภัย[/strong] ซึ่งจะทำให้เกิดการโจมตีแบบ Cross-Frame "
+"Scripting (XSS)"
 
 #: src/Config/Descriptions.php:89
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication."
-msgstr "ข้อความรหัสผ่านลับใช้สำหรับเข้ารหัสคุกกี้ในการตรวจสอบสิทธิ์ [kbd]คุกกี้[/kbd]"
+msgstr "ข้อความรหัสผ่านลับใช้สำหรับเข้ารหัสการตรวจสอบสิทธิ์ [kbd]คุกกี้[/kbd]"
 
 #: src/Config/Descriptions.php:91
 msgid "Enable bzip2 compression for import operations."
-msgstr "เปิดใช้งานการบีบอัด bzip2 สำหรับการดำเนินการนำเข้า"
+msgstr "เปิดใช้งานการบีบอัด bzip2 สำหรับการนำเข้า"
 
 #: src/Config/Descriptions.php:92
 msgid "Enter the URL for your reCAPTCHA v2 compatible API."
@@ -10130,45 +10131,48 @@ msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
 msgstr ""
-"ใช้โปรแกรมแก้ไขที่ใช้งานง่ายสำหรับแก้ไขคิวรี่ SQL (CodeMirror) "
-"ด้วยการเน้นไวยากรณ์และหมายเลขบรรทัด"
+"ใช้โปรแกรมแก้ไขที่ใช้งานง่ายสำหรับแก้ไขคำสั่ง SQL (CodeMirror) ด้วยการเน้นไวยากรณ์และหมายเ"
+"ลขบรรทัด"
 
 #: src/Config/Descriptions.php:110
 msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
-msgstr "พบข้อผิดพลาดในคิวรีก่อนที่จะดำเนินการ จำเป็นต้องให้ CodeMirror เปิดใช้งาน"
+msgstr ""
+"ค้นหาข้อผิดพลาดในคำสั่งก่อนที่จะดำเนินการ จำเป็นต้องเปิดใช้งาน CodeMirror"
 
 #: src/Config/Descriptions.php:113
 msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns."
-msgstr "กำหนดขนาดต่ำสุดสำหรับฟิลด์อินพุตที่สร้างขึ้นสำหรับคอลัมน์ CHAR และ VARCHAR"
+msgstr ""
+"กำหนดขนาดต่ำสุดสำหรับช่องกรอกข้อมูลที่สร้างขึ้นสำหรับคอลัมน์ CHAR และ VARCHAR"
 
 #: src/Config/Descriptions.php:116
 msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns."
-msgstr "กำหนดขนาดสูงสุดสำหรับฟิลด์อินพุตที่สร้างขึ้นสำหรับคอลัมน์ CHAR และ VARCHAR"
+msgstr ""
+"กำหนดขนาดสูงสุดสำหรับช่องกรอกข้อมูลที่สร้างขึ้นสำหรับคอลัมน์ CHAR และ VARCHAR"
 
 #: src/Config/Descriptions.php:119
 msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature."
 msgstr ""
-"บีบอัดการส่งออก gzip ได้ทันทีโดยไม่ต้องใช้หน่วยความจำมาก หากคุณพบปัญหากับไฟล์ gzip "
-"ที่สร้างขึ้นให้ปิดใช้งานคุณสมบัตินี้"
+"บีบอัดไฟล์ส่งออก gzip ได้ในทันทีโดยไม่ต้องใช้หน่วยความจำมาก; หากพบปัญหาเกี่ยวกับไฟล์ gzip ที่สร้"
+"างขึ้น ให้ปิดใช้งานฟีเจอร์นี้"
 
 #: src/Config/Descriptions.php:123
 msgid ""
 "Whether a warning (\"Are your really sure…\") should be displayed when "
 "you're about to lose data."
 msgstr ""
-"ไม่ว่าจะเป็นคำเตือน (\"คุณแน่ใจจริง ๆ ... \") ควรจะปรากฏขึ้นเมื่อคุณกำลังจะสูญเสียข้อมูล"
+"ควรแสดงคำเตือน (\"คุณแน่ใจจริง ๆ หรือไม่... \") เมื่อข้อมูลของคุณกำลังจะสูญหาย"
 
 #: src/Config/Descriptions.php:126
 msgid "Autocomplete of the table and column names in the SQL queries."
-msgstr "การทำให้สมบูรณ์โดยอัตโนมัติของชื่อตารางและคอลัมน์ในคิวรี SQL"
+msgstr "ระบบจะเติมชื่อตารางและชื่อคอลัมน์โดยอัตโนมัติในคำสั่ง SQL"
 
 #: src/Config/Descriptions.php:129 src/Config/Descriptions.php:133
 #: src/Config/Descriptions.php:137 src/Config/Descriptions.php:141
@@ -10179,20 +10183,23 @@ msgid ""
 "Values for options list for default transformations. These will be "
 "overwritten if transformation is filled in at table structure page."
 msgstr ""
-"ค่าสำหรับรายการตัวเลือกสำหรับการแปลงค่าเริ่มต้น สิ่งเหล่านี้จะถูกเขียนทับ "
-"หากมีการแปลงถูกเติมที่หน้าโครงสร้างตาราง"
+"ค่าสำหรับรายการตัวเลือกเพื่อการแปลงค่าเริ่มต้น ค่าเหล่านี้จะถูกเขียนทับหากมีการกรอกข้อมูลการแปลงใ"
+"นหน้าโครงสร้างตาราง"
 
 #: src/Config/Descriptions.php:165
 msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
 msgstr ""
+"ปิดใช้งานการดำเนินการบำรุงรักษาตารางจำนวนมาก เช่น การเพิ่มประสิทธิภาพหรือการซ่อมแซมตารางที่"
+"เลือกในฐานข้อมูล"
 
 #: src/Config/Descriptions.php:169
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)."
 msgstr ""
+"ตั้งค่าจำนวนวินาทีที่สคริปต์สามารถทำงานได้ ([kbd]0[/kbd] แบบไม่จำกัดเวลา)"
 
 #: src/Config/Descriptions.php:171 src/Config/Descriptions.php:708
 #: src/Plugins/Export/ExportSql.php:367
@@ -10210,18 +10217,24 @@ msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
 msgstr ""
+"ระบุข้อความบนแถบชื่อของเบราว์เซอร์ โปรดดูเอกสารประกอบ [doc@faq6-27]documentation[/"
+"doc] สำหรับข้อความพิเศษที่สามารถใช้เพื่อรับค่าพิเศษได้"
 
 #: src/Config/Descriptions.php:182
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL."
 msgstr ""
+"โปรดทราบว่า phpMyAdmin เป็นเพียงส่วนติดต่อผู้ใช้ และคุณสมบัติของมันไม่ได้จำกัดการทำงานของ "
+"MySQL"
 
 #: src/Config/Descriptions.php:185
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for."
 msgstr ""
+"การกำหนดค่าเซิร์ฟเวอร์ขั้นสูง ห้ามเปลี่ยนแปลงตัวเลือกเหล่านี้เว้นแต่คุณจะทราบว่าแต่ละตัวเลือกใช้สำหรั"
+"บอะไร"
 
 #: src/Config/Descriptions.php:188
 msgid ""
@@ -10229,12 +10242,15 @@ msgid ""
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
 "documentation."
 msgstr ""
+"กำหนดค่าที่จัดเก็บข้อมูล phpMyAdmin เพื่อเข้าถึงฟีเจอร์เพิ่มเติม ดู [doc@linked-tables]การจัดเก็"
+"บข้อมูลการกำหนดค่า phpMyAdmin[/doc] ในเอกสารประกอบ"
 
 #: src/Config/Descriptions.php:193
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
 msgstr ""
+"การติดตามการเปลี่ยนแปลงที่เกิดขึ้นในฐานข้อมูล จำเป็นต้องใช้พื้นที่จัดเก็บการกำหนดค่า phpMyAdmin"
 
 #: src/Config/Descriptions.php:196
 msgid "Customize browse mode."
@@ -10281,10 +10297,8 @@ msgid "Customize appearance of the navigation panel."
 msgstr "ปรับแต่งแผงนำทาง"
 
 #: src/Config/Descriptions.php:208
-#, fuzzy
-#| msgid "Customize navigation panel"
 msgid "Customize the navigation tree."
-msgstr "ปรับแต่งแผงนำทาง"
+msgstr "ปรับแต่งแผงผังการนำทาง"
 
 #: src/Config/Descriptions.php:209
 #, fuzzy
@@ -10300,13 +10314,11 @@ msgstr "ตัวเลือกการแสดงตาราง"
 
 #: src/Config/Descriptions.php:213
 msgid "Settings that didn't fit anywhere else."
-msgstr ""
+msgstr "การตั้งค่าที่ไม่สามารถใช้กับที่ใดได้เลย"
 
 #: src/Config/Descriptions.php:214
-#, fuzzy
-#| msgid "Authentication settings"
 msgid "Authentication settings."
-msgstr "ตั้งค่าการรับรองความถูกต้อง"
+msgstr "การตั้งค่าการตรวจสอบสิทธิ์"
 
 #: src/Config/Descriptions.php:215
 #, fuzzy
@@ -10316,61 +10328,52 @@ msgstr "ป้อนพารามิเตอร์ของการเชื
 
 #: src/Config/Descriptions.php:216
 msgid "Customize links shown in SQL Query boxes."
-msgstr ""
+msgstr "ปรับแต่งลิงก์ที่แสดงในกล่องคำสั่ง SQL"
 
 #: src/Config/Descriptions.php:218
-#, fuzzy
 msgid "SQL queries settings."
-msgstr "คำค้น SQL"
+msgstr "การตั้งค่าคำสั่ง SQL"
 
 #: src/Config/Descriptions.php:219
-#, fuzzy
-#| msgid "Customize startup page"
 msgid "Customize startup page."
-msgstr "หน้าเริ่มต้นที่กำหนดเอง"
+msgstr "หน้าเริ่มระบบที่กำหนดเอง"
 
 #: src/Config/Descriptions.php:220
 msgid ""
 "Choose which details to show in the database structure (list of tables)."
-msgstr ""
+msgstr "เลือกรายละเอียดที่ต้องการแสดงในโครงสร้างฐานข้อมูล (รายการตาราง)"
 
 #: src/Config/Descriptions.php:221
 msgid "Settings for the table structure (list of columns)."
-msgstr ""
+msgstr "เลือกรายละเอียดที่ต้องการแสดงในโครงสร้างตาราง (รายการคอลัมน์)"
 
 #: src/Config/Descriptions.php:222
 msgid "Choose how you want tabs to work."
-msgstr ""
+msgstr "เลือกว่าคุณต้องการให้แท็บทำอย่างไร"
 
 #: src/Config/Descriptions.php:223
-#, fuzzy
-#| msgid "Customize text input fields"
 msgid "Customize text input fields."
-msgstr "ฟิลด์ป้อนข้อความที่กำหนดเอง"
+msgstr "กล่องข้อความที่กำหนดเอง"
 
 #: src/Config/Descriptions.php:224
 msgid "Customize default options"
-msgstr ""
+msgstr "ปรับแต่งตัวเลือกเริ่มต้น"
 
 #: src/Config/Descriptions.php:225
 msgid "Disable some of the warnings shown by phpMyAdmin."
-msgstr ""
+msgstr "ปิดใช้งานคำเตือนบางส่วนที่แสดงโดย phpMyAdmin"
 
 #: src/Config/Descriptions.php:227
-#, fuzzy
-#| msgid ""
-#| "Enable [a@https://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
-#| "import and export operations"
 msgid "Enable gzip compression for import and export operations."
-msgstr ""
-"เปิดใช้งาน [a@https://en.wikipedia.org/wiki/Bzip2]bzip2[/a] "
-"การบีบอัดสำหรับการดำเนินการนำเข้าและส่งออก"
+msgstr "เปิดใช้งานการบีบอัด gzip สำหรับการนำเข้าและส่งออกข้อมูล"
 
 #: src/Config/Descriptions.php:229
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed."
 msgstr ""
+"หากเปิดใช้งานไว้ phpMyAdmin จะดำเนินการคำนวณคำสั่งเรียกดูหลายคำสั่งต่อไป แม้ว่าจะมีคำสั่งใดคำ"
+"สั่งหนึ่งล้มเหลวก็ตาม"
 
 #: src/Config/Descriptions.php:233
 msgid ""
@@ -10962,25 +10965,24 @@ msgstr "ไฮไลท์แถวที่เลือก"
 
 #: src/Config/Descriptions.php:537
 msgid "Highlight row pointed by the mouse cursor."
-msgstr "ไฮไลท์แถวที่ถูกชี้โดยเคอร์เซอร์"
+msgstr "ไฮไลท์แถวที่ถูกชี้โดยเม้าส์เคอร์เซอร์"
 
 #: src/Config/Descriptions.php:538
 msgid "Number of columns for CHAR/VARCHAR textareas."
-msgstr "จำนวนของคอลัมน์สำหรับพื่นที่ข้อความ CHAR / VARCHAR"
+msgstr "จำนวนของคอลัมน์ของ textarea สำหรับ CHAR / VARCHAR"
 
 #: src/Config/Descriptions.php:539
 msgid "Number of rows for CHAR/VARCHAR textareas."
-msgstr "จำนวนแถวของพื้นที่ข้อความ CHAR / VARCHAR"
+msgstr "จำนวนแถวของ textarea ของ CHAR / VARCHAR"
 
 #: src/Config/Descriptions.php:540
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
-msgstr "บันทึกคิวรี SQL และเวลาในการดำเนินการที่จะแสดงในคอนโซล"
+msgstr "บันทึกคำสั่ง SQL และเวลาในการดำเนินการที่จะแสดงในคอนโซล"
 
 #: src/Config/Descriptions.php:541
-#, fuzzy
 msgid "Tab that is displayed when entering a database."
-msgstr "แท็บที่จะแสดงเมื่อป้อนฐานข้อมูล"
+msgstr "แท็บที่แสดงเมื่อเข้าสู่หน้าฐานข้อมูล"
 
 #: src/Config/Descriptions.php:542
 msgid "Tab that is displayed when entering a server."
@@ -10996,11 +10998,11 @@ msgstr "ควรซ่อนการดำเนินการโครงส
 
 #: src/Config/Descriptions.php:545
 msgid "Whether column comments should be shown in table structure view"
-msgstr "ควรแสดงความคิดเห็นคอลัมน์ในมุมมองโครงสร้างตาราง"
+msgstr "ควรแสดงคอลัมน์ความคิดเห็นในมุมมองโครงสร้างตาราง"
 
 #: src/Config/Descriptions.php:546
 msgid "Show server listing as a list instead of a drop down."
-msgstr ""
+msgstr "แสดงรายการเซิร์ฟเวอร์เป็นแบบรายการแทนที่จะเป็นแบบดรอปดาวน์"
 
 #: src/Config/Descriptions.php:547
 msgid "A dropdown will be used if fewer items are present."
@@ -11182,23 +11184,23 @@ msgstr ""
 
 #: src/Config/Descriptions.php:597
 msgid "Allow login to any MySQL server"
-msgstr "ไม่สามารถล็อกอินเข้าเซิร์ฟเวอร์ MySQL ได้"
+msgstr "อนุญาตให้เข้าสู่ระบบเซิร์ฟเวอร์ MySQL ใดก็ได้"
 
 #: src/Config/Descriptions.php:598
 msgid "Restrict login to MySQL server"
-msgstr "จำกัดการเข้าสู่ระบบเซิร์ฟเวอร์ MySQL"
+msgstr "จำกัดการลงชื่อเข้าสู่ระบบเซิร์ฟเวอร์ MySQL"
 
 #: src/Config/Descriptions.php:599
 msgid "Allow third party framing"
-msgstr "อนุญาตการทำเฟรมของบุคคลที่สาม"
+msgstr "อนุญาตให้ผู้ใช้ภายนอกทำการจัดเฟรม"
 
 #: src/Config/Descriptions.php:600
 msgid "Show \"Drop database\" link to normal users"
-msgstr "แสดงลิงก์ \"ทิ้งฐานข้อมูล\" ไปยังผู้ใช้ปกติ"
+msgstr "แสดงลิงก์ \"ละทิ้งฐานข้อมูล\" ไปยังผู้ใช้ปกติ"
 
 #: src/Config/Descriptions.php:601
 msgid "Blowfish secret"
-msgstr "ความลับ Blowfish"
+msgstr "ข้อความลับ Blowfish"
 
 #: src/Config/Descriptions.php:602
 msgid "Row marker"
@@ -11222,35 +11224,35 @@ msgstr "เปิดใช้งาน CodeMirror"
 
 #: src/Config/Descriptions.php:607
 msgid "Enable linter"
-msgstr "เปิดใช้ Linter"
+msgstr "เปิดใช้งาน Linter"
 
 #: src/Config/Descriptions.php:608
 msgid "Minimum size for input field"
-msgstr "ขนาดต่ำสุดสำหรับช่องอินพุต"
+msgstr "ขนาดต่ำสุดสำหรับช่องกรอกข้อมูล"
 
 #: src/Config/Descriptions.php:609
 msgid "Maximum size for input field"
-msgstr "ขนาดสูงสุดสำหรับช่องอินพุต"
+msgstr "ขนาดสูงสุดสำหรับช่องกรอกข้อมูล"
 
 #: src/Config/Descriptions.php:610
 msgid "CHAR textarea columns"
-msgstr "คอลัมน์พื้นที่ข้อความ CHAR"
+msgstr "คอลัมน์ textarea ของ CHAR"
 
 #: src/Config/Descriptions.php:611
 msgid "CHAR textarea rows"
-msgstr "แถวพื้นที่ข้อความ CHAR"
+msgstr "แถว textarea ของ CHAR"
 
 #: src/Config/Descriptions.php:612
 msgid "Check config file permissions"
-msgstr "ตรวจสอบสิทธิ์ไฟล์ปรับแต่ง"
+msgstr "ตรวจสอบสิทธิ์ไฟล์การกำหนดค่า"
 
 #: src/Config/Descriptions.php:613
 msgid "Compress on the fly"
-msgstr "บีบอัดต่อเนื่อง"
+msgstr "บีบอัดในทันที"
 
 #: src/Config/Descriptions.php:614
 msgid "Confirm DROP queries"
-msgstr "ยืนยันคิวรี่ DROP"
+msgstr "ยืนยันคำสั่ง DROP"
 
 #: src/Config/Descriptions.php:616 src/Plugins/Schema/SchemaDia.php:64
 #: src/Plugins/Schema/SchemaPdf.php:74
@@ -11271,11 +11273,11 @@ msgstr "แท็บตารางเริ่มต้น"
 
 #: src/Config/Descriptions.php:620
 msgid "Enable autocomplete for table and column names"
-msgstr "เปิดใช้งานการทำให้สมบูรณ์โดยอัตโนมัติของชื่อตารางและคอลัมน์"
+msgstr "เปิดใช้งานการเติมชื่อโดยอัตโนมัติสำหรับชื่อตารางและคอลัมน์"
 
 #: src/Config/Descriptions.php:621
 msgid "Show column comments"
-msgstr "แสดงหมายเหตุคอลัมน์"
+msgstr "แสดงคอลัมน์หมายเหตุ"
 
 #: src/Config/Descriptions.php:622
 msgid "Hide table structure actions"
@@ -11286,66 +11288,48 @@ msgid "Default transformations for Hex"
 msgstr "การแปลงค่าเริ่มต้นสำหรับเลขฐานสิบหก"
 
 #: src/Config/Descriptions.php:624
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for Substring"
-msgstr "ตัวเลือกการแปลง"
+msgstr "การแปลงค่าเริ่มต้นสำหรับสตริงย่อย"
 
 #: src/Config/Descriptions.php:625
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for Bool2Text"
-msgstr "ตัวเลือกการแปลง"
+msgstr "การแปลงค่าเริ่มต้นสำหรับ Bool2Text"
 
 #: src/Config/Descriptions.php:626
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for External"
-msgstr "ตัวเลือกการแปลง"
+msgstr "การแปลงค่าเริ่มต้นสำหรับภายนอก"
 
 #: src/Config/Descriptions.php:627
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for PreApPend"
-msgstr "ตัวเลือกการแปลง"
+msgstr "การแปลงค่าเริ่มต้นสำหรับ PreApPend"
 
 #: src/Config/Descriptions.php:628
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for DateFormat"
-msgstr "ตัวเลือกการแปลง"
+msgstr "การแปลงค่าเริ่มต้นสำหรับ DateFormat"
 
 #: src/Config/Descriptions.php:629
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for Inline"
-msgstr "ตัวเลือกการแปลง"
+msgstr "การแปลงค่าเริ่มต้นสำหรับ Inline"
 
 #: src/Config/Descriptions.php:630
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for TextImageLink"
-msgstr "ตัวเลือกการแปลง"
+msgstr "การแปลงค่าเริ่มต้นสำหรับ TextImageLink"
 
 #: src/Config/Descriptions.php:631
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for TextLink"
-msgstr "ตัวเลือกการแปลง"
+msgstr "การแปลงค่าเริ่มต้นสำหรับ TextLink"
 
 #: src/Config/Descriptions.php:632
 msgid "Display servers as a list"
 msgstr "แสดงเซิร์ฟเวอร์เป็นรายการ"
 
 #: src/Config/Descriptions.php:633
-#, fuzzy
-#| msgid "Table maintenance"
 msgid "Disable multi table maintenance"
-msgstr "การดูแลรักษาตาราง"
+msgstr "ปิดใช้งานการบำรุงรักษาหลายตาราง"
 
 #: src/Config/Descriptions.php:634
 msgid "Maximum execution time"
-msgstr ""
+msgstr "เวลาดำเนินการสูงสุด"
 
 #: src/Config/Descriptions.php:635
 msgid "Use [code]LOCK TABLES[/code] statement"
@@ -11371,17 +11355,13 @@ msgstr "บีบอัดข้อมูล"
 #: src/Plugins/Export/ExportHtmlword.php:92 src/Plugins/Export/ExportOds.php:75
 #: src/Plugins/Export/ExportOdt.php:133
 #: src/Plugins/Export/ExportTexytext.php:85
-#, fuzzy
-#| msgid "Put fields names in the first row"
 msgid "Put columns names in the first row"
-msgstr "ใส่ชื่อฟิลด์ที่แถวแรก"
+msgstr "ใส่ชื่อคอลัมน์ไว้ในแถวแรก"
 
 #: src/Config/Descriptions.php:641 src/Config/Descriptions.php:774
 #: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:653
-#, fuzzy
-#| msgid "Fields enclosed by"
 msgid "Columns enclosed with"
-msgstr "คร่อมฟิลด์ด้วย"
+msgstr "คอลัมน์ที่ล้อมรอบด้วย"
 
 #: src/Config/Descriptions.php:642 src/Config/Descriptions.php:775
 #: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:664
@@ -11628,24 +11608,20 @@ msgid "LaTeX"
 msgstr "LaTeX"
 
 #: src/Config/Descriptions.php:741
-#, fuzzy
-#| msgid "Navigation panel"
 msgid "Navigation tree"
-msgstr "แผงนำทาง"
+msgstr "แผนผังการนำทาง"
 
 #: src/Config/Descriptions.php:745
 msgid "Microsoft Office"
-msgstr "Microsoft Office"
+msgstr "ไมโครซอฟต์ออฟฟิศ"
 
 #: src/Config/Descriptions.php:747
 msgid "Other core settings"
-msgstr "ตั้งค่าหลักอื่นๆ"
+msgstr "การตั้งค่าหลักอื่น ๆ"
 
 #: src/Config/Descriptions.php:748
-#, fuzzy
-#| msgid "Page number:"
 msgid "Page titles"
-msgstr "หมายเลขหน้า:"
+msgstr "ชื่อหน้า"
 
 #: src/Config/Descriptions.php:749
 msgid "Security"
@@ -11653,56 +11629,51 @@ msgstr "ความปลอดภัย"
 
 #: src/Config/Descriptions.php:750
 msgid "Basic settings"
-msgstr "ตั้งค่าพื้นฐาน"
+msgstr "การตั้งค่าพื้นฐาน"
 
 #: src/Config/Descriptions.php:751
 msgid "Authentication"
-msgstr "รับรองความถูกต้อง"
+msgstr "การตรวจสอบสิทธิ์"
 
 #: src/Config/Descriptions.php:752
 msgid "Server configuration"
-msgstr "กำหนดค่าเซิร์ฟเวอร์"
+msgstr "การกำหนดค่าเซิร์ฟเวอร์"
 
 #: src/Config/Descriptions.php:753
 msgid "Configuration storage"
-msgstr "กำหนดค่าการจัดเก็บข้อมูล"
+msgstr "กำหนดค่าที่จัดเก็บข้อมูล"
 
 #: src/Config/Descriptions.php:754
 msgid "Changes tracking"
 msgstr "เปลี่ยนแปลงการติดตาม"
 
 #: src/Config/Descriptions.php:756
-#, fuzzy
 msgid "SQL Query box"
-msgstr "คำค้น SQL"
+msgstr "กล่องคำสั่ง SQL"
 
 #: src/Config/Descriptions.php:758
-#, fuzzy
 msgid "Startup"
-msgstr "สถานะ"
+msgstr "เริ่มระบบ"
 
 #: src/Config/Descriptions.php:759
 msgid "Database structure"
 msgstr "โครงสร้างฐานข้อมูล"
 
 #: src/Config/Descriptions.php:761
-#, fuzzy
 msgid "Tabs"
-msgstr "ตาราง "
+msgstr "แท็บ"
 
 #: src/Config/Descriptions.php:762
-#, fuzzy
-#| msgid "Relational schema"
 msgid "Display relational schema"
-msgstr "รีเลชันแนล สกีมา"
+msgstr "แสดงแผนผังความสัมพันธ์"
 
 #: src/Config/Descriptions.php:763
 msgid "Text fields"
-msgstr "ฟิลด์ข้อความ"
+msgstr "กล่องข้อความ"
 
 #: src/Config/Descriptions.php:764
 msgid "Texy! text"
-msgstr "แท็กซี่! ข้อความ"
+msgstr "Texy! ข้อความ"
 
 #: src/Config/Descriptions.php:765
 msgid "Warnings"
@@ -11714,7 +11685,7 @@ msgstr "GZip"
 
 #: src/Config/Descriptions.php:768
 msgid "Extra parameters for iconv"
-msgstr ""
+msgstr "พารามิเตอร์พิเศษสำหรับ iconv"
 
 #: src/Config/Descriptions.php:769
 msgid "Ignore multiple statement errors"
@@ -12482,7 +12453,7 @@ msgstr "อื่นๆ"
 
 #: src/Config/Descriptions.php:967
 msgid "Server connection collation"
-msgstr "การรวบรวมการเชื่อมต่อเซิร์ฟเวอร์"
+msgstr "ชุดเทียบเคียงการเชื่อมต่อเซิร์ฟเวอร์"
 
 #: src/Config/FormDisplay.php:579
 #, php-format
@@ -12575,11 +12546,12 @@ msgstr ""
 #: src/Config.php:435
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
-msgstr "ไฟล์ตั้งค่า %s ไม่สามารถอ่านได้"
+msgstr "ไฟล์การกำหนดค่า %s ไม่สามารถอ่านได้"
 
 #: src/Config.php:468
 msgid "Wrong permissions on configuration file, should not be world writable!"
-msgstr "สิทธิ์สำหรับไฟล์ตั้งค่าไม่ถูกต้อง ไม่ควรให้เขียนได้ทั้งหมด!"
+msgstr ""
+"สิทธิ์การเข้าถึงไฟล์การตั้งค่าไม่ถูกต้อง ไฟล์ไม่ควรอนุญาตให้ทั้งระบบเขียนได้!"
 
 #: src/Config/ServerConfigChecks.php:52
 #, php-format
@@ -14419,7 +14391,8 @@ msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
-"เพื่อระบุว่าคุณได้ทำการเปลี่ยนแปลงในหน้านี้ คุณจะได้รับการแจ้งให้ยืนยันก่อนที่จะละทิ้งการเปลี่ยนแปลง"
+"แจ้งให้ทราบว่าคุณได้ทำการเปลี่ยนแปลงรายละเอียดในหน้านี้; คุณจะได้รับการแจ้งให้ยืนยันก่อนที่จะละทิ้งก"
+"ารเปลี่ยนแปลง"
 
 #: src/Controllers/JavaScriptMessagesController.php:508
 msgid "Select referenced key"
@@ -14431,17 +14404,19 @@ msgstr "เลือกคีย์นอก"
 
 #: src/Controllers/JavaScriptMessagesController.php:510
 msgid "Please select the primary key or a unique key!"
-msgstr "กรุณาเลือกคีย์หลักหรือคีย์เอกลักษณ์!"
+msgstr "กรุณาเลือกคีย์หลักหรือคีย์เฉพาะ!"
 
 #: src/Controllers/JavaScriptMessagesController.php:513
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
-msgstr "คุณยังไม่ได้บันทึกเลย์เอาท์ที่คุณเลือก ที่ทำไว้จะหายไป ต้องการบันทึกหรือไม่?"
+msgstr ""
+"คุณยังไม่ได้บันทึกการเปลี่ยนแปลงในเลย์เอาท์ หากคุณไม่บันทึก การเปลี่ยนแปลงเหล่านั้นจะหายไป คุณต้อง"
+"การดำเนินการต่อหรือไม่?"
 
 #: src/Controllers/JavaScriptMessagesController.php:516
 msgid "value/subQuery is empty"
-msgstr "ค่า/คิวรีย่อย ว่างเปล่า"
+msgstr "ค่า/คำสั่งเรียกดูย่อยว่างเปล่า"
 
 #: src/Controllers/JavaScriptMessagesController.php:518
 msgid "Page name"
@@ -14474,7 +14449,7 @@ msgstr "ลบหน้าสำเร็จ"
 
 #: src/Controllers/JavaScriptMessagesController.php:530
 msgid "Export relational schema"
-msgstr "ส่งออกสคีเชิงสัมพันธ์"
+msgstr "ส่งออกแผนผังตารางความสัมพันธ์"
 
 #: src/Controllers/JavaScriptMessagesController.php:531
 msgid "Modifications have been saved"
@@ -14483,7 +14458,7 @@ msgstr "บันทึกการแก้ไขเรียบร้อยแ
 #: src/Controllers/JavaScriptMessagesController.php:534
 #, php-format
 msgid "%d object(s) created."
-msgstr "สร้างวัตถุจำนวน %d วัตถุแล้ว"
+msgstr "สร้างแล้ว %d วัตถุ"
 
 #: src/Controllers/JavaScriptMessagesController.php:535
 #, fuzzy
@@ -14526,7 +14501,7 @@ msgstr "คลิกเพื่อทำเครื่องหมาย/ย�
 
 #: src/Controllers/JavaScriptMessagesController.php:552
 msgid "Double-click to copy column name."
-msgstr "คลิกสองครั้งเพื่อคัดลอกชื่อคอลัมน์"
+msgstr "ดับเบิ้ลคลิกเพื่อคัดลอกชื่อคอลัมน์"
 
 #: src/Controllers/JavaScriptMessagesController.php:553
 #, fuzzy
@@ -14538,8 +14513,8 @@ msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
-"ตารางนี้ไม่มีคอลัมน์เอกลักษณ์ การแก้ไขผ่านตาราง กล่องเครื่องหมาย แก้ไข คัดลอก "
-"และลบจะไม่ได้ผลหลังจากบันทึก"
+"ตารางนี้ไม่มีคอลัมน์ที่ไม่ซ้ำกัน ฟีเจอร์ที่เกี่ยวข้องกับการแก้ไขตาราง การเลือกช่องทำเครื่องหมาย การแก้"
+"ไข คัดลอก และลบลิงก์อาจใช้งานไม่ได้หลังการบันทึก"
 
 #: src/Controllers/JavaScriptMessagesController.php:559
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
@@ -14549,7 +14524,8 @@ msgstr "โปรดกรอกเลขฐานสิบหกที่ถู
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
-msgstr "คุณต้องการเห็นแถวทั้งหมดหรือไม่? สำหรับตารางที่มีขนาดใหญ่ อาจทำให้เบราว์เซอร์ขัดข้อง"
+msgstr ""
+"คุณต้องการแสดงข้อมูลทั้งหมดจริงหรือไม่? สำหรับตารางที่มีขนาดใหญ่ อาจทำให้เบราว์เซอร์ขัดข้องได้"
 
 #: src/Controllers/JavaScriptMessagesController.php:563
 msgid "Original length"
@@ -14570,7 +14546,7 @@ msgstr "สำเร็จ"
 
 #: src/Controllers/JavaScriptMessagesController.php:570
 msgid "Import status"
-msgstr "นำเข้าสถิติ"
+msgstr "สถานะการนำเข้า"
 
 #: src/Controllers/JavaScriptMessagesController.php:572
 msgid "Select database first"
@@ -14578,7 +14554,7 @@ msgstr "เลือกฐานข้อมูลก่อน"
 
 #: src/Controllers/JavaScriptMessagesController.php:574
 msgid "Go to link:"
-msgstr "ไปที่หน้า:"
+msgstr "ไปที่ลิงก์:"
 
 #: src/Controllers/JavaScriptMessagesController.php:577
 msgid "Generate password"
@@ -14595,14 +14571,16 @@ msgstr "ซ่อนแผง"
 #: src/Controllers/JavaScriptMessagesController.php:587
 #: src/Navigation/NavigationTree.php:1285
 msgid "Unlink from main panel"
-msgstr "เลิกเชื่อมกับแผงหลัก"
+msgstr "ยกเลิกเชื่อมกับแผงหลัก"
 
 #: src/Controllers/JavaScriptMessagesController.php:591 src/Setup/Index.php:153
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
-msgstr "phpMyAdmin มีรุ่นใหม่แล้ว กรุณาพิจารณาอัพเกรดเป็นรุ่นใหม่ %s โดยออกเมื่อ %s"
+msgstr ""
+"มีเวอร์ชันใหม่ของ phpMyAdmin ให้ใช้งานแล้ว และคุณควรพิจารณาอัปเกรด เวอร์ชันล่าสุดคือ %s ซึ่งเผ"
+"ยแพร่เมื่อวันที่ %s"
 
 #. l10n: Latest available phpMyAdmin version
 #: src/Controllers/JavaScriptMessagesController.php:595
@@ -14621,7 +14599,8 @@ msgstr ""
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
-msgstr "เกิดข้อผิดพลาด JavaScript ที่ร้ายแรงต้องการส่งรายงานข้อผิดพลาดหรือไม่?"
+msgstr ""
+"เกิดข้อผิดพลาดที่ร้ายแรงกับ JavaScript คุณต้องการส่งรายงานข้อผิดพลาดหรือไม่?"
 
 #: src/Controllers/JavaScriptMessagesController.php:601
 msgid "Change report settings"
@@ -14636,7 +14615,7 @@ msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
-"การส่งออกของคุณไม่ประสบความสำเร็จ เนื่องจากการจำกัดของเวลาในการเรียกใช้คำสั่งใน PHP!"
+"การส่งออกของคุณไม่สมบูรณ์ เนื่องจากเวลาในการประมวลผลต่ำเกินไปในระดับ PHP!"
 
 #: src/Controllers/JavaScriptMessagesController.php:606
 #, php-format
@@ -14644,13 +14623,13 @@ msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
-"คำเตือน: ฟอร์มในหน้านี้มีช่องฟิลด์มากกว่า %d ช่อง "
-"ในการส่งข้อมูลบางส่วนของฟิลด์อาจถูกละเว้นเนื่องจากการกำหนดค่า max_input_vars ของ PHP"
+"คำเตือน: แบบฟอร์มในหน้านี้มีช่องกรอกข้อมูลมากกว่า %d ช่อง เมื่อส่งแบบฟอร์ม ช่องกรอกข้อมูลบางช่อง"
+"อาจถูกละเว้นเนื่องจากการตั้งค่า max_input_vars ของ PHP"
 
 #: src/Controllers/JavaScriptMessagesController.php:612
 #: src/Controllers/JavaScriptMessagesController.php:625
 msgid "Some errors have been detected on the server!"
-msgstr "มีข้อผิดพลาดบางอย่างถูกตรวจจับบนเซิร์ฟเวอร์ของคุณ!"
+msgstr "ตรวจพบข้อผิดพลาดบางอย่างบนเซิร์ฟเวอร์!"
 
 #: src/Controllers/JavaScriptMessagesController.php:614
 msgid "Please look at the bottom of this window."
@@ -14659,7 +14638,7 @@ msgstr "กรุณาดูที่ด้านล่างของหน้
 #: src/Controllers/JavaScriptMessagesController.php:620
 #: src/Error/ErrorHandler.php:431
 msgid "Ignore All"
-msgstr "ไม่สนใจทั้งหมด"
+msgstr "ละเว้นทั้งหมด"
 
 #: src/Controllers/JavaScriptMessagesController.php:627
 msgid ""
@@ -14694,7 +14673,7 @@ msgstr "คุณแน่ใจว่าต้องการจะลบบุ
 
 #: src/Controllers/JavaScriptMessagesController.php:639
 msgid "Some error occurred while getting SQL debug info."
-msgstr "มีข้อผิดพลาดบางส่วนเกิดขึ้นในขณะที่กำลังได้รับข้อมูลการแก้ไขข้อผิดพลาด SQL"
+msgstr "เกิดข้อผิดพลาดบางอย่างขณะดึงข้อมูลการดีบัก SQL"
 
 #: src/Controllers/JavaScriptMessagesController.php:640
 #, php-format
@@ -14722,10 +14701,10 @@ msgid ""
 "cause such a problem, clearing your \"Offline Website Data\" might help. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
-"มีปัญหาในการเข้าถึงที่เก็บเบราว์เซอร์ของคุณ คุณลักษณะบางอย่างอาจไม่ทำงานอย่างถูกต้องสำหรับคุณ "
-"มีแนวโน้มว่าเบราว์เซอร์ไม่สนับสนุนการจัดเก็บข้อมูลหรือถึงขีดจำกัดโควต้า ใน Firefox "
-"การจัดเก็บข้อมูลที่เสียหายอาจทำให้เกิดปัญหาเช่นการล้างข้อมูล \"ข้อมูลเว็บไซต์แบบออฟไลน์\" "
-"ของคุณอาจช่วยได้ ใน Safari ปัญหาดังกล่าวมักเกิดจาก \"การเรียกดูโหมดส่วนตัว\""
+"เกิดปัญหาในการเข้าถึงพื้นที่จัดเก็บข้อมูลของเบราว์เซอร์ของคุณ บางฟีเจอร์อาจทำงานไม่ถูกต้อง อาจเป็น"
+"เพราะเบราว์เซอร์ไม่รองรับพื้นที่จัดเก็บข้อมูล หรือพื้นที่จัดเก็บข้อมูลเต็มแล้ว ใน Firefox พื้นที่จัดเก็บข้อ"
+"มูลที่เสียหายก็อาจทำให้เกิดปัญหาเช่นนี้ได้ การล้าง \"ข้อมูลเว็บไซต์แบบออฟไลน์\" อาจช่วยได้ ใน "
+"Safari ปัญหาดังกล่าวส่วนใหญ่มักเกิดจาก \"การเรียกดูในโหมดส่วนตัว\""
 
 #: src/Controllers/JavaScriptMessagesController.php:653
 msgid "Copy tables to"
@@ -14741,7 +14720,7 @@ msgstr "แทนที่ตารางด้วยคำนำหน้า"
 
 #: src/Controllers/JavaScriptMessagesController.php:659
 msgid "Extremely weak"
-msgstr "อ่อนแออย่างมาก"
+msgstr "อ่อนแออย่างยิ่ง"
 
 #: src/Controllers/JavaScriptMessagesController.php:660
 msgid "Very weak"
@@ -15191,31 +15170,31 @@ msgstr "ช่องนี้จำเป็น"
 
 #: src/Controllers/JavaScriptMessagesController.php:763
 msgid "Please fix this field"
-msgstr "กรุณาซ่อมแซมช่องนี้"
+msgstr "กรุณาแก้ไขช่องนี้"
 
 #: src/Controllers/JavaScriptMessagesController.php:764
 msgid "Please enter a valid email address"
-msgstr "กรุณากรอกอีเมลที่ถูกต้อง"
+msgstr "กรุณากรอกอีเมลให้ถูกต้อง"
 
 #: src/Controllers/JavaScriptMessagesController.php:765
 msgid "Please enter a valid URL"
-msgstr "กรุณากรอก URL ที่ถูกต้อง"
+msgstr "กรุณากรอก URL ให้ถูกต้อง"
 
 #: src/Controllers/JavaScriptMessagesController.php:766
 msgid "Please enter a valid date"
-msgstr "กรุณากรอกวันที่ที่ถูกต้อง"
+msgstr "กรุณากรอกวันที่ให้ถูกต้อง"
 
 #: src/Controllers/JavaScriptMessagesController.php:767
 msgid "Please enter a valid date ( ISO )"
-msgstr "กรุณากรอกวันที่ที่ถูกต้อง ( ISO )"
+msgstr "กรุณากรอกวันที่ให้ถูกต้อง ( ISO )"
 
 #: src/Controllers/JavaScriptMessagesController.php:768
 msgid "Please enter a valid number"
-msgstr "กรุณากรอกเลขที่ถูกต้อง"
+msgstr "กรุณากรอกเลขให้ถูกต้อง"
 
 #: src/Controllers/JavaScriptMessagesController.php:769
 msgid "Please enter a valid credit card number"
-msgstr "กรุณากรอกหมายเลขบัตรเครดิตที่ถูกต้อง"
+msgstr "กรุณากรอกหมายเลขบัตรเครดิตให้ถูกต้อง"
 
 #: src/Controllers/JavaScriptMessagesController.php:770
 msgid "Please enter only digits"
@@ -15227,19 +15206,19 @@ msgstr "กรุณากรอกค่าเดิมอีกครั้ง
 
 #: src/Controllers/JavaScriptMessagesController.php:772
 msgid "Please enter no more than {0} characters"
-msgstr "กรุณากรอกไม่เกิน {0} ตัว"
+msgstr "กรุณากรอกไม่เกิน {0} อักขระ"
 
 #: src/Controllers/JavaScriptMessagesController.php:773
 msgid "Please enter at least {0} characters"
-msgstr "กรุณากรอกอย่างน้อย {0} ตัว"
+msgstr "กรุณากรอกอย่างน้อย {0} อักขระ"
 
 #: src/Controllers/JavaScriptMessagesController.php:774
 msgid "Please enter a value between {0} and {1} characters long"
-msgstr "กรุณากรอกค่าที่มีความยาวระหว่าง {0} ถึง {1} ตัว"
+msgstr "กรุณากรอกค่าที่มีความยาวระหว่าง {0} ถึง {1} อักขระ"
 
 #: src/Controllers/JavaScriptMessagesController.php:775
 msgid "Please enter a value between {0} and {1}"
-msgstr "กรุณากรอกค่าระหว่าง {0} กับ {1}"
+msgstr "กรุณากรอกค่าระหว่าง {0} ถึง {1}"
 
 #: src/Controllers/JavaScriptMessagesController.php:776
 msgid "Please enter a value less than or equal to {0}"
@@ -15251,11 +15230,11 @@ msgstr "กรุณากรอกค่าที่มากกว่าหร
 
 #: src/Controllers/JavaScriptMessagesController.php:778
 msgid "Please enter a valid date or time"
-msgstr "กรุณากรอกวันที่และเวลาที่ถูกต้อง"
+msgstr "กรุณากรอกวันที่และเวลาให้ถูกต้อง"
 
 #: src/Controllers/JavaScriptMessagesController.php:779
 msgid "Please enter a valid HEX input"
-msgstr "กรุณากรอกเลขฐานสิบหกที่ถูกต้อง"
+msgstr "กรุณากรอกเลขฐานสิบหกให้ถูกต้อง"
 
 #. l10n: To validate the usage of a MD5 function on the column
 #: src/Controllers/JavaScriptMessagesController.php:781
@@ -16323,23 +16302,23 @@ msgstr "ไม่สามารถเพิ่ม %1$s เนื่องจา
 
 #: src/Database/CentralColumns.php:335
 msgid "Could not add columns!"
-msgstr "คอลัมน์ไม่ได้ถูกเพิ่ม!"
+msgstr "ไม่สามารถเพิ่มคอลัมน์ได้!"
 
 #: src/Database/CentralColumns.php:406
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
-msgstr "ไม่สามารถลบคอลัมน์ %1$s ตามที่ไม่มีอยู่ในรายการคอลัมน์ส่วนกลาง!"
+msgstr "ไม่สามารถลบคอลัมน์ %1$s เนื่องจากไม่มีอยู่ในรายการคอลัมน์ส่วนกลาง!"
 
 #: src/Database/CentralColumns.php:419
 msgid "Could not remove columns!"
-msgstr "คอลัมน์ไม่ได้ถูกลบ!"
+msgstr "ไม่สามารถลบคอลัมน์ได้!"
 
 #: src/Database/CentralColumns.php:896
 msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
-msgstr "การจัดเก็บการกำหนดค่าไม่พร้อมใช้งานสำหรับรายการส่วนกลางของคุณลักษณะของคอลัมน์"
+msgstr "ที่จัดเก็บการตั้งค่าไม่พร้อมสำหรับฟีเจอร์รายการคอลัมน์ส่วนกลาง"
 
 #: src/Database/Designer/Common.php:445
 #, fuzzy
