@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-10-16 23:57-0300\n"
-"PO-Revision-Date: 2025-06-17 13:34+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@mfauth.net>\n"
-"Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/5-2/ta/"
-">\n"
+"PO-Revision-Date: 2025-12-14 15:00+0000\n"
+"Last-Translator: தமிழ்நேரம் <tamilneram247@gmail.com>\n"
+"Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/5-2/ta/>"
+"\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.12.1\n"
+"X-Generator: Weblate 5.15-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -2277,11 +2277,11 @@ msgstr "மவுச் கர்சரின் கீழ் சேவையக
 
 #: libraries/classes/Config/Descriptions.php:322
 msgid "Whether to show tables under database in the navigation tree"
-msgstr "வழிசெலுத்தல் மரத்தில் தரவுத்தளத்தின் கீழ் அட்டவணைகளைக் காட்ட வேண்டுமா?"
+msgstr "வழிசெலுத்தல் மரத்தில் தரவுத்தளத்தின் கீழ் அட்டவணைகளைக் காட்ட வேண்டுமா"
 
 #: libraries/classes/Config/Descriptions.php:323
 msgid "Whether to show views under database in the navigation tree"
-msgstr "வழிசெலுத்தல் மரத்தில் தரவுத்தளத்தின் கீழ் காட்சிகளைக் காட்ட வேண்டுமா?"
+msgstr "வழிசெலுத்தல் மரத்தில் தரவுத்தளத்தின் கீழ் காட்சிகளைக் காட்ட வேண்டுமா"
 
 #: libraries/classes/Config/Descriptions.php:324
 msgid "Whether to show functions under database in the navigation tree"
@@ -4521,9 +4521,10 @@ msgid "Compressed import will not work due to missing function %s."
 msgstr "செயல்பாடு %s காணாமல் போனதால் சுருக்கப்பட்ட இறக்குமதி இயங்காது."
 
 #: libraries/classes/Config/FormDisplay.php:848
-#, fuzzy, php-format
+#, php-format
 msgid "Compressed export will not work due to missing function %s."
-msgstr "காணாமல் போன செயல்பாடுகள் காரணமாகச் சுருக்கப்பட்ட ஏற்றுமதி இயங்காது."
+msgstr ""
+"காணாமல் போன செயல்பாடு %s காரணமாகச் சுருக்கப்பட்ட ஏற்றுமதி வேலை செய்யாது."
 
 #: libraries/classes/Config/FormDisplay.php:867
 #, php-format
@@ -4585,7 +4586,7 @@ msgstr "தரவு"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:91
 msgid "CSV for MS Excel"
-msgstr "எம்.எச். எக்செல் க்கான சி.எச்.வி."
+msgstr "நுமெ எக்செல் க்கான காபிம"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:116
 msgid "Microsoft Word 2000"
@@ -5387,7 +5388,7 @@ msgstr ""
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] "உள்ளேற்றம் வெற்றிகரமாக முடிந்தது, %d வினவல்கள் செயல்படுத்தப்பட்டன."
+msgstr[0] "உள்ளேற்றம் வெற்றிகரமாக முடிந்தது, %d வினவல்கள் செயல்படுத்தப்பட்டது."
 msgstr[1] "உள்ளேற்றம் வெற்றிகரமாக முடிந்தது, %d வினவல்கள் செயல்படுத்தப்பட்டன."
 
 #: libraries/classes/Controllers/Import/ImportController.php:655
@@ -13736,8 +13737,8 @@ msgid ""
 "For default values, please enter just a single value, without backslash "
 "escaping or quotes, using this format: a"
 msgstr ""
-"இயல்புநிலை மதிப்புகளுக்கு, தயவுசெய்து ஒரு மதிப்பை உள்ளிடவும், பின்வாங்காமல் அல்லது "
-"மேற்கோள்கள் இல்லாமல், இந்த வடிவமைப்பைப் பயன்படுத்தி: அ:"
+"இயல்புநிலை மதிப்புகளுக்கு, தயவுசெய்து ஒரு மதிப்பை உள்ளிடவும், பின்சாய்வுகோடுஇல்லாமல் "
+"அல்லது மேற்கோள்கள் இல்லாமல், இந்த வடிவமைப்பைப் பயன்படுத்தி: அ"
 
 #: templates/columns_definitions/table_fields_definitions.twig:24
 #: templates/database/central_columns/edit.twig:12
