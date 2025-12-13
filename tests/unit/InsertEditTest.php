@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Column;
 use PhpMyAdmin\Config;
+use PhpMyAdmin\ConfigStorage\Foreigners;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
@@ -476,7 +477,7 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testGetNullifyCodeForNullColumn(): void
     {
-        $foreigners = ['foreign_keys_data' => []];
+        $foreigners = new Foreigners();
         $column = new InsertEditColumn(
             'f',
             'enum(ababababababababababa)',
@@ -535,7 +536,7 @@ class InsertEditTest extends AbstractTestCase
         );
 
         $column = new InsertEditColumn('f', '', false, '', null, '', -1, false, false, false, false);
-        $foreigners['f'] = ['something'/* What should the mocked value actually be? */];
+        $foreigners = new Foreigners(['f' => ['something']]);
         self::assertSame(
             '4',
             $this->callFunction(
@@ -1408,6 +1409,7 @@ class InsertEditTest extends AbstractTestCase
         $map['f']['foreign_db'] = 'information_schema';
         $map['f']['foreign_table'] = 'TABLES';
         $map['f']['foreign_field'] = 'f';
+        $map = new Foreigners($map);
 
         $resultStub = self::createMock(DummyResult::class);
 
@@ -1456,6 +1458,7 @@ class InsertEditTest extends AbstractTestCase
         $map['f']['foreign_db'] = 'information_schema';
         $map['f']['foreign_table'] = 'TABLES';
         $map['f']['foreign_field'] = 'f';
+        $map = new Foreigners($map);
 
         $result = $this->insertEdit->getLinkForRelationalDisplayField($map, 'f', '=1', 'a>', 'b<');
 
@@ -2380,7 +2383,7 @@ class InsertEditTest extends AbstractTestCase
     {
         $_SESSION[' HMAC_secret '] = hash('sha1', 'test');
         InsertEdit::$pluginScripts = [];
-        $foreigners = ['foreign_keys_data' => []];
+        $foreigners = new Foreigners();
         $tableColumn = new Column('col', 'varchar(20)', null, true, '', null, '', 'insert,update,select', '');
         $repopulate = [md5('col') => 'val'];
         $columnMime = [
@@ -2519,7 +2522,7 @@ class InsertEditTest extends AbstractTestCase
         $config->settings['CharEditing'] = 'input';
         $config->settings['TextareaRows'] = 10;
         $config->settings['TextareaCols'] = 11;
-        $foreigners = ['foreign_keys_data' => []];
+        $foreigners = new Foreigners();
         $tableColumns = [
             new Column('test', 'longtext', null, true, '', null, '', 'select,insert,update,references', ''),
         ];
@@ -2560,7 +2563,7 @@ class InsertEditTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->settings['LongtextDoubleTextarea'] = true;
         $config->settings['CharEditing'] = 'input';
-        $foreigners = ['foreign_keys_data' => []];
+        $foreigners = new Foreigners();
 
         // edit
         $tableColumns = [

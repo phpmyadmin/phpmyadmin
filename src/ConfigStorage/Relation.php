@@ -369,25 +369,20 @@ class Relation
      * @param string $db     the name of the db to check for
      * @param string $table  the name of the table to check for
      * @param string $column the name of the column to check for
-     *
-     * @return array<array<mixed>>
      */
-    public function getForeigners(string $db, string $table, string $column = ''): array
+    public function getForeigners(string $db, string $table, string $column = ''): Foreigners
     {
-        $foreign = $this->getForeignersInternal($db, $table, $column);
-
-        if ($table !== '') {
-            $foreign['foreign_keys_data'] = $this->getForeignKeysData($db, $table);
-        }
-
-        return $foreign;
+        return new Foreigners(
+            $this->getForeignersInternal($db, $table, $column),
+            $this->getForeignKeysData($db, $table),
+        );
     }
 
     /**
      * Gets all Relations to foreign tables for a given table or
      * optionally a given column in a table
      *
-     * @return array<array<mixed>>
+     * @return array<array<string|null>>
      */
     public function getForeignersInternal(string $db, string $table, string $column = ''): array
     {
@@ -418,10 +413,7 @@ class Relation
 
             if (isset($internalRelations[$table])) {
                 foreach ($internalRelations[$table] as $field => $relations) {
-                    if (
-                        ($column !== '' && $column !== $field)
-                        || (isset($foreign[$field]) && $foreign[$field] !== '')
-                    ) {
+                    if (($column !== '' && $column !== $field) || isset($foreign[$field])) {
                         continue;
                     }
 
@@ -606,9 +598,9 @@ class Relation
     /**
      * Prepares the dropdown for one mode
      *
-     * @param mixed[] $foreign the keys and values for foreigns
-     * @param string  $data    the current data of the dropdown
-     * @param string  $mode    the needed mode
+     * @param array<string|null> $foreign the keys and values for foreigns
+     * @param string             $data    the current data of the dropdown
+     * @param string             $mode    the needed mode
      *
      * @return string[] the <option value=""><option>s
      */
@@ -764,17 +756,16 @@ class Relation
     /**
      * Gets foreign keys in preparation for a drop-down selector
      *
-     * @param mixed[] $foreigners    array of the foreign keys
-     * @param string  $field         the foreign field name
-     * @param bool    $overrideTotal whether to override the total
-     * @param string  $foreignFilter a possible filter
-     * @param string  $foreignLimit  a possible LIMIT clause
-     * @param bool    $getTotal      optional, whether to get total num of rows
-     *                               in $foreignData['the_total;]
-     *                               (has an effect of performance)
+     * @param string $field         the foreign field name
+     * @param bool   $overrideTotal whether to override the total
+     * @param string $foreignFilter a possible filter
+     * @param string $foreignLimit  a possible LIMIT clause
+     * @param bool   $getTotal      optional, whether to get total num of rows
+     *                              in $foreignData['the_total;]
+     *                              (has an effect of performance)
      */
     public function getForeignData(
-        array $foreigners,
+        Foreigners $foreigners,
         string $field,
         bool $overrideTotal,
         string $foreignFilter,
@@ -787,7 +778,7 @@ class Relation
         $dispRow = $foreignDisplay = $theTotal = null;
         $foreignField = '';
         do {
-            if ($foreigners === []) {
+            if ($foreigners->isEmpty()) {
                 break;
             }
 
@@ -1203,26 +1194,13 @@ class Relation
         return $columnStatus;
     }
 
-    /**
-     * Search a table column in foreign data.
-     *
-     * @param mixed[] $foreigners Table Foreign data
-     * @param string  $column     Column name
-     */
-    public function searchColumnInForeigners(array $foreigners, string $column): array|false
+    public function searchColumnInForeigners(Foreigners $foreigners, string $column): array|false
     {
-        if (isset($foreigners[$column])) {
-            return $foreigners[$column];
+        if (isset($foreigners->data[$column])) {
+            return $foreigners->data[$column];
         }
 
-        if (! isset($foreigners['foreign_keys_data'])) {
-            return false;
-        }
-
-        /** @var list<ForeignKey> $foreignKeysData */
-        $foreignKeysData = $foreigners['foreign_keys_data'];
-
-        return $this->getColumnFromForeignKeysData($foreignKeysData, $column);
+        return $this->getColumnFromForeignKeysData($foreigners->keysData, $column);
     }
 
     /**

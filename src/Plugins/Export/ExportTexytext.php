@@ -335,7 +335,7 @@ class ExportTexytext extends ExportPlugin
         // Check if we can use Relations
         $foreigners = $this->doRelation && $relationParameters->relationFeature !== null ?
             $this->relation->getForeigners($db, $table)
-            : [];
+            : null;
 
         /**
          * Displays the table structure
@@ -346,7 +346,7 @@ class ExportTexytext extends ExportPlugin
         $textOutput .= '|' . __('Type');
         $textOutput .= '|' . __('Null');
         $textOutput .= '|' . __('Default');
-        if ($this->doRelation && $foreigners !== []) {
+        if ($this->doRelation && $foreigners !== null && ! $foreigners->isEmpty()) {
             $textOutput .= '|' . __('Links to');
         }
 
@@ -368,7 +368,7 @@ class ExportTexytext extends ExportPlugin
 
             $textOutput .= $this->formatOneColumnDefinition($column, $uniqueKeys, $colAs);
             $fieldName = $column->field;
-            if ($this->doRelation && $foreigners !== []) {
+            if ($this->doRelation && $foreigners !== null && ! $foreigners->isEmpty()) {
                 $textOutput .= '|' . htmlspecialchars(
                     $this->getRelationString(
                         $foreigners,
