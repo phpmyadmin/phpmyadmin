@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-12-07 00:30+0000\n"
-"PO-Revision-Date: 2025-12-13 08:00+0000\n"
+"PO-Revision-Date: 2025-12-14 00:32+0000\n"
 "Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "th/>\n"
@@ -3640,7 +3640,7 @@ msgstr "บันทึกไว้ในไดเรกทอรีบนเซ
 #: resources/templates/export.twig:178 resources/templates/export.twig:373
 #: src/Config/Descriptions.php:681 src/Config/Descriptions.php:684
 msgid "Overwrite existing file(s)"
-msgstr "เขียนทับแฟ้มที่มีอยู่แล้ว"
+msgstr "เขียนทับไฟล์ที่มีอยู่แล้ว"
 
 #: resources/templates/export.twig:189 resources/templates/export.twig:333
 msgid "Rename exported databases/tables/columns"
@@ -10048,7 +10048,7 @@ msgstr "ไม่ใช้ดังกล่าวข้างต้น"
 #: src/Config/Descriptions.php:61 src/Config/Descriptions.php:62
 #: src/Config/Descriptions.php:63
 msgid "Users cannot set a higher value"
-msgstr ""
+msgstr "ผู้ใช้ไม่สามารถตั้งค่าที่สูงกว่าได้"
 
 #: src/Config/Descriptions.php:76
 msgid ""
@@ -10211,6 +10211,8 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
 msgstr ""
+"ลำดับการจัดเรียงสำหรับรายการในกล่องดรอปดาวน์คีย์นอก; [kbd]เนื้อหา[/kbd] คือข้อมูลที่อ้างอิง แล"
+"ะ [kbd]id[/kbd] คือค่าคีย์"
 
 #: src/Config/Descriptions.php:177
 msgid ""
@@ -10381,20 +10383,24 @@ msgid ""
 "This might be a good way to import large files, however it can break "
 "transactions."
 msgstr ""
+"อนุญาตให้หยุดการนำเข้าได้ในกรณีที่สคริปต์ตรวจพบว่าใกล้ถึงเวลาที่กำหนดแล้ว วิธีนี้อาจเป็นวิธีที่ดีในการน"
+"ำเข้าไฟล์ขนาดใหญ่ แต่ก็อาจทำให้การทำรายการหยุดชะงักได้"
 
 #: src/Config/Descriptions.php:238
 msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available."
 msgstr ""
+"รูปแบบเริ่มต้น; โปรดทราบว่ารายการนี้ขึ้นอยู่กับตำแหน่งที่ตั้ง (ฐานข้อมูล ตาราง) และมีเฉพาะคำสั่ง "
+"SQL เท่านั้นที่พร้อมใช้งานเสมอ"
 
 #: src/Config/Descriptions.php:241 src/Config/Descriptions.php:242
 msgid "Update data when duplicate keys found on import"
-msgstr ""
+msgstr "อัปเดตข้อมูลเมื่อพบคีย์ซ้ำกันตอนนำเข้า"
 
 #: src/Config/Descriptions.php:243
 msgid "Number of queries to skip from start."
-msgstr ""
+msgstr "จำนวนคำสั่งเรียกดูที่ข้ามตั้งแต่เริ่มต้น"
 
 #: src/Config/Descriptions.php:245
 msgid ""
@@ -10402,12 +10408,17 @@ msgid ""
 "only occurs for the current server. Setting this to FALSE makes it easy to "
 "forget to log out from other servers when connected to multiple servers."
 msgstr ""
+"หากตั้งค่าเป็น TRUE การออกจากระบบจะลบคุกกี้ออกจากทุกเซิร์ฟเวอร์ หากตั้งค่าเป็น FALSE จะออกจา"
+"กระบบเพียงแค่เซิร์ฟเวอร์ปัจจุบันเท่านั้น การตั้งค่าเป็น FALSE มักทำให้ลืมออกจากระบบจากเซิร์ฟเวอร์อื่"
+"นได้ง่าย เมื่อเชื่อมต่อกับหลายเซิร์ฟเวอร์"
 
 #: src/Config/Descriptions.php:250
 msgid ""
 "Define whether the previous login should be recalled or not in [kbd]cookie[/"
 "kbd] authentication mode."
 msgstr ""
+"กำหนดว่าจะเรียกคืนข้อมูลการเข้าสู่ระบบครั้งก่อนหรือไม่ในโหมดการตรวจสอบสิทธิ์ด้วย [kbd]คุ้กกี้[/"
+"kbd]"
 
 #: src/Config/Descriptions.php:254
 msgid ""
@@ -10416,30 +10427,33 @@ msgid ""
 "and will be deleted as soon as you close the browser window. This is "
 "recommended for non-trusted environments."
 msgstr ""
+"กำหนดระยะเวลา (เป็นวินาที) ที่คุกกี้สำหรับการเข้าสู่ระบบควรถูกเก็บไว้ในเบราว์เซอร์ ค่าเริ่มต้นคือ "
+"0 ซึ่งหมายความว่าจะถูกเก็บไว้เฉพาะในเซสชันปัจจุบันเท่านั้น และจะถูกลบออกทันทีที่คุณปิดหน้าต่างเบราว์"
+"เซอร์ แนะนำให้ใช้ในระบบที่ไม่น่าเชื่อถือ"
 
 #: src/Config/Descriptions.php:260
-#, fuzzy
-#| msgid "Maximum number of recently used tables; set 0 to disable"
 msgid "Maximum number of characters used when a SQL query is displayed."
-msgstr "จำนวนสูงสุดของตารางที่ใช้ล่าสุด; กำหนด 0 เพื่อปิดใช้งาน"
+msgstr "จำนวนอักขระสูงสุดที่ใช้เมื่อแสดงคำสั่ง SQL"
 
 #: src/Config/Descriptions.php:263
 msgid ""
 "The number of items that can be displayed on each page on the first level of "
 "the navigation tree."
-msgstr ""
+msgstr "จำนวนรายการที่สามารถแสดงบนแต่ละหน้าในระดับแรกของแผนผังการนำทาง"
 
 #: src/Config/Descriptions.php:266
 msgid ""
 "The number of items that can be displayed on each page of the navigation "
 "tree."
-msgstr ""
+msgstr "จำนวนรายการที่สามารถแสดงได้ในแต่ละหน้าของแผนผังการนำทาง"
 
 #: src/Config/Descriptions.php:269
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, \"Previous\" and \"Next\" links will be shown."
 msgstr ""
+"จำนวนแถวที่แสดงเมื่อเรียกดูชุดผลลัพธ์ หากชุดผลลัพธ์มีแถวมากกว่าหนึ่งแถว จะแสดงลิงก์ \"ก่อนหน้า\" "
+"และ \"ถัดไป\""
 
 #: src/Config/Descriptions.php:274
 msgid ""
@@ -10449,11 +10463,11 @@ msgstr ""
 
 #: src/Config/Descriptions.php:278
 msgid "In the navigation panel, replaces the database tree with a selector"
-msgstr ""
+msgstr "ในแผงนำทาง จะแทนที่โครงสร้างฐานข้อมูลด้วยตัวเลือก"
 
 #: src/Config/Descriptions.php:281
 msgid "Link with main panel by highlighting the current database or table."
-msgstr ""
+msgstr "เชื่อมโยงกับแผงหลักโดยการไฮไลต์ฐานข้อมูลหรือตารางปัจจุบัน"
 
 #: src/Config/Descriptions.php:284
 msgid ""
@@ -10489,24 +10503,20 @@ msgid "Whether to expand single database in the navigation tree automatically."
 msgstr "โหลดกรอบนำทางใหม่"
 
 #: src/Config/Descriptions.php:302
-#, fuzzy
-#| msgid "Reload navigation frame"
 msgid "Set to 0 to collapse navigation panel."
-msgstr "โหลดกรอบนำทางใหม่"
+msgstr "ตั้งค่าเป็น 0 เพื่อยุบแผงนำทาง"
 
 #: src/Config/Descriptions.php:303
-#, fuzzy
-#| msgid "Reload navigation frame"
 msgid "Show logo in navigation panel."
-msgstr "โหลดกรอบนำทางใหม่"
+msgstr "แสดงโลโก้บนแผงนำทาง"
 
 #: src/Config/Descriptions.php:304
 msgid "URL where logo in the navigation panel will point to."
-msgstr ""
+msgstr "URL ที่โลโก้ในแผงนำทางจะชี้ไป"
 
 #: src/Config/Descriptions.php:305
 msgid "Display server choice at the top of the navigation panel."
-msgstr ""
+msgstr "แสดงตัวเลือกเซิร์ฟเวอร์ที่ด้านบนของแผงนำทาง"
 
 #: src/Config/Descriptions.php:306
 msgid "String that separates databases into different tree levels."
@@ -11006,11 +11016,11 @@ msgstr "แสดงรายการเซิร์ฟเวอร์เป็
 
 #: src/Config/Descriptions.php:547
 msgid "A dropdown will be used if fewer items are present."
-msgstr ""
+msgstr "จะมีการใช้ดรอปดาวน์หากรายการที่แสดงมีจำนวนน้อย"
 
 #: src/Config/Descriptions.php:548
 msgid "Default value for foreign key checks checkbox for some queries."
-msgstr ""
+msgstr "ค่าเริ่มต้นสำหรับช่องทำเครื่องหมายตรวจสอบคีย์นอกเพื่อบางคำสั่งเรียกดู"
 
 #: src/Config/Descriptions.php:549
 msgid "Uncheck the checkbox to disable drag and drop import"
@@ -11018,34 +11028,28 @@ msgstr ""
 
 #: src/Config/Descriptions.php:550
 msgid "How many rows can be inserted at one time."
-msgstr ""
+msgstr "ให้แทรกข้อมูลได้กี่แถวในครั้งเดียว"
 
 #: src/Config/Descriptions.php:551
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view."
-msgstr ""
+msgstr "จำนวนอักขระสูงสุดที่แสดงในคอลัมน์ที่ไม่ใช่ตัวเลขใด ๆ ในมุมมองการเรียกดู"
 
 #: src/Config/Descriptions.php:552
-#, fuzzy
-#| msgid "Define how long (in seconds) a login cookie is valid"
 msgid "Define how long (in seconds) a login cookie is valid."
-msgstr "ระบุระยะเวลา (วินาที) ที่คุกกี้เข้าสู่ระบบที่ถูกต้อง"
+msgstr "กำหนดระยะเวลา (เป็นวินาที) อายุการใช้งานคุกกี้สำหรับการเข้าสู่ระบบ"
 
 #: src/Config/Descriptions.php:553
 msgid "Double size of textarea for LONGTEXT columns."
-msgstr ""
+msgstr "เพิ่มขนาดเป็นสองเท่าของ textarea สำหรับคอลัมน์ LONGTEXT"
 
 #: src/Config/Descriptions.php:554
-#, fuzzy
-#| msgid "Maximum number of databases displayed in database list"
 msgid "Maximum number of databases displayed in database list."
-msgstr "จำนวนสูงสุดของฐานข้อมูลที่ถูกแสดงในรายการฐานข้อมูล"
+msgstr "จำนวนฐานข้อมูลสูงสุดที่แสดงในรายการฐานข้อมูล"
 
 #: src/Config/Descriptions.php:555
-#, fuzzy
-#| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of tables displayed in table list."
-msgstr "จำนวนสูงสุดของตารางที่ถูกแสดงในรายการตาราง"
+msgstr "จำนวนตารางสูงสุดที่แสดงในรายการตาราง"
 
 #: src/Config/Descriptions.php:556
 #, fuzzy
@@ -11365,56 +11369,45 @@ msgstr "คอลัมน์ที่ล้อมรอบด้วย"
 
 #: src/Config/Descriptions.php:642 src/Config/Descriptions.php:775
 #: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:664
-#, fuzzy
-#| msgid "Fields escaped by"
 msgid "Columns escaped with"
-msgstr "เครื่องหมายสำหรับ escape char"
+msgstr "คอลัมน์ละเว้นด้วย"
 
 #: src/Config/Descriptions.php:643 src/Config/Descriptions.php:649
 #: src/Config/Descriptions.php:656 src/Config/Descriptions.php:665
 #: src/Config/Descriptions.php:673 src/Config/Descriptions.php:677
 #: src/Config/Descriptions.php:722
-#, fuzzy
-#| msgid "Replace NULL by"
 msgid "Replace NULL with"
-msgstr "แทนที่ NULL เป็น"
+msgstr "แทนที่ค่า NULL ด้วย"
 
 #: src/Config/Descriptions.php:644 src/Config/Descriptions.php:650
 msgid "Remove CRLF characters within columns"
-msgstr ""
+msgstr "ลบอักขระ CRLF ภายในคอลัมน์"
 
 #: src/Config/Descriptions.php:645 src/Config/Descriptions.php:778
 #: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:638
-#, fuzzy
-#| msgid "Lines terminated by"
 msgid "Columns terminated with"
-msgstr "จบแถวด้วย"
+msgstr "คอลัมน์ที่สิ้นสุดด้วย"
 
 #: src/Config/Descriptions.php:646 src/Config/Descriptions.php:773
 #: src/Plugins/Import/ImportCsv.php:671
-#, fuzzy
-#| msgid "Lines terminated by"
 msgid "Lines terminated with"
-msgstr "จบแถวด้วย"
+msgstr "บรรทัดที่สิ้นสุดด้วย"
 
 #: src/Config/Descriptions.php:648
 msgid "Excel edition"
 msgstr "รุ่น Excel"
 
 #: src/Config/Descriptions.php:651
-#, fuzzy
 msgid "Database name template"
-msgstr "รูปแบบของชื่อไฟล์"
+msgstr "ต้นแบบชื่อฐานข้อมูล"
 
 #: src/Config/Descriptions.php:652
-#, fuzzy
 msgid "Server name template"
-msgstr "รูปแบบของชื่อไฟล์"
+msgstr "ต้นแบบชื่อเซิร์ฟเวอร์"
 
 #: src/Config/Descriptions.php:653
-#, fuzzy
 msgid "Table name template"
-msgstr "รูปแบบของชื่อไฟล์"
+msgstr "ต้นแบบชื่อตาราง"
 
 #: src/Config/Descriptions.php:657 src/Config/Descriptions.php:670
 #: src/Config/Descriptions.php:679 src/Config/Descriptions.php:717
@@ -11425,24 +11418,20 @@ msgstr "รูปแบบของชื่อไฟล์"
 #: src/Plugins/Export/ExportOdt.php:79 src/Plugins/Export/ExportPdf.php:88
 #: src/Plugins/Export/ExportSql.php:263
 #: src/Plugins/Export/ExportTexytext.php:65
-#, fuzzy
-#| msgid "%s table(s)"
 msgid "Dump table"
-msgstr "%s ตาราง"
+msgstr "สำรองตาราง"
 
 #: src/Config/Descriptions.php:658 src/Plugins/Export/ExportLatex.php:99
 msgid "Include table caption"
-msgstr "รวมถึงคำอธิบายภาพของตาราง"
+msgstr "ใส่คำอธิบายตาราง"
 
 #: src/Config/Descriptions.php:661 src/Config/Descriptions.php:667
 msgid "Table caption"
 msgstr "คำอธิบายตาราง"
 
 #: src/Config/Descriptions.php:662 src/Config/Descriptions.php:668
-#, fuzzy
-#| msgid "Table caption"
 msgid "Continued table caption"
-msgstr "คำอธิบายตาราง"
+msgstr "คำอธิบายตารางต่อเนื่อง"
 
 #: src/Config/Descriptions.php:663 src/Config/Descriptions.php:669
 msgid "Label key"
@@ -11450,10 +11439,8 @@ msgstr "คีย์ป้ายชื่อ"
 
 #: src/Config/Descriptions.php:666 src/Config/Descriptions.php:678
 #: src/Config/Descriptions.php:716
-#, fuzzy
-#| msgid "Relations"
 msgid "Relationships"
-msgstr "รีเลชัน"
+msgstr "ความสัมพันธ์"
 
 #: src/Config/Descriptions.php:671
 msgid "Export method"
@@ -11464,10 +11451,8 @@ msgid "Save on server"
 msgstr "บันทึกบนเซิร์ฟเวอร์"
 
 #: src/Config/Descriptions.php:682
-#, fuzzy
-#| msgid "horizontal (rotated headers)"
 msgid "Export as separate files"
-msgstr "แนวนอน (หมุนหัวเรื่อง)"
+msgstr "ส่งออกแบบแยกไฟล์"
 
 #: src/Config/Descriptions.php:685
 #, fuzzy
@@ -11479,47 +11464,44 @@ msgid "Remove DEFINER clause from definitions"
 msgstr ""
 
 #: src/Config/Descriptions.php:688
-#, fuzzy
-#| msgid "Enclose table and field names with backquotes"
 msgid "Enclose table and column names with backquotes"
-msgstr "ใส่ 'backqoute' ให้กับชื่อตารางและฟิลด์"
+msgstr "เติมชื่อตารางและคอลัมน์ด้วย backquotes"
 
 #: src/Config/Descriptions.php:689 src/Config/Descriptions.php:791
 msgid "SQL compatibility mode"
-msgstr "โหมดที่เข้ากันได้กับ SQL"
+msgstr "โหมดความเข้ากันได้ของ SQL"
 
 #: src/Config/Descriptions.php:690
 msgid "Creation/Update/Check dates"
-msgstr "สร้าง/อัพเดท/ตรวจสอบวันที่"
+msgstr "สร้าง/อัปเดต/ตรวจสอบวันที่"
 
 #: src/Config/Descriptions.php:691
-#, fuzzy
 msgid "Use delayed inserts"
-msgstr "แทรกหลายระเบียนในคราวเดียว"
+msgstr "ใช้การแทรกแบบหน่วงเวลา"
 
 #: src/Config/Descriptions.php:692 src/Plugins/Export/ExportSql.php:232
 msgid "Disable foreign key checks"
 msgstr "ปิดการตรวจสอบคีย์นอก"
 
 #: src/Config/Descriptions.php:693 src/Plugins/Export/ExportSql.php:242
-#, fuzzy
-#| msgid "Create table on database %s"
 msgid "Export views as tables"
-msgstr "สร้างตารางในฐานข้อมูลนี้ %s"
+msgstr "ส่งออกมุมมองเป็นตาราง"
 
 #: src/Config/Descriptions.php:694
 msgid "Export related metadata from phpMyAdmin configuration storage"
-msgstr ""
+msgstr "ส่งออกเมตาเดต้าที่เกี่ยวข้องจากที่เก็บข้อมูลการกำหนดค่า phpMyAdmin"
 
 #: src/Config/Descriptions.php:704
 msgid "Use hexadecimal for BINARY & BLOB"
-msgstr ""
+msgstr "ใช้เลขฐานสิบหกสำหรับไบนารีและ BLOB"
 
 #: src/Config/Descriptions.php:706
 msgid ""
 "Add IF NOT EXISTS (less efficient as indexes will be generated during table "
 "creation)"
 msgstr ""
+"เพิ่มคำสั่ง IF NOT EXISTS (ประสิทธิภาพต่ำกว่า เนื่องจากดัชนีจะถูกสร้างขึ้นในระหว่างการสร้างตารา"
+"ง)"
 
 #: src/Config/Descriptions.php:709 src/Plugins/Export/ExportSql.php:373
 #, fuzzy, php-format
@@ -11528,39 +11510,36 @@ msgid "%s view"
 msgstr "ค่าเซสชั่น"
 
 #: src/Config/Descriptions.php:710
-#, fuzzy
-#| msgid "Extended inserts"
 msgid "Use ignore inserts"
-msgstr "แทรกหลายระเบียนในคราวเดียว"
+msgstr "ใช้การละเว้นการแทรก"
 
 #: src/Config/Descriptions.php:712
 msgid "Syntax to use when inserting data"
-msgstr ""
+msgstr "ไวยกรณ์ที่ใช้ขณะแทรกข้อมูล"
 
 #: src/Config/Descriptions.php:713 src/Plugins/Export/ExportSql.php:500
 msgid "Maximal length of created query"
-msgstr ""
+msgstr "ความยาวสูงสุดของคำสั่งเรียกดูที่สร้างขึ้น"
 
 #: src/Config/Descriptions.php:718
-#, fuzzy
 msgid "Export type"
-msgstr "ไม่มีตาราง"
+msgstr "ประเภทการส่งออก"
 
 #: src/Config/Descriptions.php:719 src/Plugins/Export/ExportSql.php:222
 msgid "Enclose export in a transaction"
-msgstr ""
+msgstr "รวมการส่งออกไว้ในรายการ"
 
 #: src/Config/Descriptions.php:720
 msgid "Export time in UTC"
-msgstr ""
+msgstr "ส่งออกเวลาเป็นรูปแบบ UTC"
 
 #: src/Config/Descriptions.php:724
 msgid "Foreign key dropdown order"
-msgstr ""
+msgstr "ลำดับดรอปดาวน์คีย์นอก"
 
 #: src/Config/Descriptions.php:725
 msgid "Foreign key limit"
-msgstr ""
+msgstr "ข้อจำกัดคีย์นอก"
 
 #: src/Config/Descriptions.php:726
 msgid "Foreign key checks"
@@ -11589,7 +11568,7 @@ msgstr "โหมดแก้ไข"
 
 #: src/Config/Descriptions.php:734
 msgid "Export defaults"
-msgstr "ส่งออกค่าเริ่มต้น"
+msgstr "ค่าเริ่มต้นการส่งออก"
 
 #: src/Config/Descriptions.php:735
 msgid "General"
@@ -11597,7 +11576,7 @@ msgstr "ทั่วไป"
 
 #: src/Config/Descriptions.php:736
 msgid "Import defaults"
-msgstr "นำเข้าค่าเริ่มต้น"
+msgstr "ค่าเริ่มต้นการนำเข้า"
 
 #: src/Config/Descriptions.php:737
 msgid "Import / export"
@@ -11689,7 +11668,7 @@ msgstr "พารามิเตอร์พิเศษสำหรับ iconv
 
 #: src/Config/Descriptions.php:769
 msgid "Ignore multiple statement errors"
-msgstr ""
+msgstr "ละเว้นข้อผิดพลาดจากคำสั่งหลายรายการ"
 
 #: src/Config/Descriptions.php:770
 msgid "Enable drag and drop import"
@@ -11697,52 +11676,48 @@ msgstr ""
 
 #: src/Config/Descriptions.php:771
 msgid "Partial import: allow interrupt"
-msgstr ""
+msgstr "นำเข้าบางส่วน: อนุญาตให้ขัดจังหวะ"
 
 #: src/Config/Descriptions.php:776 src/Config/Descriptions.php:782
 #: src/Plugins/Import/ImportCsv.php:158 src/Plugins/Import/ImportLdi.php:79
 msgid "Do not abort on INSERT error"
-msgstr ""
+msgstr "ห้ามหยุดการทำงานคำสั่ง INSERT เมื่อเกิดข้อผิดพลาด"
 
 #: src/Config/Descriptions.php:777 src/Config/Descriptions.php:784
 msgid "Add ON DUPLICATE KEY UPDATE"
-msgstr ""
+msgstr "เพิ่มเมื่อมีการอัปเดตคีย์ซ้ำ"
 
 #: src/Config/Descriptions.php:779
 msgid "Format of imported file"
-msgstr ""
+msgstr "รูปแบบของไฟล์ที่นำเข้า"
 
 #: src/Config/Descriptions.php:783 src/Plugins/Import/ImportLdi.php:85
 msgid "Use LOCAL keyword"
-msgstr ""
+msgstr "ใช้คีย์เวิร์ดภายในเครื่อง"
 
 #: src/Config/Descriptions.php:786
-#, fuzzy
-#| msgid "Put fields names in the first row"
 msgid "Column names in first row"
-msgstr "ใส่ชื่อฟิลด์ที่แถวแรก"
+msgstr "ชื่อคมลัมน์ที่ข้อมูลแถวแรก"
 
 #: src/Config/Descriptions.php:787 src/Plugins/Import/ImportOds.php:81
 msgid "Do not import empty rows"
-msgstr ""
+msgstr "ไม่ต้องนำเข้าแถวที่ไม่มีข้อมูล"
 
 #: src/Config/Descriptions.php:788
 msgid "Import currencies ($5.00 to 5.00)"
-msgstr ""
+msgstr "นำเข้าสกุลเงิน ($5.00 ถึง 5.00)"
 
 #: src/Config/Descriptions.php:789
 msgid "Import percentages as proper decimals (12.00% to .12)"
-msgstr ""
+msgstr "นำเข้าเปอร์เซ็นต์โดยใช้ทศนิยมที่ถูกต้อง (12.00% เป็น 0.12)"
 
 #: src/Config/Descriptions.php:790
 msgid "Partial import: skip queries"
-msgstr ""
+msgstr "นำเข้าบางส่วน: ข้ามคำสั่งเรียกดู"
 
 #: src/Config/Descriptions.php:792
-#, fuzzy
-#| msgid "Add AUTO_INCREMENT value"
 msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr "เพิ่มค่า AUTO_INCREMENT"
+msgstr "ไม่ต้องใช้ AUTO_INCREMENT สำหรับค่าที่เป็นศูนย์"
 
 #: src/Config/Descriptions.php:793
 msgid "Read as multibytes"
@@ -11750,78 +11725,71 @@ msgstr "อ่านเป็นมัลติไบต์"
 
 #: src/Config/Descriptions.php:794
 msgid "Initial state for sliders"
-msgstr ""
+msgstr "สถานะเริ่มต้นสำหรับตัวเลื่อน"
 
 #: src/Config/Descriptions.php:795
 msgid "Number of inserted rows"
-msgstr ""
+msgstr "จำนวนแถวที่แทรกเข้าไป"
 
 #: src/Config/Descriptions.php:796
 msgid "Limit column characters"
-msgstr ""
+msgstr "จำกัดจำนวนอักขระในคอลัมน์"
 
 #: src/Config/Descriptions.php:797
 msgid "Delete all cookies on logout"
-msgstr ""
+msgstr "ลบคุ้กกี้ทั้งหมดเมื่อออกจากระบบ"
 
 #: src/Config/Descriptions.php:798
 msgid "Recall user name"
-msgstr ""
+msgstr "เรียกคืนชื่อผู้ใช้"
 
 #: src/Config/Descriptions.php:799
 msgid "Login cookie store"
-msgstr ""
+msgstr "การเก็บรักษาคุ้กกี้ที่ใช้เข้าสู่ระบบ"
 
 #: src/Config/Descriptions.php:800
 msgid "Login cookie validity"
-msgstr "เข้าสู่ระบบความถูกต้องของคุกกี้"
+msgstr "ความถูกต้องของคุกกี้ในการเข้าสู่ระบบ"
 
 #: src/Config/Descriptions.php:801
 msgid "Bigger textarea for LONGTEXT"
-msgstr ""
+msgstr "เพิ่มขนาดของ textarea ให้ใหญ่ขึ้นสำหรับ LONGTEXT"
 
 #: src/Config/Descriptions.php:802
 msgid "Maximum displayed SQL length"
-msgstr ""
+msgstr "ความยาวสูงสุดของคำสั่ง SQL ที่แสดง"
 
 #: src/Config/Descriptions.php:803
 msgid "Maximum databases"
 msgstr "ฐานข้อมูลสูงสุด"
 
 #: src/Config/Descriptions.php:804
-#, fuzzy
-#| msgid "Use text field"
 msgid "Maximum items on first level"
-msgstr "ใช้ช่องใส่ข้อความ (text field)"
+msgstr "จำนวนรายการสูงสุดในชั้นแรก"
 
 #: src/Config/Descriptions.php:805
 msgid "Maximum items in branch"
-msgstr ""
+msgstr "จำนวนรายการสูงสุดในสาขา"
 
 #: src/Config/Descriptions.php:806
 msgid "Maximum number of rows to display"
-msgstr ""
+msgstr "จำนวนแถวสูงสุดที่จะแสดง"
 
 #: src/Config/Descriptions.php:807
 msgid "Maximum tables"
 msgstr "ตารางสูงสุด"
 
 #: src/Config/Descriptions.php:808
-#, fuzzy
 msgid "Memory limit"
-msgstr "ขีดจำกัดของทรัพยากร"
+msgstr "ขีดจำกัดหน่วยความจำ"
 
 #: src/Config/Descriptions.php:809
-#, fuzzy
-#| msgid "Reload navigation frame"
 msgid "Show databases navigation as tree"
-msgstr "โหลดกรอบนำทางใหม่"
+msgstr "แสดงการนำทางฐานข้อมูลในรูปแบบแผนผังต้นไม้"
 
 #: src/Config/Descriptions.php:810
-#, fuzzy
-#| msgid "Navigation panel"
 msgid "Navigation panel width"
-msgstr "แผงนำทาง"
+msgstr "ความกว้างแผงนำทาง"
 
 #: src/Config/Descriptions.php:811
 #: src/Controllers/JavaScriptMessagesController.php:586
@@ -11831,15 +11799,15 @@ msgstr "เชื่อมกับแผงหลัก"
 
 #: src/Config/Descriptions.php:812
 msgid "Display logo"
-msgstr ""
+msgstr "แสดงโลโก้"
 
 #: src/Config/Descriptions.php:813
 msgid "Logo link URL"
-msgstr ""
+msgstr "โลโก้ลิงก์ไป URL"
 
 #: src/Config/Descriptions.php:814
 msgid "Logo link target"
-msgstr ""
+msgstr "เป้าหมายลิงก์โลโก้"
 
 #: src/Config/Descriptions.php:815
 msgid "Display servers selection"
@@ -11863,7 +11831,7 @@ msgstr ""
 
 #: src/Config/Descriptions.php:822
 msgid "Group items in the tree"
-msgstr ""
+msgstr "จัดกลุ่มรายการในโครงสร้างแบบต้นไม้"
 
 #: src/Config/Descriptions.php:823
 msgid "Database tree separator"
