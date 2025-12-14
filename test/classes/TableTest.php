@@ -870,6 +870,122 @@ class TableTest extends AbstractTestCase
         );
     }
 
+    public function testGenerateFieldSpecForRename(): void
+    {
+        // Rename a TIMESTAMP column from created_at to created_ts
+        $name = 'created_ts';
+        $type = 'TIMESTAMP';
+        $length = '6';
+        $attribute = '';
+        $collation = '';
+        $null = 'NO';
+        $default_type = 'USER_DEFINED';
+        $default_value = 'current_timestamp(6)';
+        $extra = '';
+        $comment = '';
+        $virtuality = '';
+        $expression = '';
+        $move_to = '';
+        $columnsWithIndex = ['id'];
+        $oldColumnName = 'created_at';
+
+        $query = Table::generateFieldSpec(
+            $name,
+            $type,
+            $length,
+            $attribute,
+            $collation,
+            $null,
+            $default_type,
+            $default_value,
+            $extra,
+            $comment,
+            $virtuality,
+            $expression,
+            $move_to
+        );
+        self::assertSame(
+            '`created_ts` TIMESTAMP(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6)',
+            $query
+        );
+
+        // Rename an INT column from created_at to created_ts
+        // This default values does not insert, but the column definition is valid
+        // And can be renamed
+        $name = 'created_ts';
+        $type = 'INT';
+        $length = '6';
+        $attribute = '';
+        $collation = '';
+        $null = 'NO';
+        $default_type = 'USER_DEFINED';
+        $default_value = 'current_timestamp(6)';
+        $extra = '';
+        $comment = '';
+        $virtuality = '';
+        $expression = '';
+        $move_to = '';
+        $columnsWithIndex = ['id'];
+        $oldColumnName = 'created_at';
+
+        $query = Table::generateFieldSpec(
+            $name,
+            $type,
+            $length,
+            $attribute,
+            $collation,
+            $null,
+            $default_type,
+            $default_value,
+            $extra,
+            $comment,
+            $virtuality,
+            $expression,
+            $move_to
+        );
+        self::assertSame(
+            '`created_ts` INT(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6)',
+            $query
+        );
+
+        // Rename an INT column from created_at to created_ts
+        $name = 'created_ts';
+        $type = 'INT';
+        $length = '6';
+        $attribute = '';
+        $collation = '';
+        $null = 'NO';
+        $default_type = 'USER_DEFINED';
+        $default_value = 'UNIX_TIMESTAMP()';
+        $extra = '';
+        $comment = '';
+        $virtuality = '';
+        $expression = '';
+        $move_to = '';
+        $columnsWithIndex = ['id'];
+        $oldColumnName = 'created_at';
+
+        $query = Table::generateFieldSpec(
+            $name,
+            $type,
+            $length,
+            $attribute,
+            $collation,
+            $null,
+            $default_type,
+            $default_value,
+            $extra,
+            $comment,
+            $virtuality,
+            $expression,
+            $move_to
+        );
+        self::assertSame(
+            '`created_ts` INT(6) NOT NULL DEFAULT UNIX_TIMESTAMP()',
+            $query
+        );
+    }
+
     /**
      * Test for duplicateInfo
      */

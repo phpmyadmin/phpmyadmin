@@ -47,6 +47,7 @@ use function rtrim;
 use function sprintf;
 use function str_contains;
 use function str_replace;
+use function str_starts_with;
 use function stripos;
 use function strlen;
 use function strtolower;
@@ -611,6 +612,13 @@ class Table implements Stringable
                             }
                         } elseif ($type === 'BINARY' || $type === 'VARBINARY') {
                             $query .= ' DEFAULT 0x' . $defaultValue;
+                        } elseif ($defaultValue === 'unix_timestamp()' || $defaultValue === 'UNIX_TIMESTAMP()') {
+                            $query .= ' DEFAULT ' . $defaultValue;
+                        } elseif (
+                            str_starts_with($defaultValue, 'current_timestamp')
+                                 || str_starts_with($defaultValue, 'CURRENT_TIMESTAMP')
+                        ) {
+                            $query .= ' DEFAULT CURRENT_TIMESTAMP(' . $length . ')';
                         } else {
                             $query .= ' DEFAULT \''
                             . $dbi->escapeString((string) $defaultValue) . '\'';
