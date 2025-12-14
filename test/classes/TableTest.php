@@ -902,7 +902,9 @@ class TableTest extends AbstractTestCase
             $comment,
             $virtuality,
             $expression,
-            $move_to
+            $move_to,
+            $columnsWithIndex,
+            $oldColumnName
         );
         self::assertSame(
             '`created_ts` TIMESTAMP(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6)',
@@ -941,7 +943,9 @@ class TableTest extends AbstractTestCase
             $comment,
             $virtuality,
             $expression,
-            $move_to
+            $move_to,
+            $columnsWithIndex,
+            $oldColumnName
         );
         self::assertSame(
             '`created_ts` INT(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6)',
@@ -978,7 +982,9 @@ class TableTest extends AbstractTestCase
             $comment,
             $virtuality,
             $expression,
-            $move_to
+            $move_to,
+            $columnsWithIndex,
+            $oldColumnName
         );
         self::assertSame(
             '`created_ts` INT(6) NOT NULL DEFAULT UNIX_TIMESTAMP()',
