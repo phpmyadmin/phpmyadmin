@@ -234,7 +234,11 @@
 
         <td colspan="{{ action_colspan }}"
             class="text-center">
-            {% trans 'in use' %}
+            {% if current_table['Comment'] is not empty %}
+                {{ current_table['Comment'] }}
+            {% else %}
+                {% trans 'in use' %}
+            {% endif %}
         </td>
     {% endif %}
 </tr>
