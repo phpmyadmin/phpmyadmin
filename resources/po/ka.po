@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-12-07 00:30+0000\n"
+"POT-Creation-Date: 2025-12-14 00:31+0000\n"
 "PO-Revision-Date: 2025-12-04 08:00+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -57,7 +57,7 @@ msgstr "ბნელი"
 #: resources/templates/base.twig:95
 #: resources/templates/server/status/monitor/index.twig:8
 #: src/Controllers/JavaScriptMessagesController.php:215 src/Menu.php:475
-#: src/Util.php:1363
+#: src/Util.php:1359
 msgid "Settings"
 msgstr "პარამეტრები"
 
@@ -116,13 +116,13 @@ msgstr "არცერთი"
 msgid "As defined:"
 msgstr "როგორც აღწერილია:"
 
-#: resources/templates/columns_definitions/column_attributes.twig:102
+#: resources/templates/columns_definitions/column_attributes.twig:91
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details"
 msgstr ""
 
-#: resources/templates/columns_definitions/column_attributes.twig:112
+#: resources/templates/columns_definitions/column_attributes.twig:101
 #: resources/templates/database/data_dictionary/index.twig:42
 #: resources/templates/table/structure/display_structure.twig:137
 #: resources/templates/table/structure/display_structure.twig:143
@@ -132,7 +132,7 @@ msgstr ""
 msgid "Primary"
 msgstr "პირველადი"
 
-#: resources/templates/columns_definitions/column_attributes.twig:116
+#: resources/templates/columns_definitions/column_attributes.twig:105
 #: resources/templates/database/data_dictionary/index.twig:76
 #: resources/templates/indexes.twig:19
 #: resources/templates/table/structure/display_structure.twig:150
@@ -143,8 +143,8 @@ msgstr "პირველადი"
 msgid "Unique"
 msgstr "უნიკალური"
 
-#: resources/templates/columns_definitions/column_attributes.twig:120
-#: resources/templates/columns_definitions/table_fields_definitions.twig:46
+#: resources/templates/columns_definitions/column_attributes.twig:109
+#: resources/templates/columns_definitions/table_fields_definitions.twig:58
 #: resources/templates/table/structure/display_structure.twig:163
 #: resources/templates/table/structure/display_structure.twig:169
 #: resources/templates/table/structure/display_structure.twig:290
@@ -155,37 +155,37 @@ msgstr "უნიკალური"
 msgid "Index"
 msgstr "ინდექსი"
 
-#: resources/templates/columns_definitions/column_attributes.twig:124
+#: resources/templates/columns_definitions/column_attributes.twig:113
 #: resources/templates/table/structure/display_structure.twig:209
 #: resources/templates/table/structure/display_structure.twig:212
 #: resources/templates/table/structure/display_structure.twig:296
 msgid "Fulltext"
 msgstr "Fulltext"
 
-#: resources/templates/columns_definitions/column_attributes.twig:128
+#: resources/templates/columns_definitions/column_attributes.twig:117
 #: resources/templates/table/structure/display_structure.twig:186
 #: resources/templates/table/structure/display_structure.twig:192
 #: resources/templates/table/structure/display_structure.twig:293
 msgid "Spatial"
 msgstr "სივრცითი"
 
-#: resources/templates/columns_definitions/column_attributes.twig:165
+#: resources/templates/columns_definitions/column_attributes.twig:154
 #: resources/templates/table/structure/display_partitions.twig:27
 msgid "Expression"
 msgstr "გამოსახულება"
 
-#: resources/templates/columns_definitions/column_attributes.twig:185
+#: resources/templates/columns_definitions/column_attributes.twig:174
 msgid "first"
 msgstr "პირველი"
 
-#: resources/templates/columns_definitions/column_attributes.twig:190
+#: resources/templates/columns_definitions/column_attributes.twig:179
 #: resources/templates/table/structure/display_structure.twig:447
 #, php-format
 msgid "after %s"
 msgstr "%s-ის შემდეგ"
 
-#: resources/templates/columns_definitions/column_attributes.twig:216
-#: resources/templates/columns_definitions/column_attributes.twig:239
+#: resources/templates/columns_definitions/column_attributes.twig:205
+#: resources/templates/columns_definitions/column_attributes.twig:228
 #: resources/templates/config/form_display/input.twig:43
 #: resources/templates/database/central_columns/main.twig:311
 #: resources/templates/database/designer/main.twig:585
@@ -563,7 +563,7 @@ msgstr "ცხრილის სივრცე"
 msgid "Node group"
 msgstr "კვანძების ჯგუფი"
 
-#: resources/templates/columns_definitions/table_fields_definitions.twig:4
+#: resources/templates/columns_definitions/table_fields_definitions.twig:16
 #: resources/templates/database/central_columns/edit.twig:3
 #: resources/templates/database/export/index.twig:23
 #: resources/templates/database/structure/structure_table_row.twig:48
@@ -578,12 +578,12 @@ msgstr "კვანძების ჯგუფი"
 #: src/Import/Import.php:1168 src/Menu.php:214 src/Menu.php:318
 #: src/Navigation/Nodes/NodeColumn.php:37
 #: src/Navigation/Nodes/NodeDatabase.php:59
-#: src/Navigation/Nodes/NodeTable.php:268 src/Util.php:1062 src/Util.php:1372
-#: src/Util.php:1389
+#: src/Navigation/Nodes/NodeTable.php:268 src/Util.php:1058 src/Util.php:1368
+#: src/Util.php:1385
 msgid "Structure"
 msgstr "სტრუქტურა"
 
-#: resources/templates/columns_definitions/table_fields_definitions.twig:9
+#: resources/templates/columns_definitions/table_fields_definitions.twig:21
 #: resources/templates/database/central_columns/edit.twig:8
 #: resources/templates/database/central_columns/main.twig:16
 #: resources/templates/database/central_columns/main.twig:226
@@ -601,7 +601,7 @@ msgstr "სტრუქტურა"
 msgid "Name"
 msgstr "სახელი"
 
-#: resources/templates/columns_definitions/table_fields_definitions.twig:12
+#: resources/templates/columns_definitions/table_fields_definitions.twig:24
 #: resources/templates/database/central_columns/edit.twig:9
 #: resources/templates/database/central_columns/main.twig:20
 #: resources/templates/database/central_columns/main.twig:230
@@ -634,13 +634,13 @@ msgstr "სახელი"
 msgid "Type"
 msgstr "ტიპი"
 
-#: resources/templates/columns_definitions/table_fields_definitions.twig:16
+#: resources/templates/columns_definitions/table_fields_definitions.twig:28
 #: resources/templates/database/central_columns/edit.twig:10
 #: resources/templates/database/routines/editor_form.twig:57
 msgid "Length/Values"
 msgstr "სიგრძე/მნიშვნელობები"
 
-#: resources/templates/columns_definitions/table_fields_definitions.twig:17
+#: resources/templates/columns_definitions/table_fields_definitions.twig:29
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'…<br>If you ever need to put a backslash (\"\\\") or a "
@@ -652,7 +652,7 @@ msgstr ""
 "(\"\\\") ან ერთი მნიშვნელობის ციტირება (\"'\") ამ მნიშვნელობებს შორის, წინ "
 "უსწრებს უკუქცევით (მაგალითად' '\\\\ xyz' ან 'a \\' b ')."
 
-#: resources/templates/columns_definitions/table_fields_definitions.twig:20
+#: resources/templates/columns_definitions/table_fields_definitions.twig:32
 #: resources/templates/database/central_columns/edit.twig:11
 #: resources/templates/database/central_columns/main.twig:28
 #: resources/templates/database/central_columns/main.twig:238
@@ -673,13 +673,13 @@ msgstr ""
 msgid "Default"
 msgstr "სტანდარტული"
 
-#: resources/templates/columns_definitions/table_fields_definitions.twig:21
+#: resources/templates/columns_definitions/table_fields_definitions.twig:33
 msgid ""
 "For default values, please enter just a single value, without backslash "
 "escaping or quotes, using this format: a"
 msgstr ""
 
-#: resources/templates/columns_definitions/table_fields_definitions.twig:24
+#: resources/templates/columns_definitions/table_fields_definitions.twig:36
 #: resources/templates/database/central_columns/edit.twig:12
 #: resources/templates/database/central_columns/main.twig:32
 #: resources/templates/database/central_columns/main.twig:242
@@ -702,7 +702,7 @@ msgstr ""
 msgid "Collation"
 msgstr "კოლაცია"
 
-#: resources/templates/columns_definitions/table_fields_definitions.twig:27
+#: resources/templates/columns_definitions/table_fields_definitions.twig:39
 #: resources/templates/database/central_columns/edit.twig:13
 #: resources/templates/table/structure/display_structure.twig:24
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:604
@@ -710,7 +710,7 @@ msgstr "კოლაცია"
 msgid "Attributes"
 msgstr "ატრიბუტები"
 
-#: resources/templates/columns_definitions/table_fields_definitions.twig:30
+#: resources/templates/columns_definitions/table_fields_definitions.twig:42
 #: resources/templates/database/central_columns/edit.twig:14
 #: resources/templates/database/central_columns/main.twig:40
 #: resources/templates/database/central_columns/main.twig:250
@@ -735,7 +735,7 @@ msgstr "ატრიბუტები"
 msgid "Null"
 msgstr "Null"
 
-#: resources/templates/columns_definitions/table_fields_definitions.twig:36
+#: resources/templates/columns_definitions/table_fields_definitions.twig:48
 #: resources/templates/database/operations/index.twig:69
 #: resources/templates/database/operations/index.twig:174
 #: resources/templates/database/routines/editor_form.twig:134
@@ -746,7 +746,7 @@ msgstr "Null"
 msgid "Adjust privileges"
 msgstr "პრივილეგიების მორგება"
 
-#: resources/templates/columns_definitions/table_fields_definitions.twig:54
+#: resources/templates/columns_definitions/table_fields_definitions.twig:66
 #: resources/templates/database/data_dictionary/index.twig:30
 #: resources/templates/table/structure/display_structure.twig:28
 #: src/Config/Descriptions.php:660 src/Config/Descriptions.php:675
@@ -759,15 +759,15 @@ msgstr "პრივილეგიების მორგება"
 msgid "Comments"
 msgstr "კომენტარები"
 
-#: resources/templates/columns_definitions/table_fields_definitions.twig:59
+#: resources/templates/columns_definitions/table_fields_definitions.twig:71
 msgid "Virtuality"
 msgstr "ვირტუალურობა"
 
-#: resources/templates/columns_definitions/table_fields_definitions.twig:65
+#: resources/templates/columns_definitions/table_fields_definitions.twig:77
 msgid "Move column"
 msgstr "სვეტის გადატანა"
 
-#: resources/templates/columns_definitions/table_fields_definitions.twig:71
+#: resources/templates/columns_definitions/table_fields_definitions.twig:83
 #: resources/templates/database/data_dictionary/index.twig:32
 #: src/Config/Descriptions.php:664 src/Config/Descriptions.php:676
 #: src/Config/Descriptions.php:714 src/Plugins/Export/ExportHtmlword.php:355
@@ -777,22 +777,22 @@ msgstr "სვეტის გადატანა"
 msgid "Media type"
 msgstr "მედიის ტიპი"
 
-#: resources/templates/columns_definitions/table_fields_definitions.twig:75
-#: resources/templates/columns_definitions/table_fields_definitions.twig:86
+#: resources/templates/columns_definitions/table_fields_definitions.twig:87
+#: resources/templates/columns_definitions/table_fields_definitions.twig:98
 msgid "List of available transformations and their options"
 msgstr "ხელმისაწვდომი გარდაქმნებისა და მათი პარამეტრების სია"
 
-#: resources/templates/columns_definitions/table_fields_definitions.twig:77
+#: resources/templates/columns_definitions/table_fields_definitions.twig:89
 #: resources/templates/transformation_overview.twig:18
 msgid "Browser display transformation"
 msgstr "ბრაუზერის ჩვენების ტრანსფორმაცია"
 
-#: resources/templates/columns_definitions/table_fields_definitions.twig:81
+#: resources/templates/columns_definitions/table_fields_definitions.twig:93
 msgid "Browser display transformation options"
 msgstr "ბრაუზერის ჩვენების ტრანსფორმაციის პარამეტრები"
 
-#: resources/templates/columns_definitions/table_fields_definitions.twig:82
-#: resources/templates/columns_definitions/table_fields_definitions.twig:93
+#: resources/templates/columns_definitions/table_fields_definitions.twig:94
+#: resources/templates/columns_definitions/table_fields_definitions.twig:105
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br>If you ever need to put a backslash (\"\\\") or a single "
@@ -800,12 +800,12 @@ msgid ""
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 
-#: resources/templates/columns_definitions/table_fields_definitions.twig:88
+#: resources/templates/columns_definitions/table_fields_definitions.twig:100
 #: resources/templates/transformation_overview.twig:37
 msgid "Input transformation"
 msgstr "შეყვანის გარდაქმნა"
 
-#: resources/templates/columns_definitions/table_fields_definitions.twig:92
+#: resources/templates/columns_definitions/table_fields_definitions.twig:104
 msgid "Input transformation options"
 msgstr "შეყვანის გარდაქმნის პარამეტრები"
 
@@ -1360,8 +1360,8 @@ msgstr "მოქმედება"
 #: resources/templates/database/designer/main.twig:1116
 #: resources/templates/database/structure/bulk_action_modal.twig:7
 #: resources/templates/database/structure/bulk_action_modal.twig:11
-#: resources/templates/database/structure/check_all_tables.twig:49
-#: resources/templates/database/structure/check_all_tables.twig:55
+#: resources/templates/database/structure/check_all_tables.twig:51
+#: resources/templates/database/structure/check_all_tables.twig:57
 #: resources/templates/error/report_modal.twig:6
 #: resources/templates/error/report_modal.twig:11
 #: resources/templates/gis_data_editor_form.twig:76
@@ -1744,7 +1744,7 @@ msgstr "მოვლენის სახელი"
 #: resources/templates/table/tracking/main.twig:31
 #: src/Config/ConfigFile.php:578
 #: src/Controllers/JavaScriptMessagesController.php:275 src/Menu.php:446
-#: src/Server/Status/Processes.php:106 src/Util.php:1359
+#: src/Server/Status/Processes.php:106 src/Util.php:1355
 msgid "Status"
 msgstr "სტატუსი"
 
@@ -1812,7 +1812,7 @@ msgstr "აღმწერი"
 #: src/Navigation/Nodes/NodeEventContainer.php:22
 #: src/Navigation/Nodes/NodeEventContainer.php:24
 #: src/Plugins/Export/ExportSql.php:995 src/Plugins/Export/ExportXml.php:97
-#: src/Util.php:1381
+#: src/Util.php:1377
 msgid "Events"
 msgstr "მოვლენები"
 
@@ -1874,7 +1874,7 @@ msgstr "ყველას მონიშვნა"
 #: src/Config/Forms/User/ExportForm.php:148
 #: src/Controllers/JavaScriptMessagesController.php:361 src/Menu.php:241
 #: src/Menu.php:343 src/Menu.php:465 src/Server/Privileges.php:1283
-#: src/Util.php:1361 src/Util.php:1376 src/Util.php:1393
+#: src/Util.php:1357 src/Util.php:1372 src/Util.php:1389
 msgid "Export"
 msgstr "ექსპორტი"
 
@@ -2057,7 +2057,7 @@ msgid "criteria"
 msgstr "კრიტერიუმი"
 
 #: resources/templates/database/multi_table_query/form.twig:56
-#: src/Util.php:1834
+#: src/Util.php:1625
 msgid "Sort"
 msgstr "დალაგება"
 
@@ -2069,7 +2069,7 @@ msgstr "დალაგება"
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:158
 #: src/Config/ConfigFile.php:554 src/Display/Results.php:1391
-#: src/Display/Results.php:1397 src/Util.php:1842 src/Util.php:1859
+#: src/Display/Results.php:1397 src/Util.php:1633 src/Util.php:1650
 msgid "Ascending"
 msgstr "ზრდადობით"
 
@@ -2081,7 +2081,7 @@ msgstr "ზრდადობით"
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:162
 #: src/Config/ConfigFile.php:554 src/Display/Results.php:1386
-#: src/Display/Results.php:1402 src/Util.php:1847 src/Util.php:1864
+#: src/Display/Results.php:1402 src/Util.php:1638 src/Util.php:1655
 msgid "Descending"
 msgstr "კლებადობით"
 
@@ -2268,7 +2268,7 @@ msgstr "ჰოსტის სახელი"
 #: resources/templates/table/privileges/index.twig:22
 #: src/Config/ConfigFile.php:582
 #: src/Controllers/Server/PrivilegesController.php:429 src/Menu.php:257
-#: src/Menu.php:365 src/Util.php:1379 src/Util.php:1395
+#: src/Menu.php:365 src/Util.php:1375 src/Util.php:1391
 msgid "Privileges"
 msgstr "პრივილეგიები"
 
@@ -2424,7 +2424,7 @@ msgid "This routine does not require any parameters."
 msgstr "ამ პროცედურას პარამეტრები არ სჭირდება."
 
 #: resources/templates/database/routines/index.twig:3 src/Menu.php:371
-#: src/Util.php:1380
+#: src/Util.php:1376
 msgid "Routines"
 msgstr "პროცედურები"
 
@@ -2436,8 +2436,8 @@ msgstr "პროცედურები"
 #: resources/templates/server/databases/index.twig:77
 #: src/Config/ConfigFile.php:522 src/Config/ConfigFile.php:536
 #: src/Config/ConfigFile.php:590 src/Config/ConfigFile.php:600 src/Menu.php:223
-#: src/Menu.php:327 src/Navigation/Nodes/NodeTable.php:269 src/Util.php:1064
-#: src/Util.php:1374 src/Util.php:1391
+#: src/Menu.php:327 src/Navigation/Nodes/NodeTable.php:269 src/Util.php:1060
+#: src/Util.php:1370 src/Util.php:1387
 msgid "Search"
 msgstr "ძებნა"
 
@@ -2550,7 +2550,7 @@ msgstr[0] "%1$s დამთხვევა ცხრილში <strong>%2$s</
 #: resources/templates/table/structure/display_structure.twig:271
 #: src/Config/ConfigFile.php:526 src/Config/ConfigFile.php:540
 #: src/Config/ConfigFile.php:604 src/Menu.php:207
-#: src/Navigation/Nodes/NodeTable.php:272 src/Util.php:1066 src/Util.php:1388
+#: src/Navigation/Nodes/NodeTable.php:272 src/Util.php:1062 src/Util.php:1384
 msgid "Browse"
 msgstr "არჩევა"
 
@@ -2573,7 +2573,7 @@ msgstr[0] "%s ცხრილი"
 #: resources/templates/database/structure/body_for_table_summary.twig:8
 #: resources/templates/database/structure/table_header.twig:10
 #: resources/templates/server/replication/index.twig:5 src/Menu.php:497
-#: src/Server/Status/Data.php:124 src/Util.php:1365
+#: src/Server/Status/Data.php:124 src/Util.php:1361
 msgid "Replication"
 msgstr "რეპლიკაცია"
 
@@ -2588,7 +2588,7 @@ msgid "%s is the default storage engine on this MySQL server."
 msgstr ""
 
 #: resources/templates/database/structure/bulk_action_modal.twig:12
-#: resources/templates/database/structure/check_all_tables.twig:56
+#: resources/templates/database/structure/check_all_tables.twig:58
 msgid "Continue"
 msgstr "გაგრძელება"
 
@@ -2678,7 +2678,7 @@ msgid "Copy table with prefix"
 msgstr "პრეფიქსის მქონე ცხრილის კოპირება"
 
 #: resources/templates/database/structure/check_all_tables.twig:32
-#: src/Menu.php:405 src/Util.php:1385
+#: src/Menu.php:405 src/Util.php:1381
 msgid "Central columns"
 msgstr "ცენტრალური სვეტები"
 
@@ -2694,11 +2694,11 @@ msgstr ""
 msgid "Make consistent with central list"
 msgstr "ცენტრალურ სიასთან შეთანხმება"
 
-#: resources/templates/database/structure/check_all_tables.twig:48
+#: resources/templates/database/structure/check_all_tables.twig:50
 msgid "Are you sure?"
 msgstr "დარწმუნებული ბრძანდებით?"
 
-#: resources/templates/database/structure/check_all_tables.twig:52
+#: resources/templates/database/structure/check_all_tables.twig:54
 msgid ""
 "This action may change some of the columns definition.[br]Are you sure you "
 "want to continue?"
@@ -2823,9 +2823,16 @@ msgstr "რეპლიცირებულია"
 #: resources/templates/database/structure/structure_table_row.twig:59
 #: resources/templates/sql/query.twig:76 src/Config/ConfigFile.php:524
 #: src/Config/ConfigFile.php:538 src/Config/ConfigFile.php:602 src/Menu.php:234
-#: src/Navigation/Nodes/NodeTable.php:270 src/Util.php:1065 src/Util.php:1392
+#: src/Navigation/Nodes/NodeTable.php:270 src/Util.php:1061 src/Util.php:1388
 msgid "Insert"
 msgstr "ჩასმა"
+
+#: resources/templates/database/structure/structure_table_row.twig:71
+#: resources/templates/table/operations/index.twig:418
+#: resources/templates/table/operations/index.twig:436
+#, php-format
+msgid "Table %s has been emptied."
+msgstr ""
 
 #: resources/templates/database/structure/structure_table_row.twig:237
 msgid "in use"
@@ -3609,7 +3616,7 @@ msgstr "უკან"
 #: resources/templates/server/status/monitor/index.twig:53
 #: resources/templates/server/status/monitor/index.twig:69
 #: src/Config/Forms/User/ImportForm.php:58 src/Menu.php:250 src/Menu.php:353
-#: src/Menu.php:470 src/Util.php:1362 src/Util.php:1377 src/Util.php:1394
+#: src/Menu.php:470 src/Util.php:1358 src/Util.php:1373 src/Util.php:1390
 msgid "Import"
 msgstr "შემოტანა"
 
@@ -3922,7 +3929,7 @@ msgstr "SQL ატვირთვა"
 #: resources/templates/server/export/index.twig:14
 #: resources/templates/server/privileges/user_properties.twig:20
 #: src/Config/ConfigFile.php:576 src/Config/Descriptions.php:728
-#: src/Config/Descriptions.php:739 src/Menu.php:436 src/Util.php:1357
+#: src/Config/Descriptions.php:739 src/Menu.php:436 src/Util.php:1353
 msgid "Databases"
 msgstr "მონაცემთა ბაზები"
 
@@ -4354,7 +4361,7 @@ msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 
 #: resources/templates/server/binlog/index.twig:3 src/Menu.php:490
-#: src/Server/Status/Data.php:119 src/Util.php:1364
+#: src/Server/Status/Data.php:119 src/Util.php:1360
 msgid "Binary log"
 msgstr "ბინარული ჟურნალი"
 
@@ -4553,7 +4560,7 @@ msgstr ""
 #: resources/templates/server/engines/show.twig:18
 #: resources/templates/server/engines/show.twig:21
 #: resources/templates/sql/query.twig:194 src/Config/ConfigFile.php:580
-#: src/Menu.php:503 src/Server/Status/Data.php:186 src/Util.php:1366
+#: src/Menu.php:503 src/Server/Status/Data.php:186 src/Util.php:1362
 msgid "Variables"
 msgstr "ცვლადები"
 
@@ -4574,7 +4581,7 @@ msgid "Importing into the current server"
 msgstr "მიმდინა სერვერში შეტანა"
 
 #: resources/templates/server/plugins/index.twig:4 src/Menu.php:518
-#: src/Util.php:1368
+#: src/Util.php:1364
 msgid "Plugins"
 msgstr "დამატებები"
 
@@ -5724,13 +5731,13 @@ msgstr ""
 
 #. l10n: shortcuts for Kilobyte
 #: resources/templates/server/status/monitor/index.twig:181
-#: src/Controllers/JavaScriptMessagesController.php:204 src/Util.php:313
+#: src/Controllers/JavaScriptMessagesController.php:204 src/Util.php:309
 msgid "KiB"
 msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
 #: resources/templates/server/status/monitor/index.twig:182
-#: src/Controllers/JavaScriptMessagesController.php:205 src/Util.php:315
+#: src/Controllers/JavaScriptMessagesController.php:205 src/Util.php:311
 msgid "MiB"
 msgstr "MiB"
 
@@ -5792,7 +5799,7 @@ msgid "Query analyzer"
 msgstr "მოთხოვნის ანალიზატორი"
 
 #: resources/templates/server/status/monitor/index.twig:273 src/Menu.php:335
-#: src/Util.php:1375
+#: src/Util.php:1371
 msgid "Query"
 msgstr "მოთხოვნა"
 
@@ -6718,13 +6725,6 @@ msgstr ""
 msgid "Flush the table (FLUSH)"
 msgstr ""
 
-#: resources/templates/table/operations/index.twig:418
-#: resources/templates/table/operations/index.twig:436
-#: src/Controllers/Database/StructureController.php:401
-#, php-format
-msgid "Table %s has been emptied."
-msgstr ""
-
 #: resources/templates/table/operations/index.twig:421
 msgid "Empty the table (TRUNCATE)"
 msgstr ""
@@ -6735,13 +6735,13 @@ msgstr "ცხრილის დაცარიელება (DELETE FROM)"
 
 #: resources/templates/table/operations/index.twig:459
 #: resources/templates/table/operations/view.twig:32
-#: src/Controllers/Database/StructureController.php:354
+#: src/Controllers/Database/StructureController.php:365
 #, php-format
 msgid "View %s has been dropped."
 msgstr "ხედი %s მოცილებულია."
 
 #: resources/templates/table/operations/index.twig:459
-#: src/Controllers/Database/StructureController.php:354
+#: src/Controllers/Database/StructureController.php:365
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "ცხრილი %s წაშლილია."
@@ -6765,7 +6765,7 @@ msgstr ""
 
 #: resources/templates/table/operations/view.twig:8
 #: src/Config/ConfigFile.php:592 src/Menu.php:268 src/Menu.php:278
-#: src/Menu.php:358 src/Util.php:1067 src/Util.php:1378 src/Util.php:1396
+#: src/Menu.php:358 src/Util.php:1063 src/Util.php:1374 src/Util.php:1392
 msgid "Operations"
 msgstr "მოქმედებები"
 
@@ -7231,7 +7231,7 @@ msgstr "ტრიგერის %s გატანა"
 #: src/Plugins/Export/ExportOdt.php:605 src/Plugins/Export/ExportPdf.php:233
 #: src/Plugins/Export/ExportSql.php:1888
 #: src/Plugins/Export/ExportTexytext.php:453
-#: src/Plugins/Export/ExportXml.php:117 src/Util.php:1382 src/Util.php:1398
+#: src/Plugins/Export/ExportXml.php:117 src/Util.php:1378 src/Util.php:1394
 msgid "Triggers"
 msgstr "ტრიგერები"
 
@@ -8652,8 +8652,8 @@ msgstr "ვიეტნამური"
 #: src/Config/ConfigFile.php:520 src/Config/ConfigFile.php:534
 #: src/Config/ConfigFile.php:588 src/Config/ConfigFile.php:598
 #: src/Config/Descriptions.php:755 src/Menu.php:219 src/Menu.php:323
-#: src/Menu.php:441 src/Navigation/Nodes/NodeTable.php:271 src/Util.php:1063
-#: src/Util.php:1358 src/Util.php:1373 src/Util.php:1390
+#: src/Menu.php:441 src/Navigation/Nodes/NodeTable.php:271 src/Util.php:1059
+#: src/Util.php:1354 src/Util.php:1369 src/Util.php:1386
 msgid "SQL"
 msgstr "SQL"
 
@@ -11461,8 +11461,8 @@ msgstr ""
 #: src/Controllers/Database/SearchController.php:58
 #: src/Controllers/Database/SqlController.php:54
 #: src/Controllers/Database/SqlController.php:59
-#: src/Controllers/Database/StructureController.php:139
-#: src/Controllers/Database/StructureController.php:144
+#: src/Controllers/Database/StructureController.php:153
+#: src/Controllers/Database/StructureController.php:158
 #: src/Controllers/Database/Structure/FavoriteTableController.php:65
 #: src/Controllers/Database/Structure/RealRowCountController.php:52
 #: src/Controllers/Database/TrackingController.php:55
@@ -11677,7 +11677,7 @@ msgstr ""
 msgid "Success!"
 msgstr "წარმატება!"
 
-#: src/Controllers/Database/StructureController.php:567
+#: src/Controllers/Database/StructureController.php:566
 #: src/Display/Results.php:3298
 #, php-format
 msgid ""
@@ -11685,7 +11685,7 @@ msgid ""
 "%sdocumentation%s."
 msgstr ""
 
-#: src/Controllers/Database/StructureController.php:736
+#: src/Controllers/Database/StructureController.php:735
 msgid "unknown"
 msgstr "უცნობი"
 
@@ -11894,12 +11894,12 @@ msgid ""
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
 
-#: src/Controllers/Import/ImportController.php:631
-#: src/Controllers/Sql/SqlController.php:145
+#: src/Controllers/Import/ImportController.php:623
+#: src/Controllers/Sql/SqlController.php:137
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr ""
 
-#: src/Controllers/Import/ImportController.php:680 src/Sql.php:902
+#: src/Controllers/Import/ImportController.php:672 src/Sql.php:896
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -12156,12 +12156,12 @@ msgid "Other"
 msgstr "სხვა"
 
 #. l10n: Thousands separator
-#: src/Controllers/JavaScriptMessagesController.php:169 src/Util.php:393
+#: src/Controllers/JavaScriptMessagesController.php:169 src/Util.php:389
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: src/Controllers/JavaScriptMessagesController.php:171 src/Util.php:391
+#: src/Controllers/JavaScriptMessagesController.php:171 src/Util.php:387
 msgid "."
 msgstr "."
 
@@ -12246,27 +12246,27 @@ msgid "Bytes received"
 msgstr "მიღებული ბაიტები"
 
 #. l10n: shortcuts for Byte
-#: src/Controllers/JavaScriptMessagesController.php:203 src/Util.php:311
+#: src/Controllers/JavaScriptMessagesController.php:203 src/Util.php:307
 msgid "B"
 msgstr "B"
 
 #. l10n: shortcuts for Gigabyte
-#: src/Controllers/JavaScriptMessagesController.php:206 src/Util.php:317
+#: src/Controllers/JavaScriptMessagesController.php:206 src/Util.php:313
 msgid "GiB"
 msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
-#: src/Controllers/JavaScriptMessagesController.php:207 src/Util.php:319
+#: src/Controllers/JavaScriptMessagesController.php:207 src/Util.php:315
 msgid "TiB"
 msgstr "ტიბ"
 
 #. l10n: shortcuts for Petabyte
-#: src/Controllers/JavaScriptMessagesController.php:208 src/Util.php:321
+#: src/Controllers/JavaScriptMessagesController.php:208 src/Util.php:317
 msgid "PiB"
 msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
-#: src/Controllers/JavaScriptMessagesController.php:209 src/Util.php:323
+#: src/Controllers/JavaScriptMessagesController.php:209 src/Util.php:319
 msgid "EiB"
 msgstr "EiB"
 
@@ -13360,97 +13360,97 @@ msgctxt "Month name"
 msgid "December"
 msgstr "დეკემბერი"
 
-#: src/Controllers/JavaScriptMessagesController.php:708 src/Util.php:505
+#: src/Controllers/JavaScriptMessagesController.php:708 src/Util.php:501
 msgctxt "Short month name for January"
 msgid "Jan"
 msgstr "იან"
 
-#: src/Controllers/JavaScriptMessagesController.php:709 src/Util.php:506
+#: src/Controllers/JavaScriptMessagesController.php:709 src/Util.php:502
 msgctxt "Short month name for February"
 msgid "Feb"
 msgstr "თებ"
 
-#: src/Controllers/JavaScriptMessagesController.php:710 src/Util.php:507
+#: src/Controllers/JavaScriptMessagesController.php:710 src/Util.php:503
 msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "მარ"
 
-#: src/Controllers/JavaScriptMessagesController.php:711 src/Util.php:508
+#: src/Controllers/JavaScriptMessagesController.php:711 src/Util.php:504
 msgctxt "Short month name for April"
 msgid "Apr"
 msgstr "აპრ"
 
-#: src/Controllers/JavaScriptMessagesController.php:712 src/Util.php:509
+#: src/Controllers/JavaScriptMessagesController.php:712 src/Util.php:505
 msgctxt "Short month name for May"
 msgid "May"
 msgstr "მაისი"
 
-#: src/Controllers/JavaScriptMessagesController.php:713 src/Util.php:510
+#: src/Controllers/JavaScriptMessagesController.php:713 src/Util.php:506
 msgctxt "Short month name for June"
 msgid "Jun"
 msgstr "ივნ"
 
-#: src/Controllers/JavaScriptMessagesController.php:714 src/Util.php:511
+#: src/Controllers/JavaScriptMessagesController.php:714 src/Util.php:507
 msgctxt "Short month name for July"
 msgid "Jul"
 msgstr "ივლ"
 
-#: src/Controllers/JavaScriptMessagesController.php:715 src/Util.php:512
+#: src/Controllers/JavaScriptMessagesController.php:715 src/Util.php:508
 msgctxt "Short month name for August"
 msgid "Aug"
 msgstr "აგვ"
 
-#: src/Controllers/JavaScriptMessagesController.php:716 src/Util.php:513
+#: src/Controllers/JavaScriptMessagesController.php:716 src/Util.php:509
 msgctxt "Short month name for September"
 msgid "Sep"
 msgstr "სექ"
 
-#: src/Controllers/JavaScriptMessagesController.php:717 src/Util.php:514
+#: src/Controllers/JavaScriptMessagesController.php:717 src/Util.php:510
 msgctxt "Short month name for October"
 msgid "Oct"
 msgstr "ოქტ"
 
-#: src/Controllers/JavaScriptMessagesController.php:718 src/Util.php:515
+#: src/Controllers/JavaScriptMessagesController.php:718 src/Util.php:511
 msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "ნოე"
 
-#: src/Controllers/JavaScriptMessagesController.php:719 src/Util.php:516
+#: src/Controllers/JavaScriptMessagesController.php:719 src/Util.php:512
 msgctxt "Short month name for December"
 msgid "Dec"
 msgstr "დეკ"
 
-#: src/Controllers/JavaScriptMessagesController.php:727 src/Util.php:519
+#: src/Controllers/JavaScriptMessagesController.php:727 src/Util.php:515
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "კვ"
 
-#: src/Controllers/JavaScriptMessagesController.php:728 src/Util.php:520
+#: src/Controllers/JavaScriptMessagesController.php:728 src/Util.php:516
 msgctxt "Short week day name for Monday"
 msgid "Mon"
 msgstr "ორშ"
 
-#: src/Controllers/JavaScriptMessagesController.php:729 src/Util.php:521
+#: src/Controllers/JavaScriptMessagesController.php:729 src/Util.php:517
 msgctxt "Short week day name for Tuesday"
 msgid "Tue"
 msgstr "სამ"
 
-#: src/Controllers/JavaScriptMessagesController.php:730 src/Util.php:522
+#: src/Controllers/JavaScriptMessagesController.php:730 src/Util.php:518
 msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr "ოთხ"
 
-#: src/Controllers/JavaScriptMessagesController.php:731 src/Util.php:523
+#: src/Controllers/JavaScriptMessagesController.php:731 src/Util.php:519
 msgctxt "Short week day name for Thursday"
 msgid "Thu"
 msgstr "ხუთ"
 
-#: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:524
+#: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:520
 msgctxt "Short week day name for Friday"
 msgid "Fri"
 msgstr "პარ"
 
-#: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:525
+#: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:521
 msgctxt "Short week day name for Saturday"
 msgid "Sat"
 msgstr "შაბ"
@@ -13731,7 +13731,7 @@ msgstr "phpMyAdmin-ის კონფიგურაციის ნაწყ�
 msgid "Paste it to your config.inc.php"
 msgstr ""
 
-#: src/Controllers/Preferences/ManageController.php:138
+#: src/Controllers/Preferences/ManageController.php:137
 msgid "Could not import configuration"
 msgstr "კონფიგურაციის შემოტანის სეცდომა"
 
@@ -14426,19 +14426,19 @@ msgstr "არასწორი მონაცემები"
 msgid "Wrong data or no validation for %s"
 msgstr ""
 
-#: src/Controllers/Sql/SqlController.php:213 src/Sql.php:1069
+#: src/Controllers/Sql/SqlController.php:206 src/Sql.php:1063
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "სანიშნე %s შეიქმნა."
 
-#: src/Controllers/Sql/SqlController.php:220
+#: src/Controllers/Sql/SqlController.php:213
 msgid "Bookmark not created!"
 msgstr "სანიშნი არ შექმნილა!"
 
 #: src/Controllers/Table/AddFieldController.php:136
 #: src/Controllers/Table/IndexesController.php:139
 #: src/Controllers/Table/IndexRenameController.php:123
-#: src/Controllers/Table/Structure/PartitioningController.php:262
+#: src/Controllers/Table/Structure/PartitioningController.php:265
 #: src/Controllers/Table/Structure/SaveController.php:217
 #, php-format
 msgid "Table %1$s has been altered successfully."
@@ -14503,7 +14503,7 @@ msgstr "პრობლემა თქვენს მოთხოვნას�
 
 #: src/Controllers/Table/GetFieldController.php:87
 #: src/Database/Routines.php:1036 src/Import/Import.php:135
-#: src/InsertEdit.php:159 src/Sql.php:888
+#: src/InsertEdit.php:159 src/Sql.php:882
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr ""
 
@@ -14562,7 +14562,7 @@ msgstr ""
 msgid "The selected columns are already in the correct order."
 msgstr ""
 
-#: src/Controllers/Table/Structure/PartitioningController.php:254
+#: src/Controllers/Table/Structure/PartitioningController.php:257
 #: src/Controllers/Table/Structure/SaveController.php:267
 #: src/Tracking/Tracking.php:731
 msgid "Query error"
@@ -14868,7 +14868,7 @@ msgstr ""
 msgid "The row has been deleted."
 msgstr "წკრივი წაიშალა."
 
-#: src/Display/Results.php:3017 src/Display/Results.php:3339 src/Sql.php:894
+#: src/Display/Results.php:3017 src/Display/Results.php:3339 src/Sql.php:888
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "მოთხოვნას %01.4f წმ დასჭირდა."
@@ -15443,11 +15443,11 @@ msgstr ""
 msgid "web server upload directory:"
 msgstr "ვებსერერის ატვირთვის საქაღალდე:"
 
-#: src/InsertEdit.php:846 src/Sql.php:885
+#: src/InsertEdit.php:846 src/Sql.php:879
 msgid "Showing SQL query"
 msgstr ""
 
-#: src/InsertEdit.php:870 src/Sql.php:865
+#: src/InsertEdit.php:870 src/Sql.php:859
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "ჩამატებული სტრიქონის id: %1$d"
@@ -15462,7 +15462,7 @@ msgstr ""
 msgid "%1$s (near <code>%2$s</code>)"
 msgstr ""
 
-#: src/Menu.php:284 src/Menu.php:391 src/Util.php:1383 src/Util.php:1397
+#: src/Menu.php:284 src/Menu.php:391 src/Util.php:1379 src/Util.php:1393
 msgid "Tracking"
 msgstr "ტრეკინგი"
 
@@ -15470,7 +15470,7 @@ msgstr "ტრეკინგი"
 msgid "Database seems to be empty!"
 msgstr ""
 
-#: src/Menu.php:398 src/Util.php:1384
+#: src/Menu.php:398 src/Util.php:1380
 msgid "Designer"
 msgstr "შემქნელი"
 
@@ -15478,11 +15478,11 @@ msgstr "შემქნელი"
 msgid "User accounts"
 msgstr "მომხმარებლის ანგარიშები"
 
-#: src/Menu.php:508 src/Util.php:1367
+#: src/Menu.php:508 src/Util.php:1363
 msgid "Charsets"
 msgstr "სიმბოლოთა ნაკრებები"
 
-#: src/Menu.php:513 src/Util.php:1369
+#: src/Menu.php:513 src/Util.php:1365
 msgid "Engines"
 msgstr "ძრავები"
 
@@ -16582,7 +16582,7 @@ msgstr ""
 
 #. l10n: See https://www.php.net/manual/en/function.strftime.php
 #: src/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:129
-#: src/Util.php:530
+#: src/Util.php:526
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%B %d, %Y, %I:%M %p"
 
@@ -17093,23 +17093,23 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr ""
 
-#: src/Sql.php:448
+#: src/Sql.php:442
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: src/Sql.php:882
+#: src/Sql.php:876
 msgid "Showing as PHP code"
 msgstr "PHP კოდის სახით ჩვენება"
 
-#: src/Sql.php:1227
+#: src/Sql.php:1221
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available. %s"
 msgstr ""
 
-#: src/Sql.php:1241
+#: src/Sql.php:1235
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -17632,27 +17632,27 @@ msgstr "კონფიგურაციის შენახვის შე�
 msgid "The phpMyAdmin configuration storage database could not be accessed."
 msgstr "phpMyAdmin-ის კონფიგურაციის საცავის ბაზასთან წვდომა შეუძლებელია."
 
-#: src/Util.php:133
+#: src/Util.php:129
 #, php-format
 msgid "Max: %s%s"
 msgstr "მაქს: %s%s"
 
-#: src/Util.php:539
+#: src/Util.php:535
 msgctxt "AM/PM indication in time"
 msgid "PM"
 msgstr "PM"
 
-#: src/Util.php:541
+#: src/Util.php:537
 msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr "AM"
 
-#: src/Util.php:614
+#: src/Util.php:610
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s დღე, %s საათი, %s წუთი და %s წამი"
 
-#: src/Util.php:1360
+#: src/Util.php:1356
 msgid "Users"
 msgstr "მომხმარებლები"
 
