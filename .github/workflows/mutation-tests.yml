@@ -19,7 +19,7 @@ jobs:
         operating-system: [ubuntu-latest]
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Fetch github.base_ref (for diffing)
         if: ${{ github.base_ref != '' }}

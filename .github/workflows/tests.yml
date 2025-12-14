@@ -29,7 +29,7 @@ jobs:
           - { php-version: '8', experimental: false, arch: 's390x', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Write script
         # tcpdf allowed memory exhausted needs the memory_limit workaround
@@ -81,7 +81,7 @@ jobs:
             php-extensions: 'mbstring, iconv, mysqli, zip, bz2'
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           # Fetch some commits for Scrutinizer coverage upload
           fetch-depth: 15
@@ -142,7 +142,7 @@ jobs:
         extension: ["dbase", "recode"]
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           # Fetch some commits for Scrutinizer coverage upload
           fetch-depth: 15
@@ -206,7 +206,7 @@ jobs:
           - {psr-7-library: 'laminas/laminas-diactoros', php-version: '8.0'}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           # Fetch some commits for Scrutinizer coverage upload
           fetch-depth: 15
@@ -267,10 +267,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Set up Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: 12
 
@@ -279,7 +279,7 @@ jobs:
         run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
 
       - name: Cache Yarn dependencies
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
