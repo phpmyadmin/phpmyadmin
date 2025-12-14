@@ -107,6 +107,9 @@ AJAX.registerOnload('table/select.js', function () {
         var $searchForm = $(this);
         event.preventDefault();
 
+        // Remove all jQuery UI tooltips. See #19950
+        $('.ui-tooltip').remove();
+
         // empty previous search results while we are waiting for new results
         $('#sqlqueryresultsouter').empty();
         var $msgbox = Functions.ajaxShowMessage(Messages.strSearching, false);
