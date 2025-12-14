@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-12-14 00:31+0000\n"
-"PO-Revision-Date: 2025-12-13 08:00+0000\n"
+"PO-Revision-Date: 2025-12-15 03:00+0000\n"
 "Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "th/>\n"
@@ -4246,9 +4246,8 @@ msgstr "ตั้งค่าใหม่"
 
 #: resources/templates/navigation/tree/quick_warp.twig:16
 #: src/Config/Descriptions.php:835
-#, fuzzy
 msgid "Favorite tables"
-msgstr "ตัวแปร"
+msgstr "ตารางโปรด"
 
 #: resources/templates/navigation/tree/quick_warp.twig:17
 #, fuzzy
@@ -9936,21 +9935,23 @@ msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
 msgstr ""
+"กำหนดจำนวนขั้นต่ำของรายการ (ตาราง มุมมอง รูทีน และเหตุการณ์) ที่จะแสดงในกล่องตัวกรอง"
 
 #: src/Config/Descriptions.php:290
 msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
 msgstr ""
+"จัดกลุ่มรายการในโครงสร้างการนำทาง (กำหนดโดยตัวคั่นที่กำหนดไว้ในแท็บฐานข้อมูลและตารางด้านบน)"
 
 #: src/Config/Descriptions.php:294
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
-msgstr ""
+msgstr "เพิ่มความเป็นไปได้ในการขยายโครงสร้างต้นไม้ในแผงนำทาง"
 
 #: src/Config/Descriptions.php:297
 msgid "Whether to show procedures under database in the navigation tree"
-msgstr ""
+msgstr "แสดงขั้นตอนภายใต้ฐานข้อมูลในรูปแบบแผนผังต้นไม้"
 
 #: src/Config/Descriptions.php:300
 #, fuzzy
@@ -9975,15 +9976,15 @@ msgstr "แสดงตัวเลือกเซิร์ฟเวอร์ท
 
 #: src/Config/Descriptions.php:306
 msgid "String that separates databases into different tree levels."
-msgstr ""
+msgstr "สตริงที่ใช้แบ่งฐานข้อมูลออกเป็นระดับโครงสร้างแบบต้นไม้ต่าง ๆ"
 
 #: src/Config/Descriptions.php:307
 msgid "String that separates tables into different tree levels."
-msgstr ""
+msgstr "สตริงที่ใช้แบ่งตารางออกเป็นระดับโครงสร้างแบบต้นไม้ต่าง ๆ"
 
 #: src/Config/Descriptions.php:308
 msgid "Highlight server under the mouse cursor."
-msgstr ""
+msgstr "ไฮไลท์เซิร์ฟเวอร์ที่อยู่ใต้เคอร์เซอร์เมาส์"
 
 #: src/Config/Descriptions.php:309
 #, fuzzy
@@ -9991,24 +9992,24 @@ msgid "Whether to show tables under database in the navigation tree"
 msgstr "โหลดกรอบนำทางใหม่"
 
 #: src/Config/Descriptions.php:310
-#, fuzzy
 msgid "Whether to show views under database in the navigation tree"
-msgstr "โหลดกรอบนำทางใหม่"
+msgstr "เพื่อแสดงมุมมองภายใต้ฐานข้อมูลในแผนผังการนำทาง"
 
 #: src/Config/Descriptions.php:311
 msgid "Whether to show functions under database in the navigation tree"
-msgstr ""
+msgstr "แม้จะแสดงฟังก์ชันภายใต้ฐานข้อมูลในแผนผังการนำทาง"
 
 #: src/Config/Descriptions.php:312
-#, fuzzy
 msgid "Whether to show events under database in the navigation tree"
-msgstr "โหลดกรอบนำทางใหม่"
+msgstr "เพื่อแสดงเหตุการณ์ภายใต้ฐานข้อมูลในแผนผังการนำทาง"
 
 #: src/Config/Descriptions.php:314
 msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise."
 msgstr ""
+"[kbd]SMART[/kbd] - กล่าวคือ เรียงลำดับจากมากไปน้อยสำหรับคอลัมน์ประเภท TIME, DATE, "
+"DATETIME และ TIMESTAMP ส่วนประเภทอื่น ๆ จะเรียงลำดับจากน้อยไปมาก"
 
 #: src/Config/Descriptions.php:318
 msgid ""
@@ -10016,12 +10017,16 @@ msgid ""
 "Structure page if any of the required tables for the phpMyAdmin "
 "configuration storage could not be found."
 msgstr ""
+"ปิดใช้งานคำเตือนเริ่มต้นที่แสดงในหน้าโครงสร้างรายละเอียดฐานข้อมูล หากไม่พบตารางที่จำเป็นสำหรับก"
+"ารจัดเก็บการกำหนดค่า phpMyAdmin"
 
 #: src/Config/Descriptions.php:323
 msgid ""
 "Disable the default warning that is displayed on the Structure page if "
 "column names in a table are reserved MySQL words."
 msgstr ""
+"ปิดใช้งานคำเตือนเริ่มต้นที่แสดงในหน้าโครงสร้างรายละเอียดฐานข้อมูล หากชื่อคอลัมน์ในตารางเป็นคำสง"
+"วนของ MySQL"
 
 #: src/Config/Descriptions.php:327
 msgid ""
@@ -10029,6 +10034,9 @@ msgid ""
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
+"เปิดใช้งานหากคุณต้องการประวัติการค้นหาแบบอิงตามฐานข้อมูล (ต้องใช้พื้นที่จัดเก็บการกำหนดค่า "
+"phpMyAdmin) หากปิดใช้งาน ฟังก์ชันนี้จะใช้รูทีน JavaScript เพื่อแสดงประวัติการค้นหา (ซึ่งจะหายไ"
+"ปเมื่อปิดหน้าต่าง)"
 
 #: src/Config/Descriptions.php:331
 msgid "Allow users to create bookmarks that are available for all other users"
@@ -10233,7 +10241,7 @@ msgstr ""
 
 #: src/Config/Descriptions.php:451
 msgid "Leave blank if not used."
-msgstr ""
+msgstr "เว้นว่างไว้หากไม่ได้ใช้งาน"
 
 #: src/Config/Descriptions.php:452
 msgid "Leave blank for defaults."
@@ -10496,80 +10504,75 @@ msgid "Maximum number of tables displayed in table list."
 msgstr "จำนวนตารางสูงสุดที่แสดงในรายการตาราง"
 
 #: src/Config/Descriptions.php:556
-#, fuzzy
 msgid "Maximum number of recently used tables; set 0 to disable."
-msgstr "จำนวนสูงสุดของตารางที่ใช้ล่าสุด; กำหนด 0 เพื่อปิดใช้งาน"
+msgstr "จำนวนตารางที่ใช้งานล่าสุดสูงสุด; กำหนด 0 เพื่อปิดใช้งาน"
 
 #: src/Config/Descriptions.php:557
-#, fuzzy
 msgid "Maximum number of favorite tables; set 0 to disable."
-msgstr "จำนวนสูงสุดของตารางที่ใช้ล่าสุด; กำหนด 0 เพื่อปิดใช้งาน"
+msgstr "จำนวนตารางโปรดสูงสุด; กำหนด 0 เพื่อปิดใช้งาน"
 
 #: src/Config/Descriptions.php:558
 msgid "These are Edit, Copy and Delete links."
-msgstr ""
+msgstr "นี่คือลิงก์สำหรับแก้ไข คัดลอก และลบ"
 
 #: src/Config/Descriptions.php:559
 msgid "Whether to show row links even in the absence of a unique key."
-msgstr ""
+msgstr "จะแสดงลิงก์แถว แม้ว่าจะไม่มีคีย์เฉพาะก็ตาม"
 
 #: src/Config/Descriptions.php:560 src/Config/Descriptions.php:838
-#, fuzzy
 msgid "Disable shortcut keys"
-msgstr "ยกเลิกการเก็บสถิติ"
+msgstr "ปิดการใช้งานคีย์ลัด"
 
 #: src/Config/Descriptions.php:561
-#, fuzzy
 msgid "Use natural order for sorting table and database names."
-msgstr "ใช้เรียงลำดับตามธรรมชาติสำหรับการจัดเรียงชื่อตารางและฐานข้อมูล"
+msgstr "ใช้การเรียงลำดับตามธรรมชาติสำหรับชื่อตารางและฐานข้อมูล"
 
 #: src/Config/Descriptions.php:562 src/Config/Descriptions.php:565
 #: src/Config/Descriptions.php:566
 msgid "Use only icons, only text or both."
-msgstr ""
+msgstr "ใช้เฉพาะไอคอน เฉพาะข้อความ หรือทั้งสองอย่างก็ได้"
 
 #: src/Config/Descriptions.php:563
 msgid "Use GZip output buffering for increased speed in HTTP transfers."
 msgstr ""
+"ใช้การบัฟเฟอร์เอาต์พุต GZip เพื่อเพิ่มความเร็วในการถ่ายโอนข้อมูลผ่าน HTTP"
 
 #: src/Config/Descriptions.php:564
-#, fuzzy
 msgid "Use persistent connections to MySQL databases."
-msgstr "บีบอัดการเชื่อมต่อไปยังเซิร์ฟเวอร์ MySQL"
+msgstr "ใช้การเชื่อมต่อแบบถาวรกับฐานข้อมูล MySQL"
 
 #: src/Config/Descriptions.php:567
 msgid "Disallow BLOB and BINARY columns from editing."
-msgstr ""
+msgstr "ไม่อนุญาตให้แก้ไขคอลัมน์ประเภท BLOB และ BINARY"
 
 #: src/Config/Descriptions.php:568
 msgid "How many queries are kept in history."
-msgstr ""
+msgstr "มีการบันทึกประวัติคำสั่งเรียกดูไว้กี่ครั้ง"
 
 #: src/Config/Descriptions.php:569
 msgid "Select which functions will be used for character set conversion."
-msgstr ""
+msgstr "เลือกฟังก์ชันที่จะใช้สำหรับการแปลงชุดอักขระ"
 
 #: src/Config/Descriptions.php:570
 msgid "When browsing tables, the sorting of each table is remembered."
-msgstr ""
+msgstr "เมื่อเรียกดูตาราง ระบบจะจดจำลำดับการจัดเรียงของแต่ละตารางไว้"
 
 #: src/Config/Descriptions.php:571
 msgid "Default sort order for tables with a primary key."
-msgstr ""
+msgstr "ลำดับการจัดเรียงเริ่มต้นสำหรับตารางที่มีคีย์หลัก"
 
 #: src/Config/Descriptions.php:572
 msgid ""
 "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature."
-msgstr ""
+msgstr "ทำส่วนหัวซ้ำในทุก ๆ เซลส์ X [kbd]0[/kbd] ปิดใช้งานฟีเจอร์นี้"
 
 #: src/Config/Descriptions.php:573
-#, fuzzy
 msgid "For display Options"
-msgstr "ตัวเลือกการแสดงเซิร์ฟเวอร์"
+msgstr "สำหรับตัวเลือกการแสดงผล"
 
 #: src/Config/Descriptions.php:574
 msgid "Directory where exports can be saved on server."
-msgstr ""
+msgstr "ไดเรกทอรีที่สามารถบันทึกการส่งออกไว้บนเซิร์ฟเวอร์"
 
 #: src/Config/Descriptions.php:575
 msgid ""
@@ -11244,23 +11247,23 @@ msgstr "เป้าหมายลิงก์โลโก้"
 
 #: src/Config/Descriptions.php:815
 msgid "Display servers selection"
-msgstr ""
+msgstr "การเลือกเซิร์ฟเวอร์แสดงผล"
 
 #: src/Config/Descriptions.php:816
 msgid "Target for quick access icon"
-msgstr ""
+msgstr "ไอคอนเป้าหมายสำหรับการเข้าถึงอย่างรวดเร็ว"
 
 #: src/Config/Descriptions.php:817
 msgid "Target for second quick access icon"
-msgstr ""
+msgstr "กำหนดเป้าหมายสำหรับไอคอนเข้าถึงด่วนที่สอง"
 
 #: src/Config/Descriptions.php:818
 msgid "Minimum number of items to display the filter box"
-msgstr ""
+msgstr "จำนวนรายการขั้นต่ำที่จะแสดงในกล่องตัวกรอง"
 
 #: src/Config/Descriptions.php:820
 msgid "Minimum number of databases to display the database filter box"
-msgstr ""
+msgstr "จำนวนรายการฐานข้อมูลขั้นต่ำที่จะแสดงในกล่องตัวกรอง"
 
 #: src/Config/Descriptions.php:822
 msgid "Group items in the tree"
@@ -11268,49 +11271,43 @@ msgstr "จัดกลุ่มรายการในโครงสร้า
 
 #: src/Config/Descriptions.php:823
 msgid "Database tree separator"
-msgstr ""
+msgstr "ตัวคั่นฐานข้อมูลแบบโครงสร้างต้นไม้"
 
 #: src/Config/Descriptions.php:824
 msgid "Table tree separator"
-msgstr ""
+msgstr "ตัวคั่นตารางแบบโครงสร้างต้นไม้"
 
 #: src/Config/Descriptions.php:825
 msgid "Maximum table tree depth"
-msgstr ""
+msgstr "ความลึกสูงสุดของโครงสร้างตารางแบบต้นไม้"
 
 #: src/Config/Descriptions.php:826
 msgid "Enable highlighting"
-msgstr ""
+msgstr "เปิดการใช้งานไฮไลท์"
 
 #: src/Config/Descriptions.php:827
-#, fuzzy
 msgid "Enable navigation tree expansion"
-msgstr "คำอธิบายตาราง"
+msgstr "เปิดใช้งานการขยายแผนผังการนำทาง"
 
 #: src/Config/Descriptions.php:828
-#, fuzzy
 msgid "Show tables in tree"
-msgstr "กำลังแสดงตาราง:"
+msgstr "แสดงตารางในแผนผังแบบต้นไม้"
 
 #: src/Config/Descriptions.php:829
-#, fuzzy
 msgid "Show views in tree"
-msgstr "แสดงคำแนะนำ"
+msgstr "แสดงมุมองในแผนผังแบบต้นไม้"
 
 #: src/Config/Descriptions.php:830
-#, fuzzy
 msgid "Show functions in tree"
-msgstr "การเชื่อมต่อ จากครั้งล่าสุด"
+msgstr "แสดงฟังก์ชันในแผนผังแบบต้นไม้"
 
 #: src/Config/Descriptions.php:831
-#, fuzzy
 msgid "Show procedures in tree"
-msgstr "แสดงงานที่ทำอยู่ของ MySQL"
+msgstr "แสดงขั้นตอนในรูปแบบแผนผังต้นไม้"
 
 #: src/Config/Descriptions.php:832
-#, fuzzy
 msgid "Show events in tree"
-msgstr "แสดงคำแนะนำ"
+msgstr "แสดงเหตุการณ์ในรูปแบบแผนผังต้นไม้"
 
 #: src/Config/Descriptions.php:833
 #, fuzzy
@@ -11323,60 +11320,59 @@ msgstr "ตารางที่ใช้ล่าสุด"
 
 #: src/Config/Descriptions.php:836
 msgid "Where to show the table row links"
-msgstr ""
+msgstr "ตำแหน่งที่จะแสดงลิงก์แถวในตาราง"
 
 #: src/Config/Descriptions.php:837
 msgid "Show row links anyway"
-msgstr ""
+msgstr "อย่างไรแล้วก็ต้องแสดงลิงก์แถว"
 
 #: src/Config/Descriptions.php:839
 msgid "Natural order"
 msgstr "เรียงลำดับตามธรรมชาติ"
 
 #: src/Config/Descriptions.php:840
-#, fuzzy
 msgid "Table navigation bar"
-msgstr "คำอธิบายตาราง"
+msgstr "แถบแผนผังนำทางตาราง"
 
 #: src/Config/Descriptions.php:841
 msgid "GZip output buffering"
-msgstr ""
+msgstr "การบัฟเฟอร์เอาต์พุต GZip"
 
 #: src/Config/Descriptions.php:842
 msgid "Default sorting order"
-msgstr ""
+msgstr "ลำดับการจัดเรียงเริ่มต้น"
 
 #: src/Config/Descriptions.php:843
 msgid "Persistent connections"
-msgstr ""
+msgstr "การเชื่อมต่อที่คงอยู่"
 
 #: src/Config/Descriptions.php:844
 msgid "Missing phpMyAdmin configuration storage tables"
-msgstr ""
+msgstr "ไม่พบตารางจัดเก็บการกำหนดค่า phpMyAdmin"
 
 #: src/Config/Descriptions.php:845
 msgid "MySQL reserved word warning"
-msgstr ""
+msgstr "คำเตือนเกี่ยวกับคำสงวนของ MySQL"
 
 #: src/Config/Descriptions.php:846
 msgid "How to display the menu tabs"
-msgstr ""
+msgstr "วิธีการแสดงแท็บเมนู"
 
 #: src/Config/Descriptions.php:847
 msgid "How to display various action links"
-msgstr ""
+msgstr "วิธีการแสดงลิงก์การดำเนินการต่าง ๆ"
 
 #: src/Config/Descriptions.php:848
 msgid "Protect binary columns"
-msgstr ""
+msgstr "ปกป้องคอลัมน์ไบนารี"
 
 #: src/Config/Descriptions.php:849
 msgid "Permanent query history"
-msgstr ""
+msgstr "ประวัติการค้นหาถาวร"
 
 #: src/Config/Descriptions.php:850
 msgid "Query history length"
-msgstr ""
+msgstr "ความยาวประวัติคำสั่งเรียกดู"
 
 #: src/Config/Descriptions.php:851
 msgid "Allow shared bookmarks between users"
@@ -11384,38 +11380,35 @@ msgstr ""
 
 #: src/Config/Descriptions.php:852
 msgid "Recoding engine"
-msgstr ""
+msgstr "กลไกเข้ารหัสใหม่"
 
 #: src/Config/Descriptions.php:853
-#, fuzzy
 msgid "Remember table's sorting"
-msgstr "เปลี่ยนชื่อตารางเป็น"
+msgstr "จดจำการเรียงลำดับของตาราง"
 
 #: src/Config/Descriptions.php:854
-#, fuzzy
 msgid "Primary key default sort order"
-msgstr "ได้เพิ่มไพรมารีคีย์แล้วใน %s"
+msgstr "ลำดับการเรียงเริ่มต้นของคีย์หลัก"
 
 #: src/Config/Descriptions.php:855
 msgid "Repeat headers"
-msgstr ""
+msgstr "ทำซ้ำส่วนหัว"
 
 #: src/Config/Descriptions.php:856
 msgid "Grid editing: trigger action"
-msgstr ""
+msgstr "การแก้ไขตาราง: กระตุ้นการทำงาน"
 
 #: src/Config/Descriptions.php:857
-#, fuzzy
 msgid "Relational display"
-msgstr "รีเลชันแนล สกีมา"
+msgstr "แสดงความสัมพันธ์"
 
 #: src/Config/Descriptions.php:858
 msgid "Grid editing: save all edited cells at once"
-msgstr ""
+msgstr "แก้ไขตาราง: บันทึกการแก้ไขทุกเซลส์ในคราวเดียว"
 
 #: src/Config/Descriptions.php:859
 msgid "Save directory"
-msgstr ""
+msgstr "บันทึกไดเรกทอรี"
 
 #: src/Config/Descriptions.php:860
 msgid "Host authorization order"
