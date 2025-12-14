@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2025-12-13 08:00+0000\n"
+"PO-Revision-Date: 2025-12-14 15:00+0000\n"
 "Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/4-9/th/>"
 "\n"
@@ -3919,10 +3919,8 @@ msgstr "คอลัมน์ที่ล้อมรอบด้วย"
 #: libraries/classes/Config/Descriptions.php:635
 #: libraries/classes/Config/Descriptions.php:654
 #: libraries/classes/Plugins/Import/ImportCsv.php:148
-#, fuzzy
-#| msgid "Fields escaped by"
 msgid "Columns escaped with"
-msgstr "เครื่องหมายสำหรับ escape char"
+msgstr "คอลัมน์ละเว้นด้วย"
 
 #: libraries/classes/Config/Descriptions.php:268
 #: libraries/classes/Config/Descriptions.php:280
@@ -3931,51 +3929,42 @@ msgstr "เครื่องหมายสำหรับ escape char"
 #: libraries/classes/Config/Descriptions.php:328
 #: libraries/classes/Config/Descriptions.php:336
 #: libraries/classes/Config/Descriptions.php:415
-#, fuzzy
-#| msgid "Replace NULL by"
 msgid "Replace NULL with"
-msgstr "แทนที่ NULL เป็น"
+msgstr "แทนที่ค่า NULL ด้วย"
 
 #: libraries/classes/Config/Descriptions.php:270
 #: libraries/classes/Config/Descriptions.php:282
 msgid "Remove CRLF characters within columns"
-msgstr ""
+msgstr "ลบอักขระ CRLF ภายในคอลัมน์"
 
 #: libraries/classes/Config/Descriptions.php:272
 #: libraries/classes/Config/Descriptions.php:643
 #: libraries/classes/Config/Descriptions.php:664
 #: libraries/classes/Plugins/Import/ImportCsv.php:122
-#, fuzzy
-#| msgid "Lines terminated by"
 msgid "Columns terminated with"
-msgstr "จบแถวด้วย"
+msgstr "คอลัมน์ที่สิ้นสุดด้วย"
 
 #: libraries/classes/Config/Descriptions.php:274
 #: libraries/classes/Config/Descriptions.php:631
 #: libraries/classes/Plugins/Import/ImportCsv.php:157
-#, fuzzy
-#| msgid "Lines terminated by"
 msgid "Lines terminated with"
-msgstr "จบแถวด้วย"
+msgstr "บรรทัดที่สิ้นสุดด้วย"
 
 #: libraries/classes/Config/Descriptions.php:278
 msgid "Excel edition"
 msgstr "รุ่น Excel"
 
 #: libraries/classes/Config/Descriptions.php:284
-#, fuzzy
 msgid "Database name template"
-msgstr "รูปแบบของชื่อไฟล์"
+msgstr "ต้นแบบชื่อฐานข้อมูล"
 
 #: libraries/classes/Config/Descriptions.php:286
-#, fuzzy
 msgid "Server name template"
-msgstr "รูปแบบของชื่อไฟล์"
+msgstr "ต้นแบบชื่อเซิร์ฟเวอร์"
 
 #: libraries/classes/Config/Descriptions.php:288
-#, fuzzy
 msgid "Table name template"
-msgstr "รูปแบบของชื่อไฟล์"
+msgstr "ต้นแบบชื่อตาราง"
 
 #: libraries/classes/Config/Descriptions.php:296
 #: libraries/classes/Config/Descriptions.php:322
@@ -3990,15 +3979,13 @@ msgstr "รูปแบบของชื่อไฟล์"
 #: libraries/classes/Plugins/Export/ExportPdf.php:107
 #: libraries/classes/Plugins/Export/ExportSql.php:209
 #: libraries/classes/Plugins/Export/ExportTexytext.php:63
-#, fuzzy
-#| msgid "%s table(s)"
 msgid "Dump table"
-msgstr "%s ตาราง"
+msgstr "สำรองตาราง"
 
 #: libraries/classes/Config/Descriptions.php:298
 #: libraries/classes/Plugins/Export/ExportLatex.php:89
 msgid "Include table caption"
-msgstr "รวมถึงคำอธิบายภาพของตาราง"
+msgstr "ใส่คำอธิบายตาราง"
 
 #: libraries/classes/Config/Descriptions.php:304
 #: libraries/classes/Config/Descriptions.php:316
@@ -4007,10 +3994,8 @@ msgstr "คำอธิบายตาราง"
 
 #: libraries/classes/Config/Descriptions.php:306
 #: libraries/classes/Config/Descriptions.php:318
-#, fuzzy
-#| msgid "Table caption"
 msgid "Continued table caption"
-msgstr "คำอธิบายตาราง"
+msgstr "คำอธิบายตารางต่อเนื่อง"
 
 #: libraries/classes/Config/Descriptions.php:308
 #: libraries/classes/Config/Descriptions.php:320
@@ -4028,10 +4013,8 @@ msgstr "MIME-type"
 #: libraries/classes/Config/Descriptions.php:314
 #: libraries/classes/Config/Descriptions.php:338
 #: libraries/classes/Config/Descriptions.php:403
-#, fuzzy
-#| msgid "Relations"
 msgid "Relationships"
-msgstr "รีเลชัน"
+msgstr "ความสัมพันธ์"
 
 #: libraries/classes/Config/Descriptions.php:324
 msgid "Export method"
@@ -4047,18 +4030,15 @@ msgstr "บันทึกบนเซิร์ฟเวอร์"
 #: templates/display/export/options_output_save_dir.twig:13
 #: templates/display/export/options_quick_export.twig:16
 msgid "Overwrite existing file(s)"
-msgstr "เขียนทับแฟ้มที่มีอยู่แล้ว"
+msgstr "เขียนทับไฟล์ที่มีอยู่แล้ว"
 
 #: libraries/classes/Config/Descriptions.php:346
-#, fuzzy
-#| msgid "horizontal (rotated headers)"
 msgid "Export as separate files"
-msgstr "แนวนอน (หมุนหัวเรื่อง)"
+msgstr "ส่งออกแบบแยกไฟล์"
 
 #: libraries/classes/Config/Descriptions.php:352
-#, fuzzy
 msgid "Remember file name template"
-msgstr "รูปแบบของชื่อไฟล์"
+msgstr "จดจำต้นแบบของชื่อไฟล์"
 
 #: libraries/classes/Config/Descriptions.php:354
 #: libraries/classes/Operations.php:243 libraries/classes/Operations.php:866
@@ -4067,24 +4047,21 @@ msgid "Add AUTO_INCREMENT value"
 msgstr "เพิ่มค่า AUTO_INCREMENT"
 
 #: libraries/classes/Config/Descriptions.php:356
-#, fuzzy
-#| msgid "Enclose table and field names with backquotes"
 msgid "Enclose table and column names with backquotes"
-msgstr "ใส่ 'backqoute' ให้กับชื่อตารางและฟิลด์"
+msgstr "เติมชื่อตารางและคอลัมน์ด้วย backquotes"
 
 #: libraries/classes/Config/Descriptions.php:358
 #: libraries/classes/Config/Descriptions.php:678
 msgid "SQL compatibility mode"
-msgstr "โหมดที่เข้ากันได้กับ SQL"
+msgstr "โหมดความเข้ากันได้ของ SQL"
 
 #: libraries/classes/Config/Descriptions.php:360
 msgid "Creation/Update/Check dates"
-msgstr "สร้าง/อัพเดท/ตรวจสอบวันที่"
+msgstr "สร้าง/อัปเดต/ตรวจสอบวันที่"
 
 #: libraries/classes/Config/Descriptions.php:362
-#, fuzzy
 msgid "Use delayed inserts"
-msgstr "แทรกหลายระเบียนในคราวเดียว"
+msgstr "ใช้การแทรกแบบหน่วงเวลา"
 
 #: libraries/classes/Config/Descriptions.php:364
 #: libraries/classes/Plugins/Export/ExportSql.php:155
@@ -4093,14 +4070,12 @@ msgstr "ปิดการตรวจสอบคีย์นอก"
 
 #: libraries/classes/Config/Descriptions.php:366
 #: libraries/classes/Plugins/Export/ExportSql.php:169
-#, fuzzy
-#| msgid "Create table on database %s"
 msgid "Export views as tables"
-msgstr "สร้างตารางในฐานข้อมูลนี้ %s"
+msgstr "ส่งออกมุมมองเป็นตาราง"
 
 #: libraries/classes/Config/Descriptions.php:368
 msgid "Export related metadata from phpMyAdmin configuration storage"
-msgstr ""
+msgstr "ส่งออกเมตาเดต้าที่เกี่ยวข้องจากที่เก็บข้อมูลการกำหนดค่า phpMyAdmin"
 
 #: libraries/classes/Config/Descriptions.php:370
 #: libraries/classes/Config/Descriptions.php:372
@@ -4116,64 +4091,65 @@ msgstr "เพิ่ม %s"
 
 #: libraries/classes/Config/Descriptions.php:384
 msgid "Use hexadecimal for BINARY & BLOB"
-msgstr ""
+msgstr "ใช้เลขฐานสิบหกสำหรับไบนารีและ BLOB"
 
 #: libraries/classes/Config/Descriptions.php:387
 msgid ""
 "Add IF NOT EXISTS (less efficient as indexes will be generated during table "
 "creation)"
 msgstr ""
+"เพิ่มคำสั่ง IF NOT EXISTS (ประสิทธิภาพต่ำกว่า เนื่องจากดัชนีจะถูกสร้างขึ้นในระหว่างการสร้างตารา"
+"ง)"
 
 #: libraries/classes/Config/Descriptions.php:391
-#, fuzzy
-#| msgid "Extended inserts"
 msgid "Use ignore inserts"
-msgstr "แทรกหลายระเบียนในคราวเดียว"
+msgstr "ใช้การละเว้นการแทรก"
 
 #: libraries/classes/Config/Descriptions.php:395
 msgid "Syntax to use when inserting data"
-msgstr ""
+msgstr "ไวยกรณ์ที่ใช้ขณะแทรกข้อมูล"
 
 #: libraries/classes/Config/Descriptions.php:397
 #: libraries/classes/Plugins/Export/ExportSql.php:441
 msgid "Maximal length of created query"
-msgstr ""
+msgstr "ความยาวสูงสุดของคำสั่งเรียกดูที่สร้างขึ้น"
 
 #: libraries/classes/Config/Descriptions.php:407
-#, fuzzy
 msgid "Export type"
-msgstr "ไม่มีตาราง"
+msgstr "ประเภทการส่งออก"
 
 #: libraries/classes/Config/Descriptions.php:409
 #: libraries/classes/Plugins/Export/ExportSql.php:141
 msgid "Enclose export in a transaction"
-msgstr ""
+msgstr "รวมการส่งออกไว้ในรายการ"
 
 #: libraries/classes/Config/Descriptions.php:411
 msgid "Export time in UTC"
-msgstr ""
+msgstr "ส่งออกเวลาเป็นรูปแบบ UTC"
 
 #: libraries/classes/Config/Descriptions.php:420
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
 msgstr ""
+"ลำดับการจัดเรียงสำหรับรายการในกล่องดรอปดาวน์คีย์นอก; [kbd]เนื้อหา[/kbd] คือข้อมูลที่อ้างอิง แล"
+"ะ [kbd]id[/kbd] คือค่าคีย์"
 
 #: libraries/classes/Config/Descriptions.php:424
 msgid "Foreign key dropdown order"
-msgstr ""
+msgstr "ลำดับดรอปดาวน์คีย์นอก"
 
 #: libraries/classes/Config/Descriptions.php:426
 msgid "A dropdown will be used if fewer items are present."
-msgstr ""
+msgstr "จะมีการใช้ดรอปดาวน์หากรายการที่แสดงมีจำนวนน้อย"
 
 #: libraries/classes/Config/Descriptions.php:428
 msgid "Foreign key limit"
-msgstr ""
+msgstr "ข้อจำกัดคีย์นอก"
 
 #: libraries/classes/Config/Descriptions.php:430
 msgid "Default value for foreign key checks checkbox for some queries."
-msgstr ""
+msgstr "ค่าเริ่มต้นสำหรับช่องทำเครื่องหมายตรวจสอบคีย์นอกเพื่อบางคำสั่งเรียกดู"
 
 #: libraries/classes/Config/Descriptions.php:432
 msgid "Foreign key checks"
@@ -4220,7 +4196,7 @@ msgstr "ปรับแต่งโหมดแก้ไข"
 
 #: libraries/classes/Config/Descriptions.php:454
 msgid "Export defaults"
-msgstr "ส่งออกค่าเริ่มต้น"
+msgstr "ค่าเริ่มต้นการส่งออก"
 
 #: libraries/classes/Config/Descriptions.php:456
 msgid "Customize default export options."
@@ -4236,7 +4212,7 @@ msgstr "ตั้งตัวเลือกบางตัวที่ใช้
 
 #: libraries/classes/Config/Descriptions.php:462
 msgid "Import defaults"
-msgstr "นำเข้าค่าเริ่มต้น"
+msgstr "ค่าเริ่มต้นการนำเข้า"
 
 #: libraries/classes/Config/Descriptions.php:464
 msgid "Customize default common import options."
@@ -4521,7 +4497,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:619
 msgid "Ignore multiple statement errors"
-msgstr ""
+msgstr "ละเว้นข้อผิดพลาดจากคำสั่งหลายรายการ"
 
 #: libraries/classes/Config/Descriptions.php:622
 msgid ""
@@ -4529,75 +4505,75 @@ msgid ""
 "This might be a good way to import large files, however it can break "
 "transactions."
 msgstr ""
+"อนุญาตให้หยุดการนำเข้าได้ในกรณีที่สคริปต์ตรวจพบว่าใกล้ถึงเวลาที่กำหนดแล้ว วิธีนี้อาจเป็นวิธีที่ดีในการน"
+"ำเข้าไฟล์ขนาดใหญ่ แต่ก็อาจทำให้การทำรายการหยุดชะงักได้"
 
 #: libraries/classes/Config/Descriptions.php:627
 msgid "Partial import: allow interrupt"
-msgstr ""
+msgstr "นำเข้าบางส่วน: อนุญาตให้ขัดจังหวะ"
 
 #: libraries/classes/Config/Descriptions.php:637
 #: libraries/classes/Config/Descriptions.php:656
 #: libraries/classes/Plugins/Import/ImportCsv.php:87
 #: libraries/classes/Plugins/Import/ImportLdi.php:81
 msgid "Do not abort on INSERT error"
-msgstr ""
+msgstr "ห้ามหยุดการทำงานคำสั่ง INSERT เมื่อเกิดข้อผิดพลาด"
 
 #: libraries/classes/Config/Descriptions.php:639
 #: libraries/classes/Config/Descriptions.php:660
 msgid "Add ON DUPLICATE KEY UPDATE"
-msgstr ""
+msgstr "เพิ่มเมื่อมีการอัปเดตคีย์ซ้ำ"
 
 #: libraries/classes/Config/Descriptions.php:641
 #: libraries/classes/Config/Descriptions.php:662
 msgid "Update data when duplicate keys found on import"
-msgstr ""
+msgstr "อัปเดตข้อมูลเมื่อพบคีย์ซ้ำกันตอนนำเข้า"
 
 #: libraries/classes/Config/Descriptions.php:646
 msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available."
 msgstr ""
+"รูปแบบเริ่มต้น; โปรดทราบว่ารายการนี้ขึ้นอยู่กับตำแหน่งที่ตั้ง (ฐานข้อมูล ตาราง) และมีเฉพาะคำสั่ง "
+"SQL เท่านั้นที่พร้อมใช้งานเสมอ"
 
 #: libraries/classes/Config/Descriptions.php:650
 msgid "Format of imported file"
-msgstr ""
+msgstr "รูปแบบของไฟล์ที่นำเข้า"
 
 #: libraries/classes/Config/Descriptions.php:658
 #: libraries/classes/Plugins/Import/ImportLdi.php:87
 msgid "Use LOCAL keyword"
-msgstr ""
+msgstr "ใช้คีย์เวิร์ดภายในเครื่อง"
 
 #: libraries/classes/Config/Descriptions.php:666
-#, fuzzy
-#| msgid "Put fields names in the first row"
 msgid "Column names in first row"
-msgstr "ใส่ชื่อฟิลด์ที่แถวแรก"
+msgstr "ชื่อคมลัมน์ที่ข้อมูลแถวแรก"
 
 #: libraries/classes/Config/Descriptions.php:668
 #: libraries/classes/Plugins/Import/ImportOds.php:72
 msgid "Do not import empty rows"
-msgstr ""
+msgstr "ไม่ต้องนำเข้าแถวที่ไม่มีข้อมูล"
 
 #: libraries/classes/Config/Descriptions.php:670
 msgid "Import currencies ($5.00 to 5.00)"
-msgstr ""
+msgstr "นำเข้าสกุลเงิน ($5.00 ถึง 5.00)"
 
 #: libraries/classes/Config/Descriptions.php:672
 msgid "Import percentages as proper decimals (12.00% to .12)"
-msgstr ""
+msgstr "นำเข้าเปอร์เซ็นต์โดยใช้ทศนิยมที่ถูกต้อง (12.00% เป็น 0.12)"
 
 #: libraries/classes/Config/Descriptions.php:674
 msgid "Number of queries to skip from start."
-msgstr ""
+msgstr "จำนวนคำสั่งเรียกดูที่ข้ามตั้งแต่เริ่มต้น"
 
 #: libraries/classes/Config/Descriptions.php:676
 msgid "Partial import: skip queries"
-msgstr ""
+msgstr "นำเข้าบางส่วน: ข้ามคำสั่งเรียกดู"
 
 #: libraries/classes/Config/Descriptions.php:680
-#, fuzzy
-#| msgid "Add AUTO_INCREMENT value"
 msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr "เพิ่มค่า AUTO_INCREMENT"
+msgstr "ไม่ต้องใช้ AUTO_INCREMENT สำหรับค่าที่เป็นศูนย์"
 
 #: libraries/classes/Config/Descriptions.php:682
 msgid "Read as multibytes"
@@ -4605,24 +4581,24 @@ msgstr "อ่านเป็นมัลติไบต์"
 
 #: libraries/classes/Config/Descriptions.php:684
 msgid "Initial state for sliders"
-msgstr ""
+msgstr "สถานะเริ่มต้นสำหรับตัวเลื่อน"
 
 #: libraries/classes/Config/Descriptions.php:686
 msgid "How many rows can be inserted at one time."
-msgstr ""
+msgstr "ให้แทรกข้อมูลได้กี่แถวในครั้งเดียว"
 
 #: libraries/classes/Config/Descriptions.php:688
 msgid "Number of inserted rows"
-msgstr ""
+msgstr "จำนวนแถวที่แทรกเข้าไป"
 
 #: libraries/classes/Config/Descriptions.php:690
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view."
-msgstr ""
+msgstr "จำนวนอักขระสูงสุดที่แสดงในคอลัมน์ที่ไม่ใช่ตัวเลขใด ๆ ในมุมมองการเรียกดู"
 
 #: libraries/classes/Config/Descriptions.php:692
 msgid "Limit column characters"
-msgstr ""
+msgstr "จำกัดจำนวนอักขระในคอลัมน์"
 
 #: libraries/classes/Config/Descriptions.php:695
 msgid ""
@@ -4630,20 +4606,25 @@ msgid ""
 "only occurs for the current server. Setting this to FALSE makes it easy to "
 "forget to log out from other servers when connected to multiple servers."
 msgstr ""
+"หากตั้งค่าเป็น TRUE การออกจากระบบจะลบคุกกี้ออกจากทุกเซิร์ฟเวอร์ หากตั้งค่าเป็น FALSE จะออกจา"
+"กระบบเพียงแค่เซิร์ฟเวอร์ปัจจุบันเท่านั้น การตั้งค่าเป็น FALSE มักทำให้ลืมออกจากระบบจากเซิร์ฟเวอร์อื่"
+"นได้ง่าย เมื่อเชื่อมต่อกับหลายเซิร์ฟเวอร์"
 
 #: libraries/classes/Config/Descriptions.php:700
 msgid "Delete all cookies on logout"
-msgstr ""
+msgstr "ลบคุ้กกี้ทั้งหมดเมื่อออกจากระบบ"
 
 #: libraries/classes/Config/Descriptions.php:703
 msgid ""
 "Define whether the previous login should be recalled or not in [kbd]cookie[/"
 "kbd] authentication mode."
 msgstr ""
+"กำหนดว่าจะเรียกคืนข้อมูลการเข้าสู่ระบบครั้งก่อนหรือไม่ในโหมดการตรวจสอบสิทธิ์ด้วย [kbd]คุ้กกี้[/"
+"kbd]"
 
 #: libraries/classes/Config/Descriptions.php:707
 msgid "Recall user name"
-msgstr ""
+msgstr "เรียกคืนชื่อผู้ใช้"
 
 #: libraries/classes/Config/Descriptions.php:710
 msgid ""
@@ -4652,50 +4633,47 @@ msgid ""
 "and will be deleted as soon as you close the browser window. This is "
 "recommended for non-trusted environments."
 msgstr ""
+"กำหนดระยะเวลา (เป็นวินาที) ที่คุกกี้สำหรับการเข้าสู่ระบบควรถูกเก็บไว้ในเบราว์เซอร์ ค่าเริ่มต้นคือ "
+"0 ซึ่งหมายความว่าจะถูกเก็บไว้เฉพาะในเซสชันปัจจุบันเท่านั้น และจะถูกลบออกทันทีที่คุณปิดหน้าต่างเบราว์"
+"เซอร์ แนะนำให้ใช้ในระบบที่ไม่น่าเชื่อถือ"
 
 #: libraries/classes/Config/Descriptions.php:716
 msgid "Login cookie store"
-msgstr ""
+msgstr "การเก็บรักษาคุ้กกี้ที่ใช้เข้าสู่ระบบ"
 
 #: libraries/classes/Config/Descriptions.php:718
-#, fuzzy
-#| msgid "Define how long (in seconds) a login cookie is valid"
 msgid "Define how long (in seconds) a login cookie is valid."
-msgstr "ระบุระยะเวลา (วินาที) ที่คุกกี้เข้าสู่ระบบที่ถูกต้อง"
+msgstr "กำหนดระยะเวลา (เป็นวินาที) อายุการใช้งานคุกกี้สำหรับการเข้าสู่ระบบ"
 
 #: libraries/classes/Config/Descriptions.php:720
 msgid "Login cookie validity"
-msgstr "เข้าสู่ระบบความถูกต้องของคุกกี้"
+msgstr "ความถูกต้องของคุกกี้ในการเข้าสู่ระบบ"
 
 #: libraries/classes/Config/Descriptions.php:722
 msgid "Double size of textarea for LONGTEXT columns."
-msgstr ""
+msgstr "เพิ่มขนาดเป็นสองเท่าของ textarea สำหรับคอลัมน์ LONGTEXT"
 
 #: libraries/classes/Config/Descriptions.php:724
 msgid "Bigger textarea for LONGTEXT"
-msgstr ""
+msgstr "เพิ่มขนาดของ textarea ให้ใหญ่ขึ้นสำหรับ LONGTEXT"
 
 #: libraries/classes/Config/Descriptions.php:726
-#, fuzzy
-#| msgid "Maximum number of recently used tables; set 0 to disable"
 msgid "Maximum number of characters used when a SQL query is displayed."
-msgstr "จำนวนสูงสุดของตารางที่ใช้ล่าสุด; กำหนด 0 เพื่อปิดใช้งาน"
+msgstr "จำนวนอักขระสูงสุดที่ใช้เมื่อแสดงคำสั่ง SQL"
 
 #: libraries/classes/Config/Descriptions.php:728
 msgid "Maximum displayed SQL length"
-msgstr ""
+msgstr "ความยาวสูงสุดของคำสั่ง SQL ที่แสดง"
 
 #: libraries/classes/Config/Descriptions.php:730
 #: libraries/classes/Config/Descriptions.php:755
 #: libraries/classes/Config/Descriptions.php:935
 msgid "Users cannot set a higher value"
-msgstr ""
+msgstr "ผู้ใช้ไม่สามารถตั้งค่าที่สูงกว่าได้"
 
 #: libraries/classes/Config/Descriptions.php:732
-#, fuzzy
-#| msgid "Maximum number of databases displayed in database list"
 msgid "Maximum number of databases displayed in database list."
-msgstr "จำนวนสูงสุดของฐานข้อมูลที่ถูกแสดงในรายการฐานข้อมูล"
+msgstr "จำนวนฐานข้อมูลสูงสุดที่แสดงในรายการฐานข้อมูล"
 
 #: libraries/classes/Config/Descriptions.php:734
 msgid "Maximum databases"
@@ -4705,39 +4683,37 @@ msgstr "ฐานข้อมูลสูงสุด"
 msgid ""
 "The number of items that can be displayed on each page on the first level of "
 "the navigation tree."
-msgstr ""
+msgstr "จำนวนรายการที่สามารถแสดงบนแต่ละหน้าในระดับแรกของแผนผังการนำทาง"
 
 #: libraries/classes/Config/Descriptions.php:741
-#, fuzzy
-#| msgid "Use text field"
 msgid "Maximum items on first level"
-msgstr "ใช้ช่องใส่ข้อความ (text field)"
+msgstr "จำนวนรายการสูงสุดในชั้นแรก"
 
 #: libraries/classes/Config/Descriptions.php:743
 msgid ""
 "The number of items that can be displayed on each page of the navigation "
 "tree."
-msgstr ""
+msgstr "จำนวนรายการที่สามารถแสดงได้ในแต่ละหน้าของแผนผังการนำทาง"
 
 #: libraries/classes/Config/Descriptions.php:745
 msgid "Maximum items in branch"
-msgstr ""
+msgstr "จำนวนรายการสูงสุดในสาขา"
 
 #: libraries/classes/Config/Descriptions.php:748
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, \"Previous\" and \"Next\" links will be shown."
 msgstr ""
+"จำนวนแถวที่แสดงเมื่อเรียกดูชุดผลลัพธ์ หากชุดผลลัพธ์มีแถวมากกว่าหนึ่งแถว จะแสดงลิงก์ \"ก่อนหน้า\" "
+"และ \"ถัดไป\""
 
 #: libraries/classes/Config/Descriptions.php:753
 msgid "Maximum number of rows to display"
-msgstr ""
+msgstr "จำนวนแถวสูงสุดที่จะแสดง"
 
 #: libraries/classes/Config/Descriptions.php:757
-#, fuzzy
-#| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of tables displayed in table list."
-msgstr "จำนวนสูงสุดของตารางที่ถูกแสดงในรายการตาราง"
+msgstr "จำนวนตารางสูงสุดที่แสดงในรายการตาราง"
 
 #: libraries/classes/Config/Descriptions.php:759
 msgid "Maximum tables"
@@ -4752,148 +4728,138 @@ msgstr ""
 "ะ [kbd]0[/kbd] แบบไม่เปลี่ยนแปลง)"
 
 #: libraries/classes/Config/Descriptions.php:766
-#, fuzzy
 msgid "Memory limit"
-msgstr "ขีดจำกัดของทรัพยากร"
+msgstr "ขีดจำกัดหน่วยความจำ"
 
 #: libraries/classes/Config/Descriptions.php:768
 msgid "In the navigation panel, replaces the database tree with a selector"
-msgstr ""
+msgstr "ในแผงนำทาง จะแทนที่โครงสร้างฐานข้อมูลด้วยตัวเลือก"
 
 #: libraries/classes/Config/Descriptions.php:770
-#, fuzzy
-#| msgid "Reload navigation frame"
 msgid "Show databases navigation as tree"
-msgstr "โหลดกรอบนำทางใหม่"
+msgstr "แสดงการนำทางฐานข้อมูลในรูปแบบแผนผังต้นไม้"
 
 #: libraries/classes/Config/Descriptions.php:772
-#, fuzzy
-#| msgid "Navigation panel"
 msgid "Navigation panel width"
-msgstr "แผงนำทาง"
+msgstr "ความกว้างแผงนำทาง"
 
 #: libraries/classes/Config/Descriptions.php:774
-#, fuzzy
-#| msgid "Reload navigation frame"
 msgid "Set to 0 to collapse navigation panel."
-msgstr "โหลดกรอบนำทางใหม่"
+msgstr "ตั้งค่าเป็น 0 เพื่อยุบแผงนำทาง"
 
 #: libraries/classes/Config/Descriptions.php:776
 msgid "Link with main panel by highlighting the current database or table."
-msgstr ""
+msgstr "เชื่อมโยงกับแผงหลักโดยการไฮไลต์ฐานข้อมูลหรือตารางปัจจุบัน"
 
 #: libraries/classes/Config/Descriptions.php:780
-#, fuzzy
-#| msgid "Reload navigation frame"
 msgid "Show logo in navigation panel."
-msgstr "โหลดกรอบนำทางใหม่"
+msgstr "แสดงโลโก้บนแผงนำทาง"
 
 #: libraries/classes/Config/Descriptions.php:782
 msgid "Display logo"
-msgstr ""
+msgstr "แสดงโลโก้"
 
 #: libraries/classes/Config/Descriptions.php:784
 msgid "URL where logo in the navigation panel will point to."
-msgstr ""
+msgstr "URL ที่โลโก้ในแผงนำทางจะชี้ไป"
 
 #: libraries/classes/Config/Descriptions.php:786
 msgid "Logo link URL"
-msgstr ""
+msgstr "โลโก้ลิงก์ไป URL"
 
 #: libraries/classes/Config/Descriptions.php:789
 msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])."
 msgstr ""
+"เปิดหน้าเว็บที่เชื่อมโยงในหน้าต่างหลัก ([kbd]หลัก[/kbd]) หรือในหน้าต่างใหม่ ([kbd]ใหม่[/kbd])"
 
 #: libraries/classes/Config/Descriptions.php:793
 msgid "Logo link target"
-msgstr ""
+msgstr "เป้าหมายลิงก์โลโก้"
 
 #: libraries/classes/Config/Descriptions.php:795
 msgid "Display server choice at the top of the navigation panel."
-msgstr ""
+msgstr "แสดงตัวเลือกเซิร์ฟเวอร์ที่ด้านบนของแผงนำทาง"
 
 #: libraries/classes/Config/Descriptions.php:797
 msgid "Display servers selection"
-msgstr ""
+msgstr "การเลือกเซิร์ฟเวอร์แสดงผล"
 
 #: libraries/classes/Config/Descriptions.php:799
 msgid "Target for quick access icon"
-msgstr ""
+msgstr "ไอคอนเป้าหมายสำหรับการเข้าถึงอย่างรวดเร็ว"
 
 #: libraries/classes/Config/Descriptions.php:801
 msgid "Target for second quick access icon"
-msgstr ""
+msgstr "กำหนดเป้าหมายสำหรับไอคอนเข้าถึงด่วนที่สอง"
 
 #: libraries/classes/Config/Descriptions.php:804
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
 msgstr ""
+"กำหนดจำนวนขั้นต่ำของรายการ (ตาราง มุมมอง รูทีน และเหตุการณ์) ที่จะแสดงในกล่องตัวกรอง"
 
 #: libraries/classes/Config/Descriptions.php:808
 msgid "Minimum number of items to display the filter box"
-msgstr ""
+msgstr "จำนวนรายการขั้นต่ำที่จะแสดงในกล่องตัวกรอง"
 
 #: libraries/classes/Config/Descriptions.php:810
 msgid "Minimum number of databases to display the database filter box"
-msgstr ""
+msgstr "จำนวนรายการฐานข้อมูลขั้นต่ำที่จะแสดงในกล่องตัวกรอง"
 
 #: libraries/classes/Config/Descriptions.php:813
 msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
 msgstr ""
+"จัดกลุ่มรายการในโครงสร้างการนำทาง (กำหนดโดยตัวคั่นที่กำหนดไว้ในแท็บฐานข้อมูลและตารางด้านบน)"
 
 #: libraries/classes/Config/Descriptions.php:817
 msgid "Group items in the tree"
-msgstr ""
+msgstr "จัดกลุ่มรายการในโครงสร้างแบบต้นไม้"
 
 #: libraries/classes/Config/Descriptions.php:819
 msgid "String that separates databases into different tree levels."
-msgstr ""
+msgstr "สตริงที่ใช้แบ่งฐานข้อมูลออกเป็นระดับโครงสร้างแบบต้นไม้ต่าง ๆ"
 
 #: libraries/classes/Config/Descriptions.php:821
 msgid "Database tree separator"
-msgstr ""
+msgstr "ตัวคั่นฐานข้อมูลแบบโครงสร้างต้นไม้"
 
 #: libraries/classes/Config/Descriptions.php:823
 msgid "String that separates tables into different tree levels."
-msgstr ""
+msgstr "สตริงที่ใช้แบ่งตารางออกเป็นระดับโครงสร้างแบบต้นไม้ต่าง ๆ"
 
 #: libraries/classes/Config/Descriptions.php:825
 msgid "Table tree separator"
-msgstr ""
+msgstr "ตัวคั่นตารางแบบโครงสร้างต้นไม้"
 
 #: libraries/classes/Config/Descriptions.php:827
 msgid "Maximum table tree depth"
-msgstr ""
+msgstr "ความลึกสูงสุดของโครงสร้างตารางแบบต้นไม้"
 
 #: libraries/classes/Config/Descriptions.php:829
 msgid "Highlight server under the mouse cursor."
-msgstr ""
+msgstr "ไฮไลท์เซิร์ฟเวอร์ที่อยู่ใต้เคอร์เซอร์เมาส์"
 
 #: libraries/classes/Config/Descriptions.php:831
 msgid "Enable highlighting"
-msgstr ""
+msgstr "เปิดการใช้งานไฮไลท์"
 
 #: libraries/classes/Config/Descriptions.php:833
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
-msgstr ""
+msgstr "เพิ่มความเป็นไปได้ในการขยายโครงสร้างต้นไม้ในแผงนำทาง"
 
 #: libraries/classes/Config/Descriptions.php:835
-#, fuzzy
-#| msgid "Table caption"
 msgid "Enable navigation tree expansion"
-msgstr "คำอธิบายตาราง"
+msgstr "เปิดใช้งานการขยายแผนผังการนำทาง"
 
 #: libraries/classes/Config/Descriptions.php:837
-#, fuzzy
-#| msgid "Showing tables:"
 msgid "Show tables in tree"
-msgstr "กำลังแสดงตาราง:"
+msgstr "แสดงตารางในแผนผังแบบต้นไม้"
 
 #: libraries/classes/Config/Descriptions.php:839
 #, fuzzy
@@ -4902,60 +4868,44 @@ msgid "Whether to show tables under database in the navigation tree"
 msgstr "โหลดกรอบนำทางใหม่"
 
 #: libraries/classes/Config/Descriptions.php:841
-#, fuzzy
-#| msgid "Show hint"
 msgid "Show views in tree"
-msgstr "แสดงคำแนะนำ"
+msgstr "แสดงมุมองในแผนผังแบบต้นไม้"
 
 #: libraries/classes/Config/Descriptions.php:843
-#, fuzzy
-#| msgid "Reload navigation frame"
 msgid "Whether to show views under database in the navigation tree"
-msgstr "โหลดกรอบนำทางใหม่"
+msgstr "เพื่อแสดงมุมมองภายใต้ฐานข้อมูลในแผนผังการนำทาง"
 
 #: libraries/classes/Config/Descriptions.php:845
-#, fuzzy
-#| msgid "Connections since last refresh"
 msgid "Show functions in tree"
-msgstr "การเชื่อมต่อ จากครั้งล่าสุด"
+msgstr "แสดงฟังก์ชันในแผนผังแบบต้นไม้"
 
 #: libraries/classes/Config/Descriptions.php:847
 msgid "Whether to show functions under database in the navigation tree"
-msgstr ""
+msgstr "แม้จะแสดงฟังก์ชันภายใต้ฐานข้อมูลในแผนผังการนำทาง"
 
 #: libraries/classes/Config/Descriptions.php:849
-#, fuzzy
-#| msgid "Show processes"
 msgid "Show procedures in tree"
-msgstr "แสดงงานที่ทำอยู่ของ MySQL"
+msgstr "แสดงขั้นตอนในรูปแบบแผนผังต้นไม้"
 
 #: libraries/classes/Config/Descriptions.php:851
 msgid "Whether to show procedures under database in the navigation tree"
-msgstr ""
+msgstr "แสดงขั้นตอนภายใต้ฐานข้อมูลในรูปแบบแผนผังต้นไม้"
 
 #: libraries/classes/Config/Descriptions.php:853
-#, fuzzy
-#| msgid "Show hint"
 msgid "Show events in tree"
-msgstr "แสดงคำแนะนำ"
+msgstr "แสดงเหตุการณ์ในรูปแบบแผนผังต้นไม้"
 
 #: libraries/classes/Config/Descriptions.php:855
-#, fuzzy
-#| msgid "Reload navigation frame"
 msgid "Whether to show events under database in the navigation tree"
-msgstr "โหลดกรอบนำทางใหม่"
+msgstr "เพื่อแสดงเหตุการณ์ภายใต้ฐานข้อมูลในแผนผังการนำทาง"
 
 #: libraries/classes/Config/Descriptions.php:857
-#, fuzzy
-#| msgid "Maximum number of recently used tables; set 0 to disable"
 msgid "Maximum number of recently used tables; set 0 to disable."
-msgstr "จำนวนสูงสุดของตารางที่ใช้ล่าสุด; กำหนด 0 เพื่อปิดใช้งาน"
+msgstr "จำนวนตารางที่ใช้งานล่าสุดสูงสุด; กำหนด 0 เพื่อปิดใช้งาน"
 
 #: libraries/classes/Config/Descriptions.php:859
-#, fuzzy
-#| msgid "Maximum number of recently used tables; set 0 to disable"
 msgid "Maximum number of favorite tables; set 0 to disable."
-msgstr "จำนวนสูงสุดของตารางที่ใช้ล่าสุด; กำหนด 0 เพื่อปิดใช้งาน"
+msgstr "จำนวนตารางโปรดสูงสุด; กำหนด 0 เพื่อปิดใช้งาน"
 
 #: libraries/classes/Config/Descriptions.php:861
 msgid "Recently used tables"
@@ -4963,39 +4913,33 @@ msgstr "ตารางที่ใช้ล่าสุด"
 
 #: libraries/classes/Config/Descriptions.php:863
 #: libraries/classes/RecentFavoriteTable.php:261
-#, fuzzy
-#| msgid "Variables"
 msgid "Favorite tables"
-msgstr "ตัวแปร"
+msgstr "ตารางโปรด"
 
 #: libraries/classes/Config/Descriptions.php:865
 msgid "These are Edit, Copy and Delete links."
-msgstr ""
+msgstr "นี่คือลิงก์สำหรับแก้ไข คัดลอก และลบ"
 
 #: libraries/classes/Config/Descriptions.php:867
 msgid "Where to show the table row links"
-msgstr ""
+msgstr "ตำแหน่งที่จะแสดงลิงก์แถวในตาราง"
 
 #: libraries/classes/Config/Descriptions.php:869
 msgid "Whether to show row links even in the absence of a unique key."
-msgstr ""
+msgstr "จะแสดงลิงก์แถว แม้ว่าจะไม่มีคีย์เฉพาะก็ตาม"
 
 #: libraries/classes/Config/Descriptions.php:871
 msgid "Show row links anyway"
-msgstr ""
+msgstr "อย่างไรแล้วก็ต้องแสดงลิงก์แถว"
 
 #: libraries/classes/Config/Descriptions.php:873
 #: libraries/classes/Config/Descriptions.php:875
-#, fuzzy
-#| msgid "Disable Statistics"
 msgid "Disable shortcut keys"
-msgstr "ยกเลิกการเก็บสถิติ"
+msgstr "ปิดการใช้งานคีย์ลัด"
 
 #: libraries/classes/Config/Descriptions.php:877
-#, fuzzy
-#| msgid "Use natural order for sorting table and database names"
 msgid "Use natural order for sorting table and database names."
-msgstr "ใช้เรียงลำดับตามธรรมชาติสำหรับการจัดเรียงชื่อตารางและฐานข้อมูล"
+msgstr "ใช้การเรียงลำดับตามธรรมชาติสำหรับชื่อตารางและฐานข้อมูล"
 
 #: libraries/classes/Config/Descriptions.php:879
 msgid "Natural order"
@@ -5005,41 +4949,40 @@ msgstr "เรียงลำดับตามธรรมชาติ"
 #: libraries/classes/Config/Descriptions.php:915
 #: libraries/classes/Config/Descriptions.php:919
 msgid "Use only icons, only text or both."
-msgstr ""
+msgstr "ใช้เฉพาะไอคอน เฉพาะข้อความ หรือทั้งสองอย่างก็ได้"
 
 #: libraries/classes/Config/Descriptions.php:883
-#, fuzzy
-#| msgid "Table caption"
 msgid "Table navigation bar"
-msgstr "คำอธิบายตาราง"
+msgstr "แถบแผนผังนำทางตาราง"
 
 #: libraries/classes/Config/Descriptions.php:885
 msgid "Use GZip output buffering for increased speed in HTTP transfers."
 msgstr ""
+"ใช้การบัฟเฟอร์เอาต์พุต GZip เพื่อเพิ่มความเร็วในการถ่ายโอนข้อมูลผ่าน HTTP"
 
 #: libraries/classes/Config/Descriptions.php:887
 msgid "GZip output buffering"
-msgstr ""
+msgstr "การบัฟเฟอร์เอาต์พุต GZip"
 
 #: libraries/classes/Config/Descriptions.php:890
 msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise."
 msgstr ""
+"[kbd]SMART[/kbd] - กล่าวคือ เรียงลำดับจากมากไปน้อยสำหรับคอลัมน์ประเภท TIME, DATE, "
+"DATETIME และ TIMESTAMP ส่วนประเภทอื่น ๆ จะเรียงลำดับจากน้อยไปมาก"
 
 #: libraries/classes/Config/Descriptions.php:894
 msgid "Default sorting order"
-msgstr ""
+msgstr "ลำดับการจัดเรียงเริ่มต้น"
 
 #: libraries/classes/Config/Descriptions.php:896
-#, fuzzy
-#| msgid "Compress connection to MySQL server"
 msgid "Use persistent connections to MySQL databases."
-msgstr "บีบอัดการเชื่อมต่อไปยังเซิร์ฟเวอร์ MySQL"
+msgstr "ใช้การเชื่อมต่อแบบถาวรกับฐานข้อมูล MySQL"
 
 #: libraries/classes/Config/Descriptions.php:898
 msgid "Persistent connections"
-msgstr ""
+msgstr "การเชื่อมต่อที่คงอยู่"
 
 #: libraries/classes/Config/Descriptions.php:901
 msgid ""
@@ -5047,36 +4990,40 @@ msgid ""
 "Structure page if any of the required tables for the phpMyAdmin "
 "configuration storage could not be found."
 msgstr ""
+"ปิดใช้งานคำเตือนเริ่มต้นที่แสดงในหน้าโครงสร้างรายละเอียดฐานข้อมูล หากไม่พบตารางที่จำเป็นสำหรับก"
+"ารจัดเก็บการกำหนดค่า phpMyAdmin"
 
 #: libraries/classes/Config/Descriptions.php:906
 msgid "Missing phpMyAdmin configuration storage tables"
-msgstr ""
+msgstr "ไม่พบตารางจัดเก็บการกำหนดค่า phpMyAdmin"
 
 #: libraries/classes/Config/Descriptions.php:909
 msgid ""
 "Disable the default warning that is displayed on the Structure page if "
 "column names in a table are reserved MySQL words."
 msgstr ""
+"ปิดใช้งานคำเตือนเริ่มต้นที่แสดงในหน้าโครงสร้างรายละเอียดฐานข้อมูล หากชื่อคอลัมน์ในตารางเป็นคำสง"
+"วนของ MySQL"
 
 #: libraries/classes/Config/Descriptions.php:913
 msgid "MySQL reserved word warning"
-msgstr ""
+msgstr "คำเตือนเกี่ยวกับคำสงวนของ MySQL"
 
 #: libraries/classes/Config/Descriptions.php:917
 msgid "How to display the menu tabs"
-msgstr ""
+msgstr "วิธีการแสดงแท็บเมนู"
 
 #: libraries/classes/Config/Descriptions.php:921
 msgid "How to display various action links"
-msgstr ""
+msgstr "วิธีการแสดงลิงก์การดำเนินการต่าง ๆ"
 
 #: libraries/classes/Config/Descriptions.php:923
 msgid "Disallow BLOB and BINARY columns from editing."
-msgstr ""
+msgstr "ไม่อนุญาตให้แก้ไขคอลัมน์ประเภท BLOB และ BINARY"
 
 #: libraries/classes/Config/Descriptions.php:925
 msgid "Protect binary columns"
-msgstr ""
+msgstr "ปกป้องคอลัมน์ไบนารี"
 
 #: libraries/classes/Config/Descriptions.php:928
 msgid ""
@@ -5084,40 +5031,41 @@ msgid ""
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
+"เปิดใช้งานหากคุณต้องการประวัติการค้นหาแบบอิงตามฐานข้อมูล (ต้องใช้พื้นที่จัดเก็บการกำหนดค่า "
+"phpMyAdmin) หากปิดใช้งาน ฟังก์ชันนี้จะใช้รูทีน JavaScript เพื่อแสดงประวัติการค้นหา (ซึ่งจะหายไ"
+"ปเมื่อปิดหน้าต่าง)"
 
 #: libraries/classes/Config/Descriptions.php:933
 msgid "Permanent query history"
-msgstr ""
+msgstr "ประวัติการค้นหาถาวร"
 
 #: libraries/classes/Config/Descriptions.php:937
 msgid "How many queries are kept in history."
-msgstr ""
+msgstr "มีการบันทึกประวัติคำสั่งเรียกดูไว้กี่ครั้ง"
 
 #: libraries/classes/Config/Descriptions.php:939
 msgid "Query history length"
-msgstr ""
+msgstr "ความยาวประวัติคำสั่งเรียกดู"
 
 #: libraries/classes/Config/Descriptions.php:941
 msgid "Select which functions will be used for character set conversion."
-msgstr ""
+msgstr "เลือกฟังก์ชันที่จะใช้สำหรับการแปลงชุดอักขระ"
 
 #: libraries/classes/Config/Descriptions.php:943
 msgid "Recoding engine"
-msgstr ""
+msgstr "กลไกเข้ารหัสใหม่"
 
 #: libraries/classes/Config/Descriptions.php:945
 msgid "When browsing tables, the sorting of each table is remembered."
-msgstr ""
+msgstr "เมื่อเรียกดูตาราง ระบบจะจดจำลำดับการจัดเรียงของแต่ละตารางไว้"
 
 #: libraries/classes/Config/Descriptions.php:947
-#, fuzzy
-#| msgid "Rename table to"
 msgid "Remember table's sorting"
-msgstr "เปลี่ยนชื่อตารางเป็น"
+msgstr "จดจำการเรียงลำดับของตาราง"
 
 #: libraries/classes/Config/Descriptions.php:949
 msgid "Default sort order for tables with a primary key."
-msgstr ""
+msgstr "ลำดับการจัดเรียงเริ่มต้นสำหรับตารางที่มีคีย์หลัก"
 
 #: libraries/classes/Config/Descriptions.php:951
 #, fuzzy
