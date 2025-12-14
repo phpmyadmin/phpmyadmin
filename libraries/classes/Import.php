@@ -587,6 +587,7 @@ class Import
      *
      * @return array Contains the precision, scale, and full size
      *                representation of the given decimal cell
+     * @psalm-return array{int,int,string}
      */
     public function getDecimalSize(string $cell): array
     {
@@ -710,15 +711,19 @@ class Import
                  * The last cumulative type was DECIMAL
                  */
                 $size = $this->getDecimalSize($cell);
+                $m = $size[self::M];
+                $d = $size[self::D];
 
                 $oldM = $this->getDecimalPrecision($lastCumulativeSize);
                 $oldD = $this->getDecimalScale($lastCumulativeSize);
 
                 /* New val if M or D is greater than current largest */
-                if ($size[self::M] > $oldM || $size[self::D] > $oldD) {
-                    /* Take the largest of both types */
-                    return (string) (($size[self::M] > $oldM ? $size[self::M] : $oldM)
-                        . ',' . ($size[self::D] > $oldD ? $size[self::D] : $oldD));
+                if ($m - $d > $oldM - $oldD || $d > $oldD) {
+                    // Widen type to fit current cell
+                    $newD = $oldD > $d ? $oldD : $d;
+                    $newM = ($oldM - $oldD > $m - $d ? $oldM - $oldD : $m - $d) + $newD;
+
+                    return $newM . ',' . $newD;
                 }
 
                 return $lastCumulativeSize;
