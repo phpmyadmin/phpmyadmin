@@ -5,6 +5,7 @@ phpMyAdmin - ChangeLog
 - issue #19976 Fix Bootstrap theme icons are not visible on bigger screens
 - issue #19339 Re-apply JSON syntax highlighting after AJAX updates
 - issue        Improve table list access error messages when available
+- issue #19964 Fix error when importing a CSV with more decimals than the column
 
 5.2.3 (2025-10-07)
 - issue #19548 Fix missing tooltip in status monitor log table
