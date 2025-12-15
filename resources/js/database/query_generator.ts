@@ -11,8 +11,15 @@ import { escapeBacktick, escapeSingleQuote } from '../modules/functions/escape.t
 $(document).on('change', '.criteria_op', function () {
     const op = $(this).val();
     const criteria = $(this).closest('.table').find('.rhs_text_val');
+    const rhs = $(this).closest('.table').find('.criteria_rhs');
 
-    isOpWithoutArg(op) ? criteria.hide().val('') : criteria.show();
+    if (isOpWithoutArg(op)) {
+        criteria.hide().val('');
+        rhs.hide();
+    } else {
+        criteria.show();
+        rhs.show();
+    }
 });
 
 function getFormatsText () {
