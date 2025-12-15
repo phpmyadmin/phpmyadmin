@@ -37,7 +37,7 @@ class ExportToon extends ExportPlugin
         $exportPluginProperties = new ExportPluginProperties();
         $exportPluginProperties->setText('Toon');
         $exportPluginProperties->setExtension('toon');
-        $exportPluginProperties->setMimeType('text/plain');
+        $exportPluginProperties->setMimeType('text/toon');
         $exportPluginProperties->setForceFile(true);
         $exportPluginProperties->setOptionsText(__('Options'));
 
@@ -143,7 +143,7 @@ class ExportToon extends ExportPlugin
             $buffer .= $column;
 
             if ($index !== count($columns) - 1) {
-                $buffer .= ', ';
+                $buffer .= ',';
             }
         }
         $buffer .= "}:\n";
@@ -172,7 +172,7 @@ class ExportToon extends ExportPlugin
                 $buffer .= $record[$i];
 
                 if ($i !== $columnsCnt - 1) {
-                    $buffer .= ', ';
+                    $buffer .= ',';
                 }
             }
 
