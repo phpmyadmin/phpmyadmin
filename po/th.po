@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2025-12-14 15:00+0000\n"
+"PO-Revision-Date: 2025-12-15 15:00+0000\n"
 "Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/4-9/th/>"
 "\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.15-dev\n"
+"X-Generator: Weblate 5.15.1-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -5068,125 +5068,118 @@ msgid "Default sort order for tables with a primary key."
 msgstr "ลำดับการจัดเรียงเริ่มต้นสำหรับตารางที่มีคีย์หลัก"
 
 #: libraries/classes/Config/Descriptions.php:951
-#, fuzzy
-#| msgid "A primary key has been added on %s."
 msgid "Primary key default sort order"
-msgstr "ได้เพิ่มไพรมารีคีย์แล้วใน %s"
+msgstr "ลำดับการเรียงเริ่มต้นของคีย์หลัก"
 
 #: libraries/classes/Config/Descriptions.php:953
 msgid ""
 "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature."
-msgstr ""
+msgstr "ทำส่วนหัวซ้ำในทุก ๆ เซลส์ X [kbd]0[/kbd] ปิดใช้งานฟีเจอร์นี้"
 
 #: libraries/classes/Config/Descriptions.php:955
 msgid "Repeat headers"
-msgstr ""
+msgstr "ทำซ้ำส่วนหัว"
 
 #: libraries/classes/Config/Descriptions.php:957
 msgid "Grid editing: trigger action"
-msgstr ""
+msgstr "การแก้ไขตาราง: กระตุ้นการทำงาน"
 
 #: libraries/classes/Config/Descriptions.php:959
-#, fuzzy
-#| msgid "Relational schema"
 msgid "Relational display"
-msgstr "รีเลชันแนล สกีมา"
+msgstr "แสดงความสัมพันธ์"
 
 #: libraries/classes/Config/Descriptions.php:961
-#, fuzzy
-#| msgid "Servers display options"
 msgid "For display Options"
-msgstr "ตัวเลือกการแสดงเซิร์ฟเวอร์"
+msgstr "สำหรับตัวเลือกการแสดงผล"
 
 #: libraries/classes/Config/Descriptions.php:963
 msgid "Grid editing: save all edited cells at once"
-msgstr ""
+msgstr "แก้ไขตาราง: บันทึกการแก้ไขทุกเซลส์ในคราวเดียว"
 
 #: libraries/classes/Config/Descriptions.php:965
 msgid "Directory where exports can be saved on server."
-msgstr ""
+msgstr "ไดเรกทอรีที่สามารถบันทึกการส่งออกไว้บนเซิร์ฟเวอร์"
 
 #: libraries/classes/Config/Descriptions.php:967
 msgid "Save directory"
-msgstr ""
+msgstr "บันทึกไดเรกทอรี"
 
 #: libraries/classes/Config/Descriptions.php:969
 msgid "Leave blank if not used."
-msgstr ""
+msgstr "เว้นว่างไว้หากไม่ได้ใช้งาน"
 
 #: libraries/classes/Config/Descriptions.php:971
 msgid "Host authorization order"
-msgstr ""
+msgstr "ลำดับการอนุญาตโฮสต์"
 
 #: libraries/classes/Config/Descriptions.php:973
 msgid "Leave blank for defaults."
-msgstr ""
+msgstr "เว้นว่างเป็นค่าเริ่มต้น"
 
 #: libraries/classes/Config/Descriptions.php:975
 msgid "Host authorization rules"
-msgstr ""
+msgstr "กฎการอนุญาตโฮสต์"
 
 #: libraries/classes/Config/Descriptions.php:977
 msgid "Allow logins without a password"
-msgstr ""
+msgstr "อนุญาตให้ลงชื่อเข้าใช้โดยปราศจากรหัสผ่าน"
 
 #: libraries/classes/Config/Descriptions.php:979
 msgid "Allow root login"
-msgstr ""
+msgstr "อนุญาตลงชื่อเข้าใช้เป็น root"
 
 #: libraries/classes/Config/Descriptions.php:981
-#, fuzzy
-#| msgid "Session value"
 msgid "Session timezone"
-msgstr "ค่าเซสชั่น"
+msgstr "เขตเวลาของเซสชัน"
 
 #: libraries/classes/Config/Descriptions.php:984
 msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
 msgstr ""
+"ตั้งค่าเขตเวลาที่มีผลบังคับใช้ ซึ่งอาจแตกต่างจากเขตเวลาของเซิร์ฟเวอร์ฐานข้อมูลของคุณ"
 
 #: libraries/classes/Config/Descriptions.php:988
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
-msgstr ""
+msgstr "ชื่อ HTTP Basic Auth Realm ที่แสดงเมื่อดำเนินการ HTTP Auth"
 
 #: libraries/classes/Config/Descriptions.php:990
 msgid "HTTP Realm"
-msgstr "รหัสประจำตัวของ HTTP"
+msgstr "โซนของ HTTP"
 
 #: libraries/classes/Config/Descriptions.php:992
-#, fuzzy
-#| msgid "Authentication method to use"
 msgid "Authentication method to use."
-msgstr "วิธีการรับรองความถูกต้องที่ใช้"
+msgstr "วิธีการยืนยันตัวตนที่ใช้"
 
 #: libraries/classes/Config/Descriptions.php:994 setup/frames/index.inc.php:142
 msgid "Authentication type"
-msgstr "ประเภทของการรับรองความถูกต้อง"
+msgstr "ประเภทการยืนยันตัวตน"
 
 #: libraries/classes/Config/Descriptions.php:997
 msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
+"เว้นว่างไว้หากไม่ต้องการรองรับ [doc@bookmarks@]bookmark[/doc] แนะนำให้ใช้: "
+"[kbd]pma__bookmark[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:1001
 msgid "Bookmark table"
-msgstr ""
+msgstr "ตารางบุ๊กมาร์ก"
 
 #: libraries/classes/Config/Descriptions.php:1004
 msgid ""
 "Leave blank for no column comments/mime types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
+"เว้นว่างไว้หากไม่ต้องการใส่คำอธิบายคอลัมน์/ประเภท MIME แนะนำ: [kbd]pma__column_info[/"
+"kbd]"
 
 #: libraries/classes/Config/Descriptions.php:1008
 msgid "Column information table"
-msgstr ""
+msgstr "ตารางข้อมูลคอลัมน์"
 
 #: libraries/classes/Config/Descriptions.php:1010
-#, fuzzy
-#| msgid "Compress connection to MySQL server"
 msgid "Compress connection to MySQL server."
 msgstr "บีบอัดการเชื่อมต่อไปยังเซิร์ฟเวอร์ MySQL"
 
@@ -5196,29 +5189,30 @@ msgstr "บีบอัดการเชื่อมต่อ"
 
 #: libraries/classes/Config/Descriptions.php:1014
 msgid "Control user password"
-msgstr ""
+msgstr "ควบคุมรหัสผ่านผู้ใช้"
 
 #: libraries/classes/Config/Descriptions.php:1017
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
+"ผู้ใช้ MySQL พิเศษที่กำหนดค่าด้วยสิทธิ์ที่จำกัด สามารถดูข้อมูลเพิ่มเติมได้ที่ [doc@linked-"
+"tables]documentation[/doc]"
 
 #: libraries/classes/Config/Descriptions.php:1021
 msgid "Control user"
-msgstr ""
+msgstr "ควบคุมผู้ใช้"
 
 #: libraries/classes/Config/Descriptions.php:1024
 msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host."
 msgstr ""
+"โฮสต์ทางเลือกสำหรับจัดเก็บการกำหนดค่า; หากต้องการใช้โฮสต์ที่กำหนดไว้แล้ว ให้เว้นว่างไว้"
 
 #: libraries/classes/Config/Descriptions.php:1028
-#, fuzzy
-#| msgid "Any host"
 msgid "Control host"
-msgstr "โฮสต์ใดๆ"
+msgstr "ควบคุมโฮสต์"
 
 #: libraries/classes/Config/Descriptions.php:1031
 msgid ""
@@ -5226,16 +5220,16 @@ msgid ""
 "storage; leave blank to use the default port, or the already defined port, "
 "if the controlhost equals host."
 msgstr ""
+"พอร์ตทางเลือกสำหรับเชื่อมต่อกับโฮสต์ที่เก็บข้อมูลการกำหนดค่า เว้นว่างไว้เพื่อใช้พอร์ตเริ่มต้น หรือพอร์ต"
+"ที่กำหนดไว้แล้ว หาก controlhost เท่ากับ host"
 
 #: libraries/classes/Config/Descriptions.php:1036
-#, fuzzy
-#| msgid "Any host"
 msgid "Control port"
-msgstr "โฮสต์ใดๆ"
+msgstr "ควบคุมพอร์ต"
 
 #: libraries/classes/Config/Descriptions.php:1038
 msgid "Hide databases matching regular expression (PCRE)."
-msgstr ""
+msgstr "ซ่อนฐานข้อมูลที่ตรงกับนิพจน์ปกติ (PCRE)"
 
 #: libraries/classes/Config/Descriptions.php:1041
 msgid ""
@@ -5243,10 +5237,13 @@ msgid ""
 "issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
 "com/19588]MySQL Bugs[/a]"
 msgstr ""
+"ดูข้อมูลเพิ่มเติมได้ที่ [a@https://github.com/phpmyadmin/phpmyadmin/issues/8970]ตัวติดตา"
+"มปัญหาของ phpMyAdmin[/a] และ [a@https://bugs.mysql.com/19588]ข้อบกพร่องของ "
+"MySQL[/a]"
 
 #: libraries/classes/Config/Descriptions.php:1045
 msgid "Disable use of INFORMATION_SCHEMA"
-msgstr ""
+msgstr "ปิดการใช้งาน INFORMATION_SCHEMA"
 
 #: libraries/classes/Config/Descriptions.php:1047
 msgid "Hide databases"
@@ -5257,14 +5254,15 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
 msgstr ""
+"เว้นว่างไว้หากไม่ต้องการรองรับประวัติคำสั่ง SQL แนะนำให้ใช้: [kbd]pma__history[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:1054
 msgid "SQL query history table"
-msgstr ""
+msgstr "ตารางประวัติคำสั่ง SQL"
 
 #: libraries/classes/Config/Descriptions.php:1056
 msgid "Hostname where MySQL server is running."
-msgstr ""
+msgstr "ชื่อโฮสต์ซึ่งเซิร์ฟเวอร์ MySQL กำลังทำงานอยู่"
 
 #: libraries/classes/Config/Descriptions.php:1058
 msgid "Server hostname"
@@ -5279,44 +5277,46 @@ msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed."
 msgstr ""
+"จำกัดจำนวนการตั้งค่าตารางที่จัดเก็บไว้ในฐานข้อมูล โดยข้อมูลที่เก่าที่สุดจะถูกลบออกโดยอัตโนมัติ"
 
 #: libraries/classes/Config/Descriptions.php:1067
 msgid "Maximal number of table preferences to store"
-msgstr ""
+msgstr "จำนวนสูงสุดของค่ากำหนดตารางที่จะจัดเก็บ"
 
 #: libraries/classes/Config/Descriptions.php:1069
 msgid "QBE saved searches table"
-msgstr ""
+msgstr "ตารางการค้นหาที่บันทึกไว้ใน QBE"
 
 #: libraries/classes/Config/Descriptions.php:1072
 msgid ""
 "Leave blank for no QBE saved searches support, suggested: "
 "[kbd]pma__savedsearches[/kbd]."
 msgstr ""
+"เว้นว่างไว้หากไม่รองรับการค้นหาที่บันทึกไว้ใน QBE แนะนำให้ใช้: [kbd]pma__savedsearches[/"
+"kbd]"
 
 #: libraries/classes/Config/Descriptions.php:1076
-#, fuzzy
-#| msgid "Create table on database %s"
 msgid "Export templates table"
-msgstr "สร้างตารางในฐานข้อมูลนี้ %s"
+msgstr "ตารางต้นแบบการส่งออก"
 
 #: libraries/classes/Config/Descriptions.php:1079
 msgid ""
 "Leave blank for no export template support, suggested: "
 "[kbd]pma__export_templates[/kbd]."
 msgstr ""
+"เว้นว่างไว้หากไม่รองรับต้นแบบการส่งออก แนะนำให้ใช้: [kbd]pma__export_templates[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:1083
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
 msgid "Central columns table"
-msgstr "เพิ่ม/ลบ คอลัมน์ (ฟิลด์)"
+msgstr "ตารางคอลัมน์กลาง"
 
 #: libraries/classes/Config/Descriptions.php:1086
 msgid ""
 "Leave blank for no central columns support, suggested: "
 "[kbd]pma__central_columns[/kbd]."
 msgstr ""
+"เว้นว่างไว้หากไม่ต้องการรองรับคอลัมน์กลาง คำแนะนำให้ใช้: [kbd]pma__central_columns[/"
+"kbd]"
 
 #: libraries/classes/Config/Descriptions.php:1091
 msgid ""
@@ -5324,6 +5324,8 @@ msgid ""
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
 "[kbd]'my_db'[/kbd]."
 msgstr ""
+"คุณสามารถใช้ตัวอักษรตัวแทน (wildcard) ของ MySQL (% และ _) โดยหลีกลี่ยงมันได้หากต้องการใช้"
+"ตามตัวอักษร เช่น ใช้ [kbd]'my\\_db'[/kbd] แต่ไม่ใช่ [kbd]'my_db'[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:1096
 msgid "Show only listed databases"
@@ -5331,23 +5333,22 @@ msgstr "แสดงฐานข้อมูลที่ระบุไว้เ
 
 #: libraries/classes/Config/Descriptions.php:1098
 #: libraries/classes/Config/Descriptions.php:1244
-#, fuzzy
-#| msgid "Leave empty if not using config auth"
 msgid "Leave empty if not using config auth."
-msgstr "ปล่อยว่างไว้ ถ้าไม่ใช้การกำหนดค่าการรับรองความถูกต้อง"
+msgstr "เว้นว่างไว้ ถ้าไม่ใช้การกำหนดค่าการรับรองความถูกต้อง"
 
 #: libraries/classes/Config/Descriptions.php:1100
 msgid "Password for config auth"
-msgstr "รหัสผ่าน"
+msgstr "รหัสผ่านเพื่อการกำหนดค่าผู้มีสอบ"
 
 #: libraries/classes/Config/Descriptions.php:1102
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
+"เว้นว่างไว้หากไม่รองรับโครงสร้างข้อมูล PDF แนะนำให้ใช้: [kbd]pma__pdf_pages[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:1104
 msgid "PDF schema: pages table"
-msgstr ""
+msgstr "โครงสร้าง PDF: ตารางหน้า"
 
 #: libraries/classes/Config/Descriptions.php:1107
 msgid ""
@@ -5355,17 +5356,19 @@ msgid ""
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
+"ฐานข้อมูลที่ใช้สำหรับความสัมพันธ์ บุ๊กมาร์ก และคุณสมบัติของไฟล์ PDF ดู [doc@linked-"
+"tables]pmadb[/doc] สำหรับข้อมูลฉบับสมบูรณ์ เว้นว่างไว้หากไม่ต้องการรับการสนับสนุน คำแนะนำให้"
+"ใช้: [kbd]phpmyadmin[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:1112
 #: templates/server/databases/create.twig:21
-#, fuzzy
-#| msgid "Database"
 msgid "Database name"
-msgstr "ฐานข้อมูล"
+msgstr "ชื่อฐานข้อมูล"
 
 #: libraries/classes/Config/Descriptions.php:1114
 msgid "Port on which MySQL server is listening, leave empty for default."
 msgstr ""
+"พอร์ตที่เซิร์ฟเวอร์ MySQL กำลังเปิดรับอยู่ เว้นว่างไว้เพื่อใช้ค่าเริ่มต้น"
 
 #: libraries/classes/Config/Descriptions.php:1116
 msgid "Server port"
@@ -5376,46 +5379,41 @@ msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]."
 msgstr ""
+"เว้นว่างไว้หากไม่ต้องการบันทึกตารางที่ใช้งานล่าสุดแบบ \"ถาวร\" ข้ามเซสชัน แนะนำให้ใช้: "
+"[kbd]pma__recent[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:1123
-#, fuzzy
-#| msgid "Analyze table"
 msgid "Recently used table"
-msgstr "วิเคราะห์ตาราง"
+msgstr "ตารางที่ใช้งานล่าสุด"
 
 #: libraries/classes/Config/Descriptions.php:1126
 msgid ""
 "Leave blank for no \"persistent\" favorite tables across sessions, "
 "suggested: [kbd]pma__favorite[/kbd]."
 msgstr ""
+"เว้นว่างไว้หากไม่ต้องการบันทึกตารางรายการโปรดแบบถาวรข้ามเซสชัน แนะนำให้ใช้: "
+"[kbd]pma__favorite[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:1130
-#, fuzzy
-#| msgid "Variables"
 msgid "Favorites table"
-msgstr "ตัวแปร"
+msgstr "ตารางโปรด"
 
 #: libraries/classes/Config/Descriptions.php:1133
 msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
 msgstr ""
+"เว้นว่างไว้หากไม่รองรับ [doc@relations@]relation-links[/doc] แนะนำให้ใช้ "
+"[kbd]pma__relation[/kbd] แทน"
 
 #: libraries/classes/Config/Descriptions.php:1138
-#, fuzzy
 msgid "Relation table"
-msgstr "ซ่อมแซมตาราง"
+msgstr "ตารางความสัมพันธ์"
 
 #: libraries/classes/Config/Descriptions.php:1141
-#, fuzzy
-#| msgid ""
-#| "See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-#| "types[/a] for an example"
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
-msgstr ""
-"ดูตัวอย่าง [a@https://wiki.phpmyadmin.net/pma/"
-"auth_types#signon]ประเภทของการรับรองความถูกต้อง[/a]"
+msgstr "ดู [doc@authentication-modes]authentication types[/doc] เป็นตัวอย่าง"
 
 #: libraries/classes/Config/Descriptions.php:1145
 msgid "Signon session name"
@@ -5718,36 +5716,35 @@ msgstr ""
 msgid ""
 "Defines whether SQL queries generated by phpMyAdmin should be displayed."
 msgstr ""
+"กำหนดว่าไม่ว่าจะเป็นคำสั่ง SQL ที่สร้างโดย phpMyAdmin หรือไม่ก็ควรต้องแสดง"
 
 #: libraries/classes/Config/Descriptions.php:1315
-#, fuzzy
 msgid "Show SQL queries"
-msgstr "แสดงคำค้นแบบเต็ม"
+msgstr "แสดงคำสั่ง SQL"
 
 #: libraries/classes/Config/Descriptions.php:1317
 msgid ""
 "Defines whether the query box should stay on-screen after its submission."
-msgstr ""
+msgstr "กำหนดว่าไม่ว่าอย่างไรช่องคำถามก็ควรแสดงอยู่บนหน้าจอหลังจากส่งคำถามแล้ว"
 
 #: libraries/classes/Config/Descriptions.php:1319
 #: libraries/classes/SqlQueryForm.php:356
-#, fuzzy
 msgid "Retain query box"
-msgstr "คำค้น SQL"
+msgstr "คงกล่องคำสั่ง SQL ไว้"
 
 #: libraries/classes/Config/Descriptions.php:1321
 msgid "Allow to display database and table statistics (eg. space usage)."
-msgstr ""
+msgstr "อนุญาตให้แสดงสถิติฐานข้อมูลและตาราง (เช่น การใช้พื้นที่)"
 
 #: libraries/classes/Config/Descriptions.php:1323
-#, fuzzy
 msgid "Show statistics"
-msgstr "สถิติของแถว"
+msgstr "แสถงสถิติ"
 
 #: libraries/classes/Config/Descriptions.php:1325
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables."
 msgstr ""
+"ทำเครื่องหมายตารางที่ใช้งานอยู่ และทำให้สามารถแสดงฐานข้อมูลที่มีตารางที่ถูกล็อกได้"
 
 #: libraries/classes/Config/Descriptions.php:1327
 msgid "Skip locked tables"
@@ -5764,12 +5761,10 @@ msgstr "อธิบาย SQL"
 #: libraries/classes/Server/Status/Variables.php:50
 #: libraries/classes/Util.php:1124 templates/console/display.twig:99
 msgid "Refresh"
-msgstr "เรียกใหม่"
+msgstr "รีเฟรช"
 
 #: libraries/classes/Config/Descriptions.php:1335
 #: libraries/classes/Util.php:1109
-#, fuzzy
-#| msgid "Create PHP Code"
 msgid "Create PHP code"
 msgstr "สร้างโค้ด PHP"
 
@@ -5777,11 +5772,11 @@ msgstr "สร้างโค้ด PHP"
 msgid ""
 "Disable the default warning that is displayed on the main page if Suhosin is "
 "detected."
-msgstr ""
+msgstr "ปิดใช้งานคำเตือนเริ่มต้นที่แสดงบนหน้าหลักหากตรวจพบ Suhosin"
 
 #: libraries/classes/Config/Descriptions.php:1342
 msgid "Suhosin warning"
-msgstr ""
+msgstr "คำเตือน Suhosin"
 
 #: libraries/classes/Config/Descriptions.php:1345
 msgid ""
@@ -5789,38 +5784,38 @@ msgid ""
 "of the PHP setting session.gc_maxlifetime is less than the value of "
 "`LoginCookieValidity`."
 msgstr ""
+"ปิดใช้งานคำเตือนเริ่มต้นที่แสดงบนหน้าหลัก หากค่าของการตั้งค่า PHP session.gc_maxlifetime น้อ"
+"ยกว่าค่าของ `LoginCookieValidity`"
 
 #: libraries/classes/Config/Descriptions.php:1350
-#, fuzzy
-#| msgid "Login cookie validity"
 msgid "Login cookie validity warning"
-msgstr "เข้าสู่ระบบความถูกต้องของคุกกี้"
+msgstr "คำเตือนเกี่ยวกับความถูกต้องของคุกกี้ในการเข้าสู่ระบบ"
 
 #: libraries/classes/Config/Descriptions.php:1353
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
 msgstr ""
+"ขนาดของ Textarea (คอลัมน์) ในโหมดแก้ไข ค่านี้จะถูกเน้นสำหรับ Textarea คำสั่ง SQL (*2)"
 
 #: libraries/classes/Config/Descriptions.php:1357
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
 msgid "Textarea columns"
-msgstr "เพิ่ม/ลบ คอลัมน์ (ฟิลด์)"
+msgstr "คมลัมน์ Textarea"
 
 #: libraries/classes/Config/Descriptions.php:1360
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
 msgstr ""
+"ขนาดของ Textarea (แถว) ในโหมดแก้ไข ค่านี้จะถูกเน้นสำหรับ Textarea ของคำสั่ง SQL (*2)"
 
 #: libraries/classes/Config/Descriptions.php:1364
 msgid "Textarea rows"
-msgstr ""
+msgstr "แถว Textarea"
 
 #: libraries/classes/Config/Descriptions.php:1366
 msgid "Title of browser window when a database is selected."
-msgstr ""
+msgstr "ชื่อหน้าต่างเบราว์เซอร์เมื่อเลือกฐานข้อมูลแล้ว"
 
 #: libraries/classes/Config/Descriptions.php:1368
 #: libraries/classes/Menu.php:239 libraries/classes/MultSubmits.php:392
@@ -5844,17 +5839,15 @@ msgstr "ฐานข้อมูล"
 
 #: libraries/classes/Config/Descriptions.php:1370
 msgid "Title of browser window when nothing is selected."
-msgstr ""
+msgstr "ชื่อหน้าต่างเบราว์เซอร์เมื่อไม่มีการเลือกใด ๆ"
 
 #: libraries/classes/Config/Descriptions.php:1372
-#, fuzzy
-#| msgid "Default"
 msgid "Default title"
-msgstr "ค่าปริยาย"
+msgstr "ชื่อเรื่องเริ่มต้น"
 
 #: libraries/classes/Config/Descriptions.php:1374
 msgid "Title of browser window when a server is selected."
-msgstr ""
+msgstr "ชื่อหน้าต่างเบราว์เซอร์เมื่อเลือกเซิร์ฟเวอร์แล้ว"
 
 #: libraries/classes/Config/Descriptions.php:1376
 #: libraries/classes/Menu.php:220 libraries/classes/Server/Status/Data.php:427
@@ -5863,7 +5856,7 @@ msgstr "เซิร์ฟเวอร์"
 
 #: libraries/classes/Config/Descriptions.php:1378
 msgid "Title of browser window when a table is selected."
-msgstr ""
+msgstr "ชื่อหน้าต่างเบราว์เซอร์เมื่อเลือกตารางแล้ว"
 
 #: libraries/classes/Config/Descriptions.php:1380
 #: libraries/classes/Menu.php:277
@@ -5891,36 +5884,41 @@ msgid ""
 "For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: "
 "HTTP_X_FORWARDED_FOR[/kbd]."
 msgstr ""
+"พร็อกซีอินพุตเป็น [kbd]IP: trusted HTTP header[/kbd] ตัวอย่างต่อไปนี้ระบุว่า phpMyAdmin ค"
+"วรเชื่อถือส่วนหัว HTTP_X_FORWARDED_FOR (X-Forwarded-For) ที่มาจากพร็อกซี "
+"1.2.3.4:[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:1389
 msgid "List of trusted proxies for IP allow/deny"
-msgstr ""
+msgstr "รายชื่อพร็อกซีที่เชื่อถือได้สำหรับการอนุญาต/ปฏิเสธ IP"
 
 #: libraries/classes/Config/Descriptions.php:1391
 msgid "Directory on server where you can upload files for import."
-msgstr ""
+msgstr "ไดเรกทอรีบนเซิร์ฟเวอร์ซึ่งคุณสามารถอัปโหลดไฟล์เพื่อการนำเข้า"
 
 #: libraries/classes/Config/Descriptions.php:1393
 msgid "Upload directory"
-msgstr ""
+msgstr "ไดเรกทอรีอัปโหลด"
 
 #: libraries/classes/Config/Descriptions.php:1395
 msgid "Allow for searching inside the entire database."
-msgstr ""
+msgstr "อนุญาตให้ค้นหาภายในฐานข้อมูลทั้งหมดได้"
 
 #: libraries/classes/Config/Descriptions.php:1397
 msgid "Use database search"
-msgstr ""
+msgstr "ใช้ฐานข้อมูลค้นหา"
 
 #: libraries/classes/Config/Descriptions.php:1400
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right."
 msgstr ""
+"เมื่อปิดใช้งาน ผู้ใช้จะไม่สามารถตั้งค่าตัวเลือกใด ๆ ด้านล่างได้ ไม่ว่าจะมีเครื่องหมายถูกในช่องด้านขวา"
+"หรือไม่ก็ตาม"
 
 #: libraries/classes/Config/Descriptions.php:1404
 msgid "Enable the Developer tab in settings"
-msgstr ""
+msgstr "เปิดใช้งานแท็บนักพัฒนาในการตั้งค่า"
 
 #: libraries/classes/Config/Descriptions.php:1406
 #, fuzzy
@@ -5941,10 +5939,13 @@ msgid ""
 "if the server where phpMyAdmin is installed does not have direct access to "
 "the internet. The format is: \"hostname:portnumber\"."
 msgstr ""
+"URL ของพร็อกซีที่จะถูกใช้เมื่อเรียกดูข้อมูลเกี่ยวกับเวอร์ชันล่าสุดของ phpMyAdmin หรือเมื่อส่งรายงานข้"
+"อผิดพลาด คุณจำเป็นต้องใช้สิ่งนี้หากเซิร์ฟเวอร์ที่ติดตั้ง phpMyAdmin ไว้ไม่มีการเข้าถึงอินเทอร์เน็ตโดยต"
+"รง รูปแบบคือ: \"ชื่อโฮสต์:หมายเลขพอร์ต\""
 
 #: libraries/classes/Config/Descriptions.php:1417
 msgid "Proxy url"
-msgstr ""
+msgstr "URL พร็อกซี"
 
 #: libraries/classes/Config/Descriptions.php:1420
 msgid ""
@@ -5952,61 +5953,53 @@ msgid ""
 "authentication is performed. If a username is supplied, Basic Authentication "
 "will be performed. No other types of authentication are currently supported."
 msgstr ""
+"ชื่อผู้ใช้สำหรับยืนยันตัวตนกับพร็อกซี โดยค่าเริ่มต้น จะไม่มีการยืนยันตัวตนใด ๆ หากระบุชื่อผู้ใช้ ระบบจะท"
+"ำการยืนยันตัวตนแบบพื้นฐาน (Basic Authentication) ซึ่งขณะนี้ยังไม่รองรับการยืนยันตัวตนประเภทอื่"
+"น ๆ"
 
 #: libraries/classes/Config/Descriptions.php:1426
-#, fuzzy
 msgid "Proxy username"
-msgstr "ชื่อผู้ใช้:"
+msgstr "ชื่อผู้ใช้พร็อกซี"
 
 #: libraries/classes/Config/Descriptions.php:1428
 msgid "The password for authenticating with the proxy."
-msgstr ""
+msgstr "รหัสผ่านสำหรับยืนยันตัวตนกับพร็อกซี"
 
 #: libraries/classes/Config/Descriptions.php:1430
-#, fuzzy
-#| msgid "Password"
 msgid "Proxy password"
-msgstr "รหัสผ่าน"
+msgstr "รหัสผ่านพร็อกซี"
 
 #: libraries/classes/Config/Descriptions.php:1433
-#, fuzzy
-#| msgid ""
-#| "Enable [a@https://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
-#| "import and export operations"
 msgid "Enable ZIP compression for import and export operations."
-msgstr ""
-"เปิดใช้งาน [a@https://en.wikipedia.org/wiki/Bzip2]bzip2[/a] "
-"การบีบอัดสำหรับการดำเนินการนำเข้าและส่งออก"
+msgstr "เปิดใช้งานการบีบอัดไฟล์ ZIP สำหรับการนำเข้าและส่งออกข้อมูล"
 
 #: libraries/classes/Config/Descriptions.php:1435
 msgid "ZIP"
-msgstr ""
+msgstr "ไฟล์ ZIP"
 
 #: libraries/classes/Config/Descriptions.php:1437
 msgid "Enter your public key for your domain reCaptcha service."
-msgstr ""
+msgstr "ป้อนคีย์สาธารณะ (Public key) สำหรับบริการ reCAPTCHA บนโดเมนของคุณ"
 
 #: libraries/classes/Config/Descriptions.php:1439
 msgid "Public key for reCaptcha"
-msgstr ""
+msgstr "คีย์สาธารณะ (Public key) สำหรับ reCaptcha"
 
 #: libraries/classes/Config/Descriptions.php:1441
 msgid "Enter your private key for your domain reCaptcha service."
-msgstr ""
+msgstr "ป้อนคีย์ส่วนตัว (Private key) สำหรับบริการ reCAPTCHA บนโดเมนของคุณ"
 
 #: libraries/classes/Config/Descriptions.php:1443
 msgid "Private key for reCaptcha"
-msgstr ""
+msgstr "คีย์ส่วนตัว (Private key) สำหรับ reCaptcha"
 
 #: libraries/classes/Config/Descriptions.php:1446
 msgid "Choose the default action when sending error reports."
-msgstr ""
+msgstr "เลือกการดำเนินการเริ่มต้นเมื่อส่งรายงานข้อผิดพลาด"
 
 #: libraries/classes/Config/Descriptions.php:1448
-#, fuzzy
-#| msgid "Server port"
 msgid "Send error reports"
-msgstr "พอร์ตของเซิร์ฟเวอร์"
+msgstr "ส่งรายงานความผิดพลาด"
 
 #: libraries/classes/Config/Descriptions.php:1452
 msgid ""
