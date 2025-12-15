@@ -1,0 +1,205 @@
+<?php
+/**
+ * Export to TOON text.
+ */
+
+declare(strict_types=1);
+
+namespace PhpMyAdmin\Plugins\Export;
+
+use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Export\StructureOrData;
+use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Plugins\ExportPlugin;
+use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
+use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
+use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
+use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
+
+use function __;
+use function array_key_exists;
+
+/**
+ * Handles the export for the TOON format
+ */
+class ExportToon extends ExportPlugin
+{
+    private int $indent = 2;
+
+    /** @psalm-return non-empty-lowercase-string */
+    public function getName(): string
+    {
+        return 'toon';
+    }
+
+    protected function setProperties(): ExportPluginProperties
+    {
+        $exportPluginProperties = new ExportPluginProperties();
+        $exportPluginProperties->setText('Toon');
+        $exportPluginProperties->setExtension('toon');
+        $exportPluginProperties->setMimeType('text/plain');
+        $exportPluginProperties->setForceFile(true);
+        $exportPluginProperties->setOptionsText(__('Options'));
+
+        // create the root group that will be the options field for
+        // $exportPluginProperties
+        // this will be shown as "Format specific options"
+        $exportSpecificOptions = new OptionsPropertyRootGroup('Format Specific Options');
+
+        // general options main group
+        $generalOptions = new OptionsPropertyMainGroup('general_opts');
+        // create primary items and add them to the group
+        $leaf = new HiddenPropertyItem('structure_or_data');
+        $generalOptions->addProperty($leaf);
+        // add the main group to the root group
+        $exportSpecificOptions->addProperty($generalOptions);
+
+        // set the options for the export plugin property item
+        $exportPluginProperties->setOptions($exportSpecificOptions);
+
+        return $exportPluginProperties;
+    }
+
+    /**
+     * Outputs export header
+     */
+    public function exportHeader(): bool
+    {
+        return true;
+    }
+
+    /**
+     * Outputs export footer
+     */
+    public function exportFooter(): bool
+    {
+        return true;
+    }
+
+    /**
+     * Outputs database header
+     *
+     * @param string $db      Database name
+     * @param string $dbAlias Aliases of db
+     */
+    public function exportDBHeader(string $db, string $dbAlias = ''): bool
+    {
+        return true;
+    }
+
+    /**
+     * Outputs database footer
+     *
+     * @param string $db Database name
+     */
+    public function exportDBFooter(string $db): bool
+    {
+        return true;
+    }
+
+    /**
+     * Outputs CREATE DATABASE statement
+     *
+     * @param string $db      Database name
+     * @param string $dbAlias Aliases of db
+     */
+    public function exportDBCreate(string $db, string $dbAlias = ''): bool
+    {
+        return true;
+    }
+
+    /**
+     * Outputs the content of a table in JSON format
+     *
+     * @param string  $db       database name
+     * @param string  $table    table name
+     * @param string  $sqlQuery SQL query for obtaining data
+     * @param mixed[] $aliases  Aliases of db/table/columns
+     */
+    public function exportData(
+        string $db,
+        string $table,
+        string $sqlQuery,
+        array $aliases = [],
+    ): bool {
+        $dbAlias = $this->getDbAlias($aliases, $db);
+        $tableAlias = $this->getTableAlias($aliases, $db, $table);
+        $dbi = DatabaseInterface::getInstance();
+        $result = $dbi->query($sqlQuery);
+
+        $columnsCnt = $result->numFields();
+        $fieldsMeta = $dbi->getFieldsMeta($result);
+
+        $columns = [];
+        foreach ($fieldsMeta as $i => $field) {
+            $colAs = $this->getColumnAlias($aliases, $db, $table, $field->name);
+
+            $columns[$i] = $colAs;
+        }
+
+        while ($record = $result->fetchRow()) {
+            $buffer = "$dbAlias.$tableAlias" . '[' . $result->numRows() . ']{';
+            foreach ($columns as $index => $column) {
+                $buffer .= $column;
+
+                if ($index !== count($columns) - 1) {
+                    $buffer .= ', ';
+                }
+            }
+            $buffer .= "}:\n";
+
+            for ($i = 0; $i < $columnsCnt; $i++) {
+                if (! array_key_exists($i, $record)) {
+                    continue;
+                }
+
+                if ($i === 0) {
+                    $buffer .= str_repeat(' ', $this->indent);
+                }
+
+                if ($record[$i] === null) {
+                    $buffer .= '(NULL)';
+                    continue;
+                }
+
+                $buffer .= $record[$i];
+
+                if ($i !== $columnsCnt - 1) {
+                    $buffer .= ', ';
+                }
+            }
+            $buffer .= "\n\n";
+
+            if (! $this->export->outputHandler($buffer)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    /**
+     * Outputs result raw query in TOON format
+     *
+     * @param string|null $db       the database where the query is executed
+     * @param string      $sqlQuery the rawquery to output
+     */
+    public function exportRawQuery(string|null $db, string $sqlQuery): bool
+    {
+        if ($db !== null) {
+            DatabaseInterface::getInstance()->selectDb($db);
+        }
+
+        return $this->exportData($db ?? '', '', $sqlQuery);
+    }
+
+    /** @inheritDoc */
+    public function setExportOptions(ServerRequest $request, array $exportConfig): void
+    {
+        $this->structureOrData = $this->setStructureOrData(
+            $request->getParsedBodyParam('toon_structure_or_data'),
+            $exportConfig['toon_structure_or_data'] ?? null,
+            StructureOrData::Data,
+        );
+    }
+}
