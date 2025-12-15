@@ -34,7 +34,7 @@ class PluginsTest extends AbstractTestCase
         $isCurl = extension_loaded('curl');
         self::assertSame(ExportType::Database, ExportPlugin::$exportType);
         self::assertFalse(ExportPlugin::$singleTable);
-        $pluginCount = $isCurl ? 14 : 13;
+        $pluginCount = $isCurl ? 15 : 14;
         self::assertCount($pluginCount, $plugins);
         self::assertContainsOnlyInstancesOf(Plugins\ExportPlugin::class, $plugins);
     }
