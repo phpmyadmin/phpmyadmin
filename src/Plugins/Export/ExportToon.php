@@ -128,6 +128,7 @@ class ExportToon extends ExportPlugin
         $result = $dbi->query($sqlQuery);
 
         $columnsCnt = $result->numFields();
+        $rowsCnt = $result->numRows();
         $fieldsMeta = $dbi->getFieldsMeta($result);
 
         $columns = [];
@@ -137,17 +138,23 @@ class ExportToon extends ExportPlugin
             $columns[$i] = $colAs;
         }
 
-        while ($record = $result->fetchRow()) {
-            $buffer = "$dbAlias.$tableAlias" . '[' . $result->numRows() . ']{';
-            foreach ($columns as $index => $column) {
-                $buffer .= $column;
+        $buffer = "$dbAlias.$tableAlias" . '[' . $rowsCnt . ']{';
+        foreach ($columns as $index => $column) {
+            $buffer .= $column;
 
-                if ($index !== count($columns) - 1) {
-                    $buffer .= ', ';
-                }
+            if ($index !== count($columns) - 1) {
+                $buffer .= ', ';
             }
-            $buffer .= "}:\n";
+        }
+        $buffer .= "}:\n";
+        
+        if (! $this->export->outputHandler($buffer)) {
+            return false;
+        }
 
+        $insertedLines = 0;
+        while ($record = $result->fetchRow()) {
+            $buffer = '';
             for ($i = 0; $i < $columnsCnt; $i++) {
                 if (! array_key_exists($i, $record)) {
                     continue;
@@ -158,7 +165,7 @@ class ExportToon extends ExportPlugin
                 }
 
                 if ($record[$i] === null) {
-                    $buffer .= '(NULL)';
+                    $buffer .= 'null';
                     continue;
                 }
 
@@ -168,8 +175,9 @@ class ExportToon extends ExportPlugin
                     $buffer .= ', ';
                 }
             }
-            $buffer .= "\n\n";
 
+            $insertedLines++;
+            $buffer .= $insertedLines === $rowsCnt ? "\n\n" : "\n";
             if (! $this->export->outputHandler($buffer)) {
                 return false;
             }
