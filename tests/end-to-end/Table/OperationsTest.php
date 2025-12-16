@@ -172,7 +172,7 @@ class OperationsTest extends TestBase
         $this->waitAjax();
 
         $success = $this->waitForElement('cssSelector', '.alert-success');
-        self::assertStringContainsString('MySQL returned an empty result set', $success->getText());
+        self::assertStringContainsString('Table test_table has been emptied.', $success->getText());
 
         $this->dbQuery(
             'SELECT CONCAT("Count: ", COUNT(*)) as c FROM `' . $this->databaseName . '`.test_table',
@@ -195,7 +195,7 @@ class OperationsTest extends TestBase
         $this->waitAjax();
 
         $success = $this->waitForElement('cssSelector', '.alert-success');
-        self::assertStringContainsString('MySQL returned an empty result set', $success->getText());
+        self::assertStringContainsString('Table test_table has been dropped.', $success->getText());
 
         $this->dbQuery(
             'USE `' . $this->databaseName . '`;'

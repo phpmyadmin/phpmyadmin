@@ -52,7 +52,7 @@ class StructureTest extends TestBase
         $this->waitForElement('id', 'functionConfirmOkButton')->click();
 
         $success = $this->waitForElement('cssSelector', '.alert-success');
-        self::assertStringContainsString('MySQL returned an empty result', $success->getText());
+        self::assertStringContainsString('Table test_table has been emptied.', $success->getText());
 
         $this->dbQuery(
             'SELECT CONCAT("Count: ", COUNT(*)) as c FROM `' . $this->databaseName . '`.`test_table`',
