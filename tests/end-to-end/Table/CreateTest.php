@@ -60,7 +60,6 @@ class CreateTest extends TestBase
         $columnDropdownDetails = [
             'field_0_6' => 'UNSIGNED',
             'field_1_2' => 'VARCHAR',
-            'field_1_5' => 'utf8mb4_general_ci',
             'field_1_4' => 'As defined:',
         ];
 
@@ -70,6 +69,13 @@ class CreateTest extends TestBase
                 '//select[@id=\'' . $selector . '\']//option[contains(text(), \'' . $value . '\')]',
             )->click();
         }
+
+        // click to load select options
+        $this->byId('field_1_5')->click();
+        $this->waitForElement(
+            'xpath',
+            '//select[@id=\'field_1_5\']//option[contains(text(), \'utf8mb4_general_ci\')]',
+        )->click();
 
         $this->byName('field_default_value[1]')->sendKeys('def');
 
