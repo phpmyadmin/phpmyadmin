@@ -10,7 +10,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
-use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Identifiers\TriggerName;
@@ -67,16 +67,12 @@ class ExportOdtTest extends AbstractTestCase
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
-        Export::$outputKanjiConversion = false;
-        Export::$outputCharsetConversion = false;
-        Export::$bufferNeeded = false;
-        Export::$asFile = true;
-        Export::$saveOnServer = false;
+        OutputHandler::$asFile = true;
         ExportPlugin::$exportType = ExportType::Table;
         ExportPlugin::$singleTable = false;
         Config::getInstance()->selectedServer['DisableIS'] = true;
         $relation = new Relation($this->dbi);
-        $this->object = new ExportOdt($relation, new Export($this->dbi), new Transformations($this->dbi, $relation));
+        $this->object = new ExportOdt($relation, new OutputHandler(), new Transformations($this->dbi, $relation));
     }
 
     /**
@@ -574,7 +570,7 @@ class ExportOdtTest extends AbstractTestCase
         $relation = new Relation($this->dbi);
         $this->object = $this->getMockBuilder(ExportOdt::class)
             ->onlyMethods(['formatOneColumnDefinition'])
-            ->setConstructorArgs([$relation, new Export($this->dbi), new Transformations($this->dbi, $relation)])
+            ->setConstructorArgs([$relation, new OutputHandler(), new Transformations($this->dbi, $relation)])
             ->getMock();
 
         // case 1

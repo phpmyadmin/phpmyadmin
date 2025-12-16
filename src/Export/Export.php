@@ -9,15 +9,12 @@ namespace PhpMyAdmin\Export;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
-use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
-use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Exceptions\ExportException;
 use PhpMyAdmin\FlashMessenger;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\MessageType;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\Plugins\ExportPlugin;
@@ -26,80 +23,38 @@ use PhpMyAdmin\Plugins\SchemaPlugin;
 use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
-use PhpMyAdmin\Utils\UserAgentParser;
-use PhpMyAdmin\ZipExtension;
 
 use function __;
 use function array_filter;
 use function array_merge_recursive;
 use function error_get_last;
-use function fclose;
-use function file_exists;
-use function fopen;
-use function function_exists;
-use function fwrite;
-use function gzencode;
-use function header;
 use function htmlentities;
-use function htmlspecialchars;
 use function http_build_query;
 use function implode;
 use function in_array;
 use function ini_get;
 use function ini_parse_quantity;
 use function is_array;
-use function is_file;
 use function is_numeric;
-use function is_string;
-use function is_writable;
 use function mb_strlen;
 use function mb_strtolower;
 use function mb_substr;
-use function ob_list_handlers;
 use function preg_match;
 use function preg_replace;
 use function str_contains;
-use function strlen;
-use function substr;
-use function time;
-
-use const ENT_COMPAT;
 
 /**
  * PhpMyAdmin\Export\Export class
  */
 class Export
 {
-    public string $dumpBuffer = '';
-
-    public int $dumpBufferLength = 0;
-
-    /** @var string[] */
-    public array $dumpBufferObjects = [];
-
-    public static bool $asFile = false;
-    public static bool $saveOnServer = false;
-    public static bool $outputCharsetConversion = false;
-    public static bool $outputKanjiConversion = false;
-    public static bool $bufferNeeded = false;
     public static bool $singleTable = false;
 
-    /** @var ''|'none'|'zip'|'gzip' */
-    public static string $compression = '';
-
-    /** @var resource|null */
-    public static mixed $fileHandle = null;
-    public static string $kanjiEncoding = '';
-    public static string $xkana = '';
     public static string $maxSize = '';
-    public static int $memoryLimit = 0;
-    public static bool $onFlyCompression = false;
     /** @var array<string> */
     public static array $tableData = [];
-    public static string $saveFilename = '';
-    public static int $timeStart = 0;
 
-    public function __construct(private DatabaseInterface $dbi)
+    public function __construct(private DatabaseInterface $dbi, public OutputHandler $outputHandler)
     {
     }
 
@@ -115,131 +70,6 @@ class Export
 
         //set session variable to check if there was error while exporting
         $_SESSION['pma_export_error'] = $error['message'];
-    }
-
-    /**
-     * Detect ob_gzhandler
-     */
-    public function isGzHandlerEnabled(): bool
-    {
-        /** @var string[] $handlers */
-        $handlers = ob_list_handlers();
-
-        return in_array('ob_gzhandler', $handlers, true);
-    }
-
-    /**
-     * Detect whether gzencode is needed; it might not be needed if
-     * the server is already compressing by itself
-     */
-    public function gzencodeNeeded(): bool
-    {
-        /**
-         * We should gzencode only if the function exists
-         * but we don't want to compress twice, therefore
-         * gzencode only if transparent compression is not enabled
-         * but transparent compression does not apply when saving to server
-         */
-        return function_exists('gzencode')
-            && ((! ini_get('zlib.output_compression')
-                    && ! $this->isGzHandlerEnabled())
-                || self::$saveOnServer
-                || (new UserAgentParser(Core::getEnv('HTTP_USER_AGENT')))->getUserBrowserAgent() === 'CHROME');
-    }
-
-    /**
-     * Output handler for all exports, if needed buffering, it stores data into
-     * $this->dumpBuffer, otherwise it prints them out.
-     *
-     * @param string $line the insert statement
-     */
-    public function outputHandler(string $line): bool
-    {
-        // Kanji encoding convert feature
-        if (self::$outputKanjiConversion) {
-            $line = Encoding::kanjiStrConv($line, self::$kanjiEncoding, self::$xkana);
-        }
-
-        // If we have to buffer data, we will perform everything at once at the end
-        if (self::$bufferNeeded) {
-            $this->dumpBuffer .= $line;
-            if (self::$onFlyCompression) {
-                $this->dumpBufferLength += strlen($line);
-
-                if ($this->dumpBufferLength > self::$memoryLimit) {
-                    if (self::$outputCharsetConversion) {
-                        $this->dumpBuffer = Encoding::convertString(
-                            'utf-8',
-                            Current::$charset ?? 'utf-8',
-                            $this->dumpBuffer,
-                        );
-                    }
-
-                    if (self::$compression === 'gzip' && $this->gzencodeNeeded()) {
-                        // as a gzipped file
-                        // without the optional parameter level because it bugs
-                        $this->dumpBuffer = (string) gzencode($this->dumpBuffer);
-                    }
-
-                    if (self::$saveOnServer) {
-                        $writeResult = @fwrite(self::$fileHandle, $this->dumpBuffer);
-                        // Here, use strlen rather than mb_strlen to get the length
-                        // in bytes to compare against the number of bytes written.
-                        if ($writeResult === false || $writeResult !== strlen($this->dumpBuffer)) {
-                            Current::$message = Message::error(
-                                __('Insufficient space to save the file %s.'),
-                            );
-                            Current::$message->addParam(self::$saveFilename);
-
-                            return false;
-                        }
-                    } else {
-                        echo $this->dumpBuffer;
-                    }
-
-                    $this->dumpBuffer = '';
-                    $this->dumpBufferLength = 0;
-                }
-            } else {
-                $timeNow = time();
-                if (self::$timeStart >= $timeNow + 30) {
-                    self::$timeStart = $timeNow;
-                    header('X-pmaPing: Pong');
-                }
-            }
-        } elseif (self::$asFile) {
-            if (self::$outputCharsetConversion) {
-                $line = Encoding::convertString('utf-8', Current::$charset ?? 'utf-8', $line);
-            }
-
-            if (self::$saveOnServer && $line !== '') {
-                $writeResult = self::$fileHandle !== null ? @fwrite(self::$fileHandle, $line) : false;
-                // Here, use strlen rather than mb_strlen to get the length
-                // in bytes to compare against the number of bytes written.
-                if ($writeResult === 0 || $writeResult === false || $writeResult !== strlen($line)) {
-                    Current::$message = Message::error(
-                        __('Insufficient space to save the file %s.'),
-                    );
-                    Current::$message->addParam(self::$saveFilename);
-
-                    return false;
-                }
-
-                $timeNow = time();
-                if (self::$timeStart >= $timeNow + 30) {
-                    self::$timeStart = $timeNow;
-                    header('X-pmaPing: Pong');
-                }
-            } else {
-                // We export as file - output normally
-                echo $line;
-            }
-        } else {
-            // We export as html - replace special chars
-            echo htmlspecialchars($line, ENT_COMPAT);
-        }
-
-        return true;
     }
 
     /**
@@ -302,7 +132,6 @@ class Export
 
     public function getFinalFilename(
         ExportPlugin $exportPlugin,
-        string $compression,
         string $filename,
     ): string {
         // Grab basic dump extension and mime type
@@ -316,18 +145,18 @@ class Export
         }
 
         // If dump is going to be compressed, add compression to extension
-        if ($compression === 'gzip') {
+        if ($this->outputHandler->compression === 'gzip') {
             $filename .= '.gz';
-        } elseif ($compression === 'zip') {
+        } elseif ($this->outputHandler->compression === 'zip') {
             $filename .= '.zip';
         }
 
         return $filename;
     }
 
-    public function getMimeType(ExportPlugin $exportPlugin, string $compression): string
+    public function getMimeType(ExportPlugin $exportPlugin): string
     {
-        return match ($compression) {
+        return match ($this->outputHandler->compression) {
             'gzip' => 'application/x-gzip',
             'zip' => 'application/zip',
             default => $exportPlugin->getProperties()->getMimeType(),
@@ -348,138 +177,6 @@ class Export
         } else {
             $config->setUserValue('pma_table_filename_template', 'Export/file_template_table', $filenameTemplate);
         }
-    }
-
-    /**
-     * Open the export file
-     *
-     * @param string $filename    the export filename
-     * @param bool   $quickExport whether it's a quick export or not
-     *
-     * @psalm-return array{string, Message|null, resource|null}
-     */
-    public function openFile(string $filename, bool $quickExport): array
-    {
-        $fileHandle = null;
-        $message = null;
-        $doNotSaveItOver = true;
-
-        if (isset($_POST['quick_export_onserver_overwrite'])) {
-            $doNotSaveItOver = $_POST['quick_export_onserver_overwrite'] !== 'saveitover';
-        }
-
-        $saveFilename = Util::userDir(Config::getInstance()->settings['SaveDir'] ?? '')
-            . preg_replace('@[/\\\\]@', '_', $filename);
-
-        if (
-            @file_exists($saveFilename)
-            && ((! $quickExport && empty($_POST['onserver_overwrite']))
-            || ($quickExport
-            && $doNotSaveItOver))
-        ) {
-            $message = Message::error(
-                __(
-                    'File %s already exists on server, change filename or check overwrite option.',
-                ),
-            );
-            $message->addParam($saveFilename);
-        } elseif (@is_file($saveFilename) && ! @is_writable($saveFilename)) {
-            $message = Message::error(
-                __(
-                    'The web server does not have permission to save the file %s.',
-                ),
-            );
-            $message->addParam($saveFilename);
-        } else {
-            $fileHandle = @fopen($saveFilename, 'w');
-            if ($fileHandle === false) {
-                $fileHandle = null;
-                $message = Message::error(
-                    __(
-                        'The web server does not have permission to save the file %s.',
-                    ),
-                );
-                $message->addParam($saveFilename);
-            }
-        }
-
-        return [$saveFilename, $message, $fileHandle];
-    }
-
-    /**
-     * Close the export file
-     *
-     * @param resource $fileHandle   the export file handle
-     * @param string   $dumpBuffer   the current dump buffer
-     * @param string   $saveFilename the export filename
-     *
-     * @return Message a message object (or empty string)
-     */
-    public function closeFile(
-        $fileHandle,
-        string $dumpBuffer,
-        string $saveFilename,
-    ): Message {
-        $writeResult = @fwrite($fileHandle, $dumpBuffer);
-        fclose($fileHandle);
-        // Here, use strlen rather than mb_strlen to get the length
-        // in bytes to compare against the number of bytes written.
-        if ($dumpBuffer !== '' && $writeResult !== strlen($dumpBuffer)) {
-            return new Message(
-                __('Insufficient space to save the file %s.'),
-                MessageType::Error,
-                [$saveFilename],
-            );
-        }
-
-        return new Message(
-            __('Dump has been saved to file %s.'),
-            MessageType::Success,
-            [$saveFilename],
-        );
-    }
-
-    /**
-     * Compress the export buffer
-     *
-     * @param string[]|string $dumpBuffer  the current dump buffer
-     * @param string          $compression the compression mode
-     * @param string          $filename    the filename
-     */
-    public function compress(array|string $dumpBuffer, string $compression, string $filename): array|string|bool
-    {
-        if ($compression === 'zip' && function_exists('gzcompress')) {
-            $zipExtension = new ZipExtension();
-            $filename = substr($filename, 0, -4); // remove extension (.zip)
-            $dumpBuffer = $zipExtension->createFile($dumpBuffer, $filename);
-        } elseif ($compression === 'gzip' && $this->gzencodeNeeded() && is_string($dumpBuffer)) {
-            // without the optional parameter level because it bugs
-            $dumpBuffer = gzencode($dumpBuffer);
-        }
-
-        return $dumpBuffer;
-    }
-
-    /**
-     * Saves the dump buffer for a particular table in an array
-     * Used in separate files export
-     *
-     * @param string $objectName the name of current object to be stored
-     * @param bool   $append     optional boolean to append to an existing index or not
-     */
-    public function saveObjectInBuffer(string $objectName, bool $append = false): void
-    {
-        if ($this->dumpBuffer !== '') {
-            if ($append && isset($this->dumpBufferObjects[$objectName])) {
-                $this->dumpBufferObjects[$objectName] .= $this->dumpBuffer;
-            } else {
-                $this->dumpBufferObjects[$objectName] = $this->dumpBuffer;
-            }
-        }
-
-        // Re - initialize
-        $this->dumpBuffer = '';
-        $this->dumpBufferLength = 0;
     }
 
     /**
@@ -550,7 +247,7 @@ class Export
                 continue;
             }
 
-            $this->saveObjectInBuffer($currentDb);
+            $this->outputHandler->saveObjectInBuffer($currentDb);
         }
     }
 
@@ -586,7 +283,7 @@ class Export
         }
 
         if ($separateFiles === 'database') {
-            $this->saveObjectInBuffer('database', true);
+            $this->outputHandler->saveObjectInBuffer('database', true);
         }
 
         $structureOrData = $exportPlugin->getStructureOrData();
@@ -599,7 +296,7 @@ class Export
             $exportPlugin->exportRoutines($db->getName(), $aliases);
 
             if ($separateFiles === 'database') {
-                $this->saveObjectInBuffer('routines');
+                $this->outputHandler->saveObjectInBuffer('routines');
             }
         }
 
@@ -673,7 +370,7 @@ class Export
 
             // this buffer was filled, we save it and go to the next one
             if ($separateFiles === 'database') {
-                $this->saveObjectInBuffer('table_' . $table);
+                $this->outputHandler->saveObjectInBuffer('table_' . $table);
             }
 
             // now export the triggers (needs to be done after the data because
@@ -694,7 +391,7 @@ class Export
                 continue;
             }
 
-            $this->saveObjectInBuffer('table_' . $table, true);
+            $this->outputHandler->saveObjectInBuffer('table_' . $table, true);
         }
 
         if ($exportPlugin instanceof ExportSql && $exportPlugin->hasCreateView()) {
@@ -712,7 +409,7 @@ class Export
                     continue;
                 }
 
-                $this->saveObjectInBuffer('view_' . $view);
+                $this->outputHandler->saveObjectInBuffer('view_' . $view);
             }
         }
 
@@ -728,12 +425,12 @@ class Export
             $exportPlugin->exportMetadata($db->getName(), $tables, $metadataTypes);
 
             if ($separateFiles === 'database') {
-                $this->saveObjectInBuffer('metadata');
+                $this->outputHandler->saveObjectInBuffer('metadata');
             }
         }
 
         if ($separateFiles === 'database') {
-            $this->saveObjectInBuffer('extra');
+            $this->outputHandler->saveObjectInBuffer('extra');
         }
 
         if (
@@ -750,7 +447,7 @@ class Export
             return;
         }
 
-        $this->saveObjectInBuffer('events');
+        $this->outputHandler->saveObjectInBuffer('events');
     }
 
     /**

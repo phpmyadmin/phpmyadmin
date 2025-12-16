@@ -45,18 +45,6 @@ class ExportPdf extends ExportPlugin
         return 'pdf';
     }
 
-    /**
-     * Initialize the local variables that are used for export PDF.
-     */
-    protected function init(): void
-    {
-        if (! empty($_POST['pdf_report_title'])) {
-            $this->pdfReportTitle = $_POST['pdf_report_title'];
-        }
-
-        $this->setPdf(new Pdf('L', 'pt', 'A3'));
-    }
-
     protected function setProperties(): ExportPluginProperties
     {
         $exportPluginProperties = new ExportPluginProperties();
@@ -101,19 +89,13 @@ class ExportPdf extends ExportPlugin
         return $exportPluginProperties;
     }
 
-    /**
-     * Outputs export header
-     */
-    public function exportHeader(): bool
+    private function setupExportConfiguration(): void
     {
-        $pdf = $this->getPdf();
-        $pdf->Open();
+        $this->pdf->Open();
 
-        $pdf->setTitleFontSize(18);
-        $pdf->setTitleText($this->pdfReportTitle);
-        $pdf->setTopMargin(30);
-
-        return true;
+        $this->pdf->setTitleFontSize(18);
+        $this->pdf->setTitleText($this->pdfReportTitle);
+        $this->pdf->setTopMargin(30);
     }
 
     /**
@@ -121,42 +103,8 @@ class ExportPdf extends ExportPlugin
      */
     public function exportFooter(): bool
     {
-        $pdf = $this->getPdf();
-
         // instead of $pdf->Output():
-        return $this->export->outputHandler($pdf->getPDFData());
-    }
-
-    /**
-     * Outputs database header
-     *
-     * @param string $db      Database name
-     * @param string $dbAlias Aliases of db
-     */
-    public function exportDBHeader(string $db, string $dbAlias = ''): bool
-    {
-        return true;
-    }
-
-    /**
-     * Outputs database footer
-     *
-     * @param string $db Database name
-     */
-    public function exportDBFooter(string $db): bool
-    {
-        return true;
-    }
-
-    /**
-     * Outputs CREATE DATABASE statement
-     *
-     * @param string $db      Database name
-     * @param string $dbAlias Aliases of db
-     */
-    public function exportDBCreate(string $db, string $dbAlias = ''): bool
-    {
-        return true;
+        return $this->outputHandler->addLine($this->pdf->getPDFData());
     }
 
     /**
@@ -175,14 +123,13 @@ class ExportPdf extends ExportPlugin
     ): bool {
         $dbAlias = $this->getDbAlias($aliases, $db);
         $tableAlias = $this->getTableAlias($aliases, $db, $table);
-        $pdf = $this->getPdf();
-        $pdf->setCurrentDb($db);
-        $pdf->setCurrentTable($table);
-        $pdf->setDbAlias($dbAlias);
-        $pdf->setTableAlias($tableAlias);
-        $pdf->setAliases($aliases);
-        $pdf->setPurpose(__('Dumping data'));
-        $pdf->mysqlReport($sqlQuery);
+        $this->pdf->setCurrentDb($db);
+        $this->pdf->setCurrentTable($table);
+        $this->pdf->setDbAlias($dbAlias);
+        $this->pdf->setTableAlias($tableAlias);
+        $this->pdf->setAliases($aliases);
+        $this->pdf->setPurpose(__('Dumping data'));
+        $this->pdf->mysqlReport($sqlQuery);
 
         return true;
     }
@@ -195,17 +142,16 @@ class ExportPdf extends ExportPlugin
      */
     public function exportRawQuery(string|null $db, string $sqlQuery): bool
     {
-        $pdf = $this->getPdf();
-        $pdf->setDbAlias('----');
-        $pdf->setTableAlias('----');
-        $pdf->setPurpose(__('Query result data'));
+        $this->pdf->setDbAlias('----');
+        $this->pdf->setTableAlias('----');
+        $this->pdf->setPurpose(__('Query result data'));
 
         if ($db !== null) {
-            $pdf->setCurrentDb($db);
+            $this->pdf->setCurrentDb($db);
             DatabaseInterface::getInstance()->selectDb($db);
         }
 
-        $pdf->mysqlReport($sqlQuery);
+        $this->pdf->mysqlReport($sqlQuery);
 
         return true;
     }
@@ -223,7 +169,6 @@ class ExportPdf extends ExportPlugin
         $purpose = '';
         $dbAlias = $this->getDbAlias($aliases, $db);
         $tableAlias = $this->getTableAlias($aliases, $db, $table);
-        $pdf = $this->getPdf();
         // getting purpose to show at top
         switch ($exportMode) {
             case 'create_table':
@@ -239,40 +184,21 @@ class ExportPdf extends ExportPlugin
                 $purpose = __('Stand in');
         }
 
-        $pdf->setCurrentDb($db);
-        $pdf->setCurrentTable($table);
-        $pdf->setDbAlias($dbAlias);
-        $pdf->setTableAlias($tableAlias);
-        $pdf->setAliases($aliases);
-        $pdf->setPurpose($purpose);
+        $this->pdf->setCurrentDb($db);
+        $this->pdf->setCurrentTable($table);
+        $this->pdf->setDbAlias($dbAlias);
+        $this->pdf->setTableAlias($tableAlias);
+        $this->pdf->setAliases($aliases);
+        $this->pdf->setPurpose($purpose);
 
         match ($exportMode) {
-            'create_table', 'create_view' => $pdf->getTableDef($db, $table, $this->doRelation, true, $this->doMime),
-            'triggers' => $pdf->getTriggers($db, $table),
+            'create_table',
+            'create_view' => $this->pdf->getTableDef($db, $table, $this->doRelation, true, $this->doMime),
+            'triggers' => $this->pdf->getTriggers($db, $table),
             default => true,
         };
 
         return true;
-    }
-
-    /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
-
-    /**
-     * Gets the PhpMyAdmin\Plugins\Export\Helpers\Pdf instance
-     */
-    private function getPdf(): Pdf
-    {
-        return $this->pdf;
-    }
-
-    /**
-     * Instantiates the PhpMyAdmin\Plugins\Export\Helpers\Pdf class
-     *
-     * @param Pdf $pdf The instance
-     */
-    private function setPdf(Pdf $pdf): void
-    {
-        $this->pdf = $pdf;
     }
 
     public static function isAvailable(): bool
@@ -283,6 +209,10 @@ class ExportPdf extends ExportPlugin
     /** @inheritDoc */
     public function setExportOptions(ServerRequest $request, array $exportConfig): void
     {
+        $this->pdfReportTitle = $request->getParsedBodyParam('pdf_report_title', '');
+
+        $this->pdf = new Pdf('L', 'pt', 'A3');
+
         $this->structureOrData = $this->setStructureOrData(
             $request->getParsedBodyParam('pdf_structure_or_data'),
             $exportConfig['pdf_structure_or_data'] ?? null,
@@ -291,5 +221,7 @@ class ExportPdf extends ExportPlugin
         $this->doRelation = (bool) ($request->getParsedBodyParam('pdf_relation')
             ?? $exportConfig['pdf_relation'] ?? false);
         $this->doMime = (bool) ($request->getParsedBodyParam('pdf_mime') ?? $exportConfig['pdf_mime'] ?? false);
+
+        $this->setupExportConfiguration();
     }
 }

@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Tests\Plugins\Export;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
-use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Plugins\Export\ExportCsv;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -44,10 +44,9 @@ class ExportCsvTest extends AbstractTestCase
         Current::$database = '';
         Current::$table = '';
         Current::$lang = '';
-        Export::$saveFilename = '';
 
         $relation = new Relation($dbi);
-        $this->object = new ExportCsv($relation, new Export($dbi), new Transformations($dbi, $relation));
+        $this->object = new ExportCsv($relation, new OutputHandler(), new Transformations($dbi, $relation));
     }
 
     /**
@@ -255,27 +254,7 @@ class ExportCsvTest extends AbstractTestCase
     public function testExportData(): void
     {
         // case 1
-        Export::$outputKanjiConversion = false;
-        Export::$outputCharsetConversion = false;
-        Export::$bufferNeeded = false;
-        Export::$asFile = true;
-        Export::$saveOnServer = true;
-        Export::$fileHandle = null;
-
-        ob_start();
-        self::assertFalse($this->object->exportData(
-            'test_db',
-            'test_table',
-            'SELECT * FROM `test_db`.`test_table`;',
-        ));
-        ob_get_clean();
-
-        // case 2
-        Export::$outputKanjiConversion = false;
-        Export::$outputCharsetConversion = false;
-        Export::$bufferNeeded = false;
-        Export::$asFile = true;
-        Export::$saveOnServer = false;
+        OutputHandler::$asFile = true;
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['csv_terminated' => ';', 'csv_columns' => 'On']);

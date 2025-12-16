@@ -43,11 +43,6 @@ class ExportOdt extends ExportPlugin
     private bool $doRelation = false;
     private string $null = '';
 
-    protected function init(): void
-    {
-        $this->buffer = '';
-    }
-
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
@@ -168,7 +163,7 @@ class ExportOdt extends ExportPlugin
     {
         $this->buffer .= '</office:text></office:body></office:document-content>';
 
-        return $this->export->outputHandler(OpenDocument::create(
+        return $this->outputHandler->addLine(OpenDocument::create(
             'application/vnd.oasis.opendocument.text',
             $this->buffer,
         ));
@@ -191,27 +186,6 @@ class ExportOdt extends ExportPlugin
             . __('Database') . ' ' . htmlspecialchars($dbAlias)
             . '</text:h>';
 
-        return true;
-    }
-
-    /**
-     * Outputs database footer
-     *
-     * @param string $db Database name
-     */
-    public function exportDBFooter(string $db): bool
-    {
-        return true;
-    }
-
-    /**
-     * Outputs CREATE DATABASE statement
-     *
-     * @param string $db      Database name
-     * @param string $dbAlias Aliases of db
-     */
-    public function exportDBCreate(string $db, string $dbAlias = ''): bool
-    {
         return true;
     }
 

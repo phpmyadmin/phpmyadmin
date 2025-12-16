@@ -1313,32 +1313,6 @@
     <MixedPropertyTypeCoercion>
       <code><![CDATA[$tableData]]></code>
     </MixedPropertyTypeCoercion>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$this->export->dumpBuffer]]></code>
-      <code><![CDATA[$this->export->dumpBuffer]]></code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$this->export->dumpBuffer]]></code>
-      <code><![CDATA[$this->export->dumpBuffer]]></code>
-    </PossiblyInvalidCast>
-    <PossiblyInvalidPropertyAssignmentValue>
-      <code><![CDATA[$this->export->compress(
-                    $this->export->dumpBuffer,
-                    Export::$compression,
-                    $filename,
-                )]]></code>
-      <code><![CDATA[$this->export->compress(
-                    $this->export->dumpBufferObjects,
-                    Export::$compression,
-                    $filename,
-                )]]></code>
-    </PossiblyInvalidPropertyAssignmentValue>
-    <PossiblyNullArgument>
-      <code><![CDATA[Export::$fileHandle]]></code>
-    </PossiblyNullArgument>
-    <PropertyTypeCoercion>
-      <code><![CDATA[$request->getParsedBodyParamAsString('compression')]]></code>
-    </PropertyTypeCoercion>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$asSeparateFiles]]></code>
       <code><![CDATA[$onServerParam]]></code>
@@ -4169,9 +4143,6 @@
     <ArgumentTypeCoercion>
       <code><![CDATA[(string) ini_get('memory_limit')]]></code>
     </ArgumentTypeCoercion>
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[$dbAlias]]></code>
       <code><![CDATA[$dbAlias]]></code>
@@ -4221,15 +4192,10 @@
     <MixedOperand>
       <code><![CDATA[$tmpSelect]]></code>
     </MixedOperand>
-    <PossiblyNullArgument>
-      <code><![CDATA[self::$fileHandle]]></code>
-    </PossiblyNullArgument>
     <PossiblyNullArrayAccess>
       <code><![CDATA[$error['message']]]></code>
     </PossiblyNullArrayAccess>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[! ini_get('zlib.output_compression')]]></code>
-      <code><![CDATA[empty($_POST['onserver_overwrite'])]]></code>
       <code><![CDATA[empty($postParams['structure_or_data_forced'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
@@ -4254,6 +4220,14 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$config->settings['Export'][$str]]]></code>
       <code><![CDATA[empty($config->settings['SaveDir'])]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/Export/OutputHandler.php">
+    <PossiblyFalsePropertyAssignmentValue>
+      <code><![CDATA[$zipExtension->createFile($dumpBuffer, $filename)]]></code>
+    </PossiblyFalsePropertyAssignmentValue>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[! ini_get('zlib.output_compression')]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Export/Template.php">
@@ -6175,17 +6149,14 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
     <MixedArgument>
-      <code><![CDATA[$pdf->getPDFData()]]></code>
+      <code><![CDATA[$this->pdf->getPDFData()]]></code>
     </MixedArgument>
-    <PossiblyInvalidPropertyAssignmentValue>
-      <code><![CDATA[$_POST['pdf_report_title']]]></code>
-    </PossiblyInvalidPropertyAssignmentValue>
+    <MixedAssignment>
+      <code><![CDATA[$this->pdfReportTitle]]></code>
+    </MixedAssignment>
     <PropertyNotSetInConstructor>
       <code><![CDATA[$pdf]]></code>
     </PropertyNotSetInConstructor>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($_POST['pdf_report_title'])]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Plugins/Export/ExportPhparray.php">
     <DeprecatedMethod>

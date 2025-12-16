@@ -37,11 +37,6 @@ class ExportOds extends ExportPlugin
     private bool $columns = false;
     private string $null = '';
 
-    protected function init(): void
-    {
-        $this->buffer = '';
-    }
-
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
@@ -147,44 +142,9 @@ class ExportOds extends ExportPlugin
     {
         $this->buffer .= '</office:spreadsheet></office:body></office:document-content>';
 
-        return $this->export->outputHandler(
-            OpenDocument::create(
-                'application/vnd.oasis.opendocument.spreadsheet',
-                $this->buffer,
-            ),
+        return $this->outputHandler->addLine(
+            OpenDocument::create('application/vnd.oasis.opendocument.spreadsheet', $this->buffer),
         );
-    }
-
-    /**
-     * Outputs database header
-     *
-     * @param string $db      Database name
-     * @param string $dbAlias Aliases of db
-     */
-    public function exportDBHeader(string $db, string $dbAlias = ''): bool
-    {
-        return true;
-    }
-
-    /**
-     * Outputs database footer
-     *
-     * @param string $db Database name
-     */
-    public function exportDBFooter(string $db): bool
-    {
-        return true;
-    }
-
-    /**
-     * Outputs CREATE DATABASE statement
-     *
-     * @param string $db      Database name
-     * @param string $dbAlias Aliases of db
-     */
-    public function exportDBCreate(string $db, string $dbAlias = ''): bool
-    {
-        return true;
     }
 
     /**

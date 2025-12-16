@@ -9,6 +9,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\FlashMessenger;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
@@ -32,7 +33,7 @@ class ExportTest extends AbstractTestCase
     public function testMergeAliases(): void
     {
         DatabaseInterface::$instance = $this->createDatabaseInterface();
-        $export = new Export(DatabaseInterface::getInstance());
+        $export = new Export(DatabaseInterface::getInstance(), new OutputHandler());
         $aliases1 = [
             'test_db' => [
                 'alias' => 'aliastest',
@@ -66,14 +67,18 @@ class ExportTest extends AbstractTestCase
     {
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
-        $export = new Export($dbi);
+        $export = new Export($dbi, new OutputHandler());
         $relation = new Relation($dbi);
-        $exportPlugin = new ExportPhparray($relation, new Export($dbi), new Transformations($dbi, $relation));
-        $finalFileName = $export->getFinalFilename($exportPlugin, 'zip', 'myfilename');
+        $exportPlugin = new ExportPhparray($relation, $export->outputHandler, new Transformations($dbi, $relation));
+
+        $export->outputHandler->setCompression('zip');
+        $finalFileName = $export->getFinalFilename($exportPlugin, 'myfilename');
         self::assertSame('myfilename.php.zip', $finalFileName);
-        $finalFileName = $export->getFinalFilename($exportPlugin, 'gzip', 'myfilename');
+
+        $export->outputHandler->setCompression('gzip');
+        $finalFileName = $export->getFinalFilename($exportPlugin, 'myfilename');
         self::assertSame('myfilename.php.gz', $finalFileName);
-        $finalFileName = $export->getFinalFilename($exportPlugin, 'gzip', 'export.db1.table1.file');
+        $finalFileName = $export->getFinalFilename($exportPlugin, 'export.db1.table1.file');
         self::assertSame('export.db1.table1.file.php.gz', $finalFileName);
     }
 
@@ -81,20 +86,22 @@ class ExportTest extends AbstractTestCase
     {
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
-        $export = new Export($dbi);
+        $export = new Export($dbi, new OutputHandler());
         $relation = new Relation($dbi);
-        $exportPlugin = new ExportPhparray($relation, new Export($dbi), new Transformations($dbi, $relation));
-        $mimeType = $export->getMimeType($exportPlugin, 'zip');
+        $exportPlugin = new ExportPhparray($relation, $export->outputHandler, new Transformations($dbi, $relation));
+
+        $export->outputHandler->setCompression('zip');
+        $mimeType = $export->getMimeType($exportPlugin);
         self::assertSame('application/zip', $mimeType);
-        $mimeType = $export->getMimeType($exportPlugin, 'gzip');
+
+        $export->outputHandler->setCompression('gzip');
+        $mimeType = $export->getMimeType($exportPlugin);
         self::assertSame('application/x-gzip', $mimeType);
     }
 
     public function testExportDatabase(): void
     {
-        Export::$outputKanjiConversion = false;
-        Export::$bufferNeeded = false;
-        Export::$asFile = false;
+        OutputHandler::$asFile = false;
         Config::getInstance()->selectedServer['DisableIS'] = false;
 
         // phpcs:disable Generic.Files.LineLength.TooLong
@@ -122,7 +129,7 @@ class ExportTest extends AbstractTestCase
 
         $dbi = $this->createDatabaseInterface($dbiDummy);
         DatabaseInterface::$instance = $dbi;
-        $export = new Export($dbi);
+        $export = new Export($dbi, new OutputHandler());
 
         ExportPlugin::$exportType = ExportType::Database;
         $relation = new Relation($dbi);
@@ -131,7 +138,7 @@ class ExportTest extends AbstractTestCase
             ['test_table'],
             ['test_table'],
             ['test_table'],
-            new ExportSql($relation, $export, new Transformations($dbi, $relation)),
+            new ExportSql($relation, $export->outputHandler, new Transformations($dbi, $relation)),
             [],
             '',
         );
@@ -150,9 +157,7 @@ class ExportTest extends AbstractTestCase
 
     public function testExportServer(): void
     {
-        Export::$outputKanjiConversion = false;
-        Export::$bufferNeeded = false;
-        Export::$asFile = false;
+        OutputHandler::$asFile = false;
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = false;
         $config->selectedServer['only_db'] = '';
@@ -198,12 +203,12 @@ class ExportTest extends AbstractTestCase
 
         $dbi = $this->createDatabaseInterface($dbiDummy);
         DatabaseInterface::$instance = $dbi;
-        $export = new Export($dbi);
+        $export = new Export($dbi, new OutputHandler());
 
         $relation = new Relation($dbi);
         $export->exportServer(
             ['test_db'],
-            new ExportSql($relation, $export, new Transformations($dbi, $relation)),
+            new ExportSql($relation, $export->outputHandler, new Transformations($dbi, $relation)),
             [],
             '',
         );
@@ -228,7 +233,7 @@ class ExportTest extends AbstractTestCase
         Current::$server = 2;
         $_SESSION = [];
         $dbi = $this->createDatabaseInterface();
-        $export = new Export($dbi);
+        $export = new Export($dbi, new OutputHandler());
         $location = $export->getPageLocationAndSaveMessage(ExportType::Server, Message::error('Error message!'));
         self::assertSame('index.php?route=/server/export&server=2&lang=en', $location);
         self::assertSame(
@@ -243,7 +248,7 @@ class ExportTest extends AbstractTestCase
         Current::$server = 2;
         $_SESSION = [];
         $dbi = $this->createDatabaseInterface();
-        $export = new Export($dbi);
+        $export = new Export($dbi, new OutputHandler());
         $location = $export->getPageLocationAndSaveMessage(ExportType::Server, Message::success('Success message!'));
         self::assertSame('index.php?route=/server/export&server=2&lang=en', $location);
         self::assertSame(
@@ -259,7 +264,7 @@ class ExportTest extends AbstractTestCase
         Current::$database = 'test_db';
         $_SESSION = [];
         $dbi = $this->createDatabaseInterface();
-        $export = new Export($dbi);
+        $export = new Export($dbi, new OutputHandler());
         $location = $export->getPageLocationAndSaveMessage(ExportType::Database, Message::error('Error message!'));
         self::assertSame('index.php?route=/database/export&db=test_db&server=2&lang=en', $location);
         self::assertSame(
@@ -275,7 +280,7 @@ class ExportTest extends AbstractTestCase
         Current::$database = 'test_db';
         $_SESSION = [];
         $dbi = $this->createDatabaseInterface();
-        $export = new Export($dbi);
+        $export = new Export($dbi, new OutputHandler());
         $location = $export->getPageLocationAndSaveMessage(ExportType::Database, Message::success('Success message!'));
         self::assertSame('index.php?route=/database/export&db=test_db&server=2&lang=en', $location);
         self::assertSame(
@@ -292,7 +297,7 @@ class ExportTest extends AbstractTestCase
         Current::$table = 'test_table';
         $_SESSION = [];
         $dbi = $this->createDatabaseInterface();
-        $export = new Export($dbi);
+        $export = new Export($dbi, new OutputHandler());
         $location = $export->getPageLocationAndSaveMessage(ExportType::Table, Message::error('Error message!'));
         self::assertSame(
             'index.php?route=/table/export&db=test_db&table=test_table&single_table=true&server=2&lang=en',
@@ -312,7 +317,7 @@ class ExportTest extends AbstractTestCase
         Current::$table = 'test_table';
         $_SESSION = [];
         $dbi = $this->createDatabaseInterface();
-        $export = new Export($dbi);
+        $export = new Export($dbi, new OutputHandler());
         $location = $export->getPageLocationAndSaveMessage(ExportType::Table, Message::success('Success message!'));
         self::assertSame(
             'index.php?route=/table/export&db=test_db&table=test_table&single_table=true&server=2&lang=en',

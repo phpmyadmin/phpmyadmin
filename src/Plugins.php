@@ -7,7 +7,7 @@ namespace PhpMyAdmin;
 use FilesystemIterator;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Container\ContainerBuilder;
-use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins\ExportPlugin;
@@ -78,7 +78,7 @@ class Plugins
             /** @psalm-suppress MixedMethodCall */
             return new $class(
                 $container->get(Relation::class),
-                $container->get(Export::class),
+                $container->get(OutputHandler::class),
                 $container->get(Transformations::class),
             );
         }
@@ -158,7 +158,7 @@ class Plugins
                 $container = ContainerBuilder::getContainer();
                 $plugins[] = new $class(
                     $container->get(Relation::class),
-                    $container->get(Export::class),
+                    $container->get(OutputHandler::class),
                     $container->get(Transformations::class),
                 );
             } elseif ($type === 'Import' && is_subclass_of($class, ImportPlugin::class)) {

@@ -116,7 +116,7 @@ class ExportJson extends ExportPlugin
             return false;
         }
 
-        return $this->export->outputHandler('[' . "\n" . $data . ',' . "\n");
+        return $this->outputHandler->addLine('[' . "\n" . $data . ',' . "\n");
     }
 
     /**
@@ -124,7 +124,7 @@ class ExportJson extends ExportPlugin
      */
     public function exportFooter(): bool
     {
-        return $this->export->outputHandler(']' . "\n");
+        return $this->outputHandler->addLine(']' . "\n");
     }
 
     /**
@@ -144,28 +144,7 @@ class ExportJson extends ExportPlugin
             return false;
         }
 
-        return $this->export->outputHandler($data . ',' . "\n");
-    }
-
-    /**
-     * Outputs database footer
-     *
-     * @param string $db Database name
-     */
-    public function exportDBFooter(string $db): bool
-    {
-        return true;
-    }
-
-    /**
-     * Outputs CREATE DATABASE statement
-     *
-     * @param string $db      Database name
-     * @param string $dbAlias Aliases of db
-     */
-    public function exportDBCreate(string $db, string $dbAlias = ''): bool
-    {
-        return true;
+        return $this->outputHandler->addLine($data . ',' . "\n");
     }
 
     /**
@@ -186,7 +165,7 @@ class ExportJson extends ExportPlugin
         $tableAlias = $this->getTableAlias($aliases, $db, $table);
 
         if (! $this->first) {
-            if (! $this->export->outputHandler(',')) {
+            if (! $this->outputHandler->addLine(',')) {
                 return false;
             }
         } else {
@@ -229,7 +208,7 @@ class ExportJson extends ExportPlugin
     ): bool {
         [$header, $footer] = explode('"@@DATA@@"', $buffer);
 
-        if (! $this->export->outputHandler($header . "\n" . '[' . "\n")) {
+        if (! $this->outputHandler->addLine($header . "\n" . '[' . "\n")) {
             return false;
         }
 
@@ -255,7 +234,7 @@ class ExportJson extends ExportPlugin
 
             // Output table name as comment if this is the first record of the table
             if ($recordCnt > 1) {
-                if (! $this->export->outputHandler(',' . "\n")) {
+                if (! $this->outputHandler->addLine(',' . "\n")) {
                     return false;
                 }
             }
@@ -293,12 +272,12 @@ class ExportJson extends ExportPlugin
                 return false;
             }
 
-            if (! $this->export->outputHandler($encodedData)) {
+            if (! $this->outputHandler->addLine($encodedData)) {
                 return false;
             }
         }
 
-        return $this->export->outputHandler("\n" . ']' . "\n" . $footer . "\n");
+        return $this->outputHandler->addLine("\n" . ']' . "\n" . $footer . "\n");
     }
 
     /**

@@ -83,54 +83,6 @@ class ExportCodegen extends ExportPlugin
     }
 
     /**
-     * Outputs export header
-     */
-    public function exportHeader(): bool
-    {
-        return true;
-    }
-
-    /**
-     * Outputs export footer
-     */
-    public function exportFooter(): bool
-    {
-        return true;
-    }
-
-    /**
-     * Outputs database header
-     *
-     * @param string $db      Database name
-     * @param string $dbAlias Aliases of db
-     */
-    public function exportDBHeader(string $db, string $dbAlias = ''): bool
-    {
-        return true;
-    }
-
-    /**
-     * Outputs database footer
-     *
-     * @param string $db Database name
-     */
-    public function exportDBFooter(string $db): bool
-    {
-        return true;
-    }
-
-    /**
-     * Outputs CREATE DATABASE statement
-     *
-     * @param string $db      Database name
-     * @param string $dbAlias Aliases of db
-     */
-    public function exportDBCreate(string $db, string $dbAlias = ''): bool
-    {
-        return true;
-    }
-
-    /**
      * Outputs the content of a table in NHibernate format
      *
      * @param string  $db       database name
@@ -145,10 +97,10 @@ class ExportCodegen extends ExportPlugin
         array $aliases = [],
     ): bool {
         if ($this->format === self::HANDLER_NHIBERNATE_XML) {
-            return $this->export->outputHandler($this->handleNHibernateXMLBody($db, $table, $aliases));
+            return $this->outputHandler->addLine($this->handleNHibernateXMLBody($db, $table, $aliases));
         }
 
-        return $this->export->outputHandler($this->handleNHibernateCSBody($db, $table, $aliases));
+        return $this->outputHandler->addLine($this->handleNHibernateCSBody($db, $table, $aliases));
     }
 
     /**

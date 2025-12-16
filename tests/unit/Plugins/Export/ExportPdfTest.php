@@ -6,7 +6,8 @@ namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\DatabaseInterface;
-use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Export\OutputHandler;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Plugins\Export\ExportPdf;
 use PhpMyAdmin\Plugins\Export\Helpers\Pdf;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -38,13 +39,9 @@ class ExportPdfTest extends AbstractTestCase
 
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
-        Export::$outputKanjiConversion = false;
-        Export::$outputCharsetConversion = false;
-        Export::$bufferNeeded = false;
-        Export::$asFile = true;
-        Export::$saveOnServer = false;
+        OutputHandler::$asFile = true;
         $relation = new Relation($dbi);
-        $this->object = new ExportPdf($relation, new Export($dbi), new Transformations($dbi, $relation));
+        $this->object = new ExportPdf($relation, new OutputHandler(), new Transformations($dbi, $relation));
     }
 
     /**
@@ -154,24 +151,15 @@ class ExportPdfTest extends AbstractTestCase
         );
     }
 
-    public function testExportHeader(): void
+    public function testSetExportOptions(): void
     {
-        $pdf = $this->getMockBuilder(Pdf::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/');
 
-        $pdf->expects(self::once())
-            ->method('Open');
-
-        $pdf->expects(self::once())
-            ->method('setTopMargin');
+        $this->object->setExportOptions($request, []);
 
         $attrPdf = new ReflectionProperty(ExportPdf::class, 'pdf');
-        $attrPdf->setValue($this->object, $pdf);
-
-        self::assertTrue(
-            $this->object->exportHeader(),
-        );
+        $pdf = $attrPdf->getValue($this->object);
+        self::assertInstanceOf(Pdf::class, $pdf);
     }
 
     public function testExportFooter(): void
@@ -232,23 +220,6 @@ class ExportPdfTest extends AbstractTestCase
                 'table',
                 'SELECT',
             ),
-        );
-    }
-
-    /**
-     * Test for
-     *     - PhpMyAdmin\Plugins\Export\ExportPdf::setPdf
-     *     - PhpMyAdmin\Plugins\Export\ExportPdf::getPdf
-     */
-    public function testSetGetPdf(): void
-    {
-        $setter = new ReflectionMethod(ExportPdf::class, 'setPdf');
-        $setter->invoke($this->object, new Pdf());
-
-        $getter = new ReflectionMethod(ExportPdf::class, 'getPdf');
-        self::assertInstanceOf(
-            Pdf::class,
-            $getter->invoke($this->object),
         );
     }
 }

@@ -11,7 +11,7 @@ use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
-use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Identifiers\TriggerName;
@@ -58,10 +58,7 @@ class ExportTexytextTest extends AbstractTestCase
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
-        Export::$outputKanjiConversion = false;
-        Export::$bufferNeeded = false;
-        Export::$asFile = false;
-        Export::$saveOnServer = false;
+        OutputHandler::$asFile = false;
         ExportPlugin::$exportType = ExportType::Table;
         ExportPlugin::$singleTable = false;
         Current::$database = '';
@@ -71,7 +68,7 @@ class ExportTexytextTest extends AbstractTestCase
         $relation = new Relation($this->dbi);
         $this->object = new ExportTexytext(
             $relation,
-            new Export($this->dbi),
+            new OutputHandler(),
             new Transformations($this->dbi, $relation),
         );
     }
@@ -263,7 +260,7 @@ class ExportTexytextTest extends AbstractTestCase
         $relation = new Relation($this->dbi);
         $this->object = $this->getMockBuilder(ExportTexytext::class)
             ->onlyMethods(['formatOneColumnDefinition'])
-            ->setConstructorArgs([$relation, new Export($this->dbi), new Transformations($this->dbi, $relation)])
+            ->setConstructorArgs([$relation, new OutputHandler(), new Transformations($this->dbi, $relation)])
             ->getMock();
 
         // case 1

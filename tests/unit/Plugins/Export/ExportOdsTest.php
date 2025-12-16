@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Tests\Plugins\Export;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
-use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Plugins\Export\ExportOds;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -52,13 +52,9 @@ class ExportOdsTest extends AbstractTestCase
 
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
-        Export::$outputKanjiConversion = false;
-        Export::$outputCharsetConversion = false;
-        Export::$bufferNeeded = false;
-        Export::$asFile = true;
-        Export::$saveOnServer = false;
+        OutputHandler::$asFile = true;
         $relation = new Relation($dbi);
-        $this->object = new ExportOds($relation, new Export($dbi), new Transformations($dbi, $relation));
+        $this->object = new ExportOds($relation, new OutputHandler(), new Transformations($dbi, $relation));
     }
 
     /**
