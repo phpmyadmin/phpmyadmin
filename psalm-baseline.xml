@@ -3904,9 +3904,6 @@
       <code><![CDATA[! $colVisibElement]]></code>
       <code><![CDATA[$colVisib]]></code>
       <code><![CDATA[$colVisib]]></code>
-      <code><![CDATA[$deleteUrl]]></code>
-      <code><![CDATA[$deleteUrl]]></code>
-      <code><![CDATA[$deleteUrl]]></code>
       <code><![CDATA[$posMimeOctetstream]]></code>
       <code><![CDATA[empty($linkRelations['link_dependancy_params'])]]></code>
       <code><![CDATA[empty($rowInfo['routine_type'])]]></code>
