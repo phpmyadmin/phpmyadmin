@@ -1755,15 +1755,16 @@ class Results
             // 1. Prepares the row
 
             // In print view these variable needs to be initialized
-            $deleteUrl = null;
-            $deleteString = null;
+            $deleteString = $jsConf = '';
             $editString = null;
-            $jsConf = null;
             $copyUrl = null;
             $copyString = null;
             $editUrl = null;
             $editCopyUrlParams = [];
-            $delUrlParams = null;
+            $delUrlParams = [];
+            $clauseIsUnique = true;
+            $whereClause = '';
+            $conditionArray = [];
 
             // 1.2 Defines the URLs for the modify/delete link(s)
 
@@ -1806,13 +1807,14 @@ class Results
                 }
 
                 // 1.2.2 Delete/Kill link(s)
-                [$deleteUrl, $deleteString, $jsConf, $delUrlParams] = $this->getDeleteAndKillLinks(
-                    $whereClause,
-                    $clauseIsUnique,
-                    $urlSqlQuery,
-                    $displayParts->deleteLink,
-                    self::$row[0],
-                );
+                if ($displayParts->deleteLink !== DeleteLinkEnum::NO_DELETE) {
+                    [, $deleteString, $jsConf, $delUrlParams] = $this->getDeleteAndKillLinks(
+                        $whereClause,
+                        $clauseIsUnique,
+                        $urlSqlQuery,
+                        $displayParts->deleteLink,
+                    );
+                }
 
                 // 1.3 Displays the links at left if required
                 if (
@@ -1821,7 +1823,7 @@ class Results
                 ) {
                     $tableBodyHtml .= $this->template->render('display/results/checkbox_and_links', [
                         'position' => self::POSITION_LEFT,
-                        'has_checkbox' => $deleteUrl && $displayParts->deleteLink !== DeleteLinkEnum::KILL_PROCESS,
+                        'has_checkbox' => $displayParts->deleteLink === DeleteLinkEnum::DELETE_ROW,
                         'edit' => [
                             'url' => $editUrl,
                             'params' => $editCopyUrlParams + ['default_action' => 'update'],
@@ -1833,18 +1835,18 @@ class Results
                             'params' => $editCopyUrlParams + ['default_action' => 'insert'],
                             'string' => $copyString,
                         ],
-                        'delete' => ['url' => $deleteUrl, 'params' => $delUrlParams, 'string' => $deleteString],
+                        'delete' => ['url' => Url::getFromRoute('/sql'), 'params' => $delUrlParams, 'string' => $deleteString],
                         'row_number' => $rowNumber,
                         'where_clause' => $whereClause,
                         'condition' => json_encode($conditionArray),
                         'is_ajax' => ResponseRenderer::getInstance()->isAjax(),
-                        'js_conf' => $jsConf ?? '',
+                        'js_conf' => $jsConf,
                         'grid_edit_config' => $gridEditConfig,
                     ]);
                 } elseif ($this->config->settings['RowActionLinks'] === self::POSITION_NONE) {
                     $tableBodyHtml .= $this->template->render('display/results/checkbox_and_links', [
                         'position' => self::POSITION_NONE,
-                        'has_checkbox' => $deleteUrl && $displayParts->deleteLink !== DeleteLinkEnum::KILL_PROCESS,
+                        'has_checkbox' => $displayParts->deleteLink === DeleteLinkEnum::DELETE_ROW,
                         'edit' => [
                             'url' => $editUrl,
                             'params' => $editCopyUrlParams + ['default_action' => 'update'],
@@ -1856,12 +1858,12 @@ class Results
                             'params' => $editCopyUrlParams + ['default_action' => 'insert'],
                             'string' => $copyString,
                         ],
-                        'delete' => ['url' => $deleteUrl, 'params' => $delUrlParams, 'string' => $deleteString],
+                        'delete' => ['url' => Url::getFromRoute('/sql'), 'params' => $delUrlParams, 'string' => $deleteString],
                         'row_number' => $rowNumber,
                         'where_clause' => $whereClause,
                         'condition' => json_encode($conditionArray),
                         'is_ajax' => ResponseRenderer::getInstance()->isAjax(),
-                        'js_conf' => $jsConf ?? '',
+                        'js_conf' => $jsConf,
                         'grid_edit_config' => $gridEditConfig,
                     ]);
                 }
@@ -1892,24 +1894,24 @@ class Results
             ) {
                 $tableBodyHtml .= $this->template->render('display/results/checkbox_and_links', [
                     'position' => self::POSITION_RIGHT,
-                    'has_checkbox' => $deleteUrl && $displayParts->deleteLink !== DeleteLinkEnum::KILL_PROCESS,
+                    'has_checkbox' => $displayParts->deleteLink === DeleteLinkEnum::DELETE_ROW,
                     'edit' => [
                         'url' => $editUrl,
                         'params' => $editCopyUrlParams + ['default_action' => 'update'],
                         'string' => $editString,
-                        'clause_is_unique' => $clauseIsUnique ?? true,
+                        'clause_is_unique' => $clauseIsUnique,
                     ],
                     'copy' => [
                         'url' => $copyUrl,
                         'params' => $editCopyUrlParams + ['default_action' => 'insert'],
                         'string' => $copyString,
                     ],
-                    'delete' => ['url' => $deleteUrl, 'params' => $delUrlParams, 'string' => $deleteString],
+                    'delete' => ['url' => Url::getFromRoute('/sql'), 'params' => $delUrlParams, 'string' => $deleteString],
                     'row_number' => $rowNumber,
-                    'where_clause' => $whereClause ?? '',
-                    'condition' => json_encode($conditionArray ?? []),
+                    'where_clause' => $whereClause,
+                    'condition' => json_encode($conditionArray),
                     'is_ajax' => ResponseRenderer::getInstance()->isAjax(),
-                    'js_conf' => $jsConf ?? '',
+                    'js_conf' => $jsConf,
                     'grid_edit_config' => $gridEditConfig,
                 ]);
             }
@@ -2381,19 +2383,17 @@ class Results
      *
      * @see     getTableBody()
      *
-     * @param string      $whereClause    the where clause of the sql
-     * @param bool        $clauseIsUnique the unique condition of clause
-     * @param string      $urlSqlQuery    the analyzed sql query
-     * @param string|null $processId      Process ID
+     * @param string $whereClause    the where clause of the sql
+     * @param bool   $clauseIsUnique the unique condition of clause
+     * @param string $urlSqlQuery    the analyzed sql query
      *
-     * @return array{?string, ?string, ?string, string[]|null}
+     * @return array{string, string, string, string[]}
      */
     private function getDeleteAndKillLinks(
         string $whereClause,
         bool $clauseIsUnique,
         string $urlSqlQuery,
         DeleteLinkEnum $deleteLink,
-        string|null $processId,
     ): array {
         if ($deleteLink === DeleteLinkEnum::DELETE_ROW) { // delete row case
             $urlParams = [
@@ -2425,7 +2425,7 @@ class Results
                 . ($clauseIsUnique ? '' : ' LIMIT 1');
 
             $deleteString = $this->getActionLinkContent('b_drop', __('Delete'));
-        } elseif ($deleteLink === DeleteLinkEnum::KILL_PROCESS) { // kill process case
+        } else { // kill process case
             $urlParams = [
                 'db' => $this->db,
                 'table' => $this->table,
@@ -2435,7 +2435,7 @@ class Results
 
             $linkGoto = Url::getFromRoute('/sql', $urlParams);
 
-            $kill = $this->dbi->getKillQuery((int) $processId);
+            $kill = $this->dbi->getKillQuery((int) self::$row[0]);
 
             $urlParams = ['db' => 'mysql', 'sql_query' => $kill, 'goto' => $linkGoto];
 
@@ -2445,8 +2445,6 @@ class Results
                 'b_drop',
                 __('Kill'),
             );
-        } else {
-            $deleteUrl = $deleteString = $jsConf = $urlParams = null;
         }
 
         return [$deleteUrl, $deleteString, $jsConf, $urlParams];
