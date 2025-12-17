@@ -264,6 +264,12 @@ rendered, for example in following document:
 
     \end{document}
 
+Toon
+----
+
+Data can be exported to Toon format, which is a compact,
+human-readable encoding of the JSON data model.
+
 MediaWiki
 ---------
 
