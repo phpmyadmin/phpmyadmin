@@ -578,9 +578,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <DocblockTypeContradiction>
-      <code><![CDATA[$foreign[$field] !== '']]></code>
-    </DocblockTypeContradiction>
     <InvalidReturnStatement>
       <code><![CDATA[$tableNameReplacements]]></code>
     </InvalidReturnStatement>
@@ -604,11 +601,7 @@
       <code><![CDATA[$foreignDb]]></code>
       <code><![CDATA[$foreignField]]></code>
       <code><![CDATA[$foreignTable]]></code>
-      <code><![CDATA[$value]]></code>
     </MixedAssignment>
-    <MixedReturnStatement>
-      <code><![CDATA[$foreigners[$column]]]></code>
-    </MixedReturnStatement>
     <MixedReturnTypeCoercion>
       <code><![CDATA[$this->dbi->fetchResultMultidimensional(
                 $relQuery,
@@ -626,9 +619,6 @@
     <PossiblyUnusedReturnValue>
       <code><![CDATA[bool]]></code>
     </PossiblyUnusedReturnValue>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[isset($foreign[$field]) && $foreign[$field] !== '']]></code>
-    </RedundantConditionGivenDocblockType>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$relationParams[$work]]]></code>
       <code><![CDATA[empty($this->config->selectedServer[$feature])]]></code>
@@ -2571,6 +2561,9 @@
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
+    <PropertyNotSetInConstructor>
+      <code><![CDATA[$foreigners]]></code>
+    </PropertyNotSetInConstructor>
     <RedundantCastGivenDocblockType>
       <code><![CDATA[(int) $this->config->settings['MaxRows']]]></code>
     </RedundantCastGivenDocblockType>
@@ -2881,6 +2874,9 @@
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
+    <PropertyNotSetInConstructor>
+      <code><![CDATA[$foreigners]]></code>
+    </PropertyNotSetInConstructor>
     <RedundantCastGivenDocblockType>
       <code><![CDATA[(int) $this->config->settings['maxRowPlotLimit']]]></code>
     </RedundantCastGivenDocblockType>
@@ -3296,7 +3292,6 @@
       <code><![CDATA[$_POST['t_y'][$key]]]></code>
       <code><![CDATA[$db]]></code>
       <code><![CDATA[$tab]]></code>
-      <code><![CDATA[$value['foreign_field']]]></code>
     </MixedArgument>
     <MixedArrayAssignment>
       <code><![CDATA[$origData[$index]]]></code>
@@ -3307,10 +3302,6 @@
       <code><![CDATA[$tab]]></code>
       <code><![CDATA[$value]]></code>
     </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[$value['foreign_db']]]></code>
-      <code><![CDATA[$value['foreign_table']]]></code>
-    </MixedOperand>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['t_x'][$key]]]></code>
       <code><![CDATA[$_POST['t_y'][$key]]]></code>
@@ -3337,9 +3328,12 @@
     <PossiblyNullArgument>
       <code><![CDATA[$oneKey->constraint]]></code>
       <code><![CDATA[$origData['settings_data']]]></code>
+      <code><![CDATA[$value['foreign_field']]]></code>
     </PossiblyNullArgument>
     <PossiblyNullOperand>
       <code><![CDATA[$oneKey->refTableName]]></code>
+      <code><![CDATA[$value['foreign_db']]]></code>
+      <code><![CDATA[$value['foreign_table']]]></code>
     </PossiblyNullOperand>
   </file>
   <file src="src/Database/Designer/DesignerTable.php">
@@ -3784,11 +3778,6 @@
       <code><![CDATA[$colVisibCurrent]]></code>
       <code><![CDATA[$expr->alias]]></code>
       <code><![CDATA[$field->table]]></code>
-      <code><![CDATA[$rel['foreign_db']]]></code>
-      <code><![CDATA[$rel['foreign_db']]]></code>
-      <code><![CDATA[$rel['foreign_field']]]></code>
-      <code><![CDATA[$rel['foreign_table']]]></code>
-      <code><![CDATA[$rel['foreign_table']]]></code>
       <code><![CDATA[$statementInfo->statement->from]]></code>
       <code><![CDATA[(int) $this->unlimNumRows / $_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[(int) $this->unlimNumRows / $_SESSION['tmpval']['max_rows']]]></code>
@@ -3946,6 +3935,11 @@
     </PossiblyInvalidArgument>
     <PossiblyNullArgument>
       <code><![CDATA[$oneKey->refTableName]]></code>
+      <code><![CDATA[$rel['foreign_db']]]></code>
+      <code><![CDATA[$rel['foreign_db']]]></code>
+      <code><![CDATA[$rel['foreign_field']]]></code>
+      <code><![CDATA[$rel['foreign_table']]]></code>
+      <code><![CDATA[$rel['foreign_table']]]></code>
       <code><![CDATA[$statementInfo->parser->list]]></code>
       <code><![CDATA[$statementInfo->parser->list]]></code>
       <code><![CDATA[$statementInfo->parser->list]]></code>
@@ -5564,22 +5558,10 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Operations.php">
-    <MixedArgument>
-      <code><![CDATA[$arr['foreign_db']]]></code>
-      <code><![CDATA[$arr['foreign_db']]]></code>
-      <code><![CDATA[$arr['foreign_db']]]></code>
-      <code><![CDATA[$arr['foreign_field']]]></code>
-      <code><![CDATA[$arr['foreign_field']]]></code>
-      <code><![CDATA[$arr['foreign_table']]]></code>
-      <code><![CDATA[$foreignTable]]></code>
-    </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$master]]></code>
       <code><![CDATA[$master]]></code>
     </MixedArgumentTypeCoercion>
-    <MixedAssignment>
-      <code><![CDATA[$foreignTable]]></code>
-    </MixedAssignment>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['comment']]]></code>
       <code><![CDATA[$_POST['db_collation']]]></code>
@@ -6193,10 +6175,6 @@
       <code><![CDATA[(int) $fromConfig]]></code>
       <code><![CDATA[(int) $fromRequest]]></code>
     </LessSpecificReturnStatement>
-    <MixedArgument>
-      <code><![CDATA[$rel['foreign_field']]]></code>
-      <code><![CDATA[$rel['foreign_table']]]></code>
-    </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$relField]]></code>
     </MixedArgumentTypeCoercion>
@@ -6396,10 +6374,10 @@
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$comments[$fieldName]]]></code>
-      <code><![CDATA[$foreigners[$fieldName]]]></code>
-      <code><![CDATA[$foreigners[$fieldName]]]></code>
-      <code><![CDATA[$foreigners[$fieldName]['foreign_field']]]></code>
-      <code><![CDATA[$foreigners[$fieldName]['foreign_table']]]></code>
+      <code><![CDATA[$foreigners->data[$fieldName]]]></code>
+      <code><![CDATA[$foreigners->data[$fieldName]]]></code>
+      <code><![CDATA[$foreigners->data[$fieldName]['foreign_field']]]></code>
+      <code><![CDATA[$foreigners->data[$fieldName]['foreign_table']]]></code>
       <code><![CDATA[$mimeMap[$fieldName]]]></code>
       <code><![CDATA[$mimeMap[$fieldName]['mimetype']]]></code>
       <code><![CDATA[$this->pagedim[$oldpage]]]></code>
@@ -6498,8 +6476,8 @@
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$availableWidth]]></code>
-      <code><![CDATA[$foreigners[$fieldName]['foreign_field']]]></code>
-      <code><![CDATA[$foreigners[$fieldName]['foreign_table']]]></code>
+      <code><![CDATA[$foreigners->data[$fieldName]['foreign_field']]]></code>
+      <code><![CDATA[$foreigners->data[$fieldName]['foreign_table']]]></code>
       <code><![CDATA[$fullwidth]]></code>
       <code><![CDATA[$fullwidth]]></code>
       <code><![CDATA[$fullwidth]]></code>
@@ -6555,6 +6533,9 @@
       <code><![CDATA[$y]]></code>
       <code><![CDATA[count($colFits) * $sColWidth]]></code>
     </MixedOperand>
+    <MixedPropertyFetch>
+      <code><![CDATA[$foreigners->data]]></code>
+    </MixedPropertyFetch>
     <PossiblyUndefinedVariable>
       <code><![CDATA[$comments]]></code>
       <code><![CDATA[$data]]></code>
@@ -6878,9 +6859,6 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Plugins/Schema/Dia/DiaRelationSchema.php">
-    <MixedArgument>
-      <code><![CDATA[$rel['foreign_field']]]></code>
-    </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$masterField]]></code>
     </MixedArgumentTypeCoercion>
@@ -6888,6 +6866,9 @@
       <code><![CDATA[$_REQUEST['dia_orientation']]]></code>
       <code><![CDATA[$_REQUEST['dia_paper']]]></code>
     </PossiblyInvalidCast>
+    <PossiblyNullArgument>
+      <code><![CDATA[$rel['foreign_field']]]></code>
+    </PossiblyNullArgument>
     <UnusedProperty>
       <code><![CDATA[$bottomMargin]]></code>
       <code><![CDATA[$leftMargin]]></code>
@@ -6913,15 +6894,15 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Plugins/Schema/Eps/EpsRelationSchema.php">
-    <MixedArgument>
-      <code><![CDATA[$rel['foreign_field']]]></code>
-    </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$masterField]]></code>
     </MixedArgumentTypeCoercion>
     <PossiblyInvalidCast>
       <code><![CDATA[$_REQUEST['eps_orientation']]]></code>
     </PossiblyInvalidCast>
+    <PossiblyNullArgument>
+      <code><![CDATA[$rel['foreign_field']]]></code>
+    </PossiblyNullArgument>
   </file>
   <file src="src/Plugins/Schema/Eps/RelationStatsEps.php">
     <MixedMethodCall>
@@ -7047,7 +7028,6 @@
     </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[$mimeMap[$fieldName]['mimetype']]]></code>
-      <code><![CDATA[$rel['foreign_field']]]></code>
       <code><![CDATA[$this->pdf->customLinks['RT']['-']]]></code>
       <code><![CDATA[$this->pdf->customLinks['doc'][$table][$fieldName]]]></code>
       <code><![CDATA[$this->pdf->customLinks['doc'][$table]['-']]]></code>
@@ -7106,6 +7086,9 @@
       <code><![CDATA[$_REQUEST['pdf_paper']]]></code>
       <code><![CDATA[$_REQUEST['pdf_table_order']]]></code>
     </PossiblyInvalidCast>
+    <PossiblyNullArgument>
+      <code><![CDATA[$rel['foreign_field']]]></code>
+    </PossiblyNullArgument>
     <PossiblyUnusedMethod>
       <code><![CDATA[isWithDataDictionary]]></code>
     </PossiblyUnusedMethod>
@@ -7252,12 +7235,12 @@
     </PossiblyUnusedProperty>
   </file>
   <file src="src/Plugins/Schema/Svg/SvgRelationSchema.php">
-    <MixedArgument>
-      <code><![CDATA[$rel['foreign_field']]]></code>
-    </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$masterField]]></code>
     </MixedArgumentTypeCoercion>
+    <PossiblyNullArgument>
+      <code><![CDATA[$rel['foreign_field']]]></code>
+    </PossiblyNullArgument>
     <UnsupportedPropertyReferenceUsage>
       <code><![CDATA[$this->tables[$table]->width = &$this->tablewidth]]></code>
     </UnsupportedPropertyReferenceUsage>
@@ -8480,9 +8463,6 @@
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['tmpval']['table_uiprefs'][$serverId][$this->dbName][$this->name]]]></code>
-      <code><![CDATA[$existrel[$masterField]['foreign_db']]]></code>
-      <code><![CDATA[$existrel[$masterField]['foreign_field']]]></code>
-      <code><![CDATA[$existrel[$masterField]['foreign_table']]]></code>
       <code><![CDATA[$index[0]]]></code>
       <code><![CDATA[$index[0]]]></code>
     </MixedArrayAccess>

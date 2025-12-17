@@ -1309,12 +1309,6 @@ parameters:
 			path: src/ConfigStorage/Relation.php
 
 		-
-			message: '#^Cannot cast mixed to string\.$#'
-			identifier: cast.string
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
 			count: 21
@@ -1341,12 +1335,6 @@ parameters:
 		-
 			message: '#^Method PhpMyAdmin\\ConfigStorage\\Relation\:\:searchColumnInForeigners\(\) return type has no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
-			message: '#^Method PhpMyAdmin\\ConfigStorage\\Relation\:\:searchColumnInForeigners\(\) should return array\|false but returns mixed\.$#'
-			identifier: return.type
 			count: 1
 			path: src/ConfigStorage/Relation.php
 
@@ -1545,12 +1533,6 @@ parameters:
 		-
 			message: '#^Parameter \#5 \$foreignField of class PhpMyAdmin\\ConfigStorage\\ForeignData constructor expects string, mixed given\.$#'
 			identifier: argument.type
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
-			message: '#^Strict comparison using \!\=\= between array\<string\|null\> and '''' will always evaluate to true\.$#'
-			identifier: notIdentical.alwaysTrue
 			count: 1
 			path: src/ConfigStorage/Relation.php
 
@@ -3514,6 +3496,12 @@ parameters:
 			path: src/Controllers/Table/SearchController.php
 
 		-
+			message: '#^Class PhpMyAdmin\\Controllers\\Table\\SearchController has an uninitialized property \$foreigners\. Give it default value or assign it in the constructor\.$#'
+			identifier: property.uninitialized
+			count: 1
+			path: src/Controllers/Table/SearchController.php
+
+		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
 			count: 1
@@ -3990,6 +3978,12 @@ parameters:
 		-
 			message: '#^Casting to int something that''s already int\<1, max\>\.$#'
 			identifier: cast.useless
+			count: 1
+			path: src/Controllers/Table/ZoomSearchController.php
+
+		-
+			message: '#^Class PhpMyAdmin\\Controllers\\Table\\ZoomSearchController has an uninitialized property \$foreigners\. Give it default value or assign it in the constructor\.$#'
+			identifier: property.uninitialized
 			count: 1
 			path: src/Controllers/Table/ZoomSearchController.php
 
@@ -4702,18 +4696,6 @@ parameters:
 			path: src/Database/Designer/Common.php
 
 		-
-			message: '#^Binary operation "\." between mixed and ''\.'' results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Database/Designer/Common.php
-
-		-
-			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Database/Designer/Common.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -4777,15 +4759,9 @@ parameters:
 			path: src/Database/Designer/Common.php
 
 		-
-			message: '#^Parameter \#1 \$string of function rawurlencode expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Database/Designer/Common.php
-
-		-
 			message: '#^Parameter \#1 \$string of function rawurlencode expects string, string\|null given\.$#'
 			identifier: argument.type
-			count: 1
+			count: 2
 			path: src/Database/Designer/Common.php
 
 		-
@@ -5710,7 +5686,7 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: '#^Parameter \#1 \$db of method PhpMyAdmin\\ConfigStorage\\Relation\:\:getDisplayField\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#1 \$db of method PhpMyAdmin\\ConfigStorage\\Relation\:\:getDisplayField\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Display/Results.php
@@ -5734,15 +5710,9 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: '#^Parameter \#1 \$table of class PhpMyAdmin\\Display\\ForeignKeyRelatedTable constructor expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Display/Results.php
-
-		-
 			message: '#^Parameter \#1 \$table of class PhpMyAdmin\\Display\\ForeignKeyRelatedTable constructor expects string, string\|null given\.$#'
 			identifier: argument.type
-			count: 1
+			count: 2
 			path: src/Display/Results.php
 
 		-
@@ -5752,7 +5722,7 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: '#^Parameter \#2 \$field of class PhpMyAdmin\\Display\\ForeignKeyRelatedTable constructor expects string, mixed given\.$#'
+			message: '#^Parameter \#2 \$field of class PhpMyAdmin\\Display\\ForeignKeyRelatedTable constructor expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Display/Results.php
@@ -5788,15 +5758,9 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: '#^Parameter \#2 \$table of method PhpMyAdmin\\ConfigStorage\\Relation\:\:getDisplayField\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Display/Results.php
-
-		-
 			message: '#^Parameter \#2 \$table of method PhpMyAdmin\\ConfigStorage\\Relation\:\:getDisplayField\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
-			count: 1
+			count: 2
 			path: src/Display/Results.php
 
 		-
@@ -5806,7 +5770,7 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: '#^Parameter \#4 \$database of class PhpMyAdmin\\Display\\ForeignKeyRelatedTable constructor expects string, mixed given\.$#'
+			message: '#^Parameter \#4 \$database of class PhpMyAdmin\\Display\\ForeignKeyRelatedTable constructor expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Display/Results.php
@@ -8599,12 +8563,6 @@ parameters:
 			path: src/Operations.php
 
 		-
-			message: '#^Parameter \#1 \$identifier of static method PhpMyAdmin\\Util\:\:backquote\(\) expects string\|Stringable\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 8
-			path: src/Operations.php
-
-		-
 			message: '#^Parameter \#1 \$query of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:query\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
@@ -9592,12 +9550,6 @@ parameters:
 			path: src/Plugins/Export/ExportSql.php
 
 		-
-			message: '#^Parameter \#1 \$identifier of static method PhpMyAdmin\\Util\:\:backquoteCompat\(\) expects string\|Stringable\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/Plugins/Export/ExportSql.php
-
-		-
 			message: '#^Parameter \#2 \$id of method PhpMyAdmin\\Plugins\\ExportPlugin\:\:getAlias\(\) expects string, bool\|float\|int\|string given\.$#'
 			identifier: argument.type
 			count: 1
@@ -9796,15 +9748,9 @@ parameters:
 			path: src/Plugins/Export/Helpers/Pdf.php
 
 		-
-			message: '#^Binary operation "\." between mixed and '' \('' results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Plugins/Export/Helpers/Pdf.php
-
-		-
 			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
-			count: 16
+			count: 15
 			path: src/Plugins/Export/Helpers/Pdf.php
 
 		-
@@ -10558,7 +10504,7 @@ parameters:
 			path: src/Plugins/Schema/Dia/DiaRelationSchema.php
 
 		-
-			message: '#^Parameter \#4 \$foreignField of method PhpMyAdmin\\Plugins\\Schema\\Dia\\DiaRelationSchema\:\:addRelation\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#4 \$foreignField of method PhpMyAdmin\\Plugins\\Schema\\Dia\\DiaRelationSchema\:\:addRelation\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Plugins/Schema/Dia/DiaRelationSchema.php
@@ -10606,7 +10552,7 @@ parameters:
 			path: src/Plugins/Schema/Eps/EpsRelationSchema.php
 
 		-
-			message: '#^Parameter \#6 \$foreignField of method PhpMyAdmin\\Plugins\\Schema\\Eps\\EpsRelationSchema\:\:addRelation\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#6 \$foreignField of method PhpMyAdmin\\Plugins\\Schema\\Eps\\EpsRelationSchema\:\:addRelation\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Plugins/Schema/Eps/EpsRelationSchema.php
@@ -10891,7 +10837,7 @@ parameters:
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: '#^Parameter \#4 \$foreignField of method PhpMyAdmin\\Plugins\\Schema\\Pdf\\PdfRelationSchema\:\:addRelation\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#4 \$foreignField of method PhpMyAdmin\\Plugins\\Schema\\Pdf\\PdfRelationSchema\:\:addRelation\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
@@ -11059,7 +11005,7 @@ parameters:
 			path: src/Plugins/Schema/Svg/SvgRelationSchema.php
 
 		-
-			message: '#^Parameter \#6 \$foreignField of method PhpMyAdmin\\Plugins\\Schema\\Svg\\SvgRelationSchema\:\:addRelation\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#6 \$foreignField of method PhpMyAdmin\\Plugins\\Schema\\Svg\\SvgRelationSchema\:\:addRelation\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Plugins/Schema/Svg/SvgRelationSchema.php
@@ -13309,24 +13255,6 @@ parameters:
 			message: '#^Call to function in_array\(\) requires parameter \#3 to be set\.$#'
 			identifier: function.strict
 			count: 2
-			path: src/Table/Table.php
-
-		-
-			message: '#^Cannot access offset ''foreign_db'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Table/Table.php
-
-		-
-			message: '#^Cannot access offset ''foreign_field'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Table/Table.php
-
-		-
-			message: '#^Cannot access offset ''foreign_table'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
 			path: src/Table/Table.php
 
 		-

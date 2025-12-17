@@ -376,14 +376,14 @@ class ExportOdt extends ExportPlugin
         // Check if we can use Relations
         $foreigners = $this->doRelation && $relationParameters->relationFeature !== null ?
             $this->relation->getForeigners($db, $table)
-            : [];
+            : null;
         /**
          * Displays the table structure
          */
         $this->buffer .= '<table:table table:name="'
             . htmlspecialchars($tableAlias) . '_structure">';
         $columnsCnt = 4;
-        if ($this->doRelation && $foreigners !== []) {
+        if ($this->doRelation && $foreigners !== null && ! $foreigners->isEmpty()) {
             $columnsCnt++;
         }
 
@@ -411,7 +411,7 @@ class ExportOdt extends ExportPlugin
             . '<table:table-cell office:value-type="string">'
             . '<text:p>' . __('Default') . '</text:p>'
             . '</table:table-cell>';
-        if ($this->doRelation && $foreigners !== []) {
+        if ($this->doRelation && $foreigners !== null && ! $foreigners->isEmpty()) {
             $this->buffer .= '<table:table-cell office:value-type="string">'
                 . '<text:p>' . __('Links to') . '</text:p>'
                 . '</table:table-cell>';
@@ -439,7 +439,7 @@ class ExportOdt extends ExportPlugin
             $colAs = $this->getColumnAlias($aliases, $db, $table, $column->field);
 
             $this->buffer .= $this->formatOneColumnDefinition($column, $colAs);
-            if ($this->doRelation && $foreigners !== []) {
+            if ($this->doRelation && $foreigners !== null && ! $foreigners->isEmpty()) {
                 $foreigner = $this->relation->searchColumnInForeigners($foreigners, $fieldName);
                 if ($foreigner) {
                     $rtable = $foreigner['foreign_table'];

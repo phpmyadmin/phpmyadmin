@@ -437,7 +437,7 @@ class ExportLatex extends ExportPlugin
         // Check if we can use Relations
         $foreigners = $this->doRelation && $relationParameters->relationFeature !== null ?
             $this->relation->getForeigners($db, $table)
-            : [];
+            : null;
         /**
          * Displays the table structure
          */
@@ -448,7 +448,7 @@ class ExportLatex extends ExportPlugin
         }
 
         $alignment = '|l|c|c|c|';
-        if ($this->doRelation && $foreigners !== []) {
+        if ($this->doRelation && $foreigners !== null && ! $foreigners->isEmpty()) {
             $alignment .= 'l|';
         }
 
@@ -467,7 +467,7 @@ class ExportLatex extends ExportPlugin
             . '}} & \\multicolumn{1}{|c|}{\\textbf{' . __('Type')
             . '}} & \\multicolumn{1}{|c|}{\\textbf{' . __('Null')
             . '}} & \\multicolumn{1}{|c|}{\\textbf{' . __('Default') . '}}';
-        if ($this->doRelation && $foreigners !== []) {
+        if ($this->doRelation && $foreigners !== null && ! $foreigners->isEmpty()) {
             $header .= ' & \\multicolumn{1}{|c|}{\\textbf{' . __('Links to') . '}}';
         }
 
@@ -532,7 +532,7 @@ class ExportLatex extends ExportPlugin
                 . ($row->isNull ? __('Yes') : __('No'))
                 . "\000" . ($row->default ?? ($row->isNull ? 'NULL' : ''));
 
-            if ($this->doRelation && $foreigners !== []) {
+            if ($this->doRelation && $foreigners !== null && ! $foreigners->isEmpty()) {
                 $localBuffer .= "\000";
                 $localBuffer .= $this->getRelationString($foreigners, $fieldName, $db, $aliases);
             }

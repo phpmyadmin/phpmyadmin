@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\ConfigStorage\Foreigners;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Core;
@@ -69,8 +70,7 @@ final class ZoomSearchController implements InvocableController
     /** @var bool Whether a geometry column is present */
     private bool $geomColumnFlag = false;
 
-    /** @var mixed[] Foreign keys */
-    private array $foreigners = [];
+    private Foreigners $foreigners;
 
     public function __construct(
         private readonly ResponseRenderer $response,

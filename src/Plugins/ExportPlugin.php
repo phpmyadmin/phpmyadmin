@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins;
 
+use PhpMyAdmin\ConfigStorage\Foreigners;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\Export\StructureOrData;
@@ -280,15 +281,14 @@ abstract class ExportPlugin implements Plugin
      * in this format:
      * [Foreign Table] ([Foreign Field])
      *
-     * @param mixed[] $foreigners the foreigners array
-     * @param string  $fieldName  the field name
-     * @param string  $db         the field name
-     * @param mixed[] $aliases    Alias information for db/table/column
+     * @param string  $fieldName the field name
+     * @param string  $db        the field name
+     * @param mixed[] $aliases   Alias information for db/table/column
      *
      * @return string the Relation string
      */
     public function getRelationString(
-        array $foreigners,
+        Foreigners $foreigners,
         string $fieldName,
         string $db,
         array $aliases = [],
