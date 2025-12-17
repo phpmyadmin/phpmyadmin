@@ -280,7 +280,7 @@ class ExportTest extends TestCase
         yield 'invalid value 2' => [2, 0];
     }
 
-    #[DataProvider('booleanWithDefaultFalseProvider')]
+    #[DataProvider('booleanWithDefaultTrueProvider')]
     public function testOdsColumns(mixed $actual, bool $expected): void
     {
         $export = new Export(['ods_columns' => $actual]);

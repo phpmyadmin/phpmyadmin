@@ -282,7 +282,7 @@ final class Export
 
     /**
      * ```php
-     * $cfg['Export']['ods_columns'] = false;
+     * $cfg['Export']['ods_columns'] = true;
      * ```
      */
     public bool $ods_columns;
@@ -1436,7 +1436,7 @@ final class Export
     private function setOdsColumns(array $export): bool
     {
         if (! isset($export['ods_columns'])) {
-            return false;
+            return true;
         }
 
         return (bool) $export['ods_columns'];
