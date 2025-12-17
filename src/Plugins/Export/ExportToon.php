@@ -14,6 +14,7 @@ use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
+use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 
 use function __;
@@ -25,6 +26,7 @@ use function array_key_exists;
 class ExportToon extends ExportPlugin
 {
     private int $indent = 2;
+    private string $separator = ',';
 
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
@@ -48,6 +50,17 @@ class ExportToon extends ExportPlugin
 
         // general options main group
         $generalOptions = new OptionsPropertyMainGroup('general_opts');
+        // create leaf items and add them to the group
+        $leaf = new TextPropertyItem(
+            'separator',
+            __('Columns separated with:'),
+        );
+        $generalOptions->addProperty($leaf);
+        $leaf = new TextPropertyItem(
+            'indent',
+            __('Indentation:'),
+        );
+        $generalOptions->addProperty($leaf);
         // create primary items and add them to the group
         $leaf = new HiddenPropertyItem('structure_or_data');
         $generalOptions->addProperty($leaf);
@@ -95,7 +108,7 @@ class ExportToon extends ExportPlugin
             $buffer .= $column;
 
             if ($index !== count($columns) - 1) {
-                $buffer .= ',';
+                $buffer .= $this->separator;
             }
         }
         $buffer .= "}:\n";
@@ -124,7 +137,7 @@ class ExportToon extends ExportPlugin
                 $buffer .= $record[$i];
 
                 if ($i !== $columnsCnt - 1) {
-                    $buffer .= ',';
+                    $buffer .= $this->separator;
                 }
             }
 
@@ -161,5 +174,41 @@ class ExportToon extends ExportPlugin
             $exportConfig['toon_structure_or_data'] ?? null,
             StructureOrData::Data,
         );
+        
+        $this->separator = $this->setStringValue(
+            $request->getParsedBodyParam('toon_separator'),
+            $exportConfig['toon_separator'] ?? $this->separator,
+        );
+
+        $this->indent = $this->setIntValue(
+            (int) $request->getParsedBodyParam('toon_indent'),
+            $exportConfig['toon_indent'] ?? $this->indent,
+        );
+    }
+
+    private function setStringValue(mixed $fromRequest, mixed $fromConfig): string
+    {
+        if (is_string($fromRequest) && $fromRequest !== '') {
+            return $fromRequest;
+        }
+
+        if (is_string($fromConfig) && $fromConfig !== '') {
+            return $fromConfig;
+        }
+
+        return '';
+    }
+
+    private function setIntValue(mixed $fromRequest, mixed $fromConfig): int
+    {
+        if (is_int($fromRequest)) {
+            return $fromRequest;
+        }
+
+        if (is_int($fromConfig)) {
+            return $fromConfig;
+        }
+
+        return 0;
     }
 }

@@ -12,6 +12,7 @@ use PhpMyAdmin\Plugins\Export\ExportToon;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
+use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Transformations;
@@ -106,6 +107,36 @@ class ExportToonTest extends AbstractTestCase
         );
 
         $generalProperties = $generalOptions->getProperties();
+
+        $property = $generalProperties->current();
+        $generalProperties->next();
+
+        self::assertInstanceOf(TextPropertyItem::class, $property);
+
+        self::assertSame(
+            'separator',
+            $property->getName(),
+        );
+
+        self::assertSame(
+            'Columns separated with:',
+            $property->getText(),
+        );
+
+        $property = $generalProperties->current();
+        $generalProperties->next();
+
+        self::assertInstanceOf(TextPropertyItem::class, $property);
+
+        self::assertSame(
+            'indent',
+            $property->getName(),
+        );
+
+        self::assertSame(
+            'Indentation:',
+            $property->getText(),
+        );
 
         $property = $generalProperties->current();
 
