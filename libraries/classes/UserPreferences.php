@@ -125,6 +125,16 @@ class UserPreferences
      */
     public function save(array $config_array)
     {
+        // Smart merge: If this looks like a partial save (missing 2fa but we have it stored),
+        // automatically merge to prevent accidental overwrites
+        if (! isset($config_array['2fa'])) {
+            $existingPrefs = $this->load();
+            if (isset($existingPrefs['config_data']['2fa'])) {
+                // This is likely a partial save from page settings - merge to preserve 2fa
+                $config_array = array_merge($existingPrefs['config_data'], $config_array);
+            }
+        }
+
         global $dbi;
 
         $relationParameters = $this->relation->getRelationParameters();
