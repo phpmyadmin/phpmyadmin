@@ -61,54 +61,6 @@ class ExportToon extends ExportPlugin
     }
 
     /**
-     * Outputs export header
-     */
-    public function exportHeader(): bool
-    {
-        return true;
-    }
-
-    /**
-     * Outputs export footer
-     */
-    public function exportFooter(): bool
-    {
-        return true;
-    }
-
-    /**
-     * Outputs database header
-     *
-     * @param string $db      Database name
-     * @param string $dbAlias Aliases of db
-     */
-    public function exportDBHeader(string $db, string $dbAlias = ''): bool
-    {
-        return true;
-    }
-
-    /**
-     * Outputs database footer
-     *
-     * @param string $db Database name
-     */
-    public function exportDBFooter(string $db): bool
-    {
-        return true;
-    }
-
-    /**
-     * Outputs CREATE DATABASE statement
-     *
-     * @param string $db      Database name
-     * @param string $dbAlias Aliases of db
-     */
-    public function exportDBCreate(string $db, string $dbAlias = ''): bool
-    {
-        return true;
-    }
-
-    /**
      * Outputs the content of a table in JSON format
      *
      * @param string  $db       database name
@@ -148,7 +100,7 @@ class ExportToon extends ExportPlugin
         }
         $buffer .= "}:\n";
         
-        if (! $this->export->outputHandler($buffer)) {
+        if (! $this->outputHandler->addLine($buffer)) {
             return false;
         }
 
@@ -178,7 +130,7 @@ class ExportToon extends ExportPlugin
 
             $insertedLines++;
             $buffer .= $insertedLines === $rowsCnt ? "\n\n" : "\n";
-            if (! $this->export->outputHandler($buffer)) {
+            if (! $this->outputHandler->addLine($buffer)) {
                 return false;
             }
         }

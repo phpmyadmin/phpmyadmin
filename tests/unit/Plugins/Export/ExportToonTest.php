@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Tests\Plugins\Export;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
-use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\Plugins\Export\ExportToon;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -41,10 +41,9 @@ class ExportToonTest extends AbstractTestCase
         Current::$database = '';
         Current::$table = '';
         Current::$lang = '';
-        Export::$saveFilename = '';
 
         $relation = new Relation($dbi);
-        $this->object = new ExportToon($relation, new Export($dbi), new Transformations($dbi, $relation));
+        $this->object = new ExportToon($relation, new OutputHandler(), new Transformations($dbi, $relation));
     }
 
     /**
