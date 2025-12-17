@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-12-14 00:31+0000\n"
-"PO-Revision-Date: 2025-06-02 19:01+0000\n"
-"Last-Translator: Мария Рангелова <rangelova1186@gmail.com>\n"
+"PO-Revision-Date: 2025-12-18 18:00+0000\n"
+"Last-Translator: Кирил Стоименов <steemman123@gmail.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/bg/>\n"
 "Language: bg\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Weblate 5.15.1-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -41,8 +41,9 @@ msgid "Appearance:"
 msgstr "Външен вид:"
 
 #: resources/templates/base.twig:76 resources/templates/home/index.twig:150
+#, fuzzy
 msgid "Color mode for the theme"
-msgstr ""
+msgstr "Цветови режим за темата"
 
 #: resources/templates/base.twig:80 resources/templates/home/index.twig:154
 msgctxt "Light color mode of the theme"
@@ -52,7 +53,7 @@ msgstr "Светла тема"
 #: resources/templates/base.twig:82 resources/templates/home/index.twig:156
 msgctxt "Dark color mode of the theme"
 msgid "Dark"
-msgstr ""
+msgstr "Тъмна тема"
 
 #: resources/templates/base.twig:95
 #: resources/templates/server/status/monitor/index.twig:8
@@ -98,8 +99,9 @@ msgstr "Липсва Git информация!"
 #: resources/templates/database/central_columns/edit_table_row.twig:23
 #: resources/templates/database/central_columns/main.twig:71
 #: resources/templates/database/central_columns/main.twig:304
+#, fuzzy
 msgid "Edit ENUM/SET values"
-msgstr ""
+msgstr "Редактирайте стойностите ENUM/SET"
 
 #: resources/templates/columns_definitions/column_attributes.twig:38
 #: resources/templates/database/central_columns/edit_table_row.twig:30
@@ -177,8 +179,9 @@ msgid "Expression"
 msgstr "Израз"
 
 #: resources/templates/columns_definitions/column_attributes.twig:174
+#, fuzzy
 msgid "first"
-msgstr ""
+msgstr "първи"
 
 #: resources/templates/columns_definitions/column_attributes.twig:179
 #: resources/templates/table/structure/display_structure.twig:447
@@ -2150,7 +2153,6 @@ msgid "+ Add column"
 msgstr "Добавяне колона"
 
 #: resources/templates/database/multi_table_query/form.twig:174
-#, fuzzy
 msgid "Update query"
 msgstr "Допълване заявка"
 
@@ -2176,7 +2178,6 @@ msgid "Database comment"
 msgstr "Коментар към БД"
 
 #: resources/templates/database/operations/index.twig:55
-#, fuzzy
 msgid "Rename database to"
 msgstr "Преименуване БД на"
 
@@ -2211,7 +2212,6 @@ msgid "Drop the database (DROP)"
 msgstr "Изтриване на БД (DROP)"
 
 #: resources/templates/database/operations/index.twig:119
-#, fuzzy
 msgid "Copy database to"
 msgstr "Копиране на БД в"
 
@@ -2304,9 +2304,8 @@ msgstr "Потребителско име"
 #: resources/templates/server/privileges/login_information_fields.twig:38
 #: resources/templates/server/privileges/users_overview.twig:9
 #: resources/templates/table/privileges/index.twig:20
-#, fuzzy
 msgid "Host name"
-msgstr "Име на дневник"
+msgstr "Име на host"
 
 #: resources/templates/database/privileges/index.twig:20
 #: resources/templates/server/privileges/privileges_summary.twig:16
@@ -2385,8 +2384,9 @@ msgstr "Когато има отметка:"
 #: resources/templates/database/privileges/index.twig:122
 #: resources/templates/table/privileges/index.twig:126
 #: src/Server/Privileges.php:1219
+#, fuzzy
 msgid "Not enough privilege to view users."
-msgstr ""
+msgstr "Нямате достатъчно привилегии за да видите потребителите"
 
 #: resources/templates/database/privileges/index.twig:131
 #: resources/templates/server/privileges/add_user_fieldset.twig:5
@@ -2394,7 +2394,6 @@ msgstr ""
 #: resources/templates/server/privileges/user_overview.twig:23
 #: resources/templates/server/privileges/users_overview.twig:139
 #: resources/templates/table/privileges/index.twig:136
-#, fuzzy
 msgid "Add user account"
 msgstr "Нов потребител"
 
