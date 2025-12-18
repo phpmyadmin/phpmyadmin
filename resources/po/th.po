@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-12-14 00:31+0000\n"
-"PO-Revision-Date: 2025-12-16 11:00+0000\n"
+"PO-Revision-Date: 2025-12-18 18:00+0000\n"
 "Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "th/>\n"
@@ -11910,7 +11910,7 @@ msgstr "ข้อความ OpenDocument"
 
 #: src/Config/Forms/User/ImportForm.php:37
 msgid "CSV using LOAD DATA"
-msgstr ""
+msgstr "ไฟล์ CSV ด้วยการโหลดข้อมูล"
 
 #: src/Config/Forms/User/MainForm.php:31
 #, fuzzy
