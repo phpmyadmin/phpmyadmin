@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-12-14 00:31+0000\n"
-"PO-Revision-Date: 2025-12-18 18:00+0000\n"
+"PO-Revision-Date: 2025-12-20 05:00+0000\n"
 "Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "th/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.15.1-dev\n"
+"X-Generator: Weblate 5.15.1\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 #, fuzzy
@@ -10275,6 +10275,7 @@ msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
 msgstr ""
+"คำอธิบายที่เข้าใจง่ายสำหรับเซิร์ฟเวอร์นี้ เว้นว่างไว้เพื่อแสดงชื่อโฮสต์แทน"
 
 #: src/Config/Descriptions.php:451
 msgid "Leave blank if not used."
@@ -10328,26 +10329,30 @@ msgid ""
 "authentication mode because the password is hard coded in the configuration "
 "file; this does not limit the ability to execute the same command directly."
 msgstr ""
+"โปรดทราบว่าการเปิดใช้งานตัวเลือกนี้ไม่มีผลใด ๆ กับ [kbd]config[/kbd] โหมดการตรวจสอบสิทธิ์ "
+"เนื่องจากรหัสผ่านถูกกำหนดไว้ในไฟล์การกำหนดค่าอยู่แล้ว; ซึ่งไม่ได้จำกัดความสามารถในการเรียกใช้คำ"
+"สั่งเดียวกันโดยตรง"
 
 #: src/Config/Descriptions.php:469
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
-msgstr ""
+msgstr "แสดงหรือซ่อนคอลัมน์ที่แสดงเวลาสร้างสำหรับทุกตาราง"
 
 #: src/Config/Descriptions.php:472
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables."
-msgstr ""
+msgstr "แสดงหรือซ่อนคอลัมน์ที่แสดงเวลาอัปเดตล่าสุดสำหรับทุกตาราง"
 
 #: src/Config/Descriptions.php:475
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables."
-msgstr ""
+msgstr "แสดงหรือซ่อนคอลัมน์ที่แสดงเวลาตรวจสอบล่าสุดสำหรับทุกตาราง"
 
 #: src/Config/Descriptions.php:478
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode."
 msgstr ""
+"กำหนดว่าไม่ว่าจะมีหรือไม่มีประเภทช่องข้อมูลก็ควรแสดงในโหมดแก้ไข/แทรกข้อมูลในตอนเริ่มต้น"
 
 #: src/Config/Descriptions.php:481
 msgid ""
@@ -10357,19 +10362,19 @@ msgstr ""
 
 #: src/Config/Descriptions.php:483
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
-msgstr ""
+msgstr "ไม่ว่าจะควรแสดงปุ่ม \"แสดงทุก (แถว)\" ให้ผู้ใช้เห็นหรือไม่"
 
 #: src/Config/Descriptions.php:484
 msgid "Show or hide a column displaying the comments for all tables."
-msgstr ""
+msgstr "แสดงหรือซ่อนคอลัมน์ที่แสดงหมายเหตุสำหรับทุกตาราง"
 
 #: src/Config/Descriptions.php:485
 msgid "Show or hide a column displaying the charset for all tables."
-msgstr ""
+msgstr "แสดงหรือซ่อนคอลัมน์ที่แสดงชุดอักขระสำหรับทุกตาราง"
 
 #: src/Config/Descriptions.php:486
 msgid "Display the function fields in edit/insert mode."
-msgstr ""
+msgstr "แสดงช่องข้อมูลฟังก์ชันในโหมดแก้ไข/แทรก"
 
 #: src/Config/Descriptions.php:487
 #, fuzzy
@@ -11640,49 +11645,43 @@ msgstr "ผู้ใช้สำหรับการตรวจสอบสิ
 
 #: src/Config/Descriptions.php:908
 msgid "Verbose name of this server"
-msgstr ""
+msgstr "ชื่อโดยละเอียดของเซิร์ฟเวอร์นี้"
 
 #: src/Config/Descriptions.php:909
 msgid "Allow to display all the rows"
-msgstr ""
+msgstr "อนุญาตให้แสดงทุกแถวได้"
 
 #: src/Config/Descriptions.php:910
 msgid "Show password change form"
-msgstr ""
+msgstr "แสดงแบบฟอร์มการเปลี่ยนรหัสผ่าน"
 
 #: src/Config/Descriptions.php:911
 msgid "Show create database form"
-msgstr ""
+msgstr "แสดงแบบฟอร์มการสร้างฐานข้อมูล"
 
 #: src/Config/Descriptions.php:912
-#, fuzzy
 msgid "Show table comments"
-msgstr "หมายเหตุของตาราง"
+msgstr "แสดงหมายเหตุของตาราง"
 
 #: src/Config/Descriptions.php:913
-#, fuzzy
 msgid "Show creation timestamp"
-msgstr "แสดงข้อมูลของ PHP"
+msgstr "แสดงเวลาสร้าง"
 
 #: src/Config/Descriptions.php:914
-#, fuzzy
 msgid "Show last update timestamp"
-msgstr "แสดงข้อมูลของ PHP"
+msgstr "แสดงเวลาอัปเดตล่าสุด"
 
 #: src/Config/Descriptions.php:915
-#, fuzzy
 msgid "Show last check timestamp"
-msgstr "แสดงข้อมูลของ PHP"
+msgstr "แสดงเวลาตรวจสอบล่าสุด"
 
 #: src/Config/Descriptions.php:916
-#, fuzzy
 msgid "Show table charset"
-msgstr "หมายเหตุของตาราง"
+msgstr "แสดงตารางชุดอักขระ"
 
 #: src/Config/Descriptions.php:917
-#, fuzzy
 msgid "Show field types"
-msgstr "แสดงตาราง"
+msgstr "แสดงประเภทช่องข้อมูล"
 
 #: src/Config/Descriptions.php:918
 msgid "Show function fields"
@@ -11913,13 +11912,12 @@ msgid "CSV using LOAD DATA"
 msgstr "ไฟล์ CSV ด้วยการโหลดข้อมูล"
 
 #: src/Config/Forms/User/MainForm.php:31
-#, fuzzy
 msgid "Default transformations"
-msgstr "การแปลงที่เรียกใช้ได้"
+msgstr "ค่าการแปลงเริ่มต้น"
 
 #: src/Config/PageSettings.php:123
 msgid "Cannot save settings, submitted configuration form contains errors!"
-msgstr ""
+msgstr "ไม่สามารถบันทึกการตั้งค่าได้ รูปแบบการกำหนดค่าที่ส่งเข้ามามีข้อผิดพลาด!"
 
 #: src/Config.php:435
 #, php-format
@@ -11939,16 +11937,23 @@ msgid ""
 "protection with trusted proxies list may not be reliable if your IP belongs "
 "to an ISP where thousands of users, including you, are connected to."
 msgstr ""
+"ควรปิดใช้งาน %option% ตัวเลือกนี้ เนื่องจากมันเป็นการอนุญาตให้ผู้โจมตีสามารถคาดเดาล็อกอินเข้าสู่เ"
+"ซิร์ฟเวอร์ MySQL ใดก็ได้ หากคุณคิดว่าจำเป็น ให้ใช้ตัวเลือก %srestrict login to MySQL "
+"server%s หรือ %trusted proxies list%s แทน อย่างไรก็ตาม การป้องกันตาม IP โดยใช้รายกา"
+"รพร็อกซีที่เชื่อถือได้อาจไม่น่าเชื่อถือหาก IP ของคุณเป็นของ ISP ที่มีผู้ใช้งานหลายพันคน รวมถึงตัวคุณเอ"
+"งด้วย"
 
 #: src/Config/ServerConfigChecks.php:77
 msgid ""
 "This value should be double checked to ensure that this directory is neither "
 "world accessible nor readable or writable by other users on your server."
 msgstr ""
+"ควรตรวจสอบค่านี้อีกครั้งเพื่อให้แน่ใจว่าไดเร็กทอรีนี้ไม่สามารถเข้าถึงได้โดยบุคคลทั่วไป หรือสามารถอ่าน"
+"หรือเขียนโดยผู้ใช้รายอื่นบนเซิร์ฟเวอร์ของคุณได้"
 
 #: src/Config/ServerConfigChecks.php:142
 msgid "You should use SSL connections if your database server supports it."
-msgstr ""
+msgstr "คุณควรใช้การเชื่อมต่อแบบ SSL หากเซิร์ฟเวอร์ฐานข้อมูลของคุณรองรับมัน"
 
 #: src/Config/ServerConfigChecks.php:149
 #, php-format
@@ -11968,10 +11973,14 @@ msgid ""
 "phpMyAdmin panel. Set %1$sauthentication type%2$s to [kbd]cookie[/kbd] or "
 "[kbd]http[/kbd]."
 msgstr ""
+"คุณได้ตั้งค่าประเภทการตรวจสอบสิทธิ์ [kbd]config[/kbd] และรวมชื่อผู้ใช้และรหัสผ่านสำหรับการเข้า"
+"สู่ระบบอัตโนมัติ ซึ่งไม่ใช่ตัวเลือกที่เหมาะสมสำหรับโฮสต์ที่ใช้งานจริง ใครก็ตามที่รู้หรือเดา URL ของ "
+"phpMyAdmin ของคุณสามารถเข้าถึงแผงควบคุม phpMyAdmin ของคุณได้โดยตรง ตั้งค่า "
+"%1$sauthentication type%2$s เป็น [kbd]cookie[/kbd] หรือ [kbd]http[/kbd]"
 
 #: src/Config/ServerConfigChecks.php:204
 msgid "You allow for connecting to the server without a password."
-msgstr ""
+msgstr "คุณอนุญาตให้สามารถเชื่อมต่อไปยังเซิร์ฟเวอร์ได้โดยไม่ต้องใช้รหัสผ่าน"
 
 #: src/Config/ServerConfigChecks.php:221
 msgid ""
@@ -11979,20 +11988,24 @@ msgid ""
 "authentication, so a key was automatically generated for you. It is used to "
 "encrypt cookies; you don't need to remember it."
 msgstr ""
+"คุณไม่ได้ตั้งค่ารหัสลับแบบ Blowfish ทั้งยังไม่ได้เปิดใช้งานการตรวจสอบสิทธิ์ด้วยคุกกี้ ดังนั้น ระบบจึงสร้"
+"างคีย์ให้คุณโดยอัตโนมัติ คีย์นี้ใช้สำหรับเข้ารหัสคุกกี้ คุณไม่จำเป็นต้องจำคีย์นี้"
 
 #: src/Config/ServerConfigChecks.php:272
 #, php-format
 msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
 "system."
-msgstr "การคลาย %sZip%s ต้องใช้ฟังก์ชั่น (%s) ซึ่งเป็นสิ่งที่ไม่สามารถใช้งานได้ในระบบนี้"
+msgstr ""
+"การคลายไฟล์ %sZip decompression%s ต้องใช้ฟังก์ชัน (%s) ซึ่งไม่มีอยู่ในระบบนี้"
 
 #: src/Config/ServerConfigChecks.php:293
 #, php-format
 msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
 "system."
-msgstr "การบีบอัด %sZip%s ต้องใช้ฟังก์ชั่น (%s) ซึ่งเป็นสิ่งที่ไม่สามารถใช้งานได้ในระบบนี้"
+msgstr ""
+"การบีบอัดไฟล์ %sZip compression%s ต้องใช้ฟังก์ชัน (%s) ซึ่งไม่มีอยู่ในระบบนี้"
 
 #: src/Config/ServerConfigChecks.php:318
 #, php-format
@@ -12001,6 +12014,9 @@ msgid ""
 "may cause random session invalidation (currently session.gc_maxlifetime is "
 "%5$d)."
 msgstr ""
+"ความถูกต้องของคุ้กกี้ล็อกอิน %1$sLogin cookie validity%2$s มากกว่า "
+"%3$session.gc_maxlifetime%4$s อาจทำให้เซสชันถูกยกเลิกแบบสุ่ม (ปัจจุบัน "
+"session.gc_maxlifetime คือ %5$d)"
 
 #: src/Config/ServerConfigChecks.php:340
 #, php-format
@@ -12008,6 +12024,9 @@ msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
+"ควรตั้งค่าระยะเวลาความถูกต้องของคุกกี้ %sLogin cookie validity%s ไว้ที่ 1800 วินาที (30 นา"
+"ที) เป็นอย่างมาก ค่าที่มากกว่า 1800 อาจก่อให้เกิดความเสี่ยงด้านความปลอดภัย เช่น การปลอมแปลงตั"
+"วตน"
 
 #: src/Config/ServerConfigChecks.php:366
 #, php-format
@@ -12015,6 +12034,8 @@ msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
+"หากใช้การตรวจสอบสิทธิ์ด้วยคุกกี้ [kbd]cookie[/kbd] และ %sLogin cookie store%s ไม่ใช่ 0 "
+"จะต้องตั้งค่า %sLogin cookie validity%s เป็นค่าที่น้อยกว่าหรือเท่ากับค่าดังกล่าว"
 
 #: src/Config/ServerConfigChecks.php:401
 #, php-format
@@ -12073,17 +12094,15 @@ msgstr "หมายเหตุของตาราง"
 
 #: src/Config/Validator.php:251
 msgid "Could not connect to the database server!"
-msgstr ""
+msgstr "ไม่สามารถเชื่อมต่อไปยังเซิร์ฟเวอร์ฐานข้อมูลได้!"
 
 #: src/Config/Validator.php:287
-#, fuzzy
 msgid "Invalid authentication type!"
-msgstr "ประเภทของการรับรองความถูกต้อง"
+msgstr "ประเภทการตรวจสอบสิทธิ์ไม่ถูกต้อง!"
 
 #: src/Config/Validator.php:292
-#, fuzzy
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
-msgstr "﻿สามารถค้นหา signon สำหรับตรวจสอบสคริปต์:"
+msgstr "เว้นชื่อผู้ใช้ให้ว่างขณะใช้วิธี [kbd]config[/kbd] การตรวจสอบสิทธิ์!"
 
 #: src/Config/Validator.php:298
 #, fuzzy
