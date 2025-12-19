@@ -298,7 +298,7 @@ class ErrorHandlerTest extends AbstractTestCase
         self::assertSame('Exception: Exception message.', $error->getOnlyMessage());
         self::assertStringContainsString($error->getDisplay(), $output);
         self::assertStringContainsString('Exception: Exception message.', $output);
-        self::assertStringNotContainsString('ErrorHandlerTest.php#' . $error->getLine(), $output);
+        self::assertStringContainsString('ErrorHandlerTest.php#' . $error->getLine(), $output);
     }
 
     public function testAddErrorWithFatalError(): void
@@ -318,11 +318,14 @@ class ErrorHandlerTest extends AbstractTestCase
             <html lang="en">
             <head><title>Error: Fatal error message!</title></head>
             <body>
-            <div class="alert alert-danger" role="alert"><p><strong>Error</strong> in name#1</p><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> Fatal error message!<p class="mt-3"><strong>Backtrace</strong></p><ol class="list-group"><li class="list-group-item">
+            <div class="alert alert-danger" role="alert"><p><strong>Error</strong> in name#1</p><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> Fatal error message!
+            </div>
+            
+            </body>
+            </html>
             HTML;
         // phpcs:enable
         $output = $this->getActualOutputForAssertion();
-        self::assertStringStartsWith($expectedStart, $output);
-        self::assertStringEndsWith('</li></ol></div>' . "\n\n" . '</body>' . "\n" . '</html>', $output);
+        self::assertSame($expectedStart, $output);
     }
 }
