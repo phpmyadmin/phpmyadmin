@@ -16,7 +16,6 @@ use PhpMyAdmin\FlashMessenger;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
-use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Plugins\SchemaPlugin;
@@ -50,7 +49,7 @@ class Export
 {
     public static bool $singleTable = false;
 
-    public static string $maxSize = '';
+    public static string $tableMaxSizeInMb = '';
     /** @var array<string> */
     public static array $tableData = [];
 
@@ -288,11 +287,7 @@ class Export
 
         $structureOrData = $exportPlugin->getStructureOrData();
 
-        if (
-            $exportPlugin instanceof ExportSql
-            && $structureOrData !== StructureOrData::Data
-            && $exportPlugin->hasCreateProcedureFunction()
-        ) {
+        if ($structureOrData !== StructureOrData::Data) {
             $exportPlugin->exportRoutines($db->getName(), $aliases);
 
             if ($separateFiles === 'database') {
@@ -324,28 +319,13 @@ class Export
                 if ($isView) {
                     if (
                         $separateFiles === ''
-                        && $exportPlugin instanceof ExportSql && $exportPlugin->hasCreateView()
                         && ! $exportPlugin->exportStructure($db->getName(), $table, 'stand_in', $aliases)
                     ) {
                         break;
                     }
-                } elseif ($exportPlugin instanceof ExportSql && $exportPlugin->hasCreateTable()) {
-                    $tableSize = self::$maxSize;
-                    // Checking if the maximum table size constrain has been set
-                    // And if that constrain is a valid number or not
-                    if ($tableSize !== '' && is_numeric($tableSize)) {
-                        // This obtains the current table's size
-                        $query = 'SELECT data_length + index_length
-                              from information_schema.TABLES
-                              WHERE table_schema = ' . $this->dbi->quoteString($db->getName()) . '
-                              AND table_name = ' . $this->dbi->quoteString($table);
-
-                        $size = (int) $this->dbi->fetchValue($query);
-                        //Converting the size to MB
-                        $size /= 1024 * 1024;
-                        if ($size > $tableSize) {
-                            continue;
-                        }
+                } else {
+                    if ($this->exceedsMaxTableSize($db->getName(), $table)) {
+                        continue;
                     }
 
                     if (! $exportPlugin->exportStructure($db->getName(), $table, 'create_table', $aliases)) {
@@ -375,11 +355,7 @@ class Export
 
             // now export the triggers (needs to be done after the data because
             // triggers can modify already imported tables)
-            if (
-                ! ($exportPlugin instanceof ExportSql && $exportPlugin->hasCreateTrigger())
-                || $structureOrData === StructureOrData::Data
-                || ! in_array($table, $tableStructure, true)
-            ) {
+            if ($structureOrData === StructureOrData::Data) {
                 continue;
             }
 
@@ -394,50 +370,41 @@ class Export
             $this->outputHandler->saveObjectInBuffer('table_' . $table, true);
         }
 
-        if ($exportPlugin instanceof ExportSql && $exportPlugin->hasCreateView()) {
-            foreach ($views as $view) {
-                // no data export for a view
-                if ($structureOrData === StructureOrData::Data) {
-                    continue;
-                }
-
-                if (! $exportPlugin->exportStructure($db->getName(), $view, 'create_view', $aliases)) {
-                    break;
-                }
-
-                if ($separateFiles !== 'database') {
-                    continue;
-                }
-
-                $this->outputHandler->saveObjectInBuffer('view_' . $view);
+        foreach ($views as $view) {
+            // no data export for a view
+            if ($structureOrData === StructureOrData::Data) {
+                continue;
             }
+
+            if (! $exportPlugin->exportStructure($db->getName(), $view, 'create_view', $aliases)) {
+                break;
+            }
+
+            if ($separateFiles !== 'database') {
+                continue;
+            }
+
+            $this->outputHandler->saveObjectInBuffer('view_' . $view);
         }
 
         if (! $exportPlugin->exportDBFooter($db->getName())) {
             return;
         }
 
-        // export metadata related to this db
-        if ($exportPlugin instanceof ExportSql && $exportPlugin->hasMetadata()) {
-            // Types of metadata to export.
-            // In the future these can be allowed to be selected by the user
-            $metadataTypes = $this->getMetadataTypes();
-            $exportPlugin->exportMetadata($db->getName(), $tables, $metadataTypes);
-
-            if ($separateFiles === 'database') {
-                $this->outputHandler->saveObjectInBuffer('metadata');
-            }
-        }
-
         if ($separateFiles === 'database') {
             $this->outputHandler->saveObjectInBuffer('extra');
         }
 
-        if (
-            ! ($exportPlugin instanceof ExportSql)
-            || $structureOrData === StructureOrData::Data
-            || ! $exportPlugin->hasCreateProcedureFunction()
-        ) {
+        // Types of metadata to export.
+        // In the future these can be allowed to be selected by the user
+        $metadataTypes = $this->getMetadataTypes();
+        $exportPlugin->exportMetadata($db->getName(), $tables, $metadataTypes);
+
+        if ($separateFiles === 'database') {
+            $this->outputHandler->saveObjectInBuffer('metadata');
+        }
+
+        if ($structureOrData === StructureOrData::Data) {
             return;
         }
 
@@ -511,19 +478,14 @@ class Export
 
         $structureOrData = $exportPlugin->getStructureOrData();
 
-        $tableObject = new Table($table, $db, $this->dbi);
-        $isView = $tableObject->isView();
         if ($structureOrData !== StructureOrData::Data) {
-            if ($isView) {
-                if ($exportPlugin instanceof ExportSql && $exportPlugin->hasCreateView()) {
-                    if (! $exportPlugin->exportStructure($db, $table, 'create_view', $aliases)) {
-                        return;
-                    }
-                }
-            } elseif ($exportPlugin instanceof ExportSql && $exportPlugin->hasCreateTable()) {
-                if (! $exportPlugin->exportStructure($db, $table, 'create_table', $aliases)) {
+            $tableObject = new Table($table, $db, $this->dbi);
+            if ($tableObject->isView()) {
+                if (! $exportPlugin->exportStructure($db, $table, 'create_view', $aliases)) {
                     return;
                 }
+            } elseif (! $exportPlugin->exportStructure($db, $table, 'create_table', $aliases)) {
+                return;
             }
         }
 
@@ -557,20 +519,13 @@ class Export
 
         // now export the triggers (needs to be done after the data because
         // triggers can modify already imported tables)
-        if (
-            $exportPlugin instanceof ExportSql && $exportPlugin->hasCreateTrigger()
-            && $structureOrData !== StructureOrData::Data
-        ) {
+        if ($structureOrData !== StructureOrData::Data) {
             if (! $exportPlugin->exportStructure($db, $table, 'triggers', $aliases)) {
                 return;
             }
         }
 
         if (! $exportPlugin->exportDBFooter($db)) {
-            return;
-        }
-
-        if (! ($exportPlugin instanceof ExportSql && $exportPlugin->hasMetadata())) {
             return;
         }
 
@@ -836,5 +791,26 @@ class Export
         }
 
         return $postParams;
+    }
+
+    private function exceedsMaxTableSize(string $db, string $table): bool
+    {
+        // Checking if the maximum table size constrain has been set
+        // And if that constrain is a valid number or not
+        if (is_numeric(self::$tableMaxSizeInMb)) {
+            // This obtains the current table's size
+            $query = 'SELECT data_length + index_length
+                    from information_schema.TABLES
+                    WHERE table_schema = ' . $this->dbi->quoteString($db) . '
+                    AND table_name = ' . $this->dbi->quoteString($table);
+
+            $size = (int) $this->dbi->fetchValue($query);
+            //Converting the size to MB
+            $size /= 1024 * 1024;
+
+            return $size > self::$tableMaxSizeInMb;
+        }
+
+        return false;
     }
 }

@@ -81,7 +81,7 @@ final readonly class ExportController implements InvocableController
         }
 
         if ($request->hasBodyParam('maxsize')) {
-            Export::$maxSize = $request->getParsedBodyParamAsString('maxsize');
+            Export::$tableMaxSizeInMb = $request->getParsedBodyParamAsString('maxsize');
         }
 
         $tableSelectParam = [];
