@@ -295,9 +295,7 @@ class ExportMediawiki extends ExportPlugin
             $exportConfig['mediawiki_structure_or_data'] ?? null,
             StructureOrData::Data,
         );
-        $this->caption = (bool) ($request->getParsedBodyParam('mediawiki_caption')
-            ?? $exportConfig['mediawiki_caption'] ?? false);
-        $this->headers = (bool) ($request->getParsedBodyParam('mediawiki_headers')
-            ?? $exportConfig['mediawiki_headers'] ?? false);
+        $this->caption = $request->hasBodyParam('mediawiki_caption');
+        $this->headers = $request->hasBodyParam('mediawiki_headers');
     }
 }
