@@ -118,25 +118,22 @@ class ExportToon extends ExportPlugin
         }
 
         $insertedLines = 0;
-        while ($record = $result->fetchRow()) {
+        while ($row = $result->fetchRow()) {
             $buffer = '';
-            for ($i = 0; $i < $columnsCnt; $i++) {
-                if (! array_key_exists($i, $record)) {
-                    continue;
-                }
 
-                if ($i === 0) {
+            foreach ($row as $index => $col) {
+                if ($index === 0) {
                     $buffer .= str_repeat(' ', $this->indent);
                 }
 
-                if ($record[$i] === null) {
+                if ($col === null) {
                     $buffer .= 'null';
                     continue;
                 }
 
-                $buffer .= $record[$i];
+                $buffer .= $col;
 
-                if ($i !== $columnsCnt - 1) {
+                if ($index !== $columnsCnt - 1) {
                     $buffer .= $this->separator;
                 }
             }
