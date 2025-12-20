@@ -297,7 +297,10 @@ class ExportSqlTest extends AbstractTestCase
     public function testExportRoutines(): void
     {
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
-            ->withParsedBody(['sql_drop_table' => 'On']);
+            ->withParsedBody([
+                'sql_drop_table' => 'On',
+                'sql_procedure_function' => 'On',
+            ]);
 
         $this->object->setExportOptions($request, []);
 
@@ -599,6 +602,10 @@ class ExportSqlTest extends AbstractTestCase
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         DatabaseInterface::$instance = $dbi;
+
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['sql_procedure_function' => 'On']);
+        $this->object->setExportOptions($request, []);
 
         ob_start();
         self::assertTrue(
@@ -915,6 +922,9 @@ class ExportSqlTest extends AbstractTestCase
                 'sql_backquotes' => 'true',
                 'sql_include_comments' => 'On',
                 'sql_compatibility' => 'MSSQL',
+                'sql_create_table' => 'On',
+                'sql_create_view' => 'On',
+                'sql_create_trigger' => 'On',
             ]);
 
         $this->object->setExportOptions($request, []);
@@ -960,7 +970,7 @@ class ExportSqlTest extends AbstractTestCase
 
         // case 4
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
-            ->withParsedBody(['sql_include_comments' => 'On', 'sql_views_as_tables' => 'On']);
+            ->withParsedBody(['sql_include_comments' => 'On', 'sql_views_as_tables' => 'On', 'sql_create_view' => 'On']);
 
         $this->object->setExportOptions($request, []);
 
