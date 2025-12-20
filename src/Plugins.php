@@ -393,7 +393,7 @@ class Plugins
                 $ret .= '<div class="form-check form-switch">' . "\n";
                 $ret .= '<input class="form-check-input" type="checkbox" role="switch" name="' . $pluginName . '_'
                     . $propertyItem->getName() . '"'
-                    . ' value="something" id="checkbox_' . $pluginName . '_'
+                    . ' value="y" id="checkbox_' . $pluginName . '_'
                     . $propertyItem->getName() . '"'
                     . ' '
                     . self::checkboxCheck(

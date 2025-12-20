@@ -513,7 +513,7 @@ class InsertEditTest extends AbstractTestCase
         );
 
         $column = new InsertEditColumn('f', '', false, '', null, '', -1, false, false, false, false);
-        $foreigners = new Foreigners(['f' => ['something']]);
+        $foreigners = new Foreigners(['f' => ['y']]);
         self::assertSame(
             '4',
             $this->callFunction(
