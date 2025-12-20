@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
+use PhpMyAdmin\Config\Settings\Export;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
@@ -259,7 +260,7 @@ class ExportCsvTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['csv_terminated' => ';', 'csv_columns' => 'On']);
 
-        $this->object->setExportOptions($request, []);
+        $this->object->setExportOptions($request, new Export());
         $this->object->exportHeader();
 
         ob_start();
@@ -280,7 +281,7 @@ class ExportCsvTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['csv_enclosed' => '"', 'csv_terminated' => ';', 'csv_columns' => 'On']);
 
-        $this->object->setExportOptions($request, []);
+        $this->object->setExportOptions($request, new Export());
         $this->object->exportHeader();
 
         ob_start();
@@ -306,7 +307,7 @@ class ExportCsvTest extends AbstractTestCase
                 'csv_columns' => 'On',
             ]);
 
-        $this->object->setExportOptions($request, []);
+        $this->object->setExportOptions($request, new Export());
         $this->object->exportHeader();
 
         ob_start();

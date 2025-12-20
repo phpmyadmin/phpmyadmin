@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
+use PhpMyAdmin\Config\Settings\Export;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\OutputHandler;
@@ -196,7 +197,7 @@ class ExportExcelTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['excel_edition' => 'mac_excel2003']);
 
-        $this->object->setExportOptions($request, []);
+        $this->object->setExportOptions($request, new Export());
 
         self::assertTrue(
             $this->object->exportHeader(),
@@ -206,7 +207,7 @@ class ExportExcelTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['excel_edition' => 'mac_excel2008']);
 
-        $this->object->setExportOptions($request, []);
+        $this->object->setExportOptions($request, new Export());
 
         self::assertTrue(
             $this->object->exportHeader(),
@@ -221,7 +222,7 @@ class ExportExcelTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['excel_columns' => 'On']);
 
-        $this->object->setExportOptions($request, []);
+        $this->object->setExportOptions($request, new Export());
 
         ob_start();
         self::assertTrue($this->object->exportData(

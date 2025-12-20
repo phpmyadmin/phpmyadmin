@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\Column;
+use PhpMyAdmin\Config\Settings\Export;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
@@ -236,7 +237,7 @@ class ExportMediawikiTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['mediawiki_headers' => 'On', 'mediawiki_caption' => 'On']);
 
-        $this->object->setExportOptions($request, []);
+        $this->object->setExportOptions($request, new Export());
 
         ob_start();
         self::assertTrue($this->object->exportStructure('db', 'table', 'create_table'));
@@ -279,7 +280,7 @@ class ExportMediawikiTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['mediawiki_headers' => 'On', 'mediawiki_caption' => 'On']);
 
-        $this->object->setExportOptions($request, []);
+        $this->object->setExportOptions($request, new Export());
 
         ob_start();
         self::assertTrue(
