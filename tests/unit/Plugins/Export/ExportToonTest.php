@@ -8,6 +8,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\OutputHandler;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Plugins\Export\ExportToon;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -188,6 +189,31 @@ class ExportToonTest extends AbstractTestCase
             '  1,abcd,2011-01-20 02:00:02' . "\n" .
             '  2,foo,2010-01-20 02:00:02' . "\n" .
             '  3,Abcd,2012-01-20 02:00:02' . "\n\n",
+            $result,
+        );
+    }
+
+    public function testExportDataWithCustomConfig(): void
+    {
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['toon_separator' => '|', 'toon_indent' => 4]);
+
+        $this->object->setExportOptions($request, []);
+        $this->object->exportHeader();
+
+        ob_start();
+        self::assertTrue($this->object->exportData(
+            'test_db',
+            'test_table',
+            'SELECT * FROM `test_db`.`test_table`;',
+        ));
+        $result = ob_get_clean();
+
+        self::assertSame(
+            'test_db.test_table[3]{id|name|datetimefield}:' . "\n".
+            '    1|abcd|2011-01-20 02:00:02' . "\n" .
+            '    2|foo|2010-01-20 02:00:02' . "\n" .
+            '    3|Abcd|2012-01-20 02:00:02' . "\n\n",
             $result,
         );
     }
