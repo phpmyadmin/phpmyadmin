@@ -324,4 +324,40 @@ abstract class ExportPlugin implements Plugin
     {
         return $text;
     }
+
+    /**
+     * Indicates whether table structure export is supported.
+     * Non-SQL plugins default to true; SQL plugin overrides based on user options.
+     */
+    public function hasCreateTable(): bool
+    {
+        return true;
+    }
+
+    /**
+     * Indicates whether view structure export is supported.
+     * Non-SQL plugins default to true; SQL plugin overrides based on user options.
+     */
+    public function hasCreateView(): bool
+    {
+        return true;
+    }
+
+    /**
+     * Indicates whether procedure/function export is supported.
+     * Non-SQL plugins default to false; SQL plugin overrides based on user options.
+     */
+    public function hasCreateProcedureFunction(): bool
+    {
+        return false;
+    }
+
+    /**
+     * Indicates whether trigger export is supported.
+     * Non-SQL plugins default to false; SQL plugin overrides based on user options.
+     */
+    public function hasCreateTrigger(): bool
+    {
+        return false;
+    }
 }

@@ -627,12 +627,12 @@ class Export
                 if ($isView) {
                     if (
                         $separateFiles === ''
-                        && $exportPlugin instanceof ExportSql && $exportPlugin->hasCreateView()
+                        && $exportPlugin->hasCreateView()
                         && ! $exportPlugin->exportStructure($db->getName(), $table, 'stand_in', $aliases)
                     ) {
                         break;
                     }
-                } elseif ($exportPlugin instanceof ExportSql && $exportPlugin->hasCreateTable()) {
+                } elseif ($exportPlugin->hasCreateTable()) {
                     $tableSize = self::$maxSize;
                     // Checking if the maximum table size constrain has been set
                     // And if that constrain is a valid number or not
@@ -679,7 +679,7 @@ class Export
             // now export the triggers (needs to be done after the data because
             // triggers can modify already imported tables)
             if (
-                ! ($exportPlugin instanceof ExportSql && $exportPlugin->hasCreateTrigger())
+                ! $exportPlugin->hasCreateTrigger()
                 || $structureOrData === StructureOrData::Data
                 || ! in_array($table, $tableStructure, true)
             ) {
@@ -697,7 +697,7 @@ class Export
             $this->saveObjectInBuffer('table_' . $table, true);
         }
 
-        if ($exportPlugin instanceof ExportSql && $exportPlugin->hasCreateView()) {
+        if ($exportPlugin->hasCreateView()) {
             foreach ($views as $view) {
                 // no data export for a view
                 if ($structureOrData === StructureOrData::Data) {
@@ -818,12 +818,12 @@ class Export
         $isView = $tableObject->isView();
         if ($structureOrData !== StructureOrData::Data) {
             if ($isView) {
-                if (! $exportPlugin instanceof ExportSql || $exportPlugin->hasCreateView()) {
+                if ($exportPlugin->hasCreateView()) {
                     if (! $exportPlugin->exportStructure($db, $table, 'create_view', $aliases)) {
                         return;
                     }
                 }
-            } elseif (! $exportPlugin instanceof ExportSql || $exportPlugin->hasCreateTable()) {
+            } elseif ($exportPlugin->hasCreateTable()) {
                 if (! $exportPlugin->exportStructure($db, $table, 'create_table', $aliases)) {
                     return;
                 }
@@ -861,7 +861,7 @@ class Export
         // now export the triggers (needs to be done after the data because
         // triggers can modify already imported tables)
         if (
-            $exportPlugin instanceof ExportSql && $exportPlugin->hasCreateTrigger()
+            $exportPlugin->hasCreateTrigger()
             && $structureOrData !== StructureOrData::Data
         ) {
             if (! $exportPlugin->exportStructure($db, $table, 'triggers', $aliases)) {
