@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;
 
+use PhpMyAdmin\Config\Settings\Export;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\StructureOrData;
 use PhpMyAdmin\Http\ServerRequest;
@@ -290,18 +291,19 @@ class ExportCodegen extends ExportPlugin
         return implode("\n", $lines);
     }
 
-    /** @inheritDoc */
-    public function setExportOptions(ServerRequest $request, array $exportConfig): void
+    public function setExportOptions(ServerRequest $request, Export $exportConfig): void
     {
+        // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $this->structureOrData = $this->setStructureOrData(
             $request->getParsedBodyParam('codegen_structure_or_data'),
-            $exportConfig['codegen_structure_or_data'] ?? null,
+            $exportConfig->codegen_structure_or_data,
             StructureOrData::Data,
         );
         $this->format = $this->setFormat(
             $request->getParsedBodyParam('codegen_format'),
-            $exportConfig['codegen_format'] ?? null,
+            $exportConfig->codegen_format,
         );
+        // phpcs:enable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
     }
 
     /** @return self::HANDLER_NHIBERNATE_* */

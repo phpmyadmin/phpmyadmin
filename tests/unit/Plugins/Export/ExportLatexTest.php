@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\Column;
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Config\Settings\Export as SettingsExport;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Current;
@@ -482,7 +483,7 @@ class ExportLatexTest extends AbstractTestCase
                 'latex_null' => 'null',
             ]);
 
-        $this->object->setExportOptions($request, []);
+        $this->object->setExportOptions($request, new SettingsExport());
 
         ob_start();
         $this->object->exportData('test_db', 'test_table', 'SELECT * FROM `test_db`.`test_table`;');
@@ -517,7 +518,7 @@ class ExportLatexTest extends AbstractTestCase
                 'latex_null' => 'null',
             ]);
 
-        $this->object->setExportOptions($request, []);
+        $this->object->setExportOptions($request, new SettingsExport());
 
         ob_start();
         $this->object->exportData('test_db', 'test_table', 'SELECT * FROM `test_db`.`test_table`;');
@@ -602,7 +603,7 @@ class ExportLatexTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['latex_relation' => 'On', 'latex_mime' => 'On', 'latex_comments' => 'On']);
 
-        $this->object->setExportOptions($request, []);
+        $this->object->setExportOptions($request, new SettingsExport());
 
         ob_start();
         $this->object->exportStructure('database', '', 'test');
@@ -729,7 +730,7 @@ class ExportLatexTest extends AbstractTestCase
                 'latex_structure_label' => 'latexlabel',
             ]);
 
-        $this->object->setExportOptions($request, []);
+        $this->object->setExportOptions($request, new SettingsExport());
 
         $relationParameters = RelationParameters::fromArray([
             RelationParameters::DATABASE => 'database',
@@ -787,8 +788,9 @@ class ExportLatexTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
         DatabaseInterface::$instance = $dbi;
-        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/');
-        $this->object->setExportOptions($request, ['latex_structure_or_data' => 'structure']);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['latex_structure_or_data' => 'structure']);
+        $this->object->setExportOptions($request, new SettingsExport());
         ob_start();
         $export = new Export($dbi, new OutputHandler());
         $export->exportTable(

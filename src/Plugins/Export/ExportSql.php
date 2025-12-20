@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Plugins\Export;
 use DateTimeImmutable;
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Config\Settings\Export as SettingsExport;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Events;
@@ -2588,12 +2589,12 @@ class ExportSql extends ExportPlugin
         $generalOptions->addProperty($leaf);
     }
 
-    /** @inheritDoc */
-    public function setExportOptions(ServerRequest $request, array $exportConfig): void
+    public function setExportOptions(ServerRequest $request, SettingsExport $exportConfig): void
     {
+        // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $this->structureOrData = $this->setStructureOrData(
             $request->getParsedBodyParam('sql_structure_or_data'),
-            $exportConfig['sql_structure_or_data'] ?? null,
+            $exportConfig->sql_structure_or_data,
             StructureOrData::StructureAndData,
         );
         $this->useSqlBackquotes = $request->hasBodyParam('sql_backquotes');
@@ -2603,13 +2604,13 @@ class ExportSql extends ExportPlugin
         $this->doComments = $request->hasBodyParam('sql_include_comments');
         $this->headerComment = $this->setStringValue(
             $request->getParsedBodyParam('sql_header_comment'),
-            $exportConfig['sql_header_comment'] ?? null,
+            $exportConfig->sql_header_comment,
         );
         $this->useTransaction = $request->hasBodyParam('sql_use_transaction');
         $this->disableForeignKey = $request->hasBodyParam('sql_disable_fk');
         $this->compatibility = $this->setCompatibility($this->setStringValue(
             $request->getParsedBodyParam('sql_compatibility'),
-            $exportConfig['sql_compatibility'] ?? null,
+            $exportConfig->sql_compatibility,
         ));
         $this->createDatabase = $request->hasBodyParam('sql_create_database');
         $this->dropTable = $request->hasBodyParam('sql_drop_table');
@@ -2617,7 +2618,7 @@ class ExportSql extends ExportPlugin
         $this->hasCreateTable = $request->hasBodyParam('sql_create_table');
         $this->type = $this->setType($this->setStringValue(
             $request->getParsedBodyParam('sql_type'),
-            $exportConfig['sql_type'] ?? null,
+            $exportConfig->sql_type,
         ));
         $this->hasCreateView = $request->hasBodyParam('sql_create_view');
         $this->hasCreateTrigger = $request->hasBodyParam('sql_create_trigger');
@@ -2631,17 +2632,18 @@ class ExportSql extends ExportPlugin
         $this->ignore = $request->hasBodyParam('sql_ignore');
         $this->insertSyntax = $this->setInsertSyntax($this->setStringValue(
             $request->getParsedBodyParam('sql_insert_syntax'),
-            $exportConfig['sql_insert_syntax'] ?? null,
+            $exportConfig->sql_insert_syntax,
         ));
         $this->maxQuerySize = $this->setMaxQuerySize(
             $request->getParsedBodyParam('sql_max_query_size'),
-            $exportConfig['sql_max_query_size'] ?? null,
+            $exportConfig->sql_max_query_size,
         );
         $this->hexForBinary = $request->hasBodyParam('sql_hex_for_binary');
         $this->utcTime = $request->hasBodyParam('sql_utc_time');
         $this->dropDatabase = $request->hasBodyParam('sql_drop_database');
         $this->viewsAsTables = $request->hasBodyParam('sql_views_as_tables');
         $this->hasMetadata = $request->hasBodyParam('sql_metadata');
+        // phpcs:enable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
     }
 
     private function setStringValue(mixed $fromRequest, mixed $fromConfig): string

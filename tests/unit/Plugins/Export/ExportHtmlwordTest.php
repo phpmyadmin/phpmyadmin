@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\Column;
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Config\Settings\Export as SettingsExport;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Current;
@@ -289,7 +290,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['htmlword_columns' => 'On']);
 
-        $this->object->setExportOptions($request, []);
+        $this->object->setExportOptions($request, new SettingsExport());
 
         ob_start();
         $this->object->exportData('test_db', 'test_table', 'SELECT * FROM `test_db`.`test_table`;');
@@ -428,7 +429,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['htmlword_relation' => 'On', 'htmlword_mime' => 'On', 'htmlword_comments' => 'On']);
 
-        $this->object->setExportOptions($request, []);
+        $this->object->setExportOptions($request, new SettingsExport());
 
         $result = $this->object->getTableDef('database', '');
 
@@ -537,7 +538,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['htmlword_relation' => 'On', 'htmlword_mime' => 'On']);
 
-        $this->object->setExportOptions($request, []);
+        $this->object->setExportOptions($request, new SettingsExport());
 
         $result = $this->object->getTableDef('database', '');
 
@@ -685,8 +686,9 @@ class ExportHtmlwordTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
         DatabaseInterface::$instance = $dbi;
-        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/');
-        $this->object->setExportOptions($request, ['htmlword_structure_or_data' => 'structure']);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['htmlword_structure_or_data' => 'structure']);
+        $this->object->setExportOptions($request, new SettingsExport());
         $export = new Export($dbi, new OutputHandler());
         ob_start();
         $export->exportTable(

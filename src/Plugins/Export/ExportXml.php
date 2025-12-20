@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Plugins\Export;
 
 use DateTimeImmutable;
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Config\Settings\Export;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\Database\Routines;
@@ -454,12 +455,12 @@ class ExportXml extends ExportPlugin
         return Current::$database !== '';
     }
 
-    /** @inheritDoc */
-    public function setExportOptions(ServerRequest $request, array $exportConfig): void
+    public function setExportOptions(ServerRequest $request, Export $exportConfig): void
     {
+        // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $this->structureOrData = $this->setStructureOrData(
             $request->getParsedBodyParam('xml_structure_or_data'),
-            $exportConfig['xml_structure_or_data'] ?? null,
+            $exportConfig->xml_structure_or_data,
             StructureOrData::Data,
         );
         $this->exportContents = $request->hasBodyParam('xml_export_contents');
@@ -469,5 +470,6 @@ class ExportXml extends ExportPlugin
         $this->exportTables = $request->hasBodyParam('xml_export_tables');
         $this->exportTriggers = $request->hasBodyParam('xml_export_triggers');
         $this->exportViews = $request->hasBodyParam('xml_export_views');
+        // phpcs:enable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
     }
 }

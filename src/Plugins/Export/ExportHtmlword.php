@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\Column;
+use PhpMyAdmin\Config\Settings\Export;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
@@ -525,12 +526,12 @@ class ExportHtmlword extends ExportPlugin
         return $definition;
     }
 
-    /** @inheritDoc */
-    public function setExportOptions(ServerRequest $request, array $exportConfig): void
+    public function setExportOptions(ServerRequest $request, Export $exportConfig): void
     {
+        // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $this->structureOrData = $this->setStructureOrData(
             $request->getParsedBodyParam('htmlword_structure_or_data'),
-            $exportConfig['htmlword_structure_or_data'] ?? null,
+            $exportConfig->htmlword_structure_or_data,
             StructureOrData::StructureAndData,
         );
         $this->columns = $request->hasBodyParam('htmlword_columns');
@@ -539,8 +540,9 @@ class ExportHtmlword extends ExportPlugin
         $this->doComments = $request->hasBodyParam('htmlword_comments');
         $this->null = $this->setStringValue(
             $request->getParsedBodyParam('htmlword_null'),
-            $exportConfig['htmlword_null'] ?? null,
+            $exportConfig->htmlword_null,
         );
+        // phpcs:enable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
     }
 
     private function setStringValue(mixed $fromRequest, mixed $fromConfig): string

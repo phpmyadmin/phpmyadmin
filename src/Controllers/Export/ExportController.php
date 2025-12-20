@@ -120,7 +120,7 @@ final readonly class ExportController implements InvocableController
             return $this->response->response();
         }
 
-        $exportPlugin->setExportOptions($request, $this->config->settings['Export']);
+        $exportPlugin->setExportOptions($request, $this->config->config->Export);
 
         /**
          * valid compression methods

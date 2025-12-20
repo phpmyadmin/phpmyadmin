@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\Column;
+use PhpMyAdmin\Config\Settings\Export;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\StructureOrData;
@@ -466,12 +467,12 @@ class ExportTexytext extends ExportPlugin
         return $definition;
     }
 
-    /** @inheritDoc */
-    public function setExportOptions(ServerRequest $request, array $exportConfig): void
+    public function setExportOptions(ServerRequest $request, Export $exportConfig): void
     {
+        // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $this->structureOrData = $this->setStructureOrData(
             $request->getParsedBodyParam('texytext_structure_or_data'),
-            $exportConfig['texytext_structure_or_data'] ?? null,
+            $exportConfig->texytext_structure_or_data,
             StructureOrData::StructureAndData,
         );
         $this->columns = $request->hasBodyParam('texytext_columns');
@@ -480,8 +481,9 @@ class ExportTexytext extends ExportPlugin
         $this->doComments = $request->hasBodyParam('texytext_comments');
         $this->null = $this->setStringValue(
             $request->getParsedBodyParam('texytext_null'),
-            $exportConfig['texytext_null'] ?? null,
+            $exportConfig->texytext_null,
         );
+        // phpcs:enable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
     }
 
     private function setStringValue(mixed $fromRequest, mixed $fromConfig): string

@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins;
 
+use PhpMyAdmin\Config\Settings\Export;
 use PhpMyAdmin\ConfigStorage\Foreigners;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Export\OutputHandler;
@@ -299,8 +300,7 @@ abstract class ExportPlugin implements Plugin
         return true;
     }
 
-    /** @param array<mixed> $exportConfig */
-    abstract public function setExportOptions(ServerRequest $request, array $exportConfig): void;
+    abstract public function setExportOptions(ServerRequest $request, Export $exportConfig): void;
 
     public function includeStructure(): bool
     {

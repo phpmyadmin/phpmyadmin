@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Config\Settings\Export;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
@@ -243,7 +244,7 @@ class ExportXmlTest extends AbstractTestCase
                 'xml_export_triggers' => 'On',
             ]);
 
-        $this->object->setExportOptions($request, []);
+        $this->object->setExportOptions($request, new Export());
 
         $this->object->setTables([]);
         Current::$table = 'table';
@@ -306,7 +307,7 @@ class ExportXmlTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['xml_export_triggers' => 'On']);
 
-        $this->object->setExportOptions($request, []);
+        $this->object->setExportOptions($request, new Export());
 
         $this->object->setTables(['t1', 't2']);
 
@@ -338,7 +339,7 @@ class ExportXmlTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['xml_export_contents' => 'On']);
 
-        $this->object->setExportOptions($request, []);
+        $this->object->setExportOptions($request, new Export());
 
         ob_start();
         $this->object->exportDBHeader('&db');
@@ -351,7 +352,7 @@ class ExportXmlTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody([]);
 
-        $this->object->setExportOptions($request, []);
+        $this->object->setExportOptions($request, new Export());
 
         $this->object->exportDBHeader('&db');
     }
@@ -361,7 +362,7 @@ class ExportXmlTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['xml_export_contents' => 'On']);
 
-        $this->object->setExportOptions($request, []);
+        $this->object->setExportOptions($request, new Export());
 
         ob_start();
         $this->object->exportDBFooter('&db');
@@ -374,7 +375,7 @@ class ExportXmlTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody([]);
 
-        $this->object->setExportOptions($request, []);
+        $this->object->setExportOptions($request, new Export());
 
         $this->object->exportDBFooter('&db');
     }
@@ -392,7 +393,7 @@ class ExportXmlTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['xml_export_contents' => 'On']);
 
-        $this->object->setExportOptions($request, []);
+        $this->object->setExportOptions($request, new Export());
 
         ob_start();
         $this->object->exportData('test_db', 'test_table', 'SELECT * FROM `test_db`.`test_table`;');
