@@ -312,9 +312,16 @@ abstract class ExportPlugin implements Plugin
     /** @param array<mixed> $exportConfig */
     abstract public function setExportOptions(ServerRequest $request, array $exportConfig): void;
 
-    public function getStructureOrData(): StructureOrData
+    public function includeStructure(): bool
     {
-        return $this->structureOrData;
+        return $this->structureOrData === StructureOrData::Structure
+            || $this->structureOrData === StructureOrData::StructureAndData;
+    }
+
+    public function includeData(): bool
+    {
+        return $this->structureOrData === StructureOrData::Data
+            || $this->structureOrData === StructureOrData::StructureAndData;
     }
 
     protected function setStructureOrData(

@@ -285,9 +285,7 @@ class Export
             $this->outputHandler->saveObjectInBuffer('database', true);
         }
 
-        $structureOrData = $exportPlugin->getStructureOrData();
-
-        if ($structureOrData !== StructureOrData::Data) {
+        if ($exportPlugin->includeStructure()) {
             $exportPlugin->exportRoutines($db->getName(), $aliases);
 
             if ($separateFiles === 'database') {
@@ -313,7 +311,7 @@ class Export
                 $views[] = $table;
             }
 
-            if ($structureOrData !== StructureOrData::Data && in_array($table, $tableStructure, true)) {
+            if ($exportPlugin->includeStructure() && in_array($table, $tableStructure, true)) {
                 // for a view, export a stand-in definition of the table
                 // to resolve view dependencies (only when it's a single-file export)
                 if ($isView) {
@@ -335,7 +333,7 @@ class Export
             }
 
             // if this is a view or a merge table, don't export data
-            if ($structureOrData !== StructureOrData::Structure && in_array($table, $tableData, true) && ! $isView) {
+            if ($exportPlugin->includeData() && in_array($table, $tableData, true) && ! $isView) {
                 $tableObj = new Table($table, $db->getName(), $this->dbi);
                 $nonGeneratedCols = $tableObj->getNonGeneratedColumns();
 
@@ -355,7 +353,7 @@ class Export
 
             // now export the triggers (needs to be done after the data because
             // triggers can modify already imported tables)
-            if ($structureOrData === StructureOrData::Data) {
+            if (! $exportPlugin->includeStructure()) {
                 continue;
             }
 
@@ -372,7 +370,7 @@ class Export
 
         foreach ($views as $view) {
             // no data export for a view
-            if ($structureOrData === StructureOrData::Data) {
+            if (! $exportPlugin->includeStructure()) {
                 continue;
             }
 
@@ -404,7 +402,7 @@ class Export
             $this->outputHandler->saveObjectInBuffer('metadata');
         }
 
-        if ($structureOrData === StructureOrData::Data) {
+        if (! $exportPlugin->includeStructure()) {
             return;
         }
 
@@ -476,9 +474,7 @@ class Export
             $addQuery = '';
         }
 
-        $structureOrData = $exportPlugin->getStructureOrData();
-
-        if ($structureOrData !== StructureOrData::Data) {
+        if ($exportPlugin->includeStructure()) {
             $tableObject = new Table($table, $db, $this->dbi);
             if ($tableObject->isView()) {
                 if (! $exportPlugin->exportStructure($db, $table, 'create_view', $aliases)) {
@@ -492,7 +488,7 @@ class Export
         // If this is an export of a single view, we have to export data;
         // for example, a PDF report
         // if it is a merge table, no data is exported
-        if ($structureOrData !== StructureOrData::Structure) {
+        if ($exportPlugin->includeData()) {
             if ($sqlQuery !== '') {
                 // only preg_replace if needed
                 if ($addQuery !== '') {
@@ -519,7 +515,7 @@ class Export
 
         // now export the triggers (needs to be done after the data because
         // triggers can modify already imported tables)
-        if ($structureOrData !== StructureOrData::Data) {
+        if ($exportPlugin->includeStructure()) {
             if (! $exportPlugin->exportStructure($db, $table, 'triggers', $aliases)) {
                 return;
             }

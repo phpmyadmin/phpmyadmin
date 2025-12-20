@@ -848,7 +848,7 @@ class ExportSql extends ExportPlugin
             $dbAlias = $db;
         }
 
-        if ($this->structureOrData !== StructureOrData::Data && $this->dropDatabase) {
+        if ($this->includeStructure() && $this->dropDatabase) {
             if (
                 ! $this->outputHandler->addLine(
                     'DROP DATABASE IF EXISTS '
