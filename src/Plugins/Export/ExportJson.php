@@ -302,9 +302,7 @@ class ExportJson extends ExportPlugin
             $exportConfig['json_structure_or_data'] ?? null,
             StructureOrData::Data,
         );
-        $this->prettyPrint = (bool) ($request->getParsedBodyParam('json_pretty_print')
-            ?? $exportConfig['json_pretty_print'] ?? false);
-        $this->unicode = (bool) ($request->getParsedBodyParam('json_unicode')
-            ?? $exportConfig['json_unicode'] ?? false);
+        $this->prettyPrint = $request->hasBodyParam('json_pretty_print');
+        $this->unicode = $request->hasBodyParam('json_unicode');
     }
 }

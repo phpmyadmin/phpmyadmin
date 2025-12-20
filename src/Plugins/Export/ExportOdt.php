@@ -645,13 +645,10 @@ class ExportOdt extends ExportPlugin
             $exportConfig['odt_structure_or_data'] ?? null,
             StructureOrData::StructureAndData,
         );
-        $this->columns = (bool) ($request->getParsedBodyParam('odt_columns')
-            ?? $exportConfig['odt_columns'] ?? false);
-        $this->doRelation = (bool) ($request->getParsedBodyParam('odt_relation')
-            ?? $exportConfig['odt_relation'] ?? false);
-        $this->doMime = (bool) ($request->getParsedBodyParam('odt_mime') ?? $exportConfig['odt_mime'] ?? false);
-        $this->doComments = (bool) ($request->getParsedBodyParam('odt_comments')
-            ?? $exportConfig['odt_comments'] ?? false);
+        $this->columns = $request->hasBodyParam('odt_columns');
+        $this->doRelation = $request->hasBodyParam('odt_relation');
+        $this->doMime = $request->hasBodyParam('odt_mime');
+        $this->doComments = $request->hasBodyParam('odt_comments');
         $this->null = $this->setStringValue(
             $request->getParsedBodyParam('odt_null'),
             $exportConfig['odt_null'] ?? null,

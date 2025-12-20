@@ -235,10 +235,8 @@ class ExportExcel extends ExportPlugin
             $request->getParsedBodyParam('excel_edition'),
             $exportConfig['excel_edition'] ?? null,
         ));
-        $this->columns = (bool) ($request->getParsedBodyParam('excel_columns')
-            ?? $exportConfig['excel_columns'] ?? false);
-        $this->removeCrLf = (bool) ($request->getParsedBodyParam('excel_removeCRLF')
-            ?? $exportConfig['excel_removeCRLF'] ?? false);
+        $this->columns = $request->hasBodyParam('excel_columns');
+        $this->removeCrLf = $request->hasBodyParam('excel_removeCRLF');
         $this->null = $this->setStringValue(
             $request->getParsedBodyParam('excel_null'),
             $exportConfig['excel_null'] ?? null,

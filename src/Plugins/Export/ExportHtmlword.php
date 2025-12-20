@@ -533,14 +533,10 @@ class ExportHtmlword extends ExportPlugin
             $exportConfig['htmlword_structure_or_data'] ?? null,
             StructureOrData::StructureAndData,
         );
-        $this->columns = (bool) ($request->getParsedBodyParam('htmlword_columns')
-            ?? $exportConfig['htmlword_columns'] ?? false);
-        $this->doRelation = (bool) ($request->getParsedBodyParam('htmlword_relation')
-            ?? $exportConfig['htmlword_relation'] ?? false);
-        $this->doMime = (bool) ($request->getParsedBodyParam('htmlword_mime')
-            ?? $exportConfig['htmlword_mime'] ?? false);
-        $this->doComments = (bool) ($request->getParsedBodyParam('htmlword_comments')
-            ?? $exportConfig['htmlword_comments'] ?? false);
+        $this->columns = $request->hasBodyParam('htmlword_columns');
+        $this->doRelation = $request->hasBodyParam('htmlword_relation');
+        $this->doMime = $request->hasBodyParam('htmlword_mime');
+        $this->doComments = $request->hasBodyParam('htmlword_comments');
         $this->null = $this->setStringValue(
             $request->getParsedBodyParam('htmlword_null'),
             $exportConfig['htmlword_null'] ?? null,

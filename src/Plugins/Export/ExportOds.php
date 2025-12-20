@@ -279,8 +279,7 @@ class ExportOds extends ExportPlugin
             $exportConfig['ods_structure_or_data'] ?? null,
             StructureOrData::Data,
         );
-        $this->columns = (bool) ($request->getParsedBodyParam('ods_columns')
-            ?? $exportConfig['ods_columns'] ?? true);
+        $this->columns = $request->hasBodyParam('ods_columns');
         $this->null = $this->setStringValue(
             $request->getParsedBodyParam('ods_null'),
             $exportConfig['ods_null'] ?? null,

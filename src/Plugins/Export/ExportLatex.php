@@ -577,15 +577,11 @@ class ExportLatex extends ExportPlugin
             $exportConfig['latex_structure_or_data'] ?? null,
             StructureOrData::StructureAndData,
         );
-        $this->caption = (bool) ($request->getParsedBodyParam('latex_caption')
-            ?? $exportConfig['latex_caption'] ?? false);
-        $this->columns = (bool) ($request->getParsedBodyParam('latex_columns')
-            ?? $exportConfig['latex_columns'] ?? false);
-        $this->doRelation = (bool) ($request->getParsedBodyParam('latex_relation')
-            ?? $exportConfig['latex_relation'] ?? false);
-        $this->doMime = (bool) ($request->getParsedBodyParam('latex_mime') ?? $exportConfig['latex_mime'] ?? false);
-        $this->doComments = (bool) ($request->getParsedBodyParam('latex_comments')
-            ?? $exportConfig['latex_comments'] ?? false);
+        $this->caption = $request->hasBodyParam('latex_caption');
+        $this->columns = $request->hasBodyParam('latex_columns');
+        $this->doRelation = $request->hasBodyParam('latex_relation');
+        $this->doMime = $request->hasBodyParam('latex_mime');
+        $this->doComments = $request->hasBodyParam('latex_comments');
         $this->dataCaption = $this->setStringValue(
             $request->getParsedBodyParam('latex_data_caption'),
             $exportConfig['latex_data_caption'] ?? null,

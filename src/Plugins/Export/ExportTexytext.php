@@ -474,14 +474,10 @@ class ExportTexytext extends ExportPlugin
             $exportConfig['texytext_structure_or_data'] ?? null,
             StructureOrData::StructureAndData,
         );
-        $this->columns = (bool) ($request->getParsedBodyParam('texytext_columns')
-            ?? $exportConfig['texytext_columns'] ?? false);
-        $this->doRelation = (bool) ($request->getParsedBodyParam('texytext_relation')
-            ?? $exportConfig['texytext_relation'] ?? false);
-        $this->doMime = (bool) ($request->getParsedBodyParam('texytext_mime')
-            ?? $exportConfig['texytext_mime'] ?? false);
-        $this->doComments = (bool) ($request->getParsedBodyParam('texytext_comments')
-            ?? $exportConfig['texytext_comments'] ?? false);
+        $this->columns = $request->hasBodyParam('texytext_columns');
+        $this->doRelation = $request->hasBodyParam('texytext_relation');
+        $this->doMime = $request->hasBodyParam('texytext_mime');
+        $this->doComments = $request->hasBodyParam('texytext_comments');
         $this->null = $this->setStringValue(
             $request->getParsedBodyParam('texytext_null'),
             $exportConfig['texytext_null'] ?? null,

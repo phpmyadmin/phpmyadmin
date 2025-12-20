@@ -212,9 +212,8 @@ class ExportPdf extends ExportPlugin
             $exportConfig['pdf_structure_or_data'] ?? null,
             StructureOrData::Data,
         );
-        $this->doRelation = (bool) ($request->getParsedBodyParam('pdf_relation')
-            ?? $exportConfig['pdf_relation'] ?? false);
-        $this->doMime = (bool) ($request->getParsedBodyParam('pdf_mime') ?? $exportConfig['pdf_mime'] ?? false);
+        $this->doRelation = $request->hasBodyParam('pdf_relation');
+        $this->doMime = $request->hasBodyParam('pdf_mime');
 
         $this->setupExportConfiguration();
     }

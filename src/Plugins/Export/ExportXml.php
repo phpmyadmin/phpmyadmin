@@ -462,19 +462,12 @@ class ExportXml extends ExportPlugin
             $exportConfig['xml_structure_or_data'] ?? null,
             StructureOrData::Data,
         );
-        $this->exportContents = (bool) ($request->getParsedBodyParam('xml_export_contents')
-            ?? $exportConfig['xml_export_contents'] ?? false);
-        $this->exportEvents = (bool) ($request->getParsedBodyParam('xml_export_events')
-            ?? $exportConfig['xml_export_events'] ?? false);
-        $this->exportFunctions = (bool) ($request->getParsedBodyParam('xml_export_functions')
-            ?? $exportConfig['xml_export_functions'] ?? false);
-        $this->exportProcedures = (bool) ($request->getParsedBodyParam('xml_export_procedures')
-            ?? $exportConfig['xml_export_procedures'] ?? false);
-        $this->exportTables = (bool) ($request->getParsedBodyParam('xml_export_tables')
-            ?? $exportConfig['xml_export_tables'] ?? false);
-        $this->exportTriggers = (bool) ($request->getParsedBodyParam('xml_export_triggers')
-            ?? $exportConfig['xml_export_triggers'] ?? false);
-        $this->exportViews = (bool) ($request->getParsedBodyParam('xml_export_views')
-            ?? $exportConfig['xml_export_views'] ?? false);
+        $this->exportContents = $request->hasBodyParam('xml_export_contents');
+        $this->exportEvents = $request->hasBodyParam('xml_export_events');
+        $this->exportFunctions = $request->hasBodyParam('xml_export_functions');
+        $this->exportProcedures = $request->hasBodyParam('xml_export_procedures');
+        $this->exportTables = $request->hasBodyParam('xml_export_tables');
+        $this->exportTriggers = $request->hasBodyParam('xml_export_triggers');
+        $this->exportViews = $request->hasBodyParam('xml_export_views');
     }
 }
