@@ -1304,7 +1304,6 @@
       <code><![CDATA[$tableData]]></code>
     </MixedPropertyTypeCoercion>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[$asSeparateFiles]]></code>
       <code><![CDATA[$onServerParam]]></code>
       <code><![CDATA[$quickExportOnServer]]></code>
       <code><![CDATA[empty($this->config->settings['MemoryLimit'])]]></code>

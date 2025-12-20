@@ -10,6 +10,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Export\OutputHandler;
+use PhpMyAdmin\Export\SeparateFiles;
 use PhpMyAdmin\FlashMessenger;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
@@ -140,7 +141,7 @@ class ExportTest extends AbstractTestCase
             ['test_table'],
             new ExportSql($relation, $export->outputHandler, new Transformations($dbi, $relation)),
             [],
-            '',
+            SeparateFiles::None,
         );
 
         $expected = <<<'SQL'
@@ -210,7 +211,7 @@ class ExportTest extends AbstractTestCase
             ['test_db'],
             new ExportSql($relation, $export->outputHandler, new Transformations($dbi, $relation)),
             [],
-            '',
+            SeparateFiles::None,
         );
 
         $expected = <<<'SQL'

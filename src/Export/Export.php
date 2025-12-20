@@ -213,13 +213,13 @@ class Export
      * @param string|mixed[] $dbSelect      the selected databases to export
      * @param ExportPlugin   $exportPlugin  the selected export plugin
      * @param mixed[]        $aliases       alias information for db/table/column
-     * @param string         $separateFiles whether it is a separate-files export
+     * @param SeparateFiles  $separateFiles whether it is a separate-files export
      */
     public function exportServer(
         string|array $dbSelect,
         ExportPlugin $exportPlugin,
         array $aliases,
-        string $separateFiles,
+        SeparateFiles $separateFiles,
     ): void {
         if (is_array($dbSelect) && $dbSelect !== []) {
             $tmpSelect = implode('|', $dbSelect);
@@ -240,9 +240,9 @@ class Export
                 $tables,
                 $exportPlugin,
                 $aliases,
-                $separateFiles === 'database' ? $separateFiles : '',
+                $separateFiles === SeparateFiles::Database ? SeparateFiles::Database : SeparateFiles::None,
             );
-            if ($separateFiles !== 'server') {
+            if ($separateFiles !== SeparateFiles::Server) {
                 continue;
             }
 
@@ -253,13 +253,13 @@ class Export
     /**
      * Export at the database level
      *
-     * @param DatabaseName $db             the database to export
-     * @param string[]     $tables         the tables to export
-     * @param string[]     $tableStructure whether to export structure for each table
-     * @param string[]     $tableData      whether to export data for each table
-     * @param ExportPlugin $exportPlugin   the selected export plugin
-     * @param mixed[]      $aliases        Alias information for db/table/column
-     * @param string       $separateFiles  whether it is a separate-files export
+     * @param DatabaseName  $db             the database to export
+     * @param string[]      $tables         the tables to export
+     * @param string[]      $tableStructure whether to export structure for each table
+     * @param string[]      $tableData      whether to export data for each table
+     * @param ExportPlugin  $exportPlugin   the selected export plugin
+     * @param mixed[]       $aliases        Alias information for db/table/column
+     * @param SeparateFiles $separateFiles  whether it is a separate-files export
      */
     public function exportDatabase(
         DatabaseName $db,
@@ -268,7 +268,7 @@ class Export
         array $tableData,
         ExportPlugin $exportPlugin,
         array $aliases,
-        string $separateFiles,
+        SeparateFiles $separateFiles,
     ): void {
         $dbAlias = ! empty($aliases[$db->getName()]['alias'])
             ? $aliases[$db->getName()]['alias'] : '';
@@ -281,14 +281,14 @@ class Export
             return;
         }
 
-        if ($separateFiles === 'database') {
+        if ($separateFiles === SeparateFiles::Database) {
             $this->outputHandler->saveObjectInBuffer('database', true);
         }
 
         if ($exportPlugin->includeStructure()) {
             $exportPlugin->exportRoutines($db->getName(), $aliases);
 
-            if ($separateFiles === 'database') {
+            if ($separateFiles === SeparateFiles::Database) {
                 $this->outputHandler->saveObjectInBuffer('routines');
             }
         }
@@ -316,7 +316,7 @@ class Export
                 // to resolve view dependencies (only when it's a single-file export)
                 if ($isView) {
                     if (
-                        $separateFiles === ''
+                        $separateFiles === SeparateFiles::None
                         && ! $exportPlugin->exportStructure($db->getName(), $table, 'stand_in', $aliases)
                     ) {
                         break;
@@ -347,7 +347,7 @@ class Export
             }
 
             // this buffer was filled, we save it and go to the next one
-            if ($separateFiles === 'database') {
+            if ($separateFiles === SeparateFiles::Database) {
                 $this->outputHandler->saveObjectInBuffer('table_' . $table);
             }
 
@@ -361,7 +361,7 @@ class Export
                 break;
             }
 
-            if ($separateFiles !== 'database') {
+            if ($separateFiles !== SeparateFiles::Database) {
                 continue;
             }
 
@@ -378,7 +378,7 @@ class Export
                 break;
             }
 
-            if ($separateFiles !== 'database') {
+            if ($separateFiles !== SeparateFiles::Database) {
                 continue;
             }
 
@@ -389,7 +389,7 @@ class Export
             return;
         }
 
-        if ($separateFiles === 'database') {
+        if ($separateFiles === SeparateFiles::Database) {
             $this->outputHandler->saveObjectInBuffer('extra');
         }
 
@@ -398,7 +398,7 @@ class Export
         $metadataTypes = $this->getMetadataTypes();
         $exportPlugin->exportMetadata($db->getName(), $tables, $metadataTypes);
 
-        if ($separateFiles === 'database') {
+        if ($separateFiles === SeparateFiles::Database) {
             $this->outputHandler->saveObjectInBuffer('metadata');
         }
 
@@ -408,7 +408,7 @@ class Export
 
         $exportPlugin->exportEvents($db->getName());
 
-        if ($separateFiles !== 'database') {
+        if ($separateFiles !== SeparateFiles::Database) {
             return;
         }
 
