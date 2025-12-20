@@ -1063,21 +1063,19 @@ class ExportSql extends ExportPlugin
             return false;
         }
 
-        $r = 1;
         if (is_array($tables)) {
+            $isSuccessful = true;
             // export metadata for each table
             foreach ($tables as $table) {
-                $r &= (int) $this->exportConfigurationMetadata($db, $table, $metadataTypes);
+                $isSuccessful = $this->exportConfigurationMetadata($db, $table, $metadataTypes) && $isSuccessful;
             }
 
             // export metadata for the database
-            $r &= (int) $this->exportConfigurationMetadata($db, null, $metadataTypes);
-        } else {
-            // export metadata for single table
-            $r &= (int) $this->exportConfigurationMetadata($db, $tables, $metadataTypes);
+            return $this->exportConfigurationMetadata($db, null, $metadataTypes) && $isSuccessful;
         }
 
-        return (bool) $r;
+        // export metadata for single table
+        return $this->exportConfigurationMetadata($db, $tables, $metadataTypes);
     }
 
     /**
