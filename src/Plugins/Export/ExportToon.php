@@ -103,7 +103,7 @@ class ExportToon extends ExportPlugin
             $columns[$i] = $colAs;
         }
 
-        $buffer = "$dbAlias.$tableAlias" . '[' . $rowsCnt . ']{';
+        $buffer = "$dbAlias.$tableAlias" . '[' . $rowsCnt . ($this->separator !== ',' ? $this->separator : '') . ']{';
         foreach ($columns as $index => $column) {
             $buffer .= $column;
 

@@ -210,7 +210,7 @@ class ExportToonTest extends AbstractTestCase
         $result = ob_get_clean();
 
         self::assertSame(
-            'test_db.test_table[3]{id|name|datetimefield}:' . "\n".
+            'test_db.test_table[3|]{id|name|datetimefield}:' . "\n".
             '    1|abcd|2011-01-20 02:00:02' . "\n" .
             '    2|foo|2010-01-20 02:00:02' . "\n" .
             '    3|Abcd|2012-01-20 02:00:02' . "\n\n",
