@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-12-14 00:31+0000\n"
+"POT-Creation-Date: 2025-12-21 00:31+0000\n"
 "PO-Revision-Date: 2025-07-08 09:02+0000\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -199,7 +199,7 @@ msgstr "μετά το %s"
 #: resources/templates/table/zoom_search/index.twig:120
 #: src/Config/ConfigFile.php:554
 #: src/Controllers/JavaScriptMessagesController.php:218
-#: src/Display/Results.php:930 src/Plugins/Export/ExportSql.php:2018
+#: src/Display/Results.php:930 src/Plugins/Export/ExportSql.php:2011
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "Καμία"
@@ -476,12 +476,12 @@ msgstr "Είναι ένα foreign key."
 #: resources/templates/table/zoom_search/index.twig:36
 #: resources/templates/table/zoom_search/result_form.twig:33
 #: src/Navigation/Nodes/NodeColumn.php:32
-#: src/Plugins/Export/ExportHtmlword.php:256
-#: src/Plugins/Export/ExportHtmlword.php:329
-#: src/Plugins/Export/ExportLatex.php:495 src/Plugins/Export/ExportOdt.php:357
-#: src/Plugins/Export/ExportOdt.php:429
-#: src/Plugins/Export/ExportTexytext.php:284
-#: src/Plugins/Export/ExportTexytext.php:345
+#: src/Plugins/Export/ExportHtmlword.php:235
+#: src/Plugins/Export/ExportHtmlword.php:308
+#: src/Plugins/Export/ExportLatex.php:466 src/Plugins/Export/ExportOdt.php:331
+#: src/Plugins/Export/ExportOdt.php:403
+#: src/Plugins/Export/ExportTexytext.php:247
+#: src/Plugins/Export/ExportTexytext.php:308
 #: src/Plugins/Export/Helpers/Pdf.php:487
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:602
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:624
@@ -600,9 +600,9 @@ msgstr "Δομή"
 #: resources/templates/setup/home/index.twig:50
 #: resources/templates/table/structure/display_structure.twig:21
 #: resources/templates/triggers/list.twig:47
-#: src/Plugins/Export/ExportHtmlword.php:429
-#: src/Plugins/Export/ExportOdt.php:537
-#: src/Plugins/Export/ExportTexytext.php:414
+#: src/Plugins/Export/ExportHtmlword.php:408
+#: src/Plugins/Export/ExportOdt.php:511
+#: src/Plugins/Export/ExportTexytext.php:377
 #: src/Plugins/Export/Helpers/Pdf.php:331
 msgid "Name"
 msgstr "Όνομα"
@@ -627,13 +627,13 @@ msgstr "Όνομα"
 #: resources/templates/table/structure/display_structure.twig:473
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:7
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:6
-#: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:258
-#: src/Plugins/Export/ExportHtmlword.php:259
-#: src/Plugins/Export/ExportHtmlword.php:332
-#: src/Plugins/Export/ExportLatex.php:496 src/Plugins/Export/ExportOdt.php:360
-#: src/Plugins/Export/ExportOdt.php:432
-#: src/Plugins/Export/ExportTexytext.php:285
-#: src/Plugins/Export/ExportTexytext.php:346
+#: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:259
+#: src/Plugins/Export/ExportHtmlword.php:238
+#: src/Plugins/Export/ExportHtmlword.php:311
+#: src/Plugins/Export/ExportLatex.php:467 src/Plugins/Export/ExportOdt.php:334
+#: src/Plugins/Export/ExportOdt.php:406
+#: src/Plugins/Export/ExportTexytext.php:248
+#: src/Plugins/Export/ExportTexytext.php:309
 #: src/Plugins/Export/Helpers/Pdf.php:489
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:603
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:625
@@ -667,12 +667,12 @@ msgstr ""
 #: resources/templates/server/replication/replica_configuration.twig:9
 #: resources/templates/table/structure/display_structure.twig:26
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:10
-#: src/Plugins/Export/ExportHtmlword.php:265
-#: src/Plugins/Export/ExportHtmlword.php:338
-#: src/Plugins/Export/ExportLatex.php:498 src/Plugins/Export/ExportOdt.php:366
-#: src/Plugins/Export/ExportOdt.php:438
-#: src/Plugins/Export/ExportTexytext.php:287
-#: src/Plugins/Export/ExportTexytext.php:348
+#: src/Plugins/Export/ExportHtmlword.php:244
+#: src/Plugins/Export/ExportHtmlword.php:317
+#: src/Plugins/Export/ExportLatex.php:469 src/Plugins/Export/ExportOdt.php:340
+#: src/Plugins/Export/ExportOdt.php:412
+#: src/Plugins/Export/ExportTexytext.php:250
+#: src/Plugins/Export/ExportTexytext.php:311
 #: src/Plugins/Export/Helpers/Pdf.php:493
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:606
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:628
@@ -731,12 +731,12 @@ msgstr "Χαρακτηριστικά"
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:9
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:12
 #: resources/templates/table/zoom_search/result_form.twig:34
-#: src/Plugins/Export/ExportHtmlword.php:262
-#: src/Plugins/Export/ExportHtmlword.php:335
-#: src/Plugins/Export/ExportLatex.php:497 src/Plugins/Export/ExportOdt.php:363
-#: src/Plugins/Export/ExportOdt.php:435
-#: src/Plugins/Export/ExportTexytext.php:286
-#: src/Plugins/Export/ExportTexytext.php:347
+#: src/Plugins/Export/ExportHtmlword.php:241
+#: src/Plugins/Export/ExportHtmlword.php:314
+#: src/Plugins/Export/ExportLatex.php:468 src/Plugins/Export/ExportOdt.php:337
+#: src/Plugins/Export/ExportOdt.php:409
+#: src/Plugins/Export/ExportTexytext.php:249
+#: src/Plugins/Export/ExportTexytext.php:310
 #: src/Plugins/Export/Helpers/Pdf.php:491
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:605
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:627
@@ -758,9 +758,9 @@ msgstr "Προσαρμογή δικαιωμάτων"
 #: resources/templates/database/data_dictionary/index.twig:30
 #: resources/templates/table/structure/display_structure.twig:28
 #: src/Config/Descriptions.php:660 src/Config/Descriptions.php:675
-#: src/Config/Descriptions.php:711 src/Plugins/Export/ExportHtmlword.php:348
-#: src/Plugins/Export/ExportLatex.php:504 src/Plugins/Export/ExportOdt.php:448
-#: src/Plugins/Export/ExportTexytext.php:354
+#: src/Config/Descriptions.php:711 src/Plugins/Export/ExportHtmlword.php:327
+#: src/Plugins/Export/ExportLatex.php:475 src/Plugins/Export/ExportOdt.php:422
+#: src/Plugins/Export/ExportTexytext.php:317
 #: src/Plugins/Export/Helpers/Pdf.php:510
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:618
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:631
@@ -778,9 +778,9 @@ msgstr "Απομάκρυνση στήλης"
 #: resources/templates/columns_definitions/table_fields_definitions.twig:83
 #: resources/templates/database/data_dictionary/index.twig:32
 #: src/Config/Descriptions.php:664 src/Config/Descriptions.php:676
-#: src/Config/Descriptions.php:714 src/Plugins/Export/ExportHtmlword.php:355
-#: src/Plugins/Export/ExportOdt.php:455
-#: src/Plugins/Export/ExportTexytext.php:359
+#: src/Config/Descriptions.php:714 src/Plugins/Export/ExportHtmlword.php:334
+#: src/Plugins/Export/ExportOdt.php:429
+#: src/Plugins/Export/ExportTexytext.php:322
 #: src/Plugins/Export/Helpers/Pdf.php:518
 msgid "Media type"
 msgstr "Τύπος Πολυμέσων"
@@ -908,9 +908,9 @@ msgstr "Απενεργοποιημένη"
 #: src/Controllers/Table/DropColumnController.php:46
 #: src/Controllers/Table/Structure/PrimaryController.php:101
 #: src/Indexes/IndexColumn.php:148 src/Indexes/Index.php:472
-#: src/Plugins/Export/ExportHtmlword.php:550
-#: src/Plugins/Export/ExportLatex.php:561 src/Plugins/Export/ExportOdt.php:664
-#: src/Plugins/Export/ExportTexytext.php:510
+#: src/Plugins/Export/ExportHtmlword.php:529
+#: src/Plugins/Export/ExportLatex.php:532 src/Plugins/Export/ExportOdt.php:638
+#: src/Plugins/Export/ExportTexytext.php:473
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:670
 msgid "Yes"
 msgstr "Ναι"
@@ -944,9 +944,9 @@ msgstr "Ναι"
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:24
 #: src/Controllers/JavaScriptMessagesController.php:343
 #: src/Indexes/IndexColumn.php:145 src/Indexes/Index.php:446
-#: src/Indexes/Index.php:472 src/Plugins/Export/ExportHtmlword.php:550
-#: src/Plugins/Export/ExportLatex.php:561 src/Plugins/Export/ExportOdt.php:664
-#: src/Plugins/Export/ExportTexytext.php:510
+#: src/Indexes/Index.php:472 src/Plugins/Export/ExportHtmlword.php:529
+#: src/Plugins/Export/ExportLatex.php:532 src/Plugins/Export/ExportOdt.php:638
+#: src/Plugins/Export/ExportTexytext.php:473
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:670
 msgid "No"
 msgstr "Όχι"
@@ -1050,8 +1050,8 @@ msgstr "Διαγραφή"
 #: resources/templates/table/relation/common_form.twig:95
 #: resources/templates/table/relation/foreign_key_row.twig:91
 #: src/Config/Descriptions.php:934 src/Plugins/Export/ExportHtmlword.php:146
-#: src/Plugins/Export/ExportOdt.php:191
-#: src/Plugins/Export/ExportTexytext.php:131 src/Server/Privileges.php:1567
+#: src/Plugins/Export/ExportOdt.php:186
+#: src/Plugins/Export/ExportTexytext.php:115 src/Server/Privileges.php:1567
 #: src/Server/Privileges.php:1569 src/Server/Status/Processes.php:103
 msgid "Database"
 msgstr "Βάση δεδομένων"
@@ -1080,15 +1080,15 @@ msgstr "Ιστορικό"
 #: resources/templates/database/routines/editor_form.twig:58
 #: resources/templates/table/structure/display_table_stats.twig:94
 #: src/Import/Import.php:1169 src/Import/Import.php:1227
-#: src/Plugins/Export/ExportCodegen.php:58 src/Plugins/Export/ExportCsv.php:54
+#: src/Plugins/Export/ExportCodegen.php:58 src/Plugins/Export/ExportCsv.php:55
 #: src/Plugins/Export/ExportExcel.php:57
 #: src/Plugins/Export/ExportHtmlword.php:57
 #: src/Plugins/Export/ExportJson.php:71 src/Plugins/Export/ExportLatex.php:87
 #: src/Plugins/Export/ExportMediawiki.php:48
-#: src/Plugins/Export/ExportOds.php:58 src/Plugins/Export/ExportOdt.php:69
-#: src/Plugins/Export/ExportPdf.php:67 src/Plugins/Export/ExportPhparray.php:45
-#: src/Plugins/Export/ExportSql.php:168
-#: src/Plugins/Export/ExportTexytext.php:55 src/Plugins/Export/ExportXml.php:73
+#: src/Plugins/Export/ExportOds.php:53 src/Plugins/Export/ExportOdt.php:64
+#: src/Plugins/Export/ExportPdf.php:55 src/Plugins/Export/ExportPhparray.php:45
+#: src/Plugins/Export/ExportSql.php:169
+#: src/Plugins/Export/ExportTexytext.php:55 src/Plugins/Export/ExportXml.php:72
 #: src/Plugins/Export/ExportYaml.php:44 src/Plugins/Import/ImportCsv.php:87
 #: src/Plugins/Import/ImportLdi.php:62
 #: src/Plugins/Import/ImportMediawiki.php:62
@@ -1203,7 +1203,7 @@ msgstr "Χρόνος που παρήλθε:"
 #: resources/templates/console/display.twig:133
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
-#: src/Config/Descriptions.php:928 src/Export/Export.php:1077
+#: src/Config/Descriptions.php:928 src/Export/Export.php:774
 #: src/Html/Generator.php:576
 msgid "Refresh"
 msgstr "Ανανέωση"
@@ -1426,9 +1426,9 @@ msgid "Print"
 msgstr "Εκτύπωση"
 
 #: resources/templates/database/data_dictionary/index.twig:28
-#: src/Plugins/Export/ExportHtmlword.php:342
-#: src/Plugins/Export/ExportLatex.php:500 src/Plugins/Export/ExportOdt.php:442
-#: src/Plugins/Export/ExportTexytext.php:350
+#: src/Plugins/Export/ExportHtmlword.php:321
+#: src/Plugins/Export/ExportLatex.php:471 src/Plugins/Export/ExportOdt.php:416
+#: src/Plugins/Export/ExportTexytext.php:313
 #: src/Plugins/Export/Helpers/Pdf.php:502
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:608
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:630
@@ -1804,9 +1804,9 @@ msgstr "Λήξη"
 #: resources/templates/database/events/editor_form.twig:87
 #: resources/templates/database/routines/editor_form.twig:118
 #: resources/templates/triggers/editor_form.twig:62
-#: src/Plugins/Export/ExportHtmlword.php:432
-#: src/Plugins/Export/ExportOdt.php:546
-#: src/Plugins/Export/ExportTexytext.php:417
+#: src/Plugins/Export/ExportHtmlword.php:411
+#: src/Plugins/Export/ExportOdt.php:520
+#: src/Plugins/Export/ExportTexytext.php:380
 #: src/Plugins/Export/Helpers/Pdf.php:337
 msgid "Definition"
 msgstr "Προσδιορισμός"
@@ -1835,7 +1835,7 @@ msgstr "Οριστής"
 #: resources/templates/database/events/index.twig:3 src/Menu.php:377
 #: src/Navigation/Nodes/NodeEventContainer.php:22
 #: src/Navigation/Nodes/NodeEventContainer.php:24
-#: src/Plugins/Export/ExportSql.php:995 src/Plugins/Export/ExportXml.php:97
+#: src/Plugins/Export/ExportSql.php:988 src/Plugins/Export/ExportXml.php:96
 #: src/Util.php:1377
 msgid "Events"
 msgstr "Συμβάντα"
@@ -2019,7 +2019,7 @@ msgstr "Πίνακες:"
 #: src/Controllers/Server/DatabasesController.php:258
 #: src/Navigation/Nodes/NodeTableContainer.php:22
 #: src/Navigation/Nodes/NodeTableContainer.php:24
-#: src/Plugins/Export/ExportXml.php:112 src/Server/Status/Data.php:126
+#: src/Plugins/Export/ExportXml.php:111 src/Server/Status/Data.php:126
 msgid "Tables"
 msgstr "Πίνακες"
 
@@ -2448,7 +2448,7 @@ msgstr "Παράμετροι ρουτίνας"
 
 #: resources/templates/database/routines/execute_form.twig:19
 #: resources/templates/table/search/index.twig:36
-#: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:257
+#: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:258
 #: src/Navigation/Nodes/NodeFunction.php:26
 msgid "Function"
 msgstr "Συνάρτηση"
@@ -2745,8 +2745,8 @@ msgstr ""
 "σίγουρα να συνεχίσετε;"
 
 #: resources/templates/database/structure/copy_form.twig:5
-#: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:260
-#: src/Plugins/Export/ExportSql.php:926 src/Plugins/Export/ExportXml.php:367
+#: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:252
+#: src/Plugins/Export/ExportSql.php:919 src/Plugins/Export/ExportXml.php:366
 #: src/Plugins/Export/Helpers/Pdf.php:177
 msgid "Database:"
 msgstr "Βάση δεδομένων:"
@@ -2794,7 +2794,7 @@ msgstr "Λεξικό δεδομένων"
 #: resources/templates/navigation/tree/path.twig:9
 #: src/Controllers/Database/ExportController.php:73
 #: src/Controllers/Database/TrackingController.php:124
-#: src/Controllers/Export/ExportController.php:290
+#: src/Controllers/Export/ExportController.php:280
 msgid "No tables found in database."
 msgstr "Δεν βρέθηκαν πίνακες στη βάση δεδομένων."
 
@@ -2818,7 +2818,7 @@ msgstr "Εμφάνιση ερωτημάτων δημιουργίας"
 #: resources/templates/table/relation/foreign_key_row.twig:102
 #: resources/templates/triggers/editor_form.twig:32
 #: resources/templates/triggers/list.twig:49 src/Config/Descriptions.php:937
-#: src/Plugins/Export/ExportXml.php:430 src/Server/Privileges.php:1573
+#: src/Plugins/Export/ExportXml.php:418 src/Server/Privileges.php:1573
 #: src/Server/Privileges.php:1575
 msgid "Table"
 msgstr "Πίνακας"
@@ -2826,7 +2826,7 @@ msgstr "Πίνακας"
 #: resources/templates/database/structure/show_create.twig:30
 #: src/Navigation/Nodes/NodeViewContainer.php:22
 #: src/Navigation/Nodes/NodeViewContainer.php:24
-#: src/Plugins/Export/ExportXml.php:122
+#: src/Plugins/Export/ExportXml.php:121
 msgid "Views"
 msgstr "Προβολές"
 
@@ -3136,7 +3136,7 @@ msgstr "Λειτουργίες αποτελεσμάτων ερωτήματος"
 
 #: resources/templates/display/results/table.twig:353
 #: src/Controllers/JavaScriptMessagesController.php:466
-#: src/Export/Export.php:1096
+#: src/Export/Export.php:793
 msgid "Copy to clipboard"
 msgstr "Αντιγραφή στο πρόχειρο"
 
@@ -3584,8 +3584,8 @@ msgid "Server connection:"
 msgstr "Σύνδεση διακομιστή:"
 
 #: resources/templates/home/index.twig:198
-#: src/Plugins/Export/ExportLatex.php:233 src/Plugins/Export/ExportSql.php:764
-#: src/Plugins/Export/ExportXml.php:216
+#: src/Plugins/Export/ExportLatex.php:233 src/Plugins/Export/ExportSql.php:765
+#: src/Plugins/Export/ExportXml.php:215
 msgid "Server version:"
 msgstr "Έκδοση διακομιστή:"
 
@@ -3675,7 +3675,7 @@ msgstr "Πάρτε το"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:411
-#: src/Export/Export.php:1119 src/Html/Generator.php:855
+#: src/Export/Export.php:816 src/Html/Generator.php:855
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "Επιστροφή"
@@ -5563,8 +5563,8 @@ msgstr ""
 
 #: resources/templates/server/replication/change_primary.twig:25
 #: resources/templates/server/replication/primary_add_replica_user.twig:29
-#: src/Plugins/Export/ExportLatex.php:225 src/Plugins/Export/ExportSql.php:753
-#: src/Plugins/Export/ExportXml.php:207
+#: src/Plugins/Export/ExportLatex.php:225 src/Plugins/Export/ExportSql.php:754
+#: src/Plugins/Export/ExportXml.php:206
 msgid "Host:"
 msgstr "Εξυπηρετητής:"
 
@@ -6677,9 +6677,9 @@ msgstr "Κατάσταση"
 #: resources/templates/sql/profiling_chart.twig:13
 #: resources/templates/triggers/list.twig:51
 #: src/Controllers/JavaScriptMessagesController.php:276
-#: src/Plugins/Export/ExportHtmlword.php:430
-#: src/Plugins/Export/ExportOdt.php:540
-#: src/Plugins/Export/ExportTexytext.php:415
+#: src/Plugins/Export/ExportHtmlword.php:409
+#: src/Plugins/Export/ExportOdt.php:514
+#: src/Plugins/Export/ExportTexytext.php:378
 #: src/Plugins/Export/Helpers/Pdf.php:333 src/Server/Status/Processes.php:105
 msgid "Time"
 msgstr "Χρόνος"
@@ -7040,7 +7040,7 @@ msgstr "Σύρτε για ανακατανομή"
 #: resources/templates/table/index_form.twig:203
 #: src/Controllers/JavaScriptMessagesController.php:465
 #: src/Controllers/JavaScriptMessagesController.php:617
-#: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1424
+#: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1420
 msgid "Ignore"
 msgstr "Παράληψη"
 
@@ -7261,7 +7261,7 @@ msgid "Delete the view (DROP)"
 msgstr "Διαγραφή της προβολής (DROP)"
 
 #: resources/templates/table/page_with_secondary_tabs.twig:5
-#: src/Config/Descriptions.php:760 src/Plugins/Export/ExportPdf.php:230
+#: src/Config/Descriptions.php:760 src/Plugins/Export/ExportPdf.php:175
 msgid "Table structure"
 msgstr "Δομή πίνακα"
 
@@ -7703,9 +7703,9 @@ msgstr "Χρόνος"
 #: resources/templates/triggers/list.twig:52
 #: src/Controllers/JavaScriptMessagesController.php:365
 #: src/Navigation/Nodes/NodeEvent.php:26
-#: src/Plugins/Export/ExportHtmlword.php:431
-#: src/Plugins/Export/ExportOdt.php:543
-#: src/Plugins/Export/ExportTexytext.php:416
+#: src/Plugins/Export/ExportHtmlword.php:410
+#: src/Plugins/Export/ExportOdt.php:517
+#: src/Plugins/Export/ExportTexytext.php:379
 #: src/Plugins/Export/Helpers/Pdf.php:335
 msgid "Event"
 msgstr "Συμβάν"
@@ -7719,11 +7719,11 @@ msgstr "Εξαγωγή της ενέργειας %s"
 #: resources/templates/triggers/list.twig:3 src/Menu.php:291 src/Menu.php:384
 #: src/Navigation/Nodes/NodeTriggerContainer.php:23
 #: src/Navigation/Nodes/NodeTriggerContainer.php:25
-#: src/Plugins/Export/ExportHtmlword.php:483
-#: src/Plugins/Export/ExportOdt.php:605 src/Plugins/Export/ExportPdf.php:233
-#: src/Plugins/Export/ExportSql.php:1888
-#: src/Plugins/Export/ExportTexytext.php:453
-#: src/Plugins/Export/ExportXml.php:117 src/Util.php:1378 src/Util.php:1394
+#: src/Plugins/Export/ExportHtmlword.php:462
+#: src/Plugins/Export/ExportOdt.php:579 src/Plugins/Export/ExportPdf.php:178
+#: src/Plugins/Export/ExportSql.php:1881
+#: src/Plugins/Export/ExportTexytext.php:416
+#: src/Plugins/Export/ExportXml.php:116 src/Util.php:1378 src/Util.php:1394
 msgid "Triggers"
 msgstr "Δείκτες"
 
@@ -9116,281 +9116,281 @@ msgstr "Το query_cache_limit ορίστηκε στο 1ΜΒ"
 msgid "Search:"
 msgstr "Αναζήτηση:"
 
-#: src/Charsets/Collation.php:109 src/Charsets.php:184
+#: src/Charsets/Collation.php:112 src/Charsets.php:184
 msgid "Unknown"
 msgstr "Άγνωστο"
 
-#: src/Charsets/Collation.php:141 src/Charsets/Collation.php:406
+#: src/Charsets/Collation.php:144 src/Charsets/Collation.php:407
 msgctxt "Collation"
 msgid "German (phone book order)"
 msgstr "Γερμανικά (ταξινόμηση τηλεφωνικού καταλόγου)"
 
-#: src/Charsets/Collation.php:145 src/Charsets/Collation.php:403
+#: src/Charsets/Collation.php:148 src/Charsets/Collation.php:404
 msgctxt "Collation"
 msgid "German (dictionary order)"
 msgstr "Γερμανικά (ταξινόμηση λεξικού)"
 
-#: src/Charsets/Collation.php:154 src/Charsets/Collation.php:481
+#: src/Charsets/Collation.php:157 src/Charsets/Collation.php:482
 msgctxt "Collation"
 msgid "Spanish (traditional)"
 msgstr "Ισπανικά (παραδοσιακά)"
 
-#: src/Charsets/Collation.php:158 src/Charsets/Collation.php:474
+#: src/Charsets/Collation.php:161 src/Charsets/Collation.php:475
 msgctxt "Collation"
 msgid "Spanish (modern)"
 msgstr "Ισπανικά (μοντέρνα)"
 
-#: src/Charsets/Collation.php:218
+#: src/Charsets/Collation.php:225
 msgctxt "Collation variant"
 msgid "case-insensitive"
 msgstr "χωρίς ταίριασμα πεζών-κεφαλαίων"
 
-#: src/Charsets/Collation.php:219
+#: src/Charsets/Collation.php:226
 msgctxt "Collation variant"
 msgid "case-sensitive"
 msgstr "ταίριασμα πεζών-κεφαλαίων"
 
-#: src/Charsets/Collation.php:220
+#: src/Charsets/Collation.php:227
 msgctxt "Collation variant"
 msgid "accent-insensitive"
 msgstr "χωρίς ταίριασμα τονισμένων"
 
-#: src/Charsets/Collation.php:221
+#: src/Charsets/Collation.php:228
 msgctxt "Collation variant"
 msgid "accent-sensitive"
 msgstr "ταίριασμα τονισμένων"
 
-#: src/Charsets/Collation.php:222
+#: src/Charsets/Collation.php:229
 msgctxt "Collation variant"
 msgid "kana-sensitive"
 msgstr "ταίριασμα kana"
 
-#: src/Charsets/Collation.php:223
+#: src/Charsets/Collation.php:230
 msgctxt "Collation variant"
 msgid "multi-level"
 msgstr "πολυεπίπεδο"
 
-#: src/Charsets/Collation.php:224
+#: src/Charsets/Collation.php:231
 msgctxt "Collation variant"
 msgid "binary"
 msgstr "δυαδικό"
 
-#: src/Charsets/Collation.php:225
+#: src/Charsets/Collation.php:232
 msgctxt "Collation variant"
 msgid "no-pad"
 msgstr "χωρίς συμπλήρωση"
 
-#: src/Charsets/Collation.php:242
+#: src/Charsets/Collation.php:246
 msgctxt "Collation"
 msgid "Binary"
 msgstr "Δυαδικό"
 
-#: src/Charsets/Collation.php:255 src/Charsets/Collation.php:505
+#: src/Charsets/Collation.php:259 src/Charsets/Collation.php:506
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Unicode"
 
-#: src/Charsets/Collation.php:265 src/Charsets/Collation.php:452
+#: src/Charsets/Collation.php:269 src/Charsets/Collation.php:453
 msgctxt "Collation"
 msgid "West European"
 msgstr "Δυτικής Ευρώπης"
 
-#: src/Charsets/Collation.php:272
+#: src/Charsets/Collation.php:276
 msgctxt "Collation"
 msgid "Central European"
 msgstr "Κεντρικής Ευρώπης"
 
-#: src/Charsets/Collation.php:277 src/Charsets/Collation.php:459
+#: src/Charsets/Collation.php:281 src/Charsets/Collation.php:460
 msgctxt "Collation"
 msgid "Russian"
 msgstr "Ρωσικά"
 
-#: src/Charsets/Collation.php:282
+#: src/Charsets/Collation.php:286
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "Απλοποιημένα Κινέζικα"
 
-#: src/Charsets/Collation.php:285
+#: src/Charsets/Collation.php:289
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "Παραδοσιακά Κινέζικα"
 
-#: src/Charsets/Collation.php:288 src/Charsets/Collation.php:374
+#: src/Charsets/Collation.php:292 src/Charsets/Collation.php:375
 msgctxt "Collation"
 msgid "Chinese"
 msgstr "Κινέζικα"
 
-#: src/Charsets/Collation.php:296 src/Charsets/Collation.php:423
+#: src/Charsets/Collation.php:300 src/Charsets/Collation.php:424
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "Ιαπωνικά"
 
-#: src/Charsets/Collation.php:301
+#: src/Charsets/Collation.php:305
 msgctxt "Collation"
 msgid "Baltic"
 msgstr "Βαλτικής"
 
-#: src/Charsets/Collation.php:306
+#: src/Charsets/Collation.php:310
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "Αρμενικά"
 
-#: src/Charsets/Collation.php:309
+#: src/Charsets/Collation.php:313
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "Κυριλλικά"
 
-#: src/Charsets/Collation.php:312
+#: src/Charsets/Collation.php:316
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "Αραβικά"
 
-#: src/Charsets/Collation.php:315 src/Charsets/Collation.php:438
+#: src/Charsets/Collation.php:319 src/Charsets/Collation.php:439
 msgctxt "Collation"
 msgid "Korean"
 msgstr "Κορεατικά"
 
-#: src/Charsets/Collation.php:318
+#: src/Charsets/Collation.php:322
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "Εβραϊκά"
 
-#: src/Charsets/Collation.php:321
+#: src/Charsets/Collation.php:325
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "Γεωργιανά"
 
-#: src/Charsets/Collation.php:324
+#: src/Charsets/Collation.php:328
 msgctxt "Collation"
 msgid "Greek"
 msgstr "Ελληνικά"
 
-#: src/Charsets/Collation.php:327
+#: src/Charsets/Collation.php:331
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "Τσέχο-Σλοβάκικα"
 
-#: src/Charsets/Collation.php:330 src/Charsets/Collation.php:497
+#: src/Charsets/Collation.php:334 src/Charsets/Collation.php:498
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "Ουκρανικά"
 
-#: src/Charsets/Collation.php:333 src/Charsets/Collation.php:493
+#: src/Charsets/Collation.php:337 src/Charsets/Collation.php:494
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Τουρκικά"
 
-#: src/Charsets/Collation.php:336 src/Charsets/Collation.php:485
+#: src/Charsets/Collation.php:340 src/Charsets/Collation.php:486
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "Σουηδικά"
 
-#: src/Charsets/Collation.php:339 src/Charsets/Collation.php:489
+#: src/Charsets/Collation.php:343 src/Charsets/Collation.php:490
 msgctxt "Collation"
 msgid "Thai"
 msgstr "Ταϊλανδικά"
 
-#: src/Charsets/Collation.php:342
+#: src/Charsets/Collation.php:346
 msgctxt "Collation"
 msgid "Unknown"
 msgstr "Άγνωστο"
 
-#: src/Charsets/Collation.php:368
+#: src/Charsets/Collation.php:369
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "Βουλγαρικά"
 
-#: src/Charsets/Collation.php:380
+#: src/Charsets/Collation.php:381
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "Κροατικά"
 
-#: src/Charsets/Collation.php:384
+#: src/Charsets/Collation.php:385
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Τσεχικά"
 
-#: src/Charsets/Collation.php:388
+#: src/Charsets/Collation.php:389
 msgctxt "Collation"
 msgid "Danish"
 msgstr "Δανέζικα"
 
-#: src/Charsets/Collation.php:392
+#: src/Charsets/Collation.php:393
 msgctxt "Collation"
 msgid "English"
 msgstr "Αγγλικά"
 
-#: src/Charsets/Collation.php:396
+#: src/Charsets/Collation.php:397
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "Εσπεράντο"
 
-#: src/Charsets/Collation.php:400
+#: src/Charsets/Collation.php:401
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "Εσθονικά"
 
-#: src/Charsets/Collation.php:415
+#: src/Charsets/Collation.php:416
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "Ουγγρικά"
 
-#: src/Charsets/Collation.php:419
+#: src/Charsets/Collation.php:420
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "Ισλανδικά"
 
-#: src/Charsets/Collation.php:426
+#: src/Charsets/Collation.php:427
 msgctxt "Collation"
 msgid "Classical Latin"
 msgstr "Κλασσικά Λατινικά"
 
-#: src/Charsets/Collation.php:430
+#: src/Charsets/Collation.php:431
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "Λετονικά"
 
-#: src/Charsets/Collation.php:434
+#: src/Charsets/Collation.php:435
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "Λιθουανικά"
 
-#: src/Charsets/Collation.php:442
+#: src/Charsets/Collation.php:443
 msgctxt "Collation"
 msgid "Burmese"
 msgstr "Μπουρμέζικα"
 
-#: src/Charsets/Collation.php:445
+#: src/Charsets/Collation.php:446
 msgctxt "Collation"
 msgid "Persian"
 msgstr "Περσικά"
 
-#: src/Charsets/Collation.php:449
+#: src/Charsets/Collation.php:450
 msgctxt "Collation"
 msgid "Polish"
 msgstr "Πολωνικά"
 
-#: src/Charsets/Collation.php:456
+#: src/Charsets/Collation.php:457
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "Ρουμάνικα"
 
-#: src/Charsets/Collation.php:463
+#: src/Charsets/Collation.php:464
 msgctxt "Collation"
 msgid "Sinhalese"
 msgstr "Σινχαλέζικα"
 
-#: src/Charsets/Collation.php:467
+#: src/Charsets/Collation.php:468
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "Σλοβάκικα"
 
-#: src/Charsets/Collation.php:471
+#: src/Charsets/Collation.php:472
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "Σλοβένικα"
 
-#: src/Charsets/Collation.php:501
+#: src/Charsets/Collation.php:502
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Βιετναμέζικα"
@@ -9538,8 +9538,8 @@ msgstr "Απενεργοποίηση"
 #: src/Config/ConfigFile.php:741 src/Plugins/Export/ExportHtmlword.php:72
 #: src/Plugins/Export/ExportLatex.php:113
 #: src/Plugins/Export/ExportMediawiki.php:68
-#: src/Plugins/Export/ExportOdt.php:84 src/Plugins/Export/ExportPdf.php:92
-#: src/Plugins/Export/ExportSql.php:267
+#: src/Plugins/Export/ExportOdt.php:79 src/Plugins/Export/ExportPdf.php:80
+#: src/Plugins/Export/ExportSql.php:268
 #: src/Plugins/Export/ExportTexytext.php:70
 msgid "structure"
 msgstr "δομή"
@@ -9549,8 +9549,8 @@ msgstr "δομή"
 #: src/Config/ConfigFile.php:742 src/Plugins/Export/ExportHtmlword.php:72
 #: src/Plugins/Export/ExportLatex.php:113
 #: src/Plugins/Export/ExportMediawiki.php:68
-#: src/Plugins/Export/ExportOdt.php:84 src/Plugins/Export/ExportPdf.php:92
-#: src/Plugins/Export/ExportSql.php:267
+#: src/Plugins/Export/ExportOdt.php:79 src/Plugins/Export/ExportPdf.php:80
+#: src/Plugins/Export/ExportSql.php:268
 #: src/Plugins/Export/ExportTexytext.php:70
 msgid "data"
 msgstr "δεδομένα"
@@ -9560,8 +9560,8 @@ msgstr "δεδομένα"
 #: src/Config/ConfigFile.php:743 src/Plugins/Export/ExportHtmlword.php:72
 #: src/Plugins/Export/ExportLatex.php:113
 #: src/Plugins/Export/ExportMediawiki.php:68
-#: src/Plugins/Export/ExportOdt.php:84 src/Plugins/Export/ExportPdf.php:92
-#: src/Plugins/Export/ExportSql.php:267
+#: src/Plugins/Export/ExportOdt.php:79 src/Plugins/Export/ExportPdf.php:80
+#: src/Plugins/Export/ExportSql.php:268
 #: src/Plugins/Export/ExportTexytext.php:70
 msgid "structure and data"
 msgstr "δομή και δεδομένα"
@@ -9771,7 +9771,7 @@ msgstr ""
 "([kbd]0[/kbd] για εκτέλεση χωρίς όριο)."
 
 #: src/Config/Descriptions.php:171 src/Config/Descriptions.php:708
-#: src/Plugins/Export/ExportSql.php:367
+#: src/Plugins/Export/ExportSql.php:368
 msgid "Exclude definition of current user"
 msgstr "Εξαίρεση ορισμού για τον τρέχοντα χρήστη"
 
@@ -11091,10 +11091,10 @@ msgstr "Συμπίεση"
 #: src/Config/Descriptions.php:640 src/Config/Descriptions.php:647
 #: src/Config/Descriptions.php:655 src/Config/Descriptions.php:659
 #: src/Config/Descriptions.php:672 src/Config/Descriptions.php:674
-#: src/Config/Descriptions.php:721 src/Plugins/Export/ExportCsv.php:96
+#: src/Config/Descriptions.php:721 src/Plugins/Export/ExportCsv.php:97
 #: src/Plugins/Export/ExportExcel.php:79
-#: src/Plugins/Export/ExportHtmlword.php:92 src/Plugins/Export/ExportOds.php:75
-#: src/Plugins/Export/ExportOdt.php:133
+#: src/Plugins/Export/ExportHtmlword.php:92 src/Plugins/Export/ExportOds.php:70
+#: src/Plugins/Export/ExportOdt.php:128
 #: src/Plugins/Export/ExportTexytext.php:85
 msgid "Put columns names in the first row"
 msgstr "Εμφάνιση ονομάτων στηλών στην πρώτη γραμμή"
@@ -11152,8 +11152,8 @@ msgstr "Πρότυπο ονόματος πίνακα"
 #: src/Plugins/Export/ExportLatex.php:108
 #: src/Plugins/Export/ExportMediawiki.php:58
 #: src/Plugins/Export/ExportMediawiki.php:64
-#: src/Plugins/Export/ExportOdt.php:79 src/Plugins/Export/ExportPdf.php:88
-#: src/Plugins/Export/ExportSql.php:263
+#: src/Plugins/Export/ExportOdt.php:74 src/Plugins/Export/ExportPdf.php:76
+#: src/Plugins/Export/ExportSql.php:264
 #: src/Plugins/Export/ExportTexytext.php:65
 msgid "Dump table"
 msgstr "Απόρριψη πίνακα"
@@ -11219,11 +11219,11 @@ msgstr "Δημιουργία/Ενημέρωση/Έλεγχος ημερομην�
 msgid "Use delayed inserts"
 msgstr "Χρήση εισαγωγών με καθυστέρηση"
 
-#: src/Config/Descriptions.php:692 src/Plugins/Export/ExportSql.php:232
+#: src/Config/Descriptions.php:692 src/Plugins/Export/ExportSql.php:233
 msgid "Disable foreign key checks"
 msgstr "Απενεργοποίηση ελέγχων μη διακριτών κλειδιών"
 
-#: src/Config/Descriptions.php:693 src/Plugins/Export/ExportSql.php:242
+#: src/Config/Descriptions.php:693 src/Plugins/Export/ExportSql.php:243
 msgid "Export views as tables"
 msgstr "Εξαγωγή προβολών ως πίνακες"
 
@@ -11243,7 +11243,7 @@ msgstr ""
 "Προσθήκη του IF NOT EXISTS (λιγότερο αποτελεσματικό από ευρετήρια καθώς θα "
 "δημιουργηθούν κατά τη δημιουργία τη δημιουργία πίνακα)"
 
-#: src/Config/Descriptions.php:709 src/Plugins/Export/ExportSql.php:373
+#: src/Config/Descriptions.php:709 src/Plugins/Export/ExportSql.php:374
 #, php-format
 msgid "%s view"
 msgstr "%s προβολή"
@@ -11256,7 +11256,7 @@ msgstr "Χρήση παραβλεφθέντων εισαγωγών"
 msgid "Syntax to use when inserting data"
 msgstr "Σύνταξη για χρήση στην εισαγωγή δεδομένων"
 
-#: src/Config/Descriptions.php:713 src/Plugins/Export/ExportSql.php:500
+#: src/Config/Descriptions.php:713 src/Plugins/Export/ExportSql.php:501
 msgid "Maximal length of created query"
 msgstr "Μέγιστο μήκος δημιουργηθέντος ερωτήματος"
 
@@ -11264,7 +11264,7 @@ msgstr "Μέγιστο μήκος δημιουργηθέντος ερωτήμα�
 msgid "Export type"
 msgstr "Εξαγωγή τύπου"
 
-#: src/Config/Descriptions.php:719 src/Plugins/Export/ExportSql.php:222
+#: src/Config/Descriptions.php:719 src/Plugins/Export/ExportSql.php:223
 msgid "Enclose export in a transaction"
 msgstr "Συμπερίληψη εξαγωγής στη συναλλαγή"
 
@@ -12338,11 +12338,11 @@ msgstr ""
 msgid "Server %d"
 msgstr "Διακομιστής %d"
 
-#: src/ConfigStorage/Relation.php:1112
+#: src/ConfigStorage/Relation.php:1103
 msgid "no description"
 msgstr "χωρίς περιγραφή"
 
-#: src/ConfigStorage/Relation.php:1318
+#: src/ConfigStorage/Relation.php:1296
 #, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
@@ -12549,8 +12549,8 @@ msgstr "Υπάρχει ήδη σελίδα με το όνομα «%s», μετο
 #: src/Controllers/Table/IndexesController.php:74
 #: src/Controllers/Table/IndexRenameController.php:55
 #: src/Controllers/Table/IndexRenameController.php:60
-#: src/Controllers/Table/SearchController.php:174
-#: src/Controllers/Table/SearchController.php:179
+#: src/Controllers/Table/SearchController.php:171
+#: src/Controllers/Table/SearchController.php:176
 #: src/Controllers/Table/SqlController.php:59
 #: src/Controllers/Table/SqlController.php:64
 #: src/Controllers/Table/StructureController.php:93
@@ -12669,8 +12669,8 @@ msgstr "Δεν έχετε τα δικαιώματα για να διαχειρι
 #: src/Controllers/Table/Maintenance/ChecksumController.php:46
 #: src/Controllers/Table/Maintenance/OptimizeController.php:46
 #: src/Controllers/Table/Maintenance/RepairController.php:46
-#: src/Controllers/Table/SearchController.php:186
-#: src/Controllers/Table/SearchController.php:191
+#: src/Controllers/Table/SearchController.php:183
+#: src/Controllers/Table/SearchController.php:188
 #: src/Controllers/Table/SqlController.php:71
 #: src/Controllers/Table/SqlController.php:76
 #: src/Controllers/Table/StructureController.php:105
@@ -12804,7 +12804,7 @@ msgstr ""
 msgid "You may want to refresh the page."
 msgstr "Ίσως θέλετε να ανανεώσετε τη σελίδα."
 
-#: src/Controllers/Export/ExportController.php:119 src/Export/Export.php:1057
+#: src/Controllers/Export/ExportController.php:115 src/Export/Export.php:754
 msgid "Bad type!"
 msgstr "Μη έγκυρος τύπος!"
 
@@ -14528,7 +14528,7 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "Ο πίνακας %s υπάρχει ήδη!"
 
-#: src/Controllers/JavaScriptMessagesController.php:692 src/InsertEdit.php:242
+#: src/Controllers/JavaScriptMessagesController.php:692 src/InsertEdit.php:243
 #: src/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "Απόκρυψη"
@@ -16035,7 +16035,7 @@ msgstr "Υπάρχουν κάποιο θέμα με το αίτημα σας."
 
 #: src/Controllers/Table/GetFieldController.php:87
 #: src/Database/Routines.php:1036 src/Import/Import.php:135
-#: src/InsertEdit.php:159 src/Sql.php:882
+#: src/InsertEdit.php:160 src/Sql.php:882
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr ""
 "Η MySQL επέστρεψε ένα άδειο σύνολο αποτελεσμάτων (π.χ. καμμία εγγραφή)."
@@ -16785,13 +16785,20 @@ msgstr ""
 "Έχετε αποσυνδεθεί αυτόματα λόγω αδράνειας %s δευτερολέπτων. Μόλις συνδεθείτε "
 "ξανά, θα μπορείτε να συνεχίσετε την εργασία από εκεί που σταματήσατε."
 
-#: src/Export/Export.php:190 src/Export/Export.php:221
-#: src/Export/Export.php:429
+#. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
+#: src/Export/Export.php:472
+msgid "Exporting a raw query is not supported for this export method."
+msgstr ""
+"Η εξαγωγή μιας ακατέργαστης ερώτησης δεν υποστηρίζεται για αυτή τη μέθοδο "
+"εξαγωγής."
+
+#: src/Export/OutputHandler.php:82 src/Export/OutputHandler.php:113
+#: src/Export/OutputHandler.php:240
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "Δεν υπάρχει διαθέσιμος χώρος για την αποθήκευση του αρχείου %s."
 
-#: src/Export/Export.php:382
+#: src/Export/OutputHandler.php:194
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
@@ -16799,22 +16806,15 @@ msgstr ""
 "Το αρχείο %s υπάρχει ήδη στον διακομιστή, για αυτό επιλέξτε διαφορετικό "
 "όνομα αρχείου ή ενεργοποιήστε την επιλογή αντικατάστασης."
 
-#: src/Export/Export.php:389 src/Export/Export.php:399
+#: src/Export/OutputHandler.php:205 src/Export/OutputHandler.php:217
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "Ο διακομιστής δεν έχει δικαιώματα αποθήκευσης του αρχείου %s."
 
-#: src/Export/Export.php:436
+#: src/Export/OutputHandler.php:248
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "Το αρχείο εξόδου αποθηκεύτηκε ως %s."
-
-#. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
-#: src/Export/Export.php:775
-msgid "Exporting a raw query is not supported for this export method."
-msgstr ""
-"Η εξαγωγή μιας ακατέργαστης ερώτησης δεν υποστηρίζεται για αυτή τη μέθοδο "
-"εξαγωγής."
 
 #: src/Favorites/RecentFavoriteTables.php:154
 msgid "Could not save recent table!"
@@ -17246,7 +17246,7 @@ msgstr "Νέο"
 
 #: src/Navigation/Nodes/NodeFunctionContainer.php:22
 #: src/Navigation/Nodes/NodeFunctionContainer.php:26
-#: src/Plugins/Export/ExportSql.php:642 src/Plugins/Export/ExportXml.php:102
+#: src/Plugins/Export/ExportSql.php:643 src/Plugins/Export/ExportXml.php:101
 msgid "Functions"
 msgstr "Συναρτήσεις"
 
@@ -17266,7 +17266,7 @@ msgstr "Ανάπτυξη/Σύμπτηξη"
 
 #: src/Navigation/Nodes/NodeProcedureContainer.php:22
 #: src/Navigation/Nodes/NodeProcedureContainer.php:26
-#: src/Plugins/Export/ExportSql.php:631 src/Plugins/Export/ExportXml.php:107
+#: src/Plugins/Export/ExportSql.php:632 src/Plugins/Export/ExportXml.php:106
 msgid "Procedures"
 msgstr "Διαδικασίες"
 
@@ -17691,35 +17691,35 @@ msgstr ""
 "Ενεργοποιήσατε την πιστοποίηση δύο παραγόντων, παρακαλώ επιβεβαιώστε τη "
 "σύνδεση σας."
 
-#: src/Plugins/Export/ExportCsv.php:66
+#: src/Plugins/Export/ExportCsv.php:67
 #: src/Plugins/Import/AbstractImportCsv.php:36
 msgid "Columns separated with:"
 msgstr "Στήλες που χωρίζονται με:"
 
-#: src/Plugins/Export/ExportCsv.php:71
+#: src/Plugins/Export/ExportCsv.php:72
 #: src/Plugins/Import/AbstractImportCsv.php:42
 msgid "Columns enclosed with:"
 msgstr "Στήλες που περικλείονται με:"
 
-#: src/Plugins/Export/ExportCsv.php:76
+#: src/Plugins/Export/ExportCsv.php:77
 #: src/Plugins/Import/AbstractImportCsv.php:49
 msgid "Columns escaped with:"
 msgstr "Τα πεδία χρησιμοποιούν το χαρακτήρα διαφυγής:"
 
-#: src/Plugins/Export/ExportCsv.php:81
+#: src/Plugins/Export/ExportCsv.php:82
 #: src/Plugins/Import/AbstractImportCsv.php:56
 msgid "Lines terminated with:"
 msgstr "Γραμμές που τελειώνουν με:"
 
-#: src/Plugins/Export/ExportCsv.php:86 src/Plugins/Export/ExportExcel.php:69
+#: src/Plugins/Export/ExportCsv.php:87 src/Plugins/Export/ExportExcel.php:69
 #: src/Plugins/Export/ExportHtmlword.php:87
-#: src/Plugins/Export/ExportLatex.php:203 src/Plugins/Export/ExportOds.php:70
-#: src/Plugins/Export/ExportOdt.php:138
+#: src/Plugins/Export/ExportLatex.php:203 src/Plugins/Export/ExportOds.php:65
+#: src/Plugins/Export/ExportOdt.php:133
 #: src/Plugins/Export/ExportTexytext.php:90
 msgid "Replace NULL with:"
 msgstr "Αντικατάσταση τιμής NULL με:"
 
-#: src/Plugins/Export/ExportCsv.php:91 src/Plugins/Export/ExportExcel.php:74
+#: src/Plugins/Export/ExportCsv.php:92 src/Plugins/Export/ExportExcel.php:74
 msgid "Remove carriage return/line feed characters within columns"
 msgstr "Απομάκρυνση χαρακτήρων αλλαγής γραμμής μέσα στις στήλες"
 
@@ -17728,33 +17728,33 @@ msgid "Excel edition:"
 msgstr "Έκδοση Excel:"
 
 #: src/Plugins/Export/ExportHtmlword.php:81
-#: src/Plugins/Export/ExportLatex.php:174 src/Plugins/Export/ExportOdt.php:127
+#: src/Plugins/Export/ExportLatex.php:174 src/Plugins/Export/ExportOdt.php:122
 #: src/Plugins/Export/ExportTexytext.php:79
-#: src/Plugins/Export/ExportXml.php:130
+#: src/Plugins/Export/ExportXml.php:129
 msgid "Data dump options"
 msgstr "Επιλογές απορριμμάτων δεδομένων"
 
-#: src/Plugins/Export/ExportHtmlword.php:190
-#: src/Plugins/Export/ExportOdt.php:242 src/Plugins/Export/ExportSql.php:2125
-#: src/Plugins/Export/ExportTexytext.php:175
+#: src/Plugins/Export/ExportHtmlword.php:169
+#: src/Plugins/Export/ExportOdt.php:216 src/Plugins/Export/ExportSql.php:2118
+#: src/Plugins/Export/ExportTexytext.php:138
 msgid "Dumping data for table"
 msgstr "Άδειασμα δεδομένων του πίνακα"
 
-#: src/Plugins/Export/ExportHtmlword.php:474
-#: src/Plugins/Export/ExportOdt.php:595 src/Plugins/Export/ExportSql.php:1874
-#: src/Plugins/Export/ExportTexytext.php:446
+#: src/Plugins/Export/ExportHtmlword.php:453
+#: src/Plugins/Export/ExportOdt.php:569 src/Plugins/Export/ExportSql.php:1867
+#: src/Plugins/Export/ExportTexytext.php:409
 msgid "Table structure for table"
 msgstr "Δομή πίνακα για τον πίνακα"
 
-#: src/Plugins/Export/ExportHtmlword.php:491
-#: src/Plugins/Export/ExportOdt.php:615 src/Plugins/Export/ExportSql.php:1932
-#: src/Plugins/Export/ExportTexytext.php:459
+#: src/Plugins/Export/ExportHtmlword.php:470
+#: src/Plugins/Export/ExportOdt.php:589 src/Plugins/Export/ExportSql.php:1925
+#: src/Plugins/Export/ExportTexytext.php:422
 msgid "Structure for view"
 msgstr "Δομή για προβολή"
 
-#: src/Plugins/Export/ExportHtmlword.php:497
-#: src/Plugins/Export/ExportOdt.php:623 src/Plugins/Export/ExportSql.php:1971
-#: src/Plugins/Export/ExportTexytext.php:463
+#: src/Plugins/Export/ExportHtmlword.php:476
+#: src/Plugins/Export/ExportOdt.php:597 src/Plugins/Export/ExportSql.php:1964
+#: src/Plugins/Export/ExportTexytext.php:426
 msgid "Stand-in structure for view"
 msgstr "Στημένη δομή για προβολή"
 
@@ -17778,8 +17778,8 @@ msgstr "(συνεχίζεται)"
 msgid "Structure of table @TABLE@"
 msgstr "Δομή του πίνακα @TABLE@"
 
-#: src/Plugins/Export/ExportLatex.php:123 src/Plugins/Export/ExportOdt.php:94
-#: src/Plugins/Export/ExportSql.php:279
+#: src/Plugins/Export/ExportLatex.php:123 src/Plugins/Export/ExportOdt.php:89
+#: src/Plugins/Export/ExportSql.php:280
 msgid "Object creation options"
 msgstr "Επιλογές μετατροπής αντικειμένου"
 
@@ -17798,17 +17798,17 @@ msgstr "Λεζάντα πίνακα (συνέχεια):"
 msgid "Label key:"
 msgstr "Κλειδί ετικέτας:"
 
-#: src/Plugins/Export/ExportLatex.php:149 src/Plugins/Export/ExportOdt.php:102
-#: src/Plugins/Export/ExportSql.php:204
+#: src/Plugins/Export/ExportLatex.php:149 src/Plugins/Export/ExportOdt.php:97
+#: src/Plugins/Export/ExportSql.php:205
 msgid "Display foreign key relationships"
 msgstr "Προβολή σχέσεων μη διακριτών κλειδιών"
 
-#: src/Plugins/Export/ExportLatex.php:156 src/Plugins/Export/ExportOdt.php:109
+#: src/Plugins/Export/ExportLatex.php:156 src/Plugins/Export/ExportOdt.php:104
 msgid "Display comments"
 msgstr "Εμφάνιση σχολίων"
 
-#: src/Plugins/Export/ExportLatex.php:162 src/Plugins/Export/ExportOdt.php:115
-#: src/Plugins/Export/ExportSql.php:212
+#: src/Plugins/Export/ExportLatex.php:162 src/Plugins/Export/ExportOdt.php:110
+#: src/Plugins/Export/ExportSql.php:213
 msgid "Display media types"
 msgstr "Προβολή τύπων μέσων"
 
@@ -17816,21 +17816,21 @@ msgstr "Προβολή τύπων μέσων"
 msgid "Put columns names in the first row:"
 msgstr "Εμφάνιση ονομάτων στηλών στην πρώτη γραμμή:"
 
-#: src/Plugins/Export/ExportLatex.php:231 src/Plugins/Export/ExportSql.php:760
-#: src/Plugins/Export/ExportXml.php:214
+#: src/Plugins/Export/ExportLatex.php:231 src/Plugins/Export/ExportSql.php:761
+#: src/Plugins/Export/ExportXml.php:213
 msgid "Generation Time:"
 msgstr "Χρόνος δημιουργίας:"
 
-#: src/Plugins/Export/ExportLatex.php:234 src/Plugins/Export/ExportSql.php:766
-#: src/Plugins/Export/ExportXml.php:217
+#: src/Plugins/Export/ExportLatex.php:234 src/Plugins/Export/ExportSql.php:767
+#: src/Plugins/Export/ExportXml.php:216
 msgid "PHP Version:"
 msgstr "Έκδοση PHP:"
 
-#: src/Plugins/Export/ExportLatex.php:317 src/Plugins/Export/ExportSql.php:2018
+#: src/Plugins/Export/ExportLatex.php:288 src/Plugins/Export/ExportSql.php:2011
 msgid "Data:"
 msgstr "Δεδομένα:"
 
-#: src/Plugins/Export/ExportLatex.php:473
+#: src/Plugins/Export/ExportLatex.php:444
 msgid "Structure:"
 msgstr "Δομή:"
 
@@ -17842,32 +17842,32 @@ msgstr "Εξαγωγή ονομάτων πινάκων"
 msgid "Export table headers"
 msgstr "Εξαγωγή κεφαλίδων πίνακα"
 
-#: src/Plugins/Export/ExportOdt.php:243
-#: src/Plugins/Export/ExportTexytext.php:176
+#: src/Plugins/Export/ExportOdt.php:217
+#: src/Plugins/Export/ExportTexytext.php:139
 msgid "Dumping data for query result"
 msgstr "Άδειασμα δεδομένων για το αποτέλεσμα του ερωτήματος"
 
-#: src/Plugins/Export/ExportPdf.php:79
+#: src/Plugins/Export/ExportPdf.php:67
 msgid "Report title:"
 msgstr "Τίτλος αναφοράς:"
 
-#: src/Plugins/Export/ExportPdf.php:184
+#: src/Plugins/Export/ExportPdf.php:131
 msgid "Dumping data"
 msgstr "Άδειασμα δεδομένων"
 
-#: src/Plugins/Export/ExportPdf.php:201
+#: src/Plugins/Export/ExportPdf.php:147
 msgid "Query result data"
 msgstr "Δεδομένα αποτελέσματος ερωτήματος"
 
-#: src/Plugins/Export/ExportPdf.php:236
+#: src/Plugins/Export/ExportPdf.php:181
 msgid "View structure"
 msgstr "Προβολή δομής"
 
-#: src/Plugins/Export/ExportPdf.php:239
+#: src/Plugins/Export/ExportPdf.php:184
 msgid "Stand in"
 msgstr "και μετά"
 
-#: src/Plugins/Export/ExportSql.php:183
+#: src/Plugins/Export/ExportSql.php:184
 msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
@@ -17875,12 +17875,12 @@ msgstr ""
 "Προβολή σχολίων <i>(περιλαμβάνει πληροφορίες όπως εξαγωγή timestamp, έκδοση "
 "PHPκαι έκδοση διακομιστή)</i>"
 
-#: src/Plugins/Export/ExportSql.php:190
+#: src/Plugins/Export/ExportSql.php:191
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr ""
 "Προσθήκη προσαρμοσμένου σχολίου στην κεφαλίδα (το \\n χωρίζει τις γραμμές):"
 
-#: src/Plugins/Export/ExportSql.php:196
+#: src/Plugins/Export/ExportSql.php:197
 msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
@@ -17888,39 +17888,39 @@ msgstr ""
 "Περιλαμβάνει μια χρονοσφραγίδα για το πότε δημιουργούνται, ενημερώνονται και "
 "ελέγχονται βάσεις δεδομένων"
 
-#: src/Plugins/Export/ExportSql.php:249
+#: src/Plugins/Export/ExportSql.php:250
 msgid "Export metadata"
 msgstr "Εξαγωγή μεταδεδομένων"
 
-#: src/Plugins/Export/ExportSql.php:287
+#: src/Plugins/Export/ExportSql.php:288
 msgid "Add statements:"
 msgstr "Προσθήκη δηλώσεων:"
 
-#: src/Plugins/Export/ExportSql.php:295 src/Plugins/Export/ExportSql.php:304
-#: src/Plugins/Export/ExportSql.php:321 src/Plugins/Export/ExportSql.php:330
-#: src/Plugins/Export/ExportSql.php:354 src/Plugins/Export/ExportSql.php:382
-#: src/Plugins/Export/ExportSql.php:391
+#: src/Plugins/Export/ExportSql.php:296 src/Plugins/Export/ExportSql.php:305
+#: src/Plugins/Export/ExportSql.php:322 src/Plugins/Export/ExportSql.php:331
+#: src/Plugins/Export/ExportSql.php:355 src/Plugins/Export/ExportSql.php:383
+#: src/Plugins/Export/ExportSql.php:392
 #, php-format
 msgid "Add %s statement"
 msgstr "Προσθήκη δήλωσης %s"
 
-#: src/Plugins/Export/ExportSql.php:337
+#: src/Plugins/Export/ExportSql.php:338
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
 "(λιγότερυ αποτελεσματικό από ευρετήρια καθώς θα δημιουργηθούν κατά τη "
 "δημιουργία πίνακα)"
 
-#: src/Plugins/Export/ExportSql.php:344
+#: src/Plugins/Export/ExportSql.php:345
 #, php-format
 msgid "%s value"
 msgstr "%s τιμή"
 
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
-#: src/Plugins/Export/ExportSql.php:361
+#: src/Plugins/Export/ExportSql.php:362
 msgid "Use simple view export"
 msgstr "Χρήση απλής προβολής εξαγωγής"
 
-#: src/Plugins/Export/ExportSql.php:400
+#: src/Plugins/Export/ExportSql.php:401
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
@@ -17929,35 +17929,35 @@ msgstr ""
 "ονόματα πεδίων και πινάκων που δημιουργήθηκαν με ειδικούς χαρακτήρες ή "
 "λέξεις-κλειδιά)</i>"
 
-#: src/Plugins/Export/ExportSql.php:415
+#: src/Plugins/Export/ExportSql.php:416
 msgid "Data creation options"
 msgstr "Επιλογές δημιουργίας δεδομένων"
 
-#: src/Plugins/Export/ExportSql.php:420 src/Plugins/Export/ExportSql.php:2088
+#: src/Plugins/Export/ExportSql.php:421 src/Plugins/Export/ExportSql.php:2081
 msgid "Truncate table before insert"
 msgstr "Εκκαθάριση του πίνακα πριν την εισαγωγή"
 
-#: src/Plugins/Export/ExportSql.php:427
+#: src/Plugins/Export/ExportSql.php:428
 msgid "Instead of <code>INSERT</code> statements, use:"
 msgstr "Αντί για δηλώσεις <code>INSERT</code>, χρησιμοποιήστε:"
 
-#: src/Plugins/Export/ExportSql.php:433
+#: src/Plugins/Export/ExportSql.php:434
 msgid "<code>INSERT DELAYED</code> statements"
 msgstr "δηλώσεις <code>INSERT DELAYED</code>"
 
-#: src/Plugins/Export/ExportSql.php:442 src/Plugins/Export/ExportSql.php:469
+#: src/Plugins/Export/ExportSql.php:443 src/Plugins/Export/ExportSql.php:470
 msgid "<code>INSERT IGNORE</code> statements"
 msgstr "δηλώσεις <code>INSERT IGNORE</code>"
 
-#: src/Plugins/Export/ExportSql.php:453
+#: src/Plugins/Export/ExportSql.php:454
 msgid "Function to use when dumping data:"
 msgstr "Η συνάρτηση που θα χρησιμοποιηθεί κατά την μετατροπή δεδομένων:"
 
-#: src/Plugins/Export/ExportSql.php:464
+#: src/Plugins/Export/ExportSql.php:465
 msgid "Syntax to use when inserting data:"
 msgstr "Η σύνταξη που θα χρησιμοποιηθεί κατά την εισαγωγή δεδομένων:"
 
-#: src/Plugins/Export/ExportSql.php:474
+#: src/Plugins/Export/ExportSql.php:475
 msgid ""
 "include column names in every <code>INSERT</code> statement <br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
@@ -17967,7 +17967,7 @@ msgstr ""
 "&nbsp; &nbsp; Παράδειγμα: <code>INSERT INTO tbl_name (col_A,col_B,col_C) "
 "VALUES (1,2,3)</code>"
 
-#: src/Plugins/Export/ExportSql.php:479
+#: src/Plugins/Export/ExportSql.php:480
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
@@ -17977,7 +17977,7 @@ msgstr ""
 "&nbsp; &nbsp; Παράδειγμα: <code>INSERT INTO tbl_name VALUES (1,2,3), "
 "(4,5,6), (7,8,9)</code>"
 
-#: src/Plugins/Export/ExportSql.php:484
+#: src/Plugins/Export/ExportSql.php:485
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
@@ -17985,7 +17985,7 @@ msgstr ""
 "όλα τα παραπάνω<br> &nbsp; &nbsp; &nbsp; Παράδειγμα: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
-#: src/Plugins/Export/ExportSql.php:489
+#: src/Plugins/Export/ExportSql.php:490
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
@@ -17993,7 +17993,7 @@ msgstr ""
 "κανένα από τα παραπάνω<br> &nbsp; &nbsp; &nbsp; Παράδειγμα: <code>INSERT "
 "INTO tbl_name VALUES (1,2,3)</code>"
 
-#: src/Plugins/Export/ExportSql.php:508
+#: src/Plugins/Export/ExportSql.php:509
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
@@ -18001,7 +18001,7 @@ msgstr ""
 "Μετατροπή δυαδικών στηλών σε δεκαεξαδική σημείωση <i>(για παράδειγμα, το "
 "«abc» γίνεται 0x616263)</i>"
 
-#: src/Plugins/Export/ExportSql.php:517
+#: src/Plugins/Export/ExportSql.php:518
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
@@ -18010,116 +18010,116 @@ msgstr ""
 "μετατραπούν και να επαναφορτωθούν μεταξύ διακομιστών σε διαφορετικές ζώνες "
 "ώρας)</i>"
 
-#: src/Plugins/Export/ExportSql.php:594
+#: src/Plugins/Export/ExportSql.php:595
 msgid "It appears your database uses routines;"
 msgstr "Φαίνεται ότι η βάση δεδομένων σας χρησιμοποιεί ρουτίνες;"
 
-#: src/Plugins/Export/ExportSql.php:597 src/Plugins/Export/ExportSql.php:1497
-#: src/Plugins/Export/ExportSql.php:1920
+#: src/Plugins/Export/ExportSql.php:598 src/Plugins/Export/ExportSql.php:1490
+#: src/Plugins/Export/ExportSql.php:1913
 msgid "alias export may not work reliably in all cases."
 msgstr ""
 "Η εξαγωγή ετικέτας μπορεί να μη λειτουργεί αξιόπιστα σε όλες τις περιπτώσεις."
 
-#: src/Plugins/Export/ExportSql.php:1051
+#: src/Plugins/Export/ExportSql.php:1044
 msgid "Metadata"
 msgstr "Μεταδεδομένα"
 
-#: src/Plugins/Export/ExportSql.php:1116
+#: src/Plugins/Export/ExportSql.php:1109
 #, php-format
 msgid "Metadata for table %s"
 msgstr "Μεταδεδομένα για πίνακα %s"
 
-#: src/Plugins/Export/ExportSql.php:1123
+#: src/Plugins/Export/ExportSql.php:1116
 #, php-format
 msgid "Metadata for database %s"
 msgstr "Μεταδεδομένα για βάση δεδομένων %s"
 
-#: src/Plugins/Export/ExportSql.php:1411
+#: src/Plugins/Export/ExportSql.php:1404
 #, php-format
 msgid "Error reading structure for table %s:"
 msgstr "Σφάλμα ανάγνωσης για τον πίνακα %s:"
 
-#: src/Plugins/Export/ExportSql.php:1494
+#: src/Plugins/Export/ExportSql.php:1487
 msgid "It appears your database uses views;"
 msgstr "Φαίνεται ότι η βάση δεδομένων σας χρησιμοποιεί προβολές"
 
-#: src/Plugins/Export/ExportSql.php:1638
+#: src/Plugins/Export/ExportSql.php:1631
 msgid "Constraints for dumped tables"
 msgstr "Περιορισμοί για άχρηστους πίνακες"
 
-#: src/Plugins/Export/ExportSql.php:1639
+#: src/Plugins/Export/ExportSql.php:1632
 msgid "Constraints for table"
 msgstr "Περιορισμοί για πίνακα"
 
-#: src/Plugins/Export/ExportSql.php:1665
+#: src/Plugins/Export/ExportSql.php:1658
 msgid "Indexes for dumped tables"
 msgstr "Ευρετήρια για άχρηστους πίνακες"
 
-#: src/Plugins/Export/ExportSql.php:1666
+#: src/Plugins/Export/ExportSql.php:1659
 msgid "Indexes for table"
 msgstr "Ευρετήρια για πίνακα"
 
-#: src/Plugins/Export/ExportSql.php:1689
+#: src/Plugins/Export/ExportSql.php:1682
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "AUTO_INCREMENT για άχρηστους πίνακες"
 
-#: src/Plugins/Export/ExportSql.php:1690
+#: src/Plugins/Export/ExportSql.php:1683
 msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT για πίνακα"
 
-#: src/Plugins/Export/ExportSql.php:1744
+#: src/Plugins/Export/ExportSql.php:1737
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "ΤΥΠΟΙ ΠΟΛΥΜΕΣΩΝ ΓΙΑ ΠΙΝΑΚΑ"
 
-#: src/Plugins/Export/ExportSql.php:1774
+#: src/Plugins/Export/ExportSql.php:1767
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "ΣΥΣΧΕΤΙΣΕΙΣ ΓΙΑ ΠΙΝΑΚΑ"
 
-#: src/Plugins/Export/ExportSql.php:1917
+#: src/Plugins/Export/ExportSql.php:1910
 msgid "It appears your table uses triggers;"
 msgstr "Φαίνεται ότι ο πίνακάς σας χρησιμοποιεί δείκτες"
 
-#: src/Plugins/Export/ExportSql.php:1947
+#: src/Plugins/Export/ExportSql.php:1940
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "Δομή για προβολή %s εξαγώμενη ως πίνακας"
 
-#: src/Plugins/Export/ExportSql.php:1974
+#: src/Plugins/Export/ExportSql.php:1967
 msgid "(See below for the actual view)"
 msgstr "(Δείτε παρακάτω για την πραγματική προβολή)"
 
-#: src/Plugins/Export/ExportSql.php:2029
+#: src/Plugins/Export/ExportSql.php:2022
 #, php-format
 msgid "Error reading data for table %s:"
 msgstr "Σφάλμα ανάγνωσης δεδομένων για τον πίνακα %s:"
 
-#: src/Plugins/Export/ExportSql.php:2581
+#: src/Plugins/Export/ExportSql.php:2566
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:566
 msgid "Creation:"
 msgstr "Δημιουργία:"
 
-#: src/Plugins/Export/ExportSql.php:2589
+#: src/Plugins/Export/ExportSql.php:2574
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:577
 msgid "Last update:"
 msgstr "Τελευταία ενημέρωση:"
 
-#: src/Plugins/Export/ExportSql.php:2597
+#: src/Plugins/Export/ExportSql.php:2582
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:588
 msgid "Last check:"
 msgstr "Tελευταίος έλεγχος:"
 
-#: src/Plugins/Export/ExportSql.php:2618
+#: src/Plugins/Export/ExportSql.php:2603
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
 "Σύστημα βάσεων δεδομένων ή παλαιός διακομιστής MySQL για μεγιστοποίηση της "
 "συμβατότητας του εξαγόμενου με:"
 
-#: src/Plugins/Export/ExportXml.php:91
+#: src/Plugins/Export/ExportXml.php:90
 msgid "Object creation options (all are recommended)"
 msgstr "Επιλογές δημιουργίας αντικειμένου (όλες προτείνονται)"
 
-#: src/Plugins/Export/ExportXml.php:135
+#: src/Plugins/Export/ExportXml.php:134
 msgid "Export contents"
 msgstr "Εξαγωγή περιεχομένων"
 
@@ -19075,12 +19075,12 @@ msgstr "Δεν ορίστηκαν τα στοιχεία του ευρετηρί�
 msgid "Problems with indexes of table `%s`"
 msgstr "Προβλήματα με τα ευρετήρια στον πίνακα «%s»"
 
-#: src/Table/TableMover.php:313
+#: src/Table/TableMover.php:310
 #, php-format
 msgid "Source database `%s` was not found!"
 msgstr "Η Βάση δεδομένων προέλευσης «%s» δεν βρέθηκε!"
 
-#: src/Table/TableMover.php:322
+#: src/Table/TableMover.php:319
 #, php-format
 msgid "Target database `%s` was not found!"
 msgstr "Η βάση δεδομένων προορισμού «%s» δεν βρέθηκε!"
