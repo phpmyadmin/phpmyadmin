@@ -37,7 +37,7 @@ class ExportToon extends ExportPlugin
     protected function setProperties(): ExportPluginProperties
     {
         $exportPluginProperties = new ExportPluginProperties();
-        $exportPluginProperties->setText('Toon');
+        $exportPluginProperties->setText('TOON');
         $exportPluginProperties->setExtension('toon');
         $exportPluginProperties->setMimeType('text/toon');
         $exportPluginProperties->setForceFile(true);

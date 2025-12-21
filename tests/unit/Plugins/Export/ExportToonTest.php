@@ -69,7 +69,7 @@ class ExportToonTest extends AbstractTestCase
         self::assertInstanceOf(ExportPluginProperties::class, $properties);
 
         self::assertSame(
-            'Toon',
+            'TOON',
             $properties->getText(),
         );
 
