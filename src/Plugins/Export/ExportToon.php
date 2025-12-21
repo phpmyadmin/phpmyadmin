@@ -163,6 +163,11 @@ class ExportToon extends ExportPlugin
         return $this->exportData($db ?? '', '', $sqlQuery);
     }
 
+    private function setupExportConfiguration(): void
+    {
+        $this->separator = str_replace('\\t', "\011", $this->separator);
+    }
+
     /** @inheritDoc */
     public function setExportOptions(ServerRequest $request, array $exportConfig): void
     {
@@ -181,6 +186,8 @@ class ExportToon extends ExportPlugin
             (int) $request->getParsedBodyParam('toon_indent'),
             $exportConfig['toon_indent'] ?? $this->indent,
         );
+
+        $this->setupExportConfiguration();
     }
 
     private function setStringValue(mixed $fromRequest, mixed $fromConfig): string
