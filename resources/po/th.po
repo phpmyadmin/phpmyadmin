@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-12-21 00:31+0000\n"
-"PO-Revision-Date: 2025-12-20 05:00+0000\n"
+"PO-Revision-Date: 2025-12-22 18:00+0000\n"
 "Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "th/>\n"
@@ -1163,9 +1163,8 @@ msgid "Database"
 msgstr "ฐานข้อมูล"
 
 #: resources/templates/console/display.twig:15
-#, fuzzy
 msgid "SQL Query Console"
-msgstr "คำค้น SQL"
+msgstr "คอนโซลคำสั่ง SQL"
 
 #: resources/templates/console/display.twig:16 src/Config/Descriptions.php:766
 msgid "Console"
@@ -1939,9 +1938,8 @@ msgstr "สถานะ"
 
 #: resources/templates/database/events/editor_form.twig:40
 #: resources/templates/server/binlog/index.twig:84
-#, fuzzy
 msgid "Event type"
-msgstr "ชนิดคำค้น"
+msgstr "ประเภทเหตุการณ์"
 
 #: resources/templates/database/events/editor_form.twig:53
 #: resources/templates/database/routines/editor_form.twig:43
@@ -2104,7 +2102,7 @@ msgstr "ส่งออก"
 #: resources/templates/triggers/row.twig:52
 #: resources/templates/triggers/row.twig:58 src/Operations.php:538
 msgid "Drop"
-msgstr "โยนทิ้ง"
+msgstr "ลบทิ้ง"
 
 #: resources/templates/database/events/index.twig:29
 #, fuzzy
@@ -3089,7 +3087,7 @@ msgstr "สร้างมุมมอง"
 #: resources/templates/server/databases/index.twig:219
 #: resources/templates/server/databases/index.twig:231
 msgid "Not replicated"
-msgstr "ไม่ซ้ำ"
+msgstr "ไม่ทำซ้ำ"
 
 #: resources/templates/database/structure/structure_table_row.twig:18
 #: resources/templates/server/databases/index.twig:215
@@ -3256,7 +3254,6 @@ msgstr "เริ่มต้น"
 #: resources/templates/list_navigator.twig:21
 #: resources/templates/server/binlog/index.twig:45
 #: resources/templates/server/binlog/index.twig:50
-#, fuzzy
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "ก่อนหน้า"
@@ -3434,9 +3431,8 @@ msgid "You may examine the data in the error report:"
 msgstr ""
 
 #: resources/templates/error/report_form.twig:23 src/Error/ErrorHandler.php:420
-#, fuzzy
 msgid "Automatically send report next time"
-msgstr "สร้างเวอร์ชั่นโดยอัตโนมัติ"
+msgstr "ส่งรายงานโดยอัตโนมัติในครั้งต่อไป"
 
 #: resources/templates/error/report_modal.twig:5
 msgid "Submit error report"
@@ -4775,7 +4771,7 @@ msgstr "แสดงคำค้นแบบเต็ม"
 
 #: resources/templates/server/binlog/index.twig:82
 msgid "Log name"
-msgstr ""
+msgstr "ชื่อบันทึก"
 
 #: resources/templates/server/binlog/index.twig:83
 msgid "Position"
@@ -4783,13 +4779,12 @@ msgstr "ตำแหน่ง"
 
 #: resources/templates/server/binlog/index.twig:85
 #: resources/templates/server/replication/primary_replication.twig:24
-#, fuzzy
 msgid "Server ID"
-msgstr "เซิร์ฟเวอร์"
+msgstr "ไอดีเซิร์ฟเวอร์"
 
 #: resources/templates/server/binlog/index.twig:86
 msgid "Original position"
-msgstr "ตำแหน่งเริ่มแรก"
+msgstr "ตำแหน่งดั้งเดิม"
 
 #: resources/templates/server/binlog/index.twig:87
 #: resources/templates/table/structure/display_table_stats.twig:2
@@ -4902,28 +4897,27 @@ msgstr "ขนาดบัฟเฟอร์ของ InnoDB"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:5
 msgid "Free pages"
-msgstr "หน้าฟรี"
+msgstr "หน่วยความจำว่างในบัฟเฟอร์พูล"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:9
 msgid "Dirty pages"
-msgstr ""
+msgstr "หน้าข้อมูลในหน่วยความจำชั่วคราว"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:13
 msgid "Pages containing data"
-msgstr ""
+msgstr "หน่วยความจำที่ประกอบด้วยข้อมูล"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:17
-#, fuzzy
 msgid "Pages to be flushed"
-msgstr "ล้างตาราง %s เรียบร้อยแล้ว"
+msgstr "หน่วยความจำที่จะถูกล้าง"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:21
 msgid "Busy pages"
-msgstr "หน้าไม่ว่าง"
+msgstr "หน้าหน่วยความจำไม่ว่าง"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:26
 msgid "Latched pages"
-msgstr ""
+msgstr "หน้าหน่วยความจำแบบย่อ"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:34
 #, fuzzy, php-format
@@ -4937,11 +4931,11 @@ msgstr "ขนาดบัฟเฟอร์ของ InnoDB"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:44
 msgid "Read requests"
-msgstr ""
+msgstr "คำขออ่าน"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:48
 msgid "Write requests"
-msgstr ""
+msgstr "คำขอเขียน"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:52
 msgid "Read misses"
@@ -6604,9 +6598,9 @@ msgid "Session value"
 msgstr "ค่าเซสชั่น"
 
 #: resources/templates/server/variables/index.twig:80
-#, fuzzy, php-format
+#, php-format
 msgid "Not enough privilege to view server variables and settings. %s"
-msgstr "ตัวแปรของเซิร์ฟเวอร์และการตั้งค่า"
+msgstr "ไม่มีสิทธิ์เพียงพอที่จะดูตัวแปรและการตั้งค่าเซิร์ฟเวอร์ %s"
 
 #: resources/templates/setup/base.twig:28
 #: resources/templates/setup/home/index.twig:20
@@ -6807,9 +6801,8 @@ msgstr "ผลลัพธ์"
 #: src/Controllers/Table/RelationController.php:143
 #: src/Database/Routines.php:1019 src/Display/Results.php:3012
 #: src/Message.php:122
-#, fuzzy
 msgid "Your SQL query has been executed successfully."
-msgstr "ทำคำค้นเสร็จเรียบร้อยแล้ว"
+msgstr "คำสั่ง SQL ของคุณได้รับการดำเนินการเรียบร้อยแล้ว"
 
 #: resources/templates/sql/query.twig:20 src/Server/Status/Data.php:113
 #: src/Server/Status/Processes.php:113
@@ -7016,14 +7009,12 @@ msgstr "สร้างตารางในฐานข้อมูลนี้
 #: resources/templates/table/find_replace/index.twig:4
 #: resources/templates/table/search/index.twig:4
 #: resources/templates/table/zoom_search/index.twig:4
-#, fuzzy
 msgid "Table search"
-msgstr "ค้นหา"
+msgstr "ตารางค้นหา"
 
 #: resources/templates/table/find_replace/index.twig:10
 #: resources/templates/table/search/index.twig:10
 #: resources/templates/table/zoom_search/index.twig:10
-#, fuzzy
 msgid "Zoom search"
 msgstr "ค้นหาแบบ Zoom"
 
@@ -7031,9 +7022,8 @@ msgstr "ค้นหาแบบ Zoom"
 #: resources/templates/table/find_replace/index.twig:27
 #: resources/templates/table/search/index.twig:16
 #: resources/templates/table/zoom_search/index.twig:16
-#, fuzzy
 msgid "Find and replace"
-msgstr "ซ่อนหลักในการค้นหา"
+msgstr "ค้นหาและแทนที่"
 
 #: resources/templates/table/find_replace/index.twig:36
 #, fuzzy
@@ -7321,16 +7311,16 @@ msgstr "ลบข้อมูลตาราง (TRUNCATE)"
 #: resources/templates/table/operations/view.twig:32
 #: src/Controllers/Database/StructureController.php:365
 #: src/Controllers/Database/StructureController.php:354
-#, fuzzy, php-format
+#, php-format
 msgid "View %s has been dropped."
-msgstr "โยนวิว %s ทิ้งไปเรียบร้อยแล้ว"
+msgstr "มุมมอง %s ถูกลบทิ้งแล้ว"
 
 #: resources/templates/table/operations/index.twig:459
 #: src/Controllers/Database/StructureController.php:365
 #: src/Controllers/Database/StructureController.php:354
-#, fuzzy, php-format
+#, php-format
 msgid "Table %s has been dropped."
-msgstr "โยนตาราง %s ทิ้งไปเรียบร้อยแล้ว"
+msgstr "ตาราง %s ถูกลบทิ้งแล้ว"
 
 #: resources/templates/table/operations/index.twig:460
 msgid "Delete the table (DROP)"
@@ -7626,9 +7616,8 @@ msgid "More"
 msgstr "เพิ่มเติม"
 
 #: resources/templates/table/structure/display_structure.twig:228
-#, fuzzy
 msgid "Distinct values"
-msgstr "ค่าเซสชั่น"
+msgstr "ค่าที่แตกต่างกัน"
 
 #: resources/templates/table/structure/display_structure.twig:239
 #: resources/templates/table/structure/display_structure.twig:304
@@ -10457,14 +10446,13 @@ msgid "Display the function fields in edit/insert mode."
 msgstr "แสดงช่องข้อมูลฟังก์ชันในโหมดแก้ไข/แทรก"
 
 #: src/Config/Descriptions.php:487
-#, fuzzy
 msgid "Whether to show hint or not."
-msgstr "จะแสดงคำแนะนำหรือไม่"
+msgstr "ไม่ว่าจะแสดงคำแนะนำหรือไม่ก็ตาม"
 
 #: src/Config/Descriptions.php:488
 msgid ""
 "Defines whether SQL queries generated by phpMyAdmin should be displayed."
-msgstr "กำหนดว่าไม่ว่าจะเป็นคำสั่ง SQL ที่สร้างโดย phpMyAdmin หรือไม่ก็ควรต้องแสดง"
+msgstr "ไม่ว่าคำสั่ง SQL จะถูกสร้างขึ้นโดย phpMyAdmin หรือไม่ก็ควรต้องแสดง"
 
 #: src/Config/Descriptions.php:489
 msgid "Allow to display database and table statistics (e.g. space usage)."
@@ -11769,7 +11757,7 @@ msgstr "แสดงประเภทช่องข้อมูล"
 
 #: src/Config/Descriptions.php:918
 msgid "Show function fields"
-msgstr ""
+msgstr "แสดงช่องฟังก์ชัน"
 
 #: src/Config/Descriptions.php:919
 msgid "Show hint"
@@ -11777,11 +11765,11 @@ msgstr "แสดงคำแนะนำ"
 
 #: src/Config/Descriptions.php:920
 msgid "Show phpinfo() link"
-msgstr ""
+msgstr "แสดงลิงก์ phpinfo()"
 
 #: src/Config/Descriptions.php:921
 msgid "Show detailed MySQL server information"
-msgstr ""
+msgstr "แสดงข้อมูลเซิร์ฟเวอร์ MySQL โดยละเอียด"
 
 #: src/Config/Descriptions.php:922
 msgid "Show SQL queries"
@@ -12189,37 +12177,37 @@ msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr "เว้นชื่อผู้ใช้ให้ว่างขณะใช้วิธี [kbd]config[/kbd] การตรวจสอบสิทธิ์!"
 
 #: src/Config/Validator.php:298
-#, fuzzy
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
-msgstr "﻿สามารถค้นหา signon สำหรับตรวจสอบสคริปต์:"
+msgstr ""
+"ล้างชื่อเซสชัน signon การเข้าสู่ระบบขณะใช้วิธีการตรวจสอบสิทธิ์ [kbd]signon[/kbd]!"
 
 #: src/Config/Validator.php:305
-#, fuzzy
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
-msgstr "﻿สามารถค้นหา signon สำหรับตรวจสอบสคริปต์:"
+msgstr "ล้าง URL signon ขณะใช้วิธีการตรวจสอบสิทธิ์ [kbd]signon[/kbd]!"
 
 #: src/Config/Validator.php:358
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
+"ล้างข้อมูลผู้ใช้ควบคุม phpMyAdmin ในขณะที่ใช้พื้นที่จัดเก็บการกำหนดค่า phpMyAdmin!"
 
 #: src/Config/Validator.php:365
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
 msgstr ""
+"ล้างรหัสผ่านผู้ใช้ควบคุม phpMyAdmin ขณะใช้งานพื้นที่จัดเก็บการกำหนดค่า phpMyAdmin!"
 
 #: src/Config/Validator.php:454
-#, fuzzy
 msgid "Incorrect value:"
-msgstr "ค่าไม่ถูกต้อง"
+msgstr "ค่าไม่ถูกต้อง:"
 
 #: src/Config/Validator.php:465
 #, php-format
 msgid "Incorrect IP address: %s"
-msgstr ""
+msgstr "ที่อยู่ IP ไม่ถูกต้อง: %s"
 
 #: src/Config/Validator.php:528
 #: src/Controllers/JavaScriptMessagesController.php:803
@@ -12246,12 +12234,11 @@ msgstr "ค่าควรจะน้อยกว่าหรือเท่า
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
-msgstr[0] ""
+msgstr[0] "แสดง %1$d บุ๊กมาร์ก (ทั้งส่วนตัวและแชร์)"
 
 #: src/Console/Console.php:71
-#, fuzzy
 msgid "No bookmarks"
-msgstr "ค้นหา"
+msgstr "ไม่พบบุ๊กมาร์ก"
 
 #: src/Controllers/ChangeLogController.php:61
 #: src/Controllers/LicenseController.php:46
@@ -12540,7 +12527,8 @@ msgstr ""
 msgid ""
 "This view has at least this number of rows. Please refer to "
 "%sdocumentation%s."
-msgstr "การแสดงผลนี้ จะแสดงเพียงจำนวนข้อมูลนี้เท่านั้น ดูข้อมูลเพิ่มเติมได้ที่ %sdocumentation%s"
+msgstr ""
+"มุมมองนี้มีแถวอย่างน้อยจำนวนเท่านี้ โปรดดูเอกสารประกอบที่ %sdocumentation%s"
 
 #: src/Controllers/Database/StructureController.php:735
 #: src/Controllers/Database/StructureController.php:736
@@ -12549,7 +12537,7 @@ msgstr "ไม่ระบุ"
 
 #: src/Controllers/Database/Structure/FavoriteTableController.php:101
 msgid "Favorite List is full!"
-msgstr ""
+msgstr "รายการโปรดเต็มแล้ว!"
 
 #: src/Controllers/Database/TrackingController.php:71
 #: src/Controllers/Database/TrackingController.php:97
@@ -14788,10 +14776,10 @@ msgid "Database %1$s has been created."
 msgstr "ฐานข้อมูล %1$s ถูกสร้างเรียบร้อยแล้ว"
 
 #: src/Controllers/Server/Databases/DestroyController.php:90
-#, fuzzy, php-format
+#, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "%s ฐานข้อมูลได้ถูกทิ้งไปเรียบร้อยแล้ว."
+msgstr[0] "%1$d ฐานข้อมูลถูกลบทิ้งเรียบร้อยแล้ว"
 
 #: src/Controllers/Server/Privileges/AccountLockController.php:47
 #, fuzzy, php-format
@@ -15424,7 +15412,7 @@ msgstr "หน่วยความจำของชุดคำสั่ง �
 
 #: src/Controllers/Server/Variables/SetVariableController.php:83
 msgid "Setting variable failed"
-msgstr ""
+msgstr "การตั้งค่าตัวแปรล้มเหลว"
 
 #: src/Controllers/Setup/ConfigController.php:44
 #: src/Controllers/Setup/FormController.php:45
@@ -15484,9 +15472,9 @@ msgstr "ที่คั่นหน้า %s ได้ถูกสร้าง�
 #: src/Controllers/Table/Structure/PartitioningController.php:265
 #: src/Controllers/Table/Structure/SaveController.php:217
 #: src/Controllers/Table/Structure/PartitioningController.php:262
-#, fuzzy, php-format
+#, php-format
 msgid "Table %1$s has been altered successfully."
-msgstr "ลบผู้ใช้ที่เลือกไว้เรียบร้อยแล้ว."
+msgstr "ตาราง %1$s ได้รับการแก้ไขเรียบร้อยแล้ว"
 
 #: src/Controllers/Table/ChangeRowsController.php:36
 #: src/Controllers/Table/DeleteConfirmController.php:38
@@ -15498,16 +15486,15 @@ msgstr "ยังไม่ได้เลือกแถว"
 #: src/Controllers/Table/ChartController.php:59
 #: src/Controllers/Table/GisVisualizationController.php:80
 msgid "No SQL query was set to fetch data."
-msgstr ""
+msgstr "ไม่ได้ตั้งค่าคำสั่ง SQL เพื่อดึงข้อมูล"
 
 #: src/Controllers/Table/ChartController.php:165
 msgid "No numeric columns present in the table to plot."
-msgstr ""
+msgstr "ไม่มีคอลัมน์ตัวเลขในตารางให้สร้างกราฟ"
 
 #: src/Controllers/Table/ChartController.php:236
-#, fuzzy
 msgid "No data to display"
-msgstr "ไม่มีข้อมูล"
+msgstr "ไม่มีข้อมูลแสดง"
 
 #: src/Controllers/Table/CreateController.php:62
 #: src/Controllers/Table/GetFieldController.php:53
@@ -15528,9 +15515,8 @@ msgstr "มีผู้ใช้ %s อยู่แล้ว!"
 #: src/Controllers/Table/Structure/CentralColumnsRemoveController.php:37
 #: src/Controllers/Table/Structure/ChangeController.php:61
 #: src/Controllers/Table/Structure/PrimaryController.php:44
-#, fuzzy
 msgid "No column selected."
-msgstr "ยังไม่ได้เลือกแถว"
+msgstr "ไม่ได้เลือกคอลัมน์ใด ๆ"
 
 #: src/Controllers/Table/DropColumnController.php:69
 #, fuzzy, php-format
@@ -15586,14 +15572,12 @@ msgid "Invalid database or table name."
 msgstr "ชื่อตารางไม่ถูกต้อง"
 
 #: src/Controllers/Table/RelationController.php:316
-#, fuzzy
 msgid "Display column was successfully updated."
-msgstr "เธรด %s ถูกทำลายเรียบร้อยแล้ว."
+msgstr "คอลัมน์แสดงผลได้รับการอัปเดตเรียบร้อยแล้ว"
 
 #: src/Controllers/Table/RelationController.php:350
-#, fuzzy
 msgid "Internal relationships were successfully updated."
-msgstr "รีเลชันภายใน"
+msgstr "ความสัมพันธ์ภายในได้รับการปรับปรุงเรียบร้อยแล้ว"
 
 #: src/Controllers/Table/ReplaceController.php:184
 #, php-format
@@ -15605,9 +15589,8 @@ msgid "Invalid request parameter."
 msgstr ""
 
 #: src/Controllers/Table/Structure/MoveColumnsController.php:82
-#, fuzzy
 msgid "The columns have been moved successfully."
-msgstr "ลบผู้ใช้ที่เลือกไว้เรียบร้อยแล้ว."
+msgstr "คอลัมน์ถูกเคลื่อนย้ายเรียบร้อยแล้ว"
 
 #: src/Controllers/Table/Structure/MoveColumnsController.php:114
 #, fuzzy
@@ -15622,15 +15605,14 @@ msgstr ""
 #: src/Controllers/Table/Structure/SaveController.php:267
 #: src/Tracking/Tracking.php:731
 #: src/Controllers/Table/Structure/PartitioningController.php:254
-#, fuzzy
 msgid "Query error"
-msgstr "ชนิดคำค้น"
+msgstr "คำสั่งเรียกดูผิดพลาด"
 
 #: src/Controllers/Table/Structure/ReservedWordCheckController.php:59
 #, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
-msgstr[0] ""
+msgstr[0] "ชื่อ '%s' เป็นคำสงวนของ MySQL"
 
 #: src/Controllers/Table/Structure/SaveController.php:212
 #, php-format
@@ -15717,66 +15699,57 @@ msgid ""
 msgstr "ที่จัดเก็บการตั้งค่าไม่พร้อมสำหรับฟีเจอร์รายการคอลัมน์ส่วนกลาง"
 
 #: src/Database/Designer/Common.php:445
-#, fuzzy
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
 "on designer when user tries to set a display field."
 msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
-msgstr "การจัดเก็บการกำหนดค่าไม่พร้อมใช้งานสำหรับรายการส่วนกลางของคุณลักษณะของคอลัมน์"
+msgstr ""
+"พื้นที่จัดเก็บการกำหนดค่า phpMyAdmin ไม่ได้ถูกกำหนดไว้สำหรับ \"การแสดงคุณสมบัติ\""
 
 #: src/Database/Designer/Common.php:487
-#, fuzzy
 msgid "Error: relationship already exists."
-msgstr "มีผู้ใช้ %s อยู่แล้ว!"
+msgstr "ข้อผิดพลาด: ความสัมพันธ์นี้มีอยู่แล้ว"
 
 #: src/Database/Designer/Common.php:528
-#, fuzzy
 msgid "FOREIGN KEY relationship has been added."
-msgstr "บันทึกการแก้ไขเรียบร้อยแล้ว"
+msgstr "ได้เพิ่มความสัมพันธ์ FOREIGN KEY แล้ว"
 
 #: src/Database/Designer/Common.php:533
-#, fuzzy
 msgid "Error: FOREIGN KEY relationship could not be added!"
-msgstr "อ่านไฟล์ไม่ได้"
+msgstr "ข้อผิดพลาด: ไม่สามารถเพิ่มความสัมพันธ์ FOREIGN KEY ได้!"
 
 #: src/Database/Designer/Common.php:536
 msgid "Error: Missing index on column(s)."
-msgstr ""
+msgstr "ข้อผิดพลาด: ไม่พบดัชนีในคอลัมน์ใด ๆ"
 
 #: src/Database/Designer/Common.php:541 src/Database/Designer/Common.php:603
 msgid "Error: Relational features are disabled!"
-msgstr ""
+msgstr "ข้อผิดพลาด: คุณสมบัติเชิงสัมพันธ์ถูกปิดใช้งาน!"
 
 #: src/Database/Designer/Common.php:562
-#, fuzzy
 msgid "Internal relationship has been added."
-msgstr "รีเลชันภายใน"
+msgstr "มีการเพิ่มความสัมพันธ์ภายในแล้ว"
 
 #: src/Database/Designer/Common.php:567
-#, fuzzy
 msgid "Error: Internal relationship could not be added!"
-msgstr "อ่านไฟล์ไม่ได้"
+msgstr "ข้อผิดพลาด: ไม่สามารถเพิ่มความสัมพันธ์ภายในได้!"
 
 #: src/Database/Designer/Common.php:597
-#, fuzzy
 msgid "FOREIGN KEY relationship has been removed."
-msgstr "บันทึกการแก้ไขเรียบร้อยแล้ว"
+msgstr "ความสัมพันธ์ FOREIGN KEY ถูกลบออกแล้ว"
 
 #: src/Database/Designer/Common.php:622
-#, fuzzy
 msgid "Error: Internal relationship could not be removed!"
-msgstr "อ่านไฟล์ไม่ได้"
+msgstr "ข้อผิดพลาด: ไม่สามารถลบความสัมพันธ์ภายในได้!"
 
 #: src/Database/Designer/Common.php:625
-#, fuzzy
 msgid "Internal relationship has been removed."
-msgstr "รีเลชันภายใน"
+msgstr "ความสัมพันธ์ภายในถูกลบออกแล้ว"
 
 #: src/Database/Designer.php:112
-#, fuzzy
 msgid "Could not load schema plugins, please check your installation!"
-msgstr "ไม่สามารถโหลดนำเข้าปลั๊กอินได้ กรุณาตรวจสอบการติดตั้งของคุณ"
+msgstr "ไม่สามารถโหลดปลั๊กอินโครงร่างได้ โปรดตรวจสอบการติดตั้งของคุณ!"
 
 #: src/Database/Events.php:93 src/Database/Events.php:102
 #: src/Database/Events.php:136 src/Database/Routines.php:105
@@ -16016,8 +15989,8 @@ msgid ""
 "The default pointer size in bytes, to be used by CREATE TABLE for MyISAM "
 "tables when no MAX_ROWS option is specified."
 msgstr ""
-"ขนาดพอยน์เตอร์เริ่มต้นในหน่วยเป็นไบต์ที่จะใช้โดยคำสั่ง CREATE TABLE สำหรับตาราง MyISAM "
-"เมื่อไม่ได้ระบุตัวเลือก MAX_ROWS"
+"ขนาดพอยน์เตอร์เริ่มต้นมีหน่วยเป็นไบต์ที่จะใช้โดยคำสั่ง CREATE TABLE สำหรับตาราง MyISAM เมื่อไม่"
+"ได้ระบุตัวเลือก MAX_ROWS"
 
 #: src/Engines/Myisam.php:36
 msgid "Automatic recovery mode"
@@ -16028,6 +16001,8 @@ msgid ""
 "The mode for automatic recovery of crashed MyISAM tables, as set via the --"
 "myisam-recover server startup option."
 msgstr ""
+"โหมดสำหรับการกู้คืนตาราง MyISAM อัตโนมัติที่เสียหาย ตามที่ตั้งค่าไว้ผ่านตัวเลือกการเริ่มต้นเซิร์ฟเวอ"
+"ร์ --myisam-recover"
 
 #: src/Engines/Myisam.php:43
 msgid "Maximum size for temporary sort files"
@@ -16039,10 +16014,12 @@ msgid ""
 "creating a MyISAM index (during REPAIR TABLE, ALTER TABLE, or LOAD DATA "
 "INFILE)."
 msgstr ""
+"ขนาดสูงสุดของไฟล์ชั่วคราวที่ MySQL ที่อนุญาตให้ใช้ขณะสร้างดัชนี MyISAM ใหม่ (ระหว่างคำสั่ง "
+"REPAIR TABLE, ALTER TABLE หรือ LOAD DATA INFILE)"
 
 #: src/Engines/Myisam.php:52
 msgid "Maximum size for temporary files on index creation"
-msgstr ""
+msgstr "ขนาดสูงสุดสำหรับไฟล์ชั่วคราวเมื่อสร้างดัชนี"
 
 #: src/Engines/Myisam.php:54
 msgid ""
@@ -16050,40 +16027,48 @@ msgid ""
 "than using the key cache by the amount specified here, prefer the key cache "
 "method."
 msgstr ""
+"หากไฟล์ชั่วคราวที่ใช้สำหรับการสร้างดัชนี MyISAM อย่างรวดเร็วมีขนาดใหญ่กว่าการใช้แคชคีย์ตามจำนวน"
+"ที่ระบุไว้ที่นี่ ให้เลือกใช้วิธีแคชคีย์"
 
 #: src/Engines/Myisam.php:61
 msgid "Repair threads"
-msgstr "ซ่อมแซมเธรด"
+msgstr "ซ่อมแซมรอบงาน"
 
 #: src/Engines/Myisam.php:63
 msgid ""
 "If this value is greater than 1, MyISAM table indexes are created in "
 "parallel (each index in its own thread) during the repair by sorting process."
 msgstr ""
+"หากค่านี้มากกว่า 1 ดัชนีตาราง MyISAM จะถูกสร้างขึ้นแบบขนาน (แต่ละดัชนีในรอบงานของตัวเอง) ใน"
+"ระหว่างกระบวนการซ่อมแซมโดยการเรียงลำดับ"
 
 #: src/Engines/Myisam.php:70
 msgid "Sort buffer size"
-msgstr ""
+msgstr "ขนาดบัฟเฟอร์การเรียงลำดับ"
 
 #: src/Engines/Myisam.php:72
 msgid ""
 "The buffer that is allocated when sorting MyISAM indexes during a REPAIR "
 "TABLE or when creating indexes with CREATE INDEX or ALTER TABLE."
 msgstr ""
+"บัฟเฟอร์ที่ถูกจัดสรรเมื่อทำการเรียงลำดับดัชนี MyISAM ในระหว่างการซ่อมแซมตาราง (REPAIR "
+"TABLE) หรือเมื่อสร้างดัชนีด้วยคำสั่ง CREATE INDEX หรือ ALTER TABLE"
 
 #: src/Engines/Pbxt.php:33
 msgid "Index cache size"
-msgstr ""
+msgstr "ขนาดแคชดัชนี"
 
 #: src/Engines/Pbxt.php:35
 msgid ""
 "This is the amount of memory allocated to the index cache. Default value is "
 "32MB. The memory allocated here is used only for caching index pages."
 msgstr ""
+"นี่คือปริมาณหน่วยความจำที่จัดสรรให้กับแคชดัชนี ค่าเริ่มต้นคือ 32 เมกะไบต์ หน่วยความจำที่จัดสรรไว้ที่นี่ใ"
+"ช้สำหรับการแคชหน้าดัชนีเท่านั้น"
 
 #: src/Engines/Pbxt.php:42
 msgid "Record cache size"
-msgstr ""
+msgstr "ขนาดแคชการบันทึก"
 
 #: src/Engines/Pbxt.php:44
 msgid ""
@@ -16091,50 +16076,61 @@ msgid ""
 "table data. The default value is 32MB. This memory is used to cache changes "
 "to the handle data (.xtd) and row pointer (.xtr) files."
 msgstr ""
+"นี่คือปริมาณหน่วยความจำที่จัดสรรให้กับแคชการบันทึก ซึ่งใช้ในการเก็บข้อมูลตาราง ค่าเริ่มต้นคือ 32 เมก"
+"ะไบต์ หน่วยความจำนี้ใช้ในการแคชการเปลี่ยนแปลงของไฟล์ที่จัดการข้อมูล (.xtd) และไฟล์ตัวชี้แถว "
+"(.xtr)"
 
 #: src/Engines/Pbxt.php:52
 msgid "Log cache size"
-msgstr "ขนาดการบันทึกประวัติการแคช"
+msgstr "ขนาดแคชการบันทึก"
 
 #: src/Engines/Pbxt.php:54
 msgid ""
 "The amount of memory allocated to the transaction log cache used to cache on "
 "transaction log data. The default is 16MB."
 msgstr ""
+"ปริมาณหน่วยความจำที่จัดสรรให้กับแคชบันทึกรายการใช้สำหรับแคชข้อมูลบันทึกรายการ ค่าเริ่มต้นคือ 16 เ"
+"มกะไบต์"
 
 #: src/Engines/Pbxt.php:61
 msgid "Log file threshold"
-msgstr ""
+msgstr "เกณฑ์ไฟล์บันทึก"
 
 #: src/Engines/Pbxt.php:63
 msgid ""
 "The size of a transaction log before rollover, and a new log is created. The "
 "default value is 16MB."
 msgstr ""
+"ขนาดของไฟล์บันทึกรายการก่อนที่จะมีการหมุนเวียน และเมื่อมีการสร้างไฟล์บันทึกใหม่ ค่าเริ่มต้นคือ 16 เ"
+"มกะไบต์"
 
 #: src/Engines/Pbxt.php:69
 msgid "Transaction buffer size"
-msgstr ""
+msgstr "ขนาดบัฟเฟอร์การทำรายการ"
 
 #: src/Engines/Pbxt.php:71
 msgid ""
 "The size of the global transaction log buffer (the engine allocates 2 "
 "buffers of this size). The default is 1MB."
 msgstr ""
+"ขนาดของบัฟเฟอร์บันทึกรายการทั้งระบบ (ระบบจัดสรร 2 บัฟเฟอร์ด้วยขนาดนี้) ค่าเริ่มต้นคือ 1 เมกะไบ"
+"ต์"
 
 #: src/Engines/Pbxt.php:78
 msgid "Checkpoint frequency"
-msgstr ""
+msgstr "ความถี่จุดตรวจสอบ"
 
 #: src/Engines/Pbxt.php:80
 msgid ""
 "The amount of data written to the transaction log before a checkpoint is "
 "performed. The default value is 24MB."
 msgstr ""
+"ปริมาณข้อมูลที่จะเขียนลงในไฟล์บันทึกรายการก่อนที่จะทำการตรวจสอบจุดเปลี่ยน (checkpoint) ค่าเริ่ม"
+"ต้นคือ 24 เมกะไบต์"
 
 #: src/Engines/Pbxt.php:87
 msgid "Data log threshold"
-msgstr ""
+msgstr "เกณฑ์การบันทึกข้อมูล"
 
 #: src/Engines/Pbxt.php:89
 msgid ""
@@ -16143,20 +16139,24 @@ msgid ""
 "value of this variable can be increased to increase the total amount of data "
 "that can be stored in the database."
 msgstr ""
+"ขนาดสูงสุดของไฟล์บันทึกข้อมูล ค่าเริ่มต้นคือ 64 เมกกะไบต์ ค่า PBXT สามารถสร้างไฟล์บันทึกข้อมูลได้สู"
+"งสุด 32,000 ข้อมูล ซึ่งจะถูกใช้โดยทุกตาราง ดังนั้น ค่าของตัวแปรนี้สามารถเพิ่มขึ้นเพื่อเพิ่มปริมาณข้อมูล"
+"ทั้งหมดที่สามารถจัดเก็บในฐานข้อมูลได้"
 
 #: src/Engines/Pbxt.php:98
 msgid "Garbage threshold"
-msgstr ""
+msgstr "เกณฑ์ขยะ"
 
 #: src/Engines/Pbxt.php:100
 msgid ""
 "The percentage of garbage in a data log file before it is compacted. This is "
 "a value between 1 and 99. The default is 50."
 msgstr ""
+"เปอร์เซ็นต์ของข้อมูลขยะในไฟล์บันทึกข้อมูลก่อนที่จะถูกบีบอัด ค่านี้อยู่ระหว่าง 1 ถึง 99 ค่าเริ่มต้นคือ 50"
 
 #: src/Engines/Pbxt.php:107
 msgid "Log buffer size"
-msgstr ""
+msgstr "ขนาดบัฟเฟอร์บันทึก"
 
 #: src/Engines/Pbxt.php:109
 msgid ""
@@ -16164,26 +16164,28 @@ msgid ""
 "The engine allocates one buffer per thread, but only if the thread is "
 "required to write a data log."
 msgstr ""
+"ขนาดของบัฟเฟอร์ที่ใช้ในการเขียนบันทึกข้อมูล ค่าเริ่มต้นคือ 256 เมกกะไบต์ ระบบจะจัดสรรหนึ่งบัฟเฟอร์"
+"ต่อรอบงาน แต่เฉพาะในกรณีที่รอบงานนั้นจำเป็นสำหรับการเขียนบันทึกข้อมูลเท่านั้น"
 
 #: src/Engines/Pbxt.php:117
 msgid "Data file grow size"
-msgstr ""
+msgstr "ขนาดไฟล์ข้อมูลเพิ่มขึ้น"
 
 #: src/Engines/Pbxt.php:118
 msgid "The grow size of the handle data (.xtd) files."
-msgstr ""
+msgstr "ขนาดของไฟล์ที่เพิ่มขึ้นในการจัดการข้อมูล (.xtd)"
 
 #: src/Engines/Pbxt.php:122
 msgid "Row file grow size"
-msgstr ""
+msgstr "ขนาดของไฟล์แถวเพิ่มขึ้น"
 
 #: src/Engines/Pbxt.php:123
 msgid "The grow size of the row pointer (.xtr) files."
-msgstr ""
+msgstr "ขนาดของไฟล์ที่เพิ่มขึ้นของตัวชี้แถว (.xtr)"
 
 #: src/Engines/Pbxt.php:127
 msgid "Log file count"
-msgstr ""
+msgstr "จำนวนไฟล์บันทึก"
 
 #: src/Engines/Pbxt.php:129
 msgid ""
@@ -16192,6 +16194,9 @@ msgid ""
 "will be deleted, otherwise they are renamed and given the next highest "
 "number."
 msgstr ""
+"นี่คือจำนวนไฟล์บันทึกรายการ (pbxt/system/xlog*.xt) ที่ระบบจะเก็บรักษาไว้ หากจำนวนไฟล์บันทึก"
+"เกินค่านี้ ไฟล์บันทึกเก่าจะถูกลบออก มิฉะนั้น ไฟล์บันทึกจะถูกแก้ไขชื่อและกำหนดหมายเลขใหม่ให้สูงกว่าค่า"
+"ก่อนหน้า"
 
 #: src/Engines/Pbxt.php:179
 #, php-format
@@ -16199,15 +16204,15 @@ msgid ""
 "Documentation and further information about PBXT can be found on the "
 "%sPrimeBase XT Home Page%s."
 msgstr ""
+"เอกสารและข้อมูลเพิ่มเติมเกี่ยวกับ PBXT สามารถดูได้ที่ %sPrimeBase XT Home Page%s"
 
 #: src/Error/ErrorHandler.php:105
 msgid "Too many error messages, some are not displayed."
-msgstr "มีข้อความผิดพลาดจำนวนมาก บางส่วนจึงซ่อนไว้ไม่แสดง"
+msgstr "มีข้อความผิดพลาดจำนวนมากเกินไป บางส่วนจึงไม่แสดง"
 
 #: src/Error/ErrorHandler.php:415
-#, fuzzy
 msgid "Report"
-msgstr "นำเข้า"
+msgstr "รายงาน"
 
 #: src/Exceptions/AuthenticationFailure.php:35
 #, fuzzy
@@ -16250,13 +16255,14 @@ msgstr "พื้นที่ไม่เพียงพอที่จะบั
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
-msgstr "ให้เปลี่ยนชื่อไฟล์ หรือเลือกแบบเขียนทับไฟล์เดิม เพราะมีไฟล์ %s อยู่ในเซิร์ฟเวอร์อยู่แล้ว"
+msgstr ""
+"ไฟล์ %s มีอยู่แล้วบนเซิร์ฟเวอร์ โปรดเปลี่ยนชื่อไฟล์หรือเลือกตัวเลือกการเขียนทับ"
 
 #: src/Export/OutputHandler.php:205 src/Export/OutputHandler.php:217
 #: src/Export/Export.php:389 src/Export/Export.php:399
 #, php-format
 msgid "The web server does not have permission to save the file %s."
-msgstr "บันทึกไฟล์ %s ไม่ได้ เพราะเว็บเซิร์ฟเวอร์ไม่อนุญาต"
+msgstr "เว็บเซิร์ฟเวอร์ไม่มีสิทธิ์ในการบันทึกไฟล์ %s"
 
 #: src/Export/OutputHandler.php:248 src/Export/Export.php:436
 #, php-format
@@ -16275,21 +16281,23 @@ msgstr "ไม่สามารถบันทึกตารางล่าส
 
 #: src/File.php:227
 msgid "File was not an uploaded file."
-msgstr "ไฟล์ไม่ได้ถูกอัพโหลด"
+msgstr "ไม่ใช่ไฟล์ที่อัปโหลดไว้"
 
 #: src/File.php:263
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
-msgstr "ไฟล์ที่อัพโหลดขนาดเกินที่กำหนด"
+msgstr ""
+"ไฟล์ที่อัปโหลดมีขนาดเกินค่า upload_max_filesize ที่กำหนดไว้ในไฟล์ php.ini"
 
 #: src/File.php:268
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
-msgstr "จำนวนไฟล์ที่อัพโหลดเกินจำนวนสูงสุดที่กำหนด"
+msgstr ""
+"ไฟล์ที่อัปโหลดมีขนาดเกินกว่าค่า MAX_FILE_SIZE ที่กำหนดไว้ในแบบฟอร์ม HTML"
 
 #: src/File.php:273
 msgid "The uploaded file was only partially uploaded."
-msgstr "ไฟล์ที่ถูกอัพโหลดมาไม่ครบ"
+msgstr "ไฟล์ที่อัปโหลดเป็นเพียงบางส่วนเท่านั้น"
 
 #: src/File.php:277
 msgid "Missing a temporary folder."
@@ -16297,37 +16305,36 @@ msgstr "ไม่พบแฟ้มชั่วคราว"
 
 #: src/File.php:280
 msgid "Failed to write file to disk."
-msgstr "ไม่สามารถเขียนไฟล์ลงดิสได้"
+msgstr "ไม่สามารถเขียนไฟล์ลงดิสก์ได้"
 
 #: src/File.php:283
 msgid "File upload stopped by extension."
-msgstr "ไม่รองรับไฟล์ประเภทนี้"
+msgstr "การอัปโหลดไฟล์หยุดลงเนื่องจากส่วนขยาย"
 
 #: src/File.php:286
 msgid "Unknown error in file upload."
-msgstr "ไม่ทราบข้อผิดพลาดของไฟล์ที่จะอัพโหลด"
+msgstr "เกิดข้อผิดพลาดที่ไม่ทราบสาเหตุในการอัปโหลดไฟล์"
 
 #: src/File.php:374
 msgid "File is a symbolic link"
-msgstr ""
+msgstr "ไฟล์เป็นลิงก์เชิงสัญลักษณ์"
 
 #: src/File.php:381 src/File.php:472
 msgid "File could not be read!"
-msgstr "อ่านไฟล์ไม่ได้!"
+msgstr "ไม่สามารถอ่านไฟล์ได้!"
 
 #: src/File.php:417
-#, fuzzy
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
-msgstr "มีข้อผิดพลาดระหว่างการอัพโหลด กรุณาดู [doc@faq1-11]FAQ 1.11[/doc]"
+msgstr ""
+"เกิดข้อผิดพลาดในการย้ายไฟล์ที่อัปโหลด โปรดดู [doc@faq1-11]คำถามที่พบบ่อย 1.11[/doc]"
 
 #: src/File.php:437
 msgid "Error while moving uploaded file."
-msgstr "ข้อผิดพลาดขณะเคลื่อนย้ายไฟล์อัพโหลด"
+msgstr "เกิดข้อผิดพลาดขณะย้ายไฟล์ที่อัปโหลด"
 
 #: src/File.php:446
-#, fuzzy
 msgid "Cannot read uploaded file."
-msgstr "ไม่สามารถอ่านไฟล์อัพโหลด"
+msgstr "ไม่สามารถอ่านไฟล์ที่อัปโหลด"
 
 #: src/File.php:523
 #, php-format
@@ -16408,11 +16415,11 @@ msgstr ""
 
 #: src/Http/Middleware/RequestProblemChecking.php:35
 msgid "GLOBALS overwrite attempt"
-msgstr ""
+msgstr "ความพยายามเขียนทับ GLOBALS"
 
 #: src/Http/Middleware/RequestProblemChecking.php:47
 msgid "possible exploit"
-msgstr "﻿ใช้ประโยชน์ได้"
+msgstr "ช่องโหว่ที่เป็นไปได้"
 
 #: src/Http/Middleware/ServerConfigurationChecking.php:42
 msgid ""
