@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-12-21 00:31+0000\n"
-"PO-Revision-Date: 2025-12-22 18:00+0000\n"
-"Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
+"PO-Revision-Date: 2025-12-24 13:00+0000\n"
+"Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "th/>\n"
 "Language: th\n"
@@ -2747,19 +2747,16 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "คำถูกแบ่งด้วยช่องว่าง (\" \")."
 
 #: resources/templates/database/search/main.twig:22 src/Database/Search.php:80
-#, fuzzy
 msgid "all of the words"
-msgstr "อย่างน้อยหนึ่งคำ"
+msgstr "ทุกคำ"
 
 #: resources/templates/database/search/main.twig:26 src/Database/Search.php:81
-#, fuzzy
 msgid "the exact phrase as substring"
-msgstr "เหมือนทั้งวลี"
+msgstr "เหมือนทั้งวลีเป็นส่วนย่อย"
 
 #: resources/templates/database/search/main.twig:30 src/Database/Search.php:82
-#, fuzzy
 msgid "the exact phrase as whole field"
-msgstr "เหมือนทั้งวลี"
+msgstr "เหมือนทั้งวลีทั้งช่องข้อมูล"
 
 #: resources/templates/database/search/main.twig:34 src/Database/Search.php:83
 msgid "as regular expression"
