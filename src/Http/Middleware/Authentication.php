@@ -8,7 +8,6 @@ use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
@@ -31,12 +30,16 @@ use Throwable;
 use function assert;
 use function define;
 
-final class Authentication implements MiddlewareInterface
+final readonly class Authentication implements MiddlewareInterface
 {
     public function __construct(
-        private readonly Config $config,
-        private readonly Template $template,
-        private readonly ResponseFactory $responseFactory,
+        private Config $config,
+        private Template $template,
+        private ResponseFactory $responseFactory,
+        private AuthenticationPluginFactory $authPluginFactory,
+        private DatabaseInterface $dbi,
+        private Relation $relation,
+        private ResponseRenderer $responseRenderer,
     ) {
     }
 
@@ -46,9 +49,8 @@ final class Authentication implements MiddlewareInterface
             return $handler->handle($request);
         }
 
-        $authPluginFactory = ContainerBuilder::getContainer()->get(AuthenticationPluginFactory::class);
         try {
-            $authPlugin = $authPluginFactory->create();
+            $authPlugin = $this->authPluginFactory->create();
         } catch (AuthenticationPluginException $exception) {
             $response = $this->responseFactory->createResponse(StatusCodeInterface::STATUS_INTERNAL_SERVER_ERROR);
 
@@ -75,7 +77,7 @@ final class Authentication implements MiddlewareInterface
                 ]));
             }
 
-            $currentServer = new Server(Config::getInstance()->selectedServer);
+            $currentServer = new Server($this->config->selectedServer);
 
             /* Enable LOAD DATA LOCAL INFILE for LDI plugin */
             if ($request->getAttribute('route') === '/import' && ($_POST['format'] ?? '') === 'ldi') {
@@ -86,14 +88,13 @@ final class Authentication implements MiddlewareInterface
             }
 
             try {
-                $this->connectToDatabaseServer(DatabaseInterface::getInstance(), $currentServer);
+                $this->connectToDatabaseServer($this->dbi, $currentServer);
             } catch (AuthenticationFailure $exception) {
                 return $authPlugin->showFailure($exception);
             }
 
             // Relation should only be initialized after the connection is successful
-            $relation = ContainerBuilder::getContainer()->get(Relation::class);
-            $relation->initRelationParamsCache();
+            $this->relation->initRelationParamsCache();
 
             // Tracker can only be activated after the relation has been initialized
             Tracker::enable();
@@ -109,7 +110,7 @@ final class Authentication implements MiddlewareInterface
                 return $response;
             }
         } catch (ExitException) {
-            return ResponseRenderer::getInstance()->response();
+            return $this->responseRenderer->response();
         }
 
         /* Log success */
