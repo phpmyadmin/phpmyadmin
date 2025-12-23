@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2025-12-22 18:00+0000\n"
-"Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
+"PO-Revision-Date: 2025-12-24 12:00+0000\n"
+"Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/4-9/th/>"
 "\n"
 "Language: th\n"
@@ -6871,38 +6871,28 @@ msgid "Create bookmark"
 msgstr "สร้างบุ๊กมาร์ก"
 
 #: libraries/classes/Database/Qbe.php:1887
-#, fuzzy
-#| msgid "Showing bookmark"
 msgid "Update bookmark"
-msgstr "แสดงบุ๊คมาร์ค"
+msgstr "อัปเดตบุ๊กมาร์ก"
 
 #: libraries/classes/Database/Qbe.php:1889
-#, fuzzy
-#| msgid "Search"
 msgid "Delete bookmark"
-msgstr "ค้นหา"
+msgstr "ลบบุ๊กมาร์ก"
 
 #: libraries/classes/Database/Search.php:93
 msgid "at least one of the words"
 msgstr "อย่างน้อยหนึ่งคำ"
 
 #: libraries/classes/Database/Search.php:94
-#, fuzzy
-#| msgid "at least one of the words"
 msgid "all of the words"
-msgstr "อย่างน้อยหนึ่งคำ"
+msgstr "ทุกคำ"
 
 #: libraries/classes/Database/Search.php:95
-#, fuzzy
-#| msgid "the exact phrase"
 msgid "the exact phrase as substring"
-msgstr "เหมือนทั้งวลี"
+msgstr "เหมือนทั้งวลีเป็นส่วนย่อย"
 
 #: libraries/classes/Database/Search.php:96
-#, fuzzy
-#| msgid "the exact phrase"
 msgid "the exact phrase as whole field"
-msgstr "เหมือนทั้งวลี"
+msgstr "เหมือนทั้งวลีทั้งช่องข้อมูล"
 
 #: libraries/classes/Database/Search.php:97
 msgid "as regular expression"
