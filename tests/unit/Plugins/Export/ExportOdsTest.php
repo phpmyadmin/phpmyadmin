@@ -266,6 +266,16 @@ class ExportOdsTest extends AbstractTestCase
 
         self::assertSame(
             '<table:table table:name="table"><table:table-row><table:table-cell ' .
+            'office:value-type="string"><text:p>c</text:p></table:table-cell><table:' .
+            'table-cell office:value-type="string"><text:p>c</text:p></table:' .
+            'table-cell><table:table-cell office:value-type="string"><text:p>c</text:' .
+            'p></table:table-cell><table:table-cell office:value-type="string"><text:' .
+            'p>c</text:p></table:table-cell><table:table-cell office:value-type=' .
+            '"string"><text:p>c</text:p></table:table-cell><table:table-cell office:' .
+            'value-type="string"><text:p>c</text:p></table:table-cell><table:table-' .
+            'cell office:value-type="string"><text:p>c</text:p></table:table-cell>' .
+            '<table:table-cell office:value-type="string"><text:p>c</text:p></table:' .
+            'table-cell></table:table-row><table:table-row><table:table-cell ' .
             'office:value-type="string"><text:p>&amp;</text:p></table:table-cell>' .
             '<table:table-cell office:value-type="string"><text:p></text:p>' .
             '</table:table-cell><table:table-cell office:value-type="date" office:' .
