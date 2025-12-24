@@ -192,7 +192,15 @@ return [
         ],
         Middleware\Authentication::class => [
             'class' => Middleware\Authentication::class,
-            'arguments' => ['@config', '@template', '@' . ResponseFactory::class],
+            'arguments' => [
+                '@config',
+                '@template',
+                '@' . ResponseFactory::class,
+                '@' . AuthenticationPluginFactory::class,
+                '@dbi',
+                '@relation',
+                '@response',
+            ],
         ],
         Middleware\DatabaseServerVersionChecking::class => [
             'class' => Middleware\DatabaseServerVersionChecking::class,
@@ -252,7 +260,7 @@ return [
         ],
         'response' => [
             'class' => ResponseRenderer::class,
-            'factory' => [PhpMyAdmin\ResponseRenderer::class, 'getInstance'],
+            'factory' => [ResponseRenderer::class, 'getInstance'],
         ],
         'routines' => ['class' => Routines::class, 'arguments' => ['@dbi']],
         'server_plugins' => ['class' => Plugins::class, 'arguments' => ['@dbi']],
@@ -295,7 +303,7 @@ return [
             'class' => Indexes::class,
             'arguments' => ['$dbi' => '@dbi'],
         ],
-        'table_maintenance' => ['class' => PhpMyAdmin\Table\Maintenance::class, 'arguments' => ['$dbi' => '@dbi']],
+        'table_maintenance' => ['class' => \PhpMyAdmin\Table\Maintenance::class, 'arguments' => ['$dbi' => '@dbi']],
         'table_search' => ['class' => Search::class, 'arguments' => ['$dbi' => '@dbi']],
         Template::class => ['class' => Template::class, 'arguments' => ['$config' => '@config']],
         'template' => Template::class,
@@ -325,7 +333,7 @@ return [
         UserPrivilegesFactory::class => ['class' => UserPrivilegesFactory::class, 'arguments' => ['@dbi']],
         'version_information' => ['class' => VersionInformation::class],
         DatabaseInterface::class => 'dbi',
-        PhpMyAdmin\ResponseRenderer::class => 'response',
+        ResponseRenderer::class => 'response',
         'bookmarkRepository' => ['class' => BookmarkRepository::class, 'arguments' => ['@dbi', '@relation']],
         Console::class => [
             'class' => Console::class,

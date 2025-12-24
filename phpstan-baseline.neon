@@ -7149,7 +7149,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 3
+			count: 4
 			path: src/Header.php
 
 		-
@@ -7271,24 +7271,6 @@ parameters:
 			identifier: argument.type
 			count: 1
 			path: src/Http/Factory/ServerRequestFactory.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Http/Middleware/Authentication.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Http/Middleware/Authentication.php
 
 		-
 			message: '''

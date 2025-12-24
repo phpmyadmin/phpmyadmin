@@ -46,10 +46,10 @@ class Header
      * The value for the id attribute for the body tag
      */
     private string $bodyId = '';
-    /**
-     * Whether to show the top menu
-     */
-    private bool $menuEnabled;
+
+    /** Whether to show the top menu */
+    private bool|null $isMenuEnabled = null;
+
     /**
      * Whether to show the warnings
      */
@@ -65,13 +65,24 @@ class Header
         private readonly Config $config,
     ) {
         $dbi = DatabaseInterface::getInstance();
-        $this->menuEnabled = $dbi->isConnected();
         $relation = new Relation($dbi);
         $this->menu = new Menu($dbi, $this->template, $this->config, $relation, Current::$database, Current::$table);
         $this->scripts = new Scripts($this->template);
         $this->addDefaultScripts();
 
         $this->userPreferences = new UserPreferences($dbi, $relation, $this->template);
+    }
+
+    private function isMenuEnabled(): bool
+    {
+        if ($this->isMenuEnabled !== null) {
+            return $this->isMenuEnabled;
+        }
+
+        $dbi = DatabaseInterface::getInstance();
+        $this->isMenuEnabled = $dbi->isConnected();
+
+        return $this->isMenuEnabled;
     }
 
     /**
@@ -193,7 +204,7 @@ class Header
      */
     public function disableMenuAndConsole(): void
     {
-        $this->menuEnabled = false;
+        $this->isMenuEnabled = false;
         $this->console->disable();
     }
 
@@ -246,7 +257,7 @@ class Header
         $this->scripts->addFiles($this->console->getScripts());
 
         $dbi = DatabaseInterface::getInstance();
-        if ($this->menuEnabled && Current::$server > 0) {
+        if ($this->isMenuEnabled() && Current::$server > 0) {
             $navigation = (new Navigation($this->template, new Relation($dbi), $dbi, $this->config))->getDisplay();
         }
 
@@ -260,7 +271,7 @@ class Header
             $loadUserPreferences = $this->userPreferences->autoloadGetHeader();
         }
 
-        if ($this->menuEnabled && Current::$server > 0) {
+        if ($this->isMenuEnabled() && Current::$server > 0) {
             $menu = $this->menu->getDisplay();
         }
 
@@ -284,7 +295,7 @@ class Header
             'load_user_preferences' => $loadUserPreferences ?? '',
             'show_hint' => $this->config->settings['ShowHint'],
             'is_warnings_enabled' => $this->warningsEnabled,
-            'is_menu_enabled' => $this->menuEnabled,
+            'is_menu_enabled' => $this->isMenuEnabled(),
             'is_logged_in' => $isLoggedIn,
             'menu' => $menu ?? '',
             'console' => $console,
