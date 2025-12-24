@@ -2310,7 +2310,7 @@ class Results
                     $clauseIsUnique,
                     $urlSqlQuery,
                     $displayParts['del_lnk'],
-                    (int) $row[0]
+                    $row[0]
                 );
 
                 // 1.3 Displays the links at left if required
@@ -2996,11 +2996,11 @@ class Results
      *
      * @see     getTableBody()
      *
-     * @param string $whereClause    the where clause of the sql
-     * @param bool   $clauseIsUnique the unique condition of clause
-     * @param string $urlSqlQuery    the analyzed sql query
-     * @param string $deleteLink     the delete link of current row
-     * @param int    $processId      Process ID
+     * @param string      $whereClause    the where clause of the sql
+     * @param bool        $clauseIsUnique the unique condition of clause
+     * @param string      $urlSqlQuery    the analyzed sql query
+     * @param string      $deleteLink     the delete link of current row
+     * @param string|null $processId      Process ID
      *
      * @return array  $del_url, $del_str, $js_conf
      * @psalm-return array{?string, ?string, ?string}
@@ -3010,7 +3010,7 @@ class Results
         $clauseIsUnique,
         $urlSqlQuery,
         $deleteLink,
-        int $processId
+        $processId
     ) {
         $goto = $this->properties['goto'];
 
@@ -3054,7 +3054,7 @@ class Results
 
             $linkGoto = Url::getFromRoute('/sql', $urlParams);
 
-            $kill = $this->dbi->getKillQuery($processId);
+            $kill = $this->dbi->getKillQuery((int) $processId);
 
             $urlParams = [
                 'db' => 'mysql',
