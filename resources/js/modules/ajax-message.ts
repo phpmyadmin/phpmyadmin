@@ -96,6 +96,7 @@ const ajaxShowMessage = function (message = null, timeout = null, type = null) {
     // Update message count to create distinct message elements every time
     ajaxMessageCount++;
     // Remove all old messages, if any
+    $('[role="tooltip"]').remove();
     $('span.ajax_notification[id^=ajax_message_num]').remove();
     /**
      * @var $retval    a jQuery object containing the reference
