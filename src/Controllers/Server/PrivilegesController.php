@@ -361,7 +361,7 @@ final class PrivilegesController implements InvocableController
         }
 
         // Show back the form if an error occurred
-        if ($request->hasQueryParam('adduser') || $addUserError === true) {
+        if ($request->hasQueryParam('adduser') || $addUserError) {
             // Add user
             $this->response->addHTML($serverPrivileges->getHtmlForAddUser(
                 $serverPrivileges->escapeGrantWildcards(is_string($databaseName) ? $databaseName : ''),
