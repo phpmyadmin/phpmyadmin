@@ -8818,9 +8818,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <DocblockTypeContradiction>
-      <code><![CDATA[[]]]></code>
-    </DocblockTypeContradiction>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$path]]></code>
       <code><![CDATA[$urlParams]]></code>
@@ -8838,9 +8835,6 @@
     <PossiblyNullOperand>
       <code><![CDATA[$hash]]></code>
     </PossiblyNullOperand>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[is_string($row['config_data'])]]></code>
-    </RedundantConditionGivenDocblockType>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$hasConfig]]></code>
     </RiskyTruthyFalsyComparison>
