@@ -13603,12 +13603,6 @@ parameters:
 			path: src/UserPreferences.php
 
 		-
-			message: '#^Ternary operator condition is always true\.$#'
-			identifier: ternary.alwaysTrue
-			count: 1
-			path: src/UserPreferences.php
-
-		-
 			message: '#^Only booleans are allowed in a negated boolean, PhpMyAdmin\\Dbal\\ResultInterface\|false given\.$#'
 			identifier: booleanNot.exprNotBoolean
 			count: 1
