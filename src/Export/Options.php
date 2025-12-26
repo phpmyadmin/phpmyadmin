@@ -137,7 +137,7 @@ final class Options
         unset($_SESSION['tmpval']['aliases']);
         $filenameTemplate = $this->getFileNameTemplate($exportType, $_POST['filename_template'] ?? null);
         $isEncodingSupported = Encoding::isSupported();
-        $selectedCompression = $_POST['compression'] ?? $config->settings['Export']['compression'] ?? 'none';
+        $selectedCompression = $_POST['compression'] ?? $config->settings['Export']['compression'];
 
         if (
             isset($config->settings['Export']['as_separate_files']) && $config->settings['Export']['as_separate_files']
@@ -149,7 +149,7 @@ final class Options
             'db' => $db,
             'table' => $table,
             'export_type' => $exportType->value,
-            'export_method' => $_POST['export_method'] ?? $config->settings['Export']['method'] ?? 'quick',
+            'export_method' => $_POST['export_method'] ?? $config->settings['Export']['method'],
             'template_id' => $_POST['template_id'] ?? '',
         ];
 
@@ -172,14 +172,14 @@ final class Options
             ],
             'sql_query' => $sqlQuery,
             'hidden_inputs' => $hiddenInputs,
-            'export_method' => $_POST['quick_or_custom'] ?? $config->settings['Export']['method'] ?? '',
+            'export_method' => $_POST['quick_or_custom'] ?? $config->settings['Export']['method'] ,
             'plugins_choice' => $dropdown,
             'options' => Plugins::getOptions('Export', $exportList),
             'can_convert_kanji' => Encoding::canConvertKanji(),
             'exec_time_limit' => $config->settings['ExecTimeLimit'],
             'rows' => $rows,
             'has_save_dir' => ! empty($config->settings['SaveDir']),
-            'save_dir' => Util::userDir($config->settings['SaveDir'] ?? ''),
+            'save_dir' => Util::userDir($config->settings['SaveDir']),
             'export_is_checked' => $this->checkboxCheck('quick_export_onserver'),
             'export_overwrite_is_checked' => $this->checkboxCheck('quick_export_onserver_overwrite'),
             'has_aliases' => $hasAliases,

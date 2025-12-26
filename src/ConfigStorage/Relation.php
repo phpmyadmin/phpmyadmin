@@ -1405,25 +1405,25 @@ class Relation
      */
     public function arePmadbTablesAllDisabled(): bool
     {
-        return ($this->config->selectedServer['bookmarktable'] ?? null) === false
-            && ($this->config->selectedServer['relation'] ?? null) === false
-            && ($this->config->selectedServer['table_info'] ?? null) === false
-            && ($this->config->selectedServer['table_coords'] ?? null) === false
-            && ($this->config->selectedServer['column_info'] ?? null) === false
-            && ($this->config->selectedServer['pdf_pages'] ?? null) === false
-            && ($this->config->selectedServer['history'] ?? null) === false
-            && ($this->config->selectedServer['recent'] ?? null) === false
-            && ($this->config->selectedServer['favorite'] ?? null) === false
-            && ($this->config->selectedServer['table_uiprefs'] ?? null) === false
-            && ($this->config->selectedServer['tracking'] ?? null) === false
-            && ($this->config->selectedServer['userconfig'] ?? null) === false
-            && ($this->config->selectedServer['users'] ?? null) === false
-            && ($this->config->selectedServer['usergroups'] ?? null) === false
-            && ($this->config->selectedServer['navigationhiding'] ?? null) === false
-            && ($this->config->selectedServer['savedsearches'] ?? null) === false
-            && ($this->config->selectedServer['central_columns'] ?? null) === false
-            && ($this->config->selectedServer['designer_settings'] ?? null) === false
-            && ($this->config->selectedServer['export_templates'] ?? null) === false;
+        return $this->config->selectedServer['bookmarktable'] === false
+            && ($this->config->selectedServer['relation'] ) === false
+            && ($this->config->selectedServer['table_info'] ) === false
+            && ($this->config->selectedServer['table_coords'] ) === false
+            && ($this->config->selectedServer['column_info'] ) === false
+            && ($this->config->selectedServer['pdf_pages'] ) === false
+            && ($this->config->selectedServer['history'] ) === false
+            && ($this->config->selectedServer['recent'] ) === false
+            && ($this->config->selectedServer['favorite'] ) === false
+            && ($this->config->selectedServer['table_uiprefs'] ) === false
+            && ($this->config->selectedServer['tracking'] ) === false
+            && ($this->config->selectedServer['userconfig'] ) === false
+            && ($this->config->selectedServer['users'] ) === false
+            && ($this->config->selectedServer['usergroups'] ) === false
+            && ($this->config->selectedServer['navigationhiding'] ) === false
+            && ($this->config->selectedServer['savedsearches'] ) === false
+            && ($this->config->selectedServer['central_columns'] ) === false
+            && ($this->config->selectedServer['designer_settings'] ) === false
+            && ($this->config->selectedServer['export_templates'] ) === false;
     }
 
     /**
@@ -1479,7 +1479,7 @@ class Relation
 
     public function getConfigurationStorageDbName(): string
     {
-        $cfgStorageDbName = $this->config->selectedServer['pmadb'] ?? '';
+        $cfgStorageDbName = $this->config->selectedServer['pmadb'];
 
         // Use "phpmyadmin" as a default database name to check to keep the behavior consistent
         return empty($cfgStorageDbName) ? 'phpmyadmin' : $cfgStorageDbName;
@@ -1491,7 +1491,7 @@ class Relation
      */
     public function initRelationParamsCache(): void
     {
-        $storageDbName = $this->config->selectedServer['pmadb'] ?? '';
+        $storageDbName = $this->config->selectedServer['pmadb'];
         // Use "phpmyadmin" as a default database name to check to keep the behavior consistent
         $storageDbName = $storageDbName !== '' ? $storageDbName : 'phpmyadmin';
 

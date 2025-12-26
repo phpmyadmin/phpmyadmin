@@ -234,7 +234,7 @@ final class HomeController implements InvocableController
             'is_demo' => $this->config->config->debug->demo,
             'has_server_selection' => $hasServerSelection ?? false,
             'server_selection' => $serverSelection ?? '',
-            'has_change_password_link' => ($this->config->selectedServer['auth_type'] ?? '') !== 'config'
+            'has_change_password_link' => $this->config->selectedServer['auth_type'] !== 'config'
                 && $this->config->settings['ShowChgPassword'],
             'charsets' => $charsetsList ?? [],
             'available_languages' => $availableLanguages,

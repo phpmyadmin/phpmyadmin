@@ -184,7 +184,7 @@ class GeneratorTest extends AbstractTestCase
     public function testLinkOrButton(array $params, int $limit, string $match): void
     {
         $config = Config::getInstance();
-        $restore = $config->settings['LinkLengthLimit'] ?? 1000;
+        $restore = $config->settings['LinkLengthLimit'];
         $config->settings['LinkLengthLimit'] = $limit;
         try {
             $result = Generator::linkOrButton(...$params);

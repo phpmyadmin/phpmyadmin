@@ -9408,7 +9408,6 @@
       <code><![CDATA[[]]]></code>
       <code><![CDATA[[]]]></code>
       <code><![CDATA[[]]]></code>
-      <code><![CDATA[[]]]></code>
     </InvalidPropertyAssignmentValue>
     <RedundantCondition>
       <code><![CDATA[assertSame]]></code>
@@ -10691,9 +10690,6 @@
     </EmptyArrayAccess>
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[$arr]]></code>
-      <code><![CDATA[$arr]]></code>
-      <code><![CDATA[$config->selectedServer]]></code>
-      <code><![CDATA[$config->selectedServer]]></code>
       <code><![CDATA[$config->selectedServer]]></code>
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
@@ -10731,9 +10727,6 @@
       <code><![CDATA[$config->selectedServer]]></code>
     </MixedPropertyTypeCoercion>
     <PropertyTypeCoercion>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>

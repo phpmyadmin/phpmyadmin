@@ -1267,116 +1267,8 @@ parameters:
 			path: src/ConfigStorage/Relation.php
 
 		-
-			message: '#^Offset ''central_columns'' on \*NEVER\* on left side of \?\? always exists and is not nullable\.$#'
-			identifier: nullCoalesce.offset
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
-			message: '#^Offset ''column_info'' on \*NEVER\* on left side of \?\? always exists and is not nullable\.$#'
-			identifier: nullCoalesce.offset
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
-			message: '#^Offset ''designer_settings'' on \*NEVER\* on left side of \?\? always exists and is not nullable\.$#'
-			identifier: nullCoalesce.offset
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
-			message: '#^Offset ''export_templates'' on \*NEVER\* on left side of \?\? always exists and is not nullable\.$#'
-			identifier: nullCoalesce.offset
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
-			message: '#^Offset ''favorite'' on \*NEVER\* on left side of \?\? always exists and is not nullable\.$#'
-			identifier: nullCoalesce.offset
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
-			message: '#^Offset ''history'' on \*NEVER\* on left side of \?\? always exists and is not nullable\.$#'
-			identifier: nullCoalesce.offset
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
-			message: '#^Offset ''navigationhiding'' on \*NEVER\* on left side of \?\? always exists and is not nullable\.$#'
-			identifier: nullCoalesce.offset
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
-			message: '#^Offset ''pdf_pages'' on \*NEVER\* on left side of \?\? always exists and is not nullable\.$#'
-			identifier: nullCoalesce.offset
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
 			message: '#^Offset ''pdf_pages''\|''relation''\|''table_coords''\|''table_info''\|''usergroups''\|''users'' on array\{host\: string, port\: string, socket\: string, ssl\: bool, ssl_key\: string\|null, ssl_cert\: string\|null, ssl_ca\: string\|null, ssl_ca_path\: string\|null, \.\.\.\} in isset\(\) always exists and is not nullable\.$#'
 			identifier: isset.offset
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
-			message: '#^Offset ''recent'' on \*NEVER\* on left side of \?\? always exists and is not nullable\.$#'
-			identifier: nullCoalesce.offset
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
-			message: '#^Offset ''relation'' on array\{host\: string, port\: string, socket\: string, ssl\: bool, ssl_key\: string\|null, ssl_cert\: string\|null, ssl_ca\: string\|null, ssl_ca_path\: string\|null, \.\.\.\} on left side of \?\? always exists and is not nullable\.$#'
-			identifier: nullCoalesce.offset
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
-			message: '#^Offset ''savedsearches'' on \*NEVER\* on left side of \?\? always exists and is not nullable\.$#'
-			identifier: nullCoalesce.offset
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
-			message: '#^Offset ''table_coords'' on \*NEVER\* on left side of \?\? always exists and is not nullable\.$#'
-			identifier: nullCoalesce.offset
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
-			message: '#^Offset ''table_info'' on \*NEVER\* on left side of \?\? always exists and is not nullable\.$#'
-			identifier: nullCoalesce.offset
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
-			message: '#^Offset ''table_uiprefs'' on \*NEVER\* on left side of \?\? always exists and is not nullable\.$#'
-			identifier: nullCoalesce.offset
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
-			message: '#^Offset ''tracking'' on \*NEVER\* on left side of \?\? always exists and is not nullable\.$#'
-			identifier: nullCoalesce.offset
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
-			message: '#^Offset ''userconfig'' on \*NEVER\* on left side of \?\? always exists and is not nullable\.$#'
-			identifier: nullCoalesce.offset
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
-			message: '#^Offset ''usergroups'' on \*NEVER\* on left side of \?\? always exists and is not nullable\.$#'
-			identifier: nullCoalesce.offset
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
-			message: '#^Offset ''users'' on \*NEVER\* on left side of \?\? always exists and is not nullable\.$#'
-			identifier: nullCoalesce.offset
 			count: 1
 			path: src/ConfigStorage/Relation.php
 
@@ -2332,7 +2224,7 @@ parameters:
 			path: src/Controllers/Preferences/ManageController.php
 
 		-
-			message: '#^Parameter \#1 \$fileName of method PhpMyAdmin\\UserPreferences\:\:redirect\(\) expects string, string\|false given\.$#'
+			message: '#^Parameter \#1 \$fileName of method PhpMyAdmin\\UserPreferences\:\:redirect\(\) expects string, string\|false\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Preferences/ManageController.php
@@ -8719,12 +8611,6 @@ parameters:
 			path: src/Plugins/Auth/AuthenticationCookie.php
 
 		-
-			message: '#^Offset ''CaptchaSiteVerifyURL'' on array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\} on left side of \?\? always exists and is not nullable\.$#'
-			identifier: nullCoalesce.offset
-			count: 1
-			path: src/Plugins/Auth/AuthenticationCookie.php
-
-		-
 			message: '#^Only booleans are allowed in an elseif condition, string\|false given\.$#'
 			identifier: elseif.condNotBoolean
 			count: 1
@@ -14943,7 +14829,7 @@ parameters:
 		-
 			message: '#^Property PhpMyAdmin\\Config\:\:\$selectedServer \(array\{host\: string, port\: string, socket\: string, ssl\: bool, ssl_key\: string\|null, ssl_cert\: string\|null, ssl_ca\: string\|null, ssl_ca_path\: string\|null, \.\.\.\}\) does not accept array\{\}\.$#'
 			identifier: assign.propertyType
-			count: 6
+			count: 5
 			path: tests/unit/ConfigStorage/RelationTest.php
 
 		-
@@ -16956,7 +16842,7 @@ parameters:
 		-
 			message: '#^Property PhpMyAdmin\\Config\:\:\$selectedServer \(array\{host\: string, port\: string, socket\: string, ssl\: bool, ssl_key\: string\|null, ssl_cert\: string\|null, ssl_ca\: string\|null, ssl_ca_path\: string\|null, \.\.\.\}\) does not accept array\{host\: ''a'', port\: 1, socket\: true, ssl\: true, user\: ''pmaUser2''\}\.$#'
 			identifier: assign.propertyType
-			count: 2
+			count: 1
 			path: tests/unit/Plugins/Auth/AuthenticationCookieTest.php
 
 		-
@@ -16968,7 +16854,7 @@ parameters:
 		-
 			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\) does not accept array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\.$#'
 			identifier: assign.propertyType
-			count: 10
+			count: 9
 			path: tests/unit/Plugins/Auth/AuthenticationCookieTest.php
 
 		-
