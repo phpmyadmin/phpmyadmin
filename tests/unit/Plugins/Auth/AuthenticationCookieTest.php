@@ -576,13 +576,10 @@ class AuthenticationCookieTest extends AbstractTestCase
     public function testAuthSetUserWithHeaders(): void
     {
         $this->object->user = 'pmaUser2';
-        $arr = ['host' => 'a', 'port' => 1, 'socket' => true, 'ssl' => true, 'user' => 'pmaUser2'];
 
         $config = Config::getInstance();
-        $config->selectedServer = $arr;
         $config->selectedServer['host'] = 'b';
         $config->selectedServer['user'] = 'pmaUser';
-        $config->settings['Servers'][1] = $arr;
         $config->settings['AllowArbitraryServer'] = true;
         $config->set('PmaAbsoluteUri', 'http://localhost/phpmyadmin');
         AuthenticationCookie::$authServer = 'b 2';

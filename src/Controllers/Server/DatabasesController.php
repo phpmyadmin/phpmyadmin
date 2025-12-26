@@ -226,7 +226,7 @@ final class DatabasesController implements InvocableController
                 'statistics' => $statistics,
                 'replication' => $replication,
                 'is_system_schema' => Utilities::isSystemSchema($database['SCHEMA_NAME'], true),
-                'is_pmadb' => $database['SCHEMA_NAME'] === ($this->config->selectedServer['pmadb'] ?? ''),
+                'is_pmadb' => $database['SCHEMA_NAME'] === $this->config->selectedServer['pmadb'],
                 'url' => $url,
             ];
             $collation = Charsets::findCollationByName(

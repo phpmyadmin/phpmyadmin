@@ -496,7 +496,7 @@ class Header
         $maxInputVarsValue = $maxInputVars === false || $maxInputVars === '' ? 'false' : (int) $maxInputVars;
 
         return $this->template->render('javascript/variables', [
-            'first_day_of_calendar' => $this->config->settings['FirstDayOfCalendar'] ?? 0,
+            'first_day_of_calendar' => $this->config->settings['FirstDayOfCalendar'],
             'max_input_vars' => $maxInputVarsValue,
         ]);
     }

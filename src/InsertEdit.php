@@ -416,7 +416,7 @@ class InsertEdit
     private function getSelectOptionForUpload(string $vkey, string $fieldHashMd5): string
     {
         $files = $this->fileListing->getFileSelectOptions(
-            Util::userDir($this->config->settings['UploadDir'] ?? ''),
+            Util::userDir($this->config->settings['UploadDir']),
         );
 
         if ($files === false) {
