@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-12-21 00:31+0000\n"
-"PO-Revision-Date: 2025-12-27 09:00+0000\n"
+"PO-Revision-Date: 2025-12-28 00:32+0000\n"
 "Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "th/>\n"
@@ -823,9 +823,8 @@ msgstr "ไม่มีค่า"
 #: resources/templates/table/operations/index.twig:116
 #: resources/templates/table/operations/index.twig:323
 #: resources/templates/columns_definitions/table_fields_definitions.twig:36
-#, fuzzy
 msgid "Adjust privileges"
-msgstr "แก้ไขสิทธิ"
+msgstr "แก้ไขสิทธิพิเศษ"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:66
 #: resources/templates/database/data_dictionary/index.twig:30
@@ -2179,9 +2178,8 @@ msgstr "สร้างตารางในฐานข้อมูลนี้
 
 #: resources/templates/database/export/index.twig:14
 #: src/Navigation/Navigation.php:220
-#, fuzzy
 msgid "Tables:"
-msgstr "ตาราง"
+msgstr "ตาราง:"
 
 #: resources/templates/database/export/index.twig:22
 #: resources/templates/database/structure/show_create.twig:6
@@ -2807,9 +2805,8 @@ msgid_plural "<strong>Total:</strong> <em>%s</em> matches"
 msgstr[0] "<strong>ทั้งหมด:</strong> <em>%s</em> ค้นพบ"
 
 #: resources/templates/database/structure/add_prefix.twig:4
-#, fuzzy
 msgid "Add prefix"
-msgstr "เพิ่มฟิลด์ใหม่"
+msgstr "เพิ่มคำนำหน้า"
 
 #: resources/templates/database/structure/body_for_table_summary.twig:5
 #, php-format
@@ -2841,13 +2838,12 @@ msgid "Continue"
 msgstr "ต่อ"
 
 #: resources/templates/database/structure/change_prefix_form.twig:4
-#, fuzzy
 msgid "From"
-msgstr "ศ."
+msgstr "ตั้งแต่"
 
 #: resources/templates/database/structure/change_prefix_form.twig:8
 msgid "To"
-msgstr ""
+msgstr "ถึง"
 
 #: resources/templates/database/structure/check_all_tables.twig:6
 msgid "Check tables having overhead"
@@ -2987,9 +2983,8 @@ msgstr "เพิ่มค่า AUTO_INCREMENT"
 #: resources/templates/table/delete/confirm.twig:13
 #: resources/templates/table/structure/drop_confirm.twig:7
 #: resources/templates/table/structure/primary.twig:3
-#, fuzzy
 msgid "Do you really want to execute the following query?"
-msgstr "คุณแน่ใจที่ต้องการจะ"
+msgstr "คุณต้องการเรียกใช้คำสั่งต่อไปนี้จริง ๆ หรือไม่?"
 
 #: resources/templates/database/structure/drop_form.twig:15
 #: resources/templates/database/structure/empty_form.twig:15
@@ -4208,9 +4203,8 @@ msgstr "หน้าหลัก"
 
 #: resources/templates/navigation/main.twig:30
 #: resources/templates/navigation/main.twig:31
-#, fuzzy
 msgid "Empty session data"
-msgstr "dump ตาราง"
+msgstr "ล้างข้อมูลเซสชัน"
 
 #: resources/templates/navigation/main.twig:39
 #: resources/templates/navigation/main.twig:40
@@ -4226,19 +4220,17 @@ msgstr "เอกสารประกอบ"
 
 #: resources/templates/navigation/main.twig:43
 #: resources/templates/navigation/main.twig:44
-#, fuzzy
 msgid "Navigation panel settings"
-msgstr "แผงนำทาง"
+msgstr "การตั้งค่าแผงนำทาง"
 
 #: resources/templates/navigation/main.twig:47
 #: resources/templates/navigation/main.twig:48
-#, fuzzy
 msgid "Reload navigation panel"
-msgstr "โหลดกรอบนำทางใหม่"
+msgstr "โหลดแผงนำทางใหม่"
 
 #: resources/templates/navigation/main.twig:67
 msgid "An error has occurred while loading the navigation display"
-msgstr ""
+msgstr "เกิดข้อผิดพลาดขณะโหลดหน้าจอการนำทาง"
 
 #: resources/templates/navigation/main.twig:84
 #: src/Controllers/JavaScriptMessagesController.php:571
@@ -4264,12 +4256,11 @@ msgstr "ฐานข้อมูล"
 #: resources/templates/navigation/tree/fast_filter.twig:11
 #: resources/templates/navigation/tree/fast_filter.twig:12
 msgid "Type to filter these, Enter to search all"
-msgstr ""
+msgstr "พิมพ์เพื่อกรองคำเหล่านี้ กด Enter เพื่อค้นหาทั้งหมด"
 
 #: resources/templates/navigation/tree/fast_filter.twig:16
-#, fuzzy
 msgid "Clear fast filter"
-msgstr "บันทึกเป็นไฟล์"
+msgstr "ล้างค่าตัวกรองเร็ว"
 
 #: resources/templates/navigation/tree/quick_warp.twig:5
 #, fuzzy
@@ -16597,35 +16588,32 @@ msgid_plural "%1$d rows inserted."
 msgstr[0] "%1$d แถวถูกเพิ่มแล้ว"
 
 #: src/Navigation/Navigation.php:216
-#, fuzzy
 msgid "Groups:"
-msgstr "ชื่อคอลัมน์"
+msgstr "กลุ่ม:"
 
 #: src/Navigation/Navigation.php:217
-#, fuzzy
 msgid "Events:"
-msgstr "เหตุการณ์"
+msgstr "เหตุการณ์:"
 
 #: src/Navigation/Navigation.php:218
-#, fuzzy
 msgid "Functions:"
-msgstr "ฟังก์ชั่น"
+msgstr "ฟังก์ชัน:"
 
 #: src/Navigation/Navigation.php:219
-#, fuzzy
 msgid "Procedures:"
-msgstr "โพรเซส"
+msgstr "ขั้นตอนการดำเนินการ:"
 
 #: src/Navigation/Navigation.php:221
-#, fuzzy
 msgid "Views:"
-msgstr "ตารางจำลอง (View)"
+msgstr "มุมมอง:"
 
 #: src/Navigation/NavigationTree.php:758
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
+"ในแผงนำทางมีการจัดกลุ่มรายการขนาดใหญ่ ซึ่งอาจส่งผลต่อประสิทธิภาพการทำงาน โปรดพิจารณาปิดใช้ง"
+"านการจัดกลุ่มรายการในแผงนำทาง"
 
 #: src/Navigation/NavigationTree.php:823
 #, fuzzy
@@ -16636,11 +16624,11 @@ msgstr "ชื่อคอลัมน์"
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
-msgstr[0] ""
+msgstr[0] "พบผลลัพธ์ %s"
 
 #: src/Navigation/NavigationTree.php:1277
 msgid "Collapse all"
-msgstr ""
+msgstr "ย่อทั้งหมด"
 
 #: src/Navigation/Nodes/NodeColumnContainer.php:33
 msgctxt "Create new column"
@@ -16818,24 +16806,28 @@ msgid ""
 "on which form a repeating group. In this case a new table (book_id, author) "
 "should be created."
 msgstr ""
+"คุณมีสองกลุ่มคอลัมน์ขึ้นไปที่มีความสัมพันธ์กันอย่างใกล้ชิดและมีค่าคุณลักษณะเดียวกันหรือไม่? ตัวอย่างเช่น ต"
+"ารางที่เก็บข้อมูลเกี่ยวกับหนังสือ อาจมีคอลัมน์เช่น book_id, author1, author2, author3 และอื่"
+"น ๆ ซึ่งเป็นกลุ่มที่มีค่าซ้ำกัน ในกรณีนี้ ควรสร้างตารางใหม่ (book_id, author)"
 
 #: src/Normalization.php:341
 msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
 msgstr ""
+"ตรวจสอบคอลัมน์ที่สร้างกลุ่มซ้ำ หากไม่มีกลุ่มดังกล่าว ให้คลิกที่ 'ไม่มีกลุ่มซ้ำ'"
 
 #: src/Normalization.php:346
 msgid "No repeating group"
-msgstr ""
+msgstr "ไม่มีกลุ่มซ้ำกัน"
 
 #: src/Normalization.php:374
 msgid "Step 2."
-msgstr ""
+msgstr "ขั้นที่ 2"
 
 #: src/Normalization.php:374
 msgid "Find partial dependencies"
-msgstr ""
+msgstr "ค้นหาการพึ่งพาบางส่วน"
 
 #: src/Normalization.php:395
 #, php-format
@@ -16843,10 +16835,12 @@ msgid ""
 "No partial dependencies possible as no non-primary column exists since "
 "primary key ( %1$s ) is composed of all the columns in the table."
 msgstr ""
+"ไม่สามารถมีการพึ่งพาบางส่วนได้ เนื่องจากไม่มีคอลัมน์ที่ไม่ใช่คอลัมน์หลัก ตั้งแต่คีย์หลัก ( %1$s ) ประก"
+"อบด้วยคอลัมน์ทั้งหมดในตาราง"
 
 #: src/Normalization.php:401 src/Normalization.php:443
 msgid "Table is already in second normal form."
-msgstr ""
+msgstr "ตารางอยู่ในรูปแบบปกติขั้นที่สองแล้ว"
 
 #: src/Normalization.php:406
 #, php-format
@@ -16854,16 +16848,17 @@ msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
 "the partial dependencies."
 msgstr ""
+"คีย์หลัก ( %1$s ) ประกอบด้วยคอลัมน์มากกว่าหนึ่ง ดังนั้นเราจึงต้องค้นหาการพึ่งพาบางส่วน"
 
 #: src/Normalization.php:410 src/Normalization.php:821
 msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
-msgstr ""
+msgstr "กรุณาตอบคำถามต่อไปนี้อย่างละเอียดเพื่อให้ได้ค่าการปรับมาตรฐานที่ถูกต้อง"
 
 #: src/Normalization.php:412
 msgid "+ Show me the possible partial dependencies based on data in the table"
-msgstr ""
+msgstr "+ แสดงการพึ่งพาบางส่วนที่เป็นไปได้โดยอิงจากข้อมูลในตาราง"
 
 #: src/Normalization.php:415
 msgid ""
@@ -16871,18 +16866,20 @@ msgid ""
 "given set whose values combined together are sufficient to determine the "
 "value of the column."
 msgstr ""
+"ในแต่ละคอลัมน์ด้านล่าง โปรดเลือก<b>ชุดคอลัมน์ขั้นต่ำ</b>จากชุดที่กำหนดให้ ซึ่งค่าของคอลัมน์เหล่านั้นเ"
+"มื่อรวมกันแล้วเพียงพอที่จะกำหนดค่าของคอลัมน์นั้นได้"
 
 #: src/Normalization.php:428 src/Normalization.php:863
 #, php-format
 msgid "'%1$s' depends on:"
-msgstr ""
+msgstr "'%1$s' ขึ้นอยู่กับ:"
 
 #: src/Normalization.php:439
 #, php-format
 msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column."
-msgstr ""
+msgstr "ไม่พบการพึ่งพาบางส่วน เนื่องจากคีย์หลัก ( %1$s ) มีเพียงคอลัมน์เดียว"
 
 #: src/Normalization.php:467
 #, php-format
@@ -16890,17 +16887,17 @@ msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
 "create the following tables:"
 msgstr ""
+"เพื่อให้ตารางเดิม '%1$s' อยู่ในรูปแบบปกติขั้นที่สอง เราจำเป็นต้องสร้างตารางต่อไปนี้:"
 
 #: src/Normalization.php:509
 #, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
-msgstr ""
+msgstr "ขั้นตอนที่สองของการปรับให้เป็นมาตรฐานเสร็จสมบูรณ์แล้วสำหรับตาราง '%1$s'"
 
 #: src/Normalization.php:561 src/Normalization.php:721
 #: src/Normalization.php:796
-#, fuzzy
 msgid "Error in processing!"
-msgstr "โพรเซส"
+msgstr "เกิดข้อผิดพลาดในการประมวลผล!"
 
 #: src/Normalization.php:608
 #, php-format
@@ -16908,24 +16905,24 @@ msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
 "create the following tables:"
 msgstr ""
+"เพื่อให้ตารางต้นฉบับ '%1$s' อยู่ในรูปแบบปกติที่สาม เราจำเป็นต้องสร้างตารางต่อไปนี้:"
 
 #: src/Normalization.php:657
 msgid "The third step of normalization is complete."
-msgstr ""
+msgstr "ขั้นตอนที่สามของการปรับค่ามาตรฐานเสร็จสมบูรณ์แล้ว"
 
 #: src/Normalization.php:772
 #, php-format
 msgid "Selected repeating group has been moved to the table '%s'"
-msgstr ""
+msgstr "กลุ่มข้อมูลซ้ำที่เลือกไว้ได้ถูกย้ายไปยังตาราง '%s' แล้ว"
 
 #: src/Normalization.php:819
-#, fuzzy
 msgid "Step 3."
-msgstr "ก.ย."
+msgstr "ขั้นที่ 3"
 
 #: src/Normalization.php:819
 msgid "Find transitive dependencies"
-msgstr ""
+msgstr "ค้นหาการพึ่งพาแบบถ่ายทอด"
 
 #: src/Normalization.php:823
 msgid ""
