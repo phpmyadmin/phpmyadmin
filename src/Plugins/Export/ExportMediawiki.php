@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;
 
+use PhpMyAdmin\Config\Settings\Export;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\StructureOrData;
@@ -287,17 +288,16 @@ class ExportMediawiki extends ExportPlugin
         return "\n";
     }
 
-    /** @inheritDoc */
-    public function setExportOptions(ServerRequest $request, array $exportConfig): void
+    public function setExportOptions(ServerRequest $request, Export $exportConfig): void
     {
+        // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $this->structureOrData = $this->setStructureOrData(
             $request->getParsedBodyParam('mediawiki_structure_or_data'),
-            $exportConfig['mediawiki_structure_or_data'] ?? null,
+            $exportConfig->mediawiki_structure_or_data,
             StructureOrData::Data,
         );
-        $this->caption = (bool) ($request->getParsedBodyParam('mediawiki_caption')
-            ?? $exportConfig['mediawiki_caption'] ?? false);
-        $this->headers = (bool) ($request->getParsedBodyParam('mediawiki_headers')
-            ?? $exportConfig['mediawiki_headers'] ?? false);
+        $this->caption = $request->hasBodyParam('mediawiki_caption');
+        $this->headers = $request->hasBodyParam('mediawiki_headers');
+        // phpcs:enable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
     }
 }
