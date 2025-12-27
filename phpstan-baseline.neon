@@ -2182,12 +2182,6 @@ parameters:
 			path: src/Controllers/Export/ExportController.php
 
 		-
-			message: '#^Only booleans are allowed in &&, string\|null given on the left side\.$#'
-			identifier: booleanAnd.leftNotBoolean
-			count: 1
-			path: src/Controllers/Export/ExportController.php
-
-		-
 			message: '#^Only booleans are allowed in &&, string\|null given on the right side\.$#'
 			identifier: booleanAnd.rightNotBoolean
 			count: 2

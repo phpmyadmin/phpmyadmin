@@ -613,6 +613,10 @@ class ExportSql extends ExportPlugin
      */
     public function exportRoutines(string $db, array $aliases = []): bool
     {
+        if (! $this->hasCreateProcedureFunction()) {
+            return true;
+        }
+
         $text = '';
         $delimiter = '$$';
 
@@ -844,7 +848,7 @@ class ExportSql extends ExportPlugin
             $dbAlias = $db;
         }
 
-        if ($this->structureOrData !== StructureOrData::Data && $this->dropDatabase) {
+        if ($this->includeStructure() && $this->dropDatabase) {
             if (
                 ! $this->outputHandler->addLine(
                     'DROP DATABASE IF EXISTS '
@@ -971,6 +975,10 @@ class ExportSql extends ExportPlugin
      */
     public function exportEvents(string $db): bool
     {
+        if (! $this->hasCreateProcedureFunction()) {
+            return true;
+        }
+
         $text = '';
         $delimiter = '$$';
 
@@ -1033,6 +1041,10 @@ class ExportSql extends ExportPlugin
         string|array $tables,
         array $metadataTypes,
     ): bool {
+        if (! $this->hasMetadata()) {
+            return true;
+        }
+
         $relationParameters = $this->relation->getRelationParameters();
         if ($relationParameters->db === null) {
             return true;
@@ -1051,21 +1063,19 @@ class ExportSql extends ExportPlugin
             return false;
         }
 
-        $r = 1;
         if (is_array($tables)) {
+            $isSuccessful = true;
             // export metadata for each table
             foreach ($tables as $table) {
-                $r &= (int) $this->exportConfigurationMetadata($db, $table, $metadataTypes);
+                $isSuccessful = $this->exportConfigurationMetadata($db, $table, $metadataTypes) && $isSuccessful;
             }
 
             // export metadata for the database
-            $r &= (int) $this->exportConfigurationMetadata($db, null, $metadataTypes);
-        } else {
-            // export metadata for single table
-            $r &= (int) $this->exportConfigurationMetadata($db, $tables, $metadataTypes);
+            return $this->exportConfigurationMetadata($db, null, $metadataTypes) && $isSuccessful;
         }
 
-        return (bool) $r;
+        // export metadata for single table
+        return $this->exportConfigurationMetadata($db, $tables, $metadataTypes);
     }
 
     /**
@@ -1863,6 +1873,10 @@ class ExportSql extends ExportPlugin
 
         switch ($exportMode) {
             case 'create_table':
+                if (! $this->hasCreateTable()) {
+                    return true; // User requested no table structure, so the job has been successfully completed
+                }
+
                 $dump .= $this->exportComment(
                     __('Table structure for table') . ' ' . $formattedTableName,
                 );
@@ -1871,6 +1885,10 @@ class ExportSql extends ExportPlugin
                 $dump .= $this->getTableComments($db, $table, $aliases);
                 break;
             case 'triggers':
+                if (! $this->hasCreateTrigger()) {
+                    return true; // User requested no triggers, so the job has been successfully completed
+                }
+
                 $dump = '';
                 $delimiter = '$$';
                 $triggers = Triggers::getDetails(DatabaseInterface::getInstance(), $db, $table);
@@ -1920,6 +1938,10 @@ class ExportSql extends ExportPlugin
 
                 break;
             case 'create_view':
+                if (! $this->hasCreateView()) {
+                    return true; // No view to export, so the job has been successfully completed
+                }
+
                 if (! $this->viewsAsTables) {
                     $dump .= $this->exportComment(
                         __('Structure for view')
@@ -1960,6 +1982,10 @@ class ExportSql extends ExportPlugin
 
                 break;
             case 'stand_in':
+                if (! $this->hasCreateView()) {
+                    return true; // No view to export, so the job has been successfully completed
+                }
+
                 $dump .= $this->exportComment(
                     __('Stand-in structure for view') . ' ' . $formattedTableName,
                 )
@@ -2712,12 +2738,12 @@ class ExportSql extends ExportPlugin
         return 'NONE';
     }
 
-    public function hasCreateProcedureFunction(): bool
+    private function hasCreateProcedureFunction(): bool
     {
         return $this->procedureFunction;
     }
 
-    public function hasCreateTable(): bool
+    private function hasCreateTable(): bool
     {
         return $this->createTable;
     }
@@ -2732,12 +2758,12 @@ class ExportSql extends ExportPlugin
         return 'INSERT';
     }
 
-    public function hasCreateView(): bool
+    private function hasCreateView(): bool
     {
         return $this->createView;
     }
 
-    public function hasCreateTrigger(): bool
+    private function hasCreateTrigger(): bool
     {
         return $this->createTrigger;
     }
