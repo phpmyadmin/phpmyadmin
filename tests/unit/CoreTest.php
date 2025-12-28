@@ -581,16 +581,16 @@ class CoreTest extends AbstractTestCase
     public function testCheckSqlQuerySignatureFailsBlowfishSecretChanged(): void
     {
         $config = Config::getInstance();
-        $config->settings['blowfish_secret'] = '';
+        $config->set('blowfish_secret', '');
         $_SESSION[' HMAC_secret '] = hash('sha1', 'firstSession');
         $sqlQuery = 'SELECT * FROM `test`.`db` WHERE 1;';
         $hmac = Core::signSqlQuery($sqlQuery);
         self::assertTrue(Core::checkSqlQuerySignature($sqlQuery, $hmac));
-        $config->settings['blowfish_secret'] = str_repeat('a', 32);
+        $config->set('blowfish_secret', str_repeat('a', 32));
         // Try to use the previous HMAC signature
         self::assertFalse(Core::checkSqlQuerySignature($sqlQuery, $hmac));
 
-        $config->settings['blowfish_secret'] = str_repeat('a', 32);
+        $config->set('blowfish_secret', str_repeat('a', 32));
         // Generate the HMAC signature to check that it works
         $hmac = Core::signSqlQuery($sqlQuery);
         // Must work now, (good secret and blowfish_secret)

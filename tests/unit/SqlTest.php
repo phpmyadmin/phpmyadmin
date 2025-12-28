@@ -57,7 +57,6 @@ class SqlTest extends AbstractTestCase
         $config->settings['NavigationTreeDefaultTabTable2'] = '';
         $config->settings['LimitChars'] = 50;
         $config->settings['Confirm'] = true;
-        $config->settings['LoginCookieValidity'] = 1440;
         $config->settings['enable_drag_drop_import'] = true;
 
         $relation = new Relation($this->dbi);
