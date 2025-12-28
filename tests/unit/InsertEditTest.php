@@ -303,7 +303,7 @@ class InsertEditTest extends AbstractTestCase
     #[DataProvider('dataProviderConfigValueInsertRows')]
     public function testGetInsertRows(int $configValue, array $rowsValue): void
     {
-        Config::getInstance()->settings['InsertRows'] = $configValue;
+        Config::getInstance()->set('InsertRows', $configValue);
 
         $result = $this->callFunction(
             $this->insertEdit,
@@ -321,7 +321,7 @@ class InsertEditTest extends AbstractTestCase
     public function testShowTypeOrFunction(): void
     {
         $config = Config::getInstance();
-        $config->settings['ShowFieldTypesInDataEditView'] = true;
+        $config->set('ShowFieldTypesInDataEditView', true);
         $urlParams = ['ShowFunctionFields' => 2];
 
         $result = $this->insertEdit->showTypeOrFunction('function', $urlParams, false);
@@ -531,11 +531,8 @@ class InsertEditTest extends AbstractTestCase
     public function testGetTextarea(): void
     {
         $config = Config::getInstance();
-        $config->settings['TextareaRows'] = 20;
-        $config->settings['TextareaCols'] = 10;
-        $config->settings['CharTextareaRows'] = 7;
-        $config->settings['CharTextareaCols'] = 1;
-        $config->settings['LimitChars'] = 20;
+        $config->set('CharTextareaRows', 7);
+        $config->set('CharTextareaCols', 1);
 
         $column = new InsertEditColumn(
             'f',
@@ -603,14 +600,8 @@ class InsertEditTest extends AbstractTestCase
     {
         $column = new InsertEditColumn('f', 'char(25)', false, '', null, '', 20, false, false, true, false);
         $config = Config::getInstance();
-        $config->settings['MaxSizeForInputField'] = 30;
-        $config->settings['MinSizeForInputField'] = 10;
-        $config->settings['TextareaRows'] = 20;
-        $config->settings['TextareaCols'] = 10;
-        $config->settings['CharTextareaRows'] = 7;
-        $config->settings['CharTextareaCols'] = 1;
-        $config->settings['LimitChars'] = 50;
-        $config->settings['ShowFunctionFields'] = true;
+        $config->set('CharTextareaRows', 7);
+        $config->set('CharTextareaCols', 1);
 
         $extractedColumnSpec = '25';
         (new ReflectionProperty(InsertEdit::class, 'fieldIndex'))->setValue($this->insertEdit, 22);
@@ -805,8 +796,8 @@ class InsertEditTest extends AbstractTestCase
         );
         $specInBrackets = '45';
         $config = Config::getInstance();
-        $config->settings['MinSizeForInputField'] = 30;
-        $config->settings['MaxSizeForInputField'] = 40;
+        $config->set('MinSizeForInputField', 30);
+        $config->set('MaxSizeForInputField', 40);
 
         self::assertSame(
             40,
@@ -851,8 +842,6 @@ class InsertEditTest extends AbstractTestCase
     public function testGetContinueInsertionForm(): void
     {
         $whereClauseArray = ['a<b'];
-        $config = Config::getInstance();
-        $config->settings['InsertRows'] = 1;
         UrlParams::$goto = 'index.php';
         $_POST['where_clause'] = true;
         $_POST['sql_query'] = 'SELECT 1';
@@ -894,9 +883,6 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testGetHeadAndFootOfInsertRowTable(): void
     {
-        $config = Config::getInstance();
-        $config->settings['ShowFieldTypesInDataEditView'] = true;
-        $config->settings['ShowFunctionFields'] = true;
         $urlParams = ['ShowFunctionFields' => 2];
 
         $result = $this->callFunction(
@@ -1051,11 +1037,8 @@ class InsertEditTest extends AbstractTestCase
             true,
             false,
         );
-        $config = Config::getInstance();
-        $config->settings['ProtectBinary'] = false;
         $currentRow['f'] = '11001';
         $extractedColumnSpec = '20';
-        $config->settings['ShowFunctionFields'] = true;
 
         $result = $this->callFunction(
             $this->insertEdit,
@@ -1104,10 +1087,6 @@ class InsertEditTest extends AbstractTestCase
         string $trueType,
         string $expected,
     ): void {
-        $config = Config::getInstance();
-        $config->settings['ProtectBinary'] = false;
-        $config->settings['ShowFunctionFields'] = true;
-
         /** @var string $result */
         $result = $this->callFunction(
             $this->insertEdit,
@@ -1292,7 +1271,6 @@ class InsertEditTest extends AbstractTestCase
     public function testExecuteSqlQuery(): void
     {
         $query = ['SELECT * FROM `test_db`.`test_table`;', 'SELECT * FROM `test_db`.`test_table_yaml`;'];
-        Config::getInstance()->settings['IgnoreMultiSubmitErrors'] = false;
         $_POST['submit_type'] = '';
 
         $dbi = DatabaseInterface::getInstance();
@@ -1316,7 +1294,6 @@ class InsertEditTest extends AbstractTestCase
     public function testExecuteSqlQueryWithTryQuery(): void
     {
         $query = ['SELECT * FROM `test_db`.`test_table`;', 'SELECT * FROM `test_db`.`test_table_yaml`;'];
-        Config::getInstance()->settings['IgnoreMultiSubmitErrors'] = true;
         $_POST['submit_type'] = '';
 
         $dbi = DatabaseInterface::getInstance();
@@ -1463,8 +1440,6 @@ class InsertEditTest extends AbstractTestCase
     {
         $_SESSION[' HMAC_secret '] = hash('sha1', 'test');
         $editedValues = [['c' => 'cname']];
-        $config = Config::getInstance();
-        $config->settings['DefaultTransformations']['PreApPend'] = ['', ''];
         $_POST['where_clause'] = '1';
         $_POST['where_clause_sign'] = Core::signSqlQuery($_POST['where_clause']);
         $result = $this->insertEdit->transformEditedValues(
@@ -2236,9 +2211,6 @@ class InsertEditTest extends AbstractTestCase
         $_POST['ShowFunctionFields'] = true;
         $_POST['ShowFieldTypesInDataEditView'] = true;
         $_POST['after_insert'] = 'edit_next';
-        $config = Config::getInstance();
-        $config->settings['InsertRows'] = 2;
-        $config->settings['ShowSQL'] = false;
         $_POST['default_action'] = 'insert';
 
         $responseMock = $this->getMockBuilder(ResponseRenderer::class)
@@ -2288,7 +2260,7 @@ class InsertEditTest extends AbstractTestCase
     public function testGetCommentsMap(): void
     {
         $config = Config::getInstance();
-        $config->settings['ShowPropertyComments'] = false;
+        $config->set('ShowPropertyComments', false);
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -2319,7 +2291,7 @@ class InsertEditTest extends AbstractTestCase
             $this->insertEdit->getCommentsMap('db', 'table'),
         );
 
-        $config->settings['ShowPropertyComments'] = true;
+        $config->set('ShowPropertyComments', true);
 
         self::assertSame(
             ['d' => 'b'],
@@ -2489,9 +2461,8 @@ class InsertEditTest extends AbstractTestCase
     {
         InsertEdit::$pluginScripts = [];
         $config = Config::getInstance();
-        $config->settings['LongtextDoubleTextarea'] = true;
-        $config->settings['TextareaRows'] = 10;
-        $config->settings['TextareaCols'] = 11;
+        $config->set('TextareaRows', 10);
+        $config->set('TextareaCols', 11);
         $foreigners = new Foreigners();
         $tableColumns = [
             new Column('test', 'longtext', null, true, '', null, '', 'select,insert,update,references', ''),
@@ -2530,8 +2501,6 @@ class InsertEditTest extends AbstractTestCase
     public function testGetHtmlForInsertEditRowBasedOnColumnPrivileges(): void
     {
         InsertEdit::$pluginScripts = [];
-        $config = Config::getInstance();
-        $config->settings['LongtextDoubleTextarea'] = true;
         $foreigners = new Foreigners();
 
         // edit

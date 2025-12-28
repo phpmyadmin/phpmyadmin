@@ -200,8 +200,7 @@ class InsertEdit
     /** @return never[][] */
     private function getInsertRows(): array
     {
-        // Can be a string on some old configuration storage settings
-        return array_fill(0, $this->config->settings['InsertRows'], []);
+        return array_fill(0, $this->config->config->InsertRows, []);
     }
 
     /**
@@ -220,11 +219,11 @@ class InsertEdit
         switch ($which) {
             case 'function':
                 $params['ShowFunctionFields'] = $isShow ? 0 : 1;
-                $params['ShowFieldTypesInDataEditView'] = $this->config->settings['ShowFieldTypesInDataEditView'];
+                $params['ShowFieldTypesInDataEditView'] = $this->config->config->ShowFieldTypesInDataEditView;
                 break;
             case 'type':
                 $params['ShowFieldTypesInDataEditView'] = $isShow ? 0 : 1;
-                $params['ShowFunctionFields'] = $this->config->settings['ShowFunctionFields'];
+                $params['ShowFunctionFields'] = $this->config->config->ShowFunctionFields;
                 break;
         }
 
@@ -344,8 +343,8 @@ class InsertEdit
         TypeClass $dataType,
     ): string {
         $theClass = '';
-        $textAreaRows = $this->config->settings['TextareaRows'];
-        $textareaCols = $this->config->settings['TextareaCols'];
+        $textAreaRows = $this->config->config->TextareaRows;
+        $textareaCols = $this->config->config->TextareaCols;
 
         if ($column->isChar) {
             /**
@@ -353,13 +352,13 @@ class InsertEdit
              *       why character columns have the "char" class instead
              */
             $theClass = 'charField';
-            $textAreaRows = $this->config->settings['CharTextareaRows'];
-            $textareaCols = $this->config->settings['CharTextareaCols'];
+            $textAreaRows = $this->config->config->CharTextareaRows;
+            $textareaCols = $this->config->config->CharTextareaCols;
             $extractedColumnspec = Util::extractColumnSpec($column->type);
             $maxlength = $extractedColumnspec['spec_in_brackets'];
-        } elseif ($this->config->settings['LongtextDoubleTextarea'] && $column->trueType === 'longtext') {
-            $textAreaRows = $this->config->settings['TextareaRows'] * 2;
-            $textareaCols = $this->config->settings['TextareaCols'] * 2;
+        } elseif ($this->config->config->LongtextDoubleTextarea && $column->trueType === 'longtext') {
+            $textAreaRows = $this->config->config->TextareaRows * 2;
+            $textareaCols = $this->config->config->TextareaCols * 2;
         }
 
         //We need to duplicate the first \n or otherwise we will lose
@@ -540,7 +539,7 @@ class InsertEdit
     {
         if ($column->isChar) {
             $fieldsize = (int) $specInBrackets;
-            if ($fieldsize > $this->config->settings['MaxSizeForInputField']) {
+            if ($fieldsize > $this->config->config->MaxSizeForInputField) {
                 /**
                  * This case happens for CHAR or VARCHAR columns which have
                  * a size larger than the maximum size for input field.
@@ -557,8 +556,8 @@ class InsertEdit
         }
 
         return min(
-            max($fieldsize, $this->config->settings['MinSizeForInputField']),
-            $this->config->settings['MaxSizeForInputField'],
+            max($fieldsize, $this->config->config->MinSizeForInputField),
+            $this->config->config->MaxSizeForInputField,
         );
     }
 
@@ -585,7 +584,7 @@ class InsertEdit
             'goto' => UrlParams::$goto,
             'sql_query' => $_POST['sql_query'] ?? null,
             'has_where_clause' => isset($_POST['where_clause']),
-            'insert_rows_default' => $this->config->settings['InsertRows'],
+            'insert_rows_default' => $this->config->config->InsertRows,
         ]);
     }
 
@@ -629,11 +628,11 @@ class InsertEdit
         $type = '';
         $function = '';
 
-        if ($this->config->settings['ShowFieldTypesInDataEditView']) {
+        if ($this->config->config->ShowFieldTypesInDataEditView) {
             $type = $this->showTypeOrFunction('type', $urlParams, true);
         }
 
-        if ($this->config->settings['ShowFunctionFields']) {
+        if ($this->config->config->ShowFunctionFields) {
             $function = $this->showTypeOrFunction('function', $urlParams, true);
         }
 
@@ -691,7 +690,7 @@ class InsertEdit
             $formattedDefaultValue = $currentValue;
         } else {
             // special binary "characters"
-            if ($column->isBinary || ($column->isBlob && $this->config->settings['ProtectBinary'] !== 'all')) {
+            if ($column->isBinary || ($column->isBlob && $this->config->config->ProtectBinary !== 'all')) {
                 $currentValue = $asIs
                     ? $currentValue
                     : bin2hex($currentValue);
@@ -847,7 +846,7 @@ class InsertEdit
                 continue;
             }
 
-            if ($this->config->settings['IgnoreMultiSubmitErrors']) {
+            if ($this->config->config->IgnoreMultiSubmitErrors) {
                 $result = $this->dbi->tryQuery($singleQuery);
             } else {
                 $result = $this->dbi->query($singleQuery);
@@ -1347,11 +1346,11 @@ class InsertEdit
         }
 
         if (isset($_POST['ShowFunctionFields'])) {
-            $this->config->settings['ShowFunctionFields'] = $_POST['ShowFunctionFields'];
+            $this->config->set('ShowFunctionFields', $_POST['ShowFunctionFields'] === '1');
         }
 
         if (isset($_POST['ShowFieldTypesInDataEditView'])) {
-            $this->config->settings['ShowFieldTypesInDataEditView'] = $_POST['ShowFieldTypesInDataEditView'];
+            $this->config->set('ShowFieldTypesInDataEditView', $_POST['ShowFieldTypesInDataEditView'] === '1');
         }
 
         if (isset($_POST['after_insert'])) {
@@ -1397,7 +1396,7 @@ class InsertEdit
      */
     public function getCommentsMap(string $db, string $table): array
     {
-        if ($this->config->settings['ShowPropertyComments']) {
+        if ($this->config->config->ShowPropertyComments) {
             return $this->relation->getComments($db, $table);
         }
 
@@ -1541,7 +1540,7 @@ class InsertEdit
         $isColumnBinary = $this->isColumnBinary($column, $isUpload);
         $functionOptions = '';
 
-        if ($this->config->settings['ShowFunctionFields']) {
+        if ($this->config->config->ShowFunctionFields) {
             $defaultFunction = Generator::getDefaultFunctionForField(
                 $column->trueType,
                 $column->firstTimestamp,
@@ -1595,8 +1594,8 @@ class InsertEdit
         $columnValue = '';
         $foreignDropdown = '';
         $dataType = TypeClass::Unknown;
-        $textAreaRows = $this->config->settings['TextareaRows'];
-        $textareaCols = $this->config->settings['TextareaCols'];
+        $textAreaRows = $this->config->config->TextareaRows;
+        $textareaCols = $this->config->config->TextareaCols;
         $maxlength = '';
         $enumSelectedValue = '';
         $enumValues = [];
@@ -1615,19 +1614,19 @@ class InsertEdit
                     $foreignData->foreignField,
                     $foreignData->foreignDisplay,
                     $data,
-                    $this->config->settings['ForeignKeyMaxLimit'],
+                    $this->config->config->ForeignKeyMaxLimit,
                 );
             }
 
             $dataType = $this->dbi->types->getTypeClass($column->trueType);
 
             if ($column->isChar) {
-                $textAreaRows = max($this->config->settings['CharTextareaRows'], 7);
-                $textareaCols = $this->config->settings['CharTextareaCols'];
+                $textAreaRows = max($this->config->config->CharTextareaRows, 7);
+                $textareaCols = $this->config->config->CharTextareaCols;
                 $maxlength = $extractedColumnspec['spec_in_brackets'];
-            } elseif ($this->config->settings['LongtextDoubleTextarea'] && $column->trueType === 'longtext') {
-                $textAreaRows = $this->config->settings['TextareaRows'] * 2;
-                $textareaCols = $this->config->settings['TextareaCols'] * 2;
+            } elseif ($this->config->config->LongtextDoubleTextarea && $column->trueType === 'longtext') {
+                $textAreaRows = $this->config->config->TextareaRows * 2;
+                $textareaCols = $this->config->config->TextareaCols * 2;
             }
 
             if ($column->trueType === 'enum') {
@@ -1647,9 +1646,9 @@ class InsertEdit
                 $columnSetValues = $extractedColumnspec['enum_set_values'];
                 $setSelectSize = min(4, count($extractedColumnspec['enum_set_values']));
             } elseif ($column->isBinary || $column->isBlob) {
-                $isColumnProtectedBlob = ($this->config->settings['ProtectBinary'] === 'blob' && $column->isBlob)
-                    || ($this->config->settings['ProtectBinary'] === 'all')
-                    || ($this->config->settings['ProtectBinary'] === 'noblob' && ! $column->isBlob);
+                $isColumnProtectedBlob = ($this->config->config->ProtectBinary === 'blob' && $column->isBlob)
+                    || ($this->config->config->ProtectBinary === 'all')
+                    || ($this->config->config->ProtectBinary === 'noblob' && ! $column->isBlob);
                 if ($isColumnProtectedBlob) {
                     [$blobValue, $blobValueUnit] = Util::formatByteDown(mb_strlen(stripslashes($data)), 3, 1);
                 }
@@ -1664,9 +1663,9 @@ class InsertEdit
 
                 if (
                     ! $isColumnProtectedBlob
-                    && ! ($column->isBlob || ($column->length > $this->config->settings['LimitChars']))
+                    && ! ($column->isBlob || ($column->length > $this->config->config->limitChars))
                 ) {
-                    $hexInputSize = min(max($column->length * 2, 4), $this->config->settings['LimitChars']);
+                    $hexInputSize = min(max($column->length * 2, 4), $this->config->config->limitChars);
                 }
             } else {
                 $columnValue = $this->getValueColumnForOtherDatatypes(
@@ -1687,8 +1686,8 @@ class InsertEdit
             'table' => $table,
             'column' => $column,
             'row_id' => $rowId,
-            'show_field_types_in_data_edit_view' => $this->config->settings['ShowFieldTypesInDataEditView'],
-            'show_function_fields' => $this->config->settings['ShowFunctionFields'],
+            'show_field_types_in_data_edit_view' => $this->config->config->ShowFieldTypesInDataEditView,
+            'show_function_fields' => $this->config->config->ShowFunctionFields,
             'is_column_binary' => $isColumnBinary,
             'function_options' => $functionOptions,
             'nullify_code' => $nullifyCode,
@@ -1709,7 +1708,7 @@ class InsertEdit
             'textarea_cols' => $textareaCols,
             'textarea_rows' => $textAreaRows,
             'max_length' => $maxlength,
-            'longtext_double_textarea' => $this->config->settings['LongtextDoubleTextarea'],
+            'longtext_double_textarea' => $this->config->config->LongtextDoubleTextarea,
             'enum_selected_value' => $enumSelectedValue,
             'enum_values' => $enumValues,
             'set_values' => $columnSetValues,
@@ -1720,7 +1719,7 @@ class InsertEdit
             'is_upload' => $isUpload,
             'max_upload_size' => $maxUploadSize,
             'select_option_for_upload' => $selectOptionForUpload,
-            'limit_chars' => $this->config->settings['LimitChars'],
+            'limit_chars' => $this->config->config->limitChars,
             'hex_input_size' => $hexInputSize,
             'field_title' => $this->getColumnTitle($column->field, $commentsMap),
         ]);
@@ -1728,13 +1727,13 @@ class InsertEdit
 
     private function isColumnBinary(InsertEditColumn $column, bool $isUpload): bool
     {
-        if (! $this->config->settings['ShowFunctionFields']) {
+        if (! $this->config->config->ShowFunctionFields) {
             return false;
         }
 
-        return ($this->config->settings['ProtectBinary'] === 'blob' && $column->isBlob && ! $isUpload)
-            || ($this->config->settings['ProtectBinary'] === 'all' && $column->isBinary)
-            || ($this->config->settings['ProtectBinary'] === 'noblob' && $column->isBinary);
+        return ($this->config->config->ProtectBinary === 'blob' && $column->isBlob && ! $isUpload)
+            || ($this->config->config->ProtectBinary === 'all' && $column->isBinary)
+            || ($this->config->config->ProtectBinary === 'noblob' && $column->isBinary);
     }
 
     /**

@@ -5073,10 +5073,6 @@
     <InvalidArgument>
       <code><![CDATA[$urlParams]]></code>
     </InvalidArgument>
-    <InvalidPropertyAssignmentValue>
-      <code><![CDATA[$this->config->settings]]></code>
-      <code><![CDATA[$this->config->settings]]></code>
-    </InvalidPropertyAssignmentValue>
     <InvalidReturnStatement>
       <code><![CDATA[$_POST['err_url'] ?? Url::getFromRoute('/table/change', $urlParams)]]></code>
       <code><![CDATA[$formParams]]></code>
@@ -10480,15 +10476,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
@@ -10517,9 +10504,6 @@
     <PossiblyInvalidCast>
       <code><![CDATA[$value]]></code>
     </PossiblyInvalidCast>
-    <PropertyTypeCoercion>
-      <code><![CDATA[Config::getInstance()->settings]]></code>
-    </PropertyTypeCoercion>
     <TypeDoesNotContainType>
       <code><![CDATA[assertSame]]></code>
       <code><![CDATA[assertSame]]></code>
