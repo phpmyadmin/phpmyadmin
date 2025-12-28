@@ -57,8 +57,8 @@ class SpecialSchemaLinks
     private static function setSpecialSchemaLinks(): void
     {
         $config = Config::getInstance();
-        $defaultPageDatabase = './' . Url::getFromRoute($config->settings['DefaultTabDatabase']);
-        $defaultPageTable = './' . Url::getFromRoute($config->settings['DefaultTabTable']);
+        $defaultPageDatabase = './' . Url::getFromRoute($config->config->DefaultTabDatabase);
+        $defaultPageTable = './' . Url::getFromRoute($config->config->DefaultTabTable);
 
         self::$specialSchemaLinks = [
             'mysql' => [

@@ -34,7 +34,7 @@ class Text_Plain_XmlEditor extends CodeMirrorEditorTransformationPlugin
     public function getScripts(): array
     {
         $scripts = [];
-        if (Config::getInstance()->settings['CodemirrorEnable']) {
+        if (Config::getInstance()->config->CodemirrorEnable) {
             $scripts[] = 'vendor/codemirror/lib/codemirror.js';
             $scripts[] = 'vendor/codemirror/mode/xml/xml.js';
             $scripts[] = 'transformations/xml_editor.js';

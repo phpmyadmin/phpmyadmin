@@ -1237,8 +1237,8 @@ class Results
             'column_name' => $fieldsMeta->name,
             'order_link' => $orderLink,
             'comments' => $comments,
-            'is_browse_pointer_enabled' => $this->config->settings['BrowsePointerEnable'] === true,
-            'is_browse_marker_enabled' => $this->config->settings['BrowseMarkerEnable'] === true,
+            'is_browse_pointer_enabled' => $this->config->config->BrowsePointerEnable,
+            'is_browse_marker_enabled' => $this->config->config->BrowseMarkerEnable,
             'is_column_hidden' => $colVisib && ! $colVisibElement,
             'is_column_numeric' => $this->isColumnNumeric($fieldsMeta),
         ];
@@ -1741,11 +1741,11 @@ class Results
             }
 
             $trClass = [];
-            if (! $this->config->settings['BrowsePointerEnable']) {
+            if (! $this->config->config->BrowsePointerEnable) {
                 $trClass[] = 'nopointer';
             }
 
-            if (! $this->config->settings['BrowseMarkerEnable']) {
+            if (! $this->config->config->BrowseMarkerEnable) {
                 $trClass[] = 'nomarker';
             }
 

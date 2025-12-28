@@ -103,11 +103,11 @@ class FileListing
     {
         $compressions = '';
 
-        if ($this->config->settings['GZipDump'] && function_exists('gzopen')) {
+        if ($this->config->config->GZipDump && function_exists('gzopen')) {
             $compressions = 'gz';
         }
 
-        if ($this->config->settings['BZipDump'] && function_exists('bzopen')) {
+        if ($this->config->config->BZipDump && function_exists('bzopen')) {
             if ($compressions !== '') {
                 $compressions .= '|';
             }
@@ -115,7 +115,7 @@ class FileListing
             $compressions .= 'bz2';
         }
 
-        if ($this->config->settings['ZipDump'] && function_exists('gzinflate')) {
+        if ($this->config->config->ZipDump && function_exists('gzinflate')) {
             if ($compressions !== '') {
                 $compressions .= '|';
             }

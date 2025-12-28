@@ -9200,9 +9200,6 @@
     </DeprecatedMethod>
   </file>
   <file src="tests/unit/Config/ServerConfigChecksTest.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[$_SESSION['messages']['error']]]></code>
       <code><![CDATA[$_SESSION['messages']['notice']]]></code>
@@ -10025,7 +10022,6 @@
   </file>
   <file src="tests/unit/Database/DesignerTest.php">
     <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
@@ -10222,8 +10218,6 @@
   </file>
   <file src="tests/unit/FileListingTest.php">
     <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
   </file>
@@ -10791,7 +10785,6 @@
   <file src="tests/unit/Plugins/Transformations/TransformationPluginsTest.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <InvalidArgument>
       <code><![CDATA[testTransformation]]></code>
@@ -10871,7 +10864,6 @@
       <code><![CDATA[$config->settings['Servers']['0']]]></code>
     </InvalidArrayOffset>
     <InvalidPropertyAssignmentValue>
-      <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
@@ -11110,9 +11102,6 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
     <InvalidPropertyAssignmentValue>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[['Server/hide_db' => 'testval123', 'Server/port' => '213']]]></code>
     </InvalidPropertyAssignmentValue>
     <MixedArgument>

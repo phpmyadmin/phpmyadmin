@@ -176,7 +176,7 @@ final class ZoomSearchController implements InvocableController
         }
 
         if (UrlParams::$goto === '') {
-            UrlParams::$goto = Url::getFromRoute($this->config->settings['DefaultTabTable']);
+            UrlParams::$goto = Url::getFromRoute($this->config->config->DefaultTabTable);
         }
 
         $this->zoomSubmitAction($dataLabel, UrlParams::$goto);
@@ -243,7 +243,7 @@ final class ZoomSearchController implements InvocableController
     private function displaySelectionFormAction(string $dataLabel): void
     {
         if (UrlParams::$goto === '') {
-            UrlParams::$goto = Url::getFromRoute($this->config->settings['DefaultTabTable']);
+            UrlParams::$goto = Url::getFromRoute($this->config->config->DefaultTabTable);
         }
 
         $criteriaColumnNames = $_POST['criteriaColumnNames'] ?? null;

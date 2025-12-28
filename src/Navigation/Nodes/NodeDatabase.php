@@ -57,7 +57,7 @@ class NodeDatabase extends Node
 
         $this->link = new Link(
             __('Structure'),
-            $this->config->settings['DefaultTabDatabase'],
+            $this->config->config->DefaultTabDatabase,
             ['db' => null],
         );
 

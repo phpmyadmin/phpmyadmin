@@ -379,7 +379,7 @@ class GisVisualization
     public function toFileAsPdf(string $fileName): void
     {
         // create pdf
-        $pdf = new TCPDF('', 'pt', Config::getInstance()->settings['PDFDefaultPageSize'], true, 'UTF-8', false);
+        $pdf = new TCPDF('', 'pt', Config::getInstance()->config->PDFDefaultPageSize, true, 'UTF-8', false);
 
         // disable header and footer
         $pdf->setPrintHeader(false);

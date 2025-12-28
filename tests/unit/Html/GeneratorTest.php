@@ -47,7 +47,7 @@ class GeneratorTest extends AbstractTestCase
         $database = Current::$database;
         self::assertSame(
             '<a href="'
-            . Url::getFromRoute(Config::getInstance()->settings['DefaultTabDatabase'])
+            . Url::getFromRoute(Config::getInstance()->config->DefaultTabDatabase)
             . '&db=' . $database
             . '&server=99&lang=en" '
             . 'title="Jump to database “'
@@ -65,7 +65,7 @@ class GeneratorTest extends AbstractTestCase
         Current::$server = 99;
         $database = 'test_database';
         self::assertSame(
-            '<a href="' . Url::getFromRoute(Config::getInstance()->settings['DefaultTabDatabase'])
+            '<a href="' . Url::getFromRoute(Config::getInstance()->config->DefaultTabDatabase)
             . '&db=' . $database
             . '&server=99&lang=en" title="Jump to database “'
             . htmlspecialchars($database) . '”.">'
@@ -83,7 +83,7 @@ class GeneratorTest extends AbstractTestCase
         $database = 'test&data\'base';
         self::assertSame(
             '<a href="'
-            . Url::getFromRoute(Config::getInstance()->settings['DefaultTabDatabase'])
+            . Url::getFromRoute(Config::getInstance()->config->DefaultTabDatabase)
             . '&db='
             . htmlspecialchars(urlencode($database))
             . '&server=99&lang=en" title="Jump to database “'

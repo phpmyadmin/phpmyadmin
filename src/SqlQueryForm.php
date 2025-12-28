@@ -107,14 +107,14 @@ class SqlQueryForm
 
         return $this->template->render('sql/query', [
             'legend' => $legend ?? '',
-            'textarea_cols' => $this->config->settings['TextareaCols'],
-            'textarea_rows' => $this->config->settings['TextareaRows'],
+            'textarea_cols' => $this->config->config->TextareaCols,
+            'textarea_rows' => $this->config->config->TextareaRows,
             'textarea_auto_select' => $this->config->settings['TextareaAutoSelect'],
             'columns_list' => $columnsList ?? [],
-            'codemirror_enable' => $this->config->settings['CodemirrorEnable'],
+            'codemirror_enable' => $this->config->config->CodemirrorEnable,
             'has_bookmark' => $bookmarkFeature !== null,
             'delimiter' => $delimiter,
-            'retain_query_box' => $this->config->settings['RetainQueryBox'] !== false,
+            'retain_query_box' => $this->config->config->RetainQueryBox,
             'is_upload' => $this->config->isUploadEnabled(),
             'db' => $db,
             'table' => $table,
@@ -152,7 +152,7 @@ class SqlQueryForm
             // prepare for db related
             $db = Current::$database;
             // if you want navigation:
-            $scriptName = Url::getFromRoute($this->config->settings['DefaultTabDatabase']);
+            $scriptName = Url::getFromRoute($this->config->config->DefaultTabDatabase);
             $tmpDbLink = '<a href="' . $scriptName
                 . Url::getCommon(['db' => $db], ! str_contains($scriptName, '?') ? '?' : '&')
                 . '">';
@@ -169,7 +169,7 @@ class SqlQueryForm
             // trying to synchronize and the table has not yet been created
             $columnsList = $this->dbi->getColumns($db, Current::$table);
 
-            $scriptName = Url::getFromRoute($this->config->settings['DefaultTabTable']);
+            $scriptName = Url::getFromRoute($this->config->config->DefaultTabTable);
             $tmpTblLink = '<a href="' . $scriptName . Url::getCommon(['db' => $db, 'table' => $table], '&') . '">';
             $tmpTblLink .= htmlspecialchars($db) . '.' . htmlspecialchars($table) . '</a>';
             $legend = sprintf(__('Run SQL query/queries on table %s'), $tmpTblLink);

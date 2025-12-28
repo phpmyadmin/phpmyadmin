@@ -38,8 +38,6 @@ class SelectTest extends AbstractTestCase
 
         Current::$table = 'table';
 
-        $config->settings['DefaultTabServer'] = '/';
-
         $config->settings['Servers'] = [
             '0' => [
                 'host' => 'host0',
@@ -75,7 +73,7 @@ class SelectTest extends AbstractTestCase
 
         if ($notOnlyOptions) {
             self::assertStringContainsString(
-                Url::getFromRoute($config->settings['DefaultTabServer']),
+                Url::getFromRoute($config->config->DefaultTabServer),
                 $html,
             );
 

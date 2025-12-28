@@ -37,7 +37,7 @@ class Select
 
         $formAction = '';
         if ($notOnlyOptions) {
-            $formAction = Url::getFromRoute($config->settings['DefaultTabServer']);
+            $formAction = Url::getFromRoute($config->config->DefaultTabServer);
         }
 
         /** @var array{list: list<array<string, mixed>>, select: list<array<string, mixed>>} $servers */
@@ -75,7 +75,7 @@ class Select
                 if ($selected) {
                     $servers['list'][] = ['selected' => true, 'href' => '', 'label' => $label];
                 } else {
-                    $scriptName = Url::getFromRoute($config->settings['DefaultTabServer']);
+                    $scriptName = Url::getFromRoute($config->config->DefaultTabServer);
                     $href = $scriptName . Url::getCommon(
                         ['server' => $key],
                         ! str_contains($scriptName, '?') ? '?' : '&',

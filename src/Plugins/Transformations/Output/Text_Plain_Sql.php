@@ -18,7 +18,7 @@ class Text_Plain_Sql extends SQLTransformationsPlugin
 {
     public function __construct()
     {
-        if (empty(Config::getInstance()->settings['CodemirrorEnable'])) {
+        if (! Config::getInstance()->config->CodemirrorEnable) {
             return;
         }
 

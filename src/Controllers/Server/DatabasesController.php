@@ -215,7 +215,7 @@ final class DatabasesController implements InvocableController
                 }
             }
 
-            $url = Url::getFromRoute($this->config->settings['DefaultTabDatabase']);
+            $url = Url::getFromRoute($this->config->config->DefaultTabDatabase);
             $url .= Url::getCommonRaw(
                 ['db' => $database['SCHEMA_NAME']],
                 ! str_contains($url, '?') ? '?' : '&',

@@ -1189,7 +1189,7 @@ class NavigationTree
 
         $nodes = $this->renderNodes($userPrivileges, $children);
 
-        $databaseUrl = Url::getFromRoute(Config::getInstance()->settings['DefaultTabDatabase']);
+        $databaseUrl = Url::getFromRoute(Config::getInstance()->config->DefaultTabDatabase);
 
         return $this->template->render('navigation/tree/database_select', [
             'quick_warp' => $quickWarp,

@@ -2591,10 +2591,10 @@ class Privileges
         }
 
         $config = Config::getInstance();
-        $databaseUrl = Url::getFromRoute($config->settings['DefaultTabDatabase']);
-        $databaseUrlTitle = Util::getTitleForTarget($config->settings['DefaultTabDatabase']);
-        $tableUrl = Url::getFromRoute($config->settings['DefaultTabTable']);
-        $tableUrlTitle = Util::getTitleForTarget($config->settings['DefaultTabTable']);
+        $databaseUrl = Url::getFromRoute($config->config->DefaultTabDatabase);
+        $databaseUrlTitle = Util::getTitleForTarget($config->config->DefaultTabDatabase);
+        $tableUrl = Url::getFromRoute($config->config->DefaultTabTable);
+        $tableUrlTitle = Util::getTitleForTarget($config->config->DefaultTabTable);
 
         $changePassword = '';
         $userGroup = '';
