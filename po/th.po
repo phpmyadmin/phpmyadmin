@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-10-16 23:57-0300\n"
-"PO-Revision-Date: 2025-12-23 14:00+0000\n"
+"PO-Revision-Date: 2025-12-29 14:00+0000\n"
 "Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/5-2/th/>"
 "\n"
@@ -8604,7 +8604,7 @@ msgstr "โยนตาราง %s ทิ้งไปเรียบร้อ�
 #: libraries/classes/Database/Events.php:146
 #, fuzzy, php-format
 msgid "Event %1$s has been created."
-msgstr "โยนตาราง %s ทิ้งไปเรียบร้อยแล้ว"
+msgstr "โยนตาราง %1$s ทิ้งไปเรียบร้อยแล้ว"
 
 #: libraries/classes/Database/Events.php:160
 #: libraries/classes/Database/Routines.php:266
@@ -8793,19 +8793,19 @@ msgstr ""
 #: libraries/classes/Database/Routines.php:253
 #, fuzzy, php-format
 msgid "Routine %1$s has been created."
-msgstr "โยนตาราง %s ทิ้งไปเรียบร้อยแล้ว"
+msgstr "โยนตาราง %1$s ทิ้งไปเรียบร้อยแล้ว"
 
 #: libraries/classes/Database/Routines.php:412
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped."
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
-msgstr "โยนตาราง %s ทิ้งไปเรียบร้อยแล้ว"
+msgstr "โยนตาราง %1$s ทิ้งไปเรียบร้อยแล้ว"
 
 #: libraries/classes/Database/Routines.php:417
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped."
 msgid "Routine %1$s has been modified."
-msgstr "โยนตาราง %s ทิ้งไปเรียบร้อยแล้ว"
+msgstr "โยนตาราง %1$s ทิ้งไปเรียบร้อยแล้ว"
 
 #: libraries/classes/Database/Routines.php:823
 msgid "You must provide a name and a type for each routine parameter."
@@ -8912,12 +8912,12 @@ msgstr "รูปแบบคำพ้อง (regular expression)"
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped."
 msgid "Trigger %1$s has been modified."
-msgstr "โยนตาราง %s ทิ้งไปเรียบร้อยแล้ว"
+msgstr "โยนตาราง %1$s ทิ้งไปเรียบร้อยแล้ว"
 
 #: libraries/classes/Database/Triggers.php:160
 #, fuzzy, php-format
 msgid "Trigger %1$s has been created."
-msgstr "โยนตาราง %s ทิ้งไปเรียบร้อยแล้ว"
+msgstr "โยนตาราง %1$s ทิ้งไปเรียบร้อยแล้ว"
 
 #: libraries/classes/Database/Triggers.php:255
 msgid "Add trigger"
@@ -12612,7 +12612,7 @@ msgstr "ชื่อตารางไม่ถูกต้อง"
 #, fuzzy, php-format
 #| msgid "Table %s has been renamed to %s."
 msgid "Table %1$s has been renamed to %2$s."
-msgstr "ตาราง %s ได้ถูกเปลี่ยนชื่อเป็น %s"
+msgstr "ตาราง %1$s ได้ถูกเปลี่ยนชื่อเป็น %2$s"
 
 #: libraries/classes/Table.php:1802
 #, fuzzy
@@ -12636,8 +12636,8 @@ msgid ""
 "after you refresh this page. Please check if the table structure has been "
 "changed."
 msgstr ""
-"﻿ไม่สามารถบันทึกคุณสมบัติ UI \"% s\" ได้ การเปลี่ยนแปลงจะมีผล หลังจากคุณรีเฟรชหน้านี้ "
-"โปรดตรวจสอบหากมีการเปลี่ยนโครงสร้างของตาราง"
+"﻿ไม่สามารถบันทึกคุณสมบัติ UI \"%s\" ได้ การเปลี่ยนแปลงจะมีผล หลังจากคุณรีเฟรชหน้านี้ โปรดตรวจส"
+"อบหากมีการเปลี่ยนโครงสร้างของตาราง"
 
 #: libraries/classes/Table.php:2122
 msgid "Can't rename index to PRIMARY!"
@@ -14454,7 +14454,7 @@ msgstr "ชนิดคำค้น"
 #, fuzzy, php-format
 #| msgid "Change"
 msgid "Change to %s"
-msgstr "เปลี่ยน"
+msgstr "เปลี่ยน %s"
 
 #: templates/database/events/editor_form.twig:53
 msgid "Execute at"
@@ -18280,7 +18280,7 @@ msgstr ""
 #, fuzzy, php-format
 #| msgid "This MySQL server has been running for %s. It started up on %s."
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr "เซิร์ฟเวอร์ MySQL นี้รันมาเป็นเวลา %s. เริ่มตอน %s."
+msgstr "เซิร์ฟเวอร์ MySQL นี้รันมาเป็นเวลา %1$s. เริ่มตอน %2$s."
 
 #: templates/server/status/status/index.twig:15
 msgid ""
