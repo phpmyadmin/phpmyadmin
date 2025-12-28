@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-12-28 00:32+0000\n"
-"PO-Revision-Date: 2025-09-23 19:02+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2025-12-29 11:00+0000\n"
+"Last-Translator: tmtisfree <tmtisfree@free.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.14-dev\n"
+"X-Generator: Weblate 5.15.1\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -1947,10 +1947,8 @@ msgid "OFF"
 msgstr "Désactivé"
 
 #: resources/templates/database/events/index.twig:161
-#, fuzzy
-#| msgid "Excel edition"
 msgid "Event editor"
-msgstr "Excel en version"
+msgstr "Éditeur d'évènements"
 
 #: resources/templates/database/events/index.twig:166
 #: resources/templates/database/routines/index.twig:83
@@ -1975,10 +1973,8 @@ msgid "Save changes"
 msgstr "Enregistrer les modifications"
 
 #: resources/templates/database/events/index.twig:181
-#, fuzzy
-#| msgid "Export of event %s"
 msgid "Export event"
-msgstr "Exporter l'évènement %s"
+msgstr "Exporter l'évènement"
 
 #: resources/templates/database/export/index.twig:61
 msgid ""
@@ -2138,10 +2134,8 @@ msgid "Update query"
 msgstr "Mettre à jour la requête"
 
 #: resources/templates/database/multi_table_query/form.twig:175
-#, fuzzy
-#| msgid "Update query"
 msgid "Copy query"
-msgstr "Mettre à jour la requête"
+msgstr "Copier la requête"
 
 #: resources/templates/database/multi_table_query/form.twig:176
 #: src/Html/Generator.php:545
@@ -2448,10 +2442,8 @@ msgid "Function"
 msgstr "Fonction"
 
 #: resources/templates/database/routines/execute_form.twig:54
-#, fuzzy
-#| msgid "This page does not contain any tables!"
 msgid "This routine does not require any parameters."
-msgstr "Cette page ne contient aucune table !"
+msgstr "Cette procédure ne requiert aucun paramètre."
 
 #: resources/templates/database/routines/index.twig:3 src/Menu.php:371
 #: src/Util.php:1376
@@ -2484,16 +2476,12 @@ msgid "Returns"
 msgstr "Retourne"
 
 #: resources/templates/database/routines/index.twig:78
-#, fuzzy
-#| msgid "Routine name"
 msgid "Routine editor"
-msgstr "Nom de la procédure"
+msgstr "Éditeur de procédures"
 
 #: resources/templates/database/routines/index.twig:98
-#, fuzzy
-#| msgid "Export of routine %s"
 msgid "Export routine"
-msgstr "Exporter la procédure %s"
+msgstr "Exporter la procédure"
 
 #: resources/templates/database/routines/index.twig:113
 #: src/Controllers/Database/RoutinesController.php:354
@@ -3560,7 +3548,7 @@ msgstr "Serveur :"
 #, fuzzy
 #| msgid "Host name:"
 msgid "Hostname:"
-msgstr "Nom d'hôte :"
+msgstr "Nom d'hôte :"
 
 #: resources/templates/home/index.twig:190
 msgid "Server type:"
@@ -4658,10 +4646,9 @@ msgid "Latched pages"
 msgstr "Pages verrouillées"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:34
-#, fuzzy, php-format
-#| msgid "Busy pages"
+#, php-format
 msgid "%s pages"
-msgstr "Pages occupées"
+msgstr "%s pages"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:41
 #, fuzzy
@@ -5860,10 +5847,8 @@ msgstr ""
 "de l'exporter en cas de configuration complexe."
 
 #: resources/templates/server/status/monitor/index.twig:58
-#, fuzzy
-#| msgid "Import monitor configuration"
 msgid "Importing system monitor configuration"
-msgstr "Importer la configuration de surveillance"
+msgstr "Importation de la configuration de surveillance système"
 
 #: resources/templates/server/status/monitor/index.twig:63
 #: src/Controllers/JavaScriptMessagesController.php:301
@@ -5875,10 +5860,8 @@ msgid "Reset to default"
 msgstr "Réinitialiser à la valeur par défaut"
 
 #: resources/templates/server/status/monitor/index.twig:87
-#, fuzzy
-#| msgid "Monitor Instructions"
 msgid "System monitor instructions"
-msgstr "Consignes pour la surveillance"
+msgstr "Consignes pour la surveillance système"
 
 #: resources/templates/server/status/monitor/index.twig:92
 msgid ""
@@ -6096,10 +6079,8 @@ msgstr "Échec de rafraîchissement de la surveillance"
 
 #: resources/templates/server/status/monitor/index.twig:350
 #: resources/templates/server/status/monitor/index.twig:369
-#, fuzzy
-#| msgid "Warning"
 msgid "Warning:"
-msgstr "Avertissement"
+msgstr "Avertissement :"
 
 #: resources/templates/server/status/monitor/index.twig:351
 msgid ""
@@ -6120,12 +6101,6 @@ msgid "Local monitor configuration incompatible!"
 msgstr "La configuration locale de la surveillance est incompatible !"
 
 #: resources/templates/server/status/monitor/index.twig:370
-#, fuzzy
-#| msgid ""
-#| "The chart arrangement configuration in your browsers local storage is not "
-#| "compatible anymore to the newer version of the monitor dialog. It is very "
-#| "likely that your current configuration will not work anymore. Please "
-#| "reset your configuration to default in the <i>Settings</i> menu."
 msgid ""
 "The chart arrangement configuration in your browsers local storage is not "
 "compatible anymore to the newer version of the monitor dialog. It is very "
@@ -6133,9 +6108,9 @@ msgid ""
 "your configuration to default in the [em]Settings[/em] menu."
 msgstr ""
 "La configuration de la disposition des graphiques dans le stockage local du "
-"navigateur n'est plus compatible avec l'interface de surveillance. La "
+"navigateur n'est plus compatible avec la nouvelle version de l'interface. La "
 "configuration courante ne fonctionnera probablement pas. Merci de "
-"réinitialiser la configuration via le menu <i>Paramètres</i>."
+"réinitialiser la configuration via le menu [em]Paramètres[/em]."
 
 #: resources/templates/server/status/processes/index.twig:14
 msgid "Show only active"
@@ -7536,16 +7511,12 @@ msgid "There are no triggers to display."
 msgstr "Aucun déclencheur à afficher."
 
 #: resources/templates/triggers/list.twig:81
-#, fuzzy
-#| msgid "Trigger name"
 msgid "Trigger editor"
-msgstr "Nom du déclencheur"
+msgstr "Éditeur de déclencheur"
 
 #: resources/templates/triggers/list.twig:101
-#, fuzzy
-#| msgid "Export of trigger %s"
 msgid "Export trigger"
-msgstr "Exporter le déclencheur %s"
+msgstr "Exporter le déclencheur"
 
 #: resources/templates/view_create.twig:75
 msgid "VIEW name"
@@ -12668,8 +12639,8 @@ msgid ""
 "possible issues."
 msgstr ""
 "La variable [code]HTTP_HOST[/code] est manquante, ce qui pourrait causer un "
-"dysfonctionnement de phpMyAdmin. Veuillez consulter [doc@faq1-46]la "
-"documentation[/doc] pour d'éventuelles réponses."
+"dysfonctionnement de phpMyAdmin. Merci de se référer à la [doc@faq1-"
+"46]documentation[/doc] pour les problèmes potentiels."
 
 #: src/Controllers/HomeController.php:458
 msgid ""
@@ -13693,16 +13664,12 @@ msgid "No dependencies selected!"
 msgstr "Aucune dépendance sélectionnée !"
 
 #: src/Controllers/JavaScriptMessagesController.php:427
-#, fuzzy
-#| msgid "Use this value"
 msgid "Enter first value"
-msgstr "Utiliser cette valeur"
+msgstr "Saisir la 1ère valeur"
 
 #: src/Controllers/JavaScriptMessagesController.php:428
-#, fuzzy
-#| msgid "Session value"
 msgid "Enter second value"
-msgstr "Valeur pour la session"
+msgstr "Saisir la 2nde valeur"
 
 #: src/Controllers/JavaScriptMessagesController.php:434
 msgid "Hide search criteria"
@@ -13969,10 +13936,8 @@ msgid "Double-click to copy column name."
 msgstr "Double-cliquer pour copier le nom de la colonne."
 
 #: src/Controllers/JavaScriptMessagesController.php:553
-#, fuzzy
-#| msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgid "Click the drop-down arrow to toggle column's visibility."
-msgstr "Cliquer sur la flèche<br>pour afficher/masquer la colonne."
+msgstr "Cliquer sur la flèche pour afficher/masquer la colonne."
 
 #: src/Controllers/JavaScriptMessagesController.php:556
 msgid ""
@@ -15689,14 +15654,12 @@ msgid "The columns have been moved successfully."
 msgstr "Les colonnes ont été déplacées avec succès."
 
 #: src/Controllers/Table/Structure/MoveColumnsController.php:114
-#, fuzzy
-#| msgid "The selected user was not found in the privilege table."
 msgid "The selected columns do not match the columns in the table."
-msgstr "L'utilisateur choisi n'existe pas dans la table des privilèges."
+msgstr "Les colonnes sélectionnées ne correspondent pas à celles dans la table."
 
 #: src/Controllers/Table/Structure/MoveColumnsController.php:141
 msgid "The selected columns are already in the correct order."
-msgstr ""
+msgstr "Les colonnes sélectionnées sont déjà dans l'ordre approprié."
 
 #: src/Controllers/Table/Structure/PartitioningController.php:257
 #: src/Controllers/Table/Structure/SaveController.php:267
@@ -15970,10 +15933,8 @@ msgid "You must provide a valid return type for the routine."
 msgstr "Il faut fournir un type de retour valide pour la procédure."
 
 #: src/Database/Routines.php:809
-#, fuzzy
-#| msgid "Invalid routine type: \"%s\""
 msgid "Invalid routine type!"
-msgstr "Type de procédure invalide : « %s »"
+msgstr "Type de procédure invalide !"
 
 #: src/Database/Routines.php:815
 msgid "You must provide a routine name!"
@@ -17963,6 +17924,8 @@ msgid ""
 "Displays a link to download the binary data of the column. You can use the "
 "option to specify the filename."
 msgstr ""
+"Affiche un lien pour télécharger les données binaires de la colonne. "
+"L'option permet de spécifier le nom de fichier."
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:38
 msgid ""
@@ -18830,16 +18793,12 @@ msgid "You must provide a trigger definition."
 msgstr "Il faut fournir une définition pour le déclencheur."
 
 #: src/Types.php:97
-#, fuzzy
-#| msgid "Empty"
 msgid "empty"
-msgstr "Vider"
+msgstr "vide"
 
 #: src/Types.php:98
-#, fuzzy
-#| msgid "not present"
 msgid "not empty"
-msgstr "non présent"
+msgstr "non vide"
 
 #: src/Types.php:161
 msgid ""
@@ -18940,33 +18899,30 @@ msgstr "Un alias pour BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 #: src/Types.php:198
 #, php-format
 msgid "A date, supported range is %1$s to %2$s"
-msgstr "Une date, la fourchette est de «%1$s» à «%2$s»"
+msgstr "Une date, entre %1$s et %2$s"
 
 #: src/Types.php:203
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
-msgstr ""
-"Une combinaison date et heure, la fourchette est de « %1$s » à « %2$s »"
+msgstr "Une combinaison de date et heure, entre %1$s et %2$s"
 
 #: src/Types.php:208
-#, fuzzy
-#| msgid ""
-#| "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
-#| "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-19 03:14:07 UTC on "
 "32-bit platforms (MariaDB 11.3 and earlier), and up to 2106-02-07 06:28:15 "
 "UTC on 64-bit platforms (MariaDB 11.5 and later), stored as the number of "
 "seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
-"Un type d'horodatage, la fourchette est de 1970-01-01 00:00:01 UTC à "
-"2038-01-09 03:14:07 UTC, en nombre de secondes depuis le moment de référence "
-"(1970-01-01 00:00:00 UTC)"
+"Un horodatage, avec une fourchette de 1970-01-01 00:00:01 UTC à 2038-01-09 "
+"03:14:07 UTC sur les plateformes 32 bits (jusqu'à MariaDB 11.3) et jusqu'à "
+"2106-02-07 06:28:15 UTC sur les plateformes 64 bits (à partir de MariaDB "
+"11.5), exprimé en nombre de secondes depuis le moment de référence (1970-01-"
+"01 00:00:00 UTC)"
 
 #: src/Types.php:214
 #, php-format
 msgid "A time, range is %1$s to %2$s"
-msgstr "Une heure, la fourchette est de %1$s à %2$s"
+msgstr "Une heure, entre %1$s et %2$s"
 
 #: src/Types.php:219
 msgid ""
