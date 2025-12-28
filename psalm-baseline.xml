@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="6.13.1@1e3b7f0a8ab32b23197b91107adc0a7ed8a05b51">
+<files psalm-version="6.14.3@d0b040a91f280f071c1abcb1b77ce3822058725a">
   <file src="src/Advisory/Advisor.php">
     <ArgumentTypeCoercion>
       <code><![CDATA[$pattern]]></code>
@@ -53,6 +53,7 @@
       <code><![CDATA[$row]]></code>
     </InvalidArgument>
     <PossiblyNullArrayOffset>
+      <code><![CDATA[self::$charsets]]></code>
       <code><![CDATA[self::$charsets]]></code>
       <code><![CDATA[self::$collations]]></code>
       <code><![CDATA[self::$collations[$row['Charset']]]]></code>
@@ -631,6 +632,7 @@
     <PossiblyNullArrayOffset>
       <code><![CDATA[$userGroups]]></code>
       <code><![CDATA[$userGroups]]></code>
+      <code><![CDATA[$userGroups]]></code>
       <code><![CDATA[$userGroups[$groupName]]]></code>
     </PossiblyNullArrayOffset>
   </file>
@@ -1175,6 +1177,9 @@
     <PossiblyNullArgument>
       <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
     </PossiblyNullArgument>
+    <PossiblyNullArrayOffset>
+      <code><![CDATA[$trackedTables]]></code>
+    </PossiblyNullArrayOffset>
     <PossiblyNullOperand>
       <code><![CDATA[$columnNames]]></code>
       <code><![CDATA[$currentTable['Data_length']]]></code>
@@ -3629,6 +3634,7 @@
       <code><![CDATA[$resultRows]]></code>
       <code><![CDATA[$resultTarget]]></code>
       <code><![CDATA[$resultTarget]]></code>
+      <code><![CDATA[$resultTarget]]></code>
     </PossiblyNullArrayOffset>
     <PossiblyNullOperand>
       <code><![CDATA[$row['Data_free']]]></code>
@@ -4228,6 +4234,9 @@
       <code><![CDATA[$this->getName()]]></code>
       <code><![CDATA[$this->getName()]]></code>
     </PossiblyNullArgument>
+    <PossiblyNullArrayOffset>
+      <code><![CDATA[$_REQUEST['fields_uploadlocal']['multi_edit']]]></code>
+    </PossiblyNullArrayOffset>
     <PossiblyUnusedMethod>
       <code><![CDATA[getCharset]]></code>
       <code><![CDATA[getChunkSize]]></code>
@@ -5138,6 +5147,7 @@
   </file>
   <file src="src/Navigation/Navigation.php">
     <PossiblyNullArrayOffset>
+      <code><![CDATA[$hidden]]></code>
       <code><![CDATA[$hidden]]></code>
       <code><![CDATA[$hidden]]></code>
     </PossiblyNullArrayOffset>
@@ -6060,6 +6070,9 @@
       <code><![CDATA[$oldTable]]></code>
       <code><![CDATA[$oldTable]]></code>
     </PossiblyNullArgument>
+    <PossiblyNullArrayOffset>
+      <code><![CDATA[Charsets::$mysqlCharsetMap]]></code>
+    </PossiblyNullArrayOffset>
     <PossiblyNullOperand>
       <code><![CDATA[$eventDef]]></code>
     </PossiblyNullOperand>
@@ -7704,6 +7717,7 @@
       <code><![CDATA[$dbRights]]></code>
       <code><![CDATA[$dbRights]]></code>
       <code><![CDATA[$dbRights]]></code>
+      <code><![CDATA[$dbRights]]></code>
       <code><![CDATA[$dbRights[$row['User']]]]></code>
       <code><![CDATA[$groupAssignment]]></code>
       <code><![CDATA[$groupAssignment]]></code>
@@ -8157,6 +8171,9 @@
       <code><![CDATA[$mysqlVars]]></code>
       <code><![CDATA[$mysqlVars]]></code>
       <code><![CDATA[$mysqlVars]]></code>
+      <code><![CDATA[$mysqlVars]]></code>
+      <code><![CDATA[$mysqlVars]]></code>
+      <code><![CDATA[$variables]]></code>
       <code><![CDATA[$variables]]></code>
     </PossiblyNullArrayOffset>
   </file>
@@ -8289,6 +8306,7 @@
     </PossiblyInvalidOperand>
     <PossiblyNullArrayOffset>
       <code><![CDATA[$geomFuncs]]></code>
+      <code><![CDATA[$geomUnaryFunctions]]></code>
     </PossiblyNullArrayOffset>
     <PossiblyNullOperand>
       <code><![CDATA[$geomFunc]]></code>
@@ -10022,6 +10040,7 @@
   </file>
   <file src="tests/unit/Database/RoutinesTest.php">
     <DeprecatedMethod>
+      <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
