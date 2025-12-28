@@ -48,8 +48,6 @@ class UserPreferencesTest extends AbstractTestCase
     {
         $config = Config::getInstance();
         $config->settings = ['Server/hide_db' => 'testval123', 'Server/port' => '213'];
-        $config->settings['AvailableCharsets'] = [];
-        $config->settings['UserprefsDeveloperTab'] = null;
 
         $dbi = DatabaseInterface::getInstance();
         $userPreferences = new UserPreferences($dbi, new Relation($dbi), new Template());
@@ -377,7 +375,6 @@ class UserPreferencesTest extends AbstractTestCase
     {
         $config = Config::getInstance();
         $config->settings['UserprefsDisallow'] = ['test' => 'val', 'foo' => 'bar'];
-        $config->settings['UserprefsDeveloperTab'] = null;
 
         $dbi = DatabaseInterface::getInstance();
         $userPreferences = new UserPreferences($dbi, new Relation($dbi), new Template());
@@ -402,7 +399,7 @@ class UserPreferencesTest extends AbstractTestCase
      */
     public function testApplyDevel(): void
     {
-        Config::getInstance()->settings['UserprefsDeveloperTab'] = true;
+        Config::getInstance()->set('UserprefsDeveloperTab', true);
 
         $dbi = DatabaseInterface::getInstance();
         $userPreferences = new UserPreferences($dbi, new Relation($dbi), new Template());

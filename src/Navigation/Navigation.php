@@ -126,7 +126,7 @@ class Navigation
             'logo' => $logo,
             'config_navigation_width' => $this->config->settings['NavigationWidth'],
             'is_synced' => $this->config->settings['NavigationLinkWithMainPanel'],
-            'is_highlighted' => $this->config->settings['NavigationTreePointerEnable'],
+            'is_highlighted' => $this->config->config->NavigationTreePointerEnable,
             'is_autoexpanded' => $this->config->settings['NavigationTreeAutoexpandSingleDb'],
             'server' => Current::$server,
             'auth_type' => $this->config->selectedServer['auth_type'],

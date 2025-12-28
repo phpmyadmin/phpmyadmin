@@ -124,11 +124,11 @@ final readonly class ExportController implements InvocableController
          * valid compression methods
          */
         $compressionMethods = [];
-        if ($this->config->settings['ZipDump'] && function_exists('gzcompress')) {
+        if ($this->config->config->ZipDump && function_exists('gzcompress')) {
             $compressionMethods[] = 'zip';
         }
 
-        if ($this->config->settings['GZipDump'] && function_exists('gzencode')) {
+        if ($this->config->config->GZipDump && function_exists('gzencode')) {
             $compressionMethods[] = 'gzip';
         }
 

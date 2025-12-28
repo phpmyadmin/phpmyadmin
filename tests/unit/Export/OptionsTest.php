@@ -54,8 +54,6 @@ class OptionsTest extends AbstractTestCase
     {
         $config = Config::getInstance();
         $config->set('SaveDir', '/tmp');
-        $config->settings['ZipDump'] = false;
-        $config->settings['GZipDump'] = false;
 
         Export::$singleTable = false;
 
@@ -130,8 +128,8 @@ class OptionsTest extends AbstractTestCase
             'encodings' => Encoding::listEncodings(),
             'export_charset' => $config->config->Export->charset,
             'export_asfile' => $config->settings['Export']['asfile'],
-            'has_zip' => $config->settings['ZipDump'],
-            'has_gzip' => $config->settings['GZipDump'],
+            'has_zip' => $config->config->ZipDump,
+            'has_gzip' => $config->config->GZipDump,
             'selected_compression' => 'none',
             'filename_template' => 'user value for test',
         ];

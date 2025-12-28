@@ -196,8 +196,8 @@ final class Options
             'encodings' => $isEncodingSupported ? Encoding::listEncodings() : [],
             'export_charset' => $config->config->Export->charset,
             'export_asfile' => $config->settings['Export']['asfile'],
-            'has_zip' => $config->settings['ZipDump'] && function_exists('gzcompress'),
-            'has_gzip' => $config->settings['GZipDump'] && function_exists('gzencode'),
+            'has_zip' => $config->config->ZipDump && function_exists('gzcompress'),
+            'has_gzip' => $config->config->GZipDump && function_exists('gzencode'),
             'selected_compression' => $selectedCompression,
             'filename_template' => $filenameTemplate,
         ];

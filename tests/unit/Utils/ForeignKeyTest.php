@@ -49,17 +49,17 @@ class ForeignKeyTest extends AbstractTestCase
     public function testIsCheckEnabled(): void
     {
         $config = Config::getInstance();
-        $config->settings['DefaultForeignKeyChecks'] = 'enable';
+        $config->set('DefaultForeignKeyChecks', 'enable');
         self::assertTrue(
             ForeignKey::isCheckEnabled(),
         );
 
-        $config->settings['DefaultForeignKeyChecks'] = 'disable';
+        $config->set('DefaultForeignKeyChecks', 'disable');
         self::assertFalse(
             ForeignKey::isCheckEnabled(),
         );
 
-        $config->settings['DefaultForeignKeyChecks'] = 'default';
+        $config->set('DefaultForeignKeyChecks', 'default');
         self::assertTrue(
             ForeignKey::isCheckEnabled(),
         );

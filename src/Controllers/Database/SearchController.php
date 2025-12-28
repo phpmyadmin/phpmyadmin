@@ -43,7 +43,7 @@ final readonly class SearchController implements InvocableController
             return $this->response->missingParameterError('db');
         }
 
-        $errorUrl = Url::getFromRoute($this->config->settings['DefaultTabDatabase']);
+        $errorUrl = Url::getFromRoute($this->config->config->DefaultTabDatabase);
         $errorUrl .= Url::getCommon(['db' => Current::$database], '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));

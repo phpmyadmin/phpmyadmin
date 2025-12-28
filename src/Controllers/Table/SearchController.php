@@ -251,7 +251,7 @@ final class SearchController implements InvocableController
     private function displaySelectionFormAction(): void
     {
         if (UrlParams::$goto === '') {
-            UrlParams::$goto = Url::getFromRoute($this->config->settings['DefaultTabTable']);
+            UrlParams::$goto = Url::getFromRoute($this->config->config->DefaultTabTable);
         }
 
         $properties = [];

@@ -47,11 +47,11 @@ final class ForeignKey
     public static function isCheckEnabled(): bool
     {
         $config = Config::getInstance();
-        if ($config->settings['DefaultForeignKeyChecks'] === 'enable') {
+        if ($config->config->DefaultForeignKeyChecks === 'enable') {
             return true;
         }
 
-        if ($config->settings['DefaultForeignKeyChecks'] === 'disable') {
+        if ($config->config->DefaultForeignKeyChecks === 'disable') {
             return false;
         }
 
