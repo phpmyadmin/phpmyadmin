@@ -7468,12 +7468,6 @@ parameters:
 			path: src/InsertEdit.php
 
 		-
-			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\) does not accept array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\.$#'
-			identifier: assign.propertyType
-			count: 2
-			path: src/InsertEdit.php
-
-		-
 			message: '#^Method PhpMyAdmin\\InsertEditColumn\:\:getDisplayType\(\) should return string but returns string\|null\.$#'
 			identifier: return.type
 			count: 1
@@ -16344,7 +16338,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 30
+			count: 21
 			path: tests/unit/InsertEditTest.php
 
 		-
@@ -16377,12 +16371,6 @@ parameters:
 		-
 			message: '#^Method PhpMyAdmin\\Tests\\InsertEditTest\:\:parseString\(\) should return string but returns mixed\.$#'
 			identifier: return.type
-			count: 1
-			path: tests/unit/InsertEditTest.php
-
-		-
-			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\) does not accept array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\.$#'
-			identifier: assign.propertyType
 			count: 1
 			path: tests/unit/InsertEditTest.php
 

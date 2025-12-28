@@ -237,7 +237,7 @@ class RoutinesTest extends AbstractTestCase
     public function testGetQueryFromRequest(array $request, string $query, int $numErr): void
     {
         $config = Config::getInstance();
-        $config->settings['ShowFunctionFields'] = false;
+        $config->set('ShowFunctionFields', false);
 
         $oldDbi = DatabaseInterface::getInstance();
         $dbi = $this->getMockBuilder(DatabaseInterface::class)

@@ -206,16 +206,16 @@ class ChangeController implements InvocableController
         // user can toggle the display of Function column and column types
         // (currently does not work for multi-edits)
         if (
-            ! $this->config->settings['ShowFunctionFields'] || ! $this->config->settings['ShowFieldTypesInDataEditView']
+            ! $this->config->config->ShowFunctionFields || ! $this->config->config->ShowFieldTypesInDataEditView
         ) {
             $htmlOutput .= __('Show');
         }
 
-        if (! $this->config->settings['ShowFunctionFields']) {
+        if (! $this->config->config->ShowFunctionFields) {
             $htmlOutput .= $this->insertEdit->showTypeOrFunction('function', UrlParams::$params, false);
         }
 
-        if (! $this->config->settings['ShowFieldTypesInDataEditView']) {
+        if (! $this->config->config->ShowFieldTypesInDataEditView) {
             $htmlOutput .= $this->insertEdit->showTypeOrFunction('type', UrlParams::$params, false);
         }
 
