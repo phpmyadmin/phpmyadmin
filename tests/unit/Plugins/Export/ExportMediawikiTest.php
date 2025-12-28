@@ -8,8 +8,11 @@ use PhpMyAdmin\Column;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Export\StructureOrData;
 use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
+use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Plugins\Export\ExportMediawiki;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -318,5 +321,67 @@ class ExportMediawikiTest extends AbstractTestCase
             "|}\n\n",
             $result,
         );
+    }
+
+    /**
+     * Integration test: Export table structure through Export::exportTable()
+     * Tests that exportStructure() method is called when exporting through Export::exportTable()
+     */
+    public function testExportTableStructureThroughExportCore(): void
+    {
+        // Mock the database interface
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        // Mock Table class to return isView = false
+        $table = $this->getMockBuilder(Table::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $table->method('isView')->willReturn(false);
+
+        $dbi->method('getTable')->willReturn($table);
+
+        // Mock getColumns to return a simple column structure
+        $columns = [
+            new Column('id', 'int(11)', null, false, 'PRI', null, '', '', ''),
+        ];
+        $dbi->expects(self::once())
+            ->method('getColumns')
+            ->with('testdb', 'testtable')
+            ->willReturn($columns);
+
+        DatabaseInterface::$instance = $dbi;
+
+        // Create the ExportMediawiki instance
+        $relation = new Relation($dbi);
+        $exportMediawiki = new ExportMediawiki(
+            $relation,
+            new OutputHandler(),
+            new Transformations($dbi, $relation),
+        );
+
+        // Force structureOrData to be StructureAndData so structure export is attempted
+        $attrStructureOrData = new ReflectionProperty(ExportMediawiki::class, 'structureOrData');
+        $attrStructureOrData->setValue($exportMediawiki, StructureOrData::StructureAndData);
+
+        // Now call exportTable through the Export class
+        ob_start();
+        $exportcore = new Export($dbi, new OutputHandler());
+        $exportcore->exportTable(
+            'testdb',
+            'testtable',
+            $exportMediawiki,
+            null,
+            '0',
+            '0',
+            '',
+            [],
+        );
+        $result = ob_get_clean();
+
+        // Verify that structure output was generated
+        self::assertStringContainsString('Table structure for', $result);
+        self::assertStringContainsString('testtable', $result);
     }
 }

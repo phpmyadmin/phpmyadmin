@@ -10,8 +10,11 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Export\StructureOrData;
 use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
+use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Identifiers\TriggerName;
 use PhpMyAdmin\Plugins\Export\ExportOdt;
@@ -891,5 +894,67 @@ class ExportOdtTest extends AbstractTestCase
             '"string"><text:p>def</text:p></table:table-cell>',
             $method->invoke($this->object, $column, ''),
         );
+    }
+
+    /**
+     * Integration test: Export table structure through Export::exportTable()
+     * Tests that exportStructure() method is called when exporting through Export::exportTable()
+     */
+    public function testExportTableStructureThroughExportCore(): void
+    {
+        // Mock the database interface
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        // Mock Table class to return isView = false
+        $table = $this->getMockBuilder(Table::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $table->method('isView')->willReturn(false);
+
+        $dbi->method('getTable')->willReturn($table);
+
+        // Mock getTableIndexes to return empty array
+        $dbi->method('getTableIndexes')->willReturn([]);
+
+        // Mock getColumns to return a simple column structure
+        $columns = [
+            new Column('id', 'int(11)', null, false, 'PRI', null, '', '', ''),
+        ];
+        $dbi->method('getColumns')
+            ->with('testdb', 'testtable')
+            ->willReturn($columns);
+
+        DatabaseInterface::$instance = $dbi;
+
+        // Create the ExportOdt instance
+        $relation = new Relation($dbi);
+        $exportOdt = new ExportOdt(
+            $relation,
+            new OutputHandler(),
+            new Transformations($dbi, $relation),
+        );
+
+        // Force structureOrData to be StructureAndData so structure export is attempted
+        $attrStructureOrData = new ReflectionProperty(ExportOdt::class, 'structureOrData');
+        $attrStructureOrData->setValue($exportOdt, StructureOrData::StructureAndData);
+
+        // Now call exportTable through the Export class
+        $exportcore = new Export($dbi, new OutputHandler());
+        $exportcore->exportTable(
+            'testdb',
+            'testtable',
+            $exportOdt,
+            null,
+            '0',
+            '0',
+            '',
+            [],
+        );
+
+        // Verify that structure output was generated in the buffer
+        self::assertStringContainsString('Table structure for table testtable', $exportOdt->buffer);
+        self::assertStringContainsString('id', $exportOdt->buffer);
     }
 }

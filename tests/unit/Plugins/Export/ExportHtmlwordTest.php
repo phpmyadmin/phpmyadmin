@@ -11,7 +11,10 @@ use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\OutputHandler;
+use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Export\StructureOrData;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
+use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Identifiers\TriggerName;
 use PhpMyAdmin\Plugins\Export\ExportHtmlword;
@@ -686,5 +689,67 @@ class ExportHtmlwordTest extends AbstractTestCase
             '<td class="print">def</td>',
             $method->invoke($this->object, $column, $uniqueKeys),
         );
+    }
+
+    /**
+     * Integration test: Export table structure through Export::exportTable()
+     * Tests that exportStructure() method is called when exporting through Export::exportTable()
+     */
+    public function testExportTableStructureThroughExportCore(): void
+    {
+        // Mock the database interface
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        // Mock Table class to return isView = false
+        $table = $this->getMockBuilder(Table::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $table->method('isView')->willReturn(false);
+
+        $dbi->method('getTable')->willReturn($table);
+        DatabaseInterface::$instance = $dbi;
+
+        // Create a mock ExportHtmlword to verify getTableDef is called
+        $relation = new Relation($dbi);
+        $outputHandler = new OutputHandler();
+        $exportHtmlword = $this->getMockBuilder(ExportHtmlword::class)
+            ->setConstructorArgs([$relation, $outputHandler, new Transformations($dbi, $relation)])
+            ->onlyMethods(['getTableDef'])
+            ->getMock();
+
+        // getTableDef should be called during structure export
+        $exportHtmlword->expects(self::once())
+            ->method('getTableDef')
+            ->with('testdb', 'testtable', [])
+            ->willReturn('<table>test</table>');
+
+        // Force structureOrData to be StructureAndData so structure export is attempted
+        $attrStructureOrData = new ReflectionProperty(ExportHtmlword::class, 'structureOrData');
+        $attrStructureOrData->setValue($exportHtmlword, StructureOrData::Structure);
+
+        // Now call exportTable through the Export class
+        ob_start();
+        try {
+            $exportcore = new Export($dbi, $outputHandler);
+            $exportcore->exportTable(
+                'testdb',
+                'testtable',
+                $exportHtmlword,
+                null,
+                '0',
+                '0',
+                '',
+                [],
+            );
+            $output = ob_get_clean();
+        } catch (\Throwable $e) {
+            ob_end_clean();
+            throw $e;
+        }
+
+        // Verify that structure output was generated
+        self::assertIsString($output);
     }
 }

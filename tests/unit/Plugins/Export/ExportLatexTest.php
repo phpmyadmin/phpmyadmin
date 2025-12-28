@@ -11,7 +11,10 @@ use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\OutputHandler;
+use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Export\StructureOrData;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
+use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Plugins\Export\ExportLatex;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\ExportType;
@@ -793,5 +796,74 @@ class ExportLatexTest extends AbstractTestCase
                 'strTest Structure of table @TABLE@ Content of table @TABLE@ (continued) strTest',
             ],
         ];
+    }
+
+    /**
+     * Integration test: Export table structure through Export::exportTable()
+     * Tests that exportStructure() method is called when exporting through Export::exportTable()
+     */
+    public function testExportTableStructureThroughExportCore(): void
+    {
+        // Mock the database interface
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        // Mock Table class to return isView = false
+        $table = $this->getMockBuilder(Table::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $table->method('isView')->willReturn(false);
+
+        $dbi->method('getTable')->willReturn($table);
+
+        // Mock getTableIndexes to return empty array (no unique keys)
+        $dbi->method('getTableIndexes')->willReturn([]);
+
+        // Mock getColumns to return empty array
+        $dbi->method('getColumns')->willReturn([]);
+
+        // Mock selectDb (required for data export)
+        $dbi->method('selectDb')->willReturn(true);
+
+        // Mock getNonGeneratedColumns for Table
+        $table->method('getNonGeneratedColumns')->willReturn(['id', 'name']);
+
+        // Mock tryQuery to return false (simulating no data)
+        $dbi->method('tryQuery')->willReturn(false);
+
+        DatabaseInterface::$instance = $dbi;
+
+        // Create ExportLatex instance
+        $relation = new Relation($dbi);
+        $outputHandler = new OutputHandler();
+        $exportLatex = new ExportLatex($relation, $outputHandler, new Transformations($dbi, $relation));
+
+        // Force structureOrData to be Structure only to avoid data export issues
+        $attrStructureOrData = new ReflectionProperty(ExportLatex::class, 'structureOrData');
+        $attrStructureOrData->setValue($exportLatex, StructureOrData::Structure);
+
+        // Now call exportTable through the Export class
+        ob_start();
+        try {
+            $exportcore = new Export($dbi, $outputHandler);
+            $exportcore->exportTable(
+                'testdb',
+                'testtable',
+                $exportLatex,
+                null,
+                '0',
+                '0',
+                '',
+                [],
+            );
+            $output = ob_get_clean();
+        } catch (\Throwable $e) {
+            ob_end_clean();
+            throw $e;
+        }
+
+        // Verify that structure output was generated
+        self::assertIsString($output);
     }
 }

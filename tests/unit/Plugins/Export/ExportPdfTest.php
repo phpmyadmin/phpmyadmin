@@ -6,10 +6,13 @@ namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Export\OutputHandler;
+use PhpMyAdmin\Export\StructureOrData;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Plugins\Export\ExportPdf;
 use PhpMyAdmin\Plugins\Export\Helpers\Pdf;
+use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
@@ -222,4 +225,107 @@ class ExportPdfTest extends AbstractTestCase
             ),
         );
     }
+
+    
+    public function testExportStructure(): void
+    {
+        $pdf = $this->getMockBuilder(Pdf::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        // Verify all setup methods are called
+        $pdf->expects(self::once())
+            ->method('setCurrentDb')
+            ->with('db');
+
+        $pdf->expects(self::once())
+            ->method('setCurrentTable')
+            ->with('table');
+
+        $pdf->expects(self::once())
+            ->method('setDbAlias')
+            ->with('db'); // getDbAlias returns 'db' when no alias is set
+
+        $pdf->expects(self::once())
+            ->method('setTableAlias')
+            ->with('table'); // getTableAlias returns 'table' when no alias is set
+
+        $pdf->expects(self::once())
+            ->method('setAliases')
+            ->with([]);
+
+        $pdf->expects(self::once())
+            ->method('setPurpose')
+            ->with('Table structure');
+
+        $pdf->expects(self::once())
+            ->method('getTableDef')
+            ->with('db', 'table', false, true, false);
+
+        $attrPdf = new ReflectionProperty(ExportPdf::class, 'pdf');
+        $attrPdf->setValue($this->object, $pdf);
+
+        self::assertTrue(
+            $this->object->exportStructure(
+                'db',
+                'table',
+                'create_table',
+            ),
+        );
+    }
+
+
+    /**
+     * Integration test: Export table structure through Export::exportTable()
+     * their exportStructure() method called when exporting through Export::exportTable()
+     */
+    public function testExportTableStructureThroughExportCore(): void
+    {
+        // Mock the database interface
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        // Mock Table class to return isView = false
+        $table = $this->getMockBuilder(Table::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $table->method('isView')->willReturn(false);
+
+        $dbi->method('getTable')->willReturn($table);
+        DatabaseInterface::$instance = $dbi;
+
+        // Create a mock PDF that we can verify methods are called on
+        $pdf = $this->getMockBuilder(Pdf::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        // getTableDef should be called
+        $pdf->expects(self::once())
+            ->method('getTableDef')
+            ->with('testdb', 'testtable', false, true, false);
+
+        // Set up the PDF in our export plugin
+        $attrPdf = new ReflectionProperty(ExportPdf::class, 'pdf');
+        $attrPdf->setValue($this->object, $pdf);
+
+        // Force structureOrData to be StructureAndData so structure export is attempted
+        $attrStructureOrData = new ReflectionProperty(ExportPdf::class, 'structureOrData');
+        $attrStructureOrData->setValue($this->object, StructureOrData::StructureAndData);
+
+        // Now call exportTable through the Export class
+        $exportcore = new Export($dbi, new OutputHandler());
+        $exportcore->exportTable(
+            'testdb',
+            'testtable',
+            $this->object,
+            null,
+            '0',
+            '0',
+            '',
+            []
+        );
+    }
+
+
 }
