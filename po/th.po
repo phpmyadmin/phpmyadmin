@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2025-12-28 12:00+0000\n"
-"Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
+"PO-Revision-Date: 2025-12-29 14:00+0000\n"
+"Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/4-9/th/>"
 "\n"
 "Language: th\n"
@@ -10397,13 +10397,13 @@ msgid "Change or reconfigure master server"
 msgstr ""
 
 #: libraries/classes/ReplicationGui.php:293
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
-"เซิร์ฟเวอร์นี้ไม่ได้กำหนดค่าให้เป็นสเลฟในกระบวนการการจำลองแบบ คุณต้องการที่จะ %กำหนดค่า%s หรื"
-"อไม่?"
+"เซิร์ฟเวอร์นี้ไม่ได้กำหนดค่าให้เป็นสเลฟในกระบวนการการจำลองแบบ คุณต้องการที่จะ %sกำหนดค่า%s ห"
+"รือไม่?"
 
 #: libraries/classes/ReplicationGui.php:316
 msgid "Error management:"
@@ -10423,12 +10423,12 @@ msgid "Skip next %s errors."
 msgstr ""
 
 #: libraries/classes/ReplicationGui.php:355
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
-"เซิร์ฟเวอร์นี้ไม่ได้กำหนดค่าให้เป็นมาสเตอร์ในกระบวนการการจำลองแบบ คุณต้องการที่จะ %กำหนดค่"
+"เซิร์ฟเวอร์นี้ไม่ได้กำหนดค่าให้เป็นมาสเตอร์ในกระบวนการการจำลองแบบ คุณต้องการที่จะ %sกำหนดค่"
 "า%s หรือไม่?"
 
 #: libraries/classes/ReplicationGui.php:389
@@ -10670,7 +10670,7 @@ msgstr "กิจกรรม %1$s ได้รับการแก้ไขแ
 #: libraries/classes/Rte/Events.php:169
 #, fuzzy, php-format
 msgid "Event %1$s has been created."
-msgstr "โยนตาราง %s ทิ้งไปเรียบร้อยแล้ว"
+msgstr "โยนตาราง %1$s ทิ้งไปเรียบร้อยแล้ว"
 
 #: libraries/classes/Rte/Events.php:183 libraries/classes/Rte/Routines.php:287
 #: libraries/classes/Rte/Triggers.php:159
@@ -10696,7 +10696,7 @@ msgstr "ชนิดคำค้น"
 #, fuzzy, php-format
 #| msgid "Change"
 msgid "Change to %s"
-msgstr "เปลี่ยน"
+msgstr "เปลี่ยน %s"
 
 #: libraries/classes/Rte/Events.php:456
 msgid "Execute at"
@@ -10803,7 +10803,7 @@ msgstr ""
 #: libraries/classes/Rte/Routines.php:274
 #, fuzzy, php-format
 msgid "Routine %1$s has been created."
-msgstr "โยนตาราง %s ทิ้งไปเรียบร้อยแล้ว"
+msgstr "โยนตาราง %1$s ทิ้งไปเรียบร้อยแล้ว"
 
 #: libraries/classes/Rte/Routines.php:393
 msgid "Sorry, we failed to restore the dropped routine."
@@ -10813,13 +10813,13 @@ msgstr ""
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped."
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
-msgstr "โยนตาราง %s ทิ้งไปเรียบร้อยแล้ว"
+msgstr "โยนตาราง %1$s ทิ้งไปเรียบร้อยแล้ว"
 
 #: libraries/classes/Rte/Routines.php:454
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped."
 msgid "Routine %1$s has been modified."
-msgstr "โยนตาราง %s ทิ้งไปเรียบร้อยแล้ว"
+msgstr "โยนตาราง %1$s ทิ้งไปเรียบร้อยแล้ว"
 
 #: libraries/classes/Rte/Routines.php:909
 #, fuzzy
@@ -10950,12 +10950,12 @@ msgstr ""
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped."
 msgid "Trigger %1$s has been modified."
-msgstr "โยนตาราง %s ทิ้งไปเรียบร้อยแล้ว"
+msgstr "โยนตาราง %1$s ทิ้งไปเรียบร้อยแล้ว"
 
 #: libraries/classes/Rte/Triggers.php:145
 #, fuzzy, php-format
 msgid "Trigger %1$s has been created."
-msgstr "โยนตาราง %s ทิ้งไปเรียบร้อยแล้ว"
+msgstr "โยนตาราง %1$s ทิ้งไปเรียบร้อยแล้ว"
 
 #: libraries/classes/Rte/Triggers.php:221
 #, fuzzy
@@ -11758,7 +11758,7 @@ msgstr ""
 #, fuzzy, php-format
 #| msgid "This MySQL server has been running for %s. It started up on %s."
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr "เซิร์ฟเวอร์ MySQL นี้รันมาเป็นเวลา %s. เริ่มตอน %s."
+msgstr "เซิร์ฟเวอร์ MySQL นี้รันมาเป็นเวลา %1$s. เริ่มตอน %2$s."
 
 #: libraries/classes/Server/Status.php:102
 msgid ""
@@ -13085,7 +13085,7 @@ msgstr "มีข้อผิดพลาดจากเปลี่ยนชื
 #, fuzzy, php-format
 #| msgid "Table %s has been renamed to %s."
 msgid "Table %1$s has been renamed to %2$s."
-msgstr "ตาราง %s ได้ถูกเปลี่ยนชื่อเป็น %s"
+msgstr "ตาราง %1$s ได้ถูกเปลี่ยนชื่อเป็น %2$s"
 
 #: libraries/classes/Table.php:1767
 #, fuzzy
@@ -13109,8 +13109,8 @@ msgid ""
 "after you refresh this page. Please check if the table structure has been "
 "changed."
 msgstr ""
-"﻿ไม่สามารถบันทึกคุณสมบัติ UI \"% s\" ได้ การเปลี่ยนแปลงจะมีผล หลังจากคุณรีเฟรชหน้านี้ "
-"โปรดตรวจสอบหากมีการเปลี่ยนโครงสร้างของตาราง"
+"﻿ไม่สามารถบันทึกคุณสมบัติ UI \"%s\" ได้ การเปลี่ยนแปลงจะมีผล หลังจากคุณรีเฟรชหน้านี้ โปรดตรวจส"
+"อบหากมีการเปลี่ยนโครงสร้างของตาราง"
 
 #: libraries/classes/Table.php:2086
 msgid "The name of the primary key must be \"PRIMARY\"!"
@@ -17274,7 +17274,7 @@ msgstr ""
 #, fuzzy, php-format
 #| msgid "Create table on database %s"
 msgid "Immediate table locks %%"
-msgstr "สร้างตารางในฐานข้อมูลนี้ %s"
+msgstr "สร้างตารางในฐานข้อมูลนี้ %%"
 
 #: libraries/advisory_rules_generic.txt:283
 #: libraries/advisory_rules_generic.txt:290
