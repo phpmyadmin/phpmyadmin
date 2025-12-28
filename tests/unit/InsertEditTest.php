@@ -2208,8 +2208,6 @@ class InsertEditTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         $_POST['where_clause'] = '1';
         $_SESSION['edit_next'] = '1';
-        $_POST['ShowFunctionFields'] = true;
-        $_POST['ShowFieldTypesInDataEditView'] = true;
         $_POST['after_insert'] = 'edit_next';
         $_POST['default_action'] = 'insert';
 

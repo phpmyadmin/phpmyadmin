@@ -54,8 +54,6 @@ final class ChangeControllerTest extends AbstractTestCase
 
         $config = Config::getInstance();
         $config->set('InsertRows', 3);
-        $config->set('ShowFunctionFields', true);
-        $config->set('ShowFieldTypesInDataEditView', true);
 
         $relation = new Relation($dbi);
         $template = new Template();
