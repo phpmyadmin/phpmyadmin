@@ -1345,14 +1345,6 @@ class InsertEdit
             $afterInsert = 'edit_next';
         }
 
-        if (isset($_POST['ShowFunctionFields'])) {
-            $this->config->set('ShowFunctionFields', $_POST['ShowFunctionFields'] === '1');
-        }
-
-        if (isset($_POST['ShowFieldTypesInDataEditView'])) {
-            $this->config->set('ShowFieldTypesInDataEditView', $_POST['ShowFieldTypesInDataEditView'] === '1');
-        }
-
         if (isset($_POST['after_insert'])) {
             $afterInsert = $_POST['after_insert'];
         }

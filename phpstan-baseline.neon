@@ -15882,7 +15882,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 2
+			count: 1
 			path: tests/unit/Database/RoutinesTest.php
 
 		-

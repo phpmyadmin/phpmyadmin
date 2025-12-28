@@ -10023,7 +10023,6 @@
   <file src="tests/unit/Database/RoutinesTest.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
