@@ -297,11 +297,11 @@ class Config
                 );
             }
         } elseif (
-            $this->settings['ThemeDefault'] !== $themeManager->theme->getId()
-            && $themeManager->themeExists($this->settings['ThemeDefault'])
+            $this->config->ThemeDefault !== $themeManager->theme->getId()
+            && $themeManager->themeExists($this->config->ThemeDefault)
         ) {
             // no cookie - read default from settings
-            $themeManager->setActiveTheme($this->settings['ThemeDefault']);
+            $themeManager->setActiveTheme($this->config->ThemeDefault);
             $themeManager->setThemeCookie();
         }
 
@@ -790,7 +790,7 @@ class Config
          * We do NOT exit here, but continue on without logging into any server.
          * This way, the welcome page will still come up (with no server info) and
          * present a choice of servers in the case that there are multiple servers
-         * and '$this->settings['ServerDefault'] = 0' is set.
+         * and '$this->config->ServerDefault = 0' is set.
          */
         if (isset($this->config->Servers[$serverNumber])) {
             $this->hasSelectedServer = true;

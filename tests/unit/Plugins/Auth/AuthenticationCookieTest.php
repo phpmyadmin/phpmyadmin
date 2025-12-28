@@ -232,7 +232,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         $config->settings['CaptchaResponseParam'] = 'g-recaptcha-response';
         $config->settings['CaptchaLoginPrivateKey'] = 'testprivkey';
         $config->settings['CaptchaLoginPublicKey'] = 'testpubkey';
-        $config->settings['CaptchaMethod'] = 'checkbox';
+        $config->set('CaptchaMethod', 'checkbox');
         Current::$server = 2;
 
         $responseStub = new ResponseRendererStub();

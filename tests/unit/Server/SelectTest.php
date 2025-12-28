@@ -30,7 +30,6 @@ class SelectTest extends AbstractTestCase
 
         $config = Config::getInstance();
         $config->settings['MaxRows'] = 10;
-        $config->settings['ServerDefault'] = 'server';
         $config->settings['RememberSorting'] = true;
         $config->settings['SQP'] = [];
         $config->settings['MaxCharactersInDisplayedSQL'] = 1000;

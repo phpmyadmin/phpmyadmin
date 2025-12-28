@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Theme;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Theme\ThemeManager;
@@ -22,10 +21,6 @@ class ThemeManagerTest extends AbstractTestCase
 
         $this->setGlobalConfig();
 
-        $config = Config::getInstance();
-        $config->settings['ThemePerServer'] = false;
-        $config->settings['ThemeDefault'] = 'pmahomme';
-        $config->settings['ServerDefault'] = 0;
         Current::$server = 99;
     }
 

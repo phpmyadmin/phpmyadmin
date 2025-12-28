@@ -71,7 +71,6 @@ class InsertEditTest extends AbstractTestCase
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
         $config = Config::getInstance();
-        $config->settings['ServerDefault'] = 1;
         Current::$database = 'db';
         Current::$table = 'table';
         $config->settings['LimitChars'] = 50;
@@ -344,7 +343,6 @@ class InsertEditTest extends AbstractTestCase
     {
         $config = Config::getInstance();
         $config->settings['ShowFieldTypesInDataEditView'] = true;
-        $config->settings['ServerDefault'] = 1;
         $urlParams = ['ShowFunctionFields' => 2];
 
         $result = $this->insertEdit->showTypeOrFunction('function', $urlParams, false);
@@ -626,7 +624,6 @@ class InsertEditTest extends AbstractTestCase
     {
         $column = new InsertEditColumn('f', 'char(25)', false, '', null, '', 20, false, false, true, false);
         $config = Config::getInstance();
-        $config->settings['CharEditing'] = '';
         $config->settings['MaxSizeForInputField'] = 30;
         $config->settings['MinSizeForInputField'] = 10;
         $config->settings['TextareaRows'] = 20;
@@ -842,7 +839,7 @@ class InsertEditTest extends AbstractTestCase
             ),
         );
 
-        self::assertSame('textarea', $config->settings['CharEditing']);
+        self::assertSame('textarea', $config->config->CharEditing);
 
         // case 2
         $column = new InsertEditColumn(
@@ -877,7 +874,6 @@ class InsertEditTest extends AbstractTestCase
         $whereClauseArray = ['a<b'];
         $config = Config::getInstance();
         $config->settings['InsertRows'] = 1;
-        $config->settings['ServerDefault'] = 1;
         UrlParams::$goto = 'index.php';
         $_POST['where_clause'] = true;
         $_POST['sql_query'] = 'SELECT 1';
@@ -922,7 +918,6 @@ class InsertEditTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->settings['ShowFieldTypesInDataEditView'] = true;
         $config->settings['ShowFunctionFields'] = true;
-        $config->settings['ServerDefault'] = 1;
         $urlParams = ['ShowFunctionFields' => 2];
 
         $result = $this->callFunction(
@@ -1300,7 +1295,6 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testGetErrorUrl(): void
     {
-        Config::getInstance()->settings['ServerDefault'] = 1;
         self::assertSame(
             'index.php?route=/table/change&lang=en',
             $this->insertEdit->getErrorUrl([]),
@@ -1452,7 +1446,6 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testGetLinkForRelationalDisplayField(): void
     {
-        Config::getInstance()->settings['ServerDefault'] = 1;
         $_SESSION['tmpval']['relational_display'] = 'K';
         $map = [];
         $map['f']['foreign_db'] = 'information_schema';
@@ -1493,7 +1486,6 @@ class InsertEditTest extends AbstractTestCase
         $editedValues = [['c' => 'cname']];
         $config = Config::getInstance();
         $config->settings['DefaultTransformations']['PreApPend'] = ['', ''];
-        $config->settings['ServerDefault'] = 1;
         $_POST['where_clause'] = '1';
         $_POST['where_clause_sign'] = Core::signSqlQuery($_POST['where_clause']);
         $result = $this->insertEdit->transformEditedValues(
@@ -2519,7 +2511,6 @@ class InsertEditTest extends AbstractTestCase
         InsertEdit::$pluginScripts = [];
         $config = Config::getInstance();
         $config->settings['LongtextDoubleTextarea'] = true;
-        $config->settings['CharEditing'] = 'input';
         $config->settings['TextareaRows'] = 10;
         $config->settings['TextareaCols'] = 11;
         $foreigners = new Foreigners();
@@ -2562,7 +2553,6 @@ class InsertEditTest extends AbstractTestCase
         InsertEdit::$pluginScripts = [];
         $config = Config::getInstance();
         $config->settings['LongtextDoubleTextarea'] = true;
-        $config->settings['CharEditing'] = 'input';
         $foreigners = new Foreigners();
 
         // edit

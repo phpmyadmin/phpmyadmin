@@ -489,7 +489,6 @@ class UserPreferencesTest extends AbstractTestCase
         self::assertTrue($_SESSION['userprefs_autoload']);
 
         $_REQUEST['prefs_autoload'] = 'nohide';
-        Config::getInstance()->settings['ServerDefault'] = 1;
         $result = $userPreferences->autoloadGetHeader();
 
         self::assertStringContainsString(

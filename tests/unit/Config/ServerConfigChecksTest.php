@@ -35,7 +35,6 @@ class ServerConfigChecksTest extends AbstractTestCase
 
         $config = Config::getInstance();
         $config->settings['AvailableCharsets'] = [];
-        $config->settings['ServerDefault'] = 0;
 
         $this->configFile = new ConfigFile();
 

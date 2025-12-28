@@ -953,7 +953,7 @@ class Generator
         // Suhosin: Check that each query parameter is not above maximum
         $inSuhosinLimits = true;
         $config = Config::getInstance();
-        if (strlen($url) <= $config->settings['LinkLengthLimit']) {
+        if (strlen($url) <= $config->config->LinkLengthLimit) {
             $suhosinGetMaxValueLength = ini_get('suhosin.get.max_value_length');
             if ($suhosinGetMaxValueLength) {
                 $queryParts = Util::splitURLQuery($url);
@@ -972,7 +972,7 @@ class Generator
         }
 
         $tagParamsStrings = [];
-        $isDataPostFormatSupported = (strlen($url) > $config->settings['LinkLengthLimit'])
+        $isDataPostFormatSupported = (strlen($url) > $config->config->LinkLengthLimit)
             || ! $inSuhosinLimits
             || (
                 // Has as sql_query without a signature, to be accepted it needs to be sent using POST

@@ -657,7 +657,6 @@ class ResultsTest extends AbstractTestCase
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
         $config = Config::getInstance();
-        $config->settings['BrowseMIME'] = true;
 
         // Basic data
         $query = 'SELECT 1';

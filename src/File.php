@@ -363,12 +363,12 @@ class File
      */
     public function setLocalSelectedFile(string $name): bool
     {
-        if ($this->config->settings['UploadDir'] === '') {
+        if ($this->config->config->UploadDir === '') {
             return false;
         }
 
         $this->setName(
-            Util::userDir($this->config->settings['UploadDir']) . Core::securePath($name),
+            Util::userDir($this->config->config->UploadDir) . Core::securePath($name),
         );
         if (@is_link((string) $this->getName())) {
             $this->errorMessage = Message::error(__('File is a symbolic link'));

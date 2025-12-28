@@ -374,7 +374,7 @@ final class ExportControllerTest extends AbstractTestCase
         $config = new Config();
         Config::$instance = $config;
         $config->selectedServer['DisableIS'] = true;
-        $config->settings['SaveDir'] = '';
+        $config->set('SaveDir', '');
 
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addResult('SET SQL_MODE=""', []);
@@ -526,7 +526,7 @@ final class ExportControllerTest extends AbstractTestCase
         $config = new Config();
         Config::$instance = $config;
         $config->selectedServer['DisableIS'] = true;
-        $config->settings['SaveDir'] = '';
+        $config->set('SaveDir', '');
         $config->settings['CompressOnFly'] = false;
 
         $dbiDummy = $this->createDbiDummy();

@@ -126,8 +126,6 @@
       <code><![CDATA[$configData]]></code>
       <code><![CDATA[$configData['lang']]]></code>
       <code><![CDATA[$defaultValue]]></code>
-      <code><![CDATA[$this->settings['ThemeDefault']]]></code>
-      <code><![CDATA[$this->settings['ThemeDefault']]]></code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['cache'][$cacheKey]['userprefs']]]></code>
@@ -4147,7 +4145,6 @@
     </PossiblyInvalidArgument>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$config->settings['Export'][$str]]]></code>
-      <code><![CDATA[empty($config->settings['SaveDir'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Export/OutputHandler.php">
@@ -5098,14 +5095,10 @@
     <PossiblyInvalidOperand>
       <code><![CDATA[$_POST['where_clause'][0]]]></code>
     </PossiblyInvalidOperand>
-    <PropertyTypeCoercion>
-      <code><![CDATA[$this->config->settings]]></code>
-    </PropertyTypeCoercion>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! $gotoInclude]]></code>
       <code><![CDATA[$editField->salt]]></code>
       <code><![CDATA[empty($columnMime['input_transformation'])]]></code>
-      <code><![CDATA[empty($this->config->settings['UploadDir'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/IpAllowDeny.php">
@@ -6630,9 +6623,6 @@
     <PossiblyUnusedReturnValue>
       <code><![CDATA[string[]]]></code>
     </PossiblyUnusedReturnValue>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($config->settings['UploadDir'])]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Plugins/Import/ImportSql.php">
     <DeprecatedMethod>
@@ -10050,12 +10040,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidPropertyAssignmentValue>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-    </InvalidPropertyAssignmentValue>
     <MixedArgument>
       <code><![CDATA[$this->callFunction(
                 $this->centralColumns,
@@ -10261,12 +10245,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidPropertyAssignmentValue>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-    </InvalidPropertyAssignmentValue>
   </file>
   <file src="tests/unit/FileListingTest.php">
     <DeprecatedMethod>
@@ -10391,7 +10369,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[[
@@ -10415,14 +10392,6 @@
       <code><![CDATA[$params]]></code>
       <code><![CDATA[$params]]></code>
     </MixedArgument>
-    <PropertyTypeCoercion>
-      <code><![CDATA[$config->settings]]></code>
-    </PropertyTypeCoercion>
-  </file>
-  <file src="tests/unit/Html/MySQLDocumentationTest.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
   </file>
   <file src="tests/unit/Http/Factory/ServerRequestFactoryTest.php">
     <PossiblyUndefinedArrayOffset>
@@ -10439,9 +10408,6 @@
     </RedundantCondition>
   </file>
   <file src="tests/unit/Import/ImportTest.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <DocblockTypeContradiction>
       <code><![CDATA[assertSame]]></code>
       <code><![CDATA[assertSame]]></code>
@@ -10450,9 +10416,6 @@
       <code><![CDATA[assertSame]]></code>
       <code><![CDATA[assertSame]]></code>
     </DocblockTypeContradiction>
-    <InvalidPropertyAssignmentValue>
-      <code><![CDATA[Config::getInstance()->settings]]></code>
-    </InvalidPropertyAssignmentValue>
     <PossiblyInvalidArgument>
       <code><![CDATA[testSkipByteOrderMarksFromContents]]></code>
       <code><![CDATA[testSkipByteOrderMarksFromContents]]></code>
@@ -10501,22 +10464,9 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidPropertyAssignmentValue>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-    </InvalidPropertyAssignmentValue>
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION['tmpval']['relational_display']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['relational_display']]]></code>
@@ -10628,12 +10578,6 @@
     <DocblockTypeContradiction>
       <code><![CDATA[assertSame]]></code>
     </DocblockTypeContradiction>
-    <InvalidPropertyAssignmentValue>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-    </InvalidPropertyAssignmentValue>
   </file>
   <file src="tests/unit/PdfTest.php">
     <MixedArgument>
@@ -10685,7 +10629,6 @@
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[$arr]]></code>
       <code><![CDATA[$config->selectedServer]]></code>
-      <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
@@ -10947,8 +10890,6 @@
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
     </InvalidPropertyAssignmentValue>
   </file>
   <file src="tests/unit/Routing/RoutingTest.php">
@@ -11003,8 +10944,6 @@
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
     </InvalidPropertyAssignmentValue>
     <PossiblyInvalidArgument>
       <code><![CDATA[$server['only_db']]]></code>
@@ -11035,18 +10974,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidPropertyAssignmentValue>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-    </InvalidPropertyAssignmentValue>
   </file>
   <file src="tests/unit/SqlTest.php">
     <DeprecatedMethod>
@@ -11235,15 +11162,10 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
   </file>
   <file src="tests/unit/UserPreferencesTest.php">
     <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
