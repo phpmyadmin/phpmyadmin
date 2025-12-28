@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-12-21 00:31+0000\n"
+"POT-Creation-Date: 2025-12-28 00:32+0000\n"
 "PO-Revision-Date: 2025-12-27 09:00+0000\n"
 "Last-Translator: தமிழ்நேரம் <tamilneram247@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -4287,8 +4287,7 @@ msgstr ""
 #, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
-msgstr ""
-"தற்போதைய தரவுத்தளத்தில் phpmyadmin உள்ளமைவு சேமிப்பகத்தை%s உருவாக்கு %s."
+msgstr "தற்போதைய தரவுத்தளத்தில் phpmyadmin உள்ளமைவு சேமிப்பகத்தை%s உருவாக்கு %s."
 
 #: resources/templates/relation/check_relations.twig:31
 #, php-format
@@ -7982,9 +7981,9 @@ msgstr ""
 "மதிப்பிலிருந்து சுயாதீனமாக. இவற்றை அகற்ற நீங்கள் அந்த நிலைமைகளைத் தவிர்ப்பதற்கு உங்கள் "
 "கேள்விகளை மீண்டும் எழுத வேண்டும் (ஒரு தற்காலிக அட்டவணைக்குள்: ஒரு குமிழ் அல்லது உரை "
 "நெடுவரிசையின் இருப்பு அல்லது 512 பைட்டுகளை விடப் பெரிய நெடுவரிசையின் இருப்பு) <a "
-"href=\"https://www.facebook.com/"
-"note.php?note_id=10150111255065841&comments\">Article by the Pythian Group</"
-"a> இன் தொடக்கத்தில் குறிப்பிட்டுள்ளபடி</a>"
+"href=\"https://www.facebook.com/note.php?"
+"note_id=10150111255065841&comments\">Article by the Pythian Group</a> இன் "
+"தொடக்கத்தில் குறிப்பிட்டுள்ளபடி</a>"
 
 #: src/Advisory/Rules.php:362
 #, php-format
@@ -11800,7 +11799,8 @@ msgid ""
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
 "%s உள்நுழைவு குக்கீ செல்லுபடியாகும் தன்மை 1800 வினாடிகளுக்கு (30 நிமிடங்கள்) அமைக்கப்பட "
-"வேண்டும். 1800 ஐ விடப் பெரிய மதிப்புகள் ஆள்மாறாட்டம் போன்ற பாதுகாப்பு அபாயத்தை ஏற்படுத்தக்கூடும்."
+"வேண்டும். 1800 ஐ விடப் பெரிய மதிப்புகள் ஆள்மாறாட்டம் போன்ற பாதுகாப்பு அபாயத்தை "
+"ஏற்படுத்தக்கூடும்."
 
 #: src/Config/ServerConfigChecks.php:366
 #, php-format
@@ -18544,7 +18544,8 @@ msgstr ""
 "ஒரு நேர முத்திரை, வரம்பு 1970-01-01 00:00:01 UTC முதல் 2038-01-19 03:14:07 UTC "
 "32-பிட் இயங்குதளங்களில் (மரியாடிபி 11.3 மற்றும் அதற்கு முந்தையது), மற்றும் 2106-02-07 "
 "06:28:15 யுடிசி வரை 64-பிட் இயங்குதளங்களில் (மரியாடிபி 11.5 மற்றும் அதற்குப் பிறகு), "
-"இது சகாப்தத்திலிருந்து விநாடிகளின் எண்ணிக்கையாகச் சேமிக்கப்படுகிறது (1970-01-01 00 UTC)"
+"இது சகாப்தத்திலிருந்து விநாடிகளின் எண்ணிக்கையாகச் சேமிக்கப்படுகிறது (1970-01-01 00 "
+"UTC)"
 
 #: src/Types.php:214
 #, php-format
