@@ -1937,7 +1937,7 @@ class Results
             if (
                 $relationParameters->columnCommentsFeature === null
                 || $relationParameters->browserTransformationFeature === null
-                || ! $this->config->settings['BrowseMIME']
+                || ! $this->config->config->BrowseMIME
                 || $_SESSION['tmpval']['hide_transformation']
                 || ! empty($added[$orgFullTableName])
             ) {
@@ -2059,7 +2059,7 @@ class Results
 
             if (
                 $relationParameters->browserTransformationFeature !== null
-                && $this->config->settings['BrowseMIME']
+                && $this->config->config->BrowseMIME
                 && isset($this->mediaTypeMap[$orgFullColName]['mimetype'])
                 && ! empty($this->mediaTypeMap[$orgFullColName]['transformation'])
             ) {

@@ -160,7 +160,7 @@ final readonly class ExportController implements InvocableController
 
             if (($isQuickExport && $quickExportOnServer) || (! $isQuickExport && $onServerParam)) {
                 // Will we save dump on server?
-                $saveOnServer = $this->config->settings['SaveDir'] !== '';
+                $saveOnServer = $this->config->config->SaveDir !== '';
             }
         }
 
@@ -247,7 +247,7 @@ final readonly class ExportController implements InvocableController
         // Open file on server if needed
         if ($saveOnServer) {
             $message = $this->export->outputHandler->openFile(
-                $this->config->settings['SaveDir'],
+                $this->config->config->SaveDir,
                 $filename,
                 $isQuickExport,
                 $request->getParsedBodyParam('quick_export_onserver_overwrite') === 'saveitover',

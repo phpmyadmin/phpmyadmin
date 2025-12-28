@@ -367,11 +367,11 @@ final readonly class ImportController implements InvocableController
             ImportSettings::$importFileName = $_FILES['import_file']['name'];
         }
 
-        if (ImportSettings::$localImportFile !== '' && $this->config->settings['UploadDir'] !== '') {
+        if (ImportSettings::$localImportFile !== '' && $this->config->config->UploadDir !== '') {
             // sanitize $local_import_file as it comes from a POST
             ImportSettings::$localImportFile = Core::securePath(ImportSettings::$localImportFile);
 
-            ImportSettings::$importFile = Util::userDir($this->config->settings['UploadDir'])
+            ImportSettings::$importFile = Util::userDir($this->config->config->UploadDir)
                 . ImportSettings::$localImportFile;
 
             /**

@@ -1100,7 +1100,7 @@ class Import
             : '';
 
         return $fileListing->getFileSelectOptions(
-            Util::userDir(Config::getInstance()->settings['UploadDir']),
+            Util::userDir(Config::getInstance()->config->UploadDir),
             $matcher,
             $active,
         );

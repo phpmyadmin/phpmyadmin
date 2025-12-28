@@ -131,7 +131,6 @@ class RelationTest extends AbstractTestCase
     {
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = false;
-        $config->settings['ServerDefault'] = 0;
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()

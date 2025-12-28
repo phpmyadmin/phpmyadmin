@@ -184,7 +184,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                 && ! empty($config->settings['CaptchaResponseParam'])
                 && ! empty($config->settings['CaptchaLoginPrivateKey'])
                 && ! empty($config->settings['CaptchaLoginPublicKey']),
-            'use_captcha_checkbox' => $config->settings['CaptchaMethod'] === 'checkbox',
+            'use_captcha_checkbox' => $config->config->CaptchaMethod === 'checkbox',
             'captcha_api' => $config->settings['CaptchaApi'],
             'captcha_req' => $config->settings['CaptchaRequestParam'],
             'captcha_resp' => $config->settings['CaptchaResponseParam'],
@@ -238,8 +238,8 @@ class AuthenticationCookie extends AuthenticationPlugin
                     return false;
                 }
 
-                $captchaSiteVerifyURL = $config->settings['CaptchaSiteVerifyURL'];
-                $captchaSiteVerifyURL = empty($captchaSiteVerifyURL) ? null : $captchaSiteVerifyURL;
+                $captchaSiteVerifyURL = $config->config->CaptchaSiteVerifyURL;
+                $captchaSiteVerifyURL = $captchaSiteVerifyURL === '' ? null : $captchaSiteVerifyURL;
                 if (function_exists('curl_init') && function_exists('curl_exec')) {
                     $reCaptcha = new ReCaptcha\ReCaptcha(
                         $config->settings['CaptchaLoginPrivateKey'],

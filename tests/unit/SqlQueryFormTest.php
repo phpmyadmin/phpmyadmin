@@ -65,7 +65,6 @@ class SqlQueryFormTest extends AbstractTestCase
         $config->settings['GZipDump'] = false;
         $config->settings['BZipDump'] = false;
         $config->settings['ZipDump'] = false;
-        $config->settings['ServerDefault'] = 'default';
         $config->settings['TextareaAutoSelect'] = true;
         $config->settings['TextareaRows'] = 100;
         $config->settings['TextareaCols'] = 11;

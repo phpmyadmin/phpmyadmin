@@ -416,7 +416,7 @@ class InsertEdit
     private function getSelectOptionForUpload(string $vkey, string $fieldHashMd5): string
     {
         $files = $this->fileListing->getFileSelectOptions(
-            Util::userDir($this->config->settings['UploadDir']),
+            Util::userDir($this->config->config->UploadDir),
         );
 
         if ($files === false) {
@@ -491,9 +491,9 @@ class InsertEdit
         $input = [];
         $textareaHtml = '';
         $isTextareaRequired = $column->isChar
-            && ($this->config->settings['CharEditing'] === 'textarea' || str_contains($data, "\n"));
+            && ($this->config->config->CharEditing === 'textarea' || str_contains($data, "\n"));
         if ($isTextareaRequired) {
-            $this->config->settings['CharEditing'] = $defaultCharEditing;
+            $this->config->set('CharEditing', $defaultCharEditing);
             $textareaHtml = $this->getTextarea(
                 $column,
                 $backupField,
@@ -545,7 +545,7 @@ class InsertEdit
                  * This case happens for CHAR or VARCHAR columns which have
                  * a size larger than the maximum size for input field.
                  */
-                $this->config->settings['CharEditing'] = 'textarea';
+                $this->config->set('CharEditing', 'textarea');
             }
         } else {
             /**
@@ -1658,7 +1658,7 @@ class InsertEdit
                     $maxUploadSize = $this->getMaxUploadSize($column->trueType);
                 }
 
-                if (! empty($this->config->settings['UploadDir'])) {
+                if ($this->config->config->UploadDir !== '') {
                     $selectOptionForUpload = $this->getSelectOptionForUpload($vkey, $fieldHashMd5);
                 }
 
@@ -1772,7 +1772,7 @@ class InsertEdit
             . '<tbody>';
 
         //store the default value for CharEditing
-        $defaultCharEditing = $this->config->settings['CharEditing'];
+        $defaultCharEditing = $this->config->config->CharEditing;
         $mimeMap = $this->transformations->getMime($db, $table);
         $whereClause = $whereClauseArray[$rowId] ?? '';
 

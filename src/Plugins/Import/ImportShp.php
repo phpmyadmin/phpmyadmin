@@ -154,7 +154,7 @@ class ImportShp extends ImportPlugin
                 }
             } elseif (
                 ImportSettings::$localImportFile !== ''
-                && ! empty($config->settings['UploadDir'])
+                && $config->config->UploadDir !== ''
                 && $compression === 'none'
             ) {
                 // If file is in UploadDir, use .dbf file in the same UploadDir

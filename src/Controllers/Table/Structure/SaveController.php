@@ -293,7 +293,7 @@ final class SaveController implements InvocableController
         if (
             isset($_POST['field_mimetype'])
             && is_array($_POST['field_mimetype'])
-            && $this->config->settings['BrowseMIME']
+            && $this->config->config->BrowseMIME
         ) {
             foreach ($_POST['field_mimetype'] as $fieldindex => $mimetype) {
                 if (! isset($_POST['field_name'][$fieldindex]) || strlen($_POST['field_name'][$fieldindex]) <= 0) {

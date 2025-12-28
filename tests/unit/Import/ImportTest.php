@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Import;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Import\ColumnType;
@@ -32,7 +31,6 @@ class ImportTest extends AbstractTestCase
         parent::setUp();
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
-        Config::getInstance()->settings['ServerDefault'] = '';
         Current::$completeQuery = null;
         Current::$displayQuery = null;
         ImportSettings::$skipQueries = 0;

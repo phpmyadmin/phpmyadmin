@@ -42,7 +42,6 @@ class UrlTest extends AbstractTestCase
     public function testDbOnly(): void
     {
         Current::$server = 2;
-        Config::getInstance()->settings['ServerDefault'] = 3;
 
         $separator = Url::getArgSeparator();
         $expected = 'server=2' . $separator . 'lang=en';
@@ -59,7 +58,6 @@ class UrlTest extends AbstractTestCase
     public function testNewStyle(): void
     {
         Current::$server = 2;
-        Config::getInstance()->settings['ServerDefault'] = 3;
 
         $separator = Url::getArgSeparator();
         $expected = 'server=2' . $separator . 'lang=en';
@@ -77,7 +75,6 @@ class UrlTest extends AbstractTestCase
     public function testWithAlternateDivider(): void
     {
         Current::$server = 2;
-        Config::getInstance()->settings['ServerDefault'] = 3;
 
         $separator = Url::getArgSeparator();
         $expected = 'server=2' . $separator . 'lang=en';
@@ -99,7 +96,6 @@ class UrlTest extends AbstractTestCase
     public function testDefault(): void
     {
         Current::$server = 2;
-        Config::getInstance()->settings['ServerDefault'] = 3;
 
         $separator = Url::getArgSeparator();
         $expected = '?server=2' . $separator . 'lang=en';
