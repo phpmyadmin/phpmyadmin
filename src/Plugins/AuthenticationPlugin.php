@@ -166,7 +166,7 @@ abstract class AuthenticationPlugin
     public function getErrorMessage(AuthenticationFailure $failure): string
     {
         if ($failure->failureType === AuthenticationFailure::NO_ACTIVITY) {
-            return sprintf($failure->getMessage(), (int) Config::getInstance()->settings['LoginCookieValidity']);
+            return sprintf($failure->getMessage(), Config::getInstance()->config->LoginCookieValidity);
         }
 
         if ($failure->failureType === AuthenticationFailure::SERVER_DENIED) {
@@ -214,7 +214,7 @@ abstract class AuthenticationPlugin
             // Too big values can cause overflow and lead to same
             $time = time() - min(
                 max(0, (int) $_REQUEST['access_time']),
-                Config::getInstance()->settings['LoginCookieValidity'] + 1,
+                Config::getInstance()->config->LoginCookieValidity + 1,
             );
         } else {
             $time = time();

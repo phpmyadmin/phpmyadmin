@@ -92,7 +92,6 @@ class InsertEditTest extends AbstractTestCase
         $config->settings['NavigationTreeDefaultTabTable'] = '/table/structure';
         $config->settings['NavigationTreeDefaultTabTable2'] = '';
         $config->settings['Confirm'] = true;
-        $config->settings['LoginCookieValidity'] = 1440;
         $config->settings['enable_drag_drop_import'] = true;
         $relation = new Relation($this->dbi);
         $this->insertEdit = new InsertEdit(

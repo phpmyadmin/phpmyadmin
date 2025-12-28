@@ -5762,7 +5762,7 @@
       <code><![CDATA[self::$authServer]]></code>
     </MixedAssignment>
     <PossiblyInvalidArgument>
-      <code><![CDATA[$_POST[$config->settings['CaptchaResponseParam']]]]></code>
+      <code><![CDATA[$_POST[$config->config->CaptchaResponseParam]]]></code>
       <code><![CDATA[$_POST['pma_username']]]></code>
       <code><![CDATA[$_REQUEST['pma_servername']]]></code>
       <code><![CDATA[$_REQUEST['pma_servername']]]></code>
@@ -5771,7 +5771,7 @@
       <code><![CDATA[Core::getIp()]]></code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
-      <code><![CDATA[$_POST[$config->settings['CaptchaResponseParam']]]]></code>
+      <code><![CDATA[$_POST[$config->config->CaptchaResponseParam]]]></code>
       <code><![CDATA[$_POST['pma_username']]]></code>
       <code><![CDATA[$_REQUEST['pma_servername']]]></code>
       <code><![CDATA[$tmpHost]]></code>
@@ -5787,17 +5787,7 @@
       <code><![CDATA[$_GET['session_expired']]]></code>
     </RiskyCast>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($_POST[$config->settings['CaptchaResponseParam']])]]></code>
-      <code><![CDATA[empty($config->settings['CaptchaApi'])]]></code>
-      <code><![CDATA[empty($config->settings['CaptchaApi'])]]></code>
-      <code><![CDATA[empty($config->settings['CaptchaLoginPrivateKey'])]]></code>
-      <code><![CDATA[empty($config->settings['CaptchaLoginPrivateKey'])]]></code>
-      <code><![CDATA[empty($config->settings['CaptchaLoginPublicKey'])]]></code>
-      <code><![CDATA[empty($config->settings['CaptchaLoginPublicKey'])]]></code>
-      <code><![CDATA[empty($config->settings['CaptchaRequestParam'])]]></code>
-      <code><![CDATA[empty($config->settings['CaptchaRequestParam'])]]></code>
-      <code><![CDATA[empty($config->settings['CaptchaResponseParam'])]]></code>
-      <code><![CDATA[empty($config->settings['CaptchaResponseParam'])]]></code>
+      <code><![CDATA[empty($_POST[$config->config->CaptchaResponseParam])]]></code>
       <code><![CDATA[ini_get('allow_url_fopen')]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
@@ -5876,9 +5866,6 @@
     <PossiblyInvalidCast>
       <code><![CDATA[$_REQUEST['guid']]]></code>
     </PossiblyInvalidCast>
-    <RedundantCastGivenDocblockType>
-      <code><![CDATA[(int) Config::getInstance()->settings['LoginCookieValidity']]]></code>
-    </RedundantCastGivenDocblockType>
     <RiskyCast>
       <code><![CDATA[$_REQUEST['access_time']]]></code>
     </RiskyCast>
@@ -10618,10 +10605,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <EmptyArrayAccess>
       <code><![CDATA[$_COOKIE['pmaAuth-' . Current::$server]]]></code>
@@ -10629,19 +10612,6 @@
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[$arr]]></code>
       <code><![CDATA[$config->selectedServer]]></code>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
@@ -10664,8 +10634,6 @@
       <code><![CDATA[$config->selectedServer]]></code>
     </MixedPropertyTypeCoercion>
     <PropertyTypeCoercion>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
     </PropertyTypeCoercion>
     <TypeDoesNotContainType>
@@ -10726,7 +10694,6 @@
       <code><![CDATA[$config->selectedServer]]></code>
       <code><![CDATA[$config->selectedServer]]></code>
       <code><![CDATA[$config->selectedServer]]></code>
-      <code><![CDATA[$config->settings]]></code>
     </InvalidPropertyAssignmentValue>
     <RedundantCondition>
       <code><![CDATA[assertSame]]></code>
@@ -11050,11 +11017,6 @@
       <code><![CDATA[$isDefineProperty]]></code>
       <code><![CDATA[$sql]]></code>
     </MixedAssignment>
-  </file>
-  <file src="tests/unit/Theme/ThemeManagerTest.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
   </file>
   <file src="tests/unit/Tracking/TrackerTest.php">
     <DeprecatedMethod>
