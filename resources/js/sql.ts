@@ -6,6 +6,7 @@ import { Navigation } from './modules/navigation.ts';
 import { CommonParams } from './modules/common.ts';
 import createProfilingChart from './modules/functions/createProfilingChart.ts';
 import highlightSql from './modules/sql-highlight.ts';
+import highlightJson from './modules/json-highlight.ts';
 import { ajaxRemoveMessage, ajaxShowMessage } from './modules/ajax-message.ts';
 import { escapeBacktick, escapeHtml } from './modules/functions/escape.ts';
 import refreshMainContent from './modules/functions/refreshMainContent.ts';
@@ -943,6 +944,7 @@ AJAX.registerOnload('sql.js', function () {
                 .trigger('makeGrid');
 
             highlightSql($sqlqueryresults);
+            highlightJson($sqlqueryresults);
         }); // end $.post()
     }); // end displayOptionsForm handler
 

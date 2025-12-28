@@ -205,18 +205,6 @@ parameters:
 			path: examples/signon.php
 
 		-
-			message: '#^Comparison operation "\<" between int\<80200, 80599\> and 80200 is always false\.$#'
-			identifier: smaller.alwaysFalse
-			count: 1
-			path: public/index.php
-
-		-
-			message: '#^Comparison operation "\<" between int\<80200, 80599\> and 80200 is always false\.$#'
-			identifier: smaller.alwaysFalse
-			count: 1
-			path: public/setup/index.php
-
-		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
 			count: 1
@@ -17929,7 +17917,19 @@ parameters:
 			path: tests/unit/UserPreferencesTest.php
 
 		-
+			message: '#^Cannot access offset ''secret'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/unit/UserPreferencesTest.php
+
+		-
 			message: '#^Cannot access offset ''server_2'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/unit/UserPreferencesTest.php
+
+		-
+			message: '#^Cannot access offset ''settings'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
 			path: tests/unit/UserPreferencesTest.php
@@ -17954,6 +17954,18 @@ parameters:
 
 		-
 			message: '#^Parameter \#2 \$haystack of static method PHPUnit\\Framework\\Assert\:\:assertCount\(\) expects Countable\|iterable, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/unit/UserPreferencesTest.php
+
+		-
+			message: '#^Parameter \#2 \$result of method PhpMyAdmin\\Tests\\Stubs\\DbiDummy\:\:addResult\(\) expects bool\|list\<non\-empty\-list\<float\|int\|string\|null\>\>, array\{array\{non\-empty\-string\|false, 1767029179\}\} given\.$#'
+			identifier: argument.type
+			count: 2
+			path: tests/unit/UserPreferencesTest.php
+
+		-
+			message: '#^Parameter \#3 \$subject of function str_replace expects array\<string\>\|string, string\|false given\.$#'
 			identifier: argument.type
 			count: 1
 			path: tests/unit/UserPreferencesTest.php

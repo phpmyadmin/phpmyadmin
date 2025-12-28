@@ -28,7 +28,7 @@ jobs:
           - { php-version: '82', experimental: false, arch: 's390x', exclude-phpunit-groups: '--exclude-group extension-iconv --exclude-group 32bit-incompatible' }
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Write script
         # tcpdf allowed memory exhausted needs the memory_limit workaround
@@ -78,7 +78,7 @@ jobs:
             php-extensions: 'mbstring, iconv, mysqli, zip, bz2'
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           # Fetch some commits for Scrutinizer coverage upload
           fetch-depth: 15
@@ -139,7 +139,7 @@ jobs:
         extension: ["dbase"]
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           # Fetch some commits for Scrutinizer coverage upload
           fetch-depth: 15

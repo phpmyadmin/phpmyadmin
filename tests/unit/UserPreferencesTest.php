@@ -23,6 +23,7 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionProperty;
 
 use function json_encode;
+use function str_replace;
 use function time;
 
 #[CoversClass(UserPreferences::class)]
@@ -236,6 +237,137 @@ class UserPreferencesTest extends AbstractTestCase
             . '<br><br>The phpMyAdmin configuration storage database could not be accessed.',
             $result->getMessage(),
         );
+    }
+
+    /**
+     * Test for save and keep 2FA settings
+     */
+    public function testSaveAndKeep2FA(): void
+    {
+        $initialConfig = [
+            '2fa' => ['backend' => 'application', 'settings' => ['secret' => 'thisisasecret']],
+            'theme' => 'dark',
+        ];
+        $dummyDbi = $this->createDbiDummy();
+
+        $dummyDbi->removeDefaultResults();
+        $dummyDbi->addSelectDb('pma-db');
+        $dummyDbi->addResult(
+            'SHOW TABLES FROM `pma-db`;',
+            [['pma__userconfig']],
+            ['Tables_in_pma-db'],
+        );
+
+        $dummyDbi->addResult(
+            'SELECT NULL FROM `pma__userconfig` LIMIT 0',
+            [['NULL']],
+        );
+
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+        $config = new Config();
+        $config->selectedServer['pmadb'] = 'pma-db';
+        $config->selectedServer['userconfig'] = 'pma__userconfig';
+        $relation = new Relation($dbi, $config);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
+        $relationParameters = $relation->getRelationParameters();
+        self::assertNotNull($relationParameters->userPreferencesFeature);
+
+        $userPreferences = new UserPreferences($dbi, $relation, new Template());
+
+        // phpcs:disable Generic.Files.LineLength.TooLong
+        $dummyDbi->addResult(
+            <<<'SQL'
+            SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts FROM `pma-db`.`pma__userconfig` WHERE `username` = 'root'
+            SQL,
+            [],
+        );
+
+        $dummyDbi->addResult(
+            <<<'SQL'
+            SELECT `username` FROM `pma-db`.`pma__userconfig` WHERE `username` = 'root'
+            SQL,
+            [],
+        );
+
+        $dummyDbi->addResult(
+            <<<'SQL'
+            INSERT INTO `pma-db`.`pma__userconfig` (`username`, `timevalue`,`config_data`) VALUES ('root', NOW(), '[1]')
+            SQL,
+            [],
+        );
+
+        $result = $userPreferences->save([1]);
+
+        $dummyDbi->addResult(
+            <<<'SQL'
+            SELECT `username` FROM `pma-db`.`pma__userconfig` WHERE `username` = 'root'
+            SQL,
+            [],
+        );
+
+        $encodedConfig = json_encode($initialConfig);
+        $encodedEscapedConfig = str_replace('"', '\"', $encodedConfig);
+
+        $dummyDbi->addResult(
+            <<<SQL
+            INSERT INTO `pma-db`.`pma__userconfig` (`username`, `timevalue`,`config_data`) VALUES ('root', NOW(), '$encodedEscapedConfig')
+            SQL,
+            [],
+        );
+
+        // Test 2fa preservation on partial save
+
+        // Initial save with 2fa
+        $userPreferences->save($initialConfig);
+
+        // Not using the session storage
+        self::assertFalse(isset($_SESSION['userconfig']));
+
+        $dummyDbi->addResult(
+            <<<'SQL'
+            SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts FROM `pma-db`.`pma__userconfig` WHERE `username` = 'root'
+            SQL,
+            [[$encodedConfig, 1767029179]],
+            ['config_data', 'ts'],
+        );
+
+        $dummyDbi->addResult(
+            <<<'SQL'
+            SELECT `username` FROM `pma-db`.`pma__userconfig` WHERE `username` = 'root'
+            SQL,
+            [['root']],
+            ['username'],
+        );
+
+        // 2FA is combined with the previous config
+        $dummyDbi->addResult(
+            <<<'SQL'
+            UPDATE `pma-db`.`pma__userconfig` SET `timevalue` = NOW(), `config_data` = '{\"2fa\":{\"backend\":\"application\",\"settings\":{\"secret\":\"thisisasecret\"}},\"theme\":\"dark\",\"Console\\/Mode\":\"collapse\"}' WHERE `username` = 'root'
+            SQL,
+            [['root']],
+            ['username'],
+        );
+
+        // Partial save without 2fa
+        $partialConfig = ['Console/Mode' => 'collapse'];
+        $userPreferences->save($partialConfig);
+
+        $encodedConfig = json_encode([...$initialConfig, 'Console/Mode' => 'collapse']);
+
+        $dummyDbi->addResult(
+            <<<'SQL'
+            SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts FROM `pma-db`.`pma__userconfig` WHERE `username` = 'root'
+            SQL,
+            [[$encodedConfig, 1767029179]],
+            ['config_data', 'ts'],
+        );
+
+        // Check that 2fa is still present
+        $resultConfig = $userPreferences->load()['config_data'];
+        self::assertSame('thisisasecret', $resultConfig['2fa']['settings']['secret']);
+        self::assertSame('collapse', $resultConfig['Console/Mode']);
+        $dummyDbi->assertAllSelectsConsumed();
+        // phpcs:enable Generic.Files.LineLength.TooLong
     }
 
     /**
