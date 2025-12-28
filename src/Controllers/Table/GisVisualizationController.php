@@ -229,7 +229,7 @@ final readonly class GisVisualizationController implements InvocableController
         }
 
         if ($_SESSION['tmpval']['max_rows'] === 'all') {
-            return $this->config->settings['MaxRows'];
+            return $this->config->config->maxRows;
         }
 
         return (int) $_SESSION['tmpval']['max_rows'];

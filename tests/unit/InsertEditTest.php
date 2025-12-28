@@ -73,26 +73,6 @@ class InsertEditTest extends AbstractTestCase
         $config = Config::getInstance();
         Current::$database = 'db';
         Current::$table = 'table';
-        $config->settings['LimitChars'] = 50;
-        $config->settings['LongtextDoubleTextarea'] = false;
-        $config->settings['ShowFieldTypesInDataEditView'] = true;
-        $config->settings['ShowFunctionFields'] = true;
-        $config->settings['ProtectBinary'] = 'blob';
-        $config->settings['MaxSizeForInputField'] = 10;
-        $config->settings['MinSizeForInputField'] = 2;
-        $config->settings['TextareaRows'] = 5;
-        $config->settings['TextareaCols'] = 4;
-        $config->settings['CharTextareaRows'] = 5;
-        $config->settings['CharTextareaCols'] = 6;
-        $config->settings['AllowThirdPartyFraming'] = false;
-        $config->set('SendErrorReports', 'ask');
-        $config->settings['DefaultTabDatabase'] = '/database/structure';
-        $config->settings['ShowDatabasesNavigationAsTree'] = true;
-        $config->settings['DefaultTabTable'] = '/sql';
-        $config->settings['NavigationTreeDefaultTabTable'] = '/table/structure';
-        $config->settings['NavigationTreeDefaultTabTable2'] = '';
-        $config->settings['Confirm'] = true;
-        $config->settings['enable_drag_drop_import'] = true;
         $relation = new Relation($this->dbi);
         $this->insertEdit = new InsertEdit(
             $this->dbi,

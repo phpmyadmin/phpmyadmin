@@ -176,7 +176,7 @@ class Normalization
                 $this->dbi->getVersion(),
             ),
             'server_version' => $this->dbi->getVersion(),
-            'max_rows' => (int) $this->config->settings['MaxRows'],
+            'max_rows' => $this->config->config->maxRows,
             'char_editing' => $this->config->config->CharEditing,
             'attribute_types' => $this->dbi->types->getAttributes(),
             'privs_available' => $userPrivileges->column && $userPrivileges->isReload,

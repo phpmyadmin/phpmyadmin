@@ -1143,8 +1143,8 @@
     </MoreSpecificReturnType>
     <PossiblyFalseOperand>
       <code><![CDATA[$columnNames]]></code>
-      <code><![CDATA[$this->config->settings['NavigationTreeTableSeparator']]]></code>
-      <code><![CDATA[$this->config->settings['NavigationTreeTableSeparator']]]></code>
+      <code><![CDATA[$this->config->config->NavigationTreeTableSeparator]]></code>
+      <code><![CDATA[$this->config->config->NavigationTreeTableSeparator]]></code>
     </PossiblyFalseOperand>
     <PossiblyInvalidArgument>
       <code><![CDATA[$currentTable['Collation']]]></code>
@@ -1169,8 +1169,8 @@
       <code><![CDATA[$currentTable['Index_length']]]></code>
       <code><![CDATA[$currentTable['Index_length']]]></code>
       <code><![CDATA[$currentTable['Index_length']]]></code>
-      <code><![CDATA[$this->config->settings['NavigationTreeTableSeparator']]]></code>
-      <code><![CDATA[$this->config->settings['NavigationTreeTableSeparator']]]></code>
+      <code><![CDATA[$this->config->config->NavigationTreeTableSeparator]]></code>
+      <code><![CDATA[$this->config->config->NavigationTreeTableSeparator]]></code>
     </PossiblyInvalidOperand>
     <PossiblyNullArgument>
       <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
@@ -1259,7 +1259,6 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$onServerParam]]></code>
       <code><![CDATA[$quickExportOnServer]]></code>
-      <code><![CDATA[empty($this->config->settings['MemoryLimit'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Export/TablesController.php">
@@ -1342,9 +1341,6 @@
     <PropertyTypeCoercion>
       <code><![CDATA[$request->getParsedBodyParamAsString('import_type', '')]]></code>
     </PropertyTypeCoercion>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($this->config->settings['MemoryLimit'])]]></code>
-    </RiskyTruthyFalsyComparison>
     <UnusedProperty>
       <code><![CDATA[$sql]]></code>
     </UnusedProperty>
@@ -2516,9 +2512,6 @@
     <PropertyNotSetInConstructor>
       <code><![CDATA[$foreigners]]></code>
     </PropertyNotSetInConstructor>
-    <RedundantCastGivenDocblockType>
-      <code><![CDATA[(int) $this->config->settings['MaxRows']]]></code>
-    </RedundantCastGivenDocblockType>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($row->collation)]]></code>
     </RiskyTruthyFalsyComparison>
@@ -2829,9 +2822,6 @@
     <PropertyNotSetInConstructor>
       <code><![CDATA[$foreigners]]></code>
     </PropertyNotSetInConstructor>
-    <RedundantCastGivenDocblockType>
-      <code><![CDATA[(int) $this->config->settings['maxRowPlotLimit']]]></code>
-    </RedundantCastGivenDocblockType>
     <RiskyCast>
       <code><![CDATA[$_POST['maxPlotLimit']]]></code>
     </RiskyCast>
@@ -3897,9 +3887,6 @@
       <code><![CDATA[$o->expr->expr]]></code>
       <code><![CDATA[$order->expr->column]]></code>
     </PossiblyNullPropertyFetch>
-    <RedundantCastGivenDocblockType>
-      <code><![CDATA[(int) $this->config->settings['MaxRows']]]></code>
-    </RedundantCastGivenDocblockType>
     <RedundantCondition>
       <code><![CDATA[empty($statementInfo->statement->from)]]></code>
       <code><![CDATA[empty($statementInfo->statement->from)]]></code>
@@ -4700,16 +4687,8 @@
     <PossiblyInvalidArgument>
       <code><![CDATA[$message]]></code>
     </PossiblyInvalidArgument>
-    <RedundantFunctionCallGivenDocblockType>
-      <code><![CDATA[strtolower]]></code>
-    </RedundantFunctionCallGivenDocblockType>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($_REQUEST['message'])]]></code>
-      <code><![CDATA[empty($this->config->settings['CaptchaApi'])]]></code>
-      <code><![CDATA[empty($this->config->settings['CaptchaLoginPrivateKey'])]]></code>
-      <code><![CDATA[empty($this->config->settings['CaptchaLoginPublicKey'])]]></code>
-      <code><![CDATA[empty($this->config->settings['CaptchaRequestParam'])]]></code>
-      <code><![CDATA[empty($this->config->settings['CaptchaResponseParam'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Html/Generator.php">
@@ -5463,9 +5442,6 @@
     <RedundantCast>
       <code><![CDATA[(string) $dependon]]></code>
     </RedundantCast>
-    <RedundantCastGivenDocblockType>
-      <code><![CDATA[(int) $this->config->settings['MaxRows']]]></code>
-    </RedundantCastGivenDocblockType>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$dropCols]]></code>
     </RiskyTruthyFalsyComparison>
@@ -8240,9 +8216,6 @@
       <code><![CDATA[$columnMeta['Default']]]></code>
       <code><![CDATA[$columnMeta['DefaultValue']]]></code>
     </PossiblyUndefinedArrayOffset>
-    <RedundantCastGivenDocblockType>
-      <code><![CDATA[(int) $config->settings['MaxRows']]]></code>
-    </RedundantCastGivenDocblockType>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($columnMeta['DefaultValue'])]]></code>
     </RiskyTruthyFalsyComparison>
@@ -10334,13 +10307,6 @@
       <code><![CDATA[testGetHttpHeaders]]></code>
       <code><![CDATA[testGetHttpHeaders]]></code>
     </PossiblyInvalidArgument>
-    <PropertyTypeCoercion>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-    </PropertyTypeCoercion>
   </file>
   <file src="tests/unit/Html/GeneratorTest.php">
     <DeprecatedMethod>
@@ -10944,7 +10910,6 @@
   </file>
   <file src="tests/unit/SqlTest.php">
     <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>

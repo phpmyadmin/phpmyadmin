@@ -108,7 +108,6 @@ class CentralColumnsTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->selectedServer['user'] = 'pma_user';
         $config->selectedServer['DisableIS'] = true;
-        $config->settings['MaxRows'] = 10;
         $config->settings['ActionLinksMode'] = 'icons';
         $config->settings['LimitChars'] = 50;
         Current::$database = 'PMA_db';

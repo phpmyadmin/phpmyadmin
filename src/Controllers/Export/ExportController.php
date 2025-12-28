@@ -203,8 +203,8 @@ final readonly class ExportController implements InvocableController
          * Increase time limit for script execution and initializes some variables
          */
         Util::setTimeLimit();
-        if (! empty($this->config->settings['MemoryLimit'])) {
-            ini_set('memory_limit', $this->config->settings['MemoryLimit']);
+        if ($this->config->config->MemoryLimit !== '' && $this->config->config->MemoryLimit !== '0') {
+            ini_set('memory_limit', $this->config->config->MemoryLimit);
         }
 
         register_shutdown_function([$this->export, 'shutdown']);

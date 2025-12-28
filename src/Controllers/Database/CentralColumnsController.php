@@ -142,7 +142,7 @@ final readonly class CentralColumnsController implements InvocableController
         $numberOfColumns = $this->centralColumns->getColumnsCount(
             $db->getName(),
             $pos,
-            $this->config->settings['MaxRows'],
+            $this->config->config->maxRows,
         );
         Current::$message = Message::success(
             sprintf(__('Showing rows %1$s - %2$s.'), $pos + 1, $pos + $numberOfColumns),
