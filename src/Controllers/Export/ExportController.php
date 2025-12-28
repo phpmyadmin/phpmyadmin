@@ -14,6 +14,7 @@ use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Exceptions\ExportException;
 use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Export\OutputHandler;
+use PhpMyAdmin\Export\SeparateFiles;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -55,7 +56,7 @@ final readonly class ExportController implements InvocableController
         $quickOrCustom = $request->getParsedBodyParamAsStringOrNull('quick_or_custom');
         $outputFormat = $request->getParsedBodyParamAsStringOrNull('output_format');
         $compressionParam = $request->getParsedBodyParamAsString('compression', '');
-        $asSeparateFiles = $request->getParsedBodyParamAsStringOrNull('as_separate_files');
+        $asSeparateFiles = $request->getParsedBodyParamAsString('as_separate_files', '');
         $quickExportOnServer = $request->getParsedBodyParamAsStringOrNull('quick_export_onserver');
         $onServerParam = $request->getParsedBodyParamAsStringOrNull('onserver');
         /** @var array|null $aliasesParam */
@@ -81,7 +82,7 @@ final readonly class ExportController implements InvocableController
         }
 
         if ($request->hasBodyParam('maxsize')) {
-            Export::$maxSize = $request->getParsedBodyParamAsString('maxsize');
+            Export::$tableMaxSizeInMb = $request->getParsedBodyParamAsString('maxsize');
         }
 
         $tableSelectParam = [];
@@ -135,7 +136,7 @@ final readonly class ExportController implements InvocableController
          * init and variable checking
          */
         $filename = '';
-        $separateFiles = '';
+        $separateFiles = SeparateFiles::None;
 
         // Is it a quick or custom export?
         $isQuickExport = $quickOrCustom === 'quick';
@@ -146,8 +147,8 @@ final readonly class ExportController implements InvocableController
             OutputHandler::$asFile = false;
         } else {
             OutputHandler::$asFile = true;
-            if ($asSeparateFiles && $compressionParam === 'zip') {
-                $separateFiles = $asSeparateFiles;
+            if ($asSeparateFiles !== '' && $compressionParam === 'zip') {
+                $separateFiles = SeparateFiles::from($asSeparateFiles);
             }
 
             if (in_array($compressionParam, $compressionMethods, true)) {
@@ -413,7 +414,7 @@ final readonly class ExportController implements InvocableController
         $this->export->outputHandler->convertBufferCharset();
 
         // Compression needed?
-        $this->export->outputHandler->compress($separateFiles !== '', $filename);
+        $this->export->outputHandler->compress($separateFiles !== SeparateFiles::None, $filename);
 
         if ($saveOnServer) {
             $message = $this->export->outputHandler->closeFile();
