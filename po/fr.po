@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-10-16 23:57-0300\n"
-"PO-Revision-Date: 2025-08-24 20:20+0000\n"
-"Last-Translator: Marc Delisle <marcdelisle60@gmail.com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/5-2/fr/"
-">\n"
+"PO-Revision-Date: 2025-12-28 12:00+0000\n"
+"Last-Translator: tmtisfree <tmtisfree@free.fr>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
+"fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.13\n"
+"X-Generator: Weblate 5.15.1\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -5459,6 +5459,9 @@ msgid ""
 "to not work properly. Please refer to [doc@faq1-46]documentation[/doc] for "
 "possible issues."
 msgstr ""
+"La variable [code]HTTP_HOST[/code] est manquante, ce qui pourrait causer un "
+"dysfonctionnement de phpMyAdmin. Merci de se référer à la [doc@faq1-"
+"46]documentation[/doc] pour les problèmes potentiels."
 
 #: libraries/classes/Controllers/HomeController.php:464
 msgid ""
@@ -13245,33 +13248,30 @@ msgstr "Un alias pour BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 #: libraries/classes/Types.php:292
 #, php-format
 msgid "A date, supported range is %1$s to %2$s"
-msgstr "Une date, la fourchette est de «%1$s» à «%2$s»"
+msgstr "Une date, entre %1$s et %2$s"
 
 #: libraries/classes/Types.php:299
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
-msgstr ""
-"Une combinaison date et heure, la fourchette est de « %1$s » à « %2$s »"
+msgstr "Une combinaison de date et heure, entre %1$s et %2$s"
 
 #: libraries/classes/Types.php:306
-#, fuzzy
-#| msgid ""
-#| "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
-#| "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-19 03:14:07 UTC on "
 "32-bit platforms (MariaDB 11.3 and earlier), and up to 2106-02-07 06:28:15 "
 "UTC on 64-bit platforms (MariaDB 11.5 and later), stored as the number of "
 "seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
-"Un type d'horodatage, la fourchette est de 1970-01-01 00:00:01 UTC à "
-"2038-01-09 03:14:07 UTC, en nombre de secondes depuis le moment de référence "
-"(1970-01-01 00:00:00 UTC)"
+"Un horodatage, avec une fourchette de 1970-01-01 00:00:01 UTC à 2038-01-09 "
+"03:14:07 UTC sur les plateformes 32 bits (jusqu'à MariaDB 11.3) et jusqu'à "
+"2106-02-07 06:28:15 UTC sur les plateformes 64 bits (à partir de MariaDB "
+"11.5), exprimé en nombre de secondes depuis le moment de référence (1970-01-"
+"01 00:00:00 UTC)"
 
 #: libraries/classes/Types.php:314
 #, php-format
 msgid "A time, range is %1$s to %2$s"
-msgstr "Une heure, la fourchette est de %1$s à %2$s"
+msgstr "Une heure, entre %1$s et %2$s"
 
 #: libraries/classes/Types.php:321
 msgid ""
