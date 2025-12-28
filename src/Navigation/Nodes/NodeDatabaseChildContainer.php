@@ -33,7 +33,7 @@ abstract class NodeDatabaseChildContainer extends NodeDatabaseChild
 
     private function setSeparators(): void
     {
-        $separators = $this->config->settings['NavigationTreeTableSeparator'];
+        $separators = $this->config->config->NavigationTreeTableSeparator;
         if (is_string($separators)) {
             if ($separators !== '') {
                 $this->separators = [$separators];

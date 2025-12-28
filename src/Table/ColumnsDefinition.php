@@ -348,7 +348,7 @@ final class ColumnsDefinition
                 $this->dbi->getVersion(),
             ),
             'server_version' => $this->dbi->getVersion(),
-            'max_rows' => (int) $config->settings['MaxRows'],
+            'max_rows' => $config->config->maxRows,
             'char_editing' => $config->config->CharEditing ,
             'attribute_types' => $this->dbi->types->getAttributes(),
             'privs_available' => $userPrivileges->column && $userPrivileges->isReload,

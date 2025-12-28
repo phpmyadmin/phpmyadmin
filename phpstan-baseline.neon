@@ -2046,7 +2046,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 2
+			count: 1
 			path: src/Controllers/Export/ExportController.php
 
 		-
@@ -2142,7 +2142,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 3
+			count: 2
 			path: src/Controllers/Import/ImportController.php
 
 		-
@@ -3352,12 +3352,6 @@ parameters:
 			path: src/Controllers/Table/SearchController.php
 
 		-
-			message: '#^Casting to int something that''s already int\<1, max\>\.$#'
-			identifier: cast.useless
-			count: 1
-			path: src/Controllers/Table/SearchController.php
-
-		-
 			message: '#^Class PhpMyAdmin\\Controllers\\Table\\SearchController has an uninitialized property \$foreigners\. Give it default value or assign it in the constructor\.$#'
 			identifier: property.uninitialized
 			count: 1
@@ -3834,12 +3828,6 @@ parameters:
 		-
 			message: '#^Cannot cast mixed to int\.$#'
 			identifier: cast.int
-			count: 1
-			path: src/Controllers/Table/ZoomSearchController.php
-
-		-
-			message: '#^Casting to int something that''s already int\<1, max\>\.$#'
-			identifier: cast.useless
 			count: 1
 			path: src/Controllers/Table/ZoomSearchController.php
 
@@ -5446,12 +5434,6 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: '#^Casting to int something that''s already int\<1, max\>\.$#'
-			identifier: cast.useless
-			count: 1
-			path: src/Display/Results.php
-
-		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
 			count: 23
@@ -7017,7 +6999,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 6
+			count: 1
 			path: src/Header.php
 
 		-
@@ -8218,12 +8200,6 @@ parameters:
 			message: '#^Cannot access offset ''pk'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 2
-			path: src/Normalization.php
-
-		-
-			message: '#^Casting to int something that''s already int\<1, max\>\.$#'
-			identifier: cast.useless
-			count: 1
 			path: src/Normalization.php
 
 		-
@@ -12856,12 +12832,6 @@ parameters:
 			path: src/Table/ColumnsDefinition.php
 
 		-
-			message: '#^Casting to int something that''s already int\<1, max\>\.$#'
-			identifier: cast.useless
-			count: 1
-			path: src/Table/ColumnsDefinition.php
-
-		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
 			count: 1
@@ -16507,12 +16477,6 @@ parameters:
 			path: tests/unit/HeaderTest.php
 
 		-
-			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\) does not accept array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\.$#'
-			identifier: assign.propertyType
-			count: 1
-			path: tests/unit/HeaderTest.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -17436,7 +17400,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 5
+			count: 4
 			path: tests/unit/SqlTest.php
 
 		-

@@ -58,7 +58,7 @@ final class BinlogController implements InvocableController
             $urlParams['is_full_query'] = 1;
         }
 
-        $sqlQuery = $this->getSqlQuery($log, $position, $this->config->settings['MaxRows']);
+        $sqlQuery = $this->getSqlQuery($log, $position, $this->config->config->maxRows);
         $result = $this->dbi->query($sqlQuery);
 
         $numRows = $result->numRows();
@@ -68,8 +68,8 @@ final class BinlogController implements InvocableController
         $nextParams = $urlParams;
         if ($position > 0) {
             $fullQueriesParams['pos'] = $position;
-            if ($position > $this->config->settings['MaxRows']) {
-                $previousParams['pos'] = $position - $this->config->settings['MaxRows'];
+            if ($position > $this->config->config->maxRows) {
+                $previousParams['pos'] = $position - $this->config->config->maxRows;
             }
         }
 
@@ -78,8 +78,8 @@ final class BinlogController implements InvocableController
             unset($fullQueriesParams['is_full_query']);
         }
 
-        if ($numRows >= $this->config->settings['MaxRows']) {
-            $nextParams['pos'] = $position + $this->config->settings['MaxRows'];
+        if ($numRows >= $this->config->config->maxRows) {
+            $nextParams['pos'] = $position + $this->config->config->maxRows;
         }
 
         $values = $result->fetchAllAssoc();
@@ -91,7 +91,7 @@ final class BinlogController implements InvocableController
             'sql_message' => Generator::getMessage(Message::success(), $sqlQuery),
             'values' => $values,
             'has_previous' => $position > 0,
-            'has_next' => $numRows >= $this->config->settings['MaxRows'],
+            'has_next' => $numRows >= $this->config->config->maxRows,
             'previous_params' => $previousParams,
             'full_queries_params' => $fullQueriesParams,
             'next_params' => $nextParams,

@@ -653,7 +653,7 @@ class Results
             'number_total_page' => $numberTotalPage,
             'has_show_all' => $this->config->settings['ShowAll'] || $this->unlimNumRows <= 500,
             'hidden_fields' => $hiddenFields,
-            'session_max_rows' => $isShowingAll ? $this->config->settings['MaxRows'] : 'all',
+            'session_max_rows' => $isShowingAll ? $this->config->config->maxRows : 'all',
             'is_showing_all' => $isShowingAll,
             'max_rows' => $_SESSION['tmpval']['max_rows'],
             'pos' => $_SESSION['tmpval']['pos'],
@@ -2831,7 +2831,7 @@ class Results
             $query['max_rows'] = self::ALL_ROWS;
             unset($_GET['session_max_rows'], $_POST['session_max_rows']);
         } elseif (empty($query['max_rows'])) {
-            $query['max_rows'] = (int) $this->config->settings['MaxRows'];
+            $query['max_rows'] = $this->config->config->maxRows;
         }
 
         if (isset($_REQUEST['pos']) && is_numeric($_REQUEST['pos'])) {

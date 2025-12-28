@@ -224,8 +224,8 @@ final readonly class ImportController implements InvocableController
         }
 
         Util::setTimeLimit();
-        if (! empty($this->config->settings['MemoryLimit'])) {
-            ini_set('memory_limit', $this->config->settings['MemoryLimit']);
+        if ($this->config->config->MemoryLimit !== '' && $this->config->config->MemoryLimit !== '0') {
+            ini_set('memory_limit', $this->config->config->MemoryLimit);
         }
 
         ImportSettings::$timestamp = time();

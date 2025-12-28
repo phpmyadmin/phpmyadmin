@@ -1003,7 +1003,7 @@ final class StructureController implements InvocableController
                     $sortOrder,
                     $tableType,
                 );
-                $groupWithSeparator = $tableGroupParam . $this->config->settings['NavigationTreeTableSeparator'];
+                $groupWithSeparator = $tableGroupParam . $this->config->config->NavigationTreeTableSeparator;
             }
         } else {
             // all tables in db
@@ -1069,7 +1069,7 @@ final class StructureController implements InvocableController
         ) {
             $group = $this->dbi->escapeMysqlWildcards((string) $_REQUEST['tbl_group']);
             $groupWithSeparator = $this->dbi->escapeMysqlWildcards(
-                $_REQUEST['tbl_group'] . $this->config->settings['NavigationTreeTableSeparator'],
+                $_REQUEST['tbl_group'] . $this->config->config->NavigationTreeTableSeparator,
             );
             $tblGroupSql .= ' WHERE ('
                 . Util::backquote('Tables_in_' . $db)

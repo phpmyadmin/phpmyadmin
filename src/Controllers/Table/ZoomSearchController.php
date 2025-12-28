@@ -276,7 +276,7 @@ final class ZoomSearchController implements InvocableController
             'criteria_column_types' => $_POST['criteriaColumnTypes'] ?? null,
             'max_plot_limit' => ! empty($_POST['maxPlotLimit'])
                 ? (int) $_POST['maxPlotLimit']
-                : (int) $this->config->settings['maxRowPlotLimit'],
+                : $this->config->config->maxRowPlotLimit,
         ]);
     }
 

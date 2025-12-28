@@ -66,7 +66,7 @@ class CentralColumns
     {
         $config = Config::getInstance();
         $this->user = $config->selectedServer['user'];
-        $this->maxRows = $config->settings['MaxRows'];
+        $this->maxRows = $config->config->maxRows;
         $this->charEditing = $config->config->CharEditing;
         $this->disableIs = $config->selectedServer['DisableIS'];
 

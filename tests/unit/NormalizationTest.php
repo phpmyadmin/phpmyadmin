@@ -122,7 +122,6 @@ class NormalizationTest extends AbstractTestCase
     public function testGetHtmlForCreateNewColumn(): void
     {
         $config = Config::getInstance();
-        $config->settings['MaxRows'] = 25;
         $userPrivileges = new UserPrivileges();
         $config->selectedServer['DisableIS'] = false;
         DatabaseInterface::$instance = $this->dbi;
