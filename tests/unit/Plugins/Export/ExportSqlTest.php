@@ -970,7 +970,9 @@ class ExportSqlTest extends AbstractTestCase
 
         // case 4
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
-            ->withParsedBody(['sql_include_comments' => 'On', 'sql_views_as_tables' => 'On', 'sql_create_view' => 'On']);
+            ->withParsedBody(
+                ['sql_include_comments' => 'On', 'sql_views_as_tables' => 'On', 'sql_create_view' => 'On'],
+            );
 
         $this->object->setExportOptions($request, []);
 
