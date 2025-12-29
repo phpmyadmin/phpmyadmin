@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2025-12-28 12:00+0000\n"
+"PO-Revision-Date: 2025-12-29 14:00+0000\n"
 "Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/4-9/ta/>"
 "\n"
@@ -9490,18 +9490,18 @@ msgstr "செருகுவதற்கு முன் அட்டவணை�
 #: libraries/classes/Plugins/Export/ExportSql.php:358
 #, fuzzy
 msgid "Instead of <code>INSERT</code> statements, use:"
-msgstr "<code>செருக</code> அறிக்கைகளுக்கு பதிலாக, பயன்படுத்தவும்:"
+msgstr "<code>INSERT</code> அறிக்கைகளுக்கு பதிலாக, பயன்படுத்தவும்:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:364
 #, fuzzy
 msgid "<code>INSERT DELAYED</code> statements"
-msgstr "<code>தாமதத்தை செருகவும்</code> அறிக்கைகள்"
+msgstr "<code>INSERT DELAYED</code> அறிக்கைகள்"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:376
 #: libraries/classes/Plugins/Export/ExportSql.php:410
 #, fuzzy
 msgid "<code>INSERT IGNORE</code> statements"
-msgstr "<code>செருகவும் புறக்கணிக்கவும்</code> அறிக்கைகள்"
+msgstr "<code>INSERT IGNORE</code> அறிக்கைகள்"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:390
 msgid "Function to use when dumping data:"
@@ -17192,7 +17192,7 @@ msgid ""
 msgstr ""
 "இணைப்புகள் பொதுவாக அங்கீகரிக்க முடியாதபோது கைவிடப்படுகின்றன. <a href=\"https://"
 "www.percona.com/blog/2008/08/23/how-to-to-track-down-the-source-of-"
-"aborted_connects/\">இந்த கட்டுரை</a> உங்களுக்கு உதவக்கூடும் மூலத்தைக் கண்காணிக்கவும்."
+"aborted_connects/\"> இந்த கட்டுரை உங்களுக்கு உதவக்கூடும் மூலத்தைக் கண்காணிக்கவும்."
 
 #: libraries/advisory_rules_generic.txt:336
 #, php-format
@@ -17407,7 +17407,7 @@ msgid ""
 msgstr ""
 "{ஒரே நேரத்தில்_ இன்செர்ட் 1 ஐ 1 க்கு அமைப்பது கொடுக்கப்பட்ட அட்டவணைக்கு வாசகர்களுக்கும் "
 "எழுத்தாளர்களுக்கும் இடையிலான வாதத்தை குறைக்கிறது. <a href=\"https://dev.mysql.com/doc/"
-"refman/5.5/en/concurrent-inserts.html\">MySQL ஆவணங்கள்</a> ஐயும் காண்க"
+"refman/5.5/en/concurrent-inserts.html\"> MySQL ஆவணங்கள் </a> ஐயும் காண்க"
 
 #: libraries/advisory_rules_generic.txt:396
 msgid "concurrent_insert is set to 0"
