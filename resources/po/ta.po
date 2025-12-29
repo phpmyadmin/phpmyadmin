@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-12-28 00:32+0000\n"
-"PO-Revision-Date: 2025-12-27 09:00+0000\n"
-"Last-Translator: தமிழ்நேரம் <tamilneram247@gmail.com>\n"
+"PO-Revision-Date: 2025-12-29 11:00+0000\n"
+"Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ta/>\n"
 "Language: ta\n"
@@ -6617,12 +6617,13 @@ msgid "Save chart as image"
 msgstr "விளக்கப்படத்தை படமாக சேமிக்கவும்"
 
 #: resources/templates/table/export/index.twig:12
+#, fuzzy
 msgid ""
 "@SERVER@ will become the server name, @DATABASE@ will become the database "
 "name and @TABLE@ will become the table name."
 msgstr ""
-"@ சேவையகம்@ சேவையக பெயராக மாறும்,@ தரவுத்தளம்@ தரவுத்தள பெயராகவும்,@ அட்டவணை@ "
-"அட்டவணை பெயராகவும் மாறும்."
+"@ சேவையகம்@ சேவையக பெயராக மாறும்,@ தரவுத்தளம்@ தரவுத்தள பெயராகவும்,@ அட்டவணை@ அட்டவணை "
+"பெயராகவும் மாறும்."
 
 #: resources/templates/table/export/index.twig:7
 #, php-format
@@ -8321,12 +8322,13 @@ msgid "Too many connections are aborted."
 msgstr "பல இணைப்புகள் கைவிடப்படுகின்றன."
 
 #: src/Advisory/Rules.php:580 src/Advisory/Rules.php:594
+#, fuzzy
 msgid ""
 "Connections are usually aborted when they cannot be authorized. <a "
 "href=\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-"
 "of-aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
-"இணைப்புகள் பொதுவாக அங்கீகரிக்க முடியாதபோது கைவிடப்படுகின்றன. <a href = \"https://"
+"இணைப்புகள் பொதுவாக அங்கீகரிக்க முடியாதபோது கைவிடப்படுகின்றன. <a href=\"https://"
 "www.percona.com/blog/2008/08/23/how-to-to-track-down-the-source-of-"
 "aborted_connects/\"> இந்த கட்டுரை உங்களுக்கு உதவக்கூடும் மூலத்தைக் கண்காணிக்கவும்."
 
@@ -8412,7 +8414,7 @@ msgid ""
 msgstr "INNODB பதிவு கோப்பு அளவு INNODB இடையகக் குளம் தொடர்பாக பொருத்தமான அளவு அல்ல."
 
 #: src/Advisory/Rules.php:650 src/Advisory/Rules.php:680
-#, no-php-format
+#, fuzzy, no-php-format
 msgid ""
 "Especially on a system with a lot of writes to InnoDB tables you should set "
 "{innodb_log_file_size} to 25% of {innodb_buffer_pool_size}. However the "
@@ -8430,8 +8432,8 @@ msgstr ""
 "இருக்கும், எனவே இந்த மதிப்பு 256 MIB ஐ விட அதிகமாக அமைக்கப்படக்கூடாது. இந்த மாறியின் "
 "மதிப்பை நீங்கள் மாற்ற முடியாது என்பதை நினைவில் கொள்க. நீங்கள் சேவையகத்தை நிறுத்த வேண்டும், "
 "INNODB பதிவு கோப்புகளை அகற்ற வேண்டும், புதிய மதிப்பை My.CNF இல் அமைக்க வேண்டும், "
-"சேவையகத்தைத் தொடங்கவும், பின்னர் எல்லாம் சரியாக நடந்தால் பிழை பதிவுகளை சரிபார்க்கவும். <A "
-"href = \"https://mysqldatabaseadminastry.blogspot.com/2007/01/increase-"
+"சேவையகத்தைத் தொடங்கவும், பின்னர் எல்லாம் சரியாக நடந்தால் பிழை பதிவுகளை சரிபார்க்கவும். <a "
+"href=\"https://mysqldatabaseadminastry.blogspot.com/2007/01/increase-"
 "indblogfilesize-pay.html\"> இந்த வலைப்பதிவு நுழைவு </a>"
 
 #: src/Advisory/Rules.php:662 src/Advisory/Rules.php:692
@@ -8452,7 +8454,7 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr "INNODB பதிவு கோப்பு அளவு போதுமானதாக இல்லை."
 
 #: src/Advisory/Rules.php:706
-#, no-php-format
+#, fuzzy, no-php-format
 msgid ""
 "It is usually sufficient to set {innodb_log_file_size} to 25% of the size of "
 "{innodb_buffer_pool_size}. A very big {innodb_log_file_size} slows down the "
@@ -8466,13 +8468,12 @@ msgid ""
 msgstr ""
 "{innodb_log_file_size} முதல் 25% வரை {innodb_buffer_pool_size of அளவில் அமைக்க "
 "இது போதுமானது. ஒரு தரவுத்தள செயலிழந்த பிறகு மிகப் பெரிய {innodb_log_file_size "
-"the மீட்பு நேரத்தை குறைக்கிறது. <A href = \"https://www.percona.com/blog/"
-"2006/07/03/choosing-proper-intnodb_log_file_size/\"> இந்த கட்டுரை </a>. நீங்கள் "
-"சேவையகத்தை நிறுத்த வேண்டும், INNODB பதிவு கோப்புகளை அகற்ற வேண்டும், புதிய மதிப்பை "
-"My.CNF இல் அமைக்க வேண்டும், சேவையகத்தைத் தொடங்கவும், பின்னர் எல்லாம் சரியாக நடந்தால் பிழை "
-"பதிவுகளை சரிபார்க்கவும். <A href = \"https://"
-"mysqldatabaseadminastry.blogspot.com/2007/01/increase-indblogfilesize-"
-"pay.html\"> இந்த வலைப்பதிவு நுழைவு </a>"
+"the மீட்பு நேரத்தை குறைக்கிறது. <a href=\"https://www.percona.com/blog/2006/07/"
+"03/choosing-proper-intnodb_log_file_size/\"> இந்த கட்டுரை </a>. நீங்கள் சேவையகத்தை "
+"நிறுத்த வேண்டும், INNODB பதிவு கோப்புகளை அகற்ற வேண்டும், புதிய மதிப்பை My.CNF இல் "
+"அமைக்க வேண்டும், சேவையகத்தைத் தொடங்கவும், பின்னர் எல்லாம் சரியாக நடந்தால் பிழை பதிவுகளை "
+"சரிபார்க்கவும். <a href=\"https://mysqldatabaseadminastry.blogspot.com/2007/01/"
+"increase-indblogfilesize-pay.html\"> இந்த வலைப்பதிவு நுழைவு </a>"
 
 #: src/Advisory/Rules.php:717
 #, php-format
@@ -8488,7 +8489,7 @@ msgid "Your InnoDB buffer pool is fairly small."
 msgstr "உங்கள் INNODB இடையக குளம் மிகவும் சிறியது."
 
 #: src/Advisory/Rules.php:728
-#, no-php-format
+#, fuzzy, no-php-format
 msgid ""
 "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 "tables. Assign all your remaining memory to this buffer. For database "
@@ -8501,15 +8502,15 @@ msgid ""
 "href=\"https://www.percona.com/blog/2007/11/03/choosing-"
 "innodb_buffer_pool_size/\">this article</a>"
 msgstr ""
-"INNODB இடையகக் குளம் INNODB அட்டவணைகளுக்கான செயல்திறனில் ஆழமான தாக்கத்தை "
-"ஏற்படுத்துகிறது. உங்கள் மீதமுள்ள அனைத்து நினைவகத்தையும் இந்த இடையகத்திற்கு ஒதுக்குங்கள். "
-"சேமிப்பக இயந்திரமாக மட்டுமே இன்னோடிபியைப் பயன்படுத்தும் தரவுத்தள சேவையகங்களுக்கு, வேறு "
-"எந்த சேவைகளும் (எ.கா. ஒரு வலை சேவையகம்) இயங்கவில்லை, இது உங்களுக்கு கிடைக்கக்கூடிய "
-"நினைவகத்தில் 80% வரை அமைக்கலாம். அவ்வாறு இல்லையென்றால், உங்கள் பிற சேவைகள் மற்றும் இன்-இன்-"
-"இன் அல்லாத-அட்டவணைகளின் நினைவக நுகர்வு கவனமாக மதிப்பிட வேண்டும், அதற்கேற்ப இந்த மாறியை "
-"அமைக்க வேண்டும். இது மிக அதிகமாக அமைக்கப்பட்டால், உங்கள் கணினி மாற்றத் தொடங்கும், இது "
-"செயல்திறனை கணிசமாகக் குறைக்கிறது. <A href = \"https://www.percona.com/blog/"
-"2007/11/11/03/choosing-indb_buffer_pool_size/\"> இந்த கட்டுரை </a>"
+"INNODB இடையகக் குளம் INNODB அட்டவணைகளுக்கான செயல்திறனில் ஆழமான தாக்கத்தை ஏற்படுத்துகிறது. "
+"உங்கள் மீதமுள்ள அனைத்து நினைவகத்தையும் இந்த இடையகத்திற்கு ஒதுக்குங்கள். சேமிப்பக இயந்திரமாக "
+"மட்டுமே இன்னோடிபியைப் பயன்படுத்தும் தரவுத்தள சேவையகங்களுக்கு, வேறு எந்த சேவைகளும் (எ.கா. "
+"ஒரு வலை சேவையகம்) இயங்கவில்லை, இது உங்களுக்கு கிடைக்கக்கூடிய நினைவகத்தில் 80% வரை "
+"அமைக்கலாம். அவ்வாறு இல்லையென்றால், உங்கள் பிற சேவைகள் மற்றும் இன்-இன்-இன் அல்லாத-அட்டவணைகளின் "
+"நினைவக நுகர்வு கவனமாக மதிப்பிட வேண்டும், அதற்கேற்ப இந்த மாறியை அமைக்க வேண்டும். இது மிக "
+"அதிகமாக அமைக்கப்பட்டால், உங்கள் கணினி மாற்றத் தொடங்கும், இது செயல்திறனை கணிசமாகக் "
+"குறைக்கிறது. <a href=\"https://www.percona.com/blog/2007/11/11/03/choosing-"
+"indb_buffer_pool_size/\"> இந்த கட்டுரை </a>"
 
 #: src/Advisory/Rules.php:738
 #, php-format
@@ -8533,15 +8534,15 @@ msgid "Enable {concurrent_insert} by setting it to 1"
 msgstr "1 ஐ அமைப்பதன் மூலம் {concurrent_insert} ஐ இயக்கவும்"
 
 #: src/Advisory/Rules.php:753
+#, fuzzy
 msgid ""
 "Setting {concurrent_insert} to 1 reduces contention between readers and "
 "writers for a given table. See also <a href=\"https://dev.mysql.com/doc/"
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
 "{ஒரே நேரத்தில்_ இன்செர்ட் 1 ஐ 1 க்கு அமைப்பது கொடுக்கப்பட்ட அட்டவணைக்கு வாசகர்களுக்கும் "
-"எழுத்தாளர்களுக்கும் இடையிலான வாதத்தை குறைக்கிறது. <A href = \"https://"
-"dev.mysql.com/doc/refman/5.5/en/concurrent-inserts.html\"> MySQL ஆவணங்கள் </a> "
-"ஐயும் காண்க"
+"எழுத்தாளர்களுக்கும் இடையிலான வாதத்தை குறைக்கிறது. <a href=\"https://dev.mysql.com/doc/"
+"refman/5.5/en/concurrent-inserts.html\"> MySQL ஆவணங்கள் </a> ஐயும் காண்க"
 
 #: src/Advisory/Rules.php:757
 msgid "concurrent_insert is set to 0"
@@ -11794,14 +11795,13 @@ msgstr ""
 "அமர்வு. GC_MAXLIFETIME %5$d)."
 
 #: src/Config/ServerConfigChecks.php:340
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
-"%s உள்நுழைவு குக்கீ செல்லுபடியாகும் தன்மை 1800 வினாடிகளுக்கு (30 நிமிடங்கள்) அமைக்கப்பட "
-"வேண்டும். 1800 ஐ விடப் பெரிய மதிப்புகள் ஆள்மாறாட்டம் போன்ற பாதுகாப்பு அபாயத்தை "
-"ஏற்படுத்தக்கூடும்."
+"%sஉள்நுழைவு குக்கீ செல்லுபடியாகும் தன்மை%s 1800 வினாடிகளுக்கு (30 நிமிடங்கள்) அமைக்கப்பட "
+"வேண்டும். 1800 ஐ விடப் பெரிய மதிப்புகள் ஆள்மாறாட்டம் போன்ற பாதுகாப்பு அபாயத்தை ஏற்படுத்தக்கூடும்."
 
 #: src/Config/ServerConfigChecks.php:366
 #, php-format
@@ -16339,9 +16339,9 @@ msgstr ""
 "இந்த வினவலுக்கு லிண்டிங் முடக்கப்பட்டுள்ளது, ஏனெனில் இது அதிகபட்ச நீளத்தை மீறுகிறது."
 
 #: src/Linter.php:164
-#, php-format
+#, fuzzy, php-format
 msgid "%1$s (near <code>%2$s</code>)"
-msgstr "%1$s (<குறியீடு>%2$s </code> க்கு அருகில்)"
+msgstr "%1$s (<code>%2$s</code> க்கு அருகில்)"
 
 #: src/Menu.php:284 src/Menu.php:391 src/Util.php:1379 src/Util.php:1393
 msgid "Tracking"
@@ -17070,8 +17070,9 @@ msgstr ""
 "போன்ற தகவல்களை உள்ளடக்கியது) </i>"
 
 #: src/Plugins/Export/ExportSql.php:191
+#, fuzzy
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr "கூடுதல் தனிப்பயன் தலைப்பு கருத்து (\\ n பி பிரிக்கிறது கோடுகள்):"
+msgstr "கூடுதல் தனிப்பயன் தலைப்பு கருத்து (\\n பி பிரிக்கிறது கோடுகள்):"
 
 #: src/Plugins/Export/ExportSql.php:197
 msgid ""
@@ -17131,16 +17132,19 @@ msgid "Truncate table before insert"
 msgstr "செருகுவதற்கு முன் அட்டவணையை துண்டிக்கவும்"
 
 #: src/Plugins/Export/ExportSql.php:428
+#, fuzzy
 msgid "Instead of <code>INSERT</code> statements, use:"
-msgstr "<code> செருக </குறியீடு> அறிக்கைகளுக்கு பதிலாக, பயன்படுத்தவும்:"
+msgstr "<code>INSERT</code> அறிக்கைகளுக்கு பதிலாக, பயன்படுத்தவும்:"
 
 #: src/Plugins/Export/ExportSql.php:434
+#, fuzzy
 msgid "<code>INSERT DELAYED</code> statements"
-msgstr "<code> தாமதத்தை செருகவும் </குறியீடு> அறிக்கைகள்"
+msgstr "<code>INSERT DELAYED</code> அறிக்கைகள்"
 
 #: src/Plugins/Export/ExportSql.php:443 src/Plugins/Export/ExportSql.php:470
+#, fuzzy
 msgid "<code>INSERT IGNORE</code> statements"
-msgstr "<code> செருகவும் புறக்கணிக்கவும் </குறியீடு> அறிக்கைகள்"
+msgstr "<code>INSERT IGNORE</code> அறிக்கைகள்"
 
 #: src/Plugins/Export/ExportSql.php:454
 msgid "Function to use when dumping data:"
