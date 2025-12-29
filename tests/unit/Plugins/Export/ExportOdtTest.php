@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\Column;
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Config\Settings\Export;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Dbal\ConnectionType;
@@ -390,7 +391,7 @@ class ExportOdtTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['odt_null' => '&']);
 
-        $this->object->setExportOptions($request, []);
+        $this->object->setExportOptions($request, new Export());
 
         self::assertTrue(
             $this->object->exportData(
@@ -460,7 +461,7 @@ class ExportOdtTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['odt_columns' => 'On']);
 
-        $this->object->setExportOptions($request, []);
+        $this->object->setExportOptions($request, new Export());
 
         self::assertTrue(
             $this->object->exportData(
@@ -629,7 +630,7 @@ class ExportOdtTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['odt_relation' => 'On', 'odt_mime' => 'On', 'odt_comments' => 'On']);
 
-        $this->object->setExportOptions($request, []);
+        $this->object->setExportOptions($request, new Export());
 
         self::assertTrue($this->object->getTableDef('database', ''));
 
