@@ -939,8 +939,6 @@ class TableTest extends AbstractTestCase
         $virtuality = '';
         $expression = '';
         $moveTo = '';
-        $columnsWithIndex = ['id'];
-        $oldColumnName = 'created_at';
 
         $query = Table::generateFieldSpec(
             $name,
@@ -975,8 +973,6 @@ class TableTest extends AbstractTestCase
         $virtuality = '';
         $expression = '';
         $moveTo = '';
-        $columnsWithIndex = ['id'];
-        $oldColumnName = 'created_at';
 
         $query = Table::generateFieldSpec(
             $name,
@@ -1009,8 +1005,6 @@ class TableTest extends AbstractTestCase
         $virtuality = '';
         $expression = '';
         $moveTo = '';
-        $columnsWithIndex = ['id'];
-        $oldColumnName = 'created_at';
 
         $query = Table::generateFieldSpec(
             $name,

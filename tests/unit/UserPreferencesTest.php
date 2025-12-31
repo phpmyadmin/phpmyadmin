@@ -298,6 +298,8 @@ class UserPreferencesTest extends AbstractTestCase
 
         $result = $userPreferences->save([1]);
 
+        self::assertTrue($result);
+
         $dummyDbi->addResult(
             <<<'SQL'
             SELECT `username` FROM `pma-db`.`pma__userconfig` WHERE `username` = 'root'
