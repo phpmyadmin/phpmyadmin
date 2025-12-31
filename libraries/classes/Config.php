@@ -179,9 +179,6 @@ class Config
 
     /**
      * Determines platform (OS), browser and version of the user
-     * Based on a phpBuilder article:
-     *
-     * @see http://www.phpbuilder.net/columns/tim20000821.php
      */
     public function checkClient(): void
     {
