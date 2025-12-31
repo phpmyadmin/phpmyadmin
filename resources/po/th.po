@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-12-28 00:32+0000\n"
-"PO-Revision-Date: 2025-12-29 11:00+0000\n"
-"Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
+"PO-Revision-Date: 2025-12-31 18:01+0000\n"
+"Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "th/>\n"
 "Language: th\n"
@@ -123,11 +123,11 @@ msgstr ""
 
 #: resources/templates/columns_definitions/column_attributes.twig:91
 #: resources/templates/columns_definitions/column_attributes.twig:102
-#, fuzzy
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details"
-msgstr "คุณไม่มีสิทธิที่จะเข้ามาตรงนี้!"
+msgstr ""
+"คุณไม่มีสิทธิ์เพียงพอที่จะดำเนินการนี้; โปรดดูเอกสารประกอบสำหรับรายละเอียดเพิ่มเติม"
 
 #: resources/templates/columns_definitions/column_attributes.twig:101
 #: resources/templates/database/data_dictionary/index.twig:42
@@ -1974,9 +1974,8 @@ msgstr "ท้ายสุด"
 #: src/Plugins/Export/ExportHtmlword.php:432
 #: src/Plugins/Export/ExportOdt.php:546
 #: src/Plugins/Export/ExportTexytext.php:417
-#, fuzzy
 msgid "Definition"
-msgstr "รายละเอียด"
+msgstr "นิยาม"
 
 #: resources/templates/database/events/editor_form.twig:92
 #: resources/templates/database/routines/editor_form.twig:121
@@ -2342,9 +2341,8 @@ msgstr "ประมวลผลคำค้น"
 
 #: resources/templates/database/operations/index.twig:2
 #: src/Navigation/Nodes/NodeDatabase.php:53
-#, fuzzy
 msgid "Database operations"
-msgstr "สถิติฐานข้อมูล"
+msgstr "การปฏิบัติการฐานข้อมูล"
 
 #: resources/templates/database/operations/index.twig:10
 #: resources/templates/database/operations/index.twig:14
@@ -2352,9 +2350,8 @@ msgid "Database comment"
 msgstr "คำอธิบายฐานข้อมูล"
 
 #: resources/templates/database/operations/index.twig:55
-#, fuzzy
 msgid "Rename database to"
-msgstr "เปลี่ยนชื่อฐานข้อมูลเป็น"
+msgstr "แก้ไขชื่อฐานข้อมูลเป็น"
 
 #: resources/templates/database/operations/index.twig:59
 #: resources/templates/export.twig:278
@@ -2375,21 +2372,20 @@ msgstr "คุณไม่มีสิทธิที่จะเข้ามา
 
 #: resources/templates/database/operations/index.twig:84
 msgid "Remove database"
-msgstr "เอาฐานข้อมูลออก"
+msgstr "ลบฐานข้อมูล"
 
 #: resources/templates/database/operations/index.twig:90
 #, php-format
 msgid "Database %s has been dropped."
-msgstr "โยนฐานข้อมูล %s ทิ้งไปเรียบร้อยแล้ว"
+msgstr "ลบฐานข้อมูล %s ทิ้งไปเรียบร้อยแล้ว"
 
 #: resources/templates/database/operations/index.twig:95
 msgid "Drop the database (DROP)"
-msgstr "โยนฐานข้อมูลทิ้ง"
+msgstr "ลบฐานข้อมูลทิ้ง (DROP)"
 
 #: resources/templates/database/operations/index.twig:119
-#, fuzzy
 msgid "Copy database to"
-msgstr "คัดลอกฐานข้อมูลเป็น"
+msgstr "คัดลอกฐานข้อมูลไปยัง"
 
 #: resources/templates/database/operations/index.twig:123
 #: resources/templates/server/databases/index.twig:24
@@ -2420,7 +2416,7 @@ msgstr "เฉพาะข้อมูล"
 
 #: resources/templates/database/operations/index.twig:151
 msgid "CREATE DATABASE before copying"
-msgstr "สร้างฐานข้อมูลก่อนคัดลอก"
+msgstr "CREATE DATABASE ก่อนคัดลอก"
 
 #: resources/templates/database/operations/index.twig:156
 #: resources/templates/table/operations/index.twig:303
@@ -2450,13 +2446,12 @@ msgid "Switch to copied database"
 msgstr "สลับไปยังฐานข้อมูลที่ถูกทำสำเนาไว้"
 
 #: resources/templates/database/operations/index.twig:217
-#, fuzzy
 msgid "Change all tables collations"
-msgstr "คำอธิบายตาราง"
+msgstr "เปลี่ยนการเรียงลำดับของตารางทั้งหมด"
 
 #: resources/templates/database/operations/index.twig:221
 msgid "Change all tables columns collations"
-msgstr ""
+msgstr "เปลี่ยนการจัดเรียงคอลัมน์ของตารางทั้งหมด"
 
 #: resources/templates/database/privileges/index.twig:5
 #: resources/templates/table/privileges/index.twig:5
@@ -2863,9 +2858,8 @@ msgstr "แสดงสี"
 #: resources/templates/database/structure/check_all_tables.twig:14
 #: resources/templates/table/operations/index.twig:411
 #: resources/templates/table/operations/view.twig:26
-#, fuzzy
 msgid "Delete data or table"
-msgstr "dump ตาราง"
+msgstr "ลบข้อมูลหรือตาราง"
 
 #: resources/templates/database/structure/check_all_tables.twig:15
 #: resources/templates/database/structure/structure_table_row.twig:74
@@ -2875,7 +2869,7 @@ msgstr "ลบข้อมูล"
 #: resources/templates/database/structure/check_all_tables.twig:18
 #: resources/templates/table/operations/index.twig:342
 msgid "Table maintenance"
-msgstr "การดูแลรักษาตาราง"
+msgstr "การบำรุงรักษาตาราง"
 
 #: resources/templates/database/structure/check_all_tables.twig:19
 #: resources/templates/table/maintenance/analyze.twig:3
@@ -2892,9 +2886,8 @@ msgstr "ตรวจสอบตาราง"
 #: resources/templates/database/structure/check_all_tables.twig:21
 #: resources/templates/table/maintenance/checksum.twig:3
 #: resources/templates/table/operations/index.twig:364
-#, fuzzy
 msgid "Checksum table"
-msgstr "ตรวจสอบตาราง"
+msgstr "ตารางตรวจสอบผลรวม"
 
 #: resources/templates/database/structure/check_all_tables.twig:22
 #: resources/templates/table/maintenance/optimize.twig:3
@@ -2964,9 +2957,8 @@ msgstr "การกระทำนี้อาจเปลี่ยนกำห
 #: src/Plugins/Export/Helpers/Pdf.php:177
 #: src/Plugins/Export/ExportLatex.php:260 src/Plugins/Export/ExportSql.php:926
 #: src/Plugins/Export/ExportXml.php:367
-#, fuzzy
 msgid "Database:"
-msgstr "ฐานข้อมูล"
+msgstr "ฐานข้อมูล:"
 
 #: resources/templates/database/structure/copy_form.twig:31
 #: src/Config/Descriptions.php:898
@@ -3007,7 +2999,6 @@ msgstr "เพิ่มผู้ใช้ใหม่"
 
 #: resources/templates/database/structure/index.twig:15
 #: src/Plugins/Schema/SchemaPdf.php:87
-#, fuzzy
 msgid "Data dictionary"
 msgstr "พจนานุกรมข้อมูล"
 
@@ -3051,7 +3042,7 @@ msgstr "ตาราง"
 #: src/Navigation/Nodes/NodeViewContainer.php:24
 #: src/Plugins/Export/ExportXml.php:121 src/Plugins/Export/ExportXml.php:122
 msgid "Views"
-msgstr ""
+msgstr "มุมมอง"
 
 #: resources/templates/database/structure/show_create.twig:35
 #: resources/templates/database/structure/structure_table_row.twig:122
@@ -4048,7 +4039,7 @@ msgstr "เข้าสู่ระบบ"
 #: resources/templates/login/form.twig:62
 #: resources/templates/login/form.twig:67
 msgid "You can enter hostname/IP address and port separated by space."
-msgstr ""
+msgstr "คุณสามารถป้อนชื่อโฮสต์/ที่อยู่ IP และพอร์ตโดยคั่นด้วยช่องว่าง"
 
 #: resources/templates/login/form.twig:74
 msgid "Username:"
@@ -4072,7 +4063,7 @@ msgstr "ตัวเลือกเซิร์ฟเวอร์"
 #: src/Plugins/Auth/AuthenticationHttp.php:87
 #, php-format
 msgid "Welcome to %s"
-msgstr "%s ยินดีต้อนรับ"
+msgstr "ยินดีต้อนรับสู่ %s"
 
 #: resources/templates/login/header.twig:17
 msgid ""
@@ -4860,7 +4851,7 @@ msgstr "เครื่องมือที่เก็บข้อมูล"
 
 #: resources/templates/server/engines/index.twig:13
 msgid "Storage Engine"
-msgstr "เครื่องมือที่เก็บข้อมูล"
+msgstr "ที่จัดเก็บระบบ"
 
 #: resources/templates/server/engines/index.twig:14
 #: resources/templates/server/plugins/index.twig:27
@@ -5713,9 +5704,8 @@ msgstr ""
 #: src/Plugins/Export/ExportLatex.php:225 src/Plugins/Export/ExportSql.php:754
 #: src/Plugins/Export/ExportXml.php:206 src/Plugins/Export/ExportSql.php:753
 #: src/Plugins/Export/ExportXml.php:207
-#, fuzzy
 msgid "Host:"
-msgstr "โฮสต์"
+msgstr "โฮสต์:"
 
 #: resources/templates/server/replication/change_primary.twig:29
 #, fuzzy
@@ -7190,19 +7180,19 @@ msgid "Checksum"
 msgstr "ตรวจสอบ"
 
 #: resources/templates/table/normalization/normalization.twig:4
-#, fuzzy
 msgid "Improve table structure (Normalization):"
-msgstr "เสนอโครงสร้างตาราง"
+msgstr "ปรับปรุงโครงสร้างตาราง (การทำให้เป็นรูปแบบปกติ):"
 
 #: resources/templates/table/normalization/normalization.twig:7
 msgid "Select up to what step you want to normalize"
-msgstr ""
+msgstr "เลือกขั้นตอนที่คุณต้องการปรับค่าให้เป็นมาตรฐาน"
 
 #: resources/templates/table/normalization/normalization.twig:9
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
 msgstr ""
+"คำแนะนำ: โปรดปฏิบัติตามขั้นตอนอย่างระมัดระวังเพื่อให้ได้ผลลัพธ์การปรับค่ามาตรฐานที่ถูกต้อง"
 
 #: resources/templates/table/normalization/normalization.twig:13
 #: src/Normalization.php:202
@@ -7224,7 +7214,7 @@ msgstr "ตัวเลือกตาราง"
 
 #: resources/templates/table/operations/index.twig:10
 msgid "Alter table order by"
-msgstr "เรียงค่าในตารางตาม"
+msgstr "แก้ไขตารางให้เรียงลำดับตาม"
 
 #: resources/templates/table/operations/index.twig:21
 #, fuzzy
@@ -7243,7 +7233,7 @@ msgstr "ตัวเลือกตาราง"
 
 #: resources/templates/table/operations/index.twig:106
 msgid "Rename table to"
-msgstr "เปลี่ยนชื่อตารางเป็น"
+msgstr "แก้ไขชื่อตารางเป็น"
 
 #: resources/templates/table/operations/index.twig:124
 msgid "Table comments"
@@ -7251,7 +7241,7 @@ msgstr "หมายเหตุของตาราง"
 
 #: resources/templates/table/operations/index.twig:178
 msgid "Change all column collations"
-msgstr ""
+msgstr "เปลี่ยนการเรียงลำดับคอลัมน์ทั้งหมด"
 
 #: resources/templates/table/operations/index.twig:259
 #, fuzzy
@@ -7304,14 +7294,13 @@ msgid "Delete the table (DROP)"
 msgstr "ลบตาราง (DROP)"
 
 #: resources/templates/table/operations/index.twig:482
-#, fuzzy
 msgid "Partition maintenance"
-msgstr "การดูแลรักษาตาราง"
+msgstr "การบำรุงรักษาพาร์ทิชัน"
 
 #: resources/templates/table/operations/index.twig:508
 #: resources/templates/table/structure/display_partitions.twig:202
 msgid "Remove partitioning"
-msgstr ""
+msgstr "ลบพาร์ทิชัน"
 
 #: resources/templates/table/operations/index.twig:521
 #, fuzzy
@@ -7531,12 +7520,12 @@ msgstr "ตรวจสอบ"
 #: resources/templates/table/structure/display_partitions.twig:105
 #: src/Operations.php:528
 msgid "Optimize"
-msgstr ""
+msgstr "ปรับให้เหมาะสม"
 
 #: resources/templates/table/structure/display_partitions.twig:115
 #: src/Operations.php:529
 msgid "Rebuild"
-msgstr ""
+msgstr "สร้างใหม่"
 
 #: resources/templates/table/structure/display_partitions.twig:125
 #: src/Operations.php:530
@@ -7546,7 +7535,7 @@ msgstr "ซ่อมแซม"
 #: resources/templates/table/structure/display_partitions.twig:135
 #: src/Operations.php:531
 msgid "Truncate"
-msgstr ""
+msgstr "ล้มตาราง"
 
 #: resources/templates/table/structure/display_partitions.twig:195
 #, fuzzy
@@ -9497,7 +9486,6 @@ msgstr "ระงับการใช้อยู่"
 #: src/Plugins/Export/ExportSql.php:268
 #: src/Plugins/Export/ExportTexytext.php:70 src/Plugins/Export/ExportOdt.php:84
 #: src/Plugins/Export/ExportPdf.php:92 src/Plugins/Export/ExportSql.php:267
-#, fuzzy
 msgid "structure"
 msgstr "โครงสร้าง"
 
@@ -9522,9 +9510,8 @@ msgstr "ข้อมูล"
 #: src/Plugins/Export/ExportSql.php:268
 #: src/Plugins/Export/ExportTexytext.php:70 src/Plugins/Export/ExportOdt.php:84
 #: src/Plugins/Export/ExportPdf.php:92 src/Plugins/Export/ExportSql.php:267
-#, fuzzy
 msgid "structure and data"
-msgstr "ทั้งโครงสร้างและข้อมูล"
+msgstr "โครงสร้างและข้อมูล"
 
 #: src/Config/ConfigFile.php:669
 msgid "Quick - display only the minimal options to configure"
@@ -14673,20 +14660,18 @@ msgstr ""
 #: src/Controllers/Normalization/GetColumnsController.php:29
 #: src/Normalization.php:221
 msgid "Select one…"
-msgstr "เลือกอย่างใดอย่างหนึ่ง…"
+msgstr "เลือกหนึ่งข้อ…"
 
 #: src/Controllers/Normalization/GetColumnsController.php:30
 #: src/Normalization.php:222
-#, fuzzy
 msgid "No such column"
-msgstr "เพิ่ม/ลบ คอลัมน์ (ฟิลด์)"
+msgstr "ไม่มีคอลัมน์ดังกล่าว"
 
 #: src/Controllers/Normalization/GetColumnsController.php:35
 #: src/Normalization.php:226 src/Types.php:648
-#, fuzzy
 msgctxt "string types"
 msgid "String"
-msgstr "แถวข้อความ"
+msgstr "สตริง"
 
 #: src/Controllers/Operations/Database/CollationController.php:42
 #: src/Controllers/Operations/TableController.php:262
@@ -16622,28 +16607,26 @@ msgstr "ย่อทั้งหมด"
 #: src/Navigation/Nodes/NodeColumnContainer.php:33
 msgctxt "Create new column"
 msgid "New"
-msgstr ""
+msgstr "ใหม่"
 
 #: src/Navigation/Nodes/NodeDatabaseContainer.php:46
 msgctxt "Create new database"
 msgid "New"
-msgstr ""
+msgstr "ใหม่"
 
 #: src/Navigation/Nodes/NodeDatabase.php:193
-#, fuzzy
 msgid "Show hidden items"
-msgstr "แสดงคำแนะนำ"
+msgstr "แสดงรายการที่ซ่อนไว้"
 
 #: src/Navigation/Nodes/NodeEventContainer.php:32
 msgctxt "Create new event"
 msgid "New"
-msgstr ""
+msgstr "ใหม่"
 
 #: src/Navigation/Nodes/NodeFunctionContainer.php:22
 #: src/Navigation/Nodes/NodeFunctionContainer.php:26
 #: src/Plugins/Export/ExportSql.php:643 src/Plugins/Export/ExportXml.php:101
 #: src/Plugins/Export/ExportSql.php:642 src/Plugins/Export/ExportXml.php:102
-#, fuzzy
 msgid "Functions"
 msgstr "ฟังก์ชั่น"
 
@@ -16655,7 +16638,7 @@ msgstr ""
 #: src/Navigation/Nodes/NodeIndexContainer.php:33
 msgctxt "Create new index"
 msgid "New"
-msgstr ""
+msgstr "ใหม่"
 
 #: src/Navigation/Nodes/Node.php:568
 msgid "Expand/Collapse"
@@ -16665,73 +16648,73 @@ msgstr "ขยาย/ย่อ"
 #: src/Navigation/Nodes/NodeProcedureContainer.php:26
 #: src/Plugins/Export/ExportSql.php:632 src/Plugins/Export/ExportXml.php:106
 #: src/Plugins/Export/ExportSql.php:631 src/Plugins/Export/ExportXml.php:107
-#, fuzzy
 msgid "Procedures"
-msgstr "โพรเซส"
+msgstr "ขั้นตอน"
 
 #: src/Navigation/Nodes/NodeProcedureContainer.php:37
 msgctxt "Create new procedure"
 msgid "New"
-msgstr ""
+msgstr "ใหม่"
 
 #: src/Navigation/Nodes/NodeProcedure.php:26
-#, fuzzy
 msgid "Procedure"
-msgstr "โพรเซส"
+msgstr "ขั้นตอน"
 
 #: src/Navigation/Nodes/NodeTableContainer.php:33
 msgctxt "Create new table"
 msgid "New"
-msgstr ""
+msgstr "ใหม่"
 
 #: src/Navigation/Nodes/NodeTriggerContainer.php:33
 msgctxt "Create new trigger"
 msgid "New"
-msgstr ""
+msgstr "ใหม่"
 
 #: src/Navigation/Nodes/NodeViewContainer.php:33
 msgctxt "Create new view"
 msgid "New"
-msgstr ""
+msgstr "ใหม่"
 
 #: src/Normalization.php:201
 msgid "Make all columns atomic"
-msgstr ""
+msgstr "ทำทุกคอลัมน์ให้เล็กที่สุด"
 
 #: src/Normalization.php:204 src/Normalization.php:253
 #: src/Normalization.php:299 src/Normalization.php:331
 msgid "Step 1."
-msgstr ""
+msgstr "ขั้นตอนที่ 1"
 
 #: src/Normalization.php:207
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
 msgstr ""
+"คุณมีคอลัมน์ใดบ้างที่สามารถแยกออกให้เป็นมากกว่าหนึ่งคอลัมน์ได้หรือไม่? ตัวอย่างเช่น ที่อยู่สามารถแยกอ"
+"อกเป็น ถนน เมือง ประเทศ และรหัสไปรษณีย์ได้"
 
 #: src/Normalization.php:212
 msgid "Show me the central list of columns that are not already in this table"
-msgstr ""
+msgstr "แสดงรายการคอลัมน์หลักที่ยังไม่มีอยู่ในตารางนี้ให้หน่อย"
 
 #: src/Normalization.php:214
 msgid ""
 "Select a column which can be split into more than one (on select of 'no such "
 "column', it'll move to next step)."
 msgstr ""
+"เลือกคอลัมน์ที่สามารถแยกออกเป็นมากกว่าหนึ่งส่วนได้ (หากเลือก 'ไม่มีคอลัมน์ดังกล่าว' ระบบจะไปยังขั้"
+"นตอนถัดไป)"
 
 #: src/Normalization.php:229
 msgid "split into "
-msgstr ""
+msgstr "แยกเป็น "
 
 #: src/Normalization.php:250
-#, fuzzy
 msgid "Have a primary key"
 msgstr "เพิ่มคีย์หลัก"
 
 #: src/Normalization.php:256
-#, fuzzy
 msgid "Primary key already exists."
-msgstr "มีผู้ใช้ %s อยู่แล้ว!"
+msgstr "มีคีย์หลักอยู่แล้ว"
 
 #: src/Normalization.php:261
 msgid ""
@@ -16741,22 +16724,20 @@ msgstr ""
 
 #: src/Normalization.php:269
 msgid "Add a primary key on existing column(s)"
-msgstr ""
+msgstr "เพิ่มคีย์หลักในคอลัมน์ที่มีอยู่แล้ว"
 
 #: src/Normalization.php:273
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
-msgstr ""
+msgstr "หากไม่สามารถใช้ชุดคอลัมน์ที่มีอยู่เป็นคีย์หลักได้"
 
 #: src/Normalization.php:275
-#, fuzzy
 msgid "+ Add a new primary key column"
-msgstr "เพิ่มคีย์หลัก"
+msgstr "+ เพิ่มคอลัมน์คีย์หลักใหม่"
 
 #: src/Normalization.php:298
-#, fuzzy
 msgid "Remove redundant columns"
-msgstr "เอาการแสดงผลออก"
+msgstr "ลบคอลัมน์ที่ซ้ำซ้อนออก"
 
 #: src/Normalization.php:301
 msgid ""
@@ -16922,25 +16903,25 @@ msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
 msgstr ""
+"ไม่สามารถเกิดการพึ่งพาแบบส่งต่อได้ เนื่องจากตารางไม่มีคอลัมน์ที่ไม่ใช่คีย์หลัก"
 
 #: src/Normalization.php:880
 msgid "Table is already in Third normal form!"
-msgstr ""
+msgstr "ตารางอยู่ในรูปแบบปกติที่สามแล้ว!"
 
 #: src/Normalization.php:946
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
-msgstr ""
+msgstr "รายชื่อนี้อ้างอิงจากข้อมูลเพียงบางส่วนในตาราง และอาจไม่ถูกต้องทั้งหมด "
 
 #: src/Normalization.php:961
 msgid "No partial dependencies found!"
-msgstr ""
+msgstr "ไม่พบการพึ่งพาบางส่วน!"
 
 #: src/Operations.php:540
-#, fuzzy
 msgid "Coalesce"
-msgstr "ปิด"
+msgstr "เชื่อมต่อกัน"
 
 #: src/Operations.php:891
 msgid "Can't move table to same one!"
@@ -16951,14 +16932,14 @@ msgid "Can't copy table to same one!"
 msgstr "ไม่สามารถคัดลอกตารางไปยังที่เดิมได้!"
 
 #: src/Operations.php:929
-#, fuzzy, php-format
+#, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
-msgstr "ตาราง %s ถูกย้ายไป %s แล้ว"
+msgstr "ตาราง %s ถูกย้ายไป %s แล้ว สิทธิพิเศษได้รับการแก้ไขแล้ว"
 
 #: src/Operations.php:935
-#, fuzzy, php-format
+#, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
-msgstr "คัดลอกตาราง %s ไปเก็บในชื่อ %s เรียบร้อยแล้ว."
+msgstr "ตาราง %s ถูกคัดลอกไปเป็น %s เรียบร้อยแล้ว สิทธิพิเศษได้รับการแก้ไขแล้ว"
 
 #: src/Operations.php:941
 #, php-format
@@ -16968,7 +16949,7 @@ msgstr "ตาราง %s ถูกย้ายไป %s แล้ว"
 #: src/Operations.php:945
 #, php-format
 msgid "Table %s has been copied to %s."
-msgstr "คัดลอกตาราง %s ไปเก็บในชื่อ %s เรียบร้อยแล้ว."
+msgstr "ตาราง %s ถูกคัดลอกไป %s เรียบร้อยแล้ว"
 
 #: src/Operations.php:968
 msgid "The table name is empty!"
@@ -16988,8 +16969,8 @@ msgid ""
 "You probably did not create a configuration file. You might want to use the "
 "%1$ssetup script%2$s to create one."
 msgstr ""
-"﻿คุณคงไม่ได้สร้างแฟ้มการกำหนดค่า คุณอาจต้องการใช้ %1$ssetup script%2$s "
-"เพื่อสร้างอย่างใดอย่างหนึ่ง"
+"﻿เป็นไปได้ว่าคุณไม่ได้สร้างแฟ้มการกำหนดค่าไว้ คุณอาจต้องใช้ %1$ssetup script%2$s เพื่อสร้างสักไ"
+"ฟล์"
 
 #: src/Plugins/Auth/AuthenticationConfig.php:115
 msgid ""
@@ -17004,24 +16985,23 @@ msgstr ""
 
 #: src/Plugins/Auth/AuthenticationConfig.php:133
 msgid "Retry to connect"
-msgstr ""
+msgstr "ลองเชื่อมต่อใหม่อีกครั้ง"
 
 #: src/Plugins/Auth/AuthenticationCookie.php:127
 msgid "Your session has expired. Please log in again."
-msgstr ""
+msgstr "เซสชันของคุณหมดอายุแล้ว โปรดเข้าสู่ระบบอีกครั้ง"
 
 #: src/Plugins/Auth/AuthenticationCookie.php:236
 msgid "Missing Captcha verification, maybe it has been blocked by adblock?"
 msgstr ""
 
 #: src/Plugins/Auth/AuthenticationCookie.php:271
-#, fuzzy
 msgid "Failed to connect to the reCAPTCHA service!"
-msgstr "การเชื่อมต่อกับตัวตรวจสอบ SQL ล้มเหลว!"
+msgstr "ไม่สามารถเชื่อมต่อกับบริการ reCAPTCHA ได้!"
 
 #: src/Plugins/Auth/AuthenticationCookie.php:273
 msgid "Entered captcha is wrong, try again!"
-msgstr ""
+msgstr "ระบุ captcha ผิด โปรดลองอีกครั้ง!"
 
 #: src/Plugins/Auth/AuthenticationCookie.php:285
 msgid ""
@@ -17030,13 +17010,12 @@ msgid ""
 msgstr ""
 
 #: src/Plugins/Auth/AuthenticationCookie.php:303
-#, fuzzy
 msgid "You are not allowed to log in to this MySQL server!"
-msgstr "ไม่สามารถล็อกอินเข้าเซิร์ฟเวอร์ MySQL ได้"
+msgstr "คุณไม่ได้รับอนุญาตให้เข้าสู่ระบบเซิร์ฟเวอร์ MySQL นี้!"
 
 #: src/Plugins/Auth/AuthenticationHttp.php:92
 msgid "Wrong username/password. Access denied."
-msgstr "อนุญาตให้เข้าใช้ไม่ได้ ชื่อผู้ใช้หรือรหัสผ่านผิด"
+msgstr "ชื่อผู้ใช้/รหัสผ่านไม่ถูกต้อง การเข้าถึงถูกปฏิเสธ"
 
 #: src/Plugins/Auth/AuthenticationSignon.php:129
 #, fuzzy, php-format
@@ -17050,34 +17029,31 @@ msgstr ""
 #: src/Plugins/AuthenticationPlugin.php:317
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
+"คุณได้เปิดใช้งานการตรวจสอบสิทธิ์แบบสองขั้นตอนแล้ว โปรดยืนยันการเข้าสู่ระบบของคุณ"
 
 #: src/Plugins/Export/ExportCsv.php:67
 #: src/Plugins/Import/AbstractImportCsv.php:36
 #: src/Plugins/Export/ExportCsv.php:66
-#, fuzzy
 msgid "Columns separated with:"
-msgstr "จบแถวด้วย"
+msgstr "คอลัมน์ถูกแบ่งด้วย:"
 
 #: src/Plugins/Export/ExportCsv.php:72
 #: src/Plugins/Import/AbstractImportCsv.php:42
 #: src/Plugins/Export/ExportCsv.php:71
-#, fuzzy
 msgid "Columns enclosed with:"
-msgstr "คร่อมฟิลด์ด้วย"
+msgstr "คอลัมน์ถูกล้อมด้วย:"
 
 #: src/Plugins/Export/ExportCsv.php:77
 #: src/Plugins/Import/AbstractImportCsv.php:49
 #: src/Plugins/Export/ExportCsv.php:76
-#, fuzzy
 msgid "Columns escaped with:"
-msgstr "เครื่องหมายสำหรับ escape char"
+msgstr "คอลัมน์ถูกเลี่ยงด้วย:"
 
 #: src/Plugins/Export/ExportCsv.php:82
 #: src/Plugins/Import/AbstractImportCsv.php:56
 #: src/Plugins/Export/ExportCsv.php:81
-#, fuzzy
 msgid "Lines terminated with:"
-msgstr "จบแถวด้วย"
+msgstr "จบแถวด้วย:"
 
 #: src/Plugins/Export/ExportCsv.php:87 src/Plugins/Export/ExportExcel.php:69
 #: src/Plugins/Export/ExportHtmlword.php:87
@@ -17085,27 +17061,25 @@ msgstr "จบแถวด้วย"
 #: src/Plugins/Export/ExportOdt.php:133
 #: src/Plugins/Export/ExportTexytext.php:90 src/Plugins/Export/ExportCsv.php:86
 #: src/Plugins/Export/ExportOds.php:70 src/Plugins/Export/ExportOdt.php:138
-#, fuzzy
 msgid "Replace NULL with:"
-msgstr "แทนที่ NULL เป็น"
+msgstr "แทนที่ NULL ด้วย:"
 
 #: src/Plugins/Export/ExportCsv.php:92 src/Plugins/Export/ExportExcel.php:74
 #: src/Plugins/Export/ExportCsv.php:91
 msgid "Remove carriage return/line feed characters within columns"
-msgstr ""
+msgstr "ลบอักขระขึ้นบรรทัดใหม่/เพิ่มบรรทัดภายในคอลัมน์"
 
 #: src/Plugins/Export/ExportExcel.php:84
 msgid "Excel edition:"
-msgstr ""
+msgstr "ฉบับ Excel:"
 
 #: src/Plugins/Export/ExportHtmlword.php:81
 #: src/Plugins/Export/ExportLatex.php:174 src/Plugins/Export/ExportOdt.php:122
 #: src/Plugins/Export/ExportTexytext.php:79
 #: src/Plugins/Export/ExportXml.php:129 src/Plugins/Export/ExportOdt.php:127
 #: src/Plugins/Export/ExportXml.php:130
-#, fuzzy
 msgid "Data dump options"
-msgstr "สถิติฐานข้อมูล"
+msgstr "ตัวเลือกการดัมพ์ข้อมูล"
 
 #: src/Plugins/Export/ExportHtmlword.php:169
 #: src/Plugins/Export/ExportOdt.php:216 src/Plugins/Export/ExportSql.php:2118
@@ -17114,7 +17088,7 @@ msgstr "สถิติฐานข้อมูล"
 #: src/Plugins/Export/ExportOdt.php:242 src/Plugins/Export/ExportSql.php:2125
 #: src/Plugins/Export/ExportTexytext.php:175
 msgid "Dumping data for table"
-msgstr "dump ตาราง"
+msgstr "การดัมพ์ข้อมูลสำหรับตาราง"
 
 #: src/Plugins/Export/ExportHtmlword.php:453
 #: src/Plugins/Export/ExportOdt.php:569 src/Plugins/Export/ExportSql.php:1867
@@ -17123,7 +17097,7 @@ msgstr "dump ตาราง"
 #: src/Plugins/Export/ExportOdt.php:595 src/Plugins/Export/ExportSql.php:1874
 #: src/Plugins/Export/ExportTexytext.php:446
 msgid "Table structure for table"
-msgstr "โครงสร้างตาราง"
+msgstr "โครงสร้างตารางสำหรับตาราง"
 
 #: src/Plugins/Export/ExportHtmlword.php:470
 #: src/Plugins/Export/ExportOdt.php:589 src/Plugins/Export/ExportSql.php:1925
@@ -17131,9 +17105,8 @@ msgstr "โครงสร้างตาราง"
 #: src/Plugins/Export/ExportHtmlword.php:491
 #: src/Plugins/Export/ExportOdt.php:615 src/Plugins/Export/ExportSql.php:1932
 #: src/Plugins/Export/ExportTexytext.php:459
-#, fuzzy
 msgid "Structure for view"
-msgstr "เฉพาะโครงสร้าง"
+msgstr "โครงสร้างสำหรับมุมมอง"
 
 #: src/Plugins/Export/ExportHtmlword.php:476
 #: src/Plugins/Export/ExportOdt.php:597 src/Plugins/Export/ExportSql.php:1964
@@ -17142,65 +17115,59 @@ msgstr "เฉพาะโครงสร้าง"
 #: src/Plugins/Export/ExportOdt.php:623 src/Plugins/Export/ExportSql.php:1971
 #: src/Plugins/Export/ExportTexytext.php:463
 msgid "Stand-in structure for view"
-msgstr ""
+msgstr "โครงสร้างชั่วคราวสำหรับมุมมอง"
 
 #: src/Plugins/Export/ExportJson.php:86
 msgid "Output pretty-printed JSON (Use human-readable formatting)"
-msgstr ""
+msgstr "แสดงผล JSON ในรูปแบบที่อ่านง่าย (ใช้รูปแบบที่มนุษย์อ่านได้)"
 
 #: src/Plugins/Export/ExportJson.php:92
 msgid "Output unicode characters unescaped"
-msgstr ""
+msgstr "แสดงผลอักขระยูนิโค้ดโดยไม่ผ่านการแปลง"
 
 #: src/Plugins/Export/ExportLatex.php:68
 msgid "Content of table @TABLE@"
-msgstr ""
+msgstr "เนื้อหาของตาราง @TABLE@"
 
 #: src/Plugins/Export/ExportLatex.php:69
 msgid "(continued)"
 msgstr "(ต่อ)"
 
 #: src/Plugins/Export/ExportLatex.php:70
-#, fuzzy
 msgid "Structure of table @TABLE@"
-msgstr "โครงสร้างตาราง"
+msgstr "โครงสร้างของตาราง @TABLE@"
 
 #: src/Plugins/Export/ExportLatex.php:123 src/Plugins/Export/ExportOdt.php:89
 #: src/Plugins/Export/ExportSql.php:280 src/Plugins/Export/ExportOdt.php:94
 #: src/Plugins/Export/ExportSql.php:279
-#, fuzzy
 msgid "Object creation options"
-msgstr "ตัวเลือกการแปลง"
+msgstr "ตัวเลือกการสร้างวัตถุ"
 
 #: src/Plugins/Export/ExportLatex.php:129
 #: src/Plugins/Export/ExportLatex.php:185
-#, fuzzy
 msgid "Table caption:"
-msgstr "คำอธิบายตาราง"
+msgstr "คำอธิบายตาราง:"
 
 #: src/Plugins/Export/ExportLatex.php:135
 #: src/Plugins/Export/ExportLatex.php:191
-#, fuzzy
 msgid "Table caption (continued):"
-msgstr "คำอธิบายตาราง"
+msgstr "คำอธิบายตาราง (ต่อ):"
 
 #: src/Plugins/Export/ExportLatex.php:141
 #: src/Plugins/Export/ExportLatex.php:197
-#, fuzzy
 msgid "Label key:"
-msgstr "ป้ายชื่อ"
+msgstr "ป้ายชื่อคีย์:"
 
 #: src/Plugins/Export/ExportLatex.php:149 src/Plugins/Export/ExportOdt.php:97
 #: src/Plugins/Export/ExportSql.php:205 src/Plugins/Export/ExportOdt.php:102
 #: src/Plugins/Export/ExportSql.php:204
 msgid "Display foreign key relationships"
-msgstr ""
+msgstr "แสดงความสัมพันธ์ของคีย์นอก"
 
 #: src/Plugins/Export/ExportLatex.php:156 src/Plugins/Export/ExportOdt.php:104
 #: src/Plugins/Export/ExportOdt.php:109
-#, fuzzy
 msgid "Display comments"
-msgstr "แสดงหมายเหตุของคอลัมน์"
+msgstr "แสดงหมายเหตุ"
 
 #: src/Plugins/Export/ExportLatex.php:162 src/Plugins/Export/ExportOdt.php:110
 #: src/Plugins/Export/ExportSql.php:213 src/Plugins/Export/ExportOdt.php:115
@@ -17210,45 +17177,38 @@ msgid "Display media types"
 msgstr "MIME-types ที่มีอยู่"
 
 #: src/Plugins/Export/ExportLatex.php:180
-#, fuzzy
 msgid "Put columns names in the first row:"
-msgstr "ใส่ชื่อฟิลด์ที่แถวแรก"
+msgstr "ใส่ชื่อคอลัมน์ไว้ในแถวแรก:"
 
 #: src/Plugins/Export/ExportLatex.php:231 src/Plugins/Export/ExportSql.php:761
 #: src/Plugins/Export/ExportXml.php:213 src/Plugins/Export/ExportSql.php:760
 #: src/Plugins/Export/ExportXml.php:214
-#, fuzzy
 msgid "Generation Time:"
-msgstr "เวลาในการสร้าง"
+msgstr "เวลาในการสร้าง:"
 
 #: src/Plugins/Export/ExportLatex.php:234 src/Plugins/Export/ExportSql.php:767
 #: src/Plugins/Export/ExportXml.php:216 src/Plugins/Export/ExportSql.php:766
 #: src/Plugins/Export/ExportXml.php:217
-#, fuzzy
 msgid "PHP Version:"
-msgstr "รุ่นของ PHP"
+msgstr "เวอร์ชั่น PHP:"
 
 #: src/Plugins/Export/ExportLatex.php:288 src/Plugins/Export/ExportSql.php:2011
 #: src/Plugins/Export/ExportLatex.php:317 src/Plugins/Export/ExportSql.php:2018
-#, fuzzy
 msgid "Data:"
-msgstr "ข้อมูล"
+msgstr "ข้อมูล:"
 
 #: src/Plugins/Export/ExportLatex.php:444
 #: src/Plugins/Export/ExportLatex.php:473
-#, fuzzy
 msgid "Structure:"
-msgstr "โครงสร้าง"
+msgstr "โครงสร้าง:"
 
 #: src/Plugins/Export/ExportMediawiki.php:76
-#, fuzzy
 msgid "Export table names"
-msgstr "ส่งออก"
+msgstr "ส่งออกชื่อตาราง"
 
 #: src/Plugins/Export/ExportMediawiki.php:83
-#, fuzzy
 msgid "Export table headers"
-msgstr "แนวนอน (หมุนหัวเรื่อง)"
+msgstr "ส่งออกส่วนหัวของตาราง"
 
 #: src/Plugins/Export/ExportOdt.php:217
 #: src/Plugins/Export/ExportTexytext.php:139
@@ -17259,14 +17219,12 @@ msgid "Dumping data for query result"
 msgstr "dump ตาราง"
 
 #: src/Plugins/Export/ExportPdf.php:67 src/Plugins/Export/ExportPdf.php:79
-#, fuzzy
 msgid "Report title:"
-msgstr "นำเข้าไฟล์"
+msgstr "ชื่อรายงาน:"
 
 #: src/Plugins/Export/ExportPdf.php:131 src/Plugins/Export/ExportPdf.php:184
-#, fuzzy
 msgid "Dumping data"
-msgstr "dump ตาราง"
+msgstr "การดัมพ์ข้อมูล"
 
 #: src/Plugins/Export/ExportPdf.php:147 src/Plugins/Export/ExportPdf.php:201
 #, fuzzy
@@ -17274,39 +17232,38 @@ msgid "Query result data"
 msgstr "ผลลัพธ์ SQL"
 
 #: src/Plugins/Export/ExportPdf.php:181 src/Plugins/Export/ExportPdf.php:236
-#, fuzzy
 msgid "View structure"
-msgstr "โครงสร้าง"
+msgstr "โครงสร้างมุมมอง"
 
 #: src/Plugins/Export/ExportPdf.php:184 src/Plugins/Export/ExportPdf.php:239
 msgid "Stand in"
-msgstr ""
+msgstr "ตัวแทนชั่วคราว"
 
 #: src/Plugins/Export/ExportSql.php:184 src/Plugins/Export/ExportSql.php:183
 msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
 msgstr ""
+"แสดงความคิดเห็น <i>(รวมถึงข้อมูลต่าง ๆ เช่น เวลาที่ส่งออก เวอร์ชัน PHP และเวอร์ชันเซิร์ฟเวอร์)"
+"</i>"
 
 #: src/Plugins/Export/ExportSql.php:191 src/Plugins/Export/ExportSql.php:190
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr ""
+msgstr "ข้อความแสดงความคิดเห็นส่วนหัวเพิ่มเติมที่กำหนดเอง (\\n แยกบรรทัด):"
 
 #: src/Plugins/Export/ExportSql.php:197 src/Plugins/Export/ExportSql.php:196
 msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
-msgstr ""
+msgstr "ระบุเวลาที่สร้างฐานข้อมูล เวลาอัปเดตล่าสุด และเวลาตรวจสอบล่าสุดด้วย"
 
 #: src/Plugins/Export/ExportSql.php:250 src/Plugins/Export/ExportSql.php:249
-#, fuzzy
 msgid "Export metadata"
-msgstr "วิธีการส่งออก"
+msgstr "ส่งออกเมตาดาต้า"
 
 #: src/Plugins/Export/ExportSql.php:288 src/Plugins/Export/ExportSql.php:287
-#, fuzzy
 msgid "Add statements:"
-msgstr "คำสั่ง"
+msgstr "เพิ่มคำสั่ง:"
 
 #: src/Plugins/Export/ExportSql.php:296 src/Plugins/Export/ExportSql.php:305
 #: src/Plugins/Export/ExportSql.php:322 src/Plugins/Export/ExportSql.php:331
@@ -17317,16 +17274,16 @@ msgstr "คำสั่ง"
 #: src/Plugins/Export/ExportSql.php:382 src/Plugins/Export/ExportSql.php:391
 #, php-format
 msgid "Add %s statement"
-msgstr "เพิ่ม %s คำสั่ง"
+msgstr "เพิ่มคำสั่ง %s"
 
 #: src/Plugins/Export/ExportSql.php:338 src/Plugins/Export/ExportSql.php:337
 msgid "(less efficient as indexes will be generated during table creation)"
-msgstr ""
+msgstr "(ประสิทธิภาพลดลง เนื่องจากดัชนีจะถูกสร้างขึ้นในระหว่างการสร้างตาราง)"
 
 #: src/Plugins/Export/ExportSql.php:345 src/Plugins/Export/ExportSql.php:344
 #, php-format
 msgid "%s value"
-msgstr "%s ค่า"
+msgstr "ค่า %s"
 
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
 #: src/Plugins/Export/ExportSql.php:362 src/Plugins/Export/ExportSql.php:361
@@ -17338,37 +17295,38 @@ msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
+"ใส่เครื่องหมาย backquote ครอบชื่อตารางและชื่อคอลัมน์ <i>(ป้องกันการใช้ตัวอักษรพิเศษหรือคีย์เวิร์ด"
+"ในชื่อคอลัมน์และตาราง)</i>"
 
 #: src/Plugins/Export/ExportSql.php:416 src/Plugins/Export/ExportSql.php:415
-#, fuzzy
 msgid "Data creation options"
-msgstr "ตัวเลือกการแปลง"
+msgstr "ตัวเลือกการสร้างข้อมูล"
 
 #: src/Plugins/Export/ExportSql.php:421 src/Plugins/Export/ExportSql.php:2081
 #: src/Plugins/Export/ExportSql.php:420 src/Plugins/Export/ExportSql.php:2088
 msgid "Truncate table before insert"
-msgstr ""
+msgstr "ล้างข้อมูลในตารางก่อนแทรกข้อมูล"
 
 #: src/Plugins/Export/ExportSql.php:428 src/Plugins/Export/ExportSql.php:427
 msgid "Instead of <code>INSERT</code> statements, use:"
-msgstr ""
+msgstr "แทนที่จะใช้คำสั่ง <code>INSERT</code> ให้ใช้:"
 
 #: src/Plugins/Export/ExportSql.php:434 src/Plugins/Export/ExportSql.php:433
 msgid "<code>INSERT DELAYED</code> statements"
-msgstr ""
+msgstr "คำสั่ง <code>INSERT DELAYED</code>"
 
 #: src/Plugins/Export/ExportSql.php:443 src/Plugins/Export/ExportSql.php:470
 #: src/Plugins/Export/ExportSql.php:442 src/Plugins/Export/ExportSql.php:469
 msgid "<code>INSERT IGNORE</code> statements"
-msgstr ""
+msgstr "คำสั่ง <code>INSERT IGNORE</code>"
 
 #: src/Plugins/Export/ExportSql.php:454 src/Plugins/Export/ExportSql.php:453
 msgid "Function to use when dumping data:"
-msgstr ""
+msgstr "ฟังก์ชันที่ใช้เมื่อทำการดัมพ์ข้อมูล:"
 
 #: src/Plugins/Export/ExportSql.php:465 src/Plugins/Export/ExportSql.php:464
 msgid "Syntax to use when inserting data:"
-msgstr ""
+msgstr "ไวยากรณ์ที่ใช้เมื่อแทรกข้อมูล:"
 
 #: src/Plugins/Export/ExportSql.php:475 src/Plugins/Export/ExportSql.php:474
 msgid ""
@@ -17401,37 +17359,40 @@ msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
+"แปลงค่าคอลัมน์ไบนารีให้อยู่ในรูปแบบเลขฐานสิบหก <i>(ตัวอย่างเช่น \"abc\" จะกลายเป็น "
+"0x616263)</i>"
 
 #: src/Plugins/Export/ExportSql.php:518 src/Plugins/Export/ExportSql.php:517
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
 msgstr ""
+"ดัมพ์คอลัมน์ TIMESTAMP ในรูปแบบ UTC <i>(ช่วยให้สามารถดัมพ์และโหลดคอลัมน์ TIMESTAMP ระหว่า"
+"งเซิร์ฟเวอร์ในเขตเวลาที่แตกต่างกันได้)</i>"
 
 #: src/Plugins/Export/ExportSql.php:595 src/Plugins/Export/ExportSql.php:594
 msgid "It appears your database uses routines;"
-msgstr ""
+msgstr "ดูเหมือนว่าฐานข้อมูลของคุณจะใช้รูทีน;"
 
 #: src/Plugins/Export/ExportSql.php:598 src/Plugins/Export/ExportSql.php:1490
 #: src/Plugins/Export/ExportSql.php:1913 src/Plugins/Export/ExportSql.php:597
 #: src/Plugins/Export/ExportSql.php:1497 src/Plugins/Export/ExportSql.php:1920
 msgid "alias export may not work reliably in all cases."
-msgstr ""
+msgstr "การส่งออกนามแฝงอาจใช้งานไม่ได้ผลอย่างน่าเชื่อถือในทุกกรณี"
 
 #: src/Plugins/Export/ExportSql.php:1044 src/Plugins/Export/ExportSql.php:1051
-#, fuzzy
 msgid "Metadata"
-msgstr "ข้อมูลที่หายไปสำหรับ %s"
+msgstr "เมตาดาต้า"
 
 #: src/Plugins/Export/ExportSql.php:1109 src/Plugins/Export/ExportSql.php:1116
-#, fuzzy, php-format
+#, php-format
 msgid "Metadata for table %s"
-msgstr "ข้อมูลที่หายไปสำหรับ %s"
+msgstr "เมตาดาต้าสำหรับตาราง %s"
 
 #: src/Plugins/Export/ExportSql.php:1116 src/Plugins/Export/ExportSql.php:1123
-#, fuzzy, php-format
+#, php-format
 msgid "Metadata for database %s"
-msgstr "ข้อมูลที่หายไปสำหรับ %s"
+msgstr "เมดาต้าสำหรับฐานข้อมูล %s"
 
 #: src/Plugins/Export/ExportSql.php:1404 src/Plugins/Export/ExportSql.php:1411
 #, php-format
@@ -17440,35 +17401,31 @@ msgstr "การอ่านโครงสร้างตารางผิด
 
 #: src/Plugins/Export/ExportSql.php:1487 src/Plugins/Export/ExportSql.php:1494
 msgid "It appears your database uses views;"
-msgstr ""
+msgstr "ดูเหมือนว่าฐานข้อมูลของคุณจะใช้มุมมอง;"
 
 #: src/Plugins/Export/ExportSql.php:1631 src/Plugins/Export/ExportSql.php:1638
 msgid "Constraints for dumped tables"
-msgstr ""
+msgstr "ข้อจำกัดสำหรับตารางที่ถูกดัมพ์"
 
 #: src/Plugins/Export/ExportSql.php:1632 src/Plugins/Export/ExportSql.php:1639
 msgid "Constraints for table"
-msgstr ""
+msgstr "ข้อจำกัดสำหรับตาราง"
 
 #: src/Plugins/Export/ExportSql.php:1658 src/Plugins/Export/ExportSql.php:1665
-#, fuzzy
 msgid "Indexes for dumped tables"
-msgstr "ภายในตาราง:"
+msgstr "ดัชนีสำหรับตารางที่ถูกดัมพ์"
 
 #: src/Plugins/Export/ExportSql.php:1659 src/Plugins/Export/ExportSql.php:1666
-#, fuzzy
 msgid "Indexes for table"
-msgstr "ภายในตาราง:"
+msgstr "ดัชนีสำหรับตาราง"
 
 #: src/Plugins/Export/ExportSql.php:1682 src/Plugins/Export/ExportSql.php:1689
-#, fuzzy
 msgid "AUTO_INCREMENT for dumped tables"
-msgstr "เพิ่มค่า AUTO_INCREMENT"
+msgstr "ค่า AUTO_INCREMENT สำหรับตารางที่ถูกดัมพ์"
 
 #: src/Plugins/Export/ExportSql.php:1683 src/Plugins/Export/ExportSql.php:1690
-#, fuzzy
 msgid "AUTO_INCREMENT for table"
-msgstr "เพิ่มค่า AUTO_INCREMENT"
+msgstr "AUTO_INCREMENT สำหรับตาราง"
 
 #: src/Plugins/Export/ExportSql.php:1737 src/Plugins/Export/ExportSql.php:1744
 msgid "MEDIA TYPES FOR TABLE"
@@ -17506,18 +17463,19 @@ msgstr "สร้าง:"
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:577
 #: src/Plugins/Export/ExportSql.php:2589
 msgid "Last update:"
-msgstr "ปรับปรุงครั้งสุดท้าย:"
+msgstr "ปรับปรุงล่าสุด:"
 
 #: src/Plugins/Export/ExportSql.php:2582
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:588
 #: src/Plugins/Export/ExportSql.php:2597
 msgid "Last check:"
-msgstr "ตรวจสอบครั้งสุดท้าย:"
+msgstr "ตรวจสอบล่าสุด:"
 
 #: src/Plugins/Export/ExportSql.php:2603 src/Plugins/Export/ExportSql.php:2618
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
+"ระบบฐานข้อมูลหรือเซิร์ฟเวอร์ MySQL รุ่นเก่าเพื่อเพิ่มความเข้ากันได้ของผลลัพธ์ให้สูงสุดกับ:"
 
 #: src/Plugins/Export/ExportXml.php:90 src/Plugins/Export/ExportXml.php:91
 msgid "Object creation options (all are recommended)"
@@ -17535,6 +17493,7 @@ msgstr ""
 msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr ""
+"อัปเดตข้อมูลเมื่อพบคีย์ซ้ำในระหว่างการนำเข้า (เพิ่ม ON DUPLICATE KEY UPDATE)"
 
 #: src/Plugins/Import/ImportCsv.php:100
 msgid "Name of the new table (optional):"
@@ -17553,6 +17512,8 @@ msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
 msgstr ""
+"บรรทัดแรกของไฟล์ประกอบด้วยชื่อคอลัมน์ของตาราง <i>(หากไม่ได้เลือกตัวเลือกนี้ บรรทัดแรกจะกลายเ"
+"ป็นส่วนหนึ่งของข้อมูล)</i>"
 
 #: src/Plugins/Import/ImportCsv.php:143
 msgid ""
@@ -17560,6 +17521,8 @@ msgid ""
 "database, list the corresponding column names here. Column names must be "
 "separated by commas and not enclosed in quotations."
 msgstr ""
+"หากข้อมูลในแต่ละแถวของไฟล์ไม่ได้เรียงลำดับเดียวกันกับในฐานข้อมูล ให้ระบุชื่อคอลัมน์ที่เกี่ยวข้องไว้ที่นี่ "
+"ชื่อคอลัมน์ต้องคั่นด้วยเครื่องหมายจุลภาคและห้ามใส่เครื่องหมายอัญประกาศล้อมรอบ"
 
 #: src/Plugins/Import/ImportCsv.php:151
 #, fuzzy
@@ -17569,18 +17532,18 @@ msgstr "ชื่อคอลัมน์"
 #: src/Plugins/Import/ImportCsv.php:287 src/Plugins/Import/ImportCsv.php:617
 #, php-format
 msgid "Invalid format of CSV input on line %d."
-msgstr ""
+msgstr "รูปแบบข้อมูล CSV ไม่ถูกต้องในบรรทัดที่ %d"
 
 #: src/Plugins/Import/ImportCsv.php:494
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
-msgstr ""
+msgstr "จำนวนคอลัมน์ในไฟล์ CSV ที่ป้อนเข้ามาในบรรทัดที่ %d ไม่ถูกต้อง"
 
 #: src/Plugins/Import/ImportCsv.php:636 src/Plugins/Import/ImportCsv.php:651
 #: src/Plugins/Import/ImportCsv.php:662 src/Plugins/Import/ImportCsv.php:669
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
-msgstr ""
+msgstr "พารามิเตอร์ไม่ถูกต้องสำหรับการนำเข้าไฟล์ CSV: %s"
 
 #: src/Plugins/Import/ImportCsv.php:764
 #, php-format
@@ -17588,19 +17551,20 @@ msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
 "correctly, separated by commas, and not enclosed in quotes."
 msgstr ""
+"ระบุคอลัมน์ (%s) ไม่ถูกต้อง! ให้แน่ใจว่าชื่อคอลัมน์สะกดถูกต้อง คั่นด้วยเครื่องหมายจุลภาค และไม่ใส่เค"
+"รื่องหมายอัญประกาศล้อมรอบ"
 
 #: src/Plugins/Import/ImportLdi.php:73
-#, fuzzy
 msgid "Column names: "
-msgstr "ชื่อคอลัมน์"
+msgstr "ชื่อคอลัมน์: "
 
 #: src/Plugins/Import/ImportLdi.php:126
 msgid "This plugin does not support compressed imports!"
-msgstr ""
+msgstr "ปลั๊กอินนี้ไม่รองรับการนำเข้าไฟล์ที่บีบอัด!"
 
 #: src/Plugins/Import/ImportMediawiki.php:59
 msgid "MediaWiki Table"
-msgstr ""
+msgstr "ตาราง MediaWiki"
 
 #: src/Plugins/Import/ImportMediawiki.php:277
 #, php-format
@@ -17610,10 +17574,11 @@ msgstr ""
 #: src/Plugins/Import/ImportOds.php:87
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr ""
+"นำเข้าค่าเปอร์เซ็นต์โดยแปลงเป็นทศนิยมให้ถูกต้อง <i>(เช่น 12.00% เป็น .12)</i>"
 
 #: src/Plugins/Import/ImportOds.php:93
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
-msgstr ""
+msgstr "นำเข้าสกุลเงิน <i>(เช่น $5.00 เป็น 5.00)</i>"
 
 #: src/Plugins/Import/ImportOds.php:158 src/Plugins/Import/ImportXml.php:74
 #: src/Plugins/Import/ImportXml.php:112
@@ -17621,45 +17586,43 @@ msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
 msgstr ""
+"ไฟล์ XML ที่ระบุมีรูปแบบไม่ถูกต้องหรือไม่สมบูรณ์ โปรดแก้ไขปัญหาแล้วลองใหม่อีกครั้ง"
 
 #: src/Plugins/Import/ImportOds.php:166
-#, fuzzy
 msgid "Could not parse OpenDocument Spreadsheet!"
-msgstr "เอกสารอ้างอิง"
+msgstr "ไม่สามารถแยกวิเคราะห์สเปรดชีต OpenDocument ได้!"
 
 #: src/Plugins/Import/ImportShp.php:75
 msgid "ESRI Shape File"
-msgstr ""
+msgstr "ไฟล์รูปทรง ESRI"
 
 #: src/Plugins/Import/ImportShp.php:112 src/Plugins/Import/ImportShp.php:179
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
-msgstr ""
+msgstr "เกิดข้อผิดพลาดในการนำเข้าไฟล์รูปทรง ESRI: \"%s\""
 
 #: src/Plugins/Import/ImportShp.php:204
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
-msgstr ""
+msgstr "ส่วนขยาย MySQL Spatial ไม่รองรับชนิดข้อมูล ESRI \"%s\""
 
 #: src/Plugins/Import/ImportShp.php:249
-#, fuzzy
 msgid "The imported file does not contain any data!"
-msgstr "﻿แฟ้ม %s ไม่ควรประกอบไปด้วยรหัสคีย์ใดๆ"
+msgstr "ไฟล์ที่นำเข้าไม่มีข้อมูลใด ๆ !"
 
 #: src/Plugins/Import/ImportSql.php:63
 msgid "SQL compatibility mode:"
-msgstr "โหมดที่เข้ากันได้กับ SQL:"
+msgstr "โหมดความเข้ากันได้กับ SQL:"
 
 #: src/Plugins/Import/ImportSql.php:72
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
-msgstr ""
+msgstr "ห้ามใช้ <code>AUTO_INCREMENT</code> สำหรับค่าศูนย์"
 
 #: src/Plugins/Import/ImportXml.php:48
 msgid "XML"
 msgstr "XML"
 
 #: src/Plugins.php:580
-#, fuzzy
 msgid "This format has no options"
 msgstr "รูปแบบนี้ไม่มีตัวเลือก"
 
@@ -17667,24 +17630,23 @@ msgstr "รูปแบบนี้ไม่มีตัวเลือก"
 #: src/Plugins/Schema/Eps/TableStatsEps.php:78
 #: src/Plugins/Schema/Pdf/TableStatsPdf.php:78
 #: src/Plugins/Schema/Svg/TableStatsSvg.php:78
-#, fuzzy, php-format
+#, php-format
 msgid "The %s table doesn't exist!"
 msgstr "ไม่มีตาราง \"%s\"!"
 
 #: src/Plugins/Schema/Eps/EpsRelationSchema.php:64
 #: src/Plugins/Schema/Svg/SvgRelationSchema.php:72
-#, fuzzy, php-format
+#, php-format
 msgid "Schema of the %s database - Page %s"
-msgstr "schema ของฐานข้อมูล \"%s\" - หน้า %s"
+msgstr "โครงร่างฐานข้อมูล %s - หน้า %s"
 
 #: src/Plugins/Schema/ExportRelationSchema.php:252
 msgid "SCHEMA ERROR: "
-msgstr ""
+msgstr "ข้อผิดพลาดของโครงร่าง: "
 
 #: src/Plugins/Schema/Pdf/Pdf.php:251
-#, fuzzy
 msgid "PDF export page"
-msgstr "ประเภทที่ส่งออกไม่ถูกต้อง!"
+msgstr "หน้าส่งออกไฟล์ PDF"
 
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:119
 #, php-format
@@ -17694,7 +17656,7 @@ msgstr "โครงร่างของฐานข้อมูล %s"
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:147
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:495
 msgid "Relational schema"
-msgstr "รีเลชันแนล สกีมา"
+msgstr "โครงร่างเชิงสัมพันธ์"
 
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:449
 msgid "Table of contents"
@@ -17710,9 +17672,8 @@ msgstr "แสดงคีย์เท่านั้น"
 
 #: src/Plugins/Schema/SchemaDia.php:55 src/Plugins/Schema/SchemaEps.php:63
 #: src/Plugins/Schema/SchemaPdf.php:65
-#, fuzzy
 msgid "Orientation"
-msgstr "สร้างเมื่อ"
+msgstr "การวางแนว"
 
 #: src/Plugins/Schema/SchemaDia.php:58 src/Plugins/Schema/SchemaEps.php:66
 #: src/Plugins/Schema/SchemaPdf.php:68
@@ -17727,32 +17688,31 @@ msgstr "แนวตั้ง"
 #: src/Plugins/Schema/SchemaEps.php:57 src/Plugins/Schema/SchemaPdf.php:59
 #: src/Plugins/Schema/SchemaSvg.php:56
 msgid "Same width for all tables"
-msgstr ""
+msgstr "ตั้งความกว้างทุกตารางเท่ากัน"
 
 #: src/Plugins/Schema/SchemaPdf.php:81
 msgid "Show grid"
-msgstr "แสดงกริด"
+msgstr "แสดงเส้นตาราง"
 
 #: src/Plugins/Schema/SchemaPdf.php:93
-#, fuzzy
 msgid "Order of the tables"
-msgstr "ไม่ใช้ดังกล่าวข้างต้น"
+msgstr "ลำดับของตาราง"
 
 #: src/Plugins/Schema/SchemaPdf.php:96
-#, fuzzy
 msgid "Name (Ascending)"
-msgstr "น้อยไปมาก"
+msgstr "ชื่อ (น้อยไปมาก)"
 
 #: src/Plugins/Schema/SchemaPdf.php:96
-#, fuzzy
 msgid "Name (Descending)"
-msgstr "มากไปน้อย"
+msgstr "ชื่อ (มากไปน้อย)"
 
 #: src/Plugins/Transformations/Abs/Bool2TextTransformationsPlugin.php:27
 msgid ""
 "Converts Boolean values to text (default 'T' and 'F'). First option is for "
 "TRUE, second for FALSE. Nonzero=true."
 msgstr ""
+"แปลงค่าบูลีนให้เป็นข้อความ (ค่าเริ่มต้นคือ 'T' และ 'F') ตัวเลือกแรกสำหรับค่า TRUE ตัวเลือกที่สอง"
+"สำหรับค่า FALSE ค่าที่ไม่ใช่ศูนย์=เป็นจริง"
 
 #: src/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:42
 msgid ""
@@ -17765,6 +17725,12 @@ msgid ""
 "documentation for PHP's strftime() function and for \"utc\" it is done using "
 "gmdate() function."
 msgstr ""
+"แสดงคอลัมน์ TIME, TIMESTAMP, DATETIME หรือตัวเลข Unix timestamp เป็นรูปแบบวันที่ ตัวเลือ"
+"กแรกคือค่าชดเชย (เป็นชั่วโมง) ที่จะถูกเพิ่มเข้าไปใน timestamp (ค่าเริ่มต้น: 0) ใช้ตัวเลือกที่สองเ"
+"พื่อระบุสตริงรูปแบบวันที่/เวลาที่แตกต่างกัน ตัวเลือกที่สามกำหนดว่าคุณต้องการดูวันที่แบบท้องถิ่นหรือแบบ "
+"UTC (ใช้สตริง \"local\" หรือ \"utc\") สำหรับเรื่องนี้ รูปแบบวันที่จะมีค่า - สำหรับ "
+"\"local\" ดูเอกสารประกอบสำหรับฟังก์ชัน strftime() ของ PHP และสำหรับ \"utc\" จะทำโดย"
+"ใช้ฟังก์ชัน gmdate()"
 
 #. l10n: See https://www.php.net/manual/en/function.strftime.php
 #: src/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:129
@@ -17799,47 +17765,56 @@ msgid ""
 "has been deprecated for security reasons. Add all command line options "
 "directly to the definition in %s."
 msgstr ""
+"คุณกำลังใช้ฟิลด์ตัวเลือกบรรทัดคำสั่งการแปลงภายนอก ซึ่งถูกยกเลิกการใช้งานแล้วด้วยเหตุผลด้านความปล"
+"อดภัย โปรดเพิ่มตัวเลือกบรรทัดคำสั่งทั้งหมดลงในคำจำกัดความใน %s โดยตรง"
 
 #: src/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:27
-#, fuzzy
 msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
-msgstr "สงวนการจัดรูปแบบเดิมในฟิลด์ไว้ -- ไม่แทรก escape character."
+msgstr ""
+"แสดงเนื้อหาของคอลัมน์ตามที่เป็นอยู่ โดยไม่ผ่านคำสั่ง htmlspecialchars() กล่าวคือ ถือว่าคอลัมน์นั้น"
+"มี HTML ที่ถูกต้อง"
 
 #: src/Plugins/Transformations/Abs/HexTransformationsPlugin.php:29
 msgid ""
 "Displays hexadecimal representation of data. Optional first parameter "
 "specifies how often space will be added (defaults to 2 nibbles)."
 msgstr ""
+"แสดงผลข้อมูลในรูปแบบเลขฐานสิบหก พารามิเตอร์แรกเป็นตัวเลือก ระบุความถี่ในการเพิ่มช่องว่าง (ค่าเ"
+"ริ่มต้นคือ 2 นิบเบิล)"
 
 #: src/Plugins/Transformations/Abs/ImageLinkTransformationsPlugin.php:27
 msgid "Displays a link to download this image."
-msgstr "แสดงการเชื่อมโยงเพื่อดาวน์โหลดรูปภาพนี้"
+msgstr "แสดงลิงก์เพื่อดาวน์โหลดรูปภาพนี้"
 
 #: src/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php:28
 msgid ""
 "Image upload functionality which also displays a thumbnail. The options are "
 "the width and height of the thumbnail in pixels. Defaults to 100 X 100."
 msgstr ""
+"ฟังก์ชันการอัปโหลดรูปภาพซึ่งจะแสดงภาพขนาดย่อด้วย โดยสามารถเลือกความกว้างและความสูงของภาพข"
+"นาดย่อได้เป็นพิกเซล ค่าเริ่มต้นคือ 100 x 100 พิกเซล"
 
 #: src/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php:76
 msgid "Image preview here"
-msgstr ""
+msgstr "ดูตัวอย่างภาพได้ที่นี่"
 
 #: src/Plugins/Transformations/Abs/InlineTransformationsPlugin.php:30
 msgid ""
 "Displays a clickable thumbnail. The options are the maximum width and height "
 "in pixels. The original aspect ratio is preserved."
 msgstr ""
-"แสดงรูปขนาดเล็กที่กดเข้าไปดูภาพใหญ่ได้; ตัวเลือก: ความกว้าง, ความสูง หน่วยเป็นพิกเซล "
-"(คงสัดส่วนเดิม)"
+"แสดงภาพขนาดย่อที่คลิกได้ ตัวเลือกคือความกว้างและความสูงสูงสุดเป็นพิกเซล อัตราส่วนภาพดั้งเดิมจะถูก"
+"รักษาไว้"
 
 #: src/Plugins/Transformations/Abs/LongToIPv4TransformationsPlugin.php:28
 msgid ""
 "Converts an (IPv4) Internet network address stored as a BIGINT into a string "
 "in Internet standard dotted format."
 msgstr ""
+"แปลงที่อยู่เครือข่ายอินเทอร์เน็ต (IPv4) ที่จัดเก็บในรูปแบบ BIGINT ให้เป็นสตริงในรูปแบบจุดตามมาตร"
+"ฐานอินเทอร์เน็ต"
 
 #: src/Plugins/Transformations/Abs/PreApPendTransformationsPlugin.php:28
 msgid ""
@@ -17847,21 +17822,25 @@ msgid ""
 "prepended, second is appended (enclosed in single quotes, default empty "
 "string)."
 msgstr ""
+"เพิ่มข้อความเข้าและ/หรือต่อท้ายสตริง ตัวเลือกแรกคือข้อความที่จะเพิ่มเข้าด้านหน้า ตัวเลือกที่สองคือข้อค"
+"วามที่จะเพิ่มต่อท้าย (อยู่ในเครื่องหมายอัญประกาศเดี่ยว ค่าเริ่มต้นคือสตริงว่าง)"
 
 #: src/Plugins/Transformations/Abs/RegexValidationTransformationsPlugin.php:30
 msgid ""
 "Validates the string using regular expression and performs insert only if "
 "string matches it. The first option is the Regular Expression."
 msgstr ""
+"ตรวจสอบความถูกต้องของสตริงโดยใช้ regular expression และจะทำการแทรกข้อมูลก็ต่อเมื่อสตริงต"
+"รงกันเท่านั้น ตัวเลือกแรกคือ Regular Expression"
 
 #: src/Plugins/Transformations/Abs/RegexValidationTransformationsPlugin.php:50
 #, php-format
 msgid "Validation failed for the input string %s."
-msgstr ""
+msgstr "การตรวจสอบความถูกต้องของสตริงอินพุต %s ล้มเหลว"
 
 #: src/Plugins/Transformations/Abs/SQLTransformationsPlugin.php:26
 msgid "Formats text as SQL query with syntax highlighting."
-msgstr ""
+msgstr "จัดรูปแบบข้อความให้เป็นคำสั่ง SQL พร้อมเน้นไวยากรณ์"
 
 #: src/Plugins/Transformations/Abs/SubstringTransformationsPlugin.php:30
 msgid ""
@@ -17871,12 +17850,16 @@ msgid ""
 "option is the string to append and/or prepend when truncation occurs "
 "(Default: \"…\")."
 msgstr ""
+"แสดงส่วนหนึ่งของสตริง ตัวเลือกแรกคือจำนวนอักขระที่จะข้ามจากสตริงเริ่มต้น (ค่าเริ่มต้นคือ 0) ตัวเลือ"
+"กที่สองคือจำนวนอักขระที่ส่งคืน (ค่าเริ่มต้น: จนถึงจุดสิ้นสุดของสตริง) ตัวเลือกที่สามคือสตริงที่จะเพิ่มต่อท้"
+"ายและ/หรือเพิ่มไว้ข้างหน้าเมื่อเกิดการตัดทอน (ค่าเริ่มต้น: \"…\")"
 
 #: src/Plugins/Transformations/Abs/TextFileUploadTransformationsPlugin.php:27
 msgid ""
 "File upload functionality for TEXT columns. It does not have a textarea for "
 "input."
 msgstr ""
+"ฟังก์ชันการอัปโหลดไฟล์สำหรับคอลัมน์ข้อความ ไม่มีช่องข้อความสำหรับป้อนข้อมูล"
 
 #: src/Plugins/Transformations/Abs/TextImageLinkTransformationsPlugin.php:30
 msgid ""
@@ -17884,6 +17867,8 @@ msgid ""
 "option is a URL prefix like \"https://www.example.com/\". The second and "
 "third options are the width and the height in pixels."
 msgstr ""
+"แสดงภาพและลิงก์; โดยคอลัมน์ที่ประกอบด้วยชื่อไฟล์ ตัวเลือกแรกคือคำนำหน้า URL เช่น \"https://"
+"www.example.com/\" ตัวเลือกที่สองและสามคือความกว้างและความสูงเป็นพิกเซล"
 
 #: src/Plugins/Transformations/Abs/TextLinkTransformationsPlugin.php:29
 msgid ""
@@ -17891,10 +17876,12 @@ msgid ""
 "prefix like \"https://www.example.com/\". The second option is a title for "
 "the link."
 msgstr ""
+"แสดงลิงก์ โดยคอลัมน์ที่ประกอบด้วยชื่อไฟล์ ตัวเลือกแรกคือคำนำหน้า URL เช่น \"https://"
+"www.example.com/\" ตัวเลือกที่สองคือชื่อสำหรับลิงก์"
 
 #: src/Plugins/Transformations/Input/Text_Plain_Iptobinary.php:31
 msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
-msgstr ""
+msgstr "แปลงที่อยู่เครือข่ายอินเทอร์เน็ตในรูปแบบ (IPv4/IPv6) เป็นเลขฐานสอง"
 
 #: src/Plugins/Transformations/Input/Text_Plain_Iptolong.php:28
 msgid ""
@@ -17904,7 +17891,7 @@ msgstr ""
 
 #: src/Plugins/Transformations/Input/Text_Plain_JsonEditor.php:25
 msgid "Syntax highlighted CodeMirror editor for JSON."
-msgstr ""
+msgstr "โปรแกรมแก้ไข CodeMirror สำหรับ JSON ที่มีการเน้นไวยากรณ์"
 
 #: src/Plugins/Transformations/Input/Text_Plain_SqlEditor.php:25
 msgid "Syntax highlighted CodeMirror editor for SQL."
