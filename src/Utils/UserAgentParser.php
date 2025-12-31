@@ -9,9 +9,6 @@ use function str_contains;
 
 /**
  * Determines browser and version of the user
- * Based on a phpBuilder article:
- *
- * @see http://www.phpbuilder.net/columns/tim20000821.php
  */
 class UserAgentParser
 {

@@ -52,7 +52,7 @@ class ResponseRenderer
     protected bool $isSuccess = true;
 
     /**
-     * @see http://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml
+     * @see https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml
      *
      * @var array<int, string>
      */
