@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2025-08-24 20:20+0000\n"
-"Last-Translator: Marc Delisle <marcdelisle60@gmail.com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/5-1/fr/"
-">\n"
+"PO-Revision-Date: 2026-01-01 18:01+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
+"fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.13\n"
+"X-Generator: Weblate 5.15.1\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -11456,7 +11456,7 @@ msgstr "Généré le :"
 #: libraries/classes/Plugins/Export/ExportXml.php:258
 #: templates/home/index.twig:129
 msgid "Server version:"
-msgstr "Version du serveur :"
+msgstr "Version du serveur :"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:223
 #: libraries/classes/Plugins/Export/ExportSql.php:762
@@ -15962,7 +15962,7 @@ msgstr "Serveur :"
 
 #: templates/home/index.twig:121
 msgid "Server type:"
-msgstr "Type de serveur :"
+msgstr "Type de serveur :"
 
 #: templates/home/index.twig:125
 msgid "Server connection:"
@@ -15974,7 +15974,7 @@ msgstr "Version du protocole :"
 
 #: templates/home/index.twig:137
 msgid "User:"
-msgstr "Utilisateur :"
+msgstr "Utilisateur :"
 
 #: templates/home/index.twig:141
 msgid "Server charset:"
