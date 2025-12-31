@@ -6,7 +6,7 @@ Configuration
 =============
 
 All configurable data is placed in :file:`config.inc.php` in phpMyAdmin's
-toplevel directory.  If this file does not exist, please refer to the
+toplevel directory. If this file does not exist, please refer to the
 :ref:`setup` section to create one. This file only needs to contain the
 parameters you want to change from their corresponding default value in
 :file:`libraries/config.default.php` (this file is not intended for changes).
