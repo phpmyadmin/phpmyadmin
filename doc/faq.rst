@@ -2289,7 +2289,7 @@ differentiate between a desired text output and a formula that should be escaped
 definitions should not be interpreted anyway. We have discussed this at length and feel it is the responsibility of the
 spreadsheet program to properly parse and sanitize such data on input instead.
 
-Google also has a `similar view <https://sites.google.com/site/bughunteruniversity/nonvuln/csv-excel-formula-injection>`_.
+Google also has a `similar view <https://bughunters.google.com/learn/invalid-reports/google-products/4965108570390528/csv-formula-injection>`_.
 
 .. _faqsynchronization:
 
