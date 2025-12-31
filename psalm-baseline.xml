@@ -11355,6 +11355,8 @@
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['userconfig']['db']]]></code>
       <code><![CDATA[$_SESSION['userconfig']['ts']]]></code>
+      <code><![CDATA[$resultConfig['2fa']['settings']]]></code>
+      <code><![CDATA[$resultConfig['2fa']['settings']['secret']]]></code>
     </MixedArrayAccess>
   </file>
   <file src="tests/unit/UtilTest.php">
