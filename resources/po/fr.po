@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-12-28 00:32+0000\n"
-"PO-Revision-Date: 2025-12-29 11:00+0000\n"
-"Last-Translator: tmtisfree <tmtisfree@free.fr>\n"
+"PO-Revision-Date: 2025-12-31 18:01+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -3545,14 +3545,12 @@ msgid "Server:"
 msgstr "Serveur :"
 
 #: resources/templates/home/index.twig:186
-#, fuzzy
-#| msgid "Host name:"
 msgid "Hostname:"
 msgstr "Nom d'hôte :"
 
 #: resources/templates/home/index.twig:190
 msgid "Server type:"
-msgstr "Type de serveur :"
+msgstr "Type de serveur :"
 
 #: resources/templates/home/index.twig:194
 msgid "Server connection:"
@@ -3562,11 +3560,11 @@ msgstr "Connexion au serveur :"
 #: src/Plugins/Export/ExportLatex.php:233 src/Plugins/Export/ExportSql.php:765
 #: src/Plugins/Export/ExportXml.php:215
 msgid "Server version:"
-msgstr "Version du serveur :"
+msgstr "Version du serveur :"
 
 #: resources/templates/home/index.twig:202
 msgid "User:"
-msgstr "Utilisateur :"
+msgstr "Utilisateur :"
 
 #: resources/templates/home/index.twig:206
 msgid "Server charset:"
