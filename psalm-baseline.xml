@@ -3246,10 +3246,6 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Database/Designer.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <MixedAssignment>
       <code><![CDATA[$params]]></code>
     </MixedAssignment>
@@ -3259,9 +3255,6 @@
     </MixedReturnStatement>
   </file>
   <file src="src/Database/Designer/Common.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <InvalidReturnStatement>
       <code><![CDATA[$this->dbi->fetchResult($query, 'name', null, ConnectionType::ControlUser)]]></code>
     </InvalidReturnStatement>
@@ -3323,9 +3316,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Database/Events.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['item_comment']]]></code>
       <code><![CDATA[$_POST['item_definer']]]></code>
@@ -3382,10 +3372,6 @@
     </PossiblyUnusedProperty>
   </file>
   <file src="src/Database/Routines.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$retval['item_param_dir'][$key]]]></code>
     </InvalidArrayOffset>

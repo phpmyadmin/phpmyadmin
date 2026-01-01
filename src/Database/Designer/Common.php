@@ -32,8 +32,11 @@ use function rawurlencode;
  */
 class Common
 {
-    public function __construct(private DatabaseInterface $dbi, private Relation $relation)
-    {
+    public function __construct(
+        private readonly DatabaseInterface $dbi,
+        private readonly Relation $relation,
+        private readonly Config $config,
+    ) {
     }
 
     /**
@@ -635,7 +638,7 @@ class Common
         $databaseDesignerSettingsFeature = $this->relation->getRelationParameters()->databaseDesignerSettingsFeature;
         if ($databaseDesignerSettingsFeature !== null) {
             $cfgDesigner = [
-                'user' => Config::getInstance()->selectedServer['user'],
+                'user' => $this->config->selectedServer['user'],
                 'db' => $databaseDesignerSettingsFeature->database->getName(),
                 'table' => $databaseDesignerSettingsFeature->designerSettings->getName(),
             ];

@@ -4579,15 +4579,6 @@ parameters:
 			path: src/Database/CentralColumns.php
 
 		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 2
-			path: src/Database/Designer.php
-
-		-
 			message: '#^Method PhpMyAdmin\\Database\\Designer\:\:getSideMenuParamsArray\(\) should return array\<mixed\> but returns mixed\.$#'
 			identifier: return.type
 			count: 1
@@ -4602,15 +4593,6 @@ parameters:
 		-
 			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
 			identifier: foreach.nonIterable
-			count: 1
-			path: src/Database/Designer/Common.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
 			count: 1
 			path: src/Database/Designer/Common.php
 
@@ -4695,15 +4677,6 @@ parameters:
 		-
 			message: '#^Binary operation "\.\=" between non\-falsy\-string and mixed results in an error\.$#'
 			identifier: assignOp.invalid
-			count: 1
-			path: src/Database/Events.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
 			count: 1
 			path: src/Database/Events.php
 
@@ -4806,15 +4779,6 @@ parameters:
 		-
 			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
-			count: 2
-			path: src/Database/Routines.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
 			count: 2
 			path: src/Database/Routines.php
 

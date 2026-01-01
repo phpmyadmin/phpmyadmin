@@ -30,7 +30,7 @@ final class DesignerControllerTest extends AbstractTestCase
         $controller = new DesignerController(
             $responseRenderer,
             $template,
-            new Designer($dbi, new Relation($dbi), $template),
+            new Designer($dbi, new Relation($dbi), $template, new Config()),
             self::createStub(Common::class),
             new DbTableExists($dbi),
         );
@@ -57,7 +57,7 @@ final class DesignerControllerTest extends AbstractTestCase
         $controller = new DesignerController(
             $responseRenderer,
             $template,
-            new Designer($dbi, new Relation($dbi), $template),
+            new Designer($dbi, new Relation($dbi), $template, new Config()),
             self::createStub(Common::class),
             new DbTableExists($dbi),
         );
@@ -84,7 +84,7 @@ final class DesignerControllerTest extends AbstractTestCase
         $controller = new DesignerController(
             $responseRenderer,
             $template,
-            new Designer($dbi, new Relation($dbi), $template),
+            new Designer($dbi, new Relation($dbi), $template, new Config()),
             self::createStub(Common::class),
             new DbTableExists($dbi),
         );

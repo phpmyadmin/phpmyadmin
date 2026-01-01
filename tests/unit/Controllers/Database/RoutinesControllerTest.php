@@ -89,7 +89,7 @@ final class RoutinesControllerTest extends AbstractTestCase
             $template,
             new UserPrivilegesFactory($dbi),
             $dbi,
-            new Routines($dbi),
+            new Routines($dbi, $config),
             new DbTableExists($dbi),
             $config,
         ))($request);
@@ -325,7 +325,7 @@ final class RoutinesControllerTest extends AbstractTestCase
             $template,
             new UserPrivilegesFactory($dbi),
             $dbi,
-            new Routines($dbi),
+            new Routines($dbi, $config),
             new DbTableExists($dbi),
             $config,
         ))($request);
