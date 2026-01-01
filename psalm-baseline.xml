@@ -822,9 +822,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Database/MultiTableQuery/QueryController.php">
-    <MixedArgument>
-      <code><![CDATA[$request->getParam('db')]]></code>
-    </MixedArgument>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
@@ -3359,12 +3356,6 @@
       <code><![CDATA[empty($_POST['item_status'])]]></code>
       <code><![CDATA[empty($_POST['item_type'])]]></code>
     </RiskyTruthyFalsyComparison>
-  </file>
-  <file src="src/Database/MultiTableQuery.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-    </DeprecatedMethod>
   </file>
   <file src="src/Database/Routine.php">
     <PossiblyUnusedProperty>

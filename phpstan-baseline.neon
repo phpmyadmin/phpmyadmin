@@ -1687,12 +1687,6 @@ parameters:
 			path: src/Controllers/Database/ImportController.php
 
 		-
-			message: '#^Parameter \#2 \$db of static method PhpMyAdmin\\Database\\MultiTableQuery\:\:displayResults\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Database/MultiTableQuery/QueryController.php
-
-		-
 			message: '#^Binary operation "\-" between mixed and 1 results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 6
@@ -4745,24 +4739,6 @@ parameters:
 			identifier: argument.type
 			count: 1
 			path: src/Database/Events.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Database/MultiTableQuery.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Database/MultiTableQuery.php
 
 		-
 			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
