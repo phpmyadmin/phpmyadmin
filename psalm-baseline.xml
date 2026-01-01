@@ -3549,18 +3549,12 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Database/Search.php">
-    <InvalidPropertyAssignmentValue>
-      <code><![CDATA[array_intersect($_POST['criteriaTables'], $this->tablesNamesOnly)]]></code>
-    </InvalidPropertyAssignmentValue>
     <MixedAssignment>
-      <code><![CDATA[$this->searchTypeDescription]]></code>
+      <code><![CDATA[$criteriaTables]]></code>
     </MixedAssignment>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($_POST['criteriaColumnName'])]]></code>
-      <code><![CDATA[empty($_POST['criteriaSearchString'])]]></code>
-      <code><![CDATA[empty($_POST['criteriaSearchType'])]]></code>
-      <code><![CDATA[empty($_POST['criteriaTables'])]]></code>
-    </RiskyTruthyFalsyComparison>
+    <MixedPropertyTypeCoercion>
+      <code><![CDATA[array_intersect($criteriaTables, $this->tablesNamesOnly)]]></code>
+    </MixedPropertyTypeCoercion>
   </file>
   <file src="src/Dbal/DatabaseInterface.php">
     <DeprecatedMethod>

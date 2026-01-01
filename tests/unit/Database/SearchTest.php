@@ -8,6 +8,7 @@ use PhpMyAdmin\Column;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Search;
 use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -48,6 +49,7 @@ class SearchTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $dbi;
         $this->object = new Search($dbi, 'pma_test', new Template());
+        // $this->object->setSearchParams(new \PhpMyAdmin\Http\ServerRequest());
     }
 
     /**
@@ -71,11 +73,15 @@ class SearchTest extends AbstractTestCase
     #[DataProvider('searchTypesAndOptions')]
     public function testGetWhereClause(string $type, string $includeHex, string $expected): void
     {
-        $_POST['criteriaSearchType'] = $type;
-        $_POST['criteriaSearchString'] = 'search string';
-        $_POST['criteriaSearchOptionIncludeHex'] = $includeHex;
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
+            ->withParsedBody([
+                'criteriaSearchType' => $type,
+                'criteriaSearchString' => 'search string',
+                'criteriaSearchOptionIncludeHex' => $includeHex,
+            ]);
 
         $this->object = new Search(DatabaseInterface::getInstance(), 'pma_test', new Template());
+        $this->object->setSearchParams($request);
         self::assertSame(
             $expected,
             $this->callFunction(

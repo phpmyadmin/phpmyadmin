@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Database;
 
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
@@ -18,7 +19,6 @@ use function array_key_exists;
 use function explode;
 use function implode;
 use function is_array;
-use function is_string;
 
 /**
  * Class to handle database search
@@ -28,21 +28,21 @@ class Search
     /**
      * Table Names
      *
-     * @var mixed[]
+     * @var array<int, string>
      */
     private array $tablesNamesOnly;
 
     /**
      * Type of search
      *
-     * @var mixed[]
+     * @var array<int, string>
      */
     private array $searchTypes;
 
     /**
      * Already set search type
      */
-    private int $criteriaSearchType;
+    private int $criteriaSearchType = 1;
 
     /**
      * Options to apply to search
@@ -59,7 +59,7 @@ class Search
     /**
      * Search string/regexp
      */
-    private string $criteriaSearchString;
+    private string $criteriaSearchString = '';
 
     /**
      * Criteria Tables to search in
@@ -71,7 +71,7 @@ class Search
     /**
      * Restrict the search to this column
      */
-    private string $criteriaColumnName;
+    private string $criteriaColumnName = '';
 
     public function __construct(private DatabaseInterface $dbi, private string $db, public Template $template)
     {
@@ -82,52 +82,29 @@ class Search
             4 => __('the exact phrase as whole field'),
             5 => __('as regular expression'),
         ];
-        // Sets criteria parameters
-        $this->setSearchParams();
+
+        $this->tablesNamesOnly = $this->dbi->getTables($this->db);
     }
 
-    /**
-     * Sets search parameters
-     */
-    private function setSearchParams(): void
+    public function setSearchParams(ServerRequest $request): void
     {
-        $this->tablesNamesOnly = $this->dbi->getTables($this->db);
-
-        if (
-            empty($_POST['criteriaSearchType'])
-            || ! is_string($_POST['criteriaSearchType'])
-            || ! array_key_exists($_POST['criteriaSearchType'], $this->searchTypes)
-        ) {
-            $this->criteriaSearchType = 1;
-            unset($_POST['submit_search']);
-        } else {
-            $this->criteriaSearchType = (int) $_POST['criteriaSearchType'];
-            $this->searchTypeDescription = $this->searchTypes[$_POST['criteriaSearchType']];
+        $criteriaSearchType = $request->getParsedBodyParamAsString('criteriaSearchType', '');
+        if (array_key_exists($criteriaSearchType, $this->searchTypes)) {
+            $this->criteriaSearchType = (int) $criteriaSearchType;
+            $this->searchTypeDescription = $this->searchTypes[$criteriaSearchType];
         }
 
-        if (empty($_POST['criteriaSearchString']) || ! is_string($_POST['criteriaSearchString'])) {
-            $this->criteriaSearchString = '';
-            unset($_POST['submit_search']);
-        } else {
-            $this->criteriaSearchString = $_POST['criteriaSearchString'];
+        $this->criteriaSearchString = $request->getParsedBodyParamAsString('criteriaSearchString', '');
+
+        $criteriaTables = $request->getParsedBodyParam('criteriaTables', []);
+        if (is_array($criteriaTables) && $criteriaTables !== []) {
+            $this->criteriaTables = array_intersect($criteriaTables, $this->tablesNamesOnly);
         }
 
-        if (empty($_POST['criteriaTables']) || ! is_array($_POST['criteriaTables'])) {
-            unset($_POST['submit_search']);
-        } else {
-            $this->criteriaTables = array_intersect($_POST['criteriaTables'], $this->tablesNamesOnly);
-        }
+        $this->criteriaColumnName = $request->getParsedBodyParamAsString('criteriaColumnName', '');
 
-        if (empty($_POST['criteriaColumnName']) || ! is_string($_POST['criteriaColumnName'])) {
-            $this->criteriaColumnName = '';
-        } else {
-            $this->criteriaColumnName = $_POST['criteriaColumnName'];
-        }
-
-        //phpcs:ignore SlevomatCodingStandard.ControlStructures.EarlyExit.EarlyExitNotUsed
-        if (isset($_POST['criteriaSearchOptionIncludeHex']) && $_POST['criteriaSearchOptionIncludeHex'] === '1') {
-            $this->criteriaSearchOptionsIncludeHex = true;
-        }
+        $criteriaSearchOptionIncludeHex = $request->getParsedBodyParamAsStringOrNull('criteriaSearchOptionIncludeHex');
+        $this->criteriaSearchOptionsIncludeHex = $criteriaSearchOptionIncludeHex === '1';
     }
 
     /**
@@ -135,7 +112,7 @@ class Search
      *
      * @param string $table The table name
      *
-     * @return string[] 3 SQL queries (for count, display and delete results)
+     * @return array{select_columns: string, select_count: string, delete: string}
      *
      * @todo    can we make use of fulltextsearch IN BOOLEAN MODE for this?
      */

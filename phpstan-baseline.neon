@@ -4957,19 +4957,7 @@ parameters:
 			path: src/Database/Routines.php
 
 		-
-			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
-			identifier: empty.notAllowed
-			count: 4
-			path: src/Database/Search.php
-
-		-
 			message: '#^Property PhpMyAdmin\\Database\\Search\:\:\$criteriaTables \(array\<string\>\) does not accept array\<mixed\>\.$#'
-			identifier: assign.propertyType
-			count: 1
-			path: src/Database/Search.php
-
-		-
-			message: '#^Property PhpMyAdmin\\Database\\Search\:\:\$searchTypeDescription \(string\) does not accept mixed\.$#'
 			identifier: assign.propertyType
 			count: 1
 			path: src/Database/Search.php
