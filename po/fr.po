@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2025-12-31 18:01+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2026-01-02 08:02+0000\n"
+"Last-Translator: tmtisfree <tmtisfree@free.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "fr/>\n"
 "Language: fr\n"
@@ -13705,12 +13705,12 @@ msgstr "Un alias pour BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 #: libraries/classes/Types.php:265
 #, php-format
 msgid "A date, supported range is %1$s to %2$s"
-msgstr "Une date, entre %1$s et %2$s"
+msgstr "Une date, plage valide de %1$s à %2$s"
 
 #: libraries/classes/Types.php:270
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
-msgstr "Une combinaison de date et heure, entre %1$s et %2$s"
+msgstr "Une combinaison de date et heure, plage valide de %1$s à %2$s"
 
 #: libraries/classes/Types.php:275
 msgid ""
@@ -13724,7 +13724,7 @@ msgstr ""
 #: libraries/classes/Types.php:281
 #, php-format
 msgid "A time, range is %1$s to %2$s"
-msgstr "Une heure, entre %1$s et %2$s"
+msgstr "Une heure, plage valide de %1$s à %2$s"
 
 #: libraries/classes/Types.php:285
 msgid ""
