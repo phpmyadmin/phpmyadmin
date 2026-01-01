@@ -1609,50 +1609,8 @@ parameters:
 			path: src/Controllers/Database/DataDictionaryController.php
 
 		-
-			message: '#^Binary operation "\." between mixed and ''\.'' results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Controllers/Database/DesignerController.php
-
-		-
-			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Controllers/Database/DesignerController.php
-
-		-
-			message: '#^Cannot access offset ''dbName'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Controllers/Database/DesignerController.php
-
-		-
-			message: '#^Cannot access offset ''tableName'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Controllers/Database/DesignerController.php
-
-		-
 			message: '#^Cannot cast mixed to int\.$#'
 			identifier: cast.int
-			count: 1
-			path: src/Controllers/Database/DesignerController.php
-
-		-
-			message: '#^Parameter \#1 \$db of method PhpMyAdmin\\Database\\Designer\:\:getHtmlForEditOrDeletePages\(\) expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/Controllers/Database/DesignerController.php
-
-		-
-			message: '#^Parameter \#1 \$db of method PhpMyAdmin\\Database\\Designer\:\:getHtmlForPageSaveAs\(\) expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Database/DesignerController.php
-
-		-
-			message: '#^Parameter \#1 \$db of method PhpMyAdmin\\Database\\Designer\:\:getHtmlForSchemaExport\(\) expects string, string\|null given\.$#'
-			identifier: argument.type
 			count: 1
 			path: src/Controllers/Database/DesignerController.php
 
@@ -1669,37 +1627,7 @@ parameters:
 			path: src/Controllers/Database/DesignerController.php
 
 		-
-			message: '#^Parameter \#1 \$db of method PhpMyAdmin\\Database\\Designer\\Common\:\:getTablesInfo\(\) expects string\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Database/DesignerController.php
-
-		-
-			message: '#^Parameter \#1 \$db of method PhpMyAdmin\\Database\\Designer\\Common\:\:saveDisplayField\(\) expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Database/DesignerController.php
-
-		-
 			message: '#^Parameter \#1 \$db of static method PhpMyAdmin\\Url\:\:getHiddenInputs\(\) expects array\<mixed\>\|string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Database/DesignerController.php
-
-		-
-			message: '#^Parameter \#2 \$db of method PhpMyAdmin\\Database\\Designer\\Common\:\:createNewPage\(\) expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Database/DesignerController.php
-
-		-
-			message: '#^Parameter \#2 \$table of method PhpMyAdmin\\Database\\Designer\\Common\:\:getTablesInfo\(\) expects string\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Database/DesignerController.php
-
-		-
-			message: '#^Parameter \#2 \$table of method PhpMyAdmin\\Database\\Designer\\Common\:\:saveDisplayField\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Database/DesignerController.php
@@ -4701,6 +4629,12 @@ parameters:
 		-
 			message: '#^For loop initial assignment overwrites variable \$i\.$#'
 			identifier: for.variableOverwrite
+			count: 1
+			path: src/Database/Designer/Common.php
+
+		-
+			message: '#^Method PhpMyAdmin\\Database\\Designer\\Common\:\:getTablePositions\(\) should return array\<array\<string\>\> but returns array\<array\<string\|null\>\>\.$#'
+			identifier: return.type
 			count: 1
 			path: src/Database/Designer/Common.php
 

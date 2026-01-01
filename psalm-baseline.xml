@@ -737,35 +737,11 @@
   </file>
   <file src="src/Controllers/Database/DesignerController.php">
     <MixedArgument>
-      <code><![CDATA[$position['dbName']]]></code>
-      <code><![CDATA[$position['tableName']]]></code>
       <code><![CDATA[$request->getQueryParam('db')]]></code>
       <code><![CDATA[$request->getQueryParam('db')]]></code>
       <code><![CDATA[$request->getQueryParam('db')]]></code>
       <code><![CDATA[Current::$database]]></code>
     </MixedArgument>
-    <MixedArrayAccess>
-      <code><![CDATA[$position['dbName']]]></code>
-      <code><![CDATA[$position['dbName']]]></code>
-      <code><![CDATA[$position['tableName']]]></code>
-      <code><![CDATA[$position['tableName']]]></code>
-    </MixedArrayAccess>
-    <MixedAssignment>
-      <code><![CDATA[$position]]></code>
-    </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[$position['dbName']]]></code>
-      <code><![CDATA[$position['tableName']]]></code>
-    </MixedOperand>
-    <PossiblyNullArgument>
-      <code><![CDATA[$db]]></code>
-      <code><![CDATA[$db]]></code>
-      <code><![CDATA[$db]]></code>
-      <code><![CDATA[$db]]></code>
-      <code><![CDATA[$db]]></code>
-      <code><![CDATA[$db]]></code>
-      <code><![CDATA[$table]]></code>
-    </PossiblyNullArgument>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
@@ -3286,6 +3262,12 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
+    <InvalidReturnStatement>
+      <code><![CDATA[$this->dbi->fetchResult($query, 'name', null, ConnectionType::ControlUser)]]></code>
+    </InvalidReturnStatement>
+    <InvalidReturnType>
+      <code><![CDATA[string[][]]]></code>
+    </InvalidReturnType>
     <MixedArgument>
       <code><![CDATA[$_POST['t_x'][$key]]]></code>
       <code><![CDATA[$_POST['t_y'][$key]]]></code>

@@ -38,8 +38,8 @@ final class DesignerController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $db = $request->getParsedBodyParamAsStringOrNull('db');
-        $table = $request->getParsedBodyParamAsStringOrNull('table');
+        $db = $request->getParsedBodyParamAsString('db', '');
+        $table = $request->getParsedBodyParamAsString('table', '');
 
         if ($request->hasBodyParam('dialog')) {
             $html = '';
