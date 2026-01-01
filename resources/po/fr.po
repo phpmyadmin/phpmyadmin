@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-12-28 00:32+0000\n"
-"PO-Revision-Date: 2025-12-31 18:01+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2026-01-02 08:02+0000\n"
+"Last-Translator: tmtisfree <tmtisfree@free.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -4614,8 +4614,6 @@ msgid "Description"
 msgstr "Description"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:2
-#, fuzzy
-#| msgid "Buffer Pool Usage"
 msgid "Buffer pool usage"
 msgstr "Utilisation de la mémoire tampon"
 
@@ -4649,8 +4647,6 @@ msgid "%s pages"
 msgstr "%s pages"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:41
-#, fuzzy
-#| msgid "Buffer Pool Activity"
 msgid "Buffer pool activity"
 msgstr "Activité de la mémoire tampon"
 
@@ -6042,8 +6038,6 @@ msgid "Cancel request"
 msgstr "Annuler la requête"
 
 #: resources/templates/server/status/monitor/index.twig:294
-#, fuzzy
-#| msgid "Analysing & loading logs. This may take a while."
 msgid "Analysing and loading logs. This may take a while."
 msgstr ""
 "Analyse et chargement des journaux en cours. Ceci peut prendre un certain "
@@ -6066,8 +6060,6 @@ msgid "Log data loaded. Queries executed in this time span:"
 msgstr "Fichier journal chargé. Requêtes exécutées dans ce laps de temps :"
 
 #: resources/templates/server/status/monitor/index.twig:336
-#, fuzzy
-#| msgid "Jump to Log table"
 msgid "Jump to the log table"
 msgstr "Aller à la table du journal"
 
@@ -18897,12 +18889,12 @@ msgstr "Un alias pour BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 #: src/Types.php:198
 #, php-format
 msgid "A date, supported range is %1$s to %2$s"
-msgstr "Une date, entre %1$s et %2$s"
+msgstr "Une date, plage valide de %1$s à %2$s"
 
 #: src/Types.php:203
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
-msgstr "Une combinaison de date et heure, entre %1$s et %2$s"
+msgstr "Une combinaison de date et heure, plage valide de %1$s à %2$s"
 
 #: src/Types.php:208
 msgid ""
@@ -18920,7 +18912,7 @@ msgstr ""
 #: src/Types.php:214
 #, php-format
 msgid "A time, range is %1$s to %2$s"
-msgstr "Une heure, entre %1$s et %2$s"
+msgstr "Une heure, plage valide de %1$s à %2$s"
 
 #: src/Types.php:219
 msgid ""
