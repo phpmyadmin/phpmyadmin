@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-10-16 23:57-0300\n"
 "PO-Revision-Date: 2026-01-01 18:01+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"Last-Translator: tmtisfree <tmtisfree@free.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "fr/>\n"
 "Language: fr\n"
@@ -6752,10 +6752,8 @@ msgid "Show query box"
 msgstr "Afficher la zone SQL"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:388
-#, fuzzy
-#| msgid "Submit query"
 msgid "Edit query"
-msgstr "Soumettre la requête"
+msgstr "Éditer la requête"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:389
 #: libraries/classes/Display/Results.php:3046
@@ -13248,12 +13246,12 @@ msgstr "Un alias pour BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 #: libraries/classes/Types.php:292
 #, php-format
 msgid "A date, supported range is %1$s to %2$s"
-msgstr "Une date, entre %1$s et %2$s"
+msgstr "Une date, plage valide de %1$s à %2$s"
 
 #: libraries/classes/Types.php:299
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
-msgstr "Une combinaison de date et heure, entre %1$s et %2$s"
+msgstr "Une combinaison de date et heure, plage valide de %1$s à %2$s"
 
 #: libraries/classes/Types.php:306
 msgid ""
@@ -13271,7 +13269,7 @@ msgstr ""
 #: libraries/classes/Types.php:314
 #, php-format
 msgid "A time, range is %1$s to %2$s"
-msgstr "Une heure, entre %1$s et %2$s"
+msgstr "Une heure, plage valide de %1$s à %2$s"
 
 #: libraries/classes/Types.php:321
 msgid ""
