@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
 "PO-Revision-Date: 2026-01-01 18:01+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"Last-Translator: tmtisfree <tmtisfree@free.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "fr/>\n"
 "Language: fr\n"
@@ -13549,13 +13549,12 @@ msgstr "Un alias pour BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 #: libraries/classes/Types.php:268
 #, php-format
 msgid "A date, supported range is %1$s to %2$s"
-msgstr "Une date, la fourchette est de «%1$s» à «%2$s»"
+msgstr "Une date, plage valide de %1$s à %2$s"
 
 #: libraries/classes/Types.php:274
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
-msgstr ""
-"Une combinaison date et heure, la fourchette est de « %1$s » à « %2$s »"
+msgstr "Une combinaison de date et heure, plage valide de %1$s à %2$s"
 
 #: libraries/classes/Types.php:280
 msgid ""
@@ -13569,7 +13568,7 @@ msgstr ""
 #: libraries/classes/Types.php:286
 #, php-format
 msgid "A time, range is %1$s to %2$s"
-msgstr "Une heure, la fourchette est de %1$s à %2$s"
+msgstr "Une heure, plage valide de %1$s à %2$s"
 
 #: libraries/classes/Types.php:292
 msgid ""
