@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2025-12-31 18:01+0000\n"
+"PO-Revision-Date: 2026-01-02 08:01+0000\n"
 "Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/4-9/th/>"
 "\n"
@@ -9453,47 +9453,45 @@ msgstr "AUTO_INCREMENT สำหรับตาราง"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1865
 msgid "MIME TYPES FOR TABLE"
-msgstr ""
+msgstr "ประเภท MIME สำหรับตาราง"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1888
 msgid "RELATIONSHIPS FOR TABLE"
-msgstr ""
+msgstr "ความสัมพันธ์สำหรับตาราง"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2069
 msgid "It appears your table uses triggers;"
-msgstr ""
+msgstr "ดูเหมือนว่าตารางของคุณจะใช้ทริกเกอร์"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2106
 #, php-format
 msgid "Structure for view %s exported as a table"
-msgstr "โครงสร้างมุมมองของ %s ถูกส่งออกเป็นตารางแล้ว"
+msgstr "โครงสร้างสำหรับมุมมอง %s ที่ส่งออกเป็นตาราง"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2130
 msgid "(See below for the actual view)"
-msgstr ""
+msgstr "(ดูภาพจริงด้านล่าง)"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2210
 #, php-format
 msgid "Error reading data for table %s:"
-msgstr "การอ่านข้อมูลผิดพลาดของตาราง %s:"
+msgstr "เกิดข้อผิดพลาดในการอ่านข้อมูลสำหรับตาราง %s:"
 
 #: libraries/classes/Plugins/Export/ExportXml.php:100
 msgid "Object creation options (all are recommended)"
-msgstr ""
+msgstr "ตัวเลือกการสร้างวัตถุ (แนะนำให้ใช้ทุกตัวเลือก)"
 
 #: libraries/classes/Plugins/Export/ExportXml.php:143
 msgid "Export contents"
-msgstr ""
+msgstr "ส่งออกเนื้อหา"
 
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:159
-#, fuzzy
-#| msgid "Table"
 msgid "Table:"
-msgstr "ตาราง"
+msgstr "ตาราง:"
 
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:160
 msgid "Purpose:"
-msgstr ""
+msgstr "วัตถุประสงค์:"
 
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:541
 msgid "MIME"
@@ -9914,62 +9912,63 @@ msgstr "โปรแกรมแก้ไข CodeMirror สำหรับ JSON 
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_SqlEditor.php:30
 msgid "Syntax highlighted CodeMirror editor for SQL."
-msgstr ""
+msgstr "โปรแกรมแก้ไข CodeMirror สำหรับ SQL ที่เน้นไวยากรณ์"
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_XmlEditor.php:30
 msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
-msgstr ""
+msgstr "โปรแกรมแก้ไข CodeMirror สำหรับ XML (และ HTML) ที่มีการเน้นไวยากรณ์"
 
 #: libraries/classes/Plugins/Transformations/Output/Text_Plain_Binarytoip.php:30
 msgid ""
 "Converts an Internet network address stored as a binary string into a string "
 "in Internet standard (IPv4/IPv6) format."
 msgstr ""
+"แปลงที่อยู่เครือข่ายอินเทอร์เน็ตที่จัดเก็บในรูปแบบสตริงไบนารี ให้เป็นสตริงในรูปแบบมาตรฐานอินเทอร์เน็"
+"ต (IPv4/IPv6)"
 
 #: libraries/classes/Plugins/Transformations/Output/Text_Plain_Json.php:47
 msgid "Formats text as JSON with syntax highlighting."
-msgstr ""
+msgstr "จัดรูปแบบข้อความให้เป็น JSON พร้อมเน้นไวยากรณ์"
 
 #: libraries/classes/Plugins/Transformations/Output/Text_Plain_Xml.php:47
 msgid "Formats text as XML with syntax highlighting."
-msgstr ""
+msgstr "จัดรูปแบบข้อความให้เป็น XML พร้อมเน้นไวยากรณ์"
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:110
 msgid ""
 "The gd PHP extension was not found. The QRcode can not be displayed without "
 "the gd PHP extension."
-msgstr ""
+msgstr "ไม่พบส่วนขยาย gd PHP ไม่สามารถแสดงคิวอาร์โค้ดได้หากไม่มีส่วนขยาย gd PHP"
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:146
-#, fuzzy
-#| msgid "Authentication"
 msgid "Authentication Application (2FA)"
-msgstr "รับรองความถูกต้อง"
+msgstr "แอปพลิเคชันยืนยันตัวตน (2FA)"
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:156
 msgid ""
 "Provides authentication using HOTP and TOTP applications such as FreeOTP, "
 "Google Authenticator or Authy."
 msgstr ""
+"รองรับการตรวจสอบสิทธิ์โดยใช้แอปพลิเคชัน HOTP และ TOTP เช่น FreeOTP, Google "
+"Authenticator หรือ Authy"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:186
 msgid "Hardware Security Key (FIDO U2F)"
-msgstr ""
+msgstr "คีย์ความปลอดภัยฮาร์ดแวร์ (FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:196
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F."
 msgstr ""
+"รองรับการตรวจสอบสิทธิ์โดยใช้โทเค็นความปลอดภัยฮาร์ดแวร์ที่รองรับ FIDO U2F"
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:52
-#, fuzzy
-#| msgid "Signon authentication"
 msgid "Simple two-factor authentication"
-msgstr "การรับรองความถูกต้องของการเข้าสู่ระบบ"
+msgstr "การตรวจสอบสิทธิ์แบบสองขั้นตอนอย่างง่าย"
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:62
 msgid "For testing purposes only!"
-msgstr ""
+msgstr "สำหรับทดสอบเท่านั้น!"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:70
 #, php-format
@@ -9977,73 +9976,55 @@ msgid "Two-factor authentication failed: %s"
 msgstr "การยืนยันตัวตนสองขั้นตอนล้มเหลว: %s"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:74
-#, fuzzy
-#| msgid "Hardware authentication failed!"
 msgid "Two-factor authentication failed."
-msgstr "﻿ตรวจสอบฮาร์ดแวร์ล้มเหลว"
+msgstr "การตรวจสอบสิทธิ์แบบสองขั้นตอนล้มเหลว"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:127
 msgid "No Two-Factor"
-msgstr ""
+msgstr "ไม่มีการตรวจสอบสิทธิ์แบบสองขั้นตอน"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:137
 msgid "Login using password only."
-msgstr ""
+msgstr "เข้าสู่ระบบโดยใช้รหัสผ่านเท่านั้น"
 
 #: libraries/classes/RecentFavoriteTable.php:145
-#, fuzzy
-#| msgid "Could not save recent table"
 msgid "Could not save recent table!"
 msgstr "ไม่สามารถบันทึกตารางล่าสุด"
 
 #: libraries/classes/RecentFavoriteTable.php:149
-#, fuzzy
-#| msgid "Could not save recent table"
 msgid "Could not save favorite table!"
-msgstr "ไม่สามารถบันทึกตารางล่าสุด"
+msgstr "ไม่สามารถบันทึกตารางโปรดได้"
 
 #: libraries/classes/RecentFavoriteTable.php:219
 #: templates/database/structure/favorite_anchor.twig:4
-#, fuzzy
-#| msgid "Remove chart"
 msgid "Remove from Favorites"
-msgstr "เอาการแสดงผลออก"
+msgstr "ลบออกจากรายการโปรด"
 
 #: libraries/classes/RecentFavoriteTable.php:241
-#, fuzzy
-#| msgid "There are no recent tables"
 msgid "There are no recent tables."
 msgstr "ไม่มีตารางล่าสุด"
 
 #: libraries/classes/RecentFavoriteTable.php:242
-#, fuzzy
-#| msgid "There are no recent tables"
 msgid "There are no favorite tables."
-msgstr "ไม่มีตารางล่าสุด"
+msgstr "ไม่มีตารางโปรด"
 
 #: libraries/classes/RecentFavoriteTable.php:257
 msgid "Recent tables"
 msgstr "ตารางล่าสุด"
 
 #: libraries/classes/RecentFavoriteTable.php:259
-#, fuzzy
-#| msgid "Reset"
 msgid "Recent"
-msgstr "ตั้งค่าใหม่"
+msgstr "ล่าสุด"
 
 #: libraries/classes/RecentFavoriteTable.php:263
-#, fuzzy
-#| msgid "Variables"
 msgid "Favorites"
-msgstr "ตัวแปร"
+msgstr "รายการโปรด"
 
 #: libraries/classes/Relation.php:105
 msgid "not OK"
 msgstr "ไม่ตกลง"
 
 #: libraries/classes/Relation.php:109
-#, fuzzy
-#| msgid "OK"
 msgctxt "Correctly working"
 msgid "OK"
 msgstr "ตกลง"
@@ -10053,46 +10034,36 @@ msgid "Enabled"
 msgstr "เปิดใช้อยู่"
 
 #: libraries/classes/Relation.php:116
-#, fuzzy
-#| msgid "Modifications have been saved"
 msgid "Configuration of pmadb…"
-msgstr "บันทึกการแก้ไขเรียบร้อยแล้ว"
+msgstr "การตั้งค่า pmadb…"
 
 #: libraries/classes/Relation.php:120 libraries/classes/Relation.php:156
 msgid "General relation features"
-msgstr "ความสามารถด้านรีเลชันทั่วไป"
+msgstr "ลักษณะความสัมพันธ์ทั่วไป"
 
 #: libraries/classes/Relation.php:167
 msgid "Display Features"
-msgstr "ความสามารถด้านการแสดงผล"
+msgstr "คุณสมบัติการแสดงผล"
 
 #: libraries/classes/Relation.php:184
-#, fuzzy
-#| msgid "Creation of PDFs"
 msgid "Designer and creation of PDFs"
-msgstr "การสร้างเอกสาร PDF"
+msgstr "มุมมองการออกแบบและการสร้างไฟล์ PDF"
 
 #: libraries/classes/Relation.php:195
 msgid "Displaying Column Comments"
-msgstr "แสดงหมายเหตุของคอลัมน์"
+msgstr "การแสดงหมายเหตุของคอลัมน์"
 
 #: libraries/classes/Relation.php:201
-#, fuzzy
 msgid "Browser transformation"
-msgstr "การแปลงที่เรียกใช้ได้"
+msgstr "การแปลงเบราว์เซอร์"
 
 #: libraries/classes/Relation.php:208
-#, fuzzy
-#| msgid ""
-#| "Please see the documentation on how to update your column_comments table."
 msgid "Please see the documentation on how to update your column_info table."
-msgstr ""
-"โปรดอ่านเอกสารเกี่ยวกับ วิธีการปรับปรุงตาราง Column_comments (เก็บหมายเหตุของคอลัมน์) "
-"ของคุณ"
+msgstr "โปรดดูเอกสารประกอบเกี่ยวกับวิธีการอัปเดตตาราง column_info ของคุณ"
 
 #: libraries/classes/Relation.php:224 libraries/classes/SqlQueryForm.php:401
 msgid "Bookmarked SQL query"
-msgstr "คำค้นนี้ถูกจดไว้แล้ว"
+msgstr "คำสั่ง SQL ที่บุ๊กมาร์กไว้"
 
 #: libraries/classes/Relation.php:235
 msgid "SQL history"
@@ -10100,76 +10071,68 @@ msgstr "ประวัติ SQL"
 
 #: libraries/classes/Relation.php:246
 msgid "Persistent recently used tables"
-msgstr ""
+msgstr "ตารางที่ใช้งานล่าสุดที่อยู่ถาวร"
 
 #: libraries/classes/Relation.php:257
-#, fuzzy
-#| msgid "There are no recent tables"
 msgid "Persistent favorite tables"
-msgstr "ไม่มีตารางล่าสุด"
+msgstr "ตารางโปรดที่ถาวร"
 
 #: libraries/classes/Relation.php:268
 msgid "Persistent tables' UI preferences"
-msgstr ""
+msgstr "การกำหนดค่า UI ของตารางถาวร"
 
 #: libraries/classes/Relation.php:290
 msgid "User preferences"
-msgstr ""
+msgstr "การตั้งค่าของผู้ใช้"
 
 #: libraries/classes/Relation.php:307
-#, fuzzy
-#| msgid "Configuration file"
 msgid "Configurable menus"
-msgstr "กำหนดค่าไฟล์"
+msgstr "เมนูที่สามารถตั้งค่าได้"
 
 #: libraries/classes/Relation.php:318
-#, fuzzy
-#| msgid "Reload navigation frame"
 msgid "Hide/show navigation items"
-msgstr "โหลดกรอบนำทางใหม่"
+msgstr "ซ่อน/แสดงรายการนำทาง"
 
 #: libraries/classes/Relation.php:329
 msgid "Saving Query-By-Example searches"
-msgstr ""
+msgstr "การบันทึกการค้นหาแบบ Query-By-Example"
 
 #: libraries/classes/Relation.php:340
 msgid "Managing Central list of columns"
-msgstr ""
+msgstr "การจัดการรายการคอลัมน์ส่วนกลาง"
 
 #: libraries/classes/Relation.php:351
-#, fuzzy
-#| msgid "Rename table to"
 msgid "Remembering Designer Settings"
-msgstr "เปลี่ยนชื่อตารางเป็น"
+msgstr "การจดจำการตั้งค่าของมุมมองออกแบบ"
 
 #: libraries/classes/Relation.php:362
-#, fuzzy
-#| msgid "Invalid export type"
 msgid "Saving export templates"
-msgstr "ประเภทที่ส่งออกไม่ถูกต้อง!"
+msgstr "บันทึกต้นแบบการส่งออก"
 
 #: libraries/classes/Relation.php:370
 msgid "Quick steps to set up advanced features:"
-msgstr ""
+msgstr "ขั้นตอนง่าย ๆ ในการตั้งค่าคุณสมบัติขั้นสูง:"
 
 #: libraries/classes/Relation.php:376
 #, php-format
 msgid "Create the needed tables with the <code>%screate_tables.sql</code>."
-msgstr ""
+msgstr "สร้างตารางที่จำเป็นโดยใช้ไฟล์ <code>%screate_tables.sql</code>"
 
 #: libraries/classes/Relation.php:381
 msgid "Create a pma user and give access to these tables."
-msgstr ""
+msgstr "สร้างผู้ใช้ pma และให้สิทธิ์การเข้าถึงตารางเหล่านี้"
 
 #: libraries/classes/Relation.php:384
 msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
+"เปิดใช้งานคุณสมบัติขั้นสูงในไฟล์การกำหนดค่า (<code>config.inc.php</code>) ตัวอย่างเช่น โดย"
+"เริ่มจาก <code>config.sample.inc.php</code>"
 
 #: libraries/classes/Relation.php:389
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
-msgstr ""
+msgstr "เข้าสู่ระบบ phpMyAdmin อีกครั้งเพื่อโหลดไฟล์การกำหนดค่าที่อัปเดตแล้ว"
 
 #: libraries/classes/Relation.php:1750
 msgid "no description"
@@ -10181,6 +10144,8 @@ msgid ""
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
+"คุณไม่มีสิทธิ์ที่จำเป็นในการสร้างฐานข้อมูลชื่อ 'phpmyadmin' คุณสามารถไปที่แท็บ 'การดำเนินการ' ขอ"
+"งฐานข้อมูลใดก็ได้เพื่อตั้งค่าการจัดเก็บการกำหนดค่า phpMyAdmin ที่นั่น"
 
 #: libraries/classes/Relation.php:2056
 #, php-format
@@ -10188,17 +10153,19 @@ msgid ""
 "%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
 "configuration storage there."
 msgstr ""
+"%sCreate%s สร้างฐานข้อมูลชื่อ 'phpmyadmin' และตั้งค่าการจัดเก็บการกำหนดค่า phpMyAdmin ไว้"
+"ในฐานข้อมูลนั้น"
 
 #: libraries/classes/Relation.php:2064
 #, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
-msgstr ""
+msgstr "%sCreate%s สร้างพื้นที่จัดเก็บการตั้งค่า phpMyAdmin ในฐานข้อมูลปัจจุบัน"
 
 #: libraries/classes/Relation.php:2072
 #, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
-msgstr ""
+msgstr "%sCreate%s สร้างตารางจัดเก็บการกำหนดค่า phpMyAdmin ที่หายไป"
 
 #: libraries/classes/ReplicationGui.php:58
 #: libraries/classes/ReplicationGui.php:352
@@ -10208,7 +10175,7 @@ msgstr "การจำลองแบบมาสเตอร์"
 
 #: libraries/classes/ReplicationGui.php:59
 msgid "This server is configured as master in a replication process."
-msgstr ""
+msgstr "เซิร์ฟเวอร์นี้ถูกกำหนดค่าให้เป็นมาสเตอร์ในกระบวนการจำลองข้อมูล"
 
 #: libraries/classes/ReplicationGui.php:62
 #: libraries/classes/Server/Status/Data.php:166
@@ -10217,16 +10184,16 @@ msgstr "แสดงสถานะมาสเตอร์"
 
 #: libraries/classes/ReplicationGui.php:67
 msgid "Show connected slaves"
-msgstr ""
+msgstr "แสดงสเลฟที่เชื่อมต่อ"
 
 #: libraries/classes/ReplicationGui.php:78
 #: libraries/classes/ReplicationGui.php:705
 msgid "Add slave replication user"
-msgstr ""
+msgstr "เพิ่มผู้ใช้การจำลองแบบสเลฟ"
 
 #: libraries/classes/ReplicationGui.php:100
 msgid "Master configuration"
-msgstr ""
+msgstr "การกำหนดค่ามาสเตอร์"
 
 #: libraries/classes/ReplicationGui.php:102
 msgid ""
@@ -10236,14 +10203,18 @@ msgid ""
 "can choose to ignore all databases by default and allow only certain "
 "databases to be replicated. Please select the mode:"
 msgstr ""
+"เซิร์ฟเวอร์นี้ไม่ได้ถูกกำหนดค่าให้เป็นเซิร์ฟเวอร์มาสเตอร์ในกระบวนการจำลองข้อมูล คุณสามารถเลือกได้"
+"ว่าจะจำลองฐานข้อมูลทั้งหมดหรือละเว้นบางส่วน (มีประโยชน์หากคุณต้องการจำลองฐานข้อมูลส่วนใหญ่) ห"
+"รือคุณสามารถเลือกที่จะละเว้นฐานข้อมูลทั้งหมดจากค่าเริ่มต้นและอนุญาตให้จำลองเฉพาะฐานข้อมูลบางส่วน"
+"เท่านั้น โปรดเลือกโหมด:"
 
 #: libraries/classes/ReplicationGui.php:111
 msgid "Replicate all databases; Ignore:"
-msgstr ""
+msgstr "คัดลอกฐานข้อมูลทั้งหมด; ละเว้น:"
 
 #: libraries/classes/ReplicationGui.php:113
 msgid "Ignore all databases; Replicate:"
-msgstr ""
+msgstr "ละเว้นฐานข้อมูลทั้งหมด; ทำซ้ำ:"
 
 #: libraries/classes/ReplicationGui.php:117
 msgid "Please select databases:"
@@ -10254,6 +10225,8 @@ msgid ""
 "Now, add the following lines at the end of [mysqld] section in your my.cnf "
 "and please restart the MySQL server afterwards."
 msgstr ""
+"ตอนนี้ ให้เพิ่มบรรทัดต่อไปนี้ที่ส่วนท้ายของ [mysqld] ในไฟล์ my.cnf ของคุณ แล้วโปรดรีสตาร์ทเซิร์ฟเ"
+"วอร์ MySQL หลังจากนั้น"
 
 #: libraries/classes/ReplicationGui.php:126
 msgid ""
@@ -10261,6 +10234,8 @@ msgid ""
 "should see a message informing you, that this server <b>is</b> configured as "
 "master."
 msgstr ""
+"หลังจากรีสตาร์ทเซิร์ฟเวอร์ MySQL แล้ว โปรดคลิกปุ่ม Go จากนั้น คุณจะเห็นข้อความแจ้งว่าเซิร์ฟเวอร์"
+"นี้ <b>ได้รับ</b> ตั้งค่าเป็นมาสเตอร์แล้ว"
 
 #: libraries/classes/ReplicationGui.php:153
 #: templates/server/databases/table_header.twig:37
@@ -10268,129 +10243,122 @@ msgid "Slave replication"
 msgstr "การจำลองแบบสเลฟ"
 
 #: libraries/classes/ReplicationGui.php:161
-#, fuzzy
-#| msgid "Insecure connection"
 msgid "Master connection:"
-msgstr "การเชื่อมต่อที่ไม่ปลอดภัย"
+msgstr "การเชื่อมต่อมาสเตอร์:"
 
 #: libraries/classes/ReplicationGui.php:223
 msgid "Slave SQL Thread not running!"
-msgstr ""
+msgstr "รอบการทำงาน SQL สเลฟไม่ทำงาน!"
 
 #: libraries/classes/ReplicationGui.php:228
 msgid "Slave IO Thread not running!"
-msgstr ""
+msgstr "รอบการทำงาน IO สเลฟไม่ทำงาน!"
 
 #: libraries/classes/ReplicationGui.php:239
 msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
 msgstr ""
+"เซิร์ฟเวอร์ถูกกำหนดค่าให้เป็นเซิร์ฟเวอร์สเลฟในกระบวนการจำลองข้อมูล คุณต้องการ:"
 
 #: libraries/classes/ReplicationGui.php:245
 msgid "See slave status table"
-msgstr ""
+msgstr "ดูตารางสถานะสเลฟ"
 
 #: libraries/classes/ReplicationGui.php:250
 msgid "Control slave:"
-msgstr ""
+msgstr "ควบคุมสเลฟ:"
 
 #: libraries/classes/ReplicationGui.php:256
 msgid "Full start"
-msgstr "เริ่มต้นแบบเต็ม"
+msgstr "เริ่มต้นทุกขั้นตอน"
 
 #: libraries/classes/ReplicationGui.php:257
 msgid "Full stop"
-msgstr ""
+msgstr "หยุดทุกขั้นตอน"
 
 #: libraries/classes/ReplicationGui.php:260
 msgid "Reset slave"
-msgstr ""
+msgstr "รีเซ็ตสเลฟ"
 
 #: libraries/classes/ReplicationGui.php:263
-#, fuzzy
-#| msgid "Structure only"
 msgid "Start SQL Thread only"
-msgstr "เฉพาะโครงสร้าง"
+msgstr "เริ่มรอบการทำงาน SQL เท่านั้น"
 
 #: libraries/classes/ReplicationGui.php:266
 msgid "Stop SQL Thread only"
-msgstr ""
+msgstr "หยุดรอบการทำงาน SQL เท่านั้น"
 
 #: libraries/classes/ReplicationGui.php:270
-#, fuzzy
-#| msgid "Structure only"
 msgid "Start IO Thread only"
-msgstr "เฉพาะโครงสร้าง"
+msgstr "เริ่มรอบการทำาน IO เท่านั้น"
 
 #: libraries/classes/ReplicationGui.php:273
 msgid "Stop IO Thread only"
-msgstr ""
+msgstr "หยุดรอบการทำงาน IO เท่านั้น"
 
 #: libraries/classes/ReplicationGui.php:282
 #: libraries/classes/ReplicationGui.php:411
 msgid "Change or reconfigure master server"
-msgstr ""
+msgstr "เปลี่ยนแปลงหรือกำหนดค่าเซิร์ฟเวอร์มาสเตอร์ใหม่"
 
 #: libraries/classes/ReplicationGui.php:293
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
-"เซิร์ฟเวอร์นี้ไม่ได้กำหนดค่าให้เป็นสเลฟในกระบวนการการจำลองแบบ คุณต้องการที่จะ %sกำหนดค่า%s ห"
-"รือไม่?"
+"เซิร์ฟเวอร์นี้ไม่ได้กำหนดค่าให้เป็นสเลฟในกระบวนการการจำลองแบบ คุณต้องการที่จะ %configure%s "
+"หรือไม่?"
 
 #: libraries/classes/ReplicationGui.php:316
 msgid "Error management:"
-msgstr ""
+msgstr "การจัดการที่ผิดพลาด:"
 
 #: libraries/classes/ReplicationGui.php:319
 msgid "Skipping errors might lead into unsynchronized master and slave!"
-msgstr ""
+msgstr "การข้ามข้อผิดพลาดอาจส่งผลให้มาสเตอร์และสเลฟไม่ซิงโครไนซ์กัน!"
 
 #: libraries/classes/ReplicationGui.php:323
 msgid "Skip current error"
-msgstr ""
+msgstr "ข้ามข้อผิดพลาดปัจจุบัน"
 
 #: libraries/classes/ReplicationGui.php:328
 #, php-format
 msgid "Skip next %s errors."
-msgstr ""
+msgstr "ข้ามข้อผิดพลาด %s ถัดไป"
 
 #: libraries/classes/ReplicationGui.php:355
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
-"เซิร์ฟเวอร์นี้ไม่ได้กำหนดค่าให้เป็นมาสเตอร์ในกระบวนการการจำลองแบบ คุณต้องการที่จะ %sกำหนดค่"
-"า%s หรือไม่?"
+"เซิร์ฟเวอร์นี้ไม่ได้กำหนดค่าให้เป็นมาสเตอร์ในกระบวนการการจำลองแบบ คุณต้องการที่จะ "
+"%sconfigure%s หรือไม่?"
 
 #: libraries/classes/ReplicationGui.php:389
 #: templates/display/export/select_options.twig:8
 #: templates/database/search/selection_form.twig:35
-#, fuzzy
-#| msgid "Unselect All"
 msgid "Unselect all"
-msgstr "ไม่เลือกเลย"
+msgstr "ยกเลิกการเลือกทั้งหมด"
 
 #: libraries/classes/ReplicationGui.php:410
 msgid "Slave configuration"
-msgstr ""
+msgstr "การกำหนดค่าสเลฟ"
 
 #: libraries/classes/ReplicationGui.php:413
 msgid ""
 "Make sure you have a unique server-id in your configuration file (my.cnf). "
 "If not, please add the following line into [mysqld] section:"
 msgstr ""
+"โปรดตรวจสอบให้แน่ใจว่าคุณมี server-id ที่ไม่ซ้ำกันในไฟล์การกำหนดค่าของคุณ (my.cnf) หากไม่มี "
+"โปรดเพิ่มบรรทัดต่อไปนี้ลงในส่วน [mysqld]:"
 
 #: libraries/classes/ReplicationGui.php:420
 #: libraries/classes/ReplicationGui.php:795
 #: libraries/classes/Server/Privileges.php:1510
-#, fuzzy
-#| msgid "User name"
 msgid "User name:"
-msgstr "ชื่อผู้ใช้"
+msgstr "ชื่อผู้ใช้:"
 
 #: libraries/classes/ReplicationGui.php:426
 #: libraries/classes/ReplicationGui.php:799
@@ -10412,17 +10380,16 @@ msgid "Password"
 msgstr "รหัสผ่าน"
 
 #: libraries/classes/ReplicationGui.php:455
-#, fuzzy
 msgid "Port:"
-msgstr "เรียง"
+msgstr "พอร์ต:"
 
 #: libraries/classes/ReplicationGui.php:539
 msgid "Master status"
-msgstr ""
+msgstr "สถานะมาสเตอร์"
 
 #: libraries/classes/ReplicationGui.php:542
 msgid "Slave status"
-msgstr ""
+msgstr "สถานะสเลฟ"
 
 #: libraries/classes/ReplicationGui.php:551
 #: libraries/classes/Server/Status/Variables.php:228
@@ -10442,16 +10409,17 @@ msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
 msgstr ""
+"เฉพาะสเลฟที่เริ่มต้นด้วยตัวเลือก --report-host=host_name เท่านั้นที่จะปรากฏในรายการนี้"
 
 #: libraries/classes/ReplicationGui.php:751
 #: libraries/classes/Server/Privileges.php:1611
 msgid "Any host"
-msgstr "โฮสต์ใดๆ"
+msgstr "โฮสต์ใด ๆ"
 
 #: libraries/classes/ReplicationGui.php:756
 #: libraries/classes/Server/Privileges.php:1619
 msgid "Local"
-msgstr "โลคอล"
+msgstr "เครื่องโลคอล"
 
 #: libraries/classes/ReplicationGui.php:763
 #: libraries/classes/Server/Privileges.php:1628
@@ -10461,21 +10429,19 @@ msgstr "โฮสต์นี้"
 #: libraries/classes/ReplicationGui.php:803
 #: libraries/classes/Server/Privileges.php:1521
 msgid "Any user"
-msgstr "ผู้ใช้ใดๆ"
+msgstr "ผู้ใช้ใด ๆ"
 
 #: libraries/classes/ReplicationGui.php:808
 #: libraries/classes/ReplicationGui.php:841
 #: libraries/classes/ReplicationGui.php:870
 #: libraries/classes/Server/Privileges.php:1647
-#, fuzzy
-#| msgid "Use text field"
 msgid "Use text field:"
-msgstr "ใช้ช่องใส่ข้อความ (text field)"
+msgstr "ใช้ช่องข้อความ:"
 
 #: libraries/classes/ReplicationGui.php:835
 #: libraries/classes/Server/Privileges.php:1638
 msgid "Use Host Table"
-msgstr ""
+msgstr "ใช้ตารางโฮสต์"
 
 #: libraries/classes/ReplicationGui.php:851
 #: libraries/classes/Server/Privileges.php:1664
@@ -10483,92 +10449,80 @@ msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
 msgstr ""
+"เมื่อใช้ตารางโฮสต์ ระบบจะละเว้นฟิลด์นี้และใช้ค่าที่จัดเก็บไว้ในตารางโฮสต์แทน"
 
 #: libraries/classes/ReplicationGui.php:882
 #: libraries/classes/Server/Privileges.php:1708
 msgid "Re-type"
-msgstr "อีกครั้ง"
+msgstr "พิมพ์อีกครั้ง"
 
 #: libraries/classes/ReplicationGui.php:886
-#, fuzzy
-#| msgid "Generate password"
 msgid "Generate password:"
-msgstr "สร้างรหัสผ่าน"
+msgstr "สร้างรหัสผ่าน:"
 
 #: libraries/classes/ReplicationGui.php:918
 msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
 msgstr ""
+"การเชื่อมต่อกับเซิร์ฟเวอร์ถูกปิดใช้งานอยู่ โปรดเปิดใช้งาน $cfg['AllowArbitraryServer'] ในกา"
+"รตั้งค่า phpMyAdmin"
 
 #: libraries/classes/ReplicationGui.php:927
-#, fuzzy
-#| msgid "Chart generated successfully."
 msgid "Replication started successfully."
-msgstr "สิทธิได้ถูกเรียกใช้ใหม่เรียบร้อยแล้ว"
+msgstr "การจำลองข้อมูลเริ่มต้นสำเร็จแล้ว"
 
 #: libraries/classes/ReplicationGui.php:928
-#, fuzzy
-#| msgid "Master replication"
 msgid "Error starting replication."
-msgstr "การจำลองแบบมาสเตอร์"
+msgstr "เกิดข้อผิดพลาดในการเริ่มต้นการจำลองข้อมูล"
 
 #: libraries/classes/ReplicationGui.php:931
-#, fuzzy
-#| msgid "Chart generated successfully."
 msgid "Replication stopped successfully."
-msgstr "สิทธิได้ถูกเรียกใช้ใหม่เรียบร้อยแล้ว"
+msgstr "การจำลองข้อมูลหยุดลงอย่างสำเร็จแล้ว"
 
 #: libraries/classes/ReplicationGui.php:932
-#, fuzzy
-#| msgid "Master replication"
 msgid "Error stopping replication."
-msgstr "การจำลองแบบมาสเตอร์"
+msgstr "เกิดข้อผิดพลาดขณะหยุดการจำลองข้อมูล"
 
 #: libraries/classes/ReplicationGui.php:935
-#, fuzzy
-#| msgid "Chart generated successfully."
 msgid "Replication resetting successfully."
-msgstr "สิทธิได้ถูกเรียกใช้ใหม่เรียบร้อยแล้ว"
+msgstr "การรีเซ็ตการจำลองข้อมูลสำเร็จแล้ว"
 
 #: libraries/classes/ReplicationGui.php:936
-#, fuzzy
-#| msgid "Master replication"
 msgid "Error resetting replication."
-msgstr "การจำลองแบบมาสเตอร์"
+msgstr "เกิดข้อผิดพลาดในการรีเซ็ตการจำลองข้อมูล"
 
 #: libraries/classes/ReplicationGui.php:939
 msgid "Success."
-msgstr ""
+msgstr "สำเร็จ"
 
 #: libraries/classes/ReplicationGui.php:940
-#, fuzzy
-#| msgid "Error"
 msgid "Error."
 msgstr "ผิดพลาด"
 
 #: libraries/classes/ReplicationGui.php:986
 msgid "Unknown error"
-msgstr "ข้อผิดพลาดที่ไม่รู้จัก"
+msgstr "ข้อผิดพลาดที่ไม่ทราบสาเหตุ"
 
 #: libraries/classes/ReplicationGui.php:996
 #, php-format
 msgid "Unable to connect to master %s."
-msgstr ""
+msgstr "ไม่สามารถเชื่อมต่อกับมาสเตอร์ %s ได้"
 
 #: libraries/classes/ReplicationGui.php:1007
 msgid ""
 "Unable to read master log position. Possible privilege problem on master."
 msgstr ""
+"ไม่สามารถอ่านตำแหน่งบันทึกมาสเตอร์ได้ อาจมีปัญหาเรื่องสิทธิ์การเข้าถึงบนเครื่องมาสเตอร์"
 
 #: libraries/classes/ReplicationGui.php:1025
 msgid "Unable to change master!"
-msgstr ""
+msgstr "ไม่สามารถเปลี่ยนมาสเตอร์ได้!"
 
 #: libraries/classes/ReplicationGui.php:1029
 #, php-format
 msgid "Master server changed successfully to %s."
-msgstr "เซิร์ฟเวอร์มาสเตอร์เปลี่ยนแปลงเรียบร้อยแล้วเป็น %s."
+msgstr "เซิร์ฟเวอร์มาสเตอร์เปลี่ยนแปลงเป็น %s เรียบร้อยแล้ว"
 
 #: libraries/classes/Rte/Events.php:122 libraries/classes/Rte/Events.php:131
 #: libraries/classes/Rte/Events.php:162 libraries/classes/Rte/Routines.php:240
@@ -10579,7 +10533,7 @@ msgstr "เซิร์ฟเวอร์มาสเตอร์เปลี่
 #: libraries/classes/Rte/Triggers.php:138
 #, php-format
 msgid "The following query has failed: \"%s\""
-msgstr ""
+msgstr "คำสั่งการเรียกดูต่อไปนี้ล้มเหลว: \"%s\""
 
 #: libraries/classes/Rte/Events.php:126 libraries/classes/Rte/Events.php:135
 #: libraries/classes/Rte/Events.php:166 libraries/classes/Rte/General.php:48
@@ -10591,11 +10545,11 @@ msgstr ""
 #: libraries/classes/Rte/Triggers.php:110
 #: libraries/classes/Rte/Triggers.php:142 libraries/classes/Util.php:615
 msgid "MySQL said: "
-msgstr "MySQL แสดง: "
+msgstr "MySQL แจ้งว่า: "
 
 #: libraries/classes/Rte/Events.php:142
 msgid "Sorry, we failed to restore the dropped event."
-msgstr ""
+msgstr "ขออภัย เราไม่สามารถกู้คืนกิจกรรมที่โยนทิ้งแล้วได้"
 
 #: libraries/classes/Rte/Events.php:149
 #, php-format
@@ -10603,103 +10557,91 @@ msgid "Event %1$s has been modified."
 msgstr "กิจกรรม %1$s ได้รับการแก้ไขแล้ว"
 
 #: libraries/classes/Rte/Events.php:169
-#, fuzzy, php-format
+#, php-format
 msgid "Event %1$s has been created."
-msgstr "โยนตาราง %1$s ทิ้งไปเรียบร้อยแล้ว"
+msgstr "เหตุการณ์ %1$s ถูกสร้างขึ้นแล้ว"
 
 #: libraries/classes/Rte/Events.php:183 libraries/classes/Rte/Routines.php:287
 #: libraries/classes/Rte/Triggers.php:159
 msgid "One or more errors have occurred while processing your request:"
-msgstr ""
+msgstr "เกิดข้อผิดพลาดอย่างน้อยหนึ่งรายการระหว่างการประมวลผลคำขอของคุณ:"
 
 #: libraries/classes/Rte/Events.php:238
-#, fuzzy
 msgid "Edit event"
-msgstr "ถูกส่ง"
+msgstr "แก้ไขเหตุการณ์"
 
 #: libraries/classes/Rte/Events.php:404 libraries/classes/Rte/Routines.php:906
 #: libraries/classes/Rte/Triggers.php:339 templates/view_create.twig:8
 msgid "Details"
-msgstr ""
+msgstr "รายละเอียด"
 
 #: libraries/classes/Rte/Events.php:407
-#, fuzzy
 msgid "Event name"
-msgstr "ชนิดคำค้น"
+msgstr "ชื่อเหตุการณ์"
 
 #: libraries/classes/Rte/Events.php:450 libraries/classes/Rte/Routines.php:929
-#, fuzzy, php-format
-#| msgid "Change"
+#, php-format
 msgid "Change to %s"
-msgstr "เปลี่ยน %s"
+msgstr "เปลี่ยนเป็น %s"
 
 #: libraries/classes/Rte/Events.php:456
 msgid "Execute at"
-msgstr ""
+msgstr "ดำเนินการที่"
 
 #: libraries/classes/Rte/Events.php:464
 msgid "Execute every"
-msgstr ""
+msgstr "ดำเนินการทุก ๆ"
 
 #: libraries/classes/Rte/Events.php:483
-#, fuzzy
 msgctxt "Start of recurring event"
 msgid "Start"
-msgstr "สถานะ"
+msgstr "เริ่ม"
 
 #: libraries/classes/Rte/Events.php:492
-#, fuzzy
-#| msgid "End"
 msgctxt "End of recurring event"
 msgid "End"
-msgstr "ท้ายสุด"
+msgstr "สิ้นสุด"
 
 #: libraries/classes/Rte/Events.php:506
-#, fuzzy
-#| msgid "Complete inserts"
 msgid "On completion preserve"
-msgstr "คำสั่ง INSERT เต็มรูปแบบ"
+msgstr "คงสถานะเสร็จสมบูรณ์"
 
 #: libraries/classes/Rte/Events.php:511 libraries/classes/Rte/Routines.php:1046
 #: libraries/classes/Rte/Triggers.php:399 templates/view_create.twig:45
 msgid "Definer"
-msgstr ""
+msgstr "ตัวกำหนด"
 
 #: libraries/classes/Rte/Events.php:555 libraries/classes/Rte/Routines.php:1127
 #: libraries/classes/Rte/Triggers.php:438
 msgid "The definer must be in the \"username@hostname\" format!"
-msgstr ""
+msgstr "ตัวกำหนดค่าต้องอยู่ในรูปแบบ \"username@hostname\"!"
 
 #: libraries/classes/Rte/Events.php:562
-#, fuzzy
-#| msgid "You must provide a routine name"
 msgid "You must provide an event name!"
-msgstr "คุณจะต้องให้ชื่อปกติ"
+msgstr "คุณต้องระบุชื่อกิจกรรม!"
 
 #: libraries/classes/Rte/Events.php:577
 msgid "You must provide a valid interval value for the event."
-msgstr ""
+msgstr "คุณต้องระบุค่าช่วงเวลาที่ถูกต้องสำหรับเหตุการณ์นั้น"
 
 #: libraries/classes/Rte/Events.php:596
 msgid "You must provide a valid execution time for the event."
-msgstr ""
+msgstr "คุณต้องระบุเวลาดำเนินการที่ถูกต้องสำหรับกิจกรรมนั้น"
 
 #: libraries/classes/Rte/Events.php:600
 msgid "You must provide a valid type for the event."
-msgstr ""
+msgstr "คุณต้องระบุประเภทที่ถูกต้องสำหรับกิจกรรมนั้น"
 
 #: libraries/classes/Rte/Events.php:624
 msgid "You must provide an event definition."
-msgstr ""
+msgstr "คุณต้องระบุคำจำกัดความของเหตุการณ์"
 
 #: libraries/classes/Rte/Export.php:54 libraries/classes/Rte/General.php:84
 #: libraries/classes/Rte/Routines.php:172
 #: libraries/classes/Rte/Routines.php:1332
 #: libraries/classes/Rte/Routines.php:1542
-#, fuzzy
-#| msgid "Processes"
 msgid "Error in processing request:"
-msgstr "โพรเซส"
+msgstr "เกิดข้อผิดพลาดในการประมวลผลคำขอ:"
 
 #: libraries/classes/Rte/Footer.php:102
 msgid "OFF"
@@ -10711,11 +10653,11 @@ msgstr "เปิด"
 
 #: libraries/classes/Rte/Footer.php:119
 msgid "Event scheduler status"
-msgstr ""
+msgstr "สถานะตัวกำหนดตารางเวลากิจกรรม"
 
 #: libraries/classes/Rte/General.php:46
 msgid "The backed up query was:"
-msgstr ""
+msgstr "คำสั่งเรียกดูที่สำรองไว้คือ:"
 
 #: libraries/classes/Rte/Routines.php:92
 msgid ""
@@ -10724,112 +10666,98 @@ msgid ""
 "fail![/strong] Please use the improved 'mysqli' extension to avoid any "
 "problems."
 msgstr ""
+"คุณกำลังใช้ส่วนขยาย 'mysql' ที่เลิกใช้งานแล้วของ PHP ซึ่งไม่สามารถจัดการกับคำสั่ง SQL หลายคำสั่"
+"งได้ [strong]การเรียกใช้รูทีนที่จัดเก็บไว้บางส่วนอาจล้มเหลว![/strong] โปรดใช้ส่วนขยาย "
+"'mysqli' ที่ได้รับการปรับปรุงแล้วเพื่อหลีกเลี่ยงปัญหาใด ๆ"
 
 #: libraries/classes/Rte/Routines.php:143
 msgid "Edit routine"
-msgstr ""
+msgstr "แก้ไขรูทีน"
 
 #: libraries/classes/Rte/Routines.php:221
 #: libraries/classes/Rte/Routines.php:1136
 #, php-format
 msgid "Invalid routine type: \"%s\""
-msgstr ""
+msgstr "ประเภทรูทีนไม่ถูกต้อง: \"%s\""
 
 #: libraries/classes/Rte/Routines.php:274
-#, fuzzy, php-format
+#, php-format
 msgid "Routine %1$s has been created."
-msgstr "โยนตาราง %1$s ทิ้งไปเรียบร้อยแล้ว"
+msgstr "รูทีน %1$s ถูกสร้างขึ้นเรียบร้อยแล้ว"
 
 #: libraries/classes/Rte/Routines.php:393
 msgid "Sorry, we failed to restore the dropped routine."
-msgstr ""
+msgstr "ขออภัย เราไม่สามารถกู้คืนรูทีนที่โยนทิ้งได้"
 
 #: libraries/classes/Rte/Routines.php:449
-#, fuzzy, php-format
-#| msgid "Table %s has been dropped."
+#, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
-msgstr "โยนตาราง %1$s ทิ้งไปเรียบร้อยแล้ว"
+msgstr "รูทีน %1$s ได้รับการแก้ไขแล้ว สิทธิ์การใช้งานได้รับการปรับเปลี่ยนแล้ว"
 
 #: libraries/classes/Rte/Routines.php:454
-#, fuzzy, php-format
-#| msgid "Table %s has been dropped."
+#, php-format
 msgid "Routine %1$s has been modified."
-msgstr "โยนตาราง %1$s ทิ้งไปเรียบร้อยแล้ว"
+msgstr "รูทีน %1$s ได้รับการแก้ไขแล้ว"
 
 #: libraries/classes/Rte/Routines.php:909
-#, fuzzy
-#| msgid "Column names"
 msgid "Routine name"
-msgstr "ชื่อคอลัมน์"
+msgstr "ชื่อรูทีน"
 
 #: libraries/classes/Rte/Routines.php:935
 msgid "Parameters"
 msgstr "พารามิเตอร์"
 
 #: libraries/classes/Rte/Routines.php:943
-#, fuzzy
-#| msgid "Creation"
 msgid "Direction"
-msgstr "สร้างเมื่อ"
+msgstr "ทิศทาง"
 
 #: libraries/classes/Rte/Routines.php:964
-#, fuzzy
-#| msgid "Add new field"
 msgid "Add parameter"
-msgstr "เพิ่มฟิลด์ใหม่"
+msgstr "เพิ่มพารามิเตอร์"
 
 #: libraries/classes/Rte/Routines.php:968
-#, fuzzy
-#| msgid "Remove database"
 msgid "Remove last parameter"
-msgstr "เอาฐานข้อมูลออก"
+msgstr "ลบพารามิเตอร์ตัวสุดท้าย"
 
 #: libraries/classes/Rte/Routines.php:973
 msgid "Return type"
 msgstr "ประเภทการส่งกลับ"
 
 #: libraries/classes/Rte/Routines.php:979
-#, fuzzy
-#| msgid "Length/Values"
 msgid "Return length/values"
-msgstr "ความยาว/เซต*"
+msgstr "ส่งคืน ความยาว/ค่า"
 
 #: libraries/classes/Rte/Routines.php:985
-#, fuzzy
-#| msgid "Table options"
 msgid "Return options"
-msgstr "ตัวเลือกตาราง"
+msgstr "ตัวเลือกการส่งคืน"
 
 #: libraries/classes/Rte/Routines.php:1017
 msgid "Is deterministic"
-msgstr "คือการกำหนด"
+msgstr "เป็นแบบกำหนดได้แน่นอน"
 
 #: libraries/classes/Rte/Routines.php:1036
 msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details"
 msgstr ""
+"คุณไม่มีสิทธิ์เพียงพอที่จะดำเนินการนี้; โปรดดูเอกสารประกอบสำหรับรายละเอียดเพิ่มเติม"
 
 #: libraries/classes/Rte/Routines.php:1051
-#, fuzzy
-#| msgid "Query type"
 msgid "Security type"
-msgstr "ชนิดคำค้น"
+msgstr "ประเภทความปลอดภัย"
 
 #: libraries/classes/Rte/Routines.php:1060
 msgid "SQL data access"
 msgstr "เข้าถึงข้อมูล SQL"
 
 #: libraries/classes/Rte/Routines.php:1143
-#, fuzzy
-#| msgid "You must provide a routine name"
 msgid "You must provide a routine name!"
-msgstr "คุณจะต้องให้ชื่อปกติ"
+msgstr "คุณต้องระบุชื่อรูทีน!"
 
 #: libraries/classes/Rte/Routines.php:1177
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
-msgstr ""
+msgstr "ระบุทิศทาง \"%s\" ไม่ถูกต้องสำหรับพารามิเตอร์"
 
 #: libraries/classes/Rte/Routines.php:1199
 #: libraries/classes/Rte/Routines.php:1263
@@ -10837,129 +10765,108 @@ msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
 msgstr ""
+"คุณต้องระบุความยาว/ค่าสำหรับพารามิเตอร์ของรูทีนประเภท ENUM, SET, VARCHAR และ VARBINARY"
 
 #: libraries/classes/Rte/Routines.php:1227
 msgid "You must provide a name and a type for each routine parameter."
-msgstr ""
+msgstr "คุณต้องระบุชื่อและประเภทสำหรับพารามิเตอร์แต่ละตัวของรูทีน"
 
 #: libraries/classes/Rte/Routines.php:1246
 msgid "You must provide a valid return type for the routine."
-msgstr ""
+msgstr "คุณต้องระบุประเภทค่าส่งคืนที่ถูกต้องสำหรับรูทีนนี้"
 
 #: libraries/classes/Rte/Routines.php:1306
 msgid "You must provide a routine definition."
-msgstr ""
+msgstr "คุณต้องระบุคำจำกัดความของรูทีน"
 
 #: libraries/classes/Rte/Routines.php:1418
 #, php-format
 msgid "Execution results of routine %s"
-msgstr ""
+msgstr "ผลลัพธ์การดำเนินการของรูทีน %s"
 
 #: libraries/classes/Rte/Routines.php:1473
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
-msgstr[0] ""
+msgstr[0] "แถวที่ %d ได้รับผลกระทบจากคำสั่งสุดท้ายภายในขั้นตอนการทำงาน"
 
 #: libraries/classes/Rte/Routines.php:1530
 #: libraries/classes/Rte/Routines.php:1537
 msgid "Execute routine"
-msgstr "ดำเนินงานตามปกติ"
+msgstr "ดำเนินการรูทีน"
 
 #: libraries/classes/Rte/Routines.php:1616
 #: libraries/classes/Rte/Routines.php:1619
 msgid "Routine parameters"
-msgstr "พารามิเตอร์ตามปกติ"
+msgstr "พารามิเตอร์รูทีน"
 
 #: libraries/classes/Rte/RteList.php:91
-#, fuzzy
-#| msgid "Table options"
 msgid "Returns"
-msgstr "ตัวเลือกตาราง"
+msgstr "ส่งคืน"
 
 #: libraries/classes/Rte/Triggers.php:118
 msgid "Sorry, we failed to restore the dropped trigger."
-msgstr ""
+msgstr "ขออภัย เราไม่สามารถกู้คืนทริกเกอร์ที่โยนทิ้งไปแล้วได้"
 
 #: libraries/classes/Rte/Triggers.php:125
-#, fuzzy, php-format
-#| msgid "Table %s has been dropped."
+#, php-format
 msgid "Trigger %1$s has been modified."
-msgstr "โยนตาราง %1$s ทิ้งไปเรียบร้อยแล้ว"
+msgstr "ทริกเกอร์ %1$s ได้รับการแก้ไขแล้ว"
 
 #: libraries/classes/Rte/Triggers.php:145
-#, fuzzy, php-format
+#, php-format
 msgid "Trigger %1$s has been created."
-msgstr "โยนตาราง %1$s ทิ้งไปเรียบร้อยแล้ว"
+msgstr "ทริกเกอร์ %1$s ถูกสร้างขึ้นแล้ว"
 
 #: libraries/classes/Rte/Triggers.php:221
-#, fuzzy
 msgid "Edit trigger"
-msgstr "เพิ่มผู้ใช้ใหม่"
+msgstr "แก้ไขทริกเกอร์"
 
 #: libraries/classes/Rte/Triggers.php:342
-#, fuzzy
-#| msgid "server name"
 msgid "Trigger name"
-msgstr "ชื่อผู้ใช้"
+msgstr "ชื่อทริกเกอร์"
 
 #: libraries/classes/Rte/Triggers.php:365
-#, fuzzy
-#| msgid "Time"
 msgctxt "Trigger action time"
 msgid "Time"
 msgstr "เวลา"
 
 #: libraries/classes/Rte/Triggers.php:445
-#, fuzzy
-#| msgid "You must provide a routine name"
 msgid "You must provide a trigger name!"
-msgstr "คุณจะต้องให้ชื่อปกติ"
+msgstr "คุณต้องระบุชื่อทริกเกอร์!"
 
 #: libraries/classes/Rte/Triggers.php:452
-#, fuzzy
-#| msgid "You must provide a routine name"
 msgid "You must provide a valid timing for the trigger!"
-msgstr "คุณจะต้องให้ชื่อปกติ"
+msgstr "คุณต้องระบุช่วงเวลาที่ถูกต้องสำหรับการทำงานของทริกเกอร์!"
 
 #: libraries/classes/Rte/Triggers.php:459
-#, fuzzy
-#| msgid "You must provide a routine name"
 msgid "You must provide a valid event for the trigger!"
-msgstr "คุณจะต้องให้ชื่อปกติ"
+msgstr "คุณต้องระบุเหตุการณ์ที่ถูกต้องเพื่อใช้เป็นทริกเกอร์!"
 
 #: libraries/classes/Rte/Triggers.php:467
-#, fuzzy
-#| msgid "You must provide a routine name"
 msgid "You must provide a valid table name!"
-msgstr "คุณจะต้องให้ชื่อปกติ"
+msgstr "คุณต้องระบุชื่อตารางที่ถูกต้อง!"
 
 #: libraries/classes/Rte/Triggers.php:473
 msgid "You must provide a trigger definition."
-msgstr ""
+msgstr "คุณต้องระบุคำจำกัดความของทริกเกอร์"
 
 #: libraries/classes/Rte/Words.php:32
-#, fuzzy
-#| msgid "Add new field"
 msgid "Add routine"
-msgstr "เพิ่มฟิลด์ใหม่"
+msgstr "เพิ่มรูทีน"
 
 #: libraries/classes/Rte/Words.php:34
 #, php-format
 msgid "Export of routine %s"
-msgstr ""
+msgstr "การส่งออกรูทีน %s"
 
 #: libraries/classes/Rte/Words.php:35
-#, fuzzy
-#| msgid "Add new field"
 msgid "routine"
-msgstr "เพิ่มฟิลด์ใหม่"
+msgstr "รูทีน"
 
 #: libraries/classes/Rte/Words.php:37
-#, fuzzy
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a routine."
-msgstr "คุณไม่มีสิทธิที่จะเข้ามาตรงนี้!"
+msgstr "คุณไม่มีสิทธิ์ที่จำเป็นในการสร้างรูทีน"
 
 #: libraries/classes/Rte/Words.php:40
 #, php-format
@@ -10967,6 +10874,7 @@ msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
 msgstr ""
+"ไม่พบรูทีนชื่อ %1$s ในฐานข้อมูล %2$s คุณอาจไม่มีสิทธิ์ที่จำเป็นในการแก้ไขรูทีนนี้"
 
 #: libraries/classes/Rte/Words.php:44
 #, php-format
@@ -10974,152 +10882,139 @@ msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to view/export this routine."
 msgstr ""
+"ไม่พบรูทีนชื่อ %1$s ในฐานข้อมูล %2$s คุณอาจไม่มีสิทธิ์ที่จำเป็นในการดู/ส่งออกรูทีนนี้"
 
 #: libraries/classes/Rte/Words.php:47
-#, fuzzy, php-format
-#| msgid "No tables found in database."
+#, php-format
 msgid "No routine with name %1$s found in database %2$s."
-msgstr "ไม่พบตารางใด ๆ ในฐานข้อมูล"
+msgstr "ไม่พบรูทีนชื่อ %1$s ในฐานข้อมูล %2$s"
 
 #: libraries/classes/Rte/Words.php:48
-#, fuzzy
-#| msgid "Tracked tables"
 msgid "There are no routines to display."
-msgstr "ตารางที่ถูกติดตาม"
+msgstr "ไม่มีรูทีนใดให้แสดง"
 
 #: libraries/classes/Rte/Words.php:54
 msgid "Add trigger"
-msgstr "เพิ่ม Trigger"
+msgstr "เพิ่มทริกเกอร์"
 
 #: libraries/classes/Rte/Words.php:56
 #, php-format
 msgid "Export of trigger %s"
-msgstr "นำออก Trigger %s"
+msgstr "ส่งออกทริกเกอร์ %s"
 
 #: libraries/classes/Rte/Words.php:57
 msgid "trigger"
-msgstr "Trigger"
+msgstr "ทริกเกอร์"
 
 #: libraries/classes/Rte/Words.php:59
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a trigger"
 msgid "You do not have the necessary privileges to create a trigger."
-msgstr "คุณไม่มีสิทธิที่สร้าง Trigger!"
+msgstr "คุณไม่มีสิทธิ์ที่จำเป็นในการสร้างทริกเกอร์"
 
 #: libraries/classes/Rte/Words.php:61
-#, fuzzy, php-format
-#| msgid "No trigger with name %1$s found in database %2$s"
+#, php-format
 msgid "No trigger with name %1$s found in database %2$s."
-msgstr "ไม่พบ Trigger %1$s ในฐานข้อมูล %2$s"
+msgstr "ไม่พบทริกเกอร์ %1$s ในฐานข้อมูล %2$s"
 
 #: libraries/classes/Rte/Words.php:62
-#, fuzzy
-#| msgid "Tracked tables"
 msgid "There are no triggers to display."
-msgstr "ตารางที่ถูกติดตาม"
+msgstr "ไม่มีทริกเกอร์ที่จะแสดง"
 
 #: libraries/classes/Rte/Words.php:68
-#, fuzzy
 msgid "Add event"
-msgstr "เพิ่มผู้ใช้ใหม่"
+msgstr "เพิ่มเหตุการณ์"
 
 #: libraries/classes/Rte/Words.php:70
 #, php-format
 msgid "Export of event %s"
-msgstr ""
+msgstr "ส่งออกเหตุการณ์ %s"
 
 #: libraries/classes/Rte/Words.php:71
 msgid "event"
 msgstr "เหตุการณ์"
 
 #: libraries/classes/Rte/Words.php:73
-#, fuzzy
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create an event."
-msgstr "คุณไม่มีสิทธิที่จะเข้ามาตรงนี้!"
+msgstr "คุณไม่มีสิทธิ์ที่จำเป็นในการสร้างเหตุการณ์"
 
 #: libraries/classes/Rte/Words.php:75
-#, fuzzy, php-format
-#| msgid "No tables found in database."
+#, php-format
 msgid "No event with name %1$s found in database %2$s."
-msgstr "ไม่พบตารางใด ๆ ในฐานข้อมูล"
+msgstr "ไม่พบเหตุการณ์ที่มีชื่อ %1$s ในฐานข้อมูล %2$s"
 
 #: libraries/classes/Rte/Words.php:76
 msgid "There are no events to display."
-msgstr "ไม่มีเหตุการณ์ใดๆ"
+msgstr "ไม่มีเหตุการณ์ที่จะแสดง"
 
 #: libraries/classes/SavedSearches.php:267
 msgid "Please provide a name for this bookmarked search."
-msgstr ""
+msgstr "โปรดตั้งชื่อให้กับการค้นหาบุ๊กมาร์กนี้"
 
 #: libraries/classes/SavedSearches.php:282
 msgid "Missing information to save the bookmarked search."
-msgstr ""
+msgstr "ข้อมูลไม่ครบถ้วนสำหรับการบันทึกการค้นหาบุ๊กมาร์กไว้"
 
 #: libraries/classes/SavedSearches.php:304
 #: libraries/classes/SavedSearches.php:341
-#, fuzzy
-#| msgid "The user %s already exists!"
 msgid "An entry with this name already exists."
-msgstr "มีผู้ใช้ %s อยู่แล้ว!"
+msgstr "มีรายการที่มีชื่อนี้อยู่แล้ว"
 
 #: libraries/classes/SavedSearches.php:368
 msgid "Missing information to delete the search."
-msgstr ""
+msgstr "ข้อมูลไม่ครบถ้วนสำหรับการลบผลการค้นหา"
 
 #: libraries/classes/SavedSearches.php:396
 msgid "Missing information to load the search."
-msgstr ""
+msgstr "ข้อมูลไม่ครบถ้วนสำหรับการโหลดผลการค้นหา"
 
 #: libraries/classes/SavedSearches.php:415
 msgid "Error while loading the search."
-msgstr "ข้อผิดพลาดขณะโหลดการค้นหา"
+msgstr "เกิดข้อผิดพลาดขณะโหลดผลการค้นหา"
 
 #: libraries/classes/Server/Privileges.php:222 server_privileges.php:120
 msgid "No privileges."
-msgstr "ไม่มีสิทธิใดๆ."
+msgstr "ไม่มีสิทธิพิเศษ"
 
 #: libraries/classes/Server/Privileges.php:231 server_privileges.php:64
 msgid "Includes all privileges except GRANT."
-msgstr "ให้สิทธิทุกอย่าง ยกเว้นการให้สิทธิแก่ผู้อื่น (GRANT)."
+msgstr "รวมสิทธิพิเศษทั้งหมด ยกเว้นสิทธิ์ GRANT"
 
 #: libraries/classes/Server/Privileges.php:304
 #: libraries/classes/Server/Privileges.php:1044
 #: libraries/classes/Server/Privileges.php:1221 server_privileges.php:109
 msgid "Allows reading data."
-msgstr "อนุญาตให้อ่านข้อมูลได้."
+msgstr "อนุญาตให้อ่านข้อมูลได้"
 
 #: libraries/classes/Server/Privileges.php:309
 #: libraries/classes/Server/Privileges.php:1049
 #: libraries/classes/Server/Privileges.php:1222 server_privileges.php:85
 msgid "Allows inserting and replacing data."
-msgstr "อนุญาตให้เพิ่ม และแทนที่ ข้อมูล"
+msgstr "อนุญาตให้แทรกและแทนที่ข้อมูลได้"
 
 #: libraries/classes/Server/Privileges.php:314
 #: libraries/classes/Server/Privileges.php:1054
 #: libraries/classes/Server/Privileges.php:1223 server_privileges.php:119
 msgid "Allows changing data."
-msgstr "อนุญาตให้เปลี่ยนข้อมูลได้."
+msgstr "อนุญาตให้เปลี่ยนข้อมูลได้"
 
 #: libraries/classes/Server/Privileges.php:319
 #: libraries/classes/Server/Privileges.php:1224 server_privileges.php:73
 msgid "Allows deleting data."
-msgstr "อนุญาตให้ลบข้อมูล"
+msgstr "อนุญาตให้ลบข้อมูลได้"
 
 #: libraries/classes/Server/Privileges.php:324
 #: libraries/classes/Server/Privileges.php:1250 server_privileges.php:67
 msgid "Allows creating new databases and tables."
-msgstr "อนุญาตให้สร้างฐานข้อมูล และตารางใหม่."
+msgstr "อนุญาตให้สร้างฐานข้อมูล และตารางใหม่ได้"
 
 #: libraries/classes/Server/Privileges.php:329
 #: libraries/classes/Server/Privileges.php:1262 server_privileges.php:75
 msgid "Allows dropping databases and tables."
-msgstr "อนุญาตให้ทิ้งฐานข้อมูล และตาราง"
+msgstr "อนุญาตให้ทิ้งฐานข้อมูล และตารางได้"
 
 #: libraries/classes/Server/Privileges.php:334
 #: libraries/classes/Server/Privileges.php:1346 server_privileges.php:103
 msgid "Allows reloading server settings and flushing the server's caches."
-msgstr "อนุญาตให้เรียกใช้ค่ากำหนดของเซิร์ฟเวอร์ใหม่ และล้างแคชของเซิร์ฟเวอร์"
+msgstr "อนุญาตให้เรียกใช้ค่ากำหนดของเซิร์ฟเวอร์ใหม่ และล้างแคชของเซิร์ฟเวอร์ได้"
 
 #: libraries/classes/Server/Privileges.php:339
 #: libraries/classes/Server/Privileges.php:1350 server_privileges.php:112
@@ -11129,33 +11024,33 @@ msgstr "อนุญาตให้ปิดเซิร์ฟเวอร์ไ
 #: libraries/classes/Server/Privileges.php:344
 #: libraries/classes/Server/Privileges.php:1342 server_privileges.php:100
 msgid "Allows viewing processes of all users."
-msgstr ""
+msgstr "อนุญาตให้ดูขั้นตอนการทำงานของผู้ใช้ทั้งหมดได้"
 
 #: libraries/classes/Server/Privileges.php:349
 #: libraries/classes/Server/Privileges.php:1230 server_privileges.php:79
 msgid "Allows importing data from and exporting data into files."
-msgstr "อนุญาตให้นำเข้าข้อมูล และส่งออกข้อมูล ไปที่ไฟล์"
+msgstr "อนุญาตให้นำเข้าข้อมูล และส่งออกข้อมูลไปที่ไฟล์ได้"
 
 #: libraries/classes/Server/Privileges.php:354
 #: libraries/classes/Server/Privileges.php:1059
 #: libraries/classes/Server/Privileges.php:1374 server_privileges.php:101
 msgid "Has no effect in this MySQL version."
-msgstr "ไม่มีผลใน MySQL รุ่นนี้"
+msgstr "ไม่มีผลกับ MySQL เวอร์ชันนี้"
 
 #: libraries/classes/Server/Privileges.php:359
 #: libraries/classes/Server/Privileges.php:1258 server_privileges.php:84
 msgid "Allows creating and dropping indexes."
-msgstr "อนุญาตให้สร้าง และทิ้ง ดัชนี"
+msgstr "อนุญาตให้สร้าง และทิ้งดัชนีได้"
 
 #: libraries/classes/Server/Privileges.php:364
 #: libraries/classes/Server/Privileges.php:1256 server_privileges.php:65
 msgid "Allows altering the structure of existing tables."
-msgstr "อนุญาตให้เปลี่ยนโครงสร้างของตารางที่มีอยู่เดิม."
+msgstr "อนุญาตให้แก้ไขโครงสร้างของตารางที่มีอยู่ได้"
 
 #: libraries/classes/Server/Privileges.php:369
 #: libraries/classes/Server/Privileges.php:1354 server_privileges.php:110
 msgid "Gives access to the complete list of databases."
-msgstr "สามารถเรียกดูรายการฐานข้อมูลทั้งหมดได้"
+msgstr "ให้สิทธิ์เข้าถึงรายการฐานข้อมูลทั้งหมด"
 
 #: libraries/classes/Server/Privileges.php:375
 #: libraries/classes/Server/Privileges.php:1334 server_privileges.php:114
@@ -11164,165 +11059,151 @@ msgid ""
 "required for most administrative operations like setting global variables or "
 "killing threads of other users."
 msgstr ""
+"อนุญาตให้เชื่อมต่อได้ แม้ว่าจะถึงจำนวนการเชื่อมต่อสูงสุดแล้วก็ตาม; ซึ่งจำเป็นสำหรับการดำเนินการด้าน"
+"การดูแลระบบส่วนใหญ่ เช่น การตั้งค่าตัวแปรเพื่อทั้งระบบ หรือการยุติรอบการทำงานของผู้ใช้รายอื่น"
 
 #: libraries/classes/Server/Privileges.php:383
 #: libraries/classes/Server/Privileges.php:1268 server_privileges.php:70
 msgid "Allows creating temporary tables."
-msgstr "อนุญาตให้สร้างตารางชั่วคราว."
+msgstr "อนุญาตให้สร้างตารางชั่วคราวได้"
 
 #: libraries/classes/Server/Privileges.php:388
 #: libraries/classes/Server/Privileges.php:1370 server_privileges.php:86
 msgid "Allows locking tables for the current thread."
-msgstr "อนุญาตให้ล็อกตารางสำหรับเธรดปัจจุบัน"
+msgstr "อนุญาตให้ล็อกตารางสำหรับรอบการทำงานปัจจุบันได้"
 
 #: libraries/classes/Server/Privileges.php:393
 #: libraries/classes/Server/Privileges.php:1383 server_privileges.php:108
 msgid "Needed for the replication slaves."
-msgstr ""
+msgstr "จำเป็นสำหรับเครื่องจำลองสเลฟ"
 
 #: libraries/classes/Server/Privileges.php:398
 #: libraries/classes/Server/Privileges.php:1379 server_privileges.php:106
 msgid "Allows the user to ask where the slaves / masters are."
-msgstr "มอบสิทธิให้ผู้ใช้ ในการถามว่า slaves หรือ masters อยู่ที่ไหน."
+msgstr "อนุญาตให้ผู้ใช้สอบถามว่าสเลฟ/มาสเตอร์อยู่ที่ไหน"
 
 #: libraries/classes/Server/Privileges.php:403
 #: libraries/classes/Server/Privileges.php:419
 #: libraries/classes/Server/Privileges.php:1288
 #: libraries/classes/Server/Privileges.php:1295 server_privileges.php:72
-#, fuzzy
 msgid "Allows creating new views."
-msgstr "อนุญาตให้สร้างตารางใหม่."
+msgstr "อนุญาตให้สร้างมุมมองใหม่ได้"
 
 #: libraries/classes/Server/Privileges.php:408
 #: libraries/classes/Server/Privileges.php:1302 server_privileges.php:77
-#, fuzzy
-#| msgid "Allows locking tables for the current thread."
 msgid "Allows to set up events for the event scheduler."
-msgstr "อนุญาตให้ล็อกตารางสำหรับเธรดปัจจุบัน"
+msgstr "อนุญาตให้ตั้งค่ากิจกรรมสำหรับตัวกำหนดตารางกิจกรรมได้"
 
 #: libraries/classes/Server/Privileges.php:413
 #: libraries/classes/Server/Privileges.php:1306 server_privileges.php:118
-#, fuzzy
 msgid "Allows creating and dropping triggers."
-msgstr "อนุญาตให้สร้าง และทิ้ง ดัชนี"
+msgstr "อนุญาตให้สร้างและลบทริกเกอร์ได้"
 
 #: libraries/classes/Server/Privileges.php:424
 #: libraries/classes/Server/Privileges.php:430
 #: libraries/classes/Server/Privileges.php:1272 server_privileges.php:111
 msgid "Allows performing SHOW CREATE VIEW queries."
-msgstr ""
+msgstr "อนุญาตให้ดำเนินการค้นหาข้อมูลด้วยคำสั่ง SHOW CREATE VIEW"
 
 #: libraries/classes/Server/Privileges.php:445
 #: libraries/classes/Server/Privileges.php:1276 server_privileges.php:68
-#, fuzzy
 msgid "Allows creating stored routines."
-msgstr "อนุญาตให้สร้างตารางใหม่."
+msgstr "อนุญาตให้สร้างรูทีนที่บันทึกไว้ได้"
 
 #: libraries/classes/Server/Privileges.php:450
 #: libraries/classes/Server/Privileges.php:1280 server_privileges.php:66
-#, fuzzy
 msgid "Allows altering and dropping stored routines."
-msgstr "อนุญาตให้สร้าง และทิ้ง ดัชนี"
+msgstr "อนุญาตให้แก้ไขและลบรูทีนที่บันทึกไว้ได้"
 
 #: libraries/classes/Server/Privileges.php:455
 #: libraries/classes/Server/Privileges.php:1387 server_privileges.php:71
 msgid "Allows creating, dropping and renaming user accounts."
-msgstr ""
+msgstr "อนุญาตให้สร้าง ลบ และแก้ไขชื่อบัญชีผู้ใช้ได้"
 
 #: libraries/classes/Server/Privileges.php:460
 #: libraries/classes/Server/Privileges.php:1282 server_privileges.php:78
 msgid "Allows executing stored routines."
-msgstr ""
+msgstr "อนุญาตให้เรียกใช้รูทีนที่จัดเก็บไว้"
 
 #: libraries/classes/Server/Privileges.php:738
-#, fuzzy
-#| msgid "Force SSL connection"
 msgid "Does not require SSL-encrypted connections."
-msgstr "การเชื่อมต่อ SSL"
+msgstr "ไม่จำเป็นต้องใช้การเชื่อมต่อที่เข้ารหัสด้วย SSL"
 
 #: libraries/classes/Server/Privileges.php:754
-#, fuzzy
-#| msgid "Force SSL connection"
 msgid "Requires SSL-encrypted connections."
-msgstr "การเชื่อมต่อ SSL"
+msgstr "จำเป็นต้องใช้การเชื่อมต่อที่เข้ารหัสด้วย SSL"
 
 #: libraries/classes/Server/Privileges.php:768
 msgid "Requires a valid X509 certificate."
-msgstr ""
+msgstr "ต้องใช้ใบรับรอง X509 ที่ถูกต้อง"
 
 #: libraries/classes/Server/Privileges.php:793
 msgid "Requires that a specific cipher method be used for a connection."
-msgstr ""
+msgstr "จำเป็นต้องใช้วิธีการเข้ารหัสเฉพาะเพื่อใช้ในการเชื่อมต่อ"
 
 #: libraries/classes/Server/Privileges.php:806
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
-msgstr ""
+msgstr "จำเป็นต้องแสดงใบรับรอง X509 ที่ถูกต้องซึ่งออกโดย CA นี้"
 
 #: libraries/classes/Server/Privileges.php:819
 msgid "Requires that a valid X509 certificate with this subject be presented."
-msgstr ""
+msgstr "จำเป็นต้องแสดงใบรับรอง X509 ที่ถูกต้องซึ่งมีเนื้อหาเกี่ยวกับหัวข้อนี้"
 
 #: libraries/classes/Server/Privileges.php:849 server_privileges.php:91
 msgid "Limits the number of queries the user may send to the server per hour."
-msgstr "จำกัดจำนวนของคำค้น ที่ผู้ใช้จะสามารถส่งมาที่เซิร์ฟเวอร์ได้ ต่อชั่วโมง"
+msgstr "จำกัดจำนวนคำสั่งที่ผู้ใช้จะสามารถส่งมาที่เซิร์ฟเวอร์ได้ต่อชั่วโมง"
 
 #: libraries/classes/Server/Privileges.php:857 server_privileges.php:94
 msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
 msgstr ""
-"จำกัดจำนวนของคำสั่ง ที่จะเปลี่ยนแปลงตาราง หรือฐานข้อมูลใดๆ ที่ผู้ใช้จะสามารถสั่งได้ ต่อชั่วโมง"
+"จำกัดจำนวนคำสั่งที่เปลี่ยนแปลงตารางหรือฐานข้อมูลใด ๆ ที่ผู้ใช้สามารถดำเนินการได้ต่อชั่วโมง"
 
 #: libraries/classes/Server/Privileges.php:866 server_privileges.php:88
 msgid "Limits the number of new connections the user may open per hour."
-msgstr "จำกัดจำนวนการเชื่อมต่อใหม่ ที่ผู้ใช้จะสามารถเปิดได้ ต่อชั่วโมง"
+msgstr "จำกัดจำนวนการเชื่อมต่อใหม่ที่ผู้ใช้สามารถเปิดได้ต่อชั่วโมง"
 
 #: libraries/classes/Server/Privileges.php:875 server_privileges.php:98
-#, fuzzy
 msgid "Limits the number of simultaneous connections the user may have."
-msgstr "จำกัดจำนวนการเชื่อมต่อใหม่ ที่ผู้ใช้จะสามารถเปิดได้ ต่อชั่วโมง"
+msgstr "จำกัดจำนวนการเชื่อมต่อพร้อมกันที่ผู้ใช้สามารถมีได้"
 
 #: libraries/classes/Server/Privileges.php:916
 #: libraries/classes/Server/Privileges.php:3371
 #: libraries/classes/Server/Privileges.php:3373
 #: libraries/classes/Server/Privileges.php:4596
 #: templates/privileges/edit_routine_privileges.twig:11
-#, fuzzy
-#| msgid "Add new field"
 msgid "Routine"
-msgstr "เพิ่มฟิลด์ใหม่"
+msgstr "รูทีน"
 
 #: libraries/classes/Server/Privileges.php:948
 msgid ""
 "Allows user to give to other users or remove from other users privileges "
 "that user possess on this routine."
 msgstr ""
+"อนุญาตให้ผู้ใช้สามารถมอบสิทธิ์ให้แก่ผู้ใช้รายอื่น หรือลบสิทธิ์ที่ผู้ใช้รายนี้มีอยู่ในระบบนี้ออกจากผู้ใช้รายอื่นได้"
 
 #: libraries/classes/Server/Privileges.php:955
-#, fuzzy
 msgid "Allows altering and dropping this routine."
-msgstr "อนุญาตให้สร้าง และทิ้ง ดัชนี"
+msgstr "อนุญาตให้แก้ไขและลบรูทีนนี้ได้"
 
 #: libraries/classes/Server/Privileges.php:960
-#, fuzzy
 msgid "Allows executing this routine."
-msgstr "อนุญาตให้สร้างตารางใหม่."
+msgstr "อนุญาตให้ดำเนินการรูทีนนี้"
 
 #: libraries/classes/Server/Privileges.php:1010
 #: libraries/classes/Server/Privileges.php:1182
 #: libraries/classes/Server/Privileges.php:3366
 #: templates/privileges/privileges_summary.twig:18
 msgid "Table-specific privileges"
-msgstr "สิทธิเจาะจงเฉพาะตาราง"
+msgstr "สิทธิพิเศษเฉพาะตาราง"
 
 #: libraries/classes/Server/Privileges.php:1013
 #: libraries/classes/Server/Privileges.php:1192
 #: libraries/classes/Server/Privileges.php:3564
 #: templates/privileges/edit_routine_privileges.twig:16
-#, fuzzy
-#| msgid "Note: MySQL privilege names are expressed in English"
 msgid "Note: MySQL privilege names are expressed in English."
-msgstr "โปรดทราบ: ชื่อของสิทธิใน MySQL จะแสดงเป็นภาษาอังกฤษ"
+msgstr "โปรดทราบ: ชื่อของสิทธิพิเศษใน MySQL จะแสดงเป็นภาษาอังกฤษ"
 
 #: libraries/classes/Server/Privileges.php:1156
 msgid "Administration"
@@ -11331,104 +11212,91 @@ msgstr "การดูแลระบบ"
 #: libraries/classes/Server/Privileges.php:1176
 #: libraries/classes/Server/Privileges.php:3562
 msgid "Global privileges"
-msgstr "สิทธิแบบโกลบอล"
+msgstr "สิทธิพิเศษเพื่อทั้งระบบ"
 
 #: libraries/classes/Server/Privileges.php:1177
-#, fuzzy
-#| msgid "global"
 msgid "Global"
-msgstr "โกลบอล"
+msgstr "ทั้งระบบ"
 
 #: libraries/classes/Server/Privileges.php:1179
 #: libraries/classes/Server/Privileges.php:3360
 msgid "Database-specific privileges"
-msgstr "สิทธิเจาะจงเฉพาะฐานข้อมูล"
+msgstr "สิทธิพิเศษเฉพาะฐานข้อมูล"
 
 #: libraries/classes/Server/Privileges.php:1251 server_privileges.php:69
 msgid "Allows creating new tables."
-msgstr "อนุญาตให้สร้างตารางใหม่."
+msgstr "อนุญาตให้สร้างตารางใหม่ได้"
 
 #: libraries/classes/Server/Privileges.php:1263 server_privileges.php:76
 msgid "Allows dropping tables."
-msgstr "อนุญาตให้ทิ้งตาราง"
+msgstr "อนุญาตให้ลบตารางได้"
 
 #: libraries/classes/Server/Privileges.php:1326
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
-msgstr "อนุญาตให้เพิ่มผู้ใช้ และสิทธิเข้าถึง โดยไม่ต้องเรียกใช้ตารางสิทธิใหม่"
+msgstr "อนุญาตให้เพิ่มผู้ใช้และสิทธิพิเศษได้โดยไม่ต้องโหลดตารางสิทธิพิเศษใหม่"
 
 #: libraries/classes/Server/Privileges.php:1362 server_privileges.php:81
 msgid ""
 "Allows user to give to other users or remove from other users the privileges "
 "that user possess yourself."
 msgstr ""
+"อนุญาตให้ผู้ใช้สามารถมอบสิทธิพิเศษให้แก่ผู้ใช้รายอื่น หรือลบสิทธิพิเศษที่ผู้ใช้เองมีอยู่จากผู้ใช้รายอื่นได้"
 
 #: libraries/classes/Server/Privileges.php:1440
 #: libraries/classes/Server/Privileges.php:1471
-#, fuzzy
-#| msgid "Cookie authentication"
 msgid "Native MySQL authentication"
-msgstr "การรับรองความถูกต้องของคุกกี้"
+msgstr "การตรวจสอบสิทธิ์ MySQL ดั้งเดิม"
 
 #: libraries/classes/Server/Privileges.php:1473
-#, fuzzy
-#| msgid "Signon authentication"
 msgid "SHA256 password authentication"
-msgstr "การรับรองความถูกต้องของการเข้าสู่ระบบ"
+msgstr "การตรวจสอบรหัสผ่านแบบ SHA256"
 
 #: libraries/classes/Server/Privileges.php:1507
 #: libraries/classes/Server/Privileges.php:3128
 msgid "Login Information"
-msgstr "ข้อมูลล็อกอิน"
+msgstr "ข้อมูลการเข้าสู่ระบบ"
 
 #: libraries/classes/Server/Privileges.php:1530
 #: libraries/classes/Server/Privileges.php:1688
 #: templates/privileges/add_privileges_table.twig:7
 #: templates/privileges/add_privileges_routine.twig:7
 msgid "Use text field"
-msgstr "ใช้ช่องใส่ข้อความ (text field)"
+msgstr "ใช้ช่องข้อความ"
 
 #: libraries/classes/Server/Privileges.php:1556
 msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname."
-msgstr ""
+msgstr "มีบัญชีผู้ใช้ที่มีชื่อผู้ใช้เดียวกันอยู่แล้ว แต่ชื่อโฮสต์อาจแตกต่างกัน"
 
 #: libraries/classes/Server/Privileges.php:1565
-#, fuzzy
-#| msgid "User name"
 msgid "Host name:"
-msgstr "ชื่อผู้ใช้"
+msgstr "ชื่อโฮสต์:"
 
 #: libraries/classes/Server/Privileges.php:1570
 #: libraries/classes/Server/Privileges.php:1655
 #: libraries/classes/Server/Privileges.php:2582
 #: libraries/classes/Server/Privileges.php:3560
-#, fuzzy
-#| msgid "Column names"
 msgid "Host name"
-msgstr "ชื่อคอลัมน์"
+msgstr "ชื่อโฮสต์"
 
 #: libraries/classes/Server/Privileges.php:1678
 msgid "Do not change the password"
-msgstr "กรุณาอย่าเปลี่ยนรหัสผ่าน"
+msgstr "ห้ามเปลี่ยนรหัสผ่าน"
 
 #: libraries/classes/Server/Privileges.php:1728
-#, fuzzy
-#| msgid "Authentication"
 msgid "Authentication Plugin"
-msgstr "รับรองความถูกต้อง"
+msgstr "ปลั๊กอินการตรวจสอบสิทธิ์"
 
 #: libraries/classes/Server/Privileges.php:1735
-#, fuzzy
-#| msgid "Password:"
 msgid "Password Hashing Method"
-msgstr "รหัสผ่าน:"
+msgstr "วิธีการเข้ารหัสรหัสผ่าน"
 
 #: libraries/classes/Server/Privileges.php:2031
 #, php-format
 msgid "The password for %s was changed successfully."
-msgstr "เปลี่ยนรหัสผ่านของ %s เรียบร้อยแล้ว"
+msgstr "รหัสผ่านสำหรับ %s ถูกเปลี่ยนสำเร็จแล้ว"
 
 #: libraries/classes/Server/Privileges.php:2075
 #, php-format
@@ -11437,98 +11305,84 @@ msgstr "คุณได้เพิกถอนสิทธิของ %s"
 
 #: libraries/classes/Server/Privileges.php:2175
 #: templates/privileges/add_user_fieldset.twig:7
-#, fuzzy
-#| msgid "Add user"
 msgid "Add user account"
-msgstr "เพิ่มผู้ใช้"
+msgstr "เพิ่มบัญชีผู้ใช้"
 
 #: libraries/classes/Server/Privileges.php:2184
-#, fuzzy
 msgid "Database for user account"
-msgstr "สถิติฐานข้อมูล"
+msgstr "ฐานข้อมูลสำหรับบัญชีผู้ใช้"
 
 #: libraries/classes/Server/Privileges.php:2190
 msgid "Create database with same name and grant all privileges."
-msgstr ""
+msgstr "สร้างฐานข้อมูลที่มีชื่อเดียวกันและให้สิทธิ์การเข้าถึงทั้งหมด"
 
 #: libraries/classes/Server/Privileges.php:2201
 msgid "Grant all privileges on wildcard name (username\\_%)."
-msgstr ""
+msgstr "ให้สิทธิ์ทั้งหมดแก่ชื่อผู้ใช้แบบมีเงื่อนไข (ชื่อผู้ใช้\\_%)"
 
 #: libraries/classes/Server/Privileges.php:2214
-#, fuzzy, php-format
-#| msgid "Grant all privileges on database \"%s\"."
+#, php-format
 msgid "Grant all privileges on database %s."
-msgstr "มอบสิทธิทั้งหมดสำหรับฐานข้อมูล \"%s\"."
+msgstr "มอบสิทธิ์การเข้าถึงฐานข้อมูล %s ทั้งหมด"
 
 #: libraries/classes/Server/Privileges.php:2388
 #: libraries/classes/Server/Privileges.php:2462
 #, php-format
 msgid "Users having access to \"%s\""
-msgstr "ผู้ใช้มีสิทธิเข้าถึงฐานข้อมูล \"%s\""
+msgstr "ผู้ใช้มีสิทธิ์เข้าถึงฐานข้อมูล \"%s\""
 
 #: libraries/classes/Server/Privileges.php:2432
-#, fuzzy
-#| msgid "View %s has been dropped."
 msgid "User has been added."
-msgstr "โยนวิว %s ทิ้งไปเรียบร้อยแล้ว"
+msgstr "เพิ่มผู้ใช้แล้ว"
 
 #: libraries/classes/Server/Privileges.php:2585
 #: libraries/classes/Server/Privileges.php:3570
 #: templates/privileges/privileges_summary.twig:16
 msgid "Grant"
-msgstr "มอบสิทธิ"
+msgstr "มอบสิทธิ์"
 
 #: libraries/classes/Server/Privileges.php:2600
 msgid "Not enough privilege to view users."
-msgstr ""
+msgstr "ไม่มีสิทธิ์เพียงพอที่จะดูข้อมูลผู้ใช้"
 
 #: libraries/classes/Server/Privileges.php:2619
 #: libraries/classes/Server/Privileges.php:3993
-#, fuzzy
-#| msgid "No user(s) found."
 msgid "No user found."
-msgstr "ไม่พบผู้ใช้ใดๆ."
+msgstr "ไม่พบผู้ใช้งาน"
 
 #: libraries/classes/Server/Privileges.php:2650
 #: libraries/classes/Server/Privileges.php:2986
 #: libraries/classes/Server/Privileges.php:3652
 msgid "Any"
-msgstr "ใดๆ"
+msgstr "ใด ๆ"
 
 #: libraries/classes/Server/Privileges.php:2701
 msgid "global"
-msgstr "โกลบอล"
+msgstr "ทั้งระบบ"
 
 #: libraries/classes/Server/Privileges.php:2704
 msgid "database-specific"
-msgstr "เฉพาะฐานข้อมูล"
+msgstr "ฐานข้อมูลเฉพาะ"
 
 #: libraries/classes/Server/Privileges.php:2706
 msgid "wildcard"
 msgstr "ไวล์การ์ด"
 
 #: libraries/classes/Server/Privileges.php:2712
-#, fuzzy
-#| msgid "database-specific"
 msgid "table-specific"
-msgstr "เฉพาะฐานข้อมูล"
+msgstr "ตารางเฉพาะ"
 
 #: libraries/classes/Server/Privileges.php:2855
-#, fuzzy
-#| msgid "Edit Privileges"
 msgid "Edit privileges"
-msgstr "แก้ไขสิทธิ"
+msgstr "แก้ไขสิทธิ์"
 
 #: libraries/classes/Server/Privileges.php:2858
 msgid "Revoke"
 msgstr "เพิกถอน"
 
 #: libraries/classes/Server/Privileges.php:2882
-#, fuzzy
-#| msgid "Edit server"
 msgid "Edit user group"
-msgstr "แก้ไข เครื่องแม่ข่าย"
+msgstr "แก้ไขกลุ่มผู้ใช้"
 
 #: libraries/classes/Server/Privileges.php:3100
 msgid "… keep the old one."
@@ -11541,61 +11395,55 @@ msgstr "… ลบของเก่าทิ้งไปจากตารา�
 #: libraries/classes/Server/Privileges.php:3103
 msgid ""
 "… revoke all active privileges from the old one and delete it afterwards."
-msgstr "… เรียกคืนสิทธิ์ทั้งหมดจากเดิม แล้วลบมันหลังจากนั้น."
+msgstr "…เพิกถอนสิทธิ์การใช้งานทั้งหมดจากบัญชีเก่า แล้วลบบัญชีนั้นทิ้งไป"
 
 #: libraries/classes/Server/Privileges.php:3107
 msgid ""
 "… delete the old one from the user tables and reload the privileges "
 "afterwards."
-msgstr "… ลบของเก่าจากตารางผู้ใช้ แล้วเรียกใช้รายการสิทธิ์ใหม่หลังจากนั้น."
+msgstr "...ลบข้อมูลเก่าออกจากตารางผู้ใช้ แล้วโหลดสิทธิ์การใช้งานใหม่หลังจากนั้น"
 
 #: libraries/classes/Server/Privileges.php:3129
-#, fuzzy
-#| msgid "Change Login Information / Copy User"
 msgid "Change login information / Copy user account"
-msgstr "เปลี่ยนข้อมูลล็อกอิน / ทำสำเนาผู้ใช้"
+msgstr "เปลี่ยนข้อมูลการเข้าสู่ระบบ / คัดลอกบัญชีผู้ใช้"
 
 #: libraries/classes/Server/Privileges.php:3135
-#, fuzzy
-#| msgid "Create a new user with the same privileges and …"
 msgid "Create a new user account with the same privileges and …"
-msgstr "สร้างผู้ใช้ใหม่ ให้มีสิทธิเหมือนกัน และ …"
+msgstr "สร้างบัญชีผู้ใช้ใหม่ที่มีสิทธิ์การใช้งานเหมือนกันทุกประการ และ…"
 
 #: libraries/classes/Server/Privileges.php:3372
 #: templates/privileges/edit_routine_privileges.twig:12
-#, fuzzy
-#| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
-msgstr "สิทธิเฉพาะคอลัมน์"
+msgstr "สิทธิ์รูทีนเฉพาะ"
 
 #: libraries/classes/Server/Privileges.php:3568
 #: libraries/classes/Server/UserGroups.php:89
 #: templates/privileges/choose_user_group.twig:4
 #: templates/privileges/choose_user_group.twig:5
 msgid "User group"
-msgstr ""
+msgstr "กลุ่มผู้ใช้"
 
 #: libraries/classes/Server/Privileges.php:3691
 #: libraries/classes/Server/Privileges.php:4826
 msgid "The selected user was not found in the privilege table."
-msgstr "ไม่พบผู้ใช้ที่เลือกในตารางแสดงสิทธิ"
+msgstr "ไม่พบผู้ใช้ที่เลือกไว้ในตารางสิทธิ์"
 
 #: libraries/classes/Server/Privileges.php:3869
 msgid "No users selected for deleting!"
-msgstr ""
+msgstr "ไม่มีการเลือกผู้ใช้เพื่อลบ!"
 
 #: libraries/classes/Server/Privileges.php:3872
 msgid "Reloading the privileges"
-msgstr "ปรับปรุงสิทธิเข้าถึงใหม่อีกรอบ"
+msgstr "กำลังโหลดสิทธิ์ใหม่"
 
 #: libraries/classes/Server/Privileges.php:3891
 msgid "The selected users have been deleted successfully."
-msgstr "ลบผู้ใช้ที่เลือกไว้เรียบร้อยแล้ว."
+msgstr "ผู้ใช้งานที่เลือกไว้ถูกลบออกเรียบร้อยแล้ว"
 
 #: libraries/classes/Server/Privileges.php:3966
 #, php-format
 msgid "You have updated the privileges for %s."
-msgstr "คุณได้ปรับปรุงสิทธิสำหรับ %s แล้ว"
+msgstr "คุณได้อัปเดตสิทธิ์การเข้าถึงสำหรับ %s แล้ว"
 
 #: libraries/classes/Server/Privileges.php:4071
 #, php-format
@@ -11604,7 +11452,7 @@ msgstr "กำลังลบ %s"
 
 #: libraries/classes/Server/Privileges.php:4101
 msgid "The privileges were reloaded successfully."
-msgstr "สิทธิได้ถูกเรียกใช้ใหม่เรียบร้อยแล้ว"
+msgstr "สิทธิ์การใช้งานถูกโหลดใหม่เรียบร้อยแล้ว"
 
 #: libraries/classes/Server/Privileges.php:4192
 #, php-format
@@ -11612,10 +11460,9 @@ msgid "The user %s already exists!"
 msgstr "มีผู้ใช้ %s อยู่แล้ว!"
 
 #: libraries/classes/Server/Privileges.php:4469
-#, fuzzy, php-format
-#| msgid "Privileges"
+#, php-format
 msgid "Privileges for %s"
-msgstr "สิทธิ"
+msgstr "สิทธิ์สำเรับ %s"
 
 #: libraries/classes/Server/Privileges.php:4478
 #: libraries/classes/Server/Status/Processes.php:69
@@ -11624,29 +11471,23 @@ msgid "User"
 msgstr "ผู้ใช้"
 
 #: libraries/classes/Server/Privileges.php:4546
-#, fuzzy
-#| msgid "Edit Privileges"
 msgid "Edit privileges:"
-msgstr "แก้ไขสิทธิ"
+msgstr "แก้ไขสิทธิ์:"
 
 #: libraries/classes/Server/Privileges.php:4547
-#, fuzzy
-#| msgid "Users"
 msgid "User account"
-msgstr "ผู้ใช้"
+msgstr "บัญชีผู้ใช้"
 
 #: libraries/classes/Server/Privileges.php:4621
 msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
-msgstr ""
+msgstr "หมายเหตุ: คุณกำลังพยายามแก้ไขสิทธิ์ของผู้ใช้ที่คุณกำลังเข้าสู่ระบบอยู่"
 
 #: libraries/classes/Server/Privileges.php:4641
 #: libraries/classes/Server/Users.php:30
-#, fuzzy
-#| msgid "User overview"
 msgid "User accounts overview"
-msgstr "ข้อมูลทั่วไปของผู้ใช้"
+msgstr "ภาพรวมบัญชีผู้ใช้"
 
 #: libraries/classes/Server/Privileges.php:4716
 msgid ""
@@ -11654,6 +11495,8 @@ msgid ""
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
+"มีบัญชีผู้ใช้ที่อนุญาตให้ผู้ใช้ใด ๆ จาก localhost เชื่อมต่อได้ ซึ่งจะปกป้องไม่ให้ผู้ใช้รายอื่นเชื่อมต่อหากส่"
+"วนโฮสต์ของบัญชีอนุญาตให้เชื่อมต่อจากโฮสต์ใด ๆ ก็ได้ (%)"
 
 #: libraries/classes/Server/Privileges.php:4758
 #, php-format
@@ -11663,6 +11506,9 @@ msgid ""
 "server uses, if they have been changed manually. In this case, you should "
 "%sreload the privileges%s before you continue."
 msgstr ""
+"หมายเหตุ: phpMyAdmin ดึงสิทธิ์ของผู้ใช้โดยตรงจากตารางสิทธิ์ของ MySQL เนื้อหาของตารางเหล่านี้อ"
+"าจแตกต่างจากสิทธิ์ที่เซิร์ฟเวอร์ใช้ หากมีการเปลี่ยนแปลงด้วยตนเอง ในกรณีนี้ คุณควร %sreload the "
+"privileges%s ก่อนดำเนินการต่อ"
 
 #: libraries/classes/Server/Privileges.php:4775
 msgid ""
@@ -11672,6 +11518,9 @@ msgid ""
 "privileges have to be reloaded but currently, you don't have the RELOAD "
 "privilege."
 msgstr ""
+"หมายเหตุ: phpMyAdmin ดึงสิทธิ์ของผู้ใช้โดยตรงจากตารางสิทธิ์ของ MySQL เนื้อหาของตารางเหล่านี้อ"
+"าจแตกต่างจากสิทธิ์ที่เซิร์ฟเวอร์ใช้ หากมีการเปลี่ยนแปลงด้วยตนเอง ในกรณีนี้ จำเป็นต้องโหลดสิทธิ์ใหม่ "
+"แต่ปัจจุบันคุณไม่มีสิทธิ์ RELOAD"
 
 #: libraries/classes/Server/Privileges.php:5060
 msgid "You have added a new user."
@@ -11679,39 +11528,40 @@ msgstr "เพิ่มผู้ใช้ใหม่เรียบร้อย
 
 #: libraries/classes/Server/Select.php:53
 #: libraries/classes/Server/Select.php:58
-#, fuzzy
-#| msgid "Server"
 msgid "Current server:"
-msgstr "เซิร์ฟเวอร์"
+msgstr "เซิร์ฟเวอร์ปัจจุบัน:"
 
 #: libraries/classes/Server/Status.php:68
 #, php-format
 msgid "Network traffic since startup: %s"
-msgstr ""
+msgstr "การจราจรเครือข่ายตั้งแต่เริ่มต้นระบบ: %s"
 
 #: libraries/classes/Server/Status.php:81
-#, fuzzy, php-format
-#| msgid "This MySQL server has been running for %s. It started up on %s."
+#, php-format
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr "เซิร์ฟเวอร์ MySQL นี้รันมาเป็นเวลา %1$s. เริ่มตอน %2$s."
+msgstr "เซิร์ฟเวอร์ MySQL นี้ทำงานมาเป็นเวลา %1$s แล้ว เริ่มตอน %2$s"
 
 #: libraries/classes/Server/Status.php:102
 msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
 msgstr ""
+"เซิร์ฟเวอร์ MySQL นี้ทำหน้าที่เป็นทั้ง <b>มาสเตอร์</b> และ <b>สเลฟ</b> ในกระบวนการ <b>จำล"
+"องข้อมูล</b>"
 
 #: libraries/classes/Server/Status.php:107
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
+"เซิร์ฟเวอร์ MySQL นี้ทำหน้าที่เป็น <b>มาสเตอร์</b> ในกระบวนการ <b>จำลองข้อมูล</b>"
 
 #: libraries/classes/Server/Status.php:112
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
+"เซิร์ฟเวอร์ MySQL นี้ทำหน้าที่เป็น <b>สเลฟ</b> ในกระบวนการ <b>จำลองข้อมูล</b>"
 
 #: libraries/classes/Server/Status.php:124
 msgid "Replication status"
-msgstr ""
+msgstr "สถานะการจำลองข้อมูล"
 
 #: libraries/classes/Server/Status.php:154
 msgid ""
@@ -11723,32 +11573,31 @@ msgstr ""
 
 #: libraries/classes/Server/Status.php:165
 msgid "Received"
-msgstr "ได้รับ"
+msgstr "ได้รับแล้ว"
 
 #: libraries/classes/Server/Status.php:184
 msgid "Sent"
-msgstr "ถูกส่ง"
+msgstr "ส่งแล้ว"
 
 #: libraries/classes/Server/Status.php:251
-#, fuzzy
-#| msgid "Connections"
 msgid "Max. concurrent connections"
-msgstr "การเชื่อมต่อ"
+msgstr "จำนวนการเชื่อมต่อพร้อมกันสูงสุด"
 
 #: libraries/classes/Server/Status.php:261
 msgid "Failed attempts"
 msgstr "ความพยายามล้มเหลว"
 
 #: libraries/classes/Server/Status/Advisor.php:29
-#, fuzzy
 msgid "Instructions"
-msgstr "ฟังก์ชั่น"
+msgstr "คำแนะนำ"
 
 #: libraries/classes/Server/Status/Advisor.php:35
 msgid ""
 "The Advisor system can provide recommendations on server variables by "
 "analyzing the server status variables."
 msgstr ""
+"ระบบ Advisor สามารถให้คำแนะนำเกี่ยวกับตัวแปรของเซิร์ฟเวอร์ได้โดยการวิเคราะห์ตัวแปรสถานะขอ"
+"งเซิร์ฟเวอร์"
 
 #: libraries/classes/Server/Status/Advisor.php:41
 msgid ""
@@ -11756,6 +11605,8 @@ msgid ""
 "calculations and by rule of thumb which may not necessarily apply to your "
 "system."
 msgstr ""
+"อย่างไรก็ตาม โปรดทราบว่าระบบนี้ให้คำแนะนำโดยอิงจากการคำนวณอย่างง่ายและหลักการทั่วไป ซึ่งอาจ"
+"ไม่จำเป็นต้องใช้ได้กับระบบของคุณเสมอไป"
 
 #: libraries/classes/Server/Status/Advisor.php:48
 msgid ""
@@ -11763,6 +11614,9 @@ msgid ""
 "changing (by reading the documentation) and how to undo the change. Wrong "
 "tuning can have a very negative effect on performance."
 msgstr ""
+"ก่อนที่จะเปลี่ยนแปลงการกำหนดค่าใด ๆ โปรดตรวจสอบให้แน่ใจว่าคุณเข้าใจสิ่งที่คุณกำลังเปลี่ยนแปลง (โ"
+"ดยการอ่านเอกสารประกอบ) และวิธีการยกเลิกการเปลี่ยนแปลง การปรับตั้งค่าที่ไม่ถูกต้องอาจส่งผลเสียอ"
+"ย่างมากต่อประสิทธิภาพการทำงาน"
 
 #: libraries/classes/Server/Status/Advisor.php:56
 msgid ""
@@ -11770,33 +11624,33 @@ msgid ""
 "time, observe or benchmark your database, and undo the change if there was "
 "no clearly measurable improvement."
 msgstr ""
+"วิธีที่ดีที่สุดในการปรับตั้งระบบของคุณคือการเปลี่ยนการตั้งค่าทีละอย่าง สังเกตหรือทดสอบประสิทธิภาพของฐ"
+"านข้อมูล และยกเลิกการเปลี่ยนแปลงหากไม่มีการปรับปรุงที่วัดผลได้ชัดเจน"
 
 #: libraries/classes/Server/Status/Data.php:115
 #: libraries/classes/Server/Status/Processes.php:97
 msgid "SQL query"
-msgstr "คำค้น SQL"
+msgstr "คำสั่ง SQL"
 
 #: libraries/classes/Server/Status/Data.php:118
 msgid "Handler"
 msgstr "ตัวจัดการ"
 
 #: libraries/classes/Server/Status/Data.php:119
-#, fuzzy
 msgid "Query cache"
-msgstr "ชนิดคำค้น"
+msgstr "แคชคำสั่ง"
 
 #: libraries/classes/Server/Status/Data.php:120
 msgid "Threads"
-msgstr "บทสนทนา"
+msgstr "รอบการทำงาน"
 
 #: libraries/classes/Server/Status/Data.php:122
 msgid "Temporary data"
 msgstr "ข้อมูลชั่วคราว"
 
 #: libraries/classes/Server/Status/Data.php:123
-#, fuzzy
 msgid "Delayed inserts"
-msgstr "แทรกหลายระเบียนในคราวเดียว"
+msgstr "การแทรกแบบหน่วงเวลา"
 
 #: libraries/classes/Server/Status/Data.php:124
 msgid "Key cache"
@@ -11812,34 +11666,32 @@ msgstr "การเรียงลำดับ"
 
 #: libraries/classes/Server/Status/Data.php:129
 msgid "Transaction coordinator"
-msgstr ""
+msgstr "ตัวประสานงานธุรกรรม"
 
 #: libraries/classes/Server/Status/Data.php:130
 #: templates/server/binlog/log_selector.twig:21
-#, fuzzy
 msgid "Files"
-msgstr "จำนวนฟิลด์"
+msgstr "ไฟล์"
 
 #: libraries/classes/Server/Status/Data.php:146
 msgid "Flush (close) all tables"
-msgstr ""
+msgstr "ล้าง (ปิด) ตารางทั้งหมด"
 
 #: libraries/classes/Server/Status/Data.php:150
-#, fuzzy
 msgid "Show open tables"
-msgstr "แสดงตาราง"
+msgstr "แสดงตารางที่เปิดอยู่"
 
 #: libraries/classes/Server/Status/Data.php:159
 msgid "Show slave hosts"
-msgstr "แสดงโฮสต์ทาส"
+msgstr "แสดงโฮสต์สเลฟ"
 
 #: libraries/classes/Server/Status/Data.php:172
 msgid "Show slave status"
-msgstr "แสดงสถานะทาส"
+msgstr "แสดงสถานะสเลฟ"
 
 #: libraries/classes/Server/Status/Data.php:180
 msgid "Flush query cache"
-msgstr ""
+msgstr "ล้างแคชคำสั่ง"
 
 #: libraries/classes/Server/Status/Data.php:435
 msgid "Query statistics"
@@ -11847,7 +11699,7 @@ msgstr "สถิติของคำสั่ง"
 
 #: libraries/classes/Server/Status/Data.php:439
 msgid "All status variables"
-msgstr ""
+msgstr "สถานะตัวแปรทั้งหมด"
 
 #: libraries/classes/Server/Status/Data.php:443
 msgid "Monitor"
@@ -11858,57 +11710,48 @@ msgid "Advisor"
 msgstr "ที่ปรึกษา"
 
 #: libraries/classes/Server/Status/Data.php:491
-#, fuzzy, php-format
-#| msgid "per second"
+#, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "ต่อวินาที"
-msgstr[1] "ต่อวินาที"
+msgstr[0] "%d วินาที"
 
 #: libraries/classes/Server/Status/Data.php:496
-#, fuzzy, php-format
-#| msgid "in use"
+#, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] "ใช้อยู่"
-msgstr[1] "ใช้อยู่"
+msgstr[0] "%d นาที"
 
 #: libraries/classes/Server/Status/Monitor.php:73
-#, fuzzy
 msgid "Log statistics"
-msgstr "สถิติของแถว"
+msgstr "สถิติในบันทึก"
 
 #: libraries/classes/Server/Status/Monitor.php:74
-#, fuzzy
-#| msgid "Select All"
 msgid "Selected time range:"
-msgstr "เลือกทั้งหมด"
+msgstr "ช่วงเวลาที่เลือก:"
 
 #: libraries/classes/Server/Status/Monitor.php:82
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
-msgstr ""
+msgstr "ดึงข้อมูลเฉพาะคำสั่ง SELECT, INSERT, UPDATE และ DELETE เท่านั้น"
 
 #: libraries/classes/Server/Status/Monitor.php:88
 msgid "Remove variable data in INSERT statements for better grouping"
-msgstr ""
+msgstr "ลบข้อมูลตัวแปรในคำสั่ง INSERT เพื่อการจัดกลุ่มที่ดีขึ้น"
 
 #: libraries/classes/Server/Status/Monitor.php:92
 msgid "Choose from which log you want the statistics to be generated from."
-msgstr ""
+msgstr "เลือกบันทึกที่คุณต้องการใช้ในการสร้างสถิติ"
 
 #: libraries/classes/Server/Status/Monitor.php:96
 msgid "Results are grouped by query text."
-msgstr ""
+msgstr "ผลลัพธ์ถูกจัดกลุ่มตามข้อความคำสั่ง"
 
 #: libraries/classes/Server/Status/Monitor.php:100
-#, fuzzy
-#| msgid "Query type"
 msgid "Query analyzer"
-msgstr "ชนิดคำค้น"
+msgstr "ตัววิเคราะห์คำสั่ง"
 
 #: libraries/classes/Server/Status/Monitor.php:117
 msgid "Monitor Instructions"
-msgstr ""
+msgstr "คำแนะนำการใช้งานจอภาพ"
 
 #: libraries/classes/Server/Status/Monitor.php:119
 msgid ""
@@ -15931,40 +15774,32 @@ msgstr ""
 #: templates/database/designer/side_menu.twig:139
 #: templates/database/designer/side_menu.twig:142
 msgid "Toggle small/big"
-msgstr ""
+msgstr "สลับขนาดเล็ก/ใหญ่"
 
 #: templates/database/designer/side_menu.twig:146
 #: templates/database/designer/side_menu.twig:149
-#, fuzzy
-#| msgid "Traditional Chinese"
 msgid "Toggle relationship lines"
-msgstr "จีน (ไต้หวัน)"
+msgstr "สลับเส้นทางความสัมพันธ์"
 
 #: templates/database/designer/side_menu.twig:154
 #: templates/database/designer/side_menu.twig:157
-#, fuzzy
-#| msgid "Export"
 msgid "Export schema"
-msgstr "ส่งออก"
+msgstr "ส่งออกโครงร่าง"
 
 #: templates/database/designer/side_menu.twig:165
 #: templates/database/designer/side_menu.twig:168
-#, fuzzy
-#| msgid "Submit Query"
 msgid "Build Query"
-msgstr "ประมวลผลคำค้น"
+msgstr "สร้างคำสั่ง"
 
 #: templates/database/designer/side_menu.twig:173
 #: templates/database/designer/side_menu.twig:177
 msgid "Move Menu"
-msgstr ""
+msgstr "เมนูย้าย"
 
 #: templates/database/designer/side_menu.twig:181
 #: templates/database/designer/side_menu.twig:186
-#, fuzzy
-#| msgid "Partial Texts"
 msgid "Pin text"
-msgstr "ข้อความบางส่วน"
+msgstr "ปักหมุดข้อความ"
 
 #: templates/database/search/selection_form.twig:5
 msgid "Search in database"
@@ -15972,7 +15807,7 @@ msgstr "ค้นหาในฐานข้อมูล"
 
 #: templates/database/search/selection_form.twig:8
 msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "คำ หรือ ค่าที่ต้องการค้นหา (wildcard: \"%\"):"
+msgstr "คำหรือค่าที่ต้องการค้นหา (ตัวอักษรแทนค่า: \"%\"):"
 
 #: templates/database/search/selection_form.twig:29
 msgid "Inside tables:"
@@ -15980,41 +15815,36 @@ msgstr "ภายในตาราง:"
 
 #: templates/database/search/selection_form.twig:51
 msgid "Inside column:"
-msgstr "ในคอลัมน์:"
+msgstr "ภายในคอลัมน์:"
 
 #: templates/privileges/add_privileges_routine.twig:3
-#, fuzzy
-#| msgid "Add privileges on the following table"
 msgid "Add privileges on the following routine:"
-msgstr "เพิ่มสิทธิของตารางต่อไปนี้"
+msgstr "เพิ่มสิทธิ์การเข้าถึงให้กับรูทีนต่อไปนี้:"
 
 #: templates/table/structure/move_columns_dialog.twig:2
 msgid "Move the columns by dragging them up and down."
-msgstr ""
+msgstr "เลื่อนคอลัมน์โดยการลากขึ้นและลง"
 
 #: templates/database/designer/options_panel.twig:34
 #: templates/database/designer/options_panel.twig:199
-#, fuzzy
 msgid "Relationship operator"
-msgstr "มุมมองรีเลชัน"
+msgstr "ตัวดำเนินการความสัมพันธ์"
 
 #: templates/table/search/zoom_result_form.twig:7
 msgid "Browse/Edit the points"
-msgstr ""
+msgstr "เรียกดู/แก้ไขคะแนน"
 
 #: templates/table/search/zoom_result_form.twig:15
 msgid "How to use"
 msgstr "วิธีการใช้"
 
 #: templates/table/search/zoom_result_form.twig:23
-#, fuzzy
-#| msgid "Reset"
 msgid "Reset zoom"
-msgstr "เริ่มใหม่"
+msgstr "รีเซ็ตการซูม"
 
 #: templates/export/alias_item.twig:8
 msgid "Remove"
-msgstr ""
+msgstr "ลบ"
 
 #: templates/table/browse_foreigners/column_element.twig:4
 msgid "Use this value"
@@ -16025,24 +15855,20 @@ msgid ""
 "The configured two factor authentication is not available, please install "
 "missing dependencies."
 msgstr ""
+"ไม่สามารถใช้งานการตรวจสอบสิทธิ์แบบสองขั้นตอนที่ตั้งค่าไว้ได้ โปรดติดตั้งส่วนพึ่งพาที่ขาดหายไป"
 
 #: templates/columns_definitions/column_name.twig:4
-#, fuzzy, php-format
-#| msgid "Select referenced key"
+#, php-format
 msgid "Referenced by %s."
-msgstr "เลือกคีย์อ้างอิง"
+msgstr "อ้างอิงโดย %s."
 
 #: templates/columns_definitions/column_name.twig:12
-#, fuzzy
-#| msgid "Select Foreign Key"
 msgid "Is a foreign key."
 msgstr "เลือกคีย์นอก"
 
 #: templates/columns_definitions/column_name.twig:40
-#, fuzzy
-#| msgid "Remove chart"
 msgid "Pick from Central Columns"
-msgstr "เอาการแสดงผลออก"
+msgstr "เลือกจากคอลัมน์ส่วนกลาง"
 
 #: templates/table/tracking/structure_snapshot_columns.twig:47
 #: templates/table/structure/table_structure_row.twig:34
@@ -16051,10 +15877,8 @@ msgid "None"
 msgstr "ไม่มี"
 
 #: templates/prefs_twofactor_configure.twig:8
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Enable two-factor authentication"
-msgstr "กำหนดค่าการรับรองความถูกต้อง"
+msgstr "เปิดใช้งานการตรวจสอบสิทธิ์แบบสองขั้นตอน"
 
 #: templates/encoding/kanji_encoding_form.twig:6
 msgctxt "None encoding conversion"
@@ -16063,38 +15887,28 @@ msgstr "ไม่มี"
 
 #: templates/encoding/kanji_encoding_form.twig:17
 msgid "Convert to Kana"
-msgstr ""
+msgstr "แปลงเป็นอักษรคะนะ"
 
 #: templates/columns_definitions/partitions.twig:17
-#, fuzzy
-#| msgid "Position"
 msgid "Partition by:"
-msgstr "ตำแหน่ง"
+msgstr "พาร์ทิชันโดย:"
 
 #: templates/columns_definitions/partitions.twig:32
 #: templates/columns_definitions/partitions.twig:60
-#, fuzzy
-#| msgid "Values for column %s"
 msgid "Expression or column list"
-msgstr "ค่าสำหรับคอลัมน์ \"%s\""
+msgstr "รายการคำสั่งหรือคอลัมน์"
 
 #: templates/columns_definitions/partitions.twig:37
-#, fuzzy
-#| msgid "Position"
 msgid "Partitions:"
-msgstr "ตำแหน่ง"
+msgstr "พาร์ทิชัน:"
 
 #: templates/columns_definitions/partitions.twig:45
-#, fuzzy
-#| msgid "Position"
 msgid "Subpartition by:"
-msgstr "ตำแหน่ง"
+msgstr "พาร์ทิชันย่อยโดย:"
 
 #: templates/columns_definitions/partitions.twig:65
-#, fuzzy
-#| msgid "Position"
 msgid "Subpartitions:"
-msgstr "ตำแหน่ง"
+msgstr "พาร์ทิชันย่อย:"
 
 #: templates/columns_definitions/partitions.twig:78
 #, fuzzy
@@ -16103,57 +15917,41 @@ msgid "Values"
 msgstr "ค่า"
 
 #: templates/columns_definitions/partitions.twig:82
-#, fuzzy
-#| msgid "Position"
 msgid "Subpartition"
-msgstr "ตำแหน่ง"
+msgstr "พาร์ทิชันย่อย"
 
 #: templates/columns_definitions/partitions.twig:84
-#, fuzzy
-#| msgid "Engines"
 msgid "Engine"
 msgstr "เครื่องมือ"
 
 #: templates/columns_definitions/partitions.twig:86
-#, fuzzy
-#| msgid "Data Dictionary"
 msgid "Data directory"
 msgstr "พจนานุกรมข้อมูล"
 
 #: templates/columns_definitions/partitions.twig:87
-#, fuzzy
-#| msgid "Index type:"
 msgid "Index directory"
-msgstr "ชนิดของดัชนี :"
+msgstr "ดัชนีสารบัญ"
 
 #: templates/columns_definitions/partitions.twig:88
-#, fuzzy
-#| msgid "Affected rows:"
 msgid "Max rows"
-msgstr "ระเบียนที่มีผล:"
+msgstr "จำนวนแถวสูงสุด"
 
 #: templates/columns_definitions/partitions.twig:89
-#, fuzzy
-#| msgid "rows"
 msgid "Min rows"
-msgstr "เปิดดู"
+msgstr "จำนวนแถวต่ำสุด"
 
 #: templates/columns_definitions/partitions.twig:90
-#, fuzzy
-#| msgid "Search"
 msgid "Table space"
-msgstr "ค้นหา"
+msgstr "ช่องว่างตาราง"
 
 #: templates/columns_definitions/partitions.twig:91
-#, fuzzy
-#| msgid "Users"
 msgid "Node group"
-msgstr "ผู้ใช้"
+msgstr "กลุ่มโหนด"
 
 #: templates/table/structure/actions_in_table_structure.twig:15
 #, php-format
 msgid "A primary key has been added on %s."
-msgstr "ได้เพิ่มไพรมารีคีย์แล้วใน %s"
+msgstr "ได้เพิ่มคีย์หลักแล้วใน %s"
 
 #: templates/table/structure/actions_in_table_structure.twig:33
 #: templates/table/structure/actions_in_table_structure.twig:51
@@ -16165,62 +15963,47 @@ msgstr "ได้เพิ่มดัชนีแล้วใน %s"
 
 #: templates/table/structure/actions_in_table_structure.twig:127
 #: templates/table/structure/check_all_table_column.twig:83
-#, fuzzy
-#| msgid "Remove chart"
 msgid "Remove from central columns"
-msgstr "เอาการแสดงผลออก"
+msgstr "ลบออกจากคอลัมน์ส่วนกลาง"
 
 #: templates/table/structure/actions_in_table_structure.twig:131
 #: templates/table/structure/check_all_table_column.twig:76
-#, fuzzy
-#| msgid "CHAR textarea columns"
 msgid "Add to central columns"
-msgstr "คอลัมน์พื้นที่ข้อความ CHAR"
+msgstr "เพิ่มเข้าไปในคอลัมน์ส่วนกลาง"
 
 #: templates/privileges/privileges_summary.twig:20
 msgid "Column-specific privileges"
-msgstr "สิทธิเฉพาะคอลัมน์"
+msgstr "สิทธิ์เฉพาะคอลัมน์"
 
 #: templates/server/databases/create.twig:8
 #: templates/server/databases/create.twig:36
-#, fuzzy
-#| msgid "Create new database"
 msgid "Create database"
-msgstr "สร้างฐานข้อมูลใหม่"
+msgstr "สร้างฐานข้อมูล"
 
 #: templates/database/designer/query_details.twig:6
-#, fuzzy
-#| msgid "Table options"
 msgid "Active options"
-msgstr "ตัวเลือกตาราง"
+msgstr "ตัวเลือกที่ใช้งานอยู่"
 
 #: templates/table/structure/table_structure_row.twig:55
-#, fuzzy, php-format
-#| msgid "Table %s has been dropped."
+#, php-format
 msgid "Column %s has been dropped."
-msgstr "โยนตาราง %s ทิ้งไปเรียบร้อยแล้ว"
+msgstr "คอลัมน์ %s ถูกลบทิ้งแล้ว"
 
 #: templates/table/search/replace_preview.twig:13
 msgid "Find and replace - preview"
-msgstr ""
+msgstr "ค้นหาและแทนที่ - ดูตัวอย่าง"
 
 #: templates/table/search/replace_preview.twig:18
-#, fuzzy
-#| msgid "Original position"
 msgid "Original string"
-msgstr "ตำแหน่งเริ่มแรก"
+msgstr "สตริงดั้งเดิม"
 
 #: templates/table/search/replace_preview.twig:19
-#, fuzzy
-#| msgid "Relations"
 msgid "Replaced string"
-msgstr "รีเลชัน"
+msgstr "สตริงที่แทนที่"
 
 #: templates/table/search/replace_preview.twig:37
-#, fuzzy
-#| msgid "Replicated"
 msgid "Replace"
-msgstr "ทำซ้ำเรียบร้อยแล้ว"
+msgstr "แทนที่"
 
 #: templates/server/databases/index.twig:24
 msgid "No databases"
@@ -16231,46 +16014,43 @@ msgid ""
 "Please scan following QR code into the two-factor authentication app on your "
 "device and enter authentication code it generates."
 msgstr ""
+"โปรดสแกนคิวอาร์โค้ดต่อไปนี้ลงในแอปพลิเคชันยืนยันตัวตนสองขั้นตอนบนอุปกรณ์ของคุณ และป้อนรหัสยืนยันที่"
+"แอปสร้างขึ้น"
 
 #: templates/login/twofactor/application_configure.twig:11
 msgid ""
 "Please enter following secret/key into the two-factor authentication app on "
 "your device and enter authentication code it generates."
 msgstr ""
+"โปรดป้อนรหัสลับ/คีย์ต่อไปนี้ลงในแอปพลิเคชันการตรวจสอบสิทธิ์แบบสองขั้นตอนบนอุปกรณ์ของคุณ แล้วป้อนร"
+"หัสยืนยันที่แอปสร้างขึ้น"
 
 #: templates/login/twofactor/application_configure.twig:14
 msgid "OTP url:"
-msgstr ""
+msgstr "OTP URL:"
 
 #: templates/login/twofactor/application_configure.twig:18
 msgid "Secret/key:"
-msgstr ""
+msgstr "ข้อความลับ/คีย์:"
 
 #: templates/database/designer/table_list.twig:4
-#, fuzzy
 msgid "Hide/Show all"
-msgstr "แสดงทั้งหมด"
+msgstr "ซ่อน/แสดงทั้งหมด"
 
 #: templates/database/designer/table_list.twig:14
-#, fuzzy
-#| msgid "Propose table structure"
 msgid "Hide/Show tables with no relationship"
-msgstr "เสนอโครงสร้างตาราง"
+msgstr "ซ่อน/แสดงตารางโดยไม่มีความสัมพันธ์"
 
 #: templates/database/designer/table_list.twig:25
-#, fuzzy
-#| msgid "Number of rows per page"
 msgid "Number of tables:"
-msgstr "ระเบียนต่อหน้า"
+msgstr "จำนวนตาราง:"
 
 #: templates/database/multi_table_query/form.twig:16
 msgid "Query window"
-msgstr "หน้าต่างแบบสอบถาม"
+msgstr "หน้าต่างคำสั่งเรียกดู"
 
 #: templates/database/multi_table_query/form.twig:33
 #: templates/database/multi_table_query/form.twig:121
-#, fuzzy
-#| msgid "Select Tables"
 msgid "select table"
 msgstr "เลือกตาราง"
 
@@ -16280,130 +16060,104 @@ msgid "select column"
 msgstr "เลือกคอลัมน์"
 
 #: templates/database/multi_table_query/form.twig:46
-#, fuzzy
-#| msgid "Tables"
 msgid "Table alias"
-msgstr "ตาราง"
+msgstr "นามแฝงตาราง"
 
 #: templates/database/multi_table_query/form.twig:47
-#, fuzzy
-#| msgid "Column names"
 msgid "Column alias"
-msgstr "ชื่อคอลัมน์"
+msgstr "นามแฝงคอลัมน์"
 
 #: templates/database/multi_table_query/form.twig:50
 msgid "Use this column in criteria"
-msgstr ""
+msgstr "ใช้คอลัมน์นี้เป็นเงื่อนไข"
 
 #: templates/database/multi_table_query/form.twig:53
-#, fuzzy
-#| msgid "Criteria"
 msgid "criteria"
 msgstr "เงื่อนไข"
 
 #: templates/database/multi_table_query/form.twig:67
-#, fuzzy
-#| msgid "Add %s"
 msgid "Add as"
-msgstr "เพิ่ม %s"
+msgstr "เพิ่มเป็น"
 
 #: templates/database/multi_table_query/form.twig:112
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
 msgid "Another column"
-msgstr "เพิ่ม/ลบ คอลัมน์ (ฟิลด์)"
+msgstr "คอลัมน์อื่น"
 
 #: templates/database/multi_table_query/form.twig:140
 msgid "Enter criteria as free text"
-msgstr ""
+msgstr "ระบุเงื่อนไขเป็นข้อความอิสระ"
 
 #: templates/database/multi_table_query/form.twig:148
-#, fuzzy
-#| msgid "Remove chart"
 msgid "Remove this column"
-msgstr "เอาการแสดงผลออก"
+msgstr "ลบคอลัมน์นี้"
 
 #: templates/database/multi_table_query/form.twig:175
-#, fuzzy
-#| msgid "Update Query"
 msgid "Update query"
-msgstr "ปรับปรุงคำค้น"
+msgstr "คำสั่งอัปเดต"
 
 #: templates/server/binlog/log_selector.twig:5
 msgid "Select binary log to view"
-msgstr ""
+msgstr "เลือกบันทึกไบนารีเพื่อดู"
 
 #: templates/database/structure/tracking_icon.twig:3
 msgid "Tracking is active."
-msgstr "การติดตามเริ่มทำงานแล้ว"
+msgstr "การติดตามทำงานอยู่"
 
 #: templates/database/structure/tracking_icon.twig:5
 msgid "Tracking is not active."
-msgstr "หยุดการติดตามแล้ว"
+msgstr "การติดตามไม่ได้ทำงานอยู่"
 
 #: templates/export/alias_add.twig:4
 msgid "Define new aliases"
-msgstr ""
+msgstr "กำหนดนามแฝงใหม่"
 
 #: templates/export/alias_add.twig:9
-#, fuzzy
-#| msgid "Select Tables"
 msgid "Select database:"
-msgstr "เลือกตาราง"
+msgstr "เลือกฐานข้อมูล:"
 
 #: templates/export/alias_add.twig:15
-#, fuzzy
-#| msgid "Database"
 msgid "New database name"
-msgstr "ฐานข้อมูล"
+msgstr "ชื่อฐานข้อมูลใหม่"
 
 #: templates/export/alias_add.twig:23
-#, fuzzy
-#| msgid "Select Tables"
 msgid "Select table:"
-msgstr "เลือกตาราง"
+msgstr "เลือกตาราง:"
 
 #: templates/export/alias_add.twig:29
-#, fuzzy
-#| msgid "New table"
 msgid "New table name"
-msgstr "ไม่มีตาราง"
+msgstr "ชื่อตารางใหม่"
 
 #: templates/export/alias_add.twig:37
 msgid "Select column:"
 msgstr "เลือกคอลัมน์:"
 
 #: templates/export/alias_add.twig:43
-#, fuzzy
-#| msgid "Copy column name"
 msgid "New column name"
-msgstr "คัดลอกชื่อคอลัมน์"
+msgstr "ชื่อคอลัมน์ใหม่"
 
 #: templates/theme_preview.twig:11
 msgid "No preview available."
-msgstr "ไม่สามารถแสดงตัวอย่างได้"
+msgstr "ไม่มีตัวอย่างให้ดู"
 
 #: templates/theme_preview.twig:13
-#, fuzzy
-#| msgid "take it"
 msgid "Take it"
-msgstr "ใช้ชุดรูปแบบนี้"
+msgstr "รับไว้"
 
 #: templates/prefs_autoload.twig:7
 msgid ""
 "Your browser has phpMyAdmin configuration for this domain. Would you like to "
 "import it for current session?"
 msgstr ""
+"เบราว์เซอร์ของคุณมีการกำหนดค่า phpMyAdmin สำหรับโดเมนนี้ คุณต้องการนำเข้าสำหรับการใช้งานใน"
+"ครั้งนี้หรือไม่?"
 
 #: templates/prefs_autoload.twig:13
-#, fuzzy
-#| msgid "Deleting tracking data"
 msgid "Delete settings"
-msgstr "กำลังลบข้อมูลติดตามตาราง"
+msgstr "ลบการตั้งค่า"
 
 #: templates/table/index_form.twig:15
 msgid "Index name:"
-msgstr "ชื่อดัชนี :"
+msgstr "ชื่อดัชนี:"
 
 #: templates/table/index_form.twig:16
 msgid ""
@@ -16411,68 +16165,53 @@ msgid ""
 msgstr "\"PRIMARY\" <b>จะต้อง</b>เป็นชื่อของคีย์หลัก<b>เท่านั้น</b>!"
 
 #: templates/table/index_form.twig:34
-#, fuzzy
-#| msgid "Index name:"
 msgid "Index choice:"
-msgstr "ชื่อดัชนี :"
+msgstr "ตัวเลือกดัชนี:"
 
 #: templates/table/index_form.twig:42
-#, fuzzy
-#| msgid "Table options"
 msgid "Advanced Options"
-msgstr "ตัวเลือกตาราง"
+msgstr "ตัวเลือกขั้นสูง"
 
 #: templates/table/index_form.twig:48
 msgid "Key block size:"
-msgstr ""
+msgstr "ขนาดบล็อกคีย์:"
 
 #: templates/table/index_form.twig:65
 msgid "Index type:"
-msgstr "ชนิดของดัชนี :"
+msgstr "ชนิดของดัชนี:"
 
 #: templates/table/index_form.twig:77
-#, fuzzy
-#| msgid "User"
 msgid "Parser:"
-msgstr "ผู้ใช้"
+msgstr "ตัวแยกวิเคราะห์:"
 
 #: templates/table/index_form.twig:93
-#, fuzzy
-#| msgid "Comment"
 msgid "Comment:"
-msgstr "หมายเหตุ"
+msgstr "หมายเหตุ:"
 
 #: templates/table/index_form.twig:136 templates/table/index_form.twig:173
-#, fuzzy
-#| msgid "Drag to reorder"
 msgid "Drag to reorder"
-msgstr "ลากเพื่อเปลี่ยนลำดับ"
+msgstr "ลากเพื่อจัดเรียงลำดับใหม่"
 
 #: templates/table/insert/continue_insertion_form.twig:18
 #, php-format
 msgid "Continue insertion with %s rows"
-msgstr ""
+msgstr "ดำเนินการแทรกข้อมูลต่อไปอีก %s แถว"
 
 #: templates/database/structure/show_create.twig:2
-#, fuzzy
 msgid "Showing create queries"
-msgstr "แสดงคำค้นแบบเต็ม"
+msgstr "แสดงคำสั่งการสร้าง"
 
 #: templates/table/relation/common_form.twig:6
-#, fuzzy
-#| msgid "Foreign key check:"
 msgid "Foreign key constraints"
-msgstr "ตรวจสอบคีย์ต่างประเทศ:"
+msgstr "ข้อจำกัดคีย์นอก"
 
 #: templates/table/relation/common_form.twig:10
 msgid "Actions"
 msgstr "กระทำการ"
 
 #: templates/table/relation/common_form.twig:11
-#, fuzzy
-#| msgid "Column names"
 msgid "Constraint properties"
-msgstr "ชื่อคอลัมน์"
+msgstr "คุณสมบัติข้อจำกัด"
 
 #: templates/table/relation/common_form.twig:15
 msgid ""
@@ -16480,86 +16219,78 @@ msgid ""
 "an index on it. Alternatively, you can define an index below, before "
 "creating the foreign key."
 msgstr ""
+"การสร้างคีย์นอกบนคอลัมน์ที่ยังไม่ได้สร้างดัชนี จะสร้างดัชนีบนคอลัมน์นั้นโดยอัตโนมัติ หรืออีกทางเลือกหนึ่"
+"ง คุณสามารถกำหนดดัชนีด้านล่างก่อนที่จะสร้างคีย์นอกได้"
 
 #: templates/table/relation/common_form.twig:20
 msgid ""
 "Only columns with index will be displayed. You can define an index below."
-msgstr ""
+msgstr "แสดงเฉพาะคอลัมน์ที่มีดัชนีเท่านั้น คุณสามารถกำหนดดัชนีได้ด้านล่าง"
 
 #: templates/table/relation/common_form.twig:24
 msgid "Foreign key constraint"
-msgstr ""
+msgstr "ข้อจำกัดคีย์นอก"
 
 #: templates/table/relation/common_form.twig:89
-#, fuzzy
-#| msgid "Add constraints"
 msgid "+ Add constraint"
-msgstr "เพิ่ม constraints"
+msgstr "+ เพิ่มข้อจำกัด"
 
 #: templates/table/relation/common_form.twig:99
 #: templates/table/relation/common_form.twig:104
-#, fuzzy
-#| msgid "Internal relations"
 msgid "Internal relationships"
-msgstr "รีเลชันภายใน"
+msgstr "ความสัมพันธ์ภายใน"
 
 #: templates/table/relation/common_form.twig:110
-#, fuzzy
-#| msgid "Internal relations"
 msgid "Internal relation"
-msgstr "รีเลชันภายใน"
+msgstr "ความสัมพันธ์ภายใน"
 
 #: templates/table/relation/common_form.twig:112
 msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
 msgstr ""
+"ไม่จำเป็นต้องมีความสัมพันธ์ภายในหากมีความสัมพันธ์มี FOREIGN KEY ที่สอดคล้องกันอยู่แล้ว"
 
 #: templates/table/relation/common_form.twig:172
-#, fuzzy
-#| msgid "Choose column to display"
 msgid "Choose column to display:"
-msgstr "เลือกฟิลด์ที่ต้องการแสดง"
+msgstr "เลือกคอลัมน์ที่จะแสดง:"
 
 #: url.php:41
-#, fuzzy
-#| msgid "Tracking report"
 msgid "Taking you to the target site."
-msgstr "รายงานผลการติดตาม"
+msgstr "นำคุณไปยังไซต์เป้าหมาย"
 
 #: user_password.php:37
 msgid "You don't have sufficient privileges to be here right now!"
-msgstr "คุณไม่มีสิทธิที่จะเข้ามาตรงนี้!"
+msgstr "คุณไม่มีสิทธิ์เพียงพอที่จะอยู่ที่นี่ในตอนนี้!"
 
 #: view_create.php:46
 msgid "View name can not be empty!"
-msgstr ""
+msgstr "ชื่อมุมมองต้องไม่เป็นค่าว่าง!"
 
 #: view_operations.php:105
-#, fuzzy
 msgid "Rename view to"
-msgstr "เปลี่ยนชื่อตารางเป็น"
+msgstr "แก้ไขชื่อมุมมองเป็น"
 
 #: view_operations.php:144
-#, fuzzy
 msgid "Delete the view (DROP)"
-msgstr "ไม่มีฐานข้อมูล"
+msgstr "ลบมุมมอง (DROP)"
 
 #: libraries/advisory_rules_generic.txt:49
 msgid "Uptime below one day"
-msgstr "เวลาทำงานไม่ถึงหนึ่งวัน"
+msgstr "ระยะเวลาการทำงานต่ำกว่าหนึ่งวัน"
 
 #: libraries/advisory_rules_generic.txt:52
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
-msgstr "เนื่องจากเวลาทำงานมีน้อยกว่า 1 วัน การปรับประสิทธิภาพอาจจะไม่แม่นยำ"
+msgstr ""
+"ระยะเวลาการทำงานต่อเนื่องน้อยกว่า 1 วัน การปรับแต่งประสิทธิภาพอาจไม่แม่นยำ"
 
 #: libraries/advisory_rules_generic.txt:53
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr ""
-"หากต้องการให้ความแม่นยำโดยเฉลี่ยมีมากขึ้น "
-"แนะนำให้ปล่อยเซิร์ฟเวอร์ทำงานเป็นเวลานานกว่าหนึ่งวันแล้วค่อยเรียกใช้เครื่องมือวิเคราะห์นี้"
+"เพื่อให้ได้ค่าเฉลี่ยที่แม่นยำยิ่งขึ้น แนะนำให้ปล่อยให้เซิร์ฟเวอร์ทำงานนานกว่าหนึ่งวันก่อนเรียกใช้โปรแกรม"
+"วิเคราะห์นี้"
 
 #: libraries/advisory_rules_generic.txt:54
 #, php-format
@@ -16575,15 +16306,14 @@ msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
 msgstr ""
-"มีคำถามที่ถูกเรียกใช้ผ่านเซิร์ฟเวอร์นี้น้อยกว่า 1,000 คำถาม คำแนะนำอาจจะไม่แม่นยำ"
+"มีคำถามที่ถูกเรียกใช้ผ่านเซิร์ฟเวอร์นี้น้อยกว่า 1,000 คำถาม คำแนะนำอาจไม่แม่นยำ"
 
 #: libraries/advisory_rules_generic.txt:60
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
 msgstr ""
-"ให้ปล่อยเซิร์ฟเวอร์ทำงานเป็นเวลานานกว่านี้จนกว่าเซิร์ฟเวอร์จะดำเนินงานกับแบบสอบถามได้ในจำนวนที่"
-"มากกว่านี้"
+"ปล่อยให้เซิร์ฟเวอร์ทำงานต่อไปอีกนานจนกว่าจะประมวลผลคำสั่งค้นหาได้มากขึ้น"
 
 #: libraries/advisory_rules_generic.txt:61
 #, php-format
@@ -16592,12 +16322,12 @@ msgstr "จำนวนคำถามปัจจุบัน: %s"
 
 #: libraries/advisory_rules_generic.txt:63
 msgid "Percentage of slow queries"
-msgstr "ค่าเปอร์เซ็นต์ของแบบสอบถามที่ทำงานช้า"
+msgstr "ค่าเปอร์เซ็นต์ของคำสั่งที่ทำงานช้า"
 
 #: libraries/advisory_rules_generic.txt:66
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
-msgstr "มีแบบสอบถามที่ทำงานช้าจำนวนมากเมื่อเทียบกับจำนวนแบบสอบถามโดยรวม"
+msgstr "มีคำสั่งที่ตอบสนองช้าจำนวนมากเมื่อเทียบกับจำนวนคำสั่งโดยรวม"
 
 #: libraries/advisory_rules_generic.txt:67
 #: libraries/advisory_rules_generic.txt:74
@@ -16605,23 +16335,22 @@ msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
 msgstr ""
-"คุณอาจต้องเพิ่ม {long_query_time} "
-"หรือเร่งประสิทธิภาพแบบสอบถามที่แสดงในข้อมูลบันทึกแบบสอบถามที่ทำงานช้า"
+"คุณอาจต้องเพิ่ม {long_query_time} หรือเร่งประสิทธิภาพคำสั่งที่แสดงในข้อมูลบันทึกคำสั่งที่ทำงานช้า"
 
 #: libraries/advisory_rules_generic.txt:68
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
-msgstr "อัตราแบบสอบถามที่ทำงานช้าควรจะต่ำกว่า 5%% แต่ค่าของคุณอยู่ที่ %s%%"
+msgstr "อัตราคำสั่งที่ทำงานช้าควรจะต่ำกว่า 5%% แต่ค่าของคุณอยู่ที่ %s%%"
 
 #: libraries/advisory_rules_generic.txt:70
 msgid "Slow query rate"
-msgstr "อัตราแบบสอบถามที่ทำงานช้า"
+msgstr "อัตราคำสั่งที่ทำงานช้า"
 
 #: libraries/advisory_rules_generic.txt:73
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
-"มีค่าเปอร์เซ็นต์ของแบบสอบถามที่ทำงานช้าสูงเมื่อเทียบกับเวลาทำงานของเซิร์ฟเวอร์"
+"มีค่าเปอร์เซ็นต์ของคำสั่งที่ทำงานช้าสูงเมื่อเทียบกับเวลาทำงานของเซิร์ฟเวอร์"
 
 #: libraries/advisory_rules_generic.txt:75
 #, php-format
@@ -16629,19 +16358,19 @@ msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr ""
-"คุณมีอัตราแบบสอบถามที่ทำงานช้าอยู่ที่ %s ต่อชั่วโมง ซึ่งค่าของคุณควรจะน้อยกว่า 1%% ต่อชั่วโมง"
+"คุณมีอัตราคำสั่งที่ทำงานช้าอยู่ที่ %s ต่อชั่วโมง ซึ่งค่าของคุณควรจะน้อยกว่า 1%% ต่อชั่วโมง"
 
 #: libraries/advisory_rules_generic.txt:77
 msgid "Long query time"
-msgstr "เวลาแบบสอบถามที่ทำงานนาน"
+msgstr "เวลาคำสั่งที่ทำงานนาน"
 
 #: libraries/advisory_rules_generic.txt:80
 msgid ""
 "{long_query_time} is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
-"{long_query_time} ถูกตั้งค่าเป็น 10 วินาทีขึ้นไป "
-"ดังนั้นจะบันทึกเฉพาะแบบสอบถามที่ทำงานช้าซึ่งใช้เวลาเกิน 10 วินาทีขึ้นไปเท่านั้น"
+"{long_query_time} ถูกตั้งค่าเป็น 10 วินาทีขึ้นไป ดังนั้นจะบันทึกเฉพาะคำสั่งที่ทำงานช้าซึ่งใช้เวลาเกิ"
+"น 10 วินาทีขึ้นไปเท่านั้น"
 
 #: libraries/advisory_rules_generic.txt:81
 msgid ""
@@ -16654,98 +16383,98 @@ msgstr ""
 #: libraries/advisory_rules_generic.txt:82
 #, php-format
 msgid "long_query_time is currently set to %ds."
-msgstr "long_query_time ถูกตั้งไว้ที่ %d วินาที"
+msgstr "long_query_time ถูกตั้งไว้ที่ %ds"
 
 #: libraries/advisory_rules_generic.txt:84
 #: libraries/advisory_rules_generic.txt:91
-#, fuzzy
-#| msgid "Show query box"
 msgid "Slow query logging"
-msgstr "แสดงช่องคำค้น SQL"
+msgstr "การบันทึกคำสั่งที่ช้า"
 
 #: libraries/advisory_rules_generic.txt:87
 #: libraries/advisory_rules_generic.txt:94
-#, fuzzy
-#| msgid "slow_query_log is enabled."
 msgid "The slow query log is disabled."
-msgstr "slow_query_log ถูกเปิดไว้"
+msgstr "slow_query_log ถูกปิดการใช้งานแล้ว"
 
 #: libraries/advisory_rules_generic.txt:88
 msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
+"เปิดใช้งานการบันทึกข้อมูลการทำงานของคำสั่งที่ช้าโดยตั้งค่า {log_slow_queries} เป็น 'ON' การตั้"
+"งค่านี้จะช่วยในการแก้ไขปัญหาคำสั่งที่ทำงานได้ไม่ดี"
 
 #: libraries/advisory_rules_generic.txt:89
-#, fuzzy
-#| msgid "long_query_time is set to %d second(s)."
 msgid "log_slow_queries is set to 'OFF'"
-msgstr "long_query_time ถูกตั้งไว้ที่ %d วินาที"
+msgstr "log_slow_queries ถูกตั้งเป็น 'OFF'"
 
 #: libraries/advisory_rules_generic.txt:95
 msgid ""
 "Enable slow query logging by setting {slow_query_log} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
+"เปิดใช้งานการบันทึกข้อมูลการทำงานของคำสั่งที่ช้าโดยตั้งค่า {slow_query_log} เป็น 'ON' การตั้งค่"
+"านี้จะช่วยในการแก้ไขปัญหาคำสั่งที่ทำงานได้ไม่ดี"
 
 #: libraries/advisory_rules_generic.txt:96
-#, fuzzy
-#| msgid "long_query_time is set to %d second(s)."
 msgid "slow_query_log is set to 'OFF'"
-msgstr "long_query_time ถูกตั้งไว้ที่ %d วินาที"
+msgstr "slow_query_log  ถูกตั้งเป็น 'OFF'"
 
 #: libraries/advisory_rules_generic.txt:100
 msgid "Release Series"
-msgstr "ชุดการออกรุ่น"
+msgstr "ชุดที่เผยแพร่"
 
 #: libraries/advisory_rules_generic.txt:103
 msgid "The MySQL server version less than 5.1."
-msgstr "รุ่น MySQL ต่ำกว่า 5.1"
+msgstr "เวอร์ชันเซิร์ฟเวอร์ MySQL ต่ำกว่า 5.1"
 
 #: libraries/advisory_rules_generic.txt:104
 msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
 msgstr ""
+"คุณควรทำการอัปเกรด เนื่องจาก MySQL 5.1 มีประสิทธิภาพที่ดีขึ้น และ MySQL 5.5 มีประสิทธิภาพดียิ่ง"
+"ขึ้นไปอีก"
 
 #: libraries/advisory_rules_generic.txt:105
 #: libraries/advisory_rules_generic.txt:112
 #: libraries/advisory_rules_generic.txt:119
 #, php-format
 msgid "Current version: %s"
-msgstr "รุ่นที่ใช้: %s"
+msgstr "เวอร์ชันปัจจุบัน: %s"
 
 #: libraries/advisory_rules_generic.txt:107
 #: libraries/advisory_rules_generic.txt:114
 msgid "Minor Version"
-msgstr "รุ่นย่อย"
+msgstr "เวอร์ชันย่อย"
 
 #: libraries/advisory_rules_generic.txt:110
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
-msgstr ""
+msgstr "เวอร์ชันต่ำกว่า 5.1.30 (เวอร์ชัน GA แรกของ 5.1)"
 
 #: libraries/advisory_rules_generic.txt:111
 msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
 msgstr ""
+"คุณควรทำการอัปเกรด เนื่องจาก MySQL เวอร์ชันล่าสุด 5.1 มีประสิทธิภาพที่ดีขึ้น และ MySQL 5.5 มีป"
+"ระสิทธิภาพดียิ่งขึ้นไปอีก"
 
 #: libraries/advisory_rules_generic.txt:117
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
-msgstr "รุ่นต่ำกว่า 5.5.8 (GA รุ่นแรกของ 5.5)"
+msgstr "เวอร์ชันต่ำกว่า 5.5.8 (เวอร์ชัน GA แรกของ 5.5)"
 
 #: libraries/advisory_rules_generic.txt:118
 msgid "You should upgrade, to a stable version of MySQL 5.5."
-msgstr "คุณควรอัพเกรดเป็น MySQL 5.5 รุ่นเสถียร"
+msgstr "คุณควรอัปเกรดเป็น MySQL เวอร์ชัน 5.5 ที่เสถียร"
 
 #: libraries/advisory_rules_generic.txt:121
 #: libraries/advisory_rules_generic.txt:128
 msgid "Distribution"
-msgstr "ชุดเผยแพร่"
+msgstr "ชุดเผยแพร่อื่น"
 
 #: libraries/advisory_rules_generic.txt:124
 msgid "Version is compiled from source, not a MySQL official binary."
-msgstr "รุ่นนี้ถูกคอมไพล์จากซอร์ส ไม่ได้คอมไพล์จากไบนารีทางการของ MySQL"
+msgstr "เวอร์ชันนี้คอมไพล์จากต้นฉบับ ไม่ใช่ไฟล์ไบนารีอย่างเป็นทางการของ MySQL"
 
 #: libraries/advisory_rules_generic.txt:125
 msgid ""
@@ -16753,31 +16482,34 @@ msgid ""
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
 "not any package distributions (such as RedHat, Debian/Ubuntu etc)."
 msgstr ""
-"หากคุณไม่ได้คอมไพล์จากซอร์ส คุณอาจกำลังใช้แพ็กเกจที่มีการดัดแปลงโดยชุดเผยแพร่ คู่มือ MySQL "
-"นั้นจะมีความแม่นยำสำหรับไบนารี MySQL ทางการเท่านั้น ไม่ใช่ชุดเผยแพร่แพ็กเกจ (เช่น RedHat, "
-"Debian/Ubuntu และอื่นๆ)"
+"หากคุณไม่ได้คอมไพล์จากต้นฉบับ คุณอาจกำลังใช้แพ็กเกจที่ถูกดัดแปลงโดยชุดเผยแพร่อื่น คู่มือ MySQL นั้นถู"
+"กต้องเฉพาะกับไบนารี MySQL อย่างเป็นทางการเท่านั้น ไม่ใช่แพ็กเกจจากชุดเผยแพร่อื่น (เช่น "
+"RedHat, Debian/Ubuntu เป็นต้น)"
 
 #: libraries/advisory_rules_generic.txt:126
 msgid "'source' found in version_comment"
-msgstr ""
+msgstr "พบ 'source' ใน version_comment"
 
 #: libraries/advisory_rules_generic.txt:131
 msgid "The MySQL manual only is accurate for official MySQL binaries."
 msgstr ""
+"คู่มือ MySQL มีความถูกต้องเฉพาะสำหรับไฟล์ไบนารี MySQL อย่างเป็นทางการเท่านั้น"
 
 #: libraries/advisory_rules_generic.txt:132
 msgid ""
 "Percona documentation is at <a href=\"https://www.percona.com/software/"
 "documentation/\">https://www.percona.com/software/documentation/</a>"
 msgstr ""
+"เอกสารประกอบการใช้งาน Percona อยู่ที่ <a href=\"https://www.percona.com/software/"
+"documentation/\">https://www.percona.com/software/documentation/</a>"
 
 #: libraries/advisory_rules_generic.txt:133
 msgid "'percona' found in version_comment"
-msgstr ""
+msgstr "พบ 'percona' ใน version_comment"
 
 #: libraries/advisory_rules_generic.txt:135
 msgid "MySQL Architecture"
-msgstr "สถาปัตยกรรม ของ MySQL"
+msgstr "สถาปัตยกรรม MySQL"
 
 #: libraries/advisory_rules_generic.txt:138
 msgid "MySQL is not compiled as a 64-bit package."
@@ -16789,8 +16521,9 @@ msgid ""
 "so MySQL might not be able to access all of your memory. You might want to "
 "consider installing the 64-bit version of MySQL."
 msgstr ""
-"ความจุหน่วยความจำของคุณสูงกว่า 3 GiB (สมมุติว่าเซิร์ฟเวอร์อยู่บน localhost) ดังนั้น MySQL "
-"จึงอาจจะไม่สามารถเข้าถึงหน่วยความจำของคุณได้ทั้งหมด คุณอาจต้องพิจารณาติดตั้ง MySQL รุ่น 64 บิต"
+"ความจุหน่วยความจำของคุณมากกว่า 3 GiB (โดยสมมติว่าเซิร์ฟเวอร์อยู่บน localhost) ดังนั้น "
+"MySQL อาจไม่สามารถเข้าถึงหน่วยความจำทั้งหมดของคุณได้ คุณอาจต้องพิจารณาติดตั้ง MySQL เวอร์ชัน "
+"64 บิต"
 
 #: libraries/advisory_rules_generic.txt:140
 #, php-format
@@ -16799,13 +16532,11 @@ msgstr "หน่วยความจำที่ใช้ได้บนโฮ
 
 #: libraries/advisory_rules_generic.txt:145
 msgid "Query caching method"
-msgstr "รูปแบบ หน่วยความจำของชุดคำสั่ง"
+msgstr "วิธีการแคชคำสั่ง"
 
 #: libraries/advisory_rules_generic.txt:148
-#, fuzzy
-#| msgid "Query caching method"
 msgid "Suboptimal caching method."
-msgstr "รูปแบบ หน่วยความจำของชุดคำสั่ง"
+msgstr "วิธีการแคชข้อมูลที่ไม่เหมาะสม"
 
 #: libraries/advisory_rules_generic.txt:149
 msgid ""
@@ -16814,6 +16545,9 @@ msgid ""
 "refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple slaves."
 msgstr ""
+"คุณกำลังใช้แคช MySQL Query กับฐานข้อมูลที่มีปริมาณการใช้งานค่อนข้างสูง อาจคุ้มค่าที่จะพิจารณาใช้ "
+"<a href=\"https://dev.mysql.com/doc/refman/5.5/en/ha-memcached.html\">"
+"memcached</a> แทนแคช MySQL Query โดยเฉพาะอย่างยิ่งหากคุณมีเซิร์ฟเวอร์สเลฟหลายตัว"
 
 #: libraries/advisory_rules_generic.txt:150
 #, php-format
@@ -16821,6 +16555,8 @@ msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
 msgstr ""
+"แคชคำสั่งถูกเปิดใช้งาน และเซิร์ฟเวอร์รับคำสั่งจำนวน %d ครั้งต่อวินาที กฎนี้จะทำงานหากมีคำสั่งมากกว่"
+"า 100 ครั้งต่อวินาที"
 
 #: libraries/advisory_rules_generic.txt:154
 #, fuzzy
