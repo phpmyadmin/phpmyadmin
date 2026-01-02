@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
 "PO-Revision-Date: 2026-01-03 06:36+0000\n"
-"Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
+"Last-Translator: AnawinWz <imonmac@hotmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/4-9/th/>"
 "\n"
 "Language: th\n"
@@ -28,7 +28,7 @@ msgstr "ไฟล์ %s ไม่พร้อมใช้งานในระ�
 
 #: db_central_columns.php:129
 msgid "The central list of columns for the current database is empty."
-msgstr "รายการชุดกลางของคอลัมน์สำหรับฐานข้อมูลปัจจุบันว่างเปล่า"
+msgstr "รายการคอลัมน์กลางของฐานข้อมูลปัจจุบันนั้นว่างเปล่า"
 
 #: db_central_columns.php:158
 msgid "Click to sort."
