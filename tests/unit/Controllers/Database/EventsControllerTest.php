@@ -24,7 +24,8 @@ final class EventsControllerTest extends AbstractTestCase
     {
         Current::$server = 2;
         Current::$database = 'test_db';
-        Config::getInstance()->selectedServer['DisableIS'] = true;
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = true;
 
         $dummyDbi = $this->createDbiDummy();
         // phpcs:disable Generic.Files.LineLength.TooLong
@@ -58,7 +59,7 @@ final class EventsControllerTest extends AbstractTestCase
         (new EventsController(
             $response,
             $template,
-            new Events($dbi),
+            new Events($dbi, $config),
             $dbi,
             new DbTableExists($dbi),
         ))($request);
@@ -228,7 +229,8 @@ final class EventsControllerTest extends AbstractTestCase
     {
         Current::$server = 2;
         Current::$database = 'test_db';
-        Config::getInstance()->selectedServer['DisableIS'] = true;
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = true;
 
         $dummyDbi = $this->createDbiDummy();
         // phpcs:disable Generic.Files.LineLength.TooLong
@@ -262,7 +264,7 @@ final class EventsControllerTest extends AbstractTestCase
         (new EventsController(
             $response,
             $template,
-            new Events($dbi),
+            new Events($dbi, $config),
             $dbi,
             new DbTableExists($dbi),
         ))($request);

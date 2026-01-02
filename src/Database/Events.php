@@ -43,7 +43,7 @@ class Events
     /** @var list<string> */
     private array $errors = [];
 
-    public function __construct(private DatabaseInterface $dbi)
+    public function __construct(private readonly DatabaseInterface $dbi, private readonly Config $config)
     {
         $this->status = [
             'query' => ['ENABLE', 'DISABLE', 'DISABLE ON SLAVE'],
@@ -350,7 +350,7 @@ class Events
      */
     public function getDetails(string $db, string $name = ''): array
     {
-        if (! Config::getInstance()->selectedServer['DisableIS']) {
+        if (! $this->config->selectedServer['DisableIS']) {
             $query = QueryGenerator::getInformationSchemaEventsRequest(
                 $this->dbi->quoteString($db),
                 $name === '' ? null : $this->dbi->quoteString($name),

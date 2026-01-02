@@ -82,6 +82,7 @@ final readonly class SearchController implements InvocableController
 
         // Create a database search instance
         $databaseSearch = new Search($this->dbi, Current::$database, $this->template);
+        $databaseSearch->setSearchParams($request);
 
         // Main search form has been submitted, get results
         if ($request->hasBodyParam('submit_search')) {

@@ -26,8 +26,12 @@ use function str_contains;
  */
 class Designer
 {
-    public function __construct(private DatabaseInterface $dbi, private Relation $relation, public Template $template)
-    {
+    public function __construct(
+        private readonly DatabaseInterface $dbi,
+        private readonly Relation $relation,
+        public readonly Template $template,
+        private readonly Config $config,
+    ) {
     }
 
     /**
@@ -134,7 +138,7 @@ class Designer
             return $formatParam;
         }
 
-        return Config::getInstance()->settings['Schema']['format'];
+        return $this->config->settings['Schema']['format'];
     }
 
     /**
@@ -152,7 +156,7 @@ class Designer
                 . Util::backquote($databaseDesignerSettingsFeature->database) . '.'
                 . Util::backquote($databaseDesignerSettingsFeature->designerSettings)
                 . ' WHERE ' . Util::backquote('username') . ' = '
-                . $this->dbi->quoteString(Config::getInstance()->selectedServer['user'])
+                . $this->dbi->quoteString($this->config->selectedServer['user'])
                 . ';';
 
             $result = $this->dbi->fetchSingleRow($query);

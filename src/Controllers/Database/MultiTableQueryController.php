@@ -31,9 +31,13 @@ final class MultiTableQueryController implements InvocableController
     {
         $this->response->addScriptFiles(['database/multi_table_query.js', 'database/query_generator.js']);
 
-        $queryInstance = new MultiTableQuery($this->dbi, $this->template, Current::$database);
+        $multiTableQuery = new MultiTableQuery($this->dbi);
 
-        $this->response->addHTML($queryInstance->getFormHtml());
+        $this->response->addHTML($this->template->render('database/multi_table_query/form', [
+            'db' => Current::$database,
+            'tables' => $multiTableQuery->getColumnsInTables(Current::$database),
+            'default_no_of_columns' => 3,
+        ]));
 
         return $this->response->response();
     }

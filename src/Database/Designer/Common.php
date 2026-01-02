@@ -32,29 +32,31 @@ use function rawurlencode;
  */
 class Common
 {
-    public function __construct(private DatabaseInterface $dbi, private Relation $relation)
-    {
+    public function __construct(
+        private readonly DatabaseInterface $dbi,
+        private readonly Relation $relation,
+        private readonly Config $config,
+    ) {
     }
 
     /**
      * Retrieves table info and returns it
      *
-     * @param string|null $db    (optional) Filter only a DB ($table is required if you use $db)
-     * @param string|null $table (optional) Filter only a table ($db is now required)
+     * @param string $db    (optional) Filter only a DB ($table is required if you use $db)
+     * @param string $table (optional) Filter only a table ($db is now required)
      *
      * @return DesignerTable[] with table info
      */
-    public function getTablesInfo(string|null $db = null, string|null $table = null): array
+    public function getTablesInfo(string $db = '', string $table = ''): array
     {
         $designerTables = [];
-        $db ??= Current::$database;
+        if ($db === '') {
+            $db = Current::$database;
+        }
+
         // seems to be needed later
         $this->dbi->selectDb($db);
-        if ($table === null) {
-            $tables = $this->dbi->getTablesFull($db);
-        } else {
-            $tables = $this->dbi->getTablesFull($db, $table);
-        }
+        $tables = $this->dbi->getTablesFull($db, $table);
 
         foreach ($tables as $oneTable) {
             $df = $this->relation->getDisplayField($db, $oneTable['TABLE_NAME']);
@@ -217,7 +219,7 @@ class Common
      *
      * @param int $pg pdf page id
      *
-     * @return mixed[] of table positions
+     * @return string[][] of table positions
      */
     public function getTablePositions(int $pg): array
     {
@@ -636,7 +638,7 @@ class Common
         $databaseDesignerSettingsFeature = $this->relation->getRelationParameters()->databaseDesignerSettingsFeature;
         if ($databaseDesignerSettingsFeature !== null) {
             $cfgDesigner = [
-                'user' => Config::getInstance()->selectedServer['user'],
+                'user' => $this->config->selectedServer['user'],
                 'db' => $databaseDesignerSettingsFeature->database->getName(),
                 'table' => $databaseDesignerSettingsFeature->designerSettings->getName(),
             ];

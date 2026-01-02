@@ -1609,50 +1609,8 @@ parameters:
 			path: src/Controllers/Database/DataDictionaryController.php
 
 		-
-			message: '#^Binary operation "\." between mixed and ''\.'' results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Controllers/Database/DesignerController.php
-
-		-
-			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Controllers/Database/DesignerController.php
-
-		-
-			message: '#^Cannot access offset ''dbName'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Controllers/Database/DesignerController.php
-
-		-
-			message: '#^Cannot access offset ''tableName'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Controllers/Database/DesignerController.php
-
-		-
 			message: '#^Cannot cast mixed to int\.$#'
 			identifier: cast.int
-			count: 1
-			path: src/Controllers/Database/DesignerController.php
-
-		-
-			message: '#^Parameter \#1 \$db of method PhpMyAdmin\\Database\\Designer\:\:getHtmlForEditOrDeletePages\(\) expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/Controllers/Database/DesignerController.php
-
-		-
-			message: '#^Parameter \#1 \$db of method PhpMyAdmin\\Database\\Designer\:\:getHtmlForPageSaveAs\(\) expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Database/DesignerController.php
-
-		-
-			message: '#^Parameter \#1 \$db of method PhpMyAdmin\\Database\\Designer\:\:getHtmlForSchemaExport\(\) expects string, string\|null given\.$#'
-			identifier: argument.type
 			count: 1
 			path: src/Controllers/Database/DesignerController.php
 
@@ -1669,37 +1627,7 @@ parameters:
 			path: src/Controllers/Database/DesignerController.php
 
 		-
-			message: '#^Parameter \#1 \$db of method PhpMyAdmin\\Database\\Designer\\Common\:\:getTablesInfo\(\) expects string\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Database/DesignerController.php
-
-		-
-			message: '#^Parameter \#1 \$db of method PhpMyAdmin\\Database\\Designer\\Common\:\:saveDisplayField\(\) expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Database/DesignerController.php
-
-		-
 			message: '#^Parameter \#1 \$db of static method PhpMyAdmin\\Url\:\:getHiddenInputs\(\) expects array\<mixed\>\|string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Database/DesignerController.php
-
-		-
-			message: '#^Parameter \#2 \$db of method PhpMyAdmin\\Database\\Designer\\Common\:\:createNewPage\(\) expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Database/DesignerController.php
-
-		-
-			message: '#^Parameter \#2 \$table of method PhpMyAdmin\\Database\\Designer\\Common\:\:getTablesInfo\(\) expects string\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Database/DesignerController.php
-
-		-
-			message: '#^Parameter \#2 \$table of method PhpMyAdmin\\Database\\Designer\\Common\:\:saveDisplayField\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Database/DesignerController.php
@@ -1757,12 +1685,6 @@ parameters:
 			identifier: array.invalidKey
 			count: 1
 			path: src/Controllers/Database/ImportController.php
-
-		-
-			message: '#^Parameter \#2 \$db of static method PhpMyAdmin\\Database\\MultiTableQuery\:\:displayResults\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Database/MultiTableQuery/QueryController.php
 
 		-
 			message: '#^Binary operation "\-" between mixed and 1 results in an error\.$#'
@@ -4651,15 +4573,6 @@ parameters:
 			path: src/Database/CentralColumns.php
 
 		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 2
-			path: src/Database/Designer.php
-
-		-
 			message: '#^Method PhpMyAdmin\\Database\\Designer\:\:getSideMenuParamsArray\(\) should return array\<mixed\> but returns mixed\.$#'
 			identifier: return.type
 			count: 1
@@ -4678,15 +4591,6 @@ parameters:
 			path: src/Database/Designer/Common.php
 
 		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Database/Designer/Common.php
-
-		-
 			message: '#^Cannot access offset mixed on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 4
@@ -4701,6 +4605,12 @@ parameters:
 		-
 			message: '#^For loop initial assignment overwrites variable \$i\.$#'
 			identifier: for.variableOverwrite
+			count: 1
+			path: src/Database/Designer/Common.php
+
+		-
+			message: '#^Method PhpMyAdmin\\Database\\Designer\\Common\:\:getTablePositions\(\) should return array\<array\<string\>\> but returns array\<array\<string\|null\>\>\.$#'
+			identifier: return.type
 			count: 1
 			path: src/Database/Designer/Common.php
 
@@ -4761,15 +4671,6 @@ parameters:
 		-
 			message: '#^Binary operation "\.\=" between non\-falsy\-string and mixed results in an error\.$#'
 			identifier: assignOp.invalid
-			count: 1
-			path: src/Database/Events.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
 			count: 1
 			path: src/Database/Events.php
 
@@ -4840,24 +4741,6 @@ parameters:
 			path: src/Database/Events.php
 
 		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Database/MultiTableQuery.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Database/MultiTableQuery.php
-
-		-
 			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
 			identifier: foreach.nonIterable
 			count: 2
@@ -4872,15 +4755,6 @@ parameters:
 		-
 			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
-			count: 2
-			path: src/Database/Routines.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
 			count: 2
 			path: src/Database/Routines.php
 
@@ -5083,19 +4957,7 @@ parameters:
 			path: src/Database/Routines.php
 
 		-
-			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
-			identifier: empty.notAllowed
-			count: 4
-			path: src/Database/Search.php
-
-		-
 			message: '#^Property PhpMyAdmin\\Database\\Search\:\:\$criteriaTables \(array\<string\>\) does not accept array\<mixed\>\.$#'
-			identifier: assign.propertyType
-			count: 1
-			path: src/Database/Search.php
-
-		-
-			message: '#^Property PhpMyAdmin\\Database\\Search\:\:\$searchTypeDescription \(string\) does not accept mixed\.$#'
 			identifier: assign.propertyType
 			count: 1
 			path: src/Database/Search.php

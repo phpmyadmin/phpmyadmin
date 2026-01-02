@@ -31,9 +31,10 @@ class EventsTest extends AbstractTestCase
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         Current::$database = 'db';
         Current::$table = 'table';
-        Config::getInstance()->selectedServer['DisableIS'] = false;
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = false;
 
-        $this->events = new Events(DatabaseInterface::getInstance());
+        $this->events = new Events(DatabaseInterface::getInstance(), $config);
     }
 
     /**

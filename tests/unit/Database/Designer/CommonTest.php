@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Database\Designer;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Database\Designer\Common;
@@ -22,7 +23,7 @@ final class CommonTest extends AbstractTestCase
     {
         self::clearRelationParameters();
         $dbi = $this->createDatabaseInterface();
-        self::assertSame([], (new Common($dbi, new Relation($dbi)))->getTablePositions(1));
+        self::assertSame([], (new Common($dbi, new Relation($dbi), new Config()))->getTablePositions(1));
     }
 
     public function testGetTablePositions(): void
@@ -48,7 +49,7 @@ final class CommonTest extends AbstractTestCase
                 // phpcs:ignore Generic.Files.LineLength.TooLong
                 'sakila.address' => ['name' => 'sakila.address', 'dbName' => 'sakila', 'tableName' => 'address', 'X' => '550', 'Y' => '526', 'V' => '1', 'H' => '1'],
             ],
-            (new Common($dbi, new Relation($dbi)))->getTablePositions(1),
+            (new Common($dbi, new Relation($dbi), new Config()))->getTablePositions(1),
         );
 
         $dbiDummy->assertAllQueriesConsumed();
@@ -58,7 +59,7 @@ final class CommonTest extends AbstractTestCase
     {
         self::clearRelationParameters();
         $dbi = $this->createDatabaseInterface();
-        self::assertNull((new Common($dbi, new Relation($dbi)))->getPageName(1));
+        self::assertNull((new Common($dbi, new Relation($dbi), new Config()))->getPageName(1));
     }
 
     public function testGetPageName(): void
@@ -69,7 +70,7 @@ final class CommonTest extends AbstractTestCase
         $dbiDummy->addResult('SELECT `page_descr` FROM `pmadb`.`pdf_pages` WHERE `page_nr` = 1', [['pageName']]);
         $dbi = $this->createDatabaseInterface($dbiDummy);
 
-        self::assertSame('pageName', (new Common($dbi, new Relation($dbi)))->getPageName(1));
+        self::assertSame('pageName', (new Common($dbi, new Relation($dbi), new Config()))->getPageName(1));
         $dbiDummy->assertAllQueriesConsumed();
     }
 
@@ -77,7 +78,7 @@ final class CommonTest extends AbstractTestCase
     {
         self::clearRelationParameters();
         $dbi = $this->createDatabaseInterface();
-        self::assertFalse((new Common($dbi, new Relation($dbi)))->deletePage(1));
+        self::assertFalse((new Common($dbi, new Relation($dbi), new Config()))->deletePage(1));
     }
 
     public function testDeletePage(): void
@@ -89,7 +90,7 @@ final class CommonTest extends AbstractTestCase
         $dbiDummy->addResult('DELETE FROM `pmadb`.`pdf_pages` WHERE `page_nr` = 1', true);
         $dbi = $this->createDatabaseInterface($dbiDummy);
 
-        self::assertTrue((new Common($dbi, new Relation($dbi)))->deletePage(1));
+        self::assertTrue((new Common($dbi, new Relation($dbi), new Config()))->deletePage(1));
         $dbiDummy->assertAllQueriesConsumed();
     }
 
@@ -97,7 +98,7 @@ final class CommonTest extends AbstractTestCase
     {
         self::clearRelationParameters();
         $dbi = $this->createDatabaseInterface();
-        self::assertSame(-1, (new Common($dbi, new Relation($dbi)))->getDefaultPage('test_db'));
+        self::assertSame(-1, (new Common($dbi, new Relation($dbi), new Config()))->getDefaultPage('test_db'));
     }
 
     /**
@@ -115,7 +116,7 @@ final class CommonTest extends AbstractTestCase
         );
         $dbi = $this->createDatabaseInterface($dbiDummy);
 
-        self::assertSame(2, (new Common($dbi, new Relation($dbi)))->getDefaultPage('test_db'));
+        self::assertSame(2, (new Common($dbi, new Relation($dbi), new Config()))->getDefaultPage('test_db'));
         $dbiDummy->assertAllQueriesConsumed();
     }
 
@@ -133,7 +134,7 @@ final class CommonTest extends AbstractTestCase
         );
         $dbi = $this->createDatabaseInterface($dbiDummy);
 
-        self::assertSame(-1, (new Common($dbi, new Relation($dbi)))->getDefaultPage('test_db'));
+        self::assertSame(-1, (new Common($dbi, new Relation($dbi), new Config()))->getDefaultPage('test_db'));
         $dbiDummy->assertAllQueriesConsumed();
     }
 
@@ -141,7 +142,7 @@ final class CommonTest extends AbstractTestCase
     {
         self::clearRelationParameters();
         $dbi = $this->createDatabaseInterface();
-        self::assertSame(-1, (new Common($dbi, new Relation($dbi)))->getLoadingPage('test_db'));
+        self::assertSame(-1, (new Common($dbi, new Relation($dbi), new Config()))->getLoadingPage('test_db'));
     }
 
     /**
@@ -158,7 +159,7 @@ final class CommonTest extends AbstractTestCase
         );
         $dbi = $this->createDatabaseInterface($dbiDummy);
 
-        self::assertSame(2, (new Common($dbi, new Relation($dbi)))->getLoadingPage('test_db'));
+        self::assertSame(2, (new Common($dbi, new Relation($dbi), new Config()))->getLoadingPage('test_db'));
         $dbiDummy->assertAllQueriesConsumed();
     }
 
@@ -180,7 +181,7 @@ final class CommonTest extends AbstractTestCase
         );
         $dbi = $this->createDatabaseInterface($dbiDummy);
 
-        self::assertSame(1, (new Common($dbi, new Relation($dbi)))->getLoadingPage('test_db'));
+        self::assertSame(1, (new Common($dbi, new Relation($dbi), new Config()))->getLoadingPage('test_db'));
         $dbiDummy->assertAllQueriesConsumed();
     }
 
@@ -275,7 +276,7 @@ final class CommonTest extends AbstractTestCase
         );
         $dbi = $this->createDatabaseInterface($dbiDummy);
 
-        $designerCommon = new Common($dbi, new Relation($dbi));
+        $designerCommon = new Common($dbi, new Relation($dbi), new Config());
         $result = $designerCommon->removeRelation('db\'1.table\'1', 'field\'1', 'db\'2.table\'2', 'field\'2');
 
         self::assertEquals(Message::error('Error: Relational features are disabled!'), $result);
@@ -312,7 +313,7 @@ final class CommonTest extends AbstractTestCase
         );
         $dbi = $this->createDatabaseInterface($dbiDummy);
 
-        $designerCommon = new Common($dbi, new Relation($dbi));
+        $designerCommon = new Common($dbi, new Relation($dbi), new Config());
         $result = $designerCommon->removeRelation('db\'1.table\'1', 'field\'1', 'db\'2.table\'2', 'field\'2');
 
         self::assertEquals(Message::success('Internal relationship has been removed.'), $result);
@@ -350,7 +351,7 @@ final class CommonTest extends AbstractTestCase
 
         $dbi = $this->createDatabaseInterface($dbiDummy);
 
-        $designerCommon = new Common($dbi, new Relation($dbi));
+        $designerCommon = new Common($dbi, new Relation($dbi), new Config());
         $result = $designerCommon->removeRelation('db\'1.table\'1', 'field\'1', 'db\'2.table\'2', 'field\'2');
         $dbiDummy->assertAllQueriesConsumed();
 
@@ -388,7 +389,7 @@ final class CommonTest extends AbstractTestCase
 
         $dbi = $this->createDatabaseInterface($dbiDummy);
 
-        $designerCommon = new Common($dbi, new Relation($dbi));
+        $designerCommon = new Common($dbi, new Relation($dbi), new Config());
 
         $result = $designerCommon->removeRelation('db\'1.table\'1', 'field\'1', 'db\'2.table\'2', 'field\'2');
         $dbiDummy->assertAllQueriesConsumed();

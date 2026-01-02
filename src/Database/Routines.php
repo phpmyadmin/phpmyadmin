@@ -59,7 +59,7 @@ class Routines
     /** @var array<string> */
     private array $errors = [];
 
-    public function __construct(private DatabaseInterface $dbi)
+    public function __construct(private readonly DatabaseInterface $dbi, private readonly Config $config)
     {
         $this->directions = ['IN', 'OUT', 'INOUT'];
         $this->sqlDataAccess = ['CONTAINS SQL', 'NO SQL', 'READS SQL DATA', 'MODIFIES SQL DATA'];
@@ -591,7 +591,7 @@ class Routines
             return [];
         }
 
-        $allCharsets = Charsets::getCharsets($this->dbi, Config::getInstance()->selectedServer['DisableIS']);
+        $allCharsets = Charsets::getCharsets($this->dbi, $this->config->selectedServer['DisableIS']);
         $charsets = [];
         foreach ($allCharsets as $charset) {
             $charsets[] = [
@@ -1079,7 +1079,7 @@ class Routines
                 continue;
             }
 
-            if (Config::getInstance()->settings['ShowFunctionFields']) {
+            if ($this->config->settings['ShowFunctionFields']) {
                 if (
                     stripos($routine['item_param_type'][$i], 'enum') !== false
                     || stripos($routine['item_param_type'][$i], 'set') !== false
