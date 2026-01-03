@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-10-16 23:57-0300\n"
-"PO-Revision-Date: 2024-06-13 16:09+0000\n"
-"Last-Translator: Ricky From Hong Kong <lamricky11@hotmail.com>\n"
-"Language-Team: Azerbaijani <https://hosted.weblate.org/projects/phpmyadmin/"
-"5-2/az/>\n"
+"PO-Revision-Date: 2026-01-04 03:01+0000\n"
+"Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
+"Language-Team: Azerbaijani <https://hosted.weblate.org/projects/phpmyadmin/5-"
+"2/az/>\n"
 "Language: az\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.6-dev\n"
+"X-Generator: Weblate 5.15.1\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -3491,7 +3491,7 @@ msgstr "Konsol"
 
 #: libraries/classes/Config/Descriptions.php:787
 msgid "GZip"
-msgstr ""
+msgstr "GZip"
 
 #: libraries/classes/Config/Descriptions.php:788
 msgid "Extra parameters for iconv"
