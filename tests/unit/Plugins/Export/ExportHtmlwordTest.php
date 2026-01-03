@@ -695,61 +695,38 @@ class ExportHtmlwordTest extends AbstractTestCase
      * Integration test: Export table structure through Export::exportTable()
      * Tests that exportStructure() method is called when exporting through Export::exportTable()
      */
-    public function testExportTableStructureThroughExportCore(): void
+    public function testExportTableCallsExportStructureMethod(): void
     {
-        // Mock the database interface
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
-        // Mock Table class to return isView = false
-        $table = $this->getMockBuilder(Table::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $table->method('isView')->willReturn(false);
-
-        $dbi->method('getTable')->willReturn($table);
         DatabaseInterface::$instance = $dbi;
 
-        // Create a mock ExportHtmlword to verify getTableDef is called
         $relation = new Relation($dbi);
         $outputHandler = new OutputHandler();
-        $exportHtmlword = $this->getMockBuilder(ExportHtmlword::class)
-            ->setConstructorArgs([$relation, $outputHandler, new Transformations($dbi, $relation)])
-            ->onlyMethods(['getTableDef'])
-            ->getMock();
-
-        // getTableDef should be called during structure export
-        $exportHtmlword->expects(self::once())
-            ->method('getTableDef')
-            ->with('testdb', 'testtable', [])
-            ->willReturn('<table>test</table>');
+        $exportHtmlword = new ExportHtmlword($relation, $outputHandler, new Transformations($dbi, $relation));
 
         // Force structureOrData to be StructureAndData so structure export is attempted
         $attrStructureOrData = new ReflectionProperty(ExportHtmlword::class, 'structureOrData');
         $attrStructureOrData->setValue($exportHtmlword, StructureOrData::Structure);
+        
+        // Integration: Export::exportTable() should call exportStructure() on the plugin
+        $export = new Export($dbi, $outputHandler);
 
-        // Now call exportTable through the Export class
         ob_start();
-        try {
-            $exportcore = new Export($dbi, $outputHandler);
-            $exportcore->exportTable(
-                'testdb',
-                'testtable',
-                $exportHtmlword,
-                null,
-                '0',
-                '0',
-                '',
-                [],
-            );
-            $output = ob_get_clean();
-        } catch (\Throwable $e) {
-            ob_end_clean();
-            throw $e;
-        }
+        $export->exportTable(
+            'test_db',
+            'test_table',
+            $exportHtmlword,
+            null,
+            '',
+            '',
+            '',
+            []
+        );
+        $output = ob_get_clean();
 
-        // Verify that structure output was generated
-        self::assertIsString($output);
+        self::assertStringContainsString('<h2>Table structure for table test_table</h2>', $output);
     }
 }

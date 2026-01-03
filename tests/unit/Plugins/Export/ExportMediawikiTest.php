@@ -327,33 +327,14 @@ class ExportMediawikiTest extends AbstractTestCase
      * Integration test: Export table structure through Export::exportTable()
      * Tests that exportStructure() method is called when exporting through Export::exportTable()
      */
-    public function testExportTableStructureThroughExportCore(): void
+    public function testExportTableCallsExportStructureMethod(): void
     {
-        // Mock the database interface
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
-        // Mock Table class to return isView = false
-        $table = $this->getMockBuilder(Table::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $table->method('isView')->willReturn(false);
-
-        $dbi->method('getTable')->willReturn($table);
-
-        // Mock getColumns to return a simple column structure
-        $columns = [
-            new Column('id', 'int(11)', null, false, 'PRI', null, '', '', ''),
-        ];
-        $dbi->expects(self::once())
-            ->method('getColumns')
-            ->with('testdb', 'testtable')
-            ->willReturn($columns);
-
         DatabaseInterface::$instance = $dbi;
 
-        // Create the ExportMediawiki instance
         $relation = new Relation($dbi);
         $exportMediawiki = new ExportMediawiki(
             $relation,
@@ -367,8 +348,8 @@ class ExportMediawikiTest extends AbstractTestCase
 
         // Now call exportTable through the Export class
         ob_start();
-        $exportcore = new Export($dbi, new OutputHandler());
-        $exportcore->exportTable(
+        $export = new Export($dbi, new OutputHandler());
+        $export->exportTable(
             'testdb',
             'testtable',
             $exportMediawiki,

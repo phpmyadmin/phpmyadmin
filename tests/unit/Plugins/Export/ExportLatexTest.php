@@ -802,39 +802,14 @@ class ExportLatexTest extends AbstractTestCase
      * Integration test: Export table structure through Export::exportTable()
      * Tests that exportStructure() method is called when exporting through Export::exportTable()
      */
-    public function testExportTableStructureThroughExportCore(): void
+    public function testExportTableCallsExportStructureMethod(): void
     {
-        // Mock the database interface
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
-        // Mock Table class to return isView = false
-        $table = $this->getMockBuilder(Table::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $table->method('isView')->willReturn(false);
-
-        $dbi->method('getTable')->willReturn($table);
-
-        // Mock getTableIndexes to return empty array (no unique keys)
-        $dbi->method('getTableIndexes')->willReturn([]);
-
-        // Mock getColumns to return empty array
-        $dbi->method('getColumns')->willReturn([]);
-
-        // Mock selectDb (required for data export)
-        $dbi->method('selectDb')->willReturn(true);
-
-        // Mock getNonGeneratedColumns for Table
-        $table->method('getNonGeneratedColumns')->willReturn(['id', 'name']);
-
-        // Mock tryQuery to return false (simulating no data)
-        $dbi->method('tryQuery')->willReturn(false);
-
         DatabaseInterface::$instance = $dbi;
 
-        // Create ExportLatex instance
         $relation = new Relation($dbi);
         $outputHandler = new OutputHandler();
         $exportLatex = new ExportLatex($relation, $outputHandler, new Transformations($dbi, $relation));
@@ -843,11 +818,10 @@ class ExportLatexTest extends AbstractTestCase
         $attrStructureOrData = new ReflectionProperty(ExportLatex::class, 'structureOrData');
         $attrStructureOrData->setValue($exportLatex, StructureOrData::Structure);
 
-        // Now call exportTable through the Export class
         ob_start();
         try {
-            $exportcore = new Export($dbi, $outputHandler);
-            $exportcore->exportTable(
+            $export = new Export($dbi, $outputHandler);
+            $export->exportTable(
                 'testdb',
                 'testtable',
                 $exportLatex,
@@ -863,7 +837,8 @@ class ExportLatexTest extends AbstractTestCase
             throw $e;
         }
 
-        // Verify that structure output was generated
-        self::assertIsString($output);
+        self::assertStringContainsString("% Database: 'testdb'", $output);
+        self::assertStringContainsString("%\n", $output);
+        self::assertStringContainsString("% Structure: testtable", $output);
     }
 }
