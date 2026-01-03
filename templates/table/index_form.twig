@@ -233,6 +233,13 @@
                                     name="index[columns][sub_parts][]"
                                     value="">
                             </td>
+                            <td>
+                                <select name="index[columns][collations][]">
+                                    <option value="None" selected>None</option>
++                                   <option value="A">A</option>
++                                   <option value="D">D</option>
+                                </select>
+                            </td>
                         </tr>
                     {% endfor %}
                 {% endif %}
