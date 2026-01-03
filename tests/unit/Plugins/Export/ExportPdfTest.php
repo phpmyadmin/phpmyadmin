@@ -276,6 +276,4 @@ class ExportPdfTest extends AbstractTestCase
         self::assertStringStartsWith('%PDF-', $output);
         self::assertGreaterThan(5000, strlen($output));
     }
-
-
 }
