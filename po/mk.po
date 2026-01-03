@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2025-09-29 01:02+0000\n"
-"Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
-"Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
-"4-9/mk/>\n"
+"PO-Revision-Date: 2026-01-03 06:36+0000\n"
+"Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
+"Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/4-"
+"9/mk/>\n"
 "Language: mk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 5.14-dev\n"
+"X-Generator: Weblate 5.15.1\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -4782,7 +4782,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:610
 msgid "GZip"
-msgstr ""
+msgstr "GZip"
 
 #: libraries/classes/Config/Descriptions.php:612
 msgid "Extra parameters for iconv"
