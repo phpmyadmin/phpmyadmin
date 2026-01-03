@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-10-16 23:57-0300\n"
-"PO-Revision-Date: 2025-07-08 10:01+0000\n"
-"Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/5-2/el/"
-">\n"
+"PO-Revision-Date: 2026-01-04 03:01+0000\n"
+"Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
+"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/5-2/el/>"
+"\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.15.1\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -3680,7 +3680,7 @@ msgstr "Εισαγωγή / εξαγωγή"
 
 #: libraries/classes/Config/Descriptions.php:758
 msgid "LaTeX"
-msgstr "Έγγραφο LaTeX"
+msgstr "LaTeX"
 
 #: libraries/classes/Config/Descriptions.php:760
 #: libraries/classes/Config/Forms/User/NaviForm.php:68
