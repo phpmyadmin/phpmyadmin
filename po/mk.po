@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-10-16 23:57-0300\n"
 "PO-Revision-Date: 2026-01-04 03:01+0000\n"
-"Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
+"Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/5-"
 "2/mk/>\n"
 "Language: mk\n"
@@ -39,7 +39,7 @@ msgstr "Работно време е само %s"
 
 #: libraries/advisory_rules_generic.php:22
 msgid "Questions below 1,000"
-msgstr "Прашања под 1,000"
+msgstr "Прашања под 1000"
 
 #: libraries/advisory_rules_generic.php:26
 msgid ""
@@ -60,7 +60,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.php:32
 #, php-format
 msgid "Current amount of Questions: %s"
-msgstr "Сегашна вредност на Прашања: %s"
+msgstr "Сегашна количина на Прашања: %s"
 
 #: libraries/advisory_rules_generic.php:37
 msgid "Percentage of slow queries"
@@ -15136,7 +15136,7 @@ msgstr "phpMyAdmin Демо Сервер"
 #: templates/footer.twig:34
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
-msgstr ""
+msgstr "Моментално на Git ревизијата %1$s од гранката %2$s."
 
 #: templates/footer.twig:36
 msgid "Git information missing!"
