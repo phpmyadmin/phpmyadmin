@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2025-12-04 08:00+0000\n"
-"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
+"PO-Revision-Date: 2026-01-03 06:36+0000\n"
+"Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "ka/>\n"
 "Language: ka\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.15-dev\n"
+"X-Generator: Weblate 5.15.1\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -9222,10 +9222,8 @@ msgid "Purpose:"
 msgstr "დანიშნულება:"
 
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:541
-#, fuzzy
-#| msgid "MIME type"
 msgid "MIME"
-msgstr "MIME-ის ტიპი"
+msgstr "MIME"
 
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:51
 msgid ""
