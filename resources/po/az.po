@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-12-28 00:32+0000\n"
-"PO-Revision-Date: 2024-06-13 15:09+0000\n"
-"Last-Translator: Ricky From Hong Kong <lamricky11@hotmail.com>\n"
+"PO-Revision-Date: 2026-01-03 06:36+0000\n"
+"Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
 "Language-Team: Azerbaijani <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/az/>\n"
 "Language: az\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.6-dev\n"
+"X-Generator: Weblate 5.15.1\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -11340,7 +11340,7 @@ msgstr "Xəbərdarlıqlar"
 
 #: src/Config/Descriptions.php:767
 msgid "GZip"
-msgstr ""
+msgstr "GZip"
 
 #: src/Config/Descriptions.php:768
 msgid "Extra parameters for iconv"
