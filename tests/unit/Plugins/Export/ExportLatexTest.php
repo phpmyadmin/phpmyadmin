@@ -11,7 +11,10 @@ use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\OutputHandler;
+use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Export\StructureOrData;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
+use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Plugins\Export\ExportLatex;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\ExportType;
@@ -793,5 +796,49 @@ class ExportLatexTest extends AbstractTestCase
                 'strTest Structure of table @TABLE@ Content of table @TABLE@ (continued) strTest',
             ],
         ];
+    }
+
+    /**
+     * Integration test: Export table structure through Export::exportTable()
+     * Tests that exportStructure() method is called when exporting through Export::exportTable()
+     */
+    public function testExportTableCallsExportStructureMethod(): void
+    {
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        DatabaseInterface::$instance = $dbi;
+
+        $relation = new Relation($dbi);
+        $outputHandler = new OutputHandler();
+        $exportLatex = new ExportLatex($relation, $outputHandler, new Transformations($dbi, $relation));
+
+        // Force structureOrData to be Structure only to avoid data export issues
+        $attrStructureOrData = new ReflectionProperty(ExportLatex::class, 'structureOrData');
+        $attrStructureOrData->setValue($exportLatex, StructureOrData::Structure);
+
+        ob_start();
+        try {
+            $export = new Export($dbi, $outputHandler);
+            $export->exportTable(
+                'testdb',
+                'testtable',
+                $exportLatex,
+                null,
+                '0',
+                '0',
+                '',
+                [],
+            );
+            $output = ob_get_clean();
+        } catch (\Throwable $e) {
+            ob_end_clean();
+            throw $e;
+        }
+
+        self::assertStringContainsString("% Database: 'testdb'", $output);
+        self::assertStringContainsString("%\n", $output);
+        self::assertStringContainsString("% Structure: testtable", $output);
     }
 }
