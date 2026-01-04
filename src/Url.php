@@ -62,7 +62,7 @@ class Url
         }
 
         $config = Config::getInstance();
-        if (Current::$server > 0 && Current::$server !== $config->settings['ServerDefault']) {
+        if (Current::$server > 0 && Current::$server !== $config->config->ServerDefault) {
             $params['server'] = Current::$server;
         }
 
@@ -218,7 +218,7 @@ class Url
         $config = Config::getInstance();
         if (
             Current::$server > 0
-            && Current::$server !== $config->settings['ServerDefault']
+            && Current::$server !== $config->config->ServerDefault
             && ! isset($params['server'])
             && ! $config->isSetup()
         ) {

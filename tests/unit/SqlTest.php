@@ -47,19 +47,6 @@ class SqlTest extends AbstractTestCase
         DatabaseInterface::$instance = $this->dbi;
         Current::$database = 'db';
         Current::$table = 'table';
-        $config = Config::getInstance();
-        $config->settings['AllowThirdPartyFraming'] = false;
-        $config->set('SendErrorReports', 'ask');
-        $config->settings['ServerDefault'] = 1;
-        $config->settings['DefaultTabDatabase'] = '/database/structure';
-        $config->settings['DefaultTabTable'] = '/sql';
-        $config->settings['ShowDatabasesNavigationAsTree'] = true;
-        $config->settings['NavigationTreeDefaultTabTable'] = '/table/structure';
-        $config->settings['NavigationTreeDefaultTabTable2'] = '';
-        $config->settings['LimitChars'] = 50;
-        $config->settings['Confirm'] = true;
-        $config->settings['LoginCookieValidity'] = 1440;
-        $config->settings['enable_drag_drop_import'] = true;
 
         $relation = new Relation($this->dbi);
         $this->sql = new Sql(

@@ -609,7 +609,7 @@ class ImportCsv extends AbstractImportCsv
         // Commit any possible data in buffers
         $this->import->runQuery('', $sqlStatements);
 
-        if ($values === [] || Import::$hasError !== false) {
+        if ($values === [] || Import::$hasError) {
             return $sqlStatements;
         }
 

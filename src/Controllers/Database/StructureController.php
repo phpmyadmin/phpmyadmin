@@ -233,8 +233,8 @@ final class StructureController implements InvocableController
         $createTimeAll = null;
         $updateTimeAll = null;
         $checkTimeAll = null;
-        $numColumns = $this->config->settings['PropertiesNumColumns'] > 1
-            ? ceil($this->numTables / $this->config->settings['PropertiesNumColumns']) + 1
+        $numColumns = $this->config->config->PropertiesNumColumns > 1
+            ? ceil($this->numTables / $this->config->config->PropertiesNumColumns) + 1
             : 0;
         $rowCount = 0;
         $sumSize = 0;
@@ -374,7 +374,7 @@ final class StructureController implements InvocableController
                     'db' => Current::$database,
                     'db_is_system_schema' => $this->dbIsSystemSchema,
                     'replication' => $replicaInfo['status'],
-                    'properties_num_columns' => $this->config->settings['PropertiesNumColumns'],
+                    'properties_num_columns' => $this->config->config->PropertiesNumColumns,
                     'is_show_stats' => $this->isShowStats,
                     'show_charset' => $this->config->settings['ShowDbStructureCharset'],
                     'show_comment' => $this->config->settings['ShowDbStructureComment'],
@@ -429,7 +429,7 @@ final class StructureController implements InvocableController
                     ),
                 ),
                 'num_favorite_tables' => $this->config->settings['NumFavoriteTables'],
-                'properties_num_columns' => $this->config->settings['PropertiesNumColumns'],
+                'properties_num_columns' => $this->config->config->PropertiesNumColumns,
                 'limit_chars' => $this->config->settings['LimitChars'],
                 'show_charset' => $this->config->settings['ShowDbStructureCharset'],
                 'show_comment' => $this->config->settings['ShowDbStructureComment'],
@@ -456,7 +456,7 @@ final class StructureController implements InvocableController
         $relationParameters = $this->relation->getRelationParameters();
 
         $defaultStorageEngine = '';
-        if ($this->config->settings['PropertiesNumColumns'] < 2) {
+        if ($this->config->config->PropertiesNumColumns < 2) {
             // MySQL <= 5.5.2
             $defaultStorageEngine = $this->dbi->fetchValue('SELECT @@storage_engine;');
             if (! is_string($defaultStorageEngine) || $defaultStorageEngine === '') {
@@ -469,7 +469,7 @@ final class StructureController implements InvocableController
             'db' => Current::$database,
             'db_is_system_schema' => $this->dbIsSystemSchema,
             'replication' => $replicaInfo['status'],
-            'properties_num_columns' => $this->config->settings['PropertiesNumColumns'],
+            'properties_num_columns' => $this->config->config->PropertiesNumColumns,
             'is_show_stats' => $this->isShowStats,
             'show_charset' => $this->config->settings['ShowDbStructureCharset'],
             'show_comment' => $this->config->settings['ShowDbStructureComment'],
@@ -494,7 +494,7 @@ final class StructureController implements InvocableController
                 'approx_rows' => $overallApproxRows,
                 'num_favorite_tables' => $this->config->settings['NumFavoriteTables'],
                 'db' => Current::$database,
-                'properties_num_columns' => $this->config->settings['PropertiesNumColumns'],
+                'properties_num_columns' => $this->config->config->PropertiesNumColumns,
                 'default_storage_engine' => $defaultStorageEngine,
                 'show_charset' => $this->config->settings['ShowDbStructureCharset'],
                 'show_comment' => $this->config->settings['ShowDbStructureComment'],
@@ -1003,7 +1003,7 @@ final class StructureController implements InvocableController
                     $sortOrder,
                     $tableType,
                 );
-                $groupWithSeparator = $tableGroupParam . $this->config->settings['NavigationTreeTableSeparator'];
+                $groupWithSeparator = $tableGroupParam . $this->config->config->NavigationTreeTableSeparator;
             }
         } else {
             // all tables in db
@@ -1069,7 +1069,7 @@ final class StructureController implements InvocableController
         ) {
             $group = $this->dbi->escapeMysqlWildcards((string) $_REQUEST['tbl_group']);
             $groupWithSeparator = $this->dbi->escapeMysqlWildcards(
-                $_REQUEST['tbl_group'] . $this->config->settings['NavigationTreeTableSeparator'],
+                $_REQUEST['tbl_group'] . $this->config->config->NavigationTreeTableSeparator,
             );
             $tblGroupSql .= ' WHERE ('
                 . Util::backquote('Tables_in_' . $db)

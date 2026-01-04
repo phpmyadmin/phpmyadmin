@@ -107,11 +107,11 @@ final readonly class ChartController implements InvocableController
                 return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
             }
 
-            $urlParams['goto'] = Url::getFromRoute($this->config->settings['DefaultTabTable']);
+            $urlParams['goto'] = Url::getFromRoute($this->config->config->DefaultTabTable);
             $urlParams['back'] = Url::getFromRoute('/table/sql');
             $this->dbi->selectDb(Current::$database);
         } elseif (Current::$database !== '') {
-            $urlParams['goto'] = Url::getFromRoute($this->config->settings['DefaultTabDatabase']);
+            $urlParams['goto'] = Url::getFromRoute($this->config->config->DefaultTabDatabase);
             $urlParams['back'] = Url::getFromRoute('/sql');
 
             $databaseName = DatabaseName::tryFrom($request->getParam('db'));
@@ -129,7 +129,7 @@ final readonly class ChartController implements InvocableController
                 );
             }
         } else {
-            $urlParams['goto'] = Url::getFromRoute($this->config->settings['DefaultTabServer']);
+            $urlParams['goto'] = Url::getFromRoute($this->config->config->DefaultTabServer);
             $urlParams['back'] = Url::getFromRoute('/sql');
 
             if ($this->dbi->isSuperUser()) {

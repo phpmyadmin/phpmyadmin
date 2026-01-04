@@ -224,8 +224,8 @@ final readonly class ImportController implements InvocableController
         }
 
         Util::setTimeLimit();
-        if (! empty($this->config->settings['MemoryLimit'])) {
-            ini_set('memory_limit', $this->config->settings['MemoryLimit']);
+        if ($this->config->config->MemoryLimit !== '' && $this->config->config->MemoryLimit !== '0') {
+            ini_set('memory_limit', $this->config->config->MemoryLimit);
         }
 
         ImportSettings::$timestamp = time();
@@ -367,11 +367,11 @@ final readonly class ImportController implements InvocableController
             ImportSettings::$importFileName = $_FILES['import_file']['name'];
         }
 
-        if (ImportSettings::$localImportFile !== '' && $this->config->settings['UploadDir'] !== '') {
+        if (ImportSettings::$localImportFile !== '' && $this->config->config->UploadDir !== '') {
             // sanitize $local_import_file as it comes from a POST
             ImportSettings::$localImportFile = Core::securePath(ImportSettings::$localImportFile);
 
-            ImportSettings::$importFile = Util::userDir($this->config->settings['UploadDir'])
+            ImportSettings::$importFile = Util::userDir($this->config->config->UploadDir)
                 . ImportSettings::$localImportFile;
 
             /**

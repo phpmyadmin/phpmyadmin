@@ -20,7 +20,6 @@ use function http_build_query;
 use function is_array;
 use function is_int;
 use function is_numeric;
-use function is_string;
 use function json_decode;
 use function json_encode;
 use function str_contains;
@@ -99,7 +98,7 @@ class UserPreferences
             return ['config_data' => [], 'mtime' => time(), 'type' => 'db'];
         }
 
-        $configData = is_string($row['config_data']) ? json_decode($row['config_data'], true) : [];
+        $configData = json_decode($row['config_data'], true);
 
         return [
             'config_data' => is_array($configData) ? $configData : [],

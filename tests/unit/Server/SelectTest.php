@@ -29,8 +29,6 @@ class SelectTest extends AbstractTestCase
         $_REQUEST['pos'] = 3;
 
         $config = Config::getInstance();
-        $config->settings['MaxRows'] = 10;
-        $config->settings['ServerDefault'] = 'server';
         $config->settings['RememberSorting'] = true;
         $config->settings['SQP'] = [];
         $config->settings['MaxCharactersInDisplayedSQL'] = 1000;
@@ -39,8 +37,6 @@ class SelectTest extends AbstractTestCase
         $config->settings['LimitChars'] = 100;
 
         Current::$table = 'table';
-
-        $config->settings['DefaultTabServer'] = '/';
 
         $config->settings['Servers'] = [
             '0' => [
@@ -77,7 +73,7 @@ class SelectTest extends AbstractTestCase
 
         if ($notOnlyOptions) {
             self::assertStringContainsString(
-                Url::getFromRoute($config->settings['DefaultTabServer']),
+                Url::getFromRoute($config->config->DefaultTabServer),
                 $html,
             );
 

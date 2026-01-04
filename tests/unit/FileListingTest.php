@@ -85,28 +85,20 @@ class FileListingTest extends AbstractTestCase
     public function testSupportedDecompressionsEmptyList(): void
     {
         $config = Config::getInstance();
-        $config->settings['ZipDump'] = false;
-        $config->settings['GZipDump'] = false;
-        $config->settings['BZipDump'] = false;
+        $config->set('ZipDump', false);
+        $config->set('GZipDump', false);
+        $config->set('BZipDump', false);
         self::assertEmpty($this->fileListing->supportedDecompressions());
     }
 
     #[RequiresPhpExtension('bz2')]
     public function testSupportedDecompressionsFull(): void
     {
-        $config = Config::getInstance();
-        $config->settings['ZipDump'] = true;
-        $config->settings['GZipDump'] = true;
-        $config->settings['BZipDump'] = true;
         self::assertSame('gz|bz2|zip', $this->fileListing->supportedDecompressions());
     }
 
     public function testSupportedDecompressionsPartial(): void
     {
-        $config = Config::getInstance();
-        $config->settings['ZipDump'] = true;
-        $config->settings['GZipDump'] = true;
-        $config->settings['BZipDump'] = true;
         $extensionString = 'gz';
         if (extension_loaded('bz2')) {
             $extensionString .= '|bz2';

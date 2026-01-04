@@ -66,8 +66,8 @@ class CentralColumns
     {
         $config = Config::getInstance();
         $this->user = $config->selectedServer['user'];
-        $this->maxRows = $config->settings['MaxRows'];
-        $this->charEditing = $config->settings['CharEditing'];
+        $this->maxRows = $config->config->maxRows;
+        $this->charEditing = $config->config->CharEditing;
         $this->disableIs = $config->selectedServer['DisableIS'];
 
         $this->relation = new Relation($this->dbi);

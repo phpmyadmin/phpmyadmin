@@ -724,7 +724,7 @@ class Core
     {
         $secret = $_SESSION[' HMAC_secret '] ?? '';
 
-        return hash_hmac('sha256', $sqlQuery, $secret . Config::getInstance()->settings['blowfish_secret']);
+        return hash_hmac('sha256', $sqlQuery, $secret . Config::getInstance()->config->blowfish_secret);
     }
 
     /**
@@ -736,7 +736,7 @@ class Core
     public static function checkSqlQuerySignature(string $sqlQuery, string $signature): bool
     {
         $secret = $_SESSION[' HMAC_secret '] ?? '';
-        $hmac = hash_hmac('sha256', $sqlQuery, $secret . Config::getInstance()->settings['blowfish_secret']);
+        $hmac = hash_hmac('sha256', $sqlQuery, $secret . Config::getInstance()->config->blowfish_secret);
 
         return hash_equals($hmac, $signature);
     }

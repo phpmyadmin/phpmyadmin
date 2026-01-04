@@ -635,7 +635,7 @@ class ConfigFile
                     // SQL
                     'sql',
                 ],
-                'charset' => array_merge([''], $config->settings['AvailableCharsets'] ?? []),
+                'charset' => array_merge([''], $config->config->AvailableCharsets),
                 'sql_compatibility' => [
                     'NONE',
                     'ANSI',
@@ -685,7 +685,7 @@ class ConfigFile
                     'yaml',
                 ],
                 'compression' => ['none', 'zip', 'gzip'],
-                'charset' => array_merge([''], $config->settings['AvailableCharsets'] ?? []),
+                'charset' => array_merge([''], $config->config->AvailableCharsets),
                 'sql_compatibility' => [
                     'NONE',
                     'ANSI',

@@ -112,7 +112,7 @@ final class ColumnsDefinition
         $availableMime = [];
         $mimeMap = [];
         $config = Config::getInstance();
-        if ($relationParameters->browserTransformationFeature !== null && $config->settings['BrowseMIME']) {
+        if ($relationParameters->browserTransformationFeature !== null && $config->config->BrowseMIME) {
             $mimeMap = $this->transformations->getMime(Current::$database, Current::$table);
             $availableMime = $this->transformations->getAvailableMimeTypes();
         }
@@ -343,13 +343,13 @@ final class ColumnsDefinition
             'change_column' => $_POST['change_column'] ?? $_GET['change_column'] ?? null,
             'is_virtual_columns_supported' => Compatibility::isVirtualColumnsSupported($this->dbi->getVersion()),
             'is_integers_length_restricted' => $isIntegersLengthRestricted,
-            'browse_mime' => $config->settings['BrowseMIME'] ?? null,
+            'browse_mime' => $config->config->BrowseMIME ,
             'supports_stored_keyword' => Compatibility::supportsStoredKeywordForVirtualColumns(
                 $this->dbi->getVersion(),
             ),
             'server_version' => $this->dbi->getVersion(),
-            'max_rows' => (int) $config->settings['MaxRows'],
-            'char_editing' => $config->settings['CharEditing'] ?? null,
+            'max_rows' => $config->config->maxRows,
+            'char_editing' => $config->config->CharEditing ,
             'attribute_types' => $this->dbi->types->getAttributes(),
             'privs_available' => $userPrivileges->column && $userPrivileges->isReload,
             'max_length' => $this->dbi->getVersion() >= 50503 ? 1024 : 255,

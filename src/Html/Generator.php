@@ -139,7 +139,7 @@ class Generator
             $database = Current::$database;
         }
 
-        $scriptName = Url::getFromRoute(Config::getInstance()->settings['DefaultTabDatabase']);
+        $scriptName = Url::getFromRoute(Config::getInstance()->config->DefaultTabDatabase);
 
         return '<a href="'
             . $scriptName
@@ -375,7 +375,7 @@ class Generator
         } elseif (isset($_SESSION['tmpval']['max_rows']) && $_SESSION['tmpval']['max_rows'] !== 'all') {
             $rows = (int) $_SESSION['tmpval']['max_rows'];
         } else {
-            $rows = Config::getInstance()->settings['MaxRows'];
+            $rows = Config::getInstance()->config->maxRows;
             $_SESSION['tmpval']['max_rows'] = $rows;
         }
 
@@ -953,7 +953,7 @@ class Generator
         // Suhosin: Check that each query parameter is not above maximum
         $inSuhosinLimits = true;
         $config = Config::getInstance();
-        if (strlen($url) <= $config->settings['LinkLengthLimit']) {
+        if (strlen($url) <= $config->config->LinkLengthLimit) {
             $suhosinGetMaxValueLength = ini_get('suhosin.get.max_value_length');
             if ($suhosinGetMaxValueLength) {
                 $queryParts = Util::splitURLQuery($url);
@@ -972,7 +972,7 @@ class Generator
         }
 
         $tagParamsStrings = [];
-        $isDataPostFormatSupported = (strlen($url) > $config->settings['LinkLengthLimit'])
+        $isDataPostFormatSupported = (strlen($url) > $config->config->LinkLengthLimit)
             || ! $inSuhosinLimits
             || (
                 // Has as sql_query without a signature, to be accepted it needs to be sent using POST

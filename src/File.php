@@ -363,12 +363,12 @@ class File
      */
     public function setLocalSelectedFile(string $name): bool
     {
-        if ($this->config->settings['UploadDir'] === '') {
+        if ($this->config->config->UploadDir === '') {
             return false;
         }
 
         $this->setName(
-            Util::userDir($this->config->settings['UploadDir']) . Core::securePath($name),
+            Util::userDir($this->config->config->UploadDir) . Core::securePath($name),
         );
         if (@is_link((string) $this->getName())) {
             $this->errorMessage = Message::error(__('File is a symbolic link'));
@@ -542,7 +542,7 @@ class File
                 return false;
 
             case 'application/bzip2':
-                if (! $this->config->settings['BZipDump'] || ! function_exists('bzopen')) {
+                if (! $this->config->config->BZipDump || ! function_exists('bzopen')) {
                     $this->errorUnsupported();
 
                     return false;
@@ -551,7 +551,7 @@ class File
                 $this->handle = @bzopen($this->getName(), 'r');
                 break;
             case 'application/gzip':
-                if (! $this->config->settings['GZipDump'] || ! function_exists('gzopen')) {
+                if (! $this->config->config->GZipDump || ! function_exists('gzopen')) {
                     $this->errorUnsupported();
 
                     return false;
@@ -560,7 +560,7 @@ class File
                 $this->handle = @gzopen((string) $this->getName(), 'r');
                 break;
             case 'application/zip':
-                if ($this->config->settings['ZipDump'] && function_exists('zip_open')) {
+                if ($this->config->config->ZipDump && function_exists('zip_open')) {
                     return $this->openZip();
                 }
 

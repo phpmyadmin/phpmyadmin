@@ -101,19 +101,12 @@ class AuthenticationCookieTest extends AbstractTestCase
 
         $_REQUEST['old_usr'] = '';
         $config = Config::getInstance();
-        $config->settings['LoginCookieRecall'] = true;
-        $config->settings['blowfish_secret'] = str_repeat('a', 32);
+        $config->set('blowfish_secret', str_repeat('a', 32));
         $this->object->user = 'pmauser';
         AuthenticationCookie::$authServer = 'localhost';
 
         AuthenticationCookie::$connectionError = 'Error';
-        $config->set('Lang', 'en');
-        $config->settings['AllowArbitraryServer'] = true;
-        $config->settings['CaptchaApi'] = '';
-        $config->settings['CaptchaRequestParam'] = '';
-        $config->settings['CaptchaResponseParam'] = '';
-        $config->settings['CaptchaLoginPrivateKey'] = '';
-        $config->settings['CaptchaLoginPublicKey'] = '';
+        $config->set('AllowArbitraryServer', true);
         Current::$database = 'testDb';
         Current::$table = 'testTable';
         $config->settings['Servers'] = [1, 2];
@@ -167,16 +160,12 @@ class AuthenticationCookieTest extends AbstractTestCase
     {
         $_REQUEST['old_usr'] = '';
         $config = Config::getInstance();
-        $config->settings['LoginCookieRecall'] = false;
 
-        $config->set('Lang', '');
-        $config->settings['AllowArbitraryServer'] = false;
-        $config->settings['Servers'] = [1];
-        $config->settings['CaptchaApi'] = 'https://www.google.com/recaptcha/api.js';
-        $config->settings['CaptchaRequestParam'] = 'g-recaptcha';
-        $config->settings['CaptchaResponseParam'] = 'g-recaptcha-response';
-        $config->settings['CaptchaLoginPrivateKey'] = 'testprivkey';
-        $config->settings['CaptchaLoginPublicKey'] = 'testpubkey';
+        $config->set('AllowArbitraryServer', false);
+        $config->set('CaptchaRequestParam', 'g-recaptcha');
+        $config->set('CaptchaResponseParam', 'g-recaptcha-response');
+        $config->set('CaptchaLoginPrivateKey', 'testprivkey');
+        $config->set('CaptchaLoginPublicKey', 'testpubkey');
         Current::$server = 2;
 
         $responseStub = new ResponseRendererStub();
@@ -222,17 +211,14 @@ class AuthenticationCookieTest extends AbstractTestCase
     {
         $_REQUEST['old_usr'] = '';
         $config = Config::getInstance();
-        $config->settings['LoginCookieRecall'] = false;
 
-        $config->set('Lang', '');
-        $config->settings['AllowArbitraryServer'] = false;
-        $config->settings['Servers'] = [1];
-        $config->settings['CaptchaApi'] = 'https://www.google.com/recaptcha/api.js';
-        $config->settings['CaptchaRequestParam'] = 'g-recaptcha';
-        $config->settings['CaptchaResponseParam'] = 'g-recaptcha-response';
-        $config->settings['CaptchaLoginPrivateKey'] = 'testprivkey';
-        $config->settings['CaptchaLoginPublicKey'] = 'testpubkey';
-        $config->settings['CaptchaMethod'] = 'checkbox';
+        $config->set('AllowArbitraryServer', false);
+        $config->set('Servers', [1]);
+        $config->set('CaptchaRequestParam', 'g-recaptcha');
+        $config->set('CaptchaResponseParam', 'g-recaptcha-response');
+        $config->set('CaptchaLoginPrivateKey', 'testprivkey');
+        $config->set('CaptchaLoginPublicKey', 'testpubkey');
+        $config->set('CaptchaMethod', 'checkbox');
         Current::$server = 2;
 
         $responseStub = new ResponseRendererStub();
@@ -278,7 +264,7 @@ class AuthenticationCookieTest extends AbstractTestCase
     public function testAuthHeader(): void
     {
         $config = Config::getInstance();
-        $config->settings['LoginCookieDeleteAll'] = false;
+        $config->set('LoginCookieDeleteAll', false);
         $config->settings['Servers'] = [1];
 
         $responseStub = new ResponseRendererStub();
@@ -296,7 +282,7 @@ class AuthenticationCookieTest extends AbstractTestCase
     public function testAuthHeaderPartial(): void
     {
         $config = Config::getInstance();
-        $config->settings['LoginCookieDeleteAll'] = false;
+        $config->set('LoginCookieDeleteAll', false);
         $config->settings['Servers'] = [1, 2, 3];
         $config->selectedServer['LogoutURL'] = 'https://example.com/logout';
         $config->selectedServer['auth_type'] = 'cookie';
@@ -315,11 +301,10 @@ class AuthenticationCookieTest extends AbstractTestCase
     public function testAuthCheckCaptcha(): void
     {
         $config = Config::getInstance();
-        $config->settings['CaptchaApi'] = 'https://www.google.com/recaptcha/api.js';
-        $config->settings['CaptchaRequestParam'] = 'g-recaptcha';
-        $config->settings['CaptchaResponseParam'] = 'g-recaptcha-response';
-        $config->settings['CaptchaLoginPrivateKey'] = 'testprivkey';
-        $config->settings['CaptchaLoginPublicKey'] = 'testpubkey';
+        $config->set('CaptchaRequestParam', 'g-recaptcha');
+        $config->set('CaptchaResponseParam', 'g-recaptcha-response');
+        $config->set('CaptchaLoginPrivateKey', 'testprivkey');
+        $config->set('CaptchaLoginPublicKey', 'testpubkey');
         $_POST['g-recaptcha-response'] = '';
         $_POST['pma_username'] = 'testPMAUser';
 
@@ -339,12 +324,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
         $config = Config::getInstance();
-        $config->settings['CaptchaApi'] = '';
-        $config->settings['CaptchaRequestParam'] = '';
-        $config->settings['CaptchaResponseParam'] = '';
-        $config->settings['CaptchaLoginPrivateKey'] = '';
-        $config->settings['CaptchaLoginPublicKey'] = '';
-        $config->settings['LoginCookieDeleteAll'] = true;
+        $config->set('LoginCookieDeleteAll', true);
         $config->set('PmaAbsoluteUri', '');
         $config->settings['Servers'] = [1];
 
@@ -364,12 +344,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
         $config = Config::getInstance();
-        $config->settings['CaptchaApi'] = '';
-        $config->settings['CaptchaRequestParam'] = '';
-        $config->settings['CaptchaResponseParam'] = '';
-        $config->settings['CaptchaLoginPrivateKey'] = '';
-        $config->settings['CaptchaLoginPublicKey'] = '';
-        $config->settings['LoginCookieDeleteAll'] = false;
+        $config->set('LoginCookieDeleteAll', false);
         $config->set('PmaAbsoluteUri', '');
         $config->settings['Servers'] = [1];
         $config->selectedServer = ['auth_type' => 'cookie'];
@@ -387,16 +362,11 @@ class AuthenticationCookieTest extends AbstractTestCase
     public function testAuthCheckArbitrary(): void
     {
         $config = Config::getInstance();
-        $config->settings['CaptchaApi'] = '';
-        $config->settings['CaptchaRequestParam'] = '';
-        $config->settings['CaptchaResponseParam'] = '';
-        $config->settings['CaptchaLoginPrivateKey'] = '';
-        $config->settings['CaptchaLoginPublicKey'] = '';
+        $config->set('AllowArbitraryServer', true);
         $_REQUEST['old_usr'] = '';
         $_POST['pma_username'] = 'testPMAUser';
         $_REQUEST['pma_servername'] = 'testPMAServer';
         $_POST['pma_password'] = 'testPMAPSWD';
-        $config->settings['AllowArbitraryServer'] = true;
 
         self::assertTrue(
             $this->object->readCredentials(),
@@ -432,9 +402,8 @@ class AuthenticationCookieTest extends AbstractTestCase
         $_COOKIE['pma_iv-1'] = base64_encode('testiv09testiv09');
         $_COOKIE['pmaAuth-1'] = '';
         $config = Config::getInstance();
-        $config->settings['blowfish_secret'] = str_repeat('a', 32);
         $_SESSION['last_access_time'] = time() - 1000;
-        $config->settings['LoginCookieValidity'] = 1440;
+        $config->set('LoginCookieValidity', 1440);
 
         self::assertFalse(
             $this->object->readCredentials(),
@@ -448,14 +417,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
         $_COOKIE['pmaUser-1'] = 'pmaUser1';
         $_COOKIE['pma_iv-1'] = base64_encode('testiv09testiv09');
-        $config = Config::getInstance();
-        $config->settings['blowfish_secret'] = str_repeat('a', 32);
         $_SESSION['last_access_time'] = '';
-        $config->settings['CaptchaApi'] = '';
-        $config->settings['CaptchaRequestParam'] = '';
-        $config->settings['CaptchaResponseParam'] = '';
-        $config->settings['CaptchaLoginPrivateKey'] = '';
-        $config->settings['CaptchaLoginPublicKey'] = '';
 
         // mock for blowfish function
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
@@ -483,14 +445,8 @@ class AuthenticationCookieTest extends AbstractTestCase
         $_COOKIE['pmaAuth-1'] = 'pmaAuth1';
         $_COOKIE['pma_iv-1'] = base64_encode('testiv09testiv09');
         $config = Config::getInstance();
-        $config->settings['blowfish_secret'] = str_repeat('a', 32);
-        $config->settings['CaptchaApi'] = '';
-        $config->settings['CaptchaRequestParam'] = '';
-        $config->settings['CaptchaResponseParam'] = '';
-        $config->settings['CaptchaLoginPrivateKey'] = '';
-        $config->settings['CaptchaLoginPublicKey'] = '';
         $_SESSION['browser_access_time']['default'] = time() - 1000;
-        $config->settings['LoginCookieValidity'] = 1440;
+        $config->set('LoginCookieValidity', 1440);
 
         // mock for blowfish function
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
@@ -518,15 +474,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
         $_COOKIE['pmaUser-1'] = 'pmaUser1';
         $_COOKIE['pma_iv-1'] = base64_encode('testiv09testiv09');
-        $config = Config::getInstance();
-        $config->settings['blowfish_secret'] = str_repeat('a', 32);
         $_SESSION['last_access_time'] = 1;
-        $config->settings['CaptchaApi'] = '';
-        $config->settings['CaptchaRequestParam'] = '';
-        $config->settings['CaptchaResponseParam'] = '';
-        $config->settings['CaptchaLoginPrivateKey'] = '';
-        $config->settings['CaptchaLoginPublicKey'] = '';
-        $config->settings['LoginCookieValidity'] = 0;
         $_SESSION['browser_access_time']['default'] = -1;
 
         // mock for blowfish function
@@ -552,11 +500,11 @@ class AuthenticationCookieTest extends AbstractTestCase
         $config->selectedServer = $arr;
         $config->selectedServer['user'] = 'pmaUser';
         $config->settings['Servers'][1] = $arr;
-        $config->settings['AllowArbitraryServer'] = true;
+        $config->set('AllowArbitraryServer', true);
         AuthenticationCookie::$authServer = 'b 2';
         $this->object->password = 'testPW';
         Current::$server = 2;
-        $config->settings['LoginCookieStore'] = 100;
+        $config->set('LoginCookieStore', 100);
         AuthenticationCookie::$fromCookie = true;
 
         $this->object->storeCredentials();
@@ -576,13 +524,10 @@ class AuthenticationCookieTest extends AbstractTestCase
     public function testAuthSetUserWithHeaders(): void
     {
         $this->object->user = 'pmaUser2';
-        $arr = ['host' => 'a', 'port' => 1, 'socket' => true, 'ssl' => true, 'user' => 'pmaUser2'];
 
         $config = Config::getInstance();
-        $config->selectedServer = $arr;
         $config->selectedServer['host'] = 'b';
         $config->selectedServer['user'] = 'pmaUser';
-        $config->settings['Servers'][1] = $arr;
         $config->settings['AllowArbitraryServer'] = true;
         $config->set('PmaAbsoluteUri', 'http://localhost/phpmyadmin');
         AuthenticationCookie::$authServer = 'b 2';
@@ -714,7 +659,7 @@ class AuthenticationCookieTest extends AbstractTestCase
 
         $_COOKIE['pmaAuth-2'] = 'pass';
 
-        Config::getInstance()->settings['LoginCookieValidity'] = 10;
+        Config::getInstance()->set('LoginCookieValidity', 10);
 
         $responseStub = new ResponseRendererStub();
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
@@ -823,7 +768,6 @@ class AuthenticationCookieTest extends AbstractTestCase
     {
         $method = new ReflectionMethod(AuthenticationCookie::class, 'getEncryptionSecret');
 
-        Config::getInstance()->settings['blowfish_secret'] = '';
         $_SESSION['encryption_key'] = '';
 
         $result = $method->invoke($this->object, null);
@@ -837,7 +781,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         $method = new ReflectionMethod(AuthenticationCookie::class, 'getEncryptionSecret');
 
         $key = str_repeat('a', SODIUM_CRYPTO_SECRETBOX_KEYBYTES);
-        Config::getInstance()->settings['blowfish_secret'] = $key;
+        Config::getInstance()->set('blowfish_secret', $key);
         $_SESSION['encryption_key'] = '';
 
         $result = $method->invoke($this->object, null);
@@ -850,7 +794,6 @@ class AuthenticationCookieTest extends AbstractTestCase
         $method = new ReflectionMethod(AuthenticationCookie::class, 'getEncryptionSecret');
 
         $key = str_repeat('a', SODIUM_CRYPTO_SECRETBOX_KEYBYTES);
-        Config::getInstance()->settings['blowfish_secret'] = 'blowfish_secret';
         $_SESSION['encryption_key'] = $key;
 
         $result = $method->invoke($this->object, null);
@@ -884,7 +827,7 @@ class AuthenticationCookieTest extends AbstractTestCase
     {
         $newPassword = 'PMAPASSWD2';
         $config = Config::getInstance();
-        $config->settings['AllowArbitraryServer'] = true;
+        $config->set('AllowArbitraryServer', true);
         AuthenticationCookie::$authServer = 'b 2';
         $_SESSION['encryption_key'] = '';
         $_COOKIE = [];
@@ -905,11 +848,6 @@ class AuthenticationCookieTest extends AbstractTestCase
     public function testAuthenticate(): void
     {
         $config = Config::getInstance();
-        $config->settings['CaptchaApi'] = '';
-        $config->settings['CaptchaRequestParam'] = '';
-        $config->settings['CaptchaResponseParam'] = '';
-        $config->settings['CaptchaLoginPrivateKey'] = '';
-        $config->settings['CaptchaLoginPublicKey'] = '';
         $config->selectedServer['AllowRoot'] = false;
         $config->selectedServer['AllowNoPassword'] = false;
         $_REQUEST['old_usr'] = '';

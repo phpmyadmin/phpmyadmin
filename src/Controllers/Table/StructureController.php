@@ -158,7 +158,7 @@ readonly class StructureController implements InvocableController
 
         if ($this->config->settings['ShowPropertyComments']) {
             $commentsMap = $this->relation->getComments(Current::$database, Current::$table);
-            if ($relationParameters->browserTransformationFeature !== null && $this->config->settings['BrowseMIME']) {
+            if ($relationParameters->browserTransformationFeature !== null && $this->config->config->BrowseMIME) {
                 $mimeMap = $this->transformations->getMime(Current::$database, Current::$table, true);
             }
         }
@@ -255,7 +255,7 @@ readonly class StructureController implements InvocableController
             'columns_with_index' => $columnsWithIndex,
             'central_list' => $centralList,
             'comments_map' => $commentsMap,
-            'browse_mime' => $this->config->settings['BrowseMIME'],
+            'browse_mime' => $this->config->config->BrowseMIME,
             'show_column_comments' => $this->config->settings['ShowColumnComments'],
             'show_stats' => $this->config->settings['ShowStats'],
             'mysql_int_version' => $this->dbi->getVersion(),

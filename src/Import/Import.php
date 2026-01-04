@@ -1064,15 +1064,15 @@ class Import
         $compressions = [];
 
         $config = Config::getInstance();
-        if ($config->settings['GZipDump'] && function_exists('gzopen')) {
+        if ($config->config->GZipDump && function_exists('gzopen')) {
             $compressions[] = 'gzip';
         }
 
-        if ($config->settings['BZipDump'] && function_exists('bzopen')) {
+        if ($config->config->BZipDump && function_exists('bzopen')) {
             $compressions[] = 'bzip2';
         }
 
-        if ($config->settings['ZipDump'] && function_exists('zip_open')) {
+        if ($config->config->ZipDump && function_exists('zip_open')) {
             $compressions[] = 'zip';
         }
 
@@ -1100,7 +1100,7 @@ class Import
             : '';
 
         return $fileListing->getFileSelectOptions(
-            Util::userDir(Config::getInstance()->settings['UploadDir'] ?? ''),
+            Util::userDir(Config::getInstance()->config->UploadDir),
             $matcher,
             $active,
         );

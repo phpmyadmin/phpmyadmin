@@ -22,7 +22,7 @@ class Text_Plain_Xml extends TransformationsPlugin
 {
     public function __construct()
     {
-        if (empty(Config::getInstance()->settings['CodemirrorEnable'])) {
+        if (! Config::getInstance()->config->CodemirrorEnable) {
             return;
         }
 

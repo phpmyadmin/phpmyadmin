@@ -105,7 +105,7 @@ final class HomeController implements InvocableController
 
         $hasServer = Current::$server > 0 || count($this->config->settings['Servers']) > 1;
         if ($hasServer) {
-            $hasServerSelection = $this->config->settings['ServerDefault'] === 0
+            $hasServerSelection = $this->config->config->ServerDefault === 0
                 || (
                     $this->config->settings['NavigationDisplayServers']
                     && (
@@ -234,7 +234,7 @@ final class HomeController implements InvocableController
             'is_demo' => $this->config->config->debug->demo,
             'has_server_selection' => $hasServerSelection ?? false,
             'server_selection' => $serverSelection ?? '',
-            'has_change_password_link' => ($this->config->selectedServer['auth_type'] ?? '') !== 'config'
+            'has_change_password_link' => $this->config->selectedServer['auth_type'] !== 'config'
                 && $this->config->settings['ShowChgPassword'],
             'charsets' => $charsetsList ?? [],
             'available_languages' => $availableLanguages,
@@ -261,7 +261,7 @@ final class HomeController implements InvocableController
              * Check whether session.gc_maxlifetime limits session validity.
              */
             $gcTime = (int) ini_get('session.gc_maxlifetime');
-            if ($gcTime < $this->config->settings['LoginCookieValidity']) {
+            if ($gcTime < $this->config->config->LoginCookieValidity) {
                 $this->errors[] = [
                     'message' => __(
                         'Your PHP parameter [a@https://www.php.net/manual/en/session.' .
@@ -280,7 +280,7 @@ final class HomeController implements InvocableController
          */
         if (
             $this->config->settings['LoginCookieStore'] !== 0
-            && $this->config->settings['LoginCookieStore'] < $this->config->settings['LoginCookieValidity']
+            && $this->config->settings['LoginCookieStore'] < $this->config->config->LoginCookieValidity
         ) {
             $this->errors[] = [
                 'message' => __(
@@ -317,7 +317,7 @@ final class HomeController implements InvocableController
          */
         if (! empty($_SESSION['encryption_key'])) {
             // This can happen if the user did use getenv() to set blowfish_secret
-            $encryptionKeyLength = mb_strlen($this->config->settings['blowfish_secret'], '8bit');
+            $encryptionKeyLength = mb_strlen($this->config->config->blowfish_secret, '8bit');
 
             if ($encryptionKeyLength < SODIUM_CRYPTO_SECRETBOX_KEYBYTES) {
                 $this->errors[] = [

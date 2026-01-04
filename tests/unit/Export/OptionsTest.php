@@ -53,10 +53,7 @@ class OptionsTest extends AbstractTestCase
     public function testGetOptions(): void
     {
         $config = Config::getInstance();
-        $config->settings['Export']['method'] = 'XML';
-        $config->settings['SaveDir'] = '/tmp';
-        $config->settings['ZipDump'] = false;
-        $config->settings['GZipDump'] = false;
+        $config->set('SaveDir', '/tmp');
 
         Export::$singleTable = false;
 
@@ -104,17 +101,17 @@ class OptionsTest extends AbstractTestCase
                 'db' => $db,
                 'table' => $table,
                 'export_type' => $exportType->value,
-                'export_method' => $config->settings['Export']['method'],
+                'export_method' => $config->config->Export->method,
                 'template_id' => '',
             ],
-            'export_method' => $config->settings['Export']['method'],
+            'export_method' => $config->config->Export->method,
             'plugins_choice' => $dropdown,
             'options' => Plugins::getOptions('Export', $exportList),
             'can_convert_kanji' => Encoding::canConvertKanji(),
             'exec_time_limit' => $config->settings['ExecTimeLimit'],
             'rows' => [],
             'has_save_dir' => true,
-            'save_dir' => Util::userDir($config->settings['SaveDir']),
+            'save_dir' => Util::userDir($config->config->SaveDir),
             'export_is_checked' => $config->settings['Export']['quick_export_onserver'],
             'export_overwrite_is_checked' => $config->settings['Export']['quick_export_onserver_overwrite'],
             'has_aliases' => false,
@@ -129,10 +126,10 @@ class OptionsTest extends AbstractTestCase
             'lock_tables' => false,
             'is_encoding_supported' => true,
             'encodings' => Encoding::listEncodings(),
-            'export_charset' => $config->settings['Export']['charset'],
+            'export_charset' => $config->config->Export->charset,
             'export_asfile' => $config->settings['Export']['asfile'],
-            'has_zip' => $config->settings['ZipDump'],
-            'has_gzip' => $config->settings['GZipDump'],
+            'has_zip' => $config->config->ZipDump,
+            'has_gzip' => $config->config->GZipDump,
             'selected_compression' => 'none',
             'filename_template' => 'user value for test',
         ];

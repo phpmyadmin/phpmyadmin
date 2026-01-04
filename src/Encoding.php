@@ -301,7 +301,7 @@ class Encoding
         /* Most engines do not support listing */
         $config = Config::getInstance();
         if (self::$engine !== self::ENGINE_MBSTRING) {
-            return array_filter($config->settings['AvailableCharsets'], static function (string $charset): bool {
+            return array_filter($config->config->AvailableCharsets, static function (string $charset): bool {
                 // Removes any ignored character
                 $normalizedCharset = strtoupper((string) preg_replace(['/[^A-Za-z0-9\-\/]/'], '', $charset));
 
@@ -313,7 +313,7 @@ class Encoding
 
         return array_intersect(
             array_map(strtolower(...), mb_list_encodings()),
-            $config->settings['AvailableCharsets'],
+            $config->config->AvailableCharsets,
         );
     }
 }

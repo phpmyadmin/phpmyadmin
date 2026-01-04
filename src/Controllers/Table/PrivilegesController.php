@@ -77,7 +77,7 @@ final readonly class PrivilegesController implements InvocableController
             )->getDisplay());
         }
 
-        $scriptName = Url::getFromRoute($this->config->settings['DefaultTabTable']);
+        $scriptName = Url::getFromRoute($this->config->config->DefaultTabTable);
 
         $privileges = [];
         if ($this->dbi->isSuperUser()) {
