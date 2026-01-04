@@ -88,7 +88,7 @@ msgstr "phpMyAdmin Демо Сервер"
 #: resources/templates/base.twig:159
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
-msgstr ""
+msgstr "Моментално на Git ревизијата %1$s од гранката %2$s."
 
 #: resources/templates/base.twig:161
 msgid "Git information missing!"
@@ -200,7 +200,7 @@ msgstr "после %s"
 #: src/Config/ConfigFile.php:554
 #: src/Controllers/JavaScriptMessagesController.php:218
 #: src/Display/Results.php:930 src/Plugins/Export/ExportSql.php:2037
-#: src/Plugins/Schema/SchemaPdf.php:96
+#: src/Plugins/Schema/SchemaPdf.php:96 src/Plugins/Export/ExportSql.php:2011
 msgid "None"
 msgstr "нема"
 
@@ -1230,7 +1230,7 @@ msgstr ""
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
 #: src/Config/Descriptions.php:928 src/Export/Export.php:725
-#: src/Html/Generator.php:576
+#: src/Html/Generator.php:576 src/Export/Export.php:774
 msgid "Refresh"
 msgstr "Освежи"
 
@@ -1900,7 +1900,7 @@ msgstr ""
 #: src/Navigation/Nodes/NodeEventContainer.php:22
 #: src/Navigation/Nodes/NodeEventContainer.php:24
 #: src/Plugins/Export/ExportSql.php:996 src/Plugins/Export/ExportXml.php:96
-#: src/Util.php:1377
+#: src/Util.php:1377 src/Plugins/Export/ExportSql.php:988
 msgid "Events"
 msgstr ""
 
@@ -2051,7 +2051,6 @@ msgstr "избери се"
 
 #: resources/templates/database/events/index.twig:181
 #, fuzzy
-#| msgid "Export of event %s"
 msgid "Export event"
 msgstr "Извоз на настан %s"
 
@@ -2863,7 +2862,7 @@ msgstr ""
 #: resources/templates/database/structure/copy_form.twig:5
 #: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:252
 #: src/Plugins/Export/ExportSql.php:923 src/Plugins/Export/ExportXml.php:366
-#: src/Plugins/Export/Helpers/Pdf.php:177
+#: src/Plugins/Export/Helpers/Pdf.php:177 src/Plugins/Export/ExportSql.php:919
 msgid "Database:"
 msgstr "База на податоци:"
 
@@ -2915,6 +2914,7 @@ msgstr "Речник на податоци"
 #: src/Controllers/Database/ExportController.php:73
 #: src/Controllers/Database/TrackingController.php:124
 #: src/Controllers/Export/ExportController.php:281
+#: src/Controllers/Export/ExportController.php:280
 msgid "No tables found in database."
 msgstr "Табелите не се пронајдени во базата на податоци."
 
@@ -2999,6 +2999,7 @@ msgid "Table %s has been emptied."
 msgstr "Табелата %s е испразнета."
 
 #: resources/templates/database/structure/structure_table_row.twig:240
+#: resources/templates/database/structure/structure_table_row.twig:237
 msgid "in use"
 msgstr "се користи"
 
@@ -3266,7 +3267,7 @@ msgstr ""
 
 #: resources/templates/display/results/table.twig:353
 #: src/Controllers/JavaScriptMessagesController.php:466
-#: src/Export/Export.php:744
+#: src/Export/Export.php:744 src/Export/Export.php:793
 msgid "Copy to clipboard"
 msgstr ""
 
@@ -3719,7 +3720,7 @@ msgstr "Конекции"
 
 #: resources/templates/home/index.twig:198
 #: src/Plugins/Export/ExportLatex.php:233 src/Plugins/Export/ExportSql.php:769
-#: src/Plugins/Export/ExportXml.php:215
+#: src/Plugins/Export/ExportXml.php:215 src/Plugins/Export/ExportSql.php:765
 msgid "Server version:"
 msgstr "Верзија на серверот:"
 
@@ -3811,7 +3812,7 @@ msgstr "превземи"
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:411
 #: src/Export/Export.php:767 src/Html/Generator.php:855
-#: src/Plugins/Schema/ExportRelationSchema.php:266
+#: src/Plugins/Schema/ExportRelationSchema.php:266 src/Export/Export.php:816
 msgid "Back"
 msgstr "Назад"
 
@@ -4761,7 +4762,6 @@ msgstr "Опис"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:2
 #, fuzzy
-#| msgid "Buffer Pool Usage"
 msgid "Buffer pool usage"
 msgstr "Искористеност на баферот"
 
@@ -4791,13 +4791,11 @@ msgstr "Заглавени страници"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:34
 #, fuzzy, php-format
-#| msgid "Busy pages"
 msgid "%s pages"
 msgstr "Зафатени страници"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:41
 #, fuzzy
-#| msgid "Buffer Pool Activity"
 msgid "Buffer pool activity"
 msgstr "Активност на баферот"
 
@@ -5620,7 +5618,7 @@ msgstr ""
 #: resources/templates/server/replication/change_primary.twig:25
 #: resources/templates/server/replication/primary_add_replica_user.twig:29
 #: src/Plugins/Export/ExportLatex.php:225 src/Plugins/Export/ExportSql.php:758
-#: src/Plugins/Export/ExportXml.php:206
+#: src/Plugins/Export/ExportXml.php:206 src/Plugins/Export/ExportSql.php:754
 msgid "Host:"
 msgstr "Хост:"
 
@@ -7736,6 +7734,7 @@ msgstr ""
 #: src/Plugins/Export/ExportSql.php:1899
 #: src/Plugins/Export/ExportTexytext.php:416
 #: src/Plugins/Export/ExportXml.php:116 src/Util.php:1378 src/Util.php:1394
+#: src/Plugins/Export/ExportSql.php:1881
 msgid "Triggers"
 msgstr ""
 
@@ -7831,7 +7830,7 @@ msgstr "Работно време е само %s"
 
 #: src/Advisory/Rules.php:47
 msgid "Questions below 1,000"
-msgstr "Прашања под 1,000"
+msgstr "Прашања под 1000"
 
 #: src/Advisory/Rules.php:51
 msgid ""
@@ -7852,7 +7851,7 @@ msgstr ""
 #: src/Advisory/Rules.php:57
 #, php-format
 msgid "Current amount of Questions: %s"
-msgstr "Сегашна вредност на Прашања: %s"
+msgstr "Сегашна количина на Прашања: %s"
 
 #: src/Advisory/Rules.php:62
 msgid "Percentage of slow queries"
@@ -8063,9 +8062,9 @@ msgstr "Неоптимален метод на кеширање."
 #: src/Advisory/Rules.php:217
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-"refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
-"cache, especially if you have multiple replicas."
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/refman/"
+"5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query cache, "
+"especially if you have multiple replicas."
 msgstr ""
 
 #: src/Advisory/Rules.php:223
@@ -8644,8 +8643,8 @@ msgid ""
 "note however that you cannot simply change the value of this variable. You "
 "need to shutdown the server, remove the InnoDB log files, set the new value "
 "in my.cnf, start the server, then check the error logs if everything went "
-"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot.com/"
+"2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 
 #: src/Advisory/Rules.php:662 src/Advisory/Rules.php:692
@@ -9950,9 +9949,9 @@ msgstr ""
 
 #: src/Config/Descriptions.php:354
 msgid ""
-"More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
-"com/19588]MySQL Bugs[/a]"
+"More information on [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 msgstr ""
 
 #: src/Config/Descriptions.php:358
@@ -12387,6 +12386,7 @@ msgid "You may want to refresh the page."
 msgstr "Можеби сакате да се освежи страница."
 
 #: src/Controllers/Export/ExportController.php:116 src/Export/Export.php:705
+#: src/Controllers/Export/ExportController.php:115 src/Export/Export.php:754
 msgid "Bad type!"
 msgstr "Лош тип!"
 
@@ -12417,10 +12417,11 @@ msgstr ""
 
 #: src/Controllers/HomeController.php:267
 msgid ""
-"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
-"than cookie validity configured in phpMyAdmin, because of this, your login "
-"might expire sooner than configured in phpMyAdmin."
+"Your PHP parameter [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie validity "
+"configured in phpMyAdmin, because of this, your login might expire sooner "
+"than configured in phpMyAdmin."
 msgstr ""
 
 #: src/Controllers/HomeController.php:287
@@ -13474,13 +13475,11 @@ msgstr "Не беа избрани зависностите!"
 
 #: src/Controllers/JavaScriptMessagesController.php:427
 #, fuzzy
-#| msgid "Use this value"
 msgid "Enter first value"
 msgstr "Користи ја оваа вредност"
 
 #: src/Controllers/JavaScriptMessagesController.php:428
 #, fuzzy
-#| msgid "Session value"
 msgid "Enter second value"
 msgstr "Вредност на сесијата"
 
@@ -15362,7 +15361,6 @@ msgstr "Изабраните корисници успешно се избриш
 
 #: src/Controllers/Table/Structure/MoveColumnsController.php:114
 #, fuzzy
-#| msgid "The selected user was not found in the privilege table."
 msgid "The selected columns do not match the columns in the table."
 msgstr "Изабраниот корисник не е пронајден во табелата на привилегии."
 
@@ -15643,7 +15641,6 @@ msgstr ""
 
 #: src/Database/Routines.php:809
 #, fuzzy
-#| msgid "Invalid authentication type!"
 msgid "Invalid routine type!"
 msgstr "Невалиден тип на автентикација!"
 
@@ -16003,7 +16000,7 @@ msgid ""
 msgstr ""
 
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
-#: src/Export/Export.php:437
+#: src/Export/Export.php:437 src/Export/Export.php:472
 msgid "Exporting a raw query is not supported for this export method."
 msgstr ""
 
@@ -16434,6 +16431,7 @@ msgstr ""
 #: src/Navigation/Nodes/NodeFunctionContainer.php:22
 #: src/Navigation/Nodes/NodeFunctionContainer.php:26
 #: src/Plugins/Export/ExportSql.php:647 src/Plugins/Export/ExportXml.php:101
+#: src/Plugins/Export/ExportSql.php:643
 #, fuzzy
 msgid "Functions"
 msgstr "Функција"
@@ -16455,6 +16453,7 @@ msgstr ""
 #: src/Navigation/Nodes/NodeProcedureContainer.php:22
 #: src/Navigation/Nodes/NodeProcedureContainer.php:26
 #: src/Plugins/Export/ExportSql.php:636 src/Plugins/Export/ExportXml.php:106
+#: src/Plugins/Export/ExportSql.php:632
 msgid "Procedures"
 msgstr ""
 
@@ -16874,18 +16873,21 @@ msgstr "Опции за извоз на бази на податоци"
 #: src/Plugins/Export/ExportHtmlword.php:169
 #: src/Plugins/Export/ExportOdt.php:216 src/Plugins/Export/ExportSql.php:2144
 #: src/Plugins/Export/ExportTexytext.php:138
+#: src/Plugins/Export/ExportSql.php:2118
 msgid "Dumping data for table"
 msgstr "Приказ на податоци од табелата"
 
 #: src/Plugins/Export/ExportHtmlword.php:453
 #: src/Plugins/Export/ExportOdt.php:569 src/Plugins/Export/ExportSql.php:1881
 #: src/Plugins/Export/ExportTexytext.php:409
+#: src/Plugins/Export/ExportSql.php:1867
 msgid "Table structure for table"
 msgstr "Структура на табелата"
 
 #: src/Plugins/Export/ExportHtmlword.php:470
 #: src/Plugins/Export/ExportOdt.php:589 src/Plugins/Export/ExportSql.php:1947
 #: src/Plugins/Export/ExportTexytext.php:422
+#: src/Plugins/Export/ExportSql.php:1925
 #, fuzzy
 msgid "Structure for view"
 msgstr "Само структура"
@@ -16893,6 +16895,7 @@ msgstr "Само структура"
 #: src/Plugins/Export/ExportHtmlword.php:476
 #: src/Plugins/Export/ExportOdt.php:597 src/Plugins/Export/ExportSql.php:1990
 #: src/Plugins/Export/ExportTexytext.php:426
+#: src/Plugins/Export/ExportSql.php:1964
 msgid "Stand-in structure for view"
 msgstr ""
 
@@ -16961,16 +16964,17 @@ msgid "Put columns names in the first row:"
 msgstr "Стави ги имињата на полињата во првата редица:"
 
 #: src/Plugins/Export/ExportLatex.php:231 src/Plugins/Export/ExportSql.php:765
-#: src/Plugins/Export/ExportXml.php:213
+#: src/Plugins/Export/ExportXml.php:213 src/Plugins/Export/ExportSql.php:761
 msgid "Generation Time:"
 msgstr "Време на креирање:"
 
 #: src/Plugins/Export/ExportLatex.php:234 src/Plugins/Export/ExportSql.php:771
-#: src/Plugins/Export/ExportXml.php:216
+#: src/Plugins/Export/ExportXml.php:216 src/Plugins/Export/ExportSql.php:767
 msgid "PHP Version:"
 msgstr "PHP верзија:"
 
 #: src/Plugins/Export/ExportLatex.php:288 src/Plugins/Export/ExportSql.php:2037
+#: src/Plugins/Export/ExportSql.php:2011
 msgid "Data:"
 msgstr "Податоци:"
 
@@ -17076,6 +17080,7 @@ msgid "Data creation options"
 msgstr "Опции на трансформацијата"
 
 #: src/Plugins/Export/ExportSql.php:421 src/Plugins/Export/ExportSql.php:2107
+#: src/Plugins/Export/ExportSql.php:2081
 msgid "Truncate table before insert"
 msgstr ""
 
@@ -17142,105 +17147,109 @@ msgid "It appears your database uses routines;"
 msgstr ""
 
 #: src/Plugins/Export/ExportSql.php:598 src/Plugins/Export/ExportSql.php:1500
-#: src/Plugins/Export/ExportSql.php:1931
+#: src/Plugins/Export/ExportSql.php:1931 src/Plugins/Export/ExportSql.php:1490
+#: src/Plugins/Export/ExportSql.php:1913
 msgid "alias export may not work reliably in all cases."
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1056
+#: src/Plugins/Export/ExportSql.php:1056 src/Plugins/Export/ExportSql.php:1044
 #, fuzzy
 msgid "Metadata"
 msgstr "Тип на извоз"
 
-#: src/Plugins/Export/ExportSql.php:1119
+#: src/Plugins/Export/ExportSql.php:1119 src/Plugins/Export/ExportSql.php:1109
 #, php-format
 msgid "Metadata for table %s"
 msgstr "Метадата за табела %s"
 
-#: src/Plugins/Export/ExportSql.php:1126
+#: src/Plugins/Export/ExportSql.php:1126 src/Plugins/Export/ExportSql.php:1116
 #, php-format
 msgid "Metadata for database %s"
 msgstr "Метадата за датабаза %s"
 
-#: src/Plugins/Export/ExportSql.php:1414
+#: src/Plugins/Export/ExportSql.php:1414 src/Plugins/Export/ExportSql.php:1404
 #, php-format
 msgid "Error reading structure for table %s:"
 msgstr "Грешка при читање на структурата за табелата %s:"
 
-#: src/Plugins/Export/ExportSql.php:1497
+#: src/Plugins/Export/ExportSql.php:1497 src/Plugins/Export/ExportSql.php:1487
 msgid "It appears your database uses views;"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1641
+#: src/Plugins/Export/ExportSql.php:1641 src/Plugins/Export/ExportSql.php:1631
 msgid "Constraints for dumped tables"
 msgstr "Ограничувања за извезените табели"
 
-#: src/Plugins/Export/ExportSql.php:1642
+#: src/Plugins/Export/ExportSql.php:1642 src/Plugins/Export/ExportSql.php:1632
 msgid "Constraints for table"
 msgstr "Ограничувања за табелите"
 
-#: src/Plugins/Export/ExportSql.php:1668
+#: src/Plugins/Export/ExportSql.php:1668 src/Plugins/Export/ExportSql.php:1658
 #, fuzzy
 msgid "Indexes for dumped tables"
 msgstr "Ограничувања за извезените табели"
 
-#: src/Plugins/Export/ExportSql.php:1669
+#: src/Plugins/Export/ExportSql.php:1669 src/Plugins/Export/ExportSql.php:1659
 msgid "Indexes for table"
 msgstr "Индекси за табелата"
 
-#: src/Plugins/Export/ExportSql.php:1692
+#: src/Plugins/Export/ExportSql.php:1692 src/Plugins/Export/ExportSql.php:1682
 #, fuzzy
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "Додади AUTO_INCREMENT вредност"
 
-#: src/Plugins/Export/ExportSql.php:1693
+#: src/Plugins/Export/ExportSql.php:1693 src/Plugins/Export/ExportSql.php:1683
 #, fuzzy
 msgid "AUTO_INCREMENT for table"
 msgstr "Додади AUTO_INCREMENT вредност"
 
-#: src/Plugins/Export/ExportSql.php:1747
+#: src/Plugins/Export/ExportSql.php:1747 src/Plugins/Export/ExportSql.php:1737
 #, fuzzy
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "MIME ТИПОВИ ЗА ТАБЕЛА"
 
-#: src/Plugins/Export/ExportSql.php:1777
+#: src/Plugins/Export/ExportSql.php:1777 src/Plugins/Export/ExportSql.php:1767
 #, fuzzy
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "РЕЛАЦИИ НА ТАБЕЛИТЕ"
 
-#: src/Plugins/Export/ExportSql.php:1928
+#: src/Plugins/Export/ExportSql.php:1928 src/Plugins/Export/ExportSql.php:1910
 msgid "It appears your table uses triggers;"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1962
+#: src/Plugins/Export/ExportSql.php:1962 src/Plugins/Export/ExportSql.php:1940
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "Структура за поглед %s извезена како табела"
 
-#: src/Plugins/Export/ExportSql.php:1993
+#: src/Plugins/Export/ExportSql.php:1993 src/Plugins/Export/ExportSql.php:1967
 msgid "(See below for the actual view)"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:2048
+#: src/Plugins/Export/ExportSql.php:2048 src/Plugins/Export/ExportSql.php:2022
 #, php-format
 msgid "Error reading data for table %s:"
 msgstr "Грешка при читање на податоци за табелата %s:"
 
 #: src/Plugins/Export/ExportSql.php:2592
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:566
+#: src/Plugins/Export/ExportSql.php:2566
 msgid "Creation:"
 msgstr "Создадено:"
 
 #: src/Plugins/Export/ExportSql.php:2600
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:577
+#: src/Plugins/Export/ExportSql.php:2574
 msgid "Last update:"
 msgstr "Последна измена:"
 
 #: src/Plugins/Export/ExportSql.php:2608
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:588
+#: src/Plugins/Export/ExportSql.php:2582
 msgid "Last check:"
 msgstr "Последна проверка:"
 
-#: src/Plugins/Export/ExportSql.php:2629
+#: src/Plugins/Export/ExportSql.php:2629 src/Plugins/Export/ExportSql.php:2603
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
@@ -18138,32 +18147,32 @@ msgstr "Изворната датабаза `%s` не се најде!"
 msgid "Target database `%s` was not found!"
 msgstr "Целната датабаза `%s` не се најде!"
 
-#: src/Table/Table.php:820
+#: src/Table/Table.php:820 src/Table/Table.php:812
 msgid "Invalid database:"
 msgstr "Невалидна датабаза:"
 
-#: src/Table/Table.php:838
+#: src/Table/Table.php:838 src/Table/Table.php:830
 #, fuzzy
 msgid "Invalid table name:"
 msgstr "во табела(и):"
 
-#: src/Table/Table.php:883
+#: src/Table/Table.php:883 src/Table/Table.php:875
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Табелата %1$s беше преименувана во %2$s."
 
-#: src/Table/Table.php:1119
+#: src/Table/Table.php:1119 src/Table/Table.php:1111
 msgid "Could not save table UI preferences!"
 msgstr ""
 
-#: src/Table/Table.php:1141
+#: src/Table/Table.php:1141 src/Table/Table.php:1133
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
 
-#: src/Table/Table.php:1259
+#: src/Table/Table.php:1259 src/Table/Table.php:1251
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -18171,7 +18180,7 @@ msgid ""
 "changed."
 msgstr ""
 
-#: src/Table/Table.php:1584
+#: src/Table/Table.php:1584 src/Table/Table.php:1576
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -18327,7 +18336,6 @@ msgstr ""
 
 #: src/Types.php:97
 #, fuzzy
-#| msgid "Empty"
 msgid "empty"
 msgstr "Испразни"
 
@@ -18592,11 +18600,11 @@ msgstr "Профилот е променет."
 msgid "Password is too long!"
 msgstr "Лозинката е предолга!"
 
-#: src/UserPreferences.php:172
+#: src/UserPreferences.php:172 src/UserPreferences.php:162
 msgid "Could not save configuration"
 msgstr ""
 
-#: src/UserPreferences.php:183
+#: src/UserPreferences.php:183 src/UserPreferences.php:173
 #, fuzzy
 msgid "The phpMyAdmin configuration storage database could not be accessed."
 msgstr ""
