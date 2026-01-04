@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-12-28 00:32+0000\n"
+"POT-Creation-Date: 2026-01-04 00:33+0000\n"
 "PO-Revision-Date: 2025-09-26 20:02+0000\n"
 "Last-Translator: Hotripak <hotr1pak@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -200,7 +200,7 @@ msgstr "після %s"
 #: resources/templates/table/zoom_search/index.twig:120
 #: src/Config/ConfigFile.php:554
 #: src/Controllers/JavaScriptMessagesController.php:218
-#: src/Display/Results.php:930 src/Plugins/Export/ExportSql.php:2011
+#: src/Display/Results.php:930 src/Plugins/Export/ExportSql.php:2037
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "Жодного"
@@ -1201,7 +1201,7 @@ msgstr "Час створення:"
 #: resources/templates/console/display.twig:133
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
-#: src/Config/Descriptions.php:928 src/Export/Export.php:774
+#: src/Config/Descriptions.php:928 src/Export/Export.php:725
 #: src/Html/Generator.php:576
 msgid "Refresh"
 msgstr "Оновити"
@@ -1825,7 +1825,7 @@ msgstr "Визначник"
 #: resources/templates/database/events/index.twig:3 src/Menu.php:377
 #: src/Navigation/Nodes/NodeEventContainer.php:22
 #: src/Navigation/Nodes/NodeEventContainer.php:24
-#: src/Plugins/Export/ExportSql.php:988 src/Plugins/Export/ExportXml.php:96
+#: src/Plugins/Export/ExportSql.php:996 src/Plugins/Export/ExportXml.php:96
 #: src/Util.php:1377
 msgid "Events"
 msgstr "Події"
@@ -2732,7 +2732,7 @@ msgstr ""
 
 #: resources/templates/database/structure/copy_form.twig:5
 #: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:252
-#: src/Plugins/Export/ExportSql.php:919 src/Plugins/Export/ExportXml.php:366
+#: src/Plugins/Export/ExportSql.php:923 src/Plugins/Export/ExportXml.php:366
 #: src/Plugins/Export/Helpers/Pdf.php:177
 msgid "Database:"
 msgstr "База даних:"
@@ -2780,7 +2780,7 @@ msgstr "Словник даних"
 #: resources/templates/navigation/tree/path.twig:9
 #: src/Controllers/Database/ExportController.php:73
 #: src/Controllers/Database/TrackingController.php:124
-#: src/Controllers/Export/ExportController.php:280
+#: src/Controllers/Export/ExportController.php:281
 msgid "No tables found in database."
 msgstr "В базі даних не виявлено таблиць."
 
@@ -2860,7 +2860,7 @@ msgstr "Вставити"
 msgid "Table %s has been emptied."
 msgstr "Таблиця %s очищено."
 
-#: resources/templates/database/structure/structure_table_row.twig:237
+#: resources/templates/database/structure/structure_table_row.twig:240
 msgid "in use"
 msgstr "використовується"
 
@@ -3120,7 +3120,7 @@ msgstr "Операції з результатами запиту"
 
 #: resources/templates/display/results/table.twig:353
 #: src/Controllers/JavaScriptMessagesController.php:466
-#: src/Export/Export.php:793
+#: src/Export/Export.php:744
 msgid "Copy to clipboard"
 msgstr "Скопіювати до буфера обміну"
 
@@ -3557,7 +3557,7 @@ msgid "Server connection:"
 msgstr "Підключення сервера:"
 
 #: resources/templates/home/index.twig:198
-#: src/Plugins/Export/ExportLatex.php:233 src/Plugins/Export/ExportSql.php:765
+#: src/Plugins/Export/ExportLatex.php:233 src/Plugins/Export/ExportSql.php:769
 #: src/Plugins/Export/ExportXml.php:215
 msgid "Server version:"
 msgstr "Версія сервера:"
@@ -3645,7 +3645,7 @@ msgstr "Прийняти"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:411
-#: src/Export/Export.php:816 src/Html/Generator.php:855
+#: src/Export/Export.php:767 src/Html/Generator.php:855
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "Назад"
@@ -5420,7 +5420,7 @@ msgstr ""
 
 #: resources/templates/server/replication/change_primary.twig:25
 #: resources/templates/server/replication/primary_add_replica_user.twig:29
-#: src/Plugins/Export/ExportLatex.php:225 src/Plugins/Export/ExportSql.php:754
+#: src/Plugins/Export/ExportLatex.php:225 src/Plugins/Export/ExportSql.php:758
 #: src/Plugins/Export/ExportXml.php:206
 msgid "Host:"
 msgstr "Хост:"
@@ -7441,7 +7441,7 @@ msgstr "Експортувати тригер %s"
 #: src/Navigation/Nodes/NodeTriggerContainer.php:25
 #: src/Plugins/Export/ExportHtmlword.php:462
 #: src/Plugins/Export/ExportOdt.php:579 src/Plugins/Export/ExportPdf.php:178
-#: src/Plugins/Export/ExportSql.php:1881
+#: src/Plugins/Export/ExportSql.php:1899
 #: src/Plugins/Export/ExportTexytext.php:416
 #: src/Plugins/Export/ExportXml.php:116 src/Util.php:1378 src/Util.php:1394
 msgid "Triggers"
@@ -12369,7 +12369,7 @@ msgstr "Якщо це створює проблему - надішліть по�
 msgid "You may want to refresh the page."
 msgstr "Можливо, варто перезавантажити сторінку."
 
-#: src/Controllers/Export/ExportController.php:115 src/Export/Export.php:754
+#: src/Controllers/Export/ExportController.php:116 src/Export/Export.php:705
 msgid "Bad type!"
 msgstr "Помилковий тип!"
 
@@ -16136,7 +16136,7 @@ msgstr ""
 "місця, де ви зупинилися."
 
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
-#: src/Export/Export.php:472
+#: src/Export/Export.php:437
 msgid "Exporting a raw query is not supported for this export method."
 msgstr ""
 "Експорт необробленого запиту не підтримується для цього методу експорту."
@@ -16575,7 +16575,7 @@ msgstr "Нова"
 
 #: src/Navigation/Nodes/NodeFunctionContainer.php:22
 #: src/Navigation/Nodes/NodeFunctionContainer.php:26
-#: src/Plugins/Export/ExportSql.php:643 src/Plugins/Export/ExportXml.php:101
+#: src/Plugins/Export/ExportSql.php:647 src/Plugins/Export/ExportXml.php:101
 msgid "Functions"
 msgstr "Функції"
 
@@ -16595,7 +16595,7 @@ msgstr "Розгорнути/Згорнути"
 
 #: src/Navigation/Nodes/NodeProcedureContainer.php:22
 #: src/Navigation/Nodes/NodeProcedureContainer.php:26
-#: src/Plugins/Export/ExportSql.php:632 src/Plugins/Export/ExportXml.php:106
+#: src/Plugins/Export/ExportSql.php:636 src/Plugins/Export/ExportXml.php:106
 msgid "Procedures"
 msgstr "Процедури"
 
@@ -17051,25 +17051,25 @@ msgid "Data dump options"
 msgstr "Параметри дампу даних"
 
 #: src/Plugins/Export/ExportHtmlword.php:169
-#: src/Plugins/Export/ExportOdt.php:216 src/Plugins/Export/ExportSql.php:2118
+#: src/Plugins/Export/ExportOdt.php:216 src/Plugins/Export/ExportSql.php:2144
 #: src/Plugins/Export/ExportTexytext.php:138
 msgid "Dumping data for table"
 msgstr "Дамп даних таблиці"
 
 #: src/Plugins/Export/ExportHtmlword.php:453
-#: src/Plugins/Export/ExportOdt.php:569 src/Plugins/Export/ExportSql.php:1867
+#: src/Plugins/Export/ExportOdt.php:569 src/Plugins/Export/ExportSql.php:1881
 #: src/Plugins/Export/ExportTexytext.php:409
 msgid "Table structure for table"
 msgstr "Структура таблиці"
 
 #: src/Plugins/Export/ExportHtmlword.php:470
-#: src/Plugins/Export/ExportOdt.php:589 src/Plugins/Export/ExportSql.php:1925
+#: src/Plugins/Export/ExportOdt.php:589 src/Plugins/Export/ExportSql.php:1947
 #: src/Plugins/Export/ExportTexytext.php:422
 msgid "Structure for view"
 msgstr "Структура для представлення"
 
 #: src/Plugins/Export/ExportHtmlword.php:476
-#: src/Plugins/Export/ExportOdt.php:597 src/Plugins/Export/ExportSql.php:1964
+#: src/Plugins/Export/ExportOdt.php:597 src/Plugins/Export/ExportSql.php:1990
 #: src/Plugins/Export/ExportTexytext.php:426
 msgid "Stand-in structure for view"
 msgstr "Дублююча структура для представлення"
@@ -17134,17 +17134,17 @@ msgstr "Відображати типи медіа"
 msgid "Put columns names in the first row:"
 msgstr "Помістити імена стовпців в перший рядок:"
 
-#: src/Plugins/Export/ExportLatex.php:231 src/Plugins/Export/ExportSql.php:761
+#: src/Plugins/Export/ExportLatex.php:231 src/Plugins/Export/ExportSql.php:765
 #: src/Plugins/Export/ExportXml.php:213
 msgid "Generation Time:"
 msgstr "Час створення:"
 
-#: src/Plugins/Export/ExportLatex.php:234 src/Plugins/Export/ExportSql.php:767
+#: src/Plugins/Export/ExportLatex.php:234 src/Plugins/Export/ExportSql.php:771
 #: src/Plugins/Export/ExportXml.php:216
 msgid "PHP Version:"
 msgstr "Версія PHP:"
 
-#: src/Plugins/Export/ExportLatex.php:288 src/Plugins/Export/ExportSql.php:2011
+#: src/Plugins/Export/ExportLatex.php:288 src/Plugins/Export/ExportSql.php:2037
 msgid "Data:"
 msgstr "Дані:"
 
@@ -17247,7 +17247,7 @@ msgstr ""
 msgid "Data creation options"
 msgstr "Параметри створення даних"
 
-#: src/Plugins/Export/ExportSql.php:421 src/Plugins/Export/ExportSql.php:2081
+#: src/Plugins/Export/ExportSql.php:421 src/Plugins/Export/ExportSql.php:2107
 msgid "Truncate table before insert"
 msgstr "Очистити таблицю перед вставкою"
 
@@ -17328,100 +17328,100 @@ msgstr ""
 msgid "It appears your database uses routines;"
 msgstr "Виявляється, ваша база даних використовує процедури;"
 
-#: src/Plugins/Export/ExportSql.php:598 src/Plugins/Export/ExportSql.php:1490
-#: src/Plugins/Export/ExportSql.php:1913
+#: src/Plugins/Export/ExportSql.php:598 src/Plugins/Export/ExportSql.php:1500
+#: src/Plugins/Export/ExportSql.php:1931
 msgid "alias export may not work reliably in all cases."
 msgstr "експорт псевдоніма не може надійно працювати у всіх випадках."
 
-#: src/Plugins/Export/ExportSql.php:1044
+#: src/Plugins/Export/ExportSql.php:1056
 msgid "Metadata"
 msgstr "Метадані"
 
-#: src/Plugins/Export/ExportSql.php:1109
+#: src/Plugins/Export/ExportSql.php:1119
 #, php-format
 msgid "Metadata for table %s"
 msgstr "Метадані таблиці %s"
 
-#: src/Plugins/Export/ExportSql.php:1116
+#: src/Plugins/Export/ExportSql.php:1126
 #, php-format
 msgid "Metadata for database %s"
 msgstr "Метадані бази даних %s"
 
-#: src/Plugins/Export/ExportSql.php:1404
+#: src/Plugins/Export/ExportSql.php:1414
 #, php-format
 msgid "Error reading structure for table %s:"
 msgstr "Помилка читання структури таблиці %s:"
 
-#: src/Plugins/Export/ExportSql.php:1487
+#: src/Plugins/Export/ExportSql.php:1497
 msgid "It appears your database uses views;"
 msgstr "Виявляється, ваша база даних використовує подання;"
 
-#: src/Plugins/Export/ExportSql.php:1631
+#: src/Plugins/Export/ExportSql.php:1641
 msgid "Constraints for dumped tables"
 msgstr "Обмеження зовнішнього ключа збережених таблиць"
 
-#: src/Plugins/Export/ExportSql.php:1632
+#: src/Plugins/Export/ExportSql.php:1642
 msgid "Constraints for table"
 msgstr "Обмеження зовнішнього ключа таблиці"
 
-#: src/Plugins/Export/ExportSql.php:1658
+#: src/Plugins/Export/ExportSql.php:1668
 msgid "Indexes for dumped tables"
 msgstr "Індекси збережених таблиць"
 
-#: src/Plugins/Export/ExportSql.php:1659
+#: src/Plugins/Export/ExportSql.php:1669
 msgid "Indexes for table"
 msgstr "Індекси таблиці"
 
-#: src/Plugins/Export/ExportSql.php:1682
+#: src/Plugins/Export/ExportSql.php:1692
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "AUTO_INCREMENT для збережених таблиць"
 
-#: src/Plugins/Export/ExportSql.php:1683
+#: src/Plugins/Export/ExportSql.php:1693
 msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT для таблиці"
 
-#: src/Plugins/Export/ExportSql.php:1737
+#: src/Plugins/Export/ExportSql.php:1747
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "МЕДІА-ТИПИ ТАБЛИЦІ"
 
-#: src/Plugins/Export/ExportSql.php:1767
+#: src/Plugins/Export/ExportSql.php:1777
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "ЗВ'ЯЗКИ ТАБЛИЦІ"
 
-#: src/Plugins/Export/ExportSql.php:1910
+#: src/Plugins/Export/ExportSql.php:1928
 msgid "It appears your table uses triggers;"
 msgstr "Схоже, таблиця використовує тригери;"
 
-#: src/Plugins/Export/ExportSql.php:1940
+#: src/Plugins/Export/ExportSql.php:1962
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "Структура для подання %s, експортованого як таблиця"
 
-#: src/Plugins/Export/ExportSql.php:1967
+#: src/Plugins/Export/ExportSql.php:1993
 msgid "(See below for the actual view)"
 msgstr "(Див. нижче для фактичного подання)"
 
-#: src/Plugins/Export/ExportSql.php:2022
+#: src/Plugins/Export/ExportSql.php:2048
 #, php-format
 msgid "Error reading data for table %s:"
 msgstr "Помилка читання даних таблиці %s:"
 
-#: src/Plugins/Export/ExportSql.php:2566
+#: src/Plugins/Export/ExportSql.php:2592
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:566
 msgid "Creation:"
 msgstr "Створення:"
 
-#: src/Plugins/Export/ExportSql.php:2574
+#: src/Plugins/Export/ExportSql.php:2600
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:577
 msgid "Last update:"
 msgstr "Останнє оновлення:"
 
-#: src/Plugins/Export/ExportSql.php:2582
+#: src/Plugins/Export/ExportSql.php:2608
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:588
 msgid "Last check:"
 msgstr "Остання перевірка:"
 
-#: src/Plugins/Export/ExportSql.php:2603
+#: src/Plugins/Export/ExportSql.php:2629
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
@@ -18362,24 +18362,24 @@ msgstr "Вихідна база даних '%s' не знайдена!"
 msgid "Target database `%s` was not found!"
 msgstr "Цільова база даних \"%s\" не знайдена!"
 
-#: src/Table/Table.php:812
+#: src/Table/Table.php:820
 msgid "Invalid database:"
 msgstr "Неприпустима база даних:"
 
-#: src/Table/Table.php:830
+#: src/Table/Table.php:838
 msgid "Invalid table name:"
 msgstr "Неприпустиме ім'я таблиці:"
 
-#: src/Table/Table.php:875
+#: src/Table/Table.php:883
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Таблицю %1$s перейменовано в %2$s."
 
-#: src/Table/Table.php:1111
+#: src/Table/Table.php:1119
 msgid "Could not save table UI preferences!"
 msgstr "Неможливо зберегти табличні налаштування UI!"
 
-#: src/Table/Table.php:1133
+#: src/Table/Table.php:1141
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -18388,7 +18388,7 @@ msgstr ""
 "Помилка очищення табличних налаштувань UI (див. $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 
-#: src/Table/Table.php:1251
+#: src/Table/Table.php:1259
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -18399,7 +18399,7 @@ msgstr ""
 "оновлення цієї сторінки. Будь ласка, перевірте чи не була змінена структура "
 "таблиці."
 
-#: src/Table/Table.php:1576
+#: src/Table/Table.php:1584
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Помилка при створенні зовнішнього ключа на %1$s (перевірте типи даних)"
@@ -18880,11 +18880,11 @@ msgstr "Профіль було поновлено."
 msgid "Password is too long!"
 msgstr "Пароль занадто довгий!"
 
-#: src/UserPreferences.php:162
+#: src/UserPreferences.php:172
 msgid "Could not save configuration"
 msgstr "Не вдалось зберегти настройки"
 
-#: src/UserPreferences.php:173
+#: src/UserPreferences.php:183
 msgid "The phpMyAdmin configuration storage database could not be accessed."
 msgstr ""
 "Не вдалося отримати доступ до бази даних сховища конфігурації phpMyAdmin."

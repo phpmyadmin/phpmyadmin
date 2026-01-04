@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-12-28 00:32+0000\n"
+"POT-Creation-Date: 2026-01-04 00:33+0000\n"
 "PO-Revision-Date: 2025-10-29 09:45+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -199,7 +199,7 @@ msgstr "%s の後へ"
 #: resources/templates/table/zoom_search/index.twig:120
 #: src/Config/ConfigFile.php:554
 #: src/Controllers/JavaScriptMessagesController.php:218
-#: src/Display/Results.php:930 src/Plugins/Export/ExportSql.php:2011
+#: src/Display/Results.php:930 src/Plugins/Export/ExportSql.php:2037
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "なし"
@@ -1197,7 +1197,7 @@ msgstr "所要時間:"
 #: resources/templates/console/display.twig:133
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
-#: src/Config/Descriptions.php:928 src/Export/Export.php:774
+#: src/Config/Descriptions.php:928 src/Export/Export.php:725
 #: src/Html/Generator.php:576
 msgid "Refresh"
 msgstr "更新"
@@ -1821,7 +1821,7 @@ msgstr "定義者"
 #: resources/templates/database/events/index.twig:3 src/Menu.php:377
 #: src/Navigation/Nodes/NodeEventContainer.php:22
 #: src/Navigation/Nodes/NodeEventContainer.php:24
-#: src/Plugins/Export/ExportSql.php:988 src/Plugins/Export/ExportXml.php:96
+#: src/Plugins/Export/ExportSql.php:996 src/Plugins/Export/ExportXml.php:96
 #: src/Util.php:1377
 msgid "Events"
 msgstr "イベント"
@@ -2720,7 +2720,7 @@ msgstr "この操作はいくつかのカラム定義を変更します。[br]�
 
 #: resources/templates/database/structure/copy_form.twig:5
 #: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:252
-#: src/Plugins/Export/ExportSql.php:919 src/Plugins/Export/ExportXml.php:366
+#: src/Plugins/Export/ExportSql.php:923 src/Plugins/Export/ExportXml.php:366
 #: src/Plugins/Export/Helpers/Pdf.php:177
 msgid "Database:"
 msgstr "データベース:"
@@ -2768,7 +2768,7 @@ msgstr "データ辞書"
 #: resources/templates/navigation/tree/path.twig:9
 #: src/Controllers/Database/ExportController.php:73
 #: src/Controllers/Database/TrackingController.php:124
-#: src/Controllers/Export/ExportController.php:280
+#: src/Controllers/Export/ExportController.php:281
 msgid "No tables found in database."
 msgstr "このデータベースにはテーブルがありません。"
 
@@ -2848,7 +2848,7 @@ msgstr "挿入"
 msgid "Table %s has been emptied."
 msgstr "テーブル %s を空にしました。"
 
-#: resources/templates/database/structure/structure_table_row.twig:237
+#: resources/templates/database/structure/structure_table_row.twig:240
 msgid "in use"
 msgstr "使用中"
 
@@ -3104,7 +3104,7 @@ msgstr "クエリ結果操作"
 
 #: resources/templates/display/results/table.twig:353
 #: src/Controllers/JavaScriptMessagesController.php:466
-#: src/Export/Export.php:793
+#: src/Export/Export.php:744
 msgid "Copy to clipboard"
 msgstr "クリップボードにコピー"
 
@@ -3537,7 +3537,7 @@ msgid "Server connection:"
 msgstr "サーバの接続："
 
 #: resources/templates/home/index.twig:198
-#: src/Plugins/Export/ExportLatex.php:233 src/Plugins/Export/ExportSql.php:765
+#: src/Plugins/Export/ExportLatex.php:233 src/Plugins/Export/ExportSql.php:769
 #: src/Plugins/Export/ExportXml.php:215
 msgid "Server version:"
 msgstr "サーバのバージョン："
@@ -3625,7 +3625,7 @@ msgstr "これにする"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:411
-#: src/Export/Export.php:816 src/Html/Generator.php:855
+#: src/Export/Export.php:767 src/Html/Generator.php:855
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "戻る"
@@ -5385,7 +5385,7 @@ msgstr ""
 
 #: resources/templates/server/replication/change_primary.twig:25
 #: resources/templates/server/replication/primary_add_replica_user.twig:29
-#: src/Plugins/Export/ExportLatex.php:225 src/Plugins/Export/ExportSql.php:754
+#: src/Plugins/Export/ExportLatex.php:225 src/Plugins/Export/ExportSql.php:758
 #: src/Plugins/Export/ExportXml.php:206
 msgid "Host:"
 msgstr "ホスト:"
@@ -7401,7 +7401,7 @@ msgstr "トリガ %s をエクスポートする"
 #: src/Navigation/Nodes/NodeTriggerContainer.php:25
 #: src/Plugins/Export/ExportHtmlword.php:462
 #: src/Plugins/Export/ExportOdt.php:579 src/Plugins/Export/ExportPdf.php:178
-#: src/Plugins/Export/ExportSql.php:1881
+#: src/Plugins/Export/ExportSql.php:1899
 #: src/Plugins/Export/ExportTexytext.php:416
 #: src/Plugins/Export/ExportXml.php:116 src/Util.php:1378 src/Util.php:1394
 msgid "Triggers"
@@ -12279,7 +12279,7 @@ msgstr "問題が発生する場合は、バグ報告を手動で送信してく
 msgid "You may want to refresh the page."
 msgstr "このページを再ロードすることがほしいみたい。"
 
-#: src/Controllers/Export/ExportController.php:115 src/Export/Export.php:754
+#: src/Controllers/Export/ExportController.php:116 src/Export/Export.php:705
 msgid "Bad type!"
 msgstr "エクスポート形式が正しくありません！"
 
@@ -15983,7 +15983,7 @@ msgstr ""
 "した所から作業を再開できるようになります。"
 
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
-#: src/Export/Export.php:472
+#: src/Export/Export.php:437
 msgid "Exporting a raw query is not supported for this export method."
 msgstr ""
 "このエクスポート方法では、生のクエリのエクスポートには対応していません。"
@@ -16418,7 +16418,7 @@ msgstr "新規作成"
 
 #: src/Navigation/Nodes/NodeFunctionContainer.php:22
 #: src/Navigation/Nodes/NodeFunctionContainer.php:26
-#: src/Plugins/Export/ExportSql.php:643 src/Plugins/Export/ExportXml.php:101
+#: src/Plugins/Export/ExportSql.php:647 src/Plugins/Export/ExportXml.php:101
 msgid "Functions"
 msgstr "関数"
 
@@ -16438,7 +16438,7 @@ msgstr "展開/折りたたみ"
 
 #: src/Navigation/Nodes/NodeProcedureContainer.php:22
 #: src/Navigation/Nodes/NodeProcedureContainer.php:26
-#: src/Plugins/Export/ExportSql.php:632 src/Plugins/Export/ExportXml.php:106
+#: src/Plugins/Export/ExportSql.php:636 src/Plugins/Export/ExportXml.php:106
 msgid "Procedures"
 msgstr "プロシージャ"
 
@@ -16884,25 +16884,25 @@ msgid "Data dump options"
 msgstr "データのダンプオプション"
 
 #: src/Plugins/Export/ExportHtmlword.php:169
-#: src/Plugins/Export/ExportOdt.php:216 src/Plugins/Export/ExportSql.php:2118
+#: src/Plugins/Export/ExportOdt.php:216 src/Plugins/Export/ExportSql.php:2144
 #: src/Plugins/Export/ExportTexytext.php:138
 msgid "Dumping data for table"
 msgstr "テーブルのデータのダンプ"
 
 #: src/Plugins/Export/ExportHtmlword.php:453
-#: src/Plugins/Export/ExportOdt.php:569 src/Plugins/Export/ExportSql.php:1867
+#: src/Plugins/Export/ExportOdt.php:569 src/Plugins/Export/ExportSql.php:1881
 #: src/Plugins/Export/ExportTexytext.php:409
 msgid "Table structure for table"
 msgstr "テーブルの構造"
 
 #: src/Plugins/Export/ExportHtmlword.php:470
-#: src/Plugins/Export/ExportOdt.php:589 src/Plugins/Export/ExportSql.php:1925
+#: src/Plugins/Export/ExportOdt.php:589 src/Plugins/Export/ExportSql.php:1947
 #: src/Plugins/Export/ExportTexytext.php:422
 msgid "Structure for view"
 msgstr "ビュー用の構造"
 
 #: src/Plugins/Export/ExportHtmlword.php:476
-#: src/Plugins/Export/ExportOdt.php:597 src/Plugins/Export/ExportSql.php:1964
+#: src/Plugins/Export/ExportOdt.php:597 src/Plugins/Export/ExportSql.php:1990
 #: src/Plugins/Export/ExportTexytext.php:426
 msgid "Stand-in structure for view"
 msgstr "ビュー用の代替構造"
@@ -16965,17 +16965,17 @@ msgstr "メディア タイプを表示する"
 msgid "Put columns names in the first row:"
 msgstr "1 行目にカラム名を追加する:"
 
-#: src/Plugins/Export/ExportLatex.php:231 src/Plugins/Export/ExportSql.php:761
+#: src/Plugins/Export/ExportLatex.php:231 src/Plugins/Export/ExportSql.php:765
 #: src/Plugins/Export/ExportXml.php:213
 msgid "Generation Time:"
 msgstr "生成日時:"
 
-#: src/Plugins/Export/ExportLatex.php:234 src/Plugins/Export/ExportSql.php:767
+#: src/Plugins/Export/ExportLatex.php:234 src/Plugins/Export/ExportSql.php:771
 #: src/Plugins/Export/ExportXml.php:216
 msgid "PHP Version:"
 msgstr "PHP のバージョン:"
 
-#: src/Plugins/Export/ExportLatex.php:288 src/Plugins/Export/ExportSql.php:2011
+#: src/Plugins/Export/ExportLatex.php:288 src/Plugins/Export/ExportSql.php:2037
 msgid "Data:"
 msgstr "データ:"
 
@@ -17076,7 +17076,7 @@ msgstr ""
 msgid "Data creation options"
 msgstr "データ作成オプション"
 
-#: src/Plugins/Export/ExportSql.php:421 src/Plugins/Export/ExportSql.php:2081
+#: src/Plugins/Export/ExportSql.php:421 src/Plugins/Export/ExportSql.php:2107
 msgid "Truncate table before insert"
 msgstr "挿入前にテーブルを空にする"
 
@@ -17152,100 +17152,100 @@ msgstr ""
 msgid "It appears your database uses routines;"
 msgstr "データベースはルーチンを利用しているようです;"
 
-#: src/Plugins/Export/ExportSql.php:598 src/Plugins/Export/ExportSql.php:1490
-#: src/Plugins/Export/ExportSql.php:1913
+#: src/Plugins/Export/ExportSql.php:598 src/Plugins/Export/ExportSql.php:1500
+#: src/Plugins/Export/ExportSql.php:1931
 msgid "alias export may not work reliably in all cases."
 msgstr "エイリアスエクスポートは確実に動作しない場合があります。"
 
-#: src/Plugins/Export/ExportSql.php:1044
+#: src/Plugins/Export/ExportSql.php:1056
 msgid "Metadata"
 msgstr "メタデータ"
 
-#: src/Plugins/Export/ExportSql.php:1109
+#: src/Plugins/Export/ExportSql.php:1119
 #, php-format
 msgid "Metadata for table %s"
 msgstr "テーブル %s のメタデータ"
 
-#: src/Plugins/Export/ExportSql.php:1116
+#: src/Plugins/Export/ExportSql.php:1126
 #, php-format
 msgid "Metadata for database %s"
 msgstr "データベース %s のメタデータ"
 
-#: src/Plugins/Export/ExportSql.php:1404
+#: src/Plugins/Export/ExportSql.php:1414
 #, php-format
 msgid "Error reading structure for table %s:"
 msgstr "テーブル %s の構造の読み取りエラー:"
 
-#: src/Plugins/Export/ExportSql.php:1487
+#: src/Plugins/Export/ExportSql.php:1497
 msgid "It appears your database uses views;"
 msgstr "データベースはビューを利用しているようです;"
 
-#: src/Plugins/Export/ExportSql.php:1631
+#: src/Plugins/Export/ExportSql.php:1641
 msgid "Constraints for dumped tables"
 msgstr "ダンプしたテーブルの制約"
 
-#: src/Plugins/Export/ExportSql.php:1632
+#: src/Plugins/Export/ExportSql.php:1642
 msgid "Constraints for table"
 msgstr "テーブルの制約"
 
-#: src/Plugins/Export/ExportSql.php:1658
+#: src/Plugins/Export/ExportSql.php:1668
 msgid "Indexes for dumped tables"
 msgstr "ダンプしたテーブルのインデックス"
 
-#: src/Plugins/Export/ExportSql.php:1659
+#: src/Plugins/Export/ExportSql.php:1669
 msgid "Indexes for table"
 msgstr "テーブルのインデックス"
 
-#: src/Plugins/Export/ExportSql.php:1682
+#: src/Plugins/Export/ExportSql.php:1692
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "ダンプしたテーブルの AUTO_INCREMENT"
 
-#: src/Plugins/Export/ExportSql.php:1683
+#: src/Plugins/Export/ExportSql.php:1693
 msgid "AUTO_INCREMENT for table"
 msgstr "テーブルの AUTO_INCREMENT"
 
-#: src/Plugins/Export/ExportSql.php:1737
+#: src/Plugins/Export/ExportSql.php:1747
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "テーブルに含まれているメディアタイプ"
 
-#: src/Plugins/Export/ExportSql.php:1767
+#: src/Plugins/Export/ExportSql.php:1777
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "テーブルのリレーション"
 
-#: src/Plugins/Export/ExportSql.php:1910
+#: src/Plugins/Export/ExportSql.php:1928
 msgid "It appears your table uses triggers;"
 msgstr "データベースはトリガを利用しているようです;"
 
-#: src/Plugins/Export/ExportSql.php:1940
+#: src/Plugins/Export/ExportSql.php:1962
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "ビュー %s の構造をテーブルとしてエクスポート"
 
-#: src/Plugins/Export/ExportSql.php:1967
+#: src/Plugins/Export/ExportSql.php:1993
 msgid "(See below for the actual view)"
 msgstr "(実際のビューを参照するには下にあります)"
 
-#: src/Plugins/Export/ExportSql.php:2022
+#: src/Plugins/Export/ExportSql.php:2048
 #, php-format
 msgid "Error reading data for table %s:"
 msgstr "テーブル %s のデータ読み取りエラー:"
 
-#: src/Plugins/Export/ExportSql.php:2566
+#: src/Plugins/Export/ExportSql.php:2592
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:566
 msgid "Creation:"
 msgstr "作成日時："
 
-#: src/Plugins/Export/ExportSql.php:2574
+#: src/Plugins/Export/ExportSql.php:2600
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:577
 msgid "Last update:"
 msgstr "最終更新："
 
-#: src/Plugins/Export/ExportSql.php:2582
+#: src/Plugins/Export/ExportSql.php:2608
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:588
 msgid "Last check:"
 msgstr "最終検査："
 
-#: src/Plugins/Export/ExportSql.php:2603
+#: src/Plugins/Export/ExportSql.php:2629
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr "他のデータベースシステムまたは古い MySQL サーバとの互換性:"
@@ -18178,24 +18178,24 @@ msgstr "元にするデータベース `%s` が見つかりません！"
 msgid "Target database `%s` was not found!"
 msgstr "対象先のデータベース `%s` が見つかりません！"
 
-#: src/Table/Table.php:812
+#: src/Table/Table.php:820
 msgid "Invalid database:"
 msgstr "不正なデータベースです:"
 
-#: src/Table/Table.php:830
+#: src/Table/Table.php:838
 msgid "Invalid table name:"
 msgstr "不正なテーブル名:"
 
-#: src/Table/Table.php:875
+#: src/Table/Table.php:883
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "テーブル %1$s の名称を %2$s に変更しました。"
 
-#: src/Table/Table.php:1111
+#: src/Table/Table.php:1119
 msgid "Could not save table UI preferences!"
 msgstr "テーブルに対する環境設定が保存できません!"
 
-#: src/Table/Table.php:1133
+#: src/Table/Table.php:1141
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -18204,7 +18204,7 @@ msgstr ""
 "テーブルに対する環境設定のクリーンアップに失敗しました (参照 $cfg['Servers']"
 "[$i]['MaxTableUiprefs'] %s)"
 
-#: src/Table/Table.php:1251
+#: src/Table/Table.php:1259
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -18214,7 +18214,7 @@ msgstr ""
 "環境プロパティ「%s」が保存できません。ページ更新の際、変更箇所が維持されるこ"
 "とはないでしょう。テーブル構造を変更されたのであれば確認してみてください。"
 
-#: src/Table/Table.php:1576
+#: src/Table/Table.php:1584
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -18692,11 +18692,11 @@ msgstr "プロファイルを更新しました。"
 msgid "Password is too long!"
 msgstr "パスワードが長すぎます!"
 
-#: src/UserPreferences.php:162
+#: src/UserPreferences.php:172
 msgid "Could not save configuration"
 msgstr "設定が保存できません"
 
-#: src/UserPreferences.php:173
+#: src/UserPreferences.php:183
 msgid "The phpMyAdmin configuration storage database could not be accessed."
 msgstr "phpMyAdmin構成ストレージデータベースにアクセスできませんでした。"
 

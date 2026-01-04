@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-12-28 00:32+0000\n"
+"POT-Creation-Date: 2026-01-04 00:33+0000\n"
 "PO-Revision-Date: 2026-01-03 06:36+0000\n"
 "Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
 "Language-Team: Azerbaijani <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -213,7 +213,7 @@ msgstr "%s sonrasına"
 #: resources/templates/table/zoom_search/index.twig:120
 #: src/Config/ConfigFile.php:554
 #: src/Controllers/JavaScriptMessagesController.php:218
-#: src/Display/Results.php:930 src/Plugins/Export/ExportSql.php:2011
+#: src/Display/Results.php:930 src/Plugins/Export/ExportSql.php:2037
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "Heç biri"
@@ -1296,7 +1296,7 @@ msgstr ""
 #: resources/templates/console/display.twig:133
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
-#: src/Config/Descriptions.php:928 src/Export/Export.php:774
+#: src/Config/Descriptions.php:928 src/Export/Export.php:725
 #: src/Html/Generator.php:576
 msgid "Refresh"
 msgstr "Yenilə"
@@ -1973,7 +1973,7 @@ msgstr "Təyinedici"
 #: resources/templates/database/events/index.twig:3 src/Menu.php:377
 #: src/Navigation/Nodes/NodeEventContainer.php:22
 #: src/Navigation/Nodes/NodeEventContainer.php:24
-#: src/Plugins/Export/ExportSql.php:988 src/Plugins/Export/ExportXml.php:96
+#: src/Plugins/Export/ExportSql.php:996 src/Plugins/Export/ExportXml.php:96
 #: src/Util.php:1377
 msgid "Events"
 msgstr "Hadisələr"
@@ -2950,7 +2950,7 @@ msgstr ""
 
 #: resources/templates/database/structure/copy_form.twig:5
 #: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:252
-#: src/Plugins/Export/ExportSql.php:919 src/Plugins/Export/ExportXml.php:366
+#: src/Plugins/Export/ExportSql.php:923 src/Plugins/Export/ExportXml.php:366
 #: src/Plugins/Export/Helpers/Pdf.php:177
 msgid "Database:"
 msgstr "Verilənlər Bazası:"
@@ -3002,7 +3002,7 @@ msgstr "Verilənlər lüğəti"
 #: resources/templates/navigation/tree/path.twig:9
 #: src/Controllers/Database/ExportController.php:73
 #: src/Controllers/Database/TrackingController.php:124
-#: src/Controllers/Export/ExportController.php:280
+#: src/Controllers/Export/ExportController.php:281
 msgid "No tables found in database."
 msgstr "Verilənlər bazasında cədvəl yoxdur."
 
@@ -3082,7 +3082,7 @@ msgstr "Əlavə et"
 msgid "Table %s has been emptied."
 msgstr "%s cədvəli boşaldıldı."
 
-#: resources/templates/database/structure/structure_table_row.twig:237
+#: resources/templates/database/structure/structure_table_row.twig:240
 msgid "in use"
 msgstr "istifadede"
 
@@ -3342,7 +3342,7 @@ msgstr ""
 
 #: resources/templates/display/results/table.twig:353
 #: src/Controllers/JavaScriptMessagesController.php:466
-#: src/Export/Export.php:793
+#: src/Export/Export.php:744
 msgid "Copy to clipboard"
 msgstr ""
 
@@ -3829,7 +3829,7 @@ msgid "Server connection:"
 msgstr "Server bağlantısı:"
 
 #: resources/templates/home/index.twig:198
-#: src/Plugins/Export/ExportLatex.php:233 src/Plugins/Export/ExportSql.php:765
+#: src/Plugins/Export/ExportLatex.php:233 src/Plugins/Export/ExportSql.php:769
 #: src/Plugins/Export/ExportXml.php:215
 msgid "Server version:"
 msgstr "Server versiyası:"
@@ -3922,7 +3922,7 @@ msgstr "Götür"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:411
-#: src/Export/Export.php:816 src/Html/Generator.php:855
+#: src/Export/Export.php:767 src/Html/Generator.php:855
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "Geri"
@@ -5808,7 +5808,7 @@ msgstr ""
 
 #: resources/templates/server/replication/change_primary.twig:25
 #: resources/templates/server/replication/primary_add_replica_user.twig:29
-#: src/Plugins/Export/ExportLatex.php:225 src/Plugins/Export/ExportSql.php:754
+#: src/Plugins/Export/ExportLatex.php:225 src/Plugins/Export/ExportSql.php:758
 #: src/Plugins/Export/ExportXml.php:206
 msgid "Host:"
 msgstr "Host:"
@@ -7968,7 +7968,7 @@ msgstr ""
 #: src/Navigation/Nodes/NodeTriggerContainer.php:25
 #: src/Plugins/Export/ExportHtmlword.php:462
 #: src/Plugins/Export/ExportOdt.php:579 src/Plugins/Export/ExportPdf.php:178
-#: src/Plugins/Export/ExportSql.php:1881
+#: src/Plugins/Export/ExportSql.php:1899
 #: src/Plugins/Export/ExportTexytext.php:416
 #: src/Plugins/Export/ExportXml.php:116 src/Util.php:1378 src/Util.php:1394
 msgid "Triggers"
@@ -12739,7 +12739,7 @@ msgstr ""
 msgid "You may want to refresh the page."
 msgstr "Səhifəni yeniləmək istəyə bilərsiniz."
 
-#: src/Controllers/Export/ExportController.php:115 src/Export/Export.php:754
+#: src/Controllers/Export/ExportController.php:116 src/Export/Export.php:705
 msgid "Bad type!"
 msgstr "Pis tip!"
 
@@ -16548,7 +16548,7 @@ msgid ""
 msgstr ""
 
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
-#: src/Export/Export.php:472
+#: src/Export/Export.php:437
 msgid "Exporting a raw query is not supported for this export method."
 msgstr ""
 
@@ -16993,7 +16993,7 @@ msgstr "Yeni"
 
 #: src/Navigation/Nodes/NodeFunctionContainer.php:22
 #: src/Navigation/Nodes/NodeFunctionContainer.php:26
-#: src/Plugins/Export/ExportSql.php:643 src/Plugins/Export/ExportXml.php:101
+#: src/Plugins/Export/ExportSql.php:647 src/Plugins/Export/ExportXml.php:101
 msgid "Functions"
 msgstr "Funksiyalar"
 
@@ -17013,7 +17013,7 @@ msgstr "Genişlət/Daralt"
 
 #: src/Navigation/Nodes/NodeProcedureContainer.php:22
 #: src/Navigation/Nodes/NodeProcedureContainer.php:26
-#: src/Plugins/Export/ExportSql.php:632 src/Plugins/Export/ExportXml.php:106
+#: src/Plugins/Export/ExportSql.php:636 src/Plugins/Export/ExportXml.php:106
 msgid "Procedures"
 msgstr "Proseduralar"
 
@@ -17444,25 +17444,25 @@ msgid "Data dump options"
 msgstr "Data Dump seçimləri"
 
 #: src/Plugins/Export/ExportHtmlword.php:169
-#: src/Plugins/Export/ExportOdt.php:216 src/Plugins/Export/ExportSql.php:2118
+#: src/Plugins/Export/ExportOdt.php:216 src/Plugins/Export/ExportSql.php:2144
 #: src/Plugins/Export/ExportTexytext.php:138
 msgid "Dumping data for table"
 msgstr "Sxemi çıxarılan cedvel"
 
 #: src/Plugins/Export/ExportHtmlword.php:453
-#: src/Plugins/Export/ExportOdt.php:569 src/Plugins/Export/ExportSql.php:1867
+#: src/Plugins/Export/ExportOdt.php:569 src/Plugins/Export/ExportSql.php:1881
 #: src/Plugins/Export/ExportTexytext.php:409
 msgid "Table structure for table"
 msgstr "Cədvəl üçün cədvəl strukturu"
 
 #: src/Plugins/Export/ExportHtmlword.php:470
-#: src/Plugins/Export/ExportOdt.php:589 src/Plugins/Export/ExportSql.php:1925
+#: src/Plugins/Export/ExportOdt.php:589 src/Plugins/Export/ExportSql.php:1947
 #: src/Plugins/Export/ExportTexytext.php:422
 msgid "Structure for view"
 msgstr "Görünüş strukturu"
 
 #: src/Plugins/Export/ExportHtmlword.php:476
-#: src/Plugins/Export/ExportOdt.php:597 src/Plugins/Export/ExportSql.php:1964
+#: src/Plugins/Export/ExportOdt.php:597 src/Plugins/Export/ExportSql.php:1990
 #: src/Plugins/Export/ExportTexytext.php:426
 msgid "Stand-in structure for view"
 msgstr ""
@@ -17527,17 +17527,17 @@ msgstr "MIME tiplərini göstər"
 msgid "Put columns names in the first row:"
 msgstr "İlk sətirə sütun adlarını əlavə et:"
 
-#: src/Plugins/Export/ExportLatex.php:231 src/Plugins/Export/ExportSql.php:761
+#: src/Plugins/Export/ExportLatex.php:231 src/Plugins/Export/ExportSql.php:765
 #: src/Plugins/Export/ExportXml.php:213
 msgid "Generation Time:"
 msgstr "Hazırlanma Vaxtı:"
 
-#: src/Plugins/Export/ExportLatex.php:234 src/Plugins/Export/ExportSql.php:767
+#: src/Plugins/Export/ExportLatex.php:234 src/Plugins/Export/ExportSql.php:771
 #: src/Plugins/Export/ExportXml.php:216
 msgid "PHP Version:"
 msgstr "PHP Versiyası:"
 
-#: src/Plugins/Export/ExportLatex.php:288 src/Plugins/Export/ExportSql.php:2011
+#: src/Plugins/Export/ExportLatex.php:288 src/Plugins/Export/ExportSql.php:2037
 msgid "Data:"
 msgstr "Verilən:"
 
@@ -17644,7 +17644,7 @@ msgstr ""
 msgid "Data creation options"
 msgstr "Verilən yaratma seçimləri"
 
-#: src/Plugins/Export/ExportSql.php:421 src/Plugins/Export/ExportSql.php:2081
+#: src/Plugins/Export/ExportSql.php:421 src/Plugins/Export/ExportSql.php:2107
 msgid "Truncate table before insert"
 msgstr ""
 
@@ -17710,114 +17710,114 @@ msgstr ""
 msgid "It appears your database uses routines;"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:598 src/Plugins/Export/ExportSql.php:1490
-#: src/Plugins/Export/ExportSql.php:1913
+#: src/Plugins/Export/ExportSql.php:598 src/Plugins/Export/ExportSql.php:1500
+#: src/Plugins/Export/ExportSql.php:1931
 msgid "alias export may not work reliably in all cases."
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1044
+#: src/Plugins/Export/ExportSql.php:1056
 #, fuzzy
 #| msgid "Export method"
 msgid "Metadata"
 msgstr "Eksport metodu"
 
-#: src/Plugins/Export/ExportSql.php:1109
+#: src/Plugins/Export/ExportSql.php:1119
 #, fuzzy, php-format
 #| msgid "Delete data or table"
 msgid "Metadata for table %s"
 msgstr "Cədvəl və ya veriləni sil"
 
-#: src/Plugins/Export/ExportSql.php:1116
+#: src/Plugins/Export/ExportSql.php:1126
 #, fuzzy, php-format
 #| msgid "Create table on database %s"
 msgid "Metadata for database %s"
 msgstr "%s bazasında yeni cedvel qur"
 
-#: src/Plugins/Export/ExportSql.php:1404
+#: src/Plugins/Export/ExportSql.php:1414
 #, fuzzy, php-format
 #| msgid "Table structure for table"
 msgid "Error reading structure for table %s:"
 msgstr "Cədvəl üçün cədvəl strukturu"
 
-#: src/Plugins/Export/ExportSql.php:1487
+#: src/Plugins/Export/ExportSql.php:1497
 msgid "It appears your database uses views;"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1631
+#: src/Plugins/Export/ExportSql.php:1641
 msgid "Constraints for dumped tables"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1632
+#: src/Plugins/Export/ExportSql.php:1642
 msgid "Constraints for table"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1658
+#: src/Plugins/Export/ExportSql.php:1668
 #, fuzzy
 #| msgid "Inside table(s):"
 msgid "Indexes for dumped tables"
 msgstr "Inside table(s):"
 
-#: src/Plugins/Export/ExportSql.php:1659
+#: src/Plugins/Export/ExportSql.php:1669
 msgid "Indexes for table"
 msgstr "Cədvəl üçün indekslər"
 
-#: src/Plugins/Export/ExportSql.php:1682
+#: src/Plugins/Export/ExportSql.php:1692
 #, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "AUTO_INCREMENT deyeri elave et"
 
-#: src/Plugins/Export/ExportSql.php:1683
+#: src/Plugins/Export/ExportSql.php:1693
 msgid "AUTO_INCREMENT for table"
 msgstr "Cədvəl üçün AUTO_INCREMENT"
 
-#: src/Plugins/Export/ExportSql.php:1737
+#: src/Plugins/Export/ExportSql.php:1747
 #, fuzzy
 #| msgid "RELATIONS FOR TABLE"
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "Cədvəl Əlaqələri"
 
-#: src/Plugins/Export/ExportSql.php:1767
+#: src/Plugins/Export/ExportSql.php:1777
 #, fuzzy
 #| msgid "RELATIONS FOR TABLE"
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "Cədvəl Əlaqələri"
 
-#: src/Plugins/Export/ExportSql.php:1910
+#: src/Plugins/Export/ExportSql.php:1928
 msgid "It appears your table uses triggers;"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1940
+#: src/Plugins/Export/ExportSql.php:1962
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "Görünüş strukturu %s cədvəl olaraq eksport edildi"
 
-#: src/Plugins/Export/ExportSql.php:1967
+#: src/Plugins/Export/ExportSql.php:1993
 msgid "(See below for the actual view)"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:2022
+#: src/Plugins/Export/ExportSql.php:2048
 #, fuzzy, php-format
 #| msgid "Error reading data:"
 msgid "Error reading data for table %s:"
 msgstr "Verilənlərin oxunması xətası:"
 
-#: src/Plugins/Export/ExportSql.php:2566
+#: src/Plugins/Export/ExportSql.php:2592
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:566
 msgid "Creation:"
 msgstr "Yaradılma:"
 
-#: src/Plugins/Export/ExportSql.php:2574
+#: src/Plugins/Export/ExportSql.php:2600
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:577
 msgid "Last update:"
 msgstr "Ən son yenilənmə:"
 
-#: src/Plugins/Export/ExportSql.php:2582
+#: src/Plugins/Export/ExportSql.php:2608
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:588
 msgid "Last check:"
 msgstr "Ən son yoxlama:"
 
-#: src/Plugins/Export/ExportSql.php:2603
+#: src/Plugins/Export/ExportSql.php:2629
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
@@ -18759,31 +18759,31 @@ msgstr "Qaynaq Verilənlər Bazası `%s` tapılmadı!"
 msgid "Target database `%s` was not found!"
 msgstr "Hədəf Verilənlər Bazası `%s` tapılmadı!"
 
-#: src/Table/Table.php:812
+#: src/Table/Table.php:820
 msgid "Invalid database:"
 msgstr "Etibarsız Verilənlər Bazası:"
 
-#: src/Table/Table.php:830
+#: src/Table/Table.php:838
 msgid "Invalid table name:"
 msgstr "Etibarsız cədvəl adı:"
 
-#: src/Table/Table.php:875
+#: src/Table/Table.php:883
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "%1$s cədvəli %2$s olaraq yenidən adlandırılmışdır."
 
-#: src/Table/Table.php:1111
+#: src/Table/Table.php:1119
 msgid "Could not save table UI preferences!"
 msgstr ""
 
-#: src/Table/Table.php:1133
+#: src/Table/Table.php:1141
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
 
-#: src/Table/Table.php:1251
+#: src/Table/Table.php:1259
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -18791,7 +18791,7 @@ msgid ""
 "changed."
 msgstr ""
 
-#: src/Table/Table.php:1576
+#: src/Table/Table.php:1584
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -19236,11 +19236,11 @@ msgstr "Profil yenilendi."
 msgid "Password is too long!"
 msgstr "Parol:"
 
-#: src/UserPreferences.php:162
+#: src/UserPreferences.php:172
 msgid "Could not save configuration"
 msgstr ""
 
-#: src/UserPreferences.php:173
+#: src/UserPreferences.php:183
 #, fuzzy
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. %sFind out "

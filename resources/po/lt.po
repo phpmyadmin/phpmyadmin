@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-12-28 00:32+0000\n"
+"POT-Creation-Date: 2026-01-04 00:33+0000\n"
 "PO-Revision-Date: 2022-07-05 15:20+0000\n"
 "Last-Translator: Ugnius Vaičeskas <ugninis.vai@gmail.com>\n"
 "Language-Team: Lithuanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -220,7 +220,7 @@ msgstr "Po %s"
 #: resources/templates/table/zoom_search/index.twig:120
 #: src/Config/ConfigFile.php:554
 #: src/Controllers/JavaScriptMessagesController.php:218
-#: src/Display/Results.php:930 src/Plugins/Export/ExportSql.php:2011
+#: src/Display/Results.php:930 src/Plugins/Export/ExportSql.php:2037
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "Ne"
@@ -1335,7 +1335,7 @@ msgstr ""
 #: resources/templates/console/display.twig:133
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
-#: src/Config/Descriptions.php:928 src/Export/Export.php:774
+#: src/Config/Descriptions.php:928 src/Export/Export.php:725
 #: src/Html/Generator.php:576
 msgid "Refresh"
 msgstr "Atnaujinti"
@@ -2052,7 +2052,7 @@ msgstr ""
 #: resources/templates/database/events/index.twig:3 src/Menu.php:377
 #: src/Navigation/Nodes/NodeEventContainer.php:22
 #: src/Navigation/Nodes/NodeEventContainer.php:24
-#: src/Plugins/Export/ExportSql.php:988 src/Plugins/Export/ExportXml.php:96
+#: src/Plugins/Export/ExportSql.php:996 src/Plugins/Export/ExportXml.php:96
 #: src/Util.php:1377
 msgid "Events"
 msgstr "Įvykiai"
@@ -3055,7 +3055,7 @@ msgstr ""
 
 #: resources/templates/database/structure/copy_form.twig:5
 #: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:252
-#: src/Plugins/Export/ExportSql.php:919 src/Plugins/Export/ExportXml.php:366
+#: src/Plugins/Export/ExportSql.php:923 src/Plugins/Export/ExportXml.php:366
 #: src/Plugins/Export/Helpers/Pdf.php:177
 #, fuzzy
 #| msgid "Database"
@@ -3117,7 +3117,7 @@ msgstr "Duomenų žodynas"
 #: resources/templates/navigation/tree/path.twig:9
 #: src/Controllers/Database/ExportController.php:73
 #: src/Controllers/Database/TrackingController.php:124
-#: src/Controllers/Export/ExportController.php:280
+#: src/Controllers/Export/ExportController.php:281
 msgid "No tables found in database."
 msgstr "Duomenų bazėje nerasta lentelių."
 
@@ -3199,7 +3199,7 @@ msgstr "Įterpti"
 msgid "Table %s has been emptied."
 msgstr "Lentelės reikšmės %s ištuštintos."
 
-#: resources/templates/database/structure/structure_table_row.twig:237
+#: resources/templates/database/structure/structure_table_row.twig:240
 msgid "in use"
 msgstr "šiuo metu naudojama"
 
@@ -3475,7 +3475,7 @@ msgstr "Veiksmai su užklausos rezultatais"
 
 #: resources/templates/display/results/table.twig:353
 #: src/Controllers/JavaScriptMessagesController.php:466
-#: src/Export/Export.php:793
+#: src/Export/Export.php:744
 msgid "Copy to clipboard"
 msgstr ""
 
@@ -3973,7 +3973,7 @@ msgid "Server connection:"
 msgstr "Serverio prisijungimas :"
 
 #: resources/templates/home/index.twig:198
-#: src/Plugins/Export/ExportLatex.php:233 src/Plugins/Export/ExportSql.php:765
+#: src/Plugins/Export/ExportLatex.php:233 src/Plugins/Export/ExportSql.php:769
 #: src/Plugins/Export/ExportXml.php:215
 #, fuzzy
 #| msgid "Server version"
@@ -4076,7 +4076,7 @@ msgstr "pasirinkti"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:411
-#: src/Export/Export.php:816 src/Html/Generator.php:855
+#: src/Export/Export.php:767 src/Html/Generator.php:855
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "Atgal"
@@ -6063,7 +6063,7 @@ msgstr ""
 
 #: resources/templates/server/replication/change_primary.twig:25
 #: resources/templates/server/replication/primary_add_replica_user.twig:29
-#: src/Plugins/Export/ExportLatex.php:225 src/Plugins/Export/ExportSql.php:754
+#: src/Plugins/Export/ExportLatex.php:225 src/Plugins/Export/ExportSql.php:758
 #: src/Plugins/Export/ExportXml.php:206
 #, fuzzy
 #| msgid "Host"
@@ -8393,7 +8393,7 @@ msgstr ""
 #: src/Navigation/Nodes/NodeTriggerContainer.php:25
 #: src/Plugins/Export/ExportHtmlword.php:462
 #: src/Plugins/Export/ExportOdt.php:579 src/Plugins/Export/ExportPdf.php:178
-#: src/Plugins/Export/ExportSql.php:1881
+#: src/Plugins/Export/ExportSql.php:1899
 #: src/Plugins/Export/ExportTexytext.php:416
 #: src/Plugins/Export/ExportXml.php:116 src/Util.php:1378 src/Util.php:1394
 msgid "Triggers"
@@ -13771,7 +13771,7 @@ msgstr ""
 msgid "You may want to refresh the page."
 msgstr "Galite norėti atnaujinti puslapį."
 
-#: src/Controllers/Export/ExportController.php:115 src/Export/Export.php:754
+#: src/Controllers/Export/ExportController.php:116 src/Export/Export.php:705
 msgid "Bad type!"
 msgstr "Blogas tipas!"
 
@@ -17698,7 +17698,7 @@ msgid ""
 msgstr ""
 
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
-#: src/Export/Export.php:472
+#: src/Export/Export.php:437
 msgid "Exporting a raw query is not supported for this export method."
 msgstr ""
 
@@ -18186,7 +18186,7 @@ msgstr ""
 
 #: src/Navigation/Nodes/NodeFunctionContainer.php:22
 #: src/Navigation/Nodes/NodeFunctionContainer.php:26
-#: src/Plugins/Export/ExportSql.php:643 src/Plugins/Export/ExportXml.php:101
+#: src/Plugins/Export/ExportSql.php:647 src/Plugins/Export/ExportXml.php:101
 msgid "Functions"
 msgstr "Funkcijos"
 
@@ -18206,7 +18206,7 @@ msgstr ""
 
 #: src/Navigation/Nodes/NodeProcedureContainer.php:22
 #: src/Navigation/Nodes/NodeProcedureContainer.php:26
-#: src/Plugins/Export/ExportSql.php:632 src/Plugins/Export/ExportXml.php:106
+#: src/Plugins/Export/ExportSql.php:636 src/Plugins/Export/ExportXml.php:106
 msgid "Procedures"
 msgstr "Procedūros"
 
@@ -18646,25 +18646,25 @@ msgid "Data dump options"
 msgstr "Duomenų išvedimo nustatymai"
 
 #: src/Plugins/Export/ExportHtmlword.php:169
-#: src/Plugins/Export/ExportOdt.php:216 src/Plugins/Export/ExportSql.php:2118
+#: src/Plugins/Export/ExportOdt.php:216 src/Plugins/Export/ExportSql.php:2144
 #: src/Plugins/Export/ExportTexytext.php:138
 msgid "Dumping data for table"
 msgstr "Sukurta duomenų kopija lentelei"
 
 #: src/Plugins/Export/ExportHtmlword.php:453
-#: src/Plugins/Export/ExportOdt.php:569 src/Plugins/Export/ExportSql.php:1867
+#: src/Plugins/Export/ExportOdt.php:569 src/Plugins/Export/ExportSql.php:1881
 #: src/Plugins/Export/ExportTexytext.php:409
 msgid "Table structure for table"
 msgstr "Sukurta duomenų struktūra lentelei"
 
 #: src/Plugins/Export/ExportHtmlword.php:470
-#: src/Plugins/Export/ExportOdt.php:589 src/Plugins/Export/ExportSql.php:1925
+#: src/Plugins/Export/ExportOdt.php:589 src/Plugins/Export/ExportSql.php:1947
 #: src/Plugins/Export/ExportTexytext.php:422
 msgid "Structure for view"
 msgstr "Struktūra peržiūrėjimui"
 
 #: src/Plugins/Export/ExportHtmlword.php:476
-#: src/Plugins/Export/ExportOdt.php:597 src/Plugins/Export/ExportSql.php:1964
+#: src/Plugins/Export/ExportOdt.php:597 src/Plugins/Export/ExportSql.php:1990
 #: src/Plugins/Export/ExportTexytext.php:426
 msgid "Stand-in structure for view"
 msgstr "Tik struktūra rodiniui"
@@ -18737,21 +18737,21 @@ msgstr "Rodyti MIME-tipus"
 msgid "Put columns names in the first row:"
 msgstr "Stulpelių pavadinimus įrašyti pirmoje eilutėje"
 
-#: src/Plugins/Export/ExportLatex.php:231 src/Plugins/Export/ExportSql.php:761
+#: src/Plugins/Export/ExportLatex.php:231 src/Plugins/Export/ExportSql.php:765
 #: src/Plugins/Export/ExportXml.php:213
 #, fuzzy
 #| msgid "Generation Time"
 msgid "Generation Time:"
 msgstr "Atlikimo laikas"
 
-#: src/Plugins/Export/ExportLatex.php:234 src/Plugins/Export/ExportSql.php:767
+#: src/Plugins/Export/ExportLatex.php:234 src/Plugins/Export/ExportSql.php:771
 #: src/Plugins/Export/ExportXml.php:216
 #, fuzzy
 #| msgid "PHP Version"
 msgid "PHP Version:"
 msgstr "PHP versija"
 
-#: src/Plugins/Export/ExportLatex.php:288 src/Plugins/Export/ExportSql.php:2011
+#: src/Plugins/Export/ExportLatex.php:288 src/Plugins/Export/ExportSql.php:2037
 #, fuzzy
 #| msgid "Data"
 msgid "Data:"
@@ -18875,7 +18875,7 @@ msgstr ""
 msgid "Data creation options"
 msgstr "Objekto kūrimo nustatymai"
 
-#: src/Plugins/Export/ExportSql.php:421 src/Plugins/Export/ExportSql.php:2081
+#: src/Plugins/Export/ExportSql.php:421 src/Plugins/Export/ExportSql.php:2107
 msgid "Truncate table before insert"
 msgstr ""
 
@@ -18971,119 +18971,119 @@ msgstr ""
 msgid "It appears your database uses routines;"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:598 src/Plugins/Export/ExportSql.php:1490
-#: src/Plugins/Export/ExportSql.php:1913
+#: src/Plugins/Export/ExportSql.php:598 src/Plugins/Export/ExportSql.php:1500
+#: src/Plugins/Export/ExportSql.php:1931
 msgid "alias export may not work reliably in all cases."
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1044
+#: src/Plugins/Export/ExportSql.php:1056
 #, fuzzy
 #| msgid "Missing data for %s"
 msgid "Metadata"
 msgstr "Trūksta duomenų %s"
 
-#: src/Plugins/Export/ExportSql.php:1109
+#: src/Plugins/Export/ExportSql.php:1119
 #, fuzzy, php-format
 #| msgid "Missing data for %s"
 msgid "Metadata for table %s"
 msgstr "Trūksta duomenų %s"
 
-#: src/Plugins/Export/ExportSql.php:1116
+#: src/Plugins/Export/ExportSql.php:1126
 #, fuzzy, php-format
 #| msgid "Missing data for %s"
 msgid "Metadata for database %s"
 msgstr "Trūksta duomenų %s"
 
-#: src/Plugins/Export/ExportSql.php:1404
+#: src/Plugins/Export/ExportSql.php:1414
 #, fuzzy, php-format
 #| msgid "Table structure for table"
 msgid "Error reading structure for table %s:"
 msgstr "Sukurta duomenų struktūra lentelei"
 
-#: src/Plugins/Export/ExportSql.php:1487
+#: src/Plugins/Export/ExportSql.php:1497
 msgid "It appears your database uses views;"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1631
+#: src/Plugins/Export/ExportSql.php:1641
 msgid "Constraints for dumped tables"
 msgstr "Apribojimai eksportuotom lentelėm"
 
-#: src/Plugins/Export/ExportSql.php:1632
+#: src/Plugins/Export/ExportSql.php:1642
 msgid "Constraints for table"
 msgstr "Apribojimai lentelei"
 
-#: src/Plugins/Export/ExportSql.php:1658
+#: src/Plugins/Export/ExportSql.php:1668
 #, fuzzy
 #| msgid "Constraints for dumped tables"
 msgid "Indexes for dumped tables"
 msgstr "Apribojimai eksportuotom lentelėm"
 
-#: src/Plugins/Export/ExportSql.php:1659
+#: src/Plugins/Export/ExportSql.php:1669
 #, fuzzy
 #| msgid "Inside tables:"
 msgid "Indexes for table"
 msgstr "Viduje lentelių:"
 
-#: src/Plugins/Export/ExportSql.php:1682
+#: src/Plugins/Export/ExportSql.php:1692
 #, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "Nenaudoti AUTO_INCREMENT nulinėms reikšmėms"
 
-#: src/Plugins/Export/ExportSql.php:1683
+#: src/Plugins/Export/ExportSql.php:1693
 #, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for table"
 msgstr "Pridėti AUTO_INCREMENT reikšmę"
 
-#: src/Plugins/Export/ExportSql.php:1737
+#: src/Plugins/Export/ExportSql.php:1747
 #, fuzzy
 #| msgid "MIME TYPES FOR TABLE"
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "MIME TIPAI LENTELEI"
 
-#: src/Plugins/Export/ExportSql.php:1767
+#: src/Plugins/Export/ExportSql.php:1777
 #, fuzzy
 #| msgid "RELATIONS FOR TABLE"
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "SĄRYŠIAI LENTELEI"
 
-#: src/Plugins/Export/ExportSql.php:1910
+#: src/Plugins/Export/ExportSql.php:1928
 msgid "It appears your table uses triggers;"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1940
+#: src/Plugins/Export/ExportSql.php:1962
 #, fuzzy, php-format
 #| msgid "Structure for view"
 msgid "Structure for view %s exported as a table"
 msgstr "Struktūra peržiūrėjimui"
 
-#: src/Plugins/Export/ExportSql.php:1967
+#: src/Plugins/Export/ExportSql.php:1993
 msgid "(See below for the actual view)"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:2022
+#: src/Plugins/Export/ExportSql.php:2048
 #, fuzzy, php-format
 #| msgid "Error reading data:"
 msgid "Error reading data for table %s:"
 msgstr "Klaida skaitant duomenis:"
 
-#: src/Plugins/Export/ExportSql.php:2566
+#: src/Plugins/Export/ExportSql.php:2592
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:566
 msgid "Creation:"
 msgstr "Kūrimas:"
 
-#: src/Plugins/Export/ExportSql.php:2574
+#: src/Plugins/Export/ExportSql.php:2600
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:577
 msgid "Last update:"
 msgstr "Paskutinis atnaujinimas:"
 
-#: src/Plugins/Export/ExportSql.php:2582
+#: src/Plugins/Export/ExportSql.php:2608
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:588
 msgid "Last check:"
 msgstr "Paskutinis patikrinimas:"
 
-#: src/Plugins/Export/ExportSql.php:2603
+#: src/Plugins/Export/ExportSql.php:2629
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
@@ -20089,38 +20089,38 @@ msgstr "Iš duomenų bazės"
 msgid "Target database `%s` was not found!"
 msgstr "Tema %s nerasta!"
 
-#: src/Table/Table.php:812
+#: src/Table/Table.php:820
 #, fuzzy
 #| msgid "Invalid database"
 msgid "Invalid database:"
 msgstr "Neteisingas duomenų bazės vardas"
 
-#: src/Table/Table.php:830
+#: src/Table/Table.php:838
 #, fuzzy
 #| msgid "Invalid table name"
 msgid "Invalid table name:"
 msgstr "Neteisingas lentelės vardas"
 
-#: src/Table/Table.php:875
+#: src/Table/Table.php:883
 #, fuzzy, php-format
 #| msgid "Table %s has been renamed to %s."
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Lentelė %s pervadinta į %s"
 
-#: src/Table/Table.php:1111
+#: src/Table/Table.php:1119
 #, fuzzy
 #| msgid "Could not save table UI preferences"
 msgid "Could not save table UI preferences!"
 msgstr "Nepavyko išsaugoti lentelės naudotojo sąsajos nustatymų"
 
-#: src/Table/Table.php:1133
+#: src/Table/Table.php:1141
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
 
-#: src/Table/Table.php:1251
+#: src/Table/Table.php:1259
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -20128,7 +20128,7 @@ msgid ""
 "changed."
 msgstr ""
 
-#: src/Table/Table.php:1576
+#: src/Table/Table.php:1584
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -20563,11 +20563,11 @@ msgstr "Profilis papildytas."
 msgid "Password is too long!"
 msgstr "Slaptažodžių Hešavimas"
 
-#: src/UserPreferences.php:162
+#: src/UserPreferences.php:172
 msgid "Could not save configuration"
 msgstr "Nepavyko išsaugoti konfigūracijos"
 
-#: src/UserPreferences.php:173
+#: src/UserPreferences.php:183
 #, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "The phpMyAdmin configuration storage database could not be accessed."

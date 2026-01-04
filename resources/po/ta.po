@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-12-28 00:32+0000\n"
+"POT-Creation-Date: 2026-01-04 00:33+0000\n"
 "PO-Revision-Date: 2025-12-29 11:00+0000\n"
 "Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -202,7 +202,7 @@ msgstr "%s க்கு அடுத்து"
 #: resources/templates/table/zoom_search/index.twig:120
 #: src/Config/ConfigFile.php:554
 #: src/Controllers/JavaScriptMessagesController.php:218
-#: src/Display/Results.php:930 src/Plugins/Export/ExportSql.php:2011
+#: src/Display/Results.php:930 src/Plugins/Export/ExportSql.php:2037
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "எதுவுமில்லை"
@@ -1202,7 +1202,7 @@ msgstr "எடுக்கப்பட்ட நேரம்:"
 #: resources/templates/console/display.twig:133
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
-#: src/Config/Descriptions.php:928 src/Export/Export.php:774
+#: src/Config/Descriptions.php:928 src/Export/Export.php:725
 #: src/Html/Generator.php:576
 msgid "Refresh"
 msgstr "புதுப்பி"
@@ -1826,7 +1826,7 @@ msgstr "வரையறுக்கவும்"
 #: resources/templates/database/events/index.twig:3 src/Menu.php:377
 #: src/Navigation/Nodes/NodeEventContainer.php:22
 #: src/Navigation/Nodes/NodeEventContainer.php:24
-#: src/Plugins/Export/ExportSql.php:988 src/Plugins/Export/ExportXml.php:96
+#: src/Plugins/Export/ExportSql.php:996 src/Plugins/Export/ExportXml.php:96
 #: src/Util.php:1377
 msgid "Events"
 msgstr "நிகழ்வுகள்"
@@ -2735,7 +2735,7 @@ msgstr ""
 
 #: resources/templates/database/structure/copy_form.twig:5
 #: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:252
-#: src/Plugins/Export/ExportSql.php:919 src/Plugins/Export/ExportXml.php:366
+#: src/Plugins/Export/ExportSql.php:923 src/Plugins/Export/ExportXml.php:366
 #: src/Plugins/Export/Helpers/Pdf.php:177
 msgid "Database:"
 msgstr "தரவுத்தளம்:"
@@ -2783,7 +2783,7 @@ msgstr "தரவு அகராதி"
 #: resources/templates/navigation/tree/path.twig:9
 #: src/Controllers/Database/ExportController.php:73
 #: src/Controllers/Database/TrackingController.php:124
-#: src/Controllers/Export/ExportController.php:280
+#: src/Controllers/Export/ExportController.php:281
 msgid "No tables found in database."
 msgstr "அட்டவணைகள் எதுவும் இத்தரவுத்தளத்தில் காணப்படவில்லை."
 
@@ -2863,7 +2863,7 @@ msgstr "செருகு"
 msgid "Table %s has been emptied."
 msgstr "%s அட்டவணை வெறுமையாக்கப்பட்டது."
 
-#: resources/templates/database/structure/structure_table_row.twig:237
+#: resources/templates/database/structure/structure_table_row.twig:240
 msgid "in use"
 msgstr "பயன்பாட்டில் உள்ளது"
 
@@ -3121,7 +3121,7 @@ msgstr "வினவலின் பயன்முடிவுகளின் �
 
 #: resources/templates/display/results/table.twig:353
 #: src/Controllers/JavaScriptMessagesController.php:466
-#: src/Export/Export.php:793
+#: src/Export/Export.php:744
 msgid "Copy to clipboard"
 msgstr "இடைநிலைப்பலகைக்கு நகலெடுக்கவும்"
 
@@ -3556,7 +3556,7 @@ msgid "Server connection:"
 msgstr "சேவையக இணைப்பு:"
 
 #: resources/templates/home/index.twig:198
-#: src/Plugins/Export/ExportLatex.php:233 src/Plugins/Export/ExportSql.php:765
+#: src/Plugins/Export/ExportLatex.php:233 src/Plugins/Export/ExportSql.php:769
 #: src/Plugins/Export/ExportXml.php:215
 msgid "Server version:"
 msgstr "வழங்கி பதிப்பு:"
@@ -3644,7 +3644,7 @@ msgstr "அதை எடுத்துக் கொள்ளுங்கள்"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:411
-#: src/Export/Export.php:816 src/Html/Generator.php:855
+#: src/Export/Export.php:767 src/Html/Generator.php:855
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "பின்செல்க"
@@ -5393,7 +5393,7 @@ msgstr ""
 
 #: resources/templates/server/replication/change_primary.twig:25
 #: resources/templates/server/replication/primary_add_replica_user.twig:29
-#: src/Plugins/Export/ExportLatex.php:225 src/Plugins/Export/ExportSql.php:754
+#: src/Plugins/Export/ExportLatex.php:225 src/Plugins/Export/ExportSql.php:758
 #: src/Plugins/Export/ExportXml.php:206
 msgid "Host:"
 msgstr "புரவலன்:"
@@ -6622,8 +6622,8 @@ msgid ""
 "@SERVER@ will become the server name, @DATABASE@ will become the database "
 "name and @TABLE@ will become the table name."
 msgstr ""
-"@ சேவையகம்@ சேவையக பெயராக மாறும்,@ தரவுத்தளம்@ தரவுத்தள பெயராகவும்,@ அட்டவணை@ அட்டவணை "
-"பெயராகவும் மாறும்."
+"@ சேவையகம்@ சேவையக பெயராக மாறும்,@ தரவுத்தளம்@ தரவுத்தள பெயராகவும்,@ அட்டவணை@ "
+"அட்டவணை பெயராகவும் மாறும்."
 
 #: resources/templates/table/export/index.twig:7
 #, php-format
@@ -7412,7 +7412,7 @@ msgstr "%s செயல்தூண்டியின் தரவேற்ற�
 #: src/Navigation/Nodes/NodeTriggerContainer.php:25
 #: src/Plugins/Export/ExportHtmlword.php:462
 #: src/Plugins/Export/ExportOdt.php:579 src/Plugins/Export/ExportPdf.php:178
-#: src/Plugins/Export/ExportSql.php:1881
+#: src/Plugins/Export/ExportSql.php:1899
 #: src/Plugins/Export/ExportTexytext.php:416
 #: src/Plugins/Export/ExportXml.php:116 src/Util.php:1378 src/Util.php:1394
 msgid "Triggers"
@@ -7746,9 +7746,9 @@ msgstr "வினவல் இடைமாற்று பயன்படுத�
 #: src/Advisory/Rules.php:217
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"https://dev.mysql.com/doc/refman/"
-"5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query cache, "
-"especially if you have multiple replicas."
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
+"refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
+"cache, especially if you have multiple replicas."
 msgstr ""
 "நீங்கள் MySQL வினவல் தற்காலிக சேமிப்பை மிகவும் அதிக போக்குவரத்து தரவுத்தளத்துடன் "
 "பயன்படுத்துகிறீர்கள். <a href=\"https://dev.mysql.com/doc/refman/5.6/en/ha-"
@@ -8014,8 +8014,8 @@ msgstr ""
 "மதிப்பிலிருந்து சுயாதீனமாக. இவற்றை அகற்ற நீங்கள் அந்த நிலைமைகளைத் தவிர்ப்பதற்கு உங்கள் "
 "கேள்விகளை மீண்டும் எழுத வேண்டும் (ஒரு தற்காலிக அட்டவணைக்குள்: ஒரு குமிழ் அல்லது உரை "
 "நெடுவரிசையின் இருப்பு அல்லது 512 பைட்டுகளை விட பெரிய நெடுவரிசையின் இருப்பு) <a "
-"href = \"https: // dev.mysql.com/doc/refman/8.0/en/internal-temperory-"
-"tables.html\">mysql ஆவணங்கள் </a>"
+"href = \"https: // dev.mysql.com/doc/refman/8.0/en/internal-temperory-tables."
+"html\">mysql ஆவணங்கள் </a>"
 
 #: src/Advisory/Rules.php:383
 #, php-format
@@ -8328,8 +8328,8 @@ msgid ""
 "href=\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-"
 "of-aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
-"இணைப்புகள் பொதுவாக அங்கீகரிக்க முடியாதபோது கைவிடப்படுகின்றன. <a href=\"https://"
-"www.percona.com/blog/2008/08/23/how-to-to-track-down-the-source-of-"
+"இணைப்புகள் பொதுவாக அங்கீகரிக்க முடியாதபோது கைவிடப்படுகின்றன. <a href=\"https://www."
+"percona.com/blog/2008/08/23/how-to-to-track-down-the-source-of-"
 "aborted_connects/\"> இந்த கட்டுரை உங்களுக்கு உதவக்கூடும் மூலத்தைக் கண்காணிக்கவும்."
 
 #: src/Advisory/Rules.php:584
@@ -8423,8 +8423,8 @@ msgid ""
 "note however that you cannot simply change the value of this variable. You "
 "need to shutdown the server, remove the InnoDB log files, set the new value "
 "in my.cnf, start the server, then check the error logs if everything went "
-"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot.com/"
-"2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
+"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "குறிப்பாக இன்னோடிபி அட்டவணைகளுக்கு நிறைய எழுத்துக்களைக் கொண்ட ஒரு கணினியில் நீங்கள் "
 "{innodb_log_file_size} {innodb_buffer_pool_size of இன் 25% ஆக அமைக்க வேண்டும். "
@@ -8468,12 +8468,13 @@ msgid ""
 msgstr ""
 "{innodb_log_file_size} முதல் 25% வரை {innodb_buffer_pool_size of அளவில் அமைக்க "
 "இது போதுமானது. ஒரு தரவுத்தள செயலிழந்த பிறகு மிகப் பெரிய {innodb_log_file_size "
-"the மீட்பு நேரத்தை குறைக்கிறது. <a href=\"https://www.percona.com/blog/2006/07/"
-"03/choosing-proper-intnodb_log_file_size/\"> இந்த கட்டுரை </a>. நீங்கள் சேவையகத்தை "
-"நிறுத்த வேண்டும், INNODB பதிவு கோப்புகளை அகற்ற வேண்டும், புதிய மதிப்பை My.CNF இல் "
-"அமைக்க வேண்டும், சேவையகத்தைத் தொடங்கவும், பின்னர் எல்லாம் சரியாக நடந்தால் பிழை பதிவுகளை "
-"சரிபார்க்கவும். <a href=\"https://mysqldatabaseadminastry.blogspot.com/2007/01/"
-"increase-indblogfilesize-pay.html\"> இந்த வலைப்பதிவு நுழைவு </a>"
+"the மீட்பு நேரத்தை குறைக்கிறது. <a href=\"https://www.percona.com/"
+"blog/2006/07/03/choosing-proper-intnodb_log_file_size/\"> இந்த கட்டுரை </a>. "
+"நீங்கள் சேவையகத்தை நிறுத்த வேண்டும், INNODB பதிவு கோப்புகளை அகற்ற வேண்டும், புதிய "
+"மதிப்பை My.CNF இல் அமைக்க வேண்டும், சேவையகத்தைத் தொடங்கவும், பின்னர் எல்லாம் சரியாக "
+"நடந்தால் பிழை பதிவுகளை சரிபார்க்கவும். <a href=\"https://mysqldatabaseadminastry."
+"blogspot.com/2007/01/increase-indblogfilesize-pay.html\"> இந்த வலைப்பதிவு "
+"நுழைவு </a>"
 
 #: src/Advisory/Rules.php:717
 #, php-format
@@ -8502,15 +8503,15 @@ msgid ""
 "href=\"https://www.percona.com/blog/2007/11/03/choosing-"
 "innodb_buffer_pool_size/\">this article</a>"
 msgstr ""
-"INNODB இடையகக் குளம் INNODB அட்டவணைகளுக்கான செயல்திறனில் ஆழமான தாக்கத்தை ஏற்படுத்துகிறது. "
-"உங்கள் மீதமுள்ள அனைத்து நினைவகத்தையும் இந்த இடையகத்திற்கு ஒதுக்குங்கள். சேமிப்பக இயந்திரமாக "
-"மட்டுமே இன்னோடிபியைப் பயன்படுத்தும் தரவுத்தள சேவையகங்களுக்கு, வேறு எந்த சேவைகளும் (எ.கா. "
-"ஒரு வலை சேவையகம்) இயங்கவில்லை, இது உங்களுக்கு கிடைக்கக்கூடிய நினைவகத்தில் 80% வரை "
-"அமைக்கலாம். அவ்வாறு இல்லையென்றால், உங்கள் பிற சேவைகள் மற்றும் இன்-இன்-இன் அல்லாத-அட்டவணைகளின் "
-"நினைவக நுகர்வு கவனமாக மதிப்பிட வேண்டும், அதற்கேற்ப இந்த மாறியை அமைக்க வேண்டும். இது மிக "
-"அதிகமாக அமைக்கப்பட்டால், உங்கள் கணினி மாற்றத் தொடங்கும், இது செயல்திறனை கணிசமாகக் "
-"குறைக்கிறது. <a href=\"https://www.percona.com/blog/2007/11/11/03/choosing-"
-"indb_buffer_pool_size/\"> இந்த கட்டுரை </a>"
+"INNODB இடையகக் குளம் INNODB அட்டவணைகளுக்கான செயல்திறனில் ஆழமான தாக்கத்தை "
+"ஏற்படுத்துகிறது. உங்கள் மீதமுள்ள அனைத்து நினைவகத்தையும் இந்த இடையகத்திற்கு ஒதுக்குங்கள். "
+"சேமிப்பக இயந்திரமாக மட்டுமே இன்னோடிபியைப் பயன்படுத்தும் தரவுத்தள சேவையகங்களுக்கு, வேறு "
+"எந்த சேவைகளும் (எ.கா. ஒரு வலை சேவையகம்) இயங்கவில்லை, இது உங்களுக்கு கிடைக்கக்கூடிய "
+"நினைவகத்தில் 80% வரை அமைக்கலாம். அவ்வாறு இல்லையென்றால், உங்கள் பிற சேவைகள் மற்றும் இன்-இன்-"
+"இன் அல்லாத-அட்டவணைகளின் நினைவக நுகர்வு கவனமாக மதிப்பிட வேண்டும், அதற்கேற்ப இந்த மாறியை "
+"அமைக்க வேண்டும். இது மிக அதிகமாக அமைக்கப்பட்டால், உங்கள் கணினி மாற்றத் தொடங்கும், இது "
+"செயல்திறனை கணிசமாகக் குறைக்கிறது. <a href=\"https://www.percona.com/"
+"blog/2007/11/11/03/choosing-indb_buffer_pool_size/\"> இந்த கட்டுரை </a>"
 
 #: src/Advisory/Rules.php:738
 #, php-format
@@ -8541,8 +8542,8 @@ msgid ""
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
 "{ஒரே நேரத்தில்_ இன்செர்ட் 1 ஐ 1 க்கு அமைப்பது கொடுக்கப்பட்ட அட்டவணைக்கு வாசகர்களுக்கும் "
-"எழுத்தாளர்களுக்கும் இடையிலான வாதத்தை குறைக்கிறது. <a href=\"https://dev.mysql.com/doc/"
-"refman/5.5/en/concurrent-inserts.html\"> MySQL ஆவணங்கள் </a> ஐயும் காண்க"
+"எழுத்தாளர்களுக்கும் இடையிலான வாதத்தை குறைக்கிறது. <a href=\"https://dev.mysql.com/"
+"doc/refman/5.5/en/concurrent-inserts.html\"> MySQL ஆவணங்கள் </a> ஐயும் காண்க"
 
 #: src/Advisory/Rules.php:757
 msgid "concurrent_insert is set to 0"
@@ -9817,13 +9818,13 @@ msgstr ""
 
 #: src/Config/Descriptions.php:354
 msgid ""
-"More information on [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
-"8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
-"Bugs[/a]"
+"More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
+"issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
+"com/19588]MySQL Bugs[/a]"
 msgstr ""
-"More செய்தி on [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
-"8970]phpMyAdmin சிக்கல் tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
-"Bugs[/a ]]"
+"More செய்தி on [a@https://github.com/phpmyadmin/phpmyadmin/"
+"issues/8970]phpMyAdmin சிக்கல் tracker[/a] and [a@https://bugs.mysql."
+"com/19588]MySQL Bugs[/a ]]"
 
 #: src/Config/Descriptions.php:358
 msgid ""
@@ -11800,8 +11801,9 @@ msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
-"%sஉள்நுழைவு குக்கீ செல்லுபடியாகும் தன்மை%s 1800 வினாடிகளுக்கு (30 நிமிடங்கள்) அமைக்கப்பட "
-"வேண்டும். 1800 ஐ விடப் பெரிய மதிப்புகள் ஆள்மாறாட்டம் போன்ற பாதுகாப்பு அபாயத்தை ஏற்படுத்தக்கூடும்."
+"%sஉள்நுழைவு குக்கீ செல்லுபடியாகும் தன்மை%s 1800 வினாடிகளுக்கு (30 நிமிடங்கள்) "
+"அமைக்கப்பட வேண்டும். 1800 ஐ விடப் பெரிய மதிப்புகள் ஆள்மாறாட்டம் போன்ற பாதுகாப்பு அபாயத்தை "
+"ஏற்படுத்தக்கூடும்."
 
 #: src/Config/ServerConfigChecks.php:366
 #, php-format
@@ -12288,7 +12290,7 @@ msgstr ""
 msgid "You may want to refresh the page."
 msgstr "நீங்கள் இப்பக்கத்தை மீளேற்ற வேண்டியிருக்கலாம்."
 
-#: src/Controllers/Export/ExportController.php:115 src/Export/Export.php:754
+#: src/Controllers/Export/ExportController.php:116 src/Export/Export.php:705
 msgid "Bad type!"
 msgstr "தகா வகை!"
 
@@ -12323,17 +12325,15 @@ msgstr ""
 
 #: src/Controllers/HomeController.php:267
 msgid ""
-"Your PHP parameter [a@https://www.php.net/manual/en/"
-"session.configuration.php#ini.session.gc-"
-"maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie validity "
-"configured in phpMyAdmin, because of this, your login might expire sooner "
-"than configured in phpMyAdmin."
+"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
+"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
+"than cookie validity configured in phpMyAdmin, because of this, your login "
+"might expire sooner than configured in phpMyAdmin."
 msgstr ""
-"உங்கள் PHP [a@https://www.php.net/manual/en/"
-"session.configuration.php#ini.session.gc-"
-"maxlifetime@_blank]session.gc_maxlifetime[/a] அளவுரு,phpMyAdminல் கட்டமைக்கப்பட்ட "
-"பயனர் நிலை பதிவுத்துணுக்கு(cookie) செல்லுபடியாகும் காலத்தை விட குறைவாக உள்ளது, "
-"இதனால் உங்கள் புகுபதிகை(login) phpMyAdmin கட்டமைக்கப்பட்டதை விட விரைவில் "
+"உங்கள் PHP [a@https://www.php.net/manual/en/session.configuration.php#ini."
+"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] அளவுரு,phpMyAdminல் "
+"கட்டமைக்கப்பட்ட பயனர் நிலை பதிவுத்துணுக்கு(cookie) செல்லுபடியாகும் காலத்தை விட குறைவாக "
+"உள்ளது, இதனால் உங்கள் புகுபதிகை(login) phpMyAdmin கட்டமைக்கப்பட்டதை விட விரைவில் "
 "காலாவதியாகிவிடும்."
 
 #: src/Controllers/HomeController.php:287
@@ -12955,9 +12955,9 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
-"slow_query_log இயலசெய்யப்பட்டுள்ளது,ஆனாலும் வழங்கி %d நொடிகளைவிட "
-"அதிகநேரம்.எடுத்துகொள்ளும் வினவல்களை மட்டுமே பதிவு செய்கிறது. உங்கள் கணிணிஅமைப்பை "
-"பொறுத்து long_query_time ஐ ௦-2 நொடிகளாக அமைக்க அறிவுறுத்தப்படுகிறது."
+"slow_query_log இயலசெய்யப்பட்டுள்ளது,ஆனாலும் வழங்கி %d நொடிகளைவிட அதிகநேரம்."
+"எடுத்துகொள்ளும் வினவல்களை மட்டுமே பதிவு செய்கிறது. உங்கள் கணிணிஅமைப்பை பொறுத்து "
+"long_query_time ஐ ௦-2 நொடிகளாக அமைக்க அறிவுறுத்தப்படுகிறது."
 
 #: src/Controllers/JavaScriptMessagesController.php:237
 #, php-format
@@ -16019,7 +16019,7 @@ msgstr ""
 "மீண்டும் உள்நுழைந்ததும், நீங்கள் விட்டுச்சென்ற வேலையை மீண்டும் தொடங்க முடியும்."
 
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
-#: src/Export/Export.php:472
+#: src/Export/Export.php:437
 msgid "Exporting a raw query is not supported for this export method."
 msgstr "இந்த ஏற்றுமதி முறைக்கு மூல வினவலை ஏற்றுமதி செய்வது ஆதரிக்கப்படவில்லை."
 
@@ -16452,7 +16452,7 @@ msgstr "புதியது"
 
 #: src/Navigation/Nodes/NodeFunctionContainer.php:22
 #: src/Navigation/Nodes/NodeFunctionContainer.php:26
-#: src/Plugins/Export/ExportSql.php:643 src/Plugins/Export/ExportXml.php:101
+#: src/Plugins/Export/ExportSql.php:647 src/Plugins/Export/ExportXml.php:101
 msgid "Functions"
 msgstr "செயல்பாடுகள்"
 
@@ -16472,7 +16472,7 @@ msgstr "விரிவாக்கு/சரிவு"
 
 #: src/Navigation/Nodes/NodeProcedureContainer.php:22
 #: src/Navigation/Nodes/NodeProcedureContainer.php:26
-#: src/Plugins/Export/ExportSql.php:632 src/Plugins/Export/ExportXml.php:106
+#: src/Plugins/Export/ExportSql.php:636 src/Plugins/Export/ExportXml.php:106
 msgid "Procedures"
 msgstr "நடைமுறைகள்"
 
@@ -16928,25 +16928,25 @@ msgid "Data dump options"
 msgstr "தரவு டம்ப் விருப்பங்கள்"
 
 #: src/Plugins/Export/ExportHtmlword.php:169
-#: src/Plugins/Export/ExportOdt.php:216 src/Plugins/Export/ExportSql.php:2118
+#: src/Plugins/Export/ExportOdt.php:216 src/Plugins/Export/ExportSql.php:2144
 #: src/Plugins/Export/ExportTexytext.php:138
 msgid "Dumping data for table"
 msgstr "அட்டவணைக்கான தரவை கொட்டுகிறது"
 
 #: src/Plugins/Export/ExportHtmlword.php:453
-#: src/Plugins/Export/ExportOdt.php:569 src/Plugins/Export/ExportSql.php:1867
+#: src/Plugins/Export/ExportOdt.php:569 src/Plugins/Export/ExportSql.php:1881
 #: src/Plugins/Export/ExportTexytext.php:409
 msgid "Table structure for table"
 msgstr "அட்டவணைக்கான அட்டவணை அமைப்பு"
 
 #: src/Plugins/Export/ExportHtmlword.php:470
-#: src/Plugins/Export/ExportOdt.php:589 src/Plugins/Export/ExportSql.php:1925
+#: src/Plugins/Export/ExportOdt.php:589 src/Plugins/Export/ExportSql.php:1947
 #: src/Plugins/Export/ExportTexytext.php:422
 msgid "Structure for view"
 msgstr "பார்வைக்கு அமைப்பு"
 
 #: src/Plugins/Export/ExportHtmlword.php:476
-#: src/Plugins/Export/ExportOdt.php:597 src/Plugins/Export/ExportSql.php:1964
+#: src/Plugins/Export/ExportOdt.php:597 src/Plugins/Export/ExportSql.php:1990
 #: src/Plugins/Export/ExportTexytext.php:426
 msgid "Stand-in structure for view"
 msgstr "பார்வைக்கு ச்டாண்ட்-இன் அமைப்பு"
@@ -17010,17 +17010,17 @@ msgstr "ஊடக வகைகளைக் காண்பி"
 msgid "Put columns names in the first row:"
 msgstr "முதல் வரிசையில் நெடுவரிசை பெயர்களை வைக்கவும்:"
 
-#: src/Plugins/Export/ExportLatex.php:231 src/Plugins/Export/ExportSql.php:761
+#: src/Plugins/Export/ExportLatex.php:231 src/Plugins/Export/ExportSql.php:765
 #: src/Plugins/Export/ExportXml.php:213
 msgid "Generation Time:"
 msgstr "இயற்றப்பட்ட நேரம்:"
 
-#: src/Plugins/Export/ExportLatex.php:234 src/Plugins/Export/ExportSql.php:767
+#: src/Plugins/Export/ExportLatex.php:234 src/Plugins/Export/ExportSql.php:771
 #: src/Plugins/Export/ExportXml.php:216
 msgid "PHP Version:"
 msgstr "PHP பதிப்பு:"
 
-#: src/Plugins/Export/ExportLatex.php:288 src/Plugins/Export/ExportSql.php:2011
+#: src/Plugins/Export/ExportLatex.php:288 src/Plugins/Export/ExportSql.php:2037
 msgid "Data:"
 msgstr "தரவு:"
 
@@ -17127,7 +17127,7 @@ msgstr ""
 msgid "Data creation options"
 msgstr "தரவேற்ற விருப்பங்கள்"
 
-#: src/Plugins/Export/ExportSql.php:421 src/Plugins/Export/ExportSql.php:2081
+#: src/Plugins/Export/ExportSql.php:421 src/Plugins/Export/ExportSql.php:2107
 msgid "Truncate table before insert"
 msgstr "செருகுவதற்கு முன் அட்டவணையை துண்டிக்கவும்"
 
@@ -17211,100 +17211,100 @@ msgstr ""
 msgid "It appears your database uses routines;"
 msgstr "உங்கள் தரவுத்தளம் நடைமுறைகளைப் பயன்படுத்துகிறது என்று தோன்றுகிறது;"
 
-#: src/Plugins/Export/ExportSql.php:598 src/Plugins/Export/ExportSql.php:1490
-#: src/Plugins/Export/ExportSql.php:1913
+#: src/Plugins/Export/ExportSql.php:598 src/Plugins/Export/ExportSql.php:1500
+#: src/Plugins/Export/ExportSql.php:1931
 msgid "alias export may not work reliably in all cases."
 msgstr "மாற்று ஏற்றுமதி எல்லா நிகழ்வுகளிலும் நம்பத்தகுந்ததாக செயல்படாது."
 
-#: src/Plugins/Export/ExportSql.php:1044
+#: src/Plugins/Export/ExportSql.php:1056
 msgid "Metadata"
 msgstr "மேனிலை தரவு"
 
-#: src/Plugins/Export/ExportSql.php:1109
+#: src/Plugins/Export/ExportSql.php:1119
 #, php-format
 msgid "Metadata for table %s"
 msgstr "அட்டவணை %s க்கான மேனிலை தரவு"
 
-#: src/Plugins/Export/ExportSql.php:1116
+#: src/Plugins/Export/ExportSql.php:1126
 #, php-format
 msgid "Metadata for database %s"
 msgstr "தரவுத்தளம் %s க்கான மேனிலை தரவு"
 
-#: src/Plugins/Export/ExportSql.php:1404
+#: src/Plugins/Export/ExportSql.php:1414
 #, php-format
 msgid "Error reading structure for table %s:"
 msgstr "அட்டவணை %s க்கான பிழை வாசிப்பு:"
 
-#: src/Plugins/Export/ExportSql.php:1487
+#: src/Plugins/Export/ExportSql.php:1497
 msgid "It appears your database uses views;"
 msgstr "உங்கள் தரவுத்தளம் காட்சிகளைப் பயன்படுத்துகிறது என்று தோன்றுகிறது;"
 
-#: src/Plugins/Export/ExportSql.php:1631
+#: src/Plugins/Export/ExportSql.php:1641
 msgid "Constraints for dumped tables"
 msgstr "கொட்டப்பட்ட அட்டவணைகளுக்கான தடைகள்"
 
-#: src/Plugins/Export/ExportSql.php:1632
+#: src/Plugins/Export/ExportSql.php:1642
 msgid "Constraints for table"
 msgstr "அட்டவணைக்கான தடைகள்"
 
-#: src/Plugins/Export/ExportSql.php:1658
+#: src/Plugins/Export/ExportSql.php:1668
 msgid "Indexes for dumped tables"
 msgstr "குவிக்கப்பட்ட அட்டவணைகளுக்கான தொகுப்புக்குறிகள்"
 
-#: src/Plugins/Export/ExportSql.php:1659
+#: src/Plugins/Export/ExportSql.php:1669
 msgid "Indexes for table"
 msgstr "அட்டவணைகளில்:->அட்டவணைகளுக்கான தொகுப்புக்குறிகள்"
 
-#: src/Plugins/Export/ExportSql.php:1682
+#: src/Plugins/Export/ExportSql.php:1692
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "குவிக்கப்பட்ட அட்டவணைகளுக்கான AUTO_INCREMENT(தன்னிலைகூட்டு)"
 
-#: src/Plugins/Export/ExportSql.php:1683
+#: src/Plugins/Export/ExportSql.php:1693
 msgid "AUTO_INCREMENT for table"
 msgstr "அட்டவணைக்கான AUTO_INCREMENT(தன்னிலைகூட்டு)"
 
-#: src/Plugins/Export/ExportSql.php:1737
+#: src/Plugins/Export/ExportSql.php:1747
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "அட்டவணைக்கான ஊடக வகைகள்"
 
-#: src/Plugins/Export/ExportSql.php:1767
+#: src/Plugins/Export/ExportSql.php:1777
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "அட்டவணைக்கான உறவுகள்"
 
-#: src/Plugins/Export/ExportSql.php:1910
+#: src/Plugins/Export/ExportSql.php:1928
 msgid "It appears your table uses triggers;"
 msgstr "உங்கள் அட்டவணை தூண்டுதல்களைப் பயன்படுத்துகிறது;"
 
-#: src/Plugins/Export/ExportSql.php:1940
+#: src/Plugins/Export/ExportSql.php:1962
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "பார்வைக்கான கட்டமைப்பு %s ஒரு அட்டவணையாக ஏற்றுமதி செய்யப்படுகின்றன"
 
-#: src/Plugins/Export/ExportSql.php:1967
+#: src/Plugins/Export/ExportSql.php:1993
 msgid "(See below for the actual view)"
 msgstr "(உண்மையான பார்வைக்கு கீழே காண்க)"
 
-#: src/Plugins/Export/ExportSql.php:2022
+#: src/Plugins/Export/ExportSql.php:2048
 #, php-format
 msgid "Error reading data for table %s:"
 msgstr "அட்டவணை %s க்கான தரவைப் படிப்பது பிழை:"
 
-#: src/Plugins/Export/ExportSql.php:2566
+#: src/Plugins/Export/ExportSql.php:2592
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:566
 msgid "Creation:"
 msgstr "உருவாக்கம்:"
 
-#: src/Plugins/Export/ExportSql.php:2574
+#: src/Plugins/Export/ExportSql.php:2600
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:577
 msgid "Last update:"
 msgstr "கடைசி நிகழ்நிலையாக்கம்:"
 
-#: src/Plugins/Export/ExportSql.php:2582
+#: src/Plugins/Export/ExportSql.php:2608
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:588
 msgid "Last check:"
 msgstr "கடைசி சரிபார்ப்பு:"
 
-#: src/Plugins/Export/ExportSql.php:2603
+#: src/Plugins/Export/ExportSql.php:2629
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
@@ -18236,24 +18236,24 @@ msgstr "மூல தரவுத்தளம் `%s` காணப்படவ�
 msgid "Target database `%s` was not found!"
 msgstr "இலக்கு தரவுத்தளம் `%s` காணப்படவில்லை!"
 
-#: src/Table/Table.php:812
+#: src/Table/Table.php:820
 msgid "Invalid database:"
 msgstr "செல்லாத தரவுத்தளம்:"
 
-#: src/Table/Table.php:830
+#: src/Table/Table.php:838
 msgid "Invalid table name:"
 msgstr "செல்லாத அட்டவணைப் பெயர்:"
 
-#: src/Table/Table.php:875
+#: src/Table/Table.php:883
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "%1$s அட்டவணையானது %2$s ஆக பெயர் மாற்றப்பட்டது."
 
-#: src/Table/Table.php:1111
+#: src/Table/Table.php:1119
 msgid "Could not save table UI preferences!"
 msgstr "அட்டவணை இடைமுகம் விருப்பங்களை சேமிக்க முடியவில்லை!"
 
-#: src/Table/Table.php:1133
+#: src/Table/Table.php:1141
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -18262,7 +18262,7 @@ msgstr ""
 "அட்டவணை இடைமுகம் விருப்பங்களை தூய்மை செய்வதில் தோல்வி ($ cfg ['சேவையகங்கள்'] [$ i] "
 "['maxtableuiprefs'] %s ஐப் பார்க்கவும்)"
 
-#: src/Table/Table.php:1251
+#: src/Table/Table.php:1259
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -18273,7 +18273,7 @@ msgstr ""
 "செய்யப்பட்ட மாற்றங்கள் தொடர்ந்து இருக்காது. அட்டவணை அமைப்பு மாற்றப்பட்டுள்ளதா என்பதை "
 "சரிபார்க்கவும்."
 
-#: src/Table/Table.php:1576
+#: src/Table/Table.php:1584
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "%1$s இல் வெளிநாட்டு விசையை உருவாக்கும் பிழை (தரவு வகைகளை சரிபார்க்கவும்)"
@@ -18751,11 +18751,11 @@ msgstr "சுயவிவரம் புதுப்பிக்கப்ப�
 msgid "Password is too long!"
 msgstr "கடவுச்சொல் மிக நீளமானது!"
 
-#: src/UserPreferences.php:162
+#: src/UserPreferences.php:172
 msgid "Could not save configuration"
 msgstr "உள்ளமைவைச் சேமிக்க முடியவில்லை"
 
-#: src/UserPreferences.php:173
+#: src/UserPreferences.php:183
 msgid "The phpMyAdmin configuration storage database could not be accessed."
 msgstr "Phpmyadmin உள்ளமைவு சேமிப்பக தரவுத்தளத்தை அணுக முடியவில்லை."
 
