@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
 "PO-Revision-Date: 2026-01-05 04:01+0000\n"
-"Last-Translator: Daniel Dimitrov <dimitrov.daniel@hotmail.com>\n"
+"Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/5-"
 "1/mk/>\n"
 "Language: mk\n"
@@ -5069,7 +5069,7 @@ msgstr "Името на базата на податоци е празно!"
 #: libraries/classes/Controllers/Database/OperationsController.php:106
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
-"Не  може да се ископира базата на податоци со исто име. Сменете го името и "
+"Не може да се ископира базата на податоци со истото име. Сменете го името и "
 "пробајте повторно."
 
 #: libraries/classes/Controllers/Database/OperationsController.php:197
@@ -7593,12 +7593,11 @@ msgid "Database %1$s has been created."
 msgstr "Базата на податоци %1$s е креирана."
 
 #: libraries/classes/Controllers/Server/DatabasesController.php:325
-#, fuzzy, php-format
-#| msgid "%s databases have been dropped successfully."
+#, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "%s базата на податоци успешно е избришана."
-msgstr[1] "%s базата на податоци успешно е избришана."
+msgstr[0] "%s база на податоци успешно беше отфрлена."
+msgstr[1] "%s бази на податоци успешно беа отфрлени."
 
 #: libraries/classes/Controllers/Server/DatabasesController.php:483
 #: libraries/classes/Import.php:148
@@ -10466,12 +10465,11 @@ msgstr[0] "%1$d редица избришана."
 msgstr[1] "%1$d редици избришани."
 
 #: libraries/classes/Message.php:297
-#, fuzzy, php-format
-#| msgid "No rows selected"
+#, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] "Нема селектирани записи"
-msgstr[1] "Нема селектирани записи"
+msgstr[0] "%1$d ред внесен."
+msgstr[1] "%1$d редови внесени."
 
 #: libraries/classes/Navigation/Navigation.php:223
 #, fuzzy
@@ -15350,10 +15348,9 @@ msgid "Add user account"
 msgstr "Било кој корисник"
 
 #: templates/database/qbe/index.twig:16
-#, fuzzy, php-format
-#| msgid "Switch to copied table"
+#, php-format
 msgid "Switch to %svisual builder%s"
-msgstr "Премини на копираната табела"
+msgstr "Премини на %sвизуелна изградба%s"
 
 #: templates/database/qbe/index.twig:20
 msgid "You have to choose at least one column to display!"
