@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
 "PO-Revision-Date: 2026-01-04 09:01+0000\n"
-"Last-Translator: Daniel Dimitrov <dimitrov.daniel@hotmail.com>\n"
+"Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/4-"
 "9/mk/>\n"
 "Language: mk\n"
@@ -312,7 +312,7 @@ msgstr "Името на базата на податоци е празно!"
 #: db_operations.php:69
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
-"Не  може да се ископира базата на податоци со исто име. Сменете го името и "
+"Не може да се ископира базата на податоци со истото име. Сменете го името и "
 "пробајте повторно."
 
 #: db_operations.php:156
@@ -6775,8 +6775,8 @@ msgstr "Базата на податоци %1$s е креирана."
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "%1$d база на податоци беше успешно избришана."
-msgstr[1] "%1$d бази на податоци беа успешно избришани."
+msgstr[0] "%s база на податоци успешно беше отфрлена."
+msgstr[1] "%s бази на податоци успешно беа отфрлени."
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:343
 #: libraries/classes/Import.php:122
@@ -7984,7 +7984,7 @@ msgstr ""
 #: libraries/classes/Footer.php:85
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
-msgstr ""
+msgstr "Моментално на Git ревизијата %1$s од гранката %2$s."
 
 #: libraries/classes/Footer.php:92
 msgid "Git information missing!"
@@ -8451,8 +8451,8 @@ msgstr[1] "%1$d редици избришани."
 #, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] "%1$d редица внесена."
-msgstr[1] "%1$d редици внесени."
+msgstr[0] "%1$d ред внесен."
+msgstr[1] "%1$d редови внесени."
 
 #: libraries/classes/MultSubmits.php:399 libraries/classes/Operations.php:197
 #: libraries/classes/Operations.php:1286 libraries/classes/Tracking.php:395
@@ -16863,7 +16863,7 @@ msgstr "Работно време е само %s"
 
 #: libraries/advisory_rules_generic.txt:56
 msgid "Questions below 1,000"
-msgstr "Прашања под 1,000"
+msgstr "Прашања под 1000"
 
 #: libraries/advisory_rules_generic.txt:59
 msgid ""
@@ -16884,7 +16884,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.txt:61
 #, php-format
 msgid "Current amount of Questions: %s"
-msgstr "Сегашна вредност на Прашања: %s"
+msgstr "Сегашна количина на Прашања: %s"
 
 #: libraries/advisory_rules_generic.txt:63
 msgid "Percentage of slow queries"
