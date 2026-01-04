@@ -7126,15 +7126,6 @@ parameters:
 			path: src/Git.php
 
 		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 4
-			path: src/Header.php
-
-		-
 			message: '#^Cannot access offset ''pftext'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1

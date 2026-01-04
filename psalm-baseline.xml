@@ -4762,12 +4762,6 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Header.php">
-    <DeprecatedMethod>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-    </DeprecatedMethod>
     <MixedAssignment>
       <code><![CDATA[$pftext]]></code>
     </MixedAssignment>
@@ -6206,7 +6200,6 @@
       <code><![CDATA[remove]]></code>
     </PossiblyNullReference>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[bool]]></code>
       <code><![CDATA[bool]]></code>
     </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>

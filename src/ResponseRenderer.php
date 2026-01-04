@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use Fig\Http\Message\StatusCodeInterface;
-use PhpMyAdmin\Console\Console;
 use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Error\ErrorHandler;
@@ -164,7 +163,7 @@ class ResponseRenderer
             return self::$instance;
         }
 
-        $console = ContainerBuilder::getContainer()->get(Console::class);
+        $header = ContainerBuilder::getContainer()->get(Header::class);
 
         $config = Config::getInstance();
         $template = new Template($config);
@@ -173,7 +172,7 @@ class ResponseRenderer
         self::$instance = new ResponseRenderer(
             $config,
             $template,
-            new Header($template, $console, $config),
+            $header,
             new Footer($template, $config),
             ErrorHandler::getInstance(),
             $dbi,

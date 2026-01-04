@@ -55,22 +55,26 @@ class Header
      */
     private bool $warningsEnabled = true;
 
-    private UserPreferences $userPreferences;
-
     private bool $isTransformationWrapper = false;
 
     public function __construct(
         private readonly Template $template,
         private readonly Console $console,
         private readonly Config $config,
+        private readonly DatabaseInterface $dbi,
+        private readonly Relation $relation,
+        private readonly UserPreferences $userPreferences,
     ) {
-        $dbi = DatabaseInterface::getInstance();
-        $relation = new Relation($dbi);
-        $this->menu = new Menu($dbi, $this->template, $this->config, $relation, Current::$database, Current::$table);
+        $this->menu = new Menu(
+            $this->dbi,
+            $this->template,
+            $this->config,
+            $this->relation,
+            Current::$database,
+            Current::$table,
+        );
         $this->scripts = new Scripts($this->template);
         $this->addDefaultScripts();
-
-        $this->userPreferences = new UserPreferences($dbi, $relation, $this->template);
     }
 
     private function isMenuEnabled(): bool
@@ -79,8 +83,7 @@ class Header
             return $this->isMenuEnabled;
         }
 
-        $dbi = DatabaseInterface::getInstance();
-        $this->isMenuEnabled = $dbi->isConnected();
+        $this->isMenuEnabled = $this->dbi->isConnected();
 
         return $this->isMenuEnabled;
     }
@@ -132,7 +135,7 @@ class Header
             'confirm' => $this->config->settings['Confirm'],
             'LoginCookieValidity' => $this->config->settings['LoginCookieValidity'],
             'session_gc_maxlifetime' => (int) ini_get('session.gc_maxlifetime'),
-            'logged_in' => DatabaseInterface::getInstance()->isConnected(),
+            'logged_in' => $this->dbi->isConnected(),
             'is_https' => $this->config->isHttps(),
             'rootPath' => $this->config->getRootPath(),
             'arg_separator' => Url::getArgSeparator(),
@@ -256,9 +259,8 @@ class Header
         );
         $this->scripts->addFiles($this->console->getScripts());
 
-        $dbi = DatabaseInterface::getInstance();
         if ($this->isMenuEnabled() && Current::$server > 0) {
-            $navigation = (new Navigation($this->template, new Relation($dbi), $dbi, $this->config))->getDisplay();
+            $navigation = (new Navigation($this->template, $this->relation, $this->dbi, $this->config))->getDisplay();
         }
 
         $customHeader = self::renderHeader();
@@ -277,7 +279,7 @@ class Header
 
         $console = $this->console->getDisplay();
         $messages = $this->getMessage();
-        $isLoggedIn = $dbi->isConnected();
+        $isLoggedIn = $this->dbi->isConnected();
 
         $this->scripts->addFile('datetimepicker.js');
         $this->scripts->addFile('validator-messages.js');
@@ -303,8 +305,8 @@ class Header
             'theme_color_mode' => $theme->getColorMode(),
             'theme_color_modes' => $theme->getColorModes(),
             'theme_id' => $theme->getId(),
-            'current_user' => $dbi->getCurrentUserAndHost(),
-            'is_mariadb' => $dbi->isMariaDB(),
+            'current_user' => $this->dbi->getCurrentUserAndHost(),
+            'is_mariadb' => $this->dbi->isMariaDB(),
         ];
     }
 
