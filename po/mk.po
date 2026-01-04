@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-10-16 23:57-0300\n"
 "PO-Revision-Date: 2026-01-05 04:01+0000\n"
-"Last-Translator: Daniel Dimitrov <dimitrov.daniel@hotmail.com>\n"
+"Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/5-"
 "2/mk/>\n"
 "Language: mk\n"
@@ -4767,7 +4767,7 @@ msgstr "Името на базата на податоци е празно!"
 #: libraries/classes/Controllers/Database/OperationsController.php:99
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
-"Не  може да се ископира базата на податоци со исто име. Сменете го името и "
+"Не може да се ископира базата на податоци со истото име. Сменете го името и "
 "пробајте повторно."
 
 #: libraries/classes/Controllers/Database/OperationsController.php:177
@@ -7276,8 +7276,8 @@ msgstr "Базата на податоци %1$s е креирана."
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "%1$d база на податоци беше успешно избришана."
-msgstr[1] "%1$d бази на податоци беа успешно избришани."
+msgstr[0] "%s база на податоци успешно беше отфрлена."
+msgstr[1] "%s бази на податоци успешно беа отфрлени."
 
 #: libraries/classes/Controllers/Server/Privileges/AccountLockController.php:47
 #, php-format
@@ -9631,8 +9631,8 @@ msgstr[1] "%1$d редици избришани."
 #, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] "%1$d редица внесена."
-msgstr[1] "%1$d редици внесени."
+msgstr[0] "%1$d ред внесен."
+msgstr[1] "%1$d редови внесени."
 
 #: libraries/classes/Navigation/Navigation.php:231
 msgid "Groups:"
