@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2026-01-04 09:01+0000\n"
+"PO-Revision-Date: 2026-01-05 10:01+0000\n"
 "Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/4-9/th/>"
 "\n"
@@ -2323,8 +2323,6 @@ msgid "%d object(s) created."
 msgstr "สร้างแล้ว %d วัตถุ"
 
 #: js/messages.php:582
-#, fuzzy
-#| msgid "Column names"
 msgid "Column name"
 msgstr "ชื่อคอลัมน์"
 
@@ -4248,10 +4246,8 @@ msgid "Navigation panel"
 msgstr "แผงนำทาง"
 
 #: libraries/classes/Config/Descriptions.php:480
-#, fuzzy
-#| msgid "Customize navigation panel"
 msgid "Customize appearance of the navigation panel."
-msgstr "ปรับแต่งแผงนำทาง"
+msgstr "ปรับแต่งรูปลักษณ์ของแผงนำทาง"
 
 #: libraries/classes/Config/Descriptions.php:482
 msgid "Navigation tree"
@@ -4267,14 +4263,10 @@ msgid "Servers"
 msgstr "เซิร์ฟเวอร์"
 
 #: libraries/classes/Config/Descriptions.php:488
-#, fuzzy
-#| msgid "Servers display options"
 msgid "Servers display options."
 msgstr "ตัวเลือกการแสดงเซิร์ฟเวอร์"
 
 #: libraries/classes/Config/Descriptions.php:492
-#, fuzzy
-#| msgid "Tables display options"
 msgid "Tables display options."
 msgstr "ตัวเลือกการแสดงตาราง"
 
@@ -4344,10 +4336,8 @@ msgstr ""
 "บอะไร"
 
 #: libraries/classes/Config/Descriptions.php:536
-#, fuzzy
-#| msgid "Enter server connection parameters"
 msgid "Enter server connection parameters."
-msgstr "ป้อนพารามิเตอร์ของการเชื่อมต่อเซิร์ฟเวอร์"
+msgstr "ป้อนพารามิเตอร์การเชื่อมต่อเซิร์ฟเวอร์"
 
 #: libraries/classes/Config/Descriptions.php:538
 msgid "Configuration storage"
@@ -4862,10 +4852,8 @@ msgid "Show tables in tree"
 msgstr "แสดงตารางในแผนผังแบบต้นไม้"
 
 #: libraries/classes/Config/Descriptions.php:839
-#, fuzzy
-#| msgid "Reload navigation frame"
 msgid "Whether to show tables under database in the navigation tree"
-msgstr "โหลดกรอบนำทางใหม่"
+msgstr "อย่างไรก็ต้องแสดงตารางภายใต้ฐานข้อมูลในแผนผังการนำทาง"
 
 #: libraries/classes/Config/Descriptions.php:841
 msgid "Show views in tree"
@@ -5461,7 +5449,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1166
 msgid "Display columns table"
-msgstr "แสดงตารางของคอลัมน์"
+msgstr "แสดงตารางคอลัมน์"
 
 #: libraries/classes/Config/Descriptions.php:1169
 msgid ""
@@ -5923,10 +5911,8 @@ msgid "Enable the Developer tab in settings"
 msgstr "เปิดใช้งานแท็บนักพัฒนาในการตั้งค่า"
 
 #: libraries/classes/Config/Descriptions.php:1406
-#, fuzzy
-#| msgid "Enables check for latest version on main phpMyAdmin page"
 msgid "Enables check for latest version on main phpMyAdmin page."
-msgstr "เปิดใช้งานตรวจหาเวอร์ชั่นล่าสุดบนหน้า phpMyAdmin หลัก"
+msgstr "เปิดใช้งานการตรวจหาเวอร์ชันล่าสุดบนหน้าหลัก phpMyAdmin"
 
 #: libraries/classes/Config/Descriptions.php:1408 setup/lib/Index.php:122
 #: setup/lib/Index.php:145 setup/lib/Index.php:158 setup/lib/Index.php:170
@@ -7780,7 +7766,7 @@ msgstr ""
 #: libraries/classes/Index.php:658
 #, php-format
 msgid "Create an index on &nbsp;%s&nbsp;columns"
-msgstr "สร้างดัชนีบนคอลัมน์ &nbsp;%s&nbsp;"
+msgstr "สร้างดัชนีบน &nbsp;%s&nbsp;คอลัมน์"
 
 #: libraries/classes/Index.php:690
 msgid "No index defined!"
@@ -8125,8 +8111,6 @@ msgid "Data only"
 msgstr "เฉพาะข้อมูล"
 
 #: libraries/classes/MultSubmits.php:407
-#, fuzzy
-#| msgid "Add AUTO_INCREMENT value"
 msgid "Add AUTO INCREMENT value"
 msgstr "เพิ่มค่า AUTO_INCREMENT"
 
@@ -8301,7 +8285,7 @@ msgstr "ฟังก์ชั่น"
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:35
 msgctxt "Create new function"
 msgid "New"
-msgstr ""
+msgstr "ใหม่"
 
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:35
 msgctxt "Create new index"
@@ -13025,7 +13009,7 @@ msgstr "คำชี้แจงนิยามข้อมูล"
 #: libraries/classes/Tracking.php:668
 #, php-format
 msgid "Version %s snapshot (SQL code)"
-msgstr "สแนปช็อตเวอร์ชัน %s (โค้ด SQL)"
+msgstr "ภาพรวมเวอร์ชัน %s (โค้ด SQL)"
 
 #: libraries/classes/Tracking.php:735
 msgid "Tracking data definition successfully deleted"
@@ -13652,7 +13636,7 @@ msgstr "จัดการการตั้งค่าของคุณ"
 
 #: libraries/user_preferences.inc.php:38
 msgid "Two-factor authentication"
-msgstr "การยืนยันตัวตนแบบสองขั้นตอน"
+msgstr "การตรวจสอบสิทธิ์แบบสองขั้นตอน"
 
 #: libraries/user_preferences.inc.php:63 prefs_manage.php:298
 msgid "Configuration has been saved."
@@ -14181,7 +14165,7 @@ msgstr "กด Enter เพื่อรันคำสั่ง"
 #: templates/console/display.twig:31 templates/console/display.twig:84
 #: templates/console/display.twig:175 templates/console/bookmark_content.twig:7
 msgid "Collapse"
-msgstr "ยุบ"
+msgstr "ยุบลง"
 
 #: templates/console/display.twig:31 templates/console/display.twig:84
 #: templates/console/display.twig:175 templates/console/bookmark_content.twig:7
@@ -14323,25 +14307,19 @@ msgstr ""
 
 #: templates/database/structure/check_all_tables.twig:6
 msgid "Check tables having overhead"
-msgstr "ตรวจสอบตารางที่มี overhead"
+msgstr "ตรวจสอบตารางที่ต้องดำเนินการก่อน"
 
 #: templates/database/structure/check_all_tables.twig:10
-#, fuzzy
-#| msgid "No tables"
 msgid "Copy table"
-msgstr "ไม่มีตาราง"
+msgstr "คัดลอกตาราง"
 
 #: templates/database/structure/check_all_tables.twig:11
-#, fuzzy
-#| msgid "Show color"
 msgid "Show create"
-msgstr "แสดงสี"
+msgstr "แสดงการสร้าง"
 
 #: templates/database/structure/check_all_tables.twig:25
-#, fuzzy
-#| msgid "Add new field"
 msgid "Prefix"
-msgstr "เพิ่มฟิลด์ใหม่"
+msgstr "คำนำหน้า"
 
 #: templates/database/structure/check_all_tables.twig:26
 msgid "Add prefix to table"
@@ -14349,43 +14327,38 @@ msgstr "เพิ่มคำนำไปยังตาราง"
 
 #: templates/database/structure/check_all_tables.twig:27
 msgid "Replace table prefix"
-msgstr "แทนที่คำนำไปยังตาราง"
+msgstr "แทนที่คำนำหน้าตาราง"
 
 #: templates/database/structure/check_all_tables.twig:33
-#, fuzzy
-#| msgid "CHAR textarea columns"
 msgid "Add columns to central list"
-msgstr "คอลัมน์พื้นที่ข้อความ CHAR"
+msgstr "เพิ่มคอลัมน์ไปยังรายการส่วนกลาง"
 
 #: templates/database/structure/check_all_tables.twig:34
 msgid "Remove columns from central list"
-msgstr ""
+msgstr "ลบคอลัมน์ออกจากรายการส่วนกลาง"
 
 #: templates/database/structure/check_all_tables.twig:35
-#, fuzzy
-#| msgid "CHAR textarea columns"
 msgid "Make consistent with central list"
-msgstr "คอลัมน์พื้นที่ข้อความ CHAR"
+msgstr "ทำให้ตรงกันกับรายการส่วนกลาง"
 
 #: templates/columns_definitions/column_length.twig:9
 msgid "Edit ENUM/SET values"
-msgstr ""
+msgstr "แก้ไขค่า ENUM/SET"
 
 #: templates/privileges/delete_user_fieldset.twig:3
-#, fuzzy
-#| msgid "Remove selected users"
 msgid "Remove selected user accounts"
-msgstr "ถอนผู้ใช้ที่เลือก"
+msgstr "ลบบัญชีผู้ใช้ที่เลือก"
 
 #: templates/privileges/delete_user_fieldset.twig:6
 msgid "Revoke all active privileges from the users and delete them afterwards."
-msgstr "เพิกถอน active privileges ทั้งหมดจากผู้ใช้ และลบผู้ใช้ทิ้งหลังจากนั้น."
+msgstr ""
+"เพิกถอนสิทธิ์การใช้งานทั้งหมดของผู้ใช้ และลบสิทธิ์เหล่านั้นทิ้งในภายหลัง"
 
 #: templates/privileges/delete_user_fieldset.twig:7
 #: templates/privileges/delete_user_fieldset.twig:10
 #: templates/privileges/delete_user_fieldset.twig:11
 msgid "Drop the databases that have the same names as the users."
-msgstr "โยนฐานข้อมูลที่มีชื่อเดียวกับผู้ใช้ทิ้ง."
+msgstr "ลบฐานข้อมูลที่มีชื่อซ้ำกับชื่อผู้ใช้"
 
 #: templates/table/structure/add_column.twig:9
 #, php-format
@@ -14393,29 +14366,22 @@ msgid "Add %s column(s)"
 msgstr "เพิ่ม %s คอลัมน์"
 
 #: templates/table/structure/add_column.twig:14
-#, fuzzy
-#| msgid "At Beginning of Table"
 msgid "at beginning of table"
 msgstr "ที่จุดเริ่มต้นของตาราง"
 
 #: templates/table/structure/add_column.twig:19
 #: templates/columns_definitions/move_column.twig:12
-#, fuzzy, php-format
-#| msgid "After %s"
+#, php-format
 msgid "after %s"
 msgstr "หลัง %s"
 
 #: templates/database/designer/database_tables.twig:37
-#, fuzzy
-#| msgid "Add columns"
 msgid "Show/hide columns"
-msgstr "เพิ่มฟิลด์ใหม่"
+msgstr "แสดง/ซ่อนคอลัมน์"
 
 #: templates/database/designer/database_tables.twig:46
-#, fuzzy
-#| msgid "Table structure"
 msgid "See table structure"
-msgstr "โครงสร้างของตาราง"
+msgstr "ดูโครงสร้างตาราง"
 
 #: templates/database/designer/database_tables.twig:91
 #, php-format
@@ -14435,14 +14401,12 @@ msgstr "บันทึกไว้ในไดเรกทอรีบนเซ
 
 #: templates/login/twofactor.twig:5
 msgid "Verify"
-msgstr ""
+msgstr "ตรวจสอบ"
 
 #: templates/table/chart/tbl_chart.twig:15
-#, fuzzy
-#| msgid "Mar"
 msgctxt "Chart type"
 msgid "Bar"
-msgstr "มี.ค."
+msgstr "แบบแท่ง"
 
 #: templates/table/chart/tbl_chart.twig:19
 msgctxt "Chart type"
@@ -14452,97 +14416,80 @@ msgstr "คอลัมน์"
 #: templates/table/chart/tbl_chart.twig:23
 msgctxt "Chart type"
 msgid "Line"
-msgstr ""
+msgstr "แบบเส้น"
 
 #: templates/table/chart/tbl_chart.twig:27
 msgctxt "Chart type"
 msgid "Spline"
-msgstr ""
+msgstr "แบบเส้นโค้ง"
 
 #: templates/table/chart/tbl_chart.twig:31
 msgctxt "Chart type"
 msgid "Area"
-msgstr ""
+msgstr "แบบพื้นที่"
 
 #: templates/table/chart/tbl_chart.twig:35
-#, fuzzy
-#| msgid "PiB"
 msgctxt "Chart type"
 msgid "Pie"
-msgstr "เพตตะไบต์"
+msgstr "แบบพาย"
 
 #: templates/table/chart/tbl_chart.twig:39
-#, fuzzy
-#| msgid "Time"
 msgctxt "Chart type"
 msgid "Timeline"
-msgstr "เวลา"
+msgstr "ไทม์ไลน์"
 
 #: templates/table/chart/tbl_chart.twig:43
 msgctxt "Chart type"
 msgid "Scatter"
-msgstr ""
+msgstr "แบบกระจาย"
 
 #: templates/table/chart/tbl_chart.twig:48
 msgid "Stacked"
-msgstr ""
+msgstr "แบบเรียงซ้อน"
 
 #: templates/table/chart/tbl_chart.twig:51
-#, fuzzy
-#| msgid "Import files"
 msgid "Chart title:"
-msgstr "นำเข้าไฟล์"
+msgstr "ชื่อแผนภูมิ:"
 
 #: templates/table/chart/tbl_chart.twig:56
 msgid "X-Axis:"
-msgstr ""
+msgstr "แกน X:"
 
 #: templates/table/chart/tbl_chart.twig:71
-#, fuzzy
 msgid "Series:"
-msgstr "คำค้น SQL"
+msgstr "ซีรีส์:"
 
 #: templates/table/chart/tbl_chart.twig:102
 msgid "X-Axis label:"
-msgstr ""
+msgstr "ป้ายชื่อแกน X:"
 
 #: templates/table/chart/tbl_chart.twig:104
-#, fuzzy
-#| msgid "Value"
 msgid "X Values"
-msgstr "ค่า"
+msgstr "ค่า X"
 
 #: templates/table/chart/tbl_chart.twig:107
 msgid "Y-Axis label:"
-msgstr ""
+msgstr "ป้ายชื่อแกน Y:"
 
 #: templates/table/chart/tbl_chart.twig:109
-#, fuzzy
-#| msgid "Value"
 msgid "Y Values"
-msgstr "ค่า"
+msgstr "ค่า Y"
 
 #: templates/table/chart/tbl_chart.twig:115
 msgid "Series names are in a column"
-msgstr ""
+msgstr "ชื่อซีรีส์อยู่ในคอลัมน์"
 
 #: templates/table/chart/tbl_chart.twig:118
-#, fuzzy
-#| msgid "Inside column:"
 msgid "Series column:"
-msgstr "ในคอลัมน์:"
+msgstr "คอลัมน์ซีรีส์:"
 
 #: templates/table/chart/tbl_chart.twig:132
-#, fuzzy
-#| msgid "Values for column %s"
 msgid "Value Column:"
-msgstr "ค่าสำหรับคอลัมน์ \"%s\""
+msgstr "คอลัมน์ค่า:"
 
 #: templates/table/chart/tbl_chart.twig:153
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save chart as image"
-msgstr "บันทึกเป็นไฟล์"
+msgstr "บันทึกแผนภูมิเป็นรูปภาพ"
 
 #: templates/database/structure/body_for_table_summary.twig:6
 #, php-format
@@ -14558,49 +14505,40 @@ msgstr "ผลรวม"
 #: templates/database/designer/options_panel.twig:63
 #: templates/database/designer/options_panel.twig:228
 #: templates/database/designer/where_query_panel.twig:59
-#, fuzzy
-#| msgid "Export"
 msgid "Except"
-msgstr "ส่งออก"
+msgstr "ยกเว้น"
 
 #: templates/database/designer/having_query_panel.twig:102
 #: templates/database/designer/options_panel.twig:75
 #: templates/database/designer/options_panel.twig:240
 #: templates/database/designer/where_query_panel.twig:71
-#, fuzzy
-#| msgid "in query"
 msgid "subquery"
-msgstr "ในคำค้น"
+msgstr "คำสั่งย่อย"
 
 #: templates/login/twofactor/key.twig:3
 msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm login on the device."
 msgstr ""
+"โปรดเชื่อมต่ออุปกรณ์ FIDO U2F เข้ากับพอร์ต USB ของคอมพิวเตอร์ จากนั้นยืนยันการเข้าสู่ระบบบนอุปก"
+"รณ์"
 
 #: templates/display/export/options_output_compression.twig:4
-#, fuzzy
-#| msgid "Compression"
 msgid "Compression:"
-msgstr "บีบอัดข้อมูล"
+msgstr "บีบอัดข้อมูล:"
 
 #: templates/display/export/options_output_compression.twig:11
-#, fuzzy
-#| msgid "\"zipped\""
 msgid "zipped"
-msgstr "\"ถูกบีบอัดอยู่ (zip)\""
+msgstr "zipped"
 
 #: templates/display/export/options_output_compression.twig:17
-#, fuzzy
-#| msgid "\"gzipped\""
 msgid "gzipped"
-msgstr "\"gzipped\""
+msgstr "gzipped"
 
 #: templates/database/designer/rename_to_panel.twig:22
 #: templates/database/designer/options_panel.twig:84
-#, fuzzy
 msgid "Rename to"
-msgstr "เปลี่ยนชื่อตารางเป็น"
+msgstr "แก้ไขชื่อเป็น"
 
 #: templates/database/designer/rename_to_panel.twig:30
 #: templates/database/designer/options_panel.twig:90
@@ -14623,15 +14561,15 @@ msgstr "ส่งออกแถวจาก \"%s\" ตาราง"
 
 #: templates/prefs_twofactor.twig:3
 msgid "Two-factor authentication status"
-msgstr "สถานะการยืนยันตัวตนแบบสองขั้นตอน"
+msgstr "สถานะการตรวจสอบสิทธิ์แบบสองขั้นตอน"
 
 #: templates/prefs_twofactor.twig:9
 msgid ""
 "Two-factor authentication is not available, please install optional "
 "dependencies to enable authentication backends."
 msgstr ""
-"ไม่สามารถใช้งานการยืนยันตัวตนแบบสองขั้นตอนได้ โปรดติดตั้งส่วนประกอบเสริมเพื่อเปิดใช้งานระบบตรว"
-"จสอบสิทธิ์"
+"ไม่สามารถใช้งานการตรวจสอบสิทธิ์แบบสองขั้นตอนได้ โปรดติดตั้งส่วนประกอบเสริมเพื่อเปิดใช้งานระบบต"
+"รวจสอบสิทธิ์"
 
 #: templates/prefs_twofactor.twig:10
 msgid "Following composer packages are missing:"
@@ -15307,26 +15245,24 @@ msgid "Display GIS Visualization"
 msgstr "แสดงภาพข้อมูล GIS"
 
 #: templates/table/gis_visualization/gis_visualization.twig:8
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
 msgid "Label column"
-msgstr "เพิ่ม/ลบ คอลัมน์ (ฟิลด์)"
+msgstr "ป้ายชื่อคอลัมน์"
 
 #: templates/table/gis_visualization/gis_visualization.twig:11
 msgid "-- None --"
 msgstr "-- ไม่มี --"
 
 #: templates/table/gis_visualization/gis_visualization.twig:19
-#, fuzzy
-#| msgid "Total"
 msgid "Spatial column"
-msgstr "รวม"
+msgstr "คอลัมน์เชิงพื้นที่"
 
 #: templates/login/twofactor/key_configure.twig:3
 msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm registration on the device."
 msgstr ""
+"โปรดเชื่อมต่ออุปกรณ์ FIDO U2F เข้ากับพอร์ต USB ของคอมพิวเตอร์ จากนั้นยืนยันการลงทะเบียนบนอุปก"
+"รณ์"
 
 #: templates/server/databases/databases_footer.twig:67
 msgid ""
@@ -15338,10 +15274,8 @@ msgstr ""
 
 #: templates/server/databases/databases_footer.twig:70
 #: templates/server/databases/databases_footer.twig:71
-#, fuzzy
-#| msgid "Enable Statistics"
 msgid "Enable statistics"
-msgstr "ให้มีการเก็บสถิติ"
+msgstr "เปิดใช้งานสถิติ"
 
 #: templates/privileges/column_privileges.twig:21
 #: templates/privileges/column_privileges.twig:22
@@ -15350,21 +15284,16 @@ msgid "None"
 msgstr "ไม่มี"
 
 #: templates/display/export/template_loading.twig:2
-#, fuzzy
 msgid "Export templates:"
-msgstr "ไม่มีตาราง"
+msgstr "ส่งออกต้นแบบ:"
 
 #: templates/display/export/template_loading.twig:6
-#, fuzzy
-#| msgid "File name template"
 msgid "New template:"
-msgstr "รูปแบบของชื่อไฟล์"
+msgstr "ต้นแบบใหม่:"
 
 #: templates/display/export/template_loading.twig:8
-#, fuzzy
-#| msgid "Table name"
 msgid "Template name"
-msgstr "ชื่อตาราง"
+msgstr "ชื่อต้นแบบ"
 
 #: templates/display/export/template_loading.twig:10
 #: templates/server/databases/create.twig:30
@@ -15372,127 +15301,102 @@ msgid "Create"
 msgstr "สร้าง"
 
 #: templates/display/export/template_loading.twig:16
-#, fuzzy
-#| msgid "File name template"
 msgid "Existing templates:"
-msgstr "รูปแบบของชื่อไฟล์"
+msgstr "ต้นแบบที่มีอยู่:"
 
 #: templates/display/export/template_loading.twig:17
-#, fuzzy
-#| msgid "%s table"
-#| msgid_plural "%s tables"
 msgid "Template:"
-msgstr "%s ตาราง"
+msgstr "ต้นแบบ:"
 
 #: templates/display/export/template_loading.twig:21
-#, fuzzy
-#| msgctxt "Create UPDATE query"
-#| msgid "Update"
 msgid "Update"
-msgstr "ปรับปรุงคำค้น"
+msgstr "อัปเดต"
 
 #: templates/table/tracking/report_table.twig:4
 #: templates/table/tracking/structure_snapshot_columns.twig:5
 msgctxt "Number"
 msgid "#"
-msgstr ""
+msgstr "#"
 
 #: templates/table/tracking/report_table.twig:5
 msgid "Date"
 msgstr "วันที่"
 
 #: templates/table/tracking/report_table.twig:6
-#, fuzzy
 msgid "Username"
-msgstr "ชื่อผู้ใช้:"
+msgstr "ชื่อผู้ใช้"
 
 #: templates/database/search/results.twig:12
-#, fuzzy, php-format
-#| msgid "%s match inside table <i>%s</i>"
-#| msgid_plural "%s matches inside table <i>%s</i>"
+#, php-format
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "พบ %s ผลลัพธ์ที่ตรงในตาราง <i>%s</i>"
+msgstr[0] "%1$s ตรงกับ <strong>%2$s</strong>"
 
 #: templates/database/search/results.twig:56
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<strong>ทั้งหมด:</strong> <em>%count%</em> ค้นพบ"
+msgstr[0] "<strong>ทั้งหมด:</strong> <em>%count%</em> ตรงกัน"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
-#, fuzzy
-#| msgid ""
-#| "field type is \"enum\" or \"set\", please enter the values using this "
-#| "mat: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") a "
-#| "single quote (\"'\") amongst those values, precede it with a kslash (for "
-#| "example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
 "single quote (\"'\") amongst those values, precede it with a backslash (for "
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"ถ้าชนิดของฟิลด์เป็น \"enum\" หรือ \"set\" โปรดใส่ค่าตามรูปแบบ: 'a','b','c'…<br /"
-">ถ้าต้องการใส่เครื่องหมาย backslash (\"\\\") หรือ อัญประกาศเดี่ยว (\"'\") "
-"เข้าไปในค่าเหล่านั้น ให้ใส่เครื่องหมาย แบ๊กแสลช นำหน้า (ตัวอย่าง: '\\\\xyz' or 'a\\'b')"
+"หากประเภทคอลัมน์เป็น \"enum\" หรือ \"set\" โปรดป้อนค่าโดยใช้รูปแบบนี้: "
+"'a','b','c'…<br />หากคุณต้องการใส่เครื่องหมายแบ็กสแลช (\"\") หรือเครื่องหมายอัญประกาศเดี่"
+"ยว (\"'\") ระหว่างค่าเหล่านั้น ให้ใส่เครื่องหมายแบ็กสแลชนำหน้า (เช่น '\\\\xyz' หรือ 'a\\"
+"'b')"
 
 #: templates/columns_definitions/table_fields_definitions.twig:21
 msgid ""
 "For default values, please enter just a single value, without backslash "
 "escaping or quotes, using this format: a"
 msgstr ""
+"สำหรับค่าเริ่มต้น กรุณาป้อนค่าเพียงค่าเดียว โดยไม่ต้องใช้เครื่องหมายเลี่ยงอย่างแบ็กสแลชหรืออัญประกา"
+"ศ ให้ใช้รูปแบบนี้: a"
 
 #: templates/columns_definitions/table_fields_definitions.twig:59
 msgid "Virtuality"
-msgstr ""
+msgstr "เสมือนจริง"
 
 #: templates/columns_definitions/table_fields_definitions.twig:65
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
 msgid "Move column"
-msgstr "เพิ่ม/ลบ คอลัมน์ (ฟิลด์)"
+msgstr "ย้ายคอลัมน์"
 
 #: templates/columns_definitions/table_fields_definitions.twig:76
 #: templates/columns_definitions/table_fields_definitions.twig:87
-#, fuzzy
-#| msgid "Available transformations"
 msgid "List of available transformations and their options"
-msgstr "การแปลงที่เรียกใช้ได้"
+msgstr "รายการการแปลงที่มีให้เลือกและตัวเลือกต่าง ๆ"
 
 #: templates/columns_definitions/table_fields_definitions.twig:82
-#, fuzzy
 msgid "Browser display transformation options"
-msgstr "การแปลงที่เรียกใช้ได้"
+msgstr "ตัวเลือกการแปลงการแสดงผลเบราว์เซอร์"
 
 #: templates/columns_definitions/table_fields_definitions.twig:83
 #: templates/columns_definitions/table_fields_definitions.twig:94
-#, fuzzy
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
-"ถ้าชนิดของฟิลด์เป็น \"enum\" หรือ \"set\" โปรดใส่ค่าตามรูปแบบ: 'a','b','c'…<br /"
-">ถ้าต้องการใส่เครื่องหมาย backslash (\"\\\") หรือ อัญประกาศเดี่ยว (\"'\") "
-"เข้าไปในค่าเหล่านั้น ให้ใส่เครื่องหมาย แบ๊กแสลช นำหน้า (ตัวอย่าง: '\\\\xyz' or 'a\\'b')"
+"โปรดป้อนค่าสำหรับตัวเลือกการแปลงโดยใช้รูปแบบนี้: 'a', 100, b, 'c'…<br />หากคุณต้องการใส่เ"
+"ครื่องหมายแบ็กสแลช (\"\\\") หรืออัญประกาศเดี่ยว (\"'\") ระหว่างค่าเหล่านั้น ให้ใส่เครื่องหมาย"
+"แบ็กสแลชนำหน้า (เช่น '\\\\xyz' หรือ 'a\\'b')"
 
 #: templates/columns_definitions/table_fields_definitions.twig:93
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Input transformation options"
-msgstr "ตัวเลือกการแปลง"
+msgstr "ตัวเลือกการแปลงข้อมูลเข้า"
 
 #: templates/display/results/options_block.twig:30
-#, fuzzy
 msgid "Relational key"
-msgstr "รีเลชันแนล สกีมา"
+msgstr "คีย์ความสัมพันธ์"
 
 #: templates/display/results/options_block.twig:30
-#, fuzzy
-#| msgid "Displaying Column Comments"
 msgid "Display column for relationships"
-msgstr "แสดงหมายเหตุของคอลัมน์"
+msgstr "แสดงคอลัมน์สำหรับความสัมพันธ์"
 
 #: templates/display/results/options_block.twig:46
 msgid "Show binary contents"
@@ -15503,9 +15407,8 @@ msgid "Show BLOB contents"
 msgstr "แสดงเนื้อหา BLOB"
 
 #: templates/display/results/options_block.twig:67
-#, fuzzy
 msgid "Hide browser transformation"
-msgstr "การแปลงที่เรียกใช้ได้"
+msgstr "ซ่อนการแปลงเบราว์เซอร์"
 
 #: templates/display/results/options_block.twig:79
 #: templates/display/results/options_block.twig:96
@@ -15519,76 +15422,68 @@ msgstr "ไบนารีที่รู้จักกันดี"
 
 #: templates/server/variables/variable_row.twig:6
 msgid "This is a read-only variable and can not be edited"
-msgstr ""
+msgstr "ตัวแปรนี้เป็นแบบอ่านอย่างเดียวและไม่สามารถแก้ไขได้"
 
 #: templates/database/designer/side_menu.twig:13
 #: templates/database/designer/side_menu.twig:19
-#, fuzzy
-#| msgid "Showing tables:"
 msgid "Show/Hide tables list"
-msgstr "กำลังแสดงตาราง:"
+msgstr "แสดง/ซ่อนรายการตาราง"
 
 #: templates/database/designer/side_menu.twig:23
 #: templates/database/designer/side_menu.twig:29
 #: templates/database/designer/side_menu.twig:30
 msgid "View in fullscreen"
-msgstr ""
+msgstr "ดูแบบเต็มหน้าจอ"
 
 #: templates/database/designer/side_menu.twig:28
 msgid "Exit fullscreen"
-msgstr ""
+msgstr "ออกจากโหมดเต็มหน้าจอ"
 
 #: templates/database/designer/side_menu.twig:42
 #: templates/database/designer/side_menu.twig:46
-#, fuzzy
-#| msgid "User name"
 msgid "New page"
-msgstr "ชื่อผู้ใช้"
+msgstr "หน้าใหม่"
 
 #: templates/database/designer/side_menu.twig:71
 #: templates/database/designer/side_menu.twig:74
-#, fuzzy
-#| msgid "Select All"
 msgid "Delete pages"
-msgstr "เลือกทั้งหมด"
+msgstr "ลบหน้า"
 
 #: templates/database/designer/side_menu.twig:85
 #: templates/database/designer/side_menu.twig:88
 #: templates/database/designer/new_relation_panel.twig:22
-#, fuzzy
-#| msgid "Create version"
 msgid "Create relationship"
-msgstr "สร้างเวอร์ชั่น"
+msgstr "สร้างความสัมพันธ์"
 
 #: templates/database/designer/side_menu.twig:99
 #: templates/database/designer/side_menu.twig:102
 msgid "Reload"
-msgstr ""
+msgstr "โหลดซ้ำ"
 
 #: templates/database/designer/side_menu.twig:108
 #: templates/database/designer/side_menu.twig:111
 msgid "Help"
-msgstr ""
+msgstr "ช่วยเหลือ"
 
 #: templates/database/designer/side_menu.twig:116
 #: templates/database/designer/side_menu.twig:119
 msgid "Angular links"
-msgstr ""
+msgstr "ลิงก์เชิงมุม"
 
 #: templates/database/designer/side_menu.twig:116
 #: templates/database/designer/side_menu.twig:119
 msgid "Direct links"
-msgstr ""
+msgstr "ลิงก์ตรง"
 
 #: templates/database/designer/side_menu.twig:123
 #: templates/database/designer/side_menu.twig:125
 msgid "Snap to grid"
-msgstr ""
+msgstr "จัดวางให้ตรงกับเส้นตาราง"
 
 #: templates/database/designer/side_menu.twig:129
 #: templates/database/designer/side_menu.twig:135
 msgid "Small/Big All"
-msgstr ""
+msgstr "เล็ก/ใหญ่ ทั้งหมด"
 
 #: templates/database/designer/side_menu.twig:139
 #: templates/database/designer/side_menu.twig:142
@@ -15598,7 +15493,7 @@ msgstr "สลับขนาดเล็ก/ใหญ่"
 #: templates/database/designer/side_menu.twig:146
 #: templates/database/designer/side_menu.twig:149
 msgid "Toggle relationship lines"
-msgstr "สลับเส้นทางความสัมพันธ์"
+msgstr "สลับเส้นความสัมพันธ์"
 
 #: templates/database/designer/side_menu.twig:154
 #: templates/database/designer/side_menu.twig:157
@@ -15730,8 +15625,6 @@ msgid "Subpartitions:"
 msgstr "พาร์ทิชันย่อย:"
 
 #: templates/columns_definitions/partitions.twig:78
-#, fuzzy
-#| msgid "Value"
 msgid "Values"
 msgstr "ค่า"
 
