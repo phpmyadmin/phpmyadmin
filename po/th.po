@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2026-01-03 06:36+0000\n"
-"Last-Translator: AnawinWz <imonmac@hotmail.com>\n"
+"PO-Revision-Date: 2026-01-04 09:01+0000\n"
+"Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/4-9/th/>"
 "\n"
 "Language: th\n"
@@ -12730,19 +12730,17 @@ msgid "Let every user access this bookmark"
 msgstr "อนุญาตให้ผู้ใช้ทุกคนเข้าถึงบุ๊กมาร์กนี้"
 
 #: libraries/classes/Sql.php:831
-#, fuzzy
-#| msgid "Bookmark %s created"
 msgid "Bookmark not created!"
-msgstr "ที่คั่นหน้า %s ได้ถูกสร้างขึ้น"
+msgstr "ไม่ได้สร้างบุ๊กมาร์ก!"
 
 #: libraries/classes/Sql.php:941
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
-msgstr ""
+msgstr "ใช้บุ๊กมาร์ก \"%s\" เป็นค่าเริ่มต้นในการเรียกดูคำสั่ง"
 
 #: libraries/classes/Sql.php:1423
 msgid "Showing as PHP code"
-msgstr ""
+msgstr "แสดงผลเป็นโค้ด PHP"
 
 #: libraries/classes/Sql.php:1813
 #, php-format
@@ -12750,8 +12748,8 @@ msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available. %s"
 msgstr ""
-"ข้อมูลที่เลือกมาในขณะนี้ไม่มีคอลัมน์เอกลักษณ์อยู่ การแก้ไขในช่องตาราง, กล่องทำเครื่องหมายแก้ไข, "
-"คัดลอก, ลบอาจไม่พร้อมใช้งาน%s"
+"การเลือกปัจจุบันไม่มีคอลัมน์ที่ไม่ซ้ำกัน ฟังก์ชันการแก้ไขตาราง, ช่องทำเครื่องหมาย, การแก้ไข, การคัด"
+"ลอก และการลบไม่สามารถใช้งานได้ %s"
 
 #: libraries/classes/Sql.php:1827
 #, php-format
@@ -12759,30 +12757,28 @@ msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
 "and Delete features may result in undesired behavior. %s"
 msgstr ""
-"สิ่งที่ถูกเลือกไม่มีคอลัมน์เอกลักษณ์ การแก้ไขผ่านตาราง แก้ไข คัดลอก "
-"และลบอาจจะเกิดผลลัพธ์ที่ไม่คาดคิด %s"
+"สิ่งที่ถูกเลือกในปัจจุบันไม่มีคอลัมน์ที่ไม่ซ้ำกัน การแก้ไขตาราง การแก้ไข การคัดลอก และการลบ อาจทำใ"
+"ห้เกิดคุณลักษณะที่ไม่พึงประสงค์ %s"
 
 #: libraries/classes/Sql.php:1869
 #, php-format
 msgid "Problems with indexes of table `%s`"
-msgstr ""
+msgstr "ปัญหาเกี่ยวกับดัชนีของตาราง `%s`"
 
 #: libraries/classes/SqlQueryForm.php:140
-#, fuzzy, php-format
-#| msgid "Run SQL query/queries on server %s"
+#, php-format
 msgid "Run SQL query/queries on server “%s”"
-msgstr "เรียกใช้แบบสอบถาม SQL/แบบสอบถามบนเซิร์ฟเวอร์ %s"
+msgstr "รันคำสั่ง SQL บนเซิร์ฟเวอร์ “%s”"
 
 #: libraries/classes/SqlQueryForm.php:157
 #, php-format
 msgid "Run SQL query/queries on database %s"
-msgstr "ประมวลผลคำค้นบนฐานข้อมูล %s"
+msgstr "รันคำสั่ง SQL บนฐานข้อมูล %s"
 
 #: libraries/classes/SqlQueryForm.php:178
-#, fuzzy, php-format
-#| msgid "Run SQL query/queries on database %s"
+#, php-format
 msgid "Run SQL query/queries on table %s"
-msgstr "ประมวลผลคำค้นบนฐานข้อมูล %s"
+msgstr "รันคำสั่ง SQL บนตาราง %s"
 
 #: libraries/classes/SqlQueryForm.php:248 setup/frames/index.inc.php:255
 #: templates/console/display.twig:7
@@ -12791,21 +12787,19 @@ msgstr "ล้าง"
 
 #: libraries/classes/SqlQueryForm.php:254
 msgid "Get auto-saved query"
-msgstr "รับคำสั่งที่บันทึกอัตโนมัติ"
+msgstr "ใช้การบันทึกคำสั่งอัตโนมัติ"
 
 #: libraries/classes/SqlQueryForm.php:260
 msgid "Bind parameters"
 msgstr "โยงพารามิเตอร์"
 
 #: libraries/classes/SqlQueryForm.php:308
-#, fuzzy
-#| msgid "Bookmark this SQL query"
 msgid "Bookmark this SQL query:"
-msgstr "จดคำค้นนี้ไว้"
+msgstr "บุ๊กมาร์กคำสั่ง SQL นี้:"
 
 #: libraries/classes/SqlQueryForm.php:322
 msgid "Replace existing bookmark of same name"
-msgstr "แทนที่บุ๊คมาร์คที่มีชื่อเดียวกัน"
+msgstr "แทนที่บุ๊กมาร์กที่มีอยู่แล้วที่มีชื่อเดียวกัน"
 
 #: libraries/classes/SqlQueryForm.php:336
 msgid "Delimiter"
@@ -12813,11 +12807,11 @@ msgstr "ตัวคั่น"
 
 #: libraries/classes/SqlQueryForm.php:346
 msgid "Show this query here again"
-msgstr "แสดงคำค้นนี้อีกที"
+msgstr "แสดงคำสั่งนี้ที่นี่อีกครั้ง"
 
 #: libraries/classes/SqlQueryForm.php:363
 msgid "Rollback when finished"
-msgstr ""
+msgstr "ย้อนกลับเมื่อเสร็จสิ้น"
 
 #: libraries/classes/SqlQueryForm.php:410
 msgid "shared"
@@ -12830,28 +12824,28 @@ msgstr "ดูอย่างเดียว"
 #: libraries/classes/StorageEngine.php:280
 msgid ""
 "There is no detailed status information available for this storage engine."
-msgstr "ไม่มีข้อมูลเกี่ยวกับรูปแบบฐานข้อมูลนี้"
+msgstr "ไม่มีข้อมูลสถานะโดยละเอียดสำหรับระบบจัดเก็บข้อมูลนี้"
 
 #: libraries/classes/StorageEngine.php:383
 #: templates/database/structure/body_for_table_summary.twig:48
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr "เซิร์ฟเวอร์ MySQL นี้ใช้ storage engine ชื่อ %s เป็นค่าเริ่มต้น"
+msgstr "%s คือระบบจัดเก็บข้อมูลเริ่มต้นบนเซิร์ฟเวอร์ MySQL นี้"
 
 #: libraries/classes/StorageEngine.php:386
 #, php-format
 msgid "%s is available on this MySQL server."
-msgstr "%s มีอยู่บน MySQL Server"
+msgstr "%s สามารถใช้งานได้บนเซิร์ฟเวอร์ MySQL นี้"
 
 #: libraries/classes/StorageEngine.php:389
 #, php-format
 msgid "%s has been disabled for this MySQL server."
-msgstr "%s ถูกปิดบน MySQL Server"
+msgstr "%s ถูกปิดใช้งานสำหรับเซิร์ฟเวอร์ MySQL นี้แล้ว"
 
 #: libraries/classes/StorageEngine.php:394
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
-msgstr "MySQL ไม่รองรับ %s"
+msgstr "เซิร์ฟเวอร์ MySQL นี้ไม่รองรับระบบจัดเก็บข้อมูล %s"
 
 #: libraries/classes/Table.php:338
 msgid "Unknown table status:"
@@ -12868,34 +12862,26 @@ msgid "Target database `%s` was not found!"
 msgstr "ไม่พบฐานข้อมูลเป้าหมาย `%s`!"
 
 #: libraries/classes/Table.php:1462
-#, fuzzy
-#| msgid "Invalid database"
 msgid "Invalid database:"
-msgstr "ชื่อฐานข้อมูลไม่ถูกต้อง"
+msgstr "ฐานข้อมูลไม่ถูกต้อง:"
 
 #: libraries/classes/Table.php:1479
-#, fuzzy
-#| msgid "Invalid table name"
 msgid "Invalid table name:"
-msgstr "ชื่อตารางไม่ถูกต้อง"
+msgstr "ชื่อตารางไม่ถูกต้อง:"
 
 #: libraries/classes/Table.php:1514
-#, fuzzy, php-format
-#| msgid "Error renaming table %1$s to %2$s"
+#, php-format
 msgid "Failed to rename table %1$s to %2$s!"
-msgstr "มีข้อผิดพลาดจากเปลี่ยนชื่อตาราง %1$s เป็น %2$s"
+msgstr "ไม่สามารถเปลี่ยนชื่อตาราง %1$s เป็น %2$s ได้!"
 
 #: libraries/classes/Table.php:1533
-#, fuzzy, php-format
-#| msgid "Table %s has been renamed to %s."
+#, php-format
 msgid "Table %1$s has been renamed to %2$s."
-msgstr "ตาราง %1$s ได้ถูกเปลี่ยนชื่อเป็น %2$s"
+msgstr "ตาราง %1$s ได้ถูกแก้ไขชื่อเป็น %2$s"
 
 #: libraries/classes/Table.php:1767
-#, fuzzy
-#| msgid "Could not save table UI preferences"
 msgid "Could not save table UI preferences!"
-msgstr "ไม่สามารถบันทึกการกำหนดลักษณะตาราง UI"
+msgstr "ไม่สามารถบันทึกค่ากำหนด UI ของตารางได้!"
 
 #: libraries/classes/Table.php:1797
 #, php-format
@@ -12903,35 +12889,35 @@ msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
-"มีปัญหาในการล้างข้อมูลการตั้งค่าตาราง UL (ดูได้ที่ $cfg['Servers'][$i]"
-"['MaxTableUiprefs'] %s)"
+"ไม่สามารถล้างค่ากำหนด UI ของตารางได้ (ดู $cfg['Servers'][$i]['MaxTableUiprefs'] "
+"%s)"
 
 #: libraries/classes/Table.php:1950
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
 "after you refresh this page. Please check if the table structure has been "
 "changed."
 msgstr ""
-"﻿ไม่สามารถบันทึกคุณสมบัติ UI \"%s\" ได้ การเปลี่ยนแปลงจะมีผล หลังจากคุณรีเฟรชหน้านี้ โปรดตรวจส"
-"อบหากมีการเปลี่ยนโครงสร้างของตาราง"
+"ไม่สามารถบันทึกคุณสมบัติ UI \"%s\" ได้ การเปลี่ยนแปลงจะไม่คงอยู่หลังจากที่คุณรีเฟรชหน้านี้ โปรดตร"
+"วจสอบว่าโครงสร้างตารางมีการเปลี่ยนแปลงแล้ว"
 
 #: libraries/classes/Table.php:2086
 msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr "ชื่อขอคีย์หลักจะต้องเป็น \"PRIMARY\" เท่านั้น!"
+msgstr "ชื่อของคีย์หลักจะต้องเป็น \"PRIMARY\" เท่านั้น!"
 
 #: libraries/classes/Table.php:2097
 msgid "Can't rename index to PRIMARY!"
-msgstr "เปลี่ยนชื่อดัชนีเป็น PRIMARY ไม่ได้!"
+msgstr "ไม่สามารถแก้ไขชื่อดัชนีเป็น PRIMARY ได้!"
 
 #: libraries/classes/Table.php:2119
 msgid "No index parts defined!"
-msgstr "ไม่ได้กำหนดส่วนใดๆ ของดัชนี!"
+msgstr "ไม่มีการกำหนดส่วนดัชนี!"
 
 #: libraries/classes/Table.php:2427
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
-msgstr ""
+msgstr "เกิดข้อผิดพลาดในการสร้างคีย์นอกบน %1$s (ตรวจสอบชนิดข้อมูล)"
 
 #: libraries/classes/Template.php:127
 #, php-format
@@ -12941,7 +12927,7 @@ msgstr "เกิดข้อผิดพลาดขณะทำงานกั
 #: libraries/classes/Theme.php:186
 #, php-format
 msgid "No valid image path for theme %s found!"
-msgstr "ไม่พบเส้นทางรูปภาพของธีม %s !"
+msgstr "ไม่พบเส้นทางรูปภาพที่ถูกต้องสำหรับธีม %s!"
 
 #: libraries/classes/ThemeManager.php:94
 #, php-format
@@ -12954,19 +12940,17 @@ msgid "Theme %s not found!"
 msgstr "ไม่พบธีม %s !"
 
 #: libraries/classes/ThemeManager.php:258
-#, fuzzy, php-format
+#, php-format
 msgid "Theme path not found for theme %s!"
-msgstr "﻿เส้นทางของชุดรูปแบบ %s ไม่พบ"
+msgstr "ไม่พบเส้นทางธีมสำหรับธีม %s!"
 
 #: libraries/classes/ThemeManager.php:348
-#, fuzzy
-#| msgid "Theme"
 msgid "Theme:"
-msgstr "﻿ชุดรูปแบบ"
+msgstr "ธีม:"
 
 #: libraries/classes/Tracking.php:159 templates/server/plugins/section.twig:11
 msgid "Version"
-msgstr "เวอร์ชั่น"
+msgstr "เวอร์ชัน"
 
 #: libraries/classes/Tracking.php:160
 #: templates/database/tracking/tracked_tables.twig:13
@@ -12976,33 +12960,29 @@ msgstr "ถูกสร้าง"
 #: libraries/classes/Tracking.php:161
 #: templates/database/tracking/tracked_tables.twig:14
 msgid "Updated"
-msgstr "ปรับปรุงแล้ว"
+msgstr "อัปเดตแล้ว"
 
 #: libraries/classes/Tracking.php:170 libraries/classes/Tracking.php:234
-#, fuzzy
-#| msgid "Create version"
 msgid "Delete version"
-msgstr "สร้างเวอร์ชั่น"
+msgstr "เวอร์ชันลบ"
 
 #: libraries/classes/Tracking.php:171 libraries/classes/Tracking.php:334
 #: templates/database/tracking/tracked_tables.twig:76
 msgid "Tracking report"
-msgstr "รายงานผลการติดตาม"
+msgstr "รายงานการติดตาม"
 
 #: libraries/classes/Tracking.php:172 libraries/classes/Tracking.php:650
 #: templates/database/tracking/tracked_tables.twig:87
 msgid "Structure snapshot"
-msgstr "เก็บโครงสร้างไว้"
+msgstr "ภาพรวมโครงสร้าง"
 
 #: libraries/classes/Tracking.php:338
 msgid "Tracking statements"
-msgstr ""
+msgstr "คำสั่งในการติดตาม"
 
 #: libraries/classes/Tracking.php:350
-#, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data row from report"
-msgstr "ลบการติดตามตารางนี้"
+msgstr "ลบแถวข้อมูลการติดตามออกจากรายงาน"
 
 #: libraries/classes/Tracking.php:361
 msgid "No data"
@@ -13011,68 +12991,71 @@ msgstr "ไม่มีข้อมูล"
 #: libraries/classes/Tracking.php:448 libraries/classes/Tracking.php:496
 #, php-format
 msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
-msgstr ""
+msgstr "แสดง %1$s พร้อมวันที่ตั้งแต่ %2$s ถึง %3$s โดยผู้ใช้ %4$s %5$s"
 
 #: libraries/classes/Tracking.php:513
 msgid "SQL dump (file download)"
-msgstr ""
+msgstr "ดัมพ์ข้อมูล SQL (ดาวน์โหลดไฟล์)"
 
 #: libraries/classes/Tracking.php:515
 msgid "SQL dump"
-msgstr ""
+msgstr "ดัมพ์ข้อมูล SQL"
 
 #: libraries/classes/Tracking.php:518
 msgid "This option will replace your table and contained data."
-msgstr ""
+msgstr "ตัวเลือกนี้จะแทนที่ตารางและข้อมูลที่อยู่ในตารางของคุณ"
 
 #: libraries/classes/Tracking.php:520
 msgid "SQL execution"
-msgstr ""
+msgstr "การสั่งรัน SQL"
 
 #: libraries/classes/Tracking.php:524
 #, php-format
 msgid "Export as %s"
-msgstr ""
+msgstr "ส่งออกเป็น %s"
 
 #: libraries/classes/Tracking.php:550
 msgid "Data manipulation statement"
-msgstr ""
+msgstr "คำชี้แจงการจัดการข้อมูล"
 
 #: libraries/classes/Tracking.php:574
 msgid "Data definition statement"
-msgstr ""
+msgstr "คำชี้แจงนิยามข้อมูล"
 
 #: libraries/classes/Tracking.php:668
 #, php-format
 msgid "Version %s snapshot (SQL code)"
-msgstr ""
+msgstr "สแนปช็อตเวอร์ชัน %s (โค้ด SQL)"
 
 #: libraries/classes/Tracking.php:735
 msgid "Tracking data definition successfully deleted"
-msgstr ""
+msgstr "ข้อมูลนิยามการติดตามถูกลบเรียบร้อยแล้ว"
 
 #: libraries/classes/Tracking.php:745
 msgid "Tracking data manipulation successfully deleted"
-msgstr ""
+msgstr "การจัดการการติดตามข้อมูลถูกลบเรียบร้อยแล้ว"
 
 #: libraries/classes/Tracking.php:799
 msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
 msgstr ""
+"คุณสามารถสั่งการดัมพ์ข้อมูลได้โดยการสร้างและใช้งานฐานข้อมูลชั่วคราว โปรดตรวจสอบให้แน่ใจว่าคุณมีสิ"
+"ทธิ์ในการดำเนินการดังกล่าว"
 
 #: libraries/classes/Tracking.php:803
 msgid "Comment out these two lines if you do not need them."
-msgstr ""
+msgstr "เครื่องหมายคอมเมนต์สองบรรทัดนี้ไว้ หากคุณไม่ต้องการใช้มัน"
 
 #: libraries/classes/Tracking.php:813
 msgid "SQL statements exported. Please copy the dump or execute it."
 msgstr ""
+"มีการส่งออกคำสั่ง SQL แล้ว โปรดคัดลอกข้อมูลที่ดัมพ์ออกไปหรือสั่งการคำสั่งนั้น"
 
 #: libraries/classes/Tracking.php:861
 #, php-format
 msgid "Tracking report for table `%s`"
-msgstr ""
+msgstr "รายงานการติดตามสำหรับตาราง `%s`"
 
 #: libraries/classes/Tracking.php:891
 #, php-format
@@ -13085,25 +13068,24 @@ msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr "การติดตามสำหรับ %1$s ถูกปิดใช้งานในเวอร์ชัน %2$s"
 
 #: libraries/classes/Tracking.php:986
-#, fuzzy, php-format
-#| msgid "Create version %1$s of %2$s"
+#, php-format
 msgid "Version %1$s of %2$s was deleted."
-msgstr "สร้างเวอร์ชั่น %1$s ของ %2$s"
+msgstr "เวอร์ชัน %1$s ของ %2$s ถูกลบแล้ว"
 
 #: libraries/classes/Tracking.php:1017
 #, php-format
 msgid "Version %1$s was created, tracking for %2$s is active."
-msgstr ""
+msgstr "เวอร์ชัน %1$s ถูกสร้างขึ้นแล้ว การติดตามสำหรับ %2$s เปิดใช้งานอยู่"
 
 #: libraries/classes/Tracking.php:1114 libraries/classes/Tracking.php:1258
 #: templates/table/tracking/selectable_tables.twig:9
 msgid "active"
-msgstr "ใช้งานได้"
+msgstr "ใช้งาน"
 
 #: libraries/classes/Tracking.php:1117 libraries/classes/Tracking.php:1253
 #: templates/table/tracking/selectable_tables.twig:11
 msgid "not active"
-msgstr "ใช้งานไม่ได้"
+msgstr "ไม่ได้ใช้งาน"
 
 #: libraries/classes/Types.php:203
 msgid ""
@@ -13356,7 +13338,7 @@ msgstr "คอลเลคชั่นของพอยต์"
 
 #: libraries/classes/Types.php:376
 msgid "A collection of curves with linear interpolation between points"
-msgstr ""
+msgstr "คอลเลคชั่นของเส้นโค้งที่มีการประมาณค่าเชิงเส้นระหว่างจุดต่าง ๆ"
 
 #: libraries/classes/Types.php:379
 msgid "A collection of polygons"
@@ -13364,13 +13346,15 @@ msgstr "คอลเลคชั่นของรูปหลายเหลี
 
 #: libraries/classes/Types.php:381
 msgid "A collection of geometry objects of any type"
-msgstr "คอลเลคชั่นของวัตถุรูปทรงเรขาคณิตประเภทใดๆ"
+msgstr "คอลเลคชั่นของวัตถุรูปทรงเรขาคณิตประเภทใด ๆ"
 
 #: libraries/classes/Types.php:384
 msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
 msgstr ""
+"จัดเก็บและช่วยให้เข้าถึงข้อมูลในเอกสาร JSON (JavaScript Object Notation) ได้อย่างมีประสิท"
+"ธิภาพ"
 
 #: libraries/classes/Types.php:718
 msgctxt "numeric types"
@@ -13378,77 +13362,63 @@ msgid "Numeric"
 msgstr "ตัวเลข"
 
 #: libraries/classes/Types.php:736
-#, fuzzy
-#| msgid "Create an index"
 msgctxt "date and time types"
 msgid "Date and time"
-msgstr "สร้างดัชนีใหม่"
+msgstr "วันและเวลา"
 
 #: libraries/classes/Types.php:766
-#, fuzzy
-#| msgid "Total"
 msgctxt "spatial types"
 msgid "Spatial"
-msgstr "รวม"
+msgstr "เชิงพื้นที่"
 
 #: libraries/classes/UserPassword.php:62
 msgid "The profile has been updated."
-msgstr "ปรับปรุงโพรไฟล์เรียบร้อยแล้ว"
+msgstr "ปรับปรุงโปรไฟล์เรียบร้อยแล้ว"
 
 #: libraries/classes/UserPassword.php:74
-#, fuzzy
-#| msgid "Password:"
 msgid "Password is too long!"
-msgstr "รหัสผ่าน:"
+msgstr "รหัสผ่านยาวเกินไป!"
 
 #: libraries/classes/UserPreferences.php:157
 msgid "Could not save configuration"
-msgstr ""
+msgstr "ไม่สามารถบันทึกการกำหนดค่าได้"
 
 #: libraries/classes/Util.php:175
 #, php-format
 msgid "Max: %s%s"
-msgstr "ขนาดใหญ่สุด: %s%s"
+msgstr "มากสุด: %s%s"
 
 #: libraries/classes/Util.php:549
-#, fuzzy
-#| msgid "Static data"
 msgid "Static analysis:"
-msgstr "ข้อมูลคงที่"
+msgstr "การวิเคราะห์เชิงสถิติ:"
 
 #: libraries/classes/Util.php:552
 #, php-format
 msgid "%d errors were found during analysis."
-msgstr ""
+msgstr "พบข้อผิดพลาด %d ระหว่างการวิเคราะห์"
 
 #: libraries/classes/Util.php:1054
 msgid "Skip Explain SQL"
-msgstr "ไม่ต้องอธิบาย SQL"
+msgstr "ข้ามการอธิบาย SQL"
 
 #: libraries/classes/Util.php:1062
 #, php-format
 msgid "Analyze Explain at %s"
-msgstr ""
+msgstr "การอธิบายการวิเคราะห์ที่ %s"
 
 #: libraries/classes/Util.php:1093
-#, fuzzy
-#| msgid "Without PHP Code"
 msgid "Without PHP code"
-msgstr "ไม่เอาโค้ด PHP"
+msgstr "ปราศจากโค้ด PHP"
 
 #: libraries/classes/Util.php:1100
 #: templates/database/multi_table_query/form.twig:176
-#, fuzzy
-#| msgid "Submit Query"
 msgid "Submit query"
-msgstr "ประมวลผลคำค้น"
+msgstr "ส่งคำสั่ง"
 
 #: libraries/classes/Util.php:1166
-#, fuzzy
-#| msgid "Add new field"
 msgctxt "Inline edit query"
 msgid "Edit inline"
-msgstr "เพิ่มฟิลด์ใหม่"
+msgstr "แก้ไขแบบอินไลน์"
 
 #. l10n: Short week day name for Sunday
 #: libraries/classes/Util.php:1506
@@ -13459,55 +13429,49 @@ msgstr "อา."
 #: libraries/classes/Util.php:1543
 msgctxt "AM/PM indication in time"
 msgid "PM"
-msgstr ""
+msgstr "บ่าย"
 
 #: libraries/classes/Util.php:1545
 msgctxt "AM/PM indication in time"
 msgid "AM"
-msgstr ""
+msgstr "เช้า"
 
 #: libraries/classes/Util.php:1847
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
-msgstr "%s วัน, %s ชั่วโมง, %s นาที, %s วินาที"
+msgstr "%s วัน, %s ชั่วโมง, %s นาที และ %s วินาที"
 
 #: libraries/classes/Util.php:1882
-#, fuzzy
-#| msgid "Add new field"
 msgid "Missing parameter:"
-msgstr "เพิ่มฟิลด์ใหม่"
+msgstr "พารามิเตอร์ที่หายไป:"
 
 #: libraries/classes/Util.php:2440
-#, fuzzy, php-format
-#| msgid "Jump to database \"%s\"."
+#, php-format
 msgid "Jump to database “%s”."
-msgstr "กระโดดไปที่ฐานข้อมูล \"%s\"."
+msgstr "ข้ามไปยังฐานข้อมูล \"%s\""
 
 #: libraries/classes/Util.php:2465
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
-msgstr ""
+msgstr "ฟังก์ชัน %s ได้รับผลกระทบจากบั๊กที่รับทราบแล้ว ดูที่ %s"
 
 #: libraries/classes/Util.php:3259 prefs_manage.php:238
 msgid "Browse your computer:"
 msgstr "เรียกดูคอมพิวเตอร์ของคุณ:"
 
 #: libraries/classes/Util.php:3284
-#, fuzzy, php-format
-#| msgid "web server upload directory"
+#, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr "ไดเรกทอรีสำหรับอัพโหลด ที่เว็บเซิร์ฟเวอร์"
+msgstr "เลือกจากไดเร็กทอรีอัปโหลดของเว็บเซิร์ฟเวอร์ <b>%s</b>:"
 
 #: libraries/classes/Util.php:3324
-#, fuzzy
-#| msgid "There are no files to upload"
 msgid "There are no files to upload!"
-msgstr "ไม่มีไฟล์ที่จะอัพโหลด"
+msgstr "ไม่มีไฟล์ให้อัปโหลด!"
 
 #: libraries/classes/Util.php:3349 libraries/classes/Util.php:3350
 #: templates/database/structure/check_all_tables.twig:15
 msgid "Empty"
-msgstr "ลบข้อมูล"
+msgstr "ล้างข้อมูล"
 
 #: libraries/classes/Util.php:3355 libraries/classes/Util.php:3356
 msgid "Execute"
@@ -13515,19 +13479,19 @@ msgstr "ดำเนินการ"
 
 #: libraries/classes/Util.php:3861
 msgid "SSL is not being used"
-msgstr ""
+msgstr "ไม่ได้ใช้ SSL"
 
 #: libraries/classes/Util.php:3866
 msgid "SSL is used with disabled verification"
-msgstr ""
+msgstr "มีการใช้งาน SSL โดยปิดใช้งานการตรวจสอบความถูกต้อง"
 
 #: libraries/classes/Util.php:3868
 msgid "SSL is used without certification authority"
-msgstr ""
+msgstr "SSL ถูกใช้งานโดยไม่มีหน่วยงานรับรอง"
 
 #: libraries/classes/Util.php:3871
 msgid "SSL is used"
-msgstr ""
+msgstr "มีการใช้งาน SSL"
 
 #: libraries/classes/Util.php:3992
 msgid "Users"
@@ -13540,26 +13504,27 @@ msgstr "เรียง"
 
 #: libraries/classes/ZipExtension.php:56
 msgid "No files found inside ZIP archive!"
-msgstr ""
+msgstr "ไม่พบไฟล์ใด ๆ ภายในไฟล์ ZIP!"
 
 #: libraries/classes/ZipExtension.php:84 libraries/classes/ZipExtension.php:91
 msgid "Error in ZIP archive:"
-msgstr ""
+msgstr "เกิดข้อผิดพลาดในไฟล์ ZIP:"
 
 #: libraries/common.inc.php:200
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
+"ไม่สามารถตั้งค่าคุกกี้เซสชันได้ อาจเป็นเพราะคุณใช้ HTTP แทน HTTPS ในการเข้าถึง phpMyAdmin"
 
 #: libraries/common.inc.php:344
 msgid "Invalid authentication method set in configuration:"
-msgstr ""
+msgstr "วิธีการตรวจสอบสิทธิ์ที่ตั้งค่าไว้ในไฟล์การกำหนดค่าไม่ถูกต้อง:"
 
 #: libraries/common.inc.php:397
 #, php-format
 msgid "You should upgrade to %s %s or later."
-msgstr "คุณควรอัพเกรดเป็น %s%s ขึ้นไป"
+msgstr "คุณควรอัปเกรดเป็น %s %s หรือใหม่กว่า"
 
 #: libraries/common.inc.php:450
 msgid "Error: Token mismatch"
@@ -13567,18 +13532,14 @@ msgstr "เกิดข้อผิดพลาด: โทเค็นไม่�
 
 #: libraries/config.values.php:56 libraries/config.values.php:76
 #: libraries/config.values.php:88
-#, fuzzy
-#| msgid "Ins"
 msgid "Icons"
-msgstr "เพิ่ม"
+msgstr "ไอคอน"
 
 #: libraries/config.values.php:57 libraries/config.values.php:77
 #: libraries/config.values.php:89
 #: templates/database/multi_table_query/form.twig:111
-#, fuzzy
-#| msgid "Test"
 msgid "Text"
-msgstr "ทดสอบ"
+msgstr "ข้อความ"
 
 #: libraries/config.values.php:58 libraries/config.values.php:66
 #: libraries/config.values.php:78 libraries/config.values.php:90
@@ -13607,59 +13568,47 @@ msgstr "ดับเบิลคลิก"
 
 #: libraries/config.values.php:98
 msgid "key"
-msgstr ""
+msgstr "คีย์"
 
 #: libraries/config.values.php:99
-#, fuzzy
-#| msgid "Displaying Column Comments"
 msgid "display column"
-msgstr "แสดงหมายเหตุของคอลัมน์"
+msgstr "แสดงคอลัมน์"
 
 #: libraries/config.values.php:103
-#, fuzzy
-#| msgid "Welcome to %s"
 msgid "Welcome"
-msgstr "%s ยินดีต้อนรับ"
+msgstr "ยินดีต้อนรับ"
 
 #: libraries/config.values.php:123
 msgid "Open"
 msgstr "เปิด"
 
 #: libraries/config.values.php:124
-#, fuzzy
-#| msgid "Unclosed quote"
 msgid "Closed"
-msgstr "ไม่ได้ปิดเครื่องหมายคำพูด"
+msgstr "ปิด"
 
 #: libraries/config.values.php:128
 msgid "Ask before sending error reports"
-msgstr ""
+msgstr "สอบถามก่อนส่งรายงานข้อผิดพลาด"
 
 #: libraries/config.values.php:129
 msgid "Always send error reports"
-msgstr ""
+msgstr "ส่งรายงานข้อผิดพลาดทุกครั้ง"
 
 #: libraries/config.values.php:130
 msgid "Never send error reports"
-msgstr ""
+msgstr "ห้ามส่งรายงานข้อผิดพลาด"
 
 #: libraries/config.values.php:133
-#, fuzzy
-#| msgid "Export defaults"
 msgid "Server default"
-msgstr "ส่งออกค่าเริ่มต้น"
+msgstr "ค่าเริ่มต้นของเซิร์ฟเวอร์"
 
 #: libraries/config.values.php:134
-#, fuzzy
-#| msgid "Enabled"
 msgid "Enable"
-msgstr "เปิดใช้อยู่"
+msgstr "เปิดใช้งาน"
 
 #: libraries/config.values.php:135
-#, fuzzy
-#| msgid "Disabled"
 msgid "Disable"
-msgstr "ระงับการใช้อยู่"
+msgstr "ปิดใช้งาน"
 
 #: libraries/config.values.php:169
 msgid "Quick - display only the minimal options to configure"
@@ -13671,51 +13620,43 @@ msgstr "กำหนดเอง - แสดงตัวเลือกที่
 
 #: libraries/config.values.php:172
 msgid "Custom - like above, but without the quick/custom choice"
-msgstr "กำหนดเอง - เหมือนข้างต้น แต่ไม่มีทางเลือกที่รวดเร็ว/กำหนดเอง"
+msgstr "กำหนดเอง - คล้ายข้างต้น แต่ไม่มีทางเลือกที่รวดเร็ว/กำหนดเอง"
 
 #: libraries/config.values.php:201
-#, fuzzy
-#| msgid "Complete inserts"
 msgid "complete inserts"
-msgstr "คำสั่ง INSERT เต็มรูปแบบ"
+msgstr "แทรกสมบูรณ์"
 
 #: libraries/config.values.php:202
-#, fuzzy
-#| msgid "Extended inserts"
 msgid "extended inserts"
-msgstr "แทรกหลายระเบียนในคราวเดียว"
+msgstr "แทรกขยาย"
 
 #: libraries/config.values.php:203
 msgid "both of the above"
-msgstr "ทั้งสองอย่าง"
+msgstr "ทั้งสองข้างต้น"
 
 #: libraries/config.values.php:204
 msgid "neither of the above"
-msgstr "ไม่ใช้ดังกล่าวข้างต้น"
+msgstr "ไม่รับทั้งหมดข้างต้น"
 
 #: libraries/db_common.inc.php:151 tbl_operations.php:224
 msgid "No collation provided."
-msgstr ""
+msgstr "ไม่มีการจัดเรียงข้อมูลให้"
 
 #: libraries/mult_submits.inc.php:337
 msgid "Success!"
-msgstr ""
+msgstr "สำเร็จ!"
 
 #: libraries/user_preferences.inc.php:31
 msgid "Manage your settings"
 msgstr "จัดการการตั้งค่าของคุณ"
 
 #: libraries/user_preferences.inc.php:38
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Two-factor authentication"
-msgstr "กำหนดค่าการรับรองความถูกต้อง"
+msgstr "การยืนยันตัวตนแบบสองขั้นตอน"
 
 #: libraries/user_preferences.inc.php:63 prefs_manage.php:298
-#, fuzzy
-#| msgid "Modifications have been saved"
 msgid "Configuration has been saved."
-msgstr "บันทึกการแก้ไขเรียบร้อยแล้ว"
+msgstr "บันทึกการกำหนดค่าเรียบร้อยแล้ว"
 
 #: libraries/user_preferences.inc.php:71
 #, php-format
@@ -13723,44 +13664,44 @@ msgid ""
 "Your preferences will be saved for current session only. Storing them "
 "permanently requires %sphpMyAdmin configuration storage%s."
 msgstr ""
+"การกำหนดค่าของคุณจะถูกบันทึกไว้สำหรับเซสชันปัจจุบันเท่านั้น การบันทึกอย่างถาวรต้องใช้ "
+"%sphpMyAdmin configuration storage%s"
 
 #: navigation.php:24
 msgid "Fatal error: The navigation can only be accessed via AJAX"
-msgstr ""
+msgstr "ข้อผิดพลาดร้ายแรง: การนำทางนี้สามารถเข้าถึงได้ผ่านทาง AJAX เท่านั้น"
 
 #: prefs_forms.php:30 setup/frames/form.inc.php:21
 msgid "Incorrect form specified!"
-msgstr ""
+msgstr "ระบุรูปแบบไม่ถูกต้อง!"
 
 #: prefs_forms.php:82
 msgid "Cannot save settings, submitted form contains errors!"
-msgstr ""
+msgstr "ไม่สามารถบันทึกการตั้งค่าได้ แบบฟอร์มที่ส่งมามีข้อผิดพลาด!"
 
 #: prefs_manage.php:52
-#, fuzzy
-#| msgid "phpMyAdmin documentation"
 msgid "phpMyAdmin configuration snippet"
-msgstr "เอกสารประกอบของ phpMyAdmin"
+msgstr "snippet การกำหนดค่า phpMyAdmin"
 
 #: prefs_manage.php:53
 msgid "Paste it to your config.inc.php"
-msgstr ""
+msgstr "วางโค้ดนี้ลงในไฟล์ config.inc.php ของคุณ"
 
 #: prefs_manage.php:93
 msgid "Could not import configuration"
-msgstr ""
+msgstr "ไม่สามารถนำเข้าการกำหนดค่าได้"
 
 #: prefs_manage.php:121
 msgid "Configuration contains incorrect data for some fields."
-msgstr ""
+msgstr "การกำหนดค่ามีข้อมูลที่ไม่ถูกต้องในบางช่องข้อมูล"
 
 #: prefs_manage.php:140
 msgid "Do you want to import remaining settings?"
-msgstr ""
+msgstr "คุณต้องการนำเข้าการตั้งค่าที่เหลือหรือไม่?"
 
 #: prefs_manage.php:221 prefs_manage.php:250
 msgid "Saved on: @DATE@"
-msgstr ""
+msgstr "บันทึกแล้วเมื่อ: @DATE@"
 
 #: prefs_manage.php:236
 msgid "Import from file"
@@ -13773,6 +13714,7 @@ msgstr "นำเข้าจากที่เก็บข้อมูลขอ
 #: prefs_manage.php:247
 msgid "Settings will be imported from your browser's local storage."
 msgstr ""
+"ระบบจะนำเข้าการตั้งค่าจากพื้นที่จัดเก็บข้อมูลภายในเครื่องของเบราว์เซอร์คุณ"
 
 #: prefs_manage.php:253
 msgid "You have no saved settings!"
@@ -13780,7 +13722,7 @@ msgstr "คุณไม่มีการตั้งค่าที่บัน
 
 #: prefs_manage.php:258 prefs_manage.php:343
 msgid "This feature is not supported by your web browser"
-msgstr ""
+msgstr "เบราว์เซอร์ของคุณไม่รองรับฟีเจอร์นี้"
 
 #: prefs_manage.php:264
 msgid "Merge with current configuration"
@@ -13796,16 +13738,12 @@ msgstr ""
 "script%s"
 
 #: prefs_manage.php:309
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save as JSON file"
-msgstr "บันทึกเป็นไฟล์"
+msgstr "บันทึกเป็นไฟล์ JSON"
 
 #: prefs_manage.php:314
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save as PHP file"
-msgstr "บันทึกเป็นไฟล์"
+msgstr "บันทึกเป็นไฟล์ PHP"
 
 #: prefs_manage.php:319
 msgid "Save to browser's storage"
@@ -13813,83 +13751,79 @@ msgstr "บันทึกไปยังที่เก็บข้อมูล
 
 #: prefs_manage.php:326
 msgid "Settings will be saved in your browser's local storage."
-msgstr "การตั้งค่าจะถูกบันทึกไว้ในที่เก็บข้อมูลของเบราเซอร์ภายในเครื่องของคุณ"
+msgstr "การตั้งค่าจะถูกบันทึกไว้ในที่เก็บข้อมูลของเบราเซอร์ภายในเครื่องคุณ"
 
 #: prefs_manage.php:334
 msgid "Existing settings will be overwritten!"
-msgstr "ถ้ามีการตั้งค่าอยู่แล้วจะถูกเขียนทับ!"
+msgstr "การตั้งค่าที่มีอยู่จะถูกเขียนทับ!"
 
 #: prefs_manage.php:362
 msgid "You can reset all your settings and restore them to default values."
-msgstr "คุณสามารถรีเซ็ตการตั้งค่าทั้งหมดของคุณและเรียกคืนเป็นค่าเริ่มต้น"
+msgstr "คุณสามารถรีเซ็ตการตั้งค่าทั้งหมดของคุณและเรียกคืนเป็นค่าเริ่มต้นได้"
 
 #: prefs_twofactor.php:29
-#, fuzzy
 msgid "Two-factor authentication has been removed."
-msgstr "รีเลชันภายใน"
+msgstr "ระบบตรวจสอบสิทธิ์แบบสองขั้นตอนถูกยกเลิกแล้ว"
 
 #: prefs_twofactor.php:39
 msgid "Two-factor authentication has been configured."
-msgstr ""
+msgstr "การตรวจสอบสิทธิ์แบบสองขั้นตอนได้รับการกำหนดค่าเรียบร้อยแล้ว"
 
 #: server_export.php:25
-#, fuzzy
 msgid "View dump (schema) of databases"
-msgstr "ดูโครงสร้างของฐานข้อมูล"
+msgstr "ดูดัมพ์ข้อมูล (โครงร่าง) ของฐานข้อมูล"
 
 #: server_privileges.php:74
-#, fuzzy
-#| msgid "Allows deleting data."
 msgid "Allows deleting historical rows."
-msgstr "อนุญาตให้ลบข้อมูล"
+msgstr "อนุญาตให้ลบแถวข้อมูลเก่าได้"
 
 #: server_privileges.php:145 server_replication.php:38
 #: server_user_groups.php:31 templates/server/databases/create.twig:46
 msgid "No Privileges"
-msgstr "ไม่มีสิทธิ"
+msgstr "ไม่มีสิทธิ์"
 
 #: server_privileges.php:152
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a trigger"
 msgid "You do not have privileges to manipulate with the users!"
-msgstr "คุณไม่มีสิทธิที่สร้าง Trigger!"
+msgstr "คุณไม่มีสิทธิ์ในการแก้ไขข้อมูลผู้ใช้!"
 
 #: server_privileges.php:166
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
 msgstr ""
+"ชื่อผู้ใช้และชื่อโฮสต์ไม่ได้เปลี่ยนแปลง หากคุณต้องการเปลี่ยนเฉพาะรหัสผ่าน ให้ใช้แท็บ 'เปลี่ยนรหัสผ่าน'"
 
 #: server_status.php:35
 msgid "Not enough privilege to view server status."
-msgstr ""
+msgstr "ไม่มีสิทธิ์เพียงพอในการดูสถานะเซิร์ฟเวอร์"
 
 #: server_status_advisor.php:33
 msgid "Not enough privilege to view the advisor."
-msgstr ""
+msgstr "ไม่มีสิทธิ์เพียงพอในการดูตัวแนะนำ"
 
 #: server_status_processes.php:33
 #, php-format
 msgid "Thread %s was successfully killed."
-msgstr "เธรด %s ถูกทำลายเรียบร้อยแล้ว."
+msgstr "รอบการทำงาน %s ถูกยุติเรียบร้อยแล้ว"
 
 #: server_status_processes.php:39
 #, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
-msgstr "phpMyAdmin ไม่สามารถฆ่าเธรด %s. บางทีมันอาจจะถูกปิดไปแล้วก็ได้."
+msgstr ""
+"phpMyAdmin ไม่สามารถยุติรอบการทำงาน %s ได้ รอบการทำงานดังกล่าวน่าจะถูกปิดไปแล้ว"
 
 #: server_status_queries.php:43
 msgid "Not enough privilege to view query statistics."
-msgstr ""
+msgstr "ไม่มีสิทธิ์เพียงพอในการดูสถิติคำสั่ง"
 
 #: server_status_variables.php:52
 msgid "Not enough privilege to view status variables."
-msgstr ""
+msgstr "ไม่มีสิทธิ์เพียงพอในการดูสถานะตัวแปร"
 
 #: setup/frames/config.inc.php:17 setup/frames/index.inc.php:190
 msgid "Configuration file"
-msgstr "กำหนดค่าไฟล์"
+msgstr "ไฟล์กำหนดค่า"
 
 #: setup/frames/config.inc.php:34 setup/frames/index.inc.php:253
 msgid "Download"
@@ -13900,34 +13834,36 @@ msgid ""
 "You are not using a secure connection; all data (including potentially "
 "sensitive information, like passwords) is transferred unencrypted!"
 msgstr ""
+"คุณไม่ได้ใช้การเชื่อมต่อที่ปลอดภัย; ข้อมูลทั้งหมด (รวมถึงข้อมูลที่อาจมีความอ่อนไหว เช่น รหัสผ่าน) ถูกส่"
+"งผ่านโดยไม่มีการเข้ารหัส!"
 
 #: setup/frames/index.inc.php:54
 msgid ""
 "If your server is also configured to accept HTTPS requests follow this link "
 "to use a secure connection."
 msgstr ""
+"หากเซิร์ฟเวอร์ของคุณได้รับการกำหนดค่าให้ยอมรับคำขอ HTTPS แล้ว ให้คลิกลิงก์นี้เพื่อใช้การเชื่อมต่อที่ป"
+"ลอดภัย"
 
 #: setup/frames/index.inc.php:58
 msgid "Insecure connection"
 msgstr "การเชื่อมต่อที่ไม่ปลอดภัย"
 
 #: setup/frames/index.inc.php:84
-#, fuzzy
-#| msgid "Modifications have been saved"
 msgid "Configuration saved."
-msgstr "บันทึกการแก้ไขเรียบร้อยแล้ว"
+msgstr "บันทึกการกำหนดค่าแล้ว"
 
 #: setup/frames/index.inc.php:87
 msgid ""
 "Configuration saved to file config/config.inc.php in phpMyAdmin top level "
 "directory, copy it to top level one and delete directory config to use it."
 msgstr ""
+"การกำหนดค่าจะถูกบันทึกไว้ในไฟล์ config/config.inc.php ในไดเร็กทอรีระดับบนสุดของ "
+"phpMyAdmin คัดลอกมันไปยังไดเร็กทอรีระดับบนสุดและลบไดเร็กทอรี config เพื่อใช้งาน"
 
 #: setup/frames/index.inc.php:97
-#, fuzzy
-#| msgid "Modifications have been saved"
 msgid "Configuration not saved!"
-msgstr "บันทึกการแก้ไขเรียบร้อยแล้ว"
+msgstr "การกำหนดค่าไม่ได้บันทึก!"
 
 #: setup/frames/index.inc.php:100
 msgid ""
@@ -13935,9 +13871,9 @@ msgid ""
 "level directory as described in [doc@setup_script]documentation[/doc]. "
 "Otherwise you will be only able to download or display it."
 msgstr ""
-"กรุณาสร้างโฟลเดอร์เว็บเซิร์ฟเวอร์ที่สามารถเขียนได้ [em]กำหนดค่า[/em] ในไดเรกทอรี "
-"phpMyAdmin ระดับสูงที่กล่าวไว้ใน [doc@setup_script]documentation[/doc] "
-"มิฉะนั้นคุณจะมีเพียงแต่ที่จะดาวน์โหลดหรือแสดงมันเท่านั้น"
+"โปรดสร้างแฟ้มที่เขียนได้บนเว็บเซิร์ฟเวอร์ [em]config[/em] ในไดเร็กทอรีระดับบนสุดของ "
+"phpMyAdmin ตามที่อธิบายไว้ใน [doc@setup_script]documentation[/doc] มิเช่นนั้น คุณจะสาม"
+"ารถดาวน์โหลดหรือแสดงผลได้เท่านั้น"
 
 #: setup/frames/index.inc.php:112 setup/frames/menu.inc.php:20
 msgid "Overview"
@@ -13949,7 +13885,7 @@ msgstr "แสดงข้อความที่ซ่อน (#MSG_COUNT)"
 
 #: setup/frames/index.inc.php:171
 msgid "There are no configured servers"
-msgstr "ไม่มีการกำหนดค่าเซิร์ฟเวอร์"
+msgstr "ไม่มีเซิร์ฟเวอร์ที่กำหนดค่าไว้"
 
 #: setup/frames/index.inc.php:180
 msgid "New server"
@@ -13961,7 +13897,7 @@ msgstr "ภาษาเริ่มต้น"
 
 #: setup/frames/index.inc.php:219
 msgid "let the user choose"
-msgstr ""
+msgstr "ให้ผู้ใช้เลือก"
 
 #: setup/frames/index.inc.php:230
 msgid "- none -"
@@ -13981,7 +13917,7 @@ msgstr "แสดง"
 
 #: setup/frames/index.inc.php:265
 msgid "phpMyAdmin homepage"
-msgstr "หน้าเว็บ phpMyAdmin"
+msgstr "หน้าหลัก phpMyAdmin"
 
 #: setup/frames/index.inc.php:267
 msgid "Donate"
@@ -13989,11 +13925,11 @@ msgstr "บริจาค"
 
 #: setup/frames/index.inc.php:269
 msgid "Check for latest version"
-msgstr ""
+msgstr "ตรวจสอบเวอร์ชันล่าสุด"
 
 #: setup/frames/servers.inc.php:27
 msgid "Edit server"
-msgstr "แก้ไข เครื่องแม่ข่าย"
+msgstr "แก้ไขเซิร์ฟเวอร์"
 
 #: setup/frames/servers.inc.php:37
 msgid "Add a new server"
@@ -14001,11 +13937,11 @@ msgstr "เพิ่มเซิร์ฟเวอร์ใหม่"
 
 #: setup/index.php:18
 msgid "Configuration already exists, setup is disabled!"
-msgstr ""
+msgstr "การกำหนดค่ามีอยู่แล้ว การตั้งค่าถูกปิดใช้งาน!"
 
 #: setup/index.php:28
 msgid "Wrong GET file attribute value"
-msgstr ""
+msgstr "ค่าแอตริบิวต์ไฟล์ GET ผิด"
 
 #: setup/lib/FormProcessing.php:63
 msgid "Warning"
@@ -14013,34 +13949,34 @@ msgstr "คำเตือน"
 
 #: setup/lib/FormProcessing.php:64
 msgid "Submitted form contains errors"
-msgstr ""
+msgstr "แบบฟอร์มที่ส่งมามีข้อผิดพลาด"
 
 #: setup/lib/FormProcessing.php:66
 msgid "Try to revert erroneous fields to their default values"
-msgstr ""
+msgstr "ลองกลับค่าในช่องข้อมูลที่ไม่ถูกต้องไปเป็นค่าเริ่มต้น"
 
 #: setup/lib/FormProcessing.php:71
 msgid "Ignore errors"
-msgstr ""
+msgstr "เพิกเฉยข้อผิดพลาด"
 
 #: setup/lib/FormProcessing.php:75
-#, fuzzy
 msgid "Show form"
-msgstr "แสดงสี"
+msgstr "แสดงแบบฟอร์ม"
 
 #: setup/lib/Index.php:124
 msgid ""
 "Reading of version failed. Maybe you're offline or the upgrade server does "
 "not respond."
 msgstr ""
+"การอ่านเวอร์ชันล้มเหลว อาจเป็นเพราะคุณออฟไลน์หรือการอัปเกรดเซิร์ฟเวอร์ไม่ตอบสนอง"
 
 #: setup/lib/Index.php:146
 msgid "Got invalid version string from server"
-msgstr ""
+msgstr "ได้รับสตริงเวอร์ชันที่ไม่ถูกต้องจากเซิร์ฟเวอร์"
 
 #: setup/lib/Index.php:159
 msgid "Unparsable version string"
-msgstr ""
+msgstr "สตริงเวอร์ชันที่ไม่สามารถแยกวิเคราะห์ได้"
 
 #: setup/lib/Index.php:179
 #, php-format
@@ -14048,35 +13984,35 @@ msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
 msgstr ""
+"คุณกำลังใช้เวอร์ชัน Git รัน [kbd]git pull[/kbd] :-)[br]เวอร์ชันเสถียรล่าสุด คือ %s ซึ่งเผยแ"
+"พร่เมื่อ %s"
 
 #: setup/lib/Index.php:186
 msgid "No newer stable version is available"
-msgstr ""
+msgstr "ไม่มีเวอร์ชันเสถียรที่ใหม่กว่านี้"
 
 #: setup/validate.php:26
-#, fuzzy
-#| msgid "No databases"
 msgid "Wrong data"
-msgstr "ไม่มีฐานข้อมูล"
+msgstr "ข้อมูลไม่ถูกต้อง"
 
 #: setup/validate.php:32
 #, php-format
 msgid "Wrong data or no validation for %s"
-msgstr ""
+msgstr "ข้อมูลไม่ถูกต้องหรือไม่มีการตรวจสอบความถูกต้องสำหรับ %s"
 
 #: tbl_create.php:36 tbl_get_field.php:31
 #, php-format
 msgid "'%s' database does not exist."
-msgstr ""
+msgstr "ฐานข้อมูล '%s' ไม่มีอยู่จริง"
 
 #: tbl_create.php:46
-#, fuzzy, php-format
+#, php-format
 msgid "Table %s already exists!"
-msgstr "มีผู้ใช้ %s อยู่แล้ว!"
+msgstr "ตาราง %s มีอยู่แล้ว!"
 
 #: tbl_export.php:45
 msgid "View dump (schema) of table"
-msgstr "ดูโครงสร้างของตาราง"
+msgstr "ดูการดัมพ์ข้อมูล (โครงร่าง) ของตาราง"
 
 #: tbl_get_field.php:38
 msgid "Invalid table name"
@@ -14084,99 +14020,79 @@ msgstr "ชื่อตารางไม่ถูกต้อง"
 
 #. l10n: In case a SQL query did not pass a security check
 #: tbl_get_field.php:46 transformation_wrapper.php:69
-#, fuzzy
-#| msgid "Tracked tables"
 msgid "There is an issue with your request."
-msgstr "ตารางที่ถูกติดตาม"
+msgstr "มีปัญหาเกี่ยวกับคำขอของคุณ"
 
 #: tbl_replace.php:258
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
-msgstr ""
+msgstr "แถว: %1$s, คอลัมน์: %2$s, ข้อผิดพลาด: %3$s"
 
 #: tbl_row_action.php:73
-#, fuzzy
-#| msgid "No rows selected"
 msgid "No row selected."
-msgstr "ยังไม่ได้เลือกแถว"
+msgstr "ไม่ได้เลือกแถวใด ๆ"
 
 #: tbl_tracking.php:34
 #, php-format
 msgid "Tracking of %s is activated."
-msgstr "การติดตามค่า %s ถูกเปิดใช้งานแล้ว"
+msgstr "การติดตาม %s ถูกเปิดใช้งานแล้ว"
 
 #: tbl_tracking.php:103
-#, fuzzy
-#| msgid "The selected users have been deleted successfully."
 msgid "Tracking versions deleted successfully."
-msgstr "ลบผู้ใช้ที่เลือกไว้เรียบร้อยแล้ว."
+msgstr "ลบการติดตามเวอร์ชันสำเร็จแล้ว"
 
 #: tbl_tracking.php:108
-#, fuzzy
-#| msgid "No rows selected"
 msgid "No versions selected."
-msgstr "ยังไม่ได้เลือกแถว"
+msgstr "ไม่ได้เลือกเวอร์ชันใด ๆ"
 
 #: tbl_tracking.php:139
 msgid "SQL statements executed."
-msgstr ""
+msgstr "คำสั่ง SQL ถูกสั่งการแล้ว"
 
 #: themes.php:22 themes.php:27
 msgid "Theme"
-msgstr "ชุดรูปแบบ"
+msgstr "ธีม"
 
 #: themes.php:30
 msgid "Get more themes!"
-msgstr "รับชุดรูปแบบเพิ่มเติม!"
+msgstr "รับธีมเพิ่มเติม!"
 
 #: transformation_overview.php:24
 msgid "Available MIME types"
-msgstr "MIME-types ที่มีอยู่"
+msgstr "ประเภท MIME ที่มีให้เลือก"
 
 #: transformation_overview.php:39
-#, fuzzy
-#| msgid "Available transformations"
 msgid "Available browser display transformations"
-msgstr "การแปลงที่เรียกใช้ได้"
+msgstr "การแปลงการแสดงผลเบราว์เซอร์ที่มีให้เลือก"
 
 #: transformation_overview.php:40
-#, fuzzy
-#| msgid "Available transformations"
 msgid "Available input transformations"
-msgstr "การแปลงที่เรียกใช้ได้"
+msgstr "การแปลงข้อมูลอินพุตที่ใช้งานได้"
 
 #: transformation_overview.php:43
 #: templates/columns_definitions/table_fields_definitions.twig:78
-#, fuzzy
 msgid "Browser display transformation"
-msgstr "การแปลงที่เรียกใช้ได้"
+msgstr "การแปลงการแสดงผลเบราว์เซอร์"
 
 #: transformation_overview.php:44
 #: templates/columns_definitions/table_fields_definitions.twig:89
-#, fuzzy
 msgid "Input transformation"
-msgstr "การแปลงที่เรียกใช้ได้"
+msgstr "การแปลงอินพุต"
 
 #: transformation_overview.php:55
-#, fuzzy
-#| msgid "Description"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "รายละเอียด"
 
 #: templates/start_and_number_of_rows_panel.twig:3
-#, fuzzy
-#| msgid "Start"
 msgid "Start row:"
-msgstr "ส."
+msgstr "เริ่มที่แถว:"
 
 #: templates/start_and_number_of_rows_panel.twig:10
 #: templates/display/results/additional_fields.twig:6
 #: templates/display/export/options_rows.twig:10
-#, fuzzy
-#| msgid "Number of rows per page"
 msgid "Number of rows:"
-msgstr "ระเบียนต่อหน้า"
+msgstr "จำนวนแถว:"
 
 #: templates/toggle_button.twig:3
 msgid "Click to toggle"
@@ -14185,49 +14101,41 @@ msgstr "คลิกเพื่อสลับ"
 #: templates/table/search/search_and_replace.twig:1
 #: templates/database/search/selection_form.twig:15
 msgid "Find:"
-msgstr "ค้น:"
+msgstr "ค้นหา:"
 
 #: templates/table/search/search_and_replace.twig:3
-#, fuzzy
-#| msgid "Replace NULL by"
 msgid "Replace with:"
-msgstr "แทนที่ NULL เป็น"
+msgstr "แทนที่ด้วย:"
 
 #: templates/table/search/search_and_replace.twig:19
-#, fuzzy
-#| msgid "as regular expression"
 msgid "Use regular expression"
-msgstr "รูปแบบคำพ้อง (regular expression)"
+msgstr "รูป regular expression"
 
 #: templates/table/search/options_zoom.twig:6
 msgid "Use this column to label each point"
-msgstr ""
+msgstr "ใช้คอลัมน์นี้เพื่อติดป้ายกำกับแต่ละจุด"
 
 #: templates/table/search/options_zoom.twig:32
 msgid "Maximum rows to plot"
-msgstr ""
+msgstr "จำนวนแถวสูงสุดที่จะพล็อต"
 
 #: templates/display/export/selection.twig:3
-#, fuzzy
-#| msgid "Databases"
 msgid "Databases:"
-msgstr "ฐานข้อมูล"
+msgstr "ฐานข้อมูล:"
 
 #: templates/display/export/options_output.twig:2
 #: templates/display/export/options_quick_export.twig:2
 msgid "Output:"
-msgstr ""
+msgstr "ผลลัพธ์:"
 
 #: templates/display/export/options_output.twig:26
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save output to a file"
-msgstr "ส่งมาเป็นไฟล์"
+msgstr "บันทึกผลลัพธ์ลงในไฟล์"
 
 #: templates/display/export/options_output.twig:51
 #, php-format
 msgid "Skip tables larger than %s MiB"
-msgstr ""
+msgstr "ข้ามตารางที่มีขนาดใหญ่กว่า %s MiB"
 
 #: templates/table/search/table_header.twig:9
 #: templates/database/designer/having_query_panel.twig:30
@@ -14236,9 +14144,8 @@ msgstr ""
 #: templates/database/designer/options_panel.twig:105
 #: templates/database/designer/options_panel.twig:169
 #: templates/database/designer/where_query_panel.twig:30
-#, fuzzy
 msgid "Operator"
-msgstr "กระบวนการ"
+msgstr "ตัวปฏิบัติการ"
 
 #: templates/display/export/options_output_charset.twig:3
 #: templates/display/import/import.twig:97
@@ -14247,184 +14154,140 @@ msgstr "ชุดอักขระของไฟล์:"
 
 #: templates/table/structure/display_structure.twig:138
 #: templates/view_create.twig:13
-#, fuzzy
-#| msgid "Print view"
 msgid "Edit view"
-msgstr "แสดง"
+msgstr "แก้ไขมุมมอง"
 
 #: templates/table/structure/display_structure.twig:194
 #: templates/table/structure/display_partitions.twig:4
-#, fuzzy
-#| msgid "Position"
 msgid "Partitions"
-msgstr "ตำแหน่ง"
+msgstr "พาร์ทิชัน"
 
 #: templates/console/display.twig:7
-#, fuzzy
-#| msgid "SQL history"
 msgid "History"
-msgstr "ประวัติ SQL"
+msgstr "ประวัติ"
 
 #: templates/console/display.twig:11 templates/console/display.twig:99
-#, fuzzy
-#| msgid "Search"
 msgid "Bookmarks"
-msgstr "ค้นหา"
+msgstr "บุ๊กมาร์ก"
 
 #: templates/console/display.twig:20
-#, fuzzy
 msgid "Press Ctrl+Enter to execute query"
-msgstr "คำค้น SQL"
+msgstr "กด Ctrl+Enter เพื่อรันคำสั่ง"
 
 #: templates/console/display.twig:23
-#, fuzzy
 msgid "Press Enter to execute query"
-msgstr "คำค้น SQL"
+msgstr "กด Enter เพื่อรันคำสั่ง"
 
 #: templates/console/display.twig:31 templates/console/display.twig:84
 #: templates/console/display.twig:175 templates/console/bookmark_content.twig:7
 msgid "Collapse"
-msgstr ""
+msgstr "ยุบ"
 
 #: templates/console/display.twig:31 templates/console/display.twig:84
 #: templates/console/display.twig:175 templates/console/bookmark_content.twig:7
 msgid "Expand"
-msgstr ""
+msgstr "ขยาย"
 
 #: templates/console/display.twig:31 templates/console/display.twig:175
 #: templates/console/bookmark_content.twig:7
-#, fuzzy
-#| msgid "in query"
 msgid "Requery"
-msgstr "ในคำค้น"
+msgstr "สั่งคำสั่งอีกครั้ง"
 
 #: templates/console/display.twig:31 templates/console/display.twig:175
-#, fuzzy
-#| msgid "Explain SQL"
 msgid "Explain"
-msgstr "อธิบาย SQL"
+msgstr "อธิบาย"
 
 #: templates/console/display.twig:40 templates/console/display.twig:184
-#, fuzzy
-#| msgid "Search"
 msgid "Bookmark"
-msgstr "ค้นหา"
+msgstr "บุ๊กมาร์ก"
 
 #: templates/console/display.twig:40 templates/console/display.twig:184
-#, fuzzy
 msgid "Query failed"
-msgstr "ชนิดคำค้น"
+msgstr "คำสั่งล้มเหลว"
 
 #: templates/console/display.twig:42 templates/console/display.twig:184
-#, fuzzy
-#| msgid "Query execution time"
 msgid "Queried time"
-msgstr "เวลาที่ทำคำสั่ง"
+msgstr "เวลาที่คำสั่งรัน"
 
 #: templates/console/display.twig:47
 msgid "During current session"
-msgstr ""
+msgstr "ในระหว่างเซสชันปัจจุบัน"
 
 #: templates/console/display.twig:64
-#, fuzzy
-#| msgid "Ascending"
 msgid "ascending"
 msgstr "น้อยไปมาก"
 
 #: templates/console/display.twig:64
-#, fuzzy
-#| msgid "Descending"
 msgid "descending"
 msgstr "มากไปน้อย"
 
 #: templates/console/display.twig:64
-#, fuzzy
-#| msgid "Other"
 msgid "Order:"
-msgstr "อื่นๆ"
+msgstr "ลำดับ:"
 
 #: templates/console/display.twig:64 templates/console/display.twig:84
 #: templates/table/search/replace_preview.twig:17
 msgid "Count"
-msgstr "จำนวน"
+msgstr "นับ"
 
 #: templates/console/display.twig:64
-#, fuzzy
-#| msgid "Execute"
 msgid "Execution order"
-msgstr "ดำเนินการ"
+msgstr "ลำดับการสั่งการ"
 
 #: templates/console/display.twig:64 templates/console/display.twig:84
 msgid "Time taken"
-msgstr ""
+msgstr "เวลาที่ใช้"
 
 #: templates/console/display.twig:64
-#, fuzzy
-#| msgid "Other"
 msgid "Order by:"
-msgstr "อื่นๆ"
+msgstr "เรียงลำดับโดย:"
 
 #: templates/console/display.twig:64
-#, fuzzy
-#| msgid "SQL queries"
 msgid "Ungroup queries"
-msgstr "แบบสอบถาม SQL"
+msgstr "ยกเลิกการจัดกลุ่มคำสั่ง"
 
 #: templates/console/display.twig:84
-#, fuzzy
-#| msgid "Show color"
 msgid "Show trace"
-msgstr "แสดงสี"
+msgstr "แสดงเส้นทาง"
 
 #: templates/console/display.twig:84
-#, fuzzy
-#| msgid "Hide Panel"
 msgid "Hide trace"
-msgstr "ซ่อนแผง"
+msgstr "ซ่อนเส้นทาง"
 
 #: templates/console/display.twig:99
 #: templates/columns_definitions/column_definitions_form.twig:32
 #: templates/export/alias_add.twig:18 templates/export/alias_add.twig:32
 #: templates/export/alias_add.twig:46
-#, fuzzy
-#| msgid "And"
 msgid "Add"
-msgstr "และ"
+msgstr "เพิ่ม"
 
 #: templates/console/display.twig:112
-#, fuzzy
-#| msgid "Search"
 msgid "Add bookmark"
-msgstr "ค้นหา"
+msgstr "เพิ่มบุ๊กมาร์ก"
 
 #: templates/console/display.twig:121
-#, fuzzy
-#| msgid "Label"
 msgid "Label"
 msgstr "ป้ายชื่อ"
 
 #: templates/console/display.twig:124
-#, fuzzy
 msgid "Target database"
-msgstr "ค้นหาในฐานข้อมูล"
+msgstr "ฐานข้อมูลเป้าหมาย"
 
 #: templates/console/display.twig:127
-#, fuzzy
-#| msgid "Search"
 msgid "Share this bookmark"
-msgstr "ค้นหา"
+msgstr "แขร์บุ๊กมาร์กนี้"
 
 #: templates/console/display.twig:140
-#, fuzzy
-#| msgid "Export defaults"
 msgid "Set default"
-msgstr "ส่งออกค่าเริ่มต้น"
+msgstr "ตั้งค่าเริ่มต้น"
 
 #: templates/console/display.twig:162
 msgid ""
 "Execute queries on Enter and insert new line with Shift + Enter. To make "
 "this permanent, view settings."
 msgstr ""
+"รันคำสั่งเมื่อกด Enter และขึ้นบรรทัดใหม่เมื่อกด Shift + Enter หากต้องการทำให้ถาวร ให้ดูที่การตั้"
+"งค่า"
 
 #: templates/database/central_columns/add_column.twig:13
 msgid "Select a column."
@@ -14432,15 +14295,13 @@ msgstr "เลือกคอลัมน์"
 
 #: templates/columns_definitions/column_virtuality.twig:29
 #: templates/table/structure/display_partitions.twig:26
-#, fuzzy
-#| msgid "Compression"
 msgid "Expression"
-msgstr "บีบอัดข้อมูล"
+msgstr "คำสั่งแสดง"
 
 #: templates/privileges/add_user_fieldset.twig:2
 msgctxt "Create new user"
 msgid "New"
-msgstr ""
+msgstr "ใหม่"
 
 #: templates/login/header.twig:12
 msgid ""
@@ -14448,12 +14309,17 @@ msgid ""
 "lead to non working phpMyAdmin or a security risk. Please fix your server "
 "configuration to indicate HTTPS properly."
 msgstr ""
+"การตั้งค่า HTTPS บนเซิร์ฟเวอร์และเครื่องลูกข่ายไม่ตรงกัน ซึ่งอาจทำให้ phpMyAdmin ใช้งานไม่ได้ ห"
+"รือเกิดความเสี่ยงด้านความปลอดภัย โปรดแก้ไขการกำหนดค่าเซิร์ฟเวอร์ของคุณให้ระบุ HTTPS อย่างถูกต้"
+"อง"
 
 #: templates/login/twofactor/key-https-warning.twig:3
 msgid ""
 "You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
 "most likely refuse to authenticate you."
 msgstr ""
+"คุณไม่ได้ใช้ https ในการเข้าถึง phpMyAdmin ดังนั้นอุปกรณ์ FIDO U2F จึงมีแนวโน้มที่จะปฏิเสธการต"
+"รวจสอบสิทธิ์ของคุณ"
 
 #: templates/database/structure/check_all_tables.twig:6
 msgid "Check tables having overhead"
@@ -14738,206 +14604,174 @@ msgstr "เปลี่ยนชื่อตารางเป็น"
 
 #: templates/database/designer/rename_to_panel.twig:30
 #: templates/database/designer/options_panel.twig:90
-#, fuzzy
-#| msgid "User name"
 msgid "New name"
-msgstr "ชื่อผู้ใช้"
+msgstr "ชื่อใหม่"
 
 #: templates/display/export/option_header.twig:5
 msgid "Exporting databases from the current server"
 msgstr "การส่งออกฐานข้อมูลจากเซิร์ฟเวอร์ปัจจุบัน"
 
 #: templates/display/export/option_header.twig:7
-#, fuzzy, php-format
-#| msgid "Create table on database %s"
+#, php-format
 msgid "Exporting tables from \"%s\" database"
-msgstr "สร้างตารางในฐานข้อมูลนี้ %s"
+msgstr "กำลังส่งออกตารางจาก \"%s\" ฐานข้อมูล"
 
 #: templates/display/export/option_header.twig:9
-#, fuzzy, php-format
-#| msgid "Create table on database %s"
+#, php-format
 msgid "Exporting rows from \"%s\" table"
-msgstr "สร้างตารางในฐานข้อมูลนี้ %s"
+msgstr "ส่งออกแถวจาก \"%s\" ตาราง"
 
 #: templates/prefs_twofactor.twig:3
-#, fuzzy
-#| msgid "Authentication settings"
 msgid "Two-factor authentication status"
-msgstr "ตั้งค่าการรับรองความถูกต้อง"
+msgstr "สถานะการยืนยันตัวตนแบบสองขั้นตอน"
 
 #: templates/prefs_twofactor.twig:9
 msgid ""
 "Two-factor authentication is not available, please install optional "
 "dependencies to enable authentication backends."
 msgstr ""
+"ไม่สามารถใช้งานการยืนยันตัวตนแบบสองขั้นตอนได้ โปรดติดตั้งส่วนประกอบเสริมเพื่อเปิดใช้งานระบบตรว"
+"จสอบสิทธิ์"
 
 #: templates/prefs_twofactor.twig:10
 msgid "Following composer packages are missing:"
-msgstr ""
+msgstr "แพ็กเกจ Composer ต่อไปนี้หายไป:"
 
 #: templates/prefs_twofactor.twig:18
 msgid "Two-factor authentication is available and configured for this account."
-msgstr ""
+msgstr "บัญชีนี้รองรับการตรวจสอบสิทธิ์แบบสองขั้นตอนและได้กำหนดค่าไว้แล้ว"
 
 #: templates/prefs_twofactor.twig:20
 msgid ""
 "Two-factor authentication is available, but not configured for this account."
 msgstr ""
+"สามารถใช้งานการตรวจสอบสิทธิ์แบบสองขั้นตอนได้ แต่ไม่ได้กำหนดค่าไว้สำหรับบัญชีนี้"
 
 #: templates/prefs_twofactor.twig:24
 msgid ""
 "Two-factor authentication is not available, enable phpMyAdmin configuration "
 "storage to use it."
 msgstr ""
+"ไม่สามารถใช้งานการตรวจสอบสิทธิ์แบบสองขั้นตอนได้ โปรดเปิดใช้งานการจัดเก็บการกำหนดค่า "
+"phpMyAdmin เพื่อใช้งาน"
 
 #: templates/prefs_twofactor.twig:33
 msgid "You have enabled two factor authentication."
-msgstr ""
+msgstr "คุณได้เปิดใช้งานการตรวจสอบสิทธิ์แบบสองขั้นตอนแล้ว"
 
 #: templates/prefs_twofactor.twig:37 templates/prefs_twofactor_confirm.twig:9
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Disable two-factor authentication"
-msgstr "กำหนดค่าการรับรองความถูกต้อง"
+msgstr "ปิดใช้งานการตรวจสอบสิทธิ์แบบสองขั้นตอน"
 
 #: templates/prefs_twofactor.twig:43 templates/prefs_twofactor.twig:54
 #: templates/prefs_twofactor_configure.twig:2
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Configure two-factor authentication"
-msgstr "กำหนดค่าการรับรองความถูกต้อง"
+msgstr "ตั้งค่าการตรวจสอบสิทธิ์แบบสองขั้นตอน"
 
 #: templates/privileges/add_privileges_database.twig:1
-#, fuzzy
-#| msgid "Add privileges on the following database"
 msgid "Add privileges on the following database(s):"
-msgstr "เพิ่มสิทธิของฐานข้อมูลต่อไปนี้"
+msgstr "เพิ่มสิทธิ์การเข้าถึงฐานข้อมูลต่อไปนี้:"
 
 #: templates/privileges/add_privileges_database.twig:14
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr ""
+"เครื่องหมายแทน % และ _ ต้องใช้วิธีการหลบเลี่ยงด้วยเครื่องหมาย \\ เพื่อใช้มันอย่างถูกต้อง"
 
 #: templates/view_create.twig:65
 msgid "VIEW name"
-msgstr ""
+msgstr "ชื่อมุมมอง"
 
 #: templates/view_create.twig:79
 msgid "Column names"
 msgstr "ชื่อคอลัมน์"
 
 #: templates/table/secondary_tabs.twig:9
-#, fuzzy
-#| msgid "Relation view"
 msgid "Relation view"
-msgstr "มุมมองรีเลชัน"
+msgstr "มุมมองความสัมพันธ์"
 
 #: templates/database/designer/page_selector.twig:2
-#, fuzzy
-#| msgid "Select All"
 msgid "Select page"
-msgstr "เลือกทั้งหมด"
+msgstr "เลือกหน้า"
 
 #: templates/database/designer/page_save_as.twig:17
-#, fuzzy
-#| msgid "No rows selected"
 msgid "Save to selected page"
-msgstr "ยังไม่ได้เลือกแถว"
+msgstr "บันทึกไปยังหน้าที่เลือก"
 
 #: templates/database/designer/page_save_as.twig:17
-#, fuzzy
-#| msgid "Create a new index"
 msgid "Create a page and save to it"
-msgstr "สร้างดัชนีใหม่"
+msgstr "สร้างหน้าและบันทึกลงไป"
 
 #: templates/database/designer/page_save_as.twig:30
-#, fuzzy
-#| msgid "User name"
 msgid "New page name"
-msgstr "ชื่อผู้ใช้"
+msgstr "ชื่อหน้าใหม่"
 
 #: templates/table/search/rows_zoom.twig:12
-#, fuzzy
 msgid "Additional search criteria"
-msgstr "คำค้น SQL"
+msgstr "เงื่อนไขการค้นหาเพิ่มเติม"
 
 #: templates/login/twofactor/application.twig:2
 #: templates/login/twofactor/application_configure.twig:21
-#, fuzzy
-#| msgid "Authentication"
 msgid "Authentication code:"
-msgstr "รับรองความถูกต้อง"
+msgstr "รหัสตรวจสอบสิทธิ์:"
 
 #: templates/login/twofactor/application.twig:4
 msgid ""
 "Open the two-factor authentication app on your device to view your "
 "authentication code and verify your identity."
 msgstr ""
+"เปิดแอปตรวจสอบสิทธิ์แบบสองขั้นตอนบนอุปกรณ์ของคุณเพื่อดูรหัสยืนยันและตรวจสอบสิทธิ์ของคุณ"
 
 #: templates/database/tracking/untracked_tables.twig:1
 msgid "Untracked tables"
-msgstr "เลิกติดตามตาราง"
+msgstr "ตารางที่เลิกติดตามแล้ว"
 
 #: templates/database/tracking/untracked_tables.twig:29
 #: templates/database/tracking/untracked_tables.twig:42
 #: templates/table/structure/optional_action_links.twig:18
 msgid "Track table"
-msgstr "ติดตามตาราง"
+msgstr "ตารางที่ติดตาม"
 
 #: templates/display/export/options_output_radio.twig:5
-#, fuzzy
-#| msgid "Save as file"
 msgid "View output as text"
-msgstr "ส่งมาเป็นไฟล์"
+msgstr "ดูผลลัพธ์ในรูปแบบข้อความ"
 
 #: templates/table/structure/display_partitions.twig:8
-#, fuzzy
-#| msgid "No index defined!"
 msgid "No partitioning defined!"
-msgstr "ยังไม่ได้กำหนดดัชนีใดๆ!"
+msgstr "ไม่ได้การกำหนดพาร์ทิชัน!"
 
 #: templates/table/structure/display_partitions.twig:11
 msgid "Partitioned by:"
-msgstr ""
+msgstr "พาร์ทิชันโดย:"
 
 #: templates/table/structure/display_partitions.twig:16
 msgid "Sub partitioned by:"
-msgstr ""
+msgstr "พาร์ทิชันรองโดย:"
 
 #: templates/table/structure/display_partitions.twig:24
 #: templates/columns_definitions/partitions.twig:76
-#, fuzzy
-#| msgid "Position"
 msgid "Partition"
-msgstr "ตำแหน่ง"
+msgstr "พาร์ทิชัน"
 
 #: templates/table/structure/display_partitions.twig:29
-#, fuzzy
-#| msgid "Row length"
 msgid "Data length"
-msgstr "ความยาวแถว"
+msgstr "ความยาวข้อมูล"
 
 #: templates/table/structure/display_partitions.twig:30
-#, fuzzy
-#| msgid "Row length"
 msgid "Index length"
-msgstr "ความยาวแถว"
+msgstr "ความยาวดัชนี"
 
 #: templates/table/structure/display_partitions.twig:135
-#, fuzzy
-#| msgid "Position"
 msgid "Partition table"
-msgstr "ตำแหน่ง"
+msgstr "ตารางพาร์ทิชัน"
 
 #: templates/table/structure/display_partitions.twig:141
 #: templates/table/structure/partition_definition_form.twig:6
-#, fuzzy
-#| msgid "Add new field"
 msgid "Edit partitioning"
-msgstr "เพิ่มฟิลด์ใหม่"
+msgstr "แก้ไขพาร์ทิชัน"
 
 #: templates/columns_definitions/move_column.twig:7
 msgid "first"
-msgstr "ครั้งแรก"
+msgstr "ที่หนึ่ง"
 
 #: templates/privileges/resource_limits.twig:2
 msgid "Resource limits"
@@ -14945,7 +14779,7 @@ msgstr "ขีดจำกัดของทรัพยากร"
 
 #: templates/privileges/resource_limits.twig:5
 msgid "Note: Setting these options to 0 (zero) removes the limit."
-msgstr "โปรดทราบ: ถ้าเปลี่ยนค่าเหล่านี้เป็น 0 (ศูนย์) จะหมายถึง ไม่มีขีดจำกัด."
+msgstr "โปรดทราบ: ตั้งค่าเหล่านี้เป็น 0 (ศูนย์) เพื่อยกเลิกขีดจำกัด"
 
 #: templates/database/structure/show_create_row.twig:7
 #, php-format
@@ -14958,41 +14792,34 @@ msgstr "ตารางที่ถูกติดตาม"
 
 #: templates/database/tracking/tracked_tables.twig:12
 msgid "Last version"
-msgstr "เวอร์ชั่นล่าสุด"
+msgstr "เวอร์ชันที่แล้ว"
 
 #: templates/database/tracking/tracked_tables.twig:54
 #: templates/database/tracking/tracked_tables.twig:99
-#, fuzzy
-#| msgid "Deleting tracking data"
 msgid "Delete tracking"
-msgstr "กำลังลบข้อมูลติดตามตาราง"
+msgstr "ลบข้อมูลการติดตาม"
 
 #: templates/database/tracking/tracked_tables.twig:65
 msgid "Versions"
-msgstr "รุ่น"
+msgstr "เวอร์ชัน"
 
 #: templates/database/create_table.twig:7
 #: templates/database/designer/side_menu.twig:78
 #: templates/database/designer/side_menu.twig:81
-#, fuzzy
 msgid "Create table"
-msgstr "เริ่มหน้าใหม่"
+msgstr "สร้างตาราง"
 
 #: templates/database/create_table.twig:15
-#, fuzzy
-#| msgid "Number of rows per page"
 msgid "Number of columns"
-msgstr "ระเบียนต่อหน้า"
+msgstr "จำนวนคอลัมน์"
 
 #: templates/privileges/add_privileges_table.twig:3
-#, fuzzy
-#| msgid "Add privileges on the following table"
 msgid "Add privileges on the following table:"
-msgstr "เพิ่มสิทธิของตารางต่อไปนี้"
+msgstr "เพิ่มสิทธิ์การเข้าถึงตารางต่อไปนี้:"
 
 #: templates/table/structure/display_table_stats.twig:14
 msgid "Space usage"
-msgstr "เนื้อที่ที่ใช้"
+msgstr "พื้นที่ที่ใช้"
 
 #: templates/table/structure/display_table_stats.twig:37
 msgid "Effective"
@@ -15000,7 +14827,7 @@ msgstr "มีผล"
 
 #: templates/database/qbe/footer_options.twig:3
 msgid "Add/Delete criteria rows"
-msgstr "เพิ่ม/ลบ แถว"
+msgstr "เพิ่ม/ลบ แถวเงื่อนไข"
 
 #: templates/database/qbe/footer_options.twig:5
 msgid "Add/Delete columns"
@@ -15018,28 +14845,24 @@ msgstr "สร้างเวอร์ชัน %1$s"
 
 #: templates/table/tracking/create_version.twig:20
 msgid "Track these data definition statements:"
-msgstr ""
+msgstr "คำสั่งติดตามนิยามของข้อมูลเหล่านี้:"
 
 #: templates/table/tracking/create_version.twig:59
 msgid "Track these data manipulation statements:"
-msgstr ""
+msgstr "คำสั่งติดตามการจัดการข้อมูลเหล่านี้:"
 
 #: templates/table/tracking/create_version.twig:76
 msgid "Create version"
-msgstr "สร้างเวอร์ชั่น"
+msgstr "สร้างเวอร์ชัน"
 
 #: templates/database/designer/aggregate_query_panel.twig:22
 #: templates/database/designer/options_panel.twig:99
-#, fuzzy
-#| msgid "Create"
 msgid "Aggregate"
-msgstr "สร้าง"
+msgstr "รวม"
 
 #: templates/database/designer/delete_relation_panel.twig:21
-#, fuzzy
-#| msgid "Deleting tracking data"
 msgid "Delete relationship"
-msgstr "กำลังลบข้อมูลติดตามตาราง"
+msgstr "ลบความสัมพันธ์"
 
 #: templates/columns_definitions/column_default.twig:3
 msgctxt "for default"
@@ -15048,7 +14871,7 @@ msgstr "ไม่มี"
 
 #: templates/columns_definitions/column_default.twig:5
 msgid "As defined:"
-msgstr ""
+msgstr "ตามที่ระบุ:"
 
 #: templates/server/databases/table_row.twig:13
 #, php-format
@@ -15058,39 +14881,31 @@ msgstr "ข้ามไปยังฐานข้อมูล '%s'"
 #: templates/server/databases/table_row.twig:63
 #, php-format
 msgid "Check privileges for database \"%s\"."
-msgstr "ตรวจสอบสิทธิสำหรับฐานข้อมูล \"%s\"."
+msgstr "ตรวจสอบสิทธิ์สำหรับฐานข้อมูล \"%s\""
 
 #: templates/server/databases/table_row.twig:64
-#, fuzzy
-#| msgid "Check Privileges"
 msgid "Check privileges"
-msgstr "ตรวจสอบสิทธิ"
+msgstr "ตรวจสอบสิทธิ์"
 
 #: templates/display/export/options_output_separate_files.twig:7
-#, fuzzy
-#| msgid "Create table on database %s"
 msgid "Export databases as separate files"
-msgstr "สร้างตารางในฐานข้อมูลนี้ %s"
+msgstr "ส่งออกฐานข้อมูลเป็นไฟล์แยกกัน"
 
 #: templates/display/export/options_output_separate_files.twig:9
-#, fuzzy
-#| msgid "horizontal (rotated headers)"
 msgid "Export tables as separate files"
-msgstr "แนวนอน (หมุนหัวเรื่อง)"
+msgstr "ส่งออกตารางเป็นไฟล์แยกกัน"
 
 #: templates/table/search/options.twig:6
-#, fuzzy
-#| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
-msgstr "เลือกฟิลด์ (อย่างน้อยหนึ่งฟิลด์):"
+msgstr "เลือกคอลัมน์ (อย่างน้อยหนึ่ง):"
 
 #: templates/table/search/options.twig:26
 msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "เพิ่มเงื่อนไขในการค้นหา:"
+msgstr "เพิ่มเงื่อนไขการค้นหา (ส่วนเนื้อหาของคำสั่ง \"where\"):"
 
 #: templates/table/search/options.twig:34
 msgid "Number of rows per page"
-msgstr "ระเบียนต่อหน้า"
+msgstr "จำนวนแถวต่อหน้า"
 
 #: templates/table/search/options.twig:45
 msgid "Display order:"
@@ -15101,24 +14916,20 @@ msgid "in use"
 msgstr "ใช้อยู่"
 
 #: templates/database/structure/favorite_anchor.twig:4
-#, fuzzy
 msgid "Add to Favorites"
-msgstr "เพิ่มผู้ใช้ใหม่"
+msgstr "เพิ่มไปรายการโปรด"
 
 #: templates/database/designer/edit_delete_pages.twig:6
-#, fuzzy
-#| msgid "Page number:"
 msgid "Page to open"
-msgstr "หมายเลขหน้า:"
+msgstr "หน้าที่จะเปิด:"
 
 #: templates/database/designer/edit_delete_pages.twig:6
-#, fuzzy
 msgid "Page to delete"
-msgstr "มุมมองรีเลชัน"
+msgstr "หน้าที่จะลบ"
 
 #: templates/database/designer/schema_export.twig:4
 msgid "Select Export Relational Type"
-msgstr ""
+msgstr "เลือกประเภทความสัมพันธ์การส่งออก"
 
 #: templates/server/variables/session_variable_row.twig:3
 msgid "Session value"
@@ -15129,60 +14940,52 @@ msgid "Table name"
 msgstr "ชื่อตาราง"
 
 #: templates/columns_definitions/column_definitions_form.twig:40
-#, fuzzy
-#| msgid "Columns"
 msgid "column(s)"
 msgstr "คอลัมน์"
 
 #: templates/columns_definitions/column_definitions_form.twig:74
-#, fuzzy
-#| msgid "Collation"
 msgid "Collation:"
-msgstr "การเรียงลำดับ"
+msgstr "การตรวจทาน:"
 
 #: templates/columns_definitions/column_definitions_form.twig:77
 msgid "Storage Engine:"
-msgstr ""
+msgstr "ระบบการเก็บข้อมูล:"
 
 #: templates/columns_definitions/column_definitions_form.twig:82
-#, fuzzy
-#| msgid "Connections"
 msgid "Connection:"
-msgstr "การเชื่อมต่อ"
+msgstr "การเชื่อมต่อ:"
 
 #: templates/columns_definitions/column_definitions_form.twig:128
 msgid "PARTITION definition:"
-msgstr ""
+msgstr "การนิยาม PARTITION:"
 
 #: templates/prefs_twofactor_confirm.twig:2
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Confirm disabling two-factor authentication"
-msgstr "กำหนดค่าการรับรองความถูกต้อง"
+msgstr "ยืนยันการปิดใช้งานการตรวจสอบสิทธิ์แบบสองขั้นตอน"
 
 #: templates/prefs_twofactor_confirm.twig:5
 msgid ""
 "By disabling two factor authentication you will be again able to login using "
 "password only."
 msgstr ""
+"เมื่อปิดใช้งานการตรวจสอบสิทธิ์แบบสองขั้นตอน คุณจะสามารถเข้าสู่ระบบโดยใช้รหัสผ่านเพียงอย่างเดียวไ"
+"ด้อีกครั้ง"
 
 #: templates/table/structure/row_stats_table.twig:2
-#, fuzzy
-#| msgid "Row Statistics"
 msgid "Row statistics"
 msgstr "สถิติของแถว"
 
 #: templates/table/structure/row_stats_table.twig:8
 msgid "static"
-msgstr ""
+msgstr "คงที่"
 
 #: templates/table/structure/row_stats_table.twig:10
 msgid "dynamic"
-msgstr "ไม่คงที่"
+msgstr "แปรผัน"
 
 #: templates/table/structure/row_stats_table.twig:21
 msgid "partitioned"
-msgstr ""
+msgstr "พาร์ทิชัน"
 
 #: templates/table/structure/row_stats_table.twig:50
 msgid "Row length"
@@ -15194,7 +14997,7 @@ msgstr "ขนาดแถว"
 
 #: templates/table/structure/row_stats_table.twig:69
 msgid "Next autoindex"
-msgstr ""
+msgstr "ดัชนีอัตโนมัติถัดไป"
 
 #: templates/table/structure/row_stats_table.twig:76
 #: templates/database/structure/table_header.twig:53
@@ -15204,46 +15007,43 @@ msgstr "สร้างเมื่อ"
 #: templates/table/structure/row_stats_table.twig:83
 #: templates/database/structure/table_header.twig:58
 msgid "Last update"
-msgstr "ปรับปรุงครั้งสุดท้ายเมื่อ"
+msgstr "ปรับปรุงล่าสุด"
 
 #: templates/table/structure/row_stats_table.twig:90
 #: templates/database/structure/table_header.twig:63
 msgid "Last check"
-msgstr "ตรวจสอบครั้งสุดท้ายเมื่อ"
+msgstr "ตรวจสอบสุดท้าย"
 
 #: templates/table/search/selection_form.twig:12
-#, fuzzy
-#| msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr "ทำ \"คำค้นจากตัวอย่าง\" (wildcard: \"%\")"
+msgstr ""
+"ใช้ \"คำสั่งจากตัวอย่าง\" (เครื่องหมายแทน: \"%\") สำหรับสองคอลัมน์ที่ต่างกัน"
 
 #: templates/table/search/selection_form.twig:42
 msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr "ทำ \"คำค้นจากตัวอย่าง\" (wildcard: \"%\")"
+msgstr "ใช้ \"คำสั่งจากตัวอย่าง\" (เครื่องหมายแทน: \"%\")"
 
 #: templates/table/tracking/activate_deactivate.twig:7
 #, php-format
 msgid "Activate tracking for %s"
-msgstr ""
+msgstr "เปิดใช้การติดตามสำหรับ %s"
 
 #: templates/table/tracking/activate_deactivate.twig:9
 msgid "Activate now"
-msgstr ""
+msgstr "เปิดใช้งานเลย"
 
 #: templates/table/tracking/activate_deactivate.twig:11
 #, php-format
 msgid "Deactivate tracking for %s"
-msgstr "ปิดใช้งานการติดตามสำหรับ %s"
+msgstr "ปิดใช้การติดตามสำหรับ %s"
 
 #: templates/table/tracking/activate_deactivate.twig:13
 msgid "Deactivate now"
-msgstr ""
+msgstr "ปิดใช้งานเลย"
 
 #: templates/display/export/method.twig:3
-#, fuzzy
-#| msgid "Export method"
 msgid "Export method:"
-msgstr "วิธีการส่งออก"
+msgstr "วิธีการส่งออก:"
 
 #: templates/display/export/method.twig:9
 msgid "Quick - display only the minimal options"
@@ -15254,28 +15054,22 @@ msgid "Custom - display all possible options"
 msgstr "กำหนดเอง - แสดงตัวเลือกที่เป็นไปได้ทั้งหมด"
 
 #: templates/display/export/options_output_format.twig:3
-#, fuzzy
-#| msgid "File name template"
 msgid "File name template:"
-msgstr "รูปแบบของชื่อไฟล์"
+msgstr "ต้นแบบชื่อไฟล์:"
 
 #: templates/display/export/options_output_format.twig:11
 msgid "use this for future exports"
-msgstr ""
+msgstr "ใช้ต้นแบบนี้เพื่อการส่งออกในอนาคต"
 
 #: templates/server/sub_page_header.twig:2
 msgid "Server variables and settings"
 msgstr "ตัวแปรของเซิร์ฟเวอร์และการตั้งค่า"
 
 #: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Storage Engines"
 msgid "Storage engines"
-msgstr "เครื่องมือที่เก็บข้อมูล"
+msgstr "ระบบจัดเก็บข้อมูล"
 
 #: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Character Sets and Collations"
 msgid "Character sets and collations"
 msgstr "ชุดอักขระและการตรวจทาน"
 
@@ -15284,12 +15078,12 @@ msgid "Databases statistics"
 msgstr "สถิติฐานข้อมูล"
 
 #: templates/database/structure/table_header.twig:27
-#, fuzzy
-#| msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
 msgid ""
 "May be approximate. Click on the number to get the exact count. See "
 "[doc@faq3-11]FAQ 3.11[/doc]."
-msgstr "มีข้อผิดพลาดระหว่างการอัพโหลด กรุณาดู [doc@faq1-11]FAQ 1.11[/doc]"
+msgstr ""
+"เป็นเพียงค่าประมาณ คลิกที่ตัวเลขเพื่อดูจำนวนที่แน่นอน ดู [doc@faq3-11]คำถามที่พบบ่อย 3.11[/"
+"doc]"
 
 #: templates/database/structure/table_header.twig:38
 #: templates/table/index_form.twig:118
@@ -15297,22 +15091,20 @@ msgid "Size"
 msgstr "ขนาด"
 
 #: templates/display/export/options_rows.twig:2
-#, fuzzy
-#| msgid "Rows"
 msgid "Rows:"
-msgstr "แถว"
+msgstr "แถว:"
 
 #: templates/display/export/options_rows.twig:7
 msgid "Dump some row(s)"
-msgstr ""
+msgstr "ดัมพ์ข้อมูลบางแถว"
 
 #: templates/display/export/options_rows.twig:23
 msgid "Row to begin at:"
-msgstr ""
+msgstr "เริ่มที่แถว:"
 
 #: templates/display/export/options_rows.twig:32
 msgid "Dump all rows"
-msgstr ""
+msgstr "ดัมพ์ข้อมูลทุกแถว"
 
 #: templates/display/import/javascript.twig:12
 msgid ""
@@ -15320,59 +15112,58 @@ msgid ""
 "this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
 "browsers."
 msgstr ""
+"ไฟล์ที่กำลังอัปโหลดอาจมีขนาดใหญ่เกินกว่าขนาดสูงสุดที่อนุญาต หรือนี่อาจเป็นข้อบกพร่องที่พบในเบราว์เซอ"
+"ร์ที่ใช้ Webkit เป็นหลัก (Safari, Google Chrome, Arora เป็นต้น)"
 
 #: templates/display/import/javascript.twig:16
 #, php-format
 msgid "%s of %s"
-msgstr ""
+msgstr "%s ของ %s"
 
 #: templates/display/import/javascript.twig:17
 #, php-format
 msgid "%s/sec."
-msgstr ""
+msgstr "%s/วินาที"
 
 #: templates/display/import/javascript.twig:18
 msgid "About %MIN min. %SEC sec. remaining."
-msgstr ""
+msgstr "เหลือประมาณ %MIN นาที %SEC วินาที"
 
 #: templates/display/import/javascript.twig:19
 msgid "About %SEC sec. remaining."
-msgstr ""
+msgstr "เหลือประมาณ %SEC วินาที"
 
 #: templates/display/import/javascript.twig:20
 msgid "The file is being processed, please be patient."
-msgstr ""
+msgstr "กำลังประมวลผลไฟล์ โปรดรอสักครู่"
 
 #: templates/display/import/javascript.twig:36
 msgid "Uploading your import file…"
-msgstr ""
+msgstr "กำลังอัปโหลดไฟล์นำเข้าของคุณ…"
 
 #: templates/display/import/javascript.twig:161
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
 msgstr ""
+"โปรดรอสักครู่ ไฟล์กำลังถูกอัปโหลด รายละเอียดเกี่ยวกับการอัปโหลดยังไม่พร้อมใช้งาน"
 
 #: templates/table/structure/optional_action_links.twig:8
 msgid "Propose table structure"
-msgstr "เสนอโครงสร้างตาราง"
+msgstr "โครงสร้างตารางที่เสนอ"
 
 #: templates/table/structure/optional_action_links.twig:22
 #: templates/table/structure/move_columns_dialog.twig:1
-#, fuzzy
-#| msgid "Add columns"
 msgid "Move columns"
-msgstr "เพิ่มฟิลด์ใหม่"
+msgstr "ย้ายคอลัมน์"
 
 #: templates/table/structure/optional_action_links.twig:25
 msgid "Normalize"
-msgstr ""
+msgstr "นอมอลไลซ์"
 
 #: templates/table/structure/optional_action_links.twig:31
-#, fuzzy
-#| msgid "Track table"
 msgid "Track view"
-msgstr "ติดตามตาราง"
+msgstr "ติดตามมุมมอง"
 
 #: templates/error/report_form.twig:6
 msgid ""
@@ -15380,24 +15171,27 @@ msgid ""
 "about relevant configuration settings. It will be sent to the phpMyAdmin "
 "team for debugging the error."
 msgstr ""
+"รายงานนี้จะรวมข้อมูลเกี่ยวกับข้อผิดพลาดและข้อมูลเกี่ยวกับการกำหนดค่าที่เกี่ยวข้องโดยอัตโนมัติ มันจะถูก"
+"ส่งไปยังทีม phpMyAdmin เพื่อแก้ไขข้อผิดพลาด"
 
 #: templates/error/report_form.twig:12
 msgid ""
 "Can you tell us the steps leading to this error? It decisively helps in "
 "debugging:"
 msgstr ""
+"คุณช่วยบอกขั้นตอนที่นำไปสู่ข้อผิดพลาดนี้ได้ไหม? มันจะช่วยในการแก้ไขปัญหาได้อย่างมาก:"
 
 #: templates/error/report_form.twig:19
 msgid "You may examine the data in the error report:"
-msgstr ""
+msgstr "คุณสามารถตรวจสอบข้อมูลในรายงานข้อผิดพลาดได้:"
 
 #: templates/server/plugins/section.twig:9
 msgid "Plugin"
-msgstr ""
+msgstr "ปลั๊กอิน"
 
 #: templates/server/plugins/section.twig:12
 msgid "Author"
-msgstr ""
+msgstr "ผู้เขียน"
 
 #: templates/server/plugins/section.twig:23
 msgid "disabled"
@@ -15409,16 +15203,13 @@ msgid "Foreign key constraint %s has been dropped"
 msgstr "ข้อจำกัดคีย์นอก %s ถูกลบออกแล้ว"
 
 #: templates/table/relation/foreign_key_row.twig:38
-#, fuzzy
-#| msgid "Column names"
 msgid "Constraint name"
-msgstr "ชื่อคอลัมน์"
+msgstr "ชื่อข้อจำกัด"
 
 #: templates/table/relation/foreign_key_row.twig:90
 #: templates/database/multi_table_query/form.twig:158
-#, fuzzy
 msgid "+ Add column"
-msgstr "เพิ่มฟิลด์ใหม่"
+msgstr "+ เพิ่มคอลัมน์"
 
 #: templates/display/export/options_format.twig:2
 #: templates/display/import/import.twig:174
@@ -15431,21 +15222,20 @@ msgid ""
 "Scroll down to fill in the options for the selected format and ignore the "
 "options for other formats."
 msgstr ""
+"เลื่อนลงมาเพื่อกรอกข้อมูลตัวเลือกสำหรับรูปแบบที่เลือก และไม่ต้องสนใจตัวเลือกสำหรับรูปแบบอื่น ๆ"
 
 #: templates/display/export/options_format.twig:12
 #: templates/display/import/import.twig:185
 msgid "Encoding Conversion:"
-msgstr ""
+msgstr "การแปลงรหัส:"
 
 #: templates/display/export/template_options.twig:1
-#, fuzzy
-#| msgid "Select Tables"
 msgid "Select a template"
-msgstr "เลือกตาราง"
+msgstr "เลือกต้นแบบ"
 
 #: templates/display/import/import.twig:40
 msgid "Importing into the current server"
-msgstr "การนำเข้าฐานข้อมูลสู่เซิร์ฟเวอร์ปัจจุบัน"
+msgstr "กำลังนำเข้าสู่เซิร์ฟเวอร์ปัจจุบัน"
 
 #: templates/display/import/import.twig:42
 #, php-format
@@ -15455,37 +15245,35 @@ msgstr "กำลังนำเข้าสู่ฐานข้อมูล \"
 #: templates/display/import/import.twig:44
 #, php-format
 msgid "Importing into the table \"%s\""
-msgstr "นำเข้าสู่ตาราง \"%s\""
+msgstr "กำลังนำเข้าสู่ตาราง \"%s\""
 
 #: templates/display/import/import.twig:50
-#, fuzzy
-#| msgid "File to Import:"
 msgid "File to import:"
-msgstr "ไฟล์ที่ต้องการนำเข้า:"
+msgstr "ไฟล์ที่นำเข้า:"
 
 #: templates/display/import/import.twig:56
 #, php-format
 msgid "File may be compressed (%s) or uncompressed."
-msgstr ""
+msgstr "ไฟล์อาจถูกบีบอัด (%s) หรือไม่ถูกบีบอัดก็ได้"
 
 #: templates/display/import/import.twig:58
 msgid ""
 "A compressed file's name must end in <strong>.[format].[compression]</"
 "strong>. Example: <strong>.sql.zip</strong>"
 msgstr ""
+"ชื่อไฟล์ที่ถูกบีบอัดจะต้องลงท้ายด้วย <strong>.[format].[compression]</strong> ตัวอย่าง: "
+"<strong>.sql.zip</strong>"
 
 #: templates/display/import/import.twig:69
 #: templates/display/import/import.twig:84
 msgid "You may also drag and drop a file on any page."
-msgstr ""
+msgstr "คุณยังสามารถลากและวางไฟล์ลงบนหน้าใดก็ได้"
 
 #: templates/display/import/import.twig:86
 msgid "File uploads are not allowed on this server."
-msgstr ""
+msgstr "เซิร์ฟเวอร์นี้ไม่อนุญาตให้ทำการอัปโหลดไฟล์"
 
 #: templates/display/import/import.twig:124
-#, fuzzy
-#| msgid "Partial Import:"
 msgid "Partial import:"
 msgstr "นำเข้าบางส่วน:"
 
@@ -15494,6 +15282,7 @@ msgstr "นำเข้าบางส่วน:"
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
 msgstr ""
+"การนำเข้าครั้งก่อนหมดเวลา หลังจากทำใหม่อีกครั้งจะดำเนินการต่อจากตำแหน่ง %d"
 
 #: templates/display/import/import.twig:137
 msgid ""
@@ -15501,20 +15290,21 @@ msgid ""
 "to the PHP timeout limit. <em>(This might be a good way to import large "
 "files, however it can break transactions.)</em>"
 msgstr ""
+"อนุญาตให้ขัดจังหวะการนำเข้าได้ในกรณีที่สคริปต์ตรวจพบว่าใกล้ถึงขีดจำกัดเวลาหมดอายุของ PHP แล้ว "
+"<em>(วิธีนี้อาจเป็นวิธีที่ดีในการนำเข้าไฟล์ขนาดใหญ่ อย่างไรก็ตามอาจทำให้การทำธุรกรรมล้มเหลวได้)"
+"</em>"
 
 #: templates/display/import/import.twig:144
 msgid "Skip this number of queries (for SQL) starting from the first one:"
-msgstr ""
+msgstr "ข้ามคำสั่งจำนวนนี้ (สำหรับ SQL) โดยเริ่มจากคำสั่งแรก:"
 
 #: templates/display/import/import.twig:161
-#, fuzzy
-#| msgid "Options"
 msgid "Other options:"
-msgstr "ตัวเลือก"
+msgstr "ตัวเลือกอื่น:"
 
 #: templates/table/gis_visualization/gis_visualization.twig:3
 msgid "Display GIS Visualization"
-msgstr ""
+msgstr "แสดงภาพข้อมูล GIS"
 
 #: templates/table/gis_visualization/gis_visualization.twig:8
 #, fuzzy
