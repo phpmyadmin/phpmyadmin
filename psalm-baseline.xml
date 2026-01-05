@@ -737,35 +737,11 @@
   </file>
   <file src="src/Controllers/Database/DesignerController.php">
     <MixedArgument>
-      <code><![CDATA[$position['dbName']]]></code>
-      <code><![CDATA[$position['tableName']]]></code>
       <code><![CDATA[$request->getQueryParam('db')]]></code>
       <code><![CDATA[$request->getQueryParam('db')]]></code>
       <code><![CDATA[$request->getQueryParam('db')]]></code>
       <code><![CDATA[Current::$database]]></code>
     </MixedArgument>
-    <MixedArrayAccess>
-      <code><![CDATA[$position['dbName']]]></code>
-      <code><![CDATA[$position['dbName']]]></code>
-      <code><![CDATA[$position['tableName']]]></code>
-      <code><![CDATA[$position['tableName']]]></code>
-    </MixedArrayAccess>
-    <MixedAssignment>
-      <code><![CDATA[$position]]></code>
-    </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[$position['dbName']]]></code>
-      <code><![CDATA[$position['tableName']]]></code>
-    </MixedOperand>
-    <PossiblyNullArgument>
-      <code><![CDATA[$db]]></code>
-      <code><![CDATA[$db]]></code>
-      <code><![CDATA[$db]]></code>
-      <code><![CDATA[$db]]></code>
-      <code><![CDATA[$db]]></code>
-      <code><![CDATA[$db]]></code>
-      <code><![CDATA[$table]]></code>
-    </PossiblyNullArgument>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
@@ -846,9 +822,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Database/MultiTableQuery/QueryController.php">
-    <MixedArgument>
-      <code><![CDATA[$request->getParam('db')]]></code>
-    </MixedArgument>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
@@ -3270,10 +3243,6 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Database/Designer.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <MixedAssignment>
       <code><![CDATA[$params]]></code>
     </MixedAssignment>
@@ -3283,9 +3252,12 @@
     </MixedReturnStatement>
   </file>
   <file src="src/Database/Designer/Common.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
+    <InvalidReturnStatement>
+      <code><![CDATA[$this->dbi->fetchResult($query, 'name', null, ConnectionType::ControlUser)]]></code>
+    </InvalidReturnStatement>
+    <InvalidReturnType>
+      <code><![CDATA[string[][]]]></code>
+    </InvalidReturnType>
     <MixedArgument>
       <code><![CDATA[$_POST['t_x'][$key]]]></code>
       <code><![CDATA[$_POST['t_y'][$key]]]></code>
@@ -3341,9 +3313,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Database/Events.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['item_comment']]]></code>
       <code><![CDATA[$_POST['item_definer']]]></code>
@@ -3388,22 +3357,12 @@
       <code><![CDATA[empty($_POST['item_type'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
-  <file src="src/Database/MultiTableQuery.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-    </DeprecatedMethod>
-  </file>
   <file src="src/Database/Routine.php">
     <PossiblyUnusedProperty>
       <code><![CDATA[$returns]]></code>
     </PossiblyUnusedProperty>
   </file>
   <file src="src/Database/Routines.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$retval['item_param_dir'][$key]]]></code>
     </InvalidArrayOffset>
@@ -3590,18 +3549,12 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Database/Search.php">
-    <InvalidPropertyAssignmentValue>
-      <code><![CDATA[array_intersect($_POST['criteriaTables'], $this->tablesNamesOnly)]]></code>
-    </InvalidPropertyAssignmentValue>
     <MixedAssignment>
-      <code><![CDATA[$this->searchTypeDescription]]></code>
+      <code><![CDATA[$criteriaTables]]></code>
     </MixedAssignment>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($_POST['criteriaColumnName'])]]></code>
-      <code><![CDATA[empty($_POST['criteriaSearchString'])]]></code>
-      <code><![CDATA[empty($_POST['criteriaSearchType'])]]></code>
-      <code><![CDATA[empty($_POST['criteriaTables'])]]></code>
-    </RiskyTruthyFalsyComparison>
+    <MixedPropertyTypeCoercion>
+      <code><![CDATA[array_intersect($criteriaTables, $this->tablesNamesOnly)]]></code>
+    </MixedPropertyTypeCoercion>
   </file>
   <file src="src/Dbal/DatabaseInterface.php">
     <DeprecatedMethod>

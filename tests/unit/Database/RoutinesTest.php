@@ -39,7 +39,7 @@ class RoutinesTest extends AbstractTestCase
         Current::$database = 'db';
         Current::$table = 'table';
 
-        $this->routines = new Routines(DatabaseInterface::getInstance());
+        $this->routines = new Routines(DatabaseInterface::getInstance(), $config);
     }
 
     /**
@@ -236,7 +236,8 @@ class RoutinesTest extends AbstractTestCase
     #[DataProvider('providerGetQueryFromRequest')]
     public function testGetQueryFromRequest(array $request, string $query, int $numErr): void
     {
-        Config::getInstance()->settings['ShowFunctionFields'] = false;
+        $config = Config::getInstance();
+        $config->settings['ShowFunctionFields'] = false;
 
         $oldDbi = DatabaseInterface::getInstance();
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -251,7 +252,7 @@ class RoutinesTest extends AbstractTestCase
             ]);
         DatabaseInterface::$instance = $dbi;
 
-        $routines = new Routines($dbi);
+        $routines = new Routines($dbi, $config);
 
         unset($_POST);
         $_POST = $request;

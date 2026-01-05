@@ -157,7 +157,7 @@ return [
         ],
         Database\MultiTableQuery\QueryController::class => [
             'class' => Database\MultiTableQuery\QueryController::class,
-            'arguments' => ['$response' => '@response'],
+            'arguments' => ['$response' => '@response', '$sql' => '@sql'],
         ],
         Database\MultiTableQuery\TablesController::class => [
             'class' => Database\MultiTableQuery\TablesController::class,
