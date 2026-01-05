@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2026-01-05 04:01+0000\n"
+"PO-Revision-Date: 2026-01-05 19:57+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/5-"
 "1/mk/>\n"
@@ -4552,6 +4552,7 @@ msgstr "Документација"
 #: libraries/classes/Config/FormDisplayTemplate.php:255
 msgid "This setting is disabled, it will not be applied to your configuration."
 msgstr ""
+"Оваа поставка е оневозможена, нема да се примени на вашата конфигурација."
 
 #: libraries/classes/Config/FormDisplayTemplate.php:257
 #: libraries/classes/Relation.php:150 libraries/classes/Relation.php:158
@@ -6368,7 +6369,7 @@ msgstr "Подесувања за Страници"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:328
 #: templates/config/form_display/fieldset_bottom.twig:8
 msgid "Apply"
-msgstr ""
+msgstr "Применете"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:331
 #: templates/navigation/main.twig:58
@@ -14198,7 +14199,7 @@ msgstr "Онлајн трансакција"
 #: templates/columns_definitions/column_name.twig:4
 #, php-format
 msgid "Referenced by %s."
-msgstr ""
+msgstr "Референциран од %s."
 
 #: templates/columns_definitions/column_name.twig:12
 msgid "Is a foreign key."
@@ -14340,7 +14341,7 @@ msgstr "Подредување"
 
 #: templates/columns_definitions/table_fields_definitions.twig:59
 msgid "Virtuality"
-msgstr ""
+msgstr "Виртуелност"
 
 #: templates/columns_definitions/table_fields_definitions.twig:65
 #, fuzzy
