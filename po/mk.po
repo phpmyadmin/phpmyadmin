@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2026-01-05 10:01+0000\n"
-"Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
+"PO-Revision-Date: 2026-01-05 19:57+0000\n"
+"Last-Translator: Maurício Meneghini Fauth <mauricio@mfauth.com.br>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/4-"
 "9/mk/>\n"
 "Language: mk\n"
@@ -6776,8 +6776,8 @@ msgstr "Базата на податоци %1$s е креирана."
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "%s база на податоци успешно беше отфрлена."
-msgstr[1] "%s бази на податоци успешно беа отфрлени."
+msgstr[0] "%1$d база на податоци успешно беше отфрлена."
+msgstr[1] "%1$d бази на податоци успешно беа отфрлени."
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:343
 #: libraries/classes/Import.php:122
