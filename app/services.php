@@ -27,6 +27,7 @@ use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\Export\TemplateModel;
 use PhpMyAdmin\FileListing;
 use PhpMyAdmin\FlashMessenger;
+use PhpMyAdmin\Header;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Middleware;
 use PhpMyAdmin\Import\Import;
@@ -110,6 +111,10 @@ return [
         'expression_language' => ['class' => ExpressionLanguage::class],
         'file_listing' => ['class' => FileListing::class],
         FlashMessenger::class => ['class' => FlashMessenger::class],
+        Header::class => [
+            'class' => Header::class,
+            'arguments' => ['@template', '@' . Console::class, '@config', '@dbi', '@relation', '@user_preferences'],
+        ],
         'http_request' => ['class' => HttpRequest::class],
         ResponseFactory::class => [
             'class' => ResponseFactory::class,

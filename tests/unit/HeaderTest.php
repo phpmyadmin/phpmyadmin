@@ -14,6 +14,7 @@ use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Header;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\UserPreferences;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Medium;
@@ -56,15 +57,19 @@ class HeaderTest extends AbstractTestCase
     private function getNewHeaderInstance(): Header
     {
         $dbi = DatabaseInterface::getInstance();
-        $relation = new Relation($dbi);
-        $template = new Template();
         $config = Config::getInstance();
+        $relation = new Relation($dbi, $config);
+        $template = new Template($config);
         $history = new History($dbi, $relation, $config);
+        $userPreferences = new UserPreferences($dbi, $relation, $template);
 
         return new Header(
             $template,
             new Console($relation, $template, new BookmarkRepository($dbi, $relation), $history),
             $config,
+            $dbi,
+            $relation,
+            $userPreferences,
         );
     }
 
@@ -83,7 +88,8 @@ class HeaderTest extends AbstractTestCase
         $template = new Template($config);
         $history = new History($dbi, $relation, $config);
         $console = new Console($relation, $template, new BookmarkRepository($dbi, $relation), $history);
-        $header = new Header($template, $console, $config);
+        $userPreferences = new UserPreferences($dbi, $relation, $template);
+        $header = new Header($template, $console, $config, $dbi, $relation, $userPreferences);
 
         $header->setBodyId('PMA_header_id');
         $actual = $header->getDisplay();
