@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-01-04 00:33+0000\n"
-"PO-Revision-Date: 2026-01-05 03:01+0000\n"
+"PO-Revision-Date: 2026-01-05 19:57+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
@@ -345,6 +345,8 @@ msgid ""
 "The column width of integer types is ignored in your MySQL version unless "
 "defining a TINYINT(1) column"
 msgstr ""
+"Ширината на колоната на типовите за цели броеви(integer) се игнорира во "
+"вашата верзија на MySQL освен ако не дефинирате колона TINYINT(1)"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:173
 #: resources/templates/database/designer/main.twig:1094
@@ -445,7 +447,7 @@ msgstr "Затвори"
 #: resources/templates/columns_definitions/column_name.twig:4
 #, php-format
 msgid "Referenced by %s."
-msgstr ""
+msgstr "Референциран од %s."
 
 #: resources/templates/columns_definitions/column_name.twig:12
 msgid "Is a foreign key."
@@ -773,7 +775,7 @@ msgstr "Коментари"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:71
 msgid "Virtuality"
-msgstr ""
+msgstr "Виртуелност"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:77
 #, fuzzy
@@ -835,7 +837,7 @@ msgstr "Опции на трансформацијата"
 #: resources/templates/config/form_display/display.twig:46
 #: src/Controllers/JavaScriptMessagesController.php:316
 msgid "Apply"
-msgstr ""
+msgstr "Применете"
 
 #: resources/templates/config/form_display/display.twig:47
 #: resources/templates/preferences/manage/main.twig:113
@@ -858,6 +860,7 @@ msgstr "Документација"
 #: resources/templates/config/form_display/input.twig:15
 msgid "This setting is disabled, it will not be applied to your configuration."
 msgstr ""
+"Оваа поставка е оневозможена, нема да се примени на вашата конфигурација."
 
 #: resources/templates/config/form_display/input.twig:16
 #: resources/templates/relation/check_relations.twig:15
