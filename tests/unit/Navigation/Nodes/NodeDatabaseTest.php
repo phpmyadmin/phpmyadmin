@@ -63,14 +63,13 @@ class NodeDatabaseTest extends AbstractTestCase
     }
 
     /**
-     * Test for getData
+     * Test for getDatabaseObjects
      */
-    public function testGetData(): void
+    public function testGetDatabaseObjects(): void
     {
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = true;
         DatabaseInterface::$instance = $this->createDatabaseInterface();
-        $userPrivileges = new UserPrivileges();
 
         $relationParameters = RelationParameters::fromArray([
             RelationParameters::DATABASE => 'pmadb',
@@ -80,19 +79,19 @@ class NodeDatabaseTest extends AbstractTestCase
 
         $parent = new NodeDatabase($config, 'default');
 
-        $tables = $parent->getData($userPrivileges, $relationParameters, 'tables', 0);
-        self::assertContains('test1', $tables);
-        self::assertContains('test2', $tables);
+        $tables = $parent->getDatabaseObjects($relationParameters, 'tables', 0);
+        self::assertSame('test1', $tables[0]->realName);
+        self::assertSame('test2', $tables[1]->realName);
 
-        $views = $parent->getData($userPrivileges, $relationParameters, 'views', 0);
+        $views = $parent->getDatabaseObjects($relationParameters, 'views', 0);
         self::assertEmpty($views);
 
-        $functions = $parent->getData($userPrivileges, $relationParameters, 'functions', 0);
-        self::assertContains('testFunction', $functions);
+        $functions = $parent->getDatabaseObjects($relationParameters, 'functions', 0);
+        self::assertSame('testFunction', $functions[0]->realName);
         self::assertCount(1, $functions);
 
-        self::assertEmpty($parent->getData($userPrivileges, $relationParameters, 'procedures', 0));
-        self::assertEmpty($parent->getData($userPrivileges, $relationParameters, 'events', 0));
+        self::assertEmpty($parent->getDatabaseObjects($relationParameters, 'procedures', 0));
+        self::assertEmpty($parent->getDatabaseObjects($relationParameters, 'events', 0));
     }
 
     /**

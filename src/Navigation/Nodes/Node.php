@@ -9,7 +9,6 @@ namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Features\NavigationItemsHidingFeature;
-use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
@@ -307,21 +306,15 @@ class Node
     }
 
     /**
-     * Returns the names of children of type $type present inside this container
-     * This method is overridden by the PhpMyAdmin\Navigation\Nodes\NodeDatabase
-     * and PhpMyAdmin\Navigation\Nodes\NodeTable classes
+     * Returns the names of children present inside this container
      *
-     * @param string $type         The type of item we are looking for
-     *                             ('tables', 'views', etc)
      * @param int    $pos          The offset of the list within the results
      * @param string $searchClause A string used to filter the results of the query
      *
-     * @return mixed[]
+     * @return list<string|null>
      */
-    public function getData(
+    final public function getData(
         UserPrivileges $userPrivileges,
-        RelationParameters $relationParameters,
-        string $type,
         int $pos,
         string $searchClause = '',
     ): array {
