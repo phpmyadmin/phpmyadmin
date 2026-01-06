@@ -70,7 +70,7 @@ return [
     'services' => [
         'advisor' => [
             'class' => Advisor::class,
-            'arguments' => ['$dbi' => '@dbi', '$expression' => '@expression_language'],
+            'arguments' => ['@dbi', '@expression_language'],
         ],
         Application::class => ['class' => Application::class, 'arguments' => ['@' . ResponseFactory::class]],
         'browse_foreigners' => [
@@ -84,21 +84,21 @@ return [
         'dbi' => [
             'class' => DatabaseInterface::class,
             'factory' => [DatabaseInterface::class, 'getInstance'],
-            'arguments' => ['$config' => '@config'],
+            'arguments' => ['@config'],
         ],
         DbTableExists::class => ['class' => DbTableExists::class, 'arguments' => ['@dbi']],
         'designer' => [
             'class' => Designer::class,
             'arguments' => [
-                '$dbi' => '@dbi',
-                '$relation' => '@relation',
-                '$template' => '@template',
-                '$config' => '@config',
+                '@dbi',
+                '@relation',
+                '@template',
+                '@config',
             ],
         ],
         'designer_common' => [
             'class' => Common::class,
-            'arguments' => ['$dbi' => '@dbi', '$relation' => '@relation', '$config' => '@config'],
+            'arguments' => ['@dbi', '@relation', '@config'],
         ],
         'error_handler' => ['class' => ErrorHandler::class, 'factory' => [ErrorHandler::class, 'getInstance']],
         'error_report' => [
@@ -244,29 +244,29 @@ return [
         'normalization' => [
             'class' => Normalization::class,
             'arguments' => [
-                '$dbi' => '@dbi',
-                '$relation' => '@relation',
-                '$transformations' => '@transformations',
-                '$template' => '@template',
+                '@dbi',
+                '@relation',
+                '@transformations',
+                '@template',
             ],
         ],
         'operations' => [
             'class' => Operations::class,
-            'arguments' => ['$dbi' => '@dbi', '$relation' => '@relation', '$tableMover' => '@table_mover'],
+            'arguments' => ['@dbi', '@relation', '@table_mover'],
         ],
         OutputHandler::class => ['class' => OutputHandler::class],
         'partitioning_maintenance' => [
             'class' => Maintenance::class,
-            'arguments' => ['$dbi' => '@dbi'],
+            'arguments' => ['@dbi'],
         ],
         AuthenticationPluginFactory::class => ['class' => AuthenticationPluginFactory::class],
-        Relation::class => ['class' => Relation::class, 'arguments' => ['$dbi' => '@dbi', '$config' => '@config']],
+        Relation::class => ['class' => Relation::class, 'arguments' => ['@dbi', '@config']],
         'relation' => Relation::class,
         'relation_cleanup' => ['class' => RelationCleanup::class, 'arguments' => ['@dbi', '@relation']],
-        'replication' => ['class' => Replication::class, 'arguments' => ['$dbi' => '@dbi']],
+        'replication' => ['class' => Replication::class, 'arguments' => ['@dbi']],
         'replication_gui' => [
             'class' => ReplicationGui::class,
-            'arguments' => ['$replication' => '@replication', '$template' => '@template'],
+            'arguments' => ['@replication', '@template'],
         ],
         'response' => [
             'class' => ResponseRenderer::class,
@@ -297,9 +297,9 @@ return [
         'sql_query_form' => [
             'class' => SqlQueryForm::class,
             'arguments' => [
-                '$template' => '@template',
-                '$dbi' => '@dbi',
-                '$bookmarkRepository' => '@bookmarkRepository',
+                '@template',
+                '@dbi',
+                '@bookmarkRepository',
             ],
         ],
         'status_data' => ['class' => Data::class, 'arguments' => ['@dbi','@config']],
@@ -307,30 +307,30 @@ return [
         'status_processes' => ['class' => Processes::class, 'arguments' => ['@dbi']],
         'table_columns_definition' => [
             'class' => ColumnsDefinition::class,
-            'arguments' => ['$dbi' => '@dbi', '$relation' => '@relation', '$transformations' => '@transformations'],
+            'arguments' => ['@dbi', '@relation', '@transformations'],
         ],
         'table_indexes' => [
             'class' => Indexes::class,
-            'arguments' => ['$dbi' => '@dbi'],
+            'arguments' => ['@dbi'],
         ],
-        'table_maintenance' => ['class' => \PhpMyAdmin\Table\Maintenance::class, 'arguments' => ['$dbi' => '@dbi']],
-        'table_search' => ['class' => Search::class, 'arguments' => ['$dbi' => '@dbi']],
-        Template::class => ['class' => Template::class, 'arguments' => ['$config' => '@config']],
+        'table_maintenance' => ['class' => \PhpMyAdmin\Table\Maintenance::class, 'arguments' => ['@dbi']],
+        'table_search' => ['class' => Search::class, 'arguments' => ['@dbi']],
+        Template::class => ['class' => Template::class, 'arguments' => ['@config']],
         'template' => Template::class,
         ThemeManager::class => ['class' => ThemeManager::class],
         'tracking' => [
             'class' => Tracking::class,
             'arguments' => [
-                '$sqlQueryForm' => '@sql_query_form',
-                '$template' => '@template',
-                '$relation' => '@relation',
-                '$dbi' => '@dbi',
-                '$trackingChecker' => '@tracking_checker',
+                '@sql_query_form',
+                '@template',
+                '@relation',
+                '@dbi',
+                '@tracking_checker',
             ],
         ],
         'tracking_checker' => [
             'class' => TrackingChecker::class,
-            'arguments' => ['$dbi' => '@dbi', '$relation' => '@relation'],
+            'arguments' => ['@dbi', '@relation'],
         ],
         Transformations::class => ['class' => Transformations::class, 'arguments' => ['@dbi', '@relation']],
         'transformations' => Transformations::class,
@@ -352,7 +352,7 @@ return [
         'table_mover' => ['class' => TableMover::class, 'arguments' => ['@dbi', '@relation']],
         'history' => [
             'class' => History::class,
-            'arguments' => ['$dbi' => '@dbi', '$relation' => '@relation', '$config' => '@config'],
+            'arguments' => ['@dbi', '@relation', '@config'],
         ],
     ],
 ];
