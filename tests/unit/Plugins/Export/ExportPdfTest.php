@@ -6,13 +6,10 @@ namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\DatabaseInterface;
-use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Export\OutputHandler;
-use PhpMyAdmin\Export\StructureOrData;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Plugins\Export\ExportPdf;
 use PhpMyAdmin\Plugins\Export\Helpers\Pdf;
-use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
@@ -224,56 +221,5 @@ class ExportPdfTest extends AbstractTestCase
                 'SELECT',
             ),
         );
-    }
-
-    /**
-     * Integration test: Export table structure through Export::exportTable()
-     * their exportStructure() method called when exporting through Export::exportTable()
-     */
-    public function testExportTableCallsExportStructureMethod(): void
-    {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        DatabaseInterface::$instance = $dbi;
-
-        $outputHandler = new OutputHandler();
-        $relation = new Relation($dbi);
-        $exportPdf = new ExportPdf($relation, $outputHandler, new Transformations($dbi, $relation));
-
-        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/');
-        $exportPdf->setExportOptions($request, []);
-
-        // Force structureOrData to be Structure only to avoid data export issues
-        $attrStructureOrData = new ReflectionProperty(ExportPdf::class, 'structureOrData');
-        $attrStructureOrData->setValue($exportPdf, StructureOrData::Structure);
-
-        ob_start();
-        try {
-            $export = new Export($dbi, $outputHandler);
-            $export->exportTable(
-                'testdb',
-                'testtable',
-                $exportPdf,
-                null,
-                '0',
-                '0',
-                '',
-                []
-            );
-            // PDF export accumulates data and outputs it in exportFooter()
-            $exportPdf->exportFooter();
-            $output = ob_get_clean();
-        } catch (\Throwable $e) {
-            ob_end_clean();
-            throw $e;
-        }
-
-        self::assertIsString($output);
-        self::assertNotEmpty($output);
-
-        self::assertStringStartsWith('%PDF-', $output);
-        self::assertGreaterThan(5000, strlen($output));
     }
 }

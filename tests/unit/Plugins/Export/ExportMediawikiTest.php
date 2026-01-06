@@ -9,10 +9,8 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
-use PhpMyAdmin\Export\StructureOrData;
 use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
-use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Plugins\Export\ExportMediawiki;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -323,36 +321,20 @@ class ExportMediawikiTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Integration test: Export table structure through Export::exportTable()
-     * Tests that exportStructure() method is called when exporting through Export::exportTable()
-     */
     public function testExportTableCallsExportStructureMethod(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
-
         DatabaseInterface::$instance = $dbi;
-
-        $relation = new Relation($dbi);
-        $exportMediawiki = new ExportMediawiki(
-            $relation,
-            new OutputHandler(),
-            new Transformations($dbi, $relation),
-        );
-
-        // Force structureOrData to be StructureAndData so structure export is attempted
-        $attrStructureOrData = new ReflectionProperty(ExportMediawiki::class, 'structureOrData');
-        $attrStructureOrData->setValue($exportMediawiki, StructureOrData::StructureAndData);
-
-        // Now call exportTable through the Export class
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/');
+        $this->object->setExportOptions($request, ['mediawiki_structure_or_data' => 'structure']);
         ob_start();
         $export = new Export($dbi, new OutputHandler());
         $export->exportTable(
             'testdb',
             'testtable',
-            $exportMediawiki,
+            $this->object,
             null,
             '0',
             '0',
@@ -360,8 +342,7 @@ class ExportMediawikiTest extends AbstractTestCase
             [],
         );
         $result = ob_get_clean();
-
-        // Verify that structure output was generated
+        self::assertIsString($result);
         self::assertStringContainsString('Table structure for', $result);
         self::assertStringContainsString('testtable', $result);
     }

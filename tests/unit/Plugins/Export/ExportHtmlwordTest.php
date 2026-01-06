@@ -10,11 +10,9 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
-use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\Export\Export;
-use PhpMyAdmin\Export\StructureOrData;
+use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
-use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Identifiers\TriggerName;
 use PhpMyAdmin\Plugins\Export\ExportHtmlword;
@@ -691,42 +689,27 @@ class ExportHtmlwordTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Integration test: Export table structure through Export::exportTable()
-     * Tests that exportStructure() method is called when exporting through Export::exportTable()
-     */
     public function testExportTableCallsExportStructureMethod(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
-
         DatabaseInterface::$instance = $dbi;
-
-        $relation = new Relation($dbi);
-        $outputHandler = new OutputHandler();
-        $exportHtmlword = new ExportHtmlword($relation, $outputHandler, new Transformations($dbi, $relation));
-
-        // Force structureOrData to be StructureAndData so structure export is attempted
-        $attrStructureOrData = new ReflectionProperty(ExportHtmlword::class, 'structureOrData');
-        $attrStructureOrData->setValue($exportHtmlword, StructureOrData::Structure);
-        
-        // Integration: Export::exportTable() should call exportStructure() on the plugin
-        $export = new Export($dbi, $outputHandler);
-
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/');
+        $this->object->setExportOptions($request, ['htmlword_structure_or_data' => 'structure']);
+        $export = new Export($dbi, new OutputHandler());
         ob_start();
         $export->exportTable(
             'test_db',
             'test_table',
-            $exportHtmlword,
+            $this->object,
             null,
             '',
             '',
             '',
-            []
+            [],
         );
         $output = ob_get_clean();
-
         self::assertStringContainsString('<h2>Table structure for table test_table</h2>', $output);
     }
 }
