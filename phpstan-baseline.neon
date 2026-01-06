@@ -14365,12 +14365,6 @@ parameters:
 			path: tests/config.e2e.inc.php
 
 		-
-			message: '#^Binary operation "\." between ''Test failed, get…'' and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: tests/end-to-end/TestBase.php
-
-		-
 			message: '#^Binary operation "\." between ''ajax_message_num_'' and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
