@@ -1252,6 +1252,10 @@ class Util
      */
     public static function userDir(string $dir): string
     {
+        if ($dir === '') {
+            return '';
+        }
+
         // add trailing slash
         if (mb_substr($dir, -1) !== '/') {
             $dir .= '/';
