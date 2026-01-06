@@ -68,100 +68,132 @@ use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
 return [
     'services' => [
-        'advisor' => [
+        Advisor::class => [
             'class' => Advisor::class,
-            'arguments' => ['@dbi', '@expression_language'],
+            'arguments' => ['@' . DatabaseInterface::class, '@' . ExpressionLanguage::class],
         ],
         Application::class => ['class' => Application::class, 'arguments' => ['@' . ResponseFactory::class]],
-        'browse_foreigners' => [
+        BrowseForeigners::class => [
             'class' => BrowseForeigners::class,
-            'arguments' => ['@template', '@config', '@' . ThemeManager::class],
+            'arguments' => ['@' . Template::class, '@' . Config::class, '@' . ThemeManager::class],
         ],
-        'config' => ['class' => Config::class, 'factory' => [Config::class, 'getInstance']],
-        Config\PageSettings::class => ['class' => Config\PageSettings::class, 'arguments' => ['@user_preferences']],
-        'central_columns' => ['class' => CentralColumns::class, 'arguments' => ['@dbi']],
-        'create_add_field' => ['class' => CreateAddField::class, 'arguments' => ['@dbi']],
-        'dbi' => [
+        Config::class => ['class' => Config::class, 'factory' => [Config::class, 'getInstance']],
+        Config\PageSettings::class => [
+            'class' => Config\PageSettings::class,
+            'arguments' => ['@' . UserPreferences::class],
+        ],
+        CentralColumns::class => ['class' => CentralColumns::class, 'arguments' => ['@' . DatabaseInterface::class]],
+        CreateAddField::class => ['class' => CreateAddField::class, 'arguments' => ['@' . DatabaseInterface::class]],
+        DatabaseInterface::class => [
             'class' => DatabaseInterface::class,
             'factory' => [DatabaseInterface::class, 'getInstance'],
-            'arguments' => ['@config'],
+            'arguments' => ['@' . Config::class],
         ],
-        DbTableExists::class => ['class' => DbTableExists::class, 'arguments' => ['@dbi']],
-        'designer' => [
+        DbTableExists::class => ['class' => DbTableExists::class, 'arguments' => ['@' . DatabaseInterface::class]],
+        Designer::class => [
             'class' => Designer::class,
             'arguments' => [
-                '@dbi',
-                '@relation',
-                '@template',
-                '@config',
+                '@' . DatabaseInterface::class,
+                '@' . Relation::class,
+                '@' . Template::class,
+                '@' . Config::class,
             ],
         ],
-        'designer_common' => [
+        Common::class => [
             'class' => Common::class,
-            'arguments' => ['@dbi', '@relation', '@config'],
+            'arguments' => ['@' . DatabaseInterface::class, '@' . Relation::class, '@' . Config::class],
         ],
-        'error_handler' => ['class' => ErrorHandler::class, 'factory' => [ErrorHandler::class, 'getInstance']],
-        'error_report' => [
+        ErrorHandler::class => ['class' => ErrorHandler::class, 'factory' => [ErrorHandler::class, 'getInstance']],
+        ErrorReport::class => [
             'class' => ErrorReport::class,
-            'arguments' => ['@http_request', '@relation', '@template', '@config'],
+            'arguments' => [
+                '@' . HttpRequest::class,
+                '@' . Relation::class,
+                '@' . Template::class,
+                '@' . Config::class,
+            ],
         ],
-        'events' => ['class' => Events::class, 'arguments' => ['@dbi', '@config']],
-        Export::class => ['class' => Export::class, 'arguments' => ['@dbi', '@' . OutputHandler::class]],
-        'export' => Export::class,
-        'export_options' => [
+        Events::class => [
+            'class' => Events::class,
+            'arguments' => ['@' . DatabaseInterface::class, '@' . Config::class],
+        ],
+        Export::class => [
+            'class' => Export::class,
+            'arguments' => ['@' . DatabaseInterface::class, '@' . OutputHandler::class],
+        ],
+        Options::class => [
             'class' => Options::class,
-            'arguments' => ['@relation', '@export_template_model'],
+            'arguments' => ['@' . Relation::class, '@' . TemplateModel::class],
         ],
-        'export_template_model' => ['class' => TemplateModel::class, 'arguments' => ['@dbi']],
-        'expression_language' => ['class' => ExpressionLanguage::class],
-        'file_listing' => ['class' => FileListing::class],
+        TemplateModel::class => ['class' => TemplateModel::class, 'arguments' => ['@' . DatabaseInterface::class]],
+        ExpressionLanguage::class => ['class' => ExpressionLanguage::class],
+        FileListing::class => ['class' => FileListing::class],
         FlashMessenger::class => ['class' => FlashMessenger::class],
         Header::class => [
             'class' => Header::class,
-            'arguments' => ['@template', '@' . Console::class, '@config', '@dbi', '@relation', '@user_preferences'],
+            'arguments' => [
+                '@' . Template::class,
+                '@' . Console::class,
+                '@' . Config::class,
+                '@' . DatabaseInterface::class,
+                '@' . Relation::class,
+                '@' . UserPreferences::class,
+            ],
         ],
-        'http_request' => ['class' => HttpRequest::class],
+        HttpRequest::class => ['class' => HttpRequest::class],
         ResponseFactory::class => [
             'class' => ResponseFactory::class,
             'factory' => [ResponseFactory::class, 'create'],
         ],
-        'import' => ['class' => Import::class],
-        'import_simulate_dml' => ['class' => SimulateDml::class, 'arguments' => ['@dbi']],
-        'insert_edit' => [
+        Import::class => ['class' => Import::class],
+        SimulateDml::class => ['class' => SimulateDml::class, 'arguments' => ['@' . DatabaseInterface::class]],
+        InsertEdit::class => [
             'class' => InsertEdit::class,
-            'arguments' => ['@dbi', '@relation', '@transformations', '@file_listing', '@template', '@config'],
+            'arguments' => [
+                '@' . DatabaseInterface::class,
+                '@' . Relation::class,
+                '@' . Transformations::class,
+                '@' . FileListing::class,
+                '@' . Template::class,
+                '@' . Config::class,
+            ],
         ],
         Middleware\ErrorHandling::class => [
             'class' => Middleware\ErrorHandling::class,
-            'arguments' => ['@error_handler'],
+            'arguments' => ['@' . ErrorHandler::class],
         ],
         Middleware\OutputBuffering::class => ['class' => Middleware\OutputBuffering::class],
         Middleware\PhpExtensionsChecking::class => [
             'class' => Middleware\PhpExtensionsChecking::class,
-            'arguments' => ['@template', '@' . ResponseFactory::class],
+            'arguments' => ['@' . Template::class, '@' . ResponseFactory::class],
         ],
         Middleware\ServerConfigurationChecking::class => [
             'class' => Middleware\ServerConfigurationChecking::class,
-            'arguments' => ['@template', '@' . ResponseFactory::class],
+            'arguments' => ['@' . Template::class, '@' . ResponseFactory::class],
         ],
         Middleware\PhpSettingsConfiguration::class => ['class' => Middleware\PhpSettingsConfiguration::class],
         Middleware\RouteParsing::class => ['class' => Middleware\RouteParsing::class],
         Middleware\ConfigLoading::class => [
             'class' => Middleware\ConfigLoading::class,
-            'arguments' => ['@config', '@template', '@' . ResponseFactory::class],
+            'arguments' => ['@' . Config::class, '@' . Template::class, '@' . ResponseFactory::class],
         ],
         Middleware\UriSchemeUpdating::class => [
             'class' => Middleware\UriSchemeUpdating::class,
-            'arguments' => ['@config'],
+            'arguments' => ['@' . Config::class],
         ],
         Middleware\SessionHandling::class => [
             'class' => Middleware\SessionHandling::class,
-            'arguments' => ['@config', '@error_handler', '@template', '@' . ResponseFactory::class],
+            'arguments' => [
+                '@' . Config::class,
+                '@' . ErrorHandler::class,
+                '@' . Template::class,
+                '@' . ResponseFactory::class,
+            ],
         ],
         Middleware\EncryptedQueryParamsHandling::class => ['class' => Middleware\EncryptedQueryParamsHandling::class],
         Middleware\UrlParamsSetting::class => [
             'class' => Middleware\UrlParamsSetting::class,
-            'arguments' => ['@config'],
+            'arguments' => ['@' . Config::class],
         ],
         Middleware\TokenRequestParamChecking::class => ['class' => Middleware\TokenRequestParamChecking::class],
         Middleware\DatabaseAndTableSetting::class => ['class' => Middleware\DatabaseAndTableSetting::class],
@@ -169,190 +201,233 @@ return [
         Middleware\LanguageLoading::class => ['class' => Middleware\LanguageLoading::class],
         Middleware\ConfigErrorAndPermissionChecking::class => [
             'class' => Middleware\ConfigErrorAndPermissionChecking::class,
-            'arguments' => ['@config', '@template', '@' . ResponseFactory::class],
+            'arguments' => ['@' . Config::class, '@' . Template::class, '@' . ResponseFactory::class],
         ],
         Middleware\RequestProblemChecking::class => [
             'class' => Middleware\RequestProblemChecking::class,
-            'arguments' => ['@template', '@' . ResponseFactory::class],
+            'arguments' => ['@' . Template::class, '@' . ResponseFactory::class],
         ],
         Middleware\CurrentServerGlobalSetting::class => [
             'class' => Middleware\CurrentServerGlobalSetting::class,
-            'arguments' => ['@config'],
+            'arguments' => ['@' . Config::class],
         ],
         Middleware\ThemeInitialization::class => ['class' => Middleware\ThemeInitialization::class],
         Middleware\UrlRedirection::class => [
             'class' => Middleware\UrlRedirection::class,
-            'arguments' => ['@config', '@template', '@' . ResponseFactory::class],
+            'arguments' => ['@' . Config::class, '@' . Template::class, '@' . ResponseFactory::class],
         ],
         Middleware\SetupPageRedirection::class => [
             'class' => Middleware\SetupPageRedirection::class,
-            'arguments' => ['@config', '@' . ResponseFactory::class],
+            'arguments' => ['@' . Config::class, '@' . ResponseFactory::class],
         ],
         Middleware\MinimumCommonRedirection::class => [
             'class' => Middleware\MinimumCommonRedirection::class,
-            'arguments' => ['@config', '@' . ResponseFactory::class],
+            'arguments' => ['@' . Config::class, '@' . ResponseFactory::class],
         ],
         Middleware\LanguageAndThemeCookieSaving::class => [
             'class' => Middleware\LanguageAndThemeCookieSaving::class,
-            'arguments' => ['@config'],
+            'arguments' => ['@' . Config::class],
         ],
         Middleware\LoginCookieValiditySetting::class => [
             'class' => Middleware\LoginCookieValiditySetting::class,
-            'arguments' => ['@config'],
+            'arguments' => ['@' . Config::class],
         ],
         Middleware\Authentication::class => [
             'class' => Middleware\Authentication::class,
             'arguments' => [
-                '@config',
-                '@template',
+                '@' . Config::class,
+                '@' . Template::class,
                 '@' . ResponseFactory::class,
                 '@' . AuthenticationPluginFactory::class,
-                '@dbi',
-                '@relation',
-                '@response',
+                '@' . DatabaseInterface::class,
+                '@' . Relation::class,
+                '@' . ResponseRenderer::class,
             ],
         ],
         Middleware\DatabaseServerVersionChecking::class => [
             'class' => Middleware\DatabaseServerVersionChecking::class,
-            'arguments' => ['@config', '@template', '@' . ResponseFactory::class],
+            'arguments' => ['@' . Config::class, '@' . Template::class, '@' . ResponseFactory::class],
         ],
         Middleware\SqlDelimiterSetting::class => [
             'class' => Middleware\SqlDelimiterSetting::class,
-            'arguments' => ['@config'],
+            'arguments' => ['@' . Config::class],
         ],
         Middleware\ResponseRendererLoading::class => [
             'class' => Middleware\ResponseRendererLoading::class,
-            'arguments' => ['@config'],
+            'arguments' => ['@' . Config::class],
         ],
         Middleware\ProfilingChecking::class => ['class' => Middleware\ProfilingChecking::class],
         Middleware\UserPreferencesLoading::class => [
             'class' => Middleware\UserPreferencesLoading::class,
-            'arguments' => ['@config'],
+            'arguments' => ['@' . Config::class],
         ],
         Middleware\RecentTableHandling::class => [
             'class' => Middleware\RecentTableHandling::class,
-            'arguments' => ['@config'],
+            'arguments' => ['@' . Config::class],
         ],
         Middleware\StatementHistory::class => [
             'class' => Middleware\StatementHistory::class,
-            'arguments' => ['@config', '@history'],
+            'arguments' => ['@' . Config::class, '@' . History::class],
         ],
-        'navigation' => [
+        Navigation::class => [
             'class' => Navigation::class,
-            'arguments' => ['@template', '@relation', '@dbi', '@config'],
-        ],
-        'normalization' => [
-            'class' => Normalization::class,
             'arguments' => [
-                '@dbi',
-                '@relation',
-                '@transformations',
-                '@template',
+                '@' . Template::class,
+                '@' . Relation::class,
+                '@' . DatabaseInterface::class,
+                '@' . Config::class,
             ],
         ],
-        'operations' => [
+        Normalization::class => [
+            'class' => Normalization::class,
+            'arguments' => [
+                '@' . DatabaseInterface::class,
+                '@' . Relation::class,
+                '@' . Transformations::class,
+                '@' . Template::class,
+            ],
+        ],
+        Operations::class => [
             'class' => Operations::class,
-            'arguments' => ['@dbi', '@relation', '@table_mover'],
+            'arguments' => ['@' . DatabaseInterface::class, '@' . Relation::class, '@' . TableMover::class],
         ],
         OutputHandler::class => ['class' => OutputHandler::class],
-        'partitioning_maintenance' => [
+        Maintenance::class => [
             'class' => Maintenance::class,
-            'arguments' => ['@dbi'],
+            'arguments' => ['@' . DatabaseInterface::class],
         ],
         AuthenticationPluginFactory::class => ['class' => AuthenticationPluginFactory::class],
-        Relation::class => ['class' => Relation::class, 'arguments' => ['@dbi', '@config']],
-        'relation' => Relation::class,
-        'relation_cleanup' => ['class' => RelationCleanup::class, 'arguments' => ['@dbi', '@relation']],
-        'replication' => ['class' => Replication::class, 'arguments' => ['@dbi']],
-        'replication_gui' => [
-            'class' => ReplicationGui::class,
-            'arguments' => ['@replication', '@template'],
+        Relation::class => [
+            'class' => Relation::class,
+            'arguments' => ['@' . DatabaseInterface::class, '@' . Config::class],
         ],
-        'response' => [
+        RelationCleanup::class => [
+            'class' => RelationCleanup::class,
+            'arguments' => ['@' . DatabaseInterface::class, '@' . Relation::class],
+        ],
+        Replication::class => ['class' => Replication::class, 'arguments' => ['@' . DatabaseInterface::class]],
+        ReplicationGui::class => [
+            'class' => ReplicationGui::class,
+            'arguments' => ['@' . Replication::class, '@' . Template::class],
+        ],
+        ResponseRenderer::class => [
             'class' => ResponseRenderer::class,
             'factory' => [ResponseRenderer::class, 'getInstance'],
         ],
-        'routines' => ['class' => Routines::class, 'arguments' => ['@dbi', '@config']],
-        'server_plugins' => ['class' => Plugins::class, 'arguments' => ['@dbi']],
-        'server_privileges' => [
+        Routines::class => [
+            'class' => Routines::class,
+            'arguments' => ['@' . DatabaseInterface::class, '@' . Config::class],
+        ],
+        Plugins::class => ['class' => Plugins::class, 'arguments' => ['@' . DatabaseInterface::class]],
+        Privileges::class => [
             'class' => Privileges::class,
-            'arguments' => ['@template', '@dbi', '@relation', '@relation_cleanup', '@server_plugins', '@config'],
+            'arguments' => [
+                '@' . Template::class,
+                '@' . DatabaseInterface::class,
+                '@' . Relation::class,
+                '@' . RelationCleanup::class,
+                '@' . Plugins::class,
+                '@' . Config::class,
+            ],
         ],
-        'server_privileges_account_locking' => [
+        AccountLocking::class => [
             'class' => AccountLocking::class,
-            'arguments' => ['@dbi'],
+            'arguments' => ['@' . DatabaseInterface::class],
         ],
-        'sql' => [
+        Sql::class => [
             'class' => Sql::class,
             'arguments' => [
-                '@dbi',
-                '@relation',
-                '@relation_cleanup',
-                '@transformations',
-                '@template',
-                '@bookmarkRepository',
-                '@config',
+                '@' . DatabaseInterface::class,
+                '@' . Relation::class,
+                '@' . RelationCleanup::class,
+                '@' . Transformations::class,
+                '@' . Template::class,
+                '@' . BookmarkRepository::class,
+                '@' . Config::class,
             ],
         ],
-        'sql_query_form' => [
+        SqlQueryForm::class => [
             'class' => SqlQueryForm::class,
             'arguments' => [
-                '@template',
-                '@dbi',
-                '@bookmarkRepository',
+                '@' . Template::class,
+                '@' . DatabaseInterface::class,
+                '@' . BookmarkRepository::class,
             ],
         ],
-        'status_data' => ['class' => Data::class, 'arguments' => ['@dbi','@config']],
-        'status_monitor' => ['class' => Monitor::class, 'arguments' => ['@dbi']],
-        'status_processes' => ['class' => Processes::class, 'arguments' => ['@dbi']],
-        'table_columns_definition' => [
+        Data::class => ['class' => Data::class, 'arguments' => ['@' . DatabaseInterface::class, '@' . Config::class]],
+        Monitor::class => ['class' => Monitor::class, 'arguments' => ['@' . DatabaseInterface::class]],
+        Processes::class => ['class' => Processes::class, 'arguments' => ['@' . DatabaseInterface::class]],
+        ColumnsDefinition::class => [
             'class' => ColumnsDefinition::class,
-            'arguments' => ['@dbi', '@relation', '@transformations'],
+            'arguments' => ['@' . DatabaseInterface::class, '@' . Relation::class, '@' . Transformations::class],
         ],
-        'table_indexes' => [
+        Indexes::class => [
             'class' => Indexes::class,
-            'arguments' => ['@dbi'],
+            'arguments' => ['@' . DatabaseInterface::class],
         ],
-        'table_maintenance' => ['class' => \PhpMyAdmin\Table\Maintenance::class, 'arguments' => ['@dbi']],
-        'table_search' => ['class' => Search::class, 'arguments' => ['@dbi']],
-        Template::class => ['class' => Template::class, 'arguments' => ['@config']],
-        'template' => Template::class,
+        \PhpMyAdmin\Table\Maintenance::class => [
+            'class' => \PhpMyAdmin\Table\Maintenance::class,
+            'arguments' => ['@' . DatabaseInterface::class],
+        ],
+        Search::class => ['class' => Search::class, 'arguments' => ['@' . DatabaseInterface::class]],
+        Template::class => ['class' => Template::class, 'arguments' => ['@' . Config::class]],
         ThemeManager::class => ['class' => ThemeManager::class],
-        'tracking' => [
+        Tracking::class => [
             'class' => Tracking::class,
             'arguments' => [
-                '@sql_query_form',
-                '@template',
-                '@relation',
-                '@dbi',
-                '@tracking_checker',
+                '@' . SqlQueryForm::class,
+                '@' . Template::class,
+                '@' . Relation::class,
+                '@' . DatabaseInterface::class,
+                '@' . TrackingChecker::class,
             ],
         ],
-        'tracking_checker' => [
+        TrackingChecker::class => [
             'class' => TrackingChecker::class,
-            'arguments' => ['@dbi', '@relation'],
+            'arguments' => ['@' . DatabaseInterface::class, '@' . Relation::class],
         ],
-        Transformations::class => ['class' => Transformations::class, 'arguments' => ['@dbi', '@relation']],
-        'transformations' => Transformations::class,
-        'triggers' => ['class' => Triggers::class, 'arguments' => ['@dbi']],
-        'user_password' => [
+        Transformations::class => [
+            'class' => Transformations::class,
+            'arguments' => ['@' . DatabaseInterface::class, '@' . Relation::class],
+        ],
+        Triggers::class => ['class' => Triggers::class, 'arguments' => ['@' . DatabaseInterface::class]],
+        UserPassword::class => [
             'class' => UserPassword::class,
-            'arguments' => ['@server_privileges', '@' . AuthenticationPluginFactory::class, '@dbi'],
+            'arguments' => [
+                '@' . Privileges::class,
+                '@' . AuthenticationPluginFactory::class,
+                '@' . DatabaseInterface::class,
+            ],
         ],
-        'user_preferences' => ['class' => UserPreferences::class, 'arguments' => ['@dbi', '@relation', '@template']],
-        UserPrivilegesFactory::class => ['class' => UserPrivilegesFactory::class, 'arguments' => ['@dbi']],
-        'version_information' => ['class' => VersionInformation::class],
-        DatabaseInterface::class => 'dbi',
-        ResponseRenderer::class => 'response',
-        'bookmarkRepository' => ['class' => BookmarkRepository::class, 'arguments' => ['@dbi', '@relation']],
+        UserPreferences::class => [
+            'class' => UserPreferences::class,
+            'arguments' => ['@' . DatabaseInterface::class, '@' . Relation::class, '@' . Template::class],
+        ],
+        UserPrivilegesFactory::class => [
+            'class' => UserPrivilegesFactory::class,
+            'arguments' => ['@' . DatabaseInterface::class],
+        ],
+        VersionInformation::class => ['class' => VersionInformation::class],
+        BookmarkRepository::class => [
+            'class' => BookmarkRepository::class,
+            'arguments' => ['@' . DatabaseInterface::class, '@' . Relation::class],
+        ],
         Console::class => [
             'class' => Console::class,
-            'arguments' => [ '@relation', '@template', '@bookmarkRepository', '@history'],
+            'arguments' => [
+                '@' . Relation::class,
+                '@' . Template::class,
+                '@' . BookmarkRepository::class,
+                '@' . History::class,
+            ],
         ],
-        'table_mover' => ['class' => TableMover::class, 'arguments' => ['@dbi', '@relation']],
-        'history' => [
+        TableMover::class => [
+            'class' => TableMover::class,
+            'arguments' => ['@' . DatabaseInterface::class, '@' . Relation::class],
+        ],
+        History::class => [
             'class' => History::class,
-            'arguments' => ['@dbi', '@relation', '@config'],
+            'arguments' => ['@' . DatabaseInterface::class, '@' . Relation::class, '@' . Config::class],
         ],
     ],
 ];
