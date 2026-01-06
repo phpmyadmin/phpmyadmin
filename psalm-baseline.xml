@@ -16451,12 +16451,17 @@
     </MixedMethodCall>
   </file>
   <file src="test/classes/UserPreferencesTest.php">
+    <InvalidArrayOffset occurrences="2">
+      <code>$resultConfig['2fa']</code>
+      <code>$resultConfig['Console/Mode']</code>
+    </InvalidArrayOffset>
     <MixedArgument occurrences="1">
       <code>$_SESSION['userconfig']</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="2">
+    <MixedArrayAccess occurrences="3">
       <code>$_SESSION['userconfig']['db']</code>
       <code>$_SESSION['userconfig']['ts']</code>
+      <code>$resultConfig['2fa']['settings']</code>
     </MixedArrayAccess>
     <TypeDoesNotContainType occurrences="1">
       <code>assertTrue</code>

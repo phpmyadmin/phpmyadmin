@@ -232,7 +232,10 @@ class UserPreferencesTest extends AbstractNetworkTestCase
         $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([])->toArray();
 
         // Initial save with 2fa
-        $initialConfig = ['2fa' => ['backend' => 'application', 'settings' => ['secret' => 'thisisasecret']], 'theme' => 'dark'];
+        $initialConfig = [
+            '2fa' => ['backend' => 'application', 'settings' => ['secret' => 'thisisasecret']],
+            'theme' => 'dark',
+        ];
         $this->userPreferences->save($initialConfig);
 
         // Partial save without 2fa

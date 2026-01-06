@@ -1898,16 +1898,7 @@ class UtilTest extends AbstractTestCase
      */
     public static function providerUserDir(): array
     {
-        return [
-            [
-                '/var/pma_tmp/%u/',
-                '/var/pma_tmp/root/',
-            ],
-            [
-                '/home/%u/pma',
-                '/home/root/pma/',
-            ],
-        ];
+        return [['/var/pma_tmp/%u/', '/var/pma_tmp/root/'], ['/home/%u/pma', '/home/root/pma/'], ['/', '/'], ['', '']];
     }
 
     /**
