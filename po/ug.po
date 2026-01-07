@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2025-10-27 19:02+0000\n"
+"PO-Revision-Date: 2026-01-08 06:01+0000\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
-"Language-Team: Uyghur <https://hosted.weblate.org/projects/phpmyadmin/4-9/ug/"
-">\n"
+"Language-Team: Uyghur <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
+"ug/>\n"
 "Language: ug\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.14.1-dev\n"
+"X-Generator: Weblate 5.15.1\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -55,10 +55,8 @@ msgstr "ساندان ئىزاھاتى"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:596
 #: templates/table/structure/display_table_stats.twig:6
 #: templates/columns_definitions/column_definitions_form.twig:72
-#, fuzzy
-#| msgid "Table comments"
 msgid "Table comments:"
-msgstr "جەدۋەل ئىزاھى"
+msgstr "جەدۋەل ئىزاھى:"
 
 #: db_datadict.php:117 libraries/classes/Index.php:723
 #: libraries/classes/InsertEdit.php:1913
@@ -15472,10 +15470,8 @@ msgstr ""
 
 #: templates/table/structure/display_partitions.twig:24
 #: templates/columns_definitions/partitions.twig:76
-#, fuzzy
-#| msgid "Relations"
 msgid "Partition"
-msgstr "مۇناسىۋىتى"
+msgstr "بۆلەك"
 
 #: templates/table/structure/display_partitions.twig:29
 #, fuzzy
@@ -15695,26 +15691,20 @@ msgid "Table name"
 msgstr ""
 
 #: templates/columns_definitions/column_definitions_form.twig:40
-#, fuzzy
-#| msgid "Add/Delete columns"
 msgid "column(s)"
-msgstr "سۆزلەم قوشۇش\\ئۆچۈرۈش"
+msgstr "رەت"
 
 #: templates/columns_definitions/column_definitions_form.twig:74
-#, fuzzy
-#| msgid "Collation"
 msgid "Collation:"
-msgstr "تاسقاش"
+msgstr "سېلىشتۇرۇش:"
 
 #: templates/columns_definitions/column_definitions_form.twig:77
 msgid "Storage Engine:"
 msgstr ""
 
 #: templates/columns_definitions/column_definitions_form.twig:82
-#, fuzzy
-#| msgid "Creation"
 msgid "Connection:"
-msgstr "قۇرۇش"
+msgstr "باغلىنىش:"
 
 #: templates/columns_definitions/column_definitions_form.twig:128
 msgid "PARTITION definition:"
@@ -16453,22 +16443,17 @@ msgid ""
 msgstr ""
 
 #: templates/columns_definitions/column_name.twig:4
-#, fuzzy, php-format
-#| msgid "Select referenced key"
+#, php-format
 msgid "Referenced by %s."
-msgstr "سېرتقى ئۇلىنىشنى تاللاش"
+msgstr "%s دىن نەقىل ئېلىنغان."
 
 #: templates/columns_definitions/column_name.twig:12
-#, fuzzy
-#| msgid "Select Foreign Key"
 msgid "Is a foreign key."
-msgstr "تاشقى ئاچقۇق قىممىتى"
+msgstr "سىرتقى ئاچقۇچ."
 
 #: templates/columns_definitions/column_name.twig:40
-#, fuzzy
-#| msgid "Remove database"
 msgid "Pick from Central Columns"
-msgstr "ئۆزگەرتىلگەن ساندان ئىسمى"
+msgstr "مەركىزى رەتتىن تاللا"
 
 #: templates/table/tracking/structure_snapshot_columns.twig:47
 #: templates/table/structure/table_structure_row.twig:34
@@ -16492,35 +16477,25 @@ msgid "Convert to Kana"
 msgstr ""
 
 #: templates/columns_definitions/partitions.twig:17
-#, fuzzy
-#| msgid "Relations"
 msgid "Partition by:"
-msgstr "مۇناسىۋىتى"
+msgstr "بۆلگۈچى:"
 
 #: templates/columns_definitions/partitions.twig:32
 #: templates/columns_definitions/partitions.twig:60
-#, fuzzy
-#| msgid "Number of columns"
 msgid "Expression or column list"
-msgstr "سۆزلەم سانى"
+msgstr "مۇنتىزىم ئىپادە ياكى رەت تىزىمى"
 
 #: templates/columns_definitions/partitions.twig:37
-#, fuzzy
-#| msgid "Relations"
 msgid "Partitions:"
-msgstr "مۇناسىۋىتى"
+msgstr "بۆلەك:"
 
 #: templates/columns_definitions/partitions.twig:45
-#, fuzzy
-#| msgid "Relations"
 msgid "Subpartition by:"
-msgstr "مۇناسىۋىتى"
+msgstr "تارماق بۆلەك مەنبەسى:"
 
 #: templates/columns_definitions/partitions.twig:65
-#, fuzzy
-#| msgid "Relations"
 msgid "Subpartitions:"
-msgstr "مۇناسىۋىتى"
+msgstr "تارماق بۆلەك:"
 
 #: templates/columns_definitions/partitions.twig:78
 #, fuzzy
@@ -16986,15 +16961,13 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.txt:54
-#, fuzzy, php-format
+#, php-format
 msgid "The uptime is only %s"
-msgstr "ئىش ۋاقتى پەقەت% s"
+msgstr "ئىجرا قىلىش ۋاقتى پەقەت %s"
 
 #: libraries/advisory_rules_generic.txt:56
-#, fuzzy
-#| msgid "Versions"
 msgid "Questions below 1,000"
-msgstr "نەشىر"
+msgstr "سۈرۈشتۈرۈش سانى 1000 دىن تۆۋەن"
 
 #: libraries/advisory_rules_generic.txt:59
 msgid ""
@@ -17007,18 +16980,16 @@ msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
 msgstr ""
+"مۇلازىمېتىر تېخىمۇ كۆپ سوئالنى ئىجرا قىلغۇچە ئۇزۇنراق ۋاقىت ئىجرا قىلسۇن."
 
 #: libraries/advisory_rules_generic.txt:61
-#, fuzzy, php-format
-#| msgid "Create version"
+#, php-format
 msgid "Current amount of Questions: %s"
-msgstr "نەشىرنى قۇىماق"
+msgstr "نۆۋەتتىكى سۈرۈشتۈرۈش سانى: %s"
 
 #: libraries/advisory_rules_generic.txt:63
-#, fuzzy
-#| msgid "Format of imported file"
 msgid "Percentage of slow queries"
-msgstr "كىرگۈزگەن ھۆججەت شەكلى"
+msgstr "ئاستا سۈرۈشتۈرۈشنىڭ پىرسەنتى"
 
 #: libraries/advisory_rules_generic.txt:66
 msgid ""
