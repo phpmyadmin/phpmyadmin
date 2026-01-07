@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-01-04 00:33+0000\n"
-"PO-Revision-Date: 2025-10-27 19:02+0000\n"
+"PO-Revision-Date: 2026-01-08 06:01+0000\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ug/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.14.1-dev\n"
+"X-Generator: Weblate 5.15.1\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -222,10 +222,8 @@ msgid "Add"
 msgstr "قوش"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:38
-#, fuzzy
-#| msgid "Add/Delete columns"
 msgid "column(s)"
-msgstr "سۆزلەم قوشۇش\\ئۆچۈرۈش"
+msgstr "رەت"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:41
 #: resources/templates/database/designer/main.twig:1099
@@ -288,26 +286,20 @@ msgstr "ئىجرا قىلىش"
 #: resources/templates/database/data_dictionary/index.twig:16
 #: resources/templates/table/structure/display_table_stats.twig:5
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:555
-#, fuzzy
-#| msgid "Table comments"
 msgid "Table comments:"
-msgstr "جەدۋەل ئىزاھى"
+msgstr "جەدۋەل ئىزاھى:"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:70
-#, fuzzy
-#| msgid "Collation"
 msgid "Collation:"
-msgstr "تاسقاش"
+msgstr "سېلىشتۇرۇش:"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:73
 msgid "Storage Engine:"
 msgstr "ساقلاش ماتورى:"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:78
-#, fuzzy
-#| msgid "Creation"
 msgid "Connection:"
-msgstr "قۇرۇش"
+msgstr "باغلىنىش:"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:109
 #: resources/templates/columns_definitions/partitions.twig:137
@@ -320,11 +312,9 @@ msgid "PARTITION definition:"
 msgstr "PARTITION ئېنىقلىمىسى:"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:151
-#, fuzzy
-#| msgid "Creation"
 msgctxt "Online transaction part of the SQL DDL for InnoDB"
 msgid "Online transaction"
-msgstr "قۇرۇش"
+msgstr "توردىكى مۇئامىلە"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:154
 #: resources/templates/modals/index_dialog_modal.twig:11
@@ -373,10 +363,8 @@ msgstr ""
 #: resources/templates/table/relation/common_form.twig:150
 #: resources/templates/table/zoom_search/result_form.twig:24
 #: resources/templates/table/zoom_search/result_form.twig:95
-#, fuzzy
-#| msgid "No Privileges"
 msgid "Loading"
-msgstr "ھوقۇقسىز"
+msgstr "يۈكلەۋاتىدۇ"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:174
 #: resources/templates/columns_definitions/column_definitions_form.twig:179
@@ -460,16 +448,13 @@ msgid "Close"
 msgstr "تاقاش"
 
 #: resources/templates/columns_definitions/column_name.twig:4
-#, fuzzy, php-format
-#| msgid "Select referenced key"
+#, php-format
 msgid "Referenced by %s."
-msgstr "سېرتقى ئۇلىنىشنى تاللاش"
+msgstr "%s دىن نەقىل ئېلىنغان."
 
 #: resources/templates/columns_definitions/column_name.twig:12
-#, fuzzy
-#| msgid "Select Foreign Key"
 msgid "Is a foreign key."
-msgstr "تاشقى ئاچقۇق قىممىتى"
+msgstr "سىرتقى ئاچقۇچ."
 
 #: resources/templates/columns_definitions/column_name.twig:16
 #: resources/templates/database/data_dictionary/index.twig:23
@@ -505,49 +490,35 @@ msgid "Column"
 msgstr "سۆزلەم"
 
 #: resources/templates/columns_definitions/column_name.twig:39
-#, fuzzy
-#| msgid "Remove database"
 msgid "Pick from Central Columns"
-msgstr "ئۆزگەرتىلگەن ساندان ئىسمى"
+msgstr "مەركىزى رەتتىن تاللا"
 
 #: resources/templates/columns_definitions/partitions.twig:17
-#, fuzzy
-#| msgid "Relations"
 msgid "Partition by:"
-msgstr "مۇناسىۋىتى"
+msgstr "بۆلگۈچى:"
 
 #: resources/templates/columns_definitions/partitions.twig:32
 #: resources/templates/columns_definitions/partitions.twig:60
-#, fuzzy
-#| msgid "Number of columns"
 msgid "Expression or column list"
-msgstr "سۆزلەم سانى"
+msgstr "مۇنتىزىم ئىپادە ياكى رەت تىزىمى"
 
 #: resources/templates/columns_definitions/partitions.twig:37
-#, fuzzy
-#| msgid "Relations"
 msgid "Partitions:"
-msgstr "مۇناسىۋىتى"
+msgstr "بۆلەك:"
 
 #: resources/templates/columns_definitions/partitions.twig:45
-#, fuzzy
-#| msgid "Relations"
 msgid "Subpartition by:"
-msgstr "مۇناسىۋىتى"
+msgstr "تارماق بۆلەك مەنبەسى:"
 
 #: resources/templates/columns_definitions/partitions.twig:65
-#, fuzzy
-#| msgid "Relations"
 msgid "Subpartitions:"
-msgstr "مۇناسىۋىتى"
+msgstr "تارماق بۆلەك:"
 
 #: resources/templates/columns_definitions/partitions.twig:76
 #: resources/templates/table/operations/index.twig:488
 #: resources/templates/table/structure/display_partitions.twig:25
-#, fuzzy
-#| msgid "Relations"
 msgid "Partition"
-msgstr "مۇناسىۋىتى"
+msgstr "بۆلەك"
 
 #: resources/templates/columns_definitions/partitions.twig:78
 #, fuzzy
@@ -8485,15 +8456,13 @@ msgstr ""
 "قىلىنىدۇ"
 
 #: src/Advisory/Rules.php:42
-#, fuzzy, php-format
+#, php-format
 msgid "The uptime is only %s"
-msgstr "ئىش ۋاقتى پەقەت% s"
+msgstr "ئىجرا قىلىش ۋاقتى پەقەت %s"
 
 #: src/Advisory/Rules.php:47
-#, fuzzy
-#| msgid "Versions"
 msgid "Questions below 1,000"
-msgstr "نەشىر"
+msgstr "سۈرۈشتۈرۈش سانى 1000 دىن تۆۋەن"
 
 #: src/Advisory/Rules.php:51
 msgid ""
@@ -8507,19 +8476,17 @@ msgstr ""
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
-msgstr "مۇلازىمېتىر تېخىمۇ كۆپ سوئاللارنى ئىجرا قىلغۇچە ئۇزۇنراق ئىجرا قىلسۇن."
+msgstr ""
+"مۇلازىمېتىر تېخىمۇ كۆپ سوئالنى ئىجرا قىلغۇچە ئۇزۇنراق ۋاقىت ئىجرا قىلسۇن."
 
 #: src/Advisory/Rules.php:57
-#, fuzzy, php-format
-#| msgid "Create version"
+#, php-format
 msgid "Current amount of Questions: %s"
-msgstr "نەشىرنى قۇىماق"
+msgstr "نۆۋەتتىكى سۈرۈشتۈرۈش سانى: %s"
 
 #: src/Advisory/Rules.php:62
-#, fuzzy
-#| msgid "Format of imported file"
 msgid "Percentage of slow queries"
-msgstr "كىرگۈزگەن ھۆججەت شەكلى"
+msgstr "ئاستا سۈرۈشتۈرۈشنىڭ پىرسەنتى"
 
 #: src/Advisory/Rules.php:66
 msgid ""
