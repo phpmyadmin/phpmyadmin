@@ -42,14 +42,14 @@ final class ContainerBuilderTest extends AbstractTestCase
     /** @return array<int, array<int, class-string>> */
     public static function servicesProvider(): array
     {
-        /** @psalm-var array{services: array<class-string, mixed>} $services */
+        /** @psalm-var array<class-string, mixed> $services */
         $services = include ROOT_PATH . 'app/services.php';
-        /** @psalm-var array{services: array<class-string, mixed>} $controllerServices */
+        /** @psalm-var array<class-string, mixed> $controllerServices */
         $controllerServices = include ROOT_PATH . 'app/services_controllers.php';
 
         return array_map(
             static fn ($service) => [$service],
-            array_merge(array_keys($services['services']), array_keys($controllerServices['services'])),
+            array_merge(array_keys($services), array_keys($controllerServices)),
         );
     }
 }

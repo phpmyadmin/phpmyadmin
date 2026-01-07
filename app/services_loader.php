@@ -10,9 +10,9 @@ use function is_string;
 
 return static function (ContainerConfigurator $configurator): void {
     $services = $configurator->services();
-    /** @param array<'services', array<string, array{class: string, arguments?: array<string>, factory?: callable}>> $servicesFile */
+    /** @param array<string, string|array{class: string, arguments?: array<string>, factory?: callable}> $servicesFile */
     $loadServices = static function (array $servicesFile, ServicesConfigurator $services): void {
-        foreach ($servicesFile['services'] as $serviceName => $service) {
+        foreach ($servicesFile as $serviceName => $service) {
             if (is_string($service)) {
                 $services->alias($serviceName, $service);
                 continue;
