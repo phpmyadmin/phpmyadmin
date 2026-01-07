@@ -151,6 +151,6 @@ jobs:
         uses: actions/upload-artifact@v6
         if: ${{ failure() }}
         with:
-          name: selenium-screenshots
+          name: selenium-screenshots-${{ strategy.job-index }}
           path: ${{ github.workspace }}/build/selenium/**/*
           retention-days: 3
