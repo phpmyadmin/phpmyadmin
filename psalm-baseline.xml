@@ -3,15 +3,13 @@
   <file src="app/services_loader.php">
     <MixedArgument>
       <code><![CDATA[$argumentName]]></code>
-      <code><![CDATA[$argumentName]]></code>
       <code><![CDATA[$serviceName]]></code>
       <code><![CDATA[$serviceName]]></code>
       <code><![CDATA[$service['arguments']]]></code>
-      <code><![CDATA[$service['class'] ?? null]]></code>
+      <code><![CDATA[$service['class']]]></code>
       <code><![CDATA[$service['factory']]]></code>
     </MixedArgument>
     <MixedArrayAccess>
-      <code><![CDATA[$argumentName[0]]]></code>
       <code><![CDATA[$service['arguments']]]></code>
       <code><![CDATA[$service['arguments']]]></code>
       <code><![CDATA[$service['class']]]></code>
