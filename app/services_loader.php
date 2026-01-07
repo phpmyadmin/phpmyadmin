@@ -7,37 +7,31 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 use Symfony\Component\DependencyInjection\Reference;
 
 use function is_string;
-use function substr;
 
 return static function (ContainerConfigurator $configurator): void {
     $services = $configurator->services();
+    /** @param array<string, string|array{class: string, arguments?: array<string>, factory?: callable}> $servicesFile */
     $loadServices = static function (array $servicesFile, ServicesConfigurator $services): void {
-        foreach ($servicesFile['services'] as $serviceName => $service) {
+        foreach ($servicesFile as $serviceName => $service) {
             if (is_string($service)) {
                 $services->alias($serviceName, $service);
                 continue;
             }
 
-            $theService = $services->set($serviceName, $service['class'] ?? null);
-            if (isset($service['arguments'])) {// !== null check
-                foreach ($service['arguments'] as &$argumentName) {
-                    if ($argumentName[0] !== '@') {
-                        continue;
-                    }
-
-                    $services->alias($serviceName, substr($argumentName, 1));
-                    $argumentName = new Reference(substr($argumentName, 1));
-                }
-
-                $theService->args($service['arguments']);
+            $theService = $services->set($serviceName, $service['class']);
+            if (isset($service['factory'])) {
+                $theService->factory($service['factory']);
             }
 
-            if (! isset($service['factory'])) {
+            if (! isset($service['arguments'])) {
                 continue;
             }
 
-            // !== null check
-            $theService->factory($service['factory']);
+            foreach ($service['arguments'] as &$argumentName) {
+                $argumentName = new Reference($argumentName);
+            }
+
+            $theService->args($service['arguments']);
         }
     };
 

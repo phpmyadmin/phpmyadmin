@@ -9,7 +9,7 @@ parameters:
 		-
 			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
 			identifier: foreach.nonIterable
-			count: 2
+			count: 1
 			path: app/services_loader.php
 
 		-
@@ -31,12 +31,6 @@ parameters:
 			path: app/services_loader.php
 
 		-
-			message: '#^Cannot access offset 0 on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: app/services_loader.php
-
-		-
 			message: '#^Parameter \#1 \$arguments of method Symfony\\Component\\DependencyInjection\\Loader\\Configurator\\ServiceConfigurator\:\:args\(\) expects array, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -49,25 +43,25 @@ parameters:
 			path: app/services_loader.php
 
 		-
-			message: '#^Parameter \#1 \$id of method Symfony\\Component\\DependencyInjection\\Loader\\Configurator\\ServicesConfigurator\:\:alias\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#1 \$id of class Symfony\\Component\\DependencyInjection\\Reference constructor expects string, mixed given\.$#'
 			identifier: argument.type
-			count: 2
+			count: 1
 			path: app/services_loader.php
 
 		-
-			message: '#^Parameter \#1 \$id of method Symfony\\Component\\DependencyInjection\\Loader\\Configurator\\ServicesConfigurator\:\:set\(\) expects string\|null, mixed given\.$#'
+			message: '#^Parameter \#1 \$id of method Symfony\\Component\\DependencyInjection\\Loader\\Configurator\\ServicesConfigurator\:\:alias\(\) expects string, \(int\|string\) given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/services_loader.php
+
+		-
+			message: '#^Parameter \#1 \$id of method Symfony\\Component\\DependencyInjection\\Loader\\Configurator\\ServicesConfigurator\:\:set\(\) expects string\|null, \(int\|string\) given\.$#'
 			identifier: argument.type
 			count: 1
 			path: app/services_loader.php
 
 		-
 			message: '#^Parameter \#1 \$servicesFile of closure expects array, mixed given\.$#'
-			identifier: argument.type
-			count: 2
-			path: app/services_loader.php
-
-		-
-			message: '#^Parameter \#1 \$string of function substr expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 2
 			path: app/services_loader.php

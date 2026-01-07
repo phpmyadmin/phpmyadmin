@@ -2,7 +2,13 @@
 
 declare(strict_types=1);
 
+use PhpMyAdmin\Advisory\Advisor;
+use PhpMyAdmin\Bookmarks\BookmarkRepository;
+use PhpMyAdmin\BrowseForeigners;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\BrowseForeignersController;
 use PhpMyAdmin\Controllers\ChangeLogController;
 use PhpMyAdmin\Controllers\CheckRelationsController;
@@ -41,1379 +47,1190 @@ use PhpMyAdmin\Controllers\Triggers;
 use PhpMyAdmin\Controllers\UserPasswordController;
 use PhpMyAdmin\Controllers\VersionCheckController;
 use PhpMyAdmin\Controllers\View;
+use PhpMyAdmin\CreateAddField;
+use PhpMyAdmin\Database\CentralColumns;
+use PhpMyAdmin\Database\Designer;
+use PhpMyAdmin\Database\Designer\Common;
+use PhpMyAdmin\Database\Events;
+use PhpMyAdmin\Database\Routines;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Error\ErrorHandler;
+use PhpMyAdmin\Error\ErrorReport;
+use PhpMyAdmin\Export\Options;
+use PhpMyAdmin\Export\TemplateModel;
 use PhpMyAdmin\FlashMessenger;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
+use PhpMyAdmin\Import\SimulateDml;
+use PhpMyAdmin\InsertEdit;
+use PhpMyAdmin\Navigation\Navigation;
+use PhpMyAdmin\Partitioning\Maintenance;
 use PhpMyAdmin\Plugins\AuthenticationPluginFactory;
+use PhpMyAdmin\Replication\Replication;
+use PhpMyAdmin\Replication\ReplicationGui;
+use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Server\Plugins;
+use PhpMyAdmin\Server\Privileges;
+use PhpMyAdmin\Server\Privileges\AccountLocking;
+use PhpMyAdmin\Server\Status\Data;
+use PhpMyAdmin\Server\Status\Monitor;
+use PhpMyAdmin\Server\Status\Processes;
+use PhpMyAdmin\SqlQueryForm;
+use PhpMyAdmin\Table\ColumnsDefinition;
+use PhpMyAdmin\Table\Indexes;
+use PhpMyAdmin\Table\Search;
+use PhpMyAdmin\Table\TableMover;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Theme\ThemeManager;
+use PhpMyAdmin\Tracking\Tracking;
+use PhpMyAdmin\Tracking\TrackingChecker;
+use PhpMyAdmin\Transformations;
+use PhpMyAdmin\UserPassword;
+use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\UserPrivilegesFactory;
+use PhpMyAdmin\VersionInformation;
 
 return [
-    'services' => [
-        BrowseForeignersController::class => [
-            'class' => BrowseForeignersController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$browseForeigners' => '@browse_foreigners',
-                '$relation' => '@relation',
-            ],
-        ],
-        ChangeLogController::class => [
-            'class' => ChangeLogController::class,
-            'arguments' => ['@response', '@config', '@' . ResponseFactory::class, '@template'],
-        ],
-        CheckRelationsController::class => [
-            'class' => CheckRelationsController::class,
-            'arguments' => ['$response' => '@response', '$relation' => '@relation', '$config' => '@config'],
-        ],
-        CollationConnectionController::class => [
-            'class' => CollationConnectionController::class,
-            'arguments' => ['$response' => '@response', '$config' => '@config'],
-        ],
-        ColumnController::class => [
-            'class' => ColumnController::class,
-            'arguments' => ['$response' => '@response', '$dbi' => '@dbi'],
-        ],
-        UpdateNavWidthConfigController::class => [
-            'class' => UpdateNavWidthConfigController::class,
-            'arguments' => ['$response' => '@response', '$config' => '@config'],
-        ],
-        Console\Bookmark\AddController::class => [
-            'class' => Console\Bookmark\AddController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$bookmarkRepository' => '@bookmarkRepository',
-                '$config' => '@config',
-            ],
-        ],
-        Console\Bookmark\RefreshController::class => [
-            'class' => Console\Bookmark\RefreshController::class,
-            'arguments' => ['$response' => '@response', '$console' => '@' . \PhpMyAdmin\Console\Console::class],
-        ],
-        Console\UpdateConfigController::class => [
-            'class' => Console\UpdateConfigController::class,
-            'arguments' => ['$response' => '@response', '$config' => '@config'],
-        ],
-        Database\CentralColumns\PopulateColumnsController::class => [
-            'class' => Database\CentralColumns\PopulateColumnsController::class,
-            'arguments' => ['$response' => '@response', '$centralColumns' => '@central_columns'],
-        ],
-        Database\CentralColumnsController::class => [
-            'class' => Database\CentralColumnsController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$centralColumns' => '@central_columns',
-                '$config' => '@config',
-            ],
-        ],
-        Database\DataDictionaryController::class => [
-            'class' => Database\DataDictionaryController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$relation' => '@relation',
-                '$transformations' => '@transformations',
-                '$dbi' => '@dbi',
-            ],
-        ],
-        Database\DesignerController::class => [
-            'class' => Database\DesignerController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$databaseDesigner' => '@designer',
-                '$designerCommon' => '@designer_common',
-                '$dbTableExists' => '@' . DbTableExists::class,
-            ],
-        ],
-        Database\EventsController::class => [
-            'class' => Database\EventsController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$events' => '@events',
-                '$dbi' => '@dbi',
-                '$dbTableExists' => '@' . DbTableExists::class,
-            ],
-        ],
-        Database\ExportController::class => [
-            'class' => Database\ExportController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$export' => '@export',
-                '$exportOptions' => '@export_options',
-                '$pageSettings' => '@' . PageSettings::class,
-                '$dbTableExists' => '@' . DbTableExists::class,
-            ],
-        ],
-        Database\ImportController::class => [
-            'class' => Database\ImportController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$dbi' => '@dbi',
-                '$pageSettings' => '@' . PageSettings::class,
-                '$dbTableExists' => '@' . DbTableExists::class,
-                '$config' => '@config',
-            ],
-        ],
-        Database\MultiTableQuery\QueryController::class => [
-            'class' => Database\MultiTableQuery\QueryController::class,
-            'arguments' => ['$response' => '@response', '$sql' => '@sql'],
-        ],
-        Database\MultiTableQuery\TablesController::class => [
-            'class' => Database\MultiTableQuery\TablesController::class,
-            'arguments' => ['$response' => '@response', '$dbi' => '@dbi'],
-        ],
-        Database\MultiTableQueryController::class => [
-            'class' => Database\MultiTableQueryController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$dbi' => '@dbi'],
-        ],
-        Operations\Database\CollationController::class => [
-            'class' => Operations\Database\CollationController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$operations' => '@operations',
-                '$dbi' => '@dbi',
-                '$dbTableExists' => '@' . DbTableExists::class,
-            ],
-        ],
-        Operations\DatabaseController::class => [
-            'class' => Operations\DatabaseController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$operations' => '@operations',
-                '$userPrivilegesFactory' => '@' . UserPrivilegesFactory::class,
-                '$relation' => '@relation',
-                '$relationCleanup' => '@relation_cleanup',
-                '$dbi' => '@dbi',
-                '$dbTableExists' => '@' . DbTableExists::class,
-                '$config' => '@config',
-            ],
-        ],
-        Database\PrivilegesController::class => [
-            'class' => Database\PrivilegesController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$privileges' => '@server_privileges',
-                '$dbi' => '@dbi',
-                '$config' => '@config',
-            ],
-        ],
-        Database\RoutinesController::class => [
-            'class' => Database\RoutinesController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$userPrivilegesFactory' => '@' . UserPrivilegesFactory::class,
-                '$dbi' => '@dbi',
-                '$routines' => '@routines',
-                '$dbTableExists' => '@' . DbTableExists::class,
-                '$config' => '@config',
-            ],
-        ],
-        Database\SearchController::class => [
-            'class' => Database\SearchController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$dbi' => '@dbi',
-                '$dbTableExists' => '@' . DbTableExists::class,
-                '$config' => '@config',
-            ],
-        ],
-        Database\SqlAutoCompleteController::class => [
-            'class' => Database\SqlAutoCompleteController::class,
-            'arguments' => ['$response' => '@response', '$dbi' => '@dbi', '$config' => '@config'],
-        ],
-        Database\SqlController::class => [
-            'class' => Database\SqlController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$sqlQueryForm' => '@sql_query_form',
-                '$pageSettings' => '@' . PageSettings::class,
-                '$dbTableExists' => '@' . DbTableExists::class,
-            ],
-        ],
-        Database\SqlFormatController::class => [
-            'class' => Database\SqlFormatController::class,
-            'arguments' => ['$response' => '@response'],
-        ],
-        Database\Structure\AddPrefixController::class => [
-            'class' => Database\Structure\AddPrefixController::class,
-            'arguments' => ['@response', '@' . ResponseFactory::class, '@template'],
-        ],
-        Database\Structure\AddPrefixTableController::class => [
-            'class' => Database\Structure\AddPrefixTableController::class,
-            'arguments' => ['$dbi' => '@dbi', '$structureController' => '@' . Database\StructureController::class],
-        ],
-        Database\Structure\CentralColumns\AddController::class => [
-            'class' => Database\Structure\CentralColumns\AddController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$dbi' => '@dbi',
-                '$structureController' => '@' . Database\StructureController::class,
-            ],
-        ],
-        Database\Structure\CentralColumns\MakeConsistentController::class => [
-            'class' => Database\Structure\CentralColumns\MakeConsistentController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$dbi' => '@dbi',
-                '$structureController' => '@' . Database\StructureController::class,
-            ],
-        ],
-        Database\Structure\CentralColumns\RemoveController::class => [
-            'class' => Database\Structure\CentralColumns\RemoveController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$dbi' => '@dbi',
-                '$structureController' => '@' . Database\StructureController::class,
-            ],
-        ],
-        Database\Structure\ChangePrefixFormController::class => [
-            'class' => Database\Structure\ChangePrefixFormController::class,
-            'arguments' => ['@response', '@' . ResponseFactory::class, '@template'],
-        ],
-        Database\Structure\CopyFormController::class => [
-            'class' => Database\Structure\CopyFormController::class,
-            'arguments' => ['@response', '@' . ResponseFactory::class, '@template'],
-        ],
-        Database\Structure\CopyTableController::class => [
-            'class' => Database\Structure\CopyTableController::class,
-            'arguments' => [
-                '$operations' => '@operations',
-                '$structureController' => '@' . Database\StructureController::class,
-                '$userPrivilegesFactory' => '@' . UserPrivilegesFactory::class,
-                '$tableMover' => '@table_mover',
-            ],
-        ],
-        Database\Structure\CopyTableWithPrefixController::class => [
-            'class' => Database\Structure\CopyTableWithPrefixController::class,
-            'arguments' => [
-                '$structureController' => '@' . Database\StructureController::class,
-                '$tableMover' => '@table_mover',
-            ],
-        ],
-        Database\Structure\DropFormController::class => [
-            'class' => Database\Structure\DropFormController::class,
-            'arguments' => ['$response' => '@response', '$dbi' => '@dbi'],
-        ],
-        Database\Structure\DropTableController::class => [
-            'class' => Database\Structure\DropTableController::class,
-            'arguments' => [
-                '$dbi' => '@dbi',
-                '$relationCleanup' => '@relation_cleanup',
-                '$structureController' => '@' . Database\StructureController::class,
-            ],
-        ],
-        Database\Structure\EmptyFormController::class => [
-            'class' => Database\Structure\EmptyFormController::class,
-            'arguments' => ['$response' => '@response'],
-        ],
-        Database\Structure\EmptyTableController::class => [
-            'class' => Database\Structure\EmptyTableController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$dbi' => '@dbi',
-                '$flashMessenger' => '@' . FlashMessenger::class,
-                '$structureController' => '@' . Database\StructureController::class,
-                '$sql' => '@sql',
-            ],
-        ],
-        Database\Structure\FavoriteTableController::class => [
-            'class' => Database\Structure\FavoriteTableController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$dbTableExists' => '@' . DbTableExists::class,
-                '$config' => '@config',
-            ],
-        ],
-        Database\Structure\RealRowCountController::class => [
-            'class' => Database\Structure\RealRowCountController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$dbi' => '@dbi',
-                '$dbTableExists' => '@' . DbTableExists::class,
-            ],
-        ],
-        Database\Structure\ReplacePrefixController::class => [
-            'class' => Database\Structure\ReplacePrefixController::class,
-            'arguments' => ['@dbi', '@' . ResponseFactory::class, '@' . FlashMessenger::class],
-        ],
-        Database\Structure\ShowCreateController::class => [
-            'class' => Database\Structure\ShowCreateController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$dbi' => '@dbi'],
-        ],
-        Database\StructureController::class => [
-            'class' => Database\StructureController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$relation' => '@relation',
-                '$replication' => '@replication',
-                '$dbi' => '@dbi',
-                '$trackingChecker' => '@tracking_checker',
-                '$pageSettings' => '@' . PageSettings::class,
-                '$dbTableExists' => '@' . DbTableExists::class,
-                '$config' => '@config',
-            ],
-        ],
-        Database\TrackingController::class => [
-            'class' => Database\TrackingController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$tracking' => '@tracking',
-                '$dbi' => '@dbi',
-                '$dbTableExists' => '@' . DbTableExists::class,
-                '$config' => '@config',
-            ],
-        ],
-        DatabaseController::class => [
-            'class' => DatabaseController::class,
-            'arguments' => ['$response' => '@response', '$dbi' => '@dbi'],
-        ],
-        ErrorReportController::class => [
-            'class' => ErrorReportController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$errorReport' => '@error_report',
-                '$errorHandler' => '@error_handler',
-                '$dbi' => '@dbi',
-                '$config' => '@config',
-            ],
-        ],
-        Export\CheckTimeOutController::class => [
-            'class' => Export\CheckTimeOutController::class,
-            'arguments' => ['$response' => '@response'],
-        ],
-        Export\ExportController::class => [
-            'class' => Export\ExportController::class,
-            'arguments' => ['@response', '@export', '@' . ResponseFactory::class, '@config'],
-        ],
-        Export\TablesController::class => [
-            'class' => Export\TablesController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$exportController' => '@' . Database\ExportController::class,
-            ],
-        ],
-        Export\Template\CreateController::class => [
-            'class' => Export\Template\CreateController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$model' => '@export_template_model',
-                '$relation' => '@relation',
-                '$config' => '@config',
-            ],
-        ],
-        Export\Template\DeleteController::class => [
-            'class' => Export\Template\DeleteController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$model' => '@export_template_model',
-                '$relation' => '@relation',
-                '$config' => '@config',
-            ],
-        ],
-        Export\Template\LoadController::class => [
-            'class' => Export\Template\LoadController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$model' => '@export_template_model',
-                '$relation' => '@relation',
-                '$config' => '@config',
-            ],
-        ],
-        Export\Template\UpdateController::class => [
-            'class' => Export\Template\UpdateController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$model' => '@export_template_model',
-                '$relation' => '@relation',
-                '$config' => '@config',
-            ],
-        ],
-        GisDataEditorController::class => [
-            'class' => GisDataEditorController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template'],
-        ],
-        GitInfoController::class => [
-            'class' => GitInfoController::class,
-            'arguments' => ['$response' => '@response', '$config' => '@config'],
-        ],
-        HomeController::class => [
-            'class' => HomeController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$config' => '@config',
-                '$themeManager' => '@' . ThemeManager::class,
-                '$dbi' => '@dbi',
-                '$responseFactory' => '@' . ResponseFactory::class,
-            ],
-        ],
-        Import\ImportController::class => [
-            'class' => Import\ImportController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$import' => '@import',
-                '$sql' => '@sql',
-                '$dbi' => '@dbi',
-                '$bookmarkRepository' => '@bookmarkRepository',
-                '$config' => '@config',
-            ],
-        ],
-        Import\SimulateDmlController::class => [
-            'class' => Import\SimulateDmlController::class,
-            'arguments' => ['$response' => '@response', '$simulateDml' => '@import_simulate_dml'],
-        ],
-        Import\StatusController::class => [
-            'class' => Import\StatusController::class,
-            'arguments' => ['$template' => '@template'],
-        ],
-        JavaScriptMessagesController::class => [
-            'class' => JavaScriptMessagesController::class,
-            'arguments' => ['@' . ResponseFactory::class],
-        ],
-        LicenseController::class => [
-            'class' => LicenseController::class,
-            'arguments' => ['@response', '@' . ResponseFactory::class],
-        ],
-        LintController::class => ['class' => LintController::class, 'arguments' => ['@' . ResponseFactory::class]],
-        LogoutController::class => [
-            'class' => LogoutController::class,
-            'arguments' => ['@' . AuthenticationPluginFactory::class],
-        ],
-        NavigationController::class => [
-            'class' => NavigationController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$navigation' => '@navigation',
-                '$relation' => '@relation',
-                '$pageSettings' => '@' . PageSettings::class,
-            ],
-        ],
-        Normalization\FirstNormalForm\FirstStepController::class => [
-            'class' => Normalization\FirstNormalForm\FirstStepController::class,
-            'arguments' => ['$response' => '@response', '$normalization' => '@normalization'],
-        ],
-        Normalization\FirstNormalForm\FourthStepController::class => [
-            'class' => Normalization\FirstNormalForm\FourthStepController::class,
-            'arguments' => ['$response' => '@response', '$normalization' => '@normalization'],
-        ],
-        Normalization\FirstNormalForm\SecondStepController::class => [
-            'class' => Normalization\FirstNormalForm\SecondStepController::class,
-            'arguments' => ['$response' => '@response', '$normalization' => '@normalization'],
-        ],
-        Normalization\FirstNormalForm\ThirdStepController::class => [
-            'class' => Normalization\FirstNormalForm\ThirdStepController::class,
-            'arguments' => ['$response' => '@response', '$normalization' => '@normalization'],
-        ],
-        Normalization\SecondNormalForm\CreateNewTablesController::class => [
-            'class' => Normalization\SecondNormalForm\CreateNewTablesController::class,
-            'arguments' => ['$response' => '@response', '$normalization' => '@normalization'],
-        ],
-        Normalization\SecondNormalForm\FirstStepController::class => [
-            'class' => Normalization\SecondNormalForm\FirstStepController::class,
-            'arguments' => ['$response' => '@response', '$normalization' => '@normalization'],
-        ],
-        Normalization\SecondNormalForm\NewTablesController::class => [
-            'class' => Normalization\SecondNormalForm\NewTablesController::class,
-            'arguments' => ['$response' => '@response', '$normalization' => '@normalization'],
-        ],
-        Normalization\ThirdNormalForm\CreateNewTablesController::class => [
-            'class' => Normalization\ThirdNormalForm\CreateNewTablesController::class,
-            'arguments' => ['$response' => '@response', '$normalization' => '@normalization'],
-        ],
-        Normalization\ThirdNormalForm\FirstStepController::class => [
-            'class' => Normalization\ThirdNormalForm\FirstStepController::class,
-            'arguments' => ['$response' => '@response', '$normalization' => '@normalization'],
-        ],
-        Normalization\ThirdNormalForm\NewTablesController::class => [
-            'class' => Normalization\ThirdNormalForm\NewTablesController::class,
-            'arguments' => ['$response' => '@response', '$normalization' => '@normalization'],
-        ],
-        Normalization\AddNewPrimaryController::class => [
-            'class' => Normalization\AddNewPrimaryController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$normalization' => '@normalization',
-                '$userPrivilegesFactory' => '@' . UserPrivilegesFactory::class,
-            ],
-        ],
-        Normalization\CreateNewColumnController::class => [
-            'class' => Normalization\CreateNewColumnController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$normalization' => '@normalization',
-                '$userPrivilegesFactory' => '@' . UserPrivilegesFactory::class,
-            ],
-        ],
-        Normalization\GetColumnsController::class => [
-            'class' => Normalization\GetColumnsController::class,
-            'arguments' => ['$response' => '@response', '$normalization' => '@normalization'],
-        ],
-        Normalization\MainController::class => [
-            'class' => Normalization\MainController::class,
-            'arguments' => ['$response' => '@response'],
-        ],
-        Normalization\MoveRepeatingGroup::class => [
-            'class' => Normalization\MoveRepeatingGroup::class,
-            'arguments' => ['$response' => '@response', '$normalization' => '@normalization'],
-        ],
-        Normalization\PartialDependenciesController::class => [
-            'class' => Normalization\PartialDependenciesController::class,
-            'arguments' => ['$response' => '@response', '$normalization' => '@normalization'],
-        ],
-        PhpInfoController::class => [
-            'class' => PhpInfoController::class,
-            'arguments' => ['@response', '@' . ResponseFactory::class, '@config'],
-        ],
-        Preferences\ExportController::class => [
-            'class' => Preferences\ExportController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$userPreferences' => '@user_preferences',
-                '$relation' => '@relation',
-                '$config' => '@config',
-                '$themeManager' => '@' . PhpMyAdmin\Theme\ThemeManager::class,
-            ],
-        ],
-        Preferences\FeaturesController::class => [
-            'class' => Preferences\FeaturesController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$userPreferences' => '@user_preferences',
-                '$relation' => '@relation',
-                '$config' => '@config',
-                '$themeManager' => '@' . PhpMyAdmin\Theme\ThemeManager::class,
-            ],
-        ],
-        Preferences\ImportController::class => [
-            'class' => Preferences\ImportController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$userPreferences' => '@user_preferences',
-                '$relation' => '@relation',
-                '$config' => '@config',
-                '$themeManager' => '@' . PhpMyAdmin\Theme\ThemeManager::class,
-            ],
-        ],
-        Preferences\MainPanelController::class => [
-            'class' => Preferences\MainPanelController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$userPreferences' => '@user_preferences',
-                '$relation' => '@relation',
-                '$config' => '@config',
-                '$themeManager' => '@' . PhpMyAdmin\Theme\ThemeManager::class,
-            ],
-        ],
-        Preferences\ManageController::class => [
-            'class' => Preferences\ManageController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$userPreferences' => '@user_preferences',
-                '$relation' => '@relation',
-                '$config' => '@config',
-                '$themeManager' => '@' . PhpMyAdmin\Theme\ThemeManager::class,
-                '$responseFactory' => '@' . ResponseFactory::class,
-            ],
-        ],
-        Preferences\NavigationController::class => [
-            'class' => Preferences\NavigationController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$userPreferences' => '@user_preferences',
-                '$relation' => '@relation',
-                '$config' => '@config',
-                '$themeManager' => '@' . PhpMyAdmin\Theme\ThemeManager::class,
-            ],
-        ],
-        Preferences\SqlController::class => [
-            'class' => Preferences\SqlController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$userPreferences' => '@user_preferences',
-                '$relation' => '@relation',
-                '$config' => '@config',
-                '$themeManager' => '@' . PhpMyAdmin\Theme\ThemeManager::class,
-            ],
-        ],
-        Preferences\TwoFactorController::class => [
-            'class' => Preferences\TwoFactorController::class,
-            'arguments' => ['$response' => '@response', '$relation' => '@relation', '$config' => '@config'],
-        ],
-        SchemaExportController::class => [
-            'class' => SchemaExportController::class,
-            'arguments' => ['@export', '@response', '@' . ResponseFactory::class],
-        ],
-        Server\BinlogController::class => [
-            'class' => Server\BinlogController::class,
-            'arguments' => ['$response' => '@response', '$dbi' => '@dbi', '$config' => '@config'],
-        ],
-        Server\CollationsController::class => [
-            'class' => Server\CollationsController::class,
-            'arguments' => ['$response' => '@response', '$dbi' => '@dbi', '$config' => '@config'],
-        ],
-        Server\Databases\CreateController::class => [
-            'class' => Server\Databases\CreateController::class,
-            'arguments' => ['$response' => '@response', '$dbi' => '@dbi', '$config' => '@config'],
-        ],
-        Server\Databases\DestroyController::class => [
-            'class' => Server\Databases\DestroyController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$dbi' => '@dbi',
-                '$transformations' => '@transformations',
-                '$relationCleanup' => '@relation_cleanup',
-                '$userPrivilegesFactory' => '@' . UserPrivilegesFactory::class,
-                '$config' => '@config',
-            ],
-        ],
-        Server\DatabasesController::class => [
-            'class' => Server\DatabasesController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$dbi' => '@dbi',
-                '$userPrivilegesFactory' => '@' . UserPrivilegesFactory::class,
-                '$config' => '@config',
-            ],
-        ],
-        Server\EnginesController::class => [
-            'class' => Server\EnginesController::class,
-            'arguments' => ['$response' => '@response', '$dbi' => '@dbi'],
-        ],
-        Server\ExportController::class => [
-            'class' => Server\ExportController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$export' => '@export_options',
-                '$dbi' => '@dbi',
-                '$pageSettings' => '@' . PageSettings::class,
-            ],
-        ],
-        Server\ImportController::class => [
-            'class' => Server\ImportController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$dbi' => '@dbi',
-                '$pageSettings' => '@' . PageSettings::class,
-                '$config' => '@config',
-            ],
-        ],
-        Server\PluginsController::class => [
-            'class' => Server\PluginsController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$plugins' => '@server_plugins',
-                '$dbi' => '@dbi',
-            ],
-        ],
-        Server\Privileges\AccountLockController::class => [
-            'class' => Server\Privileges\AccountLockController::class,
-            'arguments' => ['$response' => '@response', '$accountLocking' => '@server_privileges_account_locking'],
-        ],
-        Server\Privileges\AccountUnlockController::class => [
-            'class' => Server\Privileges\AccountUnlockController::class,
-            'arguments' => ['$response' => '@response', '$accountLocking' => '@server_privileges_account_locking'],
-        ],
-        Server\PrivilegesController::class => [
-            'class' => Server\PrivilegesController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$relation' => '@relation',
-                '$dbi' => '@dbi',
-                '$userPrivilegesFactory' => '@' . UserPrivilegesFactory::class,
-                '$config' => '@config',
-            ],
-        ],
-        Server\ReplicationController::class => [
-            'class' => Server\ReplicationController::class,
-            'arguments' => ['$response' => '@response', '$replicationGui' => '@replication_gui', '$dbi' => '@dbi'],
-        ],
-        Server\ShowEngineController::class => [
-            'class' => Server\ShowEngineController::class,
-            'arguments' => ['$response' => '@response', '$dbi' => '@dbi'],
-        ],
-        Server\SqlController::class => [
-            'class' => Server\SqlController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$sqlQueryForm' => '@sql_query_form',
-                '$dbi' => '@dbi',
-                '$pageSettings' => '@' . PageSettings::class,
-            ],
-        ],
-        Server\UserGroupsController::class => [
-            'class' => Server\UserGroupsController::class,
-            'arguments' => ['$response' => '@response', '$relation' => '@relation', '$dbi' => '@dbi'],
-        ],
-        Server\UserGroupsFormController::class => [
-            'class' => Server\UserGroupsFormController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$relation' => '@relation',
-                '$dbi' => '@dbi',
-            ],
-        ],
-        Server\Status\AdvisorController::class => [
-            'class' => Server\Status\AdvisorController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$data' => '@status_data',
-                '$advisor' => '@advisor',
-            ],
-        ],
-        Server\Status\Monitor\ChartingDataController::class => [
-            'class' => Server\Status\Monitor\ChartingDataController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$data' => '@status_data',
-                '$monitor' => '@status_monitor',
-                '$dbi' => '@dbi',
-            ],
-        ],
-        Server\Status\Monitor\GeneralLogController::class => [
-            'class' => Server\Status\Monitor\GeneralLogController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$data' => '@status_data',
-                '$monitor' => '@status_monitor',
-                '$dbi' => '@dbi',
-            ],
-        ],
-        Server\Status\Monitor\LogVarsController::class => [
-            'class' => Server\Status\Monitor\LogVarsController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$data' => '@status_data',
-                '$monitor' => '@status_monitor',
-                '$dbi' => '@dbi',
-            ],
-        ],
-        Server\Status\Monitor\QueryAnalyzerController::class => [
-            'class' => Server\Status\Monitor\QueryAnalyzerController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$data' => '@status_data',
-                '$monitor' => '@status_monitor',
-                '$dbi' => '@dbi',
-            ],
-        ],
-        Server\Status\Monitor\SlowLogController::class => [
-            'class' => Server\Status\Monitor\SlowLogController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$data' => '@status_data',
-                '$monitor' => '@status_monitor',
-                '$dbi' => '@dbi',
-            ],
-        ],
-        Server\Status\MonitorController::class => [
-            'class' => Server\Status\MonitorController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$data' => '@status_data',
-                '$dbi' => '@dbi',
-            ],
-        ],
-        Server\Status\Processes\KillController::class => [
-            'class' => Server\Status\Processes\KillController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$data' => '@status_data',
-                '$dbi' => '@dbi',
-            ],
-        ],
-        Server\Status\Processes\RefreshController::class => [
-            'class' => Server\Status\Processes\RefreshController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$data' => '@status_data',
-                '$processes' => '@status_processes',
-            ],
-        ],
-        Server\Status\ProcessesController::class => [
-            'class' => Server\Status\ProcessesController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$data' => '@status_data',
-                '$dbi' => '@dbi',
-                '$processes' => '@status_processes',
-            ],
-        ],
-        Server\Status\QueriesController::class => [
-            'class' => Server\Status\QueriesController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$data' => '@status_data',
-                '$dbi' => '@dbi',
-            ],
-        ],
-        Server\Status\StatusController::class => [
-            'class' => Server\Status\StatusController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$data' => '@status_data',
-                '$replicationGui' => '@replication_gui',
-                '$dbi' => '@dbi',
-            ],
-        ],
-        Server\Status\VariablesController::class => [
-            'class' => Server\Status\VariablesController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$data' => '@status_data',
-                '$dbi' => '@dbi',
-            ],
-        ],
-        Server\Variables\GetVariableController::class => [
-            'class' => Server\Variables\GetVariableController::class,
-            'arguments' => ['$response' => '@response', '$dbi' => '@dbi'],
-        ],
-        Server\Variables\SetVariableController::class => [
-            'class' => Server\Variables\SetVariableController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$dbi' => '@dbi'],
-        ],
-        Server\VariablesController::class => [
-            'class' => Server\VariablesController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$dbi' => '@dbi'],
-        ],
-        Setup\MainController::class => [
-            'class' => Setup\MainController::class,
-            'arguments' => ['@' . ResponseFactory::class, '@response', '@template', '@config'],
-        ],
-        Setup\ShowConfigController::class => [
-            'class' => Setup\ShowConfigController::class,
-            'arguments' => ['@' . ResponseFactory::class, '@template', '@config'],
-        ],
-        Setup\ValidateController::class => [
-            'class' => Setup\ValidateController::class,
-            'arguments' => ['@' . ResponseFactory::class, '@template', '@config'],
-        ],
-        Sql\ColumnPreferencesController::class => [
-            'class' => Sql\ColumnPreferencesController::class,
-            'arguments' => ['$response' => '@response', '$dbi' => '@dbi'],
-        ],
-        Sql\DefaultForeignKeyCheckValueController::class => [
-            'class' => Sql\DefaultForeignKeyCheckValueController::class,
-            'arguments' => ['$response' => '@response'],
-        ],
-        Sql\EnumValuesController::class => [
-            'class' => Sql\EnumValuesController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$sql' => '@sql'],
-        ],
-        Sql\RelationalValuesController::class => [
-            'class' => Sql\RelationalValuesController::class,
-            'arguments' => ['$response' => '@response', '$sql' => '@sql'],
-        ],
-        Sql\SetValuesController::class => [
-            'class' => Sql\SetValuesController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$sql' => '@sql'],
-        ],
-        Sql\SqlController::class => [
-            'class' => Sql\SqlController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$sql' => '@sql',
-                '$pageSettings' => '@' . PageSettings::class,
-                '$bookmarkRepository' => '@bookmarkRepository',
-                '$config' => '@config',
-            ],
-        ],
-        Table\AddFieldController::class => [
-            'class' => Table\AddFieldController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$transformations' => '@transformations',
-                '$config' => '@config',
-                '$dbi' => '@dbi',
-                '$columnsDefinition' => '@table_columns_definition',
-                '$dbTableExists' => '@' . DbTableExists::class,
-                '$userPrivilegesFactory' => '@' . UserPrivilegesFactory::class,
-            ],
-        ],
-        Table\ChangeController::class => [
-            'class' => Table\ChangeController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$insertEdit' => '@insert_edit',
-                '$relation' => '@relation',
-                '$pageSettings' => '@' . PageSettings::class,
-                '$dbTableExists' => '@' . DbTableExists::class,
-                '$config' => '@config',
-            ],
-        ],
-        Table\ChangeRowsController::class => [
-            'class' => Table\ChangeRowsController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$changeController' => '@' . Table\ChangeController::class,
-            ],
-        ],
-        Table\ChartController::class => [
-            'class' => Table\ChartController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$dbi' => '@dbi',
-                '$dbTableExists' => '@' . DbTableExists::class,
-                '$config' => '@config',
-            ],
-        ],
-        Table\CreateController::class => [
-            'class' => Table\CreateController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$transformations' => '@transformations',
-                '$config' => '@config',
-                '$dbi' => '@dbi',
-                '$columnsDefinition' => '@table_columns_definition',
-                '$userPrivilegesFactory' => '@' . UserPrivilegesFactory::class,
-            ],
-        ],
-        Table\DeleteConfirmController::class => [
-            'class' => Table\DeleteConfirmController::class,
-            'arguments' => ['$response' => '@response', '$dbTableExists' => '@' . DbTableExists::class],
-        ],
-        Table\DeleteRowsController::class => [
-            'class' => Table\DeleteRowsController::class,
-            'arguments' => ['$response' => '@response', '$dbi' => '@dbi', '$sql' => '@sql'],
-        ],
-        Table\DropColumnConfirmationController::class => [
-            'class' => Table\DropColumnConfirmationController::class,
-            'arguments' => ['$response' => '@response', '$dbTableExists' => '@' . DbTableExists::class],
-        ],
-        Table\DropColumnController::class => [
-            'class' => Table\DropColumnController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$dbi' => '@dbi',
-                '$flashMessenger' => '@' . FlashMessenger::class,
-                '$relationCleanup' => '@relation_cleanup',
-            ],
-        ],
-        Table\ExportController::class => [
-            'class' => Table\ExportController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$export' => '@export_options',
-                '$pageSettings' => '@' . PageSettings::class,
-            ],
-        ],
-        Table\ExportRowsController::class => [
-            'class' => Table\ExportRowsController::class,
-            'arguments' => ['$response' => '@response', '$exportController' => '@' . Table\ExportController::class],
-        ],
-        Table\FindReplaceController::class => [
-            'class' => Table\FindReplaceController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$dbi' => '@dbi',
-                '$dbTableExists' => '@' . DbTableExists::class,
-                '$config' => '@config',
-            ],
-        ],
-        Table\GetFieldController::class => [
-            'class' => Table\GetFieldController::class,
-            'arguments' => ['@response', '@dbi', '@' . ResponseFactory::class],
-        ],
-        Table\GisVisualizationController::class => [
-            'class' => Table\GisVisualizationController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$dbi' => '@dbi',
-                '$dbTableExists' => '@' . DbTableExists::class,
-                '$responseFactory' => '@' . ResponseFactory::class,
-                '$config' => '@config',
-            ],
-        ],
-        Table\ImportController::class => [
-            'class' => Table\ImportController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$dbi' => '@dbi',
-                '$pageSettings' => '@' . PageSettings::class,
-                '$dbTableExists' => '@' . DbTableExists::class,
-                '$config' => '@config',
-            ],
-        ],
-        Table\IndexesController::class => [
-            'class' => Table\IndexesController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$dbi' => '@dbi',
-                '$indexes' => '@table_indexes',
-                '$dbTableExists' => '@' . DbTableExists::class,
-                '$config' => '@config',
-            ],
-        ],
-        Table\IndexRenameController::class => [
-            'class' => Table\IndexRenameController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$dbi' => '@dbi',
-                '$indexes' => '@table_indexes',
-                '$dbTableExists' => '@' . DbTableExists::class,
-            ],
-        ],
-        Table\Maintenance\AnalyzeController::class => [
-            'class' => Table\Maintenance\AnalyzeController::class,
-            'arguments' => ['$response' => '@response', '$model' => '@table_maintenance', '$config' => '@config'],
-        ],
-        Table\Maintenance\CheckController::class => [
-            'class' => Table\Maintenance\CheckController::class,
-            'arguments' => ['$response' => '@response', '$model' => '@table_maintenance', '$config' => '@config'],
-        ],
-        Table\Maintenance\ChecksumController::class => [
-            'class' => Table\Maintenance\ChecksumController::class,
-            'arguments' => ['$response' => '@response', '$model' => '@table_maintenance', '$config' => '@config'],
-        ],
-        Table\Maintenance\OptimizeController::class => [
-            'class' => Table\Maintenance\OptimizeController::class,
-            'arguments' => ['$response' => '@response', '$model' => '@table_maintenance', '$config' => '@config'],
-        ],
-        Table\Maintenance\RepairController::class => [
-            'class' => Table\Maintenance\RepairController::class,
-            'arguments' => ['$response' => '@response', '$model' => '@table_maintenance', '$config' => '@config'],
-        ],
-        Table\Partition\AnalyzeController::class => [
-            'class' => Table\Partition\AnalyzeController::class,
-            'arguments' => ['$response' => '@response', '$model' => '@partitioning_maintenance'],
-        ],
-        Table\Partition\CheckController::class => [
-            'class' => Table\Partition\CheckController::class,
-            'arguments' => ['$response' => '@response', '$model' => '@partitioning_maintenance'],
-        ],
-        Table\Partition\DropController::class => [
-            'class' => Table\Partition\DropController::class,
-            'arguments' => ['$response' => '@response', '$model' => '@partitioning_maintenance'],
-        ],
-        Table\Partition\OptimizeController::class => [
-            'class' => Table\Partition\OptimizeController::class,
-            'arguments' => ['$response' => '@response', '$model' => '@partitioning_maintenance'],
-        ],
-        Table\Partition\RebuildController::class => [
-            'class' => Table\Partition\RebuildController::class,
-            'arguments' => ['$response' => '@response', '$model' => '@partitioning_maintenance'],
-        ],
-        Table\Partition\RepairController::class => [
-            'class' => Table\Partition\RepairController::class,
-            'arguments' => ['$response' => '@response', '$model' => '@partitioning_maintenance'],
-        ],
-        Table\Partition\TruncateController::class => [
-            'class' => Table\Partition\TruncateController::class,
-            'arguments' => ['$response' => '@response', '$model' => '@partitioning_maintenance'],
-        ],
-        Operations\TableController::class => [
-            'class' => Operations\TableController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$operations' => '@operations',
-                '$userPrivilegesFactory' => '@' . UserPrivilegesFactory::class,
-                '$relation' => '@relation',
-                '$dbi' => '@dbi',
-                '$dbTableExists' => '@' . DbTableExists::class,
-                '$config' => '@config',
-            ],
-        ],
-        Table\PrivilegesController::class => [
-            'class' => Table\PrivilegesController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$privileges' => '@server_privileges',
-                '$dbi' => '@dbi',
-                '$config' => '@config',
-            ],
-        ],
-        Table\RecentFavoriteController::class => [
-            'class' => Table\RecentFavoriteController::class,
-            'arguments' => ['$response' => '@response'],
-        ],
-        Table\RelationController::class => [
-            'class' => Table\RelationController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$relation' => '@relation',
-                '$dbi' => '@dbi',
-                '$config' => '@config',
-            ],
-        ],
-        Table\ReplaceController::class => [
-            'class' => Table\ReplaceController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$insertEdit' => '@insert_edit',
-                '$transformations' => '@transformations',
-                '$relation' => '@relation',
-                '$dbi' => '@dbi',
-                '$sqlController' => '@' . Sql\SqlController::class,
-                '$databaseSqlController' => '@' . Database\SqlController::class,
-                '$changeController' => '@' . Table\ChangeController::class,
-                '$tableSqlController' => '@' . Table\SqlController::class,
-            ],
-        ],
-        Table\SearchController::class => [
-            'class' => Table\SearchController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$search' => '@table_search',
-                '$relation' => '@relation',
-                '$dbi' => '@dbi',
-                '$dbTableExists' => '@' . DbTableExists::class,
-                '$config' => '@config',
-                '$sql' => '@sql',
-            ],
-        ],
-        Table\SqlController::class => [
-            'class' => Table\SqlController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$sqlQueryForm' => '@sql_query_form',
-                '$pageSettings' => '@' . PageSettings::class,
-                '$dbTableExists' => '@' . DbTableExists::class,
-            ],
-        ],
-        Table\Structure\AddIndexController::class => [
-            'class' => Table\Structure\AddIndexController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$structureController' => '@' . Table\StructureController::class,
-                '$indexes' => '@table_indexes',
-            ],
-        ],
-        Table\Structure\AddKeyController::class => [
-            'class' => Table\Structure\AddKeyController::class,
-            'arguments' => ['@response', '@' . Table\StructureController::class, '@table_indexes'],
-        ],
-        Table\Structure\BrowseController::class => [
-            'class' => Table\Structure\BrowseController::class,
-            'arguments' => ['$response' => '@response', '$sql' => '@sql'],
-        ],
-        Table\Structure\CentralColumnsAddController::class => [
-            'class' => Table\Structure\CentralColumnsAddController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$centralColumns' => '@central_columns',
-                '$structureController' => '@' . Table\StructureController::class,
-            ],
-        ],
-        Table\Structure\CentralColumnsRemoveController::class => [
-            'class' => Table\Structure\CentralColumnsRemoveController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$centralColumns' => '@central_columns',
-                '$structureController' => '@' . Table\StructureController::class,
-            ],
-        ],
-        Table\Structure\ChangeController::class => [
-            'class' => Table\Structure\ChangeController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$dbi' => '@dbi',
-                '$columnsDefinition' => '@table_columns_definition',
-                '$userPrivilegesFactory' => '@' . UserPrivilegesFactory::class,
-            ],
-        ],
-        Table\Structure\FulltextController::class => [
-            'class' => Table\Structure\FulltextController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$structureController' => '@' . Table\StructureController::class,
-                '$indexes' => '@table_indexes',
-            ],
-        ],
-        Table\Structure\MoveColumnsController::class => [
-            'class' => Table\Structure\MoveColumnsController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$dbi' => '@dbi'],
-        ],
-        Table\Structure\PartitioningController::class => [
-            'class' => Table\Structure\PartitioningController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$dbi' => '@dbi',
-                '$createAddField' => '@create_add_field',
-                '$structureController' => '@' . Table\StructureController::class,
-                '$pageSettings' => '@' . PageSettings::class,
-            ],
-        ],
-        Table\Structure\PrimaryController::class => [
-            'class' => Table\Structure\PrimaryController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$dbi' => '@dbi',
-                '$structureController' => '@' . Table\StructureController::class,
-                '$dbTableExists' => '@' . DbTableExists::class,
-            ],
-        ],
-        Table\Structure\ReservedWordCheckController::class => [
-            'class' => Table\Structure\ReservedWordCheckController::class,
-            'arguments' => ['$response' => '@response', '$config' => '@config'],
-        ],
-        Table\Structure\SaveController::class => [
-            'class' => Table\Structure\SaveController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$relation' => '@relation',
-                '$transformations' => '@transformations',
-                '$dbi' => '@dbi',
-                '$structureController' => '@' . Table\StructureController::class,
-                '$userPrivilegesFactory' => '@' . UserPrivilegesFactory::class,
-                '$config' => '@config',
-            ],
-        ],
-        Table\Structure\SpatialController::class => [
-            'class' => Table\Structure\SpatialController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$structureController' => '@' . Table\StructureController::class,
-                '$indexes' => '@table_indexes',
-            ],
-        ],
-        Table\Structure\UniqueController::class => [
-            'class' => Table\Structure\UniqueController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$structureController' => '@' . Table\StructureController::class,
-                '$indexes' => '@table_indexes',
-            ],
-        ],
-        Table\StructureController::class => [
-            'class' => Table\StructureController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$relation' => '@relation',
-                '$transformations' => '@transformations',
-                '$dbi' => '@dbi',
-                '$pageSettings' => '@' . PageSettings::class,
-                '$dbTableExists' => '@' . DbTableExists::class,
-                '$config' => '@config',
-            ],
-        ],
-        Table\TrackingController::class => [
-            'class' => Table\TrackingController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$tracking' => '@tracking',
-                '$trackingChecker' => '@tracking_checker',
-                '$dbTableExists' => '@' . DbTableExists::class,
-                '$responseFactory' => '@' . ResponseFactory::class,
-            ],
-        ],
-        Triggers\IndexController::class => [
-            'class' => Triggers\IndexController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$dbi' => '@dbi',
-                '$triggers' => '@triggers',
-                '$dbTableExists' => '@' . DbTableExists::class,
-            ],
-        ],
-        Table\ZoomSearchController::class => [
-            'class' => Table\ZoomSearchController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$search' => '@table_search',
-                '$relation' => '@relation',
-                '$dbi' => '@dbi',
-                '$dbTableExists' => '@' . DbTableExists::class,
-                '$config' => '@config',
-            ],
-        ],
-        TableController::class => [
-            'class' => TableController::class,
-            'arguments' => ['$response' => '@response', '$dbi' => '@dbi'],
-        ],
-        ThemesController::class => [
-            'class' => ThemesController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$themeManager' => '@' . PhpMyAdmin\Theme\ThemeManager::class,
-            ],
-        ],
-        ThemeSetController::class => [
-            'class' => ThemeSetController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$themeManager' => '@' . PhpMyAdmin\Theme\ThemeManager::class,
-                '$userPreferences' => '@user_preferences',
-                '$config' => '@config',
-            ],
-        ],
-        Transformation\OverviewController::class => [
-            'class' => Transformation\OverviewController::class,
-            'arguments' => ['$response' => '@response', '$transformations' => '@transformations'],
-        ],
-        Transformation\WrapperController::class => [
-            'class' => Transformation\WrapperController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$transformations' => '@transformations',
-                '$relation' => '@relation',
-                '$dbi' => '@dbi',
-                '$dbTableExists' => '@' . DbTableExists::class,
-                '$responseFactory' => '@' . ResponseFactory::class,
-            ],
-        ],
-        UserPasswordController::class => [
-            'class' => UserPasswordController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$userPassword' => '@user_password',
-                '$dbi' => '@dbi',
-                '$config' => '@config',
-            ],
-        ],
-        VersionCheckController::class => [
-            'class' => VersionCheckController::class,
-            'arguments' => ['@version_information', '@' . ResponseFactory::class],
-        ],
-        View\CreateController::class => [
-            'class' => View\CreateController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$dbi' => '@dbi',
-                '$dbTableExists' => '@' . DbTableExists::class,
-            ],
-        ],
-        Operations\ViewController::class => [
-            'class' => Operations\ViewController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$dbi' => '@dbi',
-                '$dbTableExists' => '@' . DbTableExists::class,
-            ],
-        ],
-        SyncFavoriteTablesController::class => [
-            'class' => SyncFavoriteTablesController::class,
-            'arguments' => ['$response' => '@response', '$relation' => '@relation', '$config' => '@config'],
-        ],
+    BrowseForeignersController::class => [
+        'class' => BrowseForeignersController::class,
+        'arguments' => [ResponseRenderer::class, BrowseForeigners::class, Relation::class],
+    ],
+    ChangeLogController::class => [
+        'class' => ChangeLogController::class,
+        'arguments' => [ResponseRenderer::class, Config::class, ResponseFactory::class, Template::class],
+    ],
+    CheckRelationsController::class => [
+        'class' => CheckRelationsController::class,
+        'arguments' => [ResponseRenderer::class, Relation::class, Config::class],
+    ],
+    CollationConnectionController::class => [
+        'class' => CollationConnectionController::class,
+        'arguments' => [ResponseRenderer::class, Config::class],
+    ],
+    ColumnController::class => [
+        'class' => ColumnController::class,
+        'arguments' => [ResponseRenderer::class, DatabaseInterface::class],
+    ],
+    UpdateNavWidthConfigController::class => [
+        'class' => UpdateNavWidthConfigController::class,
+        'arguments' => [ResponseRenderer::class, Config::class],
+    ],
+    Console\Bookmark\AddController::class => [
+        'class' => Console\Bookmark\AddController::class,
+        'arguments' => [ResponseRenderer::class, BookmarkRepository::class, Config::class],
+    ],
+    Console\Bookmark\RefreshController::class => [
+        'class' => Console\Bookmark\RefreshController::class,
+        'arguments' => [ResponseRenderer::class, \PhpMyAdmin\Console\Console::class],
+    ],
+    Console\UpdateConfigController::class => [
+        'class' => Console\UpdateConfigController::class,
+        'arguments' => [ResponseRenderer::class, Config::class],
+    ],
+    Database\CentralColumns\PopulateColumnsController::class => [
+        'class' => Database\CentralColumns\PopulateColumnsController::class,
+        'arguments' => [ResponseRenderer::class, CentralColumns::class],
+    ],
+    Database\CentralColumnsController::class => [
+        'class' => Database\CentralColumnsController::class,
+        'arguments' => [ResponseRenderer::class, CentralColumns::class, Config::class],
+    ],
+    Database\DataDictionaryController::class => [
+        'class' => Database\DataDictionaryController::class,
+        'arguments' => [ResponseRenderer::class, Relation::class, Transformations::class, DatabaseInterface::class],
+    ],
+    Database\DesignerController::class => [
+        'class' => Database\DesignerController::class,
+        'arguments' => [ResponseRenderer::class, Template::class, Designer::class, Common::class, DbTableExists::class],
+    ],
+    Database\EventsController::class => [
+        'class' => Database\EventsController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            Template::class,
+            Events::class,
+            DatabaseInterface::class,
+            DbTableExists::class,
+        ],
+    ],
+    Database\ExportController::class => [
+        'class' => Database\ExportController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            \PhpMyAdmin\Export\Export::class,
+            Options::class,
+            PageSettings::class,
+            DbTableExists::class,
+        ],
+    ],
+    Database\ImportController::class => [
+        'class' => Database\ImportController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            DatabaseInterface::class,
+            PageSettings::class,
+            DbTableExists::class,
+            Config::class,
+        ],
+    ],
+    Database\MultiTableQuery\QueryController::class => [
+        'class' => Database\MultiTableQuery\QueryController::class,
+        'arguments' => [ResponseRenderer::class, \PhpMyAdmin\Sql::class],
+    ],
+    Database\MultiTableQuery\TablesController::class => [
+        'class' => Database\MultiTableQuery\TablesController::class,
+        'arguments' => [ResponseRenderer::class, DatabaseInterface::class],
+    ],
+    Database\MultiTableQueryController::class => [
+        'class' => Database\MultiTableQueryController::class,
+        'arguments' => [ResponseRenderer::class, Template::class, DatabaseInterface::class],
+    ],
+    Operations\Database\CollationController::class => [
+        'class' => Operations\Database\CollationController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            \PhpMyAdmin\Operations::class,
+            DatabaseInterface::class,
+            DbTableExists::class,
+        ],
+    ],
+    Operations\DatabaseController::class => [
+        'class' => Operations\DatabaseController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            \PhpMyAdmin\Operations::class,
+            UserPrivilegesFactory::class,
+            Relation::class,
+            RelationCleanup::class,
+            DatabaseInterface::class,
+            DbTableExists::class,
+            Config::class,
+        ],
+    ],
+    Database\PrivilegesController::class => [
+        'class' => Database\PrivilegesController::class,
+        'arguments' => [ResponseRenderer::class, Privileges::class, DatabaseInterface::class, Config::class],
+    ],
+    Database\RoutinesController::class => [
+        'class' => Database\RoutinesController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            Template::class,
+            UserPrivilegesFactory::class,
+            DatabaseInterface::class,
+            Routines::class,
+            DbTableExists::class,
+            Config::class,
+        ],
+    ],
+    Database\SearchController::class => [
+        'class' => Database\SearchController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            Template::class,
+            DatabaseInterface::class,
+            DbTableExists::class,
+            Config::class,
+        ],
+    ],
+    Database\SqlAutoCompleteController::class => [
+        'class' => Database\SqlAutoCompleteController::class,
+        'arguments' => [ResponseRenderer::class, DatabaseInterface::class, Config::class],
+    ],
+    Database\SqlController::class => [
+        'class' => Database\SqlController::class,
+        'arguments' => [ResponseRenderer::class, SqlQueryForm::class, PageSettings::class, DbTableExists::class],
+    ],
+    Database\SqlFormatController::class => [
+        'class' => Database\SqlFormatController::class,
+        'arguments' => [ResponseRenderer::class],
+    ],
+    Database\Structure\AddPrefixController::class => [
+        'class' => Database\Structure\AddPrefixController::class,
+        'arguments' => [ResponseRenderer::class, ResponseFactory::class, Template::class],
+    ],
+    Database\Structure\AddPrefixTableController::class => [
+        'class' => Database\Structure\AddPrefixTableController::class,
+        'arguments' => [DatabaseInterface::class, Database\StructureController::class],
+    ],
+    Database\Structure\CentralColumns\AddController::class => [
+        'class' => Database\Structure\CentralColumns\AddController::class,
+        'arguments' => [ResponseRenderer::class, DatabaseInterface::class, Database\StructureController::class],
+    ],
+    Database\Structure\CentralColumns\MakeConsistentController::class => [
+        'class' => Database\Structure\CentralColumns\MakeConsistentController::class,
+        'arguments' => [ResponseRenderer::class, DatabaseInterface::class, Database\StructureController::class],
+    ],
+    Database\Structure\CentralColumns\RemoveController::class => [
+        'class' => Database\Structure\CentralColumns\RemoveController::class,
+        'arguments' => [ResponseRenderer::class, DatabaseInterface::class, Database\StructureController::class],
+    ],
+    Database\Structure\ChangePrefixFormController::class => [
+        'class' => Database\Structure\ChangePrefixFormController::class,
+        'arguments' => [ResponseRenderer::class, ResponseFactory::class, Template::class],
+    ],
+    Database\Structure\CopyFormController::class => [
+        'class' => Database\Structure\CopyFormController::class,
+        'arguments' => [ResponseRenderer::class, ResponseFactory::class, Template::class],
+    ],
+    Database\Structure\CopyTableController::class => [
+        'class' => Database\Structure\CopyTableController::class,
+        'arguments' => [
+            \PhpMyAdmin\Operations::class,
+            Database\StructureController::class,
+            UserPrivilegesFactory::class,
+            TableMover::class,
+        ],
+    ],
+    Database\Structure\CopyTableWithPrefixController::class => [
+        'class' => Database\Structure\CopyTableWithPrefixController::class,
+        'arguments' => [Database\StructureController::class, TableMover::class],
+    ],
+    Database\Structure\DropFormController::class => [
+        'class' => Database\Structure\DropFormController::class,
+        'arguments' => [ResponseRenderer::class, DatabaseInterface::class],
+    ],
+    Database\Structure\DropTableController::class => [
+        'class' => Database\Structure\DropTableController::class,
+        'arguments' => [DatabaseInterface::class, RelationCleanup::class, Database\StructureController::class],
+    ],
+    Database\Structure\EmptyFormController::class => [
+        'class' => Database\Structure\EmptyFormController::class,
+        'arguments' => [ResponseRenderer::class],
+    ],
+    Database\Structure\EmptyTableController::class => [
+        'class' => Database\Structure\EmptyTableController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            DatabaseInterface::class,
+            FlashMessenger::class,
+            Database\StructureController::class,
+            \PhpMyAdmin\Sql::class,
+        ],
+    ],
+    Database\Structure\FavoriteTableController::class => [
+        'class' => Database\Structure\FavoriteTableController::class,
+        'arguments' => [ResponseRenderer::class, Template::class, DbTableExists::class, Config::class],
+    ],
+    Database\Structure\RealRowCountController::class => [
+        'class' => Database\Structure\RealRowCountController::class,
+        'arguments' => [ResponseRenderer::class, DatabaseInterface::class, DbTableExists::class],
+    ],
+    Database\Structure\ReplacePrefixController::class => [
+        'class' => Database\Structure\ReplacePrefixController::class,
+        'arguments' => [DatabaseInterface::class, ResponseFactory::class, FlashMessenger::class],
+    ],
+    Database\Structure\ShowCreateController::class => [
+        'class' => Database\Structure\ShowCreateController::class,
+        'arguments' => [ResponseRenderer::class, Template::class, DatabaseInterface::class],
+    ],
+    Database\StructureController::class => [
+        'class' => Database\StructureController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            Template::class,
+            Relation::class,
+            Replication::class,
+            DatabaseInterface::class,
+            TrackingChecker::class,
+            PageSettings::class,
+            DbTableExists::class,
+            Config::class,
+        ],
+    ],
+    Database\TrackingController::class => [
+        'class' => Database\TrackingController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            Tracking::class,
+            DatabaseInterface::class,
+            DbTableExists::class,
+            Config::class,
+        ],
+    ],
+    DatabaseController::class => [
+        'class' => DatabaseController::class,
+        'arguments' => [ResponseRenderer::class, DatabaseInterface::class],
+    ],
+    ErrorReportController::class => [
+        'class' => ErrorReportController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            Template::class,
+            ErrorReport::class,
+            ErrorHandler::class,
+            DatabaseInterface::class,
+            Config::class,
+        ],
+    ],
+    Export\CheckTimeOutController::class => [
+        'class' => Export\CheckTimeOutController::class,
+        'arguments' => [ResponseRenderer::class],
+    ],
+    Export\ExportController::class => [
+        'class' => Export\ExportController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            \PhpMyAdmin\Export\Export::class,
+            ResponseFactory::class,
+            Config::class,
+        ],
+    ],
+    Export\TablesController::class => [
+        'class' => Export\TablesController::class,
+        'arguments' => [ResponseRenderer::class, Database\ExportController::class],
+    ],
+    Export\Template\CreateController::class => [
+        'class' => Export\Template\CreateController::class,
+        'arguments' => [ResponseRenderer::class, Template::class, TemplateModel::class, Relation::class, Config::class],
+    ],
+    Export\Template\DeleteController::class => [
+        'class' => Export\Template\DeleteController::class,
+        'arguments' => [ResponseRenderer::class, TemplateModel::class, Relation::class, Config::class],
+    ],
+    Export\Template\LoadController::class => [
+        'class' => Export\Template\LoadController::class,
+        'arguments' => [ResponseRenderer::class, TemplateModel::class, Relation::class, Config::class],
+    ],
+    Export\Template\UpdateController::class => [
+        'class' => Export\Template\UpdateController::class,
+        'arguments' => [ResponseRenderer::class, TemplateModel::class, Relation::class, Config::class],
+    ],
+    GisDataEditorController::class => [
+        'class' => GisDataEditorController::class,
+        'arguments' => [ResponseRenderer::class, Template::class],
+    ],
+    GitInfoController::class => [
+        'class' => GitInfoController::class,
+        'arguments' => [ResponseRenderer::class, Config::class],
+    ],
+    HomeController::class => [
+        'class' => HomeController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            Config::class,
+            ThemeManager::class,
+            DatabaseInterface::class,
+            ResponseFactory::class,
+        ],
+    ],
+    Import\ImportController::class => [
+        'class' => Import\ImportController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            \PhpMyAdmin\Import\Import::class,
+            \PhpMyAdmin\Sql::class,
+            DatabaseInterface::class,
+            BookmarkRepository::class,
+            Config::class,
+        ],
+    ],
+    Import\SimulateDmlController::class => [
+        'class' => Import\SimulateDmlController::class,
+        'arguments' => [ResponseRenderer::class, SimulateDml::class],
+    ],
+    Import\StatusController::class => ['class' => Import\StatusController::class, 'arguments' => [Template::class]],
+    JavaScriptMessagesController::class => [
+        'class' => JavaScriptMessagesController::class,
+        'arguments' => [ResponseFactory::class],
+    ],
+    LicenseController::class => [
+        'class' => LicenseController::class,
+        'arguments' => [ResponseRenderer::class, ResponseFactory::class],
+    ],
+    LintController::class => ['class' => LintController::class, 'arguments' => [ResponseFactory::class]],
+    LogoutController::class => [
+        'class' => LogoutController::class,
+        'arguments' => [AuthenticationPluginFactory::class],
+    ],
+    NavigationController::class => [
+        'class' => NavigationController::class,
+        'arguments' => [ResponseRenderer::class, Navigation::class, Relation::class, PageSettings::class],
+    ],
+    Normalization\FirstNormalForm\FirstStepController::class => [
+        'class' => Normalization\FirstNormalForm\FirstStepController::class,
+        'arguments' => [ResponseRenderer::class, \PhpMyAdmin\Normalization::class],
+    ],
+    Normalization\FirstNormalForm\FourthStepController::class => [
+        'class' => Normalization\FirstNormalForm\FourthStepController::class,
+        'arguments' => [ResponseRenderer::class, \PhpMyAdmin\Normalization::class],
+    ],
+    Normalization\FirstNormalForm\SecondStepController::class => [
+        'class' => Normalization\FirstNormalForm\SecondStepController::class,
+        'arguments' => [ResponseRenderer::class, \PhpMyAdmin\Normalization::class],
+    ],
+    Normalization\FirstNormalForm\ThirdStepController::class => [
+        'class' => Normalization\FirstNormalForm\ThirdStepController::class,
+        'arguments' => [ResponseRenderer::class, \PhpMyAdmin\Normalization::class],
+    ],
+    Normalization\SecondNormalForm\CreateNewTablesController::class => [
+        'class' => Normalization\SecondNormalForm\CreateNewTablesController::class,
+        'arguments' => [ResponseRenderer::class, \PhpMyAdmin\Normalization::class],
+    ],
+    Normalization\SecondNormalForm\FirstStepController::class => [
+        'class' => Normalization\SecondNormalForm\FirstStepController::class,
+        'arguments' => [ResponseRenderer::class, \PhpMyAdmin\Normalization::class],
+    ],
+    Normalization\SecondNormalForm\NewTablesController::class => [
+        'class' => Normalization\SecondNormalForm\NewTablesController::class,
+        'arguments' => [ResponseRenderer::class, \PhpMyAdmin\Normalization::class],
+    ],
+    Normalization\ThirdNormalForm\CreateNewTablesController::class => [
+        'class' => Normalization\ThirdNormalForm\CreateNewTablesController::class,
+        'arguments' => [ResponseRenderer::class, \PhpMyAdmin\Normalization::class],
+    ],
+    Normalization\ThirdNormalForm\FirstStepController::class => [
+        'class' => Normalization\ThirdNormalForm\FirstStepController::class,
+        'arguments' => [ResponseRenderer::class, \PhpMyAdmin\Normalization::class],
+    ],
+    Normalization\ThirdNormalForm\NewTablesController::class => [
+        'class' => Normalization\ThirdNormalForm\NewTablesController::class,
+        'arguments' => [ResponseRenderer::class, \PhpMyAdmin\Normalization::class],
+    ],
+    Normalization\AddNewPrimaryController::class => [
+        'class' => Normalization\AddNewPrimaryController::class,
+        'arguments' => [ResponseRenderer::class, \PhpMyAdmin\Normalization::class, UserPrivilegesFactory::class],
+    ],
+    Normalization\CreateNewColumnController::class => [
+        'class' => Normalization\CreateNewColumnController::class,
+        'arguments' => [ResponseRenderer::class, \PhpMyAdmin\Normalization::class, UserPrivilegesFactory::class],
+    ],
+    Normalization\GetColumnsController::class => [
+        'class' => Normalization\GetColumnsController::class,
+        'arguments' => [ResponseRenderer::class, \PhpMyAdmin\Normalization::class],
+    ],
+    Normalization\MainController::class => [
+        'class' => Normalization\MainController::class,
+        'arguments' => [ResponseRenderer::class],
+    ],
+    Normalization\MoveRepeatingGroup::class => [
+        'class' => Normalization\MoveRepeatingGroup::class,
+        'arguments' => [ResponseRenderer::class, \PhpMyAdmin\Normalization::class],
+    ],
+    Normalization\PartialDependenciesController::class => [
+        'class' => Normalization\PartialDependenciesController::class,
+        'arguments' => [ResponseRenderer::class, \PhpMyAdmin\Normalization::class],
+    ],
+    PhpInfoController::class => [
+        'class' => PhpInfoController::class,
+        'arguments' => [ResponseRenderer::class, ResponseFactory::class, Config::class],
+    ],
+    Preferences\ExportController::class => [
+        'class' => Preferences\ExportController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            UserPreferences::class,
+            Relation::class,
+            Config::class,
+            ThemeManager::class,
+        ],
+    ],
+    Preferences\FeaturesController::class => [
+        'class' => Preferences\FeaturesController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            UserPreferences::class,
+            Relation::class,
+            Config::class,
+            ThemeManager::class,
+        ],
+    ],
+    Preferences\ImportController::class => [
+        'class' => Preferences\ImportController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            UserPreferences::class,
+            Relation::class,
+            Config::class,
+            ThemeManager::class,
+        ],
+    ],
+    Preferences\MainPanelController::class => [
+        'class' => Preferences\MainPanelController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            UserPreferences::class,
+            Relation::class,
+            Config::class,
+            ThemeManager::class,
+        ],
+    ],
+    Preferences\ManageController::class => [
+        'class' => Preferences\ManageController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            UserPreferences::class,
+            Relation::class,
+            Config::class,
+            ThemeManager::class,
+            ResponseFactory::class,
+        ],
+    ],
+    Preferences\NavigationController::class => [
+        'class' => Preferences\NavigationController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            UserPreferences::class,
+            Relation::class,
+            Config::class,
+            ThemeManager::class,
+        ],
+    ],
+    Preferences\SqlController::class => [
+        'class' => Preferences\SqlController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            UserPreferences::class,
+            Relation::class,
+            Config::class,
+            ThemeManager::class,
+        ],
+    ],
+    Preferences\TwoFactorController::class => [
+        'class' => Preferences\TwoFactorController::class,
+        'arguments' => [ResponseRenderer::class, Relation::class, Config::class],
+    ],
+    SchemaExportController::class => [
+        'class' => SchemaExportController::class,
+        'arguments' => [\PhpMyAdmin\Export\Export::class, ResponseRenderer::class, ResponseFactory::class],
+    ],
+    Server\BinlogController::class => [
+        'class' => Server\BinlogController::class,
+        'arguments' => [ResponseRenderer::class, DatabaseInterface::class, Config::class],
+    ],
+    Server\CollationsController::class => [
+        'class' => Server\CollationsController::class,
+        'arguments' => [ResponseRenderer::class, DatabaseInterface::class, Config::class],
+    ],
+    Server\Databases\CreateController::class => [
+        'class' => Server\Databases\CreateController::class,
+        'arguments' => [ResponseRenderer::class, DatabaseInterface::class, Config::class],
+    ],
+    Server\Databases\DestroyController::class => [
+        'class' => Server\Databases\DestroyController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            DatabaseInterface::class,
+            Transformations::class,
+            RelationCleanup::class,
+            UserPrivilegesFactory::class,
+            Config::class,
+        ],
+    ],
+    Server\DatabasesController::class => [
+        'class' => Server\DatabasesController::class,
+        'arguments' => [ResponseRenderer::class, DatabaseInterface::class, UserPrivilegesFactory::class, Config::class],
+    ],
+    Server\EnginesController::class => [
+        'class' => Server\EnginesController::class,
+        'arguments' => [ResponseRenderer::class, DatabaseInterface::class],
+    ],
+    Server\ExportController::class => [
+        'class' => Server\ExportController::class,
+        'arguments' => [ResponseRenderer::class, Options::class, DatabaseInterface::class, PageSettings::class],
+    ],
+    Server\ImportController::class => [
+        'class' => Server\ImportController::class,
+        'arguments' => [ResponseRenderer::class, DatabaseInterface::class, PageSettings::class, Config::class],
+    ],
+    Server\PluginsController::class => [
+        'class' => Server\PluginsController::class,
+        'arguments' => [ResponseRenderer::class, Plugins::class, DatabaseInterface::class],
+    ],
+    Server\Privileges\AccountLockController::class => [
+        'class' => Server\Privileges\AccountLockController::class,
+        'arguments' => [ResponseRenderer::class, AccountLocking::class],
+    ],
+    Server\Privileges\AccountUnlockController::class => [
+        'class' => Server\Privileges\AccountUnlockController::class,
+        'arguments' => [ResponseRenderer::class, AccountLocking::class],
+    ],
+    Server\PrivilegesController::class => [
+        'class' => Server\PrivilegesController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            Template::class,
+            Relation::class,
+            DatabaseInterface::class,
+            UserPrivilegesFactory::class,
+            Config::class,
+        ],
+    ],
+    Server\ReplicationController::class => [
+        'class' => Server\ReplicationController::class,
+        'arguments' => [ResponseRenderer::class, ReplicationGui::class, DatabaseInterface::class],
+    ],
+    Server\ShowEngineController::class => [
+        'class' => Server\ShowEngineController::class,
+        'arguments' => [ResponseRenderer::class, DatabaseInterface::class],
+    ],
+    Server\SqlController::class => [
+        'class' => Server\SqlController::class,
+        'arguments' => [ResponseRenderer::class, SqlQueryForm::class, DatabaseInterface::class, PageSettings::class],
+    ],
+    Server\UserGroupsController::class => [
+        'class' => Server\UserGroupsController::class,
+        'arguments' => [ResponseRenderer::class, Relation::class, DatabaseInterface::class],
+    ],
+    Server\UserGroupsFormController::class => [
+        'class' => Server\UserGroupsFormController::class,
+        'arguments' => [ResponseRenderer::class, Template::class, Relation::class, DatabaseInterface::class],
+    ],
+    Server\Status\AdvisorController::class => [
+        'class' => Server\Status\AdvisorController::class,
+        'arguments' => [ResponseRenderer::class, Template::class, Data::class, Advisor::class],
+    ],
+    Server\Status\Monitor\ChartingDataController::class => [
+        'class' => Server\Status\Monitor\ChartingDataController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            Template::class,
+            Data::class,
+            Monitor::class,
+            DatabaseInterface::class,
+        ],
+    ],
+    Server\Status\Monitor\GeneralLogController::class => [
+        'class' => Server\Status\Monitor\GeneralLogController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            Template::class,
+            Data::class,
+            Monitor::class,
+            DatabaseInterface::class,
+        ],
+    ],
+    Server\Status\Monitor\LogVarsController::class => [
+        'class' => Server\Status\Monitor\LogVarsController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            Template::class,
+            Data::class,
+            Monitor::class,
+            DatabaseInterface::class,
+        ],
+    ],
+    Server\Status\Monitor\QueryAnalyzerController::class => [
+        'class' => Server\Status\Monitor\QueryAnalyzerController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            Template::class,
+            Data::class,
+            Monitor::class,
+            DatabaseInterface::class,
+        ],
+    ],
+    Server\Status\Monitor\SlowLogController::class => [
+        'class' => Server\Status\Monitor\SlowLogController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            Template::class,
+            Data::class,
+            Monitor::class,
+            DatabaseInterface::class,
+        ],
+    ],
+    Server\Status\MonitorController::class => [
+        'class' => Server\Status\MonitorController::class,
+        'arguments' => [ResponseRenderer::class, Template::class, Data::class, DatabaseInterface::class],
+    ],
+    Server\Status\Processes\KillController::class => [
+        'class' => Server\Status\Processes\KillController::class,
+        'arguments' => [ResponseRenderer::class, Template::class, Data::class, DatabaseInterface::class],
+    ],
+    Server\Status\Processes\RefreshController::class => [
+        'class' => Server\Status\Processes\RefreshController::class,
+        'arguments' => [ResponseRenderer::class, Template::class, Data::class, Processes::class],
+    ],
+    Server\Status\ProcessesController::class => [
+        'class' => Server\Status\ProcessesController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            Template::class,
+            Data::class,
+            DatabaseInterface::class,
+            Processes::class,
+        ],
+    ],
+    Server\Status\QueriesController::class => [
+        'class' => Server\Status\QueriesController::class,
+        'arguments' => [ResponseRenderer::class, Template::class, Data::class, DatabaseInterface::class],
+    ],
+    Server\Status\StatusController::class => [
+        'class' => Server\Status\StatusController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            Template::class,
+            Data::class,
+            ReplicationGui::class,
+            DatabaseInterface::class,
+        ],
+    ],
+    Server\Status\VariablesController::class => [
+        'class' => Server\Status\VariablesController::class,
+        'arguments' => [ResponseRenderer::class, Template::class, Data::class, DatabaseInterface::class],
+    ],
+    Server\Variables\GetVariableController::class => [
+        'class' => Server\Variables\GetVariableController::class,
+        'arguments' => [ResponseRenderer::class, DatabaseInterface::class],
+    ],
+    Server\Variables\SetVariableController::class => [
+        'class' => Server\Variables\SetVariableController::class,
+        'arguments' => [ResponseRenderer::class, Template::class, DatabaseInterface::class],
+    ],
+    Server\VariablesController::class => [
+        'class' => Server\VariablesController::class,
+        'arguments' => [ResponseRenderer::class, Template::class, DatabaseInterface::class],
+    ],
+    Setup\MainController::class => [
+        'class' => Setup\MainController::class,
+        'arguments' => [ResponseFactory::class, ResponseRenderer::class, Template::class, Config::class],
+    ],
+    Setup\ShowConfigController::class => [
+        'class' => Setup\ShowConfigController::class,
+        'arguments' => [ResponseFactory::class, Template::class, Config::class],
+    ],
+    Setup\ValidateController::class => [
+        'class' => Setup\ValidateController::class,
+        'arguments' => [ResponseFactory::class, Template::class, Config::class],
+    ],
+    Sql\ColumnPreferencesController::class => [
+        'class' => Sql\ColumnPreferencesController::class,
+        'arguments' => [ResponseRenderer::class, DatabaseInterface::class],
+    ],
+    Sql\DefaultForeignKeyCheckValueController::class => [
+        'class' => Sql\DefaultForeignKeyCheckValueController::class,
+        'arguments' => [ResponseRenderer::class],
+    ],
+    Sql\EnumValuesController::class => [
+        'class' => Sql\EnumValuesController::class,
+        'arguments' => [ResponseRenderer::class, Template::class, \PhpMyAdmin\Sql::class],
+    ],
+    Sql\RelationalValuesController::class => [
+        'class' => Sql\RelationalValuesController::class,
+        'arguments' => [ResponseRenderer::class, \PhpMyAdmin\Sql::class],
+    ],
+    Sql\SetValuesController::class => [
+        'class' => Sql\SetValuesController::class,
+        'arguments' => [ResponseRenderer::class, Template::class, \PhpMyAdmin\Sql::class],
+    ],
+    Sql\SqlController::class => [
+        'class' => Sql\SqlController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            \PhpMyAdmin\Sql::class,
+            PageSettings::class,
+            BookmarkRepository::class,
+            Config::class,
+        ],
+    ],
+    Table\AddFieldController::class => [
+        'class' => Table\AddFieldController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            Transformations::class,
+            Config::class,
+            DatabaseInterface::class,
+            ColumnsDefinition::class,
+            DbTableExists::class,
+            UserPrivilegesFactory::class,
+        ],
+    ],
+    Table\ChangeController::class => [
+        'class' => Table\ChangeController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            Template::class,
+            InsertEdit::class,
+            Relation::class,
+            PageSettings::class,
+            DbTableExists::class,
+            Config::class,
+        ],
+    ],
+    Table\ChangeRowsController::class => [
+        'class' => Table\ChangeRowsController::class,
+        'arguments' => [ResponseRenderer::class, Table\ChangeController::class],
+    ],
+    Table\ChartController::class => [
+        'class' => Table\ChartController::class,
+        'arguments' => [ResponseRenderer::class, DatabaseInterface::class, DbTableExists::class, Config::class],
+    ],
+    Table\CreateController::class => [
+        'class' => Table\CreateController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            Transformations::class,
+            Config::class,
+            DatabaseInterface::class,
+            ColumnsDefinition::class,
+            UserPrivilegesFactory::class,
+        ],
+    ],
+    Table\DeleteConfirmController::class => [
+        'class' => Table\DeleteConfirmController::class,
+        'arguments' => [ResponseRenderer::class, DbTableExists::class],
+    ],
+    Table\DeleteRowsController::class => [
+        'class' => Table\DeleteRowsController::class,
+        'arguments' => [ResponseRenderer::class, DatabaseInterface::class, \PhpMyAdmin\Sql::class],
+    ],
+    Table\DropColumnConfirmationController::class => [
+        'class' => Table\DropColumnConfirmationController::class,
+        'arguments' => [ResponseRenderer::class, DbTableExists::class],
+    ],
+    Table\DropColumnController::class => [
+        'class' => Table\DropColumnController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            DatabaseInterface::class,
+            FlashMessenger::class,
+            RelationCleanup::class,
+        ],
+    ],
+    Table\ExportController::class => [
+        'class' => Table\ExportController::class,
+        'arguments' => [ResponseRenderer::class, Options::class, PageSettings::class],
+    ],
+    Table\ExportRowsController::class => [
+        'class' => Table\ExportRowsController::class,
+        'arguments' => [ResponseRenderer::class, Table\ExportController::class],
+    ],
+    Table\FindReplaceController::class => [
+        'class' => Table\FindReplaceController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            Template::class,
+            DatabaseInterface::class,
+            DbTableExists::class,
+            Config::class,
+        ],
+    ],
+    Table\GetFieldController::class => [
+        'class' => Table\GetFieldController::class,
+        'arguments' => [ResponseRenderer::class, DatabaseInterface::class, ResponseFactory::class],
+    ],
+    Table\GisVisualizationController::class => [
+        'class' => Table\GisVisualizationController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            Template::class,
+            DatabaseInterface::class,
+            DbTableExists::class,
+            ResponseFactory::class,
+            Config::class,
+        ],
+    ],
+    Table\ImportController::class => [
+        'class' => Table\ImportController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            DatabaseInterface::class,
+            PageSettings::class,
+            DbTableExists::class,
+            Config::class,
+        ],
+    ],
+    Table\IndexesController::class => [
+        'class' => Table\IndexesController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            Template::class,
+            DatabaseInterface::class,
+            Indexes::class,
+            DbTableExists::class,
+            Config::class,
+        ],
+    ],
+    Table\IndexRenameController::class => [
+        'class' => Table\IndexRenameController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            Template::class,
+            DatabaseInterface::class,
+            Indexes::class,
+            DbTableExists::class,
+        ],
+    ],
+    Table\Maintenance\AnalyzeController::class => [
+        'class' => Table\Maintenance\AnalyzeController::class,
+        'arguments' => [ResponseRenderer::class, \PhpMyAdmin\Table\Maintenance::class, Config::class],
+    ],
+    Table\Maintenance\CheckController::class => [
+        'class' => Table\Maintenance\CheckController::class,
+        'arguments' => [ResponseRenderer::class, \PhpMyAdmin\Table\Maintenance::class, Config::class],
+    ],
+    Table\Maintenance\ChecksumController::class => [
+        'class' => Table\Maintenance\ChecksumController::class,
+        'arguments' => [ResponseRenderer::class, \PhpMyAdmin\Table\Maintenance::class, Config::class],
+    ],
+    Table\Maintenance\OptimizeController::class => [
+        'class' => Table\Maintenance\OptimizeController::class,
+        'arguments' => [ResponseRenderer::class, \PhpMyAdmin\Table\Maintenance::class, Config::class],
+    ],
+    Table\Maintenance\RepairController::class => [
+        'class' => Table\Maintenance\RepairController::class,
+        'arguments' => [ResponseRenderer::class, \PhpMyAdmin\Table\Maintenance::class, Config::class],
+    ],
+    Table\Partition\AnalyzeController::class => [
+        'class' => Table\Partition\AnalyzeController::class,
+        'arguments' => [ResponseRenderer::class, Maintenance::class],
+    ],
+    Table\Partition\CheckController::class => [
+        'class' => Table\Partition\CheckController::class,
+        'arguments' => [ResponseRenderer::class, Maintenance::class],
+    ],
+    Table\Partition\DropController::class => [
+        'class' => Table\Partition\DropController::class,
+        'arguments' => [ResponseRenderer::class, Maintenance::class],
+    ],
+    Table\Partition\OptimizeController::class => [
+        'class' => Table\Partition\OptimizeController::class,
+        'arguments' => [ResponseRenderer::class, Maintenance::class],
+    ],
+    Table\Partition\RebuildController::class => [
+        'class' => Table\Partition\RebuildController::class,
+        'arguments' => [ResponseRenderer::class, Maintenance::class],
+    ],
+    Table\Partition\RepairController::class => [
+        'class' => Table\Partition\RepairController::class,
+        'arguments' => [ResponseRenderer::class, Maintenance::class],
+    ],
+    Table\Partition\TruncateController::class => [
+        'class' => Table\Partition\TruncateController::class,
+        'arguments' => [ResponseRenderer::class, Maintenance::class],
+    ],
+    Operations\TableController::class => [
+        'class' => Operations\TableController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            \PhpMyAdmin\Operations::class,
+            UserPrivilegesFactory::class,
+            Relation::class,
+            DatabaseInterface::class,
+            DbTableExists::class,
+            Config::class,
+        ],
+    ],
+    Table\PrivilegesController::class => [
+        'class' => Table\PrivilegesController::class,
+        'arguments' => [ResponseRenderer::class, Privileges::class, DatabaseInterface::class, Config::class],
+    ],
+    Table\RecentFavoriteController::class => [
+        'class' => Table\RecentFavoriteController::class,
+        'arguments' => [ResponseRenderer::class],
+    ],
+    Table\RelationController::class => [
+        'class' => Table\RelationController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            Template::class,
+            Relation::class,
+            DatabaseInterface::class,
+            Config::class,
+        ],
+    ],
+    Table\ReplaceController::class => [
+        'class' => Table\ReplaceController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            InsertEdit::class,
+            Transformations::class,
+            Relation::class,
+            DatabaseInterface::class,
+            Sql\SqlController::class,
+            Database\SqlController::class,
+            Table\ChangeController::class,
+            Table\SqlController::class,
+        ],
+    ],
+    Table\SearchController::class => [
+        'class' => Table\SearchController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            Template::class,
+            Search::class,
+            Relation::class,
+            DatabaseInterface::class,
+            DbTableExists::class,
+            Config::class,
+            \PhpMyAdmin\Sql::class,
+        ],
+    ],
+    Table\SqlController::class => [
+        'class' => Table\SqlController::class,
+        'arguments' => [ResponseRenderer::class, SqlQueryForm::class, PageSettings::class, DbTableExists::class],
+    ],
+    Table\Structure\AddIndexController::class => [
+        'class' => Table\Structure\AddIndexController::class,
+        'arguments' => [ResponseRenderer::class, Table\StructureController::class, Indexes::class],
+    ],
+    Table\Structure\AddKeyController::class => [
+        'class' => Table\Structure\AddKeyController::class,
+        'arguments' => [ResponseRenderer::class, Table\StructureController::class, Indexes::class],
+    ],
+    Table\Structure\BrowseController::class => [
+        'class' => Table\Structure\BrowseController::class,
+        'arguments' => [ResponseRenderer::class, \PhpMyAdmin\Sql::class],
+    ],
+    Table\Structure\CentralColumnsAddController::class => [
+        'class' => Table\Structure\CentralColumnsAddController::class,
+        'arguments' => [ResponseRenderer::class, CentralColumns::class, Table\StructureController::class],
+    ],
+    Table\Structure\CentralColumnsRemoveController::class => [
+        'class' => Table\Structure\CentralColumnsRemoveController::class,
+        'arguments' => [ResponseRenderer::class, CentralColumns::class, Table\StructureController::class],
+    ],
+    Table\Structure\ChangeController::class => [
+        'class' => Table\Structure\ChangeController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            DatabaseInterface::class,
+            ColumnsDefinition::class,
+            UserPrivilegesFactory::class,
+        ],
+    ],
+    Table\Structure\FulltextController::class => [
+        'class' => Table\Structure\FulltextController::class,
+        'arguments' => [ResponseRenderer::class, Table\StructureController::class, Indexes::class],
+    ],
+    Table\Structure\MoveColumnsController::class => [
+        'class' => Table\Structure\MoveColumnsController::class,
+        'arguments' => [ResponseRenderer::class, Template::class, DatabaseInterface::class],
+    ],
+    Table\Structure\PartitioningController::class => [
+        'class' => Table\Structure\PartitioningController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            DatabaseInterface::class,
+            CreateAddField::class,
+            Table\StructureController::class,
+            PageSettings::class,
+        ],
+    ],
+    Table\Structure\PrimaryController::class => [
+        'class' => Table\Structure\PrimaryController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            DatabaseInterface::class,
+            Table\StructureController::class,
+            DbTableExists::class,
+        ],
+    ],
+    Table\Structure\ReservedWordCheckController::class => [
+        'class' => Table\Structure\ReservedWordCheckController::class,
+        'arguments' => [ResponseRenderer::class, Config::class],
+    ],
+    Table\Structure\SaveController::class => [
+        'class' => Table\Structure\SaveController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            Relation::class,
+            Transformations::class,
+            DatabaseInterface::class,
+            Table\StructureController::class,
+            UserPrivilegesFactory::class,
+            Config::class,
+        ],
+    ],
+    Table\Structure\SpatialController::class => [
+        'class' => Table\Structure\SpatialController::class,
+        'arguments' => [ResponseRenderer::class, Table\StructureController::class, Indexes::class],
+    ],
+    Table\Structure\UniqueController::class => [
+        'class' => Table\Structure\UniqueController::class,
+        'arguments' => [ResponseRenderer::class, Table\StructureController::class, Indexes::class],
+    ],
+    Table\StructureController::class => [
+        'class' => Table\StructureController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            Template::class,
+            Relation::class,
+            Transformations::class,
+            DatabaseInterface::class,
+            PageSettings::class,
+            DbTableExists::class,
+            Config::class,
+        ],
+    ],
+    Table\TrackingController::class => [
+        'class' => Table\TrackingController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            Tracking::class,
+            TrackingChecker::class,
+            DbTableExists::class,
+            ResponseFactory::class,
+        ],
+    ],
+    Triggers\IndexController::class => [
+        'class' => Triggers\IndexController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            Template::class,
+            DatabaseInterface::class,
+            \PhpMyAdmin\Triggers\Triggers::class,
+            DbTableExists::class,
+        ],
+    ],
+    Table\ZoomSearchController::class => [
+        'class' => Table\ZoomSearchController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            Template::class,
+            Search::class,
+            Relation::class,
+            DatabaseInterface::class,
+            DbTableExists::class,
+            Config::class,
+        ],
+    ],
+    TableController::class => [
+        'class' => TableController::class,
+        'arguments' => [ResponseRenderer::class, DatabaseInterface::class],
+    ],
+    ThemesController::class => [
+        'class' => ThemesController::class,
+        'arguments' => [ResponseRenderer::class, Template::class, ThemeManager::class],
+    ],
+    ThemeSetController::class => [
+        'class' => ThemeSetController::class,
+        'arguments' => [ResponseRenderer::class, ThemeManager::class, UserPreferences::class, Config::class],
+    ],
+    Transformation\OverviewController::class => [
+        'class' => Transformation\OverviewController::class,
+        'arguments' => [ResponseRenderer::class, Transformations::class],
+    ],
+    Transformation\WrapperController::class => [
+        'class' => Transformation\WrapperController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            Transformations::class,
+            Relation::class,
+            DatabaseInterface::class,
+            DbTableExists::class,
+            ResponseFactory::class,
+        ],
+    ],
+    UserPasswordController::class => [
+        'class' => UserPasswordController::class,
+        'arguments' => [ResponseRenderer::class, UserPassword::class, DatabaseInterface::class, Config::class],
+    ],
+    VersionCheckController::class => [
+        'class' => VersionCheckController::class,
+        'arguments' => [VersionInformation::class, ResponseFactory::class],
+    ],
+    View\CreateController::class => [
+        'class' => View\CreateController::class,
+        'arguments' => [ResponseRenderer::class, DatabaseInterface::class, DbTableExists::class],
+    ],
+    Operations\ViewController::class => [
+        'class' => Operations\ViewController::class,
+        'arguments' => [ResponseRenderer::class, DatabaseInterface::class, DbTableExists::class],
+    ],
+    SyncFavoriteTablesController::class => [
+        'class' => SyncFavoriteTablesController::class,
+        'arguments' => [ResponseRenderer::class, Relation::class, Config::class],
     ],
 ];
