@@ -118,13 +118,13 @@ class NavigationControllerTest extends AbstractTestCase
         );
 
         $responseRenderer = new ResponseRenderer();
-        $template = new Template();
-        $relation = new Relation($this->dbi);
+        $template = new Template($config);
+        $relation = new Relation($this->dbi, $config);
         $navigationController = new NavigationController(
             $responseRenderer,
             new Navigation($template, $relation, $this->dbi, $config),
             $relation,
-            new PageSettings(new UserPreferences($this->dbi, $relation, $template)),
+            new PageSettings(new UserPreferences($this->dbi, $relation, $template, $config)),
         );
 
         $_POST['full'] = '1';
@@ -267,13 +267,13 @@ class NavigationControllerTest extends AbstractTestCase
         );
 
         $responseRenderer = new ResponseRenderer();
-        $template = new Template();
-        $relation = new Relation($this->dbi);
+        $template = new Template($config);
+        $relation = new Relation($this->dbi, $config);
         $navigationController = new NavigationController(
             $responseRenderer,
             new Navigation($template, $relation, $this->dbi, $config),
             $relation,
-            new PageSettings(new UserPreferences($this->dbi, $relation, $template)),
+            new PageSettings(new UserPreferences($this->dbi, $relation, $template, $config)),
         );
 
         $_POST['full'] = '1';

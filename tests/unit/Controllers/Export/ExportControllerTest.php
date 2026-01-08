@@ -198,7 +198,7 @@ final class ExportControllerTest extends AbstractTestCase
         $userPreferencesHandler = new UserPreferencesHandler(
             $config,
             $dbi,
-            new UserPreferences($dbi, new Relation($dbi, $config), new Template($config)),
+            new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config),
             new LanguageManager($config),
             new ThemeManager(),
         );
@@ -372,7 +372,7 @@ final class ExportControllerTest extends AbstractTestCase
         $userPreferencesHandler = new UserPreferencesHandler(
             $config,
             $dbi,
-            new UserPreferences($dbi, new Relation($dbi, $config), new Template($config)),
+            new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config),
             new LanguageManager($config),
             new ThemeManager(),
         );
@@ -535,7 +535,7 @@ final class ExportControllerTest extends AbstractTestCase
         $userPreferencesHandler = new UserPreferencesHandler(
             $config,
             $dbi,
-            new UserPreferences($dbi, new Relation($dbi, $config), new Template($config)),
+            new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config),
             new LanguageManager($config),
             new ThemeManager(),
         );
@@ -702,7 +702,7 @@ final class ExportControllerTest extends AbstractTestCase
         $userPreferencesHandler = new UserPreferencesHandler(
             $config,
             $dbi,
-            new UserPreferences($dbi, new Relation($dbi, $config), new Template($config)),
+            new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config),
             new LanguageManager($config),
             new ThemeManager(),
         );

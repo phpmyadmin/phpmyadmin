@@ -43,20 +43,19 @@ final class ChangeControllerTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
 
         $response = new ResponseRenderer();
-        $pageSettings = new PageSettings(
-            new UserPreferences($dbi, new Relation($dbi), new Template()),
-        );
+        $config = Config::getInstance();
+        $template = new Template($config);
+        $relation = new Relation($dbi, $config);
+        $userPreferences = new UserPreferences($dbi, $relation, $template, $config);
+        $pageSettings = new PageSettings($userPreferences);
         $pageSettings->init('Edit');
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
             ->withQueryParams(['db' => 'test_db', 'table' => 'test_table'])
             ->withParsedBody(['insert_rows' => '0']);
 
-        $config = Config::getInstance();
         $config->set('InsertRows', 3);
 
-        $relation = new Relation($dbi);
-        $template = new Template();
         $insertEdit = new InsertEdit(
             $dbi,
             $relation,
@@ -153,22 +152,21 @@ final class ChangeControllerTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
 
         $response = new ResponseRenderer();
-        $pageSettings = new PageSettings(
-            new UserPreferences($dbi, new Relation($dbi), new Template()),
-        );
+        $config = Config::getInstance();
+        $relation = new Relation($dbi, $config);
+        $template = new Template($config);
+        $userPreferences = new UserPreferences($dbi, $relation, $template, $config);
+        $pageSettings = new PageSettings($userPreferences);
         $pageSettings->init('Edit');
 
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
             ->withQueryParams(['db' => 'test_db', 'table' => 'test_table'])
             ->withParsedBody(['insert_rows' => '1']);
 
-        $config = Config::getInstance();
         $config->set('InsertRows', 3);
         $config->set('ShowFunctionFields', false);
         $config->set('ShowFieldTypesInDataEditView', false);
 
-        $relation = new Relation($dbi);
-        $template = new Template();
         $insertEdit = new InsertEdit(
             $dbi,
             $relation,

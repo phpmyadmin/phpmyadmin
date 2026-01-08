@@ -60,7 +60,7 @@ class ExportControllerTest extends AbstractTestCase
         $response = new ResponseRenderer();
         $relation = new Relation($dbi, $config);
         $template = new Template($config);
-        $userPreferences = new UserPreferences($dbi, $relation, $template);
+        $userPreferences = new UserPreferences($dbi, $relation, $template, $config);
         $pageSettings = new PageSettings($userPreferences);
         $pageSettings->init('Export');
         $exportList = Plugins::getExport(ExportType::Table, true);

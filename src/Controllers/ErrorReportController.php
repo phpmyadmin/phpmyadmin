@@ -131,7 +131,12 @@ final readonly class ErrorReportController implements InvocableController
 
                 /* Persist always send settings */
                 if ($alwaysSend === 'true') {
-                    $userPreferences = new UserPreferences($this->dbi, new Relation($this->dbi), $this->template);
+                    $userPreferences = new UserPreferences(
+                        $this->dbi,
+                        new Relation($this->dbi, $this->config),
+                        $this->template,
+                        $this->config,
+                    );
                     $userPreferences->persistOption('SendErrorReports', 'always', 'ask');
                 }
             }

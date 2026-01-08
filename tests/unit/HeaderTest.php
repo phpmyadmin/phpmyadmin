@@ -64,7 +64,7 @@ class HeaderTest extends AbstractTestCase
         $relation = new Relation($dbi, $config);
         $template = new Template($config);
         $history = new History($dbi, $relation, $config);
-        $userPreferences = new UserPreferences($dbi, $relation, $template);
+        $userPreferences = new UserPreferences($dbi, $relation, $template, $config);
         $userPreferencesHandler = new UserPreferencesHandler(
             $config,
             $dbi,
@@ -91,11 +91,11 @@ class HeaderTest extends AbstractTestCase
         $config = Config::getInstance();
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
-        $relation = new Relation($dbi);
+        $relation = new Relation($dbi, $config);
         $template = new Template($config);
         $history = new History($dbi, $relation, $config);
         $console = new Console($relation, $template, new BookmarkRepository($dbi, $relation), $history);
-        $userPreferences = new UserPreferences($dbi, $relation, $template);
+        $userPreferences = new UserPreferences($dbi, $relation, $template, $config);
         $userPreferencesHandler = new UserPreferencesHandler(
             $config,
             $dbi,

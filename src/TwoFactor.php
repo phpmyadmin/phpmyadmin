@@ -57,8 +57,9 @@ class TwoFactor
     public function __construct(public string $user)
     {
         $dbi = DatabaseInterface::getInstance();
+        $config = Config::getInstance();
 
-        $this->userPreferences = new UserPreferences($dbi, new Relation($dbi), new Template());
+        $this->userPreferences = new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config);
         $this->available = $this->getAvailableBackends();
         $this->config = $this->readConfig();
         $this->writable = $this->config['type'] === 'db';

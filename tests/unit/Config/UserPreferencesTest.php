@@ -51,7 +51,7 @@ class UserPreferencesTest extends AbstractTestCase
         $config->settings = ['Server/hide_db' => 'testval123', 'Server/port' => '213'];
 
         $dbi = DatabaseInterface::getInstance();
-        $userPreferences = new UserPreferences($dbi, new Relation($dbi), new Template());
+        $userPreferences = new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config);
         $userPreferences->pageInit(new ConfigFile());
 
         self::assertSame(
@@ -70,8 +70,9 @@ class UserPreferencesTest extends AbstractTestCase
 
         unset($_SESSION['userconfig']);
 
+        $config = Config::getInstance();
         $dbi1 = DatabaseInterface::getInstance();
-        $userPreferences = new UserPreferences($dbi1, new Relation($dbi1), new Template());
+        $userPreferences = new UserPreferences($dbi1, new Relation($dbi1, $config), new Template($config), $config);
         $result = $userPreferences->load();
 
         self::assertSame(
@@ -112,7 +113,7 @@ class UserPreferencesTest extends AbstractTestCase
             ->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
-        $userPreferences = new UserPreferences($dbi, new Relation($dbi), new Template());
+        $userPreferences = new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config);
         $result = $userPreferences->load();
 
         self::assertSame(
@@ -126,14 +127,15 @@ class UserPreferencesTest extends AbstractTestCase
      */
     public function testSave(): void
     {
-        Config::getInstance()->selectedServer['DisableIS'] = true;
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = true;
         $relationParameters = RelationParameters::fromArray([]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         unset($_SESSION['userconfig']);
 
         $dbi1 = DatabaseInterface::getInstance();
-        $userPreferences = new UserPreferences($dbi1, new Relation($dbi1), new Template());
+        $userPreferences = new UserPreferences($dbi1, new Relation($dbi1, $config), new Template($config), $config);
         $result = $userPreferences->save([1]);
 
         self::assertTrue($result);
@@ -193,7 +195,7 @@ class UserPreferencesTest extends AbstractTestCase
             ->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
-        $userPreferences = new UserPreferences($dbi, new Relation($dbi1), new Template());
+        $userPreferences = new UserPreferences($dbi, new Relation($dbi1, $config), new Template($config), $config);
         $result = $userPreferences->save([1]);
 
         self::assertTrue($result);
@@ -227,7 +229,7 @@ class UserPreferencesTest extends AbstractTestCase
             ->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
-        $userPreferences = new UserPreferences($dbi, new Relation($dbi1), new Template());
+        $userPreferences = new UserPreferences($dbi, new Relation($dbi1, $config), new Template($config), $config);
         $result = $userPreferences->save([1]);
 
         self::assertInstanceOf(Message::class, $result);
@@ -271,7 +273,7 @@ class UserPreferencesTest extends AbstractTestCase
         $relationParameters = $relation->getRelationParameters();
         self::assertNotNull($relationParameters->userPreferencesFeature);
 
-        $userPreferences = new UserPreferences($dbi, $relation, new Template());
+        $userPreferences = new UserPreferences($dbi, $relation, new Template($config), $config);
 
         // phpcs:disable Generic.Files.LineLength.TooLong
         $dummyDbi->addResult(
@@ -380,7 +382,7 @@ class UserPreferencesTest extends AbstractTestCase
         $config->settings['UserprefsDisallow'] = ['test' => 'val', 'foo' => 'bar'];
 
         $dbi = DatabaseInterface::getInstance();
-        $userPreferences = new UserPreferences($dbi, new Relation($dbi), new Template());
+        $userPreferences = new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config);
         $result = $userPreferences->apply(
             [
                 'DBG/sql' => true,
@@ -402,10 +404,11 @@ class UserPreferencesTest extends AbstractTestCase
      */
     public function testApplyDevel(): void
     {
-        Config::getInstance()->set('UserprefsDeveloperTab', true);
+        $config = Config::getInstance();
+        $config->set('UserprefsDeveloperTab', true);
 
         $dbi = DatabaseInterface::getInstance();
-        $userPreferences = new UserPreferences($dbi, new Relation($dbi), new Template());
+        $userPreferences = new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config);
         $result = $userPreferences->apply(
             ['DBG/sql' => true],
         );
@@ -430,8 +433,9 @@ class UserPreferencesTest extends AbstractTestCase
 
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
+        $config = Config::getInstance();
         $dbi = DatabaseInterface::getInstance();
-        $userPreferences = new UserPreferences($dbi, new Relation($dbi), new Template());
+        $userPreferences = new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config);
         self::assertTrue(
             $userPreferences->persistOption('Server/hide_db', 'val', 'val'),
         );
@@ -455,10 +459,11 @@ class UserPreferencesTest extends AbstractTestCase
         Current::$database = 'db';
         Current::$table = 'table';
 
-        Config::getInstance()->set('PmaAbsoluteUri', '');
+        $config = Config::getInstance();
+        $config->set('PmaAbsoluteUri', '');
 
         $dbi = DatabaseInterface::getInstance();
-        $userPreferences = new UserPreferences($dbi, new Relation($dbi), new Template());
+        $userPreferences = new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config);
         $response = $userPreferences->redirect(
             'file.html',
             ['a' => 'b'],
@@ -477,8 +482,9 @@ class UserPreferencesTest extends AbstractTestCase
         $_SESSION['userprefs_autoload'] = false;
         $_REQUEST['prefs_autoload'] = 'hide';
 
+        $config = Config::getInstance();
         $dbi = DatabaseInterface::getInstance();
-        $userPreferences = new UserPreferences($dbi, new Relation($dbi), new Template());
+        $userPreferences = new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config);
         self::assertSame(
             '',
             $userPreferences->autoloadGetHeader(),

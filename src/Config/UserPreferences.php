@@ -36,16 +36,14 @@ use function urlencode;
 /**
  * Functions for displaying user preferences pages
  */
-class UserPreferences
+readonly class UserPreferences
 {
-    private readonly Config $config;
-
     public function __construct(
-        private readonly DatabaseInterface $dbi,
-        private readonly Relation $relation,
-        private readonly Template $template,
+        private DatabaseInterface $dbi,
+        private Relation $relation,
+        private Template $template,
+        private Config $config,
     ) {
-        $this->config = Config::getInstance();
     }
 
     /**

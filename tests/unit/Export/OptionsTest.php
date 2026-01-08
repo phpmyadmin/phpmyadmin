@@ -47,7 +47,7 @@ class OptionsTest extends AbstractTestCase
         $userPreferencesHandler = new UserPreferencesHandler(
             $config,
             $dbi,
-            new UserPreferences($dbi, $relation, new Template($config)),
+            new UserPreferences($dbi, $relation, new Template($config), $config),
             new LanguageManager($config),
             new ThemeManager(),
         );

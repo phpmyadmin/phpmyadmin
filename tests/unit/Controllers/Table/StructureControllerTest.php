@@ -83,9 +83,10 @@ class StructureControllerTest extends AbstractTestCase
         );
         // phpcs:enable
 
-        $pageSettings = new PageSettings(
-            new UserPreferences($this->dbi, new Relation($this->dbi), new Template()),
-        );
+        $relation = new Relation($this->dbi, $config);
+        $template = new Template($config);
+        $userPreferences = new UserPreferences($this->dbi, $relation, $template, $config);
+        $pageSettings = new PageSettings($userPreferences);
         $pageSettings->init('TableStructure');
         $fields = $this->dbi->getColumns(Current::$database, Current::$table);
 
@@ -93,8 +94,6 @@ class StructureControllerTest extends AbstractTestCase
             ->withQueryParams(['route' => '/table/structure', 'db' => 'test_db', 'table' => 'test_table']);
 
         $response = new ResponseRenderer();
-        $relation = new Relation($this->dbi);
-        $template = new Template();
         (new StructureController(
             $response,
             $template,

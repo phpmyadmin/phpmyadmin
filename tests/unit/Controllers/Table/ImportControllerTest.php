@@ -49,11 +49,10 @@ class ImportControllerTest extends AbstractTestCase
         $choice = Plugins::getChoice($importList, 'xml');
         $options = Plugins::getOptions('Import', $importList);
 
-        $pageSettings = new PageSettings(
-            new UserPreferences($dbi, new Relation($dbi), new Template()),
-        );
+        $template = new Template($config);
+        $userPreferences = new UserPreferences($dbi, new Relation($dbi, $config), $template, $config);
+        $pageSettings = new PageSettings($userPreferences);
         $pageSettings->init('Import');
-        $template = new Template();
         $expected = $template->render('table/import/index', [
             'page_settings_error_html' => $pageSettings->getErrorHTML(),
             'page_settings_html' => $pageSettings->getHTML(),

@@ -393,9 +393,6 @@
     </DeprecatedMethod>
   </file>
   <file src="src/Config/UserPreferences.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$path]]></code>
       <code><![CDATA[$urlParams]]></code>
@@ -8681,6 +8678,7 @@
   <file src="src/TwoFactor.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
     <UnsafeInstantiation>
@@ -9195,6 +9193,9 @@
   <file src="tests/unit/Config/PageSettingsTest.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
@@ -9234,6 +9235,9 @@
   </file>
   <file src="tests/unit/Config/UserPreferencesTest.php">
     <DeprecatedMethod>
+      <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>

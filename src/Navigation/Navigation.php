@@ -100,9 +100,13 @@ class Navigation
             }
 
             if (self::$isSettingsEnabled) {
-                $pageSettings = new PageSettings(
-                    new UserPreferences($this->dbi, new Relation($this->dbi), $this->template),
+                $userPreferences = new UserPreferences(
+                    $this->dbi,
+                    new Relation($this->dbi, $this->config),
+                    $this->template,
+                    $this->config,
                 );
+                $pageSettings = new PageSettings($userPreferences);
                 $pageSettings->init('Navi', 'pma_navigation_settings');
                 $response->addHTML($pageSettings->getErrorHTML());
                 $navigationSettings = $pageSettings->getHTML();

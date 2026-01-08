@@ -898,15 +898,6 @@ parameters:
 			path: src/Config/SpecialSchemaLinks.php
 
 		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Config/UserPreferences.php
-
-		-
 			message: '#^Cannot access offset ''userprefs'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 2
@@ -13410,7 +13401,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 1
+			count: 2
 			path: src/TwoFactor.php
 
 		-
@@ -14565,7 +14556,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 1
+			count: 4
 			path: tests/unit/Config/PageSettingsTest.php
 
 		-
@@ -14715,7 +14706,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 5
+			count: 8
 			path: tests/unit/Config/UserPreferencesTest.php
 
 		-

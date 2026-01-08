@@ -337,7 +337,7 @@ return [
     ],
     UserPreferences::class => [
         'class' => UserPreferences::class,
-        'arguments' => [DatabaseInterface::class, Relation::class, Template::class],
+        'arguments' => [DatabaseInterface::class, Relation::class, Template::class, Config::class],
     ],
     UserPrivilegesFactory::class => [
         'class' => UserPrivilegesFactory::class,

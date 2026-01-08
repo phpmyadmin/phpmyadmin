@@ -60,10 +60,10 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
         $dummyDbi = new DbiDummy();
         $dummyDbi->addSelectDb('phpmyadmin');
         $dbi = DatabaseInterface::getInstanceForTest($dummyDbi, $config);
-        $relation = new Relation($dbi);
+        $relation = new Relation($dbi, $config);
         $history = new History($dbi, $relation, $config);
         $console = new Console($relation, $template, new BookmarkRepository($dbi, $relation), $history);
-        $userPreferences = new UserPreferences($dbi, $relation, $template);
+        $userPreferences = new UserPreferences($dbi, $relation, $template, $config);
         $userPreferencesHandler = new UserPreferencesHandler(
             $config,
             $dbi,
