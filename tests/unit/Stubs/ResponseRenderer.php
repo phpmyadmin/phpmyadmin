@@ -25,8 +25,10 @@ use PhpMyAdmin\Footer;
 use PhpMyAdmin\Header;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
+use PhpMyAdmin\I18n\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Theme\ThemeManager;
 
 use function is_array;
 use function json_encode;
@@ -62,7 +64,13 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
         $history = new History($dbi, $relation, $config);
         $console = new Console($relation, $template, new BookmarkRepository($dbi, $relation), $history);
         $userPreferences = new UserPreferences($dbi, $relation, $template);
-        $userPreferencesHandler = new UserPreferencesHandler($config);
+        $userPreferencesHandler = new UserPreferencesHandler(
+            $config,
+            $dbi,
+            $userPreferences,
+            new LanguageManager($config),
+            new ThemeManager(),
+        );
 
         parent::__construct(
             $config,

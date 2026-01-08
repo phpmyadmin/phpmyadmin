@@ -375,6 +375,7 @@ return [
             \PhpMyAdmin\Export\Export::class,
             ResponseFactory::class,
             Config::class,
+            UserPreferencesHandler::class,
         ],
     ],
     Export\TablesController::class => [
@@ -523,7 +524,7 @@ return [
             UserPreferences::class,
             Relation::class,
             Config::class,
-            ThemeManager::class,
+            UserPreferencesHandler::class,
         ],
     ],
     Preferences\FeaturesController::class => [
@@ -533,7 +534,7 @@ return [
             UserPreferences::class,
             Relation::class,
             Config::class,
-            ThemeManager::class,
+            UserPreferencesHandler::class,
         ],
     ],
     Preferences\ImportController::class => [
@@ -543,7 +544,7 @@ return [
             UserPreferences::class,
             Relation::class,
             Config::class,
-            ThemeManager::class,
+            UserPreferencesHandler::class,
         ],
     ],
     Preferences\MainPanelController::class => [
@@ -553,7 +554,7 @@ return [
             UserPreferences::class,
             Relation::class,
             Config::class,
-            ThemeManager::class,
+            UserPreferencesHandler::class,
         ],
     ],
     Preferences\ManageController::class => [
@@ -565,6 +566,7 @@ return [
             Config::class,
             ThemeManager::class,
             ResponseFactory::class,
+            UserPreferencesHandler::class,
         ],
     ],
     Preferences\NavigationController::class => [
@@ -574,7 +576,7 @@ return [
             UserPreferences::class,
             Relation::class,
             Config::class,
-            ThemeManager::class,
+            UserPreferencesHandler::class,
         ],
     ],
     Preferences\SqlController::class => [
@@ -584,7 +586,7 @@ return [
             UserPreferences::class,
             Relation::class,
             Config::class,
-            ThemeManager::class,
+            UserPreferencesHandler::class,
         ],
     ],
     Preferences\TwoFactorController::class => [

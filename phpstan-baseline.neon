@@ -949,15 +949,6 @@ parameters:
 			path: src/Config/UserPreferences.php
 
 		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 3
-			path: src/Config/UserPreferencesHandler.php
-
-		-
 			message: '#^Cannot access offset ''LoginCookieValidity'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
@@ -16140,7 +16131,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 1
+			count: 2
 			path: tests/unit/Export/OptionsTest.php
 
 		-

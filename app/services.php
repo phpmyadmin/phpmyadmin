@@ -32,6 +32,7 @@ use PhpMyAdmin\FlashMessenger;
 use PhpMyAdmin\Header;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Middleware;
+use PhpMyAdmin\I18n\LanguageManager;
 use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\SimulateDml;
 use PhpMyAdmin\InsertEdit;
@@ -99,7 +100,10 @@ return [
     ],
     Events::class => ['class' => Events::class, 'arguments' => [DatabaseInterface::class, Config::class]],
     Export::class => ['class' => Export::class, 'arguments' => [DatabaseInterface::class, OutputHandler::class]],
-    Options::class => ['class' => Options::class, 'arguments' => [Relation::class, TemplateModel::class]],
+    Options::class => [
+        'class' => Options::class,
+        'arguments' => [Relation::class, TemplateModel::class, UserPreferencesHandler::class],
+    ],
     TemplateModel::class => ['class' => TemplateModel::class, 'arguments' => [DatabaseInterface::class]],
     ExpressionLanguage::class => ['class' => ExpressionLanguage::class],
     FileListing::class => ['class' => FileListing::class],
@@ -182,15 +186,15 @@ return [
     Middleware\ThemeInitialization::class => ['class' => Middleware\ThemeInitialization::class],
     Middleware\UrlRedirection::class => [
         'class' => Middleware\UrlRedirection::class,
-        'arguments' => [Config::class, Template::class, ResponseFactory::class],
+        'arguments' => [Template::class, ResponseFactory::class, UserPreferencesHandler::class],
     ],
     Middleware\SetupPageRedirection::class => [
         'class' => Middleware\SetupPageRedirection::class,
-        'arguments' => [Config::class, ResponseFactory::class],
+        'arguments' => [Config::class, ResponseFactory::class, UserPreferencesHandler::class],
     ],
     Middleware\MinimumCommonRedirection::class => [
         'class' => Middleware\MinimumCommonRedirection::class,
-        'arguments' => [Config::class, ResponseFactory::class],
+        'arguments' => [ResponseFactory::class, UserPreferencesHandler::class],
     ],
     Middleware\LanguageAndThemeCookieSaving::class => [
         'class' => Middleware\LanguageAndThemeCookieSaving::class,
@@ -227,7 +231,7 @@ return [
     Middleware\ProfilingChecking::class => ['class' => Middleware\ProfilingChecking::class],
     Middleware\UserPreferencesLoading::class => [
         'class' => Middleware\UserPreferencesLoading::class,
-        'arguments' => [Config::class],
+        'arguments' => [UserPreferencesHandler::class],
     ],
     Middleware\RecentTableHandling::class => [
         'class' => Middleware\RecentTableHandling::class,
@@ -353,5 +357,15 @@ return [
         'class' => History::class,
         'arguments' => [DatabaseInterface::class, Relation::class, Config::class],
     ],
-    UserPreferencesHandler::class => ['class' => UserPreferencesHandler::class, 'arguments' => [Config::class]],
+    UserPreferencesHandler::class => [
+        'class' => UserPreferencesHandler::class,
+        'arguments' => [
+            Config::class,
+            DatabaseInterface::class,
+            UserPreferences::class,
+            LanguageManager::class,
+            ThemeManager::class,
+        ],
+    ],
+    LanguageManager::class => ['class' => LanguageManager::class, 'factory' => [LanguageManager::class, 'getInstance']],
 ];

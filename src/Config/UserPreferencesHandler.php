@@ -6,13 +6,11 @@ namespace PhpMyAdmin\Config;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Settings\Server;
-use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\I18n\LanguageManager;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Theme\ThemeManager;
 
 use function array_replace_recursive;
@@ -23,15 +21,20 @@ class UserPreferencesHandler
     /** @var ''|'db'|'session' */
     public string $storageType = '';
 
-    public function __construct(private readonly Config $config)
-    {
+    public function __construct(
+        private readonly Config $config,
+        private readonly DatabaseInterface $dbi,
+        private readonly UserPreferences $userPreferences,
+        private readonly LanguageManager $languageManager,
+        private readonly ThemeManager $themeManager,
+    ) {
     }
 
     /**
      * Loads user preferences and merges them with current config
      * must be called after control connection has been established
      */
-    public function loadUserPreferences(ThemeManager $themeManager, bool $isMinimumCommon = false): void
+    public function loadUserPreferences(bool $isMinimumCommon = false): void
     {
         $cacheKey = 'server_' . Current::$server;
         if (Current::$server > 0 && ! $isMinimumCommon) {
@@ -40,10 +43,8 @@ class UserPreferencesHandler
                 ! isset($_SESSION['cache'][$cacheKey]['userprefs'])
                 || $_SESSION['cache'][$cacheKey]['config_mtime'] < $this->config->sourceMtime
             ) {
-                $dbi = DatabaseInterface::getInstance();
-                $userPreferences = new UserPreferences($dbi, new Relation($dbi), new Template());
-                $prefs = $userPreferences->load();
-                $_SESSION['cache'][$cacheKey]['userprefs'] = $userPreferences->apply($prefs['config_data']);
+                $prefs = $this->userPreferences->load();
+                $_SESSION['cache'][$cacheKey]['userprefs'] = $this->userPreferences->apply($prefs['config_data']);
                 $_SESSION['cache'][$cacheKey]['userprefs_mtime'] = $prefs['mtime'];
                 $_SESSION['cache'][$cacheKey]['userprefs_type'] = $prefs['type'];
                 $_SESSION['cache'][$cacheKey]['config_mtime'] = $this->config->sourceMtime;
@@ -77,27 +78,27 @@ class UserPreferencesHandler
         // in frames
 
         // save theme
-        if ($themeManager->getThemeCookie() !== '' || isset($_REQUEST['set_theme'])) {
+        if ($this->themeManager->getThemeCookie() !== '' || isset($_REQUEST['set_theme'])) {
             if (
                 (! isset($configData['ThemeDefault'])
-                    && $themeManager->theme->getId() !== 'original')
+                    && $this->themeManager->theme->getId() !== 'original')
                 || isset($configData['ThemeDefault'])
-                && $configData['ThemeDefault'] !== $themeManager->theme->getId()
+                && $configData['ThemeDefault'] !== $this->themeManager->theme->getId()
             ) {
                 $this->setUserValue(
                     null,
                     'ThemeDefault',
-                    $themeManager->theme->getId(),
+                    $this->themeManager->theme->getId(),
                     'original',
                 );
             }
         } elseif (
-            $this->config->config->ThemeDefault !== $themeManager->theme->getId()
-            && $themeManager->themeExists($this->config->config->ThemeDefault)
+            $this->config->config->ThemeDefault !== $this->themeManager->theme->getId()
+            && $this->themeManager->themeExists($this->config->config->ThemeDefault)
         ) {
             // no cookie - read default from settings
-            $themeManager->setActiveTheme($this->config->config->ThemeDefault);
-            $themeManager->setThemeCookie();
+            $this->themeManager->setActiveTheme($this->config->config->ThemeDefault);
+            $this->themeManager->setThemeCookie();
         }
 
         // save language
@@ -111,11 +112,10 @@ class UserPreferencesHandler
                 $this->setUserValue(null, 'lang', Current::$lang, 'en');
             }
         } elseif (isset($configData['lang'])) {
-            $languageManager = LanguageManager::getInstance();
             // read language from settings
-            $language = $languageManager->getLanguage($configData['lang']);
+            $language = $this->languageManager->getLanguage($configData['lang']);
             if ($language !== false) {
-                $languageManager->activate($language);
+                $this->languageManager->activate($language);
                 $this->config->setCookie('pma_lang', $language->getCode());
             }
         }
@@ -168,9 +168,7 @@ class UserPreferencesHandler
                 $defaultValue = Core::arrayRead($cfgPath, $this->config->default);
             }
 
-            $dbi = DatabaseInterface::getInstance();
-            $userPreferences = new UserPreferences($dbi, new Relation($dbi), new Template());
-            $result = $userPreferences->persistOption($cfgPath, $newCfgValue, $defaultValue);
+            $result = $this->userPreferences->persistOption($cfgPath, $newCfgValue, $defaultValue);
         }
 
         if ($this->storageType !== 'db' && $cookieName) {
@@ -212,11 +210,10 @@ class UserPreferencesHandler
     private function setConnectionCollation(): void
     {
         $collationConnection = $this->config->config->DefaultConnectionCollation;
-        $dbi = DatabaseInterface::getInstance();
-        if ($collationConnection === '' || $collationConnection === $dbi->getDefaultCollation()) {
+        if ($collationConnection === '' || $collationConnection === $this->dbi->getDefaultCollation()) {
             return;
         }
 
-        $dbi->setCollation($collationConnection);
+        $this->dbi->setCollation($collationConnection);
     }
 }

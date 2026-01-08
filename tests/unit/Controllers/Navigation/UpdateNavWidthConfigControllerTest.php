@@ -5,12 +5,17 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Navigation;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Config\UserPreferences;
 use PhpMyAdmin\Config\UserPreferencesHandler;
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Navigation\UpdateNavWidthConfigController;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
+use PhpMyAdmin\I18n\LanguageManager;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PhpMyAdmin\Theme\ThemeManager;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 
@@ -24,7 +29,14 @@ final class UpdateNavWidthConfigControllerTest extends AbstractTestCase
             ->withParsedBody(['value' => $value]);
 
         $config = new Config();
-        $userPreferencesHandler = new UserPreferencesHandler($config);
+        $dbi = $this->createDatabaseInterface();
+        $userPreferencesHandler = new UserPreferencesHandler(
+            $config,
+            $dbi,
+            new UserPreferences($dbi, new Relation($dbi, $config), new Template($config)),
+            new LanguageManager($config),
+            new ThemeManager(),
+        );
         $responseRenderer = new ResponseRenderer();
         $controller = new UpdateNavWidthConfigController($responseRenderer, $userPreferencesHandler);
         $controller($request);
@@ -49,7 +61,15 @@ final class UpdateNavWidthConfigControllerTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['value' => $value]);
 
-        $userPreferencesHandler = new UserPreferencesHandler(new Config());
+        $config = new Config();
+        $dbi = $this->createDatabaseInterface();
+        $userPreferencesHandler = new UserPreferencesHandler(
+            $config,
+            $dbi,
+            new UserPreferences($dbi, new Relation($dbi, $config), new Template($config)),
+            new LanguageManager($config),
+            new ThemeManager(),
+        );
         $responseRenderer = new ResponseRenderer();
         $controller = new UpdateNavWidthConfigController($responseRenderer, $userPreferencesHandler);
         $controller($request);

@@ -24,10 +24,13 @@ use function is_array;
 use function is_string;
 use function urldecode;
 
-final class Options
+final readonly class Options
 {
-    public function __construct(private Relation $relation, private TemplateModel $templateModel)
-    {
+    public function __construct(
+        private Relation $relation,
+        private TemplateModel $templateModel,
+        private UserPreferencesHandler $userPreferencesHandler,
+    ) {
     }
 
     /**
@@ -224,22 +227,21 @@ final class Options
         }
 
         $config = Config::getInstance();
-        $userPreferencesHandler = new UserPreferencesHandler($config);
         if ($exportType === ExportType::Database) {
-            return (string) $userPreferencesHandler->getUserValue(
+            return (string) $this->userPreferencesHandler->getUserValue(
                 'pma_db_filename_template',
                 $config->settings['Export']['file_template_database'],
             );
         }
 
         if ($exportType === ExportType::Table) {
-            return (string) $userPreferencesHandler->getUserValue(
+            return (string) $this->userPreferencesHandler->getUserValue(
                 'pma_table_filename_template',
                 $config->settings['Export']['file_template_table'],
             );
         }
 
-        return (string) $userPreferencesHandler->getUserValue(
+        return (string) $this->userPreferencesHandler->getUserValue(
             'pma_server_filename_template',
             $config->settings['Export']['file_template_server'],
         );

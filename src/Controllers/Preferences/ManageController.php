@@ -48,15 +48,16 @@ use const UPLOAD_ERR_OK;
  * User preferences management page.
  */
 #[Route('/preferences/manage', ['GET', 'POST'])]
-final class ManageController implements InvocableController
+final readonly class ManageController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly UserPreferences $userPreferences,
-        private readonly Relation $relation,
-        private readonly Config $config,
-        private readonly ThemeManager $themeManager,
-        private readonly ResponseFactory $responseFactory,
+        private ResponseRenderer $response,
+        private UserPreferences $userPreferences,
+        private Relation $relation,
+        private Config $config,
+        private ThemeManager $themeManager,
+        private ResponseFactory $responseFactory,
+        private UserPreferencesHandler $userPreferencesHandler,
     ) {
     }
 
@@ -218,8 +219,7 @@ final class ManageController implements InvocableController
                     }
 
                     // reload config
-                    $userPreferencesHandler = new UserPreferencesHandler($this->config);
-                    $userPreferencesHandler->loadUserPreferences($this->themeManager);
+                    $this->userPreferencesHandler->loadUserPreferences();
 
                     return $this->userPreferences->redirect($returnUrl ?? '', $redirectParams);
                 }

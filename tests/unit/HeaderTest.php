@@ -14,8 +14,10 @@ use PhpMyAdmin\Console\History;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Header;
+use PhpMyAdmin\I18n\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Theme\ThemeManager;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Medium;
@@ -63,7 +65,13 @@ class HeaderTest extends AbstractTestCase
         $template = new Template($config);
         $history = new History($dbi, $relation, $config);
         $userPreferences = new UserPreferences($dbi, $relation, $template);
-        $userPreferencesHandler = new UserPreferencesHandler($config);
+        $userPreferencesHandler = new UserPreferencesHandler(
+            $config,
+            $dbi,
+            $userPreferences,
+            new LanguageManager($config),
+            new ThemeManager(),
+        );
 
         return new Header(
             $template,
@@ -88,7 +96,13 @@ class HeaderTest extends AbstractTestCase
         $history = new History($dbi, $relation, $config);
         $console = new Console($relation, $template, new BookmarkRepository($dbi, $relation), $history);
         $userPreferences = new UserPreferences($dbi, $relation, $template);
-        $userPreferencesHandler = new UserPreferencesHandler($config);
+        $userPreferencesHandler = new UserPreferencesHandler(
+            $config,
+            $dbi,
+            $userPreferences,
+            new LanguageManager($config),
+            new ThemeManager(),
+        );
         $header = new Header($template, $console, $config, $dbi, $relation, $userPreferences, $userPreferencesHandler);
 
         $header->setBodyId('PMA_header_id');

@@ -418,11 +418,6 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Config/UserPreferencesHandler.php">
-    <DeprecatedMethod>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-    </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[$configData]]></code>
       <code><![CDATA[$configData['lang']]]></code>
@@ -10248,6 +10243,7 @@
   </file>
   <file src="tests/unit/Export/OptionsTest.php">
     <DeprecatedMethod>
+      <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
   </file>

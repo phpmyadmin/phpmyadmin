@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Http\Middleware;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\UserPreferencesHandler;
 use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Exceptions\ExitException;
@@ -12,7 +11,6 @@ use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Routing;
-use PhpMyAdmin\Theme\ThemeManager;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
@@ -20,10 +18,12 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 use function assert;
 
-final class MinimumCommonRedirection implements MiddlewareInterface
+final readonly class MinimumCommonRedirection implements MiddlewareInterface
 {
-    public function __construct(private readonly Config $config, private readonly ResponseFactory $responseFactory)
-    {
+    public function __construct(
+        private ResponseFactory $responseFactory,
+        private UserPreferencesHandler $userPreferencesHandler,
+    ) {
     }
 
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
@@ -33,9 +33,7 @@ final class MinimumCommonRedirection implements MiddlewareInterface
         }
 
         $container = ContainerBuilder::getContainer();
-        $themeManager = $container->get(ThemeManager::class);
-        $userPreferencesHandler = new UserPreferencesHandler($this->config);
-        $userPreferencesHandler->loadUserPreferences($themeManager, true);
+        $this->userPreferencesHandler->loadUserPreferences(true);
         assert($request instanceof ServerRequest);
 
         try {

@@ -18,7 +18,6 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Navigation\Navigation;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
-use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Url;
 
@@ -32,7 +31,7 @@ final readonly class ExportController implements InvocableController
         private UserPreferences $userPreferences,
         private Relation $relation,
         private Config $config,
-        private ThemeManager $themeManager,
+        private UserPreferencesHandler $userPreferencesHandler,
     ) {
     }
 
@@ -60,8 +59,7 @@ final readonly class ExportController implements InvocableController
             $twoFactor->save();
             if ($result === true) {
                 // reload config
-                $userPreferencesHandler = new UserPreferencesHandler($this->config);
-                $userPreferencesHandler->loadUserPreferences($this->themeManager);
+                $this->userPreferencesHandler->loadUserPreferences();
                 $hash = ltrim($request->getParsedBodyParamAsString('tab_hash'), '#');
 
                 return $this->userPreferences->redirect('index.php?route=/preferences/export', null, $hash);
