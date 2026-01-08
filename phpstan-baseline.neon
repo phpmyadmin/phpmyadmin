@@ -7,72 +7,6 @@ parameters:
 			path: app/constants.php
 
 		-
-			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
-			identifier: foreach.nonIterable
-			count: 1
-			path: app/services_loader.php
-
-		-
-			message: '#^Cannot access offset ''arguments'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: app/services_loader.php
-
-		-
-			message: '#^Cannot access offset ''class'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: app/services_loader.php
-
-		-
-			message: '#^Cannot access offset ''factory'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: app/services_loader.php
-
-		-
-			message: '#^Parameter \#1 \$arguments of method Symfony\\Component\\DependencyInjection\\Loader\\Configurator\\ServiceConfigurator\:\:args\(\) expects array, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: app/services_loader.php
-
-		-
-			message: '#^Parameter \#1 \$factory of method Symfony\\Component\\DependencyInjection\\Loader\\Configurator\\ServiceConfigurator\:\:factory\(\) expects array\|Closure\|string\|Symfony\\Component\\DependencyInjection\\Loader\\Configurator\\ReferenceConfigurator\|Symfony\\Component\\ExpressionLanguage\\Expression, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: app/services_loader.php
-
-		-
-			message: '#^Parameter \#1 \$id of class Symfony\\Component\\DependencyInjection\\Reference constructor expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: app/services_loader.php
-
-		-
-			message: '#^Parameter \#1 \$id of method Symfony\\Component\\DependencyInjection\\Loader\\Configurator\\ServicesConfigurator\:\:alias\(\) expects string, \(int\|string\) given\.$#'
-			identifier: argument.type
-			count: 1
-			path: app/services_loader.php
-
-		-
-			message: '#^Parameter \#1 \$id of method Symfony\\Component\\DependencyInjection\\Loader\\Configurator\\ServicesConfigurator\:\:set\(\) expects string\|null, \(int\|string\) given\.$#'
-			identifier: argument.type
-			count: 1
-			path: app/services_loader.php
-
-		-
-			message: '#^Parameter \#1 \$servicesFile of closure expects array, mixed given\.$#'
-			identifier: argument.type
-			count: 2
-			path: app/services_loader.php
-
-		-
-			message: '#^Parameter \#2 \$class of method Symfony\\Component\\DependencyInjection\\Loader\\Configurator\\ServicesConfigurator\:\:set\(\) expects string\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: app/services_loader.php
-
-		-
 			message: '#^Access to constant FORMAT_HTTP on an unknown class OpenID_Message\.$#'
 			identifier: class.notFound
 			count: 1
@@ -1589,6 +1523,12 @@ parameters:
 			identifier: argument.type
 			count: 1
 			path: src/Console/History.php
+
+		-
+			message: '#^Parameter \#1 \$factory of method Symfony\\Component\\DependencyInjection\\Loader\\Configurator\\ServiceConfigurator\:\:factory\(\) expects array\|Closure\|string\|Symfony\\Component\\DependencyInjection\\Loader\\Configurator\\ReferenceConfigurator\|Symfony\\Component\\ExpressionLanguage\\Expression, callable\(\)\: mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Container/ContainerBuilder.php
 
 		-
 			message: '#^Binary operation "\.\=" between mixed and '' \-\> '' results in an error\.$#'

@@ -4,12 +4,19 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Container;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Current;
+use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\FlashMessenger;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
+use Symfony\Component\DependencyInjection\ContainerBuilder as SymfonyContainerBuilder;
+use Symfony\Component\DependencyInjection\Loader\Configurator\ServicesConfigurator;
+use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
+use Symfony\Component\DependencyInjection\Reference;
 
 use function array_keys;
 use function array_map;
@@ -51,5 +58,57 @@ final class ContainerBuilderTest extends AbstractTestCase
             static fn ($service) => [$service],
             array_merge(array_keys($services), array_keys($controllerServices)),
         );
+    }
+
+    public function testLoadServices(): void
+    {
+        $container = new SymfonyContainerBuilder();
+        $loader = self::createStub(PhpFileLoader::class);
+        $instanceof = [];
+        $servicesConfigurator = new ServicesConfigurator($container, $loader, $instanceof);
+
+        $services = [
+            Config::class => ['class' => Config::class, 'factory' => [Config::class, 'getInstance']],
+            DatabaseInterface::class => [
+                'class' => DatabaseInterface::class,
+                'factory' => [DatabaseInterface::class, 'getInstance'],
+                'arguments' => [Config::class],
+            ],
+            Events::class => ['class' => Events::class, 'arguments' => [DatabaseInterface::class, Config::class]],
+            FlashMessenger::class => ['class' => FlashMessenger::class],
+        ];
+
+        ContainerBuilder::loadServices($services, $servicesConfigurator);
+
+        $definitions = $container->getDefinitions();
+
+        self::assertArrayHasKey(Config::class, $definitions);
+        self::assertSame(Config::class, $definitions[Config::class]->getClass());
+        self::assertSame([Config::class, 'getInstance'], $definitions[Config::class]->getFactory());
+        self::assertSame([], $definitions[Config::class]->getArguments());
+
+        self::assertArrayHasKey(DatabaseInterface::class, $definitions);
+        self::assertSame(DatabaseInterface::class, $definitions[DatabaseInterface::class]->getClass());
+        self::assertSame(
+            [DatabaseInterface::class, 'getInstance'],
+            $definitions[DatabaseInterface::class]->getFactory(),
+        );
+        self::assertEquals(
+            [new Reference(Config::class)],
+            $definitions[DatabaseInterface::class]->getArguments(),
+        );
+
+        self::assertArrayHasKey(Events::class, $definitions);
+        self::assertSame(Events::class, $definitions[Events::class]->getClass());
+        self::assertNull($definitions[Events::class]->getFactory());
+        self::assertEquals(
+            [new Reference(DatabaseInterface::class), new Reference(Config::class)],
+            $definitions[Events::class]->getArguments(),
+        );
+
+        self::assertArrayHasKey(FlashMessenger::class, $definitions);
+        self::assertSame(FlashMessenger::class, $definitions[FlashMessenger::class]->getClass());
+        self::assertNull($definitions[FlashMessenger::class]->getFactory());
+        self::assertSame([], $definitions[FlashMessenger::class]->getArguments());
     }
 }
