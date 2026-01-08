@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Config\UserPreferences;
+use PhpMyAdmin\Config\UserPreferencesHandler;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Console\Console;
 use PhpMyAdmin\Container\ContainerBuilder;
@@ -64,6 +65,7 @@ class Header
         private readonly DatabaseInterface $dbi,
         private readonly Relation $relation,
         private readonly UserPreferences $userPreferences,
+        private readonly UserPreferencesHandler $userPreferencesHandler,
     ) {
         $this->menu = new Menu(
             $this->dbi,
@@ -267,7 +269,7 @@ class Header
 
         // offer to load user preferences from localStorage
         if (
-            $this->config->userPreferences === 'session'
+            $this->userPreferencesHandler->storageType === 'session'
             && ! isset($_SESSION['userprefs_autoload'])
         ) {
             $loadUserPreferences = $this->userPreferences->autoloadGetHeader();

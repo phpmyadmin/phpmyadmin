@@ -113,53 +113,14 @@
     </UnusedVariable>
   </file>
   <file src="src/Config.php">
-    <DeprecatedMethod>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-    </DeprecatedMethod>
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[$this->settings]]></code>
       <code><![CDATA[$this->settings]]></code>
       <code><![CDATA[$this->settings]]></code>
     </InvalidPropertyAssignmentValue>
-    <MixedArgument>
-      <code><![CDATA[$configData]]></code>
-      <code><![CDATA[$configData['lang']]]></code>
-      <code><![CDATA[$defaultValue]]></code>
-    </MixedArgument>
-    <MixedArrayAccess>
-      <code><![CDATA[$_SESSION['cache'][$cacheKey]['userprefs']]]></code>
-      <code><![CDATA[$_SESSION['cache'][$cacheKey]['userprefs']['LoginCookieValidity']]]></code>
-      <code><![CDATA[$_SESSION['cache'][$cacheKey]['userprefs_mtime']]]></code>
-      <code><![CDATA[$_SESSION['cache'][$cacheKey]['userprefs_type']]]></code>
-      <code><![CDATA[$configData['lang']]]></code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment>
-      <code><![CDATA[$_SESSION['cache'][$cacheKey]]]></code>
-      <code><![CDATA[$_SESSION['cache'][$cacheKey]]]></code>
-      <code><![CDATA[$_SESSION['cache'][$cacheKey]]]></code>
-      <code><![CDATA[$_SESSION['cache'][$cacheKey]]]></code>
-      <code><![CDATA[$_SESSION['cache'][$cacheKey]['config_mtime']]]></code>
-      <code><![CDATA[$_SESSION['cache'][$cacheKey]['userprefs']]]></code>
-      <code><![CDATA[$_SESSION['cache'][$cacheKey]['userprefs_mtime']]]></code>
-      <code><![CDATA[$_SESSION['cache'][$cacheKey]['userprefs_type']]]></code>
-    </MixedArrayAssignment>
-    <MixedAssignment>
-      <code><![CDATA[$configData]]></code>
-      <code><![CDATA[$defaultValue]]></code>
-      <code><![CDATA[$defaultValue]]></code>
-      <code><![CDATA[$this->userPreferences]]></code>
-      <code><![CDATA[$value]]></code>
-    </MixedAssignment>
     <MixedPropertyTypeCoercion>
-      <code><![CDATA[$this->settings]]></code>
-      <code><![CDATA[array_replace_recursive($this->settings, $configData)]]></code>
       <code><![CDATA[array_replace_recursive($this->settings, $this->config->asArray())]]></code>
     </MixedPropertyTypeCoercion>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$defaultValue]]></code>
-    </PossiblyInvalidArgument>
     <PossiblyInvalidArrayOffset>
       <code><![CDATA[$_COOKIE[$this->getCookieName($cookieName)]]]></code>
     </PossiblyInvalidArrayOffset>
@@ -167,7 +128,6 @@
       <code><![CDATA[$this->settings]]></code>
     </PropertyTypeCoercion>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[$cookieName]]></code>
       <code><![CDATA[empty($path)]]></code>
     </RiskyTruthyFalsyComparison>
     <TypeDoesNotContainType>
@@ -455,6 +415,52 @@
     </PossiblyNullOperand>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$hasConfig]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/Config/UserPreferencesHandler.php">
+    <DeprecatedMethod>
+      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
+      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
+      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
+    </DeprecatedMethod>
+    <MixedArgument>
+      <code><![CDATA[$configData]]></code>
+      <code><![CDATA[$configData['lang']]]></code>
+      <code><![CDATA[$defaultValue]]></code>
+    </MixedArgument>
+    <MixedArrayAccess>
+      <code><![CDATA[$_SESSION['cache'][$cacheKey]['userprefs']]]></code>
+      <code><![CDATA[$_SESSION['cache'][$cacheKey]['userprefs']['LoginCookieValidity']]]></code>
+      <code><![CDATA[$_SESSION['cache'][$cacheKey]['userprefs_mtime']]]></code>
+      <code><![CDATA[$_SESSION['cache'][$cacheKey]['userprefs_type']]]></code>
+      <code><![CDATA[$configData['lang']]]></code>
+    </MixedArrayAccess>
+    <MixedArrayAssignment>
+      <code><![CDATA[$_SESSION['cache'][$cacheKey]]]></code>
+      <code><![CDATA[$_SESSION['cache'][$cacheKey]]]></code>
+      <code><![CDATA[$_SESSION['cache'][$cacheKey]]]></code>
+      <code><![CDATA[$_SESSION['cache'][$cacheKey]]]></code>
+      <code><![CDATA[$_SESSION['cache'][$cacheKey]['config_mtime']]]></code>
+      <code><![CDATA[$_SESSION['cache'][$cacheKey]['userprefs']]]></code>
+      <code><![CDATA[$_SESSION['cache'][$cacheKey]['userprefs_mtime']]]></code>
+      <code><![CDATA[$_SESSION['cache'][$cacheKey]['userprefs_type']]]></code>
+    </MixedArrayAssignment>
+    <MixedAssignment>
+      <code><![CDATA[$configData]]></code>
+      <code><![CDATA[$defaultValue]]></code>
+      <code><![CDATA[$defaultValue]]></code>
+      <code><![CDATA[$this->storageType]]></code>
+      <code><![CDATA[$value]]></code>
+    </MixedAssignment>
+    <MixedPropertyTypeCoercion>
+      <code><![CDATA[$this->config->settings]]></code>
+      <code><![CDATA[array_replace_recursive($this->config->settings, $configData)]]></code>
+    </MixedPropertyTypeCoercion>
+    <PossiblyInvalidArgument>
+      <code><![CDATA[$defaultValue]]></code>
+    </PossiblyInvalidArgument>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$cookieName]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Config/Validator.php">

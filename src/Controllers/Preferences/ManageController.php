@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Forms\User\UserFormList;
 use PhpMyAdmin\Config\UserPreferences;
+use PhpMyAdmin\Config\UserPreferencesHandler;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Core;
@@ -217,7 +218,8 @@ final class ManageController implements InvocableController
                     }
 
                     // reload config
-                    $this->config->loadUserPreferences($this->themeManager);
+                    $userPreferencesHandler = new UserPreferencesHandler($this->config);
+                    $userPreferencesHandler->loadUserPreferences($this->themeManager);
 
                     return $this->userPreferences->redirect($returnUrl ?? '', $redirectParams);
                 }

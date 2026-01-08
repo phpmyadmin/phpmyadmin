@@ -8,6 +8,7 @@ use PhpMyAdmin\BrowseForeigners;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Config\UserPreferences;
+use PhpMyAdmin\Config\UserPreferencesHandler;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\BrowseForeignersController;
@@ -105,7 +106,7 @@ return [
     ],
     CollationConnectionController::class => [
         'class' => CollationConnectionController::class,
-        'arguments' => [ResponseRenderer::class, Config::class],
+        'arguments' => [ResponseRenderer::class, UserPreferencesHandler::class],
     ],
     ColumnController::class => [
         'class' => ColumnController::class,
@@ -113,7 +114,7 @@ return [
     ],
     UpdateNavWidthConfigController::class => [
         'class' => UpdateNavWidthConfigController::class,
-        'arguments' => [ResponseRenderer::class, Config::class],
+        'arguments' => [ResponseRenderer::class, UserPreferencesHandler::class],
     ],
     Console\Bookmark\AddController::class => [
         'class' => Console\Bookmark\AddController::class,
@@ -125,7 +126,7 @@ return [
     ],
     Console\UpdateConfigController::class => [
         'class' => Console\UpdateConfigController::class,
-        'arguments' => [ResponseRenderer::class, Config::class],
+        'arguments' => [ResponseRenderer::class, UserPreferencesHandler::class],
     ],
     Database\CentralColumns\PopulateColumnsController::class => [
         'class' => Database\CentralColumns\PopulateColumnsController::class,

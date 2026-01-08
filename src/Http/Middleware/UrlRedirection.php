@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Http\Middleware;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Config\UserPreferencesHandler;
 use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\ResponseRenderer;
@@ -33,7 +34,8 @@ final class UrlRedirection implements MiddlewareInterface
 
         $container = ContainerBuilder::getContainer();
         $themeManager = $container->get(ThemeManager::class);
-        $this->config->loadUserPreferences($themeManager, true);
+        $userPreferencesHandler = new UserPreferencesHandler($this->config);
+        $userPreferencesHandler->loadUserPreferences($themeManager, true);
 
         $urlRedirector = new UrlRedirector(ResponseRenderer::getInstance(), $this->template, $this->responseFactory);
 

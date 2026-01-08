@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Export;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Config\UserPreferencesHandler;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Dbal\DatabaseInterface;
@@ -223,21 +224,22 @@ final class Options
         }
 
         $config = Config::getInstance();
+        $userPreferencesHandler = new UserPreferencesHandler($config);
         if ($exportType === ExportType::Database) {
-            return (string) $config->getUserValue(
+            return (string) $userPreferencesHandler->getUserValue(
                 'pma_db_filename_template',
                 $config->settings['Export']['file_template_database'],
             );
         }
 
         if ($exportType === ExportType::Table) {
-            return (string) $config->getUserValue(
+            return (string) $userPreferencesHandler->getUserValue(
                 'pma_table_filename_template',
                 $config->settings['Export']['file_template_table'],
             );
         }
 
-        return (string) $config->getUserValue(
+        return (string) $userPreferencesHandler->getUserValue(
             'pma_server_filename_template',
             $config->settings['Export']['file_template_server'],
         );

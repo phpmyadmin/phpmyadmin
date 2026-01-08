@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Forms\User\MainForm;
 use PhpMyAdmin\Config\UserPreferences;
+use PhpMyAdmin\Config\UserPreferencesHandler;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
@@ -59,7 +60,8 @@ final readonly class MainPanelController implements InvocableController
             $twoFactor->save();
             if ($result === true) {
                 // reload config
-                $this->config->loadUserPreferences($this->themeManager);
+                $userPreferencesHandler = new UserPreferencesHandler($this->config);
+                $userPreferencesHandler->loadUserPreferences($this->themeManager);
                 $hash = ltrim($request->getParsedBodyParamAsString('tab_hash'), '#');
 
                 return $this->userPreferences->redirect('index.php?route=/preferences/main-panel', null, $hash);

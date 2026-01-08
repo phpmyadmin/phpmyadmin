@@ -8,6 +8,7 @@ use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\BrowseForeigners;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\UserPreferences;
+use PhpMyAdmin\Config\UserPreferencesHandler;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Console\Console;
@@ -112,6 +113,7 @@ return [
             DatabaseInterface::class,
             Relation::class,
             UserPreferences::class,
+            UserPreferencesHandler::class,
         ],
     ],
     HttpRequest::class => ['class' => HttpRequest::class],
@@ -196,7 +198,7 @@ return [
     ],
     Middleware\LoginCookieValiditySetting::class => [
         'class' => Middleware\LoginCookieValiditySetting::class,
-        'arguments' => [Config::class],
+        'arguments' => [Config::class, UserPreferencesHandler::class],
     ],
     Middleware\Authentication::class => [
         'class' => Middleware\Authentication::class,
@@ -351,4 +353,5 @@ return [
         'class' => History::class,
         'arguments' => [DatabaseInterface::class, Relation::class, Config::class],
     ],
+    UserPreferencesHandler::class => ['class' => UserPreferencesHandler::class, 'arguments' => [Config::class]],
 ];

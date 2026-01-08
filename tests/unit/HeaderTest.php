@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\UserPreferences;
+use PhpMyAdmin\Config\UserPreferencesHandler;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Console\Console;
 use PhpMyAdmin\Console\History;
@@ -62,6 +63,7 @@ class HeaderTest extends AbstractTestCase
         $template = new Template($config);
         $history = new History($dbi, $relation, $config);
         $userPreferences = new UserPreferences($dbi, $relation, $template);
+        $userPreferencesHandler = new UserPreferencesHandler($config);
 
         return new Header(
             $template,
@@ -70,6 +72,7 @@ class HeaderTest extends AbstractTestCase
             $dbi,
             $relation,
             $userPreferences,
+            $userPreferencesHandler,
         );
     }
 
@@ -85,7 +88,8 @@ class HeaderTest extends AbstractTestCase
         $history = new History($dbi, $relation, $config);
         $console = new Console($relation, $template, new BookmarkRepository($dbi, $relation), $history);
         $userPreferences = new UserPreferences($dbi, $relation, $template);
-        $header = new Header($template, $console, $config, $dbi, $relation, $userPreferences);
+        $userPreferencesHandler = new UserPreferencesHandler($config);
+        $header = new Header($template, $console, $config, $dbi, $relation, $userPreferences, $userPreferencesHandler);
 
         $header->setBodyId('PMA_header_id');
         $actual = $header->getDisplay();

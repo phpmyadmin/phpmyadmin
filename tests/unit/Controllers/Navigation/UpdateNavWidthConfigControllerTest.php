@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Navigation;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Config\UserPreferencesHandler;
 use PhpMyAdmin\Controllers\Navigation\UpdateNavWidthConfigController;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Message;
@@ -23,8 +24,9 @@ final class UpdateNavWidthConfigControllerTest extends AbstractTestCase
             ->withParsedBody(['value' => $value]);
 
         $config = new Config();
+        $userPreferencesHandler = new UserPreferencesHandler($config);
         $responseRenderer = new ResponseRenderer();
-        $controller = new UpdateNavWidthConfigController($responseRenderer, $config);
+        $controller = new UpdateNavWidthConfigController($responseRenderer, $userPreferencesHandler);
         $controller($request);
 
         self::assertSame($expected, $config->settings['NavigationWidth']);
@@ -47,9 +49,9 @@ final class UpdateNavWidthConfigControllerTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['value' => $value]);
 
-        $config = new Config();
+        $userPreferencesHandler = new UserPreferencesHandler(new Config());
         $responseRenderer = new ResponseRenderer();
-        $controller = new UpdateNavWidthConfigController($responseRenderer, $config);
+        $controller = new UpdateNavWidthConfigController($responseRenderer, $userPreferencesHandler);
         $controller($request);
 
         self::assertSame(
@@ -73,10 +75,10 @@ final class UpdateNavWidthConfigControllerTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['value' => '240']);
 
-        $config = self::createStub(Config::class);
-        $config->method('setUserValue')->willReturn(Message::error('Could not save configuration'));
+        $userPreferencesHandler = self::createStub(UserPreferencesHandler::class);
+        $userPreferencesHandler->method('setUserValue')->willReturn(Message::error('Could not save configuration'));
         $responseRenderer = new ResponseRenderer();
-        $controller = new UpdateNavWidthConfigController($responseRenderer, $config);
+        $controller = new UpdateNavWidthConfigController($responseRenderer, $userPreferencesHandler);
         $controller($request);
 
         self::assertSame(

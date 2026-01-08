@@ -295,89 +295,14 @@ parameters:
 			path: src/Command/TwigLintCommand.php
 
 		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 3
-			path: src/Config.php
-
-		-
-			message: '#^Cannot access offset ''LoginCookieValidity'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Config.php
-
-		-
-			message: '#^Cannot access offset ''Server'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Config.php
-
-		-
-			message: '#^Cannot access offset ''ThemeDefault'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Config.php
-
-		-
-			message: '#^Cannot access offset ''config_mtime'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Config.php
-
-		-
-			message: '#^Cannot access offset ''lang'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 3
-			path: src/Config.php
-
-		-
-			message: '#^Cannot access offset ''userprefs'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 5
-			path: src/Config.php
-
-		-
-			message: '#^Cannot access offset ''userprefs_mtime'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Config.php
-
-		-
-			message: '#^Cannot access offset ''userprefs_type'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Config.php
-
-		-
-			message: '#^Cannot access offset non\-falsy\-string on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 4
-			path: src/Config.php
-
-		-
-			message: '#^Cannot cast mixed to string\.$#'
-			identifier: cast.string
-			count: 1
-			path: src/Config.php
-
-		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 2
+			count: 1
 			path: src/Config.php
 
 		-
 			message: '#^Method PhpMyAdmin\\Config\:\:getUploadTempDir\(\) should return string\|null but returns string\|false\.$#'
 			identifier: return.type
-			count: 1
-			path: src/Config.php
-
-		-
-			message: '#^Only booleans are allowed in &&, string\|null given on the right side\.$#'
-			identifier: booleanAnd.rightNotBoolean
 			count: 1
 			path: src/Config.php
 
@@ -388,43 +313,13 @@ parameters:
 			path: src/Config.php
 
 		-
-			message: '#^Parameter \#1 \$code of method PhpMyAdmin\\I18n\\LanguageManager\:\:getLanguage\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Config.php
-
-		-
-			message: '#^Parameter \#2 \.\.\.\$replacements of function array_replace_recursive expects array, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Config.php
-
-		-
-			message: '#^Parameter \#3 \$default of method PhpMyAdmin\\Config\:\:setCookie\(\) expects string\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Config.php
-
-		-
 			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\) does not accept array\.$#'
-			identifier: assign.propertyType
-			count: 2
-			path: src/Config.php
-
-		-
-			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\) does not accept array\<mixed\>\.$#'
 			identifier: assign.propertyType
 			count: 1
 			path: src/Config.php
 
 		-
 			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\) does not accept non\-empty\-array\<string, mixed\>\.$#'
-			identifier: assign.propertyType
-			count: 1
-			path: src/Config.php
-
-		-
-			message: '#^Property PhpMyAdmin\\Config\:\:\$userPreferences \(''''\|''db''\|''session''\) does not accept mixed\.$#'
 			identifier: assign.propertyType
 			count: 1
 			path: src/Config.php
@@ -1052,6 +947,123 @@ parameters:
 			identifier: argument.type
 			count: 2
 			path: src/Config/UserPreferences.php
+
+		-
+			message: '''
+				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
+				Use dependency injection instead\.$#
+			'''
+			identifier: staticMethod.deprecated
+			count: 3
+			path: src/Config/UserPreferencesHandler.php
+
+		-
+			message: '#^Cannot access offset ''LoginCookieValidity'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Config/UserPreferencesHandler.php
+
+		-
+			message: '#^Cannot access offset ''Server'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Config/UserPreferencesHandler.php
+
+		-
+			message: '#^Cannot access offset ''ThemeDefault'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: src/Config/UserPreferencesHandler.php
+
+		-
+			message: '#^Cannot access offset ''config_mtime'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: src/Config/UserPreferencesHandler.php
+
+		-
+			message: '#^Cannot access offset ''lang'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 3
+			path: src/Config/UserPreferencesHandler.php
+
+		-
+			message: '#^Cannot access offset ''userprefs'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 5
+			path: src/Config/UserPreferencesHandler.php
+
+		-
+			message: '#^Cannot access offset ''userprefs_mtime'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: src/Config/UserPreferencesHandler.php
+
+		-
+			message: '#^Cannot access offset ''userprefs_type'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: src/Config/UserPreferencesHandler.php
+
+		-
+			message: '#^Cannot access offset non\-falsy\-string on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 4
+			path: src/Config/UserPreferencesHandler.php
+
+		-
+			message: '#^Cannot cast mixed to string\.$#'
+			identifier: cast.string
+			count: 1
+			path: src/Config/UserPreferencesHandler.php
+
+		-
+			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
+			identifier: empty.notAllowed
+			count: 1
+			path: src/Config/UserPreferencesHandler.php
+
+		-
+			message: '#^Only booleans are allowed in &&, string\|null given on the right side\.$#'
+			identifier: booleanAnd.rightNotBoolean
+			count: 1
+			path: src/Config/UserPreferencesHandler.php
+
+		-
+			message: '#^Parameter \#1 \$code of method PhpMyAdmin\\I18n\\LanguageManager\:\:getLanguage\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Config/UserPreferencesHandler.php
+
+		-
+			message: '#^Parameter \#2 \.\.\.\$replacements of function array_replace_recursive expects array, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Config/UserPreferencesHandler.php
+
+		-
+			message: '#^Parameter \#3 \$default of method PhpMyAdmin\\Config\:\:setCookie\(\) expects string\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Config/UserPreferencesHandler.php
+
+		-
+			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\) does not accept array\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Config/UserPreferencesHandler.php
+
+		-
+			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\) does not accept array\<mixed\>\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Config/UserPreferencesHandler.php
+
+		-
+			message: '#^Property PhpMyAdmin\\Config\\UserPreferencesHandler\:\:\$storageType \(''''\|''db''\|''session''\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Config/UserPreferencesHandler.php
 
 		-
 			message: '#^Argument of an invalid type array\<mixed, mixed\>\|object supplied for foreach, only iterables are supported\.$#'

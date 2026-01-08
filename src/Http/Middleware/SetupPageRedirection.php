@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Http\Middleware;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Config\UserPreferencesHandler;
 use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Exceptions\ExitException;
@@ -36,7 +37,8 @@ final class SetupPageRedirection implements MiddlewareInterface
 
         $container = ContainerBuilder::getContainer();
         $themeManager = $container->get(ThemeManager::class);
-        $this->config->loadUserPreferences($themeManager, true);
+        $userPreferencesHandler = new UserPreferencesHandler($this->config);
+        $userPreferencesHandler->loadUserPreferences($themeManager, true);
         $this->setupPageBootstrap();
         assert($request instanceof ServerRequest);
 

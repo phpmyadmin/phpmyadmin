@@ -14,6 +14,7 @@ namespace PhpMyAdmin\Tests\Stubs;
 use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\UserPreferences;
+use PhpMyAdmin\Config\UserPreferencesHandler;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Console\Console;
 use PhpMyAdmin\Console\History;
@@ -61,11 +62,12 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
         $history = new History($dbi, $relation, $config);
         $console = new Console($relation, $template, new BookmarkRepository($dbi, $relation), $history);
         $userPreferences = new UserPreferences($dbi, $relation, $template);
+        $userPreferencesHandler = new UserPreferencesHandler($config);
 
         parent::__construct(
             $config,
             $template,
-            new Header($template, $console, $config, $dbi, $relation, $userPreferences),
+            new Header($template, $console, $config, $dbi, $relation, $userPreferences, $userPreferencesHandler),
             new Footer($template, $config),
             ErrorHandler::getInstance(),
             $dbi,

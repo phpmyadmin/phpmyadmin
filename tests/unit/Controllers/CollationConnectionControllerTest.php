@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers;
 
-use PhpMyAdmin\Config;
+use PhpMyAdmin\Config\UserPreferencesHandler;
 use PhpMyAdmin\Controllers\CollationConnectionController;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\ServerRequest;
@@ -26,10 +26,10 @@ class CollationConnectionControllerTest extends AbstractTestCase
             ->with('index.php?route=/' . Url::getCommonRaw([], '&'));
         $response->expects(self::once())->method('response')->willReturn(ResponseFactory::create()->createResponse());
 
-        $config = self::createMock(Config::class);
-        $config->expects(self::once())->method('setUserValue')
+        $userPreferencesHandler = self::createMock(UserPreferencesHandler::class);
+        $userPreferencesHandler->expects(self::once())->method('setUserValue')
             ->with(null, 'DefaultConnectionCollation', 'utf8mb4_general_ci', 'utf8mb4_unicode_ci');
 
-        (new CollationConnectionController($response, $config))($request);
+        (new CollationConnectionController($response, $userPreferencesHandler))($request);
     }
 }

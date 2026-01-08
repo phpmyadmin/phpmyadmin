@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Export;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Config\UserPreferencesHandler;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
@@ -167,14 +168,15 @@ class Export
         ExportType $exportType,
         string $filenameTemplate,
     ): void {
+        $handler = new UserPreferencesHandler($config);
         if ($exportType === ExportType::Server) {
-            $config->setUserValue('pma_server_filename_template', 'Export/file_template_server', $filenameTemplate);
+            $handler->setUserValue('pma_server_filename_template', 'Export/file_template_server', $filenameTemplate);
         } elseif ($exportType === ExportType::Database) {
-            $config->setUserValue('pma_db_filename_template', 'Export/file_template_database', $filenameTemplate);
+            $handler->setUserValue('pma_db_filename_template', 'Export/file_template_database', $filenameTemplate);
         } elseif ($exportType === ExportType::Raw) {
-            $config->setUserValue('pma_raw_filename_template', 'Export/file_template_raw', $filenameTemplate);
+            $handler->setUserValue('pma_raw_filename_template', 'Export/file_template_raw', $filenameTemplate);
         } else {
-            $config->setUserValue('pma_table_filename_template', 'Export/file_template_table', $filenameTemplate);
+            $handler->setUserValue('pma_table_filename_template', 'Export/file_template_table', $filenameTemplate);
         }
     }
 

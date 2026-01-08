@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Http\Middleware;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Config\UserPreferencesHandler;
 use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Theme\ThemeManager;
 use Psr\Http\Message\ResponseInterface;
@@ -21,7 +22,8 @@ final class UserPreferencesLoading implements MiddlewareInterface
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
         $themeManager = ContainerBuilder::getContainer()->get(ThemeManager::class);
-        $this->config->loadUserPreferences($themeManager);
+        $userPreferencesHandler = new UserPreferencesHandler($this->config);
+        $userPreferencesHandler->loadUserPreferences($themeManager);
 
         return $handler->handle($request);
     }

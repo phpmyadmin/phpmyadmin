@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Console;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Config\UserPreferencesHandler;
 use PhpMyAdmin\Controllers\Console\UpdateConfigController;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
@@ -27,9 +28,10 @@ final class UpdateConfigControllerTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         $config = new Config();
+        $userPreferencesHandler = new UserPreferencesHandler($config);
         $responseRenderer = new ResponseRenderer();
         $responseRenderer->setAjax(true);
-        $controller = new UpdateConfigController($responseRenderer, $config);
+        $controller = new UpdateConfigController($responseRenderer, $userPreferencesHandler);
         $response = $controller($request);
 
         $responseBody = (string) $response->getBody();
@@ -79,10 +81,10 @@ final class UpdateConfigControllerTest extends AbstractTestCase
             ->withParsedBody(['key' => $key, 'value' => $value]);
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
-        $config = new Config();
+        $userPreferencesHandler = new UserPreferencesHandler(new Config());
         $responseRenderer = new ResponseRenderer();
         $responseRenderer->setAjax(true);
-        $controller = new UpdateConfigController($responseRenderer, $config);
+        $controller = new UpdateConfigController($responseRenderer, $userPreferencesHandler);
         $response = $controller($request);
 
         $responseBody = (string) $response->getBody();
@@ -138,11 +140,11 @@ final class UpdateConfigControllerTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
             ->withParsedBody(['key' => 'StartHistory', 'value' => 'true']);
 
-        $config = self::createStub(Config::class);
-        $config->method('setUserValue')->willReturn(Message::error('Could not save configuration'));
+        $userPreferencesHandler = self::createStub(UserPreferencesHandler::class);
+        $userPreferencesHandler->method('setUserValue')->willReturn(Message::error('Could not save configuration'));
         $responseRenderer = new ResponseRenderer();
         $responseRenderer->setAjax(true);
-        $controller = new UpdateConfigController($responseRenderer, $config);
+        $controller = new UpdateConfigController($responseRenderer, $userPreferencesHandler);
         $response = $controller($request);
 
         $responseBody = (string) $response->getBody();
