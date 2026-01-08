@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-01-04 00:33+0000\n"
-"PO-Revision-Date: 2026-01-05 03:01+0000\n"
+"PO-Revision-Date: 2026-01-08 12:58+0000\n"
 "Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "th/>\n"
@@ -2552,7 +2552,7 @@ msgstr "ฟังก์ชั่น"
 
 #: resources/templates/database/routines/execute_form.twig:54
 msgid "This routine does not require any parameters."
-msgstr ""
+msgstr "ขั้นตอนการทำงานประจำนี้ไม่จำเป็นต้องใช้พารามิเตอร์ใด ๆ"
 
 #: resources/templates/database/routines/index.twig:3 src/Menu.php:371
 #: src/Util.php:1376 src/Util.php:1380
@@ -2659,7 +2659,7 @@ msgstr "ตัวเลือก"
 
 #: resources/templates/database/search/main.twig:40
 msgid "include hex matches"
-msgstr ""
+msgstr "รวมการจับคู่เลขฐานสิบหก"
 
 #: resources/templates/database/search/main.twig:45
 msgid "Inside tables:"
@@ -3311,13 +3311,13 @@ msgstr "ส่งรายงานข้อผิดพลาด"
 
 #: resources/templates/error/simple.twig:2
 msgid "Something went wrong"
-msgstr ""
+msgstr "เกิดข้อผิดพลาดบางอย่าง"
 
 #: resources/templates/error/simple.twig:7
 #: resources/templates/modals/index_dialog_modal.twig:30
 #: resources/templates/table/structure/display_structure.twig:352
 msgid "Go back"
-msgstr ""
+msgstr "ย้อนกลับ"
 
 #: resources/templates/export/template_options.twig:1
 #: resources/templates/export.twig:44
@@ -3496,10 +3496,13 @@ msgid ""
 "formatting strings. Additionally the following transformations will happen: "
 "%s Other text will be kept as is. See the FAQ 6.27 for details."
 msgstr ""
+"ค่านี้จะถูกตีความโดยใช้ฟังก์ชัน 'strftime' ดังนั้นคุณจึงสามารถใช้สตริงการจัดรูปแบบเวลาได้ นอกจาก"
+"นี้จะมีการแปลงต่อไปนี้เกิดขึ้น: %s ข้อความอื่น ๆ จะยังคงอยู่เหมือนเดิม ดูรายละเอียดเพิ่มเติมที่ FAQ "
+"62.7"
 
 #: resources/templates/export.twig:394
 msgid "Use this for future exports"
-msgstr ""
+msgstr "ใช้การตั้งค่านี้สำหรับการส่งออกในอนาคต"
 
 #: resources/templates/export.twig:405 resources/templates/import.twig:98
 msgid "Character set of the file:"
@@ -3527,11 +3530,11 @@ msgstr "ส่งออกตารางเป็นไฟล์แยกกั
 
 #: resources/templates/export.twig:470
 msgid "Skip tables larger than:"
-msgstr ""
+msgstr "ข้ามตารางที่มีขนาดใหญ่กว่า:"
 
 #: resources/templates/export.twig:472
 msgid "The size is measured in MiB."
-msgstr ""
+msgstr "วัดขนาดไฟล์เป็น MiB"
 
 #: resources/templates/export.twig:478 resources/templates/import.twig:173
 msgid "Format-specific options:"
@@ -3559,7 +3562,7 @@ msgstr "เรขาคณิต %d:"
 
 #: resources/templates/gis_data_editor_form.twig:41
 msgid "Spatial Reference System Identifier"
-msgstr ""
+msgstr "ตัวระบุระบบอ้างอิงเชิงพื้นที่"
 
 #: resources/templates/gis_data_editor_form.twig:41
 #, fuzzy
@@ -3588,7 +3591,7 @@ msgstr "ไม่มีสาขา"
 #: resources/templates/home/git_info.twig:22
 #, php-format
 msgid "from %s branch"
-msgstr ""
+msgstr "จากสาขา %s"
 
 #: resources/templates/home/git_info.twig:25
 #, php-format
@@ -3744,7 +3747,7 @@ msgstr "คำเตือน"
 
 #: resources/templates/home/index.twig:303
 msgid "Notice"
-msgstr ""
+msgstr "ประกาศ"
 
 #: resources/templates/home/index.twig:316
 #, fuzzy
@@ -3856,6 +3859,7 @@ msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit."
 msgstr ""
+"อนุญาตให้ขัดจังหวะการนำเข้าได้ในกรณีที่สคริปต์ตรวจพบว่าใกล้ถึงขีดจำกัดเวลาหมดอายุของ PHP แล้ว"
 
 #: resources/templates/import.twig:135
 msgid ""
@@ -11660,7 +11664,7 @@ msgstr "เปิดใช้งานโหมด Zero Configuration"
 
 #: src/Config/Descriptions.php:960
 msgid "Execute queries on Enter and insert new line with Shift+Enter"
-msgstr ""
+msgstr "รันคำสั่งเมื่อกด Enter และแทรกบรรทัดใหม่เมื่อกด Shift+Enter"
 
 #: src/Config/Descriptions.php:962
 msgid "Console height"
@@ -11806,6 +11810,9 @@ msgid ""
 "based protection may not be reliable if your IP belongs to an ISP where "
 "thousands of users, including you, are connected to."
 msgstr ""
+"หากคุณคิดว่าสิ่งนี้จำเป็น ให้ใช้การตั้งค่าการป้องกันเพิ่มเติม - การตั้งค่า %1$sการตรวจสอบสิทธิ์โฮส"
+"ต์%2$s และ %3$sรายการพร็อกซีที่เชื่อถือได้%4$s อย่างไรก็ตาม การป้องกันฐาน IP อาจไม่น่าเชื่อถือห"
+"าก IP ของคุณเป็นของ ISP ซึ่งมีผู้ใช้หลายพันคน รวมถึงตัวคุณเองที่เชื่อมต่ออยู่"
 
 #: src/Config/ServerConfigChecks.php:175
 #, php-format
@@ -11913,6 +11920,8 @@ msgid ""
 "may go to 'Operations' tab of any database to set up the phpMyAdmin "
 "configuration storage there."
 msgstr ""
+"คุณไม่มีสิทธิ์ที่จำเป็นในการสร้างฐานข้อมูลชื่อ '%s' คุณสามารถไปที่แท็บ 'การปฏิบัติการ' ของฐานข้อมูลใ"
+"ดก็ได้เพื่อตั้งค่าการจัดเก็บการกำหนดค่า phpMyAdmin ที่นั่น"
 
 #: src/ConfigStorage/UserGroups.php:105
 msgid "View users"
@@ -12042,7 +12051,7 @@ msgstr "แสดงแถว %1$s - %2$s"
 #, php-format
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
-msgstr ""
+msgstr "มีหน้าเพจชื่อ \"%s\" อยู่แล้ว กรุณาแก้ไขเป็นชื่ออื่น"
 
 #: src/Controllers/Database/DesignerController.php:171
 #: src/Controllers/Database/DesignerController.php:176
@@ -12267,12 +12276,15 @@ msgid ""
 "%2$s. You might be lacking the necessary privileges to view/export this "
 "routine."
 msgstr ""
+"เกิดข้อผิดพลาดในการประมวลผลคำขอ: ไม่พบการดำเนินการประจำชื่อ %1$s ในฐานข้อมูล %2$s คุณอา"
+"จไม่มีสิทธิ์ที่จำเป็นในการดู/ส่งออกการดำเนินการประจำนี้"
 
 #: src/Controllers/Database/SearchController.php:63
 msgid ""
 "Searching inside the database is disabled by the [code]$cfg['UseDbSearch'][/"
 "code] configuration."
 msgstr ""
+"การค้นหาภายในฐานข้อมูลถูกปิดใช้งานโดยการกำหนดค่า [code]$cfg['UseDbSearch'][/code]"
 
 #: src/Controllers/Database/Structure/CentralColumns/AddController.php:49
 #: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:48
@@ -12402,6 +12414,9 @@ msgid ""
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
+"เซิร์ฟเวอร์ของคุณกำลังทำงานโดยใช้ค่าเริ่มต้นสำหรับผู้ใช้ควบคุมและรหัสผ่าน (controlpass) ซึ่งมีควา"
+"มเสี่ยงต่อการถูกบุกรุก; คุณควรแก้ไขช่องโหว่ด้านความปลอดภัยนี้โดยการเปลี่ยนรหัสผ่านสำหรับผู้ใช้ควบคุ"
+"ม 'pma'"
 
 #: src/Controllers/HomeController.php:325
 msgid ""
@@ -12409,6 +12424,8 @@ msgid ""
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
+"ไฟล์การกำหนดค่าต้องการคีย์ที่ถูกต้องสำหรับการเข้ารหัสคุกกี้ ระบบได้สร้างคีย์ชั่วคราวให้คุณโดยอัตโนมัติ "
+"โปรดดูเอกสารประกอบ [doc@cfg_blowfish_secret]documentation[/doc]"
 
 #: src/Controllers/HomeController.php:335
 #, php-format
