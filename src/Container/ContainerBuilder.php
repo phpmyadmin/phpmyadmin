@@ -7,7 +7,9 @@ namespace PhpMyAdmin\Container;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder as SymfonyContainerBuilder;
+use Symfony\Component\DependencyInjection\Loader\Configurator\ServicesConfigurator;
 use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
+use Symfony\Component\DependencyInjection\Reference;
 
 use const ROOT_PATH;
 
@@ -33,5 +35,26 @@ final class ContainerBuilder
         $loader->load('services_loader.php');
 
         return $container;
+    }
+
+    /** @param array<string, array{class: string, arguments?: array<string>, factory?: callable}> $services */
+    public static function loadServices(array $services, ServicesConfigurator $servicesConfigurator): void
+    {
+        foreach ($services as $serviceName => $service) {
+            $serviceConfigurator = $servicesConfigurator->set($serviceName, $service['class']);
+            if (isset($service['factory'])) {
+                $serviceConfigurator->factory($service['factory']);
+            }
+
+            if (! isset($service['arguments'])) {
+                continue;
+            }
+
+            foreach ($service['arguments'] as &$argument) {
+                $argument = new Reference($argument);
+            }
+
+            $serviceConfigurator->args($service['arguments']);
+        }
     }
 }
