@@ -13,6 +13,7 @@ namespace PhpMyAdmin\Tests\Stubs;
 
 use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Config\UserPreferences;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Console\Console;
 use PhpMyAdmin\Console\History;
@@ -25,7 +26,6 @@ use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\UserPreferences;
 
 use function is_array;
 use function json_encode;

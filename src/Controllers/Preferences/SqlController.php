@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Preferences;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Forms\User\SqlForm;
+use PhpMyAdmin\Config\UserPreferences;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
@@ -19,7 +20,6 @@ use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\UserPreferences;
 
 use function ltrim;
 

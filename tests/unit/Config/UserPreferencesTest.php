@@ -2,10 +2,11 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests;
+namespace PhpMyAdmin\Tests\Config;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
+use PhpMyAdmin\Config\UserPreferences;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Current;
@@ -14,10 +15,10 @@ use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseRendererStub;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\UserPreferences;
 use PHPUnit\Framework\Attributes\BackupStaticProperties;
 use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionProperty;

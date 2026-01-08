@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Config\UserPreferences;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Console\Console;
 use PhpMyAdmin\Console\History;
@@ -14,7 +15,6 @@ use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Header;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\UserPreferences;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Medium;

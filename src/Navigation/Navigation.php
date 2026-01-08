@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Navigation;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\Config\UserPreferences;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Current;
@@ -21,7 +22,6 @@ use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\UserPrivilegesFactory;
 use PhpMyAdmin\Util;
 

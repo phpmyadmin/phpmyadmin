@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\Config\UserPreferences;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\NavigationController;
 use PhpMyAdmin\Current;
@@ -16,7 +17,6 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
-use PhpMyAdmin\UserPreferences;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 use function sprintf;

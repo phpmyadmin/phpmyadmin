@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Preferences;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Forms\User\UserFormList;
+use PhpMyAdmin\Config\UserPreferences;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Core;
@@ -20,7 +21,6 @@ use PhpMyAdmin\Navigation\Navigation;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Theme\ThemeManager;
-use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\Util;
 
 use function __;

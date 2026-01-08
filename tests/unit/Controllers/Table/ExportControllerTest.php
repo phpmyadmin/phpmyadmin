@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\Config\UserPreferences;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\ExportController;
 use PhpMyAdmin\Current;
@@ -20,7 +21,6 @@ use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
-use PhpMyAdmin\UserPreferences;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(ExportController::class)]

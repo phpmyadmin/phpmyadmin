@@ -7,6 +7,7 @@ use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\BrowseForeigners;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\Config\UserPreferences;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\BrowseForeignersController;
@@ -86,7 +87,6 @@ use PhpMyAdmin\Tracking\Tracking;
 use PhpMyAdmin\Tracking\TrackingChecker;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\UserPassword;
-use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\UserPrivilegesFactory;
 use PhpMyAdmin\VersionInformation;
 

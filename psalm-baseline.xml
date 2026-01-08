@@ -432,6 +432,31 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
   </file>
+  <file src="src/Config/UserPreferences.php">
+    <DeprecatedMethod>
+      <code><![CDATA[Config::getInstance()]]></code>
+    </DeprecatedMethod>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[$path]]></code>
+      <code><![CDATA[$urlParams]]></code>
+    </MixedArgumentTypeCoercion>
+    <MixedArrayTypeCoercion>
+      <code><![CDATA[$excludeList[$path]]]></code>
+    </MixedArrayTypeCoercion>
+    <MixedAssignment>
+      <code><![CDATA[$configData]]></code>
+      <code><![CDATA[$configData]]></code>
+      <code><![CDATA[$prefs['config_data'][$path]]]></code>
+      <code><![CDATA[$timestamp]]></code>
+      <code><![CDATA[$value]]></code>
+    </MixedAssignment>
+    <PossiblyNullOperand>
+      <code><![CDATA[$hash]]></code>
+    </PossiblyNullOperand>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$hasConfig]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
   <file src="src/Config/Validator.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
@@ -8706,31 +8731,6 @@
       <code><![CDATA[empty($_POST['authentication_plugin'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
-  <file src="src/UserPreferences.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
-    <MixedArgumentTypeCoercion>
-      <code><![CDATA[$path]]></code>
-      <code><![CDATA[$urlParams]]></code>
-    </MixedArgumentTypeCoercion>
-    <MixedArrayTypeCoercion>
-      <code><![CDATA[$excludeList[$path]]]></code>
-    </MixedArrayTypeCoercion>
-    <MixedAssignment>
-      <code><![CDATA[$configData]]></code>
-      <code><![CDATA[$configData]]></code>
-      <code><![CDATA[$prefs['config_data'][$path]]]></code>
-      <code><![CDATA[$timestamp]]></code>
-      <code><![CDATA[$value]]></code>
-    </MixedAssignment>
-    <PossiblyNullOperand>
-      <code><![CDATA[$hash]]></code>
-    </PossiblyNullOperand>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[$hasConfig]]></code>
-    </RiskyTruthyFalsyComparison>
-  </file>
   <file src="src/UserPrivilegesFactory.php">
     <MixedArgument>
       <code><![CDATA[SessionCache::get('col_priv')]]></code>
@@ -9230,6 +9230,35 @@
     <PossiblyUnusedMethod>
       <code><![CDATA[valuesForOBGzipProvider]]></code>
     </PossiblyUnusedMethod>
+  </file>
+  <file src="tests/unit/Config/UserPreferencesTest.php">
+    <DeprecatedMethod>
+      <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
+      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
+      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
+      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
+      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
+      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
+      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
+      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
+    </DeprecatedMethod>
+    <InvalidPropertyAssignmentValue>
+      <code><![CDATA[['Server/hide_db' => 'testval123', 'Server/port' => '213']]]></code>
+    </InvalidPropertyAssignmentValue>
+    <MixedArgument>
+      <code><![CDATA[$_SESSION['userconfig']]]></code>
+    </MixedArgument>
+    <MixedArrayAccess>
+      <code><![CDATA[$_SESSION['userconfig']['db']]]></code>
+      <code><![CDATA[$_SESSION['userconfig']['ts']]]></code>
+      <code><![CDATA[$resultConfig['2fa']['settings']]]></code>
+      <code><![CDATA[$resultConfig['2fa']['settings']['secret']]]></code>
+    </MixedArrayAccess>
   </file>
   <file src="tests/unit/ConfigStorage/RelationTest.php">
     <DeprecatedMethod>
@@ -11084,35 +11113,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-  </file>
-  <file src="tests/unit/UserPreferencesTest.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-    </DeprecatedMethod>
-    <InvalidPropertyAssignmentValue>
-      <code><![CDATA[['Server/hide_db' => 'testval123', 'Server/port' => '213']]]></code>
-    </InvalidPropertyAssignmentValue>
-    <MixedArgument>
-      <code><![CDATA[$_SESSION['userconfig']]]></code>
-    </MixedArgument>
-    <MixedArrayAccess>
-      <code><![CDATA[$_SESSION['userconfig']['db']]]></code>
-      <code><![CDATA[$_SESSION['userconfig']['ts']]]></code>
-      <code><![CDATA[$resultConfig['2fa']['settings']]]></code>
-      <code><![CDATA[$resultConfig['2fa']['settings']['secret']]]></code>
-    </MixedArrayAccess>
   </file>
   <file src="tests/unit/UtilTest.php">
     <ArgumentTypeCoercion>
