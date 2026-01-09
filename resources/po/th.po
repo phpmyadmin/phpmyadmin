@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-01-04 00:33+0000\n"
-"PO-Revision-Date: 2026-01-08 12:58+0000\n"
+"PO-Revision-Date: 2026-01-10 11:06+0000\n"
 "Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "th/>\n"
@@ -1344,6 +1344,8 @@ msgid ""
 "Execute queries on Enter and insert new line with Shift+Enter. To make this "
 "permanent, view settings."
 msgstr ""
+"เรียกใช้คำสั่งเมื่อกด Enter และแทรกบรรทัดใหม่เมื่อกด Shift+Enter หากต้องการตั้งค่าถาวร ให้ดูที่"
+"การตั้งค่า"
 
 #: resources/templates/console/display.twig:201 src/Config/Descriptions.php:961
 msgid "Switch to dark theme"
@@ -2088,12 +2090,13 @@ msgid ""
 "@SERVER@ will become the server name and @DATABASE@ will become the database "
 "name."
 msgstr ""
+"@SERVER@ จะกลายเป็นชื่อเซิร์ฟเวอร์ และ @DATABASE@ จะกลายเป็นชื่อฐานข้อมูล"
 
 #. l10n: A query that the user has written freely
 #: resources/templates/database/export/index.twig:5
 #: resources/templates/table/export/index.twig:5
 msgid "Exporting a raw query"
-msgstr ""
+msgstr "การส่งคำสั่งหยาบ"
 
 #: resources/templates/database/export/index.twig:7
 #, php-format
@@ -3866,6 +3869,7 @@ msgid ""
 "This might be a good way to import large files, however it can break "
 "transactions."
 msgstr ""
+"วิธีนี้อาจเป็นวิธีที่ดีในการนำเข้าไฟล์ขนาดใหญ่ แต่ก็อาจทำให้การทำธุรกรรมล้มเหลวได้"
 
 #: resources/templates/import.twig:139
 msgid "Skip this number of queries (for SQL) starting from the first one:"
@@ -3946,6 +3950,8 @@ msgid ""
 "can lead to a non working phpMyAdmin or a security risk. Please fix your "
 "server configuration to indicate HTTPS properly."
 msgstr ""
+"การตั้งค่า HTTPS บนเซิร์ฟเวอร์และลูกข่ายไม่ตรงกัน ซึ่งอาจทำให้ phpMyAdmin ใช้งานไม่ได้ หรือเกิด"
+"ความเสี่ยงด้านความปลอดภัย โปรดแก้ไขการกำหนดค่าเซิร์ฟเวอร์ของคุณให้ระบุ HTTPS อย่างถูกต้อง"
 
 #: resources/templates/login/twofactor/application_configure.twig:3
 msgid ""
@@ -3993,6 +3999,8 @@ msgid ""
 "The FIDO U2F API has been deprecated in favor of the Web Authentication API "
 "(WebAuthn)."
 msgstr ""
+"API FIDO U2F ได้ถูกยกเลิกการใช้งานแล้ว และให้ใช้ Web Authentication API (WebAuthn) แ"
+"ทน"
 
 #: resources/templates/login/twofactor/key_configure.twig:6
 #: resources/templates/login/twofactor/key.twig:6
@@ -4002,6 +4010,8 @@ msgid ""
 "API, however it's recommended that you use the WebAuthn authentication "
 "instead."
 msgstr ""
+"คุณยังคงสามารถใช้ Firefox เพื่อยืนยันตัวตนบัญชีของคุณโดยใช้ FIDO U2F API ได้ แต่ขอแนะนำให้ใช้"
+"การยืนยันตัวตน WebAuthn แทน"
 
 #: resources/templates/login/twofactor/key_configure.twig:10
 msgid ""
@@ -4036,11 +4046,13 @@ msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm registration on the "
 "device."
 msgstr ""
+"โปรดเชื่อมต่ออุปกรณ์ WebAuthn/FIDO2 ของคุณ จากนั้นยืนยันการลงทะเบียนบนอุปกรณ์"
 
 #: resources/templates/login/twofactor/webauthn_request.twig:1
 msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm login on the device."
 msgstr ""
+"โปรดเชื่อมต่ออุปกรณ์ WebAuthn/FIDO2 ของคุณ จากนั้นยืนยันการเข้าสู่ระบบบนอุปกรณ์"
 
 #: resources/templates/menu/main.twig:27
 #, fuzzy
@@ -4060,7 +4072,7 @@ msgstr "คำอธิบายตาราง"
 #. l10n: Current page
 #: resources/templates/menu/main.twig:59
 msgid "(current)"
-msgstr ""
+msgstr "(ปัจจุบัน)"
 
 #: resources/templates/modals/unhide_nav_item.twig:5
 msgid "Show hidden navigation tree items."
@@ -4068,7 +4080,7 @@ msgstr "แสดงรายการโครงสร้างการนำ
 
 #: resources/templates/navigation/item_unhide_dialog.twig:19
 msgid "Unhide"
-msgstr ""
+msgstr "เปิดเผย"
 
 #: resources/templates/navigation/main.twig:25
 #: resources/templates/navigation/main.twig:26
@@ -4342,6 +4354,7 @@ msgstr ""
 msgid ""
 "Please install optional dependencies to enable more authentication backends."
 msgstr ""
+"โปรดติดตั้งส่วนประกอบเสริมที่จำเป็นเพื่อเปิดใช้งานระบบตรวจสอบสิทธิ์หลังบ้านเพิ่มเติม"
 
 #: resources/templates/preferences/two_factor/main.twig:37
 msgid ""
@@ -4414,6 +4427,8 @@ msgid ""
 "%sCreate%s a database named '%s' and setup the phpMyAdmin configuration "
 "storage there."
 msgstr ""
+"%sCreate%s สร้างฐานข้อมูลชื่อ '%s' และตั้งค่าการจัดเก็บการกำหนดค่า phpMyAdmin ไว้ในฐานข้อมู"
+"ลนั้น"
 
 #: resources/templates/relation/check_relations.twig:24
 #, php-format
@@ -4547,11 +4562,11 @@ msgstr "โหลดกรอบนำทางใหม่"
 
 #: resources/templates/relation/check_relations.twig:433
 msgid "Saving Query-By-Example searches:"
-msgstr ""
+msgstr "การบันทึกการค้นหา Query-By-Example:"
 
 #: resources/templates/relation/check_relations.twig:458
 msgid "Managing central list of columns:"
-msgstr ""
+msgstr "การจัดการรายการคอลัมน์ส่วนกลาง:"
 
 #: resources/templates/relation/check_relations.twig:483
 #, fuzzy
@@ -4810,7 +4825,7 @@ msgstr "เครื่องมือที่เก็บข้อมูล"
 
 #: resources/templates/server/export/index.twig:26
 msgid "@SERVER@ will become the server name."
-msgstr ""
+msgstr "@SERVER@ จะกลายเป็นชื่อเซิร์ฟเวอร์"
 
 #: resources/templates/server/export/index.twig:3
 msgid "Exporting databases from the current server"
@@ -4918,6 +4933,8 @@ msgid ""
 "'<em>unencrypted connection that encrypts the password using RSA</em>'; "
 "while connecting to the server."
 msgstr ""
+"วิธีการนี้จำเป็นต้องใช้ '<em>การเชื่อมต่อ SSL</em>' หรือ '<em>การเชื่อมต่อที่ไม่เข้ารหัสซึ่งเข้ารหัส"
+"รหัสผ่านโดยใช้ RSA </em>'; ในขณะเชื่อมต่อกับเซิร์ฟเวอร์"
 
 #: resources/templates/server/privileges/choose_user_group.twig:5
 #, fuzzy
@@ -5368,7 +5385,7 @@ msgstr "อนุญาตให้สร้างตารางใหม่."
 
 #: resources/templates/server/privileges/privileges_table.twig:680
 msgid "Not used on MariaDB."
-msgstr ""
+msgstr "ไม่ได้ใช้กับ MariaDB"
 
 #: resources/templates/server/privileges/privileges_table.twig:680
 #, fuzzy
@@ -5386,7 +5403,7 @@ msgstr "มอบสิทธิให้ผู้ใช้ ในการถ�
 #: resources/templates/server/privileges/privileges_table.twig:707
 #: src/Server/Privileges.php:342
 msgid "Needed for the replication replicas."
-msgstr ""
+msgstr "จำเป็นสำหรับการสร้างการจำลอง"
 
 #: resources/templates/server/privileges/privileges_table.twig:717
 #: resources/templates/server/privileges/privileges_table.twig:720
@@ -5516,13 +5533,13 @@ msgstr "เอาการแสดงผลออก"
 #: src/Controllers/JavaScriptMessagesController.php:156
 msgctxt "Unlock the account."
 msgid "Unlock"
-msgstr ""
+msgstr "ปลดล็อก"
 
 #: resources/templates/server/privileges/users_overview.twig:105
 #: src/Controllers/JavaScriptMessagesController.php:155
 msgctxt "Lock the account."
 msgid "Lock"
-msgstr ""
+msgstr "ล็อก"
 
 #: resources/templates/server/privileges/users_overview.twig:146
 msgid "Remove selected user accounts"
@@ -5617,6 +5634,10 @@ msgid ""
 "can choose to ignore all databases by default and allow only certain "
 "databases to be replicated. Please select the mode:"
 msgstr ""
+"เซิร์ฟเวอร์นี้ไม่ได้ถูกกำหนดค่าให้เป็นเซิร์ฟเวอร์หลักในกระบวนการจำลองข้อมูล คุณสามารถเลือกได้ว่าจะ"
+"จำลองฐานข้อมูลทั้งหมดหรือละเว้นบางส่วน (มีประโยชน์หากคุณต้องการจำลองฐานข้อมูลส่วนใหญ่) หรือคุณ"
+"สามารถเลือกที่จะละเว้นฐานข้อมูลทั้งหมดโดยค่าเริ่มต้นและอนุญาตให้จำลองเฉพาะฐานข้อมูลบางส่วนเท่านั้"
+"น โปรดเลือกโหมด:"
 
 #: resources/templates/server/replication/primary_configuration.twig:9
 msgid "Replicate all databases; Ignore:"
@@ -5644,6 +5665,8 @@ msgid ""
 "should see a message informing you, that this server <strong>is</strong> "
 "configured as primary."
 msgstr ""
+"หลังจากรีสตาร์ทเซิร์ฟเวอร์ MySQL แล้ว โปรดคลิกปุ่ม Go จากนั้น คุณจะเห็นข้อความแจ้งให้ทราบว่าเซิร์"
+"ฟเวอร์นี้ <strong>ได้รับ</strong> การกำหนดค่าให้เป็นเซิร์ฟเวอร์หลัก"
 
 #: resources/templates/server/replication/primary_replication.twig:5
 #, fuzzy
@@ -5660,13 +5683,14 @@ msgstr "แสดงสถานะมาสเตอร์"
 
 #: resources/templates/server/replication/primary_replication.twig:16
 msgid "Show connected replicas"
-msgstr ""
+msgstr "แสดงแบบจำลองที่เชื่อมต่อ"
 
 #: resources/templates/server/replication/primary_replication.twig:38
 msgid ""
 "Only replicas started with the --report-host=host_name option are visible in "
 "this list."
 msgstr ""
+"เฉพาะแบบจำลองที่เริ่มต้นด้วยตัวเลือก --report-host=host_name เท่านั้นที่จะปรากฏในรายการนี้"
 
 #: resources/templates/server/replication/replica_configuration.twig:5
 #, fuzzy
@@ -5675,11 +5699,11 @@ msgstr "การเชื่อมต่อเซิร์ฟเวอร์:"
 
 #: resources/templates/server/replication/replica_configuration.twig:25
 msgid "Replica SQL Thread not running!"
-msgstr ""
+msgstr "รอบการทำงาน SQL จำลองไม่ทำงาน!"
 
 #: resources/templates/server/replication/replica_configuration.twig:28
 msgid "Replica IO Thread not running!"
-msgstr ""
+msgstr "รอบการทำงานแบบจำลอง IO ไม่ทำงาน!"
 
 #: resources/templates/server/replication/replica_configuration.twig:31
 #, fuzzy
@@ -5727,6 +5751,7 @@ msgstr "การจัดการที่ผิดพลาด:"
 #: resources/templates/server/replication/replica_configuration.twig:77
 msgid "Skipping errors might lead into unsynchronized primary and replica!"
 msgstr ""
+"การข้ามข้อผิดพลาดอาจส่งผลให้เซิร์ฟเวอร์หลักและเซิร์ฟเวอร์สำรองไม่ซิงก์กัน!"
 
 #: resources/templates/server/replication/replica_configuration.twig:81
 msgid "Skip current error"
@@ -6002,6 +6027,8 @@ msgid ""
 "will load a table of grouped queries, there you may click on any occurring "
 "SELECT statements to further analyze them."
 msgstr ""
+"หากต้องการแสดงคำสั่งจากบันทึก ให้คลิกที่แผนภูมิใดก็ได้ เมื่อยืนยันแล้ว ระบบจะโหลดตารางคำสั่งที่จัดกลุ่"
+"มไว้ คุณสามารถคลิกที่คำสั่ง SELECT ที่ปรากฏอยู่ในตารางนั้นเพื่อวิเคราะห์เพิ่มเติมได้"
 
 #: resources/templates/server/status/monitor/index.twig:108
 msgid "Please note:"
@@ -6275,7 +6302,7 @@ msgstr "ต่อชั่วโมง"
 
 #: resources/templates/server/status/queries/index.twig:52
 msgid "Pie chart with the most frequent statements."
-msgstr ""
+msgstr "แผนภูมิวงกลมแสดงข้อความที่ปรากฏบ่อยที่สุด"
 
 #: resources/templates/server/status/status/index.twig:6
 #, php-format
@@ -6310,16 +6337,20 @@ msgid ""
 "This MySQL server works as <b>primary</b> and <b>replica</b> in "
 "<b>replication</b> process."
 msgstr ""
+"เซิร์ฟเวอร์ MySQL นี้ทำหน้าที่เป็นทั้ง <b>เซิร์ฟเวอร์หลัก</b> และ <b>เซิร์ฟเวอร์จำลอง</b> ในกระ"
+"บวนการ <b>การจำลองข้อมูล</b>"
 
 #: resources/templates/server/status/status/index.twig:61
 msgid ""
 "This MySQL server works as <b>primary</b> in <b>replication</b> process."
 msgstr ""
+"เซิร์ฟเวอร์ MySQL นี้ทำหน้าที่เป็น <b>เซิร์ฟเวอร์หลัก</b> ในกระบวนการ <b>การจำลองแบบ</b>"
 
 #: resources/templates/server/status/status/index.twig:63
 msgid ""
 "This MySQL server works as <b>replica</b> in <b>replication</b> process."
 msgstr ""
+"เซิร์ฟเวอร์ MySQL นี้ทำหน้าที่เป็น <b>เซิร์ฟเวอร์จำลอง</b> ในกระบวนการ <b>การจำลองแบบ</b>"
 
 #: resources/templates/server/status/status/index.twig:69
 msgid "Replication status"
@@ -6517,7 +6548,7 @@ msgstr "เพิ่มเซิร์ฟเวอร์ใหม่"
 
 #: resources/templates/setup/servers/index.twig:17
 msgid "Something went wrong."
-msgstr ""
+msgstr "เกิดข้อผิดพลาดบางอย่างขึ้น"
 
 #: resources/templates/sql/bookmark.twig:11
 msgid "Bookmark this SQL query"
@@ -6620,7 +6651,7 @@ msgstr "คำสั่ง SQL"
 
 #: resources/templates/sql/query.twig:41
 msgid "Format as a single line"
-msgstr ""
+msgstr "จัดรูปแบบเป็นบรรทัดเดียว"
 
 #: resources/templates/sql/query.twig:45
 msgid "Get auto-saved query"
@@ -6787,7 +6818,7 @@ msgstr "คอลัมน์ค่า:"
 #: resources/templates/table/chart/tbl_chart.twig:145
 #: resources/templates/table/zoom_search/result_form.twig:16
 msgid "The generated chart"
-msgstr ""
+msgstr "แผนภูมิที่สร้างขึ้น"
 
 #: resources/templates/table/chart/tbl_chart.twig:148
 msgid "Save chart as image"
@@ -6798,6 +6829,8 @@ msgid ""
 "@SERVER@ will become the server name, @DATABASE@ will become the database "
 "name and @TABLE@ will become the table name."
 msgstr ""
+"@SERVER@ จะกลายเป็นชื่อเซิร์ฟเวอร์, @DATABASE@ จะกลายเป็นชื่อฐานข้อมูล และ @TABLE@ จะกลา"
+"ยเป็นชื่อตาราง"
 
 #: resources/templates/table/export/index.twig:7
 #, php-format
@@ -6992,7 +7025,7 @@ msgstr "แก้ไข/แทรก"
 
 #: resources/templates/table/insert/continue_insertion_form.twig:14
 msgid "Amount of rows to insert"
-msgstr ""
+msgstr "จำนวนแถวที่จะแทรก"
 
 #: resources/templates/table/maintenance/checksum.twig:13
 #, fuzzy
@@ -7947,6 +7980,9 @@ msgid ""
 "5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query cache, "
 "especially if you have multiple replicas."
 msgstr ""
+"คุณกำลังใช้แคช MySQL Query กับฐานข้อมูลที่มีปริมาณการใช้งานค่อนข้างสูง อาจคุ้มค่าที่จะพิจารณาใช้ "
+"<a href=\"https://dev.mysql.com/doc/refman/5.6/en/ha-memcached.html\">"
+"memcached</a> แทนแคช MySQL Query โดยเฉพาะอย่างยิ่งหากคุณมีการจำลองฐานข้อมูลหลายชุด"
 
 #: src/Advisory/Rules.php:223
 #, php-format
@@ -8180,6 +8216,12 @@ msgid ""
 "mentioned in the <a href=\"https://dev.mysql.com/doc/refman/8.0/en/internal-"
 "temporary-tables.html\">MySQL Documentation</a>"
 msgstr ""
+"การเพิ่มค่า {max_heap_table_size} และ {tmp_table_size} อาจช่วยได้ อย่างไรก็ตาม ตาราง"
+"ชั่วคราวบางตารางจะถูกเขียนลงดิสก์เสมอ โดยไม่ขึ้นอยู่กับค่าของตัวแปรเหล่านี้ หากต้องการกำจัดตาราง"
+"ชั่วคราวเหล่านี้ คุณจะต้องเขียนคำสั่งใหม่เพื่อหลีกเลี่ยงเงื่อนไขเหล่านั้น (ภายในตารางชั่วคราว: การมีค"
+"อลัมน์ BLOB หรือ TEXT หรือการมีคอลัมน์ที่มีขนาดใหญ่กว่า 512 ไบต์) ตามที่ระบุไว้ใน <a "
+"href=\"https://dev.mysql.com/doc/refman/8.0/en/internal-temporary-"
+"tables.html\">เอกสารประกอบ MySQL</a>"
 
 #: src/Advisory/Rules.php:383
 #, php-format
@@ -8249,7 +8291,7 @@ msgstr "เปอร์เซ็นต์ของการอ่านดัช
 #: src/Advisory/Rules.php:440
 #, no-php-format
 msgid "The % of indexes that use the MyISAM key buffer is low."
-msgstr ""
+msgstr "% ของดัชนีที่ใช้บัฟเฟอร์คีย์ MyISAM นั้นต่ำ"
 
 #: src/Advisory/Rules.php:441
 msgid "You may need to increase {key_buffer_size}."
@@ -8290,6 +8332,8 @@ msgid ""
 "The number of open files is approaching the max number of open files. You "
 "may get a \"Too many open files\" error."
 msgstr ""
+"จำนวนไฟล์ที่เปิดอยู่ใกล้ถึงจำนวนสูงสุดแล้ว คุณอาจได้รับข้อความแสดงข้อผิดพลาด \"มีไฟล์เปิดอยู่มากเกิน"
+"ไป\""
 
 #: src/Advisory/Rules.php:468 src/Advisory/Rules.php:481
 msgid ""
@@ -8726,7 +8770,7 @@ msgstr "การใช้งานแคชคำสั่ง"
 #: src/Advisory/Rules.php:802
 #, no-php-format
 msgid "Less than 80% of the query cache is being utilized."
-msgstr ""
+msgstr "มีการใช้งานแคชการค้นหาน้อยกว่า 80%"
 
 #: src/Advisory/Rules.php:804
 msgid ""
@@ -9402,33 +9446,35 @@ msgstr "เปิดใช้งานการบีบอัด bzip2 สำ�
 
 #: src/Config/Descriptions.php:92
 msgid "Enter the URL for your reCAPTCHA v2 compatible API."
-msgstr ""
+msgstr "ป้อน URL สำหรับ API ที่ใช้งานร่วมกับ reCAPTCHA v2 ได้"
 
 #: src/Config/Descriptions.php:93
 msgid ""
 "Enter the Content-Security-Policy snippet for your reCAPTCHA v2 compatible "
 "API."
 msgstr ""
+"ป้อนโค้ด Content-Security-Policy สำหรับ API ที่ใช้งานร่วมกับ reCAPTCHA v2 ได้"
 
 #: src/Config/Descriptions.php:94
 msgid "Enter the request parameter used by your reCAPTCHA v2 compatible API."
-msgstr ""
+msgstr "ป้อนพารามิเตอร์คำขอที่ใช้โดย API ที่เข้ากันได้กับ reCAPTCHA v2 ของคุณ"
 
 #: src/Config/Descriptions.php:95
 msgid "Enter the response parameter used by your reCAPTCHA v2 compatible API."
 msgstr ""
+"ป้อนพารามิเตอร์การตอบกลับที่ใช้โดย API ที่เข้ากันได้กับ reCAPTCHA v2 ของคุณ"
 
 #: src/Config/Descriptions.php:96
 msgid "Enter your public key for the reCAPTCHA service on your domain."
-msgstr ""
+msgstr "ป้อนรหัสสาธารณะของคุณสำหรับบริการ reCAPTCHA บนโดเมนของคุณ"
 
 #: src/Config/Descriptions.php:97
 msgid "Enter your private key for your domain reCAPTCHA service."
-msgstr ""
+msgstr "ป้อนรหัสส่วนตัวของคุณสำหรับบริการ reCAPTCHA ของโดเมนของคุณ"
 
 #: src/Config/Descriptions.php:98
 msgid "Enter your siteverify URL for your reCAPTCHA service."
-msgstr ""
+msgstr "ป้อน siteverify URL สำหรับบริการ reCAPTCHA ของคุณ"
 
 #: src/Config/Descriptions.php:100
 msgid ""
@@ -9513,7 +9559,7 @@ msgstr "ตั้งค่าจำนวนวินาทีที่สคร
 #: src/Config/Descriptions.php:171 src/Config/Descriptions.php:708
 #: src/Plugins/Export/ExportSql.php:368 src/Plugins/Export/ExportSql.php:367
 msgid "Exclude definition of current user"
-msgstr ""
+msgstr "ไม่รวมคำจำกัดความของผู้ใช้ปัจจุบัน"
 
 #: src/Config/Descriptions.php:173
 msgid ""
@@ -9761,6 +9807,8 @@ msgid ""
 "The number of bytes a script is allowed to allocate, e.g. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
+"จำนวนไบต์ที่สคริปต์ได้รับอนุญาตให้จัดสรร เช่น [kbd]32M[/kbd] ([kbd]-1[/kbd]สำหรับการไม่จำกั"
+"ด และ ([kbd]0[/kbd] สำหรับการไม่เปลี่ยนแปลง)"
 
 #: src/Config/Descriptions.php:278
 msgid "In the navigation panel, replaces the database tree with a selector"
@@ -9775,6 +9823,8 @@ msgid ""
 "Open the linked page in the main window ([code]main[/code]) or in a new one "
 "([code]new[/code])."
 msgstr ""
+"เปิดหน้าเพจที่เชื่อมโยงในหน้าต่างหลัก ([code]main[/code]) หรือในหน้าต่างใหม่ ([code]new[/"
+"code])"
 
 #: src/Config/Descriptions.php:287
 msgid ""
@@ -9885,7 +9935,7 @@ msgstr ""
 
 #: src/Config/Descriptions.php:331
 msgid "Allow users to create bookmarks that are available for all other users"
-msgstr ""
+msgstr "อนุญาตให้ผู้ใช้สร้างบุ๊กมาร์กที่ผู้ใช้รายอื่นทุกคนสามารถมองเห็นได้"
 
 #: src/Config/Descriptions.php:333
 msgid ""
@@ -9906,6 +9956,8 @@ msgid ""
 "Leave blank for no column comments/media types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
+"เว้นว่างไว้หากไม่ต้องการใส่ความคิดเห็น/ประเภทสื่อในคอลัมน์ ตัวอย่าง: "
+"[kbd]pma__column_info[/kbd]"
 
 #: src/Config/Descriptions.php:342
 msgid ""
@@ -10203,6 +10255,8 @@ msgid ""
 "Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()"
 "[/a] output."
 msgstr ""
+"แสดงลิงก์ไปยังผลลัพธ์ของ [a@https://www.php.net/manual/en/"
+"function.phpinfo.php]phpinfo()[/a]"
 
 #: src/Config/Descriptions.php:483
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
@@ -10231,7 +10285,7 @@ msgstr "ไม่ว่าคำสั่ง SQL จะถูกสร้าง�
 
 #: src/Config/Descriptions.php:489
 msgid "Allow to display database and table statistics (e.g. space usage)."
-msgstr ""
+msgstr "อนุญาตให้แสดงสถิติของฐานข้อมูลและตาราง (เช่น การใช้พื้นที่)"
 
 #: src/Config/Descriptions.php:491
 msgid ""
@@ -10293,6 +10347,9 @@ msgid ""
 "this if the server where phpMyAdmin is installed does not have direct access "
 "to the Internet. The format is: \"hostname:portnumber\"."
 msgstr ""
+"URL ของพร็อกซีที่จะใช้เมื่อเรียกดูข้อมูลเกี่ยวกับเวอร์ชันล่าสุดของ phpMyAdmin หรือเมื่อส่งรายงานข้อผิ"
+"ดพลาด คุณจำเป็นต้องใช้สิ่งนี้หากเซิร์ฟเวอร์ที่ติดตั้ง phpMyAdmin ไม่สามารถเข้าถึงอินเทอร์เน็ตได้โดยต"
+"รง รูปแบบคือ: \"hostname:portnumber\""
 
 #: src/Config/Descriptions.php:523
 msgid ""
@@ -10317,6 +10374,8 @@ msgid ""
 "Enable Zero Configuration mode which lets you set up phpMyAdmin "
 "configuration storage tables automatically."
 msgstr ""
+"เปิดใช้งานโหมด Zero Configuration ซึ่งจะช่วยให้คุณตั้งค่าตารางจัดเก็บการกำหนดค่า "
+"phpMyAdmin ได้โดยอัตโนมัติ"
 
 #: src/Config/Descriptions.php:536
 msgid "Highlight selected rows."
@@ -10373,7 +10432,7 @@ msgstr "ค่าเริ่มต้นสำหรับช่องทำเ
 
 #: src/Config/Descriptions.php:549
 msgid "Uncheck the checkbox to disable drag and drop import"
-msgstr ""
+msgstr "ยกเลิกการเลือกช่องทำเครื่องหมายเพื่อปิดใช้งานการนำเข้าแบบลากและวาง"
 
 #: src/Config/Descriptions.php:550
 msgid "How many rows can be inserted at one time."
@@ -10666,7 +10725,7 @@ msgstr "เวลาดำเนินการสูงสุด"
 
 #: src/Config/Descriptions.php:635
 msgid "Use [code]LOCK TABLES[/code] statement"
-msgstr ""
+msgstr "ใช้คำสั่ง [code]LOCK TABLES[/code]"
 
 #: src/Config/Descriptions.php:636
 msgid "Save as file"
@@ -10792,7 +10851,7 @@ msgstr "รูปแบบของชื่อไฟล์"
 
 #: src/Config/Descriptions.php:686
 msgid "Remove DEFINER clause from definitions"
-msgstr ""
+msgstr "ลบวลี DEFINER จากนิยาม"
 
 #: src/Config/Descriptions.php:688
 msgid "Enclose table and column names with backquotes"
@@ -10882,7 +10941,7 @@ msgstr "ตรวจสอบคีย์นอก"
 
 #: src/Config/Descriptions.php:727
 msgid "First day of calendar"
-msgstr ""
+msgstr "วันแรกของปฏิทิน"
 
 #: src/Config/Descriptions.php:729
 msgid "Browse mode"
@@ -11007,7 +11066,7 @@ msgstr "ละเว้นข้อผิดพลาดจากคำสั่
 
 #: src/Config/Descriptions.php:770
 msgid "Enable drag and drop import"
-msgstr ""
+msgstr "เปิดใช้งานการนำเข้าแบบลากและวาง"
 
 #: src/Config/Descriptions.php:771
 msgid "Partial import: allow interrupt"
@@ -11628,27 +11687,27 @@ msgstr "URL สำหรับ reCAPTCHA v2 API"
 
 #: src/Config/Descriptions.php:948
 msgid "Content-Security-Policy snippet for reCAPTCHA v2 API"
-msgstr ""
+msgstr "ส่วนย่อย Content-Security-Policy สำหรับ API reCAPTCHA v2"
 
 #: src/Config/Descriptions.php:949
 msgid "Request parameter for reCAPTCHA v2 API"
-msgstr ""
+msgstr "พารามิเตอร์คำขอสำหรับ API reCAPTCHA v2"
 
 #: src/Config/Descriptions.php:950
 msgid "Response parameter for reCAPTCHA v2 API"
-msgstr ""
+msgstr "พารามิเตอร์การตอบกลับสำหรับ API reCAPTCHA v2"
 
 #: src/Config/Descriptions.php:951
 msgid "Public key for reCAPTCHA"
-msgstr ""
+msgstr "คีย์สาธารณะสำหรับ reCAPTCHA"
 
 #: src/Config/Descriptions.php:952
 msgid "Private key for reCAPTCHA"
-msgstr ""
+msgstr "คีย์ส่วนตัวสำหรับ reCAPTCHA"
 
 #: src/Config/Descriptions.php:953
 msgid "URL for reCAPTCHA siteverify"
-msgstr ""
+msgstr "URL สำหรับ reCAPTCHA siteverify"
 
 #: src/Config/Descriptions.php:954
 msgid "Send error reports"
@@ -12434,6 +12493,8 @@ msgid ""
 "necessary. It should only be %d bytes long. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
+"คีย์เข้ารหัสคุกกี้ในไฟล์การกำหนดค่ามีความยาวเกินความจำเป็น ควรมีความยาวเพียง %d ไบต์เท่านั้น โป"
+"รดดูอ้างอิง [doc@cfg_blowfish_secret]เอกสารประกอบ[/doc]"
 
 #: src/Controllers/HomeController.php:353
 msgid ""
@@ -12468,6 +12529,8 @@ msgid ""
 "to not work properly. Please refer to [doc@faq1-46]documentation[/doc] for "
 "possible issues."
 msgstr ""
+"ตัวแปร [code]HTTP_HOST[/code] หายไป ซึ่งอาจทำให้ phpMyAdmin ทำงานไม่ถูกต้อง โปรดดู "
+"[doc@faq1-46]เอกสารประกอบ[/doc] สำหรับปัญหาที่อาจเกิดขึ้น"
 
 #: src/Controllers/HomeController.php:458
 msgid ""
@@ -12797,6 +12860,9 @@ msgid ""
 "configuration directive <code>AllowNoPassword</code> is false. If you "
 "proceed, the account will not be able to log in through phpMyAdmin."
 msgstr ""
+"คุณกำลังพยายามตั้งค่าบัญชีนี้ให้เข้าสู่ระบบโดยไม่ต้องใช้รหัสผ่าน แต่คำสั่งการกำหนดค่า <code>"
+"AllowNoPassword</code> เป็น false หากคุณดำเนินการต่อ บัญชีจะไม่สามารถเข้าสู่ระบบผ่าน "
+"phpMyAdmin ได้"
 
 #: src/Controllers/JavaScriptMessagesController.php:153
 msgid "Removing Selected Users"
@@ -13596,7 +13662,7 @@ msgstr "คีย์การเข้ารหัส"
 msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
-msgstr ""
+msgstr "ฟังก์ชัน HEX จะถือว่าจำนวนเต็มเป็นสตริงขณะคำนวณค่าเลขฐานสิบหก"
 
 #: src/Controllers/JavaScriptMessagesController.php:491
 msgid ""
@@ -13655,7 +13721,7 @@ msgstr "ลบหน้า"
 #. l10n: When the user opens a page saved in the Designer
 #: src/Controllers/JavaScriptMessagesController.php:524
 msgid "Some tables saved in this page might have been renamed or deleted."
-msgstr ""
+msgstr "บางตารางที่บันทึกไว้ในหน้านี้อาจถูกเปลี่ยนชื่อหรือลบไปแล้ว"
 
 #: src/Controllers/JavaScriptMessagesController.php:526
 msgid "Please select a page to continue"
@@ -13816,7 +13882,7 @@ msgstr "ล่าสุด"
 
 #: src/Controllers/JavaScriptMessagesController.php:597
 msgid "There was an error in loading the Git information."
-msgstr ""
+msgstr "เกิดข้อผิดพลาดในการโหลดข้อมูล Git"
 
 #: src/Controllers/JavaScriptMessagesController.php:600
 msgid ""
@@ -13868,15 +13934,15 @@ msgstr "ตามการตั้งค่าของคุณ พวกม�
 
 #: src/Controllers/JavaScriptMessagesController.php:631
 msgid "Column name successfully copied to clipboard!"
-msgstr ""
+msgstr "คัดลอกชื่อคอลัมน์ไปยังคลิปบอร์ดเรียบร้อยแล้ว!"
 
 #: src/Controllers/JavaScriptMessagesController.php:632
 msgid "Column name copying to clipboard failed!"
-msgstr ""
+msgstr "คัดลอกชื่อคอลัมน์ไปยังคลิปบอร์ดล้มเหลว!"
 
 #: src/Controllers/JavaScriptMessagesController.php:633
 msgid "Successfully copied!"
-msgstr ""
+msgstr "คัดลอกสำเร็จแล้ว!"
 
 #: src/Controllers/JavaScriptMessagesController.php:634
 #, fuzzy
@@ -13969,7 +14035,7 @@ msgstr "หมดเวลาการรอการใช้งานคีย
 #: src/Controllers/JavaScriptMessagesController.php:669
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
-msgstr ""
+msgstr "ส่งคำขอที่ไม่ถูกต้องไปยังคีย์ความปลอดภัย"
 
 #. l10n: unknown error code (from U2F API)
 #: src/Controllers/JavaScriptMessagesController.php:671
@@ -13982,7 +14048,7 @@ msgstr "ข้อผิดพลาดที่ไม่รู้จัก"
 #: src/Controllers/JavaScriptMessagesController.php:673
 msgctxt "U2F error"
 msgid "Client does not support security key."
-msgstr ""
+msgstr "ลูกข่ายไม่รองรับคีย์ความปลอดภัย"
 
 #. l10n: error code 4 (from U2F API) on register
 #: src/Controllers/JavaScriptMessagesController.php:675
@@ -14003,6 +14069,7 @@ msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
 msgstr ""
+"WebAuthn ไม่พร้อมใช้งาน โปรดใช้เบราว์เซอร์ที่รองรับในบริบทที่ปลอดภัย (HTTPS)"
 
 #: src/Controllers/JavaScriptMessagesController.php:685
 msgid ""
@@ -14010,6 +14077,8 @@ msgid ""
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
+"คุณไม่สามารถเปิด บันทึก หรือลบเค้าโครงหน้าเพจของคุณได้ เนื่องจาก IndexedDB ไม่ทำงานในเบราว์"
+"เซอร์ของคุณ และพื้นที่จัดเก็บการกำหนดค่า phpMyAdmin ของคุณไม่ได้ถูกตั้งค่าไว้สำหรับสิ่งนี้"
 
 #: src/Controllers/JavaScriptMessagesController.php:690
 #, php-format
@@ -14424,18 +14493,20 @@ msgstr "กรุณากรอกเลขฐานสิบหกให้ถ
 #. l10n: To validate the usage of a MD5 function on the column
 #: src/Controllers/JavaScriptMessagesController.php:781
 msgid "This column can not contain a 32 chars value"
-msgstr ""
+msgstr "คอลัมน์นี้ไม่สามารถมีค่าที่มีความยาวไม่เกิน 32 ตัวอักษรได้"
 
 #: src/Controllers/JavaScriptMessagesController.php:784
 msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
 msgstr ""
+"ฟังก์ชันเหล่านี้มีไว้เพื่อส่งคืนผลลัพธ์แบบไบนารี; เพื่อหลีกเลี่ยงผลลัพธ์ที่ไม่สอดคล้องกัน คุณควรจัดเก็บผลลัพ"
+"ธ์นั้นไว้ในคอลัมน์ประเภท BINARY, VARBINARY หรือ BLOB"
 
 #: src/Controllers/JavaScriptMessagesController.php:789
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size."
-msgstr ""
+msgstr "ไฟล์ที่กำลังอัปโหลดอาจมีขนาดใหญ่เกินกว่าขนาดสูงสุดที่อนุญาต"
 
 #: src/Controllers/JavaScriptMessagesController.php:791
 #, php-format
@@ -15062,6 +15133,7 @@ msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table_open_cache value is probably too small."
 msgstr ""
+"จำนวนตารางที่เปิดใช้งาน หากมีจำนวนมาก ค่า table_open_cache ของคุณอาจน้อยเกินไป"
 
 #: src/Controllers/Server/Status/VariablesController.php:422
 msgid "The number of files that are open."
@@ -15161,17 +15233,19 @@ msgstr "จำนวนการเชื่อมต่อที่ทำกา
 #: src/Controllers/Server/Status/VariablesController.php:461
 msgid ""
 "The number of temporary tables currently open by the replica SQL thread."
-msgstr ""
+msgstr "จำนวนตารางชั่วคราวที่เปิดใช้งานอยู่ในขณะนี้โดยรอบการทำงาน SQL จำลอง"
 
 #: src/Controllers/Server/Status/VariablesController.php:463
 msgid ""
 "Total (since startup) number of times the replication replica SQL thread has "
 "retried transactions."
 msgstr ""
+"จำนวนครั้งทั้งหมด (นับตั้งแต่เริ่มต้น) ที่รอบการทำงาน SQL ของการจำลองแบบได้ลองทำธุรกรรมซ้ำแล้ว"
 
 #: src/Controllers/Server/Status/VariablesController.php:465
 msgid "This is ON if this server is a replica that is connected to a primary."
 msgstr ""
+"ฟังก์ชันนี้จะเปิดใช้งานหากเซิร์ฟเวอร์นี้เป็นเซิร์ฟเวอร์จำลองที่เชื่อมต่อกับเซิร์ฟเวอร์หลัก"
 
 #: src/Controllers/Server/Status/VariablesController.php:467
 msgid ""
@@ -15400,7 +15474,7 @@ msgstr "ไม่มีผลใน MySQL รุ่นนี้"
 #: src/Controllers/Table/Maintenance/OptimizeController.php:67
 #: src/Controllers/Table/Maintenance/RepairController.php:67
 msgid "Maintenance operations on multiple tables are disabled."
-msgstr ""
+msgstr "การดำเนินการบำรุงรักษาบนหลายตารางถูกปิดใช้งานแล้ว"
 
 #: src/Controllers/Table/Partition/AnalyzeController.php:36
 #: src/Controllers/Table/Partition/CheckController.php:36
@@ -15433,7 +15507,7 @@ msgstr "แถว: %1$s, คอลัมน์: %2$s, ข้อผิดพล�
 
 #: src/Controllers/Table/Structure/AddKeyController.php:26
 msgid "Invalid request parameter."
-msgstr ""
+msgstr "พารามิเตอร์คำขอไม่ถูกต้อง"
 
 #: src/Controllers/Table/Structure/MoveColumnsController.php:82
 msgid "The columns have been moved successfully."
@@ -15446,7 +15520,7 @@ msgstr "ไม่พบผู้ใช้ที่เลือกในตาร
 
 #: src/Controllers/Table/Structure/MoveColumnsController.php:141
 msgid "The selected columns are already in the correct order."
-msgstr ""
+msgstr "คอลัมน์ที่เลือกไว้เรียงลำดับถูกต้องแล้ว"
 
 #: src/Controllers/Table/Structure/PartitioningController.php:257
 #: src/Controllers/Table/Structure/SaveController.php:267
@@ -15751,6 +15825,8 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
+"ข้อผิดพลาด 1045: ผู้ใช้ไม่ได้รับอนุญาตให้เข้าถึง ข้อมูลความผิดพลาดเพิ่มเติมอาจมีอยู่ แต่ถูกซ่อนไว้โดยค"
+"ำสั่งการกำหนดค่า %s"
 
 #: src/Display/Results.php:2403 src/Display/Results.php:2418
 msgid "The row has been deleted."
@@ -16079,12 +16155,14 @@ msgid ""
 "You have been automatically logged out due to inactivity of %s seconds. Once "
 "you log in again, you should be able to resume the work where you left off."
 msgstr ""
+"คุณถูกให้ลงชื่อออกโดยอัตโนมัติเนื่องจากไม่มีการใช้งานเป็นเวลา %s วินาที เมื่อคุณลงชื่อเข้าใช้อีกครั้ง คุ"
+"ณจะสามารถทำงานต่อจากจุดเดิมได้"
 
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
 #: src/Export/Export.php:437 src/Export/Export.php:472
 #: src/Export/Export.php:775
 msgid "Exporting a raw query is not supported for this export method."
-msgstr ""
+msgstr "วิธีการส่งออกนี้ไม่รองรับการส่งออกคำสั่งหยาบ"
 
 #: src/Export/OutputHandler.php:82 src/Export/OutputHandler.php:113
 #: src/Export/OutputHandler.php:240 src/Export/Export.php:190
@@ -16210,11 +16288,11 @@ msgstr "มีการใช้งาน SSL"
 
 #: src/Html/Generator.php:333
 msgid "The PHP function password_hash() with default options."
-msgstr ""
+msgstr "ฟังก์ชัน password_hash() ของ PHP พร้อมตัวเลือกค่าเริ่มต้น"
 
 #: src/Html/Generator.php:334
 msgid "password_hash() PHP function"
-msgstr ""
+msgstr "ฟังก์ชัน password_hash() ใน PHP"
 
 #: src/Html/Generator.php:504
 msgid "Skip Explain SQL"
@@ -16261,6 +16339,8 @@ msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
+"ฟังก์ชัน ini_get และ/หรือ ini_set ถูกปิดใช้งานในไฟล์ php.ini phpMyAdmin ต้องการฟังก์ชันเห"
+"ล่านี้!"
 
 #: src/Http/Middleware/TokenRequestParamChecking.php:56
 msgid ""
@@ -16327,6 +16407,8 @@ msgid ""
 "Only INSERT, UPDATE, DELETE, REPLACE and SET (without options like GLOBAL) "
 "SQL queries containing transactional engine tables can be rolled back."
 msgstr ""
+"เฉพาะคำสั่ง SQL ประเภท INSERT, UPDATE, DELETE, REPLACE และ SET (โดยไม่มีตัวเลือก เช่"
+"น GLOBAL) ที่มีตารางของระบบธุรกรรมเท่านั้นที่สามารถย้อนกลับได้"
 
 #: src/Import/Import.php:1172
 #, php-format
@@ -16606,6 +16688,8 @@ msgid ""
 "There is no primary key; please add one.<br>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
 msgstr ""
+"ไม่มีคีย์หลัก; โปรดเพิ่มคีย์หลัก<br>คำแนะนำ: คีย์หลักคือคอลัมน์ (หรือการรวมกันของคอลัมน์) ที่ระบุแถว"
+"ทั้งหมดได้อย่างไม่ซ้ำกัน"
 
 #: src/Normalization.php:269
 msgid "Add a primary key on existing column(s)"
@@ -16782,6 +16866,9 @@ msgid ""
 "value of the column.<br>Note: A column may have no transitive dependency, in "
 "that case you don't have to select any."
 msgstr ""
+"สำหรับแต่ละคอลัมน์ด้านล่าง โปรดเลือกชุดคอลัมน์ <b>ที่น้อยที่สุด</b> จากชุดที่กำหนดให้ ซึ่งค่าของคอลัม"
+"น์เหล่านั้นเมื่อรวมกันแล้วเพียงพอที่จะกำหนดค่าของคอลัมน์นั้นได้<br>หมายเหตุ: คอลัมน์อาจไม่มีการพึ่งพา"
+"แบบส่งต่อ ในกรณีนั้นคุณไม่จำเป็นต้องเลือกคอลัมน์ใด ๆ"
 
 #: src/Normalization.php:877
 msgid ""
@@ -16841,7 +16928,7 @@ msgstr "ชื่อตารางยังว่างอยู่!"
 
 #: src/Partitioning/Maintenance.php:136
 msgid "This table is a view, it can not be truncated."
-msgstr ""
+msgstr "ตารางนี้เป็นมุมมอง ไม่สามารถตัดทอนได้"
 
 #: src/Pdf.php:146
 msgid "Error while creating PDF:"
@@ -16877,7 +16964,7 @@ msgstr "เซสชันของคุณหมดอายุแล้ว �
 
 #: src/Plugins/Auth/AuthenticationCookie.php:236
 msgid "Missing Captcha verification, maybe it has been blocked by adblock?"
-msgstr ""
+msgstr "ไม่พบการตรวจสอบ Captcha อาจถูกบล็อกโดย adblock หรือเปล่า?"
 
 #: src/Plugins/Auth/AuthenticationCookie.php:271
 msgid "Failed to connect to the reCAPTCHA service!"
@@ -16892,6 +16979,8 @@ msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 2000 characters."
 msgstr ""
+"รหัสผ่านของคุณยาวเกินไป เพื่อป้องกันการโจมตีแบบ Denial-of-Service ทาง phpMyAdmin จึงจำกั"
+"ดรหัสผ่านให้มีความยาวไม่เกิน 2000 ตัวอักษร"
 
 #: src/Plugins/Auth/AuthenticationCookie.php:303
 msgid "You are not allowed to log in to this MySQL server!"
@@ -17176,7 +17265,7 @@ msgstr "ค่า %s"
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
 #: src/Plugins/Export/ExportSql.php:362 src/Plugins/Export/ExportSql.php:361
 msgid "Use simple view export"
-msgstr ""
+msgstr "ใช้การส่งออกมุมมองแบบง่าย"
 
 #: src/Plugins/Export/ExportSql.php:401 src/Plugins/Export/ExportSql.php:400
 msgid ""
@@ -17223,6 +17312,8 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
+"ระบุชื่อคอลัมน์ในทุกคำสั่ง <code>INSERT</code> <br> &nbsp; &nbsp; &nbsp; ตัวอย่าง: "
+"<code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3)</code>"
 
 #: src/Plugins/Export/ExportSql.php:480 src/Plugins/Export/ExportSql.php:479
 msgid ""
@@ -17230,18 +17321,24 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
+"แทรกหลายแถวในคำสั่ง <code>INSERT</code> ทุกครั้ง<br> &nbsp; &nbsp; &nbsp; ตัวอย่าง: "
+"<code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: src/Plugins/Export/ExportSql.php:485 src/Plugins/Export/ExportSql.php:484
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
+"ทั้งสองอย่างข้างต้น<br> &nbsp; &nbsp; &nbsp; ตัวอย่าง: <code>INSERT INTO tbl_name "
+"(col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: src/Plugins/Export/ExportSql.php:490 src/Plugins/Export/ExportSql.php:489
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
+"ไม่ใช่ทั้งสองอย่างข้างต้น<br> &nbsp; &nbsp; &nbsp; ตัวอย่าง: <code>INSERT INTO "
+"tbl_name VALUES (1,2,3)</code>"
 
 #: src/Plugins/Export/ExportSql.php:509 src/Plugins/Export/ExportSql.php:508
 msgid ""
@@ -17331,7 +17428,7 @@ msgstr "AUTO_INCREMENT สำหรับตาราง"
 #: src/Plugins/Export/ExportSql.php:1747 src/Plugins/Export/ExportSql.php:1737
 #: src/Plugins/Export/ExportSql.php:1744
 msgid "MEDIA TYPES FOR TABLE"
-msgstr ""
+msgstr "ประเภทสื่อสำหรับตาราง"
 
 #: src/Plugins/Export/ExportSql.php:1777 src/Plugins/Export/ExportSql.php:1767
 #: src/Plugins/Export/ExportSql.php:1774
@@ -17403,15 +17500,15 @@ msgstr "อัปเดตข้อมูลเมื่อพบคีย์ซ
 
 #: src/Plugins/Import/ImportCsv.php:100
 msgid "Name of the new table (optional):"
-msgstr ""
+msgstr "ชื่อตารางใหม่ (ไม่บังคับ):"
 
 #: src/Plugins/Import/ImportCsv.php:109
 msgid "Name of the new database (optional):"
-msgstr ""
+msgstr "ชื่อฐานข้อมูลใหม่ (ไม่บังคับ):"
 
 #: src/Plugins/Import/ImportCsv.php:118 src/Plugins/Import/ImportCsv.php:136
 msgid "Import these many number of rows (optional):"
-msgstr ""
+msgstr "นำเข้าข้อมูลจำนวนแถวตามที่ระบุ (ไม่บังคับ):"
 
 #: src/Plugins/Import/ImportCsv.php:126 src/Plugins/Import/ImportOds.php:73
 msgid ""
@@ -17475,7 +17572,7 @@ msgstr "ตาราง MediaWiki"
 #: src/Plugins/Import/ImportMediawiki.php:277
 #, php-format
 msgid "Invalid format of mediawiki input on line: <br>%s."
-msgstr ""
+msgstr "รูปแบบข้อมูลอินพุต MediaWiki ไม่ถูกต้องในบรรทัด: <br>%s"
 
 #: src/Plugins/Import/ImportOds.php:87
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
@@ -17647,6 +17744,7 @@ msgid ""
 "Displays a link to download the binary data of the column. You can use the "
 "option to specify the filename."
 msgstr ""
+"แสดงลิงก์สำหรับดาวน์โหลดข้อมูลไบนารีของคอลัมน์ คุณสามารถใช้ตัวเลือกเพื่อระบุชื่อไฟล์ได้"
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:38
 msgid ""
@@ -17661,6 +17759,14 @@ msgid ""
 "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
 "ensure that the output appears all on one line (Default 1)."
 msgstr ""
+"สำหรับ LINUX เท่านั้น: เรียกใช้แอปพลิเคชันภายนอกและป้อนข้อมูลคอลัมน์ผ่านอินพุตมาตรฐาน ส่งคืนเอา"
+"ต์พุตมาตรฐานของแอปพลิเคชัน ค่าเริ่มต้นคือ Tidy เพื่อจัดรูปแบบโค้ด HTML ให้สวยงาม ด้วยเหตุผลด้าน"
+"ความปลอดภัย คุณต้องแก้ไขไฟล์ src/Plugins/Transformations/Abs/"
+"ExternalTransformationsPlugin.php ด้วยตนเองและระบุเครื่องมือที่คุณต้องการใช้งาน ตัวเลือกแ"
+"รกคือหมายเลขของโปรแกรมที่คุณต้องการใช้ ตัวเลือกที่สองควรเว้นว่างไว้เพื่อเหตุผลเกี่ยวกับประวัติ ตัวเ"
+"ลือกที่สาม หากตั้งค่าเป็น 1 จะแปลงเอาต์พุตโดยใช้ htmlspecialchars() (ค่าเริ่มต้น 1) ตัวเลือกที่"
+"สี่ หากตั้งค่าเป็น 1 จะป้องกันการขึ้นบรรทัดใหม่และทำให้มั่นใจว่าเอาต์พุตปรากฏทั้งหมดในบรรทัดเดียว "
+"(ค่าเริ่มต้น 1)"
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:117
 #, php-format
@@ -17793,6 +17899,7 @@ msgid ""
 "Converts an Internet network address in (IPv4/IPv6) format into a long "
 "integer."
 msgstr ""
+"แปลงที่อยู่เครือข่ายอินเทอร์เน็ตในรูปแบบ (IPv4/IPv6) ให้เป็น long integer"
 
 #: src/Plugins/Transformations/Input/Text_Plain_JsonEditor.php:25
 msgid "Syntax highlighted CodeMirror editor for JSON."
@@ -17843,6 +17950,7 @@ msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F, "
 "such as a YubiKey."
 msgstr ""
+"รองรับการตรวจสอบสิทธิ์โดยใช้โทเค็นความปลอดภัยฮาร์ดแวร์ที่รองรับ FIDO U2F เช่น YubiKey"
 
 #: src/Plugins/TwoFactorPlugin.php:57
 #, php-format
@@ -17872,13 +17980,15 @@ msgstr "สำหรับทดสอบเท่านั้น!"
 
 #: src/Plugins/TwoFactor/WebAuthn.php:176
 msgid "Hardware Security Key (WebAuthn/FIDO2)"
-msgstr ""
+msgstr "คีย์ความปลอดภัยฮาร์ดแวร์ (WebAuthn/FIDO2)"
 
 #: src/Plugins/TwoFactor/WebAuthn.php:182
 msgid ""
 "Provides authentication using hardware security tokens supporting the "
 "WebAuthn/FIDO2 protocol, such as a YubiKey."
 msgstr ""
+"รองรับการตรวจสอบสิทธิ์โดยใช้โทเค็นความปลอดภัยฮาร์ดแวร์ที่รองรับโปรโตคอล WebAuthn/FIDO2 เช่"
+"น YubiKey"
 
 #: src/Query/Utilities.php:93
 msgid ""
@@ -17952,10 +18062,11 @@ msgstr "ไม่สามารถเชื่อมต่อกับ %s ห�
 msgid ""
 "Unable to read primary log position. Possible privilege problem on primary."
 msgstr ""
+"ไม่สามารถอ่านตำแหน่งบันทึกหลักได้ อาจมีปัญหาเรื่องสิทธิ์การเข้าถึงในระบบหลัก"
 
 #: src/Replication/ReplicationGui.php:538
 msgid "Unable to change primary!"
-msgstr ""
+msgstr "ไม่สามารถเปลี่ยนข้อมูลหลักได้!"
 
 #: src/Replication/ReplicationGui.php:542
 #, php-format
@@ -17968,6 +18079,7 @@ msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
+"ไม่สามารถเขียนแคชการกำหนดเส้นทางได้ คุณต้องปรับสิทธิ์การเข้าถึงแฟ้ม/ไฟล์ \"%s\""
 
 #: src/Routing/Routing.php:156 src/Routing/Routing.php:198
 #, php-format
@@ -18005,7 +18117,7 @@ msgstr "การรับรองความถูกต้องของค
 #: src/Server/Privileges/AccountLocking.php:24
 #: src/Server/Privileges/AccountLocking.php:43
 msgid "Account locking is not supported."
-msgstr ""
+msgstr "ระบบไม่รองรับการล็อกบัญชีผู้ใช้"
 
 #: src/Server/Privileges.php:274
 msgid "No privileges."
@@ -18479,7 +18591,7 @@ msgstr "ลบข้อมูล"
 
 #: src/Types.php:98
 msgid "not empty"
-msgstr ""
+msgstr "ไม่ว่างเปล่า"
 
 #: src/Types.php:161
 msgid ""
@@ -18589,6 +18701,10 @@ msgid ""
 "UTC on 64-bit platforms (MariaDB 11.5 and later), stored as the number of "
 "seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
+"ข้อมูลเวลาจะถูกบันทึกในช่วงเวลา 1970-01-01 00:00:01 UTC ถึง 2038-01-19 03:14:07 UTC "
+"บนแพลตฟอร์ม 32 บิต (MariaDB 11.3 และรุ่นก่อนหน้า) และถึง 2106-02-07 06:28:15 UTC บนแ"
+"พลตฟอร์ม 64 บิต (MariaDB 11.5 และรุ่นที่ใหม่กว่า) โดยจะบันทึกเป็นจำนวนวินาทีตั้งแต่ยุคเริ่มต้น "
+"(1970-01-01 00:00:00 UTC)"
 
 #: src/Types.php:214
 #, php-format
@@ -18752,10 +18868,11 @@ msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
 msgstr ""
+"จงใจจัดเก็บที่อยู่ IPv6 รวมถึงที่อยู่ IPv4 โดยสมมติว่ามีการแปลงที่อยู่ IPv4 เป็นที่อยู่ IPv6 ตามปกติ"
 
 #: src/Types.php:292
 msgid "128-bit UUID (Universally Unique Identifier)"
-msgstr ""
+msgstr "UUID (Universally Unique Identifier) ขนาด 128 บิต"
 
 #: src/Types.php:602
 msgctxt "numeric types"
