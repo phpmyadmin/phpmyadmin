@@ -586,7 +586,9 @@ class Export
                     $val1 = $colAs[0];
                     $val2 = $colAs[1];
                     // Use aliases2 alias if non empty
-                    $aliases[$dbName]['tables'][$tableName]['columns'][$col] = $val2 !== '' && $val2 !== null ? $val2 : $val1;
+                    $aliases[$dbName]['tables'][$tableName]['columns'][$col] = $val2 !== '' && $val2 !== null
+                        ? $val2
+                        : $val1;
                 }
             }
         }
