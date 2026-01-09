@@ -415,21 +415,6 @@ class Export
     }
 
     /**
-     * Export a raw query
-     *
-     * @param ExportPlugin $exportPlugin the selected export plugin
-     * @param  string|null  $db           the database where the query is executed
-     * @param string       $sqlQuery     the query to be executed
-     */
-    public static function exportRaw(
-        ExportPlugin $exportPlugin,
-        string|null $db,
-        string $sqlQuery,
-    ): void {
-        $exportPlugin->exportRawQuery($db, $sqlQuery);
-    }
-
-    /**
      * Export at the table level
      *
      * @param string       $db           the database to export

@@ -349,7 +349,7 @@ final readonly class ExportController implements InvocableController
                     );
                 }
             } elseif ($exportType === ExportType::Raw) {
-                Export::exportRaw($exportPlugin, Current::$database, Current::$sqlQuery);
+                $exportPlugin->exportRawQuery(Current::$database, Current::$sqlQuery);
             } else {
                 // We export just one table
 
