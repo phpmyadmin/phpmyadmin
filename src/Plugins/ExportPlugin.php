@@ -47,17 +47,15 @@ abstract class ExportPlugin implements Plugin
     /**
      * Outputs export header
      */
-    public function exportHeader(): bool
+    public function exportHeader(): void
     {
-        return true;
     }
 
     /**
      * Outputs export footer
      */
-    public function exportFooter(): bool
+    public function exportFooter(): void
     {
-        return true;
     }
 
     /**
@@ -66,9 +64,8 @@ abstract class ExportPlugin implements Plugin
      * @param string $db      Database name
      * @param string $dbAlias Aliases of db
      */
-    public function exportDBHeader(string $db, string $dbAlias = ''): bool
+    public function exportDBHeader(string $db, string $dbAlias = ''): void
     {
-        return true;
     }
 
     /**
@@ -76,9 +73,8 @@ abstract class ExportPlugin implements Plugin
      *
      * @param string $db Database name
      */
-    public function exportDBFooter(string $db): bool
+    public function exportDBFooter(string $db): void
     {
-        return true;
     }
 
     /**
@@ -87,9 +83,8 @@ abstract class ExportPlugin implements Plugin
      * @param string $db      Database name
      * @param string $dbAlias Aliases of db
      */
-    public function exportDBCreate(string $db, string $dbAlias = ''): bool
+    public function exportDBCreate(string $db, string $dbAlias = ''): void
     {
-        return true;
     }
 
     /**
@@ -105,7 +100,7 @@ abstract class ExportPlugin implements Plugin
         string $table,
         string $sqlQuery,
         array $aliases = [],
-    ): bool;
+    ): void;
 
     /**
      * The following methods are used in /export or in /database/operations,
@@ -118,9 +113,8 @@ abstract class ExportPlugin implements Plugin
      * @param string  $db      Database
      * @param mixed[] $aliases Aliases of db/table/columns
      */
-    public function exportRoutines(string $db, array $aliases = []): bool
+    public function exportRoutines(string $db, array $aliases = []): void
     {
-        return true;
     }
 
     /**
@@ -128,9 +122,8 @@ abstract class ExportPlugin implements Plugin
      *
      * @param string $db Database
      */
-    public function exportEvents(string $db): bool
+    public function exportEvents(string $db): void
     {
-        return true;
     }
 
     /**
@@ -139,9 +132,8 @@ abstract class ExportPlugin implements Plugin
      * @param string|null $db       the database where the query is executed
      * @param string      $sqlQuery the rawquery to output
      */
-    public function exportRawQuery(string|null $db, string $sqlQuery): bool
+    public function exportRawQuery(string|null $db, string $sqlQuery): void
     {
-        return false;
     }
 
     /**
@@ -152,9 +144,8 @@ abstract class ExportPlugin implements Plugin
      * @param string  $exportMode 'create_table', 'triggers', 'create_view', 'stand_in'
      * @param mixed[] $aliases    Aliases of db/table/columns
      */
-    public function exportStructure(string $db, string $table, string $exportMode, array $aliases = []): bool
+    public function exportStructure(string $db, string $table, string $exportMode, array $aliases = []): void
     {
-        return true;
     }
 
     /**
@@ -168,8 +159,7 @@ abstract class ExportPlugin implements Plugin
         string $db,
         string|array $tables,
         array $metadataTypes,
-    ): bool {
-        return true;
+    ): void {
     }
 
     /**

@@ -611,10 +611,10 @@ class ExportSql extends ExportPlugin
      * @param string  $db      Database
      * @param mixed[] $aliases Aliases of db/table/columns
      */
-    public function exportRoutines(string $db, array $aliases = []): bool
+    public function exportRoutines(string $db, array $aliases = []): void
     {
         if (! $this->hasCreateProcedureFunction) {
-            return true;
+            return;
         }
 
         $text = '';
@@ -653,11 +653,11 @@ class ExportSql extends ExportPlugin
             $text .= 'DELIMITER ;' . "\n";
         }
 
-        if ($text !== '') {
-            return $this->outputHandler->addLine($text);
+        if ($text === '') {
+            return;
         }
 
-        return false;
+        $this->outputHandler->addLine($text);
     }
 
     /**
@@ -708,7 +708,7 @@ class ExportSql extends ExportPlugin
     /**
      * Outputs export footer
      */
-    public function exportFooter(): bool
+    public function exportFooter(): void
     {
         $foot = '';
 
@@ -737,14 +737,14 @@ class ExportSql extends ExportPlugin
             DatabaseInterface::getInstance()->query('SET time_zone = "' . self::$oldTimezone . '"');
         }
 
-        return $this->outputHandler->addLine($foot);
+        $this->outputHandler->addLine($foot);
     }
 
     /**
      * Outputs export header. It is the first method to be called, so all
      * the required variables are initialized here.
      */
-    public function exportHeader(): bool
+    public function exportHeader(): void
     {
         $dbi = DatabaseInterface::getInstance();
 
@@ -833,7 +833,7 @@ class ExportSql extends ExportPlugin
             $this->sentCharset = true;
         }
 
-        return $this->outputHandler->addLine($head);
+        $this->outputHandler->addLine($head);
     }
 
     /**
@@ -842,26 +842,22 @@ class ExportSql extends ExportPlugin
      * @param string $db      Database name
      * @param string $dbAlias Aliases of db
      */
-    public function exportDBCreate(string $db, string $dbAlias = ''): bool
+    public function exportDBCreate(string $db, string $dbAlias = ''): void
     {
         if ($dbAlias === '') {
             $dbAlias = $db;
         }
 
         if ($this->includeStructure() && $this->dropDatabase) {
-            if (
-                ! $this->outputHandler->addLine(
-                    'DROP DATABASE IF EXISTS '
-                    . Util::backquoteCompat($dbAlias, $this->compatibility, $this->useSqlBackquotes)
-                    . ';' . "\n",
-                )
-            ) {
-                return false;
-            }
+            $this->outputHandler->addLine(
+                'DROP DATABASE IF EXISTS '
+                . Util::backquoteCompat($dbAlias, $this->compatibility, $this->useSqlBackquotes)
+                . ';' . "\n",
+            );
         }
 
         if (ExportPlugin::$exportType === ExportType::Database && ! $this->createDatabase) {
-            return true;
+            return;
         }
 
         $createQuery = 'CREATE DATABASE IF NOT EXISTS '
@@ -880,11 +876,9 @@ class ExportSql extends ExportPlugin
         }
 
         $createQuery .= ';' . "\n";
-        if (! $this->outputHandler->addLine($createQuery)) {
-            return false;
-        }
+        $this->outputHandler->addLine($createQuery);
 
-        return $this->exportUseStatement($dbAlias, $this->compatibility);
+        $this->exportUseStatement($dbAlias, $this->compatibility);
     }
 
     /**
@@ -893,17 +887,19 @@ class ExportSql extends ExportPlugin
      * @param string $db     db to use
      * @param string $compat sql compatibility
      */
-    private function exportUseStatement(string $db, string $compat): bool
+    private function exportUseStatement(string $db, string $compat): void
     {
         if ($compat === 'NONE') {
-            return $this->outputHandler->addLine(
+            $this->outputHandler->addLine(
                 'USE '
                 . Util::backquoteCompat($db, $compat, $this->useSqlBackquotes)
                 . ';' . "\n",
             );
+
+            return;
         }
 
-        return $this->outputHandler->addLine('USE ' . $db . ';' . "\n");
+        $this->outputHandler->addLine('USE ' . $db . ';' . "\n");
     }
 
     /**
@@ -912,7 +908,7 @@ class ExportSql extends ExportPlugin
      * @param string $db      Database name
      * @param string $dbAlias Alias of db
      */
-    public function exportDBHeader(string $db, string $dbAlias = ''): bool
+    public function exportDBHeader(string $db, string $dbAlias = ''): void
     {
         if ($dbAlias === '') {
             $dbAlias = $db;
@@ -929,7 +925,7 @@ class ExportSql extends ExportPlugin
             )
             . $this->exportComment();
 
-        return $this->outputHandler->addLine($head);
+        $this->outputHandler->addLine($head);
     }
 
     /**
@@ -937,35 +933,33 @@ class ExportSql extends ExportPlugin
      *
      * @param string $db Database name
      */
-    public function exportDBFooter(string $db): bool
+    public function exportDBFooter(string $db): void
     {
-        $result = true;
-
         //add indexes to the sql dump file
         if ($this->sqlIndexes !== null) {
-            $result = $this->outputHandler->addLine($this->sqlIndexes);
+            $this->outputHandler->addLine($this->sqlIndexes);
             $this->sqlIndexes = null;
         }
 
         //add auto increments to the sql dump file
         if ($this->sqlAutoIncrements !== null) {
-            $result = $this->outputHandler->addLine($this->sqlAutoIncrements);
+            $this->outputHandler->addLine($this->sqlAutoIncrements);
             $this->sqlAutoIncrements = null;
         }
 
         //add views to the sql dump file
         if ($this->sqlViews !== '') {
-            $result = $this->outputHandler->addLine($this->sqlViews);
+            $this->outputHandler->addLine($this->sqlViews);
             $this->sqlViews = '';
         }
 
         //add constraints to the sql dump file
-        if ($this->sqlConstraints !== null) {
-            $result = $this->outputHandler->addLine($this->sqlConstraints);
-            $this->sqlConstraints = null;
+        if ($this->sqlConstraints === null) {
+            return;
         }
 
-        return $result;
+        $this->outputHandler->addLine($this->sqlConstraints);
+        $this->sqlConstraints = null;
     }
 
     /**
@@ -973,10 +967,10 @@ class ExportSql extends ExportPlugin
      *
      * @param string $db Database
      */
-    public function exportEvents(string $db): bool
+    public function exportEvents(string $db): void
     {
         if (! $this->hasCreateProcedureFunction) {
-            return true;
+            return;
         }
 
         $text = '';
@@ -1022,11 +1016,11 @@ class ExportSql extends ExportPlugin
             $text .= 'DELIMITER ;' . "\n";
         }
 
-        if ($text !== '') {
-            return $this->outputHandler->addLine($text);
+        if ($text === '') {
+            return;
         }
 
-        return false;
+        $this->outputHandler->addLine($text);
     }
 
     /**
@@ -1040,14 +1034,14 @@ class ExportSql extends ExportPlugin
         string $db,
         string|array $tables,
         array $metadataTypes,
-    ): bool {
+    ): void {
         if (! $this->hasMetadata) {
-            return true;
+            return;
         }
 
         $relationParameters = $this->relation->getRelationParameters();
         if ($relationParameters->db === null) {
-            return true;
+            return;
         }
 
         $comment = $this->possibleCRLF()
@@ -1055,27 +1049,23 @@ class ExportSql extends ExportPlugin
             . $this->exportComment()
             . $this->exportComment(__('Metadata'))
             . $this->exportComment();
-        if (! $this->outputHandler->addLine($comment)) {
-            return false;
-        }
+        $this->outputHandler->addLine($comment);
 
-        if (! $this->exportUseStatement((string) $relationParameters->db, $this->compatibility)) {
-            return false;
-        }
+        $this->exportUseStatement((string) $relationParameters->db, $this->compatibility);
 
         if (is_array($tables)) {
-            $isSuccessful = true;
-            // export metadata for each table
             foreach ($tables as $table) {
-                $isSuccessful = $this->exportConfigurationMetadata($db, $table, $metadataTypes) && $isSuccessful;
+                $this->exportConfigurationMetadata($db, $table, $metadataTypes);
             }
 
             // export metadata for the database
-            return $this->exportConfigurationMetadata($db, null, $metadataTypes) && $isSuccessful;
+            $this->exportConfigurationMetadata($db, null, $metadataTypes);
+
+            return;
         }
 
         // export metadata for single table
-        return $this->exportConfigurationMetadata($db, $tables, $metadataTypes);
+        $this->exportConfigurationMetadata($db, $tables, $metadataTypes);
     }
 
     /**
@@ -1089,7 +1079,7 @@ class ExportSql extends ExportPlugin
         string $db,
         string|null $table,
         array $metadataTypes,
-    ): bool {
+    ): void {
         $relationParameters = $this->relation->getRelationParameters();
         $relationParams = $relationParameters->toArray();
 
@@ -1131,9 +1121,7 @@ class ExportSql extends ExportPlugin
 
         $comment .= $this->exportComment();
 
-        if (! $this->outputHandler->addLine($comment)) {
-            return false;
-        }
+        $this->outputHandler->addLine($comment);
 
         foreach ($types as $type => $dbNameColumn) {
             if (! in_array($type, $metadataTypes, true) || ! isset($relationParams[$type])) {
@@ -1162,23 +1150,17 @@ class ExportSql extends ExportPlugin
                         . ' WHERE `db_name` = ' . $dbi->quoteString($db)
                         . ' AND `page_nr` = ' . (int) $page;
 
-                    if (
-                        ! $this->exportData(
-                            $relationParameters->pdfFeature->database->getName(),
-                            $relationParameters->pdfFeature->pdfPages->getName(),
-                            $sqlQueryRow,
-                            $aliases,
-                        )
-                    ) {
-                        return false;
-                    }
+                    $this->exportData(
+                        $relationParameters->pdfFeature->database->getName(),
+                        $relationParameters->pdfFeature->pdfPages->getName(),
+                        $sqlQueryRow,
+                        $aliases,
+                    );
 
                     $lastPage = "\n"
                         . 'SET @LAST_PAGE = LAST_INSERT_ID();'
                         . "\n";
-                    if (! $this->outputHandler->addLine($lastPage)) {
-                        return false;
-                    }
+                    $this->outputHandler->addLine($lastPage);
 
                     $sqlQueryCoords = 'SELECT `db_name`, `table_name`, '
                         . "'@LAST_PAGE' AS `pdf_page_number`, `x`, `y` FROM "
@@ -1187,18 +1169,12 @@ class ExportSql extends ExportPlugin
                         . " WHERE `pdf_page_number` = '" . $page . "'";
 
                     self::$exportingMetadata = true;
-                    if (
-                        ! $this->exportData(
-                            $relationParameters->pdfFeature->database->getName(),
-                            $relationParameters->pdfFeature->tableCoords->getName(),
-                            $sqlQueryCoords,
-                            $aliases,
-                        )
-                    ) {
-                        self::$exportingMetadata = false;
-
-                        return false;
-                    }
+                    $this->exportData(
+                        $relationParameters->pdfFeature->database->getName(),
+                        $relationParameters->pdfFeature->tableCoords->getName(),
+                        $sqlQueryCoords,
+                        $aliases,
+                    );
 
                     self::$exportingMetadata = false;
                 }
@@ -1226,19 +1202,8 @@ class ExportSql extends ExportPlugin
                 $sqlQuery .= ' AND `table_name` = ' . $dbi->quoteString($table);
             }
 
-            if (
-                ! $this->exportData(
-                    (string) $relationParameters->db,
-                    (string) $relationParams[$type],
-                    $sqlQuery,
-                    $aliases,
-                )
-            ) {
-                return false;
-            }
+            $this->exportData((string) $relationParameters->db, (string) $relationParams[$type], $sqlQuery, $aliases);
         }
-
-        return true;
     }
 
     /**
@@ -1845,13 +1810,13 @@ class ExportSql extends ExportPlugin
      * @param string|null $db       the database where the query is executed
      * @param string      $sqlQuery the rawquery to output
      */
-    public function exportRawQuery(string|null $db, string $sqlQuery): bool
+    public function exportRawQuery(string|null $db, string $sqlQuery): void
     {
         if ($db !== null) {
             DatabaseInterface::getInstance()->selectDb($db);
         }
 
-        return $this->exportData($db ?? '', '', $sqlQuery);
+        $this->exportData($db ?? '', '', $sqlQuery);
     }
 
     /**
@@ -1862,7 +1827,7 @@ class ExportSql extends ExportPlugin
      * @param string  $exportMode 'create_table', 'triggers', 'create_view', 'stand_in'
      * @param mixed[] $aliases    Aliases of db/table/columns
      */
-    public function exportStructure(string $db, string $table, string $exportMode, array $aliases = []): bool
+    public function exportStructure(string $db, string $table, string $exportMode, array $aliases = []): void
     {
         $tableAlias = $this->getTableAlias($aliases, $db, $table);
         $formattedTableName = Util::backquoteCompat($tableAlias, $this->compatibility, $this->useSqlBackquotes);
@@ -1874,7 +1839,7 @@ class ExportSql extends ExportPlugin
         switch ($exportMode) {
             case 'create_table':
                 if (! $this->hasCreateTable) {
-                    return true; // User requested no table structure, so the job has been successfully completed
+                    return;
                 }
 
                 $dump .= $this->exportComment(
@@ -1886,7 +1851,7 @@ class ExportSql extends ExportPlugin
                 break;
             case 'triggers':
                 if (! $this->hasCreateTrigger) {
-                    return true; // User requested no triggers, so the job has been successfully completed
+                    return;
                 }
 
                 $dump = '';
@@ -1939,7 +1904,7 @@ class ExportSql extends ExportPlugin
                 break;
             case 'create_view':
                 if (! $this->hasCreateView) {
-                    return true; // No view to export, so the job has been successfully completed
+                    return;
                 }
 
                 if (! $this->viewsAsTables) {
@@ -1983,7 +1948,7 @@ class ExportSql extends ExportPlugin
                 break;
             case 'stand_in':
                 if (! $this->hasCreateView) {
-                    return true; // No view to export, so the job has been successfully completed
+                    return;
                 }
 
                 $dump .= $this->exportComment(
@@ -2001,7 +1966,7 @@ class ExportSql extends ExportPlugin
         // but not in the case of export
         $this->sqlConstraintsQuery = '';
 
-        return $this->outputHandler->addLine($dump);
+        $this->outputHandler->addLine($dump);
     }
 
     /**
@@ -2017,11 +1982,11 @@ class ExportSql extends ExportPlugin
         string $table,
         string $sqlQuery,
         array $aliases = [],
-    ): bool {
+    ): void {
         $dbi = DatabaseInterface::getInstance();
         // Do not export data for merge tables
         if ($dbi->getTable($db, $table)->isMerge()) {
-            return true;
+            return;
         }
 
         $tableAlias = $this->getTableAlias($aliases, $db, $table);
@@ -2038,7 +2003,9 @@ class ExportSql extends ExportPlugin
                 . $this->exportComment()
                 . $this->possibleCRLF();
 
-            return $this->outputHandler->addLine($head);
+            $this->outputHandler->addLine($head);
+
+            return;
         }
 
         $result = $dbi->tryQuery($sqlQuery, ConnectionType::User, DatabaseInterface::QUERY_UNBUFFERED);
@@ -2052,7 +2019,7 @@ class ExportSql extends ExportPlugin
         }
 
         if ($result === false) {
-            return true;
+            return;
         }
 
         $fieldsCnt = $result->numFields();
@@ -2146,22 +2113,16 @@ class ExportSql extends ExportPlugin
                     )
                     . $this->exportComment()
                     . "\n";
-                if (! $this->outputHandler->addLine($head)) {
-                    return false;
-                }
+                $this->outputHandler->addLine($head);
             }
 
             // We need to SET IDENTITY_INSERT ON for MSSQL
             if ($currentRow === 0 && $this->compatibility === 'MSSQL') {
-                if (
-                    ! $this->outputHandler->addLine(
-                        'SET IDENTITY_INSERT '
-                        . Util::backquoteCompat($tableAlias, $this->compatibility, $this->useSqlBackquotes)
-                        . ' ON ;' . "\n",
-                    )
-                ) {
-                    return false;
-                }
+                $this->outputHandler->addLine(
+                    'SET IDENTITY_INSERT '
+                    . Util::backquoteCompat($tableAlias, $this->compatibility, $this->useSqlBackquotes)
+                    . ' ON ;' . "\n",
+                );
             }
 
             $currentRow++;
@@ -2233,9 +2194,7 @@ class ExportSql extends ExportPlugin
                     $insertLine = '(' . implode(', ', $values) . ')';
                     $insertLineSize = mb_strlen($insertLine);
                     if ($this->maxQuerySize > 0 && $querySize + $insertLineSize > $this->maxQuerySize) {
-                        if (! $this->outputHandler->addLine(';' . "\n")) {
-                            return false;
-                        }
+                        $this->outputHandler->addLine(';' . "\n");
 
                         $querySize = 0;
                         $currentRow = 1;
@@ -2249,30 +2208,23 @@ class ExportSql extends ExportPlugin
                 $insertLine = $schemaInsert . '(' . implode(', ', $values) . ')';
             }
 
-            if (! $this->outputHandler->addLine(($currentRow === 1 ? '' : $separator . "\n") . $insertLine)) {
-                return false;
-            }
+            $this->outputHandler->addLine(($currentRow === 1 ? '' : $separator . "\n") . $insertLine);
         }
 
         if ($currentRow > 0) {
-            if (! $this->outputHandler->addLine(';' . "\n")) {
-                return false;
-            }
+            $this->outputHandler->addLine(';' . "\n");
         }
 
         // We need to SET IDENTITY_INSERT OFF for MSSQL
-        if ($this->compatibility === 'MSSQL' && $currentRow > 0) {
-            $outputSucceeded = $this->outputHandler->addLine(
-                "\n" . 'SET IDENTITY_INSERT '
-                . Util::backquoteCompat($tableAlias, $this->compatibility, $this->useSqlBackquotes)
-                . ' OFF;' . "\n",
-            );
-            if (! $outputSucceeded) {
-                return false;
-            }
+        if ($this->compatibility !== 'MSSQL' || $currentRow <= 0) {
+            return;
         }
 
-        return true;
+        $this->outputHandler->addLine(
+            "\n" . 'SET IDENTITY_INSERT '
+            . Util::backquoteCompat($tableAlias, $this->compatibility, $this->useSqlBackquotes)
+            . ' OFF;' . "\n",
+        );
     }
 
     /**

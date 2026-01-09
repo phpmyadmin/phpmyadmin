@@ -174,38 +174,32 @@ class ExportTexytextTest extends AbstractTestCase
 
     public function testExportHeader(): void
     {
-        self::assertTrue(
-            $this->object->exportHeader(),
-        );
+        $this->expectNotToPerformAssertions();
+        $this->object->exportHeader();
     }
 
     public function testExportFooter(): void
     {
-        self::assertTrue(
-            $this->object->exportFooter(),
-        );
+        $this->expectNotToPerformAssertions();
+        $this->object->exportFooter();
     }
 
     public function testExportDBHeader(): void
     {
         $this->expectOutputString("===Database testDb\n\n");
-        self::assertTrue(
-            $this->object->exportDBHeader('testDb'),
-        );
+        $this->object->exportDBHeader('testDb');
     }
 
     public function testExportDBFooter(): void
     {
-        self::assertTrue(
-            $this->object->exportDBFooter('testDB'),
-        );
+        $this->expectNotToPerformAssertions();
+        $this->object->exportDBFooter('testDB');
     }
 
     public function testExportDBCreate(): void
     {
-        self::assertTrue(
-            $this->object->exportDBCreate('testDB'),
-        );
+        $this->expectNotToPerformAssertions();
+        $this->object->exportDBCreate('testDB');
     }
 
     public function testExportData(): void
@@ -216,13 +210,7 @@ class ExportTexytextTest extends AbstractTestCase
         $this->object->setExportOptions($request, []);
 
         ob_start();
-        self::assertTrue(
-            $this->object->exportData(
-                'test_db',
-                'test_table',
-                'SELECT * FROM `test_db`.`test_table`;',
-            ),
-        );
+        $this->object->exportData('test_db', 'test_table', 'SELECT * FROM `test_db`.`test_table`;');
         $result = ob_get_clean();
 
         self::assertIsString($result);
@@ -350,7 +338,7 @@ class ExportTexytextTest extends AbstractTestCase
         // case 1
         ob_start();
         $this->dummyDbi->addSelectDb('test_db');
-        self::assertTrue($this->object->exportStructure('test_db', 'test_table', 'create_table'));
+        $this->object->exportStructure('test_db', 'test_table', 'create_table');
         $this->dummyDbi->assertAllSelectsConsumed();
         $result = ob_get_clean();
 
@@ -368,7 +356,7 @@ class ExportTexytextTest extends AbstractTestCase
 
         // case 2
         ob_start();
-        self::assertTrue($this->object->exportStructure('test_db', 'test_table', 'triggers'));
+        $this->object->exportStructure('test_db', 'test_table', 'triggers');
         $result = ob_get_clean();
 
         self::assertSame(
@@ -383,7 +371,7 @@ class ExportTexytextTest extends AbstractTestCase
         // case 3
         ob_start();
         $this->dummyDbi->addSelectDb('test_db');
-        self::assertTrue($this->object->exportStructure('test_db', 'test_table', 'create_view'));
+        $this->object->exportStructure('test_db', 'test_table', 'create_view');
         $this->dummyDbi->assertAllSelectsConsumed();
         $result = ob_get_clean();
 
@@ -401,7 +389,7 @@ class ExportTexytextTest extends AbstractTestCase
         // case 4
         ob_start();
         $this->dummyDbi->addSelectDb('test_db');
-        self::assertTrue($this->object->exportStructure('test_db', 'test_table', 'stand_in'));
+        $this->object->exportStructure('test_db', 'test_table', 'stand_in');
         $this->dummyDbi->assertAllSelectsConsumed();
         $result = ob_get_clean();
 

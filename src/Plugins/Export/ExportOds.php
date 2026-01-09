@@ -84,7 +84,7 @@ class ExportOds extends ExportPlugin
     /**
      * Outputs export header
      */
-    public function exportHeader(): bool
+    public function exportHeader(): void
     {
         $this->buffer .= '<?xml version="1.0" encoding="utf-8"?>'
             . '<office:document-content '
@@ -131,18 +131,16 @@ class ExportOds extends ExportPlugin
             . '</office:automatic-styles>'
             . '<office:body>'
             . '<office:spreadsheet>';
-
-        return true;
     }
 
     /**
      * Outputs export footer
      */
-    public function exportFooter(): bool
+    public function exportFooter(): void
     {
         $this->buffer .= '</office:spreadsheet></office:body></office:document-content>';
 
-        return $this->outputHandler->addLine(
+        $this->outputHandler->addLine(
             OpenDocument::create('application/vnd.oasis.opendocument.spreadsheet', $this->buffer),
         );
     }
@@ -160,7 +158,7 @@ class ExportOds extends ExportPlugin
         string $table,
         string $sqlQuery,
         array $aliases = [],
-    ): bool {
+    ): void {
         $tableAlias = $this->getTableAlias($aliases, $db, $table);
         $dbi = DatabaseInterface::getInstance();
         // Gets the data from the database
@@ -256,8 +254,6 @@ class ExportOds extends ExportPlugin
         }
 
         $this->buffer .= '</table:table>';
-
-        return true;
     }
 
     /**
@@ -266,13 +262,13 @@ class ExportOds extends ExportPlugin
      * @param string|null $db       the database where the query is executed
      * @param string      $sqlQuery the rawquery to output
      */
-    public function exportRawQuery(string|null $db, string $sqlQuery): bool
+    public function exportRawQuery(string|null $db, string $sqlQuery): void
     {
         if ($db !== null) {
             DatabaseInterface::getInstance()->selectDb($db);
         }
 
-        return $this->exportData($db ?? '', '', $sqlQuery);
+        $this->exportData($db ?? '', '', $sqlQuery);
     }
 
     /** @inheritDoc */

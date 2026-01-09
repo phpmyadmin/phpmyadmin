@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Export;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Encoding;
+use PhpMyAdmin\Exceptions\InsufficientSpaceExportException;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\MessageType;
 use PhpMyAdmin\Util;
@@ -54,7 +55,8 @@ class OutputHandler
     public int $memoryLimit = 0;
     public bool $onFlyCompression = false;
 
-    public function addLine(string $line): bool
+    /** @throws InsufficientSpaceExportException */
+    public function addLine(string $line): void
     {
         // Kanji encoding convert feature
         if ($this->outputKanjiConversion) {
@@ -82,7 +84,7 @@ class OutputHandler
                             Current::$message = Message::error(__('Insufficient space to save the file %s.'));
                             Current::$message->addParam($this->saveFilename);
 
-                            return false;
+                            throw new InsufficientSpaceExportException();
                         }
                     } else {
                         echo $this->dumpBuffer;
@@ -93,14 +95,14 @@ class OutputHandler
                 }
             }
 
-            return true;
+            return;
         }
 
         if (! self::$asFile) {
             // We export as html - replace special chars
             echo htmlspecialchars($line, ENT_COMPAT);
 
-            return true;
+            return;
         }
 
         if ($this->outputCharsetConversion) {
@@ -113,14 +115,12 @@ class OutputHandler
                 Current::$message = Message::error(__('Insufficient space to save the file %s.'));
                 Current::$message->addParam($this->saveFilename);
 
-                return false;
+                throw new InsufficientSpaceExportException();
             }
         } else {
             // We export as file - output normally
             echo $line;
         }
-
-        return true;
     }
 
     /**

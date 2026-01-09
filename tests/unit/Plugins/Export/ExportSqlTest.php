@@ -404,9 +404,7 @@ class ExportSqlTest extends AbstractTestCase
 
         $this->expectOutputString('SET FOREIGN_KEY_CHECKS=1;' . "\n" . 'COMMIT;' . "\n");
 
-        self::assertTrue(
-            $this->object->exportFooter(),
-        );
+        $this->object->exportFooter();
     }
 
     public function testExportHeader(): void
@@ -449,9 +447,7 @@ class ExportSqlTest extends AbstractTestCase
         $this->object->setExportOptions($request, []);
 
         ob_start();
-        self::assertTrue(
-            $this->object->exportHeader(),
-        );
+        $this->object->exportHeader();
         $result = ob_get_clean();
 
         self::assertIsString($result);
@@ -496,9 +492,7 @@ class ExportSqlTest extends AbstractTestCase
         $this->object->setExportOptions($request, []);
 
         ob_start();
-        self::assertTrue(
-            $this->object->exportDBCreate('db'),
-        );
+        $this->object->exportDBCreate('db');
         $result = ob_get_clean();
 
         self::assertIsString($result);
@@ -529,9 +523,7 @@ class ExportSqlTest extends AbstractTestCase
         $this->object->useSqlBackquotes(false);
 
         ob_start();
-        self::assertTrue(
-            $this->object->exportDBCreate('db'),
-        );
+        $this->object->exportDBCreate('db');
         $result = ob_get_clean();
 
         self::assertIsString($result);
@@ -558,9 +550,7 @@ class ExportSqlTest extends AbstractTestCase
         $this->object->setExportOptions($request, []);
 
         ob_start();
-        self::assertTrue(
-            $this->object->exportDBHeader('testDB'),
-        );
+        $this->object->exportDBHeader('testDB');
         $result = ob_get_clean();
 
         self::assertIsString($result);
@@ -571,9 +561,7 @@ class ExportSqlTest extends AbstractTestCase
         $this->object->useSqlBackquotes(false);
 
         ob_start();
-        self::assertTrue(
-            $this->object->exportDBHeader('testDB'),
-        );
+        $this->object->exportDBHeader('testDB');
         $result = ob_get_clean();
 
         self::assertIsString($result);
@@ -608,9 +596,7 @@ class ExportSqlTest extends AbstractTestCase
         $this->object->setExportOptions($request, []);
 
         ob_start();
-        self::assertTrue(
-            $this->object->exportEvents('db'),
-        );
+        $this->object->exportEvents('db');
         $result = ob_get_clean();
 
         self::assertIsString($result);
@@ -635,9 +621,7 @@ class ExportSqlTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
 
         ob_start();
-        self::assertTrue(
-            $this->object->exportDBFooter('db'),
-        );
+        $this->object->exportDBFooter('db');
         $result = ob_get_clean();
 
         self::assertSame('SqlConstraints', $result);
@@ -931,7 +915,7 @@ class ExportSqlTest extends AbstractTestCase
 
         // case 1
         ob_start();
-        self::assertTrue($this->object->exportStructure('test_db', 'test_table', 'create_table'));
+        $this->object->exportStructure('test_db', 'test_table', 'create_table');
         $result = ob_get_clean();
 
         self::assertIsString($result);
@@ -942,7 +926,7 @@ class ExportSqlTest extends AbstractTestCase
         $this->object->useSqlBackquotes(false);
 
         ob_start();
-        self::assertTrue($this->object->exportStructure('test_db', 'test_table', 'triggers'));
+        $this->object->exportStructure('test_db', 'test_table', 'triggers');
         $result = ob_get_clean();
 
         self::assertIsString($result);
@@ -957,7 +941,7 @@ class ExportSqlTest extends AbstractTestCase
         ExportPlugin::$exportType = ExportType::Raw;
 
         ob_start();
-        self::assertTrue($this->object->exportStructure('test_db', 'test_table', 'create_view'));
+        $this->object->exportStructure('test_db', 'test_table', 'create_view');
         $result = ob_get_clean();
 
         $sqlViews = (new ReflectionProperty(ExportSql::class, 'sqlViews'))->getValue($this->object);
@@ -977,7 +961,7 @@ class ExportSqlTest extends AbstractTestCase
         $this->object->setExportOptions($request, []);
 
         ob_start();
-        self::assertTrue($this->object->exportStructure('test_db', 'test_table', 'create_view'));
+        $this->object->exportStructure('test_db', 'test_table', 'create_view');
         $result = ob_get_clean();
 
         self::assertIsString($result);
@@ -987,7 +971,7 @@ class ExportSqlTest extends AbstractTestCase
 
         // case 5
         ob_start();
-        self::assertTrue($this->object->exportStructure('test_db', 'test_table', 'stand_in'));
+        $this->object->exportStructure('test_db', 'test_table', 'stand_in');
         $result = ob_get_clean();
 
         self::assertIsString($result);
@@ -1222,9 +1206,7 @@ class ExportSqlTest extends AbstractTestCase
         $this->object->setExportOptions($request, []);
 
         ob_start();
-        self::assertTrue(
-            $this->object->exportData('db', 'tbl', 'SELECT'),
-        );
+        $this->object->exportData('db', 'tbl', 'SELECT');
         $result = ob_get_clean();
 
         self::assertIsString($result);
@@ -1269,9 +1251,7 @@ class ExportSqlTest extends AbstractTestCase
         $this->expectException(ExportException::class);
         $this->expectExceptionMessage('Error reading data for table db.table: err');
 
-        self::assertTrue(
-            $this->object->exportData('db', 'table', 'SELECT'),
-        );
+        $this->object->exportData('db', 'table', 'SELECT');
     }
 
     public function testMakeCreateTableMSSQLCompatible(): void

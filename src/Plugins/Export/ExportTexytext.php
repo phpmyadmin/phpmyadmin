@@ -105,13 +105,13 @@ class ExportTexytext extends ExportPlugin
      * @param string $db      Database name
      * @param string $dbAlias Alias of db
      */
-    public function exportDBHeader(string $db, string $dbAlias = ''): bool
+    public function exportDBHeader(string $db, string $dbAlias = ''): void
     {
         if ($dbAlias === '') {
             $dbAlias = $db;
         }
 
-        return $this->outputHandler->addLine(
+        $this->outputHandler->addLine(
             '===' . __('Database') . ' ' . $dbAlias . "\n\n",
         );
     }
@@ -129,18 +129,14 @@ class ExportTexytext extends ExportPlugin
         string $table,
         string $sqlQuery,
         array $aliases = [],
-    ): bool {
+    ): void {
         $tableAlias = $this->getTableAlias($aliases, $db, $table);
 
-        if (
-            ! $this->outputHandler->addLine(
-                $tableAlias !== ''
-                ? '== ' . __('Dumping data for table') . ' ' . $tableAlias . "\n\n"
-                : '==' . __('Dumping data for query result') . "\n\n",
-            )
-        ) {
-            return false;
-        }
+        $this->outputHandler->addLine(
+            $tableAlias !== ''
+            ? '== ' . __('Dumping data for table') . ' ' . $tableAlias . "\n\n"
+            : '==' . __('Dumping data for query result') . "\n\n",
+        );
 
         $dbi = DatabaseInterface::getInstance();
         /**
@@ -158,9 +154,7 @@ class ExportTexytext extends ExportPlugin
             }
 
             $textOutput .= "\n|------\n";
-            if (! $this->outputHandler->addLine($textOutput)) {
-                return false;
-            }
+            $this->outputHandler->addLine($textOutput);
         }
 
         // Format the data
@@ -184,12 +178,8 @@ class ExportTexytext extends ExportPlugin
             }
 
             $textOutput .= "\n";
-            if (! $this->outputHandler->addLine($textOutput)) {
-                return false;
-            }
+            $this->outputHandler->addLine($textOutput);
         }
-
-        return true;
     }
 
     /**
@@ -198,13 +188,13 @@ class ExportTexytext extends ExportPlugin
      * @param string|null $db       the database where the query is executed
      * @param string      $sqlQuery the rawquery to output
      */
-    public function exportRawQuery(string|null $db, string $sqlQuery): bool
+    public function exportRawQuery(string|null $db, string $sqlQuery): void
     {
         if ($db !== null) {
             DatabaseInterface::getInstance()->selectDb($db);
         }
 
-        return $this->exportData($db ?? '', '', $sqlQuery);
+        $this->exportData($db ?? '', '', $sqlQuery);
     }
 
     /**
@@ -399,7 +389,7 @@ class ExportTexytext extends ExportPlugin
      * @param string  $exportMode 'create_table', 'triggers', 'create_view', 'stand_in'
      * @param mixed[] $aliases    Aliases of db/table/columns
      */
-    public function exportStructure(string $db, string $table, string $exportMode, array $aliases = []): bool
+    public function exportStructure(string $db, string $table, string $exportMode, array $aliases = []): void
     {
         $tableAlias = $this->getTableAlias($aliases, $db, $table);
         $dump = '';
@@ -429,7 +419,7 @@ class ExportTexytext extends ExportPlugin
                 $dump .= $this->getTableDefStandIn($db, $table, $aliases);
         }
 
-        return $this->outputHandler->addLine($dump);
+        $this->outputHandler->addLine($dump);
     }
 
     /**

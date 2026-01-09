@@ -432,9 +432,7 @@ class ExportLatexTest extends AbstractTestCase
         $config->selectedServer['host'] = 'localhost';
 
         ob_start();
-        self::assertTrue(
-            $this->object->exportHeader(),
-        );
+        $this->object->exportHeader();
         $result = ob_get_clean();
 
         self::assertIsString($result);
@@ -444,32 +442,27 @@ class ExportLatexTest extends AbstractTestCase
 
     public function testExportFooter(): void
     {
-        self::assertTrue(
-            $this->object->exportFooter(),
-        );
+        $this->expectNotToPerformAssertions();
+        $this->object->exportFooter();
     }
 
     public function testExportDBHeader(): void
     {
         $this->expectOutputString("% \n% Database: 'testDB'\n% \n");
 
-        self::assertTrue(
-            $this->object->exportDBHeader('testDB'),
-        );
+        $this->object->exportDBHeader('testDB');
     }
 
     public function testExportDBFooter(): void
     {
-        self::assertTrue(
-            $this->object->exportDBFooter('testDB'),
-        );
+        $this->expectNotToPerformAssertions();
+        $this->object->exportDBFooter('testDB');
     }
 
     public function testExportDBCreate(): void
     {
-        self::assertTrue(
-            $this->object->exportDBCreate('testDB'),
-        );
+        $this->expectNotToPerformAssertions();
+        $this->object->exportDBCreate('testDB');
     }
 
     public function testExportData(): void
@@ -491,11 +484,7 @@ class ExportLatexTest extends AbstractTestCase
         $this->object->setExportOptions($request, []);
 
         ob_start();
-        self::assertTrue($this->object->exportData(
-            'test_db',
-            'test_table',
-            'SELECT * FROM `test_db`.`test_table`;',
-        ));
+        $this->object->exportData('test_db', 'test_table', 'SELECT * FROM `test_db`.`test_table`;');
         $result = ob_get_clean();
 
         self::assertSame(
@@ -530,11 +519,7 @@ class ExportLatexTest extends AbstractTestCase
         $this->object->setExportOptions($request, []);
 
         ob_start();
-        self::assertTrue($this->object->exportData(
-            'test_db',
-            'test_table',
-            'SELECT * FROM `test_db`.`test_table`;',
-        ));
+        $this->object->exportData('test_db', 'test_table', 'SELECT * FROM `test_db`.`test_table`;');
         $result = ob_get_clean();
 
         self::assertIsString($result);
@@ -619,7 +604,7 @@ class ExportLatexTest extends AbstractTestCase
         $this->object->setExportOptions($request, []);
 
         ob_start();
-        self::assertTrue($this->object->exportStructure('database', '', 'test'));
+        $this->object->exportStructure('database', '', 'test');
         $result = ob_get_clean();
 
         //echo $result; die;
@@ -699,7 +684,7 @@ class ExportLatexTest extends AbstractTestCase
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         ob_start();
-        self::assertTrue($this->object->exportStructure('database', '', 'test'));
+        $this->object->exportStructure('database', '', 'test');
         $result = ob_get_clean();
 
         self::assertIsString($result);
@@ -753,7 +738,7 @@ class ExportLatexTest extends AbstractTestCase
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         ob_start();
-        self::assertTrue($this->object->exportStructure('database', '', 'test'));
+        $this->object->exportStructure('database', '', 'test');
         $result = ob_get_clean();
 
         self::assertIsString($result);
@@ -763,7 +748,7 @@ class ExportLatexTest extends AbstractTestCase
         self::assertStringContainsString('caption{latexcontinued}', $result);
 
         // case 4
-        self::assertTrue($this->object->exportStructure('database', '', 'triggers'));
+        $this->object->exportStructure('database', '', 'triggers');
     }
 
     public function testTexEscape(): void

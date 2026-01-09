@@ -111,9 +111,7 @@ class ExportYamlTest extends AbstractTestCase
     public function testExportHeader(): void
     {
         ob_start();
-        self::assertTrue(
-            $this->object->exportHeader(),
-        );
+        $this->object->exportHeader();
         $result = ob_get_clean();
 
         self::assertIsString($result);
@@ -124,42 +122,31 @@ class ExportYamlTest extends AbstractTestCase
     public function testExportFooter(): void
     {
         $this->expectOutputString("...\n");
-        self::assertTrue(
-            $this->object->exportFooter(),
-        );
+        $this->object->exportFooter();
     }
 
     public function testExportDBHeader(): void
     {
-        self::assertTrue(
-            $this->object->exportDBHeader('&db'),
-        );
+        $this->expectNotToPerformAssertions();
+        $this->object->exportDBHeader('&db');
     }
 
     public function testExportDBFooter(): void
     {
-        self::assertTrue(
-            $this->object->exportDBFooter('&db'),
-        );
+        $this->expectNotToPerformAssertions();
+        $this->object->exportDBFooter('&db');
     }
 
     public function testExportDBCreate(): void
     {
-        self::assertTrue(
-            $this->object->exportDBCreate('testDB'),
-        );
+        $this->expectNotToPerformAssertions();
+        $this->object->exportDBCreate('testDB');
     }
 
     public function testExportData(): void
     {
         ob_start();
-        self::assertTrue(
-            $this->object->exportData(
-                'test_db',
-                'test_table',
-                'SELECT * FROM `test_db`.`test_table_yaml`;',
-            ),
-        );
+        $this->object->exportData('test_db', 'test_table', 'SELECT * FROM `test_db`.`test_table_yaml`;');
         $result = ob_get_clean();
 
         self::assertSame(

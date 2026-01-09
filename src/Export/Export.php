@@ -289,13 +289,9 @@ class Export
         $dbAlias = ! empty($aliases[$db->getName()]['alias'])
             ? $aliases[$db->getName()]['alias'] : '';
 
-        if (! $exportPlugin->exportDBHeader($db->getName(), $dbAlias)) {
-            return;
-        }
+        $exportPlugin->exportDBHeader($db->getName(), $dbAlias);
 
-        if (! $exportPlugin->exportDBCreate($db->getName(), $dbAlias)) {
-            return;
-        }
+        $exportPlugin->exportDBCreate($db->getName(), $dbAlias);
 
         if ($separateFiles === SeparateFiles::Database) {
             $this->outputHandler->saveObjectInBuffer('database', true);
@@ -331,20 +327,15 @@ class Export
                 // for a view, export a stand-in definition of the table
                 // to resolve view dependencies (only when it's a single-file export)
                 if ($isView) {
-                    if (
-                        $separateFiles === SeparateFiles::None
-                        && ! $exportPlugin->exportStructure($db->getName(), $table, 'stand_in', $aliases)
-                    ) {
-                        break;
+                    if ($separateFiles === SeparateFiles::None) {
+                        $exportPlugin->exportStructure($db->getName(), $table, 'stand_in', $aliases);
                     }
                 } else {
                     if ($this->exceedsMaxTableSize($db->getName(), $table)) {
                         continue;
                     }
 
-                    if (! $exportPlugin->exportStructure($db->getName(), $table, 'create_table', $aliases)) {
-                        break;
-                    }
+                    $exportPlugin->exportStructure($db->getName(), $table, 'create_table', $aliases);
                 }
             }
 
@@ -357,9 +348,7 @@ class Export
                     . ' FROM ' . Util::backquote($db->getName())
                     . '.' . Util::backquote($table);
 
-                if (! $exportPlugin->exportData($db->getName(), $table, $localQuery, $aliases)) {
-                    break;
-                }
+                $exportPlugin->exportData($db->getName(), $table, $localQuery, $aliases);
             }
 
             // this buffer was filled, we save it and go to the next one
@@ -373,9 +362,7 @@ class Export
                 continue;
             }
 
-            if (! $exportPlugin->exportStructure($db->getName(), $table, 'triggers', $aliases)) {
-                break;
-            }
+            $exportPlugin->exportStructure($db->getName(), $table, 'triggers', $aliases);
 
             if ($separateFiles !== SeparateFiles::Database) {
                 continue;
@@ -390,9 +377,7 @@ class Export
                 continue;
             }
 
-            if (! $exportPlugin->exportStructure($db->getName(), $view, 'create_view', $aliases)) {
-                break;
-            }
+            $exportPlugin->exportStructure($db->getName(), $view, 'create_view', $aliases);
 
             if ($separateFiles !== SeparateFiles::Database) {
                 continue;
@@ -401,9 +386,7 @@ class Export
             $this->outputHandler->saveObjectInBuffer('view_' . $view);
         }
 
-        if (! $exportPlugin->exportDBFooter($db->getName())) {
-            return;
-        }
+        $exportPlugin->exportDBFooter($db->getName());
 
         if ($separateFiles === SeparateFiles::Database) {
             $this->outputHandler->saveObjectInBuffer('extra');
@@ -443,15 +426,7 @@ class Export
         string|null $db,
         string $sqlQuery,
     ): void {
-        if ($exportPlugin->exportRawQuery($db, $sqlQuery)) {
-            return;
-        }
-
-        Current::$message = Message::error(
-            // phpcs:disable Generic.Files.LineLength.TooLong
-            /* l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular */
-            __('Exporting a raw query is not supported for this export method.'),
-        );
+        $exportPlugin->exportRawQuery($db, $sqlQuery);
     }
 
     /**
@@ -478,9 +453,7 @@ class Export
     ): void {
         $dbAlias = ! empty($aliases[$db]['alias'])
             ? $aliases[$db]['alias'] : '';
-        if (! $exportPlugin->exportDBHeader($db, $dbAlias)) {
-            return;
-        }
+        $exportPlugin->exportDBHeader($db, $dbAlias);
 
         if ($allrows === '0' && $limitTo > 0 && $limitFrom >= 0) {
             $addQuery = ' LIMIT '
@@ -493,11 +466,9 @@ class Export
         if ($exportPlugin->includeStructure()) {
             $tableObject = new Table($table, $db, $this->dbi);
             if ($tableObject->isView()) {
-                if (! $exportPlugin->exportStructure($db, $table, 'create_view', $aliases)) {
-                    return;
-                }
-            } elseif (! $exportPlugin->exportStructure($db, $table, 'create_table', $aliases)) {
-                return;
+                $exportPlugin->exportStructure($db, $table, 'create_view', $aliases);
+            } else {
+                $exportPlugin->exportStructure($db, $table, 'create_table', $aliases);
             }
         }
 
@@ -524,22 +495,16 @@ class Export
                     . '.' . Util::backquote($table) . $addQuery;
             }
 
-            if (! $exportPlugin->exportData($db, $table, $localQuery, $aliases)) {
-                return;
-            }
+            $exportPlugin->exportData($db, $table, $localQuery, $aliases);
         }
 
         // now export the triggers (needs to be done after the data because
         // triggers can modify already imported tables)
         if ($exportPlugin->includeStructure()) {
-            if (! $exportPlugin->exportStructure($db, $table, 'triggers', $aliases)) {
-                return;
-            }
+            $exportPlugin->exportStructure($db, $table, 'triggers', $aliases);
         }
 
-        if (! $exportPlugin->exportDBFooter($db)) {
-            return;
-        }
+        $exportPlugin->exportDBFooter($db);
 
         // Types of metadata to export.
         // In the future these can be allowed to be selected by the user

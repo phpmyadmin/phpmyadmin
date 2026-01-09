@@ -301,9 +301,7 @@ final readonly class ExportController implements InvocableController
             }
 
             // Add possibly some comments to export
-            if (! $exportPlugin->exportHeader()) {
-                throw new ExportException('Failure during header export.');
-            }
+            $exportPlugin->exportHeader();
 
             /**
              * Builds the dump
@@ -389,9 +387,7 @@ final readonly class ExportController implements InvocableController
                 }
             }
 
-            if (! $exportPlugin->exportFooter()) {
-                throw new ExportException('Failure during footer export.');
-            }
+            $exportPlugin->exportFooter();
         } catch (ExportException) {
             // Ignore
         }
