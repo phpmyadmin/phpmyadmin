@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-01-04 00:33+0000\n"
-"PO-Revision-Date: 2026-01-05 19:57+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@mfauth.com.br>\n"
+"PO-Revision-Date: 2026-01-09 12:16+0000\n"
+"Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
 "Language: mk\n"
@@ -967,31 +967,31 @@ msgstr "Не"
 #: resources/templates/config/form_display/input.twig:58
 #, php-format
 msgid "Set value: %s"
-msgstr ""
+msgstr "Постави вредност: %s"
 
 #: resources/templates/config/form_display/input.twig:63
 #: resources/templates/config/form_display/input.twig:64
 msgid "Restore default value"
-msgstr ""
+msgstr "Врати ја стандардната вредност"
 
 #: resources/templates/config/form_display/input.twig:79
 #: resources/templates/config/form_display/input.twig:80
 msgid "Allow users to customize this value"
-msgstr ""
+msgstr "Дозволете им на корисниците да ја прилагодат оваа вредност"
 
 #: resources/templates/console/bookmark_content.twig:7
 #: resources/templates/console/display.twig:50
 #: resources/templates/console/display.twig:116
 #: resources/templates/console/display.twig:208
 msgid "Collapse"
-msgstr ""
+msgstr "Собери"
 
 #: resources/templates/console/bookmark_content.twig:8
 #: resources/templates/console/display.twig:51
 #: resources/templates/console/display.twig:117
 #: resources/templates/console/display.twig:209
 msgid "Expand"
-msgstr ""
+msgstr "Прошири"
 
 #: resources/templates/console/bookmark_content.twig:9
 #: resources/templates/console/display.twig:52
@@ -7848,8 +7848,8 @@ msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
 msgstr ""
-"Оставате го серверот да работи за подолго време додека се егзекуриани "
-"поголеми броеви на барања."
+"Оставете го серверот да работи подолго време додека не изврши поголем број "
+"на барања."
 
 #: src/Advisory/Rules.php:57
 #, php-format
@@ -7863,21 +7863,20 @@ msgstr "Процентажа на спори барања"
 #: src/Advisory/Rules.php:66
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
-msgstr "Има многу спори барања во споредба со вкупниот број на Барања."
+msgstr "Има многу бавни барања во споредба со вкупниот број на барања."
 
 #: src/Advisory/Rules.php:68 src/Advisory/Rules.php:81
 msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
 msgstr ""
-"Можете да го зголемите {long_query_time} или да го оптимизирате барањето "
-"наведено во логот за спори барања"
+"Можеби ќе сакате да го зголемите {long_query_time} или да ги оптимизирате "
+"барањата наведени во дневникот за бавни барања"
 
 #: src/Advisory/Rules.php:70
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
-msgstr ""
-"Стапката за спори барања би требало да биде под 5%%, вашата вредност е %s%%."
+msgstr "Бавната стапка на барања треба да биде под 5%%, вашата вредност е %s%%."
 
 #: src/Advisory/Rules.php:75
 msgid "Slow query rate"
