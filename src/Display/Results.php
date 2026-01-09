@@ -1754,116 +1754,34 @@ class Results
 
             // 1. Prepares the row
 
-            // In print view these variable needs to be initialized
-            $deleteUrl = null;
-            $deleteString = null;
-            $editString = null;
-            $jsConf = null;
-            $copyUrl = null;
-            $copyString = null;
-            $editUrl = null;
-            $editCopyUrlParams = [];
-            $delUrlParams = null;
-
             // 1.2 Defines the URLs for the modify/delete link(s)
 
             if (
                 $displayParts->hasEditLink
                 || $displayParts->deleteLink !== DeleteLinkEnum::NO_DELETE
             ) {
-                $expressions = [];
-
-                if ($statementInfo->statement instanceof SelectStatement) {
-                    $expressions = $statementInfo->statement->expr;
-                }
-
-                // Results from a "SELECT" statement -> builds the
-                // WHERE clause to use in links (a unique key if possible)
-                /**
-                 * @todo $where_clause could be empty, for example a table
-                 *       with only one field and it's a BLOB; in this case,
-                 *       avoid to display the delete and edit links
-                 */
-                $uniqueCondition = new UniqueCondition(
-                    $this->fieldsMeta,
-                    self::$row,
-                    false,
-                    $this->table,
-                    $expressions,
-                );
-                $whereClause = $uniqueCondition->getWhereClause();
-                $clauseIsUnique = $uniqueCondition->isClauseUnique();
-                $conditionArray = $uniqueCondition->getConditionArray();
-                $this->whereClauseMap[$rowNumber][$this->table] = $whereClause;
-
-                // 1.2.1 Modify link(s) - update row case
-                if ($displayParts->hasEditLink) {
-                    $editCopyUrlParams = $this->getUrlParams($whereClause, $clauseIsUnique, $urlSqlQuery);
-                    $editUrl = Url::getFromRoute('/table/change');
-                    $copyUrl = Url::getFromRoute('/table/change');
-                    $editString = $this->getActionLinkContent('b_edit', __('Edit'));
-                    $copyString = $this->getActionLinkContent('b_insrow', __('Copy'));
-                }
-
-                // 1.2.2 Delete/Kill link(s)
-                [$deleteUrl, $deleteString, $jsConf, $delUrlParams] = $this->getDeleteAndKillLinks(
-                    $whereClause,
-                    $clauseIsUnique,
-                    $urlSqlQuery,
-                    $displayParts->deleteLink,
-                    self::$row[0],
-                );
-
                 // 1.3 Displays the links at left if required
                 if (
                     $this->config->settings['RowActionLinks'] === self::POSITION_LEFT
                     || $this->config->settings['RowActionLinks'] === self::POSITION_BOTH
                 ) {
-                    $tableBodyHtml .= $this->template->render('display/results/checkbox_and_links', [
-                        'position' => self::POSITION_LEFT,
-                        'has_checkbox' => $deleteUrl && $displayParts->deleteLink !== DeleteLinkEnum::KILL_PROCESS,
-                        'edit' => [
-                            'url' => $editUrl,
-                            'params' => $editCopyUrlParams + ['default_action' => 'update'],
-                            'string' => $editString,
-                            'clause_is_unique' => $clauseIsUnique,
-                        ],
-                        'copy' => [
-                            'url' => $copyUrl,
-                            'params' => $editCopyUrlParams + ['default_action' => 'insert'],
-                            'string' => $copyString,
-                        ],
-                        'delete' => ['url' => $deleteUrl, 'params' => $delUrlParams, 'string' => $deleteString],
-                        'row_number' => $rowNumber,
-                        'where_clause' => $whereClause,
-                        'condition' => json_encode($conditionArray),
-                        'is_ajax' => ResponseRenderer::getInstance()->isAjax(),
-                        'js_conf' => $jsConf ?? '',
-                        'grid_edit_config' => $gridEditConfig,
-                    ]);
+                    $tableBodyHtml .= $this->getLinksHtml(
+                        self::POSITION_LEFT,
+                        $displayParts,
+                        $rowNumber,
+                        $statementInfo,
+                        $gridEditConfig,
+                        $urlSqlQuery,
+                    );
                 } elseif ($this->config->settings['RowActionLinks'] === self::POSITION_NONE) {
-                    $tableBodyHtml .= $this->template->render('display/results/checkbox_and_links', [
-                        'position' => self::POSITION_NONE,
-                        'has_checkbox' => $deleteUrl && $displayParts->deleteLink !== DeleteLinkEnum::KILL_PROCESS,
-                        'edit' => [
-                            'url' => $editUrl,
-                            'params' => $editCopyUrlParams + ['default_action' => 'update'],
-                            'string' => $editString,
-                            'clause_is_unique' => $clauseIsUnique,
-                        ],
-                        'copy' => [
-                            'url' => $copyUrl,
-                            'params' => $editCopyUrlParams + ['default_action' => 'insert'],
-                            'string' => $copyString,
-                        ],
-                        'delete' => ['url' => $deleteUrl, 'params' => $delUrlParams, 'string' => $deleteString],
-                        'row_number' => $rowNumber,
-                        'where_clause' => $whereClause,
-                        'condition' => json_encode($conditionArray),
-                        'is_ajax' => ResponseRenderer::getInstance()->isAjax(),
-                        'js_conf' => $jsConf ?? '',
-                        'grid_edit_config' => $gridEditConfig,
-                    ]);
+                    $tableBodyHtml .= $this->getLinksHtml(
+                        self::POSITION_NONE,
+                        $displayParts,
+                        $rowNumber,
+                        $statementInfo,
+                        $gridEditConfig,
+                        $urlSqlQuery,
+                    );
                 }
             }
 
@@ -1890,28 +1808,14 @@ class Results
                 && ($this->config->settings['RowActionLinks'] === self::POSITION_RIGHT
                     || $this->config->settings['RowActionLinks'] === self::POSITION_BOTH)
             ) {
-                $tableBodyHtml .= $this->template->render('display/results/checkbox_and_links', [
-                    'position' => self::POSITION_RIGHT,
-                    'has_checkbox' => $deleteUrl && $displayParts->deleteLink !== DeleteLinkEnum::KILL_PROCESS,
-                    'edit' => [
-                        'url' => $editUrl,
-                        'params' => $editCopyUrlParams + ['default_action' => 'update'],
-                        'string' => $editString,
-                        'clause_is_unique' => $clauseIsUnique ?? true,
-                    ],
-                    'copy' => [
-                        'url' => $copyUrl,
-                        'params' => $editCopyUrlParams + ['default_action' => 'insert'],
-                        'string' => $copyString,
-                    ],
-                    'delete' => ['url' => $deleteUrl, 'params' => $delUrlParams, 'string' => $deleteString],
-                    'row_number' => $rowNumber,
-                    'where_clause' => $whereClause ?? '',
-                    'condition' => json_encode($conditionArray ?? []),
-                    'is_ajax' => ResponseRenderer::getInstance()->isAjax(),
-                    'js_conf' => $jsConf ?? '',
-                    'grid_edit_config' => $gridEditConfig,
-                ]);
+                $tableBodyHtml .= $this->getLinksHtml(
+                    self::POSITION_RIGHT,
+                    $displayParts,
+                    $rowNumber,
+                    $statementInfo,
+                    $gridEditConfig,
+                    $urlSqlQuery,
+                );
             }
 
             $tableBodyHtml .= '</tr>';
@@ -1920,6 +1824,87 @@ class Results
         }
 
         return $tableBodyHtml;
+    }
+
+    private function getUniqueCondition(StatementInfo $statementInfo): UniqueCondition
+    {
+        $expressions = [];
+
+        if ($statementInfo->statement instanceof SelectStatement) {
+            $expressions = $statementInfo->statement->expr;
+        }
+
+        // Results from a "SELECT" statement -> builds the
+        // WHERE clause to use in links (a unique key if possible)
+
+        /**
+         * @todo $where_clause could be empty, for example a table
+         *       with only one field and it's a BLOB; in this case,
+         *       avoid to display the delete and edit links
+         */
+        return new UniqueCondition($this->fieldsMeta, self::$row, false, $this->table, $expressions);
+    }
+
+    private function getLinksHtml(
+        string $position,
+        DisplayParts $displayParts,
+        int $rowNumber,
+        StatementInfo $statementInfo,
+        string $gridEditConfig,
+        string $urlSqlQuery,
+    ): string {
+        $uniqueCondition = $this->getUniqueCondition($statementInfo);
+        $whereClause = $uniqueCondition->getWhereClause();
+        $clauseIsUnique = $uniqueCondition->isClauseUnique();
+        $conditionArray = $uniqueCondition->getConditionArray();
+        $this->whereClauseMap[$rowNumber][$this->table] = $whereClause;
+
+        $editString = null;
+        $copyUrl = null;
+        $copyString = null;
+        $editUrl = null;
+        $editCopyUrlParams = [];
+        if ($displayParts->hasEditLink) {
+            $editCopyUrlParams = $this->getUrlParams($whereClause, $clauseIsUnique, $urlSqlQuery);
+            $editUrl = Url::getFromRoute('/table/change');
+            $copyUrl = Url::getFromRoute('/table/change');
+            $editString = $this->getActionLinkContent('b_edit', __('Edit'));
+            $copyString = $this->getActionLinkContent('b_insrow', __('Copy'));
+        }
+
+        $deleteString = $jsConf = '';
+        $delUrlParams = [];
+        if ($displayParts->deleteLink !== DeleteLinkEnum::NO_DELETE) {
+            [$deleteString, $jsConf, $delUrlParams] = $this->getDeleteAndKillLinks(
+                $whereClause,
+                $clauseIsUnique,
+                $urlSqlQuery,
+                $displayParts->deleteLink,
+            );
+        }
+
+        return $this->template->render('display/results/checkbox_and_links', [
+            'position' => $position,
+            'has_checkbox' => $displayParts->deleteLink === DeleteLinkEnum::DELETE_ROW,
+            'edit' => [
+                'url' => $editUrl,
+                'params' => $editCopyUrlParams + ['default_action' => 'update'],
+                'string' => $editString,
+                'clause_is_unique' => $clauseIsUnique,
+            ],
+            'copy' => [
+                'url' => $copyUrl,
+                'params' => $editCopyUrlParams + ['default_action' => 'insert'],
+                'string' => $copyString,
+            ],
+            'delete' => ['url' => Url::getFromRoute('/sql'), 'params' => $delUrlParams, 'string' => $deleteString],
+            'row_number' => $rowNumber,
+            'where_clause' => $whereClause,
+            'condition' => json_encode($conditionArray),
+            'is_ajax' => ResponseRenderer::getInstance()->isAjax(),
+            'js_conf' => $jsConf,
+            'grid_edit_config' => $gridEditConfig,
+        ]);
     }
 
     /**
@@ -2381,19 +2366,17 @@ class Results
      *
      * @see     getTableBody()
      *
-     * @param string      $whereClause    the where clause of the sql
-     * @param bool        $clauseIsUnique the unique condition of clause
-     * @param string      $urlSqlQuery    the analyzed sql query
-     * @param string|null $processId      Process ID
+     * @param string $whereClause    the where clause of the sql
+     * @param bool   $clauseIsUnique the unique condition of clause
+     * @param string $urlSqlQuery    the analyzed sql query
      *
-     * @return array{?string, ?string, ?string, string[]|null}
+     * @return array{string, string, string[]}
      */
     private function getDeleteAndKillLinks(
         string $whereClause,
         bool $clauseIsUnique,
         string $urlSqlQuery,
         DeleteLinkEnum $deleteLink,
-        string|null $processId,
     ): array {
         if ($deleteLink === DeleteLinkEnum::DELETE_ROW) { // delete row case
             $urlParams = [
@@ -2418,14 +2401,13 @@ class Results
                 'message_to_show' => __('The row has been deleted.'),
                 'goto' => $linkGoto,
             ];
-            $deleteUrl = Url::getFromRoute('/sql');
 
             $jsConf = 'DELETE FROM ' . $this->table
                 . ' WHERE ' . $whereClause
                 . ($clauseIsUnique ? '' : ' LIMIT 1');
 
             $deleteString = $this->getActionLinkContent('b_drop', __('Delete'));
-        } elseif ($deleteLink === DeleteLinkEnum::KILL_PROCESS) { // kill process case
+        } else { // kill process case
             $urlParams = [
                 'db' => $this->db,
                 'table' => $this->table,
@@ -2435,21 +2417,18 @@ class Results
 
             $linkGoto = Url::getFromRoute('/sql', $urlParams);
 
-            $kill = $this->dbi->getKillQuery((int) $processId);
+            $kill = $this->dbi->getKillQuery((int) self::$row[0]);
 
             $urlParams = ['db' => 'mysql', 'sql_query' => $kill, 'goto' => $linkGoto];
 
-            $deleteUrl = Url::getFromRoute('/sql');
             $jsConf = $kill;
             $deleteString = Generator::getIcon(
                 'b_drop',
                 __('Kill'),
             );
-        } else {
-            $deleteUrl = $deleteString = $jsConf = $urlParams = null;
         }
 
-        return [$deleteUrl, $deleteString, $jsConf, $urlParams];
+        return [$deleteString, $jsConf, $urlParams];
     }
 
     /**

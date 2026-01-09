@@ -5260,12 +5260,6 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: '#^Only booleans are allowed in &&, string\|null given on the left side\.$#'
-			identifier: booleanAnd.leftNotBoolean
-			count: 3
-			path: src/Display/Results.php
-
-		-
 			message: '#^Only booleans are allowed in a negated boolean, int\|string\|null given\.$#'
 			identifier: booleanNot.exprNotBoolean
 			count: 1
