@@ -131,7 +131,6 @@ class RelationTest extends AbstractTestCase
     {
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = false;
-        $config->settings['ServerDefault'] = 0;
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -1466,7 +1465,6 @@ class RelationTest extends AbstractTestCase
         Current::$database = '';
         Current::$server = 0;
         $config = Config::getInstance();
-        $config->selectedServer = [];
 
         $dummyDbi = $this->createDbiDummy();
         $dbi = $this->createDatabaseInterface($dummyDbi);
@@ -1487,10 +1485,8 @@ class RelationTest extends AbstractTestCase
         $relationParameters = RelationParameters::fromArray([]);
         self::assertSame($relationParameters->toArray(), $relation->getRelationParameters()->toArray());
 
-        self::assertEquals([
-            'userconfig' => 'pma__userconfig',
-            'pmadb' => false,// This is the expected value for server = 0
-        ], $config->selectedServer);
+        self::assertSame('', $config->selectedServer['pmadb']);
+        self::assertSame('pma__userconfig', $config->selectedServer['userconfig']);
         $dummyDbi->assertAllQueriesConsumed();
     }
 

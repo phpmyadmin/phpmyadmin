@@ -1079,7 +1079,7 @@ class Routines
                 continue;
             }
 
-            if ($this->config->settings['ShowFunctionFields']) {
+            if ($this->config->config->ShowFunctionFields) {
                 if (
                     stripos($routine['item_param_type'][$i], 'enum') !== false
                     || stripos($routine['item_param_type'][$i], 'set') !== false

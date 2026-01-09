@@ -653,7 +653,7 @@ class Results
             'number_total_page' => $numberTotalPage,
             'has_show_all' => $this->config->settings['ShowAll'] || $this->unlimNumRows <= 500,
             'hidden_fields' => $hiddenFields,
-            'session_max_rows' => $isShowingAll ? $this->config->settings['MaxRows'] : 'all',
+            'session_max_rows' => $isShowingAll ? $this->config->config->maxRows : 'all',
             'is_showing_all' => $isShowingAll,
             'max_rows' => $_SESSION['tmpval']['max_rows'],
             'pos' => $_SESSION['tmpval']['pos'],
@@ -1237,8 +1237,8 @@ class Results
             'column_name' => $fieldsMeta->name,
             'order_link' => $orderLink,
             'comments' => $comments,
-            'is_browse_pointer_enabled' => $this->config->settings['BrowsePointerEnable'] === true,
-            'is_browse_marker_enabled' => $this->config->settings['BrowseMarkerEnable'] === true,
+            'is_browse_pointer_enabled' => $this->config->config->BrowsePointerEnable,
+            'is_browse_marker_enabled' => $this->config->config->BrowseMarkerEnable,
             'is_column_hidden' => $colVisib && ! $colVisibElement,
             'is_column_numeric' => $this->isColumnNumeric($fieldsMeta),
         ];
@@ -1741,11 +1741,11 @@ class Results
             }
 
             $trClass = [];
-            if (! $this->config->settings['BrowsePointerEnable']) {
+            if (! $this->config->config->BrowsePointerEnable) {
                 $trClass[] = 'nopointer';
             }
 
-            if (! $this->config->settings['BrowseMarkerEnable']) {
+            if (! $this->config->config->BrowseMarkerEnable) {
                 $trClass[] = 'nomarker';
             }
 
@@ -1937,7 +1937,7 @@ class Results
             if (
                 $relationParameters->columnCommentsFeature === null
                 || $relationParameters->browserTransformationFeature === null
-                || ! $this->config->settings['BrowseMIME']
+                || ! $this->config->config->BrowseMIME
                 || $_SESSION['tmpval']['hide_transformation']
                 || ! empty($added[$orgFullTableName])
             ) {
@@ -2059,7 +2059,7 @@ class Results
 
             if (
                 $relationParameters->browserTransformationFeature !== null
-                && $this->config->settings['BrowseMIME']
+                && $this->config->config->BrowseMIME
                 && isset($this->mediaTypeMap[$orgFullColName]['mimetype'])
                 && ! empty($this->mediaTypeMap[$orgFullColName]['transformation'])
             ) {
@@ -2831,7 +2831,7 @@ class Results
             $query['max_rows'] = self::ALL_ROWS;
             unset($_GET['session_max_rows'], $_POST['session_max_rows']);
         } elseif (empty($query['max_rows'])) {
-            $query['max_rows'] = (int) $this->config->settings['MaxRows'];
+            $query['max_rows'] = $this->config->config->maxRows;
         }
 
         if (isset($_REQUEST['pos']) && is_numeric($_REQUEST['pos'])) {

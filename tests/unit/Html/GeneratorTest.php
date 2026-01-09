@@ -47,7 +47,7 @@ class GeneratorTest extends AbstractTestCase
         $database = Current::$database;
         self::assertSame(
             '<a href="'
-            . Url::getFromRoute(Config::getInstance()->settings['DefaultTabDatabase'])
+            . Url::getFromRoute(Config::getInstance()->config->DefaultTabDatabase)
             . '&db=' . $database
             . '&server=99&lang=en" '
             . 'title="Jump to database “'
@@ -65,7 +65,7 @@ class GeneratorTest extends AbstractTestCase
         Current::$server = 99;
         $database = 'test_database';
         self::assertSame(
-            '<a href="' . Url::getFromRoute(Config::getInstance()->settings['DefaultTabDatabase'])
+            '<a href="' . Url::getFromRoute(Config::getInstance()->config->DefaultTabDatabase)
             . '&db=' . $database
             . '&server=99&lang=en" title="Jump to database “'
             . htmlspecialchars($database) . '”.">'
@@ -83,7 +83,7 @@ class GeneratorTest extends AbstractTestCase
         $database = 'test&data\'base';
         self::assertSame(
             '<a href="'
-            . Url::getFromRoute(Config::getInstance()->settings['DefaultTabDatabase'])
+            . Url::getFromRoute(Config::getInstance()->config->DefaultTabDatabase)
             . '&db='
             . htmlspecialchars(urlencode($database))
             . '&server=99&lang=en" title="Jump to database “'
@@ -158,8 +158,6 @@ class GeneratorTest extends AbstractTestCase
      */
     public function testShowPHPDocumentation(): void
     {
-        Config::getInstance()->settings['ServerDefault'] = 0;
-
         $target = 'docu';
         $lang = _pgettext('PHP documentation language', 'en');
         $expected = '<a href="index.php?route=/url&url=https%3A%2F%2Fwww.php.net%2Fmanual%2F' . $lang
@@ -184,13 +182,13 @@ class GeneratorTest extends AbstractTestCase
     public function testLinkOrButton(array $params, int $limit, string $match): void
     {
         $config = Config::getInstance();
-        $restore = $config->settings['LinkLengthLimit'] ?? 1000;
-        $config->settings['LinkLengthLimit'] = $limit;
+        $restore = $config->config->LinkLengthLimit;
+        $config->set('LinkLengthLimit', $limit);
         try {
             $result = Generator::linkOrButton(...$params);
             self::assertSame($match, $result);
         } finally {
-            $config->settings['LinkLengthLimit'] = $restore;
+            $config->set('LinkLengthLimit', $restore);
         }
     }
 

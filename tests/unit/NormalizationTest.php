@@ -46,9 +46,7 @@ class NormalizationTest extends AbstractTestCase
         DatabaseInterface::$instance = $this->dbi;
         $config = Config::getInstance();
         $config->settings['LimitChars'] = 50;
-        $config->settings['ServerDefault'] = 'PMA_server';
         $config->settings['ShowHint'] = true;
-        $config->settings['CharEditing'] = '';
         $config->settings['ActionLinksMode'] = 'icons';
         Current::$database = 'PMA_db';
         Current::$table = 'PMA_table';
@@ -124,8 +122,6 @@ class NormalizationTest extends AbstractTestCase
     public function testGetHtmlForCreateNewColumn(): void
     {
         $config = Config::getInstance();
-        $config->settings['BrowseMIME'] = true;
-        $config->settings['MaxRows'] = 25;
         $userPrivileges = new UserPrivileges();
         $config->selectedServer['DisableIS'] = false;
         DatabaseInterface::$instance = $this->dbi;

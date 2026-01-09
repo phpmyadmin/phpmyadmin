@@ -251,7 +251,7 @@ final class SearchController implements InvocableController
     private function displaySelectionFormAction(): void
     {
         if (UrlParams::$goto === '') {
-            UrlParams::$goto = Url::getFromRoute($this->config->settings['DefaultTabTable']);
+            UrlParams::$goto = Url::getFromRoute($this->config->config->DefaultTabTable);
         }
 
         $properties = [];
@@ -269,7 +269,7 @@ final class SearchController implements InvocableController
             'column_types' => $this->columnTypes,
             'column_collations' => $this->columnCollations,
             'default_sliders_state' => $this->config->settings['InitialSlidersState'],
-            'max_rows' => (int) $this->config->settings['MaxRows'],
+            'max_rows' => $this->config->config->maxRows,
         ]);
     }
 

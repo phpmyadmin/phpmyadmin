@@ -347,7 +347,7 @@ final readonly class RoutinesController implements InvocableController
                     'db' => Current::$database,
                     'routine' => $routine,
                     'ajax' => $request->isAjax(),
-                    'show_function_fields' => $this->config->settings['ShowFunctionFields'],
+                    'show_function_fields' => $this->config->config->ShowFunctionFields,
                     'params' => $params,
                 ]);
                 if ($request->isAjax()) {

@@ -78,10 +78,6 @@ class HeaderTest extends AbstractTestCase
         Current::$server = 0;
         Current::$message = null;
         $config = Config::getInstance();
-        $config->settings['CodemirrorEnable'] = false;
-        $config->set('SendErrorReports', 'never');
-        $config->settings['enable_drag_drop_import'] = false;
-        $config->set('DisableShortcutKeys', true);
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
         $relation = new Relation($dbi);
@@ -182,11 +178,11 @@ class HeaderTest extends AbstractTestCase
         $date = gmdate(DATE_RFC1123);
 
         $config = Config::getInstance();
-        $config->settings['AllowThirdPartyFraming'] = $frameOptions;
-        $config->settings['CSPAllow'] = $cspAllow;
-        $config->settings['CaptchaLoginPrivateKey'] = $privateKey;
-        $config->settings['CaptchaLoginPublicKey'] = $publicKey;
-        $config->settings['CaptchaCsp'] = $captchaCsp;
+        $config->set('AllowThirdPartyFraming', $frameOptions);
+        $config->set('CSPAllow', $cspAllow);
+        $config->set('CaptchaLoginPrivateKey', $privateKey);
+        $config->set('CaptchaLoginPublicKey', $publicKey);
+        $config->set('CaptchaCsp', $captchaCsp);
 
         $expected = [
             'X-Frame-Options' => $expectedFrameOptions,
@@ -218,7 +214,7 @@ class HeaderTest extends AbstractTestCase
     {
         return [
             [
-                '1',
+                false,
                 '',
                 '',
                 '',
@@ -234,7 +230,7 @@ class HeaderTest extends AbstractTestCase
                     . 'img-src \'self\' data:  tile.openstreetmap.org;object-src \'none\';',
             ],
             [
-                'SameOrigin',
+                'sameorigin',
                 'example.com example.net',
                 'PrivateKey',
                 'PublicKey',

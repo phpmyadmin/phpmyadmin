@@ -15,6 +15,7 @@ use PhpMyAdmin\Properties\Plugins\PluginPropertyItem;
 use PhpMyAdmin\Properties\Plugins\SchemaPluginProperties;
 
 use function __;
+use function array_combine;
 
 /**
  * Provides a common interface that will have to be implemented by all of the
@@ -80,12 +81,9 @@ abstract class SchemaPlugin implements Plugin
      */
     protected function getPaperSizeArray(): array
     {
-        $ret = [];
-        foreach (Config::getInstance()->settings['PDFPageSizes'] as $val) {
-            $ret[$val] = $val;
-        }
+        $config = Config::getInstance();
 
-        return $ret;
+        return array_combine($config->config->PDFPageSizes, $config->config->PDFPageSizes);
     }
 
     public static function isAvailable(): bool

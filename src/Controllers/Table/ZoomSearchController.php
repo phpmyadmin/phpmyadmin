@@ -176,7 +176,7 @@ final class ZoomSearchController implements InvocableController
         }
 
         if (UrlParams::$goto === '') {
-            UrlParams::$goto = Url::getFromRoute($this->config->settings['DefaultTabTable']);
+            UrlParams::$goto = Url::getFromRoute($this->config->config->DefaultTabTable);
         }
 
         $this->zoomSubmitAction($dataLabel, UrlParams::$goto);
@@ -243,7 +243,7 @@ final class ZoomSearchController implements InvocableController
     private function displaySelectionFormAction(string $dataLabel): void
     {
         if (UrlParams::$goto === '') {
-            UrlParams::$goto = Url::getFromRoute($this->config->settings['DefaultTabTable']);
+            UrlParams::$goto = Url::getFromRoute($this->config->config->DefaultTabTable);
         }
 
         $criteriaColumnNames = $_POST['criteriaColumnNames'] ?? null;
@@ -276,7 +276,7 @@ final class ZoomSearchController implements InvocableController
             'criteria_column_types' => $_POST['criteriaColumnTypes'] ?? null,
             'max_plot_limit' => ! empty($_POST['maxPlotLimit'])
                 ? (int) $_POST['maxPlotLimit']
-                : (int) $this->config->settings['maxRowPlotLimit'],
+                : $this->config->config->maxRowPlotLimit,
         ]);
     }
 

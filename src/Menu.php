@@ -147,14 +147,14 @@ class Menu
             ? $this->config->selectedServer['verbose'] : $this->config->selectedServer['host'];
         $server['name'] .= empty($this->config->selectedServer['port'])
             ? '' : ':' . $this->config->selectedServer['port'];
-        $server['url'] = $this->config->settings['DefaultTabServer'];
+        $server['url'] = $this->config->config->DefaultTabServer;
 
         if ($this->db !== '') {
             $database['name'] = $this->db;
-            $database['url'] = $this->config->settings['DefaultTabDatabase'];
+            $database['url'] = $this->config->config->DefaultTabDatabase;
             if ($this->table !== '') {
                 $table['name'] = $this->table;
-                $table['url'] = $this->config->settings['DefaultTabTable'];
+                $table['url'] = $this->config->config->DefaultTabTable;
                 $tableObj = $this->dbi->getTable($this->db, $this->table);
                 $table['is_view'] = $tableObj->isView();
                 $table['comment'] = '';

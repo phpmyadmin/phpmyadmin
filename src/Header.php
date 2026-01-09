@@ -21,7 +21,6 @@ use function htmlspecialchars;
 use function ini_get;
 use function json_encode;
 use function sprintf;
-use function strtolower;
 
 use const JSON_HEX_TAG;
 
@@ -123,17 +122,17 @@ class Header
         $params = [
             // Do not add any separator, JS code will decide
             'common_query' => Url::getCommonRaw([], ''),
-            'opendb_url' => Url::getFromRoute($this->config->settings['DefaultTabDatabase']),
+            'opendb_url' => Url::getFromRoute($this->config->config->DefaultTabDatabase),
             'lang' => Current::$lang,
             'server' => Current::$server,
             'table' => Current::$table,
             'db' => Current::$database,
             'token' => $_SESSION[' PMA_token '],
             'text_dir' => LanguageManager::$textDirection->value,
-            'LimitChars' => $this->config->settings['LimitChars'],
+            'LimitChars' => $this->config->config->limitChars,
             'pftext' => $pftext,
-            'confirm' => $this->config->settings['Confirm'],
-            'LoginCookieValidity' => $this->config->settings['LoginCookieValidity'],
+            'confirm' => $this->config->config->Confirm,
+            'LoginCookieValidity' => $this->config->config->LoginCookieValidity,
             'session_gc_maxlifetime' => (int) ini_get('session.gc_maxlifetime'),
             'logged_in' => $this->dbi->isConnected(),
             'is_https' => $this->config->isHttps(),
@@ -227,13 +226,13 @@ class Header
 
         // The user preferences have been merged at this point
         // so we can conditionally add CodeMirror, other scripts and settings
-        if ($this->config->settings['CodemirrorEnable']) {
+        if ($this->config->config->CodemirrorEnable) {
             $this->scripts->addFile('vendor/codemirror/lib/codemirror.js');
             $this->scripts->addFile('vendor/codemirror/mode/sql/sql.js');
             $this->scripts->addFile('vendor/codemirror/addon/runmode/runmode.js');
             $this->scripts->addFile('vendor/codemirror/addon/hint/show-hint.js');
             $this->scripts->addFile('vendor/codemirror/addon/hint/sql-hint.js');
-            if ($this->config->settings['LintEnable']) {
+            if ($this->config->config->LintEnable) {
                 $this->scripts->addFile('vendor/codemirror/addon/lint/lint.js');
                 $this->scripts->addFile('codemirror/addon/lint/sql-lint.js');
             }
@@ -244,7 +243,7 @@ class Header
             $this->scripts->addFile('error_report.js');
         }
 
-        if ($this->config->settings['enable_drag_drop_import'] === true) {
+        if ($this->config->config->enable_drag_drop_import === true) {
             $this->scripts->addFile('drag_drop_import.js');
         }
 
@@ -255,7 +254,7 @@ class Header
         $this->scripts->addCode($this->getVariablesForJavaScript());
 
         $this->scripts->addCode(
-            'ConsoleEnterExecutes=' . ($this->config->settings['ConsoleEnterExecutes'] ? 'true' : 'false'),
+            'ConsoleEnterExecutes=' . ($this->config->config->ConsoleEnterExecutes ? 'true' : 'false'),
         );
         $this->scripts->addFiles($this->console->getScripts());
 
@@ -286,7 +285,7 @@ class Header
 
         return [
             'lang' => Current::$lang,
-            'allow_third_party_framing' => $this->config->settings['AllowThirdPartyFraming'],
+            'allow_third_party_framing' => $this->config->config->AllowThirdPartyFraming,
             'theme_path' => $theme->getPath(),
             'server' => Current::$server,
             'title' => $this->getPageTitle(),
@@ -295,7 +294,7 @@ class Header
             'navigation' => $navigation ?? '',
             'custom_header' => $customHeader,
             'load_user_preferences' => $loadUserPreferences ?? '',
-            'show_hint' => $this->config->settings['ShowHint'],
+            'show_hint' => $this->config->config->ShowHint,
             'is_warnings_enabled' => $this->warningsEnabled,
             'is_menu_enabled' => $this->isMenuEnabled(),
             'is_logged_in' => $isLoggedIn,
@@ -338,9 +337,9 @@ class Header
         $headers = [];
 
         /* Prevent against ClickJacking by disabling framing */
-        if (strtolower((string) $this->config->settings['AllowThirdPartyFraming']) === 'sameorigin') {
+        if ($this->config->config->AllowThirdPartyFraming === 'sameorigin') {
             $headers['X-Frame-Options'] = 'SAMEORIGIN';
-        } elseif ($this->config->settings['AllowThirdPartyFraming'] !== true) {
+        } elseif ($this->config->config->AllowThirdPartyFraming !== true) {
             $headers['X-Frame-Options'] = 'DENY';
         }
 
@@ -408,13 +407,13 @@ class Header
         if ($this->title === '') {
             if (Current::$server > 0) {
                 if (Current::$table !== '') {
-                    $tempTitle = $this->config->settings['TitleTable'];
+                    $tempTitle = $this->config->config->TitleTable;
                 } elseif (Current::$database !== '') {
-                    $tempTitle = $this->config->settings['TitleDatabase'];
+                    $tempTitle = $this->config->config->TitleDatabase;
                 } elseif ($this->config->selectedServer['host'] !== '') {
-                    $tempTitle = $this->config->settings['TitleServer'];
+                    $tempTitle = $this->config->config->TitleServer;
                 } else {
-                    $tempTitle = $this->config->settings['TitleDefault'];
+                    $tempTitle = $this->config->config->TitleDefault;
                 }
 
                 $this->title = htmlspecialchars(
@@ -437,16 +436,16 @@ class Header
     {
         $mapTileUrl = ' tile.openstreetmap.org';
         $captchaUrl = '';
-        $cspAllow = $this->config->settings['CSPAllow'];
+        $cspAllow = $this->config->config->CSPAllow;
 
         if (
-            ! empty($this->config->settings['CaptchaLoginPrivateKey'])
-            && ! empty($this->config->settings['CaptchaLoginPublicKey'])
-            && ! empty($this->config->settings['CaptchaApi'])
-            && ! empty($this->config->settings['CaptchaRequestParam'])
-            && ! empty($this->config->settings['CaptchaResponseParam'])
+            $this->config->config->CaptchaLoginPrivateKey !== ''
+            && $this->config->config->CaptchaLoginPublicKey !== ''
+            && $this->config->config->CaptchaApi !== ''
+            && $this->config->config->CaptchaRequestParam !== ''
+            && $this->config->config->CaptchaResponseParam !== ''
         ) {
-            $captchaUrl = ' ' . $this->config->settings['CaptchaCsp'] . ' ';
+            $captchaUrl = ' ' . $this->config->config->CaptchaCsp . ' ';
         }
 
         $headers = [];
@@ -498,7 +497,7 @@ class Header
         $maxInputVarsValue = $maxInputVars === false || $maxInputVars === '' ? 'false' : (int) $maxInputVars;
 
         return $this->template->render('javascript/variables', [
-            'first_day_of_calendar' => $this->config->settings['FirstDayOfCalendar'] ?? 0,
+            'first_day_of_calendar' => $this->config->config->FirstDayOfCalendar,
             'max_input_vars' => $maxInputVarsValue,
         ]);
     }

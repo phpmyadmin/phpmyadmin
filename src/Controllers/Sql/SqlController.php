@@ -59,9 +59,9 @@ readonly class SqlController implements InvocableController
         $isGotofile = true;
         if (UrlParams::$goto === '') {
             if (Current::$table === '') {
-                UrlParams::$goto = Url::getFromRoute($this->config->settings['DefaultTabDatabase']);
+                UrlParams::$goto = Url::getFromRoute($this->config->config->DefaultTabDatabase);
             } else {
-                UrlParams::$goto = Url::getFromRoute($this->config->settings['DefaultTabTable']);
+                UrlParams::$goto = Url::getFromRoute($this->config->config->DefaultTabTable);
             }
         }
 

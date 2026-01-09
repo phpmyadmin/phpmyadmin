@@ -69,7 +69,7 @@ class FeaturesForm extends BaseForm
             ],
         ];
         // skip Developer form if no setting is available
-        if (Config::getInstance()->settings['UserprefsDeveloperTab']) {
+        if (Config::getInstance()->config->UserprefsDeveloperTab) {
             $result['Developer'] = ['DBG/sql'];
         }
 

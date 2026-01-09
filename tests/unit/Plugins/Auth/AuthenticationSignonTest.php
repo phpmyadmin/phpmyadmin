@@ -292,7 +292,7 @@ class AuthenticationSignonTest extends AbstractTestCase
             ->method('showLoginForm')
             ->willThrowException(new ExitException());
 
-        $config->settings['LoginCookieValidity'] = '1440';
+        $config->set('LoginCookieValidity', '1440');
 
         try {
             $this->object->showFailure(AuthenticationFailure::loggedOutDueToInactivity());

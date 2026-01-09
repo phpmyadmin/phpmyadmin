@@ -1518,7 +1518,7 @@ class PrivilegesTest extends AbstractTestCase
         );
         $config = Config::getInstance();
         self::assertStringContainsString(
-            Url::getFromRoute(Config::getInstance()->settings['DefaultTabDatabase']),
+            Url::getFromRoute(Config::getInstance()->config->DefaultTabDatabase),
             $actual,
         );
         $item = Url::getCommon(['db' => 'sakila', 'reload' => 1], '');
@@ -1531,13 +1531,13 @@ class PrivilegesTest extends AbstractTestCase
             $actual,
         );
         self::assertStringContainsString(
-            Url::getFromRoute($config->settings['DefaultTabTable']),
+            Url::getFromRoute($config->config->DefaultTabTable),
             $actual,
         );
         $item = Url::getCommon(['db' => 'sakila', 'table' => 'actor', 'reload' => 1], '');
         self::assertStringContainsString($item, $actual);
         self::assertStringContainsString('table', $actual);
-        $item = Util::getTitleForTarget($config->settings['DefaultTabTable']);
+        $item = Util::getTitleForTarget($config->config->DefaultTabTable);
         self::assertStringContainsString($item, $actual);
     }
 

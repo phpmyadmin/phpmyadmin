@@ -23,7 +23,6 @@ final class FeaturesFormTest extends AbstractTestCase
     {
         Form::resetGroupCounter();
         $config = new Config();
-        $config->settings['UserprefsDeveloperTab'] = true;
         Config::$instance = $config;
 
         $featuresForm = new FeaturesForm(new ConfigFile([]), 1);

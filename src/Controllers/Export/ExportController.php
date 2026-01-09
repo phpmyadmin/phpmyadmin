@@ -124,11 +124,11 @@ final readonly class ExportController implements InvocableController
          * valid compression methods
          */
         $compressionMethods = [];
-        if ($this->config->settings['ZipDump'] && function_exists('gzcompress')) {
+        if ($this->config->config->ZipDump && function_exists('gzcompress')) {
             $compressionMethods[] = 'zip';
         }
 
-        if ($this->config->settings['GZipDump'] && function_exists('gzencode')) {
+        if ($this->config->config->GZipDump && function_exists('gzencode')) {
             $compressionMethods[] = 'gzip';
         }
 
@@ -160,7 +160,7 @@ final readonly class ExportController implements InvocableController
 
             if (($isQuickExport && $quickExportOnServer) || (! $isQuickExport && $onServerParam)) {
                 // Will we save dump on server?
-                $saveOnServer = $this->config->settings['SaveDir'] !== '';
+                $saveOnServer = $this->config->config->SaveDir !== '';
             }
         }
 
@@ -203,8 +203,8 @@ final readonly class ExportController implements InvocableController
          * Increase time limit for script execution and initializes some variables
          */
         Util::setTimeLimit();
-        if (! empty($this->config->settings['MemoryLimit'])) {
-            ini_set('memory_limit', $this->config->settings['MemoryLimit']);
+        if ($this->config->config->MemoryLimit !== '' && $this->config->config->MemoryLimit !== '0') {
+            ini_set('memory_limit', $this->config->config->MemoryLimit);
         }
 
         register_shutdown_function([$this->export, 'shutdown']);
@@ -247,7 +247,7 @@ final readonly class ExportController implements InvocableController
         // Open file on server if needed
         if ($saveOnServer) {
             $message = $this->export->outputHandler->openFile(
-                $this->config->settings['SaveDir'] ?? '',
+                $this->config->config->SaveDir,
                 $filename,
                 $isQuickExport,
                 $request->getParsedBodyParam('quick_export_onserver_overwrite') === 'saveitover',

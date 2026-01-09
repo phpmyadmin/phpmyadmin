@@ -125,7 +125,7 @@ final readonly class GisVisualizationController implements InvocableController
          * Displays the page
          */
         $urlParams = UrlParams::$params;
-        $urlParams['goto'] = Url::getFromRoute($this->config->settings['DefaultTabDatabase']);
+        $urlParams['goto'] = Url::getFromRoute($this->config->config->DefaultTabDatabase);
         $urlParams['back'] = Url::getFromRoute('/sql');
         $urlParams['sql_query'] = $sqlQuery;
         $urlParams['sql_signature'] = Core::signSqlQuery($sqlQuery);
@@ -229,7 +229,7 @@ final readonly class GisVisualizationController implements InvocableController
         }
 
         if ($_SESSION['tmpval']['max_rows'] === 'all') {
-            return $this->config->settings['MaxRows'];
+            return $this->config->config->maxRows;
         }
 
         return (int) $_SESSION['tmpval']['max_rows'];

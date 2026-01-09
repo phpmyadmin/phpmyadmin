@@ -30,13 +30,6 @@ class DesignerTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
 
-        $config = Config::getInstance();
-        $config->settings['ServerDefault'] = 1;
-        $config->settings['PDFPageSizes'] = ['A3', 'A4'];
-        $config->settings['PDFDefaultPageSize'] = 'A4';
-        $config->settings['Schema']['pdf_orientation'] = 'L';
-        $config->settings['Schema']['pdf_paper'] = 'A4';
-
         $_SESSION = [' PMA_token ' => 'token'];
         $relationParameters = RelationParameters::fromArray([
             RelationParameters::DATABASE => 'pmadb',

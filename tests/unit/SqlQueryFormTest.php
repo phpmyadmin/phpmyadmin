@@ -62,19 +62,7 @@ class SqlQueryFormTest extends AbstractTestCase
         Current::$table = 'PMA_table';
 
         $config = Config::getInstance();
-        $config->settings['GZipDump'] = false;
-        $config->settings['BZipDump'] = false;
-        $config->settings['ZipDump'] = false;
-        $config->settings['ServerDefault'] = 'default';
         $config->settings['TextareaAutoSelect'] = true;
-        $config->settings['TextareaRows'] = 100;
-        $config->settings['TextareaCols'] = 11;
-        $config->settings['DefaultTabDatabase'] = '/database/structure';
-        $config->settings['RetainQueryBox'] = true;
-        $config->settings['ActionLinksMode'] = 'both';
-        $config->settings['DefaultTabTable'] = '/sql';
-        $config->settings['CodemirrorEnable'] = true;
-        $config->settings['DefaultForeignKeyChecks'] = 'default';
 
         $relationParameters = RelationParameters::fromArray([
             RelationParameters::TABLE_COORDS => 'table_name',
