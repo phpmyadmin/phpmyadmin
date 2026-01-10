@@ -5,12 +5,18 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Console;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Config\UserPreferences;
+use PhpMyAdmin\Config\UserPreferencesHandler;
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Console\UpdateConfigController;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
+use PhpMyAdmin\I18n\LanguageManager;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PhpMyAdmin\Theme\ThemeManager;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 
@@ -25,11 +31,18 @@ final class UpdateConfigControllerTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
             ->withParsedBody(['key' => $key, 'value' => $value]);
 
-        DatabaseInterface::$instance = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $dbi = $this->createDatabaseInterface();
         $config = new Config();
+        $userPreferencesHandler = new UserPreferencesHandler(
+            $config,
+            $dbi,
+            new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config),
+            new LanguageManager($config),
+            new ThemeManager(),
+        );
         $responseRenderer = new ResponseRenderer();
         $responseRenderer->setAjax(true);
-        $controller = new UpdateConfigController($responseRenderer, $config);
+        $controller = new UpdateConfigController($responseRenderer, $userPreferencesHandler);
         $response = $controller($request);
 
         $responseBody = (string) $response->getBody();
@@ -78,11 +91,18 @@ final class UpdateConfigControllerTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
             ->withParsedBody(['key' => $key, 'value' => $value]);
 
-        DatabaseInterface::$instance = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $dbi = $this->createDatabaseInterface();
         $config = new Config();
+        $userPreferencesHandler = new UserPreferencesHandler(
+            $config,
+            $dbi,
+            new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config),
+            new LanguageManager($config),
+            new ThemeManager(),
+        );
         $responseRenderer = new ResponseRenderer();
         $responseRenderer->setAjax(true);
-        $controller = new UpdateConfigController($responseRenderer, $config);
+        $controller = new UpdateConfigController($responseRenderer, $userPreferencesHandler);
         $response = $controller($request);
 
         $responseBody = (string) $response->getBody();
@@ -138,11 +158,11 @@ final class UpdateConfigControllerTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
             ->withParsedBody(['key' => 'StartHistory', 'value' => 'true']);
 
-        $config = self::createStub(Config::class);
-        $config->method('setUserValue')->willReturn(Message::error('Could not save configuration'));
+        $userPreferencesHandler = self::createStub(UserPreferencesHandler::class);
+        $userPreferencesHandler->method('setUserValue')->willReturn(Message::error('Could not save configuration'));
         $responseRenderer = new ResponseRenderer();
         $responseRenderer->setAjax(true);
-        $controller = new UpdateConfigController($responseRenderer, $config);
+        $controller = new UpdateConfigController($responseRenderer, $userPreferencesHandler);
         $response = $controller($request);
 
         $responseBody = (string) $response->getBody();

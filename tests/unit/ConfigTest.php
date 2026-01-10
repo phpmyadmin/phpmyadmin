@@ -329,29 +329,6 @@ class ConfigTest extends AbstractTestCase
     }
 
     /**
-     * Test for setting user config value
-     */
-    public function testSetUserValue(): void
-    {
-        $this->object->setUserValue(null, 'lang', 'cs', 'en');
-        $this->object->setUserValue('TEST_COOKIE_USER_VAL', '', 'cfg_val_1');
-        self::assertSame(
-            $this->object->getUserValue('TEST_COOKIE_USER_VAL', 'fail'),
-            'cfg_val_1',
-        );
-        $this->object->setUserValue(null, 'NavigationWidth', 300);
-        self::assertSame($this->object->settings['NavigationWidth'], 300);
-    }
-
-    /**
-     * Test for getting user config value
-     */
-    public function testGetUserValue(): void
-    {
-        self::assertSame($this->object->getUserValue('test_val', 'val'), 'val');
-    }
-
-    /**
      * Test for setting cookies
      */
     public function testSetCookie(): void

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Export;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Config\UserPreferencesHandler;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Dbal\DatabaseInterface;
@@ -23,10 +24,13 @@ use function is_array;
 use function is_string;
 use function urldecode;
 
-final class Options
+final readonly class Options
 {
-    public function __construct(private Relation $relation, private TemplateModel $templateModel)
-    {
+    public function __construct(
+        private Relation $relation,
+        private TemplateModel $templateModel,
+        private UserPreferencesHandler $userPreferencesHandler,
+    ) {
     }
 
     /**
@@ -224,20 +228,20 @@ final class Options
 
         $config = Config::getInstance();
         if ($exportType === ExportType::Database) {
-            return (string) $config->getUserValue(
+            return (string) $this->userPreferencesHandler->getUserValue(
                 'pma_db_filename_template',
                 $config->settings['Export']['file_template_database'],
             );
         }
 
         if ($exportType === ExportType::Table) {
-            return (string) $config->getUserValue(
+            return (string) $this->userPreferencesHandler->getUserValue(
                 'pma_table_filename_template',
                 $config->settings['Export']['file_template_table'],
             );
         }
 
-        return (string) $config->getUserValue(
+        return (string) $this->userPreferencesHandler->getUserValue(
             'pma_server_filename_template',
             $config->settings['Export']['file_template_server'],
         );

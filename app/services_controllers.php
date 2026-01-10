@@ -7,6 +7,8 @@ use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\BrowseForeigners;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\Config\UserPreferences;
+use PhpMyAdmin\Config\UserPreferencesHandler;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\BrowseForeignersController;
@@ -86,7 +88,6 @@ use PhpMyAdmin\Tracking\Tracking;
 use PhpMyAdmin\Tracking\TrackingChecker;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\UserPassword;
-use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\UserPrivilegesFactory;
 use PhpMyAdmin\VersionInformation;
 
@@ -105,7 +106,7 @@ return [
     ],
     CollationConnectionController::class => [
         'class' => CollationConnectionController::class,
-        'arguments' => [ResponseRenderer::class, Config::class],
+        'arguments' => [ResponseRenderer::class, UserPreferencesHandler::class],
     ],
     ColumnController::class => [
         'class' => ColumnController::class,
@@ -113,7 +114,7 @@ return [
     ],
     UpdateNavWidthConfigController::class => [
         'class' => UpdateNavWidthConfigController::class,
-        'arguments' => [ResponseRenderer::class, Config::class],
+        'arguments' => [ResponseRenderer::class, UserPreferencesHandler::class],
     ],
     Console\Bookmark\AddController::class => [
         'class' => Console\Bookmark\AddController::class,
@@ -125,7 +126,7 @@ return [
     ],
     Console\UpdateConfigController::class => [
         'class' => Console\UpdateConfigController::class,
-        'arguments' => [ResponseRenderer::class, Config::class],
+        'arguments' => [ResponseRenderer::class, UserPreferencesHandler::class],
     ],
     Database\CentralColumns\PopulateColumnsController::class => [
         'class' => Database\CentralColumns\PopulateColumnsController::class,
@@ -374,6 +375,7 @@ return [
             \PhpMyAdmin\Export\Export::class,
             ResponseFactory::class,
             Config::class,
+            UserPreferencesHandler::class,
         ],
     ],
     Export\TablesController::class => [
@@ -522,7 +524,7 @@ return [
             UserPreferences::class,
             Relation::class,
             Config::class,
-            ThemeManager::class,
+            UserPreferencesHandler::class,
         ],
     ],
     Preferences\FeaturesController::class => [
@@ -532,7 +534,7 @@ return [
             UserPreferences::class,
             Relation::class,
             Config::class,
-            ThemeManager::class,
+            UserPreferencesHandler::class,
         ],
     ],
     Preferences\ImportController::class => [
@@ -542,7 +544,7 @@ return [
             UserPreferences::class,
             Relation::class,
             Config::class,
-            ThemeManager::class,
+            UserPreferencesHandler::class,
         ],
     ],
     Preferences\MainPanelController::class => [
@@ -552,7 +554,7 @@ return [
             UserPreferences::class,
             Relation::class,
             Config::class,
-            ThemeManager::class,
+            UserPreferencesHandler::class,
         ],
     ],
     Preferences\ManageController::class => [
@@ -564,6 +566,7 @@ return [
             Config::class,
             ThemeManager::class,
             ResponseFactory::class,
+            UserPreferencesHandler::class,
         ],
     ],
     Preferences\NavigationController::class => [
@@ -573,7 +576,7 @@ return [
             UserPreferences::class,
             Relation::class,
             Config::class,
-            ThemeManager::class,
+            UserPreferencesHandler::class,
         ],
     ],
     Preferences\SqlController::class => [
@@ -583,7 +586,7 @@ return [
             UserPreferences::class,
             Relation::class,
             Config::class,
-            ThemeManager::class,
+            UserPreferencesHandler::class,
         ],
     ],
     Preferences\TwoFactorController::class => [

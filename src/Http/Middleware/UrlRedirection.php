@@ -4,24 +4,22 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Http\Middleware;
 
-use PhpMyAdmin\Config;
-use PhpMyAdmin\Container\ContainerBuilder;
+use PhpMyAdmin\Config\UserPreferencesHandler;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\UrlRedirector;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
-final class UrlRedirection implements MiddlewareInterface
+final readonly class UrlRedirection implements MiddlewareInterface
 {
     public function __construct(
-        private readonly Config $config,
-        private readonly Template $template,
-        private readonly ResponseFactory $responseFactory,
+        private Template $template,
+        private ResponseFactory $responseFactory,
+        private UserPreferencesHandler $userPreferencesHandler,
     ) {
     }
 
@@ -31,9 +29,7 @@ final class UrlRedirection implements MiddlewareInterface
             return $handler->handle($request);
         }
 
-        $container = ContainerBuilder::getContainer();
-        $themeManager = $container->get(ThemeManager::class);
-        $this->config->loadUserPreferences($themeManager, true);
+        $this->userPreferencesHandler->loadUserPreferences(true);
 
         $urlRedirector = new UrlRedirector(ResponseRenderer::getInstance(), $this->template, $this->responseFactory);
 

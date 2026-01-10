@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\Config\UserPreferences;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\Current;
@@ -19,7 +20,6 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
-use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionProperty;
@@ -83,9 +83,10 @@ class StructureControllerTest extends AbstractTestCase
         );
         // phpcs:enable
 
-        $pageSettings = new PageSettings(
-            new UserPreferences($this->dbi, new Relation($this->dbi), new Template()),
-        );
+        $relation = new Relation($this->dbi, $config);
+        $template = new Template($config);
+        $userPreferences = new UserPreferences($this->dbi, $relation, $template, $config);
+        $pageSettings = new PageSettings($userPreferences);
         $pageSettings->init('TableStructure');
         $fields = $this->dbi->getColumns(Current::$database, Current::$table);
 
@@ -93,8 +94,6 @@ class StructureControllerTest extends AbstractTestCase
             ->withQueryParams(['route' => '/table/structure', 'db' => 'test_db', 'table' => 'test_table']);
 
         $response = new ResponseRenderer();
-        $relation = new Relation($this->dbi);
-        $template = new Template();
         (new StructureController(
             $response,
             $template,

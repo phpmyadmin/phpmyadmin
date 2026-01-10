@@ -6,13 +6,9 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Config\Settings;
 use PhpMyAdmin\Config\Settings\Server;
-use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\ConnectionType;
-use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Exceptions\ConfigException;
-use PhpMyAdmin\I18n\LanguageManager;
 use PhpMyAdmin\Routing\Routing;
-use PhpMyAdmin\Theme\ThemeManager;
 use Throwable;
 
 use function __;
@@ -101,9 +97,6 @@ class Config
     public array $selectedServer;
 
     private bool $isSetup = false;
-
-    /** @var ''|'db'|'session' */
-    public string $userPreferences = '';
 
     public function __construct()
     {
@@ -216,184 +209,6 @@ class Config
 
         $this->config = new Settings($cfg);
         $this->settings = array_replace_recursive($this->settings, $this->config->asArray());
-    }
-
-    /**
-     * Sets the connection collation
-     */
-    private function setConnectionCollation(): void
-    {
-        $collationConnection = $this->config->DefaultConnectionCollation;
-        $dbi = DatabaseInterface::getInstance();
-        if ($collationConnection === '' || $collationConnection === $dbi->getDefaultCollation()) {
-            return;
-        }
-
-        $dbi->setCollation($collationConnection);
-    }
-
-    /**
-     * Loads user preferences and merges them with current config
-     * must be called after control connection has been established
-     */
-    public function loadUserPreferences(ThemeManager $themeManager, bool $isMinimumCommon = false): void
-    {
-        $cacheKey = 'server_' . Current::$server;
-        if (Current::$server > 0 && ! $isMinimumCommon) {
-            // cache user preferences, use database only when needed
-            if (
-                ! isset($_SESSION['cache'][$cacheKey]['userprefs'])
-                || $_SESSION['cache'][$cacheKey]['config_mtime'] < $this->sourceMtime
-            ) {
-                $dbi = DatabaseInterface::getInstance();
-                $userPreferences = new UserPreferences($dbi, new Relation($dbi), new Template());
-                $prefs = $userPreferences->load();
-                $_SESSION['cache'][$cacheKey]['userprefs'] = $userPreferences->apply($prefs['config_data']);
-                $_SESSION['cache'][$cacheKey]['userprefs_mtime'] = $prefs['mtime'];
-                $_SESSION['cache'][$cacheKey]['userprefs_type'] = $prefs['type'];
-                $_SESSION['cache'][$cacheKey]['config_mtime'] = $this->sourceMtime;
-            }
-        } elseif (Current::$server === 0 || ! isset($_SESSION['cache'][$cacheKey]['userprefs'])) {
-            $this->userPreferences = '';
-
-            return;
-        }
-
-        $configData = $_SESSION['cache'][$cacheKey]['userprefs'];
-        // type is 'db' or 'session'
-        $this->userPreferences = $_SESSION['cache'][$cacheKey]['userprefs_type'];
-        $this->set('user_preferences_mtime', $_SESSION['cache'][$cacheKey]['userprefs_mtime']);
-
-        if (isset($configData['Server']) && is_array($configData['Server'])) {
-            $serverConfig = array_replace_recursive($this->selectedServer, $configData['Server']);
-            $this->selectedServer = (new Server($serverConfig))->asArray();
-        }
-
-        // load config array
-        $this->settings = array_replace_recursive($this->settings, $configData);
-        $this->config = new Settings($this->settings);
-
-        if ($isMinimumCommon) {
-            return;
-        }
-
-        // settings below start really working on next page load, but
-        // changes are made only in index.php so everything is set when
-        // in frames
-
-        // save theme
-        if ($themeManager->getThemeCookie() !== '' || isset($_REQUEST['set_theme'])) {
-            if (
-                (! isset($configData['ThemeDefault'])
-                && $themeManager->theme->getId() !== 'original')
-                || isset($configData['ThemeDefault'])
-                && $configData['ThemeDefault'] !== $themeManager->theme->getId()
-            ) {
-                $this->setUserValue(
-                    null,
-                    'ThemeDefault',
-                    $themeManager->theme->getId(),
-                    'original',
-                );
-            }
-        } elseif (
-            $this->config->ThemeDefault !== $themeManager->theme->getId()
-            && $themeManager->themeExists($this->config->ThemeDefault)
-        ) {
-            // no cookie - read default from settings
-            $themeManager->setActiveTheme($this->config->ThemeDefault);
-            $themeManager->setThemeCookie();
-        }
-
-        // save language
-        if ($this->issetCookie('pma_lang') || isset($_POST['lang'])) {
-            if (
-                (! isset($configData['lang'])
-                && Current::$lang !== 'en')
-                || isset($configData['lang'])
-                && Current::$lang !== $configData['lang']
-            ) {
-                $this->setUserValue(null, 'lang', Current::$lang, 'en');
-            }
-        } elseif (isset($configData['lang'])) {
-            $languageManager = LanguageManager::getInstance();
-            // read language from settings
-            $language = $languageManager->getLanguage($configData['lang']);
-            if ($language !== false) {
-                $languageManager->activate($language);
-                $this->setCookie('pma_lang', $language->getCode());
-            }
-        }
-
-        // set connection collation
-        $this->setConnectionCollation();
-    }
-
-    /**
-     * Sets config value which is stored in user preferences (if available)
-     * or in a cookie.
-     *
-     * If user preferences are not yet initialized, option is applied to
-     * global config and added to a update queue, which is processed
-     * by {@link loadUserPreferences()}
-     *
-     * @param string|null $cookieName   can be null
-     * @param string      $cfgPath      configuration path
-     * @param mixed       $newCfgValue  new value
-     * @param string|null $defaultValue default value
-     */
-    public function setUserValue(
-        string|null $cookieName,
-        string $cfgPath,
-        mixed $newCfgValue,
-        string|null $defaultValue = null,
-    ): true|Message {
-        $result = true;
-        // use permanent user preferences if possible
-        if ($this->userPreferences !== '') {
-            if ($defaultValue === null) {
-                $defaultValue = Core::arrayRead($cfgPath, $this->default);
-            }
-
-            $dbi = DatabaseInterface::getInstance();
-            $userPreferences = new UserPreferences($dbi, new Relation($dbi), new Template());
-            $result = $userPreferences->persistOption($cfgPath, $newCfgValue, $defaultValue);
-        }
-
-        if ($this->userPreferences !== 'db' && $cookieName) {
-            // fall back to cookies
-            if ($defaultValue === null) {
-                $defaultValue = Core::arrayRead($cfgPath, $this->settings);
-            }
-
-            $this->setCookie($cookieName, (string) $newCfgValue, $defaultValue);
-        }
-
-        Core::arrayWrite($cfgPath, $this->settings, $newCfgValue);
-
-        return $result;
-    }
-
-    /**
-     * Reads value stored by {@link setUserValue()}
-     *
-     * @param string $cookieName cookie name
-     * @param mixed  $cfgValue   config value
-     */
-    public function getUserValue(string $cookieName, mixed $cfgValue): mixed
-    {
-        $cookieExists = ! empty($this->getCookie($cookieName));
-        if ($this->userPreferences === 'db') {
-            // permanent user preferences value exists, remove cookie
-            if ($cookieExists) {
-                $this->removeCookie($cookieName);
-            }
-        } elseif ($cookieExists) {
-            return $this->getCookie($cookieName);
-        }
-
-        // return value from $cfg array
-        return $cfgValue;
     }
 
     /**
@@ -885,26 +700,6 @@ class Config
         }
 
         return new Server($server);
-    }
-
-    /**
-     * Get LoginCookieValidity from preferences cache.
-     *
-     * No generic solution for loading preferences from cache as some settings
-     * need to be kept for processing in loadUserPreferences().
-     *
-     * @see loadUserPreferences()
-     */
-    public function getLoginCookieValidityFromCache(int $server): void
-    {
-        $cacheKey = 'server_' . $server;
-
-        if (! isset($_SESSION['cache'][$cacheKey]['userprefs']['LoginCookieValidity'])) {
-            return;
-        }
-
-        $value = $_SESSION['cache'][$cacheKey]['userprefs']['LoginCookieValidity'];
-        $this->set('LoginCookieValidity', $value);
     }
 
     public function getSettings(): Settings

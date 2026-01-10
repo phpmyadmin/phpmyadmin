@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Controllers\Console;
 
 use Fig\Http\Message\StatusCodeInterface;
 use InvalidArgumentException;
-use PhpMyAdmin\Config;
+use PhpMyAdmin\Config\UserPreferencesHandler;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -18,11 +18,11 @@ use function in_array;
 use function is_numeric;
 
 #[Route('/console/update-config', ['POST'])]
-final class UpdateConfigController implements InvocableController
+final readonly class UpdateConfigController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Config $config,
+        private ResponseRenderer $response,
+        private UserPreferencesHandler $userPreferencesHandler,
     ) {
     }
 
@@ -39,7 +39,7 @@ final class UpdateConfigController implements InvocableController
             return $this->response->response();
         }
 
-        $result = $this->config->setUserValue(null, 'Console/' . $key, $value);
+        $result = $this->userPreferencesHandler->setUserValue(null, 'Console/' . $key, $value);
         if ($result !== true) {
             $this->response->setStatusCode(StatusCodeInterface::STATUS_INTERNAL_SERVER_ERROR);
             $this->response->setRequestStatus(false);

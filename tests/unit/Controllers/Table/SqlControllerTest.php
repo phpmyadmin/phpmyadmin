@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\Config\UserPreferences;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\SqlController;
 use PhpMyAdmin\Current;
@@ -19,7 +20,6 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
-use PhpMyAdmin\UserPreferences;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(SqlController::class)]
@@ -51,12 +51,11 @@ class SqlControllerTest extends AbstractTestCase
         $this->dummyDbi->addSelectDb('test_db');
         $this->dummyDbi->addResult('SELECT 1 FROM `test_db`.`test_table` LIMIT 1;', [['1']]);
 
-        $pageSettings = new PageSettings(
-            new UserPreferences($this->dbi, new Relation($this->dbi), new Template()),
-        );
+        $template = new Template($config);
+        $userPreferences = new UserPreferences($this->dbi, new Relation($this->dbi, $config), $template, $config);
+        $pageSettings = new PageSettings($userPreferences);
         $pageSettings->init('Sql');
         $fields = $this->dbi->getColumns('test_db', 'test_table');
-        $template = new Template();
 
         $expected = $pageSettings->getHTML();
         $expected .= $template->render('sql/query', [

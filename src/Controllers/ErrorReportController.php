@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Config\UserPreferences;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Error\ErrorHandler;
@@ -18,7 +19,6 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\UserPreferences;
 
 use function __;
 use function in_array;
@@ -131,7 +131,12 @@ final readonly class ErrorReportController implements InvocableController
 
                 /* Persist always send settings */
                 if ($alwaysSend === 'true') {
-                    $userPreferences = new UserPreferences($this->dbi, new Relation($this->dbi), $this->template);
+                    $userPreferences = new UserPreferences(
+                        $this->dbi,
+                        new Relation($this->dbi, $this->config),
+                        $this->template,
+                        $this->config,
+                    );
                     $userPreferences->persistOption('SendErrorReports', 'always', 'ask');
                 }
             }

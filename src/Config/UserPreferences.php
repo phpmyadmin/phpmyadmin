@@ -2,15 +2,22 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin;
+namespace PhpMyAdmin\Config;
 
-use PhpMyAdmin\Config\ConfigFile;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Forms\User\UserFormList;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Core;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Identifiers\DatabaseName;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 use function __;
 use function array_flip;
@@ -29,16 +36,14 @@ use function urlencode;
 /**
  * Functions for displaying user preferences pages
  */
-class UserPreferences
+readonly class UserPreferences
 {
-    private readonly Config $config;
-
     public function __construct(
-        private readonly DatabaseInterface $dbi,
-        private readonly Relation $relation,
-        private readonly Template $template,
+        private DatabaseInterface $dbi,
+        private Relation $relation,
+        private Template $template,
+        private Config $config,
     ) {
-        $this->config = Config::getInstance();
     }
 
     /**

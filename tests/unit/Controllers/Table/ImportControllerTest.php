@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\Config\UserPreferences;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\ImportController;
 use PhpMyAdmin\Current;
@@ -20,7 +21,6 @@ use PhpMyAdmin\Plugins\Import\Upload\UploadNoplugin;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
-use PhpMyAdmin\UserPreferences;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 
@@ -49,11 +49,10 @@ class ImportControllerTest extends AbstractTestCase
         $choice = Plugins::getChoice($importList, 'xml');
         $options = Plugins::getOptions('Import', $importList);
 
-        $pageSettings = new PageSettings(
-            new UserPreferences($dbi, new Relation($dbi), new Template()),
-        );
+        $template = new Template($config);
+        $userPreferences = new UserPreferences($dbi, new Relation($dbi, $config), $template, $config);
+        $pageSettings = new PageSettings($userPreferences);
         $pageSettings->init('Import');
-        $template = new Template();
         $expected = $template->render('table/import/index', [
             'page_settings_error_html' => $pageSettings->getErrorHTML(),
             'page_settings_html' => $pageSettings->getHTML(),

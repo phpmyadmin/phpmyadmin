@@ -6,6 +6,8 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\Config\UserPreferences;
+use PhpMyAdmin\Config\UserPreferencesHandler;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\ExportController;
 use PhpMyAdmin\Current;
@@ -15,12 +17,13 @@ use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Export\Options;
 use PhpMyAdmin\Export\TemplateModel;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\I18n\LanguageManager;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
-use PhpMyAdmin\UserPreferences;
+use PhpMyAdmin\Theme\ThemeManager;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(ExportController::class)]
@@ -55,11 +58,11 @@ class ExportControllerTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
 
         $response = new ResponseRenderer();
-        $pageSettings = new PageSettings(
-            new UserPreferences($dbi, new Relation($dbi), new Template()),
-        );
+        $relation = new Relation($dbi, $config);
+        $template = new Template($config);
+        $userPreferences = new UserPreferences($dbi, $relation, $template, $config);
+        $pageSettings = new PageSettings($userPreferences);
         $pageSettings->init('Export');
-        $template = new Template();
         $exportList = Plugins::getExport(ExportType::Table, true);
 
         $expected = $template->render('table/export/index', [
@@ -114,11 +117,16 @@ class ExportControllerTest extends AbstractTestCase
             'page_settings_html' => $pageSettings->getHTML(),
         ]);
 
-        (new ExportController(
-            $response,
-            new Options(new Relation($dbi), new TemplateModel($dbi)),
-            $pageSettings,
-        ))(self::createStub(ServerRequest::class));
+        $userPreferencesHandler = new UserPreferencesHandler(
+            $config,
+            $dbi,
+            $userPreferences,
+            new LanguageManager($config),
+            new ThemeManager(),
+        );
+        $options = new Options($relation, new TemplateModel($dbi), $userPreferencesHandler);
+
+        (new ExportController($response, $options, $pageSettings))(self::createStub(ServerRequest::class));
         self::assertSame($expected, $response->getHTMLResult());
     }
 }

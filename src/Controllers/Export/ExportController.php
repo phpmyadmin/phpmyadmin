@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Export;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Config\UserPreferencesHandler;
 use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Controllers\Database\ExportController as DatabaseExportController;
 use PhpMyAdmin\Controllers\InvocableController;
@@ -48,6 +49,7 @@ final readonly class ExportController implements InvocableController
         private Export $export,
         private ResponseFactory $responseFactory,
         private Config $config,
+        private UserPreferencesHandler $userPreferencesHandler,
     ) {
     }
 
@@ -228,7 +230,7 @@ final readonly class ExportController implements InvocableController
             $filenameTemplate = $request->getParsedBodyParamAsString('filename_template', '');
 
             if ((bool) $rememberTemplate) {
-                $this->export->rememberFilename($this->config, $exportType, $filenameTemplate);
+                $this->export->rememberFilename($this->userPreferencesHandler, $exportType, $filenameTemplate);
             }
 
             $filename = $this->export->getFinalFilename(

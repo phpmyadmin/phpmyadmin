@@ -7,6 +7,8 @@ namespace PhpMyAdmin\Controllers\Preferences;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Forms\User\ExportForm;
+use PhpMyAdmin\Config\UserPreferences;
+use PhpMyAdmin\Config\UserPreferencesHandler;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
@@ -16,10 +18,8 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Navigation\Navigation;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
-use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\UserPreferences;
 
 use function ltrim;
 
@@ -31,7 +31,7 @@ final readonly class ExportController implements InvocableController
         private UserPreferences $userPreferences,
         private Relation $relation,
         private Config $config,
-        private ThemeManager $themeManager,
+        private UserPreferencesHandler $userPreferencesHandler,
     ) {
     }
 
@@ -59,7 +59,7 @@ final readonly class ExportController implements InvocableController
             $twoFactor->save();
             if ($result === true) {
                 // reload config
-                $this->config->loadUserPreferences($this->themeManager);
+                $this->userPreferencesHandler->loadUserPreferences();
                 $hash = ltrim($request->getParsedBodyParamAsString('tab_hash'), '#');
 
                 return $this->userPreferences->redirect('index.php?route=/preferences/export', null, $hash);

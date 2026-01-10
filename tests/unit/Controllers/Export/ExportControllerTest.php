@@ -6,6 +6,9 @@ namespace PhpMyAdmin\Tests\Controllers\Export;
 
 use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Config\UserPreferences;
+use PhpMyAdmin\Config\UserPreferencesHandler;
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Controllers\Export\ExportController;
 use PhpMyAdmin\Current;
@@ -15,9 +18,12 @@ use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\I18n\LanguageManager;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\FieldHelper;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\ZipExtension;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\RequiresPhpExtension;
@@ -189,11 +195,20 @@ final class ExportControllerTest extends AbstractTestCase
             COMMIT;
             SQL;
 
+        $userPreferencesHandler = new UserPreferencesHandler(
+            $config,
+            $dbi,
+            new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config),
+            new LanguageManager($config),
+            new ThemeManager(),
+        );
+
         $exportController = new ExportController(
             new ResponseRenderer(),
             new Export($dbi, new OutputHandler()),
             ResponseFactory::create(),
             $config,
+            $userPreferencesHandler,
         );
         $response = $exportController($request);
         $output = $this->getActualOutputForAssertion();
@@ -354,11 +369,20 @@ final class ExportControllerTest extends AbstractTestCase
             COMMIT;
             SQL;
 
+        $userPreferencesHandler = new UserPreferencesHandler(
+            $config,
+            $dbi,
+            new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config),
+            new LanguageManager($config),
+            new ThemeManager(),
+        );
+
         $exportController = new ExportController(
             new ResponseRenderer(),
             new Export($dbi, new OutputHandler()),
             ResponseFactory::create(),
             $config,
+            $userPreferencesHandler,
         );
         $response = $exportController($request);
         $output = $this->getActualOutputForAssertion();
@@ -508,7 +532,21 @@ final class ExportControllerTest extends AbstractTestCase
         $export = $container->get(Export::class);
         (new ReflectionProperty(Export::class, 'dbi'))->setValue($export, $dbi);
 
-        $exportController = new ExportController(new ResponseRenderer(), $export, ResponseFactory::create(), $config);
+        $userPreferencesHandler = new UserPreferencesHandler(
+            $config,
+            $dbi,
+            new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config),
+            new LanguageManager($config),
+            new ThemeManager(),
+        );
+
+        $exportController = new ExportController(
+            new ResponseRenderer(),
+            $export,
+            ResponseFactory::create(),
+            $config,
+            $userPreferencesHandler,
+        );
         $response = $exportController($request);
 
         $output = $this->getActualOutputForAssertion();
@@ -661,7 +699,21 @@ final class ExportControllerTest extends AbstractTestCase
         $export = $container->get(Export::class);
         (new ReflectionProperty(Export::class, 'dbi'))->setValue($export, $dbi);
 
-        $exportController = new ExportController(new ResponseRenderer(), $export, ResponseFactory::create(), $config);
+        $userPreferencesHandler = new UserPreferencesHandler(
+            $config,
+            $dbi,
+            new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config),
+            new LanguageManager($config),
+            new ThemeManager(),
+        );
+
+        $exportController = new ExportController(
+            new ResponseRenderer(),
+            $export,
+            ResponseFactory::create(),
+            $config,
+            $userPreferencesHandler,
+        );
         $response = $exportController($request);
 
         $output = (string) $response->getBody();

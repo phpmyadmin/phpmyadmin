@@ -6,13 +6,13 @@ namespace PhpMyAdmin\Tests\Config;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\Config\UserPreferences;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\UserPreferences;
 use PHPUnit\Framework\Attributes\BackupStaticProperties;
 use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionProperty;
@@ -43,8 +43,10 @@ class PageSettingsTest extends AbstractTestCase
      */
     public function testShowGroupNonExistent(): void
     {
+        $config = Config::getInstance();
         $dbi = DatabaseInterface::getInstance();
-        $object = new PageSettings(new UserPreferences($dbi, new Relation($dbi), new Template()));
+        $userPreferences = new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config);
+        $object = new PageSettings($userPreferences);
         $object->init('NonExistent');
 
         self::assertSame('', $object->getHTML());
@@ -58,10 +60,10 @@ class PageSettingsTest extends AbstractTestCase
     {
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
 
+        $config = Config::getInstance();
         $dbi = DatabaseInterface::getInstance();
-        $object = new PageSettings(
-            new UserPreferences($dbi, new Relation($dbi), new Template()),
-        );
+        $userPreferences = new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config);
+        $object = new PageSettings($userPreferences);
         $object->init('Browse');
 
         $html = $object->getHTML();
@@ -110,10 +112,10 @@ class PageSettingsTest extends AbstractTestCase
      */
     public function testGetNaviSettings(): void
     {
+        $config = Config::getInstance();
         $dbi = DatabaseInterface::getInstance();
-        $pageSettings = new PageSettings(
-            new UserPreferences($dbi, new Relation($dbi), new Template()),
-        );
+        $userPreferences = new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config);
+        $pageSettings = new PageSettings($userPreferences);
         $pageSettings->init('Navi', 'pma_navigation_settings');
 
         $html = $pageSettings->getHTML();

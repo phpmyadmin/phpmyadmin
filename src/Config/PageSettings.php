@@ -11,7 +11,6 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Forms\Page\PageFormList;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\UserPreferences;
 
 use function __;
 

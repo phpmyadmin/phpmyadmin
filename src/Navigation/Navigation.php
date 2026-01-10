@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Navigation;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\Config\UserPreferences;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Current;
@@ -21,7 +22,6 @@ use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\UserPrivilegesFactory;
 use PhpMyAdmin\Util;
 
@@ -100,9 +100,13 @@ class Navigation
             }
 
             if (self::$isSettingsEnabled) {
-                $pageSettings = new PageSettings(
-                    new UserPreferences($this->dbi, new Relation($this->dbi), $this->template),
+                $userPreferences = new UserPreferences(
+                    $this->dbi,
+                    new Relation($this->dbi, $this->config),
+                    $this->template,
+                    $this->config,
                 );
+                $pageSettings = new PageSettings($userPreferences);
                 $pageSettings->init('Navi', 'pma_navigation_settings');
                 $response->addHTML($pageSettings->getErrorHTML());
                 $navigationSettings = $pageSettings->getHTML();

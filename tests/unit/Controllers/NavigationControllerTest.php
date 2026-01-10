@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\Config\UserPreferences;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\NavigationController;
 use PhpMyAdmin\Current;
@@ -16,7 +17,6 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
-use PhpMyAdmin\UserPreferences;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 use function sprintf;
@@ -118,13 +118,13 @@ class NavigationControllerTest extends AbstractTestCase
         );
 
         $responseRenderer = new ResponseRenderer();
-        $template = new Template();
-        $relation = new Relation($this->dbi);
+        $template = new Template($config);
+        $relation = new Relation($this->dbi, $config);
         $navigationController = new NavigationController(
             $responseRenderer,
             new Navigation($template, $relation, $this->dbi, $config),
             $relation,
-            new PageSettings(new UserPreferences($this->dbi, $relation, $template)),
+            new PageSettings(new UserPreferences($this->dbi, $relation, $template, $config)),
         );
 
         $_POST['full'] = '1';
@@ -267,13 +267,13 @@ class NavigationControllerTest extends AbstractTestCase
         );
 
         $responseRenderer = new ResponseRenderer();
-        $template = new Template();
-        $relation = new Relation($this->dbi);
+        $template = new Template($config);
+        $relation = new Relation($this->dbi, $config);
         $navigationController = new NavigationController(
             $responseRenderer,
             new Navigation($template, $relation, $this->dbi, $config),
             $relation,
-            new PageSettings(new UserPreferences($this->dbi, $relation, $template)),
+            new PageSettings(new UserPreferences($this->dbi, $relation, $template, $config)),
         );
 
         $_POST['full'] = '1';

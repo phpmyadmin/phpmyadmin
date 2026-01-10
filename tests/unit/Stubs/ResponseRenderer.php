@@ -13,6 +13,8 @@ namespace PhpMyAdmin\Tests\Stubs;
 
 use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Config\UserPreferences;
+use PhpMyAdmin\Config\UserPreferencesHandler;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Console\Console;
 use PhpMyAdmin\Console\History;
@@ -23,9 +25,10 @@ use PhpMyAdmin\Footer;
 use PhpMyAdmin\Header;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
+use PhpMyAdmin\I18n\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\UserPreferences;
+use PhpMyAdmin\Theme\ThemeManager;
 
 use function is_array;
 use function json_encode;
@@ -57,15 +60,22 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
         $dummyDbi = new DbiDummy();
         $dummyDbi->addSelectDb('phpmyadmin');
         $dbi = DatabaseInterface::getInstanceForTest($dummyDbi, $config);
-        $relation = new Relation($dbi);
+        $relation = new Relation($dbi, $config);
         $history = new History($dbi, $relation, $config);
         $console = new Console($relation, $template, new BookmarkRepository($dbi, $relation), $history);
-        $userPreferences = new UserPreferences($dbi, $relation, $template);
+        $userPreferences = new UserPreferences($dbi, $relation, $template, $config);
+        $userPreferencesHandler = new UserPreferencesHandler(
+            $config,
+            $dbi,
+            $userPreferences,
+            new LanguageManager($config),
+            new ThemeManager(),
+        );
 
         parent::__construct(
             $config,
             $template,
-            new Header($template, $console, $config, $dbi, $relation, $userPreferences),
+            new Header($template, $console, $config, $dbi, $relation, $userPreferences, $userPreferencesHandler),
             new Footer($template, $config),
             ErrorHandler::getInstance(),
             $dbi,

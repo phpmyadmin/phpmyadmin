@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Export;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Config\UserPreferences;
+use PhpMyAdmin\Config\UserPreferencesHandler;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
@@ -12,9 +14,12 @@ use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Export\Options;
 use PhpMyAdmin\Export\TemplateModel;
+use PhpMyAdmin\I18n\LanguageManager;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ExportType;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\Attributes\CoversClass;
 
@@ -37,10 +42,17 @@ class OptionsTest extends AbstractTestCase
         Current::$table = 'table';
         Current::$database = 'PMA';
 
-        $this->export = new Options(
-            new Relation($dbi),
-            new TemplateModel($dbi),
+        $config = Config::getInstance();
+        $relation = new Relation($dbi, $config);
+        $userPreferencesHandler = new UserPreferencesHandler(
+            $config,
+            $dbi,
+            new UserPreferences($dbi, $relation, new Template($config), $config),
+            new LanguageManager($config),
+            new ThemeManager(),
         );
+
+        $this->export = new Options($relation, new TemplateModel($dbi), $userPreferencesHandler);
     }
 
     protected function tearDown(): void
