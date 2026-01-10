@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-10-16 23:57-0300\n"
-"PO-Revision-Date: 2025-12-29 14:00+0000\n"
-"Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
+"PO-Revision-Date: 2026-01-11 12:25+0000\n"
+"Last-Translator: Jakkarach Dumdee <armada1@hotmail.co.th>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/5-2/th/>"
 "\n"
 "Language: th\n"
@@ -141,6 +141,8 @@ msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
+"เปิดใช้งานบันทึก log slow query โดยตั้งค่า {log_slow_queries} เป็น 'ON' เพื่อช่วยวิเคราะห์"
+"คำสั่งที่ทำงานช้า"
 
 #: libraries/advisory_rules_generic.php:88
 #, fuzzy
@@ -153,6 +155,8 @@ msgid ""
 "Enable slow query logging by setting {slow_query_log} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
+"เปิดใช้งานบันทึก Log slow query โดยตั้งค่า {slow_query_log} เป็น 'เปิด'. เพื่อช่วยวิเคราะห์"
+"คำสั่งที่ทำงานช้า"
 
 #: libraries/advisory_rules_generic.php:101
 #, fuzzy
@@ -229,21 +233,24 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:152
 msgid "'source' found in version_comment"
-msgstr ""
+msgstr "ตรวจพบคำว่า 'source' ใน version_comment"
 
 #: libraries/advisory_rules_generic.php:159
 msgid "The MySQL manual only is accurate for official MySQL binaries."
 msgstr ""
+"คู่มือ MySQL มีความถูกต้องเฉพาะสำหรับ MySQL ที่ติดตั้งจากแพ็กเกจอย่างเป็นทางการเท่านั้น"
 
 #: libraries/advisory_rules_generic.php:161
 msgid ""
 "Percona documentation is at <a href=\"https://www.percona.com/software/"
 "documentation/\">https://www.percona.com/software/documentation/</a>"
 msgstr ""
+"เอกสารประกอบของ Percona สามารถดูได้ที่ <a href=\"https://www.percona.com/"
+"software/documentation/\">https://www.percona.com/software/documentation/</a>"
 
 #: libraries/advisory_rules_generic.php:164
 msgid "'percona' found in version_comment"
-msgstr ""
+msgstr "ตรวจพบคำว่า 'percona' ใน version_comment"
 
 #: libraries/advisory_rules_generic.php:168
 msgid "MySQL Architecture"
@@ -284,6 +291,10 @@ msgid ""
 "5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query cache, "
 "especially if you have multiple replicas."
 msgstr ""
+"คุณกำลังใช้ MySQL Query cache กับฐานข้อมูลที่มีปริมาณการใช้งาน (traffic)ค่อนข้างสูง อาจคุ้มค่า"
+"ที่จะพิจารณาใช้ <a href=\"https://dev.mysql.com/doc/refman/5.6/en/ha-"
+"memcached.html\">memcached</a> แทนการใช้ MySQL Query cache โดยเฉพาะหากคุณมี "
+"replica (เซิร์ฟเวอร์สำรอง) หลายตัว"
 
 #: libraries/advisory_rules_generic.php:196
 #, php-format
