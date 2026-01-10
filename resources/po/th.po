@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-01-04 00:33+0000\n"
-"PO-Revision-Date: 2026-01-10 11:06+0000\n"
-"Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
+"PO-Revision-Date: 2026-01-11 00:33+0000\n"
+"Last-Translator: Jakkarach Dumdee <armada1@hotmail.co.th>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "th/>\n"
 "Language: th\n"
@@ -17,12 +17,12 @@ msgstr ""
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
-msgstr "ต้องเปิดใช้งาน JavaScript หลังจากจุดนี้!"
+msgstr "จำเป็นต้องเปิดใช้งาน JavaScript เพื่อใช้งานในส่วนถัดไป"
 
 #: resources/templates/base.twig:46
 #, fuzzy
 msgid "Open user account menu"
-msgstr "เพิ่มผู้ใช้"
+msgstr "เปิดเมนูผู้ใช้"
 
 #: resources/templates/base.twig:57 resources/templates/navigation/main.twig:35
 #: resources/templates/navigation/main.twig:36
@@ -32,15 +32,14 @@ msgstr "เอกสารประกอบของ phpMyAdmin"
 #: resources/templates/base.twig:62
 #, fuzzy
 msgid "MariaDB documentation"
-msgstr "เอกสารประกอบ"
+msgstr "เอกสารประกอบ MariaDB"
 
 #: resources/templates/base.twig:62
 #, fuzzy
 msgid "MySQL documentation"
-msgstr "เอกสารประกอบ"
+msgstr "เอกสารประกอบ MySQL"
 
 #: resources/templates/base.twig:73
-#, fuzzy
 msgid "Appearance:"
 msgstr "การตั้งค่าลักษณะ"
 
@@ -52,7 +51,7 @@ msgstr "โหมดสีสำหรับธีม"
 #, fuzzy
 msgctxt "Light color mode of the theme"
 msgid "Light"
-msgstr "ขวา"
+msgstr "สว่าง"
 
 #: resources/templates/base.twig:82 resources/templates/home/index.twig:156
 msgctxt "Dark color mode of the theme"
@@ -96,8 +95,9 @@ msgid "Currently running Git revision %1$s from the %2$s branch."
 msgstr "ขณะนี้กำลังใช้งาน Git revision %1$s จาก branch %2$s"
 
 #: resources/templates/base.twig:161
+#, fuzzy
 msgid "Git information missing!"
-msgstr "ข้อมูล Git หายไป!"
+msgstr "ข้อมูล Git ไม่สมบูรณ์!"
 
 #: resources/templates/columns_definitions/column_attributes.twig:31
 #: resources/templates/database/central_columns/edit_table_row.twig:23
@@ -292,8 +292,9 @@ msgstr "คอลัมน์"
 #: src/Controllers/Server/PrivilegesController.php:305
 #: src/Normalization.php:231 src/Tracking/Tracking.php:287
 #: src/Tracking/Tracking.php:402
+#, fuzzy
 msgid "Go"
-msgstr "ไป"
+msgstr "ไป(ยืนยัน)"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:68
 #: resources/templates/database/data_dictionary/index.twig:16
@@ -7839,8 +7840,8 @@ msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
-"เปิดใช้งานการบันทึกข้อมูลการทำงานของคำสั่งที่ช้าโดยตั้งค่า {log_slow_queries} เป็น 'ON' "
-"การตั้งค่านี้จะช่วยในการแก้ไขปัญหาคำสั่งที่ทำงานได้ไม่ดี"
+"เปิดใช้งานบันทึก log slow query โดยตั้งค่า {log_slow_queries} เป็น 'ON' เพื่อช่วยวิเคราะห์"
+"คำสั่งที่ทำงานช้า"
 
 #: src/Advisory/Rules.php:115
 msgid "log_slow_queries is set to 'OFF'"
@@ -7851,8 +7852,8 @@ msgid ""
 "Enable slow query logging by setting {slow_query_log} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
-"เปิดใช้งานการบันทึกข้อมูลการทำงานของคำสั่งที่ช้าโดยตั้งค่า {slow_query_log} เป็น 'ON' "
-"การตั้งค่านี้จะช่วยในการแก้ไขปัญหาคำสั่งที่ทำงานได้ไม่ดี"
+"เปิดใช้งานบันทึก Log slow query โดยตั้งค่า {slow_query_log} เป็น 'เปิด'. เพื่อช่วยวิเคราะห์"
+"คำสั่งที่ทำงานช้า"
 
 #: src/Advisory/Rules.php:128
 msgid "slow_query_log is set to 'OFF'"
@@ -7924,23 +7925,24 @@ msgstr ""
 
 #: src/Advisory/Rules.php:179
 msgid "'source' found in version_comment"
-msgstr "พบ 'source' ใน version_comment"
+msgstr "ตรวจพบคำว่า 'source' ใน version_comment"
 
 #: src/Advisory/Rules.php:186
 msgid "The MySQL manual only is accurate for official MySQL binaries."
-msgstr "คู่มือ MySQL มีความถูกต้องเฉพาะสำหรับไฟล์ไบนารี MySQL อย่างเป็นทางการเท่านั้น"
+msgstr ""
+"คู่มือ MySQL มีความถูกต้องเฉพาะสำหรับ MySQL ที่ติดตั้งจากแพ็กเกจอย่างเป็นทางการเท่านั้น"
 
 #: src/Advisory/Rules.php:188
 msgid ""
 "Percona documentation is at <a href=\"https://www.percona.com/software/"
 "documentation/\">https://www.percona.com/software/documentation/</a>"
 msgstr ""
-"เอกสารประกอบการใช้งาน Percona อยู่ที่ <a href=\"https://www.percona.com/software/"
-"documentation/\">https://www.percona.com/software/documentation/</a>"
+"เอกสารประกอบของ Percona สามารถดูได้ที่ <a href=\"https://www.percona.com/"
+"software/documentation/\">https://www.percona.com/software/documentation/</a>"
 
 #: src/Advisory/Rules.php:191
 msgid "'percona' found in version_comment"
-msgstr "พบ 'percona' ใน version_comment"
+msgstr "ตรวจพบคำว่า 'percona' ใน version_comment"
 
 #: src/Advisory/Rules.php:195
 msgid "MySQL Architecture"
@@ -7980,9 +7982,10 @@ msgid ""
 "5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query cache, "
 "especially if you have multiple replicas."
 msgstr ""
-"คุณกำลังใช้แคช MySQL Query กับฐานข้อมูลที่มีปริมาณการใช้งานค่อนข้างสูง อาจคุ้มค่าที่จะพิจารณาใช้ "
-"<a href=\"https://dev.mysql.com/doc/refman/5.6/en/ha-memcached.html\">"
-"memcached</a> แทนแคช MySQL Query โดยเฉพาะอย่างยิ่งหากคุณมีการจำลองฐานข้อมูลหลายชุด"
+"คุณกำลังใช้ MySQL Query cache กับฐานข้อมูลที่มีปริมาณการใช้งาน (traffic)ค่อนข้างสูง อาจคุ้มค่า"
+"ที่จะพิจารณาใช้ <a href=\"https://dev.mysql.com/doc/refman/5.6/en/ha-"
+"memcached.html\">memcached</a> แทนการใช้ MySQL Query cache โดยเฉพาะหากคุณมี "
+"replica (เซิร์ฟเวอร์สำรอง) หลายตัว"
 
 #: src/Advisory/Rules.php:223
 #, php-format
