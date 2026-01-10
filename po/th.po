@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2026-01-05 10:01+0000\n"
-"Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
+"PO-Revision-Date: 2026-01-11 12:25+0000\n"
+"Last-Translator: Jakkarach Dumdee <armada1@hotmail.co.th>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/4-9/th/>"
 "\n"
 "Language: th\n"
@@ -16112,8 +16112,8 @@ msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
-"เปิดใช้งานการบันทึกข้อมูลการทำงานของคำสั่งที่ช้าโดยตั้งค่า {log_slow_queries} เป็น 'ON' การตั้"
-"งค่านี้จะช่วยในการแก้ไขปัญหาคำสั่งที่ทำงานได้ไม่ดี"
+"เปิดใช้งานบันทึก log slow query โดยตั้งค่า {log_slow_queries} เป็น 'ON' เพื่อช่วยวิเคราะห์"
+"คำสั่งที่ทำงานช้า"
 
 #: libraries/advisory_rules_generic.txt:89
 msgid "log_slow_queries is set to 'OFF'"
@@ -16124,8 +16124,8 @@ msgid ""
 "Enable slow query logging by setting {slow_query_log} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
-"เปิดใช้งานการบันทึกข้อมูลการทำงานของคำสั่งที่ช้าโดยตั้งค่า {slow_query_log} เป็น 'ON' การตั้งค่"
-"านี้จะช่วยในการแก้ไขปัญหาคำสั่งที่ทำงานได้ไม่ดี"
+"เปิดใช้งานบันทึก Log slow query โดยตั้งค่า {slow_query_log} เป็น 'เปิด'. เพื่อช่วยวิเคราะห์"
+"คำสั่งที่ทำงานช้า"
 
 #: libraries/advisory_rules_generic.txt:96
 msgid "slow_query_log is set to 'OFF'"
@@ -16200,24 +16200,24 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.txt:126
 msgid "'source' found in version_comment"
-msgstr "พบ 'source' ใน version_comment"
+msgstr "ตรวจพบคำว่า 'source' ใน version_comment"
 
 #: libraries/advisory_rules_generic.txt:131
 msgid "The MySQL manual only is accurate for official MySQL binaries."
 msgstr ""
-"คู่มือ MySQL มีความถูกต้องเฉพาะสำหรับไฟล์ไบนารี MySQL อย่างเป็นทางการเท่านั้น"
+"คู่มือ MySQL มีความถูกต้องเฉพาะสำหรับ MySQL ที่ติดตั้งจากแพ็กเกจอย่างเป็นทางการเท่านั้น"
 
 #: libraries/advisory_rules_generic.txt:132
 msgid ""
 "Percona documentation is at <a href=\"https://www.percona.com/software/"
 "documentation/\">https://www.percona.com/software/documentation/</a>"
 msgstr ""
-"เอกสารประกอบการใช้งาน Percona อยู่ที่ <a href=\"https://www.percona.com/software/"
-"documentation/\">https://www.percona.com/software/documentation/</a>"
+"เอกสารประกอบของ Percona สามารถดูได้ที่ <a href=\"https://www.percona.com/"
+"software/documentation/\">https://www.percona.com/software/documentation/</a>"
 
 #: libraries/advisory_rules_generic.txt:133
 msgid "'percona' found in version_comment"
-msgstr "พบ 'percona' ใน version_comment"
+msgstr "ตรวจพบคำว่า 'percona' ใน version_comment"
 
 #: libraries/advisory_rules_generic.txt:135
 msgid "MySQL Architecture"
