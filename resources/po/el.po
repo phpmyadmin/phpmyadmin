@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-01-04 00:33+0000\n"
+"POT-Creation-Date: 2026-01-11 00:32+0000\n"
 "PO-Revision-Date: 2026-01-03 06:36+0000\n"
 "Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -57,7 +57,7 @@ msgstr "Σκοτεινό"
 #: resources/templates/base.twig:95
 #: resources/templates/server/status/monitor/index.twig:8
 #: src/Controllers/JavaScriptMessagesController.php:215 src/Menu.php:475
-#: src/Util.php:1359
+#: src/Util.php:1363
 msgid "Settings"
 msgstr "Ρυθμίσεις"
 
@@ -584,8 +584,8 @@ msgstr "Κόμβος ομάδας"
 #: src/Import/Import.php:1168 src/Menu.php:214 src/Menu.php:318
 #: src/Navigation/Nodes/NodeColumn.php:37
 #: src/Navigation/Nodes/NodeDatabase.php:59
-#: src/Navigation/Nodes/NodeTable.php:268 src/Util.php:1058 src/Util.php:1368
-#: src/Util.php:1385
+#: src/Navigation/Nodes/NodeTable.php:268 src/Util.php:1062 src/Util.php:1372
+#: src/Util.php:1389
 msgid "Structure"
 msgstr "Δομή"
 
@@ -627,7 +627,7 @@ msgstr "Όνομα"
 #: resources/templates/table/structure/display_structure.twig:473
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:7
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:6
-#: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:259
+#: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:258
 #: src/Plugins/Export/ExportHtmlword.php:238
 #: src/Plugins/Export/ExportHtmlword.php:311
 #: src/Plugins/Export/ExportLatex.php:467 src/Plugins/Export/ExportOdt.php:334
@@ -1011,7 +1011,7 @@ msgstr "Επανερώτημα"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:379
-#: src/Display/Results.php:1804 src/Html/Generator.php:520
+#: src/Display/Results.php:1871 src/Html/Generator.php:520
 #: src/Html/Generator.php:789
 msgid "Edit"
 msgstr "Επεξεργασία"
@@ -1030,7 +1030,7 @@ msgstr "Επεξεργασία"
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:189
 #: src/Controllers/JavaScriptMessagesController.php:381
-#: src/Display/Results.php:2427 src/Tracking/Tracking.php:224
+#: src/Display/Results.php:2409 src/Tracking/Tracking.php:224
 msgid "Delete"
 msgstr "Διαγραφή"
 
@@ -1203,7 +1203,7 @@ msgstr "Χρόνος που παρήλθε:"
 #: resources/templates/console/display.twig:133
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
-#: src/Config/Descriptions.php:928 src/Export/Export.php:725
+#: src/Config/Descriptions.php:928 src/Export/Export.php:741
 #: src/Html/Generator.php:576
 msgid "Refresh"
 msgstr "Ανανέωση"
@@ -1768,7 +1768,7 @@ msgstr "Όνομα συμβάντος"
 #: resources/templates/table/tracking/main.twig:31
 #: src/Config/ConfigFile.php:578
 #: src/Controllers/JavaScriptMessagesController.php:275 src/Menu.php:446
-#: src/Server/Status/Processes.php:106 src/Util.php:1355
+#: src/Server/Status/Processes.php:106 src/Util.php:1359
 msgid "Status"
 msgstr "Κατάσταση"
 
@@ -1836,7 +1836,7 @@ msgstr "Οριστής"
 #: src/Navigation/Nodes/NodeEventContainer.php:22
 #: src/Navigation/Nodes/NodeEventContainer.php:24
 #: src/Plugins/Export/ExportSql.php:996 src/Plugins/Export/ExportXml.php:96
-#: src/Util.php:1377
+#: src/Util.php:1381
 msgid "Events"
 msgstr "Συμβάντα"
 
@@ -1898,7 +1898,7 @@ msgstr "Επιλογή όλων"
 #: src/Config/Forms/User/ExportForm.php:148
 #: src/Controllers/JavaScriptMessagesController.php:361 src/Menu.php:241
 #: src/Menu.php:343 src/Menu.php:465 src/Server/Privileges.php:1283
-#: src/Util.php:1357 src/Util.php:1372 src/Util.php:1389
+#: src/Util.php:1361 src/Util.php:1376 src/Util.php:1393
 msgid "Export"
 msgstr "Εξαγωγή"
 
@@ -2009,7 +2009,7 @@ msgid "Exporting tables from \"%s\" database"
 msgstr "Εξαγωγή πινάκων από τη βάση δεδομένων «%s»"
 
 #: resources/templates/database/export/index.twig:14
-#: src/Navigation/Navigation.php:220
+#: src/Navigation/Navigation.php:224
 msgid "Tables:"
 msgstr "Πίνακες:"
 
@@ -2066,7 +2066,7 @@ msgstr "επιλογή στήλης"
 #: resources/templates/database/tracking/tables.twig:19
 #: resources/templates/table/tracking/main.twig:33
 #: src/Controllers/JavaScriptMessagesController.php:693
-#: src/Controllers/Table/ChangeController.php:211
+#: src/Controllers/Table/ChangeController.php:223
 msgid "Show"
 msgstr "Εμφάνιση"
 
@@ -2087,7 +2087,7 @@ msgid "criteria"
 msgstr "κριτήρια"
 
 #: resources/templates/database/multi_table_query/form.twig:56
-#: src/Util.php:1625
+#: src/Util.php:1629
 msgid "Sort"
 msgstr "Ταξινόμηση"
 
@@ -2099,7 +2099,7 @@ msgstr "Ταξινόμηση"
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:158
 #: src/Config/ConfigFile.php:554 src/Display/Results.php:1391
-#: src/Display/Results.php:1397 src/Util.php:1633 src/Util.php:1650
+#: src/Display/Results.php:1397 src/Util.php:1637 src/Util.php:1654
 msgid "Ascending"
 msgstr "Αύξουσα"
 
@@ -2111,7 +2111,7 @@ msgstr "Αύξουσα"
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:162
 #: src/Config/ConfigFile.php:554 src/Display/Results.php:1386
-#: src/Display/Results.php:1402 src/Util.php:1638 src/Util.php:1655
+#: src/Display/Results.php:1402 src/Util.php:1642 src/Util.php:1659
 msgid "Descending"
 msgstr "Φθίνουσα"
 
@@ -2300,7 +2300,7 @@ msgstr "Όνομασία φιλοξενητή"
 #: resources/templates/table/privileges/index.twig:22
 #: src/Config/ConfigFile.php:582
 #: src/Controllers/Server/PrivilegesController.php:429 src/Menu.php:257
-#: src/Menu.php:365 src/Util.php:1375 src/Util.php:1391
+#: src/Menu.php:365 src/Util.php:1379 src/Util.php:1395
 msgid "Privileges"
 msgstr "Δικαιώματα"
 
@@ -2448,7 +2448,7 @@ msgstr "Παράμετροι ρουτίνας"
 
 #: resources/templates/database/routines/execute_form.twig:19
 #: resources/templates/table/search/index.twig:36
-#: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:258
+#: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:257
 #: src/Navigation/Nodes/NodeFunction.php:26
 msgid "Function"
 msgstr "Συνάρτηση"
@@ -2458,7 +2458,7 @@ msgid "This routine does not require any parameters."
 msgstr "Αυτή η ρουτίνα δεν απαιτεί καμία παράμετρο."
 
 #: resources/templates/database/routines/index.twig:3 src/Menu.php:371
-#: src/Util.php:1376
+#: src/Util.php:1380
 msgid "Routines"
 msgstr "Εργασίες"
 
@@ -2470,8 +2470,8 @@ msgstr "Εργασίες"
 #: resources/templates/server/databases/index.twig:77
 #: src/Config/ConfigFile.php:522 src/Config/ConfigFile.php:536
 #: src/Config/ConfigFile.php:590 src/Config/ConfigFile.php:600 src/Menu.php:223
-#: src/Menu.php:327 src/Navigation/Nodes/NodeTable.php:269 src/Util.php:1060
-#: src/Util.php:1370 src/Util.php:1387
+#: src/Menu.php:327 src/Navigation/Nodes/NodeTable.php:269 src/Util.php:1064
+#: src/Util.php:1374 src/Util.php:1391
 msgid "Search"
 msgstr "Αναζήτηση"
 
@@ -2585,7 +2585,7 @@ msgstr[1] "%1$s αποτελέσματα στο <strong>%2$s</strong>"
 #: resources/templates/table/structure/display_structure.twig:271
 #: src/Config/ConfigFile.php:526 src/Config/ConfigFile.php:540
 #: src/Config/ConfigFile.php:604 src/Menu.php:207
-#: src/Navigation/Nodes/NodeTable.php:272 src/Util.php:1062 src/Util.php:1384
+#: src/Navigation/Nodes/NodeTable.php:272 src/Util.php:1066 src/Util.php:1388
 msgid "Browse"
 msgstr "Περιήγηση"
 
@@ -2610,7 +2610,7 @@ msgstr[1] "%s πίνακες"
 #: resources/templates/database/structure/body_for_table_summary.twig:8
 #: resources/templates/database/structure/table_header.twig:10
 #: resources/templates/server/replication/index.twig:5 src/Menu.php:497
-#: src/Server/Status/Data.php:124 src/Util.php:1361
+#: src/Server/Status/Data.php:124 src/Util.php:1365
 msgid "Replication"
 msgstr "Αναπαραγωγή"
 
@@ -2716,7 +2716,7 @@ msgid "Copy table with prefix"
 msgstr "Αντιγραφή πίνακα με πρόθεμα"
 
 #: resources/templates/database/structure/check_all_tables.twig:32
-#: src/Menu.php:405 src/Util.php:1381
+#: src/Menu.php:405 src/Util.php:1385
 msgid "Central columns"
 msgstr "Κεντρικές στήλες"
 
@@ -2794,7 +2794,7 @@ msgstr "Λεξικό δεδομένων"
 #: resources/templates/navigation/tree/path.twig:9
 #: src/Controllers/Database/ExportController.php:73
 #: src/Controllers/Database/TrackingController.php:124
-#: src/Controllers/Export/ExportController.php:281
+#: src/Controllers/Export/ExportController.php:283
 msgid "No tables found in database."
 msgstr "Δεν βρέθηκαν πίνακες στη βάση δεδομένων."
 
@@ -2863,7 +2863,7 @@ msgstr "Αναπαραγμένο"
 #: resources/templates/database/structure/structure_table_row.twig:59
 #: resources/templates/sql/query.twig:76 src/Config/ConfigFile.php:524
 #: src/Config/ConfigFile.php:538 src/Config/ConfigFile.php:602 src/Menu.php:234
-#: src/Navigation/Nodes/NodeTable.php:270 src/Util.php:1061 src/Util.php:1388
+#: src/Navigation/Nodes/NodeTable.php:270 src/Util.php:1065 src/Util.php:1392
 msgid "Insert"
 msgstr "Προσθήκη"
 
@@ -3125,7 +3125,7 @@ msgstr "Καλά Γνωστό Δυαδικό"
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:467
-#: src/Display/Results.php:1805 src/Html/Generator.php:84
+#: src/Display/Results.php:1872 src/Html/Generator.php:84
 msgid "Copy"
 msgstr "Αντιγραφή"
 
@@ -3136,7 +3136,7 @@ msgstr "Λειτουργίες αποτελεσμάτων ερωτήματος"
 
 #: resources/templates/display/results/table.twig:353
 #: src/Controllers/JavaScriptMessagesController.php:466
-#: src/Export/Export.php:744
+#: src/Export/Export.php:760
 msgid "Copy to clipboard"
 msgstr "Αντιγραφή στο πρόχειρο"
 
@@ -3166,7 +3166,7 @@ msgstr "Μετατροπή σε Kana"
 #: src/Controllers/Table/Partition/DropController.php:56
 #: src/Controllers/Table/Partition/RebuildController.php:56
 #: src/Controllers/Table/Partition/TruncateController.php:56
-#: src/Html/Generator.php:740 src/Import/Import.php:119 src/InsertEdit.php:423
+#: src/Html/Generator.php:740 src/Import/Import.php:119 src/InsertEdit.php:422
 #: src/Message.php:138
 msgid "Error"
 msgstr "Σφάλμα"
@@ -3675,7 +3675,7 @@ msgstr "Πάρτε το"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:411
-#: src/Export/Export.php:767 src/Html/Generator.php:855
+#: src/Export/Export.php:783 src/Html/Generator.php:855
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "Επιστροφή"
@@ -3686,7 +3686,7 @@ msgstr "Επιστροφή"
 #: resources/templates/server/status/monitor/index.twig:53
 #: resources/templates/server/status/monitor/index.twig:69
 #: src/Config/Forms/User/ImportForm.php:58 src/Menu.php:250 src/Menu.php:353
-#: src/Menu.php:470 src/Util.php:1358 src/Util.php:1373 src/Util.php:1390
+#: src/Menu.php:470 src/Util.php:1362 src/Util.php:1377 src/Util.php:1394
 msgid "Import"
 msgstr "Εισαγωγή"
 
@@ -3727,7 +3727,7 @@ msgid "You may also drag and drop a file on any page."
 msgstr "Μπορείτε να σύρετε και να αφήσετε ένα αρχείο σε οποιαδήποτε σελίδα."
 
 #: resources/templates/import.twig:56 resources/templates/import.twig:80
-#: src/InsertEdit.php:424
+#: src/InsertEdit.php:423
 msgid "The directory you set for upload work cannot be reached."
 msgstr ""
 "Ο φάκελος που ορίσατε για την αποθήκευση αρχείων δεν μπόρεσε να βρεθεί."
@@ -4060,7 +4060,7 @@ msgstr "Αποστολή SQL"
 #: resources/templates/server/export/index.twig:14
 #: resources/templates/server/privileges/user_properties.twig:20
 #: src/Config/ConfigFile.php:576 src/Config/Descriptions.php:728
-#: src/Config/Descriptions.php:739 src/Menu.php:436 src/Util.php:1353
+#: src/Config/Descriptions.php:739 src/Menu.php:436 src/Util.php:1357
 msgid "Databases"
 msgstr "Βάσεις δεδομένων"
 
@@ -4568,7 +4568,7 @@ msgstr ""
 "ρυθμίσεων."
 
 #: resources/templates/server/binlog/index.twig:3 src/Menu.php:490
-#: src/Server/Status/Data.php:119 src/Util.php:1360
+#: src/Server/Status/Data.php:119 src/Util.php:1364
 msgid "Binary log"
 msgstr "Δυαδικό αρχείο καταγραφής"
 
@@ -4780,7 +4780,7 @@ msgstr "Αναμονές εγγραφής σε ποσοστό"
 #: resources/templates/server/engines/show.twig:18
 #: resources/templates/server/engines/show.twig:21
 #: resources/templates/sql/query.twig:194 src/Config/ConfigFile.php:580
-#: src/Menu.php:503 src/Server/Status/Data.php:186 src/Util.php:1362
+#: src/Menu.php:503 src/Server/Status/Data.php:186 src/Util.php:1366
 msgid "Variables"
 msgstr "Μεταβλητές"
 
@@ -4801,7 +4801,7 @@ msgid "Importing into the current server"
 msgstr "Εισαγωγή στον τρέχοντα διακομιστή"
 
 #: resources/templates/server/plugins/index.twig:4 src/Menu.php:518
-#: src/Util.php:1364
+#: src/Util.php:1368
 msgid "Plugins"
 msgstr "Πρόσθετα"
 
@@ -5110,7 +5110,7 @@ msgstr "Επιτρέπει την ανάγνωση δεδομένων."
 #: resources/templates/server/privileges/privileges_table.twig:60
 #: resources/templates/server/privileges/privileges_table.twig:87
 #: resources/templates/server/privileges/privileges_table.twig:114
-#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:432
+#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:431
 msgid "Or"
 msgstr "Ενωση"
 
@@ -6207,7 +6207,7 @@ msgid "Query analyzer"
 msgstr "Αναλυτής ερωτήματος"
 
 #: resources/templates/server/status/monitor/index.twig:273 src/Menu.php:335
-#: src/Util.php:1371
+#: src/Util.php:1375
 msgid "Query"
 msgstr "Επερώτημα κατά παράδειγμα"
 
@@ -6322,7 +6322,7 @@ msgid "Start auto refresh"
 msgstr "Έναρξη αυτόματης ανανέωσης"
 
 #: resources/templates/server/status/processes/list.twig:44
-#: src/Display/Results.php:2446
+#: src/Display/Results.php:2427
 msgid "Kill"
 msgstr "Τερματισμός"
 
@@ -6728,7 +6728,7 @@ msgstr "Αποτελέμσατα προφίλ"
 #: src/Controllers/Table/Partition/RepairController.php:49
 #: src/Controllers/Table/Partition/TruncateController.php:50
 #: src/Controllers/Table/RelationController.php:143
-#: src/Database/Routines.php:1019 src/Display/Results.php:3012
+#: src/Database/Routines.php:1019 src/Display/Results.php:2991
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "Η εντολή SQL εκτελέσθηκε επιτυχώς."
@@ -7040,7 +7040,7 @@ msgstr "Σύρτε για ανακατανομή"
 #: resources/templates/table/index_form.twig:203
 #: src/Controllers/JavaScriptMessagesController.php:465
 #: src/Controllers/JavaScriptMessagesController.php:617
-#: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1420
+#: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1411
 msgid "Ignore"
 msgstr "Παράληψη"
 
@@ -7248,7 +7248,7 @@ msgstr "Έλεγχος αναφορικής ακεραιότητας"
 
 #: resources/templates/table/operations/view.twig:8
 #: src/Config/ConfigFile.php:592 src/Menu.php:268 src/Menu.php:278
-#: src/Menu.php:358 src/Util.php:1063 src/Util.php:1374 src/Util.php:1392
+#: src/Menu.php:358 src/Util.php:1067 src/Util.php:1378 src/Util.php:1396
 msgid "Operations"
 msgstr "Λειτουργίες"
 
@@ -7723,7 +7723,7 @@ msgstr "Εξαγωγή της ενέργειας %s"
 #: src/Plugins/Export/ExportOdt.php:579 src/Plugins/Export/ExportPdf.php:178
 #: src/Plugins/Export/ExportSql.php:1899
 #: src/Plugins/Export/ExportTexytext.php:416
-#: src/Plugins/Export/ExportXml.php:116 src/Util.php:1378 src/Util.php:1394
+#: src/Plugins/Export/ExportXml.php:116 src/Util.php:1382 src/Util.php:1398
 msgid "Triggers"
 msgstr "Δείκτες"
 
@@ -9398,8 +9398,8 @@ msgstr "Βιετναμέζικα"
 #: src/Config/ConfigFile.php:520 src/Config/ConfigFile.php:534
 #: src/Config/ConfigFile.php:588 src/Config/ConfigFile.php:598
 #: src/Config/Descriptions.php:755 src/Menu.php:219 src/Menu.php:323
-#: src/Menu.php:441 src/Navigation/Nodes/NodeTable.php:271 src/Util.php:1059
-#: src/Util.php:1354 src/Util.php:1369 src/Util.php:1386
+#: src/Menu.php:441 src/Navigation/Nodes/NodeTable.php:271 src/Util.php:1063
+#: src/Util.php:1358 src/Util.php:1373 src/Util.php:1390
 msgid "SQL"
 msgstr "Κώδικας SQL"
 
@@ -12175,18 +12175,18 @@ msgstr "CSV με χρήση LOAD DATA"
 msgid "Default transformations"
 msgstr "Προεπιλεγμένες μετατροπές"
 
-#: src/Config/PageSettings.php:123
+#: src/Config/PageSettings.php:122
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr ""
 "Αδύνατη η αποθήκευση ρυθμίσεων γιατί η υποβλειθείσα ρύθμιση περιέχει "
 "σφάλματα!"
 
-#: src/Config.php:435
+#: src/Config.php:250
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Το υπαρχον αρχείο ρυθμίσεων (%s) δεν είναι αναγνώσιμο."
 
-#: src/Config.php:468
+#: src/Config.php:283
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Εσφαλμένα δικαιώματα στο αρχείο ρυθμίσεων, δεν πρέπει να είναι καθολικά "
@@ -12369,6 +12369,15 @@ msgstr "Καρτέλες επιπέδου βάσης δεδομένων"
 msgid "Table-level tabs"
 msgstr "Καρτέλες επιπέδου πίνακα"
 
+#: src/Config/UserPreferences.php:176
+msgid "Could not save configuration"
+msgstr "Αδύνατη η αποθήκευση ρυθμίσεων"
+
+#: src/Config/UserPreferences.php:187
+msgid "The phpMyAdmin configuration storage database could not be accessed."
+msgstr ""
+"Η βάση δεδομένων αποθήκευσης ρυθμίσεων του phpMyAdmin δεν ήταν προσβάσιμη."
+
 #: src/Config/Validator.php:251
 msgid "Could not connect to the database server!"
 msgstr "Αδύνατη η σύνδεση με τον διακομιστή βάσης δεδομένων!"
@@ -12480,7 +12489,7 @@ msgstr "Ο πίνακας %1$s αλλάχτηκε επιτυχώς."
 
 #: src/Controllers/Console/UpdateConfigController.php:73
 #: src/Controllers/Console/UpdateConfigController.php:112
-#: src/Controllers/Navigation/UpdateNavWidthConfigController.php:30
+#: src/Controllers/Navigation/UpdateNavWidthConfigController.php:32
 #, fuzzy
 #| msgid "Unexpected character."
 msgid "Unexpected parameter value."
@@ -12736,7 +12745,7 @@ msgid "Success!"
 msgstr "Επιτυχία!"
 
 #: src/Controllers/Database/StructureController.php:566
-#: src/Display/Results.php:3298
+#: src/Display/Results.php:3277
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -12804,7 +12813,7 @@ msgstr ""
 msgid "You may want to refresh the page."
 msgstr "Ίσως θέλετε να ανανεώσετε τη σελίδα."
 
-#: src/Controllers/Export/ExportController.php:116 src/Export/Export.php:705
+#: src/Controllers/Export/ExportController.php:118 src/Export/Export.php:721
 msgid "Bad type!"
 msgstr "Μη έγκυρος τύπος!"
 
@@ -14528,7 +14537,7 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "Ο πίνακας %s υπάρχει ήδη!"
 
-#: src/Controllers/JavaScriptMessagesController.php:692 src/InsertEdit.php:243
+#: src/Controllers/JavaScriptMessagesController.php:692 src/InsertEdit.php:242
 #: src/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "Απόκρυψη"
@@ -15071,15 +15080,15 @@ msgstr ""
 "Οι επιπρόσθετες λειτουργίες για εργασία με συσχετισμένους πίνακες έχουν "
 "απενεργοποιηθεί. %sΜάθετε γιατί%s."
 
-#: src/Controllers/Preferences/ManageController.php:87
+#: src/Controllers/Preferences/ManageController.php:89
 msgid "phpMyAdmin configuration snippet"
 msgstr "Απόσπασμα ρυθμίσεων του phpMyAdmin"
 
-#: src/Controllers/Preferences/ManageController.php:88
+#: src/Controllers/Preferences/ManageController.php:90
 msgid "Paste it to your config.inc.php"
 msgstr "Επικολλήστε το στο config.inc.php"
 
-#: src/Controllers/Preferences/ManageController.php:137
+#: src/Controllers/Preferences/ManageController.php:139
 msgid "Could not import configuration"
 msgstr "Αδύνατη η εισαγωγή ρυθμίσεων"
 
@@ -15093,7 +15102,7 @@ msgstr "Η πιστοποίηση δύο-παραγόντων έχει ρυθμ�
 
 #: src/Controllers/SchemaExportController.php:40
 #: src/Controllers/Server/UserGroupsFormController.php:46
-#: src/ResponseRenderer.php:449
+#: src/ResponseRenderer.php:448
 msgid "Missing parameter:"
 msgstr "Απολεσθείσα παράμετρος:"
 
@@ -16206,7 +16215,7 @@ msgstr ""
 "Η αποθήκευση ρυθμίσεων δεν είναι έτοιμη για το χαρακτηριστικό κεντρικής "
 "λίστας στηλών."
 
-#: src/Database/Designer/Common.php:445
+#: src/Database/Designer/Common.php:447
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
 "on designer when user tries to set a display field."
@@ -16216,47 +16225,47 @@ msgstr ""
 "Η αποθήκευση ρυθμίσεων του phpMyAdmin δεν έχει ρυθμιστεί για «Προβολή "
 "Χαρακτηριστικών»."
 
-#: src/Database/Designer/Common.php:487
+#: src/Database/Designer/Common.php:489
 msgid "Error: relationship already exists."
 msgstr "Σφάλμα: η συσχέτιση υπαρχει ήδη."
 
-#: src/Database/Designer/Common.php:528
+#: src/Database/Designer/Common.php:530
 msgid "FOREIGN KEY relationship has been added."
 msgstr "Έχει προστεθεί η συσχέτιση FOREIGN KEY."
 
-#: src/Database/Designer/Common.php:533
+#: src/Database/Designer/Common.php:535
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "Σφάλμα: Δεν μπόρεσε να προστεθεί η συσχέτιση FOREIGN KEY!"
 
-#: src/Database/Designer/Common.php:536
+#: src/Database/Designer/Common.php:538
 msgid "Error: Missing index on column(s)."
 msgstr "Σφάλμα: Ανύπαρκτο ευρετήριο στη(ις) στήλη(ες)."
 
-#: src/Database/Designer/Common.php:541 src/Database/Designer/Common.php:603
+#: src/Database/Designer/Common.php:543 src/Database/Designer/Common.php:605
 msgid "Error: Relational features are disabled!"
 msgstr "Σφάλμα: Τα χαρακτηριστικά συσχέτισης είναι απεπεργοποιημένα!"
 
-#: src/Database/Designer/Common.php:562
+#: src/Database/Designer/Common.php:564
 msgid "Internal relationship has been added."
 msgstr "Η εσωτερική συσχέτιση έχει προστεθεί."
 
-#: src/Database/Designer/Common.php:567
+#: src/Database/Designer/Common.php:569
 msgid "Error: Internal relationship could not be added!"
 msgstr "Σφάλμα: Δεν μπόρεσε να προστεθεί η εσωτερική συσχέτιση!"
 
-#: src/Database/Designer/Common.php:597
+#: src/Database/Designer/Common.php:599
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "Έχει απομακρυνθεί η συσχέτιση FOREIGN KEY."
 
-#: src/Database/Designer/Common.php:622
+#: src/Database/Designer/Common.php:624
 msgid "Error: Internal relationship could not be removed!"
 msgstr "Σφάλμα: Δεν μπόρεσε να απομακρυνθεί η εσωτερική συσχέτιση!"
 
-#: src/Database/Designer/Common.php:625
+#: src/Database/Designer/Common.php:627
 msgid "Internal relationship has been removed."
 msgstr "Η εσωτερική συσχέτιση έχει απομακρυνθεί."
 
-#: src/Database/Designer.php:112
+#: src/Database/Designer.php:116
 msgid "Could not load schema plugins, please check your installation!"
 msgstr ""
 "Αδύνατη η φόρτωση προσθέτων σχήματος, για αυτό ελέξτε την εγκατάστασή σας!"
@@ -16429,33 +16438,33 @@ msgstr ""
 "Σφάλμα 1045: Η πρόσβαση απορρίφθηκε για τον χρήστη. Επιπλέον πληροφορίες "
 "σφάλματος μπορεί να είναι διαθέσιμες, αλλά αποκρύπτονται από τη ρύθμιση %s."
 
-#: src/Display/Results.php:2403 src/Display/Results.php:2418
+#: src/Display/Results.php:2386 src/Display/Results.php:2401
 msgid "The row has been deleted."
 msgstr "Η εγγραφή έχει διαγραφεί."
 
-#: src/Display/Results.php:3017 src/Display/Results.php:3339 src/Sql.php:888
+#: src/Display/Results.php:2996 src/Display/Results.php:3318 src/Sql.php:888
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Το ερώτημα χρειάστηκε %01.4f δευτερόλεπτα."
 
-#: src/Display/Results.php:3307
+#: src/Display/Results.php:3286
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Εμφάνιση εγγραφών %1s - %2s"
 
-#: src/Display/Results.php:3321
+#: src/Display/Results.php:3300
 #, fuzzy, php-format
 #| msgid "%1$d total, %2$d in query"
 msgid "%1$s total, %2$s in query"
 msgstr "%1$d σύνολο, %2$d στο ερώτημα"
 
-#: src/Display/Results.php:3326
+#: src/Display/Results.php:3305
 #, fuzzy, php-format
 #| msgid "%d total"
 msgid "%s total"
 msgstr "%d συνολικά"
 
-#: src/Display/Results.php:3635
+#: src/Display/Results.php:3614
 msgid "Link not found!"
 msgstr "Δεν βρέθηκε η σύνδεση!"
 
@@ -16786,7 +16795,7 @@ msgstr ""
 "ξανά, θα μπορείτε να συνεχίσετε την εργασία από εκεί που σταματήσατε."
 
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
-#: src/Export/Export.php:437
+#: src/Export/Export.php:453
 msgid "Exporting a raw query is not supported for this export method."
 msgstr ""
 "Η εξαγωγή μιας ακατέργαστης ερώτησης δεν υποστηρίζεται για αυτή τη μέθοδο "
@@ -17111,15 +17120,15 @@ msgstr ""
 "Τα ευρετήρια %1$s και %2$s φαίνεται να είναι ίσα και ένα από αυτά μπορεί να "
 "απομακρυνθεί."
 
-#: src/InsertEdit.php:433
+#: src/InsertEdit.php:432
 msgid "web server upload directory:"
 msgstr "κατάλογος αποθήκευσης αρχείων διακομιστή:"
 
-#: src/InsertEdit.php:846 src/Sql.php:879
+#: src/InsertEdit.php:845 src/Sql.php:879
 msgid "Showing SQL query"
 msgstr "Εμφάνιση ερωτήματος SQL"
 
-#: src/InsertEdit.php:870 src/Sql.php:859
+#: src/InsertEdit.php:869 src/Sql.php:859
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Ταυτότητα εισερχόμενης εγγραφής: %1$d"
@@ -17136,7 +17145,7 @@ msgstr ""
 msgid "%1$s (near <code>%2$s</code>)"
 msgstr "%1$s (κοντά στο <code>%2$s</code>)"
 
-#: src/Menu.php:284 src/Menu.php:391 src/Util.php:1379 src/Util.php:1393
+#: src/Menu.php:284 src/Menu.php:391 src/Util.php:1383 src/Util.php:1397
 msgid "Tracking"
 msgstr "Παρακολούθηση"
 
@@ -17144,7 +17153,7 @@ msgstr "Παρακολούθηση"
 msgid "Database seems to be empty!"
 msgstr "Η βάση δεδομένων φαίνεται να είναι άδεια!"
 
-#: src/Menu.php:398 src/Util.php:1380
+#: src/Menu.php:398 src/Util.php:1384
 msgid "Designer"
 msgstr "Σχεδιαστής"
 
@@ -17152,11 +17161,11 @@ msgstr "Σχεδιαστής"
 msgid "User accounts"
 msgstr "Λογαριασμοί χρήστη"
 
-#: src/Menu.php:508 src/Util.php:1363
+#: src/Menu.php:508 src/Util.php:1367
 msgid "Charsets"
 msgstr "Σύνολο χαρακτήρων"
 
-#: src/Menu.php:513 src/Util.php:1365
+#: src/Menu.php:513 src/Util.php:1369
 msgid "Engines"
 msgstr "Μηχανές"
 
@@ -17181,23 +17190,23 @@ msgid_plural "%1$d rows inserted."
 msgstr[0] "Εισήχθηκε %1$d γραμμή."
 msgstr[1] "Εισήχθηκαν %1$d γραμμές."
 
-#: src/Navigation/Navigation.php:216
+#: src/Navigation/Navigation.php:220
 msgid "Groups:"
 msgstr "Ομάδες:"
 
-#: src/Navigation/Navigation.php:217
+#: src/Navigation/Navigation.php:221
 msgid "Events:"
 msgstr "Συμβάντα:"
 
-#: src/Navigation/Navigation.php:218
+#: src/Navigation/Navigation.php:222
 msgid "Functions:"
 msgstr "Συναρτήσεις:"
 
-#: src/Navigation/Navigation.php:219
+#: src/Navigation/Navigation.php:223
 msgid "Procedures:"
 msgstr "Διαδικασίες:"
 
-#: src/Navigation/Navigation.php:221
+#: src/Navigation/Navigation.php:225
 msgid "Views:"
 msgstr "Προβολές:"
 
@@ -18301,11 +18310,11 @@ msgstr "Σχεσιακό σχήμα"
 msgid "Table of contents"
 msgstr "Πίνακας περιεχομένων"
 
-#: src/Plugins/SchemaPlugin.php:70
+#: src/Plugins/SchemaPlugin.php:71
 msgid "Show color"
 msgstr "Εμφάνιση χρωμάτων"
 
-#: src/Plugins/SchemaPlugin.php:72
+#: src/Plugins/SchemaPlugin.php:73
 msgid "Only show keys"
 msgstr "Μόνο ερφάνιση κλειδιών"
 
@@ -19615,15 +19624,6 @@ msgstr "Τα στοιχεία ανανεώθηκαν."
 msgid "Password is too long!"
 msgstr "Ο κωδικός πρόσβασης είναι πολύ μεγάλος!"
 
-#: src/UserPreferences.php:172
-msgid "Could not save configuration"
-msgstr "Αδύνατη η αποθήκευση ρυθμίσεων"
-
-#: src/UserPreferences.php:183
-msgid "The phpMyAdmin configuration storage database could not be accessed."
-msgstr ""
-"Η βάση δεδομένων αποθήκευσης ρυθμίσεων του phpMyAdmin δεν ήταν προσβάσιμη."
-
 #: src/Util.php:129
 #, php-format
 msgid "Max: %s%s"
@@ -19644,7 +19644,7 @@ msgstr "π.μ."
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s μέρες, %s ώρες, %s λεπτά %s δευτερόλεπτα"
 
-#: src/Util.php:1356
+#: src/Util.php:1360
 msgid "Users"
 msgstr "Χρήστες"
 

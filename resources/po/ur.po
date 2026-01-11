@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-01-04 00:33+0000\n"
+"POT-Creation-Date: 2026-01-11 00:32+0000\n"
 "PO-Revision-Date: 2022-02-15 16:20+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Urdu <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -72,7 +72,7 @@ msgstr ""
 #: resources/templates/base.twig:95
 #: resources/templates/server/status/monitor/index.twig:8
 #: src/Controllers/JavaScriptMessagesController.php:215 src/Menu.php:475
-#: src/Util.php:1359
+#: src/Util.php:1363
 msgid "Settings"
 msgstr "ترتیبات"
 
@@ -644,8 +644,8 @@ msgstr "اضافہ کریں %s"
 #: src/Import/Import.php:1168 src/Menu.php:214 src/Menu.php:318
 #: src/Navigation/Nodes/NodeColumn.php:37
 #: src/Navigation/Nodes/NodeDatabase.php:59
-#: src/Navigation/Nodes/NodeTable.php:268 src/Util.php:1058 src/Util.php:1368
-#: src/Util.php:1385
+#: src/Navigation/Nodes/NodeTable.php:268 src/Util.php:1062 src/Util.php:1372
+#: src/Util.php:1389
 msgid "Structure"
 msgstr "ساخت"
 
@@ -687,7 +687,7 @@ msgstr ""
 #: resources/templates/table/structure/display_structure.twig:473
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:7
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:6
-#: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:259
+#: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:258
 #: src/Plugins/Export/ExportHtmlword.php:238
 #: src/Plugins/Export/ExportHtmlword.php:311
 #: src/Plugins/Export/ExportLatex.php:467 src/Plugins/Export/ExportOdt.php:334
@@ -1075,7 +1075,7 @@ msgstr "Submit Query"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:379
-#: src/Display/Results.php:1804 src/Html/Generator.php:520
+#: src/Display/Results.php:1871 src/Html/Generator.php:520
 #: src/Html/Generator.php:789
 msgid "Edit"
 msgstr "تدوین"
@@ -1094,7 +1094,7 @@ msgstr "تدوین"
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:189
 #: src/Controllers/JavaScriptMessagesController.php:381
-#: src/Display/Results.php:2427 src/Tracking/Tracking.php:224
+#: src/Display/Results.php:2409 src/Tracking/Tracking.php:224
 msgid "Delete"
 msgstr "حذف"
 
@@ -1301,7 +1301,7 @@ msgstr ""
 #: resources/templates/console/display.twig:133
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
-#: src/Config/Descriptions.php:928 src/Export/Export.php:725
+#: src/Config/Descriptions.php:928 src/Export/Export.php:741
 #: src/Html/Generator.php:576
 msgid "Refresh"
 msgstr "تازہ کریں"
@@ -1956,7 +1956,7 @@ msgstr "صفحہ نمبر"
 #: resources/templates/table/tracking/main.twig:31
 #: src/Config/ConfigFile.php:578
 #: src/Controllers/JavaScriptMessagesController.php:275 src/Menu.php:446
-#: src/Server/Status/Processes.php:106 src/Util.php:1355
+#: src/Server/Status/Processes.php:106 src/Util.php:1359
 msgid "Status"
 msgstr "حالت"
 
@@ -2032,7 +2032,7 @@ msgstr ""
 #: src/Navigation/Nodes/NodeEventContainer.php:22
 #: src/Navigation/Nodes/NodeEventContainer.php:24
 #: src/Plugins/Export/ExportSql.php:996 src/Plugins/Export/ExportXml.php:96
-#: src/Util.php:1377
+#: src/Util.php:1381
 msgid "Events"
 msgstr ""
 
@@ -2096,7 +2096,7 @@ msgstr "تمام پڑتال کریں"
 #: src/Config/Forms/User/ExportForm.php:148
 #: src/Controllers/JavaScriptMessagesController.php:361 src/Menu.php:241
 #: src/Menu.php:343 src/Menu.php:465 src/Server/Privileges.php:1283
-#: src/Util.php:1357 src/Util.php:1372 src/Util.php:1389
+#: src/Util.php:1361 src/Util.php:1376 src/Util.php:1393
 msgid "Export"
 msgstr "برآمد"
 
@@ -2216,7 +2216,7 @@ msgid "Exporting tables from \"%s\" database"
 msgstr "ڈیٹا بیس میں کوئی ٹیبل نہیں مِلا"
 
 #: resources/templates/database/export/index.twig:14
-#: src/Navigation/Navigation.php:220
+#: src/Navigation/Navigation.php:224
 #, fuzzy
 #| msgid "Tables"
 msgid "Tables:"
@@ -2284,7 +2284,7 @@ msgstr "کالم اضافہ/حذف کریں"
 #: resources/templates/database/tracking/tables.twig:19
 #: resources/templates/table/tracking/main.twig:33
 #: src/Controllers/JavaScriptMessagesController.php:693
-#: src/Controllers/Table/ChangeController.php:211
+#: src/Controllers/Table/ChangeController.php:223
 msgid "Show"
 msgstr "ظاہر کریں"
 
@@ -2311,7 +2311,7 @@ msgid "criteria"
 msgstr "کسوٹی"
 
 #: resources/templates/database/multi_table_query/form.twig:56
-#: src/Util.php:1625
+#: src/Util.php:1629
 msgid "Sort"
 msgstr "چھانٹیں"
 
@@ -2323,7 +2323,7 @@ msgstr "چھانٹیں"
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:158
 #: src/Config/ConfigFile.php:554 src/Display/Results.php:1391
-#: src/Display/Results.php:1397 src/Util.php:1633 src/Util.php:1650
+#: src/Display/Results.php:1397 src/Util.php:1637 src/Util.php:1654
 msgid "Ascending"
 msgstr "صعودی"
 
@@ -2335,7 +2335,7 @@ msgstr "صعودی"
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:162
 #: src/Config/ConfigFile.php:554 src/Display/Results.php:1386
-#: src/Display/Results.php:1402 src/Util.php:1638 src/Util.php:1655
+#: src/Display/Results.php:1402 src/Util.php:1642 src/Util.php:1659
 msgid "Descending"
 msgstr "نزولی"
 
@@ -2552,7 +2552,7 @@ msgstr "آراء-رائے"
 #: resources/templates/table/privileges/index.twig:22
 #: src/Config/ConfigFile.php:582
 #: src/Controllers/Server/PrivilegesController.php:429 src/Menu.php:257
-#: src/Menu.php:365 src/Util.php:1375 src/Util.php:1391
+#: src/Menu.php:365 src/Util.php:1379 src/Util.php:1395
 msgid "Privileges"
 msgstr ""
 
@@ -2714,7 +2714,7 @@ msgstr ""
 
 #: resources/templates/database/routines/execute_form.twig:19
 #: resources/templates/table/search/index.twig:36
-#: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:258
+#: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:257
 #: src/Navigation/Nodes/NodeFunction.php:26
 msgid "Function"
 msgstr ""
@@ -2724,7 +2724,7 @@ msgid "This routine does not require any parameters."
 msgstr ""
 
 #: resources/templates/database/routines/index.twig:3 src/Menu.php:371
-#: src/Util.php:1376
+#: src/Util.php:1380
 msgid "Routines"
 msgstr ""
 
@@ -2736,8 +2736,8 @@ msgstr ""
 #: resources/templates/server/databases/index.twig:77
 #: src/Config/ConfigFile.php:522 src/Config/ConfigFile.php:536
 #: src/Config/ConfigFile.php:590 src/Config/ConfigFile.php:600 src/Menu.php:223
-#: src/Menu.php:327 src/Navigation/Nodes/NodeTable.php:269 src/Util.php:1060
-#: src/Util.php:1370 src/Util.php:1387
+#: src/Menu.php:327 src/Navigation/Nodes/NodeTable.php:269 src/Util.php:1064
+#: src/Util.php:1374 src/Util.php:1391
 msgid "Search"
 msgstr "تلاش"
 
@@ -2877,7 +2877,7 @@ msgstr[1] "<i>%s</i>جدول کے ساتھ مشابہات%s"
 #: resources/templates/table/structure/display_structure.twig:271
 #: src/Config/ConfigFile.php:526 src/Config/ConfigFile.php:540
 #: src/Config/ConfigFile.php:604 src/Menu.php:207
-#: src/Navigation/Nodes/NodeTable.php:272 src/Util.php:1062 src/Util.php:1384
+#: src/Navigation/Nodes/NodeTable.php:272 src/Util.php:1066 src/Util.php:1388
 msgid "Browse"
 msgstr "براؤز"
 
@@ -2904,7 +2904,7 @@ msgstr[1] "%s جداول"
 #: resources/templates/database/structure/body_for_table_summary.twig:8
 #: resources/templates/database/structure/table_header.twig:10
 #: resources/templates/server/replication/index.twig:5 src/Menu.php:497
-#: src/Server/Status/Data.php:124 src/Util.php:1361
+#: src/Server/Status/Data.php:124 src/Util.php:1365
 msgid "Replication"
 msgstr "چربہ کاری"
 
@@ -3025,7 +3025,7 @@ msgid "Copy table with prefix"
 msgstr "جدول کوائف کو مسل سے بدلیں"
 
 #: resources/templates/database/structure/check_all_tables.twig:32
-#: src/Menu.php:405 src/Util.php:1381
+#: src/Menu.php:405 src/Util.php:1385
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Central columns"
@@ -3121,7 +3121,7 @@ msgstr "کوائف لغت"
 #: resources/templates/navigation/tree/path.twig:9
 #: src/Controllers/Database/ExportController.php:73
 #: src/Controllers/Database/TrackingController.php:124
-#: src/Controllers/Export/ExportController.php:281
+#: src/Controllers/Export/ExportController.php:283
 msgid "No tables found in database."
 msgstr "کوائفیہ میں جدول موجود نہیں۔"
 
@@ -3194,7 +3194,7 @@ msgstr "نقل ہوا"
 #: resources/templates/database/structure/structure_table_row.twig:59
 #: resources/templates/sql/query.twig:76 src/Config/ConfigFile.php:524
 #: src/Config/ConfigFile.php:538 src/Config/ConfigFile.php:602 src/Menu.php:234
-#: src/Navigation/Nodes/NodeTable.php:270 src/Util.php:1061 src/Util.php:1388
+#: src/Navigation/Nodes/NodeTable.php:270 src/Util.php:1065 src/Util.php:1392
 msgid "Insert"
 msgstr "داخل کریں"
 
@@ -3472,7 +3472,7 @@ msgstr ""
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:467
-#: src/Display/Results.php:1805 src/Html/Generator.php:84
+#: src/Display/Results.php:1872 src/Html/Generator.php:84
 msgid "Copy"
 msgstr ""
 
@@ -3483,7 +3483,7 @@ msgstr ""
 
 #: resources/templates/display/results/table.twig:353
 #: src/Controllers/JavaScriptMessagesController.php:466
-#: src/Export/Export.php:744
+#: src/Export/Export.php:760
 msgid "Copy to clipboard"
 msgstr ""
 
@@ -3515,7 +3515,7 @@ msgstr ""
 #: src/Controllers/Table/Partition/DropController.php:56
 #: src/Controllers/Table/Partition/RebuildController.php:56
 #: src/Controllers/Table/Partition/TruncateController.php:56
-#: src/Html/Generator.php:740 src/Import/Import.php:119 src/InsertEdit.php:423
+#: src/Html/Generator.php:740 src/Import/Import.php:119 src/InsertEdit.php:422
 #: src/Message.php:138
 msgid "Error"
 msgstr "نقص"
@@ -4071,7 +4071,7 @@ msgstr "اسے لیں"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:411
-#: src/Export/Export.php:767 src/Html/Generator.php:855
+#: src/Export/Export.php:783 src/Html/Generator.php:855
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "واپس"
@@ -4082,7 +4082,7 @@ msgstr "واپس"
 #: resources/templates/server/status/monitor/index.twig:53
 #: resources/templates/server/status/monitor/index.twig:69
 #: src/Config/Forms/User/ImportForm.php:58 src/Menu.php:250 src/Menu.php:353
-#: src/Menu.php:470 src/Util.php:1358 src/Util.php:1373 src/Util.php:1390
+#: src/Menu.php:470 src/Util.php:1362 src/Util.php:1377 src/Util.php:1394
 msgid "Import"
 msgstr "درآمد"
 
@@ -4123,7 +4123,7 @@ msgid "You may also drag and drop a file on any page."
 msgstr ""
 
 #: resources/templates/import.twig:56 resources/templates/import.twig:80
-#: src/InsertEdit.php:424
+#: src/InsertEdit.php:423
 msgid "The directory you set for upload work cannot be reached."
 msgstr "اپ لوڈ کام کے لیے سیٹ کیا گیا پوشہ قابل رسائی نہیں ہے۔"
 
@@ -4449,7 +4449,7 @@ msgstr ""
 #: resources/templates/server/export/index.twig:14
 #: resources/templates/server/privileges/user_properties.twig:20
 #: src/Config/ConfigFile.php:576 src/Config/Descriptions.php:728
-#: src/Config/Descriptions.php:739 src/Menu.php:436 src/Util.php:1353
+#: src/Config/Descriptions.php:739 src/Menu.php:436 src/Util.php:1357
 msgid "Databases"
 msgstr "کوائفیے"
 
@@ -4956,7 +4956,7 @@ msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 
 #: resources/templates/server/binlog/index.twig:3 src/Menu.php:490
-#: src/Server/Status/Data.php:119 src/Util.php:1360
+#: src/Server/Status/Data.php:119 src/Util.php:1364
 msgid "Binary log"
 msgstr ""
 
@@ -5182,7 +5182,7 @@ msgstr ""
 #: resources/templates/server/engines/show.twig:18
 #: resources/templates/server/engines/show.twig:21
 #: resources/templates/sql/query.twig:194 src/Config/ConfigFile.php:580
-#: src/Menu.php:503 src/Server/Status/Data.php:186 src/Util.php:1362
+#: src/Menu.php:503 src/Server/Status/Data.php:186 src/Util.php:1366
 msgid "Variables"
 msgstr ""
 
@@ -5207,7 +5207,7 @@ msgid "Importing into the current server"
 msgstr ""
 
 #: resources/templates/server/plugins/index.twig:4 src/Menu.php:518
-#: src/Util.php:1364
+#: src/Util.php:1368
 msgid "Plugins"
 msgstr ""
 
@@ -5541,7 +5541,7 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:60
 #: resources/templates/server/privileges/privileges_table.twig:87
 #: resources/templates/server/privileges/privileges_table.twig:114
-#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:432
+#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:431
 msgid "Or"
 msgstr "یا"
 
@@ -6558,7 +6558,7 @@ msgid "Query analyzer"
 msgstr "نقائص اکھٹی کریں"
 
 #: resources/templates/server/status/monitor/index.twig:273 src/Menu.php:335
-#: src/Util.php:1371
+#: src/Util.php:1375
 msgid "Query"
 msgstr ""
 
@@ -6667,7 +6667,7 @@ msgid "Start auto refresh"
 msgstr ""
 
 #: resources/templates/server/status/processes/list.twig:44
-#: src/Display/Results.php:2446
+#: src/Display/Results.php:2427
 msgid "Kill"
 msgstr ""
 
@@ -7080,7 +7080,7 @@ msgstr "تفصیلات"
 #: src/Controllers/Table/Partition/RepairController.php:49
 #: src/Controllers/Table/Partition/TruncateController.php:50
 #: src/Controllers/Table/RelationController.php:143
-#: src/Database/Routines.php:1019 src/Display/Results.php:3012
+#: src/Database/Routines.php:1019 src/Display/Results.php:2991
 #: src/Message.php:122
 #, fuzzy
 #| msgid "Your SQL query has been executed successfully."
@@ -7454,7 +7454,7 @@ msgstr ""
 #: resources/templates/table/index_form.twig:203
 #: src/Controllers/JavaScriptMessagesController.php:465
 #: src/Controllers/JavaScriptMessagesController.php:617
-#: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1420
+#: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1411
 msgid "Ignore"
 msgstr "نظر انداز کریں"
 
@@ -7671,7 +7671,7 @@ msgstr ""
 
 #: resources/templates/table/operations/view.twig:8
 #: src/Config/ConfigFile.php:592 src/Menu.php:268 src/Menu.php:278
-#: src/Menu.php:358 src/Util.php:1063 src/Util.php:1374 src/Util.php:1392
+#: src/Menu.php:358 src/Util.php:1067 src/Util.php:1378 src/Util.php:1396
 msgid "Operations"
 msgstr "عملیات"
 
@@ -8231,7 +8231,7 @@ msgstr ""
 #: src/Plugins/Export/ExportOdt.php:579 src/Plugins/Export/ExportPdf.php:178
 #: src/Plugins/Export/ExportSql.php:1899
 #: src/Plugins/Export/ExportTexytext.php:416
-#: src/Plugins/Export/ExportXml.php:116 src/Util.php:1378 src/Util.php:1394
+#: src/Plugins/Export/ExportXml.php:116 src/Util.php:1382 src/Util.php:1398
 msgid "Triggers"
 msgstr ""
 
@@ -9757,8 +9757,8 @@ msgstr "صفحہ نمبر"
 #: src/Config/ConfigFile.php:520 src/Config/ConfigFile.php:534
 #: src/Config/ConfigFile.php:588 src/Config/ConfigFile.php:598
 #: src/Config/Descriptions.php:755 src/Menu.php:219 src/Menu.php:323
-#: src/Menu.php:441 src/Navigation/Nodes/NodeTable.php:271 src/Util.php:1059
-#: src/Util.php:1354 src/Util.php:1369 src/Util.php:1386
+#: src/Menu.php:441 src/Navigation/Nodes/NodeTable.php:271 src/Util.php:1063
+#: src/Util.php:1358 src/Util.php:1373 src/Util.php:1390
 msgid "SQL"
 msgstr "SQL"
 
@@ -12816,16 +12816,16 @@ msgstr ""
 msgid "Default transformations"
 msgstr "نسخہ معلومات:"
 
-#: src/Config/PageSettings.php:123
+#: src/Config/PageSettings.php:122
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr ""
 
-#: src/Config.php:435
+#: src/Config.php:250
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr ""
 
-#: src/Config.php:468
+#: src/Config.php:283
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 
@@ -12971,6 +12971,16 @@ msgstr "کوائفیہ سرور"
 msgid "Table-level tabs"
 msgstr "جدول تبصرے"
 
+#: src/Config/UserPreferences.php:176
+msgid "Could not save configuration"
+msgstr ""
+
+#: src/Config/UserPreferences.php:187
+#, fuzzy
+#| msgid "Missing phpMyAdmin configuration storage tables"
+msgid "The phpMyAdmin configuration storage database could not be accessed."
+msgstr "phpMyAdmin تشکیل ذخیرہ جداول موجود نہیں ہے"
+
 #: src/Config/Validator.php:251
 #, fuzzy
 #| msgid "Could not open file: %s"
@@ -13088,7 +13098,7 @@ msgstr "کوائفیہ %s چھوڑ دیا گیا ہے۔"
 
 #: src/Controllers/Console/UpdateConfigController.php:73
 #: src/Controllers/Console/UpdateConfigController.php:112
-#: src/Controllers/Navigation/UpdateNavWidthConfigController.php:30
+#: src/Controllers/Navigation/UpdateNavWidthConfigController.php:32
 #, fuzzy
 #| msgid "Show dimension of tables"
 msgid "Unexpected parameter value."
@@ -13352,7 +13362,7 @@ msgid "Success!"
 msgstr ""
 
 #: src/Controllers/Database/StructureController.php:566
-#: src/Display/Results.php:3298
+#: src/Display/Results.php:3277
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -13417,7 +13427,7 @@ msgstr "اگر آپ کو کوئی مسئلہ درپیش ہے تو دستی طو�
 msgid "You may want to refresh the page."
 msgstr "آپ صفحہ کی تازہ کاری کرنا چاہتے ہیں."
 
-#: src/Controllers/Export/ExportController.php:116 src/Export/Export.php:705
+#: src/Controllers/Export/ExportController.php:118 src/Export/Export.php:721
 msgid "Bad type!"
 msgstr "بری قسم!"
 
@@ -15233,7 +15243,7 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "غلطی : ریلیشن پہلے سے موجود ہے۔"
 
-#: src/Controllers/JavaScriptMessagesController.php:692 src/InsertEdit.php:243
+#: src/Controllers/JavaScriptMessagesController.php:692 src/InsertEdit.php:242
 #: src/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr ""
@@ -15806,17 +15816,17 @@ msgstr ""
 "phpMyAdmin کی تشکیل زخیرہ بند کر دی گئی ہے۔ اس بارے میں جاننے کے لیے "
 "%share%s دبائیں۔"
 
-#: src/Controllers/Preferences/ManageController.php:87
+#: src/Controllers/Preferences/ManageController.php:89
 #, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "phpMyAdmin configuration snippet"
 msgstr "phpMyAdmin تشکیل ذخیرہ جداول موجود نہیں ہے"
 
-#: src/Controllers/Preferences/ManageController.php:88
+#: src/Controllers/Preferences/ManageController.php:90
 msgid "Paste it to your config.inc.php"
 msgstr ""
 
-#: src/Controllers/Preferences/ManageController.php:137
+#: src/Controllers/Preferences/ManageController.php:139
 msgid "Could not import configuration"
 msgstr ""
 
@@ -15834,7 +15844,7 @@ msgstr "غلط توثیقی طریقہ تشکیل میں دیا گیا ہے:"
 
 #: src/Controllers/SchemaExportController.php:40
 #: src/Controllers/Server/UserGroupsFormController.php:46
-#: src/ResponseRenderer.php:449
+#: src/ResponseRenderer.php:448
 msgid "Missing parameter:"
 msgstr ""
 
@@ -16798,7 +16808,7 @@ msgid ""
 "feature."
 msgstr ""
 
-#: src/Database/Designer/Common.php:445
+#: src/Database/Designer/Common.php:447
 #, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgctxt ""
@@ -16808,65 +16818,65 @@ msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
 msgstr "phpMyAdmin تشکیل ذخیرہ جداول موجود نہیں ہے"
 
-#: src/Database/Designer/Common.php:487
+#: src/Database/Designer/Common.php:489
 #, fuzzy
 #| msgid "Error: relation already exists."
 msgid "Error: relationship already exists."
 msgstr "غلطی : ریلیشن پہلے سے موجود ہے۔"
 
-#: src/Database/Designer/Common.php:528
+#: src/Database/Designer/Common.php:530
 #, fuzzy
 #| msgid "Modifications have been saved"
 msgid "FOREIGN KEY relationship has been added."
 msgstr "تبدیلیاں محفوظ ہو چکی ہیں"
 
-#: src/Database/Designer/Common.php:533
+#: src/Database/Designer/Common.php:535
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "غلطی:ریلیشن شامل نہیں ہوا۔"
 
-#: src/Database/Designer/Common.php:536
+#: src/Database/Designer/Common.php:538
 msgid "Error: Missing index on column(s)."
 msgstr ""
 
-#: src/Database/Designer/Common.php:541 src/Database/Designer/Common.php:603
+#: src/Database/Designer/Common.php:543 src/Database/Designer/Common.php:605
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Relational features are disabled!"
 msgstr "غلطی:ریلیشن شامل نہیں ہوا"
 
-#: src/Database/Designer/Common.php:562
+#: src/Database/Designer/Common.php:564
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relationship has been added."
 msgstr "اندرونی ریلیشن شامل ہو گیا"
 
-#: src/Database/Designer/Common.php:567
+#: src/Database/Designer/Common.php:569
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Internal relationship could not be added!"
 msgstr "غلطی:ریلیشن شامل نہیں ہوا۔"
 
-#: src/Database/Designer/Common.php:597
+#: src/Database/Designer/Common.php:599
 #, fuzzy
 #| msgid "Modifications have been saved"
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "تبدیلیاں محفوظ ہو چکی ہیں"
 
-#: src/Database/Designer/Common.php:622
+#: src/Database/Designer/Common.php:624
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Internal relationship could not be removed!"
 msgstr "غلطی:ریلیشن شامل نہیں ہوا۔"
 
-#: src/Database/Designer/Common.php:625
+#: src/Database/Designer/Common.php:627
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relationship has been removed."
 msgstr "اندرونی ریلیشن شامل ہو گیا"
 
-#: src/Database/Designer.php:112
+#: src/Database/Designer.php:116
 #, fuzzy
 #| msgid "Could not load import plugins, please check your installation!"
 msgid "Could not load schema plugins, please check your installation!"
@@ -17040,35 +17050,35 @@ msgid ""
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
 
-#: src/Display/Results.php:2403 src/Display/Results.php:2418
+#: src/Display/Results.php:2386 src/Display/Results.php:2401
 #, fuzzy
 #| msgid "The bookmark has been deleted."
 msgid "The row has been deleted."
 msgstr "نشانی حذف ہو چکی ہے۔"
 
-#: src/Display/Results.php:3017 src/Display/Results.php:3339 src/Sql.php:888
+#: src/Display/Results.php:2996 src/Display/Results.php:3318 src/Sql.php:888
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr ""
 
-#: src/Display/Results.php:3307
+#: src/Display/Results.php:3286
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr ""
 
-#: src/Display/Results.php:3321
+#: src/Display/Results.php:3300
 #, php-format
 msgid "%1$s total, %2$s in query"
 msgstr ""
 
-#: src/Display/Results.php:3326
+#: src/Display/Results.php:3305
 #, fuzzy, php-format
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "%s total"
 msgstr "%s جدول"
 
-#: src/Display/Results.php:3635
+#: src/Display/Results.php:3614
 #, fuzzy
 #| msgid "Theme %s not found!"
 msgid "Link not found!"
@@ -17345,7 +17355,7 @@ msgid ""
 msgstr ""
 
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
-#: src/Export/Export.php:437
+#: src/Export/Export.php:453
 msgid "Exporting a raw query is not supported for this export method."
 msgstr ""
 
@@ -17668,17 +17678,17 @@ msgstr ""
 "اشاریے %1$s اور %2$s مساوی نظر آتے ہیں اور ان میں ایک ممکنہ طور پر ہٹا دیا "
 "جائے گا۔"
 
-#: src/InsertEdit.php:433
+#: src/InsertEdit.php:432
 #, fuzzy
 #| msgid "Select from the web server upload directory <b>%s</b>:"
 msgid "web server upload directory:"
 msgstr "ویب سرور اپ لوڈ پوشہ سے منتخب کریں <b>%s</b>:"
 
-#: src/InsertEdit.php:846 src/Sql.php:879
+#: src/InsertEdit.php:845 src/Sql.php:879
 msgid "Showing SQL query"
 msgstr ""
 
-#: src/InsertEdit.php:870 src/Sql.php:859
+#: src/InsertEdit.php:869 src/Sql.php:859
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -17693,7 +17703,7 @@ msgstr ""
 msgid "%1$s (near <code>%2$s</code>)"
 msgstr ""
 
-#: src/Menu.php:284 src/Menu.php:391 src/Util.php:1379 src/Util.php:1393
+#: src/Menu.php:284 src/Menu.php:391 src/Util.php:1383 src/Util.php:1397
 msgid "Tracking"
 msgstr ""
 
@@ -17701,7 +17711,7 @@ msgstr ""
 msgid "Database seems to be empty!"
 msgstr ""
 
-#: src/Menu.php:398 src/Util.php:1380
+#: src/Menu.php:398 src/Util.php:1384
 msgid "Designer"
 msgstr ""
 
@@ -17709,11 +17719,11 @@ msgstr ""
 msgid "User accounts"
 msgstr ""
 
-#: src/Menu.php:508 src/Util.php:1363
+#: src/Menu.php:508 src/Util.php:1367
 msgid "Charsets"
 msgstr ""
 
-#: src/Menu.php:513 src/Util.php:1365
+#: src/Menu.php:513 src/Util.php:1369
 msgid "Engines"
 msgstr ""
 
@@ -17738,29 +17748,29 @@ msgid_plural "%1$d rows inserted."
 msgstr[0] "%1$d صف داخل ہوئی۔"
 msgstr[1] "%1$d صفیں داخل ہوئیں۔"
 
-#: src/Navigation/Navigation.php:216
+#: src/Navigation/Navigation.php:220
 #, fuzzy
 #| msgid "Comments"
 msgid "Groups:"
 msgstr "آراء-رائے"
 
-#: src/Navigation/Navigation.php:217
+#: src/Navigation/Navigation.php:221
 msgid "Events:"
 msgstr ""
 
-#: src/Navigation/Navigation.php:218
+#: src/Navigation/Navigation.php:222
 #, fuzzy
 #| msgid "Versions"
 msgid "Functions:"
 msgstr "نسخے"
 
-#: src/Navigation/Navigation.php:219
+#: src/Navigation/Navigation.php:223
 #, fuzzy
 #| msgid "Dropping Procedure"
 msgid "Procedures:"
 msgstr "طریقہ چھوڑا جارہا ہے"
 
-#: src/Navigation/Navigation.php:221
+#: src/Navigation/Navigation.php:225
 #, fuzzy
 #| msgid "View"
 msgid "Views:"
@@ -18862,11 +18872,11 @@ msgstr ""
 msgid "Table of contents"
 msgstr ""
 
-#: src/Plugins/SchemaPlugin.php:70
+#: src/Plugins/SchemaPlugin.php:71
 msgid "Show color"
 msgstr "کلر دکھائیں"
 
-#: src/Plugins/SchemaPlugin.php:72
+#: src/Plugins/SchemaPlugin.php:73
 msgid "Only show keys"
 msgstr "صرف کیز دیکھیں"
 
@@ -20037,16 +20047,6 @@ msgstr ""
 msgid "Password is too long!"
 msgstr "پاس ورڈ:"
 
-#: src/UserPreferences.php:172
-msgid "Could not save configuration"
-msgstr ""
-
-#: src/UserPreferences.php:183
-#, fuzzy
-#| msgid "Missing phpMyAdmin configuration storage tables"
-msgid "The phpMyAdmin configuration storage database could not be accessed."
-msgstr "phpMyAdmin تشکیل ذخیرہ جداول موجود نہیں ہے"
-
 #: src/Util.php:129
 #, php-format
 msgid "Max: %s%s"
@@ -20067,7 +20067,7 @@ msgstr ""
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s دن, %s گھنٹے, %s منٹ اور%s سیکنڈ"
 
-#: src/Util.php:1356
+#: src/Util.php:1360
 msgid "Users"
 msgstr ""
 
