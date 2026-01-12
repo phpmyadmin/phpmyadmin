@@ -450,7 +450,7 @@ AJAX.registerTeardown('table/change.js', function () {
     $(document).off('click', 'input.checkbox_null');
     $('select[name="submit_type"]').off('change');
     $(document).off('change', '#insert_rows');
-    
+
     // Reset grid edit state
     $('table').each(function () {
         var grid = $(this).data('pmaGrid');

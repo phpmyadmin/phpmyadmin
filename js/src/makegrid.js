@@ -2319,11 +2319,9 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
     // some adjustment
     $(t).removeClass('data');
     $(g.gDiv).addClass('data');
-
-    /* Store the grid controller instance on the table element so it can be accessed later by other modules 
+    /* Store the grid controller instance on the table element so it can be accessed later by other modules
        (e.g. during AJAX teardown) without exposing the grid object as a global variable.*/
     $(t).data('pmaGrid', g);
-
 };
 
 /**
