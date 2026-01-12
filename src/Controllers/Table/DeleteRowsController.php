@@ -66,6 +66,7 @@ final readonly class DeleteRowsController implements InvocableController
         }
 
         $this->response->addHTML($this->sql->executeQueryAndSendQueryResponse(
+            $request,
             null,
             false,
             Current::$database,

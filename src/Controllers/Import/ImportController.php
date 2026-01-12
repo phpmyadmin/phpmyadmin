@@ -632,6 +632,7 @@ final readonly class ImportController implements InvocableController
                 }
 
                 $htmlOutput .= $this->sql->executeQueryAndGetQueryResponse(
+                    $request,
                     $statementInfo,
                     false, // is_gotofile
                     Current::$database, // db
@@ -656,6 +657,7 @@ final readonly class ImportController implements InvocableController
                     $request->getParsedBodyParamAsString('sql_query'),
                     $request->getParsedBodyParamAsString('bkm_label'),
                     $request->hasBodyParam('bkm_replace'),
+                    $request->hasBodyParam('bkm_all_users'),
                 );
             }
 
@@ -683,6 +685,7 @@ final readonly class ImportController implements InvocableController
                     $request->getParsedBodyParamAsString('sql_query'),
                     $request->getParsedBodyParamAsString('bkm_label'),
                     $request->hasBodyParam('bkm_replace'),
+                    $request->hasBodyParam('bkm_all_users'),
                 );
             }
 

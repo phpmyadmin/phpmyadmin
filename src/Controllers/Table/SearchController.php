@@ -211,7 +211,7 @@ final class SearchController implements InvocableController
         if (! isset($_POST['columnsToDisplay']) && ! isset($_POST['displayAllColumns'])) {
             $this->displaySelectionFormAction();
         } else {
-            $this->doSelectionAction();
+            $this->doSelectionAction($request);
         }
 
         return $this->response->response();
@@ -220,7 +220,7 @@ final class SearchController implements InvocableController
     /**
      * Do selection action
      */
-    private function doSelectionAction(): void
+    private function doSelectionAction(ServerRequest $request): void
     {
         /**
          * Selection criteria have been submitted -> do the work
@@ -231,6 +231,7 @@ final class SearchController implements InvocableController
          * Add this to ensure following procedures included running correctly.
          */
         $this->response->addHTML($this->sql->executeQueryAndSendQueryResponse(
+            $request,
             null,
             false, // is_gotofile
             Current::$database, // db

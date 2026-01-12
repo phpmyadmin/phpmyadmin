@@ -11,7 +11,7 @@ use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\Import\ImportController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
-use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
@@ -52,19 +52,12 @@ class ImportControllerTest extends AbstractTestCase
             . 'FROM table1 A' . "\n"
             . 'WHERE A.nomEtablissement = :nomEta AND foo = :1 AND `:a` IS NULL';
 
-        $request = self::createStub(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturnMap([
-            ['db', null, Current::$database],
-            ['table', null, Current::$table],
-            ['parameters', null, [':nomEta' => 'Saint-Louis - Châteaulin', ':1' => '4']],
-            ['sql_query', null, Current::$sqlQuery],
-        ]);
-        $request->method('hasBodyParam')->willReturnMap([
-            ['parameterized', true],
-            ['rollback_query', false],
-            ['allow_interrupt', false],
-            ['skip', false],
-            ['show_as_php', false],
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com')->withParsedBody([
+            'db' => Current::$database,
+            'table' => Current::$table,
+            'parameters' => [':nomEta' => 'Saint-Louis - Châteaulin', ':1' => '4'],
+            'sql_query' => Current::$sqlQuery,
+            'parameterized' => '1',
         ]);
 
         $this->dummyDbi->addResult(
