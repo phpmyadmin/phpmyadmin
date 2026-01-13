@@ -8,7 +8,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\UserPrivileges;
 use PhpMyAdmin\Util;
@@ -113,134 +112,138 @@ class NodeTable extends NodeDatabaseChild
         return $retval;
     }
 
-    /**
-     * Returns the names of children of type $type present inside this container
-     * This method is overridden by the PhpMyAdmin\Navigation\Nodes\NodeDatabase
-     * and PhpMyAdmin\Navigation\Nodes\NodeTable classes
-     *
-     * @param string $type         The type of item we are looking for
-     *                             ('tables', 'views', etc)
-     * @param int    $pos          The offset of the list within the results
-     * @param string $searchClause A string used to filter the results of the query
-     *
-     * @return mixed[]
-     */
-    public function getData(
-        UserPrivileges $userPrivileges,
-        RelationParameters $relationParameters,
-        string $type,
-        int $pos,
-        string $searchClause = '',
-    ): array {
+    /** @return NodeColumn[] */
+    public function getColumns(DatabaseInterface $dbi, int $pos): array
+    {
         $maxItems = $this->config->settings['MaxNavigationItems'];
-        $retval = [];
         $db = $this->getRealParent()->realName;
         $table = $this->realName;
-        $dbi = DatabaseInterface::getInstance();
-        switch ($type) {
-            case 'columns':
-                if (! $this->config->selectedServer['DisableIS']) {
-                    $query = 'SELECT `COLUMN_NAME` AS `name` ';
-                    $query .= ',`COLUMN_KEY` AS `key` ';
-                    $query .= ',`DATA_TYPE` AS `type` ';
-                    $query .= ',`COLUMN_DEFAULT` AS `default` ';
-                    $query .= ",IF (`IS_NULLABLE` = 'NO', '', 'nullable') AS `nullable` ";
-                    $query .= 'FROM `INFORMATION_SCHEMA`.`COLUMNS` ';
-                    $query .= 'WHERE `TABLE_NAME`=' . $dbi->quoteString($table) . ' ';
-                    $query .= 'AND `TABLE_SCHEMA`=' . $dbi->quoteString($db) . ' ';
-                    $query .= 'ORDER BY `COLUMN_NAME` ASC ';
-                    $query .= 'LIMIT ' . $pos . ', ' . $maxItems;
-                    $retval = $dbi->fetchResultSimple($query);
-                    break;
+        if (! $this->config->selectedServer['DisableIS']) {
+            $query = 'SELECT `COLUMN_NAME` AS `name` ';
+            $query .= ',`COLUMN_KEY` AS `key` ';
+            $query .= ',`DATA_TYPE` AS `type` ';
+            $query .= ',`COLUMN_DEFAULT` AS `default` ';
+            $query .= ",IF (`IS_NULLABLE` = 'NO', '', 'nullable') AS `nullable` ";
+            $query .= 'FROM `INFORMATION_SCHEMA`.`COLUMNS` ';
+            $query .= 'WHERE `TABLE_NAME`=' . $dbi->quoteString($table) . ' ';
+            $query .= 'AND `TABLE_SCHEMA`=' . $dbi->quoteString($db) . ' ';
+            $query .= 'ORDER BY `COLUMN_NAME` ASC ';
+            $query .= 'LIMIT ' . $pos . ', ' . $maxItems;
+
+            $columnNodes = [];
+            foreach ($dbi->fetchResultSimple($query) as $row) {
+                $columnNodes[] = new NodeColumn($this->config, $row);
+            }
+
+            return $columnNodes;
+        }
+
+        $query = 'SHOW COLUMNS FROM ' . Util::backquote($table) . ' FROM ' . Util::backquote($db);
+        $handle = $dbi->tryQuery($query);
+        if ($handle === false) {
+            return [];
+        }
+
+        $retval = [];
+        $count = 0;
+        if ($handle->seek($pos)) {
+            foreach ($handle as $arr) {
+                if ($count >= $maxItems) {
+                    return $retval;
                 }
 
-                $db = Util::backquote($db);
-                $table = Util::backquote($table);
-                $query = 'SHOW COLUMNS FROM ' . $table . ' FROM ' . $db;
-                $handle = $dbi->tryQuery($query);
-                if ($handle === false) {
-                    break;
+                $retval[] = new NodeColumn($this->config, [
+                    'name' => $arr['Field'],
+                    'key' => $arr['Key'],
+                    'type' => Util::extractColumnSpec($arr['Type'])['type'],
+                    'default' => $arr['Default'],
+                    'nullable' => $arr['Null'] === 'NO' ? '' : 'nullable',
+                ]);
+                $count++;
+            }
+        }
+
+        return $retval;
+    }
+
+    /** @return NodeIndex[] */
+    public function getIndexes(DatabaseInterface $dbi, int $pos): array
+    {
+        $maxItems = $this->config->settings['MaxNavigationItems'];
+        $db = $this->getRealParent()->realName;
+        $table = $this->realName;
+        $query = 'SHOW INDEXES FROM ' . Util::backquote($table) . ' FROM ' . Util::backquote($db);
+        $handle = $dbi->tryQuery($query);
+        if ($handle === false) {
+            return [];
+        }
+
+        $indexNames = [];
+        $count = 0;
+        /** @var string $keyName */
+        foreach ($handle as ['Key_name' => $keyName]) {
+            if (in_array($keyName, $indexNames, true)) {
+                continue;
+            }
+
+            if ($pos <= 0 && $count < $maxItems) {
+                $indexNames[] = $keyName;
+                $count++;
+            }
+
+            $pos--;
+        }
+
+        $indexNodes = [];
+        foreach ($indexNames as $indexName) {
+            $indexNodes[] = new NodeIndex($this->config, $indexName);
+        }
+
+        return $indexNodes;
+    }
+
+    /** @return NodeTrigger[] */
+    public function getTriggers(DatabaseInterface $dbi, int $pos): array
+    {
+        $maxItems = $this->config->settings['MaxNavigationItems'];
+        $db = $this->getRealParent()->realName;
+        $table = $this->realName;
+
+        if (! $this->config->selectedServer['DisableIS']) {
+            $query = 'SELECT `TRIGGER_NAME` AS `name` ';
+            $query .= 'FROM `INFORMATION_SCHEMA`.`TRIGGERS` ';
+            $query .= 'WHERE `EVENT_OBJECT_SCHEMA` ' . Util::getCollateForIS() . '=' . $dbi->quoteString($db) . ' ';
+            $query .= 'AND `EVENT_OBJECT_TABLE` ' . Util::getCollateForIS() . '=' . $dbi->quoteString($table) . ' ';
+            $query .= 'ORDER BY `TRIGGER_NAME` ASC ';
+            $query .= 'LIMIT ' . $pos . ', ' . $maxItems;
+
+            $triggerNodes = [];
+            /** @var string $triggerName */
+            foreach ($dbi->fetchSingleColumn($query) as $triggerName) {
+                $triggerNodes[] = new NodeTrigger($this->config, $triggerName);
+            }
+
+            return $triggerNodes;
+        }
+
+        $query = 'SHOW TRIGGERS FROM ' . Util::backquote($db) . ' WHERE `Table` = ' . $dbi->quoteString($table);
+        $handle = $dbi->tryQuery($query);
+        if ($handle === false) {
+            return [];
+        }
+
+        $retval = [];
+        $count = 0;
+        if ($handle->seek($pos)) {
+            /** @var string $triggerName */
+            foreach ($handle as ['Trigger' => $triggerName]) {
+                if ($count >= $maxItems) {
+                    return $retval;
                 }
 
-                $count = 0;
-                if ($handle->seek($pos)) {
-                    while ($arr = $handle->fetchAssoc()) {
-                        if ($count >= $maxItems) {
-                            break;
-                        }
-
-                        $retval[] = [
-                            'name' => $arr['Field'],
-                            'key' => $arr['Key'],
-                            'type' => Util::extractColumnSpec($arr['Type'])['type'],
-                            'default' => $arr['Default'],
-                            'nullable' => $arr['Null'] === 'NO' ? '' : 'nullable',
-                        ];
-                        $count++;
-                    }
-                }
-
-                break;
-            case 'indexes':
-                $db = Util::backquote($db);
-                $table = Util::backquote($table);
-                $query = 'SHOW INDEXES FROM ' . $table . ' FROM ' . $db;
-                $handle = $dbi->tryQuery($query);
-                if ($handle === false) {
-                    break;
-                }
-
-                $count = 0;
-                foreach ($handle as $arr) {
-                    if (in_array($arr['Key_name'], $retval)) {
-                        continue;
-                    }
-
-                    if ($pos <= 0 && $count < $maxItems) {
-                        $retval[] = $arr['Key_name'];
-                        $count++;
-                    }
-
-                    $pos--;
-                }
-
-                break;
-            case 'triggers':
-                if (! $this->config->selectedServer['DisableIS']) {
-                    $query = 'SELECT `TRIGGER_NAME` AS `name` ';
-                    $query .= 'FROM `INFORMATION_SCHEMA`.`TRIGGERS` ';
-                    $query .= 'WHERE `EVENT_OBJECT_SCHEMA` '
-                    . Util::getCollateForIS() . '=' . $dbi->quoteString($db) . ' ';
-                    $query .= 'AND `EVENT_OBJECT_TABLE` '
-                    . Util::getCollateForIS() . '=' . $dbi->quoteString($table) . ' ';
-                    $query .= 'ORDER BY `TRIGGER_NAME` ASC ';
-                    $query .= 'LIMIT ' . $pos . ', ' . $maxItems;
-                    $retval = $dbi->fetchSingleColumn($query);
-                    break;
-                }
-
-                $db = Util::backquote($db);
-                $query = 'SHOW TRIGGERS FROM ' . $db . ' WHERE `Table` = ' . $dbi->quoteString($table);
-                $handle = $dbi->tryQuery($query);
-                if ($handle === false) {
-                    break;
-                }
-
-                $count = 0;
-                if ($handle->seek($pos)) {
-                    while ($arr = $handle->fetchAssoc()) {
-                        if ($count >= $maxItems) {
-                            break;
-                        }
-
-                        $retval[] = $arr['Trigger'];
-                        $count++;
-                    }
-                }
-
-                break;
-            default:
-                break;
+                $retval[] = new NodeTrigger($this->config, $triggerName);
+                $count++;
+            }
         }
 
         return $retval;

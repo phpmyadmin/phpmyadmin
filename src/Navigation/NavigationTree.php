@@ -23,19 +23,13 @@ use PhpMyAdmin\Navigation\Nodes\NodeColumn;
 use PhpMyAdmin\Navigation\Nodes\NodeColumnContainer;
 use PhpMyAdmin\Navigation\Nodes\NodeDatabase;
 use PhpMyAdmin\Navigation\Nodes\NodeDatabaseContainer;
-use PhpMyAdmin\Navigation\Nodes\NodeEvent;
 use PhpMyAdmin\Navigation\Nodes\NodeEventContainer;
-use PhpMyAdmin\Navigation\Nodes\NodeFunction;
 use PhpMyAdmin\Navigation\Nodes\NodeFunctionContainer;
-use PhpMyAdmin\Navigation\Nodes\NodeIndex;
 use PhpMyAdmin\Navigation\Nodes\NodeIndexContainer;
-use PhpMyAdmin\Navigation\Nodes\NodeProcedure;
 use PhpMyAdmin\Navigation\Nodes\NodeProcedureContainer;
 use PhpMyAdmin\Navigation\Nodes\NodeTable;
 use PhpMyAdmin\Navigation\Nodes\NodeTableContainer;
-use PhpMyAdmin\Navigation\Nodes\NodeTrigger;
 use PhpMyAdmin\Navigation\Nodes\NodeTriggerContainer;
-use PhpMyAdmin\Navigation\Nodes\NodeView;
 use PhpMyAdmin\Navigation\Nodes\NodeViewContainer;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -310,13 +304,7 @@ class NavigationTree
         $retval = $this->tree;
 
         // Add all databases unconditionally
-        $data = $this->tree->getData(
-            $userPrivileges,
-            $this->relationParameters,
-            'databases',
-            $this->pos,
-            $this->searchClause,
-        );
+        $data = $this->tree->getData($userPrivileges, $this->pos, $this->searchClause);
         $hiddenCounts = $this->tree->getNavigationHidingData($this->relationParameters->navigationItemsHidingFeature);
         foreach ($data as $db) {
             $node = new NodeDatabase($this->config, $db);
@@ -397,27 +385,13 @@ class NavigationTree
         }
 
         if (count($container->children) <= 1) {
-            $dbData = $db->getData(
-                $userPrivileges,
+            $dbData = $db->getDatabaseObjects(
                 $this->relationParameters,
                 $container->realName,
                 $pos2,
                 $this->searchClause2,
             );
-            foreach ($dbData as $item) {
-                $node = match ($container->realName) {
-                    'events' => new NodeEvent($this->config, $item),
-                    'functions' => new NodeFunction($this->config, $item),
-                    'procedures' => new NodeProcedure($this->config, $item),
-                    'tables' => new NodeTable($this->config, $item),
-                    'views' => new NodeView($this->config, $item),
-                    default => null,
-                };
-
-                if ($node === null) {
-                    continue;
-                }
-
+            foreach ($dbData as $node) {
                 if ($type2 === $container->realName) {
                     $node->pos2 = $pos2;
                 }
@@ -448,6 +422,7 @@ class NavigationTree
             }
 
             $container->addChild($node);
+            /** @var NodeTable|null $table */
             $table = $container->getChild($path[0], true);
             if ($table === null) {
                 return false;
@@ -465,19 +440,13 @@ class NavigationTree
             return false;
         }
 
-        $tableData = $table->getData($userPrivileges, $this->relationParameters, $container->realName, $pos3);
-        foreach ($tableData as $item) {
-            $node = match ($container->realName) {
-                'indexes' => new NodeIndex($this->config, $item),
-                'columns' => new NodeColumn($this->config, $item),
-                'triggers' => new NodeTrigger($this->config, $item),
-                default => null,
-            };
-
-            if ($node === null) {
-                continue;
-            }
-
+        $tableData = match ($container->realName) {
+            'indexes' => $table->getIndexes($this->dbi, $pos3),
+            'columns' => $table->getColumns($this->dbi, $pos3),
+            'triggers' => $table->getTriggers($this->dbi, $pos3),
+            default => [],
+        };
+        foreach ($tableData as $node) {
             $node->pos2 = $container->parent->pos2;
             if ($type3 === $container->realName) {
                 $node->pos3 = $pos3;

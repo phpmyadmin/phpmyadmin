@@ -89,52 +89,54 @@ class NodeDatabase extends Node
         };
     }
 
-    /**
-     * Returns the names of children of type $type present inside this container
-     * This method is overridden by the PhpMyAdmin\Navigation\Nodes\NodeDatabase
-     * and PhpMyAdmin\Navigation\Nodes\NodeTable classes
-     *
-     * @param string $type         The type of item we are looking for
-     *                             ('tables', 'views', etc)
-     * @param int    $pos          The offset of the list within the results
-     * @param string $searchClause A string used to filter the results of the query
-     *
-     * @return string[]
-     */
-    public function getData(
-        UserPrivileges $userPrivileges,
+    /** @return NodeDatabaseChild[] */
+    public function getDatabaseObjects(
         RelationParameters $relationParameters,
         string $type,
         int $pos,
         string $searchClause = '',
     ): array {
-        $retval = match ($type) {
+        if (! in_array($type, ['tables', 'views', 'procedures', 'functions', 'events'], true)) {
+            return [];
+        }
+
+        $names = match ($type) {
             'tables' => $this->objectFetcher->getTables($this->realName, $searchClause),
             'views' => $this->objectFetcher->getViews($this->realName, $searchClause),
             'procedures' => $this->objectFetcher->getProcedures($this->realName, $searchClause),
             'functions' => $this->objectFetcher->getFunctions($this->realName, $searchClause),
             'events' => $this->objectFetcher->getEvents($this->realName, $searchClause),
-            default => [],
         };
 
         $maxItems = $this->config->settings['MaxNavigationItems'];
 
         if ($this->config->settings['NaturalOrder']) {
-            usort($retval, strnatcasecmp(...));
+            usort($names, strnatcasecmp(...));
         }
 
-        $retval = array_slice($retval, $pos, $maxItems);
+        $names = array_slice($names, $pos, $maxItems);
 
         // Remove hidden items so that they are not displayed in navigation tree
         if ($relationParameters->navigationItemsHidingFeature !== null) {
             $hiddenItems = $this->getHiddenItems($relationParameters, substr($type, 0, -1));
-            foreach ($retval as $key => $item) {
+            foreach ($names as $key => $item) {
                 if (! in_array($item, $hiddenItems, true)) {
                     continue;
                 }
 
-                unset($retval[$key]);
+                unset($names[$key]);
             }
+        }
+
+        $retval = [];
+        foreach ($names as $item) {
+            $retval[] = match ($type) {
+                'tables' => new NodeTable($this->config, $item),
+                'views' => new NodeView($this->config, $item),
+                'procedures' => new NodeProcedure($this->config, $item),
+                'functions' => new NodeFunction($this->config, $item),
+                'events' => new NodeEvent($this->config, $item),
+            };
         }
 
         return $retval;

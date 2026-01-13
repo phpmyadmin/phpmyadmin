@@ -5178,9 +5178,6 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Navigation/NavigationTree.php">
-    <ArgumentTypeCoercion>
-      <code><![CDATA[$table]]></code>
-    </ArgumentTypeCoercion>
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
@@ -5197,10 +5194,6 @@
       <code><![CDATA[non-empty-list<string>]]></code>
     </InvalidReturnType>
     <MixedArgument>
-      <code><![CDATA[$db]]></code>
-      <code><![CDATA[$item]]></code>
-      <code><![CDATA[$item]]></code>
-      <code><![CDATA[$item]]></code>
       <code><![CDATA[$path]]></code>
       <code><![CDATA[$path[0]]]></code>
       <code><![CDATA[$path[0]]]></code>
@@ -5217,8 +5210,6 @@
       <code><![CDATA[Current::$database]]></code>
     </MixedArgument>
     <MixedAssignment>
-      <code><![CDATA[$db]]></code>
-      <code><![CDATA[$item]]></code>
       <code><![CDATA[$path]]></code>
       <code><![CDATA[$path]]></code>
       <code><![CDATA[$path]]></code>
@@ -5246,6 +5237,7 @@
     <PossiblyNullArgument>
       <code><![CDATA[$database]]></code>
       <code><![CDATA[$database]]></code>
+      <code><![CDATA[$db]]></code>
     </PossiblyNullArgument>
     <PossiblyNullPropertyAssignmentValue>
       <code><![CDATA[$container->parent->pos2]]></code>
@@ -5363,9 +5355,10 @@
   <file src="src/Navigation/Nodes/NodeTable.php">
     <DeprecatedMethod>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
     <PossiblyInvalidPropertyFetch>
+      <code><![CDATA[$this->getRealParent()->realName]]></code>
+      <code><![CDATA[$this->getRealParent()->realName]]></code>
       <code><![CDATA[$this->getRealParent()->realName]]></code>
       <code><![CDATA[$this->getRealParent()->realName]]></code>
     </PossiblyInvalidPropertyFetch>
@@ -6120,6 +6113,7 @@
       <code><![CDATA[remove]]></code>
     </PossiblyNullReference>
     <PossiblyUnusedReturnValue>
+      <code><![CDATA[bool]]></code>
       <code><![CDATA[bool]]></code>
     </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>

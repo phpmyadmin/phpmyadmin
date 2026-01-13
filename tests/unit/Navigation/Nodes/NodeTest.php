@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Navigation\Nodes\Node;
 use PhpMyAdmin\Navigation\NodeType;
@@ -344,12 +343,6 @@ final class NodeTest extends AbstractTestCase
         $expectedSql .= "CONCAT(SCHEMA_NAME, '_')) ";
         $expectedSql .= 'ORDER BY SCHEMA_NAME ASC';
 
-        $relationParameters = RelationParameters::fromArray([
-            RelationParameters::DATABASE => 'pmadb',
-            RelationParameters::NAV_WORK => true,
-            RelationParameters::NAVIGATION_HIDING => 'navigationhiding',
-        ]);
-
         $node = new Node($config, 'node');
 
         $dbi = self::createMock(DatabaseInterface::class);
@@ -357,7 +350,7 @@ final class NodeTest extends AbstractTestCase
         $dbi->expects(self::any())->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
         DatabaseInterface::$instance = $dbi;
-        $node->getData(new UserPrivileges(), $relationParameters, '', 10);
+        $node->getData(new UserPrivileges(), 10);
     }
 
     /**
@@ -376,19 +369,13 @@ final class NodeTest extends AbstractTestCase
         $expectedSql .= 'ORDER BY `SCHEMA_NAME` ';
         $expectedSql .= 'LIMIT 10, 20';
 
-        $relationParameters = RelationParameters::fromArray([
-            RelationParameters::DATABASE => 'pmadb',
-            RelationParameters::NAV_WORK => true,
-            RelationParameters::NAVIGATION_HIDING => 'navigationhiding',
-        ]);
-
         $node = new Node($config, 'node');
 
         $dbi = self::createMock(DatabaseInterface::class);
         $dbi->expects(self::once())->method('fetchSingleColumn')->with($expectedSql);
 
         DatabaseInterface::$instance = $dbi;
-        $node->getData(new UserPrivileges(), $relationParameters, '', 10);
+        $node->getData(new UserPrivileges(), 10);
     }
 
     /**
@@ -401,12 +388,6 @@ final class NodeTest extends AbstractTestCase
         $config->settings['NavigationTreeEnableGrouping'] = true;
         $config->settings['FirstLevelNavigationItems'] = 10;
         $config->settings['NavigationTreeDbSeparator'] = '_';
-
-        $relationParameters = RelationParameters::fromArray([
-            RelationParameters::DATABASE => 'pmadb',
-            RelationParameters::NAV_WORK => true,
-            RelationParameters::NAVIGATION_HIDING => 'navigationhiding',
-        ]);
 
         $node = new Node($config, 'node');
 
@@ -434,7 +415,7 @@ final class NodeTest extends AbstractTestCase
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         DatabaseInterface::$instance = $dbi;
-        $node->getData(new UserPrivileges(), $relationParameters, '', 0, 'db');
+        $node->getData(new UserPrivileges(), 0, 'db');
     }
 
     /**

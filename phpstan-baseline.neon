@@ -7750,19 +7750,7 @@ parameters:
 			path: src/Navigation/NavigationTree.php
 
 		-
-			message: '#^Parameter \#2 \$item of class PhpMyAdmin\\Navigation\\Nodes\\NodeColumn constructor expects array\<mixed\>, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Navigation/NavigationTree.php
-
-		-
-			message: '#^Parameter \#2 \$name of class PhpMyAdmin\\Navigation\\Nodes\\NodeDatabase constructor expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Navigation/NavigationTree.php
-
-		-
-			message: '#^Parameter \#2 \$name of class PhpMyAdmin\\Navigation\\Nodes\\NodeIndex constructor expects string, mixed given\.$#'
+			message: '#^Parameter \#2 \$name of class PhpMyAdmin\\Navigation\\Nodes\\NodeDatabase constructor expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Navigation/NavigationTree.php
@@ -7774,19 +7762,7 @@ parameters:
 			path: src/Navigation/NavigationTree.php
 
 		-
-			message: '#^Parameter \#2 \$name of class PhpMyAdmin\\Navigation\\Nodes\\NodeTrigger constructor expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Navigation/NavigationTree.php
-
-		-
 			message: '#^Parameter \#2 \$path of method PhpMyAdmin\\Navigation\\NavigationTree\:\:buildPathPart\(\) expects array\<mixed\>, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Navigation/NavigationTree.php
-
-		-
-			message: '#^Parameter \#2 \$table of method PhpMyAdmin\\Navigation\\NavigationTree\:\:addTableContainers\(\) expects PhpMyAdmin\\Navigation\\Nodes\\NodeTable, PhpMyAdmin\\Navigation\\Nodes\\Node given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Navigation/NavigationTree.php
@@ -7795,12 +7771,6 @@ parameters:
 			message: '#^Parameter \#3 \$searchClause of method PhpMyAdmin\\Navigation\\Nodes\\NodeDatabase\:\:getPresence\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
-			path: src/Navigation/NavigationTree.php
-
-		-
-			message: '#^Possibly invalid array key type mixed\.$#'
-			identifier: offsetAccess.invalidOffset
-			count: 2
 			path: src/Navigation/NavigationTree.php
 
 		-
@@ -7950,19 +7920,13 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 2
-			path: src/Navigation/Nodes/NodeTable.php
-
-		-
-			message: '#^Call to function in_array\(\) requires parameter \#3 to be set\.$#'
-			identifier: function.strict
 			count: 1
 			path: src/Navigation/Nodes/NodeTable.php
 
 		-
 			message: '#^Cannot access property \$realName on PhpMyAdmin\\Navigation\\Nodes\\Node\|false\.$#'
 			identifier: property.nonObject
-			count: 2
+			count: 4
 			path: src/Navigation/Nodes/NodeTable.php
 
 		-
