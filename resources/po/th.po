@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-01-11 00:32+0000\n"
-"PO-Revision-Date: 2026-01-13 05:01+0000\n"
+"PO-Revision-Date: 2026-01-13 07:11+0000\n"
 "Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "th/>\n"
@@ -2058,9 +2058,8 @@ msgid "Save changes"
 msgstr "บันทึกการเปลี่ยนแปลง"
 
 #: resources/templates/database/events/index.twig:181
-#, fuzzy
 msgid "Export event"
-msgstr "ยังไม่ได้เลือกแถว"
+msgstr "ส่งออกเหตุการณ์"
 
 #: resources/templates/database/export/index.twig:61
 msgid ""
@@ -7548,9 +7547,8 @@ msgid "Reset zoom"
 msgstr "รีเซ็ตการซูม"
 
 #: resources/templates/transformation_overview.twig:1
-#, fuzzy
 msgid "Available media types"
-msgstr "MIME-types ที่มีอยู่"
+msgstr "ประเภทสื่อที่มีให้เลือก"
 
 #: resources/templates/transformation_overview.twig:13
 msgid "Available browser display transformations"
@@ -7558,10 +7556,9 @@ msgstr "การแปลงการแสดงผลเบราว์เซ
 
 #: resources/templates/transformation_overview.twig:19
 #: resources/templates/transformation_overview.twig:38
-#, fuzzy
 msgctxt "for media type transformation"
 msgid "Description"
-msgstr "คำอธิบาย"
+msgstr "รายละเอียด"
 
 #: resources/templates/transformation_overview.twig:32
 msgid "Available input transformations"
@@ -15599,7 +15596,7 @@ msgstr "ข้อผิดพลาด: ความสัมพันธ์น�
 
 #: src/Database/Designer/Common.php:530 src/Database/Designer/Common.php:528
 msgid "FOREIGN KEY relationship has been added."
-msgstr "ได้เพิ่มความสัมพันธ์คีย์นอกแล้ว"
+msgstr "ได้เพิ่มความสัมพันธ์ FOREIGN KEY แล้ว"
 
 #: src/Database/Designer/Common.php:535 src/Database/Designer/Common.php:533
 msgid "Error: FOREIGN KEY relationship could not be added!"
