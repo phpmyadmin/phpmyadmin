@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2026-01-13 05:01+0000\n"
+"PO-Revision-Date: 2026-01-13 07:11+0000\n"
 "Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/4-9/th/>"
 "\n"
@@ -6733,7 +6733,7 @@ msgstr "ข้อผิดพลาด: ความสัมพันธ์น�
 
 #: libraries/classes/Database/Designer/Common.php:611
 msgid "FOREIGN KEY relationship has been added."
-msgstr "ได้เพิ่มความสัมพันธ์คีย์นอกแล้ว"
+msgstr "ได้เพิ่มความสัมพันธ์ FOREIGN KEY แล้ว"
 
 #: libraries/classes/Database/Designer/Common.php:617
 msgid "Error: FOREIGN KEY relationship could not be added!"
