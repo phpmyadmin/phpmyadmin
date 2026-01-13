@@ -3851,13 +3851,18 @@
       <code><![CDATA[$expr]]></code>
       <code><![CDATA[$expr]]></code>
       <code><![CDATA[$field]]></code>
+      <code><![CDATA[$geoOption]]></code>
       <code><![CDATA[$hiddenFields['session_max_rows']]]></code>
       <code><![CDATA[$i]]></code>
       <code><![CDATA[$i]]></code>
       <code><![CDATA[$identifier]]></code>
       <code><![CDATA[$meta->name]]></code>
+      <code><![CDATA[$pftext]]></code>
+      <code><![CDATA[$pos]]></code>
       <code><![CDATA[$query]]></code>
       <code><![CDATA[$relationalDisplay]]></code>
+      <code><![CDATA[$relationalDisplay]]></code>
+      <code><![CDATA[$sessionMaxRows]]></code>
       <code><![CDATA[$value]]></code>
     </MixedAssignment>
     <MixedOperand>
@@ -6113,7 +6118,6 @@
       <code><![CDATA[remove]]></code>
     </PossiblyNullReference>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[bool]]></code>
       <code><![CDATA[bool]]></code>
     </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
@@ -10171,7 +10175,6 @@
       <code><![CDATA[testGetSortOrderHiddenInputs]]></code>
       <code><![CDATA[testGetSortOrderHiddenInputs]]></code>
       <code><![CDATA[testGetSortOrderHiddenInputs]]></code>
-      <code><![CDATA[testSetConfigParamsForDisplayTable]]></code>
       <code><![CDATA[testSetConfigParamsForDisplayTable]]></code>
       <code><![CDATA[testSetConfigParamsForDisplayTable]]></code>
       <code><![CDATA[testSetConfigParamsForDisplayTable]]></code>
