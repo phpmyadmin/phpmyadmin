@@ -38,10 +38,6 @@ use const PHP_VERSION;
 class ExportXml extends ExportPlugin
 {
     /**
-     * Table name
-     */
-    private string $table = '';
-    /**
      * Table names
      *
      * @var string[]
@@ -183,11 +179,6 @@ class ExportXml extends ExportPlugin
      */
     public function exportHeader(): bool
     {
-        $this->setTable(Current::$table);
-
-        $table = $this->getTable();
-        $tables = $this->getTables();
-
         $exportStruct = $this->exportFunctions
             || $this->exportProcedures
             || $this->exportTables
@@ -239,11 +230,11 @@ class ExportXml extends ExportPlugin
                 . '" collation="' . htmlspecialchars($dbCollation) . '" charset="' . htmlspecialchars($dbCharset)
                 . '">' . "\n";
 
-            if ($tables === []) {
-                $tables[] = $table;
+            if ($this->tables === []) {
+                $this->tables[] = Current::$table;
             }
 
-            foreach ($tables as $table) {
+            foreach ($this->tables as $table) {
                 // Export tables and views
                 $result = $dbi->fetchResult(
                     'SHOW CREATE TABLE ' . Util::backquote(Current::$database) . '.'
@@ -451,34 +442,6 @@ class ExportXml extends ExportPlugin
     }
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
-
-    /**
-     * Gets the table name
-     */
-    private function getTable(): string
-    {
-        return $this->table;
-    }
-
-    /**
-     * Sets the table name
-     *
-     * @param string $table table name
-     */
-    private function setTable(string $table): void
-    {
-        $this->table = $table;
-    }
-
-    /**
-     * Gets the table names
-     *
-     * @return string[]
-     */
-    private function getTables(): array
-    {
-        return $this->tables;
-    }
 
     /**
      * Sets the table names
