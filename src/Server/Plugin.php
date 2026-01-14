@@ -68,19 +68,19 @@ final class Plugin
     public function toArray(): array
     {
         return [
-            'name' => $this->getName(),
-            'version' => $this->getVersion(),
-            'status' => $this->getStatus(),
-            'type' => $this->getType(),
-            'type_version' => $this->getTypeVersion(),
-            'library' => $this->getLibrary(),
-            'library_version' => $this->getLibraryVersion(),
-            'author' => $this->getAuthor(),
-            'description' => $this->getDescription(),
-            'license' => $this->getLicense(),
-            'load_option' => $this->getLoadOption(),
-            'maturity' => $this->getMaturity(),
-            'auth_version' => $this->getAuthVersion(),
+            'name' => $this->name,
+            'version' => $this->version,
+            'status' => $this->status,
+            'type' => $this->type,
+            'type_version' => $this->typeVersion,
+            'library' => $this->library,
+            'library_version' => $this->libraryVersion,
+            'author' => $this->author,
+            'description' => $this->description,
+            'license' => $this->license,
+            'load_option' => $this->loadOption,
+            'maturity' => $this->maturity,
+            'auth_version' => $this->authVersion,
         ];
     }
 
