@@ -673,6 +673,7 @@ class Core
                 case 'b':
                 case 'i':
                 case 'd':
+                case 'N':
                     /* bool, integer or double */
                     // skip value to separator
                     $i = strpos($data, ';', $i);
@@ -691,15 +692,6 @@ class Core
 
                     // remember nesting
                     $depth++;
-                    break;
-                case 'N':
-                    /* null */
-                    // skip to end
-                    $i = strpos($data, ';', $i);
-                    if ($i === false) {
-                        return null;
-                    }
-
                     break;
                 default:
                     /* any other elements are not wanted */
