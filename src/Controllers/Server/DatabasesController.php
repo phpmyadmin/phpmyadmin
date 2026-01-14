@@ -182,11 +182,11 @@ final class DatabasesController implements InvocableController
             ];
 
             if ($primaryInfo['status']) {
-                $key = array_search($database['SCHEMA_NAME'], $primaryInfo['Ignore_DB']);
+                $key = array_search($database['SCHEMA_NAME'], $primaryInfo['Ignore_DB'], true);
                 $replication['primary']['is_replicated'] = false;
 
                 if ((string) $key === '') {
-                    $key = array_search($database['SCHEMA_NAME'], $primaryInfo['Do_DB']);
+                    $key = array_search($database['SCHEMA_NAME'], $primaryInfo['Do_DB'], true);
 
                     if ((string) $key !== '' || count($primaryInfo['Do_DB']) === 0) {
                         $replication['primary']['is_replicated'] = true;
@@ -195,11 +195,11 @@ final class DatabasesController implements InvocableController
             }
 
             if ($replicaInfo['status']) {
-                $key = array_search($database['SCHEMA_NAME'], $replicaInfo['Ignore_DB']);
+                $key = array_search($database['SCHEMA_NAME'], $replicaInfo['Ignore_DB'], true);
                 $replication['replica']['is_replicated'] = false;
 
                 if ((string) $key === '') {
-                    $key = array_search($database['SCHEMA_NAME'], $replicaInfo['Do_DB']);
+                    $key = array_search($database['SCHEMA_NAME'], $replicaInfo['Do_DB'], true);
 
                     if ((string) $key !== '' || count($replicaInfo['Do_DB']) === 0) {
                         $replication['replica']['is_replicated'] = true;

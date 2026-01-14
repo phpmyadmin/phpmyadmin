@@ -590,11 +590,11 @@ final class StructureController implements InvocableController
         if ($replicaInfo['status']) {
             $nbServReplicaDoDb = count($replicaInfo['Do_DB']);
             $nbServReplicaIgnoreDb = count($replicaInfo['Ignore_DB']);
-            $searchDoDBInTruename = array_search($table, $replicaInfo['Do_DB']);
-            $searchDoDBInDB = array_search(Current::$database, $replicaInfo['Do_DB']);
+            $searchDoDBInTruename = array_search($table, $replicaInfo['Do_DB'], true);
+            $searchDoDBInDB = array_search(Current::$database, $replicaInfo['Do_DB'], true);
 
-            $searchDb = array_search(Current::$database, $replicaInfo['Ignore_DB']);
-            $searchTable = array_search($table, $replicaInfo['Ignore_Table']);
+            $searchDb = array_search(Current::$database, $replicaInfo['Ignore_DB'], true);
+            $searchTable = array_search($table, $replicaInfo['Ignore_Table'], true);
             $ignored = (is_string($searchTable) && $searchTable !== '')
                 || (is_string($searchDb) && $searchDb !== '')
                 || $this->hasTable($replicaInfo['Wild_Ignore_Table'], $table);

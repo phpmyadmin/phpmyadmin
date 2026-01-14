@@ -260,7 +260,7 @@ final class ZoomSearchController implements InvocableController
 
             $properties[$i] = $this->getColumnProperties(
                 $i,
-                (int) array_search($criteriaColumnNames[$i], $this->columnNames),
+                (int) array_search($criteriaColumnNames[$i], $this->columnNames, true),
             );
         }
 
@@ -326,7 +326,7 @@ final class ZoomSearchController implements InvocableController
             return;
         }
 
-        $key = array_search($field, $this->columnNames);
+        $key = array_search($field, $this->columnNames, true);
         $searchIndex = isset($_POST['it']) && is_numeric($_POST['it'])
             ? (int) $_POST['it'] : 0;
 
