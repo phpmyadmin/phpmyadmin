@@ -96,8 +96,8 @@ class Key extends TwoFactorPlugin
             $this->twofactor->save();
 
             return true;
-        } catch (U2FException $e) {
-            $this->message = $e->getMessage();
+        } catch (U2FException $exception) {
+            $this->message = $exception->getMessage();
 
             return false;
         }
@@ -188,8 +188,8 @@ class Key extends TwoFactorPlugin
             ];
 
             return true;
-        } catch (U2FException $e) {
-            $this->message = $e->getMessage();
+        } catch (U2FException $exception) {
+            $this->message = $exception->getMessage();
 
             return false;
         }

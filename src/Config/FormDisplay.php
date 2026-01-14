@@ -828,13 +828,13 @@ class FormDisplay
      */
     private function fillPostArrayParameters(array $postValues, string $key): void
     {
-        foreach ($postValues as $v) {
-            $v = Util::requestString($v);
-            if ($v === '') {
+        foreach ($postValues as $postValue) {
+            $postValue = Util::requestString($postValue);
+            if ($postValue === '') {
                 continue;
             }
 
-            $_POST[$key][] = $v;
+            $_POST[$key][] = $postValue;
         }
     }
 

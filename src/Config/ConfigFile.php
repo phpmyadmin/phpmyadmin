@@ -471,8 +471,8 @@ class ConfigFile
             array_keys($this->persistKeys),
             array_keys($c),
         );
-        foreach ($persistKeys as $k) {
-            $c[$k] = $this->getDefault($this->getCanonicalPath($k));
+        foreach ($persistKeys as $persistKey) {
+            $c[$persistKey] = $this->getDefault($this->getCanonicalPath($persistKey));
         }
 
         foreach ($this->cfgUpdateReadMapping as $mapTo => $mapFrom) {

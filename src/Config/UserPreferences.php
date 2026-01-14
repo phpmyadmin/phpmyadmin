@@ -49,17 +49,17 @@ readonly class UserPreferences
     /**
      * Common initialization for user preferences modification pages
      *
-     * @param ConfigFile $cf Config file instance
+     * @param ConfigFile $configFile Config file instance
      */
-    public function pageInit(ConfigFile $cf): void
+    public function pageInit(ConfigFile $configFile): void
     {
         $formsAllKeys = UserFormList::getFields();
-        $cf->resetConfigData(); // start with a clean instance
-        $cf->setAllowedKeys($formsAllKeys);
-        $cf->setCfgUpdateReadMapping(
+        $configFile->resetConfigData(); // start with a clean instance
+        $configFile->setAllowedKeys($formsAllKeys);
+        $configFile->setCfgUpdateReadMapping(
             ['Server/hide_db' => 'Servers/1/hide_db', 'Server/only_db' => 'Servers/1/only_db'],
         );
-        $cf->updateWithGlobalConfig($this->config->settings);
+        $configFile->updateWithGlobalConfig($this->config->settings);
     }
 
     /**

@@ -170,13 +170,13 @@ class TwigLintCommand extends Command
             $nodeTree = $twig->parse($twig->tokenize(new Source($template, $file)));
             $twig->compile($nodeTree);
             $twig->setLoader($realLoader);
-        } catch (Error $e) {
+        } catch (Error $error) {
             $twig->setLoader($realLoader);
 
             return [
                 'template' => $template,
                 'file' => $file,
-                'exception' => $e,
+                'exception' => $error,
             ];
         }
 

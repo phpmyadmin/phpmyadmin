@@ -18,12 +18,12 @@ use function is_int;
 abstract class BaseForm extends FormDisplay
 {
     /**
-     * @param ConfigFile $cf       Config file instance
-     * @param int|null   $serverId 0 if new server, validation; >= 1 if editing a server
+     * @param ConfigFile $configFile Config file instance
+     * @param int|null   $serverId   0 if new server, validation; >= 1 if editing a server
      */
-    final public function __construct(ConfigFile $cf, int|null $serverId = null)
+    final public function __construct(ConfigFile $configFile, int|null $serverId = null)
     {
-        parent::__construct($cf);
+        parent::__construct($configFile);
 
         foreach (static::getForms() as $formName => $form) {
             $this->registerForm($formName, $form, $serverId);
