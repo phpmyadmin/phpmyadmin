@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-01-11 00:32+0000\n"
-"PO-Revision-Date: 2026-01-13 07:11+0000\n"
+"PO-Revision-Date: 2026-01-14 16:05+0000\n"
 "Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "th/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.15.2-dev\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -2111,9 +2111,8 @@ msgid "Export the structure of all tables."
 msgstr "อนุญาตให้เปลี่ยนโครงสร้างของตารางที่มีอยู่เดิม."
 
 #: resources/templates/database/export/index.twig:33
-#, fuzzy
 msgid "Export the data of all tables."
-msgstr "สร้างตารางในฐานข้อมูลนี้ %s"
+msgstr "ส่งออกข้อมูลของทุกตาราง"
 
 #: resources/templates/database/import/index.twig:3
 #, php-format
@@ -2223,9 +2222,8 @@ msgid "Update query"
 msgstr "คำสั่งอัปเดต"
 
 #: resources/templates/database/multi_table_query/form.twig:175
-#, fuzzy
 msgid "Copy query"
-msgstr "ปรับปรุงคำค้น"
+msgstr "คัดลอกคำสั่ง"
 
 #: resources/templates/database/multi_table_query/form.twig:176
 #: src/Html/Generator.php:545
@@ -2256,11 +2254,11 @@ msgstr "ชื่อฐานข้อมูลใหม่"
 #: resources/templates/table/operations/index.twig:78
 #: resources/templates/table/operations/index.twig:114
 #: resources/templates/table/operations/index.twig:321
-#, fuzzy
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details."
-msgstr "คุณไม่มีสิทธิที่จะเข้ามาตรงนี้!"
+msgstr ""
+"คุณไม่มีสิทธิ์เพียงพอที่จะดำเนินการนี้; โปรดดูเอกสารประกอบสำหรับรายละเอียดเพิ่มเติม"
 
 #: resources/templates/database/operations/index.twig:84
 msgid "Remove database"
@@ -2503,11 +2501,11 @@ msgid "Is deterministic"
 msgstr "เป็นแบบกำหนดได้แน่นอน"
 
 #: resources/templates/database/routines/editor_form.twig:141
-#, fuzzy
 msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details."
-msgstr "คุณไม่มีสิทธิที่จะเข้ามาตรงนี้!"
+msgstr ""
+"คุณไม่มีสิทธิ์เพียงพอที่จะดำเนินการนี้; โปรดดูเอกสารประกอบสำหรับรายละเอียดเพิ่มเติม"
 
 #: resources/templates/database/routines/editor_form.twig:154
 msgid "Security type"
@@ -2553,9 +2551,8 @@ msgid "Search"
 msgstr "ค้นหา"
 
 #: resources/templates/database/routines/index.twig:36
-#, fuzzy
 msgid "Create new routine"
-msgstr "สร้างเวอร์ชั่น"
+msgstr "สร้างกิจวัตรใหม่"
 
 #: resources/templates/database/routines/index.twig:49
 msgid "There are no routines to display."
@@ -2566,14 +2563,12 @@ msgid "Returns"
 msgstr "ส่งคืน"
 
 #: resources/templates/database/routines/index.twig:78
-#, fuzzy
 msgid "Routine editor"
-msgstr "ชื่อคอลัมน์"
+msgstr "ตัวแก้ไขกิจวัตร"
 
 #: resources/templates/database/routines/index.twig:98
-#, fuzzy
 msgid "Export routine"
-msgstr "ดำเนินงานตามปกติ"
+msgstr "ส่งออกกิจวัตร"
 
 #: resources/templates/database/routines/index.twig:113
 #: src/Controllers/Database/RoutinesController.php:354
@@ -2632,9 +2627,8 @@ msgstr "รูปแบบคำพ้อง (regular expression)"
 
 #: resources/templates/database/search/main.twig:36
 #: resources/templates/database/structure/copy_form.twig:14
-#, fuzzy
 msgid "Options:"
-msgstr "ตัวเลือก"
+msgstr "ตัวเลือก:"
 
 #: resources/templates/database/search/main.twig:40
 msgid "include hex matches"
@@ -3080,15 +3074,15 @@ msgstr "ตารางที่ติดตาม"
 
 #: resources/templates/display/results/checkbox_and_links.twig:16
 #: resources/templates/display/results/checkbox_and_links.twig:78
-#, fuzzy
 msgid "You can also edit most values by clicking directly on them."
-msgstr "คุณยังสามารถแก้ไขค่าส่วนใหญ่<br>โดยการคลิกสองครั้งที่ค่าโดยตรง"
+msgstr ""
+"นอกจากนี้ คุณยังสามารถแก้ไขค่าส่วนใหญ่ได้โดยการคลิกที่ค่าเหล่านั้นโดยตรง"
 
 #: resources/templates/display/results/checkbox_and_links.twig:18
 #: resources/templates/display/results/checkbox_and_links.twig:80
-#, fuzzy
 msgid "You can also edit most values by double-clicking directly on them."
-msgstr "คุณยังสามารถแก้ไขค่าส่วนใหญ่<br>โดยการคลิกสองครั้งที่ค่าโดยตรง"
+msgstr ""
+"นอกจากนี้ คุณยังสามารถแก้ไขค่าส่วนใหญ่ได้โดยการดับเบิ้ลคลิกที่ค่าเหล่านั้นโดยตรง"
 
 #: resources/templates/display/results/table.twig:18
 #: resources/templates/display/results/table.twig:21
@@ -3153,15 +3147,13 @@ msgid "All"
 msgstr "ทั้งหมด"
 
 #: resources/templates/display/results/table.twig:151
-#, fuzzy
 msgid "Sort by key:"
-msgstr "เรียงโดยคีย์"
+msgstr "เรียงโดยคีย์:"
 
 #: resources/templates/display/results/table.twig:200
 #: resources/templates/table/search/index.twig:101
-#, fuzzy
 msgid "Extra options"
-msgstr "ตัวเลือกตาราง"
+msgstr "ตัวเลือกพิเศษ"
 
 #: resources/templates/display/results/table.twig:212
 #: src/Display/Results.php:1112
@@ -3337,9 +3329,8 @@ msgstr "คำสั่ง SQL:"
 
 #. l10n: Button to show the SQL query on the export page
 #: resources/templates/export.twig:72
-#, fuzzy
 msgid "Show SQL query"
-msgstr "แสดงคำค้นแบบเต็ม"
+msgstr "แสดงคำสั่ง SQL"
 
 #: resources/templates/export.twig:104
 msgid "Export method:"
@@ -3358,9 +3349,8 @@ msgid "Format:"
 msgstr "รูปแบบ:"
 
 #: resources/templates/export.twig:121
-#, fuzzy
 msgid "File format to export"
-msgstr "ไฟล์ที่ต้องการนำเข้า:"
+msgstr "รูปแบบไฟล์ที่ส่งออก"
 
 #: resources/templates/export.twig:133
 msgid "Rows:"
@@ -3536,16 +3526,14 @@ msgid "Containing the word:"
 msgstr "ที่มีคำว่า:"
 
 #: resources/templates/gis_data_editor_form.twig:26
-#, fuzzy
 msgid "Geometry type:"
-msgstr "เรขาคณิต %d:"
+msgstr "ประเภทเรขาคณิต:"
 
 #: resources/templates/gis_data_editor_form.twig:41
 msgid "Spatial Reference System Identifier"
 msgstr "ตัวระบุระบบอ้างอิงเชิงพื้นที่"
 
 #: resources/templates/gis_data_editor_form.twig:41
-#, fuzzy
 msgctxt "Spatial Reference System Identifier"
 msgid "SRID:"
 msgstr "SRID:"
@@ -3606,9 +3594,8 @@ msgid "Change password"
 msgstr "เปลี่ยนรหัสผ่าน"
 
 #: resources/templates/home/index.twig:56
-#, fuzzy
 msgid "Server connection collation:"
-msgstr "ตรวจทานการเชื่อมต่อเซิร์ฟเวอร์"
+msgstr "การเรียงลำดับการเชื่อมต่อเซิร์ฟเวอร์:"
 
 #: resources/templates/home/index.twig:82
 #: resources/templates/preferences/manage/main.twig:55
@@ -3633,10 +3620,9 @@ msgid "Theme"
 msgstr "ธีม"
 
 #: resources/templates/home/index.twig:142
-#, fuzzy
 msgctxt "View all themes"
 msgid "View all"
-msgstr "ดูอย่างเดียว"
+msgstr "ดูทั้งหมด"
 
 #: resources/templates/home/index.twig:178
 msgid "Database server"
@@ -3648,9 +3634,8 @@ msgid "Server:"
 msgstr "เซิร์ฟเวอร์:"
 
 #: resources/templates/home/index.twig:186
-#, fuzzy
 msgid "Hostname:"
-msgstr "ชื่อผู้ใช้"
+msgstr "ชื่อโฮสต์:"
 
 #: resources/templates/home/index.twig:190
 msgid "Server type:"
@@ -3812,9 +3797,8 @@ msgid "Select from the web server upload directory [strong]%s[/strong]:"
 msgstr "เลือกจากไดเรกทอรีอัปโหลดของเว็บเซิร์ฟเวอร์ [strong]%s[/strong]:"
 
 #: resources/templates/import.twig:65 resources/templates/import.twig:91
-#, fuzzy
 msgid "There are no files to import!"
-msgstr "ไม่มีไฟล์ที่จะอัพโหลด"
+msgstr "ไม่มีไฟล์ให้นำเข้า!"
 
 #: resources/templates/import.twig:95
 msgid "File uploads are not allowed on this server."
@@ -3848,15 +3832,13 @@ msgid "Skip this number of queries (for SQL) starting from the first one:"
 msgstr "ข้ามคำสั่งจำนวนนี้ (สำหรับ SQL) โดยเริ่มจากคำสั่งแรก:"
 
 #: resources/templates/import.twig:149
-#, fuzzy
 msgid "Other options"
-msgstr "ตัวเลือก"
+msgstr "ตัวเลือกอื่น ๆ"
 
 #: resources/templates/indexes.twig:40
 #: resources/templates/table/structure/display_structure.twig:503
-#, fuzzy
 msgid "Rename"
-msgstr "เปลี่ยนชื่อตารางเป็น"
+msgstr "แก้ไขชื่อ"
 
 #: resources/templates/indexes.twig:46
 #: resources/templates/table/structure/display_structure.twig:509
@@ -4424,9 +4406,8 @@ msgid "OK"
 msgstr "ตกลง"
 
 #: resources/templates/relation/check_relations.twig:62
-#, fuzzy
 msgid "General relation features:"
-msgstr "ความสามารถด้านรีเลชันทั่วไป"
+msgstr "ลักษณะความสัมพันธ์ทั่วไป:"
 
 #: resources/templates/relation/check_relations.twig:64
 #: resources/templates/relation/check_relations.twig:89
@@ -4450,73 +4431,60 @@ msgid "Enabled"
 msgstr "เปิดใช้อยู่"
 
 #: resources/templates/relation/check_relations.twig:87
-#, fuzzy
 msgid "Display features:"
-msgstr "ความสามารถด้านการแสดงผล"
+msgstr "คุณสมบัติการแสดงผล:"
 
 #: resources/templates/relation/check_relations.twig:125
-#, fuzzy
 msgid "Designer and creation of PDFs:"
-msgstr "การสร้างเอกสาร PDF"
+msgstr "ออกแบบและสร้างไฟล์ PDF:"
 
 #: resources/templates/relation/check_relations.twig:150
-#, fuzzy
 msgid "Displaying column comments:"
-msgstr "แสดงหมายเหตุของคอลัมน์"
+msgstr "แสดงหมายเหตุของคอลัมน์:"
 
 #: resources/templates/relation/check_relations.twig:160
-#, fuzzy
 msgid "Browser transformation:"
-msgstr "การแปลงที่เรียกใช้ได้"
+msgstr "การแปลงเบราว์เซอร์:"
 
 #: resources/templates/relation/check_relations.twig:172
 msgid "Please see the documentation on how to update your column_info table."
 msgstr "โปรดดูเอกสารประกอบเกี่ยวกับวิธีการอัปเดตตาราง column_info ของคุณ"
 
 #: resources/templates/relation/check_relations.twig:195
-#, fuzzy
 msgid "Bookmarked SQL query:"
-msgstr "คำค้นนี้ถูกจดไว้แล้ว"
+msgstr "บุ๊กมาร์กคำสั่ง SQL:"
 
 #: resources/templates/relation/check_relations.twig:220
-#, fuzzy
 msgid "SQL history:"
-msgstr "SQL-history"
+msgstr "ประวัต SQL:"
 
 #: resources/templates/relation/check_relations.twig:245
-#, fuzzy
 msgid "Persistent recently used tables:"
-msgstr "ตารางที่ใช้ล่าสุด"
+msgstr "ตารางที่ใช้งานล่าสุดแบบถาวร:"
 
 #: resources/templates/relation/check_relations.twig:270
-#, fuzzy
 msgid "Persistent favorite tables:"
-msgstr "ไม่มีตารางล่าสุด"
+msgstr "ตารางถาวรที่โปรด:"
 
 #: resources/templates/relation/check_relations.twig:295
-#, fuzzy
 msgid "Persistent tables' UI preferences:"
-msgstr "ไม่สามารถบันทึกการกำหนดลักษณะตาราง UI"
+msgstr "การกำหนดค่า UI ของตารางถาวร:"
 
 #: resources/templates/relation/check_relations.twig:320
-#, fuzzy
 msgid "Tracking:"
-msgstr "การติดตาม"
+msgstr "การติดตาม:"
 
 #: resources/templates/relation/check_relations.twig:345
-#, fuzzy
 msgid "User preferences:"
-msgstr "จัดระเบียบตาราง"
+msgstr "การกำหนดค่าของผู้ใช้:"
 
 #: resources/templates/relation/check_relations.twig:383
-#, fuzzy
 msgid "Configurable menus:"
-msgstr "กำหนดค่าไฟล์"
+msgstr "เมนูที่กำหนดค่าได้:"
 
 #: resources/templates/relation/check_relations.twig:408
-#, fuzzy
 msgid "Hide/show navigation items:"
-msgstr "โหลดกรอบนำทางใหม่"
+msgstr "ซ่อน/แสดงรายการนำทาง:"
 
 #: resources/templates/relation/check_relations.twig:433
 msgid "Saving Query-By-Example searches:"
@@ -8212,9 +8180,9 @@ msgid "Max % MyISAM key buffer ever used"
 msgstr "แสดงคำค้นแบบเต็ม"
 
 #: src/Advisory/Rules.php:407 src/Advisory/Rules.php:424
-#, fuzzy, no-php-format
+#, no-php-format
 msgid "MyISAM key buffer (index cache) % used is low."
-msgstr "แสดงคำค้นแบบเต็ม"
+msgstr "บัฟเฟอร์คีย์ MyISAM (แคชดัชนี) % ที่ใช้อยู่ในระดับต่ำ"
 
 #: src/Advisory/Rules.php:409 src/Advisory/Rules.php:426
 msgid ""
@@ -8320,9 +8288,9 @@ msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr "อัตราการเปิดไฟล์: %s ค่านี้ควรน้อยกว่า 5 ต่อชั่วโมง"
 
 #: src/Advisory/Rules.php:490
-#, fuzzy, no-php-format
+#, no-php-format
 msgid "Immediate table locks %"
-msgstr "สร้างตารางในฐานข้อมูลนี้ %s"
+msgstr "ล็อกตารางทันที %"
 
 #: src/Advisory/Rules.php:494 src/Advisory/Rules.php:504
 msgid "Too many table locks were not granted immediately."
@@ -8365,9 +8333,9 @@ msgid "The thread cache is set to 0"
 msgstr "แคชรอบการทำงานถูกตั้งค่าเป็น 0"
 
 #: src/Advisory/Rules.php:521
-#, fuzzy, no-php-format
+#, no-php-format
 msgid "Thread cache hit rate %"
-msgstr "หยุดการติดตามแล้ว"
+msgstr "อัตราการเข้าถึงแคชของรอบการทำงาน (%)"
 
 #: src/Advisory/Rules.php:525
 msgid "Thread cache is not efficient."
@@ -8542,7 +8510,7 @@ msgid ""
 msgstr "ขนาดไฟล์บันทึกของ InnoDB มีขนาดไม่เหมาะสม ที่มีความสัมพันธ์กับบัฟเฟอร์พูลของ InnoDB"
 
 #: src/Advisory/Rules.php:650 src/Advisory/Rules.php:680
-#, fuzzy, no-php-format
+#, no-php-format
 msgid ""
 "Especially on a system with a lot of writes to InnoDB tables you should set "
 "{innodb_log_file_size} to 25% of {innodb_buffer_pool_size}. However the "
@@ -8554,15 +8522,13 @@ msgid ""
 "fine. See also <a href=\"https://mysqldatabaseadministration.blogspot.com/"
 "2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
-"โดยเฉพาะอย่างยิ่ง ในระบบที่มีจำนวนมากได้เขียนไปยังตารางของ InnoDB คุณควรตั้งค่า "
-"{innodb_log_file_size} เป็น 25%% ของ{innodb_buffer_pool_size} "
-"อย่างไรก็ตามค่าเหล่านี้จะได้รับการกู้คืนเมื่อระบบฐานข้อมูลมีปัญหา โดยไม่ควรตั้งค่าสูงกว่า 256 "
-"เมกะไบต์ และอย่างไรก็ดีโปรดทราบไว้ว่าคุณไม่เพียงแค่เปลี่ยนแปลงค่าเหล่านี้ได้ "
-"แต่คุณจำเป็นต้องปิดระบบเซิร์ฟเวอร์แล้วทำการเอาไฟล์บันทึกของInnoDB ออก และตั้งค่าใหม่ในไฟล์ "
-"my.cnf แล้วเริ่มต้นเซิร์ฟเวอร์อีกครั้ง เพื่อตรวจสอบไฟล์บันทึกข้อผิดพลาด "
-"หากทุกอย่างดำเนินการไปได้ด้วยดี ดู <a href=\"https://"
-"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
-"proper-way.html\">รายการบล็อก</a> นี้ได้"
+"โดยเฉพาะอย่างยิ่งในระบบที่มีการเขียนข้อมูลลงตาราง InnoDB จำนวนมาก คุณควรตั้งค่า "
+"{innodb_log_file_size} เป็น 25% ของ {innodb_buffer_pool_size} อย่างไรก็ตาม ยิ่งค่านี้"
+"สูงเท่าไร เวลาในการกู้คืนเมื่อฐานข้อมูลล่มก็จะยิ่งนานขึ้นเท่านั้น ดังนั้นค่านี้ไม่ควรตั้งไว้สูงกว่า 256 "
+"MiB มากนัก โปรดทราบว่าคุณไม่สามารถเปลี่ยนค่าของตัวแปรนี้ได้โดยตรง คุณต้องปิดเซิร์ฟเวอร์ ลบไฟล์บั"
+"นทึก InnoDB ตั้งค่าใหม่ใน my.cnf เริ่มเซิร์ฟเวอร์ จากนั้นตรวจสอบบันทึกข้อผิดพลาดว่าทุกอย่างเรียบร้"
+"อยดีหรือไม่ ดูเพิ่มเติมที่ <a href=\"https://mysqldatabaseadministration.blogspot.com/"
+"2007/01/increase-innodblogfilesize-proper-way.html\">บทความในบล็อกนี้</a>"
 
 #: src/Advisory/Rules.php:662 src/Advisory/Rules.php:692
 #, php-format
@@ -8581,7 +8547,7 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr "ขนาดไฟล์บันทึกของ InnoDB นั้นใหญ่ไม่พอ"
 
 #: src/Advisory/Rules.php:706
-#, fuzzy, no-php-format
+#, no-php-format
 msgid ""
 "It is usually sufficient to set {innodb_log_file_size} to 25% of the size of "
 "{innodb_buffer_pool_size}. A very big {innodb_log_file_size} slows down the "
@@ -8593,15 +8559,14 @@ msgid ""
 "href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
-"โดยทั่วไป {innodb_log_file_size} เป็น 25%% ของ {innodb_buffer_pool_size} "
-"ก็เพียงพอแล้ว หากตั้งค่าเหล่านี้มากเกินไปจะทำให้การกู้คืนเมื่อระบบฐานข้อมูลมีปัญหาทำได้ช้าลง "
-"ดูเพิ่มได้ที่<a href=\"https://www.mysqlperformanceblog.com/2006/07/03/choosing-"
-"proper-innodb_log_file_size/\">บทความนี้</a> "
-"โดยคุณจำเป็นต้องปิดระบบเซิร์ฟเวอร์แล้วทำการเอาไฟล์บันทึกของInnoDB ออก และตั้งค่าใหม่ในไฟล์ "
-"my.cnf แล้วเริ่มต้นเซิร์ฟเวอร์อีกครั้ง เพื่อตรวจสอบไฟล์บันทึกข้อผิดพลาด "
-"หากทุกอย่างดำเนินการไปได้ด้วยดี ดู <a href=\"https://"
-"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
-"proper-way.html\">รายการบล็อก</a> นี้ได้"
+"โดยปกติแล้ว การตั้งค่า {innodb_log_file_size} ให้มีขนาด 25% ของขนาด "
+"{innodb_buffer_pool_size} ก็เพียงพอแล้ว การตั้งค่า {innodb_log_file_size} ให้มีขนาดให"
+"ญ่เกินไปจะทำให้เวลาในการกู้คืนหลังจากฐานข้อมูลล่มช้าลงอย่างมาก ดูเพิ่มเติมได้ที่ <a "
+"href=\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
+"innodb_log_file_size/\">บทความนี้</a> คุณต้องปิดเซิร์ฟเวอร์ ลบไฟล์บันทึก InnoDB ตั้งค่าใหม่ใ"
+"น my.cnf เริ่มเซิร์ฟเวอร์ จากนั้นตรวจสอบบันทึกข้อผิดพลาดว่าทุกอย่างเรียบร้อยดีหรือไม่ ดูเพิ่มเติมได้"
+"ที่ <a href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/"
+"increase-innodblogfilesize-proper-way.html\">บทความในบล็อกนี้</a>"
 
 #: src/Advisory/Rules.php:717
 #, php-format
@@ -8620,7 +8585,7 @@ msgstr "บัฟเฟอร์พูล InnoDB ของคุณมีขน�
 # non-InnoDB-Tables ใช้คำทับศัพท์
 #
 #: src/Advisory/Rules.php:728
-#, fuzzy, no-php-format
+#, no-php-format
 msgid ""
 "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 "tables. Assign all your remaining memory to this buffer. For database "
@@ -8633,15 +8598,13 @@ msgid ""
 "href=\"https://www.percona.com/blog/2007/11/03/choosing-"
 "innodb_buffer_pool_size/\">this article</a>"
 msgstr ""
-"บัฟเฟอร์ของ InnoDB มีผลกระทบอย่างยิ่งในการปฏิบัติงานสำหรับตารางของ InnoDB "
-"กำหนดการจำส่วนที่เหลือทั้งหมดของคุณกับบัฟเฟอร์นี้ สำหรับเซิร์ฟเวอร์ฐานข้อมูลที่ใช้ InnoDB "
-"แต่เพียงผู้เดียวเป็นการเก็บโปรแกรม และมีไม่มีบริการอื่น ๆ (เช่นเว็บเซิร์ฟเวอร์) ทำงานอยู่ "
-"คุณอาจตั้งค่านี้ได้สูงถึง 80%% ของหน่วยความจำของคุณพร้อมใช้งานได้ ถ้าไม่ใช่กรณี "
-"คุณจำเป็นต้องประเมินปริมาณการใช้หน่วยความจำของบริการและตารางที่ไม่ได้ใช้ InnoDB อื่นๆ "
-"ของคุณอย่างระมัดระวัง และตั้งค่าตัวแปรนี้ตามลำดับ หากตั้งสูงเกินไป ระบบของคุณจะเริ่มต้นการเปลี่ยน "
-"ซึ่งลดประสิทธิภาพการทำงานอย่างมาก ดูเพิ่มเติม<a href=\"https://"
-"www.mysqlperformanceblog.com/2007/11/03/choosing-innodb_buffer_pool_size/"
-"\">บทความนี้</a>"
+"บัฟเฟอร์พูลของ InnoDB มีผลกระทบอย่างมากต่อประสิทธิภาพของตาราง InnoDB ควรจัดสรรหน่วยความ"
+"จำที่เหลือทั้งหมดให้กับบัฟเฟอร์นี้ สำหรับเซิร์ฟเวอร์ฐานข้อมูลที่ใช้ InnoDB เป็นกลไกจัดเก็บข้อมูลเพียงอย่"
+"างเดียวและไม่มีบริการอื่น ๆ (เช่น เว็บเซิร์ฟเวอร์) ทำงานอยู่ คุณอาจตั้งค่านี้ได้สูงถึง 80% ของหน่วยค"
+"วามจำที่มีอยู่ แต่ถ้าไม่ใช่กรณีนั้น คุณต้องประเมินการใช้หน่วยความจำของบริการอื่น ๆ และตารางที่ไม่ใช่ "
+"InnoDB อย่างรอบคอบ และตั้งค่าตัวแปรนี้ให้เหมาะสม หากตั้งค่าสูงเกินไป ระบบของคุณจะเริ่มทำการสว"
+"อป ซึ่งจะลดประสิทธิภาพลงอย่างมาก ดูเพิ่มเติมได้ที่ <a href=\"https://www.percona.com/"
+"blog/2007/11/03/choosing-innodb_buffer_pool_size/\">บทความนี้</a>"
 
 #: src/Advisory/Rules.php:738
 #, php-format
@@ -8703,9 +8666,9 @@ msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr "หากตั้งค่า query_cache_size เป็น 0 หรือตั้งค่า query_cache_type เป็น 'OFF'"
 
 #: src/Advisory/Rules.php:786
-#, fuzzy, no-php-format
+#, no-php-format
 msgid "Query cache efficiency (%)"
-msgstr "ประสิทธิภาพของ หน่วยความจำของชุดคำสั่ง (%%)"
+msgstr "ประสิทธิภาพแคชของคำสั่ง (%)"
 
 #: src/Advisory/Rules.php:790
 msgid "Query cache not running efficiently, it has a low hit rate."
@@ -9225,49 +9188,42 @@ msgstr "ปิด"
 
 #: src/Config/ConfigFile.php:608
 #: src/Controllers/JavaScriptMessagesController.php:721
-#, fuzzy
 msgctxt "Week day name"
 msgid "Monday"
 msgstr "วันจันทร์"
 
 #: src/Config/ConfigFile.php:609
 #: src/Controllers/JavaScriptMessagesController.php:722
-#, fuzzy
 msgctxt "Week day name"
 msgid "Tuesday"
 msgstr "วันอังคาร"
 
 #: src/Config/ConfigFile.php:610
 #: src/Controllers/JavaScriptMessagesController.php:723
-#, fuzzy
 msgctxt "Week day name"
 msgid "Wednesday"
 msgstr "วันพุธ"
 
 #: src/Config/ConfigFile.php:611
 #: src/Controllers/JavaScriptMessagesController.php:724
-#, fuzzy
 msgctxt "Week day name"
 msgid "Thursday"
 msgstr "วันพฤหัสบดี"
 
 #: src/Config/ConfigFile.php:612
 #: src/Controllers/JavaScriptMessagesController.php:725
-#, fuzzy
 msgctxt "Week day name"
 msgid "Friday"
 msgstr "วันศุกร์"
 
 #: src/Config/ConfigFile.php:613
 #: src/Controllers/JavaScriptMessagesController.php:726
-#, fuzzy
 msgctxt "Week day name"
 msgid "Saturday"
 msgstr "วันเสาร์"
 
 #: src/Config/ConfigFile.php:614
 #: src/Controllers/JavaScriptMessagesController.php:720
-#, fuzzy
 msgctxt "Week day name"
 msgid "Sunday"
 msgstr "อาทิตย์"
@@ -9805,9 +9761,8 @@ msgid "Whether to show procedures under database in the navigation tree"
 msgstr "แสดงขั้นตอนภายใต้ฐานข้อมูลในรูปแบบแผนผังต้นไม้"
 
 #: src/Config/Descriptions.php:300
-#, fuzzy
 msgid "Whether to expand single database in the navigation tree automatically."
-msgstr "โหลดกรอบนำทางใหม่"
+msgstr "ถึงเป็นฐานข้อมูลเดียวก็ให้ขยายในโครงสร้างการนำทางโดยอัตโนมัติ"
 
 #: src/Config/Descriptions.php:302
 msgid "Set to 0 to collapse navigation panel."
@@ -10800,9 +10755,8 @@ msgid "Export as separate files"
 msgstr "ส่งออกแบบแยกไฟล์"
 
 #: src/Config/Descriptions.php:685
-#, fuzzy
 msgid "Remember filename template"
-msgstr "รูปแบบของชื่อไฟล์"
+msgstr "จดจำต้นแบบชื่อไฟล์"
 
 #: src/Config/Descriptions.php:686
 msgid "Remove DEFINER clause from definitions"
@@ -11223,9 +11177,8 @@ msgid "Show events in tree"
 msgstr "แสดงเหตุการณ์ในรูปแบบแผนผังต้นไม้"
 
 #: src/Config/Descriptions.php:833
-#, fuzzy
 msgid "Expand single database"
-msgstr "กำลังคัดลอกฐานข้อมูล"
+msgstr "ขยายฐานข้อมูลเดี่ยว"
 
 #: src/Config/Descriptions.php:834
 msgid "Recently used tables"
@@ -11960,9 +11913,8 @@ msgstr "ไม่สามารถบันทึกการกำหนดค
 
 #: src/Config/UserPreferences.php:187 src/UserPreferences.php:183
 #: src/UserPreferences.php:173
-#, fuzzy
 msgid "The phpMyAdmin configuration storage database could not be accessed."
-msgstr "การจัดเก็บการตั้งค่าของ phpMyAdmin ได้ถูกระงับเอาไว้ %sรายละเอียดเพิ่มเติม%s"
+msgstr "ไม่สามารถเข้าถึงฐานข้อมูลจัดเก็บการตั้งค่า phpMyAdmin ได้"
 
 #: src/Config/Validator.php:251
 msgid "Could not connect to the database server!"
@@ -12055,17 +12007,15 @@ msgid "Succeeded"
 msgstr "สำเร็จ"
 
 #: src/Controllers/Console/UpdateConfigController.php:51
-#, fuzzy
 msgid "Console settings has been updated successfully."
-msgstr "ลบผู้ใช้ที่เลือกไว้เรียบร้อยแล้ว."
+msgstr "การตั้งค่าคอนโซลได้รับการอัปเดตเรียบร้อยแล้ว"
 
 #: src/Controllers/Console/UpdateConfigController.php:73
 #: src/Controllers/Console/UpdateConfigController.php:112
 #: src/Controllers/Navigation/UpdateNavWidthConfigController.php:32
 #: src/Controllers/Navigation/UpdateNavWidthConfigController.php:30
-#, fuzzy
 msgid "Unexpected parameter value."
-msgstr "ตัวอักษรที่ไม่คาดหวังบนบรรทัดที่ %s"
+msgstr "ค่าพารามิเตอร์ไม่ตรงตามที่คาดไว้"
 
 #: src/Controllers/Database/CentralColumnsController.php:148
 #, php-format
@@ -12207,9 +12157,8 @@ msgstr "ไม่มีสิทธิ์"
 #: src/Controllers/Database/PrivilegesController.php:73
 #: src/Controllers/Server/PrivilegesController.php:107
 #: src/Controllers/Table/PrivilegesController.php:76
-#, fuzzy
 msgid "You do not have the privileges to administrate the users!"
-msgstr "คุณไม่มีสิทธิที่สร้าง Trigger!"
+msgstr "คุณไม่มีสิทธิ์ในการจัดการผู้ใช้!"
 
 #: src/Controllers/Database/RoutinesController.php:88
 #: src/Controllers/Database/Structure/AddPrefixController.php:35
@@ -12264,9 +12213,8 @@ msgstr "คุณไม่มีสิทธิที่สร้าง Trigger!
 #: src/Controllers/Triggers/IndexController.php:74
 #: src/Controllers/Table/SearchController.php:186
 #: src/Controllers/Table/SearchController.php:191
-#, fuzzy
 msgid "No table selected."
-msgstr "ไม่มีตารางที่ถูกเลือก"
+msgstr "ไม่ได้เลือกตารางใด ๆ"
 
 #: src/Controllers/Database/RoutinesController.php:173
 msgid "Add routine"
@@ -12527,9 +12475,8 @@ msgstr ""
 "เพื่อแนวทางแก้ปัญหาสำหรับข้อจำกัดนี้"
 
 #: src/Controllers/Import/ImportController.php:189
-#, fuzzy
 msgid "Incorrect format parameter"
-msgstr "เอาฐานข้อมูลออก"
+msgstr "พารามิเตอร์รูปแบบไม่ถูกต้อง"
 
 #: src/Controllers/Import/ImportController.php:299
 #: src/Controllers/Import/ImportController.php:513
@@ -12604,9 +12551,9 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "คุณกำลังจะใช้คำสั่ง DESTROY ฐานข้อมูลโดยสมบูรณ์!"
 
 #: src/Controllers/JavaScriptMessagesController.php:58
-#, fuzzy
 msgid "Cannot rename database to the same name. Change the name and try again."
-msgstr "ไม่สามารถเปลี่ยนชื่อฐานข้อมูลให้เป็นชื่อเดิมได้ ให้แก้ไขชื่อแล้วลองใหม่"
+msgstr ""
+"ไม่สามารถแก้ไขชื่อฐานข้อมูลเป็นชื่อเดิมได้ โปรดเปลี่ยนชื่อแล้วลองใหม่อีกครั้ง"
 
 #: src/Controllers/JavaScriptMessagesController.php:60
 msgid "You are about to DESTROY a complete table!"
@@ -12617,9 +12564,8 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "คุณกำลังจะใช้คำสั่ง TRUNCATE ตารางโดยสมบูรณ์!"
 
 #: src/Controllers/JavaScriptMessagesController.php:62
-#, fuzzy
 msgid "You are about to DELETE all the rows of the table!"
-msgstr "คุณกำลังจะ ทํ า ล า ย ตารางหนึ่งโดยสมบูรณ์!"
+msgstr "คุณกำลังจะลบแถวทั้งหมดในตาราง!"
 
 #: src/Controllers/JavaScriptMessagesController.php:63
 msgid "Delete tracking data for this table?"
@@ -12699,9 +12645,8 @@ msgid "Do you really want to remove partitioning?"
 msgstr "คุณต้องการลบพาร์ติชั่นออกใช่หรือไม่?"
 
 #: src/Controllers/JavaScriptMessagesController.php:86
-#, fuzzy
 msgid "Do you really want to reset the replica (RESET REPLICA)?"
-msgstr "คุณแน่ใจหรือว่าต้องการยกเลิกสิทธิ์ของผู้ใช้ที่เลือกไว้?"
+msgstr "คุณต้องการรีเซ็ตสำเนา (RESET REPLICA) จริง ๆ หรือไม่?"
 
 #: src/Controllers/JavaScriptMessagesController.php:88
 msgid ""
@@ -12774,9 +12719,8 @@ msgstr "แก้ไขดัชนี"
 
 #. l10n: Rename a table Index
 #: src/Controllers/JavaScriptMessagesController.php:122
-#, fuzzy
 msgid "Rename index"
-msgstr "เปลี่ยนชื่อตารางเป็น"
+msgstr "แก้ไขชื่อดัชนี"
 
 #: src/Controllers/JavaScriptMessagesController.php:124
 msgid "Create single-column index"
@@ -12874,9 +12818,8 @@ msgid "Connections / Processes"
 msgstr "การเชื่อมต่อ / กระบวนการ"
 
 #: src/Controllers/JavaScriptMessagesController.php:175
-#, fuzzy
 msgid "Number of statements"
-msgstr "ระเบียนต่อหน้า"
+msgstr "จำนวนข้อความ"
 
 #: src/Controllers/JavaScriptMessagesController.php:177
 msgid "Query cache efficiency"
@@ -12996,9 +12939,8 @@ msgstr "กรุณาเพิ่มค่าตัวแปรอย่าง
 
 #. l10n: SQL Query on modal to show exported query
 #: src/Controllers/JavaScriptMessagesController.php:220
-#, fuzzy
 msgid "SQL Query"
-msgstr "คำค้น SQL"
+msgstr "คำสั่ง SQL"
 
 #: src/Controllers/JavaScriptMessagesController.php:221
 msgid "Resume monitor"
@@ -13321,7 +13263,6 @@ msgstr "ไม่สามารถส่งออกขั้นตอนกา
 
 #: src/Controllers/JavaScriptMessagesController.php:364
 #: src/Navigation/Nodes/NodeTrigger.php:26
-#, fuzzy
 msgid "Trigger"
 msgstr "ทริกเกอร์"
 
@@ -13357,9 +13298,8 @@ msgid "Show query box"
 msgstr "แสดงช่องระบุ SQL"
 
 #: src/Controllers/JavaScriptMessagesController.php:380
-#, fuzzy
 msgid "Edit query"
-msgstr "ประมวลผลคำค้น"
+msgstr "แก้ไขคำสั่ง"
 
 #: src/Controllers/JavaScriptMessagesController.php:382
 #, php-format
@@ -13500,14 +13440,12 @@ msgid "No dependencies selected!"
 msgstr "ไม่มีการพึ่งพาที่ถูกเลือก!"
 
 #: src/Controllers/JavaScriptMessagesController.php:427
-#, fuzzy
 msgid "Enter first value"
-msgstr "ใช้ค่านี้"
+msgstr "ระบุค่าแรก"
 
 #: src/Controllers/JavaScriptMessagesController.php:428
-#, fuzzy
 msgid "Enter second value"
-msgstr "ค่าเซสชั่น"
+msgstr "ระบุค่าที่สอง"
 
 #: src/Controllers/JavaScriptMessagesController.php:434
 msgid "Hide search criteria"
@@ -13724,9 +13662,8 @@ msgid "Column name"
 msgstr "ชื่อคอลัมน์"
 
 #: src/Controllers/JavaScriptMessagesController.php:539
-#, fuzzy
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
-msgstr "กด ESC เพื่อยกเลิกการแก้ไข"
+msgstr "กดปุ่ม escape เพื่อยกเลิกการแก้ไข <br>- Shift+Enter เพื่อขึ้นบรรทัดใหม่"
 
 #: src/Controllers/JavaScriptMessagesController.php:541
 msgid ""
