@@ -149,7 +149,7 @@ final class WebauthnLibServerTest extends TestCase
                     'type' => 'public-key',
                     'transports' => [],
                     'attestationType' => 'none',
-                    'trustPath' => ['type' => 'Webauthn\\TrustPath\\EmptyTrustPath'],
+                    'trustPath' => ['type' => EmptyTrustPath::class],
                     'aaguid' => '00000000-0000-0000-0000-000000000000',
                     // phpcs:ignore Generic.Files.LineLength.TooLong
                     'credentialPublicKey' => 'pQECAyYgASFYIJV56vRrFusoDf9hm3iDmllcxxXzzKyO9WruKw4kWx7zIlgg_nq63l8IMJcIdKDJcXRh9hoz0L-nVwP1Oxil3_oNQYs',
@@ -190,7 +190,7 @@ final class WebauthnLibServerTest extends TestCase
                 'type' => 'public-key',
                 'transports' => [],
                 'attestationType' => 'none',
-                'trustPath' => ['type' => 'Webauthn\\TrustPath\\EmptyTrustPath'],
+                'trustPath' => ['type' => EmptyTrustPath::class],
                 'aaguid' => '00000000-0000-0000-0000-000000000000',
                 // phpcs:ignore Generic.Files.LineLength.TooLong
                 'credentialPublicKey' => 'pQECAyYgASFYIBw_HArIcANWNOBOxq3hH8lrHo9a17nQDxlqwybjDpHEIlggu3QUKIbALqsGuHfJI3LTKJSNmk0YCFb5oz1hjJidRMk',
