@@ -52,7 +52,6 @@ class GeneratorTest extends AbstractTestCase
             Generator::getColumns(
                 "'mydb'",
                 "'mytable'",
-                null,
             ),
         );
         self::assertSame(
