@@ -72,7 +72,7 @@ class FormDisplay
      * Server paths change indexes so we define maps from current server
      * path to the first one, indexed by work path
      *
-     * @var mixed[]
+     * @var string[]
      */
     private array $systemPaths = [];
 
@@ -172,7 +172,7 @@ class FormDisplay
             $paths[] = $form->name;
             // collect values and paths
             foreach ($form->fields as $path) {
-                $workPath = array_search($path, $this->systemPaths);
+                $workPath = array_search($path, $this->systemPaths, true);
                 $values[$path] = $this->configFile->getValue($workPath);
                 $paths[] = $path;
             }
@@ -185,7 +185,7 @@ class FormDisplay
         if (is_array($errors) && $errors !== []) {
             $this->errors = [];
             foreach ($errors as $path => $errorList) {
-                $workPath = array_search($path, $this->systemPaths);
+                $workPath = array_search($path, $this->systemPaths, true);
                 // field error
                 if (! $workPath) {
                     // form error, fix path
@@ -262,7 +262,7 @@ class FormDisplay
             ];
 
             foreach ($form->fields as $field => $path) {
-                $workPath = array_search($path, $this->systemPaths);
+                $workPath = array_search($path, $this->systemPaths, true);
                 $translatedPath = $this->translatedPaths[$workPath];
                 // always true/false for user preferences display
                 // otherwise null
@@ -562,7 +562,7 @@ class FormDisplay
                 : false;
             // grab POST values
             foreach ($form->fields as $field => $systemPath) {
-                $workPath = array_search($systemPath, $this->systemPaths);
+                $workPath = array_search($systemPath, $this->systemPaths, true);
                 $key = $this->translatedPaths[$workPath];
                 $type = $form->getOptionType($field);
 
@@ -828,13 +828,13 @@ class FormDisplay
      */
     private function fillPostArrayParameters(array $postValues, string $key): void
     {
-        foreach ($postValues as $v) {
-            $v = Util::requestString($v);
-            if ($v === '') {
+        foreach ($postValues as $postValue) {
+            $postValue = Util::requestString($postValue);
+            if ($postValue === '') {
                 continue;
             }
 
-            $_POST[$key][] = $v;
+            $_POST[$key][] = $postValue;
         }
     }
 

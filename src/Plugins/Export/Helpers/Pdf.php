@@ -104,7 +104,7 @@ class Pdf extends PdfLib
      * @param bool      $addpage if true add a page, otherwise only return
      *                           the true/false state
      */
-    public function checkPageBreak(mixed $h = 0, mixed $y = '', mixed $addpage = true): bool
+    protected function checkPageBreak(mixed $h = 0, mixed $y = '', mixed $addpage = true): bool
     {
         if (TCPDF_STATIC::empty_string($y)) {
             $y = $this->y;

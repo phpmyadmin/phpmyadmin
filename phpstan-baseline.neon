@@ -517,12 +517,6 @@ parameters:
 			path: src/Config/FormDisplay.php
 
 		-
-			message: '#^Call to function array_search\(\) requires parameter \#3 to be set\.$#'
-			identifier: function.strict
-			count: 4
-			path: src/Config/FormDisplay.php
-
-		-
 			message: '#^Call to function function_exists\(\) with ''bzcompress''\|''gzcompress''\|''gzencode'' will always evaluate to true\.$#'
 			identifier: function.alreadyNarrowedType
 			count: 1
@@ -583,12 +577,6 @@ parameters:
 			path: src/Config/FormDisplay.php
 
 		-
-			message: '#^Parameter \#1 \$canonicalPath of method PhpMyAdmin\\Config\\ConfigFile\:\:getDefault\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Config/FormDisplay.php
-
-		-
 			message: '#^Parameter \#1 \$optionName of method PhpMyAdmin\\Config\\Form\:\:getOptionType\(\) expects string, \(int\|string\) given\.$#'
 			identifier: argument.type
 			count: 1
@@ -608,12 +596,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#1 \$path of method PhpMyAdmin\\Config\\ConfigFile\:\:set\(\) expects string, int\|string given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Config/FormDisplay.php
-
-		-
-			message: '#^Parameter \#1 \$path of static method PhpMyAdmin\\Config\\Descriptions\:\:get\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Config/FormDisplay.php
@@ -1252,12 +1234,6 @@ parameters:
 			path: src/ConfigStorage/Relation.php
 
 		-
-			message: '#^Call to function array_search\(\) requires parameter \#3 to be set\.$#'
-			identifier: function.strict
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
 			count: 21
@@ -1750,12 +1726,6 @@ parameters:
 			message: '#^Binary operation "\." between non\-empty\-string and array\<string\>\|string\|false results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: '#^Call to function array_search\(\) requires parameter \#3 to be set\.$#'
-			identifier: function.strict
-			count: 4
 			path: src/Controllers/Database/StructureController.php
 
 		-
@@ -2291,12 +2261,6 @@ parameters:
 			identifier: booleanNot.exprNotBoolean
 			count: 1
 			path: src/Controllers/Server/Databases/CreateController.php
-
-		-
-			message: '#^Call to function array_search\(\) requires parameter \#3 to be set\.$#'
-			identifier: function.strict
-			count: 4
-			path: src/Controllers/Server/DatabasesController.php
 
 		-
 			message: '#^Cannot access offset ''DEFAULT_COLLATION_NAME'' on mixed\.$#'
@@ -3694,12 +3658,6 @@ parameters:
 			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
-			path: src/Controllers/Table/ZoomSearchController.php
-
-		-
-			message: '#^Call to function array_search\(\) requires parameter \#3 to be set\.$#'
-			identifier: function.strict
-			count: 2
 			path: src/Controllers/Table/ZoomSearchController.php
 
 		-
@@ -8572,12 +8530,6 @@ parameters:
 			path: src/Plugins/Auth/AuthenticationCookie.php
 
 		-
-			message: '#^Only booleans are allowed in an if condition, string given\.$#'
-			identifier: if.condNotBoolean
-			count: 1
-			path: src/Plugins/Auth/AuthenticationCookie.php
-
-		-
 			message: '#^Parameter \#1 \$encryptedData of method PhpMyAdmin\\Plugins\\Auth\\AuthenticationCookie\:\:cookieDecrypt\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 2
@@ -9231,12 +9183,6 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 1
-			path: src/Plugins/Export/ExportXml.php
-
-		-
-			message: '#^Foreach overwrites \$table with its value variable\.$#'
-			identifier: foreach.valueOverwrite
 			count: 1
 			path: src/Plugins/Export/ExportXml.php
 
@@ -10096,12 +10042,6 @@ parameters:
 			path: src/Plugins/Schema/Dia/RelationStatsDia.php
 
 		-
-			message: '#^Call to function array_search\(\) requires parameter \#3 to be set\.$#'
-			identifier: function.strict
-			count: 1
-			path: src/Plugins/Schema/Dia/RelationStatsDia.php
-
-		-
 			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
 			identifier: notEqual.notAllowed
 			count: 1
@@ -10493,12 +10433,6 @@ parameters:
 			identifier: argument.type
 			count: 2
 			path: src/Plugins/Schema/Pdf/TableStatsPdf.php
-
-		-
-			message: '#^Call to function array_search\(\) requires parameter \#3 to be set\.$#'
-			identifier: function.strict
-			count: 1
-			path: src/Plugins/Schema/RelationStats.php
 
 		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'

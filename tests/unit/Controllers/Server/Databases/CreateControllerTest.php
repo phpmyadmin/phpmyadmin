@@ -20,9 +20,9 @@ use function sprintf;
 #[CoversClass(CreateController::class)]
 final class CreateControllerTest extends AbstractTestCase
 {
-    protected DatabaseInterface $dbi;
+    private DatabaseInterface $dbi;
 
-    protected DbiDummy $dummyDbi;
+    private DbiDummy $dummyDbi;
 
     protected function setUp(): void
     {

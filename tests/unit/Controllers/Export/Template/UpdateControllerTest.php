@@ -22,9 +22,9 @@ use ReflectionProperty;
 #[CoversClass(UpdateController::class)]
 final class UpdateControllerTest extends AbstractTestCase
 {
-    protected DatabaseInterface $dbi;
+    private DatabaseInterface $dbi;
 
-    protected DbiDummy $dummyDbi;
+    private DbiDummy $dummyDbi;
 
     protected function setUp(): void
     {

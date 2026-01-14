@@ -58,17 +58,17 @@ class Validator
     /**
      * Returns validator list
      *
-     * @param ConfigFile $cf Config file instance
+     * @param ConfigFile $configFile Config file instance
      *
      * @return mixed[]
      */
-    public static function getValidators(ConfigFile $cf): array
+    public static function getValidators(ConfigFile $configFile): array
     {
         if (self::$validators !== null) {
             return self::$validators;
         }
 
-        self::$validators = $cf->getDbEntry('_validators', []);
+        self::$validators = $configFile->getDbEntry('_validators', []);
         $config = Config::getInstance();
         if ($config->isSetup()) {
             return self::$validators;
@@ -78,7 +78,7 @@ class Validator
         // preferences we need original config values not overwritten
         // by user preferences, creating a new PhpMyAdmin\Config instance is a
         // better idea than hacking into its code
-        $uvs = $cf->getDbEntry('_userValidators', []);
+        $uvs = $configFile->getDbEntry('_userValidators', []);
         foreach ($uvs as $field => $uvList) {
             $uvList = (array) $uvList;
             foreach ($uvList as &$uv) {
@@ -115,7 +115,7 @@ class Validator
      *   cleanup in HTML document
      * o false - when no validators match name(s) given by $validator_id
      *
-     * @param ConfigFile      $cf           Config file instance
+     * @param ConfigFile      $configFile   Config file instance
      * @param string|string[] $validatorId  ID of validator(s) to run
      * @param mixed[]         $values       Values to validate
      * @param bool            $isPostSource tells whether $values are directly from POST request
@@ -123,17 +123,17 @@ class Validator
      * @return mixed[]|bool
      */
     public static function validate(
-        ConfigFile $cf,
+        ConfigFile $configFile,
         string|array $validatorId,
         array $values,
         bool $isPostSource,
     ): bool|array {
         // find validators
         $validatorId = (array) $validatorId;
-        $validators = self::getValidators($cf);
+        $validators = self::getValidators($configFile);
         $vids = [];
         foreach ($validatorId as &$vid) {
-            $vid = $cf->getCanonicalPath($vid);
+            $vid = $configFile->getCanonicalPath($vid);
             if (! isset($validators[$vid])) {
                 continue;
             }
@@ -151,7 +151,7 @@ class Validator
         foreach ($values as $k => $v) {
             $k2 = $isPostSource ? str_replace('-', '/', $k) : $k;
             $k2 = mb_strpos($k2, '/')
-                ? $cf->getCanonicalPath($k2)
+                ? $configFile->getCanonicalPath($k2)
                 : $k2;
             $keyMap[$k2] = $k;
             $arguments[$k2] = $v;

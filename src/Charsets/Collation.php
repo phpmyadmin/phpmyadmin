@@ -107,7 +107,7 @@ final class Collation
      */
     private function buildDescription(): string
     {
-        $parts = explode('_', $this->getName());
+        $parts = explode('_', $this->name);
 
         $name = __('Unknown');
         $variant = null;

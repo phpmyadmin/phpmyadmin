@@ -1219,7 +1219,7 @@ class Relation
     {
         $foreigner = [];
         foreach ($foreignKeysData as $oneKey) {
-            $columnIndex = array_search($column, $oneKey->indexList);
+            $columnIndex = array_search($column, $oneKey->indexList, true);
             if ($columnIndex !== false) {
                 $foreigner['foreign_field'] = $oneKey->refIndexList[$columnIndex];
                 $foreigner['foreign_db'] = $oneKey->refDbName ?? Current::$database;

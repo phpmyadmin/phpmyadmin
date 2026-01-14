@@ -51,11 +51,11 @@ class BaseFormList
         return null;
     }
 
-    /** @param ConfigFile $cf Config file instance */
-    final public function __construct(ConfigFile $cf)
+    /** @param ConfigFile $configFile Config file instance */
+    final public function __construct(ConfigFile $configFile)
     {
         foreach (static::$all as $class) {
-            $this->forms[] = new $class($cf);
+            $this->forms[] = new $class($configFile);
         }
     }
 

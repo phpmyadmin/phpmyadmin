@@ -97,14 +97,14 @@ class ExportSql extends ExportPlugin
 
     private bool $createDatabase = false;
     private bool $dropTable = false;
-    private bool $procedureFunction = false;
-    private bool $createTable = false;
+    private bool $hasCreateProcedureFunction = false;
+    private bool $hasCreateTable = false;
 
     /** @var 'INSERT'|'UPDATE'|'REPLACE' */
     private string $type = 'INSERT';
 
-    private bool $createView = false;
-    private bool $createTrigger = false;
+    private bool $hasCreateView = false;
+    private bool $hasCreateTrigger = false;
     private bool $viewCurrentUser = false;
     private bool $simpleViewExport = false;
     private bool $ifNotExists = false;
@@ -124,7 +124,7 @@ class ExportSql extends ExportPlugin
     private bool $utcTime = false;
     private bool $dropDatabase = false;
     private bool $viewsAsTables = false;
-    private bool $metadata = false;
+    private bool $hasMetadata = false;
 
     public static string $oldTimezone = '';
     public static bool $noConstraintsComments = false;
@@ -613,7 +613,7 @@ class ExportSql extends ExportPlugin
      */
     public function exportRoutines(string $db, array $aliases = []): bool
     {
-        if (! $this->hasCreateProcedureFunction()) {
+        if (! $this->hasCreateProcedureFunction) {
             return true;
         }
 
@@ -975,7 +975,7 @@ class ExportSql extends ExportPlugin
      */
     public function exportEvents(string $db): bool
     {
-        if (! $this->hasCreateProcedureFunction()) {
+        if (! $this->hasCreateProcedureFunction) {
             return true;
         }
 
@@ -1041,7 +1041,7 @@ class ExportSql extends ExportPlugin
         string|array $tables,
         array $metadataTypes,
     ): bool {
-        if (! $this->hasMetadata()) {
+        if (! $this->hasMetadata) {
             return true;
         }
 
@@ -1873,7 +1873,7 @@ class ExportSql extends ExportPlugin
 
         switch ($exportMode) {
             case 'create_table':
-                if (! $this->hasCreateTable()) {
+                if (! $this->hasCreateTable) {
                     return true; // User requested no table structure, so the job has been successfully completed
                 }
 
@@ -1885,7 +1885,7 @@ class ExportSql extends ExportPlugin
                 $dump .= $this->getTableComments($db, $table, $aliases);
                 break;
             case 'triggers':
-                if (! $this->hasCreateTrigger()) {
+                if (! $this->hasCreateTrigger) {
                     return true; // User requested no triggers, so the job has been successfully completed
                 }
 
@@ -1938,7 +1938,7 @@ class ExportSql extends ExportPlugin
 
                 break;
             case 'create_view':
-                if (! $this->hasCreateView()) {
+                if (! $this->hasCreateView) {
                     return true; // No view to export, so the job has been successfully completed
                 }
 
@@ -1982,7 +1982,7 @@ class ExportSql extends ExportPlugin
 
                 break;
             case 'stand_in':
-                if (! $this->hasCreateView()) {
+                if (! $this->hasCreateView) {
                     return true; // No view to export, so the job has been successfully completed
                 }
 
@@ -2667,17 +2667,17 @@ class ExportSql extends ExportPlugin
             ?? $exportConfig['sql_create_database'] ?? false);
         $this->dropTable = (bool) ($request->getParsedBodyParam('sql_drop_table')
             ?? $exportConfig['sql_drop_table'] ?? false);
-        $this->procedureFunction = (bool) ($request->getParsedBodyParam('sql_procedure_function')
+        $this->hasCreateProcedureFunction = (bool) ($request->getParsedBodyParam('sql_procedure_function')
             ?? $exportConfig['sql_procedure_function'] ?? false);
-        $this->createTable = (bool) ($request->getParsedBodyParam('sql_create_table')
+        $this->hasCreateTable = (bool) ($request->getParsedBodyParam('sql_create_table')
             ?? $exportConfig['sql_create_table'] ?? false);
         $this->type = $this->setType($this->setStringValue(
             $request->getParsedBodyParam('sql_type'),
             $exportConfig['sql_type'] ?? null,
         ));
-        $this->createView = (bool) ($request->getParsedBodyParam('sql_create_view')
+        $this->hasCreateView = (bool) ($request->getParsedBodyParam('sql_create_view')
             ?? $exportConfig['sql_create_view'] ?? false);
-        $this->createTrigger = (bool) ($request->getParsedBodyParam('sql_create_trigger')
+        $this->hasCreateTrigger = (bool) ($request->getParsedBodyParam('sql_create_trigger')
             ?? $exportConfig['sql_create_trigger'] ?? false);
         $this->viewCurrentUser = (bool) ($request->getParsedBodyParam('sql_view_current_user')
             ?? $exportConfig['sql_view_current_user'] ?? false);
@@ -2711,7 +2711,7 @@ class ExportSql extends ExportPlugin
             ?? $exportConfig['sql_drop_database'] ?? false);
         $this->viewsAsTables = (bool) ($request->getParsedBodyParam('sql_views_as_tables')
             ?? $exportConfig['sql_views_as_tables'] ?? false);
-        $this->metadata = (bool) ($request->getParsedBodyParam('sql_metadata')
+        $this->hasMetadata = (bool) ($request->getParsedBodyParam('sql_metadata')
             ?? $exportConfig['sql_metadata'] ?? false);
     }
 
@@ -2738,16 +2738,6 @@ class ExportSql extends ExportPlugin
         return 'NONE';
     }
 
-    private function hasCreateProcedureFunction(): bool
-    {
-        return $this->procedureFunction;
-    }
-
-    private function hasCreateTable(): bool
-    {
-        return $this->createTable;
-    }
-
     /** @return 'INSERT'|'UPDATE'|'REPLACE' */
     private function setType(string $type): string
     {
@@ -2756,16 +2746,6 @@ class ExportSql extends ExportPlugin
         }
 
         return 'INSERT';
-    }
-
-    private function hasCreateView(): bool
-    {
-        return $this->createView;
-    }
-
-    private function hasCreateTrigger(): bool
-    {
-        return $this->createTrigger;
     }
 
     public function setAutoIncrement(bool $autoIncrement): void
@@ -2795,10 +2775,5 @@ class ExportSql extends ExportPlugin
         }
 
         return 50000;
-    }
-
-    public function hasMetadata(): bool
-    {
-        return $this->metadata;
     }
 }

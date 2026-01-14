@@ -83,16 +83,16 @@ class PageSettings
      * Process response to form
      *
      * @param FormDisplay $formDisplay Form
-     * @param ConfigFile  $cf          Configuration file
+     * @param ConfigFile  $configFile  Configuration file
      */
-    private function processPageSettings(FormDisplay $formDisplay, ConfigFile $cf): Message|null
+    private function processPageSettings(FormDisplay $formDisplay, ConfigFile $configFile): Message|null
     {
         if (! $formDisplay->process(false) || $formDisplay->hasErrors()) {
             return null;
         }
 
         // save settings
-        $result = $this->userPreferences->save($cf->getConfigArray());
+        $result = $this->userPreferences->save($configFile->getConfigArray());
         if ($result === true) {
             // reload page
             $response = ResponseRenderer::getInstance();

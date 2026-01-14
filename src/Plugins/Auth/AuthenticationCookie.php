@@ -291,7 +291,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             $this->password = $password;
 
             if ($config->config->AllowArbitraryServer && isset($_REQUEST['pma_servername'])) {
-                if ($config->config->ArbitraryServerRegexp) {
+                if ($config->config->ArbitraryServerRegexp !== '') {
                     $parts = explode(' ', $_REQUEST['pma_servername']);
                     if (count($parts) === 2) {
                         $tmpHost = $parts[0];

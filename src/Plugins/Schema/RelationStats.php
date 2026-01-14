@@ -102,7 +102,7 @@ abstract class RelationStats
      */
     private function getXy(TableStats $table, string $column): array
     {
-        $pos = array_search($column, $table->fields);
+        $pos = array_search($column, $table->fields, true);
 
         // x_left, x_right, y
         return [$table->x, $table->x + $table->width, $table->y + ($pos + 1.5) * $table->heightCell];

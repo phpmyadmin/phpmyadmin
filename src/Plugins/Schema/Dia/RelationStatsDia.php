@@ -74,7 +74,7 @@ class RelationStatsDia
      */
     private function getXy(TableStatsDia $table, string $column): array
     {
-        $pos = array_search($column, $table->fields);
+        $pos = array_search($column, $table->fields, true);
         // left, right, position
         $value = 12;
         if ($pos != 0) {

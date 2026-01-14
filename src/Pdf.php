@@ -120,7 +120,7 @@ class Pdf extends TCPDF
     /**
      * Improved with alias expanding.
      */
-    public function _putpages(): void
+    protected function _putpages(): void
     {
         if ($this->alias !== []) {
             $nbPages = count($this->pages);

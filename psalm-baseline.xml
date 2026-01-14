@@ -151,7 +151,7 @@
       <code><![CDATA[$c]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
-      <code><![CDATA[$k]]></code>
+      <code><![CDATA[$persistKey]]></code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION[$this->id]['Servers'][$i + 1]]]></code>
@@ -163,8 +163,8 @@
     <MixedAssignment>
       <code><![CDATA[$_SESSION[$this->id]['Servers'][$i]]]></code>
       <code><![CDATA[$c]]></code>
-      <code><![CDATA[$c[$k]]]></code>
       <code><![CDATA[$c[$mapTo]]]></code>
+      <code><![CDATA[$c[$persistKey]]]></code>
       <code><![CDATA[$defaultValue]]></code>
       <code><![CDATA[$host]]></code>
       <code><![CDATA[$instanceDefaultValue]]></code>
@@ -238,10 +238,8 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <MixedArgument>
-      <code><![CDATA[$canonicalPath]]></code>
       <code><![CDATA[$errorList]]></code>
       <code><![CDATA[$ip]]></code>
-      <code><![CDATA[$this->systemPaths[$systemPath]]]></code>
       <code><![CDATA[$userPrefsDisallow ?? []]]></code>
       <code><![CDATA[$val]]></code>
       <code><![CDATA[$validators[$path]]]></code>
@@ -266,14 +264,13 @@
       <code><![CDATA[$this->translatedPaths[$workPath]]]></code>
     </MixedArrayTypeCoercion>
     <MixedAssignment>
-      <code><![CDATA[$canonicalPath]]></code>
       <code><![CDATA[$errorList]]></code>
       <code><![CDATA[$errorList]]></code>
       <code><![CDATA[$ip]]></code>
       <code><![CDATA[$opts['errors']]]></code>
+      <code><![CDATA[$postValue]]></code>
       <code><![CDATA[$proxies['-' . $i]]]></code>
       <code><![CDATA[$userPrefsDisallow]]></code>
-      <code><![CDATA[$v]]></code>
       <code><![CDATA[$v]]></code>
       <code><![CDATA[$val]]></code>
       <code><![CDATA[$value]]></code>
@@ -6113,7 +6110,6 @@
       <code><![CDATA[remove]]></code>
     </PossiblyNullReference>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[bool]]></code>
       <code><![CDATA[bool]]></code>
     </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>

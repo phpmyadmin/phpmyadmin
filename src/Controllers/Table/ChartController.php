@@ -251,7 +251,7 @@ final readonly class ChartController implements InvocableController
         }
 
         $this->response->setRequestStatus(true);
-        $this->response->addJSON('message', null);
+        $this->response->addJSON('message');
         $this->response->addJSON('chartData', json_encode($sanitizedData));
     }
 }

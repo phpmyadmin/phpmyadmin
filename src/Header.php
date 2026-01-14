@@ -246,7 +246,7 @@ class Header
             $this->scripts->addFile('error_report.js');
         }
 
-        if ($this->config->config->enable_drag_drop_import === true) {
+        if ($this->config->config->enable_drag_drop_import) {
             $this->scripts->addFile('drag_drop_import.js');
         }
 

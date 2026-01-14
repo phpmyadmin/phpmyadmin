@@ -70,10 +70,10 @@ class CacheTest extends AbstractTestCase
         self::assertFalse(Cache::has($cacheKey));
         Cache::set($cacheKey, $valueToCache);
         self::assertTrue(Cache::has($cacheKey));
-        self::assertSame(Cache::get($cacheKey, null), $valueToCache);
+        self::assertSame(Cache::get($cacheKey), $valueToCache);
         Cache::remove($cacheKey);
         self::assertFalse(Cache::has($cacheKey));
-        self::assertNull(Cache::get($cacheKey, null));
+        self::assertNull(Cache::get($cacheKey));
         $defaultValue = new stdClass();
         self::assertSame($defaultValue, Cache::get($cacheKey, $defaultValue));
         self::assertFalse(Cache::get($cacheKey, false));

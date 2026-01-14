@@ -112,7 +112,7 @@ final readonly class RelationParameters
         try {
             $db = DatabaseName::from($params[self::DATABASE] ?? null);
         } catch (InvalidDatabaseName) {
-            return new self($user, null);
+            return new self($user);
         }
 
         $bookmarkFeature = null;
