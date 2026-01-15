@@ -392,14 +392,15 @@ class Node
                     continue;
                 }
 
-                while ($arr = $handle->fetchRow()) {
-                    if ($this->isHideDb($arr[0])) {
+                /** @var string $value */
+                foreach ($handle->fetchAllColumn() as $value) {
+                    if ($this->isHideDb($value)) {
                         continue;
                     }
 
-                    $prefix = strstr($arr[0], $dbSeparator, true);
+                    $prefix = strstr($value, $dbSeparator, true);
                     if ($prefix === false) {
-                        $prefix = $arr[0];
+                        $prefix = $value;
                     }
 
                     $prefixMap[$prefix] = 1;
@@ -414,10 +415,11 @@ class Node
         $query .= $this->getWhereClause('Database', $searchClause);
         $handle = $dbi->tryQuery($query);
         if ($handle !== false) {
-            while ($arr = $handle->fetchRow()) {
-                $prefix = strstr($arr[0], $dbSeparator, true);
+            /** @var string $value */
+            foreach ($handle->fetchAllColumn() as $value) {
+                $prefix = strstr($value, $dbSeparator, true);
                 if ($prefix === false) {
-                    $prefix = $arr[0];
+                    $prefix = $value;
                 }
 
                 $prefixMap[$prefix] = 1;

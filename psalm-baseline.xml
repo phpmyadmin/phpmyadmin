@@ -5276,15 +5276,6 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <PossiblyNullArgument>
-      <code><![CDATA[$arr[0]]]></code>
-      <code><![CDATA[$arr[0]]]></code>
-      <code><![CDATA[$arr[0]]]></code>
-    </PossiblyNullArgument>
-    <PossiblyNullArrayOffset>
-      <code><![CDATA[$prefixMap]]></code>
-      <code><![CDATA[$prefixMap]]></code>
-    </PossiblyNullArrayOffset>
   </file>
   <file src="src/Navigation/Nodes/NodeColumn.php">
     <MixedArgument>

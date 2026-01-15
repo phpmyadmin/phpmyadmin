@@ -7765,18 +7765,6 @@ parameters:
 			path: src/Navigation/Nodes/Node.php
 
 		-
-			message: '#^Parameter \#1 \$db of method PhpMyAdmin\\Navigation\\Nodes\\Node\:\:isHideDb\(\) expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Navigation/Nodes/Node.php
-
-		-
-			message: '#^Parameter \#1 \$haystack of function strstr expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/Navigation/Nodes/Node.php
-
-		-
 			message: '#^Binary operation "\." between mixed and ''\)'' results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
