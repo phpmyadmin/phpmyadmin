@@ -695,7 +695,7 @@ class Node
      * @param int    $pos          The offset of the list within the results.
      * @param string $searchClause A string used to filter the results of the query.
      *
-     * @return list<string|null>
+     * @return list<string>
      */
     private function getDataFromShowDatabasesLike(UserPrivileges $userPrivileges, int $pos, string $searchClause): array
     {
@@ -713,17 +713,18 @@ class Node
                     continue;
                 }
 
-                while ($arr = $handle->fetchRow()) {
-                    if ($this->isHideDb($arr[0])) {
+                /** @var string $value */
+                foreach ($handle->fetchAllColumn() as $value) {
+                    if ($this->isHideDb($value)) {
                         continue;
                     }
 
-                    if (in_array($arr[0], $retval, true)) {
+                    if (in_array($value, $retval, true)) {
                         continue;
                     }
 
                     if ($pos <= 0 && $count < $maxItems) {
-                        $retval[] = $arr[0];
+                        $retval[] = $value;
                         $count++;
                     }
 
@@ -746,14 +747,15 @@ class Node
                 continue;
             }
 
-            while ($arr = $handle->fetchRow()) {
-                if ($this->isHideDb($arr[0])) {
+            /** @var string $value */
+            foreach ($handle->fetchAllColumn() as $value) {
+                if ($this->isHideDb($value)) {
                     continue;
                 }
 
-                $prefix = strstr($arr[0], $dbSeparator, true);
+                $prefix = strstr($value, $dbSeparator, true);
                 if ($prefix === false) {
-                    $prefix = $arr[0];
+                    $prefix = $value;
                 }
 
                 $prefixMap[$prefix] = 1;
@@ -771,19 +773,20 @@ class Node
                 continue;
             }
 
-            while ($arr = $handle->fetchRow()) {
-                if ($this->isHideDb($arr[0])) {
+            /** @var string $value */
+            foreach ($handle->fetchAllColumn() as $value) {
+                if ($this->isHideDb($value)) {
                     continue;
                 }
 
-                if (in_array($arr[0], $retval, true)) {
+                if (in_array($value, $retval, true)) {
                     continue;
                 }
 
                 foreach ($prefixes as $prefix) {
-                    $startsWith = str_starts_with($arr[0] . $dbSeparator, $prefix . $dbSeparator);
+                    $startsWith = str_starts_with($value . $dbSeparator, $prefix . $dbSeparator);
                     if ($startsWith) {
-                        $retval[] = $arr[0];
+                        $retval[] = $value;
                         break;
                     }
                 }

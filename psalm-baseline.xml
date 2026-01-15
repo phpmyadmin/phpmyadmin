@@ -5280,19 +5280,11 @@
       <code><![CDATA[$arr[0]]]></code>
       <code><![CDATA[$arr[0]]]></code>
       <code><![CDATA[$arr[0]]]></code>
-      <code><![CDATA[$arr[0]]]></code>
-      <code><![CDATA[$arr[0]]]></code>
-      <code><![CDATA[$arr[0]]]></code>
-      <code><![CDATA[$arr[0]]]></code>
     </PossiblyNullArgument>
     <PossiblyNullArrayOffset>
       <code><![CDATA[$prefixMap]]></code>
       <code><![CDATA[$prefixMap]]></code>
-      <code><![CDATA[$prefixMap]]></code>
     </PossiblyNullArrayOffset>
-    <PossiblyNullOperand>
-      <code><![CDATA[$arr[0]]]></code>
-    </PossiblyNullOperand>
   </file>
   <file src="src/Navigation/Nodes/NodeColumn.php">
     <MixedArgument>
