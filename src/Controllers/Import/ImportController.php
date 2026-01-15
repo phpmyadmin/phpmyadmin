@@ -631,19 +631,40 @@ final readonly class ImportController implements InvocableController
                     Current::$table = $tableFromSql;
                 }
 
-                $htmlOutput .= $this->sql->executeQueryAndGetQueryResponse(
-                    $statementInfo,
-                    false, // is_gotofile
-                    Current::$database, // db
-                    Current::$table, // table
-                    '', // sql_query_for_bookmark - see below
-                    '', // message_to_show
-                    UrlParams::$goto, // goto
-                    null, // disp_query
-                    '', // disp_message
-                    Current::$sqlQuery,
-                    Current::$sqlQuery, // complete_query
-                );
+                try {
+                    $htmlOutput .= $this->sql->executeQueryAndGetQueryResponse(
+                        $statementInfo,
+                        false, // is_gotofile
+                        Current::$database, // db
+                        Current::$table, // table
+                        '', // sql_query_for_bookmark - see below
+                        '', // message_to_show
+                        UrlParams::$goto, // goto
+                        null, // disp_query
+                        '', // disp_message
+                        Current::$sqlQuery,
+                        Current::$sqlQuery, // complete_query
+                    );
+                } finally {
+                    if ($htmlOutput === '') {
+                        Import::$hasError = true;
+                        Current::$message = Message::error(
+                            __('Query execution failed with empty response'),
+                        );
+                    }
+                }
+            }
+
+            if (Import::$hasError) {
+                $this->response->setRequestStatus(false);
+                // Add the Current::$message to the JSON response
+                if (Current::$message instanceof Message) {
+                    $this->response->addJSON('message', Current::$message);
+                }
+            } else {
+                // If there was no error and we are in a 'goSql' context, it's a success
+                // This ensures it's explicitly set for non-error paths too
+                $this->response->setRequestStatus(true); // <--- CONSIDER ADDING THIS FOR SUCCESS PATHS
             }
 
             // sql_query_for_bookmark is not included in Sql::executeQueryAndGetQueryResponse
