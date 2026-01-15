@@ -12231,13 +12231,13 @@ parameters:
 		-
 			message: '#^Cannot cast mixed to int\.$#'
 			identifier: cast.int
-			count: 1
+			count: 3
 			path: src/Sql.php
 
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 10
+			count: 4
 			path: src/Sql.php
 
 		-
@@ -12265,12 +12265,6 @@ parameters:
 			path: src/Sql.php
 
 		-
-			message: '#^Only booleans are allowed in &&, mixed given on the right side\.$#'
-			identifier: booleanAnd.rightNotBoolean
-			count: 3
-			path: src/Sql.php
-
-		-
 			message: '#^Only booleans are allowed in &&, string given on the left side\.$#'
 			identifier: booleanAnd.leftNotBoolean
 			count: 1
@@ -12295,14 +12289,14 @@ parameters:
 			path: src/Sql.php
 
 		-
-			message: '#^Only booleans are allowed in a negated boolean, mixed given\.$#'
-			identifier: booleanNot.exprNotBoolean
+			message: '#^Only booleans are allowed in an if condition, PhpMyAdmin\\Dbal\\ResultInterface\|false given\.$#'
+			identifier: if.condNotBoolean
 			count: 1
 			path: src/Sql.php
 
 		-
-			message: '#^Only booleans are allowed in an if condition, PhpMyAdmin\\Dbal\\ResultInterface\|false given\.$#'
-			identifier: if.condNotBoolean
+			message: '#^Parameter \#1 \$label of method PhpMyAdmin\\Sql\:\:getBookmarkCreatedMessage\(\) expects string\|null, mixed given\.$#'
+			identifier: argument.type
 			count: 1
 			path: src/Sql.php
 
@@ -12349,19 +12343,7 @@ parameters:
 			path: src/Sql.php
 
 		-
-			message: '#^Parameter \#3 \$column of method PhpMyAdmin\\Sql\:\:cleanupRelations\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Sql.php
-
-		-
 			message: '#^Parameter \#3 \$subject of function str_replace expects array\<string\>\|string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Sql.php
-
-		-
-			message: '#^Parameter \#4 \$bookmarkLabel of method PhpMyAdmin\\Sql\:\:storeTheQueryAsBookmark\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Sql.php

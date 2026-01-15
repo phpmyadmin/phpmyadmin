@@ -14,6 +14,7 @@ use PhpMyAdmin\Display\DisplayParts;
 use PhpMyAdmin\Display\Results as DisplayResults;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Html\MySQLDocumentation;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Indexes\Index;
 use PhpMyAdmin\Query\Utilities;
@@ -235,6 +236,7 @@ class Sql
         string $table,
         string $column,
         string $currentValue,
+        string $currentValueParam,
     ): string {
         $foreignData = $this->relation->getForeignData(
             $this->relation->getForeigners($db, $table, $column),
@@ -250,7 +252,7 @@ class Sql
             $urlParams = ['db' => $db, 'table' => $table, 'field' => $column];
 
             return $this->template->render('sql/relational_column_dropdown', [
-                'current_value' => $_POST['curr_value'],
+                'current_value' => $currentValueParam,
                 'params' => $urlParams,
             ]);
         }
@@ -511,6 +513,7 @@ class Sql
         string $sqlQueryForBookmark,
         string $bookmarkLabel,
         bool $bookmarkReplace,
+        bool $hasBookmarkAllUsers,
     ): void {
         if ($bookmarkReplace) {
             $bookmarks = $this->bookmarkRepository->getList($this->config->selectedServer['user'], $db);
@@ -528,7 +531,7 @@ class Sql
             $bookmarkLabel,
             $bookmarkUser,
             $db,
-            isset($_POST['bkm_all_users']),
+            $hasBookmarkAllUsers,
         );
 
         if ($bookmark === false) {
@@ -737,6 +740,7 @@ class Sql
      * }
      */
     private function executeTheQuery(
+        ServerRequest $request,
         StatementInfo $statementInfo,
         string $fullSqlQuery,
         bool $isGotoFile,
@@ -774,13 +778,15 @@ class Sql
 
         // If there are no errors and bookmarklabel was given,
         // store the query as a bookmark
-        if (! empty($_POST['bkm_label']) && $sqlQueryForBookmark) {
+        $bookmarkLabel = $request->getParsedBodyParamAsString('bkm_label', '');
+        if ($bookmarkLabel !== '' && $sqlQueryForBookmark) {
             $this->storeTheQueryAsBookmark(
                 $db,
                 $this->config->selectedServer['user'],
                 $sqlQueryForBookmark,
-                $_POST['bkm_label'],
-                isset($_POST['bkm_replace']),
+                $bookmarkLabel,
+                $request->hasBodyParam('bkm_replace'),
+                $request->hasBodyParam('bkm_all_users'),
             );
         }
 
@@ -795,7 +801,12 @@ class Sql
 
         $unlimNumRows = $this->countQueryResults($numRows, $justBrowsing, $db, $table, $statementInfo);
 
-        $this->cleanupRelations($db, $table, $_POST['dropped_column'] ?? '', ! empty($_POST['purge']));
+        $this->cleanupRelations(
+            $db,
+            $table,
+            $request->getParsedBodyParamAsString('dropped_column', ''),
+            $request->hasBodyParam('purge'),
+        );
 
         return [$result, $numRows, $unlimNumRows, $profilingResults, $errorMessage];
     }
@@ -836,6 +847,7 @@ class Sql
         string $messageToShow,
         StatementInfo $statementInfo,
         int|string $numRows,
+        bool $hasRollbackQuery,
     ): Message {
         if ($statementInfo->flags->queryType === StatementType::Delete) {
             $message = Message::getMessageForDeletedRows($numRows);
@@ -892,7 +904,7 @@ class Sql
         }
 
         // In case of ROLLBACK, notify the user.
-        if (isset($_POST['rollback_query'])) {
+        if ($hasRollbackQuery) {
             $message->addText(__('[ROLLBACK occurred.]'));
         }
 
@@ -916,6 +928,7 @@ class Sql
      * @return string html
      */
     private function getQueryResponseForNoResultsReturned(
+        ServerRequest $request,
         StatementInfo $statementInfo,
         string $db,
         string|null $table,
@@ -935,7 +948,12 @@ class Sql
         if ($errorMessage !== '') {
             $message = Message::rawError($errorMessage);
         } else {
-            $message = $this->getMessageForNoRowsReturned($messageToShow, $statementInfo, $numRows);
+            $message = $this->getMessageForNoRowsReturned(
+                $messageToShow,
+                $statementInfo,
+                $numRows,
+                $request->hasBodyParam('rollback_query'),
+            );
         }
 
         $queryMessage = Generator::getMessage($message, $sqlQuery, MessageType::Success);
@@ -951,7 +969,7 @@ class Sql
         }
 
         // For ajax requests add message and sql_query as JSON
-        if (empty($_REQUEST['ajax_page_request'])) {
+        if (! $request->has('ajax_page_request')) {
             $extraData['message'] = $message;
             if ($this->config->settings['ShowSQL']) {
                 $extraData['sql_query'] = $queryMessage;
@@ -959,7 +977,7 @@ class Sql
         }
 
         if (
-            isset($_POST['dropped_column'])
+            $request->hasBodyParam('dropped_column')
             && $db !== '' && $table !== null && $table !== ''
         ) {
             // to refresh the list of indexes (Ajax mode)
@@ -988,6 +1006,7 @@ class Sql
         ]);
 
         $sqlQueryResultsTable = $this->getHtmlForSqlQueryResultsTable(
+            $request,
             $displayResultsObject,
             $displayParts,
             false,
@@ -1004,7 +1023,7 @@ class Sql
         $bookmarkFeature = $this->relation->getRelationParameters()->bookmarkFeature;
         if (
             $bookmarkFeature !== null
-            && empty($_GET['id_bookmark'])
+            && (int) $request->getQueryParam('id_bookmark') <= 0
             && $sqlQuery
         ) {
             $bookmark = $this->template->render('sql/bookmark', [
@@ -1055,14 +1074,14 @@ class Sql
      * Returns a message for successful creation of a bookmark or null if a bookmark
      * was not created
      */
-    private function getBookmarkCreatedMessage(): string
+    private function getBookmarkCreatedMessage(string|null $label): string
     {
         $output = '';
-        if (isset($_GET['label'])) {
+        if ($label !== null && $label !== '') {
             $message = Message::success(
                 __('Bookmark %s has been created.'),
             );
-            $message->addParam($_GET['label']);
+            $message->addParam($label);
             $output = $message->getDisplay();
         }
 
@@ -1082,6 +1101,7 @@ class Sql
      * @psalm-param int|numeric-string $numRows
      */
     private function getHtmlForSqlQueryResultsTable(
+        ServerRequest $request,
         DisplayResults $displayResultsObject,
         DisplayParts $displayParts,
         bool $editable,
@@ -1091,8 +1111,8 @@ class Sql
         StatementInfo $statementInfo,
         bool $isLimitedDisplay = false,
     ): string {
-        $printView = isset($_POST['printview']) && $_POST['printview'];
-        $isBrowseDistinct = ! empty($_POST['is_browse_distinct']);
+        $printView = $request->hasBodyParam('printview');
+        $isBrowseDistinct = (bool) $request->getParsedBodyParamAsStringOrNull('is_browse_distinct');
 
         if ($statementInfo->flags->isProcedure) {
             return $this->getHtmlForStoredProcedureResults(
@@ -1257,6 +1277,7 @@ class Sql
      * @return string html
      */
     private function getQueryResponseForResultsReturned(
+        ServerRequest $request,
         ResultInterface $result,
         StatementInfo $statementInfo,
         string $db,
@@ -1272,7 +1293,7 @@ class Sql
     ): string {
         // If we are retrieving the full value of a truncated field or the original
         // value of a transformed field, show it here
-        if (isset($_POST['grid_edit']) && $_POST['grid_edit']) {
+        if ($request->hasBodyParam('grid_edit')) {
             $this->getResponseForGridEdit($result);
             ResponseRenderer::getInstance()->callExit();
         }
@@ -1342,7 +1363,7 @@ class Sql
             ]);
         }
 
-        if (isset($_POST['printview']) && $_POST['printview']) {
+        if ($request->hasBodyParam('printview')) {
             $displayParts = DisplayParts::fromArray([
                 'hasEditLink' => false,
                 'deleteLink' => DeleteLinkEnum::NO_DELETE,
@@ -1352,9 +1373,7 @@ class Sql
                 'hasTextButton' => false,
                 'hasPrintLink' => false,
             ]);
-        }
-
-        if (! isset($_POST['printview']) || ! $_POST['printview']) {
+        } else {
             $scripts->addFile('makegrid.js');
             $scripts->addFile('sql.js');
             Current::$message = null;
@@ -1372,9 +1391,10 @@ class Sql
             ? $this->getMessageIfMissingColumnIndex($db, $editable, $hasUnique)
             : '';
 
-        $bookmarkCreatedMessage = $this->getBookmarkCreatedMessage();
+        $bookmarkCreatedMessage = $this->getBookmarkCreatedMessage($request->getQueryParam('label'));
 
         $tableHtml = $this->getHtmlForSqlQueryResultsTable(
+            $request,
             $displayResultsObject,
             $displayParts,
             $editable,
@@ -1389,7 +1409,7 @@ class Sql
         if (
             $bookmarkFeature !== null
             && $displayParts->hasBookmarkForm
-            && empty($_GET['id_bookmark'])
+            && (int) $request->getQueryParam('id_bookmark') <= 0
             && $sqlQuery
         ) {
             $bookmarkSupportHtml = $this->template->render('sql/bookmark', [
@@ -1430,6 +1450,7 @@ class Sql
      * @param string         $completeQuery       complete query
      */
     public function executeQueryAndSendQueryResponse(
+        ServerRequest $request,
         StatementInfo|null $statementInfo,
         bool $isGotoFile,
         string $db,
@@ -1450,6 +1471,7 @@ class Sql
         }
 
         return $this->executeQueryAndGetQueryResponse(
+            $request,
             $statementInfo,
             $isGotoFile, // is_gotofile
             $db, // db
@@ -1481,6 +1503,7 @@ class Sql
      * @return string html
      */
     public function executeQueryAndGetQueryResponse(
+        ServerRequest $request,
         StatementInfo $statementInfo,
         bool $isGotoFile,
         string $db,
@@ -1501,7 +1524,7 @@ class Sql
         if (
             $this->isRememberSortingOrder($statementInfo)
             && ! $statementInfo->flags->union
-            && ! isset($_POST['sort_by_key'])
+            && ! $request->hasBodyParam('sort_by_key')
         ) {
             if (! isset($_SESSION['sql_from_query_box'])) {
                 $statementInfo = $this->handleSortOrder($db, $table ?? '', $statementInfo, $sqlQuery);
@@ -1519,7 +1542,7 @@ class Sql
             $goto,
             $sqlQuery,
         );
-        $displayResultsObject->setConfigParamsForDisplayTable($statementInfo);
+        $displayResultsObject->setConfigParamsForDisplayTable($request, $statementInfo);
 
         // assign default full_sql_query
         $fullSqlQuery = $sqlQuery;
@@ -1540,7 +1563,12 @@ class Sql
                 $this->deleteTransformationInfo($db, $table ?? '', $statementInfo);
             }
 
-            $message = $this->getMessageForNoRowsReturned($messageToShow, $statementInfo, 0);
+            $message = $this->getMessageForNoRowsReturned(
+                $messageToShow,
+                $statementInfo,
+                0,
+                $request->hasBodyParam('rollback_query'),
+            );
 
             return Generator::getMessage($message, Current::$sqlQuery, MessageType::Success);
         }
@@ -1549,6 +1577,7 @@ class Sql
         $defaultFkCheck = ForeignKey::handleDisableCheckInit();
 
         [$result, $numRows, $unlimNumRows, $profilingResults, $errorMessage] = $this->executeTheQuery(
+            $request,
             $statementInfo,
             $fullSqlQuery,
             $isGotoFile,
@@ -1562,6 +1591,7 @@ class Sql
         // No rows returned -> move back to the calling page
         if (($numRows === 0 && $unlimNumRows === 0) || $statementInfo->flags->isAffected || $result === false) {
             $htmlOutput = $this->getQueryResponseForNoResultsReturned(
+                $request,
                 $statementInfo,
                 $db,
                 $table,
@@ -1577,6 +1607,7 @@ class Sql
         } else {
             // At least one row is returned -> displays a table with results
             $htmlOutput = $this->getQueryResponseForResultsReturned(
+                $request,
                 $result,
                 $statementInfo,
                 $db,

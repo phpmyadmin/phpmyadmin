@@ -14,6 +14,7 @@ use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Indexes\Index;
 use PhpMyAdmin\Indexes\IndexColumn;
 use PhpMyAdmin\Message;
@@ -2789,7 +2790,7 @@ class Results
      * @todo    currently this is called twice unnecessary
      * @todo    ignore LIMIT and ORDER in query!?
      */
-    public function setConfigParamsForDisplayTable(StatementInfo $statementInfo): void
+    public function setConfigParamsForDisplayTable(ServerRequest $request, StatementInfo $statementInfo): void
     {
         $sqlMd5 = md5($this->server . $this->db . $this->sqlQuery);
         $query = $_SESSION['tmpval']['query'][$sqlMd5] ?? [];
@@ -2801,21 +2802,19 @@ class Results
         }
 
         // The value can also be from _GET as described on issue #16146 when sorting results
-        $sessionMaxRows = $_GET['session_max_rows'] ?? $_POST['session_max_rows'] ?? '';
+        $sessionMaxRows = $request->getParam('session_max_rows');
 
         if (is_numeric($sessionMaxRows)) {
             $query['max_rows'] = (int) $sessionMaxRows;
-            unset($_GET['session_max_rows'], $_POST['session_max_rows']);
         } elseif ($sessionMaxRows === self::ALL_ROWS) {
             $query['max_rows'] = self::ALL_ROWS;
-            unset($_GET['session_max_rows'], $_POST['session_max_rows']);
         } elseif (empty($query['max_rows'])) {
             $query['max_rows'] = $this->config->config->maxRows;
         }
 
-        if (isset($_REQUEST['pos']) && is_numeric($_REQUEST['pos'])) {
-            $query['pos'] = (int) $_REQUEST['pos'];
-            unset($_REQUEST['pos']);
+        $pos = $request->getParam('pos');
+        if (is_numeric($pos)) {
+            $query['pos'] = (int) $pos;
         } elseif (empty($query['pos'])) {
             $query['pos'] = 0;
         }
@@ -2823,30 +2822,18 @@ class Results
         // Full text is needed in case of explain statements, if not specified.
         $fullText = $statementInfo->flags->queryType === StatementType::Explain;
 
-        if (
-            isset($_REQUEST['pftext']) && in_array(
-                $_REQUEST['pftext'],
-                [self::DISPLAY_PARTIAL_TEXT, self::DISPLAY_FULL_TEXT],
-                true,
-            )
-        ) {
-            $query['pftext'] = $_REQUEST['pftext'];
-            unset($_REQUEST['pftext']);
+        $pftext = $request->getParam('pftext');
+        if (in_array($pftext, [self::DISPLAY_PARTIAL_TEXT, self::DISPLAY_FULL_TEXT], true)) {
+            $query['pftext'] = $pftext;
         } elseif ($fullText) {
             $query['pftext'] = self::DISPLAY_FULL_TEXT;
         } elseif (empty($query['pftext'])) {
             $query['pftext'] = self::DISPLAY_PARTIAL_TEXT;
         }
 
-        if (
-            isset($_REQUEST['relational_display']) && in_array(
-                $_REQUEST['relational_display'],
-                [self::RELATIONAL_KEY, self::RELATIONAL_DISPLAY_COLUMN],
-                true,
-            )
-        ) {
-            $query['relational_display'] = $_REQUEST['relational_display'];
-            unset($_REQUEST['relational_display']);
+        $relationalDisplay = $request->getParam('relational_display');
+        if (in_array($relationalDisplay, [self::RELATIONAL_KEY, self::RELATIONAL_DISPLAY_COLUMN], true)) {
+            $query['relational_display'] = $relationalDisplay;
         } elseif (empty($query['relational_display'])) {
             // The current session value has priority over a
             // change via Settings; this change will be apparent
@@ -2854,44 +2841,35 @@ class Results
             $query['relational_display'] = $this->config->settings['RelationalDisplay'];
         }
 
-        if (
-            isset($_REQUEST['geoOption']) && in_array(
-                $_REQUEST['geoOption'],
-                [self::GEOMETRY_DISP_WKT, self::GEOMETRY_DISP_WKB, self::GEOMETRY_DISP_GEOM],
-                true,
-            )
-        ) {
-            $query['geoOption'] = $_REQUEST['geoOption'];
-            unset($_REQUEST['geoOption']);
+        $geoOption = $request->getParam('geoOption');
+        if (in_array($geoOption, [self::GEOMETRY_DISP_WKT, self::GEOMETRY_DISP_WKB, self::GEOMETRY_DISP_GEOM], true)) {
+            $query['geoOption'] = $geoOption;
         } elseif (empty($query['geoOption'])) {
             $query['geoOption'] = self::GEOMETRY_DISP_GEOM;
         }
 
-        if (isset($_REQUEST['display_binary'])) {
+        if ($request->has('display_binary')) {
             $query['display_binary'] = true;
-            unset($_REQUEST['display_binary']);
-        } elseif (isset($_REQUEST['display_options_form'])) {
+        } elseif ($request->has('display_options_form')) {
             // we know that the checkbox was unchecked
             unset($query['display_binary']);
-        } elseif (! isset($_REQUEST['full_text_button'])) {
+        } elseif (! $request->has('full_text_button')) {
             // selected by default because some operations like OPTIMIZE TABLE
             // and all queries involving functions return "binary" contents,
             // according to low-level field flags
             $query['display_binary'] = true;
         }
 
-        if (isset($_REQUEST['display_blob'])) {
+        if ($request->has('display_blob')) {
             $query['display_blob'] = true;
-            unset($_REQUEST['display_blob']);
-        } elseif (isset($_REQUEST['display_options_form'])) {
+        } elseif ($request->has('display_options_form')) {
             // we know that the checkbox was unchecked
             unset($query['display_blob']);
         }
 
-        if (isset($_REQUEST['hide_transformation'])) {
+        if ($request->has('hide_transformation')) {
             $query['hide_transformation'] = true;
-            unset($_REQUEST['hide_transformation']);
-        } elseif (isset($_REQUEST['display_options_form'])) {
+        } elseif ($request->has('display_options_form')) {
             // we know that the checkbox was unchecked
             unset($query['hide_transformation']);
         }

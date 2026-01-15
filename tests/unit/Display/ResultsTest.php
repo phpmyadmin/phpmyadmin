@@ -15,6 +15,7 @@ use PhpMyAdmin\Display\Results as DisplayResults;
 use PhpMyAdmin\Display\SortExpression;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ParseAnalyze;
@@ -876,8 +877,10 @@ class ResultsTest extends AbstractTestCase
         $query = 'ANALYZE FORMAT=JSON SELECT * FROM test_table';
         [$statementInfo] = ParseAnalyze::sqlQuery($query, $db);
 
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com');
+
         $object = new DisplayResults($this->dbi, $config, $db, $table, 2, '', $query);
-        $object->setConfigParamsForDisplayTable($statementInfo);
+        $object->setConfigParamsForDisplayTable($request, $statementInfo);
 
         self::assertSame('F', $_SESSION['tmpval']['pftext']);
 
@@ -885,38 +888,37 @@ class ResultsTest extends AbstractTestCase
         [$statementInfo] = ParseAnalyze::sqlQuery($query, $db);
 
         $object = new DisplayResults($this->dbi, $config, $db, $table, 2, '', $query);
-        $object->setConfigParamsForDisplayTable($statementInfo);
+        $object->setConfigParamsForDisplayTable($request, $statementInfo);
 
         self::assertSame('P', $_SESSION['tmpval']['pftext']);
     }
 
     /**
      * @param array<string, array<string, array<string, array<string, bool|int|string>>>|string> $session
-     * @param array<string, string>                                                              $get
-     * @param array<string, string>                                                              $post
-     * @param array<string, string>                                                              $request
+     * @param array<string, string>                                                              $queryParams
+     * @param array<string, string>                                                              $parsedBody
      * @param array<string, bool|array<string, array<string, bool|int|string>>|string|int>       $expected
      */
     #[DataProvider('providerSetConfigParamsForDisplayTable')]
     public function testSetConfigParamsForDisplayTable(
         array $session,
-        array $get,
-        array $post,
-        array $request,
+        array $queryParams,
+        array $parsedBody,
         array $expected,
     ): void {
         $_SESSION = $session;
-        $_GET = $get;
-        $_POST = $post;
-        $_REQUEST = $request;
 
         $db = 'test_db';
         $table = 'test_table';
         $query = 'SELECT * FROM `test_db`.`test_table`;';
         [$statementInfo] = ParseAnalyze::sqlQuery($query, $db);
 
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com')
+            ->withQueryParams($queryParams)
+            ->withParsedBody($parsedBody);
+
         $object = new DisplayResults($this->dbi, Config::getInstance(), $db, $table, 2, '', $query);
-        $object->setConfigParamsForDisplayTable($statementInfo);
+        $object->setConfigParamsForDisplayTable($request, $statementInfo);
 
         self::assertArrayHasKey('tmpval', $_SESSION);
         self::assertIsArray($_SESSION['tmpval']);
@@ -931,7 +933,6 @@ class ResultsTest extends AbstractTestCase
         return [
             'default values' => [
                 [' PMA_token ' => 'token'],
-                [],
                 [],
                 [],
                 [
@@ -988,7 +989,6 @@ class ResultsTest extends AbstractTestCase
                 ],
                 [],
                 [],
-                [],
                 [
                     'query' => [
                         'b' => [],
@@ -1024,9 +1024,9 @@ class ResultsTest extends AbstractTestCase
             ],
             'default and request values' => [
                 [' PMA_token ' => 'token'],
-                ['session_max_rows' => '27'],
                 ['session_max_rows' => '28'],
                 [
+                    'session_max_rows' => '27',
                     'pos' => '2',
                     'pftext' => DisplayResults::DISPLAY_FULL_TEXT,
                     'relational_display' => DisplayResults::RELATIONAL_DISPLAY_COLUMN,
@@ -1088,7 +1088,6 @@ class ResultsTest extends AbstractTestCase
                     ],
                     ' PMA_token ' => 'token',
                 ],
-                [],
                 ['session_max_rows' => DisplayResults::ALL_ROWS],
                 [
                     'pos' => 'NaN',

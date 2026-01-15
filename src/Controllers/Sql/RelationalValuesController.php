@@ -29,10 +29,11 @@ final class RelationalValuesController implements InvocableController
         $column = $request->getParsedBodyParamAsString('column', '');
         $relationKeyOrDisplayColumn = $request->getParsedBodyParamAsStringOrNull('relation_key_or_display_column');
 
+        $currentValueParam = $request->getParsedBodyParamAsString('curr_value', '');
         if ($_SESSION['tmpval']['relational_display'] === 'D' && $relationKeyOrDisplayColumn !== null) {
             $currValue = $relationKeyOrDisplayColumn;
         } else {
-            $currValue = $request->getParsedBodyParamAsString('curr_value', '');
+            $currValue = $currentValueParam;
         }
 
         $dropdown = $this->sql->getHtmlForRelationalColumnDropdown(
@@ -40,6 +41,7 @@ final class RelationalValuesController implements InvocableController
             Current::$table,
             $column,
             $currValue,
+            $currentValueParam,
         );
         $this->response->addJSON('dropdown', $dropdown);
 

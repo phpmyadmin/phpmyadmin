@@ -3848,13 +3848,18 @@
       <code><![CDATA[$expr]]></code>
       <code><![CDATA[$expr]]></code>
       <code><![CDATA[$field]]></code>
+      <code><![CDATA[$geoOption]]></code>
       <code><![CDATA[$hiddenFields['session_max_rows']]]></code>
       <code><![CDATA[$i]]></code>
       <code><![CDATA[$i]]></code>
       <code><![CDATA[$identifier]]></code>
       <code><![CDATA[$meta->name]]></code>
+      <code><![CDATA[$pftext]]></code>
+      <code><![CDATA[$pos]]></code>
       <code><![CDATA[$query]]></code>
       <code><![CDATA[$relationalDisplay]]></code>
+      <code><![CDATA[$relationalDisplay]]></code>
+      <code><![CDATA[$sessionMaxRows]]></code>
       <code><![CDATA[$value]]></code>
     </MixedAssignment>
     <MixedOperand>
@@ -8004,6 +8009,7 @@
     </InvalidNullableReturnType>
     <MixedArgument>
       <code><![CDATA[$numberOfLine / $maxRows]]></code>
+      <code><![CDATA[$request->getQueryParam('label')]]></code>
       <code><![CDATA[$sortCol]]></code>
     </MixedArgument>
     <MixedArrayAccess>
@@ -8046,17 +8052,11 @@
       <code><![CDATA[$row[$column]]]></code>
     </NullableReturnStatement>
     <PossiblyInvalidArgument>
-      <code><![CDATA[$_POST['bkm_label']]]></code>
-      <code><![CDATA[$_POST['dropped_column'] ?? '']]></code>
       <code><![CDATA[$numRows]]></code>
       <code><![CDATA[$numRows]]></code>
       <code><![CDATA[$numRows]]></code>
       <code><![CDATA[$numRows]]></code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_POST['bkm_label']]]></code>
-      <code><![CDATA[$_POST['dropped_column'] ?? '']]></code>
-    </PossiblyInvalidCast>
     <PossiblyInvalidOperand>
       <code><![CDATA[$numRows]]></code>
       <code><![CDATA[$sortCol]]></code>
@@ -8081,16 +8081,7 @@
     </RedundantCondition>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! $index->isUnique()]]></code>
-      <code><![CDATA[$_POST['grid_edit']]]></code>
-      <code><![CDATA[$_POST['printview']]]></code>
-      <code><![CDATA[$_POST['printview']]]></code>
       <code><![CDATA[$table]]></code>
-      <code><![CDATA[empty($_GET['id_bookmark'])]]></code>
-      <code><![CDATA[empty($_GET['id_bookmark'])]]></code>
-      <code><![CDATA[empty($_POST['bkm_label'])]]></code>
-      <code><![CDATA[empty($_POST['is_browse_distinct'])]]></code>
-      <code><![CDATA[empty($_POST['purge'])]]></code>
-      <code><![CDATA[empty($_REQUEST['ajax_page_request'])]]></code>
       <code><![CDATA[empty($statement->altered[0]->field->column)]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
@@ -10181,7 +10172,6 @@
       <code><![CDATA[testGetSortOrderHiddenInputs]]></code>
       <code><![CDATA[testGetSortOrderHiddenInputs]]></code>
       <code><![CDATA[testGetSortOrderHiddenInputs]]></code>
-      <code><![CDATA[testSetConfigParamsForDisplayTable]]></code>
       <code><![CDATA[testSetConfigParamsForDisplayTable]]></code>
       <code><![CDATA[testSetConfigParamsForDisplayTable]]></code>
       <code><![CDATA[testSetConfigParamsForDisplayTable]]></code>

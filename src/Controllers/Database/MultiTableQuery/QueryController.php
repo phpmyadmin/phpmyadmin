@@ -32,6 +32,7 @@ final class QueryController implements InvocableController
         $goto = Url::getFromRoute('/database/multi-table-query');
 
         $this->response->addHTML($this->sql->executeQueryAndSendQueryResponse(
+            $request,
             null,
             false, // is_gotofile
             $db, // db

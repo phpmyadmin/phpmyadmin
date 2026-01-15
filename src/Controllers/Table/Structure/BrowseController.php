@@ -35,7 +35,7 @@ final class BrowseController implements InvocableController
             return $this->response->response();
         }
 
-        $this->displayTableBrowseForSelectedColumns(UrlParams::$goto);
+        $this->displayTableBrowseForSelectedColumns($request, UrlParams::$goto);
 
         return $this->response->response();
     }
@@ -45,7 +45,7 @@ final class BrowseController implements InvocableController
      *
      * @param string $goto goto page url
      */
-    private function displayTableBrowseForSelectedColumns(string $goto): void
+    private function displayTableBrowseForSelectedColumns(ServerRequest $request, string $goto): void
     {
         $fields = [];
         foreach ($_POST['selected_fld'] as $sval) {
@@ -64,6 +64,7 @@ final class BrowseController implements InvocableController
 
         $this->response->addHTML(
             $this->sql->executeQueryAndGetQueryResponse(
+                $request,
                 $statementInfo,
                 false, // is_gotofile
                 Current::$database, // db

@@ -10,6 +10,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
@@ -620,7 +621,11 @@ class SqlTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = true;
         $config->selectedServer['user'] = 'user';
+
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com');
+
         $actual = $this->sql->executeQueryAndSendQueryResponse(
+            $request,
             null,
             false,
             'sakila',
