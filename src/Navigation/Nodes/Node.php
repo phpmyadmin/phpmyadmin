@@ -434,7 +434,7 @@ class Node
      */
     private function isHideDb(string $db): bool
     {
-        return ! empty($this->config->selectedServer['hide_db'])
+        return $this->config->selectedServer['hide_db'] !== ''
             && preg_match('/' . $this->config->selectedServer['hide_db'] . '/', $db) === 1;
     }
 
@@ -446,15 +446,15 @@ class Node
      *
      * @param string $searchClause search clause
      *
-     * @return mixed[] array of databases
+     * @return string[] array of databases
      */
     private function getDatabasesToSearch(UserPrivileges $userPrivileges, string $searchClause): array
     {
         $databases = [];
         if ($searchClause !== '') {
             $databases = ['%' . DatabaseInterface::getInstance()->escapeMysqlWildcards($searchClause) . '%'];
-        } elseif (! empty($this->config->selectedServer['only_db'])) {
-            $databases = $this->config->selectedServer['only_db'];
+        } elseif ($this->config->selectedServer['only_db'] !== '') {
+            $databases = (array) $this->config->selectedServer['only_db'];
         } elseif ($userPrivileges->databasesToTest !== false && $userPrivileges->databasesToTest !== []) {
             $databases = $userPrivileges->databasesToTest;
         }
@@ -480,12 +480,12 @@ class Node
                 . ' LIKE ' . $dbi->quoteString('%' . $dbi->escapeMysqlWildcards($searchClause) . '%') . ' ';
         }
 
-        if (! empty($this->config->selectedServer['hide_db'])) {
+        if ($this->config->selectedServer['hide_db'] !== '') {
             $whereClause .= 'AND ' . Util::backquote($columnName)
                 . ' NOT REGEXP ' . $dbi->quoteString($this->config->selectedServer['hide_db']) . ' ';
         }
 
-        if (! empty($this->config->selectedServer['only_db'])) {
+        if ($this->config->selectedServer['only_db'] !== '') {
             if (is_string($this->config->selectedServer['only_db'])) {
                 $this->config->selectedServer['only_db'] = [$this->config->selectedServer['only_db']];
             }

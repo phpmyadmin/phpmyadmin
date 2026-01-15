@@ -295,7 +295,7 @@ final class NodeTest extends AbstractTestCase
             "WHERE TRUE AND `SCHEMA_NAME` NOT REGEXP 'regexpHideDb' ",
             $method->invoke($node, 'SCHEMA_NAME'),
         );
-        unset($config->selectedServer['hide_db']);
+        $config->selectedServer['hide_db'] = '';
 
         // When only_db directive is present and it's a single db
         $config->selectedServer['only_db'] = 'stringOnlyDb';
@@ -303,7 +303,7 @@ final class NodeTest extends AbstractTestCase
             "WHERE TRUE AND ( `SCHEMA_NAME` LIKE 'stringOnlyDb' ) ",
             $method->invoke($node, 'SCHEMA_NAME'),
         );
-        unset($config->selectedServer['only_db']);
+        $config->selectedServer['only_db'] = '';
 
         // When only_db directive is present and it's an array of dbs
         $config->selectedServer['only_db'] = ['onlyDbOne', 'onlyDbTwo'];
@@ -311,7 +311,7 @@ final class NodeTest extends AbstractTestCase
             'WHERE TRUE AND ( `SCHEMA_NAME` LIKE \'onlyDbOne\' OR `SCHEMA_NAME` LIKE \'onlyDbTwo\' ) ',
             $method->invoke($node, 'SCHEMA_NAME'),
         );
-        unset($config->selectedServer['only_db']);
+        $config->selectedServer['only_db'] = '';
     }
 
     /**

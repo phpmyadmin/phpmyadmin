@@ -5276,23 +5276,6 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <MixedArgument>
-      <code><![CDATA[$db]]></code>
-      <code><![CDATA[$db]]></code>
-      <code><![CDATA[$db]]></code>
-      <code><![CDATA[$db]]></code>
-      <code><![CDATA[$db]]></code>
-    </MixedArgument>
-    <MixedAssignment>
-      <code><![CDATA[$db]]></code>
-      <code><![CDATA[$db]]></code>
-      <code><![CDATA[$db]]></code>
-      <code><![CDATA[$db]]></code>
-      <code><![CDATA[$db]]></code>
-    </MixedAssignment>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$databases]]></code>
-    </PossiblyInvalidArgument>
     <PossiblyNullArgument>
       <code><![CDATA[$arr[0]]]></code>
       <code><![CDATA[$arr[0]]]></code>
@@ -5312,12 +5295,6 @@
     <PossiblyNullOperand>
       <code><![CDATA[$arr[0]]]></code>
     </PossiblyNullOperand>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($this->config->selectedServer['hide_db'])]]></code>
-      <code><![CDATA[empty($this->config->selectedServer['hide_db'])]]></code>
-      <code><![CDATA[empty($this->config->selectedServer['only_db'])]]></code>
-      <code><![CDATA[empty($this->config->selectedServer['only_db'])]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Navigation/Nodes/NodeColumn.php">
     <MixedArgument>
@@ -10518,10 +10495,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidPropertyAssignmentValue>
-      <code><![CDATA[$config->selectedServer]]></code>
-      <code><![CDATA[$config->selectedServer]]></code>
-    </InvalidPropertyAssignmentValue>
   </file>
   <file src="tests/unit/Navigation/Nodes/ObjectFetcherTest.php">
     <DeprecatedMethod>
