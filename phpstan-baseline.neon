@@ -7765,49 +7765,7 @@ parameters:
 			path: src/Navigation/Nodes/Node.php
 
 		-
-			message: '#^Binary operation "\." between mixed and ''\)'' results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Navigation/Nodes/NodeColumn.php
-
-		-
-			message: '#^Binary operation "\.\=" between mixed and '' \('' results in an error\.$#'
-			identifier: assignOp.invalid
-			count: 1
-			path: src/Navigation/Nodes/NodeColumn.php
-
-		-
-			message: '#^Binary operation "\.\=" between mixed and '', '' results in an error\.$#'
-			identifier: assignOp.invalid
-			count: 1
-			path: src/Navigation/Nodes/NodeColumn.php
-
-		-
-			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
-			identifier: empty.notAllowed
-			count: 1
-			path: src/Navigation/Nodes/NodeColumn.php
-
-		-
-			message: '#^Parameter \#1 \$item of method PhpMyAdmin\\Navigation\\Nodes\\NodeColumn\:\:getDisplayName\(\) expects array\<string, mixed\>, array\<mixed\> given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Navigation/Nodes/NodeColumn.php
-
-		-
-			message: '#^Parameter \#1 \$key of method PhpMyAdmin\\Navigation\\Nodes\\NodeColumn\:\:getColumnIcon\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Navigation/Nodes/NodeColumn.php
-
-		-
-			message: '#^Parameter \#2 \$name of method PhpMyAdmin\\Navigation\\Nodes\\Node\:\:__construct\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Navigation/Nodes/NodeColumn.php
-
-		-
-			message: '#^Parameter \#2 \$value of method PhpMyAdmin\\Navigation\\Nodes\\NodeColumn\:\:getTruncateValue\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#2 \$name of method PhpMyAdmin\\Navigation\\Nodes\\Node\:\:__construct\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Navigation/Nodes/NodeColumn.php
@@ -7853,6 +7811,12 @@ parameters:
 
 		-
 			message: '#^Parameter \#1 \$columnSpecification of static method PhpMyAdmin\\Util\:\:extractColumnSpec\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Navigation/Nodes/NodeTable.php
+
+		-
+			message: '#^Parameter \#2 \$item of class PhpMyAdmin\\Navigation\\Nodes\\NodeColumn constructor expects array\{name\: string\|null, key\: string, type\: string\|null, default\: string\|null, nullable\: string\}, array\<string\|null\> given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Navigation/Nodes/NodeTable.php

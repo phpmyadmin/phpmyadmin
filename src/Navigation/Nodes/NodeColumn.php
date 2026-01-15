@@ -20,7 +20,7 @@ class NodeColumn extends Node
 {
     public string $displayName;
 
-    /** @param mixed[] $item array to identify the column node */
+    /** @param array{name:string|null, key:string, type:string|null, default:string|null, nullable:string} $item */
     public function __construct(Config $config, array $item)
     {
         $this->displayName = $this->getDisplayName($item);
@@ -60,7 +60,7 @@ class NodeColumn extends Node
     /**
      * Get displayable name for navigation tree (key_type, data_type, default)
      *
-     * @param array<string, mixed> $item Item is array containing required info
+     * @param array{name:string|null, key:string, type:string|null, default:string|null, nullable:string} $item
      *
      * @return string Display name for navigation tree
      */
@@ -69,7 +69,7 @@ class NodeColumn extends Node
         $retval = $item['name'];
         $isFirst = true;
         foreach ($item as $key => $value) {
-            if (empty($value) || $key === 'name') {
+            if ($value === null || $value === '' || $key === 'name') {
                 continue;
             }
 

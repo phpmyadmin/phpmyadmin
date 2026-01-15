@@ -154,7 +154,7 @@ class NodeTable extends NodeDatabaseChild
 
                 $retval[] = new NodeColumn($this->config, [
                     'name' => $arr['Field'],
-                    'key' => $arr['Key'],
+                    'key' => $arr['Key'] ?? '',
                     'type' => Util::extractColumnSpec($arr['Type'])['type'],
                     'default' => $arr['Default'],
                     'nullable' => $arr['Null'] === 'NO' ? '' : 'nullable',

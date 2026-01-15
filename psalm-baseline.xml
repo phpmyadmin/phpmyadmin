@@ -5278,23 +5278,14 @@
     </DeprecatedMethod>
   </file>
   <file src="src/Navigation/Nodes/NodeColumn.php">
-    <MixedArgument>
-      <code><![CDATA[$item['key']]]></code>
+    <PossiblyNullArgument>
       <code><![CDATA[$item['name']]]></code>
-      <code><![CDATA[$value]]></code>
-    </MixedArgument>
-    <MixedArgumentTypeCoercion>
-      <code><![CDATA[$item]]></code>
-    </MixedArgumentTypeCoercion>
-    <MixedAssignment>
-      <code><![CDATA[$retval]]></code>
-      <code><![CDATA[$value]]></code>
-    </MixedAssignment>
-    <MixedOperand>
+    </PossiblyNullArgument>
+    <PossiblyNullOperand>
       <code><![CDATA[$retval]]></code>
       <code><![CDATA[$retval]]></code>
       <code><![CDATA[$retval]]></code>
-    </MixedOperand>
+    </PossiblyNullOperand>
   </file>
   <file src="src/Navigation/Nodes/NodeDatabase.php">
     <DeprecatedMethod>
@@ -5316,6 +5307,9 @@
     <DeprecatedMethod>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[$row]]></code>
+    </MixedArgumentTypeCoercion>
     <PossiblyInvalidPropertyFetch>
       <code><![CDATA[$this->getRealParent()->realName]]></code>
       <code><![CDATA[$this->getRealParent()->realName]]></code>
