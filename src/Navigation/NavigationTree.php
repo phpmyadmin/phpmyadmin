@@ -225,8 +225,8 @@ class NavigationTree
             return (int) $this->dbi->fetchValue(
                 sprintf(
                     $query,
-                    $this->config->settings['FirstLevelNavigationItems'],
-                    $this->config->settings['FirstLevelNavigationItems'],
+                    $this->config->config->FirstLevelNavigationItems,
+                    $this->config->config->FirstLevelNavigationItems,
                     $this->dbi->quoteString($this->config->settings['NavigationTreeDbSeparator']),
                     $this->dbi->quoteString(Current::$database),
                 ),
@@ -277,7 +277,7 @@ class NavigationTree
             }
         }
 
-        $navItems = $this->config->settings['FirstLevelNavigationItems'];
+        $navItems = $this->config->config->FirstLevelNavigationItems;
 
         return (int) floor(count($prefixMap) / $navItems) * $navItems;
     }
@@ -1129,7 +1129,7 @@ class NavigationTree
             ['server' => Current::$server],
             Url::getFromRoute('/navigation'),
             'frame_navigation',
-            $this->config->settings['FirstLevelNavigationItems'],
+            $this->config->config->FirstLevelNavigationItems,
             'pos',
             ['dbselector'],
         );
@@ -1278,7 +1278,7 @@ class NavigationTree
                 ['server' => Current::$server],
                 Url::getFromRoute('/navigation'),
                 'frame_navigation',
-                $this->config->settings['FirstLevelNavigationItems'],
+                $this->config->config->FirstLevelNavigationItems,
                 'pos',
                 ['dbselector'],
             );

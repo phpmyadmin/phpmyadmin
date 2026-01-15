@@ -318,7 +318,7 @@ class Node
         int $pos,
         string $searchClause = '',
     ): array {
-        if (isset($this->config->selectedServer['DisableIS']) && ! $this->config->selectedServer['DisableIS']) {
+        if (! $this->config->selectedServer['DisableIS']) {
             return $this->getDataFromInfoSchema($pos, $searchClause);
         }
 
@@ -345,7 +345,7 @@ class Node
             ! $this->config->settings['NavigationTreeEnableGrouping']
             || ! $this->config->settings['ShowDatabasesNavigationAsTree']
         ) {
-            if (isset($this->config->selectedServer['DisableIS']) && ! $this->config->selectedServer['DisableIS']) {
+            if (! $this->config->selectedServer['DisableIS']) {
                 $query = 'SELECT COUNT(*) ';
                 $query .= 'FROM INFORMATION_SCHEMA.SCHEMATA ';
                 $query .= $this->getWhereClause('SCHEMA_NAME', $searchClause);
@@ -591,7 +591,7 @@ class Node
      */
     private function getDataFromInfoSchema(int $pos, string $searchClause): array
     {
-        $maxItems = $this->config->settings['FirstLevelNavigationItems'];
+        $maxItems = $this->config->config->FirstLevelNavigationItems;
         $dbi = DatabaseInterface::getInstance();
         if (
             ! $this->config->settings['NavigationTreeEnableGrouping']
@@ -632,7 +632,7 @@ class Node
      */
     private function getDataFromShowDatabases(int $pos, string $searchClause): array
     {
-        $maxItems = $this->config->settings['FirstLevelNavigationItems'];
+        $maxItems = $this->config->config->FirstLevelNavigationItems;
         $dbi = DatabaseInterface::getInstance();
         if (
             ! $this->config->settings['NavigationTreeEnableGrouping']
@@ -646,22 +646,7 @@ class Node
                 return [];
             }
 
-            $count = 0;
-            if (! $handle->seek($pos)) {
-                return [];
-            }
-
-            $retval = [];
-            while ($arr = $handle->fetchRow()) {
-                if ($count >= $maxItems) {
-                    break;
-                }
-
-                $retval[] = $arr[0];
-                $count++;
-            }
-
-            return $retval;
+            return array_slice($handle->fetchAllColumn(), $pos, $maxItems);
         }
 
         $dbSeparator = $this->config->settings['NavigationTreeDbSeparator'];
@@ -673,10 +658,10 @@ class Node
         if ($handle !== false) {
             $prefixMap = [];
             $total = $pos + $maxItems;
-            while ($arr = $handle->fetchRow()) {
-                $prefix = strstr($arr[0], $dbSeparator, true);
+            while ($value = $handle->fetchValue()) {
+                $prefix = strstr($value, $dbSeparator, true);
                 if ($prefix === false) {
-                    $prefix = $arr[0];
+                    $prefix = $value;
                 }
 
                 $prefixMap[$prefix] = 1;
@@ -714,7 +699,7 @@ class Node
      */
     private function getDataFromShowDatabasesLike(UserPrivileges $userPrivileges, int $pos, string $searchClause): array
     {
-        $maxItems = $this->config->settings['FirstLevelNavigationItems'];
+        $maxItems = $this->config->config->FirstLevelNavigationItems;
         $dbi = DatabaseInterface::getInstance();
         if (
             ! $this->config->settings['NavigationTreeEnableGrouping']
