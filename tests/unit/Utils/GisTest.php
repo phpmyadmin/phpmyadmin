@@ -6,7 +6,6 @@ namespace PhpMyAdmin\Tests\Utils;
 
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Utils\Gis;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -37,8 +36,6 @@ class GisTest extends AbstractTestCase
         bool $SRIDOption,
         int $mysqlVersion,
     ): void {
-        $resultStub = self::createMock(DummyResult::class);
-
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
@@ -48,12 +45,8 @@ class GisTest extends AbstractTestCase
             ->willReturn($mysqlVersion);
 
         $dbi->expects($SRIDOption ? self::once() : self::exactly(2))
-            ->method('tryQuery')
+            ->method('fetchSingleRow')
             ->with($expectedQuery)
-            ->willReturn($resultStub);// Omit the real object
-
-        $resultStub->expects($SRIDOption ? self::once() : self::exactly(2))
-            ->method('fetchRow')
             ->willReturn($returnData);
 
         DatabaseInterface::$instance = $dbi;

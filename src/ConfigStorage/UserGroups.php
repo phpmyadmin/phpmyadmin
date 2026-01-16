@@ -51,8 +51,8 @@ class UserGroups
         $result = $dbi->tryQueryAsControlUser($sqlQuery);
         if ($result) {
             $i = 0;
-            while ($row = $result->fetchRow()) {
-                $users[] = ['count' => ++$i, 'user' => $row[0]];
+            foreach ($result->fetchAllColumn() as $value) {
+                $users[] = ['count' => ++$i, 'user' => $value];
             }
         }
 

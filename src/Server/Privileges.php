@@ -485,13 +485,13 @@ class Privileges
                 $sqlQuery = 'SHOW COLUMNS FROM `mysql`.' . ($db === '*' ? '`user`' : '`db`') . ';';
 
                 $res = $this->dbi->query($sqlQuery);
-                while ($row1 = $res->fetchRow()) {
-                    if (str_starts_with($row1[0], 'max_')) {
-                        $row[$row1[0]] = 0;
-                    } elseif (str_starts_with($row1[0], 'x509_') || str_starts_with($row1[0], 'ssl_')) {
-                        $row[$row1[0]] = '';
+                foreach ($res->fetchAllColumn() as $colName) {
+                    if (str_starts_with($colName, 'max_')) {
+                        $row[$colName] = 0;
+                    } elseif (str_starts_with($colName, 'x509_') || str_starts_with($colName, 'ssl_')) {
+                        $row[$colName] = '';
                     } else {
-                        $row[$row1[0]] = 'N';
+                        $row[$colName] = 'N';
                     }
                 }
             } elseif ($table === '*') {
@@ -514,8 +514,8 @@ class Privileges
                 . '.' . Util::backquote($table) . ';',
             );
             if ($res) {
-                while ($row1 = $res->fetchRow()) {
-                    $columns[$row1[0]] = [
+                foreach ($res->fetchAllColumn() as $colName) {
+                    $columns[$colName] = [
                         'Select' => false,
                         'Insert' => false,
                         'Update' => false,
@@ -1704,12 +1704,12 @@ class Privileges
 
             $tables = [];
             if ($result) {
-                while ($row = $result->fetchRow()) {
-                    if (in_array($row[0], $foundRows, true)) {
+                foreach ($result->fetchAllColumn() as $tableName) {
+                    if (in_array($tableName, $foundRows, true)) {
                         continue;
                     }
 
-                    $tables[] = $row[0];
+                    $tables[] = $tableName;
                 }
             }
 

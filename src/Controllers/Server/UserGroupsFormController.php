@@ -87,8 +87,8 @@ final class UserGroupsFormController implements InvocableController
         $sqlQuery = 'SELECT DISTINCT `usergroup` FROM ' . $groupTable;
         $result = $this->dbi->tryQueryAsControlUser($sqlQuery);
         if ($result) {
-            while ($row = $result->fetchRow()) {
-                $allUserGroups[$row[0]] = $row[0];
+            foreach ($result->fetchAllColumn() as $value) {
+                $allUserGroups[$value] = $value;
             }
         }
 
