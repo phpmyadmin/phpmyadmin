@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
 "PO-Revision-Date: 2026-01-16 08:39+0000\n"
-"Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
+"Last-Translator: Jakkarach Dumdee <armada1@hotmail.co.th>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/4-9/th/>"
 "\n"
 "Language: th\n"
@@ -14709,7 +14709,7 @@ msgstr "แก้ไขพาร์ทิชัน"
 
 #: templates/columns_definitions/move_column.twig:7
 msgid "first"
-msgstr "ที่หนึ่ง"
+msgstr "อันดับแรก"
 
 #: templates/privileges/resource_limits.twig:2
 msgid "Resource limits"
