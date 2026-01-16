@@ -321,17 +321,17 @@ class StructureController extends AbstractController
 
         if (isset($showtable['Data_free'])) {
             [$free_size, $free_unit] = Util::formatByteDown($showtable['Data_free'], $max_digits, $decimals);
-            [$effect_size, $effect_unit] = Util::formatByteDown(
-                $showtable['Data_length']
-                + $showtable['Index_length']
-                - $showtable['Data_free'],
-                $max_digits,
-                $decimals
-            );
+            $effective = $showtable['Data_length'] + $showtable['Index_length'];
+            if ($tbl_storage_engine === 'INNODB') {
+                $effective += $showtable['Data_free'];
+            } else {
+                $effective -= $showtable['Data_free'];
+            }
+
+            [$effect_size, $effect_unit] = Util::formatByteDown($effective, $max_digits, $decimals);
         } else {
             [$effect_size, $effect_unit] = Util::formatByteDown(
-                $showtable['Data_length']
-                + $showtable['Index_length'],
+                $showtable['Data_length'] + $showtable['Index_length'],
                 $max_digits,
                 $decimals
             );
@@ -347,9 +347,7 @@ class StructureController extends AbstractController
         $avg_unit = '';
         if ($table_info_num_rows > 0) {
             [$avg_size, $avg_unit] = Util::formatByteDown(
-                ($showtable['Data_length']
-                + $showtable['Index_length'])
-                / $showtable['Rows'],
+                ($showtable['Data_length'] + $showtable['Index_length']) / $showtable['Rows'],
                 6,
                 1
             );
