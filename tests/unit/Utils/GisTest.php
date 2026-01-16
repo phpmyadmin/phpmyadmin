@@ -6,7 +6,6 @@ namespace PhpMyAdmin\Tests\Utils;
 
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Utils\Gis;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
