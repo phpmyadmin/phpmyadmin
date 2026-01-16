@@ -144,8 +144,11 @@ final readonly class CentralColumnsController implements InvocableController
             $pos,
             $this->config->config->maxRows,
         );
+
+        $startRow = $pos + 1;
+        $endRow = $pos + $numberOfColumns;
         Current::$message = Message::success(
-            sprintf(__('Showing rows %1$s - %2$s.'), $pos + 1, $pos + $numberOfColumns),
+            sprintf(__('Showing rows %1$s - %2$s.'), $startRow, $endRow),
         );
         if (! ($tmpMsg instanceof Message)) {
             return $this->response->response();
