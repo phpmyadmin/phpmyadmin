@@ -13624,12 +13624,6 @@ parameters:
 			path: src/Utils/Gis.php
 
 		-
-			message: '#^Only booleans are allowed in an if condition, PhpMyAdmin\\Dbal\\ResultInterface\|false given\.$#'
-			identifier: if.condNotBoolean
-			count: 1
-			path: src/Utils/Gis.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#

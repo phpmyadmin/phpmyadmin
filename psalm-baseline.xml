@@ -7705,14 +7705,12 @@
       <code><![CDATA[$authenticationPlugin]]></code>
     </PossiblyInvalidOperand>
     <PossiblyNullArgument>
+      <code><![CDATA[$colName]]></code>
       <code><![CDATA[$dbRightsRow['Db']]]></code>
       <code><![CDATA[$row1['Type']]]></code>
       <code><![CDATA[$row1['Type']]]></code>
       <code><![CDATA[$row1['Type']]]></code>
       <code><![CDATA[$row1['Type']]]></code>
-      <code><![CDATA[$row1[0]]]></code>
-      <code><![CDATA[$row1[0]]]></code>
-      <code><![CDATA[$row1[0]]]></code>
       <code><![CDATA[$row1[1]]]></code>
       <code><![CDATA[$row2['Column_priv']]]></code>
       <code><![CDATA[$row['Db']]]></code>
@@ -7736,7 +7734,6 @@
       <code><![CDATA[$dbRights[$row['User']]]]></code>
       <code><![CDATA[$groupAssignment]]></code>
       <code><![CDATA[$groupAssignment]]></code>
-      <code><![CDATA[$row]]></code>
     </PossiblyNullArrayOffset>
     <PossiblyNullOperand>
       <code><![CDATA[$alterUserQuery]]></code>

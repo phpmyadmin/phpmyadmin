@@ -37,8 +37,6 @@ class GisTest extends AbstractTestCase
         bool $SRIDOption,
         int $mysqlVersion,
     ): void {
-        $resultStub = self::createMock(DummyResult::class);
-
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
@@ -48,12 +46,8 @@ class GisTest extends AbstractTestCase
             ->willReturn($mysqlVersion);
 
         $dbi->expects($SRIDOption ? self::once() : self::exactly(2))
-            ->method('tryQuery')
+            ->method('fetchSingleRow')
             ->with($expectedQuery)
-            ->willReturn($resultStub);// Omit the real object
-
-        $resultStub->expects($SRIDOption ? self::once() : self::exactly(2))
-            ->method('fetchRow')
             ->willReturn($returnData);
 
         DatabaseInterface::$instance = $dbi;

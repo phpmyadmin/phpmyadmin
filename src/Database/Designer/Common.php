@@ -116,9 +116,8 @@ class Common
         $con = ['C_NAME' => [], 'DTN' => [], 'DCN' => [], 'STN' => [], 'SCN' => []];
         $i = 0;
         $allTabRs = $this->dbi->query('SHOW TABLES FROM ' . Util::backquote(Current::$database));
-        while ($val = $allTabRs->fetchRow()) {
-            $val = (string) $val[0];
-
+        /** @var string $val */
+        foreach ($allTabRs->fetchAllColumn() as $val) {
             $row = $this->relation->getForeignersInternal(Current::$database, $val);
 
             foreach ($row as $field => $value) {
