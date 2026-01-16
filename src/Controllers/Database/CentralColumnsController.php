@@ -153,7 +153,7 @@ final readonly class CentralColumnsController implements InvocableController
         if (! ($tmpMsg instanceof Message)) {
             return $this->response->response();
         }
-
+ 
         Current::$message = $tmpMsg;
 
         return $this->response->response();
