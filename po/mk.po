@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2026-01-09 12:16+0000\n"
+"PO-Revision-Date: 2026-01-16 08:39+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/4-"
 "9/mk/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 5.15.1\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -3989,7 +3989,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:169
 #: templates/console/display.twig:11 templates/console/display.twig:64
 msgid "Debug SQL"
-msgstr ""
+msgstr "Дебагирање на SQL"
 
 #: libraries/classes/Config/Descriptions.php:171
 msgid "Tab that is displayed when entering a database."
@@ -13213,7 +13213,7 @@ msgstr "Коментар на табелата"
 #: libraries/classes/Sql.php:266 libraries/classes/Util.php:1147
 #: templates/console/display.twig:31 templates/console/display.twig:175
 msgid "Profiling"
-msgstr ""
+msgstr "Профилирање"
 
 #: libraries/classes/Sql.php:269
 #, fuzzy
@@ -14779,7 +14779,7 @@ msgstr "Вид на упит"
 
 #: templates/console/display.twig:42 templates/console/display.twig:184
 msgid "Queried time"
-msgstr ""
+msgstr "Време на прашање"
 
 #: templates/console/display.twig:47
 msgid "During current session"
