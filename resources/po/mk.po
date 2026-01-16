@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-01-11 00:32+0000\n"
-"PO-Revision-Date: 2026-01-09 12:16+0000\n"
+"PO-Revision-Date: 2026-01-16 08:39+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 5.15.1\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -1121,7 +1121,7 @@ msgstr "Обележувачи"
 #: resources/templates/console/display.twig:34
 #: resources/templates/console/display.twig:88 src/Config/Descriptions.php:615
 msgid "Debug SQL"
-msgstr ""
+msgstr "Дебагирање на SQL"
 
 #: resources/templates/console/display.twig:43
 #, fuzzy
@@ -1143,7 +1143,7 @@ msgstr "Објасни SQL"
 #: resources/templates/console/display.twig:213
 #: resources/templates/sql/profiling_chart.twig:3 src/Html/Generator.php:607
 msgid "Profiling"
-msgstr ""
+msgstr "Профилирање"
 
 #: resources/templates/console/display.twig:57
 #: resources/templates/console/display.twig:215
@@ -1160,7 +1160,7 @@ msgstr "Вид на упит"
 #: resources/templates/console/display.twig:61
 #: resources/templates/console/display.twig:219
 msgid "Queried time"
-msgstr ""
+msgstr "Време на прашање"
 
 #: resources/templates/console/display.twig:61
 msgid "During current session"
