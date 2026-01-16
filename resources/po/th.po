@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-01-11 00:32+0000\n"
 "PO-Revision-Date: 2026-01-16 08:39+0000\n"
-"Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
+"Last-Translator: Jakkarach Dumdee <armada1@hotmail.co.th>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "th/>\n"
 "Language: th\n"
@@ -185,7 +185,7 @@ msgstr "คำสั่งแสดง"
 #: resources/templates/columns_definitions/column_attributes.twig:174
 #: resources/templates/columns_definitions/column_attributes.twig:185
 msgid "first"
-msgstr "ที่หนึ่ง"
+msgstr "อันดับแรก"
 
 #: resources/templates/columns_definitions/column_attributes.twig:179
 #: resources/templates/table/structure/display_structure.twig:447
