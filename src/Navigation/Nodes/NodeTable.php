@@ -127,7 +127,7 @@ class NodeTable extends NodeDatabaseChild
             $query .= 'FROM `INFORMATION_SCHEMA`.`COLUMNS` ';
             $query .= 'WHERE `TABLE_NAME`=' . $dbi->quoteString($table) . ' ';
             $query .= 'AND `TABLE_SCHEMA`=' . $dbi->quoteString($db) . ' ';
-            $query .= 'ORDER BY `COLUMN_NAME` ASC ';
+            $query .= 'ORDER BY `ORDINAL_POSITION` ASC ';
             $query .= 'LIMIT ' . $pos . ', ' . $maxItems;
 
             $columnNodes = [];
