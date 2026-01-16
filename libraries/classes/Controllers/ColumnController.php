@@ -35,4 +35,15 @@ final class ColumnController extends AbstractController
 
         $this->response->addJSON(['columns' => $this->dbi->getColumnNames($_POST['db'], $_POST['table'])]);
     }
+
+    public function getDefaultFuncs(): void
+    {
+        if (! isset($_POST['type'])) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON(['message' => Message::error()]);
+            return;
+        }
+
+        $this->response->addJSON(['default_functions' => $this->dbi->types->getFunctions($_POST['type'])]);
+    }
 }
