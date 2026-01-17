@@ -66,6 +66,7 @@ class Import
     public static string $importText = '';
     public static ResultInterface|false $result = false;
     public static string $errorUrl = '';
+    private bool $forceExecute = false;
 
     public function __construct()
     {
@@ -198,7 +199,7 @@ class Import
 
         ImportSettings::$executedQueries++;
 
-        if (ImportSettings::$runQuery && ImportSettings::$executedQueries < 50) {
+        if (ImportSettings::$runQuery && ImportSettings::$executedQueries < 50 && ! $this->forceExecute) {
             ImportSettings::$goSql = true;
 
             if (! ImportSettings::$sqlQueryDisabled) {
@@ -609,7 +610,7 @@ class Import
         return -1;
     }
 
-    public function detectType(ColumnType|null $lastCumulativeType, string|null $cell): ColumnType
+    public function detectType(ColumnType|null $lastCumulativeType, string $cell): ColumnType
     {
         /**
          * If numeric, determine if decimal, int or bigint
@@ -652,27 +653,19 @@ class Import
      */
     public function analyzeTable(ImportTable $table): array
     {
-        /* Get number of rows in table */
-        /* Get number of columns */
         $numberOfColumns = count($table->columns);
 
         $columns = [];
         for ($i = 0; $i < $numberOfColumns; ++$i) {
             $columns[] = new AnalysedColumn(ColumnType::None, 0);
-        }
 
-        /* Analyze each column */
-        for ($i = 0; $i < $numberOfColumns; ++$i) {
-            /* Analyze the column in each row */
             foreach ($table->rows as $row) {
                 $cellValue = $row[$i];
-                /* Determine type of the current cell */
-                $currType = $this->detectType($columns[$i]->type, $cellValue === null ? null : (string) $cellValue);
-                /* Determine size of the current cell */
+                $detectedType = $this->detectType($columns[$i]->type, (string) $cellValue);
                 $columns[$i]->size = $this->detectSize(
                     $columns[$i]->size,
                     $columns[$i]->type,
-                    $currType,
+                    $detectedType,
                     (string) $cellValue,
                 );
 
@@ -680,29 +673,23 @@ class Import
                  * If a type for this column has already been declared,
                  * only alter it if it was a number and a varchar was found
                  */
-                if ($currType === ColumnType::None) {
+                if ($detectedType === ColumnType::None) {
                     continue;
                 }
 
-                if ($currType === ColumnType::Varchar) {
-                    $columns[$i]->type = ColumnType::Varchar;
-                } elseif ($currType === ColumnType::Decimal) {
-                    if ($columns[$i]->type !== ColumnType::Varchar) {
-                        $columns[$i]->type = ColumnType::Decimal;
-                    }
-                } elseif ($currType === ColumnType::BigInt) {
-                    if ($columns[$i]->type !== ColumnType::Varchar && $columns[$i]->type !== ColumnType::Decimal) {
-                        $columns[$i]->type = ColumnType::BigInt;
-                    }
-                } elseif ($currType === ColumnType::Int) {
-                    if (
-                        $columns[$i]->type !== ColumnType::Varchar
-                        && $columns[$i]->type !== ColumnType::Decimal
-                        && $columns[$i]->type !== ColumnType::BigInt
-                    ) {
-                        $columns[$i]->type = ColumnType::Int;
-                    }
-                }
+                $columns[$i]->type = match ($columns[$i]->type) {
+                    default => 0,
+                    ColumnType::Int => 1,
+                    ColumnType::BigInt => 2,
+                    ColumnType::Decimal => 3,
+                    ColumnType::Varchar => 4,
+                } >= match ($detectedType) {
+                    default => 0,
+                    ColumnType::Int => 1,
+                    ColumnType::BigInt => 2,
+                    ColumnType::Decimal => 3,
+                    ColumnType::Varchar => 4,
+                } ? $columns[$i]->type : $detectedType;
             }
         }
 
@@ -837,6 +824,12 @@ class Import
             $tempSQLStr .= implode(', ', array_map(Util::backquote(...), $table->columns));
 
             $tempSQLStr .= ') VALUES ';
+
+            // This line is added to trick the runQuery method into thinking it executed more than one query
+            // Without this, large imports will be redirected to the /sql page and suffer performance issues
+            if (count($table->rows) > 50) {
+                $this->forceExecute = true;
+            }
 
             $lastRowKey = array_key_last($table->rows);
             foreach ($table->rows as $rowIndex => $row) {

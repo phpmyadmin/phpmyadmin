@@ -173,11 +173,11 @@ class ImportTest extends AbstractTestCase
      * @param ColumnType      $expected Expected result of the function
      * @param ColumnType|null $type     Last cumulative column type (VARCHAR or INT or
      *                           BIGINT or DECIMAL or NONE)
-     * @param string|null     $cell     String representation of the cell for which a
-     *                                  best-fit type is to be determined
+     * @param string          $cell     String representation of the cell for which a
+     *                                       best-fit type is to be determined
      */
     #[DataProvider('provDetectType')]
-    public function testDetectType(ColumnType $expected, ColumnType|null $type, string|null $cell): void
+    public function testDetectType(ColumnType $expected, ColumnType|null $type, string $cell): void
     {
         self::assertSame($expected, $this->import->detectType($type, $cell));
     }
@@ -185,7 +185,7 @@ class ImportTest extends AbstractTestCase
     /**
      * Data provider for testDetectType
      *
-     * @return array{ColumnType, ColumnType|null, string|null}[]
+     * @return array{ColumnType, ColumnType|null, string}[]
      */
     public static function provDetectType(): array
     {
@@ -194,8 +194,8 @@ class ImportTest extends AbstractTestCase
             [ColumnType::None, ColumnType::None, 'NULL'],
             [ColumnType::Int, ColumnType::Int, 'NULL'],
             [ColumnType::Varchar, ColumnType::Varchar, 'NULL'],
-            [ColumnType::Varchar, null, null],
-            [ColumnType::Varchar, ColumnType::Int, null],
+            [ColumnType::Varchar, null, ''],
+            [ColumnType::Varchar, ColumnType::Int, ''],
             [ColumnType::Int, ColumnType::Int, '10'],
             [ColumnType::Decimal, ColumnType::Decimal, '10.2'],
             [ColumnType::Decimal, ColumnType::Int, '10.2'],
