@@ -102,7 +102,7 @@ class ExportMediawiki extends ExportPlugin
      *
      * @infection-ignore-all
      */
-    public function exportStructure(string $db, string $table, string $exportMode, array $aliases = []): bool
+    public function exportStructure(string $db, string $table, string $exportMode, array $aliases = []): void
     {
         $tableAlias = $this->getTableAlias($aliases, $db, $table);
 
@@ -166,7 +166,7 @@ class ExportMediawiki extends ExportPlugin
             $output .= '|}' . str_repeat($this->exportCRLF(), 2);
         }
 
-        return $this->outputHandler->addLine($output);
+        $this->outputHandler->addLine($output);
     }
 
     /**
@@ -182,7 +182,7 @@ class ExportMediawiki extends ExportPlugin
         string $table,
         string $sqlQuery,
         array $aliases = [],
-    ): bool {
+    ): void {
         $tableAlias = $this->getTableAlias($aliases, $db, $table);
 
         // Print data comment
@@ -240,7 +240,7 @@ class ExportMediawiki extends ExportPlugin
         // End table construction
         $output .= '|}' . str_repeat($this->exportCRLF(), 2);
 
-        return $this->outputHandler->addLine($output);
+        $this->outputHandler->addLine($output);
     }
 
     /**
@@ -249,13 +249,13 @@ class ExportMediawiki extends ExportPlugin
      * @param string|null $db       the database where the query is executed
      * @param string      $sqlQuery the rawquery to output
      */
-    public function exportRawQuery(string|null $db, string $sqlQuery): bool
+    public function exportRawQuery(string|null $db, string $sqlQuery): void
     {
         if ($db !== null) {
             DatabaseInterface::getInstance()->selectDb($db);
         }
 
-        return $this->exportData($db ?? '', '', $sqlQuery);
+        $this->exportData($db ?? '', '', $sqlQuery);
     }
 
     /**

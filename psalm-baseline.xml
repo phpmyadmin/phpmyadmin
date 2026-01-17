@@ -5839,9 +5839,6 @@
       <code><![CDATA[$row[0]]]></code>
       <code><![CDATA[$row[0]]]></code>
     </PossiblyNullArgument>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[bool]]></code>
-    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Plugins/Export/ExportCsv.php">
     <DeprecatedMethod>
@@ -5878,9 +5875,6 @@
       <code><![CDATA[$comments]]></code>
       <code><![CDATA[$mimeMap]]></code>
     </PossiblyUndefinedVariable>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[bool]]></code>
-    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Plugins/Export/ExportJson.php">
     <DeprecatedMethod>
@@ -6066,9 +6060,6 @@
       <code><![CDATA[remove]]></code>
       <code><![CDATA[remove]]></code>
     </PossiblyNullReference>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[bool]]></code>
-    </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($column->collation)]]></code>
       <code><![CDATA[empty($config->selectedServer['port'])]]></code>
@@ -6437,10 +6428,6 @@
       <code><![CDATA[$db['alias']]]></code>
       <code><![CDATA[$table['alias']]]></code>
     </MixedReturnStatement>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[bool]]></code>
-      <code><![CDATA[bool]]></code>
-    </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$foreigner]]></code>
     </RiskyTruthyFalsyComparison>

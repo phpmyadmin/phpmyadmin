@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Exceptions\ExportException;
 use PhpMyAdmin\Export\StructureOrData;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Http\ServerRequest;
@@ -105,7 +106,7 @@ class ExportJson extends ExportPlugin
     /**
      * Outputs export header
      */
-    public function exportHeader(): bool
+    public function exportHeader(): void
     {
         $data = $this->encode([
             'type' => 'header',
@@ -113,18 +114,18 @@ class ExportJson extends ExportPlugin
             'comment' => 'Export to JSON plugin for phpMyAdmin',
         ]);
         if ($data === false) {
-            return false;
+            throw new ExportException('Failure during header export.');
         }
 
-        return $this->outputHandler->addLine('[' . "\n" . $data . ',' . "\n");
+        $this->outputHandler->addLine('[' . "\n" . $data . ',' . "\n");
     }
 
     /**
      * Outputs export footer
      */
-    public function exportFooter(): bool
+    public function exportFooter(): void
     {
-        return $this->outputHandler->addLine(']' . "\n");
+        $this->outputHandler->addLine(']' . "\n");
     }
 
     /**
@@ -133,7 +134,7 @@ class ExportJson extends ExportPlugin
      * @param string $db      Database name
      * @param string $dbAlias Aliases of db
      */
-    public function exportDBHeader(string $db, string $dbAlias = ''): bool
+    public function exportDBHeader(string $db, string $dbAlias = ''): void
     {
         if ($dbAlias === '') {
             $dbAlias = $db;
@@ -141,10 +142,10 @@ class ExportJson extends ExportPlugin
 
         $data = $this->encode(['type' => 'database', 'name' => $dbAlias]);
         if ($data === false) {
-            return false;
+            throw new ExportException('Failure during header export.');
         }
 
-        return $this->outputHandler->addLine($data . ',' . "\n");
+        $this->outputHandler->addLine($data . ',' . "\n");
     }
 
     /**
@@ -160,14 +161,12 @@ class ExportJson extends ExportPlugin
         string $table,
         string $sqlQuery,
         array $aliases = [],
-    ): bool {
+    ): void {
         $dbAlias = $this->getDbAlias($aliases, $db);
         $tableAlias = $this->getTableAlias($aliases, $db, $table);
 
         if (! $this->first) {
-            if (! $this->outputHandler->addLine(',')) {
-                return false;
-            }
+            $this->outputHandler->addLine(',');
         } else {
             $this->first = false;
         }
@@ -179,10 +178,10 @@ class ExportJson extends ExportPlugin
             'data' => '@@DATA@@',
         ]);
         if ($buffer === false) {
-            return false;
+            throw new ExportException('Failure during data export.');
         }
 
-        return $this->doExportForQuery(DatabaseInterface::getInstance(), $sqlQuery, $buffer, $aliases, $db, $table);
+        $this->doExportForQuery(DatabaseInterface::getInstance(), $sqlQuery, $buffer, $aliases, $db, $table);
     }
 
     /**
@@ -198,19 +197,17 @@ class ExportJson extends ExportPlugin
      *   }
      * >|null $aliases
      */
-    protected function doExportForQuery(
+    private function doExportForQuery(
         DatabaseInterface $dbi,
         string $sqlQuery,
         string $buffer,
         array|null $aliases,
         string|null $db,
         string|null $table,
-    ): bool {
+    ): void {
         [$header, $footer] = explode('"@@DATA@@"', $buffer);
 
-        if (! $this->outputHandler->addLine($header . "\n" . '[' . "\n")) {
-            return false;
-        }
+        $this->outputHandler->addLine($header . "\n" . '[' . "\n");
 
         $result = $dbi->query($sqlQuery, ConnectionType::User, DatabaseInterface::QUERY_UNBUFFERED);
         $columnsCnt = $result->numFields();
@@ -234,9 +231,7 @@ class ExportJson extends ExportPlugin
 
             // Output table name as comment if this is the first record of the table
             if ($recordCnt > 1) {
-                if (! $this->outputHandler->addLine(',' . "\n")) {
-                    return false;
-                }
+                $this->outputHandler->addLine(',' . "\n");
             }
 
             $data = [];
@@ -269,15 +264,13 @@ class ExportJson extends ExportPlugin
 
             $encodedData = $this->encode($data);
             if ($encodedData === '' || $encodedData === false) {
-                return false;
+                throw new ExportException('Failure during data export.');
             }
 
-            if (! $this->outputHandler->addLine($encodedData)) {
-                return false;
-            }
+            $this->outputHandler->addLine($encodedData);
         }
 
-        return $this->outputHandler->addLine("\n" . ']' . "\n" . $footer . "\n");
+        $this->outputHandler->addLine("\n" . ']' . "\n" . $footer . "\n");
     }
 
     /**
@@ -286,11 +279,11 @@ class ExportJson extends ExportPlugin
      * @param string|null $db       the database where the query is executed
      * @param string      $sqlQuery the rawquery to output
      */
-    public function exportRawQuery(string|null $db, string $sqlQuery): bool
+    public function exportRawQuery(string|null $db, string $sqlQuery): void
     {
         $buffer = $this->encode(['type' => 'raw', 'data' => '@@DATA@@']);
         if ($buffer === false) {
-            return false;
+            throw new ExportException('Failure during data export.');
         }
 
         $dbi = DatabaseInterface::getInstance();
@@ -298,7 +291,7 @@ class ExportJson extends ExportPlugin
             $dbi->selectDb($db);
         }
 
-        return $this->doExportForQuery($dbi, $sqlQuery, $buffer, null, $db, null);
+        $this->doExportForQuery($dbi, $sqlQuery, $buffer, null, $db, null);
     }
 
     /** @inheritDoc */

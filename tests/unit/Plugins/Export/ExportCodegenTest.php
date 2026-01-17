@@ -136,30 +136,26 @@ class ExportCodegenTest extends AbstractTestCase
 
     public function testExportHeader(): void
     {
-        self::assertTrue(
-            $this->object->exportHeader(),
-        );
+        $this->expectNotToPerformAssertions();
+        $this->object->exportHeader();
     }
 
     public function testExportFooter(): void
     {
-        self::assertTrue(
-            $this->object->exportFooter(),
-        );
+        $this->expectNotToPerformAssertions();
+        $this->object->exportFooter();
     }
 
     public function testExportDBHeader(): void
     {
-        self::assertTrue(
-            $this->object->exportDBHeader('testDB'),
-        );
+        $this->expectNotToPerformAssertions();
+        $this->object->exportDBHeader('testDB');
     }
 
     public function testExportDBFooter(): void
     {
-        self::assertTrue(
-            $this->object->exportDBFooter('testDB'),
-        );
+        $this->expectNotToPerformAssertions();
+        $this->object->exportDBFooter('testDB');
     }
 
     public function testExportData(): void

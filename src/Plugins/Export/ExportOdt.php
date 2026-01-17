@@ -145,25 +145,23 @@ class ExportOdt extends ExportPlugin
     /**
      * Outputs export header
      */
-    public function exportHeader(): bool
+    public function exportHeader(): void
     {
         $this->buffer .= '<?xml version="1.0" encoding="utf-8"?>'
             . '<office:document-content '
             . OpenDocument::NS . ' office:version="1.0">'
             . '<office:body>'
             . '<office:text>';
-
-        return true;
     }
 
     /**
      * Outputs export footer
      */
-    public function exportFooter(): bool
+    public function exportFooter(): void
     {
         $this->buffer .= '</office:text></office:body></office:document-content>';
 
-        return $this->outputHandler->addLine(OpenDocument::create(
+        $this->outputHandler->addLine(OpenDocument::create(
             'application/vnd.oasis.opendocument.text',
             $this->buffer,
         ));
@@ -175,7 +173,7 @@ class ExportOdt extends ExportPlugin
      * @param string $db      Database name
      * @param string $dbAlias Aliases of db
      */
-    public function exportDBHeader(string $db, string $dbAlias = ''): bool
+    public function exportDBHeader(string $db, string $dbAlias = ''): void
     {
         if ($dbAlias === '') {
             $dbAlias = $db;
@@ -185,8 +183,6 @@ class ExportOdt extends ExportPlugin
             . ' text:is-list-header="true">'
             . __('Database') . ' ' . htmlspecialchars($dbAlias)
             . '</text:h>';
-
-        return true;
     }
 
     /**
@@ -202,7 +198,7 @@ class ExportOdt extends ExportPlugin
         string $table,
         string $sqlQuery,
         array $aliases = [],
-    ): bool {
+    ): void {
         $tableAlias = $this->getTableAlias($aliases, $db, $table);
         $dbi = DatabaseInterface::getInstance();
         // Gets the data from the database
@@ -280,8 +276,6 @@ class ExportOdt extends ExportPlugin
         }
 
         $this->buffer .= '</table:table>';
-
-        return true;
     }
 
     /**
@@ -290,13 +284,13 @@ class ExportOdt extends ExportPlugin
      * @param string|null $db       the database where the query is executed
      * @param string      $sqlQuery the rawquery to output
      */
-    public function exportRawQuery(string|null $db, string $sqlQuery): bool
+    public function exportRawQuery(string|null $db, string $sqlQuery): void
     {
         if ($db !== null) {
             DatabaseInterface::getInstance()->selectDb($db);
         }
 
-        return $this->exportData($db ?? '', '', $sqlQuery);
+        $this->exportData($db ?? '', '', $sqlQuery);
     }
 
     /**
@@ -559,7 +553,7 @@ class ExportOdt extends ExportPlugin
      * @param string  $exportMode 'create_table', 'triggers', 'create_view', 'stand_in'
      * @param mixed[] $aliases    Aliases of db/table/columns
      */
-    public function exportStructure(string $db, string $table, string $exportMode, array $aliases = []): bool
+    public function exportStructure(string $db, string $table, string $exportMode, array $aliases = []): void
     {
         $tableAlias = $this->getTableAlias($aliases, $db, $table);
         switch ($exportMode) {
@@ -600,8 +594,6 @@ class ExportOdt extends ExportPlugin
                 // export a stand-in definition to resolve view dependencies
                 $this->getTableDefStandIn($db, $table, $aliases);
         }
-
-        return true;
     }
 
     /**

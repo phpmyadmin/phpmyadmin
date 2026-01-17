@@ -65,21 +65,17 @@ class ExportYaml extends ExportPlugin
     /**
      * Outputs export header
      */
-    public function exportHeader(): bool
+    public function exportHeader(): void
     {
         $this->outputHandler->addLine('%YAML 1.1' . "\n" . '---' . "\n");
-
-        return true;
     }
 
     /**
      * Outputs export footer
      */
-    public function exportFooter(): bool
+    public function exportFooter(): void
     {
         $this->outputHandler->addLine('...' . "\n");
-
-        return true;
     }
 
     /**
@@ -95,7 +91,7 @@ class ExportYaml extends ExportPlugin
         string $table,
         string $sqlQuery,
         array $aliases = [],
-    ): bool {
+    ): void {
         $dbAlias = $this->getDbAlias($aliases, $db);
         $tableAlias = $this->getTableAlias($aliases, $db, $table);
         $dbi = DatabaseInterface::getInstance();
@@ -148,12 +144,8 @@ class ExportYaml extends ExportPlugin
                 $buffer .= '  ' . $columns[$i] . ': "' . $record[$i] . '"' . "\n";
             }
 
-            if (! $this->outputHandler->addLine($buffer)) {
-                return false;
-            }
+            $this->outputHandler->addLine($buffer);
         }
-
-        return true;
     }
 
     /**
@@ -162,13 +154,13 @@ class ExportYaml extends ExportPlugin
      * @param string|null $db       the database where the query is executed
      * @param string      $sqlQuery the rawquery to output
      */
-    public function exportRawQuery(string|null $db, string $sqlQuery): bool
+    public function exportRawQuery(string|null $db, string $sqlQuery): void
     {
         if ($db !== null) {
             DatabaseInterface::getInstance()->selectDb($db);
         }
 
-        return $this->exportData($db ?? '', '', $sqlQuery);
+        $this->exportData($db ?? '', '', $sqlQuery);
     }
 
     /** @inheritDoc */

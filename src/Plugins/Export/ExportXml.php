@@ -177,7 +177,7 @@ class ExportXml extends ExportPlugin
      * Outputs export header. It is the first method to be called, so all
      * the required variables are initialized here.
      */
-    public function exportHeader(): bool
+    public function exportHeader(): void
     {
         $exportStruct = $this->exportFunctions
             || $this->exportProcedures
@@ -248,8 +248,7 @@ class ExportXml extends ExportPlugin
 
                 $tbl = (string) $result[$table][1];
 
-                $isView = $dbi->getTable(Current::$database, $table)
-                    ->isView();
+                $isView = $dbi->getTable(Current::$database, $table)->isView();
 
                 $type = $isView ? 'view' : 'table';
 
@@ -327,17 +326,17 @@ class ExportXml extends ExportPlugin
             }
         }
 
-        return $this->outputHandler->addLine($head);
+        $this->outputHandler->addLine($head);
     }
 
     /**
      * Outputs export footer
      */
-    public function exportFooter(): bool
+    public function exportFooter(): void
     {
         $foot = '</pma_xml_export>';
 
-        return $this->outputHandler->addLine($foot);
+        $this->outputHandler->addLine($foot);
     }
 
     /**
@@ -346,23 +345,23 @@ class ExportXml extends ExportPlugin
      * @param string $db      Database name
      * @param string $dbAlias Aliases of db
      */
-    public function exportDBHeader(string $db, string $dbAlias = ''): bool
+    public function exportDBHeader(string $db, string $dbAlias = ''): void
     {
         if ($dbAlias === '') {
             $dbAlias = $db;
         }
 
-        if ($this->exportContents) {
-            $head = '    <!--' . "\n"
-                . '    - ' . __('Database:') . ' \''
-                . htmlspecialchars($dbAlias) . '\'' . "\n"
-                . '    -->' . "\n" . '    <database name="'
-                . htmlspecialchars($dbAlias) . '">' . "\n";
-
-            return $this->outputHandler->addLine($head);
+        if (! $this->exportContents) {
+            return;
         }
 
-        return true;
+        $head = '    <!--' . "\n"
+            . '    - ' . __('Database:') . ' \''
+            . htmlspecialchars($dbAlias) . '\'' . "\n"
+            . '    -->' . "\n" . '    <database name="'
+            . htmlspecialchars($dbAlias) . '">' . "\n";
+
+        $this->outputHandler->addLine($head);
     }
 
     /**
@@ -370,13 +369,13 @@ class ExportXml extends ExportPlugin
      *
      * @param string $db Database name
      */
-    public function exportDBFooter(string $db): bool
+    public function exportDBFooter(string $db): void
     {
-        if ($this->exportContents) {
-            return $this->outputHandler->addLine('    </database>' . "\n");
+        if (! $this->exportContents) {
+            return;
         }
 
-        return true;
+        $this->outputHandler->addLine('    </database>' . "\n");
     }
 
     /**
@@ -392,53 +391,49 @@ class ExportXml extends ExportPlugin
         string $table,
         string $sqlQuery,
         array $aliases = [],
-    ): bool {
+    ): void {
         $dbi = DatabaseInterface::getInstance();
         // Do not export data for merge tables
         if ($dbi->getTable($db, $table)->isMerge()) {
-            return true;
+            return;
         }
 
         $tableAlias = $this->getTableAlias($aliases, $db, $table);
-        if ($this->exportContents) {
-            $result = $dbi->query($sqlQuery, ConnectionType::User, DatabaseInterface::QUERY_UNBUFFERED);
-
-            $columnsCnt = $result->numFields();
-            $columns = $result->getFieldNames();
-
-            $buffer = '        <!-- ' . __('Table') . ' '
-                . htmlspecialchars($tableAlias) . ' -->' . "\n";
-            if (! $this->outputHandler->addLine($buffer)) {
-                return false;
-            }
-
-            while ($record = $result->fetchRow()) {
-                $buffer = '        <table name="'
-                    . htmlspecialchars($tableAlias) . '">' . "\n";
-                for ($i = 0; $i < $columnsCnt; $i++) {
-                    $colAs = $this->getColumnAlias($aliases, $db, $table, $columns[$i]);
-
-                    // If a cell is NULL, still export it to preserve
-                    // the XML structure
-                    if (! isset($record[$i])) {
-                        $record[$i] = 'NULL';
-                    }
-
-                    $buffer .= '            <column name="'
-                        . htmlspecialchars($colAs) . '">'
-                        . htmlspecialchars($record[$i])
-                        . '</column>' . "\n";
-                }
-
-                $buffer .= '        </table>' . "\n";
-
-                if (! $this->outputHandler->addLine($buffer)) {
-                    return false;
-                }
-            }
+        if (! $this->exportContents) {
+            return;
         }
 
-        return true;
+        $result = $dbi->query($sqlQuery, ConnectionType::User, DatabaseInterface::QUERY_UNBUFFERED);
+
+        $columnsCnt = $result->numFields();
+        $columns = $result->getFieldNames();
+
+        $buffer = '        <!-- ' . __('Table') . ' '
+            . htmlspecialchars($tableAlias) . ' -->' . "\n";
+        $this->outputHandler->addLine($buffer);
+
+        while ($record = $result->fetchRow()) {
+            $buffer = '        <table name="'
+                . htmlspecialchars($tableAlias) . '">' . "\n";
+            for ($i = 0; $i < $columnsCnt; $i++) {
+                $colAs = $this->getColumnAlias($aliases, $db, $table, $columns[$i]);
+
+                // If a cell is NULL, still export it to preserve
+                // the XML structure
+                if (! isset($record[$i])) {
+                    $record[$i] = 'NULL';
+                }
+
+                $buffer .= '            <column name="'
+                    . htmlspecialchars($colAs) . '">'
+                    . htmlspecialchars($record[$i])
+                    . '</column>' . "\n";
+            }
+
+            $buffer .= '        </table>' . "\n";
+
+            $this->outputHandler->addLine($buffer);
+        }
     }
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */

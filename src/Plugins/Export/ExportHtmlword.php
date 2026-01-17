@@ -104,9 +104,9 @@ class ExportHtmlword extends ExportPlugin
     /**
      * Outputs export header
      */
-    public function exportHeader(): bool
+    public function exportHeader(): void
     {
-        return $this->outputHandler->addLine(
+        $this->outputHandler->addLine(
             '<html xmlns:o="urn:schemas-microsoft-com:office:office"
             xmlns:x="urn:schemas-microsoft-com:office:word"
             xmlns="http://www.w3.org/TR/REC-html40">
@@ -125,9 +125,9 @@ class ExportHtmlword extends ExportPlugin
     /**
      * Outputs export footer
      */
-    public function exportFooter(): bool
+    public function exportFooter(): void
     {
-        return $this->outputHandler->addLine('</body></html>');
+        $this->outputHandler->addLine('</body></html>');
     }
 
     /**
@@ -136,13 +136,13 @@ class ExportHtmlword extends ExportPlugin
      * @param string $db      Database name
      * @param string $dbAlias Aliases of db
      */
-    public function exportDBHeader(string $db, string $dbAlias = ''): bool
+    public function exportDBHeader(string $db, string $dbAlias = ''): void
     {
         if ($dbAlias === '') {
             $dbAlias = $db;
         }
 
-        return $this->outputHandler->addLine(
+        $this->outputHandler->addLine(
             '<h1>' . __('Database') . ' ' . htmlspecialchars($dbAlias) . '</h1>',
         );
     }
@@ -160,22 +160,16 @@ class ExportHtmlword extends ExportPlugin
         string $table,
         string $sqlQuery,
         array $aliases = [],
-    ): bool {
+    ): void {
         $tableAlias = $this->getTableAlias($aliases, $db, $table);
 
-        if (
-            ! $this->outputHandler->addLine(
-                '<h2>'
-                . __('Dumping data for table') . ' ' . htmlspecialchars($tableAlias)
-                . '</h2>',
-            )
-        ) {
-            return false;
-        }
+        $this->outputHandler->addLine(
+            '<h2>'
+            . __('Dumping data for table') . ' ' . htmlspecialchars($tableAlias)
+            . '</h2>',
+        );
 
-        if (! $this->outputHandler->addLine('<table width="100%" cellspacing="1">')) {
-            return false;
-        }
+        $this->outputHandler->addLine('<table width="100%" cellspacing="1">');
 
         $dbi = DatabaseInterface::getInstance();
         /**
@@ -195,9 +189,7 @@ class ExportHtmlword extends ExportPlugin
             }
 
             $schemaInsert .= '</tr>';
-            if (! $this->outputHandler->addLine($schemaInsert)) {
-                return false;
-            }
+            $this->outputHandler->addLine($schemaInsert);
         }
 
         // Format the data
@@ -210,12 +202,10 @@ class ExportHtmlword extends ExportPlugin
             }
 
             $schemaInsert .= '</tr>';
-            if (! $this->outputHandler->addLine($schemaInsert)) {
-                return false;
-            }
+            $this->outputHandler->addLine($schemaInsert);
         }
 
-        return $this->outputHandler->addLine('</table>');
+        $this->outputHandler->addLine('</table>');
     }
 
     /**
@@ -441,7 +431,7 @@ class ExportHtmlword extends ExportPlugin
      * @param string  $exportMode 'create_table', 'triggers', 'create_view', 'stand_in'
      * @param mixed[] $aliases    Aliases of db/table/columns
      */
-    public function exportStructure(string $db, string $table, string $exportMode, array $aliases = []): bool
+    public function exportStructure(string $db, string $table, string $exportMode, array $aliases = []): void
     {
         $tableAlias = $this->getTableAlias($aliases, $db, $table);
 
@@ -480,7 +470,7 @@ class ExportHtmlword extends ExportPlugin
                 $dump .= $this->getTableDefStandIn($db, $table, $aliases);
         }
 
-        return $this->outputHandler->addLine($dump);
+        $this->outputHandler->addLine($dump);
     }
 
     /**

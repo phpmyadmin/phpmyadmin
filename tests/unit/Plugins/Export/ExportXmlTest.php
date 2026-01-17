@@ -249,9 +249,7 @@ class ExportXmlTest extends AbstractTestCase
         Current::$table = 'table';
 
         ob_start();
-        self::assertTrue(
-            $this->object->exportHeader(),
-        );
+        $this->object->exportHeader();
         $result = ob_get_clean();
 
         self::assertIsString($result);
@@ -313,9 +311,7 @@ class ExportXmlTest extends AbstractTestCase
         $this->object->setTables(['t1', 't2']);
 
         ob_start();
-        self::assertTrue(
-            $this->object->exportHeader(),
-        );
+        $this->object->exportHeader();
         $result = ob_get_clean();
 
         self::assertIsString($result);
@@ -334,9 +330,7 @@ class ExportXmlTest extends AbstractTestCase
     public function testExportFooter(): void
     {
         $this->expectOutputString('&lt;/pma_xml_export&gt;');
-        self::assertTrue(
-            $this->object->exportFooter(),
-        );
+        $this->object->exportFooter();
     }
 
     public function testExportDBHeader(): void
@@ -347,9 +341,7 @@ class ExportXmlTest extends AbstractTestCase
         $this->object->setExportOptions($request, []);
 
         ob_start();
-        self::assertTrue(
-            $this->object->exportDBHeader('&db'),
-        );
+        $this->object->exportDBHeader('&db');
         $result = ob_get_clean();
 
         self::assertIsString($result);
@@ -361,9 +353,7 @@ class ExportXmlTest extends AbstractTestCase
 
         $this->object->setExportOptions($request, []);
 
-        self::assertTrue(
-            $this->object->exportDBHeader('&db'),
-        );
+        $this->object->exportDBHeader('&db');
     }
 
     public function testExportDBFooter(): void
@@ -374,9 +364,7 @@ class ExportXmlTest extends AbstractTestCase
         $this->object->setExportOptions($request, []);
 
         ob_start();
-        self::assertTrue(
-            $this->object->exportDBFooter('&db'),
-        );
+        $this->object->exportDBFooter('&db');
         $result = ob_get_clean();
 
         self::assertIsString($result);
@@ -388,16 +376,13 @@ class ExportXmlTest extends AbstractTestCase
 
         $this->object->setExportOptions($request, []);
 
-        self::assertTrue(
-            $this->object->exportDBFooter('&db'),
-        );
+        $this->object->exportDBFooter('&db');
     }
 
     public function testExportDBCreate(): void
     {
-        self::assertTrue(
-            $this->object->exportDBCreate('testDB'),
-        );
+        $this->expectNotToPerformAssertions();
+        $this->object->exportDBCreate('testDB');
     }
 
     public function testExportData(): void
@@ -410,13 +395,7 @@ class ExportXmlTest extends AbstractTestCase
         $this->object->setExportOptions($request, []);
 
         ob_start();
-        self::assertTrue(
-            $this->object->exportData(
-                'test_db',
-                'test_table',
-                'SELECT * FROM `test_db`.`test_table`;',
-            ),
-        );
+        $this->object->exportData('test_db', 'test_table', 'SELECT * FROM `test_db`.`test_table`;');
         $result = ob_get_clean();
 
         self::assertIsString($result);

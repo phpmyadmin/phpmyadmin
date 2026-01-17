@@ -76,7 +76,7 @@ class ExportPhparray extends ExportPlugin
     /**
      * Outputs export header
      */
-    public function exportHeader(): bool
+    public function exportHeader(): void
     {
         $this->outputHandler->addLine(
             '<?php' . "\n"
@@ -85,8 +85,6 @@ class ExportPhparray extends ExportPlugin
             . ' * @version ' . Version::VERSION . "\n"
             . ' */' . "\n\n",
         );
-
-        return true;
     }
 
     /**
@@ -95,7 +93,7 @@ class ExportPhparray extends ExportPlugin
      * @param string $db      Database name
      * @param string $dbAlias Aliases of db
      */
-    public function exportDBHeader(string $db, string $dbAlias = ''): bool
+    public function exportDBHeader(string $db, string $dbAlias = ''): void
     {
         if ($dbAlias === '') {
             $dbAlias = $db;
@@ -106,8 +104,6 @@ class ExportPhparray extends ExportPlugin
             . ' * Database ' . $this->commentString(Util::backquote($dbAlias))
             . "\n" . ' */' . "\n",
         );
-
-        return true;
     }
 
     /**
@@ -123,7 +119,7 @@ class ExportPhparray extends ExportPlugin
         string $table,
         string $sqlQuery,
         array $aliases = [],
-    ): bool {
+    ): void {
         $dbAlias = $this->getDbAlias($aliases, $db);
         $tableAlias = $this->getTableAlias($aliases, $db, $table);
 
@@ -160,9 +156,7 @@ class ExportPhparray extends ExportPlugin
             . $this->commentString(Util::backquote($dbAlias)) . '.'
             . $this->commentString(Util::backquote($tableAlias)) . ' */' . "\n";
         $buffer .= '$' . $tableFixed . ' = array(';
-        if (! $this->outputHandler->addLine($buffer)) {
-            return false;
-        }
+        $this->outputHandler->addLine($buffer);
 
         // Reset the buffer
         $buffer = '';
@@ -183,9 +177,7 @@ class ExportPhparray extends ExportPlugin
             }
 
             $buffer .= ')';
-            if (! $this->outputHandler->addLine($buffer)) {
-                return false;
-            }
+            $this->outputHandler->addLine($buffer);
 
             // Reset the buffer
             $buffer = '';
@@ -193,7 +185,7 @@ class ExportPhparray extends ExportPlugin
 
         $buffer .= "\n" . ');' . "\n";
 
-        return $this->outputHandler->addLine($buffer);
+        $this->outputHandler->addLine($buffer);
     }
 
     /**
@@ -202,13 +194,13 @@ class ExportPhparray extends ExportPlugin
      * @param string|null $db       the database where the query is executed
      * @param string      $sqlQuery the rawquery to output
      */
-    public function exportRawQuery(string|null $db, string $sqlQuery): bool
+    public function exportRawQuery(string|null $db, string $sqlQuery): void
     {
         if ($db !== null) {
             DatabaseInterface::getInstance()->selectDb($db);
         }
 
-        return $this->exportData($db ?? '', '', $sqlQuery);
+        $this->exportData($db ?? '', '', $sqlQuery);
     }
 
     /** @inheritDoc */

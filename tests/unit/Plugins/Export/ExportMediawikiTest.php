@@ -180,37 +180,32 @@ class ExportMediawikiTest extends AbstractTestCase
 
     public function testExportHeader(): void
     {
-        self::assertTrue(
-            $this->object->exportHeader(),
-        );
+        $this->expectNotToPerformAssertions();
+        $this->object->exportHeader();
     }
 
     public function testExportFooter(): void
     {
-        self::assertTrue(
-            $this->object->exportFooter(),
-        );
+        $this->expectNotToPerformAssertions();
+        $this->object->exportFooter();
     }
 
     public function testExportDBHeader(): void
     {
-        self::assertTrue(
-            $this->object->exportDBHeader('testDB'),
-        );
+        $this->expectNotToPerformAssertions();
+        $this->object->exportDBHeader('testDB');
     }
 
     public function testExportDBFooter(): void
     {
-        self::assertTrue(
-            $this->object->exportDBFooter('testDB'),
-        );
+        $this->expectNotToPerformAssertions();
+        $this->object->exportDBFooter('testDB');
     }
 
     public function testExportDBCreate(): void
     {
-        self::assertTrue(
-            $this->object->exportDBCreate('testDB'),
-        );
+        $this->expectNotToPerformAssertions();
+        $this->object->exportDBCreate('testDB');
     }
 
     /**
@@ -240,7 +235,7 @@ class ExportMediawikiTest extends AbstractTestCase
         $this->object->setExportOptions($request, []);
 
         ob_start();
-        self::assertTrue($this->object->exportStructure('db', 'table', 'create_table'));
+        $this->object->exportStructure('db', 'table', 'create_table');
         $result = ob_get_clean();
 
         self::assertSame(
@@ -283,13 +278,7 @@ class ExportMediawikiTest extends AbstractTestCase
         $this->object->setExportOptions($request, []);
 
         ob_start();
-        self::assertTrue(
-            $this->object->exportData(
-                'test_db',
-                'test_table',
-                'SELECT * FROM `test_db`.`test_table`;',
-            ),
-        );
+        $this->object->exportData('test_db', 'test_table', 'SELECT * FROM `test_db`.`test_table`;');
         $result = ob_get_clean();
 
         self::assertSame(

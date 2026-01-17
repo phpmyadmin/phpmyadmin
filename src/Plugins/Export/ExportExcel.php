@@ -132,7 +132,7 @@ class ExportExcel extends ExportPlugin
         string $table,
         string $sqlQuery,
         array $aliases = [],
-    ): bool {
+    ): void {
         $dbi = DatabaseInterface::getInstance();
         /**
          * Gets the data from the database
@@ -155,9 +155,7 @@ class ExportExcel extends ExportPlugin
             }
 
             $schemaInsert = implode($this->separator, $insertFields);
-            if (! $this->outputHandler->addLine($schemaInsert . $this->terminated)) {
-                return false;
-            }
+            $this->outputHandler->addLine($schemaInsert . $this->terminated);
         }
 
         // Format the data
@@ -206,12 +204,8 @@ class ExportExcel extends ExportPlugin
             }
 
             $schemaInsert = implode($this->separator, $insertValues);
-            if (! $this->outputHandler->addLine($schemaInsert . $this->terminated)) {
-                return false;
-            }
+            $this->outputHandler->addLine($schemaInsert . $this->terminated);
         }
-
-        return true;
     }
 
     /**
@@ -220,13 +214,13 @@ class ExportExcel extends ExportPlugin
      * @param string|null $db       the database where the query is executed
      * @param string      $sqlQuery the rawquery to output
      */
-    public function exportRawQuery(string|null $db, string $sqlQuery): bool
+    public function exportRawQuery(string|null $db, string $sqlQuery): void
     {
         if ($db !== null) {
             DatabaseInterface::getInstance()->selectDb($db);
         }
 
-        return $this->exportData($db ?? '', '', $sqlQuery);
+        $this->exportData($db ?? '', '', $sqlQuery);
     }
 
     /** @inheritDoc */

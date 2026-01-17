@@ -188,9 +188,8 @@ class ExportExcelTest extends AbstractTestCase
     public function testExportHeader(): void
     {
         // case 1
-        self::assertTrue(
-            $this->object->exportHeader(),
-        );
+        $this->expectNotToPerformAssertions();
+        $this->object->exportHeader();
 
         // case 2
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
@@ -198,9 +197,7 @@ class ExportExcelTest extends AbstractTestCase
 
         $this->object->setExportOptions($request, []);
 
-        self::assertTrue(
-            $this->object->exportHeader(),
-        );
+        $this->object->exportHeader();
 
         // case 3
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
@@ -208,9 +205,7 @@ class ExportExcelTest extends AbstractTestCase
 
         $this->object->setExportOptions($request, []);
 
-        self::assertTrue(
-            $this->object->exportHeader(),
-        );
+        $this->object->exportHeader();
     }
 
     public function testExportData(): void
@@ -224,11 +219,7 @@ class ExportExcelTest extends AbstractTestCase
         $this->object->setExportOptions($request, []);
 
         ob_start();
-        self::assertTrue($this->object->exportData(
-            'test_db',
-            'test_table',
-            'SELECT * FROM `test_db`.`test_table`;',
-        ));
+        $this->object->exportData('test_db', 'test_table', 'SELECT * FROM `test_db`.`test_table`;');
         $result = ob_get_clean();
 
         self::assertSame(

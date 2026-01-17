@@ -101,10 +101,10 @@ class ExportPdf extends ExportPlugin
     /**
      * Outputs export footer
      */
-    public function exportFooter(): bool
+    public function exportFooter(): void
     {
         // instead of $pdf->Output():
-        return $this->outputHandler->addLine($this->pdf->getPDFData());
+        $this->outputHandler->addLine($this->pdf->getPDFData());
     }
 
     /**
@@ -120,7 +120,7 @@ class ExportPdf extends ExportPlugin
         string $table,
         string $sqlQuery,
         array $aliases = [],
-    ): bool {
+    ): void {
         $dbAlias = $this->getDbAlias($aliases, $db);
         $tableAlias = $this->getTableAlias($aliases, $db, $table);
         $this->pdf->setCurrentDb($db);
@@ -130,8 +130,6 @@ class ExportPdf extends ExportPlugin
         $this->pdf->setAliases($aliases);
         $this->pdf->setPurpose(__('Dumping data'));
         $this->pdf->mysqlReport($sqlQuery);
-
-        return true;
     }
 
     /**
@@ -140,7 +138,7 @@ class ExportPdf extends ExportPlugin
      * @param string|null $db       the database where the query is executed
      * @param string      $sqlQuery the rawquery to output
      */
-    public function exportRawQuery(string|null $db, string $sqlQuery): bool
+    public function exportRawQuery(string|null $db, string $sqlQuery): void
     {
         $this->pdf->setDbAlias('----');
         $this->pdf->setTableAlias('----');
@@ -152,8 +150,6 @@ class ExportPdf extends ExportPlugin
         }
 
         $this->pdf->mysqlReport($sqlQuery);
-
-        return true;
     }
 
     /**
@@ -164,7 +160,7 @@ class ExportPdf extends ExportPlugin
      * @param string  $exportMode 'create_table', 'triggers', 'create_view', 'stand_in'
      * @param mixed[] $aliases    aliases for db/table/columns
      */
-    public function exportStructure(string $db, string $table, string $exportMode, array $aliases = []): bool
+    public function exportStructure(string $db, string $table, string $exportMode, array $aliases = []): void
     {
         $purpose = '';
         $dbAlias = $this->getDbAlias($aliases, $db);
@@ -197,8 +193,6 @@ class ExportPdf extends ExportPlugin
             'triggers' => $this->pdf->getTriggers($db, $table),
             default => true,
         };
-
-        return true;
     }
 
     public static function isAvailable(): bool

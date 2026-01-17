@@ -175,30 +175,25 @@ class ExportPdfTest extends AbstractTestCase
         $attrPdf = new ReflectionProperty(ExportPdf::class, 'pdf');
         $attrPdf->setValue($this->object, $pdf);
 
-        self::assertTrue(
-            $this->object->exportFooter(),
-        );
+        $this->object->exportFooter();
     }
 
     public function testExportDBHeader(): void
     {
-        self::assertTrue(
-            $this->object->exportDBHeader('testDB'),
-        );
+        $this->expectNotToPerformAssertions();
+        $this->object->exportDBHeader('testDB');
     }
 
     public function testExportDBFooter(): void
     {
-        self::assertTrue(
-            $this->object->exportDBFooter('testDB'),
-        );
+        $this->expectNotToPerformAssertions();
+        $this->object->exportDBFooter('testDB');
     }
 
     public function testExportDBCreate(): void
     {
-        self::assertTrue(
-            $this->object->exportDBCreate('testDB'),
-        );
+        $this->expectNotToPerformAssertions();
+        $this->object->exportDBCreate('testDB');
     }
 
     public function testExportData(): void
@@ -214,12 +209,6 @@ class ExportPdfTest extends AbstractTestCase
         $attrPdf = new ReflectionProperty(ExportPdf::class, 'pdf');
         $attrPdf->setValue($this->object, $pdf);
 
-        self::assertTrue(
-            $this->object->exportData(
-                'db',
-                'table',
-                'SELECT',
-            ),
-        );
+        $this->object->exportData('db', 'table', 'SELECT');
     }
 }

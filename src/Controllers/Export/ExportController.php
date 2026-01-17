@@ -301,9 +301,7 @@ final readonly class ExportController implements InvocableController
             }
 
             // Add possibly some comments to export
-            if (! $exportPlugin->exportHeader()) {
-                throw new ExportException('Failure during header export.');
-            }
+            $exportPlugin->exportHeader();
 
             /**
              * Builds the dump
@@ -351,7 +349,7 @@ final readonly class ExportController implements InvocableController
                     );
                 }
             } elseif ($exportType === ExportType::Raw) {
-                Export::exportRaw($exportPlugin, Current::$database, Current::$sqlQuery);
+                $exportPlugin->exportRawQuery(Current::$database, Current::$sqlQuery);
             } else {
                 // We export just one table
 
@@ -389,9 +387,7 @@ final readonly class ExportController implements InvocableController
                 }
             }
 
-            if (! $exportPlugin->exportFooter()) {
-                throw new ExportException('Failure during footer export.');
-            }
+            $exportPlugin->exportFooter();
         } catch (ExportException) {
             // Ignore
         }

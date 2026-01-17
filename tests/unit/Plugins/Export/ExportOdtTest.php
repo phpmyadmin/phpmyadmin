@@ -302,9 +302,7 @@ class ExportOdtTest extends AbstractTestCase
 
     public function testExportHeader(): void
     {
-        self::assertTrue(
-            $this->object->exportHeader(),
-        );
+        $this->object->exportHeader();
 
         self::assertStringContainsString('<office:document-content', $this->object->buffer);
         self::assertStringContainsString('office:version', $this->object->buffer);
@@ -313,7 +311,7 @@ class ExportOdtTest extends AbstractTestCase
     public function testExportFooter(): void
     {
         $this->object->buffer = 'header';
-        self::assertTrue($this->object->exportFooter());
+        $this->object->exportFooter();
         $output = $this->getActualOutputForAssertion();
         self::assertMatchesRegularExpression('/^504b.*636f6e74656e742e786d6c/', bin2hex($output));
         self::assertStringContainsString('header', $this->object->buffer);
@@ -327,9 +325,7 @@ class ExportOdtTest extends AbstractTestCase
     {
         $this->object->buffer = 'header';
 
-        self::assertTrue(
-            $this->object->exportDBHeader('d&b'),
-        );
+        $this->object->exportDBHeader('d&b');
 
         self::assertStringContainsString('header', $this->object->buffer);
 
@@ -338,16 +334,14 @@ class ExportOdtTest extends AbstractTestCase
 
     public function testExportDBFooter(): void
     {
-        self::assertTrue(
-            $this->object->exportDBFooter('testDB'),
-        );
+        $this->expectNotToPerformAssertions();
+        $this->object->exportDBFooter('testDB');
     }
 
     public function testExportDBCreate(): void
     {
-        self::assertTrue(
-            $this->object->exportDBCreate('testDB'),
-        );
+        $this->expectNotToPerformAssertions();
+        $this->object->exportDBCreate('testDB');
     }
 
     public function testExportData(): void
@@ -393,13 +387,7 @@ class ExportOdtTest extends AbstractTestCase
 
         $this->object->setExportOptions($request, []);
 
-        self::assertTrue(
-            $this->object->exportData(
-                'db',
-                'ta<ble',
-                'SELECT',
-            ),
-        );
+        $this->object->exportData('db', 'ta<ble', 'SELECT');
 
         self::assertSame(
             '<text:h text:outline-level="2" text:style-name="Heading_2" ' .
@@ -463,13 +451,7 @@ class ExportOdtTest extends AbstractTestCase
 
         $this->object->setExportOptions($request, []);
 
-        self::assertTrue(
-            $this->object->exportData(
-                'db',
-                'table',
-                'SELECT',
-            ),
-        );
+        $this->object->exportData('db', 'table', 'SELECT');
 
         self::assertSame(
             '<text:h text:outline-level="2" text:style-name="Heading_2" text:' .
@@ -512,13 +494,7 @@ class ExportOdtTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         $this->object->buffer = '';
 
-        self::assertTrue(
-            $this->object->exportData(
-                'db',
-                'table',
-                'SELECT',
-            ),
-        );
+        $this->object->exportData('db', 'table', 'SELECT');
 
         self::assertSame(
             '<text:h text:outline-level="2" text:style-name="Heading_2" ' .
@@ -743,7 +719,7 @@ class ExportOdtTest extends AbstractTestCase
     {
         // case 1
         $this->dummyDbi->addSelectDb('test_db');
-        self::assertTrue($this->object->exportStructure('test_db', 'test_table', 'create_table'));
+        $this->object->exportStructure('test_db', 'test_table', 'create_table');
         $this->dummyDbi->assertAllSelectsConsumed();
 
         self::assertSame(
@@ -776,7 +752,7 @@ class ExportOdtTest extends AbstractTestCase
         // case 2
         $this->object->buffer = '';
 
-        self::assertTrue($this->object->exportStructure('test_db', 'test_table', 'triggers'));
+        $this->object->exportStructure('test_db', 'test_table', 'triggers');
 
         self::assertSame(
             '<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">'
@@ -799,7 +775,7 @@ class ExportOdtTest extends AbstractTestCase
         $this->object->buffer = '';
 
         $this->dummyDbi->addSelectDb('test_db');
-        self::assertTrue($this->object->exportStructure('test_db', 'test_table', 'create_view'));
+        $this->object->exportStructure('test_db', 'test_table', 'create_view');
         $this->dummyDbi->assertAllSelectsConsumed();
 
         self::assertSame(
@@ -832,7 +808,7 @@ class ExportOdtTest extends AbstractTestCase
         // case 4
         $this->dummyDbi->addSelectDb('test_db');
         $this->object->buffer = '';
-        self::assertTrue($this->object->exportStructure('test_db', 'test_table', 'stand_in'));
+        $this->object->exportStructure('test_db', 'test_table', 'stand_in');
         $this->dummyDbi->assertAllSelectsConsumed();
 
         self::assertSame(

@@ -215,7 +215,7 @@ class ExportLatex extends ExportPlugin
     /**
      * Outputs export header
      */
-    public function exportHeader(): bool
+    public function exportHeader(): void
     {
         $config = Config::getInstance();
         $head = '% phpMyAdmin LaTeX Dump' . "\n"
@@ -233,7 +233,7 @@ class ExportLatex extends ExportPlugin
             . '% ' . __('Server version:') . ' ' . DatabaseInterface::getInstance()->getVersionString() . "\n"
             . '% ' . __('PHP Version:') . ' ' . PHP_VERSION . "\n";
 
-        return $this->outputHandler->addLine($head);
+        $this->outputHandler->addLine($head);
     }
 
     /**
@@ -242,7 +242,7 @@ class ExportLatex extends ExportPlugin
      * @param string $db      Database name
      * @param string $dbAlias Aliases of db
      */
-    public function exportDBHeader(string $db, string $dbAlias = ''): bool
+    public function exportDBHeader(string $db, string $dbAlias = ''): void
     {
         if ($dbAlias === '') {
             $dbAlias = $db;
@@ -252,7 +252,7 @@ class ExportLatex extends ExportPlugin
             . '% ' . __('Database:') . ' \'' . $dbAlias . '\'' . "\n"
             . '% ' . "\n";
 
-        return $this->outputHandler->addLine($head);
+        $this->outputHandler->addLine($head);
     }
 
     /**
@@ -268,7 +268,7 @@ class ExportLatex extends ExportPlugin
         string $table,
         string $sqlQuery,
         array $aliases = [],
-    ): bool {
+    ): void {
         $dbAlias = $this->getDbAlias($aliases, $db);
         $tableAlias = $this->getTableAlias($aliases, $db, $table);
 
@@ -309,9 +309,7 @@ class ExportLatex extends ExportPlugin
                 . '} \\\\';
         }
 
-        if (! $this->outputHandler->addLine($buffer)) {
-            return false;
-        }
+        $this->outputHandler->addLine($buffer);
 
         // show column names
         if ($this->columns) {
@@ -322,31 +320,23 @@ class ExportLatex extends ExportPlugin
             }
 
             $buffer = mb_substr($buffer, 0, -2) . '\\\\ \\hline \hline ';
-            if (! $this->outputHandler->addLine($buffer . ' \\endfirsthead ' . "\n")) {
-                return false;
-            }
+            $this->outputHandler->addLine($buffer . ' \\endfirsthead ' . "\n");
 
             if ($this->caption) {
-                if (
-                    ! $this->outputHandler->addLine(
-                        '\\caption{'
-                        . Util::expandUserString(
-                            $this->dataContinuedCaption,
-                            [static::class, 'texEscape'],
-                            ['table' => $tableAlias, 'database' => $dbAlias],
-                        )
-                        . '} \\\\ ',
+                $this->outputHandler->addLine(
+                    '\\caption{'
+                    . Util::expandUserString(
+                        $this->dataContinuedCaption,
+                        [static::class, 'texEscape'],
+                        ['table' => $tableAlias, 'database' => $dbAlias],
                     )
-                ) {
-                    return false;
-                }
+                    . '} \\\\ ',
+                );
             }
 
-            if (! $this->outputHandler->addLine($buffer . '\\endhead \\endfoot' . "\n")) {
-                return false;
-            }
-        } elseif (! $this->outputHandler->addLine('\\\\ \hline')) {
-            return false;
+            $this->outputHandler->addLine($buffer . '\\endhead \\endfoot' . "\n");
+        } else {
+            $this->outputHandler->addLine('\\\\ \hline');
         }
 
         // print the whole table
@@ -370,14 +360,12 @@ class ExportLatex extends ExportPlugin
             }
 
             $buffer .= ' \\\\ \\hline ' . "\n";
-            if (! $this->outputHandler->addLine($buffer)) {
-                return false;
-            }
+            $this->outputHandler->addLine($buffer);
         }
 
         $buffer = ' \\end{longtable}' . "\n";
 
-        return $this->outputHandler->addLine($buffer);
+        $this->outputHandler->addLine($buffer);
     }
 
     /**
@@ -386,13 +374,13 @@ class ExportLatex extends ExportPlugin
      * @param string|null $db       the database where the query is executed
      * @param string      $sqlQuery the rawquery to output
      */
-    public function exportRawQuery(string|null $db, string $sqlQuery): bool
+    public function exportRawQuery(string|null $db, string $sqlQuery): void
     {
         if ($db !== null) {
             DatabaseInterface::getInstance()->selectDb($db);
         }
 
-        return $this->exportData($db ?? '', '', $sqlQuery);
+        $this->exportData($db ?? '', '', $sqlQuery);
     }
 
     /**
@@ -403,7 +391,7 @@ class ExportLatex extends ExportPlugin
      * @param string  $exportMode 'create_table', 'triggers', 'create_view', 'stand_in'
      * @param mixed[] $aliases    Aliases of db/table/columns
      */
-    public function exportStructure(string $db, string $table, string $exportMode, array $aliases = []): bool
+    public function exportStructure(string $db, string $table, string $exportMode, array $aliases = []): void
     {
         $dbAlias = $this->getDbAlias($aliases, $db);
         $tableAlias = $this->getTableAlias($aliases, $db, $table);
@@ -412,7 +400,7 @@ class ExportLatex extends ExportPlugin
 
         /* We do not export triggers */
         if ($exportMode === 'triggers') {
-            return true;
+            return;
         }
 
         /**
@@ -443,9 +431,7 @@ class ExportLatex extends ExportPlugin
          */
         $buffer = "\n" . '%' . "\n" . '% ' . __('Structure:') . ' '
             . $tableAlias . "\n" . '%' . "\n" . ' \\begin{longtable}{';
-        if (! $this->outputHandler->addLine($buffer)) {
-            return false;
-        }
+        $this->outputHandler->addLine($buffer);
 
         $alignment = '|l|c|c|c|';
         if ($this->doRelation && $foreigners !== null && ! $foreigners->isEmpty()) {
@@ -513,9 +499,7 @@ class ExportLatex extends ExportPlugin
 
         $buffer .= $header . ' \\\\ \\hline \\hline \\endhead \\endfoot ' . "\n";
 
-        if (! $this->outputHandler->addLine($buffer)) {
-            return false;
-        }
+        $this->outputHandler->addLine($buffer);
 
         $fields = $dbi->getColumns($db, $table);
         foreach ($fields as $row) {
@@ -565,14 +549,12 @@ class ExportLatex extends ExportPlugin
             $buffer = str_replace("\000", ' & ', $localBuffer);
             $buffer .= ' \\\\ \\hline ' . "\n";
 
-            if (! $this->outputHandler->addLine($buffer)) {
-                return false;
-            }
+            $this->outputHandler->addLine($buffer);
         }
 
         $buffer = ' \\end{longtable}' . "\n";
 
-        return $this->outputHandler->addLine($buffer);
+        $this->outputHandler->addLine($buffer);
     }
 
     /**

@@ -254,9 +254,7 @@ class ExportHtmlwordTest extends AbstractTestCase
     public function testExportFooter(): void
     {
         ob_start();
-        self::assertTrue(
-            $this->object->exportFooter(),
-        );
+        $this->object->exportFooter();
         $result = ob_get_clean();
 
         self::assertSame('</body></html>', $result);
@@ -265,9 +263,7 @@ class ExportHtmlwordTest extends AbstractTestCase
     public function testExportDBHeader(): void
     {
         ob_start();
-        self::assertTrue(
-            $this->object->exportDBHeader('d"b'),
-        );
+        $this->object->exportDBHeader('d"b');
         $result = ob_get_clean();
 
         self::assertSame('<h1>Database d&quot;b</h1>', $result);
@@ -275,16 +271,14 @@ class ExportHtmlwordTest extends AbstractTestCase
 
     public function testExportDBFooter(): void
     {
-        self::assertTrue(
-            $this->object->exportDBFooter('testDB'),
-        );
+        $this->expectNotToPerformAssertions();
+        $this->object->exportDBFooter('testDB');
     }
 
     public function testExportDBCreate(): void
     {
-        self::assertTrue(
-            $this->object->exportDBCreate('testDB'),
-        );
+        $this->expectNotToPerformAssertions();
+        $this->object->exportDBCreate('testDB');
     }
 
     public function testExportData(): void
@@ -298,11 +292,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         $this->object->setExportOptions($request, []);
 
         ob_start();
-        self::assertTrue($this->object->exportData(
-            'test_db',
-            'test_table',
-            'SELECT * FROM `test_db`.`test_table`;',
-        ));
+        $this->object->exportData('test_db', 'test_table', 'SELECT * FROM `test_db`.`test_table`;');
         $result = ob_get_clean();
 
         self::assertSame(
@@ -590,7 +580,7 @@ class ExportHtmlwordTest extends AbstractTestCase
     {
         ob_start();
         $this->dummyDbi->addSelectDb('test_db');
-        self::assertTrue($this->object->exportStructure('test_db', 'test_table', 'create_table'));
+        $this->object->exportStructure('test_db', 'test_table', 'create_table');
         $this->dummyDbi->assertAllSelectsConsumed();
         $result = ob_get_clean();
 
@@ -609,7 +599,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         );
 
         ob_start();
-        self::assertTrue($this->object->exportStructure('test_db', 'test_table', 'triggers'));
+        $this->object->exportStructure('test_db', 'test_table', 'triggers');
         $result = ob_get_clean();
 
         self::assertSame(
@@ -624,7 +614,7 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         ob_start();
         $this->dummyDbi->addSelectDb('test_db');
-        self::assertTrue($this->object->exportStructure('test_db', 'test_table', 'create_view'));
+        $this->object->exportStructure('test_db', 'test_table', 'create_view');
         $this->dummyDbi->assertAllSelectsConsumed();
         $result = ob_get_clean();
 
@@ -643,7 +633,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         );
 
         ob_start();
-        self::assertTrue($this->object->exportStructure('test_db', 'test_table', 'stand_in'));
+        $this->object->exportStructure('test_db', 'test_table', 'stand_in');
         $result = ob_get_clean();
 
         self::assertSame(

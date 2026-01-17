@@ -120,41 +120,33 @@ class ExportJsonTest extends AbstractTestCase
             . "\n",
         );
 
-        self::assertTrue(
-            $this->object->exportHeader(),
-        );
+        $this->object->exportHeader();
     }
 
     public function testExportFooter(): void
     {
         $this->expectOutputString(']' . "\n");
 
-        self::assertTrue(
-            $this->object->exportFooter(),
-        );
+        $this->object->exportFooter();
     }
 
     public function testExportDBHeader(): void
     {
         $this->expectOutputString('{"type":"database","name":"testDB"},' . "\n");
 
-        self::assertTrue(
-            $this->object->exportDBHeader('testDB'),
-        );
+        $this->object->exportDBHeader('testDB');
     }
 
     public function testExportDBFooter(): void
     {
-        self::assertTrue(
-            $this->object->exportDBFooter('testDB'),
-        );
+        $this->expectNotToPerformAssertions();
+        $this->object->exportDBFooter('testDB');
     }
 
     public function testExportDBCreate(): void
     {
-        self::assertTrue(
-            $this->object->exportDBCreate('testDB'),
-        );
+        $this->expectNotToPerformAssertions();
+        $this->object->exportDBCreate('testDB');
     }
 
     public function testExportData(): void
@@ -169,11 +161,7 @@ class ExportJsonTest extends AbstractTestCase
             . '}' . "\n",
         );
 
-        self::assertTrue($this->object->exportData(
-            'test_db',
-            'test_table',
-            'SELECT * FROM `test_db`.`test_table`;',
-        ));
+        $this->object->exportData('test_db', 'test_table', 'SELECT * FROM `test_db`.`test_table`;');
     }
 
     public function testExportComplexData(): void
@@ -190,13 +178,7 @@ class ExportJsonTest extends AbstractTestCase
             . "]\n}\n",
         );
 
-        self::assertTrue(
-            $this->object->exportData(
-                'test_db',
-                'test_table_complex',
-                'SELECT * FROM `test_db`.`test_table_complex`;',
-            ),
-        );
+        $this->object->exportData('test_db', 'test_table_complex', 'SELECT * FROM `test_db`.`test_table_complex`;');
     }
 
     public function testExportRawComplexData(): void
@@ -212,11 +194,6 @@ class ExportJsonTest extends AbstractTestCase
             . "]\n}\n",
         );
 
-        self::assertTrue(
-            $this->object->exportRawQuery(
-                null,
-                'SELECT * FROM `test_db`.`test_table_complex`;',
-            ),
-        );
+        $this->object->exportRawQuery(null, 'SELECT * FROM `test_db`.`test_table_complex`;');
     }
 }
