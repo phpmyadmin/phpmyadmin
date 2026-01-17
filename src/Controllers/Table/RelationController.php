@@ -19,6 +19,7 @@ use PhpMyAdmin\Indexes\Index;
 use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
+use PhpMyAdmin\SqlParser\Utils\ForeignKey as ForeignKeyObject;
 use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\UrlParams;
@@ -28,6 +29,7 @@ use function __;
 use function array_keys;
 use function md5;
 use function strnatcasecmp;
+use function strnatcmp;
 use function uksort;
 use function usort;
 
@@ -179,6 +181,13 @@ final readonly class RelationController implements InvocableController
 
         if ($this->config->settings['NaturalOrder']) {
             uksort($columnArray, strnatcasecmp(...));
+            usort(
+                $relationsForeign,
+                static fn (ForeignKeyObject $before, ForeignKeyObject $after) => strnatcmp(
+                    $before->constraint ?? '',
+                    $after->constraint ?? '',
+                ),
+            );
         }
 
         $foreignKeyRow = '';
