@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import * as bootstrap from 'bootstrap';
 import { AJAX } from './modules/ajax.ts';
-import { checkFormElementInRange, checkSqlQuery, prepareForAjaxRequest } from './modules/functions.ts';
+import { checkFormElementInRange, checkSqlQuery, emptyCheckTheField, prepareForAjaxRequest } from './modules/functions.ts';
 import { Navigation } from './modules/navigation.ts';
 import { CommonParams } from './modules/common.ts';
 import createProfilingChart from './modules/functions/createProfilingChart.ts';
@@ -547,6 +547,13 @@ AJAX.registerOnload('sql.js', function () {
     // Ajaxification for 'Bookmark this SQL query'
     $(document).on('submit', '.bookmarkQueryForm', function (e) {
         e.preventDefault();
+
+        if (emptyCheckTheField(this, 'bkm_fields[bkm_label]')) {
+            ajaxShowMessage(window.Messages.strFormEmpty, false, 'error');
+
+            return false;
+        }
+
         ajaxShowMessage();
         var argsep = CommonParams.get('arg_separator');
         $.post($(this).attr('action'), 'ajax_request=1' + argsep + $(this).serialize(), function (data) {
