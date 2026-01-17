@@ -7765,85 +7765,7 @@ parameters:
 			path: src/Navigation/Nodes/Node.php
 
 		-
-			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
-			identifier: empty.notAllowed
-			count: 4
-			path: src/Navigation/Nodes/Node.php
-
-		-
-			message: '#^Method PhpMyAdmin\\Navigation\\Nodes\\Node\:\:getDatabasesToSearch\(\) should return array\<mixed\> but returns list\<string\>\|string\.$#'
-			identifier: return.type
-			count: 1
-			path: src/Navigation/Nodes/Node.php
-
-		-
-			message: '#^Parameter \#1 \$array of function sort expects TArray of array\<string\>, array\<string\>\|string given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Navigation/Nodes/Node.php
-
-		-
-			message: '#^Parameter \#1 \$db of method PhpMyAdmin\\Navigation\\Nodes\\Node\:\:isHideDb\(\) expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 4
-			path: src/Navigation/Nodes/Node.php
-
-		-
-			message: '#^Parameter \#1 \$haystack of function strstr expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 4
-			path: src/Navigation/Nodes/Node.php
-
-		-
-			message: '#^Parameter \#1 \$str of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 5
-			path: src/Navigation/Nodes/Node.php
-
-		-
-			message: '#^Binary operation "\." between mixed and ''\)'' results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Navigation/Nodes/NodeColumn.php
-
-		-
-			message: '#^Binary operation "\.\=" between mixed and '' \('' results in an error\.$#'
-			identifier: assignOp.invalid
-			count: 1
-			path: src/Navigation/Nodes/NodeColumn.php
-
-		-
-			message: '#^Binary operation "\.\=" between mixed and '', '' results in an error\.$#'
-			identifier: assignOp.invalid
-			count: 1
-			path: src/Navigation/Nodes/NodeColumn.php
-
-		-
-			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
-			identifier: empty.notAllowed
-			count: 1
-			path: src/Navigation/Nodes/NodeColumn.php
-
-		-
-			message: '#^Parameter \#1 \$item of method PhpMyAdmin\\Navigation\\Nodes\\NodeColumn\:\:getDisplayName\(\) expects array\<string, mixed\>, array\<mixed\> given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Navigation/Nodes/NodeColumn.php
-
-		-
-			message: '#^Parameter \#1 \$key of method PhpMyAdmin\\Navigation\\Nodes\\NodeColumn\:\:getColumnIcon\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Navigation/Nodes/NodeColumn.php
-
-		-
-			message: '#^Parameter \#2 \$name of method PhpMyAdmin\\Navigation\\Nodes\\Node\:\:__construct\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Navigation/Nodes/NodeColumn.php
-
-		-
-			message: '#^Parameter \#2 \$value of method PhpMyAdmin\\Navigation\\Nodes\\NodeColumn\:\:getTruncateValue\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#2 \$name of method PhpMyAdmin\\Navigation\\Nodes\\Node\:\:__construct\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Navigation/Nodes/NodeColumn.php
@@ -7889,6 +7811,12 @@ parameters:
 
 		-
 			message: '#^Parameter \#1 \$columnSpecification of static method PhpMyAdmin\\Util\:\:extractColumnSpec\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Navigation/Nodes/NodeTable.php
+
+		-
+			message: '#^Parameter \#2 \$item of class PhpMyAdmin\\Navigation\\Nodes\\NodeColumn constructor expects array\{name\: string\|null, key\: string, type\: string\|null, default\: string\|null, nullable\: string\}, array\<string\|null\> given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Navigation/Nodes/NodeTable.php
@@ -16335,7 +16263,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 2
+			count: 7
 			path: tests/unit/Navigation/Nodes/NodeTableTest.php
 
 		-
@@ -16344,13 +16272,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 7
-			path: tests/unit/Navigation/Nodes/NodeTest.php
-
-		-
-			message: '#^Property PhpMyAdmin\\Config\:\:\$selectedServer \(array\{host\: string, port\: string, socket\: string, ssl\: bool, ssl_key\: string\|null, ssl_cert\: string\|null, ssl_ca\: string\|null, ssl_ca_path\: string\|null, \.\.\.\}\) does not accept array\{host\: string, port\: string, socket\: string, ssl\: bool, ssl_key\: string\|null, ssl_cert\: string\|null, ssl_ca\: string\|null, ssl_ca_path\: string\|null, \.\.\.\}\.$#'
-			identifier: assign.propertyType
-			count: 3
+			count: 8
 			path: tests/unit/Navigation/Nodes/NodeTest.php
 
 		-

@@ -13,7 +13,7 @@ use PhpMyAdmin\UserPrivileges;
 use PhpMyAdmin\Util;
 
 use function __;
-use function in_array;
+use function array_slice;
 
 /**
  * Represents a columns node in the navigation tree
@@ -127,7 +127,7 @@ class NodeTable extends NodeDatabaseChild
             $query .= 'FROM `INFORMATION_SCHEMA`.`COLUMNS` ';
             $query .= 'WHERE `TABLE_NAME`=' . $dbi->quoteString($table) . ' ';
             $query .= 'AND `TABLE_SCHEMA`=' . $dbi->quoteString($db) . ' ';
-            $query .= 'ORDER BY `COLUMN_NAME` ASC ';
+            $query .= 'ORDER BY `ORDINAL_POSITION` ASC ';
             $query .= 'LIMIT ' . $pos . ', ' . $maxItems;
 
             $columnNodes = [];
@@ -144,26 +144,18 @@ class NodeTable extends NodeDatabaseChild
             return [];
         }
 
-        $retval = [];
-        $count = 0;
-        if ($handle->seek($pos)) {
-            foreach ($handle as $arr) {
-                if ($count >= $maxItems) {
-                    return $retval;
-                }
-
-                $retval[] = new NodeColumn($this->config, [
-                    'name' => $arr['Field'],
-                    'key' => $arr['Key'],
-                    'type' => Util::extractColumnSpec($arr['Type'])['type'],
-                    'default' => $arr['Default'],
-                    'nullable' => $arr['Null'] === 'NO' ? '' : 'nullable',
-                ]);
-                $count++;
-            }
+        $columnNodes = [];
+        foreach (array_slice($handle->fetchAllAssoc(), $pos, $maxItems) as $arr) {
+            $columnNodes[] = new NodeColumn($this->config, [
+                'name' => $arr['Field'],
+                'key' => $arr['Key'] ?? '',
+                'type' => Util::extractColumnSpec($arr['Type'])['type'],
+                'default' => $arr['Default'],
+                'nullable' => $arr['Null'] === 'NO' ? '' : 'nullable',
+            ]);
         }
 
-        return $retval;
+        return $columnNodes;
     }
 
     /** @return NodeIndex[] */
@@ -178,24 +170,9 @@ class NodeTable extends NodeDatabaseChild
             return [];
         }
 
-        $indexNames = [];
-        $count = 0;
-        /** @var string $keyName */
-        foreach ($handle as ['Key_name' => $keyName]) {
-            if (in_array($keyName, $indexNames, true)) {
-                continue;
-            }
-
-            if ($pos <= 0 && $count < $maxItems) {
-                $indexNames[] = $keyName;
-                $count++;
-            }
-
-            $pos--;
-        }
-
         $indexNodes = [];
-        foreach ($indexNames as $indexName) {
+        /** @var string $indexName */
+        foreach (array_slice($handle->fetchAllAssoc(), $pos, $maxItems) as ['Key_name' => $indexName]) {
             $indexNodes[] = new NodeIndex($this->config, $indexName);
         }
 
@@ -232,21 +209,13 @@ class NodeTable extends NodeDatabaseChild
             return [];
         }
 
-        $retval = [];
-        $count = 0;
-        if ($handle->seek($pos)) {
-            /** @var string $triggerName */
-            foreach ($handle as ['Trigger' => $triggerName]) {
-                if ($count >= $maxItems) {
-                    return $retval;
-                }
-
-                $retval[] = new NodeTrigger($this->config, $triggerName);
-                $count++;
-            }
+        $triggerNodes = [];
+        /** @var string $triggerName */
+        foreach (array_slice($handle->fetchAllAssoc(), $pos, $maxItems) as ['Trigger' => $triggerName]) {
+            $triggerNodes[] = new NodeTrigger($this->config, $triggerName);
         }
 
-        return $retval;
+        return $triggerNodes;
     }
 
     /**

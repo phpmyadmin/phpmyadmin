@@ -295,7 +295,7 @@ final class NodeTest extends AbstractTestCase
             "WHERE TRUE AND `SCHEMA_NAME` NOT REGEXP 'regexpHideDb' ",
             $method->invoke($node, 'SCHEMA_NAME'),
         );
-        unset($config->selectedServer['hide_db']);
+        $config->selectedServer['hide_db'] = '';
 
         // When only_db directive is present and it's a single db
         $config->selectedServer['only_db'] = 'stringOnlyDb';
@@ -303,7 +303,7 @@ final class NodeTest extends AbstractTestCase
             "WHERE TRUE AND ( `SCHEMA_NAME` LIKE 'stringOnlyDb' ) ",
             $method->invoke($node, 'SCHEMA_NAME'),
         );
-        unset($config->selectedServer['only_db']);
+        $config->selectedServer['only_db'] = '';
 
         // When only_db directive is present and it's an array of dbs
         $config->selectedServer['only_db'] = ['onlyDbOne', 'onlyDbTwo'];
@@ -311,7 +311,7 @@ final class NodeTest extends AbstractTestCase
             'WHERE TRUE AND ( `SCHEMA_NAME` LIKE \'onlyDbOne\' OR `SCHEMA_NAME` LIKE \'onlyDbTwo\' ) ',
             $method->invoke($node, 'SCHEMA_NAME'),
         );
-        unset($config->selectedServer['only_db']);
+        $config->selectedServer['only_db'] = '';
     }
 
     /**
@@ -322,7 +322,7 @@ final class NodeTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = false;
         $config->settings['NavigationTreeEnableGrouping'] = true;
-        $config->settings['FirstLevelNavigationItems'] = 20;
+        $config->set('FirstLevelNavigationItems', 20);
         $config->settings['NavigationTreeDbSeparator'] = '_';
 
         $expectedSql = 'SELECT `SCHEMA_NAME` ';
@@ -361,7 +361,7 @@ final class NodeTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = false;
         $config->settings['NavigationTreeEnableGrouping'] = false;
-        $config->settings['FirstLevelNavigationItems'] = 20;
+        $config->set('FirstLevelNavigationItems', 20);
 
         $expectedSql = 'SELECT `SCHEMA_NAME` ';
         $expectedSql .= 'FROM `INFORMATION_SCHEMA`.`SCHEMATA` ';
@@ -386,7 +386,7 @@ final class NodeTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = true;
         $config->settings['NavigationTreeEnableGrouping'] = true;
-        $config->settings['FirstLevelNavigationItems'] = 10;
+        $config->set('FirstLevelNavigationItems', 2);
         $config->settings['NavigationTreeDbSeparator'] = '_';
 
         $node = new Node($config, 'node');
@@ -398,9 +398,9 @@ final class NodeTest extends AbstractTestCase
             ->method('tryQuery')
             ->with("SHOW DATABASES WHERE TRUE AND `Database` LIKE '%db%' ")
             ->willReturn($resultStub);
-        $resultStub->expects(self::exactly(3))
-            ->method('fetchRow')
-            ->willReturn(['0' => 'db'], ['0' => 'aa_db'], []);
+        $resultStub->expects(self::exactly(2))
+            ->method('fetchValue')
+            ->willReturn('db', 'aa_db', 'foo', '');
 
         $dbi->expects(self::once())
             ->method('fetchSingleColumn')
@@ -416,6 +416,40 @@ final class NodeTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $dbi;
         $node->getData(new UserPrivileges(), 0, 'db');
+    }
+
+    /**
+     * Tests when DisableIS is true and navigation tree grouping disabled.
+     */
+    public function testGetDataWithDisabledISAndGroupingDisabled(): void
+    {
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = true;
+        $config->settings['NavigationTreeEnableGrouping'] = false;
+        $config->set('FirstLevelNavigationItems', 2);
+
+        $node = new Node($config, 'node');
+
+        $resultStub = self::createMock(DummyResult::class);
+
+        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi->expects(self::once())
+            ->method('tryQuery')
+            ->with("SHOW DATABASES WHERE TRUE AND `Database` LIKE '%db%' ")
+            ->willReturn($resultStub);
+        $resultStub->expects(self::once())
+            ->method('fetchAllColumn')
+            ->willReturn(['db', 'aa_db', 'foo']);
+
+        $dbi->expects(self::once())->method('escapeMysqlWildcards')
+            ->willReturnArgument(0);
+        $dbi->expects(self::once())->method('quoteString')
+            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
+
+        DatabaseInterface::$instance = $dbi;
+        $result = $node->getData(new UserPrivileges(), 0, 'db');
+
+        self::assertSame(['db', 'aa_db'], $result);
     }
 
     /**

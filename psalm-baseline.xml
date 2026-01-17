@@ -5276,67 +5276,16 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <MixedArgument>
-      <code><![CDATA[$db]]></code>
-      <code><![CDATA[$db]]></code>
-      <code><![CDATA[$db]]></code>
-      <code><![CDATA[$db]]></code>
-      <code><![CDATA[$db]]></code>
-    </MixedArgument>
-    <MixedAssignment>
-      <code><![CDATA[$db]]></code>
-      <code><![CDATA[$db]]></code>
-      <code><![CDATA[$db]]></code>
-      <code><![CDATA[$db]]></code>
-      <code><![CDATA[$db]]></code>
-    </MixedAssignment>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$databases]]></code>
-    </PossiblyInvalidArgument>
-    <PossiblyNullArgument>
-      <code><![CDATA[$arr[0]]]></code>
-      <code><![CDATA[$arr[0]]]></code>
-      <code><![CDATA[$arr[0]]]></code>
-      <code><![CDATA[$arr[0]]]></code>
-      <code><![CDATA[$arr[0]]]></code>
-      <code><![CDATA[$arr[0]]]></code>
-      <code><![CDATA[$arr[0]]]></code>
-      <code><![CDATA[$arr[0]]]></code>
-    </PossiblyNullArgument>
-    <PossiblyNullArrayOffset>
-      <code><![CDATA[$prefixMap]]></code>
-      <code><![CDATA[$prefixMap]]></code>
-      <code><![CDATA[$prefixMap]]></code>
-      <code><![CDATA[$prefixMap]]></code>
-    </PossiblyNullArrayOffset>
-    <PossiblyNullOperand>
-      <code><![CDATA[$arr[0]]]></code>
-    </PossiblyNullOperand>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($this->config->selectedServer['hide_db'])]]></code>
-      <code><![CDATA[empty($this->config->selectedServer['hide_db'])]]></code>
-      <code><![CDATA[empty($this->config->selectedServer['only_db'])]]></code>
-      <code><![CDATA[empty($this->config->selectedServer['only_db'])]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Navigation/Nodes/NodeColumn.php">
-    <MixedArgument>
-      <code><![CDATA[$item['key']]]></code>
+    <PossiblyNullArgument>
       <code><![CDATA[$item['name']]]></code>
-      <code><![CDATA[$value]]></code>
-    </MixedArgument>
-    <MixedArgumentTypeCoercion>
-      <code><![CDATA[$item]]></code>
-    </MixedArgumentTypeCoercion>
-    <MixedAssignment>
-      <code><![CDATA[$retval]]></code>
-      <code><![CDATA[$value]]></code>
-    </MixedAssignment>
-    <MixedOperand>
+    </PossiblyNullArgument>
+    <PossiblyNullOperand>
       <code><![CDATA[$retval]]></code>
       <code><![CDATA[$retval]]></code>
       <code><![CDATA[$retval]]></code>
-    </MixedOperand>
+    </PossiblyNullOperand>
   </file>
   <file src="src/Navigation/Nodes/NodeDatabase.php">
     <DeprecatedMethod>
@@ -5358,6 +5307,9 @@
     <DeprecatedMethod>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[$row]]></code>
+    </MixedArgumentTypeCoercion>
     <PossiblyInvalidPropertyFetch>
       <code><![CDATA[$this->getRealParent()->realName]]></code>
       <code><![CDATA[$this->getRealParent()->realName]]></code>
@@ -10503,6 +10455,11 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
   </file>
   <file src="tests/unit/Navigation/Nodes/NodeTest.php">
@@ -10514,11 +10471,8 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidPropertyAssignmentValue>
-      <code><![CDATA[$config->selectedServer]]></code>
-      <code><![CDATA[$config->selectedServer]]></code>
-    </InvalidPropertyAssignmentValue>
   </file>
   <file src="tests/unit/Navigation/Nodes/ObjectFetcherTest.php">
     <DeprecatedMethod>

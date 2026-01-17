@@ -318,7 +318,7 @@ class Node
         int $pos,
         string $searchClause = '',
     ): array {
-        if (isset($this->config->selectedServer['DisableIS']) && ! $this->config->selectedServer['DisableIS']) {
+        if (! $this->config->selectedServer['DisableIS']) {
             return $this->getDataFromInfoSchema($pos, $searchClause);
         }
 
@@ -345,7 +345,7 @@ class Node
             ! $this->config->settings['NavigationTreeEnableGrouping']
             || ! $this->config->settings['ShowDatabasesNavigationAsTree']
         ) {
-            if (isset($this->config->selectedServer['DisableIS']) && ! $this->config->selectedServer['DisableIS']) {
+            if (! $this->config->selectedServer['DisableIS']) {
                 $query = 'SELECT COUNT(*) ';
                 $query .= 'FROM INFORMATION_SCHEMA.SCHEMATA ';
                 $query .= $this->getWhereClause('SCHEMA_NAME', $searchClause);
@@ -392,14 +392,15 @@ class Node
                     continue;
                 }
 
-                while ($arr = $handle->fetchRow()) {
-                    if ($this->isHideDb($arr[0])) {
+                /** @var string $value */
+                foreach ($handle->fetchAllColumn() as $value) {
+                    if ($this->isHideDb($value)) {
                         continue;
                     }
 
-                    $prefix = strstr($arr[0], $dbSeparator, true);
+                    $prefix = strstr($value, $dbSeparator, true);
                     if ($prefix === false) {
-                        $prefix = $arr[0];
+                        $prefix = $value;
                     }
 
                     $prefixMap[$prefix] = 1;
@@ -414,10 +415,11 @@ class Node
         $query .= $this->getWhereClause('Database', $searchClause);
         $handle = $dbi->tryQuery($query);
         if ($handle !== false) {
-            while ($arr = $handle->fetchRow()) {
-                $prefix = strstr($arr[0], $dbSeparator, true);
+            /** @var string $value */
+            foreach ($handle->fetchAllColumn() as $value) {
+                $prefix = strstr($value, $dbSeparator, true);
                 if ($prefix === false) {
-                    $prefix = $arr[0];
+                    $prefix = $value;
                 }
 
                 $prefixMap[$prefix] = 1;
@@ -434,7 +436,7 @@ class Node
      */
     private function isHideDb(string $db): bool
     {
-        return ! empty($this->config->selectedServer['hide_db'])
+        return $this->config->selectedServer['hide_db'] !== ''
             && preg_match('/' . $this->config->selectedServer['hide_db'] . '/', $db) === 1;
     }
 
@@ -446,15 +448,15 @@ class Node
      *
      * @param string $searchClause search clause
      *
-     * @return mixed[] array of databases
+     * @return string[] array of databases
      */
     private function getDatabasesToSearch(UserPrivileges $userPrivileges, string $searchClause): array
     {
         $databases = [];
         if ($searchClause !== '') {
             $databases = ['%' . DatabaseInterface::getInstance()->escapeMysqlWildcards($searchClause) . '%'];
-        } elseif (! empty($this->config->selectedServer['only_db'])) {
-            $databases = $this->config->selectedServer['only_db'];
+        } elseif ($this->config->selectedServer['only_db'] !== '') {
+            $databases = (array) $this->config->selectedServer['only_db'];
         } elseif ($userPrivileges->databasesToTest !== false && $userPrivileges->databasesToTest !== []) {
             $databases = $userPrivileges->databasesToTest;
         }
@@ -480,12 +482,12 @@ class Node
                 . ' LIKE ' . $dbi->quoteString('%' . $dbi->escapeMysqlWildcards($searchClause) . '%') . ' ';
         }
 
-        if (! empty($this->config->selectedServer['hide_db'])) {
+        if ($this->config->selectedServer['hide_db'] !== '') {
             $whereClause .= 'AND ' . Util::backquote($columnName)
                 . ' NOT REGEXP ' . $dbi->quoteString($this->config->selectedServer['hide_db']) . ' ';
         }
 
-        if (! empty($this->config->selectedServer['only_db'])) {
+        if ($this->config->selectedServer['only_db'] !== '') {
             if (is_string($this->config->selectedServer['only_db'])) {
                 $this->config->selectedServer['only_db'] = [$this->config->selectedServer['only_db']];
             }
@@ -591,7 +593,7 @@ class Node
      */
     private function getDataFromInfoSchema(int $pos, string $searchClause): array
     {
-        $maxItems = $this->config->settings['FirstLevelNavigationItems'];
+        $maxItems = $this->config->config->FirstLevelNavigationItems;
         $dbi = DatabaseInterface::getInstance();
         if (
             ! $this->config->settings['NavigationTreeEnableGrouping']
@@ -632,7 +634,7 @@ class Node
      */
     private function getDataFromShowDatabases(int $pos, string $searchClause): array
     {
-        $maxItems = $this->config->settings['FirstLevelNavigationItems'];
+        $maxItems = $this->config->config->FirstLevelNavigationItems;
         $dbi = DatabaseInterface::getInstance();
         if (
             ! $this->config->settings['NavigationTreeEnableGrouping']
@@ -646,22 +648,7 @@ class Node
                 return [];
             }
 
-            $count = 0;
-            if (! $handle->seek($pos)) {
-                return [];
-            }
-
-            $retval = [];
-            while ($arr = $handle->fetchRow()) {
-                if ($count >= $maxItems) {
-                    break;
-                }
-
-                $retval[] = $arr[0];
-                $count++;
-            }
-
-            return $retval;
+            return array_slice($handle->fetchAllColumn(), $pos, $maxItems);
         }
 
         $dbSeparator = $this->config->settings['NavigationTreeDbSeparator'];
@@ -673,10 +660,10 @@ class Node
         if ($handle !== false) {
             $prefixMap = [];
             $total = $pos + $maxItems;
-            while ($arr = $handle->fetchRow()) {
-                $prefix = strstr($arr[0], $dbSeparator, true);
+            while ($value = $handle->fetchValue()) {
+                $prefix = strstr($value, $dbSeparator, true);
                 if ($prefix === false) {
-                    $prefix = $arr[0];
+                    $prefix = $value;
                 }
 
                 $prefixMap[$prefix] = 1;
@@ -710,11 +697,11 @@ class Node
      * @param int    $pos          The offset of the list within the results.
      * @param string $searchClause A string used to filter the results of the query.
      *
-     * @return list<string|null>
+     * @return list<string>
      */
     private function getDataFromShowDatabasesLike(UserPrivileges $userPrivileges, int $pos, string $searchClause): array
     {
-        $maxItems = $this->config->settings['FirstLevelNavigationItems'];
+        $maxItems = $this->config->config->FirstLevelNavigationItems;
         $dbi = DatabaseInterface::getInstance();
         if (
             ! $this->config->settings['NavigationTreeEnableGrouping']
@@ -728,17 +715,18 @@ class Node
                     continue;
                 }
 
-                while ($arr = $handle->fetchRow()) {
-                    if ($this->isHideDb($arr[0])) {
+                /** @var string $value */
+                foreach ($handle->fetchAllColumn() as $value) {
+                    if ($this->isHideDb($value)) {
                         continue;
                     }
 
-                    if (in_array($arr[0], $retval, true)) {
+                    if (in_array($value, $retval, true)) {
                         continue;
                     }
 
                     if ($pos <= 0 && $count < $maxItems) {
-                        $retval[] = $arr[0];
+                        $retval[] = $value;
                         $count++;
                     }
 
@@ -761,14 +749,15 @@ class Node
                 continue;
             }
 
-            while ($arr = $handle->fetchRow()) {
-                if ($this->isHideDb($arr[0])) {
+            /** @var string $value */
+            foreach ($handle->fetchAllColumn() as $value) {
+                if ($this->isHideDb($value)) {
                     continue;
                 }
 
-                $prefix = strstr($arr[0], $dbSeparator, true);
+                $prefix = strstr($value, $dbSeparator, true);
                 if ($prefix === false) {
-                    $prefix = $arr[0];
+                    $prefix = $value;
                 }
 
                 $prefixMap[$prefix] = 1;
@@ -786,19 +775,20 @@ class Node
                 continue;
             }
 
-            while ($arr = $handle->fetchRow()) {
-                if ($this->isHideDb($arr[0])) {
+            /** @var string $value */
+            foreach ($handle->fetchAllColumn() as $value) {
+                if ($this->isHideDb($value)) {
                     continue;
                 }
 
-                if (in_array($arr[0], $retval, true)) {
+                if (in_array($value, $retval, true)) {
                     continue;
                 }
 
                 foreach ($prefixes as $prefix) {
-                    $startsWith = str_starts_with($arr[0] . $dbSeparator, $prefix . $dbSeparator);
+                    $startsWith = str_starts_with($value . $dbSeparator, $prefix . $dbSeparator);
                     if ($startsWith) {
-                        $retval[] = $arr[0];
+                        $retval[] = $value;
                         break;
                     }
                 }
