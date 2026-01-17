@@ -16645,11 +16645,23 @@ parameters:
 			path: tests/unit/Plugins/Export/ExportHtmlwordTest.php
 
 		-
+			message: '#^Parameter \#2 \$haystack of static method PHPUnit\\Framework\\Assert\:\:assertStringContainsString\(\) expects string, string\|false given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/unit/Plugins/Export/ExportHtmlwordTest.php
+
+		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
+			count: 3
+			path: tests/unit/Plugins/Export/ExportLatexTest.php
+
+		-
+			message: '#^Parameter \#2 \$haystack of static method PHPUnit\\Framework\\Assert\:\:assertStringContainsString\(\) expects string, string\|false given\.$#'
+			identifier: argument.type
 			count: 3
 			path: tests/unit/Plugins/Export/ExportLatexTest.php
 

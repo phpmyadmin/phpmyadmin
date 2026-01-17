@@ -10,6 +10,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Plugins\Export\ExportLatex;
@@ -793,5 +794,31 @@ class ExportLatexTest extends AbstractTestCase
                 'strTest Structure of table @TABLE@ Content of table @TABLE@ (continued) strTest',
             ],
         ];
+    }
+
+    public function testExportTableCallsExportStructureMethod(): void
+    {
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        DatabaseInterface::$instance = $dbi;
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/');
+        $this->object->setExportOptions($request, ['latex_structure_or_data' => 'structure']);
+        ob_start();
+        $export = new Export($dbi, new OutputHandler());
+        $export->exportTable(
+            'testdb',
+            'testtable',
+            $this->object,
+            null,
+            '0',
+            '0',
+            '',
+            [],
+        );
+        $output = ob_get_clean();
+        self::assertStringContainsString("% Database: 'testdb'", $output);
+        self::assertStringContainsString("%\n", $output);
+        self::assertStringContainsString('% Structure: testtable', $output);
     }
 }

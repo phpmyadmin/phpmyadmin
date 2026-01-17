@@ -10,6 +10,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Identifiers\TableName;
@@ -891,5 +892,27 @@ class ExportOdtTest extends AbstractTestCase
             '"string"><text:p>def</text:p></table:table-cell>',
             $method->invoke($this->object, $column, ''),
         );
+    }
+
+    public function testExportTableCallsExportStructureMethod(): void
+    {
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        DatabaseInterface::$instance = $dbi;
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/');
+        $this->object->setExportOptions($request, ['odt_structure_or_data' => 'structure']);
+        $export = new Export($dbi, new OutputHandler());
+        $export->exportTable(
+            'testdb',
+            'testtable',
+            $this->object,
+            null,
+            '0',
+            '0',
+            '',
+            [],
+        );
+        self::assertStringContainsString('Table structure for table testtable', $this->object->buffer);
     }
 }

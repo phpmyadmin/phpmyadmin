@@ -8,6 +8,7 @@ use PhpMyAdmin\Column;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Plugins\Export\ExportMediawiki;
@@ -318,5 +319,31 @@ class ExportMediawikiTest extends AbstractTestCase
             "|}\n\n",
             $result,
         );
+    }
+
+    public function testExportTableCallsExportStructureMethod(): void
+    {
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        DatabaseInterface::$instance = $dbi;
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/');
+        $this->object->setExportOptions($request, ['mediawiki_structure_or_data' => 'structure']);
+        ob_start();
+        $export = new Export($dbi, new OutputHandler());
+        $export->exportTable(
+            'testdb',
+            'testtable',
+            $this->object,
+            null,
+            '0',
+            '0',
+            '',
+            [],
+        );
+        $result = ob_get_clean();
+        self::assertIsString($result);
+        self::assertStringContainsString('Table structure for', $result);
+        self::assertStringContainsString('testtable', $result);
     }
 }

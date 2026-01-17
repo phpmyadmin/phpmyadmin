@@ -10,6 +10,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Identifiers\TableName;
@@ -686,5 +687,29 @@ class ExportHtmlwordTest extends AbstractTestCase
             '<td class="print">def</td>',
             $method->invoke($this->object, $column, $uniqueKeys),
         );
+    }
+
+    public function testExportTableCallsExportStructureMethod(): void
+    {
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        DatabaseInterface::$instance = $dbi;
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/');
+        $this->object->setExportOptions($request, ['htmlword_structure_or_data' => 'structure']);
+        $export = new Export($dbi, new OutputHandler());
+        ob_start();
+        $export->exportTable(
+            'test_db',
+            'test_table',
+            $this->object,
+            null,
+            '',
+            '',
+            '',
+            [],
+        );
+        $output = ob_get_clean();
+        self::assertStringContainsString('<h2>Table structure for table test_table</h2>', $output);
     }
 }
