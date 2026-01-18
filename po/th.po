@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2026-01-16 08:39+0000\n"
-"Last-Translator: Jakkarach Dumdee <armada1@hotmail.co.th>\n"
+"PO-Revision-Date: 2026-01-19 00:55+0000\n"
+"Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/4-9/th/>"
 "\n"
 "Language: th\n"
@@ -24,7 +24,7 @@ msgstr "รูปแบบไม่ดี!"
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
-msgstr "ไฟล์ %s ไม่พร้อมใช้งานในระบบนี้ กรุณาไปที่ %s เพื่อดูข้อมูลเพิ่มเติม"
+msgstr "ไฟล์ %s ไม่สามารถใช้งานได้ในระบบนี้ โปรดไปที่ %s เพื่อดูข้อมูลเพิ่มเติม"
 
 #: db_central_columns.php:129
 msgid "The central list of columns for the current database is empty."
@@ -334,7 +334,7 @@ msgstr "คุณต้องเลือกอย่างน้อยหนึ
 
 #: db_qbe.php:145 templates/database/multi_table_query/form.twig:3
 msgid "Multi-table query"
-msgstr "คำสั่งในหลายตาราง"
+msgstr "คำสั่งหลายตาราง"
 
 #: db_qbe.php:149 templates/database/multi_table_query/form.twig:3
 msgid "Query by example"
@@ -379,7 +379,7 @@ msgstr "ตรวจพบข้อผิดพลาด และได้แ�
 
 #: error_report.php:77
 msgid "Thank you for submitting this report."
-msgstr "ขอบคุณสำหรับการรายงาน"
+msgstr "ขอบคุณสำหรับการรายงานครั้งนี้"
 
 #: error_report.php:81
 msgid ""
@@ -3735,7 +3735,7 @@ msgstr "ดีบั๊ก SQL"
 
 #: libraries/classes/Config/Descriptions.php:171
 msgid "Tab that is displayed when entering a database."
-msgstr "แท็บที่แสดงเมื่อเข้าสู่หน้าฐานข้อมูล"
+msgstr "แท็บที่แสดงขึ้นเมื่อเข้าสู่ฐานข้อมูล"
 
 #: libraries/classes/Config/Descriptions.php:173
 msgid "Default database tab"
@@ -6487,7 +6487,7 @@ msgstr "ฐานข้อมูล %1$s ถูกสร้างเรียบ
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "%1$d ฐานข้อมูลถูกลบทิ้งเรียบร้อยแล้ว"
+msgstr[0] "ฐานข้อมูล %1$d ถูกลบเรียบร้อยแล้ว"
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:343
 #: libraries/classes/Import.php:122
@@ -6725,7 +6725,7 @@ msgctxt ""
 msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
 msgstr ""
-"พื้นที่จัดเก็บการกำหนดค่า phpMyAdmin ไม่ได้ถูกกำหนดไว้สำหรับ \"การแสดงคุณสมบัติ\""
+"พื้นที่จัดเก็บการตั้งค่า phpMyAdmin ไม่ได้ถูกกำหนดค่าสำหรับ \"แสดงคุณสมบัติ\""
 
 #: libraries/classes/Database/Designer/Common.php:565
 msgid "Error: relationship already exists."
@@ -10543,7 +10543,7 @@ msgstr "กิจกรรม %1$s ได้รับการแก้ไขแ
 #: libraries/classes/Rte/Events.php:169
 #, php-format
 msgid "Event %1$s has been created."
-msgstr "เหตุการณ์ %1$s ถูกสร้างขึ้นแล้ว"
+msgstr "กิจกรรม %1$s ได้ถูกสร้างขึ้นแล้ว"
 
 #: libraries/classes/Rte/Events.php:183 libraries/classes/Rte/Routines.php:287
 #: libraries/classes/Rte/Triggers.php:159
@@ -10667,7 +10667,7 @@ msgstr "ประเภทรูทีนไม่ถูกต้อง: \"%s\""
 #: libraries/classes/Rte/Routines.php:274
 #, php-format
 msgid "Routine %1$s has been created."
-msgstr "รูทีน %1$s ถูกสร้างขึ้นเรียบร้อยแล้ว"
+msgstr "กิจวัตร %1$s ได้ถูกสร้างขึ้นแล้ว"
 
 #: libraries/classes/Rte/Routines.php:393
 msgid "Sorry, we failed to restore the dropped routine."
@@ -10676,12 +10676,12 @@ msgstr "ขออภัย เราไม่สามารถกู้คื�
 #: libraries/classes/Rte/Routines.php:449
 #, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
-msgstr "รูทีน %1$s ได้รับการแก้ไขแล้ว สิทธิ์การใช้งานได้รับการปรับเปลี่ยนแล้ว"
+msgstr "กิจวัตร %1$s ได้รับการแก้ไขแล้ว สิทธิ์การใช้งานได้รับการปรับเปลี่ยนแล้ว"
 
 #: libraries/classes/Rte/Routines.php:454
 #, php-format
 msgid "Routine %1$s has been modified."
-msgstr "รูทีน %1$s ได้รับการแก้ไขแล้ว"
+msgstr "กิจวัตร %1$s ได้รับการแก้ไขแล้ว"
 
 #: libraries/classes/Rte/Routines.php:909
 msgid "Routine name"
@@ -10800,7 +10800,7 @@ msgstr "ทริกเกอร์ %1$s ได้รับการแก้ไ
 #: libraries/classes/Rte/Triggers.php:145
 #, php-format
 msgid "Trigger %1$s has been created."
-msgstr "ทริกเกอร์ %1$s ถูกสร้างขึ้นแล้ว"
+msgstr "ทริกเกอร์ %1$s ได้ถูกสร้างขึ้นแล้ว"
 
 #: libraries/classes/Rte/Triggers.php:221
 msgid "Edit trigger"
@@ -11523,7 +11523,7 @@ msgstr "การจราจรเครือข่ายตั้งแต่
 #: libraries/classes/Server/Status.php:81
 #, php-format
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr "เซิร์ฟเวอร์ MySQL นี้ทำงานมาเป็นเวลา %1$s แล้ว เริ่มตอน %2$s"
+msgstr "เซิร์ฟเวอร์ MySQL นี้รันมาเป็นเวลา %1$s แล้วโดยเริ่มเมื่อ %2$s"
 
 #: libraries/classes/Server/Status.php:102
 msgid ""
@@ -16752,7 +16752,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.txt:320
 #, php-format
 msgid "slow_launch_time is set to %s"
-msgstr "slow_launch_time ถูกตั้งค่าเป็น %s"
+msgstr "slow_launch_time ถูกตั้งไว้เป็น %s"
 
 #: libraries/advisory_rules_generic.txt:324
 msgid "Percentage of used connections"
