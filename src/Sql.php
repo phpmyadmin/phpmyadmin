@@ -675,9 +675,7 @@ class Sql
                 /** @var int|null $noCacheIndex */
                 $noCacheIndex = array_find_key(
                     $statement->options->options,
-                    static function (mixed $value): bool {
-                        return is_string($value) && strtoupper($value) === 'SQL_NO_CACHE';
-                    },
+                    static fn (mixed $value): bool => is_string($value) && strtoupper($value) === 'SQL_NO_CACHE',
                 );
 
                 $changeExpression = ! $statementInfo->flags->isGroup

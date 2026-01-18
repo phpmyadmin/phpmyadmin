@@ -312,19 +312,19 @@ class Advisor
         // linking to /server/variables
         $rule['recommendation'] = preg_replace_callback(
             '/\{([a-z_0-9]+)\}/Ui',
-            fn (array $matches): string => $this->replaceVariable($matches),
+            $this->replaceVariable(...),
             $rule['recommendation'],
         );
         $rule['issue'] = preg_replace_callback(
             '/\{([a-z_0-9]+)\}/Ui',
-            fn (array $matches): string => $this->replaceVariable($matches),
+            $this->replaceVariable(...),
             $rule['issue'],
         );
 
         // Replaces external Links with Core::linkURL() generated links
         $rule['recommendation'] = preg_replace_callback(
             '#href=("|\')(https?://[^"\']+)\1#i',
-            fn (array $matches): string => $this->replaceLinkURL($matches),
+            $this->replaceLinkURL(...),
             $rule['recommendation'],
         );
 
