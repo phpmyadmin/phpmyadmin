@@ -1019,25 +1019,21 @@ class Sql
 
         $profilingChart = $this->getProfilingChart($profilingResults);
 
-        $bookmark = '';
+        $bookmark = [];
         $bookmarkFeature = $this->relation->getRelationParameters()->bookmarkFeature;
         if (
             $bookmarkFeature !== null
             && (int) $request->getQueryParam('id_bookmark') <= 0
             && $sqlQuery
         ) {
-            $bookmark = $this->template->render('sql/bookmark', [
+            $bookmark = [
                 'db' => $db,
-                'goto' => Url::getFromRoute('/sql', [
-                    'db' => $db,
-                    'table' => $table,
-                    'sql_query' => $sqlQuery,
-                    'id_bookmark' => 1,
-                ]),
+                'table' => $table,
                 'user' => $this->config->selectedServer['user'],
-                'sql_query' => $completeQuery,
-                'allow_shared_bookmarks' => $this->config->config->AllowSharedBookmarks,
-            ]);
+                'sql_query' => $sqlQuery,
+                'complete_sql_query' => $completeQuery,
+                'is_shared_bookmarks_allowed' => $this->config->config->AllowSharedBookmarks,
+            ];
         }
 
         return $this->template->render('sql/no_results_returned', [
@@ -1404,7 +1400,7 @@ class Sql
             $statementInfo,
         );
 
-        $bookmarkSupportHtml = '';
+        $bookmark = [];
         $bookmarkFeature = $this->relation->getRelationParameters()->bookmarkFeature;
         if (
             $bookmarkFeature !== null
@@ -1412,17 +1408,14 @@ class Sql
             && (int) $request->getQueryParam('id_bookmark') <= 0
             && $sqlQuery
         ) {
-            $bookmarkSupportHtml = $this->template->render('sql/bookmark', [
+            $bookmark = [
                 'db' => $db,
-                'goto' => Url::getFromRoute('/sql', [
-                    'db' => $db,
-                    'table' => $table,
-                    'sql_query' => $sqlQuery,
-                    'id_bookmark' => 1,
-                ]),
+                'table' => $table,
                 'user' => $this->config->selectedServer['user'],
-                'sql_query' => $completeQuery,
-            ]);
+                'sql_query' => $sqlQuery,
+                'complete_sql_query' => $completeQuery,
+                'is_shared_bookmarks_allowed' => $this->config->config->AllowSharedBookmarks,
+            ];
         }
 
         return $this->template->render('sql/sql_query_results', [
@@ -1431,7 +1424,7 @@ class Sql
             'missing_unique_column_message' => $missingUniqueColumnMessage,
             'bookmark_created_message' => $bookmarkCreatedMessage,
             'table' => $tableHtml,
-            'bookmark_support' => $bookmarkSupportHtml,
+            'bookmark' => $bookmark,
         ]);
     }
 

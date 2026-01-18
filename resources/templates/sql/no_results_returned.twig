@@ -20,6 +20,8 @@
   </div>
 {% endif %}
 
-{{ bookmark|raw }}
+{% if bookmark is not empty %}
+  {{ include('sql/_bookmark.twig', bookmark, with_context: false) }}
+{% endif %}
 
 {{ include('modals/create_view.twig') }}
