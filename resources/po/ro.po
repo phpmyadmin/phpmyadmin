@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-01-11 00:32+0000\n"
+"POT-Creation-Date: 2026-01-18 00:32+0000\n"
 "PO-Revision-Date: 2025-12-29 11:00+0000\n"
 "Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -208,7 +208,7 @@ msgstr "după %s"
 #: resources/templates/table/zoom_search/index.twig:120
 #: src/Config/ConfigFile.php:554
 #: src/Controllers/JavaScriptMessagesController.php:218
-#: src/Display/Results.php:930 src/Plugins/Export/ExportSql.php:2037
+#: src/Display/Results.php:931 src/Plugins/Export/ExportSql.php:2002
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "Niciunul"
@@ -483,12 +483,12 @@ msgstr "Este o cheie străină."
 #: resources/templates/table/zoom_search/index.twig:36
 #: resources/templates/table/zoom_search/result_form.twig:33
 #: src/Navigation/Nodes/NodeColumn.php:32
-#: src/Plugins/Export/ExportHtmlword.php:235
-#: src/Plugins/Export/ExportHtmlword.php:308
-#: src/Plugins/Export/ExportLatex.php:466 src/Plugins/Export/ExportOdt.php:331
-#: src/Plugins/Export/ExportOdt.php:403
-#: src/Plugins/Export/ExportTexytext.php:247
-#: src/Plugins/Export/ExportTexytext.php:308
+#: src/Plugins/Export/ExportHtmlword.php:225
+#: src/Plugins/Export/ExportHtmlword.php:298
+#: src/Plugins/Export/ExportLatex.php:452 src/Plugins/Export/ExportOdt.php:325
+#: src/Plugins/Export/ExportOdt.php:397
+#: src/Plugins/Export/ExportTexytext.php:237
+#: src/Plugins/Export/ExportTexytext.php:298
 #: src/Plugins/Export/Helpers/Pdf.php:487
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:602
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:624
@@ -588,10 +588,10 @@ msgstr "Grup de noduri"
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
 #: src/Controllers/JavaScriptMessagesController.php:694
-#: src/Import/Import.php:1168 src/Menu.php:214 src/Menu.php:318
+#: src/Import/Import.php:1161 src/Menu.php:214 src/Menu.php:318
 #: src/Navigation/Nodes/NodeColumn.php:37
 #: src/Navigation/Nodes/NodeDatabase.php:59
-#: src/Navigation/Nodes/NodeTable.php:268 src/Util.php:1062 src/Util.php:1372
+#: src/Navigation/Nodes/NodeTable.php:240 src/Util.php:1062 src/Util.php:1372
 #: src/Util.php:1389
 msgid "Structure"
 msgstr "Structură"
@@ -607,9 +607,9 @@ msgstr "Structură"
 #: resources/templates/setup/home/index.twig:50
 #: resources/templates/table/structure/display_structure.twig:21
 #: resources/templates/triggers/list.twig:47
-#: src/Plugins/Export/ExportHtmlword.php:408
-#: src/Plugins/Export/ExportOdt.php:511
-#: src/Plugins/Export/ExportTexytext.php:377
+#: src/Plugins/Export/ExportHtmlword.php:398
+#: src/Plugins/Export/ExportOdt.php:505
+#: src/Plugins/Export/ExportTexytext.php:367
 #: src/Plugins/Export/Helpers/Pdf.php:331
 msgid "Name"
 msgstr "Nume"
@@ -635,12 +635,12 @@ msgstr "Nume"
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:7
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:6
 #: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:258
-#: src/Plugins/Export/ExportHtmlword.php:238
-#: src/Plugins/Export/ExportHtmlword.php:311
-#: src/Plugins/Export/ExportLatex.php:467 src/Plugins/Export/ExportOdt.php:334
-#: src/Plugins/Export/ExportOdt.php:406
-#: src/Plugins/Export/ExportTexytext.php:248
-#: src/Plugins/Export/ExportTexytext.php:309
+#: src/Plugins/Export/ExportHtmlword.php:228
+#: src/Plugins/Export/ExportHtmlword.php:301
+#: src/Plugins/Export/ExportLatex.php:453 src/Plugins/Export/ExportOdt.php:328
+#: src/Plugins/Export/ExportOdt.php:400
+#: src/Plugins/Export/ExportTexytext.php:238
+#: src/Plugins/Export/ExportTexytext.php:299
 #: src/Plugins/Export/Helpers/Pdf.php:489
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:603
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:625
@@ -675,12 +675,12 @@ msgstr ""
 #: resources/templates/server/replication/replica_configuration.twig:9
 #: resources/templates/table/structure/display_structure.twig:26
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:10
-#: src/Plugins/Export/ExportHtmlword.php:244
-#: src/Plugins/Export/ExportHtmlword.php:317
-#: src/Plugins/Export/ExportLatex.php:469 src/Plugins/Export/ExportOdt.php:340
-#: src/Plugins/Export/ExportOdt.php:412
-#: src/Plugins/Export/ExportTexytext.php:250
-#: src/Plugins/Export/ExportTexytext.php:311
+#: src/Plugins/Export/ExportHtmlword.php:234
+#: src/Plugins/Export/ExportHtmlword.php:307
+#: src/Plugins/Export/ExportLatex.php:455 src/Plugins/Export/ExportOdt.php:334
+#: src/Plugins/Export/ExportOdt.php:406
+#: src/Plugins/Export/ExportTexytext.php:240
+#: src/Plugins/Export/ExportTexytext.php:301
 #: src/Plugins/Export/Helpers/Pdf.php:493
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:606
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:628
@@ -739,12 +739,12 @@ msgstr "Atribute"
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:9
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:12
 #: resources/templates/table/zoom_search/result_form.twig:34
-#: src/Plugins/Export/ExportHtmlword.php:241
-#: src/Plugins/Export/ExportHtmlword.php:314
-#: src/Plugins/Export/ExportLatex.php:468 src/Plugins/Export/ExportOdt.php:337
-#: src/Plugins/Export/ExportOdt.php:409
-#: src/Plugins/Export/ExportTexytext.php:249
-#: src/Plugins/Export/ExportTexytext.php:310
+#: src/Plugins/Export/ExportHtmlword.php:231
+#: src/Plugins/Export/ExportHtmlword.php:304
+#: src/Plugins/Export/ExportLatex.php:454 src/Plugins/Export/ExportOdt.php:331
+#: src/Plugins/Export/ExportOdt.php:403
+#: src/Plugins/Export/ExportTexytext.php:239
+#: src/Plugins/Export/ExportTexytext.php:300
 #: src/Plugins/Export/Helpers/Pdf.php:491
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:605
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:627
@@ -766,9 +766,9 @@ msgstr "Ajustează privilegiile"
 #: resources/templates/database/data_dictionary/index.twig:30
 #: resources/templates/table/structure/display_structure.twig:28
 #: src/Config/Descriptions.php:660 src/Config/Descriptions.php:675
-#: src/Config/Descriptions.php:711 src/Plugins/Export/ExportHtmlword.php:327
-#: src/Plugins/Export/ExportLatex.php:475 src/Plugins/Export/ExportOdt.php:422
-#: src/Plugins/Export/ExportTexytext.php:317
+#: src/Config/Descriptions.php:711 src/Plugins/Export/ExportHtmlword.php:317
+#: src/Plugins/Export/ExportLatex.php:461 src/Plugins/Export/ExportOdt.php:416
+#: src/Plugins/Export/ExportTexytext.php:307
 #: src/Plugins/Export/Helpers/Pdf.php:510
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:618
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:631
@@ -786,9 +786,9 @@ msgstr "Mută coloana"
 #: resources/templates/columns_definitions/table_fields_definitions.twig:83
 #: resources/templates/database/data_dictionary/index.twig:32
 #: src/Config/Descriptions.php:664 src/Config/Descriptions.php:676
-#: src/Config/Descriptions.php:714 src/Plugins/Export/ExportHtmlword.php:334
-#: src/Plugins/Export/ExportOdt.php:429
-#: src/Plugins/Export/ExportTexytext.php:322
+#: src/Config/Descriptions.php:714 src/Plugins/Export/ExportHtmlword.php:324
+#: src/Plugins/Export/ExportOdt.php:423
+#: src/Plugins/Export/ExportTexytext.php:312
 #: src/Plugins/Export/Helpers/Pdf.php:518
 #, fuzzy
 msgid "Media type"
@@ -915,9 +915,9 @@ msgstr "Dezactivată"
 #: src/Controllers/Table/DropColumnController.php:46
 #: src/Controllers/Table/Structure/PrimaryController.php:101
 #: src/Indexes/IndexColumn.php:148 src/Indexes/Index.php:472
-#: src/Plugins/Export/ExportHtmlword.php:529
-#: src/Plugins/Export/ExportLatex.php:532 src/Plugins/Export/ExportOdt.php:638
-#: src/Plugins/Export/ExportTexytext.php:473
+#: src/Plugins/Export/ExportHtmlword.php:519
+#: src/Plugins/Export/ExportLatex.php:516 src/Plugins/Export/ExportOdt.php:630
+#: src/Plugins/Export/ExportTexytext.php:463
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:670
 msgid "Yes"
 msgstr "Da"
@@ -951,9 +951,9 @@ msgstr "Da"
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:24
 #: src/Controllers/JavaScriptMessagesController.php:343
 #: src/Indexes/IndexColumn.php:145 src/Indexes/Index.php:446
-#: src/Indexes/Index.php:472 src/Plugins/Export/ExportHtmlword.php:529
-#: src/Plugins/Export/ExportLatex.php:532 src/Plugins/Export/ExportOdt.php:638
-#: src/Plugins/Export/ExportTexytext.php:473
+#: src/Indexes/Index.php:472 src/Plugins/Export/ExportHtmlword.php:519
+#: src/Plugins/Export/ExportLatex.php:516 src/Plugins/Export/ExportOdt.php:630
+#: src/Plugins/Export/ExportTexytext.php:463
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:670
 msgid "No"
 msgstr "Nu"
@@ -1018,7 +1018,7 @@ msgstr "Reinterogare"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:379
-#: src/Display/Results.php:1871 src/Html/Generator.php:520
+#: src/Display/Results.php:1872 src/Html/Generator.php:520
 #: src/Html/Generator.php:789
 msgid "Edit"
 msgstr "Editează"
@@ -1037,7 +1037,7 @@ msgstr "Editează"
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:189
 #: src/Controllers/JavaScriptMessagesController.php:381
-#: src/Display/Results.php:2409 src/Tracking/Tracking.php:224
+#: src/Display/Results.php:2410 src/Tracking/Tracking.php:224
 msgid "Delete"
 msgstr "Șterge"
 
@@ -1057,7 +1057,7 @@ msgstr "Șterge"
 #: resources/templates/table/relation/common_form.twig:95
 #: resources/templates/table/relation/foreign_key_row.twig:91
 #: src/Config/Descriptions.php:934 src/Plugins/Export/ExportHtmlword.php:146
-#: src/Plugins/Export/ExportOdt.php:186
+#: src/Plugins/Export/ExportOdt.php:184
 #: src/Plugins/Export/ExportTexytext.php:115 src/Server/Privileges.php:1567
 #: src/Server/Privileges.php:1569 src/Server/Status/Processes.php:103
 msgid "Database"
@@ -1086,17 +1086,17 @@ msgstr "Istoric"
 #: resources/templates/database/designer/database_tables.twig:116
 #: resources/templates/database/routines/editor_form.twig:58
 #: resources/templates/table/structure/display_table_stats.twig:94
-#: src/Import/Import.php:1169 src/Import/Import.php:1227
+#: src/Import/Import.php:1162 src/Import/Import.php:1220
 #: src/Plugins/Export/ExportCodegen.php:58 src/Plugins/Export/ExportCsv.php:55
 #: src/Plugins/Export/ExportExcel.php:57
 #: src/Plugins/Export/ExportHtmlword.php:57
-#: src/Plugins/Export/ExportJson.php:71 src/Plugins/Export/ExportLatex.php:87
+#: src/Plugins/Export/ExportJson.php:72 src/Plugins/Export/ExportLatex.php:87
 #: src/Plugins/Export/ExportMediawiki.php:48
 #: src/Plugins/Export/ExportOds.php:53 src/Plugins/Export/ExportOdt.php:64
 #: src/Plugins/Export/ExportPdf.php:55 src/Plugins/Export/ExportPhparray.php:45
 #: src/Plugins/Export/ExportSql.php:169
-#: src/Plugins/Export/ExportTexytext.php:55 src/Plugins/Export/ExportXml.php:72
-#: src/Plugins/Export/ExportYaml.php:44 src/Plugins/Import/ImportCsv.php:87
+#: src/Plugins/Export/ExportTexytext.php:55 src/Plugins/Export/ExportXml.php:68
+#: src/Plugins/Export/ExportYaml.php:44 src/Plugins/Import/ImportCsv.php:80
 #: src/Plugins/Import/ImportLdi.php:62
 #: src/Plugins/Import/ImportMediawiki.php:62
 #: src/Plugins/Import/ImportOds.php:60 src/Plugins/Import/ImportShp.php:77
@@ -1210,7 +1210,7 @@ msgstr "Timp luat:"
 #: resources/templates/console/display.twig:133
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
-#: src/Config/Descriptions.php:928 src/Export/Export.php:741
+#: src/Config/Descriptions.php:928 src/Export/Export.php:693
 #: src/Html/Generator.php:576
 msgid "Refresh"
 msgstr "Reîmprospătează"
@@ -1432,9 +1432,9 @@ msgid "Print"
 msgstr "Imprimare"
 
 #: resources/templates/database/data_dictionary/index.twig:28
-#: src/Plugins/Export/ExportHtmlword.php:321
-#: src/Plugins/Export/ExportLatex.php:471 src/Plugins/Export/ExportOdt.php:416
-#: src/Plugins/Export/ExportTexytext.php:313
+#: src/Plugins/Export/ExportHtmlword.php:311
+#: src/Plugins/Export/ExportLatex.php:457 src/Plugins/Export/ExportOdt.php:410
+#: src/Plugins/Export/ExportTexytext.php:303
 #: src/Plugins/Export/Helpers/Pdf.php:502
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:608
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:630
@@ -1811,9 +1811,9 @@ msgstr "Sfârșit"
 #: resources/templates/database/events/editor_form.twig:87
 #: resources/templates/database/routines/editor_form.twig:118
 #: resources/templates/triggers/editor_form.twig:62
-#: src/Plugins/Export/ExportHtmlword.php:411
-#: src/Plugins/Export/ExportOdt.php:520
-#: src/Plugins/Export/ExportTexytext.php:380
+#: src/Plugins/Export/ExportHtmlword.php:401
+#: src/Plugins/Export/ExportOdt.php:514
+#: src/Plugins/Export/ExportTexytext.php:370
 #: src/Plugins/Export/Helpers/Pdf.php:337
 msgid "Definition"
 msgstr "Definiție"
@@ -1843,7 +1843,7 @@ msgstr "Definitor"
 #: resources/templates/database/events/index.twig:3 src/Menu.php:377
 #: src/Navigation/Nodes/NodeEventContainer.php:22
 #: src/Navigation/Nodes/NodeEventContainer.php:24
-#: src/Plugins/Export/ExportSql.php:996 src/Plugins/Export/ExportXml.php:96
+#: src/Plugins/Export/ExportSql.php:990 src/Plugins/Export/ExportXml.php:92
 #: src/Util.php:1381
 msgid "Events"
 msgstr "Evenimente"
@@ -2030,7 +2030,7 @@ msgstr "Tabele:"
 #: src/Controllers/Server/DatabasesController.php:258
 #: src/Navigation/Nodes/NodeTableContainer.php:22
 #: src/Navigation/Nodes/NodeTableContainer.php:24
-#: src/Plugins/Export/ExportXml.php:111 src/Server/Status/Data.php:126
+#: src/Plugins/Export/ExportXml.php:107 src/Server/Status/Data.php:126
 msgid "Tables"
 msgstr "Tabele"
 
@@ -2109,8 +2109,8 @@ msgstr "Sortează"
 #: resources/templates/server/status/processes/list.twig:14
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:158
-#: src/Config/ConfigFile.php:554 src/Display/Results.php:1391
-#: src/Display/Results.php:1397 src/Util.php:1637 src/Util.php:1654
+#: src/Config/ConfigFile.php:554 src/Display/Results.php:1392
+#: src/Display/Results.php:1398 src/Util.php:1637 src/Util.php:1654
 msgid "Ascending"
 msgstr "Crescător"
 
@@ -2121,8 +2121,8 @@ msgstr "Crescător"
 #: resources/templates/server/status/processes/list.twig:12
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:162
-#: src/Config/ConfigFile.php:554 src/Display/Results.php:1386
-#: src/Display/Results.php:1402 src/Util.php:1642 src/Util.php:1659
+#: src/Config/ConfigFile.php:554 src/Display/Results.php:1387
+#: src/Display/Results.php:1403 src/Util.php:1642 src/Util.php:1659
 msgid "Descending"
 msgstr "Descrescător"
 
@@ -2485,7 +2485,7 @@ msgstr "Rutine"
 #: resources/templates/server/databases/index.twig:77
 #: src/Config/ConfigFile.php:522 src/Config/ConfigFile.php:536
 #: src/Config/ConfigFile.php:590 src/Config/ConfigFile.php:600 src/Menu.php:223
-#: src/Menu.php:327 src/Navigation/Nodes/NodeTable.php:269 src/Util.php:1064
+#: src/Menu.php:327 src/Navigation/Nodes/NodeTable.php:241 src/Util.php:1064
 #: src/Util.php:1374 src/Util.php:1391
 msgid "Search"
 msgstr "Caută"
@@ -2606,7 +2606,7 @@ msgstr[2] "%1$s de potriviri în <strong>%2$s</strong>"
 #: resources/templates/table/structure/display_structure.twig:271
 #: src/Config/ConfigFile.php:526 src/Config/ConfigFile.php:540
 #: src/Config/ConfigFile.php:604 src/Menu.php:207
-#: src/Navigation/Nodes/NodeTable.php:272 src/Util.php:1066 src/Util.php:1388
+#: src/Navigation/Nodes/NodeTable.php:244 src/Util.php:1066 src/Util.php:1388
 msgid "Browse"
 msgstr "Răsfoiește"
 
@@ -2771,7 +2771,7 @@ msgstr ""
 
 #: resources/templates/database/structure/copy_form.twig:5
 #: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:252
-#: src/Plugins/Export/ExportSql.php:923 src/Plugins/Export/ExportXml.php:366
+#: src/Plugins/Export/ExportSql.php:919 src/Plugins/Export/ExportXml.php:359
 #: src/Plugins/Export/Helpers/Pdf.php:177
 msgid "Database:"
 msgstr "Bază de date:"
@@ -2843,7 +2843,7 @@ msgstr "Arăt creează interogări"
 #: resources/templates/table/relation/foreign_key_row.twig:102
 #: resources/templates/triggers/editor_form.twig:32
 #: resources/templates/triggers/list.twig:49 src/Config/Descriptions.php:937
-#: src/Plugins/Export/ExportXml.php:418 src/Server/Privileges.php:1573
+#: src/Plugins/Export/ExportXml.php:411 src/Server/Privileges.php:1573
 #: src/Server/Privileges.php:1575
 msgid "Table"
 msgstr "Tabel"
@@ -2851,7 +2851,7 @@ msgstr "Tabel"
 #: resources/templates/database/structure/show_create.twig:30
 #: src/Navigation/Nodes/NodeViewContainer.php:22
 #: src/Navigation/Nodes/NodeViewContainer.php:24
-#: src/Plugins/Export/ExportXml.php:121
+#: src/Plugins/Export/ExportXml.php:117
 msgid "Views"
 msgstr "Vizualizări"
 
@@ -2888,7 +2888,7 @@ msgstr "Reprodus"
 #: resources/templates/database/structure/structure_table_row.twig:59
 #: resources/templates/sql/query.twig:76 src/Config/ConfigFile.php:524
 #: src/Config/ConfigFile.php:538 src/Config/ConfigFile.php:602 src/Menu.php:234
-#: src/Navigation/Nodes/NodeTable.php:270 src/Util.php:1065 src/Util.php:1392
+#: src/Navigation/Nodes/NodeTable.php:242 src/Util.php:1065 src/Util.php:1392
 msgid "Insert"
 msgstr "Inserează"
 
@@ -2907,7 +2907,7 @@ msgstr "în uz"
 #: resources/templates/table/structure/display_partitions.twig:29
 #: resources/templates/table/structure/display_structure.twig:220
 #: resources/templates/table/structure/display_table_stats.twig:116
-#: src/Controllers/Server/DatabasesController.php:259 src/Import/Import.php:130
+#: src/Controllers/Server/DatabasesController.php:259 src/Import/Import.php:131
 msgid "Rows"
 msgstr "Rânduri"
 
@@ -3105,12 +3105,12 @@ msgid "Extra options"
 msgstr "Opțiuni revenire"
 
 #: resources/templates/display/results/table.twig:212
-#: src/Display/Results.php:1112
+#: src/Display/Results.php:1113
 msgid "Partial texts"
 msgstr "Texte parțiale"
 
 #: resources/templates/display/results/table.twig:216
-#: src/Display/Results.php:1116
+#: src/Display/Results.php:1117
 msgid "Full texts"
 msgstr "Texte întregi"
 
@@ -3151,7 +3151,7 @@ msgstr "Binar Popular"
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:467
-#: src/Display/Results.php:1872 src/Html/Generator.php:84
+#: src/Display/Results.php:1873 src/Html/Generator.php:84
 msgid "Copy"
 msgstr "Copiază"
 
@@ -3162,7 +3162,7 @@ msgstr "Operații rezultate interogări"
 
 #: resources/templates/display/results/table.twig:353
 #: src/Controllers/JavaScriptMessagesController.php:466
-#: src/Export/Export.php:760
+#: src/Export/Export.php:712
 msgid "Copy to clipboard"
 msgstr "Copiază în clipboard"
 
@@ -3192,7 +3192,7 @@ msgstr ""
 #: src/Controllers/Table/Partition/DropController.php:56
 #: src/Controllers/Table/Partition/RebuildController.php:56
 #: src/Controllers/Table/Partition/TruncateController.php:56
-#: src/Html/Generator.php:740 src/Import/Import.php:119 src/InsertEdit.php:422
+#: src/Html/Generator.php:740 src/Import/Import.php:120 src/InsertEdit.php:422
 #: src/Message.php:138
 msgid "Error"
 msgstr "Eroare"
@@ -3607,7 +3607,7 @@ msgstr "Conexiune server:"
 
 #: resources/templates/home/index.twig:198
 #: src/Plugins/Export/ExportLatex.php:233 src/Plugins/Export/ExportSql.php:769
-#: src/Plugins/Export/ExportXml.php:215
+#: src/Plugins/Export/ExportXml.php:206
 msgid "Server version:"
 msgstr "Versiune server:"
 
@@ -3695,7 +3695,7 @@ msgstr "Ia-l"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:411
-#: src/Export/Export.php:783 src/Html/Generator.php:855
+#: src/Export/Export.php:735 src/Html/Generator.php:855
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "Înapoi"
@@ -5513,7 +5513,7 @@ msgstr ""
 #: resources/templates/server/replication/change_primary.twig:25
 #: resources/templates/server/replication/primary_add_replica_user.twig:29
 #: src/Plugins/Export/ExportLatex.php:225 src/Plugins/Export/ExportSql.php:758
-#: src/Plugins/Export/ExportXml.php:206
+#: src/Plugins/Export/ExportXml.php:197
 msgid "Host:"
 msgstr "Gazdă:"
 
@@ -6225,7 +6225,7 @@ msgid "Start auto refresh"
 msgstr "Pornește împrospătarea automată"
 
 #: resources/templates/server/status/processes/list.twig:44
-#: src/Display/Results.php:2427
+#: src/Display/Results.php:2428
 #, fuzzy
 msgid "Kill"
 msgstr "Oprește"
@@ -6569,9 +6569,9 @@ msgstr "Stare"
 #: resources/templates/sql/profiling_chart.twig:13
 #: resources/templates/triggers/list.twig:51
 #: src/Controllers/JavaScriptMessagesController.php:276
-#: src/Plugins/Export/ExportHtmlword.php:409
-#: src/Plugins/Export/ExportOdt.php:514
-#: src/Plugins/Export/ExportTexytext.php:378
+#: src/Plugins/Export/ExportHtmlword.php:399
+#: src/Plugins/Export/ExportOdt.php:508
+#: src/Plugins/Export/ExportTexytext.php:368
 #: src/Plugins/Export/Helpers/Pdf.php:333 src/Server/Status/Processes.php:105
 msgid "Time"
 msgstr "Oră"
@@ -6619,8 +6619,8 @@ msgstr "Profilez rezultatele"
 #: src/Controllers/Table/Partition/RebuildController.php:50
 #: src/Controllers/Table/Partition/RepairController.php:49
 #: src/Controllers/Table/Partition/TruncateController.php:50
-#: src/Controllers/Table/RelationController.php:143
-#: src/Database/Routines.php:1019 src/Display/Results.php:2991
+#: src/Controllers/Table/RelationController.php:145
+#: src/Database/Routines.php:1019 src/Display/Results.php:2969
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "Interogarea SQL a fost executată cu succes."
@@ -7153,7 +7153,7 @@ msgid "Delete the view (DROP)"
 msgstr "Șterge vizualizarea (DROP)"
 
 #: resources/templates/table/page_with_secondary_tabs.twig:5
-#: src/Config/Descriptions.php:760 src/Plugins/Export/ExportPdf.php:175
+#: src/Config/Descriptions.php:760 src/Plugins/Export/ExportPdf.php:171
 msgid "Table structure"
 msgstr "Structură tabel"
 
@@ -7602,9 +7602,9 @@ msgstr "Timp"
 #: resources/templates/triggers/list.twig:52
 #: src/Controllers/JavaScriptMessagesController.php:365
 #: src/Navigation/Nodes/NodeEvent.php:26
-#: src/Plugins/Export/ExportHtmlword.php:410
-#: src/Plugins/Export/ExportOdt.php:517
-#: src/Plugins/Export/ExportTexytext.php:379
+#: src/Plugins/Export/ExportHtmlword.php:400
+#: src/Plugins/Export/ExportOdt.php:511
+#: src/Plugins/Export/ExportTexytext.php:369
 #: src/Plugins/Export/Helpers/Pdf.php:335
 msgid "Event"
 msgstr "Eveniment"
@@ -7618,11 +7618,11 @@ msgstr "Exportul declanșatorului %s"
 #: resources/templates/triggers/list.twig:3 src/Menu.php:291 src/Menu.php:384
 #: src/Navigation/Nodes/NodeTriggerContainer.php:23
 #: src/Navigation/Nodes/NodeTriggerContainer.php:25
-#: src/Plugins/Export/ExportHtmlword.php:462
-#: src/Plugins/Export/ExportOdt.php:579 src/Plugins/Export/ExportPdf.php:178
-#: src/Plugins/Export/ExportSql.php:1899
-#: src/Plugins/Export/ExportTexytext.php:416
-#: src/Plugins/Export/ExportXml.php:116 src/Util.php:1382 src/Util.php:1398
+#: src/Plugins/Export/ExportHtmlword.php:452
+#: src/Plugins/Export/ExportOdt.php:573 src/Plugins/Export/ExportPdf.php:174
+#: src/Plugins/Export/ExportSql.php:1864
+#: src/Plugins/Export/ExportTexytext.php:406
+#: src/Plugins/Export/ExportXml.php:112 src/Util.php:1382 src/Util.php:1398
 msgid "Triggers"
 msgstr "Declanșatori"
 
@@ -9271,7 +9271,7 @@ msgstr "Vietnameză"
 #: src/Config/ConfigFile.php:520 src/Config/ConfigFile.php:534
 #: src/Config/ConfigFile.php:588 src/Config/ConfigFile.php:598
 #: src/Config/Descriptions.php:755 src/Menu.php:219 src/Menu.php:323
-#: src/Menu.php:441 src/Navigation/Nodes/NodeTable.php:271 src/Util.php:1063
+#: src/Menu.php:441 src/Navigation/Nodes/NodeTable.php:243 src/Util.php:1063
 #: src/Util.php:1358 src/Util.php:1373 src/Util.php:1390
 msgid "SQL"
 msgstr "SQL"
@@ -10928,12 +10928,12 @@ msgid "Put columns names in the first row"
 msgstr "Pune numele coloanelor în primul rând"
 
 #: src/Config/Descriptions.php:641 src/Config/Descriptions.php:774
-#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:653
+#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:665
 msgid "Columns enclosed with"
 msgstr "Coloane închise cu"
 
 #: src/Config/Descriptions.php:642 src/Config/Descriptions.php:775
-#: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:664
+#: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:676
 msgid "Columns escaped with"
 msgstr "Coloane escapate cu"
 
@@ -10949,12 +10949,12 @@ msgid "Remove CRLF characters within columns"
 msgstr "Înlătură caracterele CRLF în coloane"
 
 #: src/Config/Descriptions.php:645 src/Config/Descriptions.php:778
-#: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:638
+#: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:650
 msgid "Columns terminated with"
 msgstr "Coloane terminate cu"
 
 #: src/Config/Descriptions.php:646 src/Config/Descriptions.php:773
-#: src/Plugins/Import/ImportCsv.php:671
+#: src/Plugins/Import/ImportCsv.php:683
 msgid "Lines terminated with"
 msgstr "Linii terminate cu"
 
@@ -11245,7 +11245,7 @@ msgid "Partial import: allow interrupt"
 msgstr "Import parțial: permite întreruperi"
 
 #: src/Config/Descriptions.php:776 src/Config/Descriptions.php:782
-#: src/Plugins/Import/ImportCsv.php:158 src/Plugins/Import/ImportLdi.php:79
+#: src/Plugins/Import/ImportCsv.php:151 src/Plugins/Import/ImportLdi.php:79
 msgid "Do not abort on INSERT error"
 msgstr "Nu anulează la eroarea de INSERARE"
 
@@ -11359,7 +11359,7 @@ msgstr "Lățime panou de navigare"
 
 #: src/Config/Descriptions.php:811
 #: src/Controllers/JavaScriptMessagesController.php:586
-#: src/Navigation/NavigationTree.php:1282
+#: src/Navigation/NavigationTree.php:1251
 msgid "Link with main panel"
 msgstr "Leagă la panoul principal"
 
@@ -12556,7 +12556,7 @@ msgid "Success!"
 msgstr "Succes!"
 
 #: src/Controllers/Database/StructureController.php:566
-#: src/Display/Results.php:3277
+#: src/Display/Results.php:3255
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -12624,7 +12624,7 @@ msgstr ""
 msgid "You may want to refresh the page."
 msgstr "Poate vrei să reîmprospătezi pagina."
 
-#: src/Controllers/Export/ExportController.php:118 src/Export/Export.php:721
+#: src/Controllers/Export/ExportController.php:118 src/Export/Export.php:673
 msgid "Bad type!"
 msgstr "Tip incorect!"
 
@@ -12823,7 +12823,7 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Declarațiile „ELIMINĂ BAZA DE DATE” sunt dezactivate."
 
-#: src/Controllers/Import/ImportController.php:672 src/Sql.php:896
+#: src/Controllers/Import/ImportController.php:674 src/Sql.php:908
 msgid "[ROLLBACK occurred.]"
 msgstr "[ROLLBACK s-a făcut.]"
 
@@ -14094,7 +14094,7 @@ msgid "Hide panel"
 msgstr "Ascunde panoul"
 
 #: src/Controllers/JavaScriptMessagesController.php:587
-#: src/Navigation/NavigationTree.php:1285
+#: src/Navigation/NavigationTree.php:1254
 msgid "Unlink from main panel"
 msgstr "Anulează legătura din panoul principal"
 
@@ -15556,12 +15556,12 @@ msgstr "Date greșite"
 msgid "Wrong data or no validation for %s"
 msgstr "Date greșite sau nicio validare pentru %s"
 
-#: src/Controllers/Sql/SqlController.php:206 src/Sql.php:1063
+#: src/Controllers/Sql/SqlController.php:207 src/Sql.php:1082
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Semnul de carte %s a fost creat."
 
-#: src/Controllers/Sql/SqlController.php:213
+#: src/Controllers/Sql/SqlController.php:214
 msgid "Bookmark not created!"
 msgstr "Semn de carte necreat!"
 
@@ -15635,8 +15635,8 @@ msgid "There is an issue with your request."
 msgstr "Există prea multe asocieri fără indexuri."
 
 #: src/Controllers/Table/GetFieldController.php:87
-#: src/Database/Routines.php:1036 src/Import/Import.php:135
-#: src/InsertEdit.php:160 src/Sql.php:882
+#: src/Database/Routines.php:1036 src/Import/Import.php:136
+#: src/InsertEdit.php:160 src/Sql.php:894
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL a returnat un set de rezultate gol (adică zero rânduri)."
 
@@ -15670,11 +15670,11 @@ msgstr "Numele tabelului este gol!"
 msgid "Invalid database or table name."
 msgstr "Nume tabel invalid"
 
-#: src/Controllers/Table/RelationController.php:316
+#: src/Controllers/Table/RelationController.php:325
 msgid "Display column was successfully updated."
 msgstr "Coloana de afișare a fost actualizată cu succes."
 
-#: src/Controllers/Table/RelationController.php:350
+#: src/Controllers/Table/RelationController.php:359
 msgid "Internal relationships were successfully updated."
 msgstr "Relațiile interne au fost actualizate cu succes."
 
@@ -15804,7 +15804,7 @@ msgstr ""
 "Spațiul de stocare pentru configurare nu este pregătit pentru lista centrală "
 "a funcționalității coloane."
 
-#: src/Database/Designer/Common.php:447
+#: src/Database/Designer/Common.php:446
 #, fuzzy
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
@@ -15815,43 +15815,43 @@ msgstr ""
 "Spațiul de stocare pentru configurare nu este pregătit pentru lista centrală "
 "a funcționalității coloane."
 
-#: src/Database/Designer/Common.php:489
+#: src/Database/Designer/Common.php:488
 msgid "Error: relationship already exists."
 msgstr "Eroare: relația există deja."
 
-#: src/Database/Designer/Common.php:530
+#: src/Database/Designer/Common.php:529
 msgid "FOREIGN KEY relationship has been added."
 msgstr "Relația CHEIE STRĂINĂ a fost adăugată."
 
-#: src/Database/Designer/Common.php:535
+#: src/Database/Designer/Common.php:534
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "Eroare: relația CHEIE STRĂINĂ nu a putut fi adăugată!"
 
-#: src/Database/Designer/Common.php:538
+#: src/Database/Designer/Common.php:537
 msgid "Error: Missing index on column(s)."
 msgstr "Eroare: lipsește indexul pe coloană (coloane)."
 
-#: src/Database/Designer/Common.php:543 src/Database/Designer/Common.php:605
+#: src/Database/Designer/Common.php:542 src/Database/Designer/Common.php:604
 msgid "Error: Relational features are disabled!"
 msgstr "Eroare: funcționalitățile relaționale sunt dezactivate!"
 
-#: src/Database/Designer/Common.php:564
+#: src/Database/Designer/Common.php:563
 msgid "Internal relationship has been added."
 msgstr "Relația internă a fost adăugată."
 
-#: src/Database/Designer/Common.php:569
+#: src/Database/Designer/Common.php:568
 msgid "Error: Internal relationship could not be added!"
 msgstr "Eroare: relația internă nu a putut fi adăugată!"
 
-#: src/Database/Designer/Common.php:599
+#: src/Database/Designer/Common.php:598
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "Relația CHEIE STRĂINĂ a fost înlăturată."
 
-#: src/Database/Designer/Common.php:624
+#: src/Database/Designer/Common.php:623
 msgid "Error: Internal relationship could not be removed!"
 msgstr "Eroare: relația internă nu a putut fi înlăturată!"
 
-#: src/Database/Designer/Common.php:627
+#: src/Database/Designer/Common.php:626
 msgid "Internal relationship has been removed."
 msgstr "Relația internă a fost înlăturată."
 
@@ -16027,31 +16027,31 @@ msgid ""
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
 
-#: src/Display/Results.php:2386 src/Display/Results.php:2401
+#: src/Display/Results.php:2387 src/Display/Results.php:2402
 msgid "The row has been deleted."
 msgstr "Rândul a fost șters."
 
-#: src/Display/Results.php:2996 src/Display/Results.php:3318 src/Sql.php:888
+#: src/Display/Results.php:2974 src/Display/Results.php:3296 src/Sql.php:900
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Interogarea a durat %01.4f secunde."
 
-#: src/Display/Results.php:3286
+#: src/Display/Results.php:3264
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Arăt rândurile %1s - %2s"
 
-#: src/Display/Results.php:3300
+#: src/Display/Results.php:3278
 #, php-format
 msgid "%1$s total, %2$s in query"
 msgstr "%1$s în total, %2$s în interogare"
 
-#: src/Display/Results.php:3305
+#: src/Display/Results.php:3283
 #, php-format
 msgid "%s total"
 msgstr "%s total"
 
-#: src/Display/Results.php:3614
+#: src/Display/Results.php:3592
 msgid "Link not found!"
 msgstr "Legătură negăsită!"
 
@@ -16379,12 +16379,7 @@ msgstr ""
 "Te-am deconectat automat din cauza inactivității de %s secunde. Odată ce te "
 "conectezi din nou, ar trebui să poți relua munca de unde ai rămas."
 
-#. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
-#: src/Export/Export.php:453
-msgid "Exporting a raw query is not supported for this export method."
-msgstr ""
-
-#: src/Export/OutputHandler.php:82 src/Export/OutputHandler.php:113
+#: src/Export/OutputHandler.php:84 src/Export/OutputHandler.php:115
 #: src/Export/OutputHandler.php:240
 #, php-format
 msgid "Insufficient space to save the file %s."
@@ -16629,7 +16624,7 @@ msgstr "Numele tabelului nu poate fi mai lung de %d caractere."
 msgid "The trigger name cannot end with a space character."
 msgstr "Cuvintele sunt separate printr-un caracter spațiu („ ”)."
 
-#: src/Import/Import.php:951
+#: src/Import/Import.php:944
 #, fuzzy
 #| msgid ""
 #| "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing "
@@ -16641,46 +16636,46 @@ msgstr ""
 "Numai interogările SQL INSEREAZĂ, ACTUALIZEAZĂ, ȘTERGE și ÎNLOCUIEȘTE care "
 "conțin tabele de motoare tranzacționale pot fi derulate înapoi."
 
-#: src/Import/Import.php:1172
+#: src/Import/Import.php:1165
 #, php-format
 msgid "Go to table: %s"
 msgstr "Du-te la tabelul: %s"
 
-#: src/Import/Import.php:1180
+#: src/Import/Import.php:1173
 #, php-format
 msgid "Structure of %s"
 msgstr "Structura %s"
 
-#: src/Import/Import.php:1187 src/Import/Import.php:1236
+#: src/Import/Import.php:1180 src/Import/Import.php:1229
 #, php-format
 msgid "Edit settings for %s"
 msgstr "Editează setările pentru %s"
 
-#: src/Import/Import.php:1198
+#: src/Import/Import.php:1191
 #, php-format
 msgid "Go to view: %s"
 msgstr "Du-te la vizualizarea: %s"
 
-#: src/Import/Import.php:1219
+#: src/Import/Import.php:1212
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 "Structurile următoare fie au fost create ori fie modificate. Aici poți:"
 
-#: src/Import/Import.php:1221
+#: src/Import/Import.php:1214
 msgid "View a structure's contents by clicking on its name."
 msgstr "Vezi conținutul unei structuri dând clic pe numele ei."
 
-#: src/Import/Import.php:1222
+#: src/Import/Import.php:1215
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr "Modifică orice setare dând clic pe legătura corespondentă „Opțiuni”."
 
-#: src/Import/Import.php:1223
+#: src/Import/Import.php:1216
 msgid "Edit structure by following the \"Structure\" link."
 msgstr "Editează structura urmărind legătura „Structură”."
 
-#: src/Import/Import.php:1230
+#: src/Import/Import.php:1223
 #, php-format
 msgid "Go to database: %s"
 msgstr "Du-te la baza de date: %s"
@@ -16697,11 +16692,11 @@ msgstr ""
 msgid "web server upload directory:"
 msgstr "director încărcare pe server web:"
 
-#: src/InsertEdit.php:845 src/Sql.php:879
+#: src/InsertEdit.php:845 src/Sql.php:891
 msgid "Showing SQL query"
 msgstr "Arăt interogarea SQL"
 
-#: src/InsertEdit.php:869 src/Sql.php:859
+#: src/InsertEdit.php:869 src/Sql.php:871
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "ID rând inserat: %1$d"
@@ -16786,7 +16781,7 @@ msgstr "Proceduri:"
 msgid "Views:"
 msgstr "Vizualizări:"
 
-#: src/Navigation/NavigationTree.php:758
+#: src/Navigation/NavigationTree.php:727
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
@@ -16795,11 +16790,11 @@ msgstr ""
 "performanța. Ia în considerare dezactivarea grupării elementelor în panoul "
 "de navigare."
 
-#: src/Navigation/NavigationTree.php:823
+#: src/Navigation/NavigationTree.php:792
 msgid "Groups"
 msgstr "Grupuri"
 
-#: src/Navigation/NavigationTree.php:928
+#: src/Navigation/NavigationTree.php:897
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
@@ -16807,7 +16802,7 @@ msgstr[0] "Un rezultat găsit"
 msgstr[1] "%s rezultate găsite"
 msgstr[2] "%s de rezultate găsite"
 
-#: src/Navigation/NavigationTree.php:1277
+#: src/Navigation/NavigationTree.php:1246
 msgid "Collapse all"
 msgstr "Restrânge tot"
 
@@ -16821,7 +16816,7 @@ msgctxt "Create new database"
 msgid "New"
 msgstr "Nouă"
 
-#: src/Navigation/Nodes/NodeDatabase.php:193
+#: src/Navigation/Nodes/NodeDatabase.php:195
 msgid "Show hidden items"
 msgstr "Arată elementele ascunse"
 
@@ -16832,7 +16827,7 @@ msgstr "Nou"
 
 #: src/Navigation/Nodes/NodeFunctionContainer.php:22
 #: src/Navigation/Nodes/NodeFunctionContainer.php:26
-#: src/Plugins/Export/ExportSql.php:647 src/Plugins/Export/ExportXml.php:101
+#: src/Plugins/Export/ExportSql.php:647 src/Plugins/Export/ExportXml.php:97
 msgid "Functions"
 msgstr "Funcții"
 
@@ -16846,13 +16841,13 @@ msgctxt "Create new index"
 msgid "New"
 msgstr "Nou"
 
-#: src/Navigation/Nodes/Node.php:568
+#: src/Navigation/Nodes/Node.php:563
 msgid "Expand/Collapse"
 msgstr "Extinde/restrânge"
 
 #: src/Navigation/Nodes/NodeProcedureContainer.php:22
 #: src/Navigation/Nodes/NodeProcedureContainer.php:26
-#: src/Plugins/Export/ExportSql.php:636 src/Plugins/Export/ExportXml.php:106
+#: src/Plugins/Export/ExportSql.php:636 src/Plugins/Export/ExportXml.php:102
 msgid "Procedures"
 msgstr "Proceduri"
 
@@ -17312,41 +17307,41 @@ msgstr "Ediție Excel:"
 #: src/Plugins/Export/ExportHtmlword.php:81
 #: src/Plugins/Export/ExportLatex.php:174 src/Plugins/Export/ExportOdt.php:122
 #: src/Plugins/Export/ExportTexytext.php:79
-#: src/Plugins/Export/ExportXml.php:129
+#: src/Plugins/Export/ExportXml.php:125
 msgid "Data dump options"
 msgstr "Opțiuni dump date"
 
-#: src/Plugins/Export/ExportHtmlword.php:169
-#: src/Plugins/Export/ExportOdt.php:216 src/Plugins/Export/ExportSql.php:2144
-#: src/Plugins/Export/ExportTexytext.php:138
+#: src/Plugins/Export/ExportHtmlword.php:168
+#: src/Plugins/Export/ExportOdt.php:212 src/Plugins/Export/ExportSql.php:2111
+#: src/Plugins/Export/ExportTexytext.php:137
 msgid "Dumping data for table"
 msgstr "Eliminarea datelor din tabel"
 
-#: src/Plugins/Export/ExportHtmlword.php:453
-#: src/Plugins/Export/ExportOdt.php:569 src/Plugins/Export/ExportSql.php:1881
-#: src/Plugins/Export/ExportTexytext.php:409
+#: src/Plugins/Export/ExportHtmlword.php:443
+#: src/Plugins/Export/ExportOdt.php:563 src/Plugins/Export/ExportSql.php:1846
+#: src/Plugins/Export/ExportTexytext.php:399
 msgid "Table structure for table"
 msgstr "Structură tabel pentru tabel"
 
-#: src/Plugins/Export/ExportHtmlword.php:470
-#: src/Plugins/Export/ExportOdt.php:589 src/Plugins/Export/ExportSql.php:1947
-#: src/Plugins/Export/ExportTexytext.php:422
+#: src/Plugins/Export/ExportHtmlword.php:460
+#: src/Plugins/Export/ExportOdt.php:583 src/Plugins/Export/ExportSql.php:1912
+#: src/Plugins/Export/ExportTexytext.php:412
 msgid "Structure for view"
 msgstr "Structură pentru vizualizare"
 
-#: src/Plugins/Export/ExportHtmlword.php:476
-#: src/Plugins/Export/ExportOdt.php:597 src/Plugins/Export/ExportSql.php:1990
-#: src/Plugins/Export/ExportTexytext.php:426
+#: src/Plugins/Export/ExportHtmlword.php:466
+#: src/Plugins/Export/ExportOdt.php:591 src/Plugins/Export/ExportSql.php:1955
+#: src/Plugins/Export/ExportTexytext.php:416
 msgid "Stand-in structure for view"
 msgstr "Substitut structură pentru vizualizare"
 
-#: src/Plugins/Export/ExportJson.php:86
+#: src/Plugins/Export/ExportJson.php:87
 msgid "Output pretty-printed JSON (Use human-readable formatting)"
 msgstr ""
 "Ieșire JSON imprimată frumos (folosește formatarea care poate fi citită de "
 "oameni)"
 
-#: src/Plugins/Export/ExportJson.php:92
+#: src/Plugins/Export/ExportJson.php:93
 msgid "Output unicode characters unescaped"
 msgstr ""
 
@@ -17402,20 +17397,20 @@ msgid "Put columns names in the first row:"
 msgstr "Pune numele coloanelor în primul rând:"
 
 #: src/Plugins/Export/ExportLatex.php:231 src/Plugins/Export/ExportSql.php:765
-#: src/Plugins/Export/ExportXml.php:213
+#: src/Plugins/Export/ExportXml.php:204
 msgid "Generation Time:"
 msgstr "Timp de generare:"
 
 #: src/Plugins/Export/ExportLatex.php:234 src/Plugins/Export/ExportSql.php:771
-#: src/Plugins/Export/ExportXml.php:216
+#: src/Plugins/Export/ExportXml.php:207
 msgid "PHP Version:"
 msgstr "Versiune PHP:"
 
-#: src/Plugins/Export/ExportLatex.php:288 src/Plugins/Export/ExportSql.php:2037
+#: src/Plugins/Export/ExportLatex.php:288 src/Plugins/Export/ExportSql.php:2002
 msgid "Data:"
 msgstr "Date:"
 
-#: src/Plugins/Export/ExportLatex.php:444
+#: src/Plugins/Export/ExportLatex.php:432
 msgid "Structure:"
 msgstr "Structură:"
 
@@ -17427,8 +17422,8 @@ msgstr "Exportă nume tabele"
 msgid "Export table headers"
 msgstr "Exportă anteturi tabele"
 
-#: src/Plugins/Export/ExportOdt.php:217
-#: src/Plugins/Export/ExportTexytext.php:139
+#: src/Plugins/Export/ExportOdt.php:213
+#: src/Plugins/Export/ExportTexytext.php:138
 #, fuzzy
 msgid "Dumping data for query result"
 msgstr "Eliminarea datelor din tabel"
@@ -17441,16 +17436,16 @@ msgstr "Titlu raport:"
 msgid "Dumping data"
 msgstr "Eliminarea datelor"
 
-#: src/Plugins/Export/ExportPdf.php:147
+#: src/Plugins/Export/ExportPdf.php:145
 #, fuzzy
 msgid "Query result data"
 msgstr "Rezultatele interogării"
 
-#: src/Plugins/Export/ExportPdf.php:181
+#: src/Plugins/Export/ExportPdf.php:177
 msgid "View structure"
 msgstr "Vezi structura"
 
-#: src/Plugins/Export/ExportPdf.php:184
+#: src/Plugins/Export/ExportPdf.php:180
 msgid "Stand in"
 msgstr "Substituent"
 
@@ -17518,7 +17513,7 @@ msgstr ""
 msgid "Data creation options"
 msgstr "Opțiuni creare date"
 
-#: src/Plugins/Export/ExportSql.php:421 src/Plugins/Export/ExportSql.php:2107
+#: src/Plugins/Export/ExportSql.php:421 src/Plugins/Export/ExportSql.php:2074
 msgid "Truncate table before insert"
 msgstr "Trunchiază tabelul înainte de inserare"
 
@@ -17598,112 +17593,112 @@ msgstr ""
 msgid "It appears your database uses routines;"
 msgstr "Se pare că baza ta de date folosește rutine;"
 
-#: src/Plugins/Export/ExportSql.php:598 src/Plugins/Export/ExportSql.php:1500
-#: src/Plugins/Export/ExportSql.php:1931
+#: src/Plugins/Export/ExportSql.php:598 src/Plugins/Export/ExportSql.php:1465
+#: src/Plugins/Export/ExportSql.php:1896
 msgid "alias export may not work reliably in all cases."
 msgstr "exportul aliasului poate să nu funcționeze fiabil în toate cazurile."
 
-#: src/Plugins/Export/ExportSql.php:1056
+#: src/Plugins/Export/ExportSql.php:1050
 msgid "Metadata"
 msgstr "Metadate"
 
-#: src/Plugins/Export/ExportSql.php:1119
+#: src/Plugins/Export/ExportSql.php:1109
 #, php-format
 msgid "Metadata for table %s"
 msgstr "Metadate pentru tabelul %s"
 
-#: src/Plugins/Export/ExportSql.php:1126
+#: src/Plugins/Export/ExportSql.php:1116
 #, php-format
 msgid "Metadata for database %s"
 msgstr "Metadate pentru baza de date %s"
 
-#: src/Plugins/Export/ExportSql.php:1414
+#: src/Plugins/Export/ExportSql.php:1379
 #, php-format
 msgid "Error reading structure for table %s:"
 msgstr "Eroare la citirea structurii tabelului %s:"
 
-#: src/Plugins/Export/ExportSql.php:1497
+#: src/Plugins/Export/ExportSql.php:1462
 msgid "It appears your database uses views;"
 msgstr "Se pare că baza ta de date folosește vizualizări;"
 
-#: src/Plugins/Export/ExportSql.php:1641
+#: src/Plugins/Export/ExportSql.php:1606
 msgid "Constraints for dumped tables"
 msgstr "Constrângeri pentru tabele eliminate"
 
-#: src/Plugins/Export/ExportSql.php:1642
+#: src/Plugins/Export/ExportSql.php:1607
 msgid "Constraints for table"
 msgstr "Constrângeri pentru tabele"
 
-#: src/Plugins/Export/ExportSql.php:1668
+#: src/Plugins/Export/ExportSql.php:1633
 msgid "Indexes for dumped tables"
 msgstr "Indexuri pentru tabele eliminate"
 
-#: src/Plugins/Export/ExportSql.php:1669
+#: src/Plugins/Export/ExportSql.php:1634
 msgid "Indexes for table"
 msgstr "Indexuri pentru tabele"
 
-#: src/Plugins/Export/ExportSql.php:1692
+#: src/Plugins/Export/ExportSql.php:1657
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "AUTO_INCREMENT pentru tabele eliminate"
 
-#: src/Plugins/Export/ExportSql.php:1693
+#: src/Plugins/Export/ExportSql.php:1658
 msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT pentru tabele"
 
-#: src/Plugins/Export/ExportSql.php:1747
+#: src/Plugins/Export/ExportSql.php:1712
 #, fuzzy
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "TIPURI DE MIME PENTRU TABELE"
 
-#: src/Plugins/Export/ExportSql.php:1777
+#: src/Plugins/Export/ExportSql.php:1742
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "RELAȚII PENTRU TABELE"
 
-#: src/Plugins/Export/ExportSql.php:1928
+#: src/Plugins/Export/ExportSql.php:1893
 msgid "It appears your table uses triggers;"
 msgstr "Se pare că tabelul tău folosește declanșatori;"
 
-#: src/Plugins/Export/ExportSql.php:1962
+#: src/Plugins/Export/ExportSql.php:1927
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "Structură pentru vizualizarea %s exportată ca un tabel"
 
-#: src/Plugins/Export/ExportSql.php:1993
+#: src/Plugins/Export/ExportSql.php:1958
 msgid "(See below for the actual view)"
 msgstr "(Vezi mai jos vizualizarea actuală)"
 
-#: src/Plugins/Export/ExportSql.php:2048
+#: src/Plugins/Export/ExportSql.php:2015
 #, php-format
 msgid "Error reading data for table %s:"
 msgstr "Eroare la citirea datelor pentru tabelul %s:"
 
-#: src/Plugins/Export/ExportSql.php:2592
+#: src/Plugins/Export/ExportSql.php:2544
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:566
 msgid "Creation:"
 msgstr "Creare:"
 
-#: src/Plugins/Export/ExportSql.php:2600
+#: src/Plugins/Export/ExportSql.php:2552
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:577
 msgid "Last update:"
 msgstr "Ultima actualizare:"
 
-#: src/Plugins/Export/ExportSql.php:2608
+#: src/Plugins/Export/ExportSql.php:2560
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:588
 msgid "Last check:"
 msgstr "Ultima verificare:"
 
-#: src/Plugins/Export/ExportSql.php:2629
+#: src/Plugins/Export/ExportSql.php:2581
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
 "Sistem baze de date sau server MySQL mai vechi pentru a maximiza "
 "compatibilitatea ieșirilor cu:"
 
-#: src/Plugins/Export/ExportXml.php:90
+#: src/Plugins/Export/ExportXml.php:86
 msgid "Object creation options (all are recommended)"
 msgstr "Opțiuni creare obiect (toate sunt recomandate)"
 
-#: src/Plugins/Export/ExportXml.php:134
+#: src/Plugins/Export/ExportXml.php:130
 msgid "Export contents"
 msgstr "Exportă conținuturi"
 
@@ -17716,19 +17711,19 @@ msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:100
+#: src/Plugins/Import/ImportCsv.php:93
 msgid "Name of the new table (optional):"
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:109
+#: src/Plugins/Import/ImportCsv.php:102
 msgid "Name of the new database (optional):"
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:118 src/Plugins/Import/ImportCsv.php:136
+#: src/Plugins/Import/ImportCsv.php:111 src/Plugins/Import/ImportCsv.php:129
 msgid "Import these many number of rows (optional):"
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:126 src/Plugins/Import/ImportOds.php:73
+#: src/Plugins/Import/ImportCsv.php:119 src/Plugins/Import/ImportOds.php:73
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
@@ -17736,7 +17731,7 @@ msgstr ""
 "Prima linie a fișierului conține numele coloanelor din tabel <i>(dacă "
 "aceasta nu este bifată, prima linie va deveni o parte a datelor)</i>"
 
-#: src/Plugins/Import/ImportCsv.php:143
+#: src/Plugins/Import/ImportCsv.php:136
 msgid ""
 "If the data in each row of the file is not in the same order as in the "
 "database, list the corresponding column names here. Column names must be "
@@ -17747,27 +17742,27 @@ msgstr ""
 "coloanelor trebuie să fie separate prin virgule și să nu fie închise între "
 "ghilimele."
 
-#: src/Plugins/Import/ImportCsv.php:151
+#: src/Plugins/Import/ImportCsv.php:144
 msgid "Column names:"
 msgstr "Nume coloane:"
 
-#: src/Plugins/Import/ImportCsv.php:287 src/Plugins/Import/ImportCsv.php:617
+#: src/Plugins/Import/ImportCsv.php:277 src/Plugins/Import/ImportCsv.php:530
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "Format invalid pentru intrarea CSV pe linia %d."
 
-#: src/Plugins/Import/ImportCsv.php:494
+#: src/Plugins/Import/ImportCsv.php:484
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Număr de coloane invalid în intrarea CSV pe linia %d."
 
-#: src/Plugins/Import/ImportCsv.php:636 src/Plugins/Import/ImportCsv.php:651
-#: src/Plugins/Import/ImportCsv.php:662 src/Plugins/Import/ImportCsv.php:669
+#: src/Plugins/Import/ImportCsv.php:648 src/Plugins/Import/ImportCsv.php:663
+#: src/Plugins/Import/ImportCsv.php:674 src/Plugins/Import/ImportCsv.php:681
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Parametru invalid pentru importul CSV: %s"
 
-#: src/Plugins/Import/ImportCsv.php:764
+#: src/Plugins/Import/ImportCsv.php:766
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -18536,16 +18531,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "Nu este disponibilă nicio versiune stabilă mai nouă"
 
-#: src/Sql.php:442
+#: src/Sql.php:444
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Folosește semnul de carte „%s” ca interogare de răsfoire implicită."
 
-#: src/Sql.php:876
+#: src/Sql.php:888
 msgid "Showing as PHP code"
 msgstr "Arăt drept cod PHP"
 
-#: src/Sql.php:1221
+#: src/Sql.php:1241
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -18554,7 +18549,7 @@ msgstr ""
 "Selecția actuală nu conține o coloană unică. Funcționalitățile editare "
 "grilă, bifă, editează, copiază și șterge nu sunt disponibile. %s"
 
-#: src/Sql.php:1235
+#: src/Sql.php:1255
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
