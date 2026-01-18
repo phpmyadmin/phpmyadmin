@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-10-16 23:57-0300\n"
-"PO-Revision-Date: 2026-01-11 12:25+0000\n"
-"Last-Translator: Jakkarach Dumdee <armada1@hotmail.co.th>\n"
+"PO-Revision-Date: 2026-01-19 00:55+0000\n"
+"Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/5-2/th/>"
 "\n"
 "Language: th\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.15.1\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -788,10 +788,9 @@ msgid ""
 msgstr "ตารางที่ถูกติดตาม"
 
 #: libraries/advisory_rules_generic.php:522
-#, fuzzy, php-format
-#| msgid "long_query_time is set to %d second(s)."
+#, php-format
 msgid "slow_launch_time is set to %s"
-msgstr "long_query_time ถูกตั้งไว้ที่ %d วินาที"
+msgstr "slow_launch_time ถูกตั้งไว้เป็น %s"
 
 #: libraries/advisory_rules_generic.php:528
 #, fuzzy
@@ -1113,6 +1112,7 @@ msgstr ""
 #: libraries/advisory_rules_mysql_before80003.php:18
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
+"หากตั้งค่า query_cache_size เป็น 0 หรือตั้งค่า query_cache_type เป็น 'OFF'"
 
 #: libraries/advisory_rules_mysql_before80003.php:23
 #, fuzzy, no-php-format
@@ -2676,9 +2676,8 @@ msgid ""
 msgstr "บันทึกคิวรี SQL และเวลาในการดำเนินการที่จะแสดงในคอนโซล"
 
 #: libraries/classes/Config/Descriptions.php:556
-#, fuzzy
 msgid "Tab that is displayed when entering a database."
-msgstr "แท็บที่จะแสดงเมื่อป้อนฐานข้อมูล"
+msgstr "แท็บที่แสดงขึ้นเมื่อเข้าสู่ฐานข้อมูล"
 
 #: libraries/classes/Config/Descriptions.php:557
 msgid "Tab that is displayed when entering a server."
@@ -3342,10 +3341,9 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:729
 #: libraries/classes/Plugins/Export/ExportSql.php:356
-#, fuzzy, php-format
-#| msgid "Session value"
+#, php-format
 msgid "%s view"
-msgstr "ค่าเซสชั่น"
+msgstr "%s มุมมอง"
 
 #: libraries/classes/Config/Descriptions.php:730
 #, fuzzy
@@ -3549,9 +3547,8 @@ msgid "Table structure"
 msgstr "โครงสร้างของตาราง"
 
 #: libraries/classes/Config/Descriptions.php:781
-#, fuzzy
 msgid "Tabs"
-msgstr "ตาราง "
+msgstr "แท็บ"
 
 #: libraries/classes/Config/Descriptions.php:782
 #, fuzzy
@@ -4978,7 +4975,7 @@ msgstr "ไม่มีฐานข้อมูลที่ถูกเลือ
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
-msgstr "แฟ้ม %s ไม่สามารถใช้งานได้ในระบบนี้ สำหรับข้อมูลเพิ่มเติมกรุณาเยี่ยมชม %s"
+msgstr "ไฟล์ %s ไม่สามารถใช้งานได้ในระบบนี้ โปรดไปที่ %s เพื่อดูข้อมูลเพิ่มเติม"
 
 #: libraries/classes/Controllers/Database/CentralColumnsController.php:140
 #, php-format
@@ -7102,9 +7099,8 @@ msgid "Double-click to copy column name."
 msgstr "คลิกสองครั้งเพื่อคัดลอกชื่อคอลัมน์"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:561
-#, fuzzy
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
-msgstr "กดเพื่อเลือก <br>เพื่อดูสดมภ์."
+msgstr "คลิกที่ลูกศรดรอปดาวน์<br>เพื่อสลับการแสดงผลของคอลัมน์"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:564
 msgid ""
@@ -7534,17 +7530,15 @@ msgid "Database %1$s has been created."
 msgstr "ฐานข้อมูล %1$s ถูกสร้างเรียบร้อยแล้ว"
 
 #: libraries/classes/Controllers/Server/Databases/DestroyController.php:98
-#, fuzzy, php-format
-#| msgid "%s databases have been dropped successfully."
+#, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "%s ฐานข้อมูลได้ถูกทิ้งไปเรียบร้อยแล้ว."
+msgstr[0] "ฐานข้อมูล %1$d ถูกลบเรียบร้อยแล้ว"
 
 #: libraries/classes/Controllers/Server/Privileges/AccountLockController.php:47
-#, fuzzy, php-format
-#| msgid "The selected users have been deleted successfully."
+#, php-format
 msgid "The account %s@%s has been successfully locked."
-msgstr "ลบผู้ใช้ที่เลือกไว้เรียบร้อยแล้ว."
+msgstr "บัญชี %s@%s ถูกล็อกเรียบร้อยแล้ว"
 
 #: libraries/classes/Controllers/Server/Privileges/AccountUnlockController.php:47
 #, fuzzy, php-format
@@ -8504,16 +8498,13 @@ msgid "NO"
 msgstr "ไม่"
 
 #: libraries/classes/Database/Designer/Common.php:528
-#, fuzzy
-#| msgid ""
-#| "The configuration storage is not ready for the central list of columns "
-#| "feature."
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
 "on designer when user tries to set a display field."
 msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
-msgstr "การจัดเก็บการกำหนดค่าไม่พร้อมใช้งานสำหรับรายการส่วนกลางของคุณลักษณะของคอลัมน์"
+msgstr ""
+"พื้นที่จัดเก็บการตั้งค่า phpMyAdmin ไม่ได้ถูกกำหนดค่าสำหรับ \"แสดงคุณสมบัติ\""
 
 #: libraries/classes/Database/Designer/Common.php:573
 #, fuzzy
@@ -8613,9 +8604,9 @@ msgid "Event %1$s has been modified."
 msgstr "โยนตาราง %s ทิ้งไปเรียบร้อยแล้ว"
 
 #: libraries/classes/Database/Events.php:146
-#, fuzzy, php-format
+#, php-format
 msgid "Event %1$s has been created."
-msgstr "โยนตาราง %1$s ทิ้งไปเรียบร้อยแล้ว"
+msgstr "กิจกรรม %1$s ได้ถูกสร้างขึ้นแล้ว"
 
 #: libraries/classes/Database/Events.php:160
 #: libraries/classes/Database/Routines.php:266
@@ -8802,21 +8793,19 @@ msgid "Invalid routine type: \"%s\""
 msgstr ""
 
 #: libraries/classes/Database/Routines.php:253
-#, fuzzy, php-format
+#, php-format
 msgid "Routine %1$s has been created."
-msgstr "โยนตาราง %1$s ทิ้งไปเรียบร้อยแล้ว"
+msgstr "กิจวัตร %1$s ได้ถูกสร้างขึ้นแล้ว"
 
 #: libraries/classes/Database/Routines.php:412
-#, fuzzy, php-format
-#| msgid "Table %s has been dropped."
+#, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
-msgstr "โยนตาราง %1$s ทิ้งไปเรียบร้อยแล้ว"
+msgstr "กิจวัตร %1$s ได้รับการแก้ไขแล้ว สิทธิ์การใช้งานได้รับการปรับเปลี่ยนแล้ว"
 
 #: libraries/classes/Database/Routines.php:417
-#, fuzzy, php-format
-#| msgid "Table %s has been dropped."
+#, php-format
 msgid "Routine %1$s has been modified."
-msgstr "โยนตาราง %1$s ทิ้งไปเรียบร้อยแล้ว"
+msgstr "กิจวัตร %1$s ได้รับการแก้ไขแล้ว"
 
 #: libraries/classes/Database/Routines.php:823
 msgid "You must provide a name and a type for each routine parameter."
@@ -8920,15 +8909,14 @@ msgid "as regular expression"
 msgstr "รูปแบบคำพ้อง (regular expression)"
 
 #: libraries/classes/Database/Triggers.php:140
-#, fuzzy, php-format
-#| msgid "Table %s has been dropped."
+#, php-format
 msgid "Trigger %1$s has been modified."
-msgstr "โยนตาราง %1$s ทิ้งไปเรียบร้อยแล้ว"
+msgstr "ทริกเกอร์ %1$s ได้รับการแก้ไขแล้ว"
 
 #: libraries/classes/Database/Triggers.php:160
-#, fuzzy, php-format
+#, php-format
 msgid "Trigger %1$s has been created."
-msgstr "โยนตาราง %1$s ทิ้งไปเรียบร้อยแล้ว"
+msgstr "ทริกเกอร์ %1$s ได้ถูกสร้างขึ้นแล้ว"
 
 #: libraries/classes/Database/Triggers.php:255
 msgid "Add trigger"
@@ -9905,9 +9893,8 @@ msgstr "ผู้ใช้"
 
 #: libraries/classes/Menu.php:535 libraries/classes/Server/Status/Data.php:152
 #: libraries/classes/Util.php:1945 templates/server/binlog/index.twig:3
-#, fuzzy
 msgid "Binary log"
-msgstr "ข้อมูลไบนารี "
+msgstr "บันทึกไบนารี"
 
 #: libraries/classes/Menu.php:542 libraries/classes/Server/Status/Data.php:157
 #: libraries/classes/Util.php:1946
@@ -11355,10 +11342,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportLdi.php:62
-#, fuzzy
-#| msgid "Column names"
 msgid "Column names: "
-msgstr "ชื่อคอลัมน์"
+msgstr "ชื่อคอลัมน์: "
 
 #: libraries/classes/Plugins/Import/ImportLdi.php:106
 msgid "This plugin does not support compressed imports!"
@@ -13580,10 +13565,9 @@ msgid "Loading"
 msgstr "กำลังโหลด…"
 
 #: templates/columns_definitions/column_name.twig:4
-#, fuzzy, php-format
-#| msgid "Select referenced key"
+#, php-format
 msgid "Referenced by %s."
-msgstr "เลือกคีย์อ้างอิง"
+msgstr "อ้างอิงโดย %s."
 
 #: templates/columns_definitions/column_name.twig:12
 #, fuzzy
@@ -14009,10 +13993,9 @@ msgid "Create version %1$s of %2$s"
 msgstr "สร้างเวอร์ชั่น %1$s ของ %2$s"
 
 #: templates/create_tracking_version.twig:15
-#, fuzzy, php-format
-#| msgid "Create version"
+#, php-format
 msgid "Create version %1$s"
-msgstr "สร้างเวอร์ชั่น"
+msgstr "สร้างเวอร์ชัน %1$s"
 
 #: templates/create_tracking_version.twig:21
 msgid "Track these data definition statements:"
@@ -14191,7 +14174,7 @@ msgstr "เลือกทั้งหมด"
 #: templates/database/designer/database_tables.twig:109
 #, php-format
 msgid "Add an option for column \"%s\"."
-msgstr "เพิ่มตัวเลือกสำหรับคอลัมน์  \"%s\""
+msgstr "เพิ่มตัวเลือกสำหรับคอลัมน์ \"%s\""
 
 #: templates/database/designer/edit_delete_pages.twig:6
 #, fuzzy
@@ -14462,10 +14445,9 @@ msgstr "ชนิดคำค้น"
 
 #: templates/database/events/editor_form.twig:48
 #: templates/database/routines/editor_form.twig:38
-#, fuzzy, php-format
-#| msgid "Change"
+#, php-format
 msgid "Change to %s"
-msgstr "เปลี่ยน %s"
+msgstr "เปลี่ยนเป็น %s"
 
 #: templates/database/events/editor_form.twig:53
 msgid "Execute at"
@@ -14589,7 +14571,7 @@ msgstr "ไม่มีฐานข้อมูล"
 #: templates/database/multi_table_query/form.twig:4
 #: templates/database/qbe/index.twig:4
 msgid "Multi-table query"
-msgstr "คิวรี่หลายตาราง"
+msgstr "คำสั่งหลายตาราง"
 
 #: templates/database/multi_table_query/form.twig:10
 #: templates/database/qbe/index.twig:10
@@ -14855,8 +14837,6 @@ msgid "Ins:"
 msgstr ""
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:12
-#, fuzzy
-#| msgid "And"
 msgid "And"
 msgstr "และ"
 
@@ -14904,21 +14884,15 @@ msgid "Modify:"
 msgstr "แก้ไข"
 
 #: templates/database/qbe/selection_form.twig:54
-#, fuzzy
-#| msgid "Add/Delete criteria rows"
 msgid "Add/Delete criteria rows:"
-msgstr "เพิ่ม/ลบ แถว"
+msgstr "เพิ่ม/ลบแถวที่มีเงื่อนไข:"
 
 #: templates/database/qbe/selection_form.twig:67
-#, fuzzy
-#| msgid "Add/Delete columns"
 msgid "Add/Delete columns:"
-msgstr "เพิ่ม/ลบคอลัมน์"
+msgstr "เพิ่ม/ลบคอลัมน์:"
 
 #: templates/database/qbe/selection_form.twig:86
 #: templates/database/qbe/selection_form.twig:88
-#, fuzzy
-#| msgid "Use Tables"
 msgid "Use tables"
 msgstr "ใช้ตาราง"
 
@@ -16179,17 +16153,11 @@ msgstr "calendar-month-year"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: templates/javascript/variables.twig:11
-#, fuzzy
-#| msgctxt "Year suffix"
-#| msgid "none"
 msgid "none"
 msgstr "ไม่มี"
 
 #. l10n: Previous month. Display text for previous month link in calendar
 #: templates/javascript/variables.twig:16
-#, fuzzy
-#| msgctxt "Previous month"
-#| msgid "Prev"
 msgid "Prev"
 msgstr "ก่อนหน้า"
 
@@ -17677,10 +17645,8 @@ msgid "Save changes"
 msgstr "บันทึกหน้า"
 
 #: templates/server/replication/change_primary.twig:5
-#, fuzzy
-#| msgid "Server configuration"
 msgid "Replica configuration"
-msgstr "กำหนดค่าเซิร์ฟเวอร์"
+msgstr "การกำหนดค่าแบบจำลอง"
 
 #: templates/server/replication/change_primary.twig:6
 #: templates/server/replication/replica_configuration.twig:97
@@ -18288,10 +18254,9 @@ msgid "Network traffic since startup: %s"
 msgstr ""
 
 #: templates/server/status/status/index.twig:7
-#, fuzzy, php-format
-#| msgid "This MySQL server has been running for %s. It started up on %s."
+#, php-format
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr "เซิร์ฟเวอร์ MySQL นี้รันมาเป็นเวลา %1$s. เริ่มตอน %2$s."
+msgstr "เซิร์ฟเวอร์ MySQL นี้รันมาเป็นเวลา %1$s แล้วโดยเริ่มเมื่อ %2$s"
 
 #: templates/server/status/status/index.twig:15
 msgid ""
