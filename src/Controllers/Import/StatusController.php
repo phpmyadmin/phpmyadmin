@@ -14,6 +14,7 @@ use PhpMyAdmin\Import\Ajax;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Template;
+use Psr\Clock\ClockInterface;
 
 use function __;
 use function header;
@@ -36,7 +37,7 @@ class StatusController implements InvocableController
     /** Time to wait before rechecking for the $_SESSION variable. Default is 0.25 seconds. */
     private static int $sleepMicrosecondsRetry = 250000;
 
-    public function __construct(private readonly Template $template)
+    public function __construct(private readonly Template $template, private readonly ClockInterface $clock)
     {
     }
 
@@ -47,7 +48,7 @@ class StatusController implements InvocableController
         // $_GET["message"] is used for asking for an import message
         if ($request->hasQueryParam('message')) {
             // AJAX requests can't be cached!
-            foreach (Core::getNoCacheHeaders() as $name => $value) {
+            foreach (Core::getNoCacheHeaders($this->clock) as $name => $value) {
                 header(sprintf('%s: %s', $name, $value));
             }
 

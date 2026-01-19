@@ -4,12 +4,13 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use DateTimeImmutable;
 use DateTimeInterface;
 use DateTimeZone;
+use PhpMyAdmin\Clock\Clock;
 use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Exceptions\MissingExtensionException;
 use PhpMyAdmin\Http\ServerRequest;
+use Psr\Clock\ClockInterface;
 use Twig\Attribute\AsTwigFilter;
 
 use function __;
@@ -210,10 +211,10 @@ class Core
      *
      * @return array<string, string>
      */
-    public static function headerJSON(string $currentDateTime = 'now'): array
+    public static function headerJSON(ClockInterface|null $clock = null): array
     {
         // No caching
-        $headers = self::getNoCacheHeaders($currentDateTime);
+        $headers = self::getNoCacheHeaders($clock ?? new Clock());
 
         // Media type
         $headers['Content-Type'] = 'application/json; charset=UTF-8';
@@ -228,12 +229,10 @@ class Core
     }
 
     /** @return array<string, string> */
-    public static function getNoCacheHeaders(string $currentDateTime = 'now'): array
+    public static function getNoCacheHeaders(ClockInterface $clock): array
     {
         $headers = [];
-        $formattedDateTime = (new DateTimeImmutable($currentDateTime))
-            ->setTimezone(new DateTimeZone('UTC'))
-            ->format(DateTimeInterface::RFC7231);
+        $formattedDateTime = $clock->now()->setTimezone(new DateTimeZone('UTC'))->format(DateTimeInterface::RFC7231);
 
         // rfc2616 - Section 14.21
         $headers['Expires'] = $formattedDateTime;
@@ -260,12 +259,12 @@ class Core
      * @return array<string, string>
      */
     public static function getDownloadHeaders(
+        ClockInterface $clock,
         string $filename,
         string $mimetype,
         int $length = 0,
-        string $currentDateTime = 'now',
     ): array {
-        $headers = self::getNoCacheHeaders($currentDateTime);
+        $headers = self::getNoCacheHeaders($clock);
 
         /* Replace all possibly dangerous chars in filename */
         $filename = Sanitize::sanitizeFilename($filename);
@@ -294,7 +293,7 @@ class Core
      */
     public static function downloadHeader(string $filename, string $mimetype, int $length = 0): void
     {
-        $headers = self::getDownloadHeaders($filename, $mimetype, $length);
+        $headers = self::getDownloadHeaders(new Clock(), $filename, $mimetype, $length);
 
         // The default output in PMA uses gzip,
         // so if we want to output uncompressed file, we should reset the encoding.

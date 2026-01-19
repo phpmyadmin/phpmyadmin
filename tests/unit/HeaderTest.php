@@ -17,6 +17,7 @@ use PhpMyAdmin\Header;
 use PhpMyAdmin\I18n\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\Clock\MockClock;
 use PhpMyAdmin\Theme\ThemeManager;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -218,7 +219,7 @@ class HeaderTest extends AbstractTestCase
             unset($expected['X-Frame-Options']);
         }
 
-        self::assertSame($expected, $header->getHttpHeaders('2015-10-21T05:28:00-02:00'));
+        self::assertSame($expected, $header->getHttpHeaders(MockClock::from('2015-10-21T05:28:00-02:00')));
     }
 
     /** @return mixed[][] */

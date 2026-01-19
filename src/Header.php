@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Clock\Clock;
 use PhpMyAdmin\Config\UserPreferences;
 use PhpMyAdmin\Config\UserPreferencesHandler;
 use PhpMyAdmin\ConfigStorage\Relation;
@@ -17,6 +18,7 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\I18n\LanguageManager;
 use PhpMyAdmin\Navigation\Navigation;
 use PhpMyAdmin\Theme\ThemeManager;
+use Psr\Clock\ClockInterface;
 
 use function array_merge;
 use function htmlspecialchars;
@@ -335,7 +337,7 @@ class Header
     }
 
     /** @return array<string, string> */
-    public function getHttpHeaders(string $currentDateTime = 'now'): array
+    public function getHttpHeaders(ClockInterface|null $clock = null): array
     {
         $headers = [];
 
@@ -388,7 +390,7 @@ class Header
          */
         $headers['Permissions-Policy'] = 'fullscreen=(self), interest-cohort=()';
 
-        $headers = array_merge($headers, Core::getNoCacheHeaders($currentDateTime));
+        $headers = array_merge($headers, Core::getNoCacheHeaders($clock ?? new Clock()));
 
         /**
          * A different Content-Type is set in {@see \PhpMyAdmin\Controllers\Transformation\WrapperController}.
