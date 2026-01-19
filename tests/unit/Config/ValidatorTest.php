@@ -9,16 +9,15 @@ use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Validator;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
-use ReflectionProperty;
 
 #[CoversClass(Validator::class)]
 final class ValidatorTest extends AbstractTestCase
 {
     public function testGetValidators(): void
     {
-        (new ReflectionProperty(Validator::class, 'validators'))->setValue(null, null);
         Config::$instance = new Config();
-        $validators = Validator::getValidators(new ConfigFile([]));
+        $validator = new Validator(new ConfigFile([]));
+        $validators = $validator->getValidators();
         $expected = [
             'Console/Height' => 'validateNonNegativeNumber',
             'CharTextareaCols' => 'validatePositiveNumber',
