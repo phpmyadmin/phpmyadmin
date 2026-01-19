@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers;
 
+use PhpMyAdmin\Clock\Clock;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Config\UserPreferences;
@@ -124,7 +125,7 @@ class NavigationControllerTest extends AbstractTestCase
             $responseRenderer,
             new Navigation($template, $relation, $this->dbi, $config),
             $relation,
-            new PageSettings(new UserPreferences($this->dbi, $relation, $template, $config)),
+            new PageSettings(new UserPreferences($this->dbi, $relation, $template, $config, new Clock())),
         );
 
         $_POST['full'] = '1';
@@ -273,7 +274,7 @@ class NavigationControllerTest extends AbstractTestCase
             $responseRenderer,
             new Navigation($template, $relation, $this->dbi, $config),
             $relation,
-            new PageSettings(new UserPreferences($this->dbi, $relation, $template, $config)),
+            new PageSettings(new UserPreferences($this->dbi, $relation, $template, $config, new Clock())),
         );
 
         $_POST['full'] = '1';

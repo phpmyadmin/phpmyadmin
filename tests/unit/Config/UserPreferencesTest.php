@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Config;
 
+use PhpMyAdmin\Clock\Clock;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\UserPreferences;
@@ -16,6 +17,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Clock\MockClock;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseRendererStub;
 use PhpMyAdmin\Url;
@@ -25,7 +27,6 @@ use ReflectionProperty;
 
 use function json_encode;
 use function str_replace;
-use function time;
 
 #[CoversClass(UserPreferences::class)]
 class UserPreferencesTest extends AbstractTestCase
@@ -51,7 +52,13 @@ class UserPreferencesTest extends AbstractTestCase
         $config->settings = ['Server/hide_db' => 'testval123', 'Server/port' => '213'];
 
         $dbi = DatabaseInterface::getInstance();
-        $userPreferences = new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config);
+        $userPreferences = new UserPreferences(
+            $dbi,
+            new Relation($dbi, $config),
+            new Template($config),
+            $config,
+            new Clock(),
+        );
         $userPreferences->pageInit(new ConfigFile());
 
         self::assertSame(
@@ -72,20 +79,21 @@ class UserPreferencesTest extends AbstractTestCase
 
         $config = Config::getInstance();
         $dbi1 = DatabaseInterface::getInstance();
-        $userPreferences = new UserPreferences($dbi1, new Relation($dbi1, $config), new Template($config), $config);
+        $clock = MockClock::from('2015-10-21T05:28:00-02:00');
+        $userPreferences = new UserPreferences(
+            $dbi1,
+            new Relation($dbi1, $config),
+            new Template($config),
+            $config,
+            $clock,
+        );
         $result = $userPreferences->load();
 
         self::assertSame(
             [],
             $result['config_data'],
         );
-
-        self::assertEqualsWithDelta(
-            time(),
-            $result['mtime'],
-            2,
-            '',
-        );
+        self::assertSame(1445412480, $result['mtime']);
 
         self::assertSame('session', $result['type']);
 
@@ -113,7 +121,13 @@ class UserPreferencesTest extends AbstractTestCase
             ->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
-        $userPreferences = new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config);
+        $userPreferences = new UserPreferences(
+            $dbi,
+            new Relation($dbi, $config),
+            new Template($config),
+            $config,
+            new Clock(),
+        );
         $result = $userPreferences->load();
 
         self::assertSame(
@@ -135,7 +149,14 @@ class UserPreferencesTest extends AbstractTestCase
         unset($_SESSION['userconfig']);
 
         $dbi1 = DatabaseInterface::getInstance();
-        $userPreferences = new UserPreferences($dbi1, new Relation($dbi1, $config), new Template($config), $config);
+        $clock = MockClock::from('2015-10-21T05:28:00-02:00');
+        $userPreferences = new UserPreferences(
+            $dbi1,
+            new Relation($dbi1, $config),
+            new Template($config),
+            $config,
+            $clock,
+        );
         $result = $userPreferences->save([1]);
 
         self::assertTrue($result);
@@ -146,14 +167,7 @@ class UserPreferencesTest extends AbstractTestCase
             [1],
             $_SESSION['userconfig']['db'],
         );
-
-        /* TODO: This breaks sometimes as there might be time difference! */
-        self::assertEqualsWithDelta(
-            time(),
-            $_SESSION['userconfig']['ts'],
-            2,
-            '',
-        );
+        self::assertSame(1445412480, $_SESSION['userconfig']['ts']);
 
         $assert = true;
 
@@ -195,7 +209,13 @@ class UserPreferencesTest extends AbstractTestCase
             ->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
-        $userPreferences = new UserPreferences($dbi, new Relation($dbi1, $config), new Template($config), $config);
+        $userPreferences = new UserPreferences(
+            $dbi,
+            new Relation($dbi1, $config),
+            new Template($config),
+            $config,
+            new Clock(),
+        );
         $result = $userPreferences->save([1]);
 
         self::assertTrue($result);
@@ -229,7 +249,13 @@ class UserPreferencesTest extends AbstractTestCase
             ->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
-        $userPreferences = new UserPreferences($dbi, new Relation($dbi1, $config), new Template($config), $config);
+        $userPreferences = new UserPreferences(
+            $dbi,
+            new Relation($dbi1, $config),
+            new Template($config),
+            $config,
+            new Clock(),
+        );
         $result = $userPreferences->save([1]);
 
         self::assertInstanceOf(Message::class, $result);
@@ -273,7 +299,7 @@ class UserPreferencesTest extends AbstractTestCase
         $relationParameters = $relation->getRelationParameters();
         self::assertNotNull($relationParameters->userPreferencesFeature);
 
-        $userPreferences = new UserPreferences($dbi, $relation, new Template($config), $config);
+        $userPreferences = new UserPreferences($dbi, $relation, new Template($config), $config, new Clock());
 
         // phpcs:disable Generic.Files.LineLength.TooLong
         $dummyDbi->addResult(
@@ -382,7 +408,13 @@ class UserPreferencesTest extends AbstractTestCase
         $config->settings['UserprefsDisallow'] = ['test' => 'val', 'foo' => 'bar'];
 
         $dbi = DatabaseInterface::getInstance();
-        $userPreferences = new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config);
+        $userPreferences = new UserPreferences(
+            $dbi,
+            new Relation($dbi, $config),
+            new Template($config),
+            $config,
+            new Clock(),
+        );
         $result = $userPreferences->apply(
             [
                 'DBG/sql' => true,
@@ -408,7 +440,13 @@ class UserPreferencesTest extends AbstractTestCase
         $config->set('UserprefsDeveloperTab', true);
 
         $dbi = DatabaseInterface::getInstance();
-        $userPreferences = new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config);
+        $userPreferences = new UserPreferences(
+            $dbi,
+            new Relation($dbi, $config),
+            new Template($config),
+            $config,
+            new Clock(),
+        );
         $result = $userPreferences->apply(
             ['DBG/sql' => true],
         );
@@ -435,7 +473,13 @@ class UserPreferencesTest extends AbstractTestCase
 
         $config = Config::getInstance();
         $dbi = DatabaseInterface::getInstance();
-        $userPreferences = new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config);
+        $userPreferences = new UserPreferences(
+            $dbi,
+            new Relation($dbi, $config),
+            new Template($config),
+            $config,
+            new Clock(),
+        );
         self::assertTrue(
             $userPreferences->persistOption('Server/hide_db', 'val', 'val'),
         );
@@ -463,7 +507,13 @@ class UserPreferencesTest extends AbstractTestCase
         $config->set('PmaAbsoluteUri', '');
 
         $dbi = DatabaseInterface::getInstance();
-        $userPreferences = new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config);
+        $userPreferences = new UserPreferences(
+            $dbi,
+            new Relation($dbi, $config),
+            new Template($config),
+            $config,
+            new Clock(),
+        );
         $response = $userPreferences->redirect(
             'file.html',
             ['a' => 'b'],
@@ -484,7 +534,13 @@ class UserPreferencesTest extends AbstractTestCase
 
         $config = Config::getInstance();
         $dbi = DatabaseInterface::getInstance();
-        $userPreferences = new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config);
+        $userPreferences = new UserPreferences(
+            $dbi,
+            new Relation($dbi, $config),
+            new Template($config),
+            $config,
+            new Clock(),
+        );
         self::assertSame(
             '',
             $userPreferences->autoloadGetHeader(),

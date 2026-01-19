@@ -339,7 +339,13 @@ return [
     ],
     UserPreferences::class => [
         'class' => UserPreferences::class,
-        'arguments' => [DatabaseInterface::class, Relation::class, Template::class, Config::class],
+        'arguments' => [
+            DatabaseInterface::class,
+            Relation::class,
+            Template::class,
+            Config::class,
+            ClockInterface::class,
+        ],
     ],
     UserPrivilegesFactory::class => [
         'class' => UserPrivilegesFactory::class,

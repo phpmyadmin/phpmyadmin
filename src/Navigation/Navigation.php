@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation;
 
+use PhpMyAdmin\Clock\Clock;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Config\UserPreferences;
@@ -105,6 +106,7 @@ class Navigation
                     new Relation($this->dbi, $this->config),
                     $this->template,
                     $this->config,
+                    new Clock(),
                 );
                 $pageSettings = new PageSettings($userPreferences);
                 $pageSettings->init('Navi', 'pma_navigation_settings');

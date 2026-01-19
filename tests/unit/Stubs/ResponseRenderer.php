@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Stubs;
 
 use PhpMyAdmin\Bookmarks\BookmarkRepository;
+use PhpMyAdmin\Clock\Clock;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\UserPreferences;
 use PhpMyAdmin\Config\UserPreferencesHandler;
@@ -63,7 +64,7 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
         $relation = new Relation($dbi, $config);
         $history = new History($dbi, $relation, $config);
         $console = new Console($relation, $template, new BookmarkRepository($dbi, $relation), $history);
-        $userPreferences = new UserPreferences($dbi, $relation, $template, $config);
+        $userPreferences = new UserPreferences($dbi, $relation, $template, $config, new Clock());
         $userPreferencesHandler = new UserPreferencesHandler(
             $config,
             $dbi,

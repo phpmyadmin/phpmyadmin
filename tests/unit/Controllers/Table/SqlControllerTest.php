@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Bookmarks\BookmarkRepository;
+use PhpMyAdmin\Clock\Clock;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Config\UserPreferences;
@@ -52,7 +53,13 @@ class SqlControllerTest extends AbstractTestCase
         $this->dummyDbi->addResult('SELECT 1 FROM `test_db`.`test_table` LIMIT 1;', [['1']]);
 
         $template = new Template($config);
-        $userPreferences = new UserPreferences($this->dbi, new Relation($this->dbi, $config), $template, $config);
+        $userPreferences = new UserPreferences(
+            $this->dbi,
+            new Relation($this->dbi, $config),
+            $template,
+            $config,
+            new Clock(),
+        );
         $pageSettings = new PageSettings($userPreferences);
         $pageSettings->init('Sql');
         $fields = $this->dbi->getColumns('test_db', 'test_table');

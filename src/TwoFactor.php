@@ -9,6 +9,7 @@ namespace PhpMyAdmin;
 
 use BaconQrCode\Renderer\ImageRenderer;
 use CodeLts\U2F\U2FServer\U2FServer;
+use PhpMyAdmin\Clock\Clock;
 use PhpMyAdmin\Config\UserPreferences;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\DatabaseInterface;
@@ -59,7 +60,13 @@ class TwoFactor
         $dbi = DatabaseInterface::getInstance();
         $config = Config::getInstance();
 
-        $this->userPreferences = new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config);
+        $this->userPreferences = new UserPreferences(
+            $dbi,
+            new Relation($dbi, $config),
+            new Template($config),
+            $config,
+            new Clock(),
+        );
         $this->available = $this->getAvailableBackends();
         $this->config = $this->readConfig();
         $this->writable = $this->config['type'] === 'db';

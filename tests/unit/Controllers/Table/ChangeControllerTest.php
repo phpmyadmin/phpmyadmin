@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
+use PhpMyAdmin\Clock\Clock;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Config\UserPreferences;
@@ -46,7 +47,7 @@ final class ChangeControllerTest extends AbstractTestCase
         $config = Config::getInstance();
         $template = new Template($config);
         $relation = new Relation($dbi, $config);
-        $userPreferences = new UserPreferences($dbi, $relation, $template, $config);
+        $userPreferences = new UserPreferences($dbi, $relation, $template, $config, new Clock());
         $pageSettings = new PageSettings($userPreferences);
         $pageSettings->init('Edit');
 
@@ -155,7 +156,7 @@ final class ChangeControllerTest extends AbstractTestCase
         $config = Config::getInstance();
         $relation = new Relation($dbi, $config);
         $template = new Template($config);
-        $userPreferences = new UserPreferences($dbi, $relation, $template, $config);
+        $userPreferences = new UserPreferences($dbi, $relation, $template, $config, new Clock());
         $pageSettings = new PageSettings($userPreferences);
         $pageSettings->init('Edit');
 
