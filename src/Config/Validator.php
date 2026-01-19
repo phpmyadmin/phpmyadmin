@@ -52,7 +52,7 @@ use const PHP_INT_MAX;
  */
 class Validator
 {
-    /** @var mixed[] */
+    /** @var string[]|mixed[][] */
     private array $validators;
 
     public function __construct(private ConfigFile $configFile)
@@ -63,7 +63,7 @@ class Validator
     /**
      * Returns validator list
      *
-     * @return mixed[]
+     * @return string[]|mixed[][]
      */
     public function getValidators(): array
     {
@@ -117,21 +117,19 @@ class Validator
      *   cleanup in HTML document
      * o false - when no validators match name(s) given by $validator_id
      *
-     * @param string|string[] $validatorId  ID of validator(s) to run
-     * @param mixed[]         $values       Values to validate
-     * @param bool            $isPostSource tells whether $values are directly from POST request
+     * @param string[] $validatorIds ID of validator(s) to run
+     * @param mixed[]  $values       Values to validate
+     * @param bool     $isPostSource tells whether $values are directly from POST request
      *
      * @return mixed[]|bool
      */
     public function validate(
-        string|array $validatorId,
+        array $validatorIds,
         array $values,
         bool $isPostSource,
     ): bool|array {
-        // find validators
-        $validatorId = (array) $validatorId;
         $vids = [];
-        foreach ($validatorId as &$vid) {
+        foreach ($validatorIds as $vid) {
             $vid = $this->configFile->getCanonicalPath($vid);
             if (! isset($this->validators[$vid])) {
                 continue;
@@ -163,7 +161,7 @@ class Validator
             foreach ((array) $this->validators[$vid] as $validator) {
                 $vdef = (array) $validator;
                 $vname = array_shift($vdef);
-                $args = array_merge([$vid, &$arguments], $vdef);
+                $args = array_merge([$vid, $arguments], $vdef);
 
                 $validationResult = match ($vname) {
                     'validateServer' => $this->validateServer(...$args),
@@ -202,8 +200,7 @@ class Validator
         // restore original paths
         $newResult = [];
         foreach ($result as $k => $v) {
-            $k2 = $keyMap[$k] ?? $k;
-            $newResult[$k2] = $v;
+            $newResult[$keyMap[$k] ?? $k] = $v;
         }
 
         return $newResult === [] ? true : $newResult;

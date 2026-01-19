@@ -242,7 +242,6 @@
       <code><![CDATA[$ip]]></code>
       <code><![CDATA[$userPrefsDisallow ?? []]]></code>
       <code><![CDATA[$val]]></code>
-      <code><![CDATA[$validators[$path]]]></code>
       <code><![CDATA[$value]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
@@ -533,9 +532,6 @@
       <code><![CDATA[$k2]]></code>
       <code><![CDATA[$k2]]></code>
     </PossiblyInvalidCast>
-    <ReferenceReusedFromConfusingScope>
-      <code><![CDATA[$vid]]></code>
-    </ReferenceReusedFromConfusingScope>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($errorList)]]></code>
       <code><![CDATA[empty($values['Servers/1/controlpass'])]]></code>

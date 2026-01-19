@@ -637,12 +637,6 @@ parameters:
 			path: src/Config/FormDisplay.php
 
 		-
-			message: '#^Parameter \#2 \$validators of method PhpMyAdmin\\Config\\FormDisplayTemplate\:\:addJsValidate\(\) expects array\<mixed\>\|string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Config/FormDisplay.php
-
-		-
 			message: '#^Parameter \#3 \$subject of function str_replace expects array\<string\>\|string, int\|string\|false given\.$#'
 			identifier: argument.type
 			count: 1
@@ -1213,7 +1207,7 @@ parameters:
 			path: src/Config/Validator.php
 
 		-
-			message: '#^Property PhpMyAdmin\\Config\\Validator\:\:\$validators \(array\<mixed\>\) does not accept mixed\.$#'
+			message: '#^Property PhpMyAdmin\\Config\\Validator\:\:\$validators \(array\<array\<mixed\>\|string\>\) does not accept mixed\.$#'
 			identifier: assign.propertyType
 			count: 1
 			path: src/Config/Validator.php
