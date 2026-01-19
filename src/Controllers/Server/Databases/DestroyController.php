@@ -57,11 +57,9 @@ final readonly class DestroyController implements InvocableController
         $selectedDbs = $request->getParsedBodyParam('selected_dbs');
         $selectedDbs = is_array($selectedDbs) ? $selectedDbs : [];
         $pmadb = $this->config->selectedServer['pmadb'];
-        $selectedDbs = array_filter($selectedDbs, static function ($database) use ($pmadb): bool {
-            return is_string($database)
-                && ! Utilities::isSystemSchema($database, true)
-                && $database !== $pmadb;
-        });
+        $selectedDbs = array_filter($selectedDbs, static fn ($database) => is_string($database)
+            && ! Utilities::isSystemSchema($database, true)
+            && $database !== $pmadb);
 
         if ($selectedDbs === []) {
             $message = Message::error(__('No databases selected.'));

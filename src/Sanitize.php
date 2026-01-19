@@ -197,7 +197,7 @@ class Sanitize
         /* Find and replace all links */
         $message = (string) preg_replace_callback(
             $pattern,
-            static fn (array $match): string => self::replaceBBLink($match),
+            self::replaceBBLink(...),
             $message,
         );
 
@@ -205,7 +205,7 @@ class Sanitize
         return (string) preg_replace_callback(
             '/\[doc@([a-zA-Z0-9_-]+)(@([a-zA-Z0-9_-]*))?\]/',
             /** @param string[] $match */
-            static fn (array $match): string => self::replaceDocLink($match),
+            self::replaceDocLink(...),
             $message,
         );
     }
