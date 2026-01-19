@@ -23,10 +23,6 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Medium;
 use ReflectionProperty;
 
-use function gmdate;
-
-use const DATE_RFC1123;
-
 #[CoversClass(Header::class)]
 #[Medium]
 class HeaderTest extends AbstractTestCase
@@ -193,7 +189,6 @@ class HeaderTest extends AbstractTestCase
         string $expectedWebKitCsp,
     ): void {
         $header = $this->getNewHeaderInstance();
-        $date = gmdate(DATE_RFC1123);
 
         $config = Config::getInstance();
         $config->set('AllowThirdPartyFraming', $frameOptions);
@@ -203,7 +198,7 @@ class HeaderTest extends AbstractTestCase
         $config->set('CaptchaCsp', $captchaCsp);
 
         $expected = [
-            'X-Frame-Options' => $expectedFrameOptions,
+            'X-Frame-Options' => $expectedFrameOptions ?? '',
             'Referrer-Policy' => 'same-origin',
             'Content-Security-Policy' => $expectedCsp,
             'X-Content-Security-Policy' => $expectedXCsp,
@@ -213,18 +208,17 @@ class HeaderTest extends AbstractTestCase
             'X-Permitted-Cross-Domain-Policies' => 'none',
             'X-Robots-Tag' => 'noindex, nofollow',
             'Permissions-Policy' => 'fullscreen=(self), interest-cohort=()',
-            'Expires' => $date,
+            'Expires' => 'Wed, 21 Oct 2015 07:28:00 GMT',
             'Cache-Control' => 'no-store, no-cache, must-revalidate, pre-check=0, post-check=0, max-age=0',
             'Pragma' => 'no-cache',
-            'Last-Modified' => $date,
+            'Last-Modified' => 'Wed, 21 Oct 2015 07:28:00 GMT',
             'Content-Type' => 'text/html; charset=utf-8',
         ];
         if ($expectedFrameOptions === null) {
             unset($expected['X-Frame-Options']);
         }
 
-        $headers = $this->callFunction($header, Header::class, 'getHttpHeaders', []);
-        self::assertSame($expected, $headers);
+        self::assertSame($expected, $header->getHttpHeaders('2015-10-21T05:28:00-02:00'));
     }
 
     /** @return mixed[][] */

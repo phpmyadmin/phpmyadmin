@@ -658,9 +658,13 @@ class CoreTest extends AbstractTestCase
 
     public function testGetDownloadHeaders(): void
     {
-        $headersList = Core::getDownloadHeaders('test.sql', 'text/x-sql', 100, false);
+        $headersList = Core::getDownloadHeaders('test.sql', 'text/x-sql', 100, '2015-10-21T05:28:00-02:00');
 
         $expected = [
+            'Expires' => 'Wed, 21 Oct 2015 07:28:00 GMT',
+            'Cache-Control' => 'no-store, no-cache, must-revalidate, pre-check=0, post-check=0, max-age=0',
+            'Pragma' => 'no-cache',
+            'Last-Modified' => 'Wed, 21 Oct 2015 07:28:00 GMT',
             'Content-Description' => 'File Transfer',
             'Content-Disposition' => 'attachment; filename="test.sql"',
             'Content-Type' => 'text/x-sql',
@@ -672,9 +676,13 @@ class CoreTest extends AbstractTestCase
 
     public function testGetDownloadHeaders2(): void
     {
-        $headersList = Core::getDownloadHeaders('test.sql.gz', 'application/x-gzip', 0, false);
+        $headersList = Core::getDownloadHeaders('test.sql.gz', 'application/x-gzip', 0, '2015-10-21T05:28:00-02:00');
 
         $expected = [
+            'Expires' => 'Wed, 21 Oct 2015 07:28:00 GMT',
+            'Cache-Control' => 'no-store, no-cache, must-revalidate, pre-check=0, post-check=0, max-age=0',
+            'Pragma' => 'no-cache',
+            'Last-Modified' => 'Wed, 21 Oct 2015 07:28:00 GMT',
             'Content-Description' => 'File Transfer',
             'Content-Disposition' => 'attachment; filename="test.sql.gz"',
             'Content-Type' => 'application/x-gzip',
@@ -701,5 +709,29 @@ class CoreTest extends AbstractTestCase
         putenv('PHPMYADMIN_GET_ENV_TEST');
 
         self::assertSame('', Core::getEnv('PHPMYADMIN_GET_ENV_TEST'));
+    }
+
+    public function testGetNoCacheHeaders(): void
+    {
+        $expected = [
+            'Expires' => 'Wed, 21 Oct 2015 07:28:00 GMT',
+            'Cache-Control' => 'no-store, no-cache, must-revalidate, pre-check=0, post-check=0, max-age=0',
+            'Pragma' => 'no-cache',
+            'Last-Modified' => 'Wed, 21 Oct 2015 07:28:00 GMT',
+        ];
+        self::assertSame($expected, Core::getNoCacheHeaders('2015-10-21T05:28:00-02:00'));
+    }
+
+    public function testHeaderJSON(): void
+    {
+        $expected = [
+            'Expires' => 'Wed, 21 Oct 2015 07:28:00 GMT',
+            'Cache-Control' => 'no-store, no-cache, must-revalidate, pre-check=0, post-check=0, max-age=0',
+            'Pragma' => 'no-cache',
+            'Last-Modified' => 'Wed, 21 Oct 2015 07:28:00 GMT',
+            'Content-Type' => 'application/json; charset=UTF-8',
+            'X-Content-Type-Options' => 'nosniff',
+        ];
+        self::assertSame($expected, Core::headerJSON('2015-10-21T05:28:00-02:00'));
     }
 }

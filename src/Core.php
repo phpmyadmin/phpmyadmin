@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use DateTimeImmutable;
+use DateTimeInterface;
+use DateTimeZone;
 use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Exceptions\MissingExtensionException;
 use PhpMyAdmin\Http\ServerRequest;
@@ -18,7 +21,6 @@ use function explode;
 use function filter_var;
 use function function_exists;
 use function getenv;
-use function gmdate;
 use function hash_equals;
 use function hash_hmac;
 use function header;
@@ -45,7 +47,6 @@ use function substr;
 use function unserialize;
 use function urldecode;
 
-use const DATE_RFC1123;
 use const FILTER_VALIDATE_IP;
 
 /**
@@ -209,10 +210,10 @@ class Core
      *
      * @return array<string, string>
      */
-    public static function headerJSON(): array
+    public static function headerJSON(string $currentDateTime = 'now'): array
     {
         // No caching
-        $headers = self::getNoCacheHeaders();
+        $headers = self::getNoCacheHeaders($currentDateTime);
 
         // Media type
         $headers['Content-Type'] = 'application/json; charset=UTF-8';
@@ -227,13 +228,15 @@ class Core
     }
 
     /** @return array<string, string> */
-    public static function getNoCacheHeaders(): array
+    public static function getNoCacheHeaders(string $currentDateTime = 'now'): array
     {
         $headers = [];
-        $date = gmdate(DATE_RFC1123);
+        $formattedDateTime = (new DateTimeImmutable($currentDateTime))
+            ->setTimezone(new DateTimeZone('UTC'))
+            ->format(DateTimeInterface::RFC7231);
 
         // rfc2616 - Section 14.21
-        $headers['Expires'] = $date;
+        $headers['Expires'] = $formattedDateTime;
 
         // HTTP/1.1
         $headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, pre-check=0, post-check=0, max-age=0';
@@ -244,7 +247,7 @@ class Core
         // test case: exporting a database into a .gz file with Safari
         // would produce files not having the current time
         // (added this header for Safari but should not harm other browsers)
-        $headers['Last-Modified'] = $date;
+        $headers['Last-Modified'] = $formattedDateTime;
 
         return $headers;
     }
@@ -253,7 +256,6 @@ class Core
      * @param string $filename Filename to include in headers if empty, none Content-Disposition header will be sent.
      * @param string $mimetype MIME type to include in headers.
      * @param int    $length   Length of content (optional)
-     * @param bool   $noCache  Whether to include no-caching headers.
      *
      * @return array<string, string>
      */
@@ -261,13 +263,9 @@ class Core
         string $filename,
         string $mimetype,
         int $length = 0,
-        bool $noCache = true,
+        string $currentDateTime = 'now',
     ): array {
-        $headers = [];
-
-        if ($noCache) {
-            $headers = self::getNoCacheHeaders();
-        }
+        $headers = self::getNoCacheHeaders($currentDateTime);
 
         /* Replace all possibly dangerous chars in filename */
         $filename = Sanitize::sanitizeFilename($filename);
@@ -293,15 +291,10 @@ class Core
      * @param string $filename Filename to include in headers if empty, none Content-Disposition header will be sent.
      * @param string $mimetype MIME type to include in headers.
      * @param int    $length   Length of content (optional)
-     * @param bool   $noCache  Whether to include no-caching headers.
      */
-    public static function downloadHeader(
-        string $filename,
-        string $mimetype,
-        int $length = 0,
-        bool $noCache = true,
-    ): void {
-        $headers = self::getDownloadHeaders($filename, $mimetype, $length, $noCache);
+    public static function downloadHeader(string $filename, string $mimetype, int $length = 0): void
+    {
+        $headers = self::getDownloadHeaders($filename, $mimetype, $length);
 
         // The default output in PMA uses gzip,
         // so if we want to output uncompressed file, we should reset the encoding.

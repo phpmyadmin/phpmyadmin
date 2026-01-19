@@ -335,7 +335,7 @@ class Header
     }
 
     /** @return array<string, string> */
-    public function getHttpHeaders(): array
+    public function getHttpHeaders(string $currentDateTime = 'now'): array
     {
         $headers = [];
 
@@ -388,7 +388,7 @@ class Header
          */
         $headers['Permissions-Policy'] = 'fullscreen=(self), interest-cohort=()';
 
-        $headers = array_merge($headers, Core::getNoCacheHeaders());
+        $headers = array_merge($headers, Core::getNoCacheHeaders($currentDateTime));
 
         /**
          * A different Content-Type is set in {@see \PhpMyAdmin\Controllers\Transformation\WrapperController}.
