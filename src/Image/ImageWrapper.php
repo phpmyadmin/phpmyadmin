@@ -48,7 +48,7 @@ final class ImageWrapper
             return null;
         }
 
-        if (! isset($background['red'], $background['green'], $background['blue'])) {
+        if ($background === null) {
             return new self($image);
         }
 
