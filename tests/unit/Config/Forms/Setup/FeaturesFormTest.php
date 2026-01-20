@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Config\Forms\Setup;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Form;
 use PhpMyAdmin\Config\FormDisplay;
@@ -22,8 +21,6 @@ final class FeaturesFormTest extends AbstractTestCase
     public function testRegisteredForms(): void
     {
         Form::resetGroupCounter();
-        $config = new Config();
-        Config::$instance = $config;
 
         $featuresForm = new FeaturesForm(new ConfigFile([]), 1);
         self::assertSame('Features', FeaturesForm::getName());

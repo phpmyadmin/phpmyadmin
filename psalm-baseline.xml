@@ -9315,9 +9315,6 @@
     </TypeDoesNotContainType>
   </file>
   <file src="tests/unit/ConfigTest.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$config->settings['Server']]]></code>
       <code><![CDATA[$config->settings['Server']]]></code>

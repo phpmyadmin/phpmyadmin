@@ -54,13 +54,6 @@ class OptionsTest extends AbstractTestCase
         $this->export = new Options($relation, new TemplateModel($dbi), $userPreferencesHandler);
     }
 
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-
-        Config::$instance = null;
-    }
-
     public function testGetOptions(): void
     {
         $config = Config::getInstance();

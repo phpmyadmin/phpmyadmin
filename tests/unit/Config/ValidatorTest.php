@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Config;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Validator;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -15,7 +14,6 @@ final class ValidatorTest extends AbstractTestCase
 {
     public function testGetValidators(): void
     {
-        Config::$instance = new Config();
         $validator = new Validator(new ConfigFile([]));
         $validators = $validator->getValidators();
         $expected = [
