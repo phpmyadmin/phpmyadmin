@@ -162,7 +162,6 @@ class ConfigTest extends AbstractTestCase
         $config = $settings->asArray();
         self::assertIsArray($config['Servers']);
         self::assertEquals($settings, $object->getSettings());
-        self::assertSame($config, $object->default);
         self::assertSame($config, $object->settings);
         self::assertSame($config, $object->baseSettings);
     }

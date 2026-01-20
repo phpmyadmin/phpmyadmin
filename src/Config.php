@@ -68,9 +68,6 @@ class Config
 {
     public static self|null $instance = null;
 
-    /** @var mixed[]   default configuration settings */
-    public array $default;
-
     /** @var mixed[]   configuration settings, without user preferences applied */
     public array $baseSettings;
 
@@ -102,7 +99,6 @@ class Config
     {
         $this->config = new Settings([]);
         $config = $this->config->asArray();
-        $this->default = $config;
         $this->settings = $config;
         $this->baseSettings = $config;
         $this->selectedServer = (new Server())->asArray();

@@ -21,6 +21,9 @@ class UserPreferencesHandler
     /** @var ''|'db'|'session' */
     public string $storageType = '';
 
+    /** @var mixed[]   default configuration settings */
+    public array $defaultSettings;
+
     public function __construct(
         private readonly Config $config,
         private readonly DatabaseInterface $dbi,
@@ -28,6 +31,7 @@ class UserPreferencesHandler
         private readonly LanguageManager $languageManager,
         private readonly ThemeManager $themeManager,
     ) {
+        $this->defaultSettings = (new Settings([]))->asArray();
     }
 
     /**
@@ -165,7 +169,7 @@ class UserPreferencesHandler
         // use permanent user preferences if possible
         if ($this->storageType !== '') {
             if ($defaultValue === null) {
-                $defaultValue = Core::arrayRead($cfgPath, $this->config->default);
+                $defaultValue = Core::arrayRead($cfgPath, $this->defaultSettings);
             }
 
             $result = $this->userPreferences->persistOption($cfgPath, $newCfgValue, $defaultValue);
