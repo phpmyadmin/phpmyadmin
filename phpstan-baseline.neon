@@ -16789,12 +16789,6 @@ parameters:
 			path: tests/unit/Plugins/Transformations/TransformationPluginsTest.php
 
 		-
-			message: '#^Static property PhpMyAdmin\\Display\\Results\:\:\$row \(list\<string\|null\>\) does not accept array\{pma\: ''aaa'', pca\: ''bbb''\}\.$#'
-			identifier: assign.propertyType
-			count: 1
-			path: tests/unit/Plugins/Transformations/TransformationPluginsTest.php
-
-		-
 			message: '#^PHPDoc tag @var with type array\{backend\: string, settings\: array\<mixed\>\} is not subtype of native type array\{backend\: '''', settings\: array\{\}\}\.$#'
 			identifier: varTag.nativeType
 			count: 1

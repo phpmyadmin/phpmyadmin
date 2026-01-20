@@ -10742,9 +10742,6 @@
     <PossiblyInvalidArgument>
       <code><![CDATA[testTransformation]]></code>
     </PossiblyInvalidArgument>
-    <PropertyTypeCoercion>
-      <code><![CDATA[['pma' => 'aaa', 'pca' => 'bbb']]]></code>
-    </PropertyTypeCoercion>
   </file>
   <file src="tests/unit/PluginsTest.php">
     <DeprecatedMethod>
