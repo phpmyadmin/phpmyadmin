@@ -65,7 +65,6 @@ abstract class AbstractTestCase extends TestCase
         ExportSql::$noConstraintsComments = false;
 
         // Config before DBI
-        $this->setGlobalConfig();
         Cache::purge();
         Tracker::disable();
 
@@ -91,14 +90,6 @@ abstract class AbstractTestCase extends TestCase
         $config->loadFromFile();
 
         return $config;
-    }
-
-    protected function setGlobalConfig(): void
-    {
-        Config::$instance = null;
-        $config = Config::getInstance();
-        $config->loadFromFile();
-        $config->set('environment', 'development');
     }
 
     protected function setLanguage(string $code = 'en'): void

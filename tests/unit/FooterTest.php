@@ -34,8 +34,6 @@ class FooterTest extends AbstractTestCase
 
         $this->setLanguage();
 
-        $this->setGlobalConfig();
-
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         $_SERVER['SCRIPT_NAME'] = 'index.php';
         Current::$database = '';

@@ -32,8 +32,6 @@ class AuthenticationConfigTest extends AbstractTestCase
 
         $this->setLanguage();
 
-        $this->setGlobalConfig();
-
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         Current::$server = 2;
         Current::$database = 'db';

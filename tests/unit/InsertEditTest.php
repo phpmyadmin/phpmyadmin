@@ -65,8 +65,6 @@ class InsertEditTest extends AbstractTestCase
 
         $this->setLanguage();
 
-        $this->setGlobalConfig();
-
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;

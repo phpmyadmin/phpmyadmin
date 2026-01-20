@@ -13,16 +13,6 @@ use PHPUnit\Framework\Attributes\Large;
 class PdfTest extends AbstractTestCase
 {
     /**
-     * SetUp for test cases
-     */
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        $this->setGlobalConfig();
-    }
-
-    /**
      * Test for Pdf::getPDFData
      */
     public function testBasic(): void

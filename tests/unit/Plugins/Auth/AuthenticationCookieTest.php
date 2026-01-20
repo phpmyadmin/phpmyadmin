@@ -52,8 +52,6 @@ class AuthenticationCookieTest extends AbstractTestCase
 
         $this->setLanguage();
 
-        $this->setGlobalConfig();
-
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         Current::$database = 'db';
         Current::$table = 'table';

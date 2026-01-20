@@ -35,8 +35,6 @@ class VariablesControllerTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $this->setGlobalConfig();
-
         $this->setLanguage();
 
         Current::$database = 'db';

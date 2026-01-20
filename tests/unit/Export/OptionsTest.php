@@ -35,8 +35,6 @@ class OptionsTest extends AbstractTestCase
 
         $this->setLanguage();
 
-        $this->setGlobalConfig();
-
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
 

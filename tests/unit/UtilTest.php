@@ -160,8 +160,6 @@ class UtilTest extends AbstractTestCase
     #[DataProvider('providerExpandUserString')]
     public function testExpandUserString(string $in, string $out): void
     {
-        $this->setGlobalConfig();
-
         $config = Config::getInstance();
         $config->selectedServer['host'] = 'host&';
         $config->selectedServer['verbose'] = 'verbose';

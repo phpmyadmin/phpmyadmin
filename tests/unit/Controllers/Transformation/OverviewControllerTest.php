@@ -25,8 +25,6 @@ class OverviewControllerTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $this->setGlobalConfig();
-
         Current::$database = 'db';
         Current::$table = 'table';
     }

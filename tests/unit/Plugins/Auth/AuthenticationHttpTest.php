@@ -33,8 +33,6 @@ class AuthenticationHttpTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $this->setGlobalConfig();
-
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         Config::getInstance()->settings['Servers'] = [];
         Current::$database = 'db';

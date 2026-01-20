@@ -30,8 +30,6 @@ class ServerConfigChecksTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $this->setGlobalConfig();
-
         $this->configFile = new ConfigFile();
 
         $reflection = new ReflectionProperty(ConfigFile::class, 'id');

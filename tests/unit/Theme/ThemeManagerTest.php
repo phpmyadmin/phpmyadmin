@@ -19,8 +19,6 @@ class ThemeManagerTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $this->setGlobalConfig();
-
         Current::$server = 99;
     }
 

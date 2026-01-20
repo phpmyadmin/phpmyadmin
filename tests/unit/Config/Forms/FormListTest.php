@@ -24,13 +24,6 @@ use PHPUnit\Framework\Attributes\DataProvider;
 #[CoversClass(UserFormList::class)]
 class FormListTest extends AbstractTestCase
 {
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        $this->setGlobalConfig();
-    }
-
     /**
      * Tests for preferences forms.
      *
