@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table\Maintenance;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Table\Maintenance\ChecksumController;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
@@ -25,7 +26,7 @@ class ChecksumControllerTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
         $response = new ResponseRenderer();
-        $controller = new ChecksumController($response, new Maintenance($dbi), $this->createConfig());
+        $controller = new ChecksumController($response, new Maintenance($dbi), new Config());
         $controller($request);
         self::assertFalse($response->hasSuccessState());
         self::assertSame(['message' => 'No table selected.'], $response->getJSONResult());

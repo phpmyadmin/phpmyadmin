@@ -84,14 +84,6 @@ abstract class AbstractTestCase extends TestCase
         return new DbiDummy();
     }
 
-    protected function createConfig(): Config
-    {
-        $config = new Config();
-        $config->loadFromFile();
-
-        return $config;
-    }
-
     protected function setLanguage(string $code = 'en'): void
     {
         Current::$lang = $code;

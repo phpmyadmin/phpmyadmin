@@ -62,6 +62,14 @@ class ConfigTest extends AbstractTestCase
         $this->permTestObj->loadFromFile(ROOT_PATH . 'config.sample.inc.php');
     }
 
+    protected function createConfig(): Config
+    {
+        $config = new Config();
+        $config->loadFromFile();
+
+        return $config;
+    }
+
     /**
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.

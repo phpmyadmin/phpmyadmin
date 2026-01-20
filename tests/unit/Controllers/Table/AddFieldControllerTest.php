@@ -261,7 +261,7 @@ class AddFieldControllerTest extends AbstractTestCase
         (new AddFieldController(
             $response,
             $transformations,
-            $this->createConfig(),
+            new Config(),
             $dbi,
             new ColumnsDefinition($dbi, $relation, $transformations),
             new DbTableExists($dbi),
