@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2026-01-11 12:25+0000\n"
-"Last-Translator: Jakkarach Dumdee <armada1@hotmail.co.th>\n"
+"PO-Revision-Date: 2026-01-21 06:54+0000\n"
+"Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/5-1/th/>"
 "\n"
 "Language: th\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.15.1\n"
+"X-Generator: Weblate 5.16-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -181,6 +181,8 @@ msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
 msgstr ""
+"คุณควรอัปเกรด เนื่องจาก MySQL 5.1 มีประสิทธิภาพที่ดีขึ้น และ MySQL 5.5 มีประสิทธิภาพดียิ่งขึ้นไปอี"
+"ก"
 
 #: libraries/advisory_rules_generic.php:115
 #: libraries/advisory_rules_generic.php:129
@@ -196,13 +198,15 @@ msgstr "รุ่นย่อย"
 
 #: libraries/advisory_rules_generic.php:124
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
-msgstr ""
+msgstr "เวอร์ชันต่ำกว่า 5.1.30 (เวอร์ชัน GA แรกของ 5.1)"
 
 #: libraries/advisory_rules_generic.php:126
 msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
 msgstr ""
+"คุณควรอัปเกรด เนื่องจาก MySQL เวอร์ชันล่าสุด 5.1 มีประสิทธิภาพที่ดีขึ้น และ MySQL 5.5 มีประสิทธิ"
+"ภาพดียิ่งขึ้นไปอีก"
 
 #: libraries/advisory_rules_generic.php:138
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
@@ -291,6 +295,9 @@ msgid ""
 "refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple slaves."
 msgstr ""
+"คุณกำลังใช้แคช MySQL Query กับฐานข้อมูลที่มีปริมาณการใช้งานค่อนข้างสูง อาจคุ้มค่าที่จะพิจารณาใช้ "
+"<a href=\"https://dev.mysql.com/doc/refman/5.6/en/ha-memcached.html\">"
+"memcached</a> แทนแคช MySQL Query โดยเฉพาะอย่างยิ่งหากคุณมีเซิร์ฟเวอร์รองหลายตัว"
 
 #: libraries/advisory_rules_generic.php:198
 #, php-format
@@ -298,6 +305,8 @@ msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
 msgstr ""
+"แคชคำสั่งถูกเปิดใช้งาน และเซิร์ฟเวอร์รับ %d คำสั่งต่อวินาที กฎนี้จะทำงานหากมีมากกว่า 100 คำสั่งต่อ"
+"วินาที"
 
 #: libraries/advisory_rules_generic.php:206
 #, fuzzy
@@ -318,13 +327,15 @@ msgid ""
 "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
 "depending on your system memory limits."
 msgstr ""
+"พิจารณาเพิ่มขนาด {sort_buffer_size} และ/หรือ {read_rnd_buffer_size} ขึ้นอยู่กับข้อจำกัดข"
+"องหน่วยความจำในระบบของคุณ"
 
 #: libraries/advisory_rules_generic.php:215
 #, php-format
 msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than "
 "10%%."
-msgstr ""
+msgstr "%s%% ทุกประเภททำให้เกิดตารางชั่วคราว ค่านี้ควรต่ำกว่า 10%%"
 
 #: libraries/advisory_rules_generic.php:220
 #, fuzzy
@@ -336,7 +347,7 @@ msgstr "อนุญาตให้สร้างตารางชั่วค
 #, php-format
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
-msgstr ""
+msgstr "ตารางชั่วคราวโดยเฉลี่ย: %s ค่านี้ควรน้อยกว่า 1 ต่อชั่วโมง"
 
 #: libraries/advisory_rules_generic.php:233
 #, fuzzy
@@ -346,7 +357,7 @@ msgstr "ส."
 
 #: libraries/advisory_rules_generic.php:236
 msgid "There are lots of rows being sorted."
-msgstr ""
+msgstr "มีการจัดเรียงข้อมูลหลายแถว"
 
 #: libraries/advisory_rules_generic.php:238
 msgid ""
@@ -784,10 +795,9 @@ msgid ""
 msgstr "ตารางที่ถูกติดตาม"
 
 #: libraries/advisory_rules_generic.php:525
-#, fuzzy, php-format
-#| msgid "long_query_time is set to %d second(s)."
+#, php-format
 msgid "slow_launch_time is set to %s"
-msgstr "long_query_time ถูกตั้งไว้ที่ %d วินาที"
+msgstr "slow_launch_time ถูกตั้งไว้เป็น %s"
 
 #: libraries/advisory_rules_generic.php:531
 #, fuzzy
@@ -3009,10 +3019,9 @@ msgid "Maximum execution time"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:662 templates/export.twig:293
-#, fuzzy, php-format
-#| msgid "Statements"
+#, php-format
 msgid "Use %s statement"
-msgstr "คำสั่ง"
+msgstr "ใช้คำสั่ง %s"
 
 #: libraries/classes/Config/Descriptions.php:665
 msgid "Save as file"
@@ -3294,10 +3303,9 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:738
 #: libraries/classes/Plugins/Export/ExportSql.php:354
-#, fuzzy, php-format
-#| msgid "Session value"
+#, php-format
 msgid "%s view"
-msgstr "ค่าเซสชั่น"
+msgstr "%s มุมมอง"
 
 #: libraries/classes/Config/Descriptions.php:739
 #, fuzzy
@@ -3500,9 +3508,8 @@ msgid "Table structure"
 msgstr "โครงสร้างของตาราง"
 
 #: libraries/classes/Config/Descriptions.php:790
-#, fuzzy
 msgid "Tabs"
-msgstr "ตาราง "
+msgstr "แท็บ"
 
 #: libraries/classes/Config/Descriptions.php:791
 #, fuzzy
@@ -7395,11 +7402,10 @@ msgid "Database %1$s has been created."
 msgstr "ฐานข้อมูล %1$s ถูกสร้างเรียบร้อยแล้ว"
 
 #: libraries/classes/Controllers/Server/DatabasesController.php:325
-#, fuzzy, php-format
-#| msgid "%s databases have been dropped successfully."
+#, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "%s ฐานข้อมูลได้ถูกทิ้งไปเรียบร้อยแล้ว."
+msgstr[0] "%1$d ฐานข้อมูลถูกลบเรียบร้อยแล้ว"
 
 #: libraries/classes/Controllers/Server/DatabasesController.php:483
 #: libraries/classes/Import.php:148
@@ -8141,9 +8147,9 @@ msgstr "ที่คั่นหน้า %s ได้ถูกสร้าง�
 #: libraries/classes/Controllers/Table/IndexesController.php:259
 #: libraries/classes/Controllers/Table/StructureController.php:995
 #: libraries/classes/Controllers/Table/StructureController.php:1222
-#, fuzzy, php-format
+#, php-format
 msgid "Table %1$s has been altered successfully."
-msgstr "ลบผู้ใช้ที่เลือกไว้เรียบร้อยแล้ว."
+msgstr "ตาราง %1$s ได้รับการแก้ไขเรียบร้อยแล้ว"
 
 #: libraries/classes/Controllers/Table/ChangeController.php:304
 #: libraries/classes/Controllers/Table/DeleteController.php:121
@@ -8294,10 +8300,9 @@ msgid "The columns have been moved successfully."
 msgstr "ลบผู้ใช้ที่เลือกไว้เรียบร้อยแล้ว."
 
 #: libraries/classes/Controllers/Table/StructureController.php:746
-#, fuzzy, php-format
-#| msgid "Failed to fetch headers"
+#, php-format
 msgid "Failed to get description of column %s!"
-msgstr "การดึงค่าส่วนหัวไม่สำเร็จ"
+msgstr "ไม่สามารถดึงข้อมูลรายละเอียดของคอลัมน์ %s ได้!"
 
 #: libraries/classes/Controllers/Table/StructureController.php:987
 #: libraries/classes/Controllers/Table/StructureController.php:1271
@@ -8555,10 +8560,9 @@ msgid "MySQL said: "
 msgstr "MySQL แสดง: "
 
 #: libraries/classes/Database/Events.php:130
-#, fuzzy, php-format
-#| msgid "Table %s has been dropped."
+#, php-format
 msgid "Event %1$s has been modified."
-msgstr "โยนตาราง %s ทิ้งไปเรียบร้อยแล้ว"
+msgstr "เหตุการณ์ %1$s ได้รับการแก้ไขแล้ว"
 
 #: libraries/classes/Database/Events.php:150
 #, fuzzy, php-format
@@ -8632,10 +8636,9 @@ msgid "Error in processing request:"
 msgstr "โพรเซส"
 
 #: libraries/classes/Database/Events.php:534
-#, fuzzy, php-format
-#| msgid "No tables found in database."
+#, php-format
 msgid "No event with name %1$s found in database %2$s."
-msgstr "ไม่พบตารางใด ๆ ในฐานข้อมูล"
+msgstr "ไม่พบเหตุการณ์ที่มีชื่อ %1$s ในฐานข้อมูล %2$s"
 
 #: libraries/classes/Database/Events.php:566
 #, php-format
@@ -8643,11 +8646,11 @@ msgid "Export of event %s"
 msgstr ""
 
 #: libraries/classes/Database/Events.php:584
-#, fuzzy, php-format
-#| msgid "No tables found in database."
+#, php-format
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
-msgstr "ไม่พบตารางใด ๆ ในฐานข้อมูล"
+msgstr ""
+"เกิดข้อผิดพลาดในการประมวลผลคำขอ: ไม่พบเหตุการณ์ที่มีชื่อ %1$s ในฐานข้อมูล %2$s"
 
 #: libraries/classes/DatabaseInterface.php:1111
 #, php-format
@@ -9018,10 +9021,9 @@ msgstr ""
 
 #: libraries/classes/Database/Routines.php:1409
 #: libraries/classes/Database/Routines.php:1587
-#, fuzzy, php-format
-#| msgid "No tables found in database."
+#, php-format
 msgid "No routine with name %1$s found in database %2$s."
-msgstr "ไม่พบตารางใด ๆ ในฐานข้อมูล"
+msgstr "ไม่พบกิจวัตรชื่อ %1$s ในฐานข้อมูล %2$s"
 
 #: libraries/classes/Database/Routines.php:1448
 #, php-format
@@ -9314,10 +9316,9 @@ msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "มีข้อผิดพลาดระหว่างการอัพโหลด กรุณาดู [doc@faq1-11]FAQ 1.11[/doc]"
 
 #: libraries/classes/Display/Results.php:4528
-#, fuzzy, php-format
-#| msgid "Showing rows"
+#, php-format
 msgid "Showing rows %1s - %2s"
-msgstr "แสดงแถว"
+msgstr "แสดงแถว %1s - %2s"
 
 #: libraries/classes/Display/Results.php:4542
 #, php-format
@@ -9325,10 +9326,9 @@ msgid "%1$d total, %2$d in query"
 msgstr ""
 
 #: libraries/classes/Display/Results.php:4547
-#, fuzzy, php-format
-#| msgid "total"
+#, php-format
 msgid "%d total"
-msgstr "ทั้งหมด"
+msgstr "%d ทั้งหมด"
 
 #: libraries/classes/Display/Results.php:4559 libraries/classes/Sql.php:1051
 #, fuzzy, php-format
@@ -9879,9 +9879,9 @@ msgid "Edit structure by following the \"Structure\" link."
 msgstr ""
 
 #: libraries/classes/Import.php:1353
-#, fuzzy, php-format
+#, php-format
 msgid "Go to database: %s"
-msgstr "ไม่มีฐานข้อมูล"
+msgstr "ไปยังฐานข้อมูล: %s"
 
 #: libraries/classes/Import.php:1359 libraries/classes/Import.php:1402
 #, php-format
@@ -9894,10 +9894,9 @@ msgid "Go to table: %s"
 msgstr "ไม่มีฐานข้อมูล"
 
 #: libraries/classes/Import.php:1395
-#, fuzzy, php-format
-#| msgid "Structure only"
+#, php-format
 msgid "Structure of %s"
-msgstr "เฉพาะโครงสร้าง"
+msgstr "โครงสร้างของ %s"
 
 #: libraries/classes/Import.php:1413
 #, php-format
@@ -10195,9 +10194,8 @@ msgstr "ผู้ใช้"
 
 #: libraries/classes/Menu.php:588 libraries/classes/Server/Status/Data.php:152
 #: libraries/classes/Util.php:2482 templates/server/binlog/index.twig:3
-#, fuzzy
 msgid "Binary log"
-msgstr "ข้อมูลไบนารี "
+msgstr "บันทึกไบนารี"
 
 #: libraries/classes/Menu.php:595 libraries/classes/Server/Status/Data.php:157
 #: libraries/classes/Util.php:2483
@@ -10321,10 +10319,9 @@ msgid "Invalid class name \"%1$s\", using default of \"Node\""
 msgstr ""
 
 #: libraries/classes/Navigation/NodeFactory.php:66
-#, fuzzy, php-format
-#| msgid "Add columns"
+#, php-format
 msgid "Could not load class \"%1$s\""
-msgstr "เพิ่มฟิลด์ใหม่"
+msgstr "ไม่สามารถโหลดคลาส \"%1$s\""
 
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:24
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:25
@@ -11290,10 +11287,9 @@ msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:325
-#, fuzzy, php-format
-#| msgid "Session value"
+#, php-format
 msgid "%s value"
-msgstr "ค่าเซสชั่น"
+msgstr "%s ค่า"
 
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
 #: libraries/classes/Plugins/Export/ExportSql.php:342
@@ -11420,10 +11416,9 @@ msgid "Last check:"
 msgstr "ตรวจสอบครั้งสุดท้าย:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1558
-#, fuzzy, php-format
-#| msgid "Table structure for table"
+#, php-format
 msgid "Error reading structure for table %s:"
-msgstr "โครงสร้างตาราง"
+msgstr "เกิดข้อผิดพลาดในการอ่านโครงสร้างสำหรับตาราง %s:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1649
 msgid "It appears your database uses views;"
@@ -11572,10 +11567,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportLdi.php:74
-#, fuzzy
-#| msgid "Column names"
 msgid "Column names: "
-msgstr "ชื่อคอลัมน์"
+msgstr "ชื่อคมลัมน์: "
 
 #: libraries/classes/Plugins/Import/ImportLdi.php:115
 msgid "This plugin does not support compressed imports!"
@@ -12695,10 +12688,9 @@ msgid "The user %s already exists!"
 msgstr "มีผู้ใช้ %s อยู่แล้ว!"
 
 #: libraries/classes/Server/Privileges.php:2993
-#, fuzzy, php-format
-#| msgid "Privileges"
+#, php-format
 msgid "Privileges for %s"
-msgstr "สิทธิ"
+msgstr "สิทธิ์สำหรับ %s"
 
 #: libraries/classes/Server/Privileges.php:3132
 msgid ""
@@ -12864,15 +12856,13 @@ msgid "Showing as PHP code"
 msgstr ""
 
 #: libraries/classes/Sql.php:1422
-#, fuzzy, php-format
-#| msgid ""
-#| "This table does not contain a unique column. Features related to the grid "
-#| "edit, checkbox, Edit, Copy and Delete links may not work after saving."
+#, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available. %s"
 msgstr ""
-"ตารางนี้ไม่มีสดมภ์ไหนที่เก็บค่าที่แตกต่างกันเสมอ การแก้ไขหรือเพิ่มผ่านตารางจะไม่สามารถบันทึกได้"
+"การเลือกปัจจุบันไม่มีคอลัมน์ที่ไม่ซ้ำกัน ฟีเจอร์การแก้ไขตาราง, ช่องทำเครื่องหมาย, การแก้ไข, การคัด"
+"ลอก และการลบไม่สามารถใช้งานได้ %s"
 
 #: libraries/classes/Sql.php:1436
 #, php-format
@@ -13911,10 +13901,9 @@ msgid "Online transaction"
 msgstr "การแปลงที่เรียกใช้ได้"
 
 #: templates/columns_definitions/column_name.twig:4
-#, fuzzy, php-format
-#| msgid "Select referenced key"
+#, php-format
 msgid "Referenced by %s."
-msgstr "เลือกคีย์อ้างอิง"
+msgstr "อ้างอิงโดย %s."
 
 #: templates/columns_definitions/column_name.twig:12
 #, fuzzy
@@ -14288,10 +14277,9 @@ msgid "Create version %1$s of %2$s"
 msgstr "สร้างเวอร์ชั่น %1$s ของ %2$s"
 
 #: templates/create_tracking_version.twig:16
-#, fuzzy, php-format
-#| msgid "Create version"
+#, php-format
 msgid "Create version %1$s"
-msgstr "สร้างเวอร์ชั่น"
+msgstr "สร้างเวอร์ชัน %1$s"
 
 #: templates/create_tracking_version.twig:20
 msgid "Track these data definition statements:"
@@ -14460,7 +14448,7 @@ msgstr "เลือกทั้งหมด"
 #: templates/database/designer/database_tables.twig:109
 #, php-format
 msgid "Add an option for column \"%s\"."
-msgstr "เพิ่มตัวเลือกสำหรับคอลัมน์  \"%s\""
+msgstr "เพิ่มตัวเลือกสำหรับคอลัมน์ \"%s\""
 
 #: templates/database/designer/edit_delete_pages.twig:6
 #, fuzzy
@@ -15927,16 +15915,14 @@ msgid "from %s branch"
 msgstr ""
 
 #: templates/home/git_info.twig:25
-#, fuzzy, php-format
-#| msgid "committed on %1$s by %2$s"
+#, php-format
 msgid "committed on %s by %s"
-msgstr "มีข้อผูกพันบน %1$s โดย %2$s"
+msgstr "ยืนยันเมื่อ %s โดย %s"
 
 #: templates/home/git_info.twig:32
-#, fuzzy, php-format
-#| msgid "authored on %1$s by %2$s"
+#, php-format
 msgid "authored on %s by %s"
-msgstr "สร้างบน %1$s โดย %2$s"
+msgstr "เขียนเมื่อ %s โดย %s"
 
 #: templates/home/index.twig:22 templates/login/form.twig:7
 #, php-format
@@ -16111,10 +16097,9 @@ msgid "You may also drag and drop a file on any page."
 msgstr ""
 
 #: templates/import.twig:74 templates/import.twig:104
-#, fuzzy, php-format
-#| msgid "web server upload directory"
+#, php-format
 msgid "Select from the web server upload directory [strong]%s[/strong]:"
-msgstr "ไดเรกทอรีสำหรับอัพโหลด ที่เว็บเซิร์ฟเวอร์"
+msgstr "เลือกจากไดเร็กทอรีอัปโหลดของเว็บเซิร์ฟเวอร์ [strong]%s[/strong]:"
 
 #: templates/import.twig:80
 #, fuzzy
@@ -17714,31 +17699,27 @@ msgstr "เรียกใหม่"
 
 #: templates/server/status/monitor/index.twig:43
 #: templates/server/status/processes/index.twig:36
-#, fuzzy, php-format
-#| msgid "per second"
+#, php-format
 msgid "%d second"
-msgstr "ต่อวินาที"
+msgstr "%d วินาที"
 
 #: templates/server/status/monitor/index.twig:45
 #: templates/server/status/processes/index.twig:38
-#, fuzzy, php-format
-#| msgid "per second"
+#, php-format
 msgid "%d seconds"
-msgstr "ต่อวินาที"
+msgstr "%d วินาที"
 
 #: templates/server/status/monitor/index.twig:49
 #: templates/server/status/processes/index.twig:42
-#, fuzzy, php-format
-#| msgid "per minute"
+#, php-format
 msgid "%d minute"
-msgstr "ต่อนาที"
+msgstr "%d นาที"
 
 #: templates/server/status/monitor/index.twig:51
 #: templates/server/status/processes/index.twig:44
-#, fuzzy, php-format
-#| msgid "per minute"
+#, php-format
 msgid "%d minutes"
-msgstr "ต่อนาที"
+msgstr "%d นาที"
 
 #: templates/server/status/monitor/index.twig:61
 #, fuzzy
@@ -18081,10 +18062,9 @@ msgid "Session value"
 msgstr "ค่าเซสชั่น"
 
 #: templates/server/variables/index.twig:80
-#, fuzzy, php-format
-#| msgid "Server variables and settings"
+#, php-format
 msgid "Not enough privilege to view server variables and settings. %s"
-msgstr "ตัวแปรของเซิร์ฟเวอร์และการตั้งค่า"
+msgstr "ไม่มีสิทธิ์เพียงพอที่จะดูตัวแปรและการตั้งค่าเซิร์ฟเวอร์ %s"
 
 #: templates/setup/base.twig:27 templates/setup/home/index.twig:20
 msgid "Overview"
@@ -18907,9 +18887,9 @@ msgid "Track view"
 msgstr "ติดตามตาราง"
 
 #: templates/table/structure/display_structure.twig:381
-#, fuzzy, php-format
+#, php-format
 msgid "Add %s column(s)"
-msgstr "เพิ่มฟิลด์ใหม่"
+msgstr "เพิ่ม %s คอลัมน์"
 
 #: templates/table/structure/display_structure.twig:386
 #, fuzzy
