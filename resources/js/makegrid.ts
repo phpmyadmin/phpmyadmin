@@ -2287,6 +2287,166 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
 
                 bootstrap.Tooltip.getOrCreateInstance(editRowAnchor.querySelector('a'));
             });
+        },
+
+        /**
+         * Initialize cell selection feature (square selection).
+         */
+        initCellSelection: function () {
+            g.isSelectingCells = false;
+            g.startSelectCell = null;
+            g.endSelectCell = null;
+
+            function updateCellSelection () {
+                if (!g.startSelectCell || !g.endSelectCell) {
+                    return;
+                }
+
+                g.updateCellSelectionStart = $(g.startSelectCell);
+                g.updateCellSelectionEnd = $(g.endSelectCell);
+
+                const startRow = g.updateCellSelectionStart.parent().index();
+                const endRow = g.updateCellSelectionEnd.parent().index();
+                const startCol = g.updateCellSelectionStart.index();
+                const endCol = g.updateCellSelectionEnd.index();
+
+                const minRow = Math.min(startRow, endRow);
+                const maxRow = Math.max(startRow, endRow);
+                const minCol = Math.min(startCol, endCol);
+                const maxCol = Math.max(startCol, endCol);
+
+                $(g.t).find('tbody > tr').each(function (rowIndex) {
+                    if (rowIndex < minRow || rowIndex > maxRow) {
+                        $(this).find('td.cell-selected').removeClass('cell-selected');
+
+                        return;
+                    }
+
+                    $(this).find('td').each(function (colIndex) {
+                        if (colIndex >= minCol && colIndex <= maxCol) {
+                            $(this).addClass('cell-selected');
+                        } else {
+                            $(this).removeClass('cell-selected');
+                        }
+                    });
+                });
+            }
+
+            function resetCellSelection () {
+                g.isSelectingCells = false;
+                g.startSelectCell = null;
+                g.endSelectCell = null;
+                $(g.t).find('.cell-selected').removeClass('cell-selected');
+            }
+
+            // Event to reset selection on Escape key press
+            $(document).on('keydown', function (e) {
+                if (e.key === 'Escape') {
+                    resetCellSelection();
+                }
+            });
+
+            // Reset selection when clicking outside the table
+            $(document).on('mousedown', function (e) {
+                if (!$(e.target).closest(g.t).length) {
+                    resetCellSelection();
+                }
+            });
+
+            // Add styles
+            if ($('#cell-selection-style').length === 0) {
+                $('<style id="cell-selection-style">.cell-selected { background-color: #d0e4f7 !important; outline: 1px solid #7facd6; }</style>').appendTo('head');
+            }
+
+            $(g.t).on('mousedown', 'td.data', function (e) {
+                // Ignore if clicking on link/input/etc or right click
+                if (e.which !== 1 || $(e.target).is('a, input, select, textarea, .edit_box')) {
+                    return;
+                }
+
+                g.isSelectingCells = true;
+                g.startSelectCell = this;
+                g.endSelectCell = this;
+
+                // Clear existing selection
+                $(g.t).find('.cell-selected').removeClass('cell-selected');
+                $(this).addClass('cell-selected');
+
+                // Prevent text selection
+                e.preventDefault();
+
+                // Dynamic mouseover for drag
+                $(g.t).on('mouseover.cellSelect', 'td.data', function (e) {
+                    if (!g.isSelectingCells) {
+                        return;
+                    }
+
+                    g.endSelectCell = this;
+                    updateCellSelection();
+                });
+
+                // One-time mouseup on document to stop selection
+                $(document).on('mouseup.cellSelect', function () {
+                    g.isSelectingCells = false;
+                    $(g.t).off('mouseover.cellSelect');
+                    $(document).off('mouseup.cellSelect');
+                });
+            });
+
+            // Copy handler
+            $(document).on('copy', function (e) {
+                if (!document.body.contains(g.t)) {
+                    return;
+                }
+
+                if ($(g.t).find('.cell-selected').length > 0) {
+                    let selectionText = '';
+                    let minRow = Infinity;
+                    let maxRow = -Infinity;
+                    let minCol = Infinity;
+                    let maxCol = -Infinity;
+
+                    const $selected = $(g.t).find('.cell-selected');
+
+                    $selected.each(function () {
+                        const $cell = $(this);
+                        const rowIndex = $cell.parent().index();
+                        const colIndex = $cell.index();
+
+                        minRow = Math.min(minRow, rowIndex);
+                        maxRow = Math.max(maxRow, rowIndex);
+                        minCol = Math.min(minCol, colIndex);
+                        maxCol = Math.max(maxCol, colIndex);
+                    });
+
+                    for (let r = minRow; r <= maxRow; r++) {
+                        const rowText: string[] = [];
+
+                        for (let c = minCol; c <= maxCol; c++) {
+                            const $cell = $(g.t)
+                                .find('tbody > tr')
+                                .eq(r)
+                                .find('td')
+                                .eq(c);
+
+                            rowText.push(
+                                $cell.hasClass('cell-selected')
+                                    ? $cell.text().trim()
+                                    : ''
+                            );
+                        }
+
+                        selectionText += rowText.join('\t') + '\n';
+                    }
+
+                    const ev = e.originalEvent as ClipboardEvent;
+
+                    if (ev?.clipboardData) {
+                        ev.clipboardData.setData('text/plain', selectionText);
+                        e.preventDefault();
+                    }
+                }
+            });
         }
     };
 
@@ -2420,6 +2580,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
     // some adjustment
     $(t).removeClass('data');
     $(g.gDiv).addClass('data');
+    g.initCellSelection();
 };
 
 declare global {
