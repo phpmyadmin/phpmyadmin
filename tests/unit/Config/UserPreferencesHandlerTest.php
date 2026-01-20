@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Config;
 
+use PhpMyAdmin\Clock\Clock;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\UserPreferences;
 use PhpMyAdmin\Config\UserPreferencesHandler;
@@ -24,7 +25,7 @@ final class UserPreferencesHandlerTest extends AbstractTestCase
         $userPreferencesHandler = new UserPreferencesHandler(
             $config,
             $dbi,
-            new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config),
+            new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config, new Clock()),
             new LanguageManager($config),
             new ThemeManager(),
         );
@@ -42,7 +43,7 @@ final class UserPreferencesHandlerTest extends AbstractTestCase
         $userPreferencesHandler = new UserPreferencesHandler(
             $config,
             $dbi,
-            new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config),
+            new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config, new Clock()),
             new LanguageManager($config),
             new ThemeManager(),
         );

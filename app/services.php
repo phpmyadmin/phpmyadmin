@@ -6,6 +6,7 @@ use PhpMyAdmin\Advisory\Advisor;
 use PhpMyAdmin\Application;
 use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\BrowseForeigners;
+use PhpMyAdmin\Clock\Clock;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\UserPreferences;
 use PhpMyAdmin\Config\UserPreferencesHandler;
@@ -66,6 +67,7 @@ use PhpMyAdmin\UserPassword;
 use PhpMyAdmin\UserPrivilegesFactory;
 use PhpMyAdmin\Utils\HttpRequest;
 use PhpMyAdmin\VersionInformation;
+use Psr\Clock\ClockInterface;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
 return [
@@ -337,7 +339,13 @@ return [
     ],
     UserPreferences::class => [
         'class' => UserPreferences::class,
-        'arguments' => [DatabaseInterface::class, Relation::class, Template::class, Config::class],
+        'arguments' => [
+            DatabaseInterface::class,
+            Relation::class,
+            Template::class,
+            Config::class,
+            ClockInterface::class,
+        ],
     ],
     UserPrivilegesFactory::class => [
         'class' => UserPrivilegesFactory::class,
@@ -368,4 +376,5 @@ return [
         ],
     ],
     LanguageManager::class => ['class' => LanguageManager::class, 'factory' => [LanguageManager::class, 'getInstance']],
+    ClockInterface::class => ['class' => Clock::class],
 ];

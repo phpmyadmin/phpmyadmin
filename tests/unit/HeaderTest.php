@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Bookmarks\BookmarkRepository;
+use PhpMyAdmin\Clock\Clock;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\UserPreferences;
 use PhpMyAdmin\Config\UserPreferencesHandler;
@@ -17,6 +18,7 @@ use PhpMyAdmin\Header;
 use PhpMyAdmin\I18n\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\Clock\MockClock;
 use PhpMyAdmin\Theme\ThemeManager;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -60,7 +62,7 @@ class HeaderTest extends AbstractTestCase
         $relation = new Relation($dbi, $config);
         $template = new Template($config);
         $history = new History($dbi, $relation, $config);
-        $userPreferences = new UserPreferences($dbi, $relation, $template, $config);
+        $userPreferences = new UserPreferences($dbi, $relation, $template, $config, new Clock());
         $userPreferencesHandler = new UserPreferencesHandler(
             $config,
             $dbi,
@@ -91,7 +93,7 @@ class HeaderTest extends AbstractTestCase
         $template = new Template($config);
         $history = new History($dbi, $relation, $config);
         $console = new Console($relation, $template, new BookmarkRepository($dbi, $relation), $history);
-        $userPreferences = new UserPreferences($dbi, $relation, $template, $config);
+        $userPreferences = new UserPreferences($dbi, $relation, $template, $config, new Clock());
         $userPreferencesHandler = new UserPreferencesHandler(
             $config,
             $dbi,
@@ -218,7 +220,7 @@ class HeaderTest extends AbstractTestCase
             unset($expected['X-Frame-Options']);
         }
 
-        self::assertSame($expected, $header->getHttpHeaders('2015-10-21T05:28:00-02:00'));
+        self::assertSame($expected, $header->getHttpHeaders(MockClock::from('2015-10-21T05:28:00-02:00')));
     }
 
     /** @return mixed[][] */

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Charsets;
+use PhpMyAdmin\Clock\Clock;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Config\UserPreferences;
@@ -85,7 +86,7 @@ class StructureControllerTest extends AbstractTestCase
 
         $relation = new Relation($this->dbi, $config);
         $template = new Template($config);
-        $userPreferences = new UserPreferences($this->dbi, $relation, $template, $config);
+        $userPreferences = new UserPreferences($this->dbi, $relation, $template, $config, new Clock());
         $pageSettings = new PageSettings($userPreferences);
         $pageSettings->init('TableStructure');
         $fields = $this->dbi->getColumns(Current::$database, Current::$table);

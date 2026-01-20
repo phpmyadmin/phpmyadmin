@@ -90,6 +90,7 @@ use PhpMyAdmin\Transformations;
 use PhpMyAdmin\UserPassword;
 use PhpMyAdmin\UserPrivilegesFactory;
 use PhpMyAdmin\VersionInformation;
+use Psr\Clock\ClockInterface;
 
 return [
     BrowseForeignersController::class => [
@@ -431,7 +432,10 @@ return [
         'class' => Import\SimulateDmlController::class,
         'arguments' => [ResponseRenderer::class, SimulateDml::class],
     ],
-    Import\StatusController::class => ['class' => Import\StatusController::class, 'arguments' => [Template::class]],
+    Import\StatusController::class => [
+        'class' => Import\StatusController::class,
+        'arguments' => [Template::class, ClockInterface::class],
+    ],
     JavaScriptMessagesController::class => [
         'class' => JavaScriptMessagesController::class,
         'arguments' => [ResponseFactory::class],

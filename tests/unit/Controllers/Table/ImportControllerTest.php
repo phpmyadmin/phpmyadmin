@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Charsets;
+use PhpMyAdmin\Clock\Clock;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Config\UserPreferences;
@@ -50,7 +51,7 @@ class ImportControllerTest extends AbstractTestCase
         $options = Plugins::getOptions('Import', $importList);
 
         $template = new Template($config);
-        $userPreferences = new UserPreferences($dbi, new Relation($dbi, $config), $template, $config);
+        $userPreferences = new UserPreferences($dbi, new Relation($dbi, $config), $template, $config, new Clock());
         $pageSettings = new PageSettings($userPreferences);
         $pageSettings->init('Import');
         $expected = $template->render('table/import/index', [

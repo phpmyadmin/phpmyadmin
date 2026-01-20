@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
+use PhpMyAdmin\Clock\Clock;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\UserPreferences;
 use PhpMyAdmin\ConfigStorage\Relation;
@@ -136,6 +137,7 @@ final readonly class ErrorReportController implements InvocableController
                         new Relation($this->dbi, $this->config),
                         $this->template,
                         $this->config,
+                        new Clock(),
                     );
                     $userPreferences->persistOption('SendErrorReports', 'always', 'ask');
                 }

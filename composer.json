@@ -64,6 +64,7 @@
         "phpmyadmin/motranslator": "^6.0",
         "phpmyadmin/shapefile": "^4.0",
         "phpmyadmin/sql-parser": "^6.0",
+        "psr/clock": "^1.0",
         "psr/container": "^2.0",
         "psr/http-factory": "^1.0",
         "psr/http-message": "^2",

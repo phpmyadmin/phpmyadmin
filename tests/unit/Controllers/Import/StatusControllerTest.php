@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Import;
 
 use Fig\Http\Message\StatusCodeInterface;
+use PhpMyAdmin\Clock\Clock;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Import\StatusController;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
@@ -41,7 +42,7 @@ final class StatusControllerTest extends AbstractTestCase
             'id' => 'abc1234567890',
         ]);
 
-        $controller = new StatusController(new Template(new Config()));
+        $controller = new StatusController(new Template(new Config()), new Clock());
         $response = $controller($request);
 
         self::assertSame(
@@ -66,7 +67,7 @@ final class StatusControllerTest extends AbstractTestCase
             'message' => '1',
         ]);
 
-        $controller = new StatusController(new Template(new Config()));
+        $controller = new StatusController(new Template(new Config()), new Clock());
         $response = $controller($request);
 
         $expected = $message->getDisplay();
@@ -97,7 +98,7 @@ final class StatusControllerTest extends AbstractTestCase
             'message' => '1',
         ]);
 
-        $controller = new StatusController(new Template(new Config()));
+        $controller = new StatusController(new Template(new Config()), new Clock());
         $response = $controller($request);
 
         self::assertSame($message->getDisplay(), self::getActualOutputForAssertion());

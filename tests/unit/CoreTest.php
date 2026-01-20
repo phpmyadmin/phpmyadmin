@@ -10,6 +10,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Tests\Clock\MockClock;
 use PhpMyAdmin\Url;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -658,7 +659,8 @@ class CoreTest extends AbstractTestCase
 
     public function testGetDownloadHeaders(): void
     {
-        $headersList = Core::getDownloadHeaders('test.sql', 'text/x-sql', 100, '2015-10-21T05:28:00-02:00');
+        $clock = MockClock::from('2015-10-21T05:28:00-02:00');
+        $headersList = Core::getDownloadHeaders($clock, 'test.sql', 'text/x-sql', 100);
 
         $expected = [
             'Expires' => 'Wed, 21 Oct 2015 07:28:00 GMT',
@@ -676,7 +678,8 @@ class CoreTest extends AbstractTestCase
 
     public function testGetDownloadHeaders2(): void
     {
-        $headersList = Core::getDownloadHeaders('test.sql.gz', 'application/x-gzip', 0, '2015-10-21T05:28:00-02:00');
+        $clock = MockClock::from('2015-10-21T05:28:00-02:00');
+        $headersList = Core::getDownloadHeaders($clock, 'test.sql.gz', 'application/x-gzip');
 
         $expected = [
             'Expires' => 'Wed, 21 Oct 2015 07:28:00 GMT',
@@ -719,7 +722,7 @@ class CoreTest extends AbstractTestCase
             'Pragma' => 'no-cache',
             'Last-Modified' => 'Wed, 21 Oct 2015 07:28:00 GMT',
         ];
-        self::assertSame($expected, Core::getNoCacheHeaders('2015-10-21T05:28:00-02:00'));
+        self::assertSame($expected, Core::getNoCacheHeaders(MockClock::from('2015-10-21T05:28:00-02:00')));
     }
 
     public function testHeaderJSON(): void
@@ -732,6 +735,6 @@ class CoreTest extends AbstractTestCase
             'Content-Type' => 'application/json; charset=UTF-8',
             'X-Content-Type-Options' => 'nosniff',
         ];
-        self::assertSame($expected, Core::headerJSON('2015-10-21T05:28:00-02:00'));
+        self::assertSame($expected, Core::headerJSON(MockClock::from('2015-10-21T05:28:00-02:00')));
     }
 }

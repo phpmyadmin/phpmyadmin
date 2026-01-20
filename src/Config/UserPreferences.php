@@ -18,6 +18,7 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use Psr\Clock\ClockInterface;
 
 use function __;
 use function array_flip;
@@ -30,7 +31,6 @@ use function is_numeric;
 use function json_decode;
 use function json_encode;
 use function str_contains;
-use function time;
 use function urlencode;
 
 /**
@@ -43,6 +43,7 @@ readonly class UserPreferences
         private Relation $relation,
         private Template $template,
         private Config $config,
+        private ClockInterface $clock,
     ) {
     }
 
@@ -76,9 +77,10 @@ readonly class UserPreferences
     {
         $relationParameters = $this->relation->getRelationParameters();
         if ($relationParameters->userPreferencesFeature === null) {
+            $currentTimestamp = $this->clock->now()->getTimestamp();
             // no pmadb table, use session storage
             if (! isset($_SESSION['userconfig']) || ! is_array($_SESSION['userconfig'])) {
-                $_SESSION['userconfig'] = ['db' => [], 'ts' => time()];
+                $_SESSION['userconfig'] = ['db' => [], 'ts' => $currentTimestamp];
             }
 
             $configData = $_SESSION['userconfig']['db'] ?? null;
@@ -86,7 +88,7 @@ readonly class UserPreferences
 
             return [
                 'config_data' => is_array($configData) ? $configData : [],
-                'mtime' => is_int($timestamp) ? $timestamp : time(),
+                'mtime' => is_int($timestamp) ? $timestamp : $currentTimestamp,
                 'type' => 'session',
             ];
         }
@@ -100,14 +102,14 @@ readonly class UserPreferences
             . $this->dbi->quoteString((string) $relationParameters->user);
         $row = $this->dbi->fetchSingleRow($query, DatabaseInterface::FETCH_ASSOC, ConnectionType::ControlUser);
         if ($row === [] || ! isset($row['config_data']) || ! isset($row['ts'])) {
-            return ['config_data' => [], 'mtime' => time(), 'type' => 'db'];
+            return ['config_data' => [], 'mtime' => $this->clock->now()->getTimestamp(), 'type' => 'db'];
         }
 
         $configData = json_decode($row['config_data'], true);
 
         return [
             'config_data' => is_array($configData) ? $configData : [],
-            'mtime' => is_numeric($row['ts']) ? (int) $row['ts'] : time(),
+            'mtime' => is_numeric($row['ts']) ? (int) $row['ts'] : $this->clock->now()->getTimestamp(),
             'type' => 'db',
         ];
     }
@@ -137,7 +139,7 @@ readonly class UserPreferences
             || $relationParameters->db === null
         ) {
             // no pmadb table, use session storage
-            $_SESSION['userconfig'] = ['db' => $configArray, 'ts' => time()];
+            $_SESSION['userconfig'] = ['db' => $configArray, 'ts' => $this->clock->now()->getTimestamp()];
             if (isset($_SESSION['cache'][$cacheKey]['userprefs'])) {
                 unset($_SESSION['cache'][$cacheKey]['userprefs']);
             }
