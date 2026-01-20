@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2026-01-19 00:55+0000\n"
+"PO-Revision-Date: 2026-01-21 06:54+0000\n"
 "Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/4-9/th/>"
 "\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.15.2\n"
+"X-Generator: Weblate 5.16-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -6487,7 +6487,7 @@ msgstr "ฐานข้อมูล %1$s ถูกสร้างเรียบ
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "ฐานข้อมูล %1$d ถูกลบเรียบร้อยแล้ว"
+msgstr[0] "%1$d ฐานข้อมูลถูกลบเรียบร้อยแล้ว"
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:343
 #: libraries/classes/Import.php:122
@@ -7147,7 +7147,7 @@ msgstr "อาจเป็นค่าโดยประมาณ โปรด�
 #: libraries/classes/Display/Results.php:4558
 #, php-format
 msgid "Showing rows %1s - %2s"
-msgstr "กำลังแสดงแถว %1s - %2s"
+msgstr "แสดงแถว %1s - %2s"
 
 #: libraries/classes/Display/Results.php:4573
 #, php-format
@@ -7157,7 +7157,7 @@ msgstr "ทั้งหมด %1$d, %2$d ในคำสั่งเรียก
 #: libraries/classes/Display/Results.php:4578
 #, php-format
 msgid "%d total"
-msgstr "ทั้งหมด %d"
+msgstr "%d ทั้งหมด"
 
 #: libraries/classes/Display/Results.php:4590 libraries/classes/Sql.php:1435
 #, php-format
@@ -7728,7 +7728,7 @@ msgstr "ตัวเลือก"
 #: libraries/classes/Import.php:1228
 #, php-format
 msgid "Go to database: %s"
-msgstr "ไปที่ฐานข้อมูล: %s"
+msgstr "ไปยังฐานข้อมูล: %s"
 
 #: libraries/classes/Import.php:1234 libraries/classes/Import.php:1278
 #, php-format
@@ -9273,7 +9273,7 @@ msgstr "(ประสิทธิภาพลดลง เนื่องจา�
 #: libraries/classes/Plugins/Export/ExportSql.php:298
 #, php-format
 msgid "%s value"
-msgstr "ค่า %s"
+msgstr "%s ค่า"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:332
 msgid ""
@@ -9405,7 +9405,7 @@ msgstr "ตรวจสอบล่าสุด:"
 #: libraries/classes/Plugins/Export/ExportSql.php:1493
 #, php-format
 msgid "Error reading structure for table %s:"
-msgstr "การอ่านโครงสร้างตารางผิดพลาดของ %s:"
+msgstr "เกิดข้อผิดพลาดในการอ่านโครงสร้างสำหรับตาราง %s:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1547
 msgid "It appears your database uses views;"
@@ -9508,7 +9508,7 @@ msgstr ""
 #: libraries/classes/Plugins/Import/ImportCsv.php:80
 #: libraries/classes/Plugins/Import/ImportLdi.php:75
 msgid "Column names: "
-msgstr "ชื่อคอลัมน์: "
+msgstr "ชื่อคมลัมน์: "
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:120
 #: libraries/classes/Plugins/Import/ImportCsv.php:135
@@ -10538,7 +10538,7 @@ msgstr "ขออภัย เราไม่สามารถกู้คื�
 #: libraries/classes/Rte/Events.php:149
 #, php-format
 msgid "Event %1$s has been modified."
-msgstr "กิจกรรม %1$s ได้รับการแก้ไขแล้ว"
+msgstr "เหตุการณ์ %1$s ได้รับการแก้ไขแล้ว"
 
 #: libraries/classes/Rte/Events.php:169
 #, php-format
@@ -10871,7 +10871,7 @@ msgstr ""
 #: libraries/classes/Rte/Words.php:47
 #, php-format
 msgid "No routine with name %1$s found in database %2$s."
-msgstr "ไม่พบรูทีนชื่อ %1$s ในฐานข้อมูล %2$s"
+msgstr "ไม่พบกิจวัตรชื่อ %1$s ในฐานข้อมูล %2$s"
 
 #: libraries/classes/Rte/Words.php:48
 msgid "There are no routines to display."
@@ -11446,7 +11446,7 @@ msgstr "มีผู้ใช้ %s อยู่แล้ว!"
 #: libraries/classes/Server/Privileges.php:4469
 #, php-format
 msgid "Privileges for %s"
-msgstr "สิทธิ์สำเรับ %s"
+msgstr "สิทธิ์สำหรับ %s"
 
 #: libraries/classes/Server/Privileges.php:4478
 #: libraries/classes/Server/Status/Processes.php:69
@@ -12732,7 +12732,7 @@ msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available. %s"
 msgstr ""
-"การเลือกปัจจุบันไม่มีคอลัมน์ที่ไม่ซ้ำกัน ฟังก์ชันการแก้ไขตาราง, ช่องทำเครื่องหมาย, การแก้ไข, การคัด"
+"การเลือกปัจจุบันไม่มีคอลัมน์ที่ไม่ซ้ำกัน ฟีเจอร์การแก้ไขตาราง, ช่องทำเครื่องหมาย, การแก้ไข, การคัด"
 "ลอก และการลบไม่สามารถใช้งานได้ %s"
 
 #: libraries/classes/Sql.php:1827
@@ -16144,8 +16144,8 @@ msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
 msgstr ""
-"คุณควรทำการอัปเกรด เนื่องจาก MySQL 5.1 มีประสิทธิภาพที่ดีขึ้น และ MySQL 5.5 มีประสิทธิภาพดียิ่ง"
-"ขึ้นไปอีก"
+"คุณควรอัปเกรด เนื่องจาก MySQL 5.1 มีประสิทธิภาพที่ดีขึ้น และ MySQL 5.5 มีประสิทธิภาพดียิ่งขึ้นไปอี"
+"ก"
 
 #: libraries/advisory_rules_generic.txt:105
 #: libraries/advisory_rules_generic.txt:112
@@ -16168,8 +16168,8 @@ msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
 msgstr ""
-"คุณควรทำการอัปเกรด เนื่องจาก MySQL เวอร์ชันล่าสุด 5.1 มีประสิทธิภาพที่ดีขึ้น และ MySQL 5.5 มีป"
-"ระสิทธิภาพดียิ่งขึ้นไปอีก"
+"คุณควรอัปเกรด เนื่องจาก MySQL เวอร์ชันล่าสุด 5.1 มีประสิทธิภาพที่ดีขึ้น และ MySQL 5.5 มีประสิทธิ"
+"ภาพดียิ่งขึ้นไปอีก"
 
 #: libraries/advisory_rules_generic.txt:117
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
@@ -16267,8 +16267,8 @@ msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
 msgstr ""
-"แคชคำสั่งถูกเปิดใช้งาน และเซิร์ฟเวอร์รับคำสั่งจำนวน %d ครั้งต่อวินาที กฎนี้จะทำงานหากมีคำสั่งมากกว่"
-"า 100 ครั้งต่อวินาที"
+"แคชคำสั่งถูกเปิดใช้งาน และเซิร์ฟเวอร์รับ %d คำสั่งต่อวินาที กฎนี้จะทำงานหากมีมากกว่า 100 คำสั่งต่อ"
+"วินาที"
 
 #: libraries/advisory_rules_generic.txt:154
 msgid "Percentage of sorts that cause temporary tables"
@@ -16285,8 +16285,8 @@ msgid ""
 "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
 "depending on your system memory limits."
 msgstr ""
-"ควรพิจารณาเพิ่มขนาด {sort_buffer_size} และ/หรือ {read_rnd_buffer_size} ขึ้นอยู่กับข้อจำ"
-"กัดของหน่วยความจำในระบบของคุณ"
+"พิจารณาเพิ่มขนาด {sort_buffer_size} และ/หรือ {read_rnd_buffer_size} ขึ้นอยู่กับข้อจำกัดข"
+"องหน่วยความจำในระบบของคุณ"
 
 #: libraries/advisory_rules_generic.txt:159
 #, php-format
