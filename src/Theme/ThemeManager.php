@@ -176,9 +176,6 @@ class ThemeManager
             $this->theme->getColorMode(),
             $this->theme->getColorModes()[0],
         );
-        // force a change of a dummy session variable to avoid problems
-        // with the caching of phpmyadmin.css.php
-        $config->set('theme-update', $this->theme->id);
     }
 
     public function loadThemes(): void

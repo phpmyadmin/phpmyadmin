@@ -13,6 +13,7 @@ use Throwable;
 
 use function __;
 use function array_key_last;
+use function array_shift;
 use function array_slice;
 use function count;
 use function defined;
@@ -283,15 +284,43 @@ class Config
      *
      * @param string $setting configuration option
      * @param mixed  $value   new value for configuration option
+     *
+     * @throws ConfigException
      */
     public function set(string $setting, mixed $value): void
     {
-        if (isset($this->settings[$setting]) && $this->settings[$setting] === $value) {
+        $parts = explode('/', $setting);
+        if (! $this->setValueRecursive($this->settings, $parts, $value)) {
             return;
         }
 
-        $this->settings[$setting] = $value;
         $this->config = new Settings($this->settings);
+    }
+
+    /**
+     * @param mixed[]     $array
+     * @param array-key[] $parts
+     *
+     * @throws ConfigException
+     */
+    private function setValueRecursive(array &$array, array $parts, mixed $value): bool
+    {
+        $part = array_shift($parts);
+        if ($parts === []) {
+            if ($array[$part] === $value) {
+                return false;
+            }
+
+            $array[$part] = $value;
+
+            return true;
+        }
+
+        if (! is_array($array[$part])) {
+            throw new ConfigException('Failed to set configuration value.');
+        }
+
+        return $this->setValueRecursive($array[$part], $parts, $value);
     }
 
     /**
