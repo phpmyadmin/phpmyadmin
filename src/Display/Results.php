@@ -198,7 +198,7 @@ class Results
     public Template $template;
 
     /** @var list<string|null> */
-    public static array $row = [];
+    private static array $row = [];
 
     /**
      * @param string $db       the database name

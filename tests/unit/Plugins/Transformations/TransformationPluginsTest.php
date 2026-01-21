@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Plugins\Transformations;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Display\Results;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
 use PhpMyAdmin\Plugins\Transformations\Abs\DateFormatTransformationsPlugin;
@@ -105,15 +104,6 @@ class TransformationPluginsTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-
-        $this->setLanguage();
-
-        // For Application Octetstream Download plugin
-
-        Results::$row = ['pma' => 'aaa', 'pca' => 'bbb'];
-
-        // For Image_*_Inline plugin
-        $this->setGlobalConfig();
 
         // For Date Format plugin
         date_default_timezone_set('UTC');
