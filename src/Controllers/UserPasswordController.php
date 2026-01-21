@@ -39,10 +39,7 @@ final readonly class UserPasswordController implements InvocableController
          * Displays an error message and exits if the user isn't allowed to use this
          * script
          */
-        $hasAccessPrivilege = true;
-        if (! $this->config->settings['ShowChgPassword']) {
-            $hasAccessPrivilege = $this->dbi->selectDb('mysql');
-        }
+        $hasAccessPrivilege = $this->config->config->ShowChgPassword || $this->dbi->selectDb('mysql');
 
         if ($this->config->selectedServer['auth_type'] === 'config' || ! $hasAccessPrivilege) {
             $this->response->addHTML(Message::error(
