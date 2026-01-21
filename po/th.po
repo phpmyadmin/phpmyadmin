@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2026-01-21 06:54+0000\n"
+"PO-Revision-Date: 2026-01-21 17:10+0000\n"
 "Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/4-9/th/>"
 "\n"
@@ -16327,7 +16327,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.txt:173
 #, php-format
 msgid "Sorted rows average: %s"
-msgstr "ค่าเฉลี่ยของแถวที่เรียงลำดับ: %s"
+msgstr "ค่าเฉลี่ยแถวที่เรียงลำดับ: %s"
 
 #: libraries/advisory_rules_generic.txt:176
 msgid "Rate of joins without indexes"
@@ -16342,13 +16342,13 @@ msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins."
 msgstr ""
-"นั่นหมายความว่าการร่วมกันจะทำการสแกนตารางทั้งหมด การเพิ่มดัชนีสำหรับคอลัมน์ที่ใช้ในเงื่อนไขการเชื่"
-"อมตารางจะช่วยเพิ่มความเร็วในการเชื่อมตารางได้อย่างมาก"
+"นั่นหมายความว่าการเชื่อมตารางจะทำการสแกนตารางทั้งหมด การเพิ่มดัชนีสำหรับคอลัมน์ที่ใช้ในเงื่อนไขก"
+"ารเชื่อมตารางจะช่วยเพิ่มความเร็วในการเชื่อมตารางได้อย่างมาก"
 
 #: libraries/advisory_rules_generic.txt:181
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
-msgstr "ค่าเฉลี่ยของการเชื่อมตาราง: %s ค่านี้ควรน้อยกว่า 1 ต่อชั่วโมง"
+msgstr "ค่าเฉลี่ยการเชื่อมต่อตาราง: %s ค่านี้ควรน้อยกว่า 1 ต่อชั่วโมง"
 
 #: libraries/advisory_rules_generic.txt:183
 msgid "Rate of reading first index entry"
@@ -16367,11 +16367,11 @@ msgid ""
 "scans. Other than that full index scans can only be reduced by rewriting "
 "queries."
 msgstr ""
-"โดยปกติแล้ว นี่บ่งชี้ว่ามีการสแกนดัชนีเต็มรูปแบบบ่อยครั้ง การสแกนดัชนีแบบเต็มรูปแบบเร็วกว่าการสแกนต"
-"าราง แต่ต้องใช้รอบการทำงานของ CPU จำนวนมากในตารางขนาดใหญ่ หากตารางเหล่านั้นมีการ "
-"UPDATE และ DELETE ข้อมูลจำนวนมาก การเรียกใช้ 'OPTIMIZE TABLE' อาจช่วยลดปริมาณและ/หรื"
-"อเพิ่มความเร็วในการสแกนดัชนีแบบเต็มรูปแบบได้ นอกเหนือจากนั้น การสแกนดัชนีแบบเต็มรูปแบบสามารถ"
-"ลดลงได้โดยการเขียนคำสั่ง SQL ใหม่เท่านั้น"
+"โดยปกติแล้ว นี่บ่งชี้ว่ามีการสแกนดัชนีเต็มรูปแบบบ่อยครั้ง การสแกนดัชนีเต็มรูปแบบเร็วกว่าการสแกนตารา"
+"ง แต่ต้องใช้รอบการทำงานของ CPU จำนวนมากในตารางขนาดใหญ่ หากตารางเหล่านั้นมีการ UPDATE "
+"และ DELETE ข้อมูลจำนวนมาก การเรียกใช้ 'OPTIMIZE TABLE' อาจช่วยลดปริมาณและ/หรือเพิ่มควา"
+"มเร็วในการสแกนดัชนีเต็มรูปแบบได้ นอกเหนือจากนั้น การสแกนดัชนีเต็มรูปแบบสามารถลดลงได้โดยการเ"
+"ขียนคำสั่ง SQL ใหม่เท่านั้น"
 
 #: libraries/advisory_rules_generic.txt:188
 #, php-format
@@ -16392,8 +16392,8 @@ msgid ""
 "scan, including join queries that do not use indexes. Add indexes where "
 "applicable."
 msgstr ""
-"นี่แสดงว่าคำสั่งจำนวนมากจำเป็นต้องจัดเรียงผลลัพธ์และ/หรือทำการสแกนตารางเต็มรูปแบบ รวมถึงคำสั่ง"
-"การเชื่อมต่อที่ไม่ใช้ดัชนี โปรดเพิ่มดัชนีในกรณีที่จำเป็น"
+"นี่แสดงว่าคำสั่งจำนวนมากจำเป็นต้องจัดเรียงผลลัพธ์และ/หรือทำการสแกนตารางทั้งหมด รวมถึงคำสั่งการ"
+"เชื่อมต่อที่ไม่ใช้ดัชนี โปรดเพิ่มดัชนีในกรณีที่จำเป็น"
 
 #: libraries/advisory_rules_generic.txt:195
 #, php-format
@@ -16409,24 +16409,24 @@ msgstr "อัตราการอ่านแถวถัดไปของต
 
 #: libraries/advisory_rules_generic.txt:200
 msgid "The rate of reading the next table row is high."
-msgstr "อัตราการอ่านแถวถัดไปในตารางนั้นสูง"
+msgstr "อัตราการอ่านแถวตารางถัดไปนั้นสูง"
 
 #: libraries/advisory_rules_generic.txt:201
 msgid ""
 "This indicates that many queries are doing full table scans. Add indexes "
 "where applicable."
 msgstr ""
-"นี่แสดงว่ามีคำสั่งจำนวนมากที่ทำการสแกนตารางเต็มรูปแบบ ควรเพิ่มดัชนีในกรณีที่จำเป็น"
+"นี่แสดงว่ามีคำสั่งจำนวนมากที่ทำการสแกนตารางทั้งหมด ควรเพิ่มดัชนีในกรณีที่จำเป็น"
 
 #: libraries/advisory_rules_generic.txt:202
 #, php-format
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
-msgstr "อัตราการอ่านแถวถัดไปในตาราง: %s ค่านี้ควรน้อยกว่า 1 ต่อชั่วโมง"
+msgstr "อัตราการอ่านแถวตารางถัดไป: %s ค่านี้ควรน้อยกว่า 1 ต่อชั่วโมง"
 
 #: libraries/advisory_rules_generic.txt:205
 msgid "Different tmp_table_size and max_heap_table_size"
-msgstr "tmp_table_size และ max_heap_table_size ที่แตกต่างกัน"
+msgstr "ความแตกต่างของ tmp_table_size และ max_heap_table_size"
 
 #: libraries/advisory_rules_generic.txt:208
 msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
