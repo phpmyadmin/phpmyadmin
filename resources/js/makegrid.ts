@@ -2305,10 +2305,33 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                 g.updateCellSelectionStart = $(g.startSelectCell);
                 g.updateCellSelectionEnd = $(g.endSelectCell);
 
-                const startRow = g.updateCellSelectionStart.parent().index();
-                const endRow = g.updateCellSelectionEnd.parent().index();
-                const startCol = g.updateCellSelectionStart.index();
-                const endCol = g.updateCellSelectionEnd.index();
+                const isHeader = g.updateCellSelectionEnd.is('th');
+                let startRow = g.updateCellSelectionStart.parent().index();
+                let endRow = g.updateCellSelectionEnd.parent().index();
+                let startCol = g.updateCellSelectionStart.index();
+                let endCol = g.updateCellSelectionEnd.index();
+
+                if (isHeader) {
+                    const colspan = Number(
+                        $(g.t).find('thead th').first().attr('colspan')
+                    ) - 1 || 1;
+                    const startColHeader = startCol - colspan;
+                    const endColHeader = endCol;
+
+                    endCol += colspan;
+
+                    $(g.t).find('thead > tr').each(function (rowIndex) {
+                        $(this).find('th').each(function (colIndex) {
+                            if (colIndex >= Math.min(startColHeader, endColHeader) && colIndex <= Math.max(startColHeader, endColHeader)) {
+                                $(this).addClass('cell-selected');
+                            } else {
+                                $(this).removeClass('cell-selected');
+                            }
+                        });
+                    });
+                } else {
+                    $(g.t).find('thead > tr th').removeClass('cell-selected');
+                }
 
                 const minRow = Math.min(startRow, endRow);
                 const maxRow = Math.max(startRow, endRow);
@@ -2392,7 +2415,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                 e.preventDefault();
 
                 // Dynamic mouseover for drag
-                $(g.t).on('mouseover.cellSelect', 'td.data', function (e) {
+                $(g.t).on('mouseover.cellSelect', 'td.data, thead th:not(.column_action)', function (e) {
                     if (!g.isSelectingCells || g.endSelectCell === this) {
                         return;
                     }
@@ -2417,46 +2440,33 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
 
                 if ($(g.t).find('.cell-selected').length > 0) {
                     let selectionText = '';
-                    let minRow = Infinity;
-                    let maxRow = -Infinity;
-                    let minCol = Infinity;
-                    let maxCol = -Infinity;
 
-                    const $selected = $(g.t).find('.cell-selected');
-
-                    $selected.each(function () {
-                        const $cell = $(this);
-                        const rowIndex = $cell.parent().index();
-                        const colIndex = $cell.index();
-
-                        minRow = Math.min(minRow, rowIndex);
-                        maxRow = Math.max(maxRow, rowIndex);
-                        minCol = Math.min(minCol, colIndex);
-                        maxCol = Math.max(maxCol, colIndex);
+                    const headers: string[] = [];
+                    $(g.t).find('thead th.cell-selected').each(function () {
+                        headers.push(
+                            $(this).find('a')[0].childNodes[0].nodeValue.trim()
+                        );
                     });
 
-                    for (let r = minRow; r <= maxRow; r++) {
-                        const rowText: string[] = [];
-
-                        for (let c = minCol; c <= maxCol; c++) {
-                            const $cell = $(g.t)
-                                .find('tbody > tr')
-                                .eq(r)
-                                .find('td')
-                                .eq(c);
-
-                            rowText.push(
-                                $cell.hasClass('cell-selected')
-                                    ? $cell.text().trim()
-                                    : ''
-                            );
-                        }
-
-                        selectionText += rowText.join('\t') + '\n';
+                    if (headers.length > 0) {
+                        selectionText += headers.join('\t') + '\n';
                     }
 
-                    const ev = e.originalEvent as ClipboardEvent;
+                    const rows: string[] = [];
+                    $(g.t).find('tbody tr').each(function () {
+                        const rowCells: string[] = [];
+                        $(this).find('td.cell-selected').each(function () {
+                            rowCells.push($(this).text().trim());
+                        });
 
+                        if (rowCells.length > 0) {
+                            rows.push(rowCells.join('\t'));
+                        }
+                    });
+
+                    selectionText += rows.join('\n');
+
+                    const ev = e.originalEvent as ClipboardEvent;
                     if (ev?.clipboardData) {
                         ev.clipboardData.setData('text/plain', selectionText);
                         e.preventDefault();
