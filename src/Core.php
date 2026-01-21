@@ -232,7 +232,7 @@ class Core
     public static function getNoCacheHeaders(ClockInterface $clock): array
     {
         $headers = [];
-        $formattedDateTime = $clock->now()->setTimezone(new DateTimeZone('UTC'))->format(DateTimeInterface::RFC7231);
+        $formattedDateTime = $clock->now()->setTimezone(new DateTimeZone('UTC'))->format('D, d M Y H:i:s \G\M\T');
 
         // rfc2616 - Section 14.21
         $headers['Expires'] = $formattedDateTime;
