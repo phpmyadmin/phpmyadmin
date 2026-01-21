@@ -2393,7 +2393,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
 
                 // Dynamic mouseover for drag
                 $(g.t).on('mouseover.cellSelect', 'td.data', function (e) {
-                    if (!g.isSelectingCells) {
+                    if (!g.isSelectingCells || g.endSelectCell === this) {
                         return;
                     }
 
