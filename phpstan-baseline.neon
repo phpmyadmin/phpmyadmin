@@ -313,12 +313,6 @@ parameters:
 			path: src/Config.php
 
 		-
-			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\) does not accept array\.$#'
-			identifier: assign.propertyType
-			count: 1
-			path: src/Config.php
-
-		-
 			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\) does not accept non\-empty\-array\<string, mixed\>\.$#'
 			identifier: assign.propertyType
 			count: 1

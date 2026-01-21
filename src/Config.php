@@ -13,7 +13,6 @@ use Throwable;
 
 use function __;
 use function array_key_last;
-use function array_replace_recursive;
 use function array_slice;
 use function count;
 use function defined;
@@ -204,7 +203,7 @@ class Config
         }
 
         $this->config = new Settings($cfg);
-        $this->settings = array_replace_recursive($this->settings, $this->config->asArray());
+        $this->settings = $this->config->asArray();
     }
 
     /**

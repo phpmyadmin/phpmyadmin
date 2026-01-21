@@ -118,9 +118,6 @@
       <code><![CDATA[$this->settings]]></code>
       <code><![CDATA[$this->settings]]></code>
     </InvalidPropertyAssignmentValue>
-    <MixedPropertyTypeCoercion>
-      <code><![CDATA[array_replace_recursive($this->settings, $this->config->asArray())]]></code>
-    </MixedPropertyTypeCoercion>
     <PossiblyInvalidArrayOffset>
       <code><![CDATA[$_COOKIE[$this->getCookieName($cookieName)]]]></code>
     </PossiblyInvalidArrayOffset>
