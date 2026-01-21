@@ -14,11 +14,8 @@ final class SessionCache
         $key = 'server_' . Current::$server;
 
         $config = Config::getInstance();
-        if (isset($config->selectedServer['user'])) {
-            return $key . '_' . $config->selectedServer['user'];
-        }
 
-        return $key;
+        return $key . '_' . $config->selectedServer['user'];
     }
 
     public static function has(string $name): bool

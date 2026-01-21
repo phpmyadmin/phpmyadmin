@@ -11018,20 +11018,17 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidPropertyAssignmentValue>
-      <code><![CDATA[Config::getInstance()->selectedServer]]></code>
-    </InvalidPropertyAssignmentValue>
     <MixedArgument>
-      <code><![CDATA[$_SESSION['cache']['server_2']]]></code>
-      <code><![CDATA[$_SESSION['cache']['server_2']]]></code>
+      <code><![CDATA[$_SESSION['cache']['server_2_']]]></code>
+      <code><![CDATA[$_SESSION['cache']['server_2_']]]></code>
     </MixedArgument>
     <MixedArrayAccess>
-      <code><![CDATA[$_SESSION['cache']['server_2']]]></code>
-      <code><![CDATA[$_SESSION['cache']['server_2']]]></code>
-      <code><![CDATA[$_SESSION['cache']['server_2']]]></code>
-      <code><![CDATA[$_SESSION['cache']['server_2']]]></code>
-      <code><![CDATA[$_SESSION['cache']['server_2']['is_superuser']]]></code>
-      <code><![CDATA[$_SESSION['cache']['server_2']['mysql_cur_user']]]></code>
+      <code><![CDATA[$_SESSION['cache']['server_2_']]]></code>
+      <code><![CDATA[$_SESSION['cache']['server_2_']]]></code>
+      <code><![CDATA[$_SESSION['cache']['server_2_']]]></code>
+      <code><![CDATA[$_SESSION['cache']['server_2_']]]></code>
+      <code><![CDATA[$_SESSION['cache']['server_2_']['is_superuser']]]></code>
+      <code><![CDATA[$_SESSION['cache']['server_2_']['mysql_cur_user']]]></code>
     </MixedArrayAccess>
     <PossiblyInvalidArgument>
       <code><![CDATA[testBackquote]]></code>
@@ -11104,24 +11101,17 @@
       <code><![CDATA[$_SESSION['cache']]]></code>
       <code><![CDATA[$_SESSION['cache']]]></code>
     </EmptyArrayAccess>
-    <InvalidPropertyAssignmentValue>
-      <code><![CDATA[Config::getInstance()->selectedServer]]></code>
-      <code><![CDATA[Config::getInstance()->selectedServer]]></code>
-      <code><![CDATA[Config::getInstance()->selectedServer]]></code>
-      <code><![CDATA[Config::getInstance()->selectedServer]]></code>
-      <code><![CDATA[Config::getInstance()->selectedServer]]></code>
-    </InvalidPropertyAssignmentValue>
     <MixedArgument>
-      <code><![CDATA[$_SESSION['cache']['server_2']]]></code>
-      <code><![CDATA[$_SESSION['cache']['server_2']]]></code>
+      <code><![CDATA[$_SESSION['cache']['server_2_']]]></code>
+      <code><![CDATA[$_SESSION['cache']['server_2_']]]></code>
     </MixedArgument>
     <MixedArrayAccess>
-      <code><![CDATA[$_SESSION['cache']['server_2']]]></code>
-      <code><![CDATA[$_SESSION['cache']['server_2']]]></code>
-      <code><![CDATA[$_SESSION['cache']['server_2']]]></code>
-      <code><![CDATA[$_SESSION['cache']['server_2']]]></code>
-      <code><![CDATA[$_SESSION['cache']['server_2']['test_data']]]></code>
-      <code><![CDATA[$_SESSION['cache']['server_2']['test_data_3']]]></code>
+      <code><![CDATA[$_SESSION['cache']['server_2_']]]></code>
+      <code><![CDATA[$_SESSION['cache']['server_2_']]]></code>
+      <code><![CDATA[$_SESSION['cache']['server_2_']]]></code>
+      <code><![CDATA[$_SESSION['cache']['server_2_']]]></code>
+      <code><![CDATA[$_SESSION['cache']['server_2_']['test_data']]]></code>
+      <code><![CDATA[$_SESSION['cache']['server_2_']['test_data_3']]]></code>
     </MixedArrayAccess>
   </file>
   <file src="tests/unit/VersionInformationTest.php">

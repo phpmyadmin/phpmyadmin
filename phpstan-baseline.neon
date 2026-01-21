@@ -17203,7 +17203,7 @@ parameters:
 			path: tests/unit/UtilTest.php
 
 		-
-			message: '#^Cannot access offset ''server_2'' on mixed\.$#'
+			message: '#^Cannot access offset ''server_2_'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 4
 			path: tests/unit/UtilTest.php
@@ -17212,12 +17212,6 @@ parameters:
 			message: '#^Parameter \#2 \$array of static method PHPUnit\\Framework\\Assert\:\:assertArrayNotHasKey\(\) expects array\<mixed\>\|ArrayAccess\<\(int\|string\), mixed\>, mixed given\.$#'
 			identifier: argument.type
 			count: 2
-			path: tests/unit/UtilTest.php
-
-		-
-			message: '#^Property PhpMyAdmin\\Config\:\:\$selectedServer \(array\{host\: string, port\: string, socket\: string, ssl\: bool, ssl_key\: string\|null, ssl_cert\: string\|null, ssl_ca\: string\|null, ssl_ca_path\: string\|null, \.\.\.\}\) does not accept array\{host\: string, port\: string, socket\: string, ssl\: bool, ssl_key\: string\|null, ssl_cert\: string\|null, ssl_ca\: string\|null, ssl_ca_path\: string\|null, \.\.\.\}\.$#'
-			identifier: assign.propertyType
-			count: 1
 			path: tests/unit/UtilTest.php
 
 		-
@@ -17281,7 +17275,7 @@ parameters:
 			path: tests/unit/Utils/SessionCacheTest.php
 
 		-
-			message: '#^Cannot access offset ''server_2'' on mixed\.$#'
+			message: '#^Cannot access offset ''server_2_'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 4
 			path: tests/unit/Utils/SessionCacheTest.php
@@ -17308,12 +17302,6 @@ parameters:
 			message: '#^Parameter \#2 \$array of static method PHPUnit\\Framework\\Assert\:\:assertArrayNotHasKey\(\) expects array\<mixed\>\|ArrayAccess\<\(int\|string\), mixed\>, mixed given\.$#'
 			identifier: argument.type
 			count: 2
-			path: tests/unit/Utils/SessionCacheTest.php
-
-		-
-			message: '#^Property PhpMyAdmin\\Config\:\:\$selectedServer \(array\{host\: string, port\: string, socket\: string, ssl\: bool, ssl_key\: string\|null, ssl_cert\: string\|null, ssl_ca\: string\|null, ssl_ca_path\: string\|null, \.\.\.\}\) does not accept array\{host\: string, port\: string, socket\: string, ssl\: bool, ssl_key\: string\|null, ssl_cert\: string\|null, ssl_ca\: string\|null, ssl_ca_path\: string\|null, \.\.\.\}\.$#'
-			identifier: assign.propertyType
-			count: 5
 			path: tests/unit/Utils/SessionCacheTest.php
 
 		-
