@@ -329,17 +329,24 @@ final class HomeController implements InvocableController
                     'severity' => 'warning',
                 ];
             } elseif ($encryptionKeyLength > SODIUM_CRYPTO_SECRETBOX_KEYBYTES) {
-                $this->errors[] = [
-                    'message' => sprintf(
-                        __(
-                            'The cookie encryption key in the configuration file is longer than necessary.'
-                            . ' It should only be %d bytes long.'
-                            . ' Please refer to the [doc@cfg_blowfish_secret]documentation[/doc].',
+                if ($encryptionKeyLength === 64 && ctype_xdigit($blowfishSecret)) {
+                    // Convert the hexadecimal string to binary
+                    $blowfishSecret = hex2bin($blowfishSecret);
+                    // Override the original blowfish_secret
+                    $config->settings['blowfish_secret'] = $blowfishSecret;
+                } else {
+                    $this->errors[] = [
+                        'message' => sprintf(
+                            __(
+                                'The cookie encryption key in the configuration file is longer than necessary.'
+                                . ' It should only be %d bytes long.'
+                                . ' Please refer to the [doc@cfg_blowfish_secret]documentation[/doc].',
+                            ),
+                            SODIUM_CRYPTO_SECRETBOX_KEYBYTES,
                         ),
-                        SODIUM_CRYPTO_SECRETBOX_KEYBYTES,
-                    ),
-                    'severity' => 'warning',
-                ];
+                        'severity' => 'warning',
+                    ];
+                }
             }
         }
 
