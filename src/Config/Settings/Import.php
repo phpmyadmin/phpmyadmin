@@ -37,7 +37,6 @@ use function in_array;
  *     ldi_escaped: string,
  *     ldi_new_line: string,
  *     ldi_columns: string,
- *     ldi_local_option: 'auto'|bool,
  *     ods_col_names: bool,
  *     ods_empty_rows: bool,
  *     ods_recognize_percentages: bool,
@@ -211,17 +210,6 @@ final class Import
     public string $ldi_columns;
 
     /**
-     * 'auto' for auto-detection, true or false for forcing
-     *
-     * ```php
-     * $cfg['Import']['ldi_local_option'] = 'auto';
-     * ```
-     *
-     * @psalm-var 'auto'|bool
-     */
-    public string|bool $ldi_local_option;
-
-    /**
      * ```php
      * $cfg['Import']['ods_col_names'] = false;
      * ```
@@ -274,7 +262,6 @@ final class Import
         $this->ldi_escaped = $this->setLdiEscaped($import);
         $this->ldi_new_line = $this->setLdiNewLine($import);
         $this->ldi_columns = $this->setLdiColumns($import);
-        $this->ldi_local_option = $this->setLdiLocalOption($import);
         $this->ods_col_names = $this->setOdsColNames($import);
         $this->ods_empty_rows = $this->setOdsEmptyRows($import);
         $this->ods_recognize_percentages = $this->setOdsRecognizePercentages($import);
@@ -307,7 +294,6 @@ final class Import
             'ldi_escaped' => $this->ldi_escaped,
             'ldi_new_line' => $this->ldi_new_line,
             'ldi_columns' => $this->ldi_columns,
-            'ldi_local_option' => $this->ldi_local_option,
             'ods_col_names' => $this->ods_col_names,
             'ods_empty_rows' => $this->ods_empty_rows,
             'ods_recognize_percentages' => $this->ods_recognize_percentages,
@@ -553,20 +539,6 @@ final class Import
         }
 
         return (string) $import['ldi_columns'];
-    }
-
-    /**
-     * @param array<int|string, mixed> $import
-     *
-     * @psalm-return 'auto'|bool
-     */
-    private function setLdiLocalOption(array $import): bool|string
-    {
-        if (! isset($import['ldi_local_option']) || $import['ldi_local_option'] === 'auto') {
-            return 'auto';
-        }
-
-        return (bool) $import['ldi_local_option'];
     }
 
     /** @param array<int|string, mixed> $import */

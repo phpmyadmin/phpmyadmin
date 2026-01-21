@@ -79,7 +79,6 @@ final class ImportFormTest extends AbstractTestCase
                 'ldi_terminated' => 'Import/ldi_terminated',
                 'ldi_enclosed' => 'Import/ldi_enclosed',
                 'ldi_escaped' => 'Import/ldi_escaped',
-                'ldi_local_option' => 'Import/ldi_local_option',
             ],
             $form->fields,
         );
@@ -127,7 +126,6 @@ final class ImportFormTest extends AbstractTestCase
                 'Import/ldi_terminated',
                 'Import/ldi_enclosed',
                 'Import/ldi_escaped',
-                'Import/ldi_local_option',
                 ':group:OpenDocument Spreadsheet',
                 'Import/ods_col_names',
                 'Import/ods_empty_rows',

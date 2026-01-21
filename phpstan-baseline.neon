@@ -9539,20 +9539,11 @@ parameters:
 
 		-
 			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 2
-			path: src/Plugins/Import/ImportLdi.php
-
-		-
-			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 2
+			count: 1
 			path: src/Plugins/Import/ImportLdi.php
 
 		-
@@ -16677,7 +16668,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 2
+			count: 1
 			path: tests/unit/Plugins/Import/ImportLdiTest.php
 
 		-

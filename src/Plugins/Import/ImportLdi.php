@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\File;
@@ -53,10 +52,6 @@ class ImportLdi extends AbstractImportCsv
 
         if (! self::isAvailable()) {
             return $importPluginProperties;
-        }
-
-        if (Config::getInstance()->settings['Import']['ldi_local_option'] === 'auto') {
-            $this->setLdiLocalOptionConfig();
         }
 
         $importPluginProperties->setOptionsText(__('Options'));
@@ -203,23 +198,5 @@ class ImportLdi extends AbstractImportCsv
     {
         // We need relations enabled and we work only on database.
         return ImportSettings::$importType === 'table';
-    }
-
-    private function setLdiLocalOptionConfig(): void
-    {
-        $config = Config::getInstance();
-        $config->settings['Import']['ldi_local_option'] = false;
-        $result = DatabaseInterface::getInstance()->tryQuery('SELECT @@local_infile;');
-
-        if ($result === false || $result->numRows() <= 0) {
-            return;
-        }
-
-        $tmp = $result->fetchValue();
-        if ($tmp !== 'ON' && $tmp !== '1') {
-            return;
-        }
-
-        $config->settings['Import']['ldi_local_option'] = true;
     }
 }

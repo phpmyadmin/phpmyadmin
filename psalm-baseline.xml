@@ -6448,9 +6448,6 @@
   </file>
   <file src="src/Plugins/Import/ImportLdi.php">
     <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
     <MixedArgument>
@@ -10677,11 +10674,7 @@
   <file src="tests/unit/Plugins/Import/ImportLdiTest.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <TypeDoesNotContainType>
-      <code><![CDATA[assertTrue]]></code>
-    </TypeDoesNotContainType>
   </file>
   <file src="tests/unit/Plugins/Import/ImportOdsTest.php">
     <DeprecatedMethod>

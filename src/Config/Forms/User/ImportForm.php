@@ -40,7 +40,6 @@ class ImportForm extends BaseForm
                 'Import/ldi_terminated',
                 'Import/ldi_enclosed',
                 'Import/ldi_escaped',
-                'Import/ldi_local_option',
             ],
             'Open_Document' => [
                 ':group:' . __('OpenDocument Spreadsheet'),
