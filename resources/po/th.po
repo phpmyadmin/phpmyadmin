@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-01-18 00:32+0000\n"
-"PO-Revision-Date: 2026-01-19 00:55+0000\n"
+"PO-Revision-Date: 2026-01-21 06:54+0000\n"
 "Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "th/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.15.2\n"
+"X-Generator: Weblate 5.16-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -3674,7 +3674,7 @@ msgstr "ไม่สามารถเข้าถึงไดเร็กทอ
 #: resources/templates/import.twig:58 resources/templates/import.twig:83
 #, php-format
 msgid "Select from the web server upload directory [strong]%s[/strong]:"
-msgstr "เลือกจากไดเรกทอรีอัปโหลดของเว็บเซิร์ฟเวอร์ [strong]%s[/strong]:"
+msgstr "เลือกจากไดเร็กทอรีอัปโหลดของเว็บเซิร์ฟเวอร์ [strong]%s[/strong]:"
 
 #: resources/templates/import.twig:65 resources/templates/import.twig:91
 msgid "There are no files to import!"
@@ -7562,8 +7562,8 @@ msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
 msgstr ""
-"คุณควรทำการอัปเกรด เนื่องจาก MySQL 5.1 มีประสิทธิภาพที่ดีขึ้น และ MySQL 5.5 "
-"มีประสิทธิภาพดียิ่งขึ้นไปอีก"
+"คุณควรอัปเกรด เนื่องจาก MySQL 5.1 มีประสิทธิภาพที่ดีขึ้น และ MySQL 5.5 มีประสิทธิภาพดียิ่งขึ้นไปอี"
+"ก"
 
 #: src/Advisory/Rules.php:140 src/Advisory/Rules.php:154
 #: src/Advisory/Rules.php:165
@@ -7584,8 +7584,8 @@ msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
 msgstr ""
-"คุณควรทำการอัปเกรด เนื่องจาก MySQL เวอร์ชันล่าสุด 5.1 มีประสิทธิภาพที่ดีขึ้น และ MySQL 5.5 "
-"มีประสิทธิภาพดียิ่งขึ้นไปอีก"
+"คุณควรอัปเกรด เนื่องจาก MySQL เวอร์ชันล่าสุด 5.1 มีประสิทธิภาพที่ดีขึ้น และ MySQL 5.5 มีประสิทธิ"
+"ภาพดียิ่งขึ้นไปอีก"
 
 #: src/Advisory/Rules.php:163
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
@@ -7682,8 +7682,8 @@ msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
 msgstr ""
-"แคชคำสั่งถูกเปิดใช้งาน และเซิร์ฟเวอร์รับคำสั่งจำนวน %d ครั้งต่อวินาที "
-"กฎนี้จะทำงานหากมีคำสั่งมากกว่า 100 ครั้งต่อวินาที"
+"แคชคำสั่งถูกเปิดใช้งาน และเซิร์ฟเวอร์รับ %d คำสั่งต่อวินาที กฎนี้จะทำงานหากมีมากกว่า 100 คำสั่งต่อ"
+"วินาที"
 
 #: src/Advisory/Rules.php:231
 msgid "Percentage of sorts that cause temporary tables"
@@ -7698,8 +7698,8 @@ msgid ""
 "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
 "depending on your system memory limits."
 msgstr ""
-"ควรพิจารณาเพิ่มขนาด {sort_buffer_size} และ/หรือ {read_rnd_buffer_size} "
-"ขึ้นอยู่กับข้อจำกัดของหน่วยความจำในระบบของคุณ"
+"พิจารณาเพิ่มขนาด {sort_buffer_size} และ/หรือ {read_rnd_buffer_size} ขึ้นอยู่กับข้อจำกัดข"
+"องหน่วยความจำในระบบของคุณ"
 
 #: src/Advisory/Rules.php:241
 #, php-format
@@ -11970,7 +11970,7 @@ msgstr "ไม่พบรูทีนชื่อ %1$s ในฐานข้อ
 #: src/Controllers/Database/RoutinesController.php:373
 #, php-format
 msgid "No routine with name %1$s found in database %2$s."
-msgstr "ไม่พบรูทีนชื่อ %1$s ในฐานข้อมูล %2$s"
+msgstr "ไม่พบกิจวัตรชื่อ %1$s ในฐานข้อมูล %2$s"
 
 #: src/Controllers/Database/RoutinesController.php:416
 #, php-format
@@ -14167,7 +14167,7 @@ msgstr "ฐานข้อมูล %1$s ถูกสร้างเรียบ
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "ฐานข้อมูล %1$d ถูกลบเรียบร้อยแล้ว"
+msgstr[0] "%1$d ฐานข้อมูลถูกลบเรียบร้อยแล้ว"
 
 #: src/Controllers/Server/Privileges/AccountLockController.php:47
 #, php-format
@@ -15231,7 +15231,7 @@ msgstr "คำสั่งเรียกดูที่สำรองไว้
 #: src/Database/Events.php:123
 #, php-format
 msgid "Event %1$s has been modified."
-msgstr "กิจกรรม %1$s ได้รับการแก้ไขแล้ว"
+msgstr "เหตุการณ์ %1$s ได้รับการแก้ไขแล้ว"
 
 #: src/Database/Events.php:143
 #, php-format
@@ -15371,7 +15371,7 @@ msgstr "คำสั่งใช้เวลา %01.4f วินาที"
 #: src/Display/Results.php:3264
 #, php-format
 msgid "Showing rows %1s - %2s"
-msgstr "กำลังแสดงแถว %1s - %2s"
+msgstr "แสดงแถว %1s - %2s"
 
 #: src/Display/Results.php:3278
 #, php-format
@@ -15964,7 +15964,7 @@ msgstr "แก้ไขโครงสร้างโดยคลิกที่
 #: src/Import/Import.php:1223
 #, php-format
 msgid "Go to database: %s"
-msgstr "ไปที่ฐานข้อมูล: %s"
+msgstr "ไปยังฐานข้อมูล: %s"
 
 #: src/Indexes/Index.php:566
 #, php-format
@@ -16727,7 +16727,7 @@ msgstr "(ประสิทธิภาพลดลง เนื่องจา�
 #: src/Plugins/Export/ExportSql.php:345
 #, php-format
 msgid "%s value"
-msgstr "ค่า %s"
+msgstr "%s ค่า"
 
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
 #: src/Plugins/Export/ExportSql.php:362
@@ -16846,7 +16846,7 @@ msgstr "เมดาต้าสำหรับฐานข้อมูล %s"
 #: src/Plugins/Export/ExportSql.php:1379
 #, php-format
 msgid "Error reading structure for table %s:"
-msgstr "การอ่านโครงสร้างตารางผิดพลาดของ %s:"
+msgstr "เกิดข้อผิดพลาดในการอ่านโครงสร้างสำหรับตาราง %s:"
 
 #: src/Plugins/Export/ExportSql.php:1462
 msgid "It appears your database uses views;"
@@ -16999,7 +16999,7 @@ msgstr ""
 
 #: src/Plugins/Import/ImportLdi.php:73
 msgid "Column names: "
-msgstr "ชื่อคอลัมน์: "
+msgstr "ชื่อคมลัมน์: "
 
 #: src/Plugins/Import/ImportLdi.php:126
 msgid "This plugin does not support compressed imports!"
@@ -17607,7 +17607,7 @@ msgstr "มีผู้ใช้ %s อยู่แล้ว!"
 #: src/Server/Privileges.php:2391
 #, php-format
 msgid "Privileges for %s"
-msgstr "สิทธิ์สำเรับ %s"
+msgstr "สิทธิ์สำหรับ %s"
 
 #: src/Server/Privileges.php:2477
 #, php-format
@@ -17748,8 +17748,8 @@ msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available. %s"
 msgstr ""
-"การเลือกปัจจุบันไม่มีคอลัมน์ที่ไม่ซ้ำกัน ฟังก์ชันการแก้ไขตาราง, ช่องทำเครื่องหมาย, การแก้ไข, "
-"การคัดลอก และการลบไม่สามารถใช้งานได้ %s"
+"การเลือกปัจจุบันไม่มีคอลัมน์ที่ไม่ซ้ำกัน ฟีเจอร์การแก้ไขตาราง, ช่องทำเครื่องหมาย, การแก้ไข, การคัด"
+"ลอก และการลบไม่สามารถใช้งานได้ %s"
 
 #: src/Sql.php:1255
 #, php-format
