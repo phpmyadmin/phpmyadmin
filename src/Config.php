@@ -295,6 +295,7 @@ class Config
         }
 
         $this->config = new Settings($this->settings);
+        $this->settings = $this->config->asArray();
     }
 
     /**
