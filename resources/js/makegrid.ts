@@ -2346,6 +2346,22 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                 }
             });
 
+            // ctrl + A to select all cells
+            $(document).on('keydown', function (e) {
+                if ((e.ctrlKey || e.metaKey) && e.code === 'KeyA') {
+                    if (document.activeElement && $(document.activeElement).is('input, textarea, select')) {
+                        return; // do not interfere with input fields
+                    }
+
+                    e.preventDefault();
+
+                    // Select all cells with header
+                    $(g.t).find('tbody > tr, thead > tr').each(function () {
+                        $(this).find('td.data, th:not(.column_action)').addClass('cell-selected');
+                    });
+                }
+            });
+
             // Reset selection when clicking outside the table
             $(document).on('mousedown', function (e) {
                 if (!$(e.target).closest(g.t).length) {
