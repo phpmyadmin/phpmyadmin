@@ -17134,12 +17134,6 @@ parameters:
 			path: tests/unit/TwoFactorTest.php
 
 		-
-			message: '#^Missing call to parent\:\:tearDown\(\) method\.$#'
-			identifier: phpunit.callParent
-			count: 1
-			path: tests/unit/TwoFactorTest.php
-
-		-
 			message: '#^Parameter \#1 \$secret of method PragmaRX\\Google2FA\\Google2FA\:\:oathTotp\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 2
