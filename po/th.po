@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2026-01-21 17:10+0000\n"
+"PO-Revision-Date: 2026-01-22 09:57+0000\n"
 "Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/5-1/th/>"
 "\n"
@@ -625,12 +625,12 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:412
 msgid "You may need to increase {key_buffer_size}."
-msgstr ""
+msgstr "คุณอาจต้องเพิ่มค่า {key_buffer_size}"
 
 #: libraries/advisory_rules_generic.php:413
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
-msgstr ""
+msgstr "ค่าดัชนีที่อ่านจากหน่วยความจำ: %s%%, ค่านี้ควรสูงกว่า 95%%"
 
 #: libraries/advisory_rules_generic.php:419
 #, fuzzy
@@ -640,18 +640,20 @@ msgstr "สารบัญ"
 
 #: libraries/advisory_rules_generic.php:422
 msgid "The rate of opening tables is high."
-msgstr ""
+msgstr "อัตราการเปิดตารางสูง"
 
 #: libraries/advisory_rules_generic.php:424
 msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
 msgstr ""
+"การเปิดตารางต้องใช้การอ่านเขียนข้อมูลจากดิสก์ ซึ่งใช้ทรัพยากรสูง การเพิ่มค่า "
+"{table_open_cache} อาจช่วยหลีกเลี่ยงปัญหานี้ได้"
 
 #: libraries/advisory_rules_generic.php:427
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
-msgstr ""
+msgstr "อัตราการเปิดตาราง: %s ค่านี้ควรน้อยกว่า 10 ต่อชั่วโมง"
 
 #: libraries/advisory_rules_generic.php:432
 #, fuzzy
@@ -664,6 +666,8 @@ msgid ""
 "The number of open files is approaching the max number of open files. You "
 "may get a \"Too many open files\" error."
 msgstr ""
+"จำนวนไฟล์ที่เปิดอยู่ใกล้ถึงจำนวนสูงสุดแล้ว คุณอาจได้รับข้อความแสดงข้อผิดพลาด \"มีไฟล์เปิดอยู่มากเกิน"
+"ไป\""
 
 #: libraries/advisory_rules_generic.php:440
 #: libraries/advisory_rules_generic.php:453
@@ -671,6 +675,8 @@ msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing {open_files_limit}."
 msgstr ""
+"ลองพิจารณาเพิ่มค่า {open_files_limit} แล้วตรวจสอบบันทึกข้อผิดพลาดเมื่อรีสตาร์ทหลังจากเปลี่ยนค่"
+"า {open_files_limit} แล้ว"
 
 #: libraries/advisory_rules_generic.php:443
 #, php-format
