@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-01-18 00:32+0000\n"
-"PO-Revision-Date: 2026-01-22 09:57+0000\n"
+"PO-Revision-Date: 2026-01-22 10:01+0000\n"
 "Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "th/>\n"
@@ -8039,7 +8039,7 @@ msgstr ""
 #, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
-msgstr "มีจำนวนไฟล์ที่เปิดอยู่ถึง %s%% ของขีดจำกัดแล้ว ควรต่ำกว่า 85%%"
+msgstr "จำนวนไฟล์ที่เปิดอยู่ %s%% ของขีดจำกัดแล้ว มันควรต่ำกว่า 85%%"
 
 #: src/Advisory/Rules.php:476
 msgid "Rate of open files"
@@ -8061,7 +8061,7 @@ msgstr "ล็อกตารางทันที %"
 
 #: src/Advisory/Rules.php:494 src/Advisory/Rules.php:504
 msgid "Too many table locks were not granted immediately."
-msgstr "ตารางถูกล็อกไว้มากมายไม่ได้รับการอนุมัติทันที"
+msgstr "มีตารางที่ถูกล็อกมากเกินกว่าจะให้สิทธิ์ได้ในทันที"
 
 #: src/Advisory/Rules.php:495 src/Advisory/Rules.php:505
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
