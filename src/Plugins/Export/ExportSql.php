@@ -1807,16 +1807,16 @@ class ExportSql extends ExportPlugin
     /**
      * Outputs a raw query
      *
-     * @param string|null $db       the database where the query is executed
-     * @param string      $sqlQuery the rawquery to output
+     * @param string $db       the database where the query is executed
+     * @param string $sqlQuery the rawquery to output
      */
-    public function exportRawQuery(string|null $db, string $sqlQuery): void
+    public function exportRawQuery(string $db, string $sqlQuery): void
     {
-        if ($db !== null) {
+        if ($db !== '') {
             DatabaseInterface::getInstance()->selectDb($db);
         }
 
-        $this->exportData($db ?? '', '', $sqlQuery);
+        $this->exportData($db, '', $sqlQuery);
     }
 
     /**
