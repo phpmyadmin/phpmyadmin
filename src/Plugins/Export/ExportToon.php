@@ -86,7 +86,7 @@ class ExportToon extends ExportPlugin
         string $table,
         string $sqlQuery,
         array $aliases = [],
-    ): bool {
+    ): void {
         $dbAlias = $this->getDbAlias($aliases, $db);
         $tableAlias = $this->getTableAlias($aliases, $db, $table);
         $dbi = DatabaseInterface::getInstance();
@@ -112,10 +112,8 @@ class ExportToon extends ExportPlugin
             }
         }
         $buffer .= "}:\n";
-        
-        if (! $this->outputHandler->addLine($buffer)) {
-            return false;
-        }
+
+        $this->outputHandler->addLine($buffer);
 
         $insertedLines = 0;
         while ($row = $result->fetchRow()) {
@@ -140,12 +138,8 @@ class ExportToon extends ExportPlugin
 
             $insertedLines++;
             $buffer .= $insertedLines === $rowsCnt ? "\n\n" : "\n";
-            if (! $this->outputHandler->addLine($buffer)) {
-                return false;
-            }
+            $this->outputHandler->addLine($buffer);
         }
-
-        return true;
     }
 
     /**
@@ -154,13 +148,13 @@ class ExportToon extends ExportPlugin
      * @param string|null $db       the database where the query is executed
      * @param string      $sqlQuery the rawquery to output
      */
-    public function exportRawQuery(string|null $db, string $sqlQuery): bool
+    public function exportRawQuery(string|null $db, string $sqlQuery): void
     {
         if ($db !== null) {
             DatabaseInterface::getInstance()->selectDb($db);
         }
 
-        return $this->exportData($db ?? '', '', $sqlQuery);
+        $this->exportData($db ?? '', '', $sqlQuery);
     }
 
     private function setupExportConfiguration(): void
@@ -176,7 +170,7 @@ class ExportToon extends ExportPlugin
             $exportConfig['toon_structure_or_data'] ?? null,
             StructureOrData::Data,
         );
-        
+
         $this->separator = $this->setStringValue(
             $request->getParsedBodyParam('toon_separator'),
             $exportConfig['toon_separator'] ?? $this->separator,
