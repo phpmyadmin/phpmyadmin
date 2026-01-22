@@ -19,6 +19,7 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 
 use function __;
 use function array_key_exists;
+use function array_key_last;
 
 /**
  * Handles the export for the TOON format
@@ -107,7 +108,7 @@ class ExportToon extends ExportPlugin
         foreach ($columns as $index => $column) {
             $buffer .= $column;
 
-            if ($index !== count($columns) - 1) {
+            if ($index !== array_key_last($columns)) {
                 $buffer .= $this->separator;
             }
         }
