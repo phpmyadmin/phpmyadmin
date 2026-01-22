@@ -18,8 +18,11 @@ use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 
 use function __;
-use function array_key_exists;
 use function array_key_last;
+use function is_int;
+use function is_string;
+use function str_repeat;
+use function str_replace;
 
 /**
  * Handles the export for the TOON format
@@ -104,14 +107,16 @@ class ExportToon extends ExportPlugin
             $columns[$i] = $colAs;
         }
 
-        $buffer = "$dbAlias.$tableAlias" . '[' . $rowsCnt . ($this->separator !== ',' ? $this->separator : '') . ']{';
+        $buffer = $dbAlias . '.' . $tableAlias . '[' . $rowsCnt . ($this->separator !== ',' ? $this->separator : '') . ']{';
         foreach ($columns as $index => $column) {
             $buffer .= $column;
 
+            // phpcs:ignore SlevomatCodingStandard.ControlStructures.EarlyExit.EarlyExitNotUsed
             if ($index !== array_key_last($columns)) {
                 $buffer .= $this->separator;
             }
         }
+
         $buffer .= "}:\n";
 
         $this->outputHandler->addLine($buffer);
@@ -132,6 +137,7 @@ class ExportToon extends ExportPlugin
 
                 $buffer .= $col;
 
+                // phpcs:ignore SlevomatCodingStandard.ControlStructures.EarlyExit.EarlyExitNotUsed
                 if ($index !== $columnsCnt - 1) {
                     $buffer .= $this->separator;
                 }
