@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-10-16 23:57-0300\n"
-"PO-Revision-Date: 2026-01-22 10:01+0000\n"
+"PO-Revision-Date: 2026-01-22 10:22+0000\n"
 "Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/5-2/th/>"
 "\n"
@@ -713,20 +713,21 @@ msgstr "มีตารางที่ถูกล็อกมากเกิน
 #: libraries/advisory_rules_generic.php:474
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr ""
+"ปรับปรุงประสิทธิภาพคำสั่งและ/หรือใช้ InnoDB เพื่อลดเวลาการถูกล็อกเพื่อรอ"
 
 #: libraries/advisory_rules_generic.php:465
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
-msgstr ""
+msgstr "การล็อกตารางทันที: %s%% ค่านี้ควรสูงกว่า 95%%"
 
 #: libraries/advisory_rules_generic.php:470
 msgid "Table lock wait rate"
-msgstr ""
+msgstr "อัตราการถูกล็อกตารางเพื่อรอ"
 
 #: libraries/advisory_rules_generic.php:475
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
-msgstr ""
+msgstr "อัตราการถูกล็อกตารางเพื่อรอ: %s ค่านี้ควรน้อยกว่า 1 ครั้งต่อชั่วโมง"
 
 #: libraries/advisory_rules_generic.php:480
 #, fuzzy
@@ -738,10 +739,11 @@ msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
 msgstr ""
+"แคชรอบการทำงานถูกปิดใช้งาน ส่งผลให้เกิดภาระงานเพิ่มขึ้นจากการเชื่อมต่อใหม่ไปยัง MySQL"
 
 #: libraries/advisory_rules_generic.php:484
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
-msgstr ""
+msgstr "เปิดใช้งานแคชรอบการทำงานโดยตั้งค่า {thread_cache_size} > 0"
 
 #: libraries/advisory_rules_generic.php:485
 #, fuzzy
@@ -763,12 +765,12 @@ msgstr "หยุดการติดตามแล้ว"
 
 #: libraries/advisory_rules_generic.php:495
 msgid "Increase {thread_cache_size}."
-msgstr ""
+msgstr "เพิ่ม {thread_cache_size}"
 
 #: libraries/advisory_rules_generic.php:496
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
-msgstr ""
+msgstr "อัตราการใช้ถึงแคชรอบการทำงาน: %s%% ค่านี้ควรสูงกว่า 80%%"
 
 #: libraries/advisory_rules_generic.php:501
 #, fuzzy
@@ -787,15 +789,17 @@ msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
 msgstr ""
+"โดยทั่วไปแล้วเหตุการณ์นี้มักเกิดขึ้นในกรณีที่ระบบทำงานหนักเกินไป เนื่องจากเป็นการทำงานที่ค่อนข้างง่า"
+"ย คุณอาจต้องตรวจสอบภาระการทำงานของระบบอย่างระมัดระวัง"
 
 #: libraries/advisory_rules_generic.php:510
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
-msgstr ""
+msgstr "%s รอบการทำงานใช้เวลานานกว่า %s วินาทีในการเริ่มต้น ซึ่งควรจะเป็น 0"
 
 #: libraries/advisory_rules_generic.php:515
 msgid "Slow launch time"
-msgstr ""
+msgstr "เวลาเปิดตัวช้า"
 
 #: libraries/advisory_rules_generic.php:518
 #, fuzzy
@@ -826,7 +830,7 @@ msgstr "การเชื่อมต่อ"
 msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "{max_connections}."
-msgstr ""
+msgstr "จำนวนการเชื่อมต่อที่ใช้สูงสุดกำลังเข้าใกล้ค่า {max_connections} แล้ว"
 
 #: libraries/advisory_rules_generic.php:533
 msgid ""
@@ -834,12 +838,15 @@ msgid ""
 "that do not close database handlers properly get killed sooner. Make sure "
 "the code closes database handlers properly."
 msgstr ""
+"เพิ่มค่า {max_connections} หรือลดค่า {wait_timeout} เพื่อให้การเชื่อมต่อที่ไม่ปิดตัวจัดการฐานข้"
+"อมูลอย่างถูกต้องถูกยุติโดยเร็ว ให้แน่ใจว่าโค้ดปิดตัวจัดการฐานข้อมูลอย่างถูกต้อง"
 
 #: libraries/advisory_rules_generic.php:537
 #, php-format
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr ""
+"Max_used_connections อยู่ที่ %s%% ของ max_connections ซึ่งควรจะต่ำกว่า 80%%"
 
 #: libraries/advisory_rules_generic.php:542
 #, fuzzy
@@ -861,11 +868,14 @@ msgid ""
 "href=\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-"
 "of-aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
+"การเชื่อมต่อมักถูกยกเลิกเมื่อไม่สามารถให้สิทธิ์ได้ <a href=\"https://www.percona.com/blog/"
+"2008/08/23/how-to-track-down-the-source-of-aborted_connects/\">บทความนี้</a>อาจ"
+"ช่วยคุณติดตามต้นตอของปัญหาได้"
 
 #: libraries/advisory_rules_generic.php:551
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
-msgstr ""
+msgstr "%s%% ของการเชื่อมต่อทั้งหมดถูกยกเลิก ค่านี้ควรต่ำกว่า 1%%"
 
 #: libraries/advisory_rules_generic.php:556
 #, fuzzy
@@ -878,6 +888,7 @@ msgstr "การเชื่อมต่อ"
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr ""
+"อัตราการเชื่อมต่อถูกยกเลิกอยู่ที่ %s ซึ่งค่านี้ควรน้อยกว่า 1 ครั้งต่อชั่วโมง"
 
 #: libraries/advisory_rules_generic.php:570
 #, fuzzy
@@ -897,11 +908,13 @@ msgid ""
 "MySQL properly. This can be due to network issues or code not closing a "
 "database handler properly. Check your network and code."
 msgstr ""
+"โดยปกติแล้วลูกข่ายจะถูกยกเลิกเมื่อไม่ได้ปิดการเชื่อมต่อกับ MySQL อย่างถูกต้อง ซึ่งอาจเกิดจากปัญหาเค"
+"รือข่ายหรือโค้ดไม่ได้ปิดตัวจัดการฐานข้อมูลอย่างถูกต้อง ตรวจสอบเครือข่ายและโค้ดของคุณ"
 
 #: libraries/advisory_rules_generic.php:579
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
-msgstr ""
+msgstr "%s%% ของลูกค้าทั้งหมดถูกยกเลิก ค่านี้ควรต่ำกว่า 2%%"
 
 #: libraries/advisory_rules_generic.php:584
 #, fuzzy
@@ -913,6 +926,7 @@ msgstr "สารบัญ"
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
+"อัตราการยกเลิกการใช้งานของลูกข่ายอยู่ที่ %s ซึ่งค่านี้ควรน้อยกว่า 1 ต่อชั่วโมง"
 
 #: libraries/advisory_rules_generic.php:599
 msgid "Is InnoDB disabled?"
