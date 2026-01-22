@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2026-01-22 09:57+0000\n"
+"PO-Revision-Date: 2026-01-22 10:01+0000\n"
 "Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/4-9/th/>"
 "\n"
@@ -16631,7 +16631,7 @@ msgstr ""
 #, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
-msgstr "มีจำนวนไฟล์ที่เปิดอยู่ถึง %s%% ของขีดจำกัดแล้ว ควรต่ำกว่า 85%%"
+msgstr "จำนวนไฟล์ที่เปิดอยู่ %s%% ของขีดจำกัดแล้ว มันควรต่ำกว่า 85%%"
 
 #: libraries/advisory_rules_generic.txt:273
 msgid "Rate of open files"
@@ -16654,7 +16654,7 @@ msgstr "การล็อกตารางทันที %%"
 #: libraries/advisory_rules_generic.txt:283
 #: libraries/advisory_rules_generic.txt:290
 msgid "Too many table locks were not granted immediately."
-msgstr "ตารางถูกล็อกไว้มากมายไม่ได้รับการอนุมัติทันที"
+msgstr "มีตารางที่ถูกล็อกมากเกินกว่าจะให้สิทธิ์ได้ในทันที"
 
 #: libraries/advisory_rules_generic.txt:284
 #: libraries/advisory_rules_generic.txt:291
