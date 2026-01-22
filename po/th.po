@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2026-01-22 10:22+0000\n"
+"PO-Revision-Date: 2026-01-22 11:51+0000\n"
 "Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/4-9/th/>"
 "\n"
@@ -16861,7 +16861,7 @@ msgstr "คุณไม่ได้เปิดใช้งาน InnoDB"
 
 #: libraries/advisory_rules_generic.txt:365
 msgid "InnoDB is usually the better choice for table engines."
-msgstr "โดยทั่วไปแล้ว InnoDB เป็นตัวเลือกที่ดีกว่าสำหรับระบบจัดการตารางข้อมูล"
+msgstr "โดยทั่วไปแล้ว InnoDB เป็นตัวเลือกที่ดีกว่าสำหรับระบบจัดการตาราง"
 
 #: libraries/advisory_rules_generic.txt:366
 msgid "have_innodb is set to 'value'"
