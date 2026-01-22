@@ -151,37 +151,38 @@ class ExportToonTest extends AbstractTestCase
 
     public function testExportHeader(): void
     {
-        self::assertTrue($this->object->exportHeader());
+        $this->expectNotToPerformAssertions();
+        $this->object->exportHeader();
     }
 
     public function testExportFooter(): void
     {
-        self::assertTrue($this->object->exportFooter());
+        $this->expectNotToPerformAssertions();
+        $this->object->exportFooter();
     }
 
     public function testExportDBHeader(): void
     {
-        self::assertTrue($this->object->exportDBHeader('testDB'));
+        $this->expectNotToPerformAssertions();
+        $this->object->exportDBHeader('testDB');
     }
 
     public function testExportDBFooter(): void
     {
-        self::assertTrue($this->object->exportDBFooter('testDB'));
+        $this->expectNotToPerformAssertions();
+        $this->object->exportDBFooter('testDB');
     }
 
     public function testExportDBCreate(): void
     {
-        self::assertTrue($this->object->exportDBCreate('testDB'));
+        $this->expectNotToPerformAssertions();
+        $this->object->exportDBCreate('testDB');
     }
 
     public function testExportData(): void
     {
         ob_start();
-        self::assertTrue($this->object->exportData(
-            'test_db',
-            'test_table',
-            'SELECT * FROM `test_db`.`test_table`;',
-        ));
+        $this->object->exportData('test_db', 'test_table', 'SELECT * FROM `test_db`.`test_table`;');
         $result = ob_get_clean();
 
         self::assertSame(
@@ -202,11 +203,7 @@ class ExportToonTest extends AbstractTestCase
         $this->object->exportHeader();
 
         ob_start();
-        self::assertTrue($this->object->exportData(
-            'test_db',
-            'test_table',
-            'SELECT * FROM `test_db`.`test_table`;',
-        ));
+        $this->object->exportData('test_db', 'test_table', 'SELECT * FROM `test_db`.`test_table`;');
         $result = ob_get_clean();
 
         self::assertSame(
