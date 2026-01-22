@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2026-01-21 17:10+0000\n"
+"PO-Revision-Date: 2026-01-22 09:57+0000\n"
 "Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/4-9/th/>"
 "\n"
@@ -16578,7 +16578,7 @@ msgstr "จำนวน %% ของดัชนีที่ใช้บัฟ�
 
 #: libraries/advisory_rules_generic.txt:254
 msgid "You may need to increase {key_buffer_size}."
-msgstr "คุณอาจต้องเพิ่ม {key_buffer_size}"
+msgstr "คุณอาจต้องเพิ่มค่า {key_buffer_size}"
 
 #: libraries/advisory_rules_generic.txt:255
 #, php-format
@@ -16604,7 +16604,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.txt:264
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
-msgstr "อัตราตารางที่เปิด: %s ค่านี้ควรน้อยกว่า 10 ต่อชั่วโมง"
+msgstr "อัตราการเปิดตาราง: %s ค่านี้ควรน้อยกว่า 10 ต่อชั่วโมง"
 
 #: libraries/advisory_rules_generic.txt:266
 msgid "Percentage of used open files limit"
