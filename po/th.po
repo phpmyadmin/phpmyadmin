@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2026-01-22 10:22+0000\n"
+"PO-Revision-Date: 2026-01-22 11:51+0000\n"
 "Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/5-1/th/>"
 "\n"
@@ -933,7 +933,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:604
 msgid "Is InnoDB disabled?"
-msgstr ""
+msgstr "InnoDB ถูกปิดใช้งานอยู่หรือไม่?"
 
 #: libraries/advisory_rules_generic.php:608
 #, fuzzy
@@ -943,11 +943,11 @@ msgstr "ไม่สามารถบันทึกตารางล่าส
 
 #: libraries/advisory_rules_generic.php:609
 msgid "InnoDB is usually the better choice for table engines."
-msgstr ""
+msgstr "โดยทั่วไปแล้ว InnoDB เป็นตัวเลือกที่ดีกว่าสำหรับระบบจัดการตาราง"
 
 #: libraries/advisory_rules_generic.php:610
 msgid "have_innodb is set to 'value'"
-msgstr ""
+msgstr "have_innodb ถูกตั้งค่าเป็น 'value'"
 
 #: libraries/advisory_rules_generic.php:614
 #: libraries/advisory_rules_generic.php:640
