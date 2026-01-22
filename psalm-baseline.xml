@@ -242,7 +242,6 @@
       <code><![CDATA[$ip]]></code>
       <code><![CDATA[$userPrefsDisallow ?? []]]></code>
       <code><![CDATA[$val]]></code>
-      <code><![CDATA[$validators[$path]]]></code>
       <code><![CDATA[$value]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
@@ -497,22 +496,23 @@
       <code><![CDATA[$k]]></code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
-      <code><![CDATA[self::$validators[$field]]]></code>
+      <code><![CDATA[$this->validators[$field]]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
-      <code><![CDATA[self::$validators[$field]]]></code>
+      <code><![CDATA[$this->validators[$field]]]></code>
     </MixedArrayAssignment>
     <MixedArrayOffset>
-      <code><![CDATA[self::$validators[$field]]]></code>
-      <code><![CDATA[self::$validators[$field]]]></code>
-      <code><![CDATA[self::$validators[$field]]]></code>
+      <code><![CDATA[$this->validators[$field]]]></code>
+      <code><![CDATA[$this->validators[$field]]]></code>
+      <code><![CDATA[$this->validators[$field]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$arguments[$k2]]]></code>
       <code><![CDATA[$field]]></code>
       <code><![CDATA[$ip]]></code>
       <code><![CDATA[$password]]></code>
-      <code><![CDATA[$uv]]></code>
+      <code><![CDATA[$this->validators]]></code>
+      <code><![CDATA[$this->validators]]></code>
       <code><![CDATA[$uvList]]></code>
       <code><![CDATA[$uv[$i]]]></code>
       <code><![CDATA[$uvs]]></code>
@@ -520,16 +520,10 @@
       <code><![CDATA[$v]]></code>
       <code><![CDATA[$validator]]></code>
       <code><![CDATA[$vname]]></code>
-      <code><![CDATA[self::$validators]]></code>
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$ip]]></code>
     </MixedOperand>
-    <MixedReturnStatement>
-      <code><![CDATA[self::$validators]]></code>
-      <code><![CDATA[self::$validators]]></code>
-      <code><![CDATA[self::$validators]]></code>
-    </MixedReturnStatement>
     <PossiblyInvalidArgument>
       <code><![CDATA[$k2]]></code>
       <code><![CDATA[$k2]]></code>
@@ -538,9 +532,6 @@
       <code><![CDATA[$k2]]></code>
       <code><![CDATA[$k2]]></code>
     </PossiblyInvalidCast>
-    <ReferenceReusedFromConfusingScope>
-      <code><![CDATA[$vid]]></code>
-    </ReferenceReusedFromConfusingScope>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($errorList)]]></code>
       <code><![CDATA[empty($values['Servers/1/controlpass'])]]></code>
@@ -548,26 +539,26 @@
       <code><![CDATA[mb_strpos($k2, '/')]]></code>
     </RiskyTruthyFalsyComparison>
     <TooFewArguments>
-      <code><![CDATA[self::validateByRegex(...$args)]]></code>
-      <code><![CDATA[self::validateByRegex(...$args)]]></code>
-      <code><![CDATA[self::validateByRegex(...$args)]]></code>
-      <code><![CDATA[self::validateNonNegativeNumber(...$args)]]></code>
-      <code><![CDATA[self::validateNonNegativeNumber(...$args)]]></code>
-      <code><![CDATA[self::validatePMAStorage(...$args)]]></code>
-      <code><![CDATA[self::validatePMAStorage(...$args)]]></code>
-      <code><![CDATA[self::validatePortNumber(...$args)]]></code>
-      <code><![CDATA[self::validatePortNumber(...$args)]]></code>
-      <code><![CDATA[self::validatePositiveNumber(...$args)]]></code>
-      <code><![CDATA[self::validatePositiveNumber(...$args)]]></code>
-      <code><![CDATA[self::validateRegex(...$args)]]></code>
-      <code><![CDATA[self::validateRegex(...$args)]]></code>
-      <code><![CDATA[self::validateServer(...$args)]]></code>
-      <code><![CDATA[self::validateServer(...$args)]]></code>
-      <code><![CDATA[self::validateTrustedProxies(...$args)]]></code>
-      <code><![CDATA[self::validateTrustedProxies(...$args)]]></code>
-      <code><![CDATA[self::validateUpperBound(...$args)]]></code>
-      <code><![CDATA[self::validateUpperBound(...$args)]]></code>
-      <code><![CDATA[self::validateUpperBound(...$args)]]></code>
+      <code><![CDATA[validateByRegex]]></code>
+      <code><![CDATA[validateByRegex]]></code>
+      <code><![CDATA[validateByRegex]]></code>
+      <code><![CDATA[validateNonNegativeNumber]]></code>
+      <code><![CDATA[validateNonNegativeNumber]]></code>
+      <code><![CDATA[validatePMAStorage]]></code>
+      <code><![CDATA[validatePMAStorage]]></code>
+      <code><![CDATA[validatePortNumber]]></code>
+      <code><![CDATA[validatePortNumber]]></code>
+      <code><![CDATA[validatePositiveNumber]]></code>
+      <code><![CDATA[validatePositiveNumber]]></code>
+      <code><![CDATA[validateRegex]]></code>
+      <code><![CDATA[validateRegex]]></code>
+      <code><![CDATA[validateServer]]></code>
+      <code><![CDATA[validateServer]]></code>
+      <code><![CDATA[validateTrustedProxies]]></code>
+      <code><![CDATA[validateTrustedProxies]]></code>
+      <code><![CDATA[validateUpperBound]]></code>
+      <code><![CDATA[validateUpperBound]]></code>
+      <code><![CDATA[validateUpperBound]]></code>
     </TooFewArguments>
   </file>
   <file src="src/ConfigStorage/Relation.php">

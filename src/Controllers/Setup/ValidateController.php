@@ -62,8 +62,8 @@ final class ValidateController implements InvocableController
         }
 
         $configFile = SetupHelper::createConfigFile();
-
-        $result = Validator::validate($configFile, $vids, $values, true);
+        $validator = new Validator($configFile);
+        $result = $validator->validate($vids, $values, true);
         if ($result === false) {
             $result = sprintf(
                 __('Wrong data or no validation for %s'),

@@ -52,33 +52,37 @@ use const PHP_INT_MAX;
  */
 class Validator
 {
-    /** @var mixed[]|null */
-    private static array|null $validators = null;
+    /** @var string[]|mixed[][] */
+    private array $validators;
+
+    public function __construct(private ConfigFile $configFile)
+    {
+        $this->loadValidators();
+    }
 
     /**
      * Returns validator list
      *
-     * @param ConfigFile $configFile Config file instance
-     *
-     * @return mixed[]
+     * @return string[]|mixed[][]
      */
-    public static function getValidators(ConfigFile $configFile): array
+    public function getValidators(): array
     {
-        if (self::$validators !== null) {
-            return self::$validators;
-        }
+        return $this->validators;
+    }
 
-        self::$validators = $configFile->getDbEntry('_validators', []);
+    private function loadValidators(): void
+    {
+        $this->validators = $this->configFile->getDbEntry('_validators', []);
         $config = Config::getInstance();
         if ($config->isSetup()) {
-            return self::$validators;
+            return;
         }
 
         // not in setup script: load additional validators for user
         // preferences we need original config values not overwritten
         // by user preferences, creating a new PhpMyAdmin\Config instance is a
         // better idea than hacking into its code
-        $uvs = $configFile->getDbEntry('_userValidators', []);
+        $uvs = $this->configFile->getDbEntry('_userValidators', []);
         foreach ($uvs as $field => $uvList) {
             $uvList = (array) $uvList;
             foreach ($uvList as &$uv) {
@@ -98,12 +102,10 @@ class Validator
                 }
             }
 
-            self::$validators[$field] = isset(self::$validators[$field])
-                ? array_merge((array) self::$validators[$field], $uvList)
+            $this->validators[$field] = isset($this->validators[$field])
+                ? array_merge((array) $this->validators[$field], $uvList)
                 : $uvList;
         }
-
-        return self::$validators;
     }
 
     /**
@@ -115,26 +117,21 @@ class Validator
      *   cleanup in HTML document
      * o false - when no validators match name(s) given by $validator_id
      *
-     * @param ConfigFile      $configFile   Config file instance
-     * @param string|string[] $validatorId  ID of validator(s) to run
-     * @param mixed[]         $values       Values to validate
-     * @param bool            $isPostSource tells whether $values are directly from POST request
+     * @param string[] $validatorIds ID of validator(s) to run
+     * @param mixed[]  $values       Values to validate
+     * @param bool     $isPostSource tells whether $values are directly from POST request
      *
      * @return mixed[]|bool
      */
-    public static function validate(
-        ConfigFile $configFile,
-        string|array $validatorId,
+    public function validate(
+        array $validatorIds,
         array $values,
         bool $isPostSource,
     ): bool|array {
-        // find validators
-        $validatorId = (array) $validatorId;
-        $validators = self::getValidators($configFile);
         $vids = [];
-        foreach ($validatorId as &$vid) {
-            $vid = $configFile->getCanonicalPath($vid);
-            if (! isset($validators[$vid])) {
+        foreach ($validatorIds as $vid) {
+            $vid = $this->configFile->getCanonicalPath($vid);
+            if (! isset($this->validators[$vid])) {
                 continue;
             }
 
@@ -151,7 +148,7 @@ class Validator
         foreach ($values as $k => $v) {
             $k2 = $isPostSource ? str_replace('-', '/', $k) : $k;
             $k2 = mb_strpos($k2, '/')
-                ? $configFile->getCanonicalPath($k2)
+                ? $this->configFile->getCanonicalPath($k2)
                 : $k2;
             $keyMap[$k2] = $k;
             $arguments[$k2] = $v;
@@ -161,21 +158,21 @@ class Validator
         $result = [];
         foreach ($vids as $vid) {
             // call appropriate validation functions
-            foreach ((array) $validators[$vid] as $validator) {
+            foreach ((array) $this->validators[$vid] as $validator) {
                 $vdef = (array) $validator;
                 $vname = array_shift($vdef);
-                $args = array_merge([$vid, &$arguments], $vdef);
+                $args = array_merge([$vid, $arguments], $vdef);
 
                 $validationResult = match ($vname) {
-                    'validateServer' => self::validateServer(...$args),
-                    'validatePMAStorage' => self::validatePMAStorage(...$args),
-                    'validateRegex' => self::validateRegex(...$args),
-                    'validateTrustedProxies' => self::validateTrustedProxies(...$args),
-                    'validatePortNumber' => self::validatePortNumber(...$args),
-                    'validatePositiveNumber' => self::validatePositiveNumber(...$args),
-                    'validateNonNegativeNumber' => self::validateNonNegativeNumber(...$args),
-                    'validateByRegex' => self::validateByRegex(...$args),
-                    'validateUpperBound' => self::validateUpperBound(...$args),
+                    'validateServer' => $this->validateServer(...$args),
+                    'validatePMAStorage' => $this->validatePMAStorage(...$args),
+                    'validateRegex' => $this->validateRegex(...$args),
+                    'validateTrustedProxies' => $this->validateTrustedProxies(...$args),
+                    'validatePortNumber' => $this->validatePortNumber(...$args),
+                    'validatePositiveNumber' => $this->validatePositiveNumber(...$args),
+                    'validateNonNegativeNumber' => $this->validateNonNegativeNumber(...$args),
+                    'validateByRegex' => $this->validateByRegex(...$args),
+                    'validateUpperBound' => $this->validateUpperBound(...$args),
                     default => null,
                 };
 
@@ -203,8 +200,7 @@ class Validator
         // restore original paths
         $newResult = [];
         foreach ($result as $k => $v) {
-            $k2 = $keyMap[$k] ?? $k;
-            $newResult[$k2] = $v;
+            $newResult[$keyMap[$k] ?? $k] = $v;
         }
 
         return $newResult === [] ? true : $newResult;
@@ -222,7 +218,7 @@ class Validator
      *
      * @return array<string, string>|true
      */
-    private static function testDBConnection(
+    private function testDBConnection(
         string $host,
         string|int $port,
         string $socket,
@@ -273,7 +269,7 @@ class Validator
      *
      * @return array<string, string>
      */
-    private static function validateServer(string $path, array $values): array
+    private function validateServer(string $path, array $values): array
     {
         $result = [
             'Server' => '',
@@ -313,7 +309,7 @@ class Validator
                 $password = $values['Servers/1/password'];
             }
 
-            $test = self::testDBConnection(
+            $test = $this->testDBConnection(
                 empty($values['Servers/1/host']) ? '' : $values['Servers/1/host'],
                 empty($values['Servers/1/port']) ? '' : $values['Servers/1/port'],
                 empty($values['Servers/1/socket']) ? '' : $values['Servers/1/socket'],
@@ -339,7 +335,7 @@ class Validator
      *
      * @return array<string, string>
      */
-    private static function validatePMAStorage(string $path, array $values): array
+    private function validatePMAStorage(string $path, array $values): array
     {
         $result = [
             'Server_pmadb' => '',
@@ -368,7 +364,7 @@ class Validator
         }
 
         if (! $error) {
-            $test = self::testDBConnection(
+            $test = $this->testDBConnection(
                 empty($values['Servers/1/host']) ? '' : $values['Servers/1/host'],
                 empty($values['Servers/1/port']) ? '' : $values['Servers/1/port'],
                 empty($values['Servers/1/socket']) ? '' : $values['Servers/1/socket'],
@@ -392,7 +388,7 @@ class Validator
      *
      * @return array<string, string|null>
      */
-    private static function validateRegex(string $path, array $values): array
+    private function validateRegex(string $path, array $values): array
     {
         $result = [$path => ''];
 
@@ -426,7 +422,7 @@ class Validator
      *
      * @return array<string, string[]>
      */
-    private static function validateTrustedProxies(string $path, array $values): array
+    private function validateTrustedProxies(string $path, array $values): array
     {
         $result = [$path => []];
 
@@ -482,7 +478,7 @@ class Validator
      *
      * @return string  empty string if test is successful
      */
-    private static function validateNumber(
+    private function validateNumber(
         string $path,
         array $values,
         bool $allowNegative,
@@ -516,10 +512,10 @@ class Validator
      *
      * @return array<string, string>
      */
-    private static function validatePortNumber(string $path, array $values): array
+    private function validatePortNumber(string $path, array $values): array
     {
         return [
-            $path => self::validateNumber(
+            $path => $this->validateNumber(
                 $path,
                 $values,
                 false,
@@ -538,10 +534,10 @@ class Validator
      *
      * @return array<string, string>
      */
-    private static function validatePositiveNumber(string $path, array $values): array
+    private function validatePositiveNumber(string $path, array $values): array
     {
         return [
-            $path => self::validateNumber(
+            $path => $this->validateNumber(
                 $path,
                 $values,
                 false,
@@ -560,10 +556,10 @@ class Validator
      *
      * @return array<string, string>
      */
-    private static function validateNonNegativeNumber(string $path, array $values): array
+    private function validateNonNegativeNumber(string $path, array $values): array
     {
         return [
-            $path => self::validateNumber(
+            $path => $this->validateNumber(
                 $path,
                 $values,
                 false,
@@ -584,7 +580,7 @@ class Validator
      *
      * @return array<string, string>|string
      */
-    private static function validateByRegex(string $path, array $values, string $regex): array|string
+    private function validateByRegex(string $path, array $values, string $regex): array|string
     {
         if (! isset($values[$path])) {
             return '';
@@ -602,7 +598,7 @@ class Validator
      *
      * @return array<string, string>
      */
-    private static function validateUpperBound(string $path, array $values, int $maxValue): array
+    private function validateUpperBound(string $path, array $values, int $maxValue): array
     {
         $result = $values[$path] <= $maxValue;
 

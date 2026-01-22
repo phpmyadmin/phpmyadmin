@@ -99,13 +99,14 @@ class FormDisplay
 
     private static bool $hasCheckPageRefresh = false;
 
+    private Validator $validator;
+
     public function __construct(private ConfigFile $configFile)
     {
         $config = Config::getInstance();
         $this->formDisplayTemplate = new FormDisplayTemplate($config);
         $this->isSetupScript = $config->isSetup();
-        // initialize validators
-        Validator::getValidators($this->configFile);
+        $this->validator = new Validator($this->configFile);
     }
 
     /**
@@ -179,7 +180,7 @@ class FormDisplay
         }
 
         // run validation
-        $errors = Validator::validate($this->configFile, $paths, $values, false);
+        $errors = $this->validator->validate($paths, $values, false);
 
         // change error keys from canonical paths to work paths
         if (is_array($errors) && $errors !== []) {
@@ -246,7 +247,7 @@ class FormDisplay
         // user preferences
         $this->loadUserprefsInfo();
 
-        $validators = Validator::getValidators($this->configFile);
+        $validators = $this->validator->getValidators();
         $forms = [];
 
         foreach ($this->forms as $key => $form) {
