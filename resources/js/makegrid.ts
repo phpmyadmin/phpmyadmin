@@ -2295,7 +2295,92 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
         initCellSelection: function () {
             g.isSelectingCells = false;
             g.startSelectCell = null;
+            g.preEndSelectCell = null;
             g.endSelectCell = null;
+
+            const colspan = Number(
+                $(g.t).find('thead th').first().attr('colspan')
+            ) - 1 || 1;
+
+            // Check if an element is visible for user
+            function isPartiallyHidden (el) {
+                const rect = el.getBoundingClientRect();
+                const vW = window.innerWidth;
+                const vH = window.innerHeight;
+
+                if (rect.top < 0 || rect.left < 0 || rect.bottom > vH || rect.right > vW) {
+                    return true;
+                }
+
+                const points = [
+                    { x: rect.left + 1, y: rect.top + 1 },
+                    { x: rect.right - 1, y: rect.top + 1 },
+                    { x: rect.right - 1, y: rect.bottom - 1 },
+                    { x: rect.left + 1, y: rect.bottom - 1 },
+                    { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 }
+                ];
+
+                for (let i = 0; i < 5; i++) {
+                    const p = points[i];
+                    const topEl = document.elementFromPoint(p.x, p.y);
+
+                    if (topEl && !$(topEl).hasClass('tooltip-inner') && !el.contains(topEl) && topEl !== el) {
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+
+            function scrollDuringSelection () {
+                const { endSelectCell, preEndSelectCell } = g;
+
+                if (!endSelectCell || !preEndSelectCell || !isPartiallyHidden(endSelectCell)) {
+                    return;
+                }
+
+                const $end = $(endSelectCell);
+                const $preEnd = $(preEndSelectCell);
+                const isHeader = $end.is('th');
+                const endIdx = $end.index() + (isHeader ? colspan : 0);
+                const endRowIdx = $end.parent().index();
+                const preIdx = $preEnd.index() + (isHeader ? colspan : 0);
+                const preRowIdx = $preEnd.parent().index();
+
+                let direction = null;
+
+                if (endRowIdx < preRowIdx) {
+                    direction = 'up';
+                } else if (endRowIdx > preRowIdx) {
+                    direction = 'down';
+                } else if (endIdx < preIdx) {
+                    direction = 'left';
+                } else if (endIdx > preIdx) {
+                    direction = 'right';
+                }
+
+                if (direction) {
+                    endSelectCell.scrollIntoView({
+                        block: 'nearest',
+                        inline: 'nearest',
+                        behavior: 'auto'
+                    });
+
+                    const extra = 50;
+                    const dw = endSelectCell.offsetWidth + extra;
+                    const dh = endSelectCell.offsetHeight + extra;
+
+                    const offsets = {
+                        up: [0, -dh],
+                        down: [0, dh],
+                        left: [-dw, 0],
+                        right: [dw, 0]
+                    };
+
+                    const [scrollX, scrollY] = offsets[direction];
+                    window.scrollBy(scrollX, scrollY);
+                }
+            }
 
             function updateCellSelection () {
                 if (!g.startSelectCell || !g.endSelectCell) {
@@ -2312,15 +2397,24 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                 let endCol = g.updateCellSelectionEnd.index();
 
                 if (isHeader) {
-                    const colspan = Number(
-                        $(g.t).find('thead th').first().attr('colspan')
-                    ) - 1 || 1;
+                    if ($(g.preEndSelectCell).closest('tr').index() !== 0) {
+                        // case when user fast select from data cell to header cell
+                        if (isPartiallyHidden($(g.t).get(0))) {
+                            $(window).scrollTop($(g.t).offset().top - 100);
+                        }
+
+                        $(g.t).find('tbody > tr').each(function (rowIndex) {
+                            if (rowIndex < $(g.preEndSelectCell).parent().index()) {
+                                $(this).find('td').eq(endCol + colspan).addClass('cell-selected');
+                            }
+                        });
+                    }
+
                     const startColHeader = startCol - colspan;
                     const endColHeader = endCol;
-
                     endCol += colspan;
 
-                    $(g.t).find('thead > tr').each(function (rowIndex) {
+                    $(g.t).find('thead > tr').each(function () {
                         $(this).find('th').each(function (colIndex) {
                             if (colIndex >= Math.min(startColHeader, endColHeader) && colIndex <= Math.max(startColHeader, endColHeader)) {
                                 $(this).addClass('cell-selected');
@@ -2420,7 +2514,9 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                         return;
                     }
 
+                    g.preEndSelectCell = g.endSelectCell;
                     g.endSelectCell = this;
+                    scrollDuringSelection();
                     updateCellSelection();
                 });
 
