@@ -194,6 +194,6 @@ class ExportJsonTest extends AbstractTestCase
             . "]\n}\n",
         );
 
-        $this->object->exportRawQuery(null, 'SELECT * FROM `test_db`.`test_table_complex`;');
+        $this->object->exportRawQuery('', 'SELECT * FROM `test_db`.`test_table_complex`;');
     }
 }

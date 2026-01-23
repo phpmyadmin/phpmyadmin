@@ -135,16 +135,16 @@ class ExportPdf extends ExportPlugin
     /**
      * Outputs result of raw query in PDF format
      *
-     * @param string|null $db       the database where the query is executed
-     * @param string      $sqlQuery the rawquery to output
+     * @param string $db       the database where the query is executed
+     * @param string $sqlQuery the rawquery to output
      */
-    public function exportRawQuery(string|null $db, string $sqlQuery): void
+    public function exportRawQuery(string $db, string $sqlQuery): void
     {
         $this->pdf->setDbAlias('----');
         $this->pdf->setTableAlias('----');
         $this->pdf->setPurpose(__('Query result data'));
 
-        if ($db !== null) {
+        if ($db !== '') {
             $this->pdf->setCurrentDb($db);
             DatabaseInterface::getInstance()->selectDb($db);
         }
