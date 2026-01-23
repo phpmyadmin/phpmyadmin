@@ -17,7 +17,7 @@ class IndexColumn
     /** @var int The column sequence number in the index, starting with 1. */
     private $seqInIndex = 1;
 
-    /** @var string|null How the column is sorted in the index. "A" (Ascending) or NULL (Not sorted) */
+    /** @var string|null How the column is sorted in the index. "A" (Ascending), "D" (Descending) or NULL (Not sorted) */
     private $collation = null;
 
     /**
