@@ -1307,20 +1307,11 @@ function getAutoSavedKey () {
 }
 
 function checkSavedQuery () {
-    let key = Sql.getAutoSavedKey();
-    let buttonGetAutoSavedQuery = $('#saved');
-
-    let isAutoSavedInLocalStorage = isStorageSupported('localStorage') && (typeof window.localStorage.getItem(key) === 'string');
-    // @ts-ignore
-    let isAutoSavedInCookie = window.Cookies.get(key, { path: CommonParams.get('rootPath') });
-
-    if (isAutoSavedInLocalStorage || isAutoSavedInCookie) {
-        buttonGetAutoSavedQuery.prop('disabled', false);
-
-        return;
-    }
-
-    buttonGetAutoSavedQuery.prop('disabled', true);
+    const key = Sql.getAutoSavedKey();
+    const haveAutoSavedQuery =
+        (isStorageSupported('localStorage') && typeof window.localStorage.getItem(key) === 'string') ||
+        window.Cookies.withAttributes({ path: CommonParams.get('rootPath') }).get(key);
+    $('#saved').prop('disabled', !haveAutoSavedQuery);
 }
 
 AJAX.registerOnload('sql.js', function () {
