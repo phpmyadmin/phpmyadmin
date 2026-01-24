@@ -233,19 +233,30 @@ class UserPreferencesTest extends AbstractNetworkTestCase
 
         // Initial save with 2fa
         $initialConfig = [
+            'CharEditing' => 'textarea',
             '2fa' => ['backend' => 'application', 'settings' => ['secret' => 'thisisasecret']],
-            'theme' => 'dark',
+            'RowActionLinks' => 'both',
+            'TableNavigationLinksMode' => 'both',
         ];
         $this->userPreferences->save($initialConfig);
 
         // Partial save without 2fa
-        $partialConfig = ['Console/Mode' => 'collapse'];
+        $partialConfig = [
+            'CharEditing' => 'textarea',
+            'TableNavigationLinksMode' => 'text',
+            'Console/Mode' => 'collapse',
+        ];
         $this->userPreferences->save($partialConfig);
 
         // Check that 2fa is still present
         $resultConfig = $_SESSION['userconfig']['db'];
-        self::assertSame('thisisasecret', $resultConfig['2fa']['settings']['secret']);
-        self::assertSame('collapse', $resultConfig['Console/Mode']);
+        $expected = [
+            'CharEditing' => 'textarea',
+            'TableNavigationLinksMode' => 'text',
+            'Console/Mode' => 'collapse',
+            '2fa' => ['backend' => 'application', 'settings' => ['secret' => 'thisisasecret']],
+        ];
+        self::assertSame($expected, $resultConfig);
     }
 
     /**
