@@ -5837,6 +5837,12 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
   </file>
+  <file src="src/Plugins/Export/ExportToon.php">
+    <DeprecatedMethod>
+      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
+      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
+    </DeprecatedMethod>
+  </file>
   <file src="src/Plugins/Export/ExportExcel.php">
     <DeprecatedMethod>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
