@@ -109,11 +109,11 @@ class ExportToon extends ExportPlugin
         }
 
         $buffer = sprintf(
-            "%s.%s[%s%s]{",
+            '%s.%s[%s%s]{',
             $dbAlias,
             $tableAlias,
             $rowsCnt,
-            $this->separator !== ',' ? $this->separator : ''
+            $this->separator !== ',' ? $this->separator : '',
         );
         foreach ($columns as $index => $column) {
             $buffer .= $column;
