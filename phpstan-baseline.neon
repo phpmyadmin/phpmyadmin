@@ -48751,16 +48751,6 @@ parameters:
 			path: test/classes/UserPreferencesTest.php
 
 		-
-			message: "#^Cannot access offset '2fa' on mixed\\.$#"
-			count: 1
-			path: test/classes/UserPreferencesTest.php
-
-		-
-			message: "#^Cannot access offset 'Console/Mode' on mixed\\.$#"
-			count: 1
-			path: test/classes/UserPreferencesTest.php
-
-		-
 			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
 			count: 1
 			path: test/classes/UserPreferencesTest.php
@@ -48791,17 +48781,7 @@ parameters:
 			path: test/classes/UserPreferencesTest.php
 
 		-
-			message: "#^Cannot access offset 'secret' on mixed\\.$#"
-			count: 1
-			path: test/classes/UserPreferencesTest.php
-
-		-
 			message: "#^Cannot access offset 'server_2' on mixed\\.$#"
-			count: 1
-			path: test/classes/UserPreferencesTest.php
-
-		-
-			message: "#^Cannot access offset 'settings' on mixed\\.$#"
 			count: 1
 			path: test/classes/UserPreferencesTest.php
 

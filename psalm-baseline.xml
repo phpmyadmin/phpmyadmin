@@ -14186,9 +14186,10 @@
       <code>$allowList[$path]</code>
       <code>$excludeList[$path]</code>
     </MixedArrayTypeCoercion>
-    <MixedAssignment occurrences="5">
+    <MixedAssignment occurrences="6">
       <code>$configData</code>
       <code>$configData</code>
+      <code>$config_array['2fa']</code>
       <code>$prefs['config_data'][$path]</code>
       <code>$timestamp</code>
       <code>$value</code>
@@ -16451,17 +16452,12 @@
     </MixedMethodCall>
   </file>
   <file src="test/classes/UserPreferencesTest.php">
-    <InvalidArrayOffset occurrences="2">
-      <code>$resultConfig['2fa']</code>
-      <code>$resultConfig['Console/Mode']</code>
-    </InvalidArrayOffset>
     <MixedArgument occurrences="1">
       <code>$_SESSION['userconfig']</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="3">
+    <MixedArrayAccess occurrences="2">
       <code>$_SESSION['userconfig']['db']</code>
       <code>$_SESSION['userconfig']['ts']</code>
-      <code>$resultConfig['2fa']['settings']</code>
     </MixedArrayAccess>
     <TypeDoesNotContainType occurrences="1">
       <code>assertTrue</code>
