@@ -747,7 +747,7 @@ class FormDisplay
         $config = Config::getInstance();
         $userPrefsDisallow = $config->isSetup()
             ? $this->configFile->get('UserprefsDisallow', [])
-            : $config->settings['UserprefsDisallow'];
+            : $config->config->UserprefsDisallow;
         $this->userprefsDisallow = array_flip($userPrefsDisallow ?? []);
     }
 

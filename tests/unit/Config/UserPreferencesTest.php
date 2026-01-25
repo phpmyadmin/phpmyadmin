@@ -455,7 +455,7 @@ class UserPreferencesTest extends AbstractTestCase
     public function testApply(): void
     {
         $config = Config::getInstance();
-        $config->settings['UserprefsDisallow'] = ['test' => 'val', 'foo' => 'bar'];
+        $config->set('UserprefsDisallow', ['test' => 'val', 'foo' => 'bar']);
 
         $dbi = DatabaseInterface::getInstance();
         $userPreferences = new UserPreferences(
