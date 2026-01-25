@@ -197,7 +197,7 @@ class ExportToonTest extends AbstractTestCase
     public function testExportDataWithCustomConfig(): void
     {
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
-            ->withParsedBody(['toon_separator' => '|', 'toon_indent' => 4]);
+            ->withParsedBody(['toon_separator' => '|', 'toon_indent' => '4']);
 
         $this->object->setExportOptions($request, []);
         $this->object->exportHeader();
