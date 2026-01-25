@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\Column;
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Config\Settings\Export as SettingsExport;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Dbal\ConnectionType;
@@ -385,7 +386,7 @@ class ExportOdtTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['odt_null' => '&']);
 
-        $this->object->setExportOptions($request, []);
+        $this->object->setExportOptions($request, new SettingsExport());
 
         $this->object->exportData('db', 'ta<ble', 'SELECT');
 
@@ -449,7 +450,7 @@ class ExportOdtTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['odt_columns' => 'On']);
 
-        $this->object->setExportOptions($request, []);
+        $this->object->setExportOptions($request, new SettingsExport());
 
         $this->object->exportData('db', 'table', 'SELECT');
 
@@ -606,7 +607,7 @@ class ExportOdtTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['odt_relation' => 'On', 'odt_mime' => 'On', 'odt_comments' => 'On']);
 
-        $this->object->setExportOptions($request, []);
+        $this->object->setExportOptions($request, new SettingsExport());
 
         self::assertTrue($this->object->getTableDef('database', ''));
 
@@ -876,8 +877,9 @@ class ExportOdtTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
         DatabaseInterface::$instance = $dbi;
-        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/');
-        $this->object->setExportOptions($request, ['odt_structure_or_data' => 'structure']);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['odt_structure_or_data' => 'structure']);
+        $this->object->setExportOptions($request, new SettingsExport());
         $export = new Export($dbi, new OutputHandler());
         $export->exportTable(
             'testdb',

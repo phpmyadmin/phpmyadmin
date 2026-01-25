@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;
 
+use PhpMyAdmin\Config\Settings\Export;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Exceptions\ExportException;
@@ -294,17 +295,16 @@ class ExportJson extends ExportPlugin
         $this->doExportForQuery($dbi, $sqlQuery, $buffer, null, $db, null);
     }
 
-    /** @inheritDoc */
-    public function setExportOptions(ServerRequest $request, array $exportConfig): void
+    public function setExportOptions(ServerRequest $request, Export $exportConfig): void
     {
+        // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $this->structureOrData = $this->setStructureOrData(
             $request->getParsedBodyParam('json_structure_or_data'),
-            $exportConfig['json_structure_or_data'] ?? null,
+            $exportConfig->json_structure_or_data,
             StructureOrData::Data,
         );
-        $this->prettyPrint = (bool) ($request->getParsedBodyParam('json_pretty_print')
-            ?? $exportConfig['json_pretty_print'] ?? false);
-        $this->unicode = (bool) ($request->getParsedBodyParam('json_unicode')
-            ?? $exportConfig['json_unicode'] ?? false);
+        $this->prettyPrint = $request->hasBodyParam('json_pretty_print');
+        $this->unicode = $request->hasBodyParam('json_unicode');
+        // phpcs:enable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
     }
 }

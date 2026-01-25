@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
+use PhpMyAdmin\Config\Settings\Export;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\OutputHandler;
@@ -155,7 +156,7 @@ class ExportPdfTest extends AbstractTestCase
     {
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/');
 
-        $this->object->setExportOptions($request, []);
+        $this->object->setExportOptions($request, new Export());
 
         $attrPdf = new ReflectionProperty(ExportPdf::class, 'pdf');
         $pdf = $attrPdf->getValue($this->object);

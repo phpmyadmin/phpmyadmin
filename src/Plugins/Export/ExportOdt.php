@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\Column;
+use PhpMyAdmin\Config\Settings\Export;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\StructureOrData;
@@ -637,25 +638,23 @@ class ExportOdt extends ExportPlugin
         return $definition;
     }
 
-    /** @inheritDoc */
-    public function setExportOptions(ServerRequest $request, array $exportConfig): void
+    public function setExportOptions(ServerRequest $request, Export $exportConfig): void
     {
+        // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $this->structureOrData = $this->setStructureOrData(
             $request->getParsedBodyParam('odt_structure_or_data'),
-            $exportConfig['odt_structure_or_data'] ?? null,
+            $exportConfig->odt_structure_or_data,
             StructureOrData::StructureAndData,
         );
-        $this->columns = (bool) ($request->getParsedBodyParam('odt_columns')
-            ?? $exportConfig['odt_columns'] ?? false);
-        $this->doRelation = (bool) ($request->getParsedBodyParam('odt_relation')
-            ?? $exportConfig['odt_relation'] ?? false);
-        $this->doMime = (bool) ($request->getParsedBodyParam('odt_mime') ?? $exportConfig['odt_mime'] ?? false);
-        $this->doComments = (bool) ($request->getParsedBodyParam('odt_comments')
-            ?? $exportConfig['odt_comments'] ?? false);
+        $this->columns = $request->hasBodyParam('odt_columns');
+        $this->doRelation = $request->hasBodyParam('odt_relation');
+        $this->doMime = $request->hasBodyParam('odt_mime');
+        $this->doComments = $request->hasBodyParam('odt_comments');
         $this->null = $this->setStringValue(
             $request->getParsedBodyParam('odt_null'),
-            $exportConfig['odt_null'] ?? null,
+            $exportConfig->odt_null,
         );
+        // phpcs:enable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
     }
 
     private function setStringValue(mixed $fromRequest, mixed $fromConfig): string

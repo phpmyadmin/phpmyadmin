@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;
 
+use PhpMyAdmin\Config\Settings\Export;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\StructureOrData;
@@ -163,13 +164,14 @@ class ExportYaml extends ExportPlugin
         $this->exportData($db, '', $sqlQuery);
     }
 
-    /** @inheritDoc */
-    public function setExportOptions(ServerRequest $request, array $exportConfig): void
+    public function setExportOptions(ServerRequest $request, Export $exportConfig): void
     {
+        // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $this->structureOrData = $this->setStructureOrData(
             $request->getParsedBodyParam('yaml_structure_or_data'),
-            $exportConfig['yaml_structure_or_data'] ?? null,
+            $exportConfig->yaml_structure_or_data,
             StructureOrData::Data,
         );
+        // phpcs:enable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
     }
 }

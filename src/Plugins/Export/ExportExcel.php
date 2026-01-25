@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;
 
+use PhpMyAdmin\Config\Settings\Export;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\StructureOrData;
@@ -223,28 +224,27 @@ class ExportExcel extends ExportPlugin
         $this->exportData($db, '', $sqlQuery);
     }
 
-    /** @inheritDoc */
-    public function setExportOptions(ServerRequest $request, array $exportConfig): void
+    public function setExportOptions(ServerRequest $request, Export $exportConfig): void
     {
+        // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $this->structureOrData = $this->setStructureOrData(
             $request->getParsedBodyParam('excel_structure_or_data'),
-            $exportConfig['excel_structure_or_data'] ?? null,
+            $exportConfig->excel_structure_or_data,
             StructureOrData::Data,
         );
         $this->edition = $this->setEdition($this->setStringValue(
             $request->getParsedBodyParam('excel_edition'),
-            $exportConfig['excel_edition'] ?? null,
+            $exportConfig->excel_edition,
         ));
-        $this->columns = (bool) ($request->getParsedBodyParam('excel_columns')
-            ?? $exportConfig['excel_columns'] ?? false);
-        $this->removeCrLf = (bool) ($request->getParsedBodyParam('excel_removeCRLF')
-            ?? $exportConfig['excel_removeCRLF'] ?? false);
+        $this->columns = $request->hasBodyParam('excel_columns');
+        $this->removeCrLf = $request->hasBodyParam('excel_removeCRLF');
         $this->null = $this->setStringValue(
             $request->getParsedBodyParam('excel_null'),
-            $exportConfig['excel_null'] ?? null,
+            $exportConfig->excel_null,
         );
 
         $this->setupExportConfiguration();
+        // phpcs:enable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
     }
 
     private function setStringValue(mixed $fromRequest, mixed $fromConfig): string

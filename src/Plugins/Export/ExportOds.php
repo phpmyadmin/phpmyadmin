@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;
 
+use PhpMyAdmin\Config\Settings\Export;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\StructureOrData;
@@ -271,20 +272,20 @@ class ExportOds extends ExportPlugin
         $this->exportData($db, '', $sqlQuery);
     }
 
-    /** @inheritDoc */
-    public function setExportOptions(ServerRequest $request, array $exportConfig): void
+    public function setExportOptions(ServerRequest $request, Export $exportConfig): void
     {
+        // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $this->structureOrData = $this->setStructureOrData(
             $request->getParsedBodyParam('ods_structure_or_data'),
-            $exportConfig['ods_structure_or_data'] ?? null,
+            $exportConfig->ods_structure_or_data,
             StructureOrData::Data,
         );
-        $this->columns = (bool) ($request->getParsedBodyParam('ods_columns')
-            ?? $exportConfig['ods_columns'] ?? true);
+        $this->columns = $request->hasBodyParam('ods_columns');
         $this->null = $this->setStringValue(
             $request->getParsedBodyParam('ods_null'),
-            $exportConfig['ods_null'] ?? null,
+            $exportConfig->ods_null,
         );
+        // phpcs:enable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
     }
 
     private function setStringValue(mixed $fromRequest, mixed $fromConfig): string

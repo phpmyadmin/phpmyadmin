@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Plugins\Export;
 
 use DateTimeImmutable;
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Config\Settings\Export;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\StructureOrData;
@@ -569,51 +570,48 @@ class ExportLatex extends ExportPlugin
         return addcslashes($string, '$%{}&#_^');
     }
 
-    /** @inheritDoc */
-    public function setExportOptions(ServerRequest $request, array $exportConfig): void
+    public function setExportOptions(ServerRequest $request, Export $exportConfig): void
     {
+        // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $this->structureOrData = $this->setStructureOrData(
             $request->getParsedBodyParam('latex_structure_or_data'),
-            $exportConfig['latex_structure_or_data'] ?? null,
+            $exportConfig->latex_structure_or_data,
             StructureOrData::StructureAndData,
         );
-        $this->caption = (bool) ($request->getParsedBodyParam('latex_caption')
-            ?? $exportConfig['latex_caption'] ?? false);
-        $this->columns = (bool) ($request->getParsedBodyParam('latex_columns')
-            ?? $exportConfig['latex_columns'] ?? false);
-        $this->doRelation = (bool) ($request->getParsedBodyParam('latex_relation')
-            ?? $exportConfig['latex_relation'] ?? false);
-        $this->doMime = (bool) ($request->getParsedBodyParam('latex_mime') ?? $exportConfig['latex_mime'] ?? false);
-        $this->doComments = (bool) ($request->getParsedBodyParam('latex_comments')
-            ?? $exportConfig['latex_comments'] ?? false);
+        $this->caption = $request->hasBodyParam('latex_caption');
+        $this->columns = $request->hasBodyParam('latex_columns');
+        $this->doRelation = $request->hasBodyParam('latex_relation');
+        $this->doMime = $request->hasBodyParam('latex_mime');
+        $this->doComments = $request->hasBodyParam('latex_comments');
         $this->dataCaption = $this->setStringValue(
             $request->getParsedBodyParam('latex_data_caption'),
-            $exportConfig['latex_data_caption'] ?? null,
+            $exportConfig->latex_data_caption,
         );
         $this->dataContinuedCaption = $this->setStringValue(
             $request->getParsedBodyParam('latex_data_continued_caption'),
-            $exportConfig['latex_data_continued_caption'] ?? null,
+            $exportConfig->latex_data_continued_caption,
         );
         $this->dataLabel = $this->setStringValue(
             $request->getParsedBodyParam('latex_data_label'),
-            $exportConfig['latex_data_label'] ?? null,
+            $exportConfig->latex_data_label,
         );
         $this->null = $this->setStringValue(
             $request->getParsedBodyParam('latex_null'),
-            $exportConfig['latex_null'] ?? null,
+            $exportConfig->latex_null,
         );
         $this->structureCaption = $this->setStringValue(
             $request->getParsedBodyParam('latex_structure_caption'),
-            $exportConfig['latex_structure_caption'] ?? null,
+            $exportConfig->latex_structure_caption,
         );
         $this->structureContinuedCaption = $this->setStringValue(
             $request->getParsedBodyParam('latex_structure_continued_caption'),
-            $exportConfig['latex_structure_continued_caption'] ?? null,
+            $exportConfig->latex_structure_continued_caption,
         );
         $this->structureLabel = $this->setStringValue(
             $request->getParsedBodyParam('latex_structure_label'),
-            $exportConfig['latex_structure_label'] ?? null,
+            $exportConfig->latex_structure_label,
         );
+        // phpcs:enable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
     }
 
     private function setStringValue(mixed $fromRequest, mixed $fromConfig): string

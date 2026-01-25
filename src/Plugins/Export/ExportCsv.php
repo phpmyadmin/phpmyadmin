@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;
 
+use PhpMyAdmin\Config\Settings\Export;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\StructureOrData;
@@ -225,40 +226,39 @@ class ExportCsv extends ExportPlugin
         $this->exportData($db, '', $sqlQuery);
     }
 
-    /** @inheritDoc */
-    public function setExportOptions(ServerRequest $request, array $exportConfig): void
+    public function setExportOptions(ServerRequest $request, Export $exportConfig): void
     {
+        // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $this->structureOrData = $this->setStructureOrData(
             $request->getParsedBodyParam('csv_structure_or_data'),
-            $exportConfig['csv_structure_or_data'] ?? null,
+            $exportConfig->csv_structure_or_data,
             StructureOrData::Data,
         );
         $this->terminated = $this->setStringValue(
             $request->getParsedBodyParam('csv_terminated'),
-            $exportConfig['csv_terminated'] ?? $this->terminated,
+            $exportConfig->csv_terminated,
         );
         $this->separator = $this->setStringValue(
             $request->getParsedBodyParam('csv_separator'),
-            $exportConfig['csv_separator'] ?? $this->separator,
+            $exportConfig->csv_separator,
         );
-        $this->columns = (bool) ($request->getParsedBodyParam('csv_columns')
-            ?? $exportConfig['csv_columns'] ?? false);
+        $this->columns = $request->hasBodyParam('csv_columns');
         $this->enclosed = $this->setStringValue(
             $request->getParsedBodyParam('csv_enclosed'),
-            $exportConfig['csv_enclosed'] ?? $this->enclosed,
+            $exportConfig->csv_enclosed,
         );
         $this->escaped = $this->setStringValue(
             $request->getParsedBodyParam('csv_escaped'),
-            $exportConfig['csv_escaped'] ?? $this->escaped,
+            $exportConfig->csv_escaped,
         );
-        $this->removeCrLf = (bool) ($request->getParsedBodyParam('csv_removeCRLF')
-            ?? $exportConfig['csv_removeCRLF'] ?? false);
+        $this->removeCrLf = $request->hasBodyParam('csv_removeCRLF');
         $this->null = $this->setStringValue(
             $request->getParsedBodyParam('csv_null'),
-            $exportConfig['csv_null'] ?? $this->null,
+            $exportConfig->csv_null,
         );
 
         $this->setupExportConfiguration();
+        // phpcs:enable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
     }
 
     private function setStringValue(mixed $fromRequest, mixed $fromConfig): string

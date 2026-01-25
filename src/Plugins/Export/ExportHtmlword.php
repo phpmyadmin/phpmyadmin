@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\Column;
+use PhpMyAdmin\Config\Settings\Export;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
@@ -525,26 +526,23 @@ class ExportHtmlword extends ExportPlugin
         return $definition;
     }
 
-    /** @inheritDoc */
-    public function setExportOptions(ServerRequest $request, array $exportConfig): void
+    public function setExportOptions(ServerRequest $request, Export $exportConfig): void
     {
+        // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $this->structureOrData = $this->setStructureOrData(
             $request->getParsedBodyParam('htmlword_structure_or_data'),
-            $exportConfig['htmlword_structure_or_data'] ?? null,
+            $exportConfig->htmlword_structure_or_data,
             StructureOrData::StructureAndData,
         );
-        $this->columns = (bool) ($request->getParsedBodyParam('htmlword_columns')
-            ?? $exportConfig['htmlword_columns'] ?? false);
-        $this->doRelation = (bool) ($request->getParsedBodyParam('htmlword_relation')
-            ?? $exportConfig['htmlword_relation'] ?? false);
-        $this->doMime = (bool) ($request->getParsedBodyParam('htmlword_mime')
-            ?? $exportConfig['htmlword_mime'] ?? false);
-        $this->doComments = (bool) ($request->getParsedBodyParam('htmlword_comments')
-            ?? $exportConfig['htmlword_comments'] ?? false);
+        $this->columns = $request->hasBodyParam('htmlword_columns');
+        $this->doRelation = $request->hasBodyParam('htmlword_relation');
+        $this->doMime = $request->hasBodyParam('htmlword_mime');
+        $this->doComments = $request->hasBodyParam('htmlword_comments');
         $this->null = $this->setStringValue(
             $request->getParsedBodyParam('htmlword_null'),
-            $exportConfig['htmlword_null'] ?? null,
+            $exportConfig->htmlword_null,
         );
+        // phpcs:enable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
     }
 
     private function setStringValue(mixed $fromRequest, mixed $fromConfig): string

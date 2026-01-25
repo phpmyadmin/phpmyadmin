@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\Column;
+use PhpMyAdmin\Config\Settings\Export as SettingsExport;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
@@ -232,7 +233,7 @@ class ExportMediawikiTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['mediawiki_headers' => 'On', 'mediawiki_caption' => 'On']);
 
-        $this->object->setExportOptions($request, []);
+        $this->object->setExportOptions($request, new SettingsExport());
 
         ob_start();
         $this->object->exportStructure('db', 'table', 'create_table');
@@ -275,7 +276,7 @@ class ExportMediawikiTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['mediawiki_headers' => 'On', 'mediawiki_caption' => 'On']);
 
-        $this->object->setExportOptions($request, []);
+        $this->object->setExportOptions($request, new SettingsExport());
 
         ob_start();
         $this->object->exportData('test_db', 'test_table', 'SELECT * FROM `test_db`.`test_table`;');
@@ -316,8 +317,9 @@ class ExportMediawikiTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
         DatabaseInterface::$instance = $dbi;
-        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/');
-        $this->object->setExportOptions($request, ['mediawiki_structure_or_data' => 'structure']);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['mediawiki_structure_or_data' => 'structure']);
+        $this->object->setExportOptions($request, new SettingsExport());
         ob_start();
         $export = new Export($dbi, new OutputHandler());
         $export->exportTable(

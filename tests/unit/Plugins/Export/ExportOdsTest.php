@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
+use PhpMyAdmin\Config\Settings\Export;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
@@ -251,22 +252,12 @@ class ExportOdsTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['ods_null' => '&']);
 
-        $this->object->setExportOptions($request, []);
+        $this->object->setExportOptions($request, new Export());
 
         $this->object->exportData('db', 'table', 'SELECT');
 
         self::assertSame(
             '<table:table table:name="table"><table:table-row><table:table-cell ' .
-            'office:value-type="string"><text:p>c</text:p></table:table-cell><table:' .
-            'table-cell office:value-type="string"><text:p>c</text:p></table:' .
-            'table-cell><table:table-cell office:value-type="string"><text:p>c</text:' .
-            'p></table:table-cell><table:table-cell office:value-type="string"><text:' .
-            'p>c</text:p></table:table-cell><table:table-cell office:value-type=' .
-            '"string"><text:p>c</text:p></table:table-cell><table:table-cell office:' .
-            'value-type="string"><text:p>c</text:p></table:table-cell><table:table-' .
-            'cell office:value-type="string"><text:p>c</text:p></table:table-cell>' .
-            '<table:table-cell office:value-type="string"><text:p>c</text:p></table:' .
-            'table-cell></table:table-row><table:table-row><table:table-cell ' .
             'office:value-type="string"><text:p>&amp;</text:p></table:table-cell>' .
             '<table:table-cell office:value-type="string"><text:p></text:p>' .
             '</table:table-cell><table:table-cell office:value-type="date" office:' .
@@ -330,7 +321,7 @@ class ExportOdsTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['ods_columns' => 'On']);
 
-        $this->object->setExportOptions($request, []);
+        $this->object->setExportOptions($request, new Export());
 
         $this->object->exportData('db', 'table', 'SELECT');
 

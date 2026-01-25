@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;
 
+use PhpMyAdmin\Config\Settings\Export;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\StructureOrData;
 use PhpMyAdmin\Http\ServerRequest;
@@ -200,22 +201,22 @@ class ExportPdf extends ExportPlugin
         return class_exists(TCPDF::class) && extension_loaded('curl');
     }
 
-    /** @inheritDoc */
-    public function setExportOptions(ServerRequest $request, array $exportConfig): void
+    public function setExportOptions(ServerRequest $request, Export $exportConfig): void
     {
+        // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $this->pdfReportTitle = $request->getParsedBodyParam('pdf_report_title', '');
 
         $this->pdf = new Pdf('L', 'pt', 'A3');
 
         $this->structureOrData = $this->setStructureOrData(
             $request->getParsedBodyParam('pdf_structure_or_data'),
-            $exportConfig['pdf_structure_or_data'] ?? null,
+            $exportConfig->pdf_structure_or_data,
             StructureOrData::Data,
         );
-        $this->doRelation = (bool) ($request->getParsedBodyParam('pdf_relation')
-            ?? $exportConfig['pdf_relation'] ?? false);
-        $this->doMime = (bool) ($request->getParsedBodyParam('pdf_mime') ?? $exportConfig['pdf_mime'] ?? false);
+        $this->doRelation = $request->hasBodyParam('pdf_relation');
+        $this->doMime = $request->hasBodyParam('pdf_mime');
 
         $this->setupExportConfiguration();
+        // phpcs:enable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
     }
 }

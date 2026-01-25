@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Plugins\Export;
 use DateTimeImmutable;
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Config\Settings\Export as SettingsExport;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Events;
@@ -2588,83 +2589,61 @@ class ExportSql extends ExportPlugin
         $generalOptions->addProperty($leaf);
     }
 
-    /** @inheritDoc */
-    public function setExportOptions(ServerRequest $request, array $exportConfig): void
+    public function setExportOptions(ServerRequest $request, SettingsExport $exportConfig): void
     {
+        // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $this->structureOrData = $this->setStructureOrData(
             $request->getParsedBodyParam('sql_structure_or_data'),
-            $exportConfig['sql_structure_or_data'] ?? null,
+            $exportConfig->sql_structure_or_data,
             StructureOrData::StructureAndData,
         );
         $this->useSqlBackquotes = $request->hasBodyParam('sql_backquotes');
-        $this->doRelation = (bool) ($request->getParsedBodyParam('sql_relation')
-            ?? $exportConfig['sql_relation'] ?? false);
-        $this->doMime = (bool) ($request->getParsedBodyParam('sql_mime') ?? $exportConfig['sql_mime'] ?? false);
-        $this->doDates = (bool) ($request->getParsedBodyParam('sql_dates') ?? $exportConfig['sql_dates'] ?? false);
-        $this->doComments = (bool) ($request->getParsedBodyParam('sql_include_comments')
-            ?? $exportConfig['sql_include_comments'] ?? false);
+        $this->doRelation = $request->hasBodyParam('sql_relation');
+        $this->doMime = $request->hasBodyParam('sql_mime');
+        $this->doDates = $request->hasBodyParam('sql_dates');
+        $this->doComments = $request->hasBodyParam('sql_include_comments');
         $this->headerComment = $this->setStringValue(
             $request->getParsedBodyParam('sql_header_comment'),
-            $exportConfig['sql_header_comment'] ?? null,
+            $exportConfig->sql_header_comment,
         );
-        $this->useTransaction = (bool) ($request->getParsedBodyParam('sql_use_transaction')
-            ?? $exportConfig['sql_use_transaction'] ?? false);
-        $this->disableForeignKey = (bool) ($request->getParsedBodyParam('sql_disable_fk')
-            ?? $exportConfig['sql_disable_fk'] ?? false);
+        $this->useTransaction = $request->hasBodyParam('sql_use_transaction');
+        $this->disableForeignKey = $request->hasBodyParam('sql_disable_fk');
         $this->compatibility = $this->setCompatibility($this->setStringValue(
             $request->getParsedBodyParam('sql_compatibility'),
-            $exportConfig['sql_compatibility'] ?? null,
+            $exportConfig->sql_compatibility,
         ));
-        $this->createDatabase = (bool) ($request->getParsedBodyParam('sql_create_database')
-            ?? $exportConfig['sql_create_database'] ?? false);
-        $this->dropTable = (bool) ($request->getParsedBodyParam('sql_drop_table')
-            ?? $exportConfig['sql_drop_table'] ?? false);
-        $this->hasCreateProcedureFunction = (bool) ($request->getParsedBodyParam('sql_procedure_function')
-            ?? $exportConfig['sql_procedure_function'] ?? false);
-        $this->hasCreateTable = (bool) ($request->getParsedBodyParam('sql_create_table')
-            ?? $exportConfig['sql_create_table'] ?? false);
+        $this->createDatabase = $request->hasBodyParam('sql_create_database');
+        $this->dropTable = $request->hasBodyParam('sql_drop_table');
+        $this->hasCreateProcedureFunction = $request->hasBodyParam('sql_procedure_function');
+        $this->hasCreateTable = $request->hasBodyParam('sql_create_table');
         $this->type = $this->setType($this->setStringValue(
             $request->getParsedBodyParam('sql_type'),
-            $exportConfig['sql_type'] ?? null,
+            $exportConfig->sql_type,
         ));
-        $this->hasCreateView = (bool) ($request->getParsedBodyParam('sql_create_view')
-            ?? $exportConfig['sql_create_view'] ?? false);
-        $this->hasCreateTrigger = (bool) ($request->getParsedBodyParam('sql_create_trigger')
-            ?? $exportConfig['sql_create_trigger'] ?? false);
-        $this->viewCurrentUser = (bool) ($request->getParsedBodyParam('sql_view_current_user')
-            ?? $exportConfig['sql_view_current_user'] ?? false);
-        $this->simpleViewExport = (bool) ($request->getParsedBodyParam('sql_simple_view_export')
-            ?? $exportConfig['sql_simple_view_export'] ?? false);
-        $this->ifNotExists = (bool) ($request->getParsedBodyParam('sql_if_not_exists')
-            ?? $exportConfig['sql_if_not_exists'] ?? false);
-        $this->orReplaceView = (bool) ($request->getParsedBodyParam('sql_or_replace_view')
-            ?? $exportConfig['sql_or_replace_view'] ?? false);
-        $this->autoIncrement = (bool) ($request->getParsedBodyParam('sql_auto_increment')
-            ?? $exportConfig['sql_auto_increment'] ?? false);
-        $this->truncate = (bool) ($request->getParsedBodyParam('sql_truncate')
-            ?? $exportConfig['sql_truncate'] ?? false);
-        $this->delayed = (bool) ($request->getParsedBodyParam('sql_delayed')
-            ?? $exportConfig['sql_delayed'] ?? false);
-        $this->ignore = (bool) ($request->getParsedBodyParam('sql_ignore')
-            ?? $exportConfig['sql_ignore'] ?? false);
+        $this->hasCreateView = $request->hasBodyParam('sql_create_view');
+        $this->hasCreateTrigger = $request->hasBodyParam('sql_create_trigger');
+        $this->viewCurrentUser = $request->hasBodyParam('sql_view_current_user');
+        $this->simpleViewExport = $request->hasBodyParam('sql_simple_view_export');
+        $this->ifNotExists = $request->hasBodyParam('sql_if_not_exists');
+        $this->orReplaceView = $request->hasBodyParam('sql_or_replace_view');
+        $this->autoIncrement = $request->hasBodyParam('sql_auto_increment');
+        $this->truncate = $request->hasBodyParam('sql_truncate');
+        $this->delayed = $request->hasBodyParam('sql_delayed');
+        $this->ignore = $request->hasBodyParam('sql_ignore');
         $this->insertSyntax = $this->setInsertSyntax($this->setStringValue(
             $request->getParsedBodyParam('sql_insert_syntax'),
-            $exportConfig['sql_insert_syntax'] ?? null,
+            $exportConfig->sql_insert_syntax,
         ));
         $this->maxQuerySize = $this->setMaxQuerySize(
             $request->getParsedBodyParam('sql_max_query_size'),
-            $exportConfig['sql_max_query_size'] ?? null,
+            $exportConfig->sql_max_query_size,
         );
-        $this->hexForBinary = (bool) ($request->getParsedBodyParam('sql_hex_for_binary')
-            ?? $exportConfig['sql_hex_for_binary'] ?? false);
-        $this->utcTime = (bool) ($request->getParsedBodyParam('sql_utc_time')
-            ?? $exportConfig['sql_utc_time'] ?? false);
-        $this->dropDatabase = (bool) ($request->getParsedBodyParam('sql_drop_database')
-            ?? $exportConfig['sql_drop_database'] ?? false);
-        $this->viewsAsTables = (bool) ($request->getParsedBodyParam('sql_views_as_tables')
-            ?? $exportConfig['sql_views_as_tables'] ?? false);
-        $this->hasMetadata = (bool) ($request->getParsedBodyParam('sql_metadata')
-            ?? $exportConfig['sql_metadata'] ?? false);
+        $this->hexForBinary = $request->hasBodyParam('sql_hex_for_binary');
+        $this->utcTime = $request->hasBodyParam('sql_utc_time');
+        $this->dropDatabase = $request->hasBodyParam('sql_drop_database');
+        $this->viewsAsTables = $request->hasBodyParam('sql_views_as_tables');
+        $this->hasMetadata = $request->hasBodyParam('sql_metadata');
+        // phpcs:enable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
     }
 
     private function setStringValue(mixed $fromRequest, mixed $fromConfig): string
