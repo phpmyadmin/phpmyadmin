@@ -21,6 +21,7 @@ use function __;
 use function array_key_last;
 use function is_int;
 use function is_string;
+use function sprintf;
 use function str_repeat;
 use function str_replace;
 
@@ -107,7 +108,13 @@ class ExportToon extends ExportPlugin
             $columns[$i] = $colAs;
         }
 
-        $buffer = $dbAlias . '.' . $tableAlias . '[' . $rowsCnt . ($this->separator !== ',' ? $this->separator : '') . ']{';
+        $buffer = sprintf(
+            "%s.%s[%s%s]{",
+            $dbAlias,
+            $tableAlias,
+            $rowsCnt,
+            $this->separator !== ',' ? $this->separator : ''
+        );
         foreach ($columns as $index => $column) {
             $buffer .= $column;
 
