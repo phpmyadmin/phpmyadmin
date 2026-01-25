@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-01-18 00:32+0000\n"
+"POT-Creation-Date: 2026-01-25 00:33+0000\n"
 "PO-Revision-Date: 2025-09-26 20:02+0000\n"
 "Last-Translator: Hotripak <hotr1pak@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -192,7 +192,7 @@ msgstr "після %s"
 #: resources/templates/config/form_display/input.twig:43
 #: resources/templates/database/central_columns/main.twig:311
 #: resources/templates/database/designer/main.twig:585
-#: resources/templates/export.twig:429
+#: resources/templates/export.twig:427
 #: resources/templates/server/privileges/privileges_summary.twig:31
 #: resources/templates/server/status/monitor/index.twig:206
 #: resources/templates/server/status/processes/list.twig:72
@@ -214,8 +214,8 @@ msgstr "Ім'я таблиці"
 #: resources/templates/columns_definitions/column_definitions_form.twig:30
 #: resources/templates/console/display.twig:136
 #: resources/templates/database/central_columns/main.twig:202
-#: resources/templates/export.twig:281 resources/templates/export.twig:297
-#: resources/templates/export.twig:313
+#: resources/templates/export.twig:279 resources/templates/export.twig:295
+#: resources/templates/export.twig:311
 msgid "Add"
 msgstr "Додати"
 
@@ -381,7 +381,7 @@ msgstr "Завантаження"
 #: resources/templates/error/report_modal.twig:14
 #: resources/templates/export_modal.twig:6
 #: resources/templates/export_modal.twig:10 resources/templates/export.twig:82
-#: resources/templates/export.twig:92 resources/templates/export.twig:190
+#: resources/templates/export.twig:90 resources/templates/export.twig:188
 #: resources/templates/home/index.twig:317
 #: resources/templates/home/index.twig:325
 #: resources/templates/modals/change_password.twig:6
@@ -1871,7 +1871,7 @@ msgstr "Позначити все"
 #: resources/templates/display/results/table.twig:332
 #: resources/templates/display/results/table.twig:333
 #: resources/templates/display/results/table.twig:365
-#: resources/templates/export.twig:3 resources/templates/export.twig:495
+#: resources/templates/export.twig:3 resources/templates/export.twig:493
 #: resources/templates/preferences/header.twig:42
 #: resources/templates/preferences/manage/main.twig:67
 #: resources/templates/server/privileges/new_user_ajax.twig:63
@@ -1993,7 +1993,7 @@ msgid "Exporting tables from \"%s\" database"
 msgstr "Експортування таблиць із бази даних \"%s\""
 
 #: resources/templates/database/export/index.twig:14
-#: src/Navigation/Navigation.php:224
+#: src/Navigation/Navigation.php:226
 msgid "Tables:"
 msgstr "Таблиці:"
 
@@ -2154,7 +2154,7 @@ msgid "Rename database to"
 msgstr "Перейменувати базу даних на"
 
 #: resources/templates/database/operations/index.twig:59
-#: resources/templates/export.twig:278
+#: resources/templates/export.twig:276
 msgid "New database name"
 msgstr "Ім'я нової бази даних"
 
@@ -3044,7 +3044,7 @@ msgid "Restore column order"
 msgstr "Відновити порядок стовпців"
 
 #: resources/templates/display/results/table.twig:121
-#: resources/templates/export.twig:145
+#: resources/templates/export.twig:143
 #: resources/templates/table/start_and_number_of_rows_fieldset.twig:9
 msgid "Number of rows:"
 msgstr "Число рядків:"
@@ -3240,134 +3240,134 @@ msgstr "SQL-запит:"
 msgid "Show SQL query"
 msgstr "Показ запиту SQL"
 
-#: resources/templates/export.twig:104
+#: resources/templates/export.twig:102
 msgid "Export method:"
 msgstr "Метод експорту:"
 
-#: resources/templates/export.twig:108
+#: resources/templates/export.twig:106
 msgid "Quick - display only the minimal options"
 msgstr "Швидкий - відображати мінімум налаштувань"
 
-#: resources/templates/export.twig:112
+#: resources/templates/export.twig:110
 msgid "Custom - display all possible options"
 msgstr "Звичайний - відображати всі можливі настройки"
 
-#: resources/templates/export.twig:119 src/Plugins/Export/ExportCodegen.php:72
+#: resources/templates/export.twig:117 src/Plugins/Export/ExportCodegen.php:72
 msgid "Format:"
 msgstr "Формат:"
 
-#: resources/templates/export.twig:121
+#: resources/templates/export.twig:119
 msgid "File format to export"
 msgstr "Формат файла імпорта"
 
-#: resources/templates/export.twig:133
+#: resources/templates/export.twig:131
 msgid "Rows:"
 msgstr "Рядки:"
 
-#: resources/templates/export.twig:137
+#: resources/templates/export.twig:135
 msgid "Dump all rows"
 msgstr "Вивантажити всі рядки"
 
-#: resources/templates/export.twig:141
+#: resources/templates/export.twig:139
 msgid "Dump some row(s)"
 msgstr "Вивантажити частину рядків"
 
-#: resources/templates/export.twig:156
+#: resources/templates/export.twig:154
 msgid "Row to begin at:"
 msgstr "Почати з рядка:"
 
-#: resources/templates/export.twig:166 resources/templates/export.twig:328
+#: resources/templates/export.twig:164 resources/templates/export.twig:326
 msgid "Output:"
 msgstr "Вивід:"
 
-#: resources/templates/export.twig:171 resources/templates/export.twig:366
+#: resources/templates/export.twig:169 resources/templates/export.twig:364
 #, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
 msgstr "Зберегти на сервері в каталозі <strong>%s</strong>"
 
-#: resources/templates/export.twig:178 resources/templates/export.twig:373
+#: resources/templates/export.twig:176 resources/templates/export.twig:371
 #: src/Config/Descriptions.php:681 src/Config/Descriptions.php:684
 msgid "Overwrite existing file(s)"
 msgstr "Перезаписати існуючий файл(и)"
 
-#: resources/templates/export.twig:189 resources/templates/export.twig:333
+#: resources/templates/export.twig:187 resources/templates/export.twig:331
 msgid "Rename exported databases/tables/columns"
 msgstr "Перейменувати експортовані databases/tables/columns"
 
-#: resources/templates/export.twig:197
+#: resources/templates/export.twig:195
 msgid "Defined aliases"
 msgstr "Визначені псевдоніми"
 
-#: resources/templates/export.twig:206
+#: resources/templates/export.twig:204
 #: src/Controllers/JavaScriptMessagesController.php:282
 msgctxt "Alias"
 msgid "Database"
 msgstr "База даних"
 
-#: resources/templates/export.twig:212 resources/templates/export.twig:226
-#: resources/templates/export.twig:239 resources/templates/export.twig:256
+#: resources/templates/export.twig:210 resources/templates/export.twig:224
+#: resources/templates/export.twig:237 resources/templates/export.twig:254
 msgid "Remove"
 msgstr "Видалити"
 
-#: resources/templates/export.twig:220
+#: resources/templates/export.twig:218
 #: src/Controllers/JavaScriptMessagesController.php:283
 msgctxt "Alias"
 msgid "Table"
 msgstr "Таблиця"
 
-#: resources/templates/export.twig:233
+#: resources/templates/export.twig:231
 #: src/Controllers/JavaScriptMessagesController.php:284
 msgctxt "Alias"
 msgid "Column"
 msgstr "Стовпець"
 
-#: resources/templates/export.twig:265
+#: resources/templates/export.twig:263
 msgid "Define new aliases"
 msgstr "Визначення нових псевдонімів"
 
-#: resources/templates/export.twig:270
+#: resources/templates/export.twig:268
 msgid "Select database:"
 msgstr "Вибрати базу даних:"
 
-#: resources/templates/export.twig:286
+#: resources/templates/export.twig:284
 msgid "Select table:"
 msgstr "Вибрати таблицю:"
 
-#: resources/templates/export.twig:294
+#: resources/templates/export.twig:292
 msgid "New table name"
 msgstr "Ім'я нової таблиці"
 
-#: resources/templates/export.twig:302
+#: resources/templates/export.twig:300
 msgid "Select column:"
 msgstr "Вибрати стовпець:"
 
-#: resources/templates/export.twig:310
+#: resources/templates/export.twig:308
 msgid "New column name"
 msgstr "Нове ім'я стовпця"
 
-#: resources/templates/export.twig:320
+#: resources/templates/export.twig:318
 #: src/Controllers/JavaScriptMessagesController.php:110
 msgid "Save & close"
 msgstr "Зберегти і закрити"
 
-#: resources/templates/export.twig:343
+#: resources/templates/export.twig:341
 #, php-format
 msgid "Use %s statement"
 msgstr "Використати оператор %s"
 
-#: resources/templates/export.twig:352
+#: resources/templates/export.twig:350
 msgid "View output as text"
 msgstr "Відобразити вивід як текст"
 
-#: resources/templates/export.twig:356
+#: resources/templates/export.twig:354
 msgid "Save output to a file"
 msgstr "Зберегти вивід у файл"
 
-#: resources/templates/export.twig:383
+#: resources/templates/export.twig:381
 msgid "File name template:"
 msgstr "Шаблон назви файлу:"
 
-#: resources/templates/export.twig:384
+#: resources/templates/export.twig:382
 #, php-format
 msgid ""
 "This value is interpreted using the 'strftime' function, so you can use time "
@@ -3379,47 +3379,47 @@ msgstr ""
 "перетворення: %s Інший текст буде збережено як є. Додаткову інформацію див. "
 "у розділі 6.27 ЧаПів."
 
-#: resources/templates/export.twig:394
+#: resources/templates/export.twig:392
 msgid "Use this for future exports"
 msgstr "Використовувати для майбутнього експорту"
 
-#: resources/templates/export.twig:405 resources/templates/import.twig:98
+#: resources/templates/export.twig:403 resources/templates/import.twig:98
 msgid "Character set of the file:"
 msgstr "Кодування файлу:"
 
-#: resources/templates/export.twig:425
+#: resources/templates/export.twig:423
 msgid "Compression:"
 msgstr "Стискання:"
 
-#: resources/templates/export.twig:433
+#: resources/templates/export.twig:431
 msgid "zipped"
 msgstr "стиснено"
 
-#: resources/templates/export.twig:439
+#: resources/templates/export.twig:437
 msgid "gzipped"
 msgstr "стиснено в \"gzip\""
 
-#: resources/templates/export.twig:457
+#: resources/templates/export.twig:455
 msgid "Export databases as separate files"
 msgstr "Експорт баз даних у вигляді окремих файлів"
 
-#: resources/templates/export.twig:459
+#: resources/templates/export.twig:457
 msgid "Export tables as separate files"
 msgstr "Експорт таблиць у вигляді окремих файлів"
 
-#: resources/templates/export.twig:470
+#: resources/templates/export.twig:468
 msgid "Skip tables larger than:"
 msgstr "Ігнорувати таблиці більші ніж:"
 
-#: resources/templates/export.twig:472
+#: resources/templates/export.twig:470
 msgid "The size is measured in MiB."
 msgstr "Розмір вимірюється в МіБ."
 
-#: resources/templates/export.twig:478 resources/templates/import.twig:173
+#: resources/templates/export.twig:476 resources/templates/import.twig:173
 msgid "Format-specific options:"
 msgstr "Параметри форматування:"
 
-#: resources/templates/export.twig:487 resources/templates/import.twig:182
+#: resources/templates/export.twig:485 resources/templates/import.twig:182
 msgid "Encoding Conversion:"
 msgstr "Зміна кодування:"
 
@@ -4241,7 +4241,7 @@ msgstr "Ви ввімкнули двофакторну автентифікац�
 #: src/Controllers/Database/Structure/EmptyTableController.php:43
 #: src/Controllers/Operations/TableController.php:328
 #: src/Controllers/Table/DropColumnController.php:63
-#: src/Controllers/Table/ReplaceController.php:289 src/Core.php:518
+#: src/Controllers/Table/ReplaceController.php:289 src/Core.php:509
 msgid "No change"
 msgstr "Змін немає"
 
@@ -6378,20 +6378,20 @@ msgstr "Додати новий сервер"
 msgid "Something went wrong."
 msgstr "Щось пішло не так."
 
-#: resources/templates/sql/bookmark.twig:11
+#: resources/templates/sql/_bookmark.twig:10
 msgid "Bookmark this SQL query"
 msgstr "Закладка на даний SQL запит"
 
-#: resources/templates/sql/bookmark.twig:14
+#: resources/templates/sql/_bookmark.twig:13
 msgid "Bookmark label:"
 msgstr "Мітка закладки:"
 
-#: resources/templates/sql/bookmark.twig:21
+#: resources/templates/sql/_bookmark.twig:20
 #: resources/templates/sql/query.twig:95
 msgid "Let every user access this bookmark"
 msgstr "Надати всім користувачам доступ до цієї закладки"
 
-#: resources/templates/sql/bookmark.twig:26
+#: resources/templates/sql/_bookmark.twig:25
 msgid "Create new bookmark"
 msgstr "Створити нову закладку"
 
@@ -11670,36 +11670,36 @@ msgstr "Сортувати за"
 msgid "Server connection collation"
 msgstr "Зіставлення підключення сервера"
 
-#: src/Config/FormDisplay.php:579
+#: src/Config/FormDisplay.php:580
 #, php-format
 msgid "Missing data for %s"
 msgstr "Відсутні дані для %s"
 
-#: src/Config/FormDisplay.php:619 src/Config/Validator.php:593
+#: src/Config/FormDisplay.php:620 src/Config/Validator.php:589
 #: src/Controllers/JavaScriptMessagesController.php:804
 msgid "Incorrect value!"
 msgstr "Некоректне значення!"
 
-#: src/Config/FormDisplay.php:765
+#: src/Config/FormDisplay.php:766
 msgid "unavailable"
 msgstr "недоступний"
 
-#: src/Config/FormDisplay.php:767
+#: src/Config/FormDisplay.php:768
 #, php-format
 msgid "\"%s\" requires %s extension"
 msgstr "\"%s\" потребує %s розширення"
 
-#: src/Config/FormDisplay.php:789
+#: src/Config/FormDisplay.php:790
 #, php-format
 msgid "Compressed import will not work due to missing function %s."
 msgstr "Стиснутий імпорт не буде працювати через відсутність функції %s."
 
-#: src/Config/FormDisplay.php:798
+#: src/Config/FormDisplay.php:799
 #, php-format
 msgid "Compressed export will not work due to missing function %s."
 msgstr "Стиснутий експорт не буде працювати через відсутність функції %s."
 
-#: src/Config/FormDisplay.php:818
+#: src/Config/FormDisplay.php:819
 #, php-format
 msgid "maximum %s"
 msgstr "максимум %s"
@@ -11945,29 +11945,29 @@ msgstr "Вкладки рівня бази даних"
 msgid "Table-level tabs"
 msgstr "Вкладки рівня таблиці"
 
-#: src/Config/UserPreferences.php:176
+#: src/Config/UserPreferences.php:178
 msgid "Could not save configuration"
 msgstr "Не вдалось зберегти настройки"
 
-#: src/Config/UserPreferences.php:187
+#: src/Config/UserPreferences.php:189
 msgid "The phpMyAdmin configuration storage database could not be accessed."
 msgstr ""
 "Не вдалося отримати доступ до бази даних сховища конфігурації phpMyAdmin."
 
-#: src/Config/Validator.php:251
+#: src/Config/Validator.php:247
 msgid "Could not connect to the database server!"
 msgstr "Не вдалося з'єднатися з сервером бази даних!"
 
-#: src/Config/Validator.php:287
+#: src/Config/Validator.php:283
 msgid "Invalid authentication type!"
 msgstr "Невірний тип аутентифікації!"
 
-#: src/Config/Validator.php:292
+#: src/Config/Validator.php:288
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr ""
 "При використанні ідентифікації [kbd]config[/kbd] порожнє ім'я користувача!"
 
-#: src/Config/Validator.php:298
+#: src/Config/Validator.php:294
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
@@ -11975,19 +11975,19 @@ msgstr ""
 "При використанні методу ідентифікації [kbd]signon[/kbd] не встановлено ім'я "
 "сесії!"
 
-#: src/Config/Validator.php:305
+#: src/Config/Validator.php:301
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr ""
 "При використанні методу ідентифікації [kbd]signon[/kbd] не встановлений URL!"
 
-#: src/Config/Validator.php:358
+#: src/Config/Validator.php:354
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 "Відсутнє ім'я адміністратора phpMyAdmin при використанні сховища "
 "конфігурації!"
 
-#: src/Config/Validator.php:365
+#: src/Config/Validator.php:361
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
@@ -11995,31 +11995,31 @@ msgstr ""
 "Відсутній пароль адміністратора phpMyAdmin при використанні сховища "
 "конфігурації!"
 
-#: src/Config/Validator.php:454
+#: src/Config/Validator.php:450
 msgid "Incorrect value:"
 msgstr "Некоректне значення:"
 
-#: src/Config/Validator.php:465
+#: src/Config/Validator.php:461
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "Некоректно введена IP адреса: %s"
 
-#: src/Config/Validator.php:528
+#: src/Config/Validator.php:524
 #: src/Controllers/JavaScriptMessagesController.php:803
 msgid "Not a valid port number!"
 msgstr "Не припустимим номер порту!"
 
-#: src/Config/Validator.php:550
+#: src/Config/Validator.php:546
 #: src/Controllers/JavaScriptMessagesController.php:801
 msgid "Not a positive number!"
 msgstr "Не додатнє число!"
 
-#: src/Config/Validator.php:572
+#: src/Config/Validator.php:568
 #: src/Controllers/JavaScriptMessagesController.php:802
 msgid "Not a non-negative number!"
 msgstr "Не від'ємне число!"
 
-#: src/Config/Validator.php:611
+#: src/Config/Validator.php:607
 #: src/Controllers/JavaScriptMessagesController.php:805
 #, php-format
 msgid "Value must be less than or equal to %s!"
@@ -12105,7 +12105,7 @@ msgstr "Сторінка з іменем \"%s\" вже існує; вибері�
 #: src/Controllers/Operations/TableController.php:91
 #: src/Controllers/Operations/ViewController.php:61
 #: src/Controllers/Operations/ViewController.php:66
-#: src/Controllers/Server/Databases/DestroyController.php:67
+#: src/Controllers/Server/Databases/DestroyController.php:65
 #: src/Controllers/Table/AddFieldController.php:161
 #: src/Controllers/Table/AddFieldController.php:166
 #: src/Controllers/Table/ChangeController.php:70
@@ -12351,7 +12351,7 @@ msgstr "Жодної таблиці не вибрано."
 msgid "Database Log"
 msgstr "Журнал бази даних"
 
-#: src/Controllers/ErrorReportController.php:94
+#: src/Controllers/ErrorReportController.php:95
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
@@ -12359,22 +12359,22 @@ msgstr ""
 "Виявлена помилка. Звіт про помилку автоматично надіслано у відповідності до "
 "ваших налаштувань."
 
-#: src/Controllers/ErrorReportController.php:98
+#: src/Controllers/ErrorReportController.php:99
 msgid "Thank you for submitting this report."
 msgstr "Дякуємо за поданий звіт."
 
-#: src/Controllers/ErrorReportController.php:102
+#: src/Controllers/ErrorReportController.php:103
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
 "Виявлена помилка. Створено звіт про помилку, але надіслати його не вдалося."
 
-#: src/Controllers/ErrorReportController.php:105
+#: src/Controllers/ErrorReportController.php:106
 msgid "If you experience any problems please submit a bug report manually."
 msgstr "Якщо це створює проблему - надішліть повідомлення про помилку вручну."
 
-#: src/Controllers/ErrorReportController.php:108
+#: src/Controllers/ErrorReportController.php:109
 msgid "You may want to refresh the page."
 msgstr "Можливо, варто перезавантажити сторінку."
 
@@ -12584,7 +12584,7 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Оператор \"DROP DATABASE\" вимкнений."
 
-#: src/Controllers/Import/ImportController.php:674 src/Sql.php:908
+#: src/Controllers/Import/ImportController.php:674 src/Sql.php:906
 msgid "[ROLLBACK occurred.]"
 msgstr "[відбувся відкат]"
 
@@ -12593,7 +12593,7 @@ msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 "Тільки однією з таблиць UPDATE і DELETE запити можуть бути змодельовані."
 
-#: src/Controllers/Import/StatusController.php:72
+#: src/Controllers/Import/StatusController.php:73
 msgid "Could not load the progress of the import."
 msgstr "Не вдалося завантажити, щоб розпочати імпорт."
 
@@ -14544,7 +14544,7 @@ msgstr "Відсутній параметр:"
 msgid "Database %1$s has been created."
 msgstr "Базу даних %1$s створено."
 
-#: src/Controllers/Server/Databases/DestroyController.php:90
+#: src/Controllers/Server/Databases/DestroyController.php:88
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
@@ -15347,7 +15347,7 @@ msgstr "Неправильні дані"
 msgid "Wrong data or no validation for %s"
 msgstr "Невірні чи не підтверджені дані для %s"
 
-#: src/Controllers/Sql/SqlController.php:207 src/Sql.php:1082
+#: src/Controllers/Sql/SqlController.php:207 src/Sql.php:1076
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Закладку %s створено."
@@ -15426,7 +15426,7 @@ msgstr "Виникла проблема з вашим запитом."
 
 #: src/Controllers/Table/GetFieldController.php:87
 #: src/Database/Routines.php:1036 src/Import/Import.php:136
-#: src/InsertEdit.php:160 src/Sql.php:894
+#: src/InsertEdit.php:160 src/Sql.php:892
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL повернула пустий результат (тобто нуль рядків)."
 
@@ -15551,7 +15551,7 @@ msgstr "Ви для цього маєте недостатньо прав!"
 msgid "View name can not be empty!"
 msgstr "Ім'я подання не може бути пустим!"
 
-#: src/Core.php:105 src/ZipExtension.php:57
+#: src/Core.php:106 src/ZipExtension.php:57
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
@@ -15806,7 +15806,7 @@ msgstr ""
 msgid "The row has been deleted."
 msgstr "Рядок видалено."
 
-#: src/Display/Results.php:2974 src/Display/Results.php:3296 src/Sql.php:900
+#: src/Display/Results.php:2974 src/Display/Results.php:3296 src/Sql.php:898
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Запит виконувався %01.4f секунди."
@@ -16443,11 +16443,11 @@ msgstr ""
 msgid "web server upload directory:"
 msgstr "каталог завантаження веб-сервера:"
 
-#: src/InsertEdit.php:845 src/Sql.php:891
+#: src/InsertEdit.php:845 src/Sql.php:889
 msgid "Showing SQL query"
 msgstr "Показ SQL-запиту"
 
-#: src/InsertEdit.php:869 src/Sql.php:871
+#: src/InsertEdit.php:869 src/Sql.php:869
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Ідентифікатор вставленого рядка: %1$d"
@@ -16512,23 +16512,23 @@ msgstr[0] "%1$d рядок додано."
 msgstr[1] "%1$d рядків додано."
 msgstr[2] "%1$d рядків додано."
 
-#: src/Navigation/Navigation.php:220
+#: src/Navigation/Navigation.php:222
 msgid "Groups:"
 msgstr "Групи:"
 
-#: src/Navigation/Navigation.php:221
+#: src/Navigation/Navigation.php:223
 msgid "Events:"
 msgstr "Події:"
 
-#: src/Navigation/Navigation.php:222
+#: src/Navigation/Navigation.php:224
 msgid "Functions:"
 msgstr "Функції:"
 
-#: src/Navigation/Navigation.php:223
+#: src/Navigation/Navigation.php:225
 msgid "Procedures:"
 msgstr "Процедури:"
 
-#: src/Navigation/Navigation.php:225
+#: src/Navigation/Navigation.php:227
 msgid "Views:"
 msgstr "Подання:"
 
@@ -18280,11 +18280,11 @@ msgstr "Нова стабільна версія відсутня"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Як стандартний запит на огляд даних використовується закладка \"%s\"."
 
-#: src/Sql.php:888
+#: src/Sql.php:886
 msgid "Showing as PHP code"
 msgstr "Показ у вигляді коду PHP"
 
-#: src/Sql.php:1241
+#: src/Sql.php:1235
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -18293,7 +18293,7 @@ msgstr ""
 "Поточний вибір не містить унікального стовпця. Використання функцій "
 "редагування сітки, прапоців, Редагувати, Копіювати та Видалити недоступні. %s"
 
-#: src/Sql.php:1255
+#: src/Sql.php:1249
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "

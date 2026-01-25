@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-01-18 00:32+0000\n"
+"POT-Creation-Date: 2026-01-25 00:33+0000\n"
 "PO-Revision-Date: 2026-01-22 10:31+0000\n"
 "Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -189,7 +189,7 @@ msgstr "หลัง %s"
 #: resources/templates/config/form_display/input.twig:43
 #: resources/templates/database/central_columns/main.twig:311
 #: resources/templates/database/designer/main.twig:585
-#: resources/templates/export.twig:429
+#: resources/templates/export.twig:427
 #: resources/templates/server/privileges/privileges_summary.twig:31
 #: resources/templates/server/status/monitor/index.twig:206
 #: resources/templates/server/status/processes/list.twig:72
@@ -211,8 +211,8 @@ msgstr "ชื่อตาราง"
 #: resources/templates/columns_definitions/column_definitions_form.twig:30
 #: resources/templates/console/display.twig:136
 #: resources/templates/database/central_columns/main.twig:202
-#: resources/templates/export.twig:281 resources/templates/export.twig:297
-#: resources/templates/export.twig:313
+#: resources/templates/export.twig:279 resources/templates/export.twig:295
+#: resources/templates/export.twig:311
 msgid "Add"
 msgstr "เพิ่ม"
 
@@ -378,7 +378,7 @@ msgstr "กำลังโหลด…"
 #: resources/templates/error/report_modal.twig:14
 #: resources/templates/export_modal.twig:6
 #: resources/templates/export_modal.twig:10 resources/templates/export.twig:82
-#: resources/templates/export.twig:92 resources/templates/export.twig:190
+#: resources/templates/export.twig:90 resources/templates/export.twig:188
 #: resources/templates/home/index.twig:317
 #: resources/templates/home/index.twig:325
 #: resources/templates/modals/change_password.twig:6
@@ -1865,7 +1865,7 @@ msgstr "เลือกทั้งหมด"
 #: resources/templates/display/results/table.twig:332
 #: resources/templates/display/results/table.twig:333
 #: resources/templates/display/results/table.twig:365
-#: resources/templates/export.twig:3 resources/templates/export.twig:495
+#: resources/templates/export.twig:3 resources/templates/export.twig:493
 #: resources/templates/preferences/header.twig:42
 #: resources/templates/preferences/manage/main.twig:67
 #: resources/templates/server/privileges/new_user_ajax.twig:63
@@ -1987,7 +1987,7 @@ msgid "Exporting tables from \"%s\" database"
 msgstr "กำลังส่งออกตารางจาก \"%s\" ฐานข้อมูล"
 
 #: resources/templates/database/export/index.twig:14
-#: src/Navigation/Navigation.php:224
+#: src/Navigation/Navigation.php:226
 msgid "Tables:"
 msgstr "ตาราง:"
 
@@ -2148,7 +2148,7 @@ msgid "Rename database to"
 msgstr "แก้ไขชื่อฐานข้อมูลเป็น"
 
 #: resources/templates/database/operations/index.twig:59
-#: resources/templates/export.twig:278
+#: resources/templates/export.twig:276
 msgid "New database name"
 msgstr "ชื่อฐานข้อมูลใหม่"
 
@@ -3022,7 +3022,7 @@ msgid "Restore column order"
 msgstr "คืนค่าลำดับคอลัมน์"
 
 #: resources/templates/display/results/table.twig:121
-#: resources/templates/export.twig:145
+#: resources/templates/export.twig:143
 #: resources/templates/table/start_and_number_of_rows_fieldset.twig:9
 msgid "Number of rows:"
 msgstr "จำนวนแถว:"
@@ -3215,134 +3215,134 @@ msgstr "คำสั่ง SQL:"
 msgid "Show SQL query"
 msgstr "แสดงคำสั่ง SQL"
 
-#: resources/templates/export.twig:104
+#: resources/templates/export.twig:102
 msgid "Export method:"
 msgstr "วิธีการส่งออก:"
 
-#: resources/templates/export.twig:108
+#: resources/templates/export.twig:106
 msgid "Quick - display only the minimal options"
 msgstr "รวดเร็ว - แสดงเฉพาะตัวเลือกที่น้อยที่สุด"
 
-#: resources/templates/export.twig:112
+#: resources/templates/export.twig:110
 msgid "Custom - display all possible options"
 msgstr "กำหนดเอง - แสดงตัวเลือกที่เป็นไปได้ทั้งหมด"
 
-#: resources/templates/export.twig:119 src/Plugins/Export/ExportCodegen.php:72
+#: resources/templates/export.twig:117 src/Plugins/Export/ExportCodegen.php:72
 msgid "Format:"
 msgstr "รูปแบบ:"
 
-#: resources/templates/export.twig:121
+#: resources/templates/export.twig:119
 msgid "File format to export"
 msgstr "รูปแบบไฟล์ที่ส่งออก"
 
-#: resources/templates/export.twig:133
+#: resources/templates/export.twig:131
 msgid "Rows:"
 msgstr "แถว:"
 
-#: resources/templates/export.twig:137
+#: resources/templates/export.twig:135
 msgid "Dump all rows"
 msgstr "ดัมพ์ข้อมูลทุกแถว"
 
-#: resources/templates/export.twig:141
+#: resources/templates/export.twig:139
 msgid "Dump some row(s)"
 msgstr "ดัมพ์ข้อมูลบางแถว"
 
-#: resources/templates/export.twig:156
+#: resources/templates/export.twig:154
 msgid "Row to begin at:"
 msgstr "เริ่มที่แถว:"
 
-#: resources/templates/export.twig:166 resources/templates/export.twig:328
+#: resources/templates/export.twig:164 resources/templates/export.twig:326
 msgid "Output:"
 msgstr "ผลลัพธ์:"
 
-#: resources/templates/export.twig:171 resources/templates/export.twig:366
+#: resources/templates/export.twig:169 resources/templates/export.twig:364
 #, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
 msgstr "บันทึกไว้ในไดเรกทอรีบนเซิร์ฟเวอร์ <strong>%s</strong>"
 
-#: resources/templates/export.twig:178 resources/templates/export.twig:373
+#: resources/templates/export.twig:176 resources/templates/export.twig:371
 #: src/Config/Descriptions.php:681 src/Config/Descriptions.php:684
 msgid "Overwrite existing file(s)"
 msgstr "เขียนทับไฟล์ที่มีอยู่แล้ว"
 
-#: resources/templates/export.twig:189 resources/templates/export.twig:333
+#: resources/templates/export.twig:187 resources/templates/export.twig:331
 msgid "Rename exported databases/tables/columns"
 msgstr "เปลี่ยนชื่อฐานข้อมูล/ตาราง/คอลัมน์ที่ส่งออก"
 
-#: resources/templates/export.twig:197
+#: resources/templates/export.twig:195
 msgid "Defined aliases"
 msgstr "นามแฝงที่กำหนดไว้"
 
-#: resources/templates/export.twig:206
+#: resources/templates/export.twig:204
 #: src/Controllers/JavaScriptMessagesController.php:282
 msgctxt "Alias"
 msgid "Database"
 msgstr "ฐานข้อมูล"
 
-#: resources/templates/export.twig:212 resources/templates/export.twig:226
-#: resources/templates/export.twig:239 resources/templates/export.twig:256
+#: resources/templates/export.twig:210 resources/templates/export.twig:224
+#: resources/templates/export.twig:237 resources/templates/export.twig:254
 msgid "Remove"
 msgstr "ลบ"
 
-#: resources/templates/export.twig:220
+#: resources/templates/export.twig:218
 #: src/Controllers/JavaScriptMessagesController.php:283
 msgctxt "Alias"
 msgid "Table"
 msgstr "ตาราง"
 
-#: resources/templates/export.twig:233
+#: resources/templates/export.twig:231
 #: src/Controllers/JavaScriptMessagesController.php:284
 msgctxt "Alias"
 msgid "Column"
 msgstr "คอลัมน์"
 
-#: resources/templates/export.twig:265
+#: resources/templates/export.twig:263
 msgid "Define new aliases"
 msgstr "กำหนดนามแฝงใหม่"
 
-#: resources/templates/export.twig:270
+#: resources/templates/export.twig:268
 msgid "Select database:"
 msgstr "เลือกฐานข้อมูล:"
 
-#: resources/templates/export.twig:286
+#: resources/templates/export.twig:284
 msgid "Select table:"
 msgstr "เลือกตาราง:"
 
-#: resources/templates/export.twig:294
+#: resources/templates/export.twig:292
 msgid "New table name"
 msgstr "ชื่อตารางใหม่"
 
-#: resources/templates/export.twig:302
+#: resources/templates/export.twig:300
 msgid "Select column:"
 msgstr "เลือกคอลัมน์:"
 
-#: resources/templates/export.twig:310
+#: resources/templates/export.twig:308
 msgid "New column name"
 msgstr "ชื่อคอลัมน์ใหม่"
 
-#: resources/templates/export.twig:320
+#: resources/templates/export.twig:318
 #: src/Controllers/JavaScriptMessagesController.php:110
 msgid "Save & close"
 msgstr "บันทึกและปิด"
 
-#: resources/templates/export.twig:343
+#: resources/templates/export.twig:341
 #, php-format
 msgid "Use %s statement"
 msgstr "ใช้คำสั่ง %s"
 
-#: resources/templates/export.twig:352
+#: resources/templates/export.twig:350
 msgid "View output as text"
 msgstr "ดูผลลัพธ์ในรูปแบบข้อความ"
 
-#: resources/templates/export.twig:356
+#: resources/templates/export.twig:354
 msgid "Save output to a file"
 msgstr "บันทึกผลลัพธ์ลงในไฟล์"
 
-#: resources/templates/export.twig:383
+#: resources/templates/export.twig:381
 msgid "File name template:"
 msgstr "ต้นแบบชื่อไฟล์:"
 
-#: resources/templates/export.twig:384
+#: resources/templates/export.twig:382
 #, php-format
 msgid ""
 "This value is interpreted using the 'strftime' function, so you can use time "
@@ -3353,47 +3353,47 @@ msgstr ""
 "นอกจากนี้จะมีการแปลงต่อไปนี้เกิดขึ้น: %s ข้อความอื่น ๆ จะยังคงอยู่เหมือนเดิม "
 "ดูรายละเอียดเพิ่มเติมที่ FAQ 62.7"
 
-#: resources/templates/export.twig:394
+#: resources/templates/export.twig:392
 msgid "Use this for future exports"
 msgstr "ใช้การตั้งค่านี้สำหรับการส่งออกในอนาคต"
 
-#: resources/templates/export.twig:405 resources/templates/import.twig:98
+#: resources/templates/export.twig:403 resources/templates/import.twig:98
 msgid "Character set of the file:"
 msgstr "ชุดอักขระของไฟล์:"
 
-#: resources/templates/export.twig:425
+#: resources/templates/export.twig:423
 msgid "Compression:"
 msgstr "บีบอัดข้อมูล:"
 
-#: resources/templates/export.twig:433
+#: resources/templates/export.twig:431
 msgid "zipped"
 msgstr "zipped"
 
-#: resources/templates/export.twig:439
+#: resources/templates/export.twig:437
 msgid "gzipped"
 msgstr "gzipped"
 
-#: resources/templates/export.twig:457
+#: resources/templates/export.twig:455
 msgid "Export databases as separate files"
 msgstr "ส่งออกฐานข้อมูลเป็นไฟล์แยกกัน"
 
-#: resources/templates/export.twig:459
+#: resources/templates/export.twig:457
 msgid "Export tables as separate files"
 msgstr "ส่งออกตารางเป็นไฟล์แยกกัน"
 
-#: resources/templates/export.twig:470
+#: resources/templates/export.twig:468
 msgid "Skip tables larger than:"
 msgstr "ข้ามตารางที่มีขนาดใหญ่กว่า:"
 
-#: resources/templates/export.twig:472
+#: resources/templates/export.twig:470
 msgid "The size is measured in MiB."
 msgstr "วัดขนาดไฟล์เป็น MiB"
 
-#: resources/templates/export.twig:478 resources/templates/import.twig:173
+#: resources/templates/export.twig:476 resources/templates/import.twig:173
 msgid "Format-specific options:"
 msgstr "ตัวเลือกรูปแบบเฉพาะ:"
 
-#: resources/templates/export.twig:487 resources/templates/import.twig:182
+#: resources/templates/export.twig:485 resources/templates/import.twig:182
 msgid "Encoding Conversion:"
 msgstr "การแปลงรหัส:"
 
@@ -4193,7 +4193,7 @@ msgstr "คุณได้เปิดใช้งานการตรวจส
 #: src/Controllers/Database/Structure/EmptyTableController.php:43
 #: src/Controllers/Operations/TableController.php:328
 #: src/Controllers/Table/DropColumnController.php:63
-#: src/Controllers/Table/ReplaceController.php:289 src/Core.php:518
+#: src/Controllers/Table/ReplaceController.php:289 src/Core.php:509
 msgid "No change"
 msgstr "ไม่มีการเปลี่ยนแปลง"
 
@@ -6288,20 +6288,20 @@ msgstr "เพิ่มเซิร์ฟเวอร์ใหม่"
 msgid "Something went wrong."
 msgstr "เกิดข้อผิดพลาดบางอย่างขึ้น"
 
-#: resources/templates/sql/bookmark.twig:11
+#: resources/templates/sql/_bookmark.twig:10
 msgid "Bookmark this SQL query"
 msgstr "บุ๊กมาร์กคำสั่ง SQL นี้"
 
-#: resources/templates/sql/bookmark.twig:14
+#: resources/templates/sql/_bookmark.twig:13
 msgid "Bookmark label:"
 msgstr "ป้ายบุ๊กมาร์ก:"
 
-#: resources/templates/sql/bookmark.twig:21
+#: resources/templates/sql/_bookmark.twig:20
 #: resources/templates/sql/query.twig:95
 msgid "Let every user access this bookmark"
 msgstr "อนุญาตให้ผู้ใช้ทุกคนเข้าถึงบุ๊กมาร์กนี้"
 
-#: resources/templates/sql/bookmark.twig:26
+#: resources/templates/sql/_bookmark.twig:25
 msgid "Create new bookmark"
 msgstr "สร้างบุ๊กมาร์กใหม่"
 
@@ -7562,8 +7562,8 @@ msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
 msgstr ""
-"คุณควรอัปเกรด เนื่องจาก MySQL 5.1 มีประสิทธิภาพที่ดีขึ้น และ MySQL 5.5 มีประสิทธิภาพดียิ่งขึ้นไปอี"
-"ก"
+"คุณควรอัปเกรด เนื่องจาก MySQL 5.1 มีประสิทธิภาพที่ดีขึ้น และ MySQL 5.5 "
+"มีประสิทธิภาพดียิ่งขึ้นไปอีก"
 
 #: src/Advisory/Rules.php:140 src/Advisory/Rules.php:154
 #: src/Advisory/Rules.php:165
@@ -7584,8 +7584,8 @@ msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
 msgstr ""
-"คุณควรอัปเกรด เนื่องจาก MySQL เวอร์ชันล่าสุด 5.1 มีประสิทธิภาพที่ดีขึ้น และ MySQL 5.5 มีประสิทธิ"
-"ภาพดียิ่งขึ้นไปอีก"
+"คุณควรอัปเกรด เนื่องจาก MySQL เวอร์ชันล่าสุด 5.1 มีประสิทธิภาพที่ดีขึ้น และ MySQL 5.5 "
+"มีประสิทธิภาพดียิ่งขึ้นไปอีก"
 
 #: src/Advisory/Rules.php:163
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
@@ -7682,8 +7682,8 @@ msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
 msgstr ""
-"แคชคำสั่งถูกเปิดใช้งาน และเซิร์ฟเวอร์รับ %d คำสั่งต่อวินาที กฎนี้จะทำงานหากมีมากกว่า 100 คำสั่งต่อ"
-"วินาที"
+"แคชคำสั่งถูกเปิดใช้งาน และเซิร์ฟเวอร์รับ %d คำสั่งต่อวินาที กฎนี้จะทำงานหากมีมากกว่า 100 "
+"คำสั่งต่อวินาที"
 
 #: src/Advisory/Rules.php:231
 msgid "Percentage of sorts that cause temporary tables"
@@ -7698,8 +7698,8 @@ msgid ""
 "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
 "depending on your system memory limits."
 msgstr ""
-"พิจารณาเพิ่มขนาด {sort_buffer_size} และ/หรือ {read_rnd_buffer_size} ขึ้นอยู่กับข้อจำกัดข"
-"องหน่วยความจำในระบบของคุณ"
+"พิจารณาเพิ่มขนาด {sort_buffer_size} และ/หรือ {read_rnd_buffer_size} "
+"ขึ้นอยู่กับข้อจำกัดของหน่วยความจำในระบบของคุณ"
 
 #: src/Advisory/Rules.php:241
 #, php-format
@@ -7755,8 +7755,8 @@ msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins."
 msgstr ""
-"นั่นหมายความว่าการเชื่อมตารางจะทำการสแกนตารางทั้งหมด การเพิ่มดัชนีสำหรับคอลัมน์ที่ใช้ในเงื่อนไขก"
-"ารเชื่อมตารางจะช่วยเพิ่มความเร็วในการเชื่อมตารางได้อย่างมาก"
+"นั่นหมายความว่าการเชื่อมตารางจะทำการสแกนตารางทั้งหมด "
+"การเพิ่มดัชนีสำหรับคอลัมน์ที่ใช้ในเงื่อนไขการเชื่อมตารางจะช่วยเพิ่มความเร็วในการเชื่อมตารางได้อย่างมาก"
 
 #: src/Advisory/Rules.php:283
 #, php-format
@@ -7780,11 +7780,12 @@ msgid ""
 "scans. Other than that full index scans can only be reduced by rewriting "
 "queries."
 msgstr ""
-"โดยปกติแล้ว นี่บ่งชี้ว่ามีการสแกนดัชนีเต็มรูปแบบบ่อยครั้ง การสแกนดัชนีเต็มรูปแบบเร็วกว่าการสแกนตารา"
-"ง แต่ต้องใช้รอบการทำงานของ CPU จำนวนมากในตารางขนาดใหญ่ หากตารางเหล่านั้นมีการ UPDATE "
-"และ DELETE ข้อมูลจำนวนมาก การเรียกใช้ 'OPTIMIZE TABLE' อาจช่วยลดปริมาณและ/หรือเพิ่มควา"
-"มเร็วในการสแกนดัชนีเต็มรูปแบบได้ นอกเหนือจากนั้น การสแกนดัชนีเต็มรูปแบบสามารถลดลงได้โดยการเ"
-"ขียนคำสั่ง SQL ใหม่เท่านั้น"
+"โดยปกติแล้ว นี่บ่งชี้ว่ามีการสแกนดัชนีเต็มรูปแบบบ่อยครั้ง "
+"การสแกนดัชนีเต็มรูปแบบเร็วกว่าการสแกนตาราง แต่ต้องใช้รอบการทำงานของ CPU "
+"จำนวนมากในตารางขนาดใหญ่ หากตารางเหล่านั้นมีการ UPDATE และ DELETE ข้อมูลจำนวนมาก "
+"การเรียกใช้ 'OPTIMIZE TABLE' อาจช่วยลดปริมาณและ/"
+"หรือเพิ่มความเร็วในการสแกนดัชนีเต็มรูปแบบได้ นอกเหนือจากนั้น "
+"การสแกนดัชนีเต็มรูปแบบสามารถลดลงได้โดยการเขียนคำสั่ง SQL ใหม่เท่านั้น"
 
 #: src/Advisory/Rules.php:299
 #, php-format
@@ -7805,8 +7806,8 @@ msgid ""
 "scan, including join queries that do not use indexes. Add indexes where "
 "applicable."
 msgstr ""
-"นี่แสดงว่าคำสั่งจำนวนมากจำเป็นต้องจัดเรียงผลลัพธ์และ/หรือทำการสแกนตารางทั้งหมด รวมถึงคำสั่งการ"
-"เชื่อมต่อที่ไม่ใช้ดัชนี โปรดเพิ่มดัชนีในกรณีที่จำเป็น"
+"นี่แสดงว่าคำสั่งจำนวนมากจำเป็นต้องจัดเรียงผลลัพธ์และ/หรือทำการสแกนตารางทั้งหมด "
+"รวมถึงคำสั่งการเชื่อมต่อที่ไม่ใช้ดัชนี โปรดเพิ่มดัชนีในกรณีที่จำเป็น"
 
 #: src/Advisory/Rules.php:313
 #, php-format
@@ -7827,8 +7828,7 @@ msgstr "อัตราการอ่านแถวตารางถัดไ
 msgid ""
 "This indicates that many queries are doing full table scans. Add indexes "
 "where applicable."
-msgstr ""
-"นี่แสดงว่ามีคำสั่งจำนวนมากที่ทำการสแกนตารางทั้งหมด ควรเพิ่มดัชนีในกรณีที่จำเป็น"
+msgstr "นี่แสดงว่ามีคำสั่งจำนวนมากที่ทำการสแกนตารางทั้งหมด ควรเพิ่มดัชนีในกรณีที่จำเป็น"
 
 #: src/Advisory/Rules.php:326
 #, php-format
@@ -8065,8 +8065,7 @@ msgstr "มีตารางที่ถูกล็อกมากเกิน
 
 #: src/Advisory/Rules.php:495 src/Advisory/Rules.php:505
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
-msgstr ""
-"ปรับปรุงประสิทธิภาพคำสั่งและ/หรือใช้ InnoDB เพื่อลดเวลาการถูกล็อกเพื่อรอ"
+msgstr "ปรับปรุงประสิทธิภาพคำสั่งและ/หรือใช้ InnoDB เพื่อลดเวลาการถูกล็อกเพื่อรอ"
 
 #: src/Advisory/Rules.php:496
 #, php-format
@@ -8131,8 +8130,8 @@ msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
 msgstr ""
-"โดยทั่วไปแล้วเหตุการณ์นี้มักเกิดขึ้นในกรณีที่ระบบทำงานหนักเกินไป เนื่องจากเป็นการทำงานที่ค่อนข้างง่า"
-"ย คุณอาจต้องตรวจสอบภาระการทำงานของระบบอย่างระมัดระวัง"
+"โดยทั่วไปแล้วเหตุการณ์นี้มักเกิดขึ้นในกรณีที่ระบบทำงานหนักเกินไป "
+"เนื่องจากเป็นการทำงานที่ค่อนข้างง่าย คุณอาจต้องตรวจสอบภาระการทำงานของระบบอย่างระมัดระวัง"
 
 #: src/Advisory/Rules.php:541
 #, php-format
@@ -8176,8 +8175,9 @@ msgid ""
 "that do not close database handlers properly get killed sooner. Make sure "
 "the code closes database handlers properly."
 msgstr ""
-"เพิ่มค่า {max_connections} หรือลดค่า {wait_timeout} เพื่อให้การเชื่อมต่อที่ไม่ปิดตัวจัดการฐานข้"
-"อมูลอย่างถูกต้องถูกยุติโดยเร็ว ให้แน่ใจว่าโค้ดปิดตัวจัดการฐานข้อมูลอย่างถูกต้อง"
+"เพิ่มค่า {max_connections} หรือลดค่า {wait_timeout} "
+"เพื่อให้การเชื่อมต่อที่ไม่ปิดตัวจัดการฐานข้อมูลอย่างถูกต้องถูกยุติโดยเร็ว "
+"ให้แน่ใจว่าโค้ดปิดตัวจัดการฐานข้อมูลอย่างถูกต้อง"
 
 #: src/Advisory/Rules.php:570
 #, php-format
@@ -8199,9 +8199,9 @@ msgid ""
 "href=\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-"
 "of-aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
-"การเชื่อมต่อมักถูกยกเลิกเมื่อไม่สามารถให้สิทธิ์ได้ <a href=\"https://www.percona.com/blog/"
-"2008/08/23/how-to-track-down-the-source-of-aborted_connects/\">บทความนี้</a>อาจ"
-"ช่วยคุณติดตามต้นตอของปัญหาได้"
+"การเชื่อมต่อมักถูกยกเลิกเมื่อไม่สามารถให้สิทธิ์ได้ <a href=\"https://www.percona.com/"
+"blog/2008/08/23/how-to-track-down-the-source-of-aborted_connects/\">บทความนี้</"
+"a>อาจช่วยคุณติดตามต้นตอของปัญหาได้"
 
 #: src/Advisory/Rules.php:584
 #, php-format
@@ -8232,8 +8232,9 @@ msgid ""
 "MySQL properly. This can be due to network issues or code not closing a "
 "database handler properly. Check your network and code."
 msgstr ""
-"โดยปกติแล้วลูกข่ายจะถูกยกเลิกเมื่อไม่ได้ปิดการเชื่อมต่อกับ MySQL อย่างถูกต้อง ซึ่งอาจเกิดจากปัญหาเค"
-"รือข่ายหรือโค้ดไม่ได้ปิดตัวจัดการฐานข้อมูลอย่างถูกต้อง ตรวจสอบเครือข่ายและโค้ดของคุณ"
+"โดยปกติแล้วลูกข่ายจะถูกยกเลิกเมื่อไม่ได้ปิดการเชื่อมต่อกับ MySQL อย่างถูกต้อง "
+"ซึ่งอาจเกิดจากปัญหาเครือข่ายหรือโค้ดไม่ได้ปิดตัวจัดการฐานข้อมูลอย่างถูกต้อง "
+"ตรวจสอบเครือข่ายและโค้ดของคุณ"
 
 #: src/Advisory/Rules.php:612
 #, php-format
@@ -8247,8 +8248,7 @@ msgstr "อัตราเครื่องลูกข่ายที่ถู
 #: src/Advisory/Rules.php:626
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
-msgstr ""
-"อัตราการยกเลิกการใช้งานของลูกข่ายอยู่ที่ %s ซึ่งค่านี้ควรน้อยกว่า 1 ต่อชั่วโมง"
+msgstr "อัตราการยกเลิกการใช้งานของลูกข่ายอยู่ที่ %s ซึ่งค่านี้ควรน้อยกว่า 1 ต่อชั่วโมง"
 
 #: src/Advisory/Rules.php:632
 msgid "Is InnoDB disabled?"
@@ -11392,36 +11392,36 @@ msgstr "เรียงลำดับจาก"
 msgid "Server connection collation"
 msgstr "ชุดเทียบเคียงการเชื่อมต่อเซิร์ฟเวอร์"
 
-#: src/Config/FormDisplay.php:579
+#: src/Config/FormDisplay.php:580
 #, php-format
 msgid "Missing data for %s"
 msgstr "ข้อมูลที่หายไปสำหรับ %s"
 
-#: src/Config/FormDisplay.php:619 src/Config/Validator.php:593
+#: src/Config/FormDisplay.php:620 src/Config/Validator.php:589
 #: src/Controllers/JavaScriptMessagesController.php:804
 msgid "Incorrect value!"
 msgstr "ค่าไม่ถูกต้อง"
 
-#: src/Config/FormDisplay.php:765
+#: src/Config/FormDisplay.php:766
 msgid "unavailable"
 msgstr "ไม่พร้อมใช้งาน"
 
-#: src/Config/FormDisplay.php:767
+#: src/Config/FormDisplay.php:768
 #, php-format
 msgid "\"%s\" requires %s extension"
 msgstr "\"%s\" ต้องใช้ส่วนขยาย %s"
 
-#: src/Config/FormDisplay.php:789
+#: src/Config/FormDisplay.php:790
 #, php-format
 msgid "Compressed import will not work due to missing function %s."
 msgstr "การนำเข้าแบบบีบอัดจะไม่ทำงานเนื่องจากขาดฟังก์ชัน %s"
 
-#: src/Config/FormDisplay.php:798
+#: src/Config/FormDisplay.php:799
 #, php-format
 msgid "Compressed export will not work due to missing function %s."
 msgstr "การส่งออกแบบบีบอัดจะไม่ทำงานเนื่องจากขาดฟังก์ชัน %s"
 
-#: src/Config/FormDisplay.php:818
+#: src/Config/FormDisplay.php:819
 #, php-format
 msgid "maximum %s"
 msgstr "สูงสุด %s"
@@ -11650,72 +11650,72 @@ msgstr "แท็บระดับฐานข้อมูล"
 msgid "Table-level tabs"
 msgstr "แท็บระดับตาราง"
 
-#: src/Config/UserPreferences.php:176
+#: src/Config/UserPreferences.php:178
 msgid "Could not save configuration"
 msgstr "ไม่สามารถบันทึกการกำหนดค่าได้"
 
-#: src/Config/UserPreferences.php:187
+#: src/Config/UserPreferences.php:189
 msgid "The phpMyAdmin configuration storage database could not be accessed."
 msgstr "ไม่สามารถเข้าถึงฐานข้อมูลจัดเก็บการตั้งค่า phpMyAdmin ได้"
 
-#: src/Config/Validator.php:251
+#: src/Config/Validator.php:247
 msgid "Could not connect to the database server!"
 msgstr "ไม่สามารถเชื่อมต่อไปยังเซิร์ฟเวอร์ฐานข้อมูลได้!"
 
-#: src/Config/Validator.php:287
+#: src/Config/Validator.php:283
 msgid "Invalid authentication type!"
 msgstr "ประเภทการตรวจสอบสิทธิ์ไม่ถูกต้อง!"
 
-#: src/Config/Validator.php:292
+#: src/Config/Validator.php:288
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr "เว้นชื่อผู้ใช้ให้ว่างขณะใช้วิธี [kbd]config[/kbd] การตรวจสอบสิทธิ์!"
 
-#: src/Config/Validator.php:298
+#: src/Config/Validator.php:294
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
 msgstr "ล้างชื่อเซสชัน signon การเข้าสู่ระบบขณะใช้วิธีการตรวจสอบสิทธิ์ [kbd]signon[/kbd]!"
 
-#: src/Config/Validator.php:305
+#: src/Config/Validator.php:301
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr "ล้าง URL signon ขณะใช้วิธีการตรวจสอบสิทธิ์ [kbd]signon[/kbd]!"
 
-#: src/Config/Validator.php:358
+#: src/Config/Validator.php:354
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr "ล้างข้อมูลผู้ใช้ควบคุม phpMyAdmin ในขณะที่ใช้พื้นที่จัดเก็บการกำหนดค่า phpMyAdmin!"
 
-#: src/Config/Validator.php:365
+#: src/Config/Validator.php:361
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
 msgstr "ล้างรหัสผ่านผู้ใช้ควบคุม phpMyAdmin ขณะใช้งานพื้นที่จัดเก็บการกำหนดค่า phpMyAdmin!"
 
-#: src/Config/Validator.php:454
+#: src/Config/Validator.php:450
 msgid "Incorrect value:"
 msgstr "ค่าไม่ถูกต้อง:"
 
-#: src/Config/Validator.php:465
+#: src/Config/Validator.php:461
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "ที่อยู่ IP ไม่ถูกต้อง: %s"
 
-#: src/Config/Validator.php:528
+#: src/Config/Validator.php:524
 #: src/Controllers/JavaScriptMessagesController.php:803
 msgid "Not a valid port number!"
 msgstr "ไม่ใช่หมายเลขพอร์ตที่ถูกต้อง!"
 
-#: src/Config/Validator.php:550
+#: src/Config/Validator.php:546
 #: src/Controllers/JavaScriptMessagesController.php:801
 msgid "Not a positive number!"
 msgstr "ไม่ใช่จำนวนเต็มบวก!"
 
-#: src/Config/Validator.php:572
+#: src/Config/Validator.php:568
 #: src/Controllers/JavaScriptMessagesController.php:802
 msgid "Not a non-negative number!"
 msgstr "ไม่ใช่จำนวนที่ไม่ติดลบ!"
 
-#: src/Config/Validator.php:611
+#: src/Config/Validator.php:607
 #: src/Controllers/JavaScriptMessagesController.php:805
 #, php-format
 msgid "Value must be less than or equal to %s!"
@@ -11797,7 +11797,7 @@ msgstr "มีหน้าเพจชื่อ \"%s\" อยู่แล้ว 
 #: src/Controllers/Operations/TableController.php:91
 #: src/Controllers/Operations/ViewController.php:61
 #: src/Controllers/Operations/ViewController.php:66
-#: src/Controllers/Server/Databases/DestroyController.php:67
+#: src/Controllers/Server/Databases/DestroyController.php:65
 #: src/Controllers/Table/AddFieldController.php:161
 #: src/Controllers/Table/AddFieldController.php:166
 #: src/Controllers/Table/ChangeController.php:70
@@ -12035,27 +12035,27 @@ msgstr "ไม่มีตารางที่เลือกไว้"
 msgid "Database Log"
 msgstr "บันทึกฐานข้อมูล"
 
-#: src/Controllers/ErrorReportController.php:94
+#: src/Controllers/ErrorReportController.php:95
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr "ตรวจพบข้อผิดพลาด และได้แจ้งรายงานตามที่ตั้งค่าไว้โดยอัตโนมัติ"
 
-#: src/Controllers/ErrorReportController.php:98
+#: src/Controllers/ErrorReportController.php:99
 msgid "Thank you for submitting this report."
 msgstr "ขอบคุณสำหรับการรายงานครั้งนี้"
 
-#: src/Controllers/ErrorReportController.php:102
+#: src/Controllers/ErrorReportController.php:103
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr "ตรวจพบข้อผิดพลาด และรายงานได้ถูกสร้างขึ้นแล้ว แต่การส่งล้มเหลว"
 
-#: src/Controllers/ErrorReportController.php:105
+#: src/Controllers/ErrorReportController.php:106
 msgid "If you experience any problems please submit a bug report manually."
 msgstr "หากคุณพบปัญหาใด ๆ ในการใช้งาน กรุณารายงานข้อผิดพลาดด้วยตนเอง"
 
-#: src/Controllers/ErrorReportController.php:108
+#: src/Controllers/ErrorReportController.php:109
 msgid "You may want to refresh the page."
 msgstr "คุณอาจต้องการรีเฟรชหน้าเพจ"
 
@@ -12254,7 +12254,7 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "คำสั่ง \"DROP DATABASE\" ถูกปิดไว้"
 
-#: src/Controllers/Import/ImportController.php:674 src/Sql.php:908
+#: src/Controllers/Import/ImportController.php:674 src/Sql.php:906
 msgid "[ROLLBACK occurred.]"
 msgstr "[เกิดการย้อนกลับ]"
 
@@ -12262,7 +12262,7 @@ msgstr "[เกิดการย้อนกลับ]"
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr "สามารถจำลองได้เฉพาะคำสั่ง UPDATE และ DELETE ที่ทำงานกับตารางเดียวเท่านั้น"
 
-#: src/Controllers/Import/StatusController.php:72
+#: src/Controllers/Import/StatusController.php:73
 msgid "Could not load the progress of the import."
 msgstr "ไม่สามารถโหลดข้อมูลความคืบหน้าของการนำเข้าได้"
 
@@ -14163,7 +14163,7 @@ msgstr "พารามิเตอร์ที่หายไป:"
 msgid "Database %1$s has been created."
 msgstr "ฐานข้อมูล %1$s ถูกสร้างเรียบร้อยแล้ว"
 
-#: src/Controllers/Server/Databases/DestroyController.php:90
+#: src/Controllers/Server/Databases/DestroyController.php:88
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
@@ -14918,7 +14918,7 @@ msgstr "ข้อมูลไม่ถูกต้อง"
 msgid "Wrong data or no validation for %s"
 msgstr "ข้อมูลไม่ถูกต้องหรือไม่มีการตรวจสอบความถูกต้องสำหรับ %s"
 
-#: src/Controllers/Sql/SqlController.php:207 src/Sql.php:1082
+#: src/Controllers/Sql/SqlController.php:207 src/Sql.php:1076
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "บุ๊กมาร์ก %s ถูกสร้างขึ้นแล้ว"
@@ -14995,7 +14995,7 @@ msgstr "มีปัญหาเกี่ยวกับคำขอของค
 
 #: src/Controllers/Table/GetFieldController.php:87
 #: src/Database/Routines.php:1036 src/Import/Import.php:136
-#: src/InsertEdit.php:160 src/Sql.php:894
+#: src/InsertEdit.php:160 src/Sql.php:892
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL ส่งคืนชุดผลลัพธ์ว่างเปล่า (กล่าวคือ ศูนย์แถว)"
 
@@ -15117,7 +15117,7 @@ msgstr "คุณไม่มีสิทธิ์เพียงพอที่
 msgid "View name can not be empty!"
 msgstr "ชื่อมุมมองต้องไม่เป็นค่าว่าง!"
 
-#: src/Core.php:105 src/ZipExtension.php:57
+#: src/Core.php:106 src/ZipExtension.php:57
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "ส่วนขยาย %s ขาดหายไป กรุณาตรวจสอบการกำหนดค่าของ PHP"
@@ -15153,8 +15153,7 @@ msgctxt ""
 "on designer when user tries to set a display field."
 msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
-msgstr ""
-"พื้นที่จัดเก็บการตั้งค่า phpMyAdmin ไม่ได้ถูกกำหนดค่าสำหรับ \"แสดงคุณสมบัติ\""
+msgstr "พื้นที่จัดเก็บการตั้งค่า phpMyAdmin ไม่ได้ถูกกำหนดค่าสำหรับ \"แสดงคุณสมบัติ\""
 
 #: src/Database/Designer/Common.php:488
 msgid "Error: relationship already exists."
@@ -15363,7 +15362,7 @@ msgstr ""
 msgid "The row has been deleted."
 msgstr "แถวนั้นถูกลบแล้ว"
 
-#: src/Display/Results.php:2974 src/Display/Results.php:3296 src/Sql.php:900
+#: src/Display/Results.php:2974 src/Display/Results.php:3296 src/Sql.php:898
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "คำสั่งใช้เวลา %01.4f วินาที"
@@ -15977,11 +15976,11 @@ msgstr "ดัชนี %1$s และ %2$s ดูเหมือนจะเท
 msgid "web server upload directory:"
 msgstr "ไดเร็กทอรีอัปโหลดของเว็บเซิร์ฟเวอร์:"
 
-#: src/InsertEdit.php:845 src/Sql.php:891
+#: src/InsertEdit.php:845 src/Sql.php:889
 msgid "Showing SQL query"
 msgstr "แสดงคำสั่ง SQL"
 
-#: src/InsertEdit.php:869 src/Sql.php:871
+#: src/InsertEdit.php:869 src/Sql.php:869
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "รหัสแถวที่แทรก: %1$d"
@@ -16038,23 +16037,23 @@ msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
 msgstr[0] "%1$d แถวถูกเพิ่มแล้ว"
 
-#: src/Navigation/Navigation.php:220
+#: src/Navigation/Navigation.php:222
 msgid "Groups:"
 msgstr "กลุ่ม:"
 
-#: src/Navigation/Navigation.php:221
+#: src/Navigation/Navigation.php:223
 msgid "Events:"
 msgstr "เหตุการณ์:"
 
-#: src/Navigation/Navigation.php:222
+#: src/Navigation/Navigation.php:224
 msgid "Functions:"
 msgstr "ฟังก์ชัน:"
 
-#: src/Navigation/Navigation.php:223
+#: src/Navigation/Navigation.php:225
 msgid "Procedures:"
 msgstr "ขั้นตอนการดำเนินการ:"
 
-#: src/Navigation/Navigation.php:225
+#: src/Navigation/Navigation.php:227
 msgid "Views:"
 msgstr "มุมมอง:"
 
@@ -17738,20 +17737,20 @@ msgstr "ไม่มีเวอร์ชันเสถียรที่ให
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "ใช้บุ๊กมาร์ก \"%s\" เป็นค่าเริ่มต้นในการเรียกดูคำสั่ง"
 
-#: src/Sql.php:888
+#: src/Sql.php:886
 msgid "Showing as PHP code"
 msgstr "แสดงผลเป็นโค้ด PHP"
 
-#: src/Sql.php:1241
+#: src/Sql.php:1235
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available. %s"
 msgstr ""
-"การเลือกปัจจุบันไม่มีคอลัมน์ที่ไม่ซ้ำกัน ฟีเจอร์การแก้ไขตาราง, ช่องทำเครื่องหมาย, การแก้ไข, การคัด"
-"ลอก และการลบไม่สามารถใช้งานได้ %s"
+"การเลือกปัจจุบันไม่มีคอลัมน์ที่ไม่ซ้ำกัน ฟีเจอร์การแก้ไขตาราง, ช่องทำเครื่องหมาย, การแก้ไข, "
+"การคัดลอก และการลบไม่สามารถใช้งานได้ %s"
 
-#: src/Sql.php:1255
+#: src/Sql.php:1249
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "

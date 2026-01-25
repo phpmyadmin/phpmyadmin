@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-01-18 00:32+0000\n"
+"POT-Creation-Date: 2026-01-25 00:33+0000\n"
 "PO-Revision-Date: 2023-02-17 01:47+0000\n"
 "Last-Translator: Anders Johansson <johansson@aljmedia.se>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -201,7 +201,7 @@ msgstr "efter %s"
 #: resources/templates/config/form_display/input.twig:43
 #: resources/templates/database/central_columns/main.twig:311
 #: resources/templates/database/designer/main.twig:585
-#: resources/templates/export.twig:429
+#: resources/templates/export.twig:427
 #: resources/templates/server/privileges/privileges_summary.twig:31
 #: resources/templates/server/status/monitor/index.twig:206
 #: resources/templates/server/status/processes/list.twig:72
@@ -223,8 +223,8 @@ msgstr "Tabellnamn"
 #: resources/templates/columns_definitions/column_definitions_form.twig:30
 #: resources/templates/console/display.twig:136
 #: resources/templates/database/central_columns/main.twig:202
-#: resources/templates/export.twig:281 resources/templates/export.twig:297
-#: resources/templates/export.twig:313
+#: resources/templates/export.twig:279 resources/templates/export.twig:295
+#: resources/templates/export.twig:311
 msgid "Add"
 msgstr "Lägg till"
 
@@ -396,7 +396,7 @@ msgstr "Laddar…"
 #: resources/templates/error/report_modal.twig:14
 #: resources/templates/export_modal.twig:6
 #: resources/templates/export_modal.twig:10 resources/templates/export.twig:82
-#: resources/templates/export.twig:92 resources/templates/export.twig:190
+#: resources/templates/export.twig:90 resources/templates/export.twig:188
 #: resources/templates/home/index.twig:317
 #: resources/templates/home/index.twig:325
 #: resources/templates/modals/change_password.twig:6
@@ -1952,7 +1952,7 @@ msgstr "Markera alla"
 #: resources/templates/display/results/table.twig:332
 #: resources/templates/display/results/table.twig:333
 #: resources/templates/display/results/table.twig:365
-#: resources/templates/export.twig:3 resources/templates/export.twig:495
+#: resources/templates/export.twig:3 resources/templates/export.twig:493
 #: resources/templates/preferences/header.twig:42
 #: resources/templates/preferences/manage/main.twig:67
 #: resources/templates/server/privileges/new_user_ajax.twig:63
@@ -2086,7 +2086,7 @@ msgid "Exporting tables from \"%s\" database"
 msgstr "Exportera tabeller från databasen \"%s\""
 
 #: resources/templates/database/export/index.twig:14
-#: src/Navigation/Navigation.php:224
+#: src/Navigation/Navigation.php:226
 msgid "Tables:"
 msgstr "Tabeller:"
 
@@ -2273,7 +2273,7 @@ msgid "Rename database to"
 msgstr "Byt namn på databasen till"
 
 #: resources/templates/database/operations/index.twig:59
-#: resources/templates/export.twig:278
+#: resources/templates/export.twig:276
 msgid "New database name"
 msgstr "Nytt Databasnamn"
 
@@ -3196,7 +3196,7 @@ msgid "Restore column order"
 msgstr "Återställ ordningen på kolumner"
 
 #: resources/templates/display/results/table.twig:121
-#: resources/templates/export.twig:145
+#: resources/templates/export.twig:143
 #: resources/templates/table/start_and_number_of_rows_fieldset.twig:9
 msgid "Number of rows:"
 msgstr "Antal rader:"
@@ -3403,68 +3403,68 @@ msgstr "SQL-fråga:"
 msgid "Show SQL query"
 msgstr "Visar SQL-fråga"
 
-#: resources/templates/export.twig:104
+#: resources/templates/export.twig:102
 msgid "Export method:"
 msgstr "Exportmetod:"
 
-#: resources/templates/export.twig:108
+#: resources/templates/export.twig:106
 msgid "Quick - display only the minimal options"
 msgstr "Snabb - visa endast minimala alternativ"
 
-#: resources/templates/export.twig:112
+#: resources/templates/export.twig:110
 msgid "Custom - display all possible options"
 msgstr "Anpassad - visa alla möjliga alternativ"
 
-#: resources/templates/export.twig:119 src/Plugins/Export/ExportCodegen.php:72
+#: resources/templates/export.twig:117 src/Plugins/Export/ExportCodegen.php:72
 msgid "Format:"
 msgstr "Format:"
 
-#: resources/templates/export.twig:121
+#: resources/templates/export.twig:119
 #, fuzzy
 #| msgid "File to import:"
 msgid "File format to export"
 msgstr "Fil att importera:"
 
-#: resources/templates/export.twig:133
+#: resources/templates/export.twig:131
 msgid "Rows:"
 msgstr "Rader:"
 
-#: resources/templates/export.twig:137
+#: resources/templates/export.twig:135
 msgid "Dump all rows"
 msgstr "Exportera alla rader"
 
-#: resources/templates/export.twig:141
+#: resources/templates/export.twig:139
 msgid "Dump some row(s)"
 msgstr "Exportera några rader"
 
-#: resources/templates/export.twig:156
+#: resources/templates/export.twig:154
 msgid "Row to begin at:"
 msgstr "Rad att börja på:"
 
-#: resources/templates/export.twig:166 resources/templates/export.twig:328
+#: resources/templates/export.twig:164 resources/templates/export.twig:326
 msgid "Output:"
 msgstr "Utdata:"
 
-#: resources/templates/export.twig:171 resources/templates/export.twig:366
+#: resources/templates/export.twig:169 resources/templates/export.twig:364
 #, fuzzy, php-format
 #| msgid "Save on server in the directory <b>%s</b>"
 msgid "Save on server in the directory <strong>%s</strong>"
 msgstr "Spara på servern i katalogen <b>%s</b>"
 
-#: resources/templates/export.twig:178 resources/templates/export.twig:373
+#: resources/templates/export.twig:176 resources/templates/export.twig:371
 #: src/Config/Descriptions.php:681 src/Config/Descriptions.php:684
 msgid "Overwrite existing file(s)"
 msgstr "Skriv över befintlig(a) fil(er)"
 
-#: resources/templates/export.twig:189 resources/templates/export.twig:333
+#: resources/templates/export.twig:187 resources/templates/export.twig:331
 msgid "Rename exported databases/tables/columns"
 msgstr "Byt namn på exporterade databaser/tabeller/kolumner"
 
-#: resources/templates/export.twig:197
+#: resources/templates/export.twig:195
 msgid "Defined aliases"
 msgstr ""
 
-#: resources/templates/export.twig:206
+#: resources/templates/export.twig:204
 #: src/Controllers/JavaScriptMessagesController.php:282
 #, fuzzy
 #| msgid "Database"
@@ -3472,14 +3472,14 @@ msgctxt "Alias"
 msgid "Database"
 msgstr "Databas"
 
-#: resources/templates/export.twig:212 resources/templates/export.twig:226
-#: resources/templates/export.twig:239 resources/templates/export.twig:256
+#: resources/templates/export.twig:210 resources/templates/export.twig:224
+#: resources/templates/export.twig:237 resources/templates/export.twig:254
 #, fuzzy
 #| msgid "Remote server"
 msgid "Remove"
 msgstr "Fjärrserver"
 
-#: resources/templates/export.twig:220
+#: resources/templates/export.twig:218
 #: src/Controllers/JavaScriptMessagesController.php:283
 #, fuzzy
 #| msgid "Table"
@@ -3487,7 +3487,7 @@ msgctxt "Alias"
 msgid "Table"
 msgstr "Tabell"
 
-#: resources/templates/export.twig:233
+#: resources/templates/export.twig:231
 #: src/Controllers/JavaScriptMessagesController.php:284
 #, fuzzy
 #| msgid "Column"
@@ -3495,59 +3495,59 @@ msgctxt "Alias"
 msgid "Column"
 msgstr "Kolumn"
 
-#: resources/templates/export.twig:265
+#: resources/templates/export.twig:263
 msgid "Define new aliases"
 msgstr ""
 
-#: resources/templates/export.twig:270
+#: resources/templates/export.twig:268
 #, fuzzy
 #| msgid "Select database"
 msgid "Select database:"
 msgstr "Välj databas"
 
-#: resources/templates/export.twig:286
+#: resources/templates/export.twig:284
 #, fuzzy
 #| msgid "Select table"
 msgid "Select table:"
 msgstr "Välj tabell"
 
-#: resources/templates/export.twig:294
+#: resources/templates/export.twig:292
 msgid "New table name"
 msgstr "Nytt tabellnamn"
 
-#: resources/templates/export.twig:302
+#: resources/templates/export.twig:300
 #, fuzzy
 #| msgid "Select a column."
 msgid "Select column:"
 msgstr "Välj en kolumn."
 
-#: resources/templates/export.twig:310
+#: resources/templates/export.twig:308
 msgid "New column name"
 msgstr "Nytt kolumnnamn"
 
-#: resources/templates/export.twig:320
+#: resources/templates/export.twig:318
 #: src/Controllers/JavaScriptMessagesController.php:110
 msgid "Save & close"
 msgstr "Avsluta och Spara"
 
-#: resources/templates/export.twig:343
+#: resources/templates/export.twig:341
 #, php-format
 msgid "Use %s statement"
 msgstr "Använd %s uttalande"
 
-#: resources/templates/export.twig:352
+#: resources/templates/export.twig:350
 msgid "View output as text"
 msgstr "Visa utdata som text"
 
-#: resources/templates/export.twig:356
+#: resources/templates/export.twig:354
 msgid "Save output to a file"
 msgstr "Spara utdata till en fil"
 
-#: resources/templates/export.twig:383
+#: resources/templates/export.twig:381
 msgid "File name template:"
 msgstr "Filnamnsmall:"
 
-#: resources/templates/export.twig:384
+#: resources/templates/export.twig:382
 #, fuzzy, php-format
 #| msgid ""
 #| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
@@ -3563,51 +3563,51 @@ msgstr ""
 "tidsformatering. Dessutom kommer följande omvandlingar att ske: %3$s. Övrig "
 "text behålls som den är.Se %4$sFAQ%5$s för detaljer."
 
-#: resources/templates/export.twig:394
+#: resources/templates/export.twig:392
 #, fuzzy
 #| msgid "use this for future exports"
 msgid "Use this for future exports"
 msgstr "använd detta för framtida exporter"
 
-#: resources/templates/export.twig:405 resources/templates/import.twig:98
+#: resources/templates/export.twig:403 resources/templates/import.twig:98
 msgid "Character set of the file:"
 msgstr "Teckenuppsättning för filen:"
 
-#: resources/templates/export.twig:425
+#: resources/templates/export.twig:423
 msgid "Compression:"
 msgstr "Komprimering:"
 
-#: resources/templates/export.twig:433
+#: resources/templates/export.twig:431
 msgid "zipped"
 msgstr "zippad"
 
-#: resources/templates/export.twig:439
+#: resources/templates/export.twig:437
 msgid "gzipped"
 msgstr "gzippad"
 
-#: resources/templates/export.twig:457
+#: resources/templates/export.twig:455
 msgid "Export databases as separate files"
 msgstr "Exportera databaser som separata filer"
 
-#: resources/templates/export.twig:459
+#: resources/templates/export.twig:457
 msgid "Export tables as separate files"
 msgstr "Exportera tabeller som separata filer"
 
-#: resources/templates/export.twig:470
+#: resources/templates/export.twig:468
 #, fuzzy
 #| msgid "Skip tables larger than"
 msgid "Skip tables larger than:"
 msgstr "Hoppa över tabeller större än"
 
-#: resources/templates/export.twig:472
+#: resources/templates/export.twig:470
 msgid "The size is measured in MiB."
 msgstr ""
 
-#: resources/templates/export.twig:478 resources/templates/import.twig:173
+#: resources/templates/export.twig:476 resources/templates/import.twig:173
 msgid "Format-specific options:"
 msgstr "Format-specifika alternativ:"
 
-#: resources/templates/export.twig:487 resources/templates/import.twig:182
+#: resources/templates/export.twig:485 resources/templates/import.twig:182
 msgid "Encoding Conversion:"
 msgstr "Omkodning:"
 
@@ -4478,7 +4478,7 @@ msgstr ""
 #: src/Controllers/Database/Structure/EmptyTableController.php:43
 #: src/Controllers/Operations/TableController.php:328
 #: src/Controllers/Table/DropColumnController.php:63
-#: src/Controllers/Table/ReplaceController.php:289 src/Core.php:518
+#: src/Controllers/Table/ReplaceController.php:289 src/Core.php:509
 msgid "No change"
 msgstr "Ingen förändring"
 
@@ -6841,22 +6841,22 @@ msgstr "Lägg till en ny server"
 msgid "Something went wrong."
 msgstr ""
 
-#: resources/templates/sql/bookmark.twig:11
+#: resources/templates/sql/_bookmark.twig:10
 msgid "Bookmark this SQL query"
 msgstr "Skapa bokmärke för den här SQL-frågan"
 
-#: resources/templates/sql/bookmark.twig:14
+#: resources/templates/sql/_bookmark.twig:13
 #, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmark label:"
 msgstr "Tabell för bokmärken"
 
-#: resources/templates/sql/bookmark.twig:21
+#: resources/templates/sql/_bookmark.twig:20
 #: resources/templates/sql/query.twig:95
 msgid "Let every user access this bookmark"
 msgstr "Låt alla användare få tillgång till detta bokmärke"
 
-#: resources/templates/sql/bookmark.twig:26
+#: resources/templates/sql/_bookmark.twig:25
 #, fuzzy
 #| msgid "Create bookmark"
 msgid "Create new bookmark"
@@ -12383,36 +12383,36 @@ msgstr "Sorteringsordning:"
 msgid "Server connection collation"
 msgstr "Serveranslutning kollationering"
 
-#: src/Config/FormDisplay.php:579
+#: src/Config/FormDisplay.php:580
 #, php-format
 msgid "Missing data for %s"
 msgstr "Saknar data för %s"
 
-#: src/Config/FormDisplay.php:619 src/Config/Validator.php:593
+#: src/Config/FormDisplay.php:620 src/Config/Validator.php:589
 #: src/Controllers/JavaScriptMessagesController.php:804
 msgid "Incorrect value!"
 msgstr "Felaktigt värde!"
 
-#: src/Config/FormDisplay.php:765
+#: src/Config/FormDisplay.php:766
 msgid "unavailable"
 msgstr "otillgänglig"
 
-#: src/Config/FormDisplay.php:767
+#: src/Config/FormDisplay.php:768
 #, php-format
 msgid "\"%s\" requires %s extension"
 msgstr "\"%s\" kräver tillägget %s"
 
-#: src/Config/FormDisplay.php:789
+#: src/Config/FormDisplay.php:790
 #, php-format
 msgid "Compressed import will not work due to missing function %s."
 msgstr "Komprimerad import fungerar inte på grund av saknad funktion %s."
 
-#: src/Config/FormDisplay.php:798
+#: src/Config/FormDisplay.php:799
 #, php-format
 msgid "Compressed export will not work due to missing function %s."
 msgstr "Komprimerad export fungerar inte på grund av saknad funktion %s."
 
-#: src/Config/FormDisplay.php:818
+#: src/Config/FormDisplay.php:819
 #, php-format
 msgid "maximum %s"
 msgstr "maximum %s"
@@ -12672,30 +12672,30 @@ msgstr "Flikar på databasnivå"
 msgid "Table-level tabs"
 msgstr "Flikar på tabellnivå"
 
-#: src/Config/UserPreferences.php:176
+#: src/Config/UserPreferences.php:178
 msgid "Could not save configuration"
 msgstr "Kunde inte spara konfigurationen"
 
-#: src/Config/UserPreferences.php:187
+#: src/Config/UserPreferences.php:189
 #, fuzzy
 #| msgid ""
 #| "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgid "The phpMyAdmin configuration storage database could not be accessed."
 msgstr "%sCreate%s phpMyAdmin konfiguration lagring i den aktuella databasen."
 
-#: src/Config/Validator.php:251
+#: src/Config/Validator.php:247
 msgid "Could not connect to the database server!"
 msgstr "Kunde inte ansluta till databasservern!"
 
-#: src/Config/Validator.php:287
+#: src/Config/Validator.php:283
 msgid "Invalid authentication type!"
 msgstr "Ogiltig autentiseringstyp!"
 
-#: src/Config/Validator.php:292
+#: src/Config/Validator.php:288
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr "Tomt användarnamn vid användning av [kbd]config[/kbd]-autentisering!"
 
-#: src/Config/Validator.php:298
+#: src/Config/Validator.php:294
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
@@ -12703,18 +12703,18 @@ msgstr ""
 "Tomt sessionsnamn för signon vid användning av [kbd]signon[/kbd]-"
 "autentisering!"
 
-#: src/Config/Validator.php:305
+#: src/Config/Validator.php:301
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr "Tom URL för signon vid användning av [kbd]signon[/kbd]-autentisering!"
 
-#: src/Config/Validator.php:358
+#: src/Config/Validator.php:354
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 "Tom phpMyAdmin-kontrollanvändare vid användning av konfigurationslagring för "
 "phpMyAdmin!"
 
-#: src/Config/Validator.php:365
+#: src/Config/Validator.php:361
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
@@ -12722,31 +12722,31 @@ msgstr ""
 "Tomt lösenord för phpMyAdmin-kontrollanvändare vid användning av "
 "konfigurationslagring för phpMyAdmin!"
 
-#: src/Config/Validator.php:454
+#: src/Config/Validator.php:450
 msgid "Incorrect value:"
 msgstr "Felaktigt värde:"
 
-#: src/Config/Validator.php:465
+#: src/Config/Validator.php:461
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "Felaktig IP-adress: %s"
 
-#: src/Config/Validator.php:528
+#: src/Config/Validator.php:524
 #: src/Controllers/JavaScriptMessagesController.php:803
 msgid "Not a valid port number!"
 msgstr "Inte ett giltigt portnummer!"
 
-#: src/Config/Validator.php:550
+#: src/Config/Validator.php:546
 #: src/Controllers/JavaScriptMessagesController.php:801
 msgid "Not a positive number!"
 msgstr "Inte ett positivt tal!"
 
-#: src/Config/Validator.php:572
+#: src/Config/Validator.php:568
 #: src/Controllers/JavaScriptMessagesController.php:802
 msgid "Not a non-negative number!"
 msgstr "Inte ett icke-negativt tal!"
 
-#: src/Config/Validator.php:611
+#: src/Config/Validator.php:607
 #: src/Controllers/JavaScriptMessagesController.php:805
 #, php-format
 msgid "Value must be less than or equal to %s!"
@@ -12834,7 +12834,7 @@ msgstr ""
 #: src/Controllers/Operations/TableController.php:91
 #: src/Controllers/Operations/ViewController.php:61
 #: src/Controllers/Operations/ViewController.php:66
-#: src/Controllers/Server/Databases/DestroyController.php:67
+#: src/Controllers/Server/Databases/DestroyController.php:65
 #: src/Controllers/Table/AddFieldController.php:161
 #: src/Controllers/Table/AddFieldController.php:166
 #: src/Controllers/Table/ChangeController.php:70
@@ -13078,7 +13078,7 @@ msgstr "Inga tabeller markerade."
 msgid "Database Log"
 msgstr "Databas-logg"
 
-#: src/Controllers/ErrorReportController.php:94
+#: src/Controllers/ErrorReportController.php:95
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
@@ -13086,22 +13086,22 @@ msgstr ""
 "Ett fel har upptäckts och en felrapport har skickats automatiskt i enlighet "
 "med dina inställningar."
 
-#: src/Controllers/ErrorReportController.php:98
+#: src/Controllers/ErrorReportController.php:99
 msgid "Thank you for submitting this report."
 msgstr "Tack för att du skickar denna rapport."
 
-#: src/Controllers/ErrorReportController.php:102
+#: src/Controllers/ErrorReportController.php:103
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
 "Ett fel har upptäckts och en felrapport har skapats men kunde inte skickas."
 
-#: src/Controllers/ErrorReportController.php:105
+#: src/Controllers/ErrorReportController.php:106
 msgid "If you experience any problems please submit a bug report manually."
 msgstr "Skicka en buggrapport manuellt om du upplever några problem."
 
-#: src/Controllers/ErrorReportController.php:108
+#: src/Controllers/ErrorReportController.php:109
 msgid "You may want to refresh the page."
 msgstr "Du kan vilja ladda om sidan."
 
@@ -13298,7 +13298,7 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\"-satser är inaktiverade."
 
-#: src/Controllers/Import/ImportController.php:674 src/Sql.php:908
+#: src/Controllers/Import/ImportController.php:674 src/Sql.php:906
 msgid "[ROLLBACK occurred.]"
 msgstr "[ÅTERTOG tidigare version]"
 
@@ -13306,7 +13306,7 @@ msgstr "[ÅTERTOG tidigare version]"
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr "Endast entabells-UPDATE och DELETE-körningar simuleras."
 
-#: src/Controllers/Import/StatusController.php:72
+#: src/Controllers/Import/StatusController.php:73
 msgid "Could not load the progress of the import."
 msgstr "Kunde inte läsa av status på import."
 
@@ -15379,7 +15379,7 @@ msgstr "Saknade parametrar:"
 msgid "Database %1$s has been created."
 msgstr "Databas %1$s har skapats."
 
-#: src/Controllers/Server/Databases/DestroyController.php:90
+#: src/Controllers/Server/Databases/DestroyController.php:88
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
@@ -16194,7 +16194,7 @@ msgstr "Felaktigt data"
 msgid "Wrong data or no validation for %s"
 msgstr ""
 
-#: src/Controllers/Sql/SqlController.php:207 src/Sql.php:1082
+#: src/Controllers/Sql/SqlController.php:207 src/Sql.php:1076
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Bokmärket %s har skapats."
@@ -16276,7 +16276,7 @@ msgstr "Det finns för många JOINS som saknar index."
 
 #: src/Controllers/Table/GetFieldController.php:87
 #: src/Database/Routines.php:1036 src/Import/Import.php:136
-#: src/InsertEdit.php:160 src/Sql.php:894
+#: src/InsertEdit.php:160 src/Sql.php:892
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL returnerade ett tomt resultat (dvs inga rader)."
 
@@ -16413,7 +16413,7 @@ msgstr "Du har inte tillräcklig behörighet för att vara här nu!"
 msgid "View name can not be empty!"
 msgstr ""
 
-#: src/Core.php:105 src/ZipExtension.php:57
+#: src/Core.php:106 src/ZipExtension.php:57
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "Tillägget %s saknas. Vänligen kontrollera din PHP-konfiguration."
@@ -16687,7 +16687,7 @@ msgstr ""
 msgid "The row has been deleted."
 msgstr "Raden har raderats."
 
-#: src/Display/Results.php:2974 src/Display/Results.php:3296 src/Sql.php:900
+#: src/Display/Results.php:2974 src/Display/Results.php:3296 src/Sql.php:898
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Frågan tog %01.4f sekunder."
@@ -17346,11 +17346,11 @@ msgstr ""
 msgid "web server upload directory:"
 msgstr "Uppladdningskatalog på webbserver:"
 
-#: src/InsertEdit.php:845 src/Sql.php:891
+#: src/InsertEdit.php:845 src/Sql.php:889
 msgid "Showing SQL query"
 msgstr "Visar SQL-fråga"
 
-#: src/InsertEdit.php:869 src/Sql.php:871
+#: src/InsertEdit.php:869 src/Sql.php:869
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Infogade rad-id: %1$d"
@@ -17410,23 +17410,23 @@ msgid_plural "%1$d rows inserted."
 msgstr[0] "%1$d rad infogad."
 msgstr[1] "%1$d rader infogade."
 
-#: src/Navigation/Navigation.php:220
+#: src/Navigation/Navigation.php:222
 msgid "Groups:"
 msgstr "Grupper:"
 
-#: src/Navigation/Navigation.php:221
+#: src/Navigation/Navigation.php:223
 msgid "Events:"
 msgstr "Händelser:"
 
-#: src/Navigation/Navigation.php:222
+#: src/Navigation/Navigation.php:224
 msgid "Functions:"
 msgstr "Funktioner:"
 
-#: src/Navigation/Navigation.php:223
+#: src/Navigation/Navigation.php:225
 msgid "Procedures:"
 msgstr "Procedurer:"
 
-#: src/Navigation/Navigation.php:225
+#: src/Navigation/Navigation.php:227
 msgid "Views:"
 msgstr "Vyer:"
 
@@ -19226,11 +19226,11 @@ msgstr "Ingen nyare stabil version finns tillgänglig"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Använd bokmärket \"%s\" som standard webbläsarfråga."
 
-#: src/Sql.php:888
+#: src/Sql.php:886
 msgid "Showing as PHP code"
 msgstr "Visar som PHP-kod"
 
-#: src/Sql.php:1241
+#: src/Sql.php:1235
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -19240,7 +19240,7 @@ msgstr ""
 "rutnätsredigera, kryssruta, redigera, kopiera och radera är inte "
 "tillgängliga. %s"
 
-#: src/Sql.php:1255
+#: src/Sql.php:1249
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "

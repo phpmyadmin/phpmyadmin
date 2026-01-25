@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-01-18 00:32+0000\n"
+"POT-Creation-Date: 2026-01-25 00:33+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Galician <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -203,7 +203,7 @@ msgstr "despois de %s"
 #: resources/templates/config/form_display/input.twig:43
 #: resources/templates/database/central_columns/main.twig:311
 #: resources/templates/database/designer/main.twig:585
-#: resources/templates/export.twig:429
+#: resources/templates/export.twig:427
 #: resources/templates/server/privileges/privileges_summary.twig:31
 #: resources/templates/server/status/monitor/index.twig:206
 #: resources/templates/server/status/processes/list.twig:72
@@ -225,8 +225,8 @@ msgstr "Nome da táboa"
 #: resources/templates/columns_definitions/column_definitions_form.twig:30
 #: resources/templates/console/display.twig:136
 #: resources/templates/database/central_columns/main.twig:202
-#: resources/templates/export.twig:281 resources/templates/export.twig:297
-#: resources/templates/export.twig:313
+#: resources/templates/export.twig:279 resources/templates/export.twig:295
+#: resources/templates/export.twig:311
 msgid "Add"
 msgstr "Engadir"
 
@@ -400,7 +400,7 @@ msgstr "A cargar…"
 #: resources/templates/error/report_modal.twig:14
 #: resources/templates/export_modal.twig:6
 #: resources/templates/export_modal.twig:10 resources/templates/export.twig:82
-#: resources/templates/export.twig:92 resources/templates/export.twig:190
+#: resources/templates/export.twig:90 resources/templates/export.twig:188
 #: resources/templates/home/index.twig:317
 #: resources/templates/home/index.twig:325
 #: resources/templates/modals/change_password.twig:6
@@ -2001,7 +2001,7 @@ msgstr "Marcar todo"
 #: resources/templates/display/results/table.twig:332
 #: resources/templates/display/results/table.twig:333
 #: resources/templates/display/results/table.twig:365
-#: resources/templates/export.twig:3 resources/templates/export.twig:495
+#: resources/templates/export.twig:3 resources/templates/export.twig:493
 #: resources/templates/preferences/header.twig:42
 #: resources/templates/preferences/manage/main.twig:67
 #: resources/templates/server/privileges/new_user_ajax.twig:63
@@ -2135,7 +2135,7 @@ msgid "Exporting tables from \"%s\" database"
 msgstr "A exportar táboas desde a base de datos «%s»"
 
 #: resources/templates/database/export/index.twig:14
-#: src/Navigation/Navigation.php:224
+#: src/Navigation/Navigation.php:226
 msgid "Tables:"
 msgstr "Táboas:"
 
@@ -2326,7 +2326,7 @@ msgid "Rename database to"
 msgstr "Renomear a base de datos como"
 
 #: resources/templates/database/operations/index.twig:59
-#: resources/templates/export.twig:278
+#: resources/templates/export.twig:276
 #, fuzzy
 #| msgid "database name"
 msgid "New database name"
@@ -3269,7 +3269,7 @@ msgid "Restore column order"
 msgstr "Restaurar orde das columnas"
 
 #: resources/templates/display/results/table.twig:121
-#: resources/templates/export.twig:145
+#: resources/templates/export.twig:143
 #: resources/templates/table/start_and_number_of_rows_fieldset.twig:9
 msgid "Number of rows:"
 msgstr "Número de filas:"
@@ -3472,68 +3472,68 @@ msgstr "Consulta de SQL:"
 msgid "Show SQL query"
 msgstr "Mostrar a consulta de SQL"
 
-#: resources/templates/export.twig:104
+#: resources/templates/export.twig:102
 msgid "Export method:"
 msgstr "Método de exportación:"
 
-#: resources/templates/export.twig:108
+#: resources/templates/export.twig:106
 msgid "Quick - display only the minimal options"
 msgstr "Rápido - mostrar só as opcións mínimas"
 
-#: resources/templates/export.twig:112
+#: resources/templates/export.twig:110
 msgid "Custom - display all possible options"
 msgstr "Personalizada - mostrar todas as opcións posíbeis"
 
-#: resources/templates/export.twig:119 src/Plugins/Export/ExportCodegen.php:72
+#: resources/templates/export.twig:117 src/Plugins/Export/ExportCodegen.php:72
 msgid "Format:"
 msgstr "Formato:"
 
-#: resources/templates/export.twig:121
+#: resources/templates/export.twig:119
 #, fuzzy
 #| msgid "File to import:"
 msgid "File format to export"
 msgstr "Ficheiro que importar:"
 
-#: resources/templates/export.twig:133
+#: resources/templates/export.twig:131
 msgid "Rows:"
 msgstr "Fila(s):"
 
-#: resources/templates/export.twig:137
+#: resources/templates/export.twig:135
 msgid "Dump all rows"
 msgstr "Envorcar todas as fileiras"
 
-#: resources/templates/export.twig:141
+#: resources/templates/export.twig:139
 msgid "Dump some row(s)"
 msgstr "Envorcar algunha(s) fila(s)"
 
-#: resources/templates/export.twig:156
+#: resources/templates/export.twig:154
 msgid "Row to begin at:"
 msgstr "Comezar na columna:"
 
-#: resources/templates/export.twig:166 resources/templates/export.twig:328
+#: resources/templates/export.twig:164 resources/templates/export.twig:326
 msgid "Output:"
 msgstr "Saída:"
 
-#: resources/templates/export.twig:171 resources/templates/export.twig:366
+#: resources/templates/export.twig:169 resources/templates/export.twig:364
 #, fuzzy, php-format
 #| msgid "Save on server in the directory <b>%s</b>"
 msgid "Save on server in the directory <strong>%s</strong>"
 msgstr "Gardar no servidor no directorio  <b>%s</b>"
 
-#: resources/templates/export.twig:178 resources/templates/export.twig:373
+#: resources/templates/export.twig:176 resources/templates/export.twig:371
 #: src/Config/Descriptions.php:681 src/Config/Descriptions.php:684
 msgid "Overwrite existing file(s)"
 msgstr "Eliminar o(s) ficheiro(s) xa existente(s)"
 
-#: resources/templates/export.twig:189 resources/templates/export.twig:333
+#: resources/templates/export.twig:187 resources/templates/export.twig:331
 msgid "Rename exported databases/tables/columns"
 msgstr "Mudar o nome das bases de datos/táboas/columnas seleccionadas"
 
-#: resources/templates/export.twig:197
+#: resources/templates/export.twig:195
 msgid "Defined aliases"
 msgstr ""
 
-#: resources/templates/export.twig:206
+#: resources/templates/export.twig:204
 #: src/Controllers/JavaScriptMessagesController.php:282
 #, fuzzy
 #| msgid "Database"
@@ -3541,14 +3541,14 @@ msgctxt "Alias"
 msgid "Database"
 msgstr "Base de datos"
 
-#: resources/templates/export.twig:212 resources/templates/export.twig:226
-#: resources/templates/export.twig:239 resources/templates/export.twig:256
+#: resources/templates/export.twig:210 resources/templates/export.twig:224
+#: resources/templates/export.twig:237 resources/templates/export.twig:254
 #, fuzzy
 #| msgid "Remote server"
 msgid "Remove"
 msgstr "Servidor remoto"
 
-#: resources/templates/export.twig:220
+#: resources/templates/export.twig:218
 #: src/Controllers/JavaScriptMessagesController.php:283
 #, fuzzy
 #| msgid "Table"
@@ -3556,7 +3556,7 @@ msgctxt "Alias"
 msgid "Table"
 msgstr "Táboa"
 
-#: resources/templates/export.twig:233
+#: resources/templates/export.twig:231
 #: src/Controllers/JavaScriptMessagesController.php:284
 #, fuzzy
 #| msgid "Column"
@@ -3564,61 +3564,61 @@ msgctxt "Alias"
 msgid "Column"
 msgstr "Columna"
 
-#: resources/templates/export.twig:265
+#: resources/templates/export.twig:263
 msgid "Define new aliases"
 msgstr ""
 
-#: resources/templates/export.twig:270
+#: resources/templates/export.twig:268
 #, fuzzy
 #| msgid "Select database"
 msgid "Select database:"
 msgstr "Seleccionar base de datos"
 
-#: resources/templates/export.twig:286
+#: resources/templates/export.twig:284
 #, fuzzy
 #| msgid "Select table"
 msgid "Select table:"
 msgstr "Seleccionar táboa"
 
-#: resources/templates/export.twig:294
+#: resources/templates/export.twig:292
 msgid "New table name"
 msgstr "Nome novo da táboa"
 
-#: resources/templates/export.twig:302
+#: resources/templates/export.twig:300
 #, fuzzy
 #| msgid "Select a column."
 msgid "Select column:"
 msgstr "Seleccionar unha columna."
 
-#: resources/templates/export.twig:310
+#: resources/templates/export.twig:308
 #, fuzzy
 #| msgid "Copy column name"
 msgid "New column name"
 msgstr "Copiar nome da columna"
 
-#: resources/templates/export.twig:320
+#: resources/templates/export.twig:318
 #: src/Controllers/JavaScriptMessagesController.php:110
 msgid "Save & close"
 msgstr "Gardar e pechar"
 
-#: resources/templates/export.twig:343
+#: resources/templates/export.twig:341
 #, php-format
 msgid "Use %s statement"
 msgstr "Usar unha instrución %s"
 
-#: resources/templates/export.twig:352
+#: resources/templates/export.twig:350
 msgid "View output as text"
 msgstr "Ver a saída como texto"
 
-#: resources/templates/export.twig:356
+#: resources/templates/export.twig:354
 msgid "Save output to a file"
 msgstr "Gardar a saída nun ficheiro"
 
-#: resources/templates/export.twig:383
+#: resources/templates/export.twig:381
 msgid "File name template:"
 msgstr "Modelo do nome de ficheiro:"
 
-#: resources/templates/export.twig:384
+#: resources/templates/export.twig:382
 #, fuzzy, php-format
 #| msgid ""
 #| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
@@ -3635,51 +3635,51 @@ msgstr ""
 "consecuencia: %3$s. O resto do texto ficará como está. Vexa as %4$sFAQ%5$s "
 "para máis detalles."
 
-#: resources/templates/export.twig:394
+#: resources/templates/export.twig:392
 #, fuzzy
 #| msgid "use this for future exports"
 msgid "Use this for future exports"
 msgstr "usar isto en futuras exportacións"
 
-#: resources/templates/export.twig:405 resources/templates/import.twig:98
+#: resources/templates/export.twig:403 resources/templates/import.twig:98
 msgid "Character set of the file:"
 msgstr "Conxunto de caracteres do ficheiro:"
 
-#: resources/templates/export.twig:425
+#: resources/templates/export.twig:423
 msgid "Compression:"
 msgstr "Compresión:"
 
-#: resources/templates/export.twig:433
+#: resources/templates/export.twig:431
 msgid "zipped"
 msgstr "comprimido no formato «zip»"
 
-#: resources/templates/export.twig:439
+#: resources/templates/export.twig:437
 msgid "gzipped"
 msgstr "comprimido no formato «gzip»"
 
-#: resources/templates/export.twig:457
+#: resources/templates/export.twig:455
 msgid "Export databases as separate files"
 msgstr "Exportar as bases de datos como ficheiros separados"
 
-#: resources/templates/export.twig:459
+#: resources/templates/export.twig:457
 msgid "Export tables as separate files"
 msgstr "Exportar as táboas como ficheiros separados"
 
-#: resources/templates/export.twig:470
+#: resources/templates/export.twig:468
 #, fuzzy
 #| msgid "Skip tables larger than"
 msgid "Skip tables larger than:"
 msgstr "Omitir as táboas maiores de"
 
-#: resources/templates/export.twig:472
+#: resources/templates/export.twig:470
 msgid "The size is measured in MiB."
 msgstr ""
 
-#: resources/templates/export.twig:478 resources/templates/import.twig:173
+#: resources/templates/export.twig:476 resources/templates/import.twig:173
 msgid "Format-specific options:"
 msgstr "Opcións específicas do formato:"
 
-#: resources/templates/export.twig:487 resources/templates/import.twig:182
+#: resources/templates/export.twig:485 resources/templates/import.twig:182
 msgid "Encoding Conversion:"
 msgstr "Conversión de codificación:"
 
@@ -4567,7 +4567,7 @@ msgstr ""
 #: src/Controllers/Database/Structure/EmptyTableController.php:43
 #: src/Controllers/Operations/TableController.php:328
 #: src/Controllers/Table/DropColumnController.php:63
-#: src/Controllers/Table/ReplaceController.php:289 src/Core.php:518
+#: src/Controllers/Table/ReplaceController.php:289 src/Core.php:509
 msgid "No change"
 msgstr "Sen cambios"
 
@@ -7002,22 +7002,22 @@ msgstr "Engadir un servidor novo"
 msgid "Something went wrong."
 msgstr ""
 
-#: resources/templates/sql/bookmark.twig:11
+#: resources/templates/sql/_bookmark.twig:10
 msgid "Bookmark this SQL query"
 msgstr "Marcar esta consulta de SQL"
 
-#: resources/templates/sql/bookmark.twig:14
+#: resources/templates/sql/_bookmark.twig:13
 #, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmark label:"
 msgstr "Táboa de marcadores"
 
-#: resources/templates/sql/bookmark.twig:21
+#: resources/templates/sql/_bookmark.twig:20
 #: resources/templates/sql/query.twig:95
 msgid "Let every user access this bookmark"
 msgstr "Permitir que calquera usuario poida acceder a este marcador"
 
-#: resources/templates/sql/bookmark.twig:26
+#: resources/templates/sql/_bookmark.twig:25
 #, fuzzy
 #| msgid "Create bookmark"
 msgid "Create new bookmark"
@@ -12877,36 +12877,36 @@ msgstr "Ordenar por:"
 msgid "Server connection collation"
 msgstr "Ordenación alfabética (collation) da conexión do servidor"
 
-#: src/Config/FormDisplay.php:579
+#: src/Config/FormDisplay.php:580
 #, php-format
 msgid "Missing data for %s"
 msgstr "Faltan datos de %s"
 
-#: src/Config/FormDisplay.php:619 src/Config/Validator.php:593
+#: src/Config/FormDisplay.php:620 src/Config/Validator.php:589
 #: src/Controllers/JavaScriptMessagesController.php:804
 msgid "Incorrect value!"
 msgstr "O valor é incorrecto!"
 
-#: src/Config/FormDisplay.php:765
+#: src/Config/FormDisplay.php:766
 msgid "unavailable"
 msgstr "non dispoñíbel"
 
-#: src/Config/FormDisplay.php:767
+#: src/Config/FormDisplay.php:768
 #, php-format
 msgid "\"%s\" requires %s extension"
 msgstr "«%s» require a extensión %s"
 
-#: src/Config/FormDisplay.php:789
+#: src/Config/FormDisplay.php:790
 #, php-format
 msgid "Compressed import will not work due to missing function %s."
 msgstr "A importación comprimida non vai funcionar porque falta a función %s."
 
-#: src/Config/FormDisplay.php:798
+#: src/Config/FormDisplay.php:799
 #, php-format
 msgid "Compressed export will not work due to missing function %s."
 msgstr "A exportación comprimida non vai funcionar porque falta a función %s."
 
-#: src/Config/FormDisplay.php:818
+#: src/Config/FormDisplay.php:819
 #, php-format
 msgid "maximum %s"
 msgstr "máximo %s"
@@ -13176,33 +13176,33 @@ msgstr "Servidor de base de datos"
 msgid "Table-level tabs"
 msgstr "Nome da táboa"
 
-#: src/Config/UserPreferences.php:176
+#: src/Config/UserPreferences.php:178
 msgid "Could not save configuration"
 msgstr "Non foi posíbel gravar a configuración"
 
-#: src/Config/UserPreferences.php:187
+#: src/Config/UserPreferences.php:189
 #, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "The phpMyAdmin configuration storage database could not be accessed."
 msgstr "Faltan as táboas de almacenamento da configuración do phpMyAdmin"
 
-#: src/Config/Validator.php:251
+#: src/Config/Validator.php:247
 msgid "Could not connect to the database server!"
 msgstr "Non foi posíbel conectar co servidor de bases de datos!"
 
-#: src/Config/Validator.php:287
+#: src/Config/Validator.php:283
 #, fuzzy
 #| msgid "Authentication type"
 msgid "Invalid authentication type!"
 msgstr "Tipo de autenticación"
 
-#: src/Config/Validator.php:292
+#: src/Config/Validator.php:288
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr ""
 "Atopouse un nome de usuario baleiro ao empregar o método de autenticación "
 "mediante [kbd]configuración[/kbd]!"
 
-#: src/Config/Validator.php:298
+#: src/Config/Validator.php:294
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
@@ -13210,20 +13210,20 @@ msgstr ""
 "Atopouse un nome de rexistro da sesión baleiro ao empregar o método de "
 "autenticación mediante [kbd]rexistro de acceso[/kbd]!"
 
-#: src/Config/Validator.php:305
+#: src/Config/Validator.php:301
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr ""
 "Atopouse un URL de acceso baleiro ao empregar o método de autenticación "
 "mediante [kbd]rexistro de acceso[/kbd]!"
 
-#: src/Config/Validator.php:358
+#: src/Config/Validator.php:354
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 "Atopouse un usuario de control de phpMyAdmin baleiro ao empregar phpMyAdmin "
 "configuration storage!"
 
-#: src/Config/Validator.php:365
+#: src/Config/Validator.php:361
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
@@ -13231,31 +13231,31 @@ msgstr ""
 "Atopouse un contrasinal de control de phpMyAdmin baleiro ao empregar "
 "phpMyAdmin configuration storage!"
 
-#: src/Config/Validator.php:454
+#: src/Config/Validator.php:450
 msgid "Incorrect value:"
 msgstr "O valor é incorrecto:"
 
-#: src/Config/Validator.php:465
+#: src/Config/Validator.php:461
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "O enderezo de IP é incorrecto: %s"
 
-#: src/Config/Validator.php:528
+#: src/Config/Validator.php:524
 #: src/Controllers/JavaScriptMessagesController.php:803
 msgid "Not a valid port number!"
 msgstr "Non é un número de porto aceptábel!"
 
-#: src/Config/Validator.php:550
+#: src/Config/Validator.php:546
 #: src/Controllers/JavaScriptMessagesController.php:801
 msgid "Not a positive number!"
 msgstr "Non é un número positivo!"
 
-#: src/Config/Validator.php:572
+#: src/Config/Validator.php:568
 #: src/Controllers/JavaScriptMessagesController.php:802
 msgid "Not a non-negative number!"
 msgstr "Non é un número negativo!"
 
-#: src/Config/Validator.php:611
+#: src/Config/Validator.php:607
 #: src/Controllers/JavaScriptMessagesController.php:805
 #, php-format
 msgid "Value must be less than or equal to %s!"
@@ -13344,7 +13344,7 @@ msgstr ""
 #: src/Controllers/Operations/TableController.php:91
 #: src/Controllers/Operations/ViewController.php:61
 #: src/Controllers/Operations/ViewController.php:66
-#: src/Controllers/Server/Databases/DestroyController.php:67
+#: src/Controllers/Server/Databases/DestroyController.php:65
 #: src/Controllers/Table/AddFieldController.php:161
 #: src/Controllers/Table/AddFieldController.php:166
 #: src/Controllers/Table/ChangeController.php:70
@@ -13591,29 +13591,29 @@ msgstr "Non hai ningunha base de datos seleccionada."
 msgid "Database Log"
 msgstr "Rexistro de actividade da base de datos"
 
-#: src/Controllers/ErrorReportController.php:94
+#: src/Controllers/ErrorReportController.php:95
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
 "Detectouse un erro. Enviouse un informe de fallo baseado na configuración."
 
-#: src/Controllers/ErrorReportController.php:98
+#: src/Controllers/ErrorReportController.php:99
 msgid "Thank you for submitting this report."
 msgstr "Grazas por enviar este informe."
 
-#: src/Controllers/ErrorReportController.php:102
+#: src/Controllers/ErrorReportController.php:103
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
 "Produciuse un erro e xerouse un erro de fallo que foi imposíbel enviar."
 
-#: src/Controllers/ErrorReportController.php:105
+#: src/Controllers/ErrorReportController.php:106
 msgid "If you experience any problems please submit a bug report manually."
 msgstr "Se percibe problemas envíe un informe de fallo manualmente."
 
-#: src/Controllers/ErrorReportController.php:108
+#: src/Controllers/ErrorReportController.php:109
 msgid "You may want to refresh the page."
 msgstr "Pode ser útil cargar de novo a páxina."
 
@@ -13810,7 +13810,7 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Non se permiten as ordes «DROP DATABASE»."
 
-#: src/Controllers/Import/ImportController.php:674 src/Sql.php:908
+#: src/Controllers/Import/ImportController.php:674 src/Sql.php:906
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -13818,7 +13818,7 @@ msgstr ""
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 
-#: src/Controllers/Import/StatusController.php:72
+#: src/Controllers/Import/StatusController.php:73
 msgid "Could not load the progress of the import."
 msgstr "Non foi posíbel cargar o progreso da importación."
 
@@ -15913,7 +15913,7 @@ msgstr "Parámetro que falta:"
 msgid "Database %1$s has been created."
 msgstr "Creouse a base de datos %1$s."
 
-#: src/Controllers/Server/Databases/DestroyController.php:90
+#: src/Controllers/Server/Databases/DestroyController.php:88
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
@@ -16750,7 +16750,7 @@ msgstr "Os datos son incorrectos"
 msgid "Wrong data or no validation for %s"
 msgstr ""
 
-#: src/Controllers/Sql/SqlController.php:207 src/Sql.php:1082
+#: src/Controllers/Sql/SqlController.php:207 src/Sql.php:1076
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Creouse o marcador %s."
@@ -16836,7 +16836,7 @@ msgstr "Hai demasiadas unións sen índices."
 
 #: src/Controllers/Table/GetFieldController.php:87
 #: src/Database/Routines.php:1036 src/Import/Import.php:136
-#: src/InsertEdit.php:160 src/Sql.php:894
+#: src/InsertEdit.php:160 src/Sql.php:892
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "O MySQL retornou un conxunto baleiro (isto é, cero fileiras)."
 
@@ -16979,7 +16979,7 @@ msgstr "Non ten dereitos suficientes para estar aquí agora!"
 msgid "View name can not be empty!"
 msgstr ""
 
-#: src/Core.php:105 src/ZipExtension.php:57
+#: src/Core.php:106 src/ZipExtension.php:57
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "Falta a extensión %s. Comprobe a configuración do PHP."
@@ -17267,7 +17267,7 @@ msgstr ""
 msgid "The row has been deleted."
 msgstr "A fila foi eliminada."
 
-#: src/Display/Results.php:2974 src/Display/Results.php:3296 src/Sql.php:900
+#: src/Display/Results.php:2974 src/Display/Results.php:3296 src/Sql.php:898
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "A consulta levou %01.4f segundos."
@@ -17934,11 +17934,11 @@ msgstr ""
 msgid "web server upload directory:"
 msgstr "directorio de recepción do servidor web:"
 
-#: src/InsertEdit.php:845 src/Sql.php:891
+#: src/InsertEdit.php:845 src/Sql.php:889
 msgid "Showing SQL query"
 msgstr "Mostrar a consulta de SQL"
 
-#: src/InsertEdit.php:869 src/Sql.php:871
+#: src/InsertEdit.php:869 src/Sql.php:869
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Identificador da fileira inserida: %1$d"
@@ -17998,31 +17998,31 @@ msgid_plural "%1$d rows inserted."
 msgstr[0] "%1$d fila inserida."
 msgstr[1] "%1$d filas inseridas."
 
-#: src/Navigation/Navigation.php:220
+#: src/Navigation/Navigation.php:222
 #, fuzzy
 #| msgid "Column names: "
 msgid "Groups:"
 msgstr "Nomes das columnas: "
 
-#: src/Navigation/Navigation.php:221
+#: src/Navigation/Navigation.php:223
 #, fuzzy
 #| msgid "Events"
 msgid "Events:"
 msgstr "Acontecementos"
 
-#: src/Navigation/Navigation.php:222
+#: src/Navigation/Navigation.php:224
 #, fuzzy
 #| msgid "Functions"
 msgid "Functions:"
 msgstr "Funcións"
 
-#: src/Navigation/Navigation.php:223
+#: src/Navigation/Navigation.php:225
 #, fuzzy
 #| msgid "Procedures"
 msgid "Procedures:"
 msgstr "Procedementos"
 
-#: src/Navigation/Navigation.php:225
+#: src/Navigation/Navigation.php:227
 #, fuzzy
 #| msgid "Views"
 msgid "Views:"
@@ -19872,11 +19872,11 @@ msgstr "Non existe ningunha versión estábel máis recente"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "A empregar o marcador «%s» como consulta de navegación por omisión."
 
-#: src/Sql.php:888
+#: src/Sql.php:886
 msgid "Showing as PHP code"
 msgstr "Mostrar como código PHP"
 
-#: src/Sql.php:1241
+#: src/Sql.php:1235
 #, fuzzy, php-format
 #| msgid ""
 #| "Table %s does not contain a unique column. Grid edit, checkbox, Edit, "
@@ -19889,7 +19889,7 @@ msgstr ""
 "relacionadas coa edición da grella, caixa de selección, editar, copiar e "
 "eliminar non están dispoñíbeis."
 
-#: src/Sql.php:1255
+#: src/Sql.php:1249
 #, fuzzy, php-format
 #| msgid ""
 #| "Table %s does not contain a unique column. Grid edit, checkbox, Edit, "

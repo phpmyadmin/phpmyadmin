@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-01-18 00:32+0000\n"
+"POT-Creation-Date: 2026-01-25 00:33+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -212,7 +212,7 @@ msgstr "%s के बाद"
 #: resources/templates/config/form_display/input.twig:43
 #: resources/templates/database/central_columns/main.twig:311
 #: resources/templates/database/designer/main.twig:585
-#: resources/templates/export.twig:429
+#: resources/templates/export.twig:427
 #: resources/templates/server/privileges/privileges_summary.twig:31
 #: resources/templates/server/status/monitor/index.twig:206
 #: resources/templates/server/status/processes/list.twig:72
@@ -234,8 +234,8 @@ msgstr "टेबल का नाम"
 #: resources/templates/columns_definitions/column_definitions_form.twig:30
 #: resources/templates/console/display.twig:136
 #: resources/templates/database/central_columns/main.twig:202
-#: resources/templates/export.twig:281 resources/templates/export.twig:297
-#: resources/templates/export.twig:313
+#: resources/templates/export.twig:279 resources/templates/export.twig:295
+#: resources/templates/export.twig:311
 #, fuzzy
 #| msgid "And"
 msgid "Add"
@@ -415,7 +415,7 @@ msgstr "लोड हो रहा है…"
 #: resources/templates/error/report_modal.twig:14
 #: resources/templates/export_modal.twig:6
 #: resources/templates/export_modal.twig:10 resources/templates/export.twig:82
-#: resources/templates/export.twig:92 resources/templates/export.twig:190
+#: resources/templates/export.twig:90 resources/templates/export.twig:188
 #: resources/templates/home/index.twig:317
 #: resources/templates/home/index.twig:325
 #: resources/templates/modals/change_password.twig:6
@@ -2100,7 +2100,7 @@ msgstr "सभी को चेक करें"
 #: resources/templates/display/results/table.twig:332
 #: resources/templates/display/results/table.twig:333
 #: resources/templates/display/results/table.twig:365
-#: resources/templates/export.twig:3 resources/templates/export.twig:495
+#: resources/templates/export.twig:3 resources/templates/export.twig:493
 #: resources/templates/preferences/header.twig:42
 #: resources/templates/preferences/manage/main.twig:67
 #: resources/templates/server/privileges/new_user_ajax.twig:63
@@ -2238,7 +2238,7 @@ msgid "Exporting tables from \"%s\" database"
 msgstr "%s डेटाबेस से टेबल निर्यात"
 
 #: resources/templates/database/export/index.twig:14
-#: src/Navigation/Navigation.php:224
+#: src/Navigation/Navigation.php:226
 #, fuzzy
 #| msgid "Tables"
 msgid "Tables:"
@@ -2435,7 +2435,7 @@ msgid "Rename database to"
 msgstr "डेटाबेस का नाम इसमें पुनर्नामकरण करें"
 
 #: resources/templates/database/operations/index.twig:59
-#: resources/templates/export.twig:278
+#: resources/templates/export.twig:276
 #, fuzzy
 #| msgid "Database name"
 msgid "New database name"
@@ -3427,7 +3427,7 @@ msgid "Restore column order"
 msgstr "पाठ क्षेत्रपाठ क्षेत्र कोलम"
 
 #: resources/templates/display/results/table.twig:121
-#: resources/templates/export.twig:145
+#: resources/templates/export.twig:143
 #: resources/templates/table/start_and_number_of_rows_fieldset.twig:9
 msgid "Number of rows:"
 msgstr "पंक्तियोंकी की संख्या:"
@@ -3655,70 +3655,70 @@ msgstr "SQL क्वरी"
 msgid "Show SQL query"
 msgstr "SQL क्वेरी शो"
 
-#: resources/templates/export.twig:104
+#: resources/templates/export.twig:102
 #, fuzzy
 #| msgid "Export method"
 msgid "Export method:"
 msgstr "निर्यात प्रकार"
 
-#: resources/templates/export.twig:108
+#: resources/templates/export.twig:106
 msgid "Quick - display only the minimal options"
 msgstr "जल्दी - कॉन्फ़िगर करने के लिए केवल न्यूनतम विकल्पों को प्रदर्शित करें"
 
-#: resources/templates/export.twig:112
+#: resources/templates/export.twig:110
 msgid "Custom - display all possible options"
 msgstr "कस्टम - कॉन्फ़िगर करने के लिए सभी विकल्पों को प्रदर्शित करें"
 
-#: resources/templates/export.twig:119 src/Plugins/Export/ExportCodegen.php:72
+#: resources/templates/export.twig:117 src/Plugins/Export/ExportCodegen.php:72
 msgid "Format:"
 msgstr "प्रारूप:"
 
-#: resources/templates/export.twig:121
+#: resources/templates/export.twig:119
 #, fuzzy
 #| msgid "File to Import:"
 msgid "File format to export"
 msgstr "आयात करने के लिए फ़ाइल:"
 
-#: resources/templates/export.twig:133
+#: resources/templates/export.twig:131
 msgid "Rows:"
 msgstr "पंक्तियाँ:"
 
-#: resources/templates/export.twig:137
+#: resources/templates/export.twig:135
 msgid "Dump all rows"
 msgstr "सभी रोयों को डंप"
 
-#: resources/templates/export.twig:141
+#: resources/templates/export.twig:139
 msgid "Dump some row(s)"
 msgstr "कुछ रो डंप"
 
-#: resources/templates/export.twig:156
+#: resources/templates/export.twig:154
 msgid "Row to begin at:"
 msgstr "पंक्ति पर शुरू करने के लिए:"
 
-#: resources/templates/export.twig:166 resources/templates/export.twig:328
+#: resources/templates/export.twig:164 resources/templates/export.twig:326
 msgid "Output:"
 msgstr "उत्पादन:"
 
-#: resources/templates/export.twig:171 resources/templates/export.twig:366
+#: resources/templates/export.twig:169 resources/templates/export.twig:364
 #, fuzzy, php-format
 #| msgid "Save on server in the directory <b>%s</b>"
 msgid "Save on server in the directory <strong>%s</strong>"
 msgstr "सर्वर पर <b>%s</b>निर्देशिका में सहेजते"
 
-#: resources/templates/export.twig:178 resources/templates/export.twig:373
+#: resources/templates/export.twig:176 resources/templates/export.twig:371
 #: src/Config/Descriptions.php:681 src/Config/Descriptions.php:684
 msgid "Overwrite existing file(s)"
 msgstr "मौजूदा फ़ाइल अधिलेखित करें"
 
-#: resources/templates/export.twig:189 resources/templates/export.twig:333
+#: resources/templates/export.twig:187 resources/templates/export.twig:331
 msgid "Rename exported databases/tables/columns"
 msgstr ""
 
-#: resources/templates/export.twig:197
+#: resources/templates/export.twig:195
 msgid "Defined aliases"
 msgstr ""
 
-#: resources/templates/export.twig:206
+#: resources/templates/export.twig:204
 #: src/Controllers/JavaScriptMessagesController.php:282
 #, fuzzy
 #| msgid "Database"
@@ -3726,14 +3726,14 @@ msgctxt "Alias"
 msgid "Database"
 msgstr "डाटाबेस"
 
-#: resources/templates/export.twig:212 resources/templates/export.twig:226
-#: resources/templates/export.twig:239 resources/templates/export.twig:256
+#: resources/templates/export.twig:210 resources/templates/export.twig:224
+#: resources/templates/export.twig:237 resources/templates/export.twig:254
 #, fuzzy
 #| msgid "Remote server"
 msgid "Remove"
 msgstr "दूरस्थ सर्वर"
 
-#: resources/templates/export.twig:220
+#: resources/templates/export.twig:218
 #: src/Controllers/JavaScriptMessagesController.php:283
 #, fuzzy
 #| msgid "Table"
@@ -3741,7 +3741,7 @@ msgctxt "Alias"
 msgid "Table"
 msgstr "टेबल"
 
-#: resources/templates/export.twig:233
+#: resources/templates/export.twig:231
 #: src/Controllers/JavaScriptMessagesController.php:284
 #, fuzzy
 #| msgid "Column"
@@ -3749,64 +3749,64 @@ msgctxt "Alias"
 msgid "Column"
 msgstr "स्तम्भ"
 
-#: resources/templates/export.twig:265
+#: resources/templates/export.twig:263
 msgid "Define new aliases"
 msgstr ""
 
-#: resources/templates/export.twig:270
+#: resources/templates/export.twig:268
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select database:"
 msgstr "टेबल चुनिये"
 
-#: resources/templates/export.twig:286
+#: resources/templates/export.twig:284
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select table:"
 msgstr "टेबल चुनिये"
 
-#: resources/templates/export.twig:294
+#: resources/templates/export.twig:292
 #, fuzzy
 #| msgid "User name"
 msgid "New table name"
 msgstr "नया पेज के नाम"
 
-#: resources/templates/export.twig:302
+#: resources/templates/export.twig:300
 #, fuzzy
 #| msgid "Select two columns"
 msgid "Select column:"
 msgstr "दो कॉलम चुने"
 
-#: resources/templates/export.twig:310
+#: resources/templates/export.twig:308
 #, fuzzy
 #| msgid "Column names"
 msgid "New column name"
 msgstr "कोलम के नाम"
 
-#: resources/templates/export.twig:320
+#: resources/templates/export.twig:318
 #: src/Controllers/JavaScriptMessagesController.php:110
 msgid "Save & close"
 msgstr "फ़ाइल को संग्रहित कर बन्द करे"
 
-#: resources/templates/export.twig:343
+#: resources/templates/export.twig:341
 #, fuzzy, php-format
 #| msgid "Add constraints"
 msgid "Use %s statement"
 msgstr "शर्तें जोडें"
 
-#: resources/templates/export.twig:352
+#: resources/templates/export.twig:350
 msgid "View output as text"
 msgstr "फ़ाइल के रूप में उत्पादन देख"
 
-#: resources/templates/export.twig:356
+#: resources/templates/export.twig:354
 msgid "Save output to a file"
 msgstr "उत्पादन को फाईल मे सेव करें"
 
-#: resources/templates/export.twig:383
+#: resources/templates/export.twig:381
 msgid "File name template:"
 msgstr "फ़ाइल नाम टेम्पलेट:"
 
-#: resources/templates/export.twig:384
+#: resources/templates/export.twig:382
 #, php-format
 msgid ""
 "This value is interpreted using the 'strftime' function, so you can use time "
@@ -3814,53 +3814,53 @@ msgid ""
 "%s Other text will be kept as is. See the FAQ 6.27 for details."
 msgstr ""
 
-#: resources/templates/export.twig:394
+#: resources/templates/export.twig:392
 #, fuzzy
 #| msgid "use this for future exports"
 msgid "Use this for future exports"
 msgstr "भविष्य के निर्यात के लिए इस का उपयोग करें"
 
-#: resources/templates/export.twig:405 resources/templates/import.twig:98
+#: resources/templates/export.twig:403 resources/templates/import.twig:98
 msgid "Character set of the file:"
 msgstr "फ़ाइल का चरित्र सेट:"
 
-#: resources/templates/export.twig:425
+#: resources/templates/export.twig:423
 msgid "Compression:"
 msgstr "संपीड़न:"
 
-#: resources/templates/export.twig:433
+#: resources/templates/export.twig:431
 msgid "zipped"
 msgstr ""
 
-#: resources/templates/export.twig:439
+#: resources/templates/export.twig:437
 msgid "gzipped"
 msgstr ""
 
-#: resources/templates/export.twig:457
+#: resources/templates/export.twig:455
 #, fuzzy
 #| msgid "Exporting rows from \"%s\" table"
 msgid "Export databases as separate files"
 msgstr "\"%s\" डेटाबेस से रो निर्यात"
 
-#: resources/templates/export.twig:459
+#: resources/templates/export.twig:457
 #, fuzzy
 #| msgid "Export as %s"
 msgid "Export tables as separate files"
 msgstr "%s के रूप में निर्यात"
 
-#: resources/templates/export.twig:470
+#: resources/templates/export.twig:468
 msgid "Skip tables larger than:"
 msgstr ""
 
-#: resources/templates/export.twig:472
+#: resources/templates/export.twig:470
 msgid "The size is measured in MiB."
 msgstr ""
 
-#: resources/templates/export.twig:478 resources/templates/import.twig:173
+#: resources/templates/export.twig:476 resources/templates/import.twig:173
 msgid "Format-specific options:"
 msgstr "प्रारूप निर्दिष्ट विकल्प:"
 
-#: resources/templates/export.twig:487 resources/templates/import.twig:182
+#: resources/templates/export.twig:485 resources/templates/import.twig:182
 msgid "Encoding Conversion:"
 msgstr "एन्कोडिंग रूपांतरण:"
 
@@ -4750,7 +4750,7 @@ msgstr ""
 #: src/Controllers/Database/Structure/EmptyTableController.php:43
 #: src/Controllers/Operations/TableController.php:328
 #: src/Controllers/Table/DropColumnController.php:63
-#: src/Controllers/Table/ReplaceController.php:289 src/Core.php:518
+#: src/Controllers/Table/ReplaceController.php:289 src/Core.php:509
 msgid "No change"
 msgstr "कोइ बदलाव नहीं"
 
@@ -7109,22 +7109,22 @@ msgstr "एक नया सर्वर जोडें"
 msgid "Something went wrong."
 msgstr ""
 
-#: resources/templates/sql/bookmark.twig:11
+#: resources/templates/sql/_bookmark.twig:10
 msgid "Bookmark this SQL query"
 msgstr "इस SQL-क्वरी को बुकमार्क कीजिये"
 
-#: resources/templates/sql/bookmark.twig:14
+#: resources/templates/sql/_bookmark.twig:13
 #, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmark label:"
 msgstr "बुकमार्क टेबल"
 
-#: resources/templates/sql/bookmark.twig:21
+#: resources/templates/sql/_bookmark.twig:20
 #: resources/templates/sql/query.twig:95
 msgid "Let every user access this bookmark"
 msgstr "हर उपयोकर्ता को अनुमति दें इस बुकमार्क का उपयोग करने के लिए"
 
-#: resources/templates/sql/bookmark.twig:26
+#: resources/templates/sql/_bookmark.twig:25
 #, fuzzy
 #| msgid "Create bookmark"
 msgid "Create new bookmark"
@@ -12987,40 +12987,40 @@ msgstr "अन्य"
 msgid "Server connection collation"
 msgstr "MySQL जोडणी मिलान"
 
-#: src/Config/FormDisplay.php:579
+#: src/Config/FormDisplay.php:580
 #, php-format
 msgid "Missing data for %s"
 msgstr "%s के लिए डेटा लापता"
 
-#: src/Config/FormDisplay.php:619 src/Config/Validator.php:593
+#: src/Config/FormDisplay.php:620 src/Config/Validator.php:589
 #: src/Controllers/JavaScriptMessagesController.php:804
 #, fuzzy
 #| msgid "Incorrect value"
 msgid "Incorrect value!"
 msgstr "गलत मान"
 
-#: src/Config/FormDisplay.php:765
+#: src/Config/FormDisplay.php:766
 msgid "unavailable"
 msgstr "अनुपलब्ध"
 
-#: src/Config/FormDisplay.php:767
+#: src/Config/FormDisplay.php:768
 #, php-format
 msgid "\"%s\" requires %s extension"
 msgstr "\"%s\" को %s विस्तार की आवश्यकता है"
 
-#: src/Config/FormDisplay.php:789
+#: src/Config/FormDisplay.php:790
 #, fuzzy, php-format
 #| msgid "import will not work, missing function (%s)"
 msgid "Compressed import will not work due to missing function %s."
 msgstr "आयात काम नहीं करेगा, function (%s) लापता"
 
-#: src/Config/FormDisplay.php:798
+#: src/Config/FormDisplay.php:799
 #, fuzzy, php-format
 #| msgid "export will not work, missing function (%s)"
 msgid "Compressed export will not work due to missing function %s."
 msgstr "निर्यात काम नहीं करेगा, function (%s) लापता"
 
-#: src/Config/FormDisplay.php:818
+#: src/Config/FormDisplay.php:819
 #, php-format
 msgid "maximum %s"
 msgstr "अधिकतम %s"
@@ -13235,35 +13235,35 @@ msgstr "डेटाबेस सर्वर"
 msgid "Table-level tabs"
 msgstr "टेबल टिप्पणी:"
 
-#: src/Config/UserPreferences.php:176
+#: src/Config/UserPreferences.php:178
 msgid "Could not save configuration"
 msgstr "विन्यास सहेज नहीं सकते"
 
-#: src/Config/UserPreferences.php:187
+#: src/Config/UserPreferences.php:189
 #, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "The phpMyAdmin configuration storage database could not be accessed."
 msgstr "phpMyAdmin विन्यास भंडारण टेबल लापता"
 
-#: src/Config/Validator.php:251
+#: src/Config/Validator.php:247
 #, fuzzy
 #| msgid "Could not connect to the target"
 msgid "Could not connect to the database server!"
 msgstr "लक्ष्य से कनेक्ट नहीं कर सका"
 
-#: src/Config/Validator.php:287
+#: src/Config/Validator.php:283
 #, fuzzy
 #| msgid "Authentication type"
 msgid "Invalid authentication type!"
 msgstr "प्रमाणीकरण पद्धति का उपयोग"
 
-#: src/Config/Validator.php:292
+#: src/Config/Validator.php:288
 #, fuzzy
 #| msgid "Empty username while using config authentication method"
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr "खाली यूसर नाम जब विन्यास प्रमाणीकरण का उपयोग करते हुए"
 
-#: src/Config/Validator.php:298
+#: src/Config/Validator.php:294
 #, fuzzy
 #| msgid "Empty username while using config authentication method"
 msgid ""
@@ -13271,56 +13271,56 @@ msgid ""
 "method!"
 msgstr "खाली यूसर नाम जब विन्यास प्रमाणीकरण का उपयोग करते हुए"
 
-#: src/Config/Validator.php:305
+#: src/Config/Validator.php:301
 #, fuzzy
 #| msgid "Empty username while using config authentication method"
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr "खाली यूसर नाम जब विन्यास प्रमाणीकरण का उपयोग करते हुए"
 
-#: src/Config/Validator.php:358
+#: src/Config/Validator.php:354
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 
-#: src/Config/Validator.php:365
+#: src/Config/Validator.php:361
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
 msgstr ""
 
-#: src/Config/Validator.php:454
+#: src/Config/Validator.php:450
 #, fuzzy
 #| msgid "Incorrect value"
 msgid "Incorrect value:"
 msgstr "गलत मान"
 
-#: src/Config/Validator.php:465
+#: src/Config/Validator.php:461
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "गलत IP पता: %s"
 
-#: src/Config/Validator.php:528
+#: src/Config/Validator.php:524
 #: src/Controllers/JavaScriptMessagesController.php:803
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Not a valid port number!"
 msgstr "वैध पोर्ट नहीं एक"
 
-#: src/Config/Validator.php:550
+#: src/Config/Validator.php:546
 #: src/Controllers/JavaScriptMessagesController.php:801
 #, fuzzy
 #| msgid "Not a positive number"
 msgid "Not a positive number!"
 msgstr "एक सकारात्मक संख्या नहीं"
 
-#: src/Config/Validator.php:572
+#: src/Config/Validator.php:568
 #: src/Controllers/JavaScriptMessagesController.php:802
 #, fuzzy
 #| msgid "Not a non-negative number"
 msgid "Not a non-negative number!"
 msgstr "गैर-नकारात्मक संख्या नहीं"
 
-#: src/Config/Validator.php:611
+#: src/Config/Validator.php:607
 #: src/Controllers/JavaScriptMessagesController.php:805
 #, fuzzy, php-format
 #| msgid "Value must be less than or equal to %s"
@@ -13408,7 +13408,7 @@ msgstr ""
 #: src/Controllers/Operations/TableController.php:91
 #: src/Controllers/Operations/ViewController.php:61
 #: src/Controllers/Operations/ViewController.php:66
-#: src/Controllers/Server/Databases/DestroyController.php:67
+#: src/Controllers/Server/Databases/DestroyController.php:65
 #: src/Controllers/Table/AddFieldController.php:161
 #: src/Controllers/Table/AddFieldController.php:166
 #: src/Controllers/Table/ChangeController.php:70
@@ -13662,18 +13662,18 @@ msgstr "कोइ टेबल नहीं चुना गया है।"
 msgid "Database Log"
 msgstr "डेटाबेस का रोजनामचा (log)"
 
-#: src/Controllers/ErrorReportController.php:94
+#: src/Controllers/ErrorReportController.php:95
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
 "सोफ्टवेर मे एक खामि पकड़ी गई है और आपके सेटिंग्स के मुताबिक उसका रिपोर्ट भेज दिया गया है।"
 
-#: src/Controllers/ErrorReportController.php:98
+#: src/Controllers/ErrorReportController.php:99
 msgid "Thank you for submitting this report."
 msgstr "आपका धन्यवाद, इस रिपोर्ट को भेजने के लिए।"
 
-#: src/Controllers/ErrorReportController.php:102
+#: src/Controllers/ErrorReportController.php:103
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
@@ -13681,11 +13681,11 @@ msgstr ""
 "सोफ्टवेर मे एक खामि पकड़ी गई है और उसका रिपोर्ट भी बनाया गया हे, पर उसेको भेजना असफल "
 "रहा।"
 
-#: src/Controllers/ErrorReportController.php:105
+#: src/Controllers/ErrorReportController.php:106
 msgid "If you experience any problems please submit a bug report manually."
 msgstr "अगर आपको कोई और परेशानी हो तो आप बग रिपोर्ट कर सकते हे।"
 
-#: src/Controllers/ErrorReportController.php:108
+#: src/Controllers/ErrorReportController.php:109
 msgid "You may want to refresh the page."
 msgstr "आप इस पेज को रिफ़्रेश करना चाहेंगे।"
 
@@ -13881,7 +13881,7 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" बयान अक्षम हैं."
 
-#: src/Controllers/Import/ImportController.php:674 src/Sql.php:908
+#: src/Controllers/Import/ImportController.php:674 src/Sql.php:906
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -13889,7 +13889,7 @@ msgstr ""
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 
-#: src/Controllers/Import/StatusController.php:72
+#: src/Controllers/Import/StatusController.php:73
 msgid "Could not load the progress of the import."
 msgstr "आयात की प्रगति लोड नहीं कर सका."
 
@@ -16135,7 +16135,7 @@ msgstr "नियमित कार्य"
 msgid "Database %1$s has been created."
 msgstr "%1$s डेटाबेस बनाया गया है।"
 
-#: src/Controllers/Server/Databases/DestroyController.php:90
+#: src/Controllers/Server/Databases/DestroyController.php:88
 #, fuzzy, php-format
 #| msgid "%s databases have been dropped successfully."
 msgid "%1$d database has been dropped successfully."
@@ -16823,7 +16823,7 @@ msgstr "कोइ डाटाबेस नहिं"
 msgid "Wrong data or no validation for %s"
 msgstr ""
 
-#: src/Controllers/Sql/SqlController.php:207 src/Sql.php:1082
+#: src/Controllers/Sql/SqlController.php:207 src/Sql.php:1076
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "पृष्ठचिन्ह  %s बनाया."
@@ -16912,7 +16912,7 @@ msgstr "अपलोड करने के लिए फाइल उपलब�
 
 #: src/Controllers/Table/GetFieldController.php:87
 #: src/Database/Routines.php:1036 src/Import/Import.php:136
-#: src/InsertEdit.php:160 src/Sql.php:894
+#: src/InsertEdit.php:160 src/Sql.php:892
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL ने एक खाली परिणाम सेट लोताया।"
 
@@ -17061,7 +17061,7 @@ msgstr "आपके पास यहाँ उपस्थित होने �
 msgid "View name can not be empty!"
 msgstr ""
 
-#: src/Core.php:105 src/ZipExtension.php:57
+#: src/Core.php:106 src/ZipExtension.php:57
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "%s विस्तार गायब है. कृपया अपने PHP विन्यास की जाँच करें।"
@@ -17345,7 +17345,7 @@ msgstr ""
 msgid "The row has been deleted."
 msgstr "रौ को डिलीट कर दिया"
 
-#: src/Display/Results.php:2974 src/Display/Results.php:3296 src/Sql.php:900
+#: src/Display/Results.php:2974 src/Display/Results.php:3296 src/Sql.php:898
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
@@ -17974,11 +17974,11 @@ msgstr "सूचकांक %1$s और %2$s बराबर लगने क�
 msgid "web server upload directory:"
 msgstr "वेब सर्वर अपलोड निर्देशिका"
 
-#: src/InsertEdit.php:845 src/Sql.php:891
+#: src/InsertEdit.php:845 src/Sql.php:889
 msgid "Showing SQL query"
 msgstr "SQL क्वेरी शो"
 
-#: src/InsertEdit.php:869 src/Sql.php:871
+#: src/InsertEdit.php:869 src/Sql.php:869
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "इनसर्ट रो id: %1$d"
@@ -18040,31 +18040,31 @@ msgid_plural "%1$d rows inserted."
 msgstr[0] "एकवचन %1$d पंक्ति डाली।"
 msgstr[1] "बहुवचन %1$d पंक्तिया डाली।"
 
-#: src/Navigation/Navigation.php:220
+#: src/Navigation/Navigation.php:222
 #, fuzzy
 #| msgid "Column names"
 msgid "Groups:"
 msgstr "कोलम नाम"
 
-#: src/Navigation/Navigation.php:221
+#: src/Navigation/Navigation.php:223
 #, fuzzy
 #| msgid "Event"
 msgid "Events:"
 msgstr "घटना"
 
-#: src/Navigation/Navigation.php:222
+#: src/Navigation/Navigation.php:224
 #, fuzzy
 #| msgid "Connections"
 msgid "Functions:"
 msgstr "कनेक्शन"
 
-#: src/Navigation/Navigation.php:223
+#: src/Navigation/Navigation.php:225
 #, fuzzy
 #| msgid "Procedures"
 msgid "Procedures:"
 msgstr "प्रक्रियाओं"
 
-#: src/Navigation/Navigation.php:225
+#: src/Navigation/Navigation.php:227
 #, fuzzy
 #| msgid "View"
 msgid "Views:"
@@ -19810,11 +19810,11 @@ msgstr "कोई नए स्थिर संस्करण उपलब्�
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: src/Sql.php:888
+#: src/Sql.php:886
 msgid "Showing as PHP code"
 msgstr "PHP कोड की तरह दिखाएँ"
 
-#: src/Sql.php:1241
+#: src/Sql.php:1235
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -19826,7 +19826,7 @@ msgstr ""
 "इस टेबल में कोई भी विशिष्ट (unique) कॉलम नहीं है। इस बात कि सम्भावना है कि ग्रिड "
 "सम्पादन, टिक-बॉक्स, सम्पादन, प्रतिलिपि एवं मिटाने के लिंक से जुडी सुविधाएँ काम न करें।"
 
-#: src/Sql.php:1255
+#: src/Sql.php:1249
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "

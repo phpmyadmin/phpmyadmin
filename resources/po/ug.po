@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-01-18 00:32+0000\n"
+"POT-Creation-Date: 2026-01-25 00:33+0000\n"
 "PO-Revision-Date: 2026-01-08 06:01+0000\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -194,7 +194,7 @@ msgstr "%s دىن كېيىن"
 #: resources/templates/config/form_display/input.twig:43
 #: resources/templates/database/central_columns/main.twig:311
 #: resources/templates/database/designer/main.twig:585
-#: resources/templates/export.twig:429
+#: resources/templates/export.twig:427
 #: resources/templates/server/privileges/privileges_summary.twig:31
 #: resources/templates/server/status/monitor/index.twig:206
 #: resources/templates/server/status/processes/list.twig:72
@@ -216,8 +216,8 @@ msgstr "جەدۋەل ئىسمى"
 #: resources/templates/columns_definitions/column_definitions_form.twig:30
 #: resources/templates/console/display.twig:136
 #: resources/templates/database/central_columns/main.twig:202
-#: resources/templates/export.twig:281 resources/templates/export.twig:297
-#: resources/templates/export.twig:313
+#: resources/templates/export.twig:279 resources/templates/export.twig:295
+#: resources/templates/export.twig:311
 msgid "Add"
 msgstr "قوش"
 
@@ -383,7 +383,7 @@ msgstr "يۈكلەۋاتىدۇ"
 #: resources/templates/error/report_modal.twig:14
 #: resources/templates/export_modal.twig:6
 #: resources/templates/export_modal.twig:10 resources/templates/export.twig:82
-#: resources/templates/export.twig:92 resources/templates/export.twig:190
+#: resources/templates/export.twig:90 resources/templates/export.twig:188
 #: resources/templates/home/index.twig:317
 #: resources/templates/home/index.twig:325
 #: resources/templates/modals/change_password.twig:6
@@ -2033,7 +2033,7 @@ msgstr "ھەممىنى تاللاش"
 #: resources/templates/display/results/table.twig:332
 #: resources/templates/display/results/table.twig:333
 #: resources/templates/display/results/table.twig:365
-#: resources/templates/export.twig:3 resources/templates/export.twig:495
+#: resources/templates/export.twig:3 resources/templates/export.twig:493
 #: resources/templates/preferences/header.twig:42
 #: resources/templates/preferences/manage/main.twig:67
 #: resources/templates/server/privileges/new_user_ajax.twig:63
@@ -2169,7 +2169,7 @@ msgid "Exporting tables from \"%s\" database"
 msgstr "ساندان %s غا جەدىۋەل قۇرۇش"
 
 #: resources/templates/database/export/index.twig:14
-#: src/Navigation/Navigation.php:224
+#: src/Navigation/Navigation.php:226
 #, fuzzy
 #| msgid "Table"
 msgid "Tables:"
@@ -2369,7 +2369,7 @@ msgid "Rename database to"
 msgstr "ئۆزگەرتىلگەن ساندان ئىسمى"
 
 #: resources/templates/database/operations/index.twig:59
-#: resources/templates/export.twig:278
+#: resources/templates/export.twig:276
 #, fuzzy
 #| msgid "database name"
 msgid "New database name"
@@ -3357,7 +3357,7 @@ msgid "Restore column order"
 msgstr "سۆزلەم قوشۇش\\ئۆچۈرۈش"
 
 #: resources/templates/display/results/table.twig:121
-#: resources/templates/export.twig:145
+#: resources/templates/export.twig:143
 #: resources/templates/table/start_and_number_of_rows_fieldset.twig:9
 #, fuzzy
 #| msgid "Number of columns"
@@ -3584,74 +3584,74 @@ msgstr "SQL سورىقى"
 msgid "Show SQL query"
 msgstr "SQL سورىقى"
 
-#: resources/templates/export.twig:104
+#: resources/templates/export.twig:102
 #, fuzzy
 #| msgid "Export"
 msgid "Export method:"
 msgstr "چىقىرىش"
 
-#: resources/templates/export.twig:108
+#: resources/templates/export.twig:106
 msgid "Quick - display only the minimal options"
 msgstr "تېز - پەقەت ئەڭ كىچىك تاللاشلارنىلا كۆرسىتىدۇ"
 
-#: resources/templates/export.twig:112
+#: resources/templates/export.twig:110
 msgid "Custom - display all possible options"
 msgstr "ئىختىيارى - بارلىق تاللاشلارنى كۆرسىتىڭ"
 
-#: resources/templates/export.twig:119 src/Plugins/Export/ExportCodegen.php:72
+#: resources/templates/export.twig:117 src/Plugins/Export/ExportCodegen.php:72
 #, fuzzy
 #| msgid "Format"
 msgid "Format:"
 msgstr "فورماتلاش"
 
-#: resources/templates/export.twig:121
+#: resources/templates/export.twig:119
 #, fuzzy
 #| msgid "File to import"
 msgid "File format to export"
 msgstr "ئەكىرىشكە تىگىشلىك ھۆججەت"
 
-#: resources/templates/export.twig:133
+#: resources/templates/export.twig:131
 #, fuzzy
 #| msgid "Rows"
 msgid "Rows:"
 msgstr "سەپ سانى"
 
-#: resources/templates/export.twig:137
+#: resources/templates/export.twig:135
 msgid "Dump all rows"
 msgstr "بارلىق قۇرلارنى تاشلاڭ"
 
-#: resources/templates/export.twig:141
+#: resources/templates/export.twig:139
 msgid "Dump some row(s)"
 msgstr "بەزى قۇرلارنى تاشلاڭ"
 
-#: resources/templates/export.twig:156
+#: resources/templates/export.twig:154
 msgid "Row to begin at:"
 msgstr "قۇرنى باشلاش:"
 
-#: resources/templates/export.twig:166 resources/templates/export.twig:328
+#: resources/templates/export.twig:164 resources/templates/export.twig:326
 msgid "Output:"
 msgstr "چىقىش نەتىجىسى:"
 
-#: resources/templates/export.twig:171 resources/templates/export.twig:366
+#: resources/templates/export.twig:169 resources/templates/export.twig:364
 #, fuzzy, php-format
 #| msgid "Save on server in %s directory"
 msgid "Save on server in the directory <strong>%s</strong>"
 msgstr "مۇلازىمىتېرنىڭ  %s مۇندەرىجىسىدە ساقلاش"
 
-#: resources/templates/export.twig:178 resources/templates/export.twig:373
+#: resources/templates/export.twig:176 resources/templates/export.twig:371
 #: src/Config/Descriptions.php:681 src/Config/Descriptions.php:684
 msgid "Overwrite existing file(s)"
 msgstr "مەۋجۇت ھۆججەت ئۈستىدىن يېزىش"
 
-#: resources/templates/export.twig:189 resources/templates/export.twig:333
+#: resources/templates/export.twig:187 resources/templates/export.twig:331
 msgid "Rename exported databases/tables/columns"
 msgstr "ئېكسپورت قىلىنغان ساندان / جەدۋەل / ستوننىڭ نامىنى ئۆزگەرتىڭ"
 
-#: resources/templates/export.twig:197
+#: resources/templates/export.twig:195
 msgid "Defined aliases"
 msgstr "ئېنىقلىما بېرىلگەن"
 
-#: resources/templates/export.twig:206
+#: resources/templates/export.twig:204
 #: src/Controllers/JavaScriptMessagesController.php:282
 #, fuzzy
 #| msgid "Database"
@@ -3659,12 +3659,12 @@ msgctxt "Alias"
 msgid "Database"
 msgstr "ساندان"
 
-#: resources/templates/export.twig:212 resources/templates/export.twig:226
-#: resources/templates/export.twig:239 resources/templates/export.twig:256
+#: resources/templates/export.twig:210 resources/templates/export.twig:224
+#: resources/templates/export.twig:237 resources/templates/export.twig:254
 msgid "Remove"
 msgstr "ئۆچۈرۈڭ"
 
-#: resources/templates/export.twig:220
+#: resources/templates/export.twig:218
 #: src/Controllers/JavaScriptMessagesController.php:283
 #, fuzzy
 #| msgid "Table"
@@ -3672,7 +3672,7 @@ msgctxt "Alias"
 msgid "Table"
 msgstr "جەدۋەل"
 
-#: resources/templates/export.twig:233
+#: resources/templates/export.twig:231
 #: src/Controllers/JavaScriptMessagesController.php:284
 #, fuzzy
 #| msgid "Column"
@@ -3680,72 +3680,72 @@ msgctxt "Alias"
 msgid "Column"
 msgstr "سۆزلەم"
 
-#: resources/templates/export.twig:265
+#: resources/templates/export.twig:263
 msgid "Define new aliases"
 msgstr "يېڭى ئىسىملارغا ئېنىقلىما بېرىڭ"
 
-#: resources/templates/export.twig:270
+#: resources/templates/export.twig:268
 #, fuzzy
 #| msgid "Select All"
 msgid "Select database:"
 msgstr "ھەممىنى تاللاش"
 
-#: resources/templates/export.twig:286
+#: resources/templates/export.twig:284
 #, fuzzy
 #| msgid "Select All"
 msgid "Select table:"
 msgstr "ھەممىنى تاللاش"
 
-#: resources/templates/export.twig:294
+#: resources/templates/export.twig:292
 #, fuzzy
 #| msgid "Keyname"
 msgid "New table name"
 msgstr "قىممەت ئىسمى"
 
-#: resources/templates/export.twig:302
+#: resources/templates/export.twig:300
 #, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Select column:"
 msgstr "سۆزلەم قوشۇش\\ئۆچۈرۈش"
 
-#: resources/templates/export.twig:310
+#: resources/templates/export.twig:308
 #, fuzzy
 #| msgid "Columns terminated by"
 msgid "New column name"
 msgstr "خەت ئايرىش بەلگىسى"
 
-#: resources/templates/export.twig:320
+#: resources/templates/export.twig:318
 #: src/Controllers/JavaScriptMessagesController.php:110
 #, fuzzy
 #| msgid "Save as file"
 msgid "Save & close"
 msgstr "ھۆججەتنى باشقا ساقلاش"
 
-#: resources/templates/export.twig:343
+#: resources/templates/export.twig:341
 #, fuzzy, php-format
 #| msgid "Add constraints"
 msgid "Use %s statement"
 msgstr "مەجبۇرى قوشۇش"
 
-#: resources/templates/export.twig:352
+#: resources/templates/export.twig:350
 #, fuzzy
 #| msgid "Save as file"
 msgid "View output as text"
 msgstr "ھۆججەتنى باشقا ساقلاش"
 
-#: resources/templates/export.twig:356
+#: resources/templates/export.twig:354
 #, fuzzy
 #| msgid "Save as file"
 msgid "Save output to a file"
 msgstr "ھۆججەتنى باشقا ساقلاش"
 
-#: resources/templates/export.twig:383
+#: resources/templates/export.twig:381
 #, fuzzy
 #| msgid "File name template"
 msgid "File name template:"
 msgstr "ھۆججەت ئېتى ئەندىزىسى"
 
-#: resources/templates/export.twig:384
+#: resources/templates/export.twig:382
 #, fuzzy, php-format
 msgid ""
 "This value is interpreted using the 'strftime' function, so you can use time "
@@ -3756,57 +3756,57 @@ msgstr ""
 "قۇرلىرىنى ئىشلىتەلەيسىز. بۇنىڭدىن باشقا ، تۆۋەندىكى ئۆزگەرتىشلەر يۈز بېرىدۇ:"
 "% s باشقا تېكىستلەر بۇرۇنقىدەك ساقلىنىدۇ. تەپسىلاتىنى 6.27 دىن كۆرۈڭ."
 
-#: resources/templates/export.twig:394
+#: resources/templates/export.twig:392
 msgid "Use this for future exports"
 msgstr "بۇنى كەلگۈسىدىكى ئېكسپورت ئۈچۈن ئىشلىتىڭ"
 
-#: resources/templates/export.twig:405 resources/templates/import.twig:98
+#: resources/templates/export.twig:403 resources/templates/import.twig:98
 msgid "Character set of the file:"
 msgstr "ھۆججەتنىڭ ھەرىپ-بەلگە توپلىمى"
 
-#: resources/templates/export.twig:425
+#: resources/templates/export.twig:423
 #, fuzzy
 #| msgid "Compression"
 msgid "Compression:"
 msgstr "پىرىسلاش"
 
-#: resources/templates/export.twig:433
+#: resources/templates/export.twig:431
 #, fuzzy
 #| msgid "\"zipped\""
 msgid "zipped"
 msgstr "zipپىرىسلاش"
 
-#: resources/templates/export.twig:439
+#: resources/templates/export.twig:437
 #, fuzzy
 #| msgid "\"gzipped\""
 msgid "gzipped"
 msgstr "gzipپىرىسلاش"
 
-#: resources/templates/export.twig:457
+#: resources/templates/export.twig:455
 #, fuzzy
 #| msgid "Create table on database %s"
 msgid "Export databases as separate files"
 msgstr "ساندان %s غا جەدىۋەل قۇرۇش"
 
-#: resources/templates/export.twig:459
+#: resources/templates/export.twig:457
 #, fuzzy
 #| msgid "Export"
 msgid "Export tables as separate files"
 msgstr "چىقىرىش"
 
-#: resources/templates/export.twig:470
+#: resources/templates/export.twig:468
 msgid "Skip tables larger than:"
 msgstr "جەدۋەلدىن چوڭراق ئاتلاش:"
 
-#: resources/templates/export.twig:472
+#: resources/templates/export.twig:470
 msgid "The size is measured in MiB."
 msgstr "چوڭلۇقى MiB بىلەن ئۆلچىنىدۇ."
 
-#: resources/templates/export.twig:478 resources/templates/import.twig:173
+#: resources/templates/export.twig:476 resources/templates/import.twig:173
 msgid "Format-specific options:"
 msgstr "فورماتقا خاس تاللاشلار:"
 
-#: resources/templates/export.twig:487 resources/templates/import.twig:182
+#: resources/templates/export.twig:485 resources/templates/import.twig:182
 msgid "Encoding Conversion:"
 msgstr "كودلاش ئۇسۇلى:"
 
@@ -4735,7 +4735,7 @@ msgstr "ئىككى ئامىل دەلىللەشنى قوزغىتىڭ."
 #: src/Controllers/Database/Structure/EmptyTableController.php:43
 #: src/Controllers/Operations/TableController.php:328
 #: src/Controllers/Table/DropColumnController.php:63
-#: src/Controllers/Table/ReplaceController.php:289 src/Core.php:518
+#: src/Controllers/Table/ReplaceController.php:289 src/Core.php:509
 msgid "No change"
 msgstr "ئۆزگەرتىش يوق"
 
@@ -7111,22 +7111,22 @@ msgstr "يېڭى مۇلازىمېتىر قوشۇڭ"
 msgid "Something went wrong."
 msgstr "چاتاق چىقتى."
 
-#: resources/templates/sql/bookmark.twig:11
+#: resources/templates/sql/_bookmark.twig:10
 msgid "Bookmark this SQL query"
 msgstr "بۇ SQL سوئالنى خەتكۈچلەڭ"
 
-#: resources/templates/sql/bookmark.twig:14
+#: resources/templates/sql/_bookmark.twig:13
 #, fuzzy
 #| msgid "Search"
 msgid "Bookmark label:"
 msgstr "ئىزدەش"
 
-#: resources/templates/sql/bookmark.twig:21
+#: resources/templates/sql/_bookmark.twig:20
 #: resources/templates/sql/query.twig:95
 msgid "Let every user access this bookmark"
 msgstr "ھەر بىر ئىشلەتكۈچى بۇ خەتكۈچنى زىيارەت قىلسۇن"
 
-#: resources/templates/sql/bookmark.twig:26
+#: resources/templates/sql/_bookmark.twig:25
 #, fuzzy
 #| msgid "Search"
 msgid "Create new bookmark"
@@ -12875,36 +12875,36 @@ msgstr "زاكاز قىلغان"
 msgid "Server connection collation"
 msgstr "PBMS ئۇلىنالمىدى:"
 
-#: src/Config/FormDisplay.php:579
+#: src/Config/FormDisplay.php:580
 #, fuzzy, php-format
 msgid "Missing data for %s"
 msgstr "% S ئۈچۈن سانلىق مەلۇمات كەم"
 
-#: src/Config/FormDisplay.php:619 src/Config/Validator.php:593
+#: src/Config/FormDisplay.php:620 src/Config/Validator.php:589
 #: src/Controllers/JavaScriptMessagesController.php:804
 msgid "Incorrect value!"
 msgstr "خاتا قىممەت!"
 
-#: src/Config/FormDisplay.php:765
+#: src/Config/FormDisplay.php:766
 msgid "unavailable"
 msgstr "ئىشلەتكىلى بولمايدۇ"
 
-#: src/Config/FormDisplay.php:767
+#: src/Config/FormDisplay.php:768
 #, fuzzy, php-format
 msgid "\"%s\" requires %s extension"
 msgstr "\"% s\"% s كېڭەيتىشنى تەلەپ قىلىدۇ"
 
-#: src/Config/FormDisplay.php:789
+#: src/Config/FormDisplay.php:790
 #, fuzzy, php-format
 msgid "Compressed import will not work due to missing function %s."
 msgstr "پىرىسلانغان ئىمپورت ئىقتىدارى% s يوقاپ كەتكەنلىكتىن ئىشلىمەيدۇ."
 
-#: src/Config/FormDisplay.php:798
+#: src/Config/FormDisplay.php:799
 #, fuzzy, php-format
 msgid "Compressed export will not work due to missing function %s."
 msgstr "پىرىسلانغان ئېكىسپورت% s ئىقتىدارىنىڭ كەملىكى سەۋەبىدىن ئىشلىمەيدۇ."
 
-#: src/Config/FormDisplay.php:818
+#: src/Config/FormDisplay.php:819
 #, fuzzy, php-format
 msgid "maximum %s"
 msgstr "ئەڭ چوڭ% s"
@@ -13163,13 +13163,13 @@ msgstr "ساندان"
 msgid "Table-level tabs"
 msgstr "جەدۋەل ئىزاھى"
 
-#: src/Config/UserPreferences.php:176
+#: src/Config/UserPreferences.php:178
 #, fuzzy
 #| msgid "Could not load default configuration from: %1$s"
 msgid "Could not save configuration"
 msgstr "تەڭشەك ئەندىزى %1$s كىرگۈزىلمىدى."
 
-#: src/Config/UserPreferences.php:187
+#: src/Config/UserPreferences.php:189
 #, fuzzy
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
@@ -13179,23 +13179,23 @@ msgstr ""
 "ئالاقىدار جەدۋەللەرنىڭ قوشۇمچە ئىقتىدارى پائالسىز. سەۋەبىنى ئېنىقلاش ئۈچۈن "
 "%sبۇ يەرنى كۆرۈڭ%s."
 
-#: src/Config/Validator.php:251
+#: src/Config/Validator.php:247
 msgid "Could not connect to the database server!"
 msgstr "ساندان مۇلازىمېتىرىغا ئۇلىنالمىدى!"
 
-#: src/Config/Validator.php:287
+#: src/Config/Validator.php:283
 #, fuzzy
 #| msgid "Authenticating…"
 msgid "Invalid authentication type!"
 msgstr "تەكشۈرۈشتىن ئۆزكۈزىۋاتىدۇ…"
 
-#: src/Config/Validator.php:292
+#: src/Config/Validator.php:288
 #, fuzzy
 #| msgid "Authenticating…"
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr "تەكشۈرۈشتىن ئۆزكۈزىۋاتىدۇ…"
 
-#: src/Config/Validator.php:298
+#: src/Config/Validator.php:294
 #, fuzzy
 #| msgid "Authenticating…"
 msgid ""
@@ -13203,19 +13203,19 @@ msgid ""
 "method!"
 msgstr "تەكشۈرۈشتىن ئۆزكۈزىۋاتىدۇ…"
 
-#: src/Config/Validator.php:305
+#: src/Config/Validator.php:301
 #, fuzzy
 #| msgid "Authenticating…"
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr "تەكشۈرۈشتىن ئۆزكۈزىۋاتىدۇ…"
 
-#: src/Config/Validator.php:358
+#: src/Config/Validator.php:354
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 "PhpMyAdmin سەپلىمە ساقلىغۇچنى ئىشلەتكەندە كونترول ئىشلەتكۈچىنى بوش قىلىڭ!"
 
-#: src/Config/Validator.php:365
+#: src/Config/Validator.php:361
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
@@ -13223,33 +13223,33 @@ msgstr ""
 "PhpMyAdmin سەپلىمە ساقلىغۇچنى ئىشلەتكەندە ئىشلەتكۈچىنىڭ مەخپىي نومۇرىنى "
 "كونترول قىلىڭ!"
 
-#: src/Config/Validator.php:454
+#: src/Config/Validator.php:450
 msgid "Incorrect value:"
 msgstr "خاتا قىممەت:"
 
-#: src/Config/Validator.php:465
+#: src/Config/Validator.php:461
 #, fuzzy, php-format
 msgid "Incorrect IP address: %s"
 msgstr "IP ئادرېسى خاتا:% s"
 
-#: src/Config/Validator.php:528
+#: src/Config/Validator.php:524
 #: src/Controllers/JavaScriptMessagesController.php:803
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Not a valid port number!"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس."
 
-#: src/Config/Validator.php:550
+#: src/Config/Validator.php:546
 #: src/Controllers/JavaScriptMessagesController.php:801
 msgid "Not a positive number!"
 msgstr "ئىجابىي سان ئەمەس!"
 
-#: src/Config/Validator.php:572
+#: src/Config/Validator.php:568
 #: src/Controllers/JavaScriptMessagesController.php:802
 msgid "Not a non-negative number!"
 msgstr "مەنپىي بولمىغان سان ئەمەس!"
 
-#: src/Config/Validator.php:611
+#: src/Config/Validator.php:607
 #: src/Controllers/JavaScriptMessagesController.php:805
 #, fuzzy, php-format
 msgid "Value must be less than or equal to %s!"
@@ -13342,7 +13342,7 @@ msgstr "«% S» دەپ ئاتىلىدىغان بىر بەت بار ، ئۇنى �
 #: src/Controllers/Operations/TableController.php:91
 #: src/Controllers/Operations/ViewController.php:61
 #: src/Controllers/Operations/ViewController.php:66
-#: src/Controllers/Server/Databases/DestroyController.php:67
+#: src/Controllers/Server/Databases/DestroyController.php:65
 #: src/Controllers/Table/AddFieldController.php:161
 #: src/Controllers/Table/AddFieldController.php:166
 #: src/Controllers/Table/ChangeController.php:70
@@ -13601,7 +13601,7 @@ msgstr "تاللانغىنى:"
 msgid "Database Log"
 msgstr "ساندان خاتىرىسى"
 
-#: src/Controllers/ErrorReportController.php:94
+#: src/Controllers/ErrorReportController.php:95
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
@@ -13609,22 +13609,22 @@ msgstr ""
 "تەڭشەكلىرىڭىزگە ئاساسەن خاتالىق بايقالدى ۋە خاتالىق دوكلاتى ئاپتوماتىك "
 "يوللاندى."
 
-#: src/Controllers/ErrorReportController.php:98
+#: src/Controllers/ErrorReportController.php:99
 msgid "Thank you for submitting this report."
 msgstr "بۇ دوكلاتنى تاپشۇرغىنىڭىزغا رەھمەت."
 
-#: src/Controllers/ErrorReportController.php:102
+#: src/Controllers/ErrorReportController.php:103
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
 "خاتالىق بايقالدى ۋە خاتالىق دوكلاتى بارلىققا كەلدى ، ئەمما ئەۋەتىلمىدى."
 
-#: src/Controllers/ErrorReportController.php:105
+#: src/Controllers/ErrorReportController.php:106
 msgid "If you experience any problems please submit a bug report manually."
 msgstr "مەسىلىگە يولۇقسىڭىز كەمتۈك دوكلاتىنى قولدا يوللاڭ."
 
-#: src/Controllers/ErrorReportController.php:108
+#: src/Controllers/ErrorReportController.php:109
 msgid "You may want to refresh the page."
 msgstr "بۇ بەتنى يېڭىلاشنى ئويلىشىڭىز مۇمكىن."
 
@@ -13837,7 +13837,7 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "ساندان ئۆچۈرۈش بۇيرۇقى (\"DROP DATABASE\") چەكلەنگەن."
 
-#: src/Controllers/Import/ImportController.php:674 src/Sql.php:908
+#: src/Controllers/Import/ImportController.php:674 src/Sql.php:906
 msgid "[ROLLBACK occurred.]"
 msgstr "[ROLLBACK يۈز بەردى.]"
 
@@ -13846,7 +13846,7 @@ msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 "پەقەت بىرلا جەدۋەلدىكى UPDATE ۋە DELETE سوئاللىرىنى تەقلىد قىلغىلى بولىدۇ."
 
-#: src/Controllers/Import/StatusController.php:72
+#: src/Controllers/Import/StatusController.php:73
 msgid "Could not load the progress of the import."
 msgstr "ئىمپورتنىڭ ئىلگىرىلىشىنى يۈكلىيەلمىدى."
 
@@ -16102,7 +16102,7 @@ msgstr "دائىملىق"
 msgid "Database %1$s has been created."
 msgstr "%1$s ساندان غەلبىلىك قۇرۇلدى."
 
-#: src/Controllers/Server/Databases/DestroyController.php:90
+#: src/Controllers/Server/Databases/DestroyController.php:88
 #, fuzzy, php-format
 #| msgid "Database %s has been dropped."
 msgid "%1$d database has been dropped successfully."
@@ -16903,7 +16903,7 @@ msgstr "خاتا سانلىق مەلۇمات"
 msgid "Wrong data or no validation for %s"
 msgstr "خاتا سانلىق مەلۇمات ياكى% s ئۈچۈن دەلىللەش يوق"
 
-#: src/Controllers/Sql/SqlController.php:207 src/Sql.php:1082
+#: src/Controllers/Sql/SqlController.php:207 src/Sql.php:1076
 #, fuzzy, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
@@ -16991,7 +16991,7 @@ msgstr "ئىزلانغان جەدۋەل"
 
 #: src/Controllers/Table/GetFieldController.php:87
 #: src/Database/Routines.php:1036 src/Import/Import.php:136
-#: src/InsertEdit.php:160 src/Sql.php:894
+#: src/InsertEdit.php:160 src/Sql.php:892
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL قۇرۇق نەتىجە توپلىمىنى قايتۇردى (يەنى نۆل قۇر)."
 
@@ -17139,7 +17139,7 @@ msgstr "ھازىر بۇ يەردە بولۇشقا يېتەرلىك ئىمتىي�
 msgid "View name can not be empty!"
 msgstr "كۆرۈش ئىسمى قۇرۇق ئەمەس!"
 
-#: src/Core.php:105 src/ZipExtension.php:57
+#: src/Core.php:106 src/ZipExtension.php:57
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "%s كېڭەيتىلمە كەمكەن، PHP تەڭشەك ھۆججىتىنى تەكشۈرۈپ چىقىڭ."
@@ -17436,7 +17436,7 @@ msgstr ""
 msgid "The row has been deleted."
 msgstr "خەتكۈچ ئۆچۈرۈلدى."
 
-#: src/Display/Results.php:2974 src/Display/Results.php:3296 src/Sql.php:900
+#: src/Display/Results.php:2974 src/Display/Results.php:3296 src/Sql.php:898
 #, fuzzy, php-format
 msgid "Query took %01.4f seconds."
 msgstr "سۈرۈشتۈرۈش% 01.4f سېكۇنت."
@@ -18111,11 +18111,11 @@ msgstr ""
 msgid "web server upload directory:"
 msgstr "مۇلازىمىتېردىكى يۈكلەش مۇندەرىجىسى"
 
-#: src/InsertEdit.php:845 src/Sql.php:891
+#: src/InsertEdit.php:845 src/Sql.php:889
 msgid "Showing SQL query"
 msgstr "SQL سوئالنى كۆرسىتىش"
 
-#: src/InsertEdit.php:869 src/Sql.php:871
+#: src/InsertEdit.php:869 src/Sql.php:869
 #, fuzzy, php-format
 msgid "Inserted row id: %1$d"
 msgstr "قىستۇرما قۇر id:% 1 $ d"
@@ -18173,29 +18173,29 @@ msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
 msgstr[0] "%1$d قۇر قوشۇلدى."
 
-#: src/Navigation/Navigation.php:220
+#: src/Navigation/Navigation.php:222
 #, fuzzy
 #| msgid "Columns terminated by"
 msgid "Groups:"
 msgstr "خەت ئايرىش بەلگىسى"
 
-#: src/Navigation/Navigation.php:221
+#: src/Navigation/Navigation.php:223
 #, fuzzy
 #| msgid "Events"
 msgid "Events:"
 msgstr "ھادىسە"
 
-#: src/Navigation/Navigation.php:222
+#: src/Navigation/Navigation.php:224
 #, fuzzy
 #| msgid "Versions"
 msgid "Functions:"
 msgstr "نەشىر"
 
-#: src/Navigation/Navigation.php:223
+#: src/Navigation/Navigation.php:225
 msgid "Procedures:"
 msgstr "تەرتىپ:"
 
-#: src/Navigation/Navigation.php:225
+#: src/Navigation/Navigation.php:227
 #, fuzzy
 #| msgid "View"
 msgid "Views:"
@@ -20085,11 +20085,11 @@ msgstr "يېڭى مۇقىم نەشرى يوق"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "خەتكۈچ \"% s\" نى سۈكۈتتىكى كۆز قاراش سۈپىتىدە ئىشلىتىش."
 
-#: src/Sql.php:888
+#: src/Sql.php:886
 msgid "Showing as PHP code"
 msgstr "PHP كودى سۈپىتىدە كۆرسىتىلىدۇ"
 
-#: src/Sql.php:1241
+#: src/Sql.php:1235
 #, fuzzy, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -20098,7 +20098,7 @@ msgstr ""
 "نۆۋەتتىكى تاللاشتا ئۆزگىچە ئىستون يوق. كاتەكچە تەھرىرلەش ، تەكشۈرۈش "
 "رامكىسى ، تەھرىرلەش ، كۆپەيتىش ۋە ئۆچۈرۈش ئىقتىدارلىرى يوق. % s"
 
-#: src/Sql.php:1255
+#: src/Sql.php:1249
 #, fuzzy, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
