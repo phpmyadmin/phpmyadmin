@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2026-01-22 11:51+0000\n"
+"PO-Revision-Date: 2026-01-27 03:07+0000\n"
 "Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/4-9/th/>"
 "\n"
@@ -4285,7 +4285,7 @@ msgstr "การตั้งค่าหลักอื่น ๆ"
 
 #: libraries/classes/Config/Descriptions.php:506
 msgid "Settings that didn't fit anywhere else."
-msgstr "การตั้งค่าที่ไม่สามารถใช้กับที่ใดได้เลย"
+msgstr "การตั้งค่าที่ไม่เข้ากับที่อื่นเลย"
 
 #: libraries/classes/Config/Descriptions.php:508
 msgid "Page titles"
@@ -4349,8 +4349,8 @@ msgid ""
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
 "documentation."
 msgstr ""
-"กำหนดค่าที่จัดเก็บข้อมูล phpMyAdmin เพื่อเข้าถึงฟีเจอร์เพิ่มเติม ดู [doc@linked-tables]การจัดเก็"
-"บข้อมูลการกำหนดค่า phpMyAdmin[/doc] ในเอกสารประกอบ"
+"กำหนดค่าการจัดเก็บการตั้งค่า phpMyAdmin เพื่อเข้าถึงคุณสมบัติเพิ่มเติม ดู [doc@linked-tables]ก"
+"ารจัดเก็บการตั้งค่า phpMyAdmin[/doc] ในเอกสารประกอบ"
 
 #: libraries/classes/Config/Descriptions.php:546
 msgid "Changes tracking"
@@ -4361,7 +4361,7 @@ msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
 msgstr ""
-"การติดตามการเปลี่ยนแปลงที่เกิดขึ้นในฐานข้อมูล จำเป็นต้องใช้พื้นที่จัดเก็บการกำหนดค่า phpMyAdmin"
+"การติดตามการเปลี่ยนแปลงที่เกิดขึ้นในฐานข้อมูล จำเป็นต้องใช้พื้นที่จัดเก็บการตั้งค่า phpMyAdmin"
 
 #: libraries/classes/Config/Descriptions.php:553 libraries/classes/Menu.php:364
 #: libraries/classes/Menu.php:467 libraries/classes/Menu.php:587
