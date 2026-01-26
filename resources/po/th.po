@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-01-25 00:33+0000\n"
-"PO-Revision-Date: 2026-01-22 10:31+0000\n"
+"PO-Revision-Date: 2026-01-27 03:07+0000\n"
 "Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "th/>\n"
@@ -9260,15 +9260,15 @@ msgid ""
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
 "documentation."
 msgstr ""
-"กำหนดค่าที่จัดเก็บข้อมูล phpMyAdmin เพื่อเข้าถึงฟีเจอร์เพิ่มเติม ดู [doc@linked-"
-"tables]การจัดเก็บข้อมูลการกำหนดค่า phpMyAdmin[/doc] ในเอกสารประกอบ"
+"กำหนดค่าการจัดเก็บการตั้งค่า phpMyAdmin เพื่อเข้าถึงคุณสมบัติเพิ่มเติม ดู [doc@linked-tables]ก"
+"ารจัดเก็บการตั้งค่า phpMyAdmin[/doc] ในเอกสารประกอบ"
 
 #: src/Config/Descriptions.php:193
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
 msgstr ""
-"การติดตามการเปลี่ยนแปลงที่เกิดขึ้นในฐานข้อมูล จำเป็นต้องใช้พื้นที่จัดเก็บการกำหนดค่า phpMyAdmin"
+"การติดตามการเปลี่ยนแปลงที่เกิดขึ้นในฐานข้อมูล จำเป็นต้องใช้พื้นที่จัดเก็บการตั้งค่า phpMyAdmin"
 
 #: src/Config/Descriptions.php:196
 msgid "Customize browse mode."
@@ -9326,7 +9326,7 @@ msgstr "ตัวเลือกการแสดงตาราง"
 
 #: src/Config/Descriptions.php:213
 msgid "Settings that didn't fit anywhere else."
-msgstr "การตั้งค่าที่ไม่สามารถใช้กับที่ใดได้เลย"
+msgstr "การตั้งค่าที่ไม่เข้ากับที่อื่นเลย"
 
 #: src/Config/Descriptions.php:214
 msgid "Authentication settings."
