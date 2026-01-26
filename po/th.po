@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-10-16 23:57-0300\n"
-"PO-Revision-Date: 2026-01-22 11:51+0000\n"
+"PO-Revision-Date: 2026-01-27 03:07+0000\n"
 "Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/5-2/th/>"
 "\n"
@@ -1958,12 +1958,15 @@ msgid ""
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
 "documentation."
 msgstr ""
+"กำหนดค่าการจัดเก็บการตั้งค่า phpMyAdmin เพื่อเข้าถึงคุณสมบัติเพิ่มเติม ดู [doc@linked-tables]ก"
+"ารจัดเก็บการตั้งค่า phpMyAdmin[/doc] ในเอกสารประกอบ"
 
 #: libraries/classes/Config/Descriptions.php:206
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
 msgstr ""
+"การติดตามการเปลี่ยนแปลงที่เกิดขึ้นในฐานข้อมูล จำเป็นต้องใช้พื้นที่จัดเก็บการตั้งค่า phpMyAdmin"
 
 #: libraries/classes/Config/Descriptions.php:209
 msgid "Customize browse mode."
@@ -2032,7 +2035,7 @@ msgstr "ตัวเลือกการแสดงตาราง"
 
 #: libraries/classes/Config/Descriptions.php:226
 msgid "Settings that didn't fit anywhere else."
-msgstr ""
+msgstr "การตั้งค่าที่ไม่เข้ากับที่อื่นเลย"
 
 #: libraries/classes/Config/Descriptions.php:227
 #, fuzzy
@@ -2048,7 +2051,7 @@ msgstr "ป้อนพารามิเตอร์ของการเชื
 
 #: libraries/classes/Config/Descriptions.php:229
 msgid "Customize links shown in SQL Query boxes."
-msgstr ""
+msgstr "ปรับแต่งลิงก์ที่แสดงในกล่องคำสั่ง SQL"
 
 #: libraries/classes/Config/Descriptions.php:231
 #, fuzzy
@@ -2064,7 +2067,7 @@ msgstr "หน้าเริ่มต้นที่กำหนดเอง"
 #: libraries/classes/Config/Descriptions.php:233
 msgid ""
 "Choose which details to show in the database structure (list of tables)."
-msgstr ""
+msgstr "เลือกรายละเอียดที่ต้องการแสดงในโครงสร้างฐานข้อมูล (รายการตาราง)"
 
 #: libraries/classes/Config/Descriptions.php:234
 msgid "Settings for the table structure (list of columns)."
