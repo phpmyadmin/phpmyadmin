@@ -2302,6 +2302,8 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                 $(g.t).find('thead th').first().attr('colspan')
             ) - 1 || 1;
 
+            let keyboardEventTimestamp = 0;
+
             // Check if an element is visible for user
             function isPartiallyHidden (el) {
                 const rect = el.getBoundingClientRect();
@@ -2449,6 +2451,13 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                 });
             }
 
+            function selectCell (cell) {
+                g.preEndSelectCell = g.endSelectCell;
+                g.endSelectCell = cell;
+                scrollDuringSelection();
+                updateCellSelection();
+            }
+
             function resetCellSelection () {
                 g.isSelectingCells = false;
                 g.startSelectCell = null;
@@ -2463,19 +2472,70 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                 }
             });
 
-            // ctrl + A to select all cells
-            $(document).on('keydown', function (e) {
-                if ((e.ctrlKey || e.metaKey) && e.code === 'KeyA') {
-                    if (document.activeElement && $(document.activeElement).is('input, textarea, select')) {
-                        return; // do not interfere with input fields
-                    }
 
+            // Keyboard events for cell selection
+            $(document).on('keydown', function (e) {
+                // add throttle to avoid multiple events firing too quickly
+                if (keyboardEventTimestamp && (Date.now() - keyboardEventTimestamp) < 100) {
+                    return;
+                }
+
+                keyboardEventTimestamp = Date.now();
+
+                if (document.activeElement && $(document.activeElement).is('input, textarea, select')) {
+                    return; // do not interfere with input fields
+                }
+
+                // ctrl + A to select all cells
+                if ((e.ctrlKey || e.metaKey) && e.code === 'KeyA') {
                     e.preventDefault();
 
                     // Select all cells with header
                     $(g.t).find('tbody > tr, thead > tr').each(function () {
                         $(this).find('td.data, th:not(.column_action)').addClass('cell-selected');
                     });
+                }
+
+                // arrow + shift to select cells
+                if (e.shiftKey && g.endSelectCell) {
+                    const allowedSelectorToSelect = '.column_heading, .data';
+                    const lookupNextCell = {
+                        ArrowUp: () => {
+                            if ($(g.endSelectCell).is('th')) {
+                                return null;
+                            }
+
+                            const rowElement = $(g.endSelectCell).closest('tr');
+
+                            if (rowElement.index() === 0) {
+                                return $(g.t).find('thead > tr').eq(0).find('th.bg-body').eq($(g.endSelectCell).index() - colspan).get(0);
+                            }
+
+                            return rowElement.prev().find('td, th').eq($(g.endSelectCell).index()).get(0);
+                        },
+                        ArrowDown: () => {
+                            const rowElement = $(g.endSelectCell).closest('tr');
+                            if ($(g.endSelectCell).is('th')) {
+                                return $(g.t).find('tbody > tr').eq(0).find('td').eq($(g.endSelectCell).index() + colspan).get(0);
+                            }
+
+                            return rowElement.next().find('td, th').eq($(g.endSelectCell).index()).get(0);
+                        },
+                        ArrowLeft: () => {
+                            return $(g.endSelectCell).prev(allowedSelectorToSelect).get(0);
+                        },
+                        ArrowRight: () => {
+                            return $(g.endSelectCell).next(allowedSelectorToSelect).get(0);
+                        }
+                    };
+
+                    if (Object.keys(lookupNextCell).includes(e.key)) {
+                        e.preventDefault();
+                        const nextCell = lookupNextCell[e.key]();
+                        if (nextCell) {
+                            selectCell(nextCell);
+                        }
+                    }
                 }
             });
 
@@ -2514,10 +2574,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                         return;
                     }
 
-                    g.preEndSelectCell = g.endSelectCell;
-                    g.endSelectCell = this;
-                    scrollDuringSelection();
-                    updateCellSelection();
+                    selectCell(this);
                 });
 
                 // One-time mouseup on document to stop selection
