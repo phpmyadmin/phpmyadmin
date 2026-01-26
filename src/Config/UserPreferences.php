@@ -127,7 +127,7 @@ readonly class UserPreferences
             $existingPrefs = $this->load();
             if (isset($existingPrefs['config_data']['2fa'])) {
                 // This is likely a partial save from page settings - merge to preserve 2fa
-                $configArray = array_merge($existingPrefs['config_data'], $configArray);
+                $configArray['2fa'] = $existingPrefs['config_data']['2fa'];
             }
         }
 

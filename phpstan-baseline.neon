@@ -14497,19 +14497,7 @@ parameters:
 			path: tests/unit/Config/UserPreferencesTest.php
 
 		-
-			message: '#^Cannot access offset ''secret'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: tests/unit/Config/UserPreferencesTest.php
-
-		-
 			message: '#^Cannot access offset ''server_2'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: tests/unit/Config/UserPreferencesTest.php
-
-		-
-			message: '#^Cannot access offset ''settings'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
 			path: tests/unit/Config/UserPreferencesTest.php

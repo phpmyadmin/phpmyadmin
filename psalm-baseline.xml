@@ -397,6 +397,7 @@
       <code><![CDATA[$excludeList[$path]]]></code>
     </MixedArrayTypeCoercion>
     <MixedAssignment>
+      <code><![CDATA[$configArray['2fa']]]></code>
       <code><![CDATA[$configData]]></code>
       <code><![CDATA[$configData]]></code>
       <code><![CDATA[$prefs['config_data'][$path]]]></code>
@@ -9166,8 +9167,6 @@
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['userconfig']['db']]]></code>
       <code><![CDATA[$_SESSION['userconfig']['ts']]]></code>
-      <code><![CDATA[$resultConfig['2fa']['settings']]]></code>
-      <code><![CDATA[$resultConfig['2fa']['settings']['secret']]]></code>
     </MixedArrayAccess>
   </file>
   <file src="tests/unit/ConfigStorage/RelationTest.php">

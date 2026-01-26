@@ -272,8 +272,10 @@ class UserPreferencesTest extends AbstractTestCase
     public function testSaveAndKeep2FA(): void
     {
         $initialConfig = [
+            'CharEditing' => 'textarea',
             '2fa' => ['backend' => 'application', 'settings' => ['secret' => 'thisisasecret']],
-            'theme' => 'dark',
+            'RowActionLinks' => 'both',
+            'TableNavigationLinksMode' => 'both',
         ];
         $dummyDbi = $this->createDbiDummy();
 
@@ -371,17 +373,27 @@ class UserPreferencesTest extends AbstractTestCase
         // 2FA is combined with the previous config
         $dummyDbi->addResult(
             <<<'SQL'
-            UPDATE `pma-db`.`pma__userconfig` SET `timevalue` = NOW(), `config_data` = '{\"2fa\":{\"backend\":\"application\",\"settings\":{\"secret\":\"thisisasecret\"}},\"theme\":\"dark\",\"Console\\/Mode\":\"collapse\"}' WHERE `username` = 'root'
+            UPDATE `pma-db`.`pma__userconfig` SET `timevalue` = NOW(), `config_data` = '{\"CharEditing\":\"textarea\",\"TableNavigationLinksMode\":\"text\",\"Console\\/Mode\":\"collapse\",\"2fa\":{\"backend\":\"application\",\"settings\":{\"secret\":\"thisisasecret\"}}}' WHERE `username` = 'root'
             SQL,
             [['root']],
             ['username'],
         );
 
         // Partial save without 2fa
-        $partialConfig = ['Console/Mode' => 'collapse'];
+        $partialConfig = [
+            'CharEditing' => 'textarea',
+            'TableNavigationLinksMode' => 'text',
+            'Console/Mode' => 'collapse',
+        ];
         $userPreferences->save($partialConfig);
 
-        $encodedConfig = json_encode([...$initialConfig, 'Console/Mode' => 'collapse']);
+        $expected = [
+            'CharEditing' => 'textarea',
+            'TableNavigationLinksMode' => 'text',
+            'Console/Mode' => 'collapse',
+            '2fa' => ['backend' => 'application', 'settings' => ['secret' => 'thisisasecret']],
+        ];
+        $encodedConfig = json_encode($expected);
 
         $dummyDbi->addResult(
             <<<'SQL'
@@ -390,13 +402,54 @@ class UserPreferencesTest extends AbstractTestCase
             [[$encodedConfig, 1767029179]],
             ['config_data', 'ts'],
         );
+        // phpcs:enable Generic.Files.LineLength.TooLong
 
         // Check that 2fa is still present
         $resultConfig = $userPreferences->load()['config_data'];
-        self::assertSame('thisisasecret', $resultConfig['2fa']['settings']['secret']);
-        self::assertSame('collapse', $resultConfig['Console/Mode']);
+        self::assertSame($expected, $resultConfig);
+
         $dummyDbi->assertAllSelectsConsumed();
-        // phpcs:enable Generic.Files.LineLength.TooLong
+    }
+
+    public function testSaveAndKeep2FAWithSession(): void
+    {
+        $dbi = $this->createDatabaseInterface();
+        $config = new Config();
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
+        $relation = new Relation($dbi, $config);
+        $clock = MockClock::from('2015-10-21T05:28:00-02:00');
+        $userPreferences = new UserPreferences($dbi, $relation, new Template($config), $config, $clock);
+
+        unset($_SESSION['userconfig']);
+        $initialConfig = [
+            'CharEditing' => 'textarea',
+            '2fa' => ['backend' => 'application', 'settings' => ['secret' => 'thisisasecret']],
+            'RowActionLinks' => 'both',
+            'TableNavigationLinksMode' => 'both',
+        ];
+        $userPreferences->save($initialConfig);
+
+        /** @phpstan-ignore offsetAccess.notFound */
+        self::assertSame(['db' => $initialConfig, 'ts' => 1445412480], $_SESSION['userconfig']);
+
+        $partialConfig = [
+            'CharEditing' => 'textarea',
+            'TableNavigationLinksMode' => 'text',
+            'Console/Mode' => 'collapse',
+        ];
+        $userPreferences->save($partialConfig);
+
+        $expected = [
+            'db' => [
+                'CharEditing' => 'textarea',
+                'TableNavigationLinksMode' => 'text',
+                'Console/Mode' => 'collapse',
+                '2fa' => ['backend' => 'application', 'settings' => ['secret' => 'thisisasecret']],
+            ],
+            'ts' => 1445412480,
+        ];
+        /** @psalm-suppress DocblockTypeContradiction */
+        self::assertSame($expected, $_SESSION['userconfig']);
     }
 
     /**
