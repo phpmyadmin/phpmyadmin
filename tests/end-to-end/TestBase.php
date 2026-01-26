@@ -1165,9 +1165,23 @@ abstract class TestBase extends TestCase
 
         $proj = json_decode($result);
         if (is_object($proj) && property_exists($proj, 'automation_session')) {
-            // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-            echo 'Test failed, get more information here: ' . $proj->automation_session->public_url . "\n";
-        }
+			// phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
+			$publicUrl = '';
+
+			if (
+			    isset($proj->automation_session->public_url)
+			    && is_string($proj->automation_session->public_url)
+			) {
+		    	$publicUrl = $proj->automation_session->public_url;
+
+		    	$sanitized = preg_replace('/[\x00-\x1F\x7F]/', '', $publicUrl);
+			    if ($sanitized !== null) {
+    	    		$publicUrl = $sanitized;
+			    }
+			}
+
+			echo 'Test failed, get more information here: ' . $publicUrl . "\n";
+		}
 
         if (curl_errno($ch) === 0) {
             return;

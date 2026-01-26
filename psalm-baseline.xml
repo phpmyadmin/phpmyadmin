@@ -8742,7 +8742,6 @@
     <MixedAssignment>
       <code><![CDATA[$context['http']['content']]]></code>
       <code><![CDATA[$httpStatus]]></code>
-      <code><![CDATA[$http_response_header]]></code>
     </MixedAssignment>
     <MixedReturnStatement>
       <code><![CDATA[$response]]></code>
@@ -8930,7 +8929,6 @@
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$ajaxMessageCount]]></code>
-      <code><![CDATA[$proj->automation_session->public_url]]></code>
     </MixedOperand>
     <MixedPropertyFetch>
       <code><![CDATA[$proj->automation_session->public_url]]></code>
