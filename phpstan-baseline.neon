@@ -789,13 +789,19 @@ parameters:
 		-
 			message: '#^Cannot cast mixed to int\.$#'
 			identifier: cast.int
-			count: 2
+			count: 3
 			path: src/Config/Settings/Export.php
+
+		-
+			message: '#^Cannot cast mixed to int\.$#'
+			identifier: cast.int
+			count: 1
+			path: src\Plugins\Export\ExportToon.php
 
 		-
 			message: '#^Cannot cast mixed to string\.$#'
 			identifier: cast.string
-			count: 23
+			count: 24
 			path: src/Config/Settings/Export.php
 
 		-
@@ -5818,7 +5824,7 @@ parameters:
 			path: src/Export/Options.php
 
 		-
-			message: '#^Only booleans are allowed in &&, bool\|int\<0, max\>\|string given on the right side\.$#'
+			message: '#^Only booleans are allowed in &&, bool\|int\|string given on the right side\.$#'
 			identifier: booleanAnd.rightNotBoolean
 			count: 1
 			path: src/Export/Options.php
@@ -8918,6 +8924,15 @@ parameters:
 			identifier: staticMethod.deprecated
 			count: 15
 			path: src/Plugins/Export/ExportSql.php
+
+		-
+			message: '''
+				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
+				Use dependency injection instead\.$#
+			'''
+			identifier: staticMethod.deprecated
+			count: 2
+			path: src/Plugins/Export/ExportToon.php
 
 		-
 			message: '#^Cannot access property \$database on PhpMyAdmin\\SqlParser\\Components\\Expression\|null\.$#'
@@ -17453,4 +17468,3 @@ parameters:
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: tests/unit/WebAuthn/WebauthnLibServerTest.php
-

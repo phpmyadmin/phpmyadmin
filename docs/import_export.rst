@@ -264,6 +264,13 @@ rendered, for example in following document:
 
     \end{document}
 
+TOON
+----
+
+Data can be exported to TOON `(Token-Oriented Object Notation) <https://en.wikipedia.org/wiki/Token-Oriented_Object_Notation>`_,
+which is a text-based data format. It encodes the JSON data model in a compact way.
+TOON is designed to reduce token usage in LLM prompts while staying human-readable.
+
 MediaWiki
 ---------
 
