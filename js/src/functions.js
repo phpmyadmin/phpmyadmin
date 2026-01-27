@@ -4037,6 +4037,17 @@ AJAX.registerOnload('functions.js', function () {
 }(jQuery));
 
 /**
+ * Normalize line endings for comparison purposes.
+ * Browsers normalize textarea values to LF per HTML spec.
+ *
+ * @param {string} value
+ * @return {string}
+ */
+Functions.normalizeNewlines = function (value) {
+    return value.replace(/\r\n|\r/g, '\n');
+};
+
+/**
  * Return value of a cell in a table.
  *
  * @param {string} td
