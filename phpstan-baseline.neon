@@ -13846,11 +13846,6 @@ parameters:
 			path: libraries/classes/Database/Routines.php
 
 		-
-			message: "#^Cannot access offset 'value' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Database/Routines.php
-
-		-
 			message: "#^Cannot access offset \\(float\\|int\\) on mixed\\.$#"
 			count: 6
 			path: libraries/classes/Database/Routines.php
@@ -13901,21 +13896,6 @@ parameters:
 			path: libraries/classes/Database/Routines.php
 
 		-
-			message: "#^Cannot access property \\$name on PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Database/Routines.php
-
-		-
-			message: "#^Cannot access property \\$options on PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Database/Routines.php
-
-		-
-			message: "#^Cannot access property \\$parameters on PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Database/Routines.php
-
-		-
 			message: "#^Cannot access property \\$types on mixed\\.$#"
 			count: 4
 			path: libraries/classes/Database/Routines.php
@@ -13923,11 +13903,6 @@ parameters:
 		-
 			message: "#^Cannot call method getTypeClass\\(\\) on mixed\\.$#"
 			count: 4
-			path: libraries/classes/Database/Routines.php
-
-		-
-			message: "#^Cannot call method has\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
-			count: 1
 			path: libraries/classes/Database/Routines.php
 
 		-
