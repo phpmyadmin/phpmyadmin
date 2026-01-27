@@ -281,6 +281,20 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
         },
 
         /**
+         * Clears the current cell edit state, internal flags,
+         * and any pending save request.
+         */
+        resetGridEditState: function () {
+            g.isCellEditActive = false;
+            g.isEditCellTextEditable = false;
+            g.currentEditCell = null;
+            g.wasEditedCellNull = false;
+            g.isCellEdited = false;
+            g.isSaving = false;
+            g.lastXHR = null;
+        },
+
+        /**
          * Shift column from index oldn to newn.
          *
          * @param oldn old zero-based column index
@@ -2305,6 +2319,9 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
     // some adjustment
     $(t).removeClass('data');
     $(g.gDiv).addClass('data');
+    /* Store the grid controller instance on the table element so it can be accessed later by other modules
+       (e.g. during AJAX teardown) without exposing the grid object as a global variable.*/
+    $(t).data('pmaGrid', g);
 };
 
 /**
