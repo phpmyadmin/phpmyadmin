@@ -6,20 +6,25 @@ namespace PhpMyAdmin\Tests\Import;
 
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Import\AnalysedColumn;
 use PhpMyAdmin\Import\ColumnType;
 use PhpMyAdmin\Import\DecimalSize;
 use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\ImportSettings;
+use PhpMyAdmin\Import\ImportTable;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 
+use function array_map;
 use function time;
 
 use const PHP_INT_MAX;
 
 #[CoversClass(Import::class)]
-class ImportTest extends AbstractTestCase
+#[CoversClass(ImportTable::class)]
+#[CoversClass(AnalysedColumn::class)]
+final class ImportTest extends AbstractTestCase
 {
     private Import $import;
 
@@ -348,5 +353,225 @@ class ImportTest extends AbstractTestCase
         self::assertSame('SELECT 2;', Current::$sqlQuery);
         self::assertSame('SELECT 1;SELECT 2;', Current::$completeQuery);
         self::assertSame('SELECT 1;SELECT 2;', Current::$displayQuery);
+    }
+
+    /**
+     * @param list<string>                             $columns
+     * @param list<list<mixed>>                        $rows
+     * @param list<array{ColumnType, DecimalSize|int}> $expected
+     */
+    #[DataProvider('providerForTestAnalyzeTable')]
+    public function testAnalyzeTable(array $columns, array $rows, array $expected): void
+    {
+        $import = new Import();
+        self::assertEquals(
+            array_map(static fn (array $column): AnalysedColumn => new AnalysedColumn(...$column), $expected),
+            $import->analyzeTable(new ImportTable('test_table', $columns, $rows)),
+        );
+    }
+
+    /** @return iterable<array-key, array{list<string>, list<list<mixed>>, list<array{ColumnType, DecimalSize|int}>}> */
+    public static function providerForTestAnalyzeTable(): iterable
+    {
+        yield [
+            ['empty', 'null', 'varchar', 'int', 'decimal', 'big decimal', 'emoji'],
+            [['', 'NULL', 'varchar', '123', '123.123', '2147483647.2147483647', '⛵']],
+            [
+                [ColumnType::Varchar, 0],
+                [ColumnType::Varchar, 10],
+                [ColumnType::Varchar, 7],
+                [ColumnType::Int, 3],
+                [ColumnType::Decimal, DecimalSize::fromPrecisionAndScale(6, 3)],
+                [ColumnType::Varchar, 21],
+                [ColumnType::Varchar, 1],
+            ],
+        ];
+
+        if (PHP_INT_MAX > 2147483647) {
+            yield [['bigint'], [['2222222222']], [[ColumnType::BigInt, 10]]];
+
+            yield [
+                ['col1', 'col2', 'col3', 'col4'],
+                [['2147483646', '2147483647', '2147483648', '2147483649']],
+                [[ColumnType::Int, 10], [ColumnType::Int, 10], [ColumnType::BigInt, 10], [ColumnType::BigInt, 10]],
+            ];
+
+            yield [
+                ['less', 'equal', 'greater'],
+                [['2147483648', '2147483648', '2147483648'], ['1.1', '214748364.1', '2147483648.1']],
+                [
+                    [ColumnType::Decimal, DecimalSize::fromPrecisionAndScale(10, 1)],
+                    [ColumnType::Decimal, DecimalSize::fromPrecisionAndScale(10, 1)],
+                    [ColumnType::Decimal, DecimalSize::fromPrecisionAndScale(11, 1)],
+                ],
+            ];
+
+            yield [
+                ['less', 'equal', 'greater'],
+                [['21474836480.1', '21474836480.1', '21474836480.1'], ['2147483648', '21474836480', '214748364800']],
+                [
+                    [ColumnType::Decimal, DecimalSize::fromPrecisionAndScale(12, 1)],
+                    [ColumnType::Decimal, DecimalSize::fromPrecisionAndScale(12, 1)],
+                    [ColumnType::Decimal, DecimalSize::fromPrecisionAndScale(13, 1)],
+                ],
+            ];
+
+            yield [
+                ['less', 'equal', 'greater'],
+                [['21474836480', '21474836480', '21474836480'], ['2147483648', '21474836480', '214748364800']],
+                [[ColumnType::BigInt, 11], [ColumnType::BigInt, 11], [ColumnType::BigInt, 12]],
+            ];
+
+            yield [
+                ['equal', 'greater'],
+                [['2147483647', '2147483647'], ['2147483648', '21474836480']],
+                [[ColumnType::BigInt, 10], [ColumnType::BigInt, 11]],
+            ];
+
+            yield [
+                ['less', 'equal'],
+                [['2147483648', '2147483648'], ['214748364', '2147483647']],
+                [[ColumnType::BigInt, 10], [ColumnType::BigInt, 10]],
+            ];
+        } else {
+            // Can not detect a BIGINT since the value is over PHP_INT_MAX
+            yield [['bigint'], [['2222222222']], [[ColumnType::Varchar, 10]]];
+
+            yield [
+                ['col1', 'col2', 'col3', 'col4'],
+                [['2147483646', '2147483647', '2147483648', '2147483649']],
+                [[ColumnType::Int, 10], [ColumnType::Int, 10], [ColumnType::Varchar, 10], [ColumnType::Varchar, 10]],
+            ];
+
+            yield [
+                ['less', 'equal', 'greater'],
+                [['2147483648', '2147483648', '2147483648'], ['1.1', '214748364.1', '2147483648.1']],
+                [[ColumnType::Varchar, 10], [ColumnType::Varchar, 10], [ColumnType::Varchar, 11]],
+            ];
+
+            yield [
+                ['less', 'equal', 'greater'],
+                [['21474836480.1', '21474836480.1', '21474836480.1'], ['2147483648', '21474836480', '214748364800']],
+                [[ColumnType::Varchar, 12], [ColumnType::Varchar, 12], [ColumnType::Varchar, 12]],
+            ];
+
+            yield [
+                ['less', 'equal', 'greater'],
+                [['21474836480', '21474836480', '21474836480'], ['2147483648', '21474836480', '214748364800']],
+                [[ColumnType::Varchar, 11], [ColumnType::Varchar, 11], [ColumnType::Varchar, 12]],
+            ];
+
+            yield [
+                ['equal', 'greater'],
+                [['2147483647', '2147483647'], ['2147483648', '21474836480']],
+                [[ColumnType::Varchar, 10], [ColumnType::Varchar, 11]],
+            ];
+
+            yield [
+                ['less', 'equal'],
+                [['2147483648', '2147483648'], ['214748364', '2147483647']],
+                [[ColumnType::Varchar, 10], [ColumnType::Varchar, 10]],
+            ];
+        }
+
+        yield [
+            ['col1', 'col2', 'col3', 'col4', 'col5'],
+            [['1.1', '12.12', '123.123', '1.0', '1.2.3']],
+            [
+                [ColumnType::Decimal, DecimalSize::fromPrecisionAndScale(2, 1)],
+                [ColumnType::Decimal, DecimalSize::fromPrecisionAndScale(4, 2)],
+                [ColumnType::Decimal, DecimalSize::fromPrecisionAndScale(6, 3)],
+                [ColumnType::Varchar, 3],
+                [ColumnType::Varchar, 5],
+            ],
+        ];
+
+        yield [
+            ['less', 'equal', 'greater'],
+            [['aa', 'aa', 'aa'], ['a', 'aa', 'aaa']],
+            [[ColumnType::Varchar, 2], [ColumnType::Varchar, 2], [ColumnType::Varchar, 3]],
+        ];
+
+        yield [
+            ['less', 'equal', 'greater'],
+            [['1.1', '1.1', '1.1'], ['a', 'aa', 'aaa']],
+            [[ColumnType::Varchar, 2], [ColumnType::Varchar, 2], [ColumnType::Varchar, 3]],
+        ];
+
+        yield [
+            ['less', 'equal', 'greater'],
+            [['11', '11', '11'], ['a', 'aa', 'aaa']],
+            [[ColumnType::Varchar, 2], [ColumnType::Varchar, 2], [ColumnType::Varchar, 3]],
+        ];
+
+        yield [
+            ['less', 'equal', 'greater'],
+            [['2147483648', '2147483648', '2147483648'], ['aaaaaaaaa', 'aaaaaaaaaa', 'aaaaaaaaaaa']],
+            [[ColumnType::Varchar, 10], [ColumnType::Varchar, 10], [ColumnType::Varchar, 11]],
+        ];
+
+        yield [
+            ['less', 'equal', 'greater'],
+            [['aaa', 'aaa', 'aaa'], ['1.1', '12.1', '123.1']],
+            [[ColumnType::Varchar, 3], [ColumnType::Varchar, 3], [ColumnType::Varchar, 4]],
+        ];
+
+        yield [
+            ['less', 'equal', 'greater'],
+            [['12.1', '12.1', '12.1'], ['1.1', '12.1', '123.1']],
+            [
+                [ColumnType::Decimal, DecimalSize::fromPrecisionAndScale(3, 1)],
+                [ColumnType::Decimal, DecimalSize::fromPrecisionAndScale(3, 1)],
+                [ColumnType::Decimal, DecimalSize::fromPrecisionAndScale(4, 1)],
+            ],
+        ];
+
+        yield [
+            ['less', 'equal', 'greater'],
+            [['1.12', '1.12', '12.12'], ['12.1', '1.12', '1.123']],
+            [
+                [ColumnType::Decimal, DecimalSize::fromPrecisionAndScale(3, 2)],
+                [ColumnType::Decimal, DecimalSize::fromPrecisionAndScale(3, 2)],
+                [ColumnType::Decimal, DecimalSize::fromPrecisionAndScale(4, 3)],
+            ],
+        ];
+
+        yield [
+            ['less', 'equal', 'greater'],
+            [['123', '123', '123'], ['1.1', '12.1', '123.1']],
+            [
+                [ColumnType::Decimal, DecimalSize::fromPrecisionAndScale(3, 1)],
+                [ColumnType::Decimal, DecimalSize::fromPrecisionAndScale(3, 1)],
+                [ColumnType::Decimal, DecimalSize::fromPrecisionAndScale(4, 1)],
+            ],
+        ];
+
+        yield [
+            ['less', 'equal', 'greater'],
+            [['aaaaaaaaaaa', 'aaaaaaaaaaa', 'aaaaaaaaaaa'], ['2147483648', '21474836480', '214748364800']],
+            [[ColumnType::Varchar, 11], [ColumnType::Varchar, 11], [ColumnType::Varchar, 12]],
+        ];
+
+        yield [
+            ['less', 'equal', 'greater'],
+            [['aa', 'aa', 'aa'], ['1', '12', '123']],
+            [[ColumnType::Varchar, 2], [ColumnType::Varchar, 2], [ColumnType::Varchar, 3]],
+        ];
+
+        yield [
+            ['less', 'equal', 'greater'],
+            [['12.1', '12.1', '12.1'], ['1', '12', '123']],
+            [
+                [ColumnType::Decimal, DecimalSize::fromPrecisionAndScale(3, 1)],
+                [ColumnType::Decimal, DecimalSize::fromPrecisionAndScale(3, 1)],
+                [ColumnType::Decimal, DecimalSize::fromPrecisionAndScale(4, 1)],
+            ],
+        ];
+
+        yield [
+            ['less', 'equal', 'greater'],
+            [['12', '12', '12'], ['1', '12', '123']],
+            [[ColumnType::Int, 2], [ColumnType::Int, 2], [ColumnType::Int, 3]],
+        ];
     }
 }
