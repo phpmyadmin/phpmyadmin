@@ -1536,7 +1536,8 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
 
                 let isValueUpdated;
                 if ($thisField.attr('data-type') !== 'json') {
-                    isValueUpdated = thisFieldParams[fieldName] !== Functions.getCellValue(g.currentEditCell);
+                    let normalizedCellVal = Functions.normalizeNewlines(Functions.getCellValue(g.currentEditCell));
+                    isValueUpdated = thisFieldParams[fieldName] !== normalizedCellVal;
                 } else {
                     const JSONString = Functions.stringifyJSON(thisFieldParams[fieldName]);
                     isValueUpdated = JSONString !== Functions.stringifyJSON(Functions.getCellValue(g.currentEditCell));
