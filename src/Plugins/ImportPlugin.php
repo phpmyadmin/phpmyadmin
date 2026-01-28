@@ -14,7 +14,6 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use PhpMyAdmin\Properties\Plugins\PluginPropertyItem;
-use PhpMyAdmin\ResponseRenderer;
 
 /**
  * Provides a common interface that will have to be implemented by all of the
@@ -27,15 +26,11 @@ abstract class ImportPlugin implements Plugin
      */
     protected ImportPluginProperties $properties;
 
-    protected Import $import;
-
-    final public function __construct()
-    {
-        $this->import = new Import(
-            DatabaseInterface::getInstance(),
-            ResponseRenderer::getInstance(),
-            Config::getInstance(),
-        );
+    final public function __construct(
+        protected readonly Import $import,
+        protected readonly DatabaseInterface $dbi,
+        protected readonly Config $config,
+    ) {
         $this->init();
         $this->properties = $this->setProperties();
     }

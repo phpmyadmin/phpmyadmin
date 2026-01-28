@@ -6,13 +6,13 @@ namespace PhpMyAdmin\Tests\Plugins\Import;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins\Import\ImportOds;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Medium;
@@ -48,7 +48,6 @@ final class ImportOdsTest extends AbstractTestCase
         ImportSettings::$finished = false;
         ImportSettings::$readLimit = 100000000;
         ImportSettings::$offset = 0;
-        Config::getInstance()->selectedServer['DisableIS'] = false;
         ImportSettings::$readMultiply = 10;
     }
 
@@ -57,7 +56,7 @@ final class ImportOdsTest extends AbstractTestCase
      */
     public function testGetProperties(): void
     {
-        $importOds = new ImportOds();
+        $importOds = $this->getImportOds();
         $properties = $importOds->getProperties();
         self::assertSame(
             __('OpenDocument Spreadsheet'),
@@ -82,9 +81,7 @@ final class ImportOdsTest extends AbstractTestCase
 
         ImportSettings::$importFile = 'tests/test_data/db_test.ods';
 
-        DatabaseInterface::$instance = $this->createDatabaseInterface();
-
-        $importOds = new ImportOds();
+        $importOds = $this->getImportOds();
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
             ->withParsedBody([
@@ -144,9 +141,7 @@ final class ImportOdsTest extends AbstractTestCase
 
         ImportSettings::$importFile = 'tests/test_data/import-slim.ods.xml';
 
-        DatabaseInterface::$instance = $this->createDatabaseInterface();
-
-        $importOds = new ImportOds();
+        $importOds = $this->getImportOds();
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
             ->withParsedBody([
@@ -239,5 +234,13 @@ final class ImportOdsTest extends AbstractTestCase
 
         //assert that the import process is finished
         self::assertTrue(ImportSettings::$finished);
+    }
+
+    private function getImportOds(): ImportOds
+    {
+        $dbi = $this->createDatabaseInterface();
+        $config = new Config();
+
+        return new ImportOds(new Import($dbi, new ResponseRenderer(), $config), $dbi, $config);
     }
 }

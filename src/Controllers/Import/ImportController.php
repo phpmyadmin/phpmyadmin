@@ -478,7 +478,7 @@ final readonly class ImportController implements InvocableController
         $queriesToBeExecuted = [];
 
         if (! Import::$hasError) {
-            $importPlugin = new ($importFormat->getClassName());
+            $importPlugin = new ($importFormat->getClassName())($this->import, $this->dbi, $this->config);
 
             $importPlugin->setImportOptions($request);
 

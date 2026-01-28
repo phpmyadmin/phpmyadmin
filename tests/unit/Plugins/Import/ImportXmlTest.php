@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Import;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\File;
@@ -11,6 +12,7 @@ use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins\Import\ImportXml;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Medium;
 use PHPUnit\Framework\Attributes\RequiresPhpExtension;
@@ -56,7 +58,7 @@ final class ImportXmlTest extends AbstractTestCase
      */
     public function testGetProperties(): void
     {
-        $importXml = new ImportXml();
+        $importXml = $this->getImportXml();
         $properties = $importXml->getProperties();
         self::assertSame(
             __('XML'),
@@ -86,12 +88,11 @@ final class ImportXmlTest extends AbstractTestCase
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
-        DatabaseInterface::$instance = $dbi;
 
         $importHandle = new File(ImportSettings::$importFile);
         $importHandle->open();
 
-        $importXml = new ImportXml();
+        $importXml = $this->getImportXml($dbi);
         $importXml->doImport($importHandle);
 
         // If import successfully, PMA will show all databases and tables
@@ -116,5 +117,13 @@ final class ImportXmlTest extends AbstractTestCase
         self::assertStringContainsString('Go to table: `pma_bookmarktest`', ImportSettings::$importNotice);
         self::assertStringContainsString('Edit settings for `pma_bookmarktest`', ImportSettings::$importNotice);
         self::assertTrue(ImportSettings::$finished);
+    }
+
+    private function getImportXml(DatabaseInterface|null $dbi = null): ImportXml
+    {
+        $dbiObject = $dbi ?? $this->createDatabaseInterface();
+        $config = new Config();
+
+        return new ImportXml(new Import($dbiObject, new ResponseRenderer(), $config), $dbiObject, $config);
     }
 }

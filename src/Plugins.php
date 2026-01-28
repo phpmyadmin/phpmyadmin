@@ -7,8 +7,10 @@ namespace PhpMyAdmin;
 use FilesystemIterator;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Container\ContainerBuilder;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\Html\MySQLDocumentation;
+use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\ExportType;
@@ -154,15 +156,19 @@ class Plugins
                 continue;
             }
 
+            $container = ContainerBuilder::getContainer();
             if ($type === 'Export' && is_subclass_of($class, ExportPlugin::class)) {
-                $container = ContainerBuilder::getContainer();
                 $plugins[] = new $class(
                     $container->get(Relation::class),
                     $container->get(OutputHandler::class),
                     $container->get(Transformations::class),
                 );
             } elseif ($type === 'Import' && is_subclass_of($class, ImportPlugin::class)) {
-                $plugins[] = new $class();
+                $plugins[] = new $class(
+                    $container->get(Import::class),
+                    $container->get(DatabaseInterface::class),
+                    $container->get(Config::class),
+                );
             } elseif ($type === 'Schema' && is_subclass_of($class, SchemaPlugin::class)) {
                 $plugins[] = new $class();
             }

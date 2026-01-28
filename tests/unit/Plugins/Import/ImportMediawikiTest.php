@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Import;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\File;
@@ -11,6 +12,7 @@ use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins\Import\ImportMediawiki;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Medium;
 
@@ -54,7 +56,7 @@ final class ImportMediawikiTest extends AbstractTestCase
      */
     public function testGetProperties(): void
     {
-        $importMediawiki = new ImportMediawiki();
+        $importMediawiki = $this->getImportMediawiki();
         $properties = $importMediawiki->getProperties();
         self::assertSame(
             __('MediaWiki Table'),
@@ -83,12 +85,11 @@ final class ImportMediawikiTest extends AbstractTestCase
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
-        DatabaseInterface::$instance = $dbi;
 
         $importHandle = new File(ImportSettings::$importFile);
         $importHandle->open();
 
-        $importMediawiki = new ImportMediawiki();
+        $importMediawiki = $this->getImportMediawiki($dbi);
 
         //Test function called
         $importMediawiki->doImport($importHandle);
@@ -123,12 +124,11 @@ final class ImportMediawikiTest extends AbstractTestCase
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
-        DatabaseInterface::$instance = $dbi;
 
         $importHandle = new File('tests/test_data/__slashes.mediawiki');
         $importHandle->open();
 
-        $importMediawiki = new ImportMediawiki();
+        $importMediawiki = $this->getImportMediawiki($dbi);
 
         //Test function called
         $importMediawiki->doImport($importHandle);
@@ -156,5 +156,13 @@ final class ImportMediawikiTest extends AbstractTestCase
         self::assertStringContainsString('Go to table: `empty`', ImportSettings::$importNotice);
         self::assertStringContainsString('Edit settings for `empty`', ImportSettings::$importNotice);
         self::assertTrue(ImportSettings::$finished);
+    }
+
+    private function getImportMediawiki(DatabaseInterface|null $dbi = null): ImportMediawiki
+    {
+        $dbiObject = $dbi ?? $this->createDatabaseInterface();
+        $config = new Config();
+
+        return new ImportMediawiki(new Import($dbiObject, new ResponseRenderer(), $config), $dbiObject, $config);
     }
 }
