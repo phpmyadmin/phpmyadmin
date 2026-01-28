@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-01-25 00:33+0000\n"
-"PO-Revision-Date: 2026-01-16 08:39+0000\n"
+"PO-Revision-Date: 2026-01-28 16:07+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 5.15.2\n"
+"X-Generator: Weblate 5.16-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -1164,7 +1164,7 @@ msgstr "Време на прашање"
 
 #: resources/templates/console/display.twig:61
 msgid "During current session"
-msgstr ""
+msgstr "За време на тековната сесија"
 
 #: resources/templates/console/display.twig:79
 #, fuzzy
@@ -1178,7 +1178,7 @@ msgstr "Опаѓачки редослед"
 
 #: resources/templates/console/display.twig:85
 msgid "Order:"
-msgstr ""
+msgstr "Редослед:"
 
 #: resources/templates/console/display.twig:91
 #: resources/templates/table/find_replace/replace_preview.twig:16
@@ -1193,12 +1193,12 @@ msgstr "Изврши запамтен упит"
 
 #: resources/templates/console/display.twig:97
 msgid "Time taken"
-msgstr ""
+msgstr "Поминато време"
 
 #: resources/templates/console/display.twig:100
 #: resources/templates/table/search/index.twig:145
 msgid "Order by:"
-msgstr ""
+msgstr "Подреди по:"
 
 #: resources/templates/console/display.twig:103 src/Config/Descriptions.php:964
 #, fuzzy
@@ -1227,7 +1227,7 @@ msgstr "Број:"
 #: resources/templates/console/display.twig:121
 #: src/Controllers/JavaScriptMessagesController.php:644
 msgid "Time taken:"
-msgstr ""
+msgstr "Потрачено време:"
 
 #: resources/templates/console/display.twig:133
 #: resources/templates/server/status/processes/index.twig:19
