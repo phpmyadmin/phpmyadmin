@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-10-16 23:57-0300\n"
-"PO-Revision-Date: 2026-01-16 08:39+0000\n"
+"PO-Revision-Date: 2026-01-28 16:07+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/5-"
 "2/mk/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 5.15.2\n"
+"X-Generator: Weblate 5.16-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -7071,7 +7071,7 @@ msgstr "SQL упит"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:662
 msgid "Time taken:"
-msgstr ""
+msgstr "Потрачено време:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:664
 msgid ""
@@ -13438,7 +13438,7 @@ msgstr "Време на прашање"
 
 #: templates/console/display.twig:47
 msgid "During current session"
-msgstr ""
+msgstr "За време на тековната сесија"
 
 #: templates/console/display.twig:64
 #, fuzzy
@@ -13452,7 +13452,7 @@ msgstr "Опаѓачки редослед"
 
 #: templates/console/display.twig:64
 msgid "Order:"
-msgstr ""
+msgstr "Редослед:"
 
 #: templates/console/display.twig:64 templates/console/display.twig:84
 #: templates/table/find_replace/replace_preview.twig:16
@@ -13467,11 +13467,11 @@ msgstr "Изврши запамтен упит"
 
 #: templates/console/display.twig:64 templates/console/display.twig:84
 msgid "Time taken"
-msgstr ""
+msgstr "Поминато време"
 
 #: templates/console/display.twig:64 templates/table/search/index.twig:146
 msgid "Order by:"
-msgstr ""
+msgstr "Подреди по:"
 
 #: templates/console/display.twig:64
 #, fuzzy
