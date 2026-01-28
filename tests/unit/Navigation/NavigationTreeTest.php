@@ -28,8 +28,6 @@ class NavigationTreeTest extends AbstractTestCase
 
         $this->setLanguage();
 
-        $this->setGlobalConfig();
-
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
         $config = Config::getInstance();

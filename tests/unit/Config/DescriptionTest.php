@@ -20,13 +20,6 @@ use function in_array;
 #[RunTestsInSeparateProcesses]
 class DescriptionTest extends AbstractTestCase
 {
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        $this->setGlobalConfig();
-    }
-
     /**
      * @param string $item     item
      * @param string $type     type

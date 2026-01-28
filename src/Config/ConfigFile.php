@@ -656,7 +656,6 @@ class ConfigFile
                 'ldi_terminated' => 'short_string',
                 'ldi_enclosed' => 'short_string',
                 'ldi_escaped' => 'short_string',
-                'ldi_local_option' => ['auto', true, false],
             ],
 
             'Export' => [

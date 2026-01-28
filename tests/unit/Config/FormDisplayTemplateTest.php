@@ -25,7 +25,7 @@ class FormDisplayTemplateTest extends AbstractTestCase
 
         $this->setLanguage();
 
-        $this->config = $this->createConfig();
+        $this->config = new Config();
         $this->formDisplayTemplate = new FormDisplayTemplate($this->config);
     }
 

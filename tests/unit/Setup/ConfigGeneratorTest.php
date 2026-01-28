@@ -31,8 +31,6 @@ class ConfigGeneratorTest extends AbstractTestCase
     {
         unset($_SESSION['eol']);
 
-        $this->setGlobalConfig();
-
         Current::$server = 2;
         $cf = new ConfigFile();
         $_SESSION['ConfigFile2'] = ['a', 'b', 'c'];

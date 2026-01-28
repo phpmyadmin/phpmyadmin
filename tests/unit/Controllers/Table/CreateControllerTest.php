@@ -276,7 +276,7 @@ class CreateControllerTest extends AbstractTestCase
         (new CreateController(
             $response,
             $transformations,
-            $this->createConfig(),
+            new Config(),
             $dbi,
             new ColumnsDefinition($dbi, $relation, $transformations),
             new UserPrivilegesFactory($dbi),

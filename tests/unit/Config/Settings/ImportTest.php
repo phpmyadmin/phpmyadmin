@@ -366,25 +366,6 @@ class ImportTest extends TestCase
         yield 'valid value with type coercion' => [1234, '1234'];
     }
 
-    #[DataProvider('valuesForLdiLocalOptionProvider')]
-    public function testLdiLocalOption(mixed $actual, string|bool $expected): void
-    {
-        $import = new Import(['ldi_local_option' => $actual]);
-        $importArray = $import->asArray();
-        self::assertSame($expected, $import->ldi_local_option);
-        self::assertSame($expected, $importArray['ldi_local_option']);
-    }
-
-    /** @return iterable<string, array{mixed, string|bool}> */
-    public static function valuesForLdiLocalOptionProvider(): iterable
-    {
-        yield 'null value' => [null, 'auto'];
-        yield 'valid value' => ['auto', 'auto'];
-        yield 'valid value 2' => [true, true];
-        yield 'valid value 3' => [false, false];
-        yield 'valid value with type coercion' => ['1', true];
-    }
-
     #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testOdsColNames(mixed $actual, bool $expected): void
     {

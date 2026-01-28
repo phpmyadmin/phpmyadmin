@@ -44,8 +44,6 @@ class HeaderTest extends AbstractTestCase
         Current::$database = 'db';
         Current::$table = '';
 
-        $this->setGlobalConfig();
-
         $config = Config::getInstance();
         $config->settings['Servers'] = [];
         $config->selectedServer['DisableIS'] = false;

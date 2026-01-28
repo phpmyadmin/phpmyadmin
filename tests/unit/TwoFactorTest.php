@@ -61,6 +61,8 @@ class TwoFactorTest extends AbstractTestCase
     protected function tearDown(): void
     {
         $this->dummyDbi->assertAllSelectsConsumed();
+
+        parent::tearDown();
     }
 
     private function initStorageConfigAndData(): void

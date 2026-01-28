@@ -313,13 +313,7 @@ parameters:
 			path: src/Config.php
 
 		-
-			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\) does not accept array\.$#'
-			identifier: assign.propertyType
-			count: 1
-			path: src/Config.php
-
-		-
-			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\) does not accept non\-empty\-array\<string, mixed\>\.$#'
+			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\) does not accept array\<mixed\>\.$#'
 			identifier: assign.propertyType
 			count: 1
 			path: src/Config.php
@@ -952,12 +946,6 @@ parameters:
 			path: src/Config/UserPreferencesHandler.php
 
 		-
-			message: '#^Cannot access offset ''userprefs_mtime'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Config/UserPreferencesHandler.php
-
-		-
 			message: '#^Cannot access offset ''userprefs_type'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 2
@@ -1007,12 +995,6 @@ parameters:
 
 		-
 			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\) does not accept array\.$#'
-			identifier: assign.propertyType
-			count: 1
-			path: src/Config/UserPreferencesHandler.php
-
-		-
-			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\) does not accept array\<mixed\>\.$#'
 			identifier: assign.propertyType
 			count: 1
 			path: src/Config/UserPreferencesHandler.php
@@ -9557,20 +9539,11 @@ parameters:
 
 		-
 			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 2
-			path: src/Plugins/Import/ImportLdi.php
-
-		-
-			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 2
+			count: 1
 			path: src/Plugins/Import/ImportLdi.php
 
 		-
@@ -14081,15 +14054,6 @@ parameters:
 
 		-
 			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: tests/unit/AbstractTestCase.php
-
-		-
-			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
 				Use dependency injection instead\.$#
 			'''
@@ -14570,15 +14534,6 @@ parameters:
 			identifier: assign.propertyType
 			count: 5
 			path: tests/unit/ConfigStorage/RelationTest.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: tests/unit/ConfigTest.php
 
 		-
 			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) with ''Server'' and array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\} will always evaluate to false\.$#'
@@ -16701,7 +16656,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 2
+			count: 1
 			path: tests/unit/Plugins/Import/ImportLdiTest.php
 
 		-
@@ -17167,12 +17122,6 @@ parameters:
 			path: tests/unit/TwoFactorTest.php
 
 		-
-			message: '#^Missing call to parent\:\:tearDown\(\) method\.$#'
-			identifier: phpunit.callParent
-			count: 1
-			path: tests/unit/TwoFactorTest.php
-
-		-
 			message: '#^Parameter \#1 \$secret of method PragmaRX\\Google2FA\\Google2FA\:\:oathTotp\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 2
@@ -17236,7 +17185,7 @@ parameters:
 			path: tests/unit/UtilTest.php
 
 		-
-			message: '#^Cannot access offset ''server_2'' on mixed\.$#'
+			message: '#^Cannot access offset ''server_2_'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 4
 			path: tests/unit/UtilTest.php
@@ -17245,12 +17194,6 @@ parameters:
 			message: '#^Parameter \#2 \$array of static method PHPUnit\\Framework\\Assert\:\:assertArrayNotHasKey\(\) expects array\<mixed\>\|ArrayAccess\<\(int\|string\), mixed\>, mixed given\.$#'
 			identifier: argument.type
 			count: 2
-			path: tests/unit/UtilTest.php
-
-		-
-			message: '#^Property PhpMyAdmin\\Config\:\:\$selectedServer \(array\{host\: string, port\: string, socket\: string, ssl\: bool, ssl_key\: string\|null, ssl_cert\: string\|null, ssl_ca\: string\|null, ssl_ca_path\: string\|null, \.\.\.\}\) does not accept array\{host\: string, port\: string, socket\: string, ssl\: bool, ssl_key\: string\|null, ssl_cert\: string\|null, ssl_ca\: string\|null, ssl_ca_path\: string\|null, \.\.\.\}\.$#'
-			identifier: assign.propertyType
-			count: 1
 			path: tests/unit/UtilTest.php
 
 		-
@@ -17314,7 +17257,7 @@ parameters:
 			path: tests/unit/Utils/SessionCacheTest.php
 
 		-
-			message: '#^Cannot access offset ''server_2'' on mixed\.$#'
+			message: '#^Cannot access offset ''server_2_'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 4
 			path: tests/unit/Utils/SessionCacheTest.php
@@ -17341,12 +17284,6 @@ parameters:
 			message: '#^Parameter \#2 \$array of static method PHPUnit\\Framework\\Assert\:\:assertArrayNotHasKey\(\) expects array\<mixed\>\|ArrayAccess\<\(int\|string\), mixed\>, mixed given\.$#'
 			identifier: argument.type
 			count: 2
-			path: tests/unit/Utils/SessionCacheTest.php
-
-		-
-			message: '#^Property PhpMyAdmin\\Config\:\:\$selectedServer \(array\{host\: string, port\: string, socket\: string, ssl\: bool, ssl_key\: string\|null, ssl_cert\: string\|null, ssl_ca\: string\|null, ssl_ca_path\: string\|null, \.\.\.\}\) does not accept array\{host\: string, port\: string, socket\: string, ssl\: bool, ssl_key\: string\|null, ssl_cert\: string\|null, ssl_ca\: string\|null, ssl_ca_path\: string\|null, \.\.\.\}\.$#'
-			identifier: assign.propertyType
-			count: 5
 			path: tests/unit/Utils/SessionCacheTest.php
 
 		-

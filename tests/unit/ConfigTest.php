@@ -26,7 +26,6 @@ use function tempnam;
 use function unlink;
 
 use const CHANGELOG_FILE;
-use const CONFIG_FILE;
 use const DIRECTORY_SEPARATOR;
 use const PHP_OS;
 
@@ -52,14 +51,18 @@ class ConfigTest extends AbstractTestCase
         $this->object = $this->createConfig();
         $_SESSION['git_location'] = '.git';
         $_SESSION['is_git_revision'] = true;
-        Config::$instance = null;
-        $config = Config::getInstance();
-        $config->loadFromFile(CONFIG_FILE);
-        $config->settings['ProxyUrl'] = '';
 
         //for testing file permissions
         $this->permTestObj = new Config();
         $this->permTestObj->loadFromFile(ROOT_PATH . 'config.sample.inc.php');
+    }
+
+    protected function createConfig(): Config
+    {
+        $config = new Config();
+        $config->loadFromFile();
+
+        return $config;
     }
 
     /**
@@ -159,7 +162,6 @@ class ConfigTest extends AbstractTestCase
         $config = $settings->asArray();
         self::assertIsArray($config['Servers']);
         self::assertEquals($settings, $object->getSettings());
-        self::assertSame($config, $object->default);
         self::assertSame($config, $object->settings);
         self::assertSame($config, $object->baseSettings);
     }

@@ -28,8 +28,6 @@ class RoutinesTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $this->setGlobalConfig();
-
         $this->setLanguage();
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();

@@ -31,8 +31,6 @@ class FormDisplayTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $this->setGlobalConfig();
-
         Current::$server = 2;
         $this->object = new FormDisplay(new ConfigFile());
         Form::resetGroupCounter();

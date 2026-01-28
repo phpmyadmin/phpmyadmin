@@ -118,15 +118,15 @@
       <code><![CDATA[$this->settings]]></code>
       <code><![CDATA[$this->settings]]></code>
     </InvalidPropertyAssignmentValue>
+    <MixedAssignment>
+      <code><![CDATA[$array[$part]]]></code>
+    </MixedAssignment>
     <MixedPropertyTypeCoercion>
-      <code><![CDATA[array_replace_recursive($this->settings, $this->config->asArray())]]></code>
+      <code><![CDATA[$this->settings]]></code>
     </MixedPropertyTypeCoercion>
     <PossiblyInvalidArrayOffset>
       <code><![CDATA[$_COOKIE[$this->getCookieName($cookieName)]]]></code>
     </PossiblyInvalidArrayOffset>
-    <PropertyTypeCoercion>
-      <code><![CDATA[$this->settings]]></code>
-    </PropertyTypeCoercion>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($path)]]></code>
     </RiskyTruthyFalsyComparison>
@@ -420,7 +420,6 @@
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['cache'][$cacheKey]['userprefs']]]></code>
       <code><![CDATA[$_SESSION['cache'][$cacheKey]['userprefs']['LoginCookieValidity']]]></code>
-      <code><![CDATA[$_SESSION['cache'][$cacheKey]['userprefs_mtime']]]></code>
       <code><![CDATA[$_SESSION['cache'][$cacheKey]['userprefs_type']]]></code>
       <code><![CDATA[$configData['lang']]]></code>
     </MixedArrayAccess>
@@ -428,10 +427,8 @@
       <code><![CDATA[$_SESSION['cache'][$cacheKey]]]></code>
       <code><![CDATA[$_SESSION['cache'][$cacheKey]]]></code>
       <code><![CDATA[$_SESSION['cache'][$cacheKey]]]></code>
-      <code><![CDATA[$_SESSION['cache'][$cacheKey]]]></code>
       <code><![CDATA[$_SESSION['cache'][$cacheKey]['config_mtime']]]></code>
       <code><![CDATA[$_SESSION['cache'][$cacheKey]['userprefs']]]></code>
-      <code><![CDATA[$_SESSION['cache'][$cacheKey]['userprefs_mtime']]]></code>
       <code><![CDATA[$_SESSION['cache'][$cacheKey]['userprefs_type']]]></code>
     </MixedArrayAssignment>
     <MixedAssignment>
@@ -442,7 +439,6 @@
       <code><![CDATA[$value]]></code>
     </MixedAssignment>
     <MixedPropertyTypeCoercion>
-      <code><![CDATA[$this->config->settings]]></code>
       <code><![CDATA[array_replace_recursive($this->config->settings, $configData)]]></code>
     </MixedPropertyTypeCoercion>
     <PossiblyInvalidArgument>
@@ -6453,9 +6449,6 @@
   </file>
   <file src="src/Plugins/Import/ImportLdi.php">
     <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
     <MixedArgument>
@@ -8958,9 +8951,6 @@
     </TypeDoesNotContainNull>
   </file>
   <file src="tests/unit/AbstractTestCase.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$_SERVER['PHP_SELF']]]></code>
       <code><![CDATA[$_SERVER['REQUEST_TIME']]]></code>
@@ -9317,9 +9307,6 @@
     </TypeDoesNotContainType>
   </file>
   <file src="tests/unit/ConfigTest.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$config->settings['Server']]]></code>
       <code><![CDATA[$config->settings['Server']]]></code>
@@ -10686,11 +10673,7 @@
   <file src="tests/unit/Plugins/Import/ImportLdiTest.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <TypeDoesNotContainType>
-      <code><![CDATA[assertTrue]]></code>
-    </TypeDoesNotContainType>
   </file>
   <file src="tests/unit/Plugins/Import/ImportOdsTest.php">
     <DeprecatedMethod>
@@ -11034,20 +11017,17 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidPropertyAssignmentValue>
-      <code><![CDATA[Config::getInstance()->selectedServer]]></code>
-    </InvalidPropertyAssignmentValue>
     <MixedArgument>
-      <code><![CDATA[$_SESSION['cache']['server_2']]]></code>
-      <code><![CDATA[$_SESSION['cache']['server_2']]]></code>
+      <code><![CDATA[$_SESSION['cache']['server_2_']]]></code>
+      <code><![CDATA[$_SESSION['cache']['server_2_']]]></code>
     </MixedArgument>
     <MixedArrayAccess>
-      <code><![CDATA[$_SESSION['cache']['server_2']]]></code>
-      <code><![CDATA[$_SESSION['cache']['server_2']]]></code>
-      <code><![CDATA[$_SESSION['cache']['server_2']]]></code>
-      <code><![CDATA[$_SESSION['cache']['server_2']]]></code>
-      <code><![CDATA[$_SESSION['cache']['server_2']['is_superuser']]]></code>
-      <code><![CDATA[$_SESSION['cache']['server_2']['mysql_cur_user']]]></code>
+      <code><![CDATA[$_SESSION['cache']['server_2_']]]></code>
+      <code><![CDATA[$_SESSION['cache']['server_2_']]]></code>
+      <code><![CDATA[$_SESSION['cache']['server_2_']]]></code>
+      <code><![CDATA[$_SESSION['cache']['server_2_']]]></code>
+      <code><![CDATA[$_SESSION['cache']['server_2_']['is_superuser']]]></code>
+      <code><![CDATA[$_SESSION['cache']['server_2_']['mysql_cur_user']]]></code>
     </MixedArrayAccess>
     <PossiblyInvalidArgument>
       <code><![CDATA[testBackquote]]></code>
@@ -11120,24 +11100,17 @@
       <code><![CDATA[$_SESSION['cache']]]></code>
       <code><![CDATA[$_SESSION['cache']]]></code>
     </EmptyArrayAccess>
-    <InvalidPropertyAssignmentValue>
-      <code><![CDATA[Config::getInstance()->selectedServer]]></code>
-      <code><![CDATA[Config::getInstance()->selectedServer]]></code>
-      <code><![CDATA[Config::getInstance()->selectedServer]]></code>
-      <code><![CDATA[Config::getInstance()->selectedServer]]></code>
-      <code><![CDATA[Config::getInstance()->selectedServer]]></code>
-    </InvalidPropertyAssignmentValue>
     <MixedArgument>
-      <code><![CDATA[$_SESSION['cache']['server_2']]]></code>
-      <code><![CDATA[$_SESSION['cache']['server_2']]]></code>
+      <code><![CDATA[$_SESSION['cache']['server_2_']]]></code>
+      <code><![CDATA[$_SESSION['cache']['server_2_']]]></code>
     </MixedArgument>
     <MixedArrayAccess>
-      <code><![CDATA[$_SESSION['cache']['server_2']]]></code>
-      <code><![CDATA[$_SESSION['cache']['server_2']]]></code>
-      <code><![CDATA[$_SESSION['cache']['server_2']]]></code>
-      <code><![CDATA[$_SESSION['cache']['server_2']]]></code>
-      <code><![CDATA[$_SESSION['cache']['server_2']['test_data']]]></code>
-      <code><![CDATA[$_SESSION['cache']['server_2']['test_data_3']]]></code>
+      <code><![CDATA[$_SESSION['cache']['server_2_']]]></code>
+      <code><![CDATA[$_SESSION['cache']['server_2_']]]></code>
+      <code><![CDATA[$_SESSION['cache']['server_2_']]]></code>
+      <code><![CDATA[$_SESSION['cache']['server_2_']]]></code>
+      <code><![CDATA[$_SESSION['cache']['server_2_']['test_data']]]></code>
+      <code><![CDATA[$_SESSION['cache']['server_2_']['test_data_3']]]></code>
     </MixedArrayAccess>
   </file>
   <file src="tests/unit/VersionInformationTest.php">

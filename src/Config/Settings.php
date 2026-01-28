@@ -3920,10 +3920,10 @@ final class Settings
         }
 
         return match ($settings['NavigationTreeDefaultTabTable']) {
-            'sql', 'tbl_sql.php' => '/table/sql',
-            'search', 'tbl_select.php' => '/table/search',
-            'insert', 'tbl_change.php' => '/table/change',
-            'browse', 'sql.php' => '/sql',
+            'sql', 'tbl_sql.php', '/table/sql' => '/table/sql',
+            'search', 'tbl_select.php', '/table/search' => '/table/search',
+            'insert', 'tbl_change.php', '/table/change' => '/table/change',
+            'browse', 'sql.php', '/sql' => '/sql',
             default => '/table/structure',
         };
     }
@@ -3940,11 +3940,11 @@ final class Settings
         }
 
         return match ($settings['NavigationTreeDefaultTabTable2']) {
-            'structure', 'tbl_structure.php' => '/table/structure',
-            'sql', 'tbl_sql.php' => '/table/sql',
-            'search', 'tbl_select.php' => '/table/search',
-            'insert', 'tbl_change.php' => '/table/change',
-            'browse', 'sql.php' => '/sql',
+            'structure', 'tbl_structure.php', '/table/structure' => '/table/structure',
+            'sql', 'tbl_sql.php', '/table/sql' => '/table/sql',
+            'search', 'tbl_select.php', '/table/search' => '/table/search',
+            'insert', 'tbl_change.php', '/table/change' => '/table/change',
+            'browse', 'sql.php', '/sql' => '/sql',
             default => '',
         };
     }
@@ -4520,10 +4520,10 @@ final class Settings
         }
 
         return match ($settings['DefaultTabServer']) {
-            'databases', 'server_databases.php' => '/server/databases',
-            'status', 'server_status.php' => '/server/status',
-            'variables', 'server_variables.php' => '/server/variables',
-            'privileges', 'server_privileges.php' => '/server/privileges',
+            'databases', 'server_databases.php', '/server/databases' => '/server/databases',
+            'status', 'server_status.php', '/server/status' => '/server/status',
+            'variables', 'server_variables.php', '/server/variables' => '/server/variables',
+            'privileges', 'server_privileges.php', '/server/privileges' => '/server/privileges',
             default => '/',
         };
     }
@@ -4540,9 +4540,9 @@ final class Settings
         }
 
         return match ($settings['DefaultTabDatabase']) {
-            'sql', 'db_sql.php' => '/database/sql',
-            'search', 'db_search.php' => '/database/search',
-            'operations', 'db_operations.php' => '/database/operations',
+            'sql', 'db_sql.php', '/database/sql' => '/database/sql',
+            'search', 'db_search.php', '/database/search' => '/database/search',
+            'operations', 'db_operations.php', '/database/operations' => '/database/operations',
             default => '/database/structure',
         };
     }
@@ -4559,10 +4559,10 @@ final class Settings
         }
 
         return match ($settings['DefaultTabTable']) {
-            'structure', 'tbl_structure.php' => '/table/structure',
-            'sql', 'tbl_sql.php' => '/table/sql',
-            'search', 'tbl_select.php' => '/table/search',
-            'insert', 'tbl_change.php' => '/table/change',
+            'structure', 'tbl_structure.php', '/table/structure' => '/table/structure',
+            'sql', 'tbl_sql.php', '/table/sql' => '/table/sql',
+            'search', 'tbl_select.php', '/table/search' => '/table/search',
+            'insert', 'tbl_change.php', '/table/change' => '/table/change',
             default => '/sql',
         };
     }

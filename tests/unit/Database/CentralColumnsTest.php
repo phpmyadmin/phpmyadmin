@@ -103,8 +103,6 @@ class CentralColumnsTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $this->setGlobalConfig();
-
         $config = Config::getInstance();
         $config->selectedServer['user'] = 'pma_user';
         $config->selectedServer['DisableIS'] = true;

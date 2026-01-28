@@ -29,8 +29,8 @@ final class UserPreferencesHandlerTest extends AbstractTestCase
             new LanguageManager($config),
             new ThemeManager(),
         );
-        $userPreferencesHandler->setUserValue(null, 'lang', 'cs', 'en');
-        $userPreferencesHandler->setUserValue('TEST_COOKIE_USER_VAL', '', 'cfg_val_1');
+        $userPreferencesHandler->setUserValue(null, 'Lang', 'cs', 'en');
+        $userPreferencesHandler->setUserValue('TEST_COOKIE_USER_VAL', 'Servers/1/hide_db', 'cfg_val_1');
         self::assertSame('cfg_val_1', $userPreferencesHandler->getUserValue('TEST_COOKIE_USER_VAL', 'fail'));
         $userPreferencesHandler->setUserValue(null, 'NavigationWidth', 300);
         self::assertSame(300, $config->settings['NavigationWidth']);

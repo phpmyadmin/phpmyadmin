@@ -14,7 +14,6 @@ use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\Import\ImportLdi;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Medium;
 
@@ -57,7 +56,6 @@ class ImportLdiTest extends AbstractTestCase
         $config->settings['Import']['ldi_escaped'] = '\\';
         $config->settings['Import']['ldi_new_line'] = 'auto';
         $config->settings['Import']['ldi_columns'] = '';
-        $config->settings['Import']['ldi_local_option'] = false;
         Current::$table = 'phpmyadmintest';
     }
 
@@ -67,39 +65,6 @@ class ImportLdiTest extends AbstractTestCase
     public function testGetProperties(): void
     {
         $properties = (new ImportLdi())->getProperties();
-        self::assertSame(
-            __('CSV using LOAD DATA'),
-            $properties->getText(),
-        );
-        self::assertSame(
-            'ldi',
-            $properties->getExtension(),
-        );
-    }
-
-    /**
-     * Test for getProperties for ldi_local_option = auto
-     */
-    public function testGetPropertiesAutoLdi(): void
-    {
-        $dbi = self::createMock(DatabaseInterface::class);
-        DatabaseInterface::$instance = $dbi;
-
-        $resultStub = self::createMock(DummyResult::class);
-
-        $dbi->expects(self::any())->method('tryQuery')
-            ->willReturn($resultStub);
-
-        $resultStub->expects(self::any())->method('numRows')
-            ->willReturn(10);
-
-        $resultStub->expects(self::any())->method('fetchValue')
-            ->willReturn('ON');
-
-        $config = Config::getInstance();
-        $config->settings['Import']['ldi_local_option'] = 'auto';
-        $properties = (new ImportLdi())->getProperties();
-        self::assertTrue($config->settings['Import']['ldi_local_option']);
         self::assertSame(
             __('CSV using LOAD DATA'),
             $properties->getText(),

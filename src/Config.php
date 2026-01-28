@@ -13,7 +13,7 @@ use Throwable;
 
 use function __;
 use function array_key_last;
-use function array_replace_recursive;
+use function array_shift;
 use function array_slice;
 use function count;
 use function defined;
@@ -68,9 +68,6 @@ class Config
 {
     public static self|null $instance = null;
 
-    /** @var mixed[]   default configuration settings */
-    public array $default;
-
     /** @var mixed[]   configuration settings, without user preferences applied */
     public array $baseSettings;
 
@@ -102,7 +99,6 @@ class Config
     {
         $this->config = new Settings([]);
         $config = $this->config->asArray();
-        $this->default = $config;
         $this->settings = $config;
         $this->baseSettings = $config;
         $this->selectedServer = (new Server())->asArray();
@@ -208,7 +204,7 @@ class Config
         }
 
         $this->config = new Settings($cfg);
-        $this->settings = array_replace_recursive($this->settings, $this->config->asArray());
+        $this->settings = $this->config->asArray();
     }
 
     /**
@@ -288,15 +284,44 @@ class Config
      *
      * @param string $setting configuration option
      * @param mixed  $value   new value for configuration option
+     *
+     * @throws ConfigException
      */
     public function set(string $setting, mixed $value): void
     {
-        if (isset($this->settings[$setting]) && $this->settings[$setting] === $value) {
+        $parts = explode('/', $setting);
+        if (! $this->setValueRecursive($this->settings, $parts, $value)) {
             return;
         }
 
-        $this->settings[$setting] = $value;
         $this->config = new Settings($this->settings);
+        $this->settings = $this->config->asArray();
+    }
+
+    /**
+     * @param mixed[]     $array
+     * @param array-key[] $parts
+     *
+     * @throws ConfigException
+     */
+    private function setValueRecursive(array &$array, array $parts, mixed $value): bool
+    {
+        $part = array_shift($parts);
+        if ($parts === []) {
+            if ($array[$part] === $value) {
+                return false;
+            }
+
+            $array[$part] = $value;
+
+            return true;
+        }
+
+        if (! is_array($array[$part])) {
+            throw new ConfigException('Failed to set configuration value.');
+        }
+
+        return $this->setValueRecursive($array[$part], $parts, $value);
     }
 
     /**

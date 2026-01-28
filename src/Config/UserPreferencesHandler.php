@@ -21,6 +21,9 @@ class UserPreferencesHandler
     /** @var ''|'db'|'session' */
     public string $storageType = '';
 
+    /** @var mixed[]   default configuration settings */
+    public array $defaultSettings;
+
     public function __construct(
         private readonly Config $config,
         private readonly DatabaseInterface $dbi,
@@ -28,6 +31,7 @@ class UserPreferencesHandler
         private readonly LanguageManager $languageManager,
         private readonly ThemeManager $themeManager,
     ) {
+        $this->defaultSettings = (new Settings([]))->asArray();
     }
 
     /**
@@ -45,7 +49,6 @@ class UserPreferencesHandler
             ) {
                 $prefs = $this->userPreferences->load();
                 $_SESSION['cache'][$cacheKey]['userprefs'] = $this->userPreferences->apply($prefs['config_data']);
-                $_SESSION['cache'][$cacheKey]['userprefs_mtime'] = $prefs['mtime'];
                 $_SESSION['cache'][$cacheKey]['userprefs_type'] = $prefs['type'];
                 $_SESSION['cache'][$cacheKey]['config_mtime'] = $this->config->sourceMtime;
             }
@@ -58,7 +61,6 @@ class UserPreferencesHandler
         $configData = $_SESSION['cache'][$cacheKey]['userprefs'];
         // type is 'db' or 'session'
         $this->storageType = $_SESSION['cache'][$cacheKey]['userprefs_type'];
-        $this->config->set('user_preferences_mtime', $_SESSION['cache'][$cacheKey]['userprefs_mtime']);
 
         if (isset($configData['Server']) && is_array($configData['Server'])) {
             $serverConfig = array_replace_recursive($this->config->selectedServer, $configData['Server']);
@@ -165,7 +167,7 @@ class UserPreferencesHandler
         // use permanent user preferences if possible
         if ($this->storageType !== '') {
             if ($defaultValue === null) {
-                $defaultValue = Core::arrayRead($cfgPath, $this->config->default);
+                $defaultValue = Core::arrayRead($cfgPath, $this->defaultSettings);
             }
 
             $result = $this->userPreferences->persistOption($cfgPath, $newCfgValue, $defaultValue);
@@ -180,7 +182,7 @@ class UserPreferencesHandler
             $this->config->setCookie($cookieName, (string) $newCfgValue, $defaultValue);
         }
 
-        Core::arrayWrite($cfgPath, $this->config->settings, $newCfgValue);
+        $this->config->set($cfgPath, $newCfgValue);
 
         return $result;
     }

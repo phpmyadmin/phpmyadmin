@@ -29,8 +29,6 @@ class AdvisorControllerTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $this->setGlobalConfig();
-
         DatabaseInterface::$instance = $this->createDatabaseInterface();
 
         $config = Config::getInstance();

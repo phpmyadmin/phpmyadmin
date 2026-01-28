@@ -32,8 +32,6 @@ class ThemeTest extends AbstractTestCase
         parent::setUp();
 
         $this->object = new Theme();
-
-        $this->setGlobalConfig();
     }
 
     /**

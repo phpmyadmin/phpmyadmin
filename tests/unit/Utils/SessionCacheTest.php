@@ -16,7 +16,7 @@ class SessionCacheTest extends TestCase
     public function testGet(): void
     {
         $_SESSION = [];
-        Config::getInstance()->selectedServer['user'] = null;
+        Config::getInstance()->selectedServer['user'] = '';
 
         SessionCache::set('test_data', 5);
         SessionCache::set('test_data_2', 5);
@@ -29,35 +29,35 @@ class SessionCacheTest extends TestCase
     public function testRemove(): void
     {
         $_SESSION = [];
-        Config::getInstance()->selectedServer['user'] = null;
+        Config::getInstance()->selectedServer['user'] = '';
         Current::$server = 2;
 
         SessionCache::set('test_data', 25);
         SessionCache::set('test_data_2', 25);
 
         SessionCache::remove('test_data');
-        self::assertArrayNotHasKey('test_data', $_SESSION['cache']['server_2']);
+        self::assertArrayNotHasKey('test_data', $_SESSION['cache']['server_2_']);
         SessionCache::remove('test_data_2');
-        self::assertArrayNotHasKey('test_data_2', $_SESSION['cache']['server_2']);
+        self::assertArrayNotHasKey('test_data_2', $_SESSION['cache']['server_2_']);
     }
 
     public function testSet(): void
     {
         $_SESSION = [];
-        Config::getInstance()->selectedServer['user'] = null;
+        Config::getInstance()->selectedServer['user'] = '';
         Current::$server = 2;
 
         SessionCache::set('test_data', 25);
         SessionCache::set('test_data', 5);
-        self::assertSame(5, $_SESSION['cache']['server_2']['test_data']);
+        self::assertSame(5, $_SESSION['cache']['server_2_']['test_data']);
         SessionCache::set('test_data_3', 3);
-        self::assertSame(3, $_SESSION['cache']['server_2']['test_data_3']);
+        self::assertSame(3, $_SESSION['cache']['server_2_']['test_data_3']);
     }
 
     public function testHas(): void
     {
         $_SESSION = [];
-        Config::getInstance()->selectedServer['user'] = null;
+        Config::getInstance()->selectedServer['user'] = '';
 
         SessionCache::set('test_data', 5);
         SessionCache::set('test_data_2', 5);
@@ -74,16 +74,16 @@ class SessionCacheTest extends TestCase
     public function testKeyWithoutUser(): void
     {
         $_SESSION = [];
-        Config::getInstance()->selectedServer['user'] = null;
+        Config::getInstance()->selectedServer['user'] = '';
         Current::$server = 123;
 
         SessionCache::set('test_data', 5);
         self::assertArrayHasKey('cache', $_SESSION);
         self::assertIsArray($_SESSION['cache']);
-        self::assertArrayHasKey('server_123', $_SESSION['cache']);
-        self::assertIsArray($_SESSION['cache']['server_123']);
-        self::assertArrayHasKey('test_data', $_SESSION['cache']['server_123']);
-        self::assertSame(5, $_SESSION['cache']['server_123']['test_data']);
+        self::assertArrayHasKey('server_123_', $_SESSION['cache']);
+        self::assertIsArray($_SESSION['cache']['server_123_']);
+        self::assertArrayHasKey('test_data', $_SESSION['cache']['server_123_']);
+        self::assertSame(5, $_SESSION['cache']['server_123_']['test_data']);
     }
 
     public function testKeyWithUser(): void

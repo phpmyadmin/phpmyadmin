@@ -35,8 +35,6 @@ class OptionsTest extends AbstractTestCase
 
         $this->setLanguage();
 
-        $this->setGlobalConfig();
-
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
 
@@ -54,13 +52,6 @@ class OptionsTest extends AbstractTestCase
         );
 
         $this->export = new Options($relation, new TemplateModel($dbi), $userPreferencesHandler);
-    }
-
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-
-        Config::$instance = null;
     }
 
     public function testGetOptions(): void
