@@ -21,10 +21,8 @@ use function __;
 #[RequiresPhpExtension('xml')]
 #[RequiresPhpExtension('xmlwriter')]
 #[Medium]
-class ImportXmlTest extends AbstractTestCase
+final class ImportXmlTest extends AbstractTestCase
 {
-    protected ImportXml $object;
-
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
@@ -51,19 +49,6 @@ class ImportXmlTest extends AbstractTestCase
         ImportSettings::$importFile = 'tests/test_data/phpmyadmin_importXML_For_Testing.xml';
         Import::$importText = 'ImportXml_Test';
         ImportSettings::$readMultiply = 10;
-
-        $this->object = new ImportXml();
-    }
-
-    /**
-     * Tears down the fixture, for example, closes a network connection.
-     * This method is called after a test is executed.
-     */
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-
-        unset($this->object);
     }
 
     /**
@@ -71,7 +56,8 @@ class ImportXmlTest extends AbstractTestCase
      */
     public function testGetProperties(): void
     {
-        $properties = $this->object->getProperties();
+        $importXml = new ImportXml();
+        $properties = $importXml->getProperties();
         self::assertSame(
             __('XML'),
             $properties->getText(),
@@ -105,7 +91,8 @@ class ImportXmlTest extends AbstractTestCase
         $importHandle = new File(ImportSettings::$importFile);
         $importHandle->open();
 
-        $this->object->doImport($importHandle);
+        $importXml = new ImportXml();
+        $importXml->doImport($importHandle);
 
         // If import successfully, PMA will show all databases and tables
         // imported as following HTML Page

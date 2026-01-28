@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Plugins\Import;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Gis\GisFactory;
 use PhpMyAdmin\Gis\GisMultiLineString;
@@ -23,6 +24,7 @@ use PhpMyAdmin\Import\ImportTable;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\ShapeFile\ShapeType;
 use PhpMyAdmin\ZipExtension;
@@ -315,7 +317,11 @@ class ImportShp extends ImportPlugin
      */
     public static function readFromBuffer(int $length): string
     {
-        $import = new Import();
+        $import = new Import(
+            DatabaseInterface::getInstance(),
+            ResponseRenderer::getInstance(),
+            Config::getInstance(),
+        );
 
         if (strlen(self::$buffer) < $length) {
             if (ImportSettings::$finished) {

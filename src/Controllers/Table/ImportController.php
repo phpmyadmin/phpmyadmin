@@ -109,7 +109,7 @@ final readonly class ImportController implements InvocableController
 
         $timeoutPassed = $request->getParam('timeout_passed');
         $localImportFile = $request->getParam('local_import_file');
-        $compressions = Import::getCompressions();
+        $compressions = Import::getCompressions($this->config);
 
         $charsets = Charsets::getCharsets($this->dbi, $this->config->selectedServer['DisableIS']);
 
@@ -155,7 +155,7 @@ final readonly class ImportController implements InvocableController
             'charsets' => $charsets,
             'is_foreign_key_check' => ForeignKey::isCheckEnabled(),
             'user_upload_dir' => Util::userDir($this->config->config->UploadDir),
-            'local_files' => Import::getLocalFiles($importList),
+            'local_files' => Import::getLocalFiles($this->config, $importList),
         ]);
 
         return $this->response->response();

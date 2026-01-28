@@ -124,7 +124,10 @@ return [
     ],
     HttpRequest::class => ['class' => HttpRequest::class],
     ResponseFactory::class => ['class' => ResponseFactory::class, 'factory' => [ResponseFactory::class, 'create']],
-    Import::class => ['class' => Import::class],
+    Import::class => [
+        'class' => Import::class,
+        'arguments' => [DatabaseInterface::class, ResponseRenderer::class, Config::class],
+    ],
     SimulateDml::class => ['class' => SimulateDml::class, 'arguments' => [DatabaseInterface::class]],
     InsertEdit::class => [
         'class' => InsertEdit::class,

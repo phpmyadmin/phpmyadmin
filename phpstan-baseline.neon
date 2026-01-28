@@ -7060,24 +7060,6 @@ parameters:
 			path: src/Import/Ajax.php
 
 		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 4
-			path: src/Import/Import.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 5
-			path: src/Import/Import.php
-
-		-
 			message: '#^Cannot access property \$precision on int\|PhpMyAdmin\\Import\\DecimalSize\.$#'
 			identifier: property.nonObject
 			count: 5
@@ -9645,6 +9627,15 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
+			count: 2
+			path: src/Plugins/Import/ImportShp.php
+
+		-
+			message: '''
+				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
+				Use dependency injection instead\.$#
+			'''
+			identifier: staticMethod.deprecated
 			count: 1
 			path: src/Plugins/Import/ImportShp.php
 
@@ -9920,6 +9911,24 @@ parameters:
 			identifier: argument.type
 			count: 1
 			path: src/Plugins/Import/Upload/UploadSession.php
+
+		-
+			message: '''
+				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
+				Use dependency injection instead\.$#
+			'''
+			identifier: staticMethod.deprecated
+			count: 1
+			path: src/Plugins/ImportPlugin.php
+
+		-
+			message: '''
+				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
+				Use dependency injection instead\.$#
+			'''
+			identifier: staticMethod.deprecated
+			count: 1
+			path: src/Plugins/ImportPlugin.php
 
 		-
 			message: '#^Cannot cast mixed to string\.$#'

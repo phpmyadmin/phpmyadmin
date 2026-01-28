@@ -24,10 +24,8 @@ use function str_repeat;
 #[CoversClass(ImportOds::class)]
 #[RequiresPhpExtension('zip')]
 #[Medium]
-class ImportOdsTest extends AbstractTestCase
+final class ImportOdsTest extends AbstractTestCase
 {
-    protected ImportOds $object;
-
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
@@ -52,27 +50,6 @@ class ImportOdsTest extends AbstractTestCase
         ImportSettings::$offset = 0;
         Config::getInstance()->selectedServer['DisableIS'] = false;
         ImportSettings::$readMultiply = 10;
-
-        $this->object = new ImportOds();
-
-        //variable for Ods
-        $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
-            ->withParsedBody([
-                'ods_recognize_percentages' => 'yes',
-                'ods_recognize_currency' => 'yes',
-            ]);
-        $this->object->setImportOptions($request);
-    }
-
-    /**
-     * Tears down the fixture, for example, closes a network connection.
-     * This method is called after a test is executed.
-     */
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-
-        unset($this->object);
     }
 
     /**
@@ -80,7 +57,8 @@ class ImportOdsTest extends AbstractTestCase
      */
     public function testGetProperties(): void
     {
-        $properties = $this->object->getProperties();
+        $importOds = new ImportOds();
+        $properties = $importOds->getProperties();
         self::assertSame(
             __('OpenDocument Spreadsheet'),
             $properties->getText(),
@@ -104,21 +82,23 @@ class ImportOdsTest extends AbstractTestCase
 
         ImportSettings::$importFile = 'tests/test_data/db_test.ods';
 
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
+
+        $importOds = new ImportOds();
+
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
             ->withParsedBody([
                 'ods_recognize_percentages' => 'yes',
                 'ods_recognize_currency' => 'yes',
                 'ods_empty_rows' => 'yes',
             ]);
-        $this->object->setImportOptions($request);
-
-        DatabaseInterface::$instance = $this->createDatabaseInterface();
+        $importOds->setImportOptions($request);
 
         $importHandle = new File(ImportSettings::$importFile);
         $importHandle->setDecompressContent(true);
         $importHandle->open();
 
-        $this->object->doImport($importHandle);
+        $importOds->doImport($importHandle);
 
         self::assertStringContainsString(
             'CREATE DATABASE IF NOT EXISTS `ODS_DB` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci',
@@ -163,6 +143,11 @@ class ImportOdsTest extends AbstractTestCase
         ImportSettings::$sqlQueryDisabled = false; //will show the import SQL detail
 
         ImportSettings::$importFile = 'tests/test_data/import-slim.ods.xml';
+
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
+
+        $importOds = new ImportOds();
+
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
             ->withParsedBody([
                 'ods_recognize_percentages' => 'yes',
@@ -170,9 +155,7 @@ class ImportOdsTest extends AbstractTestCase
                 'ods_col_names' => 'yes',
                 'ods_empty_rows' => $odsEmptyRowsMode,
             ]);
-        $this->object->setImportOptions($request);
-
-        DatabaseInterface::$instance = $this->createDatabaseInterface();
+        $importOds->setImportOptions($request);
 
         $importHandle = new File(ImportSettings::$importFile);
         $importHandle->setDecompressContent(false);// Not compressed
@@ -188,7 +171,7 @@ class ImportOdsTest extends AbstractTestCase
             $endOfSql = '),' . "\n" . ' (' . $fullCols . '),' . "\n" . ' (' . $fullCols . ');';
         }
 
-        $this->object->doImport($importHandle);
+        $importOds->doImport($importHandle);
 
         self::assertSame(
             'CREATE DATABASE IF NOT EXISTS `ODS_DB` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;'

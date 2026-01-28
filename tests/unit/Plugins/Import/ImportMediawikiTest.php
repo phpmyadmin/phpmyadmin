@@ -18,10 +18,8 @@ use function __;
 
 #[CoversClass(ImportMediawiki::class)]
 #[Medium]
-class ImportMediawikiTest extends AbstractTestCase
+final class ImportMediawikiTest extends AbstractTestCase
 {
-    protected ImportMediawiki $object;
-
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
@@ -49,19 +47,6 @@ class ImportMediawikiTest extends AbstractTestCase
         ImportSettings::$importFile = 'tests/test_data/phpmyadmin.mediawiki';
         Import::$importText = 'ImportMediawiki_Test';
         ImportSettings::$readMultiply = 10;
-
-        $this->object = new ImportMediawiki();
-    }
-
-    /**
-     * Tears down the fixture, for example, closes a network connection.
-     * This method is called after a test is executed.
-     */
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-
-        unset($this->object);
     }
 
     /**
@@ -69,7 +54,8 @@ class ImportMediawikiTest extends AbstractTestCase
      */
     public function testGetProperties(): void
     {
-        $properties = $this->object->getProperties();
+        $importMediawiki = new ImportMediawiki();
+        $properties = $importMediawiki->getProperties();
         self::assertSame(
             __('MediaWiki Table'),
             $properties->getText(),
@@ -102,8 +88,10 @@ class ImportMediawikiTest extends AbstractTestCase
         $importHandle = new File(ImportSettings::$importFile);
         $importHandle->open();
 
+        $importMediawiki = new ImportMediawiki();
+
         //Test function called
-        $this->object->doImport($importHandle);
+        $importMediawiki->doImport($importHandle);
 
         // If import successfully, PMA will show all databases and
         // tables imported as following HTML Page
@@ -140,8 +128,10 @@ class ImportMediawikiTest extends AbstractTestCase
         $importHandle = new File('tests/test_data/__slashes.mediawiki');
         $importHandle->open();
 
+        $importMediawiki = new ImportMediawiki();
+
         //Test function called
-        $this->object->doImport($importHandle);
+        $importMediawiki->doImport($importHandle);
 
         // If import successfully, PMA will show all databases and
         // tables imported as following HTML Page

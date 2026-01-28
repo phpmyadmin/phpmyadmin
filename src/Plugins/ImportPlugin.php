@@ -7,11 +7,14 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins;
 
+use PhpMyAdmin\Config;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use PhpMyAdmin\Properties\Plugins\PluginPropertyItem;
+use PhpMyAdmin\ResponseRenderer;
 
 /**
  * Provides a common interface that will have to be implemented by all of the
@@ -28,7 +31,11 @@ abstract class ImportPlugin implements Plugin
 
     final public function __construct()
     {
-        $this->import = new Import();
+        $this->import = new Import(
+            DatabaseInterface::getInstance(),
+            ResponseRenderer::getInstance(),
+            Config::getInstance(),
+        );
         $this->init();
         $this->properties = $this->setProperties();
     }
