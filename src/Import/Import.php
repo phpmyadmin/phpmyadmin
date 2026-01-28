@@ -59,7 +59,7 @@ use function trim;
 /**
  * Library that provides common import functions that are used by import plugins
  */
-class Import
+final class Import
 {
     private string|null $importRunBuffer = null;
     public static bool $hasError = false;
@@ -68,9 +68,12 @@ class Import
     public static string $errorUrl = '';
     private bool $forceExecute = false;
 
-    public function __construct()
-    {
-        Config::getInstance()->selectedServer['DisableIS'] = false;
+    public function __construct(
+        private readonly DatabaseInterface $dbi,
+        private readonly ResponseRenderer $responseRenderer,
+        private readonly Config $config,
+    ) {
+        $this->config->selectedServer['DisableIS'] = false;
     }
 
     /**
@@ -106,8 +109,7 @@ class Import
      */
     public function executeQuery(string $sql, array &$sqlData): void
     {
-        $dbi = DatabaseInterface::getInstance();
-        self::$result = $dbi->tryQuery($sql);
+        self::$result = $this->dbi->tryQuery($sql);
 
         // USE query changes the database, son need to track
         // while running multiple queries
@@ -115,18 +117,18 @@ class Import
 
         ImportSettings::$message = '# ';
         if (self::$result === false) {
-            ImportSettings::$failedQueries[] = ['sql' => $sql, 'error' => $dbi->getError()];
+            ImportSettings::$failedQueries[] = ['sql' => $sql, 'error' => $this->dbi->getError()];
 
             ImportSettings::$message .= __('Error');
 
-            if (! Config::getInstance()->settings['IgnoreMultiSubmitErrors']) {
+            if (! $this->config->settings['IgnoreMultiSubmitErrors']) {
                 self::$hasError = true;
 
                 return;
             }
         } else {
             $aNumRows = (int) self::$result->numRows();
-            $aAffectedRows = (int) @$dbi->affectedRows();
+            $aAffectedRows = (int) @$this->dbi->affectedRows();
             if ($aNumRows > 0) {
                 ImportSettings::$message .= __('Rows') . ': ' . $aNumRows;
             } elseif ($aAffectedRows > 0) {
@@ -759,7 +761,7 @@ class Import
         if ($analyses !== null) {
             /* TODO: Do more checking here to make sure they really are matched */
             if (count($tables) !== count($analyses)) {
-                ResponseRenderer::getInstance()->callExit();
+                $this->responseRenderer->callExit();
             }
 
             /* Create SQL code to create the tables */
@@ -809,7 +811,6 @@ class Import
          *
          * Only one insert query is formed for each table
          */
-        $dbi = DatabaseInterface::getInstance();
         foreach ($tables as $tableIndex => $table) {
             $numCols = count($table->columns);
             $lastColumnKey = array_key_last($table->columns);
@@ -856,7 +857,7 @@ class Import
                         }
 
                         $tempSQLStr .= $isVarchar
-                            ? $dbi->quoteString((string) $row[$columnIndex])
+                            ? $this->dbi->quoteString((string) $row[$columnIndex])
                             : (string) $row[$columnIndex];
                     }
 
@@ -919,7 +920,7 @@ class Import
             $tables[] = new ImportTable($regs[1]);
         }
 
-        $message = $this->getSuccessMessage($dbName, $tables, $dbi);
+        $message = $this->getSuccessMessage($dbName, $tables);
 
         ImportSettings::$importNotice = $message;
     }
@@ -928,7 +929,6 @@ class Import
     {
         $sqlDelimiter = $_POST['sql_delimiter'];
         $queries = explode($sqlDelimiter, $sqlQuery);
-        $dbi = DatabaseInterface::getInstance();
         foreach ($queries as $sqlQuery) {
             if ($sqlQuery === '') {
                 continue;
@@ -939,19 +939,18 @@ class Import
                 continue;
             }
 
-            $sqlError = $dbi->getError();
+            $sqlError = $this->dbi->getError();
             $error = $sqlError !== '' ? $sqlError : __(
                 'Only INSERT, UPDATE, DELETE, REPLACE and SET (without options like GLOBAL) '
                 . 'SQL queries containing transactional engine tables can be rolled back.',
             );
 
-            $response = ResponseRenderer::getInstance();
-            $response->addJSON('message', Message::rawError($error));
-            $response->callExit();
+            $this->responseRenderer->addJSON('message', Message::rawError($error));
+            $this->responseRenderer->callExit();
         }
 
         // If everything fine, START a transaction.
-        $dbi->query('START TRANSACTION');
+        $this->dbi->query('START TRANSACTION');
     }
 
     /**
@@ -1019,8 +1018,7 @@ class Import
             . '.' . Util::backquote($table) . ' '
             . 'LIMIT 1';
 
-        $dbi = DatabaseInterface::getInstance();
-        $result = $dbi->tryQuery($checkTableQuery);
+        $result = $this->dbi->tryQuery($checkTableQuery);
 
         if (! $result) {
             return false;
@@ -1040,23 +1038,21 @@ class Import
 
         // Query to check if table is 'Transactional'.
         $checkQuery = 'SELECT `ENGINE` FROM `information_schema`.`tables` '
-            . 'WHERE `table_name` = ' . $dbi->quoteString($table) . ' '
-            . 'AND `table_schema` = ' . $dbi->quoteString($db) . ' '
+            . 'WHERE `table_name` = ' . $this->dbi->quoteString($table) . ' '
+            . 'AND `table_schema` = ' . $this->dbi->quoteString($db) . ' '
             . 'AND UPPER(`engine`) IN ("'
             . implode('", "', $transactionalEngines)
             . '")';
 
-        $result = $dbi->tryQuery($checkQuery);
+        $result = $this->dbi->tryQuery($checkQuery);
 
         return $result && $result->numRows() === 1;
     }
 
     /** @return string[] */
-    public static function getCompressions(): array
+    public static function getCompressions(Config $config): array
     {
         $compressions = [];
-
-        $config = Config::getInstance();
         if ($config->config->GZipDump && function_exists('gzopen')) {
             $compressions[] = 'gzip';
         }
@@ -1073,7 +1069,7 @@ class Import
     }
 
     /** @param ImportPlugin[] $importList List of plugin instances. */
-    public static function getLocalFiles(array $importList): false|string
+    public static function getLocalFiles(Config $config, array $importList): false|string
     {
         $fileListing = new FileListing();
 
@@ -1093,7 +1089,7 @@ class Import
             : '';
 
         return $fileListing->getFileSelectOptions(
-            Util::userDir(Config::getInstance()->config->UploadDir),
+            Util::userDir($config->config->UploadDir),
             $matcher,
             $active,
         );
@@ -1109,7 +1105,7 @@ class Import
         $importFileName = (string) preg_replace('/[^\x{0001}-\x{FFFF}]/u', '_', $importFileName);
 
         if ($databaseName !== '') {
-            $existingTables = DatabaseInterface::getInstance()->getTables($databaseName);
+            $existingTables = $this->dbi->getTables($databaseName);
 
             // check to see if {filename} as table exist
             // if no use filename as table name
@@ -1144,7 +1140,7 @@ class Import
     }
 
     /** @param ImportTable[] $tables */
-    private function getHtmlListForAllTables(array $tables, string $dbName, DatabaseInterface $dbi): string
+    private function getHtmlListForAllTables(array $tables, string $dbName): string
     {
         $message = '<ul>';
 
@@ -1154,7 +1150,7 @@ class Import
             $tblStructUrl = Url::getFromRoute('/table/structure', $params);
             $tblOpsUrl = Url::getFromRoute('/table/operations', $params);
 
-            $tableObj = new Table($table->tableName, $dbName, $dbi);
+            $tableObj = new Table($table->tableName, $dbName, $this->dbi);
             if (! $tableObj->isView()) {
                 $message .= sprintf(
                     '<li><a href="%s" title="%s">%s</a> (<a href="%s" title="%s">' . __(
@@ -1202,7 +1198,7 @@ class Import
     }
 
     /** @param ImportTable[] $tables */
-    private function getSuccessMessage(string $dbName, array $tables, DatabaseInterface $dbi): string
+    private function getSuccessMessage(string $dbName, array $tables): string
     {
         $dbUrl = Url::getFromRoute('/database/structure', ['db' => $dbName]);
         $dbOperationsUrl = Url::getFromRoute('/database/operations', ['db' => $dbName]);
@@ -1231,7 +1227,7 @@ class Import
             ),
         );
 
-        $message .= $this->getHtmlListForAllTables($tables, $dbName, $dbi);
+        $message .= $this->getHtmlListForAllTables($tables, $dbName);
 
         return $message;
     }

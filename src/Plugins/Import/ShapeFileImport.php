@@ -9,12 +9,23 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Import;
 
 use PhpMyAdmin\ShapeFile\ShapeFile;
+use PhpMyAdmin\ShapeFile\ShapeType;
 
 /**
  * ShapeFileImport class
  */
-class ShapeFileImport extends ShapeFile
+final class ShapeFileImport extends ShapeFile
 {
+    /** @param mixed[] $boundingBox */
+    public function __construct(
+        private readonly ImportShp $importShp,
+        ShapeType $shapeType,
+        array $boundingBox = ['xmin' => 0.0, 'ymin' => 0.0, 'xmax' => 0.0, 'ymax' => 0.0],
+        string|null $fileName = null,
+    ) {
+        parent::__construct($shapeType, $boundingBox, $fileName);
+    }
+
     /**
      * Reads given number of bytes from SHP file
      *
@@ -22,7 +33,7 @@ class ShapeFileImport extends ShapeFile
      */
     public function readSHP(int $bytes): string|false
     {
-        return ImportShp::readFromBuffer($bytes);
+        return $this->importShp->readFromBuffer($bytes);
     }
 
     /**

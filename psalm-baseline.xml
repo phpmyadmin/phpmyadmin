@@ -4931,17 +4931,6 @@
     <ArgumentTypeCoercion>
       <code><![CDATA[$sqlDelimiter]]></code>
     </ArgumentTypeCoercion>
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-    </DeprecatedMethod>
     <DocblockTypeContradiction>
       <code><![CDATA[$nameArray === false]]></code>
     </DocblockTypeContradiction>
@@ -6425,10 +6414,6 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Plugins/Import/ImportCsv.php">
-    <DeprecatedMethod>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-    </DeprecatedMethod>
     <InvalidArgument>
       <code><![CDATA[$colNames]]></code>
     </InvalidArgument>
@@ -6452,12 +6437,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Plugins/Import/ImportLdi.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-    </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[ImportSettings::$importFile]]></code>
     </MixedArgument>
@@ -6507,9 +6486,6 @@
     </RedundantCondition>
   </file>
   <file src="src/Plugins/Import/ImportShp.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[$dbfFilePath]]></code>
       <code><![CDATA[$dbfFilePath]]></code>
@@ -6543,10 +6519,6 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Plugins/Import/ImportSql.php">
-    <DeprecatedMethod>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-    </DeprecatedMethod>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$sqlModes]]></code>
     </MixedArgumentTypeCoercion>
@@ -10684,18 +10656,9 @@
     </InvalidPropertyAssignmentValue>
   </file>
   <file src="tests/unit/Plugins/Import/ImportLdiTest.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <TypeDoesNotContainType>
       <code><![CDATA[assertTrue]]></code>
     </TypeDoesNotContainType>
-  </file>
-  <file src="tests/unit/Plugins/Import/ImportOdsTest.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
   </file>
   <file src="tests/unit/Plugins/Import/ImportShpTest.php">
     <RedundantCondition>

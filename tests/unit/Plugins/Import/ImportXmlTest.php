@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Import;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\File;
@@ -11,6 +12,7 @@ use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins\Import\ImportXml;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Medium;
 use PHPUnit\Framework\Attributes\RequiresPhpExtension;
@@ -21,10 +23,8 @@ use function __;
 #[RequiresPhpExtension('xml')]
 #[RequiresPhpExtension('xmlwriter')]
 #[Medium]
-class ImportXmlTest extends AbstractTestCase
+final class ImportXmlTest extends AbstractTestCase
 {
-    protected ImportXml $object;
-
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
@@ -51,19 +51,6 @@ class ImportXmlTest extends AbstractTestCase
         ImportSettings::$importFile = 'tests/test_data/phpmyadmin_importXML_For_Testing.xml';
         Import::$importText = 'ImportXml_Test';
         ImportSettings::$readMultiply = 10;
-
-        $this->object = new ImportXml();
-    }
-
-    /**
-     * Tears down the fixture, for example, closes a network connection.
-     * This method is called after a test is executed.
-     */
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-
-        unset($this->object);
     }
 
     /**
@@ -71,7 +58,8 @@ class ImportXmlTest extends AbstractTestCase
      */
     public function testGetProperties(): void
     {
-        $properties = $this->object->getProperties();
+        $importXml = $this->getImportXml();
+        $properties = $importXml->getProperties();
         self::assertSame(
             __('XML'),
             $properties->getText(),
@@ -100,12 +88,12 @@ class ImportXmlTest extends AbstractTestCase
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
-        DatabaseInterface::$instance = $dbi;
 
         $importHandle = new File(ImportSettings::$importFile);
         $importHandle->open();
 
-        $this->object->doImport($importHandle);
+        $importXml = $this->getImportXml($dbi);
+        $importXml->doImport($importHandle);
 
         // If import successfully, PMA will show all databases and tables
         // imported as following HTML Page
@@ -129,5 +117,13 @@ class ImportXmlTest extends AbstractTestCase
         self::assertStringContainsString('Go to table: `pma_bookmarktest`', ImportSettings::$importNotice);
         self::assertStringContainsString('Edit settings for `pma_bookmarktest`', ImportSettings::$importNotice);
         self::assertTrue(ImportSettings::$finished);
+    }
+
+    private function getImportXml(DatabaseInterface|null $dbi = null): ImportXml
+    {
+        $dbiObject = $dbi ?? $this->createDatabaseInterface();
+        $config = new Config();
+
+        return new ImportXml(new Import($dbiObject, new ResponseRenderer(), $config), $dbiObject, $config);
     }
 }

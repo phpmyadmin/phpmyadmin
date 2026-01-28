@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins;
 
+use PhpMyAdmin\Config;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Import\Import;
@@ -24,11 +26,11 @@ abstract class ImportPlugin implements Plugin
      */
     protected ImportPluginProperties $properties;
 
-    protected Import $import;
-
-    final public function __construct()
-    {
-        $this->import = new Import();
+    final public function __construct(
+        protected readonly Import $import,
+        protected readonly DatabaseInterface $dbi,
+        protected readonly Config $config,
+    ) {
         $this->init();
         $this->properties = $this->setProperties();
     }

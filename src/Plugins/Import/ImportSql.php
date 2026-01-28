@@ -7,7 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import;
 
-use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Import\Import;
@@ -43,7 +42,7 @@ class ImportSql extends ImportPlugin
         $importPluginProperties->setExtension('sql');
         $importPluginProperties->setOptionsText(__('Options'));
 
-        $compats = DatabaseInterface::getInstance()->getCompatibilities();
+        $compats = $this->dbi->getCompatibilities();
         if ($compats !== []) {
             $values = [];
             foreach ($compats as $val) {
@@ -97,7 +96,7 @@ class ImportSql extends ImportPlugin
     public function doImport(File|null $importHandle = null): array
     {
         // Handle compatibility options.
-        $this->setSQLMode(DatabaseInterface::getInstance(), $_REQUEST);
+        $this->setSQLMode($_REQUEST);
 
         $bq = new BufferedQuery();
         if (isset($_POST['sql_delimiter'])) {
@@ -169,10 +168,9 @@ class ImportSql extends ImportPlugin
     /**
      * Handle compatibility options
      *
-     * @param DatabaseInterface $dbi     Database interface
-     * @param mixed[]           $request Request array
+     * @param mixed[] $request Request array
      */
-    private function setSQLMode(DatabaseInterface $dbi, array $request): void
+    private function setSQLMode(array $request): void
     {
         $sqlModes = [];
         if (isset($request['sql_compatibility']) && $request['sql_compatibility'] !== 'NONE') {
@@ -187,6 +185,6 @@ class ImportSql extends ImportPlugin
             return;
         }
 
-        $dbi->tryQuery('SET SQL_MODE="' . implode(',', $sqlModes) . '"');
+        $this->dbi->tryQuery('SET SQL_MODE="' . implode(',', $sqlModes) . '"');
     }
 }

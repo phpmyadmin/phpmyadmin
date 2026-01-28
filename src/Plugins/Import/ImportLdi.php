@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Import\Import;
@@ -55,7 +53,7 @@ class ImportLdi extends AbstractImportCsv
             return $importPluginProperties;
         }
 
-        if (Config::getInstance()->settings['Import']['ldi_local_option'] === 'auto') {
+        if ($this->config->settings['Import']['ldi_local_option'] === 'auto') {
             $this->setLdiLocalOptionConfig();
         }
 
@@ -135,8 +133,7 @@ class ImportLdi extends AbstractImportCsv
             $sql .= ' LOCAL';
         }
 
-        $dbi = DatabaseInterface::getInstance();
-        $sql .= ' INFILE ' . $dbi->quoteString(ImportSettings::$importFile);
+        $sql .= ' INFILE ' . $this->dbi->quoteString(ImportSettings::$importFile);
         if ($this->replace) {
             $sql .= ' REPLACE';
         } elseif ($this->ignore) {
@@ -150,11 +147,11 @@ class ImportLdi extends AbstractImportCsv
         }
 
         if ($this->enclosed !== '') {
-            $sql .= ' ENCLOSED BY ' . $dbi->quoteString($this->enclosed);
+            $sql .= ' ENCLOSED BY ' . $this->dbi->quoteString($this->enclosed);
         }
 
         if ($this->escaped !== '') {
-            $sql .= ' ESCAPED BY ' . $dbi->quoteString($this->escaped);
+            $sql .= ' ESCAPED BY ' . $this->dbi->quoteString($this->escaped);
         }
 
         if ($this->newLine !== '') {
@@ -207,9 +204,8 @@ class ImportLdi extends AbstractImportCsv
 
     private function setLdiLocalOptionConfig(): void
     {
-        $config = Config::getInstance();
-        $config->settings['Import']['ldi_local_option'] = false;
-        $result = DatabaseInterface::getInstance()->tryQuery('SELECT @@local_infile;');
+        $this->config->settings['Import']['ldi_local_option'] = false;
+        $result = $this->dbi->tryQuery('SELECT @@local_infile;');
 
         if ($result === false || $result->numRows() <= 0) {
             return;
@@ -220,6 +216,6 @@ class ImportLdi extends AbstractImportCsv
             return;
         }
 
-        $config->settings['Import']['ldi_local_option'] = true;
+        $this->config->settings['Import']['ldi_local_option'] = true;
     }
 }

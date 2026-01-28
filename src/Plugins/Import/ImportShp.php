@@ -7,7 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Gis\GisFactory;
@@ -100,7 +99,7 @@ class ImportShp extends ImportPlugin
 
         $compression = $importHandle->getCompression();
 
-        $shp = new ShapeFileImport(ShapeType::Point);
+        $shp = new ShapeFileImport($this, ShapeType::Point);
         // If the zip archive has more than one file,
         // get the correct content to the buffer from .shp file.
         if (
@@ -120,8 +119,7 @@ class ImportShp extends ImportPlugin
         $tempDbfFile = false;
         // We need dbase extension to handle .dbf file
         if (extension_loaded('dbase')) {
-            $config = Config::getInstance();
-            $temp = $config->getTempDir('shp');
+            $temp = $this->config->getTempDir('shp');
             // If we can extract the zip archive to 'TempDir'
             // and use the files in it for import
             if ($compression === 'application/zip' && $temp !== null) {
@@ -154,7 +152,7 @@ class ImportShp extends ImportPlugin
                 }
             } elseif (
                 ImportSettings::$localImportFile !== ''
-                && $config->config->UploadDir !== ''
+                && $this->config->config->UploadDir !== ''
                 && $compression === 'none'
             ) {
                 // If file is in UploadDir, use .dbf file in the same UploadDir
@@ -313,15 +311,13 @@ class ImportShp extends ImportPlugin
      *
      * @param int $length number of bytes
      */
-    public static function readFromBuffer(int $length): string
+    public function readFromBuffer(int $length): string
     {
-        $import = new Import();
-
         if (strlen(self::$buffer) < $length) {
             if (ImportSettings::$finished) {
                 self::$eof = true;
             } else {
-                self::$buffer .= $import->getNextChunk(self::$importHandle);
+                self::$buffer .= $this->import->getNextChunk(self::$importHandle);
             }
         }
 

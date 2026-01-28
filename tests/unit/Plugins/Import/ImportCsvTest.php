@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Import;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\File;
@@ -12,6 +13,7 @@ use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins\Import\ImportCsv;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Medium;
 
@@ -19,10 +21,8 @@ use function __;
 
 #[CoversClass(ImportCsv::class)]
 #[Medium]
-class ImportCsvTest extends AbstractTestCase
+final class ImportCsvTest extends AbstractTestCase
 {
-    protected ImportCsv $object;
-
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
@@ -53,31 +53,7 @@ class ImportCsvTest extends AbstractTestCase
         ImportSettings::$importFileName = 'db_test';
         ImportSettings::$readMultiply = 10;
         ImportSettings::$sqlQueryDisabled = false;
-
-        $this->object = new ImportCsv();
-
-        $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
-            ->withParsedBody([
-                'csv_terminated' => "\015",
-                'csv_enclosed' => '"',
-                'csv_escaped' => '"',
-                'csv_new_line' => 'auto',
-                'csv_columns' => null,
-            ]);
-        $this->object->setImportOptions($request);
-
         Import::$importText = 'ImportCsv_Test';
-    }
-
-    /**
-     * Tears down the fixture, for example, closes a network connection.
-     * This method is called after a test is executed.
-     */
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-
-        unset($this->object);
     }
 
     /**
@@ -85,7 +61,8 @@ class ImportCsvTest extends AbstractTestCase
      */
     public function testGetProperties(): void
     {
-        $properties = $this->object->getProperties();
+        $importCsv = $this->getImportCsv();
+        $properties = $importCsv->getProperties();
         self::assertSame(
             __('CSV'),
             $properties->getText(),
@@ -104,12 +81,23 @@ class ImportCsvTest extends AbstractTestCase
         $importHandle = new File(ImportSettings::$importFile);
         $importHandle->open();
 
-        DatabaseInterface::$instance = $this->getMockBuilder(DatabaseInterface::class)
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
-        //Test function called
-        $this->object->doImport($importHandle);
+        $importCsv = $this->getImportCsv($dbi);
+
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
+            ->withParsedBody([
+                'csv_terminated' => "\015",
+                'csv_enclosed' => '"',
+                'csv_escaped' => '"',
+                'csv_new_line' => 'auto',
+                'csv_columns' => null,
+            ]);
+        $importCsv->setImportOptions($request);
+
+        $importCsv->doImport($importHandle);
 
         //asset that all sql are executed
         self::assertStringContainsString(
@@ -132,6 +120,12 @@ class ImportCsvTest extends AbstractTestCase
         $importHandle = new File(ImportSettings::$importFile);
         $importHandle->open();
 
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $importCsv = $this->getImportCsv($dbi);
+
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
             ->withParsedBody([
                 'csv_terminated' => ',',
@@ -142,14 +136,10 @@ class ImportCsvTest extends AbstractTestCase
                 'csv_new_tbl_name' => 'ImportTestTable',
                 'csv_new_db_name' => 'ImportTestDb',
             ]);
-        $this->object->setImportOptions($request);
-
-        DatabaseInterface::$instance = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $importCsv->setImportOptions($request);
 
         //Test function called
-        $this->object->doImport($importHandle);
+        $importCsv->doImport($importHandle);
 
         //asset that all sql are executed
         self::assertStringContainsString(
@@ -169,7 +159,8 @@ class ImportCsvTest extends AbstractTestCase
      */
     public function testGetPropertiesForTable(): void
     {
-        $properties = $this->object->getProperties();
+        $importCsv = $this->getImportCsv();
+        $properties = $importCsv->getProperties();
         self::assertSame(
             __('CSV'),
             $properties->getText(),
@@ -188,12 +179,23 @@ class ImportCsvTest extends AbstractTestCase
         $importHandle = new File(ImportSettings::$importFile);
         $importHandle->open();
 
-        DatabaseInterface::$instance = $this->getMockBuilder(DatabaseInterface::class)
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
-        //Test function called
-        $this->object->doImport($importHandle);
+        $importCsv = $this->getImportCsv($dbi);
+
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
+            ->withParsedBody([
+                'csv_terminated' => "\015",
+                'csv_enclosed' => '"',
+                'csv_escaped' => '"',
+                'csv_new_line' => 'auto',
+                'csv_columns' => null,
+            ]);
+        $importCsv->setImportOptions($request);
+
+        $importCsv->doImport($importHandle);
 
         //asset that all sql are executed
         self::assertStringContainsString(
@@ -217,6 +219,9 @@ class ImportCsvTest extends AbstractTestCase
         ImportSettings::$importFile = 'none';
         Import::$importText = '"Row 1","Row 2"' . "\n" . '"123","456"';
 
+        $dummyDbi = $this->createDbiDummy();
+        $importCsv = $this->getImportCsv($this->createDatabaseInterface($dummyDbi));
+
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
             ->withParsedBody([
                 'csv_terminated' => ',',
@@ -225,11 +230,7 @@ class ImportCsvTest extends AbstractTestCase
                 'csv_new_line' => 'auto',
                 'csv_columns' => null,
             ]);
-        $this->object->setImportOptions($request);
-
-        $dummyDbi = $this->createDbiDummy();
-        $dbi = $this->createDatabaseInterface($dummyDbi);
-        DatabaseInterface::$instance = $dbi;
+        $importCsv->setImportOptions($request);
 
         $dummyDbi->addResult(
             'SHOW DATABASES',
@@ -242,7 +243,7 @@ class ImportCsvTest extends AbstractTestCase
             [],
         );
 
-        $this->object->doImport();
+        $importCsv->doImport();
 
         self::assertSame(
             'CREATE DATABASE IF NOT EXISTS `CSV_DB 1` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;'
@@ -264,6 +265,9 @@ class ImportCsvTest extends AbstractTestCase
         ImportSettings::$importFile = 'none';
         Import::$importText = '"Row 1","Row 2"' . "\n" . '"123","456"';
 
+        $dummyDbi = $this->createDbiDummy();
+        $importCsv = $this->getImportCsv($this->createDatabaseInterface($dummyDbi));
+
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
             ->withParsedBody([
                 'csv_terminated' => ',',
@@ -273,11 +277,7 @@ class ImportCsvTest extends AbstractTestCase
                 'csv_columns' => null,
                 'csv_col_names' => 'yes',
             ]);
-        $this->object->setImportOptions($request);
-
-        $dummyDbi = $this->createDbiDummy();
-        $dbi = $this->createDatabaseInterface($dummyDbi);
-        DatabaseInterface::$instance = $dbi;
+        $importCsv->setImportOptions($request);
 
         $dummyDbi->addResult(
             'SHOW DATABASES',
@@ -290,7 +290,7 @@ class ImportCsvTest extends AbstractTestCase
             [],
         );
 
-        $this->object->doImport();
+        $importCsv->doImport();
 
         self::assertSame(
             'CREATE DATABASE IF NOT EXISTS `CSV_DB 1` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;'
@@ -314,6 +314,9 @@ class ImportCsvTest extends AbstractTestCase
         ImportSettings::$importFile = 'none';
         Import::$importText = '"Row 1","Row 2"' . "\n" . '"123","456"';
 
+        $dummyDbi = $this->createDbiDummy();
+        $importCsv = $this->getImportCsv($this->createDatabaseInterface($dummyDbi));
+
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
             ->withParsedBody([
                 'csv_terminated' => ',',
@@ -325,11 +328,7 @@ class ImportCsvTest extends AbstractTestCase
                 'csv_col_names' => 'yes',
                 'csv_new_tbl_name' => 'already_uploaded_file',
             ]);
-        $this->object->setImportOptions($request);
-
-        $dummyDbi = $this->createDbiDummy();
-        $dbi = $this->createDatabaseInterface($dummyDbi);
-        DatabaseInterface::$instance = $dbi;
+        $importCsv->setImportOptions($request);
 
         $dummyDbi->addResult(
             'SHOW DATABASES',
@@ -342,7 +341,7 @@ class ImportCsvTest extends AbstractTestCase
             [],
         );
 
-        $this->object->doImport();
+        $importCsv->doImport();
 
         self::assertSame(
             'CREATE TABLE IF NOT EXISTS `public`.`already_uploaded_file` (`Row 1` int(3), `Row 2` int(3));'
@@ -353,5 +352,13 @@ class ImportCsvTest extends AbstractTestCase
 
         self::assertTrue(ImportSettings::$finished);
         $dummyDbi->assertAllQueriesConsumed();
+    }
+
+    private function getImportCsv(DatabaseInterface|null $dbi = null): ImportCsv
+    {
+        $dbiObject = $dbi ?? $this->createDatabaseInterface();
+        $config = new Config();
+
+        return new ImportCsv(new Import($dbiObject, new ResponseRenderer(), $config), $dbiObject, $config);
     }
 }

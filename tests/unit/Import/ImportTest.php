@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Import;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Import\AnalysedColumn;
 use PhpMyAdmin\Import\ColumnType;
 use PhpMyAdmin\Import\DecimalSize;
@@ -13,6 +13,7 @@ use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Import\ImportTable;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 
@@ -35,14 +36,13 @@ final class ImportTest extends AbstractTestCase
     {
         parent::setUp();
 
-        DatabaseInterface::$instance = $this->createDatabaseInterface();
         Current::$completeQuery = null;
         Current::$displayQuery = null;
         ImportSettings::$skipQueries = 0;
         ImportSettings::$maxSqlLength = 0;
         ImportSettings::$sqlQueryDisabled = false;
         ImportSettings::$executedQueries = 0;
-        $this->import = new Import();
+        $this->import = new Import($this->createDatabaseInterface(), new ResponseRenderer(), new Config());
     }
 
     /**
@@ -363,7 +363,7 @@ final class ImportTest extends AbstractTestCase
     #[DataProvider('providerForTestAnalyzeTable')]
     public function testAnalyzeTable(array $columns, array $rows, array $expected): void
     {
-        $import = new Import();
+        $import = new Import($this->createDatabaseInterface(), new ResponseRenderer(), new Config());
         self::assertEquals(
             array_map(static fn (array $column): AnalysedColumn => new AnalysedColumn(...$column), $expected),
             $import->analyzeTable(new ImportTable('test_table', $columns, $rows)),

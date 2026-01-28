@@ -15,6 +15,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\Import\ImportLdi;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Medium;
 
@@ -22,7 +23,7 @@ use function __;
 
 #[CoversClass(ImportLdi::class)]
 #[Medium]
-class ImportLdiTest extends AbstractTestCase
+final class ImportLdiTest extends AbstractTestCase
 {
     /**
      * Sets up the fixture, for example, opens a network connection.
@@ -44,20 +45,9 @@ class ImportLdiTest extends AbstractTestCase
         ImportSettings::$finished = false;
         ImportSettings::$readLimit = 100000000;
         ImportSettings::$offset = 0;
-        $config = Config::getInstance();
-
         ImportSettings::$importFile = 'tests/test_data/db_test_ldi.csv';
         Import::$importText = 'ImportLdi_Test';
         ImportSettings::$readMultiply = 10;
-
-        $config->settings['Import']['ldi_replace'] = false;
-        $config->settings['Import']['ldi_ignore'] = false;
-        $config->settings['Import']['ldi_terminated'] = ';';
-        $config->settings['Import']['ldi_enclosed'] = '"';
-        $config->settings['Import']['ldi_escaped'] = '\\';
-        $config->settings['Import']['ldi_new_line'] = 'auto';
-        $config->settings['Import']['ldi_columns'] = '';
-        $config->settings['Import']['ldi_local_option'] = false;
         Current::$table = 'phpmyadmintest';
     }
 
@@ -66,7 +56,10 @@ class ImportLdiTest extends AbstractTestCase
      */
     public function testGetProperties(): void
     {
-        $properties = (new ImportLdi())->getProperties();
+        $config = new Config();
+        $config->settings['Import']['ldi_local_option'] = false;
+
+        $properties = $this->getImportLdi(config: $config)->getProperties();
         self::assertSame(
             __('CSV using LOAD DATA'),
             $properties->getText(),
@@ -83,7 +76,6 @@ class ImportLdiTest extends AbstractTestCase
     public function testGetPropertiesAutoLdi(): void
     {
         $dbi = self::createMock(DatabaseInterface::class);
-        DatabaseInterface::$instance = $dbi;
 
         $resultStub = self::createMock(DummyResult::class);
 
@@ -96,9 +88,10 @@ class ImportLdiTest extends AbstractTestCase
         $resultStub->expects(self::any())->method('fetchValue')
             ->willReturn('ON');
 
-        $config = Config::getInstance();
+        $config = new Config();
         $config->settings['Import']['ldi_local_option'] = 'auto';
-        $properties = (new ImportLdi())->getProperties();
+
+        $properties = $this->getImportLdi($dbi, $config)->getProperties();
         self::assertTrue($config->settings['Import']['ldi_local_option']);
         self::assertSame(
             __('CSV using LOAD DATA'),
@@ -119,13 +112,12 @@ class ImportLdiTest extends AbstractTestCase
         $dbi = self::createMock(DatabaseInterface::class);
         $dbi->expects(self::any())->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
-        DatabaseInterface::$instance = $dbi;
 
         $importHandle = new File(ImportSettings::$importFile);
         $importHandle->open();
 
         //Test function called
-        (new ImportLdi())->doImport($importHandle);
+        $this->getImportLdi($dbi)->doImport($importHandle);
 
         //asset that all sql are executed
         self::assertStringContainsString(
@@ -143,8 +135,11 @@ class ImportLdiTest extends AbstractTestCase
     {
         ImportSettings::$importFile = 'none';
 
+        $config = new Config();
+        $config->settings['Import']['ldi_local_option'] = false;
+
         //Test function called
-        (new ImportLdi())->doImport();
+        $this->getImportLdi(config: $config)->doImport();
 
         // We handle only some kind of data!
         self::assertInstanceOf(Message::class, Current::$message);
@@ -165,7 +160,6 @@ class ImportLdiTest extends AbstractTestCase
         $dbi = self::createMock(DatabaseInterface::class);
         $dbi->expects(self::any())->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
-        DatabaseInterface::$instance = $dbi;
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
             ->withParsedBody([
@@ -184,7 +178,7 @@ class ImportLdiTest extends AbstractTestCase
         $importHandle->open();
 
         //Test function called
-        $object = new ImportLdi();
+        $object = $this->getImportLdi($dbi);
         $object->setImportOptions($request);
         $object->doImport($importHandle);
 
@@ -205,5 +199,13 @@ class ImportLdiTest extends AbstractTestCase
         self::assertStringContainsString('IGNORE 1 LINES', Current::$sqlQuery);
 
         self::assertTrue(ImportSettings::$finished);
+    }
+
+    private function getImportLdi(DatabaseInterface|null $dbi = null, Config|null $config = null): ImportLdi
+    {
+        $dbiObject = $dbi ?? $this->createDatabaseInterface();
+        $configObject = $config ?? new Config();
+
+        return new ImportLdi(new Import($dbiObject, new ResponseRenderer(), $configObject), $dbiObject, $configObject);
     }
 }

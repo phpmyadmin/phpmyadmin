@@ -7060,24 +7060,6 @@ parameters:
 			path: src/Import/Ajax.php
 
 		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 4
-			path: src/Import/Import.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 5
-			path: src/Import/Import.php
-
-		-
 			message: '#^Cannot access property \$precision on int\|PhpMyAdmin\\Import\\DecimalSize\.$#'
 			identifier: property.nonObject
 			count: 5
@@ -9529,15 +9511,6 @@ parameters:
 			path: src/Plugins/ExportPlugin.php
 
 		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 2
-			path: src/Plugins/Import/ImportCsv.php
-
-		-
 			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
 			identifier: notEqual.notAllowed
 			count: 3
@@ -9554,24 +9527,6 @@ parameters:
 			identifier: argument.type
 			count: 1
 			path: src/Plugins/Import/ImportCsv.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 2
-			path: src/Plugins/Import/ImportLdi.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 2
-			path: src/Plugins/Import/ImportLdi.php
 
 		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
@@ -9640,15 +9595,6 @@ parameters:
 			path: src/Plugins/Import/ImportShp.php
 
 		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Plugins/Import/ImportShp.php
-
-		-
 			message: '#^Cannot access offset 0 on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 2
@@ -9677,15 +9623,6 @@ parameters:
 			identifier: offsetAccess.invalidOffset
 			count: 1
 			path: src/Plugins/Import/ImportShp.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 2
-			path: src/Plugins/Import/ImportSql.php
 
 		-
 			message: '#^Parameter \#1 \$delimiter of method PhpMyAdmin\\SqlParser\\Utils\\BufferedQuery\:\:setDelimiter\(\) expects string, mixed given\.$#'
@@ -16694,24 +16631,6 @@ parameters:
 			identifier: assign.propertyType
 			count: 1
 			path: tests/unit/Plugins/Export/ExportXmlTest.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 2
-			path: tests/unit/Plugins/Import/ImportLdiTest.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: tests/unit/Plugins/Import/ImportOdsTest.php
 
 		-
 			message: '''

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Import;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\File;
@@ -11,6 +12,7 @@ use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins\Import\ImportShp;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Medium;
@@ -22,10 +24,8 @@ use function extension_loaded;
 #[CoversClass(ImportShp::class)]
 #[RequiresPhpExtension('zip')]
 #[Medium]
-class ImportShpTest extends AbstractTestCase
+final class ImportShpTest extends AbstractTestCase
 {
-    protected ImportShp $object;
-
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
@@ -48,14 +48,6 @@ class ImportShpTest extends AbstractTestCase
         ImportSettings::$finished = false;
         ImportSettings::$readLimit = 100000000;
         ImportSettings::$offset = 0;
-
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        DatabaseInterface::$instance = $dbi;
-
-        $this->object = new ImportShp();
-
         ImportSettings::$readMultiply = 10;
         Current::$database = '';
         Current::$table = '';
@@ -66,7 +58,7 @@ class ImportShpTest extends AbstractTestCase
      *
      * @param string $filename Name of test file
      */
-    protected function runImport(string $filename): void
+    private function runImport(string $filename): void
     {
         ImportSettings::$importFile = $filename;
 
@@ -74,22 +66,16 @@ class ImportShpTest extends AbstractTestCase
         $importHandle->setDecompressContent(true);
         $importHandle->open();
 
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $importCsv = $this->getImportShp($dbi);
+
         Current::$message = null;
         Import::$hasError = false;
-        $this->object->doImport($importHandle);
+        $importCsv->doImport($importHandle);
         self::assertNull(Current::$message);
         self::assertFalse(Import::$hasError);
-    }
-
-    /**
-     * Tears down the fixture, for example, closes a network connection.
-     * This method is called after a test is executed.
-     */
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-
-        unset($this->object);
     }
 
     /**
@@ -97,7 +83,8 @@ class ImportShpTest extends AbstractTestCase
      */
     public function testGetProperties(): void
     {
-        $properties = $this->object->getProperties();
+        $importCsv = $this->getImportShp();
+        $properties = $importCsv->getProperties();
         self::assertSame(
             __('ESRI Shape File'),
             $properties->getText(),
@@ -204,5 +191,13 @@ class ImportShpTest extends AbstractTestCase
 
         //assert that the import process is finished
         self::assertTrue(ImportSettings::$finished);
+    }
+
+    private function getImportShp(DatabaseInterface|null $dbi = null): ImportShp
+    {
+        $dbiObject = $dbi ?? $this->createDatabaseInterface();
+        $config = new Config();
+
+        return new ImportShp(new Import($dbiObject, new ResponseRenderer(), $config), $dbiObject, $config);
     }
 }

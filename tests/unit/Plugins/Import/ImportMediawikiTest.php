@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Import;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\File;
@@ -11,6 +12,7 @@ use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins\Import\ImportMediawiki;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Medium;
 
@@ -18,10 +20,8 @@ use function __;
 
 #[CoversClass(ImportMediawiki::class)]
 #[Medium]
-class ImportMediawikiTest extends AbstractTestCase
+final class ImportMediawikiTest extends AbstractTestCase
 {
-    protected ImportMediawiki $object;
-
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
@@ -49,19 +49,6 @@ class ImportMediawikiTest extends AbstractTestCase
         ImportSettings::$importFile = 'tests/test_data/phpmyadmin.mediawiki';
         Import::$importText = 'ImportMediawiki_Test';
         ImportSettings::$readMultiply = 10;
-
-        $this->object = new ImportMediawiki();
-    }
-
-    /**
-     * Tears down the fixture, for example, closes a network connection.
-     * This method is called after a test is executed.
-     */
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-
-        unset($this->object);
     }
 
     /**
@@ -69,7 +56,8 @@ class ImportMediawikiTest extends AbstractTestCase
      */
     public function testGetProperties(): void
     {
-        $properties = $this->object->getProperties();
+        $importMediawiki = $this->getImportMediawiki();
+        $properties = $importMediawiki->getProperties();
         self::assertSame(
             __('MediaWiki Table'),
             $properties->getText(),
@@ -97,13 +85,14 @@ class ImportMediawikiTest extends AbstractTestCase
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
-        DatabaseInterface::$instance = $dbi;
 
         $importHandle = new File(ImportSettings::$importFile);
         $importHandle->open();
 
+        $importMediawiki = $this->getImportMediawiki($dbi);
+
         //Test function called
-        $this->object->doImport($importHandle);
+        $importMediawiki->doImport($importHandle);
 
         // If import successfully, PMA will show all databases and
         // tables imported as following HTML Page
@@ -135,13 +124,14 @@ class ImportMediawikiTest extends AbstractTestCase
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
-        DatabaseInterface::$instance = $dbi;
 
         $importHandle = new File('tests/test_data/__slashes.mediawiki');
         $importHandle->open();
 
+        $importMediawiki = $this->getImportMediawiki($dbi);
+
         //Test function called
-        $this->object->doImport($importHandle);
+        $importMediawiki->doImport($importHandle);
 
         // If import successfully, PMA will show all databases and
         // tables imported as following HTML Page
@@ -166,5 +156,13 @@ class ImportMediawikiTest extends AbstractTestCase
         self::assertStringContainsString('Go to table: `empty`', ImportSettings::$importNotice);
         self::assertStringContainsString('Edit settings for `empty`', ImportSettings::$importNotice);
         self::assertTrue(ImportSettings::$finished);
+    }
+
+    private function getImportMediawiki(DatabaseInterface|null $dbi = null): ImportMediawiki
+    {
+        $dbiObject = $dbi ?? $this->createDatabaseInterface();
+        $config = new Config();
+
+        return new ImportMediawiki(new Import($dbiObject, new ResponseRenderer(), $config), $dbiObject, $config);
     }
 }

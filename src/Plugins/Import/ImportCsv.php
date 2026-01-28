@@ -10,7 +10,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Import;
 
 use PhpMyAdmin\Current;
-use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
@@ -223,7 +222,6 @@ class ImportCsv extends AbstractImportCsv
         $buffer = '';
         $maxCols = 0;
         $csvTerminatedLen = strlen($this->terminated);
-        $dbi = DatabaseInterface::getInstance();
         while (! (ImportSettings::$finished && $i >= $len) && ! Import::$hasError && ! ImportSettings::$timeoutPassed) {
             $data = $this->import->getNextChunk($importHandle);
             if ($data === false) {
@@ -492,7 +490,7 @@ class ImportCsv extends AbstractImportCsv
                         unset($values[count($values) - 1]);
                     }
 
-                    $sqlStatements = $this->addRowToDatabase($values, $dbi, $sqlTemplate, $fields, $sqlStatements);
+                    $sqlStatements = $this->addRowToDatabase($values, $sqlTemplate, $fields, $sqlStatements);
                 }
 
                 $line++;
@@ -516,7 +514,7 @@ class ImportCsv extends AbstractImportCsv
         }
 
         if (! $this->intoExistingTable) {
-            $this->buildSqlStructures($rows, $maxCols, $dbi, $sqlStatements);
+            $this->buildSqlStructures($rows, $maxCols, $sqlStatements);
         }
 
         // Commit any possible data in buffers
@@ -542,16 +540,11 @@ class ImportCsv extends AbstractImportCsv
      *
      * @return string[]
      */
-    private function addRowToDatabase(
-        array $values,
-        DatabaseInterface $dbi,
-        string $sqlTemplate,
-        array $fields,
-        array $sqlStatements,
-    ): array {
+    private function addRowToDatabase(array $values, string $sqlTemplate, array $fields, array $sqlStatements): array
+    {
         $quotedValues = [];
         foreach ($values as $val) {
-            $quotedValues[] = $val === null ? 'NULL' : $dbi->quoteString($val);
+            $quotedValues[] = $val === null ? 'NULL' : $this->dbi->quoteString($val);
         }
 
         $sql = $sqlTemplate . implode(', ', $quotedValues) . ')';
@@ -579,12 +572,8 @@ class ImportCsv extends AbstractImportCsv
      * @param list<list<string|null>> $rows
      * @param string[]                $sqlStatements
      */
-    private function buildSqlStructures(
-        array $rows,
-        int $maxCols,
-        DatabaseInterface $dbi,
-        array &$sqlStatements,
-    ): void {
+    private function buildSqlStructures(array $rows, int $maxCols, array &$sqlStatements): void
+    {
         /* Fill out all rows */
         foreach ($rows as $i => $row) {
             $rows[$i] = array_pad($row, $maxCols, 'NULL');
@@ -613,7 +602,7 @@ class ImportCsv extends AbstractImportCsv
         if ($this->newDatabaseName !== '') {
             $newDb = $this->newDatabaseName;
         } else {
-            $result = $dbi->fetchSingleColumn('SHOW DATABASES');
+            $result = $this->dbi->fetchSingleColumn('SHOW DATABASES');
 
             $newDb = 'CSV_DB ' . (count($result) + 1);
         }
@@ -744,7 +733,7 @@ class ImportCsv extends AbstractImportCsv
             return [];
         }
 
-        $tmpFields = DatabaseInterface::getInstance()->getColumnNames($db, $table);
+        $tmpFields = $this->dbi->getColumnNames($db, $table);
 
         if ($this->columns === '') {
             return $tmpFields;
