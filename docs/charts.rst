@@ -3,9 +3,7 @@
 Charts
 ======
 
-.. versionadded:: 3.4.0
-
-Since phpMyAdmin version 3.4.0, you can easily generate charts from a SQL query
+You can easily generate charts from a SQL query
 by clicking the "Display chart" link in the "Query results operations" area.
 
 .. image:: images/query_result_operations.png
