@@ -2287,6 +2287,345 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
 
                 bootstrap.Tooltip.getOrCreateInstance(editRowAnchor.querySelector('a'));
             });
+        },
+
+        /**
+         * Initialize cell selection feature (square selection).
+         */
+        initCellSelection: function () {
+            g.isSelectingCells = false;
+            g.startSelectCell = null;
+            g.preEndSelectCell = null;
+            g.endSelectCell = null;
+
+            const colspan = Number(
+                $(g.t).find('thead th').first().attr('colspan')
+            ) - 1 || 1;
+
+            let keyboardEventTimestamp = 0;
+
+            // Check if an element is visible for user
+            function isPartiallyHidden (el) {
+                const rect = el.getBoundingClientRect();
+                const vW = window.innerWidth;
+                const vH = window.innerHeight;
+
+                if (rect.top < 0 || rect.left < 0 || rect.bottom > vH || rect.right > vW) {
+                    return true;
+                }
+
+                const points = [
+                    { x: rect.left + 1, y: rect.top + 1 },
+                    { x: rect.right - 1, y: rect.top + 1 },
+                    { x: rect.right - 1, y: rect.bottom - 1 },
+                    { x: rect.left + 1, y: rect.bottom - 1 },
+                    { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 }
+                ];
+
+                for (let i = 0; i < 5; i++) {
+                    const p = points[i];
+                    const topEl = document.elementFromPoint(p.x, p.y);
+
+                    if (topEl && !$(topEl).hasClass('tooltip-inner') && !el.contains(topEl) && topEl !== el) {
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+
+            function scrollDuringSelection () {
+                const { endSelectCell, preEndSelectCell } = g;
+
+                if (!endSelectCell || !preEndSelectCell || !isPartiallyHidden(endSelectCell)) {
+                    return;
+                }
+
+                const $end = $(endSelectCell);
+                const $preEnd = $(preEndSelectCell);
+                const isHeader = $end.is('th');
+                const endIdx = $end.index() + (isHeader ? colspan : 0);
+                const endRowIdx = $end.parent().index();
+                const preIdx = $preEnd.index() + (isHeader ? colspan : 0);
+                const preRowIdx = $preEnd.parent().index();
+
+                let direction = null;
+
+                if (endRowIdx < preRowIdx) {
+                    direction = 'up';
+                } else if (endRowIdx > preRowIdx) {
+                    direction = 'down';
+                } else if (endIdx < preIdx) {
+                    direction = 'left';
+                } else if (endIdx > preIdx) {
+                    direction = 'right';
+                }
+
+                if (direction) {
+                    endSelectCell.scrollIntoView({
+                        block: 'nearest',
+                        inline: 'nearest',
+                        behavior: 'auto'
+                    });
+
+                    const extra = 50;
+                    const dw = endSelectCell.offsetWidth + extra;
+                    const dh = endSelectCell.offsetHeight + extra;
+
+                    const offsets = {
+                        up: [0, -dh],
+                        down: [0, dh],
+                        left: [-dw, 0],
+                        right: [dw, 0]
+                    };
+
+                    const [scrollX, scrollY] = offsets[direction];
+                    window.scrollBy(scrollX, scrollY);
+                }
+            }
+
+            function updateCellSelection () {
+                if (!g.startSelectCell || !g.endSelectCell) {
+                    return;
+                }
+
+                g.updateCellSelectionStart = $(g.startSelectCell);
+                g.updateCellSelectionEnd = $(g.endSelectCell);
+
+                const isHeader = g.updateCellSelectionEnd.is('th');
+                let startRow = g.updateCellSelectionStart.parent().index();
+                let endRow = g.updateCellSelectionEnd.parent().index();
+                let startCol = g.updateCellSelectionStart.index();
+                let endCol = g.updateCellSelectionEnd.index();
+
+                if (isHeader) {
+                    if ($(g.preEndSelectCell).closest('tr').index() !== 0) {
+                        // case when user fast select from data cell to header cell
+                        if (isPartiallyHidden($(g.t).get(0))) {
+                            $(window).scrollTop($(g.t).offset().top - 100);
+                        }
+
+                        $(g.t).find('tbody > tr').each(function (rowIndex) {
+                            if (rowIndex < $(g.preEndSelectCell).parent().index()) {
+                                $(this).find('td').eq(endCol + colspan).addClass('cell-selected');
+                            }
+                        });
+                    }
+
+                    const startColHeader = startCol - colspan;
+                    const endColHeader = endCol;
+                    endCol += colspan;
+
+                    $(g.t).find('thead > tr').each(function () {
+                        $(this).find('th').each(function (colIndex) {
+                            if (colIndex >= Math.min(startColHeader, endColHeader) && colIndex <= Math.max(startColHeader, endColHeader)) {
+                                $(this).addClass('cell-selected');
+                            } else {
+                                $(this).removeClass('cell-selected');
+                            }
+                        });
+                    });
+                } else {
+                    $(g.t).find('thead > tr th').removeClass('cell-selected');
+                }
+
+                const minRow = Math.min(startRow, endRow);
+                const maxRow = Math.max(startRow, endRow);
+                const minCol = Math.min(startCol, endCol);
+                const maxCol = Math.max(startCol, endCol);
+
+                $(g.t).find('tbody > tr').each(function (rowIndex) {
+                    if (rowIndex < minRow || rowIndex > maxRow) {
+                        $(this).find('td.cell-selected').removeClass('cell-selected');
+
+                        return;
+                    }
+
+                    $(this).find('td').each(function (colIndex) {
+                        if (colIndex >= minCol && colIndex <= maxCol) {
+                            $(this).addClass('cell-selected');
+                        } else {
+                            $(this).removeClass('cell-selected');
+                        }
+                    });
+                });
+            }
+
+            function selectCell (cell) {
+                g.preEndSelectCell = g.endSelectCell;
+                g.endSelectCell = cell;
+                scrollDuringSelection();
+                updateCellSelection();
+            }
+
+            function resetCellSelection () {
+                g.isSelectingCells = false;
+                g.startSelectCell = null;
+                g.endSelectCell = null;
+                $(g.t).find('.cell-selected').removeClass('cell-selected');
+            }
+
+            // Event to reset selection on Escape key press
+            $(document).on('keydown', function (e) {
+                if (e.key === 'Escape') {
+                    resetCellSelection();
+                }
+            });
+
+
+            // Keyboard events for cell selection
+            $(document).on('keydown', function (e) {
+                // add throttle to avoid multiple events firing too quickly
+                if (keyboardEventTimestamp && (Date.now() - keyboardEventTimestamp) < 100) {
+                    return;
+                }
+
+                keyboardEventTimestamp = Date.now();
+
+                if (document.activeElement && $(document.activeElement).is('input, textarea, select')) {
+                    return; // do not interfere with input fields
+                }
+
+                // ctrl + A to select all cells
+                if ((e.ctrlKey || e.metaKey) && e.code === 'KeyA') {
+                    e.preventDefault();
+
+                    // Select all cells with header
+                    $(g.t).find('tbody > tr, thead > tr').each(function () {
+                        $(this).find('td.data, th:not(.column_action)').addClass('cell-selected');
+                    });
+                }
+
+                // arrow + shift to select cells
+                if (e.shiftKey && g.endSelectCell) {
+                    const allowedSelectorToSelect = '.column_heading, .data';
+                    const lookupNextCell = {
+                        ArrowUp: () => {
+                            if ($(g.endSelectCell).is('th')) {
+                                return null;
+                            }
+
+                            const rowElement = $(g.endSelectCell).closest('tr');
+
+                            if (rowElement.index() === 0) {
+                                return $(g.t).find('thead > tr').eq(0).find('th.bg-body').eq($(g.endSelectCell).index() - colspan).get(0);
+                            }
+
+                            return rowElement.prev().find('td, th').eq($(g.endSelectCell).index()).get(0);
+                        },
+                        ArrowDown: () => {
+                            const rowElement = $(g.endSelectCell).closest('tr');
+                            if ($(g.endSelectCell).is('th')) {
+                                return $(g.t).find('tbody > tr').eq(0).find('td').eq($(g.endSelectCell).index() + colspan).get(0);
+                            }
+
+                            return rowElement.next().find('td, th').eq($(g.endSelectCell).index()).get(0);
+                        },
+                        ArrowLeft: () => {
+                            return $(g.endSelectCell).prev(allowedSelectorToSelect).get(0);
+                        },
+                        ArrowRight: () => {
+                            return $(g.endSelectCell).next(allowedSelectorToSelect).get(0);
+                        }
+                    };
+
+                    if (Object.keys(lookupNextCell).includes(e.key)) {
+                        e.preventDefault();
+                        const nextCell = lookupNextCell[e.key]();
+                        if (nextCell) {
+                            selectCell(nextCell);
+                        }
+                    }
+                }
+            });
+
+            // Reset selection when clicking outside the table
+            $(document).on('mousedown', function (e) {
+                if (!$(e.target).closest(g.t).length) {
+                    resetCellSelection();
+                }
+            });
+
+            // Add styles
+            if ($('#cell-selection-style').length === 0) {
+                $('<style id="cell-selection-style">.cell-selected { background-color: #d0e4f7 !important; outline: 1px solid #7facd6; }</style>').appendTo('head');
+            }
+
+            $(g.t).on('mousedown', 'td.data', function (e) {
+                // Ignore if clicking on link/input/etc or right click
+                if (e.which !== 1 || $(e.target).is('a, input, select, textarea, .edit_box')) {
+                    return;
+                }
+
+                g.isSelectingCells = true;
+                g.startSelectCell = this;
+                g.endSelectCell = this;
+
+                // Clear existing selection
+                $(g.t).find('.cell-selected').removeClass('cell-selected');
+                $(this).addClass('cell-selected');
+
+                // Prevent text selection
+                e.preventDefault();
+
+                // Dynamic mouseover for drag
+                $(g.t).on('mouseover.cellSelect', 'td.data, thead th:not(.column_action)', function (e) {
+                    if (!g.isSelectingCells || g.endSelectCell === this) {
+                        return;
+                    }
+
+                    selectCell(this);
+                });
+
+                // One-time mouseup on document to stop selection
+                $(document).on('mouseup.cellSelect', function () {
+                    g.isSelectingCells = false;
+                    $(g.t).off('mouseover.cellSelect');
+                    $(document).off('mouseup.cellSelect');
+                });
+            });
+
+            // Copy handler
+            $(document).on('copy', function (e) {
+                if (!document.body.contains(g.t)) {
+                    return;
+                }
+
+                if ($(g.t).find('.cell-selected').length > 0) {
+                    let selectionText = '';
+
+                    const headers: string[] = [];
+                    $(g.t).find('thead th.cell-selected').each(function () {
+                        headers.push(
+                            $(this).find('a')[0].childNodes[0].nodeValue.trim()
+                        );
+                    });
+
+                    if (headers.length > 0) {
+                        selectionText += headers.join('\t') + '\n';
+                    }
+
+                    const rows: string[] = [];
+                    $(g.t).find('tbody tr').each(function () {
+                        const rowCells: string[] = [];
+                        $(this).find('td.cell-selected').each(function () {
+                            rowCells.push($(this).text().trim());
+                        });
+
+                        if (rowCells.length > 0) {
+                            rows.push(rowCells.join('\t'));
+                        }
+                    });
+
+                    selectionText += rows.join('\n');
+
+                    const ev = e.originalEvent as ClipboardEvent;
+                    if (ev?.clipboardData) {
+                        ev.clipboardData.setData('text/plain', selectionText);
+                        e.preventDefault();
+                    }
+                }
+            });
         }
     };
 
@@ -2420,6 +2759,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
     // some adjustment
     $(t).removeClass('data');
     $(g.gDiv).addClass('data');
+    g.initCellSelection();
 };
 
 declare global {
