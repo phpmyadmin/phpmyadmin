@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2026-01-27 03:07+0000\n"
+"PO-Revision-Date: 2026-01-30 01:01+0000\n"
 "Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/5-1/th/>"
 "\n"
@@ -2074,21 +2074,25 @@ msgid ""
 "This might be a good way to import large files, however it can break "
 "transactions."
 msgstr ""
+"อนุญาตให้ขัดจังหวะการนำเข้าได้ในกรณีที่สคริปต์ตรวจพบว่าใกล้ถึงขีดจำกัดเวลาแล้ว วิธีนี้อาจเป็นวิธีที่ดีใน"
+"การนำเข้าไฟล์ขนาดใหญ่ แต่ก็อาจทำให้การทำธุรกรรมหยุดชะงักได้"
 
 #: libraries/classes/Config/Descriptions.php:245
 msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available."
 msgstr ""
+"รูปแบบเริ่มต้น; โปรดทราบว่ารายการนี้ขึ้นอยู่กับตำแหน่งที่ตั้ง (ฐานข้อมูล ตาราง) และมีเฉพาะ SQL เท่"
+"านั้นที่พร้อมใช้งานเสมอ"
 
 #: libraries/classes/Config/Descriptions.php:248
 #: libraries/classes/Config/Descriptions.php:249
 msgid "Update data when duplicate keys found on import"
-msgstr ""
+msgstr "อัปเดตข้อมูลเมื่อพบคีย์ซ้ำกันระหว่างการนำเข้า"
 
 #: libraries/classes/Config/Descriptions.php:250
 msgid "Number of queries to skip from start."
-msgstr ""
+msgstr "จำนวนคำสั่งที่จะข้ามไปตั้งแต่เริ่มต้น"
 
 #: libraries/classes/Config/Descriptions.php:252
 msgid ""
@@ -2096,12 +2100,16 @@ msgid ""
 "only occurs for the current server. Setting this to FALSE makes it easy to "
 "forget to log out from other servers when connected to multiple servers."
 msgstr ""
+"หากค่าเป็น TRUE การออกจากระบบจะลบคุกกี้สำหรับทุกเซิร์ฟเวอร์; หากค่าเป็น FALSE การออกจากระ"
+"บบจะเกิดขึ้นเฉพาะกับเซิร์ฟเวอร์ปัจจุบันเท่านั้น การตั้งค่าเป็น FALSE อาจทำให้ลืมออกจากระบบจากเซิร์"
+"ฟเวอร์อื่นได้ง่าย เมื่อเชื่อมต่อกับหลายเซิร์ฟเวอร์"
 
 #: libraries/classes/Config/Descriptions.php:257
 msgid ""
 "Define whether the previous login should be recalled or not in [kbd]cookie[/"
 "kbd] authentication mode."
 msgstr ""
+"กำหนดว่าจะเรียกคืนข้อมูลการเข้าสู่ระบบครั้งก่อนหรือไม่ในโหมดการตรวจสอบสิทธิ์ด้วยคุกกี้"
 
 #: libraries/classes/Config/Descriptions.php:261
 msgid ""
@@ -2110,6 +2118,9 @@ msgid ""
 "and will be deleted as soon as you close the browser window. This is "
 "recommended for non-trusted environments."
 msgstr ""
+"กำหนดระยะเวลา (เป็นวินาที) ที่คุกกี้สำหรับการเข้าสู่ระบบควรถูกเก็บไว้ในเบราว์เซอร์ ค่าเริ่มต้นคือ "
+"0 ซึ่งหมายความว่าจะเก็บไว้เฉพาะในเซสชันปัจจุบันเท่านั้น และจะถูกลบออกทันทีที่คุณปิดหน้าต่างเบราว์เซ"
+"อร์ แนะนำให้ใช้ในสภาพแวดล้อมที่ไม่น่าเชื่อถือ"
 
 #: libraries/classes/Config/Descriptions.php:267
 #, fuzzy
@@ -2121,60 +2132,68 @@ msgstr "จำนวนสูงสุดของตารางที่ใช
 msgid ""
 "The number of items that can be displayed on each page on the first level of "
 "the navigation tree."
-msgstr ""
+msgstr "จำนวนรายการที่สามารถแสดงบนแต่ละหน้าในระดับแรกของโครงสร้างการนำทาง"
 
 #: libraries/classes/Config/Descriptions.php:274
 msgid ""
 "The number of items that can be displayed on each page of the navigation "
 "tree."
-msgstr ""
+msgstr "จำนวนรายการที่สามารถแสดงได้ในแต่ละหน้าของโครงสร้างการนำทาง"
 
 #: libraries/classes/Config/Descriptions.php:277
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, \"Previous\" and \"Next\" links will be shown."
 msgstr ""
+"จำนวนแถวที่แสดงเมื่อเรียกดูชุดผลลัพธ์ หากชุดผลลัพธ์มีแถวมากกว่าหนึ่งแถว จะแสดงลิงก์ \"ก่อนหน้า\" "
+"และ \"ถัดไป\""
 
 #: libraries/classes/Config/Descriptions.php:282
 msgid ""
 "The number of bytes a script is allowed to allocate, e.g. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
+"จำนวนไบต์ที่สคริปต์ได้รับอนุญาตให้จัดสรร เช่น [kbd]32M[/kbd] ([kbd]-1[/kbd] เพื่อไม่มีขีดจำกั"
+"ด และ [kbd]0[/kbd] เพื่อไม่มีการเปลี่ยนแปลง)"
 
 #: libraries/classes/Config/Descriptions.php:286
 msgid "In the navigation panel, replaces the database tree with a selector"
-msgstr ""
+msgstr "ในแผงนำทาง จะแทนที่โครงสร้างฐานข้อมูลด้วยตัวเลือก"
 
 #: libraries/classes/Config/Descriptions.php:289
 msgid "Link with main panel by highlighting the current database or table."
-msgstr ""
+msgstr "เชื่อมโยงกับแผงหลักโดยการไฮไลต์ฐานข้อมูลหรือตารางปัจจุบัน"
 
 #: libraries/classes/Config/Descriptions.php:292
 msgid ""
 "Open the linked page in the main window ([code]main[/code]) or in a new one "
 "([code]new[/code])."
 msgstr ""
+"เปิดหน้าเว็บที่เชื่อมโยงในหน้าต่างหลัก ([code]main[/code]) หรือในหน้าต่างใหม่ ([code]new[/"
+"code])"
 
 #: libraries/classes/Config/Descriptions.php:296
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
 msgstr ""
+"กำหนดจำนวนขั้นต่ำของรายการ (ตาราง มุมมอง รูทีน และเหตุการณ์) ที่จะแสดงในกล่องตัวกรอง"
 
 #: libraries/classes/Config/Descriptions.php:300
 msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
 msgstr ""
+"จัดกลุ่มรายการในโครงสร้างการนำทาง (กำหนดโดยตัวคั่นที่กำหนดไว้ในแท็บฐานข้อมูลและตารางด้านบน)"
 
 #: libraries/classes/Config/Descriptions.php:304
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
-msgstr ""
+msgstr "ไม่ว่าจะเสนอตัวเลือกการขยายโครงสร้างต้นไม้ในแผงนำทางหรือไม่"
 
 #: libraries/classes/Config/Descriptions.php:307
 msgid "Whether to show procedures under database in the navigation tree"
-msgstr ""
+msgstr "ไม่ว่าจะแสดงขั้นตอนการทำงานภายใต้ฐานข้อมูลในแผนผังการนำทางหรือไม่"
 
 #: libraries/classes/Config/Descriptions.php:310
 #, fuzzy
@@ -2196,23 +2215,23 @@ msgstr "โหลดกรอบนำทางใหม่"
 
 #: libraries/classes/Config/Descriptions.php:314
 msgid "URL where logo in the navigation panel will point to."
-msgstr ""
+msgstr "URL ที่โลโก้ในแถบนำทางจะชี้ไป"
 
 #: libraries/classes/Config/Descriptions.php:315
 msgid "Display server choice at the top of the navigation panel."
-msgstr ""
+msgstr "แสดงตัวเลือกเซิร์ฟเวอร์ที่ด้านบนของแผงนำทาง"
 
 #: libraries/classes/Config/Descriptions.php:316
 msgid "String that separates databases into different tree levels."
-msgstr ""
+msgstr "สตริงที่ใช้แบ่งฐานข้อมูลออกเป็นระดับโครงสร้างแบบต้นไม้ที่แตกต่างกัน"
 
 #: libraries/classes/Config/Descriptions.php:317
 msgid "String that separates tables into different tree levels."
-msgstr ""
+msgstr "สตริงที่ใช้แบ่งตารางออกเป็นระดับโครงสร้างแบบต้นไม้ที่แตกต่างกัน"
 
 #: libraries/classes/Config/Descriptions.php:318
 msgid "Highlight server under the mouse cursor."
-msgstr ""
+msgstr "เลือกเซิร์ฟเวอร์ที่อยู่ใต้เคอร์เซอร์เมาส์"
 
 #: libraries/classes/Config/Descriptions.php:319
 #, fuzzy
@@ -2228,7 +2247,7 @@ msgstr "โหลดกรอบนำทางใหม่"
 
 #: libraries/classes/Config/Descriptions.php:321
 msgid "Whether to show functions under database in the navigation tree"
-msgstr ""
+msgstr "ไม่ว่าจะแสดงฟังก์ชันภายใต้ฐานข้อมูลในแผนผังการนำทางหรือไม่"
 
 #: libraries/classes/Config/Descriptions.php:322
 #, fuzzy
@@ -2241,6 +2260,8 @@ msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise."
 msgstr ""
+"[kbd]SMART[/kbd] - เช่น การเรียงลำดับจากมากไปน้อยสำหรับคอลัมน์ประเภท TIME, DATE, "
+"DATETIME และ TIMESTAMP ส่วนประเภทอื่น ๆ จะเรียงลำดับจากน้อยไปมาก"
 
 #: libraries/classes/Config/Descriptions.php:328
 msgid ""
@@ -2248,12 +2269,15 @@ msgid ""
 "Structure page if any of the required tables for the phpMyAdmin "
 "configuration storage could not be found."
 msgstr ""
+"ปิดใช้งานคำเตือนเริ่มต้นที่แสดงในหน้าโครงสร้างรายละเอียดฐานข้อมูล หากไม่พบตารางที่จำเป็นสำหรับก"
+"ารจัดเก็บการกำหนดค่า phpMyAdmin"
 
 #: libraries/classes/Config/Descriptions.php:333
 msgid ""
 "Disable the default warning that is displayed on the Structure page if "
 "column names in a table are reserved MySQL words."
 msgstr ""
+"ปิดใช้งานคำเตือนเริ่มต้นที่แสดงในหน้าโครงสร้าง หากชื่อคอลัมน์ในตารางเป็นคำสงวนของ MySQL"
 
 #: libraries/classes/Config/Descriptions.php:337
 msgid ""
@@ -2261,36 +2285,47 @@ msgid ""
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
+"เปิดใช้งานหากคุณต้องการประวัติการค้นหาแบบ DB-based (ต้องใช้พื้นที่จัดเก็บการตั้งค่า "
+"phpMyAdmin) หากปิดใช้งาน ฟังก์ชันนี้จะใช้รูทีน JavaScript เพื่อแสดงประวัติการค้นหา (ซึ่งจะหายไ"
+"ปเมื่อปิดหน้าต่าง)"
 
 #: libraries/classes/Config/Descriptions.php:342
 msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
 msgstr ""
+"ตั้งค่าเขตเวลาที่มีผลบังคับใช้; ซึ่งอาจแตกต่างจากเขตเวลาของเซิร์ฟเวอร์ฐานข้อมูลของคุณ"
 
 #: libraries/classes/Config/Descriptions.php:346
 msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
+"เว้นว่างไว้หากไม่ต้องการรองรับ [doc@bookmarks@]bookmark[/doc] แนะนำให้ใช้: "
+"[kbd]pma__bookmark[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:350
 msgid ""
 "Leave blank for no column comments/media types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
+"เว้นว่างไว้หากไม่ต้องการใส่ความคิดเห็น/ประเภทสื่อในคอลัมน์ ตัวอย่าง: "
+"[kbd]pma__column_info[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:354
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
+"ผู้ใช้ MySQL พิเศษที่กำหนดค่าด้วยสิทธิ์ที่จำกัด สามารถดูข้อมูลเพิ่มเติมได้ที่ [doc@linked-"
+"tables]documentation[/doc]"
 
 #: libraries/classes/Config/Descriptions.php:358
 msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host."
 msgstr ""
+"โฮสต์สำรองสำหรับจัดเก็บการตั้งค่า; หากต้องการใช้โฮสต์ที่กำหนดไว้แล้ว ให้เว้นว่างไว้"
 
 #: libraries/classes/Config/Descriptions.php:362
 msgid ""
@@ -2298,6 +2333,8 @@ msgid ""
 "storage; leave blank to use the default port, or the already defined port, "
 "if the controlhost equals host."
 msgstr ""
+"พอร์ตสำรองสำหรับเชื่อมต่อกับโฮสต์ที่เก็บข้อมูลการกำหนดค่า; เว้นว่างไว้เพื่อใช้พอร์ตเริ่มต้น หรือพอร์ตที่"
+"กำหนดไว้แล้ว หาก controlhost เท่ากับ host"
 
 #: libraries/classes/Config/Descriptions.php:367
 msgid ""
@@ -2305,36 +2342,45 @@ msgid ""
 "issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
 "com/19588]MySQL Bugs[/a]"
 msgstr ""
+"ดูข้อมูลเพิ่มเติมได้ที่ [a@https://github.com/phpmyadmin/phpmyadmin/issues/8970]ตัวติดตา"
+"มปัญหาของ phpMyAdmin[/a] และ [a@https://bugs.mysql.com/19588]ข้อบกพร่องของ "
+"MySQL[/a]"
 
 #: libraries/classes/Config/Descriptions.php:371
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
 msgstr ""
+"เว้นว่างไว้หากไม่ต้องการรองรับประวัติคำสั่ง SQL แนะนำให้ใช้: [kbd]pma__history[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:375
 msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed."
 msgstr ""
+"จำกัดจำนวนการตั้งค่าตารางที่จัดเก็บไว้ในฐานข้อมูล โดยข้อมูลที่เก่าที่สุดจะถูกลบออกโดยอัตโนมัติ"
 
 #: libraries/classes/Config/Descriptions.php:379
 msgid ""
 "Leave blank for no QBE saved searches support, suggested: "
 "[kbd]pma__savedsearches[/kbd]."
 msgstr ""
+"เว้นว่างไว้หากไม่รองรับการค้นหาที่บันทึกไว้ของ QBE; แนะนำให้ใช้: [kbd]pma__savedsearches[/"
+"kbd]"
 
 #: libraries/classes/Config/Descriptions.php:383
 msgid ""
 "Leave blank for no export template support, suggested: "
 "[kbd]pma__export_templates[/kbd]."
 msgstr ""
+"เว้นว่างไว้หากไม่รองรับต้นแบบการส่งออก แนะนำให้ใช้: [kbd]pma__export_templates[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:387
 msgid ""
 "Leave blank for no central columns support, suggested: "
 "[kbd]pma__central_columns[/kbd]."
 msgstr ""
+"เว้นว่างไว้หากไม่ต้องการรองรับคอลัมน์กลาง คำแนะนำ: [kbd]pma__central_columns[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:391
 msgid ""
@@ -2342,11 +2388,15 @@ msgid ""
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
 "[kbd]'my_db'[/kbd]."
 msgstr ""
+"คุณสามารถใช้ตัวอักษรตัวแทน (wildcard) ของ MySQL (% และ _) ได้ หากต้องการใช้ตัวอักษรตามตั"
+"วอักษร ให้ใส่เครื่องหมายหลีก (escape) เช่น ใช้ [kbd]'my\\_db'[/kbd] แทน "
+"[kbd]'my_db'[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:396
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
+"เว้นว่างไว้หากไม่รองรับโครงสร้างข้อมูล PDF แนะนำให้ใช้: [kbd]pma__pdf_pages[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:399
 msgid ""
@@ -2354,24 +2404,33 @@ msgid ""
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
+"ฐานข้อมูลที่ใช้สำหรับความสัมพันธ์ บุ๊กมาร์ก และคุณสมบัติของไฟล์ PDF ดู [doc@linked-"
+"tables]pmadb[/doc] สำหรับข้อมูลที่ครบถ้วน เว้นว่างไว้หากไม่ต้องการรับการสนับสนุน คำแนะนำ: "
+"[kbd]phpmyadmin[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:404
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]."
 msgstr ""
+"เว้นว่างไว้หากไม่ต้องการบันทึกตารางที่ใช้งานล่าสุดแบบ \"ถาวร\" ข้ามเซสชัน แนะนำให้ใช้: "
+"[kbd]pma__recent[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:408
 msgid ""
 "Leave blank for no \"persistent\" favorite tables across sessions, "
 "suggested: [kbd]pma__favorite[/kbd]."
 msgstr ""
+"เว้นว่างไว้หากไม่ต้องการบันทึกตารางรายการโปรดแบบถาวรข้ามเซสชัน คำแนะนำ: "
+"[kbd]pma__favorite[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:412
 msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
 msgstr ""
+"เว้นว่างไว้หากไม่รองรับ [doc@relations@]relation-links[/doc] แนะนำให้ใช้ "
+"[kbd]pma__relation[/kbd] แทน"
 
 #: libraries/classes/Config/Descriptions.php:417
 #, fuzzy
@@ -2389,58 +2448,70 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
 msgstr ""
+"เว้นว่างไว้หากไม่รองรับโครงสร้างข้อมูล PDF แนะนำให้ใช้: [kbd]pma__table_coords[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:424
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]."
 msgstr ""
+"ตารางเพื่ออธิบายคอลัมน์ที่แสดงผล เว้นว่างไว้หากไม่ต้องการรองรับ; แนะนำ: "
+"[kbd]pma__table_info[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:428
 msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]."
 msgstr ""
+"เว้นว่างไว้หากไม่ต้องการให้การตั้งค่า UI ของตาราง \"คงอยู่\" ระหว่างเซสชัน แนะนำให้ใช้: "
+"[kbd]pma__table_uiprefs[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:432
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
 msgstr ""
+"ไม่ว่าจะมีการเพิ่มคำสั่ง DROP DATABASE IF EXISTS เป็นบรรทัดแรกในบันทึกการสร้างฐานข้อมูลหรือไ"
+"ม่"
 
 #: libraries/classes/Config/Descriptions.php:436
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
 msgstr ""
+"ไม่ว่าจะมีการเพิ่มคำสั่ง DROP TABLE IF EXISTS เป็นบรรทัดแรกในบันทึกเมื่อสร้างตารางหรือไม่"
 
 #: libraries/classes/Config/Descriptions.php:440
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
 msgstr ""
+"ไม่ว่าจะมีการเพิ่มคำสั่ง DROP VIEW IF EXISTS เป็นบรรทัดแรกในบันทึกเมื่อสร้างมุมมองหรือไม่"
 
 #: libraries/classes/Config/Descriptions.php:444
 msgid "Defines the list of statements the auto-creation uses for new versions."
-msgstr ""
+msgstr "กำหนดรายการคำสั่งที่ระบบสร้างอัตโนมัติใช้สำหรับการสร้างเวอร์ชันใหม่"
 
 #: libraries/classes/Config/Descriptions.php:447
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: "
 "[kbd]pma__tracking[/kbd]."
 msgstr ""
+"เว้นว่างไว้หากไม่ต้องการรองรับการติดตามคำสั่ง SQL แนะนำให้ใช้: [kbd]pma__tracking[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:451
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
-msgstr ""
+msgstr "ไม่ว่ากลไกการติดตามสร้างเวอร์ชันสำหรับตารางและมุมมองโดยอัตโนมัติหรือไม่"
 
 #: libraries/classes/Config/Descriptions.php:455
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: "
 "[kbd]pma__userconfig[/kbd]."
 msgstr ""
+"เว้นว่างไว้หากไม่ต้องการบันทึกการตั้งค่าของผู้ใช้ลงในฐานข้อมูล คำแนะนำ: "
+"[kbd]pma__userconfig[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:459
 msgid ""
@@ -2448,6 +2519,8 @@ msgid ""
 "configurable menus feature; leaving either one of them blank will disable "
 "this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
+"ทั้งตารางนี้และตารางกลุ่มผู้ใช้จำเป็นสำหรับการเปิดใช้งานคุณสมบัติเมนูที่กำหนดค่าได้; การเว้นว่างตารา"
+"งใดตารางหนึ่งจะปิดใช้งานคุณสมบัตินี้ คำแนะนำ: [kbd]pma__users[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:464
 msgid ""
