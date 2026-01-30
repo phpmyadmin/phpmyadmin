@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2026-01-30 01:01+0000\n"
+"PO-Revision-Date: 2026-01-31 17:01+0000\n"
 "Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/5-1/th/>"
 "\n"
@@ -2929,7 +2929,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:612
 msgid "Allow for searching inside the entire database."
-msgstr ""
+msgstr "อนุญาตการค้นหาภายในทั้งหมดของฐานข้อมูล"
 
 #: libraries/classes/Config/Descriptions.php:613
 #, fuzzy
