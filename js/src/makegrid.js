@@ -713,7 +713,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                         var value = data.isNeedToRecheck
                             ? data.truncatableFieldValue.replace(/\r\n/g, '\n')
                             : $thisField.data('value').replace(/\r\n/g, '\n');
-                        
+
                         // Truncates the text.
                         $thisField.removeClass('truncated');
                         if (CommonParams.get('pftext') === 'P' && value.length > g.maxTruncatedLen) {
@@ -919,15 +919,15 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                     });
                 }
 
-                if (hasLineEnding) {   
+                if (hasLineEnding) {
                     // Canonical server truth (preferred)
-                    let originalValue = $td.data('originalValue');  
+                    let originalValue = $td.data('originalValue');
                     // Fallback ONLY if not present (AJAX-fetched truncated case)
                     if (originalValue === undefined) {
                         originalValue = Functions.normalizeNewlines(
                             Functions.getCellValue(g.currentEditCell)
                         );
-                        $td.data('originalValue', originalValue);           
+                        $td.data('originalValue', originalValue);
                     }
                     // Cache it once
                     $editArea.append(
@@ -1596,7 +1596,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                     // Normalizing to LFs only for text comparison.
                     canonicalNewValue = canonicalNewValue.replace(/\r\n/g, '\n');
                     isValueUpdated = (canonicalNewValue !== canonicalOldValue) || ($(g.currentEditCell).data('lineEnding') !== $(g.currentEditCell).attr('data-line-ending'));
-                    
+
                     $(g.currentEditCell).attr('data-line-ending', selectedEnding);
                 } else {
                     const JSONString = Functions.stringifyJSON(thisFieldParams[fieldName]);
