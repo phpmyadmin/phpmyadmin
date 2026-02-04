@@ -701,12 +701,19 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                     if (isNull) {
                         $thisField.find('span').html('NULL');
                         $thisField.addClass('null');
+                        // todo: set original value to null & remove data-line-ending attribute
+                        $thisField.data('originalValue', null);
+                        if ($thisField.is('[data-line-ending]')) {
+                            $thisField
+                                .removeData('lineEnding')
+                                .removeAttr('data-line-ending');
+                        }
                     } else {
                         $thisField.removeClass('null');
                         var value = data.isNeedToRecheck
-                            ? data.truncatableFieldValue
-                            : $thisField.data('value');
-
+                            ? data.truncatableFieldValue.replace(/\r\n/g, '\n')
+                            : $thisField.data('value').replace(/\r\n/g, '\n');
+                        
                         // Truncates the text.
                         $thisField.removeClass('truncated');
                         if (CommonParams.get('pftext') === 'P' && value.length > g.maxTruncatedLen) {
@@ -743,6 +750,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                         if (!Functions.updateCode($target, newHtml, value)) {
                             $target.html(newHtml);
                         }
+                        $thisField.data('originalValue', value)
                     }
                     if ($thisField.is('.bit')) {
                         $thisField.find('span').text($thisField.data('value'));
@@ -795,6 +803,10 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                  * @var $td current edited cell
                  */
                 var $td = $(g.currentEditCell);
+                /**
+                 * @var hasLineEnding boolean, true if the edited cell has line-ending data option
+                 */
+                var hasLineEnding = ($td.is('[data-line-ending]'));
                 /**
                  * @var $editArea the editing area
                  */
@@ -904,6 +916,36 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                             $editArea.find('textarea').val('');
                         }
                         $(g.cEdit).find('.edit_box').val('');
+                    });
+                }
+
+                if (hasLineEnding) {   
+                    // Canonical server truth (preferred)
+                    let originalValue = $td.data('originalValue');  
+                    // Fallback ONLY if not present (AJAX-fetched truncated case)
+                    if (originalValue === undefined) {
+                        originalValue = Functions.normalizeNewlines(
+                            Functions.getCellValue(g.currentEditCell)
+                        );
+                        $td.data('originalValue', originalValue);           
+                    }
+                    // Cache it once
+                    $editArea.append(
+                        '<div class="crlf_div">' +
+                            '<label>' +
+                                '<span class="line-ending-label">Line endings:</span>' +
+                                '<select class="line-ending-select">' +
+                                    '<option value="LF">LF</option>' +
+                                    '<option value="CRLF">CRLF</option>' +
+                                '</select>' +
+                            '</label>' +
+                        '</div>'
+                    );
+                    var detectedEnding = $td.data('lineEnding');
+                    $editArea.find('.line-ending-select').val(detectedEnding);
+                    // handle change of line ending selection
+                    $editArea.on('change', '.line-ending-select', function () {
+                        $td.data('lineEnding', this.value);
                     });
                 }
 
@@ -1531,13 +1573,31 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                         thisFieldParams[fieldName] = Functions.getCellValue(g.currentEditCell);
                     }
                 } else {
-                    thisFieldParams[fieldName] = $(g.cEdit).find('.edit_box').val();
+                    let inputValue = $(g.cEdit).find('.edit_box').val();
+                    var canonicalNewValue = inputValue;
+                    var selectedEnding = $(g.currentEditCell).data('lineEnding');
+                    // browser always gives LF.
+                    if (selectedEnding === 'CRLF') {
+                        canonicalNewValue = canonicalNewValue.replace(/\n/g, '\r\n');
+                    }
+                    // new value that will be saved in the database.
+                    thisFieldParams[fieldName] = canonicalNewValue;
                 }
 
                 let isValueUpdated;
                 if ($thisField.attr('data-type') !== 'json') {
-                    let normalizedCellVal = Functions.normalizeNewlines(Functions.getCellValue(g.currentEditCell));
-                    isValueUpdated = thisFieldParams[fieldName] !== normalizedCellVal;
+                    let canonicalOldValue;
+                    if ((! $(g.currentEditCell).hasClass('truncated')) && $(g.currentEditCell).data('originalValue') !== null) {
+                        canonicalOldValue = $(g.currentEditCell).data('originalValue');
+                    } else {
+                        // Fallback: DOM value
+                        canonicalOldValue = Functions.normalizeNewlines(Functions.getCellValue(g.currentEditCell));
+                    }
+                    // Normalizing to LFs only for text comparison.
+                    canonicalNewValue = canonicalNewValue.replace(/\r\n/g, '\n');
+                    isValueUpdated = (canonicalNewValue !== canonicalOldValue) || ($(g.currentEditCell).data('lineEnding') !== $(g.currentEditCell).attr('data-line-ending'));
+                    
+                    $(g.currentEditCell).attr('data-line-ending', selectedEnding);
                 } else {
                     const JSONString = Functions.stringifyJSON(thisFieldParams[fieldName]);
                     isValueUpdated = JSONString !== Functions.stringifyJSON(Functions.getCellValue(g.currentEditCell));
