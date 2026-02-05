@@ -933,7 +933,12 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                     $editArea.append(
                         '<div class="crlf_div">' +
                             '<label>' +
-                                '<span class="line-ending-label">Line endings:</span>' +
+                                '<span class="line-ending-label">' +
+                                    'Line endings' +
+                                    '<span>' +
+                                        '<img src="themes/dot.gif" title="The suggested value was detected from your existing data." alt="The suggested value was detected from your existing data." class="icon ic_b_help">' +
+                                    '</span>:' +
+                                '</span>' +
                                 '<select class="line-ending-select">' +
                                     '<option value="LF">LF</option>' +
                                     '<option value="CRLF">CRLF</option>' +
