@@ -202,15 +202,17 @@ final class EventsController implements InvocableController
 
             $itemName = htmlspecialchars(Util::backquote($itemName));
             if ($exportData !== false) {
-                $exportData = htmlspecialchars(trim($exportData));
                 $title = sprintf(__('Export of event %s'), $itemName);
 
                 if ($request->isAjax()) {
-                    $this->response->addJSON('message', $exportData);
+					$exportData = htmlspecialchars(trim($exportData));	
+					$this->response->addJSON('message', $exportData);
                     $this->response->addJSON('title', $title);
 
                     return $this->response->response();
-                }
+				} else {
+					$exportData = htmlspecialchars(trim($exportData),ENT_NOQUOTES);
+				}
 
                 $output = '<div class="container">';
                 $output .= '<h2>' . $title . '</h2>';
