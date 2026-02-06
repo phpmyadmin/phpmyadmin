@@ -934,10 +934,10 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                         '<div class="crlf_div">' +
                             '<label>' +
                                 '<span class="line-ending-label">' +
-                                    'Line endings' +
+                                    'Line ending:' +
                                     '<span>' +
                                         '<img src="themes/dot.gif" title="The suggested value was detected from your existing data." alt="The suggested value was detected from your existing data." class="icon ic_b_help">' +
-                                    '</span>:' +
+                                    '</span>' +
                                 '</span>' +
                                 '<select class="line-ending-select">' +
                                     '<option value="LF">LF</option>' +
