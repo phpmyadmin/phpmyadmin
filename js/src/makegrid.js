@@ -1592,7 +1592,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                 let isValueUpdated;
                 if ($thisField.attr('data-type') !== 'json') {
                     let canonicalOldValue;
-                    if ((! $(g.currentEditCell).hasClass('truncated')) && $(g.currentEditCell).data('originalValue') !== null) {
+                    if ((! $(g.currentEditCell).hasClass('truncated')) && $(g.currentEditCell).data('originalValue') !== null && $(g.currentEditCell).data('originalValue') !== undefined) {
                         canonicalOldValue = $(g.currentEditCell).data('originalValue');
                     } else {
                         // Fallback: DOM value
