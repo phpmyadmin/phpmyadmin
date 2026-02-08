@@ -750,7 +750,10 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                         if (!Functions.updateCode($target, newHtml, value)) {
                             $target.html(newHtml);
                         }
-                        $thisField.data('originalValue', value)
+                        $thisField.data('originalValue', value);
+                        if ($(g.currentEditCell).data('lineEnding') !== $(g.currentEditCell).attr('data-line-ending')) {
+                            $(g.currentEditCell).attr('data-line-ending', $(g.currentEditCell).data('lineEnding'));
+                        }
                     }
                     if ($thisField.is('.bit')) {
                         $thisField.find('span').text($thisField.data('value'));
@@ -1593,16 +1596,15 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                 if ($thisField.attr('data-type') !== 'json') {
                     let canonicalOldValue;
                     if ((! $(g.currentEditCell).hasClass('truncated')) && $(g.currentEditCell).data('originalValue') !== null && $(g.currentEditCell).data('originalValue') !== undefined) {
-                        canonicalOldValue = $(g.currentEditCell).data('originalValue');
+                        let raw = $(g.currentEditCell).data('originalValue');
+                        canonicalOldValue = (typeof raw === 'object') ? Functions.stringifyJSON(raw) : String(raw);
                     } else {
                         // Fallback: DOM value
-                        canonicalOldValue = Functions.normalizeNewlines(Functions.getCellValue(g.currentEditCell));
+                        canonicalOldValue = String(Functions.normalizeNewlines(Functions.getCellValue(g.currentEditCell)));
                     }
                     // Normalizing to LFs only for text comparison.
-                    canonicalNewValue = canonicalNewValue.replace(/\r\n/g, '\n');
+                    canonicalNewValue = (String(canonicalNewValue)).replace(/\r\n/g, '\n');
                     isValueUpdated = (canonicalNewValue !== canonicalOldValue) || ($(g.currentEditCell).data('lineEnding') !== $(g.currentEditCell).attr('data-line-ending'));
-
-                    $(g.currentEditCell).attr('data-line-ending', selectedEnding);
                 } else {
                     const JSONString = Functions.stringifyJSON(thisFieldParams[fieldName]);
                     isValueUpdated = JSONString !== Functions.stringifyJSON(Functions.getCellValue(g.currentEditCell));
