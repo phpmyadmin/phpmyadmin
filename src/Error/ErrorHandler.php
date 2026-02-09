@@ -24,7 +24,10 @@ use function error_reporting;
 use function function_exists;
 use function htmlspecialchars;
 use function sprintf;
+use function str_contains;
+use function str_replace;
 
+use const DIRECTORY_SEPARATOR;
 use const E_COMPILE_ERROR;
 use const E_COMPILE_WARNING;
 use const E_CORE_ERROR;
@@ -224,14 +227,8 @@ class ErrorHandler
      */
     public function handleException(Throwable $exception): void
     {
-        $this->hideLocation = Config::getInstance()->config->environment !== 'development';
-        $message = $exception::class;
-        if (! ($exception instanceof \Error) || ! $this->hideLocation) {
-            $message .= ': ' . $exception->getMessage();
-        }
-
         $this->addError(
-            $message,
+            $exception::class . ': ' . $exception->getMessage(),
             (int) $exception->getCode(),
             $exception->getFile(),
             $exception->getLine(),
@@ -262,6 +259,10 @@ class ErrorHandler
         int $errline,
         bool $escape = true,
     ): void {
+        if (str_contains($errstr, ROOT_PATH)) {
+            $errstr = str_replace(ROOT_PATH, '.' . DIRECTORY_SEPARATOR, $errstr);
+        }
+
         if ($escape) {
             $errstr = htmlspecialchars($errstr);
         }
