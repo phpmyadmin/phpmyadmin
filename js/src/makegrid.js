@@ -751,8 +751,8 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                             $target.html(newHtml);
                         }
                         $thisField.data('originalValue', value);
-                        if ($(g.currentEditCell).data('lineEnding') !== $(g.currentEditCell).attr('data-line-ending')) {
-                            $(g.currentEditCell).attr('data-line-ending', $(g.currentEditCell).data('lineEnding'));
+                        if ($thisField.data('lineEnding') !== $thisField.attr('data-line-ending')) {
+                            $thisField.attr('data-line-ending', $thisField.data('lineEnding'));
                         }
                     }
                     if ($thisField.is('.bit')) {
@@ -924,13 +924,13 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
 
                 if (hasLineEnding) {
                     // Canonical server truth (preferred)
-                    let originalValue = $td.data('originalValue');
+                    let originalValue = $(g.currentEditCell).data('originalValue');
                     // Fallback ONLY if not present (AJAX-fetched truncated case)
                     if (originalValue === undefined) {
                         originalValue = Functions.normalizeNewlines(
                             Functions.getCellValue(g.currentEditCell)
                         );
-                        $td.data('originalValue', originalValue);
+                        $(g.currentEditCell).data('originalValue', originalValue);
                     }
                     // Cache it once
                     $editArea.append(
@@ -949,11 +949,11 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                             '</label>' +
                         '</div>'
                     );
-                    var detectedEnding = $td.data('lineEnding');
+                    var detectedEnding = $(g.currentEditCell).data('lineEnding');
                     $editArea.find('.line-ending-select').val(detectedEnding);
                     // handle change of line ending selection
-                    $editArea.on('change', '.line-ending-select', function () {
-                        $td.data('lineEnding', this.value);
+                    $editArea.find('.line-ending-select').off('change').on('change', function () {
+                        $(g.currentEditCell).data('lineEnding', this.value);
                     });
                 }
 
