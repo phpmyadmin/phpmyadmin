@@ -570,6 +570,10 @@ final class JavaScriptMessagesController
             ),
             'strOriginalLength' => __('Original length'),
 
+            /* For makegrid.js (CRLF/LF handling) */
+            'strLineEnding' => __('Line ending:'),
+            'strLineEndingDetected' => __('The suggested value was detected from your existing data.'),
+
             /* Drag & Drop sql import messages */
             'dropImportMessageCancel' => __('cancel'),
             'dropImportMessageAborted' => __('Aborted'),
