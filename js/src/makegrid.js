@@ -701,7 +701,6 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                     if (isNull) {
                         $thisField.find('span').html('NULL');
                         $thisField.addClass('null');
-                        // todo: set original value to null & remove data-line-ending attribute
                         $thisField.data('originalValue', null);
                         if ($thisField.is('[data-line-ending]')) {
                             $thisField
@@ -711,8 +710,8 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                     } else {
                         $thisField.removeClass('null');
                         var value = data.isNeedToRecheck
-                            ? data.truncatableFieldValue.replace(/\r\n/g, '\n')
-                            : $thisField.data('value').replace(/\r\n/g, '\n');
+                            ? Functions.normalizeNewlines(data.truncatableFieldValue)
+                            : Functions.normalizeNewlines($thisField.data('value'));
 
                         // Truncates the text.
                         $thisField.removeClass('truncated');
@@ -937,9 +936,12 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                         '<div class="crlf_div">' +
                             '<label>' +
                                 '<span class="line-ending-label">' +
-                                    'Line ending:' +
+                                    Messages.strLineEnding +
                                     '<span>' +
-                                        '<img src="themes/dot.gif" title="The suggested value was detected from your existing data." alt="The suggested value was detected from your existing data." class="icon ic_b_help">' +
+                                        '<img src="themes/dot.gif" ' +
+                                        'title="' + Functions.escapeHtml(Messages.strLineEndingDetected) + '" ' +
+                                        'alt="' + Functions.escapeHtml(Messages.strLineEndingDetected) + '" ' +
+                                        'class="icon ic_b_help">' +
                                     '</span>' +
                                 '</span>' +
                                 '<select class="line-ending-select">' +
@@ -1603,7 +1605,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                         canonicalOldValue = String(Functions.normalizeNewlines(Functions.getCellValue(g.currentEditCell)));
                     }
                     // Normalizing to LFs only for text comparison.
-                    canonicalNewValue = (String(canonicalNewValue)).replace(/\r\n/g, '\n');
+                    canonicalNewValue = Functions.normalizeNewlines(String(canonicalNewValue));
                     isValueUpdated = (canonicalNewValue !== canonicalOldValue) || ($(g.currentEditCell).data('lineEnding') !== $(g.currentEditCell).attr('data-line-ending'));
                 } else {
                     const JSONString = Functions.stringifyJSON(thisFieldParams[fieldName]);
