@@ -361,12 +361,11 @@ class Plugins
             $text = $properties->getText();
             $options = $properties->getOptions();
 
-            $ret .= '<div id="' . $plugin->getName()
-                . '_options" class="format_specific_options">';
+            $ret .= '<div id="' . $plugin->getName() . '_options" class="format_specific_options">';
             $ret .= '<h3>' . $plugin->getTranslatedText($text) . '</h3>';
 
             $noOptions = true;
-            if ($options !== null && $options->count() > 0) {
+            if ($options !== null) {
                 /** @var OptionsPropertyMainGroup $propertyMainGroup */
                 foreach ($options->getProperties() as $propertyMainGroup) {
                     // check for hidden properties

@@ -34,8 +34,8 @@ final class SchemaPdfTest extends AbstractTestCase
         $specificOption = $specificOptions->current();
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $specificOption);
         self::assertSame('pdf_general_opts', $specificOption->getName());
-        self::assertCount(8, $specificOption);
         $specificOptionProperties = $specificOption->getProperties();
+        self::assertCount(8, $specificOptionProperties);
 
         $specificOptionProperty = $specificOptionProperties->current();
         self::assertInstanceOf(BoolPropertyItem::class, $specificOptionProperty);

@@ -34,8 +34,8 @@ final class SchemaDiaTest extends AbstractTestCase
         $specificOption = $specificOptions->current();
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $specificOption);
         self::assertSame('dia_general_opts', $specificOption->getName());
-        self::assertCount(4, $specificOption);
         $specificOptionProperties = $specificOption->getProperties();
+        self::assertCount(4, $specificOptionProperties);
 
         $specificOptionProperty = $specificOptionProperties->current();
         self::assertInstanceOf(BoolPropertyItem::class, $specificOptionProperty);

@@ -33,8 +33,8 @@ final class SchemaSvgTest extends AbstractTestCase
         $specificOption = $specificOptions->current();
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $specificOption);
         self::assertSame('svg_general_opts', $specificOption->getName());
-        self::assertCount(3, $specificOption);
         $specificOptionProperties = $specificOption->getProperties();
+        self::assertCount(3, $specificOptionProperties);
 
         $specificOptionProperty = $specificOptionProperties->current();
         self::assertInstanceOf(BoolPropertyItem::class, $specificOptionProperty);

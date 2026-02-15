@@ -7,7 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Properties\Options;
 
-use Countable;
 use SplObjectStorage;
 
 /**
@@ -16,7 +15,7 @@ use SplObjectStorage;
  *
  * @todo    modify descriptions if needed, when the options are integrated
  */
-abstract class OptionsPropertyGroup extends OptionsPropertyItem implements Countable
+abstract class OptionsPropertyGroup extends OptionsPropertyItem
 {
     /**
      * Holds a group of properties (PhpMyAdmin\Properties\Options\OptionsPropertyItem instances)
@@ -64,13 +63,5 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem implements Count
     public function getProperties(): SplObjectStorage
     {
         return $this->properties;
-    }
-
-    /**
-     * Countable interface implementation.
-     */
-    public function count(): int
-    {
-        return $this->properties->count();
     }
 }
