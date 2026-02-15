@@ -143,11 +143,6 @@ final class ExportHtmlwordTest extends AbstractTestCase
             $generalOptions->getText(),
         );
 
-        self::assertSame(
-            'structure',
-            $generalOptions->getForce(),
-        );
-
         $generalProperties = $generalOptions->getProperties();
 
         $property = $generalProperties->current();

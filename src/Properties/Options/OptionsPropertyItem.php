@@ -15,11 +15,6 @@ namespace PhpMyAdmin\Properties\Options;
  */
 abstract class OptionsPropertyItem
 {
-    /**
-     * What to force
-     */
-    private string|null $force = null;
-
     public function __construct(private string|null $name = null, private string|null $text = null)
     {
     }
@@ -42,15 +37,5 @@ abstract class OptionsPropertyItem
     public function setText(string $text): void
     {
         $this->text = $text;
-    }
-
-    public function getForce(): string|null
-    {
-        return $this->force;
-    }
-
-    public function setForce(string $force): void
-    {
-        $this->force = $force;
     }
 }

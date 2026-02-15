@@ -124,7 +124,6 @@ class ExportLatex extends ExportPlugin
                 'latex_structure',
                 __('Object creation options'),
             );
-            $structureOptions->setForce('data');
             // create primary items and add them to the group
             $leaf = new TextPropertyItem(
                 'latex_structure_caption',
@@ -175,7 +174,6 @@ class ExportLatex extends ExportPlugin
             'latex_data',
             __('Data dump options'),
         );
-        $dataOptions->setForce('structure');
         // create primary items and add them to the group
         $leaf = new BoolPropertyItem(
             'latex_columns',

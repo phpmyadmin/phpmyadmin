@@ -80,7 +80,6 @@ class ExportTexytext extends ExportPlugin
             'texytext_data',
             __('Data dump options'),
         );
-        $dataOptions->setForce('structure');
         // create primary items and add them to the group
         $leaf = new BoolPropertyItem(
             'texytext_columns',

@@ -7193,8 +7193,6 @@
       <code><![CDATA[$this->getName()]]></code>
     </PossiblyNullArgument>
     <PossiblyNullOperand>
-      <code><![CDATA[$this->getForce()]]></code>
-      <code><![CDATA[$this->getForce()]]></code>
       <code><![CDATA[$this->getName()]]></code>
       <code><![CDATA[$this->getName()]]></code>
       <code><![CDATA[$this->getName()]]></code>

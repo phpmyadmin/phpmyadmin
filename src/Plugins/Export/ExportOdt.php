@@ -89,7 +89,6 @@ class ExportOdt extends ExportPlugin
                 'odt_structure',
                 __('Object creation options'),
             );
-            $structureOptions->setForce('data');
             $relationParameters = $this->relation->getRelationParameters();
             // create primary items and add them to the group
             if ($relationParameters->relationFeature !== null) {
@@ -122,7 +121,6 @@ class ExportOdt extends ExportPlugin
             'odt_data',
             __('Data dump options'),
         );
-        $dataOptions->setForce('structure');
         // create primary items and add them to the group
         $leaf = new BoolPropertyItem(
             'odt_columns',

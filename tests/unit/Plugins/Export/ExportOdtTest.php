@@ -163,11 +163,6 @@ final class ExportOdtTest extends AbstractTestCase
             $generalOptions->getText(),
         );
 
-        self::assertSame(
-            'data',
-            $generalOptions->getForce(),
-        );
-
         $generalProperties = $generalOptions->getProperties();
 
         $property = $generalProperties->current();
@@ -227,11 +222,6 @@ final class ExportOdtTest extends AbstractTestCase
         self::assertSame(
             'Data dump options',
             $generalOptions->getText(),
-        );
-
-        self::assertSame(
-            'structure',
-            $generalOptions->getForce(),
         );
 
         $generalProperties = $generalOptions->getProperties();

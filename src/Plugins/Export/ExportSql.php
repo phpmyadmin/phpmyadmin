@@ -278,7 +278,6 @@ class ExportSql extends ExportPlugin
                 'sql_structure',
                 __('Object creation options'),
             );
-            $structureOptions->setForce('data');
 
             // begin SQL Statements
             $subgroup = new OptionsPropertySubgroup();
@@ -414,7 +413,6 @@ class ExportSql extends ExportPlugin
             'sql_data',
             __('Data creation options'),
         );
-        $dataOptions->setForce('structure');
         $leaf = new BoolPropertyItem(
             'sql_truncate',
             __('Truncate table before insert'),

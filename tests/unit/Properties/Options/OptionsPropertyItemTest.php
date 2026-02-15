@@ -53,19 +53,4 @@ class OptionsPropertyItemTest extends AbstractTestCase
             $this->stub->getText(),
         );
     }
-
-    /**
-     * Test for
-     *     - PhpMyAdmin\Properties\Options\OptionsPropertyItem::getForce
-     *     - PhpMyAdmin\Properties\Options\OptionsPropertyItem::setForce
-     */
-    public function testGetSetForce(): void
-    {
-        $this->stub->setForce('force123');
-
-        self::assertSame(
-            'force123',
-            $this->stub->getForce(),
-        );
-    }
 }

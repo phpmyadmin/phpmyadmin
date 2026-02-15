@@ -27,16 +27,6 @@ class BoolPropertyItem extends OptionsPropertyOneItem
                 $this->getName(),
             );
 
-        if ($this->getForce() !== null) {
-            $ret .= ' onclick="if (!this.checked &amp;&amp; '
-                . '(!document.getElementById(\'checkbox_' . $pluginName
-                . '_' . $this->getForce() . '\') '
-                . '|| !document.getElementById(\'checkbox_'
-                . $pluginName . '_' . $this->getForce()
-                . '\').checked)) '
-                . 'return false; else return true;"';
-        }
-
         $ret .= '>';
         $ret .= '<label class="form-check-label" for="checkbox_' . $this->getName() . '">'
             . $plugin->getTranslatedText($this->getText() ?? '') . '</label></div>';

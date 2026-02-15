@@ -81,7 +81,6 @@ class ExportHtmlword extends ExportPlugin
             'htmlword_dump_data_options',
             __('Data dump options'),
         );
-        $dataOptions->setForce('structure');
         // create primary items and add them to the group
         $leaf = new TextPropertyItem(
             'htmlword_null',
