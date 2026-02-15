@@ -60,7 +60,7 @@ class ExportPdf extends ExportPlugin
         $exportSpecificOptions = new OptionsPropertyRootGroup('Format Specific Options');
 
         // general options main group
-        $generalOptions = new OptionsPropertyMainGroup('general_opts');
+        $generalOptions = new OptionsPropertyMainGroup('pdf_general_opts');
         // create primary items and add them to the group
         $leaf = new TextPropertyItem(
             'report_title',
@@ -72,7 +72,7 @@ class ExportPdf extends ExportPlugin
 
         // what to dump (structure/data/both) main group
         $dumpWhat = new OptionsPropertyMainGroup(
-            'dump_what',
+            'pdf_dump_what',
             __('Dump table'),
         );
         $leaf = new RadioPropertyItem('structure_or_data');

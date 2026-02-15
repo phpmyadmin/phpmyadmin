@@ -63,7 +63,7 @@ class ExportTexytext extends ExportPlugin
 
         // what to dump (structure/data/both) main group
         $dumpWhat = new OptionsPropertyMainGroup(
-            'general_opts',
+            'texytext_general_opts',
             __('Dump table'),
         );
         // create primary items and add them to the group
@@ -77,7 +77,7 @@ class ExportTexytext extends ExportPlugin
 
         // data options main group
         $dataOptions = new OptionsPropertyMainGroup(
-            'data',
+            'texytext_data',
             __('Data dump options'),
         );
         $dataOptions->setForce('structure');

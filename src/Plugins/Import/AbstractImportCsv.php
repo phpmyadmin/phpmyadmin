@@ -21,7 +21,7 @@ abstract class AbstractImportCsv extends ImportPlugin
 {
     final protected function getGeneralOptions(): OptionsPropertyMainGroup
     {
-        $generalOptions = new OptionsPropertyMainGroup('general_opts');
+        $generalOptions = new OptionsPropertyMainGroup($this->getName() . '_general_opts');
 
         // create common items and add them to the group
         $leaf = new BoolPropertyItem(

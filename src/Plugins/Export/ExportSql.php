@@ -174,10 +174,10 @@ class ExportSql extends ExportPlugin
         $exportSpecificOptions = new OptionsPropertyRootGroup('Format Specific Options');
 
         // general options main group
-        $generalOptions = new OptionsPropertyMainGroup('general_opts');
+        $generalOptions = new OptionsPropertyMainGroup('sql_general_opts');
 
         // comments
-        $subgroup = new OptionsPropertySubgroup('include_comments');
+        $subgroup = new OptionsPropertySubgroup('sql_include_comments');
         $leaf = new BoolPropertyItem(
             'include_comments',
             __(
@@ -259,7 +259,7 @@ class ExportSql extends ExportPlugin
 
         // what to dump (structure/data/both)
         $subgroup = new OptionsPropertySubgroup(
-            'dump_table',
+            'sql_dump_table',
             __('Dump table'),
         );
         $leaf = new RadioPropertyItem('structure_or_data');
@@ -275,7 +275,7 @@ class ExportSql extends ExportPlugin
         // structure options main group
         if (! $hideStructure) {
             $structureOptions = new OptionsPropertyMainGroup(
-                'structure',
+                'sql_structure',
                 __('Object creation options'),
             );
             $structureOptions->setForce('data');
@@ -411,7 +411,7 @@ class ExportSql extends ExportPlugin
 
         // begin Data options
         $dataOptions = new OptionsPropertyMainGroup(
-            'data',
+            'sql_data',
             __('Data creation options'),
         );
         $dataOptions->setForce('structure');
@@ -424,6 +424,7 @@ class ExportSql extends ExportPlugin
         // begin SQL Statements
         $subgroup = new OptionsPropertySubgroup();
         $leaf = new MessageOnlyPropertyItem(
+            'insert_alternatives',
             __('Instead of <code>INSERT</code> statements, use:'),
         );
         $subgroup->setSubgroupHeader($leaf);

@@ -90,7 +90,7 @@ final class ExportPdfTest extends AbstractTestCase
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         self::assertSame(
-            'general_opts',
+            'pdf_general_opts',
             $generalOptions->getName(),
         );
 
@@ -110,7 +110,7 @@ final class ExportPdfTest extends AbstractTestCase
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         self::assertSame(
-            'dump_what',
+            'pdf_dump_what',
             $generalOptions->getName(),
         );
 

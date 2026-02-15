@@ -56,13 +56,13 @@ class ExportMediawiki extends ExportPlugin
 
         // general options main group
         $generalOptions = new OptionsPropertyMainGroup(
-            'general_opts',
+            'mediawiki_general_opts',
             __('Dump table'),
         );
 
         // what to dump (structure/data/both)
         $subgroup = new OptionsPropertySubgroup(
-            'dump_table',
+            'mediawiki_dump_table',
             __('Dump table'),
         );
         $leaf = new RadioPropertyItem('structure_or_data');

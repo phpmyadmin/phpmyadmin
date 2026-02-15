@@ -92,7 +92,7 @@ class ExportToonTest extends AbstractTestCase
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         self::assertSame(
-            'general_opts',
+            'toon_general_opts',
             $generalOptions->getName(),
         );
 

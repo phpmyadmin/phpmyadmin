@@ -62,7 +62,7 @@ class ExportCsv extends ExportPlugin
         $exportSpecificOptions = new OptionsPropertyRootGroup('Format Specific Options');
 
         // general options main group
-        $generalOptions = new OptionsPropertyMainGroup('general_opts');
+        $generalOptions = new OptionsPropertyMainGroup('csv_general_opts');
         // create leaf items and add them to the group
         $leaf = new TextPropertyItem(
             'separator',

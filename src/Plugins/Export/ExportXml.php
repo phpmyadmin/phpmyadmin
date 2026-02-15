@@ -74,7 +74,7 @@ class ExportXml extends ExportPlugin
         $exportSpecificOptions = new OptionsPropertyRootGroup('Format Specific Options');
 
         // general options main group
-        $generalOptions = new OptionsPropertyMainGroup('general_opts');
+        $generalOptions = new OptionsPropertyMainGroup('xml_general_opts');
         // create primary items and add them to the group
         $leaf = new HiddenPropertyItem('structure_or_data');
         $generalOptions->addProperty($leaf);
@@ -83,7 +83,7 @@ class ExportXml extends ExportPlugin
 
         // export structure main group
         $structure = new OptionsPropertyMainGroup(
-            'structure',
+            'xml_structure',
             __('Object creation options (all are recommended)'),
         );
 
@@ -122,7 +122,7 @@ class ExportXml extends ExportPlugin
 
         // data main group
         $data = new OptionsPropertyMainGroup(
-            'data',
+            'xml_data',
             __('Data dump options'),
         );
         // create primary items and add them to the group

@@ -33,7 +33,7 @@ final class SchemaEpsTest extends AbstractTestCase
         self::assertCount(1, $specificOptions);
         $specificOption = $specificOptions->current();
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $specificOption);
-        self::assertSame('general_opts', $specificOption->getName());
+        self::assertSame('eps_general_opts', $specificOption->getName());
         self::assertCount(4, $specificOption);
         $specificOptionProperties = $specificOption->getProperties();
 

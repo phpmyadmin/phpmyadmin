@@ -49,7 +49,7 @@ class SchemaPdf extends SchemaPlugin
         $exportSpecificOptions = new OptionsPropertyRootGroup('Format Specific Options');
 
         // specific options main group
-        $specificOptions = new OptionsPropertyMainGroup('general_opts');
+        $specificOptions = new OptionsPropertyMainGroup('pdf_general_opts');
         // add options common to all plugins
         $this->addCommonOptions($specificOptions);
 

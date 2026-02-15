@@ -104,7 +104,7 @@ final class ExportHtmlwordTest extends AbstractTestCase
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         self::assertSame(
-            'dump_what',
+            'htmlword_dump_what',
             $generalOptions->getName(),
         );
 
@@ -134,7 +134,7 @@ final class ExportHtmlwordTest extends AbstractTestCase
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         self::assertSame(
-            'dump_what',
+            'htmlword_dump_data_options',
             $generalOptions->getName(),
         );
 

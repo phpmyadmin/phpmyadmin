@@ -94,7 +94,7 @@ class ExportLatex extends ExportPlugin
         $exportSpecificOptions = new OptionsPropertyRootGroup('Format Specific Options');
 
         // general options main group
-        $generalOptions = new OptionsPropertyMainGroup('general_opts');
+        $generalOptions = new OptionsPropertyMainGroup('latex_general_opts');
         // create primary items and add them to the group
         $leaf = new BoolPropertyItem(
             'caption',
@@ -106,7 +106,7 @@ class ExportLatex extends ExportPlugin
 
         // what to dump (structure/data/both) main group
         $dumpWhat = new OptionsPropertyMainGroup(
-            'dump_what',
+            'latex_dump_what',
             __('Dump table'),
         );
         // create primary items and add them to the group
@@ -121,7 +121,7 @@ class ExportLatex extends ExportPlugin
         // structure options main group
         if (! $hideStructure) {
             $structureOptions = new OptionsPropertyMainGroup(
-                'structure',
+                'latex_structure',
                 __('Object creation options'),
             );
             $structureOptions->setForce('data');
@@ -172,7 +172,7 @@ class ExportLatex extends ExportPlugin
 
         // data options main group
         $dataOptions = new OptionsPropertyMainGroup(
-            'data',
+            'latex_data',
             __('Data dump options'),
         );
         $dataOptions->setForce('structure');

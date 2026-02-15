@@ -59,7 +59,7 @@ class ExportOds extends ExportPlugin
         $exportSpecificOptions = new OptionsPropertyRootGroup('Format Specific Options');
 
         // general options main group
-        $generalOptions = new OptionsPropertyMainGroup('general_opts');
+        $generalOptions = new OptionsPropertyMainGroup('ods_general_opts');
         // create primary items and add them to the group
         $leaf = new TextPropertyItem(
             'null',

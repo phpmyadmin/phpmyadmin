@@ -78,7 +78,7 @@ final class ExportExcelTest extends AbstractTestCase
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         self::assertSame(
-            'general_opts',
+            'excel_general_opts',
             $generalOptions->getName(),
         );
 

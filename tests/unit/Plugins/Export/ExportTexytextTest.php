@@ -98,7 +98,7 @@ final class ExportTexytextTest extends AbstractTestCase
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         self::assertSame(
-            'general_opts',
+            'texytext_general_opts',
             $generalOptions->getName(),
         );
 
@@ -118,7 +118,7 @@ final class ExportTexytextTest extends AbstractTestCase
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         self::assertSame(
-            'data',
+            'texytext_data',
             $generalOptions->getName(),
         );
 

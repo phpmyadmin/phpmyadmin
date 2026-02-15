@@ -286,7 +286,7 @@ class Plugins
                 $properties = [$propertyGroup];
             } else {
                 // for main groups
-                $ret .= "\n" . '<div id="' . $pluginName . '_' . $propertyGroup->getName() . '">';
+                $ret .= "\n" . '<div id="' . $propertyGroup->getName() . '">';
 
                 $text = null;
                 if (method_exists($propertyGroup, 'getText')) {
@@ -321,8 +321,8 @@ class Plugins
                     }
 
                     $ret .= '<li class="list-group-item"><ul class="list-group"';
-                    if ($subgroupHeader !== null) {
-                        $ret .= ' id="ul_' . $subgroupHeader->getName() . '">';
+                    if ($subgroupHeader?->getName() !== null) {
+                        $ret .= ' id="ul_' . $pluginName . '_' . $subgroupHeader->getName() . '">';
                     } else {
                         $ret .= '>';
                     }

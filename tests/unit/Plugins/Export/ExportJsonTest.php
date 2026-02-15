@@ -78,7 +78,7 @@ final class ExportJsonTest extends AbstractTestCase
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         self::assertSame(
-            'general_opts',
+            'json_general_opts',
             $generalOptions->getName(),
         );
 

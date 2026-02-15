@@ -80,7 +80,7 @@ final class ExportYamlTest extends AbstractTestCase
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         self::assertSame(
-            'general_opts',
+            'yaml_general_opts',
             $generalOptions->getName(),
         );
 

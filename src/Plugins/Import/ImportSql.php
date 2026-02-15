@@ -55,7 +55,7 @@ class ImportSql extends ImportPlugin
             $importSpecificOptions = new OptionsPropertyRootGroup('Format Specific Options');
 
             // general options main group
-            $generalOptions = new OptionsPropertyMainGroup('general_opts');
+            $generalOptions = new OptionsPropertyMainGroup('sql_general_opts');
             // create primary items and add them to the group
             $leaf = new SelectPropertyItem(
                 'compatibility',

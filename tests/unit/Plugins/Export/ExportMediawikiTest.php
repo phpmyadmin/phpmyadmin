@@ -92,7 +92,7 @@ final class ExportMediawikiTest extends AbstractTestCase
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         self::assertSame(
-            'general_opts',
+            'mediawiki_general_opts',
             $generalOptions->getName(),
         );
 
@@ -109,7 +109,7 @@ final class ExportMediawikiTest extends AbstractTestCase
         self::assertInstanceOf(OptionsPropertySubgroup::class, $property);
 
         self::assertSame(
-            'dump_table',
+            'mediawiki_dump_table',
             $property->getName(),
         );
 

@@ -76,7 +76,7 @@ final class ExportCodegenTest extends AbstractTestCase
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         self::assertSame(
-            'general_opts',
+            'codegen_general_opts',
             $generalOptions->getName(),
         );
 

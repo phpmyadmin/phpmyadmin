@@ -101,7 +101,7 @@ final class ExportOdsTest extends AbstractTestCase
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         self::assertSame(
-            'general_opts',
+            'ods_general_opts',
             $generalOptions->getName(),
         );
 

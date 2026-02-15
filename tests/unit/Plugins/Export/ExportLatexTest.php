@@ -109,7 +109,7 @@ final class ExportLatexTest extends AbstractTestCase
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         self::assertSame(
-            'general_opts',
+            'latex_general_opts',
             $generalOptions->getName(),
         );
 
@@ -135,7 +135,7 @@ final class ExportLatexTest extends AbstractTestCase
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         self::assertSame(
-            'dump_what',
+            'latex_dump_what',
             $generalOptions->getName(),
         );
 
@@ -167,7 +167,7 @@ final class ExportLatexTest extends AbstractTestCase
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         self::assertSame(
-            'structure',
+            'latex_structure',
             $generalOptions->getName(),
         );
 
@@ -293,7 +293,7 @@ final class ExportLatexTest extends AbstractTestCase
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         self::assertSame(
-            'data',
+            'latex_data',
             $generalOptions->getName(),
         );
 

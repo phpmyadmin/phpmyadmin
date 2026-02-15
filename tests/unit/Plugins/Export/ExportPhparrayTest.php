@@ -84,7 +84,7 @@ final class ExportPhparrayTest extends AbstractTestCase
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         self::assertSame(
-            'general_opts',
+            'phparray_general_opts',
             $generalOptions->getName(),
         );
 

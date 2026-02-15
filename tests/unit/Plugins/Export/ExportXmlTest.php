@@ -87,7 +87,7 @@ final class ExportXmlTest extends AbstractTestCase
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         self::assertSame(
-            'general_opts',
+            'xml_general_opts',
             $generalOptions->getName(),
         );
 
@@ -103,7 +103,7 @@ final class ExportXmlTest extends AbstractTestCase
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         self::assertSame(
-            'structure',
+            'xml_structure',
             $generalOptions->getName(),
         );
 
@@ -134,7 +134,7 @@ final class ExportXmlTest extends AbstractTestCase
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         self::assertSame(
-            'data',
+            'xml_data',
             $generalOptions->getName(),
         );
 

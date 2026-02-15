@@ -123,7 +123,7 @@ final class ExportOdtTest extends AbstractTestCase
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         self::assertSame(
-            'general_opts',
+            'odt_general_opts',
             $generalOptions->getName(),
         );
 
@@ -154,7 +154,7 @@ final class ExportOdtTest extends AbstractTestCase
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         self::assertSame(
-            'structure',
+            'odt_structure',
             $generalOptions->getName(),
         );
 
@@ -220,7 +220,7 @@ final class ExportOdtTest extends AbstractTestCase
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         self::assertSame(
-            'data',
+            'odt_data',
             $generalOptions->getName(),
         );
 

@@ -87,7 +87,7 @@ final class ExportCsvTest extends AbstractTestCase
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         self::assertSame(
-            'general_opts',
+            'csv_general_opts',
             $generalOptions->getName(),
         );
 
