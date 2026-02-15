@@ -16,7 +16,7 @@ use function htmlspecialchars;
  */
 class HiddenPropertyItem extends OptionsPropertyOneItem
 {
-    public function getHtml(Plugin $plugin, PluginType $pluginType, string $pluginName): string
+    public function getHtml(Plugin $plugin, PluginType $pluginType): string
     {
         return '<li class="list-group-item"><input type="hidden" name="' . $this->getName() . '"'
             . ' value="'

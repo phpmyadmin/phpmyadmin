@@ -16,7 +16,7 @@ use function htmlspecialchars;
  */
 class RadioPropertyItem extends OptionsPropertyOneItem
 {
-    public function getHtml(Plugin $plugin, PluginType $pluginType, string $pluginName): string
+    public function getHtml(Plugin $plugin, PluginType $pluginType): string
     {
         $default = htmlspecialchars($plugin->getTranslatedText(Plugins::getDefault(
             $pluginType,

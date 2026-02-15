@@ -16,7 +16,7 @@ use function htmlspecialchars;
  */
 class NumberPropertyItem extends OptionsPropertyOneItem
 {
-    public function getHtml(Plugin $plugin, PluginType $pluginType, string $pluginName): string
+    public function getHtml(Plugin $plugin, PluginType $pluginType): string
     {
         $ret = '<li class="list-group-item">';
         $ret .= '<label for="number_' . $this->getName() . '" class="form-label">'

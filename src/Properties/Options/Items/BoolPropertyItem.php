@@ -14,7 +14,7 @@ use PhpMyAdmin\Properties\Options\OptionsPropertyOneItem;
  */
 class BoolPropertyItem extends OptionsPropertyOneItem
 {
-    public function getHtml(Plugin $plugin, PluginType $pluginType, string $pluginName): string
+    public function getHtml(Plugin $plugin, PluginType $pluginType): string
     {
         $ret = '<li class="list-group-item">';
         $ret .= '<div class="form-check form-switch">';

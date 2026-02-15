@@ -264,7 +264,6 @@ class Plugins
     /**
      * Returns single option in a list element
      *
-     * @param string              $pluginName    unique plugin name
      * @param OptionsPropertyItem $propertyGroup options property main group instance
      * @param bool                $isSubgroup    if this group is a subgroup
      *
@@ -273,7 +272,6 @@ class Plugins
     private static function getOneOption(
         Plugin $plugin,
         PluginType $pluginType,
-        string $pluginName,
         OptionsPropertyItem $propertyGroup,
         bool $isSubgroup = false,
     ): string {
@@ -317,7 +315,7 @@ class Plugins
                     // each subgroup can have a header, which may also be a form element
                     $subgroupHeader = $propertyItem->getSubgroupHeader();
                     if ($subgroupHeader !== null) {
-                        $ret .= self::getOneOption($plugin, $pluginType, $pluginName, $subgroupHeader);
+                        $ret .= self::getOneOption($plugin, $pluginType, $subgroupHeader);
                     }
 
                     $ret .= '<li class="list-group-item"><ul class="list-group"';
@@ -329,12 +327,12 @@ class Plugins
 
                     $ret .= "\n";
 
-                    $ret .= self::getOneOption($plugin, $pluginType, $pluginName, $propertyItem, true);
+                    $ret .= self::getOneOption($plugin, $pluginType, $propertyItem, true);
                     continue;
                 }
 
                 // single property item
-                $ret .= self::getHtmlForProperty($plugin, $pluginType, $pluginName, $propertyItem);
+                $ret .= self::getHtmlForProperty($plugin, $pluginType, $propertyItem);
             }
         }
 
@@ -352,11 +350,10 @@ class Plugins
     private static function getHtmlForProperty(
         Plugin $plugin,
         PluginType $pluginType,
-        string $pluginName,
         OptionsPropertyItem $propertyItem,
     ): string {
         if ($propertyItem instanceof OptionsPropertyOneItem) {
-            return $propertyItem->getHtml($plugin, $pluginType, $pluginName) . "\n";
+            return $propertyItem->getHtml($plugin, $pluginType) . "\n";
         }
 
         return '';
@@ -378,9 +375,7 @@ class Plugins
             $text = $properties->getText();
             $options = $properties->getOptions();
 
-            $pluginName = $plugin->getName();
-
-            $ret .= '<div id="' . $pluginName
+            $ret .= '<div id="' . $plugin->getName()
                 . '_options" class="format_specific_options">';
             $ret .= '<h3>' . $plugin->getTranslatedText($text) . '</h3>';
 
@@ -397,7 +392,7 @@ class Plugins
                         }
                     }
 
-                    $ret .= self::getOneOption($plugin, $pluginType, $pluginName, $propertyMainGroup);
+                    $ret .= self::getOneOption($plugin, $pluginType, $propertyMainGroup);
                 }
             }
 
