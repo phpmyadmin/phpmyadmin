@@ -15,18 +15,13 @@ namespace PhpMyAdmin\Properties\Options;
  */
 abstract class OptionsPropertyItem
 {
-    public function __construct(private string|null $name = null, private readonly string $text = '')
+    public function __construct(private readonly string|null $name = null, private readonly string $text = '')
     {
     }
 
     public function getName(): string|null
     {
         return $this->name;
-    }
-
-    public function setName(string $name): void
-    {
-        $this->name = $name;
     }
 
     public function getText(): string

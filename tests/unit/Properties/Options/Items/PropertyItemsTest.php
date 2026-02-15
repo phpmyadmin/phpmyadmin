@@ -5,10 +5,11 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Properties\Options\Items;
 
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
+use PhpMyAdmin\Properties\Options\OptionsPropertyItem;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PHPUnit\Framework\Attributes\CoversNothing;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-#[CoversNothing]
+#[CoversClass(OptionsPropertyItem::class)]
 class PropertyItemsTest extends AbstractTestCase
 {
     public function testBoolText(): void
@@ -27,13 +28,6 @@ class PropertyItemsTest extends AbstractTestCase
 
         self::assertSame(
             'xname',
-            $object->getName(),
-        );
-
-        $object->setName('xname2');
-
-        self::assertSame(
-            'xname2',
             $object->getName(),
         );
     }
