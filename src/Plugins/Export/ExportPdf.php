@@ -52,7 +52,6 @@ class ExportPdf extends ExportPlugin
         $exportPluginProperties->setExtension('pdf');
         $exportPluginProperties->setMimeType('application/pdf');
         $exportPluginProperties->setForceFile(true);
-        $exportPluginProperties->setOptionsText(__('Options'));
 
         // create the root group that will be the options field for
         // $exportPluginProperties

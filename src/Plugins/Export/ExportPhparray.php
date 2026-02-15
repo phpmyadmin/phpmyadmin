@@ -20,7 +20,6 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Version;
 
-use function __;
 use function bin2hex;
 use function preg_match;
 use function preg_replace;
@@ -44,7 +43,6 @@ class ExportPhparray extends ExportPlugin
         $exportPluginProperties->setText('PHP array');
         $exportPluginProperties->setExtension('php');
         $exportPluginProperties->setMimeType('text/plain');
-        $exportPluginProperties->setOptionsText(__('Options'));
 
         // create the root group that will be the options field for
         // $exportPluginProperties

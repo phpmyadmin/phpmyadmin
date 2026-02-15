@@ -62,7 +62,6 @@ class ExportOdt extends ExportPlugin
         $exportPluginProperties->setExtension('odt');
         $exportPluginProperties->setMimeType('application/vnd.oasis.opendocument.text');
         $exportPluginProperties->setForceFile(true);
-        $exportPluginProperties->setOptionsText(__('Options'));
 
         // create the root group that will be the options field for
         // $exportPluginProperties

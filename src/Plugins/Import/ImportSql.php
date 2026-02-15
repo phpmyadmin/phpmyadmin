@@ -40,7 +40,6 @@ class ImportSql extends ImportPlugin
         $importPluginProperties = new ImportPluginProperties();
         $importPluginProperties->setText('SQL');
         $importPluginProperties->setExtension('sql');
-        $importPluginProperties->setOptionsText(__('Options'));
 
         $compats = $this->dbi->getCompatibilities();
         if ($compats !== []) {

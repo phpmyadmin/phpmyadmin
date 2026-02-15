@@ -97,11 +97,6 @@ final class ExportOdtTest extends AbstractTestCase
             $properties->getMimeType(),
         );
 
-        self::assertSame(
-            'Options',
-            $properties->getOptionsText(),
-        );
-
         self::assertTrue(
             $properties->getForceFile(),
         );

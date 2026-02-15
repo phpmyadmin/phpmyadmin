@@ -55,7 +55,6 @@ class ExportCodegen extends ExportPlugin
         $exportPluginProperties->setText('CodeGen');
         $exportPluginProperties->setExtension('cs');
         $exportPluginProperties->setMimeType('text/cs');
-        $exportPluginProperties->setOptionsText(__('Options'));
 
         // create the root group that will be the options field for
         // $exportPluginProperties

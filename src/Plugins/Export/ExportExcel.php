@@ -55,7 +55,6 @@ class ExportExcel extends ExportPlugin
         $exportPluginProperties->setText('CSV for MS Excel');
         $exportPluginProperties->setExtension('csv');
         $exportPluginProperties->setMimeType('text/comma-separated-values');
-        $exportPluginProperties->setOptionsText(__('Options'));
 
         // create the root group that will be the options field for
         // $exportPluginProperties

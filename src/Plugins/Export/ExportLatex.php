@@ -86,7 +86,6 @@ class ExportLatex extends ExportPlugin
         $exportPluginProperties->setText('LaTeX');
         $exportPluginProperties->setExtension('tex');
         $exportPluginProperties->setMimeType('application/x-tex');
-        $exportPluginProperties->setOptionsText(__('Options'));
 
         // create the root group that will be the options field for
         // $exportPluginProperties

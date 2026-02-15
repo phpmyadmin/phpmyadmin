@@ -54,7 +54,6 @@ class ExportCsv extends ExportPlugin
         $exportPluginProperties->setText('CSV');
         $exportPluginProperties->setExtension('csv');
         $exportPluginProperties->setMimeType('text/comma-separated-values');
-        $exportPluginProperties->setOptionsText(__('Options'));
 
         // create the root group that will be the options field for
         // $exportPluginProperties

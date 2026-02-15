@@ -66,7 +66,6 @@ class ExportXml extends ExportPlugin
         $exportPluginProperties->setText('XML');
         $exportPluginProperties->setExtension('xml');
         $exportPluginProperties->setMimeType('text/xml');
-        $exportPluginProperties->setOptionsText(__('Options'));
 
         // create the root group that will be the options field for
         // $exportPluginProperties

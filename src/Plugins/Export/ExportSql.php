@@ -166,8 +166,6 @@ class ExportSql extends ExportPlugin
             return $exportPluginProperties;
         }
 
-        $exportPluginProperties->setOptionsText(__('Options'));
-
         // create the root group that will be the options field for
         // $exportPluginProperties
         // this will be shown as "Format specific options"

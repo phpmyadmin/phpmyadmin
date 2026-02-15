@@ -47,7 +47,6 @@ class ExportToon extends ExportPlugin
         $exportPluginProperties->setExtension('toon');
         $exportPluginProperties->setMimeType('text/toon');
         $exportPluginProperties->setForceFile(true);
-        $exportPluginProperties->setOptionsText(__('Options'));
 
         // create the root group that will be the options field for
         // $exportPluginProperties

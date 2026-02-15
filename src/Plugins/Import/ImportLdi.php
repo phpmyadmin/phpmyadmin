@@ -57,8 +57,6 @@ class ImportLdi extends AbstractImportCsv
             $this->setLdiLocalOptionConfig();
         }
 
-        $importPluginProperties->setOptionsText(__('Options'));
-
         // create the root group that will be the options field for
         // $importPluginProperties
         // this will be shown as "Format specific options"

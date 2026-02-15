@@ -55,7 +55,6 @@ class ExportHtmlword extends ExportPlugin
         $exportPluginProperties->setExtension('doc');
         $exportPluginProperties->setMimeType('application/vnd.ms-word');
         $exportPluginProperties->setForceFile(true);
-        $exportPluginProperties->setOptionsText(__('Options'));
 
         // create the root group that will be the options field for
         // $exportPluginProperties

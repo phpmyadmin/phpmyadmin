@@ -70,7 +70,6 @@ class ExportJson extends ExportPlugin
         $exportPluginProperties->setText('JSON');
         $exportPluginProperties->setExtension('json');
         $exportPluginProperties->setMimeType('application/json');
-        $exportPluginProperties->setOptionsText(__('Options'));
 
         // create the root group that will be the options field for
         // $exportPluginProperties

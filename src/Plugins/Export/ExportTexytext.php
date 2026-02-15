@@ -54,7 +54,6 @@ class ExportTexytext extends ExportPlugin
         $exportPluginProperties->setText('Texy! text');
         $exportPluginProperties->setExtension('txt');
         $exportPluginProperties->setMimeType('text/plain');
-        $exportPluginProperties->setOptionsText(__('Options'));
 
         // create the root group that will be the options field for
         // $exportPluginProperties

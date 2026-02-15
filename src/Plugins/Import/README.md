@@ -49,7 +49,6 @@ class Import[Name] extends ImportPlugin
         $importPluginProperties = new PhpMyAdmin\Properties\Plugins\ImportPluginProperties();
         $importPluginProperties->setText('[name]');             // the name of your plug-in
         $importPluginProperties->setExtension('[ext]');         // extension this plug-in can handle
-        $importPluginProperties->setOptionsText(__('Options'));
 
         // create the root group that will be the options field for
         // $importPluginProperties

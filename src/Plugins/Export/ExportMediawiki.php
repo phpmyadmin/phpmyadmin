@@ -47,7 +47,6 @@ class ExportMediawiki extends ExportPlugin
         $exportPluginProperties->setText('MediaWiki Table');
         $exportPluginProperties->setExtension('mediawiki');
         $exportPluginProperties->setMimeType('text/plain');
-        $exportPluginProperties->setOptionsText(__('Options'));
 
         // create the root group that will be the options field for
         // $exportPluginProperties

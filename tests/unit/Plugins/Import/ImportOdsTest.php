@@ -66,10 +66,6 @@ final class ImportOdsTest extends AbstractTestCase
             'ods',
             $properties->getExtension(),
         );
-        self::assertSame(
-            __('Options'),
-            $properties->getOptionsText(),
-        );
     }
 
     /**

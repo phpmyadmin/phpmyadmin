@@ -57,7 +57,6 @@ class ImportOds extends ImportPlugin
         $importPluginProperties = new ImportPluginProperties();
         $importPluginProperties->setText('OpenDocument Spreadsheet');
         $importPluginProperties->setExtension('ods');
-        $importPluginProperties->setOptionsText(__('Options'));
 
         // create the root group that will be the options field for
         // $importPluginProperties

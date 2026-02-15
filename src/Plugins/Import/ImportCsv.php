@@ -77,7 +77,6 @@ class ImportCsv extends AbstractImportCsv
         $importPluginProperties = new ImportPluginProperties();
         $importPluginProperties->setText('CSV');
         $importPluginProperties->setExtension('csv');
-        $importPluginProperties->setOptionsText(__('Options'));
 
         // create the root group that will be the options field for
         // $importPluginProperties

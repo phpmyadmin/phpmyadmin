@@ -19,7 +19,6 @@ use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 
-use function __;
 use function array_key_exists;
 use function bin2hex;
 use function is_numeric;
@@ -43,7 +42,6 @@ class ExportYaml extends ExportPlugin
         $exportPluginProperties->setExtension('yml');
         $exportPluginProperties->setMimeType('text/yaml');
         $exportPluginProperties->setForceFile(true);
-        $exportPluginProperties->setOptionsText(__('Options'));
 
         // create the root group that will be the options field for
         // $exportPluginProperties

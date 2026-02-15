@@ -94,10 +94,6 @@ final class ImportShpTest extends AbstractTestCase
             $properties->getExtension(),
         );
         self::assertNull($properties->getOptions());
-        self::assertSame(
-            __('Options'),
-            $properties->getOptionsText(),
-        );
     }
 
     /**
