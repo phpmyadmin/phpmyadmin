@@ -35,7 +35,6 @@ use function is_subclass_of;
 use function mb_strtolower;
 use function mb_strtoupper;
 use function mb_substr;
-use function method_exists;
 use function sprintf;
 use function str_starts_with;
 use function strcasecmp;
@@ -286,10 +285,7 @@ class Plugins
                 // for main groups
                 $ret .= "\n" . '<div id="' . $propertyGroup->getName() . '">';
 
-                $text = null;
-                if (method_exists($propertyGroup, 'getText')) {
-                    $text = $propertyGroup->getText();
-                }
+                $text = $propertyGroup->getText();
 
                 if ($text !== null && $text !== '') {
                     $ret .= '<h5 class="card-title mt-4 mb-2">' . $plugin->getTranslatedText($text) . '</h5>';
