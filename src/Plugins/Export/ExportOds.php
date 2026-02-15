@@ -62,16 +62,16 @@ class ExportOds extends ExportPlugin
         $generalOptions = new OptionsPropertyMainGroup('ods_general_opts');
         // create primary items and add them to the group
         $leaf = new TextPropertyItem(
-            'null',
+            'ods_null',
             __('Replace NULL with:'),
         );
         $generalOptions->addProperty($leaf);
         $leaf = new BoolPropertyItem(
-            'columns',
+            'ods_columns',
             __('Put columns names in the first row'),
         );
         $generalOptions->addProperty($leaf);
-        $leaf = new HiddenPropertyItem('structure_or_data');
+        $leaf = new HiddenPropertyItem('ods_structure_or_data');
         $generalOptions->addProperty($leaf);
         // add the main group to the root group
         $exportSpecificOptions->addProperty($generalOptions);

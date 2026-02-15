@@ -139,7 +139,7 @@ final class ExportOdtTest extends AbstractTestCase
         self::assertInstanceOf(RadioPropertyItem::class, $property);
 
         self::assertSame(
-            'structure_or_data',
+            'odt_structure_or_data',
             $property->getName(),
         );
 
@@ -176,7 +176,7 @@ final class ExportOdtTest extends AbstractTestCase
         self::assertInstanceOf(BoolPropertyItem::class, $property);
 
         self::assertSame(
-            'relation',
+            'odt_relation',
             $property->getName(),
         );
 
@@ -191,7 +191,7 @@ final class ExportOdtTest extends AbstractTestCase
         self::assertInstanceOf(BoolPropertyItem::class, $property);
 
         self::assertSame(
-            'comments',
+            'odt_comments',
             $property->getName(),
         );
 
@@ -205,7 +205,7 @@ final class ExportOdtTest extends AbstractTestCase
         self::assertInstanceOf(BoolPropertyItem::class, $property);
 
         self::assertSame(
-            'mime',
+            'odt_mime',
             $property->getName(),
         );
 
@@ -242,7 +242,7 @@ final class ExportOdtTest extends AbstractTestCase
         self::assertInstanceOf(BoolPropertyItem::class, $property);
 
         self::assertSame(
-            'columns',
+            'odt_columns',
             $property->getName(),
         );
 
@@ -256,7 +256,7 @@ final class ExportOdtTest extends AbstractTestCase
         self::assertInstanceOf(TextPropertyItem::class, $property);
 
         self::assertSame(
-            'null',
+            'odt_null',
             $property->getName(),
         );
 

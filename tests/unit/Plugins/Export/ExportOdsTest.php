@@ -113,7 +113,7 @@ final class ExportOdsTest extends AbstractTestCase
         self::assertInstanceOf(TextPropertyItem::class, $property);
 
         self::assertSame(
-            'null',
+            'ods_null',
             $property->getName(),
         );
 
@@ -128,7 +128,7 @@ final class ExportOdsTest extends AbstractTestCase
         self::assertInstanceOf(BoolPropertyItem::class, $property);
 
         self::assertSame(
-            'columns',
+            'ods_columns',
             $property->getName(),
         );
 
@@ -142,7 +142,7 @@ final class ExportOdsTest extends AbstractTestCase
         self::assertInstanceOf(HiddenPropertyItem::class, $property);
 
         self::assertSame(
-            'structure_or_data',
+            'ods_structure_or_data',
             $property->getName(),
         );
     }

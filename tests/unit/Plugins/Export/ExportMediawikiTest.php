@@ -123,7 +123,7 @@ final class ExportMediawikiTest extends AbstractTestCase
         self::assertInstanceOf(RadioPropertyItem::class, $sgHeader);
 
         self::assertSame(
-            'structure_or_data',
+            'mediawiki_structure_or_data',
             $sgHeader->getName(),
         );
 
@@ -138,7 +138,7 @@ final class ExportMediawikiTest extends AbstractTestCase
         self::assertInstanceOf(BoolPropertyItem::class, $property);
 
         self::assertSame(
-            'caption',
+            'mediawiki_caption',
             $property->getName(),
         );
 
@@ -152,7 +152,7 @@ final class ExportMediawikiTest extends AbstractTestCase
         self::assertInstanceOf(BoolPropertyItem::class, $property);
 
         self::assertSame(
-            'headers',
+            'mediawiki_headers',
             $property->getName(),
         );
 

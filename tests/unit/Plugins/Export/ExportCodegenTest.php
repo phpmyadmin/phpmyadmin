@@ -88,7 +88,7 @@ final class ExportCodegenTest extends AbstractTestCase
         self::assertInstanceOf(HiddenPropertyItem::class, $hidden);
 
         self::assertSame(
-            'structure_or_data',
+            'codegen_structure_or_data',
             $hidden->getName(),
         );
 
@@ -97,7 +97,7 @@ final class ExportCodegenTest extends AbstractTestCase
         self::assertInstanceOf(SelectPropertyItem::class, $select);
 
         self::assertSame(
-            'format',
+            'codegen_format',
             $select->getName(),
         );
 

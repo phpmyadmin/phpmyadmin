@@ -75,7 +75,7 @@ class ExportOdt extends ExportPlugin
             __('Dump table'),
         );
         // create primary items and add them to the group
-        $leaf = new RadioPropertyItem('structure_or_data');
+        $leaf = new RadioPropertyItem('odt_structure_or_data');
         $leaf->setValues(
             ['structure' => __('structure'), 'data' => __('data'), 'structure_and_data' => __('structure and data')],
         );
@@ -94,20 +94,20 @@ class ExportOdt extends ExportPlugin
             // create primary items and add them to the group
             if ($relationParameters->relationFeature !== null) {
                 $leaf = new BoolPropertyItem(
-                    'relation',
+                    'odt_relation',
                     __('Display foreign key relationships'),
                 );
                 $structureOptions->addProperty($leaf);
             }
 
             $leaf = new BoolPropertyItem(
-                'comments',
+                'odt_comments',
                 __('Display comments'),
             );
             $structureOptions->addProperty($leaf);
             if ($relationParameters->browserTransformationFeature !== null) {
                 $leaf = new BoolPropertyItem(
-                    'mime',
+                    'odt_mime',
                     __('Display media types'),
                 );
                 $structureOptions->addProperty($leaf);
@@ -125,12 +125,12 @@ class ExportOdt extends ExportPlugin
         $dataOptions->setForce('structure');
         // create primary items and add them to the group
         $leaf = new BoolPropertyItem(
-            'columns',
+            'odt_columns',
             __('Put columns names in the first row'),
         );
         $dataOptions->addProperty($leaf);
         $leaf = new TextPropertyItem(
-            'null',
+            'odt_null',
             __('Replace NULL with:'),
         );
         $dataOptions->addProperty($leaf);

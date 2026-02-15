@@ -67,7 +67,7 @@ class ExportTexytext extends ExportPlugin
             __('Dump table'),
         );
         // create primary items and add them to the group
-        $leaf = new RadioPropertyItem('structure_or_data');
+        $leaf = new RadioPropertyItem('texytext_structure_or_data');
         $leaf->setValues(
             ['structure' => __('structure'), 'data' => __('data'), 'structure_and_data' => __('structure and data')],
         );
@@ -83,12 +83,12 @@ class ExportTexytext extends ExportPlugin
         $dataOptions->setForce('structure');
         // create primary items and add them to the group
         $leaf = new BoolPropertyItem(
-            'columns',
+            'texytext_columns',
             __('Put columns names in the first row'),
         );
         $dataOptions->addProperty($leaf);
         $leaf = new TextPropertyItem(
-            'null',
+            'texytext_null',
             __('Replace NULL with:'),
         );
         $dataOptions->addProperty($leaf);

@@ -76,7 +76,7 @@ class ExportXml extends ExportPlugin
         // general options main group
         $generalOptions = new OptionsPropertyMainGroup('xml_general_opts');
         // create primary items and add them to the group
-        $leaf = new HiddenPropertyItem('structure_or_data');
+        $leaf = new HiddenPropertyItem('xml_structure_or_data');
         $generalOptions->addProperty($leaf);
         // add the main group to the root group
         $exportSpecificOptions->addProperty($generalOptions);
@@ -89,32 +89,32 @@ class ExportXml extends ExportPlugin
 
         // create primary items and add them to the group
         $leaf = new BoolPropertyItem(
-            'export_events',
+            'xml_export_events',
             __('Events'),
         );
         $structure->addProperty($leaf);
         $leaf = new BoolPropertyItem(
-            'export_functions',
+            'xml_export_functions',
             __('Functions'),
         );
         $structure->addProperty($leaf);
         $leaf = new BoolPropertyItem(
-            'export_procedures',
+            'xml_export_procedures',
             __('Procedures'),
         );
         $structure->addProperty($leaf);
         $leaf = new BoolPropertyItem(
-            'export_tables',
+            'xml_export_tables',
             __('Tables'),
         );
         $structure->addProperty($leaf);
         $leaf = new BoolPropertyItem(
-            'export_triggers',
+            'xml_export_triggers',
             __('Triggers'),
         );
         $structure->addProperty($leaf);
         $leaf = new BoolPropertyItem(
-            'export_views',
+            'xml_export_views',
             __('Views'),
         );
         $structure->addProperty($leaf);
@@ -127,7 +127,7 @@ class ExportXml extends ExportPlugin
         );
         // create primary items and add them to the group
         $leaf = new BoolPropertyItem(
-            'export_contents',
+            'xml_export_contents',
             __('Export contents'),
         );
         $data->addProperty($leaf);

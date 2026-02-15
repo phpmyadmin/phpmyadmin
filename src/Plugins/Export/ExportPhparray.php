@@ -54,7 +54,7 @@ class ExportPhparray extends ExportPlugin
         // general options main group
         $generalOptions = new OptionsPropertyMainGroup('phparray_general_opts');
         // create primary items and add them to the group
-        $leaf = new HiddenPropertyItem('structure_or_data');
+        $leaf = new HiddenPropertyItem('phparray_structure_or_data');
         $generalOptions->addProperty($leaf);
         // add the main group to the root group
         $exportSpecificOptions->addProperty($generalOptions);

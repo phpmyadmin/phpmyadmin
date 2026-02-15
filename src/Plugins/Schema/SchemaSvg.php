@@ -52,7 +52,7 @@ class SchemaSvg extends SchemaPlugin
 
         // create leaf items and add them to the group
         $leaf = new BoolPropertyItem(
-            'all_tables_same_width',
+            'svg_all_tables_same_width',
             __('Same width for all tables'),
         );
         $specificOptions->addProperty($leaf);

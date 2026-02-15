@@ -53,7 +53,7 @@ class ExportYaml extends ExportPlugin
         // general options main group
         $generalOptions = new OptionsPropertyMainGroup('yaml_general_opts');
         // create primary items and add them to the group
-        $leaf = new HiddenPropertyItem('structure_or_data');
+        $leaf = new HiddenPropertyItem('yaml_structure_or_data');
         $generalOptions->addProperty($leaf);
         // add the main group to the root group
         $exportSpecificOptions->addProperty($generalOptions);

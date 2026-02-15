@@ -38,19 +38,19 @@ final class SchemaSvgTest extends AbstractTestCase
 
         $specificOptionProperty = $specificOptionProperties->current();
         self::assertInstanceOf(BoolPropertyItem::class, $specificOptionProperty);
-        self::assertSame('show_color', $specificOptionProperty->getName());
+        self::assertSame('svg_show_color', $specificOptionProperty->getName());
         self::assertSame('Show color', $specificOptionProperty->getText());
 
         $specificOptionProperties->next();
         $specificOptionProperty = $specificOptionProperties->current();
         self::assertInstanceOf(BoolPropertyItem::class, $specificOptionProperty);
-        self::assertSame('show_keys', $specificOptionProperty->getName());
+        self::assertSame('svg_show_keys', $specificOptionProperty->getName());
         self::assertSame('Only show keys', $specificOptionProperty->getText());
 
         $specificOptionProperties->next();
         $specificOptionProperty = $specificOptionProperties->current();
         self::assertInstanceOf(BoolPropertyItem::class, $specificOptionProperty);
-        self::assertSame('all_tables_same_width', $specificOptionProperty->getName());
+        self::assertSame('svg_all_tables_same_width', $specificOptionProperty->getName());
         self::assertSame('Same width for all tables', $specificOptionProperty->getText());
     }
 

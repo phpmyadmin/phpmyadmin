@@ -51,7 +51,7 @@ class SchemaDia extends SchemaPlugin
         $this->addCommonOptions($specificOptions);
 
         $leaf = new SelectPropertyItem(
-            'orientation',
+            'dia_orientation',
             __('Orientation'),
         );
         $leaf->setValues(
@@ -60,7 +60,7 @@ class SchemaDia extends SchemaPlugin
         $specificOptions->addProperty($leaf);
 
         $leaf = new SelectPropertyItem(
-            'paper',
+            'dia_paper',
             __('Paper size'),
         );
         $leaf->setValues($this->getPaperSizeArray());

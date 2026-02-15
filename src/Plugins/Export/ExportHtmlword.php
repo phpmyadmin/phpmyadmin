@@ -68,7 +68,7 @@ class ExportHtmlword extends ExportPlugin
             __('Dump table'),
         );
         // create primary items and add them to the group
-        $leaf = new RadioPropertyItem('structure_or_data');
+        $leaf = new RadioPropertyItem('htmlword_structure_or_data');
         $leaf->setValues(
             ['structure' => __('structure'), 'data' => __('data'), 'structure_and_data' => __('structure and data')],
         );
@@ -84,12 +84,12 @@ class ExportHtmlword extends ExportPlugin
         $dataOptions->setForce('structure');
         // create primary items and add them to the group
         $leaf = new TextPropertyItem(
-            'null',
+            'htmlword_null',
             __('Replace NULL with:'),
         );
         $dataOptions->addProperty($leaf);
         $leaf = new BoolPropertyItem(
-            'columns',
+            'htmlword_columns',
             __('Put columns names in the first row'),
         );
         $dataOptions->addProperty($leaf);

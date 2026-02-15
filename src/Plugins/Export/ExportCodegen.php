@@ -65,10 +65,10 @@ class ExportCodegen extends ExportPlugin
         // general options main group
         $generalOptions = new OptionsPropertyMainGroup('codegen_general_opts');
         // create primary items and add them to the group
-        $leaf = new HiddenPropertyItem('structure_or_data');
+        $leaf = new HiddenPropertyItem('codegen_structure_or_data');
         $generalOptions->addProperty($leaf);
         $leaf = new SelectPropertyItem(
-            'format',
+            'codegen_format',
             __('Format:'),
         );
         $leaf->setValues(self::CODEGEN_FORMATS);

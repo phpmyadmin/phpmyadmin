@@ -65,7 +65,7 @@ class ExportMediawiki extends ExportPlugin
             'mediawiki_dump_table',
             __('Dump table'),
         );
-        $leaf = new RadioPropertyItem('structure_or_data');
+        $leaf = new RadioPropertyItem('mediawiki_structure_or_data');
         $leaf->setValues(
             ['structure' => __('structure'), 'data' => __('data'), 'structure_and_data' => __('structure and data')],
         );
@@ -74,14 +74,14 @@ class ExportMediawiki extends ExportPlugin
 
         // export table name
         $leaf = new BoolPropertyItem(
-            'caption',
+            'mediawiki_caption',
             __('Export table names'),
         );
         $generalOptions->addProperty($leaf);
 
         // export table headers
         $leaf = new BoolPropertyItem(
-            'headers',
+            'mediawiki_headers',
             __('Export table headers'),
         );
         $generalOptions->addProperty($leaf);

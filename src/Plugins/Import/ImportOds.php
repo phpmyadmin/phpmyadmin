@@ -68,7 +68,7 @@ class ImportOds extends ImportPlugin
         $generalOptions = new OptionsPropertyMainGroup('ods_general_opts');
         // create primary items and add them to the group
         $leaf = new BoolPropertyItem(
-            'col_names',
+            'ods_col_names',
             __(
                 'The first line of the file contains the table column names'
                 . ' <i>(if this is unchecked, the first line will become part'
@@ -77,19 +77,19 @@ class ImportOds extends ImportPlugin
         );
         $generalOptions->addProperty($leaf);
         $leaf = new BoolPropertyItem(
-            'empty_rows',
+            'ods_empty_rows',
             __('Do not import empty rows'),
         );
         $generalOptions->addProperty($leaf);
         $leaf = new BoolPropertyItem(
-            'recognize_percentages',
+            'ods_recognize_percentages',
             __(
                 'Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>',
             ),
         );
         $generalOptions->addProperty($leaf);
         $leaf = new BoolPropertyItem(
-            'recognize_currency',
+            'ods_recognize_currency',
             __('Import currencies <i>(ex. $5.00 to 5.00)</i>'),
         );
         $generalOptions->addProperty($leaf);

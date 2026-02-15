@@ -322,7 +322,7 @@ class Plugins
 
                     $ret .= '<li class="list-group-item"><ul class="list-group"';
                     if ($subgroupHeader?->getName() !== null) {
-                        $ret .= ' id="ul_' . $pluginName . '_' . $subgroupHeader->getName() . '">';
+                        $ret .= ' id="ul_' . $subgroupHeader->getName() . '">';
                     } else {
                         $ret .= '>';
                     }

@@ -58,17 +58,17 @@ class ExportToon extends ExportPlugin
         $generalOptions = new OptionsPropertyMainGroup('toon_general_opts');
         // create leaf items and add them to the group
         $leaf = new TextPropertyItem(
-            'separator',
+            'toon_separator',
             __('Columns separated with:'),
         );
         $generalOptions->addProperty($leaf);
         $leaf = new TextPropertyItem(
-            'indent',
+            'toon_indent',
             __('Indentation:'),
         );
         $generalOptions->addProperty($leaf);
         // create primary items and add them to the group
-        $leaf = new HiddenPropertyItem('structure_or_data');
+        $leaf = new HiddenPropertyItem('toon_structure_or_data');
         $generalOptions->addProperty($leaf);
         // add the main group to the root group
         $exportSpecificOptions->addProperty($generalOptions);

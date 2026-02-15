@@ -99,7 +99,7 @@ final class ExportCsvTest extends AbstractTestCase
         self::assertInstanceOf(TextPropertyItem::class, $property);
 
         self::assertSame(
-            'separator',
+            'csv_separator',
             $property->getName(),
         );
 
@@ -114,7 +114,7 @@ final class ExportCsvTest extends AbstractTestCase
         self::assertInstanceOf(TextPropertyItem::class, $property);
 
         self::assertSame(
-            'enclosed',
+            'csv_enclosed',
             $property->getName(),
         );
 
@@ -129,7 +129,7 @@ final class ExportCsvTest extends AbstractTestCase
         self::assertInstanceOf(TextPropertyItem::class, $property);
 
         self::assertSame(
-            'escaped',
+            'csv_escaped',
             $property->getName(),
         );
 
@@ -144,7 +144,7 @@ final class ExportCsvTest extends AbstractTestCase
         self::assertInstanceOf(TextPropertyItem::class, $property);
 
         self::assertSame(
-            'terminated',
+            'csv_terminated',
             $property->getName(),
         );
 
@@ -159,7 +159,7 @@ final class ExportCsvTest extends AbstractTestCase
         self::assertInstanceOf(TextPropertyItem::class, $property);
 
         self::assertSame(
-            'null',
+            'csv_null',
             $property->getName(),
         );
 
@@ -174,7 +174,7 @@ final class ExportCsvTest extends AbstractTestCase
         self::assertInstanceOf(BoolPropertyItem::class, $property);
 
         self::assertSame(
-            'removeCRLF',
+            'csv_removeCRLF',
             $property->getName(),
         );
 
@@ -189,7 +189,7 @@ final class ExportCsvTest extends AbstractTestCase
         self::assertInstanceOf(BoolPropertyItem::class, $property);
 
         self::assertSame(
-            'columns',
+            'csv_columns',
             $property->getName(),
         );
 
@@ -203,7 +203,7 @@ final class ExportCsvTest extends AbstractTestCase
         self::assertInstanceOf(HiddenPropertyItem::class, $property);
 
         self::assertSame(
-            'structure_or_data',
+            'csv_structure_or_data',
             $property->getName(),
         );
     }

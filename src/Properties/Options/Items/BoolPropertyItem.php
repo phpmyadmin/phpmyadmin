@@ -19,12 +19,12 @@ class BoolPropertyItem extends OptionsPropertyOneItem
         $ret = '<li class="list-group-item">';
         $ret .= '<div class="form-check form-switch">';
         $ret .= '<input class="form-check-input" type="checkbox" role="switch" name="'
-            . $pluginName . '_' . $this->getName() . '"'
-            . ' value="y" id="checkbox_' . $pluginName . '_' . $this->getName() . '"'
+            . $this->getName() . '"'
+            . ' value="y" id="checkbox_' . $this->getName() . '"'
             . ' '
             . Plugins::checkboxCheck(
                 $pluginType,
-                $pluginName . '_' . $this->getName(),
+                $this->getName(),
             );
 
         if ($this->getForce() !== null) {
@@ -38,7 +38,7 @@ class BoolPropertyItem extends OptionsPropertyOneItem
         }
 
         $ret .= '>';
-        $ret .= '<label class="form-check-label" for="checkbox_' . $pluginName . '_' . $this->getName() . '">'
+        $ret .= '<label class="form-check-label" for="checkbox_' . $this->getName() . '">'
             . $plugin->getTranslatedText($this->getText() ?? '') . '</label></div>';
         $ret .= Plugins::getDocumentationLinkHtml($this);
 

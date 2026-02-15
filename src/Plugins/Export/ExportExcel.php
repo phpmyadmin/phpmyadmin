@@ -66,22 +66,22 @@ class ExportExcel extends ExportPlugin
         $generalOptions = new OptionsPropertyMainGroup('excel_general_opts');
         // create primary items and add them to the group
         $leaf = new TextPropertyItem(
-            'null',
+            'excel_null',
             __('Replace NULL with:'),
         );
         $generalOptions->addProperty($leaf);
         $leaf = new BoolPropertyItem(
-            'removeCRLF',
+            'excel_removeCRLF',
             __('Remove carriage return/line feed characters within columns'),
         );
         $generalOptions->addProperty($leaf);
         $leaf = new BoolPropertyItem(
-            'columns',
+            'excel_columns',
             __('Put columns names in the first row'),
         );
         $generalOptions->addProperty($leaf);
         $leaf = new SelectPropertyItem(
-            'edition',
+            'excel_edition',
             __('Excel edition:'),
         );
         $leaf->setValues(
@@ -92,7 +92,7 @@ class ExportExcel extends ExportPlugin
             ],
         );
         $generalOptions->addProperty($leaf);
-        $leaf = new HiddenPropertyItem('structure_or_data');
+        $leaf = new HiddenPropertyItem('excel_structure_or_data');
         $generalOptions->addProperty($leaf);
         // add the main group to the root group
         $exportSpecificOptions->addProperty($generalOptions);

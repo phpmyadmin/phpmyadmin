@@ -5596,6 +5596,9 @@
       <code><![CDATA[$propertyGroup->getName()]]></code>
       <code><![CDATA[$subgroupHeader->getName()]]></code>
     </PossiblyNullOperand>
+    <PossiblyNullReference>
+      <code><![CDATA[getName]]></code>
+    </PossiblyNullReference>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty(Config::getInstance()->settings[$pluginType->value][$opt])]]></code>
     </RiskyTruthyFalsyComparison>
@@ -7186,48 +7189,60 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Properties/Options/Items/BoolPropertyItem.php">
+    <PossiblyNullArgument>
+      <code><![CDATA[$this->getName()]]></code>
+    </PossiblyNullArgument>
     <PossiblyNullOperand>
       <code><![CDATA[$this->getForce()]]></code>
       <code><![CDATA[$this->getForce()]]></code>
-      <code><![CDATA[$this->getName()]]></code>
       <code><![CDATA[$this->getName()]]></code>
       <code><![CDATA[$this->getName()]]></code>
       <code><![CDATA[$this->getName()]]></code>
     </PossiblyNullOperand>
   </file>
   <file src="src/Properties/Options/Items/HiddenPropertyItem.php">
-    <PossiblyNullOperand>
+    <PossiblyNullArgument>
       <code><![CDATA[$this->getName()]]></code>
+    </PossiblyNullArgument>
+    <PossiblyNullOperand>
       <code><![CDATA[$this->getName()]]></code>
     </PossiblyNullOperand>
   </file>
   <file src="src/Properties/Options/Items/NumberPropertyItem.php">
-    <PossiblyNullOperand>
+    <PossiblyNullArgument>
       <code><![CDATA[$this->getName()]]></code>
+    </PossiblyNullArgument>
+    <PossiblyNullOperand>
       <code><![CDATA[$this->getName()]]></code>
       <code><![CDATA[$this->getName()]]></code>
       <code><![CDATA[$this->getName()]]></code>
     </PossiblyNullOperand>
   </file>
   <file src="src/Properties/Options/Items/RadioPropertyItem.php">
-    <PossiblyNullOperand>
+    <PossiblyNullArgument>
       <code><![CDATA[$this->getName()]]></code>
+    </PossiblyNullArgument>
+    <PossiblyNullOperand>
       <code><![CDATA[$this->getName()]]></code>
       <code><![CDATA[$this->getName()]]></code>
       <code><![CDATA[$this->getName()]]></code>
     </PossiblyNullOperand>
   </file>
   <file src="src/Properties/Options/Items/SelectPropertyItem.php">
-    <PossiblyNullOperand>
+    <PossiblyNullArgument>
       <code><![CDATA[$this->getName()]]></code>
+    </PossiblyNullArgument>
+    <PossiblyNullOperand>
       <code><![CDATA[$this->getName()]]></code>
       <code><![CDATA[$this->getName()]]></code>
       <code><![CDATA[$this->getName()]]></code>
     </PossiblyNullOperand>
   </file>
   <file src="src/Properties/Options/Items/TextPropertyItem.php">
-    <PossiblyNullOperand>
+    <PossiblyNullArgument>
       <code><![CDATA[$this->getName()]]></code>
+    </PossiblyNullArgument>
+    <PossiblyNullOperand>
       <code><![CDATA[$this->getName()]]></code>
       <code><![CDATA[$this->getName()]]></code>
       <code><![CDATA[$this->getName()]]></code>

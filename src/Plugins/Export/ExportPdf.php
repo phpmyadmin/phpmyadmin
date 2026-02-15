@@ -63,7 +63,7 @@ class ExportPdf extends ExportPlugin
         $generalOptions = new OptionsPropertyMainGroup('pdf_general_opts');
         // create primary items and add them to the group
         $leaf = new TextPropertyItem(
-            'report_title',
+            'pdf_report_title',
             __('Report title:'),
         );
         $generalOptions->addProperty($leaf);
@@ -75,7 +75,7 @@ class ExportPdf extends ExportPlugin
             'pdf_dump_what',
             __('Dump table'),
         );
-        $leaf = new RadioPropertyItem('structure_or_data');
+        $leaf = new RadioPropertyItem('pdf_structure_or_data');
         $leaf->setValues(
             ['structure' => __('structure'), 'data' => __('data'), 'structure_and_data' => __('structure and data')],
         );

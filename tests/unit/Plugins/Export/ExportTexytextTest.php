@@ -130,7 +130,7 @@ final class ExportTexytextTest extends AbstractTestCase
         self::assertInstanceOf(BoolPropertyItem::class, $property);
 
         self::assertSame(
-            'columns',
+            'texytext_columns',
             $property->getName(),
         );
 
@@ -139,7 +139,7 @@ final class ExportTexytextTest extends AbstractTestCase
         self::assertInstanceOf(TextPropertyItem::class, $property);
 
         self::assertSame(
-            'null',
+            'texytext_null',
             $property->getName(),
         );
     }

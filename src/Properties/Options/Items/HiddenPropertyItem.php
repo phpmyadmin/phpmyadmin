@@ -18,11 +18,11 @@ class HiddenPropertyItem extends OptionsPropertyOneItem
 {
     public function getHtml(Plugin $plugin, PluginType $pluginType, string $pluginName): string
     {
-        return '<li class="list-group-item"><input type="hidden" name="' . $pluginName . '_' . $this->getName() . '"'
+        return '<li class="list-group-item"><input type="hidden" name="' . $this->getName() . '"'
             . ' value="'
             . htmlspecialchars($plugin->getTranslatedText(Plugins::getDefault(
                 $pluginType,
-                $pluginName . '_' . $this->getName(),
+                $this->getName(),
             )))
             . '">';
     }

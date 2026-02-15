@@ -101,7 +101,7 @@ final class ExportPdfTest extends AbstractTestCase
         self::assertInstanceOf(TextPropertyItem::class, $property);
 
         self::assertSame(
-            'report_title',
+            'pdf_report_title',
             $property->getName(),
         );
 
@@ -126,7 +126,7 @@ final class ExportPdfTest extends AbstractTestCase
         self::assertInstanceOf(RadioPropertyItem::class, $property);
 
         self::assertSame(
-            'structure_or_data',
+            'pdf_structure_or_data',
             $property->getName(),
         );
 
