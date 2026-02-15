@@ -10540,32 +10540,8 @@ parameters:
 			path: src/Profiling.php
 
 		-
-			message: '#^Parameter \#2 \$opt of static method PhpMyAdmin\\Plugins\:\:checkboxCheck\(\) expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Properties/Options/Items/BoolPropertyItem.php
-
-		-
-			message: '#^Parameter \#2 \$opt of static method PhpMyAdmin\\Plugins\:\:getDefault\(\) expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Properties/Options/Items/HiddenPropertyItem.php
-
-		-
-			message: '#^Parameter \#2 \$opt of static method PhpMyAdmin\\Plugins\:\:getDefault\(\) expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Properties/Options/Items/NumberPropertyItem.php
-
-		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
-			count: 1
-			path: src/Properties/Options/Items/RadioPropertyItem.php
-
-		-
-			message: '#^Parameter \#2 \$opt of static method PhpMyAdmin\\Plugins\:\:getDefault\(\) expects string, string\|null given\.$#'
-			identifier: argument.type
 			count: 1
 			path: src/Properties/Options/Items/RadioPropertyItem.php
 
@@ -10574,18 +10550,6 @@ parameters:
 			identifier: equal.notAllowed
 			count: 1
 			path: src/Properties/Options/Items/SelectPropertyItem.php
-
-		-
-			message: '#^Parameter \#2 \$opt of static method PhpMyAdmin\\Plugins\:\:getDefault\(\) expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Properties/Options/Items/SelectPropertyItem.php
-
-		-
-			message: '#^Parameter \#2 \$opt of static method PhpMyAdmin\\Plugins\:\:getDefault\(\) expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Properties/Options/Items/TextPropertyItem.php
 
 		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'

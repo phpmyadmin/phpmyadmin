@@ -25,7 +25,7 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem implements Count
      */
     private SplObjectStorage $properties;
 
-    public function __construct(string|null $name = null, string $text = '')
+    public function __construct(string $name = '', string $text = '')
     {
         parent::__construct($name, $text);
 

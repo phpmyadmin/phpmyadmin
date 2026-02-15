@@ -459,7 +459,7 @@ class ExportSql extends ExportPlugin
         /* Syntax to use when inserting data */
         $subgroup = new OptionsPropertySubgroup();
         $leaf = new MessageOnlyPropertyItem(
-            null,
+            '',
             __('Syntax to use when inserting data:'),
         );
         $subgroup->setSubgroupHeader($leaf);

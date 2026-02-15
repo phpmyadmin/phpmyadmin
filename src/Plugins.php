@@ -315,7 +315,7 @@ class Plugins
                     }
 
                     $ret .= '<li class="list-group-item"><ul class="list-group"';
-                    if ($subgroupHeader?->getName() !== null) {
+                    if ($subgroupHeader !== null && $subgroupHeader->getName() !== '') {
                         $ret .= ' id="ul_' . $subgroupHeader->getName() . '">';
                     } else {
                         $ret .= '>';

@@ -14,7 +14,7 @@ class PropertyItemsTest extends AbstractTestCase
 {
     public function testBoolText(): void
     {
-        $object = new BoolPropertyItem(null, 'Text');
+        $object = new BoolPropertyItem('', 'Text');
 
         self::assertSame(
             'Text',
