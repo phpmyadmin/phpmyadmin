@@ -274,7 +274,7 @@ class Plugins
     ): string {
         $ret = '';
 
-        $properties = null;
+        $properties = [];
         if (! $propertyGroup instanceof OptionsPropertySubgroup) {
             // for subgroup headers
             if ($propertyGroup instanceof OptionsPropertyOneItem) {
@@ -293,47 +293,39 @@ class Plugins
             }
         }
 
-        $notSubgroupHeader = false;
-        if ($properties === null) {
-            $notSubgroupHeader = true;
-            if ($propertyGroup instanceof OptionsPropertyGroup) {
-                $properties = $propertyGroup->getProperties();
-            }
+        if ($propertyGroup instanceof OptionsPropertyGroup) {
+            $properties = $propertyGroup->getProperties();
         }
 
-        if ($properties !== null) {
-            foreach ($properties as $propertyItem) {
-                // if the property is a subgroup, we deal with it recursively
-                if ($propertyItem instanceof OptionsPropertySubgroup) {
-                    // for subgroups
-                    // each subgroup can have a header, which may also be a form element
-                    $subgroupHeader = $propertyItem->getSubgroupHeader();
-                    if ($subgroupHeader !== null) {
-                        $ret .= self::getOneOption($plugin, $pluginType, $subgroupHeader);
-                    }
-
-                    $ret .= '<li class="list-group-item"><ul class="list-group"';
-                    if ($subgroupHeader !== null && $subgroupHeader->getName() !== '') {
-                        $ret .= ' id="ul_' . $subgroupHeader->getName() . '">';
-                    } else {
-                        $ret .= '>';
-                    }
-
-                    $ret .= "\n";
-
-                    $ret .= self::getOneOption($plugin, $pluginType, $propertyItem);
-                    continue;
+        foreach ($properties as $propertyItem) {
+            if ($propertyItem instanceof OptionsPropertySubgroup) {
+                // each subgroup can have a header, which may also be a form element
+                $subgroupHeader = $propertyItem->getSubgroupHeader();
+                if ($subgroupHeader !== null) {
+                    $ret .= self::getOneOption($plugin, $pluginType, $subgroupHeader);
                 }
 
-                // single property item
-                $ret .= self::getHtmlForProperty($plugin, $pluginType, $propertyItem);
+                $ret .= '<li class="list-group-item"><ul class="list-group"';
+                if ($subgroupHeader !== null && $subgroupHeader->getName() !== '') {
+                    $ret .= ' id="ul_' . $subgroupHeader->getName() . '">';
+                } else {
+                    $ret .= '>';
+                }
+
+                $ret .= "\n";
+
+                $ret .= self::getOneOption($plugin, $pluginType, $propertyItem);
+                continue;
             }
+
+            // single property item
+            $ret .= self::getHtmlForProperty($plugin, $pluginType, $propertyItem);
         }
 
         if ($propertyGroup instanceof OptionsPropertySubgroup) {
             // end subgroup
             $ret .= '</ul>' . "\n";
-        } elseif ($notSubgroupHeader) {
+        } elseif ($propertyGroup instanceof OptionsPropertyGroup) {
             // end main group
             $ret .= '</ul></div>' . "\n";
         }
