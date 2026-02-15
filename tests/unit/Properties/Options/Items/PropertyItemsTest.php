@@ -19,13 +19,6 @@ class PropertyItemsTest extends AbstractTestCase
             'Text',
             $object->getText(),
         );
-
-        $object->setText('xtext2');
-
-        self::assertSame(
-            'xtext2',
-            $object->getText(),
-        );
     }
 
     public function testBoolName(): void

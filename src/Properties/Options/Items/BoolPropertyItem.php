@@ -29,7 +29,7 @@ class BoolPropertyItem extends OptionsPropertyOneItem
 
         $ret .= '>';
         $ret .= '<label class="form-check-label" for="checkbox_' . $this->getName() . '">'
-            . $plugin->getTranslatedText($this->getText() ?? '') . '</label></div>';
+            . $plugin->getTranslatedText($this->getText()) . '</label></div>';
         $ret .= Plugins::getDocumentationLinkHtml($this);
 
         return $ret;

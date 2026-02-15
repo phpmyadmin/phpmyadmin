@@ -15,7 +15,7 @@ namespace PhpMyAdmin\Properties\Options;
  */
 abstract class OptionsPropertyItem
 {
-    public function __construct(private string|null $name = null, private string|null $text = null)
+    public function __construct(private string|null $name = null, private readonly string $text = '')
     {
     }
 
@@ -29,13 +29,8 @@ abstract class OptionsPropertyItem
         $this->name = $name;
     }
 
-    public function getText(): string|null
+    public function getText(): string
     {
         return $this->text;
-    }
-
-    public function setText(string $text): void
-    {
-        $this->text = $text;
     }
 }

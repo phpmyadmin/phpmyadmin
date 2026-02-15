@@ -20,7 +20,7 @@ class TextPropertyItem extends OptionsPropertyOneItem
     {
         $ret = '<li class="list-group-item">';
         $ret .= '<label for="text_' . $this->getName() . '" class="form-label">'
-            . $plugin->getTranslatedText($this->getText() ?? '') . '</label>';
+            . $plugin->getTranslatedText($this->getText()) . '</label>';
         $ret .= '<input class="form-control" type="text" name="' . $this->getName() . '"'
             . ' value="'
             . htmlspecialchars($plugin->getTranslatedText(Plugins::getDefault(

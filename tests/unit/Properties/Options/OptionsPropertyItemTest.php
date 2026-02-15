@@ -38,19 +38,4 @@ class OptionsPropertyItemTest extends AbstractTestCase
             $this->stub->getName(),
         );
     }
-
-    /**
-     * Test for
-     *     - PhpMyAdmin\Properties\Options\OptionsPropertyItem::getText
-     *     - PhpMyAdmin\Properties\Options\OptionsPropertyItem::setText
-     */
-    public function testGetSetText(): void
-    {
-        $this->stub->setText('text123');
-
-        self::assertSame(
-            'text123',
-            $this->stub->getText(),
-        );
-    }
 }

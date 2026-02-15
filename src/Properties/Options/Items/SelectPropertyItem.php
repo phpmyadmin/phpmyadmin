@@ -20,7 +20,7 @@ class SelectPropertyItem extends OptionsPropertyOneItem
     {
         $ret = '<li class="list-group-item">';
         $ret .= '<label for="select_' . $this->getName() . '" class="form-label">'
-            . $plugin->getTranslatedText($this->getText() ?? '') . '</label>';
+            . $plugin->getTranslatedText($this->getText()) . '</label>';
         $ret .= '<select class="form-select" name="' . $this->getName() . '"'
             . ' id="select_' . $this->getName() . '">';
         $default = htmlspecialchars($plugin->getTranslatedText(Plugins::getDefault(
