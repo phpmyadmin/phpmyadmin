@@ -264,7 +264,6 @@ class Plugins
      * Returns single option in a list element
      *
      * @param OptionsPropertyItem $propertyGroup options property main group instance
-     * @param bool                $isSubgroup    if this group is a subgroup
      *
      * @return string  table row with option
      */
@@ -272,12 +271,11 @@ class Plugins
         Plugin $plugin,
         PluginType $pluginType,
         OptionsPropertyItem $propertyGroup,
-        bool $isSubgroup = false,
     ): string {
         $ret = '';
 
         $properties = null;
-        if (! $isSubgroup) {
+        if (! $propertyGroup instanceof OptionsPropertySubgroup) {
             // for subgroup headers
             if ($propertyGroup instanceof OptionsPropertyOneItem) {
                 $properties = [$propertyGroup];
@@ -323,7 +321,7 @@ class Plugins
 
                     $ret .= "\n";
 
-                    $ret .= self::getOneOption($plugin, $pluginType, $propertyItem, true);
+                    $ret .= self::getOneOption($plugin, $pluginType, $propertyItem);
                     continue;
                 }
 
@@ -332,7 +330,7 @@ class Plugins
             }
         }
 
-        if ($isSubgroup) {
+        if ($propertyGroup instanceof OptionsPropertySubgroup) {
             // end subgroup
             $ret .= '</ul>' . "\n";
         } elseif ($notSubgroupHeader) {
