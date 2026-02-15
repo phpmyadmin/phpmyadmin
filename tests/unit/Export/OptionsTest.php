@@ -140,4 +140,47 @@ class OptionsTest extends AbstractTestCase
 
         self::assertEquals($expected, $actual);
     }
+
+    public function testInvalidExportFormatDefaultsToSqlInDropdown(): void
+    {
+        $config = Config::getInstance();
+        $config->set('SaveDir', '/tmp');
+        $config->settings['Export']['format'] = 'garbage';
+
+        Export::$singleTable = false;
+
+        $exportType = ExportType::Server;
+        $db = 'PMA';
+        $table = 'PMA_test';
+        $exportList = Plugins::getExport($exportType, true);
+        $config->selectedServer['host'] = 'localhost';
+        $config->selectedServer['user'] = 'pma_user';
+
+        $actual = $this->export->getOptions(
+            $exportType,
+            $db,
+            $table,
+            '',
+            '10',
+            'unlim_num_rows_str',
+            $exportList,
+            null,
+            null,
+        );
+
+        $pluginsChoice = $actual['plugins_choice'];
+        self::assertIsArray($pluginsChoice);
+
+        $sqlChoice = null;
+        foreach ($pluginsChoice as $choice) {
+            self::assertArrayHasKey('name', $choice);
+            self::assertArrayHasKey('is_selected', $choice);
+            if ($choice['name'] === 'sql') {
+                $sqlChoice = $choice;
+                break;
+            }
+        }
+        self::assertNotNull($sqlChoice, 'Export list should contain sql plugin');
+        self::assertTrue($sqlChoice['is_selected'], 'When config Export format is invalid, sql should be selected');
+    }
 }

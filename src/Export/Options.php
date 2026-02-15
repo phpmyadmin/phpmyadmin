@@ -122,7 +122,8 @@ final readonly class Options
             $templates = is_array($templates) ? $templates : [];
         }
 
-        $dropdown = Plugins::getChoice($exportList, $this->getFormat($formatParam, $whatParam));
+        $format = $this->getFormatForDropdown($exportList, $formatParam, $whatParam);
+        $dropdown = Plugins::getChoice($exportList, $format);
         $tableObject = new Table($table, $db, DatabaseInterface::getInstance());
         $rows = [];
 
@@ -218,6 +219,20 @@ final readonly class Options
         }
 
         return Config::getInstance()->settings['Export']['format'];
+    }
+
+    /**
+     * Returns a format that is valid for the export dropdown (must exist in exportList).
+     * When config has an invalid value (e.g. 'garbage'), defaults to 'sql'.
+     *
+     * @param ExportPlugin[] $exportList
+     */
+    private function getFormatForDropdown(array $exportList, mixed $formatParam, mixed $whatParam): string
+    {
+        $format = $this->getFormat($formatParam, $whatParam);
+        $validNames = array_map(static fn ($plugin) => $plugin->getName(), $exportList);
+
+        return in_array($format, $validNames, true) ? $format : 'sql';
     }
 
     private function getFileNameTemplate(ExportType $exportType, string|null $filename = null): string
