@@ -66,7 +66,7 @@ final class DesignerController implements InvocableController
 
                 $html = $this->template->render('database/designer/database_tables', [
                     'db' => Current::$database,
-                    'has_query' => isset($_REQUEST['query']),
+                    'has_query' => $request->has('query'),
                     'tab_pos' => [],
                     'display_page' => -1,
                     'tab_column' => $tableColumn,
