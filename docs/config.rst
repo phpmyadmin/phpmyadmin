@@ -1932,7 +1932,8 @@ Cookie authentication options
     will be used internally by the :term:`Sodium` extension: you won't be prompted for this encryption key.
 
     Since a binary string is usually not printable, it can be converted into a hexadecimal representation (using a
-    function like `sodium_bin2hex <https://www.php.net/sodium_bin2hex>`_) and then used in the configuration file. For
+    function like `sodium_bin2hex <https://www.php.net/sodium_bin2hex>`_) and then used in the configuration file.  
+    If a 64-character hexadecimal string is provided, phpMyAdmin will automatically convert it into a 32-byte binary string. For
     example:
 
     .. code-block:: php
@@ -1940,9 +1941,9 @@ Cookie authentication options
         // The string is a hexadecimal representation of a 32-bytes long string of random bytes.
         $cfg['blowfish_secret'] = sodium_hex2bin('f16ce59f45714194371b48fe362072dc3b019da7861558cd4ad29e4d6fb13851');
 
-    Using a binary string is recommended. However, if all 32 bytes of the string are visible
-    characters, then a function like `sodium_bin2hex <https://www.php.net/sodium_bin2hex>`_ is not required. For
-    example:
+        Using a binary string is recommended. However, if all 32 bytes of the string are visible
+        characters, then a function like `sodium_bin2hex <https://www.php.net/sodium_bin2hex>`_ is not required. For
+        example:
 
     .. code-block:: php
 
@@ -1951,9 +1952,9 @@ Cookie authentication options
 
     .. warning::
 
-        The encryption key must be 32 bytes long. If it is longer than the length of bytes, only the first 32 bytes will
-        be used, and if it is shorter, a new temporary key will be automatically generated for you. However, this
-        temporary key will only last for the duration of the session.
+        The encryption key must be 32 bytes long. If it is a 64-character hexadecimal string, it will be automatically converted to a 32-byte binary string.  
+        If it is longer than 32 bytes (excluding hex format), only the first 32 bytes will be used.  
+        If it is shorter, a new temporary key will be automatically generated for you. However, this temporary key will only last for the duration of the session.
 
     .. note::
 
