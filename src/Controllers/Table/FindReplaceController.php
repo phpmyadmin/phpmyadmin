@@ -19,11 +19,13 @@ use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\TypeClass;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
 
 use function __;
+use function explode;
 use function is_array;
 use function mb_strtolower;
 use function preg_match;
@@ -172,18 +174,21 @@ final class FindReplaceController implements InvocableController
             UrlParams::$goto = Url::getFromRoute($this->config->config->DefaultTabTable);
         }
 
-        $types = [];
+        $columnNames = [];
         foreach ($this->columnNames as $i => $columnName) {
-            $types[$columnName] = preg_replace('@\\(.*@s', '', $this->columnTypes[$i]);
+            $type = explode('(', $this->columnTypes[$i])[0];
+            if ($this->dbi->types->getTypeClass($type) !== TypeClass::Char) {
+                continue;
+            }
+
+            $columnNames[$i] = $columnName;
         }
 
         $this->response->render('table/find_replace/index', [
             'db' => Current::$database,
             'table' => Current::$table,
             'goto' => UrlParams::$goto,
-            'column_names' => $this->columnNames,
-            'types' => $types,
-            'sql_types' => $this->dbi->types,
+            'column_names' => $columnNames,
         ]);
     }
 
@@ -212,14 +217,15 @@ final class FindReplaceController implements InvocableController
             $sqlQuery = 'SELECT '
                 . Util::backquote($column) . ','
                 . ' REPLACE('
-                . Util::backquote($column) . ", '" . $find . "', '"
-                . $replaceWith
-                . "'),"
+                . Util::backquote($column) . ', ' . $this->dbi->quoteString($find) . ', '
+                . $this->dbi->quoteString($replaceWith)
+                . '),'
                 . ' COUNT(*)'
                 . ' FROM ' . Util::backquote(Current::$database)
                 . '.' . Util::backquote(Current::$table)
                 . ' WHERE ' . Util::backquote($column)
-                . " LIKE '%" . $find . "%' COLLATE " . $charSet . '_bin'; // here we
+                . ' LIKE ' . $this->dbi->quoteString('%' . $this->dbi->escapeMysqlWildcards($find) . '%')
+                . ' COLLATE ' . $charSet . '_bin'; // here we
             // change the collation of the 2nd operand to a case sensitive
             // binary collation to make sure that the comparison
             // is case sensitive
@@ -336,11 +342,12 @@ final class FindReplaceController implements InvocableController
             $sqlQuery = 'UPDATE ' . Util::backquote(Current::$table)
                 . ' SET ' . Util::backquote($column) . ' ='
                 . ' REPLACE('
-                . Util::backquote($column) . ", '" . $find . "', '"
-                . $replaceWith
-                . "')"
+                . Util::backquote($column) . ', ' . $this->dbi->quoteString($find) . ', '
+                . $this->dbi->quoteString($replaceWith)
+                . ')'
                 . ' WHERE ' . Util::backquote($column)
-                . " LIKE '%" . $find . "%' COLLATE " . $charSet . '_bin'; // here we
+                . ' LIKE ' . $this->dbi->quoteString('%' . $this->dbi->escapeMysqlWildcards($find) . '%')
+                . ' COLLATE ' . $charSet . '_bin'; // here we
             // change the collation of the 2nd operand to a case sensitive
             // binary collation to make sure that the comparison
             // is case sensitive
