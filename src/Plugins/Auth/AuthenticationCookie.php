@@ -257,6 +257,12 @@ class AuthenticationCookie extends AuthenticationPlugin
                     );
                 }
 
+                // verify the hostname matches where the captcha was solved if required.
+                $captchaExpectedHostname = $config->settings['CaptchaExpectedHostname'] ?? '';
+                if (! empty($captchaExpectedHostname)) {
+                    $reCaptcha = $reCaptcha->setExpectedHostname($captchaExpectedHostname);
+                }
+
                 // verify captcha status.
                 $resp = $reCaptcha->verify(
                     $_POST[$config->config->CaptchaResponseParam],
