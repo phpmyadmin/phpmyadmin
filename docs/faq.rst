@@ -50,21 +50,13 @@ database.
 
 .. _faq1_5:
 
-1.5 Using phpMyAdmin on IIS, I'm facing crashes and/or many error messages with the HTTP.
------------------------------------------------------------------------------------------
-
-This is a known problem with the PHP :term:`ISAPI` filter: it's not so stable.
-Please use instead the cookie authentication mode.
+1.5 (withdrawn).
+----------------
 
 .. _faq1_6:
 
-1.6 I can't use phpMyAdmin on PWS: nothing is displayed!
---------------------------------------------------------
-
-This seems to be a PWS bug. Filippo Simoncini found a workaround (at
-this time there is no better fix): remove or comment the ``DOCTYPE``
-declarations (2 lines) from the scripts :file:`src/Header.php`
-and :file:`index.php`.
+1.6 (withdrawn).
+----------------
 
 .. _faq1_7:
 
@@ -83,8 +75,8 @@ Safe Mode or not, and so on). So, you must have Zlib support
 
 Your uploaded file is saved by PHP in the "upload dir", as defined in
 :file:`php.ini` by the variable ``upload_tmp_dir`` (usually the system
-default is */tmp*). We recommend the following setup for Apache
-servers running in safe mode, to enable uploads of files while being
+default is */tmp*). We recommend the following setup
+to enable uploads of files while being
 reasonably secure:
 
 * create a separate directory for uploads: :command:`mkdir /tmp/php`
@@ -118,8 +110,8 @@ It seems to clear up many problems between Internet Explorer and SSL.
 1.11 I get an 'open\_basedir restriction' while uploading a file from the import tab.
 -------------------------------------------------------------------------------------
 
-Since version 2.2.4, phpMyAdmin supports servers with open\_basedir
-restrictions. However you need to create temporary directory and configure it
+When using a server with open\_basedir
+restrictions, you need to create temporary directory and configure it
 as :config:option:`$cfg['TempDir']`. The uploaded files will be moved there,
 and after execution of your :term:`SQL` commands, removed.
 
@@ -202,20 +194,8 @@ For `MariaDB <https://mariadb.org/>`_, versions 5.5 and newer are supported.
 
 .. _faq1_17a:
 
-1.17a I cannot connect to the MySQL server. It always returns the error message, "Client does not support authentication protocol requested by server; consider upgrading MySQL client"
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-You tried to access MySQL with an old MySQL client library. The
-version of your MySQL client library can be checked in your phpinfo()
-output. In general, it should have at least the same minor version as
-your server - as mentioned in :ref:`faq1_17`. This problem is
-generally caused by using MySQL version 4.1 or newer. MySQL changed
-the authentication hash and your PHP is trying to use the old method.
-The proper solution is to use the `mysqli extension
-<https://www.php.net/mysqli>`_ with the proper client library to match
-your MySQL installation. More
-information (and several workarounds) are located in the `MySQL
-Documentation <https://dev.mysql.com/doc/refman/5.7/en/common-errors.html>`_.
+1.17a (withdrawn).
+------------------
 
 .. _faq1_18:
 
@@ -298,11 +278,11 @@ parameter is not set to "on".
 
 .. _faq1_23:
 
-1.23 I'm running MySQL on a Win32 machine. Each time I create a new table the table and column names are changed to lowercase!
-------------------------------------------------------------------------------------------------------------------------------
+1.23 I'm running MySQL on a Windows machine. Each time I create a new table the table and column names are changed to lowercase!
+--------------------------------------------------------------------------------------------------------------------------------
 
 This happens because the MySQL directive ``lower_case_table_names``
-defaults to 1 (``ON``) in the Win32 version of MySQL. You can change
+defaults to 1 (``ON``) in the Windows version of MySQL. You can change
 this behavior by simply changing the directive to 0 (``OFF``): Just
 edit your ``my.ini`` file that should be located in your Windows
 directory and add the following line to the group [mysqld]:
@@ -313,9 +293,10 @@ directory and add the following line to the group [mysqld]:
 
 .. note::
 
-    Forcing this variable to 0 with --lower-case-table-names=0 on a
-    case-insensitive filesystem and access MyISAM tablenames using different
-    lettercases, index corruption may result.
+    Forcing this variable to 0 with ``--lower-case-table-names=0`` on a
+    case-insensitive filesystem and accessing MyISAM tablenames using different
+    lettercases, may result in index corruption. It's best to set this as part of
+    the initial setup, before creating any databases.
 
 Next, save the file and restart the MySQL service. You can always
 check the value of this directive using the query
@@ -333,19 +314,8 @@ check the value of this directive using the query
 
 .. _faq1_25:
 
-1.25 I am running Apache with mod\_gzip-1.3.26.1a on Windows XP, and I get problems, such as undefined variables when I run a SQL query.
-----------------------------------------------------------------------------------------------------------------------------------------
-
-A tip from Jose Fandos: put a comment on the following two lines in
-httpd.conf, like this:
-
-.. code-block:: apache
-
-    # mod_gzip_item_include file \.php$
-    # mod_gzip_item_include mime "application/x-httpd-php.*"
-
-as this version of mod\_gzip on Apache (Windows) has problems handling
-PHP scripts. Of course you have to restart Apache.
+1.25 (withdrawn).
+-----------------
 
 .. _faq1_26:
 
@@ -359,25 +329,13 @@ should work.
 
 .. _faq1_27:
 
-1.27 I get empty page when I want to view huge page (eg. db\_structure.php with plenty of tables).
---------------------------------------------------------------------------------------------------
-
-This was caused by a `PHP bug <https://bugs.php.net/bug.php?id=21079>`_ that occur when
-GZIP output buffering is enabled. If you turn off it (by
-:config:option:`$cfg['OBGzip']` in :file:`config.inc.php`), it should work.
-This bug will has been fixed in PHP 5.0.0.
+1.27 (withdrawn).
+-----------------
 
 .. _faq1_28:
 
-1.28 My MySQL server sometimes refuses queries and returns the message 'Errorcode: 13'. What does this mean?
-------------------------------------------------------------------------------------------------------------
-
-This can happen due to a MySQL bug when having database / table names
-with upper case characters although ``lower_case_table_names`` is
-set to 1. To fix this, turn off this directive, convert all database
-and table names to lower case and turn it on again. Alternatively,
-there's a bug-fix available starting with MySQL 3.23.56 /
-4.0.11-gamma.
+1.28 (withdrawn).
+-----------------
 
 .. _faq1_29:
 
@@ -414,11 +372,8 @@ restart Apache:
 
 .. _faq1_30:
 
-1.30 I get the error "navigation.php: Missing hash".
-----------------------------------------------------
-
-This problem is known to happen when the server is running Turck
-MMCache but upgrading MMCache to version 2.3.21 solves the problem.
+1.30 (withdrawn).
+-----------------
 
 .. _faq1_31:
 
@@ -432,7 +387,7 @@ releases.
 PHP 7 is supported since phpMyAdmin 4.6, PHP 7.1 is supported since 4.6.5,
 PHP 7.2 is supported since 4.7.4.
 
-HHVM is supported up to phpMyAdmin 4.8.
+HHVM was supported up to phpMyAdmin 4.8.
 
 Since release 5.0, phpMyAdmin supports only PHP 7.1 and newer.
 Since release 5.2, phpMyAdmin supports only PHP 7.2 and newer.
@@ -532,65 +487,8 @@ extension which works fine in this case.
 
 .. _faq1_38:
 
-1.38 Can I use phpMyAdmin on a server on which Suhosin is enabled?
-------------------------------------------------------------------
-
-Yes but the default configuration values of Suhosin are known to cause
-problems with some operations, for example editing a table with many
-columns and no :term:`primary key` or with textual :term:`primary key`.
-
-Suhosin configuration might lead to malfunction in some cases and it
-can not be fully avoided as phpMyAdmin is kind of application which
-needs to transfer big amounts of columns in single HTTP request, what
-is something what Suhosin tries to prevent. Generally all
-``suhosin.request.*``, ``suhosin.post.*`` and ``suhosin.get.*``
-directives can have negative effect on phpMyAdmin usability. You can
-always find in your error logs which limit did cause dropping of
-variable, so you can diagnose the problem and adjust matching
-configuration variable.
-
-The default values for most Suhosin configuration options will work in
-most scenarios, however you might want to adjust at least following
-parameters:
-
-* `suhosin.request.max\_vars <https://suhosin5.suhosin.org/stories/configuration.html#suhosin-request-max-vars>`_ should
-  be increased (eg. 2048)
-* `suhosin.post.max\_vars <https://suhosin5.suhosin.org/stories/configuration.html#suhosin-post-max-vars>`_ should be
-  increased (eg. 2048)
-* `suhosin.request.max\_array\_index\_length <https://suhosin5.suhosin.org/stories/configuration.html#suhosin-request-max-array-index-length>`_
-  should be increased (eg. 256)
-* `suhosin.post.max\_array\_index\_length <https://suhosin5.suhosin.org/stories/configuration.html#suhosin-post-max-array-index-length>`_
-  should be increased (eg. 256)
-* `suhosin.request.max\_totalname\_length <https://suhosin5.suhosin.org/stories/configuration.html#suhosin-request-max-totalname-length>`_
-  should be increased (eg. 8192)
-* `suhosin.post.max\_totalname\_length <https://suhosin5.suhosin.org/stories/configuration.html#suhosin-post-max-totalname-length>`_ should be
-  increased (eg. 8192)
-* `suhosin.get.max\_value\_length <https://suhosin5.suhosin.org/stories/configuration.html#suhosin-get-max-value-length>`_
-  should be increased (eg. 1024)
-* `suhosin.sql.bailout\_on\_error <https://suhosin5.suhosin.org/stories/configuration.html#suhosin-sql-bailout-on-error>`_
-  needs to be disabled (the default)
-* `suhosin.log.\* <https://suhosin5.suhosin.org/stories/configuration.html#logging-configuration>`_ should not
-  include :term:`SQL`, otherwise you get big
-  slowdown
-* `suhosin.sql.union <https://suhosin5.suhosin.org/stories/configuration.html#suhosin-
-  sql-union>`_ must be disabled (which is the default).
-* `suhosin.sql.multiselect <https://suhosin5.suhosin.org/stories/configuration.html#
-  suhosin-sql-multiselect>`_ must be disabled (which is the default).
-* `suhosin.sql.comment <https://suhosin5.suhosin.org/stories/configuration.html#suhosin-
-  sql-comment>`_ must be disabled (which is the default).
-
-To further improve security, we also recommend these modifications:
-
-* `suhosin.executor.include.max\_traversal <https://suhosin5.suhosin.org/stories/
-  configuration.html#suhosin-executor-include-max-traversal>`_ should be
-  enabled as a mitigation against local file inclusion attacks. We suggest
-  setting this to 2 as ``../`` is used with the ReCaptcha library.
-* `suhosin.cookie.encrypt <https://suhosin5.suhosin.org/stories/configuration.html#
-  suhosin-cookie-encrypt>`_ should be enabled.
-* `suhosin.executor.disable_emodifier <https://suhosin5.suhosin.org/stories/config
-  uration.html#suhosin-executor-disable-emodifier>`_ should be enabled.
-
-You can also disable the warning using the :config:option:`$cfg['SuhosinDisableWarning']`.
+1.38 (withdrawn).
+-----------------
 
 .. _faq1_39:
 
@@ -598,7 +496,7 @@ You can also disable the warning using the :config:option:`$cfg['SuhosinDisableW
 ------------------------------------------------------------------------------------------------------------------------------------
 
 This is caused by the fact that PHP scripts have no knowledge that the site is
-using https. Depending on used webserver, you should configure it to let PHP
+using https. Depending on the webserver used, you should configure it to let PHP
 know about URL and scheme used to access it.
 
 For example in Apache ensure that you have enabled ``SSLOptions`` and
@@ -695,11 +593,11 @@ A list of files and corresponding functionality which degrade gracefully when re
 * :file:`./examples/` (configuration examples)
 * :file:`./resources/sql/` (SQL scripts to configure advanced functionalities)
 * :file:`./resources/js/` (Source files to re-build `./public/js/`)
-* Run `rm -rv vendor/tecnickcom/tcpdf && composer dump-autoload --no-interaction --optimize --dev` (exporting to PDF)
-* Run `rm -rv vendor/williamdes/mariadb-mysql-kbs && composer dump-autoload --no-interaction --optimize --dev` (external links to MariaDB and MySQL documentations)
-* Run `rm -rv vendor/code-lts/u2f-php-server && composer dump-autoload --no-interaction --optimize --dev` (U2F second factor authentication)
-* Run `rm -rv vendor/pragmarx/* && composer dump-autoload --no-interaction --optimize --dev` (2FA second factor authentication)
-* Run `rm -rv vendor/bacon/bacon-qr-code && composer dump-autoload --no-interaction --optimize --dev` (QRcode generation for 2FA second factor authentication)
+* Run :command:`rm -rv vendor/tecnickcom/tcpdf && composer dump-autoload --no-interaction --optimize --dev` (exporting to PDF)
+* Run :command:`rm -rv vendor/williamdes/mariadb-mysql-kbs && composer dump-autoload --no-interaction --optimize --dev` (external links to MariaDB and MySQL documentations)
+* Run :command:`rm -rv vendor/code-lts/u2f-php-server && composer dump-autoload --no-interaction --optimize --dev` (U2F second factor authentication)
+* Run :command:`rm -rv vendor/pragmarx/* && composer dump-autoload --no-interaction --optimize --dev` (2FA second factor authentication)
+* Run :command:`rm -rv vendor/bacon/bacon-qr-code && composer dump-autoload --no-interaction --optimize --dev` (QRcode generation for 2FA second factor authentication)
 
 .. _faq1_45:
 
@@ -757,8 +655,8 @@ Configuration
 ------------------------------------------------------------------------------------------------------------------------------
 
 Edit your :file:`config.inc.php` file and ensure there is nothing (I.E. no
-blank lines, no spaces, no characters...) neither before the ``<?php`` tag at
-the beginning, neither after the ``?>`` tag at the end.
+blank lines, no spaces, no characters...) either before the ``<?php`` tag at
+the beginning or after the ``?>`` tag at the end.
 
 .. _faq2_2:
 
@@ -816,19 +714,17 @@ documentation <https://dev.mysql.com/doc/refman/5.7/en/can-not-connect-to-server
 -----------------------------------------------------------------------------------
 
 Try to set the :config:option:`$cfg['OBGzip']` directive to ``false`` in the phpMyAdmin configuration
-file. It helps sometime. Also have a look at your PHP version number:
-if it contains "b" or "alpha" it means you're running a testing
-version of PHP. That's not a so good idea, please upgrade to a plain
-revision.
+file. It helps sometimes. Also you can look in the webserver error log or browser console for hints
+or error messages.
 
 .. _faq2_5:
 
 2.5 Each time I want to insert or change a row or drop a database or a table, an error 404 (page not found) is displayed or, with HTTP or cookie authentication, I'm asked to log in again. What's wrong?
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Check your webserver setup if it correctly fills in either PHP_SELF or REQUEST_URI variables.
+Check your webserver setup to ensure that it correctly fills in either the PHP_SELF or REQUEST_URI variables for PHP.
 
-If you are running phpMyAdmin behind reverse proxy, please set the
+If you are running phpMyAdmin behind a reverse proxy, please set the
 :config:option:`$cfg['PmaAbsoluteUri']` directive in the phpMyAdmin
 configuration file to match your setup.
 
@@ -862,17 +758,8 @@ Here are a few points to check:
 
 * In :file:`config.inc.php`, try to leave the :config:option:`$cfg['PmaAbsoluteUri']` directive empty. See also
   :ref:`faq4_7`.
-* Maybe you have a broken PHP installation or you need to upgrade your
-  Zend Optimizer. See <https://bugs.php.net/bug.php?id=31134>.
-* If you are using Hardened PHP with the ini directive
-  ``varfilter.max_request_variables`` set to the default (200) or
-  another low value, you could get this error if your table has a high
-  number of columns. Adjust this setting accordingly. (Thanks to Klaus
-  Dorninger for the hint).
-* In the :file:`php.ini` directive ``arg_separator.input``, a value of ";"
-  will cause this error. Replace it with "&;".
-* If you are using `Suhosin <https://suhosin5.suhosin.org/stories/index.html>`_, you
-  might want to increase `request limits <https://suhosin5.suhosin.org/stories/faq.html>`_.
+* In the :file:`php.ini` directive ``arg_separator.input``, a value of ``;``
+  will cause this error. Replace it with ``&;``.
 * The directory specified in the :file:`php.ini` directive
   ``session.save_path`` does not exist or is read-only (this can be caused
   by `bug in the PHP installer <https://bugs.php.net/bug.php?id=39842>`_).
@@ -920,6 +807,10 @@ And then this hexadecimal value can be used in the configuration file.
 The `sodium_hex2bin <https://www.php.net/sodium_hex2bin>`_ function is used here to convert the hexadecimal value back to the
 binary format.
 
+.. seealso::
+    :config:option:`$cfg['URLQueryEncryptionSecretKey']`,
+    :config:option:`$cfg['blowfish_secret']`
+
 .. _faqlimitations:
 
 Known limitations
@@ -927,8 +818,8 @@ Known limitations
 
 .. _login_bug:
 
-3.1 When using HTTP authentication, a user who logged out can not log in again in with the same nick.
------------------------------------------------------------------------------------------------------
+3.1 When using HTTP authentication, a user who logged out can not log in again in with the same username.
+---------------------------------------------------------------------------------------------------------
 
 This is related to the authentication mechanism (protocol) used by
 phpMyAdmin. To bypass this problem: just close all the opened browser
@@ -942,16 +833,14 @@ again.
 
 Compressed dumps are built in memory and because of this are limited
 to php's memory limit. For gzip/bzip2 exports this can be overcome
-since 2.5.4 using :config:option:`$cfg['CompressOnFly']` (enabled by default).
+using :config:option:`$cfg['CompressOnFly']` (which is enabled by default).
 zip exports can not be handled this way, so if you need zip files for larger
 dump, you have to use another way.
 
 .. _faq3_3:
 
-3.3 With InnoDB tables, I lose foreign key relationships when I rename a table or a column.
--------------------------------------------------------------------------------------------
-
-This is an InnoDB bug, see <https://bugs.mysql.com/bug.php?id=21704>.
+3.3 (withdrawn).
+----------------
 
 .. _faq3_4:
 
@@ -1005,12 +894,12 @@ or :term:`unique key`.
 
 .. _faq3_8:
 
-3.8 I cannot use (clickable) HTML-forms in columns where I put a MIME-Transformation onto!
+3.8 I cannot use (clickable) HTML-forms in columns where I put a MIME-Transformation onto.
 ------------------------------------------------------------------------------------------
 
 Due to a surrounding form-container (for multi-row delete checkboxes),
 no nested forms can be put inside the table where phpMyAdmin displays
-the results. You can, however, use any form inside of a table if keep
+the results. You can, however, use any form inside of a table if you keep
 the parent form-container with the target to tbl\_row\_delete.php and
 just put your own input-elements inside. If you use a custom submit
 input field, the form will submit itself to the displaying page again,
@@ -1038,8 +927,9 @@ workaround to this behaviour.  News to this item will be posted in `issue
 3.10 Homonyms and no primary key: When the results of a SELECT display more that one column with the same value (for example ``SELECT lastname from employees where firstname like 'A%'`` and two "Smith" values are displayed), if I click Edit I cannot be sure that I am editing the intended row.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Please make sure that your table has a :term:`primary key`, so that phpMyAdmin
-can use it for the Edit and Delete links.
+This behavior should be much improved as phpMyAdmin can use other columns as a reference to edit the correct row.
+However, the best solution is to make sure that your table has a :term:`primary key`, so that phpMyAdmin
+can use it for the :guilabel:`Edit` and :guilabel:`Delete` links.
 
 .. _faq3_11:
 
@@ -1063,11 +953,8 @@ at once by clicking on the rows sum displayed at the bottom.
 
 .. _faq3_13:
 
-3.13 I get an error when entering ``USE`` followed by a db name containing an hyphen.
--------------------------------------------------------------------------------------
-
-The tests I have made with MySQL 5.1.49 shows that the API does not
-accept this syntax for the USE command.
+3.13 (withdrawn).
+-----------------
 
 .. _faq3_14:
 
@@ -1117,11 +1004,8 @@ accordingly. This is done for the sake of efficiency.
 
 .. _faq3_20:
 
-3.20 After upgrading, some bookmarks are gone or their content cannot be shown.
--------------------------------------------------------------------------------
-
-At some point, the character set used to store bookmark content has changed.
-It's better to recreate your bookmark from the newer phpMyAdmin version.
+3.20 (withdrawn).
+-----------------
 
 .. _faq3_21:
 
@@ -1144,10 +1028,10 @@ ISPs, multi-user installations
 
 .. _faq4_1:
 
-4.1 I'm an ISP. Can I setup one central copy of phpMyAdmin or do I need to install it for each customer?
---------------------------------------------------------------------------------------------------------
+4.1 I'm an ISP. Can I set up one central copy of phpMyAdmin or do I need to install it for each customer?
+---------------------------------------------------------------------------------------------------------
 
-Since version 2.0.3, you can setup a central copy of phpMyAdmin for all your
+Yes, you can set up a central copy of phpMyAdmin for all your
 users. The development of this feature was kindly sponsored by NetCologne GmbH.
 This requires a properly setup MySQL user management and phpMyAdmin
 :term:`HTTP` or cookie authentication.
@@ -1172,6 +1056,8 @@ Suggestions:
   is a user whose password is only known to you, and apache is the group
   under which Apache runs.
 * Follow security recommendations for PHP and your webserver.
+
+.. seealso:: :ref:`securing`
 
 .. _faq4_3:
 
@@ -1201,8 +1087,8 @@ This could happen for several reasons:
 4.5 Is it possible to let users create their own databases?
 -----------------------------------------------------------
 
-Starting with 2.2.5, in the user management page, you can enter a
-wildcard database name for a user (for example "joe%"), and put the
+In the user management page, you can enter a
+wildcard database name for a user (for example ``joe%``), and put the
 privileges you want. For example, adding ``SELECT, INSERT, UPDATE,
 DELETE, CREATE, DROP, INDEX, ALTER`` would let a user create/manage
 their database(s).
@@ -1272,43 +1158,23 @@ Browsers or client OS
 
 .. _faq5_1:
 
-5.1 I get an out of memory error, and my controls are non-functional, when trying to create a table with more than 14 columns.
-------------------------------------------------------------------------------------------------------------------------------
-
-We could reproduce this problem only under Win98/98SE. Testing under
-WinNT4 or Win2K, we could easily create more than 60 columns.  A
-workaround is to create a smaller number of columns, then come back to
-your table properties and add the other columns.
+5.1 (withdrawn).
+----------------
 
 .. _faq5_2:
 
-5.2 With Xitami 2.5b4, phpMyAdmin won't process form fields.
-------------------------------------------------------------
-
-This is not a phpMyAdmin problem but a Xitami known bug: you'll face
-it with each script/website that use forms. Upgrade or downgrade your
-Xitami server.
+5.2 (withdrawn).
+----------------
 
 .. _faq5_3:
 
-5.3 I have problems dumping tables with Konqueror (phpMyAdmin 2.2.2).
----------------------------------------------------------------------
-
-With Konqueror 2.1.1: plain dumps, zip and gzip dumps work ok, except
-that the proposed file name for the dump is always 'tbl\_dump.php'.
-The bzip2 dumps don't seem to work. With Konqueror 2.2.1: plain dumps
-work; zip dumps are placed into the user's temporary directory, so
-they must be moved before closing Konqueror, or else they disappear.
-gzip dumps give an error message. Testing needs to be done for
-Konqueror 2.2.2.
+5.3 (withdrawn).
+----------------
 
 .. _faq5_4:
 
-5.4 I can't use the cookie authentication mode because Internet Explorer never stores the cookies.
---------------------------------------------------------------------------------------------------
-
-MS Internet Explorer seems to be really buggy about cookies, at least
-till version 6.
+5.4 (withdrawn).
+----------------
 
 .. _faq5_5:
 
@@ -1322,27 +1188,17 @@ till version 6.
 
 .. _faq5_7:
 
-5.7 I refresh (reload) my browser, and come back to the welcome page.
----------------------------------------------------------------------
-
-Some browsers support right-clicking into the frame you want to
-refresh, just do this in the right frame.
+5.7 (withdrawn).
+----------------
 
 .. _faq5_8:
 
-5.8 With Mozilla 0.9.7 I have problems sending a query modified in the query box.
----------------------------------------------------------------------------------
-
-Looks like a Mozilla bug: 0.9.6 was OK. We will keep an eye on future
-Mozilla versions.
+5.8 (withdrawn).
+----------------
 
 .. _faq5_9:
 
-5.9 With Mozilla 0.9.? to 1.0 and Netscape 7.0-PR1 I can't type a whitespace in the SQL-Query edit area: the page scrolls down.
--------------------------------------------------------------------------------------------------------------------------------
-
-This is a Mozilla bug (see bug #26882 at `BugZilla
-<https://bugzilla.mozilla.org/>`_).
+5.9 (withdrawn).
 
 .. _faq5_10:
 
@@ -1364,8 +1220,9 @@ by the recent versions of the most browsers.
 5.12 Mac OS X Safari browser changes special characters to "?".
 ---------------------------------------------------------------
 
-This issue has been reported by a :term:`macOS` user, who adds that Chimera,
-Netscape and Mozilla do not have this problem.
+This issue had been reported some time ago by a :term:`macOS` user, who adds that
+other browsers do not have this problem. It's likely that the problem has since
+been fixed in Safari.
 
 .. _faq5_13:
 
@@ -1504,11 +1361,9 @@ other index.
 6.3 How can I insert a null value into my table?
 ------------------------------------------------
 
-Since version 2.2.3, you have a checkbox for each column that can be
-null. Before 2.2.3, you had to enter "null", without the quotes, as
-the column's value. Since version 2.5.5, you have to use the checkbox
-to get a real NULL value, so if you enter "NULL" this means you want a
-literal NULL in the column, and not a NULL value (this works in PHP4).
+There is a checkbox for each column that can be set for a NULL value.
+If you enter the text ``NULL`` as the value of the column, you will
+get the literal text NULL (which is not the same as the NULL checkbox.
 
 .. _faq6_4:
 
@@ -1518,11 +1373,13 @@ literal NULL in the column, and not a NULL value (this works in PHP4).
 Click on a database or table name in the navigation panel, the properties will
 be displayed. Then on the menu, click "Export", you can dump the structure, the
 data, or both. This will generate standard :term:`SQL` statements that can be
-used to recreate your database/table.  You will need to choose "Save as file",
-so that phpMyAdmin can transmit the resulting dump to your station.  Depending
+used to recreate your database/table.  You will need to choose :guilabel:`Save as file`,
+in order to download the file to your local system.  Depending
 on your PHP configuration, you will see options to compress the dump. See also
 the :config:option:`$cfg['ExecTimeLimit']` configuration variable. For
 additional help on this subject, look for the word "dump" in this document.
+
+You can also save the file to a folder on the webserver, see  :config:option:`$cfg['SaveDir']`.
 
 .. _faq6_5:
 
@@ -1531,12 +1388,9 @@ additional help on this subject, look for the word "dump" in this document.
 
 Click on a database name in the navigation panel, the properties will
 be displayed. Select "Import" from the list of tabs in the right–hand
-frame (or ":term:`SQL`" if your phpMyAdmin
-version is previous to 2.7.0). In the "Location of the text file"
+frame. In the "Location of the text file"
 section, type in the path to your dump filename, or use the Browse
-button. Then click Go.  With version 2.7.0, the import engine has been
-re–written, if possible it is suggested that you upgrade to take
-advantage of the new features.  For additional help on this subject,
+button. Then click Go. For additional help on this subject,
 look for the word "upload" in this document.
 
 Note: For errors while importing of dumps exported from older MySQL versions to newer MySQL versions,
@@ -1612,8 +1466,8 @@ Then test like this:
 6.7 How can I use the "display column" feature?
 -----------------------------------------------
 
-Starting from the previous example, create the ``pma__table_info`` as
-explained in the configuration section, then browse your persons
+Starting from the previous example, create :config:option:`$cfg['Servers'][$i]['table_info']` 
+as explained in the configuration section, then browse your persons
 table, and move the mouse over a town code or country code.  See also
 :ref:`faq6_21` for an additional feature that "display column"
 enables: drop-down list of possible values.
@@ -1623,8 +1477,8 @@ enables: drop-down list of possible values.
 6.8 How can I produce a PDF schema of my database?
 --------------------------------------------------
 
-First the configuration variables "relation", "table\_coords" and
-"pdf\_pages" have to be filled in.
+First the configuration variables :config:option:`$cfg['Servers'][$i]['relation']`, :config:option:`$cfg['Servers'][$i]['table_coords']` and
+:config:option:`$cfg['Servers'][$i]['pdf_pages']` have to be filled in.
 
 * Select your database in the navigation panel.
 * Choose ":guilabel:`Designer`" in the navigation bar at the top.
@@ -1653,9 +1507,14 @@ No, it's MySQL that is doing `silent column type changing
 
 If you do not put a backslash before the underscore, this is a
 wildcard grant, and the underscore means "any character". So, if the
-database name is "john\_db", the user would get rights to john1db,
-john2db ... If you put a backslash before the underscore, it means
+database name is ``john_db``, the user would get rights to john1db,
+john2db, etc. This is particularly useful for allowing users to manage
+their own database with a specific prefix, for example ``john_`` will allow
+that user to manage any database starting with "john".
+If you put a backslash before the underscore like ``john\_db`` it means
 that the database name will have a real underscore.
+
+The graphical :guilabel:`Users` tool makes it easy to navigate all of these possibilities.
 
 .. _faq6_11:
 
@@ -1684,7 +1543,7 @@ It means "average".
   and table names formed with special characters are protected.
 * "Add into comments" includes column comments, relations, and media
   types set in the pmadb in the dump as :term:`SQL` comments
-  (*/\* xxx \*/*).
+  (``/* xxx */``).
 
 **Data:**
 
@@ -1708,7 +1567,7 @@ It means "average".
 This is a bad idea, because in MySQL the syntax "database.table" is
 the normal way to reference a database and table name. Worse, MySQL
 will usually let you create a database with a dot, but then you cannot
-work with it, nor delete it.
+work with it or delete it.
 
 .. _faqsqlvalidator:
 
@@ -1743,8 +1602,8 @@ etc.).
 Defining mimetypes is of no use if you can't put
 transformations on them. Otherwise you could just put a comment on the
 column. Because entering your own mimetype will cause serious syntax
-checking issues and validation, this introduces a high-risk false-
-user-input situation. Instead you have to initialize mimetypes using
+checking issues and validation, this introduces a situation at high-risk
+of incorrect user-input data. Instead you have to initialize mimetypes using
 functions or empty mimetype definitions.
 
 Plus, you have a whole overview of available mimetypes. Who knows all those
@@ -1805,6 +1664,8 @@ display column. For 100 values or more, a distinct window will appear,
 to browse foreign key values and choose one. To change the default
 limit of 100, see :config:option:`$cfg['ForeignKeyMaxLimit']`.
 
+.. seealso:: :ref:`Relations user guide <relations>`
+
 .. _faq6_22:
 
 6.22 Bookmarks: Can I execute a default bookmark automatically when entering Browse mode for a table?
@@ -1823,17 +1684,10 @@ public bookmark, it will be executed.
 You can use :term:`CSV` for Microsoft Excel,
 which works out of the box.
 
-.. versionchanged:: 3.4.5
-    Since phpMyAdmin 3.4.5 support for direct export to Microsoft Excel version
-    97 and newer was dropped.
-
 .. _faq6_24:
 
-6.24 Now that phpMyAdmin supports native MySQL 4.1.x column comments, what happens to my column comments stored in pmadb?
--------------------------------------------------------------------------------------------------------------------------
-
-Automatic migration of a table's pmadb-style column comments to the
-native ones is done whenever you enter Structure page for this table.
+6.24 (withdrawn).
+-----------------
 
 .. _faq6_25:
 
@@ -1867,7 +1721,7 @@ name), but the following variables can be used:
 ``@VERBOSE@``
     Verbose MySQL server name as defined in :config:option:`$cfg['Servers'][$i]['verbose']`
 ``@VSERVER@``
-    Verbose MySQL server name if set, otherwise normal
+    Verbose MySQL server name if set, otherwise it is the shorter server name.
 ``@DATABASE@``
     Currently opened database
 ``@TABLE@``
@@ -2079,7 +1933,7 @@ Third Normal Form.
     );
 
 The above table is not in First normal Form as no :term:`primary key` exists. Primary key
-is supposed to be (`petName`,`ownerLastName`,`ownerFirstName`) . If the :term:`primary key`
+is supposed to be (``petName``, ``ownerLastName``, ``ownerFirstName``) . If the :term:`primary key`
 is chosen as suggested the resultant table won't be in Second as well as Third Normal
 form as the following dependencies exists.
 
@@ -2101,25 +1955,13 @@ PetType depends on PetBreed.
 Some users prefer their AUTO_INCREMENT values to be consecutive; this is not
 always the case after row deletion.
 
-Here are the steps to accomplish this. These are manual steps because they
-involve a manual verification at one point.
+  .. note:: In order to preserve data integrity, we recommend that users do not manually change
+    the auto--increment value.
 
-* Ensure that you have exclusive access to the table to rearrange
-
-* On your :term:`primary key` column (i.e. id), remove the AUTO_INCREMENT setting
-
-* Delete your primary key in Structure > indexes
-
-* Create a new column future_id as primary key, AUTO_INCREMENT
-
-* Browse your table and verify that the new increments correspond to what
-  you're expecting
-
-* Drop your old id column
-
-* Rename the future_id column to id
-
-* Move the new id column via Structure > Move columns
+The AUTO_INCREMENT value can be modified from the table's Operations tab
+where it can be set to any arbitrary value. In the event the AUTO_INCREMENT
+value is set lower than an existing value already in the database, the duplicate
+is skipped and the next available number is selected.
 
 .. _faq6_39:
 
