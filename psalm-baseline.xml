@@ -3991,6 +3991,7 @@
   <file src="libraries/classes/Controllers/Table/StructureController.php">
     <MixedArgument occurrences="13">
       <code>$db</code>
+      <code>$effective</code>
       <code>$field['Collation'] ?? ''</code>
       <code>$field['Extra']</code>
       <code>$field['Field']</code>
@@ -3998,8 +3999,10 @@
       <code>$showtable['Data_free']</code>
       <code>$showtable['Data_length']</code>
       <code>$showtable['Data_length'] + $showtable['Index_length']</code>
+      <code>$showtable['Data_length'] + $showtable['Index_length']</code>
       <code>$showtable['Index_length']</code>
       <code>$tbl_collation</code>
+      <code>($showtable['Data_length'] + $showtable['Index_length']) / $showtable['Rows']</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$url_params</code>
@@ -4025,19 +4028,25 @@
       <code>$comments_map[$field['Field']]</code>
       <code>$comments_map[$field['Field']]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="7">
+    <MixedAssignment occurrences="10">
       <code>$attributes[$rownum]</code>
       <code>$columns_list[]</code>
+      <code>$effective</code>
+      <code>$effective</code>
+      <code>$effective</code>
       <code>$field</code>
       <code>$reread_info</code>
       <code>$row_comments[$rownum]</code>
       <code>$showtable</code>
       <code>$showtable</code>
     </MixedAssignment>
-    <MixedOperand occurrences="7">
+    <MixedOperand occurrences="9">
       <code>$displayed_fields[$rownum]-&gt;icon</code>
       <code>$displayed_fields[$rownum]-&gt;icon</code>
+      <code>$effective</code>
+      <code>$effective</code>
       <code>$showtable['Data_length']</code>
+      <code>$showtable['Data_length'] + $showtable['Index_length']</code>
       <code>$showtable['Index_length']</code>
       <code>$showtable['Index_length']</code>
       <code>$showtable['Index_length']</code>
