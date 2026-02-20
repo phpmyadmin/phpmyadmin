@@ -48,6 +48,8 @@ final readonly class UpdateConfigController implements InvocableController
             return $this->response->response();
         }
 
+        $this->userPreferencesHandler->updateConfigValue('Console/' . $key, $value);
+
         $this->response->addJSON('message', __('Console settings has been updated successfully.'));
 
         return $this->response->response();

@@ -92,6 +92,7 @@ class UserPreferencesHandler
                     $this->themeManager->theme->getId(),
                     'original',
                 );
+                $this->updateConfigValue('ThemeDefault', $this->themeManager->theme->getId());
             }
         } elseif (
             $this->config->config->ThemeDefault !== $this->themeManager->theme->getId()
@@ -176,9 +177,12 @@ class UserPreferencesHandler
             $this->config->setCookie($cookieName, (string) $newCfgValue, $defaultValue);
         }
 
-        $this->config->set($cfgPath, $newCfgValue);
-
         return $result;
+    }
+
+    public function updateConfigValue(string $cfgPath, mixed $newCfgValue): void
+    {
+        $this->config->set($cfgPath, $newCfgValue);
     }
 
     /**

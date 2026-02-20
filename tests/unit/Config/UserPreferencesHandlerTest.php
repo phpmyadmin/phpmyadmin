@@ -32,8 +32,21 @@ final class UserPreferencesHandlerTest extends AbstractTestCase
         $userPreferencesHandler->setUserValue('Lang', 'cs', 'en');
         $userPreferencesHandler->setUserValue('Servers/1/hide_db', 'cfg_val_1', cookieName: 'TEST_COOKIE_USER_VAL');
         self::assertSame('cfg_val_1', $userPreferencesHandler->getUserValue('TEST_COOKIE_USER_VAL', 'fail'));
-        $userPreferencesHandler->setUserValue('NavigationWidth', 300);
-        self::assertSame(300, $config->settings['NavigationWidth']);
+    }
+
+    public function testUpdateConfigValue(): void
+    {
+        $config = new Config();
+        $dbi = $this->createDatabaseInterface();
+        $userPreferencesHandler = new UserPreferencesHandler(
+            $config,
+            $dbi,
+            new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config, new Clock()),
+            new LanguageManager($config),
+            new ThemeManager(),
+        );
+        $userPreferencesHandler->updateConfigValue('NavigationWidth', 300);
+        self::assertSame(300, $config->config->NavigationWidth);
     }
 
     public function testGetUserValue(): void

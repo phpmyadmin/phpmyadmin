@@ -29,6 +29,8 @@ class CollationConnectionControllerTest extends AbstractTestCase
         $userPreferencesHandler = self::createMock(UserPreferencesHandler::class);
         $userPreferencesHandler->expects(self::once())->method('setUserValue')
             ->with('DefaultConnectionCollation', 'utf8mb4_general_ci', 'utf8mb4_unicode_ci');
+        $userPreferencesHandler->expects(self::once())->method('updateConfigValue')
+            ->with('DefaultConnectionCollation', 'utf8mb4_general_ci');
 
         (new CollationConnectionController($response, $userPreferencesHandler))($request);
     }
