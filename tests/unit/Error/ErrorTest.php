@@ -9,9 +9,6 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 
-use function str_replace;
-
-use const DIRECTORY_SEPARATOR;
 use const E_COMPILE_ERROR;
 use const E_COMPILE_WARNING;
 use const E_CORE_ERROR;
@@ -81,9 +78,7 @@ class ErrorTest extends AbstractTestCase
     {
         $this->object->setFile($file);
         $filePath = $this->object->getFile();
-        self::assertStringStartsWith('.' . DIRECTORY_SEPARATOR, $filePath);
-        /** @psalm-var non-empty-string $expected */
-        $expected = str_replace('/', DIRECTORY_SEPARATOR, $expected);
+        self::assertStringStartsWith('./', $filePath);
         self::assertStringEndsWith($expected, $filePath);
     }
 
