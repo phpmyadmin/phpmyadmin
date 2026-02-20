@@ -39,7 +39,7 @@ final readonly class UpdateConfigController implements InvocableController
             return $this->response->response();
         }
 
-        $result = $this->userPreferencesHandler->setUserValue(null, 'Console/' . $key, $value);
+        $result = $this->userPreferencesHandler->setUserValue('Console/' . $key, $value);
         if ($result !== true) {
             $this->response->setStatusCode(StatusCodeInterface::STATUS_INTERNAL_SERVER_ERROR);
             $this->response->setRequestStatus(false);

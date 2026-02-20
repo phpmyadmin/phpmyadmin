@@ -439,9 +439,6 @@
     <PossiblyInvalidArgument>
       <code><![CDATA[$defaultValue]]></code>
     </PossiblyInvalidArgument>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[$cookieName]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Config/Validator.php">
     <DeprecatedMethod>

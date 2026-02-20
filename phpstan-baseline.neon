@@ -970,12 +970,6 @@ parameters:
 			path: src/Config/UserPreferencesHandler.php
 
 		-
-			message: '#^Only booleans are allowed in &&, string\|null given on the right side\.$#'
-			identifier: booleanAnd.rightNotBoolean
-			count: 1
-			path: src/Config/UserPreferencesHandler.php
-
-		-
 			message: '#^Parameter \#1 \$code of method PhpMyAdmin\\I18n\\LanguageManager\:\:getLanguage\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
