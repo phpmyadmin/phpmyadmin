@@ -408,7 +408,6 @@
   </file>
   <file src="src/Config/UserPreferencesHandler.php">
     <MixedArgument>
-      <code><![CDATA[$configData]]></code>
       <code><![CDATA[$configData['lang']]]></code>
       <code><![CDATA[$defaultValue]]></code>
     </MixedArgument>
@@ -416,7 +415,6 @@
       <code><![CDATA[$_SESSION['cache'][$cacheKey]['userprefs']]]></code>
       <code><![CDATA[$_SESSION['cache'][$cacheKey]['userprefs']['LoginCookieValidity']]]></code>
       <code><![CDATA[$_SESSION['cache'][$cacheKey]['userprefs_type']]]></code>
-      <code><![CDATA[$configData['lang']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION['cache'][$cacheKey]]]></code>
@@ -427,7 +425,6 @@
       <code><![CDATA[$_SESSION['cache'][$cacheKey]['userprefs_type']]]></code>
     </MixedArrayAssignment>
     <MixedAssignment>
-      <code><![CDATA[$configData]]></code>
       <code><![CDATA[$defaultValue]]></code>
       <code><![CDATA[$defaultValue]]></code>
       <code><![CDATA[$this->storageType]]></code>

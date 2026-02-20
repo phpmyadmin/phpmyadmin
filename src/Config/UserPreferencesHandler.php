@@ -58,6 +58,7 @@ class UserPreferencesHandler
             return;
         }
 
+        /** @var mixed[] $configData */
         $configData = $_SESSION['cache'][$cacheKey]['userprefs'];
         // type is 'db' or 'session'
         $this->storageType = $_SESSION['cache'][$cacheKey]['userprefs_type'];
