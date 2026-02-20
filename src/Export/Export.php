@@ -179,13 +179,7 @@ class Export
                 $filenameTemplate,
                 cookieName: 'pma_db_filename_template',
             );
-        } elseif ($exportType === ExportType::Raw) {
-            $userPreferencesHandler->setUserValue(
-                'Export/file_template_raw',
-                $filenameTemplate,
-                cookieName: 'pma_raw_filename_template',
-            );
-        } else {
+        } elseif ($exportType === ExportType::Table) {
             $userPreferencesHandler->setUserValue(
                 'Export/file_template_table',
                 $filenameTemplate,
