@@ -444,6 +444,9 @@ class Types
 
             case 'UUID':
                 return __('128-bit UUID (Universally Unique Identifier)');
+
+            case 'VECTOR':
+                return __('Stores vector data optimized for operations such as similarity search and machine learning applications');
         }
 
         return '';
