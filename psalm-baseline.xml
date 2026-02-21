@@ -6810,38 +6810,14 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Gis/GisLineString.php">
-    <MixedArgument occurrences="13">
-      <code>$point[0]</code>
-      <code>$point[0]</code>
-      <code>$point[1]</code>
-      <code>$point[1]</code>
-      <code>$points_arr[1][0]</code>
-      <code>$points_arr[1][0]</code>
-      <code>$points_arr[1][1]</code>
-      <code>$points_arr[1][1]</code>
+    <MixedArgument occurrences="3">
       <code>$temp_point[0]</code>
-      <code>$temp_point[0]</code>
-      <code>$temp_point[1]</code>
       <code>$temp_point[1]</code>
       <code>$wkt</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="17">
+    <MixedArrayAccess occurrences="3">
       <code>$gis_data[$index]['LINESTRING']['no_of_points']</code>
-      <code>$point[0]</code>
-      <code>$point[0]</code>
-      <code>$point[0]</code>
-      <code>$point[1]</code>
-      <code>$point[1]</code>
-      <code>$point[1]</code>
-      <code>$points_arr[$i][0]</code>
-      <code>$points_arr[$i][1]</code>
-      <code>$points_arr[1][0]</code>
-      <code>$points_arr[1][0]</code>
-      <code>$points_arr[1][1]</code>
-      <code>$points_arr[1][1]</code>
       <code>$temp_point[0]</code>
-      <code>$temp_point[0]</code>
-      <code>$temp_point[1]</code>
       <code>$temp_point[1]</code>
     </MixedArrayAccess>
     <MixedArrayAssignment occurrences="3">
@@ -6849,22 +6825,12 @@
       <code>$params[$index]['LINESTRING']</code>
       <code>$params[$index]['LINESTRING']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="10">
+    <MixedAssignment occurrences="3">
       <code>$no_of_points</code>
-      <code>$params[$index]['LINESTRING'][$i]['x']</code>
-      <code>$params[$index]['LINESTRING'][$i]['y']</code>
       <code>$params['srid']</code>
-      <code>$point</code>
-      <code>$point</code>
-      <code>$point</code>
-      <code>$temp_point</code>
-      <code>$temp_point</code>
       <code>$wkt</code>
     </MixedAssignment>
-    <MixedOperand occurrences="4">
-      <code>$point[0]</code>
-      <code>$point[1]</code>
-    </MixedOperand>
+    <MixedOperand occurrences="2"/>
     <ParamNameMismatch occurrences="4">
       <code>$line_color</code>
       <code>$line_color</code>
@@ -6880,42 +6846,18 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Gis/GisMultiLineString.php">
-    <MixedArgument occurrences="13">
-      <code>$point[0]</code>
-      <code>$point[0]</code>
-      <code>$point[1]</code>
-      <code>$point[1]</code>
-      <code>$points_arr[1][0]</code>
-      <code>$points_arr[1][0]</code>
-      <code>$points_arr[1][1]</code>
-      <code>$points_arr[1][1]</code>
+    <MixedArgument occurrences="3">
       <code>$temp_point[0]</code>
-      <code>$temp_point[0]</code>
-      <code>$temp_point[1]</code>
       <code>$temp_point[1]</code>
       <code>$wkt</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="21">
+    <MixedArrayAccess occurrences="7">
       <code>$data_row[$i]</code>
       <code>$data_row['no_of_lines']</code>
       <code>$point['x']</code>
       <code>$point['y']</code>
-      <code>$point[0]</code>
-      <code>$point[0]</code>
-      <code>$point[0]</code>
-      <code>$point[1]</code>
-      <code>$point[1]</code>
-      <code>$point[1]</code>
-      <code>$points_arr[$i][0]</code>
-      <code>$points_arr[$i][1]</code>
-      <code>$points_arr[1][0]</code>
-      <code>$points_arr[1][0]</code>
-      <code>$points_arr[1][1]</code>
-      <code>$points_arr[1][1]</code>
       <code>$row_data['parts'][$i]</code>
       <code>$temp_point[0]</code>
-      <code>$temp_point[0]</code>
-      <code>$temp_point[1]</code>
       <code>$temp_point[1]</code>
     </MixedArrayAccess>
     <MixedArrayAssignment occurrences="4">
@@ -6924,26 +6866,17 @@
       <code>$params[$index]['MULTILINESTRING']</code>
       <code>$params[$index]['MULTILINESTRING']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="13">
+    <MixedAssignment occurrences="6">
       <code>$data_row</code>
       <code>$no_of_lines</code>
       <code>$no_of_points</code>
-      <code>$params[$index]['MULTILINESTRING'][$j][$i]['x']</code>
-      <code>$params[$index]['MULTILINESTRING'][$j][$i]['y']</code>
       <code>$params['srid']</code>
       <code>$point</code>
-      <code>$point</code>
-      <code>$point</code>
-      <code>$point</code>
-      <code>$temp_point</code>
-      <code>$temp_point</code>
       <code>$wkt</code>
     </MixedAssignment>
-    <MixedOperand occurrences="6">
+    <MixedOperand occurrences="4">
       <code>$point['x']</code>
       <code>$point['y']</code>
-      <code>$point[0]</code>
-      <code>$point[1]</code>
     </MixedOperand>
     <ParamNameMismatch occurrences="4">
       <code>$line_color</code>
@@ -6964,40 +6897,14 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Gis/GisMultiPoint.php">
-    <MixedArgument occurrences="10">
+    <MixedArgument occurrences="2">
       <code>$point</code>
-      <code>$point[0]</code>
-      <code>$point[0]</code>
-      <code>$point[1]</code>
-      <code>$point[1]</code>
-      <code>$points_arr[0][0]</code>
-      <code>$points_arr[0][0]</code>
-      <code>$points_arr[0][1]</code>
-      <code>$points_arr[0][1]</code>
       <code>$wkt</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="23">
+    <MixedArrayAccess occurrences="5">
       <code>$gis_data[$index]['MULTIPOINT']['no_of_points']</code>
       <code>$point[0]</code>
-      <code>$point[0]</code>
-      <code>$point[0]</code>
-      <code>$point[0]</code>
-      <code>$point[0]</code>
-      <code>$point[0]</code>
-      <code>$point[0]</code>
       <code>$point[1]</code>
-      <code>$point[1]</code>
-      <code>$point[1]</code>
-      <code>$point[1]</code>
-      <code>$point[1]</code>
-      <code>$point[1]</code>
-      <code>$point[1]</code>
-      <code>$points_arr[$i][0]</code>
-      <code>$points_arr[$i][1]</code>
-      <code>$points_arr[0][0]</code>
-      <code>$points_arr[0][0]</code>
-      <code>$points_arr[0][1]</code>
-      <code>$points_arr[0][1]</code>
       <code>$row_data['points'][$i]</code>
       <code>$row_data['points'][$i]</code>
     </MixedArrayAccess>
@@ -7006,20 +6913,13 @@
       <code>$params[$index]['MULTIPOINT']</code>
       <code>$params[$index]['MULTIPOINT']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="9">
+    <MixedAssignment occurrences="4">
       <code>$no_of_points</code>
-      <code>$params[$index]['MULTIPOINT'][$i]['x']</code>
-      <code>$params[$index]['MULTIPOINT'][$i]['y']</code>
       <code>$params['srid']</code>
-      <code>$point</code>
-      <code>$point</code>
-      <code>$point</code>
       <code>$point</code>
       <code>$wkt</code>
     </MixedAssignment>
-    <MixedOperand occurrences="6">
-      <code>$point[0]</code>
-      <code>$point[1]</code>
+    <MixedOperand occurrences="4">
       <code>$row_data['points'][$i]['x']</code>
       <code>$row_data['points'][$i]['y']</code>
     </MixedOperand>
@@ -7033,6 +6933,10 @@
       <code>$black</code>
       <code>$color</code>
     </PossiblyFalseArgument>
+    <RedundantCastGivenDocblockType occurrences="2">
+      <code>(float) $point[0]</code>
+      <code>(float) $point[1]</code>
+    </RedundantCastGivenDocblockType>
     <RedundantPropertyInitializationCheck occurrences="1">
       <code>isset(self::$instance)</code>
     </RedundantPropertyInitializationCheck>
@@ -7049,7 +6953,7 @@
       <code>$ring['points']</code>
       <code>$wkt</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="37">
+    <MixedArrayAccess occurrences="29">
       <code>$data_row[$k]</code>
       <code>$data_row[$k]</code>
       <code>$data_row['no_of_polygons']</code>
@@ -7068,14 +6972,6 @@
       <code>$params[$index]['MULTIPOLYGON']</code>
       <code>$point['x']</code>
       <code>$point['y']</code>
-      <code>$point[0]</code>
-      <code>$point[1]</code>
-      <code>$points_arr[$i][0]</code>
-      <code>$points_arr[$i][0]</code>
-      <code>$points_arr[$i][1]</code>
-      <code>$points_arr[$i][1]</code>
-      <code>$points_arr[0][0]</code>
-      <code>$points_arr[0][1]</code>
       <code>$ring1['isOuter']</code>
       <code>$ring1['pointOnSurface']</code>
       <code>$ring2['isOuter']</code>
@@ -7110,7 +7006,7 @@
       <code>$row_data['parts'][$k]</code>
       <code>$row_data['parts'][$k]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="25">
+    <MixedAssignment occurrences="20">
       <code>$data_row</code>
       <code>$i</code>
       <code>$i</code>
@@ -7122,12 +7018,7 @@
       <code>$no_of_points</code>
       <code>$no_of_polygons</code>
       <code>$param_row</code>
-      <code>$param_row[$k][$j][$i]['x']</code>
-      <code>$param_row[$k][$j][$i]['y']</code>
-      <code>$param_row[$k][0][$i]['x']</code>
-      <code>$param_row[$k][0][$i]['y']</code>
       <code>$params['srid']</code>
-      <code>$point</code>
       <code>$point</code>
       <code>$ring</code>
       <code>$ring</code>
@@ -7137,15 +7028,11 @@
       <code>$row_data['parts'][$k]['inner'][]</code>
       <code>$wkt</code>
     </MixedAssignment>
-    <MixedOperand occurrences="10">
+    <MixedOperand occurrences="6">
       <code>$innerPoint['x']</code>
       <code>$innerPoint['y']</code>
       <code>$point['x']</code>
       <code>$point['y']</code>
-      <code>$point[0]</code>
-      <code>$point[1]</code>
-      <code>$points_arr[0][0]</code>
-      <code>$points_arr[0][1]</code>
     </MixedOperand>
     <ParamNameMismatch occurrences="4">
       <code>$fill_color</code>
@@ -7167,49 +7054,24 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Gis/GisPoint.php">
-    <MixedArgument occurrences="10">
-      <code>$points_arr[0]</code>
-      <code>$points_arr[0][0]</code>
-      <code>$points_arr[0][0]</code>
-      <code>$points_arr[0][0]</code>
-      <code>$points_arr[0][0]</code>
-      <code>$points_arr[0][1]</code>
-      <code>$points_arr[0][1]</code>
-      <code>$points_arr[0][1]</code>
-      <code>$points_arr[0][1]</code>
+    <MixedArgument occurrences="1">
       <code>$wkt</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="16">
+    <MixedArrayAccess occurrences="4">
       <code>$gis_data[$index]['POINT']['x']</code>
       <code>$gis_data[$index]['POINT']['x']</code>
       <code>$gis_data[$index]['POINT']['y']</code>
       <code>$gis_data[$index]['POINT']['y']</code>
-      <code>$points_arr[0][0]</code>
-      <code>$points_arr[0][0]</code>
-      <code>$points_arr[0][0]</code>
-      <code>$points_arr[0][0]</code>
-      <code>$points_arr[0][0]</code>
-      <code>$points_arr[0][0]</code>
-      <code>$points_arr[0][1]</code>
-      <code>$points_arr[0][1]</code>
-      <code>$points_arr[0][1]</code>
-      <code>$points_arr[0][1]</code>
-      <code>$points_arr[0][1]</code>
-      <code>$points_arr[0][1]</code>
     </MixedArrayAccess>
     <MixedArrayAssignment occurrences="2">
       <code>$params[$index]['POINT']</code>
       <code>$params[$index]['POINT']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="4">
-      <code>$params[$index]['POINT']['x']</code>
-      <code>$params[$index]['POINT']['y']</code>
+    <MixedAssignment occurrences="2">
       <code>$params['srid']</code>
       <code>$wkt</code>
     </MixedAssignment>
-    <MixedOperand occurrences="6">
-      <code>$points_arr[0][0]</code>
-      <code>$points_arr[0][1]</code>
+    <MixedOperand occurrences="4">
       <code>$row_data['x'] ?? ''</code>
       <code>$row_data['y'] ?? ''</code>
     </MixedOperand>
@@ -7223,20 +7085,20 @@
       <code>$black</code>
       <code>$color</code>
     </PossiblyFalseArgument>
+    <RedundantCastGivenDocblockType occurrences="2">
+      <code>(float) $points_arr[0][0]</code>
+      <code>(float) $points_arr[0][1]</code>
+    </RedundantCastGivenDocblockType>
     <RedundantPropertyInitializationCheck occurrences="1">
       <code>isset(self::$instance)</code>
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Gis/GisPolygon.php">
-    <MixedArgument occurrences="6">
-      <code>$points_arr[2]</code>
-      <code>$points_arr[2]</code>
-      <code>$points_arr[3]</code>
-      <code>$points_arr[3]</code>
+    <MixedArgument occurrences="2">
       <code>$wkt</code>
       <code>($y1 - $y0) ** 2 + ($x0 - $x1) ** 2</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="42">
+    <MixedArrayAccess occurrences="36">
       <code>$gis_data[$index]['POLYGON']</code>
       <code>$gis_data[$index]['POLYGON']['no_of_lines']</code>
       <code>$p1['x']</code>
@@ -7255,12 +7117,6 @@
       <code>$p2['y']</code>
       <code>$p2['y']</code>
       <code>$p2['y']</code>
-      <code>$point[0]</code>
-      <code>$point[1]</code>
-      <code>$points_arr[$i][0]</code>
-      <code>$points_arr[$i][1]</code>
-      <code>$points_arr[0][0]</code>
-      <code>$points_arr[0][1]</code>
       <code>$polygon[$last]['x']</code>
       <code>$polygon[$last]['y']</code>
       <code>$polygon[0]['x']</code>
@@ -7286,7 +7142,7 @@
       <code>$params[$index]['POLYGON']</code>
       <code>$params[$index]['POLYGON']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="27">
+    <MixedAssignment occurrences="24">
       <code>$area</code>
       <code>$area</code>
       <code>$area</code>
@@ -7298,10 +7154,7 @@
       <code>$p1</code>
       <code>$p1</code>
       <code>$p2</code>
-      <code>$params[$index]['POLYGON'][$j][$i]['x']</code>
-      <code>$params[$index]['POLYGON'][$j][$i]['y']</code>
       <code>$params['srid']</code>
-      <code>$point</code>
       <code>$pointA['x']</code>
       <code>$pointA['y']</code>
       <code>$pointB['x']</code>
@@ -7318,7 +7171,7 @@
     <MixedInferredReturnType occurrences="1">
       <code>float</code>
     </MixedInferredReturnType>
-    <MixedOperand occurrences="35">
+    <MixedOperand occurrences="31">
       <code>$area</code>
       <code>$area</code>
       <code>$epsilon * ($y1 - $y0)</code>
@@ -7328,10 +7181,6 @@
       <code>$pointA['x']</code>
       <code>$pointB['x']</code>
       <code>$point['y']</code>
-      <code>$point[0]</code>
-      <code>$point[1]</code>
-      <code>$points_arr[0][0]</code>
-      <code>$points_arr[0][1]</code>
       <code>$ring[$i]['x']</code>
       <code>$ring[$i]['y']</code>
       <code>$x0</code>
