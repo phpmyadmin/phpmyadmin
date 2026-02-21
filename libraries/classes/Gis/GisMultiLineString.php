@@ -153,12 +153,14 @@ class GisMultiLineString extends GisGeometry
         $red = hexdec(mb_substr($line_color, 1, 2));
         $green = hexdec(mb_substr($line_color, 3, 2));
         $blue = hexdec(mb_substr($line_color, 4, 2));
-        $line = [
-            'width' => 1.5,
-            'color' => [
-                $red,
-                $green,
-                $blue,
+        $lineStyle = [
+            'all' => [
+                'width' => 1.5,
+                'color' => [
+                    $red,
+                    $green,
+                    $blue,
+                ],
             ],
         ];
 
@@ -169,27 +171,18 @@ class GisMultiLineString extends GisGeometry
         // Separate each linestring
         $linestirngs = explode('),(', $multilinestirng);
 
-        $first_line = true;
         foreach ($linestirngs as $linestring) {
-            $points_arr = $this->extractPoints($linestring, $scale_data);
-            foreach ($points_arr as $point) {
-                if (isset($temp_point)) {
-                    // draw line section
-                    $pdf->Line($temp_point[0], $temp_point[1], $point[0], $point[1], $line);
-                }
+            $points_arr = $this->extractPoints($linestring, $scale_data, true);
+            $pdf->PolyLine($points_arr, 'S', $lineStyle);
 
-                $temp_point = $point;
-            }
-
-            unset($temp_point);
             // print label
-            if ($label !== '' && $first_line) {
-                $pdf->setXY($points_arr[1][0], $points_arr[1][1]);
-                $pdf->setFontSize(5);
-                $pdf->Cell(0, 0, $label);
+            if ($label === '') {
+                continue;
             }
 
-            $first_line = false;
+            $pdf->setXY($points_arr[2], $points_arr[3]);
+            $pdf->setFontSize(5);
+            $pdf->Cell(0, 0, $label);
         }
 
         return $pdf;

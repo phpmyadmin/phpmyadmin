@@ -136,12 +136,14 @@ class GisLineString extends GisGeometry
         $red = hexdec(mb_substr($line_color, 1, 2));
         $green = hexdec(mb_substr($line_color, 3, 2));
         $blue = hexdec(mb_substr($line_color, 4, 2));
-        $line = [
-            'width' => 1.5,
-            'color' => [
-                $red,
-                $green,
-                $blue,
+        $lineStyle = [
+            'all' => [
+                'width' => 1.5,
+                'color' => [
+                    $red,
+                    $green,
+                    $blue,
+                ],
             ],
         ];
 
@@ -149,20 +151,12 @@ class GisLineString extends GisGeometry
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
         $linesrting = mb_substr($spatial, 11, -1);
-        $points_arr = $this->extractPoints($linesrting, $scale_data);
-
-        foreach ($points_arr as $point) {
-            if (isset($temp_point)) {
-                // draw line section
-                $pdf->Line($temp_point[0], $temp_point[1], $point[0], $point[1], $line);
-            }
-
-            $temp_point = $point;
-        }
+        $points_arr = $this->extractPoints($linesrting, $scale_data, true);
+        $pdf->PolyLine($points_arr, 'S', $lineStyle);
 
         // print label
         if ($label !== '') {
-            $pdf->setXY($points_arr[1][0], $points_arr[1][1]);
+            $pdf->setXY($points_arr[2], $points_arr[3]);
             $pdf->setFontSize(5);
             $pdf->Cell(0, 0, $label);
         }
