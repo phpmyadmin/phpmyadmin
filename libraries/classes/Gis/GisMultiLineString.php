@@ -209,7 +209,7 @@ class GisMultiLineString extends GisGeometry
     {
         $line_options = [
             'data-label' => $label,
-            'class' => 'linestring vector',
+            'class' => 'multilinestring vector',
             'fill' => 'none',
             'stroke' => $line_color,
             'stroke-width' => 2,
