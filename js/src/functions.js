@@ -4090,7 +4090,6 @@ Functions.stringifyJSON = function (value, replacer = null, space = 0) {
         // Fallback: force string
         return String(value);
     } catch (e) {
-        console.log('error occured in stringifying json');
         return String(value);
     }
 };
