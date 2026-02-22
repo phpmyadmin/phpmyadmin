@@ -142,7 +142,7 @@ class GisGeometryTest extends AbstractTestCase
             // with scale data
             [
                 '12 35,48 75,69 23',
-                new ScaleData(offsetX: 5, offsetY: 5, scale: 2, height: 200),
+                new ScaleData(scale: 2.0, offsetX: -10.0, offsetY: -210.0),
                 false,
                 [[14, 140], [86, 60], [128, 164]],
             ],
