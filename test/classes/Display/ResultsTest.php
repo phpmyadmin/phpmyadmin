@@ -759,7 +759,8 @@ class ResultsTest extends AbstractTestCase
                 [],
                 '<td data-decimals="0" data-type="string" '
                 . 'data-originallength="11" '
-                . 'class="grid_edit pre_wrap">foo bar baz</td>' . "\n",
+                . 'class="grid_edit pre_wrap" data-original-value="foo&#x20;bar&#x20;baz">'
+                . 'foo bar baz</td>' . "\n",
             ],
             [
                 'all',
@@ -774,7 +775,8 @@ class ResultsTest extends AbstractTestCase
                 [],
                 '<td data-decimals="0" data-type="string" '
                 . 'data-originallength="11" '
-                . 'class="grid_edit text-nowrap transformed">foo bar baz</td>' . "\n",
+                . 'class="grid_edit text-nowrap transformed" data-original-value="foo&#x20;bar&#x20;baz">'
+                . 'foo bar baz</td>' . "\n",
             ],
             [
                 'all',
@@ -789,7 +791,9 @@ class ResultsTest extends AbstractTestCase
                 [],
                 '<td data-decimals="0" data-type="datetime" '
                 . 'data-originallength="19" '
-                . 'class="grid_edit text-nowrap">2020-09-20 16:35:00</td>' . "\n",
+                . 'class="grid_edit text-nowrap" '
+                . 'data-original-value="2020-09-20&#x20;16&#x3A;35&#x3A;00">'
+                . '2020-09-20 16:35:00</td>' . "\n",
             ],
         ];
     }
