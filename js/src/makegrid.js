@@ -1031,7 +1031,6 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                         $(g.cEdit).on('keyup', '.edit_box', function () {
                             $editArea.find('textarea').val($(this).val());
                         });
-                        $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
                     } else {
                         // handle truncated/transformed values values
                         $editArea.addClass('edit_area_loading');
@@ -1066,6 +1065,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                         }); // end $.post()
                     }
                     g.isEditCellTextEditable = true;
+                    $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
                 } else if ($td.is('.timefield, .datefield, .datetimefield, .timestampfield')) {
                     var $inputField = $(g.cEdit).find('.edit_box');
 
