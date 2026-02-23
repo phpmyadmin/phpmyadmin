@@ -167,7 +167,7 @@ class ImportXml extends ImportPlugin
         $databaseName = (string) $databaseXml['name'];
 
         /** @var SimpleXMLElement $tableRowXml */
-        foreach ($databaseXml->table as $tableRowXml) {
+        foreach ($databaseXml->table ?? [] as $tableRowXml) {
             $tableName = (string) $tableRowXml['name'];
 
             $table = $tables[$tableName] ?? new ImportTable($tableName);
