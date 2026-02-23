@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2025-12-29 14:00+0000\n"
-"Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
+"PO-Revision-Date: 2026-02-24 12:09+0000\n"
+"Last-Translator: தமிழ்நேரம் <tamilneram247@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/5-1/ta/>"
 "\n"
 "Language: ta\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.15.1\n"
+"X-Generator: Weblate 5.16.1-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -876,7 +876,6 @@ msgstr "பல இணைப்புகள் கைவிடப்படுக�
 
 #: libraries/advisory_rules_generic.php:552
 #: libraries/advisory_rules_generic.php:566
-#, fuzzy
 msgid ""
 "Connections are usually aborted when they cannot be authorized. <a "
 "href=\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-"
@@ -884,7 +883,7 @@ msgid ""
 msgstr ""
 "இணைப்புகள் பொதுவாக அங்கீகரிக்க முடியாதபோது கைவிடப்படுகின்றன. <a href=\"https://"
 "www.percona.com/blog/2008/08/23/how-to-to-track-down-the-source-of-"
-"aborted_connects/\"> இந்த கட்டுரை உங்களுக்கு உதவக்கூடும் மூலத்தைக் கண்காணிக்கவும்."
+"aborted_connects/\"> இந்தக் கட்டுரை உங்களுக்கு உதவக்கூடும் மூலத்தைக் கண்காணிக்கவும்."
 
 #: libraries/advisory_rules_generic.php:556
 #, php-format
