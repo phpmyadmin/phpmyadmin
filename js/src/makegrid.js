@@ -931,26 +931,14 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                         );
                         $(g.currentEditCell).data('originalValue', originalValue);
                     }
-                    // Cache it once
-                    $editArea.append(
-                        '<div class="crlf_div">' +
-                            '<label>' +
-                                '<span class="line-ending-label">' +
-                                    Messages.strLineEnding +
-                                    '<span>' +
-                                        '<img src="themes/dot.gif" ' +
-                                        'title="' + Functions.escapeHtml(Messages.strLineEndingDetected) + '" ' +
-                                        'alt="' + Functions.escapeHtml(Messages.strLineEndingDetected) + '" ' +
-                                        'class="icon ic_b_help">' +
-                                    '</span>' +
-                                '</span>' +
-                                '<select class="line-ending-select">' +
-                                    '<option value="LF">LF</option>' +
-                                    '<option value="CRLF">CRLF</option>' +
-                                '</select>' +
-                            '</label>' +
-                        '</div>'
-                    );
+                    var crlfTemplateEl = document.getElementById('crlf-div-template-' + t.dataset.uniqueid);
+                    var $crlfDiv = $(crlfTemplateEl.content.cloneNode(true));
+                    $crlfDiv.find('.line-ending-text').text(Messages.strLineEnding);
+                    $crlfDiv.find('img').attr({
+                        'title': Messages.strLineEndingDetected,
+                        'alt': Messages.strLineEndingDetected
+                    });
+                    $editArea.append($crlfDiv);
                     var detectedEnding = $(g.currentEditCell).data('lineEnding');
                     $editArea.find('.line-ending-select').val(detectedEnding);
                     // handle change of line ending selection
