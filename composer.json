@@ -88,7 +88,7 @@
         "tecnickcom/tcpdf": "<6.4.4"
     },
     "suggest": {
-        "ext-curl": "Updates checking",
+        "ext-curl": "Required for Azure Data Explorer (Kusto) support and update checking",
         "ext-opcache": "Better performance",
         "ext-zlib": "For gz import and export",
         "ext-bz2": "For bzip2 import and export",

@@ -7,11 +7,13 @@ namespace PhpMyAdmin\Config\Settings;
 use function array_map;
 use function in_array;
 use function is_array;
+use function is_string;
 use function strval;
 
 /**
  * @psalm-immutable
  * @psalm-type ServerSettingsType = array{
+ *     server_type: string,
  *     host: string,
  *     port: string,
  *     socket: string,
@@ -93,7 +95,19 @@ use function strval;
 final class Server
 {
     /**
+     * Server type — 'mysql' (default) or 'kusto' for Azure Data Explorer
+     *
+     * ```php
+     * $cfg['Servers'][$i]['server_type'] = 'mysql';
+     * ```
+     */
+    public string $serverType;
+
+    /**
      * MySQL hostname or IP address
+     *
+     * For Kusto, this should be the cluster URI, e.g.
+     * https://mycluster.westeurope.kusto.windows.net
      *
      * ```php
      * $cfg['Servers'][$i]['host'] = 'localhost';
@@ -896,6 +910,8 @@ final class Server
     /** @param array<int|string, mixed> $server */
     public function __construct(array $server = [])
     {
+        $this->serverType = isset($server['server_type']) && is_string($server['server_type'])
+            ? $server['server_type'] : 'mysql';
         $this->host = $this->setHost($server);
         $this->port = $this->setPort($server);
         $this->socket = $this->setSocket($server);
@@ -971,6 +987,7 @@ final class Server
     public function asArray(): array
     {
         return [
+            'server_type' => $this->serverType,
             'host' => $this->host,
             'port' => $this->port,
             'socket' => $this->socket,

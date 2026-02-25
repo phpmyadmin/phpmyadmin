@@ -68,6 +68,35 @@ $cfg['Servers'][$i]['AllowNoPassword'] = false;
  */
 
 /**
+ * -----------------------------------------------------------------------
+ * Azure Data Explorer (Kusto / ADX) server example
+ * -----------------------------------------------------------------------
+ * To connect to a Kusto cluster instead of MySQL, add a server block like
+ * the one below. The driver is auto-detected from the host name, or you
+ * can explicitly set 'server_type' => 'kusto'.
+ *
+ * Authentication uses Azure AD client-credentials (OAuth2). Create an
+ * App Registration in Azure AD and grant it "Viewer" or "Admin" role on
+ * your ADX database.
+ *
+ * Required settings:
+ *   host     – Cluster URI, e.g. https://mycluster.westeurope.kusto.windows.net
+ *   port     – Azure AD Tenant ID (GUID)
+ *   user     – Azure AD Application (Client) ID
+ *   password – Azure AD Client Secret
+ *   only_db  – Default ADX database name
+ */
+// $i++;
+// $cfg['Servers'][$i]['auth_type'] = 'config';
+// $cfg['Servers'][$i]['host'] = 'https://mycluster.westeurope.kusto.windows.net';
+// $cfg['Servers'][$i]['port'] = 'your-azure-ad-tenant-id';
+// $cfg['Servers'][$i]['user'] = 'your-app-client-id';
+// $cfg['Servers'][$i]['password'] = 'your-app-client-secret';
+// $cfg['Servers'][$i]['only_db'] = 'MyKustoDatabase';
+// $cfg['Servers'][$i]['verbose'] = 'My ADX Cluster';
+// $cfg['Servers'][$i]['server_type'] = 'kusto';  // optional if host contains kusto.windows.net
+
+/**
  * Directories for saving/loading files from server
  */
 $cfg['UploadDir'] = '';

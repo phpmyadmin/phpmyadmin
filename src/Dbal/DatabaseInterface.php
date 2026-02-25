@@ -153,10 +153,36 @@ class DatabaseInterface
     public static function getInstance(Config|null $config = null): self
     {
         if (self::$instance === null) {
-            self::$instance = new self(new DbiMysqli(), $config ?? Config::getInstance());
+            $config = $config ?? Config::getInstance();
+            $extension = self::createExtension($config);
+            self::$instance = new self($extension, $config);
         }
 
         return self::$instance;
+    }
+
+    /**
+     * Create the appropriate DbiExtension based on configuration.
+     *
+     * If the server host looks like a Kusto cluster URI (contains "kusto.windows.net"
+     * or "kusto.data.microsoft.com") or if the server type is explicitly set to "kusto",
+     * the Kusto extension is used. Otherwise, defaults to MySQLi.
+     */
+    private static function createExtension(Config $config): DbiExtension
+    {
+        $serverHost = $config->selectedServer['host'] ?? '';
+        $serverType = $config->selectedServer['server_type'] ?? '';
+
+        if (
+            $serverType === 'kusto'
+            || str_contains($serverHost, 'kusto.windows.net')
+            || str_contains($serverHost, 'kusto.data.microsoft.com')
+            || str_contains($serverHost, 'kustolab.com')
+        ) {
+            return new Kusto\DbiKusto();
+        }
+
+        return new DbiMysqli();
     }
 
     public static function getInstanceForTest(DbiExtension $extension, Config|null $config = null): self
@@ -166,6 +192,14 @@ class DatabaseInterface
         $instance->connections[ConnectionType::ControlUser->value] = new Connection(new stdClass());
 
         return $instance;
+    }
+
+    /**
+     * Check whether the current connection uses the Kusto (ADX) extension.
+     */
+    public function isKusto(): bool
+    {
+        return $this->extension instanceof Kusto\DbiKusto;
     }
 
     public function query(
