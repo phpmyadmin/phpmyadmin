@@ -391,25 +391,6 @@ final class HomeController implements InvocableController
             ];
         }
 
-        /**
-         * Warning about Suhosin only if its simulation mode is not enabled
-         */
-        if (
-            ! $this->config->settings['SuhosinDisableWarning']
-            && ini_get('suhosin.request.max_value_length')
-            && ini_get('suhosin.simulation') == '0'
-        ) {
-            $this->errors[] = [
-                'message' => sprintf(
-                    __(
-                        'Server running with Suhosin. Please refer to %sdocumentation%s for possible issues.',
-                    ),
-                    '[doc@faq1-38]',
-                    '[/doc]',
-                ),
-                'severity' => 'warning',
-            ];
-        }
 
         /* Missing template cache */
         if ($this->config->getTempDir('twig') === null) {

@@ -490,9 +490,6 @@ class Descriptions
             'SkipLockedTables_desc' => __(
                 'Mark used tables and make it possible to show databases with locked tables.',
             ),
-            'SuhosinDisableWarning_desc' => __(
-                'Disable the default warning that is displayed on the main page if Suhosin is detected.',
-            ),
             'LoginCookieValidityDisableWarning_desc' => __(
                 'Disable the default warning that is displayed on the main page if the value ' .
                 'of the PHP setting session.gc_maxlifetime is less than the value of ' .
@@ -927,7 +924,6 @@ class Descriptions
             'SQLQuery_Explain_name' => __('Explain SQL'),
             'SQLQuery_Refresh_name' => __('Refresh'),
             'SQLQuery_ShowAsPHP_name' => __('Create PHP code'),
-            'SuhosinDisableWarning_name' => __('Suhosin warning'),
             'LoginCookieValidityDisableWarning_name' => __('Login cookie validity warning'),
             'TextareaCols_name' => __('Textarea columns'),
             'TextareaRows_name' => __('Textarea rows'),

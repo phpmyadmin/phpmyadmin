@@ -532,65 +532,8 @@ extension which works fine in this case.
 
 .. _faq1_38:
 
-1.38 Can I use phpMyAdmin on a server on which Suhosin is enabled?
-------------------------------------------------------------------
-
-Yes but the default configuration values of Suhosin are known to cause
-problems with some operations, for example editing a table with many
-columns and no :term:`primary key` or with textual :term:`primary key`.
-
-Suhosin configuration might lead to malfunction in some cases and it
-can not be fully avoided as phpMyAdmin is kind of application which
-needs to transfer big amounts of columns in single HTTP request, what
-is something what Suhosin tries to prevent. Generally all
-``suhosin.request.*``, ``suhosin.post.*`` and ``suhosin.get.*``
-directives can have negative effect on phpMyAdmin usability. You can
-always find in your error logs which limit did cause dropping of
-variable, so you can diagnose the problem and adjust matching
-configuration variable.
-
-The default values for most Suhosin configuration options will work in
-most scenarios, however you might want to adjust at least following
-parameters:
-
-* `suhosin.request.max\_vars <https://suhosin5.suhosin.org/stories/configuration.html#suhosin-request-max-vars>`_ should
-  be increased (eg. 2048)
-* `suhosin.post.max\_vars <https://suhosin5.suhosin.org/stories/configuration.html#suhosin-post-max-vars>`_ should be
-  increased (eg. 2048)
-* `suhosin.request.max\_array\_index\_length <https://suhosin5.suhosin.org/stories/configuration.html#suhosin-request-max-array-index-length>`_
-  should be increased (eg. 256)
-* `suhosin.post.max\_array\_index\_length <https://suhosin5.suhosin.org/stories/configuration.html#suhosin-post-max-array-index-length>`_
-  should be increased (eg. 256)
-* `suhosin.request.max\_totalname\_length <https://suhosin5.suhosin.org/stories/configuration.html#suhosin-request-max-totalname-length>`_
-  should be increased (eg. 8192)
-* `suhosin.post.max\_totalname\_length <https://suhosin5.suhosin.org/stories/configuration.html#suhosin-post-max-totalname-length>`_ should be
-  increased (eg. 8192)
-* `suhosin.get.max\_value\_length <https://suhosin5.suhosin.org/stories/configuration.html#suhosin-get-max-value-length>`_
-  should be increased (eg. 1024)
-* `suhosin.sql.bailout\_on\_error <https://suhosin5.suhosin.org/stories/configuration.html#suhosin-sql-bailout-on-error>`_
-  needs to be disabled (the default)
-* `suhosin.log.\* <https://suhosin5.suhosin.org/stories/configuration.html#logging-configuration>`_ should not
-  include :term:`SQL`, otherwise you get big
-  slowdown
-* `suhosin.sql.union <https://suhosin5.suhosin.org/stories/configuration.html#suhosin-
-  sql-union>`_ must be disabled (which is the default).
-* `suhosin.sql.multiselect <https://suhosin5.suhosin.org/stories/configuration.html#
-  suhosin-sql-multiselect>`_ must be disabled (which is the default).
-* `suhosin.sql.comment <https://suhosin5.suhosin.org/stories/configuration.html#suhosin-
-  sql-comment>`_ must be disabled (which is the default).
-
-To further improve security, we also recommend these modifications:
-
-* `suhosin.executor.include.max\_traversal <https://suhosin5.suhosin.org/stories/
-  configuration.html#suhosin-executor-include-max-traversal>`_ should be
-  enabled as a mitigation against local file inclusion attacks. We suggest
-  setting this to 2 as ``../`` is used with the ReCaptcha library.
-* `suhosin.cookie.encrypt <https://suhosin5.suhosin.org/stories/configuration.html#
-  suhosin-cookie-encrypt>`_ should be enabled.
-* `suhosin.executor.disable_emodifier <https://suhosin5.suhosin.org/stories/config
-  uration.html#suhosin-executor-disable-emodifier>`_ should be enabled.
-
-You can also disable the warning using the :config:option:`$cfg['SuhosinDisableWarning']`.
+1.38 (withdrawn).
+-----------------
 
 .. _faq1_39:
 

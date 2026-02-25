@@ -1280,7 +1280,6 @@
       <code><![CDATA[empty($this->config->selectedServer['verbose'])]]></code>
       <code><![CDATA[empty($this->config->settings['Servers'][Current::$server]['pmadb'])]]></code>
       <code><![CDATA[ini_get('allow_url_fopen')]]></code>
-      <code><![CDATA[ini_get('suhosin.request.max_value_length')]]></code>
     </RiskyTruthyFalsyComparison>
     <UnusedVariable>
       <code><![CDATA[$collationsList]]></code>
