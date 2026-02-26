@@ -78,7 +78,7 @@ final class File
     private ZipExtension $zipExtension;
     private readonly Config $config;
 
-    public function __construct(null|string $name = null)
+    public function __construct(string|null $name = null)
     {
         $this->config = Config::getInstance();
         if ($name !== null && $name !== '') {
@@ -107,34 +107,11 @@ final class File
      */
     public function cleanUp(): bool
     {
-        if ($this->isTemp()) {
-            return $this->delete();
+        if ($this->isTemp) {
+            return unlink($this->name);
         }
 
         return true;
-    }
-
-    /**
-     * deletes the file
-     */
-    public function delete(): bool
-    {
-        return unlink($this->name);
-    }
-
-    /**
-     * checks or sets the temp flag for this file
-     * file objects with temp flags are deleted with object destruction
-     *
-     * @param bool $isTemp sets the temp flag
-     */
-    public function isTemp(bool|null $isTemp = null): bool
-    {
-        if ($isTemp !== null) {
-            $this->isTemp = $isTemp;
-        }
-
-        return $this->isTemp;
     }
 
     private function setName(string|null $name): void
@@ -400,10 +377,7 @@ final class File
         // suppress warnings from being displayed, but not from being logged
         // any file access outside of open_basedir will issue a warning
         ob_start();
-        $moveUploadedFileResult = move_uploaded_file(
-            $this->name,
-            $newFileToUpload,
-        );
+        $moveUploadedFileResult = move_uploaded_file($this->name, $newFileToUpload);
         ob_end_clean();
         if (! $moveUploadedFileResult) {
             $this->errorMessage = Message::error(__('Error while moving uploaded file.'));
@@ -412,7 +386,7 @@ final class File
         }
 
         $this->setName($newFileToUpload);
-        $this->isTemp(true);
+        $this->isTemp = true;
 
         if (! $this->isReadable()) {
             $this->errorMessage = Message::error(__('Cannot read uploaded file.'));
