@@ -400,13 +400,13 @@ final class File
     /**
      * Detects what compression the file uses
      *
-     * @return string|false false on error, otherwise string MIME type of
+     * @return string empty string on error, otherwise string MIME type of
      *                      compression, none for none
      *
      * @todo   move file read part into readChunk() or getChunk()
      * @todo   add support for compression plugins
      */
-    private function detectCompression(): string|false
+    private function detectCompression(): string
     {
         // suppress warnings from being displayed, but not from being logged
         // f.e. any file access outside of open_basedir will issue a warning
@@ -417,7 +417,7 @@ final class File
         if (! $file) {
             $this->errorMessage = Message::error(__('File could not be read!'));
 
-            return false;
+            return '';
         }
 
         $this->compression = Util::getCompressionMimeType($file);
@@ -484,7 +484,7 @@ final class File
         }
 
         switch ($this->getCompression()) {
-            case false:
+            case '':
                 return false;
 
             case 'application/bzip2':

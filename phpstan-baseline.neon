@@ -6076,12 +6076,6 @@ parameters:
 			path: src/File.php
 
 		-
-			message: '#^Method PhpMyAdmin\\File\:\:getCompression\(\) should return string but returns string\|false\.$#'
-			identifier: return.type
-			count: 1
-			path: src/File.php
-
-		-
 			message: '#^Only booleans are allowed in a negated boolean, resource\|false given\.$#'
 			identifier: booleanNot.exprNotBoolean
 			count: 1
@@ -6109,12 +6103,6 @@ parameters:
 			message: '#^Property PhpMyAdmin\\File\:\:\$handle \(resource\|null\) does not accept resource\|false\.$#'
 			identifier: assign.propertyType
 			count: 4
-			path: src/File.php
-
-		-
-			message: '#^Switch condition type \(string\) does not match case condition false \(false\)\.$#'
-			identifier: switch.type
-			count: 1
 			path: src/File.php
 
 		-

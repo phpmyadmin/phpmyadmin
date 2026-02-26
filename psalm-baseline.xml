@@ -4121,9 +4121,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <FalsableReturnStatement>
-      <code><![CDATA[$this->compression ?? $this->detectCompression()]]></code>
-    </FalsableReturnStatement>
     <InvalidArrayAccess>
       <code><![CDATA[$_FILES['fields_upload']['error']['multi_edit']]]></code>
     </InvalidArrayAccess>
@@ -4131,9 +4128,6 @@
       <code><![CDATA[$_FILES['fields_upload']['name']['multi_edit']]]></code>
       <code><![CDATA[$_FILES['fields_upload']['tmp_name']['multi_edit']]]></code>
     </InvalidArrayOffset>
-    <InvalidFalsableReturnType>
-      <code><![CDATA[string]]></code>
-    </InvalidFalsableReturnType>
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[$this->handle]]></code>
     </InvalidPropertyAssignmentValue>
