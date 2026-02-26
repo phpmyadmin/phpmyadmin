@@ -1,15 +1,30 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.ts';
 import { escapeHtml } from '../modules/functions/escape.ts';
-import { Feature, Map, View } from 'ol';
-import { Attribution, MousePosition, Zoom } from 'ol/control';
+import Feature from 'ol/Feature';
+import Map from 'ol/Map';
+import View from 'ol/View';
+import Attribution from 'ol/control/Attribution';
+import MousePosition from 'ol/control/MousePosition';
+import Zoom from 'ol/control/Zoom';
 import { createStringXY } from 'ol/coordinate';
 import { isEmpty } from 'ol/extent';
-import { LineString, MultiLineString, MultiPoint, MultiPolygon, Point, Polygon } from 'ol/geom';
-import { Tile, Vector as VectorLayer } from 'ol/layer';
+import LineString from 'ol/geom/LineString';
+import MultiLineString from 'ol/geom/MultiLineString';
+import MultiPoint from 'ol/geom/MultiPoint';
+import MultiPolygon from 'ol/geom/MultiPolygon';
+import Point from 'ol/geom/Point';
+import Polygon from 'ol/geom/Polygon';
+import Tile from 'ol/layer/Tile';
+import VectorLayer from 'ol/layer/Vector';
 import { get as getProjection } from 'ol/proj';
-import { OSM, Vector as VectorSource } from 'ol/source';
-import { Circle, Fill, Stroke, Style, Text } from 'ol/style';
+import OSM from 'ol/source/OSM';
+import VectorSource from 'ol/source/Vector';
+import Circle from 'ol/style/Circle';
+import Fill from 'ol/style/Fill';
+import Stroke from 'ol/style/Stroke';
+import Style from 'ol/style/Style';
+import Text from 'ol/style/Text';
 
 /**
  * @fileoverview    functions used for visualizing GIS data
