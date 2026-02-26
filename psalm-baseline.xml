@@ -4220,16 +4220,6 @@
     <PossiblyNullArrayOffset>
       <code><![CDATA[$_REQUEST['fields_uploadlocal']['multi_edit']]]></code>
     </PossiblyNullArrayOffset>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[getCharset]]></code>
-      <code><![CDATA[getChunkSize]]></code>
-      <code><![CDATA[getContentLength]]></code>
-      <code><![CDATA[getHandle]]></code>
-      <code><![CDATA[getOffset]]></code>
-      <code><![CDATA[setCharset]]></code>
-      <code><![CDATA[setChunkSize]]></code>
-      <code><![CDATA[setHandle]]></code>
-    </PossiblyUnusedMethod>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[bool]]></code>
       <code><![CDATA[bool]]></code>
