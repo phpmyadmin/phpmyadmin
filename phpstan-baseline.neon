@@ -6040,26 +6040,8 @@ parameters:
 			path: src/File.php
 
 		-
-			message: '#^Only booleans are allowed in &&, bool\|string given on the left side\.$#'
-			identifier: booleanAnd.leftNotBoolean
-			count: 1
-			path: src/File.php
-
-		-
 			message: '#^Only booleans are allowed in a negated boolean, resource\|false given\.$#'
 			identifier: booleanNot.exprNotBoolean
-			count: 1
-			path: src/File.php
-
-		-
-			message: '#^Parameter \#1 \$file of function bzopen expects resource\|string, string\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/File.php
-
-		-
-			message: '#^Parameter \#1 \$file of method PhpMyAdmin\\ZipExtension\:\:getContents\(\) expects string, string\|null given\.$#'
-			identifier: argument.type
 			count: 1
 			path: src/File.php
 
