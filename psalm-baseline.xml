@@ -4150,11 +4150,6 @@
       <code><![CDATA[$error]]></code>
       <code><![CDATA[$tempName]]></code>
     </MixedAssignment>
-    <PossiblyNullArgument>
-      <code><![CDATA[$this->getName()]]></code>
-      <code><![CDATA[$this->getName()]]></code>
-      <code><![CDATA[$this->getName()]]></code>
-    </PossiblyNullArgument>
     <PossiblyNullArrayOffset>
       <code><![CDATA[$_REQUEST['fields_uploadlocal']['multi_edit']]]></code>
     </PossiblyNullArrayOffset>
@@ -4174,7 +4169,6 @@
       <code><![CDATA[bool]]></code>
     </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[$name]]></code>
       <code><![CDATA[empty($_FILES['fields_upload']['name']['multi_edit'][$rownumber][$key])]]></code>
       <code><![CDATA[empty($_REQUEST['fields_uploadlocal']['multi_edit'][$rownumber][$key])]]></code>
     </RiskyTruthyFalsyComparison>

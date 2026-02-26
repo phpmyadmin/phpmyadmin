@@ -49,17 +49,15 @@ use const UPLOAD_ERR_PARTIAL;
  * @todo when uploading a file into a blob field, should we also consider using
  *       chunks like in import? UPDATE `table` SET `field` = `field` + [chunk]
  */
-class File
+final class File
 {
-    /** @var string|null the temporary file name */
-    private string|null $name = null;
+    /** @var string the temporary file name */
+    private string $name = '';
 
     private string|null $content = null;
 
-    /** @var Message|null the error message */
     private Message|null $errorMessage = null;
 
-    /** @var bool whether the file is temporary or not */
     private bool $isTemp = false;
 
     private string|null $compression = null;
@@ -75,17 +73,15 @@ class File
     /** @var bool whether to decompress content before returning */
     private bool $decompress = false;
 
-    /** @var string charset of file */
     private string $charset = '';
 
     private ZipExtension $zipExtension;
     private readonly Config $config;
 
-    /** @param bool|string $name file name or false */
-    public function __construct(bool|string $name = false)
+    public function __construct(null|string $name = null)
     {
         $this->config = Config::getInstance();
-        if ($name && is_string($name)) {
+        if ($name !== null && $name !== '') {
             $this->setName($name);
         }
 
@@ -123,7 +119,7 @@ class File
      */
     public function delete(): bool
     {
-        return unlink((string) $this->getName());
+        return unlink($this->name);
     }
 
     /**
@@ -141,12 +137,7 @@ class File
         return $this->isTemp;
     }
 
-    /**
-     * accessor
-     *
-     * @param string|null $name file name
-     */
-    public function setName(string|null $name): void
+    private function setName(string|null $name): void
     {
         $this->name = trim((string) $name);
     }
@@ -170,7 +161,7 @@ class File
             return false;
         }
 
-        $this->content = file_get_contents((string) $this->getName());
+        $this->content = file_get_contents($this->name);
 
         return $this->content;
     }
@@ -196,21 +187,11 @@ class File
      */
     public function isUploaded(): bool
     {
-        if ($this->getName() === null) {
+        if ($this->name === '') {
             return false;
         }
 
-        return is_uploaded_file($this->getName());
-    }
-
-    /**
-     * accessor
-     *
-     * @return string|null File::$_name
-     */
-    public function getName(): string|null
-    {
-        return $this->name;
+        return is_uploaded_file($this->name);
     }
 
     /**
@@ -361,7 +342,7 @@ class File
 
         $userDir = Util::userDir($this->config->selectedServer['user'], $this->config->config->UploadDir);
         $this->setName($userDir . Core::securePath($name));
-        if (@is_link((string) $this->getName())) {
+        if (@is_link($this->name)) {
             $this->errorMessage = Message::error(__('File is a symbolic link'));
             $this->setName(null);
 
@@ -385,7 +366,7 @@ class File
     {
         // suppress warnings from being displayed, but not from being logged
         // any file access outside of open_basedir will issue a warning
-        return @is_readable((string) $this->getName());
+        return @is_readable($this->name);
     }
 
     /**
@@ -413,14 +394,14 @@ class File
 
         $newFileToUpload = (string) tempnam(
             $tmpSubdir,
-            basename((string) $this->getName()),
+            basename($this->name),
         );
 
         // suppress warnings from being displayed, but not from being logged
         // any file access outside of open_basedir will issue a warning
         ob_start();
         $moveUploadedFileResult = move_uploaded_file(
-            (string) $this->getName(),
+            $this->name,
             $newFileToUpload,
         );
         ob_end_clean();
@@ -451,12 +432,12 @@ class File
      * @todo   move file read part into readChunk() or getChunk()
      * @todo   add support for compression plugins
      */
-    protected function detectCompression(): string|false
+    private function detectCompression(): string|false
     {
         // suppress warnings from being displayed, but not from being logged
         // f.e. any file access outside of open_basedir will issue a warning
         ob_start();
-        $file = fopen((string) $this->getName(), 'rb');
+        $file = fopen($this->name, 'rb');
         ob_end_clean();
 
         if (! $file) {
@@ -525,7 +506,7 @@ class File
     public function open(): bool
     {
         if (! $this->decompress) {
-            $this->handle = @fopen((string) $this->getName(), 'r');
+            $this->handle = @fopen($this->name, 'r');
         }
 
         switch ($this->getCompression()) {
@@ -539,7 +520,7 @@ class File
                     return false;
                 }
 
-                $this->handle = @bzopen($this->getName(), 'r');
+                $this->handle = @bzopen($this->name, 'r');
                 break;
             case 'application/gzip':
                 if (! $this->config->config->GZipDump || ! function_exists('gzopen')) {
@@ -548,7 +529,7 @@ class File
                     return false;
                 }
 
-                $this->handle = @gzopen((string) $this->getName(), 'r');
+                $this->handle = @gzopen($this->name, 'r');
                 break;
             case 'application/zip':
                 if ($this->config->config->ZipDump && function_exists('zip_open')) {
@@ -560,7 +541,7 @@ class File
                 return false;
 
             case 'none':
-                $this->handle = @fopen((string) $this->getName(), 'r');
+                $this->handle = @fopen($this->name, 'r');
                 break;
             default:
                 $this->errorUnsupported();
@@ -578,7 +559,7 @@ class File
      */
     public function openZip(string|null $specificEntry = null): bool
     {
-        $result = $this->zipExtension->getContents($this->getName(), $specificEntry);
+        $result = $this->zipExtension->getContents($this->name, $specificEntry);
         if ($result['error'] !== '') {
             $this->errorMessage = Message::rawError($result['error']);
 
