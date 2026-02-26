@@ -372,10 +372,15 @@ final class File
             return false;
         }
 
-        $newFileToUpload = (string) tempnam(
+        $newFileToUpload = tempnam(
             $tmpSubdir,
             basename($this->name),
         );
+        if ($newFileToUpload === false) {
+            $this->errorMessage = Message::error(__('Cannot create temporary file.'));
+
+            return false;
+        }
 
         // suppress warnings from being displayed, but not from being logged
         // any file access outside of open_basedir will issue a warning
