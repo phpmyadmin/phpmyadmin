@@ -64,16 +64,11 @@ final class File
 
     private int $offset = 0;
 
-    /** @var int size of chunk to read with every step */
-    private int $chunkSize = 32768;
-
     /** @var resource|null file handle */
     private $handle;
 
     /** @var bool whether to decompress content before returning */
     private bool $decompress = false;
-
-    private string $charset = '';
 
     private ZipExtension $zipExtension;
     private readonly Config $config;
@@ -436,30 +431,6 @@ final class File
     }
 
     /**
-     * Returns the file handle
-     *
-     * @return resource|null file handle
-     */
-    public function getHandle()
-    {
-        if ($this->handle === null) {
-            $this->open();
-        }
-
-        return $this->handle;
-    }
-
-    /**
-     * Sets the file handle
-     *
-     * @param resource $handle file handle
-     */
-    public function setHandle($handle): void
-    {
-        $this->handle = $handle;
-    }
-
-    /**
      * Sets error message for unsupported compression.
      */
     public function errorUnsupported(): void
@@ -604,26 +575,6 @@ final class File
     }
 
     /**
-     * Returns the character set of the file
-     *
-     * @return string character set of the file
-     */
-    public function getCharset(): string
-    {
-        return $this->charset;
-    }
-
-    /**
-     * Sets the character set of the file
-     *
-     * @param string $charset character set of the file
-     */
-    public function setCharset(string $charset): void
-    {
-        $this->charset = $charset;
-    }
-
-    /**
      * Returns compression used by file.
      *
      * @return string MIME type of compression, none for none
@@ -631,45 +582,5 @@ final class File
     public function getCompression(): string
     {
         return $this->compression ?? $this->detectCompression();
-    }
-
-    /**
-     * Returns the offset
-     *
-     * @return int the offset
-     */
-    public function getOffset(): int
-    {
-        return $this->offset;
-    }
-
-    /**
-     * Returns the chunk size
-     *
-     * @return int the chunk size
-     */
-    public function getChunkSize(): int
-    {
-        return $this->chunkSize;
-    }
-
-    /**
-     * Sets the chunk size
-     *
-     * @param int $chunkSize the chunk size
-     */
-    public function setChunkSize(int $chunkSize): void
-    {
-        $this->chunkSize = $chunkSize;
-    }
-
-    /**
-     * Returns the length of the content in the file
-     *
-     * @return int the length of the file content
-     */
-    public function getContentLength(): int
-    {
-        return strlen($this->content ?? '');
     }
 }
