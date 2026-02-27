@@ -38,6 +38,11 @@
             <property name="ignoreSpacesInComment" value="true"/>
         </properties>
     </rule>
+    <rule ref="SlevomatCodingStandard.TypeHints.ClassConstantTypeHint">
+        <properties>
+            <property name="enableNativeTypeHint" value="false"></property>
+        </properties>
+    </rule>
 
     <rule ref="Squiz.Classes.ValidClassName.NotCamelCaps">
         <exclude-pattern>*/src/Plugins/Transformations/*</exclude-pattern>
