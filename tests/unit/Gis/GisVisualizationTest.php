@@ -415,7 +415,7 @@ class GisVisualizationTest extends AbstractTestCase
     private function assertSameOrSaveNewVersion(string $name, string $extension, string $content): void
     {
         $name = strtolower($name);
-        $fileExpectedArch = self::$testDataDir . '/' . $name . '-expected-' . $this->getArch() . '.' . $extension;
+        $fileExpectedArch = self::$testDataDir . '/' . $name . '-' . $this->getArch() . '-expected.' . $extension;
         $fileExpectedGeneric = self::$testDataDir . '/' . $name . '-expected.' . $extension;
         $fileExpected = file_exists($fileExpectedArch) ? $fileExpectedArch : $fileExpectedGeneric;
         try {
