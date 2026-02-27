@@ -9,15 +9,11 @@ import MousePosition from 'ol/control/MousePosition';
 import Zoom from 'ol/control/Zoom';
 import { createStringXY } from 'ol/coordinate';
 import { isEmpty } from 'ol/extent';
-import LineString from 'ol/geom/LineString';
-import MultiLineString from 'ol/geom/MultiLineString';
-import MultiPoint from 'ol/geom/MultiPoint';
-import MultiPolygon from 'ol/geom/MultiPolygon';
-import Point from 'ol/geom/Point';
-import Polygon from 'ol/geom/Polygon';
+import WKT from 'ol/format/WKT';
+import Geometry from 'ol/geom/Geometry';
+import GeometryCollection from 'ol/geom/GeometryCollection';
 import Tile from 'ol/layer/Tile';
 import VectorLayer from 'ol/layer/Vector';
-import { get as getProjection } from 'ol/proj';
 import OSM from 'ol/source/OSM';
 import VectorSource from 'ol/source/Vector';
 import Circle from 'ol/style/Circle';
@@ -25,6 +21,7 @@ import Fill from 'ol/style/Fill';
 import Stroke from 'ol/style/Stroke';
 import Style from 'ol/style/Style';
 import Text from 'ol/style/Text';
+import { get as getProjection } from 'ol/proj';
 
 /**
  * @fileoverview    functions used for visualizing GIS data
@@ -437,18 +434,70 @@ class SvgVisualization extends GisVisualization {
     }
 }
 
+interface OlGeometryData {
+    wkt: string;
+    srid?: number;
+    label?: string;
+}
+
+export interface OlData {
+    geometries: OlGeometryData[];
+    colors: [number, number, number][];
+}
+
 class OlVisualization extends GisVisualization {
     private olMap: any = undefined;
 
-    private data: any[];
+    private data: OlData;
 
-    /**
-     * @param {function(HTMLElement): ol.Map} initFn
-     */
-    constructor (target: HTMLElement, data: any[]) {
+    constructor (target: HTMLElement, data: OlData) {
         super(target);
 
         this.data = data;
+    }
+
+    getFeaturesFromData (geometries: OlGeometryData[]): Feature[] {
+        let features: Feature[] = [];
+        const addFeature = (index: number, data: OlGeometryData, geometry: Geometry) => {
+            const feature = new Feature(geometry);
+            feature.set('index', index, true);
+            if (data.label) {
+                feature.set('label', data.label, true);
+            }
+
+            features.push(feature);
+        };
+
+        const projections = {};
+        const reader = new WKT();
+        for (let i = 0, ii = geometries.length; i < ii; ++i) {
+            const data = geometries[i];
+            const dataProjection = 'EPSG:' + (data.srid ?? 4326);
+            if (!(dataProjection in projections)) {
+                projections[dataProjection] = getProjection(dataProjection);
+            }
+
+            // Skip features which use an unknown projection
+            if (!projections[dataProjection]) {
+                continue;
+            }
+
+            const geometry = reader.readGeometry(data.wkt, {
+                dataProjection,
+                featureProjection: 'EPSG:3857',
+            });
+
+            if (geometry.getType() === 'GeometryCollection') {
+                const geometries = (geometry as GeometryCollection).getGeometriesArrayRecursive();
+                geometries.forEach((geometry) => {
+                    addFeature(i, data, geometry);
+                });
+            } else {
+                addFeature(i, data, geometry);
+            }
+        }
+
+        return features;
     }
 
     drawOpenLayers () {
@@ -465,14 +514,68 @@ class OlVisualization extends GisVisualization {
             document.head.appendChild(link);
         }
 
+        const styleFactory = {
+            Point: (color: [number, number, number]) => new Style({
+                image: new Circle({
+                    radius: 3,
+                    fill: new Fill({ color: 'white' }),
+                    stroke: new Stroke({ width: 2, color }),
+                }),
+                text: new Text({
+                    stroke: new Stroke({ width: 2, color: 'white' }),
+                }),
+            }),
+            LineString: (color: [number, number, number]) => new Style({
+                stroke: new Stroke({ width: 2, color: color }),
+                text: new Text({
+                    stroke: new Stroke({ width: 2, color: 'white' }),
+                }),
+            }),
+            Polygon: (color: [number, number, number]) => new Style({
+                fill: new Fill({ color: [...color, 0.8] }),
+                stroke: new Stroke({ width: .5, color: 'black' }),
+                text: new Text({
+                    stroke: new Stroke({ width: 2, color: 'white' }),
+                }),
+            }),
+        };
+
         const vectorSource = new VectorSource({
-            features: getFeaturesFromOpenLayersData(this.data),
+            features: this.getFeaturesFromData(this.data.geometries),
+        });
+
+        let currentFeatureIndex: number|undefined;
+        const colors = this.data.colors;
+        const cache: Record<string, Style> = {};
+        const vectorLayer = new VectorLayer({
+            source: vectorSource,
+            style: function (feature) {
+                const index = feature.get('index');
+                const type = feature.getGeometry().getType().replace('Multi', '');
+                const selected = index === currentFeatureIndex;
+                const key = type + (selected ? '+' : '-')  + (index % colors.length);
+
+                let style = cache[key];
+                if (!style) {
+                    let color = colors[index % colors.length];
+                    if (selected) {
+                        color = color.map((c) => c * 1.2) as [number, number, number];
+                    }
+
+                    style = styleFactory[type](color);
+                    cache[key] = style;
+                }
+
+                style.getText().setText(feature.get('label'));
+
+                return style;
+            },
         });
         const map = new Map({
             target: this.target,
             layers: [
                 new Tile({ source: new OSM() }),
-                new VectorLayer({ source: vectorSource }),
+                vectorLayer,
             ],
             view: new View({ center: [0, 0], zoom: 4 }),
             controls: [
@@ -480,9 +583,16 @@ class OlVisualization extends GisVisualization {
                     coordinateFormat: createStringXY(4),
                     projection: 'EPSG:4326'
                 }),
-                new Zoom,
-                new Attribution
+                new Zoom(),
+                new Attribution(),
             ]
+        });
+        map.on('pointermove', (evt) => {
+            const newFeatureIndex = (map.forEachFeatureAtPixel(evt.pixel, (f) => f))?.get('index') as number;
+            if (newFeatureIndex !== currentFeatureIndex) {
+                currentFeatureIndex = newFeatureIndex;
+                vectorLayer.changed();
+            }
         });
 
         const extent = vectorSource.getExtent();
@@ -514,73 +624,6 @@ class OlVisualization extends GisVisualization {
     }
 }
 
-function getFeaturesFromOpenLayersData (geometries: any[]): any[] {
-    let features = [];
-    for (const geometry of geometries) {
-        if (geometry.isCollection) {
-            features = features.concat(getFeaturesFromOpenLayersData(geometry.geometries));
-
-            continue;
-        }
-
-        let olGeometry: any = null;
-        const style: any = {};
-        if (geometry.geometry.type === 'LineString') {
-            olGeometry = new LineString(geometry.geometry.coordinates);
-            style.stroke = new Stroke(geometry.style.stroke);
-        } else if (geometry.geometry.type === 'MultiLineString') {
-            olGeometry = new MultiLineString(geometry.geometry.coordinates);
-            style.stroke = new Stroke(geometry.style.stroke);
-        } else if (geometry.geometry.type === 'MultiPoint') {
-            olGeometry = new MultiPoint(geometry.geometry.coordinates);
-            style.image = new Circle({
-                fill: new Fill(geometry.style.circle.fill),
-                stroke: new Stroke(geometry.style.circle.stroke),
-                radius: geometry.style.circle.radius,
-            });
-        } else if (geometry.geometry.type === 'MultiPolygon') {
-            olGeometry = new MultiPolygon(geometry.geometry.coordinates);
-            style.fill = new Fill(geometry.style.fill);
-            style.stroke = new Stroke(geometry.style.stroke);
-        } else if (geometry.geometry.type === 'Point') {
-            olGeometry = new Point(geometry.geometry.coordinates);
-            style.image = new Circle({
-                fill: new Fill(geometry.style.circle.fill),
-                stroke: new Stroke(geometry.style.circle.stroke),
-                radius: geometry.style.circle.radius,
-            });
-        } else if (geometry.geometry.type === 'Polygon') {
-            olGeometry = new Polygon(geometry.geometry.coordinates);
-            style.fill = new Fill(geometry.style.fill);
-            style.stroke = new Stroke(geometry.style.stroke);
-        } else {
-            throw new Error();
-        }
-
-        if (geometry.geometry.srid !== 3857) {
-            const source  = 'EPSG:' + (geometry.geometry.srid !== 0 ? geometry.geometry.srid : 4326);
-            const sourceProj = getProjection(source);
-
-            if (sourceProj) {
-                olGeometry = olGeometry.transform(
-                    source,
-                    'EPSG:3857'
-                );
-            }
-        }
-
-        if (geometry.style.text) {
-            style.text = new Text(geometry.style.text);
-        }
-
-        const feature = new Feature(olGeometry);
-        feature.setStyle(new Style(style));
-        features.push(feature);
-    }
-
-    return features;
-}
-
 class GisVisualizationController {
     private svgVis: SvgVisualization|undefined = undefined;
 
@@ -588,9 +631,9 @@ class GisVisualizationController {
 
     private boundOnChoiceChange: any;
 
-    private olData: any[];
+    private olData: OlData;
 
-    constructor (olData: any[]) {
+    constructor (olData: OlData) {
         this.boundOnChoiceChange = this.onChoiceChange.bind(this);
         this.olData = olData;
 

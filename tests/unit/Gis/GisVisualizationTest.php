@@ -347,7 +347,7 @@ class GisVisualizationTest extends AbstractTestCase
     {
         $vis = GisVisualization::getByData(
             $data,
-            new GisVisualizationSettings(width: 200, height: 150, spatialColumn: 'wkt'),
+            new GisVisualizationSettings(width: 200, height: 150, spatialColumn: 'wkt', labelColumn: 'label'),
         );
         $ol = $vis->asOl();
 

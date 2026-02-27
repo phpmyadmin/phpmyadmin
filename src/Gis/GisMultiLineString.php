@@ -192,35 +192,6 @@ class GisMultiLineString extends GisGeometry
     }
 
     /**
-     * Prepares data related to a row in the GIS dataset to visualize it with OpenLayers.
-     *
-     * @param string $spatial GIS MULTILINESTRING object
-     * @param int    $srid    Spatial reference ID
-     * @param string $label   Label for the GIS MULTILINESTRING object
-     * @param int[]  $color   Color for the GIS MULTILINESTRING object
-     *
-     * @return mixed[]
-     */
-    public function prepareRowAsOl(string $spatial, int $srid, string $label, array $color): array
-    {
-        $strokeStyle = ['color' => $color, 'width' => 2];
-        $style = ['stroke' => $strokeStyle];
-        if ($label !== '') {
-            $style['text'] = ['text' => $label];
-        }
-
-        // Trim to remove leading 'MULTILINESTRING((' and trailing '))'
-        $wktCoordinates = mb_substr($spatial, 17, -2);
-        $geometry = [
-            'type' => 'MultiLineString',
-            'coordinates' => $this->extractPoints2d($wktCoordinates, null),
-            'srid' => $srid,
-        ];
-
-        return ['geometry' => $geometry, 'style' => $style];
-    }
-
-    /**
      * Generate the WKT with the set of parameters passed by the GIS editor.
      *
      * @param mixed[] $gisData GIS data

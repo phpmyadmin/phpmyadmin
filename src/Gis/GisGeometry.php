@@ -12,7 +12,6 @@ use PhpMyAdmin\Gis\Ds\ScaleData;
 use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
-use function array_map;
 use function explode;
 use function mb_strripos;
 use function mb_substr;
@@ -82,16 +81,22 @@ abstract class GisGeometry
      * @param string $spatial GIS data object
      * @param int    $srid    spatial reference ID
      * @param string $label   label for the GIS data object
-     * @param int[]  $color   color for the GIS data object
      *
-     * @return mixed[]
+     * @psalm-return array{wkt: string, srid?: int, label?: non-empty-string}
      */
-    abstract public function prepareRowAsOl(
-        string $spatial,
-        int $srid,
-        string $label,
-        array $color,
-    ): array;
+    public function prepareRowAsOl(string $spatial, int $srid, string $label): array
+    {
+        $data = ['wkt' => $spatial];
+        if ($srid !== 0) {
+            $data['srid'] = $srid;
+        }
+
+        if ($label !== '') {
+            $data['label'] = $label;
+        }
+
+        return $data;
+    }
 
     /**
      * Get coordinate extent for this wkt.
@@ -293,31 +298,5 @@ abstract class GisGeometry
     protected function extractPoints1dLinear(string $wktCoords, ScaleData|null $scaleData): array
     {
         return $this->extractPointsInternal($wktCoords, $scaleData, true);
-    }
-
-    /**
-     * @param string         $wktCoords string of ),( separated points
-     * @param ScaleData|null $scaleData data related to scaling
-     *
-     * @return float[][][]  scaled points
-     */
-    protected function extractPoints2d(string $wktCoords, ScaleData|null $scaleData): array
-    {
-        $parts = explode('),(', $wktCoords);
-
-        return array_map(fn (string $coord): array => $this->extractPoints1d($coord, $scaleData), $parts);
-    }
-
-    /**
-     * @param string         $wktCoords string of )),(( separated points
-     * @param ScaleData|null $scaleData data related to scaling
-     *
-     * @return float[][][][] scaled points
-     */
-    protected function extractPoints3d(string $wktCoords, ScaleData|null $scaleData): array
-    {
-        $parts = explode(')),((', $wktCoords);
-
-        return array_map(fn (string $coord): array => $this->extractPoints2d($coord, $scaleData), $parts);
     }
 }

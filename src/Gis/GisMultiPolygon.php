@@ -209,37 +209,6 @@ class GisMultiPolygon extends GisGeometry
     }
 
     /**
-     * Prepares data related to a row in the GIS dataset to visualize it with OpenLayers.
-     *
-     * @param string $spatial GIS MULTIPOLYGON object
-     * @param int    $srid    Spatial reference ID
-     * @param string $label   Label for the GIS MULTIPOLYGON object
-     * @param int[]  $color   Color for the GIS MULTIPOLYGON object
-     *
-     * @return mixed[]
-     */
-    public function prepareRowAsOl(string $spatial, int $srid, string $label, array $color): array
-    {
-        $color[] = 0.8;
-        $fillStyle = ['color' => $color];
-        $strokeStyle = ['color' => [0, 0, 0], 'width' => 0.5];
-        $style = ['fill' => $fillStyle, 'stroke' => $strokeStyle];
-        if ($label !== '') {
-            $style['text'] = ['text' => $label];
-        }
-
-        // Trim to remove leading 'MULTIPOLYGON(((' and trailing ')))'
-        $wktCoordinates = mb_substr($spatial, 15, -3);
-        $geometry = [
-            'type' => 'MultiPolygon',
-            'coordinates' => $this->extractPoints3d($wktCoordinates, null),
-            'srid' => $srid,
-        ];
-
-        return ['geometry' => $geometry, 'style' => $style];
-    }
-
-    /**
      * Draws a ring of the polygon using SVG path element.
      *
      * @param string    $polygon   The ring
