@@ -6,6 +6,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Cache-Control" content="no-cache">
 <meta http-equiv="Refresh" content="0;url=./public/">
+<noscript>This website requires JavaScript. Please retry with JavaScript enabled.</noscript>
 <script>
 //<![CDATA[
 setTimeout(function() { window.location = decodeURI('./public/'); }, 2000);
