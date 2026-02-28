@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-02-25 10:35-0300\n"
-"PO-Revision-Date: 2026-02-28 07:09+0000\n"
+"PO-Revision-Date: 2026-03-01 10:09+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "ru/>\n"
@@ -5375,19 +5375,15 @@ msgstr ""
 "обратитесь к [doc@cfg_URLQueryEncryptionSecretKey]документации[/doc]."
 
 #: libraries/classes/Controllers/HomeController.php:373
-#, fuzzy, php-format
-#| msgid ""
-#| "The cookie encryption key in the configuration file is longer than "
-#| "necessary. It should only be %d bytes long. Please refer to the "
-#| "[doc@cfg_blowfish_secret]documentation[/doc]."
+#, php-format
 msgid ""
 "The query encryption key in the configuration file is longer than necessary. "
 "It should only be %d bytes long. Please refer to the "
 "[doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
 msgstr ""
-"Ключ шифрования куки в конфигурационном файле длиннее необходимого. Его "
-"длина должна быть всего %d байт. Пожалуйста, обратитесь к "
-"[doc@cfg_blowfish_secret]документации[/doc] ."
+"Ключ шифрования запроса в файле конфигурации длиннее, чем необходимо. Его "
+"длина должна составлять только %d байт. См. "
+"[doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
 
 #: libraries/classes/Controllers/HomeController.php:391
 msgid ""
@@ -5473,7 +5469,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Import/ImportController.php:324
 msgid "Sorry an unexpected error happened!"
-msgstr ""
+msgstr "Извините, произошла непредвиденная ошибка!"
 
 #: libraries/classes/Controllers/Import/ImportController.php:372
 #: libraries/classes/Controllers/Import/ImportController.php:610
@@ -7614,6 +7610,8 @@ msgid ""
 "The fullscreen request was denied because the Fullscreen API is disabled by "
 "user preference in the browser."
 msgstr ""
+"Запрос на полноэкранный режим был отклонён, поскольку API полноэкранного "
+"режима отключён в настройках браузера."
 
 #: libraries/classes/Controllers/NavigationController.php:46
 msgid "Fatal error: The navigation can only be accessed via AJAX"
@@ -8876,7 +8874,7 @@ msgstr "При обработке вашего запроса были обна�
 
 #: libraries/classes/Database/Events.php:181
 msgid "The event was dropped immediately after creation."
-msgstr ""
+msgstr "Событие было отменено сразу после создания."
 
 #: libraries/classes/Database/Events.php:249
 msgid "Add event"
@@ -13353,6 +13351,8 @@ msgid ""
 "Stores vector data optimized for operations such as similarity search and "
 "machine learning applications"
 msgstr ""
+"Хранит векторные данные, оптимизированные для таких операций, как поиск по "
+"схожести и приложения машинного обучения"
 
 #: libraries/classes/Types.php:798
 msgctxt "numeric types"
