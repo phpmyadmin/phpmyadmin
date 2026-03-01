@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-03-01 00:40+0000\n"
-"PO-Revision-Date: 2026-02-26 20:09+0000\n"
+"PO-Revision-Date: 2026-03-02 03:09+0000\n"
 "Last-Translator: Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/id/>\n"
@@ -16318,10 +16318,8 @@ msgid "Skip Explain SQL"
 msgstr "Lewati Penjelasan SQL"
 
 #: src/Html/Generator.php:517
-#, fuzzy
-#| msgid "Skip Validate SQL"
 msgid "Skip Analyze SQL"
-msgstr "Lewati Validasi SQL"
+msgstr "Lewati Analisa SQL"
 
 #: src/Html/Generator.php:549
 msgid "Without PHP code"
