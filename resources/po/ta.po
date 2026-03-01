@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-03-01 00:40+0000\n"
-"PO-Revision-Date: 2026-02-28 07:09+0000\n"
+"PO-Revision-Date: 2026-03-02 03:09+0000\n"
 "Last-Translator: தமிழ்நேரம் <tamilneram247@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ta/>\n"
@@ -2586,8 +2586,8 @@ msgstr "நிரல் உள்ளே:"
 #, php-format
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%1$s அட்டவணையில் பொருந்தியவை <strong>%2$s </strong>"
-msgstr[1] "%1$s அட்டவணையில் பொருந்தியவைகள் <strong>%2$s </strong>"
+msgstr[0] "<strong>%2$s</strong> இல் %1$s பொருத்தம்"
+msgstr[1] "<strong>%2$s</strong> இல் %1$s பொருந்துகிறது"
 
 #: resources/templates/database/search/results.twig:25
 #: resources/templates/database/structure/structure_table_row.twig:43
@@ -2603,8 +2603,8 @@ msgstr "உலாவு"
 #, php-format
 msgid "<strong>Total:</strong> <em>%s</em> match"
 msgid_plural "<strong>Total:</strong> <em>%s</em> matches"
-msgstr[0] "<strong> மொத்தம்: </strong> <em>%s </em> போட்டி"
-msgstr[1] "<strong> மொத்தம்: </strong> <em>%s </em> போட்டிகள்"
+msgstr[0] "<strong>மொத்தம்:</strong> <em>%s</em> பொருத்தம்"
+msgstr[1] "<strong>மொத்தம்:</strong> <em>%s</em> பொருத்தங்கள்"
 
 #: resources/templates/database/structure/add_prefix.twig:4
 msgid "Add prefix"
@@ -5762,8 +5762,8 @@ msgstr "வீதத்தை புதுப்பிக்கவும்"
 #, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "%d இரண்டாவது"
-msgstr[1] "%d விநாடிகள்"
+msgstr[0] "%d நொடி"
+msgstr[1] "%d வினாடிகள்"
 
 #: resources/templates/server/status/monitor/index.twig:30
 #: resources/templates/server/status/processes/index.twig:41
@@ -11956,8 +11956,8 @@ msgstr "மதிப்பு %s ஐ விட குறைவாகவோ அ�
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
-msgstr[0] "%1$d புக்மார்க்கைக் காட்டுகிறது (தனியார் மற்றும் பகிரப்பட்டவை)"
-msgstr[1] "%1$d புக்மார்க்குகளைக் காட்டுகிறது (தனிப்பட்ட மற்றும் பகிரப்பட்ட இரண்டும்)"
+msgstr[0] "%1$d புக்மார்க்கைக் காட்டுகிறது (தனிப்பட்ட மற்றும் பகிரப்பட்ட இரண்டும்)"
+msgstr[1] "%1$d புக்மார்க்குகளைக் காட்டுகிறது (தனிப்பட்ட மற்றும் பகிரப்பட்டவை)"
 
 #: src/Console/Console.php:71
 msgid "No bookmarks"
@@ -12527,8 +12527,8 @@ msgstr ""
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] "உள்ளேற்றம் வெற்றிகரமாக முடிந்தது, %d வினவல்கள் செயல்படுத்தப்பட்டது."
-msgstr[1] "உள்ளேற்றம் வெற்றிகரமாக முடிந்தது, %d வினவல்கள் செயல்படுத்தப்பட்டன."
+msgstr[0] "இறக்குமதி வெற்றிகரமாக முடிந்தது, %d வினவல் செயல்படுத்தப்பட்டது."
+msgstr[1] "இறக்குமதி வெற்றிகரமாக முடிந்தது, %d வினவல்கள் செயல்படுத்தப்பட்டன."
 
 #: src/Controllers/Import/ImportController.php:561
 #, php-format
@@ -14212,7 +14212,7 @@ msgstr "அறிவன்"
 #: src/Util.php:520
 msgctxt "Short week day name for Thursday"
 msgid "Thu"
-msgstr "Thu"
+msgstr "வியாழன்"
 
 #: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:519
 #: src/Util.php:521
@@ -15382,7 +15382,7 @@ msgstr "எந்த நிரல்வரிசையும் தெரிவ�
 msgid "%1$d column has been dropped successfully."
 msgid_plural "%1$d columns have been dropped successfully."
 msgstr[0] "%1$d நெடுவரிசை வெற்றிகரமாக கைவிடப்பட்டது."
-msgstr[1] "%1$d நெடுவரிசைகள் வெற்றிகரமாக கைவிடப்பட்டுள்ளன."
+msgstr[1] "%1$d நெடுவரிசைகள் வெற்றிகரமாக கைவிடப்பட்டன."
 
 #: src/Controllers/Table/GetFieldController.php:72
 msgid "Invalid table name"
@@ -15448,13 +15448,13 @@ msgid "The columns have been moved successfully."
 msgstr "நெடுவரிசைகள் வெற்றிகரமாக நகர்த்தப்பட்டன."
 
 #: src/Controllers/Table/Structure/MoveColumnsController.php:114
-#, fuzzy
 msgid "The selected columns do not match the columns in the table."
-msgstr "தேர்ந்தெடுக்கப்பட்ட பயனர் சலுகை அட்டவணையில் காணப்படவில்லை."
+msgstr ""
+"தேர்ந்தெடுக்கப்பட்ட நெடுவரிசைகள் அட்டவணையில் உள்ள நெடுவரிசைகளுடன் பொருந்தவில்லை."
 
 #: src/Controllers/Table/Structure/MoveColumnsController.php:141
 msgid "The selected columns are already in the correct order."
-msgstr ""
+msgstr "தேர்ந்தெடுக்கப்பட்ட நெடுவரிசைகள் ஏற்கனவே சரியான வரிசையில் உள்ளன."
 
 #: src/Controllers/Table/Structure/PartitioningController.php:257
 #: src/Controllers/Table/Structure/SaveController.php:281
@@ -15466,7 +15466,7 @@ msgstr "வினவல் வழு"
 #, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
-msgstr[0] "'%s' என்ற பெயர் MySQL ஒதுக்கப்பட்ட முக்கிய சொல்."
+msgstr[0] "'%s' என்ற பெயர் MySQL ஒதுக்கப்பட்ட முக்கிய சொல்லாகும்."
 msgstr[1] "'%s' பெயர்கள் MySQL ஒதுக்கப்பட்ட முக்கிய வார்த்தைகள்."
 
 #: src/Controllers/Table/Structure/SaveController.php:226
@@ -15725,9 +15725,8 @@ msgid "You must provide a valid return type for the routine."
 msgstr "வழக்கத்திற்கு நீங்கள் சரியான வருவாய் வகையை வழங்க வேண்டும்."
 
 #: src/Database/Routines.php:822
-#, fuzzy
 msgid "Invalid routine type!"
-msgstr "தவறான வழக்கமான வகை: \"%s\""
+msgstr "தவறான வழக்கமான வகை!"
 
 #: src/Database/Routines.php:828
 msgid "You must provide a routine name!"
@@ -15746,8 +15745,8 @@ msgstr "வழக்கமான %s இன் சாவுஒறுப்பு 
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
-msgstr[0] "நடைமுறைக்குள் கடைசி அறிக்கையால் பாதிக்கப்பட்ட டி வரிசை."
-msgstr[1] "நடைமுறைக்குள் கடைசி அறிக்கையால் பாதிக்கப்பட்ட %d வரிசைகள்."
+msgstr[0] "%d வரிசை செயல்முறையின் உள்ளே கடைசி அறிக்கையால் பாதிக்கப்பட்டது."
+msgstr[1] "%d வரிசைகள் நடைமுறையில் உள்ள கடைசி அறிக்கையால் பாதிக்கப்பட்டுள்ளன."
 
 #: src/Dbal/DatabaseInterface.php:1075
 #, php-format
@@ -15794,9 +15793,9 @@ msgid "%1$s total, %2$s in query"
 msgstr "%1$s மொத்தம், வினவலில் %2$s"
 
 #: src/Display/Results.php:3288
-#, fuzzy, php-format
+#, php-format
 msgid "%s total"
-msgstr "மொத்தம்"
+msgstr "மொத்தம் %s"
 
 #: src/Display/Results.php:3597
 msgid "Link not found!"
@@ -16250,9 +16249,8 @@ msgid "Skip Explain SQL"
 msgstr "கவிமொ ஐ விளக்குங்கள்"
 
 #: src/Html/Generator.php:517
-#, fuzzy
 msgid "Skip Analyze SQL"
-msgstr "SQL உறுதி செய் தாவிச்செல்"
+msgstr "கவிமொ பகுப்பாய்வு தவிர்க்கவும்"
 
 #: src/Html/Generator.php:549 src/Html/Generator.php:535
 msgid "Without PHP code"
@@ -16435,9 +16433,9 @@ msgstr ""
 "இந்த வினவலுக்கு லிண்டிங் முடக்கப்பட்டுள்ளது, ஏனெனில் இது அதிகபட்ச நீளத்தை மீறுகிறது."
 
 #: src/Linter.php:164
-#, fuzzy, php-format
+#, php-format
 msgid "%1$s (near <code>%2$s</code>)"
-msgstr "%1$s (<code>%2$s</code> க்கு அருகில்)"
+msgstr "%1$s (<code>%2$s</code> அருகில்)"
 
 #: src/Menu.php:284 src/Menu.php:395 src/Util.php:1385 src/Util.php:1399
 #: src/Util.php:1387 src/Util.php:1401
@@ -16468,22 +16466,22 @@ msgstr "செயல்பொறிகள்"
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "%1$d வரிசை மாற்றப்பட்டுள்ளது."
-msgstr[1] "%1$d வரிசைகள் மாற்றப்பட்டுள்ளன."
+msgstr[0] "%1$d வரிசை பாதிக்கப்பட்டது."
+msgstr[1] "%1$d வரிசைகள் பாதிக்கப்பட்டுள்ளன."
 
 #: src/Message.php:202
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] "%1$d வரிசை அகற்றப்பட்டுள்ளது."
-msgstr[1] "%1$d வரிசைகள் அகற்றப்பட்டுள்ளன."
+msgstr[0] "%1$d வரிசை நீக்கப்பட்டது."
+msgstr[1] "%1$d வரிசைகள் நீக்கப்பட்டன."
 
 #: src/Message.php:219
 #, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] "%1$d வரிசை சேர்க்கப்பட்டுள்ளது."
-msgstr[1] "%1$d வரிசைகள் சேர்க்கப்பட்டுள்ளன."
+msgstr[0] "%1$d வரிசை செருகப்பட்டது."
+msgstr[1] "%1$d வரிசைகள் செருகப்பட்டன."
 
 #: src/Navigation/Navigation.php:221
 msgid "Groups:"
@@ -16521,8 +16519,8 @@ msgstr "குழுக்கள்"
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
-msgstr[0] "%s முடிவு காணப்பட்டது"
-msgstr[1] "%s முடிவுகள் காணப்பட்டன"
+msgstr[0] "%s முடிவு கிடைத்தது"
+msgstr[1] "%s முடிவுகள் கிடைத்தன"
 
 #: src/Navigation/NavigationTree.php:1252
 msgid "Collapse all"
@@ -16967,9 +16965,9 @@ msgid "Wrong username/password. Access denied."
 msgstr "தவறான பயனர்பெயர்/கடவுச்சொல். அணுகல் மறுக்கப்பட்டது."
 
 #: src/Plugins/Auth/AuthenticationSignon.php:127
-#, fuzzy, php-format
+#, php-format
 msgid "Can not find signon authentication script: %s"
-msgstr "அங்கீகார ச்கிரிப்ட்களில் அடையாளத்தைக் கண்டுபிடிக்க முடியவில்லை"
+msgstr "அங்கீகார ச்கிரிப்ட்களில் அடையாளத்தைக் கண்டறிய முடியவில்லை"
 
 #: src/Plugins/AuthenticationPluginFactory.php:36
 msgid "Invalid authentication method set in configuration:"
@@ -17167,9 +17165,8 @@ msgstr ""
 "போன்ற தகவல்களை உள்ளடக்கியது) </i>"
 
 #: src/Plugins/Export/ExportSql.php:191
-#, fuzzy
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr "கூடுதல் தனிப்பயன் தலைப்பு கருத்து (\\n பி பிரிக்கிறது கோடுகள்):"
+msgstr "கூடுதல் தனிப்பயன் தலைப்புக் கருத்து (\\பிளவு வரிகளில்):"
 
 #: src/Plugins/Export/ExportSql.php:197
 msgid ""
@@ -17229,19 +17226,16 @@ msgid "Truncate table before insert"
 msgstr "செருகுவதற்கு முன் அட்டவணையை துண்டிக்கவும்"
 
 #: src/Plugins/Export/ExportSql.php:427
-#, fuzzy
 msgid "Instead of <code>INSERT</code> statements, use:"
-msgstr "<code>INSERT</code> அறிக்கைகளுக்கு பதிலாக, பயன்படுத்தவும்:"
+msgstr "<code>INSERT</code> அறிக்கைகளுக்குப் பதிலாக, பயன்படுத்தவும்:"
 
 #: src/Plugins/Export/ExportSql.php:433
-#, fuzzy
 msgid "<code>INSERT DELAYED</code> statements"
-msgstr "<code>INSERT DELAYED</code> அறிக்கைகள்"
+msgstr "<code>தாமதமான</code> அறிக்கைகளைச் செருகவும்"
 
 #: src/Plugins/Export/ExportSql.php:442 src/Plugins/Export/ExportSql.php:469
-#, fuzzy
 msgid "<code>INSERT IGNORE</code> statements"
-msgstr "<code>INSERT IGNORE</code> அறிக்கைகள்"
+msgstr "<code>புறக்கணிப்பைச் செருகு</code> அறிக்கைகள்"
 
 #: src/Plugins/Export/ExportSql.php:453
 msgid "Function to use when dumping data:"
@@ -17409,9 +17403,8 @@ msgstr ""
 "சேவையகம்:"
 
 #: src/Plugins/Export/ExportToon.php:67
-#, fuzzy
 msgid "Indentation:"
-msgstr "நோக்குநிலை"
+msgstr "உள்தள்ளல்:"
 
 #: src/Plugins/Export/ExportXml.php:87
 msgid "Object creation options (all are recommended)"
@@ -18531,13 +18524,12 @@ msgid "You must provide a trigger definition."
 msgstr "நீங்கள் ஒரு தூண்டுதல் வரையறையை வழங்க வேண்டும்."
 
 #: src/Types.php:97
-#, fuzzy
 msgid "empty"
-msgstr "வெறுமை"
+msgstr "காலி"
 
 #: src/Types.php:98
 msgid "not empty"
-msgstr ""
+msgstr "காலியாக இல்லை"
 
 #: src/Types.php:161
 msgid ""
@@ -18835,6 +18827,8 @@ msgid ""
 "Stores vector data optimized for operations such as similarity search and "
 "machine learning applications"
 msgstr ""
+"ஒற்றுமை தேடல் மற்றும் இயந்திர கற்றல் பயன்பாடுகள் போன்ற செயல்பாடுகளுக்கு உகந்த திசையன் தரவைச் "
+"சேமிக்கிறது"
 
 #: src/Types.php:604
 msgctxt "numeric types"
