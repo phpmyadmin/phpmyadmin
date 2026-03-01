@@ -391,7 +391,6 @@ final class HomeController implements InvocableController
             ];
         }
 
-
         /* Missing template cache */
         if ($this->config->getTempDir('twig') === null) {
             $this->errors[] = [

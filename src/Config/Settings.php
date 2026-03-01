@@ -3047,7 +3047,6 @@ final class Settings
         return (bool) $settings['PmaNoRelation_DisableWarning'];
     }
 
-
     /** @param array<int|string, mixed> $settings */
     private function setLoginCookieValidityDisableWarning(array $settings): bool
     {

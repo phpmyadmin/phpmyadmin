@@ -238,6 +238,7 @@
       <code><![CDATA[$userPrefsDisallow ?? []]]></code>
       <code><![CDATA[$val]]></code>
       <code><![CDATA[$value]]></code>
+          <code><![CDATA[$config->settings[$systemPath]]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$field]]></code>
@@ -405,6 +406,9 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$hasConfig]]></code>
     </RiskyTruthyFalsyComparison>
+    <MixedArgument>
+      <code><![CDATA[$this->config->settings['UserprefsDisallow']]]></code>
+    </MixedArgument>
   </file>
   <file src="src/Config/UserPreferencesHandler.php">
     <MixedArgument>
@@ -572,6 +576,9 @@
       <code><![CDATA[$foreignField]]></code>
       <code><![CDATA[$foreignTable]]></code>
       <code><![CDATA[$foreignTable]]></code>
+          <code><![CDATA[$this->config->settings['ForeignKeyDropdownOrder'][0]]]></code>
+      <code><![CDATA[$this->config->settings['ForeignKeyDropdownOrder'][1]]]></code>
+      <code><![CDATA[$this->config->settings['ForeignKeyMaxLimit']]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[uksort($foreign, strnatcasecmp(...))]]></code>
@@ -808,6 +815,7 @@
       <code><![CDATA[Current::$database]]></code>
       <code><![CDATA[Current::$database]]></code>
       <code><![CDATA[Current::$database]]></code>
+          <code><![CDATA[$this->config->settings['RowActionLinks']]]></code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$routine['item_param_dir'][$routine['item_num_params'] - 1]]]></code>
@@ -1083,6 +1091,7 @@
       <code><![CDATA[$replicaInfo['Wild_Do_Table']]]></code>
       <code><![CDATA[$replicaInfo['Wild_Ignore_Table']]]></code>
       <code><![CDATA[$request->getParam('pos')]]></code>
+          <code><![CDATA[$this->config->settings['MaxTableList']]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[uksort($tables, strnatcasecmp(...))]]></code>
@@ -1174,6 +1183,14 @@
       <code><![CDATA[int]]></code>
       <code><![CDATA[int]]></code>
     </UnnecessaryVarAnnotation>
+    <PossiblyUndefinedArrayOffset>
+      <code><![CDATA[$this->config->settings['ShowDbStructureCreation']]]></code>
+      <code><![CDATA[$this->config->settings['ShowDbStructureCreation']]]></code>
+      <code><![CDATA[$this->config->settings['ShowDbStructureLastCheck']]]></code>
+      <code><![CDATA[$this->config->settings['ShowDbStructureLastCheck']]]></code>
+      <code><![CDATA[$this->config->settings['ShowDbStructureLastUpdate']]]></code>
+      <code><![CDATA[$this->config->settings['ShowDbStructureLastUpdate']]]></code>
+    </PossiblyUndefinedArrayOffset>
   </file>
   <file src="src/Controllers/Database/TrackingController.php">
     <MixedArgument>
@@ -1213,6 +1230,8 @@
   <file src="src/Controllers/Export/ExportController.php">
     <MixedArgument>
       <code><![CDATA[$dbSelect]]></code>
+          <code><![CDATA[$this->config->settings['CompressOnFly']]]></code>
+      <code><![CDATA[$this->config->settings['ExecTimeLimit']]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$tableStructure]]></code>
@@ -1285,6 +1304,11 @@
       <code><![CDATA[$collationsList]]></code>
       <code><![CDATA[$encryptionKeyLength]]></code>
     </UnusedVariable>
+    <MixedArgument>
+      <code><![CDATA[$this->config->settings['Servers']]]></code>
+      <code><![CDATA[$this->config->settings['Servers']]]></code>
+      <code><![CDATA[$this->config->settings['Servers']]]></code>
+    </MixedArgument>
   </file>
   <file src="src/Controllers/Import/ImportController.php">
     <MixedArgumentTypeCoercion>
@@ -1316,6 +1340,9 @@
     <UnusedProperty>
       <code><![CDATA[$sql]]></code>
     </UnusedProperty>
+    <MixedArgument>
+      <code><![CDATA[$this->config->settings['ExecTimeLimit']]]></code>
+    </MixedArgument>
   </file>
   <file src="src/Controllers/Import/StatusController.php">
     <MixedArgument>
@@ -1655,6 +1682,9 @@
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
+    <PossiblyUndefinedArrayOffset>
+      <code><![CDATA[$this->config->settings['ShowCreateDb']]]></code>
+    </PossiblyUndefinedArrayOffset>
   </file>
   <file src="src/Controllers/Server/EnginesController.php">
     <PossiblyUnusedReturnValue>
@@ -2488,6 +2518,9 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($row->collation)]]></code>
     </RiskyTruthyFalsyComparison>
+    <MixedArgument>
+      <code><![CDATA[$this->config->settings['ForeignKeyMaxLimit']]]></code>
+    </MixedArgument>
   </file>
   <file src="src/Controllers/Table/SqlController.php">
     <MixedArgument>
@@ -2763,6 +2796,8 @@
     <MixedArgument>
       <code><![CDATA[Current::$database]]></code>
       <code><![CDATA[Current::$table]]></code>
+          <code><![CDATA[$this->config->settings['ForeignKeyMaxLimit']]]></code>
+      <code><![CDATA[$this->config->settings['ForeignKeyMaxLimit']]]></code>
     </MixedArgument>
     <MixedPropertyTypeCoercion>
       <code><![CDATA[['db' => Current::$database, 'table' => Current::$table]]]></code>
@@ -2935,6 +2970,7 @@
     </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[$path[$depth + 1]]]></code>
+          <code><![CDATA[$config->settings['TrustedProxies'][$directIp]]]></code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$a[$key]]]></code>
@@ -3516,6 +3552,8 @@
       <code><![CDATA[$b]]></code>
       <code><![CDATA[$this->versionComment]]></code>
       <code><![CDATA[$this->versionString]]></code>
+          <code><![CDATA[$limitCount]]></code>
+      <code><![CDATA[$limitCount]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[uksort($eachTables, strnatcasecmp(...))]]></code>
@@ -4099,6 +4137,15 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$config->settings['Export'][$str]]]></code>
     </RiskyTruthyFalsyComparison>
+    <PossiblyUndefinedArrayOffset>
+      <code><![CDATA[$config->settings['Export']]]></code>
+    </PossiblyUndefinedArrayOffset>
+    <PossiblyNullReference>
+      <code><![CDATA[$config->settings['Export']]]></code>
+    </PossiblyNullReference>
+    <PossiblyNullArrayAccess>
+      <code><![CDATA[$config->settings['Export']]]></code>
+    </PossiblyNullArrayAccess>
   </file>
   <file src="src/Export/OutputHandler.php">
     <PossiblyFalsePropertyAssignmentValue>
