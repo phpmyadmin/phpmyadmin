@@ -90,7 +90,7 @@ final readonly class SearchController implements InvocableController
         }
 
         // If we are in an Ajax request, we need to exit after displaying all the HTML
-        if ($request->isAjax() && empty($_REQUEST['ajax_page_request'])) {
+        if ($request->isAjax() && ! $request->has('ajax_page_request')) {
             return $this->response->response();
         }
 
