@@ -233,12 +233,12 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <MixedArgument>
+      <code><![CDATA[$config->settings[$systemPath]]]></code>
       <code><![CDATA[$errorList]]></code>
       <code><![CDATA[$ip]]></code>
       <code><![CDATA[$userPrefsDisallow ?? []]]></code>
       <code><![CDATA[$val]]></code>
       <code><![CDATA[$value]]></code>
-          <code><![CDATA[$config->settings[$systemPath]]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$field]]></code>
@@ -389,9 +389,6 @@
       <code><![CDATA[$path]]></code>
       <code><![CDATA[$urlParams]]></code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayTypeCoercion>
-      <code><![CDATA[$excludeList[$path]]]></code>
-    </MixedArrayTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$configArray['2fa']]]></code>
       <code><![CDATA[$configData]]></code>
@@ -576,7 +573,7 @@
       <code><![CDATA[$foreignField]]></code>
       <code><![CDATA[$foreignTable]]></code>
       <code><![CDATA[$foreignTable]]></code>
-          <code><![CDATA[$this->config->settings['ForeignKeyDropdownOrder'][0]]]></code>
+      <code><![CDATA[$this->config->settings['ForeignKeyDropdownOrder'][0]]]></code>
       <code><![CDATA[$this->config->settings['ForeignKeyDropdownOrder'][1]]]></code>
       <code><![CDATA[$this->config->settings['ForeignKeyMaxLimit']]]></code>
     </MixedArgument>
@@ -815,7 +812,6 @@
       <code><![CDATA[Current::$database]]></code>
       <code><![CDATA[Current::$database]]></code>
       <code><![CDATA[Current::$database]]></code>
-          <code><![CDATA[$this->config->settings['RowActionLinks']]]></code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$routine['item_param_dir'][$routine['item_num_params'] - 1]]]></code>
@@ -1091,7 +1087,7 @@
       <code><![CDATA[$replicaInfo['Wild_Do_Table']]]></code>
       <code><![CDATA[$replicaInfo['Wild_Ignore_Table']]]></code>
       <code><![CDATA[$request->getParam('pos')]]></code>
-          <code><![CDATA[$this->config->settings['MaxTableList']]]></code>
+      <code><![CDATA[$this->config->settings['MaxTableList']]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[uksort($tables, strnatcasecmp(...))]]></code>
@@ -1230,7 +1226,7 @@
   <file src="src/Controllers/Export/ExportController.php">
     <MixedArgument>
       <code><![CDATA[$dbSelect]]></code>
-          <code><![CDATA[$this->config->settings['CompressOnFly']]]></code>
+      <code><![CDATA[$this->config->settings['CompressOnFly']]]></code>
       <code><![CDATA[$this->config->settings['ExecTimeLimit']]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
@@ -1287,9 +1283,6 @@
     <MixedArrayOffset>
       <code><![CDATA[$this->config->settings['Servers'][Current::$server]]]></code>
     </MixedArrayOffset>
-    <MixedArrayTypeCoercion>
-      <code><![CDATA[$this->config->settings['Servers'][Current::$server]]]></code>
-    </MixedArrayTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$languageStats]]></code>
     </MixedAssignment>
@@ -1297,7 +1290,6 @@
       <code><![CDATA[empty($_REQUEST['access_time'])]]></code>
       <code><![CDATA[empty($this->config->selectedServer['verbose'])]]></code>
       <code><![CDATA[empty($this->config->selectedServer['verbose'])]]></code>
-      <code><![CDATA[empty($this->config->settings['Servers'][Current::$server]['pmadb'])]]></code>
       <code><![CDATA[ini_get('allow_url_fopen')]]></code>
     </RiskyTruthyFalsyComparison>
     <UnusedVariable>
@@ -1514,9 +1506,6 @@
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($this->config->settings['Servers'][Current::$server]['pmadb'])]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Operations/TableController.php">
     <MixedArgumentTypeCoercion>
@@ -2794,10 +2783,10 @@
       <code><![CDATA[$row[$_POST['criteriaColumnNames'][1]]]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
+      <code><![CDATA[$this->config->settings['ForeignKeyMaxLimit']]]></code>
+      <code><![CDATA[$this->config->settings['ForeignKeyMaxLimit']]]></code>
       <code><![CDATA[Current::$database]]></code>
       <code><![CDATA[Current::$table]]></code>
-          <code><![CDATA[$this->config->settings['ForeignKeyMaxLimit']]]></code>
-      <code><![CDATA[$this->config->settings['ForeignKeyMaxLimit']]]></code>
     </MixedArgument>
     <MixedPropertyTypeCoercion>
       <code><![CDATA[['db' => Current::$database, 'table' => Current::$table]]]></code>
@@ -2959,9 +2948,6 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Core.php">
-    <ArgumentTypeCoercion>
-      <code><![CDATA[$config->settings['TrustedProxies'][$directIp]]]></code>
-    </ArgumentTypeCoercion>
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
@@ -2969,8 +2955,8 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <MixedArgument>
+      <code><![CDATA[$config->settings['TrustedProxies'][$directIp]]]></code>
       <code><![CDATA[$path[$depth + 1]]]></code>
-          <code><![CDATA[$config->settings['TrustedProxies'][$directIp]]]></code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$a[$key]]]></code>
@@ -3550,10 +3536,10 @@
     <MixedArgument>
       <code><![CDATA[$a]]></code>
       <code><![CDATA[$b]]></code>
+      <code><![CDATA[$limitCount]]></code>
+      <code><![CDATA[$limitCount]]></code>
       <code><![CDATA[$this->versionComment]]></code>
       <code><![CDATA[$this->versionString]]></code>
-          <code><![CDATA[$limitCount]]></code>
-      <code><![CDATA[$limitCount]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[uksort($eachTables, strnatcasecmp(...))]]></code>
@@ -4134,18 +4120,13 @@
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['filename_template'] ?? null]]></code>
     </PossiblyInvalidArgument>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[$config->settings['Export'][$str]]]></code>
-    </RiskyTruthyFalsyComparison>
     <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$config->settings['Export']]]></code>
     </PossiblyUndefinedArrayOffset>
     <PossiblyNullReference>
       <code><![CDATA[$config->settings['Export']]]></code>
     </PossiblyNullReference>
-    <PossiblyNullArrayAccess>
-      <code><![CDATA[$config->settings['Export']]]></code>
-    </PossiblyNullArrayAccess>
+    <PossiblyNullArrayAccess/>
   </file>
   <file src="src/Export/OutputHandler.php">
     <PossiblyFalsePropertyAssignmentValue>
@@ -5595,16 +5576,10 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$config->settings[$pluginType->value][$opt]]]></code>
-    </PossiblyInvalidCast>
     <PossiblyNullOperand>
       <code><![CDATA[$propertyGroup->getName()]]></code>
       <code><![CDATA[$subgroupHeader->getName()]]></code>
     </PossiblyNullOperand>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty(Config::getInstance()->settings[$pluginType->value][$opt])]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Plugins/Auth/AuthenticationConfig.php">
     <DeprecatedMethod>
@@ -7577,13 +7552,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($server['host'])]]></code>
-      <code><![CDATA[empty($server['only_db'])]]></code>
-      <code><![CDATA[empty($server['port'])]]></code>
-      <code><![CDATA[empty($server['user'])]]></code>
-      <code><![CDATA[empty($server['verbose'])]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Server/Status/Data.php">
     <InvalidOperand>
