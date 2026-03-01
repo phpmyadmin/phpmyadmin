@@ -926,9 +926,6 @@
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($_REQUEST['ajax_page_request'])]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Database/SqlAutoCompleteController.php">
     <PossiblyUnusedMethod>
