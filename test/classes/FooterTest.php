@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests;
 use ArrayIterator;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\Footer;
+use PhpMyAdmin\Template;
 use ReflectionProperty;
 
 use function json_encode;
@@ -117,7 +118,10 @@ class FooterTest extends AbstractTestCase
     {
         $footer = new Footer();
         $footer->setAjax(true);
-        self::assertSame('', $footer->getDisplay());
+        self::assertEquals(
+            (new Template())->render('modals/index_dialog_modal'),
+            $footer->getDisplay()
+        );
     }
 
     /**
@@ -150,7 +154,10 @@ class FooterTest extends AbstractTestCase
     {
         $footer = new Footer();
         $footer->setMinimal();
-        self::assertSame("  </div>\n  </body>\n</html>\n", $footer->getDisplay());
+        self::assertEquals(
+            (new Template())->render('modals/index_dialog_modal') . "  </div>\n  </body>\n</html>\n",
+            $footer->getDisplay()
+        );
     }
 
     public function testSetAjax(): void
