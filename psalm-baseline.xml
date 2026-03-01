@@ -7905,16 +7905,9 @@
     <PossiblyInvalidArgument>
       <code><![CDATA[$query]]></code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayOffset>
-      <code><![CDATA[$this->config->settings['Servers'][Current::$server]]]></code>
-      <code><![CDATA[$this->config->settings['Servers'][Current::$server]]]></code>
-    </PossiblyInvalidArrayOffset>
     <PossiblyInvalidCast>
       <code><![CDATA[$query]]></code>
     </PossiblyInvalidCast>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($this->config->settings['Servers'][Current::$server]['verbose'])]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/StorageEngine.php">
     <DeprecatedMethod>
@@ -8917,9 +8910,6 @@
     <MixedOperand>
       <code><![CDATA[$second]]></code>
     </MixedOperand>
-    <PossiblyNullIterator>
-      <code><![CDATA[$val]]></code>
-    </PossiblyNullIterator>
   </file>
   <file src="tests/unit/Config/FormDisplayTemplateTest.php">
     <TypeDoesNotContainType>
@@ -9183,9 +9173,6 @@
       <code><![CDATA[testIsHttps]]></code>
       <code><![CDATA[testIsHttps]]></code>
     </PossiblyInvalidArgument>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[assertIsArray]]></code>
-    </RedundantConditionGivenDocblockType>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[stristr(PHP_OS, 'Linux')]]></code>
       <code><![CDATA[stristr(PHP_OS, 'OS/2')]]></code>
@@ -10332,9 +10319,6 @@
     <MixedPropertyTypeCoercion>
       <code><![CDATA[$config->selectedServer]]></code>
     </MixedPropertyTypeCoercion>
-    <PropertyTypeCoercion>
-      <code><![CDATA[$config->settings]]></code>
-    </PropertyTypeCoercion>
     <TypeDoesNotContainType>
       <code><![CDATA[assertSame]]></code>
     </TypeDoesNotContainType>
@@ -10505,9 +10489,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance($config)]]></code>
     </DeprecatedMethod>
-    <PropertyTypeCoercion>
-      <code><![CDATA[Config::getInstance()->settings]]></code>
-    </PropertyTypeCoercion>
   </file>
   <file src="tests/unit/Replication/ReplicationGuiTest.php">
     <DeprecatedMethod>
@@ -10553,19 +10534,12 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$config->settings['Servers']['0']]]></code>
-    </InvalidArrayOffset>
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[$config->settings]]></code>
     </InvalidPropertyAssignmentValue>
     <PossiblyInvalidArgument>
-      <code><![CDATA[$server['only_db']]]></code>
       <code><![CDATA[testRender]]></code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$server['only_db']]]></code>
-    </PossiblyInvalidCast>
   </file>
   <file src="tests/unit/Setup/ConfigGeneratorTest.php">
     <MixedAssignment>
