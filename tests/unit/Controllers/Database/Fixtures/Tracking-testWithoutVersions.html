@@ -1,0 +1,41 @@
+    <h3>Untracked tables</h3>
+    <form method="post" action="index.php?route=/database/tracking&lang=en" name="untrackedForm"
+        id="untrackedForm" class="ajax">
+        <input type="hidden" name="db" value="test_db"><input type="hidden" name="lang" value="en"><input type="hidden" name="token" value="token">
+        <table id="noversions" class="table table-striped table-hover w-auto">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Table</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                                <tr>
+                      <td class="text-center">
+                          <input type="checkbox" name="selected_tbl[]"
+                              class="checkall" id="selected_tbl_test_table"
+                              value="test_table">
+                      </td>
+                      <th>
+                          <label for="selected_tbl_test_table">
+                              test_table
+                          </label>
+                      </th>
+                      <td>
+                          <a href="index.php?route=/table/tracking&goto=index.php%3Froute%3D%2Ftable%2Ftracking%26lang%3Den&back=index.php%3Froute%3D%2Fdatabase%2Ftracking%26lang%3Den&db=test_db&table=test_table&lang=en">
+                              <span class="text-nowrap"><img src="themes/dot.gif" title="Track table" alt="Track table" class="icon ic_eye">&nbsp;Track table</span>
+                          </a>
+                      </td>
+                  </tr>
+                            </tbody>
+        </table>
+        <img src="themes/dot.gif" title="With selected:" alt="With selected:" dir="ltr" width="38" height="22" class="icon ic_select_all_arrow">
+<input type="checkbox" id="untrackedForm_checkall" class="checkall_box"
+    title="Check all">
+<label for="untrackedForm_checkall">Check all</label>
+<em class="with-selected">With selected:</em>
+        <button class="btn btn-link mult_submit" type="submit" name="submit_mult" value="track" title="Track table">
+            <span class="text-nowrap"><img src="themes/dot.gif" title="Track table" alt="Track table" class="icon ic_eye">&nbsp;Track table</span>
+        </button>
+    </form>

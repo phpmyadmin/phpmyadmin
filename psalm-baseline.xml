@@ -1161,9 +1161,6 @@
       <code><![CDATA[$request->getParsedBodyParam('selected')]]></code>
       <code><![CDATA[Current::$database]]></code>
     </MixedArgument>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/DatabaseController.php">
     <PossiblyUnusedReturnValue>
