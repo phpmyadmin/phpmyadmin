@@ -11037,7 +11037,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 13
+			count: 12
 			path: src/Server/Privileges.php
 
 		-
@@ -11073,7 +11073,7 @@ parameters:
 		-
 			message: '#^Only booleans are allowed in a negated boolean, PhpMyAdmin\\Dbal\\ResultInterface\|false given\.$#'
 			identifier: booleanNot.exprNotBoolean
-			count: 13
+			count: 11
 			path: src/Server/Privileges.php
 
 		-

@@ -9,6 +9,7 @@ namespace PhpMyAdmin;
 
 use DateTimeImmutable;
 use Exception;
+use PhpMyAdmin\Exceptions\PdfCreationFailure;
 use PhpMyAdmin\I18n\LanguageManager;
 use TCPDF;
 use TCPDF_FONTS;
@@ -142,9 +143,6 @@ class Pdf extends TCPDF
     // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
     public function Error(mixed $msg = ''): never
     {
-        echo Message::error(
-            __('Error while creating PDF:') . ' ' . $msg,
-        )->getDisplay();
-        ResponseRenderer::getInstance()->callExit();
+        throw new PdfCreationFailure(__('Error while creating PDF:') . ' ' . $msg);
     }
 }

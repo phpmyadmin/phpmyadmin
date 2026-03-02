@@ -16,6 +16,8 @@ use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Dbal\ResultInterface;
+use PhpMyAdmin\Exceptions\UpdateAuthPluginFailure;
+use PhpMyAdmin\Exceptions\UserPasswordUpdateFailure;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Http\ServerRequest;
@@ -748,13 +750,9 @@ class Privileges
     /**
      * Update password and get message for password updating
      *
-     * @param string $errorUrl error url
-     * @param string $username username
-     * @param string $hostname hostname
-     *
      * @return Message success or error message after updating password
      */
-    public function updatePassword(string $errorUrl, string $username, string $hostname): Message
+    public function updatePassword(string $username, string $hostname): Message
     {
         // similar logic in /user-password
         $message = null;
@@ -841,22 +839,12 @@ class Privileges
                     . $this->getUserHostCondition($username, $hostname) . ';';
 
                 // Update the plugin for the user
-                if (! $this->dbi->tryQuery($updatePluginQuery)) {
-                    $errorMessage = Generator::mysqlDie(
+                if ($this->dbi->tryQuery($updatePluginQuery) === false) {
+                    throw new UpdateAuthPluginFailure(Generator::mysqlDie(
                         $this->dbi->getError(),
                         $updatePluginQuery,
                         false,
-                    );
-
-                    $response = ResponseRenderer::getInstance();
-                    if ($response->isAjax()) {
-                        $response->setRequestStatus(false);
-                        $response->addJSON('message', $errorMessage);
-                        $response->callExit();
-                    }
-
-                    $response->addHTML($errorMessage . Generator::getBackUrlHtml($errorUrl));
-                    $response->callExit();
+                    ));
                 }
 
                 $this->dbi->tryQuery('FLUSH PRIVILEGES;');
@@ -886,22 +874,12 @@ class Privileges
                     . '(' . $this->dbi->quoteString($_POST['pma_pw']) . ')');
             }
 
-            if (! $this->dbi->tryQuery($localQuery)) {
-                $errorMessage = Generator::mysqlDie(
+            if ($this->dbi->tryQuery($localQuery) === false) {
+                throw new UserPasswordUpdateFailure(Generator::mysqlDie(
                     $this->dbi->getError(),
                     $sqlQuery,
                     false,
-                );
-
-                $response = ResponseRenderer::getInstance();
-                if ($response->isAjax()) {
-                    $response->setRequestStatus(false);
-                    $response->addJSON('message', $errorMessage);
-                    $response->callExit();
-                }
-
-                $response->addHTML($errorMessage . Generator::getBackUrlHtml($errorUrl));
-                $response->callExit();
+                ));
             }
 
             // Flush privileges after successful password change
@@ -2456,8 +2434,12 @@ class Privileges
     /**
      * Get HTML snippet for display user overview page
      */
-    public function getHtmlForUserOverview(UserPrivileges $userPrivileges, string|null $initial): string
-    {
+    public function getHtmlForUserOverview(
+        UserPrivileges $userPrivileges,
+        string|null $initial,
+        bool $isAjax,
+        bool $isAjaxPageRequest,
+    ): string {
         $serverVersion = $this->dbi->getVersion();
         $passwordColumn = Compatibility::isMySqlOrPerconaDb($this->dbi) && $serverVersion >= 50706
             ? 'authentication_string'
@@ -2481,8 +2463,7 @@ class Privileges
                     $this->template->render('export_modal');
             }
 
-            $response = ResponseRenderer::getInstance();
-            if (! $response->isAjax() || ! empty($_REQUEST['ajax_page_request'])) {
+            if (! $isAjax || $isAjaxPageRequest) {
                 if ($userPrivileges->isReload) {
                     $flushnote = new Message(
                         __(

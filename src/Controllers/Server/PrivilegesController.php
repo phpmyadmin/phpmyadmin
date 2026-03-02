@@ -10,6 +10,8 @@ use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Exceptions\UpdateAuthPluginFailure;
+use PhpMyAdmin\Exceptions\UserPasswordUpdateFailure;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -262,11 +264,23 @@ final class PrivilegesController implements InvocableController
          * Updates the password
          */
         if ($request->hasBodyParam('change_pw')) {
-            Current::$message = $serverPrivileges->updatePassword(
-                $errorUrl,
-                $serverPrivileges->username ?? '',
-                $serverPrivileges->hostname ?? '',
-            );
+            try {
+                Current::$message = $serverPrivileges->updatePassword(
+                    $serverPrivileges->username ?? '',
+                    $serverPrivileges->hostname ?? '',
+                );
+            } catch (UpdateAuthPluginFailure | UserPasswordUpdateFailure $exception) {
+                if ($request->isAjax()) {
+                    $this->response->setRequestStatus(false);
+                    $this->response->addJSON('message', $exception->getMessage());
+
+                    return $this->response->response();
+                }
+
+                $this->response->addHTML($exception->getMessage() . Generator::getBackUrlHtml($errorUrl));
+
+                return $this->response->response();
+            }
         }
 
         /**
@@ -392,6 +406,8 @@ final class PrivilegesController implements InvocableController
                 $this->response->addHTML($serverPrivileges->getHtmlForUserOverview(
                     $userPrivileges,
                     $request->getQueryParam('initial'),
+                    $request->isAjax(),
+                    $request->has('ajax_page_request'),
                 ));
             } elseif ($routinename !== '') {
                 $this->response->addHTML(

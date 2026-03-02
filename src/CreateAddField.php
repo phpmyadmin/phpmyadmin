@@ -436,33 +436,18 @@ class CreateAddField
      *
      * @param DatabaseName $db       current database
      * @param string       $sqlQuery the query to run
-     * @param string       $errorUrl error page url
      */
-    public function tryColumnCreationQuery(
-        DatabaseName $db,
-        string $sqlQuery,
-        string $errorUrl,
-    ): bool {
-        // To allow replication, we first select the db to use and then run queries
-        // on this db.
+    public function tryColumnCreationQuery(DatabaseName $db, string $sqlQuery): string|null
+    {
+        // To allow replication, we first select the db to use and then run queries on this db.
         if (! $this->dbi->selectDb($db)) {
-            $errorMessage = Generator::mysqlDie(
-                $this->dbi->getError(),
-                'USE ' . Util::backquote($db->getName()),
-                false,
-            );
-
-            $response = ResponseRenderer::getInstance();
-            if ($response->isAjax()) {
-                $response->setRequestStatus(false);
-                $response->addJSON('message', $errorMessage);
-                $response->callExit();
-            }
-
-            $response->addHTML($errorMessage . Generator::getBackUrlHtml($errorUrl));
-            $response->callExit();
+            return Generator::mysqlDie($this->dbi->getError(), 'USE ' . Util::backquote($db->getName()), false);
         }
 
-        return (bool) $this->dbi->tryQuery($sqlQuery);
+        if ($this->dbi->tryQuery($sqlQuery) === false) {
+            return Generator::mysqlDie($this->dbi->getError(), $sqlQuery, false);
+        }
+
+        return null;
     }
 }

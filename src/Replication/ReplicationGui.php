@@ -12,7 +12,6 @@ use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Query\Utilities;
-use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
@@ -425,15 +424,10 @@ class ReplicationGui
         string $pmaPassword,
         string $hostname,
         int $port,
-    ): void {
+    ): Message|null {
         if (! $srTakeAction) {
-            return;
+            return null;
         }
-
-        $refresh = false;
-        $result = false;
-        $messageSuccess = '';
-        $messageError = '';
 
         if ($replicaChangePrimary && ! Config::getInstance()->settings['AllowArbitraryServer']) {
             $_SESSION['replication']['sr_action_status'] = 'error';
@@ -442,10 +436,9 @@ class ReplicationGui
                 . ' $cfg[\'AllowArbitraryServer\'] in phpMyAdmin configuration.',
             );
         } elseif ($replicaChangePrimary) {
-            $result = $this->handleRequestForReplicaChangePrimary($username, $pmaPassword, $hostname, $port);
+            $this->handleRequestForReplicaChangePrimary($username, $pmaPassword, $hostname, $port);
         } elseif ($srReplicaServerControl) {
             $result = $this->handleRequestForReplicaServerControl($srReplicaAction, $srReplicaControlParam);
-            $refresh = true;
 
             switch ($srReplicaAction) {
                 case 'start':
@@ -465,28 +458,13 @@ class ReplicationGui
                     $messageError = __('Error.');
                     break;
             }
+
+            return $result ? Message::success($messageSuccess) : Message::error($messageError);
         } elseif ($srReplicaSkipError) {
-            $result = $this->handleRequestForReplicaSkipError($srSkipErrorsCount);
+            $this->handleRequestForReplicaSkipError($srSkipErrorsCount);
         }
 
-        if ($refresh) {
-            $response = ResponseRenderer::getInstance();
-            if ($response->isAjax()) {
-                $response->setRequestStatus($result);
-                $response->addJSON(
-                    'message',
-                    $result
-                    ? Message::success($messageSuccess)
-                    : Message::error($messageError),
-                );
-            } else {
-                $response->redirect(
-                    './index.php?route=/server/replication' . Url::getCommonRaw(UrlParams::$params, '&'),
-                );
-            }
-        }
-
-        unset($refresh);
+        return null;
     }
 
     public function handleRequestForReplicaChangePrimary(

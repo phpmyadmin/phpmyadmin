@@ -11,10 +11,12 @@ use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\Replication\ReplicationGui;
 use PhpMyAdmin\Replication\ReplicationInfo;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
 
 use function is_array;
@@ -61,7 +63,7 @@ final class ReplicationController implements InvocableController
             $srSkipErrorsCount = $request->getParsedBodyParamAsStringOrNull('sr_skip_errors_count', '1');
             $srReplicaControlParam = $request->getParsedBodyParamAsStringOrNull('sr_replica_control_param');
 
-            $this->replicationGui->handleControlRequest(
+            $message = $this->replicationGui->handleControlRequest(
                 $request->getParsedBodyParam('sr_take_action') !== null,
                 $request->getParsedBodyParam('replica_changeprimary') !== null,
                 $request->getParsedBodyParam('sr_replica_server_control') !== null,
@@ -74,6 +76,16 @@ final class ReplicationController implements InvocableController
                 $request->getParsedBodyParamAsString('hostname', ''),
                 (int) $request->getParsedBodyParamAsStringOrNull('text_port'),
             );
+            if ($message instanceof Message) {
+                if ($request->isAjax()) {
+                    $this->response->setRequestStatus($message->isSuccess());
+                    $this->response->addJSON('message', $message);
+                } else {
+                    $this->response->redirect(
+                        './index.php?route=/server/replication' . Url::getCommonRaw(UrlParams::$params, '&'),
+                    );
+                }
+            }
         }
 
         $errorMessages = $this->replicationGui->getHtmlForErrorMessage();

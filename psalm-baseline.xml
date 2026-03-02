@@ -7275,6 +7275,10 @@
     <PossiblyNullArgument>
       <code><![CDATA[$srReplicaAction]]></code>
     </PossiblyNullArgument>
+    <PossiblyUnusedReturnValue>
+      <code><![CDATA[bool]]></code>
+      <code><![CDATA[bool]]></code>
+    </PossiblyUnusedReturnValue>
     <UnusedFunctionCall>
       <code><![CDATA[strtok]]></code>
       <code><![CDATA[strtok]]></code>
@@ -7519,7 +7523,6 @@
       <code><![CDATA[empty($_POST['pma_pw'])]]></code>
       <code><![CDATA[empty($_POST['pma_pw2'])]]></code>
       <code><![CDATA[empty($_POST['userGroup'])]]></code>
-      <code><![CDATA[empty($_REQUEST['ajax_page_request'])]]></code>
       <code><![CDATA[empty($row['password'])]]></code>
       <code><![CDATA[empty($row['password'])]]></code>
     </RiskyTruthyFalsyComparison>

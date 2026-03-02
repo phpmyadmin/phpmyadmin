@@ -417,11 +417,10 @@ class PrivilegesTest extends AbstractTestCase
 
         $username = 'pma_username';
         $hostname = 'pma_hostname';
-        $errUrl = 'error.php';
         $_POST['pma_pw'] = 'pma_pw';
         $_POST['authentication_plugin'] = 'mysql_native_password';
 
-        $message = $serverPrivileges->updatePassword($errUrl, $username, $hostname);
+        $message = $serverPrivileges->updatePassword($username, $hostname);
 
         self::assertSame(
             'The password for \'pma_username\'@\'pma_hostname\' was changed successfully.',
@@ -1570,8 +1569,7 @@ class PrivilegesTest extends AbstractTestCase
 
         $serverPrivileges = $this->getPrivileges($this->createDatabaseInterface($dummyDbi));
 
-        $_REQUEST = ['ajax_page_request' => '1'];
-        $actual = $serverPrivileges->getHtmlForUserOverview($userPrivileges, null);
+        $actual = $serverPrivileges->getHtmlForUserOverview($userPrivileges, null, false, true);
         $dummyDbi->assertAllQueriesConsumed();
         self::assertStringContainsString('Note: MySQL privilege names are expressed in English.', $actual);
         self::assertStringContainsString(
@@ -1592,7 +1590,7 @@ class PrivilegesTest extends AbstractTestCase
         );
         $dummyDbi->addResult('SELECT 1 FROM `mysql`.`user`', false);
         $serverPrivileges = $this->getPrivileges($this->createDatabaseInterface($dummyDbi));
-        $html = $serverPrivileges->getHtmlForUserOverview($userPrivileges, null);
+        $html = $serverPrivileges->getHtmlForUserOverview($userPrivileges, null, false, true);
 
         self::assertStringContainsString(
             Url::getCommon(['adduser' => 1], ''),
@@ -1620,7 +1618,7 @@ class PrivilegesTest extends AbstractTestCase
         );
         $dummyDbi->addResult('SELECT 1 FROM `mysql`.`user`', [[1]]);
         $serverPrivileges = $this->getPrivileges($this->createDatabaseInterface($dummyDbi));
-        $actual = $serverPrivileges->getHtmlForUserOverview($userPrivileges, null);
+        $actual = $serverPrivileges->getHtmlForUserOverview($userPrivileges, null, false, true);
 
         self::assertStringContainsString('Your privilege table structure seems to be older than'
             . ' this MySQL version!<br>'
