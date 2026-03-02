@@ -1609,12 +1609,6 @@ parameters:
 			path: src/Controllers/Database/RoutinesController.php
 
 		-
-			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
-			identifier: empty.notAllowed
-			count: 1
-			path: src/Controllers/Database/SearchController.php
-
-		-
 			message: '#^Parameter \#1 \$database of method PhpMyAdmin\\Database\\CentralColumns\:\:deleteColumnsFromList\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
