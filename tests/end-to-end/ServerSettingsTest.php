@@ -35,15 +35,12 @@ class ServerSettingsTest extends TestBase
      */
     private function saveConfig(): void
     {
-        // Submit the form
-        $ele = $this->waitForElement(
+        $this->scrollToBottom();
+        $this->waitForElement(
             'xpath',
             "//div[contains(@class, 'tab-pane') and contains(@class, 'show')"
-                . " and contains(@class, 'active')]//input[@value='Apply']",
-        );
-        $this->scrollToBottom();
-        $this->moveto($ele);
-        $ele->click();
+            . " and contains(@class, 'active')]//input[@value='Apply']",
+        )->click();
 
         $success = $this->waitUntilElementIsPresent('cssSelector', '.alert-success', 5000);
         self::assertStringContainsString('Configuration has been saved', $success->getText());

@@ -75,7 +75,7 @@ class CreateRemoveUserTest extends TestBase
         $this->byId('text_pma_pw2')->sendKeys($this->txtPassword);
 
         // Make sure the element is visible before clicking
-        $this->scrollIntoView('createdb-1');
+        $this->scrollIntoView('createdb-1', 150);
         $this->waitForElement('id', 'createdb-1')->click();
         $this->waitForElement('id', 'createdb-2')->click();
 
