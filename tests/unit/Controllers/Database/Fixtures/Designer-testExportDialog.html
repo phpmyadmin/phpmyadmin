@@ -1,0 +1,57 @@
+<form method="post" action="index.php?route=/schema-export&lang=en" class="disableAjax" id="id_export_pages">
+  <input type="hidden" name="db" value="test_db"><input type="hidden" name="lang" value="en"><input type="hidden" name="token" value="token">
+  <input type="hidden" name="page_number" value="0">
+
+  <div class="mb-3">
+    <label class="form-label" for="plugins">Select export relational type:</label>
+    <select class="form-select" id="plugins" name="export_type">
+              <option value="dia">Dia</option>
+              <option value="eps">EPS</option>
+              <option value="pdf" selected>PDF</option>
+              <option value="svg">SVG</option>
+          </select>
+  </div>
+
+  <div>
+    <div id="dia_options" class="format_specific_options"><h3>Dia</h3>
+<div id="dia_general_opts"><ul class="list-group">
+<li class="list-group-item"><div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" name="dia_show_color" value="y" id="checkbox_dia_show_color"  checked><label class="form-check-label" for="checkbox_dia_show_color">Show color</label></div>
+<li class="list-group-item"><div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" name="dia_show_keys" value="y" id="checkbox_dia_show_keys" ><label class="form-check-label" for="checkbox_dia_show_keys">Only show keys</label></div>
+<li class="list-group-item"><label for="select_dia_orientation" class="form-label">Orientation</label><select class="form-select" name="dia_orientation" id="select_dia_orientation"><option value="L" selected>Landscape</option><option value="P">Portrait</option></select>
+<li class="list-group-item"><label for="select_dia_paper" class="form-label">Paper size</label><select class="form-select" name="dia_paper" id="select_dia_paper"><option value="A3">A3</option><option value="A4" selected>A4</option><option value="A5">A5</option><option value="letter">letter</option><option value="legal">legal</option></select>
+</ul></div>
+</div>
+
+<div id="eps_options" class="format_specific_options"><h3>EPS</h3>
+<div id="eps_general_opts"><ul class="list-group">
+<li class="list-group-item"><div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" name="eps_show_color" value="y" id="checkbox_eps_show_color"  checked><label class="form-check-label" for="checkbox_eps_show_color">Show color</label></div>
+<li class="list-group-item"><div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" name="eps_show_keys" value="y" id="checkbox_eps_show_keys" ><label class="form-check-label" for="checkbox_eps_show_keys">Only show keys</label></div>
+<li class="list-group-item"><div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" name="eps_all_tables_same_width" value="y" id="checkbox_eps_all_tables_same_width" ><label class="form-check-label" for="checkbox_eps_all_tables_same_width">Same width for all tables</label></div>
+<li class="list-group-item"><label for="select_eps_orientation" class="form-label">Orientation</label><select class="form-select" name="eps_orientation" id="select_eps_orientation"><option value="L" selected>Landscape</option><option value="P">Portrait</option></select>
+</ul></div>
+</div>
+
+<div id="pdf_options" class="format_specific_options"><h3>PDF</h3>
+<div id="pdf_general_opts"><ul class="list-group">
+<li class="list-group-item"><div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" name="pdf_show_color" value="y" id="checkbox_pdf_show_color"  checked><label class="form-check-label" for="checkbox_pdf_show_color">Show color</label></div>
+<li class="list-group-item"><div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" name="pdf_show_keys" value="y" id="checkbox_pdf_show_keys" ><label class="form-check-label" for="checkbox_pdf_show_keys">Only show keys</label></div>
+<li class="list-group-item"><div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" name="pdf_all_tables_same_width" value="y" id="checkbox_pdf_all_tables_same_width" ><label class="form-check-label" for="checkbox_pdf_all_tables_same_width">Same width for all tables</label></div>
+<li class="list-group-item"><label for="select_pdf_orientation" class="form-label">Orientation</label><select class="form-select" name="pdf_orientation" id="select_pdf_orientation"><option value="L" selected>Landscape</option><option value="P">Portrait</option></select>
+<li class="list-group-item"><label for="select_pdf_paper" class="form-label">Paper size</label><select class="form-select" name="pdf_paper" id="select_pdf_paper"><option value="A3">A3</option><option value="A4" selected>A4</option><option value="A5">A5</option><option value="letter">letter</option><option value="legal">legal</option></select>
+<li class="list-group-item"><div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" name="pdf_show_grid" value="y" id="checkbox_pdf_show_grid" ><label class="form-check-label" for="checkbox_pdf_show_grid">Show grid</label></div>
+<li class="list-group-item"><div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" name="pdf_with_doc" value="y" id="checkbox_pdf_with_doc"  checked><label class="form-check-label" for="checkbox_pdf_with_doc">Data dictionary</label></div>
+<li class="list-group-item"><label for="select_pdf_table_order" class="form-label">Order of the tables</label><select class="form-select" name="pdf_table_order" id="select_pdf_table_order"><option value="" selected>None</option><option value="name_asc">Name (Ascending)</option><option value="name_desc">Name (Descending)</option></select>
+</ul></div>
+</div>
+
+<div id="svg_options" class="format_specific_options"><h3>SVG</h3>
+<div id="svg_general_opts"><ul class="list-group">
+<li class="list-group-item"><div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" name="svg_show_color" value="y" id="checkbox_svg_show_color"  checked><label class="form-check-label" for="checkbox_svg_show_color">Show color</label></div>
+<li class="list-group-item"><div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" name="svg_show_keys" value="y" id="checkbox_svg_show_keys" ><label class="form-check-label" for="checkbox_svg_show_keys">Only show keys</label></div>
+<li class="list-group-item"><div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" name="svg_all_tables_same_width" value="y" id="checkbox_svg_all_tables_same_width" ><label class="form-check-label" for="checkbox_svg_all_tables_same_width">Same width for all tables</label></div>
+</ul></div>
+</div>
+
+
+  </div>
+</form>
