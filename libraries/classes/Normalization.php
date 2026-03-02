@@ -258,6 +258,8 @@ class Normalization
             . '</fieldset>'
             . '</div>';
 
+        $html .= $this->template->render('modals/index_dialog_modal');
+
         return $html;
     }
 
@@ -979,8 +981,6 @@ class Normalization
             . '</fieldset>'
             . '</form>'
             . '</div>';
-
-        $htmlOutput .= $this->template->render('modals/index_dialog_modal');
 
         return $htmlOutput;
     }
