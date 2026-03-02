@@ -926,11 +926,6 @@
       <code><![CDATA[Current::$database]]></code>
     </MixedArgument>
   </file>
-  <file src="src/Controllers/Database/SqlFormatController.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
-  </file>
   <file src="src/Controllers/Database/Structure/AddPrefixTableController.php">
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>

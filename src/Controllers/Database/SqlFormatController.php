@@ -15,9 +15,9 @@ use PhpMyAdmin\SqlParser\Utils\Formatter;
  * Format SQL for SQL editors.
  */
 #[Route('/database/sql/format', ['POST'])]
-final class SqlFormatController implements InvocableController
+final readonly class SqlFormatController implements InvocableController
 {
-    public function __construct(private readonly ResponseRenderer $response)
+    public function __construct(private ResponseRenderer $response)
     {
     }
 
@@ -25,9 +25,11 @@ final class SqlFormatController implements InvocableController
     {
         $query = $request->getParsedBodyParamAsString('sql', '');
         if ($request->getParsedBodyParamAsString('formatSingleLine') === 'true') {
-            $this->response->addJSON(['sql' => Formatter::format($query, ['line_ending' => ' ', 'indentation' => ''])]);
+            $this->response->addJSON([
+                'sql' => Formatter::format($query, ['type' => 'text', 'line_ending' => ' ', 'indentation' => '']),
+            ]);
         } else {
-            $this->response->addJSON(['sql' => Formatter::format($query)]);
+            $this->response->addJSON(['sql' => Formatter::format($query, ['type' => 'text'])]);
         }
 
         return $this->response->response();
