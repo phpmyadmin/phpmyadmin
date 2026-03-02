@@ -924,11 +924,6 @@
       <code><![CDATA[['db' => Current::$database]]]></code>
     </MixedArgumentTypeCoercion>
   </file>
-  <file src="src/Controllers/Database/SqlAutoCompleteController.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
-  </file>
   <file src="src/Controllers/Database/SqlController.php">
     <MixedArgument>
       <code><![CDATA[Current::$database]]></code>
