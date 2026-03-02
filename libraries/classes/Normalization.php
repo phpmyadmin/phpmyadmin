@@ -980,6 +980,8 @@ class Normalization
             . '</form>'
             . '</div>';
 
+        $htmlOutput .= $this->template->render('modals/index_dialog_modal');
+
         return $htmlOutput;
     }
 
