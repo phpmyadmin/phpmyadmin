@@ -925,9 +925,6 @@
     <MixedArgument>
       <code><![CDATA[Current::$database]]></code>
     </MixedArgument>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Database/SqlFormatController.php">
     <PossiblyUnusedMethod>
