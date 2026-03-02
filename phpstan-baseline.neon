@@ -313,7 +313,7 @@ parameters:
 			path: src/Config.php
 
 		-
-			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, AllowThirdPartyFraming\: ''sameorigin''\|bool, \.\.\.\}\) does not accept array\<mixed\>\.$#'
+			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\) does not accept array\<mixed\>\.$#'
 			identifier: assign.propertyType
 			count: 1
 			path: src/Config.php
@@ -994,7 +994,7 @@ parameters:
 			path: src/Config/UserPreferencesHandler.php
 
 		-
-			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, AllowThirdPartyFraming\: ''sameorigin''\|bool, \.\.\.\}\) does not accept array\.$#'
+			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\) does not accept array\.$#'
 			identifier: assign.propertyType
 			count: 1
 			path: src/Config/UserPreferencesHandler.php
@@ -14182,7 +14182,7 @@ parameters:
 			path: tests/unit/Config/UserPreferencesTest.php
 
 		-
-			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, AllowThirdPartyFraming\: ''sameorigin''\|bool, \.\.\.\}\) does not accept array\{''Server/hide_db''\: ''testval123'', ''Server/port''\: ''213''\}\.$#'
+			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\) does not accept array\{''Server/hide_db''\: ''testval123'', ''Server/port''\: ''213''\}\.$#'
 			identifier: assign.propertyType
 			count: 1
 			path: tests/unit/Config/UserPreferencesTest.php
@@ -16060,7 +16060,7 @@ parameters:
 			path: tests/unit/Plugins/Auth/AuthenticationConfigTest.php
 
 		-
-			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, AllowThirdPartyFraming\: ''sameorigin''\|bool, \.\.\.\}\) does not accept array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, AllowThirdPartyFraming\: ''sameorigin''\|bool, \.\.\.\}\.$#'
+			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\) does not accept array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\.$#'
 			identifier: assign.propertyType
 			count: 1
 			path: tests/unit/Plugins/Auth/AuthenticationConfigTest.php
@@ -16117,7 +16117,7 @@ parameters:
 			path: tests/unit/Plugins/Auth/AuthenticationCookieTest.php
 
 		-
-			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, AllowThirdPartyFraming\: ''sameorigin''\|bool, \.\.\.\}\) does not accept array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, AllowThirdPartyFraming\: ''sameorigin''\|bool, \.\.\.\}\.$#'
+			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\) does not accept array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\.$#'
 			identifier: assign.propertyType
 			count: 6
 			path: tests/unit/Plugins/Auth/AuthenticationCookieTest.php
@@ -16138,7 +16138,7 @@ parameters:
 			path: tests/unit/Plugins/Auth/AuthenticationHttpTest.php
 
 		-
-			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, AllowThirdPartyFraming\: ''sameorigin''\|bool, \.\.\.\}\) does not accept array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, AllowThirdPartyFraming\: ''sameorigin''\|bool, \.\.\.\}\.$#'
+			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\) does not accept array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\.$#'
 			identifier: assign.propertyType
 			count: 2
 			path: tests/unit/Plugins/Auth/AuthenticationHttpTest.php
@@ -16339,7 +16339,7 @@ parameters:
 			path: tests/unit/PluginsTest.php
 
 		-
-			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, AllowThirdPartyFraming\: ''sameorigin''\|bool, \.\.\.\}\) does not accept array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, AllowThirdPartyFraming\: ''sameorigin''\|bool, \.\.\.\}\.$#'
+			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\) does not accept array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\.$#'
 			identifier: assign.propertyType
 			count: 1
 			path: tests/unit/PluginsTest.php
@@ -16468,7 +16468,7 @@ parameters:
 			path: tests/unit/Server/SelectTest.php
 
 		-
-			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, AllowThirdPartyFraming\: ''sameorigin''\|bool, \.\.\.\}\) does not accept array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, AllowThirdPartyFraming\: ''sameorigin''\|bool, \.\.\.\}\.$#'
+			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\) does not accept array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\.$#'
 			identifier: assign.propertyType
 			count: 1
 			path: tests/unit/Server/SelectTest.php
@@ -16882,7 +16882,7 @@ parameters:
 			path: tests/unit/VersionInformationTest.php
 
 		-
-			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, AllowThirdPartyFraming\: ''sameorigin''\|bool, \.\.\.\}\) does not accept array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, AllowThirdPartyFraming\: ''sameorigin''\|bool, \.\.\.\}\.$#'
+			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\) does not accept array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\.$#'
 			identifier: assign.propertyType
 			count: 3
 			path: tests/unit/VersionInformationTest.php
