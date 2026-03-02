@@ -1,0 +1,85 @@
+<div class="container">
+  <h2>Search in database</h2>
+
+  <a id="db_search"></a>
+  <form id="db_search_form" method="post" action="index.php?route=/database/search&lang=en" name="db_search" class="card mb-3 ajax lock-page">
+    <input type="hidden" name="db" value="test_db"><input type="hidden" name="lang" value="en"><input type="hidden" name="token" value="token">
+    <div class="card-body">
+      <div class="mb-3">
+        <label for="criteriaSearchString" class="form-label">Words or values to search for (wildcard: &quot;%&quot;):</label>
+        <input type="text" class="form-control" id="criteriaSearchString" name="criteriaSearchString" value="">
+      </div>
+
+      <fieldset class="mb-3">
+        <legend>Find:</legend>
+
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="criteriaSearchType" id="criteriaSearchTypeRadio1" value="1" checked>
+          <label class="form-check-label" for="criteriaSearchTypeRadio1">at least one of the words <span class="pma_hint"><img src="themes/dot.gif" title="" alt="" class="icon ic_b_help"><span class="hide">Words are separated by a space character (" ").</span></span></label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="criteriaSearchType" id="criteriaSearchTypeRadio2" value="2">
+          <label class="form-check-label" for="criteriaSearchTypeRadio2">all of the words <span class="pma_hint"><img src="themes/dot.gif" title="" alt="" class="icon ic_b_help"><span class="hide">Words are separated by a space character (" ").</span></span></label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="criteriaSearchType" id="criteriaSearchTypeRadio3" value="3">
+          <label class="form-check-label" for="criteriaSearchTypeRadio3">the exact phrase as substring</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="criteriaSearchType" id="criteriaSearchTypeRadio4" value="4">
+          <label class="form-check-label" for="criteriaSearchTypeRadio4">the exact phrase as whole field</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="criteriaSearchType" id="criteriaSearchTypeRadio5" value="5">
+          <label class="form-check-label" for="criteriaSearchTypeRadio5">as regular expression <a href="index.php?route=/url&url=https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.5%2Fen%2Fregexp.html" target="mysql_doc"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a></label>
+        </div>
+        <legend>Options:</legend>
+        <div class="form-check">
+          <input class="form-check-input" value='0' type="hidden" name="criteriaSearchOptionIncludeHex" id="criteriaSearchOptionHidden1">
+          <input class="form-check-input" value='1' type="checkbox" name="criteriaSearchOptionIncludeHex" id="criteriaSearchOptionCheckbox1" >
+          <label class="form-check-label" for="criteriaSearchOptionCheckbox1">include hex matches <a href="index.php?route=/url&url=https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.5%2Fen%2Fstring-functions.html%23function_hex" target="mysql_doc"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="mb-3">
+        <legend>Inside tables:</legend>
+
+        <div>
+          <button type="button" class="btn btn-link" id="select_all">Select all</button>
+          <button type="button" class="btn btn-link" id="unselect_all">Unselect all</button>
+        </div>
+        <select class="form-select" id="criteriaTables" name="criteriaTables[]" multiple>
+                      <option value="test_table"
+               selected
+                          >
+              test_table
+            </option>
+                  </select>
+      </fieldset>
+
+      <div>
+        <label for="criteriaColumnName" class="form-label">Inside column:</label>
+        <input type="text" class="form-control" id="criteriaColumnName" name="criteriaColumnName" value="">
+      </div>
+    </div>
+    <div class="card-footer">
+      <input id="buttonGo" class="btn btn-primary" type="submit" name="submit_search" value="Search">
+    </div>
+  </form>
+  <div id="togglesearchformdiv">
+    <button id="togglesearchformlink" class="btn btn-primary my-1"></button>
+  </div>
+  <div id="searchresults"></div>
+  <div id="togglesearchresultsdiv">
+    <button id="togglesearchresultlink" class="btn btn-primary"></button>
+  </div>
+  <br class="clearfloat">
+    <div id="table-info">
+    <a id="table-link" class="item"></a>
+  </div>
+    <div id="browse-results">
+      </div>
+  <div id="sqlqueryform" class="clearfloat">
+      </div>
+    <button class="btn btn-secondary" id="togglequerybox"></button>
+</div>
