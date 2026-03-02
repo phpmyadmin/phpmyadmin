@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-02-25 10:35-0300\n"
-"PO-Revision-Date: 2026-01-08 06:01+0000\n"
+"PO-Revision-Date: 2026-03-03 07:09+0000\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
-"Language-Team: Uyghur <https://hosted.weblate.org/projects/phpmyadmin/5-2/ug/"
-">\n"
+"Language-Team: Uyghur <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
+"ug/>\n"
 "Language: ug\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.15.1\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -85,15 +85,13 @@ msgstr ""
 "كۆرسىتىلگەن سوئاللارنى ئەلالاشتۇرالايسىز"
 
 #: libraries/advisory_rules_generic.php:45
-#, fuzzy, php-format
+#, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
-msgstr "ئاستا سوئال نىسبىتى% 5 تىن تۆۋەن بولۇشى كېرەك ، قىممىتىڭىز% s %%."
+msgstr "ئاستا سۈرۈشتۈرۈش نىسبىتى 5%% تىن تۆۋەن بولۇشى كېرەك، قىممىتىڭىز %s%%."
 
 #: libraries/advisory_rules_generic.php:50
-#, fuzzy
-#| msgid "SQL query"
 msgid "Slow query rate"
-msgstr "SQL سورىقى"
+msgstr "ئاستا SQL سۈرۈشتۈرۈش"
 
 #: libraries/advisory_rules_generic.php:54
 msgid ""
@@ -101,19 +99,16 @@ msgid ""
 msgstr "مۇلازىمېتىرنىڭ ۋاقتىغا سېلىشتۇرغاندا ئاستا سوئاللارنىڭ نىسبىتى يۇقىرى."
 
 #: libraries/advisory_rules_generic.php:58
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr ""
-"سىزنىڭ سوئال سوراش سۈرئىتىڭىز% s ئاستا ، سائىتىڭىزدە% 1 دىن تۆۋەن بولۇشىڭىز "
-"كېرەك."
+"ئاستا سۈرۈشتۈرۈش سۈرئىتىڭىز سائىتىگە %s، سائىتىگە 1%% دىن تۆۋەن بولۇشى كېرەك."
 
 #: libraries/advisory_rules_generic.php:63
-#, fuzzy
-#| msgid "SQL query"
 msgid "Long query time"
-msgstr "SQL سورىقى"
+msgstr "ئۇزۇن SQL سۈرۈشتۈرۈش"
 
 #: libraries/advisory_rules_generic.php:67
 msgid ""
@@ -132,23 +127,19 @@ msgstr ""
 "قىلىنىدۇ. ئادەتتە 1-5 سېكۇنت قىممىتى تەۋسىيە قىلىنىدۇ."
 
 #: libraries/advisory_rules_generic.php:74
-#, fuzzy, php-format
+#, php-format
 msgid "long_query_time is currently set to %ds."
-msgstr "long_query_time نۆۋەتتە% ds قىلىپ تەڭشەلدى."
+msgstr "long_query_time نۆۋەتتە %ds قىلىپ تەڭشەلدى."
 
 #: libraries/advisory_rules_generic.php:79
 #: libraries/advisory_rules_generic.php:92
-#, fuzzy
-#| msgid "SQL query"
 msgid "Slow query logging"
-msgstr "SQL سورىقى"
+msgstr "ئاستا SQL سۈرۈشتۈرۈش خاتىرىسى"
 
 #: libraries/advisory_rules_generic.php:83
 #: libraries/advisory_rules_generic.php:96
-#, fuzzy
-#| msgid "The server is not responding"
 msgid "The slow query log is disabled."
-msgstr "مۇلازىمىتېردا ئىنكاس يوق"
+msgstr "ئاستا سۈرۈشتۈرۈش خاتىرىسى چەكلەنگەن."
 
 #: libraries/advisory_rules_generic.php:85
 msgid ""
@@ -175,10 +166,8 @@ msgid "slow_query_log is set to 'OFF'"
 msgstr "slow_query_log 'OFF' قىلىپ تەڭشەلدى"
 
 #: libraries/advisory_rules_generic.php:106
-#, fuzzy
-#| msgid "Select All"
 msgid "Release Series"
-msgstr "ھەممىنى تاللاش"
+msgstr "تارقىتىش يۈرۈشلۈكى"
 
 #: libraries/advisory_rules_generic.php:109
 msgid "The MySQL server version less than 5.1."
@@ -195,17 +184,14 @@ msgstr ""
 #: libraries/advisory_rules_generic.php:113
 #: libraries/advisory_rules_generic.php:127
 #: libraries/advisory_rules_generic.php:138
-#, fuzzy, php-format
-#| msgid "Create version"
+#, php-format
 msgid "Current version: %s"
-msgstr "نەشىرنى قۇىماق"
+msgstr "نۆۋەتتىكى نەشرى: %s"
 
 #: libraries/advisory_rules_generic.php:118
 #: libraries/advisory_rules_generic.php:132
-#, fuzzy
-#| msgid "PHP Version"
 msgid "Minor Version"
-msgstr "PHPنۇسخىسى"
+msgstr "تارماق نەشرى"
 
 #: libraries/advisory_rules_generic.php:122
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
@@ -224,17 +210,13 @@ msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr "نەشىرى 5.5.8 دىن تۆۋەن (تۇنجى GA ئېلان قىلىنغان 5.5)."
 
 #: libraries/advisory_rules_generic.php:137
-#, fuzzy
-#| msgid "You should upgrade to %s %s or later."
 msgid "You should upgrade, to a stable version of MySQL 5.5."
-msgstr "%s %s ياكى ئۇنىڭدىنمۇ يۇقىرى نەشىرگە كۆتۈتىڭ."
+msgstr "سىز MySQL 5.5 نىڭ مۇقىم نەشرىگە يۈكسەلدۈرۈشىڭىز كېرەك."
 
 #: libraries/advisory_rules_generic.php:143
 #: libraries/advisory_rules_generic.php:156
-#, fuzzy
-#| msgid "Description"
 msgid "Distribution"
-msgstr "ئىزاھات"
+msgstr "تارقىتىش نەشرى"
 
 #: libraries/advisory_rules_generic.php:146
 msgid "Version is compiled from source, not a MySQL official binary."
@@ -290,21 +272,17 @@ msgstr ""
 "قىلالماسلىقى مۇمكىن. MySQL نىڭ 64 بىتلىق نەشرىنى قاچىلاشنى ئويلىشىڭىز مۇمكىن."
 
 #: libraries/advisory_rules_generic.php:178
-#, fuzzy, php-format
+#, php-format
 msgid "Available memory on this host: %s"
-msgstr "بۇ مۇلازىمېتىردا ئىشلەتكىلى بولىدىغان ئىچكى ساقلىغۇچ:% s"
+msgstr "بۇ مۇلازىمېتىردا ئىشلەتكىلى بولىدىغان ئەسلەك: %s"
 
 #: libraries/advisory_rules_generic.php:184
-#, fuzzy
-#| msgid "Latched pages"
 msgid "Query caching method"
-msgstr "قۇلۇپلانغان بەت"
+msgstr "سۈرۈشتۈرۈشنىڭ غەملەش ئۇسۇلى"
 
 #: libraries/advisory_rules_generic.php:188
-#, fuzzy
-#| msgid "Latched pages"
 msgid "Suboptimal caching method."
-msgstr "قۇلۇپلانغان بەت"
+msgstr "تارماق ئەلالاشتۇرۇلغان غەملەش ئۇسۇلى."
 
 #: libraries/advisory_rules_generic.php:190
 msgid ""
