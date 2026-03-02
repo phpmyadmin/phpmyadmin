@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-03-01 00:40+0000\n"
-"PO-Revision-Date: 2026-02-24 08:09+0000\n"
+"PO-Revision-Date: 2026-03-02 13:14+0000\n"
 "Last-Translator: Sandra Swift <nolamiller1203+weblate@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -12484,7 +12484,7 @@ msgstr "不正なフォーマット引数"
 
 #: src/Controllers/Import/ImportController.php:254
 msgid "Sorry an unexpected error happened!"
-msgstr ""
+msgstr "予期しないエラーが発生しました！"
 
 #: src/Controllers/Import/ImportController.php:301
 #: src/Controllers/Import/ImportController.php:516
@@ -14021,6 +14021,8 @@ msgid ""
 "The fullscreen request was denied because the Fullscreen API is disabled by "
 "user preference in the browser."
 msgstr ""
+"ブラウザのユーザー設定でフルスクリーンAPIが無効に設定されているため、"
+"フルスクリーンの要求は無効になりました。"
 
 #: src/Controllers/JavaScriptMessagesController.php:700
 msgctxt "Month name"
