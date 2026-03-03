@@ -9,7 +9,7 @@ use function min;
 
 use const INF;
 
-class Extent
+final readonly class Extent
 {
     public static function empty(): Extent
     {
@@ -17,10 +17,10 @@ class Extent
     }
 
     public function __construct(
-        public readonly float $minX,
-        public readonly float $minY,
-        public readonly float $maxX,
-        public readonly float $maxY,
+        public float $minX,
+        public float $minY,
+        public float $maxX,
+        public float $maxY,
     ) {
     }
 

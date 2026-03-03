@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
+use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Core;
@@ -33,11 +34,11 @@ use function __;
 use function array_search;
 use function class_exists;
 use function extension_loaded;
+use function implode;
 use function in_array;
 use function is_array;
 use function is_string;
-use function ob_get_clean;
-use function ob_start;
+use function strlen;
 
 /**
  * Handles creation of the GIS visualizations.
@@ -111,14 +112,28 @@ final readonly class GisVisualizationController implements InvocableController
 
         $downloadOptions = $this->getDownloadOptions();
 
-        if (isset($_GET['saveToFile'])) {
-            $response = $this->responseFactory->createResponse();
-            $filename = $visualization->getSpatialColumn();
-            ob_start();
-            $visualization->toFile($filename, $_GET['fileFormat']);
-            $output = ob_get_clean();
+        if ($request->hasQueryParam('saveToFile')) {
+            $fileFormat = $request->getQueryParam('fileFormat');
+            if (! in_array($fileFormat, $downloadOptions, true)) {
+                return $this->responseFactory->createResponse(
+                    StatusCodeInterface::STATUS_BAD_REQUEST,
+                    __('Invalid file format, expected one of: ') . implode(', ', $downloadOptions),
+                );
+            }
 
-            return $response->write((string) $output);
+            $data = $visualization->toFile($fileFormat);
+            if ($data === null) {
+                return $this->responseFactory->createResponse(
+                    StatusCodeInterface::STATUS_INTERNAL_SERVER_ERROR,
+                    __('Failed to create image'),
+                );
+            }
+
+            $fileName = $visualization->getSpatialColumn() . '.' . $data->extension;
+            $response = $this->responseFactory->createResponse();
+            Core::downloadHeader($fileName, $data->mime, strlen($data->blob));
+
+            return $response->write($data->blob);
         }
 
         $this->response->addScriptFiles(['vendor/openlayers/openlayers.js', 'table/gis_visualization.js']);

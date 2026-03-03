@@ -2866,12 +2866,6 @@ parameters:
 			path: src/Controllers/Table/GisVisualizationController.php
 
 		-
-			message: '#^Parameter \#2 \$format of method PhpMyAdmin\\Gis\\GisVisualization\:\:toFile\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Table/GisVisualizationController.php
-
-		-
 			message: '#^Cannot access offset ''handler'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 2
