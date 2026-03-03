@@ -1031,7 +1031,8 @@ DesignerMove.saveAs = function () {
             }
 
             var modal = DesignerMove.displayModal(data.message, Messages.strSavePageAs, '#designerGoModal');
-            $('#designerModalGoButton').on('click', function () {
+            $('#save_as_pages').on('submit', function (e) {
+                e.preventDefault();
                 var $form           = $('#save_as_pages');
                 var selectedValue  = $form.find('input[name="selected_value"]').val().trim();
                 var $selectedPage  = $form.find('select[name="selected_page"]');
@@ -1093,6 +1094,11 @@ DesignerMove.saveAs = function () {
                 $('#designerModalGoButton').off('click');// Unregister the event for other modals to not call this one
                 modal.modal('hide');
             });
+
+            $('#designerModalGoButton').on('click', function () {
+                $('#save_as_pages').trigger('submit');
+            });
+
             // select current page by default
             if (selectedPage !== -1) {
                 $('select[name="selected_page"]').val(selectedPage);
