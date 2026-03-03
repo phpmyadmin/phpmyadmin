@@ -132,6 +132,12 @@ final class Options
         }
 
         $default = isset($_GET['what']) ? (string) $_GET['what'] : Plugins::getDefault('Export', 'format');
+        $validNames = array_map(static function ($plugin) {
+            return $plugin->getName();
+        }, $exportList);
+        if (! in_array($default, $validNames, true)) {
+            $default = 'sql';
+        }
         $dropdown = Plugins::getChoice($exportList, $default);
         $tableObject = new Table($table, $db);
         $rows = [];
