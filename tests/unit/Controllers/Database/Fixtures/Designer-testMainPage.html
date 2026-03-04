@@ -1,0 +1,467 @@
+<script>
+window.designerConfig = {"db":"test_db","scriptTables":{"j_tabs":{"test_db.test_table":1},"h_tabs":{"test_db.test_table":1}},"scriptContr":[],"server":1,"scriptDisplayField":{"test_table":"name"},"displayPage":2,"tablesEnabled":true};
+</script>
+
+    <div id="name-panel">
+        <span id="page_name">
+            test_db
+        </span>
+        <span id="saved_state">
+            
+        </span>
+    </div>
+<div class="designer_header side-menu" id="side_menu">
+    <a class="M_butt" id="key_Show_left_menu" href="#">
+        <img title="Show/Hide tables list"
+             alt="v"
+             src="./themes/pmahomme/img/designer/downarrow2_m.png"
+             data-down="./themes/pmahomme/img/designer/downarrow2_m.png"
+             data-up="./themes/pmahomme/img/designer/uparrow2_m.png">
+        <span class="hide hidable">
+            Show/Hide tables list
+        </span>
+    </a>
+    <a href="#" id="toggleFullscreen" class="M_butt">
+        <img title="View in fullscreen"
+             src="./themes/pmahomme/img/designer/viewInFullscreen.png"
+             data-enter="./themes/pmahomme/img/designer/viewInFullscreen.png"
+             data-exit="./themes/pmahomme/img/designer/exitFullscreen.png">
+        <span class="hide hidable"
+              data-exit="Exit fullscreen"
+              data-enter="View in fullscreen">
+            View in fullscreen
+        </span>
+    </a>
+    <a href="#" id="addOtherDbTables" class="M_butt">
+        <img title="Add tables from other databases"
+             src="./themes/pmahomme/img/designer/other_table.png">
+        <span class="hide hidable">
+            Add tables from other databases
+        </span>
+    </a>
+            <a id="newPage" href="#" class="M_butt">
+            <img title="New page"
+                 alt=""
+                 src="./themes/pmahomme/img/designer/page_add.png">
+            <span class="hide hidable">
+                New page
+            </span>
+        </a>
+        <a href="#" id="editPage" class="M_butt ajax">
+            <img title="Open page"
+                 src="./themes/pmahomme/img/designer/page_edit.png">
+            <span class="hide hidable">
+                Open page
+            </span>
+        </a>
+        <a href="#" id="savePos" class="M_butt">
+            <img title="Save page"
+                 src="./themes/pmahomme/img/designer/save.png">
+            <span class="hide hidable">
+                Save page
+            </span>
+        </a>
+        <a href="#" id="SaveAs" class="M_butt ajax">
+            <img title="Save page as"
+                 src="./themes/pmahomme/img/designer/save_as.png">
+            <span class="hide hidable">
+                Save page as
+            </span>
+        </a>
+        <a href="#" id="delPages" class="M_butt ajax">
+            <img title="Delete pages"
+                 src="./themes/pmahomme/img/designer/page_delete.png">
+            <span class="hide hidable">
+                Delete pages
+            </span>
+        </a>
+        <a href="#" id="StartTableNew" class="M_butt">
+            <img title="Create table"
+                 src="./themes/pmahomme/img/designer/table.png">
+            <span class="hide hidable">
+                Create table
+            </span>
+        </a>
+        <a href="#" class="M_butt" id="rel_button">
+            <img title="Create relationship"
+                 src="./themes/pmahomme/img/designer/relation.png">
+            <span class="hide hidable">
+                Create relationship
+            </span>
+        </a>
+        <a href="#" class="M_butt" id="display_field_button">
+            <img title="Choose column to display"
+                 src="./themes/pmahomme/img/designer/display_field.png">
+            <span class="hide hidable">
+                Choose column to display
+            </span>
+        </a>
+        <a href="#" id="reloadPage" class="M_butt">
+            <img title="Reload"
+                 src="./themes/pmahomme/img/designer/reload.png">
+            <span class="hide hidable">
+                Reload
+            </span>
+        </a>
+        <a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Ffaq.html%23faq6-31" target="_blank" rel="noopener noreferrer" class="M_butt">
+            <img title="Help"
+                 src="./themes/pmahomme/img/designer/help.png">
+            <span class="hide hidable">
+                Help
+            </span>
+        </a>
+        <a href="#" class="M_butt" id="angular_direct_button">
+        <img title="Angular links / Direct links"
+             src="./themes/pmahomme/img/designer/ang_direct.png">
+        <span class="hide hidable">
+            Angular links / Direct links
+        </span>
+    </a>
+    <a href="#" class="M_butt" id="grid_button">
+        <img title="Snap to grid" src="./themes/pmahomme/img/designer/grid.png">
+        <span class="hide hidable">
+            Snap to grid
+        </span>
+    </a>
+    <a href="#" class="M_butt" id="key_SB_all">
+        <img title="Small/Big All"
+             alt="v"
+             src="./themes/pmahomme/img/designer/downarrow1.png"
+             data-down="./themes/pmahomme/img/designer/downarrow1.png"
+             data-right="./themes/pmahomme/img/designer/rightarrow1.png">
+        <span class="hide hidable">
+            Small/Big All
+        </span>
+    </a>
+    <a href="#" id="SmallTabInvert" class="M_butt">
+        <img title="Toggle small/big"
+             src="./themes/pmahomme/img/designer/bottom.png">
+        <span class="hide hidable">
+            Toggle small/big
+        </span>
+    </a>
+    <a href="#" id="relLineInvert" class="M_butt" >
+        <img title="Toggle relationship lines"
+             src="./themes/pmahomme/img/designer/toggle_lines.png">
+        <span class="hide hidable">
+            Toggle relationship lines
+        </span>
+    </a>
+            <a href="#" id="exportPages" class="M_butt" >
+            <img title="Export schema"
+                 src="./themes/pmahomme/img/designer/export.png">
+            <span class="hide hidable">
+                Export schema
+            </span>
+        </a>
+        <a href="#" class="M_butt" id="key_Left_Right">
+        <img title="Move Menu" alt=">"
+             data-right="./themes/pmahomme/img/designer/2leftarrow_m.png"
+             src="./themes/pmahomme/img/designer/2rightarrow_m.png">
+        <span class="hide hidable">
+            Move Menu
+        </span>
+    </a>
+    <a href="#" class="M_butt" id="pin_Text">
+        <img title="Pin text"
+             alt=">"
+             data-right="./themes/pmahomme/img/designer/anchor.png"
+             src="./themes/pmahomme/img/designer/anchor.png">
+        <span class="hide hidable">
+            Pin text
+        </span>
+    </a>
+</div>
+<div id="canvas_outer">
+    <form action="" id="container-form" method="post" name="form1">
+        <div id="osn_tab" class="w-100">
+            <canvas class="designer" id="canvas" width="100" height="100"></canvas>
+        </div>
+        <div id="layer_menu" class="hide">
+            <div class="text-center">
+                <a href="#" class="M_butt" target="_self" >
+                    <img title="Hide/Show all"
+                        alt="v"
+                        id="key_HS_all"
+                        src="./themes/pmahomme/img/designer/downarrow1.png"
+                        data-down="./themes/pmahomme/img/designer/downarrow1.png"
+                        data-right="./themes/pmahomme/img/designer/rightarrow1.png">
+                </a>
+                <a href="#" class="M_butt" target="_self" >
+                    <img alt="v"
+                        id="key_HS"
+                        title="Hide/Show tables with no relationship"
+                        src="./themes/pmahomme/img/designer/downarrow2.png"
+                        data-down="./themes/pmahomme/img/designer/downarrow2.png"
+                        data-right="./themes/pmahomme/img/designer/rightarrow2.png">
+                </a>
+            </div>
+            <div id="id_scroll_tab" class="scroll_tab">
+                <table class="table table-sm ps-1"></table>
+            </div>
+                        <div class="text-center">
+                Number of tables: <span id="tables_counter">0</span>
+            </div>
+            <div id="layer_menu_sizer">
+                  <img class="icon float-start"
+                      id="layer_menu_sizer_btn"
+                      data-right="./themes/pmahomme/img/designer/resizeright.png"
+                      src="./themes/pmahomme/img/designer/resize.png">
+            </div>
+        </div>
+                                            <input name="t_x[test_db.test_table]" type="hidden" id="t_x_test_db.test_table_" />
+    <input name="t_y[test_db.test_table]" type="hidden" id="t_y_test_db.test_table_" />
+    <input name="t_v[test_db.test_table]" type="hidden" id="t_v_test_db.test_table_" />
+    <input name="t_h[test_db.test_table]" type="hidden" id="t_h_test_db.test_table_" />
+    <table id="test_db.test_table"
+        db_url="test_db"
+        table_name_url="test_table"
+        cellpadding="0"
+        cellspacing="0"
+        class="table table-sm table-striped table-hover w-auto designer_tab"
+        style="position:absolute; left:341px; top:109px; display:block; z-index: 1;"> <!--"-->
+        <thead>
+            <tr class="header">
+                                <td class="small_tab"
+                    title="Show/hide columns"
+                    id="id_hide_tbody_test_db.test_table"
+                    table_name="test_db.test_table">v</td>
+                <td class="small_tab_pref small_tab_pref_1"
+                    db="test_db"
+                    db_url="test_db"
+                    table_name="test_table"
+                    table_name_url="test_table">
+                    <img src="./themes/pmahomme/img/designer/exec_small.png"
+                        title="See table structure">
+                </td>
+                <td id="id_zag_test_db.test_table"
+                    class="tab_zag text-nowrap tab_zag_noquery"
+                    table_name="test_db.test_table"
+                    query_set="0">
+                    <span class="owner">test_db</span>
+                    test_table
+                </td>
+                            </tr>
+        </thead>
+        <tbody id="id_tbody_test_db.test_table">
+                                                                                                                                                                                                                                <tr id="id_tr_test_table.id" class="tab_field" click_field_param="test_table,id,1,test_db">
+                                        <td width="10px" colspan="3" id="test_db.test_table.id">
+                        <div class="text-nowrap">
+                                                        <img src="./themes/pmahomme/img/designer/FieldKey_small.png" alt="*">
+                            id : int(11)
+                        </div>
+                    </td>
+                                    </tr>
+                                                                                                            <tr id="id_tr_test_table.name" class="tab_field_3" click_field_param="test_table,name,test_db">
+                                        <td width="10px" colspan="3" id="test_db.test_table.name">
+                        <div class="text-nowrap">
+                                                        <img src="./themes/pmahomme/img/designer/Field_small_char.png" alt="*">
+                            name : varchar(20)
+                        </div>
+                    </td>
+                                    </tr>
+                                                                                                            <tr id="id_tr_test_table.datetimefield" class="tab_field" click_field_param="test_table,datetimefield,test_db">
+                                        <td width="10px" colspan="3" id="test_db.test_table.datetimefield">
+                        <div class="text-nowrap">
+                                                        <img src="./themes/pmahomme/img/designer/Field_small_date.png" alt="*">
+                            datetimefield : datetime
+                        </div>
+                    </td>
+                                    </tr>
+                    </tbody>
+    </table>
+    </form>
+</div>
+<div id="designer_hint"></div>
+<table id="layer_new_relation" class="table table-borderless w-auto hide">
+    <tbody>
+        <tr>
+            <td class="frams1" width="10px">
+            </td>
+            <td class="frams5" width="99%" >
+            </td>
+            <td class="frams2" width="10px">
+                <div class="bor">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="frams8">
+            </td>
+            <td class="input_tab p-0">
+                <table class="table table-borderless mb-0 text-center">
+                    <thead>
+                        <tr>
+                            <td colspan="2" class="text-center text-nowrap">
+                                <strong>
+                                    Create relationship
+                                </strong>
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody id="foreign_relation">
+                        <tr>
+                            <td colspan="2" class="text-center text-nowrap">
+                                <strong>
+                                    FOREIGN KEY
+                                </strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="58" class="text-nowrap">
+                                on delete
+                            </td>
+                            <td width="102">
+                                <select name="on_delete" id="on_delete">
+                                    <option value="nix" selected>
+                                        --
+                                    </option>
+                                    <option value="CASCADE">
+                                        CASCADE
+                                    </option>
+                                    <option value="SET NULL">
+                                        SET NULL
+                                    </option>
+                                    <option value="NO ACTION">
+                                        NO ACTION
+                                    </option>
+                                    <option value="RESTRICT">
+                                        RESTRICT
+                                    </option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-nowrap">
+                                on update
+                            </td>
+                            <td>
+                                <select name="on_update" id="on_update">
+                                    <option value="nix" selected>
+                                        --
+                                    </option>
+                                    <option value="CASCADE">
+                                        CASCADE
+                                    </option>
+                                    <option value="SET NULL">
+                                        SET NULL
+                                    </option>
+                                    <option value="NO ACTION">
+                                        NO ACTION
+                                    </option>
+                                    <option value="RESTRICT">
+                                        RESTRICT
+                                    </option>
+                                </select>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td colspan="2" class="text-center text-nowrap">
+                                <input type="button" id="ok_new_rel_panel" class="btn btn-secondary butt"
+                                    name="Button" value="OK">
+                                <input type="button" id="cancel_new_rel_panel"
+                                    class="btn btn-secondary butt" name="Button" value="Cancel">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td class="frams6">
+            </td>
+        </tr>
+        <tr>
+            <td class="frams4">
+                <div class="bor">
+                </div>
+            </td>
+            <td class="frams7">
+            </td>
+            <td class="frams3">
+            </td>
+        </tr>
+    </tbody>
+</table>
+<table id="layer_upd_relation" class="table table-borderless w-auto hide">
+    <tbody>
+        <tr>
+            <td class="frams1" width="10px">
+            </td>
+            <td class="frams5" width="99%">
+            </td>
+            <td class="frams2" width="10px">
+                <div class="bor">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="frams8">
+            </td>
+            <td class="input_tab p-0">
+                <table class="table table-borderless mb-0 text-center">
+                    <tr>
+                        <td colspan="3" class="text-center text-nowrap">
+                            <strong>
+                                Delete relationship
+                            </strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="text-center text-nowrap">
+                            <input id="del_button" name="Button" type="button"
+                                class="btn btn-secondary butt" value="Delete">
+                            <input id="cancel_button" type="button" class="btn btn-secondary butt"
+                                name="Button" value="Cancel">
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td class="frams6">
+            </td>
+        </tr>
+        <tr>
+            <td class="frams4">
+                <div class="bor">
+                </div>
+            </td>
+            <td class="frams7">
+            </td>
+            <td class="frams3">
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div id="PMA_disable_floating_menubar"></div>
+<div class="modal fade" id="designerGoModal" tabindex="-1" aria-labelledby="designerGoModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="designerGoModalLabel">Loading</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cancel"></button>
+      </div>
+      <div class="modal-body"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="designerModalGoButton">Go</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="designerPromptModal" tabindex="-1" aria-labelledby="designerPromptModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="designerPromptModalLabel">Loading</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cancel"></button>
+      </div>
+      <div class="modal-body"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="designerModalYesButton">Yes</button>
+        <button type="button" class="btn btn-secondary" id="designerModalNoButton">No</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="PMA_disable_floating_menubar"></div>

@@ -19,12 +19,12 @@ use function sprintf;
  * Table/Column autocomplete in SQL editors.
  */
 #[Route('/database/sql/autocomplete', ['POST'])]
-final class SqlAutoCompleteController implements InvocableController
+final readonly class SqlAutoCompleteController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly DatabaseInterface $dbi,
-        private readonly Config $config,
+        private ResponseRenderer $response,
+        private DatabaseInterface $dbi,
+        private Config $config,
     ) {
     }
 

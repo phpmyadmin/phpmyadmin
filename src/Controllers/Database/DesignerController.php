@@ -25,14 +25,14 @@ use function json_encode;
 use function sprintf;
 
 #[Route('/database/designer', ['GET', 'POST'])]
-final class DesignerController implements InvocableController
+final readonly class DesignerController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Template $template,
-        private readonly Designer $databaseDesigner,
-        private readonly DesignerCommon $designerCommon,
-        private readonly DbTableExists $dbTableExists,
+        private ResponseRenderer $response,
+        private Template $template,
+        private Designer $databaseDesigner,
+        private DesignerCommon $designerCommon,
+        private DbTableExists $dbTableExists,
     ) {
     }
 
@@ -253,7 +253,7 @@ final class DesignerController implements InvocableController
         // by designer/init.js and converted to JS variables.
         $this->response->addHTML($mainHtml);
 
-        $this->response->addHTML('<div id="PMA_disable_floating_menubar"></div>');
+        $this->response->addHTML('<div id="PMA_disable_floating_menubar"></div>' . "\n");
 
         return $this->response->response();
     }

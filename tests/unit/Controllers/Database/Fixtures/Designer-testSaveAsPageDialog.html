@@ -1,0 +1,39 @@
+<form action="index.php?route=/database/designer&lang=en" method="post" name="save_as_pages" id="save_as_pages" class="ajax">
+  <input type="hidden" name="db" value="test_db"><input type="hidden" name="lang" value="en"><input type="hidden" name="token" value="token">
+  <table class="table table-borderless">
+    <tbody>
+      <tr>
+        <td>
+          <input type="hidden" name="operation" value="savePage">
+          <select name="selected_page" id="selected_page">
+    <option value="0">-- Select page --</option>
+                        <option value="1">
+                Page one
+            </option>
+                    <option value="2">
+                Page two
+            </option>
+            </select>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div>
+            <input type="radio" name="save_page" id="savePageSameRadio" value="same" checked>
+            <label for="savePageSameRadio">Save to selected page</label>
+          </div>
+          <div>
+            <input type="radio" name="save_page" id="savePageNewRadio" value="new">
+            <label for="savePageNewRadio">Create a page and save to it</label>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="selected_value">New page name</label>
+          <input type="text" name="selected_value" id="selected_value">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</form>

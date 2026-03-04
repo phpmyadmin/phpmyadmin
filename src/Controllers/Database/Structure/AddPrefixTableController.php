@@ -15,12 +15,10 @@ use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Util;
 
 #[Route('/database/structure/add-prefix-table', ['POST'])]
-final class AddPrefixTableController implements InvocableController
+final readonly class AddPrefixTableController implements InvocableController
 {
-    public function __construct(
-        private readonly DatabaseInterface $dbi,
-        private readonly StructureController $structureController,
-    ) {
+    public function __construct(private DatabaseInterface $dbi, private StructureController $structureController)
+    {
     }
 
     public function __invoke(ServerRequest $request): Response
