@@ -1,56 +1,60 @@
-<h3>{{ t('Structure') }}</h3>
-<table id="tablestructure" class="table table-striped table-hover w-auto">
-    <thead>
-        <tr>
-            <th>{{ t('#', context = 'Number') }}</th>
-            <th>{{ t('Column') }}</th>
-            <th>{{ t('Type') }}</th>
-            <th>{{ t('Collation') }}</th>
-            <th>{{ t('Null') }}</th>
-            <th>{{ t('Default') }}</th>
-            <th>{{ t('Extra') }}</th>
-            <th>{{ t('Comment') }}</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% set index = 1 %}
-        {% for field in columns %}
-            <tr class="noclick">
-                <td>{{ index }}</td>
-                {% set index = index + 1 %}
-                <td>
-                    <strong>
-                        {{ field['Field'] }}
-                        {% if field['Key'] == 'PRI' %}
-                            {{ get_image('b_primary', t('Primary')) }}
-                        {% elseif field['Key'] is not empty %}
-                            {{ get_image('bd_primary', t('Index')) }}
-                        {% endif %}
-                    </strong>
-                </td>
-                <td>{{ field['Type'] }}</td>
-                <td>{{ field['Collation'] }}</td>
-                <td>{{ field['Null'] == 'YES' ? t('Yes') : t('No') }}</td>
-                <td>
-                    {% if field['Default'] is defined %}
-                        {% set extracted_columnspec = extract_column_spec(field['Type']) %}
-                        {% if extracted_columnspec['type'] == 'bit' %}
-                            {# here, $field['Default'] contains something like b'010' #}
-                            {{ field['Default']|convert_bit_default_value }}
-                        {% else %}
-                            {{ field['Default'] }}
-                        {% endif %}
-                    {% else %}
-                        {% if field['Null'] == 'YES' %}
-                            <em>NULL</em>
-                        {% else %}
-                            <em>{{ t('None', context = 'None for default') }}</em>
-                        {% endif %}
-                    {% endif %}
-                </td>
-                <td>{{ field['Extra'] }}</td>
-                <td>{{ field['Comment'] }}</td>
-            </tr>
-        {% endfor %}
-    </tbody>
-</table>
+<div class="card mb-3">
+    <div class="card-header">{{ t('Structure') }}</div>
+    <div class="card-body">
+        <table id="tablestructure" class="table table-striped table-hover w-auto">
+            <thead>
+                <tr>
+                    <th>{{ t('#', context = 'Number') }}</th>
+                    <th>{{ t('Column') }}</th>
+                    <th>{{ t('Type') }}</th>
+                    <th>{{ t('Collation') }}</th>
+                    <th>{{ t('Null') }}</th>
+                    <th>{{ t('Default') }}</th>
+                    <th>{{ t('Extra') }}</th>
+                    <th>{{ t('Comment') }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% set index = 1 %}
+                {% for field in columns %}
+                    <tr class="noclick">
+                        <td>{{ index }}</td>
+                        {% set index = index + 1 %}
+                        <td>
+                            <strong>
+                                {{ field['Field'] }}
+                                {% if field['Key'] == 'PRI' %}
+                                    {{ get_image('b_primary', t('Primary')) }}
+                                {% elseif field['Key'] is not empty %}
+                                    {{ get_image('bd_primary', t('Index')) }}
+                                {% endif %}
+                            </strong>
+                        </td>
+                        <td>{{ field['Type'] }}</td>
+                        <td>{{ field['Collation'] }}</td>
+                        <td>{{ field['Null'] == 'YES' ? t('Yes') : t('No') }}</td>
+                        <td>
+                            {% if field['Default'] is defined %}
+                                {% set extracted_columnspec = extract_column_spec(field['Type']) %}
+                                {% if extracted_columnspec['type'] == 'bit' %}
+                                    {# here, $field['Default'] contains something like b'010' #}
+                                    {{ field['Default']|convert_bit_default_value }}
+                                {% else %}
+                                    {{ field['Default'] }}
+                                {% endif %}
+                            {% else %}
+                                {% if field['Null'] == 'YES' %}
+                                    <em>NULL</em>
+                                {% else %}
+                                    <em>{{ t('None', context = 'None for default') }}</em>
+                                {% endif %}
+                            {% endif %}
+                        </td>
+                        <td>{{ field['Extra'] }}</td>
+                        <td>{{ field['Comment'] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
