@@ -13846,8 +13846,9 @@
       <code>$str5</code>
       <code>$value['Name']</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="22">
+    <MixedArrayAccess occurrences="23">
       <code>$data[$which_log][$delete_id]</code>
+      <code>$data['ddlog']</code>
       <code>$data['ddlog']</code>
       <code>$data['ddlog']</code>
       <code>$data['ddlog']</code>
