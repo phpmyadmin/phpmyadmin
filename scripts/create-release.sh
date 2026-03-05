@@ -217,6 +217,7 @@ cleanup_composer_vendors() {
         vendor/webmozart/assert/.github/ \
         vendor/webmozart/assert/.php_cs \
         vendor/webmozart/assert/psalm.xml \
+        vendor/webmozart/assert/.php-cs-fixer.php \
         vendor/twig/twig/src/Test/ \
         vendor/psr/http-message/docs/ \
         vendor/psr/log/Psr/Log/Test/ \
