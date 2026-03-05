@@ -17931,11 +17931,6 @@ parameters:
 			path: libraries/classes/Gis/GisGeometry.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:extractPoints\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisGeometry.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:generateParams\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisGeometry.php
@@ -18256,16 +18251,6 @@ parameters:
 			path: libraries/classes/Gis/GisLineString.php
 
 		-
-			message: "#^Cannot access offset 0 on mixed\\.$#"
-			count: 8
-			path: libraries/classes/Gis/GisLineString.php
-
-		-
-			message: "#^Cannot access offset 1 on mixed\\.$#"
-			count: 8
-			path: libraries/classes/Gis/GisLineString.php
-
-		-
 			message: "#^Cannot access offset int\\<0, max\\> on mixed\\.$#"
 			count: 4
 			path: libraries/classes/Gis/GisLineString.php
@@ -18311,42 +18296,7 @@ parameters:
 			path: libraries/classes/Gis/GisLineString.php
 
 		-
-			message: "#^Parameter \\#1 \\$number of function round expects float, mixed given\\.$#"
-			count: 6
-			path: libraries/classes/Gis/GisLineString.php
-
-		-
 			message: "#^Parameter \\#1 \\$str of function mb_substr expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisLineString.php
-
-		-
-			message: "#^Parameter \\#1 \\$x of method TCPDF\\:\\:setXY\\(\\) expects float, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisLineString.php
-
-		-
-			message: "#^Parameter \\#1 \\$x1 of method TCPDF\\:\\:Line\\(\\) expects float, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisLineString.php
-
-		-
-			message: "#^Parameter \\#2 \\$y of method TCPDF\\:\\:setXY\\(\\) expects float, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisLineString.php
-
-		-
-			message: "#^Parameter \\#2 \\$y1 of method TCPDF\\:\\:Line\\(\\) expects float, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisLineString.php
-
-		-
-			message: "#^Parameter \\#3 \\$x2 of method TCPDF\\:\\:Line\\(\\) expects float, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisLineString.php
-
-		-
-			message: "#^Parameter \\#4 \\$y2 of method TCPDF\\:\\:Line\\(\\) expects float, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisLineString.php
 
@@ -18406,16 +18356,6 @@ parameters:
 			path: libraries/classes/Gis/GisMultiLineString.php
 
 		-
-			message: "#^Cannot access offset 0 on mixed\\.$#"
-			count: 8
-			path: libraries/classes/Gis/GisMultiLineString.php
-
-		-
-			message: "#^Cannot access offset 1 on mixed\\.$#"
-			count: 8
-			path: libraries/classes/Gis/GisMultiLineString.php
-
-		-
 			message: "#^Cannot access offset int\\<0, max\\> on mixed\\.$#"
 			count: 11
 			path: libraries/classes/Gis/GisMultiLineString.php
@@ -18466,42 +18406,7 @@ parameters:
 			path: libraries/classes/Gis/GisMultiLineString.php
 
 		-
-			message: "#^Parameter \\#1 \\$number of function round expects float, mixed given\\.$#"
-			count: 6
-			path: libraries/classes/Gis/GisMultiLineString.php
-
-		-
 			message: "#^Parameter \\#1 \\$str of function mb_substr expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiLineString.php
-
-		-
-			message: "#^Parameter \\#1 \\$x of method TCPDF\\:\\:setXY\\(\\) expects float, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiLineString.php
-
-		-
-			message: "#^Parameter \\#1 \\$x1 of method TCPDF\\:\\:Line\\(\\) expects float, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiLineString.php
-
-		-
-			message: "#^Parameter \\#2 \\$y of method TCPDF\\:\\:setXY\\(\\) expects float, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiLineString.php
-
-		-
-			message: "#^Parameter \\#2 \\$y1 of method TCPDF\\:\\:Line\\(\\) expects float, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiLineString.php
-
-		-
-			message: "#^Parameter \\#3 \\$x2 of method TCPDF\\:\\:Line\\(\\) expects float, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiLineString.php
-
-		-
-			message: "#^Parameter \\#4 \\$y2 of method TCPDF\\:\\:Line\\(\\) expects float, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiLineString.php
 
@@ -18547,12 +18452,12 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 0 on mixed\\.$#"
-			count: 8
+			count: 1
 			path: libraries/classes/Gis/GisMultiPoint.php
 
 		-
 			message: "#^Cannot access offset 1 on mixed\\.$#"
-			count: 8
+			count: 1
 			path: libraries/classes/Gis/GisMultiPoint.php
 
 		-
@@ -18561,12 +18466,12 @@ parameters:
 			path: libraries/classes/Gis/GisMultiPoint.php
 
 		-
-			message: "#^Cannot cast mixed to float\\.$#"
+			message: "#^Cannot cast mixed to string\\.$#"
 			count: 2
 			path: libraries/classes/Gis/GisMultiPoint.php
 
 		-
-			message: "#^Cannot cast mixed to string\\.$#"
+			message: "#^Casting to float something that's already float\\.$#"
 			count: 2
 			path: libraries/classes/Gis/GisMultiPoint.php
 
@@ -18616,37 +18521,12 @@ parameters:
 			path: libraries/classes/Gis/GisMultiPoint.php
 
 		-
-			message: "#^Parameter \\#1 \\$number of function round expects float, mixed given\\.$#"
-			count: 4
-			path: libraries/classes/Gis/GisMultiPoint.php
-
-		-
 			message: "#^Parameter \\#1 \\$point of method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getPointForOpenLayers\\(\\) expects array, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPoint.php
 
 		-
 			message: "#^Parameter \\#1 \\$str of function mb_substr expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiPoint.php
-
-		-
-			message: "#^Parameter \\#1 \\$x of method TCPDF\\:\\:setXY\\(\\) expects float, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiPoint.php
-
-		-
-			message: "#^Parameter \\#1 \\$x0 of method TCPDF\\:\\:Circle\\(\\) expects float, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiPoint.php
-
-		-
-			message: "#^Parameter \\#2 \\$y of method TCPDF\\:\\:setXY\\(\\) expects float, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiPoint.php
-
-		-
-			message: "#^Parameter \\#2 \\$y0 of method TCPDF\\:\\:Circle\\(\\) expects float, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPoint.php
 
@@ -18732,12 +18612,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 0 on mixed\\.$#"
-			count: 7
-			path: libraries/classes/Gis/GisMultiPolygon.php
-
-		-
-			message: "#^Cannot access offset 1 on mixed\\.$#"
-			count: 4
+			count: 3
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
@@ -18801,11 +18676,6 @@ parameters:
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
-			message: "#^Parameter \\#1 \\$number of function round expects float, mixed given\\.$#"
-			count: 2
-			path: libraries/classes/Gis/GisMultiPolygon.php
-
-		-
 			message: "#^Parameter \\#1 \\$point of static method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:isPointInsidePolygon\\(\\) expects array, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPolygon.php
@@ -18826,22 +18696,12 @@ parameters:
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
-			message: "#^Parameter \\#1 \\$x of method TCPDF\\:\\:setXY\\(\\) expects float, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiPolygon.php
-
-		-
 			message: "#^Parameter \\#2 \\$color of method PhpMyAdmin\\\\Image\\\\ImageWrapper\\:\\:filledPolygon\\(\\) expects int, int\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
 			message: "#^Parameter \\#2 \\$polygon of static method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:isPointInsidePolygon\\(\\) expects array, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiPolygon.php
-
-		-
-			message: "#^Parameter \\#2 \\$y of method TCPDF\\:\\:setXY\\(\\) expects float, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
@@ -18876,22 +18736,12 @@ parameters:
 			path: libraries/classes/Gis/GisPoint.php
 
 		-
-			message: "#^Cannot access offset 0 on mixed\\.$#"
-			count: 6
-			path: libraries/classes/Gis/GisPoint.php
-
-		-
-			message: "#^Cannot access offset 1 on mixed\\.$#"
-			count: 6
-			path: libraries/classes/Gis/GisPoint.php
-
-		-
-			message: "#^Cannot cast mixed to float\\.$#"
+			message: "#^Cannot cast mixed to string\\.$#"
 			count: 2
 			path: libraries/classes/Gis/GisPoint.php
 
 		-
-			message: "#^Cannot cast mixed to string\\.$#"
+			message: "#^Casting to float something that's already float\\.$#"
 			count: 2
 			path: libraries/classes/Gis/GisPoint.php
 
@@ -18936,37 +18786,7 @@ parameters:
 			path: libraries/classes/Gis/GisPoint.php
 
 		-
-			message: "#^Parameter \\#1 \\$number of function round expects float, mixed given\\.$#"
-			count: 4
-			path: libraries/classes/Gis/GisPoint.php
-
-		-
-			message: "#^Parameter \\#1 \\$point of method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getPointForOpenLayers\\(\\) expects array, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisPoint.php
-
-		-
 			message: "#^Parameter \\#1 \\$str of function mb_substr expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisPoint.php
-
-		-
-			message: "#^Parameter \\#1 \\$x of method TCPDF\\:\\:setXY\\(\\) expects float, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisPoint.php
-
-		-
-			message: "#^Parameter \\#1 \\$x0 of method TCPDF\\:\\:Circle\\(\\) expects float, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisPoint.php
-
-		-
-			message: "#^Parameter \\#2 \\$y of method TCPDF\\:\\:setXY\\(\\) expects float, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisPoint.php
-
-		-
-			message: "#^Parameter \\#2 \\$y0 of method TCPDF\\:\\:Circle\\(\\) expects float, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPoint.php
 
@@ -19013,16 +18833,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'y' on mixed\\.$#"
 			count: 21
-			path: libraries/classes/Gis/GisPolygon.php
-
-		-
-			message: "#^Cannot access offset 0 on mixed\\.$#"
-			count: 3
-			path: libraries/classes/Gis/GisPolygon.php
-
-		-
-			message: "#^Cannot access offset 1 on mixed\\.$#"
-			count: 3
 			path: libraries/classes/Gis/GisPolygon.php
 
 		-
@@ -19106,27 +18916,12 @@ parameters:
 			path: libraries/classes/Gis/GisPolygon.php
 
 		-
-			message: "#^Parameter \\#1 \\$number of function round expects float, mixed given\\.$#"
-			count: 2
-			path: libraries/classes/Gis/GisPolygon.php
-
-		-
 			message: "#^Parameter \\#1 \\$str of function mb_substr expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPolygon.php
 
 		-
-			message: "#^Parameter \\#1 \\$x of method TCPDF\\:\\:setXY\\(\\) expects float, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisPolygon.php
-
-		-
 			message: "#^Parameter \\#2 \\$color of method PhpMyAdmin\\\\Image\\\\ImageWrapper\\:\\:filledPolygon\\(\\) expects int, int\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisPolygon.php
-
-		-
-			message: "#^Parameter \\#2 \\$y of method TCPDF\\:\\:setXY\\(\\) expects float, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPolygon.php
 

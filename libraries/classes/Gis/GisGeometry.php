@@ -227,6 +227,7 @@ abstract class GisGeometry
      * @param bool       $linear     if true, as a 1D array, else as a 2D array
      *
      * @return array scaled points
+     * @psalm-return ($linear is true? list<float> : list<array{float,float}>)
      */
     protected function extractPoints($point_set, $scale_data, $linear = false): array
     {
@@ -249,8 +250,8 @@ abstract class GisGeometry
                     $y = floatval($scale_data['height'] - ($y - $scale_data['y']) * $scale_data['scale']);
                 }
             } else {
-                $x = 0;
-                $y = 0;
+                $x = 0.0;
+                $y = 0.0;
             }
 
             if (! $linear) {
