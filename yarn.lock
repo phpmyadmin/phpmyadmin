@@ -4963,10 +4963,10 @@ tr46@^2.1.0:
   dependencies:
     punycode "^2.1.1"
 
-tracekit@0.4.7:
-  version "0.4.7"
-  resolved "https://registry.yarnpkg.com/tracekit/-/tracekit-0.4.7.tgz#64a5ab60ed3f0470208186fdaf4053285b345e15"
-  integrity sha512-d3BLRambfZ0VOYLIh7FRSElugsOMrNgxzT4jXyOXC7lnhoeEJIHNg8VAcpKVVmu9kREGUAVg8Eh3SlRfkU/ksQ==
+tracekit@0.4.9:
+  version "0.4.9"
+  resolved "https://registry.yarnpkg.com/tracekit/-/tracekit-0.4.9.tgz#aa861fcf708529839065529d16ed15040b3c43dd"
+  integrity sha512-t0FLQeE8F5PQiyyGsdynxWBSNyYA3IxtdDEqviYQAJmFwNMRxy0tIVGJsqBzbstG8FQvgJ4PehLdqjCHffsggQ==
 
 trim-newlines@^3.0.0:
   version "3.0.1"
