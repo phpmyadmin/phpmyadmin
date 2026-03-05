@@ -237,6 +237,8 @@ class Normalization
             . '</div><div class="card-footer"></div>'
             . '</div>';
 
+        $html .= $this->template->render('modals/index_dialog_modal');
+
         return $html;
     }
 

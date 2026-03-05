@@ -13,7 +13,7 @@ export default function updateNavigationWidthConfig (value: number): void {
             value: value,
         },
         success: function (data) {
-            if (data.success !== true) {
+            if (typeof data !== 'undefined' && data.success !== true) {
                 // Try to find a message to display
                 if (data.error || data.message) {
                     ajaxShowMessage(data.error || data.message);

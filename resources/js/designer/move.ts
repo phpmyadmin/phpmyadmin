@@ -634,6 +634,11 @@ const addTableToTablesList = function (index, tableDom) {
  */
 const displayModal = function (form, heading, type) {
     var modal = $(type);
+
+    modal.one('hidden.bs.modal', function () {
+        modal.find('*').off('click'); // Unregister all click events when the modal is hidden
+    });
+
     modal.modal('show');
     modal.find('.modal-body').first().html(form);
     $(type + 'Label').first().html(heading);
@@ -700,7 +705,6 @@ const addOtherDbTables = function () {
             }
         });
 
-        $('#designerModalGoButton').off('click');// Unregister the event for other modals to not call this one
         modal.modal('hide');
     });
 
@@ -882,7 +886,6 @@ const save3 = function (callback = undefined) {
             var $form = $('#save_page');
             $form.trigger('submit');
 
-            $('#designerModalGoButton').off('click');// Unregister the event for other modals to not call this one
             modal.modal('hide');
         });
     }
@@ -919,7 +922,6 @@ const editPages = function () {
                         return;
                     }
 
-                    $('#designerModalGoButton').off('click');// Unregister the event for other modals to not call this one
                     modal.modal('hide');
                     DesignerMove.loadPage(selected);
                 });
@@ -990,7 +992,6 @@ const deletePages = function () {
                     });
                 }
 
-                $('#designerModalGoButton').off('click');// Unregister the event for other modals to not call this one
                 modal.modal('hide');
             });
         }
@@ -1084,7 +1085,6 @@ const saveAs = function () {
                     }
                 }
 
-                $('#designerModalGoButton').off('click');// Unregister the event for other modals to not call this one
                 modal.modal('hide');
             });
 
@@ -1154,7 +1154,6 @@ const exportPages = function () {
             var modal = DesignerMove.displayModal($form, window.Messages.strExportRelationalSchema, '#designerGoModal');
             $('#designerModalGoButton').on('click', function () {
                 $('#id_export_pages').trigger('submit');
-                $('#designerModalGoButton').off('click');// Unregister the event for other modals to not call this one
                 modal.modal('hide');
             });
         }

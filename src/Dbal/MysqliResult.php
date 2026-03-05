@@ -106,7 +106,7 @@ final class MysqliResult implements ResultInterface
     /**
      * Returns all rows of the result
      *
-     * @return array<array<string|null>>
+     * @return array<int, array<string|null>>
      * @psalm-return list<array<array-key, string|null>>
      */
     public function fetchAllAssoc(): array

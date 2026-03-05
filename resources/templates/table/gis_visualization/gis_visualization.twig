@@ -43,9 +43,9 @@
               {{ get_icon('b_saveimage', t('Save')) }}
             </button>
             <ul class="dropdown-menu" aria-labelledby="saveImageButton">
-              <li><a class="dropdown-item disableAjax" href="{{ download_url|raw }}&fileFormat=png">PNG</a></li>
-              <li><a class="dropdown-item disableAjax" href="{{ download_url|raw }}&fileFormat=pdf">PDF</a></li>
-              <li><a class="dropdown-item disableAjax" href="{{ download_url|raw }}&fileFormat=svg">SVG</a></li>
+            {% for fileType in download_options %}
+              <li><a class="dropdown-item disableAjax" download href="{{ download_url|raw }}&amp;fileFormat={{ fileType }}">{{ fileType|upper }}</a></li>
+            {% endfor %}
             </ul>
           </div>
         </div>
