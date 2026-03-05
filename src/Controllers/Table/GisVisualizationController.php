@@ -31,6 +31,8 @@ use TCPDF;
 
 use function __;
 use function array_search;
+use function class_exists;
+use function extension_loaded;
 use function in_array;
 use function is_array;
 use function is_string;

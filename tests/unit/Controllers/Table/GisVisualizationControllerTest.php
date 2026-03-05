@@ -110,6 +110,11 @@ class GisVisualizationControllerTest extends AbstractTestCase
                     ],
                 ],
             ],
+            'download_options' => [
+                'pdf',
+                'png',
+                'svg',
+            ],
         ]);
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
