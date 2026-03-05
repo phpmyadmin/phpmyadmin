@@ -207,9 +207,13 @@ validateExtension() {
 for filePath in ${FILE_LIST}; do
     validateExtension
     case $filePath in
-        */rector*.php)
+        */composer-require-checker.json)
         foundFile;;
-        */.gitkeep)
+        */CLAUDE.MD)
+        foundFile;;
+        */Readme.php)
+        foundFile;;
+        */rector*.php)
         foundFile;;
         */.editorconfig)
         foundFile;;
@@ -219,15 +223,27 @@ for filePath in ${FILE_LIST}; do
         foundFile;;
         */psalm.xml)
         foundFile;;
+        */psalm.xml.dist)
+        foundFile;;
+        */phpdoc.xml)
+        foundFile;;
+        */phpdoc.dist.xml)
+        foundFile;;
         */.coveralls.yml)
+        foundFile;;
+        */.yamllint.yaml)
         foundFile;;
         */appveyor.yml)
         foundFile;;
         */phpunit.xml)
         foundFile;;
+        */phpunit.xml.dist)
+        foundFile;;
         */phive.xml)
         foundFile;;
         */Makefile)
+        foundFile;;
+        */splitsh.json)
         foundFile;;
         */phpbench.json)
         foundFile;;
@@ -241,15 +257,17 @@ for filePath in ${FILE_LIST}; do
         foundFile;;
         */.php_cs.cache)
         foundFile;;
+        */.php-cs-fixer.php)
+        foundFile;;
         */psalm.xml)
         foundFile;;
-        */phpstan.neon)
-        foundFile;;
-        */phpstan.neon)
+        */phpcs.xml)
         foundFile;;
         */phpcs.xml.dist)
         foundFile;;
-        */phpunit.xml.dist)
+        */ecs.php)
+        foundFile;;
+        */easy-coding-standard.neon)
         foundFile;;
         */.scrutinizer.yml)
         foundFile;;
@@ -258,6 +276,12 @@ for filePath in ${FILE_LIST}; do
         */.gitattributes)
         foundFile;;
         */.gitignore)
+        foundFile;;
+        */.gitkeep)
+        foundFile;;
+        */.mailmap)
+        foundFile;;
+        */.env)
         foundFile;;
         */infection.json.dist)
         foundFile;;
@@ -270,6 +294,8 @@ for filePath in ${FILE_LIST}; do
         */Makefile)
         foundFile;;
         */.phpunit.result.cache)
+        foundFile;;
+        */phpstan.neon)
         foundFile;;
         */phpstan.neon.dist)
         foundFile;;
