@@ -133,7 +133,9 @@ function setConfigValue (key: string, value: boolean|number|string): void {
             value: value,
         },
     ).fail(function (data) {
-        const message = '<div class="alert alert-danger" role="alert">' + escapeHtml(data.responseJSON.error) + '</div>';
-        ajaxShowMessage(message, false);
+        if (typeof data !== 'undefined' && data.responseJSON) {
+            const message = '<div class="alert alert-danger" role="alert">' + escapeHtml(data.responseJSON.error) + '</div>';
+            ajaxShowMessage(message, false);
+        }
     });
 }
