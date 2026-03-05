@@ -4135,9 +4135,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <FalsableReturnStatement>
-      <code><![CDATA[$this->compression ?? $this->detectCompression()]]></code>
-    </FalsableReturnStatement>
     <InvalidArrayAccess>
       <code><![CDATA[$_FILES['fields_upload']['error']['multi_edit']]]></code>
     </InvalidArrayAccess>
@@ -4145,9 +4142,6 @@
       <code><![CDATA[$_FILES['fields_upload']['name']['multi_edit']]]></code>
       <code><![CDATA[$_FILES['fields_upload']['tmp_name']['multi_edit']]]></code>
     </InvalidArrayOffset>
-    <InvalidFalsableReturnType>
-      <code><![CDATA[string]]></code>
-    </InvalidFalsableReturnType>
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[$this->handle]]></code>
     </InvalidPropertyAssignmentValue>
@@ -4164,31 +4158,15 @@
       <code><![CDATA[$error]]></code>
       <code><![CDATA[$tempName]]></code>
     </MixedAssignment>
-    <PossiblyNullArgument>
-      <code><![CDATA[$this->getName()]]></code>
-      <code><![CDATA[$this->getName()]]></code>
-      <code><![CDATA[$this->getName()]]></code>
-    </PossiblyNullArgument>
     <PossiblyNullArrayOffset>
       <code><![CDATA[$_REQUEST['fields_uploadlocal']['multi_edit']]]></code>
     </PossiblyNullArrayOffset>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[getCharset]]></code>
-      <code><![CDATA[getChunkSize]]></code>
-      <code><![CDATA[getContentLength]]></code>
-      <code><![CDATA[getHandle]]></code>
-      <code><![CDATA[getOffset]]></code>
-      <code><![CDATA[setCharset]]></code>
-      <code><![CDATA[setChunkSize]]></code>
-      <code><![CDATA[setHandle]]></code>
-    </PossiblyUnusedMethod>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[bool]]></code>
       <code><![CDATA[bool]]></code>
       <code><![CDATA[bool]]></code>
     </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[$name]]></code>
       <code><![CDATA[empty($_FILES['fields_upload']['name']['multi_edit'][$rownumber][$key])]]></code>
       <code><![CDATA[empty($_REQUEST['fields_uploadlocal']['multi_edit'][$rownumber][$key])]]></code>
     </RiskyTruthyFalsyComparison>
