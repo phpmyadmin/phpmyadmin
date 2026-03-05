@@ -84,8 +84,8 @@ while [ $# -gt 0 ] ; do
             echo "If --stable is specified, the STABLE branch is updated with this release"
             echo "If --test is specified, the testsuite is executed before creating the release"
             echo "If --ci is specified, the testsuite is executed and no actual release is created"
-            echo "If --no-sign is specified, the ouput files will not be signed"
-            echo "If --daily is specified, the ouput files will have snapshot information"
+            echo "If --no-sign is specified, the output files will not be signed"
+            echo "If --daily is specified, the output files will have snapshot information"
             echo "If --revision-info is specified, the output files will contain git revision info"
             echo "If --compressions is specified, it changes the compressions available. Space separated values. Valid values: $COMPRESSIONS"
             echo "If --kits is specified, it changes the kits to be built. Space separated values. Valid values: $KITS"
@@ -595,7 +595,7 @@ autoload_checkup
 echo "* Running a security checkup"
 security_checkup
 if [ $do_tag -eq 1 ] ; then
-    echo "* Commiting composer.lock"
+    echo "* Committing composer.lock"
     git add --force composer.lock
     git commit -s -m "Adding composer lock for $version"
 fi
