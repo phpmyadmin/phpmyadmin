@@ -152,58 +152,6 @@ mark_as_release() {
 cleanup_composer_vendors() {
     echo "* Cleanup of composer packages"
 
-    # Normally already deleted, keep them for some time if they come back (it happens)
-    rm -rvf \
-        vendor/beberlei/assert/.github/ \
-        vendor/code-lts/u2f-php-server/phpunit.xml \
-        vendor/code-lts/u2f-php-server/test/ \
-        vendor/dasprid/enum/.github/ \
-        vendor/dasprid/enum/phpunit.xml.dist \
-        vendor/dasprid/enum/test/ \
-        vendor/paragonie/constant_time_encoding/tests/ \
-        vendor/paragonie/constant_time_encoding/psalm.xml \
-        vendor/paragonie/constant_time_encoding/phpunit.xml.dist \
-        vendor/paragonie/constant_time_encoding/.travis.yml \
-        vendor/paragonie/sodium_compat/.github/ \
-        vendor/paragonie/sodium_compat/dist/ \
-        vendor/paragonie/sodium_compat/phpunit.xml.dist \
-        vendor/paragonie/sodium_compat/.gitignore \
-        vendor/paragonie/sodium_compat/psalm-above-3.xml \
-        vendor/paragonie/sodium_compat/psalm-below-3.xml \
-        vendor/paragonie/sodium_compat/build-phar.sh \
-        vendor/paragonie/sodium_compat/appveyor.yml \
-        vendor/paragonie/sodium_compat/autoload-phpunit.php \
-        vendor/paragonie/sodium_compat/autoload-pedantic.php \
-        vendor/paragonie/sodium_compat/autoload-fast.php \
-        vendor/psr/http-factory/.pullapprove.yml \
-        vendor/pragmarx/google2fa/phpstan.neon \
-        vendor/phpmyadmin/shapefile/CODE_OF_CONDUCT.md \
-        vendor/phpmyadmin/sql-parser/tools/ \
-        vendor/phpmyadmin/sql-parser/CODE_OF_CONDUCT.md \
-        vendor/phpmyadmin/sql-parser/CONTRIBUTING.md \
-        vendor/phpmyadmin/shapefile/phpstan-baseline.neon \
-        vendor/phpmyadmin/shapefile/phpstan.neon.dist \
-        vendor/phpmyadmin/shapefile/codecov.yml \
-        vendor/symfony/cache/Tests/ \
-        vendor/symfony/expression-language/Tests/ \
-        vendor/tecnickcom/tcpdf/examples/ \
-        vendor/tecnickcom/tcpdf/.git \
-        vendor/tecnickcom/tcpdf/.github/ \
-        vendor/twig/twig/doc/ \
-        vendor/twig/twig/test/ \
-        vendor/twig/twig/.github/ \
-        vendor/twig/twig/.travis.yml \
-        vendor/twig/twig/.editorconfig \
-        vendor/twig/twig/.php_cs.dist \
-        vendor/twig/twig/drupal_test.sh \
-        vendor/twig/twig/.php-cs-fixer.dist.php \
-        vendor/webmozart/assert/.editorconfig \
-        vendor/webmozart/assert/.github/ \
-        vendor/webmozart/assert/.php_cs \
-        vendor/webmozart/assert/psalm.xml \
-        vendor/williamdes/mariadb-mysql-kbs/phpunit.xml \
-        vendor/williamdes/mariadb-mysql-kbs/test/
-
     rm -r \
         vendor/phpmyadmin/sql-parser/tests/ \
         vendor/phpmyadmin/sql-parser/src/Tools/ \
@@ -217,9 +165,6 @@ cleanup_composer_vendors() {
         vendor/phpmyadmin/shapefile/tests/ \
         vendor/phpmyadmin/shapefile/examples/ \
         vendor/phpmyadmin/shapefile/data/ \
-        vendor/phpmyadmin/twig-i18n-extension/README.rst \
-        vendor/phpmyadmin/twig-i18n-extension/phpunit.xml.dist \
-        vendor/phpmyadmin/twig-i18n-extension/test/ \
         vendor/symfony/service-contracts/Test/ \
         vendor/symfony/expression-language/Resources/ \
         vendor/symfony/dependency-injection/Loader/schema/dic/services/services-1.0.xsd \
@@ -228,12 +173,6 @@ cleanup_composer_vendors() {
         vendor/tecnickcom/tcpdf/fonts/dejavu-fonts-ttf-2.*/ \
         vendor/tecnickcom/tcpdf/fonts/freefont-*/ \
         vendor/tecnickcom/tcpdf/include/sRGB.icc \
-        vendor/thecodingmachine/safe/generated/Exceptions/.gitkeep \
-        vendor/thecodingmachine/safe/rector-migrate-0.7.php \
-        vendor/bacon/bacon-qr-code/phpunit.xml.dist \
-        vendor/bacon/bacon-qr-code/test/ \
-        vendor/brick/math/psalm-baseline.xml \
-        vendor/brick/math/psalm.xml \
         vendor/williamdes/mariadb-mysql-kbs/schemas/ \
         vendor/williamdes/mariadb-mysql-kbs/dist/merged-raw.json \
         vendor/williamdes/mariadb-mysql-kbs/dist/merged-raw.md \
@@ -249,45 +188,17 @@ cleanup_composer_vendors() {
         vendor/webmozart/assert/.php-cs-fixer.php \
         vendor/twig/twig/src/Test/ \
         vendor/psr/http-message/docs/ \
-        vendor/psr/log/Psr/Log/Test/ \
-        vendor/paragonie/random_compat/other/build_phar.php \
-        vendor/paragonie/random_compat/other \
-        vendor/paragonie/random_compat/build-phar.sh \
-        vendor/paragonie/random_compat/dist/random_compat.phar.pubkey \
-        vendor/paragonie/random_compat/dist/random_compat.phar.pubkey.asc \
-        vendor/paragonie/random_compat/dist \
-        vendor/paragonie/random_compat/psalm-autoload.php \
-        vendor/paragonie/random_compat/psalm.xml \
-        vendor/paragonie/sodium_compat/composer-php52.json \
-        vendor/paragonie/sodium_compat/src/PHP52/SplFixedArray.php \
-        vendor/paragonie/sodium_compat/src/PHP52 \
         vendor/pragmarx/google2fa/.github/ \
         vendor/pragmarx/google2fa-qrcode/.scrutinizer.yml \
         vendor/pragmarx/google2fa-qrcode/.travis.yml \
         vendor/pragmarx/google2fa-qrcode/phpunit.xml \
-        vendor/pragmarx/google2fa-qrcode/tests \
-        vendor/spomky-labs/base64url/.github/ \
-        vendor/spomky-labs/cbor-php/.php_cs.dist \
-        vendor/spomky-labs/cbor-php/infection.json.dist \
-        vendor/spomky-labs/cbor-php/phpstan.neon \
-        vendor/google/recaptcha/src/autoload.php \
-        vendor/google/recaptcha/app.yaml \
-        vendor/google/recaptcha/.travis.yml \
-        vendor/google/recaptcha/phpunit.xml.dist \
-        vendor/google/recaptcha/.github/ \
-        vendor/google/recaptcha/examples/ \
-        vendor/google/recaptcha/tests/
+        vendor/pragmarx/google2fa-qrcode/tests
 
     rm \
-        vendor/slim/psr7/MAINTAINERS.md \
-        vendor/google/recaptcha/ARCHITECTURE.md \
-        vendor/google/recaptcha/CONTRIBUTING.md \
         vendor/phpmyadmin/motranslator/CODE_OF_CONDUCT.md \
         vendor/phpmyadmin/motranslator/CONTRIBUTING.md \
         vendor/phpmyadmin/motranslator/PERFORMANCE.md \
         vendor/phpmyadmin/shapefile/CONTRIBUTING.md \
-        vendor/brick/math/SECURITY.md \
-        vendor/ramsey/collection/SECURITY.md \
         vendor/spomky-labs/cbor-php/CODE_OF_CONDUCT.md
 
     find vendor/tecnickcom/tcpdf/fonts/ -maxdepth 1 -type f \
