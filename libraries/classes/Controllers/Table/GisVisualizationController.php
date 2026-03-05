@@ -16,9 +16,12 @@ use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use TCPDF;
 
 use function __;
 use function array_merge;
+use function class_exists;
+use function extension_loaded;
 use function is_array;
 
 /**
@@ -115,6 +118,8 @@ final class GisVisualizationController extends AbstractController
 
         $this->visualization = GisVisualization::get($sqlQuery, $visualizationSettings, $rows, $pos);
 
+        $downloadOptions = $this->getDownloadOptions();
+
         if (isset($_GET['saveToFile'])) {
             $this->saveToFile($visualizationSettings['spatialColumn'], $_GET['fileFormat']);
 
@@ -172,9 +177,27 @@ final class GisVisualizationController extends AbstractController
             'start_and_number_of_rows_fieldset' => $startAndNumberOfRowsFieldset,
             'visualization' => $this->visualization->toImage('svg'),
             'draw_ol' => $this->visualization->asOl(),
+            'download_options' => $downloadOptions,
         ]);
 
         $this->response->addHTML($html);
+    }
+
+    /** @return list<'svg'|'png'|'pdf'> */
+    private function getDownloadOptions(): array
+    {
+        $downloadOptions = [];
+        if (class_exists(TCPDF::class)) {
+            $downloadOptions[] = 'pdf';
+        }
+
+        if (extension_loaded('gd')) {
+            $downloadOptions[] = 'png';
+        }
+
+        $downloadOptions[] = 'svg';
+
+        return $downloadOptions;
     }
 
     /**
