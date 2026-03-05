@@ -34,7 +34,8 @@ final readonly class UpdateNavWidthConfigController implements InvocableControll
             return $this->response->response();
         }
 
-        $result = $this->userPreferencesHandler->setUserValue(null, 'NavigationWidth', (int) $value);
+        $result = $this->userPreferencesHandler->setUserValue('NavigationWidth', (int) $value);
+        $this->userPreferencesHandler->updateConfigValue('NavigationWidth', (int) $value);
         if ($result === true) {
             return $this->response->response();
         }
