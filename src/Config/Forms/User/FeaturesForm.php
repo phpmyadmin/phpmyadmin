@@ -51,7 +51,6 @@ class FeaturesForm extends BaseForm
             'Page_titles' => ['TitleDefault', 'TitleTable', 'TitleDatabase', 'TitleServer'],
             'Warnings' => [
                 'PmaNoRelation_DisableWarning',
-                'SuhosinDisableWarning',
                 'LoginCookieValidityDisableWarning',
                 'ReservedWordDisableWarning',
             ],

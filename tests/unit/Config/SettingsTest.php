@@ -709,15 +709,6 @@ class SettingsTest extends TestCase
     }
 
     #[DataProvider('booleanWithDefaultFalseProvider')]
-    public function testSuhosinDisableWarning(mixed $actual, bool $expected): void
-    {
-        $settings = new Settings(['SuhosinDisableWarning' => $actual]);
-        $settingsArray = $settings->asArray();
-        self::assertSame($expected, $settings->SuhosinDisableWarning);
-        self::assertSame($expected, $settingsArray['SuhosinDisableWarning']);
-    }
-
-    #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testLoginCookieValidityDisableWarning(mixed $actual, bool $expected): void
     {
         $settings = new Settings(['LoginCookieValidityDisableWarning' => $actual]);
