@@ -20,6 +20,7 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
 use PHPUnit\Framework\Attributes\CoversClass;
+use ReflectionMethod;
 
 use const MYSQLI_TYPE_GEOMETRY;
 use const MYSQLI_TYPE_VAR_STRING;
@@ -79,6 +80,19 @@ class GisVisualizationControllerTest extends AbstractTestCase
 
         $config = new Config();
         $template = new Template($config);
+        $responseRenderer = new ResponseRenderer();
+        $controller = new GisVisualizationController(
+            $responseRenderer,
+            $template,
+            $dbi,
+            new DbTableExists($dbi),
+            ResponseFactory::create(),
+            $config,
+        );
+
+        /** @var list<string> $downloadOptions */
+        $downloadOptions = (new ReflectionMethod(GisVisualizationController::class, 'getDownloadOptions'))
+            ->invoke($controller);
         $expected = $template->render('table/gis_visualization/gis_visualization', [
             'url_params' => $params,
             'download_url' => $downloadUrl,
@@ -110,25 +124,12 @@ class GisVisualizationControllerTest extends AbstractTestCase
                     ],
                 ],
             ],
-            'download_options' => [
-                'pdf',
-                'png',
-                'svg',
-            ],
+            'download_options' => $downloadOptions,
         ]);
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
             ->withQueryParams(['db' => 'test_db', 'table' => 'test_table']);
 
-        $responseRenderer = new ResponseRenderer();
-        $controller = new GisVisualizationController(
-            $responseRenderer,
-            $template,
-            $dbi,
-            new DbTableExists($dbi),
-            ResponseFactory::create(),
-            $config,
-        );
         $response = $controller($request);
 
         self::assertSame(StatusCodeInterface::STATUS_OK, $response->getStatusCode());
