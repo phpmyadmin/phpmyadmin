@@ -122,6 +122,10 @@ Basic settings
     :type: boolean
     :default: false
 
+    .. deprecated:: 6.0.0
+
+        This setting has been removed. The Suhosin extension is no longer supported.
+
     A warning is displayed on the main page if Suhosin is detected.
 
     You can set this parameter to ``true`` to stop this message from appearing.

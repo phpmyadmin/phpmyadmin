@@ -1942,18 +1942,6 @@ parameters:
 			path: src/Controllers/HomeController.php
 
 		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 1
-			path: src/Controllers/HomeController.php
-
-		-
-			message: '#^Only booleans are allowed in &&, string\|false given on the right side\.$#'
-			identifier: booleanAnd.rightNotBoolean
-			count: 1
-			path: src/Controllers/HomeController.php
-
-		-
 			message: '#^Only booleans are allowed in \|\|, string\|false given on the right side\.$#'
 			identifier: booleanOr.rightNotBoolean
 			count: 1
