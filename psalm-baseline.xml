@@ -1257,7 +1257,6 @@
     </RiskyTruthyFalsyComparison>
     <UnusedVariable>
       <code><![CDATA[$collationsList]]></code>
-      <code><![CDATA[$encryptionKeyLength]]></code>
     </UnusedVariable>
   </file>
   <file src="src/Controllers/Import/ImportController.php">
