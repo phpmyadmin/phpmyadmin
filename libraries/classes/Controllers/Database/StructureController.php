@@ -507,6 +507,7 @@ class StructureController extends AbstractController
                 'num_favorite_tables' => $GLOBALS['cfg']['NumFavoriteTables'],
                 'db' => $GLOBALS['db'],
                 'properties_num_columns' => $GLOBALS['cfg']['PropertiesNumColumns'],
+                'default_storage_engine' => $defaultStorageEngine,
                 'dbi' => $this->dbi,
                 'show_charset' => $GLOBALS['cfg']['ShowDbStructureCharset'],
                 'show_comment' => $GLOBALS['cfg']['ShowDbStructureComment'],
