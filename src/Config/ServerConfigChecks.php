@@ -30,7 +30,7 @@ use const SODIUM_CRYPTO_SECRETBOX_KEYBYTES;
  */
 class ServerConfigChecks
 {
-    public function __construct(protected ConfigFile $cfg)
+    public function __construct(private ConfigFile $cfg)
     {
     }
 

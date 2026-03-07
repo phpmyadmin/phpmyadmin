@@ -41,12 +41,12 @@ class TwoFactor
      */
     public array $config;
 
-    protected bool $writable;
+    private bool $writable;
 
-    protected TwoFactorPlugin $backend;
+    private TwoFactorPlugin $backend;
 
     /** @var string[] */
-    protected array $available;
+    private array $available;
 
     private UserPreferences $userPreferences;
 

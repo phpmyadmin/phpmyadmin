@@ -52,31 +52,31 @@ use const UPLOAD_ERR_PARTIAL;
 class File
 {
     /** @var string|null the temporary file name */
-    protected string|null $name = null;
+    private string|null $name = null;
 
-    protected string|null $content = null;
+    private string|null $content = null;
 
     /** @var Message|null the error message */
-    protected Message|null $errorMessage = null;
+    private Message|null $errorMessage = null;
 
     /** @var bool whether the file is temporary or not */
-    protected bool $isTemp = false;
+    private bool $isTemp = false;
 
-    protected string|null $compression = null;
+    private string|null $compression = null;
 
-    protected int $offset = 0;
+    private int $offset = 0;
 
     /** @var int size of chunk to read with every step */
-    protected int $chunkSize = 32768;
+    private int $chunkSize = 32768;
 
     /** @var resource|null file handle */
-    protected $handle;
+    private $handle;
 
     /** @var bool whether to decompress content before returning */
-    protected bool $decompress = false;
+    private bool $decompress = false;
 
     /** @var string charset of file */
-    protected string $charset = '';
+    private string $charset = '';
 
     private ZipExtension $zipExtension;
     private readonly Config $config;

@@ -21,7 +21,7 @@ class FormDisplayTemplate
 
     public Template $template;
 
-    public function __construct(protected Config $config)
+    public function __construct(private Config $config)
     {
         $this->template = new Template($this->config);
     }
