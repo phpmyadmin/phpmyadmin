@@ -401,7 +401,7 @@ class StructureController extends AbstractController
                 $defaultStorageEngineVar = $this->dbi->getVersion() >= 50503
                     ? '@@default_storage_engine'
                     : '@@storage_engine';
-                $defaultStorageEngine = $this->dbi->fetchValue("SELECT $defaultStorageEngineVar;");
+                $defaultStorageEngine = $this->dbi->fetchValue(sprintf("SELECT %s;", $defaultStorageEngineVar));
             }
             
             $structureTableRows[] = [
