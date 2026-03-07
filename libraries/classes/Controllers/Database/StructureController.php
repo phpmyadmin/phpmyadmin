@@ -395,14 +395,6 @@ class StructureController extends AbstractController
 
             [$do, $ignored] = $this->getReplicationStatus($replicaInfo, $truename);
 
-            $defaultStorageEngine = '';
-            if ($GLOBALS['cfg']['PropertiesNumColumns'] < 2) {
-                $defaultStorageEngineVar = $this->dbi->getVersion() >= 50503
-                    ? '@@default_storage_engine'
-                    : '@@storage_engine';
-                $defaultStorageEngine = $this->dbi->fetchValue(sprintf('SELECT %s;', $defaultStorageEngineVar));
-            }
-
             $structureTableRows[] = [
                 'table_name_hash' => md5($currentTable['TABLE_NAME']),
                 'db_table_name_hash' => md5($this->db . '.' . $currentTable['TABLE_NAME']),
@@ -475,6 +467,14 @@ class StructureController extends AbstractController
         }
 
         $relationParameters = $this->relation->getRelationParameters();
+
+        $defaultStorageEngine = '';
+        if ($GLOBALS['cfg']['PropertiesNumColumns'] < 2) {
+            $defaultStorageEngineVar = $this->dbi->getVersion() >= 50503
+                ? '@@default_storage_engine'
+                : '@@storage_engine';
+            $defaultStorageEngine = $this->dbi->fetchValue(sprintf('SELECT %s;', $defaultStorageEngineVar));
+        }
 
         return $html . $this->template->render('database/structure/table_header', [
             'db' => $this->db,
