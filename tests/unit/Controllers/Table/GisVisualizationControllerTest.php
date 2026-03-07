@@ -99,15 +99,25 @@ class GisVisualizationControllerTest extends AbstractTestCase
                 . ' width="600" height="450"><g><circle cx="300" cy="225" r="3"'
                 . ' class="point vector" fill="white" stroke="#b02ee0" stroke-width="2"/></g></svg>',
             'open_layers_data' => [
-                [
-                    'geometry' => ['type' => 'Point', 'coordinates' => [100.0, 250.0], 'srid' => 0],
-                    'style' => [
-                        'circle' => [
-                            'fill' => ['color' => 'white'],
-                            'stroke' => ['color' => [176, 46, 224], 'width' => 2],
-                            'radius' => 3,
-                        ],
-                    ],
+                'geometries' => [['wkt' => 'POINT(100 250)']],
+                'colors' => [
+                    [176, 46, 224],
+                    [224, 100, 46],
+                    [224, 214, 46],
+                    [46, 151, 224],
+                    [188, 224, 46],
+                    [224, 46, 117],
+                    [92, 224, 46],
+                    [224, 176, 46],
+                    [0, 34, 224],
+                    [114, 108, 177],
+                    [72, 26, 54],
+                    [186, 198, 88],
+                    [18, 114, 36],
+                    [130, 81, 25],
+                    [35, 140, 116],
+                    [76, 72, 155],
+                    [135, 201, 191],
                 ],
             ],
             'download_options' => [
