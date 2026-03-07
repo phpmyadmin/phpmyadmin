@@ -343,7 +343,7 @@ class Header
 
         $headers['Referrer-Policy'] = 'same-origin';
 
-        $headers = array_merge($headers, $this->getCspHeaders());
+        $headers['Content-Security-Policy'] = $this->getCspHeader();
 
         /**
          * Re-enable possible disabled XSS filters.
@@ -423,12 +423,8 @@ class Header
         return $this->title;
     }
 
-    /**
-     * Get all the CSP allow policy headers
-     *
-     * @return array<string, string>
-     */
-    private function getCspHeaders(): array
+    /** Get the Content-Security-Policy header */
+    private function getCspHeader(): string
     {
         $mapTileUrl = ' tile.openstreetmap.org';
         $captchaUrl = '';
@@ -444,9 +440,7 @@ class Header
             $captchaUrl = ' ' . $this->config->config->CaptchaCsp . ' ';
         }
 
-        $headers = [];
-
-        $headers['Content-Security-Policy'] = sprintf(
+        return sprintf(
             'default-src \'self\' %s%s;script-src \'self\' \'unsafe-inline\' \'unsafe-eval\' %s%s;'
                 . 'style-src \'self\' \'unsafe-inline\' %s%s;img-src \'self\' data: %s%s%s;object-src \'none\';',
             $captchaUrl,
@@ -459,32 +453,6 @@ class Header
             $mapTileUrl,
             $captchaUrl,
         );
-
-        $headers['X-Content-Security-Policy'] = sprintf(
-            'default-src \'self\' %s%s;options inline-script eval-script;'
-                . 'referrer no-referrer;img-src \'self\' data: %s%s%s;object-src \'none\';',
-            $captchaUrl,
-            $cspAllow,
-            $cspAllow,
-            $mapTileUrl,
-            $captchaUrl,
-        );
-
-        $headers['X-WebKit-CSP'] = sprintf(
-            'default-src \'self\' %s%s;script-src \'self\' %s%s \'unsafe-inline\' \'unsafe-eval\';'
-                . 'referrer no-referrer;style-src \'self\' \'unsafe-inline\' %s;'
-                . 'img-src \'self\' data: %s%s%s;object-src \'none\';',
-            $captchaUrl,
-            $cspAllow,
-            $captchaUrl,
-            $cspAllow,
-            $captchaUrl,
-            $cspAllow,
-            $mapTileUrl,
-            $captchaUrl,
-        );
-
-        return $headers;
     }
 
     private function getVariablesForJavaScript(): string
