@@ -419,7 +419,7 @@ class Header
     /** Get the Content-Security-Policy header */
     private function getCspHeader(): string
     {
-        $mapTileUrl = ' tile.openstreetmap.org';
+        $mapTileUrl = ' https://tile.openstreetmap.org';
         $cspAllow = $this->config->config->CSPAllow === '' ? '' : ' ' . $this->config->config->CSPAllow;
         $captchaUrl =
             $this->config->config->CaptchaLoginPrivateKey === '' ||
