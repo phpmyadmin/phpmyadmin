@@ -199,7 +199,6 @@ class HeaderTest extends AbstractTestCase
         $config->set('CaptchaCsp', $captchaCsp);
 
         $expected = [
-            'X-Frame-Options' => $expectedFrameOptions ?? '',
             'Referrer-Policy' => 'same-origin',
             'Content-Security-Policy' => $expectedCsp,
             'X-XSS-Protection' => '1; mode=block',
@@ -207,6 +206,7 @@ class HeaderTest extends AbstractTestCase
             'X-Permitted-Cross-Domain-Policies' => 'none',
             'X-Robots-Tag' => 'noindex, nofollow',
             'Permissions-Policy' => 'fullscreen=(self), interest-cohort=()',
+            'X-Frame-Options' => $expectedFrameOptions ?? '',
             'Expires' => 'Wed, 21 Oct 2015 07:28:00 GMT',
             'Cache-Control' => 'no-store, no-cache, must-revalidate, pre-check=0, post-check=0, max-age=0',
             'Pragma' => 'no-cache',
@@ -231,9 +231,11 @@ class HeaderTest extends AbstractTestCase
                 '',
                 '',
                 'DENY',
-                'default-src \'self\' ;script-src \'self\' \'unsafe-inline\' \'unsafe-eval\' ;'
-                    . 'style-src \'self\' \'unsafe-inline\' ;img-src \'self\' data:  tile.openstreetmap.org;'
-                    . 'object-src \'none\';',
+                "default-src 'self';"
+                    . " img-src 'self' data: tile.openstreetmap.org;"
+                    . " object-src 'none';"
+                    . " script-src 'self' 'unsafe-inline' 'unsafe-eval';"
+                    . " style-src 'self' 'unsafe-inline';"
             ],
             [
                 'sameorigin',
@@ -242,12 +244,11 @@ class HeaderTest extends AbstractTestCase
                 'PublicKey',
                 'captcha.tld csp.tld',
                 'SAMEORIGIN',
-                'default-src \'self\'  captcha.tld csp.tld example.com example.net;'
-                    . 'script-src \'self\' \'unsafe-inline\' \'unsafe-eval\'  '
-                    . 'captcha.tld csp.tld example.com example.net;'
-                    . 'style-src \'self\' \'unsafe-inline\'  captcha.tld csp.tld example.com example.net;'
-                    . 'img-src \'self\' data: example.com example.net tile.openstreetmap.org captcha.tld csp.tld ;'
-                    . 'object-src \'none\';',
+                "default-src 'self' captcha.tld csp.tld example.com example.net;"
+                    . " img-src 'self' data: captcha.tld csp.tld example.com example.net tile.openstreetmap.org;"
+                    . " object-src 'none';"
+                    . " script-src 'self' 'unsafe-inline' 'unsafe-eval' captcha.tld csp.tld example.com example.net;"
+                    . " style-src 'self' 'unsafe-inline' captcha.tld csp.tld example.com example.net;"
             ],
             [
                 true,
@@ -256,10 +257,11 @@ class HeaderTest extends AbstractTestCase
                 'PublicKey',
                 'captcha.tld csp.tld',
                 null,
-                'default-src \'self\'  captcha.tld csp.tld ;'
-                    . 'script-src \'self\' \'unsafe-inline\' \'unsafe-eval\'  captcha.tld csp.tld ;'
-                    . 'style-src \'self\' \'unsafe-inline\'  captcha.tld csp.tld ;'
-                    . 'img-src \'self\' data:  tile.openstreetmap.org captcha.tld csp.tld ;object-src \'none\';',
+                "default-src 'self' captcha.tld csp.tld;"
+                    . " img-src 'self' data: captcha.tld csp.tld tile.openstreetmap.org;"
+                    . " object-src 'none';"
+                    . " script-src 'self' 'unsafe-inline' 'unsafe-eval' captcha.tld csp.tld;"
+                    . " style-src 'self' 'unsafe-inline' captcha.tld csp.tld;",
             ],
         ];
     }
