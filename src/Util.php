@@ -91,6 +91,9 @@ use const STR_PAD_LEFT;
  */
 class Util
 {
+    public static string|null $uploadMaxFilesize = null;
+    public static string|null $postMaxSize = null;
+
     /**
      * Checks whether configuration value tells to show icons.
      *
@@ -1725,15 +1728,13 @@ class Util
      */
     public static function getUploadSizeInBytes(): int
     {
-        $fileSize = ini_get('upload_max_filesize');
-
+        $fileSize = self::$uploadMaxFilesize ?? ini_get('upload_max_filesize');
         if ($fileSize === '' || $fileSize === false) {
             $fileSize = '5M';
         }
 
         $size = self::getRealSize($fileSize);
-        $postSize = ini_get('post_max_size');
-
+        $postSize = self::$postMaxSize ?? ini_get('post_max_size');
         if ($postSize !== '' && $postSize !== false) {
             $size = min($size, self::getRealSize($postSize));
         }
