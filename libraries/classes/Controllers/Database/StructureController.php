@@ -397,7 +397,7 @@ class StructureController extends AbstractController
 
             
             $defaultStorageEngine = '';
-            if ($this->config->config->PropertiesNumColumns < 2) {
+            if ($GLOBALS['cfg']['PropertiesNumColumns'] < 2) {
                 $defaultStorageEngineVar = $this->dbi->getVersion() >= 50503
                     ? '@@default_storage_engine'
                     : '@@storage_engine';
