@@ -376,13 +376,6 @@ class Header
             'Permissions-Policy' => 'fullscreen=(self), interest-cohort=()',
         ];
 
-        /* Prevent against ClickJacking by disabling framing */
-        if ($this->config->config->AllowThirdPartyFraming === 'sameorigin') {
-            $headers['X-Frame-Options'] = 'SAMEORIGIN';
-        } elseif ($this->config->config->AllowThirdPartyFraming !== true) {
-            $headers['X-Frame-Options'] = 'DENY';
-        }
-
         $headers = array_merge($headers, Core::getNoCacheHeaders($clock ?? new Clock()));
 
         /**
@@ -444,6 +437,13 @@ class Header
             "script-src 'self' 'unsafe-inline' 'unsafe-eval'" . $captchaUrl . $cspAllow,
             "style-src 'self' 'unsafe-inline'" . $captchaUrl . $cspAllow,
         ];
+
+        // Prevent click-jacking by disabling inline-framing
+        if ($this->config->config->AllowThirdPartyFraming === 'sameorigin') {
+            $csp[] = "frame-ancestors 'self'";
+        } elseif ($this->config->config->AllowThirdPartyFraming !== true) {
+            $csp[] = "frame-ancestors 'none'";
+        }
 
         return implode('; ', $csp) . ';';
     }

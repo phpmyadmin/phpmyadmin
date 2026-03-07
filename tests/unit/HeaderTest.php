@@ -186,7 +186,6 @@ class HeaderTest extends AbstractTestCase
         string $privateKey,
         string $publicKey,
         string $captchaCsp,
-        string|null $expectedFrameOptions,
         string $expectedCsp,
     ): void {
         $header = $this->getNewHeaderInstance();
@@ -206,21 +205,17 @@ class HeaderTest extends AbstractTestCase
             'X-Permitted-Cross-Domain-Policies' => 'none',
             'X-Robots-Tag' => 'noindex, nofollow',
             'Permissions-Policy' => 'fullscreen=(self), interest-cohort=()',
-            'X-Frame-Options' => $expectedFrameOptions ?? '',
             'Expires' => 'Wed, 21 Oct 2015 07:28:00 GMT',
             'Cache-Control' => 'no-store, no-cache, must-revalidate, pre-check=0, post-check=0, max-age=0',
             'Pragma' => 'no-cache',
             'Last-Modified' => 'Wed, 21 Oct 2015 07:28:00 GMT',
             'Content-Type' => 'text/html; charset=utf-8',
         ];
-        if ($expectedFrameOptions === null) {
-            unset($expected['X-Frame-Options']);
-        }
 
         self::assertSame($expected, $header->getHttpHeaders(MockClock::from('2015-10-21T05:28:00-02:00')));
     }
 
-    /** @psalm-return list<array{string|bool, string, string, string, string, string|null, string}> */
+    /** @psalm-return list<array{string|bool, string, string, string, string, string}> */
     public static function providerForTestGetHttpHeaders(): array
     {
         return [
@@ -230,12 +225,12 @@ class HeaderTest extends AbstractTestCase
                 '',
                 '',
                 '',
-                'DENY',
                 "default-src 'self';"
                     . " img-src 'self' data: tile.openstreetmap.org;"
                     . " object-src 'none';"
                     . " script-src 'self' 'unsafe-inline' 'unsafe-eval';"
                     . " style-src 'self' 'unsafe-inline';"
+                    . " frame-ancestors 'none';",
             ],
             [
                 'sameorigin',
@@ -243,12 +238,12 @@ class HeaderTest extends AbstractTestCase
                 'PrivateKey',
                 'PublicKey',
                 'captcha.tld csp.tld',
-                'SAMEORIGIN',
                 "default-src 'self' captcha.tld csp.tld example.com example.net;"
                     . " img-src 'self' data: captcha.tld csp.tld example.com example.net tile.openstreetmap.org;"
                     . " object-src 'none';"
                     . " script-src 'self' 'unsafe-inline' 'unsafe-eval' captcha.tld csp.tld example.com example.net;"
                     . " style-src 'self' 'unsafe-inline' captcha.tld csp.tld example.com example.net;"
+                    . " frame-ancestors 'self';",
             ],
             [
                 true,
@@ -256,7 +251,6 @@ class HeaderTest extends AbstractTestCase
                 'PrivateKey',
                 'PublicKey',
                 'captcha.tld csp.tld',
-                null,
                 "default-src 'self' captcha.tld csp.tld;"
                     . " img-src 'self' data: captcha.tld csp.tld tile.openstreetmap.org;"
                     . " object-src 'none';"
