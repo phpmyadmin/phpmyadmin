@@ -8272,12 +8272,6 @@ parameters:
 			path: src/Plugins.php
 
 		-
-			message: '#^Call to function method_exists\(\) with PhpMyAdmin\\Properties\\Options\\OptionsPropertyItem and ''getText'' will always evaluate to true\.$#'
-			identifier: function.alreadyNarrowedType
-			count: 1
-			path: src/Plugins.php
-
-		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
 			count: 1

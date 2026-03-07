@@ -58,11 +58,6 @@ final class ExportExcelTest extends AbstractTestCase
             $properties->getMimeType(),
         );
 
-        self::assertSame(
-            'Options',
-            $properties->getOptionsText(),
-        );
-
         $options = $properties->getOptions();
 
         self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
@@ -78,7 +73,7 @@ final class ExportExcelTest extends AbstractTestCase
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         self::assertSame(
-            'general_opts',
+            'excel_general_opts',
             $generalOptions->getName(),
         );
 
@@ -90,7 +85,7 @@ final class ExportExcelTest extends AbstractTestCase
         self::assertInstanceOf(TextPropertyItem::class, $property);
 
         self::assertSame(
-            'null',
+            'excel_null',
             $property->getName(),
         );
 
@@ -105,7 +100,7 @@ final class ExportExcelTest extends AbstractTestCase
         self::assertInstanceOf(BoolPropertyItem::class, $property);
 
         self::assertSame(
-            'removeCRLF',
+            'excel_removeCRLF',
             $property->getName(),
         );
 
@@ -120,7 +115,7 @@ final class ExportExcelTest extends AbstractTestCase
         self::assertInstanceOf(BoolPropertyItem::class, $property);
 
         self::assertSame(
-            'columns',
+            'excel_columns',
             $property->getName(),
         );
 
@@ -135,7 +130,7 @@ final class ExportExcelTest extends AbstractTestCase
         self::assertInstanceOf(SelectPropertyItem::class, $property);
 
         self::assertSame(
-            'edition',
+            'excel_edition',
             $property->getName(),
         );
 
@@ -158,7 +153,7 @@ final class ExportExcelTest extends AbstractTestCase
         self::assertInstanceOf(HiddenPropertyItem::class, $property);
 
         self::assertSame(
-            'structure_or_data',
+            'excel_structure_or_data',
             $property->getName(),
         );
     }

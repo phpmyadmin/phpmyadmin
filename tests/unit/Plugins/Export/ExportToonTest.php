@@ -72,11 +72,6 @@ class ExportToonTest extends AbstractTestCase
             $properties->getMimeType(),
         );
 
-        self::assertSame(
-            'Options',
-            $properties->getOptionsText(),
-        );
-
         $options = $properties->getOptions();
 
         self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
@@ -92,7 +87,7 @@ class ExportToonTest extends AbstractTestCase
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         self::assertSame(
-            'general_opts',
+            'toon_general_opts',
             $generalOptions->getName(),
         );
 
@@ -104,7 +99,7 @@ class ExportToonTest extends AbstractTestCase
         self::assertInstanceOf(TextPropertyItem::class, $property);
 
         self::assertSame(
-            'separator',
+            'toon_separator',
             $property->getName(),
         );
 
@@ -119,7 +114,7 @@ class ExportToonTest extends AbstractTestCase
         self::assertInstanceOf(TextPropertyItem::class, $property);
 
         self::assertSame(
-            'indent',
+            'toon_indent',
             $property->getName(),
         );
 
@@ -133,7 +128,7 @@ class ExportToonTest extends AbstractTestCase
         self::assertInstanceOf(HiddenPropertyItem::class, $property);
 
         self::assertSame(
-            'structure_or_data',
+            'toon_structure_or_data',
             $property->getName(),
         );
     }

@@ -40,7 +40,6 @@ class ImportSql extends ImportPlugin
         $importPluginProperties = new ImportPluginProperties();
         $importPluginProperties->setText('SQL');
         $importPluginProperties->setExtension('sql');
-        $importPluginProperties->setOptionsText(__('Options'));
 
         $compats = $this->dbi->getCompatibilities();
         if ($compats !== []) {
@@ -55,10 +54,10 @@ class ImportSql extends ImportPlugin
             $importSpecificOptions = new OptionsPropertyRootGroup('Format Specific Options');
 
             // general options main group
-            $generalOptions = new OptionsPropertyMainGroup('general_opts');
+            $generalOptions = new OptionsPropertyMainGroup('sql_general_opts');
             // create primary items and add them to the group
             $leaf = new SelectPropertyItem(
-                'compatibility',
+                'sql_compatibility',
                 __('SQL compatibility mode:'),
             );
             $leaf->setValues($values);
@@ -67,7 +66,7 @@ class ImportSql extends ImportPlugin
             );
             $generalOptions->addProperty($leaf);
             $leaf = new BoolPropertyItem(
-                'no_auto_value_on_zero',
+                'sql_no_auto_value_on_zero',
                 __('Do not use <code>AUTO_INCREMENT</code> for zero values'),
             );
             $leaf->setDoc(

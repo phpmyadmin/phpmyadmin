@@ -70,7 +70,6 @@ class ExportJson extends ExportPlugin
         $exportPluginProperties->setText('JSON');
         $exportPluginProperties->setExtension('json');
         $exportPluginProperties->setMimeType('application/json');
-        $exportPluginProperties->setOptionsText(__('Options'));
 
         // create the root group that will be the options field for
         // $exportPluginProperties
@@ -78,19 +77,19 @@ class ExportJson extends ExportPlugin
         $exportSpecificOptions = new OptionsPropertyRootGroup('Format Specific Options');
 
         // general options main group
-        $generalOptions = new OptionsPropertyMainGroup('general_opts');
+        $generalOptions = new OptionsPropertyMainGroup('json_general_opts');
         // create primary items and add them to the group
-        $leaf = new HiddenPropertyItem('structure_or_data');
+        $leaf = new HiddenPropertyItem('json_structure_or_data');
         $generalOptions->addProperty($leaf);
 
         $leaf = new BoolPropertyItem(
-            'pretty_print',
+            'json_pretty_print',
             __('Output pretty-printed JSON (Use human-readable formatting)'),
         );
         $generalOptions->addProperty($leaf);
 
         $leaf = new BoolPropertyItem(
-            'unicode',
+            'json_unicode',
             __('Output unicode characters unescaped'),
         );
         $generalOptions->addProperty($leaf);

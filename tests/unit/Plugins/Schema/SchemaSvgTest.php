@@ -32,25 +32,25 @@ final class SchemaSvgTest extends AbstractTestCase
         self::assertCount(1, $specificOptions);
         $specificOption = $specificOptions->current();
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $specificOption);
-        self::assertSame('general_opts', $specificOption->getName());
-        self::assertCount(3, $specificOption);
+        self::assertSame('svg_general_opts', $specificOption->getName());
         $specificOptionProperties = $specificOption->getProperties();
+        self::assertCount(3, $specificOptionProperties);
 
         $specificOptionProperty = $specificOptionProperties->current();
         self::assertInstanceOf(BoolPropertyItem::class, $specificOptionProperty);
-        self::assertSame('show_color', $specificOptionProperty->getName());
+        self::assertSame('svg_show_color', $specificOptionProperty->getName());
         self::assertSame('Show color', $specificOptionProperty->getText());
 
         $specificOptionProperties->next();
         $specificOptionProperty = $specificOptionProperties->current();
         self::assertInstanceOf(BoolPropertyItem::class, $specificOptionProperty);
-        self::assertSame('show_keys', $specificOptionProperty->getName());
+        self::assertSame('svg_show_keys', $specificOptionProperty->getName());
         self::assertSame('Only show keys', $specificOptionProperty->getText());
 
         $specificOptionProperties->next();
         $specificOptionProperty = $specificOptionProperties->current();
         self::assertInstanceOf(BoolPropertyItem::class, $specificOptionProperty);
-        self::assertSame('all_tables_same_width', $specificOptionProperty->getName());
+        self::assertSame('svg_all_tables_same_width', $specificOptionProperty->getName());
         self::assertSame('Same width for all tables', $specificOptionProperty->getText());
     }
 

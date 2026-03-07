@@ -54,7 +54,6 @@ class ExportTexytext extends ExportPlugin
         $exportPluginProperties->setText('Texy! text');
         $exportPluginProperties->setExtension('txt');
         $exportPluginProperties->setMimeType('text/plain');
-        $exportPluginProperties->setOptionsText(__('Options'));
 
         // create the root group that will be the options field for
         // $exportPluginProperties
@@ -63,11 +62,11 @@ class ExportTexytext extends ExportPlugin
 
         // what to dump (structure/data/both) main group
         $dumpWhat = new OptionsPropertyMainGroup(
-            'general_opts',
+            'texytext_general_opts',
             __('Dump table'),
         );
         // create primary items and add them to the group
-        $leaf = new RadioPropertyItem('structure_or_data');
+        $leaf = new RadioPropertyItem('texytext_structure_or_data');
         $leaf->setValues(
             ['structure' => __('structure'), 'data' => __('data'), 'structure_and_data' => __('structure and data')],
         );
@@ -77,18 +76,17 @@ class ExportTexytext extends ExportPlugin
 
         // data options main group
         $dataOptions = new OptionsPropertyMainGroup(
-            'data',
+            'texytext_data',
             __('Data dump options'),
         );
-        $dataOptions->setForce('structure');
         // create primary items and add them to the group
         $leaf = new BoolPropertyItem(
-            'columns',
+            'texytext_columns',
             __('Put columns names in the first row'),
         );
         $dataOptions->addProperty($leaf);
         $leaf = new TextPropertyItem(
-            'null',
+            'texytext_null',
             __('Replace NULL with:'),
         );
         $dataOptions->addProperty($leaf);

@@ -33,32 +33,32 @@ final class SchemaDiaTest extends AbstractTestCase
         self::assertCount(1, $specificOptions);
         $specificOption = $specificOptions->current();
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $specificOption);
-        self::assertSame('general_opts', $specificOption->getName());
-        self::assertCount(4, $specificOption);
+        self::assertSame('dia_general_opts', $specificOption->getName());
         $specificOptionProperties = $specificOption->getProperties();
+        self::assertCount(4, $specificOptionProperties);
 
         $specificOptionProperty = $specificOptionProperties->current();
         self::assertInstanceOf(BoolPropertyItem::class, $specificOptionProperty);
-        self::assertSame('show_color', $specificOptionProperty->getName());
+        self::assertSame('dia_show_color', $specificOptionProperty->getName());
         self::assertSame('Show color', $specificOptionProperty->getText());
 
         $specificOptionProperties->next();
         $specificOptionProperty = $specificOptionProperties->current();
         self::assertInstanceOf(BoolPropertyItem::class, $specificOptionProperty);
-        self::assertSame('show_keys', $specificOptionProperty->getName());
+        self::assertSame('dia_show_keys', $specificOptionProperty->getName());
         self::assertSame('Only show keys', $specificOptionProperty->getText());
 
         $specificOptionProperties->next();
         $specificOptionProperty = $specificOptionProperties->current();
         self::assertInstanceOf(SelectPropertyItem::class, $specificOptionProperty);
-        self::assertSame('orientation', $specificOptionProperty->getName());
+        self::assertSame('dia_orientation', $specificOptionProperty->getName());
         self::assertSame('Orientation', $specificOptionProperty->getText());
         self::assertSame(['L' => 'Landscape', 'P' => 'Portrait'], $specificOptionProperty->getValues());
 
         $specificOptionProperties->next();
         $specificOptionProperty = $specificOptionProperties->current();
         self::assertInstanceOf(SelectPropertyItem::class, $specificOptionProperty);
-        self::assertSame('paper', $specificOptionProperty->getName());
+        self::assertSame('dia_paper', $specificOptionProperty->getName());
         self::assertSame('Paper size', $specificOptionProperty->getText());
         self::assertSame(
             ['A3' => 'A3', 'A4' => 'A4', 'A5' => 'A5', 'letter' => 'letter', 'legal' => 'legal'],

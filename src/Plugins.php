@@ -35,7 +35,6 @@ use function is_subclass_of;
 use function mb_strtolower;
 use function mb_strtoupper;
 use function mb_substr;
-use function method_exists;
 use function sprintf;
 use function str_starts_with;
 use function strcasecmp;
@@ -264,36 +263,29 @@ class Plugins
     /**
      * Returns single option in a list element
      *
-     * @param string              $pluginName    unique plugin name
      * @param OptionsPropertyItem $propertyGroup options property main group instance
-     * @param bool                $isSubgroup    if this group is a subgroup
      *
      * @return string  table row with option
      */
     private static function getOneOption(
         Plugin $plugin,
         PluginType $pluginType,
-        string $pluginName,
         OptionsPropertyItem $propertyGroup,
-        bool $isSubgroup = false,
     ): string {
         $ret = '';
 
-        $properties = null;
-        if (! $isSubgroup) {
+        $properties = [];
+        if (! $propertyGroup instanceof OptionsPropertySubgroup) {
             // for subgroup headers
             if ($propertyGroup instanceof OptionsPropertyOneItem) {
                 $properties = [$propertyGroup];
             } else {
                 // for main groups
-                $ret .= "\n" . '<div id="' . $pluginName . '_' . $propertyGroup->getName() . '">';
+                $ret .= "\n" . '<div id="' . $propertyGroup->getName() . '">';
 
-                $text = null;
-                if (method_exists($propertyGroup, 'getText')) {
-                    $text = $propertyGroup->getText();
-                }
+                $text = $propertyGroup->getText();
 
-                if ($text !== null && $text !== '') {
+                if ($text !== '') {
                     $ret .= '<h5 class="card-title mt-4 mb-2">' . $plugin->getTranslatedText($text) . '</h5>';
                 }
 
@@ -301,47 +293,39 @@ class Plugins
             }
         }
 
-        $notSubgroupHeader = false;
-        if ($properties === null) {
-            $notSubgroupHeader = true;
-            if ($propertyGroup instanceof OptionsPropertyGroup) {
-                $properties = $propertyGroup->getProperties();
-            }
+        if ($propertyGroup instanceof OptionsPropertyGroup) {
+            $properties = $propertyGroup->getProperties();
         }
 
-        if ($properties !== null) {
-            foreach ($properties as $propertyItem) {
-                // if the property is a subgroup, we deal with it recursively
-                if ($propertyItem instanceof OptionsPropertySubgroup) {
-                    // for subgroups
-                    // each subgroup can have a header, which may also be a form element
-                    $subgroupHeader = $propertyItem->getSubgroupHeader();
-                    if ($subgroupHeader !== null) {
-                        $ret .= self::getOneOption($plugin, $pluginType, $pluginName, $subgroupHeader);
-                    }
-
-                    $ret .= '<li class="list-group-item"><ul class="list-group"';
-                    if ($subgroupHeader !== null) {
-                        $ret .= ' id="ul_' . $subgroupHeader->getName() . '">';
-                    } else {
-                        $ret .= '>';
-                    }
-
-                    $ret .= "\n";
-
-                    $ret .= self::getOneOption($plugin, $pluginType, $pluginName, $propertyItem, true);
-                    continue;
+        foreach ($properties as $propertyItem) {
+            if ($propertyItem instanceof OptionsPropertySubgroup) {
+                // each subgroup can have a header, which may also be a form element
+                $subgroupHeader = $propertyItem->getSubgroupHeader();
+                if ($subgroupHeader !== null) {
+                    $ret .= self::getOneOption($plugin, $pluginType, $subgroupHeader);
                 }
 
-                // single property item
-                $ret .= self::getHtmlForProperty($plugin, $pluginType, $pluginName, $propertyItem);
+                $ret .= '<li class="list-group-item"><ul class="list-group"';
+                if ($subgroupHeader !== null && $subgroupHeader->getName() !== '') {
+                    $ret .= ' id="ul_' . $subgroupHeader->getName() . '">';
+                } else {
+                    $ret .= '>';
+                }
+
+                $ret .= "\n";
+
+                $ret .= self::getOneOption($plugin, $pluginType, $propertyItem);
+                continue;
             }
+
+            // single property item
+            $ret .= self::getHtmlForProperty($plugin, $pluginType, $propertyItem);
         }
 
-        if ($isSubgroup) {
+        if ($propertyGroup instanceof OptionsPropertySubgroup) {
             // end subgroup
             $ret .= '</ul>' . "\n";
-        } elseif ($notSubgroupHeader) {
+        } elseif ($propertyGroup instanceof OptionsPropertyGroup) {
             // end main group
             $ret .= '</ul></div>' . "\n";
         }
@@ -352,11 +336,10 @@ class Plugins
     private static function getHtmlForProperty(
         Plugin $plugin,
         PluginType $pluginType,
-        string $pluginName,
         OptionsPropertyItem $propertyItem,
     ): string {
         if ($propertyItem instanceof OptionsPropertyOneItem) {
-            return $propertyItem->getHtml($plugin, $pluginType, $pluginName) . "\n";
+            return $propertyItem->getHtml($plugin, $pluginType) . "\n";
         }
 
         return '';
@@ -378,14 +361,11 @@ class Plugins
             $text = $properties->getText();
             $options = $properties->getOptions();
 
-            $pluginName = $plugin->getName();
-
-            $ret .= '<div id="' . $pluginName
-                . '_options" class="format_specific_options">';
+            $ret .= '<div id="' . $plugin->getName() . '_options" class="format_specific_options">';
             $ret .= '<h3>' . $plugin->getTranslatedText($text) . '</h3>';
 
             $noOptions = true;
-            if ($options !== null && $options->count() > 0) {
+            if ($options !== null) {
                 /** @var OptionsPropertyMainGroup $propertyMainGroup */
                 foreach ($options->getProperties() as $propertyMainGroup) {
                     // check for hidden properties
@@ -397,7 +377,7 @@ class Plugins
                         }
                     }
 
-                    $ret .= self::getOneOption($plugin, $pluginType, $pluginName, $propertyMainGroup);
+                    $ret .= self::getOneOption($plugin, $pluginType, $propertyMainGroup);
                 }
             }
 

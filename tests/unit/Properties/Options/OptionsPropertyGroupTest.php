@@ -32,7 +32,7 @@ class OptionsPropertyGroupTest extends AbstractTestCase
         $this->stub->addProperty($propertyItem);
 
         self::assertTrue($this->stub->getProperties()->offsetExists($propertyItem));
-        self::assertCount(1, $this->stub);
+        self::assertCount(1, $this->stub->getProperties());
     }
 
     public function testRemoveProperty(): void
@@ -52,15 +52,5 @@ class OptionsPropertyGroupTest extends AbstractTestCase
         $this->stub->addProperty($propertyItem);
 
         self::assertTrue($this->stub->getProperties()->offsetExists($propertyItem));
-    }
-
-    public function testCount(): void
-    {
-        $propertyItem = new BoolPropertyItem();
-        $this->stub->addProperty($propertyItem);
-        $this->stub->addProperty($propertyItem);
-        $propertyItem2 = new BoolPropertyItem();
-        $this->stub->addProperty($propertyItem2);
-        self::assertCount(2, $this->stub);
     }
 }

@@ -66,7 +66,6 @@ class ExportXml extends ExportPlugin
         $exportPluginProperties->setText('XML');
         $exportPluginProperties->setExtension('xml');
         $exportPluginProperties->setMimeType('text/xml');
-        $exportPluginProperties->setOptionsText(__('Options'));
 
         // create the root group that will be the options field for
         // $exportPluginProperties
@@ -74,47 +73,47 @@ class ExportXml extends ExportPlugin
         $exportSpecificOptions = new OptionsPropertyRootGroup('Format Specific Options');
 
         // general options main group
-        $generalOptions = new OptionsPropertyMainGroup('general_opts');
+        $generalOptions = new OptionsPropertyMainGroup('xml_general_opts');
         // create primary items and add them to the group
-        $leaf = new HiddenPropertyItem('structure_or_data');
+        $leaf = new HiddenPropertyItem('xml_structure_or_data');
         $generalOptions->addProperty($leaf);
         // add the main group to the root group
         $exportSpecificOptions->addProperty($generalOptions);
 
         // export structure main group
         $structure = new OptionsPropertyMainGroup(
-            'structure',
+            'xml_structure',
             __('Object creation options (all are recommended)'),
         );
 
         // create primary items and add them to the group
         $leaf = new BoolPropertyItem(
-            'export_events',
+            'xml_export_events',
             __('Events'),
         );
         $structure->addProperty($leaf);
         $leaf = new BoolPropertyItem(
-            'export_functions',
+            'xml_export_functions',
             __('Functions'),
         );
         $structure->addProperty($leaf);
         $leaf = new BoolPropertyItem(
-            'export_procedures',
+            'xml_export_procedures',
             __('Procedures'),
         );
         $structure->addProperty($leaf);
         $leaf = new BoolPropertyItem(
-            'export_tables',
+            'xml_export_tables',
             __('Tables'),
         );
         $structure->addProperty($leaf);
         $leaf = new BoolPropertyItem(
-            'export_triggers',
+            'xml_export_triggers',
             __('Triggers'),
         );
         $structure->addProperty($leaf);
         $leaf = new BoolPropertyItem(
-            'export_views',
+            'xml_export_views',
             __('Views'),
         );
         $structure->addProperty($leaf);
@@ -122,12 +121,12 @@ class ExportXml extends ExportPlugin
 
         // data main group
         $data = new OptionsPropertyMainGroup(
-            'data',
+            'xml_data',
             __('Data dump options'),
         );
         // create primary items and add them to the group
         $leaf = new BoolPropertyItem(
-            'export_contents',
+            'xml_export_contents',
             __('Export contents'),
         );
         $data->addProperty($leaf);

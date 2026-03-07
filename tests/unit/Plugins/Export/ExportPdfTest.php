@@ -64,11 +64,6 @@ final class ExportPdfTest extends AbstractTestCase
             $properties->getMimeType(),
         );
 
-        self::assertSame(
-            'Options',
-            $properties->getOptionsText(),
-        );
-
         self::assertTrue(
             $properties->getForceFile(),
         );
@@ -90,7 +85,7 @@ final class ExportPdfTest extends AbstractTestCase
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         self::assertSame(
-            'general_opts',
+            'pdf_general_opts',
             $generalOptions->getName(),
         );
 
@@ -101,7 +96,7 @@ final class ExportPdfTest extends AbstractTestCase
         self::assertInstanceOf(TextPropertyItem::class, $property);
 
         self::assertSame(
-            'report_title',
+            'pdf_report_title',
             $property->getName(),
         );
 
@@ -110,7 +105,7 @@ final class ExportPdfTest extends AbstractTestCase
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         self::assertSame(
-            'dump_what',
+            'pdf_dump_what',
             $generalOptions->getName(),
         );
 
@@ -126,7 +121,7 @@ final class ExportPdfTest extends AbstractTestCase
         self::assertInstanceOf(RadioPropertyItem::class, $property);
 
         self::assertSame(
-            'structure_or_data',
+            'pdf_structure_or_data',
             $property->getName(),
         );
 

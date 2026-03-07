@@ -49,19 +49,19 @@ class SchemaPdf extends SchemaPlugin
         $exportSpecificOptions = new OptionsPropertyRootGroup('Format Specific Options');
 
         // specific options main group
-        $specificOptions = new OptionsPropertyMainGroup('general_opts');
+        $specificOptions = new OptionsPropertyMainGroup('pdf_general_opts');
         // add options common to all plugins
         $this->addCommonOptions($specificOptions);
 
         // create leaf items and add them to the group
         $leaf = new BoolPropertyItem(
-            'all_tables_same_width',
+            'pdf_all_tables_same_width',
             __('Same width for all tables'),
         );
         $specificOptions->addProperty($leaf);
 
         $leaf = new SelectPropertyItem(
-            'orientation',
+            'pdf_orientation',
             __('Orientation'),
         );
         $leaf->setValues(
@@ -70,26 +70,26 @@ class SchemaPdf extends SchemaPlugin
         $specificOptions->addProperty($leaf);
 
         $leaf = new SelectPropertyItem(
-            'paper',
+            'pdf_paper',
             __('Paper size'),
         );
         $leaf->setValues($this->getPaperSizeArray());
         $specificOptions->addProperty($leaf);
 
         $leaf = new BoolPropertyItem(
-            'show_grid',
+            'pdf_show_grid',
             __('Show grid'),
         );
         $specificOptions->addProperty($leaf);
 
         $leaf = new BoolPropertyItem(
-            'with_doc',
+            'pdf_with_doc',
             __('Data dictionary'),
         );
         $specificOptions->addProperty($leaf);
 
         $leaf = new SelectPropertyItem(
-            'table_order',
+            'pdf_table_order',
             __('Order of the tables'),
         );
         $leaf->setValues(

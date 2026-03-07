@@ -55,7 +55,6 @@ class ExportHtmlword extends ExportPlugin
         $exportPluginProperties->setExtension('doc');
         $exportPluginProperties->setMimeType('application/vnd.ms-word');
         $exportPluginProperties->setForceFile(true);
-        $exportPluginProperties->setOptionsText(__('Options'));
 
         // create the root group that will be the options field for
         // $exportPluginProperties
@@ -64,11 +63,11 @@ class ExportHtmlword extends ExportPlugin
 
         // what to dump (structure/data/both)
         $dumpWhat = new OptionsPropertyMainGroup(
-            'dump_what',
+            'htmlword_dump_what',
             __('Dump table'),
         );
         // create primary items and add them to the group
-        $leaf = new RadioPropertyItem('structure_or_data');
+        $leaf = new RadioPropertyItem('htmlword_structure_or_data');
         $leaf->setValues(
             ['structure' => __('structure'), 'data' => __('data'), 'structure_and_data' => __('structure and data')],
         );
@@ -78,18 +77,17 @@ class ExportHtmlword extends ExportPlugin
 
         // data options main group
         $dataOptions = new OptionsPropertyMainGroup(
-            'dump_what',
+            'htmlword_dump_data_options',
             __('Data dump options'),
         );
-        $dataOptions->setForce('structure');
         // create primary items and add them to the group
         $leaf = new TextPropertyItem(
-            'null',
+            'htmlword_null',
             __('Replace NULL with:'),
         );
         $dataOptions->addProperty($leaf);
         $leaf = new BoolPropertyItem(
-            'columns',
+            'htmlword_columns',
             __('Put columns names in the first row'),
         );
         $dataOptions->addProperty($leaf);

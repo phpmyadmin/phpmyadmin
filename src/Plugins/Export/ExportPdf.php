@@ -52,7 +52,6 @@ class ExportPdf extends ExportPlugin
         $exportPluginProperties->setExtension('pdf');
         $exportPluginProperties->setMimeType('application/pdf');
         $exportPluginProperties->setForceFile(true);
-        $exportPluginProperties->setOptionsText(__('Options'));
 
         // create the root group that will be the options field for
         // $exportPluginProperties
@@ -60,10 +59,10 @@ class ExportPdf extends ExportPlugin
         $exportSpecificOptions = new OptionsPropertyRootGroup('Format Specific Options');
 
         // general options main group
-        $generalOptions = new OptionsPropertyMainGroup('general_opts');
+        $generalOptions = new OptionsPropertyMainGroup('pdf_general_opts');
         // create primary items and add them to the group
         $leaf = new TextPropertyItem(
-            'report_title',
+            'pdf_report_title',
             __('Report title:'),
         );
         $generalOptions->addProperty($leaf);
@@ -72,10 +71,10 @@ class ExportPdf extends ExportPlugin
 
         // what to dump (structure/data/both) main group
         $dumpWhat = new OptionsPropertyMainGroup(
-            'dump_what',
+            'pdf_dump_what',
             __('Dump table'),
         );
-        $leaf = new RadioPropertyItem('structure_or_data');
+        $leaf = new RadioPropertyItem('pdf_structure_or_data');
         $leaf->setValues(
             ['structure' => __('structure'), 'data' => __('data'), 'structure_and_data' => __('structure and data')],
         );

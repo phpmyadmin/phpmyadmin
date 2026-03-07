@@ -87,5 +87,5 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
         $this->size = $size;
     }
 
-    abstract public function getHtml(Plugin $plugin, PluginType $pluginType, string $pluginName): string;
+    abstract public function getHtml(Plugin $plugin, PluginType $pluginType): string;
 }

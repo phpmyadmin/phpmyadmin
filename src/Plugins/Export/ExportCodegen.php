@@ -55,7 +55,6 @@ class ExportCodegen extends ExportPlugin
         $exportPluginProperties->setText('CodeGen');
         $exportPluginProperties->setExtension('cs');
         $exportPluginProperties->setMimeType('text/cs');
-        $exportPluginProperties->setOptionsText(__('Options'));
 
         // create the root group that will be the options field for
         // $exportPluginProperties
@@ -63,12 +62,12 @@ class ExportCodegen extends ExportPlugin
         $exportSpecificOptions = new OptionsPropertyRootGroup('Format Specific Options');
 
         // general options main group
-        $generalOptions = new OptionsPropertyMainGroup('general_opts');
+        $generalOptions = new OptionsPropertyMainGroup('codegen_general_opts');
         // create primary items and add them to the group
-        $leaf = new HiddenPropertyItem('structure_or_data');
+        $leaf = new HiddenPropertyItem('codegen_structure_or_data');
         $generalOptions->addProperty($leaf);
         $leaf = new SelectPropertyItem(
-            'format',
+            'codegen_format',
             __('Format:'),
         );
         $leaf->setValues(self::CODEGEN_FORMATS);

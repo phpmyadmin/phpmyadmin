@@ -77,11 +77,6 @@ final class ExportOdsTest extends AbstractTestCase
             $properties->getMimeType(),
         );
 
-        self::assertSame(
-            'Options',
-            $properties->getOptionsText(),
-        );
-
         self::assertTrue(
             $properties->getForceFile(),
         );
@@ -101,7 +96,7 @@ final class ExportOdsTest extends AbstractTestCase
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         self::assertSame(
-            'general_opts',
+            'ods_general_opts',
             $generalOptions->getName(),
         );
 
@@ -113,7 +108,7 @@ final class ExportOdsTest extends AbstractTestCase
         self::assertInstanceOf(TextPropertyItem::class, $property);
 
         self::assertSame(
-            'null',
+            'ods_null',
             $property->getName(),
         );
 
@@ -128,7 +123,7 @@ final class ExportOdsTest extends AbstractTestCase
         self::assertInstanceOf(BoolPropertyItem::class, $property);
 
         self::assertSame(
-            'columns',
+            'ods_columns',
             $property->getName(),
         );
 
@@ -142,7 +137,7 @@ final class ExportOdsTest extends AbstractTestCase
         self::assertInstanceOf(HiddenPropertyItem::class, $property);
 
         self::assertSame(
-            'structure_or_data',
+            'ods_structure_or_data',
             $property->getName(),
         );
     }

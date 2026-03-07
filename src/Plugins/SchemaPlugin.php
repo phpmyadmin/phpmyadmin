@@ -68,9 +68,9 @@ abstract class SchemaPlugin implements Plugin
      */
     protected function addCommonOptions(OptionsPropertyMainGroup $propertyGroup): void
     {
-        $leaf = new BoolPropertyItem('show_color', __('Show color'));
+        $leaf = new BoolPropertyItem($this->getName() . '_show_color', __('Show color'));
         $propertyGroup->addProperty($leaf);
-        $leaf = new BoolPropertyItem('show_keys', __('Only show keys'));
+        $leaf = new BoolPropertyItem($this->getName() . '_show_keys', __('Only show keys'));
         $propertyGroup->addProperty($leaf);
     }
 

@@ -86,7 +86,6 @@ class ExportLatex extends ExportPlugin
         $exportPluginProperties->setText('LaTeX');
         $exportPluginProperties->setExtension('tex');
         $exportPluginProperties->setMimeType('application/x-tex');
-        $exportPluginProperties->setOptionsText(__('Options'));
 
         // create the root group that will be the options field for
         // $exportPluginProperties
@@ -94,10 +93,10 @@ class ExportLatex extends ExportPlugin
         $exportSpecificOptions = new OptionsPropertyRootGroup('Format Specific Options');
 
         // general options main group
-        $generalOptions = new OptionsPropertyMainGroup('general_opts');
+        $generalOptions = new OptionsPropertyMainGroup('latex_general_opts');
         // create primary items and add them to the group
         $leaf = new BoolPropertyItem(
-            'caption',
+            'latex_caption',
             __('Include table caption'),
         );
         $generalOptions->addProperty($leaf);
@@ -106,11 +105,11 @@ class ExportLatex extends ExportPlugin
 
         // what to dump (structure/data/both) main group
         $dumpWhat = new OptionsPropertyMainGroup(
-            'dump_what',
+            'latex_dump_what',
             __('Dump table'),
         );
         // create primary items and add them to the group
-        $leaf = new RadioPropertyItem('structure_or_data');
+        $leaf = new RadioPropertyItem('latex_structure_or_data');
         $leaf->setValues(
             ['structure' => __('structure'), 'data' => __('data'), 'structure_and_data' => __('structure and data')],
         );
@@ -121,25 +120,24 @@ class ExportLatex extends ExportPlugin
         // structure options main group
         if (! $hideStructure) {
             $structureOptions = new OptionsPropertyMainGroup(
-                'structure',
+                'latex_structure',
                 __('Object creation options'),
             );
-            $structureOptions->setForce('data');
             // create primary items and add them to the group
             $leaf = new TextPropertyItem(
-                'structure_caption',
+                'latex_structure_caption',
                 __('Table caption:'),
             );
             $leaf->setDoc('faq6-27');
             $structureOptions->addProperty($leaf);
             $leaf = new TextPropertyItem(
-                'structure_continued_caption',
+                'latex_structure_continued_caption',
                 __('Table caption (continued):'),
             );
             $leaf->setDoc('faq6-27');
             $structureOptions->addProperty($leaf);
             $leaf = new TextPropertyItem(
-                'structure_label',
+                'latex_structure_label',
                 __('Label key:'),
             );
             $leaf->setDoc('faq6-27');
@@ -147,20 +145,20 @@ class ExportLatex extends ExportPlugin
             $relationParameters = $this->relation->getRelationParameters();
             if ($relationParameters->relationFeature !== null) {
                 $leaf = new BoolPropertyItem(
-                    'relation',
+                    'latex_relation',
                     __('Display foreign key relationships'),
                 );
                 $structureOptions->addProperty($leaf);
             }
 
             $leaf = new BoolPropertyItem(
-                'comments',
+                'latex_comments',
                 __('Display comments'),
             );
             $structureOptions->addProperty($leaf);
             if ($relationParameters->browserTransformationFeature !== null) {
                 $leaf = new BoolPropertyItem(
-                    'mime',
+                    'latex_mime',
                     __('Display media types'),
                 );
                 $structureOptions->addProperty($leaf);
@@ -172,36 +170,35 @@ class ExportLatex extends ExportPlugin
 
         // data options main group
         $dataOptions = new OptionsPropertyMainGroup(
-            'data',
+            'latex_data',
             __('Data dump options'),
         );
-        $dataOptions->setForce('structure');
         // create primary items and add them to the group
         $leaf = new BoolPropertyItem(
-            'columns',
+            'latex_columns',
             __('Put columns names in the first row:'),
         );
         $dataOptions->addProperty($leaf);
         $leaf = new TextPropertyItem(
-            'data_caption',
+            'latex_data_caption',
             __('Table caption:'),
         );
         $leaf->setDoc('faq6-27');
         $dataOptions->addProperty($leaf);
         $leaf = new TextPropertyItem(
-            'data_continued_caption',
+            'latex_data_continued_caption',
             __('Table caption (continued):'),
         );
         $leaf->setDoc('faq6-27');
         $dataOptions->addProperty($leaf);
         $leaf = new TextPropertyItem(
-            'data_label',
+            'latex_data_label',
             __('Label key:'),
         );
         $leaf->setDoc('faq6-27');
         $dataOptions->addProperty($leaf);
         $leaf = new TextPropertyItem(
-            'null',
+            'latex_null',
             __('Replace NULL with:'),
         );
         $dataOptions->addProperty($leaf);

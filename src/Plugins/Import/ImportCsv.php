@@ -77,7 +77,6 @@ class ImportCsv extends AbstractImportCsv
         $importPluginProperties = new ImportPluginProperties();
         $importPluginProperties->setText('CSV');
         $importPluginProperties->setExtension('csv');
-        $importPluginProperties->setOptionsText(__('Options'));
 
         // create the root group that will be the options field for
         // $importPluginProperties
@@ -88,7 +87,7 @@ class ImportCsv extends AbstractImportCsv
 
         if (ImportSettings::$importType !== 'table') {
             $leaf = new TextPropertyItem(
-                'new_tbl_name',
+                'csv_new_tbl_name',
                 __(
                     'Name of the new table (optional):',
                 ),
@@ -97,7 +96,7 @@ class ImportCsv extends AbstractImportCsv
 
             if (ImportSettings::$importType === 'server') {
                 $leaf = new TextPropertyItem(
-                    'new_db_name',
+                    'csv_new_db_name',
                     __(
                         'Name of the new database (optional):',
                     ),
@@ -106,7 +105,7 @@ class ImportCsv extends AbstractImportCsv
             }
 
             $leaf = new NumberPropertyItem(
-                'partial_import',
+                'csv_partial_import',
                 __(
                     'Import these many number of rows (optional):',
                 ),
@@ -114,7 +113,7 @@ class ImportCsv extends AbstractImportCsv
             $generalOptions->addProperty($leaf);
 
             $leaf = new BoolPropertyItem(
-                'col_names',
+                'csv_col_names',
                 __(
                     'The first line of the file contains the table column names'
                     . ' <i>(if this is unchecked, the first line will become part'
@@ -124,7 +123,7 @@ class ImportCsv extends AbstractImportCsv
             $generalOptions->addProperty($leaf);
         } else {
             $leaf = new NumberPropertyItem(
-                'partial_import',
+                'csv_partial_import',
                 __(
                     'Import these many number of rows (optional):',
                 ),
@@ -140,14 +139,14 @@ class ImportCsv extends AbstractImportCsv
                 ),
             );
             $leaf = new TextPropertyItem(
-                'columns',
+                'csv_columns',
                 __('Column names:') . ' ' . Generator::showHint($hint->getMessage()),
             );
             $generalOptions->addProperty($leaf);
         }
 
         $leaf = new BoolPropertyItem(
-            'ignore',
+            'csv_ignore',
             __('Do not abort on INSERT error'),
         );
         $generalOptions->addProperty($leaf);

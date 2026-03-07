@@ -21,38 +21,38 @@ abstract class AbstractImportCsv extends ImportPlugin
 {
     final protected function getGeneralOptions(): OptionsPropertyMainGroup
     {
-        $generalOptions = new OptionsPropertyMainGroup('general_opts');
+        $generalOptions = new OptionsPropertyMainGroup($this->getName() . '_general_opts');
 
         // create common items and add them to the group
         $leaf = new BoolPropertyItem(
-            'replace',
+            $this->getName() . '_replace',
             __(
                 'Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)',
             ),
         );
         $generalOptions->addProperty($leaf);
         $leaf = new TextPropertyItem(
-            'terminated',
+            $this->getName() . '_terminated',
             __('Columns separated with:'),
         );
         $leaf->setSize(2);
         $generalOptions->addProperty($leaf);
         $leaf = new TextPropertyItem(
-            'enclosed',
+            $this->getName() . '_enclosed',
             __('Columns enclosed with:'),
         );
         $leaf->setSize(2);
         $leaf->setLen(2);
         $generalOptions->addProperty($leaf);
         $leaf = new TextPropertyItem(
-            'escaped',
+            $this->getName() . '_escaped',
             __('Columns escaped with:'),
         );
         $leaf->setSize(2);
         $leaf->setLen(2);
         $generalOptions->addProperty($leaf);
         $leaf = new TextPropertyItem(
-            'new_line',
+            $this->getName() . '_new_line',
             __('Lines terminated with:'),
         );
         $leaf->setSize(2);

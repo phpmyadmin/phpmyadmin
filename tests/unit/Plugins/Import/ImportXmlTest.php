@@ -73,10 +73,6 @@ final class ImportXmlTest extends AbstractTestCase
             $properties->getMimeType(),
         );
         self::assertNull($properties->getOptions());
-        self::assertSame(
-            __('Options'),
-            $properties->getOptionsText(),
-        );
     }
 
     /**

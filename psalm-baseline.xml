@@ -5525,10 +5525,6 @@
     <PossiblyInvalidCast>
       <code><![CDATA[$config->settings[$pluginType->value][$opt]]]></code>
     </PossiblyInvalidCast>
-    <PossiblyNullOperand>
-      <code><![CDATA[$propertyGroup->getName()]]></code>
-      <code><![CDATA[$subgroupHeader->getName()]]></code>
-    </PossiblyNullOperand>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty(Config::getInstance()->settings[$pluginType->value][$opt])]]></code>
     </RiskyTruthyFalsyComparison>
@@ -7117,54 +7113,6 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$dbi->fetchValue('SELECT @@have_profiling')]]></code>
     </RiskyTruthyFalsyComparison>
-  </file>
-  <file src="src/Properties/Options/Items/BoolPropertyItem.php">
-    <PossiblyNullOperand>
-      <code><![CDATA[$this->getForce()]]></code>
-      <code><![CDATA[$this->getForce()]]></code>
-      <code><![CDATA[$this->getName()]]></code>
-      <code><![CDATA[$this->getName()]]></code>
-      <code><![CDATA[$this->getName()]]></code>
-      <code><![CDATA[$this->getName()]]></code>
-    </PossiblyNullOperand>
-  </file>
-  <file src="src/Properties/Options/Items/HiddenPropertyItem.php">
-    <PossiblyNullOperand>
-      <code><![CDATA[$this->getName()]]></code>
-      <code><![CDATA[$this->getName()]]></code>
-    </PossiblyNullOperand>
-  </file>
-  <file src="src/Properties/Options/Items/NumberPropertyItem.php">
-    <PossiblyNullOperand>
-      <code><![CDATA[$this->getName()]]></code>
-      <code><![CDATA[$this->getName()]]></code>
-      <code><![CDATA[$this->getName()]]></code>
-      <code><![CDATA[$this->getName()]]></code>
-    </PossiblyNullOperand>
-  </file>
-  <file src="src/Properties/Options/Items/RadioPropertyItem.php">
-    <PossiblyNullOperand>
-      <code><![CDATA[$this->getName()]]></code>
-      <code><![CDATA[$this->getName()]]></code>
-      <code><![CDATA[$this->getName()]]></code>
-      <code><![CDATA[$this->getName()]]></code>
-    </PossiblyNullOperand>
-  </file>
-  <file src="src/Properties/Options/Items/SelectPropertyItem.php">
-    <PossiblyNullOperand>
-      <code><![CDATA[$this->getName()]]></code>
-      <code><![CDATA[$this->getName()]]></code>
-      <code><![CDATA[$this->getName()]]></code>
-      <code><![CDATA[$this->getName()]]></code>
-    </PossiblyNullOperand>
-  </file>
-  <file src="src/Properties/Options/Items/TextPropertyItem.php">
-    <PossiblyNullOperand>
-      <code><![CDATA[$this->getName()]]></code>
-      <code><![CDATA[$this->getName()]]></code>
-      <code><![CDATA[$this->getName()]]></code>
-      <code><![CDATA[$this->getName()]]></code>
-    </PossiblyNullOperand>
   </file>
   <file src="src/Query/Compatibility.php">
     <PossiblyInvalidArgument>

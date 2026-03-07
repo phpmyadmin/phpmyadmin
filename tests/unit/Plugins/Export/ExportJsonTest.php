@@ -58,11 +58,6 @@ final class ExportJsonTest extends AbstractTestCase
             $properties->getMimeType(),
         );
 
-        self::assertSame(
-            'Options',
-            $properties->getOptionsText(),
-        );
-
         $options = $properties->getOptions();
 
         self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
@@ -78,7 +73,7 @@ final class ExportJsonTest extends AbstractTestCase
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         self::assertSame(
-            'general_opts',
+            'json_general_opts',
             $generalOptions->getName(),
         );
 
@@ -89,7 +84,7 @@ final class ExportJsonTest extends AbstractTestCase
         self::assertInstanceOf(HiddenPropertyItem::class, $property);
 
         self::assertSame(
-            'structure_or_data',
+            'json_structure_or_data',
             $property->getName(),
         );
     }

@@ -47,7 +47,6 @@ class ExportMediawiki extends ExportPlugin
         $exportPluginProperties->setText('MediaWiki Table');
         $exportPluginProperties->setExtension('mediawiki');
         $exportPluginProperties->setMimeType('text/plain');
-        $exportPluginProperties->setOptionsText(__('Options'));
 
         // create the root group that will be the options field for
         // $exportPluginProperties
@@ -56,16 +55,16 @@ class ExportMediawiki extends ExportPlugin
 
         // general options main group
         $generalOptions = new OptionsPropertyMainGroup(
-            'general_opts',
+            'mediawiki_general_opts',
             __('Dump table'),
         );
 
         // what to dump (structure/data/both)
         $subgroup = new OptionsPropertySubgroup(
-            'dump_table',
+            'mediawiki_dump_table',
             __('Dump table'),
         );
-        $leaf = new RadioPropertyItem('structure_or_data');
+        $leaf = new RadioPropertyItem('mediawiki_structure_or_data');
         $leaf->setValues(
             ['structure' => __('structure'), 'data' => __('data'), 'structure_and_data' => __('structure and data')],
         );
@@ -74,14 +73,14 @@ class ExportMediawiki extends ExportPlugin
 
         // export table name
         $leaf = new BoolPropertyItem(
-            'caption',
+            'mediawiki_caption',
             __('Export table names'),
         );
         $generalOptions->addProperty($leaf);
 
         // export table headers
         $leaf = new BoolPropertyItem(
-            'headers',
+            'mediawiki_headers',
             __('Export table headers'),
         );
         $generalOptions->addProperty($leaf);

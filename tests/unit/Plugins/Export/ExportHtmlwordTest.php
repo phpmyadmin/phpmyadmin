@@ -79,11 +79,6 @@ final class ExportHtmlwordTest extends AbstractTestCase
             $properties->getMimeType(),
         );
 
-        self::assertSame(
-            'Options',
-            $properties->getOptionsText(),
-        );
-
         self::assertTrue(
             $properties->getForceFile(),
         );
@@ -104,7 +99,7 @@ final class ExportHtmlwordTest extends AbstractTestCase
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         self::assertSame(
-            'dump_what',
+            'htmlword_dump_what',
             $generalOptions->getName(),
         );
 
@@ -120,7 +115,7 @@ final class ExportHtmlwordTest extends AbstractTestCase
         self::assertInstanceOf(RadioPropertyItem::class, $property);
 
         self::assertSame(
-            'structure_or_data',
+            'htmlword_structure_or_data',
             $property->getName(),
         );
 
@@ -134,18 +129,13 @@ final class ExportHtmlwordTest extends AbstractTestCase
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         self::assertSame(
-            'dump_what',
+            'htmlword_dump_data_options',
             $generalOptions->getName(),
         );
 
         self::assertSame(
             'Data dump options',
             $generalOptions->getText(),
-        );
-
-        self::assertSame(
-            'structure',
-            $generalOptions->getForce(),
         );
 
         $generalProperties = $generalOptions->getProperties();
@@ -156,7 +146,7 @@ final class ExportHtmlwordTest extends AbstractTestCase
         self::assertInstanceOf(TextPropertyItem::class, $property);
 
         self::assertSame(
-            'null',
+            'htmlword_null',
             $property->getName(),
         );
 
@@ -170,7 +160,7 @@ final class ExportHtmlwordTest extends AbstractTestCase
         self::assertInstanceOf(BoolPropertyItem::class, $property);
 
         self::assertSame(
-            'columns',
+            'htmlword_columns',
             $property->getName(),
         );
 

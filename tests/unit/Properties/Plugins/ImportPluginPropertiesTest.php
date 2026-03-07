@@ -25,21 +25,6 @@ class ImportPluginPropertiesTest extends AbstractTestCase
 
     /**
      * Test for
-     *     - PhpMyAdmin\Properties\Plugins\ImportPluginProperties::getOptionsText
-     *     - PhpMyAdmin\Properties\Plugins\ImportPluginProperties::setOptionsText
-     */
-    public function testSetGetOptionsText(): void
-    {
-        $this->object->setOptionsText('options123');
-
-        self::assertSame(
-            'options123',
-            $this->object->getOptionsText(),
-        );
-    }
-
-    /**
-     * Test for
      *     - PhpMyAdmin\Properties\Plugins\ImportPluginProperties::setMimeType
      *     - PhpMyAdmin\Properties\Plugins\ImportPluginProperties::getMimeType
      */

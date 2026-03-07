@@ -64,11 +64,6 @@ final class ExportPhparrayTest extends AbstractTestCase
             $properties->getMimeType(),
         );
 
-        self::assertSame(
-            'Options',
-            $properties->getOptionsText(),
-        );
-
         $options = $properties->getOptions();
 
         self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
@@ -84,7 +79,7 @@ final class ExportPhparrayTest extends AbstractTestCase
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         self::assertSame(
-            'general_opts',
+            'phparray_general_opts',
             $generalOptions->getName(),
         );
 

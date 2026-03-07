@@ -54,7 +54,6 @@ class ExportCsv extends ExportPlugin
         $exportPluginProperties->setText('CSV');
         $exportPluginProperties->setExtension('csv');
         $exportPluginProperties->setMimeType('text/comma-separated-values');
-        $exportPluginProperties->setOptionsText(__('Options'));
 
         // create the root group that will be the options field for
         // $exportPluginProperties
@@ -62,44 +61,44 @@ class ExportCsv extends ExportPlugin
         $exportSpecificOptions = new OptionsPropertyRootGroup('Format Specific Options');
 
         // general options main group
-        $generalOptions = new OptionsPropertyMainGroup('general_opts');
+        $generalOptions = new OptionsPropertyMainGroup('csv_general_opts');
         // create leaf items and add them to the group
         $leaf = new TextPropertyItem(
-            'separator',
+            'csv_separator',
             __('Columns separated with:'),
         );
         $generalOptions->addProperty($leaf);
         $leaf = new TextPropertyItem(
-            'enclosed',
+            'csv_enclosed',
             __('Columns enclosed with:'),
         );
         $generalOptions->addProperty($leaf);
         $leaf = new TextPropertyItem(
-            'escaped',
+            'csv_escaped',
             __('Columns escaped with:'),
         );
         $generalOptions->addProperty($leaf);
         $leaf = new TextPropertyItem(
-            'terminated',
+            'csv_terminated',
             __('Lines terminated with:'),
         );
         $generalOptions->addProperty($leaf);
         $leaf = new TextPropertyItem(
-            'null',
+            'csv_null',
             __('Replace NULL with:'),
         );
         $generalOptions->addProperty($leaf);
         $leaf = new BoolPropertyItem(
-            'removeCRLF',
+            'csv_removeCRLF',
             __('Remove carriage return/line feed characters within columns'),
         );
         $generalOptions->addProperty($leaf);
         $leaf = new BoolPropertyItem(
-            'columns',
+            'csv_columns',
             __('Put columns names in the first row'),
         );
         $generalOptions->addProperty($leaf);
-        $leaf = new HiddenPropertyItem('structure_or_data');
+        $leaf = new HiddenPropertyItem('csv_structure_or_data');
         $generalOptions->addProperty($leaf);
         // add the main group to the root group
         $exportSpecificOptions->addProperty($generalOptions);

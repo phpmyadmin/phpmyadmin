@@ -87,11 +87,6 @@ final class ExportLatexTest extends AbstractTestCase
             $properties->getMimeType(),
         );
 
-        self::assertSame(
-            'Options',
-            $properties->getOptionsText(),
-        );
-
         $options = $properties->getOptions();
 
         self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
@@ -109,7 +104,7 @@ final class ExportLatexTest extends AbstractTestCase
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         self::assertSame(
-            'general_opts',
+            'latex_general_opts',
             $generalOptions->getName(),
         );
 
@@ -120,7 +115,7 @@ final class ExportLatexTest extends AbstractTestCase
         self::assertInstanceOf(BoolPropertyItem::class, $property);
 
         self::assertSame(
-            'caption',
+            'latex_caption',
             $property->getName(),
         );
 
@@ -135,7 +130,7 @@ final class ExportLatexTest extends AbstractTestCase
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         self::assertSame(
-            'dump_what',
+            'latex_dump_what',
             $generalOptions->getName(),
         );
 
@@ -151,7 +146,7 @@ final class ExportLatexTest extends AbstractTestCase
         self::assertInstanceOf(RadioPropertyItem::class, $property);
 
         self::assertSame(
-            'structure_or_data',
+            'latex_structure_or_data',
             $property->getName(),
         );
 
@@ -167,18 +162,13 @@ final class ExportLatexTest extends AbstractTestCase
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         self::assertSame(
-            'structure',
+            'latex_structure',
             $generalOptions->getName(),
         );
 
         self::assertSame(
             'Object creation options',
             $generalOptions->getText(),
-        );
-
-        self::assertSame(
-            'data',
-            $generalOptions->getForce(),
         );
 
         $generalProperties = $generalOptions->getProperties();
@@ -189,7 +179,7 @@ final class ExportLatexTest extends AbstractTestCase
         self::assertInstanceOf(TextPropertyItem::class, $property);
 
         self::assertSame(
-            'structure_caption',
+            'latex_structure_caption',
             $property->getName(),
         );
 
@@ -209,7 +199,7 @@ final class ExportLatexTest extends AbstractTestCase
         self::assertInstanceOf(TextPropertyItem::class, $property);
 
         self::assertSame(
-            'structure_continued_caption',
+            'latex_structure_continued_caption',
             $property->getName(),
         );
 
@@ -229,7 +219,7 @@ final class ExportLatexTest extends AbstractTestCase
         self::assertInstanceOf(TextPropertyItem::class, $property);
 
         self::assertSame(
-            'structure_label',
+            'latex_structure_label',
             $property->getName(),
         );
 
@@ -249,7 +239,7 @@ final class ExportLatexTest extends AbstractTestCase
         self::assertInstanceOf(BoolPropertyItem::class, $property);
 
         self::assertSame(
-            'relation',
+            'latex_relation',
             $property->getName(),
         );
 
@@ -264,7 +254,7 @@ final class ExportLatexTest extends AbstractTestCase
         self::assertInstanceOf(BoolPropertyItem::class, $property);
 
         self::assertSame(
-            'comments',
+            'latex_comments',
             $property->getName(),
         );
 
@@ -278,7 +268,7 @@ final class ExportLatexTest extends AbstractTestCase
         self::assertInstanceOf(BoolPropertyItem::class, $property);
 
         self::assertSame(
-            'mime',
+            'latex_mime',
             $property->getName(),
         );
 
@@ -293,18 +283,13 @@ final class ExportLatexTest extends AbstractTestCase
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         self::assertSame(
-            'data',
+            'latex_data',
             $generalOptions->getName(),
         );
 
         self::assertSame(
             'Data dump options',
             $generalOptions->getText(),
-        );
-
-        self::assertSame(
-            'structure',
-            $generalOptions->getForce(),
         );
 
         $generalProperties = $generalOptions->getProperties();
@@ -315,7 +300,7 @@ final class ExportLatexTest extends AbstractTestCase
         self::assertInstanceOf(BoolPropertyItem::class, $property);
 
         self::assertSame(
-            'columns',
+            'latex_columns',
             $property->getName(),
         );
 
@@ -330,7 +315,7 @@ final class ExportLatexTest extends AbstractTestCase
         self::assertInstanceOf(TextPropertyItem::class, $property);
 
         self::assertSame(
-            'data_caption',
+            'latex_data_caption',
             $property->getName(),
         );
 
@@ -350,7 +335,7 @@ final class ExportLatexTest extends AbstractTestCase
         self::assertInstanceOf(TextPropertyItem::class, $property);
 
         self::assertSame(
-            'data_continued_caption',
+            'latex_data_continued_caption',
             $property->getName(),
         );
 
@@ -370,7 +355,7 @@ final class ExportLatexTest extends AbstractTestCase
         self::assertInstanceOf(TextPropertyItem::class, $property);
 
         self::assertSame(
-            'data_label',
+            'latex_data_label',
             $property->getName(),
         );
 
@@ -389,7 +374,7 @@ final class ExportLatexTest extends AbstractTestCase
         self::assertInstanceOf(TextPropertyItem::class, $property);
 
         self::assertSame(
-            'null',
+            'latex_null',
             $property->getName(),
         );
 

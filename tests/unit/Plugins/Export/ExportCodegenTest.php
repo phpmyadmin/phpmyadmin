@@ -56,11 +56,6 @@ final class ExportCodegenTest extends AbstractTestCase
             $properties->getMimeType(),
         );
 
-        self::assertSame(
-            'Options',
-            $properties->getOptionsText(),
-        );
-
         $options = $properties->getOptions();
 
         self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
@@ -76,7 +71,7 @@ final class ExportCodegenTest extends AbstractTestCase
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         self::assertSame(
-            'general_opts',
+            'codegen_general_opts',
             $generalOptions->getName(),
         );
 
@@ -88,7 +83,7 @@ final class ExportCodegenTest extends AbstractTestCase
         self::assertInstanceOf(HiddenPropertyItem::class, $hidden);
 
         self::assertSame(
-            'structure_or_data',
+            'codegen_structure_or_data',
             $hidden->getName(),
         );
 
@@ -97,7 +92,7 @@ final class ExportCodegenTest extends AbstractTestCase
         self::assertInstanceOf(SelectPropertyItem::class, $select);
 
         self::assertSame(
-            'format',
+            'codegen_format',
             $select->getName(),
         );
 

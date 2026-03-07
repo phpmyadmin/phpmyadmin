@@ -47,7 +47,6 @@ class ExportToon extends ExportPlugin
         $exportPluginProperties->setExtension('toon');
         $exportPluginProperties->setMimeType('text/toon');
         $exportPluginProperties->setForceFile(true);
-        $exportPluginProperties->setOptionsText(__('Options'));
 
         // create the root group that will be the options field for
         // $exportPluginProperties
@@ -55,20 +54,20 @@ class ExportToon extends ExportPlugin
         $exportSpecificOptions = new OptionsPropertyRootGroup('Format Specific Options');
 
         // general options main group
-        $generalOptions = new OptionsPropertyMainGroup('general_opts');
+        $generalOptions = new OptionsPropertyMainGroup('toon_general_opts');
         // create leaf items and add them to the group
         $leaf = new TextPropertyItem(
-            'separator',
+            'toon_separator',
             __('Columns separated with:'),
         );
         $generalOptions->addProperty($leaf);
         $leaf = new TextPropertyItem(
-            'indent',
+            'toon_indent',
             __('Indentation:'),
         );
         $generalOptions->addProperty($leaf);
         // create primary items and add them to the group
-        $leaf = new HiddenPropertyItem('structure_or_data');
+        $leaf = new HiddenPropertyItem('toon_structure_or_data');
         $generalOptions->addProperty($leaf);
         // add the main group to the root group
         $exportSpecificOptions->addProperty($generalOptions);

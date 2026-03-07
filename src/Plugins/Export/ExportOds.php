@@ -51,7 +51,6 @@ class ExportOds extends ExportPlugin
         $exportPluginProperties->setExtension('ods');
         $exportPluginProperties->setMimeType('application/vnd.oasis.opendocument.spreadsheet');
         $exportPluginProperties->setForceFile(true);
-        $exportPluginProperties->setOptionsText(__('Options'));
 
         // create the root group that will be the options field for
         // $exportPluginProperties
@@ -59,19 +58,19 @@ class ExportOds extends ExportPlugin
         $exportSpecificOptions = new OptionsPropertyRootGroup('Format Specific Options');
 
         // general options main group
-        $generalOptions = new OptionsPropertyMainGroup('general_opts');
+        $generalOptions = new OptionsPropertyMainGroup('ods_general_opts');
         // create primary items and add them to the group
         $leaf = new TextPropertyItem(
-            'null',
+            'ods_null',
             __('Replace NULL with:'),
         );
         $generalOptions->addProperty($leaf);
         $leaf = new BoolPropertyItem(
-            'columns',
+            'ods_columns',
             __('Put columns names in the first row'),
         );
         $generalOptions->addProperty($leaf);
-        $leaf = new HiddenPropertyItem('structure_or_data');
+        $leaf = new HiddenPropertyItem('ods_structure_or_data');
         $generalOptions->addProperty($leaf);
         // add the main group to the root group
         $exportSpecificOptions->addProperty($generalOptions);

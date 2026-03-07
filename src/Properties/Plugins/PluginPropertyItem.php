@@ -21,7 +21,6 @@ abstract class PluginPropertyItem
     private string $text = '';
     private string $extension = '';
     private OptionsPropertyRootGroup|null $options = null;
-    private string $optionsText = '';
     private string $mimeType = '';
 
     public function getText(): string
@@ -52,16 +51,6 @@ abstract class PluginPropertyItem
     public function setOptions(OptionsPropertyRootGroup $options): void
     {
         $this->options = $options;
-    }
-
-    public function getOptionsText(): string
-    {
-        return $this->optionsText;
-    }
-
-    public function setOptionsText(string $optionsText): void
-    {
-        $this->optionsText = $optionsText;
     }
 
     public function getMimeType(): string

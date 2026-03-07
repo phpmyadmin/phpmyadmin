@@ -62,7 +62,6 @@ class ExportOdt extends ExportPlugin
         $exportPluginProperties->setExtension('odt');
         $exportPluginProperties->setMimeType('application/vnd.oasis.opendocument.text');
         $exportPluginProperties->setForceFile(true);
-        $exportPluginProperties->setOptionsText(__('Options'));
 
         // create the root group that will be the options field for
         // $exportPluginProperties
@@ -71,11 +70,11 @@ class ExportOdt extends ExportPlugin
 
         // what to dump (structure/data/both) main group
         $dumpWhat = new OptionsPropertyMainGroup(
-            'general_opts',
+            'odt_general_opts',
             __('Dump table'),
         );
         // create primary items and add them to the group
-        $leaf = new RadioPropertyItem('structure_or_data');
+        $leaf = new RadioPropertyItem('odt_structure_or_data');
         $leaf->setValues(
             ['structure' => __('structure'), 'data' => __('data'), 'structure_and_data' => __('structure and data')],
         );
@@ -86,28 +85,27 @@ class ExportOdt extends ExportPlugin
         // structure options main group
         if (! $hideStructure) {
             $structureOptions = new OptionsPropertyMainGroup(
-                'structure',
+                'odt_structure',
                 __('Object creation options'),
             );
-            $structureOptions->setForce('data');
             $relationParameters = $this->relation->getRelationParameters();
             // create primary items and add them to the group
             if ($relationParameters->relationFeature !== null) {
                 $leaf = new BoolPropertyItem(
-                    'relation',
+                    'odt_relation',
                     __('Display foreign key relationships'),
                 );
                 $structureOptions->addProperty($leaf);
             }
 
             $leaf = new BoolPropertyItem(
-                'comments',
+                'odt_comments',
                 __('Display comments'),
             );
             $structureOptions->addProperty($leaf);
             if ($relationParameters->browserTransformationFeature !== null) {
                 $leaf = new BoolPropertyItem(
-                    'mime',
+                    'odt_mime',
                     __('Display media types'),
                 );
                 $structureOptions->addProperty($leaf);
@@ -119,18 +117,17 @@ class ExportOdt extends ExportPlugin
 
         // data options main group
         $dataOptions = new OptionsPropertyMainGroup(
-            'data',
+            'odt_data',
             __('Data dump options'),
         );
-        $dataOptions->setForce('structure');
         // create primary items and add them to the group
         $leaf = new BoolPropertyItem(
-            'columns',
+            'odt_columns',
             __('Put columns names in the first row'),
         );
         $dataOptions->addProperty($leaf);
         $leaf = new TextPropertyItem(
-            'null',
+            'odt_null',
             __('Replace NULL with:'),
         );
         $dataOptions->addProperty($leaf);

@@ -72,11 +72,6 @@ final class ExportMediawikiTest extends AbstractTestCase
             $properties->getMimeType(),
         );
 
-        self::assertSame(
-            'Options',
-            $properties->getOptionsText(),
-        );
-
         $options = $properties->getOptions();
 
         self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
@@ -92,7 +87,7 @@ final class ExportMediawikiTest extends AbstractTestCase
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         self::assertSame(
-            'general_opts',
+            'mediawiki_general_opts',
             $generalOptions->getName(),
         );
 
@@ -109,7 +104,7 @@ final class ExportMediawikiTest extends AbstractTestCase
         self::assertInstanceOf(OptionsPropertySubgroup::class, $property);
 
         self::assertSame(
-            'dump_table',
+            'mediawiki_dump_table',
             $property->getName(),
         );
 
@@ -123,7 +118,7 @@ final class ExportMediawikiTest extends AbstractTestCase
         self::assertInstanceOf(RadioPropertyItem::class, $sgHeader);
 
         self::assertSame(
-            'structure_or_data',
+            'mediawiki_structure_or_data',
             $sgHeader->getName(),
         );
 
@@ -138,7 +133,7 @@ final class ExportMediawikiTest extends AbstractTestCase
         self::assertInstanceOf(BoolPropertyItem::class, $property);
 
         self::assertSame(
-            'caption',
+            'mediawiki_caption',
             $property->getName(),
         );
 
@@ -152,7 +147,7 @@ final class ExportMediawikiTest extends AbstractTestCase
         self::assertInstanceOf(BoolPropertyItem::class, $property);
 
         self::assertSame(
-            'headers',
+            'mediawiki_headers',
             $property->getName(),
         );
 

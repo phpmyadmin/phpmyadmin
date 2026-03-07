@@ -16,19 +16,16 @@ use function htmlspecialchars;
  */
 class SelectPropertyItem extends OptionsPropertyOneItem
 {
-    public function getHtml(Plugin $plugin, PluginType $pluginType, string $pluginName): string
+    public function getHtml(Plugin $plugin, PluginType $pluginType): string
     {
         $ret = '<li class="list-group-item">';
-        $ret .= '<label for="select_' . $pluginName . '_'
-            . $this->getName() . '" class="form-label">'
-            . $plugin->getTranslatedText($this->getText() ?? '') . '</label>';
-        $ret .= '<select class="form-select" name="' . $pluginName . '_'
-            . $this->getName() . '"'
-            . ' id="select_' . $pluginName . '_'
-            . $this->getName() . '">';
+        $ret .= '<label for="select_' . $this->getName() . '" class="form-label">'
+            . $plugin->getTranslatedText($this->getText()) . '</label>';
+        $ret .= '<select class="form-select" name="' . $this->getName() . '"'
+            . ' id="select_' . $this->getName() . '">';
         $default = htmlspecialchars($plugin->getTranslatedText(Plugins::getDefault(
             $pluginType,
-            $pluginName . '_' . $this->getName(),
+            $this->getName(),
         )));
         foreach ($this->getValues() as $key => $val) {
             $ret .= '<option value="' . $key . '"';

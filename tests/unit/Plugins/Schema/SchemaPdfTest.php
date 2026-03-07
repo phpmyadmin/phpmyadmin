@@ -33,38 +33,38 @@ final class SchemaPdfTest extends AbstractTestCase
         self::assertCount(1, $specificOptions);
         $specificOption = $specificOptions->current();
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $specificOption);
-        self::assertSame('general_opts', $specificOption->getName());
-        self::assertCount(8, $specificOption);
+        self::assertSame('pdf_general_opts', $specificOption->getName());
         $specificOptionProperties = $specificOption->getProperties();
+        self::assertCount(8, $specificOptionProperties);
 
         $specificOptionProperty = $specificOptionProperties->current();
         self::assertInstanceOf(BoolPropertyItem::class, $specificOptionProperty);
-        self::assertSame('show_color', $specificOptionProperty->getName());
+        self::assertSame('pdf_show_color', $specificOptionProperty->getName());
         self::assertSame('Show color', $specificOptionProperty->getText());
 
         $specificOptionProperties->next();
         $specificOptionProperty = $specificOptionProperties->current();
         self::assertInstanceOf(BoolPropertyItem::class, $specificOptionProperty);
-        self::assertSame('show_keys', $specificOptionProperty->getName());
+        self::assertSame('pdf_show_keys', $specificOptionProperty->getName());
         self::assertSame('Only show keys', $specificOptionProperty->getText());
 
         $specificOptionProperties->next();
         $specificOptionProperty = $specificOptionProperties->current();
         self::assertInstanceOf(BoolPropertyItem::class, $specificOptionProperty);
-        self::assertSame('all_tables_same_width', $specificOptionProperty->getName());
+        self::assertSame('pdf_all_tables_same_width', $specificOptionProperty->getName());
         self::assertSame('Same width for all tables', $specificOptionProperty->getText());
 
         $specificOptionProperties->next();
         $specificOptionProperty = $specificOptionProperties->current();
         self::assertInstanceOf(SelectPropertyItem::class, $specificOptionProperty);
-        self::assertSame('orientation', $specificOptionProperty->getName());
+        self::assertSame('pdf_orientation', $specificOptionProperty->getName());
         self::assertSame('Orientation', $specificOptionProperty->getText());
         self::assertSame(['L' => 'Landscape', 'P' => 'Portrait'], $specificOptionProperty->getValues());
 
         $specificOptionProperties->next();
         $specificOptionProperty = $specificOptionProperties->current();
         self::assertInstanceOf(SelectPropertyItem::class, $specificOptionProperty);
-        self::assertSame('paper', $specificOptionProperty->getName());
+        self::assertSame('pdf_paper', $specificOptionProperty->getName());
         self::assertSame('Paper size', $specificOptionProperty->getText());
         self::assertSame(
             ['A3' => 'A3', 'A4' => 'A4', 'A5' => 'A5', 'letter' => 'letter', 'legal' => 'legal'],
@@ -74,19 +74,19 @@ final class SchemaPdfTest extends AbstractTestCase
         $specificOptionProperties->next();
         $specificOptionProperty = $specificOptionProperties->current();
         self::assertInstanceOf(BoolPropertyItem::class, $specificOptionProperty);
-        self::assertSame('show_grid', $specificOptionProperty->getName());
+        self::assertSame('pdf_show_grid', $specificOptionProperty->getName());
         self::assertSame('Show grid', $specificOptionProperty->getText());
 
         $specificOptionProperties->next();
         $specificOptionProperty = $specificOptionProperties->current();
         self::assertInstanceOf(BoolPropertyItem::class, $specificOptionProperty);
-        self::assertSame('with_doc', $specificOptionProperty->getName());
+        self::assertSame('pdf_with_doc', $specificOptionProperty->getName());
         self::assertSame('Data dictionary', $specificOptionProperty->getText());
 
         $specificOptionProperties->next();
         $specificOptionProperty = $specificOptionProperties->current();
         self::assertInstanceOf(SelectPropertyItem::class, $specificOptionProperty);
-        self::assertSame('table_order', $specificOptionProperty->getName());
+        self::assertSame('pdf_table_order', $specificOptionProperty->getName());
         self::assertSame('Order of the tables', $specificOptionProperty->getText());
         self::assertSame(
             ['' => 'None', 'name_asc' => 'Name (Ascending)', 'name_desc' => 'Name (Descending)'],

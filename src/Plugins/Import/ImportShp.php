@@ -73,7 +73,6 @@ class ImportShp extends ImportPlugin
         $importPluginProperties = new ImportPluginProperties();
         $importPluginProperties->setText(__('ESRI Shape File'));
         $importPluginProperties->setExtension('shp');
-        $importPluginProperties->setOptionsText(__('Options'));
 
         return $importPluginProperties;
     }

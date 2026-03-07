@@ -14,10 +14,10 @@ use PhpMyAdmin\Properties\Options\OptionsPropertyOneItem;
  */
 class MessageOnlyPropertyItem extends OptionsPropertyOneItem
 {
-    public function getHtml(Plugin $plugin, PluginType $pluginType, string $pluginName): string
+    public function getHtml(Plugin $plugin, PluginType $pluginType): string
     {
         $ret = '<li class="list-group-item">';
-        $ret .= $plugin->getTranslatedText($this->getText() ?? '');
+        $ret .= $plugin->getTranslatedText($this->getText());
         $ret .= Plugins::getDocumentationLinkHtml($this);
 
         return $ret;

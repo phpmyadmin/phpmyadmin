@@ -67,7 +67,6 @@ class Export[Name] extends PhpMyAdmin\Plugins\ExportPlugin
         $exportPluginProperties = new PhpMyAdmin\Properties\Plugins\ExportPluginProperties();
         $exportPluginProperties->setText('[name]');             // the name of your plug-in
         $exportPluginProperties->setExtension('[ext]');         // extension this plug-in can handle
-        $exportPluginProperties->setOptionsText(__('Options'));
 
         // create the root group that will be the options field for
         // $exportPluginProperties

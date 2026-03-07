@@ -57,8 +57,6 @@ class ImportLdi extends AbstractImportCsv
             $this->setLdiLocalOptionConfig();
         }
 
-        $importPluginProperties->setOptionsText(__('Options'));
-
         // create the root group that will be the options field for
         // $importPluginProperties
         // this will be shown as "Format specific options"
@@ -67,19 +65,19 @@ class ImportLdi extends AbstractImportCsv
         $generalOptions = $this->getGeneralOptions();
 
         $leaf = new TextPropertyItem(
-            'columns',
+            'ldi_columns',
             __('Column names: '),
         );
         $generalOptions->addProperty($leaf);
 
         $leaf = new BoolPropertyItem(
-            'ignore',
+            'ldi_ignore',
             __('Do not abort on INSERT error'),
         );
         $generalOptions->addProperty($leaf);
 
         $leaf = new BoolPropertyItem(
-            'local_option',
+            'ldi_local_option',
             __('Use LOCAL keyword'),
         );
         $generalOptions->addProperty($leaf);
