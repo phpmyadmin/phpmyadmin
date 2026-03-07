@@ -400,9 +400,9 @@ class StructureController extends AbstractController
                 $defaultStorageEngineVar = $this->dbi->getVersion() >= 50503
                     ? '@@default_storage_engine'
                     : '@@storage_engine';
-                $defaultStorageEngine = $this->dbi->fetchValue(sprintf("SELECT %s;", $defaultStorageEngineVar));
+                $defaultStorageEngine = $this->dbi->fetchValue(sprintf('SELECT %s;', $defaultStorageEngineVar));
             }
-            
+
             $structureTableRows[] = [
                 'table_name_hash' => md5($currentTable['TABLE_NAME']),
                 'db_table_name_hash' => md5($this->db . '.' . $currentTable['TABLE_NAME']),
