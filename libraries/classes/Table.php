@@ -1824,7 +1824,7 @@ class Table implements Stringable
         // Remove some old rows in table_uiprefs if it exceeds the configured
         // maximum rows
         $sqlQuery = 'SELECT COUNT(*) FROM ' . $table;
-        $rowsCount = (int) $this->dbi->fetchValue($sqlQuery);
+        $rowsCount = (int) $this->dbi->fetchValue($sqlQuery, 0, DatabaseInterface::CONNECT_CONTROL)
         $maxRows = (int) $GLOBALS['cfg']['Server']['MaxTableUiprefs'];
         if ($rowsCount > $maxRows) {
             $numRowsToDelete = $rowsCount - $maxRows;
