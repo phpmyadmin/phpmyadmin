@@ -66,6 +66,9 @@ class StructureController extends AbstractController
     /** @var bool whether stats show or not */
     protected $isShowStats;
 
+    /** @var bool whether database details show or not */
+    protected $isShowDbDetails;
+
     /** @var Relation */
     private $relation;
 
@@ -105,6 +108,8 @@ class StructureController extends AbstractController
         $this->operations = $operations;
         $this->dbi = $dbi;
         $this->flash = $flash;
+
+        $this->isShowDbDetails = $GLOBALS['cfg']['PropertiesNumColumns'] < 2;
 
         $this->replicationInfo = new ReplicationInfo($this->dbi);
     }
@@ -380,6 +385,7 @@ class StructureController extends AbstractController
                     'replication' => $replicaInfo['status'],
                     'properties_num_columns' => $GLOBALS['cfg']['PropertiesNumColumns'],
                     'is_show_stats' => $this->isShowStats,
+                    'is_show_db_details' => $this->isShowDbDetails,
                     'show_charset' => $GLOBALS['cfg']['ShowDbStructureCharset'],
                     'show_comment' => $GLOBALS['cfg']['ShowDbStructureComment'],
                     'show_creation' => $GLOBALS['cfg']['ShowDbStructureCreation'],
@@ -440,6 +446,7 @@ class StructureController extends AbstractController
                 'already_favorite' => $this->checkFavoriteTable($currentTable['TABLE_NAME']),
                 'num_favorite_tables' => $GLOBALS['cfg']['NumFavoriteTables'],
                 'properties_num_columns' => $GLOBALS['cfg']['PropertiesNumColumns'],
+                'is_show_db_details' => $this->isShowDbDetails,
                 'limit_chars' => $GLOBALS['cfg']['LimitChars'],
                 'show_charset' => $GLOBALS['cfg']['ShowDbStructureCharset'],
                 'show_comment' => $GLOBALS['cfg']['ShowDbStructureComment'],
@@ -468,11 +475,20 @@ class StructureController extends AbstractController
 
         $relationParameters = $this->relation->getRelationParameters();
 
+        $defaultStorageEngine = '';
+        if ($this->isShowDbDetails) {
+            $defaultStorageEngineVar = $this->dbi->getVersion() >= 50503
+                ? '@@default_storage_engine'
+                : '@@storage_engine';
+            $defaultStorageEngine = $this->dbi->fetchValue(sprintf('SELECT %s;', $defaultStorageEngineVar));
+        }
+
         return $html . $this->template->render('database/structure/table_header', [
             'db' => $this->db,
             'db_is_system_schema' => $this->dbIsSystemSchema,
             'replication' => $replicaInfo['status'],
             'properties_num_columns' => $GLOBALS['cfg']['PropertiesNumColumns'],
+            'is_show_db_details' => $this->isShowDbDetails,
             'is_show_stats' => $this->isShowStats,
             'show_charset' => $GLOBALS['cfg']['ShowDbStructureCharset'],
             'show_comment' => $GLOBALS['cfg']['ShowDbStructureComment'],
@@ -498,6 +514,8 @@ class StructureController extends AbstractController
                 'num_favorite_tables' => $GLOBALS['cfg']['NumFavoriteTables'],
                 'db' => $GLOBALS['db'],
                 'properties_num_columns' => $GLOBALS['cfg']['PropertiesNumColumns'],
+                'is_show_db_details' => $this->isShowDbDetails,
+                'default_storage_engine' => $defaultStorageEngine,
                 'dbi' => $this->dbi,
                 'show_charset' => $GLOBALS['cfg']['ShowDbStructureCharset'],
                 'show_comment' => $GLOBALS['cfg']['ShowDbStructureComment'],

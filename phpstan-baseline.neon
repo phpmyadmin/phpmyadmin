@@ -5037,7 +5037,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'PropertiesNumColumns' on mixed\\.$#"
-			count: 1
+			count: 2
 			path: libraries/classes/Controllers/Database/StructureController.php
 
 		-
