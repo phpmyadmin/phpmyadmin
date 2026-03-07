@@ -395,7 +395,6 @@ class StructureController extends AbstractController
 
             [$do, $ignored] = $this->getReplicationStatus($replicaInfo, $truename);
 
-            
             $defaultStorageEngine = '';
             if ($GLOBALS['cfg']['PropertiesNumColumns'] < 2) {
                 $defaultStorageEngineVar = $this->dbi->getVersion() >= 50503
