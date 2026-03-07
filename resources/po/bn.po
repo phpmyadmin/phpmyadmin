@@ -17,7 +17,7 @@ msgstr ""
 
 #: resources/templates/base.twig:40 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
-msgstr "এখানে আসার পুর্বেই জাভা স্ক্রীপট কার্যকর থাকতে হবে।"
+msgstr "এখানে আসার পুর্বেই জাভাস্ক্রিপ্ট সক্রিয় থাকতে হবে।"
 
 #: resources/templates/base.twig:50
 #, fuzzy
@@ -96,7 +96,7 @@ msgstr "নতুন phpMyAdmin উইন্ডো খোল"
 #: resources/templates/base.twig:155 resources/templates/home/index.twig:18
 #: resources/templates/login/form.twig:5
 msgid "phpMyAdmin Demo Server"
-msgstr "পিএইছপিমাইএডমিন ডেমো সার্ভার"
+msgstr "পিএইচপিমাইঅ্যাডমিন নমুনা সার্ভার"
 
 #: resources/templates/base.twig:163
 #, php-format
@@ -367,7 +367,7 @@ msgstr ""
 #: resources/templates/table/zoom_search/result_form.twig:79
 #: src/Controllers/JavaScriptMessagesController.php:431
 msgid "Save"
-msgstr "সংরক্ষন"
+msgstr "সংরক্ষণ"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:164
 msgid ""
@@ -390,7 +390,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Loading…"
 msgid "Loading"
-msgstr "লোডিং…"
+msgstr "লোড হচ্ছে…"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:174
 #: resources/templates/columns_definitions/column_definitions_form.twig:179
