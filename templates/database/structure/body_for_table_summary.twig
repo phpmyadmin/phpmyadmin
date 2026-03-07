@@ -36,11 +36,9 @@
     {% endif %}
     <th class="value tbl_rows font-monospace text-end">{{ cell_text }}</th>
     {% if not (properties_num_columns > 1) %}
-    {% set default_storage_engine_var = dbi.getVersion() >= 050503 ? '@@default_storage_engine' : '@@storage_engine' %}
-    {% set default_engine = dbi.fetchValue("SELECT #{default_storage_engine_var};") %}
         <th class="text-center">
-            <dfn title="{{ '%s is the default storage engine on this MySQL server.'|trans|format(default_engine) }}">
-                {{ default_engine }}
+            <dfn title="{{ '%s is the default storage engine on this MySQL server.'|trans|format(default_storage_engine) }}">
+                {{ default_storage_engine }}
             </dfn>
         </th>
         <th>
