@@ -527,6 +527,10 @@ class GisVisualization
             }
         }
 
-        return $format === 'svg' ? $svg : ($format === 'ol' ? $olDataset : null);
+        return match ($format) {
+            'svg' => $svg,
+            'ol' => $olDataset,
+            default => null,
+        };
     }
 }
