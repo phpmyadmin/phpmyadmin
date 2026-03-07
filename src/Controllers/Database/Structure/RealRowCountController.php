@@ -34,8 +34,8 @@ final class RealRowCountController implements InvocableController
     public function __invoke(ServerRequest $request): Response
     {
         $parameters = [
-            'real_row_count_all' => $_REQUEST['real_row_count_all'] ?? null,
-            'table' => $_REQUEST['table'] ?? null,
+            'real_row_count_all' => $request->getParam('real_row_count_all'),
+            'table' => $request->getParam('table'),
         ];
 
         if (Current::$database === '') {
