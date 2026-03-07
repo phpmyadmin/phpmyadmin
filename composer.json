@@ -144,7 +144,7 @@
         ],
         "update:baselines": [
             "@php phpstan analyse --generate-baseline",
-            "@php psalm --set-baseline=psalm-baseline.xml"
+            "@php psalm --no-cache --threads=max --set-baseline=psalm-baseline.xml"
         ],
         "twig-lint": "@php scripts/console lint:twig --ansi --show-deprecations"
     },
