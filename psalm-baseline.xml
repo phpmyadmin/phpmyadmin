@@ -7196,6 +7196,10 @@
     <PossiblyNullArgument>
       <code><![CDATA[$srReplicaAction]]></code>
     </PossiblyNullArgument>
+    <PossiblyUnusedReturnValue>
+      <code><![CDATA[bool]]></code>
+      <code><![CDATA[bool]]></code>
+    </PossiblyUnusedReturnValue>
     <UnusedFunctionCall>
       <code><![CDATA[strtok]]></code>
       <code><![CDATA[strtok]]></code>
