@@ -166,7 +166,11 @@ Navigation.loadChildNodes = function (isNode, $expandElem, callback) {
     }
 
     $.post('index.php?route=/navigation&ajax_request=1', params, function (data) {
-        if (typeof data !== 'undefined' && data.success === true) {
+        if (typeof data === 'undefined') {
+            return;
+        }
+
+        if (data.success === true) {
             $destination.find('div.list_container').remove(); // FIXME: Hack, there shouldn't be a list container there
             if (isNode) {
                 $destination.append(data.message);
@@ -191,7 +195,7 @@ Navigation.loadChildNodes = function (isNode, $expandElem, callback) {
             if (callback && typeof callback === 'function') {
                 callback(data);
             }
-        } else if (typeof data !== 'undefined' && data.redirect_flag === '1') {
+        } else if (data.redirect_flag === '1') {
             if (window.location.href.indexOf('?') === -1) {
                 window.location.href += '?session_expired=1';
             } else {
@@ -939,7 +943,11 @@ Navigation.reload = function (callback, paths) {
 
     function requestNaviReload (params) {
         $.post('index.php?route=/navigation&ajax_request=1', params, function (data) {
-            if (typeof data !== 'undefined' && data.success) {
+            if (typeof data === 'undefined') {
+                return;
+            }
+
+            if (data.success) {
                 $('#pma_navigation_tree').html(data.message).children('div').show();
                 if ($('#pma_navigation_tree').hasClass('synced')) {
                     Navigation.selectCurrentDatabase();
