@@ -3100,12 +3100,6 @@ parameters:
 			path: src/Controllers/Table/ReplaceController.php
 
 		-
-			message: '#^Parameter \#1 \$messages of method PhpMyAdmin\\Message\:\:addMessagesString\(\) expects array\<string\>, list\<PhpMyAdmin\\Message\|string\|null\> given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Table/ReplaceController.php
-
-		-
 			message: '#^Parameter \#2 \$relationField of method PhpMyAdmin\\InsertEdit\:\:getLinkForRelationalDisplayField\(\) expects string, \(int\|string\) given\.$#'
 			identifier: argument.type
 			count: 1

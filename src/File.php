@@ -321,14 +321,6 @@ class File
     }
 
     /**
-     * Checks whether there was any error.
-     */
-    public function isError(): bool
-    {
-        return $this->errorMessage !== null;
-    }
-
-    /**
      * checks the superglobals provided if the tbl_change form is submitted
      * and uses the submitted/selected file
      *

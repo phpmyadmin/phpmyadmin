@@ -2362,9 +2362,6 @@
     </PossiblyInvalidCast>
   </file>
   <file src="src/Controllers/Table/ReplaceController.php">
-    <InvalidArgument>
-      <code><![CDATA[$insertErrors]]></code>
-    </InvalidArgument>
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[UrlParams::$params]]></code>
     </InvalidPropertyAssignmentValue>

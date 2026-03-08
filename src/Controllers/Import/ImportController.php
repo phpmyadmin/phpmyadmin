@@ -397,10 +397,8 @@ final readonly class ImportController implements InvocableController
              */
             $importHandle = new File(ImportSettings::$importFile);
             $importHandle->checkUploadedFile();
-            if ($importHandle->isError()) {
-                /** @var Message $errorMessage */
-                $errorMessage = $importHandle->getError();
-
+            $errorMessage = $importHandle->getError();
+            if ($errorMessage !== null) {
                 $importHandle->close();
 
                 $_SESSION['Import_message']['message'] = $errorMessage->getDisplay();
@@ -414,10 +412,8 @@ final readonly class ImportController implements InvocableController
 
             $importHandle->setDecompressContent(true);
             $importHandle->open();
-            if ($importHandle->isError()) {
-                /** @var Message $errorMessage */
-                $errorMessage = $importHandle->getError();
-
+            $errorMessage = $importHandle->getError();
+            if ($errorMessage !== null) {
                 $importHandle->close();
 
                 $_SESSION['Import_message']['message'] = $errorMessage->getDisplay();

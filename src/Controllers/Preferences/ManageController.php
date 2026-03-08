@@ -118,9 +118,8 @@ final readonly class ManageController implements InvocableController
             ) {
                 $importHandle = new File($_FILES['import_file']['tmp_name']);
                 $importHandle->checkUploadedFile();
-                if ($importHandle->isError()) {
-                    $error = $importHandle->getError();
-                } else {
+                $error = $importHandle->getError();
+                if ($error === null) {
                     // read JSON from uploaded file
                     $json = $importHandle->getRawContent();
                 }
