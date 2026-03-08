@@ -22,9 +22,9 @@ use Psr\Clock\ClockInterface;
 
 use function array_merge;
 use function htmlspecialchars;
+use function implode;
 use function ini_get;
 use function json_encode;
-use function sprintf;
 
 use const JSON_HEX_TAG;
 
@@ -332,56 +332,49 @@ class Header
     /** @return array<string, string> */
     public function getHttpHeaders(ClockInterface|null $clock = null): array
     {
-        $headers = [];
+        $headers = [
+            'Referrer-Policy' => 'same-origin',
 
-        /* Prevent against ClickJacking by disabling framing */
-        if ($this->config->config->AllowThirdPartyFraming === 'sameorigin') {
-            $headers['X-Frame-Options'] = 'SAMEORIGIN';
-        } elseif ($this->config->config->AllowThirdPartyFraming !== true) {
-            $headers['X-Frame-Options'] = 'DENY';
-        }
+            'Content-Security-Policy' => $this->getCspHeader(),
 
-        $headers['Referrer-Policy'] = 'same-origin';
+            /**
+             * Re-enable possible disabled XSS filters.
+             *
+             * @see https://developer.mozilla.org/docs/Web/HTTP/Headers/X-XSS-Protection
+             */
+            'X-XSS-Protection' => '1; mode=block',
 
-        $headers = array_merge($headers, $this->getCspHeaders());
+            /**
+             * "nosniff", prevents Internet Explorer and Google Chrome from MIME-sniffing
+             * a response away from the declared content-type.
+             *
+             * @see https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Content-Type-Options
+             */
+            'X-Content-Type-Options' => 'nosniff',
 
-        /**
-         * Re-enable possible disabled XSS filters.
-         *
-         * @see https://developer.mozilla.org/docs/Web/HTTP/Headers/X-XSS-Protection
-         */
-        $headers['X-XSS-Protection'] = '1; mode=block';
+            /**
+             * Adobe cross-domain-policies.
+             *
+             * @see https://www.sentrium.co.uk/labs/application-security-101-http-headers
+             */
+            'X-Permitted-Cross-Domain-Policies' => 'none',
 
-        /**
-         * "nosniff", prevents Internet Explorer and Google Chrome from MIME-sniffing
-         * a response away from the declared content-type.
-         *
-         * @see https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Content-Type-Options
-         */
-        $headers['X-Content-Type-Options'] = 'nosniff';
+            /**
+             * Robots meta tag.
+             *
+             * @see https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag
+             */
+            'X-Robots-Tag' => 'noindex, nofollow',
 
-        /**
-         * Adobe cross-domain-policies.
-         *
-         * @see https://www.sentrium.co.uk/labs/application-security-101-http-headers
-         */
-        $headers['X-Permitted-Cross-Domain-Policies'] = 'none';
-
-        /**
-         * Robots meta tag.
-         *
-         * @see https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag
-         */
-        $headers['X-Robots-Tag'] = 'noindex, nofollow';
-
-        /**
-         * The HTTP Permissions-Policy header provides a mechanism to allow and deny
-         * the use of browser features in a document
-         * or within any <iframe> elements in the document.
-         *
-         * @see https://developer.mozilla.org/docs/Web/HTTP/Headers/Permissions-Policy
-         */
-        $headers['Permissions-Policy'] = 'fullscreen=(self), interest-cohort=()';
+            /**
+             * The HTTP Permissions-Policy header provides a mechanism to allow and deny
+             * the use of browser features in a document
+             * or within any <iframe> elements in the document.
+             *
+             * @see https://developer.mozilla.org/docs/Web/HTTP/Headers/Permissions-Policy
+             */
+            'Permissions-Policy' => 'fullscreen=(self), interest-cohort=()',
+        ];
 
         $headers = array_merge($headers, Core::getNoCacheHeaders($clock ?? new Clock()));
 
@@ -423,68 +416,36 @@ class Header
         return $this->title;
     }
 
-    /**
-     * Get all the CSP allow policy headers
-     *
-     * @return array<string, string>
-     */
-    private function getCspHeaders(): array
+    /** Get the Content-Security-Policy header */
+    private function getCspHeader(): string
     {
-        $mapTileUrl = ' tile.openstreetmap.org';
-        $captchaUrl = '';
-        $cspAllow = $this->config->config->CSPAllow;
+        $mapTileUrl = ' https://tile.openstreetmap.org';
+        $cspAllow = $this->config->config->CSPAllow === '' ? '' : ' ' . $this->config->config->CSPAllow;
+        $captchaUrl =
+            $this->config->config->CaptchaLoginPrivateKey === '' ||
+            $this->config->config->CaptchaLoginPublicKey === '' ||
+            $this->config->config->CaptchaApi === '' ||
+            $this->config->config->CaptchaRequestParam === '' ||
+            $this->config->config->CaptchaResponseParam === ''
+                ? ''
+                : ' ' . $this->config->config->CaptchaCsp;
 
-        if (
-            $this->config->config->CaptchaLoginPrivateKey !== ''
-            && $this->config->config->CaptchaLoginPublicKey !== ''
-            && $this->config->config->CaptchaApi !== ''
-            && $this->config->config->CaptchaRequestParam !== ''
-            && $this->config->config->CaptchaResponseParam !== ''
-        ) {
-            $captchaUrl = ' ' . $this->config->config->CaptchaCsp . ' ';
+        $csp = [
+            "default-src 'self'" . $captchaUrl . $cspAllow,
+            "img-src 'self' data:" . $captchaUrl . $cspAllow . $mapTileUrl,
+            "object-src 'none'",
+            "script-src 'self' 'unsafe-inline' 'unsafe-eval'" . $captchaUrl . $cspAllow,
+            "style-src 'self' 'unsafe-inline'" . $captchaUrl . $cspAllow,
+        ];
+
+        // Prevent click-jacking by disabling inline-framing
+        if ($this->config->config->AllowThirdPartyFraming === 'sameorigin') {
+            $csp[] = "frame-ancestors 'self'";
+        } elseif ($this->config->config->AllowThirdPartyFraming !== true) {
+            $csp[] = "frame-ancestors 'none'";
         }
 
-        $headers = [];
-
-        $headers['Content-Security-Policy'] = sprintf(
-            'default-src \'self\' %s%s;script-src \'self\' \'unsafe-inline\' \'unsafe-eval\' %s%s;'
-                . 'style-src \'self\' \'unsafe-inline\' %s%s;img-src \'self\' data: %s%s%s;object-src \'none\';',
-            $captchaUrl,
-            $cspAllow,
-            $captchaUrl,
-            $cspAllow,
-            $captchaUrl,
-            $cspAllow,
-            $cspAllow,
-            $mapTileUrl,
-            $captchaUrl,
-        );
-
-        $headers['X-Content-Security-Policy'] = sprintf(
-            'default-src \'self\' %s%s;options inline-script eval-script;'
-                . 'referrer no-referrer;img-src \'self\' data: %s%s%s;object-src \'none\';',
-            $captchaUrl,
-            $cspAllow,
-            $cspAllow,
-            $mapTileUrl,
-            $captchaUrl,
-        );
-
-        $headers['X-WebKit-CSP'] = sprintf(
-            'default-src \'self\' %s%s;script-src \'self\' %s%s \'unsafe-inline\' \'unsafe-eval\';'
-                . 'referrer no-referrer;style-src \'self\' \'unsafe-inline\' %s;'
-                . 'img-src \'self\' data: %s%s%s;object-src \'none\';',
-            $captchaUrl,
-            $cspAllow,
-            $captchaUrl,
-            $cspAllow,
-            $captchaUrl,
-            $cspAllow,
-            $mapTileUrl,
-            $captchaUrl,
-        );
-
-        return $headers;
+        return implode('; ', $csp) . ';';
     }
 
     private function getVariablesForJavaScript(): string

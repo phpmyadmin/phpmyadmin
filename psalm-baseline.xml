@@ -9915,17 +9915,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[testGetHttpHeaders]]></code>
-      <code><![CDATA[testGetHttpHeaders]]></code>
-      <code><![CDATA[testGetHttpHeaders]]></code>
-      <code><![CDATA[testGetHttpHeaders]]></code>
-      <code><![CDATA[testGetHttpHeaders]]></code>
-      <code><![CDATA[testGetHttpHeaders]]></code>
-      <code><![CDATA[testGetHttpHeaders]]></code>
-      <code><![CDATA[testGetHttpHeaders]]></code>
-      <code><![CDATA[testGetHttpHeaders]]></code>
-    </PossiblyInvalidArgument>
   </file>
   <file src="tests/unit/Html/GeneratorTest.php">
     <DeprecatedMethod>
