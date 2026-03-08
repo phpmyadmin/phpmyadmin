@@ -66,7 +66,7 @@ final readonly class ExportController implements InvocableController
         /** @var array|null $aliasesParam */
         $aliasesParam = $request->getParsedBodyParam('aliases');
         $structureOrDataForced = (bool) $request->getParsedBodyParamAsStringOrNull('structure_or_data_forced');
-        $rememberTemplate = $request->getParsedBodyParamAsString('remember_template', '');
+        $rememberTemplate = $request->hasBodyParam('remember_template');
         $dbSelect = $request->getParsedBodyParam('db_select');
         $tableStructure = $request->getParsedBodyParam('table_structure');
         $lockTables = $request->hasBodyParam('lock_tables');
@@ -231,7 +231,7 @@ final readonly class ExportController implements InvocableController
         if (OutputHandler::$asFile) {
             $filenameTemplate = $request->getParsedBodyParamAsString('filename_template', '');
 
-            if ((bool) $rememberTemplate) {
+            if ($rememberTemplate) {
                 $this->export->rememberFilename($this->userPreferencesHandler, $exportType, $filenameTemplate);
             }
 
