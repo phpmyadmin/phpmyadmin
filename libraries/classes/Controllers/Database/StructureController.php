@@ -109,6 +109,8 @@ class StructureController extends AbstractController
         $this->dbi = $dbi;
         $this->flash = $flash;
 
+        $this->isShowDbDetails = $GLOBALS['cfg']['PropertiesNumColumns'] < 2;
+
         $this->replicationInfo = new ReplicationInfo($this->dbi);
     }
 
@@ -128,7 +130,6 @@ class StructureController extends AbstractController
             $position,
         ] = Util::getDbInfo($this->db, $subPart);
 
-        $this->isShowDbDetails = $GLOBALS['cfg']['PropertiesNumColumns'] < 2;
         $this->tables = $tables;
         $this->numTables = $numTables;
         $this->position = $position;
