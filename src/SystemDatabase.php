@@ -20,7 +20,7 @@ class SystemDatabase
      *
      * @param DatabaseInterface $dbi Database interface for the system database
      */
-    public function __construct(protected DatabaseInterface $dbi)
+    public function __construct(private DatabaseInterface $dbi)
     {
         $this->relation = new Relation($this->dbi);
     }

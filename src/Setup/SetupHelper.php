@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Setup;
 
 use PhpMyAdmin\Config\ConfigFile;
-use PhpMyAdmin\Config\Forms\BaseForm;
 use PhpMyAdmin\Config\Forms\Setup\SetupFormList;
 
+use function assert;
 use function in_array;
 
 final class SetupHelper
@@ -42,8 +42,8 @@ final class SetupHelper
                 continue;
             }
 
-            /** @var BaseForm $formClass */
             $formClass = SetupFormList::get($formset);
+            assert($formClass !== null);
 
             $pages[$formset] = ['name' => $formClass::getName(), 'formset' => $formset];
         }

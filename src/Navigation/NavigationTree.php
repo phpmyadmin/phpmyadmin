@@ -45,6 +45,7 @@ use function array_keys;
 use function array_map;
 use function array_merge;
 use function array_shift;
+use function assert;
 use function base64_decode;
 use function count;
 use function explode;
@@ -1306,8 +1307,8 @@ class NavigationTree
                 $pos = $node->pos2;
             }
 
-            /** @var Node $realParent */
             $realParent = $node->getRealParent();
+            assert($realParent instanceof Node);
             $num = $realParent->getPresence($userPrivileges, $node->realName, $this->searchClause2);
             $retval .= Generator::getListNavigator(
                 $num,

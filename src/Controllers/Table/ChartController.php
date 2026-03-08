@@ -26,6 +26,7 @@ use PhpMyAdmin\UrlParams;
 
 use function __;
 use function array_keys;
+use function assert;
 use function htmlspecialchars;
 use function json_encode;
 use function min;
@@ -213,8 +214,8 @@ final readonly class ChartController implements InvocableController
         }
 
         $parser = new Parser(Current::$sqlQuery);
-        /** @var SelectStatement $statement */
         $statement = $parser->statements[0];
+        assert($statement instanceof SelectStatement);
         if (empty($statement->limit)) {
             $statement->limit = new Limit($_REQUEST['session_max_rows'], $_REQUEST['pos']);
         } else {

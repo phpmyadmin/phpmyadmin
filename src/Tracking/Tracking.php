@@ -52,7 +52,7 @@ class Tracking
     public function __construct(
         private SqlQueryForm $sqlQueryForm,
         public Template $template,
-        protected Relation $relation,
+        private Relation $relation,
         private DatabaseInterface $dbi,
         private TrackingChecker $trackingChecker,
     ) {

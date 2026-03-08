@@ -192,8 +192,9 @@ final readonly class ReplaceController implements InvocableController
                     }
                 }
 
-                if ($fileToInsert->isError()) {
-                    $insertErrors[] = $fileToInsert->getError();
+                $errorMessage = $fileToInsert->getError();
+                if ($errorMessage !== null) {
+                    $insertErrors[] = $errorMessage->getMessage();
                 }
 
                 // delete $file_to_insert temporary variable

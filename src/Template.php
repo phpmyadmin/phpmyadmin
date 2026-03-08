@@ -32,7 +32,7 @@ class Template
     /**
      * Twig environment
      */
-    protected static Environment|null $twig = null;
+    private static Environment|null $twig = null;
 
     public const TEMPLATES_FOLDER = ROOT_PATH . 'resources/templates';
 
@@ -89,18 +89,18 @@ class Template
      */
     private function load(string $templateName): TemplateWrapper
     {
-        if (static::$twig === null) {
+        if (self::$twig === null) {
             $isDevEnv = $this->config->config->environment === 'development';
-            static::$twig = self::getTwigEnvironment(CACHE_DIR . 'twig', $isDevEnv);
+            self::$twig = self::getTwigEnvironment(CACHE_DIR . 'twig', $isDevEnv);
         }
 
         try {
-            return static::$twig->load($templateName . '.twig');
+            return self::$twig->load($templateName . '.twig');
         } catch (RuntimeException) { // @phpstan-ignore-line thrown by Twig\Cache\FilesystemCache
             /* Retry with disabled cache */
-            static::$twig->setCache(false);
+            self::$twig->setCache(false);
 
-            return static::$twig->load($templateName . '.twig');
+            return self::$twig->load($templateName . '.twig');
         }
     }
 
@@ -120,10 +120,10 @@ class Template
 
     public function disableCache(): void
     {
-        if (static::$twig === null) {
-            static::$twig = self::getTwigEnvironment(null, false);
+        if (self::$twig === null) {
+            self::$twig = self::getTwigEnvironment(null, false);
         }
 
-        static::$twig->setCache(false);
+        self::$twig->setCache(false);
     }
 }

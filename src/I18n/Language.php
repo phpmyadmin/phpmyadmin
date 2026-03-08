@@ -18,7 +18,7 @@ use function strcmp;
  */
 class Language
 {
-    protected string $regex;
+    private string $regex;
 
     /**
      * Constructs the Language object
@@ -30,11 +30,11 @@ class Language
      * @param string $mysql  MySQL locale code
      */
     public function __construct(
-        protected string $code,
-        protected string $name,
-        protected string $native,
+        private string $code,
+        private string $name,
+        private string $native,
         string $regex,
-        protected string $mysql,
+        private string $mysql,
     ) {
         if (! str_contains($regex, '[-_]')) {
             $regex = str_replace('|', '([-_][[:alpha:]]{2,3})?|', $regex);

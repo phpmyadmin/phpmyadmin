@@ -347,7 +347,6 @@ final class HomeController implements InvocableController
          * Check if user does not have defined query encryption key and it is being used.
          */
         if ($this->config->config->URLQueryEncryption) {
-            $encryptionKeyLength = 0;
             $encryptionKeyLength = mb_strlen($this->config->config->URLQueryEncryptionSecretKey, '8bit');
 
             if ($encryptionKeyLength < SODIUM_CRYPTO_SECRETBOX_KEYBYTES) {

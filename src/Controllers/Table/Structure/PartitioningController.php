@@ -25,6 +25,7 @@ use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Util;
 
 use function __;
+use function assert;
 use function count;
 use function in_array;
 use function strpos;
@@ -93,8 +94,8 @@ final readonly class PartitioningController implements InvocableController
         }
 
         $parser = new Parser($createTable);
-        /** @var CreateStatement $stmt */
         $stmt = $parser->statements[0];
+        assert($stmt instanceof CreateStatement);
 
         $partitionDetails = [];
 

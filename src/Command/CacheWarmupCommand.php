@@ -19,6 +19,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Twig\Cache\CacheInterface;
 
+use function assert;
 use function file_put_contents;
 use function is_file;
 use function json_encode;
@@ -132,8 +133,8 @@ final class CacheWarmupCommand extends Command
             RecursiveIteratorIterator::LEAVES_ONLY,
         );
 
-        /** @var CacheInterface $twigCache */
         $twigCache = $twig->getCache(false);
+        assert($twigCache instanceof CacheInterface);
         $replacements = [];
         $output->writeln(
             'Twig debug is: ' . ($twig->isDebug() ? 'enabled' : 'disabled'),

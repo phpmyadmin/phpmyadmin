@@ -82,7 +82,7 @@ class Table implements Stringable
      * @param string            $dbName database name
      * @param DatabaseInterface $dbi    database interface for the table
      */
-    public function __construct(protected string $name, protected string $dbName, protected DatabaseInterface $dbi)
+    public function __construct(private string $name, private string $dbName, private DatabaseInterface $dbi)
     {
         $this->relation = new Relation($this->dbi);
     }

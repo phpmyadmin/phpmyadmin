@@ -118,9 +118,8 @@ final readonly class ManageController implements InvocableController
             ) {
                 $importHandle = new File($_FILES['import_file']['tmp_name']);
                 $importHandle->checkUploadedFile();
-                if ($importHandle->isError()) {
-                    $error = $importHandle->getError();
-                } else {
+                $error = $importHandle->getError();
+                if ($error === null) {
                     // read JSON from uploaded file
                     $json = $importHandle->getRawContent();
                 }
@@ -238,8 +237,6 @@ final readonly class ManageController implements InvocableController
                 $this->response->redirect(
                     $this->userPreferences->getUrlToRedirect('index.php?route=/preferences/manage'),
                 );
-
-                return $this->response->response();
             }
 
             return $this->response->response();

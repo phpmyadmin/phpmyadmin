@@ -55,6 +55,7 @@ use function trim;
 use const CHANGELOG_FILE;
 use const DIRECTORY_SEPARATOR;
 use const PHP_OS;
+use const PHP_OS_FAMILY;
 use const PHP_URL_PATH;
 use const PHP_URL_SCHEME;
 
@@ -163,8 +164,7 @@ class Config
 
     public function isWindows(): bool
     {
-        if (stripos(PHP_OS, 'win') !== false && stripos(PHP_OS, 'darwin') === false) {
-            // Is it some version of Windows
+        if (PHP_OS_FAMILY === 'Windows') {
             return true;
         }
 
