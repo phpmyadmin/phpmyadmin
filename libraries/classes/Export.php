@@ -841,6 +841,11 @@ class Export
                 $tableObj = new Table($table, $db);
                 $nonGeneratedCols = $tableObj->getNonGeneratedColumns(true);
 
+                // Skip tables that cannot be read
+                if ($nonGeneratedCols === []) {
+                    continue;
+                }
+
                 $localQuery = 'SELECT ' . implode(', ', $nonGeneratedCols)
                     . ' FROM ' . Util::backquote($db)
                     . '.' . Util::backquote($table);
@@ -1109,6 +1114,11 @@ class Export
                 // Data is exported only for Non-generated columns
                 $tableObj = new Table($table, $db);
                 $nonGeneratedCols = $tableObj->getNonGeneratedColumns(true);
+
+                // Skip tables that cannot be read
+                if ($nonGeneratedCols === []) {
+                    return;
+                }
 
                 $localQuery = 'SELECT ' . implode(', ', $nonGeneratedCols)
                     . ' FROM ' . Util::backquote($db)
