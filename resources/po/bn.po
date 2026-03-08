@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-03-01 00:40+0000\n"
+"POT-Creation-Date: 2026-03-08 00:36+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -67,7 +67,7 @@ msgstr ""
 #: resources/templates/base.twig:99
 #: resources/templates/server/status/monitor/index.twig:8
 #: src/Controllers/JavaScriptMessagesController.php:215 src/Menu.php:479
-#: src/Util.php:1365
+#: src/Util.php:1368
 msgid "Settings"
 msgstr "সেটিংস"
 
@@ -216,7 +216,7 @@ msgstr "%s এর পরে"
 #: resources/templates/table/zoom_search/index.twig:120
 #: src/Config/ConfigFile.php:554
 #: src/Controllers/JavaScriptMessagesController.php:218
-#: src/Display/Results.php:930 src/Plugins/Export/ExportSql.php:1992
+#: src/Display/Results.php:930 src/Plugins/Export/ExportSql.php:1989
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "কিছু না"
@@ -294,7 +294,7 @@ msgstr "স্তম্ভসমূহ"
 #: resources/templates/triggers/editor_form.twig:75
 #: resources/templates/view_create.twig:123 src/BrowseForeigners.php:180
 #: src/Controllers/JavaScriptMessagesController.php:311
-#: src/Controllers/Server/PrivilegesController.php:314
+#: src/Controllers/Server/PrivilegesController.php:328
 #: src/Normalization.php:235 src/Tracking/Tracking.php:288
 #: src/Tracking/Tracking.php:403
 msgid "Go"
@@ -506,12 +506,12 @@ msgstr "ফরেন কী নির্বাচন করুন"
 #: resources/templates/table/zoom_search/index.twig:36
 #: resources/templates/table/zoom_search/result_form.twig:33
 #: src/Navigation/Nodes/NodeColumn.php:33
-#: src/Plugins/Export/ExportHtmlword.php:225
-#: src/Plugins/Export/ExportHtmlword.php:296
-#: src/Plugins/Export/ExportLatex.php:465 src/Plugins/Export/ExportOdt.php:324
-#: src/Plugins/Export/ExportOdt.php:395
-#: src/Plugins/Export/ExportTexytext.php:242
-#: src/Plugins/Export/ExportTexytext.php:302
+#: src/Plugins/Export/ExportHtmlword.php:223
+#: src/Plugins/Export/ExportHtmlword.php:294
+#: src/Plugins/Export/ExportLatex.php:462 src/Plugins/Export/ExportOdt.php:321
+#: src/Plugins/Export/ExportOdt.php:392
+#: src/Plugins/Export/ExportTexytext.php:240
+#: src/Plugins/Export/ExportTexytext.php:300
 #: src/Plugins/Export/Helpers/Pdf.php:469
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:602
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:624
@@ -646,8 +646,8 @@ msgstr "ব্যাবহারকারীর দল"
 #: src/Import/Import.php:1157 src/Menu.php:214 src/Menu.php:322
 #: src/Navigation/Nodes/NodeColumn.php:38
 #: src/Navigation/Nodes/NodeDatabase.php:59
-#: src/Navigation/Nodes/NodeTable.php:239 src/Util.php:1061 src/Util.php:1374
-#: src/Util.php:1391
+#: src/Navigation/Nodes/NodeTable.php:239 src/Util.php:1064 src/Util.php:1377
+#: src/Util.php:1394
 msgid "Structure"
 msgstr "গঠন"
 
@@ -662,9 +662,9 @@ msgstr "গঠন"
 #: resources/templates/setup/home/index.twig:50
 #: resources/templates/table/structure/display_structure.twig:21
 #: resources/templates/triggers/list.twig:47
-#: src/Plugins/Export/ExportHtmlword.php:396
-#: src/Plugins/Export/ExportOdt.php:503
-#: src/Plugins/Export/ExportTexytext.php:371
+#: src/Plugins/Export/ExportHtmlword.php:394
+#: src/Plugins/Export/ExportOdt.php:500
+#: src/Plugins/Export/ExportTexytext.php:369
 #: src/Plugins/Export/Helpers/Pdf.php:311
 msgid "Name"
 msgstr "নাম"
@@ -690,12 +690,12 @@ msgstr "নাম"
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:7
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:6
 #: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:259
-#: src/Plugins/Export/ExportHtmlword.php:228
-#: src/Plugins/Export/ExportHtmlword.php:299
-#: src/Plugins/Export/ExportLatex.php:466 src/Plugins/Export/ExportOdt.php:327
-#: src/Plugins/Export/ExportOdt.php:398
-#: src/Plugins/Export/ExportTexytext.php:243
-#: src/Plugins/Export/ExportTexytext.php:303
+#: src/Plugins/Export/ExportHtmlword.php:226
+#: src/Plugins/Export/ExportHtmlword.php:297
+#: src/Plugins/Export/ExportLatex.php:463 src/Plugins/Export/ExportOdt.php:324
+#: src/Plugins/Export/ExportOdt.php:395
+#: src/Plugins/Export/ExportTexytext.php:241
+#: src/Plugins/Export/ExportTexytext.php:301
 #: src/Plugins/Export/Helpers/Pdf.php:471
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:603
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:625
@@ -728,12 +728,12 @@ msgstr ""
 #: resources/templates/server/replication/replica_configuration.twig:9
 #: resources/templates/table/structure/display_structure.twig:26
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:10
-#: src/Plugins/Export/ExportHtmlword.php:234
-#: src/Plugins/Export/ExportHtmlword.php:305
-#: src/Plugins/Export/ExportLatex.php:468 src/Plugins/Export/ExportOdt.php:333
-#: src/Plugins/Export/ExportOdt.php:404
-#: src/Plugins/Export/ExportTexytext.php:245
-#: src/Plugins/Export/ExportTexytext.php:305
+#: src/Plugins/Export/ExportHtmlword.php:232
+#: src/Plugins/Export/ExportHtmlword.php:303
+#: src/Plugins/Export/ExportLatex.php:465 src/Plugins/Export/ExportOdt.php:330
+#: src/Plugins/Export/ExportOdt.php:401
+#: src/Plugins/Export/ExportTexytext.php:243
+#: src/Plugins/Export/ExportTexytext.php:303
 #: src/Plugins/Export/Helpers/Pdf.php:475
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:606
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:628
@@ -791,12 +791,12 @@ msgstr "গুনাবলী"
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:9
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:12
 #: resources/templates/table/zoom_search/result_form.twig:34
-#: src/Plugins/Export/ExportHtmlword.php:231
-#: src/Plugins/Export/ExportHtmlword.php:302
-#: src/Plugins/Export/ExportLatex.php:467 src/Plugins/Export/ExportOdt.php:330
-#: src/Plugins/Export/ExportOdt.php:401
-#: src/Plugins/Export/ExportTexytext.php:244
-#: src/Plugins/Export/ExportTexytext.php:304
+#: src/Plugins/Export/ExportHtmlword.php:229
+#: src/Plugins/Export/ExportHtmlword.php:300
+#: src/Plugins/Export/ExportLatex.php:464 src/Plugins/Export/ExportOdt.php:327
+#: src/Plugins/Export/ExportOdt.php:398
+#: src/Plugins/Export/ExportTexytext.php:242
+#: src/Plugins/Export/ExportTexytext.php:302
 #: src/Plugins/Export/Helpers/Pdf.php:473
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:605
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:627
@@ -820,9 +820,9 @@ msgstr "অধিকারসমূহ সম্পাদনা"
 #: resources/templates/database/data_dictionary/index.twig:30
 #: resources/templates/table/structure/display_structure.twig:28
 #: src/Config/Descriptions.php:660 src/Config/Descriptions.php:675
-#: src/Config/Descriptions.php:711 src/Plugins/Export/ExportHtmlword.php:315
-#: src/Plugins/Export/ExportLatex.php:474 src/Plugins/Export/ExportOdt.php:414
-#: src/Plugins/Export/ExportTexytext.php:311
+#: src/Config/Descriptions.php:711 src/Plugins/Export/ExportHtmlword.php:313
+#: src/Plugins/Export/ExportLatex.php:471 src/Plugins/Export/ExportOdt.php:411
+#: src/Plugins/Export/ExportTexytext.php:309
 #: src/Plugins/Export/Helpers/Pdf.php:492
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:618
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:631
@@ -840,9 +840,9 @@ msgstr "স্বম্ভ সরাও"
 #: resources/templates/columns_definitions/table_fields_definitions.twig:83
 #: resources/templates/database/data_dictionary/index.twig:32
 #: src/Config/Descriptions.php:664 src/Config/Descriptions.php:676
-#: src/Config/Descriptions.php:714 src/Plugins/Export/ExportHtmlword.php:322
-#: src/Plugins/Export/ExportOdt.php:421
-#: src/Plugins/Export/ExportTexytext.php:316
+#: src/Config/Descriptions.php:714 src/Plugins/Export/ExportHtmlword.php:320
+#: src/Plugins/Export/ExportOdt.php:418
+#: src/Plugins/Export/ExportTexytext.php:314
 #: src/Plugins/Export/Helpers/Pdf.php:500
 #, fuzzy
 #| msgid "MIME type"
@@ -992,9 +992,9 @@ msgstr "অকার্যকর"
 #: src/Controllers/Table/DropColumnController.php:46
 #: src/Controllers/Table/Structure/PrimaryController.php:101
 #: src/Indexes/IndexColumn.php:148 src/Indexes/Index.php:474
-#: src/Plugins/Export/ExportHtmlword.php:517
-#: src/Plugins/Export/ExportLatex.php:535 src/Plugins/Export/ExportOdt.php:628
-#: src/Plugins/Export/ExportTexytext.php:467
+#: src/Plugins/Export/ExportHtmlword.php:515
+#: src/Plugins/Export/ExportLatex.php:532 src/Plugins/Export/ExportOdt.php:625
+#: src/Plugins/Export/ExportTexytext.php:465
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:670
 msgid "Yes"
 msgstr "হ্যাঁ"
@@ -1028,9 +1028,9 @@ msgstr "হ্যাঁ"
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:24
 #: src/Controllers/JavaScriptMessagesController.php:343
 #: src/Indexes/IndexColumn.php:145 src/Indexes/Index.php:448
-#: src/Indexes/Index.php:474 src/Plugins/Export/ExportHtmlword.php:517
-#: src/Plugins/Export/ExportLatex.php:535 src/Plugins/Export/ExportOdt.php:628
-#: src/Plugins/Export/ExportTexytext.php:467
+#: src/Indexes/Index.php:474 src/Plugins/Export/ExportHtmlword.php:515
+#: src/Plugins/Export/ExportLatex.php:532 src/Plugins/Export/ExportOdt.php:625
+#: src/Plugins/Export/ExportTexytext.php:465
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:670
 msgid "No"
 msgstr "না"
@@ -1135,10 +1135,10 @@ msgstr "মুছ"
 #: resources/templates/table/relation/common_form.twig:38
 #: resources/templates/table/relation/common_form.twig:95
 #: resources/templates/table/relation/foreign_key_row.twig:91
-#: src/Config/Descriptions.php:934 src/Plugins/Export/ExportHtmlword.php:147
-#: src/Plugins/Export/ExportOdt.php:185
-#: src/Plugins/Export/ExportTexytext.php:117 src/Server/Privileges.php:1586
-#: src/Server/Privileges.php:1588 src/Server/Status/Processes.php:103
+#: src/Config/Descriptions.php:934 src/Plugins/Export/ExportHtmlword.php:145
+#: src/Plugins/Export/ExportOdt.php:182
+#: src/Plugins/Export/ExportTexytext.php:115 src/Server/Privileges.php:1564
+#: src/Server/Privileges.php:1566 src/Server/Status/Processes.php:103
 msgid "Database"
 msgstr "ডাটাবেইজ"
 
@@ -1170,21 +1170,6 @@ msgstr "এসকিউএল ইতিহাস"
 #: resources/templates/database/routines/editor_form.twig:58
 #: resources/templates/table/structure/display_table_stats.twig:94
 #: src/Import/Import.php:1158 src/Import/Import.php:1216
-#: src/Plugins/Export/ExportCodegen.php:58 src/Plugins/Export/ExportCsv.php:57
-#: src/Plugins/Export/ExportExcel.php:58
-#: src/Plugins/Export/ExportHtmlword.php:58
-#: src/Plugins/Export/ExportJson.php:73 src/Plugins/Export/ExportLatex.php:89
-#: src/Plugins/Export/ExportMediawiki.php:50
-#: src/Plugins/Export/ExportOds.php:54 src/Plugins/Export/ExportOdt.php:65
-#: src/Plugins/Export/ExportPdf.php:55 src/Plugins/Export/ExportPhparray.php:47
-#: src/Plugins/Export/ExportSql.php:169
-#: src/Plugins/Export/ExportTexytext.php:57
-#: src/Plugins/Export/ExportToon.php:50 src/Plugins/Export/ExportXml.php:69
-#: src/Plugins/Export/ExportYaml.php:46 src/Plugins/Import/ImportCsv.php:80
-#: src/Plugins/Import/ImportLdi.php:60
-#: src/Plugins/Import/ImportMediawiki.php:62
-#: src/Plugins/Import/ImportOds.php:60 src/Plugins/Import/ImportShp.php:76
-#: src/Plugins/Import/ImportSql.php:43 src/Plugins/Import/ImportXml.php:51
 msgid "Options"
 msgstr "অপশনস"
 
@@ -1581,9 +1566,9 @@ msgid "Print"
 msgstr "প্রিন্ট"
 
 #: resources/templates/database/data_dictionary/index.twig:28
-#: src/Plugins/Export/ExportHtmlword.php:309
-#: src/Plugins/Export/ExportLatex.php:470 src/Plugins/Export/ExportOdt.php:408
-#: src/Plugins/Export/ExportTexytext.php:307
+#: src/Plugins/Export/ExportHtmlword.php:307
+#: src/Plugins/Export/ExportLatex.php:467 src/Plugins/Export/ExportOdt.php:405
+#: src/Plugins/Export/ExportTexytext.php:305
 #: src/Plugins/Export/Helpers/Pdf.php:484
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:608
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:630
@@ -1966,7 +1951,7 @@ msgstr "ইভেন্টের নাম"
 #: resources/templates/table/tracking/main.twig:31
 #: src/Config/ConfigFile.php:578
 #: src/Controllers/JavaScriptMessagesController.php:275 src/Menu.php:450
-#: src/Server/Status/Processes.php:106 src/Util.php:1361
+#: src/Server/Status/Processes.php:106 src/Util.php:1364
 msgid "Status"
 msgstr "অবস্থা"
 
@@ -2002,9 +1987,9 @@ msgstr "শেষ"
 #: resources/templates/database/events/editor_form.twig:87
 #: resources/templates/database/routines/editor_form.twig:118
 #: resources/templates/triggers/editor_form.twig:62
-#: src/Plugins/Export/ExportHtmlword.php:399
-#: src/Plugins/Export/ExportOdt.php:512
-#: src/Plugins/Export/ExportTexytext.php:374
+#: src/Plugins/Export/ExportHtmlword.php:397
+#: src/Plugins/Export/ExportOdt.php:509
+#: src/Plugins/Export/ExportTexytext.php:372
 #: src/Plugins/Export/Helpers/Pdf.php:317
 msgid "Definition"
 msgstr "সংজ্ঞা"
@@ -2033,8 +2018,8 @@ msgstr "সংজ্ঞা দানকারী"
 #: resources/templates/database/events/index.twig:3 src/Menu.php:381
 #: src/Navigation/Nodes/NodeEventContainer.php:23
 #: src/Navigation/Nodes/NodeEventContainer.php:25
-#: src/Plugins/Export/ExportSql.php:984 src/Plugins/Export/ExportXml.php:93
-#: src/Util.php:1383
+#: src/Plugins/Export/ExportSql.php:981 src/Plugins/Export/ExportXml.php:92
+#: src/Util.php:1386
 msgid "Events"
 msgstr "ইভেন্টসমূহ"
 
@@ -2097,8 +2082,8 @@ msgstr "সবগুলোতে টিক দাও"
 #: resources/templates/triggers/row.twig:41
 #: src/Config/Forms/User/ExportForm.php:148
 #: src/Controllers/JavaScriptMessagesController.php:361 src/Menu.php:241
-#: src/Menu.php:347 src/Menu.php:469 src/Server/Privileges.php:1301
-#: src/Util.php:1363 src/Util.php:1378 src/Util.php:1395
+#: src/Menu.php:347 src/Menu.php:469 src/Server/Privileges.php:1279
+#: src/Util.php:1366 src/Util.php:1381 src/Util.php:1398
 msgid "Export"
 msgstr "রফতানী"
 
@@ -2225,7 +2210,7 @@ msgstr "টেবলসমুহ:"
 #: src/Controllers/Server/DatabasesController.php:273
 #: src/Navigation/Nodes/NodeTableContainer.php:23
 #: src/Navigation/Nodes/NodeTableContainer.php:25
-#: src/Plugins/Export/ExportXml.php:108 src/Server/Status/Data.php:126
+#: src/Plugins/Export/ExportXml.php:107 src/Server/Status/Data.php:126
 msgid "Tables"
 msgstr "টেবল"
 
@@ -2309,7 +2294,7 @@ msgid "criteria"
 msgstr "শর্ত:"
 
 #: resources/templates/database/multi_table_query/form.twig:56
-#: src/Util.php:1623
+#: src/Util.php:1626
 msgid "Sort"
 msgstr "গুছানো"
 
@@ -2321,7 +2306,7 @@ msgstr "গুছানো"
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:158
 #: src/Config/ConfigFile.php:554 src/Display/Results.php:1391
-#: src/Display/Results.php:1397 src/Util.php:1631 src/Util.php:1648
+#: src/Display/Results.php:1397 src/Util.php:1634 src/Util.php:1651
 msgid "Ascending"
 msgstr "উর্ধ্ব মূখী"
 
@@ -2333,7 +2318,7 @@ msgstr "উর্ধ্ব মূখী"
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:162
 #: src/Config/ConfigFile.php:554 src/Display/Results.php:1386
-#: src/Display/Results.php:1402 src/Util.php:1636 src/Util.php:1653
+#: src/Display/Results.php:1402 src/Util.php:1639 src/Util.php:1656
 msgid "Descending"
 msgstr "অধ মুখী"
 
@@ -2541,8 +2526,8 @@ msgstr "লগের নাম"
 #: resources/templates/server/sub_page_header.twig:2
 #: resources/templates/table/privileges/index.twig:22
 #: src/Config/ConfigFile.php:582
-#: src/Controllers/Server/PrivilegesController.php:439 src/Menu.php:257
-#: src/Menu.php:369 src/Util.php:1381 src/Util.php:1397
+#: src/Controllers/Server/PrivilegesController.php:455 src/Menu.php:257
+#: src/Menu.php:369 src/Util.php:1384 src/Util.php:1400
 msgid "Privileges"
 msgstr "অধিকারসমূহ"
 
@@ -2585,7 +2570,7 @@ msgstr "রুটিন"
 #: resources/templates/server/privileges/new_user_ajax.twig:45
 #: resources/templates/server/privileges/users_overview.twig:75
 #: resources/templates/table/privileges/index.twig:84
-#: src/Server/Privileges.php:1293
+#: src/Server/Privileges.php:1271
 #, fuzzy
 #| msgid "Edit Privileges:"
 msgid "Edit privileges"
@@ -2593,7 +2578,7 @@ msgstr "সুবিধাসমূহ সম্পাদনা:"
 
 #: resources/templates/database/privileges/index.twig:102
 #: resources/templates/table/privileges/index.twig:106
-#: src/Server/Privileges.php:2077
+#: src/Server/Privileges.php:2055
 msgid "No user found."
 msgstr "ব্যবহারকারী নাই।"
 
@@ -2613,7 +2598,7 @@ msgstr "নিবার্চিত গুলো নিয়ে:"
 
 #: resources/templates/database/privileges/index.twig:122
 #: resources/templates/table/privileges/index.twig:126
-#: src/Server/Privileges.php:1237
+#: src/Server/Privileges.php:1215
 msgid "Not enough privilege to view users."
 msgstr ""
 
@@ -2706,7 +2691,7 @@ msgid "This routine does not require any parameters."
 msgstr "এই পাতায় কোন টেবল নাই!"
 
 #: resources/templates/database/routines/index.twig:3 src/Menu.php:375
-#: src/Util.php:1382
+#: src/Util.php:1385
 msgid "Routines"
 msgstr "রুটিনসমূহ"
 
@@ -2718,8 +2703,8 @@ msgstr "রুটিনসমূহ"
 #: resources/templates/server/databases/index.twig:77
 #: src/Config/ConfigFile.php:522 src/Config/ConfigFile.php:536
 #: src/Config/ConfigFile.php:590 src/Config/ConfigFile.php:600 src/Menu.php:223
-#: src/Menu.php:331 src/Navigation/Nodes/NodeTable.php:240 src/Util.php:1063
-#: src/Util.php:1376 src/Util.php:1393
+#: src/Menu.php:331 src/Navigation/Nodes/NodeTable.php:240 src/Util.php:1066
+#: src/Util.php:1379 src/Util.php:1396
 msgid "Search"
 msgstr "খোঁজা"
 
@@ -2849,7 +2834,7 @@ msgstr[1] "<strong>%2$s</strong> মধ্যে %1$s গুলো মিল"
 #: resources/templates/table/structure/display_structure.twig:271
 #: src/Config/ConfigFile.php:526 src/Config/ConfigFile.php:540
 #: src/Config/ConfigFile.php:604 src/Menu.php:207
-#: src/Navigation/Nodes/NodeTable.php:243 src/Util.php:1065 src/Util.php:1390
+#: src/Navigation/Nodes/NodeTable.php:243 src/Util.php:1068 src/Util.php:1393
 msgid "Browse"
 msgstr "দেখা"
 
@@ -2876,7 +2861,7 @@ msgstr[1] "%s টি টেবল"
 #: resources/templates/database/structure/body_for_table_summary.twig:8
 #: resources/templates/database/structure/table_header.twig:10
 #: resources/templates/server/replication/index.twig:5 src/Menu.php:501
-#: src/Server/Status/Data.php:124 src/Util.php:1367
+#: src/Server/Status/Data.php:124 src/Util.php:1370
 msgid "Replication"
 msgstr "অনুলিপি"
 
@@ -2991,7 +2976,7 @@ msgid "Copy table with prefix"
 msgstr "টেবল নামের পূর্বাংশসহ প্রতিলিপি কর"
 
 #: resources/templates/database/structure/check_all_tables.twig:32
-#: src/Menu.php:409 src/Util.php:1387
+#: src/Menu.php:409 src/Util.php:1390
 #, fuzzy
 #| msgid "Textarea columns"
 msgid "Central columns"
@@ -3024,8 +3009,8 @@ msgid ""
 msgstr ""
 
 #: resources/templates/database/structure/copy_form.twig:5
-#: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:253
-#: src/Plugins/Export/ExportSql.php:914 src/Plugins/Export/ExportXml.php:357
+#: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:250
+#: src/Plugins/Export/ExportSql.php:911 src/Plugins/Export/ExportXml.php:356
 #: src/Plugins/Export/Helpers/Pdf.php:146
 msgid "Database:"
 msgstr "ডাটাবেইজ:"
@@ -3109,15 +3094,15 @@ msgstr "SQL অনুসন্ধান দেখাও"
 #: resources/templates/table/relation/foreign_key_row.twig:102
 #: resources/templates/triggers/editor_form.twig:32
 #: resources/templates/triggers/list.twig:49 src/Config/Descriptions.php:937
-#: src/Plugins/Export/ExportXml.php:409 src/Server/Privileges.php:1592
-#: src/Server/Privileges.php:1594
+#: src/Plugins/Export/ExportXml.php:408 src/Server/Privileges.php:1570
+#: src/Server/Privileges.php:1572
 msgid "Table"
 msgstr "টেবল"
 
 #: resources/templates/database/structure/show_create.twig:30
 #: src/Navigation/Nodes/NodeViewContainer.php:23
 #: src/Navigation/Nodes/NodeViewContainer.php:25
-#: src/Plugins/Export/ExportXml.php:118
+#: src/Plugins/Export/ExportXml.php:117
 msgid "Views"
 msgstr "ভিউসমূহ"
 
@@ -3154,7 +3139,7 @@ msgstr "প্রতিলিপি করা হয়েছে"
 #: resources/templates/database/structure/structure_table_row.twig:59
 #: resources/templates/sql/query.twig:76 src/Config/ConfigFile.php:524
 #: src/Config/ConfigFile.php:538 src/Config/ConfigFile.php:602 src/Menu.php:234
-#: src/Navigation/Nodes/NodeTable.php:241 src/Util.php:1064 src/Util.php:1394
+#: src/Navigation/Nodes/NodeTable.php:241 src/Util.php:1067 src/Util.php:1397
 msgid "Insert"
 msgstr "ইনর্সাট"
 
@@ -3583,7 +3568,7 @@ msgstr "দ্রুত - সাম্ভাব্য কম অপশনগু�
 msgid "Custom - display all possible options"
 msgstr "কাষ্টম - সাম্ভাব্য সবগুলো অপশন দেখাও"
 
-#: resources/templates/export.twig:117 src/Plugins/Export/ExportCodegen.php:72
+#: resources/templates/export.twig:117 src/Plugins/Export/ExportCodegen.php:71
 msgid "Format:"
 msgstr "গঠন:"
 
@@ -3930,8 +3915,8 @@ msgid "Server connection:"
 msgstr "নিরাপত্তাহীন সংযোগ"
 
 #: resources/templates/home/index.twig:198
-#: src/Plugins/Export/ExportLatex.php:234 src/Plugins/Export/ExportSql.php:764
-#: src/Plugins/Export/ExportXml.php:204
+#: src/Plugins/Export/ExportLatex.php:231 src/Plugins/Export/ExportSql.php:761
+#: src/Plugins/Export/ExportXml.php:203
 msgid "Server version:"
 msgstr "সার্ভার সংস্করন:"
 
@@ -4036,7 +4021,7 @@ msgstr "পিছনে"
 #: resources/templates/server/status/monitor/index.twig:53
 #: resources/templates/server/status/monitor/index.twig:69
 #: src/Config/Forms/User/ImportForm.php:58 src/Menu.php:250 src/Menu.php:357
-#: src/Menu.php:474 src/Util.php:1364 src/Util.php:1379 src/Util.php:1396
+#: src/Menu.php:474 src/Util.php:1367 src/Util.php:1382 src/Util.php:1399
 msgid "Import"
 msgstr "আমদানি"
 
@@ -4182,7 +4167,7 @@ msgid "Taking you to the target site."
 msgstr "ট্রেকিং প্রতিবেদন"
 
 #: resources/templates/list_navigator.twig:4 src/BrowseForeigners.php:278
-#: src/Pdf.php:71 src/Pdf.php:91
+#: src/Pdf.php:72 src/Pdf.php:92
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:459
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:484
 msgid "Page number:"
@@ -4418,7 +4403,7 @@ msgstr "স্তুপকৃত এসকিউএল"
 #: resources/templates/server/export/index.twig:14
 #: resources/templates/server/privileges/user_properties.twig:20
 #: src/Config/ConfigFile.php:576 src/Config/Descriptions.php:728
-#: src/Config/Descriptions.php:739 src/Menu.php:440 src/Util.php:1359
+#: src/Config/Descriptions.php:739 src/Menu.php:440 src/Util.php:1362
 msgid "Databases"
 msgstr "ডাটাবেইজ"
 
@@ -4924,7 +4909,7 @@ msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr "আধুনিক কনফিগারেশন ফাইল লোড করার জন্য phpMyAdmin এ আবার লগইন করুন।"
 
 #: resources/templates/server/binlog/index.twig:3 src/Menu.php:494
-#: src/Server/Status/Data.php:119 src/Util.php:1366
+#: src/Server/Status/Data.php:119 src/Util.php:1369
 msgid "Binary log"
 msgstr "বাইনারী লগ"
 
@@ -5151,7 +5136,7 @@ msgstr "লেখা ব্যার্থ অপেক্ষায় %"
 #: resources/templates/server/engines/show.twig:18
 #: resources/templates/server/engines/show.twig:21
 #: resources/templates/sql/query.twig:194 src/Config/ConfigFile.php:580
-#: src/Menu.php:507 src/Server/Status/Data.php:186 src/Util.php:1368
+#: src/Menu.php:507 src/Server/Status/Data.php:186 src/Util.php:1371
 msgid "Variables"
 msgstr "চলকসমূহ"
 
@@ -5176,7 +5161,7 @@ msgid "Importing into the current server"
 msgstr "এই সার্ভারে আমদানি কর"
 
 #: resources/templates/server/plugins/index.twig:4 src/Menu.php:522
-#: src/Util.php:1370
+#: src/Util.php:1373
 msgid "Plugins"
 msgstr "প্লাগইন"
 
@@ -5308,7 +5293,7 @@ msgstr "ব্যাবহারকারীর দল"
 #: resources/templates/server/privileges/edit_routine_privileges.twig:46
 #: resources/templates/server/privileges/edit_routine_privileges.twig:59
 #: src/Controllers/JavaScriptMessagesController.php:363
-#: src/Server/Privileges.php:1598 src/Server/Privileges.php:1600
+#: src/Server/Privileges.php:1576 src/Server/Privileges.php:1578
 #, fuzzy
 #| msgid "Routines"
 msgid "Routine"
@@ -5322,7 +5307,7 @@ msgid ""
 msgstr ""
 
 #: resources/templates/server/privileges/edit_routine_privileges.twig:47
-#: src/Server/Privileges.php:1599
+#: src/Server/Privileges.php:1577
 #, fuzzy
 #| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
@@ -5479,7 +5464,7 @@ msgstr "ব্যবহারকারী দল সম্পাদনা"
 #: resources/templates/server/privileges/privileges_summary.twig:19
 #: resources/templates/server/privileges/privileges_table.twig:7
 #: resources/templates/server/privileges/privileges_table.twig:267
-#: src/Server/Privileges.php:1593
+#: src/Server/Privileges.php:1571
 msgid "Table-specific privileges"
 msgstr "টেবিলের নির্দিষ্ট অধিকার"
 
@@ -5510,7 +5495,7 @@ msgstr "নিচের টেবিল এ সুবিধাসমূহ য�
 #: resources/templates/server/privileges/privileges_table.twig:16
 #: resources/templates/server/privileges/privileges_table.twig:287
 #: resources/templates/server/privileges/privileges_table.twig:290
-#: src/Server/Privileges.php:317
+#: src/Server/Privileges.php:319
 msgid "Allows reading data."
 msgstr "তথ্য পড়ার অনুমোদন।"
 
@@ -5537,20 +5522,20 @@ msgstr "কিছু না"
 #: resources/templates/server/privileges/privileges_table.twig:43
 #: resources/templates/server/privileges/privileges_table.twig:300
 #: resources/templates/server/privileges/privileges_table.twig:303
-#: src/Server/Privileges.php:318
+#: src/Server/Privileges.php:320
 msgid "Allows inserting and replacing data."
 msgstr "তথ্য যোগকরা এবং প্রতিস্থাপনের অনুমোদন।"
 
 #: resources/templates/server/privileges/privileges_table.twig:70
 #: resources/templates/server/privileges/privileges_table.twig:313
 #: resources/templates/server/privileges/privileges_table.twig:316
-#: src/Server/Privileges.php:319
+#: src/Server/Privileges.php:321
 msgid "Allows changing data."
 msgstr "তথ্য পরিবর্তনের অনুমোদন।"
 
 #: resources/templates/server/privileges/privileges_table.twig:97
 #: resources/templates/server/privileges/privileges_table.twig:677
-#: src/Server/Privileges.php:327
+#: src/Server/Privileges.php:329
 msgid "Has no effect in this MySQL version."
 msgstr "মাইএসকিউএলের এই ভার্সনে কোন প্রভাব নাই।"
 
@@ -5558,7 +5543,7 @@ msgstr "মাইএসকিউএলের এই ভার্সনে কো
 #: resources/templates/server/privileges/privileges_table.twig:128
 #: resources/templates/server/privileges/privileges_table.twig:326
 #: resources/templates/server/privileges/privileges_table.twig:329
-#: src/Server/Privileges.php:297 src/Server/Privileges.php:320
+#: src/Server/Privileges.php:299 src/Server/Privileges.php:322
 msgid "Allows deleting data."
 msgstr "তথ্য মুছার অনুমোদন।"
 
@@ -5566,7 +5551,7 @@ msgstr "তথ্য মুছার অনুমোদন।"
 #: resources/templates/server/privileges/privileges_table.twig:140
 #: resources/templates/server/privileges/privileges_table.twig:367
 #: resources/templates/server/privileges/privileges_table.twig:375
-#: src/Server/Privileges.php:298
+#: src/Server/Privileges.php:300
 msgid "Allows creating new tables."
 msgstr "নতুন টেবল তৈরীর অনুমোদন।"
 
@@ -5574,7 +5559,7 @@ msgstr "নতুন টেবল তৈরীর অনুমোদন।"
 #: resources/templates/server/privileges/privileges_table.twig:152
 #: resources/templates/server/privileges/privileges_table.twig:415
 #: resources/templates/server/privileges/privileges_table.twig:423
-#: src/Server/Privileges.php:299
+#: src/Server/Privileges.php:301
 msgid "Allows dropping tables."
 msgstr "টেবিল মুছার অনুমোদন।"
 
@@ -5591,7 +5576,7 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:177
 #: resources/templates/server/privileges/privileges_table.twig:399
 #: resources/templates/server/privileges/privileges_table.twig:402
-#: src/Server/Privileges.php:300 src/Server/Privileges.php:328
+#: src/Server/Privileges.php:302 src/Server/Privileges.php:330
 msgid "Allows creating and dropping indexes."
 msgstr "ইনডেক্স তৈরী এবং মুছার অনুমোদন।"
 
@@ -5599,7 +5584,7 @@ msgstr "ইনডেক্স তৈরী এবং মুছার অনু�
 #: resources/templates/server/privileges/privileges_table.twig:189
 #: resources/templates/server/privileges/privileges_table.twig:386
 #: resources/templates/server/privileges/privileges_table.twig:389
-#: src/Server/Privileges.php:301 src/Server/Privileges.php:329
+#: src/Server/Privileges.php:303 src/Server/Privileges.php:331
 msgid "Allows altering the structure of existing tables."
 msgstr "তৈরীকৃত টেবিলের গঠন পরিবর্তনের অনুমোদন।"
 
@@ -5609,8 +5594,8 @@ msgstr "তৈরীকৃত টেবিলের গঠন পরিবর্
 #: resources/templates/server/privileges/privileges_table.twig:503
 #: resources/templates/server/privileges/privileges_table.twig:515
 #: resources/templates/server/privileges/privileges_table.twig:518
-#: src/Server/Privileges.php:302 src/Server/Privileges.php:348
-#: src/Server/Privileges.php:352
+#: src/Server/Privileges.php:304 src/Server/Privileges.php:350
+#: src/Server/Privileges.php:354
 msgid "Allows creating new views."
 msgstr "নতুন ভিউ তৈরীর অনুমোদন।"
 
@@ -5618,8 +5603,8 @@ msgstr "নতুন ভিউ তৈরীর অনুমোদন।"
 #: resources/templates/server/privileges/privileges_table.twig:213
 #: resources/templates/server/privileges/privileges_table.twig:447
 #: resources/templates/server/privileges/privileges_table.twig:450
-#: src/Server/Privileges.php:303 src/Server/Privileges.php:353
-#: src/Server/Privileges.php:355
+#: src/Server/Privileges.php:305 src/Server/Privileges.php:355
+#: src/Server/Privileges.php:357
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "SHOW CREATE VIEW কোয়ারীজ তৈরীর অনুমোদন।"
 
@@ -5627,7 +5612,7 @@ msgstr "SHOW CREATE VIEW কোয়ারীজ তৈরীর অনুমো�
 #: resources/templates/server/privileges/privileges_table.twig:225
 #: resources/templates/server/privileges/privileges_table.twig:543
 #: resources/templates/server/privileges/privileges_table.twig:546
-#: src/Server/Privileges.php:304 src/Server/Privileges.php:350
+#: src/Server/Privileges.php:306 src/Server/Privileges.php:352
 #, fuzzy
 #| msgid "Allows creating and dropping triggers"
 msgid "Allows creating and dropping triggers."
@@ -5636,7 +5621,7 @@ msgstr "ট্রিগার তৈরী এবং মুছার অনু�
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
 #: resources/templates/server/privileges/privileges_table.twig:235
 #: resources/templates/server/privileges/privileges_table.twig:239
-#: src/Server/Privileges.php:361 src/Server/Privileges.php:370
+#: src/Server/Privileges.php:363 src/Server/Privileges.php:372
 #, fuzzy
 #| msgid "Allows deleting data."
 msgid "Allows deleting historical rows."
@@ -5652,55 +5637,55 @@ msgid "Global privileges"
 msgstr "সর্বময় অধিকারসমূহ"
 
 #: resources/templates/server/privileges/privileges_table.twig:265
-#: src/Server/Privileges.php:1587
+#: src/Server/Privileges.php:1565
 msgid "Database-specific privileges"
 msgstr "ডাটাবেইজ নির্ধারিত অধিকারসমূহ"
 
 #: resources/templates/server/privileges/privileges_table.twig:340
 #: resources/templates/server/privileges/privileges_table.twig:343
-#: src/Server/Privileges.php:326
+#: src/Server/Privileges.php:328
 msgid "Allows importing data from and exporting data into files."
 msgstr "ফাইলে তথ্য আমদানি এবং রফতানীর অনুমোদন।"
 
 #: resources/templates/server/privileges/privileges_table.twig:365
 #: resources/templates/server/privileges/privileges_table.twig:373
-#: src/Server/Privileges.php:321
+#: src/Server/Privileges.php:323
 msgid "Allows creating new databases and tables."
 msgstr "নতুন ডাটাবেজ এবং টেবল তৈরীর অনুমোদন।"
 
 #: resources/templates/server/privileges/privileges_table.twig:413
 #: resources/templates/server/privileges/privileges_table.twig:421
-#: src/Server/Privileges.php:322
+#: src/Server/Privileges.php:324
 msgid "Allows dropping databases and tables."
 msgstr "ডাটাবেজ এবং টেবল মুছার অনুমোদন।"
 
 #: resources/templates/server/privileges/privileges_table.twig:434
 #: resources/templates/server/privileges/privileges_table.twig:437
-#: src/Server/Privileges.php:340
+#: src/Server/Privileges.php:342
 msgid "Allows creating temporary tables."
 msgstr "অস্থায়ী টেবিল তৈরীর অনুমোদন।"
 
 #: resources/templates/server/privileges/privileges_table.twig:460
 #: resources/templates/server/privileges/privileges_table.twig:463
-#: src/Server/Privileges.php:372
+#: src/Server/Privileges.php:374
 msgid "Allows creating stored routines."
 msgstr "মজুদ করার জন্য রুটিন তৈরীর অনুমোদন।"
 
 #: resources/templates/server/privileges/privileges_table.twig:473
 #: resources/templates/server/privileges/privileges_table.twig:476
-#: src/Server/Privileges.php:373
+#: src/Server/Privileges.php:375
 msgid "Allows altering and dropping stored routines."
 msgstr "মজুদকৃত রুটিনসমূহ পরিবর্তন এবং মুছার অনুমোদন।"
 
 #: resources/templates/server/privileges/privileges_table.twig:486
 #: resources/templates/server/privileges/privileges_table.twig:489
-#: src/Server/Privileges.php:375
+#: src/Server/Privileges.php:377
 msgid "Allows executing stored routines."
 msgstr "মজুদকৃত রুটিন ব্যবহারের অনুমোদন।"
 
 #: resources/templates/server/privileges/privileges_table.twig:530
 #: resources/templates/server/privileges/privileges_table.twig:533
-#: src/Server/Privileges.php:349
+#: src/Server/Privileges.php:351
 #, fuzzy
 #| msgid "Allows to set up events for the event scheduler"
 msgid "Allows to set up events for the event scheduler."
@@ -5718,7 +5703,7 @@ msgstr "অধিকার টেবল রিলোড না করে ব্�
 
 #: resources/templates/server/privileges/privileges_table.twig:583
 #: resources/templates/server/privileges/privileges_table.twig:587
-#: src/Server/Privileges.php:335
+#: src/Server/Privileges.php:337
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -5729,7 +5714,7 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:597
 #: resources/templates/server/privileges/privileges_table.twig:600
-#: src/Server/Privileges.php:325
+#: src/Server/Privileges.php:327
 #, fuzzy
 #| msgid "Allows viewing processes of all users"
 msgid "Allows viewing processes of all users."
@@ -5737,25 +5722,25 @@ msgstr "সব ব্যবহারকারীর প্রসেস দেখ
 
 #: resources/templates/server/privileges/privileges_table.twig:610
 #: resources/templates/server/privileges/privileges_table.twig:613
-#: src/Server/Privileges.php:323
+#: src/Server/Privileges.php:325
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr "সার্ভার সেটিংস এবং সার্ভারের সঞ্চয়কৃত তথ্যাবলী পরিবর্তনের অনুমোদন।"
 
 #: resources/templates/server/privileges/privileges_table.twig:623
 #: resources/templates/server/privileges/privileges_table.twig:626
-#: src/Server/Privileges.php:324
+#: src/Server/Privileges.php:326
 msgid "Allows shutting down the server."
 msgstr "সার্ভার বন্ধ করার অনুমোদন।"
 
 #: resources/templates/server/privileges/privileges_table.twig:636
 #: resources/templates/server/privileges/privileges_table.twig:639
-#: src/Server/Privileges.php:330
+#: src/Server/Privileges.php:332
 msgid "Gives access to the complete list of databases."
 msgstr "ডাটা বেইজের তালিকা সম্পুর্ন করার অনুমোদন দেওয়া।"
 
 #: resources/templates/server/privileges/privileges_table.twig:664
 #: resources/templates/server/privileges/privileges_table.twig:667
-#: src/Server/Privileges.php:341
+#: src/Server/Privileges.php:343
 msgid "Allows locking tables for the current thread."
 msgstr "বর্তমান থ্রেড এর জন্য টেবল লক করার অনুমোদন।"
 
@@ -5777,7 +5762,7 @@ msgstr "মাইএসকিউএলের এই ভার্সনে কো
 
 #: resources/templates/server/privileges/privileges_table.twig:691
 #: resources/templates/server/privileges/privileges_table.twig:694
-#: src/Server/Privileges.php:346
+#: src/Server/Privileges.php:348
 #, fuzzy
 #| msgid "Allows the user to ask where the slaves / masters are."
 msgid "Allows the user to ask where the replicas / primaries are."
@@ -5785,7 +5770,7 @@ msgstr "সহায়তাকারী এবং প্রধানদের স
 
 #: resources/templates/server/privileges/privileges_table.twig:704
 #: resources/templates/server/privileges/privileges_table.twig:707
-#: src/Server/Privileges.php:342
+#: src/Server/Privileges.php:344
 #, fuzzy
 #| msgid "Needed for the replication slaves."
 msgid "Needed for the replication replicas."
@@ -5793,7 +5778,7 @@ msgstr "সহায়তাকরী প্রতিলিপির জন্য 
 
 #: resources/templates/server/privileges/privileges_table.twig:717
 #: resources/templates/server/privileges/privileges_table.twig:720
-#: src/Server/Privileges.php:374
+#: src/Server/Privileges.php:376
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "ব্যবহারকারীর একাউন্ট তৈরী, মুছা এবং নাম পরিবর্তনের অনুমোদন।"
 
@@ -5973,8 +5958,8 @@ msgstr ""
 
 #: resources/templates/server/replication/change_primary.twig:25
 #: resources/templates/server/replication/primary_add_replica_user.twig:29
-#: src/Plugins/Export/ExportLatex.php:226 src/Plugins/Export/ExportSql.php:753
-#: src/Plugins/Export/ExportXml.php:196
+#: src/Plugins/Export/ExportLatex.php:223 src/Plugins/Export/ExportSql.php:750
+#: src/Plugins/Export/ExportXml.php:195
 msgid "Host:"
 msgstr "হোষ্ট:"
 
@@ -6521,13 +6506,13 @@ msgstr "একটি ভাজক ব্যবহার করুন"
 
 #. l10n: shortcuts for Kilobyte
 #: resources/templates/server/status/monitor/index.twig:181
-#: src/Controllers/JavaScriptMessagesController.php:204 src/Util.php:308
+#: src/Controllers/JavaScriptMessagesController.php:204 src/Util.php:311
 msgid "KiB"
 msgstr "কিবা"
 
 #. l10n: shortcuts for Megabyte
 #: resources/templates/server/status/monitor/index.twig:182
-#: src/Controllers/JavaScriptMessagesController.php:205 src/Util.php:310
+#: src/Controllers/JavaScriptMessagesController.php:205 src/Util.php:313
 msgid "MiB"
 msgstr "মেবা"
 
@@ -6591,7 +6576,7 @@ msgid "Query analyzer"
 msgstr "অনুসন্ধান বিশ্লেষক"
 
 #: resources/templates/server/status/monitor/index.twig:273 src/Menu.php:339
-#: src/Util.php:1377
+#: src/Util.php:1380
 msgid "Query"
 msgstr "অনুসন্ধান"
 
@@ -6899,7 +6884,7 @@ msgid "No users were found belonging to this user group."
 msgstr "এই ব্যবহারকারী দলের কোন ব্যাবহারকারী পাওয়া যায়নি।"
 
 #: resources/templates/server/user_groups/user_listings.twig:9
-#: src/Controllers/Server/PrivilegesController.php:442
+#: src/Controllers/Server/PrivilegesController.php:458
 #: src/Server/Status/Processes.php:101
 msgid "User"
 msgstr "ব্যবহারকারী"
@@ -7063,9 +7048,9 @@ msgstr "অবস্থা"
 #: resources/templates/sql/profiling_chart.twig:13
 #: resources/templates/triggers/list.twig:51
 #: src/Controllers/JavaScriptMessagesController.php:276
-#: src/Plugins/Export/ExportHtmlword.php:397
-#: src/Plugins/Export/ExportOdt.php:506
-#: src/Plugins/Export/ExportTexytext.php:372
+#: src/Plugins/Export/ExportHtmlword.php:395
+#: src/Plugins/Export/ExportOdt.php:503
+#: src/Plugins/Export/ExportTexytext.php:370
 #: src/Plugins/Export/Helpers/Pdf.php:313 src/Server/Status/Processes.php:105
 msgid "Time"
 msgstr "সময়"
@@ -7676,7 +7661,7 @@ msgstr "রেফারেনসিয়াল ইন্টিগ্রিটি �
 
 #: resources/templates/table/operations/view.twig:8
 #: src/Config/ConfigFile.php:592 src/Menu.php:268 src/Menu.php:278
-#: src/Menu.php:362 src/Util.php:1066 src/Util.php:1380 src/Util.php:1398
+#: src/Menu.php:362 src/Util.php:1069 src/Util.php:1383 src/Util.php:1401
 msgid "Operations"
 msgstr "কাজসমূহ"
 
@@ -7689,7 +7674,7 @@ msgid "Delete the view (DROP)"
 msgstr "ভিউটি মুছ (DROP)"
 
 #: resources/templates/table/page_with_secondary_tabs.twig:5
-#: src/Config/Descriptions.php:760 src/Plugins/Export/ExportPdf.php:171
+#: src/Config/Descriptions.php:760 src/Plugins/Export/ExportPdf.php:170
 msgid "Table structure"
 msgstr "টেবলের জন্য টেবলের গঠন"
 
@@ -8193,9 +8178,9 @@ msgstr "সময়"
 #: resources/templates/triggers/list.twig:52
 #: src/Controllers/JavaScriptMessagesController.php:365
 #: src/Navigation/Nodes/NodeEvent.php:27
-#: src/Plugins/Export/ExportHtmlword.php:398
-#: src/Plugins/Export/ExportOdt.php:509
-#: src/Plugins/Export/ExportTexytext.php:373
+#: src/Plugins/Export/ExportHtmlword.php:396
+#: src/Plugins/Export/ExportOdt.php:506
+#: src/Plugins/Export/ExportTexytext.php:371
 #: src/Plugins/Export/Helpers/Pdf.php:315
 msgid "Event"
 msgstr "ইভেন্ট"
@@ -8209,11 +8194,11 @@ msgstr "ট্রিগার %s রফতানী"
 #: resources/templates/triggers/list.twig:3 src/Menu.php:295 src/Menu.php:388
 #: src/Navigation/Nodes/NodeTriggerContainer.php:24
 #: src/Navigation/Nodes/NodeTriggerContainer.php:26
-#: src/Plugins/Export/ExportHtmlword.php:450
-#: src/Plugins/Export/ExportOdt.php:571 src/Plugins/Export/ExportPdf.php:174
-#: src/Plugins/Export/ExportSql.php:1855
-#: src/Plugins/Export/ExportTexytext.php:410
-#: src/Plugins/Export/ExportXml.php:113 src/Util.php:1384 src/Util.php:1400
+#: src/Plugins/Export/ExportHtmlword.php:448
+#: src/Plugins/Export/ExportOdt.php:568 src/Plugins/Export/ExportPdf.php:173
+#: src/Plugins/Export/ExportSql.php:1852
+#: src/Plugins/Export/ExportTexytext.php:408
+#: src/Plugins/Export/ExportXml.php:112 src/Util.php:1387 src/Util.php:1403
 msgid "Triggers"
 msgstr "ট্রিগারসমূহ"
 
@@ -9803,8 +9788,8 @@ msgstr "ফাইলের নাম"
 #: src/Config/ConfigFile.php:520 src/Config/ConfigFile.php:534
 #: src/Config/ConfigFile.php:588 src/Config/ConfigFile.php:598
 #: src/Config/Descriptions.php:755 src/Menu.php:219 src/Menu.php:327
-#: src/Menu.php:445 src/Navigation/Nodes/NodeTable.php:242 src/Util.php:1062
-#: src/Util.php:1360 src/Util.php:1375 src/Util.php:1392
+#: src/Menu.php:445 src/Navigation/Nodes/NodeTable.php:242 src/Util.php:1065
+#: src/Util.php:1363 src/Util.php:1378 src/Util.php:1395
 msgid "SQL"
 msgstr "এসকিউএল"
 
@@ -9950,34 +9935,34 @@ msgstr "অকার্যকর"
 
 #: src/Config/ConfigFile.php:664 src/Config/ConfigFile.php:716
 #: src/Config/ConfigFile.php:728 src/Config/ConfigFile.php:736
-#: src/Config/ConfigFile.php:741 src/Plugins/Export/ExportHtmlword.php:73
-#: src/Plugins/Export/ExportLatex.php:115
-#: src/Plugins/Export/ExportMediawiki.php:70
-#: src/Plugins/Export/ExportOdt.php:80 src/Plugins/Export/ExportPdf.php:80
-#: src/Plugins/Export/ExportSql.php:267
-#: src/Plugins/Export/ExportTexytext.php:72
+#: src/Config/ConfigFile.php:741 src/Plugins/Export/ExportHtmlword.php:72
+#: src/Plugins/Export/ExportLatex.php:114
+#: src/Plugins/Export/ExportMediawiki.php:69
+#: src/Plugins/Export/ExportOdt.php:79 src/Plugins/Export/ExportPdf.php:79
+#: src/Plugins/Export/ExportSql.php:265
+#: src/Plugins/Export/ExportTexytext.php:71
 msgid "structure"
 msgstr "কাঠামো"
 
 #: src/Config/ConfigFile.php:665 src/Config/ConfigFile.php:717
 #: src/Config/ConfigFile.php:729 src/Config/ConfigFile.php:737
-#: src/Config/ConfigFile.php:742 src/Plugins/Export/ExportHtmlword.php:73
-#: src/Plugins/Export/ExportLatex.php:115
-#: src/Plugins/Export/ExportMediawiki.php:70
-#: src/Plugins/Export/ExportOdt.php:80 src/Plugins/Export/ExportPdf.php:80
-#: src/Plugins/Export/ExportSql.php:267
-#: src/Plugins/Export/ExportTexytext.php:72
+#: src/Config/ConfigFile.php:742 src/Plugins/Export/ExportHtmlword.php:72
+#: src/Plugins/Export/ExportLatex.php:114
+#: src/Plugins/Export/ExportMediawiki.php:69
+#: src/Plugins/Export/ExportOdt.php:79 src/Plugins/Export/ExportPdf.php:79
+#: src/Plugins/Export/ExportSql.php:265
+#: src/Plugins/Export/ExportTexytext.php:71
 msgid "data"
 msgstr "তথ্য"
 
 #: src/Config/ConfigFile.php:666 src/Config/ConfigFile.php:718
 #: src/Config/ConfigFile.php:730 src/Config/ConfigFile.php:738
-#: src/Config/ConfigFile.php:743 src/Plugins/Export/ExportHtmlword.php:73
-#: src/Plugins/Export/ExportLatex.php:115
-#: src/Plugins/Export/ExportMediawiki.php:70
-#: src/Plugins/Export/ExportOdt.php:80 src/Plugins/Export/ExportPdf.php:80
-#: src/Plugins/Export/ExportSql.php:267
-#: src/Plugins/Export/ExportTexytext.php:72
+#: src/Config/ConfigFile.php:743 src/Plugins/Export/ExportHtmlword.php:72
+#: src/Plugins/Export/ExportLatex.php:114
+#: src/Plugins/Export/ExportMediawiki.php:69
+#: src/Plugins/Export/ExportOdt.php:79 src/Plugins/Export/ExportPdf.php:79
+#: src/Plugins/Export/ExportSql.php:265
+#: src/Plugins/Export/ExportTexytext.php:71
 msgid "structure and data"
 msgstr "কাঠামো এবং তথ্য"
 
@@ -10169,7 +10154,7 @@ msgid ""
 msgstr "একটি স্ক্রীপট চলার সময় (সেকেন্ডে)নির্ধারন করুন ([kbd]০[/kbd] সীমাহীন)।"
 
 #: src/Config/Descriptions.php:171 src/Config/Descriptions.php:708
-#: src/Plugins/Export/ExportSql.php:367
+#: src/Plugins/Export/ExportSql.php:364
 msgid "Exclude definition of current user"
 msgstr ""
 
@@ -11497,21 +11482,21 @@ msgstr "সংকোচন"
 #: src/Config/Descriptions.php:640 src/Config/Descriptions.php:647
 #: src/Config/Descriptions.php:655 src/Config/Descriptions.php:659
 #: src/Config/Descriptions.php:672 src/Config/Descriptions.php:674
-#: src/Config/Descriptions.php:721 src/Plugins/Export/ExportCsv.php:99
-#: src/Plugins/Export/ExportExcel.php:80
-#: src/Plugins/Export/ExportHtmlword.php:93 src/Plugins/Export/ExportOds.php:71
-#: src/Plugins/Export/ExportOdt.php:129
-#: src/Plugins/Export/ExportTexytext.php:87
+#: src/Config/Descriptions.php:721 src/Plugins/Export/ExportCsv.php:98
+#: src/Plugins/Export/ExportExcel.php:79
+#: src/Plugins/Export/ExportHtmlword.php:91 src/Plugins/Export/ExportOds.php:70
+#: src/Plugins/Export/ExportOdt.php:126
+#: src/Plugins/Export/ExportTexytext.php:85
 msgid "Put columns names in the first row"
 msgstr "স্তম্ভের নাম প্রথম রোতে দাও"
 
 #: src/Config/Descriptions.php:641 src/Config/Descriptions.php:774
-#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:655
+#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:654
 msgid "Columns enclosed with"
 msgstr "স্তম্ভ ঘেরার জন্য"
 
 #: src/Config/Descriptions.php:642 src/Config/Descriptions.php:775
-#: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:666
+#: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:665
 msgid "Columns escaped with"
 msgstr "স্তম্ভ এস্কেপডের উপকরণ"
 
@@ -11527,12 +11512,12 @@ msgid "Remove CRLF characters within columns"
 msgstr "স্তম্ভের CRLF বর্ণ মুছ"
 
 #: src/Config/Descriptions.php:645 src/Config/Descriptions.php:778
-#: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:640
+#: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:639
 msgid "Columns terminated with"
 msgstr "স্তম্ভ শেষ হবে"
 
 #: src/Config/Descriptions.php:646 src/Config/Descriptions.php:773
-#: src/Plugins/Import/ImportCsv.php:673
+#: src/Plugins/Import/ImportCsv.php:672
 msgid "Lines terminated with"
 msgstr "লাইন শেষ হবে"
 
@@ -11554,17 +11539,17 @@ msgstr "টেবলের নামের নকশা"
 
 #: src/Config/Descriptions.php:657 src/Config/Descriptions.php:670
 #: src/Config/Descriptions.php:679 src/Config/Descriptions.php:717
-#: src/Config/Descriptions.php:723 src/Plugins/Export/ExportHtmlword.php:68
-#: src/Plugins/Export/ExportLatex.php:110
-#: src/Plugins/Export/ExportMediawiki.php:60
-#: src/Plugins/Export/ExportMediawiki.php:66
-#: src/Plugins/Export/ExportOdt.php:75 src/Plugins/Export/ExportPdf.php:76
-#: src/Plugins/Export/ExportSql.php:263
-#: src/Plugins/Export/ExportTexytext.php:67
+#: src/Config/Descriptions.php:723 src/Plugins/Export/ExportHtmlword.php:67
+#: src/Plugins/Export/ExportLatex.php:109
+#: src/Plugins/Export/ExportMediawiki.php:59
+#: src/Plugins/Export/ExportMediawiki.php:65
+#: src/Plugins/Export/ExportOdt.php:74 src/Plugins/Export/ExportPdf.php:75
+#: src/Plugins/Export/ExportSql.php:261
+#: src/Plugins/Export/ExportTexytext.php:66
 msgid "Dump table"
 msgstr "টেবল স্তুপ কর"
 
-#: src/Config/Descriptions.php:658 src/Plugins/Export/ExportLatex.php:101
+#: src/Config/Descriptions.php:658 src/Plugins/Export/ExportLatex.php:100
 msgid "Include table caption"
 msgstr "টেবিলের শিরোনামসহ"
 
@@ -11627,11 +11612,11 @@ msgstr "তৈরী/আপডেট/পরীক্ষার তারিখ"
 msgid "Use delayed inserts"
 msgstr "delayed inserts ব্যবহার কর"
 
-#: src/Config/Descriptions.php:692 src/Plugins/Export/ExportSql.php:233
+#: src/Config/Descriptions.php:692 src/Plugins/Export/ExportSql.php:231
 msgid "Disable foreign key checks"
 msgstr "foreign key পরীক্ষা অকার্যকর কর"
 
-#: src/Config/Descriptions.php:693 src/Plugins/Export/ExportSql.php:243
+#: src/Config/Descriptions.php:693 src/Plugins/Export/ExportSql.php:241
 msgid "Export views as tables"
 msgstr "ভিউ টেবিলের মত রফতানী করা হচ্ছে"
 
@@ -11653,7 +11638,7 @@ msgid ""
 "creation)"
 msgstr ""
 
-#: src/Config/Descriptions.php:709 src/Plugins/Export/ExportSql.php:373
+#: src/Config/Descriptions.php:709 src/Plugins/Export/ExportSql.php:370
 #, php-format
 msgid "%s view"
 msgstr "%s ভিউ"
@@ -11666,7 +11651,7 @@ msgstr "ignore inserts ব্যাবহার কর"
 msgid "Syntax to use when inserting data"
 msgstr "তথ্য প্রবেশ করানোর সময় ব্যবহৃত বাক্য"
 
-#: src/Config/Descriptions.php:713 src/Plugins/Export/ExportSql.php:500
+#: src/Config/Descriptions.php:713 src/Plugins/Export/ExportSql.php:497
 msgid "Maximal length of created query"
 msgstr "প্রস্তুতকৃত অনুসন্ধানের সর্বোচ্চ দৈর্ঘ"
 
@@ -11674,7 +11659,7 @@ msgstr "প্রস্তুতকৃত অনুসন্ধানের স�
 msgid "Export type"
 msgstr "রফাতানীর ধরন"
 
-#: src/Config/Descriptions.php:719 src/Plugins/Export/ExportSql.php:223
+#: src/Config/Descriptions.php:719 src/Plugins/Export/ExportSql.php:221
 msgid "Enclose export in a transaction"
 msgstr "লেনদেন এ রফতানী সংযুক্ত কর"
 
@@ -11830,7 +11815,7 @@ msgid "Partial import: allow interrupt"
 msgstr "আংশিক আমদানি: বাধা অনুমোদিত"
 
 #: src/Config/Descriptions.php:776 src/Config/Descriptions.php:782
-#: src/Plugins/Import/ImportCsv.php:151 src/Plugins/Import/ImportLdi.php:77
+#: src/Plugins/Import/ImportCsv.php:150 src/Plugins/Import/ImportLdi.php:75
 msgid "Do not abort on INSERT error"
 msgstr "ভুল হলেও ইনর্সাট বাতিল করবে না"
 
@@ -11842,7 +11827,7 @@ msgstr ""
 msgid "Format of imported file"
 msgstr "আমদানিকৃত ফাইলের গঠন"
 
-#: src/Config/Descriptions.php:783 src/Plugins/Import/ImportLdi.php:83
+#: src/Config/Descriptions.php:783 src/Plugins/Import/ImportLdi.php:81
 msgid "Use LOCAL keyword"
 msgstr "LOCAL কীওর্য়াড ব্যবহার কর"
 
@@ -11850,7 +11835,7 @@ msgstr "LOCAL কীওর্য়াড ব্যবহার কর"
 msgid "Column names in first row"
 msgstr "প্রথম সারিতে স্তম্ভের নাম"
 
-#: src/Config/Descriptions.php:787 src/Plugins/Import/ImportOds.php:81
+#: src/Config/Descriptions.php:787 src/Plugins/Import/ImportOds.php:80
 msgid "Do not import empty rows"
 msgstr "খালি সারি আমদানি করো না"
 
@@ -13030,8 +13015,8 @@ msgstr ""
 #: src/Controllers/Operations/ViewController.php:61
 #: src/Controllers/Operations/ViewController.php:66
 #: src/Controllers/Server/Databases/DestroyController.php:65
-#: src/Controllers/Table/AddFieldController.php:165
-#: src/Controllers/Table/AddFieldController.php:170
+#: src/Controllers/Table/AddFieldController.php:162
+#: src/Controllers/Table/AddFieldController.php:167
 #: src/Controllers/Table/ChangeController.php:70
 #: src/Controllers/Table/ChangeController.php:75
 #: src/Controllers/Table/ChartController.php:87
@@ -13045,8 +13030,8 @@ msgstr ""
 #: src/Controllers/Table/DropColumnConfirmationController.php:57
 #: src/Controllers/Table/FindReplaceController.php:75
 #: src/Controllers/Table/FindReplaceController.php:80
-#: src/Controllers/Table/GisVisualizationController.php:65
-#: src/Controllers/Table/GisVisualizationController.php:70
+#: src/Controllers/Table/GisVisualizationController.php:68
+#: src/Controllers/Table/GisVisualizationController.php:73
 #: src/Controllers/Table/ImportController.php:70
 #: src/Controllers/Table/ImportController.php:75
 #: src/Controllers/Table/IndexesController.php:67
@@ -13124,14 +13109,14 @@ msgstr ""
 "আমদানি সহায়ক (plugin) পাওয়া যাচ্ছে না, অনুগ্রহ করে আপনার ইন্সষ্টলেশন পরীক্ষা করুন!"
 
 #: src/Controllers/Database/PrivilegesController.php:64
-#: src/Controllers/Server/PrivilegesController.php:98
+#: src/Controllers/Server/PrivilegesController.php:100
 #: src/Controllers/Server/UserGroupsController.php:47
 #: src/Controllers/Table/PrivilegesController.php:67
 msgid "No Privileges"
 msgstr "কোন অধিকার নাই"
 
 #: src/Controllers/Database/PrivilegesController.php:73
-#: src/Controllers/Server/PrivilegesController.php:107
+#: src/Controllers/Server/PrivilegesController.php:109
 #: src/Controllers/Table/PrivilegesController.php:76
 #, fuzzy
 #| msgid "You do not have the necessary privileges to create a trigger"
@@ -13154,8 +13139,8 @@ msgstr "একটি ট্রিগার তৈরীর জন্য প্�
 #: src/Controllers/Operations/TableController.php:103
 #: src/Controllers/Operations/ViewController.php:73
 #: src/Controllers/Operations/ViewController.php:78
-#: src/Controllers/Table/AddFieldController.php:177
-#: src/Controllers/Table/AddFieldController.php:182
+#: src/Controllers/Table/AddFieldController.php:174
+#: src/Controllers/Table/AddFieldController.php:179
 #: src/Controllers/Table/ChangeController.php:82
 #: src/Controllers/Table/ChangeController.php:87
 #: src/Controllers/Table/ChartController.php:102
@@ -13784,12 +13769,12 @@ msgid "The user name is empty!"
 msgstr "ব্যাবহারকারী নামটি শুন্য!"
 
 #: src/Controllers/JavaScriptMessagesController.php:146
-#: src/Server/Privileges.php:766 src/UserPassword.php:41
+#: src/Server/Privileges.php:764 src/UserPassword.php:41
 msgid "The password is empty!"
 msgstr "পাসওয়ার্ডটি শুন্য!"
 
 #: src/Controllers/JavaScriptMessagesController.php:147
-#: src/Server/Privileges.php:764 src/UserPassword.php:45
+#: src/Server/Privileges.php:762 src/UserPassword.php:45
 msgid "The passwords aren't the same!"
 msgstr "পাসওর্য়াডগুলো এক নয়!"
 
@@ -13833,12 +13818,12 @@ msgid "Other"
 msgstr "অন্যান্য"
 
 #. l10n: Thousands separator
-#: src/Controllers/JavaScriptMessagesController.php:169 src/Util.php:388
+#: src/Controllers/JavaScriptMessagesController.php:169 src/Util.php:391
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: src/Controllers/JavaScriptMessagesController.php:171 src/Util.php:386
+#: src/Controllers/JavaScriptMessagesController.php:171 src/Util.php:389
 msgid "."
 msgstr "."
 
@@ -13935,27 +13920,27 @@ msgid "Bytes received"
 msgstr "গৃহীত বাইট"
 
 #. l10n: shortcuts for Byte
-#: src/Controllers/JavaScriptMessagesController.php:203 src/Util.php:306
+#: src/Controllers/JavaScriptMessagesController.php:203 src/Util.php:309
 msgid "B"
 msgstr "বি"
 
 #. l10n: shortcuts for Gigabyte
-#: src/Controllers/JavaScriptMessagesController.php:206 src/Util.php:312
+#: src/Controllers/JavaScriptMessagesController.php:206 src/Util.php:315
 msgid "GiB"
 msgstr "জিবি"
 
 #. l10n: shortcuts for Terabyte
-#: src/Controllers/JavaScriptMessagesController.php:207 src/Util.php:314
+#: src/Controllers/JavaScriptMessagesController.php:207 src/Util.php:317
 msgid "TiB"
 msgstr "টিবি"
 
 #. l10n: shortcuts for Petabyte
-#: src/Controllers/JavaScriptMessagesController.php:208 src/Util.php:316
+#: src/Controllers/JavaScriptMessagesController.php:208 src/Util.php:319
 msgid "PiB"
 msgstr "পিবি"
 
 #. l10n: shortcuts for Exabyte
-#: src/Controllers/JavaScriptMessagesController.php:209 src/Util.php:318
+#: src/Controllers/JavaScriptMessagesController.php:209 src/Util.php:321
 msgid "EiB"
 msgstr "ইবি"
 
@@ -14386,7 +14371,7 @@ msgid "Variable %d:"
 msgstr "চলক"
 
 #: src/Controllers/JavaScriptMessagesController.php:387
-#: src/Normalization.php:954
+#: src/Normalization.php:956
 msgid "Pick"
 msgstr ""
 
@@ -14426,7 +14411,7 @@ msgid "Primary key added."
 msgstr "%s একটি প্রাইমারি কী যোগ করা হয়েছে"
 
 #: src/Controllers/JavaScriptMessagesController.php:399
-#: src/Normalization.php:261
+#: src/Normalization.php:263
 #, fuzzy
 #| msgid "Tracking report"
 msgid "Taking you to next step…"
@@ -14438,8 +14423,8 @@ msgid "The first step of normalization is complete for table '%s'."
 msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:401
-#: src/Normalization.php:517 src/Normalization.php:576
-#: src/Normalization.php:663 src/Normalization.php:736
+#: src/Normalization.php:519 src/Normalization.php:578
+#: src/Normalization.php:665 src/Normalization.php:738
 #, fuzzy
 #| msgid "End of line"
 msgid "End of step"
@@ -14452,7 +14437,7 @@ msgstr ""
 #. l10n: Display text for calendar close link
 #: src/Controllers/JavaScriptMessagesController.php:403
 #: src/Controllers/JavaScriptMessagesController.php:757
-#: src/Normalization.php:349
+#: src/Normalization.php:351
 msgid "Done"
 msgstr "সম্পন্ন"
 
@@ -15237,133 +15222,133 @@ msgctxt "Month name"
 msgid "December"
 msgstr "ডিসেম্বর"
 
-#: src/Controllers/JavaScriptMessagesController.php:712 src/Util.php:500
+#: src/Controllers/JavaScriptMessagesController.php:712 src/Util.php:503
 #, fuzzy
 #| msgid "Jan"
 msgctxt "Short month name for January"
 msgid "Jan"
 msgstr "জান"
 
-#: src/Controllers/JavaScriptMessagesController.php:713 src/Util.php:501
+#: src/Controllers/JavaScriptMessagesController.php:713 src/Util.php:504
 #, fuzzy
 #| msgid "Feb"
 msgctxt "Short month name for February"
 msgid "Feb"
 msgstr "ফেব"
 
-#: src/Controllers/JavaScriptMessagesController.php:714 src/Util.php:502
+#: src/Controllers/JavaScriptMessagesController.php:714 src/Util.php:505
 #, fuzzy
 #| msgid "Mar"
 msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "মার"
 
-#: src/Controllers/JavaScriptMessagesController.php:715 src/Util.php:503
+#: src/Controllers/JavaScriptMessagesController.php:715 src/Util.php:506
 #, fuzzy
 #| msgid "Apr"
 msgctxt "Short month name for April"
 msgid "Apr"
 msgstr "এপ্রি"
 
-#: src/Controllers/JavaScriptMessagesController.php:716 src/Util.php:504
+#: src/Controllers/JavaScriptMessagesController.php:716 src/Util.php:507
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name for May"
 msgid "May"
 msgstr "মে"
 
-#: src/Controllers/JavaScriptMessagesController.php:717 src/Util.php:505
+#: src/Controllers/JavaScriptMessagesController.php:717 src/Util.php:508
 #, fuzzy
 #| msgid "Jun"
 msgctxt "Short month name for June"
 msgid "Jun"
 msgstr "জুন"
 
-#: src/Controllers/JavaScriptMessagesController.php:718 src/Util.php:506
+#: src/Controllers/JavaScriptMessagesController.php:718 src/Util.php:509
 #, fuzzy
 #| msgid "Jul"
 msgctxt "Short month name for July"
 msgid "Jul"
 msgstr "জুল"
 
-#: src/Controllers/JavaScriptMessagesController.php:719 src/Util.php:507
+#: src/Controllers/JavaScriptMessagesController.php:719 src/Util.php:510
 #, fuzzy
 #| msgid "Aug"
 msgctxt "Short month name for August"
 msgid "Aug"
 msgstr "আগ"
 
-#: src/Controllers/JavaScriptMessagesController.php:720 src/Util.php:508
+#: src/Controllers/JavaScriptMessagesController.php:720 src/Util.php:511
 #, fuzzy
 #| msgid "Sep"
 msgctxt "Short month name for September"
 msgid "Sep"
 msgstr "সেপ"
 
-#: src/Controllers/JavaScriptMessagesController.php:721 src/Util.php:509
+#: src/Controllers/JavaScriptMessagesController.php:721 src/Util.php:512
 #, fuzzy
 #| msgid "Oct"
 msgctxt "Short month name for October"
 msgid "Oct"
 msgstr "অক্ট"
 
-#: src/Controllers/JavaScriptMessagesController.php:722 src/Util.php:510
+#: src/Controllers/JavaScriptMessagesController.php:722 src/Util.php:513
 #, fuzzy
 #| msgid "Nov"
 msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "নভে"
 
-#: src/Controllers/JavaScriptMessagesController.php:723 src/Util.php:511
+#: src/Controllers/JavaScriptMessagesController.php:723 src/Util.php:514
 #, fuzzy
 #| msgid "Dec"
 msgctxt "Short month name for December"
 msgid "Dec"
 msgstr "ডিসে"
 
-#: src/Controllers/JavaScriptMessagesController.php:731 src/Util.php:514
+#: src/Controllers/JavaScriptMessagesController.php:731 src/Util.php:517
 #, fuzzy
 #| msgid "Sun"
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "রবি"
 
-#: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:515
+#: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:518
 #, fuzzy
 #| msgid "Mon"
 msgctxt "Short week day name for Monday"
 msgid "Mon"
 msgstr "সোম"
 
-#: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:516
+#: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:519
 #, fuzzy
 #| msgid "Tue"
 msgctxt "Short week day name for Tuesday"
 msgid "Tue"
 msgstr "মঙ্গল"
 
-#: src/Controllers/JavaScriptMessagesController.php:734 src/Util.php:517
+#: src/Controllers/JavaScriptMessagesController.php:734 src/Util.php:520
 #, fuzzy
 #| msgid "Wed"
 msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr "বৃধ"
 
-#: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:518
+#: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:521
 #, fuzzy
 #| msgid "Thu"
 msgctxt "Short week day name for Thursday"
 msgid "Thu"
 msgstr "বৃহস্পতি"
 
-#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:519
+#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:522
 #, fuzzy
 #| msgid "Fri"
 msgctxt "Short week day name for Friday"
 msgid "Fri"
 msgstr "শুক্র"
 
-#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:520
+#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:523
 #, fuzzy
 #| msgid "Sat"
 msgctxt "Short week day name for Saturday"
@@ -15777,7 +15762,7 @@ msgstr "স্তম্ভগুলো সফলভাবে সরানো হ
 msgid "The account %s@%s has been successfully unlocked."
 msgstr "স্তম্ভগুলো সফলভাবে সরানো হয়েছে।"
 
-#: src/Controllers/Server/PrivilegesController.php:125
+#: src/Controllers/Server/PrivilegesController.php:127
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
@@ -16547,7 +16532,7 @@ msgstr "বুকমার্ক %s তৈরী করা হয়েছে।"
 msgid "Bookmark not created!"
 msgstr "বুকমার্ক তৈরি করা হয়নি!"
 
-#: src/Controllers/Table/AddFieldController.php:140
+#: src/Controllers/Table/AddFieldController.php:137
 #: src/Controllers/Table/IndexesController.php:139
 #: src/Controllers/Table/IndexRenameController.php:123
 #: src/Controllers/Table/Structure/PartitioningController.php:265
@@ -16565,7 +16550,7 @@ msgid "No row selected."
 msgstr "কোন রো নির্বাচন করা হয় নাই"
 
 #: src/Controllers/Table/ChartController.php:59
-#: src/Controllers/Table/GisVisualizationController.php:80
+#: src/Controllers/Table/GisVisualizationController.php:83
 msgid "No SQL query was set to fetch data."
 msgstr "তথ্য আনার জন্য কোন SQL অনুসন্ধান নির্ধারন করা হয় নাই।"
 
@@ -16626,7 +16611,7 @@ msgstr "ইনডেক্স বিহীন জোড়ার পরিমান
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "মাইএসকিউএল কিছু পায়নি। (শুন্য তথ্য)।"
 
-#: src/Controllers/Table/GisVisualizationController.php:91
+#: src/Controllers/Table/GisVisualizationController.php:94
 #, fuzzy
 #| msgid "Has no effect in this MySQL version."
 msgid "No spatial column found for this SQL query."
@@ -17726,7 +17711,7 @@ msgstr ""
 msgid "%1$s (near <code>%2$s</code>)"
 msgstr ""
 
-#: src/Menu.php:284 src/Menu.php:395 src/Util.php:1385 src/Util.php:1399
+#: src/Menu.php:284 src/Menu.php:395 src/Util.php:1388 src/Util.php:1402
 msgid "Tracking"
 msgstr "ট্রেকিং"
 
@@ -17734,7 +17719,7 @@ msgstr "ট্রেকিং"
 msgid "Database seems to be empty!"
 msgstr "ডাটাবেইজটি খালি মনে হয়!"
 
-#: src/Menu.php:402 src/Util.php:1386
+#: src/Menu.php:402 src/Util.php:1389
 msgid "Designer"
 msgstr "নকশাকারী"
 
@@ -17744,11 +17729,11 @@ msgstr "নকশাকারী"
 msgid "User accounts"
 msgstr "ব্যবহারকারীর দল"
 
-#: src/Menu.php:512 src/Util.php:1369
+#: src/Menu.php:512 src/Util.php:1372
 msgid "Charsets"
 msgstr "বর্ণরাশী"
 
-#: src/Menu.php:517 src/Util.php:1371
+#: src/Menu.php:517 src/Util.php:1374
 msgid "Engines"
 msgstr "ব্যবস্থাসমূহ"
 
@@ -17841,7 +17826,7 @@ msgstr "নতুন ইভেন্ট"
 
 #: src/Navigation/Nodes/NodeFunctionContainer.php:23
 #: src/Navigation/Nodes/NodeFunctionContainer.php:27
-#: src/Plugins/Export/ExportSql.php:644 src/Plugins/Export/ExportXml.php:98
+#: src/Plugins/Export/ExportSql.php:641 src/Plugins/Export/ExportXml.php:97
 msgid "Functions"
 msgstr "ফাংশনসমূহ"
 
@@ -17861,7 +17846,7 @@ msgstr ""
 
 #: src/Navigation/Nodes/NodeProcedureContainer.php:23
 #: src/Navigation/Nodes/NodeProcedureContainer.php:27
-#: src/Plugins/Export/ExportSql.php:633 src/Plugins/Export/ExportXml.php:103
+#: src/Plugins/Export/ExportSql.php:630 src/Plugins/Export/ExportXml.php:102
 msgid "Procedures"
 msgstr "প্রোসিডিউরস"
 
@@ -17893,8 +17878,8 @@ msgstr "নতুন"
 msgid "Make all columns atomic"
 msgstr ""
 
-#: src/Normalization.php:208 src/Normalization.php:257
-#: src/Normalization.php:303 src/Normalization.php:335
+#: src/Normalization.php:208 src/Normalization.php:259
+#: src/Normalization.php:305 src/Normalization.php:337
 msgid "Step 1."
 msgstr ""
 
@@ -17918,75 +17903,75 @@ msgstr ""
 msgid "split into "
 msgstr ""
 
-#: src/Normalization.php:254
+#: src/Normalization.php:256
 #, fuzzy
 #| msgid "Add primary key"
 msgid "Have a primary key"
 msgstr "প্রাইমারি কী যোগ কর"
 
-#: src/Normalization.php:260
+#: src/Normalization.php:262
 #, fuzzy
 #| msgid "Error: relation already exists."
 msgid "Primary key already exists."
 msgstr "ভুল: সর্ম্পক পূর্ব থেকেই তৈরী আছে।"
 
-#: src/Normalization.php:265
+#: src/Normalization.php:267
 msgid ""
 "There is no primary key; please add one.<br>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
 msgstr ""
 
-#: src/Normalization.php:273
+#: src/Normalization.php:275
 msgid "Add a primary key on existing column(s)"
 msgstr ""
 
-#: src/Normalization.php:277
+#: src/Normalization.php:279
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
 msgstr ""
 
-#: src/Normalization.php:279
+#: src/Normalization.php:281
 #, fuzzy
 #| msgid "Add primary key"
 msgid "+ Add a new primary key column"
 msgstr "প্রাইমারি কী যোগ কর"
 
-#: src/Normalization.php:302
+#: src/Normalization.php:304
 #, fuzzy
 #| msgid "Remove chart"
 msgid "Remove redundant columns"
 msgstr "চিত্র মুছ"
 
-#: src/Normalization.php:305
+#: src/Normalization.php:307
 msgid ""
 "Do you have a group of columns which on combining gives an existing column? "
 "For example, if you have first_name, last_name and full_name then combining "
 "first_name and last_name gives full_name which is redundant."
 msgstr ""
 
-#: src/Normalization.php:311
+#: src/Normalization.php:313
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
 msgstr ""
 
-#: src/Normalization.php:316
+#: src/Normalization.php:318
 #, fuzzy
 #| msgid "Remove selected users"
 msgid "Remove selected"
 msgstr "নির্বাচিত ব্যবহারকারীদের মুছ"
 
-#: src/Normalization.php:318
+#: src/Normalization.php:320
 #, fuzzy
 #| msgid "Add column"
 msgid "No redundant column"
 msgstr "স্বম্ভ যোগ করা"
 
-#: src/Normalization.php:334
+#: src/Normalization.php:336
 msgid "Move repeating groups"
 msgstr ""
 
-#: src/Normalization.php:337
+#: src/Normalization.php:339
 msgid ""
 "Do you have a group of two or more columns that are closely related and are "
 "all repeating the same attribute? For example, a table that holds data on "
@@ -17995,117 +17980,117 @@ msgid ""
 "should be created."
 msgstr ""
 
-#: src/Normalization.php:345
+#: src/Normalization.php:347
 msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
 msgstr ""
 
-#: src/Normalization.php:350
+#: src/Normalization.php:352
 msgid "No repeating group"
 msgstr ""
 
-#: src/Normalization.php:378
+#: src/Normalization.php:380
 msgid "Step 2."
 msgstr ""
 
-#: src/Normalization.php:378
+#: src/Normalization.php:380
 msgid "Find partial dependencies"
 msgstr ""
 
-#: src/Normalization.php:399
+#: src/Normalization.php:401
 #, php-format
 msgid ""
 "No partial dependencies possible as no non-primary column exists since "
 "primary key ( %1$s ) is composed of all the columns in the table."
 msgstr ""
 
-#: src/Normalization.php:405 src/Normalization.php:447
+#: src/Normalization.php:407 src/Normalization.php:449
 msgid "Table is already in second normal form."
 msgstr ""
 
-#: src/Normalization.php:410
+#: src/Normalization.php:412
 #, php-format
 msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
 "the partial dependencies."
 msgstr ""
 
-#: src/Normalization.php:414 src/Normalization.php:825
+#: src/Normalization.php:416 src/Normalization.php:827
 msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
 msgstr ""
 
-#: src/Normalization.php:416
+#: src/Normalization.php:418
 msgid "+ Show me the possible partial dependencies based on data in the table"
 msgstr ""
 
-#: src/Normalization.php:419
+#: src/Normalization.php:421
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
 "value of the column."
 msgstr ""
 
-#: src/Normalization.php:432 src/Normalization.php:867
+#: src/Normalization.php:434 src/Normalization.php:869
 #, php-format
 msgid "'%1$s' depends on:"
 msgstr ""
 
-#: src/Normalization.php:443
+#: src/Normalization.php:445
 #, php-format
 msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column."
 msgstr ""
 
-#: src/Normalization.php:471
+#: src/Normalization.php:473
 #, php-format
 msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
 "create the following tables:"
 msgstr ""
 
-#: src/Normalization.php:513
+#: src/Normalization.php:515
 #, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
 msgstr ""
 
-#: src/Normalization.php:565 src/Normalization.php:725
-#: src/Normalization.php:800
+#: src/Normalization.php:567 src/Normalization.php:727
+#: src/Normalization.php:802
 #, fuzzy
 #| msgid "Error in processing request:"
 msgid "Error in processing!"
 msgstr "নির্দেশ প্রক্রিয়া করনে সমস্যা হয়েছে:"
 
-#: src/Normalization.php:612
+#: src/Normalization.php:614
 #, php-format
 msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
 "create the following tables:"
 msgstr ""
 
-#: src/Normalization.php:661
+#: src/Normalization.php:663
 msgid "The third step of normalization is complete."
 msgstr ""
 
-#: src/Normalization.php:776
+#: src/Normalization.php:778
 #, php-format
 msgid "Selected repeating group has been moved to the table '%s'"
 msgstr ""
 
-#: src/Normalization.php:823
+#: src/Normalization.php:825
 #, fuzzy
 #| msgid "Sep"
 msgid "Step 3."
 msgstr "সেপ"
 
-#: src/Normalization.php:823
+#: src/Normalization.php:825
 msgid "Find transitive dependencies"
 msgstr ""
 
-#: src/Normalization.php:827
+#: src/Normalization.php:829
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -18113,23 +18098,23 @@ msgid ""
 "that case you don't have to select any."
 msgstr ""
 
-#: src/Normalization.php:881
+#: src/Normalization.php:883
 msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
 msgstr ""
 
-#: src/Normalization.php:884
+#: src/Normalization.php:886
 msgid "Table is already in Third normal form!"
 msgstr ""
 
-#: src/Normalization.php:950
+#: src/Normalization.php:952
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
 msgstr ""
 
-#: src/Normalization.php:965
+#: src/Normalization.php:967
 msgid "No partial dependencies found!"
 msgstr ""
 
@@ -18252,78 +18237,78 @@ msgstr "কনফিগারেশনে অকার্যকর প্রম�
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 
-#: src/Plugins/Export/ExportCsv.php:69 src/Plugins/Export/ExportToon.php:62
+#: src/Plugins/Export/ExportCsv.php:68 src/Plugins/Export/ExportToon.php:61
 #: src/Plugins/Import/AbstractImportCsv.php:36
 msgid "Columns separated with:"
 msgstr "স্তম্ভ আলাদা করা হয়েছে :"
 
-#: src/Plugins/Export/ExportCsv.php:74
+#: src/Plugins/Export/ExportCsv.php:73
 #: src/Plugins/Import/AbstractImportCsv.php:42
 msgid "Columns enclosed with:"
 msgstr "স্তম্ভ সীমিত করা হবে:"
 
-#: src/Plugins/Export/ExportCsv.php:79
+#: src/Plugins/Export/ExportCsv.php:78
 #: src/Plugins/Import/AbstractImportCsv.php:49
 msgid "Columns escaped with:"
 msgstr "স্তম্ভ escaped :"
 
-#: src/Plugins/Export/ExportCsv.php:84
+#: src/Plugins/Export/ExportCsv.php:83
 #: src/Plugins/Import/AbstractImportCsv.php:56
 msgid "Lines terminated with:"
 msgstr "লাইন শেষ হয়েছে :"
 
-#: src/Plugins/Export/ExportCsv.php:89 src/Plugins/Export/ExportExcel.php:70
-#: src/Plugins/Export/ExportHtmlword.php:88
-#: src/Plugins/Export/ExportLatex.php:205 src/Plugins/Export/ExportOds.php:66
-#: src/Plugins/Export/ExportOdt.php:134
-#: src/Plugins/Export/ExportTexytext.php:92
+#: src/Plugins/Export/ExportCsv.php:88 src/Plugins/Export/ExportExcel.php:69
+#: src/Plugins/Export/ExportHtmlword.php:86
+#: src/Plugins/Export/ExportLatex.php:202 src/Plugins/Export/ExportOds.php:65
+#: src/Plugins/Export/ExportOdt.php:131
+#: src/Plugins/Export/ExportTexytext.php:90
 msgid "Replace NULL with:"
 msgstr "NULL প্রতিস্থাপনের জন্য :"
 
-#: src/Plugins/Export/ExportCsv.php:94 src/Plugins/Export/ExportExcel.php:75
+#: src/Plugins/Export/ExportCsv.php:93 src/Plugins/Export/ExportExcel.php:74
 msgid "Remove carriage return/line feed characters within columns"
 msgstr "স্তম্ভের carriage return/line feed বর্ণ মুছ"
 
-#: src/Plugins/Export/ExportExcel.php:85
+#: src/Plugins/Export/ExportExcel.php:84
 msgid "Excel edition:"
 msgstr "Excel সংস্করন:"
 
-#: src/Plugins/Export/ExportHtmlword.php:82
-#: src/Plugins/Export/ExportLatex.php:176 src/Plugins/Export/ExportOdt.php:123
-#: src/Plugins/Export/ExportTexytext.php:81
-#: src/Plugins/Export/ExportXml.php:126
+#: src/Plugins/Export/ExportHtmlword.php:81
+#: src/Plugins/Export/ExportLatex.php:174 src/Plugins/Export/ExportOdt.php:121
+#: src/Plugins/Export/ExportTexytext.php:80
+#: src/Plugins/Export/ExportXml.php:125
 msgid "Data dump options"
 msgstr "তথ্য স্তুপের অপশন"
 
-#: src/Plugins/Export/ExportHtmlword.php:169
-#: src/Plugins/Export/ExportOdt.php:212 src/Plugins/Export/ExportSql.php:2101
-#: src/Plugins/Export/ExportTexytext.php:139
+#: src/Plugins/Export/ExportHtmlword.php:167
+#: src/Plugins/Export/ExportOdt.php:209 src/Plugins/Export/ExportSql.php:2098
+#: src/Plugins/Export/ExportTexytext.php:137
 msgid "Dumping data for table"
 msgstr "টেবলের জন্য তথ্য স্তুপ করছি"
 
-#: src/Plugins/Export/ExportHtmlword.php:441
-#: src/Plugins/Export/ExportOdt.php:561 src/Plugins/Export/ExportSql.php:1837
-#: src/Plugins/Export/ExportTexytext.php:403
+#: src/Plugins/Export/ExportHtmlword.php:439
+#: src/Plugins/Export/ExportOdt.php:558 src/Plugins/Export/ExportSql.php:1834
+#: src/Plugins/Export/ExportTexytext.php:401
 msgid "Table structure for table"
 msgstr "টেবলের জন্য টেবলের গঠন"
 
-#: src/Plugins/Export/ExportHtmlword.php:458
-#: src/Plugins/Export/ExportOdt.php:581 src/Plugins/Export/ExportSql.php:1903
-#: src/Plugins/Export/ExportTexytext.php:416
+#: src/Plugins/Export/ExportHtmlword.php:456
+#: src/Plugins/Export/ExportOdt.php:578 src/Plugins/Export/ExportSql.php:1900
+#: src/Plugins/Export/ExportTexytext.php:414
 msgid "Structure for view"
 msgstr "ভিউ এর গঠন"
 
-#: src/Plugins/Export/ExportHtmlword.php:464
-#: src/Plugins/Export/ExportOdt.php:589 src/Plugins/Export/ExportSql.php:1946
-#: src/Plugins/Export/ExportTexytext.php:420
+#: src/Plugins/Export/ExportHtmlword.php:462
+#: src/Plugins/Export/ExportOdt.php:586 src/Plugins/Export/ExportSql.php:1943
+#: src/Plugins/Export/ExportTexytext.php:418
 msgid "Stand-in structure for view"
 msgstr "দর্শনের বর্তমান গঠন"
 
-#: src/Plugins/Export/ExportJson.php:88
+#: src/Plugins/Export/ExportJson.php:87
 msgid "Output pretty-printed JSON (Use human-readable formatting)"
 msgstr ""
 
-#: src/Plugins/Export/ExportJson.php:94
+#: src/Plugins/Export/ExportJson.php:93
 msgid "Output unicode characters unescaped"
 msgstr ""
 
@@ -18339,108 +18324,108 @@ msgstr "(চলমান)"
 msgid "Structure of table @TABLE@"
 msgstr "@TABLE@ টেবলের গঠন"
 
-#: src/Plugins/Export/ExportLatex.php:125 src/Plugins/Export/ExportOdt.php:90
-#: src/Plugins/Export/ExportSql.php:279
+#: src/Plugins/Export/ExportLatex.php:124 src/Plugins/Export/ExportOdt.php:89
+#: src/Plugins/Export/ExportSql.php:277
 msgid "Object creation options"
 msgstr "অবজেক্ট তৈরীর অপশন"
 
-#: src/Plugins/Export/ExportLatex.php:131
-#: src/Plugins/Export/ExportLatex.php:187
+#: src/Plugins/Export/ExportLatex.php:129
+#: src/Plugins/Export/ExportLatex.php:184
 msgid "Table caption:"
 msgstr "টেবলের শিরোনাম:"
 
-#: src/Plugins/Export/ExportLatex.php:137
-#: src/Plugins/Export/ExportLatex.php:193
+#: src/Plugins/Export/ExportLatex.php:135
+#: src/Plugins/Export/ExportLatex.php:190
 msgid "Table caption (continued):"
 msgstr "টেবলের শিরোনাম (চলমান):"
 
-#: src/Plugins/Export/ExportLatex.php:143
-#: src/Plugins/Export/ExportLatex.php:199
+#: src/Plugins/Export/ExportLatex.php:141
+#: src/Plugins/Export/ExportLatex.php:196
 msgid "Label key:"
 msgstr "লেবেল কি:"
 
-#: src/Plugins/Export/ExportLatex.php:151 src/Plugins/Export/ExportOdt.php:98
-#: src/Plugins/Export/ExportSql.php:205
+#: src/Plugins/Export/ExportLatex.php:149 src/Plugins/Export/ExportOdt.php:96
+#: src/Plugins/Export/ExportSql.php:203
 msgid "Display foreign key relationships"
 msgstr "ফরেন কী সর্ম্পক দেখাও"
 
-#: src/Plugins/Export/ExportLatex.php:158 src/Plugins/Export/ExportOdt.php:105
+#: src/Plugins/Export/ExportLatex.php:156 src/Plugins/Export/ExportOdt.php:103
 msgid "Display comments"
 msgstr "মন্তব্য দেখাও"
 
-#: src/Plugins/Export/ExportLatex.php:164 src/Plugins/Export/ExportOdt.php:111
-#: src/Plugins/Export/ExportSql.php:213
+#: src/Plugins/Export/ExportLatex.php:162 src/Plugins/Export/ExportOdt.php:109
+#: src/Plugins/Export/ExportSql.php:211
 #, fuzzy
 #| msgid "Display MIME types"
 msgid "Display media types"
 msgstr "MIME ধরন দেখাও"
 
-#: src/Plugins/Export/ExportLatex.php:182
+#: src/Plugins/Export/ExportLatex.php:179
 msgid "Put columns names in the first row:"
 msgstr "প্রথম সারিতে স্তম্ভের নাম রাখ:"
 
-#: src/Plugins/Export/ExportLatex.php:232 src/Plugins/Export/ExportSql.php:760
-#: src/Plugins/Export/ExportXml.php:202
+#: src/Plugins/Export/ExportLatex.php:229 src/Plugins/Export/ExportSql.php:757
+#: src/Plugins/Export/ExportXml.php:201
 msgid "Generation Time:"
 msgstr "তৈরী করতে ব্যবহৃত সময়:"
 
-#: src/Plugins/Export/ExportLatex.php:235 src/Plugins/Export/ExportSql.php:766
-#: src/Plugins/Export/ExportXml.php:205
+#: src/Plugins/Export/ExportLatex.php:232 src/Plugins/Export/ExportSql.php:763
+#: src/Plugins/Export/ExportXml.php:204
 msgid "PHP Version:"
 msgstr "পিএইছপির সংস্করন:"
 
-#: src/Plugins/Export/ExportLatex.php:290 src/Plugins/Export/ExportSql.php:1992
+#: src/Plugins/Export/ExportLatex.php:287 src/Plugins/Export/ExportSql.php:1989
 msgid "Data:"
 msgstr "ডাটা:"
 
-#: src/Plugins/Export/ExportLatex.php:445
+#: src/Plugins/Export/ExportLatex.php:442
 msgid "Structure:"
 msgstr "গঠন:"
 
-#: src/Plugins/Export/ExportMediawiki.php:78
+#: src/Plugins/Export/ExportMediawiki.php:77
 msgid "Export table names"
 msgstr "%s মত রফতানী কর"
 
-#: src/Plugins/Export/ExportMediawiki.php:85
+#: src/Plugins/Export/ExportMediawiki.php:84
 msgid "Export table headers"
 msgstr "সমান্তরাল (rotated headers)"
 
-#: src/Plugins/Export/ExportOdt.php:213
-#: src/Plugins/Export/ExportTexytext.php:140
+#: src/Plugins/Export/ExportOdt.php:210
+#: src/Plugins/Export/ExportTexytext.php:138
 #, fuzzy
 #| msgid "Dumping data for table"
 msgid "Dumping data for query result"
 msgstr "টেবলের জন্য তথ্য স্তুপ করছি"
 
-#: src/Plugins/Export/ExportPdf.php:67
+#: src/Plugins/Export/ExportPdf.php:66
 msgid "Report title:"
 msgstr "প্রতিবেদনের শিরোনাম:"
 
-#: src/Plugins/Export/ExportPdf.php:131
+#: src/Plugins/Export/ExportPdf.php:130
 #, fuzzy
 #| msgid "Dumping data for table"
 msgid "Dumping data"
 msgstr "টেবলের জন্য তথ্য স্তুপ করছি"
 
-#: src/Plugins/Export/ExportPdf.php:145
+#: src/Plugins/Export/ExportPdf.php:144
 #, fuzzy
 #| msgid "Query results"
 msgid "Query result data"
 msgstr "অনুসন্ধান ফলাফল"
 
-#: src/Plugins/Export/ExportPdf.php:177
+#: src/Plugins/Export/ExportPdf.php:176
 #, fuzzy
 #| msgid "structure"
 msgid "View structure"
 msgstr "কাঠামো"
 
-#: src/Plugins/Export/ExportPdf.php:180
+#: src/Plugins/Export/ExportPdf.php:179
 #, fuzzy
 #| msgid "and then"
 msgid "Stand in"
 msgstr "এবং তারপর"
 
-#: src/Plugins/Export/ExportSql.php:184
+#: src/Plugins/Export/ExportSql.php:182
 msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
@@ -18448,86 +18433,86 @@ msgstr ""
 "মন্তব্য দেখাও <i>(রফতানী সময়কাল, PHP সংস্করন, এবং সার্ভার সংস্করন এর মত তথ্য সংযুক্ত "
 "করে)</i>"
 
-#: src/Plugins/Export/ExportSql.php:191
+#: src/Plugins/Export/ExportSql.php:189
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr "শিরোনামের অতিরিক্ত মন্তব্য (\\n লাইন ভাঙ্গবে):"
 
-#: src/Plugins/Export/ExportSql.php:197
+#: src/Plugins/Export/ExportSql.php:195
 msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
 msgstr ""
 "ডাটাবেইজের তৈরীর সময়কাল, সর্বশেষ আপডেট এবং সর্বশেষ পরী্ক্ষার সময়কাল সংযুক্ত কর"
 
-#: src/Plugins/Export/ExportSql.php:250
+#: src/Plugins/Export/ExportSql.php:248
 #, fuzzy
 #| msgid "Export method"
 msgid "Export metadata"
 msgstr "রফতানী পদ্ধতী"
 
-#: src/Plugins/Export/ExportSql.php:287
+#: src/Plugins/Export/ExportSql.php:284
 msgid "Add statements:"
 msgstr "স্টেটমেন্টসমূহ যোগকর:"
 
-#: src/Plugins/Export/ExportSql.php:295 src/Plugins/Export/ExportSql.php:304
-#: src/Plugins/Export/ExportSql.php:321 src/Plugins/Export/ExportSql.php:330
-#: src/Plugins/Export/ExportSql.php:354 src/Plugins/Export/ExportSql.php:382
-#: src/Plugins/Export/ExportSql.php:391
+#: src/Plugins/Export/ExportSql.php:292 src/Plugins/Export/ExportSql.php:301
+#: src/Plugins/Export/ExportSql.php:318 src/Plugins/Export/ExportSql.php:327
+#: src/Plugins/Export/ExportSql.php:351 src/Plugins/Export/ExportSql.php:379
+#: src/Plugins/Export/ExportSql.php:388
 #, php-format
 msgid "Add %s statement"
 msgstr "%s স্টেটমেন্ট যোগ কর"
 
-#: src/Plugins/Export/ExportSql.php:337
+#: src/Plugins/Export/ExportSql.php:334
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:344
+#: src/Plugins/Export/ExportSql.php:341
 #, fuzzy, php-format
 #| msgid "Session value"
 msgid "%s value"
 msgstr "সেশনের মান"
 
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
-#: src/Plugins/Export/ExportSql.php:361
+#: src/Plugins/Export/ExportSql.php:358
 msgid "Use simple view export"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:400
+#: src/Plugins/Export/ExportSql.php:397
 #, fuzzy
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr "টেবল এবং স্তম্ভের নাম backquote দ্বারা বন্ধ কর"
 
-#: src/Plugins/Export/ExportSql.php:415
+#: src/Plugins/Export/ExportSql.php:412
 msgid "Data creation options"
 msgstr "তথ্য তৈরীর অপশন"
 
-#: src/Plugins/Export/ExportSql.php:420 src/Plugins/Export/ExportSql.php:2064
+#: src/Plugins/Export/ExportSql.php:416 src/Plugins/Export/ExportSql.php:2061
 msgid "Truncate table before insert"
 msgstr "ইনার্সটের পুর্বে টেবল খালি কর"
 
-#: src/Plugins/Export/ExportSql.php:427
+#: src/Plugins/Export/ExportSql.php:424
 msgid "Instead of <code>INSERT</code> statements, use:"
 msgstr "<code>INSERT</code> এর পরিবর্তে ব্যবহার কর:"
 
-#: src/Plugins/Export/ExportSql.php:433
+#: src/Plugins/Export/ExportSql.php:430
 msgid "<code>INSERT DELAYED</code> statements"
 msgstr "<code>INSERT DELAYED</code> স্টেটমেন্ট"
 
-#: src/Plugins/Export/ExportSql.php:442 src/Plugins/Export/ExportSql.php:469
+#: src/Plugins/Export/ExportSql.php:439 src/Plugins/Export/ExportSql.php:466
 msgid "<code>INSERT IGNORE</code> statements"
 msgstr "<code>INSERT IGNORE</code> স্টেটমেন্ট"
 
-#: src/Plugins/Export/ExportSql.php:453
+#: src/Plugins/Export/ExportSql.php:450
 msgid "Function to use when dumping data:"
 msgstr "তথ্য স্তুপকরনের জন্য ব্যবহৃত ফাংশন:"
 
-#: src/Plugins/Export/ExportSql.php:464
+#: src/Plugins/Export/ExportSql.php:461
 msgid "Syntax to use when inserting data:"
 msgstr "তথ্য প্রবেশ করানোর সময় ব্যবহার করার বাক্য :"
 
-#: src/Plugins/Export/ExportSql.php:474
+#: src/Plugins/Export/ExportSql.php:471
 #, fuzzy
 #| msgid ""
 #| "include column names in every <code>INSERT</code> statement <br /> &nbsp; "
@@ -18542,7 +18527,7 @@ msgstr ""
 "&nbsp; উদাহরণ: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 
-#: src/Plugins/Export/ExportSql.php:479
+#: src/Plugins/Export/ExportSql.php:476
 #, fuzzy
 #| msgid ""
 #| "insert multiple rows in every <code>INSERT</code> statement<br /> &nbsp; "
@@ -18556,7 +18541,7 @@ msgstr ""
 "প্রতিটি <code>INSERT</code> একাধিক রো প্রবেশ করাবে <br /> &nbsp;&nbsp; &nbsp; "
 "উদাহরণ: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6),(7,8,9)</code>"
 
-#: src/Plugins/Export/ExportSql.php:484
+#: src/Plugins/Export/ExportSql.php:481
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
@@ -18564,7 +18549,7 @@ msgstr ""
 "উপরের উভয়টি <br> &nbsp; &nbsp; &nbsp; উদাহরণ: <code>INSERT INTO tbl_name "
 "(col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
-#: src/Plugins/Export/ExportSql.php:489
+#: src/Plugins/Export/ExportSql.php:486
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
@@ -18572,14 +18557,14 @@ msgstr ""
 "উপরের কোনটি নয় <br> &nbsp; &nbsp; &nbsp; উদাহরণ: <code>INSERT INTO tbl_name "
 "VALUES (1,2,3)</code>"
 
-#: src/Plugins/Export/ExportSql.php:508
+#: src/Plugins/Export/ExportSql.php:505
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
 "বাইনারী স্তম্ভ hexadecimal করে স্তুপ কর <i>(উদাহরণ, \"abc\" দেখাবে 0x616263)</i>"
 
-#: src/Plugins/Export/ExportSql.php:517
+#: src/Plugins/Export/ExportSql.php:514
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
@@ -18587,129 +18572,129 @@ msgstr ""
 "সময় (TIMESTAMP) স্তম্ভ UTC হিসাবে স্তুপ কর <i>(বিভিন্ন সময় এলাকার সার্ভারে সময় "
 "(TIMESTAMP) স্তম্ভ ব্যবহার করতে সমর্থ করবে )</i>"
 
-#: src/Plugins/Export/ExportSql.php:593
+#: src/Plugins/Export/ExportSql.php:590
 msgid "It appears your database uses routines;"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:596 src/Plugins/Export/ExportSql.php:1456
-#: src/Plugins/Export/ExportSql.php:1887
+#: src/Plugins/Export/ExportSql.php:593 src/Plugins/Export/ExportSql.php:1453
+#: src/Plugins/Export/ExportSql.php:1884
 msgid "alias export may not work reliably in all cases."
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1044
+#: src/Plugins/Export/ExportSql.php:1041
 #, fuzzy
 #| msgid "Missing data for %s"
 msgid "Metadata"
 msgstr "%s এর তথ্য নাই"
 
-#: src/Plugins/Export/ExportSql.php:1103
+#: src/Plugins/Export/ExportSql.php:1100
 #, fuzzy, php-format
 #| msgid "Missing data for %s"
 msgid "Metadata for table %s"
 msgstr "%s এর তথ্য নাই"
 
-#: src/Plugins/Export/ExportSql.php:1110
+#: src/Plugins/Export/ExportSql.php:1107
 #, fuzzy, php-format
 #| msgid "Missing data for %s"
 msgid "Metadata for database %s"
 msgstr "%s এর তথ্য নাই"
 
-#: src/Plugins/Export/ExportSql.php:1370
+#: src/Plugins/Export/ExportSql.php:1367
 #, fuzzy, php-format
 #| msgid "Table structure for table"
 msgid "Error reading structure for table %s:"
 msgstr "টেবলের জন্য টেবলের গঠন"
 
-#: src/Plugins/Export/ExportSql.php:1453
+#: src/Plugins/Export/ExportSql.php:1450
 msgid "It appears your database uses views;"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1597
+#: src/Plugins/Export/ExportSql.php:1594
 msgid "Constraints for dumped tables"
 msgstr "স্তুপকৃত টেবলের সীমবদ্ধতা"
 
-#: src/Plugins/Export/ExportSql.php:1598
+#: src/Plugins/Export/ExportSql.php:1595
 msgid "Constraints for table"
 msgstr "টেবলের সীমবদ্ধতা"
 
-#: src/Plugins/Export/ExportSql.php:1624
+#: src/Plugins/Export/ExportSql.php:1621
 msgid "Indexes for dumped tables"
 msgstr "স্তুপকৃত টেবলের ইনডেক্স"
 
-#: src/Plugins/Export/ExportSql.php:1625
+#: src/Plugins/Export/ExportSql.php:1622
 msgid "Indexes for table"
 msgstr "টেবিলের ইনডেক্সসমুহ"
 
-#: src/Plugins/Export/ExportSql.php:1648
+#: src/Plugins/Export/ExportSql.php:1645
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "স্তুপকৃত টেবলের জন্য স্বয়ক্রীয় বর্দ্ধিত মান (AUTO_INCREMENT)"
 
-#: src/Plugins/Export/ExportSql.php:1649
+#: src/Plugins/Export/ExportSql.php:1646
 msgid "AUTO_INCREMENT for table"
 msgstr "টেবলের জন্য স্বয়ক্রীয় বর্দ্ধিত মান (AUTO_INCREMENT)"
 
-#: src/Plugins/Export/ExportSql.php:1703
+#: src/Plugins/Export/ExportSql.php:1700
 #, fuzzy
 #| msgid "MIME TYPES FOR TABLE"
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "টেবিলের মাইমের ধরন"
 
-#: src/Plugins/Export/ExportSql.php:1733
+#: src/Plugins/Export/ExportSql.php:1730
 #, fuzzy
 #| msgid "RELATIONS FOR TABLE"
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "টেবিলের সর্ম্পক"
 
-#: src/Plugins/Export/ExportSql.php:1884
+#: src/Plugins/Export/ExportSql.php:1881
 msgid "It appears your table uses triggers;"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1918
+#: src/Plugins/Export/ExportSql.php:1915
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "ভিউ এর গঠন %s টেবলে রফতানী করা হয়েছে"
 
-#: src/Plugins/Export/ExportSql.php:1949
+#: src/Plugins/Export/ExportSql.php:1946
 msgid "(See below for the actual view)"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:2005
+#: src/Plugins/Export/ExportSql.php:2002
 #, fuzzy, php-format
 #| msgid "Error reading data:"
 msgid "Error reading data for table %s:"
 msgstr "তথ্য পড়ার ভুল:"
 
-#: src/Plugins/Export/ExportSql.php:2533
+#: src/Plugins/Export/ExportSql.php:2530
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:566
 msgid "Creation:"
 msgstr "প্রস্তুত:"
 
-#: src/Plugins/Export/ExportSql.php:2541
+#: src/Plugins/Export/ExportSql.php:2538
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:577
 msgid "Last update:"
 msgstr "সর্বশেষ আপডেট:"
 
-#: src/Plugins/Export/ExportSql.php:2549
+#: src/Plugins/Export/ExportSql.php:2546
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:588
 msgid "Last check:"
 msgstr "সর্বশেষ যাচাই:"
 
-#: src/Plugins/Export/ExportSql.php:2570
+#: src/Plugins/Export/ExportSql.php:2567
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr "ডাটাবেইজ সিস্টেম বা পুরাতন MySQL সার্ভার আউটপুটের উপযুক্ততা বাড়ানোর জন্য:"
 
-#: src/Plugins/Export/ExportToon.php:67
+#: src/Plugins/Export/ExportToon.php:66
 #, fuzzy
 #| msgid "Orientation"
 msgid "Indentation:"
 msgstr "পরিস্থিতি"
 
-#: src/Plugins/Export/ExportXml.php:87
+#: src/Plugins/Export/ExportXml.php:86
 msgid "Object creation options (all are recommended)"
 msgstr "ওবজেক্ট তৈরীর অপশন (সবগুলো সুপারিশকৃত)"
 
-#: src/Plugins/Export/ExportXml.php:131
+#: src/Plugins/Export/ExportXml.php:130
 msgid "Export contents"
 msgstr "তথ্য রফতানী কর"
 
@@ -18722,19 +18707,19 @@ msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:93
+#: src/Plugins/Import/ImportCsv.php:92
 msgid "Name of the new table (optional):"
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:102
+#: src/Plugins/Import/ImportCsv.php:101
 msgid "Name of the new database (optional):"
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:111 src/Plugins/Import/ImportCsv.php:129
+#: src/Plugins/Import/ImportCsv.php:110 src/Plugins/Import/ImportCsv.php:128
 msgid "Import these many number of rows (optional):"
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:119 src/Plugins/Import/ImportOds.php:73
+#: src/Plugins/Import/ImportCsv.php:118 src/Plugins/Import/ImportOds.php:72
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
@@ -18742,7 +18727,7 @@ msgstr ""
 "প্রথম লাইনে টেবলের স্তম্ভের নাম আছে। <i>(এটি যদি চিহ্নিত না হয় তবে প্রথম লাইনটিও "
 "তথ্য পরিনত হবে)</i>"
 
-#: src/Plugins/Import/ImportCsv.php:136
+#: src/Plugins/Import/ImportCsv.php:135
 msgid ""
 "If the data in each row of the file is not in the same order as in the "
 "database, list the corresponding column names here. Column names must be "
@@ -18751,27 +18736,27 @@ msgstr ""
 "যদি ফাইলের সব রো'র তথ্য ডাটাবেইজ অনুযায়ী গুছানো না হয়, এখানে ঐ স্তম্ভের নামের "
 "তালিকা কর। স্তম্ভের নাম অবশ্যই কমা দ্ধারা পৃথক হবে এবং কৌটেশন দ্ধারা বন্ধ হবে না।"
 
-#: src/Plugins/Import/ImportCsv.php:144
+#: src/Plugins/Import/ImportCsv.php:143
 msgid "Column names:"
 msgstr "স্তম্ভের নাম:"
 
-#: src/Plugins/Import/ImportCsv.php:276 src/Plugins/Import/ImportCsv.php:529
+#: src/Plugins/Import/ImportCsv.php:275 src/Plugins/Import/ImportCsv.php:528
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "CSV ফাইলের গঠন অযোগ্য %d লাইনে।"
 
-#: src/Plugins/Import/ImportCsv.php:483
+#: src/Plugins/Import/ImportCsv.php:482
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "অযোগ্য স্তম্ভ্ সংখ্যা CSV ফাইলের %d লাইনে।"
 
-#: src/Plugins/Import/ImportCsv.php:638 src/Plugins/Import/ImportCsv.php:653
-#: src/Plugins/Import/ImportCsv.php:664 src/Plugins/Import/ImportCsv.php:671
+#: src/Plugins/Import/ImportCsv.php:637 src/Plugins/Import/ImportCsv.php:652
+#: src/Plugins/Import/ImportCsv.php:663 src/Plugins/Import/ImportCsv.php:670
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "CSV আমদানীর প্যারামিটার ঠিক নাই:%s"
 
-#: src/Plugins/Import/ImportCsv.php:761
+#: src/Plugins/Import/ImportCsv.php:760
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -18780,11 +18765,11 @@ msgstr ""
 "অযোগ্য স্তম্ভের নাম (%s) দেয়া হয়েছে! স্তম্ভের নামটি সঠিক ভাবে বানান করা হয়েছে "
 "কিনা, কমা দ্বারা আলাদ করা এবং কোঔট দ্বারা সীমিত নয় তা নিশ্চিন্ত করুন।"
 
-#: src/Plugins/Import/ImportLdi.php:71
+#: src/Plugins/Import/ImportLdi.php:69
 msgid "Column names: "
 msgstr "স্তম্ভের নাম: "
 
-#: src/Plugins/Import/ImportLdi.php:124
+#: src/Plugins/Import/ImportLdi.php:122
 msgid "This plugin does not support compressed imports!"
 msgstr "এই সংযোজকটি সংকোচিত আমদানি সমর্থন করে না!"
 
@@ -18792,22 +18777,22 @@ msgstr "এই সংযোজকটি সংকোচিত আমদানি
 msgid "MediaWiki Table"
 msgstr "MediaWiki টেবল"
 
-#: src/Plugins/Import/ImportMediawiki.php:277
+#: src/Plugins/Import/ImportMediawiki.php:276
 #, fuzzy, php-format
 #| msgid "Invalid format of mediawiki input on line: <br />%s."
 msgid "Invalid format of mediawiki input on line: <br>%s."
 msgstr "মিডিয়া উইকির গঠন ঠিক নাই, লাইন: <br />%s।"
 
-#: src/Plugins/Import/ImportOds.php:87
+#: src/Plugins/Import/ImportOds.php:86
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr "সঠিক দশমিকে শতকরা আমদানি <i>(ex. ১২.০০% to .১২)</i>"
 
-#: src/Plugins/Import/ImportOds.php:93
+#: src/Plugins/Import/ImportOds.php:92
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "মুদ্রা আমদানি কর <i>(যেমন $5.00 to 5.00)</i>"
 
-#: src/Plugins/Import/ImportOds.php:158 src/Plugins/Import/ImportXml.php:74
-#: src/Plugins/Import/ImportXml.php:112
+#: src/Plugins/Import/ImportOds.php:157 src/Plugins/Import/ImportXml.php:73
+#: src/Plugins/Import/ImportXml.php:111
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
@@ -18815,7 +18800,7 @@ msgstr ""
 "দেয়া XML ফাইলটি হয় গঠনগত সমস্যা আছে বা সম্পুর্ন নয়। সমস্যাটি ঠিক করে আবার চেষ্টা "
 "করুন।"
 
-#: src/Plugins/Import/ImportOds.php:166
+#: src/Plugins/Import/ImportOds.php:165
 msgid "Could not parse OpenDocument Spreadsheet!"
 msgstr "ওপেন অফিসের স্প্রেডসীট পড়া যায় নি"
 
@@ -18823,27 +18808,27 @@ msgstr "ওপেন অফিসের স্প্রেডসীট পড়া
 msgid "ESRI Shape File"
 msgstr "ESRI গঠন ফাইল"
 
-#: src/Plugins/Import/ImportShp.php:111 src/Plugins/Import/ImportShp.php:177
+#: src/Plugins/Import/ImportShp.php:110 src/Plugins/Import/ImportShp.php:176
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr "ESRI ফাইল আমদানিতে ভুল:\"%s\"।"
 
-#: src/Plugins/Import/ImportShp.php:202
+#: src/Plugins/Import/ImportShp.php:201
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "MySQL Spatial সংযোজক ESRI type \"%s\" সমর্থন করে না।"
 
-#: src/Plugins/Import/ImportShp.php:247
+#: src/Plugins/Import/ImportShp.php:246
 #, fuzzy
 #| msgid "The imported file does not contain any data"
 msgid "The imported file does not contain any data!"
 msgstr "আমদানিকৃত ফাইলটিতে কোন তথ্য নাই"
 
-#: src/Plugins/Import/ImportSql.php:62
+#: src/Plugins/Import/ImportSql.php:61
 msgid "SQL compatibility mode:"
 msgstr "SQL উপযুক্ততার পদ্ধতি:"
 
-#: src/Plugins/Import/ImportSql.php:71
+#: src/Plugins/Import/ImportSql.php:70
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "শুন্য মানের জন্য <code>AUTO_INCREMENT</code> ব্যবহার করো না"
 
@@ -18851,7 +18836,7 @@ msgstr "শুন্য মানের জন্য <code>AUTO_INCREMENT</code>
 msgid "XML"
 msgstr "এক্সএমএল"
 
-#: src/Plugins.php:405
+#: src/Plugins.php:385
 msgid "This format has no options"
 msgstr "এই গঠনের কোন অপশন নাই"
 
@@ -18970,7 +18955,7 @@ msgstr ""
 
 #. l10n: See https://www.php.net/manual/en/function.strftime.php
 #: src/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:129
-#: src/Util.php:525
+#: src/Util.php:528
 msgid "%B %d, %Y at %I:%M %p"
 msgstr ""
 
@@ -19270,51 +19255,51 @@ msgstr "ডাটাবেইজ ডিরেক্টরির অধিকা�
 msgid "Details…"
 msgstr "বিশদ…"
 
-#: src/Replication/ReplicationGui.php:441
+#: src/Replication/ReplicationGui.php:435
 msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
 msgstr ""
 
-#: src/Replication/ReplicationGui.php:452
+#: src/Replication/ReplicationGui.php:445
 msgid "Replication started successfully."
 msgstr "প্রতিলিপির প্রস্তুত কাজ সফলভাবে শুরু হয়েছে।"
 
-#: src/Replication/ReplicationGui.php:453
+#: src/Replication/ReplicationGui.php:446
 msgid "Error starting replication."
 msgstr "প্রতিলিপি তৈরীরকাজে সমস্যা হয়েছে।"
 
-#: src/Replication/ReplicationGui.php:456
+#: src/Replication/ReplicationGui.php:449
 msgid "Replication stopped successfully."
 msgstr "প্রতিলিপি সফলভাবে বন্ধ হয়েছে।"
 
-#: src/Replication/ReplicationGui.php:457
+#: src/Replication/ReplicationGui.php:450
 msgid "Error stopping replication."
 msgstr "প্রতিলিপি বন্ধে সমস্যা হয়েছে।"
 
-#: src/Replication/ReplicationGui.php:460
+#: src/Replication/ReplicationGui.php:453
 msgid "Replication resetting successfully."
 msgstr "প্রতিলিপি সফলভাবে পুনস্থাপন করা হয়েছে।"
 
-#: src/Replication/ReplicationGui.php:461
+#: src/Replication/ReplicationGui.php:454
 msgid "Error resetting replication."
 msgstr "প্রতিলিপি পুনস্থাপনে সমস্যা হয়েছে।"
 
-#: src/Replication/ReplicationGui.php:464
+#: src/Replication/ReplicationGui.php:457
 msgid "Success."
 msgstr "সফল।"
 
-#: src/Replication/ReplicationGui.php:465
+#: src/Replication/ReplicationGui.php:458
 msgid "Error."
 msgstr "ভুল।"
 
-#: src/Replication/ReplicationGui.php:510
+#: src/Replication/ReplicationGui.php:488
 #, fuzzy, php-format
 #| msgid "Unable to connect to master %s."
 msgid "Unable to connect to primary %s."
 msgstr "প্রধান %s সহিত সংযোগ করা যায়নি."
 
-#: src/Replication/ReplicationGui.php:520
+#: src/Replication/ReplicationGui.php:498
 #, fuzzy
 #| msgid ""
 #| "Unable to read master log position. Possible privilege problem on master."
@@ -19322,13 +19307,13 @@ msgid ""
 "Unable to read primary log position. Possible privilege problem on primary."
 msgstr "প্রধান লগ পড়া যায়নি। প্রধান লগে অধিকার সমস্যা."
 
-#: src/Replication/ReplicationGui.php:538
+#: src/Replication/ReplicationGui.php:516
 #, fuzzy
 #| msgid "Unable to change master"
 msgid "Unable to change primary!"
 msgstr "প্রধানটি পরিবর্তন করা যায়নি"
 
-#: src/Replication/ReplicationGui.php:542
+#: src/Replication/ReplicationGui.php:520
 #, fuzzy, php-format
 #| msgid "Master server changed successfully to %s"
 msgid "Primary server changed successfully to %s."
@@ -19351,8 +19336,8 @@ msgstr "মূল ডাটাবেইজ `%s` পাওয়া যায়নি!
 msgid "Error 405! Request method not allowed."
 msgstr ""
 
-#: src/Server/Plugins.php:53 src/Server/Privileges.php:634
-#: src/Server/Privileges.php:3155
+#: src/Server/Plugins.php:53 src/Server/Privileges.php:636
+#: src/Server/Privileges.php:3136
 #, fuzzy
 #| msgid "Cookie authentication"
 msgid "Native MySQL authentication"
@@ -19387,65 +19372,65 @@ msgstr "কুকি প্রমাণীকরণ"
 msgid "Account locking is not supported."
 msgstr ""
 
-#: src/Server/Privileges.php:274
+#: src/Server/Privileges.php:276
 msgid "No privileges."
 msgstr "কোন অধিকার নাই।"
 
-#: src/Server/Privileges.php:280
+#: src/Server/Privileges.php:282
 msgid "Includes all privileges except GRANT."
 msgstr "GRANT ব্যাতিত সবগুলো অধিকার।"
 
-#: src/Server/Privileges.php:911
+#: src/Server/Privileges.php:889
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "%s এর পাসওর্য়াডটি সফলভাবে পরিবর্তন করা হয়েছে।"
 
-#: src/Server/Privileges.php:959
+#: src/Server/Privileges.php:937
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "%s অধিকার সমূহ বাতিল করা হয়েছে।"
 
-#: src/Server/Privileges.php:1297
+#: src/Server/Privileges.php:1275
 msgid "Revoke"
 msgstr "বাতিল"
 
-#: src/Server/Privileges.php:1902
+#: src/Server/Privileges.php:1880
 msgid "No users selected for deleting!"
 msgstr "মুছার জন্য কোন ব্যবহারকারী নির্বাচন করা হয়নি!"
 
-#: src/Server/Privileges.php:1905
+#: src/Server/Privileges.php:1883
 msgid "Reloading the privileges"
 msgstr "অধিকারসমূহ পুনরায় পূর্ণ করা হয়েছে"
 
-#: src/Server/Privileges.php:1930
+#: src/Server/Privileges.php:1908
 msgid "The selected users have been deleted successfully."
 msgstr "নির্বাচিত ব্যবহরকারীগনকে সফলভাবে মুছা হয়েছে।"
 
-#: src/Server/Privileges.php:2004
+#: src/Server/Privileges.php:1982
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "%s এর অধীকার সমূহ আধুনিকায়ন করা হয়েছে।"
 
-#: src/Server/Privileges.php:2154
+#: src/Server/Privileges.php:2132
 #, php-format
 msgid "Deleting %s"
 msgstr "%s মুছছি"
 
-#: src/Server/Privileges.php:2184
+#: src/Server/Privileges.php:2162
 msgid "The privileges were reloaded successfully."
 msgstr "অধিকারসমূহ সফলভাবে পুনরায় পূর্ণকরা হয়েছে।"
 
-#: src/Server/Privileges.php:2250
+#: src/Server/Privileges.php:2228
 #, php-format
 msgid "The user %s already exists!"
 msgstr "ব্যবহারকারী %s পূর্ব থেকেই আছে!"
 
-#: src/Server/Privileges.php:2403
+#: src/Server/Privileges.php:2381
 #, php-format
 msgid "Privileges for %s"
 msgstr "%s এর অধিকারসমূহ"
 
-#: src/Server/Privileges.php:2489
+#: src/Server/Privileges.php:2470
 #, fuzzy, php-format
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -19463,7 +19448,7 @@ msgstr ""
 "হতে পারে যদি তা পরিবর্তীত হয়ে থাকে। এরুপ ক্ষেত্রে %sreload the privileges%s করতে "
 "হবে।"
 
-#: src/Server/Privileges.php:2505
+#: src/Server/Privileges.php:2486
 #, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -19482,11 +19467,11 @@ msgstr ""
 "হতে পারে যদি তা পরিবর্তীত হয়ে থাকে। এরুপ ক্ষেত্রে %sreload the privileges%s করতে "
 "হবে।"
 
-#: src/Server/Privileges.php:2793
+#: src/Server/Privileges.php:2774
 msgid "You have added a new user."
 msgstr "একজন নতুন ব্যবহারকারী যোগ করেছেন।"
 
-#: src/Server/Privileges.php:3247
+#: src/Server/Privileges.php:3228
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -20200,27 +20185,27 @@ msgstr "প্রোফাইল আপডেট করা হয়েছে।"
 msgid "Password is too long!"
 msgstr "Password Hashing"
 
-#: src/Util.php:129
+#: src/Util.php:132
 #, php-format
 msgid "Max: %s%s"
 msgstr "সবোর্চ্চ: %s%s"
 
-#: src/Util.php:534
+#: src/Util.php:537
 msgctxt "AM/PM indication in time"
 msgid "PM"
 msgstr ""
 
-#: src/Util.php:536
+#: src/Util.php:539
 msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr ""
 
-#: src/Util.php:609
+#: src/Util.php:612
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s দিন, %s ঘন্টা, %s মিনিট এবং %s সেকেন্ড"
 
-#: src/Util.php:1362
+#: src/Util.php:1365
 msgid "Users"
 msgstr "ব্যবহারকারী"
 
