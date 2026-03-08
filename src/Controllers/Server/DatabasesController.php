@@ -37,15 +37,6 @@ final class DatabasesController implements InvocableController
     /** @var mixed[] array of database details */
     private array $databases = [];
 
-    /** @var int number of databases */
-    private int $databaseCount = 0;
-
-    /** @var string sort by column */
-    private string $sortBy = '';
-
-    /** @var string sort order of databases */
-    private string $sortOrder = '';
-
     /** @var bool whether to show database statistics */
     private bool $hasStatistics = false;
 
@@ -77,11 +68,11 @@ final class DatabasesController implements InvocableController
 
         $sortBy = $request->getParam('sort_by', '');
         Assert::string($sortBy);
-        $this->sortBy = self::SORT_BY_ALLOWED_LIST[array_search($sortBy, self::SORT_BY_ALLOWED_LIST, true)];
+        $sortBy = self::SORT_BY_ALLOWED_LIST[array_search($sortBy, self::SORT_BY_ALLOWED_LIST, true)];
 
         $sortOrder = $request->getParam('sort_order', '');
         Assert::string($sortOrder);
-        $this->sortOrder = strtolower($sortOrder) !== 'desc' ? 'asc' : 'desc';
+        $sortOrder = strtolower($sortOrder) !== 'desc' ? 'asc' : 'desc';
 
         $this->response->addScriptFiles(['server/databases.js']);
 
@@ -95,6 +86,8 @@ final class DatabasesController implements InvocableController
         $primaryInfo = $replicationInfo->getPrimaryInfo();
         $replicaInfo = $replicationInfo->getReplicaInfo();
 
+        $databaseCount = 0;
+
         /**
          * Gets the databases list
          */
@@ -104,8 +97,8 @@ final class DatabasesController implements InvocableController
                     null,
                     $this->hasStatistics,
                     ConnectionType::User,
-                    $this->sortBy,
-                    $this->sortOrder,
+                    $sortBy,
+                    $sortOrder,
                     $position,
                     true,
                 );
@@ -122,14 +115,14 @@ final class DatabasesController implements InvocableController
                 return $this->response->response();
             }
 
-            $this->databaseCount = count($this->dbi->getDatabaseList());
+            $databaseCount = count($this->dbi->getDatabaseList());
         }
 
         $urlParams = [
             'statistics' => $this->hasStatistics,
             'pos' => $position,
-            'sort_by' => $this->sortBy,
-            'sort_order' => $this->sortOrder,
+            'sort_by' => $sortBy,
+            'sort_order' => $sortOrder,
         ];
 
         $databases = $this->getDatabases($primaryInfo, $replicaInfo);
@@ -168,7 +161,7 @@ final class DatabasesController implements InvocableController
             'total_statistics' => $databases['total_statistics'],
             'header_statistics' => $headerStatistics,
             'charsets' => $charsetsList,
-            'database_count' => $this->databaseCount,
+            'database_count' => $databaseCount,
             'pos' => $position,
             'url_params' => $urlParams,
             'max_db_list' => $this->config->config->MaxDbList,
