@@ -66,6 +66,9 @@ class StructureController extends AbstractController
     /** @var bool whether stats show or not */
     protected $isShowStats;
 
+    /** @var bool whether database details show or not */
+    protected $isShowDbDetails;
+
     /** @var Relation */
     private $relation;
 
