@@ -14,9 +14,9 @@ use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Util;
 
 #[Route('/git-revision', ['GET', 'POST'])]
-final class GitInfoController implements InvocableController
+final readonly class GitInfoController implements InvocableController
 {
-    public function __construct(private readonly ResponseRenderer $response, private readonly Config $config)
+    public function __construct(private ResponseRenderer $response, private Config $config)
     {
     }
 

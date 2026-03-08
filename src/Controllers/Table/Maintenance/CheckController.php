@@ -24,12 +24,12 @@ use function __;
 use function count;
 
 #[Route('/table/maintenance/check', ['POST'])]
-final class CheckController implements InvocableController
+final readonly class CheckController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Maintenance $model,
-        private readonly Config $config,
+        private ResponseRenderer $response,
+        private Maintenance $model,
+        private Config $config,
     ) {
     }
 

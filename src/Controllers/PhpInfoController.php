@@ -24,12 +24,12 @@ use const INFO_MODULES;
  * phpinfo() wrapper to allow displaying only when configured to do so.
  */
 #[Route('/phpinfo', ['GET'])]
-final class PhpInfoController implements InvocableController
+final readonly class PhpInfoController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly ResponseFactory $responseFactory,
-        private readonly Config $config,
+        private ResponseRenderer $response,
+        private ResponseFactory $responseFactory,
+        private Config $config,
     ) {
     }
 

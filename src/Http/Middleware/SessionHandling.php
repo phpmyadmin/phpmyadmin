@@ -17,13 +17,13 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
-final class SessionHandling implements MiddlewareInterface
+final readonly class SessionHandling implements MiddlewareInterface
 {
     public function __construct(
-        private readonly Config $config,
-        private readonly ErrorHandler $errorHandler,
-        private readonly Template $template,
-        private readonly ResponseFactory $responseFactory,
+        private Config $config,
+        private ErrorHandler $errorHandler,
+        private Template $template,
+        private ResponseFactory $responseFactory,
     ) {
     }
 

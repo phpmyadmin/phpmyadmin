@@ -19,11 +19,11 @@ use function mb_strlen;
 use function mb_substr;
 
 #[Route('/database/structure/copy-table-with-prefix', ['POST'])]
-final class CopyTableWithPrefixController implements InvocableController
+final readonly class CopyTableWithPrefixController implements InvocableController
 {
     public function __construct(
-        private readonly StructureController $structureController,
-        private readonly TableMover $tableMover,
+        private StructureController $structureController,
+        private TableMover $tableMover,
     ) {
     }
 

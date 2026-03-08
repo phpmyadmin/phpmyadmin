@@ -12,9 +12,9 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
 
 #[Route('/console/bookmark/refresh', ['GET'])]
-final class RefreshController implements InvocableController
+final readonly class RefreshController implements InvocableController
 {
-    public function __construct(private readonly ResponseRenderer $response, private readonly Console $console)
+    public function __construct(private ResponseRenderer $response, private Console $console)
     {
     }
 

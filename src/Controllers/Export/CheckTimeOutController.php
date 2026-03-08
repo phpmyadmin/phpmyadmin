@@ -11,9 +11,9 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
 
 #[Route('/export/check-time-out', ['GET'])]
-final class CheckTimeOutController implements InvocableController
+final readonly class CheckTimeOutController implements InvocableController
 {
-    public function __construct(private readonly ResponseRenderer $response)
+    public function __construct(private ResponseRenderer $response)
     {
     }
 

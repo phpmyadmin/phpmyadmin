@@ -17,12 +17,12 @@ use PhpMyAdmin\Template;
 use function __;
 
 #[Route('/database/structure/show-create', ['POST'])]
-final class ShowCreateController implements InvocableController
+final readonly class ShowCreateController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Template $template,
-        private readonly DatabaseInterface $dbi,
+        private ResponseRenderer $response,
+        private Template $template,
+        private DatabaseInterface $dbi,
     ) {
     }
 

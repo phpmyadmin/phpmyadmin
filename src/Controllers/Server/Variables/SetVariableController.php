@@ -25,12 +25,12 @@ use function preg_match;
 use function trim;
 
 #[Route('/server/variables/set/{name}', ['POST'])]
-final class SetVariableController implements InvocableController
+final readonly class SetVariableController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Template $template,
-        private readonly DatabaseInterface $dbi,
+        private ResponseRenderer $response,
+        private Template $template,
+        private DatabaseInterface $dbi,
     ) {
     }
 

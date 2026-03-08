@@ -24,12 +24,12 @@ use function is_string;
 
 use const CONFIG_FILE;
 
-final class ShowConfigController implements InvocableController
+final readonly class ShowConfigController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseFactory $responseFactory,
-        private readonly Template $template,
-        private readonly Config $config,
+        private ResponseFactory $responseFactory,
+        private Template $template,
+        private Config $config,
     ) {
     }
 

@@ -12,9 +12,9 @@ use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Utils\ForeignKey;
 
 #[Route('/sql/get-default-fk-check-value', ['GET'])]
-final class DefaultForeignKeyCheckValueController implements InvocableController
+final readonly class DefaultForeignKeyCheckValueController implements InvocableController
 {
-    public function __construct(private readonly ResponseRenderer $response)
+    public function __construct(private ResponseRenderer $response)
     {
     }
 

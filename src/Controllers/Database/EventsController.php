@@ -25,14 +25,14 @@ use function sprintf;
 use function trim;
 
 #[Route('/database/events', ['GET', 'POST'])]
-final class EventsController implements InvocableController
+final readonly class EventsController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Template $template,
-        private readonly Events $events,
-        private readonly DatabaseInterface $dbi,
-        private readonly DbTableExists $dbTableExists,
+        private ResponseRenderer $response,
+        private Template $template,
+        private Events $events,
+        private DatabaseInterface $dbi,
+        private DbTableExists $dbTableExists,
     ) {
     }
 

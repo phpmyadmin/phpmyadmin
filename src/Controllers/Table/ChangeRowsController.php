@@ -16,11 +16,11 @@ use function array_values;
 use function is_array;
 
 #[Route('/table/change/rows', ['POST'])]
-final class ChangeRowsController implements InvocableController
+final readonly class ChangeRowsController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly ChangeController $changeController,
+        private ResponseRenderer $response,
+        private ChangeController $changeController,
     ) {
     }
 

@@ -19,9 +19,9 @@ use function defined;
 use function function_exists;
 use function sprintf;
 
-final class PhpExtensionsChecking implements MiddlewareInterface
+final readonly class PhpExtensionsChecking implements MiddlewareInterface
 {
-    public function __construct(private readonly Template $template, private readonly ResponseFactory $responseFactory)
+    public function __construct(private Template $template, private ResponseFactory $responseFactory)
     {
     }
 

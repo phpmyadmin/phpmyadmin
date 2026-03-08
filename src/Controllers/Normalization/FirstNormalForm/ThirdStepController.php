@@ -13,11 +13,11 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
 
 #[Route('/normalization/1nf/step3', ['POST'])]
-final class ThirdStepController implements InvocableController
+final readonly class ThirdStepController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Normalization $normalization,
+        private ResponseRenderer $response,
+        private Normalization $normalization,
     ) {
     }
 

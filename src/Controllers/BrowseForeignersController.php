@@ -15,12 +15,12 @@ use PhpMyAdmin\Routing\Route;
  * Display selection for relational field values
  */
 #[Route('/browse-foreigners', ['GET', 'POST'])]
-final class BrowseForeignersController implements InvocableController
+final readonly class BrowseForeignersController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly BrowseForeigners $browseForeigners,
-        private readonly Relation $relation,
+        private ResponseRenderer $response,
+        private BrowseForeigners $browseForeigners,
+        private Relation $relation,
     ) {
     }
 

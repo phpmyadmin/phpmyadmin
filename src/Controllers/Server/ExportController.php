@@ -22,13 +22,13 @@ use function __;
 use function array_merge;
 
 #[Route('/server/export', ['GET', 'POST'])]
-final class ExportController implements InvocableController
+final readonly class ExportController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Options $export,
-        private readonly DatabaseInterface $dbi,
-        private readonly PageSettings $pageSettings,
+        private ResponseRenderer $response,
+        private Options $export,
+        private DatabaseInterface $dbi,
+        private PageSettings $pageSettings,
     ) {
     }
 

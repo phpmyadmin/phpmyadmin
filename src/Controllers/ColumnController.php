@@ -12,9 +12,9 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
 
 #[Route('/columns', ['POST'])]
-final class ColumnController implements InvocableController
+final readonly class ColumnController implements InvocableController
 {
-    public function __construct(private readonly ResponseRenderer $response, private readonly DatabaseInterface $dbi)
+    public function __construct(private ResponseRenderer $response, private DatabaseInterface $dbi)
     {
     }
 

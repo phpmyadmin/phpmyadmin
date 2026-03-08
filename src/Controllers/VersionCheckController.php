@@ -17,11 +17,11 @@ use function json_encode;
  * A caching proxy for retrieving version information from https://www.phpmyadmin.net/.
  */
 #[Route('/version-check', ['GET', 'POST'])]
-final class VersionCheckController implements InvocableController
+final readonly class VersionCheckController implements InvocableController
 {
     public function __construct(
-        private readonly VersionInformation $versionInformation,
-        private readonly ResponseFactory $responseFactory,
+        private VersionInformation $versionInformation,
+        private ResponseFactory $responseFactory,
     ) {
     }
 

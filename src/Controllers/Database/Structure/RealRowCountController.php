@@ -22,12 +22,12 @@ use function __;
  * Handles request for real row count on database level view page.
  */
 #[Route('/database/structure/real-row-count', ['GET', 'POST'])]
-final class RealRowCountController implements InvocableController
+final readonly class RealRowCountController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly DatabaseInterface $dbi,
-        private readonly DbTableExists $dbTableExists,
+        private ResponseRenderer $response,
+        private DatabaseInterface $dbi,
+        private DbTableExists $dbTableExists,
     ) {
     }
 

@@ -16,9 +16,9 @@ use Webmozart\Assert\Assert;
 
 use function assert;
 
-final class UrlParamsSetting implements MiddlewareInterface
+final readonly class UrlParamsSetting implements MiddlewareInterface
 {
-    public function __construct(private readonly Config $config)
+    public function __construct(private Config $config)
     {
     }
 

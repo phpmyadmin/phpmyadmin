@@ -21,12 +21,12 @@ use function mb_strlen;
 use function mb_substr;
 
 #[Route('/database/structure/replace-prefix', ['POST'])]
-final class ReplacePrefixController implements InvocableController
+final readonly class ReplacePrefixController implements InvocableController
 {
     public function __construct(
-        private readonly DatabaseInterface $dbi,
-        private readonly ResponseFactory $responseFactory,
-        private readonly FlashMessenger $flashMessenger,
+        private DatabaseInterface $dbi,
+        private ResponseFactory $responseFactory,
+        private FlashMessenger $flashMessenger,
     ) {
     }
 

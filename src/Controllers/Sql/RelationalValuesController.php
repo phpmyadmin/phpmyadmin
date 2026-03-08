@@ -13,9 +13,9 @@ use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Sql;
 
 #[Route('/sql/get-relational-values', ['POST'])]
-final class RelationalValuesController implements InvocableController
+final readonly class RelationalValuesController implements InvocableController
 {
-    public function __construct(private readonly ResponseRenderer $response, private readonly Sql $sql)
+    public function __construct(private ResponseRenderer $response, private Sql $sql)
     {
     }
 

@@ -25,14 +25,14 @@ use PhpMyAdmin\UrlParams;
 use function __;
 
 #[Route('/table/indexes/rename', ['GET', 'POST'])]
-final class IndexRenameController implements InvocableController
+final readonly class IndexRenameController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Template $template,
-        private readonly DatabaseInterface $dbi,
-        private readonly Indexes $indexes,
-        private readonly DbTableExists $dbTableExists,
+        private ResponseRenderer $response,
+        private Template $template,
+        private DatabaseInterface $dbi,
+        private Indexes $indexes,
+        private DbTableExists $dbTableExists,
     ) {
     }
 

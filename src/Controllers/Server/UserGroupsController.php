@@ -21,12 +21,12 @@ use function is_string;
  * Displays the 'User groups' sub page under 'Users' page.
  */
 #[Route('/server/user-groups', ['GET', 'POST'])]
-final class UserGroupsController implements InvocableController
+final readonly class UserGroupsController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Relation $relation,
-        private readonly DatabaseInterface $dbi,
+        private ResponseRenderer $response,
+        private Relation $relation,
+        private DatabaseInterface $dbi,
     ) {
     }
 

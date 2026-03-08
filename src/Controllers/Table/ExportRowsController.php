@@ -18,11 +18,11 @@ use function array_values;
 use function is_array;
 
 #[Route('/table/export/rows', ['POST'])]
-final class ExportRowsController implements InvocableController
+final readonly class ExportRowsController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly ExportController $exportController,
+        private ResponseRenderer $response,
+        private ExportController $exportController,
     ) {
     }
 

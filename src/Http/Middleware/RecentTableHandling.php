@@ -19,9 +19,9 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 use function assert;
 
-final class RecentTableHandling implements MiddlewareInterface
+final readonly class RecentTableHandling implements MiddlewareInterface
 {
-    public function __construct(private readonly Config $config)
+    public function __construct(private Config $config)
     {
     }
 

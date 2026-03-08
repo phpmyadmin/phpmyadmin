@@ -20,12 +20,12 @@ use PhpMyAdmin\Utils\ForeignKey;
 use function __;
 
 #[Route('/database/structure/drop-table', ['POST'])]
-final class DropTableController implements InvocableController
+final readonly class DropTableController implements InvocableController
 {
     public function __construct(
-        private readonly DatabaseInterface $dbi,
-        private readonly RelationCleanup $relationCleanup,
-        private readonly StructureController $structureController,
+        private DatabaseInterface $dbi,
+        private RelationCleanup $relationCleanup,
+        private StructureController $structureController,
     ) {
     }
 

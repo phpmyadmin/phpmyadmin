@@ -16,11 +16,11 @@ use function __;
 use function _pgettext;
 
 #[Route('/normalization/get-columns', ['POST'])]
-final class GetColumnsController implements InvocableController
+final readonly class GetColumnsController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Normalization $normalization,
+        private ResponseRenderer $response,
+        private Normalization $normalization,
     ) {
     }
 

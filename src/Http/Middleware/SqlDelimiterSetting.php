@@ -15,9 +15,9 @@ use Psr\Http\Server\RequestHandlerInterface;
 use function assert;
 use function is_string;
 
-final class SqlDelimiterSetting implements MiddlewareInterface
+final readonly class SqlDelimiterSetting implements MiddlewareInterface
 {
-    public function __construct(private readonly Config $config)
+    public function __construct(private Config $config)
     {
     }
 

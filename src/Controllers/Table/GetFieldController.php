@@ -28,12 +28,12 @@ use function sprintf;
  * Provides download to a given field defined in parameters.
  */
 #[Route('/table/get-field', ['GET', 'POST'])]
-final class GetFieldController implements InvocableController
+final readonly class GetFieldController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly DatabaseInterface $dbi,
-        private readonly ResponseFactory $responseFactory,
+        private ResponseRenderer $response,
+        private DatabaseInterface $dbi,
+        private ResponseFactory $responseFactory,
     ) {
     }
 

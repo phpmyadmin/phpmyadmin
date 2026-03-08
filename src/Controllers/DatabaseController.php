@@ -11,9 +11,9 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
 
 #[Route('/databases', ['POST'])]
-final class DatabaseController implements InvocableController
+final readonly class DatabaseController implements InvocableController
 {
-    public function __construct(private readonly ResponseRenderer $response, private readonly DatabaseInterface $dbi)
+    public function __construct(private ResponseRenderer $response, private DatabaseInterface $dbi)
     {
     }
 

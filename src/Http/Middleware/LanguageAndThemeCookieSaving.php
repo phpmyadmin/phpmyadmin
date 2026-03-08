@@ -13,9 +13,9 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
-final class LanguageAndThemeCookieSaving implements MiddlewareInterface
+final readonly class LanguageAndThemeCookieSaving implements MiddlewareInterface
 {
-    public function __construct(private readonly Config $config)
+    public function __construct(private Config $config)
     {
     }
 

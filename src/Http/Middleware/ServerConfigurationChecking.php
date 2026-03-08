@@ -18,11 +18,11 @@ use function function_exists;
 /**
  * Check whether PHP configuration matches our needs.
  */
-final class ServerConfigurationChecking implements MiddlewareInterface
+final readonly class ServerConfigurationChecking implements MiddlewareInterface
 {
     public function __construct(
-        private readonly Template $template,
-        private readonly ResponseFactory $responseFactory,
+        private Template $template,
+        private ResponseFactory $responseFactory,
     ) {
     }
 

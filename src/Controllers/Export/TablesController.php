@@ -14,11 +14,11 @@ use PhpMyAdmin\Routing\Route;
 use function __;
 
 #[Route('/export/tables', ['POST'])]
-final class TablesController implements InvocableController
+final readonly class TablesController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly ExportController $exportController,
+        private ResponseRenderer $response,
+        private ExportController $exportController,
     ) {
     }
 

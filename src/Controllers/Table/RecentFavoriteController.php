@@ -22,9 +22,9 @@ use function __;
  * Browse recent and favorite tables chosen from navigation.
  */
 #[Route('/table/recent-favorite', ['GET', 'POST'])]
-final class RecentFavoriteController implements InvocableController
+final readonly class RecentFavoriteController implements InvocableController
 {
-    public function __construct(private readonly ResponseRenderer $response)
+    public function __construct(private ResponseRenderer $response)
     {
     }
 

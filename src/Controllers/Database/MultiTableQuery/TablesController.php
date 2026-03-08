@@ -16,9 +16,9 @@ use function array_map;
 use function implode;
 
 #[Route('/database/multi-table-query/tables', ['GET'])]
-final class TablesController implements InvocableController
+final readonly class TablesController implements InvocableController
 {
-    public function __construct(private readonly ResponseRenderer $response, private readonly DatabaseInterface $dbi)
+    public function __construct(private ResponseRenderer $response, private DatabaseInterface $dbi)
     {
     }
 

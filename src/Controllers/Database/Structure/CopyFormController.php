@@ -17,12 +17,12 @@ use PhpMyAdmin\Template;
 use function __;
 
 #[Route('/database/structure/copy-form', ['POST'])]
-final class CopyFormController implements InvocableController
+final readonly class CopyFormController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly ResponseFactory $responseFactory,
-        private readonly Template $template,
+        private ResponseRenderer $response,
+        private ResponseFactory $responseFactory,
+        private Template $template,
     ) {
     }
 

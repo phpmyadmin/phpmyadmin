@@ -20,9 +20,9 @@ use function implode;
 use function sprintf;
 
 #[Route('/table/structure/browse', ['POST'])]
-final class BrowseController implements InvocableController
+final readonly class BrowseController implements InvocableController
 {
-    public function __construct(private readonly ResponseRenderer $response, private readonly Sql $sql)
+    public function __construct(private ResponseRenderer $response, private Sql $sql)
     {
     }
 

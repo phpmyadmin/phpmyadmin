@@ -17,11 +17,11 @@ use function array_keys;
  * Lists available transformation plugins
  */
 #[Route('/transformation/overview', ['GET', 'POST'])]
-final class OverviewController implements InvocableController
+final readonly class OverviewController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Transformations $transformations,
+        private ResponseRenderer $response,
+        private Transformations $transformations,
     ) {
     }
 

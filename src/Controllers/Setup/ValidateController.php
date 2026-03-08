@@ -27,12 +27,12 @@ use function sprintf;
 
 use const CONFIG_FILE;
 
-final class ValidateController implements InvocableController
+final readonly class ValidateController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseFactory $responseFactory,
-        private readonly Template $template,
-        private readonly Config $config,
+        private ResponseFactory $responseFactory,
+        private Template $template,
+        private Config $config,
     ) {
     }
 

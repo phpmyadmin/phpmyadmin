@@ -17,11 +17,11 @@ use Throwable;
 use function __;
 
 #[Route('/server/privileges/account-unlock', ['POST'])]
-final class AccountUnlockController implements InvocableController
+final readonly class AccountUnlockController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly AccountLocking $accountLocking,
+        private ResponseRenderer $response,
+        private AccountLocking $accountLocking,
     ) {
     }
 

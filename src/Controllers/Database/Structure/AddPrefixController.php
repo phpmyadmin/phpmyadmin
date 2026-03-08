@@ -16,12 +16,12 @@ use PhpMyAdmin\Template;
 use function __;
 
 #[Route('/database/structure/add-prefix', ['POST'])]
-final class AddPrefixController implements InvocableController
+final readonly class AddPrefixController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly ResponseFactory $responseFactory,
-        private readonly Template $template,
+        private ResponseRenderer $response,
+        private ResponseFactory $responseFactory,
+        private Template $template,
     ) {
     }
 

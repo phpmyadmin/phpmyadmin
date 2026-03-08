@@ -29,12 +29,12 @@ use function implode;
 use function is_array;
 
 #[Route('/table/structure/move-columns', ['POST'])]
-final class MoveColumnsController implements InvocableController
+final readonly class MoveColumnsController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Template $template,
-        private readonly DatabaseInterface $dbi,
+        private ResponseRenderer $response,
+        private Template $template,
+        private DatabaseInterface $dbi,
     ) {
     }
 

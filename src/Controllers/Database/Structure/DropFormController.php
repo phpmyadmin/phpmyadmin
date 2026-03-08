@@ -18,9 +18,9 @@ use function __;
 use function htmlspecialchars;
 
 #[Route('/database/structure/drop-form', ['POST'])]
-final class DropFormController implements InvocableController
+final readonly class DropFormController implements InvocableController
 {
-    public function __construct(private readonly ResponseRenderer $response, private readonly DatabaseInterface $dbi)
+    public function __construct(private ResponseRenderer $response, private DatabaseInterface $dbi)
     {
     }
 

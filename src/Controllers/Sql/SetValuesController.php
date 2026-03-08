@@ -17,12 +17,12 @@ use function __;
 use function explode;
 
 #[Route('/sql/get-set-values', ['POST'])]
-final class SetValuesController implements InvocableController
+final readonly class SetValuesController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Template $template,
-        private readonly Sql $sql,
+        private ResponseRenderer $response,
+        private Template $template,
+        private Sql $sql,
     ) {
     }
 

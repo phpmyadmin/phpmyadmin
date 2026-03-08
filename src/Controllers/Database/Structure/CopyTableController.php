@@ -18,13 +18,13 @@ use PhpMyAdmin\Table\TableMover;
 use PhpMyAdmin\UserPrivilegesFactory;
 
 #[Route('/database/structure/copy-table', ['POST'])]
-final class CopyTableController implements InvocableController
+final readonly class CopyTableController implements InvocableController
 {
     public function __construct(
-        private readonly Operations $operations,
-        private readonly StructureController $structureController,
-        private readonly UserPrivilegesFactory $userPrivilegesFactory,
-        private readonly TableMover $tableMover,
+        private Operations $operations,
+        private StructureController $structureController,
+        private UserPrivilegesFactory $userPrivilegesFactory,
+        private TableMover $tableMover,
     ) {
     }
 

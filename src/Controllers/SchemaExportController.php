@@ -23,12 +23,12 @@ use function mb_strlen;
  * Schema export handler
  */
 #[Route('/schema-export', ['GET', 'POST'])]
-final class SchemaExportController implements InvocableController
+final readonly class SchemaExportController implements InvocableController
 {
     public function __construct(
-        private readonly Export $export,
-        private readonly ResponseRenderer $response,
-        private readonly ResponseFactory $responseFactory,
+        private Export $export,
+        private ResponseRenderer $response,
+        private ResponseFactory $responseFactory,
     ) {
     }
 

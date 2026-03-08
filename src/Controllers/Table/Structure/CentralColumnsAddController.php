@@ -20,12 +20,12 @@ use function __;
 use function is_array;
 
 #[Route('/table/structure/central-columns-add', ['POST'])]
-final class CentralColumnsAddController implements InvocableController
+final readonly class CentralColumnsAddController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly CentralColumns $centralColumns,
-        private readonly StructureController $structureController,
+        private ResponseRenderer $response,
+        private CentralColumns $centralColumns,
+        private StructureController $structureController,
     ) {
     }
 

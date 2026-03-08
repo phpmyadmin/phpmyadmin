@@ -21,13 +21,13 @@ use function _ngettext;
 use function count;
 
 #[Route('/table/structure/drop', ['POST'])]
-final class DropColumnController implements InvocableController
+final readonly class DropColumnController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly DatabaseInterface $dbi,
-        private readonly FlashMessenger $flashMessenger,
-        private readonly RelationCleanup $relationCleanup,
+        private ResponseRenderer $response,
+        private DatabaseInterface $dbi,
+        private FlashMessenger $flashMessenger,
+        private RelationCleanup $relationCleanup,
     ) {
     }
 

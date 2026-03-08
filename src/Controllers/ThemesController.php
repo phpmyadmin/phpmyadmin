@@ -12,12 +12,12 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Theme\ThemeManager;
 
 #[Route('/themes', ['GET'])]
-final class ThemesController implements InvocableController
+final readonly class ThemesController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Template $template,
-        private readonly ThemeManager $themeManager,
+        private ResponseRenderer $response,
+        private Template $template,
+        private ThemeManager $themeManager,
     ) {
     }
 
