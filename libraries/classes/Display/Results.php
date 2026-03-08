@@ -51,7 +51,6 @@ use function in_array;
 use function intval;
 use function is_array;
 use function is_numeric;
-use function is_string;
 use function json_encode;
 use function max;
 use function mb_check_encoding;
@@ -4419,8 +4418,8 @@ class Results
         array $analyzedSqlResults,
         FieldMetadata $meta,
         array $map,
-        $data,
-        $displayedData,
+        string $data,
+        string $displayedData,
         ?TransformationsPlugin $transformationPlugin,
         string $nowrap,
         string $whereComparison,
@@ -4441,10 +4440,7 @@ class Results
             $transformationPlugin !== null
         );
 
-        $canonicalValue = null;
-        if (is_string($data)) {
-            $canonicalValue = str_replace(["\r\n", "\r"], "\n", $data);
-        }
+        $canonicalValue = str_replace(["\r\n", "\r"], "\n", $data);
 
         if (! empty($analyzedSqlResults['statement']->expr)) {
             foreach ($analyzedSqlResults['statement']->expr as $expr) {
@@ -4561,7 +4557,7 @@ class Results
      *
      * @param string $value The string whose line endings should be detected
      *
-     * @return string|null  Returns 'CRLF', 'LF', or null if no line breaks exist
+     * @psalm-return 'CRLF'|'LF'|null
      */
     private function detectLineEnding(string $value): ?string
     {
@@ -4585,8 +4581,7 @@ class Results
      *
      * @param string $str string to be truncated
      *
-     * @return array
-     * @psalm-return array{bool, string, int}
+     * @psalm-return array{bool, string, int, 'CRLF'|'LF'|null}
      */
     private function getPartialText($str): array
     {
