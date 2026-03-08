@@ -3374,12 +3374,12 @@ class Results
             && str_contains($transformationPlugin->getName(), 'Link'))
             && ! $meta->isBinary()
         ) {
-                        [
-                            $isFieldTruncated,
-                            $column,
-                            $originalLength,
-                            $lineEnding,
-                        ] = $this->getPartialText($column);
+            [
+                $isFieldTruncated,
+                $column,
+                $originalLength,
+                $lineEnding,
+            ] = $this->getPartialText($column);
         }
 
         if ($meta->isMappedTypeBit) {
