@@ -27,6 +27,7 @@ use PhpMyAdmin\Util;
 
 use function __;
 use function array_merge;
+use function assert;
 use function explode;
 use function htmlspecialchars;
 use function in_array;
@@ -162,8 +163,8 @@ final class CreateController implements InvocableController
             // MySQL 8.0+ - issue #16194
             if (empty($viewData['as'])) {
                 $parser = new Parser($createView);
-                /** @var CreateStatement $stmt */
                 $stmt = $parser->statements[0];
+                assert($stmt instanceof CreateStatement);
                 $viewData['as'] = TokensList::buildFromArray($stmt->body);
             }
         }

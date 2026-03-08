@@ -675,8 +675,8 @@ class Sql
                     $unlimNumRows = $this->dbi->getTable($db, $table)->countRecords(true);
                 }
             } else {
-                /** @var SelectStatement $statement */
                 $statement = $statementInfo->statement;
+                assert($statement instanceof SelectStatement);
 
                 assert($statement->options !== null);
                 /** @var int|null $noCacheIndex */

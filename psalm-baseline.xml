@@ -5841,9 +5841,6 @@
       <code><![CDATA[empty($tmpres['Create_time'])]]></code>
       <code><![CDATA[empty($tmpres['Update_time'])]]></code>
     </RiskyTruthyFalsyComparison>
-    <UnnecessaryVarAnnotation>
-      <code><![CDATA[CreateDefinition]]></code>
-    </UnnecessaryVarAnnotation>
   </file>
   <file src="src/Plugins/Export/ExportTexytext.php">
     <MixedArgument>

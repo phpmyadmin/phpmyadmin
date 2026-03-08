@@ -22,6 +22,7 @@ use PhpMyAdmin\Util;
 use function __;
 use function _ngettext;
 use function array_merge;
+use function assert;
 use function count;
 use function explode;
 use function htmlentities;
@@ -454,8 +455,8 @@ class Routines
 
         $parser = new Parser('DELIMITER $$' . "\n" . $definition);
 
-        /** @var CreateStatement $stmt */
         $stmt = $parser->statements[0];
+        assert($stmt instanceof CreateStatement);
 
         // Do not use $routine['ROUTINE_DEFINITION'] because of a MySQL escaping issue: #15370
         $body = TokensList::buildFromArray($stmt->body);

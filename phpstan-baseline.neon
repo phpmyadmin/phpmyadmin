@@ -11692,12 +11692,6 @@ parameters:
 			path: src/Setup/Index.php
 
 		-
-			message: '#^PHPDoc tag @var with type PhpMyAdmin\\Config\\Forms\\BaseForm is not subtype of native type string\|null\.$#'
-			identifier: varTag.nativeType
-			count: 1
-			path: src/Setup/SetupHelper.php
-
-		-
 			message: '#^Access to an undefined property PhpMyAdmin\\SqlParser\\Statement\:\:\$where\.$#'
 			identifier: property.notFound
 			count: 1

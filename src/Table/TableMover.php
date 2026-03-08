@@ -23,6 +23,7 @@ use PhpMyAdmin\SqlParser\Statements\DropStatement;
 use PhpMyAdmin\Util;
 
 use function __;
+use function assert;
 use function htmlspecialchars;
 use function implode;
 use function in_array;
@@ -277,10 +278,9 @@ class TableMover
 
         /**
          * The ALTER statement that generates the constraints.
-         *
-         * @var AlterStatement $statement
          */
         $statement = $parser->statements[0];
+        assert($statement instanceof AlterStatement);
 
         // Changing the altered table to the destination.
         $statement->table = $destination;
@@ -336,8 +336,8 @@ class TableMover
             return;
         }
 
-        /** @var CreateStatement $statement */
         $statement = $parser->statements[0];
+        assert($statement instanceof CreateStatement);
 
         // Changing the destination.
         $statement->name = $destination;
@@ -474,12 +474,8 @@ class TableMover
     ): bool {
         $maintainRelations = false;
 
-        /**
-         * Instance used for exporting the current structure of the table.
-         *
-         * @var ExportSql $exportSqlPlugin
-         */
         $exportSqlPlugin = Plugins::getPlugin('export', 'sql', ExportType::Table);
+        assert($exportSqlPlugin instanceof ExportSql);
         // Setting required export settings.
         OutputHandler::$asFile = true;
         // It is better that all identifiers are quoted
