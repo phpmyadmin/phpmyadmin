@@ -332,7 +332,7 @@ class Util
                 // use 1024.0 to avoid integer overflow on 64-bit machines
                 $value = round($value / (1024 ** $d / $dh)) / $dh;
                 $unit = $byteUnits[$d];
-                break 1;
+                break;
             }
         }
 
