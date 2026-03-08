@@ -24,13 +24,13 @@ use function in_array;
 use function is_array;
 
 #[Route('/table/structure/change', ['GET', 'POST'])]
-final class ChangeController implements InvocableController
+final readonly class ChangeController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly DatabaseInterface $dbi,
-        private readonly ColumnsDefinition $columnsDefinition,
-        private readonly UserPrivilegesFactory $userPrivilegesFactory,
+        private ResponseRenderer $response,
+        private DatabaseInterface $dbi,
+        private ColumnsDefinition $columnsDefinition,
+        private UserPrivilegesFactory $userPrivilegesFactory,
     ) {
     }
 

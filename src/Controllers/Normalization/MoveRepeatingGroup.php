@@ -13,11 +13,11 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
 
 #[Route('/normalization/move-repeating-group', ['POST'])]
-final class MoveRepeatingGroup implements InvocableController
+final readonly class MoveRepeatingGroup implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Normalization $normalization,
+        private ResponseRenderer $response,
+        private Normalization $normalization,
     ) {
     }
 

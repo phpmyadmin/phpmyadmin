@@ -24,9 +24,9 @@ use const JSON_THROW_ON_ERROR;
  * Exporting of translated messages from PHP to JavaScript.
  */
 #[Route('/messages', ['GET'])]
-final class JavaScriptMessagesController implements InvocableController
+final readonly class JavaScriptMessagesController implements InvocableController
 {
-    public function __construct(private readonly ResponseFactory $responseFactory)
+    public function __construct(private ResponseFactory $responseFactory)
     {
     }
 

@@ -18,12 +18,12 @@ use Psr\Http\Server\RequestHandlerInterface;
 use function __;
 use function sprintf;
 
-final class DatabaseServerVersionChecking implements MiddlewareInterface
+final readonly class DatabaseServerVersionChecking implements MiddlewareInterface
 {
     public function __construct(
-        private readonly Config $config,
-        private readonly Template $template,
-        private readonly ResponseFactory $responseFactory,
+        private Config $config,
+        private Template $template,
+        private ResponseFactory $responseFactory,
     ) {
     }
 

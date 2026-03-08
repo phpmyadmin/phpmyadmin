@@ -20,13 +20,13 @@ use PhpMyAdmin\Util;
 use function __;
 
 #[Route('/database/operations/collation', ['POST'])]
-final class CollationController implements InvocableController
+final readonly class CollationController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Operations $operations,
-        private readonly DatabaseInterface $dbi,
-        private readonly DbTableExists $dbTableExists,
+        private ResponseRenderer $response,
+        private Operations $operations,
+        private DatabaseInterface $dbi,
+        private DbTableExists $dbTableExists,
     ) {
     }
 

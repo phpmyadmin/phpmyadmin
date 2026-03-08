@@ -22,13 +22,13 @@ use function __;
  * Displays server, database and table selection tree.
  */
 #[Route('/navigation', ['GET', 'POST'])]
-final class NavigationController implements InvocableController
+final readonly class NavigationController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Navigation $navigation,
-        private readonly Relation $relation,
-        private readonly PageSettings $pageSettings,
+        private ResponseRenderer $response,
+        private Navigation $navigation,
+        private Relation $relation,
+        private PageSettings $pageSettings,
     ) {
     }
 

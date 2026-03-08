@@ -21,11 +21,11 @@ use function __;
 use function is_array;
 
 #[Route('/table/delete/confirm', ['POST'])]
-final class DeleteConfirmController implements InvocableController
+final readonly class DeleteConfirmController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly DbTableExists $dbTableExists,
+        private ResponseRenderer $response,
+        private DbTableExists $dbTableExists,
     ) {
     }
 

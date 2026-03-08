@@ -18,12 +18,12 @@ use Psr\Http\Server\RequestHandlerInterface;
 /**
  * Check for errors occurred while loading configuration.
  */
-final class ConfigErrorAndPermissionChecking implements MiddlewareInterface
+final readonly class ConfigErrorAndPermissionChecking implements MiddlewareInterface
 {
     public function __construct(
-        private readonly Config $config,
-        private readonly Template $template,
-        private readonly ResponseFactory $responseFactory,
+        private Config $config,
+        private Template $template,
+        private ResponseFactory $responseFactory,
     ) {
     }
 

@@ -15,11 +15,11 @@ use PhpMyAdmin\Routing\Route;
 use function json_decode;
 
 #[Route('/normalization/3nf/new-tables', ['POST'])]
-final class NewTablesController implements InvocableController
+final readonly class NewTablesController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Normalization $normalization,
+        private ResponseRenderer $response,
+        private Normalization $normalization,
     ) {
     }
 

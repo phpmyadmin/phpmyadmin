@@ -33,14 +33,14 @@ use function trim;
  * Triggers management.
  */
 #[Route('/triggers', ['GET', 'POST'])]
-final class IndexController implements InvocableController
+final readonly class IndexController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Template $template,
-        private readonly DatabaseInterface $dbi,
-        private readonly Triggers $triggers,
-        private readonly DbTableExists $dbTableExists,
+        private ResponseRenderer $response,
+        private Template $template,
+        private DatabaseInterface $dbi,
+        private Triggers $triggers,
+        private DbTableExists $dbTableExists,
     ) {
     }
 

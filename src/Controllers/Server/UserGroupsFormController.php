@@ -21,13 +21,13 @@ use function __;
 use function sprintf;
 
 #[Route('/server/user-groups/edit-form', ['GET'])]
-final class UserGroupsFormController implements InvocableController
+final readonly class UserGroupsFormController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Template $template,
-        private readonly Relation $relation,
-        private readonly DatabaseInterface $dbi,
+        private ResponseRenderer $response,
+        private Template $template,
+        private Relation $relation,
+        private DatabaseInterface $dbi,
     ) {
     }
 

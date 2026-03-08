@@ -29,12 +29,12 @@ use function strval;
  * View manipulations
  */
 #[Route('/view/operations', ['GET', 'POST'])]
-final class ViewController implements InvocableController
+final readonly class ViewController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly DatabaseInterface $dbi,
-        private readonly DbTableExists $dbTableExists,
+        private ResponseRenderer $response,
+        private DatabaseInterface $dbi,
+        private DbTableExists $dbTableExists,
     ) {
     }
 

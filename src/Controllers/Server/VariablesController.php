@@ -26,12 +26,12 @@ use function trim;
  * Handles viewing and editing server variables
  */
 #[Route('/server/variables', ['GET'])]
-final class VariablesController implements InvocableController
+final readonly class VariablesController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Template $template,
-        private readonly DatabaseInterface $dbi,
+        private ResponseRenderer $response,
+        private Template $template,
+        private DatabaseInterface $dbi,
     ) {
     }
 

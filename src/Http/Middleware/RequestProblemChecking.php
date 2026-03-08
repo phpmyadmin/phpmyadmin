@@ -19,9 +19,9 @@ use function count;
 /**
  * Checks request and fails with fatal error if something problematic is found
  */
-final class RequestProblemChecking implements MiddlewareInterface
+final readonly class RequestProblemChecking implements MiddlewareInterface
 {
-    public function __construct(private readonly Template $template, private readonly ResponseFactory $responseFactory)
+    public function __construct(private Template $template, private ResponseFactory $responseFactory)
     {
     }
 

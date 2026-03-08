@@ -15,9 +15,9 @@ use function restore_exception_handler;
 use function set_error_handler;
 use function set_exception_handler;
 
-final class ErrorHandling implements MiddlewareInterface
+final readonly class ErrorHandling implements MiddlewareInterface
 {
-    public function __construct(private readonly ErrorHandler $errorHandler)
+    public function __construct(private ErrorHandler $errorHandler)
     {
     }
 

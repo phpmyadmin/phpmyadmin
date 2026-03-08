@@ -20,9 +20,9 @@ use function intval;
 use function is_string;
 
 #[Route('/sql/set-column-preferences', ['POST'])]
-final class ColumnPreferencesController implements InvocableController
+final readonly class ColumnPreferencesController implements InvocableController
 {
-    public function __construct(private readonly ResponseRenderer $response, private readonly DatabaseInterface $dbi)
+    public function __construct(private ResponseRenderer $response, private DatabaseInterface $dbi)
     {
     }
 

@@ -25,12 +25,12 @@ use function is_array;
  * Server replications
  */
 #[Route('/server/replication', ['GET', 'POST'])]
-final class ReplicationController implements InvocableController
+final readonly class ReplicationController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly ReplicationGui $replicationGui,
-        private readonly DatabaseInterface $dbi,
+        private ResponseRenderer $response,
+        private ReplicationGui $replicationGui,
+        private DatabaseInterface $dbi,
     ) {
     }
 

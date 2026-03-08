@@ -16,12 +16,12 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 use const CONFIG_FILE;
 
-final class ConfigLoading implements MiddlewareInterface
+final readonly class ConfigLoading implements MiddlewareInterface
 {
     public function __construct(
-        private readonly Config $config,
-        private readonly Template $template,
-        private readonly ResponseFactory $responseFactory,
+        private Config $config,
+        private Template $template,
+        private ResponseFactory $responseFactory,
     ) {
     }
 

@@ -20,12 +20,12 @@ use function __;
 use function is_array;
 
 #[Route('/database/structure/central-columns/make-consistent', ['POST'])]
-final class MakeConsistentController implements InvocableController
+final readonly class MakeConsistentController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly DatabaseInterface $dbi,
-        private readonly StructureController $structureController,
+        private ResponseRenderer $response,
+        private DatabaseInterface $dbi,
+        private StructureController $structureController,
     ) {
     }
 

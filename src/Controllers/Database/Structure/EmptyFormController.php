@@ -17,9 +17,9 @@ use function __;
 use function htmlspecialchars;
 
 #[Route('/database/structure/empty-form', ['POST'])]
-final class EmptyFormController implements InvocableController
+final readonly class EmptyFormController implements InvocableController
 {
-    public function __construct(private readonly ResponseRenderer $response)
+    public function __construct(private ResponseRenderer $response)
     {
     }
 

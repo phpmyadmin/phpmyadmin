@@ -22,9 +22,9 @@ use Webmozart\Assert\InvalidArgumentException;
 use function __;
 
 #[Route('/table/partition/repair', ['POST'])]
-final class RepairController implements InvocableController
+final readonly class RepairController implements InvocableController
 {
-    public function __construct(private readonly ResponseRenderer $response, private readonly Maintenance $model)
+    public function __construct(private ResponseRenderer $response, private Maintenance $model)
     {
     }
 

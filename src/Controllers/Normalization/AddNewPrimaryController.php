@@ -17,12 +17,12 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPrivilegesFactory;
 
 #[Route('/normalization/add-new-primary', ['POST'])]
-final class AddNewPrimaryController implements InvocableController
+final readonly class AddNewPrimaryController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Normalization $normalization,
-        private readonly UserPrivilegesFactory $userPrivilegesFactory,
+        private ResponseRenderer $response,
+        private Normalization $normalization,
+        private UserPrivilegesFactory $userPrivilegesFactory,
     ) {
     }
 

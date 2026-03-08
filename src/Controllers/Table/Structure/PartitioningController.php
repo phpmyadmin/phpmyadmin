@@ -33,14 +33,14 @@ use function substr;
 use function trim;
 
 #[Route('/table/structure/partitioning', ['POST'])]
-final class PartitioningController implements InvocableController
+final readonly class PartitioningController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly DatabaseInterface $dbi,
-        private readonly CreateAddField $createAddField,
-        private readonly StructureController $structureController,
-        private readonly PageSettings $pageSettings,
+        private ResponseRenderer $response,
+        private DatabaseInterface $dbi,
+        private CreateAddField $createAddField,
+        private StructureController $structureController,
+        private PageSettings $pageSettings,
     ) {
     }
 

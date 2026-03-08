@@ -28,12 +28,12 @@ use function implode;
 use function is_array;
 
 #[Route('/table/export', ['GET', 'POST'])]
-class ExportController implements InvocableController
+readonly class ExportController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Options $export,
-        private readonly PageSettings $pageSettings,
+        private ResponseRenderer $response,
+        private Options $export,
+        private PageSettings $pageSettings,
     ) {
     }
 

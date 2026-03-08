@@ -15,9 +15,9 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 use function assert;
 
-final class CurrentServerGlobalSetting implements MiddlewareInterface
+final readonly class CurrentServerGlobalSetting implements MiddlewareInterface
 {
-    public function __construct(private readonly Config $config)
+    public function __construct(private Config $config)
     {
     }
 

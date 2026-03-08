@@ -36,15 +36,15 @@ use function urlencode;
  * Server privileges and users manipulations.
  */
 #[Route('/server/privileges', ['GET', 'POST'])]
-final class PrivilegesController implements InvocableController
+final readonly class PrivilegesController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Template $template,
-        private readonly Relation $relation,
-        private readonly DatabaseInterface $dbi,
-        private readonly UserPrivilegesFactory $userPrivilegesFactory,
-        private readonly Config $config,
+        private ResponseRenderer $response,
+        private Template $template,
+        private Relation $relation,
+        private DatabaseInterface $dbi,
+        private UserPrivilegesFactory $userPrivilegesFactory,
+        private Config $config,
     ) {
     }
 

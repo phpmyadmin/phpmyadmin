@@ -17,12 +17,12 @@ use PhpMyAdmin\UserPrivilegesFactory;
 use function min;
 
 #[Route('/normalization/create-new-column', ['POST'])]
-final class CreateNewColumnController implements InvocableController
+final readonly class CreateNewColumnController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Normalization $normalization,
-        private readonly UserPrivilegesFactory $userPrivilegesFactory,
+        private ResponseRenderer $response,
+        private Normalization $normalization,
+        private UserPrivilegesFactory $userPrivilegesFactory,
     ) {
     }
 

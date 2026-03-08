@@ -25,13 +25,13 @@ use function is_string;
 
 use const CONFIG_FILE;
 
-final class FormController implements InvocableController
+final readonly class FormController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseFactory $responseFactory,
-        private readonly ResponseRenderer $responseRenderer,
-        private readonly Template $template,
-        private readonly Config $config,
+        private ResponseFactory $responseFactory,
+        private ResponseRenderer $responseRenderer,
+        private Template $template,
+        private Config $config,
     ) {
     }
 

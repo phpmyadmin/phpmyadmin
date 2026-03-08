@@ -21,12 +21,12 @@ use function preg_replace;
  * Handles viewing server plugin details
  */
 #[Route('/server/plugins', ['GET'])]
-final class PluginsController implements InvocableController
+final readonly class PluginsController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Plugins $plugins,
-        private readonly DatabaseInterface $dbi,
+        private ResponseRenderer $response,
+        private Plugins $plugins,
+        private DatabaseInterface $dbi,
     ) {
     }
 

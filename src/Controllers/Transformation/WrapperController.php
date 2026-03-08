@@ -39,15 +39,15 @@ use function strtolower;
  * Wrapper script for rendering transformations
  */
 #[Route('/transformation/wrapper', ['GET', 'POST'])]
-final class WrapperController implements InvocableController
+final readonly class WrapperController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Transformations $transformations,
-        private readonly Relation $relation,
-        private readonly DatabaseInterface $dbi,
-        private readonly DbTableExists $dbTableExists,
-        private readonly ResponseFactory $responseFactory,
+        private ResponseRenderer $response,
+        private Transformations $transformations,
+        private Relation $relation,
+        private DatabaseInterface $dbi,
+        private DbTableExists $dbTableExists,
+        private ResponseFactory $responseFactory,
     ) {
     }
 

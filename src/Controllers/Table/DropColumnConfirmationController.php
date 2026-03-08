@@ -21,11 +21,11 @@ use Webmozart\Assert\InvalidArgumentException;
 use function __;
 
 #[Route('/table/structure/drop-confirm', ['POST'])]
-final class DropColumnConfirmationController implements InvocableController
+final readonly class DropColumnConfirmationController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly DbTableExists $dbTableExists,
+        private ResponseRenderer $response,
+        private DbTableExists $dbTableExists,
     ) {
     }
 

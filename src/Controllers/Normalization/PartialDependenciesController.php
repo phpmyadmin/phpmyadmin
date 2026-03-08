@@ -13,11 +13,11 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
 
 #[Route('/normalization/partial-dependencies', ['POST'])]
-final class PartialDependenciesController implements InvocableController
+final readonly class PartialDependenciesController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Normalization $normalization,
+        private ResponseRenderer $response,
+        private Normalization $normalization,
     ) {
     }
 

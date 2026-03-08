@@ -24,13 +24,13 @@ use function count;
 use function is_array;
 
 #[Route('/table/structure/primary', ['POST'])]
-final class PrimaryController implements InvocableController
+final readonly class PrimaryController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly DatabaseInterface $dbi,
-        private readonly StructureController $structureController,
-        private readonly DbTableExists $dbTableExists,
+        private ResponseRenderer $response,
+        private DatabaseInterface $dbi,
+        private StructureController $structureController,
+        private DbTableExists $dbTableExists,
     ) {
     }
 

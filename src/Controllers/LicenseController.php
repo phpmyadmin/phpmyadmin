@@ -23,11 +23,11 @@ use function sprintf;
  * Simple script to set correct charset for the license
  */
 #[Route('/license', ['GET'])]
-final class LicenseController implements InvocableController
+final readonly class LicenseController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly ResponseFactory $responseFactory,
+        private ResponseRenderer $response,
+        private ResponseFactory $responseFactory,
     ) {
     }
 

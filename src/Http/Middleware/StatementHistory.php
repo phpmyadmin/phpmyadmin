@@ -16,13 +16,13 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 use function assert;
 
-final class StatementHistory implements MiddlewareInterface
+final readonly class StatementHistory implements MiddlewareInterface
 {
-    private readonly DatabaseInterface $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(
-        private readonly Config $config,
-        private readonly History $history,
+        private Config $config,
+        private History $history,
         DatabaseInterface|null $dbi = null,
     ) {
         $this->dbi = $dbi ?? DatabaseInterface::getInstance();

@@ -16,12 +16,12 @@ use PhpMyAdmin\Template;
 use function __;
 
 #[Route('/sql/get-enum-values', ['POST'])]
-final class EnumValuesController implements InvocableController
+final readonly class EnumValuesController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Template $template,
-        private readonly Sql $sql,
+        private ResponseRenderer $response,
+        private Template $template,
+        private Sql $sql,
     ) {
     }
 

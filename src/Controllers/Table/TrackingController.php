@@ -37,14 +37,14 @@ use function sprintf;
 use function trim;
 
 #[Route('/table/tracking', ['GET', 'POST'])]
-final class TrackingController implements InvocableController
+final readonly class TrackingController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Tracking $tracking,
-        private readonly TrackingChecker $trackingChecker,
-        private readonly DbTableExists $dbTableExists,
-        private readonly ResponseFactory $responseFactory,
+        private ResponseRenderer $response,
+        private Tracking $tracking,
+        private TrackingChecker $trackingChecker,
+        private DbTableExists $dbTableExists,
+        private ResponseFactory $responseFactory,
     ) {
     }
 
