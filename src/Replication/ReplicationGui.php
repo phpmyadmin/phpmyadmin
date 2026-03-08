@@ -290,7 +290,7 @@ class ReplicationGui
 
         $variables = [];
         foreach ($replicationVariables as $variable) {
-            if (! isset($serverReplication[0], $serverReplication[0][$variable])) {
+            if (! isset($serverReplication[0][$variable])) {
                 continue;
             }
 

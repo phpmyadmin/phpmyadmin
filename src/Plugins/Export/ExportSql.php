@@ -47,6 +47,7 @@ use PhpMyAdmin\Version;
 
 use function __;
 use function array_keys;
+use function assert;
 use function bin2hex;
 use function explode;
 use function implode;
@@ -1409,12 +1410,8 @@ class ExportSql extends ExportPlugin
                     $createQuery,
                 );
                 $parser = new Parser($createQuery);
-                /**
-                 * `CREATE TABLE` statement.
-                 *
-                 * @var CreateStatement $statement
-                 */
                 $statement = $parser->statements[0];
+                assert($statement instanceof CreateStatement);
 
                 // exclude definition of current user
                 if (
@@ -1485,12 +1482,8 @@ class ExportSql extends ExportPlugin
              */
             $parser = new Parser($createQuery);
 
-            /**
-             * `CREATE TABLE` statement.
-             *
-             * @var CreateStatement $statement
-             */
             $statement = $parser->statements[0];
+            assert($statement instanceof CreateStatement);
 
             if (! empty($statement->entityOptions)) {
                 $engine = $statement->entityOptions->get('ENGINE');
@@ -1529,7 +1522,6 @@ class ExportSql extends ExportPlugin
                 // If the field is used in any of the arrays above, it is removed
                 // from the original definition.
                 // Also, AUTO_INCREMENT attribute is removed.
-                /** @var CreateDefinition $field */
                 foreach ($statement->fields as $key => $field) {
                     if ($field->isConstraint) {
                         // Creating the parts that add constraints.
@@ -2333,12 +2325,8 @@ class ExportSql extends ExportPlugin
             return $sqlQuery;
         }
 
-        /**
-         * The statement that represents the query.
-         *
-         * @var CreateStatement $statement
-         */
         $statement = $parser->statements[0];
+        assert($statement instanceof CreateStatement);
 
         $oldDatabase = $db;
 

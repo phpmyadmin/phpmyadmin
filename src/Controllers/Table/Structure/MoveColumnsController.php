@@ -91,8 +91,8 @@ final class MoveColumnsController implements InvocableController
     private function generateAlterTableSql(string $createTableSql, array $moveColumns): string|Message
     {
         $parser = new Parser($createTableSql);
-        /** @var CreateStatement $statement */
         $statement = $parser->statements[0];
+        assert($statement instanceof CreateStatement);
         /** @var CreateDefinition[] $fields For CREATE TABLE statement the type is CreateDefinition[] */
         $fields = $statement->fields;
         $columns = [];

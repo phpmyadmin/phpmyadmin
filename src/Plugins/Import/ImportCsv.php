@@ -458,7 +458,7 @@ class ImportCsv extends AbstractImportCsv
                         break; // We need more data to decide new line
                     }
 
-                    if (substr($buffer, $i + 1, 1) === "\n") {
+                    if ($buffer[$i + 1] === "\n") {
                         $i++;
                     }
                 }
@@ -500,7 +500,7 @@ class ImportCsv extends AbstractImportCsv
                 $len = strlen($buffer);
                 $i = 0;
                 $lasti = -1;
-                $ch = substr($buffer, 0, 1);
+                $ch = substr($buffer, 0, 1); // Use substr to avoid out of bound error when buffer is empty
                 if ($this->maxLines > 0 && $line === $maxLinesConstraint) {
                     ImportSettings::$finished = true;
                     break;

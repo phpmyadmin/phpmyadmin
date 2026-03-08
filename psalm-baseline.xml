@@ -1257,7 +1257,6 @@
     </RiskyTruthyFalsyComparison>
     <UnusedVariable>
       <code><![CDATA[$collationsList]]></code>
-      <code><![CDATA[$encryptionKeyLength]]></code>
     </UnusedVariable>
   </file>
   <file src="src/Controllers/Import/ImportController.php">
@@ -2363,9 +2362,6 @@
     </PossiblyInvalidCast>
   </file>
   <file src="src/Controllers/Table/ReplaceController.php">
-    <InvalidArgument>
-      <code><![CDATA[$insertErrors]]></code>
-    </InvalidArgument>
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[UrlParams::$params]]></code>
     </InvalidPropertyAssignmentValue>
@@ -5845,9 +5841,6 @@
       <code><![CDATA[empty($tmpres['Create_time'])]]></code>
       <code><![CDATA[empty($tmpres['Update_time'])]]></code>
     </RiskyTruthyFalsyComparison>
-    <UnnecessaryVarAnnotation>
-      <code><![CDATA[CreateDefinition]]></code>
-    </UnnecessaryVarAnnotation>
   </file>
   <file src="src/Plugins/Export/ExportTexytext.php">
     <MixedArgument>

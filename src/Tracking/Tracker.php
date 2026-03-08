@@ -49,7 +49,7 @@ class Tracker
      *
      * @var mixed[]
      */
-    protected static array $trackingCache = [];
+    private static array $trackingCache = [];
 
     /**
      * Cache of checked databases.

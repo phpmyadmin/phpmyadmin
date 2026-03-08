@@ -44,7 +44,7 @@ class RelationStatsDia
      * @param string        $foreignField The relation field in the foreign table
      */
     public function __construct(
-        protected Dia $diagram,
+        private Dia $diagram,
         TableStatsDia $masterTable,
         string $masterField,
         TableStatsDia $foreignTable,

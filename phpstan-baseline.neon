@@ -3100,12 +3100,6 @@ parameters:
 			path: src/Controllers/Table/ReplaceController.php
 
 		-
-			message: '#^Parameter \#1 \$messages of method PhpMyAdmin\\Message\:\:addMessagesString\(\) expects array\<string\>, list\<PhpMyAdmin\\Message\|string\|null\> given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Table/ReplaceController.php
-
-		-
 			message: '#^Parameter \#2 \$relationField of method PhpMyAdmin\\InsertEdit\:\:getLinkForRelationalDisplayField\(\) expects string, \(int\|string\) given\.$#'
 			identifier: argument.type
 			count: 1
@@ -11696,12 +11690,6 @@ parameters:
 			identifier: if.condNotBoolean
 			count: 1
 			path: src/Setup/Index.php
-
-		-
-			message: '#^PHPDoc tag @var with type PhpMyAdmin\\Config\\Forms\\BaseForm is not subtype of native type string\|null\.$#'
-			identifier: varTag.nativeType
-			count: 1
-			path: src/Setup/SetupHelper.php
 
 		-
 			message: '#^Access to an undefined property PhpMyAdmin\\SqlParser\\Statement\:\:\$where\.$#'

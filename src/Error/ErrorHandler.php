@@ -52,17 +52,17 @@ class ErrorHandler
      *
      * @var Error[]
      */
-    protected array $errors = [];
+    private array $errors = [];
 
     /**
      * Hide location of errors
      */
-    protected bool $hideLocation = false;
+    private bool $hideLocation = false;
 
     /**
      * Initial error reporting state
      */
-    protected int $errorReporting = 0;
+    private int $errorReporting = 0;
 
     public function __construct()
     {

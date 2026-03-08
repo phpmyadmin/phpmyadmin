@@ -31,6 +31,7 @@ use TCPDF;
 
 use function __;
 use function array_search;
+use function assert;
 use function class_exists;
 use function extension_loaded;
 use function in_array;
@@ -274,8 +275,8 @@ final readonly class GisVisualizationController implements InvocableController
     private function getCandidateColumns(string $sqlQuery): array
     {
         $parser = new Parser($sqlQuery);
-        /** @var SelectStatement $statement */
         $statement = $parser->statements[0];
+        assert($statement instanceof SelectStatement);
         $statement->limit = new Limit(0, 0);
         $limitedSqlQuery = $statement->build();
 
