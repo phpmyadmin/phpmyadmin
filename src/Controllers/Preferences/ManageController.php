@@ -237,8 +237,6 @@ final readonly class ManageController implements InvocableController
                 $this->response->redirect(
                     $this->userPreferences->getUrlToRedirect('index.php?route=/preferences/manage'),
                 );
-
-                return $this->response->response();
             }
 
             return $this->response->response();
