@@ -35,7 +35,7 @@
         {% set cell_text = row_count_sum %}
     {% endif %}
     <th class="value tbl_rows font-monospace text-end">{{ cell_text }}</th>
-    {% if not (properties_num_columns > 1) %}
+    {% if is_show_db_details %}
         <th class="text-center">
             <dfn title="{{ '%s is the default storage engine on this MySQL server.'|trans|format(default_storage_engine) }}">
                 {{ default_storage_engine }}
