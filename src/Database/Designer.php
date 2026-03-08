@@ -191,8 +191,8 @@ class Designer
     }
 
     /**
-     * @param list<ColumnInfo>[]  $tableColumnsInfo table column info
-     * @param array<string, bool> $tablesAllKeys    unique or primary indices
+     * @param array<string, list<ColumnInfo>> $tableColumnsInfo table column info
+     * @param array<string, bool>             $tablesAllKeys    unique or primary indices
      *
      * @return array<string, string>
      */

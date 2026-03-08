@@ -77,7 +77,7 @@ class Common
      *
      * @param DesignerTable[] $designerTables The designer tables
      *
-     * @return list<ColumnInfo>[] table column nfo
+     * @return array<string, list<ColumnInfo>> table column nfo
      */
     public function getColumnsInfo(array $designerTables): array
     {
