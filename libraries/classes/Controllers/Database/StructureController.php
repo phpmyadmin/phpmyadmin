@@ -469,7 +469,8 @@ class StructureController extends AbstractController
         $relationParameters = $this->relation->getRelationParameters();
 
         $defaultStorageEngine = '';
-        if ($GLOBALS['cfg']['PropertiesNumColumns'] < 2) {
+        $isShowDbDetails = $GLOBALS['cfg']['PropertiesNumColumns'] < 2;
+        if ($isShowDbDetails) {
             $defaultStorageEngineVar = $this->dbi->getVersion() >= 50503
                 ? '@@default_storage_engine'
                 : '@@storage_engine';
@@ -505,6 +506,7 @@ class StructureController extends AbstractController
                 'approx_rows' => $overallApproxRows,
                 'num_favorite_tables' => $GLOBALS['cfg']['NumFavoriteTables'],
                 'db' => $GLOBALS['db'],
+                'is_show_db_details' => $isShowDbDetails,    
                 'properties_num_columns' => $GLOBALS['cfg']['PropertiesNumColumns'],
                 'default_storage_engine' => $defaultStorageEngine,
                 'dbi' => $this->dbi,
