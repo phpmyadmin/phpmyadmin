@@ -206,8 +206,6 @@ for filePath in ${FILE_LIST}; do
         foundFile;;
         */.travis.yml)
         foundFile;;
-        */psalm.xml)
-        foundFile;;
         */psalm.xml.dist)
         foundFile;;
         */phpdoc.xml)
@@ -251,8 +249,6 @@ for filePath in ${FILE_LIST}; do
         */phpcs.xml.dist)
         foundFile;;
         */ecs.php)
-        foundFile;;
-        */easy-coding-standard.neon)
         foundFile;;
         */.scrutinizer.yml)
         foundFile;;
