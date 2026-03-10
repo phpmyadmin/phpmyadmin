@@ -750,8 +750,18 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                             $target.html(newHtml);
                         }
                         $thisField.data('originalValue', value);
-                        if ($thisField.data('lineEnding') !== $thisField.attr('data-line-ending')) {
-                            $thisField.attr('data-line-ending', $thisField.data('lineEnding'));
+                        if (value.indexOf('\n') !== -1) {
+                            // Value contains line breaks: ensure the attribute exists
+                            if (!$thisField.is('[data-line-ending]')) {
+                                $thisField.data('lineEnding', 'LF');
+                                $thisField.attr('data-line-ending', 'LF');
+                            } else if ($thisField.data('lineEnding') !== $thisField.attr('data-line-ending')) {
+                                $thisField.attr('data-line-ending', $thisField.data('lineEnding'));
+                            }
+                        } else if ($thisField.is('[data-line-ending]')) {
+                            // Value no longer has line breaks: remove the attribute
+                            $thisField.removeData('lineEnding');
+                            $thisField.removeAttr('data-line-ending');
                         }
                     }
                     if ($thisField.is('.bit')) {
