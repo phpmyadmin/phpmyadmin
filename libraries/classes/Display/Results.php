@@ -3377,9 +3377,10 @@ class Results
                 $isFieldTruncated,
                 $column,
                 $originalLength,
-                $lineEnding,
             ] = $this->getPartialText($column);
         }
+
+        $lineEnding = $this->detectLineEnding($originalDataForWhereClause);
 
         if ($meta->isMappedTypeBit) {
             $displayedColumn = Util::printableBitValue((int) $displayedColumn, (int) $meta->length);
@@ -3448,7 +3449,7 @@ class Results
             $transformOptions,
             $isFieldTruncated,
             (string) $originalLength,
-            $lineEnding ?? null
+            $lineEnding
         );
     }
 
@@ -4426,7 +4427,7 @@ class Results
         array $transformOptions,
         bool $isFieldTruncated = false,
         string $originalLength = '',
-        ?string $lineEnding = null
+        ?string $lineEnding = ''
     ) {
         $relationalDisplay = $_SESSION['tmpval']['relational_display'];
         $printView = $this->properties['printview'];
@@ -4547,29 +4548,29 @@ class Results
      *
      * Determines whether the given string contains CRLF (\r\n) or LF (\n)
      * line endings. CRLF is given precedence if both are present.
-     * Returns null if no line breaks are found.
+     * Returns an empty string if no line breaks are found.
      *
      * This is used to preserve line-ending semantics of textual data,
      * especially when values may later be truncated or normalized
      * for display or editing.
      *
-     * @see getPartialText()
+     * @see getDataCellForNonNumericColumns()
      *
      * @param string $value The string whose line endings should be detected
      *
-     * @psalm-return 'CRLF'|'LF'|null
+     * @psalm-return 'CRLF'|'LF'|''
      */
-    private function detectLineEnding(string $value): ?string
+    private function detectLineEnding(string $value): string
     {
-        if (strpos($value, "\r\n") !== false) {
+        if (str_contains($value, "\r\n")) {
             return 'CRLF';
         }
 
-        if (strpos($value, "\n") !== false) {
+        if (str_contains($value, "\n")) {
             return 'LF';
         }
 
-        return null;
+        return '';
     }
 
     /**
@@ -4581,12 +4582,11 @@ class Results
      *
      * @param string $str string to be truncated
      *
-     * @psalm-return array{bool, string, int, 'CRLF'|'LF'|null}
+     * @psalm-return array{bool, string, int}
      */
     private function getPartialText($str): array
     {
         $originalLength = mb_strlen($str);
-        $lineEnding = $this->detectLineEnding($str);
         if (
             $originalLength > $GLOBALS['cfg']['LimitChars']
             && $_SESSION['tmpval']['pftext'] === self::DISPLAY_PARTIAL_TEXT
@@ -4601,7 +4601,6 @@ class Results
             $truncated,
             $str,
             $originalLength,
-            $lineEnding,
         ];
     }
 }

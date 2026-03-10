@@ -457,7 +457,7 @@ class ResultsTest extends AbstractTestCase
                     false,
                     'foo',
                     3,
-                    null,
+                    '',
                 ],
             ],
             [
@@ -468,7 +468,7 @@ class ResultsTest extends AbstractTestCase
                     true,
                     'f...',
                     3,
-                    null,
+                    '',
                 ],
             ],
             [
@@ -479,7 +479,7 @@ class ResultsTest extends AbstractTestCase
                     false,
                     'foo',
                     3,
-                    null,
+                    '',
                 ],
             ],
             [
@@ -490,7 +490,7 @@ class ResultsTest extends AbstractTestCase
                     false,
                     'foo',
                     3,
-                    null,
+                    '',
                 ],
             ],
         ];
