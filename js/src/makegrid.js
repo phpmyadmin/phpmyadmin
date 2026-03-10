@@ -943,11 +943,6 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                     }
                     var crlfTemplateEl = document.getElementById('crlf-div-template-' + t.dataset.uniqueid);
                     var $crlfDiv = $(crlfTemplateEl.content.cloneNode(true));
-                    $crlfDiv.find('.line-ending-text').text(Messages.strLineEnding);
-                    $crlfDiv.find('img').attr({
-                        'title': Messages.strLineEndingDetected,
-                        'alt': Messages.strLineEndingDetected
-                    });
                     $editArea.append($crlfDiv);
                     var detectedEnding = $(g.currentEditCell).data('lineEnding');
                     $editArea.find('.line-ending-select').val(detectedEnding);
