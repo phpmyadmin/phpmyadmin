@@ -1,3 +1,3 @@
-<td data-decimals="{{ decimals }}" data-type="{{ type }}"{% if original_length is not empty %} data-originallength="{{ original_length }}"{% endif %} class="{{ td_class }}">
+<td data-decimals="{{ decimals }}" data-type="{{ type }}"{% if original_length is not empty %} data-originallength="{{ original_length }}"{% endif %} class="{{ td_class }}"{% if line_ending is not empty %} data-line-ending="{{ line_ending }}"{% endif %}{% if canonical_value is not null %} data-original-value="{{ canonical_value|e('html_attr') }}"{% endif %}>
   {{- value|raw -}}
 </td>

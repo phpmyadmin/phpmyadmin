@@ -4037,6 +4037,17 @@ AJAX.registerOnload('functions.js', function () {
 }(jQuery));
 
 /**
+ * Normalize line endings for comparison purposes.
+ * Browsers normalize textarea values to LF per HTML spec.
+ *
+ * @param {string} value
+ * @return {string}
+ */
+Functions.normalizeNewlines = function (value) {
+    return value.replace(/\r\n|\r/g, '\n');
+};
+
+/**
  * Return value of a cell in a table.
  *
  * @param {string} td
@@ -4059,16 +4070,27 @@ Functions.getCellValue = function (td) {
 /**
  * Validate and return stringified JSON inputs, or plain if invalid.
  *
- * @param json the json input to be validated and stringified
+ * @param value the json input to be validated and stringified
  * @param replacer An array of strings and numbers that acts as an approved list for selecting the object properties that will be stringified.
  * @param space Adds indentation, white space, and line break characters to the return-value JSON text to make it easier to read.
  * @return {string}
  */
-Functions.stringifyJSON = function (json, replacer = null, space = 0) {
+Functions.stringifyJSON = function (value, replacer = null, space = 0) {
     try {
-        return JSON.stringify(JSON.parse(json), replacer, space);
+        // If already an object/array, stringify directly
+        if (typeof value === 'object' && value !== null) {
+            return JSON.stringify(value, replacer, space);
+        }
+
+        // If string, try to parse then stringify (normalizes formatting)
+        if (typeof value === 'string') {
+            return JSON.stringify(JSON.parse(value), replacer, space);
+        }
+
+        // Fallback: force string
+        return String(value);
     } catch (e) {
-        return json;
+        return String(value);
     }
 };
 

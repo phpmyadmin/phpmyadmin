@@ -457,6 +457,7 @@ class ResultsTest extends AbstractTestCase
                     false,
                     'foo',
                     3,
+                    '',
                 ],
             ],
             [
@@ -467,6 +468,7 @@ class ResultsTest extends AbstractTestCase
                     true,
                     'f...',
                     3,
+                    '',
                 ],
             ],
             [
@@ -477,6 +479,7 @@ class ResultsTest extends AbstractTestCase
                     false,
                     'foo',
                     3,
+                    '',
                 ],
             ],
             [
@@ -487,6 +490,7 @@ class ResultsTest extends AbstractTestCase
                     false,
                     'foo',
                     3,
+                    '',
                 ],
             ],
         ];
@@ -759,7 +763,8 @@ class ResultsTest extends AbstractTestCase
                 [],
                 '<td data-decimals="0" data-type="string" '
                 . 'data-originallength="11" '
-                . 'class="grid_edit pre_wrap">foo bar baz</td>' . "\n",
+                . 'class="grid_edit pre_wrap" data-original-value="foo&#x20;bar&#x20;baz">'
+                . 'foo bar baz</td>' . "\n",
             ],
             [
                 'all',
@@ -774,7 +779,8 @@ class ResultsTest extends AbstractTestCase
                 [],
                 '<td data-decimals="0" data-type="string" '
                 . 'data-originallength="11" '
-                . 'class="grid_edit text-nowrap transformed">foo bar baz</td>' . "\n",
+                . 'class="grid_edit text-nowrap transformed" data-original-value="foo&#x20;bar&#x20;baz">'
+                . 'foo bar baz</td>' . "\n",
             ],
             [
                 'all',
@@ -789,7 +795,9 @@ class ResultsTest extends AbstractTestCase
                 [],
                 '<td data-decimals="0" data-type="datetime" '
                 . 'data-originallength="19" '
-                . 'class="grid_edit text-nowrap">2020-09-20 16:35:00</td>' . "\n",
+                . 'class="grid_edit text-nowrap" '
+                . 'data-original-value="2020-09-20&#x20;16&#x3A;35&#x3A;00">'
+                . '2020-09-20 16:35:00</td>' . "\n",
             ],
         ];
     }
@@ -1583,25 +1591,31 @@ class ResultsTest extends AbstractTestCase
                 'column_at_right_side' => "\n" . '<td class="d-print-none"></td>',
             ],
             'body' => '<tr><td data-decimals="0" data-type="real" class="'
-                . 'text-end data not_null text-nowrap">1</td>' . "\n"
+                . 'text-end data not_null text-nowrap" data-original-value="1">1</td>' . "\n"
                 . '<td data-decimals="0" data-type="string" data-originallength="4" class="'
-                . 'data not_null text pre_wrap">abcd</td>' . "\n"
+                . 'data not_null text pre_wrap" data-original-value="abcd">abcd</td>' . "\n"
                 . '<td data-decimals="0" data-type="datetime" data-originallength="19" class="'
-                . 'data not_null datetimefield text-nowrap">2011-01-20 02:00:02</td>' . "\n"
+                . 'data not_null datetimefield text-nowrap" '
+                . 'data-original-value="2011-01-20&#x20;02&#x3A;00&#x3A;02">2011-01-20 02:00:02</td>'
+                . "\n"
                 . '</tr>' . "\n"
                 . '<tr><td data-decimals="0" data-type="real" class="'
-                . 'text-end data not_null text-nowrap">2</td>' . "\n"
+                . 'text-end data not_null text-nowrap" data-original-value="2">2</td>' . "\n"
                 . '<td data-decimals="0" data-type="string" data-originallength="3" class="'
-                . 'data not_null text pre_wrap">foo</td>' . "\n"
+                . 'data not_null text pre_wrap" data-original-value="foo">foo</td>' . "\n"
                 . '<td data-decimals="0" data-type="datetime" data-originallength="19" class="'
-                . 'data not_null datetimefield text-nowrap">2010-01-20 02:00:02</td>' . "\n"
+                . 'data not_null datetimefield text-nowrap" '
+                . 'data-original-value="2010-01-20&#x20;02&#x3A;00&#x3A;02">2010-01-20 02:00:02</td>'
+                . "\n"
                 . '</tr>' . "\n"
                 . '<tr><td data-decimals="0" data-type="real" class="'
-                . 'text-end data not_null text-nowrap">3</td>' . "\n"
+                . 'text-end data not_null text-nowrap" data-original-value="3">3</td>' . "\n"
                 . '<td data-decimals="0" data-type="string" data-originallength="4" class="'
-                . 'data not_null text pre_wrap">Abcd</td>' . "\n"
+                . 'data not_null text pre_wrap" data-original-value="Abcd">Abcd</td>' . "\n"
                 . '<td data-decimals="0" data-type="datetime" data-originallength="19" class="'
-                . 'data not_null datetimefield text-nowrap">2012-01-20 02:00:02</td>' . "\n"
+                . 'data not_null datetimefield text-nowrap" '
+                . 'data-original-value="2012-01-20&#x20;02&#x3A;00&#x3A;02">2012-01-20 02:00:02</td>'
+                . "\n"
                 . '</tr>' . "\n",
             'bulk_links' => [],
             'operations' => [
