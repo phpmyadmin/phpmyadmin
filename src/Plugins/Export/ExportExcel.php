@@ -23,7 +23,6 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 
 use function __;
 use function implode;
-use function in_array;
 use function is_string;
 use function preg_replace;
 use function str_replace;
@@ -261,10 +260,9 @@ class ExportExcel extends ExportPlugin
     /** @return 'win'|'mac_excel2003'|'mac_excel2008' */
     private function setEdition(string $edition): string
     {
-        if (in_array($edition, ['mac_excel2003', 'mac_excel2008'], true)) {
-            return $edition;
-        }
-
-        return 'win';
+        return match ($edition) {
+            'mac_excel2003', 'mac_excel2008' => $edition,
+            default => 'win',
+        };
     }
 }

@@ -22,6 +22,7 @@ use function __;
 use function array_key_exists;
 use function count;
 use function ksort;
+use function max;
 
 /**
  * Adapted from a LGPL script by Philip Clarke
@@ -155,7 +156,7 @@ class Pdf extends PdfLib
                 $this->setXY($l, $this->tMargin);
                 $this->MultiCell($this->tablewidths[$col], $this->FontSizePt, $txt ?? 'NULL');
                 $l += $this->tablewidths[$col];
-                $maxY = $maxY < $this->GetY() ? $this->GetY() : $maxY;
+                $maxY = max($maxY, $this->GetY());
             }
 
             $this->setXY($this->lMargin, $this->tMargin);

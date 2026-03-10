@@ -7,7 +7,6 @@ namespace PhpMyAdmin\Controllers\Import;
 use PhpMyAdmin\Bookmarks\Bookmark;
 use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\Config;
-use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
@@ -704,8 +703,6 @@ final readonly class ImportController implements InvocableController
         if (Import::$result) {
             // Save a Bookmark with more than one queries (if Bookmark label given).
             if (! empty($request->getParsedBodyParam('bkm_label')) && Import::$importText !== '') {
-                $relation = new Relation($this->dbi);
-
                 $this->sql->storeTheQueryAsBookmark(
                     Current::$database,
                     $this->config->selectedServer['user'],

@@ -252,12 +252,12 @@ class TwigLintCommand extends Command
     }
 
     /** @return string[] */
-    private function getContext(string $template, int $line, int $context = 3): array
+    private function getContext(string $template, int $line): array
     {
         $lines = explode("\n", $template);
 
-        $position = max(0, $line - $context);
-        $max = min(count($lines), $line - 1 + $context);
+        $position = max(0, $line - 3);
+        $max = min(count($lines), $line - 1 + 3);
 
         $result = [];
         while ($position < $max) {

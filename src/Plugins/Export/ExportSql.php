@@ -2635,21 +2635,19 @@ class ExportSql extends ExportPlugin
     /** @return 'NONE'|'ANSI'|'DB2'|'MAXDB'|'MYSQL323'|'MYSQL40'|'MSSQL'|'ORACLE'|'TRADITIONAL' */
     private function setCompatibility(string $mode): string
     {
-        if (in_array($mode, ['ANSI', 'DB2', 'MAXDB', 'MYSQL323', 'MYSQL40', 'MSSQL', 'ORACLE', 'TRADITIONAL'], true)) {
-            return $mode;
-        }
-
-        return 'NONE';
+        return match ($mode) {
+            'ANSI', 'DB2', 'MAXDB', 'MYSQL323', 'MYSQL40', 'MSSQL', 'ORACLE', 'TRADITIONAL' => $mode,
+            default => 'NONE',
+        };
     }
 
     /** @return 'INSERT'|'UPDATE'|'REPLACE' */
     private function setType(string $type): string
     {
-        if (in_array($type, ['UPDATE', 'REPLACE'], true)) {
-            return $type;
-        }
-
-        return 'INSERT';
+        return match ($type) {
+            'UPDATE', 'REPLACE' => $type,
+            default => 'INSERT',
+        };
     }
 
     public function setAutoIncrement(bool $autoIncrement): void
@@ -2660,11 +2658,10 @@ class ExportSql extends ExportPlugin
     /** @return 'complete'|'extended'|'both'|'none' */
     private function setInsertSyntax(string $syntax): string
     {
-        if (in_array($syntax, ['complete', 'extended', 'none'], true)) {
-            return $syntax;
-        }
-
-        return 'both';
+        return match ($syntax) {
+            'complete', 'extended', 'none' => $syntax,
+            default => 'both',
+        };
     }
 
     /** @return int<0, max> */

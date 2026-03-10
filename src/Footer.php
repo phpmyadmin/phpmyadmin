@@ -48,7 +48,7 @@ class Footer
      *
      * @return mixed Reference passed object
      */
-    private static function removeRecursion(mixed &$object, array $stack = []): mixed
+    private static function removeRecursion(mixed $object, array $stack = []): mixed
     {
         if ((is_object($object) || is_array($object)) && $object) {
             if ($object instanceof Traversable) {
@@ -57,7 +57,7 @@ class Footer
                 $stack[] = $object;
                 // @phpstan-ignore-next-line
                 foreach ($object as &$subObject) {
-                    self::removeRecursion($subObject, $stack);
+                    $subObject = self::removeRecursion($subObject, $stack);
                 }
             } else {
                 $object = '***RECURSION***';
@@ -74,8 +74,7 @@ class Footer
     {
         $retval = '\'false\'';
         if ($this->config->config->debug->sql && empty($_REQUEST['no_debug']) && ! empty($_SESSION['debug'])) {
-            // Remove recursions and iterators from $_SESSION['debug']
-            self::removeRecursion($_SESSION['debug']);
+            $_SESSION['debug'] = self::removeRecursion($_SESSION['debug']);
 
             $retval = (string) json_encode($_SESSION['debug']);
             $_SESSION['debug'] = [];

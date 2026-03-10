@@ -12,7 +12,6 @@ use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
 use function assert;
-use function is_string;
 
 final class SqlQueryGlobalSetting implements MiddlewareInterface
 {
@@ -28,11 +27,7 @@ final class SqlQueryGlobalSetting implements MiddlewareInterface
     {
         $sqlQuery = '';
         if ($request->isPost()) {
-            /** @var mixed $sqlQuery */
-            $sqlQuery = $request->getParsedBodyParam('sql_query');
-            if (! is_string($sqlQuery)) {
-                $sqlQuery = '';
-            }
+            $sqlQuery = $request->getParsedBodyParamAsString('sql_query', '');
         }
 
         Current::$sqlQuery = $sqlQuery;
