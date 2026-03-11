@@ -8,12 +8,11 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Gis;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Core;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Gis\Ds\Extent;
+use PhpMyAdmin\Gis\Ds\FileDownload;
 use PhpMyAdmin\Gis\Ds\ScaleData;
 use PhpMyAdmin\Image\ImageWrapper;
-use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Util;
 use TCPDF;
 
@@ -22,9 +21,8 @@ use function count;
 use function htmlspecialchars;
 use function is_string;
 use function max;
-use function mb_strlen;
-use function mb_strtolower;
-use function mb_substr;
+use function ob_get_clean;
+use function ob_start;
 use function rtrim;
 use function trim;
 
@@ -247,43 +245,6 @@ class GisVisualization
     }
 
     /**
-     * Sanitizes the file name.
-     *
-     * @param string $fileName file name
-     * @param string $ext      extension of the file
-     *
-     * @return string the sanitized file name
-     */
-    private function sanitizeName(string $fileName, string $ext): string
-    {
-        $fileName = Sanitize::sanitizeFilename($fileName);
-
-        // Check if the user already added extension;
-        // get the substring where the extension would be if it was included
-        $requiredExtension = '.' . $ext;
-        $extensionLength = mb_strlen($requiredExtension);
-        $userExtension = mb_substr($fileName, -$extensionLength);
-        if (mb_strtolower($userExtension) !== $requiredExtension) {
-            $fileName .= $requiredExtension;
-        }
-
-        return $fileName;
-    }
-
-    /**
-     * Handles common tasks of writing the visualization to file for various formats.
-     *
-     * @param string $fileName file name
-     * @param string $type     mime type
-     * @param string $ext      extension of the file
-     */
-    private function writeToFile(string $fileName, string $type, string $ext): void
-    {
-        $fileName = $this->sanitizeName($fileName, $ext);
-        Core::downloadHeader($fileName, $type);
-    }
-
-    /**
      * Generate the visualization in SVG format.
      *
      * @return string the generated image resource
@@ -312,16 +273,10 @@ class GisVisualization
         return $this->svg();
     }
 
-    /**
-     * Saves as a SVG image to a file.
-     *
-     * @param string $fileName File name
-     */
-    public function toFileAsSvg(string $fileName): void
+    /** Get SVG image as string + type infos. */
+    private function asSvgFile(): FileDownload
     {
-        $img = $this->svg();
-        $this->writeToFile($fileName, 'image/svg+xml', 'svg');
-        echo $img;
+        return new FileDownload(mime: 'image/svg+xml', extension: 'svg', blob: $this->svg());
     }
 
     /**
@@ -345,20 +300,22 @@ class GisVisualization
         return $image;
     }
 
-    /**
-     * Saves as a PNG image to a file.
-     *
-     * @param string $fileName File name
-     */
-    public function toFileAsPng(string $fileName): void
+    /** Get PNG image as string (blob) + type infos. */
+    private function asPngFile(): FileDownload|null
     {
         $image = $this->png();
         if ($image === null) {
-            return;
+            return null;
         }
 
-        $this->writeToFile($fileName, 'image/png', 'png');
-        $image->png(null, 9, PNG_ALL_FILTERS);
+        ob_start();
+        $ok = $image->png(null, 9, PNG_ALL_FILTERS);
+        $output = ob_get_clean();
+        if (! $ok || $output === false) {
+            return null;
+        }
+
+        return new FileDownload(mime: 'image/png', extension: 'png', blob: $output);
     }
 
     /**
@@ -371,18 +328,15 @@ class GisVisualization
         return $this->prepareDataSet($this->data, 'ol');
     }
 
-    /**
-     * Saves as a PDF to a file.
-     *
-     * @param string $fileName File name
-     */
-    public function toFileAsPdf(string $fileName): void
+    /** Get image PDF as string (blob) + type infos. */
+    private function asPdfFile(): FileDownload
     {
-        $fileName = $this->sanitizeName($fileName, 'pdf');
         $pdf = $this->createEmptyPdf(Config::getInstance()->config->PDFDefaultPageSize ?? 'A4');
         $this->prepareDataSet($this->data, 'pdf', $pdf);
 
-        $pdf->Output($fileName, 'D');
+        $blob = $pdf->Output('', 'S');
+
+        return new FileDownload(mime: 'application/pdf', extension: 'pdf', blob: $blob);
     }
 
     private function createEmptyPdf(string $format): TCPDF
@@ -406,18 +360,15 @@ class GisVisualization
     /**
      * Convert file to given format
      *
-     * @param string $filename Filename
-     * @param string $format   Output format
+     * @param 'svg'|'png'|'pdf' $format Output format
      */
-    public function toFile(string $filename, string $format): void
+    public function toFile(string $format): FileDownload|null
     {
-        if ($format === 'svg') {
-            $this->toFileAsSvg($filename);
-        } elseif ($format === 'png') {
-            $this->toFileAsPng($filename);
-        } elseif ($format === 'pdf') {
-            $this->toFileAsPdf($filename);
-        }
+        return match ($format) {
+            'svg' => $this->asSvgFile(),
+            'png' => $this->asPngFile(),
+            'pdf' => $this->asPdfFile(),
+        };
     }
 
     /**

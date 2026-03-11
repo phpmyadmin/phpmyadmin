@@ -2198,12 +2198,6 @@
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['pos']]]></code>
     </MixedArrayAccess>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$_GET['fileFormat']]]></code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_GET['fileFormat']]]></code>
-    </PossiblyInvalidCast>
     <RiskyCast>
       <code><![CDATA[$_POST['pos'] ?? $_GET['pos'] ?? $_SESSION['tmpval']['pos']]]></code>
       <code><![CDATA[$_POST['session_max_rows'] ?? $_GET['session_max_rows']]]></code>
