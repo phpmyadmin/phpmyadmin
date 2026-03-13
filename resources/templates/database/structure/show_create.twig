@@ -16,7 +16,7 @@
             {% for table in tables.tables %}
               <tr>
                 <td><strong>{{ table.name|raw }}</strong></td>
-                <td>{{ table.show_create|raw }}</td>
+                <td><pre><code class="sql" dir="ltr">{{ table.show_create|raw }}</code></pre></td>
               </tr>
             {% endfor %}
           </tbody>
@@ -40,7 +40,7 @@
             {% for view in tables.views %}
               <tr>
                 <td><strong>{{ view.name }}</strong></td>
-                <td>{{ view.show_create|raw }}</td>
+                <td><pre><code class="sql" dir="ltr">{{ view.show_create|raw }}</code></pre></td>
               </tr>
             {% endfor %}
           </tbody>
