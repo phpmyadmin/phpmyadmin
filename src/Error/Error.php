@@ -238,7 +238,7 @@ class Error extends Message
      */
     public function getFile(): string
     {
-        return $this->file;
+        return str_replace(DIRECTORY_SEPARATOR, '/', $this->file);
     }
 
     /**
