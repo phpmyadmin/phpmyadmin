@@ -36537,7 +36537,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'ddlog' on mixed\\.$#"
-			count: 4
+			count: 1
 			path: libraries/classes/Tracking.php
 
 		-

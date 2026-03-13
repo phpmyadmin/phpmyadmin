@@ -642,24 +642,27 @@ class Tracking
             . '</a>]</h3>';
         $data = Tracker::getTrackedData($_POST['db'], $_POST['table'], $_POST['version']);
 
-        // Get first DROP TABLE/VIEW and CREATE TABLE/VIEW statements
-        $drop_create_statements = $data['ddlog'][0]['statement'];
+        // ddlog can be empty if all statements are deleted
+        if ($data['ddlog'] !== []) {
+            // Get first DROP TABLE/VIEW and CREATE TABLE/VIEW statements
+            $drop_create_statements = $data['ddlog'][0]['statement'];
 
-        if (
-            mb_strstr($data['ddlog'][0]['statement'], 'DROP TABLE')
-            || mb_strstr($data['ddlog'][0]['statement'], 'DROP VIEW')
-        ) {
-            $drop_create_statements .= $data['ddlog'][1]['statement'];
+            if (
+                mb_strstr($data['ddlog'][0]['statement'], 'DROP TABLE')
+                || mb_strstr($data['ddlog'][0]['statement'], 'DROP VIEW')
+            ) {
+                $drop_create_statements .= $data['ddlog'][1]['statement'];
+            }
+
+            // Print SQL code
+            $html .= Generator::getMessage(
+                sprintf(
+                    __('Version %s snapshot (SQL code)'),
+                    htmlspecialchars($_POST['version'])
+                ),
+                $drop_create_statements
+            );
         }
-
-        // Print SQL code
-        $html .= Generator::getMessage(
-            sprintf(
-                __('Version %s snapshot (SQL code)'),
-                htmlspecialchars($_POST['version'])
-            ),
-            $drop_create_statements
-        );
 
         // Unserialize snapshot
         $temp = Core::safeUnserialize($data['schema_snapshot']);
