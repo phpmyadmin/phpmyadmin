@@ -397,6 +397,7 @@ class Types
                     'SOUNDEX',
                     'SPACE',
                     'TRIM',
+                    'ULID',
                     'UNCOMPRESS',
                     'UNHEX',
                     'UPPER',
