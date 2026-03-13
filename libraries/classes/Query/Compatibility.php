@@ -241,6 +241,17 @@ class Compatibility
     }
 
     /**
+     * Check whether the database supports XMLTYPE data type
+     *
+     * @return bool true if XMLTYPE is supported
+     */
+    public static function isXmlTypeSupported(DatabaseInterface $dbi): bool
+    {
+        // @see: https://mariadb.com/docs/server/reference/data-types/string-data-types/xmltype
+        return $dbi->isMariaDB() && $dbi->getVersion() >= 120300; // 12.3.0
+    }
+
+    /**
      * Returns whether the database server supports virtual columns
      */
     public static function supportsStoredKeywordForVirtualColumns(int $serverVersion): bool

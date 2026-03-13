@@ -82,6 +82,31 @@ class CompatibilityTest extends TestCase
      * @return array[]
      * @psalm-return array<string, array{bool, bool, int}>
      */
+    public static function providerForTestIsXmlTypeSupported(): array
+    {
+        return [
+            'MariaDB 12.2.99' => [false, true, 120299],
+            'MariaDB 12.3.0' => [true, true, 120300],
+        ];
+    }
+
+    /**
+     * @dataProvider providerForTestIsXmlTypeSupported
+     */
+    public function testIsXmlTypeSupported(bool $expected, bool $isMariaDb, int $version): void
+    {
+        $dbiStub = $this->createStub(DatabaseInterface::class);
+
+        $dbiStub->method('isMariaDB')->willReturn($isMariaDb);
+        $dbiStub->method('getVersion')->willReturn($version);
+
+        self::assertSame($expected, Compatibility::isXmlTypeSupported($dbiStub));
+    }
+
+    /**
+     * @return array[]
+     * @psalm-return array<string, array{bool, bool, int}>
+     */
     public static function providerForTestIsUUIDSupported(): array
     {
         return [
