@@ -160,7 +160,7 @@
                 <th>{{ t('Replica replication') }}</th>
               {% endif %}
 
-              <th>{{ t('Action') }}</th>
+              <th colspan="2">{{ t('Action') }}</th>
             </tr>
           </thead>
 
@@ -237,6 +237,12 @@
                   <a class="disableAjax" href="{{ url('/database/privileges', {'db': database.name}) }}" title="
                     {{- t('Check privileges for database "%s".')|format(database.name) }}">
                     {{ get_icon('s_rights', t('Check privileges')) }}
+                  </a>
+                </td>
+                <td class="tool">
+                  <a class="disableAjax" href="{{ url('/database/sql', {'db': database.name}) }}" title="
+                    {{- t('Run SQL queries on database "%s".')|format(database.name) }}">
+                    {{ get_icon('b_sql', t('SQL')) }}
                   </a>
                 </td>
               </tr>
