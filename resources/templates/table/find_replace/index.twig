@@ -40,14 +40,10 @@
       <div class="mb-3">
         <label class="form-label" for="columnIndexSelect">{{ t('Column:') }}</label>
         <select class="form-select" name="columnIndex" id="columnIndexSelect">
-          {% for i in 0..column_names|length - 1 %}
-            {% set type = types[column_names[i]] %}
-
-            {% if sql_types.getTypeClass(type) == 'CHAR' %}
-              <option value="{{ i }}">
-                {{- column_names[i] -}}
-              </option>
-            {% endif %}
+          {% for i, columnName in column_names %}
+            <option value="{{ i }}">
+              {{- columnName -}}
+            </option>
           {% endfor %}
         </select>
       </div>
