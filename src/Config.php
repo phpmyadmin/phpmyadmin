@@ -307,8 +307,12 @@ class Config
     private function setValueRecursive(array &$array, array $parts, mixed $value): bool
     {
         $part = array_shift($parts);
+        if (! isset($array[$part])) {
+            throw new ConfigException('Configuration option "' . $part . '" does not exist.');
+        }
+
         if ($parts === []) {
-            if (isset($array[$part]) && $array[$part] === $value) {
+            if ($array[$part] === $value) {
                 return false;
             }
 
@@ -318,7 +322,7 @@ class Config
         }
 
         if (! is_array($array[$part])) {
-            throw new ConfigException('Failed to set configuration value.');
+            throw new ConfigException('Configuration option "' . $part . '" is not an array.');
         }
 
         return $this->setValueRecursive($array[$part], $parts, $value);
