@@ -1008,9 +1008,6 @@
       <code><![CDATA[Current::$database]]></code>
       <code><![CDATA[Current::$database]]></code>
     </MixedArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$parameters['table']]]></code>
-    </PossiblyInvalidCast>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
