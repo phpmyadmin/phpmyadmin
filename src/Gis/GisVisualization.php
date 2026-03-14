@@ -321,11 +321,17 @@ class GisVisualization
     /**
      * Get the data for visualization with OpenLayers.
      *
-     * @psalm-return list<mixed[]>
+     * @psalm-return array{
+     *   geometries: list<array{wkt: string, srid?: int, label?: string}>,
+     *   colors: list<list{int, int, int}>,
+     * }
      */
     public function asOl(): array
     {
-        return $this->prepareDataSet($this->data, 'ol');
+        return [
+            'geometries' => $this->prepareDataSet($this->data, 'ol'),
+            'colors' => self::COLORS,
+        ];
     }
 
     /** Get image PDF as string (blob) + type infos. */
@@ -432,7 +438,8 @@ class GisVisualization
      * @param ImageWrapper|TCPDF|null $renderer Image object in the case of png, TCPDF object in the case of pdf
      * @psalm-param T $format
      *
-     * @psalm-return (T is 'svg' ? string : (T is 'ol' ? list<mixed[]> : null)) The exported data
+     * @psalm-return (T is 'svg' ? string : (T is 'ol' ? list<array{wkt: string, srid?: int, label?: string}> : null))
+     * The exported data
      *
      * @template T of 'ol'|'pdf'|'png'|'svg'
      */
@@ -471,7 +478,7 @@ class GisVisualization
                     assert($renderer instanceof TCPDF);
                     $gisObj->prepareRowAsPdf($wkt, $label, $color, $scaleData, $renderer);
                 } elseif ($format === 'ol') {
-                    $olDataset[] = $gisObj->prepareRowAsOl($wkt, (int) $row['srid'], $label, $color);
+                    $olDataset[] = $gisObj->prepareRowAsOl($wkt, (int) $row['srid'], $label);
                 }
 
                 $colorIndex = ($colorIndex + 1) % count(self::COLORS);

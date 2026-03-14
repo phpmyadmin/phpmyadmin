@@ -2,6 +2,7 @@ import $ from 'jquery';
 import { AJAX } from './modules/ajax.ts';
 import { CommonParams } from './modules/common.ts';
 import { ajaxShowMessage } from './modules/ajax-message.ts';
+import { OlData } from './table/gis_visualization.ts';
 
 /**
  * @fileoverview    functions used in GIS data editor
@@ -23,7 +24,7 @@ function disposeGISEditorVisualization () {
 /**
  * Initialize the visualization in the GIS data editor.
  */
-function initGISEditorVisualization (olData: any[]) {
+function initGISEditorVisualization (olData: OlData) {
     visualizationController = new window.GisVisualizationController(olData);
 }
 
