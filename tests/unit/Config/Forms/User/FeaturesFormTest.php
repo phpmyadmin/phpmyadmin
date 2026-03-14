@@ -112,7 +112,6 @@ final class FeaturesFormTest extends AbstractTestCase
         self::assertSame(
             [
                 'PmaNoRelation_DisableWarning' => 'PmaNoRelation_DisableWarning',
-                'SuhosinDisableWarning' => 'SuhosinDisableWarning',
                 'LoginCookieValidityDisableWarning' => 'LoginCookieValidityDisableWarning',
                 'ReservedWordDisableWarning' => 'ReservedWordDisableWarning',
             ],
@@ -181,7 +180,6 @@ final class FeaturesFormTest extends AbstractTestCase
                 'TitleDatabase',
                 'TitleServer',
                 'PmaNoRelation_DisableWarning',
-                'SuhosinDisableWarning',
                 'LoginCookieValidityDisableWarning',
                 'ReservedWordDisableWarning',
                 'Console/Mode',
