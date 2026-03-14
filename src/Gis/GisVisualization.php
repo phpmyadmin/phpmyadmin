@@ -414,14 +414,17 @@ class GisVisualization
         $scale = $ratio === 0.0 ? 1.0 : 1.0 / $ratio;
 
         // Center plot
-        $x = $ratio === 0.0 || $xRatio < $yRatio
-            ? ($extent->maxX + $extent->minX - $this->width / $scale) / 2
-            : $extent->minX - ($border / $scale);
-        $y = $ratio === 0.0 || $xRatio >= $yRatio
-            ? ($extent->maxY + $extent->minY - $this->height / $scale) / 2
-            : $extent->minY - ($border / $scale);
+        $offsetX = -$extent->minX * $scale + $border;
+        if ($ratio === 0.0 || $xRatio < $yRatio) {
+            $offsetX += ($plotWidth - ($extent->maxX - $extent->minX) * $scale) / 2;
+        }
 
-        return new ScaleData(scale: $scale, offsetX: $x, offsetY: $y, height: $this->height);
+        $offsetY = -$extent->minY * $scale + $border - $this->height;
+        if ($ratio === 0.0 || $xRatio > $yRatio) {
+            $offsetY += ($plotHeight - ($extent->maxY - $extent->minY) * $scale) / 2;
+        }
+
+        return new ScaleData(scale: $scale, offsetX: $offsetX, offsetY: $offsetY);
     }
 
     /**

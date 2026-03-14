@@ -250,8 +250,8 @@ abstract class GisGeometry
                 $x = (float) $coordinates[0];
                 $y = (float) $coordinates[1];
                 if ($scaleData !== null) {
-                    $x = ($x - $scaleData->offsetX) * $scaleData->scale;
-                    $y = $scaleData->height - ($y - $scaleData->offsetY) * $scaleData->scale;
+                    $x = $x * $scaleData->scale + $scaleData->offsetX;
+                    $y = -$y * $scaleData->scale - $scaleData->offsetY;
                 }
             } else {
                 $x = 0.0;

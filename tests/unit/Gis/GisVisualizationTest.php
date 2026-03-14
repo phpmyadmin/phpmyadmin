@@ -78,56 +78,68 @@ class GisVisualizationTest extends AbstractTestCase
         return $arch;
     }
 
-    /**
-     * Scale the data set
-     *
-     * @param list<array{abc: string|int|null}> $data
-     */
+    /** @param list<array{wkt:string|null}> $data */
     #[DataProvider('providerForTestScaleDataSet')]
     public function testScaleDataSet(ScaleData|null $expected, array $data): void
     {
-        $gis = GisVisualization::getByData(
+        $vis = GisVisualization::getByData(
             $data,
-            new GisVisualizationSettings(width: 600, height: 450, spatialColumn: 'abc'),
+            new GisVisualizationSettings(width: 200, height: 150, spatialColumn: 'wkt'),
         );
-        $dataSet = (new ReflectionMethod(GisVisualization::class, 'scaleDataSet'))
-            ->invoke($gis, $data);
+        /** @var ScaleData|null $scaleData */
+        $scaleData = (new ReflectionMethod(GisVisualization::class, 'scaleDataSet'))
+            ->invoke($vis, $data);
 
-        self::assertEquals($expected, $dataSet);
+        self::assertEquals($expected, $scaleData);
     }
 
-    /** @return array<string, list{ScaleData|null, list<array{abc: string|int|null}>}> */
+    /** @return array<string,list{ScaleData|null,list<array{wkt:string|null}>}> */
     public static function providerForTestScaleDataSet(): array
     {
         return [
-            'no valid data' => [
-                null,
+            'empty' => [null, []],
+            'null' => [null, [['wkt' => null]]],
+            'invalid and valid' => [
+                new ScaleData(scale: 1.0, offsetX: 100.0, offsetY: -75.0),
                 [
-                    ['abc' => null], // The column is nullable
-                    ['abc' => 2], // Some impossible test case
+                    ['wkt' => 'asdf'],
+                    ['wkt' => 'POINT(0 0)'],
                 ],
             ],
-            'partially valid data' => [
-                new ScaleData(offsetX: -45.35714285714286, offsetY: 42.85714285714286, scale: 2.1, height: 450),
+            'Point - multiple' => [
+                new ScaleData(scale: 120.0, offsetX: 40.0, offsetY: -135.0),
                 [
-                    ['abc' => null], // The column is nullable
-                    ['abc' => 2], // Some impossible test case
-                    ['abc' => 'MULTILINESTRING((36 140,47 233,62 75),(36 100,17 233,178 93))'],
-                    ['abc' => 'POINT(100 250)'],
-                    ['abc' => 'MULTIPOINT(125 50,156 250,178 143,175 80)'],
+                    ['wkt' => 'POINT(0 0)'],
+                    ['wkt' => 'POINT(1 1)'],
                 ],
             ],
-            'Regression test for bug with 0.0 sentinel values' => [
-                new ScaleData(
-                    scale: 32.30769230769231,
-                    offsetX: -2.7857142857142865,
-                    offsetY: -0.4642857142857143,
-                    height: 450,
-                ),
-                [
-                    ['abc' => 'MULTIPOLYGON(((0 0,0 3,3 3,3 0,0 0),(1 1,1 2,2 2,2 1,1 1)))'],
-                    ['abc' => 'MULTIPOLYGON(((10 10,10 13,13 13,13 10,10 10),(11 11,11 12,12 12,12 11,11 11)))'],
-                ],
+            'Point - centered' => [
+                new ScaleData(scale: 1.0, offsetX: 100.0, offsetY: -75.0),
+                [['wkt' => 'POINT(0 0)']],
+            ],
+            'Linestring - vertically centered' => [
+                new ScaleData(scale: 0.1, offsetX: 0.0, offsetY: -76.0),
+                [['wkt' => 'LINESTRING(150 10,1850 10)']],
+            ],
+            'Polygon - empty space at the top and bottom' => [
+                new ScaleData(scale: 17.0, offsetX: -155.0, offsetY: -75.0),
+                [['wkt' => 'POLYGON((10 -1,20 -1,20 1,10 1,10 -1))']],
+            ],
+            'MultiPoint - horizontally centered' => [
+                new ScaleData(scale: 10.0, offsetX: -99900.0, offsetY: -135.0),
+                [['wkt' => 'MULTIPOINT(10000 0,10000 12)']],
+            ],
+            'MultiLineString - fitting exactly' => [
+                new ScaleData(scale: 1.0, offsetX: 0.0, offsetY: -150.0),
+                [['wkt' => 'MULTILINESTRING((15 15,100 100),(185 135,100 50))']],
+            ],
+            'MultiPolygon - fitting exactly' => [
+                new ScaleData(scale: 60.0, offsetX: 40.0, offsetY: -75.0),
+                [['wkt' => 'MULTIPOLYGON(((0 0,1 1,0 1,0 0)),((1 -1,2 -1,2 0,1 -1)))']],
+            ],
+            'GeometryCollection - empty space at either side' => [
+                new ScaleData(scale: 6.0, offsetX: 1000.0, offsetY: -1335.0),
+                [['wkt' => 'GEOMETRYCOLLECTION(MULTIPOINT(-149 201,-151 219),LINESTRING(-150 200,-150 220))']],
             ],
         ];
     }
