@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-03-15 00:41+0000\n"
-"PO-Revision-Date: 2026-03-02 03:09+0000\n"
+"PO-Revision-Date: 2026-03-16 02:09+0000\n"
 "Last-Translator: Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/id/>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.16.1-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 "X-Poedit-Basepath: ../../..\n"
 
 #: resources/templates/base.twig:40 resources/templates/login/header.twig:13
@@ -15461,13 +15461,11 @@ msgstr "Tidak ada kolom spasial yang ditemukan untuk kueri SQL ini."
 
 #: src/Controllers/Table/GisVisualizationController.php:121
 msgid "Invalid file format, expected one of: "
-msgstr ""
+msgstr "Format berkas tidak valid, diharapkan satu dari: "
 
 #: src/Controllers/Table/GisVisualizationController.php:129
-#, fuzzy
-#| msgid "Failed to open remote URL"
 msgid "Failed to create image"
-msgstr "Gagal membuka URL jauh"
+msgstr "Gagal membuat gambar"
 
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:67
 #: src/Controllers/Table/Maintenance/CheckController.php:67
