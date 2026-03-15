@@ -20756,11 +20756,6 @@ parameters:
 			path: libraries/classes/Import/Ajax.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Import/SimulateDml.php
-
-		-
 			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\DatabaseInterface\\:\\:selectDb\\(\\) expects PhpMyAdmin\\\\Dbal\\\\DatabaseName\\|string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Import/SimulateDml.php

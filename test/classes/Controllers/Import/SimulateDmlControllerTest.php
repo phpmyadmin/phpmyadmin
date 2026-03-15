@@ -27,9 +27,9 @@ class SimulateDmlControllerTest extends AbstractTestCase
      * @param array<array<mixed>> $expectedPerQuery
      * @psalm-param list<
      *   array{
-     *     simulated: string,
-     *     columns: list<string>,
-     *     result: list<list<string|int|null>>,
+     *     count: string,
+     *     select: string,
+     *     affected_rows: int,
      *   }
      * > $expectedPerQuery
      *
@@ -41,7 +41,7 @@ class SimulateDmlControllerTest extends AbstractTestCase
 
         foreach ($expectedPerQuery as $expected) {
             $this->dummyDbi->addSelectDb('PMA');
-            $this->dummyDbi->addResult($expected['simulated'], $expected['result'], $expected['columns']);
+            $this->dummyDbi->addResult($expected['count'], [[$expected['affected_rows']]]);
         }
 
         $controller = new SimulateDmlController(
@@ -68,13 +68,14 @@ class SimulateDmlControllerTest extends AbstractTestCase
         foreach ($expectedPerQuery as $idx => $expectedData) {
             /** @var DeleteStatement|UpdateStatement $statement */
             $statement = $parser->statements[$idx];
+            $selectQuery = $expectedData['select'];
             $expected = [
                 'sql_query' => Generator::formatSql($statement->build()),
-                'matched_rows' => count($expectedData['result']),
+                'matched_rows' => $expectedData['affected_rows'],
                 'matched_rows_url' => Url::getFromRoute('/sql', [
                     'db' => 'PMA',
-                    'sql_query' => $expectedData['simulated'],
-                    'sql_signature' => Core::signSqlQuery($expectedData['simulated']),
+                    'sql_query' => $selectQuery,
+                    'sql_signature' => Core::signSqlQuery($selectQuery),
                 ]),
             ];
 
@@ -88,9 +89,9 @@ class SimulateDmlControllerTest extends AbstractTestCase
      *   array{
      *     string,
      *     list<array{
-     *       simulated: string,
-     *       columns: list<string>,
-     *       result: list<list<string|int|null>>,
+     *       count: string,
+     *       select: string,
+     *       affected_rows: int,
      *     }>
      *   }
      * >
@@ -110,13 +111,17 @@ class SimulateDmlControllerTest extends AbstractTestCase
                 'UPDATE t SET `b` = NULL, a = a ORDER BY id DESC LIMIT 3',
                 [
                     [
-                        'simulated' =>
-                            'SELECT * FROM (' .
-                            'SELECT *, a AS `a ``new```, NULL AS `b ``new``` FROM `t` ORDER BY id DESC LIMIT 3' .
+                        'count' =>
+                            'SELECT COUNT(*) FROM (' .
+                            'SELECT `a`, `b`, a AS `a *new*`, NULL AS `b *new*` FROM `t` ORDER BY id DESC LIMIT 3' .
                             ') AS `pma_tmp`' .
-                            ' WHERE NOT (`a`, `b`) <=> (`a ``new```, `b ``new```)',
-                        'columns' => ['id', 'a', 'b', 'a `new`', 'b `new`'],
-                        'result' => [[5, 2, 'test', 2, null]],
+                            ' WHERE NOT (`a`, `b`) <=> (`a *new*`, `b *new*`)',
+                        'select' =>
+                            'SELECT * FROM (' .
+                            'SELECT *, a AS `a *new*`, NULL AS `b *new*` FROM `t` ORDER BY id DESC LIMIT 3' .
+                            ') AS `pma_tmp`' .
+                            ' WHERE NOT (`a`, `b`) <=> (`a *new*`, `b *new*`)',
+                        'affected_rows' => 1,
                     ],
                 ],
             ],
@@ -124,15 +129,15 @@ class SimulateDmlControllerTest extends AbstractTestCase
                 'UPDATE `t` SET `a` = 20 WHERE `id` > 4',
                 [
                     [
-                        'simulated' =>
+                        'count' =>
+                            'SELECT COUNT(*)' .
+                            ' FROM (SELECT `a`, 20 AS `a *new*` FROM `t` WHERE `id` > 4) AS `pma_tmp`' .
+                            ' WHERE NOT (`a`) <=> (`a *new*`)',
+                        'select' =>
                             'SELECT *' .
-                            ' FROM (SELECT *, 20 AS `a ``new``` FROM `t` WHERE `id` > 4) AS `pma_tmp`' .
-                            ' WHERE NOT (`a`) <=> (`a ``new```)',
-                        'columns' => ['id', 'a', 'b', 'a `new`'],
-                        'result' => [
-                            [5, 2, 'test', 20],
-                            [6, 2, null, 20],
-                        ],
+                            ' FROM (SELECT *, 20 AS `a *new*` FROM `t` WHERE `id` > 4) AS `pma_tmp`' .
+                            ' WHERE NOT (`a`) <=> (`a *new*`)',
+                        'affected_rows' => 2,
                     ],
                 ],
             ],
@@ -140,12 +145,15 @@ class SimulateDmlControllerTest extends AbstractTestCase
                 'UPDATE `t` SET `a` = 20 WHERE 0',
                 [
                     [
-                        'simulated' =>
+                        'count' =>
+                            'SELECT COUNT(*)' .
+                            ' FROM (SELECT `a`, 20 AS `a *new*` FROM `t` WHERE 0) AS `pma_tmp`' .
+                            ' WHERE NOT (`a`) <=> (`a *new*`)',
+                        'select' =>
                             'SELECT *' .
-                            ' FROM (SELECT *, 20 AS `a ``new``` FROM `t` WHERE 0) AS `pma_tmp`' .
-                            ' WHERE NOT (`a`) <=> (`a ``new```)',
-                        'columns' => ['id', 'a', 'b', 'a `new`'],
-                        'result' => [],
+                            ' FROM (SELECT *, 20 AS `a *new*` FROM `t` WHERE 0) AS `pma_tmp`' .
+                            ' WHERE NOT (`a`) <=> (`a *new*`)',
+                        'affected_rows' => 0,
                     ],
                 ],
             ],
@@ -153,16 +161,15 @@ class SimulateDmlControllerTest extends AbstractTestCase
                 'UPDATE `t` SET `a` = 2',
                 [
                     [
-                        'simulated' =>
+                        'count' =>
+                            'SELECT COUNT(*)' .
+                            ' FROM (SELECT `a`, 2 AS `a *new*` FROM `t`) AS `pma_tmp`' .
+                            ' WHERE NOT (`a`) <=> (`a *new*`)',
+                        'select' =>
                             'SELECT *' .
-                            ' FROM (SELECT *, 2 AS `a ``new``` FROM `t`) AS `pma_tmp`' .
-                            ' WHERE NOT (`a`) <=> (`a ``new```)',
-                        'columns' => ['id', 'a', 'b', 'a `new`'],
-                        'result' => [
-                            [2, 1, null, 2],
-                            [3, 1, null, 2],
-                            [4, 1, null, 2],
-                        ],
+                            ' FROM (SELECT *, 2 AS `a *new*` FROM `t`) AS `pma_tmp`' .
+                            ' WHERE NOT (`a`) <=> (`a *new*`)',
+                        'affected_rows' => 3,
                     ],
                 ],
             ],
@@ -170,16 +177,15 @@ class SimulateDmlControllerTest extends AbstractTestCase
                 'UPDATE `t` SET `id` = 20 ORDER BY `id` ASC LIMIT 3',
                 [
                     [
-                        'simulated' =>
+                        'count' =>
+                            'SELECT COUNT(*)' .
+                            ' FROM (SELECT `id`, 20 AS `id *new*` FROM `t` ORDER BY `id` ASC LIMIT 3) AS `pma_tmp`' .
+                            ' WHERE NOT (`id`) <=> (`id *new*`)',
+                        'select' =>
                             'SELECT *' .
-                            ' FROM (SELECT *, 20 AS `id ``new``` FROM `t` ORDER BY `id` ASC LIMIT 3) AS `pma_tmp`' .
-                            ' WHERE NOT (`id`) <=> (`id ``new```)',
-                        'columns' => ['id', 'a', 'b', 'id `new`'],
-                        'result' => [
-                            [1, 2, 'test', 20],
-                            [2, 1, null, 20],
-                            [3, 1, null, 20],
-                        ],
+                            ' FROM (SELECT *, 20 AS `id *new*` FROM `t` ORDER BY `id` ASC LIMIT 3) AS `pma_tmp`' .
+                            ' WHERE NOT (`id`) <=> (`id *new*`)',
+                        'affected_rows' => 3,
                     ],
                 ],
             ],
@@ -187,12 +193,15 @@ class SimulateDmlControllerTest extends AbstractTestCase
                 'UPDATE `t` SET `id` = 2, `id` = 1 WHERE `id` = 1',
                 [
                     [
-                        'simulated' =>
+                        'count' =>
+                            'SELECT COUNT(*)' .
+                            ' FROM (SELECT `id`, 1 AS `id *new*` FROM `t` WHERE `id` = 1) AS `pma_tmp`' .
+                            ' WHERE NOT (`id`) <=> (`id *new*`)',
+                        'select' =>
                             'SELECT *' .
-                            ' FROM (SELECT *, 1 AS `id ``new``` FROM `t` WHERE `id` = 1) AS `pma_tmp`' .
-                            ' WHERE NOT (`id`) <=> (`id ``new```)',
-                        'columns' => ['id', 'a', 'b', 'id `new`'],
-                        'result' => [],
+                            ' FROM (SELECT *, 1 AS `id *new*` FROM `t` WHERE `id` = 1) AS `pma_tmp`' .
+                            ' WHERE NOT (`id`) <=> (`id *new*`)',
+                        'affected_rows' => 0,
                     ],
                 ],
             ],
@@ -200,12 +209,9 @@ class SimulateDmlControllerTest extends AbstractTestCase
                 'DELETE FROM `t` WHERE `id` > 4',
                 [
                     [
-                        'simulated' => 'SELECT * FROM `t` WHERE `id` > 4',
-                        'columns' => ['id', 'a', 'b'],
-                        'result' => [
-                            [5, 2, 'test'],
-                            [6, 2, null],
-                        ],
+                        'count' => 'SELECT COUNT(*) FROM (SELECT 1 FROM `t` WHERE `id` > 4) AS pma_tmp',
+                        'select' => 'SELECT * FROM (SELECT * FROM `t` WHERE `id` > 4) AS pma_tmp',
+                        'affected_rows' => 2,
                     ],
                 ],
             ],
@@ -213,9 +219,9 @@ class SimulateDmlControllerTest extends AbstractTestCase
                 'DELETE FROM `t` WHERE 0',
                 [
                     [
-                        'simulated' => 'SELECT * FROM `t` WHERE 0',
-                        'columns' => ['id', 'a', 'b'],
-                        'result' => [],
+                        'count' => 'SELECT COUNT(*) FROM (SELECT 1 FROM `t` WHERE 0) AS pma_tmp',
+                        'select' => 'SELECT * FROM (SELECT * FROM `t` WHERE 0) AS pma_tmp',
+                        'affected_rows' => 0,
                     ],
                 ],
             ],
@@ -223,13 +229,9 @@ class SimulateDmlControllerTest extends AbstractTestCase
                 'DELETE FROM `t` ORDER BY `id` ASC LIMIT 3',
                 [
                     [
-                        'simulated' => 'SELECT * FROM `t` ORDER BY `id` ASC LIMIT 3',
-                        'columns' => ['id', 'a', 'b'],
-                        'result' => [
-                            [1, 2, 'test'],
-                            [2, 1, null],
-                            [3, 1, null],
-                        ],
+                        'count' => 'SELECT COUNT(*) FROM (SELECT 1 FROM `t` ORDER BY `id` ASC LIMIT 3) AS pma_tmp',
+                        'select' => 'SELECT * FROM (SELECT * FROM `t` ORDER BY `id` ASC LIMIT 3) AS pma_tmp',
+                        'affected_rows' => 3,
                     ],
                 ],
             ],
@@ -237,31 +239,20 @@ class SimulateDmlControllerTest extends AbstractTestCase
                 'UPDATE `t` SET `b` = `a`; DELETE FROM `t` WHERE 1',
                 [
                     [
-                        'simulated' =>
+                        'count' =>
+                            'SELECT COUNT(*)' .
+                            ' FROM (SELECT `b`, `a` AS `b *new*` FROM `t`) AS `pma_tmp`' .
+                            ' WHERE NOT (`b`) <=> (`b *new*`)',
+                        'select' =>
                             'SELECT *' .
-                            ' FROM (SELECT *, `a` AS `b ``new``` FROM `t`) AS `pma_tmp`' .
-                            ' WHERE NOT (`b`) <=> (`b ``new```)',
-                        'columns' => ['id', 'a', 'b', 'b `new`'],
-                        'result' => [
-                            [1, 2, 2, 'test'],
-                            [2, 1, 1, null],
-                            [3, 1, 1, null],
-                            [4, 1, 1, null],
-                            [5, 2, 2, 'test'],
-                            [6, 2, 2, null],
-                        ],
+                            ' FROM (SELECT *, `a` AS `b *new*` FROM `t`) AS `pma_tmp`' .
+                            ' WHERE NOT (`b`) <=> (`b *new*`)',
+                        'affected_rows' => 6,
                     ],
                     [
-                        'simulated' => 'SELECT * FROM `t` WHERE 1',
-                        'columns' => ['id', 'a', 'b'],
-                        'result' => [
-                            [1, 2, 'test'],
-                            [2, 1, null],
-                            [3, 1, null],
-                            [4, 1, null],
-                            [5, 2, 'test'],
-                            [6, 2, null],
-                        ],
+                        'count' => 'SELECT COUNT(*) FROM (SELECT 1 FROM `t` WHERE 1) AS pma_tmp',
+                        'select' => 'SELECT * FROM (SELECT * FROM `t` WHERE 1) AS pma_tmp',
+                        'affected_rows' => 6,
                     ],
                 ],
             ],
@@ -269,12 +260,15 @@ class SimulateDmlControllerTest extends AbstractTestCase
                 "UPDATE `t` SET `a` = 20 -- oops\nWHERE 0",
                 [
                     [
-                        'simulated' =>
+                        'count' =>
+                            'SELECT COUNT(*)' .
+                            ' FROM (SELECT `a`, 20 AS `a *new*` FROM `t` WHERE 0) AS `pma_tmp`' .
+                            ' WHERE NOT (`a`) <=> (`a *new*`)',
+                        'select' =>
                             'SELECT *' .
-                            ' FROM (SELECT *, 20 AS `a ``new``` FROM `t` WHERE 0) AS `pma_tmp`' .
-                            ' WHERE NOT (`a`) <=> (`a ``new```)',
-                        'columns' => ['id', 'a', 'b', 'a `new`'],
-                        'result' => [],
+                            ' FROM (SELECT *, 20 AS `a *new*` FROM `t` WHERE 0) AS `pma_tmp`' .
+                            ' WHERE NOT (`a`) <=> (`a *new*`)',
+                        'affected_rows' => 0,
                     ],
                 ],
             ],
