@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-03-08 00:36+0000\n"
+"POT-Creation-Date: 2026-03-15 00:41+0000\n"
 "PO-Revision-Date: 2023-11-25 02:27+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -212,7 +212,7 @@ msgstr "peale %s"
 #: resources/templates/table/zoom_search/index.twig:120
 #: src/Config/ConfigFile.php:554
 #: src/Controllers/JavaScriptMessagesController.php:218
-#: src/Display/Results.php:930 src/Plugins/Export/ExportSql.php:1989
+#: src/Display/Results.php:930 src/Plugins/Export/ExportSql.php:1981
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "Puudub"
@@ -493,7 +493,7 @@ msgstr "On välisvõti."
 #: src/Plugins/Export/ExportOdt.php:392
 #: src/Plugins/Export/ExportTexytext.php:240
 #: src/Plugins/Export/ExportTexytext.php:300
-#: src/Plugins/Export/Helpers/Pdf.php:469
+#: src/Plugins/Export/Helpers/Pdf.php:470
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:602
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:624
 msgid "Column"
@@ -614,7 +614,7 @@ msgstr "Struktuur"
 #: src/Plugins/Export/ExportHtmlword.php:394
 #: src/Plugins/Export/ExportOdt.php:500
 #: src/Plugins/Export/ExportTexytext.php:369
-#: src/Plugins/Export/Helpers/Pdf.php:311
+#: src/Plugins/Export/Helpers/Pdf.php:312
 msgid "Name"
 msgstr "Nimi"
 
@@ -645,7 +645,7 @@ msgstr "Nimi"
 #: src/Plugins/Export/ExportOdt.php:395
 #: src/Plugins/Export/ExportTexytext.php:241
 #: src/Plugins/Export/ExportTexytext.php:301
-#: src/Plugins/Export/Helpers/Pdf.php:471
+#: src/Plugins/Export/Helpers/Pdf.php:472
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:603
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:625
 msgid "Type"
@@ -684,7 +684,7 @@ msgstr ""
 #: src/Plugins/Export/ExportOdt.php:401
 #: src/Plugins/Export/ExportTexytext.php:243
 #: src/Plugins/Export/ExportTexytext.php:303
-#: src/Plugins/Export/Helpers/Pdf.php:475
+#: src/Plugins/Export/Helpers/Pdf.php:476
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:606
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:628
 msgid "Default"
@@ -749,7 +749,7 @@ msgstr "Atribuudid"
 #: src/Plugins/Export/ExportOdt.php:398
 #: src/Plugins/Export/ExportTexytext.php:242
 #: src/Plugins/Export/ExportTexytext.php:302
-#: src/Plugins/Export/Helpers/Pdf.php:473
+#: src/Plugins/Export/Helpers/Pdf.php:474
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:605
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:627
 msgid "Null"
@@ -773,7 +773,7 @@ msgstr "Kohanda õiguseid"
 #: src/Config/Descriptions.php:711 src/Plugins/Export/ExportHtmlword.php:313
 #: src/Plugins/Export/ExportLatex.php:471 src/Plugins/Export/ExportOdt.php:411
 #: src/Plugins/Export/ExportTexytext.php:309
-#: src/Plugins/Export/Helpers/Pdf.php:492
+#: src/Plugins/Export/Helpers/Pdf.php:493
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:618
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:631
 msgid "Comments"
@@ -793,7 +793,7 @@ msgstr "Liiguta veergu"
 #: src/Config/Descriptions.php:714 src/Plugins/Export/ExportHtmlword.php:320
 #: src/Plugins/Export/ExportOdt.php:418
 #: src/Plugins/Export/ExportTexytext.php:314
-#: src/Plugins/Export/Helpers/Pdf.php:500
+#: src/Plugins/Export/Helpers/Pdf.php:501
 msgid "Media type"
 msgstr "Meedia tüüp"
 
@@ -838,7 +838,7 @@ msgstr "Sisendi transformatsiooni sätted"
 #: src/Controllers/Database/Structure/EmptyTableController.php:43
 #: src/Controllers/Operations/TableController.php:328
 #: src/Controllers/Table/DropColumnController.php:63
-#: src/Controllers/Table/ReplaceController.php:291
+#: src/Controllers/Table/ReplaceController.php:292
 msgid "No change"
 msgstr "Ei muudetud"
 
@@ -1430,7 +1430,7 @@ msgstr "Prindi"
 #: src/Plugins/Export/ExportHtmlword.php:307
 #: src/Plugins/Export/ExportLatex.php:467 src/Plugins/Export/ExportOdt.php:405
 #: src/Plugins/Export/ExportTexytext.php:305
-#: src/Plugins/Export/Helpers/Pdf.php:484
+#: src/Plugins/Export/Helpers/Pdf.php:485
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:608
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:630
 msgid "Links to"
@@ -1440,7 +1440,7 @@ msgstr "Viitab aadressile"
 #: resources/templates/indexes.twig:3
 #: resources/templates/table/structure/display_structure.twig:458
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:1
-#: src/Controllers/Server/DatabasesController.php:276
+#: src/Controllers/Server/DatabasesController.php:269
 #: src/Navigation/Nodes/NodeIndexContainer.php:24
 #: src/Navigation/Nodes/NodeIndexContainer.php:26
 msgid "Indexes"
@@ -1806,7 +1806,7 @@ msgstr "Lõpp"
 #: src/Plugins/Export/ExportHtmlword.php:397
 #: src/Plugins/Export/ExportOdt.php:509
 #: src/Plugins/Export/ExportTexytext.php:372
-#: src/Plugins/Export/Helpers/Pdf.php:317
+#: src/Plugins/Export/Helpers/Pdf.php:318
 msgid "Definition"
 msgstr "Definitsioon"
 
@@ -1834,7 +1834,7 @@ msgstr "Määraja"
 #: resources/templates/database/events/index.twig:3 src/Menu.php:381
 #: src/Navigation/Nodes/NodeEventContainer.php:23
 #: src/Navigation/Nodes/NodeEventContainer.php:25
-#: src/Plugins/Export/ExportSql.php:981 src/Plugins/Export/ExportXml.php:92
+#: src/Plugins/Export/ExportSql.php:982 src/Plugins/Export/ExportXml.php:92
 #: src/Util.php:1386
 msgid "Events"
 msgstr "Sündmused"
@@ -2013,7 +2013,7 @@ msgstr "Tabelid:"
 #: resources/templates/database/export/index.twig:22
 #: resources/templates/database/structure/show_create.twig:6
 #: src/Config/Descriptions.php:743
-#: src/Controllers/Server/DatabasesController.php:273
+#: src/Controllers/Server/DatabasesController.php:266
 #: src/Navigation/Nodes/NodeTableContainer.php:23
 #: src/Navigation/Nodes/NodeTableContainer.php:25
 #: src/Plugins/Export/ExportXml.php:107 src/Server/Status/Data.php:126
@@ -2027,7 +2027,7 @@ msgstr "Tabelid"
 #: src/Config/Forms/User/ExportForm.php:106
 #: src/Config/Forms/User/ExportForm.php:131
 #: src/Config/Forms/User/ExportForm.php:137
-#: src/Controllers/Server/DatabasesController.php:275
+#: src/Controllers/Server/DatabasesController.php:268
 msgid "Data"
 msgstr "Andmed"
 
@@ -2752,8 +2752,8 @@ msgstr ""
 
 #: resources/templates/database/structure/copy_form.twig:5
 #: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:250
-#: src/Plugins/Export/ExportSql.php:911 src/Plugins/Export/ExportXml.php:356
-#: src/Plugins/Export/Helpers/Pdf.php:146
+#: src/Plugins/Export/ExportSql.php:912 src/Plugins/Export/ExportXml.php:356
+#: src/Plugins/Export/Helpers/Pdf.php:147
 msgid "Database:"
 msgstr "Andmebaas:"
 
@@ -2888,7 +2888,7 @@ msgstr "kasutusel"
 #: resources/templates/table/structure/display_partitions.twig:29
 #: resources/templates/table/structure/display_structure.twig:220
 #: resources/templates/table/structure/display_table_stats.twig:116
-#: src/Controllers/Server/DatabasesController.php:274 src/Import/Import.php:133
+#: src/Controllers/Server/DatabasesController.php:267 src/Import/Import.php:133
 msgid "Rows"
 msgstr "Ridu"
 
@@ -2907,7 +2907,7 @@ msgstr "Suurus"
 
 #: resources/templates/database/structure/table_header.twig:38
 #: resources/templates/table/structure/display_table_stats.twig:30
-#: src/Controllers/Server/DatabasesController.php:278
+#: src/Controllers/Server/DatabasesController.php:271
 msgid "Overhead"
 msgstr "Ballast"
 
@@ -3575,7 +3575,7 @@ msgid "Server connection:"
 msgstr "Ühendus serveriga:"
 
 #: resources/templates/home/index.twig:198
-#: src/Plugins/Export/ExportLatex.php:231 src/Plugins/Export/ExportSql.php:761
+#: src/Plugins/Export/ExportLatex.php:231 src/Plugins/Export/ExportSql.php:762
 #: src/Plugins/Export/ExportXml.php:203
 msgid "Server version:"
 msgstr "Serveri versioon:"
@@ -3943,7 +3943,7 @@ msgstr ""
 msgid "View:"
 msgstr "Vaade:"
 
-#: resources/templates/menu/main.twig:29 src/Plugins/Export/Helpers/Pdf.php:147
+#: resources/templates/menu/main.twig:29 src/Plugins/Export/Helpers/Pdf.php:148
 msgid "Table:"
 msgstr "Tabel:"
 
@@ -5417,7 +5417,7 @@ msgstr ""
 
 #: resources/templates/server/replication/change_primary.twig:25
 #: resources/templates/server/replication/primary_add_replica_user.twig:29
-#: src/Plugins/Export/ExportLatex.php:223 src/Plugins/Export/ExportSql.php:750
+#: src/Plugins/Export/ExportLatex.php:223 src/Plugins/Export/ExportSql.php:751
 #: src/Plugins/Export/ExportXml.php:195
 msgid "Host:"
 msgstr "Host:"
@@ -6431,7 +6431,7 @@ msgstr "Olek"
 #: src/Plugins/Export/ExportHtmlword.php:395
 #: src/Plugins/Export/ExportOdt.php:503
 #: src/Plugins/Export/ExportTexytext.php:370
-#: src/Plugins/Export/Helpers/Pdf.php:313 src/Server/Status/Processes.php:105
+#: src/Plugins/Export/Helpers/Pdf.php:314 src/Server/Status/Processes.php:105
 msgid "Time"
 msgstr "Aeg"
 
@@ -6477,7 +6477,7 @@ msgstr "Pirukagraafik profileerimise tulemustega."
 #: src/Controllers/Table/Partition/RepairController.php:49
 #: src/Controllers/Table/Partition/TruncateController.php:50
 #: src/Controllers/Table/RelationController.php:147
-#: src/Database/Routines.php:1032 src/Display/Results.php:2974
+#: src/Database/Routines.php:1033 src/Display/Results.php:2974
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "Sinu SQL päring teostati edukalt."
@@ -7299,7 +7299,7 @@ msgid "Effective"
 msgstr "Efektiivne"
 
 #: resources/templates/table/structure/display_table_stats.twig:43
-#: src/Controllers/Server/DatabasesController.php:277
+#: src/Controllers/Server/DatabasesController.php:270
 #: src/Controllers/Server/Status/StatusController.php:141
 #: src/Controllers/Server/Status/StatusController.php:191
 msgid "Total"
@@ -7438,7 +7438,7 @@ msgstr "Aeg"
 #: src/Plugins/Export/ExportHtmlword.php:396
 #: src/Plugins/Export/ExportOdt.php:506
 #: src/Plugins/Export/ExportTexytext.php:371
-#: src/Plugins/Export/Helpers/Pdf.php:315
+#: src/Plugins/Export/Helpers/Pdf.php:316
 msgid "Event"
 msgstr "Sündmus"
 
@@ -7453,7 +7453,7 @@ msgstr "Eksportimine päästik %s"
 #: src/Navigation/Nodes/NodeTriggerContainer.php:26
 #: src/Plugins/Export/ExportHtmlword.php:448
 #: src/Plugins/Export/ExportOdt.php:568 src/Plugins/Export/ExportPdf.php:173
-#: src/Plugins/Export/ExportSql.php:1852
+#: src/Plugins/Export/ExportSql.php:1844
 #: src/Plugins/Export/ExportTexytext.php:408
 #: src/Plugins/Export/ExportXml.php:112 src/Util.php:1387 src/Util.php:1403
 msgid "Triggers"
@@ -9197,7 +9197,7 @@ msgstr "Keela"
 #: src/Plugins/Export/ExportLatex.php:114
 #: src/Plugins/Export/ExportMediawiki.php:69
 #: src/Plugins/Export/ExportOdt.php:79 src/Plugins/Export/ExportPdf.php:79
-#: src/Plugins/Export/ExportSql.php:265
+#: src/Plugins/Export/ExportSql.php:266
 #: src/Plugins/Export/ExportTexytext.php:71
 msgid "structure"
 msgstr "struktuur"
@@ -9208,7 +9208,7 @@ msgstr "struktuur"
 #: src/Plugins/Export/ExportLatex.php:114
 #: src/Plugins/Export/ExportMediawiki.php:69
 #: src/Plugins/Export/ExportOdt.php:79 src/Plugins/Export/ExportPdf.php:79
-#: src/Plugins/Export/ExportSql.php:265
+#: src/Plugins/Export/ExportSql.php:266
 #: src/Plugins/Export/ExportTexytext.php:71
 msgid "data"
 msgstr "andmed"
@@ -9219,7 +9219,7 @@ msgstr "andmed"
 #: src/Plugins/Export/ExportLatex.php:114
 #: src/Plugins/Export/ExportMediawiki.php:69
 #: src/Plugins/Export/ExportOdt.php:79 src/Plugins/Export/ExportPdf.php:79
-#: src/Plugins/Export/ExportSql.php:265
+#: src/Plugins/Export/ExportSql.php:266
 #: src/Plugins/Export/ExportTexytext.php:71
 msgid "structure and data"
 msgstr "struktuur ja andmed"
@@ -9415,7 +9415,7 @@ msgstr ""
 "Määra skripti lubatud töötamise aeg sekundites ([kbd]0[/kbd] - piiramatu)."
 
 #: src/Config/Descriptions.php:171 src/Config/Descriptions.php:708
-#: src/Plugins/Export/ExportSql.php:364
+#: src/Plugins/Export/ExportSql.php:365
 msgid "Exclude definition of current user"
 msgstr "Välista praeguse kasutaja definitsioon"
 
@@ -10647,7 +10647,7 @@ msgstr "Tihendamine"
 #: src/Config/Descriptions.php:655 src/Config/Descriptions.php:659
 #: src/Config/Descriptions.php:672 src/Config/Descriptions.php:674
 #: src/Config/Descriptions.php:721 src/Plugins/Export/ExportCsv.php:98
-#: src/Plugins/Export/ExportExcel.php:79
+#: src/Plugins/Export/ExportExcel.php:78
 #: src/Plugins/Export/ExportHtmlword.php:91 src/Plugins/Export/ExportOds.php:70
 #: src/Plugins/Export/ExportOdt.php:126
 #: src/Plugins/Export/ExportTexytext.php:85
@@ -10708,7 +10708,7 @@ msgstr "Tabeli nime mall"
 #: src/Plugins/Export/ExportMediawiki.php:59
 #: src/Plugins/Export/ExportMediawiki.php:65
 #: src/Plugins/Export/ExportOdt.php:74 src/Plugins/Export/ExportPdf.php:75
-#: src/Plugins/Export/ExportSql.php:261
+#: src/Plugins/Export/ExportSql.php:262
 #: src/Plugins/Export/ExportTexytext.php:66
 msgid "Dump table"
 msgstr "Loo tabeli tõmmis"
@@ -10770,11 +10770,11 @@ msgstr "Loomise/Uuendamise/Kontrollimise kuupäevad"
 msgid "Use delayed inserts"
 msgstr "Kasuta viivitatud lisamisi"
 
-#: src/Config/Descriptions.php:692 src/Plugins/Export/ExportSql.php:231
+#: src/Config/Descriptions.php:692 src/Plugins/Export/ExportSql.php:232
 msgid "Disable foreign key checks"
 msgstr "Keela võõrvõtme kontrollid"
 
-#: src/Config/Descriptions.php:693 src/Plugins/Export/ExportSql.php:241
+#: src/Config/Descriptions.php:693 src/Plugins/Export/ExportSql.php:242
 msgid "Export views as tables"
 msgstr "Vaadete eksportimine tabelitena"
 
@@ -10794,7 +10794,7 @@ msgstr ""
 "Lisa IF NOT EXISTS (vähem efektiivne, sest tabeli loomise ajal luuakse ka "
 "indeksid)"
 
-#: src/Config/Descriptions.php:709 src/Plugins/Export/ExportSql.php:370
+#: src/Config/Descriptions.php:709 src/Plugins/Export/ExportSql.php:371
 #, php-format
 msgid "%s view"
 msgstr "Vaade %s"
@@ -10807,7 +10807,7 @@ msgstr "Kasuta INSERT IGNORE lauseid"
 msgid "Syntax to use when inserting data"
 msgstr "Andmete lisamisel kasutatav süntaks"
 
-#: src/Config/Descriptions.php:713 src/Plugins/Export/ExportSql.php:497
+#: src/Config/Descriptions.php:713 src/Plugins/Export/ExportSql.php:498
 msgid "Maximal length of created query"
 msgstr "Loodud päringu maksimaalne pikkus"
 
@@ -10815,7 +10815,7 @@ msgstr "Loodud päringu maksimaalne pikkus"
 msgid "Export type"
 msgstr "Ekspordi tüüp"
 
-#: src/Config/Descriptions.php:719 src/Plugins/Export/ExportSql.php:221
+#: src/Config/Descriptions.php:719 src/Plugins/Export/ExportSql.php:222
 msgid "Enclose export in a transaction"
 msgstr "Lisa eksport ülekandesse"
 
@@ -11083,7 +11083,7 @@ msgstr "Navigatsioonipaneeli laius"
 
 #: src/Config/Descriptions.php:811
 #: src/Controllers/JavaScriptMessagesController.php:586
-#: src/Navigation/NavigationTree.php:1257
+#: src/Navigation/NavigationTree.php:1258
 msgid "Link with main panel"
 msgstr "Lingi peapaneeli"
 
@@ -12068,19 +12068,19 @@ msgstr "Lehekülg nimega \"%s\" on juba olemas. Palun anna talle uus nimi."
 #: src/Controllers/Table/AddFieldController.php:167
 #: src/Controllers/Table/ChangeController.php:70
 #: src/Controllers/Table/ChangeController.php:75
-#: src/Controllers/Table/ChartController.php:87
-#: src/Controllers/Table/ChartController.php:94
-#: src/Controllers/Table/ChartController.php:121
-#: src/Controllers/Table/ChartController.php:128
-#: src/Controllers/Table/ChartController.php:201
+#: src/Controllers/Table/ChartController.php:88
+#: src/Controllers/Table/ChartController.php:95
+#: src/Controllers/Table/ChartController.php:122
+#: src/Controllers/Table/ChartController.php:129
+#: src/Controllers/Table/ChartController.php:202
 #: src/Controllers/Table/DeleteConfirmController.php:57
 #: src/Controllers/Table/DeleteConfirmController.php:62
 #: src/Controllers/Table/DropColumnConfirmationController.php:52
 #: src/Controllers/Table/DropColumnConfirmationController.php:57
 #: src/Controllers/Table/FindReplaceController.php:75
 #: src/Controllers/Table/FindReplaceController.php:80
-#: src/Controllers/Table/GisVisualizationController.php:68
-#: src/Controllers/Table/GisVisualizationController.php:73
+#: src/Controllers/Table/GisVisualizationController.php:70
+#: src/Controllers/Table/GisVisualizationController.php:75
 #: src/Controllers/Table/ImportController.php:70
 #: src/Controllers/Table/ImportController.php:75
 #: src/Controllers/Table/IndexesController.php:67
@@ -12101,8 +12101,8 @@ msgstr "Lehekülg nimega \"%s\" on juba olemas. Palun anna talle uus nimi."
 #: src/Controllers/Table/ZoomSearchController.php:107
 #: src/Controllers/Triggers/IndexController.php:66
 #: src/Controllers/Triggers/IndexController.php:84
-#: src/Controllers/View/CreateController.php:67
-#: src/Controllers/View/CreateController.php:72
+#: src/Controllers/View/CreateController.php:68
+#: src/Controllers/View/CreateController.php:73
 msgid "No databases selected."
 msgstr "Ühtegi andmebaasi ei ole valitud."
 
@@ -12190,9 +12190,9 @@ msgstr "Sul puuduvad kasutajate haldamise õigused!"
 #: src/Controllers/Table/AddFieldController.php:179
 #: src/Controllers/Table/ChangeController.php:82
 #: src/Controllers/Table/ChangeController.php:87
-#: src/Controllers/Table/ChartController.php:102
-#: src/Controllers/Table/ChartController.php:107
-#: src/Controllers/Table/ChartController.php:209
+#: src/Controllers/Table/ChartController.php:103
+#: src/Controllers/Table/ChartController.php:108
+#: src/Controllers/Table/ChartController.php:210
 #: src/Controllers/Table/DeleteConfirmController.php:69
 #: src/Controllers/Table/DeleteConfirmController.php:74
 #: src/Controllers/Table/DropColumnConfirmationController.php:63
@@ -12425,7 +12425,7 @@ msgstr ""
 "kui. See peaks olema ainult %d baiti pikk. Palun tutvu "
 "[doc@cfg_blowfish_secret]dokumentatsiooniga[/doc]."
 
-#: src/Controllers/HomeController.php:356
+#: src/Controllers/HomeController.php:355
 #, fuzzy
 #| msgid ""
 #| "The configuration file needs a valid key for cookie encryption. A "
@@ -12440,7 +12440,7 @@ msgstr ""
 "loodi automaatselt ajutine võti. Palun loe "
 "[doc@cfg_blowfish_secret]dokumentatsiooni[/doc]."
 
-#: src/Controllers/HomeController.php:366
+#: src/Controllers/HomeController.php:365
 #, fuzzy, php-format
 #| msgid ""
 #| "The cookie encryption key in the configuration file is longer than "
@@ -12455,7 +12455,7 @@ msgstr ""
 "kui. See peaks olema ainult %d baiti pikk. Palun tutvu "
 "[doc@cfg_blowfish_secret]dokumentatsiooniga[/doc]."
 
-#: src/Controllers/HomeController.php:384
+#: src/Controllers/HomeController.php:383
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -12467,7 +12467,7 @@ msgstr ""
 "kataloogi kindlasti kustutama. Vastasel korral võivad su serveri turvalisust "
 "ohustada isikud, kes on alla laadinud serveri seadistuste faili."
 
-#: src/Controllers/HomeController.php:405
+#: src/Controllers/HomeController.php:404
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -12476,7 +12476,7 @@ msgstr ""
 "Server töötab koos Suhosin'iga. Võimalike probleemide kohta loe "
 "%sdokumentatsioonist%s."
 
-#: src/Controllers/HomeController.php:419
+#: src/Controllers/HomeController.php:418
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -12485,14 +12485,14 @@ msgstr ""
 "$cfg['TempDir'] (%s) ei ole kasutatav. phpMyAdmin ei saa malle puhvermälus "
 "hoida ja on seetõttu aeglane."
 
-#: src/Controllers/HomeController.php:436
+#: src/Controllers/HomeController.php:435
 msgid ""
 "The [code]HTTP_HOST[/code] variable is missing, which might cause phpMyAdmin "
 "to not work properly. Please refer to [doc@faq1-46]documentation[/doc] for "
 "possible issues."
 msgstr ""
 
-#: src/Controllers/HomeController.php:489
+#: src/Controllers/HomeController.php:488
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -12502,7 +12502,7 @@ msgstr ""
 "märgitabelit. Ilma mbstring laiendita ei suuda phpMyAdmin sõnesid "
 "korralikult poolitada ja see võib viia ettearvamatute tulemusteni."
 
-#: src/Controllers/HomeController.php:507
+#: src/Controllers/HomeController.php:506
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -12511,7 +12511,7 @@ msgstr ""
 "keelatud ka mõned võimalused nagu vigade raporteerimine või versiooni "
 "kontroll."
 
-#: src/Controllers/Import/ImportController.php:165
+#: src/Controllers/Import/ImportController.php:164
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -12520,25 +12520,25 @@ msgstr ""
 "Tõenäoliselt üritasid üles laadida liiga suurt faili. Palun loe "
 "%sdokumentatsioonist%s, kuidas sellest piirangust vabaneda."
 
-#: src/Controllers/Import/ImportController.php:191
+#: src/Controllers/Import/ImportController.php:190
 msgid "Incorrect format parameter"
 msgstr "Vale vorminguparameeter"
 
-#: src/Controllers/Import/ImportController.php:254
+#: src/Controllers/Import/ImportController.php:253
 msgid "Sorry an unexpected error happened!"
 msgstr ""
 
-#: src/Controllers/Import/ImportController.php:301
-#: src/Controllers/Import/ImportController.php:516
+#: src/Controllers/Import/ImportController.php:300
+#: src/Controllers/Import/ImportController.php:511
 msgid "Showing bookmark"
 msgstr "Näitan järjehoidjat"
 
-#: src/Controllers/Import/ImportController.php:321
-#: src/Controllers/Import/ImportController.php:512
+#: src/Controllers/Import/ImportController.php:320
+#: src/Controllers/Import/ImportController.php:507
 msgid "The bookmark has been deleted."
 msgstr "Järjehoidja on kustutatud."
 
-#: src/Controllers/Import/ImportController.php:434
+#: src/Controllers/Import/ImportController.php:429
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -12548,14 +12548,14 @@ msgstr ""
 "maht ületab sinu PHP seadistuses lubatud maksimaalset mahtu. Vaata "
 "[doc@faq1-16]KKK 1.16[/doc]."
 
-#: src/Controllers/Import/ImportController.php:524
+#: src/Controllers/Import/ImportController.php:519
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "Importimine lõpetati edukalt, teostati %d päring."
 msgstr[1] "Importimine lõpetati edukalt, teostati %d päringut."
 
-#: src/Controllers/Import/ImportController.php:561
+#: src/Controllers/Import/ImportController.php:556
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -12564,7 +12564,7 @@ msgstr ""
 "Ületati skripti ooteaeg. Kui tahad importimise lõpetada, siis palun %ssaada "
 "fail uuesti%s ja importimine jätkub poolelijäänud kohast."
 
-#: src/Controllers/Import/ImportController.php:571
+#: src/Controllers/Import/ImportController.php:566
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -12573,12 +12573,12 @@ msgstr ""
 "phpMyAdmin ei suuda importimist lõpetada, kuni sa ei suurenda php aja "
 "piiranguid."
 
-#: src/Controllers/Import/ImportController.php:642
+#: src/Controllers/Import/ImportController.php:637
 #: src/Controllers/Sql/SqlController.php:138
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" käsud on keelatud."
 
-#: src/Controllers/Import/ImportController.php:705 src/Sql.php:912
+#: src/Controllers/Import/ImportController.php:700 src/Sql.php:912
 msgid "[ROLLBACK occurred.]"
 msgstr "[Toimus tagasipööramine.]"
 
@@ -13842,7 +13842,7 @@ msgid "Hide panel"
 msgstr "Peida paneel"
 
 #: src/Controllers/JavaScriptMessagesController.php:587
-#: src/Navigation/NavigationTree.php:1260
+#: src/Navigation/NavigationTree.php:1261
 msgid "Unlink from main panel"
 msgstr "Kustuta link peapaneeli"
 
@@ -14521,7 +14521,7 @@ msgstr "phpMyAdmini seadistuse jupp"
 msgid "Paste it to your config.inc.php"
 msgstr "Kleebi see oma config.inc.php"
 
-#: src/Controllers/Preferences/ManageController.php:139
+#: src/Controllers/Preferences/ManageController.php:138
 msgid "Could not import configuration"
 msgstr "Ei saanud seadistust importida"
 
@@ -15348,7 +15348,7 @@ msgstr "Järjehoidjat ei loodud!"
 #: src/Controllers/Table/AddFieldController.php:137
 #: src/Controllers/Table/IndexesController.php:139
 #: src/Controllers/Table/IndexRenameController.php:123
-#: src/Controllers/Table/Structure/PartitioningController.php:265
+#: src/Controllers/Table/Structure/PartitioningController.php:266
 #: src/Controllers/Table/Structure/SaveController.php:231
 #, php-format
 msgid "Table %1$s has been altered successfully."
@@ -15360,16 +15360,16 @@ msgstr "Tabeli %1$s muutmine õnnestus."
 msgid "No row selected."
 msgstr "Mitte ühtegi rida ei valitud."
 
-#: src/Controllers/Table/ChartController.php:59
-#: src/Controllers/Table/GisVisualizationController.php:83
+#: src/Controllers/Table/ChartController.php:60
+#: src/Controllers/Table/GisVisualizationController.php:85
 msgid "No SQL query was set to fetch data."
 msgstr "Puudub SQL päring andmete hankimiseks."
 
-#: src/Controllers/Table/ChartController.php:165
+#: src/Controllers/Table/ChartController.php:166
 msgid "No numeric columns present in the table to plot."
 msgstr "Graafiku loomiseks puuduvad tabelis numbritüüpi veerud."
 
-#: src/Controllers/Table/ChartController.php:236
+#: src/Controllers/Table/ChartController.php:237
 msgid "No data to display"
 msgstr "Puuduvad kuvatavad andmed"
 
@@ -15413,14 +15413,24 @@ msgid "There is an issue with your request."
 msgstr "Sinu päring ei läbinud turvalisuse kontrolli."
 
 #: src/Controllers/Table/GetFieldController.php:108
-#: src/Database/Routines.php:1049 src/Import/Import.php:138
+#: src/Database/Routines.php:1050 src/Import/Import.php:138
 #: src/InsertEdit.php:161 src/Sql.php:898
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL tagastas tühja tulemuse (s.t nulliread)."
 
-#: src/Controllers/Table/GisVisualizationController.php:94
+#: src/Controllers/Table/GisVisualizationController.php:96
 msgid "No spatial column found for this SQL query."
 msgstr "Selles SQL päringus ei ole ruumilist veergu."
+
+#: src/Controllers/Table/GisVisualizationController.php:121
+msgid "Invalid file format, expected one of: "
+msgstr ""
+
+#: src/Controllers/Table/GisVisualizationController.php:129
+#, fuzzy
+#| msgid "Failed to open remote URL"
+msgid "Failed to create image"
+msgstr "Internetiaadressi (URL) avamine ebaõnnestus"
 
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:67
 #: src/Controllers/Table/Maintenance/CheckController.php:67
@@ -15478,7 +15488,7 @@ msgstr "Valitud kasutajat õiguste tabelist ei leitud."
 msgid "The selected columns are already in the correct order."
 msgstr ""
 
-#: src/Controllers/Table/Structure/PartitioningController.php:257
+#: src/Controllers/Table/Structure/PartitioningController.php:258
 #: src/Controllers/Table/Structure/SaveController.php:281
 #: src/Tracking/Tracking.php:733
 msgid "Query error"
@@ -15539,7 +15549,7 @@ msgstr ""
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "Sul pole siinviibimiseks piisavalt õigusi!"
 
-#: src/Controllers/View/CreateController.php:83
+#: src/Controllers/View/CreateController.php:84
 msgid "View name can not be empty!"
 msgstr "Vaate nimi ei saa olla tühi!"
 
@@ -15631,9 +15641,9 @@ msgid "Could not load schema plugins, please check your installation!"
 msgstr "Skeemi pluginaid ei suudetud laadida, palun kontrolli oma paigaldust!"
 
 #: src/Database/Events.php:93 src/Database/Events.php:102
-#: src/Database/Events.php:136 src/Database/Routines.php:105
-#: src/Database/Routines.php:131 src/Database/Routines.php:209
-#: src/Database/Routines.php:1009 src/Triggers/Triggers.php:84
+#: src/Database/Events.php:136 src/Database/Routines.php:106
+#: src/Database/Routines.php:132 src/Database/Routines.php:210
+#: src/Database/Routines.php:1010 src/Triggers/Triggers.php:84
 #: src/Triggers/Triggers.php:93 src/Triggers/Triggers.php:128
 #, php-format
 msgid "The following query has failed: \"%s\""
@@ -15641,9 +15651,9 @@ msgstr "Järgnev päring ebaõnnestus: \"%s\""
 
 #: src/Database/Events.php:97 src/Database/Events.php:106
 #: src/Database/Events.php:119 src/Database/Events.php:140
-#: src/Database/Routines.php:109 src/Database/Routines.php:135
-#: src/Database/Routines.php:213 src/Database/Routines.php:227
-#: src/Database/Routines.php:1013 src/Html/Generator.php:806
+#: src/Database/Routines.php:110 src/Database/Routines.php:136
+#: src/Database/Routines.php:214 src/Database/Routines.php:228
+#: src/Database/Routines.php:1014 src/Html/Generator.php:806
 #: src/Triggers/Triggers.php:88 src/Triggers/Triggers.php:97
 #: src/Triggers/Triggers.php:111 src/Triggers/Triggers.php:132
 msgid "MySQL said: "
@@ -15653,7 +15663,7 @@ msgstr "MySQL vastas: "
 msgid "Sorry, we failed to restore the dropped event."
 msgstr "Vabanda, meil ei õnnestunud kustutatud sündmust taastada."
 
-#: src/Database/Events.php:117 src/Database/Routines.php:225
+#: src/Database/Events.php:117 src/Database/Routines.php:226
 #: src/Triggers/Triggers.php:109
 msgid "The backed up query was:"
 msgstr "Varundatud päring oli:"
@@ -15668,12 +15678,12 @@ msgstr "%1$s sündmust on muudetud."
 msgid "Event %1$s has been created."
 msgstr "%1$s sündmus on loodud."
 
-#: src/Database/Events.php:157 src/Database/Routines.php:151
+#: src/Database/Events.php:157 src/Database/Routines.php:152
 #: src/Triggers/Triggers.php:149
 msgid "One or more errors have occurred while processing your request:"
 msgstr "Sinu päringu töötlemisel esines vähemalt üks viga:"
 
-#: src/Database/Events.php:267 src/Database/Routines.php:815
+#: src/Database/Events.php:267 src/Database/Routines.php:816
 #: src/Triggers/Triggers.php:191
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "Määraja peab olema formaadis \"kasutajanimi@hostinimi\"!"
@@ -15698,40 +15708,40 @@ msgstr "Sa pead andma sündmusele õige tüübi."
 msgid "You must provide an event definition."
 msgstr "Sa pead andma sündmuse definitsiooni."
 
-#: src/Database/Routines.php:86
+#: src/Database/Routines.php:87
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr "Vale funktsiooni tüüp: \"%s\""
 
-#: src/Database/Routines.php:138
+#: src/Database/Routines.php:139
 #, php-format
 msgid "Routine %1$s has been created."
 msgstr "%1$s funktsioon on loodud."
 
-#: src/Database/Routines.php:224
+#: src/Database/Routines.php:225
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "Vabanda, me ei suutnud kustutatud funktsiooni taastada."
 
-#: src/Database/Routines.php:273
+#: src/Database/Routines.php:274
 #, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
 msgstr "Funktsiooni %1$s on muudetud. Õiguseid on vastavalt kohandatud."
 
-#: src/Database/Routines.php:278
+#: src/Database/Routines.php:279
 #, php-format
 msgid "Routine %1$s has been modified."
 msgstr "%1$s funktsiooni on muudetud."
 
-#: src/Database/Routines.php:660
+#: src/Database/Routines.php:661
 msgid "You must provide a name and a type for each routine parameter."
 msgstr "Sa pead andma igale funktsiooni parameetrile nime ja tüübi."
 
-#: src/Database/Routines.php:678
+#: src/Database/Routines.php:679
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr "Parameetrile anti vale suund \"%s\"."
 
-#: src/Database/Routines.php:698 src/Database/Routines.php:763
+#: src/Database/Routines.php:699 src/Database/Routines.php:764
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
@@ -15739,30 +15749,30 @@ msgstr ""
 "Sa pead andma ENUM, SET, VARCHAR ja VARBINARY tüüpi funktsiooni "
 "parameetritele pikkuse/väärtused."
 
-#: src/Database/Routines.php:745
+#: src/Database/Routines.php:746
 msgid "You must provide a valid return type for the routine."
 msgstr "Sa pead andma funktsioonile õige pöördumise tüübi."
 
-#: src/Database/Routines.php:822
+#: src/Database/Routines.php:823
 #, fuzzy
 #| msgid "Invalid routine type: \"%s\""
 msgid "Invalid routine type!"
 msgstr "Vale funktsiooni tüüp: \"%s\""
 
-#: src/Database/Routines.php:828
+#: src/Database/Routines.php:829
 msgid "You must provide a routine name!"
 msgstr "Sa pead andma funktsiooni nime!"
 
-#: src/Database/Routines.php:891
+#: src/Database/Routines.php:892
 msgid "You must provide a routine definition."
 msgstr "Sa pead andma funktsiooni definitsiooni."
 
-#: src/Database/Routines.php:1025
+#: src/Database/Routines.php:1026
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "%s funktsiooni käivitamise tulemused"
 
-#: src/Database/Routines.php:1040
+#: src/Database/Routines.php:1041
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
@@ -16202,28 +16212,28 @@ msgstr "Laiend peatas faili üleslaadimise."
 msgid "Unknown error in file upload."
 msgstr "Faili üleslaadimises on tundmatu viga."
 
-#: src/File.php:373
+#: src/File.php:365
 msgid "File is a symbolic link"
 msgstr "Fail on nimeviit"
 
-#: src/File.php:380 src/File.php:471
+#: src/File.php:372 src/File.php:463
 msgid "File could not be read!"
 msgstr "Faili ei saanud lugeda!"
 
-#: src/File.php:416
+#: src/File.php:408
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr ""
 "Üleslaetud faili liigutamisel esines viga, vaata [doc@faq1-11]KKK 1.11[/doc]."
 
-#: src/File.php:436
+#: src/File.php:428
 msgid "Error while moving uploaded file."
 msgstr "Üleslaetud faili liigutamisel esines viga."
 
-#: src/File.php:445
+#: src/File.php:437
 msgid "Cannot read uploaded file."
 msgstr "Ei saa lugeda üleslaaditud faili."
 
-#: src/File.php:522
+#: src/File.php:514
 #, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
@@ -16527,7 +16537,7 @@ msgstr "Toimingud:"
 msgid "Views:"
 msgstr "Vaated:"
 
-#: src/Navigation/NavigationTree.php:727
+#: src/Navigation/NavigationTree.php:728
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
@@ -16535,18 +16545,18 @@ msgstr ""
 "Navigeerimispaneelil on suured elementide grupid, mis võivad mõjutada "
 "jõudlust. Kaalu navigeerimispaneelil elementide grupeerimise keelamist."
 
-#: src/Navigation/NavigationTree.php:792
+#: src/Navigation/NavigationTree.php:793
 msgid "Groups"
 msgstr "Grupid"
 
-#: src/Navigation/NavigationTree.php:897
+#: src/Navigation/NavigationTree.php:898
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
 msgstr[0] "%s tulemus leitud"
 msgstr[1] "%s tulemust leitud"
 
-#: src/Navigation/NavigationTree.php:1252
+#: src/Navigation/NavigationTree.php:1253
 msgid "Collapse all"
 msgstr "Ahenda kõik"
 
@@ -16571,7 +16581,7 @@ msgstr "Uus"
 
 #: src/Navigation/Nodes/NodeFunctionContainer.php:23
 #: src/Navigation/Nodes/NodeFunctionContainer.php:27
-#: src/Plugins/Export/ExportSql.php:641 src/Plugins/Export/ExportXml.php:97
+#: src/Plugins/Export/ExportSql.php:642 src/Plugins/Export/ExportXml.php:97
 msgid "Functions"
 msgstr "Funktsioonid"
 
@@ -16591,7 +16601,7 @@ msgstr "Laienda/ahenda"
 
 #: src/Navigation/Nodes/NodeProcedureContainer.php:23
 #: src/Navigation/Nodes/NodeProcedureContainer.php:27
-#: src/Plugins/Export/ExportSql.php:630 src/Plugins/Export/ExportXml.php:102
+#: src/Plugins/Export/ExportSql.php:631 src/Plugins/Export/ExportXml.php:102
 msgid "Procedures"
 msgstr "Toimingud"
 
@@ -17027,7 +17037,7 @@ msgstr "Veergusid lõpetab:"
 msgid "Lines terminated with:"
 msgstr "Ridasid katkestab:"
 
-#: src/Plugins/Export/ExportCsv.php:88 src/Plugins/Export/ExportExcel.php:69
+#: src/Plugins/Export/ExportCsv.php:88 src/Plugins/Export/ExportExcel.php:68
 #: src/Plugins/Export/ExportHtmlword.php:86
 #: src/Plugins/Export/ExportLatex.php:202 src/Plugins/Export/ExportOds.php:65
 #: src/Plugins/Export/ExportOdt.php:131
@@ -17035,11 +17045,11 @@ msgstr "Ridasid katkestab:"
 msgid "Replace NULL with:"
 msgstr "NULL asendaja:"
 
-#: src/Plugins/Export/ExportCsv.php:93 src/Plugins/Export/ExportExcel.php:74
+#: src/Plugins/Export/ExportCsv.php:93 src/Plugins/Export/ExportExcel.php:73
 msgid "Remove carriage return/line feed characters within columns"
 msgstr "Eemalda veergudest tagasijooksu/reavahetuse sümbolid"
 
-#: src/Plugins/Export/ExportExcel.php:84
+#: src/Plugins/Export/ExportExcel.php:83
 msgid "Excel edition:"
 msgstr "Exceli väljaanne:"
 
@@ -17051,25 +17061,25 @@ msgid "Data dump options"
 msgstr "Andmete tõmmise valikud"
 
 #: src/Plugins/Export/ExportHtmlword.php:167
-#: src/Plugins/Export/ExportOdt.php:209 src/Plugins/Export/ExportSql.php:2098
+#: src/Plugins/Export/ExportOdt.php:209 src/Plugins/Export/ExportSql.php:2090
 #: src/Plugins/Export/ExportTexytext.php:137
 msgid "Dumping data for table"
 msgstr "Andmete tõmmistamine tabelile"
 
 #: src/Plugins/Export/ExportHtmlword.php:439
-#: src/Plugins/Export/ExportOdt.php:558 src/Plugins/Export/ExportSql.php:1834
+#: src/Plugins/Export/ExportOdt.php:558 src/Plugins/Export/ExportSql.php:1826
 #: src/Plugins/Export/ExportTexytext.php:401
 msgid "Table structure for table"
 msgstr "Tabeli struktuur tabelile"
 
 #: src/Plugins/Export/ExportHtmlword.php:456
-#: src/Plugins/Export/ExportOdt.php:578 src/Plugins/Export/ExportSql.php:1900
+#: src/Plugins/Export/ExportOdt.php:578 src/Plugins/Export/ExportSql.php:1892
 #: src/Plugins/Export/ExportTexytext.php:414
 msgid "Structure for view"
 msgstr "Vaate struktuur"
 
 #: src/Plugins/Export/ExportHtmlword.php:462
-#: src/Plugins/Export/ExportOdt.php:586 src/Plugins/Export/ExportSql.php:1943
+#: src/Plugins/Export/ExportOdt.php:586 src/Plugins/Export/ExportSql.php:1935
 #: src/Plugins/Export/ExportTexytext.php:418
 msgid "Stand-in structure for view"
 msgstr "Sise-vaate struktuur"
@@ -17095,7 +17105,7 @@ msgid "Structure of table @TABLE@"
 msgstr "@TABLE@ tabeli struktuur"
 
 #: src/Plugins/Export/ExportLatex.php:124 src/Plugins/Export/ExportOdt.php:89
-#: src/Plugins/Export/ExportSql.php:277
+#: src/Plugins/Export/ExportSql.php:278
 msgid "Object creation options"
 msgstr "Objekti loomise valikud"
 
@@ -17115,7 +17125,7 @@ msgid "Label key:"
 msgstr "Nime võti:"
 
 #: src/Plugins/Export/ExportLatex.php:149 src/Plugins/Export/ExportOdt.php:96
-#: src/Plugins/Export/ExportSql.php:203
+#: src/Plugins/Export/ExportSql.php:204
 msgid "Display foreign key relationships"
 msgstr "Näita võõrvõtme seoseid"
 
@@ -17124,7 +17134,7 @@ msgid "Display comments"
 msgstr "Näita kommentaare"
 
 #: src/Plugins/Export/ExportLatex.php:162 src/Plugins/Export/ExportOdt.php:109
-#: src/Plugins/Export/ExportSql.php:211
+#: src/Plugins/Export/ExportSql.php:212
 msgid "Display media types"
 msgstr "Kuva meediatüübid"
 
@@ -17132,17 +17142,17 @@ msgstr "Kuva meediatüübid"
 msgid "Put columns names in the first row:"
 msgstr "Aseta veergude nimed esimesse ritta:"
 
-#: src/Plugins/Export/ExportLatex.php:229 src/Plugins/Export/ExportSql.php:757
+#: src/Plugins/Export/ExportLatex.php:229 src/Plugins/Export/ExportSql.php:758
 #: src/Plugins/Export/ExportXml.php:201
 msgid "Generation Time:"
 msgstr "Loomise aeg:"
 
-#: src/Plugins/Export/ExportLatex.php:232 src/Plugins/Export/ExportSql.php:763
+#: src/Plugins/Export/ExportLatex.php:232 src/Plugins/Export/ExportSql.php:764
 #: src/Plugins/Export/ExportXml.php:204
 msgid "PHP Version:"
 msgstr "PHP versioon:"
 
-#: src/Plugins/Export/ExportLatex.php:287 src/Plugins/Export/ExportSql.php:1989
+#: src/Plugins/Export/ExportLatex.php:287 src/Plugins/Export/ExportSql.php:1981
 msgid "Data:"
 msgstr "Andmed:"
 
@@ -17183,7 +17193,7 @@ msgstr "Vaata struktuuri"
 msgid "Stand in"
 msgstr "Asendus"
 
-#: src/Plugins/Export/ExportSql.php:182
+#: src/Plugins/Export/ExportSql.php:183
 msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
@@ -17191,11 +17201,11 @@ msgstr ""
 "Näita kommentaare <i>(sisaldab teavet eksportimise ajatempli, PHP versiooni "
 "ja serveri versiooni kohta)</i>"
 
-#: src/Plugins/Export/ExportSql.php:189
+#: src/Plugins/Export/ExportSql.php:190
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr "Päise täiendav kommentaar (\\n poolitab ridu):"
 
-#: src/Plugins/Export/ExportSql.php:195
+#: src/Plugins/Export/ExportSql.php:196
 msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
@@ -17203,37 +17213,37 @@ msgstr ""
 "Lisa ajatempel andmebaasi loomise, viimase uuendamise ja viimase "
 "kontrollimise kohta"
 
-#: src/Plugins/Export/ExportSql.php:248
+#: src/Plugins/Export/ExportSql.php:249
 msgid "Export metadata"
 msgstr "Ekspordi metaandmed"
 
-#: src/Plugins/Export/ExportSql.php:284
+#: src/Plugins/Export/ExportSql.php:285
 msgid "Add statements:"
 msgstr "Lisa käske:"
 
-#: src/Plugins/Export/ExportSql.php:292 src/Plugins/Export/ExportSql.php:301
-#: src/Plugins/Export/ExportSql.php:318 src/Plugins/Export/ExportSql.php:327
-#: src/Plugins/Export/ExportSql.php:351 src/Plugins/Export/ExportSql.php:379
-#: src/Plugins/Export/ExportSql.php:388
+#: src/Plugins/Export/ExportSql.php:293 src/Plugins/Export/ExportSql.php:302
+#: src/Plugins/Export/ExportSql.php:319 src/Plugins/Export/ExportSql.php:328
+#: src/Plugins/Export/ExportSql.php:352 src/Plugins/Export/ExportSql.php:380
+#: src/Plugins/Export/ExportSql.php:389
 #, php-format
 msgid "Add %s statement"
 msgstr "Lisa %s käsk"
 
-#: src/Plugins/Export/ExportSql.php:334
+#: src/Plugins/Export/ExportSql.php:335
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr "(vähem efektiivne, sest tabeli loomise ajal luuakse ka indeksid)"
 
-#: src/Plugins/Export/ExportSql.php:341
+#: src/Plugins/Export/ExportSql.php:342
 #, php-format
 msgid "%s value"
 msgstr "%s väärtus"
 
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
-#: src/Plugins/Export/ExportSql.php:358
+#: src/Plugins/Export/ExportSql.php:359
 msgid "Use simple view export"
 msgstr "Kasuta lihtsat vaadete eksportimist"
 
-#: src/Plugins/Export/ExportSql.php:397
+#: src/Plugins/Export/ExportSql.php:398
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
@@ -17242,35 +17252,35 @@ msgstr ""
 "veeru ja tabeli nimesid eriliste sümbolitega või võtmesõnadega vormimise "
 "eest)</i>"
 
-#: src/Plugins/Export/ExportSql.php:412
+#: src/Plugins/Export/ExportSql.php:413
 msgid "Data creation options"
 msgstr "Andmete loomise valikud"
 
-#: src/Plugins/Export/ExportSql.php:416 src/Plugins/Export/ExportSql.php:2061
+#: src/Plugins/Export/ExportSql.php:417 src/Plugins/Export/ExportSql.php:2053
 msgid "Truncate table before insert"
 msgstr "Kärbi tabelit enne lisamist"
 
-#: src/Plugins/Export/ExportSql.php:424
+#: src/Plugins/Export/ExportSql.php:425
 msgid "Instead of <code>INSERT</code> statements, use:"
 msgstr "<code>INSERT</code> käskude asemel kasuta:"
 
-#: src/Plugins/Export/ExportSql.php:430
+#: src/Plugins/Export/ExportSql.php:431
 msgid "<code>INSERT DELAYED</code> statements"
 msgstr "<code>INSERT DELAYED</code> käske"
 
-#: src/Plugins/Export/ExportSql.php:439 src/Plugins/Export/ExportSql.php:466
+#: src/Plugins/Export/ExportSql.php:440 src/Plugins/Export/ExportSql.php:467
 msgid "<code>INSERT IGNORE</code> statements"
 msgstr "<code>INSERT IGNORE</code> käske"
 
-#: src/Plugins/Export/ExportSql.php:450
+#: src/Plugins/Export/ExportSql.php:451
 msgid "Function to use when dumping data:"
 msgstr "Andmete tõmmistamiseks kasutatav funktsioon:"
 
-#: src/Plugins/Export/ExportSql.php:461
+#: src/Plugins/Export/ExportSql.php:462
 msgid "Syntax to use when inserting data:"
 msgstr "Andmete lisamiseks kasutatav süntaks:"
 
-#: src/Plugins/Export/ExportSql.php:471
+#: src/Plugins/Export/ExportSql.php:472
 msgid ""
 "include column names in every <code>INSERT</code> statement <br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
@@ -17280,7 +17290,7 @@ msgstr ""
 "Näide: <code>INSERT INTO tabeli_nimi (veerg_A,veerg_B,veerg_C) VALUES "
 "(1,2,3)</code>"
 
-#: src/Plugins/Export/ExportSql.php:476
+#: src/Plugins/Export/ExportSql.php:477
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
@@ -17289,7 +17299,7 @@ msgstr ""
 "lisa mitu rida igas <code>INSERT</code> käsus<br> &nbsp; &nbsp; &nbsp; "
 "Näide: <code>INSERT INTO tabeli_nimi VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
-#: src/Plugins/Export/ExportSql.php:481
+#: src/Plugins/Export/ExportSql.php:482
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
@@ -17298,7 +17308,7 @@ msgstr ""
 "tabeli_nimi (veerg_A,veerg_B, veerg_C) VALUES (1,2,3), (4,5,6), (7,8,9)</"
 "code>"
 
-#: src/Plugins/Export/ExportSql.php:486
+#: src/Plugins/Export/ExportSql.php:487
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
@@ -17306,7 +17316,7 @@ msgstr ""
 "mitte ükski ülal nimetatuist<br> &nbsp; &nbsp; &nbsp; Näide: <code>INSERT "
 "INTO tabeli_nimi VALUES (1,2,3)</code>"
 
-#: src/Plugins/Export/ExportSql.php:505
+#: src/Plugins/Export/ExportSql.php:506
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
@@ -17314,7 +17324,7 @@ msgstr ""
 "Tõmmista binaarsed veerud heksadetsimaalsena <i>(nt \"abc\" salvestatakse "
 "kui 0x616263)</i>"
 
-#: src/Plugins/Export/ExportSql.php:514
+#: src/Plugins/Export/ExportSql.php:515
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
@@ -17322,105 +17332,105 @@ msgstr ""
 "Tõmmista TIMESTAMP veerud UTC ajana <i>(lubab tõmmistada TIMESTAMP veergusid "
 "ja kasutada neid erinevates ajavööndites asuvates serverites)</i>"
 
-#: src/Plugins/Export/ExportSql.php:590
+#: src/Plugins/Export/ExportSql.php:591
 msgid "It appears your database uses routines;"
 msgstr "Tundub, et su andmebaas kasutab protseduure;"
 
-#: src/Plugins/Export/ExportSql.php:593 src/Plugins/Export/ExportSql.php:1453
-#: src/Plugins/Export/ExportSql.php:1884
+#: src/Plugins/Export/ExportSql.php:594 src/Plugins/Export/ExportSql.php:1450
+#: src/Plugins/Export/ExportSql.php:1876
 msgid "alias export may not work reliably in all cases."
 msgstr ""
 "aliaste eksportimine võib mõningatel juhtudel töötada mitte usaldusväärselt."
 
-#: src/Plugins/Export/ExportSql.php:1041
+#: src/Plugins/Export/ExportSql.php:1042
 msgid "Metadata"
 msgstr "Metaandmed"
 
-#: src/Plugins/Export/ExportSql.php:1100
+#: src/Plugins/Export/ExportSql.php:1101
 #, php-format
 msgid "Metadata for table %s"
 msgstr "Tabeli %s metaandmed"
 
-#: src/Plugins/Export/ExportSql.php:1107
+#: src/Plugins/Export/ExportSql.php:1108
 #, php-format
 msgid "Metadata for database %s"
 msgstr "Andmebaasi %s metaandmed"
 
-#: src/Plugins/Export/ExportSql.php:1367
+#: src/Plugins/Export/ExportSql.php:1368
 #, php-format
 msgid "Error reading structure for table %s:"
 msgstr "Viga tabeli %s struktuuri lugemisel:"
 
-#: src/Plugins/Export/ExportSql.php:1450
+#: src/Plugins/Export/ExportSql.php:1447
 msgid "It appears your database uses views;"
 msgstr "Tundub, et su andmebaas kasutab vaateid;"
 
-#: src/Plugins/Export/ExportSql.php:1594
+#: src/Plugins/Export/ExportSql.php:1586
 msgid "Constraints for dumped tables"
 msgstr "Tõmmistatud tabelite piirangud"
 
-#: src/Plugins/Export/ExportSql.php:1595
+#: src/Plugins/Export/ExportSql.php:1587
 msgid "Constraints for table"
 msgstr "Piirangud tabelile"
 
-#: src/Plugins/Export/ExportSql.php:1621
+#: src/Plugins/Export/ExportSql.php:1613
 msgid "Indexes for dumped tables"
 msgstr "Indeksid tõmmistatud tabelitele"
 
-#: src/Plugins/Export/ExportSql.php:1622
+#: src/Plugins/Export/ExportSql.php:1614
 msgid "Indexes for table"
 msgstr "Indeksid tabelile"
 
-#: src/Plugins/Export/ExportSql.php:1645
+#: src/Plugins/Export/ExportSql.php:1637
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "AUTO_INCREMENT tõmmistatud tabelitele"
 
-#: src/Plugins/Export/ExportSql.php:1646
+#: src/Plugins/Export/ExportSql.php:1638
 msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT tabelile"
 
-#: src/Plugins/Export/ExportSql.php:1700
+#: src/Plugins/Export/ExportSql.php:1692
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "TABELI MEEDIATÜÜBID"
 
-#: src/Plugins/Export/ExportSql.php:1730
+#: src/Plugins/Export/ExportSql.php:1722
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "TABELI SEOSED"
 
-#: src/Plugins/Export/ExportSql.php:1881
+#: src/Plugins/Export/ExportSql.php:1873
 msgid "It appears your table uses triggers;"
 msgstr "Tundub, et su tabel kasutab trigereid;"
 
-#: src/Plugins/Export/ExportSql.php:1915
+#: src/Plugins/Export/ExportSql.php:1907
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "Vaate %s struktuur eksporditi tabelina"
 
-#: src/Plugins/Export/ExportSql.php:1946
+#: src/Plugins/Export/ExportSql.php:1938
 msgid "(See below for the actual view)"
 msgstr "(Tegelik vaade on allpool)"
 
-#: src/Plugins/Export/ExportSql.php:2002
+#: src/Plugins/Export/ExportSql.php:1994
 #, php-format
 msgid "Error reading data for table %s:"
 msgstr "Viga tabeli %s andmete lugemisel:"
 
-#: src/Plugins/Export/ExportSql.php:2530
+#: src/Plugins/Export/ExportSql.php:2518
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:566
 msgid "Creation:"
 msgstr "Loodud:"
 
-#: src/Plugins/Export/ExportSql.php:2538
+#: src/Plugins/Export/ExportSql.php:2526
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:577
 msgid "Last update:"
 msgstr "Viimati uuendatud:"
 
-#: src/Plugins/Export/ExportSql.php:2546
+#: src/Plugins/Export/ExportSql.php:2534
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:588
 msgid "Last check:"
 msgstr "Viimane kontroll:"
 
-#: src/Plugins/Export/ExportSql.php:2567
+#: src/Plugins/Export/ExportSql.php:2555
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
@@ -17441,7 +17451,7 @@ msgstr "Objekti loomise valikud (soovitatav on valida kõik)"
 msgid "Export contents"
 msgstr "Ekspordi sisu"
 
-#: src/Plugins/Export/Helpers/Pdf.php:148
+#: src/Plugins/Export/Helpers/Pdf.php:149
 msgid "Purpose:"
 msgstr "Eesmärk:"
 
@@ -21193,9 +21203,6 @@ msgstr "ZIP arhiivist ei leitud ühtegi faili!"
 
 #~ msgid "No blob streaming server configured!"
 #~ msgstr "Blob striimimise server pole seadistatud!"
-
-#~ msgid "Failed to open remote URL"
-#~ msgstr "Internetiaadressi (URL) avamine ebaõnnestus"
 
 #~ msgid "You are about to DISABLE a BLOB Repository!"
 #~ msgstr "Sa oled keelamas BLOB hoidlat!"
