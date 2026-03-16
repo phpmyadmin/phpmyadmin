@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
 "PO-Revision-Date: 2026-03-17 05:09+0000\n"
-"Last-Translator: Jobggun <jobggun@kakao.com>\n"
+"Last-Translator: kim8ccf3a4116ec4691 <kim@yong.biz>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "ko/>\n"
 "Language: ko\n"
@@ -2360,9 +2360,9 @@ msgid ""
 ">- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column from "
 "ORDER BY clause"
 msgstr ""
-"Shift+Click 으로 ORDER BY 절에 이 컬럼을 추가하거나 내림차순/오름차순 토글"
-"<br />- Ctrl+Click 또는 Alt+Click (맥: Shift+Option+Click) 으로 ORDER BY 절로"
-"부터 이 컬럼 제거"
+"Shift+Click 으로 ORDER BY 절에 이 컬럼을 추가하거나 내림차순/오름차순 "
+"토글.<br />- Ctrl+Click 또는 Alt+Click (맥: Shift+Option+Click) 으로 ORDER "
+"BY 절로부터 이 컬럼 제거"
 
 #: js/messages.php:598
 msgid "Click to mark/unmark."
@@ -2440,11 +2440,11 @@ msgstr "인쇄"
 
 #: js/messages.php:633
 msgid "You can also edit most values<br />by double-clicking directly on them."
-msgstr "값을 더블클릭 하여 바로 수정할 수 있습니다.<br />(일부 제외)."
+msgstr "값을 더블 클릭 하여<br />바로 수정할 수 있습니다 (일부 제외)."
 
 #: js/messages.php:638
 msgid "You can also edit most values<br />by clicking directly on them."
-msgstr "값을 클릭하여 바로 수정할 수 있습니다.<br />(일부 제외)."
+msgstr "값을 클릭하여<br />바로 수정할 수 있습니다. (일부 제외)."
 
 #: js/messages.php:644
 msgid "Go to link:"
@@ -7825,7 +7825,7 @@ msgstr "바이너리"
 
 #: libraries/classes/InsertEdit.php:729
 msgid "Because of its length,<br /> this column might not be editable."
-msgstr "컬럼의 길이 때문에,<br />이 컬럼을 편집할 수 없을 수도 있습니다."
+msgstr "컬럼의 길이 때문에,<br /> 이 컬럼을 편집할 수 없을 수도 있습니다."
 
 #: libraries/classes/InsertEdit.php:1337
 msgid "Binary - do not edit"
@@ -8581,7 +8581,7 @@ msgid ""
 "in that case you don't have to select any."
 msgstr ""
 "아래의 각 열에 대해 주어진 집합 중에서 값을 합쳐서 열의 값을 결정하기에 "
-"충분한 열의 <b>최소 집합</b>을 선택하세요.<br />참고: 열에 전이 종속성이 "
+"충분한 열의 <b>최소 집합</b> 을 선택하세요.<br />참고: 열에 전이 종속성이 "
 "없을 수 있으며, 이 경우 아무 것도 선택하지 않아도 됩니다."
 
 #: libraries/classes/Normalization.php:849
@@ -9316,8 +9316,9 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
-"모든 <code>INSERT</code> 구문에 컬럼 이름을 포함<br />&nbsp; &nbsp; &nbsp;"
-"예: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3)</code>"
+"모든 <code>INSERT</code> 구문에 컬럼명을 포함합니다 <br /> &nbsp; &nbsp; "
+"&nbsp; 예: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3)</"
+"code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:420
 msgid ""
@@ -10210,8 +10211,8 @@ msgid ""
 "should see a message informing you, that this server <b>is</b> configured as "
 "master."
 msgstr ""
-"MySQL 서버를 재시작 했으면 실행(Go) 버튼을 클릭하세요. 그 후, 서버가 마스터"
-"로 <b>설정되었다</b>는 안내 메시지를 볼 수 있을겁니다."
+"MySQL 서버를 재시작 했으면 실행(Go) 버튼을 클릭하세요. 그 후, 서버가 "
+"마스터로 <b>설정되었다</b> 는 안내 메시지를 볼 수 있습니다."
 
 #: libraries/classes/ReplicationGui.php:153
 #: templates/server/databases/table_header.twig:37
@@ -13427,7 +13428,7 @@ msgstr "업로드 파일:"
 #: libraries/classes/Util.php:3284
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr "웹 서버 업로드 디렉토리중 <b>%s</b>에서 선택:"
+msgstr "다음 웹 서버 업로드 디렉토리에서 선택 <b>%s</b>:"
 
 #: libraries/classes/Util.php:3324
 msgid "There are no files to upload!"
@@ -16211,10 +16212,10 @@ msgid ""
 "refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple slaves."
 msgstr ""
-"꽤 많은 트래픽을 쓰는 데이터베이스에 MySQL 쿼리 캐시를 사용중입니다. MySQL 쿼"
-"리 캐시 대신 <a href=\"https://dev.mysql.com/doc/refman/5.5/en/ha-memcached."
-"html\">memcached</a>를 사용하는게 나을 수 있습니다. 만약 다수의 slave가 있다"
-"면 더욱 권장합니다."
+"꽤 많은 트래픽을 쓰는 데이터베이스에 MySQL 쿼리 캐시를 사용중입니다. MySQL "
+"쿼리 캐시 대신 <a href=\"https://dev.mysql.com/doc/refman/5.5/en/ha-"
+"memcached.html\">memcached</a> 를 사용하는게 나을 수 있습니다. 만약 다수의 "
+"slave가 있다면 더욱 권장합니다."
 
 #: libraries/advisory_rules_generic.txt:150
 #, php-format
@@ -16898,12 +16899,12 @@ msgstr ""
 "일반적으로 {innodb_log_file_size}를 {innodb_buffer_pool_size} 크기의 25%%로 "
 "설정하는 것으로 충분합니다. {innodb_log_file_size}가 매우 크면 데이터베이스 "
 "충돌 후 복구 시간이 상당히 느려집니다. <a href=\"https://www.percona.com/"
-"blog/2006/07/03/choosing-proper-innodb_log_file_size/\">이 문서</a>를 "
+"blog/2006/07/03/choosing-proper-innodb_log_file_size/\">이 문서</a> 를 "
 "참조하세요. 서버를 종료하고 InnoDB 로그 파일을 제거해야하고, my.cnf에서 새 "
 "값을 설정하고, 서버를 시작한 다음 모든 것이 정상적으로 진행되었는지 오류 "
-"로그를 확인해야 합니다. <a href=\"https://mysqldatabaseadministration."
-"blogspot.com/2007/01/increase-innodblogfilesize-proper-way.html\">이 블로그 "
-"글</a>을 참조하세요"
+"로그를 확인해야 합니다. <a href=\"https://"
+"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
+"proper-way.html\">이 블로그 글</a> 을 참조하세요"
 
 #: libraries/advisory_rules_generic.txt:380
 #, php-format
