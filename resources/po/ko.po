@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-03-15 00:41+0000\n"
-"PO-Revision-Date: 2024-10-17 16:16+0000\n"
-"Last-Translator: \"Yong Kim (Neatnet)\" <neatnet@gmail.com>\n"
+"PO-Revision-Date: 2026-03-17 05:09+0000\n"
+"Last-Translator: Kim Yong <neatnet@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ko/>\n"
 "Language: ko\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.8-rc\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 #: resources/templates/base.twig:40 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -782,7 +782,7 @@ msgstr "컬럼 이동"
 #: src/Plugins/Export/ExportTexytext.php:314
 #: src/Plugins/Export/Helpers/Pdf.php:501
 msgid "Media type"
-msgstr "MIME 형식"
+msgstr "미디어 타입 형식"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:87
 #: resources/templates/columns_definitions/table_fields_definitions.twig:98
@@ -2437,10 +2437,8 @@ msgid "Function"
 msgstr "함수"
 
 #: resources/templates/database/routines/execute_form.twig:54
-#, fuzzy
-#| msgid "This page does not contain any tables!"
 msgid "This routine does not require any parameters."
-msgstr "이 페이지에는 테이블이 없습니다!"
+msgstr "이 루틴은 파라미터가 필요없습니다."
 
 #: resources/templates/database/routines/index.twig:3 src/Menu.php:375
 #: src/Util.php:1385
@@ -4586,10 +4584,9 @@ msgid "Latched pages"
 msgstr "래치된 페이지"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:34
-#, fuzzy, php-format
-#| msgid "Busy pages"
+#, php-format
 msgid "%s pages"
-msgstr "사용 중인 페이지"
+msgstr "%s 페이지"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:41
 #, fuzzy
@@ -5968,10 +5965,8 @@ msgstr "모니터링 리프리쉬가 실패하였습니다"
 
 #: resources/templates/server/status/monitor/index.twig:350
 #: resources/templates/server/status/monitor/index.twig:369
-#, fuzzy
-#| msgid "Warning"
 msgid "Warning:"
-msgstr "경고"
+msgstr "경고:"
 
 #: resources/templates/server/status/monitor/index.twig:351
 msgid ""
@@ -11927,7 +11922,7 @@ msgstr "데이터베이스를 선택하지 않았습니다."
 
 #: src/Controllers/Database/EventsController.php:69
 msgid "The event was dropped immediately after creation."
-msgstr ""
+msgstr "이 이벤트는 생성 후 즉시 삭제됩니다."
 
 #: src/Controllers/Database/EventsController.php:136
 msgid "Add event"
@@ -12299,6 +12294,9 @@ msgid ""
 "to not work properly. Please refer to [doc@faq1-46]documentation[/doc] for "
 "possible issues."
 msgstr ""
+"[code]HTTP_HOST[/code] 변수가 없으므로, phpMyAdmin이 정상적으로 동작하지 "
+"않을 수 있습니다. 발생할 수 있는 이슈는 [doc@faq1-46]documentation[/doc]를 "
+"참고해 주십시오."
 
 #: src/Controllers/HomeController.php:488
 msgid ""
@@ -12333,7 +12331,7 @@ msgstr "잘못된 포맷 파라미터"
 
 #: src/Controllers/Import/ImportController.php:253
 msgid "Sorry an unexpected error happened!"
-msgstr ""
+msgstr "유감스럽게도 예기치 못한 오류가 발생했습니다!"
 
 #: src/Controllers/Import/ImportController.php:300
 #: src/Controllers/Import/ImportController.php:511
@@ -13863,6 +13861,8 @@ msgid ""
 "The fullscreen request was denied because the Fullscreen API is disabled by "
 "user preference in the browser."
 msgstr ""
+"브라우저에서 사용자 설정에 전체화면 API가 비활성화 되어있으므로 전체화면 "
+"요청이 거부되었습니다."
 
 #: src/Controllers/JavaScriptMessagesController.php:700
 msgctxt "Month name"
@@ -15174,13 +15174,11 @@ msgstr "이 SQL 쿼리에 대한 공간 열을 찾을 수 없습니다."
 
 #: src/Controllers/Table/GisVisualizationController.php:121
 msgid "Invalid file format, expected one of: "
-msgstr ""
+msgstr "파일 포맷이 맞지 않습니다, 다음 중 하나여야 합니다: "
 
 #: src/Controllers/Table/GisVisualizationController.php:129
-#, fuzzy
-#| msgid "Failed to write file to disk."
 msgid "Failed to create image"
-msgstr "디스크 쓰기에 실패했습니다."
+msgstr "이미지 생성에 실패했습니다"
 
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:67
 #: src/Controllers/Table/Maintenance/CheckController.php:67
@@ -15233,7 +15231,7 @@ msgstr "선택한 사용자는 사용권한 테이블에 존재하지 않습니�
 
 #: src/Controllers/Table/Structure/MoveColumnsController.php:141
 msgid "The selected columns are already in the correct order."
-msgstr ""
+msgstr "선택한 컬럼은 이미 올바른 순서로 정렬되어있습니다."
 
 #: src/Controllers/Table/Structure/PartitioningController.php:258
 #: src/Controllers/Table/Structure/SaveController.php:281
@@ -15495,10 +15493,8 @@ msgid "You must provide a valid return type for the routine."
 msgstr "루틴에 유효한 반환 유형을 제공해야 합니다."
 
 #: src/Database/Routines.php:823
-#, fuzzy
-#| msgid "Invalid routine type: \"%s\""
 msgid "Invalid routine type!"
-msgstr "잘못된 루틴 타입: \"%s\""
+msgstr "루틴 타입이 잘못되었습니다!"
 
 #: src/Database/Routines.php:829
 msgid "You must provide a routine name!"
@@ -17134,10 +17130,8 @@ msgstr ""
 "호환성을 최대화 할 수 있는 데이터베이스 시스템 또는 예전 버전의 MySQL 서버:"
 
 #: src/Plugins/Export/ExportToon.php:66
-#, fuzzy
-#| msgid "Orientation"
 msgid "Indentation:"
-msgstr "화면 방향"
+msgstr "들여쓰기:"
 
 #: src/Plugins/Export/ExportXml.php:86
 msgid "Object creation options (all are recommended)"
@@ -17406,6 +17400,8 @@ msgid ""
 "Displays a link to download the binary data of the column. You can use the "
 "option to specify the filename."
 msgstr ""
+"그 컬럼의 바이너리 데이터를 다운로드하는 링크를 표시합니다. 파일명을 "
+"지정하는 옵션을 사용할 수 있습니다."
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:38
 msgid ""
@@ -18250,7 +18246,7 @@ msgstr "비우기"
 
 #: src/Types.php:98
 msgid "not empty"
-msgstr ""
+msgstr "비어있지 않습니다"
 
 #: src/Types.php:161
 msgid ""
@@ -18540,7 +18536,7 @@ msgstr "128비트 UUID(범용 고유 식별자)"
 msgid ""
 "Stores vector data optimized for operations such as similarity search and "
 "machine learning applications"
-msgstr ""
+msgstr "유사도 검색과 머신러닝 앱 같은 동작을 최적화하는 벡터 데이터를 저장합니다"
 
 #: src/Types.php:604
 msgctxt "numeric types"
