@@ -1589,9 +1589,6 @@
     <MixedArgument>
       <code><![CDATA[$database['DEFAULT_COLLATION_NAME']]]></code>
       <code><![CDATA[$database['SCHEMA_NAME']]]></code>
-      <code><![CDATA[$primaryInfo['Do_DB']]]></code>
-      <code><![CDATA[$primaryInfo['Do_DB']]]></code>
-      <code><![CDATA[$primaryInfo['Ignore_DB']]]></code>
       <code><![CDATA[$replicaInfo['Do_DB']]]></code>
       <code><![CDATA[$replicaInfo['Do_DB']]]></code>
       <code><![CDATA[$replicaInfo['Ignore_DB']]]></code>
@@ -1622,9 +1619,11 @@
       <code><![CDATA[$database]]></code>
       <code><![CDATA[$key]]></code>
       <code><![CDATA[$key]]></code>
-      <code><![CDATA[$key]]></code>
-      <code><![CDATA[$key]]></code>
     </MixedAssignment>
+    <PossiblyUndefinedArrayOffset>
+      <code><![CDATA[$primaryInfo['Do_DB']]]></code>
+      <code><![CDATA[$primaryInfo['Ignore_DB']]]></code>
+    </PossiblyUndefinedArrayOffset>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
@@ -1675,9 +1674,6 @@
       <code><![CDATA[$urlDbname ?? '']]></code>
       <code><![CDATA[$urlDbname ?? '']]></code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion>
-      <code><![CDATA[$queries]]></code>
-    </MixedArgumentTypeCoercion>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($_REQUEST['ajax_page_request'])]]></code>
     </RiskyTruthyFalsyComparison>
@@ -6284,14 +6280,9 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Plugins/Import/ImportSql.php">
-    <MixedArgumentTypeCoercion>
-      <code><![CDATA[$sqlModes]]></code>
-    </MixedArgumentTypeCoercion>
-    <MixedAssignment>
-      <code><![CDATA[$sqlModes[]]]></code>
-    </MixedAssignment>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['sql_delimiter']]]></code>
+      <code><![CDATA[$_REQUEST['sql_compatibility'] ?? null]]></code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$_POST['sql_delimiter']]]></code>
@@ -7272,12 +7263,7 @@
       <code><![CDATA[$row['Proc_priv']]]></code>
       <code><![CDATA[$row['Table_priv']]]></code>
       <code><![CDATA[$row['Table_priv']]]></code>
-      <code><![CDATA[$sqlQuery]]></code>
-      <code><![CDATA[$sqlQuery]]></code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion>
-      <code><![CDATA[$queries]]></code>
-    </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$groupAssignment[$host['User']]]]></code>
       <code><![CDATA[$row['Db']]]></code>
@@ -7288,8 +7274,6 @@
       <code><![CDATA[$row['Routine_name']]]></code>
       <code><![CDATA[$row['Table_name']]]></code>
       <code><![CDATA[$row['Table_priv']]]></code>
-      <code><![CDATA[$sqlQuery[0]]]></code>
-      <code><![CDATA[$sqlQuery[0]]]></code>
     </MixedArrayAccess>
     <MixedAssignment>
       <code><![CDATA[$extraData['db_wildcard_privs']]]></code>
@@ -7302,10 +7286,7 @@
       <code><![CDATA[$paramDbName]]></code>
       <code><![CDATA[$paramRoutineName]]></code>
       <code><![CDATA[$paramTableName]]></code>
-      <code><![CDATA[$queries[$tmpCount]]]></code>
       <code><![CDATA[$row]]></code>
-      <code><![CDATA[$sqlQuery]]></code>
-      <code><![CDATA[$sqlQuery]]></code>
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$origValue]]></code>
@@ -8605,18 +8586,6 @@
       <code><![CDATA[$regex]]></code>
       <code><![CDATA[$specificEntry]]></code>
     </ArgumentTypeCoercion>
-    <MixedArgumentTypeCoercion>
-      <code><![CDATA[$name]]></code>
-      <code><![CDATA[$table]]></code>
-    </MixedArgumentTypeCoercion>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$tempName]]></code>
-      <code><![CDATA[$tempName]]></code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidOperand>
-      <code><![CDATA[$tempName]]></code>
-      <code><![CDATA[$tempName]]></code>
-    </PossiblyInvalidOperand>
   </file>
   <file src="tests/end-to-end/TestBase.php">
     <DeprecatedConstant>

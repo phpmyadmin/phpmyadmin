@@ -79,8 +79,8 @@ final class ReplicationInfo
     /** @var mixed[] */
     private array $multiPrimaryStatus = [];
 
-    /** @var mixed[] */
-    private array $primaryInfo = [];
+    /** @var array{status: bool, Do_DB?: string[], Ignore_DB?: string[]} */
+    private array $primaryInfo = ['status' => false];
 
     /** @var mixed[] */
     private array $replicaInfo = [];
@@ -177,7 +177,7 @@ final class ReplicationInfo
         $this->primaryInfo['Ignore_DB'] = $this->fill($this->primaryStatus, 'Binlog_Ignore_DB');
     }
 
-    /** @return mixed[] */
+    /** @return array{status: bool, Do_DB?: string[], Ignore_DB?: string[]} */
     public function getPrimaryInfo(): array
     {
         return $this->primaryInfo;

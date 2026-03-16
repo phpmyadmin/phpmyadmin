@@ -2260,6 +2260,18 @@ parameters:
 			path: src/Controllers/Server/DatabasesController.php
 
 		-
+			message: '#^Offset ''Do_DB'' might not exist on array\{status\: true, Do_DB\?\: array\<string\>, Ignore_DB\?\: array\<string\>\}\.$#'
+			identifier: offsetAccess.notFound
+			count: 2
+			path: src/Controllers/Server/DatabasesController.php
+
+		-
+			message: '#^Offset ''Ignore_DB'' might not exist on array\{status\: true, Do_DB\?\: array\<string\>, Ignore_DB\?\: array\<string\>\}\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: src/Controllers/Server/DatabasesController.php
+
+		-
 			message: '#^Parameter \#1 \$params of static method PhpMyAdmin\\Url\:\:getCommonRaw\(\) expects array\<int\|string, bool\|int\|string\>, array\<string, mixed\> given\.$#'
 			identifier: argument.type
 			count: 1
@@ -2274,13 +2286,13 @@ parameters:
 		-
 			message: '#^Parameter \#1 \$value of function count expects array\|Countable, mixed given\.$#'
 			identifier: argument.type
-			count: 2
+			count: 1
 			path: src/Controllers/Server/DatabasesController.php
 
 		-
 			message: '#^Parameter \#2 \$haystack of function array_search expects array, mixed given\.$#'
 			identifier: argument.type
-			count: 4
+			count: 2
 			path: src/Controllers/Server/DatabasesController.php
 
 		-
@@ -2330,12 +2342,6 @@ parameters:
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Server/PrivilegesController.php
-
-		-
-			message: '#^Only booleans are allowed in an if condition, mixed given\.$#'
-			identifier: if.condNotBoolean
-			count: 1
-			path: src/Controllers/Server/ReplicationController.php
 
 		-
 			message: '#^Parameter \#2 \$serverReplicaStatus of method PhpMyAdmin\\Replication\\ReplicationGui\:\:getHtmlForReplicaConfiguration\(\) expects bool, mixed given\.$#'
@@ -2436,7 +2442,7 @@ parameters:
 		-
 			message: '#^Only booleans are allowed in an if condition, mixed given\.$#'
 			identifier: if.condNotBoolean
-			count: 2
+			count: 1
 			path: src/Controllers/Server/Status/StatusController.php
 
 		-
@@ -9367,6 +9373,12 @@ parameters:
 			path: src/Plugins/Import/ImportSql.php
 
 		-
+			message: '#^Parameter \#1 \$sqlCompatibility of method PhpMyAdmin\\Plugins\\Import\\ImportSql\:\:setSQLMode\(\) expects string\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Plugins/Import/ImportSql.php
+
+		-
 			message: '#^Argument of an invalid type SimpleXMLElement\|null supplied for foreach, only iterables are supported\.$#'
 			identifier: foreach.nonIterable
 			count: 2
@@ -10993,12 +11005,6 @@ parameters:
 			path: src/Server/Privileges.php
 
 		-
-			message: '#^Cannot access offset 0 on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Server/Privileges.php
-
-		-
 			message: '#^Cannot cast array\<string\>\|string\|null to string\.$#'
 			identifier: cast.string
 			count: 2
@@ -11132,18 +11138,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#1 \$privs of method PhpMyAdmin\\Server\\Privileges\:\:parseProcPriv\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Server/Privileges.php
-
-		-
-			message: '#^Parameter \#1 \$query of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:query\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Server/Privileges.php
-
-		-
-			message: '#^Parameter \#1 \$query of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:tryQuery\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Server/Privileges.php
@@ -11334,7 +11328,7 @@ parameters:
 		-
 			message: '#^Only booleans are allowed in an if condition, mixed given\.$#'
 			identifier: if.condNotBoolean
-			count: 2
+			count: 1
 			path: src/Server/Status/Data.php
 
 		-
@@ -13437,18 +13431,6 @@ parameters:
 		-
 			message: '#^Method PhpMyAdmin\\ZipExtension\:\:getContents\(\) should return array\{error\: string, data\: string\} but returns array\{error\: string, data\: string\|false\}\.$#'
 			identifier: return.type
-			count: 1
-			path: src/ZipExtension.php
-
-		-
-			message: '#^Parameter \#1 \$keys of function array_combine expects array\<int\|string\>, array\<mixed, mixed\> given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/ZipExtension.php
-
-		-
-			message: '#^Parameter \#3 \$subject of function str_replace expects array\<string\>\|string, \(int\|string\) given\.$#'
-			identifier: argument.type
 			count: 1
 			path: src/ZipExtension.php
 

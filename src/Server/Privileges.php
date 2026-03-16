@@ -1869,7 +1869,7 @@ class Privileges
     /**
      * Delete user and get message and sql query for delete user in privileges
      *
-     * @param mixed[] $queries queries
+     * @param string[] $queries queries
      *
      * @return array{string, Message} Message
      */
@@ -2106,9 +2106,9 @@ class Privileges
     /**
      * Update Data for information: Deletes users
      *
-     * @param mixed[] $queries queries array
+     * @param string[] $queries queries array
      *
-     * @return mixed[]
+     * @return string[]
      */
     public function getDataForDeleteUsers(array $queries, bool $isChangeCopyUser): array
     {
@@ -2173,10 +2173,10 @@ class Privileges
     /**
      * update Data For Queries from queries_for_display
      *
-     * @param mixed[]      $queries           queries array
-     * @param mixed[]|null $queriesForDisplay queries array for display
+     * @param string[]      $queries           queries array
+     * @param string[]|null $queriesForDisplay queries array for display
      *
-     * @return mixed[]
+     * @return string[]
      */
     public function getDataForQueries(array $queries, array|null $queriesForDisplay): array
     {
@@ -2626,12 +2626,12 @@ class Privileges
     /**
      * Get queries for Table privileges to change or copy user
      *
-     * @param string  $userHostCondition user host condition to select relevant table privileges
-     * @param mixed[] $queries           queries array
-     * @param string  $username          username
-     * @param string  $hostname          host name
+     * @param string   $userHostCondition user host condition to select relevant table privileges
+     * @param string[] $queries           queries array
+     * @param string   $username          username
+     * @param string   $hostname          host name
      *
-     * @return mixed[]
+     * @return string[]
      */
     public function getTablePrivsQueriesForChangeOrCopyUser(
         string $userHostCondition,
@@ -2708,11 +2708,11 @@ class Privileges
     /**
      * Get queries for database specific privileges for change or copy user
      *
-     * @param mixed[] $queries  queries array with string
-     * @param string  $username username
-     * @param string  $hostname host name
+     * @param string[] $queries  queries array with string
+     * @param string   $username username
+     * @param string   $hostname host name
      *
-     * @return mixed[]
+     * @return string[]
      */
     public function getDbSpecificPrivsQueriesForChangeOrCopyUser(
         array $queries,
