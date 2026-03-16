@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-03-15 00:41+0000\n"
 "PO-Revision-Date: 2026-03-17 05:09+0000\n"
-"Last-Translator: Jobggun <jobggun@kakao.com>\n"
+"Last-Translator: kim8ccf3a4116ec4691 <kim@yong.biz>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ko/>\n"
 "Language: ko\n"
@@ -1939,10 +1939,8 @@ msgid "OFF"
 msgstr "OFF"
 
 #: resources/templates/database/events/index.twig:161
-#, fuzzy
-#| msgid "Excel edition"
 msgid "Event editor"
-msgstr "Excel 버전"
+msgstr "이벤트 편집기"
 
 #: resources/templates/database/events/index.twig:166
 #: resources/templates/database/routines/index.twig:83
@@ -1967,10 +1965,8 @@ msgid "Save changes"
 msgstr "변경사항을 저장"
 
 #: resources/templates/database/events/index.twig:181
-#, fuzzy
-#| msgid "Export of event %s"
 msgid "Export event"
-msgstr "이벤트 %s 추출"
+msgstr "이벤트 내보내기"
 
 #: resources/templates/database/export/index.twig:61
 msgid ""
@@ -2128,10 +2124,8 @@ msgid "Update query"
 msgstr "쿼리 갱신"
 
 #: resources/templates/database/multi_table_query/form.twig:175
-#, fuzzy
-#| msgid "Update query"
 msgid "Copy query"
-msgstr "쿼리 갱신"
+msgstr "쿼리 복사"
 
 #: resources/templates/database/multi_table_query/form.twig:176
 #: src/Html/Generator.php:558
@@ -2471,16 +2465,12 @@ msgid "Returns"
 msgstr "반환값"
 
 #: resources/templates/database/routines/index.twig:78
-#, fuzzy
-#| msgid "Routine name"
 msgid "Routine editor"
-msgstr "루틴 이름"
+msgstr "루틴 편집기"
 
 #: resources/templates/database/routines/index.twig:98
-#, fuzzy
-#| msgid "Export of routine %s"
 msgid "Export routine"
-msgstr "루틴 %s 내보내기"
+msgstr "루틴 내보내기"
 
 #: resources/templates/database/routines/index.twig:113
 #: src/Controllers/Database/RoutinesController.php:354
@@ -3429,7 +3419,7 @@ msgstr "Geometry 타입:"
 
 #: resources/templates/gis_data_editor_form.twig:41
 msgid "Spatial Reference System Identifier"
-msgstr "공간기준계 좌표 (SRID)"
+msgstr "공간기준계 좌표 (S R I D)"
 
 #: resources/templates/gis_data_editor_form.twig:41
 msgctxt "Spatial Reference System Identifier"
@@ -3532,8 +3522,6 @@ msgid "Server:"
 msgstr "서버:"
 
 #: resources/templates/home/index.twig:186
-#, fuzzy
-#| msgid "Host name:"
 msgid "Hostname:"
 msgstr "호스트명:"
 
@@ -4554,10 +4542,8 @@ msgid "Description"
 msgstr "설명"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:2
-#, fuzzy
-#| msgid "Buffer Pool Usage"
 msgid "Buffer pool usage"
-msgstr "버퍼풀 사용량"
+msgstr "버퍼 풀 사용량"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:5
 msgid "Free pages"
@@ -4589,8 +4575,6 @@ msgid "%s pages"
 msgstr "%s 페이지"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:41
-#, fuzzy
-#| msgid "Buffer Pool Activity"
 msgid "Buffer pool activity"
 msgstr "버퍼 풀 사용상태"
 
@@ -5738,10 +5722,8 @@ msgstr ""
 "내기를 할 수 있습니다."
 
 #: resources/templates/server/status/monitor/index.twig:58
-#, fuzzy
-#| msgid "Import monitor configuration"
 msgid "Importing system monitor configuration"
-msgstr "모니터 설정 가져오기"
+msgstr "시스템 모니터링 설정 가져오기"
 
 #: resources/templates/server/status/monitor/index.twig:63
 #: src/Controllers/JavaScriptMessagesController.php:301
@@ -5753,10 +5735,8 @@ msgid "Reset to default"
 msgstr "기본값으로 초기화"
 
 #: resources/templates/server/status/monitor/index.twig:87
-#, fuzzy
-#| msgid "Monitor Instructions"
 msgid "System monitor instructions"
-msgstr "모니터 지침"
+msgstr "시스템 모니터링 설명"
 
 #: resources/templates/server/status/monitor/index.twig:92
 msgid ""
@@ -5932,8 +5912,6 @@ msgid "Cancel request"
 msgstr "요청 취소"
 
 #: resources/templates/server/status/monitor/index.twig:294
-#, fuzzy
-#| msgid "Analysing & loading logs. This may take a while."
 msgid "Analysing and loading logs. This may take a while."
 msgstr "로그를 읽고 분석합니다. 이 작업은 시간이 걸릴 수 있습니다."
 
@@ -5954,8 +5932,6 @@ msgid "Log data loaded. Queries executed in this time span:"
 msgstr "로그자료가 로드되었습니다. 쿼리들이 실행되었던 기간:"
 
 #: resources/templates/server/status/monitor/index.twig:336
-#, fuzzy
-#| msgid "Jump to Log table"
 msgid "Jump to the log table"
 msgstr "로그 테이블로 이동"
 
@@ -5987,21 +5963,15 @@ msgid "Local monitor configuration incompatible!"
 msgstr "호환되지 않는 로컬 모니터 설정입니다!"
 
 #: resources/templates/server/status/monitor/index.twig:370
-#, fuzzy
-#| msgid ""
-#| "The chart arrangement configuration in your browsers local storage is not "
-#| "compatible anymore to the newer version of the monitor dialog. It is very "
-#| "likely that your current configuration will not work anymore. Please "
-#| "reset your configuration to default in the <i>Settings</i> menu."
 msgid ""
 "The chart arrangement configuration in your browsers local storage is not "
 "compatible anymore to the newer version of the monitor dialog. It is very "
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the [em]Settings[/em] menu."
 msgstr ""
-"브라우저 내의 차트 정렬 설정은 더 이상 새 버전의 모니터 다이얼로그와 호환되"
-"지 않습니다. 현재 설정은 더 이상 작동되지 않을 수 있습니다. <i>설정</i>메뉴에"
-"서 설정을 초기화해 주세요."
+"브라우저 내의 차트 정렬 설정은 더 이상 새 버전의 모니터 다이얼로그와 "
+"호환되지 않습니다. 현재 설정은 더 이상 작동되지 않을 수 있습니다. [em]설정[/"
+"em] 메뉴에서 설정을 초기화해 주세요."
 
 #: resources/templates/server/status/processes/index.twig:14
 msgid "Show only active"
@@ -7386,16 +7356,12 @@ msgid "There are no triggers to display."
 msgstr "표시할 트리거가 없습니다."
 
 #: resources/templates/triggers/list.twig:81
-#, fuzzy
-#| msgid "Trigger name"
 msgid "Trigger editor"
-msgstr "트리거 이름"
+msgstr "트리거 편집기"
 
 #: resources/templates/triggers/list.twig:101
-#, fuzzy
-#| msgid "Export of trigger %s"
 msgid "Export trigger"
-msgstr "트리거 %s 내보내기"
+msgstr "트리거 내보내기"
 
 #: resources/templates/view_create.twig:75
 msgid "VIEW name"
@@ -12615,8 +12581,8 @@ msgid ""
 "configuration directive <code>AllowNoPassword</code> is false. If you "
 "proceed, the account will not be able to log in through phpMyAdmin."
 msgstr ""
-"비밀번호 없이 로그인하도록 이 계정을 설정하려고 하는데 구성 지시어 "
-"<code>AllowNoPassword</code>가 false입니다. 계속 진행하면 해당 계정은 "
+"비밀번호 없이 로그인하도록 이 계정을 설정하려고 하는데 구성 지시어 <code>"
+"AllowNoPassword</code> 가 false입니다. 계속 진행하면 해당 계정은 "
 "phpMyAdmin을 통해 로그인할 수 없습니다."
 
 #: src/Controllers/JavaScriptMessagesController.php:153
@@ -13279,16 +13245,12 @@ msgid "No dependencies selected!"
 msgstr "의존성이 선택되지 않았습니다!"
 
 #: src/Controllers/JavaScriptMessagesController.php:427
-#, fuzzy
-#| msgid "Use this value"
 msgid "Enter first value"
-msgstr "이 값을 사용합니다"
+msgstr "첫 번째 값 입력"
 
 #: src/Controllers/JavaScriptMessagesController.php:428
-#, fuzzy
-#| msgid "Session value"
 msgid "Enter second value"
-msgstr "세션 값"
+msgstr "두 번째 값 입력"
 
 #: src/Controllers/JavaScriptMessagesController.php:434
 msgid "Hide search criteria"
@@ -13548,10 +13510,8 @@ msgid "Double-click to copy column name."
 msgstr "칼럼명을 복사하려면 더블클릭하세요."
 
 #: src/Controllers/JavaScriptMessagesController.php:553
-#, fuzzy
-#| msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgid "Click the drop-down arrow to toggle column's visibility."
-msgstr "열 보이기 여부를 바꾸려면<br>드롭다운 화살표를 클릭하세요."
+msgstr "열 표시 여부를 바꾸려면 드롭다운 화살표를 클릭하세요."
 
 #: src/Controllers/JavaScriptMessagesController.php:556
 msgid ""
@@ -15214,10 +15174,8 @@ msgid "The columns have been moved successfully."
 msgstr "열이 정상적으로 이동했습니다."
 
 #: src/Controllers/Table/Structure/MoveColumnsController.php:114
-#, fuzzy
-#| msgid "The selected user was not found in the privilege table."
 msgid "The selected columns do not match the columns in the table."
-msgstr "선택한 사용자는 사용권한 테이블에 존재하지 않습니다."
+msgstr "선택한 컬럼은 테이블에 있는 컬럼과 일치하지 않습니다."
 
 #: src/Controllers/Table/Structure/MoveColumnsController.php:141
 msgid "The selected columns are already in the correct order."
@@ -15995,10 +15953,8 @@ msgid "Skip Explain SQL"
 msgstr "SQL 분석 건너뛰기"
 
 #: src/Html/Generator.php:517
-#, fuzzy
-#| msgid "Skip Validate SQL"
 msgid "Skip Analyze SQL"
-msgstr "SQL 검사 생략"
+msgstr "SQL 분석 건너뛰기"
 
 #: src/Html/Generator.php:549
 msgid "Without PHP code"
@@ -18229,14 +18185,12 @@ msgid "You must provide a trigger definition."
 msgstr "트리거 정의를 입력하세요."
 
 #: src/Types.php:97
-#, fuzzy
-#| msgid "Empty"
 msgid "empty"
-msgstr "비우기"
+msgstr "비어있음"
 
 #: src/Types.php:98
 msgid "not empty"
-msgstr "비어있지 않습니다"
+msgstr "비어있지 않음"
 
 #: src/Types.php:161
 msgid ""
