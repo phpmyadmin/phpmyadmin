@@ -195,7 +195,7 @@ class ZipExtension
      * same amount of elements.
      *
      * @param string[]|string $data contents of the file/files
-     * @param mixed[]|string  $name name of the file/files in the archive
+     * @param string[]|string $name name of the file/files in the archive
      *
      * @return string|false the ZIP file contents, or false if there was an error.
      */

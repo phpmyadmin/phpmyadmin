@@ -95,7 +95,7 @@ class ImportSql extends ImportPlugin
     public function doImport(File|null $importHandle = null): array
     {
         // Handle compatibility options.
-        $this->setSQLMode($_REQUEST);
+        $this->setSQLMode($_REQUEST['sql_compatibility'] ?? null, isset($_REQUEST['sql_no_auto_value_on_zero']));
 
         $bq = new BufferedQuery();
         if (isset($_POST['sql_delimiter'])) {
@@ -164,19 +164,14 @@ class ImportSql extends ImportPlugin
         return $sqlStatements;
     }
 
-    /**
-     * Handle compatibility options
-     *
-     * @param mixed[] $request Request array
-     */
-    private function setSQLMode(array $request): void
+    private function setSQLMode(string|null $sqlCompatibility, bool $sqlNoAutoValueOnZero): void
     {
         $sqlModes = [];
-        if (isset($request['sql_compatibility']) && $request['sql_compatibility'] !== 'NONE') {
-            $sqlModes[] = $request['sql_compatibility'];
+        if ($sqlCompatibility !== null && $sqlCompatibility !== 'NONE') {
+            $sqlModes[] = $sqlCompatibility;
         }
 
-        if (isset($request['sql_no_auto_value_on_zero'])) {
+        if ($sqlNoAutoValueOnZero) {
             $sqlModes[] = 'NO_AUTO_VALUE_ON_ZERO';
         }
 

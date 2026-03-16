@@ -174,8 +174,8 @@ final class DatabasesController implements InvocableController
     }
 
     /**
-     * @param mixed[] $primaryInfo
-     * @param mixed[] $replicaInfo
+     * @param array{status: bool, Do_DB?: string[], Ignore_DB?: string[]} $primaryInfo
+     * @param mixed[]                                                     $replicaInfo
      *
      * @return array{databases:mixed[], total_statistics:mixed[]}
      */
