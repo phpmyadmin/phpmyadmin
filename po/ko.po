@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
 "PO-Revision-Date: 2026-03-17 05:09+0000\n"
-"Last-Translator: Kim Yong <neatnet@gmail.com>\n"
+"Last-Translator: kim8ccf3a4116ec4691 <kim@yong.biz>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "ko/>\n"
 "Language: ko\n"
@@ -63,19 +63,19 @@ msgstr "슬로우 쿼리 비율"
 #: libraries/advisory_rules_generic.php:41
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
-msgstr "전체 쿼리 양에 비해 슬로우 쿼리가 많이 있습니다."
+msgstr "전체 쿼리 수에 비해 느린 쿼리가 많습니다."
 
 #: libraries/advisory_rules_generic.php:43
 #: libraries/advisory_rules_generic.php:57
 msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
-msgstr "{long_query_time}을 늘리거나 슬로우 쿼리 로그에 나열된 쿼리를 최적화해 보세요"
+msgstr "{long_query_time}을 늘리거나 느린 쿼리 로그에 나열된 쿼리를 최적화해 보세요"
 
 #: libraries/advisory_rules_generic.php:46
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
-msgstr "슬로우 쿼리의 비율은 5%%이하여야 합니다, 현재 수치는 %s%%입니다."
+msgstr "느린 쿼리의 비율은 5%%미만이어야 합니다, 현재 수치는 %s%%입니다."
 
 #: libraries/advisory_rules_generic.php:51
 msgid "Slow query rate"
@@ -276,9 +276,9 @@ msgid ""
 "cache, especially if you have multiple slaves."
 msgstr ""
 "꽤 많은 트래픽을 쓰는 데이터베이스에 MySQL 쿼리 캐시를 사용중입니다. MySQL "
-"쿼리 캐시 대신 <a href=\"https://dev.mysql.com/doc/refman/5.6/en/ha-memcached"
-".html\">memcached</a>를 사용하는게 나을 수 있습니다. 만약 다수의 slave가 "
-"있다면 더욱 권장합니다."
+"쿼리 캐시 대신 <a href=\"https://dev.mysql.com/doc/refman/5.6/en/ha-"
+"memcached.html\">memcached</a> 를 사용하는게 나을 수 있습니다. 만약 다수의 "
+"slave가 있다면 더욱 권장합니다."
 
 #: libraries/advisory_rules_generic.php:198
 #, php-format
@@ -823,9 +823,10 @@ msgid ""
 "href=\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-"
 "of-aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
-"연결 강제종료는 보통 인증이 실패할 경우 발생합니다. <a href=\"https://www."
-"percona.com/blog/2008/08/23/how-to-track-down-the-source-of-aborted_connects/"
-"\">이 게시물</a>이 원인을 추적하는 데 도움을 줄 수 있습니다."
+"연결 강제종료는 보통 인증이 실패할 경우 발생합니다. <a href=\"https://"
+"www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
+"aborted_connects/\">이 게시물</a> 이 원인을 추적하는 데 도움이 될 수 "
+"있습니다."
 
 #: libraries/advisory_rules_generic.php:556
 #, php-format
@@ -963,11 +964,11 @@ msgstr ""
 "일반적으로 {innodb_log_file_size}를 {innodb_buffer_pool_size} 크기의 25%로 "
 "설정하면 충분합니다. 매우 큰 {innodb_log_file_size}는 데이터베이스가 깨졌을 "
 "때 복구를 매우 느리게 만듭니다. <a href=\"https://www.percona.com/blog/2006/"
-"07/03/choosing-proper-innodb_log_file_size/\">이 기사</a>를 참고하세요. "
+"07/03/choosing-proper-innodb_log_file_size/\">이 기사</a> 를 참고하세요. "
 "서버를 종료하고, InnoDB 로그 파일을 제거하고, my.cnf 에서 새 값을 설정하고, "
 "서버를 시작한 다음 모든 것이 정상적으로 진행되었는지 오류 로그를 확인해야 "
 "합니다. <a href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/"
-"increase-innodblogfilesize-proper-way.html\">이 블로그 내용</a>을 참고"
+"increase-innodblogfilesize-proper-way.html\">이 블로그 내용</a> 을 참고"
 
 #: libraries/advisory_rules_generic.php:685
 #, php-format
@@ -1185,8 +1186,8 @@ msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
 "significant overhead that is required to maintain the cache."
 msgstr ""
-"질의 캐시크기가 128 MB 보다 큽니다. 질의 캐시가 크면 캐시를 유지하기 위한 관"
-"리가 발생해 효율이 나빠질 수 있습니다."
+"쿼리 캐시크기가 128 MiB 보다 큽니다. 쿼리 캐시가 크면 캐시를 유지하기 위한 "
+"관리가 발생해 효율이 나빠질 수 있습니다."
 
 #: libraries/advisory_rules_mysql_before80003.php:100
 msgid ""
@@ -2212,7 +2213,9 @@ msgstr ""
 msgid ""
 "Leave blank for no column comments/media types, suggested: "
 "[kbd]pma__column_info[/kbd]."
-msgstr "열의 설명/MIME형식이 없는 경우 비워두세요. 추천: [kbd]pma__column_info[/kbd]."
+msgstr ""
+"열의 설명/미디어 타입 형식이 없는 경우 비워두세요. 추천: "
+"[kbd]pma__column_info[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:354
 msgid ""
@@ -2399,7 +2402,7 @@ msgstr ""
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
-msgstr "SQL 쿼리 추적 기능이 테이블과 뷰에 대한 버전을 자동으로 생성할지 여부."
+msgstr "쿼리 추적 기능이 테이블과 뷰에 대한 버전을 자동으로 생성할지 여부."
 
 #: libraries/classes/Config/Descriptions.php:455
 msgid ""
@@ -2870,7 +2873,7 @@ msgstr "일반 사용자에게 \"데이터베이스 삭제(drop)\" 링크를 제
 
 #: libraries/classes/Config/Descriptions.php:627
 msgid "Blowfish secret"
-msgstr "BLOWFISH 암호화"
+msgstr "Blowfish 보안 키"
 
 #: libraries/classes/Config/Descriptions.php:628
 msgid "Row marker"
@@ -3167,7 +3170,7 @@ msgstr "레이블 키"
 #: templates/columns_definitions/table_fields_definitions.twig:71
 #: templates/database/data_dictionary/index.twig:25
 msgid "Media type"
-msgstr "미디어 타입 형식"
+msgstr "미디어 타입"
 
 #: libraries/classes/Config/Descriptions.php:695
 #: libraries/classes/Config/Descriptions.php:707
@@ -3277,7 +3280,7 @@ msgstr "자료 삽입시 사용 구문"
 #: libraries/classes/Config/Descriptions.php:742
 #: libraries/classes/Plugins/Export/ExportSql.php:491
 msgid "Maximal length of created query"
-msgstr "CREATE 질의 최대 길이"
+msgstr "생성된 쿼리의 최대 길이"
 
 #: libraries/classes/Config/Descriptions.php:747
 msgid "Export type"
@@ -5404,9 +5407,9 @@ msgid ""
 msgstr ""
 "이 작업을 통해, MySQL은 문자정렬순서간 데이터값들의 매핑을 시도합니다. 만약 "
 "문자정렬순서들이 호환되지 않는다면, 데이터가 손실 될 수 있으며 이렇게 손실된 "
-"데이터는 컬럼의 문자정렬순서를 되돌리는 것으로 간단하게 복원되지 <b>않을</"
-"b>을 것입니다. <b>이미 존재하는 데이터를 변환하기 위해, 테이블 구조 페이지의 "
-"컬럼(들) 수정 기능(\"변경\" 링크)을 이용하는 것을 추천합니다.</b>"
+"데이터는 컬럼의 문자정렬순서를 되돌리는 것으로 간단하게 복원되지 <b>않을</b> "
+"것입니다. <b>이미 존재하는 데이터를 변환하기 위해, 테이블 구조 페이지의 컬럼"
+"(들) 수정 기능(\"변경\" 링크)을 이용하는 것을 추천합니다.</b>"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:90
 msgid ""
@@ -5593,9 +5596,9 @@ msgid ""
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
-"브라우저 내의 차트 정렬 설정은 더 이상 새 버전의 모니터 다이얼로그와 호환되"
-"지 않습니다. 현재 설정은 더 이상 작동되지 않을 수 있습니다. <i>설정</i>메뉴에"
-"서 설정을 초기화해 주세요."
+"브라우저 내의 차트 정렬 설정은 더 이상 새 버전의 모니터 다이얼로그와 "
+"호환되지 않습니다. 현재 설정은 더 이상 작동되지 않을 수 있습니다. <i>설정</"
+"i> 메뉴에서 설정을 초기화해 주세요."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:160
 msgid "Query cache efficiency"
@@ -5691,38 +5694,38 @@ msgstr "B"
 #: libraries/classes/Util.php:511
 #: templates/server/status/monitor/index.twig:179
 msgid "KiB"
-msgstr "KB"
+msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:188
 #: libraries/classes/Util.php:513
 #: templates/server/status/monitor/index.twig:180
 msgid "MiB"
-msgstr "MB"
+msgstr "MiB"
 
 #. l10n: shortcuts for Gigabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:189
 #: libraries/classes/Util.php:515
 msgid "GiB"
-msgstr "GB"
+msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:190
 #: libraries/classes/Util.php:517
 msgid "TiB"
-msgstr "TB"
+msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:191
 #: libraries/classes/Util.php:519
 msgid "PiB"
-msgstr "PB"
+msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:192
 #: libraries/classes/Util.php:521
 msgid "EiB"
-msgstr "EB"
+msgstr "EiB"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:193
 #, php-format
@@ -6802,7 +6805,7 @@ msgstr "확인"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:557
 msgid "Press escape to cancel editing."
-msgstr "편집을 취소하려면 ESC를 누르세요."
+msgstr "편집을 취소하려면 esc를 누르세요."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:559
 msgid ""
@@ -9959,7 +9962,7 @@ msgstr "테이블 작업"
 #: libraries/classes/Relation.php:316 libraries/classes/Util.php:2501
 #: libraries/classes/Util.php:2515
 msgid "Tracking"
-msgstr "SQL 명령어 트래킹"
+msgstr "쿼리 트래킹"
 
 #: libraries/classes/Menu.php:370 libraries/classes/Menu.php:469
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:24
@@ -10142,7 +10145,7 @@ msgstr "새 열"
 #: libraries/classes/Navigation/Nodes/NodeDatabaseContainer.php:40
 msgctxt "Create new database"
 msgid "New"
-msgstr "새 DB"
+msgstr "신규"
 
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:43
 msgid "Database operations"
@@ -10387,8 +10390,9 @@ msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
 "value of the column."
-msgstr "아래의 각 열에 대해 주어진 집합 중에서 값을 합쳐서 열의 값을 결정하기에 "
-"충분한 열의 <b>최소 집합</b>을 선택해 주세요."
+msgstr ""
+"아래의 각 열에 대해 주어진 집합 중에서 값을 합쳐서 열의 값을 결정하기에 "
+"충분한 열의 <b>최소 집합</b> 을 선택해 주세요."
 
 #: libraries/classes/Normalization.php:474
 #: libraries/classes/Normalization.php:906
@@ -10726,7 +10730,7 @@ msgstr "NULL을 대체할 문자열:"
 #: libraries/classes/Plugins/Export/ExportCsv.php:86
 #: libraries/classes/Plugins/Export/ExportExcel.php:53
 msgid "Remove carriage return/line feed characters within columns"
-msgstr "컬럼 내 CR/LF 문자 제거"
+msgstr "컬럼 내 개행 문자(cr/lf) 제거"
 
 #: libraries/classes/Plugins/Export/ExportExcel.php:63
 msgid "Excel edition:"
@@ -10896,7 +10900,7 @@ msgstr "댓글 보기"
 #: libraries/classes/Plugins/Export/ExportOdt.php:110
 #: libraries/classes/Plugins/Export/ExportSql.php:157
 msgid "Display media types"
-msgstr "MIME 타입 표시"
+msgstr "미디어 타입 표시"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:168
 msgid "Put columns names in the first row:"
@@ -11325,7 +11329,7 @@ msgstr "잘못된 mediawiki 입력 행:<br>%s."
 
 #: libraries/classes/Plugins/Import/ImportOds.php:83
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
-msgstr "퍼센테이지를 소수로 변경<i>(예: 12.00% 를 .12 로)</i>"
+msgstr "퍼센테이지를 소수로 변경 <i>(예: 12.00% 를 .12 로)</i>"
 
 #: libraries/classes/Plugins/Import/ImportOds.php:89
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
@@ -11370,7 +11374,7 @@ msgstr "SQL 호환 모드:"
 
 #: libraries/classes/Plugins/Import/ImportSql.php:81
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
-msgstr "0 값에 <code>AUTO_INCREMENT</code>를 사용하지 않음"
+msgstr "0 값에 <code>AUTO_INCREMENT</code> 를 사용하지 않음"
 
 #: libraries/classes/Plugins/Import/ImportXml.php:49
 msgid "XML"
@@ -12152,13 +12156,13 @@ msgstr "데이터 변경 허용."
 #: templates/server/privileges/privileges_table.twig:335
 #: templates/server/privileges/privileges_table.twig:343
 msgid "Allows creating new databases and tables."
-msgstr "DB 및 테이블 생성 허용."
+msgstr "데이터베이스 및 테이블 생성을 허용합니다."
 
 #: libraries/classes/Server/Privileges.php:353
 #: templates/server/privileges/privileges_table.twig:383
 #: templates/server/privileges/privileges_table.twig:391
 msgid "Allows dropping databases and tables."
-msgstr "DB 및 테이블 삭제 허용."
+msgstr "데이터베이스 및 테이블 삭제를 허용합니다."
 
 #: libraries/classes/Server/Privileges.php:358
 #: templates/server/privileges/privileges_table.twig:575
@@ -14571,7 +14575,7 @@ msgstr "사용하는 테이블"
 #: templates/database/qbe/selection_form.twig:107
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr "데이터베이스 <b>%s</b>에 SQL 질의:"
+msgstr "<b>%s</b> 데이터베이스에 SQL 쿼리:"
 
 #: templates/database/routines/index.twig:4 templates/filter.twig:4
 #: templates/server/status/processes/index.twig:7
@@ -15418,7 +15422,7 @@ msgid ""
 "A compressed file's name must end in <strong>.[format].[compression]</"
 "strong>. Example: <strong>.sql.zip</strong>"
 msgstr ""
-"압축 파일명은 <strong>.[포맷].[압축형식]</strong>으로 끝나야 합니다. 예: "
+"압축 파일명은 <strong>.[포맷].[압축형식]</strong> 으로 끝나야 합니다. 예: "
 "<strong>.sql.zip</strong>"
 
 #: templates/import.twig:57 templates/import.twig:90
@@ -16024,7 +16028,7 @@ msgstr "고급 기능을 설정을 쉽게 설정하기:"
 #: templates/relation/diagnostic_info.twig:5
 #, php-format
 msgid "Create the needed tables with the <code>%screate_tables.sql</code>."
-msgstr "<code>%screate_tables.sql</code>에서 필요한 테이블을 생성하세요."
+msgstr "<code>%screate_tables.sql</code> 에서 필요한 테이블을 생성합니다."
 
 #: templates/relation/diagnostic_info.twig:9
 msgid "Create a pma user and give access to these tables."
@@ -16681,7 +16685,7 @@ msgid ""
 "configured as master."
 msgstr ""
 "MySQL 서버를 재시작한 후 이동 버튼을 클릭합니다. 그러면 이 서버가 마스터로 "
-"구성<strong>되었다</strong>는 메시지가 표시됩니다."
+"구성 <strong>되었다</strong> 는 메시지가 표시됩니다."
 
 #: templates/server/replication/master_replication.twig:5
 msgid "This server is configured as master in a replication process."
@@ -17147,16 +17151,16 @@ msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
 msgstr ""
-"이 MySQL 서버는 <b>리플리케이션</b> 작업시 <b>마스터</b>와 <b>슬레이브</b>로 "
-"동작합니다."
+"이 MySQL 서버는 <b>리플리케이션</b> 작업시 <b>마스터</b> 와 <b>슬레이브</b> "
+"로 동작합니다."
 
 #: templates/server/status/status/index.twig:61
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
-msgstr "이 MySQL 서버는 <b>복제</b> 프로세스에서 <b>마스터</b>로 작동합니다."
+msgstr "이 MySQL 서버는 <b>복제</b> 프로세스에서 <b>마스터</b> 로 작동합니다."
 
 #: templates/server/status/status/index.twig:63
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
-msgstr "이 MySQL 서버는 <b>복제</b> 프로세스에서 <b>슬레이브</b>로 작동합니다."
+msgstr "이 MySQL 서버는 <b>복제</b> 프로세스에서 <b>슬레이브</b> 로 작동합니다."
 
 #: templates/server/status/status/index.twig:69
 msgid "Replication status"
@@ -17381,7 +17385,7 @@ msgstr "이 질의를 다시 보여줌"
 
 #: templates/sql/query.twig:125
 msgid "Rollback when finished"
-msgstr "완료되면 ROLL BACK"
+msgstr "완료 시 Rollback"
 
 #: templates/sql/query.twig:149
 msgid "Bookmark:"
@@ -17573,7 +17577,8 @@ msgstr "인덱스 이름:"
 #: templates/table/index_form.twig:16 templates/table/index_rename_form.twig:12
 msgid ""
 "\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
-msgstr "\"PRIMARY\"는 <b>오직</b> 기본 키의 이름이자 <b>단 하나</b>의 기본 키여야 "
+msgstr ""
+"\"PRIMARY\"는 <b>오직</b> 기본 키의 이름이자 <b>단 하나</b> 의 기본 키여야 "
 "합니다!"
 
 #: templates/table/index_form.twig:34
@@ -17849,7 +17854,7 @@ msgstr "파티셔닝 수정"
 
 #: templates/table/structure/display_structure.twig:71
 msgid "Media type:"
-msgstr "MIME 형식:"
+msgstr "미디어 타입:"
 
 #: templates/table/structure/display_structure.twig:92
 #: templates/table/tracking/structure_snapshot_columns.twig:47
@@ -18059,7 +18064,7 @@ msgstr "(현재)"
 
 #: templates/transformation_overview.twig:1
 msgid "Available media types"
-msgstr "사용가능한 MIME 형식"
+msgstr "사용 가능한 미디어 타입"
 
 #: templates/transformation_overview.twig:13
 msgid "Available browser display transformations"
