@@ -10,7 +10,6 @@ final readonly class ScaleData
         public float $scale,
         public float $offsetX,
         public float $offsetY,
-        public int $height,
     ) {
     }
 }
