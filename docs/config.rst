@@ -2180,7 +2180,8 @@ Navigation panel setup
     :type: boolean
     :default: true
 
-    In the navigation panel, replaces the database tree with a selector
+    Defines whether to display databases in the navigation panel as a tree
+    instead of in a dropdown selector.
 
 .. config:option:: $cfg['FirstLevelNavigationItems']
 
