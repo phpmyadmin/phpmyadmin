@@ -2666,7 +2666,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
 
             // Copy handler
             $(document).on('copy', function (e) {
-                if (!document.body.contains(g.t)) {
+                if (!document.body.contains(g.t) || g.isCellEditActive) {
                     return;
                 }
 
