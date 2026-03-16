@@ -6,6 +6,10 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Sanitize;
 
+use function implode;
+use function range;
+use function str_repeat;
+
 /**
  * @covers \PhpMyAdmin\Sanitize
  */
@@ -158,10 +162,30 @@ class SanitizeTest extends AbstractTestCase
 
     /**
      * Test for Sanitize::sanitizeFilename
+     *
+     * @dataProvider providerTestSanitizeFileName
      */
-    public function testSanitizeFilename(): void
+    public function testSanitizeFilename(string $expected, string $input, bool $replaceDot): void
     {
-        self::assertSame('File_name_123', Sanitize::sanitizeFilename('File_name 123'));
+        self::assertSame($expected, Sanitize::sanitizeFilename($input, $replaceDot));
+    }
+
+    /** @psalm-return list<array{string,string,bool}> */
+    public static function providerTestSanitizeFileName(): array
+    {
+        return [
+            ['Hello123', 'Hello123', false],
+            ['宮保雞丁', '宮保雞丁', false],
+            ['Україна', 'Україна', false],
+            ['-_-', '-.-', true],
+            ['-.-', '-.-', false],
+            ['___', '"\'"', false],
+            ['_test_', '<test>', false],
+            ['Hello__World_', "Hello\r\nWorld!", false],
+            ['_', "\u{fffd}", false],
+            ['_', '🚀', false],
+            [str_repeat('_', 32), implode('', range("\0", "\x1f")), false],
+        ];
     }
 
     /**
