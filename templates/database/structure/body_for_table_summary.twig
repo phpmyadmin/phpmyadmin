@@ -35,16 +35,10 @@
         {% set cell_text = row_count_sum %}
     {% endif %}
     <th class="value tbl_rows font-monospace text-end">{{ cell_text }}</th>
-    {% if not (properties_num_columns > 1) %}
-        {# MySQL <= 5.5.2 #}
-        {% set default_engine = dbi.fetchValue('SELECT @@storage_engine;') %}
-        {% if default_engine is empty %}
-            {# MySQL >= 5.5.3 #}
-            {% set default_engine = dbi.fetchValue('SELECT @@default_storage_engine;') %}
-        {% endif %}
+    {% if is_show_db_details %}
         <th class="text-center">
-            <dfn title="{{ '%s is the default storage engine on this MySQL server.'|trans|format(default_engine) }}">
-                {{ default_engine }}
+            <dfn title="{{ '%s is the default storage engine on this MySQL server.'|trans|format(default_storage_engine) }}">
+                {{ default_storage_engine }}
             </dfn>
         </th>
         <th>
