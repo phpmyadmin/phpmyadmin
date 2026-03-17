@@ -157,35 +157,42 @@ class ImportXml extends ImportPlugin
         /**
          * Move down the XML tree to the actual data
          */
-        $databaseXml = $xml->database;
 
         $analyses = null;
         /** @var ImportTable[] $tables */
         $tables = [];
 
-        $databaseName = (string) $databaseXml['name'];
+        $databaseName = '';
+        // SimpleXMLElement does not obey typical PHP rules.
+        // Children can be fetched through the magical __get() method,but if the child does not exist,
+        // it will return an empty SimpleXMLElement instead of null.
+        // This means that we need to check for the existence of the child before trying to access it.
+        if (isset($xml->database)) {
+            $databaseXml = $xml->database;
+            $databaseName = (string) $databaseXml['name'];
 
-        /** @var SimpleXMLElement $tableRowXml */
-        foreach ($databaseXml->table ?? [] as $tableRowXml) {
-            $tableName = (string) $tableRowXml['name'];
+            /** @var SimpleXMLElement $tableRowXml */
+            foreach ($databaseXml->table as $tableRowXml) {
+                $tableName = (string) $tableRowXml['name'];
 
-            $table = $tables[$tableName] ?? new ImportTable($tableName);
+                $table = $tables[$tableName] ?? new ImportTable($tableName);
 
-            $tableRow = [];
-            /** @var SimpleXMLElement $tableCellXml */
-            foreach ($tableRowXml->column as $tableCellXml) {
-                /** @psalm-suppress PossiblyNullArrayAccess */
-                $columnName = (string) $tableCellXml['name'];
-                if (! in_array($columnName, $table->columns, true)) {
-                    $table->columns[] = $columnName;
+                $tableRow = [];
+                /** @var SimpleXMLElement $tableCellXml */
+                foreach ($tableRowXml->column as $tableCellXml) {
+                    /** @psalm-suppress PossiblyNullArrayAccess */
+                    $columnName = (string) $tableCellXml['name'];
+                    if (! in_array($columnName, $table->columns, true)) {
+                        $table->columns[] = $columnName;
+                    }
+
+                    $tableRow[] = (string) $tableCellXml;
                 }
 
-                $tableRow[] = (string) $tableCellXml;
+                $table->rows[] = $tableRow;
+
+                $tables[$tableName] = $table;
             }
-
-            $table->rows[] = $tableRow;
-
-            $tables[$tableName] = $table;
         }
 
         unset($xml);
