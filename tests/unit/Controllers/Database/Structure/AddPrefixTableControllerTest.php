@@ -46,7 +46,7 @@ final class AddPrefixTableControllerTest extends AbstractTestCase
             [['utf8mb4_uca1400_ai_ci']],
             ['DEFAULT_COLLATION_NAME'],
         );
-        $dbiDummy->addResult('SELECT @@storage_engine;', [['InnoDB']]);
+        $dbiDummy->addResult('SELECT @@default_storage_engine;', [['InnoDB']]);
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['db' => 'test_db', 'add_prefix' => 'test_', 'selected' => ['table']]);
