@@ -122,7 +122,10 @@ final readonly class ImportController implements InvocableController
             'table' => Current::$table,
         ];
 
-        $choice = Plugins::getChoice($importList, $this->getFormat($request->getParam('format')));
+        $pluginName = $this->getFormat($request->getParam('format'));
+        $pluginName = Plugins::validatePluginNameOrUseDefault($importList, $pluginName);
+
+        $choice = Plugins::getChoice($importList, $pluginName);
         $options = Plugins::getOptions(PluginType::Import, $importList);
         $skipQueriesDefault = $this->getSkipQueries($request->getParam('skip_queries'));
         $isAllowInterruptChecked = Plugins::checkboxCheck(PluginType::Import, 'allow_interrupt');

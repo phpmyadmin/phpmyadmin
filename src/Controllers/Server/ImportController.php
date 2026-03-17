@@ -78,7 +78,10 @@ final readonly class ImportController implements InvocableController
         $idKey = $_SESSION[Ajax::SESSION_KEY]['handler']::getIdKey();
         $hiddenInputs = [$idKey => $uploadId, 'import_type' => 'server'];
 
-        $choice = Plugins::getChoice($importList, $this->getFormat($request->getParam('format')));
+        $pluginName = $this->getFormat($request->getParam('format'));
+        $pluginName = Plugins::validatePluginNameOrUseDefault($importList, $pluginName);
+
+        $choice = Plugins::getChoice($importList, $pluginName);
         $options = Plugins::getOptions(PluginType::Import, $importList);
         $skipQueriesDefault = $this->getSkipQueries($request->getParam('skip_queries'));
         $isAllowInterruptChecked = Plugins::checkboxCheck(PluginType::Import, 'allow_interrupt');

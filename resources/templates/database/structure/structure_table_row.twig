@@ -114,7 +114,7 @@
             {{ show_superscript|raw }}
         </td>
 
-        {% if not (properties_num_columns > 1) %}
+        {% if is_show_db_details %}
             <td class="text-nowrap">
                 {% if current_table['ENGINE'] is not empty %}
                     {{ current_table['ENGINE'] }}

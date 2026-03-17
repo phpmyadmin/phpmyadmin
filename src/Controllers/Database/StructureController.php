@@ -79,6 +79,9 @@ final class StructureController implements InvocableController
     /** @var bool whether stats show or not */
     private bool $isShowStats = false;
 
+    /** @var bool whether database details show or not */
+    private bool $isShowDbDetails;
+
     private ReplicationInfo $replicationInfo;
 
     public function __construct(
@@ -93,6 +96,7 @@ final class StructureController implements InvocableController
         private readonly Config $config,
     ) {
         $this->replicationInfo = new ReplicationInfo($this->dbi);
+        $this->isShowDbDetails = $this->config->config->PropertiesNumColumns < 2;
     }
 
     /**
@@ -374,7 +378,7 @@ final class StructureController implements InvocableController
                     'db' => Current::$database,
                     'db_is_system_schema' => $this->dbIsSystemSchema,
                     'replication' => $replicaInfo['status'],
-                    'properties_num_columns' => $this->config->config->PropertiesNumColumns,
+                    'is_show_db_details' => $this->isShowDbDetails,
                     'is_show_stats' => $this->isShowStats,
                     'show_charset' => $this->config->settings['ShowDbStructureCharset'],
                     'show_comment' => $this->config->settings['ShowDbStructureComment'],
@@ -429,7 +433,7 @@ final class StructureController implements InvocableController
                     ),
                 ),
                 'num_favorite_tables' => $this->config->settings['NumFavoriteTables'],
-                'properties_num_columns' => $this->config->config->PropertiesNumColumns,
+                'is_show_db_details' => $this->isShowDbDetails,
                 'limit_chars' => $this->config->config->limitChars,
                 'show_charset' => $this->config->settings['ShowDbStructureCharset'],
                 'show_comment' => $this->config->settings['ShowDbStructureComment'],
@@ -456,20 +460,18 @@ final class StructureController implements InvocableController
         $relationParameters = $this->relation->getRelationParameters();
 
         $defaultStorageEngine = '';
-        if ($this->config->config->PropertiesNumColumns < 2) {
-            // MySQL <= 5.5.2
-            $defaultStorageEngine = $this->dbi->fetchValue('SELECT @@storage_engine;');
-            if (! is_string($defaultStorageEngine) || $defaultStorageEngine === '') {
-                // MySQL >= 5.5.3
-                $defaultStorageEngine = $this->dbi->fetchValue('SELECT @@default_storage_engine;');
-            }
+        if ($this->isShowDbDetails) {
+            $defaultStorageEngineVar = $this->dbi->getVersion() >= 50503
+                ? '@@default_storage_engine'
+                : '@@storage_engine';
+            $defaultStorageEngine = $this->dbi->fetchValue(sprintf('SELECT %s;', $defaultStorageEngineVar));
         }
 
         return $html . $this->template->render('database/structure/table_header', [
             'db' => Current::$database,
             'db_is_system_schema' => $this->dbIsSystemSchema,
             'replication' => $replicaInfo['status'],
-            'properties_num_columns' => $this->config->config->PropertiesNumColumns,
+            'is_show_db_details' => $this->isShowDbDetails,
             'is_show_stats' => $this->isShowStats,
             'show_charset' => $this->config->settings['ShowDbStructureCharset'],
             'show_comment' => $this->config->settings['ShowDbStructureComment'],
@@ -494,7 +496,7 @@ final class StructureController implements InvocableController
                 'approx_rows' => $overallApproxRows,
                 'num_favorite_tables' => $this->config->settings['NumFavoriteTables'],
                 'db' => Current::$database,
-                'properties_num_columns' => $this->config->config->PropertiesNumColumns,
+                'is_show_db_details' => $this->isShowDbDetails,
                 'default_storage_engine' => $defaultStorageEngine,
                 'show_charset' => $this->config->settings['ShowDbStructureCharset'],
                 'show_comment' => $this->config->settings['ShowDbStructureComment'],

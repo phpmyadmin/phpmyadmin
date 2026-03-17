@@ -18,7 +18,9 @@ use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\Plugins\Export\ExportXml;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\ExportType;
+use PhpMyAdmin\Plugins\Import\ImportOds;
 use PhpMyAdmin\Plugins\Import\ImportSql;
+use PhpMyAdmin\Plugins\Import\ImportXml;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Plugins\PluginType;
 use PhpMyAdmin\Plugins\Schema\SchemaPdf;
@@ -512,5 +514,41 @@ class PluginsTest extends AbstractTestCase
                 return true;
             }
         };
+    }
+
+    public function testValidatePluginNameOrUseDefaultForExport(): void
+    {
+        $config = new Config();
+        $dbi = DatabaseInterface::getInstance($config);
+        $relation = new Relation($dbi, $config);
+        $transformations = new Transformations($dbi, $relation);
+        $outputHandler = new OutputHandler();
+
+        $exportList = [
+            new ExportJson($relation, $outputHandler, $transformations, $dbi, $config),
+            new ExportOds($relation, $outputHandler, $transformations, $dbi, $config),
+            new ExportSql($relation, $outputHandler, $transformations, $dbi, $config),
+            new ExportXml($relation, $outputHandler, $transformations, $dbi, $config),
+        ];
+        $actual = Plugins::validatePluginNameOrUseDefault($exportList, 'xml');
+        self::assertSame('xml', $actual);
+        $actual = Plugins::validatePluginNameOrUseDefault($exportList, 'lmx');
+        self::assertSame('sql', $actual);
+    }
+
+    public function testValidatePluginNameOrUseDefaultForImport(): void
+    {
+        $config = new Config();
+        $dbi = DatabaseInterface::getInstance($config);
+
+        $importList = [
+            new ImportOds(new Import($dbi, new ResponseRenderer(), $config), $dbi, $config),
+            new ImportSql(new Import($dbi, new ResponseRenderer(), $config), $dbi, $config),
+            new ImportXml(new Import($dbi, new ResponseRenderer(), $config), $dbi, $config),
+        ];
+        $actual = Plugins::validatePluginNameOrUseDefault($importList, 'xml');
+        self::assertSame('xml', $actual);
+        $actual = Plugins::validatePluginNameOrUseDefault($importList, 'lmx');
+        self::assertSame('sql', $actual);
     }
 }

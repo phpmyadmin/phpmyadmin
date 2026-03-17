@@ -123,7 +123,10 @@ final readonly class Options
             $templates = is_array($templates) ? $templates : [];
         }
 
-        $dropdown = Plugins::getChoice($exportList, $this->getFormat($formatParam, $whatParam));
+        $pluginName = $this->getFormat($formatParam, $whatParam);
+        $pluginName = Plugins::validatePluginNameOrUseDefault($exportList, $pluginName);
+
+        $dropdown = Plugins::getChoice($exportList, $pluginName);
         $tableObject = new Table($table, $db, DatabaseInterface::getInstance());
         $rows = [];
 

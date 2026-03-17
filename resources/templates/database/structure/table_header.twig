@@ -26,7 +26,7 @@
                 {{ sortable_table_header(t('Rows'), 'records', 'DESC') }}
                 {{ show_hint(t('May be approximate. Click on the number to get the exact count. See [doc@faq3-11]FAQ 3.11[/doc].')|sanitize) }}
             </th>
-            {% if not (properties_num_columns > 1) %}
+            {% if is_show_db_details %}
                 <th>{{ sortable_table_header(t('Type'), 'type') }}</th>
                 <th>{{ sortable_table_header(t('Collation'), 'collation') }}</th>
             {% endif %}
