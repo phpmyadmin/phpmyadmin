@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pma_xml_export version="1.0" xmlns:pma="https://www.phpmyadmin.net/some_doc_url/">
+    <pma:structure_schemas>
+        <pma:database name="test25" collation="utf8mb4_general_ci" charset="utf8mb4">
+            <pma:table name="test">
+                CREATE TABLE `test` (
+                  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+                  PRIMARY KEY (`id`)
+                ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+</pma_xml_export>
