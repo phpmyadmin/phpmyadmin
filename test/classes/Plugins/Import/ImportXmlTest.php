@@ -115,12 +115,12 @@ class ImportXmlTest extends AbstractTestCase
     }
 
     /**
-     * Test for doImport using second dataset
+     * Test for doImport using the GIS dataset
      *
      * @group medium
      * @requires extension simplexml
      */
-    public function testDoImportDataset2(): void
+    public function testDoImportDatasetGIS(): void
     {
         global $import_notice;
 
@@ -129,7 +129,7 @@ class ImportXmlTest extends AbstractTestCase
             ->getMock();
         $GLOBALS['dbi'] = $dbi;
 
-        $GLOBALS['import_file'] = 'test/test_data/test.xml';
+        $GLOBALS['import_file'] = 'test/test_data/phpmyadmin_importXML_GIS_For_Testing.xml';
 
         $importHandle = new File($GLOBALS['import_file']);
         $importHandle->open();
@@ -141,6 +141,39 @@ class ImportXmlTest extends AbstractTestCase
             $import_notice
         );
         self::assertStringContainsString('Go to database: `test`', $import_notice);
+        self::assertStringContainsString('Edit settings for `test`', $import_notice);
+        self::assertStringContainsString('Go to table: `test`', $import_notice);
+        self::assertStringContainsString('Edit settings for `test`', $import_notice);
+        self::assertTrue($GLOBALS['finished']);
+    }
+
+    /**
+     * Test for doImport using no database dataset
+     *
+     * @group medium
+     * @requires extension simplexml
+     */
+    public function testDoImportDatasetNoDatabase(): void
+    {
+        global $import_notice;
+
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $GLOBALS['dbi'] = $dbi;
+
+        $GLOBALS['import_file'] = 'test/test_data/phpmyadmin_importXML_No_Database_For_Testing.xml';
+
+        $importHandle = new File($GLOBALS['import_file']);
+        $importHandle->open();
+
+        $this->object->doImport($importHandle);
+
+        self::assertStringContainsString(
+            'The following structures have either been created or altered.',
+            $import_notice
+        );
+        self::assertStringContainsString('Go to database: `test25`', $import_notice);
         self::assertStringContainsString('Edit settings for `test`', $import_notice);
         self::assertStringContainsString('Go to table: `test`', $import_notice);
         self::assertStringContainsString('Edit settings for `test`', $import_notice);
