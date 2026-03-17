@@ -510,10 +510,11 @@ final class ColumnsDefinition
 
         switch ($columnMeta['Default']) {
             case null:
-                if ($columnMeta['Null'] === 'YES') {
-                    $metaDefault['DefaultType'] = 'NULL';
+                // Could be null or empty string here
+                if ($columnMeta['Default'] === null) {
+                    $metaDefault['DefaultType'] = $columnMeta['Null'] === 'YES' ? 'NULL' : 'NONE';
                 } else {
-                    $metaDefault['DefaultType'] = 'NONE';
+                    $columnMeta['DefaultValue'] = $columnMeta['Default'];
                 }
 
                 break;

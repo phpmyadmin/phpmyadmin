@@ -107,6 +107,16 @@ class ColumnsDefinitionTest extends AbstractTestCase
                     'DefaultValue' => '"some\/thing"',
                 ],
             ],
+            'when varchar Default is empty string' => [
+                [
+                    'Default' => '',
+                    'Type' => 'varchar(255)',
+                ],
+                [
+                    'DefaultType' => 'USER_DEFINED',
+                    'DefaultValue' => '',
+                ],
+            ],
         ];
     }
 }
