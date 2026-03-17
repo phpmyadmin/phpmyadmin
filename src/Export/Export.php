@@ -168,27 +168,21 @@ class Export
     ): void {
         if ($exportType === ExportType::Server) {
             $userPreferencesHandler->setUserValue(
-                'pma_server_filename_template',
                 'Export/file_template_server',
                 $filenameTemplate,
+                cookieName: 'pma_server_filename_template',
             );
         } elseif ($exportType === ExportType::Database) {
             $userPreferencesHandler->setUserValue(
-                'pma_db_filename_template',
                 'Export/file_template_database',
                 $filenameTemplate,
+                cookieName: 'pma_db_filename_template',
             );
-        } elseif ($exportType === ExportType::Raw) {
+        } elseif ($exportType === ExportType::Table) {
             $userPreferencesHandler->setUserValue(
-                'pma_raw_filename_template',
-                'Export/file_template_raw',
-                $filenameTemplate,
-            );
-        } else {
-            $userPreferencesHandler->setUserValue(
-                'pma_table_filename_template',
                 'Export/file_template_table',
                 $filenameTemplate,
+                cookieName: 'pma_table_filename_template',
             );
         }
     }

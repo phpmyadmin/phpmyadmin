@@ -23,10 +23,13 @@ final readonly class CollationConnectionController implements InvocableControlle
     public function __invoke(ServerRequest $request): Response
     {
         $this->userPreferencesHandler->setUserValue(
-            null,
             'DefaultConnectionCollation',
             $request->getParsedBodyParam('collation_connection'),
             'utf8mb4_unicode_ci',
+        );
+        $this->userPreferencesHandler->updateConfigValue(
+            'DefaultConnectionCollation',
+            $request->getParsedBodyParam('collation_connection'),
         );
 
         $this->response->redirect('index.php?route=/' . Url::getCommonRaw([], '&'));

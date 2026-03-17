@@ -58,6 +58,7 @@ class UserPreferencesHandler
             return;
         }
 
+        /** @var mixed[] $configData */
         $configData = $_SESSION['cache'][$cacheKey]['userprefs'];
         // type is 'db' or 'session'
         $this->storageType = $_SESSION['cache'][$cacheKey]['userprefs_type'];
@@ -88,11 +89,11 @@ class UserPreferencesHandler
                 && $configData['ThemeDefault'] !== $this->themeManager->theme->getId()
             ) {
                 $this->setUserValue(
-                    null,
                     'ThemeDefault',
                     $this->themeManager->theme->getId(),
                     'original',
                 );
+                $this->updateConfigValue('ThemeDefault', $this->themeManager->theme->getId());
             }
         } elseif (
             $this->config->config->ThemeDefault !== $this->themeManager->theme->getId()
@@ -111,7 +112,7 @@ class UserPreferencesHandler
                 || isset($configData['lang'])
                 && Current::$lang !== $configData['lang']
             ) {
-                $this->setUserValue(null, 'lang', Current::$lang, 'en');
+                $this->setUserValue('lang', Current::$lang, 'en');
             }
         } elseif (isset($configData['lang'])) {
             // read language from settings
@@ -151,17 +152,12 @@ class UserPreferencesHandler
      * If user preferences are not yet initialized, option is applied to
      * global config and added to a update queue, which is processed
      * by {@link loadUserPreferences()}
-     *
-     * @param string|null $cookieName   can be null
-     * @param string      $cfgPath      configuration path
-     * @param mixed       $newCfgValue  new value
-     * @param string|null $defaultValue default value
      */
     public function setUserValue(
-        string|null $cookieName,
         string $cfgPath,
         mixed $newCfgValue,
         string|null $defaultValue = null,
+        string $cookieName = '',
     ): true|Message {
         $result = true;
         // use permanent user preferences if possible
@@ -173,7 +169,7 @@ class UserPreferencesHandler
             $result = $this->userPreferences->persistOption($cfgPath, $newCfgValue, $defaultValue);
         }
 
-        if ($this->storageType !== 'db' && $cookieName) {
+        if ($this->storageType !== 'db' && $cookieName !== '') {
             // fall back to cookies
             if ($defaultValue === null) {
                 $defaultValue = Core::arrayRead($cfgPath, $this->config->settings);
@@ -182,9 +178,12 @@ class UserPreferencesHandler
             $this->config->setCookie($cookieName, (string) $newCfgValue, $defaultValue);
         }
 
-        $this->config->set($cfgPath, $newCfgValue);
-
         return $result;
+    }
+
+    public function updateConfigValue(string $cfgPath, mixed $newCfgValue): void
+    {
+        $this->config->set($cfgPath, $newCfgValue);
     }
 
     /**

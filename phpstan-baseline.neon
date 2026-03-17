@@ -922,27 +922,9 @@ parameters:
 			path: src/Config/UserPreferencesHandler.php
 
 		-
-			message: '#^Cannot access offset ''Server'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Config/UserPreferencesHandler.php
-
-		-
-			message: '#^Cannot access offset ''ThemeDefault'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Config/UserPreferencesHandler.php
-
-		-
 			message: '#^Cannot access offset ''config_mtime'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 2
-			path: src/Config/UserPreferencesHandler.php
-
-		-
-			message: '#^Cannot access offset ''lang'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 3
 			path: src/Config/UserPreferencesHandler.php
 
 		-
@@ -976,19 +958,7 @@ parameters:
 			path: src/Config/UserPreferencesHandler.php
 
 		-
-			message: '#^Only booleans are allowed in &&, string\|null given on the right side\.$#'
-			identifier: booleanAnd.rightNotBoolean
-			count: 1
-			path: src/Config/UserPreferencesHandler.php
-
-		-
 			message: '#^Parameter \#1 \$code of method PhpMyAdmin\\I18n\\LanguageManager\:\:getLanguage\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Config/UserPreferencesHandler.php
-
-		-
-			message: '#^Parameter \#2 \.\.\.\$replacements of function array_replace_recursive expects array, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Config/UserPreferencesHandler.php
