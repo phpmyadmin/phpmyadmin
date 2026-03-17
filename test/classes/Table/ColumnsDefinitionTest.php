@@ -92,9 +92,8 @@ class ColumnsDefinitionTest extends AbstractTestCase
                     'Type' => 'text',
                 ],
                 [
-                    'Default' => 'some/thing',
                     'DefaultType' => 'USER_DEFINED',
-                    'DefaultValue' => '"some\/thing"',
+                    'DefaultValue' => 'some/thing',
                 ],
             ],
             'when Default is anything else and Type is not text' => [
@@ -111,6 +110,16 @@ class ColumnsDefinitionTest extends AbstractTestCase
                 [
                     'Default' => '',
                     'Type' => 'varchar(255)',
+                ],
+                [
+                    'DefaultType' => 'USER_DEFINED',
+                    'DefaultValue' => '',
+                ],
+            ],
+            'when longtext Default is empty string' => [
+                [
+                    'Default' => "''",
+                    'Type' => 'longtext',
                 ],
                 [
                     'DefaultType' => 'USER_DEFINED',

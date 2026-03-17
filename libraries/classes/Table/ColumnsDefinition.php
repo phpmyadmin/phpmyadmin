@@ -529,11 +529,11 @@ final class ColumnsDefinition
 
                 break;
             default:
-                $metaDefault['DefaultValue'] = $columnMeta['Default'];
-
                 if (substr((string) $columnMeta['Type'], -4) === 'text') {
                     $textDefault = substr($columnMeta['Default'], 1, -1);
-                    $metaDefault['Default'] = stripcslashes($textDefault);
+                    $metaDefault['DefaultValue'] = stripcslashes($textDefault);
+                } else {
+                    $metaDefault['DefaultValue'] = $columnMeta['Default'];
                 }
 
                 break;
