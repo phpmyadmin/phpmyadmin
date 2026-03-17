@@ -6287,11 +6287,8 @@
       <code><![CDATA[string[]]]></code>
     </PossiblyUnusedReturnValue>
     <RedundantCondition>
-      <code><![CDATA[$databaseXml->table]]></code>
+      <code><![CDATA[isset($xml->database)]]></code>
     </RedundantCondition>
-    <TypeDoesNotContainType>
-      <code><![CDATA[[]]]></code>
-    </TypeDoesNotContainType>
     <UnnecessaryVarAnnotation>
       <code><![CDATA[SimpleXMLElement]]></code>
       <code><![CDATA[SimpleXMLElement]]></code>
