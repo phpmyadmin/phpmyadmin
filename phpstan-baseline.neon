@@ -47081,13 +47081,23 @@ parameters:
 			path: test/classes/Plugins/Import/ImportXmlTest.php
 
 		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:any\\(\\)\\.$#"
+			count: 3
+			path: test/classes/Plugins/Import/ImportXmlTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnArgument\\(\\)\\.$#"
+			count: 3
+			path: test/classes/Plugins/Import/ImportXmlTest.php
+
+		-
 			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\File constructor expects bool\\|string, mixed given\\.$#"
 			count: 1
 			path: test/classes/Plugins/Import/ImportXmlTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
-			count: 5
+			count: 10
 			path: test/classes/Plugins/Import/ImportXmlTest.php
 
 		-
