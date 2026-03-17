@@ -125,4 +125,31 @@ class PluginsTest extends AbstractTestCase
         ];
         self::assertSame($expected, $actual);
     }
+
+    public function testValidatePluginNameOrUseDefaultForExport(): void
+    {
+        $exportList = [
+            new Plugins\Export\ExportJson(),
+            new Plugins\Export\ExportOds(),
+            new Plugins\Export\ExportSql(),
+            new Plugins\Export\ExportXml(),
+        ];
+        $actual = Plugins::validatePluginNameOrUseDefault($exportList, 'xml');
+        self::assertSame('xml', $actual);
+        $actual = Plugins::validatePluginNameOrUseDefault($exportList, 'lmx');
+        self::assertSame('sql', $actual);
+    }
+
+    public function testValidatePluginNameOrUseDefaultForImport(): void
+    {
+        $importList = [
+            new Plugins\Import\ImportOds(),
+            new Plugins\Import\ImportSql(),
+            new Plugins\Import\ImportXml(),
+        ];
+        $actual = Plugins::validatePluginNameOrUseDefault($importList, 'xml');
+        self::assertSame('xml', $actual);
+        $actual = Plugins::validatePluginNameOrUseDefault($importList, 'lmx');
+        self::assertSame('sql', $actual);
+    }
 }

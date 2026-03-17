@@ -25,10 +25,12 @@ use SplFileInfo;
 use Throwable;
 
 use function __;
+use function array_map;
 use function class_exists;
 use function count;
 use function get_class;
 use function htmlspecialchars;
+use function in_array;
 use function is_subclass_of;
 use function mb_strpos;
 use function mb_strtolower;
@@ -187,6 +189,25 @@ class Plugins
         }
 
         return '';
+    }
+
+    /**
+     * Validates the plugin name and returns it, or falls back to 'sql' if invalid.
+     *
+     * @param ExportPlugin[]|ImportPlugin[] $plugins
+     */
+    public static function validatePluginNameOrUseDefault(array $plugins, string $pluginName): string
+    {
+        // If the format is invalid, fall back to 'sql' (issue: #19891)
+        $validNames = array_map(static function ($plugin) {
+            return $plugin->getName();
+        }, $plugins);
+
+        if (! in_array($pluginName, $validNames, true)) {
+            return 'sql';
+        }
+
+        return $pluginName;
     }
 
     /**
