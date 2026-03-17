@@ -542,24 +542,27 @@ class Tracking
             . '</a>]</h3>';
         $trackedData = $this->getTrackedData($db, $table, $version);
 
-        // Get first DROP TABLE/VIEW and CREATE TABLE/VIEW statements
-        $dropCreateStatements = $trackedData->ddlog[0]['statement'];
+        // ddlog can be empty if all statements are deleted
+        if ($trackedData->ddlog !== []) {
+            // Get first DROP TABLE/VIEW and CREATE TABLE/VIEW statements
+            $dropCreateStatements = $trackedData->ddlog[0]['statement'];
 
-        if (
-            str_contains($trackedData->ddlog[0]['statement'], 'DROP TABLE')
-            || str_contains($trackedData->ddlog[0]['statement'], 'DROP VIEW')
-        ) {
-            $dropCreateStatements .= $trackedData->ddlog[1]['statement'];
+            if (
+                str_contains($trackedData->ddlog[0]['statement'], 'DROP TABLE')
+                || str_contains($trackedData->ddlog[0]['statement'], 'DROP VIEW')
+            ) {
+                $dropCreateStatements .= $trackedData->ddlog[1]['statement'];
+            }
+
+            // Print SQL code
+            $html .= Generator::getMessage(
+                sprintf(
+                    __('Version %s snapshot (SQL code)'),
+                    htmlspecialchars($version),
+                ),
+                $dropCreateStatements,
+            );
         }
-
-        // Print SQL code
-        $html .= Generator::getMessage(
-            sprintf(
-                __('Version %s snapshot (SQL code)'),
-                htmlspecialchars($version),
-            ),
-            $dropCreateStatements,
-        );
 
         // Unserialize snapshot
         $temp = Core::safeUnserialize($trackedData->schemaSnapshot);
