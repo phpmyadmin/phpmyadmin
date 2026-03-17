@@ -221,8 +221,10 @@ class ImportXml extends ImportPlugin
         /**
          * Move down the XML tree to the actual data
          */
-        $xml = $xml->children()
-            ->children();
+        $xml = $xml->children();
+        if ($xml->getName() !== '') {
+            $xml = $xml->children();
+        }
 
         $data_present = false;
 
