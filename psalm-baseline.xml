@@ -6286,6 +6286,12 @@
     <PossiblyUnusedReturnValue>
       <code><![CDATA[string[]]]></code>
     </PossiblyUnusedReturnValue>
+    <RedundantCondition>
+      <code><![CDATA[$databaseXml->table]]></code>
+    </RedundantCondition>
+    <TypeDoesNotContainType>
+      <code><![CDATA[[]]]></code>
+    </TypeDoesNotContainType>
     <UnnecessaryVarAnnotation>
       <code><![CDATA[SimpleXMLElement]]></code>
       <code><![CDATA[SimpleXMLElement]]></code>
@@ -10295,6 +10301,8 @@
   <file src="tests/unit/PluginsTest.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[DatabaseInterface::getInstance($config)]]></code>
+      <code><![CDATA[DatabaseInterface::getInstance($config)]]></code>
       <code><![CDATA[DatabaseInterface::getInstance($config)]]></code>
     </DeprecatedMethod>
     <PropertyTypeCoercion>
