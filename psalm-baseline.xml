@@ -12394,7 +12394,7 @@
       <code>$oldUserGroup</code>
       <code>$user</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="28">
+    <PossiblyInvalidCast occurrences="29">
       <code>$_GET['username']</code>
       <code>$_POST['authentication_plugin']</code>
       <code>$_POST['authentication_plugin']</code>
@@ -12422,6 +12422,7 @@
       <code>$dbname</code>
       <code>$dbname[0]</code>
       <code>$eachUser</code>
+      <code>$hashedPassword</code>
       <code>$oldUserGroup</code>
     </PossiblyInvalidCast>
     <PossiblyInvalidOperand occurrences="8">
@@ -15930,7 +15931,7 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$this-&gt;serverPrivileges-&gt;extractPrivInfo(null, true)</code>
     </MixedArgumentTypeCoercion>
-    <MixedMethodCall occurrences="19">
+    <MixedMethodCall occurrences="21">
       <code>getMessage</code>
       <code>getMessage</code>
       <code>getMessage</code>
@@ -15945,6 +15946,8 @@
       <code>method</code>
       <code>method</code>
       <code>method</code>
+      <code>method</code>
+      <code>will</code>
       <code>will</code>
       <code>will</code>
       <code>will</code>
@@ -15954,7 +15957,8 @@
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>assertNull</code>
     </RedundantConditionGivenDocblockType>
-    <UndefinedMethod occurrences="5">
+    <UndefinedMethod occurrences="6">
+      <code>expects</code>
       <code>expects</code>
       <code>expects</code>
       <code>expects</code>
