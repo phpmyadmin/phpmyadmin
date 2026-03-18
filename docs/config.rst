@@ -2166,11 +2166,27 @@ Cookie authentication options
     :type: string
     :default: ``''``
 
-    The URL for the reCaptcha service to do siteverify action.
+    The URL for the reCaptcha server side verify service, verifies captcha response sent from the frontend.
+    The default matches the URL specified on https://developers.google.com/recaptcha/docs/verify#api_request.
 
     reCaptcha will be then used in :ref:`cookie`.
 
     .. versionadded:: 5.1.0
+
+.. config:option:: $cfg['CaptchaExpectedHostname']
+
+    :type: string
+    :default: ``''``
+
+    The domain of your instance (without a protocol or trailing slash) for
+    reCaptcha to ensure the hostname matches where the captcha was solved.
+
+    You must add this if you have disabled "Verify the origin of reCAPTCHA solutions"
+    in the "Admin Console" on https://www.google.com/recaptcha/about/.
+
+    reCaptcha will be then used in :ref:`cookie`.
+
+    .. versionadded:: 6.0.0
 
 Navigation panel setup
 ----------------------
