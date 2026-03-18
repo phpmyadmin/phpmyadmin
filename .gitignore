@@ -1,17 +1,22 @@
 # Directory for creating releases
 /release/
+
 # Configuration files
 /config.inc.php
 /config.header.inc.php
 /config.footer.inc.php
+
 # Upload/save dirs
 /upload/
 /save/
 /tmp/
+
 # For setup script
 /config/
+
 # ctags
 tags
+
 # Editor files
 phpmyadmin.wpj
 .projectOptions
@@ -24,43 +29,93 @@ phpmyadmin.wpj
 .netbeans
 .vscode
 *.sw[op]
+
 # Web server files
 web.config
 .htaccess
+
 # Locales
 /locale/
 /resources/locale/
+
 # Temporary files to generate locales for Twig
 /twig-templates/
+
 # Backups
 *~
+
 # API documentation
 /apidoc/
+/docs/_build
+/docs/doctrees
+/docs/html
 /docs/linkcheck/
+/docs/locale
+/docs/*.pyc
+/docs/*.swp
+
 # Demo server
 revision-info.php
+
 # PHP_CodeSniffer
 phpcs.xml
 .phpcs-cache
+
 # PHPUnit
+.phpunit.result.cache
 phpunit.xml
 /tests/bootstrap.php
-.phpunit.result.cache
+/tests/gis/*-actual.json
+/tests/gis/*-actual.pdf
+/tests/gis/*-actual.png
+/tests/gis/*-actual.svg
+
 # Jenkins
 /build/
+
 # Netbeans ide stuff
 /nbproject/
+
 # Eclipse ide stuff
 /.pydevproject
+
 # Ant cache
 cache.properties
+
 # Composer
 /vendor/
+
 # NPM
 /node_modules/
 phpstan.neon
+
 # Infection
 infection.json5
 /js/
 /setup/
 /themes/
+
+# App
+/app/cache/*
+!/app/cache/.gitkeep
+/app/language_stats_inc.php
+
+# public
+/public/js/*
+!/public/js/.gitkeep
+/public/setup/*.css
+/public/setup/*.css.map
+/public/themes
+!/public/themes/dot.gif
+!/public/themes/bootstrap/
+!/public/themes/metro/
+!/public/themes/original/
+!/public/themes/pmahomme/
+/public/themes/bootstrap/*.css
+/public/themes/bootstrap/*.css.map
+/public/themes/metro/*.css
+/public/themes/metro/*.css.map
+/public/themes/original/*.css
+/public/themes/original/*.css.map
+/public/themes/pmahomme/*.css
+/public/themes/pmahomme/*.css.map
