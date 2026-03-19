@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2026-01-30 01:01+0000\n"
+"PO-Revision-Date: 2026-03-20 22:11+0000\n"
 "Last-Translator: ButterflyOfFire <boffire@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Kabyle <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "kab/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.16-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -1278,7 +1278,7 @@ msgstr ""
 #: libraries/classes/Server/Status/Monitor.php:264
 #: libraries/classes/Util.php:3995
 msgid "Settings"
-msgstr "Iɣewaren"
+msgstr "Iɣewwaren"
 
 #: js/messages.php:216
 msgid "Add chart to grid"
@@ -11318,7 +11318,6 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:4478
 #: libraries/classes/Server/Status/Processes.php:69
 #: libraries/classes/Server/UserGroups.php:49
-#, fuzzy
 msgid "User"
 msgstr "Aseqdac"
 
@@ -13209,7 +13208,6 @@ msgid "SSL is used"
 msgstr ""
 
 #: libraries/classes/Util.php:3992
-#, fuzzy
 msgid "Users"
 msgstr "Iseqdacen"
 
