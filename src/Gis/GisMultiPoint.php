@@ -169,40 +169,6 @@ class GisMultiPoint extends GisGeometry
     }
 
     /**
-     * Prepares data related to a row in the GIS dataset to visualize it with OpenLayers.
-     *
-     * @param string $spatial GIS MULTIPOINT object
-     * @param int    $srid    Spatial reference ID
-     * @param string $label   Label for the GIS MULTIPOINT object
-     * @param int[]  $color   Color for the GIS MULTIPOINT object
-     *
-     * @return mixed[]
-     */
-    public function prepareRowAsOl(
-        string $spatial,
-        int $srid,
-        string $label,
-        array $color,
-    ): array {
-        $fillStyle = ['color' => 'white'];
-        $strokeStyle = ['color' => $color, 'width' => 2];
-        $style = ['circle' => ['fill' => $fillStyle, 'stroke' => $strokeStyle, 'radius' => 3]];
-        if ($label !== '') {
-            $style['text'] = ['text' => $label, 'offsetY' => -9];
-        }
-
-        // Trim to remove leading 'MULTIPOINT(' and trailing ')'
-        $wktCoordinates = mb_substr($spatial, 11, -1);
-        $geometry = [
-            'type' => 'MultiPoint',
-            'coordinates' => $this->extractPoints1d($wktCoordinates, null),
-            'srid' => $srid,
-        ];
-
-        return ['geometry' => $geometry, 'style' => $style];
-    }
-
-    /**
      * Generate the WKT with the set of parameters passed by the GIS editor.
      *
      * @param mixed[] $gisData GIS data

@@ -359,7 +359,7 @@ class GisVisualizationTest extends AbstractTestCase
     {
         $vis = GisVisualization::getByData(
             $data,
-            new GisVisualizationSettings(width: 200, height: 150, spatialColumn: 'wkt'),
+            new GisVisualizationSettings(width: 200, height: 150, spatialColumn: 'wkt', labelColumn: 'label'),
         );
         $ol = $vis->asOl();
 
@@ -427,7 +427,7 @@ class GisVisualizationTest extends AbstractTestCase
     private function assertSameOrSaveNewVersion(string $name, string $extension, string $content): void
     {
         $name = strtolower($name);
-        $fileExpectedArch = self::$testDataDir . '/' . $name . '-expected-' . $this->getArch() . '.' . $extension;
+        $fileExpectedArch = self::$testDataDir . '/' . $name . '-' . $this->getArch() . '-expected.' . $extension;
         $fileExpectedGeneric = self::$testDataDir . '/' . $name . '-expected.' . $extension;
         $fileExpected = file_exists($fileExpectedArch) ? $fileExpectedArch : $fileExpectedGeneric;
         try {

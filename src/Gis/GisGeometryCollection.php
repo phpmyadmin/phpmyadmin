@@ -143,37 +143,6 @@ class GisGeometryCollection extends GisGeometry
     }
 
     /**
-     * Prepares data related to a row in the GIS dataset to visualize it with OpenLayers.
-     *
-     * @param string $spatial GIS GEOMETRYCOLLECTION object
-     * @param int    $srid    spatial reference ID
-     * @param string $label   label for the GIS GEOMETRYCOLLECTION object
-     * @param int[]  $color   color for the GIS GEOMETRYCOLLECTION object
-     *
-     * @return mixed[]
-     */
-    public function prepareRowAsOl(string $spatial, int $srid, string $label, array $color): array
-    {
-        $row = ['isCollection' => true, 'geometries' => []];
-
-        // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
-        $geomCol = mb_substr($spatial, 19, -1);
-        // Split the geometry collection object to get its constituents.
-        $subParts = $this->explodeGeomCol($geomCol);
-
-        foreach ($subParts as $subPart) {
-            $gisObj = GisFactory::fromWkt($subPart);
-            if ($gisObj === null) {
-                continue;
-            }
-
-            $row['geometries'][] = $gisObj->prepareRowAsOl($subPart, $srid, $label, $color);
-        }
-
-        return $row;
-    }
-
-    /**
      * Splits the GEOMETRYCOLLECTION object and get its constituents.
      *
      * @param string $geomCol geometry collection string
