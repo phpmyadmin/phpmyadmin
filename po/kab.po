@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2026-01-30 01:01+0000\n"
+"PO-Revision-Date: 2026-03-20 22:11+0000\n"
 "Last-Translator: ButterflyOfFire <boffire@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Kabyle <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "kab/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.16-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -5468,7 +5468,7 @@ msgstr ""
 #: libraries/classes/Menu.php:573 libraries/classes/Util.php:2481
 #: templates/server/status/monitor/index.twig:12
 msgid "Settings"
-msgstr "Iɣewaren"
+msgstr "Iɣewwaren"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:199
 msgid "Add chart to grid"
@@ -7070,7 +7070,6 @@ msgstr "Asulay"
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:151
 #: libraries/classes/Server/Privileges.php:3002
 #: templates/server/user_groups/user_listings.twig:9
-#, fuzzy
 msgid "User"
 msgstr "Aseqdac"
 
@@ -12831,7 +12830,6 @@ msgid "Missing parameter:"
 msgstr ""
 
 #: libraries/classes/Util.php:2478
-#, fuzzy
 msgid "Users"
 msgstr "Iseqdacen"
 
