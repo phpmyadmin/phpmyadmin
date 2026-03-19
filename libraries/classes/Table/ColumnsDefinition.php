@@ -24,10 +24,13 @@ use function explode;
 use function in_array;
 use function intval;
 use function is_array;
+use function mb_strlen;
 use function mb_strtoupper;
 use function preg_quote;
 use function preg_replace;
 use function rtrim;
+use function str_ends_with;
+use function str_starts_with;
 use function stripcslashes;
 use function substr;
 use function trim;
@@ -514,8 +517,6 @@ final class ColumnsDefinition
                 // Could be null or empty string here
                 if ($columnMeta['Default'] === null) {
                     $metaDefault['DefaultType'] = $columnMeta['Null'] === 'YES' ? 'NULL' : 'NONE';
-                } else {
-                    $columnMeta['DefaultValue'] = $columnMeta['Default'];
                 }
 
                 break;
@@ -531,8 +532,16 @@ final class ColumnsDefinition
                 break;
             default:
                 if (substr((string) $columnMeta['Type'], -4) === 'text') {
-                    $textDefault = substr($columnMeta['Default'], 1, -1);
-                    $metaDefault['DefaultValue'] = stripcslashes($textDefault);
+                    if (
+                        mb_strlen($columnMeta['Default']) >= 2 &&
+                        str_starts_with($columnMeta['Default'], "'") &&
+                        str_ends_with($columnMeta['Default'], "'")
+                    ) {
+                        $textDefault = substr($columnMeta['Default'], 1, -1);
+                        $metaDefault['DefaultValue'] = stripcslashes($textDefault);
+                    } else {
+                        $metaDefault['DefaultValue'] = $columnMeta['Default'];
+                    }
                 } else {
                     $metaDefault['DefaultValue'] = $columnMeta['Default'];
                 }
