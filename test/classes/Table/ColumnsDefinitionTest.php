@@ -111,7 +111,7 @@ class ColumnsDefinitionTest extends AbstractTestCase
                 [
                     'Type' => 'text',
                     'Null' => 'NO',
-                    'Default' => '"some\/thing"',
+                    'Default' => "'some\\/thing'",
                 ],
                 [
                     'DefaultType' => 'USER_DEFINED',
@@ -149,6 +149,17 @@ class ColumnsDefinitionTest extends AbstractTestCase
                 [
                     'DefaultType' => 'USER_DEFINED',
                     'DefaultValue' => '',
+                ],
+            ],
+            'when text type default is an expression' => [
+                [
+                    'Type' => 'tinytext',
+                    'Null' => 'YES',
+                    'Default' => 'unix_timestamp()',
+                ],
+                [
+                    'DefaultType' => 'USER_DEFINED',
+                    'DefaultValue' => 'unix_timestamp()',
                 ],
             ],
         ];
