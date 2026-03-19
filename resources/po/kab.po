@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-03-15 00:41+0000\n"
-"PO-Revision-Date: 2026-01-30 01:01+0000\n"
+"PO-Revision-Date: 2026-03-20 22:11+0000\n"
 "Last-Translator: ButterflyOfFire <boffire@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Kabyle <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "kab/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.16-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 #: resources/templates/base.twig:40 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -67,7 +67,7 @@ msgstr ""
 #: src/Controllers/JavaScriptMessagesController.php:215 src/Menu.php:479
 #: src/Util.php:1368
 msgid "Settings"
-msgstr "Iɣewaren"
+msgstr "Iɣewwaren"
 
 #: resources/templates/base.twig:103
 #: resources/templates/navigation/main.twig:30
@@ -6367,7 +6367,6 @@ msgstr ""
 #: resources/templates/server/user_groups/user_listings.twig:9
 #: src/Controllers/Server/PrivilegesController.php:458
 #: src/Server/Status/Processes.php:101
-#, fuzzy
 msgid "User"
 msgstr "Aseqdac"
 
@@ -18233,7 +18232,6 @@ msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr ""
 
 #: src/Util.php:1365
-#, fuzzy
 msgid "Users"
 msgstr "Iseqdacen"
 
