@@ -35566,6 +35566,11 @@ parameters:
 			path: libraries/classes/Table/ColumnsDefinition.php
 
 		-
+			message: "#^Casting to string something that's already string\\.$#"
+			count: 1
+			path: libraries/classes/Table/ColumnsDefinition.php
+
+		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 2
 			path: libraries/classes/Table/ColumnsDefinition.php
@@ -35596,7 +35601,7 @@ parameters:
 			path: libraries/classes/Table/ColumnsDefinition.php
 
 		-
-			message: "#^Parameter \\#1 \\$columnMeta of static method PhpMyAdmin\\\\Table\\\\ColumnsDefinition\\:\\:decorateColumnMetaDefault\\(\\) expects array\\<string, string\\|null\\>, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$columnMeta of static method PhpMyAdmin\\\\Table\\\\ColumnsDefinition\\:\\:decorateColumnMetaDefault\\(\\) expects array\\{Default\\: string\\|null, Null\\: 'NO'\\|'YES', Type\\: string\\}, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Table/ColumnsDefinition.php
 

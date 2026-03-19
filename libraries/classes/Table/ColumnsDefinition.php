@@ -497,9 +497,10 @@ final class ColumnsDefinition
      * Set default type and default value according to the column metadata
      *
      * @param array $columnMeta Column Metadata
-     * @phpstan-param array<string, string|null> $columnMeta
+     * @phpstan-param array{Default: string|null, Null: 'YES'|'NO', Type: string} $columnMeta
      *
-     * @return non-empty-array<array-key, mixed>
+     * @return non-empty-array<string, string>
+     * @psalm-return array{DefaultType: string, DefaultValue: string}
      */
     public static function decorateColumnMetaDefault(array $columnMeta): array
     {

@@ -13459,6 +13459,9 @@
     <PossiblyInvalidCast occurrences="1">
       <code>$_POST['after_field']</code>
     </PossiblyInvalidCast>
+    <RedundantCastGivenDocblockType occurrences="1">
+      <code>(string) $columnMeta['Type']</code>
+    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Table/Indexes.php">
     <PossiblyInvalidArgument occurrences="1">
