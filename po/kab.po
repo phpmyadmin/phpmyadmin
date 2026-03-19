@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-02-25 10:35-0300\n"
-"PO-Revision-Date: 2026-01-30 01:01+0000\n"
+"PO-Revision-Date: 2026-03-20 22:11+0000\n"
 "Last-Translator: ButterflyOfFire <boffire@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Kabyle <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "kab/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.16-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -5562,7 +5562,7 @@ msgstr ""
 #: libraries/classes/Menu.php:520 libraries/classes/Util.php:1952
 #: templates/server/status/monitor/index.twig:12
 msgid "Settings"
-msgstr "Iɣewaren"
+msgstr "Iɣewwaren"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:205
 #: templates/server/status/monitor/index.twig:217
@@ -11705,7 +11705,6 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:2869
 #: libraries/classes/Server/Status/Processes.php:123
 #: templates/server/user_groups/user_listings.twig:9
-#, fuzzy
 msgid "User"
 msgstr "Aseqdac"
 
@@ -12564,7 +12563,6 @@ msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr ""
 
 #: libraries/classes/Util.php:1949
-#, fuzzy
 msgid "Users"
 msgstr "Iseqdacen"
 
