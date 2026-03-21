@@ -105,7 +105,7 @@ infection.json5
 !/public/js/.gitkeep
 /public/setup/*.css
 /public/setup/*.css.map
-/public/themes
+/public/themes/*
 !/public/themes/dot.gif
 !/public/themes/bootstrap/
 !/public/themes/metro/
