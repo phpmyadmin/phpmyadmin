@@ -195,7 +195,8 @@ cleanup_composer_vendors() {
         vendor/pragmarx/google2fa-qrcode/.scrutinizer.yml \
         vendor/pragmarx/google2fa-qrcode/.travis.yml \
         vendor/pragmarx/google2fa-qrcode/phpunit.xml \
-        vendor/pragmarx/google2fa-qrcode/tests
+        vendor/pragmarx/google2fa-qrcode/tests \
+        vendor/slim/psr7/tests/
 
     rm \
         vendor/phpmyadmin/motranslator/CODE_OF_CONDUCT.md \
@@ -209,7 +210,6 @@ cleanup_composer_vendors() {
         vendor/web-auth/cose-lib/RELEASES.md \
         vendor/web-auth/cose-lib/SECURITY.md \
         vendor/slim/psr7/phpunit.xml.dist \
-        vendor/slim/psr7/tests/ \
         vendor/laminas/laminas-httphandlerrunner/.laminas-ci.json \
         vendor/psr/event-dispatcher/.editorconfig \
         vendor/google/recaptcha/app.yaml
