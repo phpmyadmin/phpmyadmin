@@ -128,6 +128,7 @@ class PluginsTest extends AbstractTestCase
 
     public function testValidatePluginNameOrUseDefaultForExport(): void
     {
+        $GLOBALS['plugin_param'] = ['export_type' => 'database', 'single_table' => false];
         $exportList = [
             new Plugins\Export\ExportJson(),
             new Plugins\Export\ExportOds(),
@@ -142,6 +143,7 @@ class PluginsTest extends AbstractTestCase
 
     public function testValidatePluginNameOrUseDefaultForImport(): void
     {
+        $GLOBALS['plugin_param'] = ['export_type' => 'database', 'single_table' => false];
         $importList = [
             new Plugins\Import\ImportOds(),
             new Plugins\Import\ImportSql(),
