@@ -45,7 +45,7 @@
     "js-cookie": "3.0.5",
     "locutus.sprintf": "^2.0.32-code-lts.1",
     "mini-css-extract-plugin": "^2.5.3",
-    "ol": "^7.1.0",
+    "ol": "^10.7.0",
     "postcss": "^8.5.6",
     "postcss-cli": "^10.1.0",
     "postcss-loader": "^7.1.0",
