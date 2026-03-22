@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-03-15 00:41+0000\n"
+"POT-Creation-Date: 2026-03-22 00:39+0000\n"
 "PO-Revision-Date: 2025-12-18 18:00+0000\n"
 "Last-Translator: Кирил Стоименов <steemman123@gmail.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -132,7 +132,7 @@ msgstr ""
 #: resources/templates/table/structure/display_structure.twig:137
 #: resources/templates/table/structure/display_structure.twig:143
 #: resources/templates/table/structure/display_structure.twig:284
-#: resources/templates/table/tracking/structure_snapshot_columns.twig:25
+#: resources/templates/table/tracking/structure_snapshot_columns.twig:27
 #: src/Controllers/Table/StructureController.php:215
 msgid "Primary"
 msgstr "Първичен"
@@ -144,7 +144,7 @@ msgstr "Първичен"
 #: resources/templates/table/structure/display_structure.twig:156
 #: resources/templates/table/structure/display_structure.twig:287
 #: resources/templates/table/structure/display_structure.twig:474
-#: resources/templates/table/tracking/structure_snapshot_indexes.twig:7
+#: resources/templates/table/tracking/structure_snapshot_indexes.twig:12
 msgid "Unique"
 msgstr "Уникално"
 
@@ -154,7 +154,7 @@ msgstr "Уникално"
 #: resources/templates/table/structure/display_structure.twig:169
 #: resources/templates/table/structure/display_structure.twig:290
 #: resources/templates/table/structure/display_table_stats.twig:22
-#: resources/templates/table/tracking/structure_snapshot_columns.twig:27
+#: resources/templates/table/tracking/structure_snapshot_columns.twig:29
 #: src/Controllers/Table/StructureController.php:219
 #: src/Navigation/Nodes/NodeIndex.php:27
 msgid "Index"
@@ -257,7 +257,7 @@ msgstr "колона(и)"
 #: resources/templates/server/replication/replica_configuration.twig:88
 #: resources/templates/sql/query.twig:150
 #: resources/templates/sql/query.twig:201
-#: resources/templates/table/find_replace/index.twig:62
+#: resources/templates/table/find_replace/index.twig:58
 #: resources/templates/table/index_form.twig:262
 #: resources/templates/table/insert/actions_panel.twig:38
 #: resources/templates/table/insert/get_head_and_foot_of_insert_row_table.twig:6
@@ -475,8 +475,8 @@ msgstr "Външен ключ е."
 #: resources/templates/table/relation/foreign_key_row.twig:124
 #: resources/templates/table/search/index.twig:38
 #: resources/templates/table/structure/display_structure.twig:476
-#: resources/templates/table/tracking/structure_snapshot_columns.twig:6
-#: resources/templates/table/tracking/structure_snapshot_indexes.twig:9
+#: resources/templates/table/tracking/structure_snapshot_columns.twig:8
+#: resources/templates/table/tracking/structure_snapshot_indexes.twig:14
 #: resources/templates/table/zoom_search/index.twig:36
 #: resources/templates/table/zoom_search/result_form.twig:33
 #: src/Navigation/Nodes/NodeColumn.php:33
@@ -544,8 +544,8 @@ msgstr "Двигател"
 #: resources/templates/indexes.twig:25
 #: resources/templates/table/structure/display_partitions.twig:32
 #: resources/templates/table/structure/display_structure.twig:480
-#: resources/templates/table/tracking/structure_snapshot_columns.twig:12
-#: resources/templates/table/tracking/structure_snapshot_indexes.twig:13
+#: resources/templates/table/tracking/structure_snapshot_columns.twig:14
+#: resources/templates/table/tracking/structure_snapshot_indexes.twig:18
 msgid "Comment"
 msgstr "Коментар"
 
@@ -578,7 +578,7 @@ msgstr "Група възли"
 #: resources/templates/database/export/index.twig:23
 #: resources/templates/database/structure/structure_table_row.twig:48
 #: resources/templates/server/privileges/privileges_table.twig:357
-#: resources/templates/table/tracking/structure_snapshot_columns.twig:1
+#: resources/templates/table/tracking/structure_snapshot_columns.twig:2
 #: src/Config/ConfigFile.php:518 src/Config/ConfigFile.php:532
 #: src/Config/ConfigFile.php:586 src/Config/ConfigFile.php:596
 #: src/Config/Forms/User/ExportForm.php:53
@@ -629,8 +629,8 @@ msgstr "Име"
 #: resources/templates/table/search/index.twig:39
 #: resources/templates/table/structure/display_structure.twig:22
 #: resources/templates/table/structure/display_structure.twig:473
-#: resources/templates/table/tracking/structure_snapshot_columns.twig:7
-#: resources/templates/table/tracking/structure_snapshot_indexes.twig:6
+#: resources/templates/table/tracking/structure_snapshot_columns.twig:9
+#: resources/templates/table/tracking/structure_snapshot_indexes.twig:11
 #: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:259
 #: src/Plugins/Export/ExportHtmlword.php:226
 #: src/Plugins/Export/ExportHtmlword.php:297
@@ -670,7 +670,7 @@ msgstr ""
 #: resources/templates/database/structure/body_for_table_summary.twig:43
 #: resources/templates/server/replication/replica_configuration.twig:9
 #: resources/templates/table/structure/display_structure.twig:26
-#: resources/templates/table/tracking/structure_snapshot_columns.twig:10
+#: resources/templates/table/tracking/structure_snapshot_columns.twig:12
 #: src/Plugins/Export/ExportHtmlword.php:232
 #: src/Plugins/Export/ExportHtmlword.php:303
 #: src/Plugins/Export/ExportLatex.php:465 src/Plugins/Export/ExportOdt.php:330
@@ -709,8 +709,8 @@ msgstr ""
 #: resources/templates/table/structure/display_structure.twig:23
 #: resources/templates/table/structure/display_structure.twig:478
 #: resources/templates/table/structure/display_table_stats.twig:105
-#: resources/templates/table/tracking/structure_snapshot_columns.twig:8
-#: resources/templates/table/tracking/structure_snapshot_indexes.twig:11
+#: resources/templates/table/tracking/structure_snapshot_columns.twig:10
+#: resources/templates/table/tracking/structure_snapshot_indexes.twig:16
 #: resources/templates/table/zoom_search/index.twig:38
 msgid "Collation"
 msgstr "Колация"
@@ -733,8 +733,8 @@ msgstr "Атрибути"
 #: resources/templates/table/insert/get_head_and_foot_of_insert_row_table.twig:13
 #: resources/templates/table/structure/display_structure.twig:25
 #: resources/templates/table/structure/display_structure.twig:479
-#: resources/templates/table/tracking/structure_snapshot_columns.twig:9
-#: resources/templates/table/tracking/structure_snapshot_indexes.twig:12
+#: resources/templates/table/tracking/structure_snapshot_columns.twig:11
+#: resources/templates/table/tracking/structure_snapshot_indexes.twig:17
 #: resources/templates/table/zoom_search/result_form.twig:34
 #: src/Plugins/Export/ExportHtmlword.php:229
 #: src/Plugins/Export/ExportHtmlword.php:300
@@ -911,9 +911,9 @@ msgstr "Забранено"
 #: resources/templates/table/structure/display_structure.twig:529
 #: resources/templates/table/structure/drop_confirm.twig:19
 #: resources/templates/table/structure/primary.twig:19
-#: resources/templates/table/tracking/structure_snapshot_columns.twig:33
-#: resources/templates/table/tracking/structure_snapshot_indexes.twig:23
-#: resources/templates/table/tracking/structure_snapshot_indexes.twig:24
+#: resources/templates/table/tracking/structure_snapshot_columns.twig:35
+#: resources/templates/table/tracking/structure_snapshot_indexes.twig:28
+#: resources/templates/table/tracking/structure_snapshot_indexes.twig:29
 #: src/Controllers/Database/Structure/DropTableController.php:43
 #: src/Controllers/Database/Structure/EmptyTableController.php:42
 #: src/Controllers/JavaScriptMessagesController.php:481
@@ -952,9 +952,9 @@ msgstr "Да"
 #: resources/templates/table/structure/display_structure.twig:529
 #: resources/templates/table/structure/drop_confirm.twig:20
 #: resources/templates/table/structure/primary.twig:20
-#: resources/templates/table/tracking/structure_snapshot_columns.twig:33
-#: resources/templates/table/tracking/structure_snapshot_indexes.twig:23
-#: resources/templates/table/tracking/structure_snapshot_indexes.twig:24
+#: resources/templates/table/tracking/structure_snapshot_columns.twig:35
+#: resources/templates/table/tracking/structure_snapshot_indexes.twig:28
+#: resources/templates/table/tracking/structure_snapshot_indexes.twig:29
 #: src/Controllers/JavaScriptMessagesController.php:343
 #: src/Indexes/IndexColumn.php:145 src/Indexes/Index.php:448
 #: src/Indexes/Index.php:474 src/Plugins/Export/ExportHtmlword.php:515
@@ -1202,7 +1202,7 @@ msgstr "Използвано време:"
 #: resources/templates/console/display.twig:133
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
-#: src/Config/Descriptions.php:928 src/Export/Export.php:692
+#: src/Config/Descriptions.php:928 src/Export/Export.php:686
 #: src/Html/Generator.php:589
 msgid "Refresh"
 msgstr "Опресняване"
@@ -1429,7 +1429,7 @@ msgstr "Свързана към"
 #: resources/templates/database/data_dictionary/index.twig:69
 #: resources/templates/indexes.twig:3
 #: resources/templates/table/structure/display_structure.twig:458
-#: resources/templates/table/tracking/structure_snapshot_indexes.twig:1
+#: resources/templates/table/tracking/structure_snapshot_indexes.twig:3
 #: src/Controllers/Server/DatabasesController.php:269
 #: src/Navigation/Nodes/NodeIndexContainer.php:24
 #: src/Navigation/Nodes/NodeIndexContainer.php:26
@@ -1439,7 +1439,7 @@ msgstr "Индекси"
 #: resources/templates/database/data_dictionary/index.twig:74
 #: resources/templates/indexes.twig:17
 #: resources/templates/table/structure/display_structure.twig:472
-#: resources/templates/table/tracking/structure_snapshot_indexes.twig:5
+#: resources/templates/table/tracking/structure_snapshot_indexes.twig:10
 #: src/BrowseForeigners.php:195 src/BrowseForeigners.php:199
 msgid "Keyname"
 msgstr "Име на ключ"
@@ -1447,14 +1447,14 @@ msgstr "Име на ключ"
 #: resources/templates/database/data_dictionary/index.twig:77
 #: resources/templates/indexes.twig:20
 #: resources/templates/table/structure/display_structure.twig:475
-#: resources/templates/table/tracking/structure_snapshot_indexes.twig:8
+#: resources/templates/table/tracking/structure_snapshot_indexes.twig:13
 msgid "Packed"
 msgstr "Опаковани"
 
 #: resources/templates/database/data_dictionary/index.twig:79
 #: resources/templates/indexes.twig:22
 #: resources/templates/table/structure/display_structure.twig:477
-#: resources/templates/table/tracking/structure_snapshot_indexes.twig:10
+#: resources/templates/table/tracking/structure_snapshot_indexes.twig:15
 msgid "Cardinality"
 msgstr "Кардиналност"
 
@@ -3165,7 +3165,7 @@ msgstr "Операции с резултата от заявката"
 
 #: resources/templates/display/results/table.twig:353
 #: src/Controllers/JavaScriptMessagesController.php:466
-#: src/Export/Export.php:711
+#: src/Export/Export.php:705
 msgid "Copy to clipboard"
 msgstr "Копиране в клипборда"
 
@@ -3698,7 +3698,7 @@ msgstr "тази ще е"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:411
-#: src/Export/Export.php:734 src/Html/Generator.php:849
+#: src/Export/Export.php:728 src/Html/Generator.php:849
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "Назад"
@@ -6564,7 +6564,7 @@ msgstr "Резултат от профилиране"
 #: resources/templates/sql/query.twig:7
 #: src/Controllers/Operations/ViewController.php:110
 #: src/Controllers/Table/DeleteRowsController.php:60
-#: src/Controllers/Table/FindReplaceController.php:117
+#: src/Controllers/Table/FindReplaceController.php:119
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:75
 #: src/Controllers/Table/Maintenance/CheckController.php:75
 #: src/Controllers/Table/Maintenance/ChecksumController.php:75
@@ -6809,7 +6809,7 @@ msgstr "Замяна NULL с:"
 msgid "Column:"
 msgstr "Колона:"
 
-#: resources/templates/table/find_replace/index.twig:57
+#: resources/templates/table/find_replace/index.twig:53
 #, fuzzy
 msgid "Use regular expression"
 msgstr "като регулярен израз"
@@ -7079,13 +7079,13 @@ msgstr "Изпразване на таблицата (TRUNCATE)"
 
 #: resources/templates/table/operations/index.twig:459
 #: resources/templates/table/operations/view.twig:32
-#: src/Controllers/Database/StructureController.php:365
+#: src/Controllers/Database/StructureController.php:369
 #, fuzzy, php-format
 msgid "View %s has been dropped."
 msgstr "Изглед %s беше изтрит"
 
 #: resources/templates/table/operations/index.twig:459
-#: src/Controllers/Database/StructureController.php:365
+#: src/Controllers/Database/StructureController.php:369
 #, fuzzy, php-format
 msgid "Table %s has been dropped."
 msgstr "Таблицата %s беше изтрита"
@@ -7347,7 +7347,7 @@ msgid "Edit partitioning"
 msgstr "Редактиране"
 
 #: resources/templates/table/structure/display_structure.twig:30
-#: resources/templates/table/tracking/structure_snapshot_columns.twig:11
+#: resources/templates/table/tracking/structure_snapshot_columns.twig:13
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:607
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:629
 msgid "Extra"
@@ -7359,7 +7359,7 @@ msgid "Media type:"
 msgstr "MIME тип"
 
 #: resources/templates/table/structure/display_structure.twig:91
-#: resources/templates/table/tracking/structure_snapshot_columns.twig:47
+#: resources/templates/table/tracking/structure_snapshot_columns.twig:49
 msgctxt "None for default"
 msgid "None"
 msgstr "Няма"
@@ -7512,7 +7512,7 @@ msgid "Deactivate now"
 msgstr "Изключване сега"
 
 #: resources/templates/table/tracking/report_table.twig:4
-#: resources/templates/table/tracking/structure_snapshot_columns.twig:5
+#: resources/templates/table/tracking/structure_snapshot_columns.twig:7
 #, fuzzy
 msgctxt "Number"
 msgid "#"
@@ -12060,13 +12060,13 @@ msgstr "Неуспешно"
 msgid "Succeeded"
 msgstr "Успешно"
 
-#: src/Controllers/Console/UpdateConfigController.php:51
+#: src/Controllers/Console/UpdateConfigController.php:53
 #, fuzzy
 msgid "Console settings has been updated successfully."
 msgstr "Таблицата %1$s е променена."
 
-#: src/Controllers/Console/UpdateConfigController.php:73
-#: src/Controllers/Console/UpdateConfigController.php:112
+#: src/Controllers/Console/UpdateConfigController.php:75
+#: src/Controllers/Console/UpdateConfigController.php:114
 #: src/Controllers/Navigation/UpdateNavWidthConfigController.php:32
 #, fuzzy
 msgid "Unexpected parameter value."
@@ -12097,8 +12097,8 @@ msgstr ""
 #: src/Controllers/Database/SearchController.php:58
 #: src/Controllers/Database/SqlController.php:54
 #: src/Controllers/Database/SqlController.php:59
-#: src/Controllers/Database/StructureController.php:153
-#: src/Controllers/Database/StructureController.php:158
+#: src/Controllers/Database/StructureController.php:157
+#: src/Controllers/Database/StructureController.php:162
 #: src/Controllers/Database/Structure/FavoriteTableController.php:65
 #: src/Controllers/Database/Structure/RealRowCountController.php:52
 #: src/Controllers/Database/TrackingController.php:55
@@ -12125,8 +12125,8 @@ msgstr ""
 #: src/Controllers/Table/DeleteConfirmController.php:62
 #: src/Controllers/Table/DropColumnConfirmationController.php:52
 #: src/Controllers/Table/DropColumnConfirmationController.php:57
-#: src/Controllers/Table/FindReplaceController.php:75
-#: src/Controllers/Table/FindReplaceController.php:80
+#: src/Controllers/Table/FindReplaceController.php:77
+#: src/Controllers/Table/FindReplaceController.php:82
 #: src/Controllers/Table/GisVisualizationController.php:70
 #: src/Controllers/Table/GisVisualizationController.php:75
 #: src/Controllers/Table/ImportController.php:70
@@ -12246,8 +12246,8 @@ msgstr "Не разполагате с права, за да администр�
 #: src/Controllers/Table/DeleteConfirmController.php:74
 #: src/Controllers/Table/DropColumnConfirmationController.php:63
 #: src/Controllers/Table/DropColumnConfirmationController.php:68
-#: src/Controllers/Table/FindReplaceController.php:87
-#: src/Controllers/Table/FindReplaceController.php:92
+#: src/Controllers/Table/FindReplaceController.php:89
+#: src/Controllers/Table/FindReplaceController.php:94
 #: src/Controllers/Table/ImportController.php:82
 #: src/Controllers/Table/ImportController.php:87
 #: src/Controllers/Table/IndexesController.php:82
@@ -12320,7 +12320,7 @@ msgstr ""
 msgid "Success!"
 msgstr ""
 
-#: src/Controllers/Database/StructureController.php:566
+#: src/Controllers/Database/StructureController.php:568
 #: src/Display/Results.php:3260
 #, php-format
 msgid ""
@@ -12328,7 +12328,7 @@ msgid ""
 "%sdocumentation%s."
 msgstr "Този изглед има поне толкова реда. Погледнете %sдокументацията%s."
 
-#: src/Controllers/Database/StructureController.php:735
+#: src/Controllers/Database/StructureController.php:737
 msgid "unknown"
 msgstr "непознат"
 
@@ -12384,7 +12384,7 @@ msgstr "Ако срещате каквито и да е проблеми, док
 msgid "You may want to refresh the page."
 msgstr "Препоръчва се да презаредите страницата."
 
-#: src/Controllers/Export/ExportController.php:120 src/Export/Export.php:672
+#: src/Controllers/Export/ExportController.php:120 src/Export/Export.php:666
 msgid "Bad type!"
 msgstr "Типът е неправилен!"
 
@@ -15459,7 +15459,7 @@ msgstr ""
 
 #: src/Controllers/Table/Structure/PartitioningController.php:258
 #: src/Controllers/Table/Structure/SaveController.php:281
-#: src/Tracking/Tracking.php:733
+#: src/Tracking/Tracking.php:736
 msgid "Query error"
 msgstr "Грешка в заявката"
 
@@ -16102,63 +16102,69 @@ msgstr "Наскоро отваряната таблице не можа да б
 msgid "Could not save favorite table!"
 msgstr "Неможе да бъде записана любима таблица!"
 
-#: src/File.php:227
+#: src/File.php:180
 msgid "File was not an uploaded file."
 msgstr "Файлът не е бил качен."
 
-#: src/File.php:263
+#: src/File.php:216
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr "Качваният файл надвижава директивата upload_max_filesize от php.ini."
 
-#: src/File.php:268
+#: src/File.php:221
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
 msgstr ""
 "Изпратеният файл надхвърля директивата MAX_FILE_SIZE заложена във формата."
 
-#: src/File.php:273
+#: src/File.php:226
 msgid "The uploaded file was only partially uploaded."
 msgstr "Подаденият файл беше само частично качен."
 
-#: src/File.php:277
+#: src/File.php:230
 msgid "Missing a temporary folder."
 msgstr "Липсва временна папка."
 
-#: src/File.php:280
+#: src/File.php:233
 msgid "Failed to write file to disk."
 msgstr "Неуспешно записване на файл на диска."
 
-#: src/File.php:283
+#: src/File.php:236
 msgid "File upload stopped by extension."
 msgstr "Качването на файлът беше спряно от разширение."
 
-#: src/File.php:286
+#: src/File.php:239
 msgid "Unknown error in file upload."
 msgstr "Неизвестна грешка при качване."
 
-#: src/File.php:365
+#: src/File.php:318
 msgid "File is a symbolic link"
 msgstr "Файлът е символична връзка"
 
-#: src/File.php:372 src/File.php:463
+#: src/File.php:325 src/File.php:418
 msgid "File could not be read!"
 msgstr "Файлът не може да бъде прочетен!"
 
-#: src/File.php:408
+#: src/File.php:361
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr ""
 "Грешка при преместване на качения файл, виж [doc@faq1-11]ЧЗВ 1.11[/doc]."
 
-#: src/File.php:428
+#: src/File.php:372
+#, fuzzy
+#| msgid "Cannot read uploaded file."
+msgid "Cannot create temporary file."
+msgstr "Каченият файл неможе да бъде прочетен."
+
+#: src/File.php:383
 msgid "Error while moving uploaded file."
 msgstr "Грешка при преместване на качения файл."
 
-#: src/File.php:437
+#: src/File.php:392
 msgid "Cannot read uploaded file."
 msgstr "Каченият файл неможе да бъде прочетен."
 
-#: src/File.php:514
+#: src/File.php:445
 #, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
@@ -17476,7 +17482,7 @@ msgstr "Да не се използва <code>AUTO_INCREMENT</code> за нул�
 msgid "XML"
 msgstr "XML"
 
-#: src/Plugins.php:385
+#: src/Plugins.php:406
 msgid "This format has no options"
 msgstr "Този формат няма опции"
 
@@ -18356,46 +18362,46 @@ msgstr "Изпълняване на SQL"
 msgid "Export as %s"
 msgstr "Експорт като %s"
 
-#: src/Tracking/Tracking.php:558
+#: src/Tracking/Tracking.php:560
 #, php-format
 msgid "Version %s snapshot (SQL code)"
 msgstr ""
 
-#: src/Tracking/Tracking.php:792
+#: src/Tracking/Tracking.php:795
 msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
 msgstr ""
 
-#: src/Tracking/Tracking.php:796
+#: src/Tracking/Tracking.php:799
 msgid "Comment out these two lines if you do not need them."
 msgstr ""
 
-#: src/Tracking/Tracking.php:807
+#: src/Tracking/Tracking.php:810
 msgid "SQL statements exported. Please copy the dump or execute it."
 msgstr ""
 
-#: src/Tracking/Tracking.php:840
+#: src/Tracking/Tracking.php:843
 #, php-format
 msgid "Tracking report for table `%s`"
 msgstr ""
 
-#: src/Tracking/Tracking.php:863
+#: src/Tracking/Tracking.php:866
 #, php-format
 msgid "Tracking for %1$s was activated at version %2$s."
 msgstr "Проследяването на %1$s беше включено във версия %2$s."
 
-#: src/Tracking/Tracking.php:866
+#: src/Tracking/Tracking.php:869
 #, php-format
 msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr "Проследяването на %1$s беше изключено във версия %2$s."
 
-#: src/Tracking/Tracking.php:961
+#: src/Tracking/Tracking.php:964
 #, fuzzy, php-format
 msgid "Version %1$s of %2$s was deleted."
 msgstr "Създаване на версия %1$s от %2$s"
 
-#: src/Tracking/Tracking.php:992
+#: src/Tracking/Tracking.php:995
 #, php-format
 msgid "Version %1$s was created, tracking for %2$s is active."
 msgstr ""
