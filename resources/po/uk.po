@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-03-22 00:39+0000\n"
-"PO-Revision-Date: 2026-03-16 02:09+0000\n"
+"PO-Revision-Date: 2026-03-23 02:09+0000\n"
 "Last-Translator: Hotripak <hotr1pak@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/uk/>\n"
@@ -16261,10 +16261,8 @@ msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr "Помилка під час переміщення файлу, дивись [doc@faq1-11]FAQ 1.11[/doc]."
 
 #: src/File.php:372
-#, fuzzy
-#| msgid "Cannot read uploaded file."
 msgid "Cannot create temporary file."
-msgstr "Неможливо прочитати завантажений файл."
+msgstr "Неможливо створити тимчасовий файл."
 
 #: src/File.php:383
 msgid "Error while moving uploaded file."
