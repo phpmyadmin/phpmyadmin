@@ -29,6 +29,7 @@ use function _pgettext;
 use function htmlspecialchars;
 use function implode;
 use function preg_quote;
+use function str_replace;
 
 use const PHP_VERSION_ID;
 
@@ -118,7 +119,9 @@ class PrivilegesTest extends AbstractTestCase
             ->will($this->returnValue($resultStub));
 
         $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->will($this->returnCallback(static function (string $arg0): string {
+                return str_replace(['\\', "'"], ['\\\\', "\\'"], $arg0);
+            }));
 
         $dbi->expects($this->any())->method('isCreateUser')
             ->will($this->returnValue(true));
@@ -245,7 +248,7 @@ class PrivilegesTest extends AbstractTestCase
         self::assertSame(" WHERE `User` LIKE 'INIT%' OR `User` LIKE 'init%'", $ret);
 
         $ret = $this->serverPrivileges->rangeOfUsers('%');
-        self::assertSame(' WHERE `User` LIKE \'\\%%\' OR `User` LIKE \'\\%%\'', $ret);
+        self::assertSame(" WHERE `User` LIKE '\\\\%%' OR `User` LIKE '\\\\%%'", $ret);
 
         $ret = $this->serverPrivileges->rangeOfUsers('');
         self::assertSame(" WHERE `User` = ''", $ret);
@@ -336,7 +339,7 @@ class PrivilegesTest extends AbstractTestCase
         $ret = $this->serverPrivileges->getSqlQueryForDisplayPrivTable($db, $table, $username, $hostname);
         self::assertSame('SELECT `Table_priv` FROM `mysql`.`tables_priv` '
         . "WHERE `User` = 'pma_username' AND "
-        . "`Host` = 'pma_hostname' AND `Db` = 'db' AND' AND "
+        . "`Host` = 'pma_hostname' AND `Db` = 'db\\' AND' AND "
         . "`Table_name` = 'pma_table';", $ret);
     }
 
@@ -759,6 +762,35 @@ class PrivilegesTest extends AbstractTestCase
 
         //validate 2: $create_user_show
         self::assertSame('CREATE USER \'PMA_username\'@\'PMA_hostname\' IDENTIFIED BY \'***\';', $create_user_show);
+    }
+
+    /**
+     * Test case for getSqlQueriesForDisplayAndAddUser
+     */
+    public function testGetSqlQueriesForDisplayAndAddUserMySql8044EscapePw(): void
+    {
+        $GLOBALS['dbi']->expects($this->any())->method('getVersion')
+            ->will($this->returnValue(80044));
+        $this->serverPrivileges->dbi = $GLOBALS['dbi'];
+
+        $username = 'PMA_username';
+        $hostname = 'PMA_hostname';
+        $_POST['pred_password'] = 'userdefined';
+        $_POST['pma_pw'] = 'pma_password\'';
+
+        [
+            $create_user_real,
+            $create_user_show,
+        ] = $this->serverPrivileges->getSqlQueriesForDisplayAndAddUser($username, $hostname, '');
+
+        //validate 1: $create_user_real
+        self::assertSame(
+            "CREATE USER 'PMA_username'@'PMA_hostname' IDENTIFIED BY 'pma_password\\'';",
+            $create_user_real
+        );
+
+        //validate 2: $create_user_show
+        self::assertSame("CREATE USER 'PMA_username'@'PMA_hostname' IDENTIFIED BY '***';", $create_user_show);
     }
 
     /**

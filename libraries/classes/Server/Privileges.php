@@ -3554,7 +3554,7 @@ class Privileges
                     $hashedPassword = $_POST['pma_pw'];
                 }
 
-                $createUserReal = sprintf($createUserStmt, $hashedPassword);
+                $createUserReal = sprintf($createUserStmt, $this->dbi->escapeString($hashedPassword));
                 $createUserShow = sprintf($createUserStmt, '***');
             }
         } else {

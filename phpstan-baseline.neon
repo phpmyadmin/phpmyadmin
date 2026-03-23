@@ -32772,7 +32772,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeString\\(\\) expects string, mixed given\\.$#"
-			count: 15
+			count: 16
 			path: libraries/classes/Server/Privileges.php
 
 		-
@@ -32823,11 +32823,6 @@ parameters:
 		-
 			message: "#^Parameter \\#2 \\$userGroup of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:setUserGroup\\(\\) expects string, mixed given\\.$#"
 			count: 2
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Parameter \\#2 \\.\\.\\.\\$values of function sprintf expects bool\\|float\\|int\\|string\\|null, mixed given\\.$#"
-			count: 1
 			path: libraries/classes/Server/Privileges.php
 
 		-
@@ -47237,7 +47232,7 @@ parameters:
 
 		-
 			message: "#^Cannot call method expects\\(\\) on mixed\\.$#"
-			count: 5
+			count: 6
 			path: test/classes/Server/PrivilegesTest.php
 
 		-
@@ -47247,12 +47242,12 @@ parameters:
 
 		-
 			message: "#^Cannot call method method\\(\\) on mixed\\.$#"
-			count: 5
+			count: 6
 			path: test/classes/Server/PrivilegesTest.php
 
 		-
 			message: "#^Cannot call method will\\(\\) on mixed\\.$#"
-			count: 5
+			count: 6
 			path: test/classes/Server/PrivilegesTest.php
 
 		-
@@ -47262,7 +47257,7 @@ parameters:
 
 		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:any\\(\\)\\.$#"
-			count: 30
+			count: 31
 			path: test/classes/Server/PrivilegesTest.php
 
 		-
@@ -47287,12 +47282,17 @@ parameters:
 
 		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnArgument\\(\\)\\.$#"
-			count: 8
+			count: 7
+			path: test/classes/Server/PrivilegesTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnCallback\\(\\)\\.$#"
+			count: 1
 			path: test/classes/Server/PrivilegesTest.php
 
 		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
-			count: 21
+			count: 22
 			path: test/classes/Server/PrivilegesTest.php
 
 		-
@@ -47337,7 +47337,7 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Server\\\\Privileges\\:\\:\\$dbi \\(PhpMyAdmin\\\\DatabaseInterface\\) does not accept mixed\\.$#"
-			count: 9
+			count: 10
 			path: test/classes/Server/PrivilegesTest.php
 
 		-
