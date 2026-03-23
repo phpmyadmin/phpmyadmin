@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-02-25 10:35-0300\n"
-"PO-Revision-Date: 2026-03-17 05:09+0000\n"
-"Last-Translator: Jobggun <jobggun@kakao.com>\n"
+"PO-Revision-Date: 2026-03-23 06:09+0000\n"
+"Last-Translator: kim8ccf3a4116ec4691 <kim@yong.biz>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "ko/>\n"
 "Language: ko\n"
@@ -2756,7 +2756,7 @@ msgstr "테이블 구조 기능을 숨길지 여부."
 
 #: libraries/classes/Config/Descriptions.php:560
 msgid "Whether column comments should be shown in table structure view"
-msgstr "테이블 구조 보기에서 열 설명을 표시할지 여부"
+msgstr "열 설명을 테이블 구조 보기에 표시할지 여부"
 
 #: libraries/classes/Config/Descriptions.php:561
 msgid "Show server listing as a list instead of a drop down."
@@ -6333,8 +6333,7 @@ msgstr "에러 메시지: %s"
 msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
-msgstr ""
-"서버 연결이 끊어진 것 같습니다. 네트워크 연결 및 서버 상태를 확인해 주세요."
+msgstr "서버 연결이 끊어졌습니다. 네트워크 및 서버 상태를 확인해주세요."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:344
 msgid "No accounts selected."
