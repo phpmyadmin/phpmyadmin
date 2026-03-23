@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2026-03-17 05:09+0000\n"
+"PO-Revision-Date: 2026-03-23 06:09+0000\n"
 "Last-Translator: kim8ccf3a4116ec4691 <kim@yong.biz>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "ko/>\n"
@@ -1756,7 +1756,7 @@ msgstr "에러 메시지: %s"
 msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
-msgstr "서버 연결이 끊어진 것 같습니다. 네트워크 연결 및 서버 상태를 확인해 주세요."
+msgstr "서버 연결이 끊어졌습니다. 네트워크 및 서버 상태를 확인해주세요."
 
 #: js/messages.php:373
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:194
@@ -2666,7 +2666,7 @@ msgstr "보안 키 활성화를 기다리는 동안 시간이 초과되었습니
 #: js/messages.php:752
 #, php-format
 msgid "Failed security key activation (%s)."
-msgstr "보안 키를 활성화에 실패였습니다(%s)."
+msgstr "보안 키 활성화에 실패였습니다 (%s)."
 
 #: js/messages.php:755
 #, php-format
@@ -3783,7 +3783,7 @@ msgstr "열 설명 보이기"
 
 #: libraries/classes/Config/Descriptions.php:191
 msgid "Whether column comments should be shown in table structure view"
-msgstr "테이블 구조 보기에서 열 설명을 표시할지 여부"
+msgstr "열 설명을 테이블 구조 보기에 표시할지 여부"
 
 #: libraries/classes/Config/Descriptions.php:193
 msgid "Hide table structure actions"
