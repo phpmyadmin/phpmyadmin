@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-03-22 00:39+0000\n"
-"PO-Revision-Date: 2026-03-17 05:09+0000\n"
+"PO-Revision-Date: 2026-03-23 11:44+0000\n"
 "Last-Translator: kim8ccf3a4116ec4691 <kim@yong.biz>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ko/>\n"
@@ -10116,7 +10116,7 @@ msgstr "테이블 구조 기능을 숨길지 여부."
 
 #: src/Config/Descriptions.php:545
 msgid "Whether column comments should be shown in table structure view"
-msgstr "테이블 구조 보기에서 열 설명을 표시할지 여부"
+msgstr "열 설명을 테이블 구조 보기에 표시할지 여부"
 
 #: src/Config/Descriptions.php:546
 msgid "Show server listing as a list instead of a drop down."
@@ -12998,8 +12998,7 @@ msgstr "에러 메시지: %s"
 msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
-msgstr ""
-"서버 연결이 끊어진 것 같습니다. 네트워크 연결 및 서버 상태를 확인해 주세요."
+msgstr "서버 연결이 끊어졌습니다. 네트워크 및 서버 상태를 확인해주세요."
 
 #: src/Controllers/JavaScriptMessagesController.php:332
 msgid "No accounts selected."
@@ -15901,10 +15900,8 @@ msgstr ""
 "업로드된 파일을 이동시킬 수 없습니다. [doc@faq1-11]FAQ 1.11[/doc] 참조."
 
 #: src/File.php:372
-#, fuzzy
-#| msgid "Cannot read uploaded file."
 msgid "Cannot create temporary file."
-msgstr "업로드한 파일을 읽을 수 없습니다."
+msgstr "임시 파일을 생성할 수 없습니다."
 
 #: src/File.php:383
 msgid "Error while moving uploaded file."
