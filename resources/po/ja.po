@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-03-22 00:39+0000\n"
-"PO-Revision-Date: 2026-03-17 05:09+0000\n"
+"PO-Revision-Date: 2026-03-23 11:44+0000\n"
 "Last-Translator: Sandra Swift <nolamiller1203+weblate@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -16120,10 +16120,8 @@ msgstr ""
 "をご覧ください。"
 
 #: src/File.php:372
-#, fuzzy
-#| msgid "Cannot read uploaded file."
 msgid "Cannot create temporary file."
-msgstr "アップロードされたファイルが読み込めません。"
+msgstr "一時ファイルが読み込めません。"
 
 #: src/File.php:383
 msgid "Error while moving uploaded file."
