@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2024-05-02 18:18+0000\n"
-"Last-Translator: Salvador Domingues <salvadordomingues@gmail.com>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
-"4-9/pt/>\n"
+"PO-Revision-Date: 2026-03-25 11:09+0000\n"
+"Last-Translator: Horus68 <horus68@users.noreply.hosted.weblate.org>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/4-"
+"9/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.5.3-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -7869,7 +7869,7 @@ msgstr "Erro ao mover o ficheiro enviado."
 
 #: libraries/classes/File.php:533
 msgid "Cannot read uploaded file."
-msgstr "Ficheiro carregado não pode ser lido."
+msgstr "Não foi possível ler o ficheiro carregado."
 
 #: libraries/classes/File.php:613
 #, php-format
