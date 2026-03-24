@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-03-22 00:39+0000\n"
-"PO-Revision-Date: 2025-02-07 22:02+0000\n"
+"PO-Revision-Date: 2026-03-24 13:09+0000\n"
 "Last-Translator: Horus68 <horus68@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/pt/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.10-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 #: resources/templates/base.twig:40 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -16573,10 +16573,8 @@ msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr "Erro ao mover o ficheiro carregado, veja [doc@faq1-11]FAQ 1.11[/doc]."
 
 #: src/File.php:372
-#, fuzzy
-#| msgid "Cannot read uploaded file."
 msgid "Cannot create temporary file."
-msgstr "Ficheiro carregado não pode ser lido."
+msgstr "Não foi possível criar o ficheiro temporário."
 
 #: src/File.php:383
 msgid "Error while moving uploaded file."
@@ -16584,7 +16582,7 @@ msgstr "Erro ao mover o ficheiro enviado."
 
 #: src/File.php:392
 msgid "Cannot read uploaded file."
-msgstr "Ficheiro carregado não pode ser lido."
+msgstr "Não foi possível ler o ficheiro carregado."
 
 #: src/File.php:445
 #, php-format
