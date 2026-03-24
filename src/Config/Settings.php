@@ -4937,12 +4937,12 @@ final class Settings
     {
         if (
             ! isset($settings['TablePrimaryKeyOrder'])
-            || ! in_array($settings['TablePrimaryKeyOrder'], ['ASC', 'DESC'], true)
+            || ! in_array($settings['TablePrimaryKeyOrder'], ['ASC', 'DESC', 'asc', 'desc'], true)
         ) {
             return 'NONE';
         }
 
-        return $settings['TablePrimaryKeyOrder'];
+        return strtoupper($settings['TablePrimaryKeyOrder']);
     }
 
     /** @param array<int|string, mixed> $settings */
