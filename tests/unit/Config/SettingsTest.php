@@ -37,7 +37,6 @@ use const ROOT_PATH;
 class SettingsTest extends TestCase
 {
     private const DEFAULT_VALUES = [
-        'MysqlSslWarningSafeHosts' => ['127.0.0.1', 'localhost'],
         'MemoryLimit' => '-1',
         'SkipLockedTables' => false,
         'ShowSQL' => true,
@@ -307,7 +306,6 @@ class SettingsTest extends TestCase
         return [
             'null values' => [
                 [
-                    ['MysqlSslWarningSafeHosts', null, ['127.0.0.1', 'localhost']],
                     ['MemoryLimit', null, '-1'],
                     ['SkipLockedTables', null, false],
                     ['ShowSQL', null, true],
@@ -471,7 +469,6 @@ class SettingsTest extends TestCase
             ],
             'valid values' => [
                 [
-                    ['MysqlSslWarningSafeHosts', ['test1', 'test2'], ['test1', 'test2']],
                     ['MemoryLimit', '16M', '16M'],
                     ['SkipLockedTables', true, true],
                     ['ShowSQL', false, false],
@@ -761,7 +758,6 @@ class SettingsTest extends TestCase
             'valid values 11' => [[['NavigationTreeDefaultTabTable2', '', '']]],
             'valid values with type coercion' => [
                 [
-                    ['MysqlSslWarningSafeHosts', ['127.0.0.1' => 'local', false, 1234 => 1234], ['local', '1234']],
                     ['MemoryLimit', 1234, '1234'],
                     ['SkipLockedTables', 1, true],
                     ['ShowSQL', 0, false],
@@ -893,7 +889,6 @@ class SettingsTest extends TestCase
             ],
             'invalid values' => [
                 [
-                    ['MysqlSslWarningSafeHosts', 'invalid', ['127.0.0.1', 'localhost']],
                     ['CookieSameSite', 'invalid', 'Strict'],
                     ['LoginCookieValidity', 0, 1440],
                     ['LoginCookieStore', -1, 0],
@@ -1495,5 +1490,31 @@ class SettingsTest extends TestCase
         yield 'valid value 4' => ['asc', 'ASC'];
         yield 'valid value 5' => ['desc', 'DESC'];
         yield 'invalid value' => ['invalid', 'NONE'];
+    }
+
+    /** @param list<non-empty-string> $expected */
+    #[DataProvider('valuesForMysqlSslWarningSafeHostsProvider')]
+    public function testMysqlSslWarningSafeHosts(mixed $actual, array $expected): void
+    {
+        $settings = new Settings(['MysqlSslWarningSafeHosts' => $actual]);
+        $settingsArray = $settings->asArray();
+        self::assertSame($expected, $settings->MysqlSslWarningSafeHosts);
+        self::assertSame($expected, $settingsArray['MysqlSslWarningSafeHosts']);
+    }
+
+    /** @return iterable<string, array{mixed, list<non-empty-string>}> */
+    public static function valuesForMysqlSslWarningSafeHostsProvider(): iterable
+    {
+        yield 'null value' => [null, ['127.0.0.1', 'localhost']];
+        yield 'valid value' => [['local.host', '::1'], ['local.host', '::1']];
+        yield 'valid value 2' => [['127.0.0.1', 'localhost'], ['127.0.0.1', 'localhost']];
+        yield 'valid value 3' => [[], []];
+        yield 'valid value with type coercion' => [
+            ['127.0.0.1' => 'local', 4321 => 1234, true],
+            ['local', '1234', '1'],
+        ];
+
+        yield 'invalid value' => ['invalid', ['127.0.0.1', 'localhost']];
+        yield 'invalid list values' => [[false, [], ['localhost'], '', null, 'localhost'], ['localhost']];
     }
 }

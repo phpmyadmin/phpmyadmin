@@ -20,6 +20,7 @@ use function defined;
 use function in_array;
 use function is_array;
 use function is_int;
+use function is_scalar;
 use function is_string;
 use function min;
 use function sprintf;
@@ -67,7 +68,7 @@ use const VERSION_CHECK_DEFAULT;
  *     PersistentConnections: bool,
  *     ExecTimeLimit: int<0, max>,
  *     SessionSavePath: string,
- *     MysqlSslWarningSafeHosts: array<string>,
+ *     MysqlSslWarningSafeHosts: list<non-empty-string>,
  *     MemoryLimit: string,
  *     SkipLockedTables: bool,
  *     ShowSQL: bool,
@@ -563,7 +564,7 @@ final class Settings
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_MysqlSslWarningSafeHosts
      *
-     * @var string[]
+     * @var list<non-empty-string>
      */
     public array $MysqlSslWarningSafeHosts;
 
@@ -3349,7 +3350,7 @@ final class Settings
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @return string[]
+     * @return list<non-empty-string>
      */
     private function setMysqlSslWarningSafeHosts(array $settings): array
     {
@@ -3358,8 +3359,11 @@ final class Settings
         }
 
         $hosts = [];
-        /** @var mixed $host */
         foreach ($settings['MysqlSslWarningSafeHosts'] as $host) {
+            if (! is_scalar($host)) {
+                continue;
+            }
+
             $safeHost = (string) $host;
             if ($safeHost === '') {
                 continue;
