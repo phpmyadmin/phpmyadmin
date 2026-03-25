@@ -189,7 +189,6 @@ class SettingsTest extends TestCase
         'CharTextareaRows' => 7,
         'RowActionLinks' => 'left',
         'RowActionLinksWithoutUnique' => false,
-        'TablePrimaryKeyOrder' => 'NONE',
         'RememberSorting' => true,
         'ShowBrowseComments' => true,
         'ShowPropertyComments' => true,
@@ -425,7 +424,6 @@ class SettingsTest extends TestCase
                     ['CharTextareaRows', null, 7],
                     ['RowActionLinks', null, 'left'],
                     ['RowActionLinksWithoutUnique', null, false],
-                    ['TablePrimaryKeyOrder', null, 'NONE'],
                     ['RememberSorting', null, true],
                     ['ShowBrowseComments', null, true],
                     ['ShowPropertyComments', null, true],
@@ -590,7 +588,6 @@ class SettingsTest extends TestCase
                     ['CharTextareaRows', 1, 1],
                     ['RowActionLinks', 'none', 'none'],
                     ['RowActionLinksWithoutUnique', true, true],
-                    ['TablePrimaryKeyOrder', 'DESC', 'DESC'],
                     ['RememberSorting', false, false],
                     ['ShowBrowseComments', false, false],
                     ['ShowPropertyComments', false, false],
@@ -661,7 +658,6 @@ class SettingsTest extends TestCase
                     ['RowActionType', 'text', 'text'],
                     ['RecodingEngine', 'auto', 'auto'],
                     ['RowActionLinks', 'left', 'left'],
-                    ['TablePrimaryKeyOrder', 'NONE', 'NONE'],
                     ['InitialSlidersState', 'closed', 'closed'],
                     ['GD2Available', 'auto', 'auto'],
                     ['TrustedProxies', [], []],
@@ -692,7 +688,6 @@ class SettingsTest extends TestCase
                     ['RowActionType', 'both', 'both'],
                     ['RecodingEngine', 'iconv', 'iconv'],
                     ['RowActionLinks', 'right', 'right'],
-                    ['TablePrimaryKeyOrder', 'ASC', 'ASC'],
                     ['InitialSlidersState', 'disabled', 'disabled'],
                     ['GD2Available', 'no', 'no'],
                     ['SendErrorReports', 'always', 'always'],
@@ -942,7 +937,6 @@ class SettingsTest extends TestCase
                     ['CharTextareaCols', 0, 40],
                     ['CharTextareaRows', 0, 7],
                     ['RowActionLinks', 'invalid', 'left'],
-                    ['TablePrimaryKeyOrder', 'invalid', 'NONE'],
                     ['QueryHistoryMax', 0, 25],
                     ['MaxExactCount', 0, 50000],
                     ['MaxExactCountViews', -1, 0],
@@ -1480,5 +1474,26 @@ class SettingsTest extends TestCase
         ];
 
         yield 'invalid value' => ['invalid', ['internal' => 50500, 'human' => '5.5.0']];
+    }
+
+    #[DataProvider('valuesForTablePrimaryKeyOrderProvider')]
+    public function testTablePrimaryKeyOrder(mixed $actual, string $expected): void
+    {
+        $settings = new Settings(['TablePrimaryKeyOrder' => $actual]);
+        $settingsArray = $settings->asArray();
+        self::assertSame($expected, $settings->TablePrimaryKeyOrder);
+        self::assertSame($expected, $settingsArray['TablePrimaryKeyOrder']);
+    }
+
+    /** @return iterable<string, array{mixed, non-empty-string}> */
+    public static function valuesForTablePrimaryKeyOrderProvider(): iterable
+    {
+        yield 'null value' => [null, 'NONE'];
+        yield 'valid value' => ['ASC', 'ASC'];
+        yield 'valid value 2' => ['DESC', 'DESC'];
+        yield 'valid value 3' => ['NONE', 'NONE'];
+        yield 'valid value 4' => ['asc', 'ASC'];
+        yield 'valid value 5' => ['desc', 'DESC'];
+        yield 'invalid value' => ['invalid', 'NONE'];
     }
 }

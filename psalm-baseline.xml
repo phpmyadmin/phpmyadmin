@@ -378,6 +378,14 @@
       <code><![CDATA[$loginCookieValidity]]></code>
     </MixedAssignment>
   </file>
+  <file src="src/Config/Settings.php">
+    <LessSpecificReturnStatement>
+      <code><![CDATA[strtoupper($settings['TablePrimaryKeyOrder'])]]></code>
+    </LessSpecificReturnStatement>
+    <MoreSpecificReturnType>
+      <code><![CDATA['NONE'|'ASC'|'DESC']]></code>
+    </MoreSpecificReturnType>
+  </file>
   <file src="src/Config/SpecialSchemaLinks.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>

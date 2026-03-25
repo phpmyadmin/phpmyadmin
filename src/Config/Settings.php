@@ -23,6 +23,7 @@ use function is_int;
 use function is_string;
 use function min;
 use function sprintf;
+use function strtoupper;
 
 use const DIRECTORY_SEPARATOR;
 use const ROOT_PATH;
