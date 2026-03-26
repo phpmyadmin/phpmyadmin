@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-03-22 00:39+0000\n"
-"PO-Revision-Date: 2022-02-17 10:35+0000\n"
-"Last-Translator: Péter Báthory <bathory86p@gmail.com>\n"
+"PO-Revision-Date: 2026-03-27 09:09+0000\n"
+"Last-Translator: Andras Varro <varro.andras20@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/hu/>\n"
 "Language: hu\n"
@@ -13,17 +13,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 #: resources/templates/base.twig:40 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
 msgstr "Ettől a ponttól engedélyeznie kell a JavaScriptet!"
 
 #: resources/templates/base.twig:50
-#, fuzzy
-#| msgid "Add user account"
 msgid "Open user account menu"
-msgstr "Felhasználói fiók hozzáadása"
+msgstr "Felhasználói fiók menü megnyitása"
 
 #: resources/templates/base.twig:61 resources/templates/navigation/main.twig:35
 #: resources/templates/navigation/main.twig:36
@@ -31,10 +29,8 @@ msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin dokumentáció"
 
 #: resources/templates/base.twig:66
-#, fuzzy
-#| msgid "Documentation"
 msgid "MariaDB documentation"
-msgstr "Dokumentáció"
+msgstr "MariaDB dokumentáció"
 
 #: resources/templates/base.twig:66
 #, fuzzy
