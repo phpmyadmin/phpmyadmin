@@ -38,12 +38,9 @@ class SettingsTest extends TestCase
 {
     private const DEFAULT_VALUES = [
         'MemoryLimit' => '-1',
-        'SkipLockedTables' => false,
         'ShowSQL' => true,
-        'RetainQueryBox' => false,
         'CodemirrorEnable' => true,
         'LintEnable' => true,
-        'AllowUserDropDatabase' => false,
         'Confirm' => true,
         'CookieSameSite' => 'Strict',
         'LoginCookieRecall' => true,
@@ -51,10 +48,7 @@ class SettingsTest extends TestCase
         'LoginCookieStore' => 0,
         'LoginCookieDeleteAll' => true,
         'UseDbSearch' => true,
-        'IgnoreMultiSubmitErrors' => false,
-        'URLQueryEncryption' => false,
         'URLQueryEncryptionSecretKey' => '',
-        'AllowArbitraryServer' => false,
         'ArbitraryServerRegexp' => '',
         'CaptchaMethod' => 'invisible',
         'CaptchaApi' => 'https://www.google.com/recaptcha/api.js',
@@ -81,7 +75,6 @@ class SettingsTest extends TestCase
         'NumFavoriteTables' => 10,
         'NavigationTreeDisplayItemFilterMinimum' => 30,
         'NavigationDisplayServers' => true,
-        'DisplayServersList' => false,
         'NavigationTreeDisplayDbFilterMinimum' => 30,
         'NavigationTreeDefaultTabTable' => 'structure',
         'NavigationTreeDefaultTabTable2' => '',
@@ -94,20 +87,13 @@ class SettingsTest extends TestCase
         'NavigationWidth' => 240,
         'NavigationTreeAutoexpandSingleDb' => true,
         'ShowStats' => true,
-        'ShowPhpInfo' => false,
         'ShowServerInfo' => true,
         'ShowChgPassword' => true,
         'ShowCreateDb' => true,
-        'ShowDbStructureCharset' => false,
-        'ShowDbStructureComment' => false,
-        'ShowDbStructureCreation' => false,
-        'ShowDbStructureLastUpdate' => false,
-        'ShowDbStructureLastCheck' => false,
         'HideStructureActions' => true,
         'ShowColumnComments' => true,
         'TableNavigationLinksMode' => 'icons',
         'Order' => 'SMART',
-        'SaveCellsAtOnce' => false,
         'GridEditing' => 'double-click',
         'RelationalDisplay' => 'K',
         'ProtectBinary' => 'blob',
@@ -183,15 +169,12 @@ class SettingsTest extends TestCase
         'TextareaCols' => 40,
         'TextareaRows' => 15,
         'LongtextDoubleTextarea' => true,
-        'TextareaAutoSelect' => false,
         'CharTextareaCols' => 40,
         'CharTextareaRows' => 7,
         'RowActionLinks' => 'left',
-        'RowActionLinksWithoutUnique' => false,
         'RememberSorting' => true,
         'ShowBrowseComments' => true,
         'ShowPropertyComments' => true,
-        'QueryHistoryDB' => false,
         'QueryHistoryMax' => 25,
         'AllowSharedBookmarks' => true,
         'BrowseMIME' => true,
@@ -200,14 +183,12 @@ class SettingsTest extends TestCase
         'NaturalOrder' => true,
         'InitialSlidersState' => 'closed',
         'UserprefsDisallow' => [],
-        'UserprefsDeveloperTab' => false,
         'TitleTable' => '@HTTP_HOST@ / @VSERVER@ / @DATABASE@ / @TABLE@ | @PHPMYADMIN@',
         'TitleDatabase' => '@HTTP_HOST@ / @VSERVER@ / @DATABASE@ | @PHPMYADMIN@',
         'TitleServer' => '@HTTP_HOST@ / @VSERVER@ | @PHPMYADMIN@',
         'TitleDefault' => '@HTTP_HOST@ | @PHPMYADMIN@',
         'ThemeManager' => true,
         'ThemeDefault' => 'pmahomme',
-        'ThemePerServer' => false,
         'DefaultQueryTable' => 'SELECT * FROM @TABLE@ WHERE 1',
         'DefaultQueryDatabase' => '',
         'SQLQuery' => null,
@@ -220,9 +201,7 @@ class SettingsTest extends TestCase
         'CheckConfigurationPermissions' => true,
         'LinkLengthLimit' => 1000,
         'CSPAllow' => '',
-        'DisableMultiTableMaintenance' => false,
         'SendErrorReports' => 'ask',
-        'ConsoleEnterExecutes' => false,
         'environment' => 'production',
         'DefaultFunctions' => [
             'FUNC_CHAR' => '',
@@ -234,7 +213,6 @@ class SettingsTest extends TestCase
         ],
         'maxRowPlotLimit' => 500,
         'ShowGitRevision' => true,
-        'DisableShortcutKeys' => false,
         'Console' => null,
         'DefaultTransformations' => null,
         'FirstDayOfCalendar' => 0,
@@ -307,12 +285,9 @@ class SettingsTest extends TestCase
             'null values' => [
                 [
                     ['MemoryLimit', null, '-1'],
-                    ['SkipLockedTables', null, false],
                     ['ShowSQL', null, true],
-                    ['RetainQueryBox', null, false],
                     ['CodemirrorEnable', null, true],
                     ['LintEnable', null, true],
-                    ['AllowUserDropDatabase', null, false],
                     ['Confirm', null, true],
                     ['CookieSameSite', null, 'Strict'],
                     ['LoginCookieRecall', null, true],
@@ -320,10 +295,7 @@ class SettingsTest extends TestCase
                     ['LoginCookieStore', null, 0],
                     ['LoginCookieDeleteAll', null, true],
                     ['UseDbSearch', null, true],
-                    ['IgnoreMultiSubmitErrors', null, false],
-                    ['URLQueryEncryption', null, false],
                     ['URLQueryEncryptionSecretKey', null, ''],
-                    ['AllowArbitraryServer', null, false],
                     ['ArbitraryServerRegexp', null, ''],
                     ['CaptchaMethod', null, 'invisible'],
                     ['CaptchaApi', null, 'https://www.google.com/recaptcha/api.js'],
@@ -349,7 +321,6 @@ class SettingsTest extends TestCase
                     ['NumFavoriteTables', null, 10],
                     ['NavigationTreeDisplayItemFilterMinimum', null, 30],
                     ['NavigationDisplayServers', null, true],
-                    ['DisplayServersList', null, false],
                     ['NavigationTreeDisplayDbFilterMinimum', null, 30],
                     ['NavigationTreeDefaultTabTable', null, '/table/structure'],
                     ['NavigationTreeDefaultTabTable2', null, ''],
@@ -362,20 +333,13 @@ class SettingsTest extends TestCase
                     ['NavigationWidth', null, 240],
                     ['NavigationTreeAutoexpandSingleDb', null, true],
                     ['ShowStats', null, true],
-                    ['ShowPhpInfo', null, false],
                     ['ShowServerInfo', null, true],
                     ['ShowChgPassword', null, true],
                     ['ShowCreateDb', null, true],
-                    ['ShowDbStructureCharset', null, false],
-                    ['ShowDbStructureComment', null, false],
-                    ['ShowDbStructureCreation', null, false],
-                    ['ShowDbStructureLastUpdate', null, false],
-                    ['ShowDbStructureLastCheck', null, false],
                     ['HideStructureActions', null, true],
                     ['ShowColumnComments', null, true],
                     ['TableNavigationLinksMode', null, 'icons'],
                     ['Order', null, 'SMART'],
-                    ['SaveCellsAtOnce', null, false],
                     ['GridEditing', null, 'double-click'],
                     ['RelationalDisplay', null, 'K'],
                     ['ProtectBinary', null, 'blob'],
@@ -417,15 +381,12 @@ class SettingsTest extends TestCase
                     ['TextareaCols', null, 40],
                     ['TextareaRows', null, 15],
                     ['LongtextDoubleTextarea', null, true],
-                    ['TextareaAutoSelect', null, false],
                     ['CharTextareaCols', null, 40],
                     ['CharTextareaRows', null, 7],
                     ['RowActionLinks', null, 'left'],
-                    ['RowActionLinksWithoutUnique', null, false],
                     ['RememberSorting', null, true],
                     ['ShowBrowseComments', null, true],
                     ['ShowPropertyComments', null, true],
-                    ['QueryHistoryDB', null, false],
                     ['QueryHistoryMax', null, 25],
                     ['AllowSharedBookmarks', null, true],
                     ['BrowseMIME', null, true],
@@ -434,14 +395,12 @@ class SettingsTest extends TestCase
                     ['NaturalOrder', null, true],
                     ['InitialSlidersState', null, 'closed'],
                     ['UserprefsDisallow', null, []],
-                    ['UserprefsDeveloperTab', null, false],
                     ['TitleTable', null, '@HTTP_HOST@ / @VSERVER@ / @DATABASE@ / @TABLE@ | @PHPMYADMIN@'],
                     ['TitleDatabase', null, '@HTTP_HOST@ / @VSERVER@ / @DATABASE@ | @PHPMYADMIN@'],
                     ['TitleServer', null, '@HTTP_HOST@ / @VSERVER@ | @PHPMYADMIN@'],
                     ['TitleDefault', null, '@HTTP_HOST@ | @PHPMYADMIN@'],
                     ['ThemeManager', null, true],
                     ['ThemeDefault', null, 'pmahomme'],
-                    ['ThemePerServer', null, false],
                     ['DefaultQueryTable', null, 'SELECT * FROM @TABLE@ WHERE 1'],
                     ['DefaultQueryDatabase', null, ''],
                     ['SQLQuery', null, null],
@@ -454,14 +413,11 @@ class SettingsTest extends TestCase
                     ['CheckConfigurationPermissions', null, true],
                     ['LinkLengthLimit', null, 1000],
                     ['CSPAllow', null, ''],
-                    ['DisableMultiTableMaintenance', null, false],
                     ['SendErrorReports', null, 'ask'],
-                    ['ConsoleEnterExecutes', null, false],
                     ['environment', null, 'production'],
                     ['DefaultFunctions', null, ['FUNC_CHAR' => '', 'FUNC_DATE' => '', 'FUNC_NUMBER' => '', 'FUNC_SPATIAL' => 'GeomFromText', 'FUNC_UUID' => 'UUID', 'first_timestamp' => 'NOW']],
                     ['maxRowPlotLimit', null, 500],
                     ['ShowGitRevision', null, true],
-                    ['DisableShortcutKeys', null, false],
                     ['Console', null, null],
                     ['DefaultTransformations', null, null],
                     ['FirstDayOfCalendar', null, 0],
@@ -470,12 +426,9 @@ class SettingsTest extends TestCase
             'valid values' => [
                 [
                     ['MemoryLimit', '16M', '16M'],
-                    ['SkipLockedTables', true, true],
                     ['ShowSQL', false, false],
-                    ['RetainQueryBox', true, true],
                     ['CodemirrorEnable', false, false],
                     ['LintEnable', false, false],
-                    ['AllowUserDropDatabase', true, true],
                     ['Confirm', false, false],
                     ['CookieSameSite', 'Lax', 'Lax'],
                     ['LoginCookieRecall', false, false],
@@ -483,10 +436,7 @@ class SettingsTest extends TestCase
                     ['LoginCookieStore', 0, 0],
                     ['LoginCookieDeleteAll', false, false],
                     ['UseDbSearch', false, false],
-                    ['IgnoreMultiSubmitErrors', true, true],
-                    ['URLQueryEncryption', true, true],
                     ['URLQueryEncryptionSecretKey', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'],
-                    ['AllowArbitraryServer', true, true],
                     ['ArbitraryServerRegexp', 'test', 'test'],
                     ['CaptchaMethod', 'checkbox', 'checkbox'],
                     ['CaptchaApi', 'test', 'test'],
@@ -512,7 +462,6 @@ class SettingsTest extends TestCase
                     ['NumFavoriteTables', 0, 0],
                     ['NavigationTreeDisplayItemFilterMinimum', 1, 1],
                     ['NavigationDisplayServers', false, false],
-                    ['DisplayServersList', true, true],
                     ['NavigationTreeDisplayDbFilterMinimum', 1, 1],
                     ['NavigationTreeDefaultTabTable', 'browse', '/sql'],
                     ['NavigationTreeDefaultTabTable2', 'browse', '/sql'],
@@ -525,20 +474,13 @@ class SettingsTest extends TestCase
                     ['NavigationWidth', 0, 0],
                     ['NavigationTreeAutoexpandSingleDb', false, false],
                     ['ShowStats', false, false],
-                    ['ShowPhpInfo', true, true],
                     ['ShowServerInfo', false, false],
                     ['ShowChgPassword', false, false],
                     ['ShowCreateDb', false, false],
-                    ['ShowDbStructureCharset', true, true],
-                    ['ShowDbStructureComment', true, true],
-                    ['ShowDbStructureCreation', true, true],
-                    ['ShowDbStructureLastUpdate', true, true],
-                    ['ShowDbStructureLastCheck', true, true],
                     ['HideStructureActions', false, false],
                     ['ShowColumnComments', false, false],
                     ['TableNavigationLinksMode', 'text', 'text'],
                     ['Order', 'ASC', 'ASC'],
-                    ['SaveCellsAtOnce', true, true],
                     ['GridEditing', 'click', 'click'],
                     ['RelationalDisplay', 'D', 'D'],
                     ['ProtectBinary', 'noblob', 'noblob'],
@@ -580,15 +522,12 @@ class SettingsTest extends TestCase
                     ['TextareaCols', 1, 1],
                     ['TextareaRows', 1, 1],
                     ['LongtextDoubleTextarea', false, false],
-                    ['TextareaAutoSelect', true, true],
                     ['CharTextareaCols', 1, 1],
                     ['CharTextareaRows', 1, 1],
                     ['RowActionLinks', 'none', 'none'],
-                    ['RowActionLinksWithoutUnique', true, true],
                     ['RememberSorting', false, false],
                     ['ShowBrowseComments', false, false],
                     ['ShowPropertyComments', false, false],
-                    ['QueryHistoryDB', true, true],
                     ['QueryHistoryMax', 1, 1],
                     ['AllowSharedBookmarks', false, false],
                     ['BrowseMIME', false, false],
@@ -597,14 +536,12 @@ class SettingsTest extends TestCase
                     ['NaturalOrder', false, false],
                     ['InitialSlidersState', 'open', 'open'],
                     ['UserprefsDisallow', ['DisableMultiTableMaintenance', 'Export/lock_tables'], ['DisableMultiTableMaintenance', 'Export/lock_tables']],
-                    ['UserprefsDeveloperTab', true, true],
                     ['TitleTable', '@PHPMYADMIN@', '@PHPMYADMIN@'],
                     ['TitleDatabase', '@PHPMYADMIN@', '@PHPMYADMIN@'],
                     ['TitleServer', '@PHPMYADMIN@', '@PHPMYADMIN@'],
                     ['TitleDefault', '@PHPMYADMIN@', '@PHPMYADMIN@'],
                     ['ThemeManager', false, false],
                     ['ThemeDefault', 'test', 'test'],
-                    ['ThemePerServer', true, true],
                     ['DefaultQueryTable', 'test', 'test'],
                     ['DefaultQueryDatabase', 'test', 'test'],
                     ['SQLQuery', [], null],
@@ -617,14 +554,11 @@ class SettingsTest extends TestCase
                     ['CheckConfigurationPermissions', false, false],
                     ['LinkLengthLimit', 1, 1],
                     ['CSPAllow', 'phpmyadmin.net', 'phpmyadmin.net'],
-                    ['DisableMultiTableMaintenance', true, true],
                     ['SendErrorReports', 'never', 'never'],
-                    ['ConsoleEnterExecutes', true, true],
                     ['environment', 'development', 'development'],
                     ['DefaultFunctions', ['key' => 'value', 'key2' => 'value2'], ['FUNC_CHAR' => '', 'FUNC_DATE' => '', 'FUNC_NUMBER' => '', 'FUNC_SPATIAL' => 'GeomFromText', 'FUNC_UUID' => 'UUID', 'first_timestamp' => 'NOW', 'key' => 'value', 'key2' => 'value2']],
                     ['maxRowPlotLimit', 1, 1],
                     ['ShowGitRevision', false, false],
-                    ['DisableShortcutKeys', true, true],
                     ['Console', [], null],
                     ['DefaultTransformations', [], null],
                     ['FirstDayOfCalendar', 7, 7],
@@ -759,21 +693,15 @@ class SettingsTest extends TestCase
             'valid values with type coercion' => [
                 [
                     ['MemoryLimit', 1234, '1234'],
-                    ['SkipLockedTables', 1, true],
                     ['ShowSQL', 0, false],
-                    ['RetainQueryBox', 1, true],
                     ['CodemirrorEnable', 0, false],
                     ['LintEnable', 0, false],
-                    ['AllowUserDropDatabase', 1, true],
                     ['Confirm', 0, false],
                     ['LoginCookieRecall', 0, false],
                     ['LoginCookieValidity', '1', 1],
                     ['LoginCookieStore', '1', 1],
                     ['LoginCookieDeleteAll', 0, false],
                     ['UseDbSearch', 0, false],
-                    ['IgnoreMultiSubmitErrors', 1, true],
-                    ['URLQueryEncryption', 1, true],
-                    ['AllowArbitraryServer', 1, true],
                     ['ArbitraryServerRegexp', 1234, '1234'],
                     ['CaptchaApi', 1234, '1234'],
                     ['CaptchaCsp', 1234, '1234'],
@@ -797,7 +725,6 @@ class SettingsTest extends TestCase
                     ['NumFavoriteTables', '1', 1],
                     ['NavigationTreeDisplayItemFilterMinimum', '1', 1],
                     ['NavigationDisplayServers', 0, false],
-                    ['DisplayServersList', 1, true],
                     ['NavigationTreeDisplayDbFilterMinimum', '1', 1],
                     ['NavigationTreeEnableExpansion', 0, false],
                     ['NavigationTreeShowTables', 0, false],
@@ -808,18 +735,11 @@ class SettingsTest extends TestCase
                     ['NavigationWidth', '1', 1],
                     ['NavigationTreeAutoexpandSingleDb', 0, false],
                     ['ShowStats', 0, false],
-                    ['ShowPhpInfo', 1, true],
                     ['ShowServerInfo', 0, false],
                     ['ShowChgPassword', 0, false],
                     ['ShowCreateDb', 0, false],
-                    ['ShowDbStructureCharset', 1, true],
-                    ['ShowDbStructureComment', 1, true],
-                    ['ShowDbStructureCreation', 1, true],
-                    ['ShowDbStructureLastUpdate', 1, true],
-                    ['ShowDbStructureLastCheck', 1, true],
                     ['HideStructureActions', 0, false],
                     ['ShowColumnComments', 0, false],
-                    ['SaveCellsAtOnce', 1, true],
                     ['ShowFunctionFields', 0, false],
                     ['ShowFieldTypesInDataEditView', 0, false],
                     ['MinSizeForInputField', '0', 0],
@@ -845,14 +765,11 @@ class SettingsTest extends TestCase
                     ['TextareaCols', '1', 1],
                     ['TextareaRows', '1', 1],
                     ['LongtextDoubleTextarea', 0, false],
-                    ['TextareaAutoSelect', 1, true],
                     ['CharTextareaCols', '1', 1],
                     ['CharTextareaRows', '1', 1],
-                    ['RowActionLinksWithoutUnique', 1, true],
                     ['RememberSorting', 0, false],
                     ['ShowBrowseComments', 0, false],
                     ['ShowPropertyComments', 0, false],
-                    ['QueryHistoryDB', 1, true],
                     ['QueryHistoryMax', '1', 1],
                     ['AllowSharedBookmarks', 0, false],
                     ['BrowseMIME', 0, false],
@@ -860,14 +777,12 @@ class SettingsTest extends TestCase
                     ['MaxExactCountViews', '1', 1],
                     ['NaturalOrder', 0, false],
                     ['UserprefsDisallow', [1234 => 1234, 'test' => 'test'], ['1234', 'test']],
-                    ['UserprefsDeveloperTab', 1, true],
                     ['TitleTable', 1234, '1234'],
                     ['TitleDatabase', 1234, '1234'],
                     ['TitleServer', 1234, '1234'],
                     ['TitleDefault', 1234, '1234'],
                     ['ThemeManager', 0, false],
                     ['ThemeDefault', 1234, '1234'],
-                    ['ThemePerServer', 1, true],
                     ['DefaultQueryTable', 1234, '1234'],
                     ['DefaultQueryDatabase', 1234, '1234'],
                     ['EnableAutocompleteForTablesAndColumns', 0, false],
@@ -878,12 +793,9 @@ class SettingsTest extends TestCase
                     ['CheckConfigurationPermissions', 0, false],
                     ['LinkLengthLimit', '1', 1],
                     ['CSPAllow', 1234, '1234'],
-                    ['DisableMultiTableMaintenance', 1, true],
-                    ['ConsoleEnterExecutes', 1, true],
                     ['DefaultFunctions', ['FUNC_UUID' => 1234], ['FUNC_CHAR' => '', 'FUNC_DATE' => '', 'FUNC_NUMBER' => '', 'FUNC_SPATIAL' => 'GeomFromText', 'FUNC_UUID' => '1234', 'first_timestamp' => 'NOW']],
                     ['maxRowPlotLimit', '1', 1],
                     ['ShowGitRevision', 0, false],
-                    ['DisableShortcutKeys', 1, true],
                     ['FirstDayOfCalendar', '1', 1],
                 ],
             ],
@@ -1516,5 +1428,203 @@ class SettingsTest extends TestCase
 
         yield 'invalid value' => ['invalid', ['127.0.0.1', 'localhost']];
         yield 'invalid list values' => [[false, [], ['localhost'], '', null, 'localhost'], ['localhost']];
+    }
+
+    #[DataProvider('booleanWithDefaultFalseProvider')]
+    public function testSkipLockedTables(mixed $actual, bool $expected): void
+    {
+        $settings = new Settings(['SkipLockedTables' => $actual]);
+        $settingsArray = $settings->asArray();
+        self::assertSame($expected, $settings->SkipLockedTables);
+        self::assertSame($expected, $settingsArray['SkipLockedTables']);
+    }
+
+    #[DataProvider('booleanWithDefaultFalseProvider')]
+    public function testRetainQueryBox(mixed $actual, bool $expected): void
+    {
+        $settings = new Settings(['RetainQueryBox' => $actual]);
+        $settingsArray = $settings->asArray();
+        self::assertSame($expected, $settings->RetainQueryBox);
+        self::assertSame($expected, $settingsArray['RetainQueryBox']);
+    }
+
+    #[DataProvider('booleanWithDefaultFalseProvider')]
+    public function testAllowUserDropDatabase(mixed $actual, bool $expected): void
+    {
+        $settings = new Settings(['AllowUserDropDatabase' => $actual]);
+        $settingsArray = $settings->asArray();
+        self::assertSame($expected, $settings->AllowUserDropDatabase);
+        self::assertSame($expected, $settingsArray['AllowUserDropDatabase']);
+    }
+
+    #[DataProvider('booleanWithDefaultFalseProvider')]
+    public function testIgnoreMultiSubmitErrors(mixed $actual, bool $expected): void
+    {
+        $settings = new Settings(['IgnoreMultiSubmitErrors' => $actual]);
+        $settingsArray = $settings->asArray();
+        self::assertSame($expected, $settings->IgnoreMultiSubmitErrors);
+        self::assertSame($expected, $settingsArray['IgnoreMultiSubmitErrors']);
+    }
+
+    #[DataProvider('booleanWithDefaultFalseProvider')]
+    public function testURLQueryEncryption(mixed $actual, bool $expected): void
+    {
+        $settings = new Settings(['URLQueryEncryption' => $actual]);
+        $settingsArray = $settings->asArray();
+        self::assertSame($expected, $settings->URLQueryEncryption);
+        self::assertSame($expected, $settingsArray['URLQueryEncryption']);
+    }
+
+    #[DataProvider('booleanWithDefaultFalseProvider')]
+    public function testAllowArbitraryServer(mixed $actual, bool $expected): void
+    {
+        $settings = new Settings(['AllowArbitraryServer' => $actual]);
+        $settingsArray = $settings->asArray();
+        self::assertSame($expected, $settings->AllowArbitraryServer);
+        self::assertSame($expected, $settingsArray['AllowArbitraryServer']);
+    }
+
+    #[DataProvider('booleanWithDefaultFalseProvider')]
+    public function testDisplayServersList(mixed $actual, bool $expected): void
+    {
+        $settings = new Settings(['DisplayServersList' => $actual]);
+        $settingsArray = $settings->asArray();
+        self::assertSame($expected, $settings->DisplayServersList);
+        self::assertSame($expected, $settingsArray['DisplayServersList']);
+    }
+
+    #[DataProvider('booleanWithDefaultFalseProvider')]
+    public function testShowPhpInfo(mixed $actual, bool $expected): void
+    {
+        $settings = new Settings(['ShowPhpInfo' => $actual]);
+        $settingsArray = $settings->asArray();
+        self::assertSame($expected, $settings->ShowPhpInfo);
+        self::assertSame($expected, $settingsArray['ShowPhpInfo']);
+    }
+
+    #[DataProvider('booleanWithDefaultFalseProvider')]
+    public function testShowDbStructureCharset(mixed $actual, bool $expected): void
+    {
+        $settings = new Settings(['ShowDbStructureCharset' => $actual]);
+        $settingsArray = $settings->asArray();
+        self::assertSame($expected, $settings->ShowDbStructureCharset);
+        self::assertSame($expected, $settingsArray['ShowDbStructureCharset']);
+    }
+
+    #[DataProvider('booleanWithDefaultFalseProvider')]
+    public function testShowDbStructureComment(mixed $actual, bool $expected): void
+    {
+        $settings = new Settings(['ShowDbStructureComment' => $actual]);
+        $settingsArray = $settings->asArray();
+        self::assertSame($expected, $settings->ShowDbStructureComment);
+        self::assertSame($expected, $settingsArray['ShowDbStructureComment']);
+    }
+
+    #[DataProvider('booleanWithDefaultFalseProvider')]
+    public function testShowDbStructureCreation(mixed $actual, bool $expected): void
+    {
+        $settings = new Settings(['ShowDbStructureCreation' => $actual]);
+        $settingsArray = $settings->asArray();
+        self::assertSame($expected, $settings->ShowDbStructureCreation);
+        self::assertSame($expected, $settingsArray['ShowDbStructureCreation']);
+    }
+
+    #[DataProvider('booleanWithDefaultFalseProvider')]
+    public function testShowDbStructureLastUpdate(mixed $actual, bool $expected): void
+    {
+        $settings = new Settings(['ShowDbStructureLastUpdate' => $actual]);
+        $settingsArray = $settings->asArray();
+        self::assertSame($expected, $settings->ShowDbStructureLastUpdate);
+        self::assertSame($expected, $settingsArray['ShowDbStructureLastUpdate']);
+    }
+
+    #[DataProvider('booleanWithDefaultFalseProvider')]
+    public function testShowDbStructureLastCheck(mixed $actual, bool $expected): void
+    {
+        $settings = new Settings(['ShowDbStructureLastCheck' => $actual]);
+        $settingsArray = $settings->asArray();
+        self::assertSame($expected, $settings->ShowDbStructureLastCheck);
+        self::assertSame($expected, $settingsArray['ShowDbStructureLastCheck']);
+    }
+
+    #[DataProvider('booleanWithDefaultFalseProvider')]
+    public function testSaveCellsAtOnce(mixed $actual, bool $expected): void
+    {
+        $settings = new Settings(['SaveCellsAtOnce' => $actual]);
+        $settingsArray = $settings->asArray();
+        self::assertSame($expected, $settings->SaveCellsAtOnce);
+        self::assertSame($expected, $settingsArray['SaveCellsAtOnce']);
+    }
+
+    #[DataProvider('booleanWithDefaultFalseProvider')]
+    public function testTextareaAutoSelect(mixed $actual, bool $expected): void
+    {
+        $settings = new Settings(['TextareaAutoSelect' => $actual]);
+        $settingsArray = $settings->asArray();
+        self::assertSame($expected, $settings->TextareaAutoSelect);
+        self::assertSame($expected, $settingsArray['TextareaAutoSelect']);
+    }
+
+    #[DataProvider('booleanWithDefaultFalseProvider')]
+    public function testRowActionLinksWithoutUnique(mixed $actual, bool $expected): void
+    {
+        $settings = new Settings(['RowActionLinksWithoutUnique' => $actual]);
+        $settingsArray = $settings->asArray();
+        self::assertSame($expected, $settings->RowActionLinksWithoutUnique);
+        self::assertSame($expected, $settingsArray['RowActionLinksWithoutUnique']);
+    }
+
+    #[DataProvider('booleanWithDefaultFalseProvider')]
+    public function testQueryHistoryDB(mixed $actual, bool $expected): void
+    {
+        $settings = new Settings(['QueryHistoryDB' => $actual]);
+        $settingsArray = $settings->asArray();
+        self::assertSame($expected, $settings->QueryHistoryDB);
+        self::assertSame($expected, $settingsArray['QueryHistoryDB']);
+    }
+
+    #[DataProvider('booleanWithDefaultFalseProvider')]
+    public function testUserprefsDeveloperTab(mixed $actual, bool $expected): void
+    {
+        $settings = new Settings(['UserprefsDeveloperTab' => $actual]);
+        $settingsArray = $settings->asArray();
+        self::assertSame($expected, $settings->UserprefsDeveloperTab);
+        self::assertSame($expected, $settingsArray['UserprefsDeveloperTab']);
+    }
+
+    #[DataProvider('booleanWithDefaultFalseProvider')]
+    public function testThemePerServer(mixed $actual, bool $expected): void
+    {
+        $settings = new Settings(['ThemePerServer' => $actual]);
+        $settingsArray = $settings->asArray();
+        self::assertSame($expected, $settings->ThemePerServer);
+        self::assertSame($expected, $settingsArray['ThemePerServer']);
+    }
+
+    #[DataProvider('booleanWithDefaultFalseProvider')]
+    public function testDisableMultiTableMaintenance(mixed $actual, bool $expected): void
+    {
+        $settings = new Settings(['DisableMultiTableMaintenance' => $actual]);
+        $settingsArray = $settings->asArray();
+        self::assertSame($expected, $settings->DisableMultiTableMaintenance);
+        self::assertSame($expected, $settingsArray['DisableMultiTableMaintenance']);
+    }
+
+    #[DataProvider('booleanWithDefaultFalseProvider')]
+    public function testConsoleEnterExecutes(mixed $actual, bool $expected): void
+    {
+        $settings = new Settings(['ConsoleEnterExecutes' => $actual]);
+        $settingsArray = $settings->asArray();
+        self::assertSame($expected, $settings->ConsoleEnterExecutes);
+        self::assertSame($expected, $settingsArray['ConsoleEnterExecutes']);
+    }
+
+    #[DataProvider('booleanWithDefaultFalseProvider')]
+    public function testDisableShortcutKeys(mixed $actual, bool $expected): void
+    {
+        $settings = new Settings(['DisableShortcutKeys' => $actual]);
+        $settingsArray = $settings->asArray();
+        self::assertSame($expected, $settings->DisableShortcutKeys);
+        self::assertSame($expected, $settingsArray['DisableShortcutKeys']);
     }
 }
