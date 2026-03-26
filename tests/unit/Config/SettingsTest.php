@@ -87,7 +87,6 @@ class SettingsTest extends TestCase
         'NavigationWidth' => 240,
         'NavigationTreeAutoexpandSingleDb' => true,
         'ShowStats' => true,
-        'ShowServerInfo' => true,
         'ShowChgPassword' => true,
         'ShowCreateDb' => true,
         'HideStructureActions' => true,
@@ -333,7 +332,6 @@ class SettingsTest extends TestCase
                     ['NavigationWidth', null, 240],
                     ['NavigationTreeAutoexpandSingleDb', null, true],
                     ['ShowStats', null, true],
-                    ['ShowServerInfo', null, true],
                     ['ShowChgPassword', null, true],
                     ['ShowCreateDb', null, true],
                     ['HideStructureActions', null, true],
@@ -474,7 +472,6 @@ class SettingsTest extends TestCase
                     ['NavigationWidth', 0, 0],
                     ['NavigationTreeAutoexpandSingleDb', false, false],
                     ['ShowStats', false, false],
-                    ['ShowServerInfo', false, false],
                     ['ShowChgPassword', false, false],
                     ['ShowCreateDb', false, false],
                     ['HideStructureActions', false, false],
@@ -573,7 +570,6 @@ class SettingsTest extends TestCase
                     ['NavigationTreeDefaultTabTable', 'insert', '/table/change'],
                     ['NavigationTreeDefaultTabTable2', 'insert', '/table/change'],
                     ['TableNavigationLinksMode', 'both', 'both'],
-                    ['ShowServerInfo', 'database-server', 'database-server'],
                     ['Order', 'DESC', 'DESC'],
                     ['GridEditing', 'disabled', 'disabled'],
                     ['RelationalDisplay', 'K', 'K'],
@@ -605,7 +601,6 @@ class SettingsTest extends TestCase
                     ['NavigationTreeDefaultTabTable', 'structure', '/table/structure'],
                     ['NavigationTreeDefaultTabTable2', 'structure', '/table/structure'],
                     ['TableNavigationLinksMode', 'icons', 'icons'],
-                    ['ShowServerInfo', 'web-server', 'web-server'],
                     ['Order', 'SMART', 'SMART'],
                     ['GridEditing', 'double-click', 'double-click'],
                     ['ProtectBinary', 'blob', 'blob'],
@@ -735,7 +730,6 @@ class SettingsTest extends TestCase
                     ['NavigationWidth', '1', 1],
                     ['NavigationTreeAutoexpandSingleDb', 0, false],
                     ['ShowStats', 0, false],
-                    ['ShowServerInfo', 0, false],
                     ['ShowChgPassword', 0, false],
                     ['ShowCreateDb', 0, false],
                     ['HideStructureActions', 0, false],
@@ -1626,5 +1620,25 @@ class SettingsTest extends TestCase
         $settingsArray = $settings->asArray();
         self::assertSame($expected, $settings->DisableShortcutKeys);
         self::assertSame($expected, $settingsArray['DisableShortcutKeys']);
+    }
+
+    #[DataProvider('valuesForShowServerInfoProvider')]
+    public function testShowServerInfo(mixed $actual, bool|string $expected): void
+    {
+        $settings = new Settings(['ShowServerInfo' => $actual]);
+        $settingsArray = $settings->asArray();
+        self::assertSame($expected, $settings->ShowServerInfo);
+        self::assertSame($expected, $settingsArray['ShowServerInfo']);
+    }
+
+    /** @return iterable<string, array{mixed, (bool|'database-server'|'web-server')}> */
+    public static function valuesForShowServerInfoProvider(): iterable
+    {
+        yield 'null value' => [null, true];
+        yield 'valid value' => [false, false];
+        yield 'valid value 2' => [true, true];
+        yield 'valid value 3' => ['database-server', 'database-server'];
+        yield 'valid value 4' => ['web-server', 'web-server'];
+        yield 'valid value with type coercion' => [0, false];
     }
 }
