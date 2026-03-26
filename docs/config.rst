@@ -3030,13 +3030,19 @@ Languages
 
 .. config:option:: $cfg['AvailableCharsets']
 
-    :type: array
+    :type: array [list of strings]
     :default: ``[...]``
 
     Available character sets for MySQL conversion. You can add your own
     (any of supported by mbstring/iconv) or remove these which you don't
     use. Character sets will be shown in same order as here listed, so if
     you frequently use some of these move them to the top.
+
+    Example configuration:
+
+    .. code-block:: php
+
+        $cfg['AvailableCharsets'] = ['utf-8', 'iso-8859-1'];
 
 Web server settings
 -------------------

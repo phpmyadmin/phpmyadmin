@@ -175,7 +175,7 @@ use const VERSION_CHECK_DEFAULT;
  *     FilterLanguages: string,
  *     RecodingEngine: string,
  *     IconvExtraParams: string,
- *     AvailableCharsets: array<string>,
+ *     AvailableCharsets: list<string>,
  *     NavigationTreePointerEnable: bool,
  *     BrowsePointerEnable: bool,
  *     BrowseMarkerEnable: bool,
@@ -1895,7 +1895,7 @@ final class Settings
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_AvailableCharsets
      *
-     * @var string[]
+     * @var list<string>
      */
     public array $AvailableCharsets;
 
@@ -4725,7 +4725,7 @@ final class Settings
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @return string[]
+     * @return list<string>
      */
     private function setAvailableCharsets(array $settings): array
     {
@@ -4768,8 +4768,11 @@ final class Settings
         }
 
         $availableCharsets = [];
-        /** @var mixed $availableCharset */
         foreach ($settings['AvailableCharsets'] as $availableCharset) {
+            if (! is_scalar($availableCharset)) {
+                continue;
+            }
+
             $availableCharsets[] = (string) $availableCharset;
         }
 

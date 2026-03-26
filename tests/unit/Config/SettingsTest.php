@@ -96,41 +96,6 @@ class SettingsTest extends TestCase
         'FilterLanguages' => '',
         'RecodingEngine' => 'auto',
         'IconvExtraParams' => '//TRANSLIT',
-        'AvailableCharsets' => [
-            'iso-8859-1',
-            'iso-8859-2',
-            'iso-8859-3',
-            'iso-8859-4',
-            'iso-8859-5',
-            'iso-8859-6',
-            'iso-8859-7',
-            'iso-8859-8',
-            'iso-8859-9',
-            'iso-8859-10',
-            'iso-8859-11',
-            'iso-8859-12',
-            'iso-8859-13',
-            'iso-8859-14',
-            'iso-8859-15',
-            'windows-1250',
-            'windows-1251',
-            'windows-1252',
-            'windows-1256',
-            'windows-1257',
-            'koi8-r',
-            'big5',
-            'gb2312',
-            'utf-16',
-            'utf-8',
-            'utf-7',
-            'x-user-defined',
-            'euc-jp',
-            'ks_c_5601-1987',
-            'tis-620',
-            'SHIFT_JIS',
-            'SJIS',
-            'SJIS-win',
-        ],
         'TextareaCols' => 40,
         'TextareaRows' => 15,
         'CharTextareaCols' => 40,
@@ -296,7 +261,6 @@ class SettingsTest extends TestCase
                     ['FilterLanguages', null, ''],
                     ['RecodingEngine', null, 'auto'],
                     ['IconvExtraParams', null, '//TRANSLIT'],
-                    ['AvailableCharsets', null, ['iso-8859-1', 'iso-8859-2', 'iso-8859-3', 'iso-8859-4', 'iso-8859-5', 'iso-8859-6', 'iso-8859-7', 'iso-8859-8', 'iso-8859-9', 'iso-8859-10', 'iso-8859-11', 'iso-8859-12', 'iso-8859-13', 'iso-8859-14', 'iso-8859-15', 'windows-1250', 'windows-1251', 'windows-1252', 'windows-1256', 'windows-1257', 'koi8-r', 'big5', 'gb2312', 'utf-16', 'utf-8', 'utf-7', 'x-user-defined', 'euc-jp', 'ks_c_5601-1987', 'tis-620', 'SHIFT_JIS', 'SJIS', 'SJIS-win']],
                     ['TextareaCols', null, 40],
                     ['TextareaRows', null, 15],
                     ['CharTextareaCols', null, 40],
@@ -391,7 +355,6 @@ class SettingsTest extends TestCase
                     ['FilterLanguages', '^(pt_br|en)', '^(pt_br|en)'],
                     ['RecodingEngine', 'none', 'none'],
                     ['IconvExtraParams', '//IGNORE', '//IGNORE'],
-                    ['AvailableCharsets', ['utf-8', 'iso-8859-1'], ['utf-8', 'iso-8859-1']],
                     ['TextareaCols', 1, 1],
                     ['TextareaRows', 1, 1],
                     ['CharTextareaCols', 1, 1],
@@ -586,7 +549,6 @@ class SettingsTest extends TestCase
                     ['Lang', 1234, '1234'],
                     ['FilterLanguages', 1234, '1234'],
                     ['IconvExtraParams', 1234, '1234'],
-                    ['AvailableCharsets', [1234 => 1234, 'test' => 'test'], ['1234', 'test']],
                     ['TextareaCols', '1', 1],
                     ['TextareaRows', '1', 1],
                     ['CharTextareaCols', '1', 1],
@@ -652,7 +614,6 @@ class SettingsTest extends TestCase
                     ['RowActionType', 'invalid', 'both'],
                     ['PDFPageSizes', 'invalid', ['A3', 'A4', 'A5', 'letter', 'legal']],
                     ['RecodingEngine', 'invalid', 'auto'],
-                    ['AvailableCharsets', 'invalid', ['iso-8859-1', 'iso-8859-2', 'iso-8859-3', 'iso-8859-4', 'iso-8859-5', 'iso-8859-6', 'iso-8859-7', 'iso-8859-8', 'iso-8859-9', 'iso-8859-10', 'iso-8859-11', 'iso-8859-12', 'iso-8859-13', 'iso-8859-14', 'iso-8859-15', 'windows-1250', 'windows-1251', 'windows-1252', 'windows-1256', 'windows-1257', 'koi8-r', 'big5', 'gb2312', 'utf-16', 'utf-8', 'utf-7', 'x-user-defined', 'euc-jp', 'ks_c_5601-1987', 'tis-620', 'SHIFT_JIS', 'SJIS', 'SJIS-win']],
                     ['TextareaCols', 0, 40],
                     ['TextareaRows', 0, 15],
                     ['CharTextareaCols', 0, 40],
@@ -1864,5 +1825,29 @@ class SettingsTest extends TestCase
         yield 'valid value 3' => ['database-server', 'database-server'];
         yield 'valid value 4' => ['web-server', 'web-server'];
         yield 'valid value with type coercion' => [0, false];
+    }
+
+    /** @param list<string> $expected */
+    #[DataProvider('valuesForAvailableCharsetsProvider')]
+    public function testAvailableCharsets(mixed $actual, array $expected): void
+    {
+        $settings = new Settings(['AvailableCharsets' => $actual]);
+        $settingsArray = $settings->asArray();
+        self::assertSame($expected, $settings->AvailableCharsets);
+        self::assertSame($expected, $settingsArray['AvailableCharsets']);
+    }
+
+    /** @return iterable<string, array{mixed, list<string>}> */
+    public static function valuesForAvailableCharsetsProvider(): iterable
+    {
+        $defaultValues = ['iso-8859-1', 'iso-8859-2', 'iso-8859-3', 'iso-8859-4', 'iso-8859-5', 'iso-8859-6', 'iso-8859-7', 'iso-8859-8', 'iso-8859-9', 'iso-8859-10', 'iso-8859-11', 'iso-8859-12', 'iso-8859-13', 'iso-8859-14', 'iso-8859-15', 'windows-1250', 'windows-1251', 'windows-1252', 'windows-1256', 'windows-1257', 'koi8-r', 'big5', 'gb2312', 'utf-16', 'utf-8', 'utf-7', 'x-user-defined', 'euc-jp', 'ks_c_5601-1987', 'tis-620', 'SHIFT_JIS', 'SJIS', 'SJIS-win'];
+
+        yield 'null value' => [null, $defaultValues];
+        yield 'valid value' => [['utf-8', 'iso-8859-1'], ['utf-8', 'iso-8859-1']];
+        yield 'valid value 2' => [$defaultValues, $defaultValues];
+        yield 'valid value 3' => [[], []];
+        yield 'valid value with type coercion' => [[4321 => 1234, 'test' => 'test', true], ['1234', 'test', '1']];
+        yield 'invalid value' => ['invalid', $defaultValues];
+        yield 'invalid list values' => [[[], ['utf-8'], 'utf-8'], ['utf-8']];
     }
 }
