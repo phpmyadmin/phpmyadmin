@@ -46,7 +46,7 @@
           </td>
           <td class="font-monospace text-end">{{ row.id }}</td>
           <td>
-            {% if row.user != 'system user' %}
+            {% if row.user not in ['system user', 'event_scheduler', 'unauthenticated user'] %}
               <a href="{{ url('/server/privileges', {
                   'username': row.user,
                   'hostname': row.host,
