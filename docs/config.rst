@@ -1724,8 +1724,10 @@ Generic settings
 
 .. config:option:: $cfg['MysqlSslWarningSafeHosts']
 
-    :type: array
+    :type: array [list of non-empty strings]
     :default: ``['127.0.0.1', 'localhost']``
+
+    .. versionadded:: 5.1.0
 
     This search is case-sensitive and will match the exact string only.
     If your setup does not use SSL but is safe because you are using a
@@ -1734,14 +1736,11 @@ Generic settings
 
     This check uses the value of :config:option:`$cfg['Servers'][$i]['host']`.
 
-    .. versionadded:: 5.1.0
-
-    Example configuration
+    Example configuration:
 
     .. code-block:: php
 
-        $cfg['MysqlSslWarningSafeHosts'] = ['127.0.0.1', 'localhost', 'mariadb.local'];
-
+        $cfg['MysqlSslWarningSafeHosts'] = ['127.0.0.1', '::1', 'mariadb.local'];
 
 .. config:option:: $cfg['ExecTimeLimit']
 
@@ -3031,13 +3030,19 @@ Languages
 
 .. config:option:: $cfg['AvailableCharsets']
 
-    :type: array
+    :type: array [list of strings]
     :default: ``[...]``
 
     Available character sets for MySQL conversion. You can add your own
     (any of supported by mbstring/iconv) or remove these which you don't
     use. Character sets will be shown in same order as here listed, so if
     you frequently use some of these move them to the top.
+
+    Example configuration:
+
+    .. code-block:: php
+
+        $cfg['AvailableCharsets'] = ['utf-8', 'iso-8859-1'];
 
 Web server settings
 -------------------
