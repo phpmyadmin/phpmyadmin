@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-03-22 00:39+0000\n"
+"POT-Creation-Date: 2026-03-29 00:42+0000\n"
 "PO-Revision-Date: 2025-12-04 08:00+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -11288,7 +11288,7 @@ msgstr ""
 "%1$sGZip-ით შეკუმშვას და გაშლას%2$s სჭირდება ფუნქცია (%3$s), რომელიც ამ "
 "სისტემაზე ხელმისაწვდომი არაა."
 
-#: src/Config/Settings.php:3166
+#: src/Config/Settings.php:3168
 #, php-format
 msgid "Server %d"
 msgstr "სერვერი %d"

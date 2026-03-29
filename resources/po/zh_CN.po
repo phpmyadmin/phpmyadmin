@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-03-22 00:39+0000\n"
+"POT-Creation-Date: 2026-03-29 00:42+0000\n"
 "PO-Revision-Date: 2025-03-20 18:17+0000\n"
 "Last-Translator: 吴绮 <rs2.free@qq.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
@@ -11457,7 +11457,7 @@ msgid ""
 "are unavailable on this system."
 msgstr "此系统目前不支持 %1$sGZip 压缩和解压缩%2$s所必须的 (%3$s) 函数。"
 
-#: src/Config/Settings.php:3166
+#: src/Config/Settings.php:3168
 #, php-format
 msgid "Server %d"
 msgstr "服务器 %d"

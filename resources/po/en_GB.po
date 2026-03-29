@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-03-22 00:39+0000\n"
+"POT-Creation-Date: 2026-03-29 00:42+0000\n"
 "PO-Revision-Date: 2026-03-23 02:09+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
@@ -11791,7 +11791,7 @@ msgstr ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 
-#: src/Config/Settings.php:3166
+#: src/Config/Settings.php:3168
 #, php-format
 msgid "Server %d"
 msgstr "Server %d"

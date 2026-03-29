@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-03-22 00:39+0000\n"
+"POT-Creation-Date: 2026-03-29 00:42+0000\n"
 "PO-Revision-Date: 2022-07-05 15:20+0000\n"
 "Last-Translator: Ugnius Vaičeskas <ugninis.vai@gmail.com>\n"
 "Language-Team: Lithuanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -13273,7 +13273,7 @@ msgstr ""
 "%sGZip suspaudimui ir išspaudimui%s reikalingos funkcijos (%s) neprieinamos "
 "šioje sistemoje."
 
-#: src/Config/Settings.php:3166
+#: src/Config/Settings.php:3168
 #, fuzzy, php-format
 #| msgid "Server"
 msgid "Server %d"

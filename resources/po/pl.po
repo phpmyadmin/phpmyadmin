@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-03-22 00:39+0000\n"
+"POT-Creation-Date: 2026-03-29 00:42+0000\n"
 "PO-Revision-Date: 2025-10-27 19:02+0000\n"
 "Last-Translator: Janusz Duda <janusz.duda.niewiem@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -11893,7 +11893,7 @@ msgstr ""
 "Kompresja i dekompresja %1$sGZip%2$s wymaga funkcji (%3$s), które są "
 "niedostępne w tym systemie."
 
-#: src/Config/Settings.php:3166
+#: src/Config/Settings.php:3168
 #, php-format
 msgid "Server %d"
 msgstr "Serwer %d"
