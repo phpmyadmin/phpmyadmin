@@ -304,15 +304,10 @@ class Innodb extends StorageEngine
     {
         global $dbi;
 
-        $value = $dbi->fetchValue("SHOW GLOBAL VARIABLES LIKE 'innodb_file_format';", 1);
-
-        if ($value === false) {
-            // This variable does not exist anymore on MariaDB >= 10.6.0
-            // This variable does not exist anymore on MySQL >= 8.0.0
-            return null;
-        }
-
-        return (string) $value;
+        return (
+          ($dbi->isMariaDB() && $dbi->getVersion() >= 100600)
+          || ($dbi->isMySql() && $dbi->getVersion() >= 80000) 
+        ) ? '' : $dbi->fetchValue("SELECT @@innodb_file_format;");
     }
 
     /**
