@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-03-29 00:42+0000\n"
-"PO-Revision-Date: 2025-12-04 08:00+0000\n"
+"PO-Revision-Date: 2026-03-31 15:09+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ka/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.15-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 #: resources/templates/base.twig:40 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -14543,10 +14543,8 @@ msgid "Invalid file format, expected one of: "
 msgstr ""
 
 #: src/Controllers/Table/GisVisualizationController.php:129
-#, fuzzy
-#| msgid "Failed to read configuration file!"
 msgid "Failed to create image"
-msgstr "კონფიგურაციის ფაილის წაკითხვის შეცდომა!"
+msgstr "გამოსახულების შექმნა ჩავარდა!"
 
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:67
 #: src/Controllers/Table/Maintenance/CheckController.php:67
@@ -16388,10 +16386,8 @@ msgid ""
 msgstr ""
 
 #: src/Plugins/Export/ExportToon.php:66
-#, fuzzy
-#| msgid "Orientation"
 msgid "Indentation:"
-msgstr "ორიენტაცია"
+msgstr "სწორება:"
 
 #: src/Plugins/Export/ExportXml.php:86
 msgid "Object creation options (all are recommended)"
