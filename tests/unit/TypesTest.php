@@ -248,6 +248,7 @@ class TypesTest extends AbstractTestCase
             ['JSON'],
             ['INET6'],
             ['UUID'],
+            ['XMLTYPE'],
         ];
     }
 

@@ -226,14 +226,8 @@ class Sanitize
      */
     public static function sanitizeFilename(string $filename, bool $replaceDots = false): string
     {
-        $pattern = '/[^A-Za-z0-9_';
-        // if we don't have to replace dots
-        if (! $replaceDots) {
-            // then add the dot to the list of legit characters
-            $pattern .= '.';
-        }
-
-        $pattern .= '-]/';
+        // Keep only numbers (N), letters (L), dash, underbar, and maybe dot
+        $pattern = '/[^\p{N}\p{L}' . ($replaceDots ? '' : '.') . '_-]/u';
 
         return preg_replace($pattern, '_', $filename);
     }

@@ -730,6 +730,32 @@ class PrivilegesTest extends AbstractTestCase
         self::assertSame('CREATE USER \'PMA_username\'@\'PMA_hostname\' IDENTIFIED BY \'***\';', $createUserShow);
     }
 
+    public function testGetSqlQueriesForDisplayAndAddUserMySql8044EscapePw(): void
+    {
+        Config::getInstance()->selectedServer['DisableIS'] = false;
+
+        $dbi = $this->createDatabaseInterface();
+        $dbi->setVersion(['@@version' => '8.0.44', '@@version_comment' => 'MySQL Community Server - GPL']);
+
+        $serverPrivileges = $this->getPrivileges($dbi);
+
+        $username = 'PMA_username';
+        $hostname = 'PMA_hostname';
+        $_POST['pred_password'] = 'userdefined';
+        $_POST['pma_pw'] = 'pma_password\'';
+
+        [
+            $createUserReal,
+            $createUserShow,
+        ] = $serverPrivileges->getSqlQueriesForDisplayAndAddUser($username, $hostname, '');
+
+        //validate 1: $createUserReal
+        self::assertSame("CREATE USER 'PMA_username'@'PMA_hostname' IDENTIFIED BY 'pma_password\\'';", $createUserReal);
+
+        //validate 2: $createUserShow
+        self::assertSame("CREATE USER 'PMA_username'@'PMA_hostname' IDENTIFIED BY '***';", $createUserShow);
+    }
+
     public function testGetSqlQueriesForDisplayAndAddUserMySql50500AndUserDefinedPassword(): void
     {
         $dbiDummy = $this->createDbiDummy();

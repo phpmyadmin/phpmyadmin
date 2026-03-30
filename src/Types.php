@@ -292,6 +292,7 @@ class Types
             'UUID' => __('128-bit UUID (Universally Unique Identifier)'),
             'VECTOR' => __('Stores vector data optimized for operations '
                 . 'such as similarity search and machine learning applications'),
+            'XMLTYPE' => __('Intended for storage of XML data'),
             default => '',
         };
     }
@@ -592,6 +593,7 @@ class Types
         $isJsonSupported = Compatibility::isJsonSupported($this->dbi);
         $isUUIDSupported = Compatibility::isUUIDSupported($this->dbi);
         $isVectorSupported = Compatibility::isVectorSupported($this->dbi);
+        $isXmlTypeSupported = Compatibility::isXmlTypeSupported($this->dbi);
 
         // most used types
         $ret = ['INT', 'VARCHAR', 'TEXT', 'DATE'];
@@ -670,6 +672,10 @@ class Types
 
         if ($isVectorSupported) {
             $ret['VECTOR'] = ['VECTOR'];
+        }
+
+        if ($isXmlTypeSupported) {
+            $ret['XML'] = ['XMLTYPE'];
         }
 
         return $ret;

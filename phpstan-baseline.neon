@@ -16461,7 +16461,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 11
+			count: 12
 			path: tests/unit/Server/PrivilegesTest.php
 
 		-

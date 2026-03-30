@@ -10345,6 +10345,7 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
   </file>
   <file src="tests/unit/Server/SelectTest.php">
