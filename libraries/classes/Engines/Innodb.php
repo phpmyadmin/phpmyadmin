@@ -282,18 +282,6 @@ class Innodb extends StorageEngine
     }
 
     /**
-     * Gets the InnoDB plugin version number
-     *
-     * @return string the version number, or empty if not running as a plugin
-     */
-    public function getInnodbPluginVersion()
-    {
-        global $dbi;
-
-        return $dbi->fetchValue('SELECT @@innodb_version;') ?: '';
-    }
-
-    /**
      * Gets the InnoDB file format
      *
      * (do not confuse this with phpMyAdmin's storage engine plugins!)
