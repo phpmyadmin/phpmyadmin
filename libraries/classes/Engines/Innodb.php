@@ -294,8 +294,7 @@ class Innodb extends StorageEngine
 
         return
           ($dbi->isMariaDB() && $dbi->getVersion() >= 100600)
-          || ($dbi->isMySql() && $dbi->getVersion() >= 80000)
-        ? '' : $dbi->fetchValue("SHOW GLOBAL VARIABLES LIKE 'innodb_file_format';", 1);
+          || ($dbi->isMySql() && $dbi->getVersion() >= 80000) ? '' : $dbi->fetchValue("SHOW GLOBAL VARIABLES LIKE 'innodb_file_format';", 1);
     }
 
     /**
