@@ -288,7 +288,7 @@ class Innodb extends StorageEngine
      *
      * @return string|null the InnoDB file format
      */
-    public function getInnodbFileFormat(): string|null
+    public function getInnodbFileFormat()
     {
         global $dbi;
 
