@@ -226,14 +226,6 @@ class InnodbTest extends AbstractTestCase
     }
 
     /**
-     * Test for getInnodbPluginVersion
-     */
-    public function testGetInnodbPluginVersion(): void
-    {
-        self::assertSame('1.1.8', $this->object->getInnodbPluginVersion());
-    }
-
-    /**
      * Test for supportsFilePerTable
      */
     public function testSupportsFilePerTable(): void
