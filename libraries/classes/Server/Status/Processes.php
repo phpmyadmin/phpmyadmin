@@ -52,11 +52,11 @@ final class Processes
             $urlParams['order_by_field'] = $params['order_by_field'];
             $urlParams['sort_order'] = $params['sort_order'];
             $urlParams['showExecuting'] = $params['showExecuting'];
-            $sqlQuery = 'SELECT * FROM `INFORMATION_SCHEMA`.`PROCESSLIST` ';
+            $sqlQuery = 'SELECT * FROM `INFORMATION_SCHEMA`.`PROCESSLIST`';
         }
 
         if (! empty($params['showExecuting'])) {
-            $sqlQuery .= ' WHERE state != "" ';
+            $sqlQuery .= " WHERE `COMMAND` <> 'Sleep' AND `STATE` <> 'Waiting for next activation'";
         }
 
         if (! empty($params['order_by_field']) && ! empty($params['sort_order'])) {
