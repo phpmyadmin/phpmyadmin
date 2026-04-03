@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Verbose descriptions for settings.
  */
