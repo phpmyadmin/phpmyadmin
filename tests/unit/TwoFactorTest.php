@@ -47,14 +47,6 @@ class TwoFactorTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $this->dummyDbi = $this->createDbiDummy();
-        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        DatabaseInterface::$instance = $this->dbi;
-        Current::$database = '';
-        Current::$table = 'table';
-        $config = Config::getInstance();
-        $config->selectedServer['DisableIS'] = false;
-        $config->config->NaturalOrder = true;
         $this->initStorageConfigAndData();
     }
 
