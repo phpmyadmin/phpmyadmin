@@ -215,7 +215,7 @@ class Generator
         if (! $server['ssl']) {
             $message = __('SSL is not being used');
             if (
-                ! empty($server['socket']) || in_array($server['host'], $config->settings['MysqlSslWarningSafeHosts'])
+                ! empty($server['socket']) || in_array($server['host'], $config->config->MysqlSslWarningSafeHosts)
             ) {
                 $class = '';
             }
@@ -421,7 +421,7 @@ class Generator
         }
 
         $config = Config::getInstance();
-        $renderSql = $config->settings['ShowSQL'] && $sqlQuery !== '' && $sqlQuery !== ';';
+        $renderSql = $config->config->ShowSQL && $sqlQuery !== '' && $sqlQuery !== ';';
 
         if (Sql::$usingBookmarkMessage !== null) {
             $retval .= Sql::$usingBookmarkMessage->getDisplay();

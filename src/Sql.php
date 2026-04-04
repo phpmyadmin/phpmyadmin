@@ -975,7 +975,7 @@ class Sql
         // For ajax requests add message and sql_query as JSON
         if (! $request->has('ajax_page_request')) {
             $extraData['message'] = $message;
-            if ($this->config->settings['ShowSQL']) {
+            if ($this->config->config->ShowSQL) {
                 $extraData['sql_query'] = $queryMessage;
             }
         }
@@ -1387,7 +1387,7 @@ class Sql
 
         $previousUpdateQueryHtml = $this->getHtmlForPreviousUpdateQuery(
             $dispQuery,
-            $this->config->settings['ShowSQL'],
+            $this->config->config->ShowSQL,
             $dispMessage,
         );
 

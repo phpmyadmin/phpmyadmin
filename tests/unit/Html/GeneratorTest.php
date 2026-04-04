@@ -98,7 +98,7 @@ class GeneratorTest extends AbstractTestCase
      */
     public function testGetIconWithoutActionLinksMode(): void
     {
-        Config::getInstance()->settings['ActionLinksMode'] = 'text';
+        Config::getInstance()->set('ActionLinksMode', 'text');
 
         self::assertSame(
             '<span class="text-nowrap"></span>',
@@ -111,7 +111,7 @@ class GeneratorTest extends AbstractTestCase
      */
     public function testGetIconWithActionLinksMode(): void
     {
-        Config::getInstance()->settings['ActionLinksMode'] = 'icons';
+        Config::getInstance()->set('ActionLinksMode', 'icons');
 
         self::assertSame(
             '<span class="text-nowrap"><img src="themes/dot.gif" title="" alt="" class="icon ic_b_comment"></span>',
@@ -124,7 +124,7 @@ class GeneratorTest extends AbstractTestCase
      */
     public function testGetIconAlternate(): void
     {
-        Config::getInstance()->settings['ActionLinksMode'] = 'icons';
+        Config::getInstance()->set('ActionLinksMode', 'icons');
         $alternateText = 'alt_str';
 
         self::assertSame(
@@ -140,7 +140,6 @@ class GeneratorTest extends AbstractTestCase
      */
     public function testGetIconWithForceText(): void
     {
-        Config::getInstance()->settings['ActionLinksMode'] = 'icons';
         $alternateText = 'alt_str';
 
         // Here we are checking for an icon embedded inside a span (i.e not a menu
@@ -314,7 +313,6 @@ class GeneratorTest extends AbstractTestCase
         );
 
         $config->selectedServer = ['ssl' => false, 'host' => 'custom.host'];
-        $config->settings['MysqlSslWarningSafeHosts'] = ['localhost', '127.0.0.1'];
 
         self::assertSame(
             $sslNotUsedCaution,
@@ -322,7 +320,7 @@ class GeneratorTest extends AbstractTestCase
         );
 
         $config->selectedServer = ['ssl' => false, 'host' => 'custom.host'];
-        $config->settings['MysqlSslWarningSafeHosts'] = ['localhost', '127.0.0.1', 'custom.host'];
+        $config->set('MysqlSslWarningSafeHosts', ['localhost', '127.0.0.1', 'custom.host']);
 
         self::assertSame(
             $sslNotUsed,
@@ -464,7 +462,6 @@ class GeneratorTest extends AbstractTestCase
 
     public function testGetMessage(): void
     {
-        Config::getInstance()->settings['ShowSQL'] = true;
         Current::$displayQuery = null;
         Current::$sqlQuery = 'SELECT 1;';
         Sql::$usingBookmarkMessage = Message::notice('Bookmark message');
@@ -512,10 +509,6 @@ class GeneratorTest extends AbstractTestCase
 
     public function testGetMessage2(): void
     {
-        $config = Config::getInstance();
-        $config->settings['ShowSQL'] = true;
-        $config->settings['SQLQuery']['Edit'] = false;
-        $config->settings['SQLQuery']['Refresh'] = true;
         Current::$displayQuery = 'EXPLAIN SELECT 1;';
         Current::$sqlQuery = '';
         DatabaseInterface::$instance = $this->createDatabaseInterface();
