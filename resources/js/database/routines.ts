@@ -132,11 +132,11 @@ const DatabaseRoutines = {
                 routinesExportModal.querySelector('.modal-body').innerHTML = routinesExportTextarea;
                 document.getElementById('routinesExportTextarea').textContent = data.message;
                 getSqlEditor($('#routinesExportTextarea'));
-            });
+            }, { once: true });
 
             routinesExportModal.addEventListener('hidden.bs.modal', function () {
                 routinesExportModal.querySelector('.modal-body').innerHTML = routinesExportTextarea;
-            });
+            }, { once: true });
 
             bootstrap.Modal.getOrCreateInstance(routinesExportModal).show();
         }
@@ -348,14 +348,14 @@ const DatabaseRoutines = {
 
                 // Execute item-specific code
                 that.postDialogShow(data);
-            });
+            }, { once: true });
 
             routinesEditorModal.addEventListener('hidden.bs.modal', function () {
                 const routinesEditorModalSaveButton = document.getElementById('routinesEditorModalSaveButton');
                 routinesEditorModalSaveButton?.removeEventListener('click', routinesEditorModalSaveEventHandler);
                 document.getElementById('routinesEditorModal').querySelector('.modal-body').innerHTML = '<div class="spinner-border" role="status">' +
                     '<span class="visually-hidden">' + window.Messages.strLoading + '</span></div>';
-            });
+            }, { once: true });
 
             bootstrap.Modal.getOrCreateInstance(routinesEditorModal).show();
         });
@@ -840,7 +840,7 @@ const DatabaseRoutines = {
 
                 const routinesExecuteModalExecuteButton = document.getElementById('routinesExecuteModalExecuteButton');
                 routinesExecuteModalExecuteButton?.removeEventListener('click', routinesExecuteButtonEventHandler);
-            });
+            }, { once: true });
 
             routinesExecuteModal.addEventListener('shown.bs.modal', function () {
                 routinesExecuteModal.querySelector('.modal-title').textContent = data.title;
@@ -890,7 +890,7 @@ const DatabaseRoutines = {
                         modal.hide();
                     });
                 });
-            });
+            }, { once: true });
 
             modal.show();
         });
