@@ -651,7 +651,7 @@ class Results
         return [
             'page_selector' => $pageSelector,
             'number_total_page' => $numberTotalPage,
-            'has_show_all' => $this->config->settings['ShowAll'] || $this->unlimNumRows <= 500,
+            'has_show_all' => $this->config->config->showAll || $this->unlimNumRows <= 500,
             'hidden_fields' => $hiddenFields,
             'session_max_rows' => $isShowingAll ? $this->config->config->maxRows : 'all',
             'is_showing_all' => $isShowingAll,
@@ -953,8 +953,8 @@ class Results
 
         $emptyPreCondition = $displayParts->hasEditLink && $displayParts->deleteLink !== DeleteLinkEnum::NO_DELETE;
 
-        $leftOrBoth = $this->config->settings['RowActionLinks'] === self::POSITION_LEFT
-                   || $this->config->settings['RowActionLinks'] === self::POSITION_BOTH;
+        $leftOrBoth = $this->config->config->RowActionLinks === self::POSITION_LEFT
+                   || $this->config->config->RowActionLinks === self::POSITION_BOTH;
 
         //     ... before the result table
         if (
@@ -980,7 +980,7 @@ class Results
             $this->numEmptyColumnsBefore = $emptyPreCondition ? 4 : 0;
 
             $buttonHtml .= '<td' . $colspan . '></td>';
-        } elseif ($this->config->settings['RowActionLinks'] === self::POSITION_NONE) {
+        } elseif ($this->config->config->RowActionLinks === self::POSITION_NONE) {
             // ... elseif display an empty column if the actions links are
             //  disabled to match the rest of the table
             $buttonHtml .= '<th class="column_action position-sticky bg-body"></th>';
@@ -998,7 +998,7 @@ class Results
      */
     private function getTableCommentsArray(StatementInfo $statementInfo): array
     {
-        if (! $this->config->settings['ShowBrowseComments'] || empty($statementInfo->statement->from)) {
+        if (! $this->config->config->ShowBrowseComments || empty($statementInfo->statement->from)) {
             return [];
         }
 
@@ -1518,8 +1518,8 @@ class Results
         // Displays the needed checkboxes at the right
         // column of the result table header if possible and required...
         if (
-            ($this->config->settings['RowActionLinks'] === self::POSITION_RIGHT)
-            || ($this->config->settings['RowActionLinks'] === self::POSITION_BOTH)
+            ($this->config->config->RowActionLinks === self::POSITION_RIGHT)
+            || ($this->config->config->RowActionLinks === self::POSITION_BOTH)
             && ($displayParts->hasEditLink || $displayParts->deleteLink !== DeleteLinkEnum::NO_DELETE)
             && $displayParts->hasTextButton
         ) {
@@ -1531,8 +1531,8 @@ class Results
                 . $fullOrPartialTextLink
                 . '</th>';
         } elseif (
-            ($this->config->settings['RowActionLinks'] === self::POSITION_LEFT)
-            || ($this->config->settings['RowActionLinks'] === self::POSITION_BOTH)
+            ($this->config->config->RowActionLinks === self::POSITION_LEFT)
+            || ($this->config->config->RowActionLinks === self::POSITION_BOTH)
             && (! $displayParts->hasEditLink
             && $displayParts->deleteLink === DeleteLinkEnum::NO_DELETE)
         ) {
@@ -1711,9 +1711,9 @@ class Results
 
         $gridEditConfig = 'double-click';
         // If we don't have all the columns of a unique key in the result set, do not permit grid editing.
-        if ($isLimitedDisplay || ! $this->editable || $this->config->settings['GridEditing'] === 'disabled') {
+        if ($isLimitedDisplay || ! $this->editable || $this->config->config->GridEditing === 'disabled') {
             $gridEditConfig = 'disabled';
-        } elseif ($this->config->settings['GridEditing'] === 'click') {
+        } elseif ($this->config->config->GridEditing === 'click') {
             $gridEditConfig = 'click';
         }
 
@@ -1763,8 +1763,8 @@ class Results
             ) {
                 // 1.3 Displays the links at left if required
                 if (
-                    $this->config->settings['RowActionLinks'] === self::POSITION_LEFT
-                    || $this->config->settings['RowActionLinks'] === self::POSITION_BOTH
+                    $this->config->config->RowActionLinks === self::POSITION_LEFT
+                    || $this->config->config->RowActionLinks === self::POSITION_BOTH
                 ) {
                     $tableBodyHtml .= $this->getLinksHtml(
                         self::POSITION_LEFT,
@@ -1775,7 +1775,7 @@ class Results
                         $urlSqlQuery,
                         $isAjax,
                     );
-                } elseif ($this->config->settings['RowActionLinks'] === self::POSITION_NONE) {
+                } elseif ($this->config->config->RowActionLinks === self::POSITION_NONE) {
                     $tableBodyHtml .= $this->getLinksHtml(
                         self::POSITION_NONE,
                         $displayParts,
@@ -1808,8 +1808,8 @@ class Results
             if (
                 ($displayParts->hasEditLink
                     || $displayParts->deleteLink !== DeleteLinkEnum::NO_DELETE)
-                && ($this->config->settings['RowActionLinks'] === self::POSITION_RIGHT
-                    || $this->config->settings['RowActionLinks'] === self::POSITION_BOTH)
+                && ($this->config->config->RowActionLinks === self::POSITION_RIGHT
+                    || $this->config->config->RowActionLinks === self::POSITION_BOTH)
             ) {
                 $tableBodyHtml .= $this->getLinksHtml(
                     self::POSITION_RIGHT,
@@ -2334,7 +2334,7 @@ class Results
             $headerHtml .= '    <th colspan="'
                 . $this->numEmptyColumnsBefore . '">'
                 . "\n" . '        &nbsp;</th>' . "\n";
-        } elseif ($this->config->settings['RowActionLinks'] === self::POSITION_NONE) {
+        } elseif ($this->config->config->RowActionLinks === self::POSITION_NONE) {
             $headerHtml .= '    <th></th>' . "\n";
         }
 
@@ -2446,19 +2446,13 @@ class Results
      */
     private function getActionLinkContent(string $icon, string $displayText): string
     {
-        if (
-            isset($this->config->settings['RowActionType'])
-            && $this->config->settings['RowActionType'] === self::ACTION_LINK_CONTENT_ICONS
-        ) {
+        if ($this->config->config->RowActionType === self::ACTION_LINK_CONTENT_ICONS) {
             return '<span class="text-nowrap">'
                 . Generator::getImage($icon, $displayText)
                 . '</span>';
         }
 
-        if (
-            isset($this->config->settings['RowActionType'])
-            && $this->config->settings['RowActionType'] === self::ACTION_LINK_CONTENT_TEXT
-        ) {
+        if ($this->config->config->RowActionType === self::ACTION_LINK_CONTENT_TEXT) {
             return '<span class="text-nowrap">' . $displayText . '</span>';
         }
 
@@ -2802,7 +2796,7 @@ class Results
         $query['sql'] = $this->sqlQuery;
 
         if (empty($query['repeat_cells'])) {
-            $query['repeat_cells'] = $this->config->settings['RepeatCells'];
+            $query['repeat_cells'] = $this->config->config->repeatCells;
         }
 
         // The value can also be from _GET as described on issue #16146 when sorting results
@@ -2842,7 +2836,7 @@ class Results
             // The current session value has priority over a
             // change via Settings; this change will be apparent
             // starting from the next session
-            $query['relational_display'] = $this->config->settings['RelationalDisplay'];
+            $query['relational_display'] = $this->config->config->RelationalDisplay;
         }
 
         $geoOption = $request->getParam('geoOption');
@@ -3081,7 +3075,7 @@ class Results
             'unlim_num_rows' => $this->unlimNumRows,
             'displaywork' => $relationParameters->displayFeature !== null,
             'relwork' => $relationParameters->relationFeature !== null,
-            'save_cells_at_once' => $this->config->settings['SaveCellsAtOnce'],
+            'save_cells_at_once' => $this->config->config->SaveCellsAtOnce,
             'default_sliders_state' => $this->config->config->InitialSlidersState,
             'is_browse_distinct' => $this->isBrowseDistinct,
         ]);
