@@ -481,7 +481,7 @@ class Generator
         // but only explain a SELECT (that has not been explained)
         /* SQL-Parser-Analyzer */
         $explainLink = '';
-        $queryTooBig = mb_strlen($sqlQuery) > $config->settings['MaxCharactersInDisplayedSQL'];
+        $queryTooBig = mb_strlen($sqlQuery) > $config->config->MaxCharactersInDisplayedSQL;
         $isSelect = preg_match('@^SELECT[[:space:]]+@i', $sqlQuery) === 1;
         if (! empty($config->settings['SQLQuery']['Explain']) && ! $queryTooBig) {
             $explainParams = $urlParams;
@@ -1064,8 +1064,8 @@ class Generator
     public static function formatSql(string $sqlQuery, bool $truncate = false): string
     {
         $config = Config::getInstance();
-        if ($truncate && mb_strlen($sqlQuery) > $config->settings['MaxCharactersInDisplayedSQL']) {
-            $sqlQuery = mb_substr($sqlQuery, 0, $config->settings['MaxCharactersInDisplayedSQL']) . '[...]';
+        if ($truncate && mb_strlen($sqlQuery) > $config->config->MaxCharactersInDisplayedSQL) {
+            $sqlQuery = mb_substr($sqlQuery, 0, $config->config->MaxCharactersInDisplayedSQL) . '[...]';
         }
 
         return '<pre><code class="sql" dir="ltr">'

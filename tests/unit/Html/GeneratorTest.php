@@ -281,7 +281,7 @@ class GeneratorTest extends AbstractTestCase
             Generator::formatSql('SELECT 1 < 2'),
         );
 
-        Config::getInstance()->settings['MaxCharactersInDisplayedSQL'] = 6;
+        Config::getInstance()->set('MaxCharactersInDisplayedSQL', 6);
 
         self::assertSame(
             '<pre><code class="sql" dir="ltr">'

@@ -27,7 +27,7 @@ readonly class History
 
     public function setHistory(string $db, string $table, string $username, string $sqlquery): void
     {
-        $maxCharactersInDisplayedSQL = $this->config->settings['MaxCharactersInDisplayedSQL'];
+        $maxCharactersInDisplayedSQL = $this->config->config->MaxCharactersInDisplayedSQL;
         if (mb_strlen($sqlquery) > $maxCharactersInDisplayedSQL) {
             return;
         }
