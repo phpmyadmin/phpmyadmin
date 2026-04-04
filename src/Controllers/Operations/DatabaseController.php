@@ -270,7 +270,7 @@ final readonly class DatabaseController implements InvocableController
         $collations = Charsets::getCollations($this->dbi, $this->config->selectedServer['DisableIS']);
 
         if (
-            ! $relationParameters->hasAllFeatures() && ! $this->config->settings['PmaNoRelation_DisableWarning']
+            ! $relationParameters->hasAllFeatures() && ! $this->config->config->PmaNoRelation_DisableWarning
         ) {
             Current::$message = Message::notice(
                 __(

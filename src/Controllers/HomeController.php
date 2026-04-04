@@ -191,7 +191,7 @@ final class HomeController implements InvocableController
             $relationParameters = $relation->getRelationParameters();
             if (
                 ! $relationParameters->hasAllFeatures()
-                && ! $this->config->settings['PmaNoRelation_DisableWarning']
+                && ! $this->config->config->PmaNoRelation_DisableWarning
             ) {
                 $messageText = __(
                     'The phpMyAdmin configuration storage is not completely '
