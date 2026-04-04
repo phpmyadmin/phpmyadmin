@@ -42,7 +42,7 @@ readonly class History
             array_shift($_SESSION['sql_history']);
         }
 
-        if ($this->sqlHistoryFeature === null || ! $this->config->settings['QueryHistoryDB']) {
+        if ($this->sqlHistoryFeature === null || ! $this->config->config->QueryHistoryDB) {
             return;
         }
 
@@ -77,7 +77,7 @@ readonly class History
             return false;
         }
 
-        if (! $this->config->settings['QueryHistoryDB']) {
+        if (! $this->config->config->QueryHistoryDB) {
             if (isset($_SESSION['sql_history'])) {
                 return array_reverse($_SESSION['sql_history']);
             }
@@ -100,7 +100,7 @@ readonly class History
 
     private function purgeHistory(string $username): void
     {
-        if (! $this->config->settings['QueryHistoryDB'] || $this->sqlHistoryFeature === null) {
+        if (! $this->config->config->QueryHistoryDB || $this->sqlHistoryFeature === null) {
             return;
         }
 
