@@ -33,11 +33,6 @@ class BookmarkTest extends AbstractTestCase
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
-        $config = Config::getInstance();
-        $config->selectedServer['user'] = 'root';
-        $config->selectedServer['pmadb'] = 'phpmyadmin';
-        $config->selectedServer['bookmarktable'] = 'pma_bookmark';
-        $config->settings['MaxCharactersInDisplayedSQL'] = 1000;
 
         $relationParameters = RelationParameters::fromArray([
             RelationParameters::BOOKMARK_WORK => true,
