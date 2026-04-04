@@ -198,7 +198,7 @@ final class HomeController implements InvocableController
                     . 'configured, some extended features have been deactivated. '
                     . '%sFind out why%s. ',
                 );
-                if ($this->config->settings['ZeroConf']) {
+                if ($this->config->config->zeroConf) {
                     $messageText .= '<br>'
                         . __('Or alternately go to \'Operations\' tab of any database to set it up there.');
                 }
