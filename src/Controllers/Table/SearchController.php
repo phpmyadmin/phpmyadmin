@@ -269,7 +269,7 @@ final class SearchController implements InvocableController
             'column_names' => $this->columnNames,
             'column_types' => $this->columnTypes,
             'column_collations' => $this->columnCollations,
-            'default_sliders_state' => $this->config->settings['InitialSlidersState'],
+            'default_sliders_state' => $this->config->config->InitialSlidersState,
             'max_rows' => $this->config->config->maxRows,
         ]);
     }

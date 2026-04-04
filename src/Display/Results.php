@@ -3082,7 +3082,7 @@ class Results
             'displaywork' => $relationParameters->displayFeature !== null,
             'relwork' => $relationParameters->relationFeature !== null,
             'save_cells_at_once' => $this->config->settings['SaveCellsAtOnce'],
-            'default_sliders_state' => $this->config->settings['InitialSlidersState'],
+            'default_sliders_state' => $this->config->config->InitialSlidersState,
             'is_browse_distinct' => $this->isBrowseDistinct,
         ]);
     }
