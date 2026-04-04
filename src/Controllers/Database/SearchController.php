@@ -58,7 +58,7 @@ final readonly class SearchController implements InvocableController
             return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
         }
 
-        if (! $this->config->settings['UseDbSearch']) {
+        if (! $this->config->config->UseDbSearch) {
             $errorMessage = __(
                 'Searching inside the database is disabled by the [code]$cfg[\'UseDbSearch\'][/code] configuration.',
             );
