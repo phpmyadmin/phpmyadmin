@@ -559,7 +559,7 @@ final class StructureController implements InvocableController
                 && in_array($currentTable['ENGINE'], ['InnoDB', 'TokuDB'], true)
                 && ! $currentTable['COUNTED'];
 
-            if ($tableIsView && $currentTable['TABLE_ROWS'] >= $this->config->settings['MaxExactCountViews']) {
+            if ($tableIsView && $currentTable['TABLE_ROWS'] >= $this->config->config->MaxExactCountViews) {
                 $approxRows = true;
                 $showSuperscript = Generator::showHint(
                     Sanitize::convertBBCode(

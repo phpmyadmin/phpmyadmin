@@ -677,7 +677,7 @@ class Table implements Stringable
             $rowCount = $this->dbi->fetchValue(
                 'SELECT COUNT(*) FROM ' . Util::backquote($this->dbName) . '.' . Util::backquote($this->name),
             );
-        } elseif ($config->settings['MaxExactCountViews'] === 0) {
+        } elseif ($config->config->MaxExactCountViews === 0) {
             // For complex views, even trying to get a partial record
             // count could bring down a server, so we offer an
             // alternative: setting MaxExactCountViews to 0 will bypass
@@ -691,11 +691,11 @@ class Table implements Stringable
             $result = $this->dbi->tryQuery(
                 'SELECT 1 FROM ' . Util::backquote($this->dbName) . '.'
                 . Util::backquote($this->name) . ' LIMIT '
-                . $config->settings['MaxExactCountViews'],
+                . $config->config->MaxExactCountViews,
             );
             if ($result) {
                 $rowCount = $result->numRows();
-                if ((int) $rowCount === $config->settings['MaxExactCountViews']) {
+                if ((int) $rowCount === $config->config->MaxExactCountViews) {
                     // If we reached the limit, we can't be sure how many rows there are
                     return -1;
                 }
