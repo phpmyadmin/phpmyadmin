@@ -38,7 +38,7 @@ readonly class History
 
         $_SESSION['sql_history'][] = ['db' => $db, 'table' => $table, 'sqlquery' => $sqlquery];
 
-        if (count($_SESSION['sql_history']) > $this->config->settings['QueryHistoryMax']) {
+        if (count($_SESSION['sql_history']) > $this->config->config->QueryHistoryMax) {
             array_shift($_SESSION['sql_history']);
         }
 
@@ -110,7 +110,7 @@ readonly class History
                 . '.' . Util::backquote($this->sqlHistoryFeature->history) . '
             WHERE `username` = ' . $this->dbi->quoteString($username) . '
             ORDER BY `timevalue` DESC
-            LIMIT ' . $this->config->settings['QueryHistoryMax'] . ', 1';
+            LIMIT ' . $this->config->config->QueryHistoryMax . ', 1';
 
         $maxTime = $this->dbi->fetchValue($searchQuery, 0, ConnectionType::ControlUser);
 

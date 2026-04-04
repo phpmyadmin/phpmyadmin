@@ -173,7 +173,7 @@ final class StructureController implements InvocableController
         if ($this->totalNumTables > 0 && $this->position > $this->totalNumTables) {
             return $this->response->redirectToRoute('/database/structure', [
                 'db' => Current::$database,
-                'pos' => max(0, $this->totalNumTables - $this->config->settings['MaxTableList']),
+                'pos' => max(0, $this->totalNumTables - $this->config->config->MaxTableList),
                 'reload' => 1,
             ]);
         }
@@ -201,7 +201,7 @@ final class StructureController implements InvocableController
                 $urlParams,
                 Url::getFromRoute('/database/structure'),
                 'frame_content',
-                $this->config->settings['MaxTableList'],
+                $this->config->config->MaxTableList,
             );
 
             $tableList = $this->displayTableList($replicaInfo);

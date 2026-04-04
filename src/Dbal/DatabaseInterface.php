@@ -377,7 +377,7 @@ class DatabaseInterface
         ConnectionType $connectionType = ConnectionType::User,
     ): array {
         if ($limitCount === true) {
-            $limitCount = $this->config->settings['MaxTableList'];
+            $limitCount = $this->config->config->MaxTableList;
         }
 
         $tables = [];
