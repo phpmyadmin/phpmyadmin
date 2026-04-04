@@ -385,7 +385,7 @@ final class StructureController implements InvocableController
                     'show_creation' => $this->config->settings['ShowDbStructureCreation'],
                     'show_last_update' => $this->config->settings['ShowDbStructureLastUpdate'],
                     'show_last_check' => $this->config->settings['ShowDbStructureLastCheck'],
-                    'num_favorite_tables' => $this->config->settings['NumFavoriteTables'],
+                    'num_favorite_tables' => $this->config->config->NumFavoriteTables,
                     'structure_table_rows' => $structureTableRows,
                 ]);
                 $structureTableRows = [];
@@ -432,7 +432,7 @@ final class StructureController implements InvocableController
                         TableName::from($currentTable['TABLE_NAME']),
                     ),
                 ),
-                'num_favorite_tables' => $this->config->settings['NumFavoriteTables'],
+                'num_favorite_tables' => $this->config->config->NumFavoriteTables,
                 'is_show_db_details' => $this->isShowDbDetails,
                 'limit_chars' => $this->config->config->limitChars,
                 'show_charset' => $this->config->settings['ShowDbStructureCharset'],
@@ -478,7 +478,7 @@ final class StructureController implements InvocableController
             'show_creation' => $this->config->settings['ShowDbStructureCreation'],
             'show_last_update' => $this->config->settings['ShowDbStructureLastUpdate'],
             'show_last_check' => $this->config->settings['ShowDbStructureLastCheck'],
-            'num_favorite_tables' => $this->config->settings['NumFavoriteTables'],
+            'num_favorite_tables' => $this->config->config->NumFavoriteTables,
             'structure_table_rows' => $structureTableRows,
             'body_for_table_summary' => [
                 'num_tables' => $this->numTables,
@@ -494,7 +494,7 @@ final class StructureController implements InvocableController
                 'update_time_all' => $updateTimeAll !== null ? Util::localisedDate($updateTimeAll) : '-',
                 'check_time_all' => $checkTimeAll !== null ? Util::localisedDate($checkTimeAll) : '-',
                 'approx_rows' => $overallApproxRows,
-                'num_favorite_tables' => $this->config->settings['NumFavoriteTables'],
+                'num_favorite_tables' => $this->config->config->NumFavoriteTables,
                 'db' => Current::$database,
                 'is_show_db_details' => $this->isShowDbDetails,
                 'default_storage_engine' => $defaultStorageEngine,

@@ -1362,7 +1362,7 @@ class NavigationTree
         }
 
         $favorite = '';
-        if ($this->config->settings['NumFavoriteTables'] > 0) {
+        if ($this->config->config->NumFavoriteTables > 0) {
             $favorite = RecentFavoriteTables::getInstance(TableType::Favorite)->getHtmlList();
         }
 
