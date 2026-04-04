@@ -671,7 +671,7 @@ class Results
     {
         // If we have the full page of rows, we don't know
         // if there are more unless unlimNumRows is smaller than MaxExactCount
-        return $this->unlimNumRows < $this->config->settings['MaxExactCount']
+        return $this->unlimNumRows < $this->config->config->MaxExactCount
             || $_SESSION['tmpval']['max_rows'] === self::ALL_ROWS
             || $this->numRows < $_SESSION['tmpval']['max_rows'];
     }

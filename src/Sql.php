@@ -665,7 +665,7 @@ class Sql
                  *       (in this case there would be no need for getting
                  *       an exact count)?
                  */
-                if ($unlimNumRows < $this->config->settings['MaxExactCount']) {
+                if ($unlimNumRows < $this->config->config->MaxExactCount) {
                     // Get the exact count if approximate count
                     // is less than MaxExactCount
                     /**

@@ -174,7 +174,7 @@ readonly class StructureController implements InvocableController
          */
         // BEGIN - Calc Table Space
         // Get valid statistics whatever is the table type
-        if ($this->config->settings['ShowStats']) {
+        if ($this->config->config->ShowStats) {
             //get table stats in HTML format
             $tablestats = $this->getTableStats($isSystemSchema, $tableIsAView, $tableStorageEngine);
             //returning the response in JSON format to be used by Ajax
@@ -257,7 +257,7 @@ readonly class StructureController implements InvocableController
             'comments_map' => $commentsMap,
             'browse_mime' => $this->config->config->BrowseMIME,
             'show_column_comments' => $this->config->settings['ShowColumnComments'],
-            'show_stats' => $this->config->settings['ShowStats'],
+            'show_stats' => $this->config->config->ShowStats,
             'mysql_int_version' => $this->dbi->getVersion(),
             'is_mariadb' => $this->dbi->isMariaDB(),
             'is_active' => Tracker::isActive(),

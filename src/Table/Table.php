@@ -669,7 +669,7 @@ class Table implements Stringable
 
         // for a VIEW, $row_count is always false at this point
         $config = Config::getInstance();
-        if ($rowCount !== null && $rowCount >= $config->settings['MaxExactCount']) {
+        if ($rowCount !== null && $rowCount >= $config->config->MaxExactCount) {
             return (int) $rowCount;
         }
 
