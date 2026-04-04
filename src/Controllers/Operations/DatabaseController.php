@@ -261,7 +261,7 @@ final readonly class DatabaseController implements InvocableController
         $hasAdjustPrivileges = $userPrivileges->database && $userPrivileges->table
             && $userPrivileges->column && $userPrivileges->routines && $userPrivileges->isReload;
 
-        $isDropDatabaseAllowed = ($this->dbi->isSuperUser() || $this->config->settings['AllowUserDropDatabase'])
+        $isDropDatabaseAllowed = ($this->dbi->isSuperUser() || $this->config->config->AllowUserDropDatabase)
             && Current::$database !== 'mysql';
 
         $switchToNew = isset($_SESSION['pma_switch_to_new']) && $_SESSION['pma_switch_to_new'];

@@ -44,7 +44,7 @@ final readonly class DestroyController implements InvocableController
 
         if (
             ! $request->isAjax()
-            || (! $this->dbi->isSuperUser() && ! $this->config->settings['AllowUserDropDatabase'])
+            || (! $this->dbi->isSuperUser() && ! $this->config->config->AllowUserDropDatabase)
         ) {
             $message = Message::error();
             $json = ['message' => $message];

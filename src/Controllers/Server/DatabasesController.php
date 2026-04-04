@@ -167,7 +167,7 @@ final class DatabasesController implements InvocableController
             'max_db_list' => $this->config->config->MaxDbList,
             'has_primary_replication' => $primaryInfo['status'],
             'has_replica_replication' => $replicaInfo['status'],
-            'is_drop_allowed' => $this->dbi->isSuperUser() || $this->config->settings['AllowUserDropDatabase'],
+            'is_drop_allowed' => $this->dbi->isSuperUser() || $this->config->config->AllowUserDropDatabase,
         ]);
 
         return $this->response->response();
