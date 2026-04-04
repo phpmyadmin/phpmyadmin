@@ -116,11 +116,11 @@ const DatabaseEvents = {
                 eventsExportModal.querySelector('.modal-body').innerHTML = eventsExportTextarea;
                 document.getElementById('eventsExportTextarea').textContent = data.message;
                 getSqlEditor($('#eventsExportTextarea'));
-            });
+            }, { once: true });
 
             eventsExportModal.addEventListener('hidden.bs.modal', function () {
                 eventsExportModal.querySelector('.modal-body').innerHTML = eventsExportTextarea;
-            });
+            }, { once: true });
 
             bootstrap.Modal.getOrCreateInstance(eventsExportModal).show();
         }
@@ -325,14 +325,14 @@ const DatabaseEvents = {
                 };
                 that.syntaxHiglighter = getSqlEditor($elm, {}, 'vertical', linterOptions);
                 window.codeMirrorEditor = that.syntaxHiglighter;
-            });
+            }, { once: true });
 
             eventsEditorModal.addEventListener('hidden.bs.modal', function () {
                 const eventsEditorModalSaveButton = document.getElementById('eventsEditorModalSaveButton');
                 eventsEditorModalSaveButton?.removeEventListener('click', eventsEditorModalSaveEventHandler);
                 document.getElementById('eventsEditorModal').querySelector('.modal-body').innerHTML = '<div class="spinner-border" role="status">' +
                     '<span class="visually-hidden">' + window.Messages.strLoading + '</span></div>';
-            });
+            }, { once: true });
 
             bootstrap.Modal.getOrCreateInstance(eventsEditorModal).show();
         });
