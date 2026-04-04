@@ -128,7 +128,7 @@ final class DatabasesController implements InvocableController
         $databases = $this->getDatabases($primaryInfo, $replicaInfo);
 
         $charsetsList = [];
-        if ($this->config->settings['ShowCreateDb'] && $userPrivileges->isCreateDatabase) {
+        if ($this->config->config->ShowCreateDb && $userPrivileges->isCreateDatabase) {
             $charsets = Charsets::getCharsets($this->dbi, $this->config->selectedServer['DisableIS']);
             $collations = Charsets::getCollations($this->dbi, $this->config->selectedServer['DisableIS']);
             $serverCollation = $this->dbi->getServerCollation();
@@ -153,7 +153,7 @@ final class DatabasesController implements InvocableController
         $headerStatistics = $this->getStatisticsColumns();
 
         $this->response->render('server/databases/index', [
-            'is_create_database_shown' => $this->config->settings['ShowCreateDb'],
+            'is_create_database_shown' => $this->config->config->ShowCreateDb,
             'has_create_database_privileges' => $userPrivileges->isCreateDatabase,
             'has_statistics' => $this->hasStatistics,
             'database_to_create' => $userPrivileges->databaseToCreate,

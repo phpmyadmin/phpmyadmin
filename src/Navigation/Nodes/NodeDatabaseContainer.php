@@ -39,7 +39,7 @@ class NodeDatabaseContainer extends Node
         $userPrivilegesFactory = new UserPrivilegesFactory($this->dbi);
         $userPrivileges = $userPrivilegesFactory->getPrivileges();
 
-        if (! $userPrivileges->isCreateDatabase || $config->settings['ShowCreateDb'] === false) {
+        if (! $userPrivileges->isCreateDatabase || ! $config->config->ShowCreateDb) {
             return;
         }
 
