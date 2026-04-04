@@ -263,7 +263,7 @@ class Sql
             $foreignData->foreignField ?? '',
             $foreignData->foreignDisplay,
             $currentValue,
-            $this->config->settings['ForeignKeyMaxLimit'],
+            $this->config->config->ForeignKeyMaxLimit,
         );
 
         return '<select>' . $dropdown . '</select>';

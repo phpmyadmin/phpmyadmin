@@ -364,7 +364,7 @@ final class SearchController implements InvocableController
                 $foreignData->foreignField ?? '',
                 $foreignData->foreignDisplay,
                 '',
-                $this->config->settings['ForeignKeyMaxLimit'],
+                $this->config->config->ForeignKeyMaxLimit,
             );
         }
 
