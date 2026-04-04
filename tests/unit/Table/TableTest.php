@@ -42,15 +42,8 @@ class TableTest extends AbstractTestCase
     {
         parent::setUp();
 
-        /**
-         * SET these to avoid undefined index error
-         */
         $config = Config::getInstance();
-        $config->selectedServer['DisableIS'] = false;
-        $config->settings['MaxExactCount'] = 100;
-        $config->settings['MaxExactCountViews'] = 100;
-        $config->selectedServer['pmadb'] = 'pmadb';
-        $config->selectedServer['table_uiprefs'] = 'pma__table_uiprefs';
+        $config->set('MaxExactCountViews', 100);
 
         $sqlIsViewTrue = 'SELECT 1'
             . ' FROM information_schema.VIEWS'
