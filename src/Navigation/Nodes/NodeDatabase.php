@@ -108,7 +108,7 @@ class NodeDatabase extends Node
             'events' => $this->objectFetcher->getEvents($this->realName, $searchClause),
         };
 
-        $maxItems = $this->config->settings['MaxNavigationItems'];
+        $maxItems = $this->config->config->MaxNavigationItems;
 
         if ($this->config->config->NaturalOrder) {
             usort($names, strnatcasecmp(...));

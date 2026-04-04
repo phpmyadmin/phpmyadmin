@@ -25,10 +25,10 @@ class NodeDatabaseContainer extends Node
         parent::__construct($dbi, $config, $name, NodeType::Container);
 
         if (
-            $config->settings['NavigationTreeEnableGrouping']
-            && $config->settings['ShowDatabasesNavigationAsTree']
+            $config->config->NavigationTreeEnableGrouping
+            && $config->config->ShowDatabasesNavigationAsTree
         ) {
-            $separator = $config->settings['NavigationTreeDbSeparator'];
+            $separator = $config->config->NavigationTreeDbSeparator;
             if ($separator !== '') {
                 $this->separators = [$separator];
             }

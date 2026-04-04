@@ -23,13 +23,13 @@ abstract class NodeDatabaseChildContainer extends NodeDatabaseChild
     {
         parent::__construct($dbi, $config, $name, NodeType::Container);
 
-        if (! $this->config->settings['NavigationTreeEnableGrouping']) {
+        if (! $this->config->config->NavigationTreeEnableGrouping) {
             return;
         }
 
         $this->setSeparators();
 
-        $this->separatorDepth = $this->config->settings['NavigationTreeTableLevel'];
+        $this->separatorDepth = $this->config->config->NavigationTreeTableLevel;
     }
 
     private function setSeparators(): void

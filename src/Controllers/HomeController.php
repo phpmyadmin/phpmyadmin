@@ -107,7 +107,7 @@ final class HomeController implements InvocableController
         if ($hasServer) {
             $hasServerSelection = $this->config->config->ServerDefault === 0
                 || (
-                    $this->config->settings['NavigationDisplayServers']
+                    $this->config->config->NavigationDisplayServers
                     && (
                         count($this->config->settings['Servers']) > 1
                         || (Current::$server === 0 && count($this->config->settings['Servers']) === 1)
