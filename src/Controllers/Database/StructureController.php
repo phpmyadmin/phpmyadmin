@@ -1113,7 +1113,7 @@ final class StructureController implements InvocableController
                 $tables += $this->dbi->getTablesFull($db, $names);
             }
 
-            if ($this->config->settings['NaturalOrder']) {
+            if ($this->config->config->NaturalOrder) {
                 uksort($tables, strnatcasecmp(...));
             }
         }

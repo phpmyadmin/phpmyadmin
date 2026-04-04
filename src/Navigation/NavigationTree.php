@@ -1342,7 +1342,7 @@ class NavigationTree
             return 1;
         }
 
-        if ($this->config->settings['NaturalOrder']) {
+        if ($this->config->config->NaturalOrder) {
             return strnatcasecmp($a->name, $b->name);
         }
 

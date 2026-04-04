@@ -54,7 +54,7 @@ class TwoFactorTest extends AbstractTestCase
         Current::$table = 'table';
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = false;
-        $config->settings['NaturalOrder'] = true;
+        $config->config->NaturalOrder = true;
         $this->initStorageConfigAndData();
     }
 

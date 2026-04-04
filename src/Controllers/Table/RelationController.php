@@ -181,7 +181,7 @@ final readonly class RelationController implements InvocableController
             $columnArray[$column->field] = $column->field;
         }
 
-        if ($this->config->settings['NaturalOrder']) {
+        if ($this->config->config->NaturalOrder) {
             uksort($columnArray, strnatcasecmp(...));
             usort(
                 $relationsForeign,
@@ -380,7 +380,7 @@ final readonly class RelationController implements InvocableController
             $columnList = $tableObj->getIndexedColumns(false, false);
         }
 
-        if ($this->config->settings['NaturalOrder']) {
+        if ($this->config->config->NaturalOrder) {
             usort($columnList, strnatcasecmp(...));
         }
 

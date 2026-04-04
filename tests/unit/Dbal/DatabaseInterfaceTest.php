@@ -543,7 +543,6 @@ final class DatabaseInterfaceTest extends AbstractTestCase
 
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = true;
-        $config->settings['NaturalOrder'] = false;
 
         $expected = ['0', '1', '42'];
 
@@ -589,7 +588,6 @@ final class DatabaseInterfaceTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = true;
         $config->selectedServer['only_db'] = '';
-        $config->settings['NaturalOrder'] = true;
         $dummyDbi->removeDefaultResults();
         $dummyDbi->addResult('SELECT CURRENT_USER();', []);
         $dummyDbi->addResult('SHOW DATABASES', [['db1'], ['db2']], ['Database']);
@@ -962,7 +960,7 @@ final class DatabaseInterfaceTest extends AbstractTestCase
     public function testGetTables(array $expected, array|bool $result, bool $isNaturalOrder): void
     {
         $config = new Config();
-        $config->settings['NaturalOrder'] = $isNaturalOrder;
+        $config->set('NaturalOrder', $isNaturalOrder);
 
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addResult('SHOW TABLES FROM `test_db`;', $result, ['Tables_in_test_db']);

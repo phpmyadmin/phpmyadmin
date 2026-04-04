@@ -110,7 +110,7 @@ class NodeDatabase extends Node
 
         $maxItems = $this->config->settings['MaxNavigationItems'];
 
-        if ($this->config->settings['NaturalOrder']) {
+        if ($this->config->config->NaturalOrder) {
             usort($names, strnatcasecmp(...));
         }
 

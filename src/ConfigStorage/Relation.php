@@ -612,14 +612,14 @@ class Relation
         // is available
         if ($mode === 'id-content' || $mode === 'id-only') {
             // sort for id-content
-            if ($this->config->settings['NaturalOrder']) {
+            if ($this->config->config->NaturalOrder) {
                 uksort($foreign, strnatcasecmp(...));
             } else {
                 ksort($foreign);
             }
         } elseif ($mode === 'content-id') {
             // sort for content-id
-            if ($this->config->settings['NaturalOrder']) {
+            if ($this->config->config->NaturalOrder) {
                 natcasesort($foreign);
             } else {
                 asort($foreign);
@@ -1469,7 +1469,7 @@ class Relation
         /** @var list<string> $tables */
         $tables = $tablesRows->fetchAllColumn();
 
-        if ($this->config->settings['NaturalOrder']) {
+        if ($this->config->config->NaturalOrder) {
             usort($tables, strnatcasecmp(...));
         }
 

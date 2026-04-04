@@ -331,7 +331,7 @@ class DatabaseInterface
         /** @var list<string> $tables */
         $tables = $result->fetchAllColumn();
 
-        if ($this->config->settings['NaturalOrder']) {
+        if ($this->config->config->NaturalOrder) {
             usort($tables, strnatcasecmp(...));
         }
 
@@ -459,7 +459,7 @@ class DatabaseInterface
                 }
             }
 
-            if ($sortBy === 'Name' && $this->config->settings['NaturalOrder']) {
+            if ($sortBy === 'Name' && $this->config->config->NaturalOrder) {
                 // here, the array's first key is by schema name
                 foreach ($tables as $oneDatabaseName => $oneDatabaseTables) {
                     uksort($oneDatabaseTables, strnatcasecmp(...));
@@ -562,7 +562,7 @@ class DatabaseInterface
 
             // Sort naturally if the config allows it and we're sorting
             // the Name column.
-            if ($sortBy === 'Name' && $this->config->settings['NaturalOrder']) {
+            if ($sortBy === 'Name' && $this->config->config->NaturalOrder) {
                 uksort($eachTables, strnatcasecmp(...));
 
                 if ($sortOrder === 'DESC') {
@@ -658,7 +658,7 @@ class DatabaseInterface
              * we have to do it afterward
              */
             $limit = '';
-            if (! $this->config->settings['NaturalOrder']) {
+            if (! $this->config->config->NaturalOrder) {
                 if ($limitCount) {
                     $limit = ' LIMIT ' . $limitCount . ' OFFSET ' . $limitOffset;
                 }

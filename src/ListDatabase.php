@@ -105,7 +105,7 @@ class ListDatabase extends ArrayObject
             $databaseList = $this->dbi->fetchSingleColumn($command);
         }
 
-        if ($this->config->settings['NaturalOrder']) {
+        if ($this->config->config->NaturalOrder) {
             usort($databaseList, strnatcasecmp(...));
         } else {
             // need to sort anyway, otherwise information_schema
