@@ -3457,7 +3457,7 @@ class Results
              * first table of this database, so that /table/export and
              * the script it calls do not fail
              */
-            if ($urlParams['table'] === '' && $urlParams['db'] !== '') {
+            if (! isset($urlParams['raw_query']) && $urlParams['table'] === '' && $urlParams['db'] !== '') {
                 $urlParams['table'] = (string) $this->dbi->fetchValue('SHOW TABLES');
             }
 
