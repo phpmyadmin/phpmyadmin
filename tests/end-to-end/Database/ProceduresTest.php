@@ -221,10 +221,10 @@ class ProceduresTest extends TestBase
         $this->byId('routinesExecuteModalExecuteButton')->click();
 
         $this->waitAjax();
-        $this->waitForElement('cssSelector', 'span#PMA_slidingMessage table tbody');
-        $this->waitUntilElementIsVisible('cssSelector', 'span#PMA_slidingMessage', 30);
+        $this->waitForElement('cssSelector', '#PMA_slidingMessage table tbody');
+        $this->waitUntilElementIsVisible('cssSelector', '#PMA_slidingMessage', 30);
         sleep(2);// Give more chances to the JS effect to finish
-        $head = $this->byCssSelector('span#PMA_slidingMessage table tbody')->getText();
+        $head = $this->byCssSelector('#PMA_slidingMessage table tbody')->getText();
         self::assertSame("outp\n" . $length, $head);
     }
 }
