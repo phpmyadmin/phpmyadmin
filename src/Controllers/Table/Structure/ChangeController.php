@@ -98,7 +98,7 @@ final readonly class ChangeController implements InvocableController
          */
         $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
-        $this->response->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js']);
+        $this->response->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js', 'table/structure.js']);
 
         $templateData = $this->columnsDefinition->displayForm(
             $userPrivileges,
