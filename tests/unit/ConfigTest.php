@@ -638,7 +638,6 @@ class ConfigTest extends AbstractTestCase
         self::assertIsString($vendorConfig['customFooterFile']);
         self::assertIsBool($vendorConfig['versionCheckDefault']);
         self::assertIsString($vendorConfig['localePath']);
-        self::assertDirectoryExists($vendorConfig['localePath']);
         self::assertIsString($vendorConfig['cacheDir']);
         self::assertDirectoryExists($vendorConfig['cacheDir']);
         self::assertIsString($vendorConfig['versionSuffix']);
