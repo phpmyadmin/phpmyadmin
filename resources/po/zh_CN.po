@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-03-29 00:42+0000\n"
+"POT-Creation-Date: 2026-04-05 00:43+0000\n"
 "PO-Revision-Date: 2025-03-20 18:17+0000\n"
 "Last-Translator: 吴绮 <rs2.free@qq.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
@@ -1189,7 +1189,7 @@ msgstr "用时："
 #: resources/templates/console/display.twig:133
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
-#: src/Config/Descriptions.php:928 src/Export/Export.php:686
+#: src/Config/Descriptions.php:928 src/Export/Export.php:696
 #: src/Html/Generator.php:589
 msgid "Refresh"
 msgstr "刷新"
@@ -3104,7 +3104,7 @@ msgstr "查询结果操作"
 
 #: resources/templates/display/results/table.twig:353
 #: src/Controllers/JavaScriptMessagesController.php:466
-#: src/Export/Export.php:705
+#: src/Export/Export.php:715
 msgid "Copy to clipboard"
 msgstr "复制到剪贴板"
 
@@ -3626,7 +3626,7 @@ msgstr "取用它"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:411
-#: src/Export/Export.php:728 src/Html/Generator.php:849
+#: src/Export/Export.php:738 src/Html/Generator.php:849
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "返回"
@@ -11907,7 +11907,7 @@ msgstr "如果您遇到问题，请手动提交漏洞报告。"
 msgid "You may want to refresh the page."
 msgstr "您需要刷新当前页面。"
 
-#: src/Controllers/Export/ExportController.php:120 src/Export/Export.php:666
+#: src/Controllers/Export/ExportController.php:120 src/Export/Export.php:676
 msgid "Bad type!"
 msgstr "类型无效！"
 
@@ -13964,7 +13964,7 @@ msgid "No such column"
 msgstr "没有这样的字段"
 
 #: src/Controllers/Normalization/GetColumnsController.php:35
-#: src/Normalization.php:230 src/Types.php:650
+#: src/Normalization.php:230 src/Types.php:652
 msgctxt "string types"
 msgid "String"
 msgstr "文本"
@@ -18110,17 +18110,21 @@ msgid ""
 "machine learning applications"
 msgstr ""
 
-#: src/Types.php:604
+#: src/Types.php:295
+msgid "Intended for storage of XML data"
+msgstr ""
+
+#: src/Types.php:606
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr "数字"
 
-#: src/Types.php:622
+#: src/Types.php:624
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "日期与时间"
 
-#: src/Types.php:652
+#: src/Types.php:654
 msgctxt "spatial types"
 msgid "Spatial"
 msgstr "空间"

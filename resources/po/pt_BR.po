@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-03-29 00:42+0000\n"
+"POT-Creation-Date: 2026-04-05 00:43+0000\n"
 "PO-Revision-Date: 2025-10-23 14:02+0000\n"
 "Last-Translator: Pedro Ricardo Ribeiro de Olinda <pedro.ribeiro@cest.edu."
 "br>\n"
@@ -1200,7 +1200,7 @@ msgstr "Tempo gasto:"
 #: resources/templates/console/display.twig:133
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
-#: src/Config/Descriptions.php:928 src/Export/Export.php:686
+#: src/Config/Descriptions.php:928 src/Export/Export.php:696
 #: src/Html/Generator.php:589
 msgid "Refresh"
 msgstr "Atualizar"
@@ -3134,7 +3134,7 @@ msgstr "Operações resultantes das consultas"
 
 #: resources/templates/display/results/table.twig:353
 #: src/Controllers/JavaScriptMessagesController.php:466
-#: src/Export/Export.php:705
+#: src/Export/Export.php:715
 msgid "Copy to clipboard"
 msgstr "Copiar para a área de transferência"
 
@@ -3662,7 +3662,7 @@ msgstr "Pegue"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:411
-#: src/Export/Export.php:728 src/Html/Generator.php:849
+#: src/Export/Export.php:738 src/Html/Generator.php:849
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "Voltar"
@@ -12503,7 +12503,7 @@ msgstr ""
 msgid "You may want to refresh the page."
 msgstr "Você pode querer atualizar a página."
 
-#: src/Controllers/Export/ExportController.php:120 src/Export/Export.php:666
+#: src/Controllers/Export/ExportController.php:120 src/Export/Export.php:676
 msgid "Bad type!"
 msgstr "Tipo incorreto!"
 
@@ -14663,7 +14663,7 @@ msgid "No such column"
 msgstr "Nenhuma coluna"
 
 #: src/Controllers/Normalization/GetColumnsController.php:35
-#: src/Normalization.php:230 src/Types.php:650
+#: src/Normalization.php:230 src/Types.php:652
 msgctxt "string types"
 msgid "String"
 msgstr "String"
@@ -19128,17 +19128,21 @@ msgid ""
 "machine learning applications"
 msgstr ""
 
-#: src/Types.php:604
+#: src/Types.php:295
+msgid "Intended for storage of XML data"
+msgstr ""
+
+#: src/Types.php:606
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr "Numérico"
 
-#: src/Types.php:622
+#: src/Types.php:624
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "Data e Tempo"
 
-#: src/Types.php:652
+#: src/Types.php:654
 msgctxt "spatial types"
 msgid "Spatial"
 msgstr "Espacial"

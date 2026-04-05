@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-03-29 00:42+0000\n"
+"POT-Creation-Date: 2026-04-05 00:43+0000\n"
 "PO-Revision-Date: 2026-03-23 02:09+0000\n"
 "Last-Translator: Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1201,7 +1201,7 @@ msgstr "Waktu yang dipakai:"
 #: resources/templates/console/display.twig:133
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
-#: src/Config/Descriptions.php:928 src/Export/Export.php:686
+#: src/Config/Descriptions.php:928 src/Export/Export.php:696
 #: src/Html/Generator.php:589
 msgid "Refresh"
 msgstr "Segarkan"
@@ -3119,7 +3119,7 @@ msgstr "Operasi hasil kueri"
 
 #: resources/templates/display/results/table.twig:353
 #: src/Controllers/JavaScriptMessagesController.php:466
-#: src/Export/Export.php:705
+#: src/Export/Export.php:715
 msgid "Copy to clipboard"
 msgstr "Salin ke clipboard"
 
@@ -3643,7 +3643,7 @@ msgstr "Ambil ini"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:411
-#: src/Export/Export.php:728 src/Html/Generator.php:849
+#: src/Export/Export.php:738 src/Html/Generator.php:849
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "Kembali"
@@ -12375,7 +12375,7 @@ msgstr ""
 msgid "You may want to refresh the page."
 msgstr "Anda mungkin perlu menyegarkan halaman."
 
-#: src/Controllers/Export/ExportController.php:120 src/Export/Export.php:666
+#: src/Controllers/Export/ExportController.php:120 src/Export/Export.php:676
 msgid "Bad type!"
 msgstr "Tipe yang buruk!"
 
@@ -14512,7 +14512,7 @@ msgid "No such column"
 msgstr "Tidak ada kolom seperti itu"
 
 #: src/Controllers/Normalization/GetColumnsController.php:35
-#: src/Normalization.php:230 src/Types.php:650
+#: src/Normalization.php:230 src/Types.php:652
 msgctxt "string types"
 msgid "String"
 msgstr "String"
@@ -18912,17 +18912,21 @@ msgstr ""
 "Menyimpan data vektor yang dioptimalkan untuk operasi seperti pencarian "
 "kemiripan dan aplikasi pembelajaran mesin"
 
-#: src/Types.php:604
+#: src/Types.php:295
+msgid "Intended for storage of XML data"
+msgstr ""
+
+#: src/Types.php:606
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr "Numerik"
 
-#: src/Types.php:622
+#: src/Types.php:624
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "Tanggal dan waktu"
 
-#: src/Types.php:652
+#: src/Types.php:654
 msgctxt "spatial types"
 msgid "Spatial"
 msgstr "Spasial"
