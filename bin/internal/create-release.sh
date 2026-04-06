@@ -181,6 +181,8 @@ cleanup_composer_vendors() {
         vendor/williamdes/mariadb-mysql-kbs/dist/merged-raw.md \
         vendor/williamdes/mariadb-mysql-kbs/dist/merged-slim.json \
         vendor/williamdes/mariadb-mysql-kbs/dist/merged-ultraslim.php \
+        vendor/google/recaptcha/app.yaml \
+        vendor/laminas/laminas-httphandlerrunner/.laminas-ci.json \
         vendor/nikic/fast-route/.travis.yml \
         vendor/nikic/fast-route/.hhconfig \
         vendor/nikic/fast-route/FastRoute.hhi \
@@ -191,12 +193,14 @@ cleanup_composer_vendors() {
         vendor/twig/twig/splitsh.json \
         vendor/webmozart/assert/.php-cs-fixer.php \
         vendor/twig/twig/src/Test/ \
+        vendor/psr/event-dispatcher/.editorconfig \
         vendor/psr/http-message/docs/ \
         vendor/pragmarx/google2fa/.github/ \
         vendor/pragmarx/google2fa-qrcode/.scrutinizer.yml \
         vendor/pragmarx/google2fa-qrcode/.travis.yml \
         vendor/pragmarx/google2fa-qrcode/phpunit.xml \
         vendor/pragmarx/google2fa-qrcode/tests \
+        vendor/slim/psr7/phpunit.xml.dist \
         vendor/slim/psr7/tests/
 
     rm \
@@ -210,11 +214,7 @@ cleanup_composer_vendors() {
         vendor/spomky-labs/pki-framework/SECURITY.md \
         vendor/web-auth/cose-lib/CODE_OF_CONDUCT.md \
         vendor/web-auth/cose-lib/RELEASES.md \
-        vendor/web-auth/cose-lib/SECURITY.md \
-        vendor/slim/psr7/phpunit.xml.dist \
-        vendor/laminas/laminas-httphandlerrunner/.laminas-ci.json \
-        vendor/psr/event-dispatcher/.editorconfig \
-        vendor/google/recaptcha/app.yaml
+        vendor/web-auth/cose-lib/SECURITY.md
 
     find vendor/tecnickcom/tcpdf/fonts/ -maxdepth 1 -type f \
         -not -name 'dejavusans.*' \
