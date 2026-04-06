@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2026-02-03 19:01+0000\n"
+"PO-Revision-Date: 2026-04-07 06:09+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.16-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -1992,11 +1992,11 @@ msgstr "Veritabanlarını görüntüleme seçenekleri."
 
 #: libraries/classes/Config/Descriptions.php:211
 msgid "Customize appearance of the navigation panel."
-msgstr "Gezinti panelinin görünüşünü özelleştirir."
+msgstr "Gezinme panelinin görünüşünü özelleştirir."
 
 #: libraries/classes/Config/Descriptions.php:212
 msgid "Customize the navigation tree."
-msgstr "Gezinti ağacını özelleştirir."
+msgstr "Gezinme ağacını özelleştirir."
 
 #: libraries/classes/Config/Descriptions.php:213
 msgid "Servers display options."
@@ -2136,14 +2136,14 @@ msgid ""
 "The number of items that can be displayed on each page on the first level of "
 "the navigation tree."
 msgstr ""
-"Gezinti ağacının ilk seviyesindeki her sayfada görüntülenebilen öğe "
+"Gezinme ağacının ilk seviyesindeki her sayfada görüntülenebilen öğe "
 "sayısıdır."
 
 #: libraries/classes/Config/Descriptions.php:274
 msgid ""
 "The number of items that can be displayed on each page of the navigation "
 "tree."
-msgstr "Gezinti ağacının her sayfasında görüntülenebilen öğe sayısıdır."
+msgstr "Gezinme ağacının her sayfasında görüntülenebilen öğe sayısıdır."
 
 #: libraries/classes/Config/Descriptions.php:277
 msgid ""
@@ -2164,7 +2164,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:286
 msgid "In the navigation panel, replaces the database tree with a selector"
-msgstr "Gezinti panelindeki, veritabanı ağacını bir seçici ile değiştirir"
+msgstr "Gezinme panelindeki, veritabanı ağacını bir seçici ile değiştirir"
 
 #: libraries/classes/Config/Descriptions.php:289
 msgid "Link with main panel by highlighting the current database or table."
@@ -2192,40 +2192,40 @@ msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
 msgstr ""
-"Gezinti ağacındaki öğeleri gruplar (Veritabanları ve Tablolar sekmeleri "
+"Gezinme ağacındaki öğeleri gruplar (Veritabanları ve Tablolar sekmeleri "
 "üzerini tanımlanan ayıraç tarafından belirlenir)."
 
 #: libraries/classes/Config/Descriptions.php:304
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
-msgstr "Gezinti panelinde ağaç genişleme olanağının sunulup sunulmayacağı."
+msgstr "Gezinme panelinde ağaç genişleme olanağının sunulup sunulmayacağı."
 
 #: libraries/classes/Config/Descriptions.php:307
 msgid "Whether to show procedures under database in the navigation tree"
 msgstr ""
-"Gezinti ağacındaki veritabanı altında yordamların gösterilip gösterilmeyeceği"
+"Gezinme ağacındaki veritabanı altında yordamların gösterilip gösterilmeyeceği"
 
 #: libraries/classes/Config/Descriptions.php:310
 msgid "Whether to expand single database in the navigation tree automatically."
 msgstr ""
-"Gezinti ağacındaki tek bir veritabanının otomatik olarak genişletilip "
+"Gezinme ağacındaki tek bir veritabanının otomatik olarak genişletilip "
 "genişletilmeyeceği."
 
 #: libraries/classes/Config/Descriptions.php:312
 msgid "Set to 0 to collapse navigation panel."
-msgstr "Gezinti panelini daraltmak için 0'a ayarlayın."
+msgstr "Gezinme panelini daraltmak için 0'a ayarlayın."
 
 #: libraries/classes/Config/Descriptions.php:313
 msgid "Show logo in navigation panel."
-msgstr "Gezinti panelinde logoyu gösterir."
+msgstr "Gezinme panelinde logoyu gösterir."
 
 #: libraries/classes/Config/Descriptions.php:314
 msgid "URL where logo in the navigation panel will point to."
-msgstr "Gezinti panelindeki logoyu işaret eden URL."
+msgstr "Gezinme panelindeki logoyu işaret eden URL."
 
 #: libraries/classes/Config/Descriptions.php:315
 msgid "Display server choice at the top of the navigation panel."
-msgstr "Sunucu seçimini gezinti panelinin en üstünde görüntüler."
+msgstr "Sunucu seçimini gezinme panelinin en üstünde görüntüler."
 
 #: libraries/classes/Config/Descriptions.php:316
 msgid "String that separates databases into different tree levels."
@@ -2242,23 +2242,23 @@ msgstr "Fare imleci altında sunucuyu vurgular."
 #: libraries/classes/Config/Descriptions.php:319
 msgid "Whether to show tables under database in the navigation tree"
 msgstr ""
-"Gezinti ağacındaki veritabanı altında tabloların gösterilip gösterilmeyeceği"
+"Gezinme ağacındaki veritabanı altında tabloların gösterilip gösterilmeyeceği"
 
 #: libraries/classes/Config/Descriptions.php:320
 msgid "Whether to show views under database in the navigation tree"
 msgstr ""
-"Gezinti ağacındaki veritabanı altında görünümlerin gösterilip "
+"Gezinme ağacındaki veritabanı altında görünümlerin gösterilip "
 "gösterilmeyeceği"
 
 #: libraries/classes/Config/Descriptions.php:321
 msgid "Whether to show functions under database in the navigation tree"
 msgstr ""
-"Gezinti ağacındaki veritabanı altında işlevlerin gösterilip gösterilmeyeceği"
+"Gezinme ağacındaki veritabanı altında işlevlerin gösterilip gösterilmeyeceği"
 
 #: libraries/classes/Config/Descriptions.php:322
 msgid "Whether to show events under database in the navigation tree"
 msgstr ""
-"Gezinti ağacındaki veritabanı altında olayların gösterilip gösterilmeyeceği"
+"Gezinme ağacındaki veritabanı altında olayların gösterilip gösterilmeyeceği"
 
 #: libraries/classes/Config/Descriptions.php:324
 msgid ""
@@ -2558,7 +2558,7 @@ msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
 msgstr ""
-"Gezinti öğelerini gizleme ve gösterme özelliğini etkisizleştirmek için boş "
+"Gezinme öğelerini gizleme ve gösterme özelliğini etkisizleştirmek için boş "
 "bırakın, önerilen: [kbd]pma__navigationhiding[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:473
@@ -3525,11 +3525,11 @@ msgstr "LaTeX"
 #: libraries/classes/Config/Forms/User/NaviForm.php:66
 #: templates/preferences/header.twig:30
 msgid "Navigation panel"
-msgstr "Gezinti paneli"
+msgstr "Gezinme paneli"
 
 #: libraries/classes/Config/Descriptions.php:770
 msgid "Navigation tree"
-msgstr "Gezinti ağacı"
+msgstr "Gezinme ağacı"
 
 #: libraries/classes/Config/Descriptions.php:771
 #: libraries/classes/Server/Select.php:60 templates/setup/home/index.twig:34
@@ -3780,11 +3780,11 @@ msgstr "Bellek sınırı"
 
 #: libraries/classes/Config/Descriptions.php:838
 msgid "Show databases navigation as tree"
-msgstr "Veritabanlarını gezinti ağacı olarak göster"
+msgstr "Veritabanlarını gezinme ağacı olarak göster"
 
 #: libraries/classes/Config/Descriptions.php:839
 msgid "Navigation panel width"
-msgstr "Gezinti paneli genişliği"
+msgstr "Gezinme paneli genişliği"
 
 #: libraries/classes/Config/Descriptions.php:840
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:622
@@ -3846,7 +3846,7 @@ msgstr "Vurgulamaları etkinleştir"
 
 #: libraries/classes/Config/Descriptions.php:856
 msgid "Enable navigation tree expansion"
-msgstr "Gezinti ağacı genişlemesini etkinleştir"
+msgstr "Gezinme ağacı genişlemesini etkinleştir"
 
 #: libraries/classes/Config/Descriptions.php:857
 msgid "Show tables in tree"
@@ -3895,7 +3895,7 @@ msgstr "Doğal sıra"
 
 #: libraries/classes/Config/Descriptions.php:869
 msgid "Table navigation bar"
-msgstr "Tablo gezinti çubuğu"
+msgstr "Tablo gezinme çubuğu"
 
 #: libraries/classes/Config/Descriptions.php:870
 msgid "GZip output buffering"
@@ -4163,7 +4163,7 @@ msgstr "Kullanıcı grupları tablosu"
 
 #: libraries/classes/Config/Descriptions.php:935
 msgid "Hidden navigation items table"
-msgstr "Gizli gezinti öğeleri tablosu"
+msgstr "Gizli gezinme öğeleri tablosu"
 
 #: libraries/classes/Config/Descriptions.php:936
 msgid "User for config auth"
@@ -7192,7 +7192,7 @@ msgstr "Paneli gizle"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:621
 msgid "Show hidden navigation tree items."
-msgstr "Gizli gezinti ağacı öğelerini göster."
+msgstr "Gizli gezinme ağacı öğelerini göster."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:623
 #: libraries/classes/Navigation/NavigationTree.php:1484
@@ -7452,7 +7452,7 @@ msgstr "Göster"
 
 #: libraries/classes/Controllers/NavigationController.php:47
 msgid "Fatal error: The navigation can only be accessed via AJAX"
-msgstr "Önemli hata: Gezintiye sadece AJAX aracılığıyla erişilebilir"
+msgstr "Önemli hata: Gezinmeye sadece AJAX aracılığıyla erişilebilir"
 
 #: libraries/classes/Controllers/NormalizationController.php:39
 #: libraries/classes/Normalization.php:251
@@ -10429,7 +10429,7 @@ msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
-"Gezinti panelinde performansı etkileyebilen büyük öğe grupları var. Gezinti "
+"Gezinme panelinde performansı etkileyebilen büyük öğe grupları var. Gezinme "
 "panelindeki öğe gruplandırmayı etkisizleştirmeyi düşünün."
 
 #: libraries/classes/Navigation/NavigationTree.php:820
@@ -16308,15 +16308,15 @@ msgstr "MySQL Belgeleri"
 
 #: templates/navigation/main.twig:43 templates/navigation/main.twig:44
 msgid "Navigation panel settings"
-msgstr "Gezinti paneli ayarları"
+msgstr "Gezinme paneli ayarları"
 
 #: templates/navigation/main.twig:47 templates/navigation/main.twig:48
 msgid "Reload navigation panel"
-msgstr "Gezinti panelini yeniden yükle"
+msgstr "Gezinme panelini yeniden yükle"
 
 #: templates/navigation/main.twig:67
 msgid "An error has occurred while loading the navigation display"
-msgstr "Gezinti görüntüsü yüklenirken bir hata meydana geldi"
+msgstr "Gezinme görüntüsü yüklenirken bir hata meydana geldi"
 
 #: templates/navigation/main.twig:88
 msgid "SQL upload"
