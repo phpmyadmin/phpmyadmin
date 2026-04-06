@@ -206,6 +206,7 @@ cleanup_composer_vendors() {
         vendor/spomky-labs/cbor-php/CODE_OF_CONDUCT.md \
         vendor/spomky-labs/cbor-php/RELEASES.md \
         vendor/spomky-labs/cbor-php/SECURITY.md \
+        vendor/spomky-labs/pki-framework/SECURITY.md \
         vendor/web-auth/cose-lib/CODE_OF_CONDUCT.md \
         vendor/web-auth/cose-lib/RELEASES.md \
         vendor/web-auth/cose-lib/SECURITY.md \
