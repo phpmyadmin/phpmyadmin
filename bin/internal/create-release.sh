@@ -169,7 +169,8 @@ cleanup_composer_vendors() {
         vendor/phpmyadmin/shapefile/data/ \
         vendor/symfony/service-contracts/Test/ \
         vendor/symfony/expression-language/Resources/ \
-        vendor/symfony/dependency-injection/Loader/schema/ \
+        vendor/symfony/dependency-injection/Loader/schema/services.schema.json \
+        vendor/symfony/dependency-injection/Loader/schema/dic/services/services-1.0.xsd \
         vendor/tecnickcom/tcpdf/tools/ \
         vendor/tecnickcom/tcpdf/fonts/ae_fonts_*/ \
         vendor/tecnickcom/tcpdf/fonts/dejavu-fonts-ttf-2.*/ \
