@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-04-05 00:43+0000\n"
-"PO-Revision-Date: 2026-03-23 02:09+0000\n"
+"PO-Revision-Date: 2026-04-07 06:09+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/en_GB/>\n"
@@ -18752,7 +18752,7 @@ msgstr ""
 
 #: src/Types.php:295
 msgid "Intended for storage of XML data"
-msgstr ""
+msgstr "Intended for storage of XML data"
 
 #: src/Types.php:606
 msgctxt "numeric types"
