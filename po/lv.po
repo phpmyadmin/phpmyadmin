@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-02-25 10:35-0300\n"
-"PO-Revision-Date: 2026-04-05 12:09+0000\n"
+"PO-Revision-Date: 2026-04-07 06:09+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "lv/>\n"
@@ -626,9 +626,8 @@ msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:429
-#, fuzzy
 msgid "Percentage of used open files limit"
-msgstr "Tabulas kodējums:"
+msgstr "Izmantotā atvērto datņu ierobežojuma procentuālā daļa"
 
 #: libraries/advisory_rules_generic.php:433
 msgid ""
@@ -1139,9 +1138,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_mysql_before80003.php:102
-#, fuzzy, php-format
+#, php-format
 msgid "Current query cache size: %s"
-msgstr "Servera versija"
+msgstr "Pašreizējais vaicājumu kešatmiņas izmērs: %s"
 
 #: libraries/advisory_rules_mysql_before80003.php:107
 #, fuzzy
@@ -1212,10 +1211,8 @@ msgid "per day"
 msgstr ""
 
 #: libraries/classes/BrowseForeigners.php:200
-#, fuzzy
-#| msgid "Search"
 msgid "Search:"
-msgstr "Meklēt"
+msgstr "Meklēt:"
 
 #: libraries/classes/BrowseForeigners.php:206
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:323
@@ -3030,9 +3027,8 @@ msgstr "Saglabāt kā failu"
 
 #: libraries/classes/Config/Descriptions.php:657
 #: libraries/classes/Config/Descriptions.php:792
-#, fuzzy
 msgid "Character set of the file"
-msgstr "Tabulas kodējums:"
+msgstr "Datnes kodējums"
 
 #: libraries/classes/Config/Descriptions.php:658
 #: libraries/classes/Config/Descriptions.php:674 templates/import.twig:165
@@ -3311,10 +3307,9 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:729
 #: libraries/classes/Plugins/Export/ExportSql.php:356
-#, fuzzy, php-format
-#| msgid "Session value"
+#, php-format
 msgid "%s view"
-msgstr "Sesijas vērtība"
+msgstr "%s skats"
 
 #: libraries/classes/Config/Descriptions.php:730
 msgid "Use ignore inserts"
@@ -3457,10 +3452,8 @@ msgid "Other core settings"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:768
-#, fuzzy
-#| msgid "Page number:"
 msgid "Page titles"
-msgstr "Lapas numurs:"
+msgstr "Lapu virsraksti"
 
 #: libraries/classes/Config/Descriptions.php:769
 msgid "Security"
@@ -4386,9 +4379,8 @@ msgid "Proxy URL"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:964
-#, fuzzy
 msgid "Proxy username"
-msgstr "Lietotājvārds:"
+msgstr "Starpniekservera lietotājvārds"
 
 #: libraries/classes/Config/Descriptions.php:965
 #, fuzzy
@@ -4707,10 +4699,9 @@ msgid "Invalid server index: %s"
 msgstr ""
 
 #: libraries/classes/Config.php:1227
-#, fuzzy, php-format
-#| msgid "Server"
+#, php-format
 msgid "Server %d"
-msgstr "Serveris"
+msgstr "Serveris %d"
 
 #: libraries/classes/Config/ServerConfigChecks.php:67
 #, php-format
@@ -4852,10 +4843,8 @@ msgid "Could not connect to the database server!"
 msgstr ""
 
 #: libraries/classes/Config/Validator.php:279
-#, fuzzy
-#| msgid "Invalid export type"
 msgid "Invalid authentication type!"
-msgstr "Nepareizs eksporta veids"
+msgstr "Nederīgs autentifikācijas veids!"
 
 #: libraries/classes/Config/Validator.php:284
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
@@ -5684,10 +5673,8 @@ msgstr "vaicājumā"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:121
 #: libraries/classes/Html/Generator.php:840 templates/export.twig:67
-#, fuzzy
-#| msgid "SQL query"
 msgid "SQL query:"
-msgstr "SQL vaicājums"
+msgstr "SQL vaicājums:"
 
 #. l10n: Default label for the y-Axis of Charts
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:125
@@ -6122,9 +6109,8 @@ msgstr "Izslēgt %s"
 #. l10n: %d seconds
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:237
 #, fuzzy, php-format
-#| msgid "Query took %01.4f sec"
 msgid "Set long_query_time to %d seconds."
-msgstr "Vaicājums ilga %01.4f s"
+msgstr "Iestatiet long_query_time parametru uz %d sekundēm."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:239
 msgid ""
@@ -6308,10 +6294,8 @@ msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:291
-#, fuzzy
-#| msgid "Number of rows per page"
 msgid "Sum of grouped rows:"
-msgstr "Rindu skaits vienā lapā"
+msgstr "Sagrupēto rindu kopskaits:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:292
 #: libraries/classes/Engines/Innodb.php:140
@@ -6356,10 +6340,8 @@ msgid "Import monitor configuration"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:311
-#, fuzzy
-#| msgid "Please select the file you want to import"
 msgid "Please select the file you want to import:"
-msgstr "Lūdzu izvēlies importējamo failu"
+msgstr "Lūdzu, atlasiet datni, kuru vēlaties ievietot:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:312
 #, fuzzy
@@ -6450,9 +6432,8 @@ msgid "Processing request"
 msgstr "Apstrādā pieprasījumu"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:334
-#, fuzzy
 msgid "Request failed!!"
-msgstr "Vaicājuma tips"
+msgstr "Pieprasījums neizdevās!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:335
 #: libraries/classes/Controllers/Sql/EnumValuesController.php:49
@@ -6627,9 +6608,9 @@ msgid "Enter each value in a separate field."
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:379
-#, fuzzy, php-format
+#, php-format
 msgid "Add %d value(s)"
-msgstr "Pievienot jaunu lietotāju"
+msgstr "Pievienot %d vērtību(-as)"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:382
 msgid ""
@@ -6690,10 +6671,9 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:396
-#, fuzzy, php-format
-#| msgid "Variable"
+#, php-format
 msgid "Variable %d:"
-msgstr "Mainīgais"
+msgstr "Mainīgais %d:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:399
 #: libraries/classes/Normalization.php:1051
@@ -6737,10 +6717,8 @@ msgstr "Primārā atslēga pievienota uz lauka %s."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:411
 #: libraries/classes/Normalization.php:282
-#, fuzzy
-#| msgid "Change"
 msgid "Taking you to next step…"
-msgstr "Labot"
+msgstr "Ved jūs uz nākamo soli…"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:412
 #, php-format
@@ -6871,16 +6849,12 @@ msgid "Show search criteria"
 msgstr "Rādīt meklēšanas kritērijus"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:446
-#, fuzzy
-#| msgid "Column names"
 msgid "Column maximum:"
-msgstr "Kolonnu nosaukumi"
+msgstr "Kolonnas maksimums:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:447
-#, fuzzy
-#| msgid "Column names"
 msgid "Column minimum:"
-msgstr "Kolonnu nosaukumi"
+msgstr "Kolonnas minimums:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:450
 #, fuzzy
@@ -7086,10 +7060,8 @@ msgid "Add tables from other databases"
 msgstr "Šajā datubāzē tabulas nav atrastas."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:526
-#, fuzzy
-#| msgid "Page number:"
 msgid "Page name"
-msgstr "Lapas numurs:"
+msgstr "Lapas nosaukums"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:527
 #: templates/database/designer/main.twig:63
@@ -7281,9 +7253,8 @@ msgid "You can also edit most values<br>by clicking directly on them."
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:589
-#, fuzzy
 msgid "Go to link:"
-msgstr "Nav datubāzu"
+msgstr "Apmeklēt saites vietni:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:592
 #, fuzzy
@@ -7415,10 +7386,8 @@ msgid "Successfully copied!"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:652
-#, fuzzy
-#| msgid "Copying Database"
 msgid "Copying failed!"
-msgstr "Kopē datubāzi"
+msgstr "Kopēšana neizdevās!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:655
 msgid "Execute this query again?"
@@ -7435,9 +7404,9 @@ msgid "Some error occurred while getting SQL debug info."
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:658
-#, fuzzy, php-format
+#, php-format
 msgid "%s queries executed %s times in %s seconds."
-msgstr "SQL vaicājums"
+msgstr "%s vaicājumi izpildīti %s reizes %s sekundēs."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:659
 #, php-format
@@ -7674,12 +7643,12 @@ msgid "Database %1$s has been created."
 msgstr "Datubāze %1$s tika izveidota."
 
 #: libraries/classes/Controllers/Server/Databases/DestroyController.php:98
-#, fuzzy, php-format
-#| msgid "%s databases have been dropped successfully."
+#, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "%s datubāzes tika veiksmīgi dzēstas."
-msgstr[1] "%s datubāzes tika veiksmīgi dzēstas."
+msgstr[0] "%1$d datubāze veiksmīgi dzēsta."
+msgstr[1] "%1$d datubāzes veiksmīgi dzēstas."
+msgstr[2] "%1$d datubāzes veiksmīgi dzēstas."
 
 #: libraries/classes/Controllers/Server/Privileges/AccountLockController.php:47
 #, fuzzy, php-format
@@ -8095,9 +8064,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:412
-#, fuzzy
 msgid "Percentage of used key cache (calculated value)"
-msgstr "Tabulas kodējums:"
+msgstr "Izmantotā atslēgu kešatmiņas procentu daļa (aprēķinātā vērtība)"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:413
 msgid "The number of requests to read a key block from the cache."
@@ -8322,10 +8290,8 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/UserGroupsFormController.php:46
 #: libraries/classes/Util.php:841
-#, fuzzy
-#| msgid "Add new field"
 msgid "Missing parameter:"
-msgstr "Pievienot jaunu lauku"
+msgstr "Trūkstošais parametrs:"
 
 #: libraries/classes/Controllers/Server/UserGroupsFormController.php:60
 #, fuzzy
@@ -8364,10 +8330,8 @@ msgid "Bookmark %s has been created."
 msgstr "Grāmatzīme %s ir izveidota."
 
 #: libraries/classes/Controllers/Sql/SqlController.php:242
-#, fuzzy
-#| msgid "Bookmark %s created"
 msgid "Bookmark not created!"
-msgstr "Grāmatzīme %s izveidota"
+msgstr "Grāmatzīme nav izveidota!"
 
 #: libraries/classes/Controllers/Table/AddFieldController.php:151
 #: libraries/classes/Controllers/Table/Structure/PartitioningController.php:275
@@ -8450,12 +8414,12 @@ msgid "No column selected."
 msgstr "Nav izvēlēta kolonna."
 
 #: libraries/classes/Controllers/Table/DropColumnController.php:80
-#, fuzzy, php-format
-#| msgid "%s databases have been dropped successfully."
+#, php-format
 msgid "%1$d column has been dropped successfully."
 msgid_plural "%1$d columns have been dropped successfully."
-msgstr[0] "%s datubāzes tika veiksmīgi dzēstas."
-msgstr[1] "%s datubāzes tika veiksmīgi dzēstas."
+msgstr[0] "%1$d kolonna veiksmīgi dzēsta."
+msgstr[1] "%1$d kolonnas veiksmīgi dzēstas."
+msgstr[2] "%1$d kolonnas veiksmīgi dzēstas."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:63
 msgid "Invalid table name"
@@ -8622,10 +8586,8 @@ msgid "Could not add %1$s as they already exist in central list!"
 msgstr ""
 
 #: libraries/classes/Database/CentralColumns.php:367
-#, fuzzy
-#| msgid "Add %s field(s)"
 msgid "Could not add columns!"
-msgstr "Pievienot %s lauku(s)"
+msgstr "Nevarēja pievienot kolonnas!"
 
 #: libraries/classes/Database/CentralColumns.php:451
 #, php-format
@@ -8634,10 +8596,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Database/CentralColumns.php:464
-#, fuzzy
-#| msgid "Documentation"
 msgid "Could not remove columns!"
-msgstr "Dokumentācija"
+msgstr "Nevarēja izdzēst kolonnas!"
 
 #: libraries/classes/Database/CentralColumns.php:625
 msgid "YES"
@@ -8824,10 +8784,8 @@ msgstr ""
 #: libraries/classes/Database/Routines.php:1156
 #: libraries/classes/Database/Routines.php:1325
 #: libraries/classes/Database/Triggers.php:466
-#, fuzzy
-#| msgid "Processes"
 msgid "Error in processing request:"
-msgstr "Procesi"
+msgstr "Kļūda, apstrādājot pieprasījumu:"
 
 #: libraries/classes/Database/Events.php:546
 #, fuzzy, php-format
@@ -8861,10 +8819,8 @@ msgid "Failed to set configured collation connection!"
 msgstr ""
 
 #: libraries/classes/DatabaseInterface.php:1975
-#, fuzzy
-#| msgid "Add new field"
 msgid "Missing connection parameters!"
-msgstr "Pievienot jaunu lauku"
+msgstr "Trūkst savienojuma parametru!"
 
 #: libraries/classes/DatabaseInterface.php:2000
 msgid "Connection for controluser as defined in your configuration failed."
@@ -8877,10 +8833,8 @@ msgstr ""
 
 #: libraries/classes/Database/Qbe.php:756
 #: templates/database/qbe/ins_del_and_or_cell.twig:21
-#, fuzzy
-#| msgid "Or"
 msgid "Or:"
-msgstr "Vai"
+msgstr "Vai:"
 
 #: libraries/classes/Database/Qbe.php:760
 #: templates/database/qbe/ins_del_and_or_cell.twig:9
@@ -8899,7 +8853,7 @@ msgstr "Dzēst"
 #, fuzzy
 #| msgid "Search"
 msgid "Saved bookmarked search:"
-msgstr "Meklēt"
+msgstr "Saglabātais grāmatzīmē meklējums:"
 
 #: libraries/classes/Database/Qbe.php:1674
 #, fuzzy
@@ -9261,10 +9215,8 @@ msgid "%d total"
 msgstr "kopā"
 
 #: libraries/classes/Display/Results.php:4378
-#, fuzzy
-#| msgid "Link not found"
 msgid "Link not found!"
-msgstr "Links nav atrasts"
+msgstr "Saite nav atrasta!"
 
 #: libraries/classes/Engines/Bdb.php:28
 #, fuzzy
@@ -9913,10 +9865,8 @@ msgid "Or"
 msgstr "Vai"
 
 #: libraries/classes/InsertEdit.php:735
-#, fuzzy
-#| msgid "web server upload directory"
 msgid "web server upload directory:"
-msgstr "web servera augšupielādes direktorija"
+msgstr "tīmekļa servera augšupielādes mape:"
 
 #: libraries/classes/InsertEdit.php:1345 libraries/classes/Sql.php:998
 msgid "Showing SQL query"
@@ -10094,48 +10044,41 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: libraries/classes/Message.php:273
-#, fuzzy, php-format
-#| msgid "No rows selected"
+#, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] "Rindas nav iezīmētas"
-msgstr[1] "Rindas nav iezīmētas"
+msgstr[0] "%1$d rinda dzēsta."
+msgstr[1] "%1$d rindas dzēstas."
+msgstr[2] "%1$d rindas dzēstas."
 
 #: libraries/classes/Message.php:294
-#, fuzzy, php-format
-#| msgid "No rows selected"
+#, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] "Rindas nav iezīmētas"
-msgstr[1] "Rindas nav iezīmētas"
+msgstr[0] "Pievienota %1$d rinda."
+msgstr[1] "Pievienotas %1$d rindas."
+msgstr[2] "Pievienotas %1$d rindas."
 
 #: libraries/classes/Navigation/Navigation.php:231
-#, fuzzy
-#| msgid "Column names"
 msgid "Groups:"
-msgstr "Kolonnu nosaukumi"
+msgstr "Grupas:"
 
 #: libraries/classes/Navigation/Navigation.php:232
-#, fuzzy
 msgid "Events:"
-msgstr "Nosūtīts"
+msgstr "Notikumi:"
 
 #: libraries/classes/Navigation/Navigation.php:233
-#, fuzzy
 msgid "Functions:"
-msgstr "Funkcija"
+msgstr "Funkcijas:"
 
 #: libraries/classes/Navigation/Navigation.php:234
-#, fuzzy
 msgid "Procedures:"
-msgstr "Procesi"
+msgstr "Procedūras:"
 
 #: libraries/classes/Navigation/Navigation.php:235
 #: templates/database/export/index.twig:14
-#, fuzzy
-#| msgid "Tables"
 msgid "Tables:"
-msgstr "Tabulas"
+msgstr "Tabulas:"
 
 #: libraries/classes/Navigation/Navigation.php:236
 msgid "Views:"
@@ -10364,9 +10307,8 @@ msgid "Have a primary key"
 msgstr ""
 
 #: libraries/classes/Normalization.php:281
-#, fuzzy
 msgid "Primary key already exists."
-msgstr "Lietotājs %s jau eksistē!"
+msgstr "Kļūda: primārā atslēga jau pastāv."
 
 #: libraries/classes/Normalization.php:286
 msgid ""
@@ -10566,10 +10508,8 @@ msgid "Table is already in Third normal form!"
 msgstr ""
 
 #: libraries/classes/Normalization.php:955
-#, fuzzy
-#| msgid "Propose table structure"
 msgid "Improve table structure (Normalization):"
-msgstr "Ieteikt tabulas sruktūru"
+msgstr "Uzlabot tabulas struktūru (Normalizācija):"
 
 #: libraries/classes/Normalization.php:956
 msgid "Select up to what step you want to normalize"
@@ -10702,10 +10642,8 @@ msgid "This table is a view, it can not be truncated."
 msgstr ""
 
 #: libraries/classes/Pdf.php:142
-#, fuzzy
-#| msgid "Allows reading data."
 msgid "Error while creating PDF:"
-msgstr "Ļauj lasīt datus."
+msgstr "Kļūda, veidojot PDF:"
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:81
 msgid "Cannot connect: invalid settings."
@@ -10764,10 +10702,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:316
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "You are not allowed to log in to this MySQL server!"
-msgstr "Nevar pieslēgties MySQL serverim"
+msgstr "Jums nav piekļuves tiesību šim MySQL serverim!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:92
 msgid "Wrong username/password. Access denied."
@@ -10800,17 +10736,13 @@ msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:80
 #: templates/export.twig:119
-#, fuzzy
-#| msgid "Format"
 msgid "Format:"
-msgstr "Formats"
+msgstr "Formāts:"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:59
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:36
-#, fuzzy
-#| msgid "Lines terminated by"
 msgid "Columns separated with:"
-msgstr "Rindas atdalītas ar"
+msgstr "Kolonnas atdalītas ar:"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:64
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:42
@@ -10828,10 +10760,8 @@ msgstr "Glābjoša (escape) rakstzīme ir"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:74
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:56
-#, fuzzy
-#| msgid "Lines terminated by"
 msgid "Lines terminated with:"
-msgstr "Rindas atdalītas ar"
+msgstr "Rindu atdalītājs:"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:79
 #: libraries/classes/Plugins/Export/ExportExcel.php:51
@@ -10840,10 +10770,8 @@ msgstr "Rindas atdalītas ar"
 #: libraries/classes/Plugins/Export/ExportOds.php:65
 #: libraries/classes/Plugins/Export/ExportOdt.php:132
 #: libraries/classes/Plugins/Export/ExportTexytext.php:85
-#, fuzzy
-#| msgid "Replace NULL by"
 msgid "Replace NULL with:"
-msgstr "Aizvietot NULL ar"
+msgstr "Aizstāt NULL ar:"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:84
 #: libraries/classes/Plugins/Export/ExportExcel.php:56
@@ -10851,10 +10779,8 @@ msgid "Remove carriage return/line feed characters within columns"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportExcel.php:66
-#, fuzzy
-#| msgid "Excel edition"
 msgid "Excel edition:"
-msgstr "Excel redakcija"
+msgstr "Excel versija:"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:62
 #: libraries/classes/Plugins/Export/ExportLatex.php:95
@@ -11057,24 +10983,20 @@ msgstr "Transformācijas opcijas"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:114
 #: libraries/classes/Plugins/Export/ExportLatex.php:170
-#, fuzzy
-#| msgid "Table caption"
 msgid "Table caption:"
-msgstr "Tabulas virsraksts"
+msgstr "Tabulas paraksts:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:120
 #: libraries/classes/Plugins/Export/ExportLatex.php:176
-#, fuzzy
-#| msgid "Table caption"
 msgid "Table caption (continued):"
-msgstr "Tabulas virsraksts"
+msgstr "Tabulas paraksts (turpinājums):"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:126
 #: libraries/classes/Plugins/Export/ExportLatex.php:182
 #, fuzzy
 #| msgid "Label key"
 msgid "Label key:"
-msgstr "Etiķetes atslēga"
+msgstr "Iezīmes atslēga:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:134
 #: libraries/classes/Plugins/Export/ExportOdt.php:96
@@ -11100,28 +11022,22 @@ msgid "Display media types"
 msgstr "Pieejamie MIME tipi"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:165
-#, fuzzy
-#| msgid "Put fields names in the first row"
 msgid "Put columns names in the first row:"
-msgstr "Likt kolonnu nosaukumus pirmajā rindā"
+msgstr "Ielikt kolonnu nosaukumus pirmajā rindā:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:211
 #: libraries/classes/Plugins/Export/ExportSql.php:757
 #: libraries/classes/Plugins/Export/ExportXml.php:233
 #: templates/server/replication/change_primary.twig:22
 #: templates/server/replication/primary_add_replica_user.twig:29
-#, fuzzy
-#| msgid "Host"
 msgid "Host:"
-msgstr "Hosts"
+msgstr "Resursdators:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:217
 #: libraries/classes/Plugins/Export/ExportSql.php:764
 #: libraries/classes/Plugins/Export/ExportXml.php:239
-#, fuzzy
-#| msgid "Generation Time"
 msgid "Generation Time:"
-msgstr "Izveidošanas laiks"
+msgstr "Izveidošanas laiks:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:219
 #: libraries/classes/Plugins/Export/ExportSql.php:768
@@ -11133,10 +11049,8 @@ msgstr "Servera versija:"
 #: libraries/classes/Plugins/Export/ExportLatex.php:220
 #: libraries/classes/Plugins/Export/ExportSql.php:770
 #: libraries/classes/Plugins/Export/ExportXml.php:242
-#, fuzzy
-#| msgid "PHP Version"
 msgid "PHP Version:"
-msgstr "PHP Versija"
+msgstr "PHP Versija:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:247
 #: libraries/classes/Plugins/Export/ExportSql.php:952
@@ -11144,23 +11058,17 @@ msgstr "PHP Versija"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:201
 #: templates/database/structure/copy_form.twig:5
 #: templates/menu/breadcrumbs.twig:16
-#, fuzzy
-#| msgid "Database"
 msgid "Database:"
-msgstr "Datubāze"
+msgstr "Datubāze:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:314
 #: libraries/classes/Plugins/Export/ExportSql.php:2258
-#, fuzzy
-#| msgid "Data"
 msgid "Data:"
-msgstr "Dati"
+msgstr "Dati:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:528
-#, fuzzy
-#| msgid "Structure"
 msgid "Structure:"
-msgstr "Struktūra"
+msgstr "Struktūra:"
 
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:78
 #, fuzzy
@@ -11182,10 +11090,8 @@ msgid "Dumping data for query result"
 msgstr "Dati tabulai"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:78
-#, fuzzy
-#| msgid "Import files"
 msgid "Report title:"
-msgstr "Importēt failus"
+msgstr "Atskaites virsraksts:"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:193
 #, fuzzy
@@ -11579,10 +11485,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportOds.php:163
-#, fuzzy
-#| msgid "Documentation"
 msgid "Could not parse OpenDocument Spreadsheet!"
-msgstr "Dokumentācija"
+msgstr "Nevarēja parsēt OpenDocument izklājlapu!"
 
 #: libraries/classes/Plugins/Import/ImportShp.php:68
 msgid "ESRI Shape File"
@@ -12076,10 +11980,8 @@ msgid "Details…"
 msgstr ""
 
 #: libraries/classes/RecentFavoriteTable.php:162
-#, fuzzy
-#| msgid "Documentation"
 msgid "Could not save recent table!"
-msgstr "Dokumentācija"
+msgstr "Nevarēja saglabāt nesen izmantoto tabulu!"
 
 #: libraries/classes/RecentFavoriteTable.php:166
 #, fuzzy
@@ -12201,10 +12103,8 @@ msgstr ""
 
 #: libraries/classes/SavedSearches.php:276
 #: libraries/classes/SavedSearches.php:310
-#, fuzzy
-#| msgid "The user %s already exists!"
 msgid "An entry with this name already exists."
-msgstr "Lietotājs %s jau eksistē!"
+msgstr "Ieraksts ar šādu nosaukumu jau pastāv."
 
 #: libraries/classes/SavedSearches.php:338
 msgid "Missing information to delete the search."
@@ -12859,14 +12759,14 @@ msgid "Unknown table status:"
 msgstr "Rādīt tabulas"
 
 #: libraries/classes/Table.php:1028
-#, fuzzy, php-format
+#, php-format
 msgid "Source database `%s` was not found!"
-msgstr "Meklēt datubāzē"
+msgstr "Avota datubāze `%s` netika atrasta!"
 
 #: libraries/classes/Table.php:1037
-#, fuzzy, php-format
+#, php-format
 msgid "Target database `%s` was not found!"
-msgstr "Meklēt datubāzē"
+msgstr "Mērķa datubāze `%s` netika atrasta!"
 
 #: libraries/classes/Table.php:1499
 #, fuzzy
@@ -12942,7 +12842,7 @@ msgstr ""
 #: templates/database/tracking/tables.twig:115
 #: templates/table/tracking/main.twig:73
 msgid "Tracking report"
-msgstr "Atsekošanas atskaite"
+msgstr "Izsekošanas atskaite"
 
 #: libraries/classes/Tracking.php:240
 msgid "Tracking statements"
@@ -13342,10 +13242,8 @@ msgid "The profile has been updated."
 msgstr "Profils tika modificēts."
 
 #: libraries/classes/UserPassword.php:50
-#, fuzzy
-#| msgid "Password Hashing"
 msgid "Password is too long!"
-msgstr "Paroles jaukšana"
+msgstr "Parole ir pārāk gara!"
 
 #: libraries/classes/UserPreferences.php:191
 msgid "Could not save configuration"
@@ -13740,12 +13638,12 @@ msgid "As defined:"
 msgstr ""
 
 #: templates/columns_definitions/column_attributes.twig:102
-#, fuzzy
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details"
-msgstr "Jums nav pietiekoši tiesību, lai atrastos šeit tagad!"
+msgstr ""
+"Jums nav pietiekamu tiesību, lai veiktu šo darbību; Lūdzu, skatiet "
+"dokumentāciju, lai iegūtu plašāku informāciju"
 
 #: templates/columns_definitions/column_attributes.twig:116
 #: templates/database/data_dictionary/index.twig:76 templates/indexes.twig:18
@@ -14394,7 +14292,7 @@ msgstr "Izvēlies 2 kolonnas"
 
 #: templates/database/central_columns/main.twig:213
 msgid "Click to sort."
-msgstr "Kārtot."
+msgstr "Noklikšķiniet, lai sakārtotu."
 
 #: templates/database/central_columns/main.twig:218
 #: templates/database/privileges/index.twig:22
@@ -14901,16 +14799,14 @@ msgstr "Nav datubāzu"
 
 #: templates/database/multi_table_query/form.twig:4
 #: templates/database/qbe/index.twig:4
-#, fuzzy
-#| msgid "in query"
 msgid "Multi-table query"
-msgstr "vaicājumā"
+msgstr "Vairāku tabulu vaicājums"
 
 #: templates/database/multi_table_query/form.twig:10
 #: templates/database/qbe/index.twig:10
 #, fuzzy
 msgid "Query by example"
-msgstr "Vaicājuma tips"
+msgstr "Vaicājuma piemērs"
 
 #: templates/database/multi_table_query/form.twig:17
 msgid "Query window"
@@ -15012,12 +14908,12 @@ msgstr "Datubāze"
 #: templates/table/operations/index.twig:77
 #: templates/table/operations/index.twig:113
 #: templates/table/operations/index.twig:313
-#, fuzzy
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details."
-msgstr "Jums nav pietiekoši tiesību, lai atrastos šeit tagad!"
+msgstr ""
+"Jums nav pietiekamu tiesību, lai veiktu šo darbību; Lūdzu, skatiet "
+"dokumentāciju, lai iegūtu plašāku informāciju."
 
 #: templates/database/operations/index.twig:83
 #, fuzzy
@@ -15307,12 +15203,12 @@ msgid "Is deterministic"
 msgstr ""
 
 #: templates/database/routines/editor_form.twig:135
-#, fuzzy
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details."
-msgstr "Jums nav pietiekoši tiesību, lai atrastos šeit tagad!"
+msgstr ""
+"Jums nav pietiekamu tiesību, lai veiktu šo darbību; Lūdzu, skatiet "
+"dokumentāciju, lai iegūtu plašāku informāciju."
 
 #: templates/database/routines/editor_form.twig:148
 #, fuzzy
@@ -16102,9 +15998,8 @@ msgid "Currently running Git revision %1$s from the %2$s branch."
 msgstr ""
 
 #: templates/footer.twig:36
-#, fuzzy
 msgid "Git information missing!"
-msgstr "Piekļuves informācija"
+msgstr "Trūkst Git informācijas!"
 
 #: templates/gis_data_editor_form.twig:4
 #, php-format
@@ -16186,10 +16081,8 @@ msgstr ""
 "zemāk \"Vērtība\" laukā."
 
 #: templates/header.twig:35 templates/login/header.twig:13
-#, fuzzy
-#| msgid "Cookies must be enabled past this point."
 msgid "Javascript must be enabled past this point!"
-msgstr "\"Cookies\" ir jābūt atļautiem aiz šī punkta."
+msgstr "Lai nodrošinātu pilnu funkcionalitāti, jums ir jāiespējo JavaScript!"
 
 #: templates/header.twig:46
 msgid "Click on the bar to scroll to top of page"
@@ -16862,9 +16755,8 @@ msgstr ""
 #: templates/login/twofactor/key_configure.twig:3
 #: templates/login/twofactor/key.twig:3
 #: templates/preferences/two_factor/main.twig:56
-#, fuzzy
 msgid "Deprecated!"
-msgstr "Relācijas"
+msgstr "Novecojis!"
 
 #: templates/login/twofactor/key_configure.twig:4
 #: templates/login/twofactor/key.twig:4
