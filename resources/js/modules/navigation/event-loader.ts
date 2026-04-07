@@ -40,7 +40,7 @@ export default function onloadNavigation () {
         $(document).on('click', '#pma_navigation_tree a.expander', function (event) {
             event.preventDefault();
             event.stopImmediatePropagation();
-            var $icon = $(this).find('img');
+            const $icon = $(this).find('img');
             if ($icon.is('.ic_b_plus')) {
                 Navigation.expandTreeNode($(this));
             } else {
@@ -56,7 +56,7 @@ export default function onloadNavigation () {
             event.preventDefault();
 
             // Find the loading symbol and show it
-            var $iconThrobberSrc = $('#pma_navigation').find('.throbber');
+            const $iconThrobberSrc = $('#pma_navigation').find('.throbber');
             $iconThrobberSrc.show();
             // TODO Why is a loading symbol both hidden, and invisible?
             $iconThrobberSrc.css('visibility', '');
@@ -86,7 +86,7 @@ export default function onloadNavigation () {
         $(document).on('click', '#pma_navigation_collapse', function (event) {
             event.preventDefault();
             $('#pma_navigation_tree').find('a.expander').each(function () {
-                var $icon = $(this).find('img');
+                const $icon = $(this).find('img');
                 if ($icon.is('.ic_b_minus')) {
                     $(this).trigger('click');
                 }
@@ -99,8 +99,8 @@ export default function onloadNavigation () {
          */
         $(document).on('mouseenter', '#pma_navigation_sync', function (event) {
             event.preventDefault();
-            var synced = $('#pma_navigation_tree').hasClass('synced');
-            var $img = $('#pma_navigation_sync').children('img');
+            const synced = $('#pma_navigation_tree').hasClass('synced');
+            const $img = $('#pma_navigation_sync').children('img');
             if (synced) {
                 $img.removeClass('ic_s_link').addClass('ic_s_unlink');
             } else {
@@ -114,8 +114,8 @@ export default function onloadNavigation () {
          */
         $(document).on('mouseout', '#pma_navigation_sync', function (event) {
             event.preventDefault();
-            var synced = $('#pma_navigation_tree').hasClass('synced');
-            var $img = $('#pma_navigation_sync').children('img');
+            const synced = $('#pma_navigation_tree').hasClass('synced');
+            const $img = $('#pma_navigation_sync').children('img');
             if (synced) {
                 $img.removeClass('ic_s_unlink').addClass('ic_s_link');
             } else {
@@ -129,8 +129,8 @@ export default function onloadNavigation () {
          */
         $(document).on('click', '#pma_navigation_sync', function (event) {
             event.preventDefault();
-            var synced = $('#pma_navigation_tree').hasClass('synced');
-            var $img = $('#pma_navigation_sync').children('img');
+            const synced = $('#pma_navigation_tree').hasClass('synced');
+            const $img = $('#pma_navigation_sync').children('img');
             if (synced) {
                 $img
                     .removeClass('ic_s_unlink')
@@ -200,8 +200,8 @@ export default function onloadNavigation () {
         /** Hide navigation tree item */
         $(document).on('click', 'a.hideNavItem.ajax', function (event) {
             event.preventDefault();
-            var argSep = CommonParams.get('arg_separator');
-            var params = $(this).getPostData();
+            const argSep = CommonParams.get('arg_separator');
+            let params = $(this).getPostData();
             params += argSep + 'ajax_request=true' + argSep + 'server=' + CommonParams.get('server');
             $.ajax({
                 type: 'POST',
@@ -220,9 +220,9 @@ export default function onloadNavigation () {
         /** Display a dialog to choose hidden navigation items to show */
         $(document).on('click', 'a.showUnhide.ajax', function (event) {
             event.preventDefault();
-            var $msg = ajaxShowMessage();
-            var argSep = CommonParams.get('arg_separator');
-            var params = $(this).getPostData();
+            const $msg = ajaxShowMessage();
+            const argSep = CommonParams.get('arg_separator');
+            let params = $(this).getPostData();
             params += argSep + 'ajax_request=true';
             $.post($(this).attr('href'), params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
@@ -238,10 +238,10 @@ export default function onloadNavigation () {
         /** Show a hidden navigation tree item */
         $(document).on('click', 'a.unhideNavItem.ajax', function (event) {
             event.preventDefault();
-            var $tr = $(this).parents('tr');
-            var $msg = ajaxShowMessage();
-            var argSep = CommonParams.get('arg_separator');
-            var params = $(this).getPostData();
+            const $tr = $(this).parents('tr');
+            const $msg = ajaxShowMessage();
+            const argSep = CommonParams.get('arg_separator');
+            let params = $(this).getPostData();
             params += argSep + 'ajax_request=true' + argSep + 'server=' + CommonParams.get('server');
             $.ajax({
                 type: 'POST',
@@ -262,9 +262,9 @@ export default function onloadNavigation () {
         // Add/Remove favorite table using Ajax.
         $(document).on('click', '.favorite_table_anchor', function (event) {
             event.preventDefault();
-            var $self = $(this);
+            const $self = $(this);
             if ($self.data('favtargetn') !== null) {
-                var $dataFavTargets = $('a[data-favtargets="' + $self.data('favtargetn') + '"]');
+                const $dataFavTargets = $('a[data-favtargets="' + $self.data('favtargetn') + '"]');
                 if ($dataFavTargets.length > 0) {
                     $dataFavTargets.trigger('click');
 
@@ -272,7 +272,7 @@ export default function onloadNavigation () {
                 }
             }
 
-            var hasLocalStorage = isStorageSupported('localStorage') &&
+            const hasLocalStorage = isStorageSupported('localStorage') &&
                 typeof window.localStorage.favoriteTables !== 'undefined';
             $.ajax({
                 url: $self.attr('href'),
@@ -302,7 +302,7 @@ export default function onloadNavigation () {
 
         // Check if session storage is supported
         if (isStorageSupported('sessionStorage')) {
-            var storage = window.sessionStorage;
+            const storage = window.sessionStorage;
             // remove tree from storage if Navi_panel config form is submitted
             $(document).on('submit', 'form.config-form', function () {
                 storage.removeItem('navTreePaths');

@@ -16,13 +16,13 @@ import chartByteFormatter from '../../modules/functions/chartByteFormatter.ts';
  * @requires    jQueryUI
  */
 
-var runtime: { [k: string]: any } = {};
-var serverTimeDiff;
-var serverOs;
-var isSuperUser;
-var serverDbIsLocal;
-var chartSize;
-var monitorSettings;
+let runtime: { [k: string]: any } = {};
+let serverTimeDiff;
+let serverOs;
+let isSuperUser;
+let serverDbIsLocal;
+let chartSize;
+let monitorSettings;
 
 function serverResponseError () {
     bootstrap.Modal.getOrCreateInstance('#serverResponseErrorModal').show();
@@ -65,7 +65,7 @@ function destroyGrid () {
 }
 
 AJAX.registerOnload('server/status/monitor.js', function () {
-    var $jsDataForm = $('#js_data');
+    const $jsDataForm = $('#js_data');
     serverTimeDiff = new Date().getTime() - Number($jsDataForm.find('input[name=server_time]').val());
     serverOs = $jsDataForm.find('input[name=server_os]').val();
     isSuperUser = $jsDataForm.find('input[name=is_superuser]').val();
@@ -121,7 +121,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
     $('#loadingMonitorIcon').remove();
     // Codemirror is loaded on demand so we might need to initialize it
     if (! window.codeMirrorEditor) {
-        var $elm = ($('#sqlquery') as JQuery<HTMLTextAreaElement>);
+        const $elm = ($('#sqlquery') as JQuery<HTMLTextAreaElement>);
         if ($elm.length > 0 && typeof window.CodeMirror !== 'undefined') {
             window.codeMirrorEditor = window.CodeMirror.fromTextArea(
                 $elm[0],
@@ -145,16 +145,16 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
     /** ** Monitor charting implementation ****/
     /* Saves the previous ajax response for differential values */
-    var oldChartData = null;
+    let oldChartData = null;
     // Holds about to be created chart
-    var newChart = null;
-    var chartSpacing;
+    let newChart = null;
+    let chartSpacing;
 
     // Whenever the monitor object (runtime.charts) or the settings object
     // (monitorSettings) changes in a way incompatible to the previous version,
     // increase this number. It will reset the users monitor and settings object
     // in their localStorage to the default configuration
-    var monitorProtocolVersion = '1.0';
+    const monitorProtocolVersion = '1.0';
 
     // Runtime parameter of the monitor, is being fully set in initGrid()
     runtime = {
@@ -180,58 +180,58 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
     monitorSettings = null;
 
-    var defaultMonitorSettings = {
+    const defaultMonitorSettings = {
         columns: 3,
         chartSize: { width: 295, height: 250 },
         // Max points in each chart. Settings it to 'auto' sets
         // gridMaxPoints to (chartwidth - 40) / 12
         gridMaxPoints: 'auto',
         /* Refresh rate of all grid charts in ms */
-        gridRefresh: 5000
+        gridRefresh: 5000,
     };
 
     // Allows drag and drop rearrange and print/edit icons on charts
-    var editMode = false;
+    let editMode = false;
 
     /* List of preconfigured charts that the user may select */
-    var presetCharts: { [p: string]: any } = {
+    const presetCharts: { [p: string]: any } = {
         // Query cache efficiency
         'qce': {
             title: window.Messages.strQueryCacheEfficiency,
             series: [
                 {
-                    label: window.Messages.strQueryCacheEfficiency
-                }
+                    label: window.Messages.strQueryCacheEfficiency,
+                },
             ],
             nodes: [
                 {
                     dataPoints: [{ type: 'statusvar', name: 'Qcache_hits' }, { type: 'statusvar', name: 'Com_select' }],
-                    transformFn: 'qce'
-                }
+                    transformFn: 'qce',
+                },
             ],
-            maxYLabel: 0
+            maxYLabel: 0,
         },
         // Query cache usage
         'qcu': {
             title: window.Messages.strQueryCacheUsage,
             series: [
                 {
-                    label: window.Messages.strQueryCacheUsed
-                }
+                    label: window.Messages.strQueryCacheUsed,
+                },
             ],
             nodes: [
                 {
                     dataPoints: [
                         { type: 'statusvar', name: 'Qcache_free_memory' }, {
                             type: 'servervar',
-                            name: 'query_cache_size'
-                        }
+                            name: 'query_cache_size',
+                        },
                     ],
-                    transformFn: 'qcu'
-                }
+                    transformFn: 'qcu',
+                },
             ],
-            maxYLabel: 0
-        }
+            maxYLabel: 0,
+        },
     };
 
     /* Add OS specific system info charts to the preset chart list */
@@ -385,45 +385,45 @@ AJAX.registerOnload('server/status/monitor.js', function () {
     }
 
     // Default setting for the chart grid
-    var defaultChartGrid: { [p: string]: any } = {
+    const defaultChartGrid: { [p: string]: any } = {
         'c0': {
             title: window.Messages.strQuestions,
             series: [{ label: window.Messages.strQuestions }],
             nodes: [{ dataPoints: [{ type: 'statusvar', name: 'Questions' }], display: 'differential' }],
-            maxYLabel: 0
+            maxYLabel: 0,
         },
         'c1': {
             title: window.Messages.strChartConnectionsTitle,
             series: [
                 { label: window.Messages.strConnections },
-                { label: window.Messages.strProcesses }
+                { label: window.Messages.strProcesses },
             ],
             nodes: [
                 { dataPoints: [{ type: 'statusvar', name: 'Connections' }], display: 'differential' },
-                { dataPoints: [{ type: 'proc', name: 'processes' }] }
+                { dataPoints: [{ type: 'proc', name: 'processes' }] },
             ],
-            maxYLabel: 0
+            maxYLabel: 0,
         },
         'c2': {
             title: window.Messages.strTraffic,
             series: [
                 { label: window.Messages.strBytesSent },
-                { label: window.Messages.strBytesReceived }
+                { label: window.Messages.strBytesReceived },
             ],
             nodes: [
                 {
                     dataPoints: [{ type: 'statusvar', name: 'Bytes_sent' }],
                     display: 'differential',
-                    valueDivisor: 1024
+                    valueDivisor: 1024,
                 },
                 {
                     dataPoints: [{ type: 'statusvar', name: 'Bytes_received' }],
                     display: 'differential',
-                    valueDivisor: 1024
-                }
+                    valueDivisor: 1024,
+                },
             ],
-            maxYLabel: 0
-        }
+            maxYLabel: 0,
+        },
     };
 
     // Server is localhost => We can add cpu/memory/swap to the default chart
@@ -475,10 +475,10 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         });
 
         /* Reorder all charts that it fills all column cells */
-        var numColumns;
-        var $tr = $('#chartGrid').find('tr').first();
+        let numColumns;
+        let $tr = $('#chartGrid').find('tr').first();
 
-        var tempManageCols = function () {
+        const tempManageCols = function () {
             if (numColumns > monitorSettings.columns) {
                 if ($tr.next().length === 0) {
                     $tr.after('<tr></tr>');
@@ -490,7 +490,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             numColumns++;
         };
 
-        var tempAddCol = function () {
+        const tempAddCol = function () {
             if ($(this).next().length !== 0) {
                 $(this).append($(this).next().find('td').first());
             }
@@ -504,8 +504,8 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             // To little cells in one row => for each cell to little,
             // move all cells backwards by 1
             if ($tr.next().length > 0) {
-                var cnt = monitorSettings.columns - $tr.find('td').length;
-                for (var i = 0; i < cnt; i++) {
+                const cnt = monitorSettings.columns - $tr.find('td').length;
+                for (let i = 0; i < cnt; i++) {
                     $tr.append($tr.next().find('td').first());
                     $tr.nextAll().each(tempAddCol);
                 }
@@ -547,7 +547,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
     $('#monitorAddNewChartButton').on('click', function (event) {
         $('#addChartButton').on('click', function () {
-            var type = $('input[name="chartType"]:checked').val();
+            const type = $('input[name="chartType"]:checked').val();
 
             if (type === 'preset') {
                 newChart = presetCharts[$('#addChartModal').find('select[name="presetCharts"]').prop('value')];
@@ -582,7 +582,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             $('#addChartButton').off('click');
         });
 
-        var $presetList = $('#addChartModal').find('select[name="presetCharts"]');
+        const $presetList = $('#addChartModal').find('select[name="presetCharts"]');
         if ($presetList.html().length === 0) {
             $.each(presetCharts, function (key, value) {
                 $presetList.append('<option value="' + key + '">' + value.title + '</option>');
@@ -621,7 +621,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
     });
 
     $('#monitorExportConfigButton').on('click', function () {
-        var gridCopy = {};
+        const gridCopy = {};
         $.each(runtime.charts, function (key, elem) {
             gridCopy[key] = {};
             gridCopy[key].nodes = elem.nodes;
@@ -631,14 +631,14 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             gridCopy[key].maxYLabel = elem.maxYLabel;
         });
 
-        var exportData = {
+        const exportData = {
             monitorCharts: gridCopy,
-            monitorSettings: monitorSettings
+            monitorSettings: monitorSettings,
         };
 
-        var blob = new Blob([JSON.stringify(exportData)], { type: 'application/octet-stream' });
-        var url = null;
-        var fileName = 'monitor-config.json';
+        let blob = new Blob([JSON.stringify(exportData)], { type: 'application/octet-stream' });
+        let url = null;
+        const fileName = 'monitor-config.json';
         // @ts-ignore
         if (window.navigator && window.navigator.msSaveOrOpenBlob) {
             // @ts-ignore
@@ -660,16 +660,16 @@ AJAX.registerOnload('server/status/monitor.js', function () {
     });
 
     function monitorImportConfigImportEventHandler () {
-        var input = ($('#monitorImportConfigModal').find('#import_file') as JQuery<HTMLInputElement>)[0];
-        var reader = new FileReader();
+        const input = ($('#monitorImportConfigModal').find('#import_file') as JQuery<HTMLInputElement>)[0];
+        const reader = new FileReader();
 
         reader.onerror = function (event) {
             alert(window.Messages.strFailedParsingConfig + '\n' + event.target.error.code);
         };
 
         reader.onload = function (e) {
-            var data = (e.target.result as string);
-            var json = null;
+            const data = (e.target.result as string);
+            let json = null;
             // Try loading config
             try {
                 json = JSON.parse(data);
@@ -752,7 +752,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
     const $dialog = $('#monitorInstructionsModal');
 
     function loadLogVars (getvars = undefined) {
-        var vars = {
+        const vars = {
             'ajax_request': true,
             'server': CommonParams.get('server'),
         };
@@ -762,7 +762,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
         $.post('index.php?route=/server/status/monitor/log-vars', vars,
             function (data) {
-                var logVars;
+                let logVars;
                 if (typeof data !== 'undefined' && data.success === true) {
                     logVars = data.message;
                 } else {
@@ -772,9 +772,9 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                     return;
                 }
 
-                var icon = getImageTag('s_success');
-                var msg = '';
-                var str = '';
+                let icon = getImageTag('s_success');
+                let msg = '';
+                let str = '';
 
                 if (logVars.general_log === 'ON') {
                     if (logVars.slow_query_log === 'ON') {
@@ -823,7 +823,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                     str += '<div class="smallIndent">';
                     str += window.Messages.strSettingsAppliedGlobal + '<br>';
 
-                    var varValue: string | number = 'TABLE';
+                    let varValue: string | number = 'TABLE';
                     if (logVars.log_output === 'TABLE') {
                         varValue = 'FILE';
                     }
@@ -873,7 +873,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 $dialog.find('div.ajaxContent').html(str);
                 $dialog.find('img.ajaxIcon').hide();
                 $dialog.find('a.set').on('click', function () {
-                    var nameValue = $(this).attr('href').split('-');
+                    const nameValue = $(this).attr('href').split('-');
                     loadLogVars({ varName: nameValue[0].substring(1), varValue: nameValue[1] });
                     $dialog.find('img.ajaxIcon').show();
                 });
@@ -888,7 +888,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
     ($('input[name="chartType"]') as JQuery<HTMLInputElement>).on('change', function () {
         $('#chartVariableSettings').toggle(this.checked && this.value === 'variable');
-        var title = $('input[name="chartTitle"]').val();
+        const title = $('input[name="chartTitle"]').val();
         if (title === window.Messages.strChartTitle ||
             title === $('label[for="' + $('input[name="chartTitle"]').data('lastRadio') + '"]').text()
         ) {
@@ -956,9 +956,9 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             };
         }
 
-        var serie: { [p: string]: any } = {
+        const serie: { [p: string]: any } = {
             dataPoints: [{ type: 'statusvar', name: $('#variableInput').val() }],
-            display: $('input[name="differentialValue"]').prop('checked') ? 'differential' : ''
+            display: $('input[name="differentialValue"]').prop('checked') ? 'differential' : '',
         };
 
         if (serie.dataPoints[0].name === 'Processes') {
@@ -973,12 +973,12 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             serie.unit = $('input[name="valueUnit"]').val();
         }
 
-        var str = serie.display === 'differential' ? ', ' + window.Messages.strDifferential : '';
+        let str = serie.display === 'differential' ? ', ' + window.Messages.strDifferential : '';
         str += serie.valueDivisor ? (', ' + window.sprintf(window.Messages.strDividedBy, serie.valueDivisor)) : '';
         str += serie.unit ? (', ' + window.Messages.strUnit + ': ' + serie.unit) : '';
 
-        var newSeries = {
-            label: ($('#variableInput').val() as string).replace(/_/g, ' ')
+        const newSeries = {
+            label: ($('#variableInput').val() as string).replace(/_/g, ' '),
         };
         newChart.series.push(newSeries);
         $('#seriesPreview').append('- ' + escapeHtml(newSeries.label + str) + '<br>');
@@ -1002,7 +1002,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
     /* Initializes the monitor, called only once */
     function initGrid () {
-        var i;
+        let i;
 
         /* Apply default values & config */
         if (isStorageSupported('localStorage')) {
@@ -1056,7 +1056,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         $('#chartGrid').html('');
 
         /* Add all charts - in correct order */
-        var keys = [];
+        const keys = [];
         $.each(runtime.charts, function (key) {
             keys.push(key);
         });
@@ -1067,8 +1067,8 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         }
 
         /* Fill in missing cells */
-        var numCharts = $('#chartGrid').find('.monitorChart').length;
-        var numMissingCells = (monitorSettings.columns - numCharts % monitorSettings.columns) % monitorSettings.columns;
+        const numCharts = $('#chartGrid').find('.monitorChart').length;
+        const numMissingCells = (monitorSettings.columns - numCharts % monitorSettings.columns) % monitorSettings.columns;
         for (i = 0; i < numMissingCells; i++) {
             $('#chartGrid').find('tr').last().append('<td></td>');
         }
@@ -1084,13 +1084,17 @@ AJAX.registerOnload('server/status/monitor.js', function () {
     /* Calls destroyGrid() and initGrid(), but before doing so it saves the chart
      * data from each chart and restores it after the monitor is initialized again */
     function rebuildGrid () {
-        var oldData = null;
+        let oldData = null;
         if (runtime.charts) {
             oldData = {};
             $.each(runtime.charts, function (key, chartObj) {
-                for (var i = 0, l = chartObj.nodes.length; i < l; i++) {
+                let i = 0;
+                const l = chartObj.nodes.length;
+                for (; i < l; i++) {
                     oldData[chartObj.nodes[i].dataPoint] = [];
-                    for (var j = 0, ll = chartObj.chart.data.datasets[i].data.length; j < ll; j++) {
+                    let j = 0;
+                    const ll = chartObj.chart.data.datasets[i].data.length;
+                    for (; j < ll; j++) {
                         oldData[chartObj.nodes[i].dataPoint].push([chartObj.chart.data.datasets[i].data[j].x, chartObj.chart.data.datasets[i].data[j].y]);
                     }
                 }
@@ -1103,15 +1107,15 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
     /* Calculates the dynamic chart size that depends on the column width */
     function calculateChartSize () {
-        var panelWidth;
+        let panelWidth;
         if ($('body').height() > $(window).height()) { // has vertical scroll bar
             panelWidth = $('#logTable').innerWidth();
         } else {
             panelWidth = $('#logTable').innerWidth() - 10; // leave some space for vertical scroll bar
         }
 
-        var wdt = panelWidth;
-        var windowWidth = $(window).width();
+        let wdt = panelWidth;
+        const windowWidth = $(window).width();
 
         if (windowWidth > 768) {
             wdt = (panelWidth - monitorSettings.columns * Math.abs(chartSpacing.width)) / monitorSettings.columns;
@@ -1125,42 +1129,42 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
     /* Adds a chart to the chart grid */
     function addChart (chartObj, initialize = undefined) {
-        var i;
-        var settings: { [p: string]: any } = {
+        let i;
+        const settings: { [p: string]: any } = {
             title: escapeHtml(chartObj.title),
             grid: {
                 drawBorder: false,
                 shadow: false,
-                background: 'rgba(0,0,0,0)'
+                background: 'rgba(0,0,0,0)',
             },
             axes: {
                 xaxis: {
                     tickOptions: {
                         formatString: '%H:%M:%S',
-                        showGridline: false
+                        showGridline: false,
                     },
                     min: runtime.xmin,
-                    max: runtime.xmax
+                    max: runtime.xmax,
                 },
                 yaxis: {
                     min: 0,
                     max: 100,
-                    tickInterval: 20
-                }
+                    tickInterval: 20,
+                },
             },
             seriesDefaults: {
                 rendererOptions: {
-                    smooth: true
+                    smooth: true,
                 },
                 showLine: true,
                 lineWidth: 2,
                 markerOptions: {
-                    size: 6
-                }
+                    size: 6,
+                },
             },
             highlighter: {
-                show: true
-            }
+                show: true,
+            },
         };
 
         if (settings.title === window.Messages.strSystemCPUUsage ||
@@ -1199,7 +1203,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         settings.series = chartObj.series;
 
         if ($('#' + 'gridChartCanvas' + runtime.chartAI).length === 0) {
-            var numCharts = $('#chartGrid').find('.monitorChart').length;
+            const numCharts = $('#chartGrid').find('.monitorChart').length;
 
             if (numCharts === 0 || (numCharts % monitorSettings.columns === 0)) {
                 $('#chartGrid').append('<tr></tr>');
@@ -1219,18 +1223,18 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
         // Set series' data as [0,0], smooth lines won't plot with data array having null values.
         // also chart won't plot initially with no data and data comes on refreshChartGrid()
-        var series = [];
+        const series = [];
         for (i in chartObj.series) {
             series.push([[0, 0]]);
         }
 
-        var tempTooltipContentEditor = function (str, seriesIndex, pointIndex, plot) {
-            var j;
+        const tempTooltipContentEditor = function (str, seriesIndex, pointIndex, plot) {
+            let j;
             // TODO: move style to theme CSS
-            var tooltipHtml = '<div id="tooltip_editor">';
+            let tooltipHtml = '<div id="tooltip_editor">';
             // x value i.e. time
-            var timeValue = str.split(',')[0];
-            var seriesValue;
+            const timeValue = str.split(',')[0];
+            let seriesValue;
             tooltipHtml += 'Time: ' + timeValue;
             tooltipHtml += '<span id="tooltip_font">';
             // Add y values to the tooltip per series
@@ -1242,8 +1246,8 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                     return;
                 }
 
-                var seriesLabel = plot.series[j].label;
-                var seriesColor = plot.series[j].color;
+                const seriesLabel = plot.series[j].label;
+                const seriesColor = plot.series[j].color;
                 // format y value
                 if (plot.series[0]._yaxis.tickOptions.formatter) { // eslint-disable-line no-underscore-dangle
                     // using formatter function
@@ -1405,8 +1409,8 @@ AJAX.registerOnload('server/status/monitor.js', function () {
     }
 
     function loadLog (type: string, min: Date, max: Date) {
-        var dateStart = Date.parse($('#logAnalyseDialog').find('input[name="dateStart"]').datepicker('getDate').toString()) || min;
-        var dateEnd = Date.parse($('#logAnalyseDialog').find('input[name="dateEnd"]').datepicker('getDate').toString()) || max;
+        const dateStart = Date.parse($('#logAnalyseDialog').find('input[name="dateStart"]').datepicker('getDate').toString()) || min;
+        const dateEnd = Date.parse($('#logAnalyseDialog').find('input[name="dateEnd"]').datepicker('getDate').toString()) || max;
 
         loadLogStatistics({
             src: type,
@@ -1425,7 +1429,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             'requiredData': JSON.stringify(runtime.dataList),
             'server': CommonParams.get('server')
         }, function (data) {
-            var chartData;
+            let chartData;
             if (typeof data !== 'undefined' && data.success === true) {
                 chartData = data.message;
             } else {
@@ -1434,14 +1438,14 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 return;
             }
 
-            var value;
-            var i = 0;
-            var diff;
-            var total;
+            let value;
+            let i = 0;
+            let diff;
+            let total;
 
             /* Update values in each graph */
             $.each(runtime.charts, function (orderKey, elem) {
-                var key = elem.chartID;
+                const key = elem.chartID;
                 // If newly added chart, we have no data for it yet
                 if (! chartData[key]) {
                     return;
@@ -1449,7 +1453,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
                 // Draw all series
                 total = 0;
-                for (var j = 0; j < elem.nodes.length; j++) {
+                for (let j = 0; j < elem.nodes.length; j++) {
                     // Update x-axis
                     if (i === 0 && j === 0) {
                         if (oldChartData === null) {
@@ -1535,7 +1539,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
                 // update chart options
                 // keep ticks number/positioning consistent while refreshrate changes
-                var tickInterval = (runtime.xmax - runtime.xmin) / 5;
+                const tickInterval = (runtime.xmax - runtime.xmin) / 5;
                 elem.chart.data.labels = [
                     (runtime.xmax - tickInterval * 4),
                     (runtime.xmax - tickInterval * 3),
@@ -1577,7 +1581,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
      * Function to get the highest plotted point's y label, to scale the chart.
      */
     function getMaxYLabel (dataValues) {
-        var maxY = dataValues[0].y;
+        let maxY = dataValues[0].y;
         $.each(dataValues, function (k, v) {
             maxY = (v.y > maxY) ? v.y : maxY;
         });
@@ -1587,6 +1591,12 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
     /* Function that supplies special value transform functions for chart values */
     function chartValueTransform (name, cur, prev) {
+        let newCur;
+        let newPrev;
+        let diffTotal;
+        let diffIdle;
+        let diffQHits;
+
         switch (name) {
         case 'cpu-linux':
             if (prev === null) {
@@ -1595,11 +1605,11 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
             // cur and prev are datapoint arrays, but containing
             // only 1 element for cpu-linux
-            var newCur = cur[0];
-            var newPrev = prev[0];
+            newCur = cur[0];
+            newPrev = prev[0];
 
-            var diffTotal = newCur.busy + newCur.idle - (newPrev.busy + newPrev.idle);
-            var diffIdle = newCur.idle - newPrev.idle;
+            diffTotal = newCur.busy + newCur.idle - (newPrev.busy + newPrev.idle);
+            diffIdle = newCur.idle - newPrev.idle;
 
             return 100 * (diffTotal - diffIdle) / diffTotal;
 
@@ -1610,7 +1620,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             }
 
             // cur[0].value is Qcache_hits, cur[1].value is Com_select
-            var diffQHits = cur[0].value - prev[0].value;
+            diffQHits = cur[0].value - prev[0].value;
             // No NaN please :-)
             if (cur[1].value - prev[1].value === 0) {
                 return 0;
@@ -1638,10 +1648,12 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         runtime.dataList = {};
         // Store an own id, because the property name is subject of reordering,
         // thus destroying our mapping with runtime.charts <=> runtime.dataList
-        var chartID = 0;
+        let chartID = 0;
         $.each(runtime.charts, function (key, chart) {
             runtime.dataList[chartID] = [];
-            for (var i = 0, l = chart.nodes.length; i < l; i++) {
+            let i = 0;
+            const l = chart.nodes.length;
+            for (; i < l; i++) {
                 runtime.dataList[chartID][i] = chart.nodes[i].dataPoints;
             }
 
@@ -1652,7 +1664,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
     /* Loads the log table data, generates the table and handles the filters */
     function loadLogStatistics (opts) {
-        var logRequest = null;
+        let logRequest = null;
 
         if (! opts.removeVariables) {
             opts.removeVariables = false;
@@ -1672,7 +1684,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
         bootstrap.Modal.getOrCreateInstance(analysingLogsModal).show();
 
-        var url = 'index.php?route=/server/status/monitor/slow-log';
+        let url = 'index.php?route=/server/status/monitor/slow-log';
         if (opts.src === 'general') {
             url = 'index.php?route=/server/status/monitor/general-log';
         }
@@ -1688,7 +1700,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 'server': CommonParams.get('server')
             },
             function (data) {
-                var logData;
+                let logData;
                 if (typeof data !== 'undefined' && data.success === true) {
                     logData = data.message;
                 } else {
@@ -1709,7 +1721,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
                 const analysingLogsLogDataLoadedModalBody = $('#analysingLogsLogDataLoadedModal .modal-body');
                 $.each(logData.sum, function (key: string, value) {
-                    var newKey = key.charAt(0).toUpperCase() + key.slice(1).toLowerCase();
+                    let newKey = key.charAt(0).toUpperCase() + key.slice(1).toLowerCase();
                     if (newKey === 'Total') {
                         newKey = '<b>' + newKey + '</b>';
                     }
@@ -1777,8 +1789,8 @@ AJAX.registerOnload('server/status/monitor.js', function () {
          *                to group queries ignoring data in WHERE clauses
          */
         function filterQueries (varFilterChange) {
-            var textFilter;
-            var val = ($('#filterQueryText').val() as string);
+            let textFilter;
+            const val = ($('#filterQueryText').val() as string);
 
             if (val.length === 0) {
                 textFilter = null;
@@ -1794,25 +1806,25 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 }
             }
 
-            var rowSum = 0;
-            var totalSum = 0;
-            var i = 0;
-            var q;
-            var noVars = $('#noWHEREData').prop('checked');
-            var equalsFilter = /([^=]+)=(\d+|(('|"|).*?[^\\])\4((\s+)|$))/gi;
-            var functionFilter = /([a-z0-9_]+)\(.+?\)/gi;
-            var filteredQueries = {};
-            var filteredQueriesLines = {};
-            var hide = false;
-            var rowData;
-            var queryColumnName = runtime.logDataCols[runtime.logDataCols.length - 2];
-            var sumColumnName = runtime.logDataCols[runtime.logDataCols.length - 1];
-            var isSlowLog = opts.src === 'slow';
-            var columnSums = {};
+            let rowSum = 0;
+            let totalSum = 0;
+            let i = 0;
+            let q;
+            const noVars = $('#noWHEREData').prop('checked');
+            const equalsFilter = /([^=]+)=(\d+|(('|"|).*?[^\\])\4((\s+)|$))/gi;
+            const functionFilter = /([a-z0-9_]+)\(.+?\)/gi;
+            const filteredQueries = {};
+            const filteredQueriesLines = {};
+            let hide = false;
+            let rowData;
+            const queryColumnName = runtime.logDataCols[runtime.logDataCols.length - 2];
+            const sumColumnName = runtime.logDataCols[runtime.logDataCols.length - 1];
+            const isSlowLog = opts.src === 'slow';
+            const columnSums = {};
 
             // For the slow log we have to count many columns (query_time, lock_time, rows_examined, rows_sent, etc.)
-            var countRow = function (query, row) {
-                var cells = row.match(/<td>(.*?)<\/td>/gi);
+            const countRow = function (query, row) {
+                const cells = row.match(/<td>(.*?)<\/td>/gi);
                 if (! columnSums[query]) {
                     columnSums[query] = [0, 0, 0, 0];
                 }
@@ -1827,7 +1839,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
             // We just assume the sql text is always in the second last column, and that the total count is right of it
             $('#logTable').find('table tbody tr td.queryCell').each(function () {
-                var $t = $(this);
+                const $t = $(this);
                 // If query is a SELECT and user enabled or disabled to group
                 // queries ignoring data in where statements, we
                 // need to re-calculate the sums of each row
@@ -1893,9 +1905,9 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             // We finished summarizing counts => Update count values of all grouped entries
             if (varFilterChange) {
                 if (noVars) {
-                    var numCol;
-                    var row;
-                    var $table = $('#logTable').find('table tbody');
+                    let numCol;
+                    let row;
+                    const $table = $('#logTable').find('table tbody');
                     $.each(filteredQueriesLines, function (key, value) {
                         if (filteredQueries[key] <= 1) {
                             return;
@@ -1930,17 +1942,17 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
     /* Turns a timespan (12:12:12) into a number */
     function timeToSec (timeStr) {
-        var time = timeStr.split(':');
+        const time = timeStr.split(':');
 
         return (parseInt(time[0], 10) * 3600) + (parseInt(time[1], 10) * 60) + parseInt(time[2], 10);
     }
 
     /* Turns a number into a timespan (100 into 00:01:40) */
     function secToTime (timeInt) {
-        var time = timeInt;
-        var hours: number | string = Math.floor(time / 3600);
+        let time = timeInt;
+        let hours: number | string = Math.floor(time / 3600);
         time -= hours * 3600;
-        var minutes: number | string = Math.floor(time / 60);
+        let minutes: number | string = Math.floor(time / 60);
         time -= minutes * 60;
 
         if (hours < 10) {
@@ -1960,21 +1972,21 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
     /* Constructs the log table out of the retrieved server data */
     function buildLogTable (data, groupInserts) {
-        var rows = data.rows;
-        var cols = [];
-        var $table = $('<table class="table table-striped table-hover align-middle sortable"></table>');
-        var $tBody;
-        var $tRow;
-        var $tCell;
+        const rows = data.rows;
+        const cols = [];
+        const $table = $('<table class="table table-striped table-hover align-middle sortable"></table>');
+        let $tBody;
+        let $tRow;
+        let $tCell;
 
         // @ts-ignore
         $('#logTable').html($table);
 
-        var tempPushKey = function (key) {
+        const tempPushKey = function (key) {
             cols.push(key);
         };
 
-        var formatValue = function (name, value) {
+        const formatValue = function (name, value) {
             if (name === 'user_host') {
                 return value.replace(/(\[.*?\])+/g, '');
             }
@@ -1982,7 +1994,9 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             return escapeHtml(value);
         };
 
-        for (var i = 0, l = rows.length; i < l; i++) {
+        let i = 0;
+        const l = rows.length;
+        for (; i < l; i++) {
             if (i === 0) {
                 $.each(rows[0], tempPushKey);
                 $table.append('<thead>' +
@@ -1994,7 +2008,9 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             }
 
             $tBody.append($tRow = $('<tr class="noclick"></tr>'));
-            for (var j = 0, ll = cols.length; j < ll; j++) {
+            let j = 0;
+            const ll = cols.length;
+            for (; j < ll; j++) {
                 // Assuming the query column is the second last
                 if (j === cols.length - 2 && rows[i][cols[j]].match(/^SELECT/i)) {
                     $tRow.append($tCell = $('<td class="linkElem queryCell">' + formatValue(cols[j], rows[i][cols[j]]) + '</td>'));
@@ -2084,8 +2100,8 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
     /* Loads and displays the analyzed query data */
     function loadQueryAnalysis (rowData) {
-        var db = rowData.db || '';
-        var profilingChart = null;
+        const db = rowData.db || '';
+        let profilingChart = null;
 
         $('#queryAnalyzerDialog').find('div.placeHolder').html(
             window.Messages.strAnalyzing + ' <img class="ajaxIcon" src="' +
@@ -2097,9 +2113,9 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             'database': db,
             'server': CommonParams.get('server')
         }, function (responseData) {
-            var data = responseData;
-            var i;
-            var l;
+            let data = responseData;
+            let i;
+            let l;
             if (typeof data !== 'undefined' && data.success === true) {
                 data = data.message;
             }
@@ -2114,12 +2130,12 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 return;
             }
 
-            var totalTime = 0;
+            let totalTime = 0;
             // Float sux, I'll use table :(
             $('#queryAnalyzerDialog').find('div.placeHolder')
                 .html('<table class="table table-borderless"><tr><td class="explain"></td><td class="chart"></td></tr></table>');
 
-            var explain = '<b>' + window.Messages.strExplainOutput + '</b> ' + $('#explain_docu').html();
+            let explain = '<b>' + window.Messages.strExplainOutput + '</b> ' + $('#explain_docu').html();
             if (data.explain.length > 1) {
                 explain += ' (';
                 for (i = 0; i < data.explain.length; i++) {
@@ -2135,8 +2151,8 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
             explain += '<p></p>';
 
-            var tempExplain = function (key, value) {
-                var newValue = (value === null) ? 'null' : escapeHtml(value);
+            const tempExplain = function (key, value) {
+                let newValue = (value === null) ? 'null' : escapeHtml(value);
 
                 if (key === 'type' && newValue.toLowerCase() === 'all') {
                     newValue = '<span class="text-danger">' + newValue + '</span>';
@@ -2160,16 +2176,16 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             $('#queryAnalyzerDialog').find('div.placeHolder td.explain').append(explain);
 
             $('#queryAnalyzerDialog').find('div.placeHolder a[href*="#showExplain"]').on('click', function () {
-                var id = $(this).attr('href').split('-')[1];
+                const id = $(this).attr('href').split('-')[1];
                 $(this).parent().find('div[class*="explain"]').hide();
                 $(this).parent().find('div[class*="explain-' + id + '"]').show();
             });
 
             if (data.profiling) {
-                var chartData = [];
-                var numberTable = '<table class="table table-sm table-striped table-hover w-auto queryNums"><thead><tr><th>' + window.Messages.strStatus + '</th><th>' + window.Messages.strTime + '</th></tr></thead><tbody>';
-                var duration;
-                var otherTime = 0;
+                const chartData = [];
+                let numberTable = '<table class="table table-sm table-striped table-hover w-auto queryNums"><thead><tr><th>' + window.Messages.strStatus + '</th><th>' + window.Messages.strTime + '</th></tr></thead><tbody>';
+                let duration;
+                let otherTime = 0;
 
                 for (i = 0, l = data.profiling.length; i < l; i++) {
                     duration = parseFloat(data.profiling[i].duration);
@@ -2225,7 +2241,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
     /* Saves the monitor to localstorage */
     function saveMonitor () {
-        var gridCopy = {};
+        const gridCopy = {};
 
         $.each(runtime.charts, function (key, elem) {
             gridCopy[key] = {};

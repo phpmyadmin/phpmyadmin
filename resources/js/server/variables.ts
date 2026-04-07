@@ -18,8 +18,8 @@ AJAX.registerTeardown('server/variables.js', function () {
 });
 
 AJAX.registerOnload('server/variables.js', function () {
-    var $saveLink = $('a.saveLink');
-    var $cancelLink = $('a.cancelLink');
+    const $saveLink = $('a.saveLink');
+    const $cancelLink = $('a.cancelLink');
 
     $('#serverVariables').find('.var-name').find('a').append(
         $('#docImage').clone().css('display', 'inline-block')
@@ -33,20 +33,20 @@ AJAX.registerOnload('server/variables.js', function () {
 
     /* Allows the user to edit a server variable */
     function editVariable (link) {
-        var $link = $(link);
-        var $cell = $link.parent();
-        var $valueCell = $link.parents('.var-row').find('.var-value');
-        var varName = $link.data('variable');
+        const $link = $(link);
+        const $cell = $link.parent();
+        const $valueCell = $link.parents('.var-row').find('.var-value');
+        const varName = $link.data('variable');
 
-        var $mySaveLink = $saveLink.clone().css('display', 'inline-block');
-        var $myCancelLink = $cancelLink.clone().css('display', 'inline-block');
-        var $msgbox = ajaxShowMessage();
-        var $myEditLink = $cell.find('a.editLink');
+        const $mySaveLink = $saveLink.clone().css('display', 'inline-block');
+        const $myCancelLink = $cancelLink.clone().css('display', 'inline-block');
+        const $msgbox = ajaxShowMessage();
+        const $myEditLink = $cell.find('a.editLink');
         $cell.addClass('edit'); // variable is being edited
         $myEditLink.remove(); // remove edit link
 
         $mySaveLink.on('click', function () {
-            var $msgbox = ajaxShowMessage(window.Messages.strProcessingRequest);
+            const $msgbox = ajaxShowMessage(window.Messages.strProcessingRequest);
             $.post('index.php?route=/server/variables/set/' + encodeURIComponent(varName), {
                 'ajax_request': true,
                 'server': CommonParams.get('server'),
@@ -90,15 +90,15 @@ AJAX.registerOnload('server/variables.js', function () {
             'server': CommonParams.get('server')
         }, function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
-                var $links = $('<div></div>')
+                const $links = $('<div></div>')
                     .append($myCancelLink)
                     .append('&nbsp;&nbsp;&nbsp;')
                     .append($mySaveLink);
-                var $editor = $('<div></div>', { 'class': 'serverVariableEditor' })
+                const $editor = $('<div></div>', { 'class': 'serverVariableEditor' })
                     .append(
                         $('<div></div>').append(
-                            $('<input>', { type: 'text', 'class': 'form-control form-control-sm' }).val(data.message)
-                        )
+                            $('<input>', { type: 'text', 'class': 'form-control form-control-sm' }).val(data.message),
+                        ),
                     );
                 // Save and replace content
                 $cell

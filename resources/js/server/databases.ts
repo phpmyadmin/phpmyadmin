@@ -18,12 +18,12 @@ const DropDatabases = {
     handleEvent: function (event) {
         event.preventDefault();
 
-        var $form = $(this);
+        const $form = $(this);
 
         /**
          * @var selected_dbs Array containing the names of the checked databases
          */
-        var selectedDbs = [];
+        const selectedDbs = [];
         // loop over all checked checkboxes, except the .checkall_box checkbox
         $form.find('input:checkbox:checked:not(.checkall_box)').each(function () {
             $(this).closest('tr').addClass('removeMe');
@@ -44,7 +44,7 @@ const DropDatabases = {
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = window.Messages.strDropDatabaseStrongWarning + ' ' +
+        const question = window.Messages.strDropDatabaseStrongWarning + ' ' +
             window.sprintf(window.Messages.strDoYouReally, selectedDbs.join('<br>'));
 
         const modal = $('#dropDatabaseModal');
@@ -56,16 +56,16 @@ const DropDatabases = {
         $('#dropDatabaseModalDropButton').on('click', function () {
             ajaxShowMessage(window.Messages.strProcessingRequest, false);
 
-            var parts = url.split('?');
-            var params = getJsConfirmCommonParam(this, parts[1]);
+            const parts = url.split('?');
+            const params = getJsConfirmCommonParam(this, parts[1]);
 
             $.post(parts[0], params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     ajaxShowMessage(data.message);
 
-                    var $rowsToRemove = $form.find('tr.removeMe');
-                    var $databasesCount = $('#filter-rows-count');
-                    var newCount = parseInt($databasesCount.text(), 10) - $rowsToRemove.length;
+                    const $rowsToRemove = $form.find('tr.removeMe');
+                    const $databasesCount = $('#filter-rows-count');
+                    const newCount = parseInt($databasesCount.text(), 10) - $rowsToRemove.length;
                     $databasesCount.text(newCount);
 
                     $rowsToRemove.remove();
@@ -98,10 +98,10 @@ const CreateDatabase = {
     handleEvent: function (event) {
         event.preventDefault();
 
-        var $form = $(this);
+        const $form = $(this);
 
         // TODO Remove this section when all browsers support HTML5 "required" property
-        var newDbNameInput = $form.find('input[name=new_db]');
+        const newDbNameInput = $form.find('input[name=new_db]');
         if (newDbNameInput.val() === '') {
             newDbNameInput.trigger('focus');
             alert(window.Messages.strFormEmpty);
@@ -117,15 +117,15 @@ const CreateDatabase = {
             if (typeof data !== 'undefined' && data.success === true) {
                 ajaxShowMessage(data.message);
 
-                var $databasesCountObject = $('#filter-rows-count');
-                var databasesCount = parseInt($databasesCountObject.text(), 10) + 1;
+                const $databasesCountObject = $('#filter-rows-count');
+                const databasesCount = parseInt($databasesCountObject.text(), 10) + 1;
                 $databasesCountObject.text(databasesCount);
                 Navigation.reload();
 
                 // make ajax request to load db structure page - taken from ajax.js
-                var dbStructUrl = data.url;
+                let dbStructUrl = data.url;
                 dbStructUrl = dbStructUrl.replace(/amp;/ig, '');
-                var params = 'ajax_request=true' + CommonParams.get('arg_separator') + 'ajax_page_request=true';
+                const params = 'ajax_request=true' + CommonParams.get('arg_separator') + 'ajax_page_request=true';
                 $.get(dbStructUrl, params, AJAX.responseHandler);
             } else {
                 ajaxShowMessage(data.error, false);

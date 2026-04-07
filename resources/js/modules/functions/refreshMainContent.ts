@@ -8,7 +8,7 @@ import { CommonParams } from '../common.ts';
  *                  String to go to a different page, e.g: 'index.php'
  */
 export default function refreshMainContent (url = undefined): void {
-    var newUrl = url;
+    let newUrl = url;
     if (! newUrl) {
         newUrl = $('#selflink').find('a').attr('href') || window.location.pathname;
         newUrl = newUrl.substring(0, newUrl.indexOf('?'));

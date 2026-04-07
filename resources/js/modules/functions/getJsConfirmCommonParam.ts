@@ -7,9 +7,9 @@ import { CommonParams } from '../common.ts';
  * @return {string}
  */
 export default function getJsConfirmCommonParam (elem, parameters) {
-    var $elem = $(elem);
-    var params = parameters;
-    var sep = CommonParams.get('arg_separator');
+    const $elem = $(elem);
+    let params = parameters;
+    const sep = CommonParams.get('arg_separator');
     if (params) {
         // Strip possible leading ?
         if (params.startsWith('?')) {

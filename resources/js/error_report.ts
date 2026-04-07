@@ -15,7 +15,7 @@ declare global {
  * general function, usually for data manipulation pages
  *
  */
-var ErrorReport = {
+const ErrorReport = {
     /**
      * @var {object}, stores the last exception info
      */
@@ -44,10 +44,10 @@ var ErrorReport = {
         if (data.report_setting === 'ask') {
             ErrorReport.showErrorNotification();
         } else if (data.report_setting === 'always') {
-            var reportData = ErrorReport.getReportData(exception);
-            var postData = $.extend(reportData, {
+            const reportData = ErrorReport.getReportData(exception);
+            const postData = $.extend(reportData, {
                 'send_error_report': true,
-                'automatic': true
+                'automatic': true,
             });
             $.post('index.php?route=/error-report', postData, function (data) {
                 if (data.success === false) {
@@ -75,7 +75,7 @@ var ErrorReport = {
                 'ajax_request': true,
                 'server': CommonParams.get('server'),
                 'get_settings': true,
-                'exception_type': 'js'
+                'exception_type': 'js',
             }, function (data) {
                 ErrorReport.errorReportData = data;
                 ErrorReport.errorDataHandler(data, exception);
@@ -96,7 +96,7 @@ var ErrorReport = {
             const postData = $.extend(reportData, {
                 'send_error_report': true,
                 'description': $('#errorReportDescription').val(),
-                'always_send': ($('#errorReportAlwaysSendCheckbox') as JQuery<HTMLInputElement>)[0].checked
+                'always_send': ($('#errorReportAlwaysSendCheckbox') as JQuery<HTMLInputElement>)[0].checked,
             });
             $.post('index.php?route=/error-report', postData, function (data) {
                 if (data.success === false) {
@@ -131,25 +131,25 @@ var ErrorReport = {
      * Shows the small notification that asks for user permission
      */
     showErrorNotification: function (): void {
-        var key = Math.random().toString(36).substring(2, 12);
+        let key = Math.random().toString(36).substring(2, 12);
         while (key in ErrorReport.keyDict) {
             key = Math.random().toString(36).substring(2, 12);
         }
 
         ErrorReport.keyDict[key] = 1;
 
-        var $div = $(
-            '<div class="alert alert-danger" role="alert" id="error_notification_' + key + '"></div>'
+        const $div = $(
+            '<div class="alert alert-danger" role="alert" id="error_notification_' + key + '"></div>',
         ).append(
-            getImageTag('s_error') + window.Messages.strErrorOccurred
+            getImageTag('s_error') + window.Messages.strErrorOccurred,
         );
 
-        var $buttons = $('<div class="float-end"></div>');
-        var buttonHtml = '<button class="btn btn-primary" id="show_error_report_' + key + '">';
+        const $buttons = $('<div class="float-end"></div>');
+        let buttonHtml = '<button class="btn btn-primary" id="show_error_report_' + key + '">';
         buttonHtml += window.Messages.strShowReportDetails;
         buttonHtml += '</button>';
 
-        var settingsUrl = 'index.php?route=/preferences/features&server=' + CommonParams.get('server');
+        const settingsUrl = 'index.php?route=/preferences/features&server=' + CommonParams.get('server');
         buttonHtml += '<a class="ajax" href="' + settingsUrl + '">';
         buttonHtml += getImageTag('s_cog', window.Messages.strChangeReportSettings);
         buttonHtml += '</a>';
@@ -192,8 +192,8 @@ var ErrorReport = {
             return '';
         }
 
-        var reg = /([a-zA-Z]+):/;
-        var regexResult = reg.exec(exception.message);
+        const reg = /([a-zA-Z]+):/;
+        const regexResult = reg.exec(exception.message);
         if (regexResult && regexResult.length === 2) {
             return regexResult[1];
         }
@@ -216,10 +216,10 @@ var ErrorReport = {
      */
     getReportData: function (exception) {
         if (exception && exception.stack && exception.stack.length) {
-            for (var i = 0; i < exception.stack.length; i++) {
-                var stack = exception.stack[i];
+            for (let i = 0; i < exception.stack.length; i++) {
+                const stack = exception.stack[i];
                 if (stack.context && stack.context.length) {
-                    for (var j = 0; j < stack.context.length; j++) {
+                    for (let j = 0; j < stack.context.length; j++) {
                         if (stack.context[j].length > 80) {
                             stack.context[j] = stack.context[j].substring(-1, 75) + '//...';
                         }
@@ -228,18 +228,25 @@ var ErrorReport = {
             }
         }
 
-        var reportData: { exception: any; server: any; ajax_request: boolean; exception_type: string; url: string, scripts?: any[] } = {
+        const reportData: {
+            exception: any;
+            server: any;
+            ajax_request: boolean;
+            exception_type: string;
+            url: string,
+            scripts?: any[]
+        } = {
             'server': CommonParams.get('server'),
             'ajax_request': true,
             'exception': exception,
             'url': window.location.href,
-            'exception_type': 'js'
+            'exception_type': 'js',
         };
         if (AJAX.scriptHandler.scripts.length > 0) {
             reportData.scripts = AJAX.scriptHandler.scripts.map(
                 function (script) {
                     return script;
-                }
+                },
             );
         }
 
@@ -254,7 +261,7 @@ var ErrorReport = {
      */
     wrapFunction: function (func) {
         if (! func.wrapped) {
-            var newFunc = function () {
+            const newFunc = function () {
                 try {
                     return func.apply(this, arguments);
                 } catch (x) {
@@ -278,9 +285,9 @@ var ErrorReport = {
      * Automatically wraps the callback in AJAX.registerOnload
      */
     wrapAjaxOnloadCallback: function (): void {
-        var oldOnload = AJAX.registerOnload;
+        const oldOnload = AJAX.registerOnload;
         AJAX.registerOnload = function (file, func) {
-            var wrappedFunction = ErrorReport.wrapFunction(func);
+            const wrappedFunction = ErrorReport.wrapFunction(func);
             oldOnload.call(this, file, wrappedFunction);
         };
     },
@@ -288,9 +295,9 @@ var ErrorReport = {
      * Automatically wraps the callback in $.fn.on
      */
     wrapJqueryOnCallback: function (): void {
-        var oldOn = $.fn.on;
+        const oldOn = $.fn.on;
         $.fn.on = function () {
-            for (var i = 1; i <= 3; i++) {
+            for (let i = 1; i <= 3; i++) {
                 if (typeof (arguments[i]) === 'function') {
                     arguments[i] = ErrorReport.wrapFunction(arguments[i]);
                     break;
@@ -306,7 +313,7 @@ var ErrorReport = {
     setUpErrorReporting: function (): void {
         ErrorReport.wrapAjaxOnloadCallback();
         ErrorReport.wrapJqueryOnCallback();
-    }
+    },
 };
 
 AJAX.registerOnload('error_report.js', function () {

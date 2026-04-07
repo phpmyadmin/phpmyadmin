@@ -9,8 +9,7 @@ import { DesignerConfig } from './config.ts';
  * @requires    jQuery
  * @requires    move.js
  */
-
-var gIndex;
+let gIndex;
 
 /**
  * To display details of objects(where,rename,Having,aggregate,groupby,orderby,having)
@@ -19,8 +18,8 @@ var gIndex;
  * @return {string}
  */
 const detail = function (index) {
-    var type = DesignerHistory.historyArray[index].getType();
-    var str;
+    const type = DesignerHistory.historyArray[index].getType();
+    let str;
     if (type === 'Where') {
         str = 'Where ' + DesignerHistory.historyArray[index].getColumnName() + DesignerHistory.historyArray[index].getObj().getRelationOperator() + DesignerHistory.historyArray[index].getObj().getQuery();
     } else if (type === 'Rename') {
@@ -55,12 +54,12 @@ const detail = function (index) {
  * @return {string}
  */
 const display = function (init, finit) {
-    var str;
-    var i;
-    var j;
-    var k;
-    var sto;
-    var temp;
+    let str;
+    let i;
+    let j;
+    let k;
+    let sto;
+    let temp;
     // this part sorts the history array based on table name,this is needed for clubbing all object of same name together.
     for (i = init; i < finit; i++) {
         sto = DesignerHistory.historyArray[i];
@@ -79,7 +78,7 @@ const display = function (init, finit) {
 
     // this part generates HTML code for history tab.adds delete,edit,and/or and detail features with objects.
     str = ''; // string to store Html code for history tab
-    var historyArrayLength = DesignerHistory.historyArray.length;
+    const historyArrayLength = DesignerHistory.historyArray.length;
     for (i = 0; i < historyArrayLength; i++) {
         temp = DesignerHistory.historyArray[i].getTab(); // + '.' + DesignerHistory.historyArray[i].getObjNo(); for Self JOIN
         str += '<h3 class="tiger"><a href="#">' + temp + '</a></h3>';
@@ -97,12 +96,12 @@ const display = function (init, finit) {
                 '<td width="175" style="padding-left: 5px">' + $('<div/>').text(DesignerHistory.historyArray[i].getColumnName()).html() + '<td>';
 
             if (DesignerHistory.historyArray[i].getType() === 'GroupBy' || DesignerHistory.historyArray[i].getType() === 'OrderBy') {
-                var detailDescGroupBy = $('<div/>').text(DesignerHistory.detail(i)).html();
+                const detailDescGroupBy = $('<div/>').text(DesignerHistory.detail(i)).html();
                 str += '<td class="text-center">' + getImageTag('s_info', DesignerHistory.detail(i)) + '</td>' +
                     '<td title="' + detailDescGroupBy + '">' + DesignerHistory.historyArray[i].getType() + '</td>' +
                     '<td onclick=DesignerHistory.historyDelete(' + i + ')>' + getImageTag('b_drop', window.Messages.strDelete) + '</td>';
             } else {
-                var detailDesc = $('<div/>').text(DesignerHistory.detail(i)).html();
+                const detailDesc = $('<div/>').text(DesignerHistory.detail(i)).html();
                 str += '<td class="text-center">' + getImageTag('s_info', DesignerHistory.detail(i)) + '</td>' +
                     '<td title="' + detailDesc + '">' + DesignerHistory.historyArray[i].getType() + '</td>' +
                     '<td onclick=DesignerHistory.historyEdit(' + i + ')>' + getImageTag('b_edit', window.Messages.strEdit) + '</td>' +
@@ -138,7 +137,7 @@ const andOr = function (index): void {
         DesignerHistory.historyArray[index].setAndOr(1);
     }
 
-    var existingDiv = document.getElementById('ab');
+    const existingDiv = document.getElementById('ab');
     existingDiv.innerHTML = DesignerHistory.display(0, 0);
     $('#ab').accordion('refresh');
 };
@@ -149,8 +148,8 @@ const andOr = function (index): void {
  * @param {number} index of DesignerHistory.historyArray[] which is to be deleted
  */
 const historyDelete = function (index): void {
-    var fromArrayLength = window.fromArray.length;
-    for (var k = 0; k < fromArrayLength; k++) {
+    const fromArrayLength = window.fromArray.length;
+    for (let k = 0; k < fromArrayLength; k++) {
         if (window.fromArray[k] === DesignerHistory.historyArray[index].getTab()) {
             window.fromArray.splice(k, 1);
             break;
@@ -158,7 +157,7 @@ const historyDelete = function (index): void {
     }
 
     DesignerHistory.historyArray.splice(index, 1);
-    var existingDiv = document.getElementById('ab');
+    const existingDiv = document.getElementById('ab');
     existingDiv.innerHTML = DesignerHistory.display(0, 0);
     $('#ab').accordion('refresh');
 };
@@ -167,7 +166,7 @@ const historyDelete = function (index): void {
  * @param {string} elementId
  */
 const changeStyle = function (elementId): void {
-    var element = document.getElementById(elementId);
+    const element = document.getElementById(elementId);
     element.style.left = '530px';
     element.style.top = '130px';
     element.style.position = 'absolute';
@@ -183,7 +182,7 @@ const changeStyle = function (elementId): void {
  */
 const historyEdit = function (index): void {
     gIndex = index;
-    var type = DesignerHistory.historyArray[index].getType();
+    const type = DesignerHistory.historyArray[index].getType();
     if (type === 'Where') {
         (document.getElementById('eQuery') as HTMLTextAreaElement).value = DesignerHistory.historyArray[index].getObj().getQuery();
         (document.getElementById('erel_opt') as HTMLSelectElement).value = DesignerHistory.historyArray[index].getObj().getRelationOperator();
@@ -240,7 +239,7 @@ const edit = function (type): void {
         document.getElementById('query_having').style.visibility = 'hidden';
     }
 
-    var existingDiv = document.getElementById('ab');
+    const existingDiv = document.getElementById('ab');
     existingDiv.innerHTML = DesignerHistory.display(0, 0);
     $('#ab').accordion('refresh');
 };
@@ -256,12 +255,12 @@ const edit = function (type): void {
  *
  */
 const HistoryObj = function (nColumnName, nObj, nTab, nObjNo, nType) {
-    var andOr;
-    var obj;
-    var tab;
-    var columnName;
-    var objNo;
-    var type;
+    let andOr;
+    let obj;
+    let tab;
+    let columnName;
+    let objNo;
+    let type;
     this.setColumnName = function (nColumnName) {
         columnName = nColumnName;
     };
@@ -331,8 +330,8 @@ const HistoryObj = function (nColumnName, nObj, nTab, nObjNo, nType) {
  */
 
 const Where = function (nRelationOperator, nQuery) {
-    var relationOperator;
-    var query;
+    let relationOperator;
+    let query;
     this.setRelationOperator = function (nRelationOperator) {
         relationOperator = nRelationOperator;
     };
@@ -359,7 +358,7 @@ const Where = function (nRelationOperator, nQuery) {
  * @param nOrder order, ASC or DESC
  */
 const OrderBy = function (nOrder) {
-    var order;
+    let order;
     this.setOrder = function (nOrder) {
         order = nOrder;
     };
@@ -379,9 +378,9 @@ const OrderBy = function (nOrder) {
  * @param nOperator          operator
  */
 const Having = function (nRelationOperator, nQuery, nOperator) {
-    var relationOperator;
-    var query;
-    var operator;
+    let relationOperator;
+    let query;
+    let operator;
     this.setOperator = function (nOperator) {
         operator = nOperator;
     };
@@ -418,7 +417,7 @@ const Having = function (nRelationOperator, nQuery, nOperator) {
  *
  */
 const Rename = function (nRenameTo) {
-    var renameTo;
+    let renameTo;
     this.setRenameTo = function (nRenameTo) {
         renameTo = nRenameTo;
     };
@@ -437,7 +436,7 @@ const Rename = function (nRenameTo) {
  *
  */
 const Aggregate = function (nOperator) {
-    var operator;
+    let operator;
     this.setOperator = function (nOperator) {
         operator = nOperator;
     };
@@ -457,11 +456,11 @@ const Aggregate = function (nOperator) {
  */
 
 const unique = function (arrayName) {
-    var newArray = [];
+    const newArray = [];
     uniquetop:
-    for (var i = 0; i < arrayName.length; i++) {
-        var newArrayLength = newArray.length;
-        for (var j = 0; j < newArrayLength; j++) {
+    for (let i = 0; i < arrayName.length; i++) {
+        const newArrayLength = newArray.length;
+        for (let j = 0; j < newArrayLength; j++) {
             if (newArray[j] === arrayName[i]) {
                 continue uniquetop;
             }
@@ -482,8 +481,8 @@ const unique = function (arrayName) {
  */
 
 const found = function (arrayName, value) {
-    var arrayNameLength = arrayName.length;
-    for (var i = 0; i < arrayNameLength; i++) {
+    const arrayNameLength = arrayName.length;
+    for (let i = 0; i < arrayNameLength; i++) {
         if (arrayName[i] === value) {
             return 1;
         }
@@ -501,8 +500,8 @@ const found = function (arrayName, value) {
  * @return {obj[]}
  */
 const addArray = function (add, arr) {
-    var addLength = add.length;
-    for (var i = 0; i < addLength; i++) {
+    const addLength = add.length;
+    for (let i = 0; i < addLength; i++) {
         arr.push(add[i]);
     }
 
@@ -519,10 +518,10 @@ const addArray = function (add, arr) {
  *
  */
 const removeArray = function (rem, arr) {
-    var remLength = rem.length;
-    for (var i = 0; i < remLength; i++) {
-        var arrLength = arr.length;
-        for (var j = 0; j < arrLength; j++) {
+    const remLength = rem.length;
+    for (let i = 0; i < remLength; i++) {
+        const arrLength = arr.length;
+        for (let j = 0; j < arrLength; j++) {
             if (rem[i] === arr[j]) {
                 arr.splice(j, 1);
             }
@@ -537,9 +536,9 @@ const removeArray = function (rem, arr) {
  * @return {string}
  */
 const queryGroupBy = function () {
-    var i;
-    var str = '';
-    var historyArrayLength = DesignerHistory.historyArray.length;
+    let i;
+    let str = '';
+    const historyArrayLength = DesignerHistory.historyArray.length;
     for (i = 0; i < historyArrayLength; i++) {
         if (DesignerHistory.historyArray[i].getType() === 'GroupBy') {
             str += '`' + DesignerHistory.historyArray[i].getColumnName() + '`, ';
@@ -556,9 +555,9 @@ const queryGroupBy = function () {
  * @return {string}
  */
 const queryHaving = function () {
-    var i;
-    var and = '(';
-    var historyArrayLength = DesignerHistory.historyArray.length;
+    let i;
+    let and = '(';
+    const historyArrayLength = DesignerHistory.historyArray.length;
     for (i = 0; i < historyArrayLength; i++) {
         if (DesignerHistory.historyArray[i].getType() === 'Having') {
             if (DesignerHistory.historyArray[i].getObj().getOperator() !== 'None') {
@@ -584,9 +583,9 @@ const queryHaving = function () {
  * @return {string}
  */
 const queryOrderBy = function () {
-    var i;
-    var str = '';
-    var historyArrayLength = DesignerHistory.historyArray.length;
+    let i;
+    let str = '';
+    const historyArrayLength = DesignerHistory.historyArray.length;
     for (i = 0; i < historyArrayLength; i++) {
         if (DesignerHistory.historyArray[i].getType() === 'OrderBy') {
             str += '`' + DesignerHistory.historyArray[i].getColumnName() + '` ' +
@@ -604,10 +603,10 @@ const queryOrderBy = function () {
  * @return {string}
  */
 const queryWhere = function () {
-    var i;
-    var and = '(';
-    var or = '(';
-    var historyArrayLength = DesignerHistory.historyArray.length;
+    let i;
+    let and = '(';
+    let or = '(';
+    const historyArrayLength = DesignerHistory.historyArray.length;
     for (i = 0; i < historyArrayLength; i++) {
         if (DesignerHistory.historyArray[i].getType() === 'Where') {
             if (DesignerHistory.historyArray[i].getAndOr() === 0) {
@@ -640,10 +639,10 @@ const queryWhere = function () {
 };
 
 const checkAggregate = function (idThis) {
-    var i;
-    var historyArrayLength = DesignerHistory.historyArray.length;
+    let i;
+    const historyArrayLength = DesignerHistory.historyArray.length;
     for (i = 0; i < historyArrayLength; i++) {
-        var temp = '`' + DesignerHistory.historyArray[i].getTab() + '`.`' + DesignerHistory.historyArray[i].getColumnName() + '`';
+        const temp = '`' + DesignerHistory.historyArray[i].getTab() + '`.`' + DesignerHistory.historyArray[i].getColumnName() + '`';
         if (temp === idThis && DesignerHistory.historyArray[i].getType() === 'Aggregate') {
             return DesignerHistory.historyArray[i].getObj().getOperator() + '(' + idThis + ')';
         }
@@ -653,10 +652,10 @@ const checkAggregate = function (idThis) {
 };
 
 const checkRename = function (idThis) {
-    var i;
-    var historyArrayLength = DesignerHistory.historyArray.length;
+    let i;
+    const historyArrayLength = DesignerHistory.historyArray.length;
     for (i = 0; i < historyArrayLength; i++) {
-        var temp = '`' + DesignerHistory.historyArray[i].getTab() + '`.`' + DesignerHistory.historyArray[i].getColumnName() + '`';
+        const temp = '`' + DesignerHistory.historyArray[i].getTab() + '`.`' + DesignerHistory.historyArray[i].getColumnName() + '`';
         if (temp === idThis && DesignerHistory.historyArray[i].getType() === 'Rename') {
             return ' AS `' + DesignerHistory.historyArray[i].getObj().getRenameTo() + '`';
         }
@@ -672,27 +671,27 @@ const checkRename = function (idThis) {
  * @return {string}
  */
 const queryFrom = function () {
-    var i;
-    var tabLeft = [];
-    var tabUsed = [];
-    var tTabLeft = [];
-    var temp;
-    var query = '';
-    var quer = '';
-    var parts = [];
-    var tArray = [];
+    let i;
+    let tabLeft = [];
+    let tabUsed = [];
+    let tTabLeft = [];
+    let temp;
+    let query = '';
+    let quer = '';
+    let parts = [];
+    let tArray = [];
     tArray = window.fromArray;
-    var K: any = 0;
-    var k;
-    var key;
-    var key2;
-    var key3;
-    var parts1;
+    let K: any = 0;
+    let k;
+    let key;
+    let key2;
+    let key3;
+    let parts1;
 
     // the constraints that have been used in the LEFT JOIN
-    var constraintsAdded = [];
+    const constraintsAdded = [];
 
-    var historyArrayLength = DesignerHistory.historyArray.length;
+    const historyArrayLength = DesignerHistory.historyArray.length;
     for (i = 0; i < historyArrayLength; i++) {
         window.fromArray.push(DesignerHistory.historyArray[i].getTab());
     }
@@ -793,11 +792,11 @@ const queryFrom = function () {
  * @uses DesignerHistory.queryOrderBy()
  */
 const buildQuery = function () {
-    var qSelect = 'SELECT ';
-    var temp;
-    var selectFieldLength = DesignerHistory.selectField.length;
+    let qSelect = 'SELECT ';
+    let temp;
+    const selectFieldLength = DesignerHistory.selectField.length;
     if (selectFieldLength > 0) {
-        for (var i = 0; i < selectFieldLength; i++) {
+        for (let i = 0; i < selectFieldLength; i++) {
             temp = DesignerHistory.checkAggregate(DesignerHistory.selectField[i]);
             if (temp !== '') {
                 qSelect += temp;
@@ -816,29 +815,29 @@ const buildQuery = function () {
 
     qSelect += '\nFROM ' + DesignerHistory.queryFrom();
 
-    var qWhere = DesignerHistory.queryWhere();
+    const qWhere = DesignerHistory.queryWhere();
     if (qWhere !== '') {
         qSelect += '\nWHERE ' + qWhere;
     }
 
-    var qGroupBy = DesignerHistory.queryGroupBy();
+    const qGroupBy = DesignerHistory.queryGroupBy();
     if (qGroupBy !== '') {
         qSelect += '\nGROUP BY ' + qGroupBy;
     }
 
-    var qHaving = DesignerHistory.queryHaving();
+    const qHaving = DesignerHistory.queryHaving();
     if (qHaving !== '') {
         qSelect += '\nHAVING ' + qHaving;
     }
 
-    var qOrderBy = DesignerHistory.queryOrderBy();
+    const qOrderBy = DesignerHistory.queryOrderBy();
     if (qOrderBy !== '') {
         qSelect += '\nORDER BY ' + qOrderBy;
     }
 
     $('#buildQuerySubmitButton').on('click', function () {
         if (DesignerHistory.vqbEditor) {
-            var $elm = $('#buildQueryModal').find('textarea');
+            const $elm = $('#buildQueryModal').find('textarea');
             DesignerHistory.vqbEditor.save();
             $elm.val(DesignerHistory.vqbEditor.getValue());
         }
@@ -854,7 +853,7 @@ const buildQuery = function () {
          * @var $elm jQuery object containing the reference
          *           to the query textarea.
          */
-        var $elm = $('#buildQueryModal').find('textarea');
+        const $elm = $('#buildQueryModal').find('textarea');
         if (! DesignerHistory.vqbEditor) {
             DesignerHistory.vqbEditor = getSqlEditor($elm);
         }

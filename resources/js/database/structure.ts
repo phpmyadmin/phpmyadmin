@@ -43,7 +43,7 @@ AJAX.registerTeardown('database/structure.js', function () {
  * @param {object} $target Target for appending the real count value.
  */
 function fetchRealRowCount ($target) {
-    var $throbber = $('#pma_navigation').find('.throbber')
+    const $throbber = $('#pma_navigation').find('.throbber')
         .first()
         .clone()
         .css({ visibility: 'visible', display: 'inline-block' })
@@ -96,8 +96,8 @@ AJAX.registerOnload('database/structure.js', function () {
      * Event handler on select of "Make consistent with central list"
      */
     $('select[name=submit_mult]').on('change', function (event) {
-        var url = 'index.php?route=/database/structure';
-        var action = $(this).val();
+        let url = 'index.php?route=/database/structure';
+        const action = $(this).val();
 
         if (action === 'make_consistent_with_central_list') {
             event.preventDefault();
@@ -136,8 +136,8 @@ AJAX.registerOnload('database/structure.js', function () {
                 return false;
             }
 
-            var formData = $('#tablesForm').serialize();
-            var modalTitle = '';
+            const formData = $('#tablesForm').serialize();
+            let modalTitle = '';
             if (action === 'copy_tbl') {
                 url = 'index.php?route=/database/structure/copy-form';
                 modalTitle = window.Messages.strCopyTablesTo;
@@ -203,9 +203,9 @@ AJAX.registerOnload('database/structure.js', function () {
             return;
         }
 
-        var $form = $(this).parents('form');
-        var argsep = CommonParams.get('arg_separator');
-        var data = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
+        const $form = $(this).parents('form');
+        const argsep = CommonParams.get('arg_separator');
+        const data = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
 
         ajaxShowMessage();
         AJAX.source = $form;
@@ -222,30 +222,30 @@ AJAX.registerOnload('database/structure.js', function () {
         /**
          * @var $this_anchor Object  referring to the anchor clicked
          */
-        var $thisAnchor = $(this);
+        const $thisAnchor = $(this);
 
         // extract current table name and build the question string
         /**
          * @var curr_table_name String containing the name of the table to be truncated
          */
-        var currTableName = $thisAnchor.parents('tr').children('th').children('a').text();
+        const currTableName = $thisAnchor.parents('tr').children('th').children('a').text();
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = window.Messages.strTruncateTableStrongWarning + ' ' +
+        const question = window.Messages.strTruncateTableStrongWarning + ' ' +
             window.sprintf(window.Messages.strDoYouReally, 'TRUNCATE `' + escapeHtml(currTableName) + '`') +
             getForeignKeyCheckboxLoader();
 
         $thisAnchor.confirm(question, $thisAnchor.attr('href'), function (url) {
             ajaxShowMessage(window.Messages.strProcessingRequest);
 
-            var params = getJsConfirmCommonParam(this, $thisAnchor.getPostData());
+            const params = getJsConfirmCommonParam(this, $thisAnchor.getPostData());
 
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     ajaxShowMessage(data.message);
                     // Adjust table statistics
-                    var $tr = $thisAnchor.closest('tr');
+                    const $tr = $thisAnchor.closest('tr');
                     $tr.find('.tbl_rows').text('0');
                     $tr.find('.tbl_size, .tbl_overhead').text('-');
                     adjustTotals();
@@ -262,25 +262,25 @@ AJAX.registerOnload('database/structure.js', function () {
     $(document).on('click', 'a.drop_table_anchor.ajax', function (event) {
         event.preventDefault();
 
-        var $thisAnchor = $(this);
+        const $thisAnchor = $(this);
 
         // extract current table name and build the question string
         /**
          * @var $curr_row    Object containing reference to the current row
          */
-        var $currRow = $thisAnchor.parents('tr');
+        const $currRow = $thisAnchor.parents('tr');
         /**
          * @var curr_table_name String containing the name of the table to be truncated
          */
-        var currTableName = $currRow.children('th').children('a').text();
+        const currTableName = $currRow.children('th').children('a').text();
         /**
          * @var is_view Boolean telling if we have a view
          */
-        var isView = $currRow.hasClass('is_view') || $thisAnchor.hasClass('view');
+        const isView = $currRow.hasClass('is_view') || $thisAnchor.hasClass('view');
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question;
+        let question;
         if (! isView) {
             question = window.Messages.strDropTableStrongWarning + ' ' +
                 window.sprintf(window.Messages.strDoYouReally, 'DROP TABLE `' + escapeHtml(currTableName) + '`');
@@ -292,9 +292,9 @@ AJAX.registerOnload('database/structure.js', function () {
         question += getForeignKeyCheckboxLoader();
 
         $thisAnchor.confirm(question, $thisAnchor.attr('href'), function (url) {
-            var $msg = ajaxShowMessage(window.Messages.strProcessingRequest);
+            const $msg = ajaxShowMessage(window.Messages.strProcessingRequest);
 
-            var params = getJsConfirmCommonParam(this, $thisAnchor.getPostData());
+            const params = getJsConfirmCommonParam(this, $thisAnchor.getPostData());
 
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {

@@ -49,7 +49,7 @@ function urlEncode (str) {
  */
 function autoSave (query): void {
     if (query) {
-        var key = Sql.getAutoSavedKey();
+        const key = Sql.getAutoSavedKey();
         try {
             if (isStorageSupported('localStorage')) {
                 window.localStorage.setItem(key, query);
@@ -73,10 +73,10 @@ function autoSave (query): void {
  * @param {string} query SQL query
  */
 function showThisQuery (db, table, query): void {
-    var showThisQueryObject = {
+    const showThisQueryObject = {
         'db': db,
         'table': table,
-        'query': query
+        'query': query,
     };
     if (isStorageSupported('localStorage')) {
         window.localStorage.showThisQuery = 1;
@@ -92,13 +92,16 @@ function showThisQuery (db, table, query): void {
  * checked and query for the db and table pair exists
  */
 function setShowThisQuery () {
-    var db = $('input[name="db"]').val();
-    var table = $('input[name="table"]').val();
+    const db = $('input[name="db"]').val();
+    const table = $('input[name="table"]').val();
+    let storedDb;
+    let storedTable;
+    let storedQuery;
     if (isStorageSupported('localStorage')) {
         if (window.localStorage.showThisQueryObject !== undefined) {
-            var storedDb = JSON.parse(window.localStorage.showThisQueryObject).db;
-            var storedTable = JSON.parse(window.localStorage.showThisQueryObject).table;
-            var storedQuery = JSON.parse(window.localStorage.showThisQueryObject).query;
+            storedDb = JSON.parse(window.localStorage.showThisQueryObject).db;
+            storedTable = JSON.parse(window.localStorage.showThisQueryObject).table;
+            storedQuery = JSON.parse(window.localStorage.showThisQueryObject).query;
         }
 
         if (window.localStorage.showThisQuery !== undefined
@@ -155,18 +158,18 @@ function clearAutoSavedSort (): void {
  * @return {string}
  */
 function getFieldName ($tableResults, $thisField) {
-    var thisFieldIndex = $thisField.index();
+    const thisFieldIndex = $thisField.index();
     // ltr or rtl direction does not impact how the DOM was generated
     // check if the action column in the left exist
-    var leftActionExist = ! $tableResults.find('th').first().hasClass('draggable');
+    const leftActionExist = !$tableResults.find('th').first().hasClass('draggable');
     // number of column span for checkbox and Actions
-    var leftActionSkip = leftActionExist ? $tableResults.find('th').first().attr('colspan') - 1 : 0;
+    const leftActionSkip = leftActionExist ? $tableResults.find('th').first().attr('colspan') - 1 : 0;
 
     // If this column was sorted, the text of the a element contains something
     // like <small>1</small> that is useful to indicate the order in case
     // of a sort on multiple columns; however, we dont want this as part
     // of the column name so we strip it ( .clone() to .end() )
-    var fieldName = $tableResults
+    let fieldName = $tableResults
         .find('thead')
         .find('th')
         .eq(thisFieldIndex - leftActionSkip)
@@ -178,9 +181,9 @@ function getFieldName ($tableResults, $thisField) {
         .text();    // grab the text
     // happens when just one row (headings contain no a)
     if (fieldName === '') {
-        var $heading = $tableResults.find('thead').find('th').eq(thisFieldIndex - leftActionSkip).children('span');
+        const $heading = $tableResults.find('thead').find('th').eq(thisFieldIndex - leftActionSkip).children('span');
         // may contain column comment enclosed in a span - detach it temporarily to read the column name
-        var $tempColComment = $heading.children().detach();
+        const $tempColComment = $heading.children().detach();
         fieldName = $heading.text();
         // re-attach the column comment
         $heading.append($tempColComment);
@@ -268,7 +271,7 @@ const setQuery = function (query): void {
  *
  */
 const insertQuery = function (queryType) {
-    var table;
+    let table;
     if (queryType === 'clear') {
         setQuery('');
 
@@ -279,11 +282,11 @@ const insertQuery = function (queryType) {
                 '&nbsp;<img class="ajaxIcon" src="' +
                 window.themeImagePath + 'ajax_clock_small.gif" alt="">');
 
-            var params = {
+            const params = {
                 'ajax_request': true,
                 'sql': window.codeMirrorEditor.getValue(),
                 'server': CommonParams.get('server'),
-                'formatSingleLine': queryType === 'formatSingleLine'
+                'formatSingleLine': queryType === 'formatSingleLine',
             };
             $.ajax({
                 type: 'POST',
@@ -304,9 +307,9 @@ const insertQuery = function (queryType) {
 
         return;
     } else if (queryType === 'saved') {
-        var db = $('input[name="db"]').val();
+        const db = $('input[name="db"]').val();
         table = $('input[name="table"]').val();
-        var key = db;
+        let key = db;
         if (table !== undefined) {
             key += '.' + table;
         }
@@ -324,19 +327,19 @@ const insertQuery = function (queryType) {
         return;
     }
 
-    var query = '';
+    let query = '';
     // @ts-ignore
-    var myListBox = document.sqlform.dummy;
+    const myListBox = document.sqlform.dummy;
     // @ts-ignore
     table = escapeBacktick(document.sqlform.table.value);
 
     if (myListBox.options.length > 0) {
         sqlBoxLocked = true;
-        var columnsList = '';
-        var valDis = '';
-        var editDis = '';
-        var NbSelect = 0;
-        for (var i = 0; i < myListBox.options.length; i++) {
+        let columnsList = '';
+        let valDis = '';
+        let editDis = '';
+        let NbSelect = 0;
+        for (let i = 0; i < myListBox.options.length; i++) {
             NbSelect++;
             if (NbSelect > 1) {
                 columnsList += ', ';
@@ -372,15 +375,15 @@ const insertQuery = function (queryType) {
  */
 const insertValueQuery = function () {
     // @ts-ignore
-    var myQuery = document.sqlform.sql_query;
+    const myQuery = document.sqlform.sql_query;
     // @ts-ignore
-    var myListBox = document.sqlform.dummy;
+    const myListBox = document.sqlform.dummy;
 
     if (myListBox.options.length > 0) {
         sqlBoxLocked = true;
-        var columnsList = '';
-        var NbSelect = 0;
-        for (var i = 0; i < myListBox.options.length; i++) {
+        let columnsList = '';
+        let NbSelect = 0;
+        for (let i = 0; i < myListBox.options.length; i++) {
             if (myListBox.options[i].selected) {
                 NbSelect++;
                 if (NbSelect > 1) {
@@ -400,17 +403,17 @@ const insertValueQuery = function () {
         } else if (document.selection) {
             myQuery.focus();
             // @ts-ignore
-            var sel = document.selection.createRange();
+            const sel = document.selection.createRange();
             sel.text = columnsList;
             // MOZILLA/NETSCAPE support
             // @ts-ignore
         } else if (document.sqlform.sql_query.selectionStart || document.sqlform.sql_query.selectionStart === '0') {
             // @ts-ignore
-            var startPos = document.sqlform.sql_query.selectionStart;
+            const startPos = document.sqlform.sql_query.selectionStart;
             // @ts-ignore
-            var endPos = document.sqlform.sql_query.selectionEnd;
+            const endPos = document.sqlform.sql_query.selectionEnd;
             // @ts-ignore
-            var SqlString = document.sqlform.sql_query.value;
+            const SqlString = document.sqlform.sql_query.value;
 
             myQuery.value = SqlString.substring(0, startPos) + columnsList + SqlString.substring(endPos, SqlString.length);
             myQuery.focus();
@@ -493,7 +496,7 @@ AJAX.registerOnload('sql.js', function () {
                 Sql.autoSave($('#sqlquery').val());
             });
 
-            var useLocalStorageValue = isStorageSupported('localStorage') && typeof window.localStorage.autoSavedSqlSort !== 'undefined';
+            const useLocalStorageValue = isStorageSupported('localStorage') && typeof window.localStorage.autoSavedSqlSort !== 'undefined';
             // Save sql query with sort
             if ($('#RememberSorting') !== undefined && $('#RememberSorting').is(':checked')) {
                 $('select[name="sql_query"]').on('change', function () {
@@ -508,7 +511,7 @@ AJAX.registerOnload('sql.js', function () {
             }
 
             // If sql query with sort for current table is stored, change sort by key select value
-            var sortStoredQuery = useLocalStorageValue
+            const sortStoredQuery = useLocalStorageValue
                 ? window.localStorage.autoSavedSqlSort
                 // @ts-ignore
                 : window.Cookies.get('autoSavedSqlSort', { path: CommonParams.get('rootPath') });
@@ -522,13 +525,13 @@ AJAX.registerOnload('sql.js', function () {
     // Delete row from SQL results
     $(document).on('click', 'a.delete_row.ajax', function (e) {
         e.preventDefault();
-        var question = window.sprintf(window.Messages.strDoYouReally, escapeHtml($(this).closest('td').find('div').text()));
-        var $link = $(this);
+        const question = window.sprintf(window.Messages.strDoYouReally, escapeHtml($(this).closest('td').find('div').text()));
+        const $link = $(this);
         $link.confirm(question, $link.attr('href'), function (url) {
             ajaxShowMessage();
-            var argsep = CommonParams.get('arg_separator');
-            var params = 'ajax_request=1' + argsep + 'is_js_confirmed=1';
-            var postData = $link.getPostData();
+            const argsep = CommonParams.get('arg_separator');
+            let params = 'ajax_request=1' + argsep + 'is_js_confirmed=1';
+            const postData = $link.getPostData();
             if (postData) {
                 params += argsep + postData;
             }
@@ -555,7 +558,7 @@ AJAX.registerOnload('sql.js', function () {
         }
 
         ajaxShowMessage();
-        var argsep = CommonParams.get('arg_separator');
+        const argsep = CommonParams.get('arg_separator');
         $.post($(this).attr('action'), 'ajax_request=1' + argsep + $(this).serialize(), function (data) {
             if (data.success) {
                 ajaxShowMessage(data.message);
@@ -578,7 +581,7 @@ AJAX.registerOnload('sql.js', function () {
     $(document).on('click', '#copyToClipBoard', function (event) {
         event.preventDefault();
 
-        var textArea = document.createElement('textarea');
+        const textArea = document.createElement('textarea');
 
         //
         // *** This styling is an extra step which is likely not required. ***
@@ -645,7 +648,7 @@ AJAX.registerOnload('sql.js', function () {
 
             $(this).find('.data span').each(function () {
                 // Extract <em> tag for NULL values before converting to string to not mess up formatting
-                var data = $(this).find('em').length !== 0 ? $(this).find('em')[0] : this;
+                const data = $(this).find('em').length !== 0 ? $(this).find('em')[0] : this;
                 textArea.value += $(data).text() + '\t';
             });
 
@@ -697,7 +700,7 @@ AJAX.registerOnload('sql.js', function () {
 
         // Attach the toggling of the query box visibility to a click
         $('#togglequerybox').on('click', function () {
-            var $link = $(this);
+            const $link = $(this);
             $link.siblings().slideToggle('fast');
             if ($link.text() === window.Messages.strHideQueryBox) {
                 $link.text(window.Messages.strShowQueryBox);
@@ -723,18 +726,18 @@ AJAX.registerOnload('sql.js', function () {
     $(document).on('click', '#button_submit_query', function () {
         $('.alert-success,.alert-danger').hide();
         // hide already existing error or success message
-        var $form = $(this).closest('form');
+        const $form = $(this).closest('form');
         // the Go button related to query submission was clicked,
         // instead of the one related to Bookmarks, so empty the
         // id_bookmark selector to avoid misinterpretation in
         // /import about what needs to be done
         $form.find('select[name=id_bookmark]').val('');
-        var isShowQuery = $('input[name="show_query"]').is(':checked');
+        const isShowQuery = $('input[name="show_query"]').is(':checked');
         if (isShowQuery) {
             window.localStorage.showThisQuery = '1';
-            var db = $('input[name="db"]').val();
-            var table = $('input[name="table"]').val();
-            var query;
+            const db = $('input[name="db"]').val();
+            const table = $('input[name="table"]').val();
+            let query;
             if (window.codeMirrorEditor) {
                 query = window.codeMirrorEditor.getValue();
             } else {
@@ -752,14 +755,14 @@ AJAX.registerOnload('sql.js', function () {
      * based on the bookmarked query
      */
     $(document).on('change', '#id_bookmark', function () {
-        var varCount = $(this).find('option:selected').data('varcount');
+        let varCount = $(this).find('option:selected').data('varcount');
         if (typeof varCount === 'undefined') {
             varCount = 0;
         }
 
-        var $varDiv = $('#bookmarkVariables');
+        const $varDiv = $('#bookmarkVariables');
         $varDiv.empty();
-        for (var i = 1; i <= varCount; i++) {
+        for (let i = 1; i <= varCount; i++) {
             $varDiv.append($('<div class="mb-3">'));
             $varDiv.append($('<label for="bookmarkVariable' + i + '">' + window.sprintf(window.Messages.strBookmarkVariable, i) + '</label>'));
             $varDiv.append($('<input class="form-control" type="text" size="10" name="bookmark_variable[' + i + ']" id="bookmarkVariable' + i + '">'));
@@ -781,7 +784,7 @@ AJAX.registerOnload('sql.js', function () {
      */
     $('input[name=bookmark_variable]').on('keypress', function (event) {
         // force the 'Enter Key' to implicitly click the #button_submit_bookmark
-        var keycode = (event.keyCode ? event.keyCode : (event.which ? event.which : event.charCode));
+        const keycode = (event.keyCode ? event.keyCode : (event.which ? event.which : event.charCode));
         if (keycode === 13) { // keycode for enter key
             // When you press enter in the sqlqueryform, which
             // has 2 submit buttons, the default is to run the
@@ -809,7 +812,7 @@ AJAX.registerOnload('sql.js', function () {
     $(document).on('submit', '#sqlqueryform.ajax', function (event) {
         event.preventDefault();
 
-        var $form = $(this);
+        const $form = $(this);
         if (window.codeMirrorEditor) {
             $form[0].elements.sql_query.value = window.codeMirrorEditor.getValue();
         }
@@ -821,12 +824,12 @@ AJAX.registerOnload('sql.js', function () {
         // remove any div containing a previous error message
         $('.alert-danger').remove();
 
-        var $msgbox = ajaxShowMessage();
-        var $sqlqueryresultsouter = $('#sqlqueryresultsouter');
+        const $msgbox = ajaxShowMessage();
+        const $sqlqueryresultsouter = $('#sqlqueryresultsouter');
 
         prepareForAjaxRequest($form);
 
-        var argsep = CommonParams.get('arg_separator');
+        const argsep = CommonParams.get('arg_separator');
         $.post($form.attr('action'), $form.serialize() + argsep + 'ajax_page_request=true', function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 // success happens if the query returns rows or not
@@ -887,7 +890,7 @@ AJAX.registerOnload('sql.js', function () {
                         Navigation.update(CommonParams.setAll({ 'db': data.db, 'table': '' }));
                     }
 
-                    var url;
+                    let url;
                     if (data.db) {
                         if (data.table) {
                             url = 'index.php?route=/table/sql';
@@ -939,13 +942,13 @@ AJAX.registerOnload('sql.js', function () {
     $(document).on('submit', 'form[name=\'displayOptionsForm\'].ajax', function (event) {
         event.preventDefault();
 
-        var $form = $(this);
+        const $form = $(this);
 
-        var $msgbox = ajaxShowMessage();
-        var argsep = CommonParams.get('arg_separator');
+        const $msgbox = ajaxShowMessage();
+        const argsep = CommonParams.get('arg_separator');
         $.post($form.attr('action'), $form.serialize() + argsep + 'ajax_request=true', function (data) {
             ajaxRemoveMessage($msgbox);
-            var $sqlqueryresults = $form.parents('.sqlqueryresults');
+            const $sqlqueryresults = $form.parents('.sqlqueryresults');
             $sqlqueryresults
                 .html(data.message)
                 .trigger('makeGrid');
@@ -957,21 +960,21 @@ AJAX.registerOnload('sql.js', function () {
 
     // Filter row handling. --STARTS--
     $(document).on('keyup', '.filter_rows', function () {
-        var uniqueId = $(this).data('for');
-        var $targetTable = $('.table_results[data-uniqueId=\'' + uniqueId + '\']');
-        var $headerCells = $targetTable.find('th[data-column]');
-        var targetColumns = [];
+        const uniqueId = $(this).data('for');
+        const $targetTable = $('.table_results[data-uniqueId=\'' + uniqueId + '\']');
+        const $headerCells = $targetTable.find('th[data-column]');
+        const targetColumns = [];
 
         // To handle colspan=4, in case of edit, copy, etc options (Table row links). Add 3 dummy <TH> elements - only when the Table row links are NOT on the "Right"
-        var rowLinksLocation = ($targetTable.find('thead > tr > th')).first();
-        var dummyTh = (rowLinksLocation[0].getAttribute('colspan') !== null) ? '<th class="hide dummy_th"></th><th class="hide dummy_th"></th><th class="hide dummy_th"></th>' : ''; // Selecting columns that will be considered for filtering and searching.
+        const rowLinksLocation = ($targetTable.find('thead > tr > th')).first();
+        const dummyTh = (rowLinksLocation[0].getAttribute('colspan') !== null) ? '<th class="hide dummy_th"></th><th class="hide dummy_th"></th><th class="hide dummy_th"></th>' : ''; // Selecting columns that will be considered for filtering and searching.
 
         // Selecting columns that will be considered for filtering and searching.
         $headerCells.each(function () {
             targetColumns.push($(this).text().trim());
         });
 
-        var phrase = $(this).val();
+        const phrase = $(this).val();
         // Set same value to both Filter rows fields.
         $('.filter_rows[data-for=\'' + uniqueId + '\']').not(this).val(phrase);
         // Handle colspan.
@@ -984,11 +987,11 @@ AJAX.registerOnload('sql.js', function () {
     // Prompt to confirm on Show All
     $('body').on('click', '.navigation .showAllRows', function (e) {
         e.preventDefault();
-        var $form = $(this).parents('form');
+        const $form = $(this).parents('form');
 
         const submitShowAllForm = function () {
-            var argsep = CommonParams.get('arg_separator');
-            var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
+            const argsep = CommonParams.get('arg_separator');
+            const submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
             ajaxShowMessage();
             AJAX.source = $form;
             $.post($form.attr('action'), submitData, AJAX.responseHandler);
@@ -1011,10 +1014,10 @@ AJAX.registerOnload('sql.js', function () {
      * Ajax event handler for 'Simulate DML'.
      */
     $('body').on('click', '#simulate_dml', function () {
-        var $form = $('#sqlqueryform');
-        var query = '';
-        var delimiter = $('#id_sql_delimiter').val();
-        var dbName = $form.find('input[name="db"]').val();
+        const $form = $('#sqlqueryform');
+        let query = '';
+        const delimiter = $('#id_sql_delimiter').val();
+        const dbName = $form.find('input[name="db"]').val();
 
         if (window.codeMirrorEditor) {
             query = window.codeMirrorEditor.getValue();
@@ -1029,7 +1032,7 @@ AJAX.registerOnload('sql.js', function () {
             return false;
         }
 
-        var $msgbox = ajaxShowMessage();
+        const $msgbox = ajaxShowMessage();
         $.ajax({
             type: 'POST',
             url: 'index.php?route=/import/simulate-dml',
@@ -1043,10 +1046,10 @@ AJAX.registerOnload('sql.js', function () {
             success: function (response) {
                 ajaxRemoveMessage($msgbox);
                 if (response.success) {
-                    var dialogContent = '<div class="preview_sql">';
+                    let dialogContent = '<div class="preview_sql">';
                     if (response.sql_data) {
-                        var len = response.sql_data.length;
-                        for (var i = 0; i < len; i++) {
+                        const len = response.sql_data.length;
+                        for (let i = 0; i < len; i++) {
                             dialogContent += '<strong>' + window.Messages.strSQLQuery +
                                 '</strong>' + response.sql_data[i].sql_query +
                                 window.Messages.strAffectedRows +
@@ -1062,8 +1065,8 @@ AJAX.registerOnload('sql.js', function () {
                     }
 
                     dialogContent += '</div>';
-                    var $dialogContent = $(dialogContent);
-                    var modal = $('#simulateDmlModal');
+                    const $dialogContent = $(dialogContent);
+                    const modal = $('#simulateDmlModal');
                     modal.modal('show');
                     modal.find('.modal-body').first()
                         // @ts-ignore
@@ -1087,15 +1090,15 @@ AJAX.registerOnload('sql.js', function () {
      */
     $('body').on('click', 'form[name="resultsForm"].ajax button[name="submit_mult"], form[name="resultsForm"].ajax input[name="submit_mult"]', function (e) {
         e.preventDefault();
-        var $button = $(this);
-        var action = $button.val();
-        var $form = $button.closest('form');
-        var argsep = CommonParams.get('arg_separator');
-        var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep;
+        const $button = $(this);
+        const action = $button.val();
+        const $form = $button.closest('form');
+        const argsep = CommonParams.get('arg_separator');
+        let submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep;
         ajaxShowMessage();
         AJAX.source = $form;
 
-        var url;
+        let url;
         if (action === 'edit') {
             submitData = submitData + argsep + 'default_action=update';
             url = 'index.php?route=/table/change/rows';
@@ -1114,20 +1117,20 @@ AJAX.registerOnload('sql.js', function () {
     });
 
     $(document).on('submit', '.maxRowsForm', function () {
-        var unlimNumRows = Number($(this).find('input[name="unlim_num_rows"]').val());
+        const unlimNumRows = Number($(this).find('input[name="unlim_num_rows"]').val());
 
-        var maxRowsCheck = checkFormElementInRange(
+        const maxRowsCheck = checkFormElementInRange(
             this,
             'session_max_rows',
             window.Messages.strNotValidRowNumber,
-            1
+            1,
         );
-        var posCheck = checkFormElementInRange(
+        const posCheck = checkFormElementInRange(
             this,
             'pos',
             window.Messages.strNotValidRowNumber,
             0,
-            unlimNumRows > 0 ? unlimNumRows - 1 : null
+            unlimNumRows > 0 ? unlimNumRows - 1 : null,
         );
 
         return maxRowsCheck && posCheck;
@@ -1169,19 +1172,19 @@ AJAX.registerOnload('sql.js', function () {
  */
 function changeClassForColumn ($thisTh, newClass, isAddClass = undefined) {
     // index 0 is the th containing the big T
-    var thIndex = $thisTh.index();
-    var hasBigT = $thisTh.closest('tr').children().first().hasClass('column_action');
+    let thIndex = $thisTh.index();
+    const hasBigT = $thisTh.closest('tr').children().first().hasClass('column_action');
     // .eq() is zero-based
     if (hasBigT) {
         thIndex--;
     }
 
-    var $table = $thisTh.parents('.table_results');
+    let $table = $thisTh.parents('.table_results');
     if (! $table.length) {
         $table = $thisTh.parents('table').siblings('.table_results');
     }
 
-    var $tds = $table.find('tbody tr').find('td.data').eq(thIndex);
+    const $tds = $table.find('tbody tr').find('td.data').eq(thIndex);
     if (isAddClass === undefined) {
         $tds.toggleClass(newClass);
     } else {
@@ -1195,12 +1198,12 @@ function changeClassForColumn ($thisTh, newClass, isAddClass = undefined) {
  * @param {object} $thisA reference to the browse foreign value link
  */
 function browseForeignDialog ($thisA) {
-    var formId = '#browse_foreign_form';
-    var showAllId = '#foreign_showAll';
-    var tableId = '#browse_foreign_table';
-    var filterId = '#input_foreign_filter';
-    var argSep = CommonParams.get('arg_separator');
-    var params = $thisA.getPostData();
+    const formId = '#browse_foreign_form';
+    const showAllId = '#foreign_showAll';
+    const tableId = '#browse_foreign_table';
+    const filterId = '#input_foreign_filter';
+    const argSep = CommonParams.get('arg_separator');
+    let params = $thisA.getPostData();
     params += argSep + 'ajax_request=true';
 
     let browseForeignModal = document.getElementById('browseForeignModal');
@@ -1240,10 +1243,10 @@ function browseForeignDialog ($thisA) {
         browseForeignModal.querySelector('.modal-body').innerHTML = data.message;
         modal.show();
     }).done(function () {
-        var showAll = false;
+        let showAll = false;
         $(tableId).on('click', 'td a.foreign_value', function (e) {
             e.preventDefault();
-            var $input = $thisA.prev('input[type=text]');
+            let $input = $thisA.prev('input[type=text]');
             // Check if input exists or get CEdit edit_box
             if ($input.length === 0) {
                 $input = $thisA.closest('.edit_area').prev('.edit_box');
@@ -1269,7 +1272,7 @@ function browseForeignDialog ($thisA) {
                 $(formId).find('select[name=pos]').val('0');
             }
 
-            var postParams = $(this).serializeArray();
+            const postParams = $(this).serializeArray();
             // if showAll button was clicked to submit form then
             // add showAll button parameter to form
             if (showAll) {
@@ -1281,7 +1284,7 @@ function browseForeignDialog ($thisA) {
 
             // updates values in dialog
             $.post($(this).attr('action') + '&ajax_request=1', postParams, function (data) {
-                var $obj = $('<div>').html(data.message);
+                const $obj = $('<div>').html(data.message);
                 $(formId).html($obj.find(formId).html());
                 $(tableId).html($obj.find(tableId).html());
             });
@@ -1296,9 +1299,9 @@ function browseForeignDialog ($thisA) {
  * @return {string}
  */
 function getAutoSavedKey () {
-    var db = $('input[name="db"]').val();
-    var table = $('input[name="table"]').val();
-    var key = db;
+    const db = $('input[name="db"]').val();
+    const table = $('input[name="table"]').val();
+    let key = db;
     if (table !== undefined) {
         key += '.' + table;
     }

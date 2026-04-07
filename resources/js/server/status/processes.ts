@@ -12,8 +12,8 @@ import getImageTag from '../../modules/functions/getImageTag.ts';
  * @package PhpMyAdmin
  */
 
-// object to store process list state information
-var processList = {
+/** object to store process list state information */
+const processList = {
 
     // denotes whether auto refresh is on or off
     autoRefresh: false,
@@ -50,11 +50,11 @@ var processList = {
      */
     killProcessHandler: function (event): void {
         event.preventDefault();
-        var argSep = CommonParams.get('arg_separator');
-        var params = $(this).getPostData();
+        const argSep = CommonParams.get('arg_separator');
+        let params = $(this).getPostData();
         params += argSep + 'ajax_request=1' + argSep + 'server=' + CommonParams.get('server');
         // Get row element of the process to be killed.
-        var $tr = $(this).closest('tr');
+        const $tr = $(this).closest('tr');
         $.post($(this).attr('href'), params, function (data) {
             // Check if process was killed or not.
             if (data.hasOwnProperty('success') && data.success) {
@@ -62,7 +62,7 @@ var processList = {
                 $tr.remove();
                 // As we just removed a row, reapply odd-even classes
                 // to keep table stripes consistent
-                var $tableProcessListTr = $('#tableprocesslist').find('> tbody > tr');
+                const $tableProcessListTr = $('#tableprocesslist').find('> tbody > tr');
                 $tableProcessListTr.each(function (index) {
                     if (index >= 0 && index % 2 === 0) {
                         $(this).removeClass('odd').addClass('even');
@@ -93,20 +93,20 @@ var processList = {
         if (processList.autoRefresh) {
             // Only fetch the table contents
             processList.refreshUrl = 'index.php?route=/server/status/processes/refresh';
-            var interval = parseInt(processList.refreshInterval, 10) * 1000;
-            var urlParams = processList.getUrlParams();
+            const interval = parseInt(processList.refreshInterval, 10) * 1000;
+            const urlParams = processList.getUrlParams();
             processList.refreshRequest = $.post(processList.refreshUrl,
                 urlParams,
                 function (data) {
                     if (data.hasOwnProperty('success') && data.success) {
-                        var $newTable = $(data.message);
+                        const $newTable = $(data.message);
                         $('#tableprocesslist').html($newTable.html());
                         highlightSql($('#tableprocesslist'));
                     }
 
                     processList.refreshTimeout = setTimeout(
                         processList.refresh,
-                        interval
+                        interval,
                     );
                 });
         }
@@ -129,8 +129,8 @@ var processList = {
      * change between play & pause
      */
     setRefreshLabel: function (): void {
-        var img = 'play';
-        var label = window.Messages.strStartRefresh;
+        let img = 'play';
+        let label = window.Messages.strStartRefresh;
         if (processList.autoRefresh) {
             img = 'pause';
             label = window.Messages.strStopRefresh;
@@ -148,14 +148,14 @@ var processList = {
      * @return {object} urlParams - url parameters with autoRefresh request
      */
     getUrlParams: function () {
-        var urlParams: { [k: string]: any } = {
+        const urlParams: { [k: string]: any } = {
             'server': CommonParams.get('server'),
             'ajax_request': true,
             'refresh': true,
             'full': $('input[name="full"]').val(),
             'order_by_field': $('input[name="order_by_field"]').val(),
             'column_name': $('input[name="column_name"]').val(),
-            'sort_order': $('input[name="sort_order"]').val()
+            'sort_order': $('input[name="sort_order"]').val(),
         };
         if ($('#showExecuting').is(':checked')) {
             urlParams.showExecuting = true;
@@ -164,7 +164,7 @@ var processList = {
         }
 
         return urlParams;
-    }
+    },
 };
 
 AJAX.registerOnload('server/status/processes.js', function () {

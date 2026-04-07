@@ -17,7 +17,7 @@ AJAX.registerOnload('export_output.js', function () {
 
     $('.export_copy_to_clipboard_btn').on('click', function (e) {
         e.preventDefault();
-        var copyStatus = copyToClipboard($('textarea#textSQLDUMP').val(), '<textarea>');
+        const copyStatus = copyToClipboard($('textarea#textSQLDUMP').val(), '<textarea>');
         displayCopyStatus(this, copyStatus);
     });
 });

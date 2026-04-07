@@ -19,7 +19,7 @@ import { addDateTimePicker } from '../modules/functions.ts';
  */
 function nullify (theType, md5Field, multiEdit) {
     // @ts-ignore
-    var rowForm = document.forms.insertForm;
+    const rowForm = document.forms.insertForm;
 
     if (typeof (rowForm.elements['funcs' + multiEdit + '[' + md5Field + ']']) !== 'undefined') {
         rowForm.elements['funcs' + multiEdit + '[' + md5Field + ']'].selectedIndex = -1;
@@ -30,13 +30,13 @@ function nullify (theType, md5Field, multiEdit) {
         rowForm.elements['fields' + multiEdit + '[' + md5Field + ']'][1].selectedIndex = -1;
         // Other "ENUM" field
     } else if (Number(theType) === 2) {
-        var elts = rowForm.elements['fields' + multiEdit + '[' + md5Field + ']'];
+        const elts = rowForm.elements['fields' + multiEdit + '[' + md5Field + ']'];
         // when there is just one option in ENUM:
         if (elts.checked) {
             elts.checked = false;
         } else {
-            var eltsCnt = elts.length;
-            for (var i = 0; i < eltsCnt; i++) {
+            const eltsCnt = elts.length;
+            for (let i = 0; i < eltsCnt; i++) {
                 elts[i].checked = false;
             } // end for
         } // end if
@@ -69,7 +69,7 @@ function daysInFebruary (year) {
 
 // function to convert single digit to double digit
 function fractionReplace (number) {
-    var num = parseInt(number, 10);
+    const num = parseInt(number, 10);
 
     return num >= 1 && num <= 9 ? '0' + num : '00';
 }
@@ -82,25 +82,25 @@ function fractionReplace (number) {
 * 4) And instead of using '-' the following punctuations can be used (+,.,*,^,@,/) All these are accepted by mysql as well. Therefore no issues
 */
 function isDate (val, tmstmp = undefined) {
-    var value = val.replace(/[.|*|^|+|//|@]/g, '-');
-    var arrayVal = value.split('-');
-    for (var a = 0; a < arrayVal.length; a++) {
+    let value = val.replace(/[.|*|^|+|//|@]/g, '-');
+    const arrayVal = value.split('-');
+    for (let a = 0; a < arrayVal.length; a++) {
         if (arrayVal[a].length === 1) {
             arrayVal[a] = fractionReplace(arrayVal[a]);
         }
     }
 
     value = arrayVal.join('-');
-    var pos = 2;
-    var dtexp = new RegExp(/^([0-9]{4})-(((01|03|05|07|08|10|12)-((0[0-9])|([1-2][0-9])|(3[0-1])))|((02|04|06|09|11)-((0[0-9])|([1-2][0-9])|30))|((00)-(00)))$/);
+    let pos = 2;
+    const dtexp = new RegExp(/^([0-9]{4})-(((01|03|05|07|08|10|12)-((0[0-9])|([1-2][0-9])|(3[0-1])))|((02|04|06|09|11)-((0[0-9])|([1-2][0-9])|30))|((00)-(00)))$/);
     if (value.length === 8) {
         pos = 0;
     }
 
     if (dtexp.test(value)) {
-        var month = parseInt(value.substring(pos + 3, pos + 5), 10);
-        var day = parseInt(value.substring(pos + 6, pos + 8), 10);
-        var year = parseInt(value.substring(0, pos + 2), 10);
+        const month = parseInt(value.substring(pos + 3, pos + 5), 10);
+        const day = parseInt(value.substring(pos + 6, pos + 8), 10);
+        let year = parseInt(value.substring(0, pos + 2), 10);
         if (month === 2 && day > daysInFebruary(year)) {
             return false;
         }
@@ -132,15 +132,17 @@ function isDate (val, tmstmp = undefined) {
 * 3) 2:23:43.123456
 */
 function isTime (val) {
-    var arrayVal = val.split(':');
-    for (var a = 0, l = arrayVal.length; a < l; a++) {
+    const arrayVal = val.split(':');
+    let a = 0;
+    const l = arrayVal.length;
+    for (; a < l; a++) {
         if (arrayVal[a].length === 1) {
             arrayVal[a] = fractionReplace(arrayVal[a]);
         }
     }
 
-    var newVal = arrayVal.join(':');
-    var tmexp = new RegExp(/^(-)?(([0-7]?[0-9][0-9])|(8[0-2][0-9])|(83[0-8])):((0[0-9])|([1-5][0-9])):((0[0-9])|([1-5][0-9]))(\.[0-9]{1,6}){0,1}$/);
+    const newVal = arrayVal.join(':');
+    const tmexp = new RegExp(/^(-)?(([0-7]?[0-9][0-9])|(8[0-2][0-9])|(83[0-8])):((0[0-9])|([1-5][0-9])):((0[0-9])|([1-5][0-9]))(\.[0-9]{1,6}){0,1}$/);
 
     return tmexp.test(newVal);
 }
@@ -161,7 +163,7 @@ function checkForCheckbox (multiEdit) {
 // used in Search page mostly for INT fields
 // eslint-disable-next-line no-unused-vars
 function verifyAfterSearchFieldChange (index, searchFormId) {
-    var $thisInput = $('input[name=\'criteriaValues[' + index + ']\']');
+    const $thisInput = $('input[name=\'criteriaValues[' + index + ']\']');
     // Add  data-skip-validators attribute to skip validation in changeValueFieldType function
     if ($('#fieldID_' + index).data('data-skip-validators')) {
         $(searchFormId).validate().destroy();
@@ -175,7 +177,7 @@ function verifyAfterSearchFieldChange (index, searchFormId) {
         // Trim spaces if it's an integer
         $thisInput.val(($thisInput.val() as string).trim());
 
-        var hasMultiple = $thisInput.prop('multiple');
+        const hasMultiple = $thisInput.prop('multiple');
 
         if (hasMultiple) {
             $(searchFormId).validate({
@@ -266,8 +268,8 @@ function validateMultipleIntField (jqueryInput, returnValueIfFine): void {
  * @param {boolean} returnValueIfIsNumber the value to return if the validator passes
  */
 function validateIntField (jqueryInput, returnValueIfIsNumber): void {
-    var mini = parseInt(jqueryInput.data('min'));
-    var maxi = parseInt(jqueryInput.data('max'));
+    const mini = parseInt(jqueryInput.data('min'));
+    const maxi = parseInt(jqueryInput.data('max'));
     // removing previous rules
     jqueryInput.rules('remove');
 
@@ -321,14 +323,14 @@ function validateFloatField (jqueryInput, returnValueIfIsNumber): void {
 }
 
 function verificationsAfterFieldChange (urlField, multiEdit, theType) {
-    var evt = window.event || arguments.callee.caller.arguments[0];
-    var target = evt.target || evt.srcElement;
-    var $thisInput = ($(':input[name^=\'fields[multi_edit][' + multiEdit + '][' +
+    const evt = window.event || arguments.callee.caller.arguments[0];
+    const target = evt.target || evt.srcElement;
+    const $thisInput = ($(':input[name^=\'fields[multi_edit][' + multiEdit + '][' +
         urlField + ']\']') as JQuery<HTMLInputElement>);
     // the function drop-down that corresponds to this input field
-    var $thisFunction = ($('select[name=\'funcs[multi_edit][' + multiEdit + '][' +
+    const $thisFunction = ($('select[name=\'funcs[multi_edit][' + multiEdit + '][' +
         urlField + ']\']') as JQuery<HTMLSelectElement>);
-    var functionSelected = false;
+    let functionSelected = false;
     if (typeof $thisFunction.val() !== 'undefined' &&
         $thisFunction.val() !== null &&
         ($thisFunction.val() as string).length > 0
@@ -337,7 +339,7 @@ function verificationsAfterFieldChange (urlField, multiEdit, theType) {
     }
 
     // To generate the textbox that can take the salt
-    var newSaltBox = '<br><input type=text name=salt[multi_edit][' + multiEdit + '][' + urlField + ']' +
+    const newSaltBox = '<br><input type=text name=salt[multi_edit][' + multiEdit + '][' + urlField + ']' +
         ' id=salt_' + target.id + ' placeholder=\'' + window.Messages.strEncryptionKey + '\'>';
 
     // If encrypting or decrypting functions that take salt as input is selected append the new textbox for salt
@@ -356,7 +358,7 @@ function verificationsAfterFieldChange (urlField, multiEdit, theType) {
         $('#salt_' + target.id).remove();
     }
 
-    var couldFetchRules = false;
+    let couldFetchRules = false;
     try {
         // See: issue #18792 - In some weird cases the input goes away before it validates
         // And it breaks jquery, this is a well known jquery bug with different trigger schemes
@@ -396,7 +398,7 @@ function verificationsAfterFieldChange (urlField, multiEdit, theType) {
 
     if (target.value === 'HEX' && theType.startsWith('int')) {
         // Add note when HEX function is selected on a int
-        var newHexInfo = '<br><p id="note' + target.id + '">' + window.Messages.HexConversionInfo + '</p>';
+        const newHexInfo = '<br><p id="note' + target.id + '">' + window.Messages.HexConversionInfo + '</p>';
         if (! $('#note' + target.id).length) {
             $thisInput.after(newHexInfo);
         }
@@ -414,7 +416,7 @@ function verificationsAfterFieldChange (urlField, multiEdit, theType) {
     // Unchecks the Ignore checkbox for the current row
     $('input[name=\'insert_ignore_' + multiEdit + '\']').prop('checked', false);
 
-    var charExceptionHandling;
+    let charExceptionHandling;
     if (theType.startsWith('char')) {
         charExceptionHandling = theType.substring(5, 6);
     } else if (theType.startsWith('varchar')) {
@@ -452,7 +454,7 @@ function verificationsAfterFieldChange (urlField, multiEdit, theType) {
             validateIntField($thisInput, checkForCheckbox(multiEdit));
             // validation for CHAR types
         } else if ($thisInput.data('type') === 'CHAR') {
-            var maxlen = $thisInput.data('maxlength');
+            let maxlen = $thisInput.data('maxlength');
             if (typeof maxlen !== 'undefined') {
                 if (maxlen <= 4) {
                     maxlen = charExceptionHandling;
@@ -507,7 +509,7 @@ AJAX.registerTeardown('table/change.js', function () {
     $(document).off('change', '#insert_rows');
 
     // Reset grid edit state
-    var grid = $('table.table_results').data('pmaGrid');
+    const grid = $('table.table_results').data('pmaGrid');
 
     if (grid && typeof grid.resetGridEditState === 'function') {
         grid.resetGridEditState();
@@ -550,12 +552,12 @@ AJAX.registerOnload('table/change.js', function () {
         });
 
         $.validator.addMethod('validationFunctionForAesDesEncrypt', function (value, element, options) {
-            var funType = value.substring(0, 3);
+            const funType = value.substring(0, 3);
             if (funType !== 'AES' && funType !== 'DES') {
                 return false;
             }
 
-            var dataType = options.data('type');
+            const dataType = options.data('type');
 
             if (dataType === 'HEX' || dataType === 'CHAR') {
                 return true;
@@ -565,14 +567,14 @@ AJAX.registerOnload('table/change.js', function () {
         });
 
         $.validator.addMethod('validationFunctionForDateTime', function (value, element, options) {
-            var dtValue = value;
-            var theType = options;
+            let dtValue = value;
+            const theType = options;
             if (theType === 'date') {
                 return isDate(dtValue);
             } else if (theType === 'time') {
                 return isTime(dtValue);
             } else if (theType === 'datetime' || theType === 'timestamp') {
-                var tmstmp = false;
+                let tmstmp = false;
                 dtValue = dtValue.trim();
                 if (dtValue === 'CURRENT_TIMESTAMP' || dtValue === 'current_timestamp()') {
                     return true;
@@ -586,7 +588,7 @@ AJAX.registerOnload('table/change.js', function () {
                     return true;
                 }
 
-                var dv = dtValue.indexOf(' ');
+                const dv = dtValue.indexOf(' ');
                 if (dv === -1) { // Only the date component, which is valid
                     return isDate(dtValue, tmstmp);
                 }
@@ -633,11 +635,11 @@ AJAX.registerOnload('table/change.js', function () {
      * Uncheck the null checkbox as geometry data is placed on the input field
      */
     $(document).on('click', 'button.gis-copy-data', function () {
-        var inputName = $('form#gis_data_editor_form').find('input[name=\'input_name\']').val();
-        var currentRow = $('input[name=\'' + inputName + '\']').parents('tr');
-        var $nullCheckbox = currentRow.find('.checkbox_null');
+        const inputName = $('form#gis_data_editor_form').find('input[name=\'input_name\']').val();
+        const currentRow = $('input[name=\'' + inputName + '\']').parents('tr');
+        const $nullCheckbox = currentRow.find('.checkbox_null');
         $nullCheckbox.prop('checked', false);
-        var rowId = currentRow.find('.open_gis_editor').data('row-id');
+        const rowId = currentRow.find('.open_gis_editor').data('row-id');
 
         // Unchecks the Ignore checkbox for the current row
         $('input[name=\'insert_ignore_' + rowId + '\']').prop('checked', false);
@@ -665,16 +667,16 @@ AJAX.registerOnload('table/change.js', function () {
      * available).
      */
     $('select[name="submit_type"]').on('change', function () {
-        var thisElemSubmitTypeVal = $(this).val();
-        var $table = $('table.insertRowTable');
-        var autoIncrementColumn = $table.find('input[name^="auto_increment"]');
+        const thisElemSubmitTypeVal = $(this).val();
+        const $table = $('table.insertRowTable');
+        const autoIncrementColumn = $table.find('input[name^="auto_increment"]');
         autoIncrementColumn.each(function () {
-            var $thisElemAIField = $(this);
-            var thisElemName = $thisElemAIField.attr('name');
+            const $thisElemAIField = $(this);
+            const thisElemName = $thisElemAIField.attr('name');
 
-            var prevValueField = $table.find('input[name="' + thisElemName.replace('auto_increment', 'fields_prev') + '"]');
-            var valueField = $table.find('input[name="' + thisElemName.replace('auto_increment', 'fields') + '"]');
-            var previousValue = $(prevValueField).val();
+            const prevValueField = $table.find('input[name="' + thisElemName.replace('auto_increment', 'fields_prev') + '"]');
+            const valueField = $table.find('input[name="' + thisElemName.replace('auto_increment', 'fields') + '"]');
+            const previousValue = $(prevValueField).val();
             if (previousValue !== undefined) {
                 if (thisElemSubmitTypeVal === 'insert'
                     || thisElemSubmitTypeVal === 'insertignore'
@@ -692,7 +694,7 @@ AJAX.registerOnload('table/change.js', function () {
      * Handle ENTER key when press on Continue insert with field
      */
     $('#insert_rows').on('keypress', function (e) {
-        var key = e.which;
+        const key = e.which;
         if (key === 13) {
             addNewContinueInsertionFields(e);
         }
@@ -709,24 +711,25 @@ function addNewContinueInsertionFields (event) {
     /**
      * @var columnCount   Number of number of columns table has.
      */
-    var columnCount = $('table.insertRowTable').first().find('tr').has('input[name*=\'fields_name\']').length;
+    const columnCount = $('table.insertRowTable').first().find('tr').has('input[name*=\'fields_name\']').length;
     /**
      * @var curr_rows   Number of current insert rows already on page
      */
-    var currRows = $('table.insertRowTable').length;
+    let currRows = $('table.insertRowTable').length;
     /**
      * @var target_rows Number of rows the user wants
      */
-    var targetRows = Number($('#insert_rows').val());
+    const targetRows = Number($('#insert_rows').val());
 
     // remove all datepickers
     $('input.datefield, input.datetimefield').each(function () {
         $(this).datepicker('destroy');
     });
 
+    let newRowIndex: number;
     if (currRows < targetRows) {
-        var tempIncrementIndex = function () {
-            var $thisElement = $(this);
+        const tempIncrementIndex = function () {
+            const $thisElement = $(this);
             /**
              * Extract the index from the name attribute for all input/select fields and increment it
              * name is of format funcs[multi_edit][10][<long random string of alphanum chars>]
@@ -735,37 +738,37 @@ function addNewContinueInsertionFields (event) {
             /**
              * @var this_name   String containing name of the input/select elements
              */
-            var thisName = $thisElement.attr('name');
+            const thisName = $thisElement.attr('name');
             /** split {@link thisName} at [10], so we have the parts that can be concatenated later */
-            var nameParts = thisName.split(/\[\d+\]/);
+            const nameParts = thisName.split(/\[\d+\]/);
             /** extract the [10] from  {@link nameParts} */
-            var oldRowIndexString = thisName.match(/\[\d+\]/)[0];
+            const oldRowIndexString = thisName.match(/\[\d+\]/)[0];
             /** extract 10 - had to split into two steps to accomodate double digits */
-            var oldRowIndex = parseInt(oldRowIndexString.match(/\d+/)[0], 10);
+            const oldRowIndex = parseInt(oldRowIndexString.match(/\d+/)[0], 10);
 
             /** calculate next index i.e. 11 */
             newRowIndex = oldRowIndex + 1;
             /** generate the new name i.e. funcs[multi_edit][11][foobarbaz] */
-            var newName = nameParts[0] + '[' + newRowIndex + ']' + nameParts[1];
+            const newName = nameParts[0] + '[' + newRowIndex + ']' + nameParts[1];
 
-            var hashedField = nameParts[1].match(/\[(.+)\]/)[1];
+            const hashedField = nameParts[1].match(/\[(.+)\]/)[1];
             $thisElement.attr('name', newName);
 
             /** If element is select[name*='funcs'], update id */
             if ($thisElement.is('select[name*=\'funcs\']')) {
-                var thisId = $thisElement.attr('id');
-                var idParts = thisId.split(/_/);
-                var oldIdIndex = idParts[1];
-                var prevSelectedValue = $('#field_' + oldIdIndex + '_1').val();
-                var newIdIndex = parseInt(oldIdIndex) + columnCount;
-                var newId = 'field_' + newIdIndex + '_1';
+                const thisId = $thisElement.attr('id');
+                const idParts = thisId.split(/_/);
+                const oldIdIndex = idParts[1];
+                const prevSelectedValue = $('#field_' + oldIdIndex + '_1').val();
+                const newIdIndex = parseInt(oldIdIndex) + columnCount;
+                const newId = 'field_' + newIdIndex + '_1';
                 $thisElement.attr('id', newId);
                 $thisElement.find('option').filter(function () {
                     return $(this).text() === prevSelectedValue;
                 }).attr('selected', 'selected');
 
                 // If salt field is there then update its id.
-                var nextSaltInput = $thisElement.parent().next('td').next('td').find('input[name*=\'salt\']');
+                const nextSaltInput = $thisElement.parent().next('td').next('td').find('input[name*=\'salt\']');
                 if (nextSaltInput.length !== 0) {
                     nextSaltInput.attr('id', 'salt_' + newId);
                 }
@@ -789,11 +792,11 @@ function addNewContinueInsertionFields (event) {
                     .data('hashed_field', hashedField)
                     .data('new_row_index', newRowIndex)
                     .on('change', function () {
-                        var $changedElement = $(this);
+                        const $changedElement = $(this);
                         verificationsAfterFieldChange(
                             $changedElement.data('hashed_field'),
                             $changedElement.data('new_row_index'),
-                            $changedElement.closest('tr').find('span.column_type').html()
+                            $changedElement.closest('tr').find('span.column_type').html(),
                         );
                     });
             }
@@ -808,26 +811,28 @@ function addNewContinueInsertionFields (event) {
                     .data('hashed_field', hashedField)
                     .data('new_row_index', newRowIndex)
                     .on('click', function () {
-                        var $changedElement = $(this);
+                        const $changedElement = $(this);
                         nullify(
                             $changedElement.siblings('.nullify_code').val(),
                             $changedElement.data('hashed_field'),
-                            '[multi_edit][' + $changedElement.data('new_row_index') + ']'
+                            '[multi_edit][' + $changedElement.data('new_row_index') + ']',
                         );
                     });
             }
         };
 
-        var tempReplaceAnchor = function () {
-            var $anchor = $(this);
-            var newValue = 'rownumber=' + newRowIndex;
+        const tempReplaceAnchor = function () {
+            const $anchor = $(this);
+            const newValue = 'rownumber=' + newRowIndex;
             // needs improvement in case something else inside
             // the href contains this pattern
-            var newHref = $anchor.attr('href').replace(/rownumber=\d+/, newValue);
+            const newHref = $anchor.attr('href').replace(/rownumber=\d+/, newValue);
             $anchor.attr('href', newHref);
         };
 
-        var restoreValue = function () {
+        let $checkedValue;
+
+        const restoreValue = function () {
             if ($(this).closest('tr').find('span.column_type').html() === 'enum') {
                 if ($(this).val() === $checkedValue) {
                     $(this).prop('checked', true);
@@ -841,13 +846,13 @@ function addNewContinueInsertionFields (event) {
             /**
              * @var $last_row    Object referring to the last row
              */
-            var $lastRow = $('#insertForm').find('.insertRowTable').last();
+            const $lastRow = $('#insertForm').find('.insertRowTable').last();
 
             // need to access this at more than one level
             // (also needs improvement because it should be calculated
             //  just once per cloned row, not once per column)
-            var newRowIndex = 0;
-            var $checkedValue = $lastRow.find('input:checked').val();
+            newRowIndex = 0;
+            $checkedValue = $lastRow.find('input:checked').val();
 
             // Clone the insert tables
             $lastRow
@@ -859,11 +864,11 @@ function addNewContinueInsertionFields (event) {
                 .find('.foreign_values_anchor')
                 .each(tempReplaceAnchor);
 
-            var $oldRow = $lastRow.find('.textfield');
+            const $oldRow = $lastRow.find('.textfield');
             $oldRow.each(restoreValue);
 
             // set the value of enum field of new row to default
-            var $newRow = $('#insertForm').find('.insertRowTable').last();
+            const $newRow = $('#insertForm').find('.insertRowTable').last();
             $newRow.find('.textfield').each(function () {
                 if ($(this).closest('tr').find('span.column_type').html() === 'enum') {
                     if ($(this).val() === $(this).closest('tr').find('span.default_value').html()) {
@@ -884,15 +889,15 @@ function addNewContinueInsertionFields (event) {
                 /**
                  * @var $last_checkbox   Object reference to the last checkbox in #insertForm
                  */
-                var $lastCheckbox = $('#insertForm').children('input:checkbox').last();
+                const $lastCheckbox = $('#insertForm').children('input:checkbox').last();
 
                 /** name of {@link $lastCheckbox} */
-                var lastCheckboxName = $lastCheckbox.attr('name');
+                const lastCheckboxName = $lastCheckbox.attr('name');
                 /** index of {@link $lastCheckbox} */
                 // @ts-ignore
-                var lastCheckboxIndex = parseInt(lastCheckboxName.match(/\d+/), 10);
+                const lastCheckboxIndex = parseInt(lastCheckboxName.match(/\d+/), 10);
                 /** name of new {@link $lastCheckbox} */
-                var newName = lastCheckboxName.replace(/\d+/, (lastCheckboxIndex + 1).toString());
+                const newName = lastCheckboxName.replace(/\d+/, (lastCheckboxIndex + 1).toString());
 
                 $('<br><div class="clearfloat"></div>')
                     .insertBefore($('table.insertRowTable').last());
@@ -918,7 +923,7 @@ function addNewContinueInsertionFields (event) {
         // recompute tabindex for text fields and other controls at footer;
         // IMO it's not really important to handle the tabindex for
         // function and Null
-        var tabIndex = 0;
+        let tabIndex = 0;
         $('.textfield, .char, textarea')
             .each(function () {
                 tabIndex++;
@@ -937,7 +942,7 @@ function addNewContinueInsertionFields (event) {
          * Displays alert if data loss possible on decrease
          * of rows.
          */
-        var checkLock = $.isEmptyObject(AJAX.lockedTargets);
+        const checkLock = $.isEmptyObject(AJAX.lockedTargets);
         if (checkLock || confirm(window.Messages.strConfirmRowChange) === true) {
             while (currRows > targetRows) {
                 $('input[id^=insert_ignore]').last()
@@ -957,13 +962,13 @@ function addNewContinueInsertionFields (event) {
 }
 
 function changeValueFieldType (elem, searchIndex) {
-    var fieldsValue = $('input#fieldID_' + searchIndex);
+    const fieldsValue = $('input#fieldID_' + searchIndex);
     // @ts-ignore
     if (0 === fieldsValue.size()) {
         return;
     }
 
-    var type = $(elem).val();
+    const type = $(elem).val();
 
     if ('LIKE' === type ||
         'LIKE %...%' === type ||

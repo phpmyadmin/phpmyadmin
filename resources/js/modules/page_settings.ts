@@ -34,7 +34,7 @@ function showSettings (selector) {
     createPageSettingsModal();
 
     // Keeping a clone to restore in case the user cancels the operation
-    var $clone = $(selector + ' .page_settings').clone(true);
+    const $clone = $(selector + ' .page_settings').clone(true);
 
     $('#pageSettingsModalApplyButton').on('click', function () {
         $('.config-form').trigger('submit');

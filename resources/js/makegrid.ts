@@ -32,12 +32,12 @@ import { escapeHtml } from './modules/functions/escape.ts';
  * @param enableGridEdit Optional, if false, grid editing feature will be disabled
  */
 const makeGrid = function (t, enableResize = undefined, enableReorder = undefined, enableVisib = undefined, enableGridEdit = undefined) {
-    var isResizeEnabled = enableResize === undefined ? true : enableResize;
-    var isReorderEnabled = enableReorder === undefined ? true : enableReorder;
-    var isVisibEnabled = enableVisib === undefined ? true : enableVisib;
-    var isGridEditEnabled = enableGridEdit === undefined ? true : enableGridEdit;
+    const isResizeEnabled = enableResize === undefined ? true : enableResize;
+    const isReorderEnabled = enableReorder === undefined ? true : enableReorder;
+    const isVisibEnabled = enableVisib === undefined ? true : enableVisib;
+    const isGridEditEnabled = enableGridEdit === undefined ? true : enableGridEdit;
 
-    var g: { [p: string]: any } = {
+    const g: { [p: string]: any } = {
         /** *********
          * Constant
          ***********/
@@ -100,14 +100,14 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
          * @param obj dragged div object
          */
         dragStartRsz: function (e, obj) {
-            var n = $(g.cRsz).find('div').index(obj);    // get the index of separator (i.e., column index)
+            const n = $(g.cRsz).find('div').index(obj);    // get the index of separator (i.e., column index)
             $(obj).addClass('colborder_active');
             g.colRsz = {
                 x0: e.pageX,
                 n: n,
                 obj: obj,
                 objLeft: $(obj).position().left,
-                objWidth: $(g.t).find('th.draggable:visible').eq(n).find('span').outerWidth()
+                objWidth: $(g.t).find('th.draggable:visible').eq(n).find('span').outerWidth(),
             };
 
             $(document.body).css('cursor', 'col-resize').addClass('user-select-none');
@@ -125,20 +125,20 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
         dragStartReorder: function (e, obj) {
             // prepare the cCpy (column copy) and cPointer (column pointer) from the dragged column
             $(g.cCpy).text($(obj).text());
-            var objPos = $(obj).position();
+            const objPos = $(obj).position();
             $(g.cCpy).css({
                 top: objPos.top + 20,
                 left: objPos.left,
                 height: $(obj).height(),
-                width: $(obj).width()
+                width: $(obj).width(),
             });
 
             $(g.cPointer).css({
-                top: objPos.top
+                top: objPos.top,
             });
 
             // get the column index, zero-based
-            var n = g.getHeaderIdx(obj);
+            const n = g.getHeaderIdx(obj);
 
             g.colReorder = {
                 x0: e.pageX,
@@ -147,7 +147,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                 newn: n,
                 obj: obj,
                 objTop: objPos.top,
-                objLeft: objPos.left
+                objLeft: objPos.left,
             };
 
             $(document.body).css('cursor', 'move').addClass('user-select-none');
@@ -162,7 +162,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
          * @param e event
          */
         dragMove: function (e) {
-            var dx;
+            let dx;
             if (g.colRsz) {
                 dx = e.pageX - g.colRsz.x0;
                 if (g.colRsz.objWidth + dx > g.minColWidth) {
@@ -176,20 +176,20 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                     .show();
 
                 // pointer animation
-                var hoveredCol = g.getHoveredCol(e);
+                const hoveredCol = g.getHoveredCol(e);
                 if (hoveredCol) {
-                    var newn = g.getHeaderIdx(hoveredCol);
+                    const newn = g.getHeaderIdx(hoveredCol);
                     g.colReorder.newn = newn;
                     if (newn !== g.colReorder.n) {
                         // show the column pointer in the right place
-                        var colPos = $(hoveredCol).position();
-                        var newleft = newn < g.colReorder.n ?
+                        const colPos = $(hoveredCol).position();
+                        const newleft = newn < g.colReorder.n ?
                             colPos.left :
                             colPos.left + $(hoveredCol).outerWidth();
                         $(g.cPointer)
                             .css({
                                 left: newleft,
-                                visibility: 'visible'
+                                visibility: 'visible',
                             });
                     } else {
                         // no movement to other column, hide the column pointer
@@ -206,13 +206,13 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
          */
         dragEnd: function (e) {
             if (g.colRsz) {
-                var dx = e.pageX - g.colRsz.x0;
-                var nw = g.colRsz.objWidth + dx;
+                const dx = e.pageX - g.colRsz.x0;
+                let nw = g.colRsz.objWidth + dx;
                 if (nw < g.minColWidth) {
                     nw = g.minColWidth;
                 }
 
-                var n = g.colRsz.n;
+                const n = g.colRsz.n;
                 // do the resizing
                 g.resize(n, nw);
 
@@ -225,7 +225,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                 if (g.colReorder.newn !== g.colReorder.n) {
                     g.shiftCol(g.colReorder.n, g.colReorder.newn);
                     // assign new position
-                    var objPos = $(g.colReorder.obj).position();
+                    const objPos = $(g.colReorder.obj).position();
                     g.colReorder.objTop = objPos.top;
                     g.colReorder.objLeft = objPos.left;
                     g.colReorder.n = g.colReorder.newn;
@@ -241,7 +241,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                 $(g.cCpy).stop(true, true)
                     .animate({
                         top: g.colReorder.objTop,
-                        left: g.colReorder.objLeft
+                        left: g.colReorder.objLeft,
                     }, 'fast')
                     .fadeOut();
 
@@ -272,12 +272,14 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
          */
         reposRsz: function () {
             $(g.cRsz).find('div').hide();
-            var $firstRowCols = $(g.t).find('tr').first().find('th.draggable:visible');
-            var $resizeHandles = $(g.cRsz).find('div').removeClass('condition');
+            const $firstRowCols = $(g.t).find('tr').first().find('th.draggable:visible');
+            const $resizeHandles = $(g.cRsz).find('div').removeClass('condition');
             $(g.t).find('table.pma_table').find('thead th').first().removeClass('before-condition');
-            for (var n = 0, l = $firstRowCols.length; n < l; n++) {
-                var $col = $($firstRowCols[n]);
-                var colWidth;
+            let n = 0;
+            const l = $firstRowCols.length;
+            for (; n < l; n++) {
+                const $col = $($firstRowCols[n]);
+                let colWidth;
                 if (userAgent().toLowerCase().indexOf('safari') !== -1) {
                     colWidth = $col.outerWidth();
                 } else {
@@ -350,7 +352,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
             }
 
             // adjust the colOrder
-            var tmp = g.colOrder[oldn];
+            let tmp = g.colOrder[oldn];
             g.colOrder.splice(oldn, 1);
             g.colOrder.splice(newn, 0, tmp);
             // adjust the colVisib
@@ -368,11 +370,11 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
          * @return {object|undefined} the hovered column's th object or undefined if no hovered column found.
          */
         getHoveredCol: function (e) {
-            var hoveredCol;
-            var $headers = $(g.t).find('th.draggable:visible');
+            let hoveredCol;
+            const $headers = $(g.t).find('th.draggable:visible');
             $headers.each(function () {
-                var left = $(this).offset().left;
-                var right = left + $(this).outerWidth();
+                const left = $(this).offset().left;
+                const right = left + $(this).outerWidth();
                 if (left <= e.pageX && e.pageX <= right) {
                     hoveredCol = this;
                 }
@@ -396,9 +398,9 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
          */
         restoreColOrder: function () {
             // use insertion sort, since we already have shiftCol function
-            for (var i = 1; i < g.colOrder.length; i++) {
-                var x = g.colOrder[i];
-                var j = i - 1;
+            for (let i = 1; i < g.colOrder.length; i++) {
+                const x = g.colOrder[i];
+                let j = i - 1;
                 while (j >= 0 && x < g.colOrder[j]) {
                     j--;
                 }
@@ -427,13 +429,13 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                     return;
                 }
 
-                var postParams = {
+                const postParams = {
                     'ajax_request': true,
                     'db': g.db,
                     'table': g.table,
                     'token': g.token,
                     'server': g.server,
-                    'table_create_time': g.tableCreateTime
+                    'table_create_time': g.tableCreateTime,
                 };
                 if (g.colOrder.length > 0) {
                     $.extend(postParams, { 'col_order': g.colOrder.toString() });
@@ -445,7 +447,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
 
                 $.post('index.php?route=/sql/set-column-preferences', postParams, function (data) {
                     if (data.success !== true) {
-                        var $tempDiv = $(document.createElement('div'));
+                        const $tempDiv = $(document.createElement('div'));
                         $tempDiv.html(data.error);
                         $tempDiv.addClass('alert alert-danger');
                         ajaxShowMessage($tempDiv, false);
@@ -460,8 +462,8 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
          */
         refreshRestoreButton: function () {
             // check if table state is as initial state
-            var isInitial = true;
-            for (var i = 0; i < g.colOrder.length; i++) {
+            let isInitial = true;
+            for (let i = 0; i < g.colOrder.length; i++) {
                 if (g.colOrder[i] !== i) {
                     isInitial = false;
                     break;
@@ -469,7 +471,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
             }
 
             // check if only one visible column left
-            var isOneColumn = g.visibleHeadersCount === 1;
+            const isOneColumn = g.visibleHeadersCount === 1;
             // enable or disable restore button
             if (isInitial || isOneColumn) {
                 $(g.o).find('div.restore_column').hide();
@@ -485,7 +487,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
          *
          */
         updateHint: function () {
-            var text = '';
+            let text = '';
             if (! g.colRsz && ! g.colReorder) {     // if not resizing or dragging
                 if (g.visibleHeadersCount > 1) {
                     g.showReorderHint = true;
@@ -600,9 +602,9 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
         showColList: function (obj) {
             // only show when not resizing or reordering
             if (! g.colRsz && ! g.colReorder) {
-                var pos = $(obj).position();
+                const pos = $(obj).position();
                 $(g.cList).css({
-                    top: pos.top + $(obj).outerHeight(true)
+                    top: pos.top + $(obj).outerHeight(true),
                 })
                     .show();
 
@@ -622,13 +624,13 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
          * Reposition the column visibility drop-down arrow.
          */
         reposDrop: function () {
-            var $th = $(t).find('th:not(.draggable)');
-            for (var i = 0; i < $th.length; i++) {
-                var $cd = $(g.cDrop).find('div').eq(i);   // column drop-down arrow
-                var pos = $($th[i]).position();
+            const $th = $(t).find('th:not(.draggable)');
+            for (let i = 0; i < $th.length; i++) {
+                const $cd = $(g.cDrop).find('div').eq(i);   // column drop-down arrow
+                const pos = $($th[i]).position();
                 $cd.css({
                     left: pos.left + $($th[i]).width() - $cd.width(),
-                    top: pos.top
+                    top: pos.top,
                 });
             }
         },
@@ -637,7 +639,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
          * Show all hidden columns.
          */
         showAllColumns: function () {
-            for (var i = 0; i < g.colVisib.length; i++) {
+            for (let i = 0; i < g.colVisib.length; i++) {
                 if (! g.colVisib[i]) {
                     g.toggleCol(i);
                 }
@@ -653,7 +655,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
          */
         showEditCell: function (cell) {
             // destroy the date picker instance left if any, see: #17703
-            var $datePickerInstance = $(g.cEdit).find('.hasDatepicker');
+            const $datePickerInstance = $(g.cEdit).find('.hasDatepicker');
             if ($datePickerInstance.length > 0) {
                 $datePickerInstance.datepicker('destroy');
             }
@@ -661,7 +663,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
             if ($(cell).is('.grid_edit') &&
                 ! g.colRsz && ! g.colReorder) {
                 if (! g.isCellEditActive) {
-                    var $cell = $(cell);
+                    const $cell = $(cell);
 
                     if ('string' === $cell.attr('data-type') ||
                         'blob' === $cell.attr('data-type') ||
@@ -677,17 +679,17 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                     // reposition the cEdit element
                     $(g.cEdit).css({
                         top: $cell.position().top,
-                        left: $cell.position().left
+                        left: $cell.position().left,
                     })
                         .show()
                         .find('.edit_box')
                         .css({
                             width: $cell.outerWidth(),
-                            height: $cell.outerHeight()
+                            height: $cell.outerHeight(),
                         });
 
                     // fill the cell edit with text from <td>
-                    var value = getCellValue(cell);
+                    let value = getCellValue(cell);
                     if ($cell.attr('data-type') === 'json' && $cell.is('.truncated') === false) {
                         value = stringifyJSON(value, null, 4);
                     }
@@ -702,8 +704,8 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
             }
 
             function moveCursorToEnd (input) {
-                var originalValue = input.val();
-                var originallength = originalValue.length;
+                const originalValue = input.val();
+                const originallength = originalValue.length;
                 input.val('');
                 input.trigger('blur').trigger('focus').val(originalValue);
                 input[0].setSelectionRange(originallength, originallength);
@@ -742,14 +744,14 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
             if (data) {
                 if (g.currentEditCell) {    // save value of currently edited cell
                     // replace current edited field with the new value
-                    var $thisField = $(g.currentEditCell);
-                    var isNull = $thisField.data('value') === null;
+                    const $thisField = $(g.currentEditCell);
+                    const isNull = $thisField.data('value') === null;
                     if (isNull) {
                         $thisField.find('span').html('NULL');
                         $thisField.addClass('null');
                     } else {
                         $thisField.removeClass('null');
-                        var value = data.isNeedToRecheck
+                        let value = data.isNeedToRecheck
                             ? data.truncatableFieldValue
                             : $thisField.data('value');
 
@@ -761,14 +763,14 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                         }
 
                         // Add <br> before carriage return.
-                        var newHtml = escapeHtml(value);
+                        let newHtml = escapeHtml(value);
                         newHtml = newHtml.replace(/\n/g, '<br>\n');
 
-                        var decimals = parseInt($thisField.attr('data-decimals'));
+                        const decimals = parseInt($thisField.attr('data-decimals'));
 
                         // remove decimal places if column type not supported
                         if ((decimals === 0) && ($thisField.attr('data-type').indexOf('time') !== -1)) {
-                            var index = newHtml.indexOf('.');
+                            const index = newHtml.indexOf('.');
                             if (index !== -1) {
                                 newHtml = newHtml.substring(0, index);
                             }
@@ -779,13 +781,13 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                             newHtml = newHtml.substring(0, newHtml.length - (6 - decimals));
                         }
 
-                        var selector = 'span';
+                        let selector = 'span';
                         if ($thisField.hasClass('hex') && $thisField.find('a').length) {
                             selector = 'a';
                         }
 
                         // Updates the code keeping highlighting (if any).
-                        var $target = $thisField.find(selector);
+                        const $target = $thisField.find(selector);
                         if (! updateCode($target, newHtml, value)) {
                             $target.html(newHtml);
                         }
@@ -798,14 +800,14 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
 
                 if (data.transformations !== undefined) {
                     $.each(data.transformations, function (cellIndex, value) {
-                        var $thisField = $(g.t).find('.to_be_saved').eq(Number(cellIndex));
+                        const $thisField = $(g.t).find('.to_be_saved').eq(Number(cellIndex));
                         $thisField.find('span').html(value);
                     });
                 }
 
                 if (data.relations !== undefined) {
                     $.each(data.relations, function (cellIndex, value) {
-                        var $thisField = $(g.t).find('.to_be_saved').eq(Number(cellIndex));
+                        const $thisField = $(g.t).find('.to_be_saved').eq(Number(cellIndex));
                         $thisField.find('span').html(value);
                     });
                 }
@@ -821,7 +823,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
             g.isCellEditActive = false;
             g.currentEditCell = null;
             // destroy datepicker in edit area, if exist
-            var $dp = $(g.cEdit).find('.hasDatepicker');
+            const $dp = $(g.cEdit).find('.hasDatepicker');
             if ($dp.length > 0) {
                 // @ts-ignore
                 $(document).on('mousedown', $.datepicker._checkExternalClick); // eslint-disable-line no-underscore-dangle
@@ -843,43 +845,43 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                 /**
                  * @var $td current edited cell
                  */
-                var $td = $(g.currentEditCell);
+                const $td = $(g.currentEditCell);
                 /**
                  * @var $editArea the editing area
                  */
-                var $editArea = $(g.cEdit).find('.edit_area');
+                const $editArea = $(g.cEdit).find('.edit_area');
                 /**
                  * @var whereClause WHERE clause for the edited cell
                  */
-                var whereClause = $td.parent('tr').find('.where_clause').val();
+                const whereClause = $td.parent('tr').find('.where_clause').val();
                 /**
                  * @var fieldName  String containing the name of this field.
                  * @see window.Sql.getFieldName()
                  */
-                var fieldName = window.Sql.getFieldName($(t), $td);
+                const fieldName = window.Sql.getFieldName($(t), $td);
                 /**
                  * @var relationCurrValue String current value of the field (for fields that are foreign keyed).
                  */
-                var relationCurrValue = $td.text();
+                const relationCurrValue = $td.text();
                 /**
                  * @var relationKeyOrDisplayColumn String relational key if in 'Relational display column' mode,
                  * relational display column if in 'Relational key' mode (for fields that are foreign keyed).
                  */
-                var relationKeyOrDisplayColumn = $td.find('a').attr('title');
+                const relationKeyOrDisplayColumn = $td.find('a').attr('title');
                 /**
                  * @var currValue String current value of the field (for fields that are of type enum or set).
                  */
-                var currValue = $td.find('span').text();
+                const currValue = $td.find('span').text();
 
                 // empty all edit area, then rebuild it based on $td classes
                 $editArea.empty();
 
                 // remember this instead of testing more than once
-                var isNull = $td.is('.null');
+                const isNull = $td.is('.null');
 
                 // add goto link, if this cell contains a link
                 if ($td.find('a').length > 0) {
-                    var gotoLink = document.createElement('div');
+                    const gotoLink = document.createElement('div');
                     gotoLink.className = 'goto_link';
                     $(gotoLink).append(g.gotoLinkText + ' ').append($td.find('a').clone());
                     $editArea.append(gotoLink);
@@ -890,7 +892,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                     // append a null checkbox
                     $editArea.append('<div class="null_div"><label>NULL:<input type="checkbox"></label></div>');
 
-                    var $checkbox = $editArea.find('.null_div input');
+                    const $checkbox = $editArea.find('.null_div input');
                     // check if current <td> is NULL
                     if (isNull) {
                         $checkbox.prop('checked', true);
@@ -944,7 +946,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                             $editArea.find('select').val('');
                         } else if ($td.is('.set')) {
                             $editArea.find('select').find('option').each(function () {
-                                var $option = $(this);
+                                const $option = $(this);
                                 $option.prop('selected', false);
                             });
                         } else if ($td.is('.relation')) {
@@ -965,7 +967,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                 // reset the position of the edit_area div after closing datetime picker
                 $(g.cEdit).find('.edit_area').css({ 'top': '0', 'position': '' });
 
-                var postParams;
+                let postParams;
                 if ($td.is('.relation')) {
                     // handle relations
                     $editArea.addClass('edit_area_loading');
@@ -983,7 +985,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                         'table': g.table,
                         'column': fieldName,
                         'curr_value': relationCurrValue,
-                        'relation_key_or_display_column': relationKeyOrDisplayColumn
+                        'relation_key_or_display_column': relationKeyOrDisplayColumn,
                     };
 
                     g.lastXHR = $.post('index.php?route=/sql/get-relational-values', postParams, function (data) {
@@ -991,7 +993,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                         $editArea.removeClass('edit_area_loading');
                         if ($(data.dropdown).is('select')) {
                             // save original_data
-                            var value = $(data.dropdown).val();
+                            const value = $(data.dropdown).val();
                             $td.data('original_data', value);
                             // update the text input field, in case where the "Relational display column" is checked
                             $(g.cEdit).find('.edit_box').val(value);
@@ -1028,7 +1030,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                         'db': g.db,
                         'table': g.table,
                         'column': fieldName,
-                        'curr_value': currValue
+                        'curr_value': currValue,
                     };
 
                     g.lastXHR = $.post('index.php?route=/sql/get-enum-values', postParams, function (data) {
@@ -1062,7 +1064,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                             'column': fieldName,
                             'curr_value': currValue,
                             'get_full_values': true,
-                            'where_clause': whereClause
+                            'where_clause': whereClause,
                         };
                     } else {
                         postParams = {
@@ -1071,7 +1073,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                             'db': g.db,
                             'table': g.table,
                             'column': fieldName,
-                            'curr_value': currValue
+                            'curr_value': currValue,
                         };
                     }
 
@@ -1095,7 +1097,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                     });
                 } else if ($td.is('.truncated, .transformed')) {
                     if ($td.is('.to_be_saved')) {   // cell has been edited
-                        var value = $td.data('value');
+                        const value = $td.data('value');
                         $(g.cEdit).find('.edit_box').val(value);
                         $editArea.append('<textarea></textarea>');
                         $editArea.find('textarea').val(value);
@@ -1117,7 +1119,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                         /**
                          * @var sqlQuery   String containing the SQL query used to retrieve value of truncated/transformed data
                          */
-                        var sqlQuery = 'SELECT `' + fieldName + '` FROM `' + g.table + '` WHERE ' + whereClause;
+                        const sqlQuery = 'SELECT `' + fieldName + '` FROM `' + g.table + '` WHERE ' + whereClause;
 
                         // Make the Ajax call and get the data, wrap it and insert it
                         g.lastXHR = $.post('index.php?route=/sql', {
@@ -1125,7 +1127,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                             'db': g.db,
                             'ajax_request': true,
                             'sql_query': sqlQuery,
-                            'grid_edit': true
+                            'grid_edit': true,
                         }, function (data) {
                             g.lastXHR = null;
                             $editArea.removeClass('edit_area_loading');
@@ -1145,14 +1147,14 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                     g.isEditCellTextEditable = true;
                     $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
                 } else if ($td.is('.timefield, .datefield, .datetimefield, .timestampfield')) {
-                    var $inputField = $(g.cEdit).find('.edit_box');
+                    const $inputField = $(g.cEdit).find('.edit_box');
 
                     // remember current datetime value in $input_field, if it is not null
-                    var datetimeValue = ! isNull ? ($inputField.val() as string) : '';
+                    let datetimeValue = ! isNull ? ($inputField.val() as string) : '';
 
-                    var showMillisec = false;
-                    var showMicrosec = false;
-                    var timeFormat = 'HH:mm:ss';
+                    let showMillisec = false;
+                    let showMicrosec = false;
+                    let timeFormat = 'HH:mm:ss';
                     // check for decimal places of seconds
                     if ((Number($td.attr('data-decimals')) > 0) && ($td.attr('data-type').indexOf('time') !== -1)) {
                         if (datetimeValue && datetimeValue.indexOf('.') === -1) {
@@ -1186,7 +1188,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                         showMillisec: showMillisec,
                         showMicrosec: showMicrosec,
                         timeFormat: timeFormat,
-                        firstDay: window.firstDayOfCalendar
+                        firstDay: window.firstDayOfCalendar,
                     });
 
                     $inputField.on('keyup', function (e) {
@@ -1210,7 +1212,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                     $(document).off('mousedown', $.datepicker._checkExternalClick); // eslint-disable-line no-underscore-dangle
 
                     // move ui-datepicker-div inside cEdit div
-                    var datepickerDiv = $('#ui-datepicker-div');
+                    const datepickerDiv = $('#ui-datepicker-div');
                     datepickerDiv.css({ 'top': 0, 'left': 0, 'position': 'relative' });
                     $(g.cEdit).append(datepickerDiv);
 
@@ -1249,46 +1251,46 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
             /**
              * @var relationFields Array containing the name/value pairs of relational fields
              */
-            var relationFields = {};
+            const relationFields = {};
             /**
              * @var relationalDisplay string 'K' if relational key, 'D' if relational display column
              */
-            var relationalDisplay = $(g.o).find('input[name=relational_display]:checked').val();
+            const relationalDisplay = $(g.o).find('input[name=relational_display]:checked').val();
             /**
              * @var transformFields    Array containing the name/value pairs for transformed fields
              */
-            var transformFields = {};
+            const transformFields = {};
             /**
              * @var transformationFields   Boolean, if there are any transformed fields in the edited cells
              */
-            var transformationFields = false;
+            let transformationFields = false;
             /**
              * @var fullSqlQuery String containing the complete SQL query to update this table
              */
-            var fullSqlQuery = '';
+            const fullSqlQuery = '';
             /**
              * @var relFieldsList  String, url encoded representation of {@link relations_fields}
              */
-            var relFieldsList = '';
+            let relFieldsList = '';
             /**
              * @var transformFieldsList  String, url encoded representation of {@link transformFields}
              */
-            var transformFieldsList = '';
+            let transformFieldsList = '';
             /**
              * @var fullWhereClause Array containing where clause for updated fields
              */
-            var fullWhereClause = [];
+            const fullWhereClause = [];
             /**
              * @var isUnique   Boolean, whether the rows in this table is unique or not
              */
-            var isUnique = $(g.t).find('td.edit_row_anchor').is('.nonunique') ? 0 : 1;
+            const isUnique = $(g.t).find('td.edit_row_anchor').is('.nonunique') ? 0 : 1;
             /**
              * multi edit variables
              */
-            var multiEditFieldsName = [];
-            var multiEditFieldsType = [];
-            var multiEditFields = [];
-            var multiEditFieldsNull = [];
+            const multiEditFieldsName = [];
+            const multiEditFieldsType = [];
+            const multiEditFields = [];
+            const multiEditFieldsNull = [];
 
             // alert user if edited table is not unique
             if (! isUnique) {
@@ -1297,46 +1299,46 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
 
             // loop each edited row
             $(g.t).find('td.to_be_saved').parents('tr').each(function () {
-                var $tr = $(this);
-                var whereClause = ($tr.find('.where_clause').val() as string);
+                const $tr = $(this);
+                let whereClause = ($tr.find('.where_clause').val() as string);
                 if (typeof whereClause === 'undefined') {
                     whereClause = '';
                 }
 
                 fullWhereClause.push(whereClause);
-                var conditionArrayContent: string | undefined = $tr.find('.condition_array').val() as string;
+                let conditionArrayContent: string | undefined = $tr.find('.condition_array').val() as string;
                 if (typeof conditionArrayContent === 'undefined') {
                     conditionArrayContent = '{}';
                 }
 
-                var conditionArray = JSON.parse(conditionArrayContent);
+                const conditionArray = JSON.parse(conditionArrayContent);
 
                 /**
                  * multi edit variables, for current row
                  * @TODO array indices are still not correct, they should be md5 of field's name
                  */
-                var fieldsName = [];
-                var fieldsType = [];
-                var fields = [];
-                var fieldsNull = [];
+                const fieldsName = [];
+                const fieldsType = [];
+                const fields = [];
+                const fieldsNull = [];
 
                 // loop each edited cell in a row
                 $tr.find('.to_be_saved').each(function () {
                     /**
                      * @var $thisField    Object referring to the td that is being edited
                      */
-                    var $thisField = $(this);
+                    const $thisField = $(this);
 
                     /**
                      * @var fieldName  String containing the name of this field.
                      * @see window.Sql.getFieldName()
                      */
-                    var fieldName = window.Sql.getFieldName($(g.t), $thisField);
+                    const fieldName = window.Sql.getFieldName($(g.t), $thisField);
 
                     /**
                      * @var thisFieldParams   Array temporary storage for the name/value of current field
                      */
-                    var thisFieldParams = {};
+                    const thisFieldParams = {};
 
                     if ($thisField.is('.transformed')) {
                         transformationFields = true;
@@ -1347,7 +1349,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                     /**
                      * @var isNull String capturing whether 'checkbox_null_<field_name>_<row_index>' is checked.
                      */
-                    var isNull = thisFieldParams[fieldName] === null;
+                    const isNull = thisFieldParams[fieldName] === null;
 
                     fieldsName.push(fieldName);
 
@@ -1370,7 +1372,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                             fields.push(JSONString);
                         }
 
-                        var cellIndex = $thisField.index('.to_be_saved');
+                        const cellIndex = $thisField.index('.to_be_saved');
                         if ($thisField.is(':not(.relation, .enum, .set, .bit)')) {
                             if ($thisField.is('.transformed')) {
                                 transformFields[cellIndex] = {};
@@ -1384,8 +1386,8 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
 
                     // check if edited field appears in WHERE clause
                     if (whereClause.indexOf(window.Sql.urlEncode(fieldName)) > -1) {
-                        var fieldStr = '`' + g.table + '`.' + '`' + fieldName + '`';
-                        for (var field in conditionArray) {
+                        const fieldStr = '`' + g.table + '`.' + '`' + fieldName + '`';
+                        for (let field in conditionArray) {
                             if (field.indexOf(fieldStr) > -1) {
                                 conditionArray[field] = isNull ? 'IS NULL' : '= \'' + thisFieldParams[fieldName].replace(/'/g, '\'\'') + '\'';
                                 break;
@@ -1395,8 +1397,8 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                 }); // end of loop for every edited cells in a row
 
                 // save new_clause
-                var newClause = '';
-                for (var field in conditionArray) {
+                let newClause = '';
+                for (let field in conditionArray) {
                     newClause += field + ' ' + conditionArray[field] + ' AND ';
                 }
 
@@ -1418,7 +1420,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
             /**
              * @var postParams Object containing parameters for the POST request
              */
-            var postParams = {
+            const postParams = {
                 'ajax_request': true,
                 'sql_query': fullSqlQuery,
                 'server': g.server,
@@ -1435,7 +1437,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                 'transform_fields_list': transformFieldsList,
                 'relational_display': relationalDisplay,
                 'goto': encodeURIComponent('index.php?route=/sql'),
-                'submit_type': 'save'
+                'submit_type': 'save',
             };
 
             if (! g.saveCellsAtOnce) {
@@ -1468,11 +1470,11 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
 
                             // update where_clause related data in each edited row
                             $(g.t).find('td.to_be_saved').parents('tr').each(function () {
-                                var newClause = $(this).data('new_clause');
-                                var $whereClause = $(this).find('.where_clause');
-                                var oldClause = ($whereClause.val() as string);
-                                var decodedOldClause = oldClause;
-                                var decodedNewClause = newClause;
+                                const newClause = $(this).data('new_clause');
+                                const $whereClause = $(this).find('.where_clause');
+                                const oldClause = ($whereClause.val() as string);
+                                const decodedOldClause = oldClause;
+                                const decodedNewClause = newClause;
 
                                 $whereClause.val(newClause);
                                 // update Edit, Copy, and Delete links also
@@ -1491,9 +1493,9 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
 
                                 // update the multi edit checkboxes
                                 $(this).find('input[type=checkbox]').each(function () {
-                                    var $checkbox = $(this);
-                                    var checkboxName = $checkbox.attr('name');
-                                    var checkboxValue = ($checkbox.val() as string);
+                                    const $checkbox = $(this);
+                                    const checkboxName = $checkbox.attr('name');
+                                    const checkboxValue = ($checkbox.val() as string);
 
                                     $checkbox.attr('name', checkboxName.replace(oldClause, newClause));
                                     $checkbox.val(checkboxValue.replace(decodedOldClause, decodedNewClause));
@@ -1503,13 +1505,13 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                             // update the display of executed SQL query command
                             if (typeof data.sql_query !== 'undefined') {
                                 // extract query box
-                                var $resultQuery = $($.parseHTML(data.sql_query));
-                                var sqlOuter = $resultQuery.find('.sqlOuter').wrap('<p>').parent().html();
-                                var tools = $resultQuery.find('.tools').wrap('<p>').parent().html();
+                                const $resultQuery = $($.parseHTML(data.sql_query));
+                                const sqlOuter = $resultQuery.find('.sqlOuter').wrap('<p>').parent().html();
+                                const tools = $resultQuery.find('.tools').wrap('<p>').parent().html();
                                 // sqlOuter and tools will not be present if 'Show SQL queries' configuration is off
                                 if (typeof sqlOuter !== 'undefined' && typeof tools !== 'undefined') {
                                     $(g.o).find('.result_query').not($(g.o).find('.result_query').last()).remove();
-                                    var $existingQuery = $(g.o).find('.result_query');
+                                    const $existingQuery = $(g.o).find('.result_query');
                                     // If two query box exists update query in second else add a second box
                                     if ($existingQuery.find('div.sqlOuter').length > 1) {
                                         $existingQuery.children().eq(3).remove();
@@ -1542,7 +1544,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                                     .removeClass('to_be_saved');
                             }
                         }
-                    }
+                    },
             }).done(function () {
                 if (options !== undefined && options.move) {
                     g.showEditCell(options.cell);
@@ -1559,26 +1561,26 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
             /**
              * @var $thisField    Object referring to the td that is being edited
              */
-            var $thisField = $(g.currentEditCell);
-            var $testElement = null; // to test the presence of a element
+            const $thisField = $(g.currentEditCell);
+            let $testElement = null; // to test the presence of a element
 
-            var needToPost = false;
+            let needToPost = false;
 
             /**
              * @var fieldName  String containing the name of this field.
              * @see window.Sql.getFieldName()
              */
-            var fieldName = window.Sql.getFieldName($(g.t), $thisField);
+            const fieldName = window.Sql.getFieldName($(g.t), $thisField);
 
             /**
              * @var thisFieldParams   Array temporary storage for the name/value of current field
              */
-            var thisFieldParams = {};
+            const thisFieldParams = {};
 
             /**
              * @var isNull String capturing whether 'checkbox_null_<field_name>_<row_index>' is checked.
              */
-            var isNull = $(g.cEdit).find('input:checkbox').is(':checked');
+            const isNull = $(g.cEdit).find('input:checkbox').is(':checked');
 
             if ($(g.cEdit).find('.edit_area').is('.edit_area_loading')) {
                 // the edit area is still loading (retrieving cell data), no need to post
@@ -1605,7 +1607,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                     if (($(g.cEdit).find('.edit_box').val() as string).match(/^(0x)?[a-f0-9]*$/i) !== null) {
                         thisFieldParams[fieldName] = $(g.cEdit).find('.edit_box').val();
                     } else {
-                        var hexError = '<div class="alert alert-danger" role="alert">' + window.Messages.strEnterValidHex + '</div>';
+                        const hexError = '<div class="alert alert-danger" role="alert">' + window.Messages.strEnterValidHex + '</div>';
                         ajaxShowMessage(hexError, false);
                         thisFieldParams[fieldName] = getCellValue(g.currentEditCell);
                     }
@@ -1647,7 +1649,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
          *                and a <td> to which the grid_edit should move
          */
         saveOrPostEditedCell: function (options = undefined) {
-            var saved = g.saveEditedCell();
+            const saved = g.saveEditedCell();
             // Check if $cfg['SaveCellsAtOnce'] is false
             if (! g.saveCellsAtOnce) {
                 // Check if need_to_post is true
@@ -1703,11 +1705,11 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
             g.cRsz.className = 'cRsz';
 
             // get data columns in the first row of the table
-            var $firstRowCols = $(g.t).find('tr').first().find('th.draggable');
+            const $firstRowCols = $(g.t).find('tr').first().find('th.draggable');
 
             // create column borders
             $firstRowCols.each(function () {
-                var cb = document.createElement('div'); // column border
+                const cb = document.createElement('div'); // column border
                 $(cb).addClass('colborder')
                     .on('mousedown', function (e) {
                         g.dragStartRsz(e, this);
@@ -1741,11 +1743,11 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
             g.reorderHint = window.Messages.strColOrderHint;
 
             // get data columns in the first row of the table
-            var $firstRowCols = $(g.t).find('tr').first().find('th.draggable');
+            const $firstRowCols = $(g.t).find('tr').first().find('th.draggable');
 
             // initialize column order
-            var $colOrder = $(g.o).find('.col_order');   // check if column order is passed from PHP
-            var i;
+            const $colOrder = $(g.o).find('.col_order');   // check if column order is passed from PHP
+            let i;
             if ($colOrder.length > 0) {
                 g.colOrder = ($colOrder.val() as string).split(',');
                 for (i = 0; i < g.colOrder.length; i++) {
@@ -1781,7 +1783,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                 })
                 .on('dblclick', function (e) {
                     e.preventDefault();
-                    var res = copyToClipboard($(this).data('column'));
+                    const res = copyToClipboard($(this).data('column'));
                     if (res) {
                         ajaxShowMessage(window.Messages.strCopyColumnSuccess, false, 'success');
                     } else {
@@ -1830,11 +1832,11 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
             g.showAllColText = window.Messages.strShowAllCol;
 
             // get data columns in the first row of the table
-            var $firstRowCols = $(g.t).find('tr').first().find('th.draggable');
+            const $firstRowCols = $(g.t).find('tr').first().find('th.draggable');
 
-            var i;
+            let i;
             // initialize column visibility
-            var $colVisib = $(g.o).find('.col_visib');   // check if column visibility is passed from PHP
+            const $colVisib = $(g.o).find('.col_visib');   // check if column visibility is passed from PHP
             if ($colVisib.length > 0) {
                 g.colVisib = ($colVisib.val() as string).split(',');
                 for (i = 0; i < g.colVisib.length; i++) {
@@ -1859,7 +1861,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
 
                 // create column visibility drop-down arrow(s)
                 $colVisibTh.each(function () {
-                    var cd = document.createElement('div'); // column drop-down arrow
+                    const cd = document.createElement('div'); // column drop-down arrow
                     $(cd).addClass('coldrop')
                         .on('click', function () {
                             if (g.cList.style.display === 'none') {
@@ -1874,17 +1876,17 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
 
                 // add column visibility control
                 g.cList.innerHTML = '<div class="lDiv"></div>';
-                var $listDiv = $(g.cList).find('div');
+                const $listDiv = $(g.cList).find('div');
 
-                var tempClick = function () {
+                const tempClick = function () {
                     if (g.toggleCol($(this).index())) {
                         g.afterToggleCol();
                     }
                 };
 
                 for (i = 0; i < $firstRowCols.length; i++) {
-                    var currHeader = $firstRowCols[i];
-                    var listElmt = document.createElement('div');
+                    const currHeader = $firstRowCols[i];
+                    const listElmt = document.createElement('div');
                     $(listElmt).text($(currHeader).text())
                         .prepend('<input type="checkbox" ' + (g.colVisib[i] ? 'checked ' : '') + '>');
 
@@ -1894,7 +1896,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                 }
 
                 // add "show all column" button
-                var showAll = document.createElement('div');
+                const showAll = document.createElement('div');
                 $(showAll).addClass('showAllColBtn')
                     .text(g.showAllColText);
 
@@ -1905,7 +1907,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
 
                 // prepend "show all column" button at top if the list is too long
                 if ($firstRowCols.length > 10) {
-                    var clone = showAll.cloneNode(true);
+                    const clone = showAll.cloneNode(true);
                     // @ts-ignore
                     $(g.cList).prepend(clone);
                     $(clone).on('click', function () {
@@ -1920,7 +1922,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
             });
 
             // attach to first row first col of the grid
-            var thFirst = $(g.t).find('th.d-print-none');
+            const thFirst = $(g.t).find('th.d-print-none');
             $(thFirst).append(g.cDrop);
             $(thFirst).append(g.cList);
 
@@ -1936,16 +1938,16 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
          */
         moveUp: function (e) {
             e.preventDefault();
-            var $thisField = $(g.currentEditCell);
-            var fieldName = window.Sql.getFieldName($(g.t), $thisField);
+            const $thisField = $(g.currentEditCell);
+            const fieldName = window.Sql.getFieldName($(g.t), $thisField);
 
-            var whereClause = $thisField.parents('tr').first().find('.where_clause').val();
+            let whereClause = $thisField.parents('tr').first().find('.where_clause').val();
             if (typeof whereClause === 'undefined') {
                 whereClause = '';
             }
 
-            var found = false;
-            var $prevRow;
+            let found = false;
+            let $prevRow;
 
             $thisField.parents('tr').first().parents('tbody').children().each(function () {
                 if ($(this).find('.where_clause').val() === whereClause) {
@@ -1957,7 +1959,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                 }
             });
 
-            var newCell;
+            let newCell;
 
             if (found && $prevRow) {
                 $prevRow.children('td').each(function () {
@@ -1981,18 +1983,18 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
         moveDown: function (e) {
             e.preventDefault();
 
-            var $thisField = $(g.currentEditCell);
-            var fieldName = window.Sql.getFieldName($(g.t), $thisField);
+            const $thisField = $(g.currentEditCell);
+            const fieldName = window.Sql.getFieldName($(g.t), $thisField);
 
-            var whereClause = $thisField.parents('tr').first().find('.where_clause').val();
+            let whereClause = $thisField.parents('tr').first().find('.where_clause').val();
             if (typeof whereClause === 'undefined') {
                 whereClause = '';
             }
 
-            var found = false;
-            var $nextRow;
-            var j = 0;
-            var nextRowFound = false;
+            let found = false;
+            let $nextRow;
+            let j = 0;
+            let nextRowFound = false;
             $thisField.parents('tr').first().parents('tbody').children().each(function () {
                 if ($(this).find('.where_clause').val() === whereClause) {
                     found = true;
@@ -2008,7 +2010,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                 }
             });
 
-            var newCell;
+            let newCell;
             if (found && $nextRow) {
                 $nextRow.children('td').each(function () {
                     if (window.Sql.getFieldName($(g.t), $(this)) === fieldName) {
@@ -2031,16 +2033,16 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
         moveLeft: function (e) {
             e.preventDefault();
 
-            var $thisField = $(g.currentEditCell);
-            var fieldName = window.Sql.getFieldName($(g.t), $thisField);
+            const $thisField = $(g.currentEditCell);
+            const fieldName = window.Sql.getFieldName($(g.t), $thisField);
 
-            var whereClause = $thisField.parents('tr').first().find('.where_clause').val();
+            let whereClause = $thisField.parents('tr').first().find('.where_clause').val();
             if (typeof whereClause === 'undefined') {
                 whereClause = '';
             }
 
-            var found = false;
-            var $foundRow;
+            let found = false;
+            let $foundRow;
             $thisField.parents('tr').first().parents('tbody').children().each(function () {
                 if ($(this).find('.where_clause').val() === whereClause) {
                     found = true;
@@ -2048,8 +2050,8 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                 }
             });
 
-            var leftCell;
-            var cellFound = false;
+            let leftCell;
+            let cellFound = false;
             if (found) {
                 $foundRow.children('td.grid_edit').each(function () {
                     if (window.Sql.getFieldName($(g.t), $(this)) === fieldName) {
@@ -2076,17 +2078,17 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
         moveRight: function (e) {
             e.preventDefault();
 
-            var $thisField = $(g.currentEditCell);
-            var fieldName = window.Sql.getFieldName($(g.t), $thisField);
+            const $thisField = $(g.currentEditCell);
+            const fieldName = window.Sql.getFieldName($(g.t), $thisField);
 
-            var whereClause = $thisField.parents('tr').first().find('.where_clause').val();
+            let whereClause = $thisField.parents('tr').first().find('.where_clause').val();
             if (typeof whereClause === 'undefined') {
                 whereClause = '';
             }
 
-            var found = false;
-            var $foundRow;
-            var j = 0;
+            let found = false;
+            let $foundRow;
+            let j = 0;
             $thisField.parents('tr').first().parents('tbody').children().each(function () {
                 if ($(this).find('.where_clause').val() === whereClause) {
                     found = true;
@@ -2094,9 +2096,9 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                 }
             });
 
-            var rightCell;
-            var cellFound = false;
-            var nextCellFound = false;
+            let rightCell;
+            let cellFound = false;
+            let nextCellFound = false;
             if (found) {
                 $foundRow.children('td.grid_edit').each(function () {
                     if (window.Sql.getFieldName($(g.t), $(this)) === fieldName) {
@@ -2182,20 +2184,20 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
 
             $(g.t)
                 .on('click', 'td.data.click2', function (e) {
-                    var $cell = $(this);
+                    const $cell = $(this);
                     // In the case of relational link, We want single click on the link
                     // to goto the link and double click to start grid-editing.
-                    var $link = $(e.target);
+                    const $link = $(e.target);
                     if ($link.is('.grid_edit.relation a')) {
                         e.preventDefault();
                         // get the click count and increase
-                        var clicks = $cell.data('clicks');
+                        let clicks = $cell.data('clicks');
                         clicks = (typeof clicks === 'undefined') ? 1 : clicks + 1;
 
                         if (clicks === 1) {
                             // if there are no previous clicks,
                             // start the single click timer
-                            var timer = setTimeout(function () {
+                            const timer = setTimeout(function () {
                                 // temporarily remove ajax class so the page loader will not handle it,
                                 // submit and then add it back
                                 $link.removeClass('ajax');
@@ -2319,7 +2321,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
             g.renderedSelectedCells = new Set();
 
             const colspan = Number(
-                $(g.t).find('thead th').first().attr('colspan')
+                $(g.t).find('thead th').first().attr('colspan'),
             ) - 1 || 0;
 
             const selectingClass = 'cell-selected';
@@ -2341,7 +2343,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                     { x: rect.right - 1, y: rect.top + 1 },
                     { x: rect.right - 1, y: rect.bottom - 1 },
                     { x: rect.left + 1, y: rect.bottom - 1 },
-                    { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 }
+                    { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 },
                 ];
 
                 for (let i = 0; i < 5; i++) {
@@ -2387,7 +2389,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                     endSelectCell.scrollIntoView({
                         block: 'nearest',
                         inline: 'nearest',
-                        behavior: 'auto'
+                        behavior: 'auto',
                     });
 
                     const extra = 50;
@@ -2398,7 +2400,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                         up: [0, -dh],
                         down: [0, dh],
                         left: [-dw, 0],
-                        right: [dw, 0]
+                        right: [dw, 0],
                     };
 
                     const [scrollX, scrollY] = offsets[direction];
@@ -2572,7 +2574,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                             }
 
                             return nextElement.get(0);
-                        }
+                        },
                     };
 
                     if (Object.keys(lookupNextCell).includes(e.key)) {
@@ -2678,7 +2680,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                     const headers: string[] = [];
                     $(g.t).find('thead th.cell-selected').each(function () {
                         headers.push(
-                            $(this).find('a')[0].childNodes[0].nodeValue.trim()
+                            $(this).find('a')[0].childNodes[0].nodeValue.trim(),
                         );
                     });
 
@@ -2707,7 +2709,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                     }
                 }
             });
-        }
+        },
     };
 
     /** ****************
@@ -2739,7 +2741,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
     g.o = $(t).parents('.sqlqueryresults');
 
     // get data columns in the first row of the table
-    var $firstRowCols = $(t).find('tr').first().find('th.draggable');
+    const $firstRowCols = $(t).find('tr').first().find('th.draggable');
 
     // initialize visible headers count
     g.visibleHeadersCount = $firstRowCols.filter(':visible').length;
@@ -2762,7 +2764,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
     g.copyHint = window.Messages.strColNameCopyHint;
 
     // assign common hidden inputs
-    var $commonHiddenInputs = $(g.o).find('div.common_hidden_inputs');
+    const $commonHiddenInputs = $(g.o).find('div.common_hidden_inputs');
     g.server = $commonHiddenInputs.find('input[name=server]').val();
     g.db = $commonHiddenInputs.find('input[name=db]').val();
     g.table = $commonHiddenInputs.find('input[name=table]').val();

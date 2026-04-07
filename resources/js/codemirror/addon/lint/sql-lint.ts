@@ -11,8 +11,8 @@ window.CodeMirror.sqlLint = function (text, updateLinting, options, cm) {
     }
 
     function handleResponse (response) {
-        var found = [];
-        for (var idx in response) {
+        const found = [];
+        for (let idx in response) {
             found.push({
                 // eslint-disable-next-line new-cap
                 from: window.CodeMirror.Pos(

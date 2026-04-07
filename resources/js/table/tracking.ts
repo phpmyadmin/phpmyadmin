@@ -57,13 +57,13 @@ AJAX.registerOnload('table/tracking.js', function () {
      */
     $('body').on('click', '#versionsForm.ajax button[name="submit_mult"], #versionsForm.ajax input[name="submit_mult"]', function (e) {
         e.preventDefault();
-        var $button = $(this);
-        var $form = $button.parent('form');
-        var argsep = CommonParams.get('arg_separator');
-        var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep + 'submit_mult=' + $button.val();
+        const $button = $(this);
+        const $form = $button.parent('form');
+        const argsep = CommonParams.get('arg_separator');
+        const submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep + 'submit_mult=' + $button.val();
 
         if ($button.val() === 'delete_version') {
-            var question = window.Messages.strDeleteTrackingVersionMultiple;
+            const question = window.Messages.strDeleteTrackingVersionMultiple;
             $button.confirm(question, $form.attr('action'), function (url) {
                 ajaxShowMessage();
                 AJAX.source = $form;
@@ -81,13 +81,13 @@ AJAX.registerOnload('table/tracking.js', function () {
      */
     $('body').on('click', 'a.delete_version_anchor.ajax', function (e) {
         e.preventDefault();
-        var $anchor = $(this);
-        var question = window.Messages.strDeleteTrackingVersion;
+        const $anchor = $(this);
+        const question = window.Messages.strDeleteTrackingVersion;
         $anchor.confirm(question, $anchor.attr('href'), function (url) {
             ajaxShowMessage();
             AJAX.source = $anchor;
-            var argSep = CommonParams.get('arg_separator');
-            var params = getJsConfirmCommonParam(this, $anchor.getPostData());
+            const argSep = CommonParams.get('arg_separator');
+            let params = getJsConfirmCommonParam(this, $anchor.getPostData());
             params += argSep + 'ajax_page_request=1';
             $.post(url, params, AJAX.responseHandler);
         });
@@ -98,13 +98,13 @@ AJAX.registerOnload('table/tracking.js', function () {
      */
     $('body').on('click', 'a.delete_entry_anchor.ajax', function (e) {
         e.preventDefault();
-        var $anchor = $(this);
-        var question = window.Messages.strDeletingTrackingEntry;
+        const $anchor = $(this);
+        const question = window.Messages.strDeletingTrackingEntry;
         $anchor.confirm(question, $anchor.attr('href'), function (url) {
             ajaxShowMessage();
             AJAX.source = $anchor;
-            var argSep = CommonParams.get('arg_separator');
-            var params = getJsConfirmCommonParam(this, $anchor.getPostData());
+            const argSep = CommonParams.get('arg_separator');
+            let params = getJsConfirmCommonParam(this, $anchor.getPostData());
             params += argSep + 'ajax_page_request=1';
             $.post(url, params, AJAX.responseHandler);
         });

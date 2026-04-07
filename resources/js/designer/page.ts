@@ -20,8 +20,8 @@ function showTablesInLandingPage (db) {
 function saveToNewPage (db, pageName, tablePositions, callback) {
     DesignerPage.createNewPage(db, pageName, function (page) {
         if (page) {
-            var tblCords = [];
-            var saveCallback = function (id) {
+            const tblCords = [];
+            const saveCallback = function (id) {
                 tblCords.push(id);
                 if (tablePositions.length === tblCords.length) {
                     page.tblCords = tblCords;
@@ -29,7 +29,7 @@ function saveToNewPage (db, pageName, tablePositions, callback) {
                 }
             };
 
-            for (var pos = 0; pos < tablePositions.length; pos++) {
+            for (let pos = 0; pos < tablePositions.length; pos++) {
                 tablePositions[pos].pdfPgNr = page.pgNr;
                 DesignerPage.saveTablePositions(tablePositions[pos], saveCallback);
             }
@@ -53,7 +53,7 @@ function saveToSelectedPage (db, pageId, pageName, tablePositions, callback) {
 }
 
 function createNewPage (db, pageName, callback) {
-    var newPage = new DesignerObjects.PdfPage(db, pageName, []);
+    const newPage = new DesignerObjects.PdfPage(db, pageName, []);
     DesignerOfflineDB.addObject('pdf_pages', newPage, function (pgNr) {
         newPage.pgNr = pgNr;
         if (typeof callback !== 'undefined') {
@@ -68,9 +68,9 @@ function saveTablePositions (positions, callback) {
 
 function createPageList (db, callback) {
     DesignerOfflineDB.loadAllObjects('pdf_pages', function (pages) {
-        var html = '';
-        for (var p = 0; p < pages.length; p++) {
-            var page = pages[p];
+        let html = '';
+        for (let p = 0; p < pages.length; p++) {
+            const page = pages[p];
             if (page.dbName === db) {
                 html += '<option value="' + page.pgNr + '">';
                 html += escapeHtml(page.pageDescr) + '</option>';
@@ -86,7 +86,7 @@ function createPageList (db, callback) {
 function deletePage (pageId, callback = undefined) {
     DesignerOfflineDB.loadObject('pdf_pages', pageId, function (page) {
         if (page) {
-            for (var i = 0; i < page.tblCords.length; i++) {
+            for (let i = 0; i < page.tblCords.length; i++) {
                 DesignerOfflineDB.deleteObject('table_coords', page.tblCords[i]);
             }
 
@@ -97,9 +97,9 @@ function deletePage (pageId, callback = undefined) {
 
 function loadFirstPage (db, callback) {
     DesignerOfflineDB.loadAllObjects('pdf_pages', function (pages) {
-        var firstPage = null;
-        for (var i = 0; i < pages.length; i++) {
-            var page = pages[i];
+        let firstPage = null;
+        for (let i = 0; i < pages.length; i++) {
+            const page = pages[i];
             if (page.dbName === db) {
                 // give preference to a page having same name as the db
                 if (page.pageDescr === db) {
@@ -119,12 +119,12 @@ function loadFirstPage (db, callback) {
 }
 
 function showNewPageTables (check) {
-    var allTables = ($('#id_scroll_tab').find('td input:checkbox') as JQuery<HTMLInputElement>);
+    const allTables = ($('#id_scroll_tab').find('td input:checkbox') as JQuery<HTMLInputElement>);
     allTables.prop('checked', check);
-    for (var tab = 0; tab < allTables.length; tab++) {
-        var input = allTables[tab];
+    for (let tab = 0; tab < allTables.length; tab++) {
+        const input = allTables[tab];
         if (input.value) {
-            var element = document.getElementById(input.value);
+            const element = document.getElementById(input.value);
             element.style.top = DesignerPage.getRandom(550, 20) + 'px';
             element.style.left = DesignerPage.getRandom(700, 20) + 'px';
             DesignerMove.visibleTab(input, input.value);
@@ -140,10 +140,10 @@ function loadHtmlForPage (pageId) {
     DesignerPage.showNewPageTables(true);
     DesignerPage.loadPageObjects(pageId, function (page, tblCords) {
         $('#name-panel').find('#page_name').text(page.pageDescr);
-        var tableMissing = false;
-        for (var t = 0; t < tblCords.length; t++) {
-            var tbId = DesignerConfig.db + '.' + tblCords[t].tableName;
-            var table = document.getElementById(tbId);
+        let tableMissing = false;
+        for (let t = 0; t < tblCords.length; t++) {
+            const tbId = DesignerConfig.db + '.' + tblCords[t].tableName;
+            const table = document.getElementById(tbId);
             if (table === null) {
                 tableMissing = true;
                 continue;
@@ -152,7 +152,7 @@ function loadHtmlForPage (pageId) {
             table.style.top = tblCords[t].y + 'px';
             table.style.left = tblCords[t].x + 'px';
 
-            var checkbox = (document.getElementById('check_vis_' + tbId) as HTMLInputElement);
+            const checkbox = (document.getElementById('check_vis_' + tbId) as HTMLInputElement);
             checkbox.checked = true;
             DesignerMove.visibleTab(checkbox, checkbox.value);
         }
@@ -169,9 +169,9 @@ function loadHtmlForPage (pageId) {
 
 function loadPageObjects (pageId, callback) {
     DesignerOfflineDB.loadObject('pdf_pages', pageId, function (page) {
-        var tblCords = [];
-        var count = page.tblCords.length;
-        for (var i = 0; i < count; i++) {
+        const tblCords = [];
+        const count = page.tblCords.length;
+        for (let i = 0; i < count; i++) {
             DesignerOfflineDB.loadObject('table_coords', page.tblCords[i], function (tblCord) {
                 tblCords.push(tblCord);
                 if (tblCords.length === count) {
@@ -185,7 +185,7 @@ function loadPageObjects (pageId, callback) {
 }
 
 function getRandom (max, min) {
-    var val = Math.random() * (max - min) + min;
+    const val = Math.random() * (max - min) + min;
 
     return Math.floor(val);
 }

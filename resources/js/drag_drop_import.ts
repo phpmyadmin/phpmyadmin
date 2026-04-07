@@ -9,7 +9,7 @@ import { escapeHtml } from './modules/functions/escape.ts';
  * Class to handle PMA Drag and Drop Import
  *      feature
  */
-var DragDropImport = {
+const DragDropImport = {
     /**
      * @var {number}, count of total uploads in this view
      */
@@ -42,8 +42,8 @@ var DragDropImport = {
      * @return {string}, extension for valid extension, '' otherwise
      */
     getExtension: function (file) {
-        var arr = file.split('.');
-        var ext = arr[arr.length - 1];
+        const arr = file.split('.');
+        let ext = arr[arr.length - 1];
 
         // check if compressed
         if ($.inArray(ext.toLowerCase(),
@@ -76,15 +76,15 @@ var DragDropImport = {
      * @param {string} hash hash of the current file upload
      */
     sendFileToServer: function (formData, hash): void {
-        var jqXHR = $.ajax({
+        const jqXHR = $.ajax({
             xhr: function () {
-                var xhrobj = $.ajaxSettings.xhr();
+                const xhrobj = $.ajaxSettings.xhr();
                 if (xhrobj.upload) {
                     xhrobj.upload.addEventListener('progress', function (event) {
-                        var percent = 0;
+                        let percent = 0;
                         // @ts-ignore
-                        var position = event.loaded || event.position;
-                        var total = event.total;
+                        const position = event.loaded || event.position;
+                        const total = event.total;
                         if (event.lengthComputable) {
                             percent = Math.ceil(position / total * 100);
                         }
@@ -107,10 +107,10 @@ var DragDropImport = {
                 if (! data.success) {
                     DragDropImport.importStatus[DragDropImport.importStatus.length] = {
                         hash: hash,
-                        message: data.error
+                        message: data.error,
                     };
                 }
-            }
+            },
         });
 
         // -- provide link to cancel the upload
@@ -130,12 +130,12 @@ var DragDropImport = {
                 } else if ($(this).children('span').html() ===
                     window.Messages.dropImportMessageFailed) {
                     // -- view information
-                    var $this = $(this);
+                    const $this = $(this);
                     $.each(DragDropImport.importStatus,
                         function (key, value) {
                             if (value.hash === hash) {
                                 $('.pma_drop_result:visible').remove();
-                                var filename = $this.parent('span').attr('data-filename');
+                                const filename = $this.parent('span').attr('data-filename');
                                 $('body').append('<div class="pma_drop_result"><h2>' +
                                     window.Messages.dropImportImportResultHeader + ' - ' +
                                     escapeHtml(filename) + '<span class="close">x</span></h2>' + value.message + '</div>');
@@ -180,7 +180,7 @@ var DragDropImport = {
      * @return {void}
      */
     markInternalDrag: function (event) {
-        var dataTransfer = event.originalEvent && event.originalEvent.dataTransfer;
+        const dataTransfer = event.originalEvent && event.originalEvent.dataTransfer;
 
         // OS file drags do not trigger dragstart on current document.
         // If we can already detect real file payload here, do not mark internal.
@@ -206,8 +206,8 @@ var DragDropImport = {
      * @return {boolean}
      */
     hasFiles: function (event) {
-        var dataTransfer = event.originalEvent.dataTransfer;
-        var types = dataTransfer.types;
+        const dataTransfer = event.originalEvent.dataTransfer;
+        const types = dataTransfer.types;
 
         // Chrome/Edge may expose browser-internal drags as 'Files'.
         if (DragDropImport.internalDomDrag) {
@@ -280,7 +280,7 @@ var DragDropImport = {
 
         event.stopPropagation();
         event.preventDefault();
-        var $dropHandler = $('.pma_drop_handler');
+        const $dropHandler = $('.pma_drop_handler');
         $dropHandler.clearQueue().stop();
         $dropHandler.fadeOut();
         $dropHandler.html(window.Messages.dropImportDropFiles);
@@ -296,7 +296,7 @@ var DragDropImport = {
         $('.pma_sql_import_status div li[data-hash="' + hash + '"]')
             .children('progress').hide();
 
-        var icon = 'icon ic_s_success';
+        let icon = 'icon ic_s_success';
         // -- provide link to view upload status
         if (! aborted) {
             if (status) {
@@ -343,8 +343,8 @@ var DragDropImport = {
             return;
         }
 
-        var dbname = CommonParams.get('db');
-        var server = CommonParams.get('server');
+        const dbname = CommonParams.get('db');
+        const server = CommonParams.get('server');
 
         if (!DragDropImport.hasFiles(event)) {
             DragDropImport.clearInternalDrag();
@@ -357,7 +357,7 @@ var DragDropImport = {
 
         // if no database is selected -- no
         if (dbname !== '') {
-            var files = event.originalEvent.dataTransfer.files;
+            const files = event.originalEvent.dataTransfer.files;
             if (! files || files.length === 0) {
                 // No files actually transferred
                 $('.pma_drop_handler').fadeOut();
@@ -368,11 +368,11 @@ var DragDropImport = {
             }
 
             $('.pma_sql_import_status').slideDown();
-            for (var i = 0; i < files.length; i++) {
-                var ext = (DragDropImport.getExtension(files[i].name));
-                var hash = AJAX.hash(++DragDropImport.uploadCount);
+            for (let i = 0; i < files.length; i++) {
+                const ext = (DragDropImport.getExtension(files[i].name));
+                const hash = AJAX.hash(++DragDropImport.uploadCount);
 
-                var $sqlImportStatusDiv = $('.pma_sql_import_status div');
+                const $sqlImportStatusDiv = $('.pma_sql_import_status div');
                 $sqlImportStatusDiv.append('<li data-hash="' + hash + '">' +
                     ((ext !== '') ? '' : '<img src="./themes/dot.gif" title="invalid format" class="icon ic_s_notice"> ') +
                     escapeHtml(files[i].name) + '<span class="filesize" data-filename="' +
@@ -381,7 +381,7 @@ var DragDropImport = {
 
                 // scroll the UI to bottom
                 $sqlImportStatusDiv.scrollTop(
-                    $sqlImportStatusDiv.scrollTop() + 50
+                    $sqlImportStatusDiv.scrollTop() + 50,
                 );  // 50 hardcoded for now
 
                 if (ext !== '') {
@@ -393,7 +393,7 @@ var DragDropImport = {
                         .append('<br><progress max="100" value="2"></progress>');
 
                     // uploading
-                    var fd = new FormData();
+                    const fd = new FormData();
                     fd.append('import_file', files[i]);
                     fd.append('noplugin', Math.random().toString(36).substring(2, 12));
                     fd.append('db', dbname);
@@ -423,7 +423,7 @@ var DragDropImport = {
         $('.pma_drop_handler').fadeOut();
         event.stopPropagation();
         event.preventDefault();
-    }
+    },
 };
 
 /**

@@ -46,9 +46,9 @@ AJAX.registerTeardown('designer/init.js', function () {
 });
 
 AJAX.registerOnload('designer/init.js', function () {
-    var $content = $('#page_content');
-    var $img = $('#toggleFullscreen').find('img');
-    var $span = $img.siblings('span');
+    const $content = $('#page_content');
+    const $img = $('#toggleFullscreen').find('img');
+    const $span = $img.siblings('span');
 
     $content.css({ 'margin-left': '3px' });
     $(document).on('fullscreenchange', function () {
@@ -65,7 +65,7 @@ AJAX.registerOnload('designer/init.js', function () {
             // Saving the fullscreen state in config when
             // designer exists fullscreen mode via ESC key
 
-            var valueSent = 'off';
+            const valueSent = 'off';
             DesignerMove.saveValueInConfig('full_screen', valueSent);
         }
     });

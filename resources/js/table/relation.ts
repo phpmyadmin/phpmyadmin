@@ -28,7 +28,7 @@ const showHideClauses = function ($thisDropdown) {
  */
 const setDropdownValues = function ($dropdown, values, selectedValue = undefined): void {
     $dropdown.empty();
-    var optionsAsString = '';
+    let optionsAsString = '';
     // add an empty string to the beginning for empty selection
     values.unshift('');
     $.each(values, function () {
@@ -44,12 +44,12 @@ const setDropdownValues = function ($dropdown, values, selectedValue = undefined
  * @param $dropdown the dropdown whose value got changed
  */
 const getDropdownValues = function ($dropdown): void {
-    var foreignDb = null;
-    var foreignTable = null;
-    var $databaseDd;
-    var $tableDd;
-    var $columnDd;
-    var foreign = '';
+    let foreignDb = null;
+    let foreignTable = null;
+    let $databaseDd;
+    let $tableDd;
+    let $columnDd;
+    let foreign = '';
     // if the changed dropdown is for foreign key constraints
     if ($dropdown.is('select[name^="destination_foreign"]')) {
         $databaseDd = $dropdown.parent().parent().parent().find('select[name^="destination_foreign_db"]');
@@ -83,12 +83,12 @@ const getDropdownValues = function ($dropdown): void {
         }
     }
 
-    var $msgbox = ajaxShowMessage();
-    var $form = $dropdown.parents('form');
-    var $db = $form.find('input[name="db"]').val();
-    var $table = $form.find('input[name="table"]').val();
-    var argsep = CommonParams.get('arg_separator');
-    var params = 'getDropdownValues=true' + argsep + 'ajax_request=true' +
+    const $msgbox = ajaxShowMessage();
+    const $form = $dropdown.parents('form');
+    const $db = $form.find('input[name="db"]').val();
+    const $table = $form.find('input[name="table"]').val();
+    const argsep = CommonParams.get('arg_separator');
+    let params = 'getDropdownValues=true' + argsep + 'ajax_request=true' +
         argsep + 'db=' + encodeURIComponent($db) +
         argsep + 'table=' + encodeURIComponent($table) +
         argsep + 'foreign=' + (foreign !== '') +
@@ -96,7 +96,7 @@ const getDropdownValues = function ($dropdown): void {
         (foreignTable !== null ?
             argsep + 'foreignTable=' + encodeURIComponent(foreignTable) : ''
         );
-    var $server = $form.find('input[name="server"]');
+    const $server = $form.find('input[name="server"]');
     if ($server.length > 0) {
         params += argsep + 'server=' + $form.find('input[name="server"]').val();
     }
@@ -116,7 +116,7 @@ const getDropdownValues = function ($dropdown): void {
                     TableRelation.setDropdownValues($columnDd, []);
                 } else { // if a table selector
                     // set values for the column dropdown
-                    var primary = null;
+                    let primary = null;
                     if (typeof data.primary !== 'undefined'
                         && 1 === data.primary.length
                     ) {
@@ -185,7 +185,7 @@ AJAX.registerOnload('table/relation.js', function () {
             .val('');
 
         // Add foreign field.
-        var $sourceElem = $('select[name^="destination_foreign_column[' +
+        const $sourceElem = $('select[name^="destination_foreign_column[' +
             $(this).attr('data-index') + ']"]').last().parent();
         $sourceElem
             .clone(true, true)
@@ -201,14 +201,14 @@ AJAX.registerOnload('table/relation.js', function () {
         event.preventDefault();
         event.stopPropagation();
 
-        var $prevRow = $(this).closest('tr').prev('tr');
-        var $newRow = $prevRow.clone(true, true);
+        const $prevRow = $(this).closest('tr').prev('tr');
+        const $newRow = $prevRow.clone(true, true);
 
         // Update serial number.
-        var currIndex = $newRow
+        const currIndex = $newRow
             .find('a.add_foreign_key_field')
             .attr('data-index');
-        var newIndex = parseInt(currIndex) + 1;
+        const newIndex = parseInt(currIndex) + 1;
         $newRow.find('a.add_foreign_key_field').attr('data-index', newIndex);
 
         // Update form parameter names.
@@ -241,22 +241,22 @@ AJAX.registerOnload('table/relation.js', function () {
      */
     $('a.drop_foreign_key_anchor.ajax').on('click', function (event) {
         event.preventDefault();
-        var $anchor = $(this);
+        const $anchor = $(this);
 
         // Object containing reference to the current field's row
-        var $currRow = $anchor.parents('tr');
+        const $currRow = $anchor.parents('tr');
 
-        var dropQuery = escapeHtml(
+        const dropQuery = escapeHtml(
             ($currRow.children('td')
                 .children('.drop_foreign_key_msg')
-                .val() as string)
+                .val() as string),
         );
 
-        var question = window.sprintf(window.Messages.strDoYouReally, dropQuery);
+        const question = window.sprintf(window.Messages.strDoYouReally, dropQuery);
 
         $anchor.confirm(question, $anchor.attr('href'), function (url) {
-            var $msg = ajaxShowMessage(window.Messages.strDroppingForeignKey, false);
-            var params = getJsConfirmCommonParam(this, $anchor.getPostData());
+            const $msg = ajaxShowMessage(window.Messages.strDroppingForeignKey, false);
+            const params = getJsConfirmCommonParam(this, $anchor.getPostData());
             $.post(url, params, function (data) {
                 if (data.success === true) {
                     ajaxRemoveMessage($msg);
@@ -268,6 +268,6 @@ AJAX.registerOnload('table/relation.js', function () {
         });
     }); // end Drop Foreign key
 
-    var windowWidth = $(window).width();
+    const windowWidth = $(window).width();
     $('.jsresponsive').css('max-width', (windowWidth - 35) + 'px');
 });

@@ -5,7 +5,7 @@ import $ from 'jquery';
  * when truncating, creating, dropping or inserting into a table
  */
 export default function adjustTotals () {
-    var byteUnits = [
+    const byteUnits = [
         window.Messages.strB,
         window.Messages.strKiB,
         window.Messages.strMiB,
@@ -17,20 +17,20 @@ export default function adjustTotals () {
     /**
      * @var $allTr jQuery object that references all the rows in the list of tables
      */
-    var $allTr = $('#tablesForm').find('table.data tbody').first().find('tr');
+    const $allTr = $('#tablesForm').find('table.data tbody').first().find('tr');
     // New summary values for the table
-    var tableSum = $allTr.length;
-    var rowsSum = 0;
-    var sizeSum = 0;
-    var overheadSum = 0;
-    var rowSumApproximated = false;
+    const tableSum = $allTr.length;
+    let rowsSum = 0;
+    let sizeSum = 0;
+    let overheadSum = 0;
+    let rowSumApproximated = false;
 
     $allTr.each(function () {
-        var $this = $(this);
-        var i;
-        var tmpVal;
+        const $this = $(this);
+        let i;
+        let tmpVal;
         // Get the number of rows for this SQL table
-        var strRows = $this.find('.tbl_rows').text();
+        let strRows = $this.find('.tbl_rows').text();
         // If the value is approximated
         if (strRows.indexOf('~') === 0) {
             rowSumApproximated = true;
@@ -39,18 +39,18 @@ export default function adjustTotals () {
         }
 
         strRows = strRows.replace(/[,.\s]/g, '');
-        var intRow = parseInt(strRows, 10);
+        const intRow = parseInt(strRows, 10);
         if (!isNaN(intRow)) {
             rowsSum += intRow;
         }
 
         // Extract the size and overhead
-        var valSize = 0;
-        var valOverhead = 0;
-        var strSize = $this.find('.tbl_size span:not(.unit)').text().trim();
-        var strSizeUnit = $this.find('.tbl_size span.unit').text().trim();
-        var strOverhead = $this.find('.tbl_overhead span:not(.unit)').text().trim();
-        var strOverheadUnit = $this.find('.tbl_overhead span.unit').text().trim();
+        let valSize = 0;
+        let valOverhead = 0;
+        const strSize = $this.find('.tbl_size span:not(.unit)').text().trim();
+        const strSizeUnit = $this.find('.tbl_size span.unit').text().trim();
+        const strOverhead = $this.find('.tbl_overhead span:not(.unit)').text().trim();
+        const strOverheadUnit = $this.find('.tbl_overhead span.unit').text().trim();
         // Given a value and a unit, such as 100 and KiB, for the table size
         // and overhead calculate their numeric values in bytes, such as 102400
         for (i = 0; i < byteUnits.length; i++) {
@@ -75,8 +75,8 @@ export default function adjustTotals () {
 
     // Add some commas for readability:
     // 1000000 becomes 1,000,000
-    var strRowSum = rowsSum + '';
-    var regex = /(\d+)(\d{3})/;
+    let strRowSum = rowsSum + '';
+    const regex = /(\d+)(\d{3})/;
     while (regex.test(strRowSum)) {
         strRowSum = strRowSum.replace(regex, '$1' + ',' + '$2');
     }
@@ -87,8 +87,8 @@ export default function adjustTotals () {
     }
 
     // Calculate the magnitude for the size and overhead values
-    var sizeMagnitude = 0;
-    var overheadMagnitude = 0;
+    let sizeMagnitude = 0;
+    let overheadMagnitude = 0;
     while (sizeSum >= 1024) {
         sizeSum /= 1024;
         sizeMagnitude++;
@@ -103,7 +103,7 @@ export default function adjustTotals () {
     overheadSum = Math.round(overheadSum * 10) / 10;
 
     // Update summary with new data
-    var $summary = $('#tbl_summary_row');
+    const $summary = $('#tbl_summary_row');
     $summary.find('.tbl_num').text(window.sprintf(window.Messages.strNTables, tableSum));
     if (rowSumApproximated) {
         $summary.find('.row_count_sum').text(strRowSum);
