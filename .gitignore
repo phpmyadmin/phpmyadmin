@@ -51,8 +51,7 @@ web.config
 /docs/html
 /docs/linkcheck/
 /docs/locale
-/docs/*.pyc
-/docs/*.swp
+/docs/**/*.pyc
 
 # Demo server
 revision-info.php
