@@ -45,11 +45,13 @@ readonly class ExportController implements InvocableController
 
         $this->response->addScriptFiles(['export.js']);
 
-        if (Current::$database === '') {
+        $isRawQuery = $request->has('raw_query');
+
+        if (Current::$database === '' && ! $isRawQuery) {
             return $this->response->missingParameterError('db');
         }
 
-        if (Current::$table === '') {
+        if (Current::$table === '' && ! $isRawQuery) {
             return $this->response->missingParameterError('table');
         }
 

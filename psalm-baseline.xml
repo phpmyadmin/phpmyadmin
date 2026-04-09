@@ -2128,24 +2128,12 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Table/ExportController.php">
-    <MixedArgument>
-      <code><![CDATA[Current::$database]]></code>
-      <code><![CDATA[Current::$table]]></code>
-    </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[Current::$whereClause]]></code>
     </MixedArgumentTypeCoercion>
-    <MixedPropertyTypeCoercion>
-      <code><![CDATA[UrlParams::$params]]></code>
-      <code><![CDATA[UrlParams::$params]]></code>
-      <code><![CDATA[['db' => Current::$database, 'table' => Current::$table]]]></code>
-    </MixedPropertyTypeCoercion>
     <PossiblyNullArgument>
       <code><![CDATA[$parser->list]]></code>
     </PossiblyNullArgument>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/ExportRowsController.php">
     <InvalidPropertyAssignmentValue>
@@ -9430,6 +9418,7 @@
   </file>
   <file src="tests/unit/Controllers/Table/ExportControllerTest.php">
     <DeprecatedMethod>
+      <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
   </file>
