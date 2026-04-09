@@ -3114,8 +3114,8 @@ export function slidingMessage (msg, $object = undefined) {
         // we might have to create a new DOM node.
         if ($('#PMA_slidingMessage').length === 0) {
             $('#page_content').prepend(
-                '<span id="PMA_slidingMessage" ' +
-                'class="d-inline-block"></span>'
+                '<div id="PMA_slidingMessage" ' +
+                'class="position-relative" style="z-index: 1"></div>'
             );
         }
 
@@ -3145,6 +3145,9 @@ export function slidingMessage (msg, $object = undefined) {
                 $obj
                     .animate({
                         height: $obj.find('div').first().height()
+                    }, function () {
+                        $obj.css('height', 'auto');
+                        $obj.find('div').first().css('height', 'auto');
                     })
                     .find('div')
                     .first()
@@ -3171,15 +3174,10 @@ export function slidingMessage (msg, $object = undefined) {
             .animate({
                 height: h
             }, function () {
-                // Set the height of the parent
-                // to the height of the child
-                $obj
-                    .height(
-                        $obj
-                            .find('div')
-                            .first()
-                            .height()
-                    );
+                // After animation, allow the container and its content
+                // to resize naturally (e.g. when using "Edit inline")
+                $(this).css('height', 'auto');
+                $obj.css('height', 'auto');
             });
     }
 
