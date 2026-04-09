@@ -48,7 +48,6 @@ use const VERSION_CHECK_DEFAULT;
  *     AuthLog: string,
  *     AuthLogSuccess: bool,
  *     PmaNoRelation_DisableWarning: bool,
- *     SuhosinDisableWarning: bool,
  *     LoginCookieValidityDisableWarning: bool,
  *     ReservedWordDisableWarning: bool,
  *     TranslationWarningThreshold: int,
@@ -296,17 +295,6 @@ final class Settings
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_PmaNoRelation_DisableWarning
      */
     public bool $PmaNoRelation_DisableWarning;
-
-    /**
-     * Disable the default warning that is displayed if Suhosin is detected
-     *
-     * ```php
-     * $cfg['SuhosinDisableWarning'] = false;
-     * ```
-     *
-     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_SuhosinDisableWarning
-     */
-    public bool $SuhosinDisableWarning;
 
     /**
      * Disable the default warning that is displayed if session.gc_maxlifetime
@@ -2633,7 +2621,6 @@ final class Settings
         $this->authLog = $this->setAuthLog($settings);
         $this->authLogSuccess = $this->setAuthLogSuccess($settings);
         $this->PmaNoRelation_DisableWarning = $this->setPmaNoRelationDisableWarning($settings);
-        $this->SuhosinDisableWarning = $this->setSuhosinDisableWarning($settings);
         $this->LoginCookieValidityDisableWarning = $this->setLoginCookieValidityDisableWarning($settings);
         $this->ReservedWordDisableWarning = $this->setReservedWordDisableWarning($settings);
         $this->TranslationWarningThreshold = $this->setTranslationWarningThreshold($settings);
@@ -2831,7 +2818,6 @@ final class Settings
             'AuthLog' => $this->authLog,
             'AuthLogSuccess' => $this->authLogSuccess,
             'PmaNoRelation_DisableWarning' => $this->PmaNoRelation_DisableWarning,
-            'SuhosinDisableWarning' => $this->SuhosinDisableWarning,
             'LoginCookieValidityDisableWarning' => $this->LoginCookieValidityDisableWarning,
             'ReservedWordDisableWarning' => $this->ReservedWordDisableWarning,
             'TranslationWarningThreshold' => $this->TranslationWarningThreshold,
@@ -3062,15 +3048,6 @@ final class Settings
         return (bool) $settings['PmaNoRelation_DisableWarning'];
     }
 
-    /** @param array<int|string, mixed> $settings */
-    private function setSuhosinDisableWarning(array $settings): bool
-    {
-        if (! isset($settings['SuhosinDisableWarning'])) {
-            return false;
-        }
-
-        return (bool) $settings['SuhosinDisableWarning'];
-    }
 
     /** @param array<int|string, mixed> $settings */
     private function setLoginCookieValidityDisableWarning(array $settings): bool

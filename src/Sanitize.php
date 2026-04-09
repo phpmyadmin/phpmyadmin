@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This class includes various sanitization methods that can be called statically
  */
