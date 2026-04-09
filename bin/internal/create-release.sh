@@ -160,6 +160,8 @@ cleanup_composer_vendors() {
         vendor/phpmyadmin/sql-parser/bin/ \
         vendor/phpmyadmin/sql-parser/phpunit.xml.dist \
         vendor/phpmyadmin/motranslator/phpunit.xml.dist \
+        vendor/phpmyadmin/motranslator/psalm-baseline.xml \
+        vendor/phpmyadmin/motranslator/psalm.xml \
         vendor/phpmyadmin/motranslator/tests/ \
         vendor/phpmyadmin/shapefile/phpunit.xml.dist \
         vendor/phpmyadmin/shapefile/tests/ \
@@ -167,6 +169,7 @@ cleanup_composer_vendors() {
         vendor/phpmyadmin/shapefile/data/ \
         vendor/symfony/service-contracts/Test/ \
         vendor/symfony/expression-language/Resources/ \
+        vendor/symfony/dependency-injection/Loader/schema/services.schema.json \
         vendor/symfony/dependency-injection/Loader/schema/dic/services/services-1.0.xsd \
         vendor/tecnickcom/tcpdf/tools/ \
         vendor/tecnickcom/tcpdf/fonts/ae_fonts_*/ \
@@ -178,6 +181,8 @@ cleanup_composer_vendors() {
         vendor/williamdes/mariadb-mysql-kbs/dist/merged-raw.md \
         vendor/williamdes/mariadb-mysql-kbs/dist/merged-slim.json \
         vendor/williamdes/mariadb-mysql-kbs/dist/merged-ultraslim.php \
+        vendor/google/recaptcha/app.yaml \
+        vendor/laminas/laminas-httphandlerrunner/.laminas-ci.json \
         vendor/nikic/fast-route/.travis.yml \
         vendor/nikic/fast-route/.hhconfig \
         vendor/nikic/fast-route/FastRoute.hhi \
@@ -185,21 +190,31 @@ cleanup_composer_vendors() {
         vendor/nikic/fast-route/psalm.xml \
         vendor/nikic/fast-route/test/ \
         vendor/twig/twig/README.rst \
+        vendor/twig/twig/splitsh.json \
         vendor/webmozart/assert/.php-cs-fixer.php \
         vendor/twig/twig/src/Test/ \
+        vendor/psr/event-dispatcher/.editorconfig \
         vendor/psr/http-message/docs/ \
         vendor/pragmarx/google2fa/.github/ \
         vendor/pragmarx/google2fa-qrcode/.scrutinizer.yml \
         vendor/pragmarx/google2fa-qrcode/.travis.yml \
         vendor/pragmarx/google2fa-qrcode/phpunit.xml \
-        vendor/pragmarx/google2fa-qrcode/tests
+        vendor/pragmarx/google2fa-qrcode/tests \
+        vendor/slim/psr7/phpunit.xml.dist \
+        vendor/slim/psr7/tests/
 
     rm \
         vendor/phpmyadmin/motranslator/CODE_OF_CONDUCT.md \
         vendor/phpmyadmin/motranslator/CONTRIBUTING.md \
         vendor/phpmyadmin/motranslator/PERFORMANCE.md \
         vendor/phpmyadmin/shapefile/CONTRIBUTING.md \
-        vendor/spomky-labs/cbor-php/CODE_OF_CONDUCT.md
+        vendor/spomky-labs/cbor-php/CODE_OF_CONDUCT.md \
+        vendor/spomky-labs/cbor-php/RELEASES.md \
+        vendor/spomky-labs/cbor-php/SECURITY.md \
+        vendor/spomky-labs/pki-framework/SECURITY.md \
+        vendor/web-auth/cose-lib/CODE_OF_CONDUCT.md \
+        vendor/web-auth/cose-lib/RELEASES.md \
+        vendor/web-auth/cose-lib/SECURITY.md
 
     find vendor/tecnickcom/tcpdf/fonts/ -maxdepth 1 -type f \
         -not -name 'dejavusans.*' \
@@ -515,6 +530,7 @@ fi
 # Remove git metadata
 rm .git
 find . -name .gitignore -print0 | xargs -0 -r rm
+find . -name .gitkeep -print0 | xargs -0 -r rm
 find . -name .gitattributes -print0 | xargs -0 -r rm
 
 if [ $do_test -eq 1 ] ; then
