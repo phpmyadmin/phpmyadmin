@@ -351,6 +351,7 @@ var DragDropImport = {
             $('.pma_drop_handler').fadeOut();
             event.stopPropagation();
             event.preventDefault();
+
             return;
         }
 
