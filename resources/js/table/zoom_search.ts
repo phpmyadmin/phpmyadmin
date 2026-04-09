@@ -15,7 +15,7 @@ import { ajaxShowMessage } from '../modules/ajax-message.ts';
  * @return {false}
  **/
 function displayHelp () {
-    var modal = $('#helpModal');
+    const modal = $('#helpModal');
     modal.modal('show');
     modal.find('.modal-body').first().html(window.Messages.strDisplayHelp);
     $('#helpModalLabel').first().html(window.Messages.strHelpTitle);
@@ -58,7 +58,7 @@ function isNumeric (n) {
  * @return {boolean}
  **/
 function isEmpty (obj) {
-    var name;
+    let name;
     for (name in obj) {
         return false;
     }
@@ -122,16 +122,16 @@ AJAX.registerTeardown('table/zoom_search.js', function () {
 
 AJAX.registerOnload('table/zoom_search.js', function () {
     let currentChart = null;
-    var searchedDataKey = null;
-    var xLabel = ($('#tableid_0').val() as string);
-    var yLabel = ($('#tableid_1').val() as string);
+    let searchedDataKey = null;
+    let xLabel = ($('#tableid_0').val() as string);
+    let yLabel = ($('#tableid_1').val() as string);
     // will be updated via Ajax
-    var xType = $('#types_0').val();
-    var yType = $('#types_1').val();
-    var dataLabel = ($('#dataLabel').val() as string);
+    let xType = $('#types_0').val();
+    let yType = $('#types_1').val();
+    const dataLabel = ($('#dataLabel').val() as string);
 
     // Get query result
-    var searchedData;
+    let searchedData;
     try {
         searchedData = JSON.parse($('#querydata').html());
     } catch (err) {
@@ -139,8 +139,8 @@ AJAX.registerOnload('table/zoom_search.js', function () {
     }
 
     // adding event listener on select after AJAX request
-    var comparisonOperatorOnChange = function () {
-        var tableRows = $('#inputSection select.column-operator');
+    const comparisonOperatorOnChange = function () {
+        const tableRows = $('#inputSection select.column-operator');
         $.each(tableRows, function (index, item) {
             $(item).on('change', function () {
                 window.changeValueFieldType(this, index);
@@ -163,7 +163,7 @@ AJAX.registerOnload('table/zoom_search.js', function () {
             'db': CommonParams.get('db'),
             'table': CommonParams.get('table'),
             'field': $('#tableid_0').val(),
-            'it': 0
+            'it': 0,
         }, function (data) {
             $('#tableFieldsId').find('tr').eq(1).find('td').eq(0).html(data.field_type);
             $('#tableFieldsId').find('tr').eq(1).find('td').eq(1).html(data.field_collation);
@@ -188,7 +188,7 @@ AJAX.registerOnload('table/zoom_search.js', function () {
             'db': CommonParams.get('db'),
             'table': CommonParams.get('table'),
             'field': $('#tableid_1').val(),
-            'it': 1
+            'it': 1,
         }, function (data) {
             $('#tableFieldsId').find('tr').eq(2).find('td').eq(0).html(data.field_type);
             $('#tableFieldsId').find('tr').eq(2).find('td').eq(1).html(data.field_collation);
@@ -212,7 +212,7 @@ AJAX.registerOnload('table/zoom_search.js', function () {
             'db': CommonParams.get('db'),
             'table': CommonParams.get('table'),
             'field': $('#tableid_2').val(),
-            'it': 2
+            'it': 2,
         }, function (data) {
             $('#tableFieldsId').find('tr').eq(4).find('td').eq(0).html(data.field_type);
             $('#tableFieldsId').find('tr').eq(4).find('td').eq(1).html(data.field_collation);
@@ -234,7 +234,7 @@ AJAX.registerOnload('table/zoom_search.js', function () {
             'db': CommonParams.get('db'),
             'table': CommonParams.get('table'),
             'field': $('#tableid_3').val(),
-            'it': 3
+            'it': 3,
         }, function (data) {
             $('#tableFieldsId').find('tr').eq(5).find('td').eq(0).html(data.field_type);
             $('#tableFieldsId').find('tr').eq(5).find('td').eq(1).html(data.field_collation);
@@ -271,7 +271,7 @@ AJAX.registerOnload('table/zoom_search.js', function () {
     $('#togglesearchformlink')
         .html(window.Messages.strShowSearchCriteria)
         .on('click', function () {
-            var $link = $(this);
+            const $link = $(this);
             $('#zoom_search_form').slideToggle();
             if ($link.text() === window.Messages.strHideSearchCriteria) {
                 $link.text(window.Messages.strShowSearchCriteria);
@@ -283,24 +283,29 @@ AJAX.registerOnload('table/zoom_search.js', function () {
             return false;
         });
 
+    let selectedRow;
+    let yCord = [];
+    let xCord = [];
+    let series = [];
+
     /**
      * Handle saving of a row in the editor
      */
-    var dataPointSave = function () {
+    const dataPointSave = function () {
         // Find changed values by comparing form values with selectedRow Object
-        var newValues = {};// Stores the values changed from original
-        var sqlTypes = {};
-        var it = 0;
-        var xChange = false;
-        var yChange = false;
-        var key;
-        var tempGetVal = function () {
+        const newValues = {};// Stores the values changed from original
+        const sqlTypes = {};
+        let it = 0;
+        let xChange = false;
+        let yChange = false;
+        let key;
+        const tempGetVal = function () {
             return $(this).val();
         };
 
         for (key in selectedRow) {
-            var oldVal = selectedRow[key];
-            var newVal = ($('#edit_fields_null_id_' + it).prop('checked')) ? null : $('#edit_fieldID_' + it).val();
+            const oldVal = selectedRow[key];
+            let newVal = ($('#edit_fields_null_id_' + it).prop('checked')) ? null : $('#edit_fieldID_' + it).val();
             if (newVal instanceof Array) { // when the column is of type SET
                 newVal = $('#edit_fieldID_' + it).map(tempGetVal).get().join(',');
             }
@@ -317,7 +322,7 @@ AJAX.registerOnload('table/zoom_search.js', function () {
                 }
             }
 
-            var $input = $('#edit_fieldID_' + it);
+            const $input = $('#edit_fieldID_' + it);
             if ($input.hasClass('bit')) {
                 sqlTypes[key] = 'bit';
             } else {
@@ -349,7 +354,7 @@ AJAX.registerOnload('table/zoom_search.js', function () {
                         data: series[0].map(function (row: any[]) {
                             return { x: row[0], y: row[1], row: row };
                         }),
-                    }
+                    },
                 ];
 
                 currentChart.update('none');
@@ -373,7 +378,7 @@ AJAX.registerOnload('table/zoom_search.js', function () {
                         data: series[0].map(function (row: any[]) {
                             return { x: row[0], y: row[1], row: row };
                         }),
-                    }
+                    },
                 ];
 
                 currentChart.update('none');
@@ -382,10 +387,10 @@ AJAX.registerOnload('table/zoom_search.js', function () {
 
         // Generate SQL query for update
         if (! isEmpty(newValues)) {
-            var sqlQuery = 'UPDATE `' + CommonParams.get('table') + '` SET ';
+            let sqlQuery = 'UPDATE `' + CommonParams.get('table') + '` SET ';
             for (key in newValues) {
                 sqlQuery += '`' + key + '`=';
-                var value = newValues[key];
+                const value = newValues[key];
 
                 // null
                 if (value === null) {
@@ -422,7 +427,7 @@ AJAX.registerOnload('table/zoom_search.js', function () {
                 'db': CommonParams.get('db'),
                 'ajax_request': true,
                 'sql_query': sqlQuery,
-                'inline_edit': false
+                'inline_edit': false,
             }, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     $('#sqlqueryresultsouter').html(data.sql_query);
@@ -463,23 +468,23 @@ AJAX.registerOnload('table/zoom_search.js', function () {
             .text(window.Messages.strShowSearchCriteria);
 
         $('#togglesearchformdiv').show();
-        var selectedRow;
-        var series = [];
-        var xCord = [];
-        var yCord = [];
-        var xVal;
-        var yVal;
-        var format;
 
-        var options = {
+        series = [];
+        xCord = [];
+        yCord = [];
+        let xVal;
+        let yVal;
+        let format;
+
+        const options = {
             series: [
                 // for a scatter plot
-                { showLine: false }
+                { showLine: false },
             ],
             grid: {
                 drawBorder: false,
                 shadow: false,
-                background: 'rgba(0,0,0,0)'
+                background: 'rgba(0,0,0,0)',
             },
             axes: {
                 xaxis: {
@@ -487,20 +492,20 @@ AJAX.registerOnload('table/zoom_search.js', function () {
                 },
                 yaxis: {
                     label: $('#tableid_1').val(),
-                }
+                },
             },
             highlighter: {
                 show: true,
                 tooltipAxes: 'y',
                 yvalues: 2,
                 // hide the first y value
-                formatString: '<span class="hide">%s</span>%s'
+                formatString: '<span class="hide">%s</span>%s',
             },
             cursor: {
                 show: true,
                 zoom: true,
-                showTooltip: false
-            }
+                showTooltip: false,
+            },
         };
 
         // If data label is not set, do not show tooltips
@@ -515,8 +520,10 @@ AJAX.registerOnload('table/zoom_search.js', function () {
         // could have multiple series but we'll have just one
         series[0] = [];
 
+        let originalXType;
+        let originalYType;
         if (xType === 'time') {
-            var originalXType = $('#types_0').val();
+            originalXType = $('#types_0').val();
             if (originalXType === 'date') {
                 format = '%Y-%m-%d';
             }
@@ -535,7 +542,7 @@ AJAX.registerOnload('table/zoom_search.js', function () {
         }
 
         if (yType === 'time') {
-            var originalYType = $('#types_1').val();
+            originalYType = $('#types_1').val();
             if (originalYType === 'date') {
                 format = '%Y-%m-%d';
             }
@@ -640,24 +647,24 @@ AJAX.registerOnload('table/zoom_search.js', function () {
                     const data = activeElements[0].element.$context.raw.row;
 
                     searchedDataKey = data[4]; // key from searchedData (global)
-                    var fieldId = 0;
-                    var postParams = {
+                    let fieldId = 0;
+                    const postParams = {
                         'ajax_request': true,
                         'get_data_row': true,
                         'server': CommonParams.get('server'),
                         'db': CommonParams.get('db'),
                         'table': CommonParams.get('table'),
                         'where_clause': data[3],
-                        'where_clause_sign': data[5]
+                        'where_clause_sign': data[5],
                     };
 
                     $.post('index.php?route=/table/zoom-search', postParams, function (data) {
                         // Row is contained in data.row_info,
                         // now fill the displayResultForm with row values
-                        var key;
+                        let key;
                         for (key in data.row_info) {
-                            var $field = $('#edit_fieldID_' + fieldId);
-                            var $fieldNull = $('#edit_fields_null_id_' + fieldId);
+                            const $field = $('#edit_fieldID_' + fieldId);
+                            const $fieldNull = $('#edit_fields_null_id_' + fieldId);
                             if (data.row_info[key] === null) {
                                 $fieldNull.prop('checked', true);
                                 $field.val('');

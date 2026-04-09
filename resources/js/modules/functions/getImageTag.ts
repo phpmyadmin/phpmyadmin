@@ -16,10 +16,10 @@ import { escapeHtml } from './escape.ts';
  *                                       tag to the given value
  */
 export default function getImageTag (image, alternate = undefined, attributes = undefined) {
-    var alt = alternate;
-    var attr = attributes;
+    let alt = alternate;
+    let attr = attributes;
     // custom image object, it will eventually be returned by this functions
-    var retval = {
+    let retval = {
         data: {
             // this is private
             alt: '',
@@ -38,15 +38,15 @@ export default function getImageTag (image, alternate = undefined, attributes = 
             }
         },
         toString: function () {
-            var retval = '<' + 'img';
-            for (var i in this.data) {
+            let retval = '<' + 'img';
+            for (let i in this.data) {
                 retval += ' ' + i + '="' + this.data[i] + '"';
             }
 
             retval += ' /' + '>';
 
             return retval;
-        }
+        },
     };
     // initialise missing parameters
     if (attr === undefined) {
@@ -74,7 +74,7 @@ export default function getImageTag (image, alternate = undefined, attributes = 
     // set css classes
     retval.attr('class', 'icon ic_' + image);
     // set all other attributes
-    for (var i in attr) {
+    for (let i in attr) {
         if (i === 'src') {
             // do not allow to override the 'src' attribute
             continue;

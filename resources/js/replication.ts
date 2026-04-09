@@ -10,14 +10,13 @@ import getJsConfirmCommonParam from './modules/functions/getJsConfirmCommonParam
  *
  * @requires    jQueryUI
  */
-
-var randomServerId = Math.floor(Math.random() * 10000000);
-var confPrefix = 'server-id=' + randomServerId + '\nlog_bin=mysql-bin\nlog_error=mysql-bin.err\n';
+const randomServerId = Math.floor(Math.random() * 10000000);
+const confPrefix = 'server-id=' + randomServerId + '\nlog_bin=mysql-bin\nlog_error=mysql-bin.err\n';
 
 function updateConfig () {
-    var confIgnore = 'binlog_ignore_db=';
-    var confDo = 'binlog_do_db=';
-    var databaseList = '';
+    const confIgnore = 'binlog_ignore_db=';
+    const confDo = 'binlog_do_db=';
+    let databaseList = '';
 
     if ($('#db_select option:selected').length === 0) {
         $('#rep').text(confPrefix);
@@ -94,14 +93,14 @@ AJAX.registerOnload('replication.js', function () {
 
     $('#reset_replica').on('click', function (e) {
         e.preventDefault();
-        var $anchor = $(this);
-        var question = window.Messages.strResetReplicaWarning;
+        const $anchor = $(this);
+        const question = window.Messages.strResetReplicaWarning;
         $anchor.confirm(question, $anchor.attr('href'), function (url) {
             ajaxShowMessage();
             AJAX.source = $anchor;
-            var params = getJsConfirmCommonParam({
+            const params = getJsConfirmCommonParam({
                 'ajax_page_request': true,
-                'ajax_request': true
+                'ajax_request': true,
             }, $anchor.getPostData());
             $.post(url, params, AJAX.responseHandler);
         });

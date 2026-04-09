@@ -13,8 +13,8 @@ AJAX.registerOnload('transformations/image_upload.js', function () {
     $('input.image-upload').on('change', function () {
         const fileInput = this as HTMLInputElement;
         if (fileInput.files && fileInput.files[0]) {
-            var reader = new FileReader();
-            var $input = $(this);
+            const reader = new FileReader();
+            const $input = $(this);
             reader.onload = function (e) {
                 $input.prevAll('img').attr('src', (e.target.result as string));
             };

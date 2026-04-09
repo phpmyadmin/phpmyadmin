@@ -111,19 +111,19 @@ function setIndexFormParameters (sourceArray, indexChoice): void {
  */
 function removeColumnFromIndex (colIndex): void {
     // Get previous index details.
-    var previousIndex = $('select[name="field_key[' + colIndex + ']"]')
+    const previousIndex = $('select[name="field_key[' + colIndex + ']"]')
         .attr('data-index');
     if (previousIndex.length) {
         const previousIndexes = previousIndex.split(',');
-        var sourceArray = Indexes.getIndexArray(previousIndexes[0]);
+        const sourceArray = Indexes.getIndexArray(previousIndexes[0]);
         if (sourceArray === null) {
             return;
         }
 
         if (previousIndex[1] in sourceArray) {
             // Remove column from index array.
-            var sourceLength = sourceArray[previousIndexes[1]].columns.length;
-            for (var i = 0; i < sourceLength; i++) {
+            const sourceLength = sourceArray[previousIndexes[1]].columns.length;
+            for (let i = 0; i < sourceLength; i++) {
                 if (i in sourceArray[previousIndex[1]].columns) {
                     if (sourceArray[previousIndexes[1]].columns[i].col_index === colIndex) {
                         sourceArray[previousIndexes[1]].columns.splice(i, 1);
@@ -158,16 +158,16 @@ function addColumnToIndex (sourceArray, arrayIndex, indexChoice, colIndex): void
         Indexes.removeColumnFromIndex(colIndex);
     }
 
-    var indexName = ($('input[name="index[Key_name]"]').val() as string);
-    var indexComment = $('input[name="index[Index_comment]"]').val();
-    var keyBlockSize = $('input[name="index[Key_block_size]"]').val();
-    var parser = $('input[name="index[Parser]"]').val();
-    var indexType = $('select[name="index[Index_type]"]').val();
-    var columns = [];
+    const indexName = ($('input[name="index[Key_name]"]').val() as string);
+    const indexComment = $('input[name="index[Index_comment]"]').val();
+    const keyBlockSize = $('input[name="index[Key_block_size]"]').val();
+    const parser = $('input[name="index[Parser]"]').val();
+    const indexType = $('select[name="index[Index_type]"]').val();
+    const columns = [];
     $('#index_columns').find('tbody').find('tr').each(function () {
         // Get columns in particular order.
-        var colIndex = $(this).find('select[name="index[columns][names][]"]').val();
-        var size = $(this).find('input[name="index[columns][sub_parts][]"]').val();
+        const colIndex = $(this).find('select[name="index[columns][names][]"]').val();
+        const size = $(this).find('input[name="index[columns][sub_parts][]"]').val();
         columns.push({
             'col_index': colIndex,
             'size': size
@@ -186,9 +186,9 @@ function addColumnToIndex (sourceArray, arrayIndex, indexChoice, colIndex): void
     };
 
     // Display index name (or column list)
-    var displayName = indexName;
+    let displayName = indexName;
     if (displayName === '') {
-        var columnNames = [];
+        const columnNames = [];
         $.each(columns, function () {
             columnNames.push($('input[name="field_name[' + this.col_index + ']"]').val());
         });
@@ -197,14 +197,14 @@ function addColumnToIndex (sourceArray, arrayIndex, indexChoice, colIndex): void
     }
 
     $.each(columns, function () {
-        var id = 'index_name_' + this.col_index + '_8';
-        var $name = $('#' + id);
+        const id = 'index_name_' + this.col_index + '_8';
+        let $name = $('#' + id);
         if ($name.length === 0) {
             $name = $('<a id="' + id + '" href="#" class="ajax show_index_dialog"></a>');
             $name.insertAfter($('select[name="field_key[' + this.col_index + ']"]'));
         }
 
-        var $text = $('<small>').text(displayName);
+        const $text = $('<small>').text(displayName);
         // @ts-ignore
         $name.html($text);
     });
@@ -233,19 +233,19 @@ function getCompositeIndexList (sourceArray, colIndex) {
     }
 
     // Html list.
-    var $compositeIndexList = $(
+    const $compositeIndexList = $(
         '<ul id="composite_index_list">' +
         '<div>' + window.Messages.strCompositeWith + '</div>' +
-        '</ul>'
+        '</ul>',
     );
 
     // Add each column to list available for composite index.
-    var sourceLength = sourceArray.length;
-    var alreadyPresent = false;
-    for (var i = 0; i < sourceLength; i++) {
-        var subArrayLen = sourceArray[i].columns.length;
-        var columnNames = [];
-        for (var j = 0; j < subArrayLen; j++) {
+    const sourceLength = sourceArray.length;
+    let alreadyPresent = false;
+    for (let i = 0; i < sourceLength; i++) {
+        const subArrayLen = sourceArray[i].columns.length;
+        const columnNames = [];
+        for (let j = 0; j < subArrayLen; j++) {
             columnNames.push(
                 $('input[name="field_name[' + sourceArray[i].columns[j].col_index + ']"]').val()
             );
@@ -269,8 +269,8 @@ function getCompositeIndexList (sourceArray, colIndex) {
     return $compositeIndexList;
 }
 
-var addIndexGo = function (sourceArray, arrayIndex, index, colIndex) {
-    var isMissingValue = false;
+const addIndexGo = function (sourceArray, arrayIndex, index, colIndex) {
+    let isMissingValue = false;
     $('select[name="index[columns][names][]"]').each(function () {
         if ($(this).val() === '') {
             isMissingValue = true;
@@ -282,13 +282,13 @@ var addIndexGo = function (sourceArray, arrayIndex, index, colIndex) {
             sourceArray,
             arrayIndex,
             index.Index_choice,
-            colIndex
+            colIndex,
         );
     } else {
         ajaxShowMessage(
             '<div class="alert alert-danger" role="alert"><img src="themes/dot.gif" title="" alt=""' +
             ' class="icon ic_s_error"> ' + window.Messages.strMissingColumn +
-            ' </div>', false
+            ' </div>', false,
         );
 
         return false;
@@ -308,11 +308,11 @@ var addIndexGo = function (sourceArray, arrayIndex, index, colIndex) {
  * @param {boolean} showDialog   Whether to show index creation dialog or not
  */
 function showAddIndexDialog (sourceArray, arrayIndex, targetColumns, colIndex, index, showDialog = undefined): void {
-    var showDialogLocal = typeof showDialog !== 'undefined' ? showDialog : true;
+    const showDialogLocal = typeof showDialog !== 'undefined' ? showDialog : true;
     // Prepare post-data.
-    var $table = $('input[name="table"]');
-    var table = $table.length > 0 ? $table.val() : '';
-    var postData = {
+    const $table = $('input[name="table"]');
+    const table = $table.length > 0 ? $table.val() : '';
+    const postData = {
         'server': CommonParams.get('server'),
         'db': $('input[name="db"]').val(),
         'table': table,
@@ -322,10 +322,10 @@ function showAddIndexDialog (sourceArray, arrayIndex, targetColumns, colIndex, i
         'columns': '',
     };
 
-    var columns = {};
-    for (var i = 0; i < targetColumns.length; i++) {
-        var columnName = ($('input[name="field_name[' + targetColumns[i] + ']"]').val() as string);
-        var columnType = ($('select[name="field_type[' + targetColumns[i] + ']"]').val() as string).toLowerCase();
+    const columns = {};
+    for (let i = 0; i < targetColumns.length; i++) {
+        const columnName = ($('input[name="field_name[' + targetColumns[i] + ']"]').val() as string);
+        const columnType = ($('select[name="field_type[' + targetColumns[i] + ']"]').val() as string).toLowerCase();
         columns[columnName] = [columnType, targetColumns[i]];
     }
 
@@ -340,11 +340,11 @@ function showAddIndexDialog (sourceArray, arrayIndex, targetColumns, colIndex, i
     $('#addIndexModalCancelButton').on('click', function () {
         if (colIndex >= 0) {
             // Handle state on 'Cancel'.
-            var $selectList = $('select[name="field_key[' + colIndex + ']"]');
+            const $selectList = $('select[name="field_key[' + colIndex + ']"]');
             if (! $selectList.attr('data-index').length) {
                 $selectList.find('option[value*="none"]').attr('selected', 'selected');
             } else {
-                var previousIndex = $selectList.attr('data-index').split(',');
+                const previousIndex = $selectList.attr('data-index').split(',');
                 $selectList.find('option[value*="' + previousIndex[0].toLowerCase() + '"]')
                     .attr('selected', 'selected');
             }
@@ -357,14 +357,14 @@ function showAddIndexDialog (sourceArray, arrayIndex, targetColumns, colIndex, i
         $('#addIndexModal').modal('hide');
     });
 
-    var $msgbox = ajaxShowMessage();
+    const $msgbox = ajaxShowMessage();
     $.post('index.php?route=/table/indexes', postData, function (data) {
         if (data.success === false) {
             // in the case of an error, show the error message returned.
             ajaxShowMessage(data.error, false);
         } else {
             ajaxRemoveMessage($msgbox);
-            var $div = $('<div></div>');
+            const $div = $('<div></div>');
             if (showDialogLocal) {
                 // Show dialog if the request was successful
                 if ($('#addIndex').length > 0) {
@@ -401,7 +401,7 @@ function showAddIndexDialog (sourceArray, arrayIndex, targetColumns, colIndex, i
                 $div.css({ 'display': 'none' });
                 $div.appendTo($('body'));
                 $div.attr({ 'id': 'addIndex' });
-                var isMissingValue = false;
+                let isMissingValue = false;
                 $('select[name="index[columns][names][]"]').each(function () {
                     if ($(this).val() === '') {
                         isMissingValue = true;
@@ -429,7 +429,7 @@ function showAddIndexDialog (sourceArray, arrayIndex, targetColumns, colIndex, i
     });
 }
 
-var removeIndexOnChangeEvent = function () {
+const removeIndexOnChangeEvent = function () {
     $('#composite_index').off('change');
     $('#single_column').off('change');
     $('#addIndexModal').modal('hide');
@@ -443,15 +443,15 @@ var removeIndexOnChangeEvent = function () {
  * @param {string} colIndex    Index of new column on form
  */
 function indexTypeSelectionDialog (sourceArray, indexChoice, colIndex): void {
-    var $singleColumnRadio = $('<div class="form-check">' +
+    const $singleColumnRadio = $('<div class="form-check">' +
         '<input class="form-check-input" type="radio" id="single_column" name="index_choice" checked>' +
         '<label class="form-check-label" for="single_column">' +
         window.Messages.strCreateSingleColumnIndex + '</label></div>');
-    var $compositeIndexRadio = $('<div class="form-check">' +
+    const $compositeIndexRadio = $('<div class="form-check">' +
         '<input class="form-check-input" type="radio" id="composite_index" name="index_choice">' +
         '<label class="form-check-label" for="composite_index">' +
         window.Messages.strCreateCompositeIndex + '</label></div>');
-    var $dialogContent = $('<fieldset id="advance_index_creator"></fieldset>');
+    const $dialogContent = $('<fieldset id="advance_index_creator"></fieldset>');
     $dialogContent.append('<legend>' + indexChoice.toUpperCase() + '</legend>');
 
     // For UNIQUE/INDEX type, show choice for single-column and composite index.
@@ -463,9 +463,9 @@ function indexTypeSelectionDialog (sourceArray, indexChoice, colIndex): void {
     // 'OK' operation.
     $('#addIndexModalGoButton').on('click', function () {
         if ($('#single_column').is(':checked')) {
-            var index = {
+            const index = {
                 'Key_name': (indexChoice === 'primary' ? 'PRIMARY' : ''),
-                'Index_choice': indexChoice.toUpperCase()
+                'Index_choice': indexChoice.toUpperCase(),
             };
             Indexes.showAddIndexDialog(sourceArray, (sourceArray.length), [colIndex], colIndex, index);
         }
@@ -484,10 +484,10 @@ function indexTypeSelectionDialog (sourceArray, indexChoice, colIndex): void {
                 return false;
             }
 
-            var arrayIndex = Number($('input[name="composite_with"]:checked').val());
-            var sourceLength = sourceArray[arrayIndex].columns.length;
-            var targetColumns = [];
-            for (var i = 0; i < sourceLength; i++) {
+            const arrayIndex = Number($('input[name="composite_with"]:checked').val());
+            const sourceLength = sourceArray[arrayIndex].columns.length;
+            const targetColumns = [];
+            for (let i = 0; i < sourceLength; i++) {
                 targetColumns.push(sourceArray[arrayIndex].columns[i].col_index);
             }
 
@@ -502,11 +502,11 @@ function indexTypeSelectionDialog (sourceArray, indexChoice, colIndex): void {
 
     $('#addIndexModalCancelButton').on('click', function () {
         // Handle state on 'Cancel'.
-        var $selectList = $('select[name="field_key[' + colIndex + ']"]');
+        const $selectList = $('select[name="field_key[' + colIndex + ']"]');
         if (! $selectList.attr('data-index').length) {
             $selectList.find('option[value*="none"]').attr('selected', 'selected');
         } else {
-            var previousIndex = $selectList.attr('data-index').split(',');
+            const previousIndex = $selectList.attr('data-index').split(',');
             $selectList.find('option[value*="' + previousIndex[0].toLowerCase() + '"]')
                 .attr('selected', 'selected');
         }
@@ -587,21 +587,21 @@ function on () {
         Indexes.resetColumnLists();
 
         // for table creation form
-        var $engineSelector = $('.create_table_form select[name=tbl_storage_engine]');
+        const $engineSelector = $('.create_table_form select[name=tbl_storage_engine]');
         if ($engineSelector.length) {
             hideShowConnection($engineSelector);
         }
 
-        var $form = $('#index_frm');
+        const $form = $('#index_frm');
         if ($form.length > 0) {
             showIndexEditDialog($form);
         }
 
         $(document).on('click', '#save_index_frm', function (event) {
             event.preventDefault();
-            var $form = $('#index_frm');
-            var argsep = CommonParams.get('arg_separator');
-            var submitData = $form.serialize() + argsep + 'do_save_data=1' + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
+            const $form = $('#index_frm');
+            const argsep = CommonParams.get('arg_separator');
+            const submitData = $form.serialize() + argsep + 'do_save_data=1' + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
             ajaxShowMessage(window.Messages.strProcessingRequest);
             AJAX.source = $form;
             $.post($form.attr('action'), submitData, AJAX.responseHandler);
@@ -623,30 +623,32 @@ function on () {
          */
         $(document).on('click', 'a.drop_primary_key_index_anchor.ajax', function (event) {
             event.preventDefault();
-            var $anchor = $(this);
+            const $anchor = $(this);
             /**
              * @var $currRow Object containing reference to the current field's row
              */
-            var $currRow = $anchor.parents('tr');
+            const $currRow = $anchor.parents('tr');
             /** @var {number} rows Number of columns in the key */
-            var rows = Number($anchor.parents('td').attr('rowspan')) || 1;
+            const rows = Number($anchor.parents('td').attr('rowspan')) || 1;
             /** @var {number} $rowsToHide Rows that should be hidden */
-            var $rowsToHide = $currRow;
-            for (var i = 1, $lastRow = $currRow.next(); i < rows; i++, $lastRow = $lastRow.next()) {
+            let $rowsToHide = $currRow;
+            let i = 1;
+            let $lastRow = $currRow.next();
+            for (; i < rows; i++, $lastRow = $lastRow.next()) {
                 $rowsToHide = $rowsToHide.add($lastRow);
             }
 
-            var question = $currRow.children('td')
+            const question = $currRow.children('td')
                 .children('.drop_primary_key_index_msg')
                 .val();
 
             confirmPreviewSql(question, $anchor.attr('href'), function (url) {
-                var $msg = ajaxShowMessage(window.Messages.strDroppingPrimaryKeyIndex, false);
-                var params = getJsConfirmCommonParam(this, $anchor.getPostData());
+                const $msg = ajaxShowMessage(window.Messages.strDroppingPrimaryKeyIndex, false);
+                const params = getJsConfirmCommonParam(this, $anchor.getPostData());
                 $.post(url, params, function (data) {
                     if (typeof data !== 'undefined' && data.success === true) {
                         ajaxRemoveMessage($msg);
-                        var $tableRef = $rowsToHide.closest('table');
+                        const $tableRef = $rowsToHide.closest('table');
                         if ($rowsToHide.length === $tableRef.find('tbody > tr').length) {
                             // We are about to remove all rows from the table
                             $tableRef.hide('medium', function () {
@@ -688,14 +690,14 @@ function on () {
          **/
         $(document).on('click', '#table_index tbody tr td.edit_index.ajax, #index_div .add_index.ajax', function (event) {
             event.preventDefault();
-            var url;
-            var title;
+            let url;
+            let title;
             if ($(this).find('a').length === 0) {
                 // Add index
-                var valid = checkFormElementInRange(
+                const valid = checkFormElementInRange(
                     $(this).closest('form')[0],
                     'added_fields',
-                    'Column count has to be larger than zero.'
+                    'Column count has to be larger than zero.',
                 );
                 if (! valid) {
                     return;
@@ -722,8 +724,8 @@ function on () {
          **/
         $(document).on('click', '#table_index tbody tr td.rename_index.ajax', function (event) {
             event.preventDefault();
-            var url = $(this).find('a').getPostData();
-            var title = window.Messages.strRenameIndex;
+            let url = $(this).find('a').getPostData();
+            const title = window.Messages.strRenameIndex;
             url += CommonParams.get('arg_separator') + 'ajax_request=true';
             indexRenameDialog(url, title, function (data) {
                 Navigation.update(CommonParams.set('db', data.params.db));
@@ -737,20 +739,20 @@ function on () {
          * and column addition.
          */
         $('body').on('change', 'select[name*="field_key"]', function (e, showDialog) {
-            var showDialogLocal = typeof showDialog !== 'undefined' ? showDialog : true;
+            const showDialogLocal = typeof showDialog !== 'undefined' ? showDialog : true;
             // Index of column on Table edit and create page.
-            var colIndexRegEx = /\d+/.exec($(this).attr('name'));
+            const colIndexRegEx = /\d+/.exec($(this).attr('name'));
             const colIndex = colIndexRegEx[0];
             // Choice of selected index.
-            var indexChoiceRegEx = /[a-z]+/.exec(($(this).val() as string));
+            const indexChoiceRegEx = /[a-z]+/.exec(($(this).val() as string));
             const indexChoice = indexChoiceRegEx[0];
             // Array containing corresponding indexes.
-            var sourceArray = null;
+            let sourceArray = null;
 
             if (indexChoice === 'none') {
                 Indexes.removeColumnFromIndex(colIndex);
-                var id = 'index_name_' + colIndex + '_8';
-                var $name = $('#' + id);
+                const id = 'index_name_' + colIndex + '_8';
+                let $name = $('#' + id);
                 if ($name.length === 0) {
                     $name = $('<a id="' + id + '" href="#" class="ajax show_index_dialog"></a>');
                     $name.insertAfter($('select[name="field_key[' + '0' + ']"]'));
@@ -768,17 +770,17 @@ function on () {
             }
 
             if (sourceArray.length === 0) {
-                var index = {
+                const index = {
                     'Key_name': (indexChoice === 'primary' ? 'PRIMARY' : ''),
-                    'Index_choice': indexChoice.toUpperCase()
+                    'Index_choice': indexChoice.toUpperCase(),
                 };
                 Indexes.showAddIndexDialog(sourceArray, 0, [colIndex], colIndex, index, showDialogLocal);
             } else {
                 if (indexChoice === 'primary') {
-                    var arrayIndex = 0;
-                    var sourceLength = sourceArray[arrayIndex].columns.length;
-                    var targetColumns = [];
-                    for (var i = 0; i < sourceLength; i++) {
+                    const arrayIndex = 0;
+                    const sourceLength = sourceArray[arrayIndex].columns.length;
+                    const targetColumns = [];
+                    for (let i = 0; i < sourceLength; i++) {
                         targetColumns.push(sourceArray[arrayIndex].columns[i].col_index);
                     }
 
@@ -796,23 +798,23 @@ function on () {
             e.preventDefault();
 
             // Get index details.
-            var previousIndex = $(this).prev('select')
+            const previousIndex = $(this).prev('select')
                 .attr('data-index')
                 .split(',');
 
-            var indexChoice = previousIndex[0];
-            var arrayIndex = previousIndex[1];
+            const indexChoice = previousIndex[0];
+            const arrayIndex = previousIndex[1];
 
-            var sourceArray = Indexes.getIndexArray(indexChoice);
+            const sourceArray = Indexes.getIndexArray(indexChoice);
             if (sourceArray === null) {
                 return;
             }
 
             if (arrayIndex in sourceArray) {
-                var sourceLength = sourceArray[arrayIndex].columns.length;
+                const sourceLength = sourceArray[arrayIndex].columns.length;
 
-                var targetColumns = [];
-                for (var i = 0; i < sourceLength; i++) {
+                const targetColumns = [];
+                for (let i = 0; i < sourceLength; i++) {
                     targetColumns.push(sourceArray[arrayIndex].columns[i].col_index);
                 }
 

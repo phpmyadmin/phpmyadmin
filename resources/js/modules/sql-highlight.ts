@@ -377,16 +377,16 @@ function documentationAdd ($elm, params) {
         return;
     }
 
-    var url = window.sprintf(
+    let url = window.sprintf(
         decodeURIComponent(window.mysqlDocTemplate),
-        params[0]
+        params[0],
     );
     if (params.length > 1) {
         // The # needs to be escaped to be part of the destination URL
         url += encodeURIComponent('#') + params[1];
     }
 
-    var content = $elm.text();
+    const content = $elm.text();
     $elm.text('');
     $elm.append('<a target="mysql_doc" class="cm-sql-doc" href="' + url + '">' + content + '</a>');
 }
@@ -398,22 +398,22 @@ function documentationAdd ($elm, params) {
  * @param elm
  */
 function documentationKeyword (idx, elm) {
-    var $elm = $(elm);
+    const $elm = $(elm);
     /* Skip already processed ones */
     if ($elm.find('a').length > 0) {
         return;
     }
 
-    var keyword = $elm.text().toUpperCase();
-    var $next = $elm.next('.cm-keyword');
+    const keyword = $elm.text().toUpperCase();
+    const $next = $elm.next('.cm-keyword');
     if ($next) {
-        var nextKeyword = $next.text().toUpperCase();
-        var full = keyword + ' ' + nextKeyword;
+        const nextKeyword = $next.text().toUpperCase();
+        const full = keyword + ' ' + nextKeyword;
 
-        var $next2 = $next.next('.cm-keyword');
+        const $next2 = $next.next('.cm-keyword');
         if ($next2) {
-            var next2Keyword = $next2.text().toUpperCase();
-            var full2 = full + ' ' + next2Keyword;
+            const next2Keyword = $next2.text().toUpperCase();
+            const full2 = full + ' ' + next2Keyword;
             if (full2 in mysqlDocKeyword) {
                 documentationAdd($elm, mysqlDocKeyword[full2]);
                 documentationAdd($next, mysqlDocKeyword[full2]);
@@ -443,8 +443,8 @@ function documentationKeyword (idx, elm) {
  * @param elm
  */
 function documentationBuiltin (idx, elm) {
-    var $elm = $(elm);
-    var builtin = $elm.text().toUpperCase();
+    const $elm = $(elm);
+    const builtin = $elm.text().toUpperCase();
     if (builtin in mysqlDocBuiltin) {
         documentationAdd($elm, mysqlDocBuiltin[builtin]);
     }
@@ -456,14 +456,14 @@ function documentationBuiltin (idx, elm) {
  * @param $base
  */
 export default function highlightSql ($base) {
-    var $elm = $base.find('code.sql');
+    const $elm = $base.find('code.sql');
     $elm.each(function () {
-        var $sql = $(this);
-        var $pre = $sql.closest('pre');
+        const $sql = $(this);
+        const $pre = $sql.closest('pre');
         /* We only care about visible elements to avoid double processing */
         if ($sql.is(':visible')) {
             if (typeof window.CodeMirror !== 'undefined') {
-                var $highlight = $('<div class="sql-highlight cm-s-default"></div>');
+                const $highlight = $('<div class="sql-highlight cm-s-default"></div>');
                 $pre.append($highlight);
                 // @ts-ignore
                 window.CodeMirror.runMode($sql.text(), 'text/x-mysql', $highlight[0]);

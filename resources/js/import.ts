@@ -20,7 +20,7 @@ function changePluginOpts () {
         $(this).hide();
     });
 
-    var selectedPluginName = $('#plugins').find('option:selected').val();
+    const selectedPluginName = $('#plugins').find('option:selected').val();
     $('#' + selectedPluginName + '_options').fadeIn('slow');
 
     const importNotification = document.getElementById('import_notification');
@@ -39,10 +39,10 @@ function changePluginOpts () {
  * @param {string} fname
  */
 function matchFile (fname) {
-    var fnameArray = fname.toLowerCase().split('.');
-    var len = fnameArray.length;
+    const fnameArray = fname.toLowerCase().split('.');
+    let len = fnameArray.length;
     if (len !== 0) {
-        var extension = fnameArray[len - 1];
+        const extension = fnameArray[len - 1];
         if (extension === 'gz' || extension === 'bz2' || extension === 'zip') {
             len--;
         }
@@ -71,11 +71,11 @@ AJAX.registerTeardown('import.js', function () {
 AJAX.registerOnload('import.js', function () {
     // import_file_form validation.
     $(document).on('submit', '#import_file_form', function () {
-        var radioLocalImport = $('#localFileTab');
-        var radioImport = $('#uploadFileTab');
-        var fileMsg = '<div class="alert alert-danger" role="alert"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> ' + window.Messages.strImportDialogMessage + '</div>';
-        var wrongTblNameMsg = '<div class="alert alert-danger" role="alert"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error">' + window.Messages.strTableNameDialogMessage + '</div>';
-        var wrongDBNameMsg = '<div class="alert alert-danger" role="alert"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error">' + window.Messages.strDBNameDialogMessage + '</div>';
+        const radioLocalImport = $('#localFileTab');
+        const radioImport = $('#uploadFileTab');
+        const fileMsg = '<div class="alert alert-danger" role="alert"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> ' + window.Messages.strImportDialogMessage + '</div>';
+        const wrongTblNameMsg = '<div class="alert alert-danger" role="alert"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error">' + window.Messages.strTableNameDialogMessage + '</div>';
+        const wrongDBNameMsg = '<div class="alert alert-danger" role="alert"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error">' + window.Messages.strDBNameDialogMessage + '</div>';
 
         if (radioLocalImport.length !== 0) {
             // remote upload.
@@ -111,7 +111,7 @@ AJAX.registerOnload('import.js', function () {
             }
 
             if ($('#text_csv_new_tbl_name').length > 0) {
-                var newTblName = ($('#text_csv_new_tbl_name').val() as string);
+                const newTblName = ($('#text_csv_new_tbl_name').val() as string);
                 if (newTblName.length > 0 && newTblName.trim().length === 0) {
                     ajaxShowMessage(wrongTblNameMsg, false);
 
@@ -120,7 +120,7 @@ AJAX.registerOnload('import.js', function () {
             }
 
             if ($('#text_csv_new_db_name').length > 0) {
-                var newDBName = ($('#text_csv_new_db_name').val() as string);
+                const newDBName = ($('#text_csv_new_db_name').val() as string);
                 if (newDBName.length > 0 && newDBName.trim().length === 0) {
                     ajaxShowMessage(wrongDBNameMsg, false);
 
@@ -184,14 +184,14 @@ AJAX.registerOnload('import.js', function () {
         const clockImage = '<img src="' + window.themeImagePath + 'ajax_clock_small.gif" width="16" height="16" alt="ajax clock">';
 
         if (handler !== 'PhpMyAdmin\\Plugins\\Import\\Upload\\UploadNoplugin') {
-            var finished = false;
-            var percent = 0.0;
-            var total = 0;
-            var complete = 0;
-            var originalTitle = parent && parent.document ? parent.document.title : false;
-            var importStart;
+            let finished = false;
+            let percent = 0.0;
+            let total = 0;
+            let complete = 0;
+            const originalTitle = parent && parent.document ? parent.document.title : false;
+            let importStart;
 
-            var performUpload = function () {
+            const performUpload = function () {
                 $.getJSON(
                     'index.php?route=/import-status',
                     { 'id': uploadId, 'import_status': 1, 'server': CommonParams.get('server') },
@@ -205,24 +205,24 @@ AJAX.registerOnload('import.js', function () {
                             $('#upload_form_status_info').html(clockImage + ' ' + window.Messages.uploadProgressMaximumAllowedSize);
                             $('#upload_form_status').css('display', 'none');
                         } else {
-                            var nowDate = new Date();
+                            const nowDate = new Date();
                             const now = Date.UTC(
                                 nowDate.getFullYear(),
                                 nowDate.getMonth(),
                                 nowDate.getDate(),
                                 nowDate.getHours(),
                                 nowDate.getMinutes(),
-                                nowDate.getSeconds()
+                                nowDate.getSeconds(),
                             ) + nowDate.getMilliseconds() - 1000;
 
-                            var statusText = window.sprintf(
+                            let statusText = window.sprintf(
                                 window.Messages.uploadProgressStatusText,
                                 formatBytes(
-                                    complete, 1, window.Messages.strDecimalSeparator
+                                    complete, 1, window.Messages.strDecimalSeparator,
                                 ),
                                 formatBytes(
-                                    total, 1, window.Messages.strDecimalSeparator
-                                )
+                                    total, 1, window.Messages.strDecimalSeparator,
+                                ),
                             );
 
                             if ($('#importmain').is(':visible')) {
@@ -239,16 +239,16 @@ AJAX.registerOnload('import.js', function () {
                                 importStart = now;
                             } else if (percent > 9 || complete > 2000000) {
                                 // Calculate estimated time
-                                var usedTime = now - importStart;
-                                var seconds = parseInt((((total - complete) / complete) * usedTime / 1000).toString());
-                                var speed = window.sprintf(
+                                const usedTime = now - importStart;
+                                let seconds = parseInt((((total - complete) / complete) * usedTime / 1000).toString());
+                                const speed = window.sprintf(
                                     window.Messages.uploadProgressPerSecond,
-                                    formatBytes(complete / usedTime * 1000, 1, window.Messages.strDecimalSeparator)
+                                    formatBytes(complete / usedTime * 1000, 1, window.Messages.strDecimalSeparator),
                                 );
 
-                                var minutes = parseInt((seconds / 60).toString());
+                                const minutes = parseInt((seconds / 60).toString());
                                 seconds %= 60;
-                                var estimatedTime;
+                                let estimatedTime;
                                 if (minutes > 0) {
                                     estimatedTime = window.Messages.uploadProgressRemainingMin
                                         .replace('%MIN', minutes.toString())
@@ -261,7 +261,7 @@ AJAX.registerOnload('import.js', function () {
                                 statusText += '<br>' + speed + '<br><br>' + estimatedTime;
                             }
 
-                            var percentString = Math.round(percent) + '%';
+                            const percentString = Math.round(percent) + '%';
                             $('#status').animate({ width: percentString }, 150);
                             $('.percentage').text(percentString);
 
@@ -293,7 +293,7 @@ AJAX.registerOnload('import.js', function () {
                                 .show();
 
                             $('#import_form_status').load(
-                                'index.php?route=/import-status&message=1&import_status=1&server=' + CommonParams.get('server')
+                                'index.php?route=/import-status&message=1&import_status=1&server=' + CommonParams.get('server'),
                             );
 
                             Navigation.reload();

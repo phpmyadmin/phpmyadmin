@@ -1,4 +1,4 @@
-var DesignerObjects = {
+const DesignerObjects = {
     PdfPage: function (dbName, pageDescr, tblCords) {
         // no dot set the auto increment before put() in the database
         // issue #12900
@@ -17,7 +17,7 @@ var DesignerObjects = {
         this.pdfPgNr = pdfPgNr;
         this.x = x;
         this.y = y;
-    }
+    },
 };
 
 export { DesignerObjects };

@@ -11,7 +11,7 @@ const CommonParams = (function () {
      * @var {Object} params An associative array of key value pairs
      * @access private
      */
-    var params = {};
+    const params = {};
 
     // The returned object is the public part of the module
     return {
@@ -25,7 +25,7 @@ const CommonParams = (function () {
          */
         setAll: function (obj) {
             let updateNavigation = false;
-            for (var i in obj) {
+            for (let i in obj) {
                 if (params[i] !== undefined && params[i] !== obj[i]) {
                     if (i === 'db' || i === 'table') {
                         updateNavigation = true;
@@ -76,9 +76,9 @@ const CommonParams = (function () {
          * @return {string}
          */
         getUrlQuery: function (separator) {
-            var sep = (typeof separator !== 'undefined') ? separator : '?';
-            var common = this.get('common_query');
-            var argsep = CommonParams.get('arg_separator');
+            const sep = (typeof separator !== 'undefined') ? separator : '?';
+            let common = this.get('common_query');
+            const argsep = CommonParams.get('arg_separator');
             if (typeof common === 'string' && common.length > 0) {
                 // If the last char is the separator, do not add it
                 // Else add it

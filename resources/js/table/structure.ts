@@ -32,7 +32,7 @@ import refreshMainContent from '../modules/functions/refreshMainContent.ts';
  */
 function reloadFieldForm () {
     $.post($('#fieldsForm').attr('action'), $('#fieldsForm').serialize() + CommonParams.get('arg_separator') + 'ajax_request=true', function (formData) {
-        var $tempDiv = $('<div id=\'temp_div\'><div>').append(formData.message);
+        const $tempDiv = $('<div id=\'temp_div\'><div>').append(formData.message);
         $('#fieldsForm').replaceWith($tempDiv.find('#fieldsForm'));
         $('#addColumns').replaceWith($tempDiv.find('#addColumns'));
         $('#move_columns_dialog').find('ul').replaceWith($tempDiv.find('#move_columns_dialog ul'));
@@ -74,11 +74,11 @@ AJAX.registerOnload('table/structure.js', function () {
         /**
          * @var form object referring to the export form
          */
-        var $form = $(this);
-        var fieldCnt = Number($form.find('input[name=orig_num_fields]').val());
+        const $form = $(this);
+        const fieldCnt = Number($form.find('input[name=orig_num_fields]').val());
 
         function submitForm () {
-            var $msg = ajaxShowMessage(window.Messages.strProcessingRequest);
+            const $msg = ajaxShowMessage(window.Messages.strProcessingRequest);
             $.post($form.attr('action'), $form.serialize() + CommonParams.get('arg_separator') + 'do_save_data=1', function (data) {
                 if ($('.sqlqueryresults').length !== 0) {
                     $('.sqlqueryresults').remove();
@@ -119,14 +119,14 @@ AJAX.registerOnload('table/structure.js', function () {
         }
 
         function checkIfConfirmRequired ($form) {
-            var i = 0;
-            var id;
-            var elm;
-            var val;
-            var nameOrig;
-            var elmOrig;
-            var valOrig;
-            var checkRequired = false;
+            let i = 0;
+            let id;
+            let elm;
+            let val;
+            let nameOrig;
+            let elmOrig;
+            let valOrig;
+            let checkRequired = false;
             for (i = 0; i < fieldCnt; i++) {
                 id = '#field_' + i + '_5';
                 elm = $(id);
@@ -161,8 +161,8 @@ AJAX.registerOnload('table/structure.js', function () {
 
                 // If Collation is changed, Warn and Confirm
                 if (checkIfConfirmRequired($form)) {
-                    var question = window.sprintf(
-                        window.Messages.strChangeColumnCollation, 'https://wiki.phpmyadmin.net/pma/Garbled_data'
+                    const question = window.sprintf(
+                        window.Messages.strChangeColumnCollation, 'https://wiki.phpmyadmin.net/pma/Garbled_data',
                     );
                     $form.confirm(question, $form.attr('action'), function () {
                         submitForm();
@@ -182,29 +182,29 @@ AJAX.registerOnload('table/structure.js', function () {
         /**
          * @var currTableName String containing the name of the current table
          */
-        var currTableName = $(this).closest('form').find('input[name=table]').val();
+        const currTableName = $(this).closest('form').find('input[name=table]').val();
         /**
          * @var currRow    Object reference to the currently selected row (i.e. field in the table)
          */
-        var $currRow = $(this).parents('tr');
+        const $currRow = $(this).parents('tr');
         /**
          * @var currColumnName    String containing name of the field referred to by {@link curr_row}
          */
-        var currColumnName = $currRow.children('th').children('label').text().trim();
+        let currColumnName = $currRow.children('th').children('label').text().trim();
         currColumnName = escapeJsString(escapeHtml(currColumnName));
 
         /**
          * @var $afterFieldItem    Corresponding entry in the 'After' field.
          */
-        var $afterFieldItem = $('select[name=\'after_field\'] option[value=\'' + currColumnName + '\']');
+        const $afterFieldItem = $('select[name=\'after_field\'] option[value=\'' + currColumnName + '\']');
         /**
          * @var question String containing the question to be asked for confirmation
          */
-        var question = window.sprintf(window.Messages.strDoYouReally, 'ALTER TABLE `' + currTableName + '` DROP `' + currColumnName + '`;');
-        var $thisAnchor = $(this);
+        const question = window.sprintf(window.Messages.strDoYouReally, 'ALTER TABLE `' + currTableName + '` DROP `' + currColumnName + '`;');
+        const $thisAnchor = $(this);
         $thisAnchor.confirm(question, $thisAnchor.attr('href'), function (url) {
-            var $msg = ajaxShowMessage(window.Messages.strDroppingColumn, false);
-            var params = getJsConfirmCommonParam(this, $thisAnchor.getPostData());
+            const $msg = ajaxShowMessage(window.Messages.strDroppingColumn, false);
+            let params = getJsConfirmCommonParam(this, $thisAnchor.getPostData());
             params += CommonParams.get('arg_separator') + 'ajax_page_request=1';
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
@@ -222,8 +222,8 @@ AJAX.registerOnload('table/structure.js', function () {
                     }
 
                     // Adjust the row numbers
-                    for (var $row = $currRow.next(); $row.length > 0; $row = $row.next()) {
-                        var newVal = parseInt($row.find('td').eq(1).text(), 10) - 1;
+                    for (let $row = $currRow.next(); $row.length > 0; $row = $row.next()) {
+                        const newVal = parseInt($row.find('td').eq(1).text(), 10) - 1;
                         $row.find('td').eq(1).text(newVal);
                     }
 
@@ -260,11 +260,11 @@ AJAX.registerOnload('table/structure.js', function () {
     $(document).on('click', 'a.add_key.ajax', function (event) {
         event.preventDefault();
 
-        var $this = $(this);
-        var currTableName = ($this.closest('form').find('input[name=table]').val() as string);
-        var currColumnName = $this.parents('tr').children('th').children('label').text().trim();
+        const $this = $(this);
+        const currTableName = ($this.closest('form').find('input[name=table]').val() as string);
+        const currColumnName = $this.parents('tr').children('th').children('label').text().trim();
 
-        var addClause = '';
+        let addClause = '';
         if ($this.is('.add_primary_key_anchor')) {
             addClause = 'ADD PRIMARY KEY';
         } else if ($this.is('.add_index_anchor')) {
@@ -277,16 +277,16 @@ AJAX.registerOnload('table/structure.js', function () {
             addClause = 'ADD FULLTEXT';
         }
 
-        var question = window.sprintf(window.Messages.strDoYouReally, 'ALTER TABLE `' +
+        const question = window.sprintf(window.Messages.strDoYouReally, 'ALTER TABLE `' +
             escapeHtml(currTableName) + '` ' + addClause + '(`' + escapeHtml(currColumnName) + '`);');
 
-        var $thisAnchor = $(this);
+        const $thisAnchor = $(this);
 
         $thisAnchor.confirm(question, $thisAnchor.attr('href'), function (url) {
             ajaxShowMessage();
             AJAX.source = $this;
 
-            var params = getJsConfirmCommonParam(this, $thisAnchor.getPostData());
+            let params = getJsConfirmCommonParam(this, $thisAnchor.getPostData());
             params += CommonParams.get('arg_separator') + 'ajax_page_request=1';
             $.post(url, params, AJAX.responseHandler);
         });
@@ -298,14 +298,14 @@ AJAX.registerOnload('table/structure.js', function () {
     $(document).on('click', '#move_columns_anchor', function (e) {
         e.preventDefault();
 
-        var columns = [];
+        const columns = [];
 
         $('#tablestructure').find('tbody tr').each(function () {
-            var colName = ($(this).find('input:checkbox').eq(0).val() as string);
-            var hiddenInput = $('<input>')
+            const colName = ($(this).find('input:checkbox').eq(0).val() as string);
+            const hiddenInput = $('<input>')
                 .prop({
                     name: 'move_columns[]',
-                    type: 'hidden'
+                    type: 'hidden',
                 })
                 .val(colName);
             columns[columns.length] = $('<li></li>')
@@ -314,9 +314,9 @@ AJAX.registerOnload('table/structure.js', function () {
                 .append(hiddenInput);
         });
 
-        var colList = $('#move_columns_dialog').find('ul')
+        const colList = $('#move_columns_dialog').find('ul')
             .find('li').remove().end();
-        for (var i in columns) {
+        for (let i in columns) {
             colList.append(columns[i]);
         }
 
@@ -326,7 +326,7 @@ AJAX.registerOnload('table/structure.js', function () {
             tolerance: 'pointer'
         }).disableSelection();
 
-        var $form = $('#move_columns_dialog').find('form');
+        const $form = $('#move_columns_dialog').find('form');
         $form.data('serialized-unmoved', $form.serialize());
 
         const designerModalPreviewModal = document.getElementById('designerModalPreviewModal');
@@ -373,10 +373,10 @@ AJAX.registerOnload('table/structure.js', function () {
         $('#designerModalGoButton').off('click');// Unregister previous modals
         $('#designerModalGoButton').on('click', function () {
             event.preventDefault();
-            var $msgbox = ajaxShowMessage();
-            var $this = $('#moveColumnsModal');
-            var $form = $this.find('form');
-            var serialized = $form.serialize();
+            const $msgbox = ajaxShowMessage();
+            const $this = $('#moveColumnsModal');
+            const $form = $this.find('form');
+            const serialized = $form.serialize();
             // check if any columns were moved at all
             $('#moveColumnsModal').modal('hide');
             if (serialized === $form.data('serialized-unmoved')) {
@@ -388,27 +388,27 @@ AJAX.registerOnload('table/structure.js', function () {
             $.post($form.prop('action'), serialized + CommonParams.get('arg_separator') + 'ajax_request=true', function (data) {
                 if (data.success === false) {
                     ajaxRemoveMessage($msgbox);
-                    var errorModal = $('#moveColumnsErrorModal');
+                    const errorModal = $('#moveColumnsErrorModal');
                     errorModal.modal('show');
                     errorModal.find('.modal-body').first().html(data.error);
                 } else {
                     // sort the fields table
-                    var $fieldsTable = $('table#tablestructure tbody');
+                    const $fieldsTable = $('table#tablestructure tbody');
                     // remove all existing rows and remember them
-                    var $rows = $fieldsTable.find('tr').remove();
+                    const $rows = $fieldsTable.find('tr').remove();
                     // loop through the correct order
-                    for (var i in data.columns) {
-                        var theColumn = data.columns[i];
-                        var $theRow = $rows
+                    for (let i in data.columns) {
+                        const theColumn = data.columns[i];
+                        const $theRow = $rows
                             .find('input:checkbox[value=' + $.escapeSelector(theColumn) + ']')
                             .closest('tr');
                         // append the row for this column to the table
                         $fieldsTable.append($theRow);
                     }
 
-                    var $firstrow = $fieldsTable.find('tr').eq(0);
+                    const $firstrow = $fieldsTable.find('tr').eq(0);
                     // Adjust the row numbers and colors
-                    for (var $row = $firstrow; $row.length > 0; $row = $row.next()) {
+                    for (let $row = $firstrow; $row.length > 0; $row = $row.next()) {
                         $row
                             .find('td').eq(1)
                             .text($row.index() + 1)
@@ -428,9 +428,9 @@ AJAX.registerOnload('table/structure.js', function () {
      */
     $('body').on('click', '#fieldsForm button.mult_submit', function (e) {
         e.preventDefault();
-        var $form = $(this).parents('form');
-        var argsep = CommonParams.get('arg_separator');
-        var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
+        const $form = $(this).parents('form');
+        const argsep = CommonParams.get('arg_separator');
+        const submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
 
         ajaxShowMessage();
         AJAX.source = $form;
@@ -443,10 +443,10 @@ AJAX.registerOnload('table/structure.js', function () {
      */
     $(document).on('click', 'a[id^=partition_action].ajax', function (e) {
         e.preventDefault();
-        var $link = $(this);
+        const $link = $(this);
 
         function submitPartitionAction (url) {
-            var params = 'ajax_request=true&ajax_page_request=true&' + $link.getPostData();
+            const params = 'ajax_request=true&ajax_page_request=true&' + $link.getPostData();
             ajaxShowMessage();
             AJAX.source = $link;
             $.post(url, params, AJAX.responseHandler);
@@ -470,12 +470,12 @@ AJAX.registerOnload('table/structure.js', function () {
      */
     $(document).on('click', '#remove_partitioning.ajax', function (e) {
         e.preventDefault();
-        var $link = $(this);
-        var question = window.Messages.strRemovePartitioningWarning;
+        const $link = $(this);
+        const question = window.Messages.strRemovePartitioningWarning;
         $link.confirm(question, $link.attr('href'), function (url) {
-            var params = getJsConfirmCommonParam({
+            const params = getJsConfirmCommonParam({
                 'ajax_request': true,
-                'ajax_page_request': true
+                'ajax_page_request': true,
             }, $link.getPostData());
             ajaxShowMessage();
             AJAX.source = $link;

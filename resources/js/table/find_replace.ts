@@ -22,7 +22,7 @@ AJAX.registerOnload('table/find_replace.js', function () {
     $('#toggle_find')
         .html(window.Messages.strHideFindNReplaceCriteria)
         .on('click', function () {
-            var $link = $(this);
+            const $link = $(this);
             $('#find_replace_form').slideToggle();
             if ($link.text() === window.Messages.strHideFindNReplaceCriteria) {
                 $link.text(window.Messages.strShowFindNReplaceCriteria);
@@ -35,9 +35,9 @@ AJAX.registerOnload('table/find_replace.js', function () {
 
     $('#find_replace_form').on('submit', function (e) {
         e.preventDefault();
-        var findReplaceForm = $('#find_replace_form');
+        const findReplaceForm = $('#find_replace_form');
         prepareForAjaxRequest(findReplaceForm);
-        var $msgbox = ajaxShowMessage();
+        const $msgbox = ajaxShowMessage();
         $.post(findReplaceForm.attr('action'), findReplaceForm.serialize(), function (data) {
             ajaxRemoveMessage($msgbox);
             if (data.success === true) {

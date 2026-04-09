@@ -19,15 +19,15 @@ import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.ts';
  */
 const checkIfDataTypeNumericOrDate = function (dataType) {
     // To test for numeric data-types.
-    var numericRegExp = new RegExp(
+    const numericRegExp = new RegExp(
         'TINYINT|SMALLINT|MEDIUMINT|INT|BIGINT|DECIMAL|FLOAT|DOUBLE|REAL',
-        'i'
+        'i',
     );
 
     // To test for date data-types.
-    var dateRegExp = new RegExp(
+    const dateRegExp = new RegExp(
         'DATETIME|DATE|TIMESTAMP|TIME|YEAR',
-        'i'
+        'i',
     );
 
     // Return matched data-type
@@ -77,7 +77,7 @@ AJAX.registerOnload('table/select.js', function () {
     $('#togglesearchformlink')
         .html(window.Messages.strShowSearchCriteria)
         .on('click', function () {
-            var $link = $(this);
+            const $link = $(this);
             $('#tbl_search_form').slideToggle();
             if ($link.text() === window.Messages.strHideSearchCriteria) {
                 $link.text(window.Messages.strShowSearchCriteria);
@@ -89,7 +89,7 @@ AJAX.registerOnload('table/select.js', function () {
             return false;
         });
 
-    var tableRows = $('#fieldset_table_qbe select.column-operator');
+    const tableRows = $('#fieldset_table_qbe select.column-operator');
     $.each(tableRows, function (index, item) {
         $(item).on('change', function () {
             window.changeValueFieldType(this, index);
@@ -101,14 +101,14 @@ AJAX.registerOnload('table/select.js', function () {
      * Ajax event handler for Table search
      */
     $(document).on('submit', '#tbl_search_form.ajax', function (event) {
-        var unaryFunctions = [
+        const unaryFunctions = [
             'IS NULL',
             'IS NOT NULL',
             '= \'\'',
             '!= \'\'',
         ];
 
-        var geomUnaryFunctions = [
+        const geomUnaryFunctions = [
             'IsEmpty',
             'IsSimple',
             'IsRing',
@@ -116,7 +116,7 @@ AJAX.registerOnload('table/select.js', function () {
         ];
 
         // jQuery object to reuse
-        var $searchForm = $(this);
+        const $searchForm = $(this);
         event.preventDefault();
 
         // Dispose tooltips. See #19950
@@ -129,13 +129,13 @@ AJAX.registerOnload('table/select.js', function () {
 
         // empty previous search results while we are waiting for new results
         $('#sqlqueryresultsouter').empty();
-        var $msgbox = ajaxShowMessage(window.Messages.strSearching, false);
+        const $msgbox = ajaxShowMessage(window.Messages.strSearching, false);
 
         prepareForAjaxRequest($searchForm);
 
-        var values: { [k: string]: any } = {};
+        const values: { [k: string]: any } = {};
         ($searchForm.find(':input') as JQuery<HTMLInputElement>).each(function () {
-            var $input = $(this);
+            const $input = $(this);
             if ($input.attr('type') === 'checkbox' || $input.attr('type') === 'radio') {
                 if ($input.is(':checked')) {
                     values[this.name] = $input.val();
@@ -145,9 +145,9 @@ AJAX.registerOnload('table/select.js', function () {
             }
         });
 
-        var columnCount = $('select[name="columnsToDisplay[]"] option').length;
+        const columnCount = $('select[name="columnsToDisplay[]"] option').length;
         // Submit values only for the columns that have unary column operator or a search criteria
-        for (var a = 0; a < columnCount; a++) {
+        for (let a = 0; a < columnCount; a++) {
             if ($.inArray(values['criteriaColumnOperators[' + a + ']'], unaryFunctions) >= 0) {
                 continue;
             }
@@ -213,9 +213,9 @@ AJAX.registerOnload('table/select.js', function () {
     $('.open_search_gis_editor').hide();
 
     $('select.geom_func').on('change', function () {
-        var $geomFuncSelector = $(this);
+        const $geomFuncSelector = $(this);
 
-        var binaryFunctions = [
+        const binaryFunctions = [
             'Contains',
             'Crosses',
             'Disjoint',
@@ -238,21 +238,21 @@ AJAX.registerOnload('table/select.js', function () {
             'ST_Intersects',
             'ST_Overlaps',
             'ST_Touches',
-            'ST_Within'
+            'ST_Within',
         ];
 
-        var tempArray = [
+        const tempArray = [
             'Envelope',
             'EndPoint',
             'StartPoint',
             'ExteriorRing',
             'Centroid',
-            'PointOnSurface'
+            'PointOnSurface',
         ];
-        var outputGeomFunctions = binaryFunctions.concat(tempArray);
+        const outputGeomFunctions = binaryFunctions.concat(tempArray);
 
         // If the chosen function takes two geometry objects as parameters
-        var $operator = $geomFuncSelector.parents('tr').find('td').eq(4).find('select');
+        const $operator = $geomFuncSelector.parents('tr').find('td').eq(4).find('select');
         if ($.inArray($geomFuncSelector.val(), binaryFunctions) >= 0) {
             $operator.prop('readonly', true);
         } else {
@@ -260,7 +260,7 @@ AJAX.registerOnload('table/select.js', function () {
         }
 
         // if the chosen function's output is a geometry, enable GIS editor
-        var $editorSpan = $geomFuncSelector.parents('tr').find('.open_search_gis_editor');
+        const $editorSpan = $geomFuncSelector.parents('tr').find('.open_search_gis_editor');
         if ($.inArray($geomFuncSelector.val(), outputGeomFunctions) >= 0) {
             $editorSpan.show();
         } else {
@@ -300,14 +300,14 @@ AJAX.registerOnload('table/select.js', function () {
      */
     $('body').on('change', 'select[name*="criteriaColumnOperators"]', function () { // Fix for bug #13778, changed 'click' to 'change'
         // Get the column name.
-        var columnName = $(this)
+        const columnName = $(this)
             .closest('tr')
             .find('th')
             .first()
             .text();
 
         // Get the data-type of column excluding size.
-        var dataType: string | false = $(this)
+        let dataType: string | false = $(this)
             .closest('tr')
             .find('td[data-type]')
             .attr('data-type');
@@ -321,7 +321,7 @@ AJAX.registerOnload('table/select.js', function () {
         $targetField.siblings('.ui-datepicker-trigger').eq(0).toggle(!opIsUnary(operator));
 
         if ((operator === 'BETWEEN' || operator === 'NOT BETWEEN') && dataType) {
-            var $msgbox = ajaxShowMessage();
+            const $msgbox = ajaxShowMessage();
             $.ajax({
                 url: 'index.php?route=/table/search',
                 type: 'POST',
@@ -337,12 +337,12 @@ AJAX.registerOnload('table/select.js', function () {
                     ajaxRemoveMessage($msgbox);
                     if (response.success) {
                         // Get the column min value.
-                        var min = response.column_data.min
+                        const min = response.column_data.min
                             ? '(' + window.Messages.strColumnMin +
                             ' ' + response.column_data.min + ')'
                             : '';
                         // Get the column max value.
-                        var max = response.column_data.max
+                        const max = response.column_data.max
                             ? '(' + window.Messages.strColumnMax +
                             ' ' + response.column_data.max + ')'
                             : '';
@@ -357,9 +357,9 @@ AJAX.registerOnload('table/select.js', function () {
                         addDatepicker($('#min_value'), dataType);
                         addDatepicker($('#max_value'), dataType);
                         $('#rangeSearchModalGo').on('click', function () {
-                            var minValue = ($('#min_value').val() as string);
-                            var maxValue = ($('#max_value').val() as string);
-                            var finalValue = '';
+                            const minValue = ($('#min_value').val() as string);
+                            const maxValue = ($('#max_value').val() as string);
+                            let finalValue = '';
                             if (minValue.length && maxValue.length) {
                                 finalValue = minValue + ', ' +
                                     maxValue;
@@ -368,9 +368,9 @@ AJAX.registerOnload('table/select.js', function () {
                             // If target field is a select list.
                             if ($targetField.is('select')) {
                                 $targetField.val(finalValue);
-                                var $options = $targetField.find('option');
-                                var $closestMin: JQuery<HTMLOptionElement> | null = null;
-                                var $closestMax: JQuery<HTMLOptionElement> | null = null;
+                                const $options = $targetField.find('option');
+                                let $closestMin: JQuery<HTMLOptionElement> | null = null;
+                                let $closestMax: JQuery<HTMLOptionElement> | null = null;
                                 // Find closest min and max value.
                                 $options.each(function () {
                                     if (
@@ -408,6 +408,6 @@ AJAX.registerOnload('table/select.js', function () {
         }
     });
 
-    var windowWidth = $(window).width();
+    const windowWidth = $(window).width();
     $('.jsresponsive').css('max-width', (windowWidth - 69) + 'px');
 });

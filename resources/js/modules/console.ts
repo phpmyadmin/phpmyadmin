@@ -12,7 +12,7 @@ let config: Config;
 /**
  * Console object
  */
-var Console = {
+const Console = {
     /**
      * @var {JQuery}, jQuery object, selector is '#pma_console>.content'
      * @access private
@@ -89,7 +89,7 @@ var Console = {
             '<input name="db" value="">' +
             '<input name="table" value="">' +
             '<input name="token" value="">' +
-            '</form>'
+            '</form>',
         );
 
         Console.$requestForm.children('[name=token]').val(CommonParams.get('token'));
@@ -219,7 +219,7 @@ var Console = {
                 }
 
                 try {
-                    var data = JSON.parse(xhr.responseText);
+                    const data = JSON.parse(xhr.responseText);
                     Console.ajaxCallback(data);
                 } catch (e) {
                     // eslint-disable-next-line no-console, compat/compat
@@ -309,7 +309,7 @@ var Console = {
      */
     collapse: function (): void {
         config.setMode('collapse');
-        var pmaConsoleHeight = Math.max(92, config.height);
+        const pmaConsoleHeight = Math.max(92, config.height);
 
         Console.$consoleToolbar.addClass('collapsed');
         Console.$consoleAllContents.height(pmaConsoleHeight);
@@ -325,7 +325,7 @@ var Console = {
     show: function (inputFocus = undefined): void {
         config.setMode('show');
 
-        var pmaConsoleHeight = Math.max(92, config.height);
+        let pmaConsoleHeight = Math.max(92, config.height);
         // eslint-disable-next-line compat/compat
         pmaConsoleHeight = Math.min(config.height, (window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight) - 25);
         Console.$consoleContent.css({ display: 'block' });
@@ -372,7 +372,7 @@ var Console = {
      * this param also can be JQuery object, if you need.
      */
     showCard: function (cardSelector): void {
-        var $card = null;
+        let $card = null;
         if (typeof (cardSelector) !== 'string') {
             if (cardSelector.length > 0) {
                 $card = cardSelector;
@@ -410,10 +410,10 @@ var Console = {
         }
     },
     isSelect: function (queryString) {
-        var regExp = /^SELECT\s+/i;
+        const regExp = /^SELECT\s+/i;
 
         return regExp.test(queryString);
-    }
+    },
 };
 
 /**
@@ -421,7 +421,7 @@ var Console = {
  * Careful: this object UI logics highly related with functions under Console
  * Resizing min-height is 32, if small than it, console will collapse
  */
-var ConsoleResizer = {
+const ConsoleResizer = {
     posY: 0,
     height: 0,
     resultHeight: 0,
@@ -492,7 +492,7 @@ var ConsoleResizer = {
 /**
  * Console input object
  */
-var ConsoleInput = {
+const ConsoleInput = {
     /**
      * @var array, contains Codemirror objects or input jQuery objects
      * @access private
@@ -589,17 +589,17 @@ var ConsoleInput = {
      */
     historyNavigate: function (event) {
         if (event.keyCode === 38 || event.keyCode === 40) {
-            var upPermitted = false;
-            var downPermitted = false;
-            var editor = ConsoleInput.inputs.console;
-            var cursorLine;
-            var totalLine;
+            let upPermitted = false;
+            let downPermitted = false;
+            const editor = ConsoleInput.inputs.console;
+            let cursorLine;
+            let totalLine;
             if (ConsoleInput.codeMirror) {
                 cursorLine = editor.getCursor().line;
                 totalLine = editor.lineCount();
             } else {
                 // Get cursor position from textarea
-                var text = ConsoleInput.getText();
+                const text = ConsoleInput.getText();
                 cursorLine = text.substring(0, editor.prop('selectionStart')).split('\n').length - 1;
                 totalLine = text.split(/\r*\n/).length;
             }
@@ -612,8 +612,8 @@ var ConsoleInput = {
                 downPermitted = true;
             }
 
-            var nextCount;
-            var queryString: string | boolean = false;
+            let nextCount;
+            let queryString: string | boolean = false;
             if (upPermitted && event.keyCode === 38) {
                 // Navigate up in history
                 if (ConsoleInput.historyCount === 0) {
@@ -768,7 +768,7 @@ var ConsoleInput = {
 /**
  * Console messages, and message items management object
  */
-var ConsoleMessages = {
+const ConsoleMessages = {
     /**
      * Used for clear the messages
      */
@@ -790,9 +790,9 @@ var ConsoleMessages = {
      * @return {string | false} message
      */
     getHistory: function (nthLast) {
-        var $queries = $('#pma_console').find('.content .console_message_container .query');
-        var length = $queries.length;
-        var $query = $queries.eq(length - nthLast);
+        const $queries = $('#pma_console').find('.content .console_message_container .query');
+        const length = $queries.length;
+        const $query = $queries.eq(length - nthLast);
         if (! $query || (length - nthLast) < 0) {
             return false;
         } else {
@@ -806,8 +806,8 @@ var ConsoleMessages = {
      * @param {boolean} enterExecutes Only Enter has to be pressed to execute query.
      */
     showInstructions: function (enterExecutes): void {
-        var enter = +enterExecutes || 0; // conversion to int
-        var $welcomeMsg = $('#pma_console').find('.content .console_message_container .message.welcome span');
+        const enter = +enterExecutes || 0; // conversion to int
+        const $welcomeMsg = $('#pma_console').find('.content .console_message_container .message.welcome span');
         $welcomeMsg.children('[id^=instructions]').hide();
         $welcomeMsg.children('#instructions-' + enter).show();
     },
@@ -824,9 +824,9 @@ var ConsoleMessages = {
         }
 
         // Generate an ID for each message, we can find them later
-        var msgId = Math.round(Math.random() * (899999999999) + 100000000000);
-        var now = new Date();
-        var $newMessage =
+        const msgId = Math.round(Math.random() * (899999999999) + 100000000000);
+        const now = new Date();
+        const $newMessage =
             $('<div class="message ' +
                 (config.alwaysExpand ? 'expanded' : 'collapsed') +
                 '" msgid="' + msgId + '"><div class="action_content"></div></div>');
@@ -869,7 +869,7 @@ var ConsoleMessages = {
      * @return {object}, {message_id: string message id, $message: JQuery object}
      */
     appendQuery: function (queryData, state = undefined) {
-        var targetMessage = ConsoleMessages.append(queryData.sql_query, 'query');
+        const targetMessage = ConsoleMessages.append(queryData.sql_query, 'query');
         if (! targetMessage) {
             return false;
         }
@@ -900,7 +900,7 @@ var ConsoleMessages = {
     },
     messageEventBinds: function ($target) {
         // Leave unbinded elements, remove binded.
-        var $targetMessage = $target.filter(':not(.binded)');
+        const $targetMessage = $target.filter(':not(.binded)');
         if ($targetMessage.length === 0) {
             return;
         }
@@ -923,8 +923,8 @@ var ConsoleMessages = {
         });
 
         $targetMessage.find('.action.requery').on('click', function () {
-            var query = $(this).parent().siblings('.query').text();
-            var $message = $(this).closest('.message');
+            const query = $(this).parent().siblings('.query').text();
+            const $message = $(this).closest('.message');
             if (confirm(window.Messages.strConsoleRequeryConfirm + '\n' +
                 (query.length < 100 ? query : query.slice(0, 100) + '...'))
             ) {
@@ -933,23 +933,23 @@ var ConsoleMessages = {
         });
 
         $targetMessage.find('.action.bookmark').on('click', function () {
-            var query = $(this).parent().siblings('.query').text();
-            var $message = $(this).closest('.message');
+            const query = $(this).parent().siblings('.query').text();
+            const $message = $(this).closest('.message');
             ConsoleBookmarks.addBookmark(query, $message.attr('targetdb'));
             Console.showCard('#pma_bookmarks .card.add');
         });
 
         $targetMessage.find('.action.edit_bookmark').on('click', function () {
-            var query = $(this).parent().siblings('.query').text();
-            var $message = $(this).closest('.message');
-            var isShared = $message.find('span.bookmark_label').hasClass('shared');
-            var label = $message.find('span.bookmark_label').text();
+            const query = $(this).parent().siblings('.query').text();
+            const $message = $(this).closest('.message');
+            const isShared = $message.find('span.bookmark_label').hasClass('shared');
+            const label = $message.find('span.bookmark_label').text();
             ConsoleBookmarks.addBookmark(query, $message.attr('targetdb'), label, isShared);
             Console.showCard('#pma_bookmarks .card.add');
         });
 
         $targetMessage.find('.action.delete_bookmark').on('click', function () {
-            var $message = $(this).closest('.message');
+            const $message = $(this).closest('.message');
             if (confirm(window.Messages.strConsoleDeleteBookmarkConfirm + '\n' + $message.find('.bookmark_label').text())) {
                 $.post('index.php?route=/import',
                     {
@@ -965,7 +965,7 @@ var ConsoleMessages = {
         });
 
         $targetMessage.find('.action.profiling').on('click', function () {
-            var $message = $(this).closest('.message');
+            const $message = $(this).closest('.message');
             Console.execute($(this).parent().siblings('.query').text(),
                 {
                     db: $message.attr('targetdb'),
@@ -975,7 +975,7 @@ var ConsoleMessages = {
         });
 
         $targetMessage.find('.action.explain').on('click', function () {
-            var $message = $(this).closest('.message');
+            const $message = $(this).closest('.message');
             Console.execute('EXPLAIN ' + $(this).parent().siblings('.query').text(),
                 {
                     db: $message.attr('targetdb'),
@@ -984,7 +984,7 @@ var ConsoleMessages = {
         });
 
         $targetMessage.find('.action.dbg_show_trace').on('click', function () {
-            var $message = $(this).closest('.message');
+            const $message = $(this).closest('.message');
             if (! $message.find('.trace').length) {
                 ConsoleDebug.getQueryDetails(
                     $message.data('queryInfo'),
@@ -1000,19 +1000,19 @@ var ConsoleMessages = {
         });
 
         $targetMessage.find('.action.dbg_hide_trace').on('click', function () {
-            var $message = $(this).closest('.message');
+            const $message = $(this).closest('.message');
             $message.addClass('hide_trace');
             $message.removeClass('show_trace');
         });
 
         $targetMessage.find('.action.dbg_show_args').on('click', function () {
-            var $message = $(this).closest('.message');
+            const $message = $(this).closest('.message');
             $message.addClass('show_args expanded');
             $message.removeClass('hide_args collapsed');
         });
 
         $targetMessage.find('.action.dbg_hide_args').on('click', function () {
-            var $message = $(this).closest('.message');
+            const $message = $(this).closest('.message');
             $message.addClass('hide_args collapsed');
             $message.removeClass('show_args expanded');
         });
@@ -1028,7 +1028,7 @@ var ConsoleMessages = {
         }
     },
     msgAppend: function (msgId, msgString) {
-        var $targetMessage = $('#pma_console').find('.content .console_message_container .message[msgid=' + msgId + ']');
+        const $targetMessage = $('#pma_console').find('.content .console_message_container .message[msgid=' + msgId + ']');
         if ($targetMessage.length === 0 || isNaN(parseInt(msgId)) || typeof (msgString) !== 'string') {
             return false;
         }
@@ -1036,7 +1036,7 @@ var ConsoleMessages = {
         $targetMessage.append('<div>' + msgString + '</div>');
     },
     updateQuery: function (msgId, isSuccessed, queryData) {
-        var $targetMessage = $('#pma_console').find('.console_message_container .message[msgid=' + parseInt(msgId) + ']');
+        const $targetMessage = $('#pma_console').find('.console_message_container .message[msgid=' + parseInt(msgId) + ']');
         if ($targetMessage.length === 0 || isNaN(parseInt(msgId))) {
             return false;
         }
@@ -1082,7 +1082,7 @@ var ConsoleMessages = {
 /**
  * Console bookmarks card, and bookmarks items management object
  */
-var ConsoleBookmarks = {
+const ConsoleBookmarks = {
     bookmarks: [],
     addBookmark: function (queryString, targetDb, label = undefined, isShared = undefined) {
         $('#pma_bookmarks').find('.add [name=shared]').prop('checked', false);
@@ -1168,7 +1168,7 @@ var ConsoleBookmarks = {
     }
 };
 
-var ConsoleDebug = {
+const ConsoleDebug = {
     lastDebugInfo: {
         debugInfo: null,
         url: null
@@ -1190,8 +1190,8 @@ var ConsoleDebug = {
             }
         }
 
-        var orderBy = config.orderBy;
-        var order = config.order;
+        const orderBy = config.orderBy;
+        const order = config.order;
         $('#debug_console').find('.button.order_by.sort_' + orderBy).addClass('active');
         $('#debug_console').find('.button.order.order_' + order).addClass('active');
 
@@ -1217,7 +1217,7 @@ var ConsoleDebug = {
         });
 
         $('#debug_console').find('.button.order_by').on('click', function () {
-            var $this = $(this);
+            const $this = $(this);
             $('#debug_console').find('.button.order_by').removeClass('active');
             $this.addClass('active');
             if ($this.hasClass('sort_time')) {
@@ -1232,7 +1232,7 @@ var ConsoleDebug = {
         });
 
         $('#debug_console').find('.button.order').on('click', function () {
-            var $this = $(this);
+            const $this = $(this);
             $('#debug_console').find('.button.order').removeClass('active');
             $this.addClass('active');
             if ($this.hasClass('order_asc')) {
@@ -1253,7 +1253,7 @@ var ConsoleDebug = {
         ConsoleDebug.showLog(Console.debugSqlInfo);
     },
     formatFunctionCall: function (dbgStep) {
-        var functionName = '';
+        let functionName = '';
         if ('class' in dbgStep) {
             functionName += dbgStep.class;
             functionName += dbgStep.type;
@@ -1269,7 +1269,7 @@ var ConsoleDebug = {
         return functionName;
     },
     formatFunctionArgs: function (dbgStep) {
-        var $args = $('<div>');
+        const $args = $('<div>');
         if (dbgStep.args.length) {
             $args.append('<div class="message welcome">')
                 .append(
@@ -1282,7 +1282,7 @@ var ConsoleDebug = {
                         )
                 );
 
-            for (var i = 0; i < dbgStep.args.length; i++) {
+            for (let i = 0; i < dbgStep.args.length; i++) {
                 $args.append(
                     $('<div class="message">')
                         .html(
@@ -1297,7 +1297,7 @@ var ConsoleDebug = {
         return $args;
     },
     formatFileName: function (dbgStep) {
-        var fileName = '';
+        let fileName = '';
         if ('file' in dbgStep) {
             fileName += dbgStep.file;
             fileName += '#' + dbgStep.line;
@@ -1306,14 +1306,14 @@ var ConsoleDebug = {
         return fileName;
     },
     formatBackTrace: function (dbgTrace) {
-        var $traceElem = $('<div class="trace">');
+        const $traceElem = $('<div class="trace">');
         $traceElem.append(
             $('<div class="message welcome">')
         );
 
-        var step;
-        var $stepElem;
-        for (var stepId in dbgTrace) {
+        let step;
+        let $stepElem;
+        for (let stepId in dbgTrace) {
             if (dbgTrace.hasOwnProperty(stepId)) {
                 step = dbgTrace[stepId];
                 if (! Array.isArray(step) && typeof step !== 'object') {
@@ -1364,11 +1364,11 @@ var ConsoleDebug = {
         return $traceElem;
     },
     formatQueryOrGroup: function (queryInfo, totalTime) {
-        var grouped;
-        var queryText;
-        var queryTime;
-        var count;
-        var i;
+        let grouped;
+        let queryText;
+        let queryTime;
+        let count;
+        let i;
         if (Array.isArray(queryInfo)) {
             // It is grouped
             grouped = true;
@@ -1386,13 +1386,13 @@ var ConsoleDebug = {
             queryTime = queryInfo.time;
         }
 
-        var $query = $('<div class="message collapsed hide_trace">')
+        const $query = $('<div class="message collapsed hide_trace">')
             .append(
-                $('#debug_console').find('.templates .debug_query').clone()
+                $('#debug_console').find('.templates .debug_query').clone(),
             )
             .append(
                 $('<div class="query">')
-                    .text(queryText)
+                    .text(queryText),
             )
             .data('queryInfo', queryInfo)
             .data('totalTime', totalTime);
@@ -1419,8 +1419,8 @@ var ConsoleDebug = {
     },
     getQueryDetails: function (queryInfo, totalTime, $query) {
         if (Array.isArray(queryInfo)) {
-            var $singleQuery;
-            for (var i in queryInfo) {
+            let $singleQuery;
+            for (let i in queryInfo) {
                 $singleQuery = $('<div class="message welcome trace">')
                     .text((parseInt(i) + 1) + '.')
                     .append(
@@ -1445,8 +1445,8 @@ var ConsoleDebug = {
         $('#debug_console').find('.debugLog').empty();
         $('#debug_console').find('.debug>.welcome').empty();
 
-        var debugJson: any = false;
-        var i;
+        let debugJson: any = false;
+        let i;
         if (typeof debugInfo === 'object' && 'queries' in debugInfo) {
             // Copy it to debugJson, so that it doesn't get changed
             if (! ('queries' in debugInfo)) {
@@ -1477,13 +1477,13 @@ var ConsoleDebug = {
             return;
         }
 
-        var allQueries = debugJson.queries;
-        var uniqueQueries = [];
+        const allQueries = debugJson.queries;
+        let uniqueQueries = [];
 
-        var totalExec = allQueries.length;
+        const totalExec = allQueries.length;
 
         // Calculate total time and make unique query array
-        var totalTime = 0;
+        let totalTime = 0;
         for (i = 0; i < totalExec; ++i) {
             totalTime += allQueries[i].time;
             if (! (allQueries[i].hash in uniqueQueries)) {
@@ -1494,9 +1494,9 @@ var ConsoleDebug = {
         }
 
         // Count total unique queries, convert uniqueQueries to Array
-        var totalUnique = 0;
-        var uniqueArray = [];
-        for (var hash in uniqueQueries) {
+        let totalUnique = 0;
+        const uniqueArray = [];
+        for (let hash in uniqueQueries) {
             if (uniqueQueries.hasOwnProperty(hash)) {
                 ++totalUnique;
                 uniqueArray.push(uniqueQueries[hash]);
@@ -1517,7 +1517,7 @@ var ConsoleDebug = {
         );
 
         if (url) {
-            var decodedUrl = new URLSearchParams(url.split('?')[1]);
+            const decodedUrl = new URLSearchParams(url.split('?')[1]);
             $('#debug_console').find('.debug>.welcome').append(
                 $('<span class="script_name">').text(decodedUrl.has('route') ? decodedUrl.get('route') : url)
             );
@@ -1525,12 +1525,12 @@ var ConsoleDebug = {
 
         // For sorting queries
         function sortByTime (a, b) {
-            var order = config.order === 'asc' ? 1 : -1;
+            const order = config.order === 'asc' ? 1 : -1;
             if (Array.isArray(a) && Array.isArray(b)) {
                 // It is grouped
-                var timeA = 0;
-                var timeB = 0;
-                var i;
+                let timeA = 0;
+                let timeB = 0;
+                let i;
                 for (i in a) {
                     timeA += a[i].time;
                 }
@@ -1546,13 +1546,13 @@ var ConsoleDebug = {
         }
 
         function sortByCount (a, b) {
-            var order = config.order === 'asc' ? 1 : -1;
+            const order = config.order === 'asc' ? 1 : -1;
 
             return (a.length - b.length) * order;
         }
 
-        var orderBy = config.orderBy;
-        var order = config.order;
+        const orderBy = config.orderBy;
+        const order = config.order;
 
         if (config.groupQueries) {
             // Sort queries
@@ -1588,7 +1588,7 @@ var ConsoleDebug = {
         ConsoleMessages.messageEventBinds($('#debug_console').find('.message:not(.binded)'));
     },
     refresh: function () {
-        var last = this.lastDebugInfo;
+        const last = this.lastDebugInfo;
         ConsoleDebug.showLog(last.debugInfo, last.url);
     }
 };

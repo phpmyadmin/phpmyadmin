@@ -5,20 +5,20 @@ import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.ts';
 import { escapeHtml } from '../modules/functions/escape.ts';
 import { ColumnType, DataTable } from '../modules/chart.ts';
 
-var chartData = {};
-var tempChartTitle;
+let chartData = {};
+let tempChartTitle;
 
-var currentChart = null;
-var currentSettings = null;
+let currentChart = null;
+let currentSettings = null;
 
-var dateTimeCols = [];
-var numericCols = [];
+const dateTimeCols = [];
+const numericCols = [];
 
 function extractDate (dateString) {
-    var matches;
-    var match;
-    var dateTimeRegExp = /[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}/;
-    var dateRegExp = /[0-9]{4}-[0-9]{2}-[0-9]{2}/;
+    let matches;
+    let match;
+    const dateTimeRegExp = /[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}/;
+    const dateRegExp = /[0-9]{4}-[0-9]{2}-[0-9]{2}/;
 
     matches = dateTimeRegExp.exec(dateString);
     if (matches !== null && matches.length > 0) {
@@ -43,33 +43,33 @@ function queryChart (data, columnNames, settings) {
         return null;
     }
 
-    var plotSettings = {
+    const plotSettings = {
         title: {
             text: settings.title,
-            escapeHtml: true
+            escapeHtml: true,
         },
         grid: {
             drawBorder: false,
             shadow: false,
-            background: 'rgba(0,0,0,0)'
+            background: 'rgba(0,0,0,0)',
         },
         legend: {
             show: true,
             placement: 'outsideGrid',
             location: 'e',
             rendererOptions: {
-                numberColumns: 2
-            }
+                numberColumns: 2,
+            },
         },
         axes: {
             xaxis: {
-                label: escapeHtml(settings.xaxisLabel)
+                label: escapeHtml(settings.xaxisLabel),
             },
             yaxis: {
-                label: settings.yaxisLabel
-            }
+                label: settings.yaxisLabel,
+            },
         },
-        stackSeries: settings.stackSeries
+        stackSeries: settings.stackSeries,
     };
 
     // create the data table and add columns
@@ -82,26 +82,26 @@ function queryChart (data, columnNames, settings) {
         dataTable.addColumn(ColumnType.STRING, columnNames[settings.mainAxis]);
     }
 
-    var i;
-    var values = [];
+    let i;
+    const values = [];
     if (settings.seriesColumn === null) {
         $.each(settings.selectedSeries, function (index, element) {
             dataTable.addColumn(ColumnType.NUMBER, columnNames[element]);
         });
 
         // set data to the data table
-        var columnsToExtract = [settings.mainAxis];
+        const columnsToExtract = [settings.mainAxis];
         $.each(settings.selectedSeries, function (index, element) {
             columnsToExtract.push(element);
         });
 
-        var newRow;
-        var row;
-        var col;
+        let newRow;
+        let row;
+        let col;
         for (i = 0; i < data.length; i++) {
             row = data[i];
             newRow = [];
-            for (var j = 0; j < columnsToExtract.length; j++) {
+            for (let j = 0; j < columnsToExtract.length; j++) {
                 col = columnNames[columnsToExtract[j]];
                 if (j === 0) {
                     if (settings.type === 'timeline') { // first column is date type
@@ -121,9 +121,9 @@ function queryChart (data, columnNames, settings) {
 
         dataTable.setData(values);
     } else {
-        var seriesNames = {};
-        var seriesNumber = 1;
-        var seriesColumnName = columnNames[settings.seriesColumn];
+        const seriesNames = {};
+        let seriesNumber = 1;
+        const seriesColumnName = columnNames[settings.seriesColumn];
         for (i = 0; i < data.length; i++) {
             if (! seriesNames[data[i][seriesColumnName]]) {
                 seriesNames[data[i][seriesColumnName]] = seriesNumber;
@@ -135,11 +135,11 @@ function queryChart (data, columnNames, settings) {
             dataTable.addColumn(ColumnType.NUMBER, seriesName);
         });
 
-        var valueMap = {};
-        var xValue;
-        var value;
-        var mainAxisName = columnNames[settings.mainAxis];
-        var valueColumnName = columnNames[settings.valueColumn];
+        const valueMap = {};
+        let xValue;
+        let value;
+        const mainAxisName = columnNames[settings.mainAxis];
+        const valueColumnName = columnNames[settings.valueColumn];
         for (i = 0; i < data.length; i++) {
             xValue = data[i][mainAxisName];
             value = valueMap[xValue];
@@ -241,7 +241,7 @@ function drawChart () {
         currentChart.destroy();
     }
 
-    var columnNames = [];
+    const columnNames = [];
     $('#chartXAxisSelect option').each(function () {
         columnNames.push(escapeHtml($(this).text()));
     });
@@ -257,8 +257,8 @@ function drawChart () {
 }
 
 function getSelectedSeries () {
-    var val = ($('#chartSeriesSelect').val() as string[]) || [];
-    var ret = [];
+    const val = ($('#chartSeriesSelect').val() as string[]) || [];
+    const ret = [];
     $.each(val, function (i, v) {
         ret.push(parseInt(v, 10));
     });
@@ -267,7 +267,7 @@ function getSelectedSeries () {
 }
 
 function onXAxisChange () {
-    var $xAxisSelect = $('#chartXAxisSelect');
+    const $xAxisSelect = $('#chartXAxisSelect');
     currentSettings.mainAxis = parseInt(($xAxisSelect.val() as string), 10);
     if (dateTimeCols.indexOf(currentSettings.mainAxis) !== -1) {
         document.getElementById('timelineChartType').classList.remove('d-none');
@@ -289,15 +289,15 @@ function onXAxisChange () {
         }
     }
 
-    var xAxisTitle = $xAxisSelect.children('option:selected').text();
+    const xAxisTitle = $xAxisSelect.children('option:selected').text();
     $('#xAxisLabelInput').val(xAxisTitle);
     currentSettings.xaxisLabel = xAxisTitle;
 }
 
 function onDataSeriesChange () {
-    var $seriesSelect = $('#chartSeriesSelect');
+    const $seriesSelect = $('#chartSeriesSelect');
     currentSettings.selectedSeries = getSelectedSeries();
-    var yAxisTitle;
+    let yAxisTitle;
     if (currentSettings.selectedSeries.length === 1) {
         document.getElementById('pieChartType').classList.remove('d-none');
         yAxisTitle = $seriesSelect.children('option:selected').text();
@@ -336,7 +336,7 @@ AJAX.registerTeardown('table/chart.js', function () {
 AJAX.registerOnload('table/chart.js', function () {
     // handle chart type changes
     $('input[name="chartType"]').on('click', function () {
-        var type = currentSettings.type = $(this).val();
+        const type = currentSettings.type = $(this).val();
         if (type === 'bar' || type === 'column' || type === 'area') {
             document.getElementById('barStacked').classList.remove('d-none');
         } else {
@@ -350,9 +350,9 @@ AJAX.registerOnload('table/chart.js', function () {
 
     // handle chosing alternative data format
     $('#seriesColumnCheckbox').on('click', function () {
-        var $seriesColumn = $('#chartSeriesColumnSelect');
-        var $valueColumn = $('#chartValueColumnSelect');
-        var $chartSeries = $('#chartSeriesSelect');
+        const $seriesColumn = $('#chartSeriesColumnSelect');
+        const $valueColumn = $('#chartValueColumnSelect');
+        const $chartSeries = $('#chartSeriesSelect');
         if ($(this).is(':checked')) {
             $seriesColumn.prop('disabled', false);
             $valueColumn.prop('disabled', false);
@@ -434,7 +434,7 @@ AJAX.registerOnload('table/chart.js', function () {
 
     // handler for ajax form submission
     ($('#tblchartform') as JQuery<HTMLFormElement>).on('submit', function () {
-        var $form = ($(this) as JQuery<HTMLFormElement>);
+        const $form = ($(this) as JQuery<HTMLFormElement>);
         if (window.codeMirrorEditor) {
             // @ts-ignore
             $form[0].elements.sql_query.value = window.codeMirrorEditor.getValue();
@@ -444,7 +444,7 @@ AJAX.registerOnload('table/chart.js', function () {
             return false;
         }
 
-        var $msgbox = ajaxShowMessage();
+        const $msgbox = ajaxShowMessage();
         prepareForAjaxRequest($form);
         $.post($form.attr('action'), $form.serialize(), function (data) {
             if (typeof data !== 'undefined' &&
@@ -482,7 +482,7 @@ AJAX.registerOnload('table/chart.js', function () {
         seriesColumn: null
     };
 
-    var vals = ($('input[name="dateTimeCols"]').val() as string).split(' ');
+    let vals = ($('input[name="dateTimeCols"]').val() as string).split(' ');
     $.each(vals, function (i, v) {
         dateTimeCols.push(parseInt(v, 10));
     });

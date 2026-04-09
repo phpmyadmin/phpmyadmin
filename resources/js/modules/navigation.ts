@@ -12,7 +12,7 @@ import isStorageSupported from './functions/isStorageSupported.ts';
 function treeStateUpdate (): void {
     // update if session storage is supported
     if (isStorageSupported('sessionStorage')) {
-        var storage = window.sessionStorage;
+        const storage = window.sessionStorage;
         // try catch necessary here to detect whether
         // content to be stored exceeds storage capacity
         try {
@@ -37,10 +37,10 @@ function treeStateUpdate (): void {
  */
 function filterStateUpdate (filterName, filterValue): void {
     if (isStorageSupported('sessionStorage')) {
-        var storage = window.sessionStorage;
+        const storage = window.sessionStorage;
         try {
-            var currentFilter = $.extend({}, JSON.parse(storage.getItem('navTreeSearchFilters')));
-            var filter = {};
+            let currentFilter = $.extend({}, JSON.parse(storage.getItem('navTreeSearchFilters')));
+            const filter = {};
             filter[filterName] = filterValue;
             currentFilter = $.extend(currentFilter, filter);
             storage.setItem('navTreeSearchFilters', JSON.stringify(currentFilter));
@@ -57,7 +57,7 @@ function filterStateRestore (): void {
     if (isStorageSupported('sessionStorage')
         && typeof window.sessionStorage.navTreeSearchFilters !== 'undefined'
     ) {
-        var searchClauses = JSON.parse(window.sessionStorage.navTreeSearchFilters);
+        const searchClauses = JSON.parse(window.sessionStorage.navTreeSearchFilters);
         if (Object.keys(searchClauses).length < 1) {
             return;
         }
@@ -66,7 +66,7 @@ function filterStateRestore (): void {
         if (searchClauses.hasOwnProperty('dbFilter')
             && searchClauses.dbFilter.length
         ) {
-            var $obj = $('#pma_navigation_tree');
+            const $obj = $('#pma_navigation_tree');
             if (! $obj.data('fastFilter')) {
                 $obj.data(
                     'fastFilter',
@@ -80,15 +80,15 @@ function filterStateRestore (): void {
         }
 
         // find all table filters present in the tree
-        var $tableFilters = $('#pma_navigation_tree li.database')
+        const $tableFilters = $('#pma_navigation_tree li.database')
             .children('div.list_container')
             .find('li.fast_filter input.searchClause');
         // restore table filters
 
         $tableFilters.each(function () {
-            $obj = $(this).closest('div.list_container');
+            const $obj = $(this).closest('div.list_container');
             // aPath associated with this filter
-            var filterName = ($(this).siblings('input[name=aPath]').val() as string);
+            const filterName = ($(this).siblings('input[name=aPath]').val() as string);
             // if this table's filter has a state stored in storage
             if (searchClauses.hasOwnProperty(filterName)
                 && searchClauses[filterName].length
@@ -124,8 +124,8 @@ function filterStateRestore (): void {
  * @param callback    callback function
  */
 function loadChildNodes (isNode, $expandElem, callback): void {
-    var $destination = null;
-    var params = null;
+    let $destination = null;
+    let params = null;
 
     if (isNode) {
         if (! $expandElem.hasClass('expander')) {
@@ -133,8 +133,8 @@ function loadChildNodes (isNode, $expandElem, callback): void {
         }
 
         $destination = $expandElem.closest('li');
-        var pos2Name = $expandElem.find('span.pos2_nav');
-        var pathsNav = $expandElem.find('span.paths_nav');
+        const pos2Name = $expandElem.find('span.pos2_nav');
+        const pathsNav = $expandElem.find('span.paths_nav');
         params = {
             'server': CommonParams.get('server'),
             'aPath': pathsNav.attr('data-apath'),
@@ -187,7 +187,7 @@ function loadChildNodes (isNode, $expandElem, callback): void {
             }
 
             if (data.errors) {
-                var $errors = $(data.errors);
+                const $errors = $(data.errors);
                 if ($errors.children().length > 0) {
                     $('#pma_errors').append(data.errors);
                 }
@@ -205,9 +205,9 @@ function loadChildNodes (isNode, $expandElem, callback): void {
 
             window.location.reload();
         } else {
-            var $throbber = $expandElem.find('img.throbber');
+            const $throbber = $expandElem.find('img.throbber');
             $throbber.hide();
-            var $icon = $expandElem.find('img.ic_b_plus');
+            const $icon = $expandElem.find('img.ic_b_plus');
             $icon.show();
             ajaxShowMessage(data.error, false);
         }
@@ -220,8 +220,8 @@ function loadChildNodes (isNode, $expandElem, callback): void {
  * @param $expandElem expander
  */
 function collapseTreeNode ($expandElem): void {
-    var $children = $expandElem.closest('li').children('div.list_container');
-    var $icon = $expandElem.find('img');
+    const $children = $expandElem.closest('li').children('div.list_container');
+    const $icon = $expandElem.find('img');
     if ($expandElem.hasClass('loaded')) {
         if ($icon.is('.ic_b_minus')) {
             $icon.removeClass('ic_b_minus').addClass('ic_b_plus');
@@ -241,23 +241,23 @@ function collapseTreeNode ($expandElem): void {
  * @return {object}
  */
 function traverseForPaths () {
-    var params = {
-        pos: $('#pma_navigation_tree').find('div.dbselector select').val()
+    const params = {
+        pos: $('#pma_navigation_tree').find('div.dbselector select').val(),
     };
     if ($('#navi_db_select').length) {
         return params;
     }
 
-    var count = 0;
+    let count = 0;
     $('#pma_navigation_tree').find('a.expander:visible').each(function () {
         if ($(this).find('img').is('.ic_b_minus') &&
             $(this).closest('li').find('div.list_container .ic_b_minus').length === 0
         ) {
-            var pathsNav = $(this).find('span.paths_nav');
+            const pathsNav = $(this).find('span.paths_nav');
             params['n' + count + '_aPath'] = pathsNav.attr('data-apath');
             params['n' + count + '_vPath'] = pathsNav.attr('data-vpath');
 
-            var pos2Nav = $(this).find('span.pos2_nav');
+            let pos2Nav = $(this).find('span.pos2_nav');
 
             if (pos2Nav.length === 0) {
                 pos2Nav = $(this)
@@ -269,7 +269,7 @@ function traverseForPaths () {
             params['n' + count + '_pos2_name'] = pos2Nav.attr('data-name');
             params['n' + count + '_pos2_value'] = pos2Nav.attr('data-value');
 
-            var pos3Nav = $(this).find('span.pos3_nav');
+            const pos3Nav = $(this).find('span.pos3_nav');
 
             params['n' + count + '_pos3_name'] = pos3Nav.attr('data-name');
             params['n' + count + '_pos3_value'] = pos3Nav.attr('data-value');
@@ -287,8 +287,8 @@ function traverseForPaths () {
  * @param callback    callback function
  */
 function expandTreeNode ($expandElem, callback = undefined): void {
-    var $children = $expandElem.closest('li').children('div.list_container');
-    var $icon = $expandElem.find('img');
+    let $children = $expandElem.closest('li').children('div.list_container');
+    const $icon = $expandElem.find('img');
     if ($expandElem.hasClass('loaded')) {
         if ($icon.is('.ic_b_plus')) {
             $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
@@ -301,7 +301,7 @@ function expandTreeNode ($expandElem, callback = undefined): void {
 
         $children.promise().done(Navigation.treeStateUpdate);
     } else {
-        var $throbber = $('#pma_navigation').find('.throbber')
+        const $throbber = $('#pma_navigation').find('.throbber')
             .first()
             .clone()
             .css({ visibility: 'visible', display: 'block' })
@@ -311,7 +311,7 @@ function expandTreeNode ($expandElem, callback = undefined): void {
 
         Navigation.loadChildNodes(true, $expandElem, function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
-                var $destination = $expandElem.closest('li');
+                const $destination = $expandElem.closest('li');
                 $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
                 $children = $destination.children('div.list_container');
                 $children.slideDown('fast');
@@ -348,10 +348,10 @@ function expandTreeNode ($expandElem, callback = undefined): void {
  */
 function scrollToView ($element, $forceToTop) {
     Navigation.filterStateRestore();
-    var $container = $('#pma_navigation_tree_content');
-    var elemTop = $element.offset().top - $container.offset().top;
-    var textHeight = 20;
-    var scrollPadding = 20; // extra padding from top of bottom when scrolling to view
+    const $container = $('#pma_navigation_tree_content');
+    const elemTop = $element.offset().top - $container.offset().top;
+    const textHeight = 20;
+    const scrollPadding = 20; // extra padding from top of bottom when scrolling to view
     if (elemTop < 0 || $forceToTop) {
         $container.stop().animate({
             scrollTop: elemTop + $container.scrollTop() - scrollPadding
@@ -367,16 +367,16 @@ function scrollToView ($element, $forceToTop) {
  * Expand the navigation and highlight the current database or table/view
  */
 function showCurrent (): void {
-    var db = CommonParams.get('db');
-    var table = CommonParams.get('table');
+    const db = CommonParams.get('db');
+    const table = CommonParams.get('table');
 
-    var autoexpand = $('#pma_navigation_tree').hasClass('autoexpand');
+    const autoexpand = $('#pma_navigation_tree').hasClass('autoexpand');
 
     $('#pma_navigation_tree')
         .find('li.selected')
         .removeClass('selected');
 
-    var $dbItem;
+    let $dbItem;
     if (db) {
         $dbItem = findLoadedItem(
             $('#pma_navigation_tree').find('> div'), db, 'database', ! table
@@ -395,7 +395,7 @@ function showCurrent (): void {
             ) {
                 Navigation.loadChildNodes(false, $('option:selected', $('#navi_db_select')), function () {
                     handleTableOrDb(table, $('#pma_navigation_tree_content'));
-                    var $children = $('#pma_navigation_tree_content').children('div.list_container');
+                    const $children = $('#pma_navigation_tree_content').children('div.list_container');
                     $children.promise().done(Navigation.treeStateUpdate);
                 });
             } else {
@@ -410,10 +410,10 @@ function showCurrent (): void {
         // automatically expand the list if there is only single database
 
         // find the name of the database
-        var dbItemName = '';
+        let dbItemName = '';
 
         $('#pma_navigation_tree_content > ul > li.database').children('a').each(function () {
-            var name = $(this).text();
+            const name = $(this).text();
             if (! dbItemName && name.trim()) { // if the name is not empty, it is the desired element
                 dbItemName = name;
             }
@@ -429,7 +429,7 @@ function showCurrent (): void {
     Navigation.showFullName($('#pma_navigation_tree'));
 
     function fullExpand (table, $dbItem) {
-        var $expander = $dbItem.children('div').first().children('a.expander');
+        const $expander = $dbItem.children('div').first().children('a.expander');
         // if not loaded or loaded but collapsed
         if (! $expander.hasClass('loaded') ||
             $expander.find('img').is('.ic_b_plus')
@@ -446,10 +446,10 @@ function showCurrent (): void {
         if (table) {
             loadAndHighlightTableOrView($dbItem, table);
         } else {
-            var $container = $dbItem.children('div.list_container');
-            var $tableContainer = $container.children('ul').children('li.tableContainer');
+            const $container = $dbItem.children('div.list_container');
+            const $tableContainer = $container.children('ul').children('li.tableContainer');
             if ($tableContainer.length > 0) {
-                var $expander = $tableContainer.children('div').first().children('a.expander');
+                const $expander = $tableContainer.children('div').first().children('a.expander');
                 $tableContainer.addClass('selected');
                 Navigation.expandTreeNode($expander, function () {
                     Navigation.scrollToView($dbItem, true);
@@ -461,14 +461,14 @@ function showCurrent (): void {
     }
 
     function findLoadedItem ($container, name, clazz, doSelect) {
-        var ret: any = false;
+        let ret: any = false;
         $container.children('ul').children('li').each(function () {
-            var $li = $(this);
+            const $li = $(this);
             // this is a navigation group, recurse
             if ($li.is('.navGroup')) {
-                var $container = $li.children('div.list_container');
-                var $childRet = findLoadedItem(
-                    $container, name, clazz, doSelect
+                const $container = $li.children('div.list_container');
+                const $childRet = findLoadedItem(
+                    $container, name, clazz, doSelect,
                 );
                 if ($childRet) {
                     ret = $childRet;
@@ -485,7 +485,7 @@ function showCurrent (): void {
 
                     // traverse up and expand and parent navigation groups
                     $li.parents('.navGroup').each(function () {
-                        var $cont = $(this).children('div.list_container');
+                        const $cont = $(this).children('div.list_container');
                         if (! $cont.is(':visible')) {
                             $(this)
                                 .children('div').first()
@@ -505,13 +505,13 @@ function showCurrent (): void {
     }
 
     function loadAndHighlightTableOrView ($dbItem, itemName) {
-        var $container = $dbItem.children('div.list_container');
-        var $expander;
-        var $whichItem = isItemInContainer($container, itemName, 'li.nav_node_table, li.view');
+        const $container = $dbItem.children('div.list_container');
+        let $expander;
+        let $whichItem = isItemInContainer($container, itemName, 'li.nav_node_table, li.view');
         // If item already there in some container
         if ($whichItem) {
             // get the relevant container while may also be a subcontainer
-            var $relatedContainer = $whichItem.closest('li.subContainer').length
+            const $relatedContainer = $whichItem.closest('li.subContainer').length
                 ? $whichItem.closest('li.subContainer')
                 : $dbItem;
             $whichItem = findLoadedItem(
@@ -523,10 +523,10 @@ function showCurrent (): void {
             showTableOrView($whichItem, $relatedContainer.children('div').first().children('a.expander'));
             // else if item not there, try loading once
         } else {
-            var $subContainers = $dbItem.find('.subContainer');
+            const $subContainers = $dbItem.find('.subContainer');
             // If there are subContainers i.e. tableContainer or viewContainer
             if ($subContainers.length > 0) {
-                var $containers = [];
+                const $containers = [];
                 $subContainers.each(function (index) {
                     $containers[index] = $(this);
                     $expander = $containers[index]
@@ -552,9 +552,9 @@ function showCurrent (): void {
 
     function loadAndShowTableOrView ($expander, $relatedContainer, itemName) {
         Navigation.loadChildNodes(true, $expander, function () {
-            var $whichItem = findLoadedItem(
+            const $whichItem = findLoadedItem(
                 $relatedContainer.children('div.list_container'),
-                itemName, null, true
+                itemName, null, true,
             );
             if ($whichItem) {
                 showTableOrView($whichItem, $expander);
@@ -571,8 +571,8 @@ function showCurrent (): void {
     }
 
     function isItemInContainer ($container, name, clazz) {
-        var $whichItem = null;
-        var $items = $container.find(clazz);
+        let $whichItem = null;
+        const $items = $container.find(clazz);
         $items.each(function () {
             if ($(this).children('a').text() === name) {
                 $whichItem = $(this);
@@ -603,7 +603,7 @@ function ensureSettings (selflink): void {
     $('#pma_navigation_settings_icon').removeClass('hide');
 
     if (! $('#pma_navigation_settings').length) {
-        var params = {
+        const params = {
             getNaviSettings: true,
             server: CommonParams.get('server'),
         };
@@ -629,12 +629,12 @@ function ensureSettings (selflink): void {
  * @param {object} paths stored navigation paths
  */
 function reload (callback = null, paths = null): void {
-    var params: { server: any; reload: boolean; no_debug: boolean, db?: string } = {
+    const params: { server: any; reload: boolean; no_debug: boolean, db?: string } = {
         'reload': true,
         'no_debug': true,
         'server': CommonParams.get('server'),
     };
-    var pathsLocal = paths || Navigation.traverseForPaths();
+    const pathsLocal = paths || Navigation.traverseForPaths();
     $.extend(params, pathsLocal);
     if ($('#navi_db_select').length) {
         params.db = CommonParams.get('db');
@@ -672,7 +672,7 @@ function reload (callback = null, paths = null): void {
 }
 
 function selectCurrentDatabase () {
-    var $naviDbSelect = $('#navi_db_select');
+    const $naviDbSelect = $('#navi_db_select');
 
     if (! $naviDbSelect.length) {
         return false;
@@ -696,17 +696,17 @@ function selectCurrentDatabase () {
  * initiated the action of changing the page
  */
 function treePagination ($this): void {
-    var $msgbox = ajaxShowMessage();
-    var isDbSelector = $this.closest('div.pageselector').is('.dbselector');
-    var url = 'index.php?route=/navigation';
-    var params = 'ajax_request=true';
+    const $msgbox = ajaxShowMessage();
+    const isDbSelector = $this.closest('div.pageselector').is('.dbselector');
+    const url = 'index.php?route=/navigation';
+    let params = 'ajax_request=true';
     if ($this[0].tagName === 'A') {
         params += CommonParams.get('arg_separator') + $this.getPostData();
     } else { // tagName === 'SELECT'
         params += CommonParams.get('arg_separator') + $this.closest('form').serialize();
     }
 
-    var searchClause = Navigation.FastFilter.getSearchClause();
+    const searchClause = Navigation.FastFilter.getSearchClause();
     if (searchClause) {
         params += CommonParams.get('arg_separator') + 'searchClause=' + encodeURIComponent(searchClause);
     }
@@ -714,7 +714,7 @@ function treePagination ($this): void {
     if (isDbSelector) {
         params += CommonParams.get('arg_separator') + 'full=true';
     } else {
-        var searchClause2 = Navigation.FastFilter.getSearchClause2($this);
+        const searchClause2 = Navigation.FastFilter.getSearchClause2($this);
         if (searchClause2) {
             params += CommonParams.get('arg_separator') + 'searchClause2=' + encodeURIComponent(searchClause2);
         }
@@ -723,7 +723,7 @@ function treePagination ($this): void {
     $.post(url, params, function (data) {
         if (typeof data !== 'undefined' && data.success) {
             ajaxRemoveMessage($msgbox);
-            var val;
+            let val;
             if (isDbSelector) {
                 val = Navigation.FastFilter.getSearchClause();
                 $('#pma_navigation_tree')
@@ -737,7 +737,7 @@ function treePagination ($this): void {
                         .val(val);
                 }
             } else {
-                var $parent = $this.closest('div.list_container').parent();
+                const $parent = $this.closest('div.list_container').parent();
                 val = Navigation.FastFilter.getSearchClause2($this);
                 $this.closest('div.list_container').html(
                     $(data.message).children().show()
@@ -786,15 +786,15 @@ const ResizeHandler = function () {
      * @param {number} position Navigation width in pixels
      */
     this.setWidth = function (position): void {
-        var pos = position;
+        let pos = position;
         if (typeof pos !== 'number') {
             pos = 240;
         }
 
-        var $resizer = $('#pma_navigation_resizer');
-        var resizerWidth = $resizer.width();
-        var $collapser = $('#pma_navigation_collapser');
-        var windowWidth = $(window).width();
+        const $resizer = $('#pma_navigation_resizer');
+        const resizerWidth = $resizer.width();
+        const $collapser = $('#pma_navigation_collapser');
+        const windowWidth = $(window).width();
         $('#pma_navigation').width(pos);
         $('body').css('margin-' + this.left, pos + 'px');
         // Issue #15127 : Adding fixed positioning to menubar
@@ -813,9 +813,9 @@ const ResizeHandler = function () {
         }, 2);
 
         if (window.MutationObserver) {
-            var target = document.getElementById('floating_menubar');
+            const target = document.getElementById('floating_menubar');
             if (target) {
-                var observer = new MutationObserver(function () {
+                const observer = new MutationObserver(function () {
                     $('body').css('padding-top', $('#floating_menubar').outerHeight(true));
                 });
                 observer.observe(target, { attributes: true, childList: true, subtree: true });
@@ -863,9 +863,9 @@ const ResizeHandler = function () {
      * @return {number} Navigation width in pixels
      */
     this.getPos = function (event) {
-        var pos = event.pageX;
-        var windowWidth = $(window).width();
-        var windowScroll = $(window).scrollLeft();
+        let pos = event.pageX;
+        const windowWidth = $(window).width();
+        const windowScroll = $(window).scrollLeft();
         pos = pos - windowScroll;
         if (this.left !== 'left') {
             pos = windowWidth - event.pageX;
@@ -941,7 +941,7 @@ const ResizeHandler = function () {
     this.mousemove = function (event): void {
         event.preventDefault();
         if (event.data && event.data.resize_handler) {
-            var pos = event.data.resize_handler.getPos(event);
+            const pos = event.data.resize_handler.getPos(event);
             event.data.resize_handler.setWidth(pos);
         }
     };
@@ -953,8 +953,8 @@ const ResizeHandler = function () {
      */
     this.collapse = function (event): void {
         event.preventDefault();
-        var panelWidth = event.data.resize_handler.panelWidth;
-        var width = $('#pma_navigation').width();
+        let panelWidth = event.data.resize_handler.panelWidth;
+        const width = $('#pma_navigation').width();
         if (width === 0 && panelWidth === 0) {
             panelWidth = 240;
         }
@@ -968,11 +968,11 @@ const ResizeHandler = function () {
      * Event handler for resizing the navigation tree height on window resize
      */
     this.treeResize = function (): void {
-        var $nav = $('#pma_navigation');
-        var $navTree = $('#pma_navigation_tree');
-        var $navHeader = $('#pma_navigation_header');
-        var $navTreeContent = $('#pma_navigation_tree_content');
-        var height = ($nav.height() - $navHeader.height());
+        const $nav = $('#pma_navigation');
+        const $navTree = $('#pma_navigation_tree');
+        const $navHeader = $('#pma_navigation_header');
+        const $navTreeContent = $('#pma_navigation_tree_content');
+        let height = ($nav.height() - $navHeader.height());
 
         height = height > 50 ? height : 800; // keep min. height
         $navTree.height(height);
@@ -1059,7 +1059,7 @@ const FastFilter = {
          */
         this.timeout = null;
 
-        var $filterInput = $this.find('li.fast_filter input.searchClause');
+        const $filterInput = $this.find('li.fast_filter input.searchClause');
         if ($filterInput.length !== 0 &&
             $filterInput.val() !== '' &&
             $filterInput.val() !== $filterInput[0].defaultValue
@@ -1073,8 +1073,8 @@ const FastFilter = {
      * @return {string}
      */
     getSearchClause: function () {
-        var retval = '';
-        var $input = ($('#pma_navigation_tree').find('li.fast_filter.db_fast_filter input.searchClause') as JQuery<HTMLInputElement>);
+        let retval = '';
+        const $input = ($('#pma_navigation_tree').find('li.fast_filter.db_fast_filter input.searchClause') as JQuery<HTMLInputElement>);
         if ($input.length && $input.val() !== $input[0].defaultValue) {
             retval = ($input.val() as string);
         }
@@ -1090,8 +1090,8 @@ const FastFilter = {
      * @return {string}
      */
     getSearchClause2: function ($this) {
-        var $filterContainer = $this.closest('div.list_container');
-        var $filterInput = $([]);
+        const $filterContainer = $this.closest('div.list_container');
+        let $filterInput = $([]);
         if ($filterContainer
             .find('li.fast_filter:not(.db_fast_filter) input.searchClause')
             .length !== 0) {
@@ -1099,7 +1099,7 @@ const FastFilter = {
                 .find('li.fast_filter:not(.db_fast_filter) input.searchClause');
         }
 
-        var searchClause2 = '';
+        let searchClause2 = '';
         if ($filterInput.length !== 0 &&
             $filterInput.first().val() !== $filterInput[0].defaultValue
         ) {
@@ -1114,7 +1114,7 @@ const FastFilter = {
      */
     events: {
         focus: function () {
-            var $obj = $(this).closest('div.list_container');
+            const $obj = $(this).closest('div.list_container');
             if (! $obj.data('fastFilter')) {
                 $obj.data(
                     'fastFilter',
@@ -1133,14 +1133,14 @@ const FastFilter = {
                 $(this).val(this.defaultValue);
             }
 
-            var $obj = $(this).closest('div.list_container');
+            const $obj = $(this).closest('div.list_container');
             if ($(this).val() === this.defaultValue && $obj.data('fastFilter')) {
                 $obj.data('fastFilter').restore();
             }
         },
         keyup: function (event) {
-            var $obj = $(this).closest('div.list_container');
-            var str = '';
+            const $obj = $(this).closest('div.list_container');
+            let str = '';
             if ($(this).val() !== this.defaultValue && $(this).val() !== '') {
                 $obj.find('div.pageselector').hide();
                 str = ($(this).val() as string);
@@ -1150,9 +1150,7 @@ const FastFilter = {
              * FIXME at the server level a value match is done while on
              * the client side it is a regex match. These two should be aligned
              */
-
-            // regex used for filtering.
-            var regex;
+            let regex;
             try {
                 regex = new RegExp(str, 'i');
             } catch (err) {
@@ -1160,7 +1158,7 @@ const FastFilter = {
             }
 
             // this is the div that houses the items to be filtered by this filter.
-            var outerContainer;
+            let outerContainer;
             if ($(this).closest('li.fast_filter').is('.db_fast_filter')) {
                 outerContainer = $('#pma_navigation_tree_content');
             } else {
@@ -1170,7 +1168,7 @@ const FastFilter = {
             // filters items that are directly under the div as well as grouped in
             // groups. Does not filter child items (i.e. a database search does
             // not filter tables)
-            var itemFilter = function ($curr) {
+            const itemFilter = function ($curr) {
                 $curr.children('ul').children('li.navGroup').each(function () {
                     $(this).children('div.list_container').each(function () {
                         itemFilter($(this)); // recursive
@@ -1189,9 +1187,9 @@ const FastFilter = {
             itemFilter(outerContainer);
 
             // hides containers that does not have any visible children
-            var containerFilter = function ($curr) {
+            const containerFilter = function ($curr) {
                 $curr.children('ul').children('li.navGroup').each(function () {
-                    var $group = $(this);
+                    const $group = $(this);
                     $group.children('div.list_container').each(function () {
                         containerFilter($(this)); // recursive
                     });
@@ -1222,7 +1220,7 @@ const FastFilter = {
             }
 
             // update filter state
-            var filterName;
+            let filterName;
             if ($(this).attr('name') === 'searchClause2') {
                 filterName = $(this).siblings('input[name=aPath]').val();
             } else {
@@ -1234,12 +1232,12 @@ const FastFilter = {
         clear: function (event) {
             event.stopPropagation();
             // Clear the input and apply the fast filter with empty input
-            var filter = $(this).closest('div.list_container').data('fastFilter');
+            const filter = $(this).closest('div.list_container').data('fastFilter');
             if (filter) {
                 filter.restore();
             }
 
-            var value = ($(this).prev()[0] as HTMLInputElement).defaultValue;
+            const value = ($(this).prev()[0] as HTMLInputElement).defaultValue;
             $(this).prev().val(value).trigger('keyup');
         }
     }
@@ -1262,7 +1260,7 @@ FastFilter.Filter.prototype.update = function (searchClause): void {
  * Multiple calls to this function will always abort the previous request
  */
 FastFilter.Filter.prototype.request = function (): void {
-    var self = this;
+    const self = this;
     if (self.$this.find('li.fast_filter').find('img.throbber').length === 0) {
         self.$this.find('li.fast_filter').append(
             $('<div class="throbber"></div>').append(
@@ -1278,10 +1276,10 @@ FastFilter.Filter.prototype.request = function (): void {
         self.xhr.abort();
     }
 
-    var params = self.$this.find('> ul > li > form.fast_filter').first().serialize();
+    let params = self.$this.find('> ul > li > form.fast_filter').first().serialize();
 
     if (self.$this.find('> ul > li > form.fast_filter').first().find('input[name=searchClause]').length === 0) {
-        var $input = ($('#pma_navigation_tree').find('li.fast_filter.db_fast_filter input.searchClause') as JQuery<HTMLInputElement>);
+        const $input = ($('#pma_navigation_tree').find('li.fast_filter.db_fast_filter input.searchClause') as JQuery<HTMLInputElement>);
         if ($input.length && $input.val() !== $input[0].defaultValue) {
             params += CommonParams.get('arg_separator') + 'searchClause=' + encodeURIComponent(($input.val() as string));
         }
@@ -1294,7 +1292,7 @@ FastFilter.Filter.prototype.request = function (): void {
         data: params,
         complete: function (jqXHR, status) {
             if (status !== 'abort') {
-                var data = JSON.parse(jqXHR.responseText);
+                const data = JSON.parse(jqXHR.responseText);
                 self.$this.find('li.fast_filter').find('div.throbber').remove();
                 if (data && data.results) {
                     self.swap.apply(self, [data.message]);
@@ -1348,16 +1346,16 @@ FastFilter.Filter.prototype.restore = function (focus): void {
 function showFullName ($containerELem): void {
     $containerELem.find('.hover_show_full').on('mouseenter', function () {
         /** mouseenter */
-        var $this = $(this);
-        var thisOffset = $this.offset();
+        const $this = $(this);
+        const thisOffset = $this.offset();
         if ($this.text() === '') {
             return;
         }
 
-        var $parent = $this.parent();
+        const $parent = $this.parent();
         if (($parent.offset().left + $parent.outerWidth())
             < (thisOffset.left + $this.outerWidth())) {
-            var $fullNameLayer = $('#full_name_layer');
+            let $fullNameLayer = $('#full_name_layer');
             if ($fullNameLayer.length === 0) {
                 $('body').append('<div id="full_name_layer" class="hide"></div>');
                 $('#full_name_layer').on('mouseleave', function () {

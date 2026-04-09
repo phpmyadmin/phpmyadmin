@@ -40,7 +40,7 @@ const DatabaseRoutines = {
          * @var $elm a jQuery object containing the reference
          *           to an element that is being validated
          */
-        var $elm = null;
+        let $elm = null;
         // Common validation. At the very least the name
         // and the definition must be provided for an item
         $elm = $('table.rte_table').last().find('input[name=item_name]');
@@ -70,27 +70,27 @@ const DatabaseRoutines = {
     },
 
     exportDialog: function ($this) {
-        var $msg = ajaxShowMessage();
+        const $msg = ajaxShowMessage();
         if ($this.attr('id') === 'bulkActionExportButton') {
-            var combined = {
+            const combined = {
                 success: true,
                 title: window.Messages.strExport,
                 message: '',
-                error: ''
+                error: '',
             };
             // export anchors of all selected rows
-            var exportAnchors = $('input.checkall:checked').parents('tr').find('.export_anchor');
-            var count = exportAnchors.length;
-            var returnCount = 0;
+            const exportAnchors = $('input.checkall:checked').parents('tr').find('.export_anchor');
+            const count = exportAnchors.length;
+            let returnCount = 0;
 
             // No routine is exportable (due to privilege issues)
             if (count === 0) {
                 ajaxShowMessage(window.Messages.NoExportable);
             }
 
-            var p: any = $.when();
+            let p: any = $.when();
             exportAnchors.each(function () {
-                var h = $(this).attr('href');
+                const h = $(this).attr('href');
                 p = p.then(function () {
                     return $.get(h, { 'ajax_request': true }, function (data) {
                         returnCount++;
@@ -142,13 +142,13 @@ const DatabaseRoutines = {
         }
     },
     editorDialog: function (isNew, $this) {
-        var that = this;
+        const that = this;
         /**
          * @var $edit_row jQuery object containing the reference to
          *                the row of the the item being edited
          *                from the list of items
          */
-        var $editRow = null;
+        let $editRow = null;
         if ($this.hasClass('edit_anchor')) {
             // Remember the row of the item being edited for later,
             // so that if the edit is successful, we can replace the
@@ -160,7 +160,7 @@ const DatabaseRoutines = {
          * @var $msg jQuery object containing the reference to
          *           the AJAX message shown to the user
          */
-        var $msg = ajaxShowMessage();
+        let $msg = ajaxShowMessage();
         $.get($this.attr('href'), { 'ajax_request': true }, function (data) {
             if (data.success !== true) {
                 ajaxShowMessage(data.error, false);
@@ -188,12 +188,12 @@ const DatabaseRoutines = {
                 /**
                  * @var data Form data to be sent in the AJAX request
                  */
-                var data = $('form.rte_form').last().serialize();
+                const data = $('form.rte_form').last().serialize();
                 $msg = ajaxShowMessage(
                     window.Messages.strProcessingRequest
                 );
 
-                var url = $('form.rte_form').last().attr('action');
+                const url = $('form.rte_form').last().attr('action');
                 $.post(url, data, function (data) {
                     if (data.success !== true) {
                         ajaxShowMessage(data.error, false);
@@ -206,7 +206,7 @@ const DatabaseRoutines = {
                     slidingMessage(data.message);
                     bootstrap.Modal.getOrCreateInstance('#routinesEditorModal').hide();
 
-                    var tableId = '#' + data.tableType + 'Table';
+                    const tableId = '#' + data.tableType + 'Table';
                     // If we are in 'edit' mode, we must
                     // remove the reference to the old row.
                     if (isEditMode && $editRow !== null) {
@@ -226,12 +226,12 @@ const DatabaseRoutines = {
                          *           to find the correct location where
                          *           to insert a new row.
                          */
-                        var text = '';
+                        let text = '';
                         /**
                          * @var inserted Whether a new item has been
                          *               inserted in the list or not
                          */
-                        var inserted = false;
+                        let inserted = false;
                         $(tableId + '.data').find('tr').each(function () {
                             text = $(this)
                                 .children('td')
@@ -279,12 +279,12 @@ const DatabaseRoutines = {
                     /**
                      * @var ct Count of processed rows
                      */
-                    var ct = 0;
+                    let ct = 0;
                     /**
                      * @var rowclass Class to be attached to the row
                      *               that is being processed
                      */
-                    var rowclass = '';
+                    let rowclass = '';
                     $(tableId + '.data').find('tr').has('td').each(function () {
                         rowclass = (ct % 2 === 0) ? 'odd' : 'even';
                         $(this).removeClass('odd even').addClass(rowclass);
@@ -339,8 +339,8 @@ const DatabaseRoutines = {
                  * @var elm jQuery object containing the reference to
                  *                 the Definition textarea.
                  */
-                var $elm = $('textarea[name=item_definition]').last();
-                var linterOptions = {
+                const $elm = $('textarea[name=item_definition]').last();
+                const linterOptions = {
                     editorType: 'routine',
                 };
                 that.syntaxHiglighter = getSqlEditor($elm, {}, 'vertical', linterOptions);
@@ -365,12 +365,12 @@ const DatabaseRoutines = {
         /**
          * @var $curr_row Object containing reference to the current row
          */
-        var $currRow = $this.parents('tr');
+        const $currRow = $this.parents('tr');
         /**
          * @var question String containing the question to be asked for confirmation
          */
-        var question = $('<div></div>').text(
-            $currRow.children('td').children('.drop_sql').html()
+        const question = $('<div></div>').text(
+            $currRow.children('td').children('.drop_sql').html(),
         );
         // We ask for confirmation first here, before submitting the ajax request
         $this.confirm(question, $this.attr('href'), function (url) {
@@ -378,8 +378,8 @@ const DatabaseRoutines = {
              * @var msg jQuery object containing the reference to
              *          the AJAX message shown to the user
              */
-            var $msg = ajaxShowMessage(window.Messages.strProcessingRequest);
-            var params = getJsConfirmCommonParam(this, $this.getPostData());
+            const $msg = ajaxShowMessage(window.Messages.strProcessingRequest);
+            const params = getJsConfirmCommonParam(this, $this.getPostData());
             $.post(url, params, function (data) {
                 if (data.success !== true) {
                     ajaxShowMessage(data.error, false);
@@ -391,7 +391,7 @@ const DatabaseRoutines = {
                  * @var $table Object containing reference
                  *             to the main list of elements
                  */
-                var $table = $currRow.parent().parent();
+                const $table = $currRow.parent().parent();
                 // Check how many rows will be left after we remove
                 // the one that the user has requested us to remove
                 if ($table.find('tr').length === 3) {
@@ -413,12 +413,12 @@ const DatabaseRoutines = {
                         /**
                          * @var ct Count of processed rows
                          */
-                        var ct = 0;
+                        let ct = 0;
                         /**
                          * @var rowclass Class to be attached to the row
                          *               that is being processed
                          */
-                        var rowclass = '';
+                        let rowclass = '';
                         $table.find('tr').has('td').each(function () {
                             rowclass = (ct % 2 === 1) ? 'odd' : 'even';
                             $(this).removeClass('odd even').addClass(rowclass);
@@ -443,21 +443,21 @@ const DatabaseRoutines = {
              * @var msg jQuery object containing the reference to
              *          the AJAX message shown to the user
              */
-            var $msg = ajaxShowMessage(window.Messages.strProcessingRequest);
+            const $msg = ajaxShowMessage(window.Messages.strProcessingRequest);
 
             // drop anchors of all selected rows
-            var dropAnchors = $('input.checkall:checked').parents('tr').find('.drop_anchor');
-            var success = true;
-            var count = dropAnchors.length;
-            var returnCount = 0;
+            const dropAnchors = $('input.checkall:checked').parents('tr').find('.drop_anchor');
+            let success = true;
+            const count = dropAnchors.length;
+            let returnCount = 0;
 
             dropAnchors.each(function () {
-                var $anchor = $(this);
+                const $anchor = $(this);
                 /**
                  * @var $curr_row Object containing reference to the current row
                  */
-                var $currRow = $anchor.parents('tr');
-                var params = getJsConfirmCommonParam(this, $anchor.getPostData());
+                const $currRow = $anchor.parents('tr');
+                const params = getJsConfirmCommonParam(this, $anchor.getPostData());
                 $.post($anchor.attr('href'), params, function (data) {
                     returnCount++;
                     if (data.success !== true) {
@@ -474,7 +474,7 @@ const DatabaseRoutines = {
                      * @var $table Object containing reference
                      *             to the main list of elements
                      */
-                    var $table = $currRow.parent().parent();
+                    const $table = $currRow.parent().parent();
                     // Check how many rows will be left after we remove
                     // the one that the user has requested us to remove
                     if ($table.find('tr').length === 3) {
@@ -494,12 +494,12 @@ const DatabaseRoutines = {
                             /**
                              * @var ct Count of processed rows
                              */
-                            var ct = 0;
+                            let ct = 0;
                             /**
                              * @var rowclass Class to be attached to the row
                              *               that is being processed
                              */
-                            var rowclass = '';
+                            let rowclass = '';
                             $table.find('tr').has('td').each(function () {
                                 rowclass = (ct % 2 === 1) ? 'odd' : 'even';
                                 $(this).removeClass('odd even').addClass(rowclass);
@@ -532,7 +532,7 @@ const DatabaseRoutines = {
     postDialogShow: function (data) {
         // Cache the template for a parameter table row
         DatabaseRoutines.paramTemplate = data.paramTemplate;
-        var that = this;
+        const that = this;
         // Make adjustments in the dialog to make it AJAX compatible
         $('td.routine_param_remove').show();
         // Enable/disable the 'options' dropdowns for parameters as necessary
@@ -572,14 +572,14 @@ const DatabaseRoutines = {
          * @var index Counter used for reindexing the input
          *            fields in the routine parameters table
          */
-        var index = 0;
+        let index = 0;
         $('table.routine_params_table tbody').find('tr').each(function () {
             $(this).find(':input').each(function () {
                 /**
                  * @var inputname The value of the name attribute of
                  *                the input field being reindexed
                  */
-                var inputname = $(this).attr('name');
+                const inputname = $(this).attr('name');
                 if (inputname.startsWith('item_param_dir')) {
                     $(this).attr('name', inputname.substring(0, 14) + '[' + index + ']');
                 } else if (inputname.startsWith('item_param_name')) {
@@ -608,12 +608,12 @@ const DatabaseRoutines = {
         /**
          * @var isSuccess Stores the outcome of the validation
          */
-        var isSuccess = true;
+        let isSuccess = true;
         /**
          * @var inputname The value of the "name" attribute for
          *                the field that is being processed
          */
-        var inputname = '';
+        let inputname = '';
 
         const routinesEditorModal = $('#routinesEditorModal');
         routinesEditorModal.find('table.routine_params_table').last().find('tr').each(function () {
@@ -646,8 +646,8 @@ const DatabaseRoutines = {
 
         routinesEditorModal.find('table.routine_params_table').last().find('tr').each(function () {
             // SET, ENUM, VARCHAR and VARBINARY fields must have length/values
-            var $inputtyp = $(this).find('select[name^=item_param_type]');
-            var $inputlen = $(this).find('input[name^=item_param_length]');
+            const $inputtyp = $(this).find('select[name^=item_param_type]');
+            const $inputlen = $(this).find('input[name^=item_param_length]');
             if ($inputtyp.length && $inputlen.length) {
                 if (($inputtyp.val() === 'ENUM' || $inputtyp.val() === 'SET' || ($inputtyp.val() as string).startsWith('VAR')) &&
                     $inputlen.val() === ''
@@ -669,8 +669,8 @@ const DatabaseRoutines = {
         if (routinesEditorModal.find('select[name=item_type]').find(':selected').val() === 'FUNCTION') {
             // The length/values of return variable for functions must
             // be set, if the type is SET, ENUM, VARCHAR or VARBINARY.
-            var $returntyp = routinesEditorModal.find('select[name=item_returntype]');
-            var $returnlen = routinesEditorModal.find('input[name=item_returnlength]');
+            const $returntyp = routinesEditorModal.find('select[name=item_returntype]');
+            const $returnlen = routinesEditorModal.find('input[name=item_returnlength]');
             if (($returntyp.val() === 'ENUM' || $returntyp.val() === 'SET' || ($returntyp.val() as string).startsWith('VAR')) &&
                 $returnlen.val() === ''
             ) {
@@ -716,13 +716,13 @@ const DatabaseRoutines = {
          *              to an element to be displayed when no
          *              options are available
          */
-        var $noOpts = $text.parent().parent().find('.no_opts');
+        const $noOpts = $text.parent().parent().find('.no_opts');
         /**
          * @var no_len a jQuery object containing the reference
          *             to an element to be displayed when no
          *             "length/values" field is available
          */
-        var $noLen = $len.parent().parent().find('.no_len');
+        const $noLen = $len.parent().parent().find('.no_len');
 
         // Process for parameter options
         switch ($type.val()) {
@@ -790,8 +790,8 @@ const DatabaseRoutines = {
          * @var msg jQuery object containing the reference to
          *          the AJAX message shown to the user
          */
-        var $msg = ajaxShowMessage();
-        var params = getJsConfirmCommonParam($this[0], $this.getPostData());
+        let $msg = ajaxShowMessage();
+        const params = getJsConfirmCommonParam($this[0], $this.getPostData());
         $.post($this.attr('href'), params, function (data) {
             if (data.success !== true) {
                 ajaxShowMessage(data.error, false);
@@ -817,7 +817,7 @@ const DatabaseRoutines = {
                 /**
                  * @var data Form data to be sent in the AJAX request
                  */
-                var data = $('form.rte_form').last().serialize();
+                const data = $('form.rte_form').last().serialize();
                 $msg = ajaxShowMessage(
                     window.Messages.strProcessingRequest
                 );
@@ -870,12 +870,12 @@ const DatabaseRoutines = {
                     /**
                      * @var data Form data to be sent in the AJAX request
                      */
-                    var data = $(this).serialize();
+                    const data = $(this).serialize();
                     $msg = ajaxShowMessage(
                         window.Messages.strProcessingRequest
                     );
 
-                    var url = $(this).attr('action');
+                    const url = $(this).attr('action');
                     $.post(url, data, function (data) {
                         if (data.success !== true) {
                             ajaxShowMessage(data.error, false);

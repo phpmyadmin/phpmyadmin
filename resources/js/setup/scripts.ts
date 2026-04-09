@@ -20,18 +20,18 @@ $(function () {
         $('#no_https').remove();
     } else {
         $('#no_https a').on('click', function () {
-            var oldLocation = window.location;
+            const oldLocation = window.location;
             window.location.href = 'https:' + oldLocation.href.substring(oldLocation.protocol.length);
 
             return false;
         });
     }
 
-    var hiddenMessages = $('.hiddenmessage');
+    const hiddenMessages = $('.hiddenmessage');
 
     if (hiddenMessages.length > 0) {
         hiddenMessages.hide();
-        var link = $('#show_hidden_messages');
+        const link = $('#show_hidden_messages');
         link.on('click', function (e) {
             e.preventDefault();
             hiddenMessages.show();
@@ -45,12 +45,12 @@ $(function () {
 
 // set document width
 $(function () {
-    var width = 0;
+    let width = 0;
     $('ul.tabs li').each(function () {
         width += $(this).width() + 10;
     });
 
-    var contentWidth = width;
+    const contentWidth = width;
     width += 250;
     $('body').css('min-width', width);
     $('.tabs_contents').css('min-width', contentWidth);
@@ -74,7 +74,7 @@ $(function () {
  * @return {boolean|void}
  */
 function ajaxValidate (parent, id, values) {
-    var $parent = $(parent);
+    let $parent = $(parent);
     // ensure that parent is a fieldset
     if ($parent.attr('tagName') !== 'FIELDSET') {
         $parent = $parent.closest('fieldset');
@@ -101,7 +101,7 @@ function ajaxValidate (parent, id, values) {
                 return;
             }
 
-            var error = {};
+            const error = {};
             if (typeof response !== 'object') {
                 // @ts-ignore
                 error[$parent.id] = [response];
@@ -109,8 +109,8 @@ function ajaxValidate (parent, id, values) {
                 // @ts-ignore
                 error[$parent.id] = [response.error];
             } else {
-                for (var key in response) {
-                    var value = response[key];
+                for (let key in response) {
+                    const value = response[key];
                     error[key] = Array.isArray(value) ? value : [value];
                 }
             }
@@ -144,7 +144,7 @@ $.extend(true, window.validators, {
          */
         hide_db: function (isKeyUp) { // eslint-disable-line camelcase
             if (! isKeyUp && this.value !== '') {
-                var data = {};
+                const data = {};
                 data[this.id] = this.value;
                 ajaxValidate(this, 'Servers/1/hide_db', data);
             }
@@ -160,7 +160,7 @@ $.extend(true, window.validators, {
          */
         TrustedProxies: function (isKeyUp) {
             if (! isKeyUp && this.value !== '') {
-                var data = {};
+                const data = {};
                 data[this.id] = this.value;
                 ajaxValidate(this, 'TrustedProxies', data);
             }
@@ -207,7 +207,7 @@ $.extend(true, window.validators, {
                 return true;
             }
 
-            var prefix = Config.getIdPrefix($(this).find('input'));
+            const prefix = Config.getIdPrefix($(this).find('input'));
             if ($('#' + prefix + 'pmadb').val() !== '') {
                 ajaxValidate(this, 'Server_pmadb', Config.getAllValues());
             }
@@ -231,7 +231,7 @@ $(function () {
             return;
         }
 
-        var el = $(this).find('input');
+        const el = $(this).find('input');
         if (el.prop('disabled')) {
             return;
         }
@@ -247,7 +247,7 @@ $(function () {
 $(function () {
     $('.delete-server').on('click', function (e) {
         e.preventDefault();
-        var $this = $(this);
+        const $this = $(this);
         $.post($this.attr('href'), $this.attr('data-post'), function () {
             window.location.replace('../setup/index.php?route=/setup');
         });

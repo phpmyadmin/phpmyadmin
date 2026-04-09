@@ -16,9 +16,9 @@ export default function checkNumberOfFields () {
     }
 
     $('form').each(function () {
-        var nbInputs = $(this).find(':input').length;
+        const nbInputs = $(this).find(':input').length;
         if (nbInputs > window.maxInputVars) {
-            var warning = window.sprintf(window.Messages.strTooManyInputs, window.maxInputVars);
+            const warning = window.sprintf(window.Messages.strTooManyInputs, window.maxInputVars);
             ajaxShowMessage(warning);
 
             return false;

@@ -47,17 +47,17 @@ let ajaxMessageCount = 0;
  *                              to remove the notification
  */
 const ajaxShowMessage = function (message = null, timeout = null, type = null) {
-    var msg = message;
-    var newTimeOut = timeout;
+    let msg = message;
+    let newTimeOut = timeout;
     /**
      * @var self_closing Whether the notification will automatically disappear
      */
-    var selfClosing = true;
+    let selfClosing = true;
     /**
      * @var dismissable Whether the user will be able to remove
      *                  the notification by clicking on it
      */
-    var dismissable = true;
+    let dismissable = true;
     // Handle the case when a empty data.message is passed.
     // We don't want the empty message
     if (msg === '') {
@@ -102,10 +102,10 @@ const ajaxShowMessage = function (message = null, timeout = null, type = null) {
      * @var $retval    a jQuery object containing the reference
      *                 to the created AJAX message
      */
-    var $retval = $(
+    const $retval = $(
         '<span class="ajax_notification" id="ajax_message_num_' +
         ajaxMessageCount +
-        '"></span>'
+        '"></span>',
     )
         .hide()
         .appendTo('#loading_parent')

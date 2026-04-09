@@ -57,12 +57,12 @@ const AJAX = {
      * @return {number}
      */
     hash: function (key) {
-        var newKey = key;
+        let newKey = key;
         /* https://burtleburtle.net/bob/hash/doobs.html#one */
         newKey += '';
-        var len = newKey.length;
-        var hash = 0;
-        var i = 0;
+        const len = newKey.length;
+        let hash = 0;
+        let i = 0;
         for (; i < len; ++i) {
             hash += newKey.charCodeAt(i);
             hash += (hash << 10);
@@ -84,7 +84,7 @@ const AJAX = {
      * @return {self} For chaining
      */
     registerOnload: function (file, func) {
-        var eventName = 'onload_' + AJAX.hash(file);
+        const eventName = 'onload_' + AJAX.hash(file);
         $(document).on(eventName, func);
         if (this.debug) {
             // eslint-disable-next-line no-console
@@ -107,7 +107,7 @@ const AJAX = {
      * @return {self} For chaining
      */
     registerTeardown: function (file, func) {
-        var eventName = 'teardown_' + AJAX.hash(file);
+        const eventName = 'teardown_' + AJAX.hash(file);
         $(document).on(eventName, func);
         if (this.debug) {
             // eslint-disable-next-line no-console
@@ -126,7 +126,7 @@ const AJAX = {
      * @param {string} file The filename for which to fire the event
      */
     fireOnload: function (file): void {
-        var eventName = 'onload_' + AJAX.hash(file);
+        const eventName = 'onload_' + AJAX.hash(file);
         $(document).trigger(eventName);
         if (this.debug) {
             // eslint-disable-next-line no-console
@@ -143,7 +143,7 @@ const AJAX = {
      * @param {string} file The filename for which to fire the event
      */
     fireTeardown: function (file): void {
-        var eventName = 'teardown_' + AJAX.hash(file);
+        const eventName = 'teardown_' + AJAX.hash(file);
         $(document).triggerHandler(eventName);
         if (this.debug) {
             // eslint-disable-next-line no-console
@@ -166,9 +166,9 @@ const AJAX = {
             }
         }
 
-        var newHash = null;
-        var oldHash = null;
-        var lockId;
+        let newHash = null;
+        let oldHash = null;
+        let lockId;
         // CodeMirror lock
         if (event.data.value === 3) {
             newHash = event.data.content;
@@ -242,7 +242,7 @@ const AJAX = {
         // In some cases we don't want to handle the request here and either
         // leave the browser deal with it natively (e.g: file download)
         // or leave an existing ajax event handler present elsewhere deal with it
-        var href = $(this).attr('href');
+        const href = $(this).attr('href');
         if (typeof event !== 'undefined' && (event.shiftKey || event.ctrlKey || event.metaKey)) {
             return true;
         } else if ($(this).attr('target')) {
@@ -280,8 +280,8 @@ const AJAX = {
         }
 
         AJAX.resetLock();
-        var isLink = !! href || false;
-        var previousLinkAborted = false;
+        let isLink = !! href || false;
+        let previousLinkAborted = false;
 
         if (AJAX.active === true) {
             // Cancel the old request if abortable, when the user requests
@@ -310,10 +310,10 @@ const AJAX = {
 
         $('html, body').animate({ scrollTop: 0 }, 'fast');
 
-        var url = isLink ? href : $(this).attr('action');
-        var argsep = CommonParams.get('arg_separator');
-        var params = 'ajax_request=true' + argsep + 'ajax_page_request=true';
-        var dataPost = AJAX.source.getPostData();
+        const url = isLink ? href : $(this).attr('action');
+        const argsep = CommonParams.get('arg_separator');
+        let params = 'ajax_request=true' + argsep + 'ajax_page_request=true';
+        const dataPost = AJAX.source.getPostData();
         if (! isLink) {
             params += argsep + $(this).serialize();
         } else if (dataPost) {
@@ -331,8 +331,8 @@ const AJAX = {
             AJAX.$msgbox = ajaxShowMessage();
             // Save reference for the new link request
             AJAX.xhr = $.get(url, params, AJAX.responseHandler);
-            var state = {
-                url: href
+            const state = {
+                url: href,
             };
             if (previousLinkAborted) {
                 // hack: there is already an aborted entry on stack
@@ -347,7 +347,7 @@ const AJAX = {
              * The event was saved in the jQuery data object by an onload
              * handler defined below. Workaround for bug #3583316
              */
-            var onsubmit = $(this).data('onsubmit');
+            const onsubmit = $(this).data('onsubmit');
             // Submit the request if there is no onsubmit handler
             // or if it returns a value that evaluates to true
             if (typeof onsubmit !== 'function' || onsubmit.apply(this, [event])) {
@@ -387,7 +387,7 @@ const AJAX = {
 
         $('#pma_errors').remove();
 
-        var msg = '';
+        let msg = '';
         if (data.errSubmitMsg) {
             msg = data.errSubmitMsg;
         }
@@ -521,9 +521,9 @@ const AJAX = {
                 }
 
                 if (data.menu) {
-                    var state = {
+                    const state = {
                         url: data.selflink,
-                        menu: data.menu
+                        menu: data.menu,
                     };
                     history.replaceState(state, null);
                     AJAX.handleMenu.replace(data.menu);
@@ -562,15 +562,15 @@ const AJAX = {
                 }
 
                 if (data.selflink) {
-                    var source = data.selflink.split('?')[0];
+                    const source = data.selflink.split('?')[0];
                     // Check for faulty links
-                    var $selflinkReplace = {
+                    const $selflinkReplace = {
                         'index.php?route=/import': 'index.php?route=/table/sql',
                         'index.php?route=/table/chart': 'index.php?route=/sql',
-                        'index.php?route=/table/gis-visualization': 'index.php?route=/sql'
+                        'index.php?route=/table/gis-visualization': 'index.php?route=/sql',
                     };
                     if ($selflinkReplace[source]) {
-                        var replacement = $selflinkReplace[source];
+                        const replacement = $selflinkReplace[source];
                         data.selflink = data.selflink.replace(source, replacement);
                     }
 
@@ -592,7 +592,7 @@ const AJAX = {
 
                 $('#pma_errors').remove();
 
-                var msg = '';
+                let msg = '';
                 if (data.errSubmitMsg) {
                     msg = data.errSubmitMsg;
                 }
@@ -649,7 +649,7 @@ const AJAX = {
         } else {
             ajaxShowMessage(data.error, false);
             ajaxRemoveMessage(AJAX.$msgbox);
-            var $ajaxError = $('<div></div>');
+            const $ajaxError = $('<div></div>');
             $ajaxError.attr({ 'id': 'ajaxError' });
             $('#page_content').append($ajaxError);
             $ajaxError.html(data.error);
@@ -710,8 +710,8 @@ const AJAX = {
          * @param {Function} callback
          */
         load: function (files, callback = undefined): void {
-            var self = this;
-            var i;
+            const self = this;
+            let i;
             // Clear loaded scripts if they are from another version of phpMyAdmin.
             // Depends on common params being set before loading scripts in responseHandler
             if (self.scriptsVersion === null) {
@@ -735,7 +735,7 @@ const AJAX = {
             }
 
             for (i in files) {
-                var script = files[i].name;
+                const script = files[i].name;
                 // Only for scripts that we don't already have
                 if ($.inArray(script, self.scripts) === -1) {
                     this.add(script, false);
@@ -781,9 +781,9 @@ const AJAX = {
          * @param {Function} callback
          */
         appendScript: function (name, callback): void {
-            var head = document.head || document.getElementsByTagName('head')[0];
-            var script = document.createElement('script');
-            var self = this;
+            const head = document.head || document.getElementsByTagName('head')[0];
+            const script = document.createElement('script');
+            const self = this;
 
             script.src = 'js/' + name + '?' + 'v=' + encodeURIComponent(CommonParams.get('version'));
             script.async = false;
@@ -800,7 +800,7 @@ const AJAX = {
          * @param {Function} callback The callback to call after resetting
          */
         reset: function (callback): void {
-            for (var i in this.scriptsToBeFired) {
+            for (let i in this.scriptsToBeFired) {
                 AJAX.fireTeardown(this.scriptsToBeFired[i]);
             }
 
@@ -832,13 +832,13 @@ const AJAX = {
             }
         });
 
-        var $pageContent = $('#page_content');
+        const $pageContent = $('#page_content');
         /**
          * Workaround for passing submit button name,value on ajax form submit
          * by appending hidden element with submit button name and value.
          */
         $pageContent.on('click', 'form input[type=submit]', function () {
-            var buttonName = $(this).attr('name');
+            const buttonName = $(this).attr('name');
             if (typeof buttonName === 'undefined') {
                 return;
             }
@@ -888,22 +888,22 @@ const AJAX = {
      */
     loadEventHandler: function () {
         return function () {
-            var menuContent = $('<div></div>')
+            const menuContent = $('<div></div>')
                 .append($('#server-breadcrumb').clone())
                 .append($('#topmenucontainer').clone())
                 .html();
 
             // set initial state reload
-            var initState = ('state' in window.history && window.history.state !== null);
-            var initURL = $('#selflink').find('> a').attr('href') || location.href;
-            var state = {
+            let initState = ('state' in window.history && window.history.state !== null);
+            const initURL = $('#selflink').find('> a').attr('href') || location.href;
+            const state = {
                 url: initURL,
-                menu: menuContent
+                menu: menuContent,
             };
             history.replaceState(state, null);
 
             $(window).on('popstate', function (event) {
-                var initPop = (! initState && location.href === initURL);
+                const initPop = (!initState && location.href === initURL);
                 initState = true;
                 // check if popstate fired on first page itself
                 if (initPop) {
@@ -911,11 +911,11 @@ const AJAX = {
                 }
 
                 // @ts-ignore
-                var state = event.originalEvent.state;
+                const state = event.originalEvent.state;
                 if (state && state.menu) {
                     AJAX.$msgbox = ajaxShowMessage();
-                    var params = 'ajax_request=true' + CommonParams.get('arg_separator') + 'ajax_page_request=true';
-                    var url = state.url || location.href;
+                    const params = 'ajax_request=true' + CommonParams.get('arg_separator') + 'ajax_page_request=true';
+                    const url = state.url || location.href;
                     $.get(url, params, AJAX.responseHandler);
                     // TODO: Check if sometimes menu is not retrieved from server,
                     // Not sure but it seems menu was missing only for printview which
@@ -944,8 +944,8 @@ const AJAX = {
 
             // Don't handle aborted requests
             if (request.status !== 0 || request.statusText !== 'abort') {
-                var details = '';
-                var state = request.state();
+                let details = '';
+                const state = request.state();
 
                 if (
                     'responseJSON' in request &&

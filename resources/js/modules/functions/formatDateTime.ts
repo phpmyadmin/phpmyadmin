@@ -8,8 +8,8 @@ import $ from 'jquery';
  * @return {string}
  */
 export default function formatDateTime (date, seconds = false) {
-    var result = $.datepicker.formatDate('yy-mm-dd', date);
-    var timefmt = 'HH:mm';
+    const result = $.datepicker.formatDate('yy-mm-dd', date);
+    let timefmt = 'HH:mm';
     if (seconds) {
         timefmt = 'HH:mm:ss';
     }

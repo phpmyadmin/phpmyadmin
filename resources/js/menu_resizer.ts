@@ -23,36 +23,36 @@ import getImageTag from './modules/functions/getImageTag.ts';
  */
 (function ($) {
     function MenuResizer ($container, widthCalculator) {
-        var self = this;
+        const self = this;
         self.$container = $container;
         self.widthCalculator = widthCalculator;
-        var windowWidth = $(window).width();
+        const windowWidth = $(window).width();
 
         if (windowWidth < 768) {
             $('#pma_navigation_resizer').css({ 'width': '0px' });
         }
 
         // create submenu container
-        var link = $('<a></a>', {
+        const link = $('<a></a>', {
             'href': '#',
             'class': 'nav-link dropdown-toggle',
             'id': 'navbarDropdown',
             'role': 'button',
             'data-bs-toggle': 'dropdown',
             'aria-haspopup': 'true',
-            'aria-expanded': 'false'
+            'aria-expanded': 'false',
         }).text(window.Messages.strMore);
 
-        var img = $container.find('li img');
+        const img = $container.find('li img');
         if (img.length) {
             $(getImageTag('b_more').toString()).prependTo(link);
         }
 
-        var $submenu = $('<li></li>', { 'class': 'nav-item dropdown d-none' })
+        const $submenu = $('<li></li>', { 'class': 'nav-item dropdown d-none' })
             .append(link)
             .append($('<ul></ul>', {
                 'class': 'dropdown-menu dropdown-menu-end',
-                'aria-labelledby': 'navbarDropdown'
+                'aria-labelledby': 'navbarDropdown',
             }));
         $container.append($submenu);
         setTimeout(function () {
@@ -61,24 +61,24 @@ import getImageTag from './modules/functions/getImageTag.ts';
     }
 
     MenuResizer.prototype.resize = function () {
-        var wmax = this.widthCalculator.call(this.$container);
-        var windowWidth = $(window).width();
-        var $submenu = this.$container.find('.nav-item.dropdown').last();
-        var submenuW = $submenu.outerWidth(true);
-        var $submenuUl = $submenu.find('.dropdown-menu');
-        var $li = this.$container.find('> li');
-        var $li2 = $submenuUl.find('.dropdown-item');
-        var moreShown = $li2.length > 0;
+        let wmax = this.widthCalculator.call(this.$container);
+        let windowWidth = $(window).width();
+        const $submenu = this.$container.find('.nav-item.dropdown').last();
+        const submenuW = $submenu.outerWidth(true);
+        const $submenuUl = $submenu.find('.dropdown-menu');
+        const $li = this.$container.find('> li');
+        const $li2 = $submenuUl.find('.dropdown-item');
+        let moreShown = $li2.length > 0;
         // Calculate the total width used by all the shown tabs
-        var totalLen = moreShown ? submenuW : 0;
-        var l = $li.length - 1;
-        var i;
+        let totalLen = moreShown ? submenuW : 0;
+        let l = $li.length - 1;
+        let i;
         for (i = 0; i < l; i++) {
             totalLen += $($li[i]).outerWidth(true);
         }
 
         // eslint-disable-next-line compat/compat
-        var hasVScroll = document.body.scrollHeight > document.body.clientHeight;
+        const hasVScroll = document.body.scrollHeight > document.body.clientHeight;
         if (hasVScroll) {
             windowWidth += 15;
         }
@@ -88,12 +88,12 @@ import getImageTag from './modules/functions/getImageTag.ts';
         }
 
         // Now hide menu elements that don't fit into the menubar
-        var hidden = false; // Whether we have hidden any tabs
+        let hidden = false; // Whether we have hidden any tabs
         while (totalLen >= wmax && --l >= 0) { // Process the tabs backwards
             hidden = true;
-            var el = $($li[l]);
+            const el = $($li[l]);
             el.removeClass('nav-item').addClass('dropdown-item');
-            var elWidth = el.outerWidth(true);
+            const elWidth = el.outerWidth(true);
             el.data('width', elWidth);
             if (! moreShown) {
                 totalLen -= elWidth;
@@ -141,27 +141,27 @@ import getImageTag from './modules/functions/getImageTag.ts';
     };
 
     MenuResizer.prototype.destroy = function () {
-        var $submenu = this.$container.find('.nav-item.dropdown').removeData();
+        const $submenu = this.$container.find('.nav-item.dropdown').removeData();
         $submenu.find('li').appendTo(this.$container);
         $submenu.remove();
     };
 
     /** Public API */
-    var methods = {
+    const methods = {
         init: function (widthCalculator) {
             return this.each(function () {
-                var $this = $(this);
+                const $this = $(this);
                 if (! $this.data('menuResizer')) {
                     $this.data(
                         'menuResizer',
-                        new MenuResizer($this, widthCalculator)
+                        new MenuResizer($this, widthCalculator),
                     );
                 }
             });
         },
         resize: function () {
             return this.each(function () {
-                var self = $(this).data('menuResizer');
+                const self = $(this).data('menuResizer');
                 if (self) {
                     self.resize();
                 }
@@ -169,12 +169,12 @@ import getImageTag from './modules/functions/getImageTag.ts';
         },
         destroy: function () {
             return this.each(function () {
-                var self = $(this).data('menuResizer');
+                const self = $(this).data('menuResizer');
                 if (self) {
                     self.destroy();
                 }
             });
-        }
+        },
     };
 
     /**
