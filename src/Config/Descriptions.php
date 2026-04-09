@@ -772,6 +772,7 @@ class Descriptions
             'Import_csv_enclosed_name' => __('Columns enclosed with'),
             'Import_csv_escaped_name' => __('Columns escaped with'),
             'Import_csv_ignore_name' => __('Do not abort on INSERT error'),
+            'Import_csv_empty_as_null_name' => __('Import empty values as NULL'),
             'Import_csv_replace_name' => __('Add ON DUPLICATE KEY UPDATE'),
             'Import_csv_terminated_name' => __('Columns terminated with'),
             'Import_format_name' => __('Format of imported file'),

@@ -61,6 +61,7 @@ class ImportCsv extends AbstractImportCsv
     private string $columns = '';
     private int $maxLines = 0;
     private bool $csvHasColumnNames = false;
+    private bool $emptyAsNull = false;
     private string $newDatabaseName = '';
     private string $newTableName = '';
 
@@ -151,6 +152,12 @@ class ImportCsv extends AbstractImportCsv
         );
         $generalOptions->addProperty($leaf);
 
+        $leaf = new BoolPropertyItem(
+            'csv_empty_as_null',
+            __('Import empty values as NULL'),
+        );
+        $generalOptions->addProperty($leaf);
+
         // add the main group to the root group
         $importSpecificOptions->addProperty($generalOptions);
 
@@ -171,6 +178,7 @@ class ImportCsv extends AbstractImportCsv
         $this->columns = $request->getParsedBodyParamAsString('csv_columns', '');
         $this->maxLines = min(0, (int) $request->getParsedBodyParamAsStringOrNull('csv_partial_import'));
         $this->csvHasColumnNames = $request->getParsedBodyParam('csv_col_names') !== null;
+        $this->emptyAsNull = $request->getParsedBodyParam('csv_empty_as_null') !== null;
         $this->newDatabaseName = $request->getParsedBodyParamAsString('csv_new_db_name', '');
         $this->newTableName = $request->getParsedBodyParamAsString('csv_new_tbl_name', '');
     }
@@ -379,6 +387,11 @@ class ImportCsv extends AbstractImportCsv
                         $value = null;
                     }
 
+                    // Transform empty values to NULL
+                    if ($this->emptyAsNull && $value === '') {
+                        $value = null;
+                    }
+
                     if ($fail) {
                         $i = $fallbacki;
                         $ch = $buffer[$i];
@@ -577,6 +590,27 @@ class ImportCsv extends AbstractImportCsv
         /* Fill out all rows */
         foreach ($rows as $i => $row) {
             $rows[$i] = array_pad($row, $maxCols, 'NULL');
+        }
+
+        if ($this->emptyAsNull) {
+            foreach ($rows as &$row) {
+                foreach ($row as &$value) {
+                    if ($value === null) {
+                        $value = 'NULL';
+                        continue;
+                    }
+
+                    if ($value !== '') {
+                        continue;
+                    }
+
+                    $value = 'NULL';
+                }
+
+                unset($value);
+            }
+
+            unset($row);
         }
 
         $colNames = [];

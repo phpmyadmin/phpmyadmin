@@ -168,6 +168,7 @@ class PluginsTest extends AbstractTestCase
             <li class="list-group-item"><label for="number_csv_partial_import" class="form-label">Import these many number of rows (optional):</label><input class="form-control" type="number" name="csv_partial_import" value="" id="number_csv_partial_import" min="0">
             <li class="list-group-item"><label for="text_csv_columns" class="form-label">Column names: <span class="pma_hint"><img src="themes/dot.gif" title="" alt="" class="icon ic_b_help"><span class="hide">If the data in each row of the file is not in the same order as in the database, list the corresponding column names here. Column names must be separated by commas and not enclosed in quotations.</span></span></label><input class="form-control" type="text" name="csv_columns" value="" id="text_csv_columns">
             <li class="list-group-item"><div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" name="csv_ignore" value="y" id="checkbox_csv_ignore" ><label class="form-check-label" for="checkbox_csv_ignore">Do not abort on INSERT error</label></div>
+            <li class="list-group-item"><div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" name="csv_empty_as_null" value="y" id="checkbox_csv_empty_as_null" ><label class="form-check-label" for="checkbox_csv_empty_as_null">Import empty values as NULL</label></div>
             </ul></div>
             </div>
 

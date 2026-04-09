@@ -258,6 +258,105 @@ final class ImportCsvTest extends AbstractTestCase
     }
 
     /**
+     * Test for doImport replace empty values by NULL
+     */
+    public function testDoImportEmptyAsNull(): void
+    {
+        ImportSettings::$importFile = 'none';
+        Import::$importText = '"Row 1","Row 2"' . "\n" . '"","456"';
+
+        $dummyDbi = $this->createDbiDummy();
+        $importCsv = $this->getImportCsv($this->createDatabaseInterface($dummyDbi));
+
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
+            ->withParsedBody([
+                'csv_terminated' => ',',
+                'csv_enclosed' => '"',
+                'csv_escaped' => '"',
+                'csv_new_line' => 'auto',
+                'csv_empty_as_null' => 'yes',
+                'csv_columns' => null,
+            ]);
+        $importCsv->setImportOptions($request);
+
+        $dummyDbi->addResult(
+            'SHOW DATABASES',
+            [],
+        );
+
+        $dummyDbi->addResult(
+            'SELECT 1 FROM information_schema.VIEWS'
+            . ' WHERE TABLE_SCHEMA = \'CSV_DB 1\' AND TABLE_NAME = \'db_test\'',
+            [],
+        );
+
+        $importCsv->doImport();
+
+        self::assertSame(
+            'CREATE DATABASE IF NOT EXISTS `CSV_DB 1` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;'
+            . 'CREATE TABLE IF NOT EXISTS `CSV_DB 1`.`db_test` (`COL 1` varchar(5), `COL 2` varchar(5));'
+            . 'INSERT INTO `CSV_DB 1`.`db_test`'
+            . ' (`COL 1`, `COL 2`) VALUES (\'Row 1\', \'Row 2\'),' . "\n" . ' (NULL, \'456\');',
+            Current::$sqlQuery,
+        );
+
+        self::assertTrue(ImportSettings::$finished);
+        $dummyDbi->assertAllQueriesConsumed();
+    }
+
+    /**
+     * Test for doImport replace empty values by NULL on an existing table
+     */
+    public function testDoImportEmptyAsNullOnExistingTable(): void
+    {
+        Current::$database = 'CSV_DB 1';
+        Current::$table = 'db_test';
+
+        ImportSettings::$importFile = 'none';
+        ImportSettings::$importType = 'table';
+
+        Import::$importText = '"Row 1","Row 2"' . "\n" . '"","456"';
+
+        $dummyDbi = $this->createDbiDummy();
+        $importCsv = $this->getImportCsv($this->createDatabaseInterface($dummyDbi));
+
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
+            ->withParsedBody([
+                'csv_terminated' => ',',
+                'csv_enclosed' => '"',
+                'csv_escaped' => '"',
+                'csv_new_line' => 'auto',
+                'csv_empty_as_null' => 'yes',
+                'csv_columns' => null,
+            ]);
+        $importCsv->setImportOptions($request);
+
+        $dummyDbi->addResult(
+            'SELECT `COLUMN_NAME`, `COLUMN_TYPE`'
+            . ' FROM `information_schema`.`COLUMNS` WHERE `TABLE_SCHEMA`'
+            . ' COLLATE utf8_bin = \'CSV_DB 1\' AND `TABLE_NAME`'
+            . ' COLLATE utf8_bin = \'db_test\' ORDER BY `ORDINAL_POSITION`',
+            [
+                ['COL 1', 'varchar(2)'],
+                ['COL 2', 'varchar(4)'],
+            ],
+            ['COLUMN_NAME', 'COLUMN_TYPE'],
+        );
+
+        $importCsv->doImport();
+
+        self::assertNull(Current::$message);
+
+        self::assertSame(
+            'INSERT INTO `db_test` VALUES (\'Row 1\', \'Row 2\');INSERT INTO `db_test` VALUES (NULL, \'456\');',
+            Current::$sqlQuery,
+        );
+
+        self::assertTrue(ImportSettings::$finished);
+        $dummyDbi->assertAllQueriesConsumed();
+    }
+
+    /**
      * Test for doImport skipping headers
      */
     public function testDoImportSkipHeaders(): void

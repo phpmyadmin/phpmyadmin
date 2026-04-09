@@ -29,6 +29,7 @@ class ImportForm extends BaseForm
                 ':group:' . __('CSV'),
                 'Import/csv_replace',
                 'Import/csv_ignore',
+                'Import/csv_empty_as_null',
                 'Import/csv_terminated',
                 'Import/csv_enclosed',
                 'Import/csv_escaped',

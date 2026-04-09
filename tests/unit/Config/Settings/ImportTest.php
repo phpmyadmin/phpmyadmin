@@ -159,6 +159,15 @@ class ImportTest extends TestCase
         self::assertSame($expected, $importArray['csv_ignore']);
     }
 
+    #[DataProvider('booleanWithDefaultFalseProvider')]
+    public function testCsvEmptyAsNull(mixed $actual, bool $expected): void
+    {
+        $import = new Import(['csv_empty_as_null' => $actual]);
+        $importArray = $import->asArray();
+        self::assertSame($expected, $import->csv_empty_as_null);
+        self::assertSame($expected, $importArray['csv_empty_as_null']);
+    }
+
     #[DataProvider('valuesForCsvTerminatedProvider')]
     public function testCsvTerminated(mixed $actual, string $expected): void
     {

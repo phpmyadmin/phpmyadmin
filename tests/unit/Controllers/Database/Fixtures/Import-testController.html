@@ -329,6 +329,26 @@
   </tr>
 <tr class="group-field group-field-1">
   <th>
+    <label for="Import-csv_empty_as_null">Import empty values as NULL</label>
+
+    
+    
+      </th>
+
+  <td>
+          <span class="checkbox">
+        <input type="checkbox" name="Import-csv_empty_as_null" id="Import-csv_empty_as_null">
+      </span>
+    
+    
+    
+          <a class="restore-default hide" href="#Import-csv_empty_as_null" title="Restore default value"><img src="themes/dot.gif" title="Restore default value" alt="Restore default value" class="icon ic_s_reload"></a>
+    
+          </td>
+
+  </tr>
+<tr class="group-field group-field-1">
+  <th>
     <label for="Import-csv_terminated">Columns terminated with</label>
 
     
@@ -638,7 +658,7 @@
 
 <span id="configInlineParamsData"
       data-field-validators="&#x5B;&#x7B;&quot;fieldId&quot;&#x3A;&quot;Import-skip_queries&quot;,&quot;name&quot;&#x3A;&quot;validateNonNegativeNumber&quot;,&quot;args&quot;&#x3A;null&#x7D;,&#x7B;&quot;fieldId&quot;&#x3A;&quot;Import-csv_terminated&quot;,&quot;name&quot;&#x3A;&quot;validateByRegex&quot;,&quot;args&quot;&#x3A;&#x5B;&quot;&#x5C;&#x2F;&#x5E;.&#x24;&#x5C;&#x2F;&quot;&#x5D;&#x7D;,&#x7B;&quot;fieldId&quot;&#x3A;&quot;Import-csv_enclosed&quot;,&quot;name&quot;&#x3A;&quot;validateByRegex&quot;,&quot;args&quot;&#x3A;&#x5B;&quot;&#x5C;&#x2F;&#x5E;.&#x3F;&#x24;&#x5C;&#x2F;&quot;&#x5D;&#x7D;,&#x7B;&quot;fieldId&quot;&#x3A;&quot;Import-csv_escaped&quot;,&quot;name&quot;&#x3A;&quot;validateByRegex&quot;,&quot;args&quot;&#x3A;&#x5B;&quot;&#x5C;&#x2F;&#x5E;.&#x24;&#x5C;&#x2F;&quot;&#x5D;&#x7D;,&#x7B;&quot;fieldId&quot;&#x3A;&quot;Import-ldi_terminated&quot;,&quot;name&quot;&#x3A;&quot;validateByRegex&quot;,&quot;args&quot;&#x3A;&#x5B;&quot;&#x5C;&#x2F;&#x5E;.&#x24;&#x5C;&#x2F;&quot;&#x5D;&#x7D;,&#x7B;&quot;fieldId&quot;&#x3A;&quot;Import-ldi_enclosed&quot;,&quot;name&quot;&#x3A;&quot;validateByRegex&quot;,&quot;args&quot;&#x3A;&#x5B;&quot;&#x5C;&#x2F;&#x5E;.&#x3F;&#x24;&#x5C;&#x2F;&quot;&#x5D;&#x7D;,&#x7B;&quot;fieldId&quot;&#x3A;&quot;Import-ldi_escaped&quot;,&quot;name&quot;&#x3A;&quot;validateByRegex&quot;,&quot;args&quot;&#x3A;&#x5B;&quot;&#x5C;&#x2F;&#x5E;.&#x24;&#x5C;&#x2F;&quot;&#x5D;&#x7D;&#x5D;"
-      data-default-values="&#x7B;&quot;Import-format&quot;&#x3A;&#x5B;&quot;sql&quot;&#x5D;,&quot;Import-charset&quot;&#x3A;&#x5B;&quot;&quot;&#x5D;,&quot;Import-allow_interrupt&quot;&#x3A;true,&quot;Import-skip_queries&quot;&#x3A;&quot;0&quot;,&quot;enable_drag_drop_import&quot;&#x3A;true,&quot;Import-sql_compatibility&quot;&#x3A;&#x5B;&quot;NONE&quot;&#x5D;,&quot;Import-sql_no_auto_value_on_zero&quot;&#x3A;true,&quot;Import-sql_read_as_multibytes&quot;&#x3A;false,&quot;Import-csv_replace&quot;&#x3A;false,&quot;Import-csv_ignore&quot;&#x3A;false,&quot;Import-csv_terminated&quot;&#x3A;&quot;,&quot;,&quot;Import-csv_enclosed&quot;&#x3A;&quot;&#x5C;&quot;&quot;,&quot;Import-csv_escaped&quot;&#x3A;&quot;&#x5C;&quot;&quot;,&quot;Import-csv_col_names&quot;&#x3A;false,&quot;Import-ldi_replace&quot;&#x3A;false,&quot;Import-ldi_ignore&quot;&#x3A;false,&quot;Import-ldi_terminated&quot;&#x3A;&quot;&#x3B;&quot;,&quot;Import-ldi_enclosed&quot;&#x3A;&quot;&#x5C;&quot;&quot;,&quot;Import-ldi_escaped&quot;&#x3A;&quot;&#x5C;&#x5C;&quot;,&quot;Import-ldi_local_option&quot;&#x3A;&#x5B;&quot;auto&quot;&#x5D;,&quot;Import-ods_col_names&quot;&#x3A;false,&quot;Import-ods_empty_rows&quot;&#x3A;true,&quot;Import-ods_recognize_percentages&quot;&#x3A;true,&quot;Import-ods_recognize_currency&quot;&#x3A;true&#x7D;"></span>
+      data-default-values="&#x7B;&quot;Import-format&quot;&#x3A;&#x5B;&quot;sql&quot;&#x5D;,&quot;Import-charset&quot;&#x3A;&#x5B;&quot;&quot;&#x5D;,&quot;Import-allow_interrupt&quot;&#x3A;true,&quot;Import-skip_queries&quot;&#x3A;&quot;0&quot;,&quot;enable_drag_drop_import&quot;&#x3A;true,&quot;Import-sql_compatibility&quot;&#x3A;&#x5B;&quot;NONE&quot;&#x5D;,&quot;Import-sql_no_auto_value_on_zero&quot;&#x3A;true,&quot;Import-sql_read_as_multibytes&quot;&#x3A;false,&quot;Import-csv_replace&quot;&#x3A;false,&quot;Import-csv_ignore&quot;&#x3A;false,&quot;Import-csv_empty_as_null&quot;&#x3A;false,&quot;Import-csv_terminated&quot;&#x3A;&quot;,&quot;,&quot;Import-csv_enclosed&quot;&#x3A;&quot;&#x5C;&quot;&quot;,&quot;Import-csv_escaped&quot;&#x3A;&quot;&#x5C;&quot;&quot;,&quot;Import-csv_col_names&quot;&#x3A;false,&quot;Import-ldi_replace&quot;&#x3A;false,&quot;Import-ldi_ignore&quot;&#x3A;false,&quot;Import-ldi_terminated&quot;&#x3A;&quot;&#x3B;&quot;,&quot;Import-ldi_enclosed&quot;&#x3A;&quot;&#x5C;&quot;&quot;,&quot;Import-ldi_escaped&quot;&#x3A;&quot;&#x5C;&#x5C;&quot;,&quot;Import-ldi_local_option&quot;&#x3A;&#x5B;&quot;auto&quot;&#x5D;,&quot;Import-ods_col_names&quot;&#x3A;false,&quot;Import-ods_empty_rows&quot;&#x3A;true,&quot;Import-ods_recognize_percentages&quot;&#x3A;true,&quot;Import-ods_recognize_currency&quot;&#x3A;true&#x7D;"></span>
 </div></div>
 
   <iframe id="import_upload_iframe" name="import_upload_iframe" width="1" height="1" class="hide"></iframe>
@@ -761,6 +781,7 @@
 <li class="list-group-item"><label for="number_csv_partial_import" class="form-label">Import these many number of rows (optional):</label><input class="form-control" type="number" name="csv_partial_import" value="" id="number_csv_partial_import" min="0">
 <li class="list-group-item"><div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" name="csv_col_names" value="y" id="checkbox_csv_col_names" ><label class="form-check-label" for="checkbox_csv_col_names">The first line of the file contains the table column names <i>(if this is unchecked, the first line will become part of the data)</i></label></div>
 <li class="list-group-item"><div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" name="csv_ignore" value="y" id="checkbox_csv_ignore" ><label class="form-check-label" for="checkbox_csv_ignore">Do not abort on INSERT error</label></div>
+<li class="list-group-item"><div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" name="csv_empty_as_null" value="y" id="checkbox_csv_empty_as_null" ><label class="form-check-label" for="checkbox_csv_empty_as_null">Import empty values as NULL</label></div>
 </ul></div>
 </div>
 
