@@ -398,7 +398,6 @@ class DbiDummy implements DbiExtension
                 ],
             ],
             ['query' => 'SHOW ENGINE INNODB STATUS;', 'result' => false],
-            ['query' => 'SELECT @@innodb_version;', 'result' => [['1.1.8']]],
             ['query' => 'SELECT @@disabled_storage_engines', 'result' => [['']]],
             ['query' => 'SHOW GLOBAL VARIABLES ;', 'result' => []],
             [

@@ -219,7 +219,7 @@ var DragDropImport = {
         }
 
         // Not a file drag at all
-        if ($.inArray('Files', types) < 0) {
+        if ($.inArray('Files', types) === -1) {
             return false;
         }
 
@@ -227,12 +227,12 @@ var DragDropImport = {
         // "Firefox also adds a non-standard text item of type application/x-moz-file
         // containing the full path of the file on the user's file system. Unless within
         // privileged code (such as an extension), its value is the empty string."
-        if ($.inArray('application/x-moz-file', types) > 0) {
+        if ($.inArray('application/x-moz-file', types) !== -1) {
             return true;
         }
 
         // Firefox native image drag - exclude it
-        if ($.inArray('application/x-moz-nativeimage', types) >= 0) {
+        if ($.inArray('application/x-moz-nativeimage', types) === -1) {
             return false;
         }
 
@@ -240,7 +240,7 @@ var DragDropImport = {
         // dragging browser-internal elements like images or icons. These drags also
         // include 'text/uri-list' and/or 'text/html', which are not present when
         // the user is dragging a real file from the OS filesystem.
-        if ($.inArray('text/uri-list', types) >= 0 || $.inArray('text/html', types) >= 0) {
+        if ($.inArray('text/uri-list', types) !== -1 || $.inArray('text/html', types) !== -1) {
             return false;
         }
 
