@@ -56,11 +56,12 @@ final class SimulateDml
         }
 
         // Execute the query and get the number of matched rows.
-        $matchedRows = $this->executeMatchedRowQuery($matchedRowsQuery);
+        $matchedRows = $this->executeMatchedRowQuery($matchedRowsQuery['count']);
+        $selectQuery = $matchedRowsQuery['select'];
         $matchedRowsUrl = Url::getFromRoute('/sql', [
             'db' => $GLOBALS['db'],
-            'sql_query' => $matchedRowsQuery,
-            'sql_signature' => Core::signSqlQuery($matchedRowsQuery),
+            'sql_query' => $selectQuery,
+            'sql_signature' => Core::signSqlQuery($selectQuery),
         ]);
 
         return [
@@ -78,20 +79,20 @@ final class SimulateDml
     private function executeMatchedRowQuery(string $matchedRowQuery): int
     {
         $this->dbi->selectDb($GLOBALS['db']);
-        $result = $this->dbi->tryQuery($matchedRowQuery);
-        if (! $result) {
+        $count = $this->dbi->fetchValue($matchedRowQuery);
+        if ($count === false) {
             return 0;
         }
 
-        return (int) $result->numRows();
+        return (int) $count;
     }
 
     /**
      * Transforms a DELETE query into SELECT statement.
      *
-     * @return string SQL query
+     * @psalm-return array{select: string, count: string}  SQL queries
      */
-    private function getSimulatedDeleteQuery(Parser $parser, DeleteStatement $statement): string
+    private function getSimulatedDeleteQuery(Parser $parser, DeleteStatement $statement): array
     {
         $tableReferences = Query::getTables($statement);
         Assert::count($tableReferences, 1, 'No joins allowed in simulation query');
@@ -104,15 +105,22 @@ final class SimulateDml
             : ' ORDER BY ' . Query::getClause($statement, $parser->list, 'ORDER BY');
         $limit = $statement->limit === null ? '' : ' LIMIT ' . Query::getClause($statement, $parser->list, 'LIMIT');
 
-        return 'SELECT * FROM ' . $tableReferences[0] . $where . $order . $limit;
+        return [
+            'select' => 'SELECT * FROM (' .
+                'SELECT * FROM ' . $tableReferences[0] . $where . $order . $limit .
+                ') AS pma_tmp',
+            'count' => 'SELECT COUNT(*) FROM (' .
+                'SELECT 1 FROM ' . $tableReferences[0] . $where . $order . $limit .
+                ') AS pma_tmp',
+        ];
     }
 
     /**
      * Transforms a UPDATE query into SELECT statement.
      *
-     * @return string SQL query
+     * @psalm-return array{select: string, count: string} SQL queies
      */
-    private function getSimulatedUpdateQuery(Parser $parser, UpdateStatement $statement): string
+    private function getSimulatedUpdateQuery(Parser $parser, UpdateStatement $statement): array
     {
         $tableReferences = Query::getTables($statement);
         Assert::count($tableReferences, 1, 'No joins allowed in simulation query');
@@ -129,7 +137,7 @@ final class SimulateDml
             }
 
             $oldColumns[] = Util::backquote($column);
-            $values[$column] = $set->value . ' AS ' . ($newColumns[] = Util::backquote($column . ' `new`'));
+            $values[$column] = $set->value . ' AS ' . ($newColumns[] = Util::backquote($column . ' *new*'));
         }
 
         $condition = Query::getClause($statement, $parser->list, 'WHERE');
@@ -139,10 +147,18 @@ final class SimulateDml
             : ' ORDER BY ' . Query::getClause($statement, $parser->list, 'ORDER BY');
         $limit = $statement->limit === null ? '' : ' LIMIT ' . Query::getClause($statement, $parser->list, 'LIMIT');
 
-        return 'SELECT *' .
-            ' FROM (' .
-            'SELECT *, ' . implode(', ', $values) . ' FROM ' . $tableReferences[0] . $where . $order . $limit .
-            ') AS `pma_tmp`' .
-            ' WHERE NOT (' . implode(', ', $oldColumns) . ') <=> (' . implode(', ', $newColumns) . ')';
+        return [
+            'select' => 'SELECT *' .
+                ' FROM (' .
+                'SELECT *, ' . implode(', ', $values) . ' FROM ' . $tableReferences[0] . $where . $order . $limit .
+                ') AS `pma_tmp`' .
+                ' WHERE NOT (' . implode(', ', $oldColumns) . ') <=> (' . implode(', ', $newColumns) . ')',
+            'count' => 'SELECT COUNT(*)' .
+                ' FROM (' .
+                'SELECT ' . implode(', ', $oldColumns) . ', ' . implode(', ', $values) .
+                ' FROM ' . $tableReferences[0] . $where . $order . $limit .
+                ') AS `pma_tmp`' .
+                ' WHERE NOT (' . implode(', ', $oldColumns) . ') <=> (' . implode(', ', $newColumns) . ')',
+        ];
     }
 }
