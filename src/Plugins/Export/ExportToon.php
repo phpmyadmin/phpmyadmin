@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\Config\Settings\Export;
+use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Export\StructureOrData;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\ExportPlugin;
@@ -95,7 +96,7 @@ class ExportToon extends ExportPlugin
         $dbAlias = $this->getDbAlias($aliases, $db);
         $tableAlias = $this->getTableAlias($aliases, $db, $table);
         // use buffered query to get $rowsCnt
-        $result = $this->dbi->queryAsControlUser($sqlQuery);
+        $result = $this->dbi->query($sqlQuery, ConnectionType::User, unbuffered: false);
 
         $columnsCnt = $result->numFields();
         $rowsCnt = $result->numRows();
