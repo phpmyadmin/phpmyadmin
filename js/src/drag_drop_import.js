@@ -218,6 +218,14 @@ var DragDropImport = {
             return false;
         }
 
+        // Firefox native file drag - allow it
+        // "Firefox also adds a non-standard text item of type application/x-moz-file
+        // containing the full path of the file on the user's file system. Unless within
+        // privileged code (such as an extension), its value is the empty string."
+        if ($.inArray('application/x-moz-file', types) >= 0) {
+            return true;
+        }
+
         // Firefox native image drag - exclude it
         if ($.inArray('application/x-moz-nativeimage', types) >= 0) {
             return false;
