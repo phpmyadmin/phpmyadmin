@@ -31,6 +31,10 @@ var DragDropImport = {
      */
     importStatus: [],
     /**
+     * @var {boolean}, true when drag was initiated from current document DOM
+     */
+    internalDomDrag: false,
+    /**
      * Checks if any dropped file has valid extension or not
      *
      * @param {string} file filename
@@ -169,6 +173,32 @@ var DragDropImport = {
         $('.pma_drop_handler').fadeIn();
     },
     /**
+     * Marks drag as internal if it starts from current page DOM.
+     *
+     * @param {MouseEvent} event obj
+     *
+     * @return {void}
+     */
+    markInternalDrag: function (event) {
+        var dataTransfer = event.originalEvent && event.originalEvent.dataTransfer;
+
+        // OS file drags do not trigger dragstart on current document.
+        // If we can already detect real file payload here, do not mark internal.
+        if (dataTransfer && dataTransfer.types && $.inArray('Files', dataTransfer.types) >= 0) {
+            return;
+        }
+
+        DragDropImport.internalDomDrag = true;
+    },
+    /**
+     * Clears internal drag marker.
+     *
+     * @return {void}
+     */
+    clearInternalDrag: function () {
+        DragDropImport.internalDomDrag = false;
+    },
+    /**
      * Check if dragged element contains Files
      *
      * @param event the event object
@@ -176,12 +206,37 @@ var DragDropImport = {
      * @return {boolean}
      */
     hasFiles: function (event) {
-        return ! (typeof event.originalEvent.dataTransfer.types === 'undefined' ||
-            $.inArray('Files', event.originalEvent.dataTransfer.types) < 0 ||
-            $.inArray(
-                'application/x-moz-nativeimage',
-                event.originalEvent.dataTransfer.types
-            ) >= 0);
+        var dataTransfer = event.originalEvent.dataTransfer;
+        var types = dataTransfer.types;
+
+        // Chrome/Edge may expose browser-internal drags as 'Files'.
+        if (DragDropImport.internalDomDrag) {
+            return false;
+        }
+
+        if (typeof types === 'undefined') {
+            return false;
+        }
+
+        // Not a file drag at all
+        if ($.inArray('Files', types) < 0) {
+            return false;
+        }
+
+        // Firefox native image drag - exclude it
+        if ($.inArray('application/x-moz-nativeimage', types) >= 0) {
+            return false;
+        }
+
+        // Chromium browsers (Chrome, Edge, Brave, Opera) include 'Files' even when
+        // dragging browser-internal elements like images or icons. These drags also
+        // include 'text/uri-list' and/or 'text/html', which are not present when
+        // the user is dragging a real file from the OS filesystem.
+        if ($.inArray('text/uri-list', types) >= 0 || $.inArray('text/html', types) >= 0) {
+            return false;
+        }
+
+        return true;
     },
     /**
      * Triggered when dragged file is being dragged over PMA UI
@@ -283,6 +338,14 @@ var DragDropImport = {
         var dbname = CommonParams.get('db');
         var server = CommonParams.get('server');
 
+        if (!DragDropImport.hasFiles(event)) {
+            DragDropImport.clearInternalDrag();
+            $('.pma_drop_handler').fadeOut();
+            event.stopPropagation();
+            event.preventDefault();
+            return;
+        }
+
         // if no database is selected -- no
         if (dbname !== '') {
             var files = event.originalEvent.dataTransfer.files;
@@ -347,6 +410,7 @@ var DragDropImport = {
             }
         }
 
+        DragDropImport.clearInternalDrag();
         $('.pma_drop_handler').fadeOut();
         event.stopPropagation();
         event.preventDefault();
@@ -359,6 +423,8 @@ var DragDropImport = {
 $(document).on('dragenter', DragDropImport.dragEnter);
 $(document).on('dragover', DragDropImport.dragOver);
 $(document).on('dragleave', '.pma_drop_handler', DragDropImport.dragLeave);
+$(document).on('dragstart', DragDropImport.markInternalDrag);
+$(document).on('dragend drop', DragDropImport.clearInternalDrag);
 
 // when file is dropped to PMA UI
 $(document).on('drop', 'body', DragDropImport.drop);

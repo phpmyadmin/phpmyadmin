@@ -37,11 +37,11 @@ final class Processes
             $urlParams['order_by_field'] = $orderByField;
             $urlParams['sort_order'] = $sortOrder;
             $urlParams['showExecuting'] = $showExecuting;
-            $sqlQuery = 'SELECT * FROM `INFORMATION_SCHEMA`.`PROCESSLIST` ';
+            $sqlQuery = 'SELECT * FROM `INFORMATION_SCHEMA`.`PROCESSLIST`';
         }
 
         if ($showExecuting) {
-            $sqlQuery .= ' WHERE state != "" ';
+            $sqlQuery .= " WHERE `COMMAND` <> 'Sleep' AND `STATE` <> 'Waiting for next activation'";
         }
 
         if ($orderByField !== '' && $sortOrder !== '') {
