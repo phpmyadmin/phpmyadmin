@@ -227,14 +227,6 @@ class InnodbTest extends AbstractTestCase
     }
 
     /**
-     * Test for getInnodbPluginVersion
-     */
-    public function testGetInnodbPluginVersion(): void
-    {
-        self::assertSame('1.1.8', $this->object->getInnodbPluginVersion());
-    }
-
-    /**
      * Test for supportsFilePerTable
      */
     public function testSupportsFilePerTable(): void
@@ -260,7 +252,9 @@ class InnodbTest extends AbstractTestCase
         $dbi = $this->createStub(DatabaseInterface::class);
 
         $dbi->method('isMariaDB')->willReturn(false);
+        $dbi->method('isMySql')->willReturn(true);
         $dbi->method('getVersion')->willReturn(80000);
+        $dbi->method('fetchValue')->willReturn('Barracuda');
 
         self::assertSame('', $this->object->getInnodbFileFormat());
     }
@@ -275,9 +269,28 @@ class InnodbTest extends AbstractTestCase
         $dbi = $this->createStub(DatabaseInterface::class);
 
         $dbi->method('isMariaDB')->willReturn(false);
+        $dbi->method('isMySql')->willReturn(true);
         $dbi->method('getVersion')->willReturn(50000);
+        $dbi->method('fetchValue')->willReturn('Barracuda');
 
-        self::assertSame('', $this->object->getInnodbFileFormat());
+        self::assertSame('Barracuda', $this->object->getInnodbFileFormat());
+    }
+
+    /**
+     * Test for getInnodbFileFormat on MySQL 5 with error
+     */
+    public function testGetInnodbFileFormatOnMySQL5WithError(): void
+    {
+        global $dbi;
+
+        $dbi = $this->createStub(DatabaseInterface::class);
+
+        $dbi->method('isMariaDB')->willReturn(false);
+        $dbi->method('isMySql')->willReturn(true);
+        $dbi->method('getVersion')->willReturn(50000);
+        $dbi->method('fetchValue')->willReturn(false);
+
+        self::assertNull($this->object->getInnodbFileFormat());
     }
 
     /**
@@ -290,7 +303,9 @@ class InnodbTest extends AbstractTestCase
         $dbi = $this->createStub(DatabaseInterface::class);
 
         $dbi->method('isMariaDB')->willReturn(true);
+        $dbi->method('isMySql')->willReturn(false);
         $dbi->method('getVersion')->willReturn(100600);
+        $dbi->method('fetchValue')->willReturn('Barracuda');
 
         self::assertSame('', $this->object->getInnodbFileFormat());
     }

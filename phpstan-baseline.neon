@@ -16777,21 +16777,16 @@ parameters:
 
 		-
 			message: "#^Cannot call method fetchValue\\(\\) on mixed\\.$#"
-			count: 4
-			path: libraries/classes/Engines/Innodb.php
-
-		-
-			message: "#^Cannot cast mixed to string\\.$#"
 			count: 2
 			path: libraries/classes/Engines/Innodb.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Engines\\\\Innodb\\:\\:getInfoPages\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Cannot cast mixed to string\\.$#"
 			count: 1
 			path: libraries/classes/Engines/Innodb.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Engines\\\\Innodb\\:\\:getInnodbPluginVersion\\(\\) should return string but returns mixed\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Engines\\\\Innodb\\:\\:getInfoPages\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Engines/Innodb.php
 
@@ -16807,11 +16802,6 @@ parameters:
 
 		-
 			message: "#^Return type \\(array\\) of method PhpMyAdmin\\\\Engines\\\\Innodb\\:\\:getInfoPages\\(\\) should be covariant with return type \\(array\\<string\\>\\) of method PhpMyAdmin\\\\StorageEngine\\:\\:getInfoPages\\(\\)$#"
-			count: 1
-			path: libraries/classes/Engines/Innodb.php
-
-		-
-			message: "#^Short ternary operator is not allowed\\. Use null coalesce operator if applicable or consider using long ternary\\.$#"
 			count: 1
 			path: libraries/classes/Engines/Innodb.php
 
@@ -23892,7 +23882,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 11
+			count: 10
 			path: libraries/classes/Operations.php
 
 		-

@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Engines;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Util;
 
@@ -282,18 +283,6 @@ class Innodb extends StorageEngine
     }
 
     /**
-     * Gets the InnoDB plugin version number
-     *
-     * @return string the version number, or empty if not running as a plugin
-     */
-    public function getInnodbPluginVersion()
-    {
-        global $dbi;
-
-        return $dbi->fetchValue('SELECT @@innodb_version;') ?: '';
-    }
-
-    /**
      * Gets the InnoDB file format
      *
      * (do not confuse this with phpMyAdmin's storage engine plugins!)
@@ -302,17 +291,22 @@ class Innodb extends StorageEngine
      */
     public function getInnodbFileFormat(): ?string
     {
+        /** @var DatabaseInterface $dbi */// phpcs:ignore
         global $dbi;
 
-        $value = $dbi->fetchValue("SHOW GLOBAL VARIABLES LIKE 'innodb_file_format';", 1);
+        if (
+            ($dbi->isMariaDB() && $dbi->getVersion() >= 100600)
+            || ($dbi->isMySql() && $dbi->getVersion() >= 80000)
+        ) {
+              return '';
+        }
 
+        $value = $dbi->fetchValue("SHOW GLOBAL VARIABLES LIKE 'innodb_file_format';", 1);
         if ($value === false) {
-            // This variable does not exist anymore on MariaDB >= 10.6.0
-            // This variable does not exist anymore on MySQL >= 8.0.0
             return null;
         }
 
-        return (string) $value;
+        return $value;
     }
 
     /**
