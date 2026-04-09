@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Engines;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Engines\Innodb;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
@@ -247,5 +248,50 @@ class InnodbTest extends AbstractTestCase
     public function testGetInnodbFileFormat(): void
     {
         self::assertSame('Antelope', $this->object->getInnodbFileFormat());
+    }
+
+    /**
+     * Test for getInnodbFileFormat on MySQL 8
+     */
+    public function testGetInnodbFileFormatOnMySQL8(): void
+    {
+        global $dbi;
+
+        $dbi = $this->createStub(DatabaseInterface::class);
+
+        $dbi->method('isMariaDB')->willReturn(false);
+        $dbi->method('getVersion')->willReturn(80000);
+
+        self::assertSame('', $this->object->getInnodbFileFormat());
+    }
+
+    /**
+     * Test for getInnodbFileFormat on MySQL 5
+     */
+    public function testGetInnodbFileFormatOnMySQL5(): void
+    {
+        global $dbi;
+
+        $dbi = $this->createStub(DatabaseInterface::class);
+
+        $dbi->method('isMariaDB')->willReturn(false);
+        $dbi->method('getVersion')->willReturn(50000);
+
+        self::assertSame('', $this->object->getInnodbFileFormat());
+    }
+
+    /**
+     * Test for getInnodbFileFormat on MariaDB 10.6
+     */
+    public function testGetInnodbFileFormatOnMariaDB106(): void
+    {
+        global $dbi;
+
+        $dbi = $this->createStub(DatabaseInterface::class);
+
+        $dbi->method('isMariaDB')->willReturn(true);
+        $dbi->method('getVersion')->willReturn(100600);
+
+        self::assertSame('', $this->object->getInnodbFileFormat());
     }
 }
