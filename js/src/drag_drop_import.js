@@ -222,7 +222,7 @@ var DragDropImport = {
         // "Firefox also adds a non-standard text item of type application/x-moz-file
         // containing the full path of the file on the user's file system. Unless within
         // privileged code (such as an extension), its value is the empty string."
-        if ($.inArray('application/x-moz-file', types) >= 0) {
+        if ($.inArray('application/x-moz-file', types) > 0) {
             return true;
         }
 
