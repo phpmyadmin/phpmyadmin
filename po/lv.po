@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2026-04-09 18:09+0000\n"
+"PO-Revision-Date: 2026-04-11 20:09+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "lv/>\n"
@@ -10756,9 +10756,8 @@ msgid "Ignore all databases; Replicate:"
 msgstr ""
 
 #: libraries/classes/ReplicationGui.php:117
-#, fuzzy
 msgid "Please select databases:"
-msgstr "Lūdzu izvēlieties datubāzi"
+msgstr "Lūdzu, atlasiet datubāzes:"
 
 #: libraries/classes/ReplicationGui.php:121
 msgid ""
@@ -10895,10 +10894,8 @@ msgstr ""
 #: libraries/classes/ReplicationGui.php:420
 #: libraries/classes/ReplicationGui.php:795
 #: libraries/classes/Server/Privileges.php:1510
-#, fuzzy
-#| msgid "User name"
 msgid "User name:"
-msgstr "Lietotājvārds"
+msgstr "Lietotājvārds:"
 
 #: libraries/classes/ReplicationGui.php:426
 #: libraries/classes/ReplicationGui.php:799
@@ -10920,9 +10917,8 @@ msgid "Password"
 msgstr "Parole"
 
 #: libraries/classes/ReplicationGui.php:455
-#, fuzzy
 msgid "Port:"
-msgstr "Kārtošana"
+msgstr "Ports:"
 
 #: libraries/classes/ReplicationGui.php:539
 msgid "Master status"
@@ -10998,10 +10994,8 @@ msgid "Re-type"
 msgstr "Atkārtojiet"
 
 #: libraries/classes/ReplicationGui.php:886
-#, fuzzy
-#| msgid "Change password"
 msgid "Generate password:"
-msgstr "Mainīt paroli"
+msgstr "Izveidot paroli:"
 
 #: libraries/classes/ReplicationGui.php:918
 msgid ""
@@ -11896,10 +11890,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:1565
-#, fuzzy
-#| msgid "User name"
 msgid "Host name:"
-msgstr "Lietotājvārds"
+msgstr "Resursdatora nosaukums:"
 
 #: libraries/classes/Server/Privileges.php:1570
 #: libraries/classes/Server/Privileges.php:1655
@@ -12125,10 +12117,8 @@ msgid "User"
 msgstr "Lietotājs"
 
 #: libraries/classes/Server/Privileges.php:4546
-#, fuzzy
-#| msgid "Edit Privileges"
 msgid "Edit privileges:"
-msgstr "Mainīt privilēģijas"
+msgstr "Rediģēt privilēģijas:"
 
 #: libraries/classes/Server/Privileges.php:4547
 #, fuzzy
@@ -13291,10 +13281,8 @@ msgid "User group menu assignments"
 msgstr "Nav privilēģiju."
 
 #: libraries/classes/Server/UserGroups.php:252
-#, fuzzy
-#| msgid "Column names"
 msgid "Group name:"
-msgstr "Kolonnu nosaukumi"
+msgstr "Grupas nosaukums:"
 
 #: libraries/classes/Server/UserGroups.php:289
 #, fuzzy
@@ -13334,10 +13322,8 @@ msgid "Summary by state"
 msgstr ""
 
 #: libraries/classes/Sql.php:293
-#, fuzzy
-#| msgid "Total time:"
 msgid "Total Time"
-msgstr "Kopējais laiks:"
+msgstr "Kopējais laiks"
 
 #: libraries/classes/Sql.php:295
 #, fuzzy
@@ -14758,10 +14744,8 @@ msgid "Find:"
 msgstr "Atrast:"
 
 #: templates/table/search/search_and_replace.twig:3
-#, fuzzy
-#| msgid "Replace NULL by"
 msgid "Replace with:"
-msgstr "Aizvietot NULL ar"
+msgstr "Aizstāt ar:"
 
 #: templates/table/search/search_and_replace.twig:19
 #, fuzzy
@@ -15189,10 +15173,8 @@ msgid "Stacked"
 msgstr ""
 
 #: templates/table/chart/tbl_chart.twig:51
-#, fuzzy
-#| msgid "Import files"
 msgid "Chart title:"
-msgstr "Importēt failus"
+msgstr "Diagrammas/Grafika nosaukums:"
 
 #: templates/table/chart/tbl_chart.twig:56
 msgid "X-Axis:"
@@ -15229,10 +15211,8 @@ msgid "Series column:"
 msgstr "Sērijas kolonna:"
 
 #: templates/table/chart/tbl_chart.twig:132
-#, fuzzy
-#| msgid "Values for column %s"
 msgid "Value Column:"
-msgstr "Tabulas %s vērtības"
+msgstr "Vērtības kolonna:"
 
 #: templates/table/chart/tbl_chart.twig:153
 #, fuzzy
@@ -16133,10 +16113,8 @@ msgid "Export templates:"
 msgstr "Eksporta veids"
 
 #: templates/display/export/template_loading.twig:6
-#, fuzzy
-#| msgid "File name template"
 msgid "New template:"
-msgstr "Faila nosaukuma šablons"
+msgstr "Jauna veidne:"
 
 #: templates/display/export/template_loading.twig:8
 #, fuzzy
@@ -16150,16 +16128,12 @@ msgid "Create"
 msgstr "Izveidot"
 
 #: templates/display/export/template_loading.twig:16
-#, fuzzy
-#| msgid "File name template"
 msgid "Existing templates:"
-msgstr "Faila nosaukuma šablons"
+msgstr "Esošās veidnes:"
 
 #: templates/display/export/template_loading.twig:17
-#, fuzzy
-#| msgid "%s table(s)"
 msgid "Template:"
-msgstr "%s tabula(s)"
+msgstr "Veidne:"
 
 #: templates/display/export/template_loading.twig:21
 #, fuzzy
@@ -16885,9 +16859,8 @@ msgid "Parser:"
 msgstr "Lietotājs:"
 
 #: templates/table/index_form.twig:93
-#, fuzzy
 msgid "Comment:"
-msgstr "Komentāri"
+msgstr "Komentārs:"
 
 #: templates/table/index_form.twig:136 templates/table/index_form.twig:173
 msgid "Drag to reorder"
@@ -16961,10 +16934,8 @@ msgid ""
 msgstr ""
 
 #: templates/table/relation/common_form.twig:172
-#, fuzzy
-#| msgid "Choose field to display"
 msgid "Choose column to display:"
-msgstr "Izvēlieties, kuru lauku rādīt"
+msgstr "Atlasiet kolonnu, kuru rādīt:"
 
 #: url.php:41
 #, fuzzy
