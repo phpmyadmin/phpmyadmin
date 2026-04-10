@@ -738,8 +738,14 @@ export function checkTableEditForm (theForm, fieldsCnt) {
         var attrVal = String($attrField.val() || '').toUpperCase();
         if (attrVal === 'UNSIGNED' || attrVal === 'UNSIGNED ZEROFILL' || attrVal === 'ZEROFILL') {
             var numTypes = [
-                'TINYINT', 'SMALLINT', 'MEDIUMINT', 'INT', 'BIGINT',
-                'FLOAT', 'DOUBLE', 'DECIMAL',
+                'TINYINT',
+                'SMALLINT',
+                'MEDIUMINT',
+                'INT',
+                'BIGINT',
+                'FLOAT',
+                'DOUBLE',
+                'DECIMAL',
             ];
             elm3 = $('#field_' + i + '_1');
             if (numTypes.indexOf(typeVal) === -1 && elm3.val() !== '') {
@@ -1598,8 +1604,14 @@ function showNoticeForEnum (selectElement) {
 function resetAttributeForNonNumericType ($typeSelector) {
     var type = String($typeSelector.val() || '').toUpperCase();
     var numericTypes = [
-        'TINYINT', 'SMALLINT', 'MEDIUMINT', 'INT', 'BIGINT',
-        'FLOAT', 'DOUBLE', 'DECIMAL',
+        'TINYINT',
+        'SMALLINT',
+        'MEDIUMINT',
+        'INT',
+        'BIGINT',
+        'FLOAT',
+        'DOUBLE',
+        'DECIMAL',
     ];
 
     if (numericTypes.indexOf(type) === -1) {
