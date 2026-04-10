@@ -424,6 +424,11 @@
             </a>
         {% endif %}
     {% endif %}
+    {% if not db_is_system_schema %}
+        <button type="button" id="copyTableStructureBtn" class="btn btn-link p-0">
+            {{ get_icon('b_export', t('Copy Table Structure'), true) }}
+        </button>
+    {% endif %}
 </div>
 {% if not tbl_is_view and not db_is_system_schema %}
     <form method="post" action="{{ url('/table/add-field') }}" id="addColumns" name="addColumns" class="d-print-none">
@@ -623,13 +628,6 @@
 {# Displays Space usage and row statistics #}
 {% if show_stats %}
     {{ table_stats|raw }}
-{% endif %}
-{% if not db_is_system_schema %}
-  <p class="d-print-none mt-2">
-    <button type="button" id="copyTableStructureBtn" class="btn btn-link p-0">
-      {{ get_icon('b_export', t('Copy Table Structure'), true) }}
-    </button>
-  </p>
 {% endif %}
 <div class="clearfloat"></div>
 {% endblock %}
