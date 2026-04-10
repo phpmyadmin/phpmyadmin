@@ -731,6 +731,26 @@ export function checkTableEditForm (theForm, fieldsCnt) {
             }
         }
 
+        // Check for UNSIGNED/ZEROFILL on non-numeric types
+        var $typeField = $('#field_' + i + '_2');
+        var $attrField = $typeField.closest('tr').find('select[name^="field_attribute"]');
+        var typeVal = String($typeField.val() || '').toUpperCase();
+        var attrVal = String($attrField.val() || '').toUpperCase();
+        if (attrVal === 'UNSIGNED' || attrVal === 'UNSIGNED ZEROFILL' || attrVal === 'ZEROFILL') {
+            var numTypes = [
+                'TINYINT', 'SMALLINT', 'MEDIUMINT', 'INT', 'BIGINT',
+                'FLOAT', 'DOUBLE', 'DECIMAL',
+            ];
+            elm3 = $('#field_' + i + '_1');
+            if (numTypes.indexOf(typeVal) === -1 && elm3.val() !== '') {
+                $attrField.select();
+                alert(typeVal + ' ' + window.Messages.strInvalidAttribute);
+                $attrField.focus();
+
+                return false;
+            }
+        }
+
         if (atLeastOneField === 0) {
             id = 'field_' + i + '_1';
             if (! emptyCheckTheField(theForm, id)) {
@@ -1570,6 +1590,31 @@ function showNoticeForEnum (selectElement) {
 /**
  * Hides/shows a warning message when LENGTH is used with inappropriate integer type
  */
+/**
+ * Reset the attribute dropdown when the column type is changed
+ * to a non-numeric type. Attributes like UNSIGNED and ZEROFILL
+ * are only valid for numeric types.
+ */
+function resetAttributeForNonNumericType ($typeSelector) {
+    var type = String($typeSelector.val() || '').toUpperCase();
+    var numericTypes = [
+        'TINYINT', 'SMALLINT', 'MEDIUMINT', 'INT', 'BIGINT',
+        'FLOAT', 'DOUBLE', 'DECIMAL',
+    ];
+
+    if (numericTypes.indexOf(type) === -1) {
+        // Find the attribute select in the same row
+        var $row = $typeSelector.closest('tr');
+        var $attrSelect = $row.find('select[name^="field_attribute"]');
+        var currentAttr = String($attrSelect.val() || '').toUpperCase();
+        if (currentAttr === 'UNSIGNED' || currentAttr === 'UNSIGNED ZEROFILL'
+            || currentAttr === 'ZEROFILL'
+        ) {
+            $attrSelect.val('');
+        }
+    }
+}
+
 function showWarningForIntTypes () {
     if (! $('div#length_not_allowed').length) {
         return;
@@ -2144,6 +2189,7 @@ export function onloadEnumSetEditorMessage (): void {
     $(document).on('change', 'select.column_type', function () {
         showNoticeForEnum($(this));
         showWarningForIntTypes();
+        resetAttributeForNonNumericType($(this));
     });
 
     $(document).on('change', 'select.default_type', function () {
