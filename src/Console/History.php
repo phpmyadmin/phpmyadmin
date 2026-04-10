@@ -27,7 +27,7 @@ readonly class History
 
     public function setHistory(string $db, string $table, string $username, string $sqlquery): void
     {
-        $maxCharactersInDisplayedSQL = $this->config->settings['MaxCharactersInDisplayedSQL'];
+        $maxCharactersInDisplayedSQL = $this->config->config->MaxCharactersInDisplayedSQL;
         if (mb_strlen($sqlquery) > $maxCharactersInDisplayedSQL) {
             return;
         }
@@ -38,11 +38,11 @@ readonly class History
 
         $_SESSION['sql_history'][] = ['db' => $db, 'table' => $table, 'sqlquery' => $sqlquery];
 
-        if (count($_SESSION['sql_history']) > $this->config->settings['QueryHistoryMax']) {
+        if (count($_SESSION['sql_history']) > $this->config->config->QueryHistoryMax) {
             array_shift($_SESSION['sql_history']);
         }
 
-        if ($this->sqlHistoryFeature === null || ! $this->config->settings['QueryHistoryDB']) {
+        if ($this->sqlHistoryFeature === null || ! $this->config->config->QueryHistoryDB) {
             return;
         }
 
@@ -77,7 +77,7 @@ readonly class History
             return false;
         }
 
-        if (! $this->config->settings['QueryHistoryDB']) {
+        if (! $this->config->config->QueryHistoryDB) {
             if (isset($_SESSION['sql_history'])) {
                 return array_reverse($_SESSION['sql_history']);
             }
@@ -100,7 +100,7 @@ readonly class History
 
     private function purgeHistory(string $username): void
     {
-        if (! $this->config->settings['QueryHistoryDB'] || $this->sqlHistoryFeature === null) {
+        if (! $this->config->config->QueryHistoryDB || $this->sqlHistoryFeature === null) {
             return;
         }
 
@@ -110,7 +110,7 @@ readonly class History
                 . '.' . Util::backquote($this->sqlHistoryFeature->history) . '
             WHERE `username` = ' . $this->dbi->quoteString($username) . '
             ORDER BY `timevalue` DESC
-            LIMIT ' . $this->config->settings['QueryHistoryMax'] . ', 1';
+            LIMIT ' . $this->config->config->QueryHistoryMax . ', 1';
 
         $maxTime = $this->dbi->fetchValue($searchQuery, 0, ConnectionType::ControlUser);
 

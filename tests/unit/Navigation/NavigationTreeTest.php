@@ -27,20 +27,9 @@ class NavigationTreeTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $this->setLanguage();
-
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
         $config = Config::getInstance();
-        $config->selectedServer['host'] = 'localhost';
-        $config->selectedServer['user'] = 'user';
-        $config->selectedServer['pmadb'] = '';
-        $config->selectedServer['DisableIS'] = false;
-        $config->settings['NavigationTreeEnableGrouping'] = true;
-        $config->settings['ShowDatabasesNavigationAsTree'] = true;
-
-        Current::$database = 'db';
-        Current::$table = '';
 
         $this->object = new NavigationTree(new Template($config), $dbi, new Relation($dbi), $config);
     }
@@ -77,7 +66,7 @@ class NavigationTreeTest extends AbstractTestCase
     {
         Current::$database = '';
         $config = Config::getInstance();
-        $config->settings['NavigationTreeDbSeparator'] = '__';
+        $config->set('NavigationTreeDbSeparator', '__');
 
         // phpcs:disable Generic.Files.LineLength.TooLong
         $dummyDbi = $this->createDbiDummy();

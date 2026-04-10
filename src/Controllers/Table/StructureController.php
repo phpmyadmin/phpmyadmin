@@ -156,7 +156,7 @@ readonly class StructureController implements InvocableController
         $commentsMap = [];
         $mimeMap = [];
 
-        if ($this->config->settings['ShowPropertyComments']) {
+        if ($this->config->config->ShowPropertyComments) {
             $commentsMap = $this->relation->getComments(Current::$database, Current::$table);
             if ($relationParameters->browserTransformationFeature !== null && $this->config->config->BrowseMIME) {
                 $mimeMap = $this->transformations->getMime(Current::$database, Current::$table, true);
@@ -174,7 +174,7 @@ readonly class StructureController implements InvocableController
          */
         // BEGIN - Calc Table Space
         // Get valid statistics whatever is the table type
-        if ($this->config->settings['ShowStats']) {
+        if ($this->config->config->ShowStats) {
             //get table stats in HTML format
             $tablestats = $this->getTableStats($isSystemSchema, $tableIsAView, $tableStorageEngine);
             //returning the response in JSON format to be used by Ajax
@@ -240,7 +240,7 @@ readonly class StructureController implements InvocableController
             'indexes' => Index::getFromTable($this->dbi, Current::$table, Current::$database),
             'indexes_duplicates' => Index::findDuplicates(Current::$table, Current::$database),
             'relation_parameters' => $relationParameters,
-            'hide_structure_actions' => $this->config->settings['HideStructureActions'] === true,
+            'hide_structure_actions' => $this->config->config->HideStructureActions,
             'db' => Current::$database,
             'table' => Current::$table,
             'db_is_system_schema' => $isSystemSchema,
@@ -256,15 +256,15 @@ readonly class StructureController implements InvocableController
             'central_list' => $centralList,
             'comments_map' => $commentsMap,
             'browse_mime' => $this->config->config->BrowseMIME,
-            'show_column_comments' => $this->config->settings['ShowColumnComments'],
-            'show_stats' => $this->config->settings['ShowStats'],
+            'show_column_comments' => $this->config->config->ShowColumnComments,
+            'show_stats' => $this->config->config->ShowStats,
             'mysql_int_version' => $this->dbi->getVersion(),
             'is_mariadb' => $this->dbi->isMariaDB(),
             'is_active' => Tracker::isActive(),
             'have_partitioning' => Partition::havePartitioning(),
             'partitions' => Partition::getPartitions(Current::$database, Current::$table),
             'partition_names' => Partition::getPartitionNames(Current::$database, Current::$table),
-            'default_sliders_state' => $this->config->settings['InitialSlidersState'],
+            'default_sliders_state' => $this->config->config->InitialSlidersState,
             'attributes' => $attributes,
             'displayed_fields' => $displayedFields,
             'row_comments' => $rowComments,

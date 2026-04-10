@@ -121,7 +121,7 @@ final class Import
 
             ImportSettings::$message .= __('Error');
 
-            if (! $this->config->settings['IgnoreMultiSubmitErrors']) {
+            if (! $this->config->config->IgnoreMultiSubmitErrors) {
                 self::$hasError = true;
 
                 return;

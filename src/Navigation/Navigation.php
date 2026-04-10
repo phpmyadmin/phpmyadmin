@@ -65,7 +65,7 @@ class Navigation
         $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
         $logo = [
-            'is_displayed' => $this->config->settings['NavigationDisplayLogo'],
+            'is_displayed' => $this->config->config->NavigationDisplayLogo,
             'has_link' => false,
             'link' => '#',
             'attributes' => ' target="_blank" rel="noopener noreferrer"',
@@ -74,13 +74,13 @@ class Navigation
 
         if (! $responseRenderer->isAjax()) {
             $logo['source'] = $this->getLogoSource();
-            $logo['has_link'] = $this->config->settings['NavigationLogoLink'] !== '';
-            $logo['link'] = trim($this->config->settings['NavigationLogoLink']);
+            $logo['has_link'] = $this->config->config->NavigationLogoLink !== '';
+            $logo['link'] = trim($this->config->config->NavigationLogoLink);
             if (! Sanitize::checkLink($logo['link'], true)) {
                 $logo['link'] = 'index.php';
             }
 
-            if ($this->config->settings['NavigationLogoLinkWindow'] === 'main') {
+            if ($this->config->config->NavigationLogoLinkWindow === 'main') {
                 if (empty(parse_url($logo['link'], PHP_URL_HOST))) {
                     $logo['link'] .= Url::getCommon(
                         [],
@@ -95,7 +95,7 @@ class Navigation
                 }
             }
 
-            if ($this->config->settings['NavigationDisplayServers'] && count($this->config->settings['Servers']) > 1) {
+            if ($this->config->config->NavigationDisplayServers && count($this->config->settings['Servers']) > 1) {
                 $serverSelect = Select::render(true);
             }
 
@@ -115,7 +115,7 @@ class Navigation
         }
 
         if (! $responseRenderer->isAjax() || ! empty($_POST['full']) || ! empty($_POST['reload'])) {
-            if ($this->config->settings['ShowDatabasesNavigationAsTree']) {
+            if ($this->config->config->ShowDatabasesNavigationAsTree) {
                 // provide database tree in navigation
                 $navRender = $this->tree->renderState($responseRenderer, $userPrivileges);
             } else {
@@ -129,19 +129,19 @@ class Navigation
         return $this->template->render('navigation/main', [
             'is_ajax' => $responseRenderer->isAjax(),
             'logo' => $logo,
-            'config_navigation_width' => $this->config->settings['NavigationWidth'],
-            'is_synced' => $this->config->settings['NavigationLinkWithMainPanel'],
+            'config_navigation_width' => $this->config->config->NavigationWidth,
+            'is_synced' => $this->config->config->NavigationLinkWithMainPanel,
             'is_highlighted' => $this->config->config->NavigationTreePointerEnable,
-            'is_autoexpanded' => $this->config->settings['NavigationTreeAutoexpandSingleDb'],
+            'is_autoexpanded' => $this->config->config->NavigationTreeAutoexpandSingleDb,
             'server' => Current::$server,
             'auth_type' => $this->config->selectedServer['auth_type'],
-            'is_servers_displayed' => $this->config->settings['NavigationDisplayServers'],
+            'is_servers_displayed' => $this->config->config->NavigationDisplayServers,
             'servers' => $this->config->settings['Servers'],
             'server_select' => $serverSelect ?? '',
             'navigation_tree' => $navRender,
             'is_navigation_settings_enabled' => self::$isSettingsEnabled,
             'navigation_settings' => $navigationSettings ?? '',
-            'is_drag_drop_import_enabled' => $this->config->settings['enable_drag_drop_import'] === true,
+            'is_drag_drop_import_enabled' => $this->config->config->enable_drag_drop_import === true,
             'is_mariadb' => $this->dbi->isMariaDB(),
         ]);
     }

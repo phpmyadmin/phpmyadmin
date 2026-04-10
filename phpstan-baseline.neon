@@ -13824,7 +13824,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 3
+			count: 2
 			path: tests/unit/Bookmarks/BookmarkTest.php
 
 		-
@@ -15696,7 +15696,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 12
+			count: 9
 			path: tests/unit/Html/GeneratorTest.php
 
 		-
@@ -16563,7 +16563,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 4
+			count: 3
 			path: tests/unit/SqlTest.php
 
 		-
@@ -16722,7 +16722,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 6
+			count: 5
 			path: tests/unit/TwoFactorTest.php
 
 		-

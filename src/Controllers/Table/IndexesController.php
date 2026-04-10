@@ -230,7 +230,7 @@ final readonly class IndexesController implements InvocableController
             'form_params' => $formParams,
             'add_fields' => $addFields,
             'create_edit_table' => isset($_POST['create_edit_table']),
-            'default_sliders_state' => $this->config->settings['InitialSlidersState'],
+            'default_sliders_state' => $this->config->config->InitialSlidersState,
             'is_from_nav' => isset($_POST['is_from_nav']),
         ]);
     }

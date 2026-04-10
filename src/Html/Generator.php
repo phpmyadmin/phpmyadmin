@@ -215,7 +215,7 @@ class Generator
         if (! $server['ssl']) {
             $message = __('SSL is not being used');
             if (
-                ! empty($server['socket']) || in_array($server['host'], $config->settings['MysqlSslWarningSafeHosts'])
+                ! empty($server['socket']) || in_array($server['host'], $config->config->MysqlSslWarningSafeHosts)
             ) {
                 $class = '';
             }
@@ -421,7 +421,7 @@ class Generator
         }
 
         $config = Config::getInstance();
-        $renderSql = $config->settings['ShowSQL'] && $sqlQuery !== '' && $sqlQuery !== ';';
+        $renderSql = $config->config->ShowSQL && $sqlQuery !== '' && $sqlQuery !== ';';
 
         if (Sql::$usingBookmarkMessage !== null) {
             $retval .= Sql::$usingBookmarkMessage->getDisplay();
@@ -481,7 +481,7 @@ class Generator
         // but only explain a SELECT (that has not been explained)
         /* SQL-Parser-Analyzer */
         $explainLink = '';
-        $queryTooBig = mb_strlen($sqlQuery) > $config->settings['MaxCharactersInDisplayedSQL'];
+        $queryTooBig = mb_strlen($sqlQuery) > $config->config->MaxCharactersInDisplayedSQL;
         $isSelect = preg_match('@^SELECT[[:space:]]+@i', $sqlQuery) === 1;
         if (! empty($config->settings['SQLQuery']['Explain']) && ! $queryTooBig) {
             $explainParams = $urlParams;
@@ -1064,8 +1064,8 @@ class Generator
     public static function formatSql(string $sqlQuery, bool $truncate = false): string
     {
         $config = Config::getInstance();
-        if ($truncate && mb_strlen($sqlQuery) > $config->settings['MaxCharactersInDisplayedSQL']) {
-            $sqlQuery = mb_substr($sqlQuery, 0, $config->settings['MaxCharactersInDisplayedSQL']) . '[...]';
+        if ($truncate && mb_strlen($sqlQuery) > $config->config->MaxCharactersInDisplayedSQL) {
+            $sqlQuery = mb_substr($sqlQuery, 0, $config->config->MaxCharactersInDisplayedSQL) . '[...]';
         }
 
         return '<pre><code class="sql" dir="ltr">'

@@ -25,10 +25,10 @@ class NodeDatabaseContainer extends Node
         parent::__construct($dbi, $config, $name, NodeType::Container);
 
         if (
-            $config->settings['NavigationTreeEnableGrouping']
-            && $config->settings['ShowDatabasesNavigationAsTree']
+            $config->config->NavigationTreeEnableGrouping
+            && $config->config->ShowDatabasesNavigationAsTree
         ) {
-            $separator = $config->settings['NavigationTreeDbSeparator'];
+            $separator = $config->config->NavigationTreeDbSeparator;
             if ($separator !== '') {
                 $this->separators = [$separator];
             }
@@ -39,7 +39,7 @@ class NodeDatabaseContainer extends Node
         $userPrivilegesFactory = new UserPrivilegesFactory($this->dbi);
         $userPrivileges = $userPrivilegesFactory->getPrivileges();
 
-        if (! $userPrivileges->isCreateDatabase || $config->settings['ShowCreateDb'] === false) {
+        if (! $userPrivileges->isCreateDatabase || ! $config->config->ShowCreateDb) {
             return;
         }
 

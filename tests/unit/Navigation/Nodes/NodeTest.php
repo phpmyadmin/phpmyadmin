@@ -332,10 +332,7 @@ final class NodeTest extends AbstractTestCase
     public function testGetDataWithEnabledISAndGroupingEnabled(): void
     {
         $config = Config::getInstance();
-        $config->selectedServer['DisableIS'] = false;
-        $config->settings['NavigationTreeEnableGrouping'] = true;
         $config->set('FirstLevelNavigationItems', 20);
-        $config->settings['NavigationTreeDbSeparator'] = '_';
 
         $expectedSql = 'SELECT `SCHEMA_NAME` ';
         $expectedSql .= 'FROM `INFORMATION_SCHEMA`.`SCHEMATA`, ';
@@ -370,8 +367,7 @@ final class NodeTest extends AbstractTestCase
     public function testGetDataWithEnabledISAndGroupingDisabled(): void
     {
         $config = Config::getInstance();
-        $config->selectedServer['DisableIS'] = false;
-        $config->settings['NavigationTreeEnableGrouping'] = false;
+        $config->set('NavigationTreeEnableGrouping', false);
         $config->set('FirstLevelNavigationItems', 20);
 
         $expectedSql = 'SELECT `SCHEMA_NAME` ';
@@ -394,9 +390,7 @@ final class NodeTest extends AbstractTestCase
     {
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = true;
-        $config->settings['NavigationTreeEnableGrouping'] = true;
         $config->set('FirstLevelNavigationItems', 2);
-        $config->settings['NavigationTreeDbSeparator'] = '_';
 
         $resultStub = self::createMock(DummyResult::class);
 
@@ -432,7 +426,7 @@ final class NodeTest extends AbstractTestCase
     {
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = true;
-        $config->settings['NavigationTreeEnableGrouping'] = false;
+        $config->set('NavigationTreeEnableGrouping', false);
         $config->set('FirstLevelNavigationItems', 2);
 
         $resultStub = self::createMock(DummyResult::class);
@@ -463,9 +457,6 @@ final class NodeTest extends AbstractTestCase
     public function testGetPresenceWithEnabledISAndGroupingEnabled(): void
     {
         $config = Config::getInstance();
-        $config->selectedServer['DisableIS'] = false;
-        $config->settings['NavigationTreeEnableGrouping'] = true;
-        $config->settings['NavigationTreeDbSeparator'] = '_';
 
         $query = 'SELECT COUNT(*) ';
         $query .= 'FROM ( ';
@@ -489,8 +480,7 @@ final class NodeTest extends AbstractTestCase
     public function testGetPresenceWithEnabledISAndGroupingDisabled(): void
     {
         $config = Config::getInstance();
-        $config->selectedServer['DisableIS'] = false;
-        $config->settings['NavigationTreeEnableGrouping'] = false;
+        $config->set('NavigationTreeEnableGrouping', false);
 
         $query = 'SELECT COUNT(*) ';
         $query .= 'FROM INFORMATION_SCHEMA.SCHEMATA ';
@@ -511,7 +501,6 @@ final class NodeTest extends AbstractTestCase
     {
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = true;
-        $config->settings['NavigationTreeEnableGrouping'] = true;
 
         $resultStub = self::createMock(DummyResult::class);
 

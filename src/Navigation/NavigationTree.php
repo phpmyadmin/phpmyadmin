@@ -228,7 +228,7 @@ class NavigationTree
                     $query,
                     $this->config->config->FirstLevelNavigationItems,
                     $this->config->config->FirstLevelNavigationItems,
-                    $this->dbi->quoteString($this->config->settings['NavigationTreeDbSeparator']),
+                    $this->dbi->quoteString($this->config->config->NavigationTreeDbSeparator),
                     $this->dbi->quoteString(Current::$database),
                 ),
             );
@@ -243,7 +243,7 @@ class NavigationTree
                         break;
                     }
 
-                    $prefix = strstr($database, $this->config->settings['NavigationTreeDbSeparator'], true);
+                    $prefix = strstr($database, $this->config->config->NavigationTreeDbSeparator, true);
                     if ($prefix === false) {
                         $prefix = $database;
                     }
@@ -269,7 +269,7 @@ class NavigationTree
                     break;
                 }
 
-                $prefix = strstr($database, $this->config->settings['NavigationTreeDbSeparator'], true);
+                $prefix = strstr($database, $this->config->config->NavigationTreeDbSeparator, true);
                 if ($prefix === false) {
                     $prefix = $database;
                 }
@@ -538,23 +538,23 @@ class NavigationTree
     {
         // Get items to hide
         $hidden = $db->getHiddenItems($this->relationParameters, 'group');
-        if (! $this->config->settings['NavigationTreeShowTables'] && ! in_array('tables', $hidden, true)) {
+        if (! $this->config->config->NavigationTreeShowTables && ! in_array('tables', $hidden, true)) {
             $hidden[] = 'tables';
         }
 
-        if (! $this->config->settings['NavigationTreeShowViews'] && ! in_array('views', $hidden, true)) {
+        if (! $this->config->config->NavigationTreeShowViews && ! in_array('views', $hidden, true)) {
             $hidden[] = 'views';
         }
 
-        if (! $this->config->settings['NavigationTreeShowFunctions'] && ! in_array('functions', $hidden, true)) {
+        if (! $this->config->config->NavigationTreeShowFunctions && ! in_array('functions', $hidden, true)) {
             $hidden[] = 'functions';
         }
 
-        if (! $this->config->settings['NavigationTreeShowProcedures'] && ! in_array('procedures', $hidden, true)) {
+        if (! $this->config->config->NavigationTreeShowProcedures && ! in_array('procedures', $hidden, true)) {
             $hidden[] = 'procedures';
         }
 
-        if (! $this->config->settings['NavigationTreeShowEvents'] && ! in_array('events', $hidden, true)) {
+        if (! $this->config->config->NavigationTreeShowEvents && ! in_array('events', $hidden, true)) {
             $hidden[] = 'events';
         }
 
@@ -643,7 +643,7 @@ class NavigationTree
      */
     public function groupNode(Node $node): void
     {
-        if ($node->type !== NodeType::Container || ! $this->config->settings['NavigationTreeEnableExpansion']) {
+        if ($node->type !== NodeType::Container || ! $this->config->config->NavigationTreeEnableExpansion) {
             return;
         }
 
@@ -835,7 +835,7 @@ class NavigationTree
         $quickWarp = $this->quickWarp();
         $fastFilter = $this->fastFilterHtml($userPrivileges, $this->tree);
         $controls = '';
-        if ($this->config->settings['NavigationTreeEnableExpansion']) {
+        if ($this->config->config->NavigationTreeEnableExpansion) {
             $controls = $this->controls();
         }
 
@@ -875,7 +875,7 @@ class NavigationTree
 
             $listContent .= $this->renderNodes($responseRenderer, $userPrivileges, $children, false);
 
-            if (! $this->config->settings['ShowDatabasesNavigationAsTree']) {
+            if (! $this->config->config->ShowDatabasesNavigationAsTree) {
                 $parents = $node->parents(true);
                 $parentName = $parents[0]->realName;
             }
@@ -908,7 +908,7 @@ class NavigationTree
             return $this->template->render('navigation/tree/path', [
                 'has_search_results' => $this->searchClause !== '' || $this->searchClause2 !== '',
                 'list_content' => $listContent ?? '',
-                'is_tree' => $this->config->settings['ShowDatabasesNavigationAsTree'],
+                'is_tree' => $this->config->config->ShowDatabasesNavigationAsTree,
                 'parent_name' => $parentName ?? '',
             ]);
         }
@@ -1041,7 +1041,7 @@ class NavigationTree
             if ($nodeIsGroup) {
                 $match = $this->findTreeMatch($this->vPath, $paths['vPath_clean']);
                 $linkClasses = $node->getCssClasses($match);
-                if ($this->config->settings['ShowDatabasesNavigationAsTree'] || $parentName !== 'root') {
+                if ($this->config->config->ShowDatabasesNavigationAsTree || $parentName !== 'root') {
                     $nodeIcon = $node->getIcon($match);
                 }
             }
@@ -1205,8 +1205,8 @@ class NavigationTree
      */
     private function fastFilterHtml(UserPrivileges $userPrivileges, Node $node): string
     {
-        $filterDbMin = $this->config->settings['NavigationTreeDisplayDbFilterMinimum'];
-        $filterItemMin = $this->config->settings['NavigationTreeDisplayItemFilterMinimum'];
+        $filterDbMin = $this->config->config->NavigationTreeDisplayDbFilterMinimum;
+        $filterItemMin = $this->config->config->NavigationTreeDisplayItemFilterMinimum;
         $urlParams = [];
 
         $isRootNode = $node === $this->tree && $this->tree->getPresence($userPrivileges) >= $filterDbMin;
@@ -1256,7 +1256,7 @@ class NavigationTree
         );
         $syncImage = 's_unlink';
         $title = __('Link with main panel');
-        if ($this->config->settings['NavigationLinkWithMainPanel']) {
+        if ($this->config->config->NavigationLinkWithMainPanel) {
             $syncImage = 's_link';
             $title = __('Unlink from main panel');
         }
@@ -1316,7 +1316,7 @@ class NavigationTree
                 $urlParams,
                 Url::getFromRoute('/navigation'),
                 'frame_navigation',
-                $this->config->settings['MaxNavigationItems'],
+                $this->config->config->MaxNavigationItems,
                 'pos' . $level . '_value',
             );
         }
@@ -1342,7 +1342,7 @@ class NavigationTree
             return 1;
         }
 
-        if ($this->config->settings['NaturalOrder']) {
+        if ($this->config->config->NaturalOrder) {
             return strnatcasecmp($a->name, $b->name);
         }
 
@@ -1357,12 +1357,12 @@ class NavigationTree
     private function quickWarp(): string
     {
         $recent = '';
-        if ($this->config->settings['NumRecentTables'] > 0) {
+        if ($this->config->config->NumRecentTables > 0) {
             $recent = RecentFavoriteTables::getInstance(TableType::Recent)->getHtmlList();
         }
 
         $favorite = '';
-        if ($this->config->settings['NumFavoriteTables'] > 0) {
+        if ($this->config->config->NumFavoriteTables > 0) {
             $favorite = RecentFavoriteTables::getInstance(TableType::Favorite)->getHtmlList();
         }
 

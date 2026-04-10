@@ -107,7 +107,7 @@ final class StructureController implements InvocableController
         $this->position = $this->getTableListPosition($request->getParam('pos'), Current::$database);
 
         // Special speedup for newer MySQL Versions (in 4.0 format changed)
-        if ($this->config->settings['SkipLockedTables'] === true) {
+        if ($this->config->config->SkipLockedTables) {
             $tables = $this->getTablesWhenOpen(Current::$database);
             $totalNumTables = count($tables);
         } else {
@@ -127,7 +127,7 @@ final class StructureController implements InvocableController
         /**
          * whether to display extended stats
          */
-        $this->isShowStats = $this->config->settings['ShowStats'];
+        $this->isShowStats = $this->config->config->ShowStats;
 
         /**
          * whether selected db is information_schema
@@ -173,7 +173,7 @@ final class StructureController implements InvocableController
         if ($this->totalNumTables > 0 && $this->position > $this->totalNumTables) {
             return $this->response->redirectToRoute('/database/structure', [
                 'db' => Current::$database,
-                'pos' => max(0, $this->totalNumTables - $this->config->settings['MaxTableList']),
+                'pos' => max(0, $this->totalNumTables - $this->config->config->MaxTableList),
                 'reload' => 1,
             ]);
         }
@@ -201,7 +201,7 @@ final class StructureController implements InvocableController
                 $urlParams,
                 Url::getFromRoute('/database/structure'),
                 'frame_content',
-                $this->config->settings['MaxTableList'],
+                $this->config->config->MaxTableList,
             );
 
             $tableList = $this->displayTableList($replicaInfo);
@@ -305,7 +305,7 @@ final class StructureController implements InvocableController
                 }
             }
 
-            if ($this->config->settings['ShowDbStructureCharset']) {
+            if ($this->config->config->ShowDbStructureCharset) {
                 $charset = '';
                 if (isset($tableCollation)) {
                     $charset = $tableCollation->getCharset();
@@ -313,7 +313,7 @@ final class StructureController implements InvocableController
             }
 
             $createTime = null;
-            if ($this->config->settings['ShowDbStructureCreation'] && isset($currentTable['Create_time'])) {
+            if ($this->config->config->ShowDbStructureCreation && isset($currentTable['Create_time'])) {
                 $createTime = $this->createDateTime($currentTable['Create_time']);
                 if ($createTime !== null && ($createTimeAll === null || $createTime < $createTimeAll)) {
                     $createTimeAll = $createTime;
@@ -321,7 +321,7 @@ final class StructureController implements InvocableController
             }
 
             $updateTime = null;
-            if ($this->config->settings['ShowDbStructureLastUpdate'] && isset($currentTable['Update_time'])) {
+            if ($this->config->config->ShowDbStructureLastUpdate && isset($currentTable['Update_time'])) {
                 $updateTime = $this->createDateTime($currentTable['Update_time']);
                 if ($updateTime !== null && ($updateTimeAll === null || $updateTime < $updateTimeAll)) {
                     $updateTimeAll = $updateTime;
@@ -329,7 +329,7 @@ final class StructureController implements InvocableController
             }
 
             $checkTime = null;
-            if ($this->config->settings['ShowDbStructureLastCheck'] && isset($currentTable['Check_time'])) {
+            if ($this->config->config->ShowDbStructureLastCheck && isset($currentTable['Check_time'])) {
                 $checkTime = $this->createDateTime($currentTable['Check_time']);
                 if ($checkTime !== null && ($checkTimeAll === null || $checkTime < $checkTimeAll)) {
                     $checkTimeAll = $checkTime;
@@ -380,12 +380,12 @@ final class StructureController implements InvocableController
                     'replication' => $replicaInfo['status'],
                     'is_show_db_details' => $this->isShowDbDetails,
                     'is_show_stats' => $this->isShowStats,
-                    'show_charset' => $this->config->settings['ShowDbStructureCharset'],
-                    'show_comment' => $this->config->settings['ShowDbStructureComment'],
-                    'show_creation' => $this->config->settings['ShowDbStructureCreation'],
-                    'show_last_update' => $this->config->settings['ShowDbStructureLastUpdate'],
-                    'show_last_check' => $this->config->settings['ShowDbStructureLastCheck'],
-                    'num_favorite_tables' => $this->config->settings['NumFavoriteTables'],
+                    'show_charset' => $this->config->config->ShowDbStructureCharset,
+                    'show_comment' => $this->config->config->ShowDbStructureComment,
+                    'show_creation' => $this->config->config->ShowDbStructureCreation,
+                    'show_last_update' => $this->config->config->ShowDbStructureLastUpdate,
+                    'show_last_check' => $this->config->config->ShowDbStructureLastCheck,
+                    'num_favorite_tables' => $this->config->config->NumFavoriteTables,
                     'structure_table_rows' => $structureTableRows,
                 ]);
                 $structureTableRows = [];
@@ -432,14 +432,14 @@ final class StructureController implements InvocableController
                         TableName::from($currentTable['TABLE_NAME']),
                     ),
                 ),
-                'num_favorite_tables' => $this->config->settings['NumFavoriteTables'],
+                'num_favorite_tables' => $this->config->config->NumFavoriteTables,
                 'is_show_db_details' => $this->isShowDbDetails,
                 'limit_chars' => $this->config->config->limitChars,
-                'show_charset' => $this->config->settings['ShowDbStructureCharset'],
-                'show_comment' => $this->config->settings['ShowDbStructureComment'],
-                'show_creation' => $this->config->settings['ShowDbStructureCreation'],
-                'show_last_update' => $this->config->settings['ShowDbStructureLastUpdate'],
-                'show_last_check' => $this->config->settings['ShowDbStructureLastCheck'],
+                'show_charset' => $this->config->config->ShowDbStructureCharset,
+                'show_comment' => $this->config->config->ShowDbStructureComment,
+                'show_creation' => $this->config->config->ShowDbStructureCreation,
+                'show_last_update' => $this->config->config->ShowDbStructureLastUpdate,
+                'show_last_check' => $this->config->config->ShowDbStructureLastCheck,
             ];
 
             $overallApproxRows = $overallApproxRows || $approxRows;
@@ -473,12 +473,12 @@ final class StructureController implements InvocableController
             'replication' => $replicaInfo['status'],
             'is_show_db_details' => $this->isShowDbDetails,
             'is_show_stats' => $this->isShowStats,
-            'show_charset' => $this->config->settings['ShowDbStructureCharset'],
-            'show_comment' => $this->config->settings['ShowDbStructureComment'],
-            'show_creation' => $this->config->settings['ShowDbStructureCreation'],
-            'show_last_update' => $this->config->settings['ShowDbStructureLastUpdate'],
-            'show_last_check' => $this->config->settings['ShowDbStructureLastCheck'],
-            'num_favorite_tables' => $this->config->settings['NumFavoriteTables'],
+            'show_charset' => $this->config->config->ShowDbStructureCharset,
+            'show_comment' => $this->config->config->ShowDbStructureComment,
+            'show_creation' => $this->config->config->ShowDbStructureCreation,
+            'show_last_update' => $this->config->config->ShowDbStructureLastUpdate,
+            'show_last_check' => $this->config->config->ShowDbStructureLastCheck,
+            'num_favorite_tables' => $this->config->config->NumFavoriteTables,
             'structure_table_rows' => $structureTableRows,
             'body_for_table_summary' => [
                 'num_tables' => $this->numTables,
@@ -494,15 +494,15 @@ final class StructureController implements InvocableController
                 'update_time_all' => $updateTimeAll !== null ? Util::localisedDate($updateTimeAll) : '-',
                 'check_time_all' => $checkTimeAll !== null ? Util::localisedDate($checkTimeAll) : '-',
                 'approx_rows' => $overallApproxRows,
-                'num_favorite_tables' => $this->config->settings['NumFavoriteTables'],
+                'num_favorite_tables' => $this->config->config->NumFavoriteTables,
                 'db' => Current::$database,
                 'is_show_db_details' => $this->isShowDbDetails,
                 'default_storage_engine' => $defaultStorageEngine,
-                'show_charset' => $this->config->settings['ShowDbStructureCharset'],
-                'show_comment' => $this->config->settings['ShowDbStructureComment'],
-                'show_creation' => $this->config->settings['ShowDbStructureCreation'],
-                'show_last_update' => $this->config->settings['ShowDbStructureLastUpdate'],
-                'show_last_check' => $this->config->settings['ShowDbStructureLastCheck'],
+                'show_charset' => $this->config->config->ShowDbStructureCharset,
+                'show_comment' => $this->config->config->ShowDbStructureComment,
+                'show_creation' => $this->config->config->ShowDbStructureCreation,
+                'show_last_update' => $this->config->config->ShowDbStructureLastUpdate,
+                'show_last_check' => $this->config->config->ShowDbStructureLastCheck,
             ],
             'check_all_tables' => [
                 'overhead_check' => $overheadCheck,
@@ -559,7 +559,7 @@ final class StructureController implements InvocableController
                 && in_array($currentTable['ENGINE'], ['InnoDB', 'TokuDB'], true)
                 && ! $currentTable['COUNTED'];
 
-            if ($tableIsView && $currentTable['TABLE_ROWS'] >= $this->config->settings['MaxExactCountViews']) {
+            if ($tableIsView && $currentTable['TABLE_ROWS'] >= $this->config->config->MaxExactCountViews) {
                 $approxRows = true;
                 $showSuperscript = Generator::showHint(
                     Sanitize::convertBBCode(
@@ -816,7 +816,7 @@ final class StructureController implements InvocableController
 
         if (
             (in_array($currentTable['ENGINE'], ['InnoDB', 'TokuDB'], true)
-            && $currentTable['TABLE_ROWS'] < $this->config->settings['MaxExactCount'])
+            && $currentTable['TABLE_ROWS'] < $this->config->config->MaxExactCount)
             || ! isset($currentTable['TABLE_ROWS'])
         ) {
             $currentTable['COUNTED'] = true;
@@ -1113,7 +1113,7 @@ final class StructureController implements InvocableController
                 $tables += $this->dbi->getTablesFull($db, $names);
             }
 
-            if ($this->config->settings['NaturalOrder']) {
+            if ($this->config->config->NaturalOrder) {
                 uksort($tables, strnatcasecmp(...));
             }
         }

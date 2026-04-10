@@ -1247,22 +1247,22 @@ SQL;
     public function testShowIcons(): void
     {
         $config = Config::getInstance();
-        $config->settings['ActionLinksMode'] = 'icons';
+        $config->set('ActionLinksMode', 'icons');
         self::assertTrue(Util::showIcons('ActionLinksMode'));
-        $config->settings['ActionLinksMode'] = 'both';
+        $config->set('ActionLinksMode', 'both');
         self::assertTrue(Util::showIcons('ActionLinksMode'));
-        $config->settings['ActionLinksMode'] = 'text';
+        $config->set('ActionLinksMode', 'text');
         self::assertFalse(Util::showIcons('ActionLinksMode'));
     }
 
     public function testShowText(): void
     {
         $config = Config::getInstance();
-        $config->settings['ActionLinksMode'] = 'text';
+        $config->set('ActionLinksMode', 'text');
         self::assertTrue(Util::showText('ActionLinksMode'));
-        $config->settings['ActionLinksMode'] = 'both';
+        $config->set('ActionLinksMode', 'both');
         self::assertTrue(Util::showText('ActionLinksMode'));
-        $config->settings['ActionLinksMode'] = 'icons';
+        $config->set('ActionLinksMode', 'icons');
         self::assertFalse(Util::showText('ActionLinksMode'));
     }
 

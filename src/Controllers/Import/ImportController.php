@@ -582,7 +582,7 @@ final readonly class ImportController implements InvocableController
         // (but if the query is too large, in case of an imported file, the parser
         //  can choke on it so avoid parsing)
         $sqlLength = mb_strlen(Current::$sqlQuery);
-        if ($sqlLength <= $this->config->settings['MaxCharactersInDisplayedSQL']) {
+        if ($sqlLength <= $this->config->config->MaxCharactersInDisplayedSQL) {
             [$statementInfo, Current::$database, $tableFromSql, $reloadNeeded] = ParseAnalyze::sqlQuery(
                 Current::$sqlQuery,
                 Current::$database,

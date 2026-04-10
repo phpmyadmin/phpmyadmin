@@ -89,9 +89,6 @@ class SqlTest extends AbstractTestCase
      */
     public function testIsRememberSortingOrder(): void
     {
-        // Test environment.
-        Config::getInstance()->settings['RememberSorting'] = true;
-
         self::assertTrue(
             (new ReflectionMethod(Sql::class, 'isRememberSortingOrder'))->invokeArgs($this->sql, [
                 ParseAnalyze::sqlQuery('SELECT * FROM tbl', Current::$database, false)[0],

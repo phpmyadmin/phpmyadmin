@@ -107,7 +107,7 @@ final class HomeController implements InvocableController
         if ($hasServer) {
             $hasServerSelection = $this->config->config->ServerDefault === 0
                 || (
-                    $this->config->settings['NavigationDisplayServers']
+                    $this->config->config->NavigationDisplayServers
                     && (
                         count($this->config->settings['Servers']) > 1
                         || (Current::$server === 0 && count($this->config->settings['Servers']) === 1)
@@ -191,14 +191,14 @@ final class HomeController implements InvocableController
             $relationParameters = $relation->getRelationParameters();
             if (
                 ! $relationParameters->hasAllFeatures()
-                && ! $this->config->settings['PmaNoRelation_DisableWarning']
+                && ! $this->config->config->PmaNoRelation_DisableWarning
             ) {
                 $messageText = __(
                     'The phpMyAdmin configuration storage is not completely '
                     . 'configured, some extended features have been deactivated. '
                     . '%sFind out why%s. ',
                 );
-                if ($this->config->settings['ZeroConf']) {
+                if ($this->config->config->zeroConf) {
                     $messageText .= '<br>'
                         . __('Or alternately go to \'Operations\' tab of any database to set it up there.');
                 }
