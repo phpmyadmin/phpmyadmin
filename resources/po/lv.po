@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-04-05 00:43+0000\n"
-"PO-Revision-Date: 2026-04-09 18:09+0000\n"
+"PO-Revision-Date: 2026-04-11 20:09+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/lv/>\n"
@@ -3221,9 +3221,8 @@ msgid "All"
 msgstr "Visi"
 
 #: resources/templates/display/results/table.twig:151
-#, fuzzy
 msgid "Sort by key:"
-msgstr "Kārtot pēc atslēgas"
+msgstr "Kārtot pēc atslēgas:"
 
 #: resources/templates/display/results/table.twig:200
 #: resources/templates/table/search/index.twig:101
@@ -3382,9 +3381,8 @@ msgid "Export templates:"
 msgstr "Eksporta veids"
 
 #: resources/templates/export.twig:20
-#, fuzzy
 msgid "New template:"
-msgstr "Faila nosaukuma šablons"
+msgstr "Jauna veidne:"
 
 #: resources/templates/export.twig:23 resources/templates/export.twig:26
 #, fuzzy
@@ -3392,14 +3390,12 @@ msgid "Template name"
 msgstr "Lietotājvārds"
 
 #: resources/templates/export.twig:37
-#, fuzzy
 msgid "Existing templates:"
-msgstr "Faila nosaukuma šablons"
+msgstr "Esošās veidnes:"
 
 #: resources/templates/export.twig:40
-#, fuzzy
 msgid "Template:"
-msgstr "%s tabula(s)"
+msgstr "Veidne:"
 
 #: resources/templates/export.twig:53
 #, fuzzy
@@ -4586,14 +4582,12 @@ msgid "Persistent tables' UI preferences:"
 msgstr ""
 
 #: resources/templates/relation/check_relations.twig:320
-#, fuzzy
 msgid "Tracking:"
-msgstr "Atsekošanas atskaite"
+msgstr "Izsekošana:"
 
 #: resources/templates/relation/check_relations.twig:345
-#, fuzzy
 msgid "User preferences:"
-msgstr "Defragmentēt tabulu"
+msgstr "Lietotāja iestatījumi:"
 
 #: resources/templates/relation/check_relations.twig:383
 #, fuzzy
@@ -4619,9 +4613,8 @@ msgid "Remembering designer settings:"
 msgstr "Pārsaukt tabulu uz"
 
 #: resources/templates/relation/check_relations.twig:508
-#, fuzzy
 msgid "Saving export templates:"
-msgstr "Nepareizs eksporta veids"
+msgstr "Saglabā izgūšanas veidnes:"
 
 #: resources/templates/relation/check_relations.twig:519
 msgid "Quick steps to set up advanced features:"
@@ -4986,15 +4979,13 @@ msgid ""
 msgstr ""
 
 #: resources/templates/server/privileges/choose_user_group.twig:5
-#, fuzzy
 msgid "User group:"
-msgstr "Lietotājs"
+msgstr "Lietotāju grupa:"
 
 #: resources/templates/server/privileges/edit_routine_privileges.twig:4
 #: resources/templates/server/privileges/user_properties.twig:4
-#, fuzzy
 msgid "Edit privileges:"
-msgstr "Mainīt privilēģijas"
+msgstr "Rediģēt privilēģijas:"
 
 #: resources/templates/server/privileges/edit_routine_privileges.twig:5
 #: resources/templates/server/privileges/user_properties.twig:5
@@ -5063,9 +5054,8 @@ msgstr "Piekļuves informācija"
 #: resources/templates/server/privileges/login_information_fields.twig:5
 #: resources/templates/server/replication/change_primary.twig:17
 #: resources/templates/server/replication/primary_add_replica_user.twig:16
-#, fuzzy
 msgid "User name:"
-msgstr "Lietotājvārds"
+msgstr "Lietotājvārds:"
 
 #: resources/templates/server/privileges/login_information_fields.twig:8
 #: resources/templates/server/replication/primary_add_replica_user.twig:20
@@ -5087,9 +5077,8 @@ msgid ""
 msgstr ""
 
 #: resources/templates/server/privileges/login_information_fields.twig:23
-#, fuzzy
 msgid "Host name:"
-msgstr "Lietotājvārds"
+msgstr "Resursdatora nosaukums:"
 
 #: resources/templates/server/privileges/login_information_fields.twig:28
 #: resources/templates/server/replication/primary_add_replica_user.twig:34
@@ -5661,9 +5650,8 @@ msgid "Host:"
 msgstr "Resursdators:"
 
 #: resources/templates/server/replication/change_primary.twig:29
-#, fuzzy
 msgid "Port:"
-msgstr "Kārtošana"
+msgstr "Ports:"
 
 #: resources/templates/server/replication/index.twig:21
 #, php-format
@@ -5698,9 +5686,8 @@ msgid "Host"
 msgstr "Hosts"
 
 #: resources/templates/server/replication/primary_add_replica_user.twig:70
-#, fuzzy
 msgid "Generate password:"
-msgstr "Mainīt paroli"
+msgstr "Izveidot paroli:"
 
 #: resources/templates/server/replication/primary_add_replica_user.twig:73
 #: src/Controllers/JavaScriptMessagesController.php:578
@@ -5731,9 +5718,8 @@ msgid "Ignore all databases; Replicate:"
 msgstr ""
 
 #: resources/templates/server/replication/primary_configuration.twig:12
-#, fuzzy
 msgid "Please select databases:"
-msgstr "Lūdzu izvēlieties datubāzi"
+msgstr "Lūdzu, atlasiet datubāzes:"
 
 #: resources/templates/server/replication/primary_configuration.twig:15
 msgid ""
@@ -6446,9 +6432,8 @@ msgid "User group menu assignments"
 msgstr "Nav privilēģiju."
 
 #: resources/templates/server/user_groups/edit_user_groups.twig:15
-#, fuzzy
 msgid "Group name:"
-msgstr "Kolonnu nosaukumi"
+msgstr "Grupas nosaukums:"
 
 #: resources/templates/server/user_groups/user_groups.twig:12
 #, fuzzy
@@ -6657,9 +6642,8 @@ msgid "Summary by state"
 msgstr ""
 
 #: resources/templates/sql/profiling_chart.twig:37
-#, fuzzy
 msgid "Total Time"
-msgstr "Kopējais laiks:"
+msgstr "Kopējais laiks"
 
 #: resources/templates/sql/profiling_chart.twig:38
 #, fuzzy
@@ -6761,9 +6745,8 @@ msgid "Bookmarked SQL query"
 msgstr "Saglabātie SQL vaicājumi"
 
 #: resources/templates/sql/query.twig:163
-#, fuzzy
 msgid "Bookmark:"
-msgstr "Meklēt"
+msgstr "Grāmatzīme:"
 
 #: resources/templates/sql/query.twig:172
 msgid "shared"
@@ -6843,9 +6826,8 @@ msgid "Stacked"
 msgstr ""
 
 #: resources/templates/table/chart/tbl_chart.twig:51
-#, fuzzy
 msgid "Chart title:"
-msgstr "Importēt failus"
+msgstr "Diagrammas/Grafika nosaukums:"
 
 #: resources/templates/table/chart/tbl_chart.twig:57
 msgid "X-Axis:"
@@ -6881,9 +6863,8 @@ msgid "Series column:"
 msgstr "Sērijas kolonna:"
 
 #: resources/templates/table/chart/tbl_chart.twig:126
-#, fuzzy
 msgid "Value Column:"
-msgstr "Tabulas %s vērtības"
+msgstr "Vērtības kolonna:"
 
 #: resources/templates/table/chart/tbl_chart.twig:145
 #: resources/templates/table/zoom_search/result_form.twig:16
@@ -6929,9 +6910,8 @@ msgid "Find and replace"
 msgstr "Slēpt meklēšanas kritērijus"
 
 #: resources/templates/table/find_replace/index.twig:36
-#, fuzzy
 msgid "Replace with:"
-msgstr "Aizvietot NULL ar"
+msgstr "Aizstāt ar:"
 
 #: resources/templates/table/find_replace/index.twig:41
 msgid "Column:"
@@ -7021,9 +7001,8 @@ msgid "Parser:"
 msgstr "Lietotājs:"
 
 #: resources/templates/table/index_form.twig:117
-#, fuzzy
 msgid "Comment:"
-msgstr "Komentāri"
+msgstr "Komentārs:"
 
 #: resources/templates/table/index_form.twig:165
 #: resources/templates/table/index_form.twig:209
@@ -7364,9 +7343,8 @@ msgid ""
 msgstr ""
 
 #: resources/templates/table/relation/common_form.twig:128
-#, fuzzy
 msgid "Choose column to display:"
-msgstr "Izvēlieties, kuru lauku rādīt"
+msgstr "Atlasiet kolonnu, kuru rādīt:"
 
 #: resources/templates/table/relation/foreign_key_row.twig:15
 #, fuzzy, php-format
@@ -7496,9 +7474,8 @@ msgid "Extra"
 msgstr "Ekstras"
 
 #: resources/templates/table/structure/display_structure.twig:70
-#, fuzzy
 msgid "Media type:"
-msgstr "MIME tips"
+msgstr "Multivides tips:"
 
 #: resources/templates/table/structure/display_structure.twig:91
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:49
