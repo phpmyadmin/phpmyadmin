@@ -762,7 +762,10 @@ Functions.confirmQuery = function (theForm1, sqlQuery1) {
 Functions.checkSqlQuery = function (theForm) {
     // get the textarea element containing the query
     var sqlQuery;
-    if (codeMirrorEditor) {
+    if (codeMirrorInlineEditor) {
+        codeMirrorInlineEditor.save();
+        sqlQuery = codeMirrorInlineEditor.getValue();
+    } else if (codeMirrorEditor) {
         codeMirrorEditor.save();
         sqlQuery = codeMirrorEditor.getValue();
     } else {
