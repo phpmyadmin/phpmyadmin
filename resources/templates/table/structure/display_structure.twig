@@ -624,5 +624,12 @@
 {% if show_stats %}
     {{ table_stats|raw }}
 {% endif %}
+{% if not db_is_system_schema %}
+  <p class="d-print-none mt-2">
+    <button type="button" id="copyTableStructureBtn" class="btn btn-link p-0">
+      {{ get_icon('b_export', t('Copy Table Structure'), true) }}
+    </button>
+  </p>
+{% endif %}
 <div class="clearfloat"></div>
 {% endblock %}

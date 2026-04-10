@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.ts';
-import { checkReservedWordColumns, checkTableEditForm, prepareForAjaxRequest } from '../modules/functions.ts';
+import { checkReservedWordColumns, checkTableEditForm, copyToClipboard, displayCopyNotification, prepareForAjaxRequest } from '../modules/functions.ts';
 import { Navigation } from '../modules/navigation.ts';
 import { CommonParams } from '../modules/common.ts';
 import highlightSql from '../modules/sql-highlight.ts';
@@ -60,6 +60,7 @@ AJAX.registerTeardown('table/structure.js', function () {
     $('body').off('click', '#fieldsForm button.mult_submit');
     $(document).off('click', 'a[id^=partition_action].ajax');
     $(document).off('click', '#remove_partitioning.ajax');
+    $(document).off('click', '#copyTableStructureBtn');
 });
 
 AJAX.registerOnload('table/structure.js', function () {
@@ -485,5 +486,43 @@ AJAX.registerOnload('table/structure.js', function () {
 
     $(document).on('change', 'select[name=after_field]', function () {
         checkFirst();
+    });
+
+    function copyTableStructureSql (sql: string): void {
+        if (typeof navigator.clipboard !== 'undefined' && typeof navigator.clipboard.writeText === 'function') {
+            navigator.clipboard.writeText(sql).then(() => {
+                displayCopyNotification(true);
+            }).catch(() => {
+                displayCopyNotification(copyToClipboard(sql, '<textarea>'));
+            });
+        } else {
+            displayCopyNotification(copyToClipboard(sql, '<textarea>'));
+        }
+    }
+
+    $(document).on('click', '#copyTableStructureBtn', function (event) {
+        event.preventDefault();
+        const argsep = CommonParams.get('arg_separator');
+        const db = CommonParams.get('db');
+        const table = CommonParams.get('table');
+        const data =
+            'ajax_request=true' + argsep +
+            'ajax_page_request=true' + argsep +
+            'token=' + encodeURIComponent(CommonParams.get('token')) + argsep +
+            'db=' + encodeURIComponent(db) + argsep +
+            'table=' + encodeURIComponent(table);
+        const $msg = ajaxShowMessage(window.Messages.strProcessingRequest);
+        $.post('index.php?route=/table/structure/copy-structure', data, function (response) {
+            ajaxRemoveMessage($msg);
+            if (typeof response !== 'undefined' && response.success === true && typeof response.sql === 'string') {
+                copyTableStructureSql(response.sql);
+            } else {
+                const err = typeof response !== 'undefined' && typeof response.error === 'string' ? response.error : '';
+                ajaxShowMessage(window.Messages.strErrorProcessingRequest + ' : ' + err, false);
+            }
+        }, 'json').fail(function () {
+            ajaxRemoveMessage($msg);
+            ajaxShowMessage(window.Messages.strErrorProcessingRequest, false);
+        });
     });
 });
