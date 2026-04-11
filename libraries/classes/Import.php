@@ -1098,9 +1098,19 @@ class Import
                         $size = 10;
                     }
 
+                    $colType = $typeArray[$analyses[$i][self::TYPES][$j]];
+
+                    // Use TEXT instead of VARCHAR when the length exceeds
+                    // the maximum allowed for VARCHAR. The limit depends on
+                    // the charset (e.g. 16383 for utf8mb4, 65535 for latin1).
+                    // We use the most restrictive limit (utf8mb4) to be safe.
+                    if ($colType === 'varchar' && (int) $size > 16383) {
+                        $colType = 'text';
+                    }
+
                     $tempSQLStr .= Util::backquote($tables[$i][self::COL_NAMES][$j]) . ' '
-                    . $typeArray[$analyses[$i][self::TYPES][$j]];
-                    if ($analyses[$i][self::TYPES][$j] != self::GEOMETRY) {
+                    . $colType;
+                    if ($colType !== 'text' && $analyses[$i][self::TYPES][$j] != self::GEOMETRY) {
                         $tempSQLStr .= '(' . $size . ')';
                     }
 
