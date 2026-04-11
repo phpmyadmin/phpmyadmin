@@ -4,9 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-04-05 00:43+0000\n"
-"PO-Revision-Date: 2025-10-23 14:02+0000\n"
-"Last-Translator: Pedro Ricardo Ribeiro de Olinda <pedro.ribeiro@cest.edu."
-"br>\n"
+"PO-Revision-Date: 2026-04-11 20:09+0000\n"
+"Last-Translator: Rodrigo Del Bem <rodrigodelbem@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -14,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.14.1-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 #: resources/templates/base.twig:40 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -6700,7 +6699,7 @@ msgstr "Coluna de valor:"
 #: resources/templates/table/chart/tbl_chart.twig:145
 #: resources/templates/table/zoom_search/result_form.twig:16
 msgid "The generated chart"
-msgstr ""
+msgstr "O gráfico gerado"
 
 #: resources/templates/table/chart/tbl_chart.twig:148
 msgid "Save chart as image"
