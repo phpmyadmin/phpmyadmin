@@ -471,6 +471,31 @@ class ExportSqlTest extends AbstractTestCase
         self::assertStringContainsString('USE db;', $result);
     }
 
+    public function testExportDBCreateDataOnly(): void
+    {
+        $GLOBALS['sql_compatibility'] = 'NONE';
+        $GLOBALS['sql_backquotes'] = true;
+        $GLOBALS['sql_create_database'] = true;
+        $GLOBALS['sql_structure_or_data'] = 'data';
+        $GLOBALS['crlf'] = "\n";
+
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
+
+        $GLOBALS['dbi'] = $dbi;
+
+        ob_start();
+        self::assertTrue($this->object->exportDBCreate('db', 'server'));
+        $result = ob_get_clean();
+
+        self::assertIsString($result);
+        self::assertStringNotContainsString('CREATE DATABASE', $result);
+        self::assertStringContainsString('USE `db`;', $result);
+    }
+
     public function testExportDBHeader(): void
     {
         $GLOBALS['sql_compatibility'] = 'MSSQL';
