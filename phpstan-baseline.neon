@@ -20242,7 +20242,7 @@ parameters:
 
 		-
 			message: "#^Cannot cast mixed to int\\.$#"
-			count: 3
+			count: 4
 			path: libraries/classes/Import.php
 
 		-
