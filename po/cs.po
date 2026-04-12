@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2024-03-29 10:57+0000\n"
-"Last-Translator: Alesker Abdullayev <tech@abdullaeff.com>\n"
+"PO-Revision-Date: 2026-04-13 17:09+0000\n"
+"Last-Translator: Adam Havránek <adamhavra@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-9/cs/>"
 "\n"
 "Language: cs\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -614,9 +614,9 @@ msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
-"Bohužel během posledního pokusu nebyla žádná data načtena. Toto obvykle "
-"znamená, že phpMyAdmin nebude schopen načíst tento soubor, pokud nezvýšíte "
-"časové limity v PHP."
+"Při posledním spuštění však nebyla analyzována žádná data; to obvykle "
+"znamená, že phpMyAdmin nebude schopen tento import dokončit, pokud nezvýšíte "
+"časové limity v PHP."
 
 #: import.php:706 sql.php:164
 msgid "\"DROP DATABASE\" statements are disabled."
@@ -3706,7 +3706,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:127
 msgid "Enable linter"
-msgstr "Povolit kontrolování SQL"
+msgstr "Zapnout linter"
 
 #: libraries/classes/Config/Descriptions.php:130
 msgid ""
@@ -4153,7 +4153,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:391
 msgid "Use ignore inserts"
-msgstr "Použít IGNORE"
+msgstr "Použít ignorování vložení"
 
 #: libraries/classes/Config/Descriptions.php:395
 msgid "Syntax to use when inserting data"
@@ -4539,8 +4539,8 @@ msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed."
 msgstr ""
-"Pokud je povoleno, PMA pokračuje ve zpracování víceprvkových dotazů, i když "
-"jeden z nich selhal."
+"Je-li tato funkce zapnutá, phpMyAdmin pokračuje ve zpracování dotazů s více "
+"příkazy i v případě, že jeden z příkazů selhal."
 
 #: libraries/classes/Config/Descriptions.php:619
 msgid "Ignore multiple statement errors"
@@ -6029,10 +6029,11 @@ msgid ""
 "if the server where phpMyAdmin is installed does not have direct access to "
 "the internet. The format is: \"hostname:portnumber\"."
 msgstr ""
-"Adresa URL proxy serveru, který má být použit při načítání informací o "
-"nejnovější verzi phpMyAdmina nebo při odesílání chybových hlášení. Toto "
-"potřebujete pokud na serveru, kde je nainstalován phpMyAdmin, nemá přímý "
-"přístup k internetu. Formát je: \"hostname:portnumber\"."
+"URL adresa proxy serveru, která se použije při načítání informací o "
+"nejnovější verzi phpMyAdmin nebo při odesílání hlášení o chybách. Tuto "
+"adresu budete potřebovat, pokud server, na kterém je phpMyAdmin "
+"nainstalován, nemá přímý přístup k internetu. Formát je: „"
+"název_hostitele:číslo_portu“."
 
 #: libraries/classes/Config/Descriptions.php:1417
 msgid "Proxy url"
@@ -7038,7 +7039,7 @@ msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
 msgstr ""
-"Server neodpovídá (nebo není správně nastaven lokální socket MySQL serveru)."
+"Server neodpovídá (nebo není správně nakonfigurován socket místního serveru)."
 
 #: libraries/classes/DatabaseInterface.php:2182
 msgid "The server is not responding."
@@ -7963,7 +7964,7 @@ msgstr "Binární"
 
 #: libraries/classes/InsertEdit.php:729
 msgid "Because of its length,<br /> this column might not be editable."
-msgstr "Toto pole možná nepůjde <br />kvůli délce upravit."
+msgstr "Vzhledem k délce<br /> nemusí být tento sloupec editovatelný."
 
 #: libraries/classes/InsertEdit.php:1337
 msgid "Binary - do not edit"
@@ -8503,8 +8504,8 @@ msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
 msgstr ""
-"Máte nějaké sloupce, které lze rozdělit na více sloupců? Například: adresa "
-"lze rozdělit na ulici, stát a PSČ."
+"Máte nějaké pole, které lze rozdělit na více polí? Například: adresu lze "
+"rozdělit na ulici, město, zemi a PSČ."
 
 #: libraries/classes/Normalization.php:196
 msgid "Show me the central list of columns that are not already in this table"
