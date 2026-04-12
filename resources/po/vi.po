@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-04-05 00:43+0000\n"
+"POT-Creation-Date: 2026-04-12 00:44+0000\n"
 "PO-Revision-Date: 2026-02-03 19:01+0000\n"
 "Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -764,8 +764,8 @@ msgstr "Chỉnh đặc quyền"
 #: resources/templates/columns_definitions/table_fields_definitions.twig:66
 #: resources/templates/database/data_dictionary/index.twig:30
 #: resources/templates/table/structure/display_structure.twig:28
-#: src/Config/Descriptions.php:660 src/Config/Descriptions.php:675
-#: src/Config/Descriptions.php:711 src/Plugins/Export/ExportHtmlword.php:313
+#: src/Config/Descriptions.php:658 src/Config/Descriptions.php:673
+#: src/Config/Descriptions.php:709 src/Plugins/Export/ExportHtmlword.php:313
 #: src/Plugins/Export/ExportLatex.php:471 src/Plugins/Export/ExportOdt.php:411
 #: src/Plugins/Export/ExportTexytext.php:309
 #: src/Plugins/Export/Helpers/Pdf.php:493
@@ -784,8 +784,8 @@ msgstr "Di chuyển cột"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:83
 #: resources/templates/database/data_dictionary/index.twig:32
-#: src/Config/Descriptions.php:664 src/Config/Descriptions.php:676
-#: src/Config/Descriptions.php:714 src/Plugins/Export/ExportHtmlword.php:320
+#: src/Config/Descriptions.php:662 src/Config/Descriptions.php:674
+#: src/Config/Descriptions.php:712 src/Plugins/Export/ExportHtmlword.php:320
 #: src/Plugins/Export/ExportOdt.php:418
 #: src/Plugins/Export/ExportTexytext.php:314
 #: src/Plugins/Export/Helpers/Pdf.php:501
@@ -856,7 +856,7 @@ msgstr "Đặt lại"
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:167
 #: src/Html/Generator.php:685 src/Html/MySQLDocumentation.php:51
-#: src/Sanitize.php:188
+#: src/Sanitize.php:189
 msgid "Documentation"
 msgstr "Tài liệu"
 
@@ -1022,7 +1022,7 @@ msgstr "Truy vấn lại"
 #: resources/templates/setup/home/index.twig:64
 #: resources/templates/table/structure/display_structure.twig:494
 #: resources/templates/triggers/row.twig:28
-#: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
+#: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:925
 #: src/ConfigStorage/UserGroups.php:113
 #: src/Controllers/JavaScriptMessagesController.php:379
 #: src/Display/Results.php:1876 src/Html/Generator.php:533
@@ -1063,7 +1063,7 @@ msgstr "Xóa bỏ"
 #: resources/templates/table/relation/common_form.twig:38
 #: resources/templates/table/relation/common_form.twig:95
 #: resources/templates/table/relation/foreign_key_row.twig:91
-#: src/Config/Descriptions.php:934 src/Plugins/Export/ExportHtmlword.php:145
+#: src/Config/Descriptions.php:932 src/Plugins/Export/ExportHtmlword.php:145
 #: src/Plugins/Export/ExportOdt.php:182
 #: src/Plugins/Export/ExportTexytext.php:115 src/Server/Privileges.php:1564
 #: src/Server/Privileges.php:1566 src/Server/Status/Processes.php:103
@@ -1074,7 +1074,7 @@ msgstr "Cơ sở dữ liệu"
 msgid "SQL Query Console"
 msgstr "Hộp truy vấn SQL"
 
-#: resources/templates/console/display.twig:16 src/Config/Descriptions.php:766
+#: resources/templates/console/display.twig:16 src/Config/Descriptions.php:764
 msgid "Console"
 msgstr "Bảng điều khiển"
 
@@ -1103,7 +1103,7 @@ msgid "Bookmarks"
 msgstr "Đánh dấu"
 
 #: resources/templates/console/display.twig:34
-#: resources/templates/console/display.twig:88 src/Config/Descriptions.php:615
+#: resources/templates/console/display.twig:88 src/Config/Descriptions.php:613
 msgid "Debug SQL"
 msgstr "Gỡ rối SQL"
 
@@ -1175,7 +1175,7 @@ msgstr "Thời gian cần"
 msgid "Order by:"
 msgstr "Xếp theo:"
 
-#: resources/templates/console/display.twig:103 src/Config/Descriptions.php:964
+#: resources/templates/console/display.twig:103 src/Config/Descriptions.php:962
 msgid "Group queries"
 msgstr "Nhóm truy vấn"
 
@@ -1203,7 +1203,7 @@ msgstr "Thời gian cần:"
 #: resources/templates/console/display.twig:133
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
-#: src/Config/Descriptions.php:928 src/Export/Export.php:696
+#: src/Config/Descriptions.php:927 src/Export/Export.php:697
 #: src/Html/Generator.php:589
 msgid "Refresh"
 msgstr "Làm tươi lại"
@@ -1241,15 +1241,15 @@ msgstr "Tốt"
 msgid "Restore default values"
 msgstr "Khôi phục giá trị mặc định"
 
-#: resources/templates/console/display.twig:185 src/Config/Descriptions.php:958
+#: resources/templates/console/display.twig:185 src/Config/Descriptions.php:956
 msgid "Always expand query messages"
 msgstr "Luôn mở rộng các lời nhắn truy vấn"
 
-#: resources/templates/console/display.twig:189 src/Config/Descriptions.php:957
+#: resources/templates/console/display.twig:189 src/Config/Descriptions.php:955
 msgid "Show query history at start"
 msgstr "Hiển thị lịch sử truy vấn lúc bắt đầu"
 
-#: resources/templates/console/display.twig:193 src/Config/Descriptions.php:959
+#: resources/templates/console/display.twig:193 src/Config/Descriptions.php:957
 msgid "Show current browsing query"
 msgstr "Hiển thị truy vấn duyệt hiện tại"
 
@@ -1261,7 +1261,7 @@ msgstr ""
 "Thực thi truy vấn bằng Enter và chèn thêm dòng mới bằng Shift+Enter. Để thực "
 "hiện việc này vĩnh viễn, hãy xem cài đặt."
 
-#: resources/templates/console/display.twig:201 src/Config/Descriptions.php:961
+#: resources/templates/console/display.twig:201 src/Config/Descriptions.php:959
 msgid "Switch to dark theme"
 msgstr "Chuyển sang chủ đề tối"
 
@@ -1382,8 +1382,8 @@ msgstr "Hành động"
 #: resources/templates/error/report_modal.twig:11
 #: resources/templates/gis_data_editor_form.twig:76
 #: resources/templates/modals/change_password.twig:11
-#: resources/templates/server/databases/index.twig:315
-#: resources/templates/server/databases/index.twig:319
+#: resources/templates/server/databases/index.twig:321
+#: resources/templates/server/databases/index.twig:325
 #: resources/templates/server/variables/index.twig:15
 #: resources/templates/table/search/index.twig:196
 #: src/Controllers/JavaScriptMessagesController.php:312
@@ -1809,7 +1809,7 @@ msgstr "Định nghĩa"
 #: resources/templates/sql/query.twig:40
 #: resources/templates/table/structure/display_table_stats.twig:81
 #: resources/templates/triggers/editor_form.twig:64
-#: src/Config/Descriptions.php:638 src/Config/Descriptions.php:654
+#: src/Config/Descriptions.php:636 src/Config/Descriptions.php:652
 msgid "Format"
 msgstr "Định dạng"
 
@@ -1909,7 +1909,7 @@ msgstr "Xuất"
 #: resources/templates/indexes.twig:59
 #: resources/templates/server/databases/index.twig:67
 #: resources/templates/server/databases/index.twig:68
-#: resources/templates/server/databases/index.twig:320
+#: resources/templates/server/databases/index.twig:326
 #: resources/templates/table/relation/foreign_key_row.twig:25
 #: resources/templates/table/structure/display_partitions.twig:146
 #: resources/templates/table/structure/display_structure.twig:120
@@ -1918,7 +1918,7 @@ msgstr "Xuất"
 #: resources/templates/triggers/list.twig:20
 #: resources/templates/triggers/list.twig:21
 #: resources/templates/triggers/row.twig:52
-#: resources/templates/triggers/row.twig:58 src/Operations.php:538
+#: resources/templates/triggers/row.twig:58 src/Operations.php:534
 msgid "Drop"
 msgstr "Xóa"
 
@@ -2007,7 +2007,7 @@ msgstr "Bảng:"
 
 #: resources/templates/database/export/index.twig:22
 #: resources/templates/database/structure/show_create.twig:6
-#: src/Config/Descriptions.php:743
+#: src/Config/Descriptions.php:741
 #: src/Controllers/Server/DatabasesController.php:266
 #: src/Navigation/Nodes/NodeTableContainer.php:23
 #: src/Navigation/Nodes/NodeTableContainer.php:25
@@ -2197,7 +2197,7 @@ msgstr "Chép cơ sở dữ liệu sang"
 
 #: resources/templates/database/operations/index.twig:123
 #: resources/templates/server/databases/index.twig:24
-#: src/Config/Descriptions.php:885
+#: src/Config/Descriptions.php:884
 msgid "Database name"
 msgstr "Tên cơ sở dữ liệu"
 
@@ -2228,10 +2228,10 @@ msgstr "CREATE DATABASE trước khi sao chép"
 
 #: resources/templates/database/operations/index.twig:156
 #: resources/templates/table/operations/index.twig:303
-#: src/Config/Descriptions.php:695 src/Config/Descriptions.php:696
-#: src/Config/Descriptions.php:698 src/Config/Descriptions.php:701
-#: src/Config/Descriptions.php:702 src/Config/Descriptions.php:703
-#: src/Config/Descriptions.php:715
+#: src/Config/Descriptions.php:693 src/Config/Descriptions.php:694
+#: src/Config/Descriptions.php:696 src/Config/Descriptions.php:699
+#: src/Config/Descriptions.php:700 src/Config/Descriptions.php:701
+#: src/Config/Descriptions.php:713
 #, php-format
 msgid "Add %s"
 msgstr "Thêm %s"
@@ -2239,7 +2239,7 @@ msgstr "Thêm %s"
 #: resources/templates/database/operations/index.twig:161
 #: resources/templates/table/operations/index.twig:73
 #: resources/templates/table/operations/index.twig:308
-#: src/Config/Descriptions.php:687
+#: src/Config/Descriptions.php:685
 msgid "Add AUTO_INCREMENT value"
 msgstr "Thêm giá trị AUTO_INCREMENT"
 
@@ -2740,7 +2740,7 @@ msgid "Database:"
 msgstr "Cơ sở dữ liệu:"
 
 #: resources/templates/database/structure/copy_form.twig:31
-#: src/Config/Descriptions.php:898
+#: src/Config/Descriptions.php:897
 msgid "Add DROP TABLE"
 msgstr "Thêm DROP TABLE"
 
@@ -2805,7 +2805,7 @@ msgstr "Hiện tạo các truy vấn"
 #: resources/templates/table/relation/common_form.twig:102
 #: resources/templates/table/relation/foreign_key_row.twig:102
 #: resources/templates/triggers/editor_form.twig:32
-#: resources/templates/triggers/list.twig:49 src/Config/Descriptions.php:937
+#: resources/templates/triggers/list.twig:49 src/Config/Descriptions.php:935
 #: src/Plugins/Export/ExportXml.php:408 src/Server/Privileges.php:1570
 #: src/Server/Privileges.php:1572
 msgid "Table"
@@ -3121,7 +3121,7 @@ msgstr "Kết quả truy vấn các thao tác"
 
 #: resources/templates/display/results/table.twig:353
 #: src/Controllers/JavaScriptMessagesController.php:466
-#: src/Export/Export.php:715
+#: src/Export/Export.php:716
 msgid "Copy to clipboard"
 msgstr "Chép vào clipboard"
 
@@ -3286,7 +3286,7 @@ msgid "Save on server in the directory <strong>%s</strong>"
 msgstr "Lưu trên máy chủ ở thư mục <strong>%s</strong>"
 
 #: resources/templates/export.twig:176 resources/templates/export.twig:371
-#: src/Config/Descriptions.php:681 src/Config/Descriptions.php:684
+#: src/Config/Descriptions.php:679 src/Config/Descriptions.php:682
 msgid "Overwrite existing file(s)"
 msgstr "Ghi đè lên tập tin đã có"
 
@@ -3643,7 +3643,7 @@ msgstr "Lấy nó"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:411
-#: src/Export/Export.php:738 src/Html/Generator.php:849
+#: src/Export/Export.php:739 src/Html/Generator.php:849
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "Quay lại"
@@ -3653,7 +3653,7 @@ msgstr "Quay lại"
 #: resources/templates/preferences/manage/main.twig:11
 #: resources/templates/server/status/monitor/index.twig:53
 #: resources/templates/server/status/monitor/index.twig:69
-#: src/Config/Forms/User/ImportForm.php:58 src/Menu.php:250 src/Menu.php:357
+#: src/Config/Forms/User/ImportForm.php:59 src/Menu.php:250 src/Menu.php:357
 #: src/Menu.php:474 src/Util.php:1367 src/Util.php:1382 src/Util.php:1399
 msgid "Import"
 msgstr "Nhập"
@@ -3996,8 +3996,8 @@ msgstr "Tải lên SQL"
 #: resources/templates/server/export/index.twig:7
 #: resources/templates/server/export/index.twig:14
 #: resources/templates/server/privileges/user_properties.twig:20
-#: src/Config/ConfigFile.php:576 src/Config/Descriptions.php:728
-#: src/Config/Descriptions.php:739 src/Menu.php:440 src/Util.php:1362
+#: src/Config/ConfigFile.php:576 src/Config/Descriptions.php:726
+#: src/Config/Descriptions.php:737 src/Menu.php:440 src/Util.php:1362
 msgid "Databases"
 msgstr "Cơ sở dữ liệu"
 
@@ -4019,7 +4019,7 @@ msgid "Recent"
 msgstr "Mới dùng"
 
 #: resources/templates/navigation/tree/quick_warp.twig:16
-#: src/Config/Descriptions.php:835
+#: src/Config/Descriptions.php:834
 msgid "Favorite tables"
 msgstr "Bảng ưa dùng"
 
@@ -4057,17 +4057,17 @@ msgid "Features"
 msgstr "Tính năng"
 
 #: resources/templates/preferences/header.twig:24
-#: src/Config/Descriptions.php:757 src/Config/Forms/User/SqlForm.php:38
+#: src/Config/Descriptions.php:755 src/Config/Forms/User/SqlForm.php:38
 msgid "SQL queries"
 msgstr "Truy vấn SQL"
 
 #: resources/templates/preferences/header.twig:30
-#: src/Config/Descriptions.php:740 src/Config/Forms/User/NaviForm.php:57
+#: src/Config/Descriptions.php:738 src/Config/Forms/User/NaviForm.php:57
 msgid "Navigation panel"
 msgstr "Bảng điều hướng"
 
 #: resources/templates/preferences/header.twig:36
-#: src/Config/Descriptions.php:744 src/Config/Forms/User/MainForm.php:76
+#: src/Config/Descriptions.php:742 src/Config/Forms/User/MainForm.php:76
 msgid "Main panel"
 msgstr "Bảng điều khiển chính"
 
@@ -4541,13 +4541,28 @@ msgstr "Kiểm tra đặc quyền dành cho cơ sở dữ liệu \"%s\"."
 msgid "Check privileges"
 msgstr "Kiểm tra đặc quyền"
 
-#: resources/templates/server/databases/index.twig:249
+#: resources/templates/server/databases/index.twig:244
+#, fuzzy, php-format
+#| msgid "Run SQL query/queries on database %s"
+msgid "Run SQL queries on database \"%s\"."
+msgstr "Chạy (các) truy vấn SQL trên cơ sở dữ liệu %s"
+
+#: resources/templates/server/databases/index.twig:245
+#: src/Config/ConfigFile.php:520 src/Config/ConfigFile.php:534
+#: src/Config/ConfigFile.php:588 src/Config/ConfigFile.php:598
+#: src/Config/Descriptions.php:753 src/Menu.php:219 src/Menu.php:327
+#: src/Menu.php:445 src/Navigation/Nodes/NodeTable.php:242 src/Util.php:1065
+#: src/Util.php:1363 src/Util.php:1378 src/Util.php:1395
+msgid "SQL"
+msgstr "SQL"
+
+#: resources/templates/server/databases/index.twig:255
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:34
 #: src/Controllers/JavaScriptMessagesController.php:293
 msgid "Total:"
 msgstr "Tổng cộng:"
 
-#: resources/templates/server/databases/index.twig:294
+#: resources/templates/server/databases/index.twig:300
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -4555,16 +4570,16 @@ msgstr ""
 "Chú ý: Việc bật thống kê cơ sở dữ liệu ở đây có thể dẫn đến lưu lượng mạng "
 "tăng cao giữa máy phục vụ web và dịch vụ MySQL."
 
-#: resources/templates/server/databases/index.twig:296
-#: resources/templates/server/databases/index.twig:297
+#: resources/templates/server/databases/index.twig:302
+#: resources/templates/server/databases/index.twig:303
 msgid "Enable statistics"
 msgstr "Bật thống kê"
 
-#: resources/templates/server/databases/index.twig:304
+#: resources/templates/server/databases/index.twig:310
 msgid "No databases"
 msgstr "Không có cơ sở dữ liệu nào"
 
-#: resources/templates/server/databases/index.twig:314
+#: resources/templates/server/databases/index.twig:320
 #: src/Controllers/JavaScriptMessagesController.php:337
 msgid "Confirm"
 msgstr "Xác nhận"
@@ -5670,7 +5685,7 @@ msgid "Current server:"
 msgstr "Máy phục vụ hiện tại:"
 
 #: resources/templates/server/select/index.twig:6
-#: resources/templates/setup/home/index.twig:34 src/Config/Descriptions.php:742
+#: resources/templates/setup/home/index.twig:34 src/Config/Descriptions.php:740
 msgid "Servers"
 msgstr "Máy phục vụ"
 
@@ -5757,7 +5772,7 @@ msgid "Test:"
 msgstr "Kiểm tra"
 
 #: resources/templates/server/status/base.twig:6
-#: src/Config/Descriptions.php:936
+#: src/Config/Descriptions.php:934
 msgid "Server"
 msgstr "Máy phục vụ"
 
@@ -6385,7 +6400,7 @@ msgstr "Hiện mẫu đơn"
 msgid "Show hidden messages"
 msgstr "Hiện các mục tin ẩn"
 
-#: resources/templates/setup/home/index.twig:51 src/Config/Descriptions.php:866
+#: resources/templates/setup/home/index.twig:51 src/Config/Descriptions.php:865
 msgid "Authentication type"
 msgstr "Kiểu xác thực"
 
@@ -6471,7 +6486,7 @@ msgid "Detailed profile"
 msgstr "Hồ sơ chi tiết"
 
 #: resources/templates/sql/profiling_chart.twig:11
-#: src/Config/Descriptions.php:965
+#: src/Config/Descriptions.php:963
 msgid "Order"
 msgstr "Thứ tự"
 
@@ -6534,7 +6549,7 @@ msgstr "Không có kết quả"
 #: src/Controllers/Table/Partition/RepairController.php:49
 #: src/Controllers/Table/Partition/TruncateController.php:50
 #: src/Controllers/Table/RelationController.php:147
-#: src/Database/Routines.php:1033 src/Display/Results.php:2974
+#: src/Database/Routines.php:1033 src/Display/Results.php:2968
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "Truy vấn SQL của bạn đã được thực hiện thành công."
@@ -6580,7 +6595,7 @@ msgstr "Dấu phân tách"
 msgid "Show this query here again"
 msgstr "Hiển thị truy vấn này lần sau nữa."
 
-#: resources/templates/sql/query.twig:130 src/Config/Descriptions.php:923
+#: resources/templates/sql/query.twig:130 src/Config/Descriptions.php:922
 msgid "Retain query box"
 msgstr "Ẩn hộp truy vấn"
 
@@ -7066,7 +7081,7 @@ msgid "Delete the view (DROP)"
 msgstr "Xóa bảng (DROP)"
 
 #: resources/templates/table/page_with_secondary_tabs.twig:5
-#: src/Config/Descriptions.php:760 src/Plugins/Export/ExportPdf.php:170
+#: src/Config/Descriptions.php:758 src/Plugins/Export/ExportPdf.php:170
 msgid "Table structure"
 msgstr "Cấu trúc bảng"
 
@@ -7234,32 +7249,32 @@ msgid "Index length"
 msgstr "Chiều dài chỉ mục"
 
 #: resources/templates/table/structure/display_partitions.twig:85
-#: src/Operations.php:526
+#: src/Operations.php:522
 msgid "Analyze"
 msgstr "Phân tích"
 
 #: resources/templates/table/structure/display_partitions.twig:95
-#: src/Operations.php:527
+#: src/Operations.php:523
 msgid "Check"
 msgstr "Kiểm tra"
 
 #: resources/templates/table/structure/display_partitions.twig:105
-#: src/Operations.php:528
+#: src/Operations.php:524
 msgid "Optimize"
 msgstr "Tối ưu hóa"
 
 #: resources/templates/table/structure/display_partitions.twig:115
-#: src/Operations.php:529
+#: src/Operations.php:525
 msgid "Rebuild"
 msgstr "Xây dụng lại"
 
 #: resources/templates/table/structure/display_partitions.twig:125
-#: src/Operations.php:530
+#: src/Operations.php:526
 msgid "Repair"
 msgstr "Sửa chữa"
 
 #: resources/templates/table/structure/display_partitions.twig:135
-#: src/Operations.php:531
+#: src/Operations.php:527
 msgid "Truncate"
 msgstr "Cắt ngắn"
 
@@ -9161,14 +9176,6 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Tiếng Việt"
 
-#: src/Config/ConfigFile.php:520 src/Config/ConfigFile.php:534
-#: src/Config/ConfigFile.php:588 src/Config/ConfigFile.php:598
-#: src/Config/Descriptions.php:755 src/Menu.php:219 src/Menu.php:327
-#: src/Menu.php:445 src/Navigation/Nodes/NodeTable.php:242 src/Util.php:1065
-#: src/Util.php:1363 src/Util.php:1378 src/Util.php:1395
-msgid "SQL"
-msgstr "SQL"
-
 #: src/Config/ConfigFile.php:545 src/Config/ConfigFile.php:557
 #: src/Config/ConfigFile.php:565
 msgid "Icons"
@@ -9360,19 +9367,19 @@ msgstr "cả hai thứ trên"
 msgid "neither of the above"
 msgstr "không có gì ở trên"
 
-#: src/Config/Descriptions.php:61 src/Config/Descriptions.php:62
-#: src/Config/Descriptions.php:63
+#: src/Config/Descriptions.php:62 src/Config/Descriptions.php:63
+#: src/Config/Descriptions.php:64
 msgid "Users cannot set a higher value"
 msgstr "Người dùng không thể đặt giá trị cao hơn"
 
-#: src/Config/Descriptions.php:76
+#: src/Config/Descriptions.php:77
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
 "Nếu bật, người dùng có thể nhập bất kỳ máy chủ MySQL nào trong biểu mẫu đăng "
 "nhập để xác thực cookie."
 
-#: src/Config/Descriptions.php:79
+#: src/Config/Descriptions.php:80
 msgid ""
 "Restricts the MySQL servers the user can enter when a login to an arbitrary "
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
@@ -9382,7 +9389,7 @@ msgstr ""
 "máy chủ MySQL tùy ý được kích hoạt bằng cách kết hợp IP hoặc tên máy chủ của "
 "máy chủ MySQL với biểu thức thông thường nhất định."
 
-#: src/Config/Descriptions.php:84
+#: src/Config/Descriptions.php:85
 msgid ""
 "Enabling this allows a page located on a different domain to call phpMyAdmin "
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
@@ -9392,22 +9399,22 @@ msgstr ""
 "phpMyAdmin bên trong một khung và là [strong] lỗ hổng bảo mật [/strong] tiềm "
 "năng cho phép thực hiện các cuộc tấn công chéo (XSS)."
 
-#: src/Config/Descriptions.php:89
+#: src/Config/Descriptions.php:90
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication."
 msgstr ""
 "Mật khẩu bí mật được dùng để mã hóa cookies trong xác thực [kbd]cookie[/kbd]."
 
-#: src/Config/Descriptions.php:91
+#: src/Config/Descriptions.php:92
 msgid "Enable bzip2 compression for import operations."
 msgstr "Bật nén bzip2 dành cho các thao tác nhập dữ liệu."
 
-#: src/Config/Descriptions.php:92
+#: src/Config/Descriptions.php:93
 msgid "Enter the URL for your reCAPTCHA v2 compatible API."
 msgstr "Nhập URL cho API tương thích reCAPTCHA v2 của bạn."
 
-#: src/Config/Descriptions.php:93
+#: src/Config/Descriptions.php:94
 msgid ""
 "Enter the Content-Security-Policy snippet for your reCAPTCHA v2 compatible "
 "API."
@@ -9415,29 +9422,29 @@ msgstr ""
 "Nhập đoạn mã Chính sách bảo mật nội dung cho API tương thích reCAPTCHA v2 "
 "của bạn."
 
-#: src/Config/Descriptions.php:94
+#: src/Config/Descriptions.php:95
 msgid "Enter the request parameter used by your reCAPTCHA v2 compatible API."
 msgstr ""
 "Nhập tham số yêu cầu được API tương thích reCAPTCHA v2 của bạn sử dụng."
 
-#: src/Config/Descriptions.php:95
+#: src/Config/Descriptions.php:96
 msgid "Enter the response parameter used by your reCAPTCHA v2 compatible API."
 msgstr ""
 "Nhập tham số phản hồi được API tương thích reCAPTCHA v2 của bạn sử dụng."
 
-#: src/Config/Descriptions.php:96
+#: src/Config/Descriptions.php:97
 msgid "Enter your public key for the reCAPTCHA service on your domain."
 msgstr "Nhập khóa công khai cho dịch vụ reCAPTCHA trên miền của bạn."
 
-#: src/Config/Descriptions.php:97
+#: src/Config/Descriptions.php:98
 msgid "Enter your private key for your domain reCAPTCHA service."
 msgstr "Nhập khóa riêng cho dịch vụ reCAPTCHA tên miền của bạn."
 
-#: src/Config/Descriptions.php:98
+#: src/Config/Descriptions.php:99
 msgid "Enter your siteverify URL for your reCAPTCHA service."
 msgstr "Nhập URL siteverify cho dịch vụ reCAPTCHA của bạn."
 
-#: src/Config/Descriptions.php:100
+#: src/Config/Descriptions.php:101
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
@@ -9447,7 +9454,7 @@ msgstr ""
 "CHAR và VARCHAR; [kbd]input[/kbd] - cho phép giới hạn chiều dài đầu vào,  "
 "[kbd]textarea[/kbd] - cho phép dòng mới trong cột."
 
-#: src/Config/Descriptions.php:105
+#: src/Config/Descriptions.php:106
 msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
@@ -9455,28 +9462,28 @@ msgstr ""
 "Dùng bộ biên soạn thân thiện người dùng để sửa truy vấn SQL (CodeMirror) có "
 "tô sáng cú pháp và số của dòng."
 
-#: src/Config/Descriptions.php:110
+#: src/Config/Descriptions.php:111
 msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
 msgstr ""
 "Tìm bất kỳ lỗi nào trong truy vấn trước khi thực thi nó. Cần bật CodeMirror."
 
-#: src/Config/Descriptions.php:113
+#: src/Config/Descriptions.php:114
 msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns."
 msgstr ""
 "Định nghĩa cỡ tối thiểu cho các trường nhập liệu cho các cột CHAR và VARCHAR."
 
-#: src/Config/Descriptions.php:116
+#: src/Config/Descriptions.php:117
 msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns."
 msgstr ""
 "Định nghĩa cỡ tối đa cho các trường nhập liệu cho các cột CHAR và VARCHAR."
 
-#: src/Config/Descriptions.php:119
+#: src/Config/Descriptions.php:120
 msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature."
@@ -9484,7 +9491,7 @@ msgstr ""
 "Nén phần xuất ra bằng gzip khi đang truyền không cần quá nhiều bộ nhớ; nếu "
 "bạn gặp vấn đề với việc tạo các tập tin gzip thì hãy tắt tính năng này đi."
 
-#: src/Config/Descriptions.php:123
+#: src/Config/Descriptions.php:124
 msgid ""
 "Whether a warning (\"Are your really sure…\") should be displayed when "
 "you're about to lose data."
@@ -9492,15 +9499,15 @@ msgstr ""
 "Có nên hiện cảnh báo (\"Bạn có thực sự chắc là muốn...\") khi bạn chuẩn bị "
 "mất dữ liệu hay không."
 
-#: src/Config/Descriptions.php:126
+#: src/Config/Descriptions.php:127
 msgid "Autocomplete of the table and column names in the SQL queries."
 msgstr "Tự hoàn thiện nốt từ cho tên bảng và cột trong truy vấn SQL."
 
-#: src/Config/Descriptions.php:129 src/Config/Descriptions.php:133
-#: src/Config/Descriptions.php:137 src/Config/Descriptions.php:141
-#: src/Config/Descriptions.php:145 src/Config/Descriptions.php:149
-#: src/Config/Descriptions.php:153 src/Config/Descriptions.php:157
-#: src/Config/Descriptions.php:161
+#: src/Config/Descriptions.php:130 src/Config/Descriptions.php:134
+#: src/Config/Descriptions.php:138 src/Config/Descriptions.php:142
+#: src/Config/Descriptions.php:146 src/Config/Descriptions.php:150
+#: src/Config/Descriptions.php:154 src/Config/Descriptions.php:158
+#: src/Config/Descriptions.php:162
 msgid ""
 "Values for options list for default transformations. These will be "
 "overwritten if transformation is filled in at table structure page."
@@ -9508,7 +9515,7 @@ msgstr ""
 "Giá trị cho danh sách tùy chọn cho các phép biến đổi mặc định. Chúng sẽ bị "
 "ghi đè nếu chuyển đổi được điền vào ở trang cấu trúc bảng."
 
-#: src/Config/Descriptions.php:165
+#: src/Config/Descriptions.php:166
 msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
@@ -9516,7 +9523,7 @@ msgstr ""
 "Tắt các thao tác bảo trì bảng với số lượng lớn, như là tối ưu hóa hoặc sửa "
 "chữa các bảng đã chọn của một cơ sở dữ liệu."
 
-#: src/Config/Descriptions.php:169
+#: src/Config/Descriptions.php:170
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)."
@@ -9524,12 +9531,12 @@ msgstr ""
 "Đặt số lượng giây tối đa mà văn lệnh được phép chạy ([kbd]0[/kbd] để không "
 "giới hạn gì)."
 
-#: src/Config/Descriptions.php:171 src/Config/Descriptions.php:708
+#: src/Config/Descriptions.php:172 src/Config/Descriptions.php:706
 #: src/Plugins/Export/ExportSql.php:365
 msgid "Exclude definition of current user"
 msgstr "Loại trừ định nghĩa của người dùng hiện tại"
 
-#: src/Config/Descriptions.php:173
+#: src/Config/Descriptions.php:174
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
@@ -9537,7 +9544,7 @@ msgstr ""
 "Thứ tự cho các mục trong hộp xổ xuống khóa-ngoại; [kbd]content[/kbd] là dữ "
 "liệu tham chiếu, [kbd]id[/kbd] là giá trị khóa."
 
-#: src/Config/Descriptions.php:177
+#: src/Config/Descriptions.php:178
 msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
@@ -9546,7 +9553,7 @@ msgstr ""
 "doc] để biết cách dùng các chuỗi màu nhiệm làm nên những giá trị đặc biệt "
 "thế nào."
 
-#: src/Config/Descriptions.php:182
+#: src/Config/Descriptions.php:183
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL."
@@ -9554,7 +9561,7 @@ msgstr ""
 "Vui lòng chú ý là phpMyAdmin chỉ là giao diện người dùng và những đặc tính "
 "của nó không giới hạn MySQL."
 
-#: src/Config/Descriptions.php:185
+#: src/Config/Descriptions.php:186
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for."
@@ -9562,7 +9569,7 @@ msgstr ""
 "Cấu hình máy chủ cấp cao, đừng thay đổi những tùy chọn này trừ khi bạn biết "
 "chúng để làm gì."
 
-#: src/Config/Descriptions.php:188
+#: src/Config/Descriptions.php:189
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
@@ -9572,123 +9579,123 @@ msgstr ""
 "sung, xem [doc@linked-tables]phpMyAdmin configuration storage[/doc] trong "
 "tài liệu."
 
-#: src/Config/Descriptions.php:193
+#: src/Config/Descriptions.php:194
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
 msgstr ""
 "Theo dõi các thay đổi ở cơ sở dữ liệu. Yêu cầu kho cấu hình phpMyAdmin."
 
-#: src/Config/Descriptions.php:196
+#: src/Config/Descriptions.php:197
 msgid "Customize browse mode."
 msgstr "Chế độ duyệt tùy ý."
 
-#: src/Config/Descriptions.php:197 src/Config/Descriptions.php:198
-#: src/Config/Descriptions.php:205 src/Config/Descriptions.php:211
-#: src/Config/Descriptions.php:212 src/Config/Descriptions.php:217
+#: src/Config/Descriptions.php:198 src/Config/Descriptions.php:199
+#: src/Config/Descriptions.php:206 src/Config/Descriptions.php:212
+#: src/Config/Descriptions.php:213 src/Config/Descriptions.php:218
 msgid "Customize default options."
 msgstr "Các tùy chọn tùy thích mặc định."
 
-#: src/Config/Descriptions.php:199
+#: src/Config/Descriptions.php:200
 msgid "Settings for phpMyAdmin developers."
 msgstr "Cài đặt cho các nhà phát triển phpMyAdmin."
 
-#: src/Config/Descriptions.php:200
+#: src/Config/Descriptions.php:201
 msgid "Customize edit mode."
 msgstr "Cá nhân hóa chế độ chỉnh sửa"
 
-#: src/Config/Descriptions.php:201
+#: src/Config/Descriptions.php:202
 msgid "Customize default export options."
 msgstr "Cá nhân hóa các tùy chọn xuất mặc định."
 
-#: src/Config/Descriptions.php:202
+#: src/Config/Descriptions.php:203
 msgid "Set some commonly used options."
 msgstr "Đặt một số tùy chọn hay dùng"
 
-#: src/Config/Descriptions.php:203
+#: src/Config/Descriptions.php:204
 msgid "Customize default common import options."
 msgstr "Tùy chỉnh các tùy chọn nhập dữ liệu vào mặc định"
 
-#: src/Config/Descriptions.php:204
+#: src/Config/Descriptions.php:205
 msgid "Set import and export directories and compression options."
 msgstr "Đặt các thư mục nhập và xuất và các tùy chọn nén."
 
-#: src/Config/Descriptions.php:206
+#: src/Config/Descriptions.php:207
 msgid "Databases display options."
 msgstr "Hiển thị tùy chọn thêm"
 
-#: src/Config/Descriptions.php:207
+#: src/Config/Descriptions.php:208
 msgid "Customize appearance of the navigation panel."
 msgstr "Tùy chỉnh diện mạo của bảng điều hướng."
 
-#: src/Config/Descriptions.php:208
+#: src/Config/Descriptions.php:209
 msgid "Customize the navigation tree."
 msgstr "Cá nhân hóa cây điều hướng."
 
-#: src/Config/Descriptions.php:209
+#: src/Config/Descriptions.php:210
 msgid "Servers display options."
 msgstr "Các tùy chọn trình bày máy chủ."
 
-#: src/Config/Descriptions.php:210
+#: src/Config/Descriptions.php:211
 msgid "Tables display options."
 msgstr "Các tùy chọn trình bày bảng."
 
-#: src/Config/Descriptions.php:213
+#: src/Config/Descriptions.php:214
 msgid "Settings that didn't fit anywhere else."
 msgstr "Các cài đặt mà nó chẳng phù hợp ở chỗ khác."
 
-#: src/Config/Descriptions.php:214
+#: src/Config/Descriptions.php:215
 msgid "Authentication settings."
 msgstr "Cài đặt xác thực"
 
-#: src/Config/Descriptions.php:215
+#: src/Config/Descriptions.php:216
 msgid "Enter server connection parameters."
 msgstr "Nhập vào các tham số kết nối máy chủ."
 
-#: src/Config/Descriptions.php:216
+#: src/Config/Descriptions.php:217
 msgid "Customize links shown in SQL Query boxes."
 msgstr "Tùy chỉnh liên kết hiện trong hộp Truy vấn SQL."
 
-#: src/Config/Descriptions.php:218
+#: src/Config/Descriptions.php:219
 msgid "SQL queries settings."
 msgstr "Các cài đặt các truy vấn."
 
-#: src/Config/Descriptions.php:219
+#: src/Config/Descriptions.php:220
 msgid "Customize startup page."
 msgstr "Tùy chỉnh trang bắt đầu."
 
-#: src/Config/Descriptions.php:220
+#: src/Config/Descriptions.php:221
 msgid ""
 "Choose which details to show in the database structure (list of tables)."
 msgstr ""
 "Chọn chi tết nào sẽ được hiển thị trong cấu trúc cơ sở dữ liệu (danh sách "
 "các bảng)."
 
-#: src/Config/Descriptions.php:221
+#: src/Config/Descriptions.php:222
 msgid "Settings for the table structure (list of columns)."
 msgstr "Các cài đặt cho cấu trúc bảng (danh sách các cột)."
 
-#: src/Config/Descriptions.php:222
+#: src/Config/Descriptions.php:223
 msgid "Choose how you want tabs to work."
 msgstr "Chọn thứ bạn muốn tab thực hiện."
 
-#: src/Config/Descriptions.php:223
+#: src/Config/Descriptions.php:224
 msgid "Customize text input fields."
 msgstr "Tùy chỉnh các trường nhập vào kiểu text"
 
-#: src/Config/Descriptions.php:224
+#: src/Config/Descriptions.php:225
 msgid "Customize default options"
 msgstr "Tùy chỉnh các tùy chọn mặc định"
 
-#: src/Config/Descriptions.php:225
+#: src/Config/Descriptions.php:226
 msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr "Tắt một số cảnh báo hiển thị bởi phpMyAdmin."
 
-#: src/Config/Descriptions.php:227
+#: src/Config/Descriptions.php:228
 msgid "Enable gzip compression for import and export operations."
 msgstr "Bật nén gzip dành cho các thao tác nhập và xuất dữ liệu."
 
-#: src/Config/Descriptions.php:229
+#: src/Config/Descriptions.php:230
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed."
@@ -9696,7 +9703,7 @@ msgstr ""
 "Nếu bật, phpMyAdmin sẽ tiếp tục thực hiện các truy vấn ngay cả khi một trong "
 "số các truy vấn gặp lỗi."
 
-#: src/Config/Descriptions.php:233
+#: src/Config/Descriptions.php:234
 msgid ""
 "Allow interrupt of import in case script detects it is close to time limit. "
 "This might be a good way to import large files, however it can break "
@@ -9706,7 +9713,7 @@ msgstr ""
 "hạn thời gian. Việc náy có lẽ tốt trong trường hợp bạn muốn nhập một tập tin "
 "có kích cỡ lớn, tuy nhiên nó có thể làm hỏng các giao dịch."
 
-#: src/Config/Descriptions.php:238
+#: src/Config/Descriptions.php:239
 msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available."
@@ -9714,15 +9721,15 @@ msgstr ""
 "Định dạng mặc định; cần nhận thức rằng danh sách này còn phụ tuộc vào vị trí "
 "(cơ sở dữ liệu, bảng) và chỉ SQL là luôn khả dụng."
 
-#: src/Config/Descriptions.php:241 src/Config/Descriptions.php:242
+#: src/Config/Descriptions.php:242 src/Config/Descriptions.php:243
 msgid "Update data when duplicate keys found on import"
 msgstr "Cập nhật dữ liệu khi các khóa trùng lắp được tìm thấy trong nhập vào"
 
-#: src/Config/Descriptions.php:243
+#: src/Config/Descriptions.php:244
 msgid "Number of queries to skip from start."
 msgstr "Số lượng câu truy vấn được bỏ qua tính từ khởi đầu"
 
-#: src/Config/Descriptions.php:245
+#: src/Config/Descriptions.php:246
 msgid ""
 "If TRUE, logout deletes cookies for all servers; when set to FALSE, logout "
 "only occurs for the current server. Setting this to FALSE makes it easy to "
@@ -9732,7 +9739,7 @@ msgstr ""
 "chỉ xảy ra ở máy chủ hiện tại. Cài đặt này thành SAI làm bạn dễ quên đăng "
 "xuất khỏi các máy chủ khác khi kết nối với nhiều máy chủ."
 
-#: src/Config/Descriptions.php:250
+#: src/Config/Descriptions.php:251
 msgid ""
 "Define whether the previous login should be recalled or not in [kbd]cookie[/"
 "kbd] authentication mode."
@@ -9740,7 +9747,7 @@ msgstr ""
 "Xác định đăng nhập trước đó có nên được thu hồi hay không trong chế độ xác "
 "thực [kbd]cookie[/kbd]."
 
-#: src/Config/Descriptions.php:254
+#: src/Config/Descriptions.php:255
 msgid ""
 "Defines how long (in seconds) a login cookie should be stored in browser. "
 "The default of 0 means that it will be kept for the existing session only, "
@@ -9752,26 +9759,26 @@ msgstr ""
 "phiên hiện tại, và sẽ bị xóa ngay khi bạn đóng cửa sổ trình duyệt. Đây là "
 "khuyến cáo cho môi trường không đáng tin cậy."
 
-#: src/Config/Descriptions.php:260
+#: src/Config/Descriptions.php:261
 msgid "Maximum number of characters used when a SQL query is displayed."
 msgstr ""
 "Số lượng các ký tự tối đa được dùng khi một truy vấn SQL được trưng bày."
 
-#: src/Config/Descriptions.php:263
+#: src/Config/Descriptions.php:264
 msgid ""
 "The number of items that can be displayed on each page on the first level of "
 "the navigation tree."
 msgstr ""
 "Số lượng mục mà nó có thể được trình bày trên mỗi trang của cây điều hướng"
 
-#: src/Config/Descriptions.php:266
+#: src/Config/Descriptions.php:267
 msgid ""
 "The number of items that can be displayed on each page of the navigation "
 "tree."
 msgstr ""
 "Số lượng mục mà nó có thể được trình bày trên mỗi trang của cây điều hướng"
 
-#: src/Config/Descriptions.php:269
+#: src/Config/Descriptions.php:270
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, \"Previous\" and \"Next\" links will be shown."
@@ -9779,7 +9786,7 @@ msgstr ""
 "Số dòng được hiển thị khi duyệt một tập kết quả. Nếu tập kết quả chứa nhiều "
 "hơn một dòng, liên kết \"Kế trước\" và \"Kế tiếp\" sẽ được hiển thị."
 
-#: src/Config/Descriptions.php:274
+#: src/Config/Descriptions.php:275
 msgid ""
 "The number of bytes a script is allowed to allocate, e.g. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
@@ -9787,17 +9794,17 @@ msgstr ""
 "Số byte mà tập lệnh được phép phân bổ, vd: [kbd]32M[/kbd] ([kbd]-1[/kbd] để "
 "không giới hạn và [kbd]0[/kbd] để không thay đổi)."
 
-#: src/Config/Descriptions.php:278
+#: src/Config/Descriptions.php:279
 msgid "In the navigation panel, replaces the database tree with a selector"
 msgstr "Trong bảng điều hướng, thay thế cây cơ sở dữ liệu bằng một bộ chọn"
 
-#: src/Config/Descriptions.php:281
+#: src/Config/Descriptions.php:282
 msgid "Link with main panel by highlighting the current database or table."
 msgstr ""
 "Liên kết với bảng điều khiển chính bằng cách tô sáng cơ sở dữ liệu hay bảng "
 "hiện tại."
 
-#: src/Config/Descriptions.php:284
+#: src/Config/Descriptions.php:285
 msgid ""
 "Open the linked page in the main window ([code]main[/code]) or in a new one "
 "([code]new[/code])."
@@ -9805,7 +9812,7 @@ msgstr ""
 "Mở trang đã liên kết trong cửa số chính ([code]main[/code]) hay trong một "
 "cái mới ([code]new[/code])."
 
-#: src/Config/Descriptions.php:287
+#: src/Config/Descriptions.php:288
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
@@ -9813,7 +9820,7 @@ msgstr ""
 "Các định nghĩa số lượng mục tin (bảng, view, thủ tục, sự kiện) được hiển thị "
 "trong hộp lọc tối thiểu."
 
-#: src/Config/Descriptions.php:290
+#: src/Config/Descriptions.php:291
 msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
@@ -9821,69 +9828,69 @@ msgstr ""
 "Nhóm các mục tin trong cây điều hướng (được nhận dạng bởi định nghĩa ngăn "
 "cách trong Cơ sở dữ liệu và Bảng tab ở phía trên)."
 
-#: src/Config/Descriptions.php:294
+#: src/Config/Descriptions.php:295
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
 msgstr "Có để cho giãn rộng cây trong bản điều hướng hay không."
 
-#: src/Config/Descriptions.php:297
+#: src/Config/Descriptions.php:298
 msgid "Whether to show procedures under database in the navigation tree"
 msgstr ""
 "Có cho hiển thị các thủ tục dưới cơ sở dữ liệu trong cây điều hướng hay không"
 
-#: src/Config/Descriptions.php:300
+#: src/Config/Descriptions.php:301
 msgid "Whether to expand single database in the navigation tree automatically."
 msgstr ""
 "Có nên tự động mở rộng cơ sở dữ liệu đơn lẻ trong cây điều hướng hay không."
 
-#: src/Config/Descriptions.php:302
+#: src/Config/Descriptions.php:303
 msgid "Set to 0 to collapse navigation panel."
 msgstr "Đặt là 0 để thu gọn bảng điều hướng."
 
-#: src/Config/Descriptions.php:303
+#: src/Config/Descriptions.php:304
 msgid "Show logo in navigation panel."
 msgstr "Hiện biểu tượng trong bảng điều hướng"
 
-#: src/Config/Descriptions.php:304
+#: src/Config/Descriptions.php:305
 msgid "URL where logo in the navigation panel will point to."
 msgstr "URL nơi mà biểu tượng trong bảng điều hướng sẽ chỉ đến đó."
 
-#: src/Config/Descriptions.php:305
+#: src/Config/Descriptions.php:306
 msgid "Display server choice at the top of the navigation panel."
 msgstr "Hiển thị lựa chọn máy chủ tại đỉnh của bảng điều hướng."
 
-#: src/Config/Descriptions.php:306
+#: src/Config/Descriptions.php:307
 msgid "String that separates databases into different tree levels."
 msgstr "Chuỗi mà ngăn cách các cơ sở dữ liệu thành các mức cây khác nhau."
 
-#: src/Config/Descriptions.php:307
+#: src/Config/Descriptions.php:308
 msgid "String that separates tables into different tree levels."
 msgstr "Chuỗi mà ngăn cách các bảng thành các mức cây khác nhau."
 
-#: src/Config/Descriptions.php:308
+#: src/Config/Descriptions.php:309
 msgid "Highlight server under the mouse cursor."
 msgstr "Tô sáng máy chủ dưới con trỏ chuột."
 
-#: src/Config/Descriptions.php:309
+#: src/Config/Descriptions.php:310
 msgid "Whether to show tables under database in the navigation tree"
 msgstr ""
 "Có cho hiển thị các bảng dưới cơ sở dữ liệu trong cây điều hướng hay không"
 
-#: src/Config/Descriptions.php:310
+#: src/Config/Descriptions.php:311
 msgid "Whether to show views under database in the navigation tree"
 msgstr "Có cho hiển thị các view dưới dữ liệu trong cây điều hướng hay không"
 
-#: src/Config/Descriptions.php:311
+#: src/Config/Descriptions.php:312
 msgid "Whether to show functions under database in the navigation tree"
 msgstr ""
 "Có cho hiển thị các hàm dưới cơ sở dữ liệu trong cây điều hướng hay không"
 
-#: src/Config/Descriptions.php:312
+#: src/Config/Descriptions.php:313
 msgid "Whether to show events under database in the navigation tree"
 msgstr ""
 "Có cho hiển thị các sự kiện dưới cơ sở dữ liệu trong cây điều hướng hay không"
 
-#: src/Config/Descriptions.php:314
+#: src/Config/Descriptions.php:315
 msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise."
@@ -9891,7 +9898,7 @@ msgstr ""
 "[kbd]SMART[/kbd] - vd thứ tự giảm dần cho cột kiểu TIME, DATE, DATETIME and "
 "TIMESTAMP, tăng dần cho các kiểu còn lại."
 
-#: src/Config/Descriptions.php:318
+#: src/Config/Descriptions.php:319
 msgid ""
 "Disable the default warning that is displayed on the database details "
 "Structure page if any of the required tables for the phpMyAdmin "
@@ -9901,7 +9908,7 @@ msgstr ""
 "sở dữ liệu nếu bất kỳ bảng yêu cầu nào cho kho cấu hình phpMyAdmin không thể "
 "được tìm thấy."
 
-#: src/Config/Descriptions.php:323
+#: src/Config/Descriptions.php:324
 msgid ""
 "Disable the default warning that is displayed on the Structure page if "
 "column names in a table are reserved MySQL words."
@@ -9909,7 +9916,7 @@ msgstr ""
 "Tắt cảnh báo mặc định cái mà được hiển thị trên trang Cấu trúc nếu tên các "
 "cột trong một bảng là từ dành riêng cho MySQL."
 
-#: src/Config/Descriptions.php:327
+#: src/Config/Descriptions.php:328
 msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
@@ -9919,18 +9926,18 @@ msgstr ""
 "phpMyAdmin). Nếu bị tắt, điều này sử dụng các thói quen JS để hiển thị lịch "
 "sử truy vấn (bị mất bởi đóng cửa sổ)."
 
-#: src/Config/Descriptions.php:331
+#: src/Config/Descriptions.php:332
 msgid "Allow users to create bookmarks that are available for all other users"
 msgstr ""
 
-#: src/Config/Descriptions.php:333
+#: src/Config/Descriptions.php:334
 msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
 msgstr ""
 "Thiết lập múi giờ hiệu quả; có thể khác với máy chủ cơ sở dữ liệu của bạn"
 
-#: src/Config/Descriptions.php:336
+#: src/Config/Descriptions.php:337
 msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
@@ -9938,7 +9945,7 @@ msgstr ""
 "Để trống khi không hỗ trợ [doc@bookmarks@]đánh dấu[/doc], gợi ý: "
 "[kbd]pma__bookmark[/kbd]"
 
-#: src/Config/Descriptions.php:339
+#: src/Config/Descriptions.php:340
 msgid ""
 "Leave blank for no column comments/media types, suggested: "
 "[kbd]pma__column_info[/kbd]."
@@ -9946,7 +9953,7 @@ msgstr ""
 "Để trống nếu không có chú thích cột/loại phương tiện, gợi ý: "
 "[kbd]pma__column_info[/kbd]."
 
-#: src/Config/Descriptions.php:342
+#: src/Config/Descriptions.php:343
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
@@ -9954,7 +9961,7 @@ msgstr ""
 "Một người dùng MySQL đặc biệt được cấu hình với quyền giới hạn, thông tin "
 "thêm nữa sẵn có trên [doc@linked-tables]tài liệu[/doc]."
 
-#: src/Config/Descriptions.php:346
+#: src/Config/Descriptions.php:347
 msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host."
@@ -9962,7 +9969,7 @@ msgstr ""
 "Cách khác là máy chủ giữ kho cấu hình; để trống để dùng máy chủ đã định "
 "nghĩa sẵn có."
 
-#: src/Config/Descriptions.php:349
+#: src/Config/Descriptions.php:350
 msgid ""
 "An alternate port to connect to the host that holds the configuration "
 "storage; leave blank to use the default port, or the already defined port, "
@@ -9972,7 +9979,7 @@ msgstr ""
 "sử dụng cổng mặc định, hoặc cổng đã được xác định, nếu controlhost bằng máy "
 "chủ."
 
-#: src/Config/Descriptions.php:354
+#: src/Config/Descriptions.php:355
 msgid ""
 "More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
 "issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
@@ -9982,7 +9989,7 @@ msgstr ""
 "issues/8970]theo dõi lỗi phpMyAdmin[/a] và [a@https://bugs.mysql."
 "com/19588]Lỗi MySQL[/a]"
 
-#: src/Config/Descriptions.php:358
+#: src/Config/Descriptions.php:359
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
@@ -9990,7 +9997,7 @@ msgstr ""
 "Để trống để không hỗ trợ lưu lịch sử truy vấn SQL, gợi ý: [kbd]pma__history[/"
 "kbd]."
 
-#: src/Config/Descriptions.php:361
+#: src/Config/Descriptions.php:362
 msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed."
@@ -9998,14 +10005,14 @@ msgstr ""
 "Giới hạn số lượng các sở thích của bảng được lưu trữ trong cơ sở dữ liệu, "
 "bản ghi cũ nhất được tự động xóa."
 
-#: src/Config/Descriptions.php:365
+#: src/Config/Descriptions.php:366
 msgid ""
 "Leave blank for no export template support, suggested: "
 "[kbd]pma__export_templates[/kbd]."
 msgstr ""
 "Để trống để không hỗ trợ mẫu xuất, gợi ý: [kbd]pma__export_templates[/kbd]."
 
-#: src/Config/Descriptions.php:368
+#: src/Config/Descriptions.php:369
 msgid ""
 "Leave blank for no central columns support, suggested: "
 "[kbd]pma__central_columns[/kbd]."
@@ -10013,7 +10020,7 @@ msgstr ""
 "Để trống nếu không có hỗ trợ cột trung tâm, gợi ý: "
 "[kbd]pma__central_columns[/kbd]."
 
-#: src/Config/Descriptions.php:371
+#: src/Config/Descriptions.php:372
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
@@ -10023,13 +10030,13 @@ msgstr ""
 "bạn muốn dụng chúng ở dạng nghĩa đen, vd: dùng [kbd]'my\\_db'[/kbd] và không "
 "[kbd]'my_db'[/kbd]."
 
-#: src/Config/Descriptions.php:376
+#: src/Config/Descriptions.php:377
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
 "Để trống nếu không có hỗ trợ giản đồ PDF, gợi ý: [kbd]pma__pdf_pages[/kbd]."
 
-#: src/Config/Descriptions.php:379
+#: src/Config/Descriptions.php:380
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [doc@linked-"
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
@@ -10039,7 +10046,7 @@ msgstr ""
 "PDF. Xem [doc@linked-tables]pmadb[/doc] để biết thông tin đầy đủ. Để trống "
 "khi không có hỗ trợ. Gợi ýt: [kbd]phpmyadmin[/kbd]."
 
-#: src/Config/Descriptions.php:384
+#: src/Config/Descriptions.php:385
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]."
@@ -10047,7 +10054,7 @@ msgstr ""
 "Để trống khi không có bảng gần đây \"liên tục\" được sử dụng xuyên các "
 "phiên, gợi ý: [kbd]pma__recent[/kbd]."
 
-#: src/Config/Descriptions.php:388
+#: src/Config/Descriptions.php:389
 msgid ""
 "Leave blank for no \"persistent\" favorite tables across sessions, "
 "suggested: [kbd]pma__favorite[/kbd]."
@@ -10055,7 +10062,7 @@ msgstr ""
 "Để trống khi không có bảng yêu thích \"liên tục\" trên các phiên, gợi ý: "
 "[kbd]pma__favorite[/kbd]."
 
-#: src/Config/Descriptions.php:392
+#: src/Config/Descriptions.php:393
 msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
@@ -10063,12 +10070,12 @@ msgstr ""
 "Để trống để không hỗ trợ [doc@relations@]relation-links[/doc], gợi ý: "
 "[kbd]pma__relation[/kbd]."
 
-#: src/Config/Descriptions.php:397
+#: src/Config/Descriptions.php:398
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr "Xem [doc@authentication-modes]các kiểu xác thực[/doc] cho ví dụ."
 
-#: src/Config/Descriptions.php:400
+#: src/Config/Descriptions.php:401
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
@@ -10076,7 +10083,7 @@ msgstr ""
 "Để trống nếu không có hỗ trợ giản đồ PDF, gợi ý: [kbd]pma__table_coords[/"
 "kbd]."
 
-#: src/Config/Descriptions.php:403
+#: src/Config/Descriptions.php:404
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]."
@@ -10084,7 +10091,7 @@ msgstr ""
 "Bảng để mô tả các cột hiển thị, để trống khi không có hỗ trợ; gợi ý: "
 "[kbd]pma__table_info[/kbd]."
 
-#: src/Config/Descriptions.php:407
+#: src/Config/Descriptions.php:408
 msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]."
@@ -10092,7 +10099,7 @@ msgstr ""
 "Để trống khi không có bảng tùy chọn giao diện \"liên tục\" trên các phiên, "
 "gợi ý: [kbd]pma__table_uiprefs[/kbd]."
 
-#: src/Config/Descriptions.php:411
+#: src/Config/Descriptions.php:412
 #, fuzzy
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
@@ -10101,7 +10108,7 @@ msgstr ""
 "Có thể câu XÓA CƠ SỞ DỮ LIỆU NẾU TỒN TẠI sẽ được thêm vào dòng đầu tiên của "
 "nhật ký khi tạo một cơ sở dữ liệu."
 
-#: src/Config/Descriptions.php:415
+#: src/Config/Descriptions.php:416
 #, fuzzy
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
@@ -10110,19 +10117,19 @@ msgstr ""
 "Có thể câu XÓA BẢNG NẾU TỒN TẠI sẽ được thêm vào dòng đầu tiên của nhật ký "
 "khi tạo bảng."
 
-#: src/Config/Descriptions.php:419
+#: src/Config/Descriptions.php:420
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
 msgstr ""
 
-#: src/Config/Descriptions.php:423
+#: src/Config/Descriptions.php:424
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 "Xác định danh sách các câu lệnh mà trình tạo tự động sử dụng cho các phiên "
 "bản mới."
 
-#: src/Config/Descriptions.php:426
+#: src/Config/Descriptions.php:427
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: "
 "[kbd]pma__tracking[/kbd]."
@@ -10130,7 +10137,7 @@ msgstr ""
 "Để trống nếu không hỗ trợ theo dõi truy vấn SQL, gợi ý: [kbd]pma__tracking[/"
 "kbd]."
 
-#: src/Config/Descriptions.php:429
+#: src/Config/Descriptions.php:430
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
@@ -10138,13 +10145,13 @@ msgstr ""
 "Liệu cơ chế theo dõi có tự động tạo phiên bản cho bảng và chế độ xem hay "
 "không."
 
-#: src/Config/Descriptions.php:432
+#: src/Config/Descriptions.php:433
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: "
 "[kbd]pma__userconfig[/kbd]."
 msgstr ""
 
-#: src/Config/Descriptions.php:435
+#: src/Config/Descriptions.php:436
 msgid ""
 "Both this table and the user groups table are required to enable the "
 "configurable menus feature; leaving either one of them blank will disable "
@@ -10154,7 +10161,7 @@ msgstr ""
 "hình của các menu; nếu một trong hai bảng bị để trống thì tính năng này sẽ "
 "bị tắt, gợi ý: [kbd]pma__users[/kbd]."
 
-#: src/Config/Descriptions.php:440
+#: src/Config/Descriptions.php:441
 msgid ""
 "Both this table and the users table are required to enable the configurable "
 "menus feature; leaving either one of them blank will disable this feature, "
@@ -10164,7 +10171,7 @@ msgstr ""
 "của các menu; nếu một trong hai bảng bị để trống thì tính năng này sẽ bị "
 "tắt, gợi ý: [kbd]pma__usergroups[/kbd]."
 
-#: src/Config/Descriptions.php:445
+#: src/Config/Descriptions.php:446
 msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
@@ -10172,59 +10179,59 @@ msgstr ""
 "Để trống để tắt tính năng tắt và hiện mục điều hướng, gợi ý: "
 "[kbd]pma__navigationhiding[/kbd]."
 
-#: src/Config/Descriptions.php:449
+#: src/Config/Descriptions.php:450
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
 msgstr ""
 "Mô tả thân thiện người dùng cho máy này. Để trống thì chỉ hiển thị tên máy."
 
-#: src/Config/Descriptions.php:451
+#: src/Config/Descriptions.php:452
 msgid "Leave blank if not used."
 msgstr "Bỏ trống nếu không dùng."
 
-#: src/Config/Descriptions.php:452
+#: src/Config/Descriptions.php:453
 msgid "Leave blank for defaults."
 msgstr "Để trống để mặc định."
 
-#: src/Config/Descriptions.php:453
+#: src/Config/Descriptions.php:454
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
 msgstr ""
 
-#: src/Config/Descriptions.php:454
+#: src/Config/Descriptions.php:455
 msgid "Authentication method to use."
 msgstr "Phương thức xác thực sẽ dùng"
 
-#: src/Config/Descriptions.php:455
+#: src/Config/Descriptions.php:456
 msgid "Compress connection to MySQL server."
 msgstr "Kết nối có nén  đến máy phục vụ MySQL."
 
-#: src/Config/Descriptions.php:456
+#: src/Config/Descriptions.php:457
 msgid "Hide databases matching regular expression (PCRE)."
 msgstr "Ẩn các cơ sở dữ liệu khớp mẫu biểu thức chính quy (PCRE)."
 
-#: src/Config/Descriptions.php:457
+#: src/Config/Descriptions.php:458
 msgid "Hostname where MySQL server is running."
 msgstr "Tên máy nơi mà máy chủ MySQL đang chạy."
 
-#: src/Config/Descriptions.php:458 src/Config/Descriptions.php:462
+#: src/Config/Descriptions.php:459 src/Config/Descriptions.php:463
 msgid "Leave empty if not using config auth."
 msgstr "Để trống nếu không sử dụng xác thực cấu hình."
 
-#: src/Config/Descriptions.php:459
+#: src/Config/Descriptions.php:460
 msgid "Port on which MySQL server is listening, leave empty for default."
 msgstr ""
 "Cổng mà trên đó dịch vụ MySQL dùng để lắng nghe, để trống để dùng mặc định."
 
-#: src/Config/Descriptions.php:460
+#: src/Config/Descriptions.php:461
 msgid "Socket on which MySQL server is listening, leave empty for default."
 msgstr "Ổ cắm mạng mà MySQL đang lắng nghe, để trắng để dùng mặc định."
 
-#: src/Config/Descriptions.php:461
+#: src/Config/Descriptions.php:462
 msgid "Enable SSL for connection to MySQL server."
 msgstr "Dùng SSL khi kết nối đến máy chủ MySQL"
 
-#: src/Config/Descriptions.php:464
+#: src/Config/Descriptions.php:465
 msgid ""
 "Please note that enabling this has no effect with [kbd]config[/kbd] "
 "authentication mode because the password is hard coded in the configuration "
@@ -10234,25 +10241,25 @@ msgstr ""
 "của [kbd]cấu hình[/kbd] vì mật khẩu được mã hóa cứng trong tệp cấu hình; "
 "điều này không giới hạn khả năng thực hiện cùng một lệnh trực tiếp."
 
-#: src/Config/Descriptions.php:469
+#: src/Config/Descriptions.php:470
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
 msgstr "Hiển thị hay ẩn các cột trình bày dấu thời gian Tạo cho mọi bảng."
 
-#: src/Config/Descriptions.php:472
+#: src/Config/Descriptions.php:473
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables."
 msgstr ""
 "Hiển thị hay ẩn các cột trình bày dấu thời gian cập nhật lần cuối cho mọi "
 "bảng."
 
-#: src/Config/Descriptions.php:475
+#: src/Config/Descriptions.php:476
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables."
 msgstr ""
 "Hiển thị hay ẩn các cột trình bày dấu thời gian kiểm tra lần cuối cho mọi "
 "bảng."
 
-#: src/Config/Descriptions.php:478
+#: src/Config/Descriptions.php:479
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode."
@@ -10260,7 +10267,7 @@ msgstr ""
 "Định nghĩa xem các trường kiểu có nên được hiển thị vào lúc ban đầu trong "
 "chế độ sửa/chèn hay không."
 
-#: src/Config/Descriptions.php:481
+#: src/Config/Descriptions.php:482
 #, fuzzy
 #| msgid ""
 #| "Shows link to [a@https://www.php.net/manual/function.phpinfo.php]phpinfo()"
@@ -10272,59 +10279,51 @@ msgstr ""
 "Hiển thị liên kết đến [a@https://www.php.net/manual/function.phpinfo."
 "php]phpinfo()[/a]."
 
-#: src/Config/Descriptions.php:483
+#: src/Config/Descriptions.php:484
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
 msgstr ""
 "Một người dùng có nên hiển thị một nút \"hiện tất (các dòng)\" hay không."
 
-#: src/Config/Descriptions.php:484
+#: src/Config/Descriptions.php:485
 msgid "Show or hide a column displaying the comments for all tables."
 msgstr "Hiển thị hay ẩn các cột trình bày ghi chú cho mọi bảng."
 
-#: src/Config/Descriptions.php:485
+#: src/Config/Descriptions.php:486
 #, fuzzy
 #| msgid "Show or hide a column displaying the comments for all tables."
 msgid "Show or hide a column displaying the charset for all tables."
 msgstr "Hiển thị hay ẩn các cột trình bày ghi chú cho mọi bảng."
 
-#: src/Config/Descriptions.php:486
+#: src/Config/Descriptions.php:487
 msgid "Display the function fields in edit/insert mode."
 msgstr "Hiển thị các trường hàm trong chế độ sửa/chèn."
 
-#: src/Config/Descriptions.php:487
+#: src/Config/Descriptions.php:488
 msgid "Whether to show hint or not."
 msgstr "Hiển thị hay ẩn gợi ý."
 
-#: src/Config/Descriptions.php:488
+#: src/Config/Descriptions.php:489
 msgid ""
 "Defines whether SQL queries generated by phpMyAdmin should be displayed."
 msgstr ""
 "Định nghĩa xem các truy vấn SQL được tạo bởi phpMyAdmin có nên được hiển thị "
 "hay không."
 
-#: src/Config/Descriptions.php:489
+#: src/Config/Descriptions.php:490
 #, fuzzy
 #| msgid "Allow to display database and table statistics (eg. space usage)."
 msgid "Allow to display database and table statistics (e.g. space usage)."
 msgstr ""
 "Cho phép hiển thị thống kê về cơ sở dữ liệu và bảng (ví dụ mức dùng đĩa)."
 
-#: src/Config/Descriptions.php:491
+#: src/Config/Descriptions.php:492
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables."
 msgstr ""
 "Đánh dấu các bảng đã dùng và làm cho nó có thể hiển thị các cơ sở dữ liệu "
 "với các bảng khóa."
 
-#: src/Config/Descriptions.php:494
-msgid ""
-"Disable the default warning that is displayed on the main page if Suhosin is "
-"detected."
-msgstr ""
-"Tắt cảnh báo mặc định cái mà được hiển thị trên trang chính nếu Suhosin được "
-"tìm thấy."
-
-#: src/Config/Descriptions.php:497
+#: src/Config/Descriptions.php:495
 msgid ""
 "Disable the default warning that is displayed on the main page if the value "
 "of the PHP setting session.gc_maxlifetime is less than the value of "
@@ -10334,7 +10333,7 @@ msgstr ""
 "đặt phiên  PHP session.gc_maxlifetime thấp hơn giá trị của "
 "`LoginCookieValidity`."
 
-#: src/Config/Descriptions.php:502
+#: src/Config/Descriptions.php:500
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
@@ -10342,7 +10341,7 @@ msgstr ""
 "Kích thước văn bản (cột) trong chế độ chỉnh sửa, giá trị này sẽ được nhấn "
 "mạnh cho các vùng văn bản truy vấn SQL (* 2)."
 
-#: src/Config/Descriptions.php:505
+#: src/Config/Descriptions.php:503
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
@@ -10350,7 +10349,7 @@ msgstr ""
 "Kích thước văn bản (dòng) trong chế độ chỉnh sửa, giá trị này sẽ được nhấn "
 "mạnh cho các vùng văn bản truy vấn SQL (*2)."
 
-#: src/Config/Descriptions.php:508
+#: src/Config/Descriptions.php:506
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
@@ -10358,7 +10357,7 @@ msgid ""
 "HTTP_X_FORWARDED_FOR[/kbd]."
 msgstr ""
 
-#: src/Config/Descriptions.php:514
+#: src/Config/Descriptions.php:512
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right."
@@ -10366,7 +10365,7 @@ msgstr ""
 "Khi bị tắt, người dùng không thể đặt bất kỳ tùy chọn nào ở phía dưới, bất "
 "chấp hộp kiểm ở bên phải."
 
-#: src/Config/Descriptions.php:517
+#: src/Config/Descriptions.php:515
 #, fuzzy
 #| msgid ""
 #| "The url of the proxy to be used when retrieving the information about the "
@@ -10384,7 +10383,7 @@ msgstr ""
 "phpMyAdmin được cài đặt không có quyền truy cập trực tiếp vào internet. Định "
 "dạng là: \"hostname: portnumber\"."
 
-#: src/Config/Descriptions.php:523
+#: src/Config/Descriptions.php:521
 msgid ""
 "The username for authenticating with the proxy. By default, no "
 "authentication is performed. If a username is supplied, Basic Authentication "
@@ -10394,7 +10393,7 @@ msgstr ""
 "thực hiện. Nếu tên người dùng được cung cấp, việc chứng thực cơ bản sẽ được "
 "thực hiện. Không có loại chứng thực khác hiện đang được hỗ trợ."
 
-#: src/Config/Descriptions.php:529
+#: src/Config/Descriptions.php:527
 msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
@@ -10402,7 +10401,7 @@ msgstr ""
 "Truy vấn được thực thi bằng cách bấm Enter (thay vì  Ctrl+Enter). Các dòng "
 "mới sẽ được chèn thêm bằng Shift+Enter."
 
-#: src/Config/Descriptions.php:533
+#: src/Config/Descriptions.php:531
 #, fuzzy
 #| msgid ""
 #| "Enable Zero Configuration mode which lets you setup phpMyAdmin "
@@ -10414,382 +10413,382 @@ msgstr ""
 "Bật chế độ Không cần cấu hình cái mà cho phép bạn cài đặt các bảng lưu trữ "
 "cấu hình phpMyAdmin một cách tự động."
 
-#: src/Config/Descriptions.php:536
+#: src/Config/Descriptions.php:534
 msgid "Highlight selected rows."
 msgstr "Tô sáng các dòng đã chọn."
 
-#: src/Config/Descriptions.php:537
+#: src/Config/Descriptions.php:535
 msgid "Highlight row pointed by the mouse cursor."
 msgstr "Tô sáng dòng mà nó được con trỏ chuột chỉ đến."
 
-#: src/Config/Descriptions.php:538
+#: src/Config/Descriptions.php:536
 msgid "Number of columns for CHAR/VARCHAR textareas."
 msgstr "Số cột cho vùng văn bản CHAR/VARCHAR."
 
-#: src/Config/Descriptions.php:539
+#: src/Config/Descriptions.php:537
 msgid "Number of rows for CHAR/VARCHAR textareas."
 msgstr "Số dòng cho vùng văn bản CHAR/VARCHAR."
 
-#: src/Config/Descriptions.php:540
+#: src/Config/Descriptions.php:538
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
 msgstr ""
 "Ghi nhật ký các truy vấn SQL và thời gian thực hiện nó, được hiển thị trong "
 "thiết bị điều khiển"
 
-#: src/Config/Descriptions.php:541
+#: src/Config/Descriptions.php:539
 msgid "Tab that is displayed when entering a database."
 msgstr "Tab mà được hiển thị khi vào một cơ sở dữ liệu."
 
-#: src/Config/Descriptions.php:542
+#: src/Config/Descriptions.php:540
 msgid "Tab that is displayed when entering a server."
 msgstr "Tab mà được hiển thị khi vào một máy chủ."
 
-#: src/Config/Descriptions.php:543
+#: src/Config/Descriptions.php:541
 msgid "Tab that is displayed when entering a table."
 msgstr "Tab mà được hiển thị khi vào một bảng."
 
-#: src/Config/Descriptions.php:544
+#: src/Config/Descriptions.php:542
 msgid "Whether the table structure actions should be hidden."
 msgstr "Có để thao tác với cấu trúc của bảng ẩn hay không."
 
-#: src/Config/Descriptions.php:545
+#: src/Config/Descriptions.php:543
 msgid "Whether column comments should be shown in table structure view"
 msgstr "Có nên để ghi chú cột hiển thị trong khi xem cấu trúc bảng"
 
-#: src/Config/Descriptions.php:546
+#: src/Config/Descriptions.php:544
 msgid "Show server listing as a list instead of a drop down."
 msgstr "Hiện danh sách máy chủ dạng danh sách thay cho kiểu thả xuống."
 
-#: src/Config/Descriptions.php:547
+#: src/Config/Descriptions.php:545
 msgid "A dropdown will be used if fewer items are present."
 msgstr "Một hộp chọn đổ xuống sẽ được dùng nếu ít hơn các mục hiện diện."
 
-#: src/Config/Descriptions.php:548
+#: src/Config/Descriptions.php:546
 msgid "Default value for foreign key checks checkbox for some queries."
 msgstr "Giá trị mặc định cho dấu kiểm kiểm khóa ngoại cho một số truy vấn."
 
-#: src/Config/Descriptions.php:549
+#: src/Config/Descriptions.php:547
 msgid "Uncheck the checkbox to disable drag and drop import"
 msgstr ""
 
-#: src/Config/Descriptions.php:550
+#: src/Config/Descriptions.php:548
 msgid "How many rows can be inserted at one time."
 msgstr "Bao nhiêu dòng có thể chèn vào cùng một lúc"
 
-#: src/Config/Descriptions.php:551
+#: src/Config/Descriptions.php:549
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view."
 msgstr ""
 "Số lượng tối đa các ký tự hiển thị trong cột không-phải-số trong bộ trình "
 "bày duyệt."
 
-#: src/Config/Descriptions.php:552
+#: src/Config/Descriptions.php:550
 msgid "Define how long (in seconds) a login cookie is valid."
 msgstr "Định nghĩa xem cookie đăng nhập có hiệu lực trong vòng bao nhiêu giây."
 
-#: src/Config/Descriptions.php:553
+#: src/Config/Descriptions.php:551
 msgid "Double size of textarea for LONGTEXT columns."
 msgstr "Làm cho cỡ của vùng văn bản cho cột LONGTEXT lớn gấp đôi"
 
-#: src/Config/Descriptions.php:554
+#: src/Config/Descriptions.php:552
 msgid "Maximum number of databases displayed in database list."
 msgstr "Số lượng cơ sở dữ liệu tối đa sẽ được hiển thị trong danh sách"
 
-#: src/Config/Descriptions.php:555
+#: src/Config/Descriptions.php:553
 msgid "Maximum number of tables displayed in table list."
 msgstr "Số lượng cơ sở dữ liệu tối đa sẽ được hiển thị trong danh sách"
 
-#: src/Config/Descriptions.php:556
+#: src/Config/Descriptions.php:554
 msgid "Maximum number of recently used tables; set 0 to disable."
 msgstr "Số lượng hàng tối đa có thể hiển thị"
 
-#: src/Config/Descriptions.php:557
+#: src/Config/Descriptions.php:555
 msgid "Maximum number of favorite tables; set 0 to disable."
 msgstr "Số lượng hàng tối đa có thể hiển thị"
 
-#: src/Config/Descriptions.php:558
+#: src/Config/Descriptions.php:556
 msgid "These are Edit, Copy and Delete links."
 msgstr "Có các liên kết Sửa, Chép và Xóa."
 
-#: src/Config/Descriptions.php:559
+#: src/Config/Descriptions.php:557
 msgid "Whether to show row links even in the absence of a unique key."
 msgstr ""
 "Có hiển thị các liên kết hàng ngay cả trong trường hợp thiếu vắng khóa duy "
 "nhất."
 
-#: src/Config/Descriptions.php:560 src/Config/Descriptions.php:838
+#: src/Config/Descriptions.php:558 src/Config/Descriptions.php:837
 msgid "Disable shortcut keys"
 msgstr "Tắt phiếm tắt"
 
-#: src/Config/Descriptions.php:561
+#: src/Config/Descriptions.php:559
 msgid "Use natural order for sorting table and database names."
 msgstr "Dùng thứ tự tự nhiên để sắp xếp tên bảng và cơ sở dữ liệu."
 
-#: src/Config/Descriptions.php:562 src/Config/Descriptions.php:565
-#: src/Config/Descriptions.php:566
+#: src/Config/Descriptions.php:560 src/Config/Descriptions.php:563
+#: src/Config/Descriptions.php:564
 msgid "Use only icons, only text or both."
 msgstr "Dùng biểu tượng, chỉ có chữ hay cả hai"
 
-#: src/Config/Descriptions.php:563
+#: src/Config/Descriptions.php:561
 msgid "Use GZip output buffering for increased speed in HTTP transfers."
 msgstr "Sử dụng bộ đệm đầu ra GZip để tăng tốc độ truyền HTTP."
 
-#: src/Config/Descriptions.php:564
+#: src/Config/Descriptions.php:562
 msgid "Use persistent connections to MySQL databases."
 msgstr "Cổng để kết nối đến máy phục vụ"
 
-#: src/Config/Descriptions.php:567
+#: src/Config/Descriptions.php:565
 msgid "Disallow BLOB and BINARY columns from editing."
 msgstr "Không cho phép sửa các cột BLOB và BINARY."
 
-#: src/Config/Descriptions.php:568
+#: src/Config/Descriptions.php:566
 msgid "How many queries are kept in history."
 msgstr "Bao nhiêu truy vấn sẽ được lưu giữ trong lịch sử"
 
-#: src/Config/Descriptions.php:569
+#: src/Config/Descriptions.php:567
 msgid "Select which functions will be used for character set conversion."
 msgstr "Chọn hàm nào sẽ được dùng cho chuyển đổi bộ mã ký tự"
 
-#: src/Config/Descriptions.php:570
+#: src/Config/Descriptions.php:568
 msgid "When browsing tables, the sorting of each table is remembered."
 msgstr "Khi duyệt các bảng, việc sắp xếp của từng bảng được ghi nhớ."
 
-#: src/Config/Descriptions.php:571
+#: src/Config/Descriptions.php:569
 msgid "Default sort order for tables with a primary key."
 msgstr "Thứ tự sắp xếp mặc định cho bảng với một khóa chính."
 
-#: src/Config/Descriptions.php:572
+#: src/Config/Descriptions.php:570
 msgid ""
 "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature."
 msgstr "Lặp lại đầu đề mỗi X ô, [kbd]0[/kbd] để tắt tính năng này."
 
-#: src/Config/Descriptions.php:573
+#: src/Config/Descriptions.php:571
 msgid "For display Options"
 msgstr "Cho các tùy chọn hiển thị"
 
-#: src/Config/Descriptions.php:574
+#: src/Config/Descriptions.php:572
 msgid "Directory where exports can be saved on server."
 msgstr "Thư mục nào sẽ dùng để lưu khi xuất trên máy chủ."
 
-#: src/Config/Descriptions.php:575
+#: src/Config/Descriptions.php:573
 msgid ""
 "Defines whether the query box should stay on-screen after its submission."
 msgstr ""
 "Định nghĩa xem hộp truy vấn có ở lại trên màn hình sau khi đã được gửi đi "
 "hay không."
 
-#: src/Config/Descriptions.php:576
+#: src/Config/Descriptions.php:574
 msgid "Title of browser window when a database is selected."
 msgstr "Đầu đề của cửa sổ trình duyệt khi một cơ sở dữ liệu được chọn."
 
-#: src/Config/Descriptions.php:577
+#: src/Config/Descriptions.php:575
 msgid "Title of browser window when nothing is selected."
 msgstr "Đầu đề của cửa sổ trình duyệt khi không có gì được chọn."
 
-#: src/Config/Descriptions.php:578
+#: src/Config/Descriptions.php:576
 msgid "Title of browser window when a server is selected."
 msgstr "Đầu đề của cửa sổ trình duyệt khi một máy chủ được chọn."
 
-#: src/Config/Descriptions.php:579
+#: src/Config/Descriptions.php:577
 msgid "Title of browser window when a table is selected."
 msgstr "Đầu đề của cửa sổ trình duyệt khi một bảng được chọn."
 
-#: src/Config/Descriptions.php:580
+#: src/Config/Descriptions.php:578
 msgid "Directory on server where you can upload files for import."
 msgstr "Thư mục trên máy chủ nơi bạn có thể tải tệp lên để nhập."
 
-#: src/Config/Descriptions.php:581
+#: src/Config/Descriptions.php:579
 msgid "Allow for searching inside the entire database."
 msgstr "Cho phép tìm kiếm trong toàn bộ cơ sở dữ liệu."
 
-#: src/Config/Descriptions.php:582
+#: src/Config/Descriptions.php:580
 msgid "Enables check for latest version on main phpMyAdmin page."
 msgstr "Cho phép kiểm tra phiên bản mới nhất trên trang phpMyAdmin chính."
 
-#: src/Config/Descriptions.php:583
+#: src/Config/Descriptions.php:581
 msgid "The password for authenticating with the proxy."
 msgstr "Mật khẩu để xác thực với máy ủy nhiệm."
 
-#: src/Config/Descriptions.php:584
+#: src/Config/Descriptions.php:582
 msgid "Enable ZIP compression for import and export operations."
 msgstr "Bật nén zip dành cho các thao tác nhập và xuất dữ liệu."
 
-#: src/Config/Descriptions.php:585
+#: src/Config/Descriptions.php:583
 msgid "Choose the default action when sending error reports."
 msgstr "Chọn thao tác mặc định khi gửi các báo cáo lỗi."
 
-#: src/Config/Descriptions.php:597
+#: src/Config/Descriptions.php:595
 msgid "Allow login to any MySQL server"
 msgstr "Cho phép đăng nhập vào máy chủ MySQL bất kỳ"
 
-#: src/Config/Descriptions.php:598
+#: src/Config/Descriptions.php:596
 msgid "Restrict login to MySQL server"
 msgstr "Hạn chế đăng nhập vào máy chủ MySQL"
 
-#: src/Config/Descriptions.php:599
+#: src/Config/Descriptions.php:597
 msgid "Allow third party framing"
 msgstr "Cho phép khung của bên thứ ba"
 
-#: src/Config/Descriptions.php:600
+#: src/Config/Descriptions.php:598
 msgid "Show \"Drop database\" link to normal users"
 msgstr "Hiển thị liên kết \"Xóa cơ sở dữ liệu\" với người dùng thông thường"
 
-#: src/Config/Descriptions.php:601
+#: src/Config/Descriptions.php:599
 msgid "Blowfish secret"
 msgstr "Mã hóa kiểu Blowfish"
 
-#: src/Config/Descriptions.php:602
+#: src/Config/Descriptions.php:600
 msgid "Row marker"
 msgstr "Bộ tạo dòng"
 
-#: src/Config/Descriptions.php:603
+#: src/Config/Descriptions.php:601
 msgid "Highlight pointer"
 msgstr "Tô sáng con trỏ"
 
-#: src/Config/Descriptions.php:604
+#: src/Config/Descriptions.php:602
 msgid "Bzip2"
 msgstr "Bzip2"
 
-#: src/Config/Descriptions.php:605
+#: src/Config/Descriptions.php:603
 msgid "CHAR columns editing"
 msgstr "Sửa các cột CHAR"
 
-#: src/Config/Descriptions.php:606
+#: src/Config/Descriptions.php:604
 msgid "Enable CodeMirror"
 msgstr "Bật CodeMirror"
 
-#: src/Config/Descriptions.php:607
+#: src/Config/Descriptions.php:605
 msgid "Enable linter"
 msgstr "Bật bộ kiểm chuẩn"
 
-#: src/Config/Descriptions.php:608
+#: src/Config/Descriptions.php:606
 msgid "Minimum size for input field"
 msgstr "Cỡ tối thiểu cho trường nhập liệu"
 
-#: src/Config/Descriptions.php:609
+#: src/Config/Descriptions.php:607
 msgid "Maximum size for input field"
 msgstr "Cỡ tối đa cho trường nhập liệu"
 
-#: src/Config/Descriptions.php:610
+#: src/Config/Descriptions.php:608
 msgid "CHAR textarea columns"
 msgstr "Số cột cho vùng văn bản CHAR"
 
-#: src/Config/Descriptions.php:611
+#: src/Config/Descriptions.php:609
 msgid "CHAR textarea rows"
 msgstr "Số dòng cho vùng văn bản CHAR"
 
-#: src/Config/Descriptions.php:612
+#: src/Config/Descriptions.php:610
 msgid "Check config file permissions"
 msgstr "Kiểm tra đặc quyền của tập tin cấu hình"
 
-#: src/Config/Descriptions.php:613
+#: src/Config/Descriptions.php:611
 msgid "Compress on the fly"
 msgstr "Nén khi đang truyền (on-the-fly)"
 
-#: src/Config/Descriptions.php:614
+#: src/Config/Descriptions.php:612
 msgid "Confirm DROP queries"
 msgstr "Xác nhận truy vấn xóa (DROP)"
 
-#: src/Config/Descriptions.php:616 src/Plugins/Schema/SchemaDia.php:64
+#: src/Config/Descriptions.php:614 src/Plugins/Schema/SchemaDia.php:64
 #: src/Plugins/Schema/SchemaPdf.php:74
 msgid "Paper size"
 msgstr "Cỡ giấy"
 
-#: src/Config/Descriptions.php:617
+#: src/Config/Descriptions.php:615
 msgid "Default database tab"
 msgstr "Tab cho cơ sở dữ liệu mặc định"
 
-#: src/Config/Descriptions.php:618
+#: src/Config/Descriptions.php:616
 msgid "Default server tab"
 msgstr "Tab máy chủ mặc định"
 
-#: src/Config/Descriptions.php:619
+#: src/Config/Descriptions.php:617
 msgid "Default table tab"
 msgstr "Tab cho bảng mặc định"
 
-#: src/Config/Descriptions.php:620
+#: src/Config/Descriptions.php:618
 msgid "Enable autocomplete for table and column names"
 msgstr "Bật tự hoàn thiện nốt từ cho tên bảng và cột"
 
-#: src/Config/Descriptions.php:621
+#: src/Config/Descriptions.php:619
 msgid "Show column comments"
 msgstr "Hiển thị các chú thích của bảng"
 
-#: src/Config/Descriptions.php:622
+#: src/Config/Descriptions.php:620
 msgid "Hide table structure actions"
 msgstr "Ẩn các thao tác với cấu trúc bảng"
 
-#: src/Config/Descriptions.php:623
+#: src/Config/Descriptions.php:621
 #, fuzzy
 #| msgid "Default sorting order"
 msgid "Default transformations for Hex"
 msgstr "Kiểu sắp xếp mặc định"
 
-#: src/Config/Descriptions.php:624
+#: src/Config/Descriptions.php:622
 msgid "Default transformations for Substring"
 msgstr "Các phép biến đổi mặc định cho chuỗi phụ"
 
-#: src/Config/Descriptions.php:625
+#: src/Config/Descriptions.php:623
 msgid "Default transformations for Bool2Text"
 msgstr "Các phép biến đổi mặc định cho Bool2Text"
 
-#: src/Config/Descriptions.php:626
+#: src/Config/Descriptions.php:624
 msgid "Default transformations for External"
 msgstr "Các phép biến đổi mặc định cho bề ngoài"
 
-#: src/Config/Descriptions.php:627
+#: src/Config/Descriptions.php:625
 msgid "Default transformations for PreApPend"
 msgstr "Các phép biến đổi mặc định cho PreApPend"
 
-#: src/Config/Descriptions.php:628
+#: src/Config/Descriptions.php:626
 msgid "Default transformations for DateFormat"
 msgstr "Các phép biến đổi mặc định cho định dạng ngày"
 
-#: src/Config/Descriptions.php:629
+#: src/Config/Descriptions.php:627
 msgid "Default transformations for Inline"
 msgstr "Các phép biến đổi mặc định cho Inline"
 
-#: src/Config/Descriptions.php:630
+#: src/Config/Descriptions.php:628
 msgid "Default transformations for TextImageLink"
 msgstr "Các phép biến đổi mặc định cho Chữ/Hình/LiênKết"
 
-#: src/Config/Descriptions.php:631
+#: src/Config/Descriptions.php:629
 msgid "Default transformations for TextLink"
 msgstr "Các phép biến đổi mặc định cho Chữ/LiênKết"
 
-#: src/Config/Descriptions.php:632
+#: src/Config/Descriptions.php:630
 msgid "Display servers as a list"
 msgstr "Hiển thị các máy chủ dạng danh sách"
 
-#: src/Config/Descriptions.php:633
+#: src/Config/Descriptions.php:631
 msgid "Disable multi table maintenance"
 msgstr "Tắt bảo trì đa bảng"
 
-#: src/Config/Descriptions.php:634
+#: src/Config/Descriptions.php:632
 msgid "Maximum execution time"
 msgstr "Thời gian thi hành tối đa"
 
-#: src/Config/Descriptions.php:635
+#: src/Config/Descriptions.php:633
 msgid "Use [code]LOCK TABLES[/code] statement"
 msgstr ""
 
-#: src/Config/Descriptions.php:636
+#: src/Config/Descriptions.php:634
 msgid "Save as file"
 msgstr "Lưu thành tập tin"
 
-#: src/Config/Descriptions.php:637 src/Config/Descriptions.php:772
+#: src/Config/Descriptions.php:635 src/Config/Descriptions.php:770
 msgid "Character set of the file"
 msgstr "Bảng mã của tập tin"
 
-#: src/Config/Descriptions.php:639
+#: src/Config/Descriptions.php:637
 msgid "Compression"
 msgstr "Nén"
 
-#: src/Config/Descriptions.php:640 src/Config/Descriptions.php:647
-#: src/Config/Descriptions.php:655 src/Config/Descriptions.php:659
-#: src/Config/Descriptions.php:672 src/Config/Descriptions.php:674
-#: src/Config/Descriptions.php:721 src/Plugins/Export/ExportCsv.php:98
+#: src/Config/Descriptions.php:638 src/Config/Descriptions.php:645
+#: src/Config/Descriptions.php:653 src/Config/Descriptions.php:657
+#: src/Config/Descriptions.php:670 src/Config/Descriptions.php:672
+#: src/Config/Descriptions.php:719 src/Plugins/Export/ExportCsv.php:98
 #: src/Plugins/Export/ExportExcel.php:78
 #: src/Plugins/Export/ExportHtmlword.php:91 src/Plugins/Export/ExportOds.php:70
 #: src/Plugins/Export/ExportOdt.php:126
@@ -10797,56 +10796,56 @@ msgstr "Nén"
 msgid "Put columns names in the first row"
 msgstr "Đặt tên các cột ở hàng đầu tiên"
 
-#: src/Config/Descriptions.php:641 src/Config/Descriptions.php:774
-#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:654
+#: src/Config/Descriptions.php:639 src/Config/Descriptions.php:772
+#: src/Config/Descriptions.php:779 src/Plugins/Import/ImportCsv.php:688
 msgid "Columns enclosed with"
 msgstr "Bao các cột bằng"
 
-#: src/Config/Descriptions.php:642 src/Config/Descriptions.php:775
-#: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:665
+#: src/Config/Descriptions.php:640 src/Config/Descriptions.php:773
+#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:699
 msgid "Columns escaped with"
 msgstr "Thoát các cột bằng"
 
-#: src/Config/Descriptions.php:643 src/Config/Descriptions.php:649
-#: src/Config/Descriptions.php:656 src/Config/Descriptions.php:665
-#: src/Config/Descriptions.php:673 src/Config/Descriptions.php:677
-#: src/Config/Descriptions.php:722
+#: src/Config/Descriptions.php:641 src/Config/Descriptions.php:647
+#: src/Config/Descriptions.php:654 src/Config/Descriptions.php:663
+#: src/Config/Descriptions.php:671 src/Config/Descriptions.php:675
+#: src/Config/Descriptions.php:720
 msgid "Replace NULL with"
 msgstr "Thay thế NULL bằng"
 
-#: src/Config/Descriptions.php:644 src/Config/Descriptions.php:650
+#: src/Config/Descriptions.php:642 src/Config/Descriptions.php:648
 msgid "Remove CRLF characters within columns"
 msgstr "Gỡ bỏ các ký tự CRLF có trong các cột"
 
-#: src/Config/Descriptions.php:645 src/Config/Descriptions.php:778
-#: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:639
+#: src/Config/Descriptions.php:643 src/Config/Descriptions.php:777
+#: src/Config/Descriptions.php:784 src/Plugins/Import/ImportCsv.php:673
 msgid "Columns terminated with"
 msgstr "Các cột được chấm dứt bằng"
 
-#: src/Config/Descriptions.php:646 src/Config/Descriptions.php:773
-#: src/Plugins/Import/ImportCsv.php:672
+#: src/Config/Descriptions.php:644 src/Config/Descriptions.php:771
+#: src/Plugins/Import/ImportCsv.php:706
 msgid "Lines terminated with"
 msgstr "Dòng được chấm dứt bằng"
 
-#: src/Config/Descriptions.php:648
+#: src/Config/Descriptions.php:646
 msgid "Excel edition"
 msgstr "Bản ấn hành Excel"
 
-#: src/Config/Descriptions.php:651
+#: src/Config/Descriptions.php:649
 msgid "Database name template"
 msgstr "Mẫu tên cơ sở dữ liệu"
 
-#: src/Config/Descriptions.php:652
+#: src/Config/Descriptions.php:650
 msgid "Server name template"
 msgstr "Mẫu tên máy phục vụ"
 
-#: src/Config/Descriptions.php:653
+#: src/Config/Descriptions.php:651
 msgid "Table name template"
 msgstr "Mẫu tên bảng"
 
-#: src/Config/Descriptions.php:657 src/Config/Descriptions.php:670
-#: src/Config/Descriptions.php:679 src/Config/Descriptions.php:717
-#: src/Config/Descriptions.php:723 src/Plugins/Export/ExportHtmlword.php:67
+#: src/Config/Descriptions.php:655 src/Config/Descriptions.php:668
+#: src/Config/Descriptions.php:677 src/Config/Descriptions.php:715
+#: src/Config/Descriptions.php:721 src/Plugins/Export/ExportHtmlword.php:67
 #: src/Plugins/Export/ExportLatex.php:109
 #: src/Plugins/Export/ExportMediawiki.php:59
 #: src/Plugins/Export/ExportMediawiki.php:65
@@ -10856,84 +10855,84 @@ msgstr "Mẫu tên bảng"
 msgid "Dump table"
 msgstr "Đổ bảng"
 
-#: src/Config/Descriptions.php:658 src/Plugins/Export/ExportLatex.php:100
+#: src/Config/Descriptions.php:656 src/Plugins/Export/ExportLatex.php:100
 msgid "Include table caption"
 msgstr "Bao gồm nhãn bảng"
 
-#: src/Config/Descriptions.php:661 src/Config/Descriptions.php:667
+#: src/Config/Descriptions.php:659 src/Config/Descriptions.php:665
 msgid "Table caption"
 msgstr "Nhãn của bảng"
 
-#: src/Config/Descriptions.php:662 src/Config/Descriptions.php:668
+#: src/Config/Descriptions.php:660 src/Config/Descriptions.php:666
 msgid "Continued table caption"
 msgstr "Tiêu đề bảng tiếp diễn"
 
-#: src/Config/Descriptions.php:663 src/Config/Descriptions.php:669
+#: src/Config/Descriptions.php:661 src/Config/Descriptions.php:667
 msgid "Label key"
 msgstr "Khóa nhãn"
 
-#: src/Config/Descriptions.php:666 src/Config/Descriptions.php:678
-#: src/Config/Descriptions.php:716
+#: src/Config/Descriptions.php:664 src/Config/Descriptions.php:676
+#: src/Config/Descriptions.php:714
 msgid "Relationships"
 msgstr "Quan hệ"
 
-#: src/Config/Descriptions.php:671
+#: src/Config/Descriptions.php:669
 msgid "Export method"
 msgstr "Phương pháp xuất ra"
 
-#: src/Config/Descriptions.php:680 src/Config/Descriptions.php:683
+#: src/Config/Descriptions.php:678 src/Config/Descriptions.php:681
 msgid "Save on server"
 msgstr "Ghi lại tại máy chủ"
 
-#: src/Config/Descriptions.php:682
+#: src/Config/Descriptions.php:680
 msgid "Export as separate files"
 msgstr "Xuất ra như là các tập tin khác"
 
-#: src/Config/Descriptions.php:685
+#: src/Config/Descriptions.php:683
 #, fuzzy
 #| msgid "Remember file name template"
 msgid "Remember filename template"
 msgstr "Nhớ mẫu tên tập tin"
 
-#: src/Config/Descriptions.php:686
+#: src/Config/Descriptions.php:684
 #, fuzzy
 #| msgid "Remove columns from central list"
 msgid "Remove DEFINER clause from definitions"
 msgstr "Xóa bỏ các cột khỏi danh sách trung tâm"
 
-#: src/Config/Descriptions.php:688
+#: src/Config/Descriptions.php:686
 msgid "Enclose table and column names with backquotes"
 msgstr "Bao quanh tên bảng và cột bằng dấu nháy ngược"
 
-#: src/Config/Descriptions.php:689 src/Config/Descriptions.php:791
+#: src/Config/Descriptions.php:687 src/Config/Descriptions.php:790
 msgid "SQL compatibility mode"
 msgstr "Chế độ tương thích SQL"
 
-#: src/Config/Descriptions.php:690
+#: src/Config/Descriptions.php:688
 msgid "Creation/Update/Check dates"
 msgstr "Ngày Tạo/Cập nhật/Kiểm tra"
 
-#: src/Config/Descriptions.php:691
+#: src/Config/Descriptions.php:689
 msgid "Use delayed inserts"
 msgstr "Dùng chèn trễ"
 
-#: src/Config/Descriptions.php:692 src/Plugins/Export/ExportSql.php:232
+#: src/Config/Descriptions.php:690 src/Plugins/Export/ExportSql.php:232
 msgid "Disable foreign key checks"
 msgstr "Tắt kiểm tra khóa ngoại"
 
-#: src/Config/Descriptions.php:693 src/Plugins/Export/ExportSql.php:242
+#: src/Config/Descriptions.php:691 src/Plugins/Export/ExportSql.php:242
 msgid "Export views as tables"
 msgstr "Xuất view như là một bảng"
 
-#: src/Config/Descriptions.php:694
+#: src/Config/Descriptions.php:692
 msgid "Export related metadata from phpMyAdmin configuration storage"
 msgstr "Xuất siêu dữ liệu quan hệ từ kho cấu hình phpMyAdmin"
 
-#: src/Config/Descriptions.php:704
+#: src/Config/Descriptions.php:702
 msgid "Use hexadecimal for BINARY & BLOB"
 msgstr "Dùng hệ bát phân cho BINARY & BLOB"
 
-#: src/Config/Descriptions.php:706
+#: src/Config/Descriptions.php:704
 msgid ""
 "Add IF NOT EXISTS (less efficient as indexes will be generated during table "
 "creation)"
@@ -10941,862 +10940,862 @@ msgstr ""
 "Thêm IF NOT EXISTS (kém hiệu quả với các chỉ mục sẽ được tạo khi bảng được "
 "tạo)"
 
-#: src/Config/Descriptions.php:709 src/Plugins/Export/ExportSql.php:371
+#: src/Config/Descriptions.php:707 src/Plugins/Export/ExportSql.php:371
 #, fuzzy, php-format
 #| msgid "%s value"
 msgid "%s view"
 msgstr "%s giá trị"
 
-#: src/Config/Descriptions.php:710
+#: src/Config/Descriptions.php:708
 msgid "Use ignore inserts"
 msgstr "Dùng chèn bỏ qua"
 
-#: src/Config/Descriptions.php:712
+#: src/Config/Descriptions.php:710
 msgid "Syntax to use when inserting data"
 msgstr "Cú pháp để dùng khi thêm dữ liệu"
 
-#: src/Config/Descriptions.php:713 src/Plugins/Export/ExportSql.php:498
+#: src/Config/Descriptions.php:711 src/Plugins/Export/ExportSql.php:498
 msgid "Maximal length of created query"
 msgstr "Chiều dài tối đa của truy vấn được tạo"
 
-#: src/Config/Descriptions.php:718
+#: src/Config/Descriptions.php:716
 msgid "Export type"
 msgstr "Kiểu xuất ra"
 
-#: src/Config/Descriptions.php:719 src/Plugins/Export/ExportSql.php:222
+#: src/Config/Descriptions.php:717 src/Plugins/Export/ExportSql.php:222
 msgid "Enclose export in a transaction"
 msgstr "Bao quanh những thứ xuất ra bằng một giao dịch"
 
-#: src/Config/Descriptions.php:720
+#: src/Config/Descriptions.php:718
 msgid "Export time in UTC"
 msgstr "Xuất thời gian theo định dạng UTC"
 
-#: src/Config/Descriptions.php:724
+#: src/Config/Descriptions.php:722
 msgid "Foreign key dropdown order"
 msgstr "Thứ tự thả xuống khóa ngoại"
 
-#: src/Config/Descriptions.php:725
+#: src/Config/Descriptions.php:723
 msgid "Foreign key limit"
 msgstr "Giới hạn khóa ngoại"
 
-#: src/Config/Descriptions.php:726
+#: src/Config/Descriptions.php:724
 msgid "Foreign key checks"
 msgstr "Kiểm tra khóa ngoại"
 
-#: src/Config/Descriptions.php:727
+#: src/Config/Descriptions.php:725
 msgid "First day of calendar"
 msgstr ""
 
-#: src/Config/Descriptions.php:729
+#: src/Config/Descriptions.php:727
 msgid "Browse mode"
 msgstr "Chế độ duyệt"
 
-#: src/Config/Descriptions.php:731 src/Config/Forms/User/ExportForm.php:80
+#: src/Config/Descriptions.php:729 src/Config/Forms/User/ExportForm.php:80
 #: src/Config/Forms/User/ImportForm.php:29
 msgid "CSV"
 msgstr "CSV"
 
-#: src/Config/Descriptions.php:732
+#: src/Config/Descriptions.php:730
 msgid "Developer"
 msgstr "Nhà phát triển"
 
-#: src/Config/Descriptions.php:733
+#: src/Config/Descriptions.php:731
 msgid "Edit mode"
 msgstr "Chế độ sửa"
 
-#: src/Config/Descriptions.php:734
+#: src/Config/Descriptions.php:732
 msgid "Export defaults"
 msgstr "Các mặc định xuất"
 
-#: src/Config/Descriptions.php:735
+#: src/Config/Descriptions.php:733
 msgid "General"
 msgstr "Chung"
 
-#: src/Config/Descriptions.php:736
+#: src/Config/Descriptions.php:734
 msgid "Import defaults"
 msgstr "Các mặc định nhập vào"
 
-#: src/Config/Descriptions.php:737
+#: src/Config/Descriptions.php:735
 msgid "Import / export"
 msgstr "Nhập / Xuất"
 
-#: src/Config/Descriptions.php:738
+#: src/Config/Descriptions.php:736
 msgid "LaTeX"
 msgstr "LaTeX"
 
-#: src/Config/Descriptions.php:741
+#: src/Config/Descriptions.php:739
 msgid "Navigation tree"
 msgstr "Cây điều hướng"
 
-#: src/Config/Descriptions.php:745
+#: src/Config/Descriptions.php:743
 msgid "Microsoft Office"
 msgstr "Microsoft Office"
 
-#: src/Config/Descriptions.php:747
+#: src/Config/Descriptions.php:745
 msgid "Other core settings"
 msgstr "Các tùy chọn lõi khác"
 
-#: src/Config/Descriptions.php:748
+#: src/Config/Descriptions.php:746
 msgid "Page titles"
 msgstr "Tiêu đề trang"
 
-#: src/Config/Descriptions.php:749
+#: src/Config/Descriptions.php:747
 msgid "Security"
 msgstr "Bảo mật"
 
-#: src/Config/Descriptions.php:750
+#: src/Config/Descriptions.php:748
 msgid "Basic settings"
 msgstr "Cài đặt cơ bản"
 
-#: src/Config/Descriptions.php:751
+#: src/Config/Descriptions.php:749
 msgid "Authentication"
 msgstr "Xác thực"
 
-#: src/Config/Descriptions.php:752
+#: src/Config/Descriptions.php:750
 msgid "Server configuration"
 msgstr "Cấu hình máy chủ"
 
-#: src/Config/Descriptions.php:753
+#: src/Config/Descriptions.php:751
 msgid "Configuration storage"
 msgstr "Cấu hình kho chứa"
 
-#: src/Config/Descriptions.php:754
+#: src/Config/Descriptions.php:752
 msgid "Changes tracking"
 msgstr "Theo dõi thay đổi"
 
-#: src/Config/Descriptions.php:756
+#: src/Config/Descriptions.php:754
 msgid "SQL Query box"
 msgstr "Hộp truy vấn SQL"
 
-#: src/Config/Descriptions.php:758
+#: src/Config/Descriptions.php:756
 msgid "Startup"
 msgstr "Ban đầu"
 
-#: src/Config/Descriptions.php:759
+#: src/Config/Descriptions.php:757
 msgid "Database structure"
 msgstr "Cấu trúc cơ sở dữ liệu"
 
-#: src/Config/Descriptions.php:761
+#: src/Config/Descriptions.php:759
 msgid "Tabs"
 msgstr "Các tab"
 
-#: src/Config/Descriptions.php:762
+#: src/Config/Descriptions.php:760
 msgid "Display relational schema"
 msgstr "Hiển thị lược đồ quan hệ"
 
-#: src/Config/Descriptions.php:763
+#: src/Config/Descriptions.php:761
 msgid "Text fields"
 msgstr "Trường Text"
 
-#: src/Config/Descriptions.php:764
+#: src/Config/Descriptions.php:762
 msgid "Texy! text"
 msgstr "Chép đoạn"
 
-#: src/Config/Descriptions.php:765
+#: src/Config/Descriptions.php:763
 msgid "Warnings"
 msgstr "Cảnh báo"
 
-#: src/Config/Descriptions.php:767
+#: src/Config/Descriptions.php:765
 msgid "GZip"
 msgstr "GZip"
 
-#: src/Config/Descriptions.php:768
+#: src/Config/Descriptions.php:766
 msgid "Extra parameters for iconv"
 msgstr "Các tham số bổ xung cho iconv"
 
-#: src/Config/Descriptions.php:769
+#: src/Config/Descriptions.php:767
 msgid "Ignore multiple statement errors"
 msgstr "Bỏ qua các lỗi đa câu lệnh"
 
-#: src/Config/Descriptions.php:770
+#: src/Config/Descriptions.php:768
 msgid "Enable drag and drop import"
 msgstr ""
 
-#: src/Config/Descriptions.php:771
+#: src/Config/Descriptions.php:769
 msgid "Partial import: allow interrupt"
 msgstr "Nhập từng phần: cho phép ngắt"
 
-#: src/Config/Descriptions.php:776 src/Config/Descriptions.php:782
-#: src/Plugins/Import/ImportCsv.php:150 src/Plugins/Import/ImportLdi.php:75
+#: src/Config/Descriptions.php:774 src/Config/Descriptions.php:781
+#: src/Plugins/Import/ImportCsv.php:151 src/Plugins/Import/ImportLdi.php:75
 msgid "Do not abort on INSERT error"
 msgstr "Đừng bãi bỏ lỗi INSERT"
 
-#: src/Config/Descriptions.php:777 src/Config/Descriptions.php:784
+#: src/Config/Descriptions.php:775 src/Plugins/Import/ImportCsv.php:157
+msgid "Import empty values as NULL"
+msgstr ""
+
+#: src/Config/Descriptions.php:776 src/Config/Descriptions.php:783
 msgid "Add ON DUPLICATE KEY UPDATE"
 msgstr "Thêm ON DUPLICATE KEY UPDATE"
 
-#: src/Config/Descriptions.php:779
+#: src/Config/Descriptions.php:778
 msgid "Format of imported file"
 msgstr "Định dạng của tập tin nhập vào"
 
-#: src/Config/Descriptions.php:783 src/Plugins/Import/ImportLdi.php:81
+#: src/Config/Descriptions.php:782 src/Plugins/Import/ImportLdi.php:81
 msgid "Use LOCAL keyword"
 msgstr "Dùng từ khóa LOCAL"
 
-#: src/Config/Descriptions.php:786
+#: src/Config/Descriptions.php:785
 msgid "Column names in first row"
 msgstr "Tên cột trong hàng đầu tiên"
 
-#: src/Config/Descriptions.php:787 src/Plugins/Import/ImportOds.php:80
+#: src/Config/Descriptions.php:786 src/Plugins/Import/ImportOds.php:80
 msgid "Do not import empty rows"
 msgstr "Không nhập các dòng trống rỗng"
 
-#: src/Config/Descriptions.php:788
+#: src/Config/Descriptions.php:787
 msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Nhập tiền tệ ($5.00 thành 5.00)"
 
-#: src/Config/Descriptions.php:789
+#: src/Config/Descriptions.php:788
 msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "Nhập phần trăm thành dạng thập phân cho thích hợp (12.00% thành .12)"
 
-#: src/Config/Descriptions.php:790
+#: src/Config/Descriptions.php:789
 msgid "Partial import: skip queries"
 msgstr "Nhập từng phần: bỏ qua các truy vấn"
 
-#: src/Config/Descriptions.php:792
+#: src/Config/Descriptions.php:791
 msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "Không dùng AUTO_INCREMENT cho các giá trị mặc định"
 
-#: src/Config/Descriptions.php:793
+#: src/Config/Descriptions.php:792
 msgid "Read as multibytes"
 msgstr "Đọc là đa byte"
 
-#: src/Config/Descriptions.php:794
+#: src/Config/Descriptions.php:793
 msgid "Initial state for sliders"
 msgstr "Trạng thái khởi đầu cho con trượt"
 
-#: src/Config/Descriptions.php:795
+#: src/Config/Descriptions.php:794
 msgid "Number of inserted rows"
 msgstr "Số lượng dòng được thêm vào"
 
-#: src/Config/Descriptions.php:796
+#: src/Config/Descriptions.php:795
 msgid "Limit column characters"
 msgstr "Giới hạn số ký tự mỗi cột"
 
-#: src/Config/Descriptions.php:797
+#: src/Config/Descriptions.php:796
 msgid "Delete all cookies on logout"
 msgstr "Xóa cookie sau khi đăng xuất"
 
-#: src/Config/Descriptions.php:798
+#: src/Config/Descriptions.php:797
 msgid "Recall user name"
 msgstr ""
 
-#: src/Config/Descriptions.php:799
+#: src/Config/Descriptions.php:798
 msgid "Login cookie store"
 msgstr "Kho cookie đăng nhập"
 
-#: src/Config/Descriptions.php:800
+#: src/Config/Descriptions.php:799
 msgid "Login cookie validity"
 msgstr "Hiệu lực của cookie"
 
-#: src/Config/Descriptions.php:801
+#: src/Config/Descriptions.php:800
 msgid "Bigger textarea for LONGTEXT"
 msgstr "Vùng văn bản lớn hơn cho LONGTEXT"
 
-#: src/Config/Descriptions.php:802
+#: src/Config/Descriptions.php:801
 msgid "Maximum displayed SQL length"
 msgstr "Chiều dài SQL tối đa khi hiển thị"
 
-#: src/Config/Descriptions.php:803
+#: src/Config/Descriptions.php:802
 msgid "Maximum databases"
 msgstr "Số lượng cơ sở dữ liệu tối đa"
 
-#: src/Config/Descriptions.php:804
+#: src/Config/Descriptions.php:803
 msgid "Maximum items on first level"
 msgstr "Số mục tối đa ở mức đầu tiên"
 
-#: src/Config/Descriptions.php:805
+#: src/Config/Descriptions.php:804
 msgid "Maximum items in branch"
 msgstr "Số mục tin tối đa trên nhánh"
 
-#: src/Config/Descriptions.php:806
+#: src/Config/Descriptions.php:805
 msgid "Maximum number of rows to display"
 msgstr "Số lượng hàng tối đa có thể hiển thị"
 
-#: src/Config/Descriptions.php:807
+#: src/Config/Descriptions.php:806
 msgid "Maximum tables"
 msgstr "Số bảng tối đa"
 
-#: src/Config/Descriptions.php:808
+#: src/Config/Descriptions.php:807
 msgid "Memory limit"
 msgstr "Giới hạn bộ nhớ"
 
-#: src/Config/Descriptions.php:809
+#: src/Config/Descriptions.php:808
 msgid "Show databases navigation as tree"
 msgstr "Hiển thị bảng điều hướng cơ sở dữ liệu dạng cây"
 
-#: src/Config/Descriptions.php:810
+#: src/Config/Descriptions.php:809
 msgid "Navigation panel width"
 msgstr "Độ rộng bảng điều hướng"
 
-#: src/Config/Descriptions.php:811
+#: src/Config/Descriptions.php:810
 #: src/Controllers/JavaScriptMessagesController.php:586
 #: src/Navigation/NavigationTree.php:1258
 msgid "Link with main panel"
 msgstr "Liên kết với bảng điều khiển chính"
 
-#: src/Config/Descriptions.php:812
+#: src/Config/Descriptions.php:811
 msgid "Display logo"
 msgstr "Hiện biểu tượng"
 
-#: src/Config/Descriptions.php:813
+#: src/Config/Descriptions.php:812
 msgid "Logo link URL"
 msgstr "URL của Logo"
 
-#: src/Config/Descriptions.php:814
+#: src/Config/Descriptions.php:813
 msgid "Logo link target"
 msgstr "Đích của liên kết Logo"
 
-#: src/Config/Descriptions.php:815
+#: src/Config/Descriptions.php:814
 msgid "Display servers selection"
 msgstr "Hiển thị bộ chọn máy dịch vụ"
 
-#: src/Config/Descriptions.php:816
+#: src/Config/Descriptions.php:815
 msgid "Target for quick access icon"
 msgstr "Đích cho biểu tượng truy cập nhanh"
 
-#: src/Config/Descriptions.php:817
+#: src/Config/Descriptions.php:816
 msgid "Target for second quick access icon"
 msgstr "Đích cho biểu tượng truy cập nhanh thứ hai"
 
-#: src/Config/Descriptions.php:818
+#: src/Config/Descriptions.php:817
 msgid "Minimum number of items to display the filter box"
 msgstr "Các định nghĩa số lượng mục tin được hiển thị trong hộp lọc tối thiểu."
 
-#: src/Config/Descriptions.php:820
+#: src/Config/Descriptions.php:819
 msgid "Minimum number of databases to display the database filter box"
 msgstr "Số lượng cơ sở dữ liệu trình bày ở hộp lọc cơ sở dữ liệu tối đa"
 
-#: src/Config/Descriptions.php:822
+#: src/Config/Descriptions.php:821
 msgid "Group items in the tree"
 msgstr "Nhóm các mục tin trong cây"
 
-#: src/Config/Descriptions.php:823
+#: src/Config/Descriptions.php:822
 msgid "Database tree separator"
 msgstr "Dấu ngăn cách cây cơ sở dữ liệu"
 
-#: src/Config/Descriptions.php:824
+#: src/Config/Descriptions.php:823
 msgid "Table tree separator"
 msgstr "Dấu ngăn cách cây bảng"
 
-#: src/Config/Descriptions.php:825
+#: src/Config/Descriptions.php:824
 msgid "Maximum table tree depth"
 msgstr "Độ sâu cây bảng tối đa"
 
-#: src/Config/Descriptions.php:826
+#: src/Config/Descriptions.php:825
 msgid "Enable highlighting"
 msgstr "Tô sáng"
 
-#: src/Config/Descriptions.php:827
+#: src/Config/Descriptions.php:826
 msgid "Enable navigation tree expansion"
 msgstr "Bật mở rộng cây điều hướng"
 
-#: src/Config/Descriptions.php:828
+#: src/Config/Descriptions.php:827
 msgid "Show tables in tree"
 msgstr "Hiện bảng trong cây"
 
-#: src/Config/Descriptions.php:829
+#: src/Config/Descriptions.php:828
 msgid "Show views in tree"
 msgstr "Hiện view trong cây"
 
-#: src/Config/Descriptions.php:830
+#: src/Config/Descriptions.php:829
 msgid "Show functions in tree"
 msgstr "Hiển thị các hàm trong cây"
 
-#: src/Config/Descriptions.php:831
+#: src/Config/Descriptions.php:830
 msgid "Show procedures in tree"
 msgstr "Hiển thị thủ tục trong cây"
 
-#: src/Config/Descriptions.php:832
+#: src/Config/Descriptions.php:831
 msgid "Show events in tree"
 msgstr "Hiển thị sự kiện trong cây"
 
-#: src/Config/Descriptions.php:833
+#: src/Config/Descriptions.php:832
 #, fuzzy
 #| msgid "Copying database"
 msgid "Expand single database"
 msgstr "Đang chép cơ sở dữ liệu"
 
-#: src/Config/Descriptions.php:834
+#: src/Config/Descriptions.php:833
 msgid "Recently used tables"
 msgstr "Các bảng mới dùng gần đây"
 
-#: src/Config/Descriptions.php:836
+#: src/Config/Descriptions.php:835
 msgid "Where to show the table row links"
 msgstr "Hiển thị liên kết hàng bảng ở đâu"
 
-#: src/Config/Descriptions.php:837
+#: src/Config/Descriptions.php:836
 msgid "Show row links anyway"
 msgstr "Dù sao vẫn hiển thị liên kết hàng"
 
-#: src/Config/Descriptions.php:839
+#: src/Config/Descriptions.php:838
 msgid "Natural order"
 msgstr "Thứ tự tự nhiên"
 
-#: src/Config/Descriptions.php:840
+#: src/Config/Descriptions.php:839
 msgid "Table navigation bar"
 msgstr "Xóa thanh công cụ kết nối nhanh"
 
-#: src/Config/Descriptions.php:841
+#: src/Config/Descriptions.php:840
 msgid "GZip output buffering"
 msgstr "Đệm kết xuất GZip"
 
-#: src/Config/Descriptions.php:842
+#: src/Config/Descriptions.php:841
 msgid "Default sorting order"
 msgstr "Kiểu sắp xếp mặc định"
 
-#: src/Config/Descriptions.php:843
+#: src/Config/Descriptions.php:842
 msgid "Persistent connections"
 msgstr "Các kết nối lâu dài"
 
-#: src/Config/Descriptions.php:844
+#: src/Config/Descriptions.php:843
 msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "Thiếu các bảng lưu trữ cấu hình phpMyAdmin"
 
-#: src/Config/Descriptions.php:845
+#: src/Config/Descriptions.php:844
 msgid "MySQL reserved word warning"
 msgstr "Cảnh báo từ dành riêng cho MySQL"
 
-#: src/Config/Descriptions.php:846
+#: src/Config/Descriptions.php:845
 msgid "How to display the menu tabs"
 msgstr "Hển thị các tab trình đơn thế nào"
 
-#: src/Config/Descriptions.php:847
+#: src/Config/Descriptions.php:846
 msgid "How to display various action links"
 msgstr "Hiển thị các liên kết thao tác khác nhau thế nào"
 
-#: src/Config/Descriptions.php:848
+#: src/Config/Descriptions.php:847
 msgid "Protect binary columns"
 msgstr "Các cột nhị phân bảo vệ"
 
-#: src/Config/Descriptions.php:849
+#: src/Config/Descriptions.php:848
 msgid "Permanent query history"
 msgstr "Lịch sử truy vấn vĩnh viễn"
 
-#: src/Config/Descriptions.php:850
+#: src/Config/Descriptions.php:849
 msgid "Query history length"
 msgstr "Độ dài của lịch sử các câu truy vấn"
 
-#: src/Config/Descriptions.php:851
+#: src/Config/Descriptions.php:850
 msgid "Allow shared bookmarks between users"
 msgstr ""
 
-#: src/Config/Descriptions.php:852
+#: src/Config/Descriptions.php:851
 msgid "Recoding engine"
 msgstr "Bộ máy ghi"
 
-#: src/Config/Descriptions.php:853
+#: src/Config/Descriptions.php:852
 msgid "Remember table's sorting"
 msgstr "Nhớ sắp xếp của bảng"
 
-#: src/Config/Descriptions.php:854
+#: src/Config/Descriptions.php:853
 msgid "Primary key default sort order"
 msgstr "Thứ tự sắp xếp mặc định cho khóa chính"
 
-#: src/Config/Descriptions.php:855
+#: src/Config/Descriptions.php:854
 msgid "Repeat headers"
 msgstr "Lặp lại đầu đề"
 
-#: src/Config/Descriptions.php:856
+#: src/Config/Descriptions.php:855
 msgid "Grid editing: trigger action"
 msgstr "Sửa lưới: thao tác bẫy"
 
-#: src/Config/Descriptions.php:857
+#: src/Config/Descriptions.php:856
 msgid "Relational display"
 msgstr "Hiển thị quan hệ"
 
-#: src/Config/Descriptions.php:858
+#: src/Config/Descriptions.php:857
 msgid "Grid editing: save all edited cells at once"
 msgstr "Sửa lưới: lưu lại mọi ô đã sửa cùng lúc"
 
-#: src/Config/Descriptions.php:859
+#: src/Config/Descriptions.php:858
 msgid "Save directory"
 msgstr "Thư mục lưu trữ"
 
-#: src/Config/Descriptions.php:860
+#: src/Config/Descriptions.php:859
 msgid "Host authorization order"
 msgstr "Thứ tự xác thực máy chủ"
 
-#: src/Config/Descriptions.php:861
+#: src/Config/Descriptions.php:860
 msgid "Host authorization rules"
 msgstr "Quy tắc xác thực máy"
 
-#: src/Config/Descriptions.php:862
+#: src/Config/Descriptions.php:861
 msgid "Allow logins without a password"
 msgstr "Cho đăng nhập mà không cần mật khẩu"
 
-#: src/Config/Descriptions.php:863
+#: src/Config/Descriptions.php:862
 msgid "Allow root login"
 msgstr "Cho phép tài khoản root đăng nhập"
 
-#: src/Config/Descriptions.php:864
+#: src/Config/Descriptions.php:863
 msgid "Session timezone"
 msgstr "Múi giờ phiên"
 
-#: src/Config/Descriptions.php:865
+#: src/Config/Descriptions.php:864
 msgid "HTTP Realm"
 msgstr "HTTP Realm"
 
-#: src/Config/Descriptions.php:867
+#: src/Config/Descriptions.php:866
 msgid "Bookmark table"
 msgstr "Bảng lưu trang đánh dấu"
 
-#: src/Config/Descriptions.php:868
+#: src/Config/Descriptions.php:867
 msgid "Column information table"
 msgstr "Bảng thông tin cột"
 
-#: src/Config/Descriptions.php:869
+#: src/Config/Descriptions.php:868
 msgid "Compress connection"
 msgstr "Nén dữ liệu kết nối"
 
-#: src/Config/Descriptions.php:870
+#: src/Config/Descriptions.php:869
 msgid "Control user password"
 msgstr "Mật khẩu người dùng điều khiển"
 
-#: src/Config/Descriptions.php:871
+#: src/Config/Descriptions.php:870
 msgid "Control user"
 msgstr "Người dùng điều khiển"
 
-#: src/Config/Descriptions.php:872
+#: src/Config/Descriptions.php:871
 msgid "Control host"
 msgstr "Máy điều khiển"
 
-#: src/Config/Descriptions.php:873
+#: src/Config/Descriptions.php:872
 msgid "Control port"
 msgstr "Cổng điều khiển"
 
-#: src/Config/Descriptions.php:874
+#: src/Config/Descriptions.php:873
 msgid "Disable use of INFORMATION_SCHEMA"
 msgstr "Tắt việc dùng INFORMATION_SCHEMA"
 
-#: src/Config/Descriptions.php:875
+#: src/Config/Descriptions.php:874
 msgid "Hide databases"
 msgstr "Ẩn các cơ sở dữ liệu"
 
-#: src/Config/Descriptions.php:876
+#: src/Config/Descriptions.php:875
 msgid "SQL query history table"
 msgstr "Bảng lịch sử truy vấn SQL"
 
-#: src/Config/Descriptions.php:877
+#: src/Config/Descriptions.php:876
 msgid "Server hostname"
 msgstr "Tên máy phục vụ"
 
-#: src/Config/Descriptions.php:878
+#: src/Config/Descriptions.php:877
 msgid "Logout URL"
 msgstr "URL đăng xuất"
 
-#: src/Config/Descriptions.php:879
+#: src/Config/Descriptions.php:878
 msgid "Maximal number of table preferences to store"
 msgstr "Số lượng tham chiếu bảng tối đa có thể lưu trữ"
 
-#: src/Config/Descriptions.php:880
+#: src/Config/Descriptions.php:879
 msgid "Export templates table"
 msgstr "Xuất bảng mẫu"
 
-#: src/Config/Descriptions.php:881
+#: src/Config/Descriptions.php:880
 msgid "Central columns table"
 msgstr "Bảng các cột trung tâm"
 
-#: src/Config/Descriptions.php:882
+#: src/Config/Descriptions.php:881
 msgid "Show only listed databases"
 msgstr "Chỉ hiển thị các cơ sở dữ liệu đã liệt kê"
 
-#: src/Config/Descriptions.php:883
+#: src/Config/Descriptions.php:882
 msgid "Password for config auth"
 msgstr "Mật khẩu cho xác thực cấu hình"
 
-#: src/Config/Descriptions.php:884
+#: src/Config/Descriptions.php:883
 msgid "PDF schema: pages table"
 msgstr "Lược đồ PDF: bảng các trang"
 
-#: src/Config/Descriptions.php:886
+#: src/Config/Descriptions.php:885
 msgid "Server port"
 msgstr "Cổng máy phục vụ"
 
-#: src/Config/Descriptions.php:887
+#: src/Config/Descriptions.php:886
 msgid "Recently used table"
 msgstr "Các bảng mới dùng"
 
-#: src/Config/Descriptions.php:888
+#: src/Config/Descriptions.php:887
 msgid "Favorites table"
 msgstr "Bảng ưa dùng"
 
-#: src/Config/Descriptions.php:889
+#: src/Config/Descriptions.php:888
 msgid "Relation table"
 msgstr "Bảng quan hệ"
 
-#: src/Config/Descriptions.php:890
+#: src/Config/Descriptions.php:889
 msgid "Signon session name"
 msgstr "Tên phiên đăng nhập"
 
-#: src/Config/Descriptions.php:891
+#: src/Config/Descriptions.php:890
 msgid "Signon URL"
 msgstr "URL đăng nhập"
 
-#: src/Config/Descriptions.php:892
+#: src/Config/Descriptions.php:891
 msgid "Server socket"
 msgstr "Ổ cắm mạng máy phục vụ"
 
-#: src/Config/Descriptions.php:893
+#: src/Config/Descriptions.php:892
 msgid "Use SSL"
 msgstr "Dùng SSL"
 
-#: src/Config/Descriptions.php:894
+#: src/Config/Descriptions.php:893
 msgid "Designer and PDF schema: table coordinates"
 msgstr "Bộ tạo mẫu và giản đồ PDF: bảng tọa độ"
 
-#: src/Config/Descriptions.php:895
+#: src/Config/Descriptions.php:894
 msgid "Display columns table"
 msgstr "Số cột trong bảng"
 
-#: src/Config/Descriptions.php:896
+#: src/Config/Descriptions.php:895
 msgid "UI preferences table"
 msgstr "Bảng tùy thích UI"
 
-#: src/Config/Descriptions.php:897
+#: src/Config/Descriptions.php:896
 msgid "Add DROP DATABASE"
 msgstr "Thêm DROP DATABASE"
 
-#: src/Config/Descriptions.php:899
+#: src/Config/Descriptions.php:898
 msgid "Add DROP VIEW"
 msgstr "Thêm DROP VIEW"
 
-#: src/Config/Descriptions.php:900
+#: src/Config/Descriptions.php:899
 msgid "Statements to track"
 msgstr "tìm nơi từ rãnh tới rãnh"
 
-#: src/Config/Descriptions.php:901
+#: src/Config/Descriptions.php:900
 msgid "SQL query tracking table"
 msgstr "Bảng theo dõi truy vấn SQL"
 
-#: src/Config/Descriptions.php:902
+#: src/Config/Descriptions.php:901
 msgid "Automatically create versions"
 msgstr "Các phiên bản tạo một cách tự động"
 
-#: src/Config/Descriptions.php:903
+#: src/Config/Descriptions.php:902
 msgid "User preferences storage table"
 msgstr "Bảng lưu trữ tùy thích người dùng"
 
-#: src/Config/Descriptions.php:904
+#: src/Config/Descriptions.php:903
 msgid "Users table"
 msgstr "Bảng người dùng"
 
-#: src/Config/Descriptions.php:905
+#: src/Config/Descriptions.php:904
 msgid "User groups table"
 msgstr "Bảng các nhóm người dùng"
 
-#: src/Config/Descriptions.php:906
+#: src/Config/Descriptions.php:905
 msgid "Hidden navigation items table"
 msgstr "Ẩn bảng mục điều hướng"
 
-#: src/Config/Descriptions.php:907
+#: src/Config/Descriptions.php:906
 msgid "User for config auth"
 msgstr "Người dùng cho cấu hình xác thực"
 
-#: src/Config/Descriptions.php:908
+#: src/Config/Descriptions.php:907
 msgid "Verbose name of this server"
 msgstr "Tên đầy đủ của máy này"
 
-#: src/Config/Descriptions.php:909
+#: src/Config/Descriptions.php:908
 msgid "Allow to display all the rows"
 msgstr "Cho phép hiển thị tất cả các hàng"
 
-#: src/Config/Descriptions.php:910
+#: src/Config/Descriptions.php:909
 msgid "Show password change form"
 msgstr "Hiện mẫu đơn thay đổi mật khẩu"
 
-#: src/Config/Descriptions.php:911
+#: src/Config/Descriptions.php:910
 msgid "Show create database form"
 msgstr "Hiển thị biểu mẫu tạo cơ sở dữ liệu"
 
-#: src/Config/Descriptions.php:912
+#: src/Config/Descriptions.php:911
 msgid "Show table comments"
 msgstr "Hiển thị các chú thích của bảng"
 
-#: src/Config/Descriptions.php:913
+#: src/Config/Descriptions.php:912
 msgid "Show creation timestamp"
 msgstr "Hiện thị dấu thời gian tạo"
 
-#: src/Config/Descriptions.php:914
+#: src/Config/Descriptions.php:913
 msgid "Show last update timestamp"
 msgstr "Hiển thị thời điểm cập nhật lần cuối"
 
-#: src/Config/Descriptions.php:915
+#: src/Config/Descriptions.php:914
 msgid "Show last check timestamp"
 msgstr "Hiện thị dấu thời gian kiểm tra lần cuối"
 
-#: src/Config/Descriptions.php:916
+#: src/Config/Descriptions.php:915
 #, fuzzy
 #| msgid "Show table comments"
 msgid "Show table charset"
 msgstr "Hiển thị các chú thích của bảng"
 
-#: src/Config/Descriptions.php:917
+#: src/Config/Descriptions.php:916
 msgid "Show field types"
 msgstr "Hiển thị các kiểu trường"
 
-#: src/Config/Descriptions.php:918
+#: src/Config/Descriptions.php:917
 msgid "Show function fields"
 msgstr "Hiển thị các trường hàm"
 
-#: src/Config/Descriptions.php:919
+#: src/Config/Descriptions.php:918
 msgid "Show hint"
 msgstr "Hiện lời gợi ý"
 
-#: src/Config/Descriptions.php:920
+#: src/Config/Descriptions.php:919
 msgid "Show phpinfo() link"
 msgstr "Hiện liên kết phpinfo()"
 
-#: src/Config/Descriptions.php:921
+#: src/Config/Descriptions.php:920
 msgid "Show detailed MySQL server information"
 msgstr "Hiển thị thông tin chi tiết về thông tin máy dịch vụ MySQL"
 
-#: src/Config/Descriptions.php:922
+#: src/Config/Descriptions.php:921
 msgid "Show SQL queries"
 msgstr "Hiện các truy vấn SQL"
 
-#: src/Config/Descriptions.php:924
+#: src/Config/Descriptions.php:923
 msgid "Show statistics"
 msgstr "Hiển thị thống kê"
 
-#: src/Config/Descriptions.php:925
+#: src/Config/Descriptions.php:924
 msgid "Skip locked tables"
 msgstr "Bỏ qua các bảng bị khóa"
 
-#: src/Config/Descriptions.php:927 src/Html/Generator.php:498
+#: src/Config/Descriptions.php:926 src/Html/Generator.php:498
 msgid "Explain SQL"
 msgstr "Giải thích SQL"
 
-#: src/Config/Descriptions.php:929 src/Html/Generator.php:569
+#: src/Config/Descriptions.php:928 src/Html/Generator.php:569
 msgid "Create PHP code"
 msgstr "Tạo mã PHP"
 
-#: src/Config/Descriptions.php:930
-msgid "Suhosin warning"
-msgstr "Cảnh báo Suhosin"
-
-#: src/Config/Descriptions.php:931
+#: src/Config/Descriptions.php:929
 msgid "Login cookie validity warning"
 msgstr "Cảnh báo hiệu lực cookie đăng nhập"
 
-#: src/Config/Descriptions.php:932
+#: src/Config/Descriptions.php:930
 msgid "Textarea columns"
 msgstr "Các cột Textarea"
 
-#: src/Config/Descriptions.php:933
+#: src/Config/Descriptions.php:931
 msgid "Textarea rows"
 msgstr "Số hàng Textarea"
 
-#: src/Config/Descriptions.php:935
+#: src/Config/Descriptions.php:933
 msgid "Default title"
 msgstr "Tiêu đề mặc định"
 
-#: src/Config/Descriptions.php:938
+#: src/Config/Descriptions.php:936
 msgid "List of trusted proxies for IP allow/deny"
 msgstr "Danh sách các máy ủy nhiệm đáng tin cho IP cho phép/từ chối"
 
-#: src/Config/Descriptions.php:939
+#: src/Config/Descriptions.php:937
 msgid "Upload directory"
 msgstr "Thư mục tải lên"
 
-#: src/Config/Descriptions.php:940
+#: src/Config/Descriptions.php:938
 msgid "Use database search"
 msgstr "Tìm kiếm trong cơ sở dữ liệu"
 
-#: src/Config/Descriptions.php:941
+#: src/Config/Descriptions.php:939
 msgid "Enable the Developer tab in settings"
 msgstr "Bật tab Phát triển trong các cài đặt"
 
-#: src/Config/Descriptions.php:942 src/Setup/Index.php:125
+#: src/Config/Descriptions.php:940 src/Setup/Index.php:125
 #: src/Setup/Index.php:152 src/Setup/Index.php:160 src/Setup/Index.php:168
 msgid "Version check"
 msgstr "Kiểm tra phiên bản"
 
-#: src/Config/Descriptions.php:943
+#: src/Config/Descriptions.php:941
 #, fuzzy
 #| msgid "Proxy url"
 msgid "Proxy URL"
 msgstr "URL của máy ủy nhiệm"
 
-#: src/Config/Descriptions.php:944
+#: src/Config/Descriptions.php:942
 msgid "Proxy username"
 msgstr "Tên người dùng ủy nhiệm"
 
-#: src/Config/Descriptions.php:945
+#: src/Config/Descriptions.php:943
 msgid "Proxy password"
 msgstr "Mật khẩu máy chủ ủy nhiệm"
 
-#: src/Config/Descriptions.php:946
+#: src/Config/Descriptions.php:944
 msgid "ZIP"
 msgstr "ZIP"
 
-#: src/Config/Descriptions.php:947
+#: src/Config/Descriptions.php:945
 msgid "URL for reCAPTCHA v2 API"
 msgstr ""
 
-#: src/Config/Descriptions.php:948
+#: src/Config/Descriptions.php:946
 msgid "Content-Security-Policy snippet for reCAPTCHA v2 API"
 msgstr ""
 
-#: src/Config/Descriptions.php:949
+#: src/Config/Descriptions.php:947
 msgid "Request parameter for reCAPTCHA v2 API"
 msgstr ""
 
-#: src/Config/Descriptions.php:950
+#: src/Config/Descriptions.php:948
 msgid "Response parameter for reCAPTCHA v2 API"
 msgstr ""
 
-#: src/Config/Descriptions.php:951
+#: src/Config/Descriptions.php:949
 #, fuzzy
 #| msgid "Public key for reCaptcha"
 msgid "Public key for reCAPTCHA"
 msgstr "Khóa công cho reCaptcha"
 
-#: src/Config/Descriptions.php:952
+#: src/Config/Descriptions.php:950
 #, fuzzy
 #| msgid "Public key for reCaptcha"
 msgid "Private key for reCAPTCHA"
 msgstr "Khóa công cho reCaptcha"
 
-#: src/Config/Descriptions.php:953
+#: src/Config/Descriptions.php:951
 msgid "URL for reCAPTCHA siteverify"
 msgstr ""
 
-#: src/Config/Descriptions.php:954
+#: src/Config/Descriptions.php:952
 msgid "Send error reports"
 msgstr "Gửi báo cáo lỗi"
 
-#: src/Config/Descriptions.php:955
+#: src/Config/Descriptions.php:953
 msgid "Enter executes queries in console"
 msgstr "Nhập vào các truy vấn thực thi trong bảng điều khiển"
 
-#: src/Config/Descriptions.php:956
+#: src/Config/Descriptions.php:954
 msgid "Enable Zero Configuration mode"
 msgstr "Bật chế độ Không cần cấu hình"
 
-#: src/Config/Descriptions.php:960
+#: src/Config/Descriptions.php:958
 #, fuzzy
 #| msgid "Execute queries on Enter and insert new line with Shift + Enter"
 msgid "Execute queries on Enter and insert new line with Shift+Enter"
 msgstr "Thực thi truy vấn bằng Enter và chèn thêm dòng mới bằng Shift + Enter"
 
-#: src/Config/Descriptions.php:962
+#: src/Config/Descriptions.php:960
 #, fuzzy
 #| msgid "Console"
 msgid "Console height"
 msgstr "Bảng điều khiển"
 
-#: src/Config/Descriptions.php:963
+#: src/Config/Descriptions.php:961
 #, fuzzy
 #| msgid "Console"
 msgid "Console mode"
 msgstr "Bảng điều khiển"
 
-#: src/Config/Descriptions.php:966
+#: src/Config/Descriptions.php:964
 msgid "Order by"
 msgstr "Xếp theo"
 
-#: src/Config/Descriptions.php:967
+#: src/Config/Descriptions.php:965
 msgid "Server connection collation"
 msgstr "Bảng mã đối chiếu kết nối máy dịch vụ"
 
@@ -11829,7 +11828,8 @@ msgstr "Việc nhập khẩu dữ liệu có nén sẽ không làm việc bởi 
 msgid "Compressed export will not work due to missing function %s."
 msgstr "Việc xuất khẩu dữ liệu có nén sẽ không làm việc bởi vì thiếu hàm %s."
 
-#: src/Config/FormDisplay.php:819
+#: src/Config/FormDisplay.php:815 src/Config/FormDisplay.php:816
+#: src/Config/FormDisplay.php:817
 #, php-format
 msgid "maximum %s"
 msgstr "tối đa là %s"
@@ -11863,7 +11863,7 @@ msgid "Microsoft Word 2000"
 msgstr "Kiểu Word 2000 của Microsoft™"
 
 #: src/Config/Forms/User/ExportForm.php:120
-#: src/Config/Forms/User/ImportForm.php:46
+#: src/Config/Forms/User/ImportForm.php:47
 msgid "OpenDocument Spreadsheet"
 msgstr "Bảng tính OpenDocument"
 
@@ -11871,7 +11871,7 @@ msgstr "Bảng tính OpenDocument"
 msgid "OpenDocument Text"
 msgstr "Văn bản OpenDocument"
 
-#: src/Config/Forms/User/ImportForm.php:37
+#: src/Config/Forms/User/ImportForm.php:38
 msgid "CSV using LOAD DATA"
 msgstr "CSV dùng LOAD DATA"
 
@@ -12012,7 +12012,7 @@ msgid ""
 "are unavailable on this system."
 msgstr ""
 
-#: src/Config/Settings.php:3168
+#: src/Config/Settings.php:3144
 #, php-format
 msgid "Server %d"
 msgstr "Máy chủ %d"
@@ -12283,7 +12283,7 @@ msgstr "Không có sự kiện nào mang tên %1$s ở trong cơ sở dữ liệ
 
 #: src/Controllers/Database/ExportController.php:129
 #: src/Controllers/Server/ExportController.php:57
-#: src/Controllers/Table/ExportController.php:90
+#: src/Controllers/Table/ExportController.php:92
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 "Không thể tải phần bổ xung xuất, vui lòng kiểm tra bản cài đặt của bạn!"
@@ -12415,7 +12415,7 @@ msgid "Success!"
 msgstr "Thành công!"
 
 #: src/Controllers/Database/StructureController.php:568
-#: src/Display/Results.php:3260
+#: src/Display/Results.php:3254
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -12480,7 +12480,7 @@ msgstr ""
 msgid "You may want to refresh the page."
 msgstr "Bạn có lẽ nên làm tươi trang này lại."
 
-#: src/Controllers/Export/ExportController.php:120 src/Export/Export.php:676
+#: src/Controllers/Export/ExportController.php:120 src/Export/Export.php:677
 msgid "Bad type!"
 msgstr "Sai kiểu!"
 
@@ -12585,16 +12585,7 @@ msgstr ""
 "có thể bị tổn thương do những người không đủ thẩm quyền tải về cấu hình của "
 "bạn."
 
-#: src/Controllers/HomeController.php:404
-#, php-format
-msgid ""
-"Server running with Suhosin. Please refer to %sdocumentation%s for possible "
-"issues."
-msgstr ""
-"Máy dịch vụ đang chạy với Suhosin. Vui lòng xem %stài liệu%s để thu thập một "
-"số thông tin cần thiết."
-
-#: src/Controllers/HomeController.php:418
+#: src/Controllers/HomeController.php:398
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -12603,14 +12594,14 @@ msgstr ""
 "Thư mục $cfg['TempDir'] (%s) không thể truy cập được. phpMyAdmin không thể "
 "tạo được cache cho giao diện và điều này sẽ làm chậm quá trình tải trang."
 
-#: src/Controllers/HomeController.php:435
+#: src/Controllers/HomeController.php:415
 msgid ""
 "The [code]HTTP_HOST[/code] variable is missing, which might cause phpMyAdmin "
 "to not work properly. Please refer to [doc@faq1-46]documentation[/doc] for "
 "possible issues."
 msgstr ""
 
-#: src/Controllers/HomeController.php:488
+#: src/Controllers/HomeController.php:468
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -12621,7 +12612,7 @@ msgstr ""
 "không thể phân chia chuỗi một cách chính xác và nó có thể gây ra kết quả bất "
 "ngờ, rất bất ngờ đó."
 
-#: src/Controllers/HomeController.php:506
+#: src/Controllers/HomeController.php:486
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -12698,7 +12689,7 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Câu lệnh \"DROP DATABASE\" bị tăt."
 
-#: src/Controllers/Import/ImportController.php:700 src/Sql.php:912
+#: src/Controllers/Import/ImportController.php:700 src/Sql.php:909
 msgid "[ROLLBACK occurred.]"
 msgstr "[đã nảy sinh ROLLBACK.]"
 
@@ -14728,7 +14719,7 @@ msgid "No such column"
 msgstr "Không có cột nào như vậy"
 
 #: src/Controllers/Normalization/GetColumnsController.php:35
-#: src/Normalization.php:230 src/Types.php:652
+#: src/Normalization.php:230 src/Types.php:653
 msgctxt "string types"
 msgid "String"
 msgstr "Chuỗi"
@@ -15488,7 +15479,7 @@ msgstr "Sai dữ liệu"
 msgid "Wrong data or no validation for %s"
 msgstr ""
 
-#: src/Controllers/Sql/SqlController.php:218 src/Sql.php:1080
+#: src/Controllers/Sql/SqlController.php:218 src/Sql.php:1077
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Đánh dấu %s đã được tạo ra."
@@ -15569,7 +15560,7 @@ msgstr "Có quá nhiều phép gia nhập mà không dùng chỉ mục."
 
 #: src/Controllers/Table/GetFieldController.php:108
 #: src/Database/Routines.php:1050 src/Import/Import.php:138
-#: src/InsertEdit.php:161 src/Sql.php:898
+#: src/InsertEdit.php:161 src/Sql.php:895
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL trả về kết quả là trống rỗng (vd. không có hàng nào)."
 
@@ -15984,29 +15975,29 @@ msgstr ""
 msgid "The row has been deleted."
 msgstr "Hàng đã bị xóa bỏ."
 
-#: src/Display/Results.php:2979 src/Display/Results.php:3301 src/Sql.php:904
+#: src/Display/Results.php:2973 src/Display/Results.php:3295 src/Sql.php:901
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Truy vấn cần %01.4f giây."
 
-#: src/Display/Results.php:3269
+#: src/Display/Results.php:3263
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Hiển thị các hàng %1s - %2s"
 
-#: src/Display/Results.php:3283
+#: src/Display/Results.php:3277
 #, fuzzy, php-format
 #| msgid "%1$d total, %2$d in query"
 msgid "%1$s total, %2$s in query"
 msgstr "Tổng %1$d, %2$d trong truy vấn"
 
-#: src/Display/Results.php:3288
+#: src/Display/Results.php:3282
 #, fuzzy, php-format
 #| msgid "%d total"
 msgid "%s total"
 msgstr "tổng %d"
 
-#: src/Display/Results.php:3597
+#: src/Display/Results.php:3591
 msgid "Link not found!"
 msgstr "Không tìm thấy liên kết!"
 
@@ -16615,11 +16606,11 @@ msgstr ""
 msgid "web server upload directory:"
 msgstr "thư mục để tải lên máy chủ:"
 
-#: src/InsertEdit.php:846 src/Sql.php:895
+#: src/InsertEdit.php:846 src/Sql.php:892
 msgid "Showing SQL query"
 msgstr "Hiện truy vấn SQL"
 
-#: src/InsertEdit.php:870 src/Sql.php:875
+#: src/InsertEdit.php:870 src/Sql.php:872
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Chỉ số id người dùng kép: %1$d"
@@ -17017,39 +17008,39 @@ msgstr ""
 msgid "No partial dependencies found!"
 msgstr ""
 
-#: src/Operations.php:540
+#: src/Operations.php:536
 msgid "Coalesce"
 msgstr "Hợp nhất"
 
-#: src/Operations.php:891
+#: src/Operations.php:887
 msgid "Can't move table to same one!"
 msgstr "Không thể di chuyển bảng đến cùng một cái!"
 
-#: src/Operations.php:893
+#: src/Operations.php:889
 msgid "Can't copy table to same one!"
 msgstr "Không thể sao chép bảng đến cùng một cái!"
 
-#: src/Operations.php:929
+#: src/Operations.php:925
 #, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "Bảng %s đã được chuyển sang %s. Đặc quyền đã được điều chỉnh lại."
 
-#: src/Operations.php:935
+#: src/Operations.php:931
 #, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "Bảng %s đã được chép sang %s. Đặc quyền đã được điều chỉnh lại."
 
-#: src/Operations.php:941
+#: src/Operations.php:937
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "Bảng %s được chuyển sang %s."
 
-#: src/Operations.php:945
+#: src/Operations.php:941
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "Bảng %s được chép sang %s."
 
-#: src/Operations.php:968
+#: src/Operations.php:964
 msgid "The table name is empty!"
 msgstr "Tên bảng còn để trống!"
 
@@ -17130,7 +17121,7 @@ msgstr "Phương thức xác thực trong cấu hình không hợp lệ:"
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 
-#: src/Plugins/Export/ExportCsv.php:68 src/Plugins/Export/ExportToon.php:61
+#: src/Plugins/Export/ExportCsv.php:68 src/Plugins/Export/ExportToon.php:62
 #: src/Plugins/Import/AbstractImportCsv.php:36
 msgid "Columns separated with:"
 msgstr "Các cột được ngăn cách bằng:"
@@ -17549,7 +17540,7 @@ msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
 
-#: src/Plugins/Export/ExportToon.php:66
+#: src/Plugins/Export/ExportToon.php:67
 #, fuzzy
 #| msgid "Orientation"
 msgid "Indentation:"
@@ -17572,54 +17563,54 @@ msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:92
+#: src/Plugins/Import/ImportCsv.php:93
 msgid "Name of the new table (optional):"
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:101
+#: src/Plugins/Import/ImportCsv.php:102
 msgid "Name of the new database (optional):"
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:110 src/Plugins/Import/ImportCsv.php:128
+#: src/Plugins/Import/ImportCsv.php:111 src/Plugins/Import/ImportCsv.php:129
 msgid "Import these many number of rows (optional):"
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:118 src/Plugins/Import/ImportOds.php:72
+#: src/Plugins/Import/ImportCsv.php:119 src/Plugins/Import/ImportOds.php:72
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:135
+#: src/Plugins/Import/ImportCsv.php:136
 msgid ""
 "If the data in each row of the file is not in the same order as in the "
 "database, list the corresponding column names here. Column names must be "
 "separated by commas and not enclosed in quotations."
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:143
+#: src/Plugins/Import/ImportCsv.php:144
 #, fuzzy
 #| msgid "Column names: "
 msgid "Column names:"
 msgstr "Tên cột: "
 
-#: src/Plugins/Import/ImportCsv.php:275 src/Plugins/Import/ImportCsv.php:528
+#: src/Plugins/Import/ImportCsv.php:283 src/Plugins/Import/ImportCsv.php:541
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "Định dạng CSV đầu vào không hợp lệ tại dòng %d."
 
-#: src/Plugins/Import/ImportCsv.php:482
+#: src/Plugins/Import/ImportCsv.php:495
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Số lượng cột trong CSV đầu vào không đúng tại dòng %d."
 
-#: src/Plugins/Import/ImportCsv.php:637 src/Plugins/Import/ImportCsv.php:652
-#: src/Plugins/Import/ImportCsv.php:663 src/Plugins/Import/ImportCsv.php:670
+#: src/Plugins/Import/ImportCsv.php:671 src/Plugins/Import/ImportCsv.php:686
+#: src/Plugins/Import/ImportCsv.php:697 src/Plugins/Import/ImportCsv.php:704
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Đối số không hợp lệ cho nhập CSV: %s"
 
-#: src/Plugins/Import/ImportCsv.php:760
+#: src/Plugins/Import/ImportCsv.php:794
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -18362,11 +18353,11 @@ msgstr "Không có phiên bản ổn định nào mới hơn"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Dùng đánh dấu \"%s\" như là truy vấn duyệt mặc định."
 
-#: src/Sql.php:892
+#: src/Sql.php:889
 msgid "Showing as PHP code"
 msgstr "Hiện dạng mã PHP"
 
-#: src/Sql.php:1248
+#: src/Sql.php:1245
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -18375,7 +18366,7 @@ msgstr ""
 "Chọn lựa hiện nay không chứa một cột duy nhất. Tính năng sửa lưới, dấu kiểm, "
 "Sửa, Chép và Xóa không sẵn có. %s"
 
-#: src/Sql.php:1262
+#: src/Sql.php:1259
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -18638,24 +18629,24 @@ msgstr "Phải ghi rõ tên bảng hợp lệ!"
 msgid "You must provide a trigger definition."
 msgstr "Phải cung cấp định nghĩa bẫy."
 
-#: src/Types.php:97
+#: src/Types.php:98
 #, fuzzy
 #| msgid "Empty"
 msgid "empty"
 msgstr "Rỗng"
 
-#: src/Types.php:98
+#: src/Types.php:99
 msgid "not empty"
 msgstr ""
 
-#: src/Types.php:161
+#: src/Types.php:162
 #, fuzzy
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr ""
 "Một số nguyên 1-byte, ký khoảng từ -128 đến 127, không ký khoảng từ 0 đến 255"
 
-#: src/Types.php:162
+#: src/Types.php:163
 #, fuzzy
 msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
@@ -18664,7 +18655,7 @@ msgstr ""
 "Số nguyên 2-byte, có ký hiệu phạm vi từ -32,768 đến 32,767,không ký hiệu "
 "phạm vi từ 0 đến 65,535"
 
-#: src/Types.php:164
+#: src/Types.php:165
 #, fuzzy
 msgid ""
 "A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is "
@@ -18673,7 +18664,7 @@ msgstr ""
 "Số nguyên 3-byte, có ký hiệu phạm vi là từ -8,388,608 đến 8,388,607, không "
 "ký hiệu phạm vi từ 0 đến 16,777,215"
 
-#: src/Types.php:167
+#: src/Types.php:168
 #, fuzzy
 msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
@@ -18682,7 +18673,7 @@ msgstr ""
 "Số nguyên 4-byte, có ký hiệu phạm vi là từ -2,147,483,648 đến 2,147,483,647, "
 "không ký hiệu phạm vi từ 0 đến 4,294,967,295"
 
-#: src/Types.php:172
+#: src/Types.php:173
 #, fuzzy
 msgid ""
 "An 8-byte integer, signed range is -9,223,372,036,854,775,808 to "
@@ -18692,7 +18683,7 @@ msgstr ""
 "đến 9,223,372,036,854,775,807, không ký hiệu phạm vi từ 0 đến "
 "18,446,744,073,709,551,615"
 
-#: src/Types.php:177
+#: src/Types.php:178
 #, fuzzy
 msgid ""
 "A fixed-point number (M, D) - the maximum number of digits (M) is 65 "
@@ -18701,7 +18692,7 @@ msgstr ""
 "Một điểm số cố định (M, D) - số lượng chữ số tối đa (M) là 65 (mặc định là "
 "10), số lượng thập phân tối đa D là 30 (mặc định là 0)"
 
-#: src/Types.php:182
+#: src/Types.php:183
 #, fuzzy
 msgid ""
 "A small floating-point number, allowable values are -3.402823466E+38 to "
@@ -18710,7 +18701,7 @@ msgstr ""
 "Một điểm nổi nhỏ, các giá trị cho phép là -3.402823466E + 38 đến "
 "-1.175494351E-38, 0 và 1.175494351E-38 đến 3.402823466E + 38"
 
-#: src/Types.php:187
+#: src/Types.php:188
 #, fuzzy
 msgid ""
 "A double-precision floating-point number, allowable values are "
@@ -18721,7 +18712,7 @@ msgstr ""
 "-1.7976931348623157E + 308 đến -2.2250738585072014E-308, 0 và "
 "2.2250738585072014E-308 đến 1.7976931348623157E + 308"
 
-#: src/Types.php:191
+#: src/Types.php:192
 #, fuzzy
 msgid ""
 "Synonym for DOUBLE (exception: in REAL_AS_FLOAT SQL mode it is a synonym for "
@@ -18730,7 +18721,7 @@ msgstr ""
 "Từ đồng nghĩa cho DOUBLE (ngoại lệ: trong chế độ REAL_AS_FLOAT SQL nó là từ "
 "đồng nghĩa cho FLOAT)"
 
-#: src/Types.php:192
+#: src/Types.php:193
 #, fuzzy
 msgid ""
 "A bit-field type (M), storing M of bits per value (default is 1, maximum is "
@@ -18739,7 +18730,7 @@ msgstr ""
 "Một loại bit-field (M), lưu trữ M bit trên mỗi giá trị (mặc định là 1, tối "
 "đa là 64)"
 
-#: src/Types.php:194
+#: src/Types.php:195
 #, fuzzy
 msgid ""
 "A synonym for TINYINT(1), a value of zero is considered false, nonzero "
@@ -18748,21 +18739,21 @@ msgstr ""
 "Một từ đồng nghĩa cho TINYINT (1), giá trị bằng 0 được xem là sai, các giá "
 "trị khác 0 được xem là đúng"
 
-#: src/Types.php:196
+#: src/Types.php:197
 msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr "Bí danh cho BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 
-#: src/Types.php:198
+#: src/Types.php:199
 #, php-format
 msgid "A date, supported range is %1$s to %2$s"
 msgstr "Kiểu ngày, vùng được hỗ trợ là từ %1$s đến %2$s"
 
-#: src/Types.php:203
+#: src/Types.php:204
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr "Một sự kết hợp ngày và giờ, phạm vi hỗ trợ là %1$s đến %2$s"
 
-#: src/Types.php:208
+#: src/Types.php:209
 #, fuzzy
 #| msgid ""
 #| "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
@@ -18777,12 +18768,12 @@ msgstr ""
 "03:14:07 UTC, được lưu dưới dạng số giây kể từ thời (1970-01-01 00:00:00 "
 "UTC )"
 
-#: src/Types.php:214
+#: src/Types.php:215
 #, php-format
 msgid "A time, range is %1$s to %2$s"
 msgstr "Giờ giấc, vùng là từ %1$s đến %2$s"
 
-#: src/Types.php:219
+#: src/Types.php:220
 msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
@@ -18790,7 +18781,7 @@ msgstr ""
 "Một năm với định dạng 4 chữ số (4, mặc định) hoặc 2 chữ số (2), giá trị cho "
 "phép là 70 (1970) đến 69 (2069) hoặc 1901 đến 2555 và 0000"
 
-#: src/Types.php:224
+#: src/Types.php:225
 #, fuzzy
 msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
@@ -18799,7 +18790,7 @@ msgstr ""
 "Chuỗi có độ dài cố định (0-255, mặc định 1), luôn luôn được đệm bên phải với "
 "không gian với độ dài đã chỉ định khi được lưu trữ"
 
-#: src/Types.php:229
+#: src/Types.php:230
 #, fuzzy, php-format
 msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
@@ -18808,7 +18799,7 @@ msgstr ""
 "Chuỗi có độ dài thay đổi (%s), độ dài tối đa có hiệu quả phụ thuộc vào kích "
 "thước tối đa của dãy"
 
-#: src/Types.php:234
+#: src/Types.php:235
 #, fuzzy
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
@@ -18817,26 +18808,26 @@ msgstr ""
 "Một cột VĂN BẢN với độ dài tối đa là 255 (2^8 - 1) ký tự, được lưu trữ với "
 "tiền tố 1-byte cho biết độ dài của giá trị bằng byte"
 
-#: src/Types.php:239
+#: src/Types.php:240
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
 msgstr ""
 
-#: src/Types.php:244
+#: src/Types.php:245
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
 msgstr ""
 
-#: src/Types.php:249
+#: src/Types.php:250
 msgid ""
 "A TEXT column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "characters, stored with a four-byte prefix indicating the length of the "
 "value in bytes"
 msgstr ""
 
-#: src/Types.php:254
+#: src/Types.php:255
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
@@ -18844,7 +18835,7 @@ msgstr ""
 "Tương tự như loại CHAR, nhưng lưu trữ chuỗi byte nhị phân hơn là chuỗi ký tự "
 "không nhị phân"
 
-#: src/Types.php:257
+#: src/Types.php:258
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
@@ -18852,31 +18843,31 @@ msgstr ""
 "Tương tự như loại VARCHAR, nhưng lưu chuỗi byte nhị phân chứ không phải "
 "chuỗi ký tự không nhị phân"
 
-#: src/Types.php:261
+#: src/Types.php:262
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
 msgstr ""
 
-#: src/Types.php:265
+#: src/Types.php:266
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
 msgstr ""
 
-#: src/Types.php:270
+#: src/Types.php:271
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
 msgstr ""
 
-#: src/Types.php:274
+#: src/Types.php:275
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
 msgstr ""
 
-#: src/Types.php:278
+#: src/Types.php:279
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
@@ -18884,43 +18875,43 @@ msgstr ""
 "Một bảng liệt kê, được chọn từ danh sách lên tới 65,535 giá trị hoặc giá trị "
 "lỗi '' đặc biệt"
 
-#: src/Types.php:279
+#: src/Types.php:280
 msgid "A single value chosen from a set of up to 64 members"
 msgstr "Một giá trị duy nhất được chọn từ một bộ lên tới 64 thành viên"
 
-#: src/Types.php:280
+#: src/Types.php:281
 msgid "A type that can store a geometry of any type"
 msgstr "Một loại có thể lưu trữ một hình học thuộc bất kỳ loại nào"
 
-#: src/Types.php:281
+#: src/Types.php:282
 msgid "A point in 2-dimensional space"
 msgstr "Một điểm trong không gian 2 chiều"
 
-#: src/Types.php:282
+#: src/Types.php:283
 msgid "A curve with linear interpolation between points"
 msgstr "Một đường cong với phép nội suy tuyến tính giữa các điểm"
 
-#: src/Types.php:283
+#: src/Types.php:284
 msgid "A polygon"
 msgstr "Một đa giác"
 
-#: src/Types.php:284
+#: src/Types.php:285
 msgid "A collection of points"
 msgstr "Một tập hợp tọa độ"
 
-#: src/Types.php:285
+#: src/Types.php:286
 msgid "A collection of curves with linear interpolation between points"
 msgstr "Một tập hợp các đường cong với phép nội suy tuyến tính giữa các điểm"
 
-#: src/Types.php:286
+#: src/Types.php:287
 msgid "A collection of polygons"
 msgstr "Một tập hợp của đa giác"
 
-#: src/Types.php:287
+#: src/Types.php:288
 msgid "A collection of geometry objects of any type"
 msgstr "Một tập hợp của các đối tượng hình dạng của bất kỳ kiểu nào"
 
-#: src/Types.php:288
+#: src/Types.php:289
 msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
@@ -18928,7 +18919,7 @@ msgstr ""
 "Lưu trữ và bật truy cập hiệu quả đến dữ liệu trong tài liệu JSON (JavaScript "
 "Object Notation)"
 
-#: src/Types.php:289
+#: src/Types.php:290
 msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
@@ -18936,31 +18927,31 @@ msgstr ""
 "Dự định lưu trữ địa chỉ IPv6, cũng như địa chỉ IPv4 giả sử ánh xạ thông "
 "thường của địa chỉ IPv4 vào địa chỉ IPv6"
 
-#: src/Types.php:292
+#: src/Types.php:293
 msgid "128-bit UUID (Universally Unique Identifier)"
 msgstr "128-bit UUID (Định danh duy nhất toàn cầu)"
 
-#: src/Types.php:293
+#: src/Types.php:294
 msgid ""
 "Stores vector data optimized for operations such as similarity search and "
 "machine learning applications"
 msgstr ""
 
-#: src/Types.php:295
+#: src/Types.php:296
 msgid "Intended for storage of XML data"
 msgstr ""
 
-#: src/Types.php:606
+#: src/Types.php:607
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr "Dạng số"
 
-#: src/Types.php:624
+#: src/Types.php:625
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "Ngày giờ"
 
-#: src/Types.php:654
+#: src/Types.php:655
 msgctxt "spatial types"
 msgid "Spatial"
 msgstr "Spatial"
@@ -19004,6 +18995,24 @@ msgstr "Lỗi trong kho nén ZIP:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "Không tìm thấy tập tin nào trong kho ZIP!"
+
+#~ msgid ""
+#~ "Disable the default warning that is displayed on the main page if Suhosin "
+#~ "is detected."
+#~ msgstr ""
+#~ "Tắt cảnh báo mặc định cái mà được hiển thị trên trang chính nếu Suhosin "
+#~ "được tìm thấy."
+
+#~ msgid "Suhosin warning"
+#~ msgstr "Cảnh báo Suhosin"
+
+#, php-format
+#~ msgid ""
+#~ "Server running with Suhosin. Please refer to %sdocumentation%s for "
+#~ "possible issues."
+#~ msgstr ""
+#~ "Máy dịch vụ đang chạy với Suhosin. Vui lòng xem %stài liệu%s để thu thập "
+#~ "một số thông tin cần thiết."
 
 #~ msgid "Version information"
 #~ msgstr "Thông tin phiên bản"

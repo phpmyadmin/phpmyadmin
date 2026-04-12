@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-04-05 00:43+0000\n"
+"POT-Creation-Date: 2026-04-12 00:44+0000\n"
 "PO-Revision-Date: 2025-09-22 11:47+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -760,8 +760,8 @@ msgstr "Prilagodi privilegije"
 #: resources/templates/columns_definitions/table_fields_definitions.twig:66
 #: resources/templates/database/data_dictionary/index.twig:30
 #: resources/templates/table/structure/display_structure.twig:28
-#: src/Config/Descriptions.php:660 src/Config/Descriptions.php:675
-#: src/Config/Descriptions.php:711 src/Plugins/Export/ExportHtmlword.php:313
+#: src/Config/Descriptions.php:658 src/Config/Descriptions.php:673
+#: src/Config/Descriptions.php:709 src/Plugins/Export/ExportHtmlword.php:313
 #: src/Plugins/Export/ExportLatex.php:471 src/Plugins/Export/ExportOdt.php:411
 #: src/Plugins/Export/ExportTexytext.php:309
 #: src/Plugins/Export/Helpers/Pdf.php:493
@@ -780,8 +780,8 @@ msgstr "Premakni stolpec"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:83
 #: resources/templates/database/data_dictionary/index.twig:32
-#: src/Config/Descriptions.php:664 src/Config/Descriptions.php:676
-#: src/Config/Descriptions.php:714 src/Plugins/Export/ExportHtmlword.php:320
+#: src/Config/Descriptions.php:662 src/Config/Descriptions.php:674
+#: src/Config/Descriptions.php:712 src/Plugins/Export/ExportHtmlword.php:320
 #: src/Plugins/Export/ExportOdt.php:418
 #: src/Plugins/Export/ExportTexytext.php:314
 #: src/Plugins/Export/Helpers/Pdf.php:501
@@ -852,7 +852,7 @@ msgstr "Ponastavi"
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:167
 #: src/Html/Generator.php:685 src/Html/MySQLDocumentation.php:51
-#: src/Sanitize.php:188
+#: src/Sanitize.php:189
 msgid "Documentation"
 msgstr "Dokumentacija"
 
@@ -1019,7 +1019,7 @@ msgstr "Ponovna poizvedba"
 #: resources/templates/setup/home/index.twig:64
 #: resources/templates/table/structure/display_structure.twig:494
 #: resources/templates/triggers/row.twig:28
-#: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
+#: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:925
 #: src/ConfigStorage/UserGroups.php:113
 #: src/Controllers/JavaScriptMessagesController.php:379
 #: src/Display/Results.php:1876 src/Html/Generator.php:533
@@ -1060,7 +1060,7 @@ msgstr "Izbriši"
 #: resources/templates/table/relation/common_form.twig:38
 #: resources/templates/table/relation/common_form.twig:95
 #: resources/templates/table/relation/foreign_key_row.twig:91
-#: src/Config/Descriptions.php:934 src/Plugins/Export/ExportHtmlword.php:145
+#: src/Config/Descriptions.php:932 src/Plugins/Export/ExportHtmlword.php:145
 #: src/Plugins/Export/ExportOdt.php:182
 #: src/Plugins/Export/ExportTexytext.php:115 src/Server/Privileges.php:1564
 #: src/Server/Privileges.php:1566 src/Server/Status/Processes.php:103
@@ -1071,7 +1071,7 @@ msgstr "Zbirka podatkov"
 msgid "SQL Query Console"
 msgstr "Konzola poizvedb SQL"
 
-#: resources/templates/console/display.twig:16 src/Config/Descriptions.php:766
+#: resources/templates/console/display.twig:16 src/Config/Descriptions.php:764
 msgid "Console"
 msgstr "Konzola"
 
@@ -1100,7 +1100,7 @@ msgid "Bookmarks"
 msgstr "Zaznamki"
 
 #: resources/templates/console/display.twig:34
-#: resources/templates/console/display.twig:88 src/Config/Descriptions.php:615
+#: resources/templates/console/display.twig:88 src/Config/Descriptions.php:613
 msgid "Debug SQL"
 msgstr "Odkrivaj napake SQL"
 
@@ -1172,7 +1172,7 @@ msgstr "Porabljen čas"
 msgid "Order by:"
 msgstr "Razvrsti po:"
 
-#: resources/templates/console/display.twig:103 src/Config/Descriptions.php:964
+#: resources/templates/console/display.twig:103 src/Config/Descriptions.php:962
 msgid "Group queries"
 msgstr "Združi poizvedbe"
 
@@ -1200,7 +1200,7 @@ msgstr "Porabljen čas:"
 #: resources/templates/console/display.twig:133
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
-#: src/Config/Descriptions.php:928 src/Export/Export.php:696
+#: src/Config/Descriptions.php:927 src/Export/Export.php:697
 #: src/Html/Generator.php:589
 msgid "Refresh"
 msgstr "Osveži"
@@ -1238,15 +1238,15 @@ msgstr "V redu"
 msgid "Restore default values"
 msgstr "Povrni privzete vrednosti"
 
-#: resources/templates/console/display.twig:185 src/Config/Descriptions.php:958
+#: resources/templates/console/display.twig:185 src/Config/Descriptions.php:956
 msgid "Always expand query messages"
 msgstr "Vedno razširi sporočila poizvedb"
 
-#: resources/templates/console/display.twig:189 src/Config/Descriptions.php:957
+#: resources/templates/console/display.twig:189 src/Config/Descriptions.php:955
 msgid "Show query history at start"
 msgstr "Na začetku prikaži zgodovino"
 
-#: resources/templates/console/display.twig:193 src/Config/Descriptions.php:959
+#: resources/templates/console/display.twig:193 src/Config/Descriptions.php:957
 msgid "Show current browsing query"
 msgstr "Prikaži trenutno poizvedbo brskanja"
 
@@ -1258,7 +1258,7 @@ msgstr ""
 "Izvedi poizvedbe z Enter in vstavi novo vrstico s shift + enter. Da to "
 "ohranite za vedno, si oglejte nastavitve."
 
-#: resources/templates/console/display.twig:201 src/Config/Descriptions.php:961
+#: resources/templates/console/display.twig:201 src/Config/Descriptions.php:959
 msgid "Switch to dark theme"
 msgstr "Preklopi na temno temo"
 
@@ -1379,8 +1379,8 @@ msgstr "Dejanje"
 #: resources/templates/error/report_modal.twig:11
 #: resources/templates/gis_data_editor_form.twig:76
 #: resources/templates/modals/change_password.twig:11
-#: resources/templates/server/databases/index.twig:315
-#: resources/templates/server/databases/index.twig:319
+#: resources/templates/server/databases/index.twig:321
+#: resources/templates/server/databases/index.twig:325
 #: resources/templates/server/variables/index.twig:15
 #: resources/templates/table/search/index.twig:196
 #: src/Controllers/JavaScriptMessagesController.php:312
@@ -1806,7 +1806,7 @@ msgstr "Opredelitev"
 #: resources/templates/sql/query.twig:40
 #: resources/templates/table/structure/display_table_stats.twig:81
 #: resources/templates/triggers/editor_form.twig:64
-#: src/Config/Descriptions.php:638 src/Config/Descriptions.php:654
+#: src/Config/Descriptions.php:636 src/Config/Descriptions.php:652
 msgid "Format"
 msgstr "Oblika"
 
@@ -1906,7 +1906,7 @@ msgstr "Izvozi"
 #: resources/templates/indexes.twig:59
 #: resources/templates/server/databases/index.twig:67
 #: resources/templates/server/databases/index.twig:68
-#: resources/templates/server/databases/index.twig:320
+#: resources/templates/server/databases/index.twig:326
 #: resources/templates/table/relation/foreign_key_row.twig:25
 #: resources/templates/table/structure/display_partitions.twig:146
 #: resources/templates/table/structure/display_structure.twig:120
@@ -1915,7 +1915,7 @@ msgstr "Izvozi"
 #: resources/templates/triggers/list.twig:20
 #: resources/templates/triggers/list.twig:21
 #: resources/templates/triggers/row.twig:52
-#: resources/templates/triggers/row.twig:58 src/Operations.php:538
+#: resources/templates/triggers/row.twig:58 src/Operations.php:534
 msgid "Drop"
 msgstr "Zavrzi"
 
@@ -2000,7 +2000,7 @@ msgstr "Tabele:"
 
 #: resources/templates/database/export/index.twig:22
 #: resources/templates/database/structure/show_create.twig:6
-#: src/Config/Descriptions.php:743
+#: src/Config/Descriptions.php:741
 #: src/Controllers/Server/DatabasesController.php:266
 #: src/Navigation/Nodes/NodeTableContainer.php:23
 #: src/Navigation/Nodes/NodeTableContainer.php:25
@@ -2190,7 +2190,7 @@ msgstr "Kopiraj zbirko podatkov v"
 
 #: resources/templates/database/operations/index.twig:123
 #: resources/templates/server/databases/index.twig:24
-#: src/Config/Descriptions.php:885
+#: src/Config/Descriptions.php:884
 msgid "Database name"
 msgstr "Ime zbirke podatkov"
 
@@ -2221,10 +2221,10 @@ msgstr "CREATE DATABASE pred kopiranjem"
 
 #: resources/templates/database/operations/index.twig:156
 #: resources/templates/table/operations/index.twig:303
-#: src/Config/Descriptions.php:695 src/Config/Descriptions.php:696
-#: src/Config/Descriptions.php:698 src/Config/Descriptions.php:701
-#: src/Config/Descriptions.php:702 src/Config/Descriptions.php:703
-#: src/Config/Descriptions.php:715
+#: src/Config/Descriptions.php:693 src/Config/Descriptions.php:694
+#: src/Config/Descriptions.php:696 src/Config/Descriptions.php:699
+#: src/Config/Descriptions.php:700 src/Config/Descriptions.php:701
+#: src/Config/Descriptions.php:713
 #, php-format
 msgid "Add %s"
 msgstr "Dodaj %s"
@@ -2232,7 +2232,7 @@ msgstr "Dodaj %s"
 #: resources/templates/database/operations/index.twig:161
 #: resources/templates/table/operations/index.twig:73
 #: resources/templates/table/operations/index.twig:308
-#: src/Config/Descriptions.php:687
+#: src/Config/Descriptions.php:685
 msgid "Add AUTO_INCREMENT value"
 msgstr "Dodaj vrednost AUTO_INCREMENT"
 
@@ -2742,7 +2742,7 @@ msgid "Database:"
 msgstr "Zbirka podatkov:"
 
 #: resources/templates/database/structure/copy_form.twig:31
-#: src/Config/Descriptions.php:898
+#: src/Config/Descriptions.php:897
 msgid "Add DROP TABLE"
 msgstr "Dodaj DROP TABLE"
 
@@ -2807,7 +2807,7 @@ msgstr "Pokaži poizvedbe create"
 #: resources/templates/table/relation/common_form.twig:102
 #: resources/templates/table/relation/foreign_key_row.twig:102
 #: resources/templates/triggers/editor_form.twig:32
-#: resources/templates/triggers/list.twig:49 src/Config/Descriptions.php:937
+#: resources/templates/triggers/list.twig:49 src/Config/Descriptions.php:935
 #: src/Plugins/Export/ExportXml.php:408 src/Server/Privileges.php:1570
 #: src/Server/Privileges.php:1572
 msgid "Table"
@@ -3120,7 +3120,7 @@ msgstr "Dejanja rezultatov poizvedbe"
 
 #: resources/templates/display/results/table.twig:353
 #: src/Controllers/JavaScriptMessagesController.php:466
-#: src/Export/Export.php:715
+#: src/Export/Export.php:716
 msgid "Copy to clipboard"
 msgstr "Kopiraj v odložišče"
 
@@ -3286,7 +3286,7 @@ msgid "Save on server in the directory <strong>%s</strong>"
 msgstr "Shrani na strežnik v imenik <strong>%s</strong>"
 
 #: resources/templates/export.twig:176 resources/templates/export.twig:371
-#: src/Config/Descriptions.php:681 src/Config/Descriptions.php:684
+#: src/Config/Descriptions.php:679 src/Config/Descriptions.php:682
 msgid "Overwrite existing file(s)"
 msgstr "Prepiši obstoječo(e) datoteko(e)"
 
@@ -3643,7 +3643,7 @@ msgstr "Uporabi"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:411
-#: src/Export/Export.php:738 src/Html/Generator.php:849
+#: src/Export/Export.php:739 src/Html/Generator.php:849
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "Nazaj"
@@ -3653,7 +3653,7 @@ msgstr "Nazaj"
 #: resources/templates/preferences/manage/main.twig:11
 #: resources/templates/server/status/monitor/index.twig:53
 #: resources/templates/server/status/monitor/index.twig:69
-#: src/Config/Forms/User/ImportForm.php:58 src/Menu.php:250 src/Menu.php:357
+#: src/Config/Forms/User/ImportForm.php:59 src/Menu.php:250 src/Menu.php:357
 #: src/Menu.php:474 src/Util.php:1367 src/Util.php:1382 src/Util.php:1399
 msgid "Import"
 msgstr "Uvozi"
@@ -3997,8 +3997,8 @@ msgstr "Nalaganje SQL"
 #: resources/templates/server/export/index.twig:7
 #: resources/templates/server/export/index.twig:14
 #: resources/templates/server/privileges/user_properties.twig:20
-#: src/Config/ConfigFile.php:576 src/Config/Descriptions.php:728
-#: src/Config/Descriptions.php:739 src/Menu.php:440 src/Util.php:1362
+#: src/Config/ConfigFile.php:576 src/Config/Descriptions.php:726
+#: src/Config/Descriptions.php:737 src/Menu.php:440 src/Util.php:1362
 msgid "Databases"
 msgstr "Zbirke podatkov"
 
@@ -4020,7 +4020,7 @@ msgid "Recent"
 msgstr "Nedavno"
 
 #: resources/templates/navigation/tree/quick_warp.twig:16
-#: src/Config/Descriptions.php:835
+#: src/Config/Descriptions.php:834
 msgid "Favorite tables"
 msgstr "Priljubljene tabele"
 
@@ -4058,17 +4058,17 @@ msgid "Features"
 msgstr "Lastnosti"
 
 #: resources/templates/preferences/header.twig:24
-#: src/Config/Descriptions.php:757 src/Config/Forms/User/SqlForm.php:38
+#: src/Config/Descriptions.php:755 src/Config/Forms/User/SqlForm.php:38
 msgid "SQL queries"
 msgstr "Poizvedbe SQL"
 
 #: resources/templates/preferences/header.twig:30
-#: src/Config/Descriptions.php:740 src/Config/Forms/User/NaviForm.php:57
+#: src/Config/Descriptions.php:738 src/Config/Forms/User/NaviForm.php:57
 msgid "Navigation panel"
 msgstr "Navigacijska plošča"
 
 #: resources/templates/preferences/header.twig:36
-#: src/Config/Descriptions.php:744 src/Config/Forms/User/MainForm.php:76
+#: src/Config/Descriptions.php:742 src/Config/Forms/User/MainForm.php:76
 msgid "Main panel"
 msgstr "Glavna plošča"
 
@@ -4539,13 +4539,28 @@ msgstr "Preveri privilegije za zbirko podatkov \"%s\"."
 msgid "Check privileges"
 msgstr "Preveri privilegije"
 
-#: resources/templates/server/databases/index.twig:249
+#: resources/templates/server/databases/index.twig:244
+#, fuzzy, php-format
+#| msgid "Run SQL query/queries on database %s"
+msgid "Run SQL queries on database \"%s\"."
+msgstr "Izvedi poizvedbo/poizvedbe SQL na zbirki podatkov %s"
+
+#: resources/templates/server/databases/index.twig:245
+#: src/Config/ConfigFile.php:520 src/Config/ConfigFile.php:534
+#: src/Config/ConfigFile.php:588 src/Config/ConfigFile.php:598
+#: src/Config/Descriptions.php:753 src/Menu.php:219 src/Menu.php:327
+#: src/Menu.php:445 src/Navigation/Nodes/NodeTable.php:242 src/Util.php:1065
+#: src/Util.php:1363 src/Util.php:1378 src/Util.php:1395
+msgid "SQL"
+msgstr "SQL"
+
+#: resources/templates/server/databases/index.twig:255
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:34
 #: src/Controllers/JavaScriptMessagesController.php:293
 msgid "Total:"
 msgstr "Skupaj:"
 
-#: resources/templates/server/databases/index.twig:294
+#: resources/templates/server/databases/index.twig:300
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -4553,16 +4568,16 @@ msgstr ""
 "Obvestilo: Omogočitev statistike zbirke podatkov lahko povzroči močno "
 "povečan promet med spletnim in podatkovnim strežnikom."
 
-#: resources/templates/server/databases/index.twig:296
-#: resources/templates/server/databases/index.twig:297
+#: resources/templates/server/databases/index.twig:302
+#: resources/templates/server/databases/index.twig:303
 msgid "Enable statistics"
 msgstr "Omogoči statistiko"
 
-#: resources/templates/server/databases/index.twig:304
+#: resources/templates/server/databases/index.twig:310
 msgid "No databases"
 msgstr "Brez zbirk podatkov"
 
-#: resources/templates/server/databases/index.twig:314
+#: resources/templates/server/databases/index.twig:320
 #: src/Controllers/JavaScriptMessagesController.php:337
 msgid "Confirm"
 msgstr "Potrdi"
@@ -5621,7 +5636,7 @@ msgid "Current server:"
 msgstr "Trenutni strežnik:"
 
 #: resources/templates/server/select/index.twig:6
-#: resources/templates/setup/home/index.twig:34 src/Config/Descriptions.php:742
+#: resources/templates/setup/home/index.twig:34 src/Config/Descriptions.php:740
 msgid "Servers"
 msgstr "Strežniki"
 
@@ -5705,7 +5720,7 @@ msgid "Test:"
 msgstr "Preizkus:"
 
 #: resources/templates/server/status/base.twig:6
-#: src/Config/Descriptions.php:936
+#: src/Config/Descriptions.php:934
 msgid "Server"
 msgstr "Strežnik"
 
@@ -6309,7 +6324,7 @@ msgstr "Pokaži obrazec"
 msgid "Show hidden messages"
 msgstr "Prikaži skrita sporočila"
 
-#: resources/templates/setup/home/index.twig:51 src/Config/Descriptions.php:866
+#: resources/templates/setup/home/index.twig:51 src/Config/Descriptions.php:865
 msgid "Authentication type"
 msgstr "Vrsta overovitve"
 
@@ -6391,7 +6406,7 @@ msgid "Detailed profile"
 msgstr "Podrobni profil"
 
 #: resources/templates/sql/profiling_chart.twig:11
-#: src/Config/Descriptions.php:965
+#: src/Config/Descriptions.php:963
 msgid "Order"
 msgstr "Vrstni red"
 
@@ -6452,7 +6467,7 @@ msgstr "Tortni diagram z rezultati profiliranja."
 #: src/Controllers/Table/Partition/RepairController.php:49
 #: src/Controllers/Table/Partition/TruncateController.php:50
 #: src/Controllers/Table/RelationController.php:147
-#: src/Database/Routines.php:1033 src/Display/Results.php:2974
+#: src/Database/Routines.php:1033 src/Display/Results.php:2968
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "Poizvedbo SQL smo uspešno izvedli."
@@ -6498,7 +6513,7 @@ msgstr "Ločilo"
 msgid "Show this query here again"
 msgstr "Ponovno pokaži poizvedbo v tem oknu"
 
-#: resources/templates/sql/query.twig:130 src/Config/Descriptions.php:923
+#: resources/templates/sql/query.twig:130 src/Config/Descriptions.php:922
 msgid "Retain query box"
 msgstr "Ohrani polje poizvedbe"
 
@@ -6973,7 +6988,7 @@ msgid "Delete the view (DROP)"
 msgstr "Izbriši pogled (DROP)"
 
 #: resources/templates/table/page_with_secondary_tabs.twig:5
-#: src/Config/Descriptions.php:760 src/Plugins/Export/ExportPdf.php:170
+#: src/Config/Descriptions.php:758 src/Plugins/Export/ExportPdf.php:170
 msgid "Table structure"
 msgstr "Zgradba tabele"
 
@@ -7139,32 +7154,32 @@ msgid "Index length"
 msgstr "Dolžina indeksa"
 
 #: resources/templates/table/structure/display_partitions.twig:85
-#: src/Operations.php:526
+#: src/Operations.php:522
 msgid "Analyze"
 msgstr "Analiziraj"
 
 #: resources/templates/table/structure/display_partitions.twig:95
-#: src/Operations.php:527
+#: src/Operations.php:523
 msgid "Check"
 msgstr "Označi"
 
 #: resources/templates/table/structure/display_partitions.twig:105
-#: src/Operations.php:528
+#: src/Operations.php:524
 msgid "Optimize"
 msgstr "Optimiraj"
 
 #: resources/templates/table/structure/display_partitions.twig:115
-#: src/Operations.php:529
+#: src/Operations.php:525
 msgid "Rebuild"
 msgstr "Ponovno sestavi"
 
 #: resources/templates/table/structure/display_partitions.twig:125
-#: src/Operations.php:530
+#: src/Operations.php:526
 msgid "Repair"
 msgstr "Popravi"
 
 #: resources/templates/table/structure/display_partitions.twig:135
-#: src/Operations.php:531
+#: src/Operations.php:527
 msgid "Truncate"
 msgstr "Izprazni"
 
@@ -9041,14 +9056,6 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Vietnamsko"
 
-#: src/Config/ConfigFile.php:520 src/Config/ConfigFile.php:534
-#: src/Config/ConfigFile.php:588 src/Config/ConfigFile.php:598
-#: src/Config/Descriptions.php:755 src/Menu.php:219 src/Menu.php:327
-#: src/Menu.php:445 src/Navigation/Nodes/NodeTable.php:242 src/Util.php:1065
-#: src/Util.php:1363 src/Util.php:1378 src/Util.php:1395
-msgid "SQL"
-msgstr "SQL"
-
 #: src/Config/ConfigFile.php:545 src/Config/ConfigFile.php:557
 #: src/Config/ConfigFile.php:565
 msgid "Icons"
@@ -9226,19 +9233,19 @@ msgstr "oboje zgoraj"
 msgid "neither of the above"
 msgstr "nič od zgoraj"
 
-#: src/Config/Descriptions.php:61 src/Config/Descriptions.php:62
-#: src/Config/Descriptions.php:63
+#: src/Config/Descriptions.php:62 src/Config/Descriptions.php:63
+#: src/Config/Descriptions.php:64
 msgid "Users cannot set a higher value"
 msgstr "Uporabniki ne morejo določiti višje vrednosti"
 
-#: src/Config/Descriptions.php:76
+#: src/Config/Descriptions.php:77
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
 "Če je omogočeno, lahko uporabnik vstopi v katerikoli strežnik MySQL v "
 "prijavnem obrazcu z overovitvijo piškotkov."
 
-#: src/Config/Descriptions.php:79
+#: src/Config/Descriptions.php:80
 msgid ""
 "Restricts the MySQL servers the user can enter when a login to an arbitrary "
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
@@ -9248,7 +9255,7 @@ msgstr ""
 "določen strežnik MySQL omogočena z ujemanjem IP-naslova ali gostiteljevega "
 "imena strežnika MySQL z danim regularnim izrazom."
 
-#: src/Config/Descriptions.php:84
+#: src/Config/Descriptions.php:85
 msgid ""
 "Enabling this allows a page located on a different domain to call phpMyAdmin "
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
@@ -9259,7 +9266,7 @@ msgstr ""
 "[strong]varnostno luknjo[/strong], saj dovoljuje skriptne napade z okvirji "
 "(XSS)."
 
-#: src/Config/Descriptions.php:89
+#: src/Config/Descriptions.php:90
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication."
@@ -9267,43 +9274,43 @@ msgstr ""
 "Skrivno geslo, ki se uporabi pri šifriranju piškotkov v overovitvi "
 "[kbd]cookie[/kbd]."
 
-#: src/Config/Descriptions.php:91
+#: src/Config/Descriptions.php:92
 msgid "Enable bzip2 compression for import operations."
 msgstr "Omogoči stiskanje bzip2 za posege uvoza."
 
-#: src/Config/Descriptions.php:92
+#: src/Config/Descriptions.php:93
 msgid "Enter the URL for your reCAPTCHA v2 compatible API."
 msgstr "Vnesite URL za vaš API, združljiv z reCAPTCHA v2."
 
-#: src/Config/Descriptions.php:93
+#: src/Config/Descriptions.php:94
 msgid ""
 "Enter the Content-Security-Policy snippet for your reCAPTCHA v2 compatible "
 "API."
 msgstr ""
 "Vnesite podatke Content-Security-Policy za vaš API, združljiv z reCAPTCHA v2."
 
-#: src/Config/Descriptions.php:94
+#: src/Config/Descriptions.php:95
 msgid "Enter the request parameter used by your reCAPTCHA v2 compatible API."
 msgstr "Vnesite parameter zahteve za vaš API, združljiv z reCAPTCHA v2."
 
-#: src/Config/Descriptions.php:95
+#: src/Config/Descriptions.php:96
 msgid "Enter the response parameter used by your reCAPTCHA v2 compatible API."
 msgstr "Vnesite parameter odgovora za vaš API, združljiv z reCAPTCHA v2."
 
-#: src/Config/Descriptions.php:96
+#: src/Config/Descriptions.php:97
 msgid "Enter your public key for the reCAPTCHA service on your domain."
 msgstr "Vnesite vaš javni ključ storitve reCAPTCHA na vaši domeni."
 
-#: src/Config/Descriptions.php:97
+#: src/Config/Descriptions.php:98
 msgid "Enter your private key for your domain reCAPTCHA service."
 msgstr "Vnesite vaš zasebni ključ storitve reCAPTCHA vaše domene."
 
-#: src/Config/Descriptions.php:98
+#: src/Config/Descriptions.php:99
 msgid "Enter your siteverify URL for your reCAPTCHA service."
 msgstr ""
 "Vnesite vaš URL za preverjanje strani (siteverify) vaše storitve reCAPTCHA."
 
-#: src/Config/Descriptions.php:100
+#: src/Config/Descriptions.php:101
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
@@ -9313,7 +9320,7 @@ msgstr ""
 "CHAR in VARCHAR; [kbd]input[/kbd] – omogoča omejevanje dolžine vnosa, "
 "[kbd]textarea[/kbd] – omogoča nove vrstice v stolpcu."
 
-#: src/Config/Descriptions.php:105
+#: src/Config/Descriptions.php:106
 msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
@@ -9321,14 +9328,14 @@ msgstr ""
 "Uporabi uporabniku prijazen urejevalnik za urejanje poizvedb SQL "
 "(CodeMirror) z obarvanjem skladnje in številkami vrstic."
 
-#: src/Config/Descriptions.php:110
+#: src/Config/Descriptions.php:111
 msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
 msgstr ""
 "Pred izvedbo poizvedbe najdi napake v njej. CodeMirror mora biti omogočen."
 
-#: src/Config/Descriptions.php:113
+#: src/Config/Descriptions.php:114
 msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns."
@@ -9336,7 +9343,7 @@ msgstr ""
 "Določa najmanjšo velikost vnosnih polj, ustvarjenih za stolpce CHAR in "
 "VARCHAR."
 
-#: src/Config/Descriptions.php:116
+#: src/Config/Descriptions.php:117
 msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns."
@@ -9344,7 +9351,7 @@ msgstr ""
 "Določa največjo velikost vnosnih polj, ustvarjenih za stolpce CHAR in "
 "VARCHAR."
 
-#: src/Config/Descriptions.php:119
+#: src/Config/Descriptions.php:120
 msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature."
@@ -9352,7 +9359,7 @@ msgstr ""
 "Stisne izvoze gzip med izvajanjem, brez večje porabe spomina; če naletite na "
 "težave z ustvarjenimi datotekami gzip, to funkcijo onemogočite."
 
-#: src/Config/Descriptions.php:123
+#: src/Config/Descriptions.php:124
 msgid ""
 "Whether a warning (\"Are your really sure…\") should be displayed when "
 "you're about to lose data."
@@ -9360,15 +9367,15 @@ msgstr ""
 "Ali se naj prikaže opozorilo (\"Ali res želite ...\"), ko boste izgubili "
 "podatke."
 
-#: src/Config/Descriptions.php:126
+#: src/Config/Descriptions.php:127
 msgid "Autocomplete of the table and column names in the SQL queries."
 msgstr "Samodokončanje imen tabel in stolpcev v poizvedbah SQL."
 
-#: src/Config/Descriptions.php:129 src/Config/Descriptions.php:133
-#: src/Config/Descriptions.php:137 src/Config/Descriptions.php:141
-#: src/Config/Descriptions.php:145 src/Config/Descriptions.php:149
-#: src/Config/Descriptions.php:153 src/Config/Descriptions.php:157
-#: src/Config/Descriptions.php:161
+#: src/Config/Descriptions.php:130 src/Config/Descriptions.php:134
+#: src/Config/Descriptions.php:138 src/Config/Descriptions.php:142
+#: src/Config/Descriptions.php:146 src/Config/Descriptions.php:150
+#: src/Config/Descriptions.php:154 src/Config/Descriptions.php:158
+#: src/Config/Descriptions.php:162
 msgid ""
 "Values for options list for default transformations. These will be "
 "overwritten if transformation is filled in at table structure page."
@@ -9376,7 +9383,7 @@ msgstr ""
 "Vrednosti za seznam možnosti privzetih pretvorb. Te bodo prepisane, če je "
 "pretvorba izpolnjena na strani strukture tabele."
 
-#: src/Config/Descriptions.php:165
+#: src/Config/Descriptions.php:166
 msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
@@ -9384,7 +9391,7 @@ msgstr ""
 "Onemogoči množične operacije vzdrževanja tabel, kot je optimiranje ali "
 "popravljanje izbranih tabel zbirke podatkov."
 
-#: src/Config/Descriptions.php:169
+#: src/Config/Descriptions.php:170
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)."
@@ -9392,12 +9399,12 @@ msgstr ""
 "Nastavi število sekund, ko se skript lahko izvaja ([kbd]0[/kbd] za "
 "neomejeno)."
 
-#: src/Config/Descriptions.php:171 src/Config/Descriptions.php:708
+#: src/Config/Descriptions.php:172 src/Config/Descriptions.php:706
 #: src/Plugins/Export/ExportSql.php:365
 msgid "Exclude definition of current user"
 msgstr "Izključi opredelitev trenutnega uporabnika"
 
-#: src/Config/Descriptions.php:173
+#: src/Config/Descriptions.php:174
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
@@ -9405,7 +9412,7 @@ msgstr ""
 "Vrstni red za predmete na spustnem seznamu tujih ključev; [kbd]content[/kbd] "
 "je sklicevan podatek, [kbd]id[/kbd] je vrednost ključa."
 
-#: src/Config/Descriptions.php:177
+#: src/Config/Descriptions.php:178
 msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
@@ -9414,7 +9421,7 @@ msgstr ""
 "[doc@faq6-27]dokumentacijo[/doc] za čarobne nize, ki jih lahko uporabite za "
 "pridobitev posebnih vrednosti."
 
-#: src/Config/Descriptions.php:182
+#: src/Config/Descriptions.php:183
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL."
@@ -9422,7 +9429,7 @@ msgstr ""
 "Pomnite, da je phpMyAdmin samo uporabniški vmesnik in njegove lastnosti ne "
 "omejujejo MySQL."
 
-#: src/Config/Descriptions.php:185
+#: src/Config/Descriptions.php:186
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for."
@@ -9430,7 +9437,7 @@ msgstr ""
 "Napredne nastavitve strežnika; ne spreminjajte teh možnosti, če ne veste "
 "čemu služijo."
 
-#: src/Config/Descriptions.php:188
+#: src/Config/Descriptions.php:189
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
@@ -9440,7 +9447,7 @@ msgstr ""
 "funkcij, glej [doc@linked-tables]hrambo konfiguracije phpMyAdmin[/doc] v "
 "dokumentaciji."
 
-#: src/Config/Descriptions.php:193
+#: src/Config/Descriptions.php:194
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
@@ -9448,116 +9455,116 @@ msgstr ""
 "Sledenje spremembam narejenih v zbirki podatkov. Potrebuje hrambo "
 "konfiguracije phpMyAdmin."
 
-#: src/Config/Descriptions.php:196
+#: src/Config/Descriptions.php:197
 msgid "Customize browse mode."
 msgstr "Prilagodite način brskanja."
 
-#: src/Config/Descriptions.php:197 src/Config/Descriptions.php:198
-#: src/Config/Descriptions.php:205 src/Config/Descriptions.php:211
-#: src/Config/Descriptions.php:212 src/Config/Descriptions.php:217
+#: src/Config/Descriptions.php:198 src/Config/Descriptions.php:199
+#: src/Config/Descriptions.php:206 src/Config/Descriptions.php:212
+#: src/Config/Descriptions.php:213 src/Config/Descriptions.php:218
 msgid "Customize default options."
 msgstr "Prilagodite privzete možnosti."
 
-#: src/Config/Descriptions.php:199
+#: src/Config/Descriptions.php:200
 msgid "Settings for phpMyAdmin developers."
 msgstr "Nastavitve za razvijalce phpMyAdmin."
 
-#: src/Config/Descriptions.php:200
+#: src/Config/Descriptions.php:201
 msgid "Customize edit mode."
 msgstr "Prilagodite način urejanja."
 
-#: src/Config/Descriptions.php:201
+#: src/Config/Descriptions.php:202
 msgid "Customize default export options."
 msgstr "Prilagodite privzete možnosti izvoza."
 
-#: src/Config/Descriptions.php:202
+#: src/Config/Descriptions.php:203
 msgid "Set some commonly used options."
 msgstr "Nastavi nekatere pogosto uporabljane možnosti."
 
-#: src/Config/Descriptions.php:203
+#: src/Config/Descriptions.php:204
 msgid "Customize default common import options."
 msgstr "Prilagodite pogoste privzete možnosti uvoza."
 
-#: src/Config/Descriptions.php:204
+#: src/Config/Descriptions.php:205
 msgid "Set import and export directories and compression options."
 msgstr "Nastavi mape za uvoz in izvoz ter možnosti stiskanja."
 
-#: src/Config/Descriptions.php:206
+#: src/Config/Descriptions.php:207
 msgid "Databases display options."
 msgstr "Možnosti prikaza zbirk podatkov."
 
-#: src/Config/Descriptions.php:207
+#: src/Config/Descriptions.php:208
 msgid "Customize appearance of the navigation panel."
 msgstr "Prilagodite prikaz navigacijske plošče."
 
-#: src/Config/Descriptions.php:208
+#: src/Config/Descriptions.php:209
 msgid "Customize the navigation tree."
 msgstr "Prilagodi navigacijsko drevo."
 
-#: src/Config/Descriptions.php:209
+#: src/Config/Descriptions.php:210
 msgid "Servers display options."
 msgstr "Možnosti prikaza strežnikov."
 
-#: src/Config/Descriptions.php:210
+#: src/Config/Descriptions.php:211
 msgid "Tables display options."
 msgstr "Možnosti prikaza tabel."
 
-#: src/Config/Descriptions.php:213
+#: src/Config/Descriptions.php:214
 msgid "Settings that didn't fit anywhere else."
 msgstr "Nastavitve, ki se ne uvrščajo nikamor drugam."
 
-#: src/Config/Descriptions.php:214
+#: src/Config/Descriptions.php:215
 msgid "Authentication settings."
 msgstr "Nastavitve overovitve."
 
-#: src/Config/Descriptions.php:215
+#: src/Config/Descriptions.php:216
 msgid "Enter server connection parameters."
 msgstr "Vnesite parametre povezave s strežnikom."
 
-#: src/Config/Descriptions.php:216
+#: src/Config/Descriptions.php:217
 msgid "Customize links shown in SQL Query boxes."
 msgstr "Prilagodi povezave prikazane v poljih poizvedbe SQL."
 
-#: src/Config/Descriptions.php:218
+#: src/Config/Descriptions.php:219
 msgid "SQL queries settings."
 msgstr "Nastavitve poizvedb SQL."
 
-#: src/Config/Descriptions.php:219
+#: src/Config/Descriptions.php:220
 msgid "Customize startup page."
 msgstr "Prilagodi začetno stran."
 
-#: src/Config/Descriptions.php:220
+#: src/Config/Descriptions.php:221
 msgid ""
 "Choose which details to show in the database structure (list of tables)."
 msgstr ""
 "Izberite podrobnosti, ki jih želite prikazati v zgradbi zbirke podatkov "
 "(seznam tabel)."
 
-#: src/Config/Descriptions.php:221
+#: src/Config/Descriptions.php:222
 msgid "Settings for the table structure (list of columns)."
 msgstr "Nastavitve zgradbe tabele (seznam stolpcev)."
 
-#: src/Config/Descriptions.php:222
+#: src/Config/Descriptions.php:223
 msgid "Choose how you want tabs to work."
 msgstr "Določite, kako želite, da delujejo zavihki."
 
-#: src/Config/Descriptions.php:223
+#: src/Config/Descriptions.php:224
 msgid "Customize text input fields."
 msgstr "Prilagodi polja za vnos besedila."
 
-#: src/Config/Descriptions.php:224
+#: src/Config/Descriptions.php:225
 msgid "Customize default options"
 msgstr "Prilagodite privzete možnosti"
 
-#: src/Config/Descriptions.php:225
+#: src/Config/Descriptions.php:226
 msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr "Onemogoči nekatera opozorila, ki jih prikazuje phpMyAdmin."
 
-#: src/Config/Descriptions.php:227
+#: src/Config/Descriptions.php:228
 msgid "Enable gzip compression for import and export operations."
 msgstr "Omogoči stiskanje gzip za posege uvoza in izvoza."
 
-#: src/Config/Descriptions.php:229
+#: src/Config/Descriptions.php:230
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed."
@@ -9565,7 +9572,7 @@ msgstr ""
 "Če je omogočeno, phpMyAdmin nadaljuje z izvajanjem poizvedb z več izjavami, "
 "četudi ena od poizvedb spodleti."
 
-#: src/Config/Descriptions.php:233
+#: src/Config/Descriptions.php:234
 msgid ""
 "Allow interrupt of import in case script detects it is close to time limit. "
 "This might be a good way to import large files, however it can break "
@@ -9575,7 +9582,7 @@ msgstr ""
 "omejitve. To je morda dober način za uvoz velikih datotek, čeprav lahko "
 "prekine transakcije."
 
-#: src/Config/Descriptions.php:238
+#: src/Config/Descriptions.php:239
 msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available."
@@ -9583,15 +9590,15 @@ msgstr ""
 "Privzeta oblika; pomnite, da je seznam odvisen od položaja (zbirka podatkov, "
 "tabela) in vedno je na voljo samo SQL."
 
-#: src/Config/Descriptions.php:241 src/Config/Descriptions.php:242
+#: src/Config/Descriptions.php:242 src/Config/Descriptions.php:243
 msgid "Update data when duplicate keys found on import"
 msgstr "Ko pri uvozu obstajajo podvojeni ključi, posodobi podatke"
 
-#: src/Config/Descriptions.php:243
+#: src/Config/Descriptions.php:244
 msgid "Number of queries to skip from start."
 msgstr "Število poizvedb, ki jih naj preskočim od začetka."
 
-#: src/Config/Descriptions.php:245
+#: src/Config/Descriptions.php:246
 msgid ""
 "If TRUE, logout deletes cookies for all servers; when set to FALSE, logout "
 "only occurs for the current server. Setting this to FALSE makes it easy to "
@@ -9602,7 +9609,7 @@ msgstr ""
 "hitro povzroči pozabljanje odjavljanja iz ostalih strežnikov, ko ste "
 "povezani na več strežnikov."
 
-#: src/Config/Descriptions.php:250
+#: src/Config/Descriptions.php:251
 msgid ""
 "Define whether the previous login should be recalled or not in [kbd]cookie[/"
 "kbd] authentication mode."
@@ -9610,7 +9617,7 @@ msgstr ""
 "Določi, ali se naj prejšnji prijavni podatki v načinu overovitve "
 "[kbd]cookie[/kbd] prikličejo ali ne."
 
-#: src/Config/Descriptions.php:254
+#: src/Config/Descriptions.php:255
 msgid ""
 "Defines how long (in seconds) a login cookie should be stored in browser. "
 "The default of 0 means that it will be kept for the existing session only, "
@@ -9622,11 +9629,11 @@ msgstr ""
 "sejo in bo izbrisan takoj, ko zaprete okno brskalnika. To je priporočeno za "
 "okolja, ki jim ne zaupate."
 
-#: src/Config/Descriptions.php:260
+#: src/Config/Descriptions.php:261
 msgid "Maximum number of characters used when a SQL query is displayed."
 msgstr "Največje število znakov pri prikazu poizvedbe SQL."
 
-#: src/Config/Descriptions.php:263
+#: src/Config/Descriptions.php:264
 msgid ""
 "The number of items that can be displayed on each page on the first level of "
 "the navigation tree."
@@ -9634,7 +9641,7 @@ msgstr ""
 "Število predmetov, ki se lahko prikažejo na posamezni strani na prvi stopnji "
 "navigacijskega drevesa."
 
-#: src/Config/Descriptions.php:266
+#: src/Config/Descriptions.php:267
 msgid ""
 "The number of items that can be displayed on each page of the navigation "
 "tree."
@@ -9642,7 +9649,7 @@ msgstr ""
 "Število predmetov, ki se lahko prikažejo na posamezni strani navigacijskega "
 "drevesa."
 
-#: src/Config/Descriptions.php:269
+#: src/Config/Descriptions.php:270
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, \"Previous\" and \"Next\" links will be shown."
@@ -9651,7 +9658,7 @@ msgstr ""
 "rezultatov vsebuje več vrstic, se prikažeta povezavi &raquo;Prejšnja&laquo; "
 "in &raquo;Naslednja&laquo;."
 
-#: src/Config/Descriptions.php:274
+#: src/Config/Descriptions.php:275
 msgid ""
 "The number of bytes a script is allowed to allocate, e.g. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
@@ -9659,16 +9666,16 @@ msgstr ""
 "Število bajtov, ki jih skript lahko dodeli, npr. [kbd]32M[/kbd] ([kbd]-1[/"
 "kbd] za neomejeno in [kbd]0[/kbd], da ostane enako)."
 
-#: src/Config/Descriptions.php:278
+#: src/Config/Descriptions.php:279
 msgid "In the navigation panel, replaces the database tree with a selector"
 msgstr "Na navigacijski plošči zamenja drevo zbirke podatkov z izbirnikom"
 
-#: src/Config/Descriptions.php:281
+#: src/Config/Descriptions.php:282
 msgid "Link with main panel by highlighting the current database or table."
 msgstr ""
 "Poveži z glavno ploščo tako, da označiš trenutno zbirko podatkov ali tabelo."
 
-#: src/Config/Descriptions.php:284
+#: src/Config/Descriptions.php:285
 msgid ""
 "Open the linked page in the main window ([code]main[/code]) or in a new one "
 "([code]new[/code])."
@@ -9676,7 +9683,7 @@ msgstr ""
 "Odpre povezano stran v glavnem ([code]main[/code]) ali v novem oknu "
 "([code]new[/code])."
 
-#: src/Config/Descriptions.php:287
+#: src/Config/Descriptions.php:288
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
@@ -9684,7 +9691,7 @@ msgstr ""
 "Najmanjše število predmetov (tabel, pogledov, rutin in dogodkov), potrebnih "
 "za prikaz filtrirnega polja."
 
-#: src/Config/Descriptions.php:290
+#: src/Config/Descriptions.php:291
 msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
@@ -9692,70 +9699,70 @@ msgstr ""
 "Združi predmete v navigacijskem drevesu (določeno z ločilom, navedenim v "
 "zavihkih Zbirke podatkov in Tabele spodaj)."
 
-#: src/Config/Descriptions.php:294
+#: src/Config/Descriptions.php:295
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
 msgstr "Ali naj bo ponujena možnost razširitve drevesa na navigacijski plošči."
 
-#: src/Config/Descriptions.php:297
+#: src/Config/Descriptions.php:298
 msgid "Whether to show procedures under database in the navigation tree"
 msgstr ""
 "Ali naj bodo pod zbirko podatkov v navigacijskem drevesu prikazane procedure"
 
-#: src/Config/Descriptions.php:300
+#: src/Config/Descriptions.php:301
 msgid "Whether to expand single database in the navigation tree automatically."
 msgstr ""
 "Ali naj samsko zbirko podatkov samodejno razširimo v navigacijskem drevesu."
 
-#: src/Config/Descriptions.php:302
+#: src/Config/Descriptions.php:303
 msgid "Set to 0 to collapse navigation panel."
 msgstr "Nastavite na 0, da skrijete navigacijsko ploščo."
 
-#: src/Config/Descriptions.php:303
+#: src/Config/Descriptions.php:304
 msgid "Show logo in navigation panel."
 msgstr "Prikaži logotip na navigacijski plošči."
 
-#: src/Config/Descriptions.php:304
+#: src/Config/Descriptions.php:305
 msgid "URL where logo in the navigation panel will point to."
 msgstr "URL, kamor bo kazal logotip na navigacijski plošči."
 
-#: src/Config/Descriptions.php:305
+#: src/Config/Descriptions.php:306
 msgid "Display server choice at the top of the navigation panel."
 msgstr "Prikaži izbrani strežnik na vrhu navigacijske plošče."
 
-#: src/Config/Descriptions.php:306
+#: src/Config/Descriptions.php:307
 msgid "String that separates databases into different tree levels."
 msgstr "Niz, ki loči zbirke podatkov v drugi nivo drevesa."
 
-#: src/Config/Descriptions.php:307
+#: src/Config/Descriptions.php:308
 msgid "String that separates tables into different tree levels."
 msgstr "Niz, ki loči tabele v različne stopnje drevesa."
 
-#: src/Config/Descriptions.php:308
+#: src/Config/Descriptions.php:309
 msgid "Highlight server under the mouse cursor."
 msgstr "Poudari strežnik pod miškinim kazalcem."
 
-#: src/Config/Descriptions.php:309
+#: src/Config/Descriptions.php:310
 msgid "Whether to show tables under database in the navigation tree"
 msgstr ""
 "Ali naj bodo pod zbirko podatkov v navigacijskem drevesu prikazane tabele"
 
-#: src/Config/Descriptions.php:310
+#: src/Config/Descriptions.php:311
 msgid "Whether to show views under database in the navigation tree"
 msgstr ""
 "Ali naj bodo pod zbirko podatkov v navigacijskem drevesu prikazani pogledi"
 
-#: src/Config/Descriptions.php:311
+#: src/Config/Descriptions.php:312
 msgid "Whether to show functions under database in the navigation tree"
 msgstr ""
 "Ali naj bodo pod zbirko podatkov v navigacijskem drevesu prikazane funkcije"
 
-#: src/Config/Descriptions.php:312
+#: src/Config/Descriptions.php:313
 msgid "Whether to show events under database in the navigation tree"
 msgstr ""
 "Ali naj bodo pod zbirko podatkov v navigacijskem drevesu prikazani dogodki"
 
-#: src/Config/Descriptions.php:314
+#: src/Config/Descriptions.php:315
 msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise."
@@ -9763,7 +9770,7 @@ msgstr ""
 "[kbd]SMART[/kbd] – tj. padajoči vrstni red za stolpce vrste TIME, DATE, "
 "DATETIME in TIMESTAMP, v naprotnem primeru naraščajoči vrstni red."
 
-#: src/Config/Descriptions.php:318
+#: src/Config/Descriptions.php:319
 msgid ""
 "Disable the default warning that is displayed on the database details "
 "Structure page if any of the required tables for the phpMyAdmin "
@@ -9773,7 +9780,7 @@ msgstr ""
 "podatkov Struktura, če katera od tabel, potrebnih za hrambo konfiguracije "
 "phpMyAdmin, ni bila najdena."
 
-#: src/Config/Descriptions.php:323
+#: src/Config/Descriptions.php:324
 msgid ""
 "Disable the default warning that is displayed on the Structure page if "
 "column names in a table are reserved MySQL words."
@@ -9781,7 +9788,7 @@ msgstr ""
 "Onemogoči privzeto opozorilo, ki se prikaže na strani Struktura, če so imena "
 "stolpcev v tabeli rezervirane besede MySQL."
 
-#: src/Config/Descriptions.php:327
+#: src/Config/Descriptions.php:328
 msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
@@ -9791,13 +9798,13 @@ msgstr ""
 "(potrebuje hrambo konfiguracije phpMyAdmin). Če je onemogočeno, se za prikaz "
 "zgodovine poizvedb uporabi rutina JavaScript (ki se izgubi ob zaprtju okna)."
 
-#: src/Config/Descriptions.php:331
+#: src/Config/Descriptions.php:332
 msgid "Allow users to create bookmarks that are available for all other users"
 msgstr ""
 "Dovoli uporabnikom ustvarjanje zaznamkov, ki bodo na voljo vsem ostalih "
 "uporabnikom"
 
-#: src/Config/Descriptions.php:333
+#: src/Config/Descriptions.php:334
 msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
@@ -9805,7 +9812,7 @@ msgstr ""
 "Določi časovni pas v uporabi; lahko se razlikuje od časovnega pasu na "
 "strežniku zbirke podatkov"
 
-#: src/Config/Descriptions.php:336
+#: src/Config/Descriptions.php:337
 msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
@@ -9813,7 +9820,7 @@ msgstr ""
 "Pustite prazno, če ne želite podpore [doc@bookmarks@]zaznamkov[/doc]; "
 "predlagano: [kbd]pma__bookmark[/kbd]"
 
-#: src/Config/Descriptions.php:339
+#: src/Config/Descriptions.php:340
 msgid ""
 "Leave blank for no column comments/media types, suggested: "
 "[kbd]pma__column_info[/kbd]."
@@ -9821,7 +9828,7 @@ msgstr ""
 "Pustite prazno, če ne želite pripomb/vrst predstavnosti stolpcev; "
 "predlagano: [kbd]pma__column_info[/kbd]."
 
-#: src/Config/Descriptions.php:342
+#: src/Config/Descriptions.php:343
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
@@ -9829,7 +9836,7 @@ msgstr ""
 "Posebni uporabnik MySQL, konfiguriran z omejenimi dovoljenji; več informacij "
 "je na voljo na [doc@linked-tables]wikiji[/doc]."
 
-#: src/Config/Descriptions.php:346
+#: src/Config/Descriptions.php:347
 msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host."
@@ -9837,7 +9844,7 @@ msgstr ""
 "Nadomestni gostitelj, ki ima shrambo konfiguracije; pustite prazno, če "
 "želite uporabiti že opredeljen gostitelj."
 
-#: src/Config/Descriptions.php:349
+#: src/Config/Descriptions.php:350
 msgid ""
 "An alternate port to connect to the host that holds the configuration "
 "storage; leave blank to use the default port, or the already defined port, "
@@ -9847,7 +9854,7 @@ msgstr ""
 "pustite prazno, če želite uporabiti privzeta vrata ali že nastavljena vrata "
 "v primeru, ko je nadzorni gostitelj enak gostitelju."
 
-#: src/Config/Descriptions.php:354
+#: src/Config/Descriptions.php:355
 msgid ""
 "More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
 "issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
@@ -9857,7 +9864,7 @@ msgstr ""
 "issues/8970]sledilniku težav phpMyAdmin[/a] in [a@https://bugs.mysql."
 "com/19588]hroščih MySQL[/a]"
 
-#: src/Config/Descriptions.php:358
+#: src/Config/Descriptions.php:359
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
@@ -9865,7 +9872,7 @@ msgstr ""
 "Pustite prazno, če ne želite podpore zgodovine poizvedb SQL; predlagano: "
 "[kbd]pma__history[/kbd]."
 
-#: src/Config/Descriptions.php:361
+#: src/Config/Descriptions.php:362
 msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed."
@@ -9873,7 +9880,7 @@ msgstr ""
 "Omeji število nastavitev tabel, ki so shranjene v zbirki podatkov; "
 "najstarejši zapisi bodo samodejno odstranjeni."
 
-#: src/Config/Descriptions.php:365
+#: src/Config/Descriptions.php:366
 msgid ""
 "Leave blank for no export template support, suggested: "
 "[kbd]pma__export_templates[/kbd]."
@@ -9881,7 +9888,7 @@ msgstr ""
 "Pustite prazno, če ne želite podpore izvoza predlog; predlagano: "
 "[kbd]pma__export_templates[/kbd]."
 
-#: src/Config/Descriptions.php:368
+#: src/Config/Descriptions.php:369
 msgid ""
 "Leave blank for no central columns support, suggested: "
 "[kbd]pma__central_columns[/kbd]."
@@ -9889,7 +9896,7 @@ msgstr ""
 "Pustite prazno, če ne želite podpore osrednjih stolpcev; predlagano: "
 "[kbd]pma__central_columns[/kbd]."
 
-#: src/Config/Descriptions.php:371
+#: src/Config/Descriptions.php:372
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
@@ -9899,14 +9906,14 @@ msgstr ""
 "uporabiti dobesedno, npr. uporabite [kbd]'my\\_db'[/kbd] in ne [kbd]'my_db'[/"
 "kbd]."
 
-#: src/Config/Descriptions.php:376
+#: src/Config/Descriptions.php:377
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
 "Pustite prazno, če ne želite podpore sheme PDF; predlagano: "
 "[kbd]pma__pdf_pages[/kbd]."
 
-#: src/Config/Descriptions.php:379
+#: src/Config/Descriptions.php:380
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [doc@linked-"
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
@@ -9916,7 +9923,7 @@ msgstr ""
 "si [doc@linked-tables]pmadb[/doc] za vse informacije. Pustite prazno, če ne "
 "želite podpore. Predlagano: [kbd]phpmyadmin[/kbd]."
 
-#: src/Config/Descriptions.php:384
+#: src/Config/Descriptions.php:385
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]."
@@ -9924,7 +9931,7 @@ msgstr ""
 "Pustite prazno, če ne želite »vztrajnih« nedavno uporabljenih tabel skozi "
 "seje; predlagano: [kbd]pma__recent[/kbd]."
 
-#: src/Config/Descriptions.php:388
+#: src/Config/Descriptions.php:389
 msgid ""
 "Leave blank for no \"persistent\" favorite tables across sessions, "
 "suggested: [kbd]pma__favorite[/kbd]."
@@ -9932,7 +9939,7 @@ msgstr ""
 "Pustite prazno, če ne želite »vztrajnih« priljubljenih tabel skozi seje; "
 "predlagano: [kbd]pma__favorite[/kbd]."
 
-#: src/Config/Descriptions.php:392
+#: src/Config/Descriptions.php:393
 msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
@@ -9940,12 +9947,12 @@ msgstr ""
 "Pustite prazno, če ne želite podpore [doc@relations@]relacijskih povezav[/"
 "doc]; priporočeno: [kbd]pma__relation[/kbd]."
 
-#: src/Config/Descriptions.php:397
+#: src/Config/Descriptions.php:398
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr "Oglejte si [doc@authentication-modes]vrste overovitev[/doc] za primer."
 
-#: src/Config/Descriptions.php:400
+#: src/Config/Descriptions.php:401
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
@@ -9953,7 +9960,7 @@ msgstr ""
 "Pustite prazno, če ne želite podpore sheme PDF; predlagano: "
 "[kbd]pma__table_coords[/kbd]."
 
-#: src/Config/Descriptions.php:403
+#: src/Config/Descriptions.php:404
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]."
@@ -9961,7 +9968,7 @@ msgstr ""
 "Tabela za opisovanje prikaznih stolpcev; pustite prazno, če ne želite "
 "podpore; predlagano: [kbd]pma__table_info[/kbd]."
 
-#: src/Config/Descriptions.php:407
+#: src/Config/Descriptions.php:408
 msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]."
@@ -9969,7 +9976,7 @@ msgstr ""
 "Pustite prazno, če ne želite »vztrajnih« nastavitev uporabniškega vmesnika "
 "tabel skozi seje; predlagano: [kbd]pma__table_uiprefs[/kbd]."
 
-#: src/Config/Descriptions.php:411
+#: src/Config/Descriptions.php:412
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
@@ -9977,7 +9984,7 @@ msgstr ""
 "Ali naj se stavek DROP DATABASE IF EXISTS doda kot prva vrstica v dnevnik "
 "pri ustvarjanju zbirke podatkov."
 
-#: src/Config/Descriptions.php:415
+#: src/Config/Descriptions.php:416
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
@@ -9985,7 +9992,7 @@ msgstr ""
 "Ali naj se stavek DROP TABLE IF EXISTS doda kot prva vrstica v dnevnik pri "
 "ustvarjanju tabele."
 
-#: src/Config/Descriptions.php:419
+#: src/Config/Descriptions.php:420
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
@@ -9993,13 +10000,13 @@ msgstr ""
 "Ali naj se stavek DROP VIEW IF EXISTS doda kot prva vrstica v dnevnik pri "
 "ustvarjanju pogleda."
 
-#: src/Config/Descriptions.php:423
+#: src/Config/Descriptions.php:424
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 "Določi seznam stavkov, ki jih samodejno ustvarjanje uporabi za nove "
 "različice."
 
-#: src/Config/Descriptions.php:426
+#: src/Config/Descriptions.php:427
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: "
 "[kbd]pma__tracking[/kbd]."
@@ -10007,14 +10014,14 @@ msgstr ""
 "Pustite prazno, če ne želite podpore sledenja poizvedb SQL; predlagano: "
 "[kbd]pma__tracking[/kbd]."
 
-#: src/Config/Descriptions.php:429
+#: src/Config/Descriptions.php:430
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr ""
 "Ali naj mehanizem sledenja ustvari različice tabel in pogledov samodejno."
 
-#: src/Config/Descriptions.php:432
+#: src/Config/Descriptions.php:433
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: "
 "[kbd]pma__userconfig[/kbd]."
@@ -10022,7 +10029,7 @@ msgstr ""
 "Pustite prazno, če ne želite hranjenja uporabnikovih nastavitev v zbirki "
 "podatkov; predlagano: [kbd]pma__userconfig[/kbd]."
 
-#: src/Config/Descriptions.php:435
+#: src/Config/Descriptions.php:436
 msgid ""
 "Both this table and the user groups table are required to enable the "
 "configurable menus feature; leaving either one of them blank will disable "
@@ -10032,7 +10039,7 @@ msgstr ""
 "funkcionalnosti nastavljivih menijev; če eno od njiju pustite prazno, boste "
 "onemogočiti funkcionalnost; predlagano: [kbd]pma__users[/kbd]."
 
-#: src/Config/Descriptions.php:440
+#: src/Config/Descriptions.php:441
 msgid ""
 "Both this table and the users table are required to enable the configurable "
 "menus feature; leaving either one of them blank will disable this feature, "
@@ -10042,7 +10049,7 @@ msgstr ""
 "funkcionalnosti nastavljivih menijev; če eno od njiju pustite prazno, boste "
 "onemogočiti funkcionalnost; predlagano: [kbd]pma__usergroups[/kbd]."
 
-#: src/Config/Descriptions.php:445
+#: src/Config/Descriptions.php:446
 msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
@@ -10050,7 +10057,7 @@ msgstr ""
 "Pustite prazno, če ne želite zmožnosti skrivanja in prikazovanja "
 "navigacijskih predmetov; predlagano: [kbd]pma__navigationhiding[/kbd]."
 
-#: src/Config/Descriptions.php:449
+#: src/Config/Descriptions.php:450
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
@@ -10058,54 +10065,54 @@ msgstr ""
 "Uporabniku prijazen opis tega strežnika. Pustite prazno, če se naj namesto "
 "tega prikaže ime gostitelja."
 
-#: src/Config/Descriptions.php:451
+#: src/Config/Descriptions.php:452
 msgid "Leave blank if not used."
 msgstr "Pustite prazno, če se ne uporablja."
 
-#: src/Config/Descriptions.php:452
+#: src/Config/Descriptions.php:453
 msgid "Leave blank for defaults."
 msgstr "Pustite prazno za privzeto."
 
-#: src/Config/Descriptions.php:453
+#: src/Config/Descriptions.php:454
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
 msgstr "Ime področja HTTP Basic Auth, ki se prikaže med HTTP Auth."
 
-#: src/Config/Descriptions.php:454
+#: src/Config/Descriptions.php:455
 msgid "Authentication method to use."
 msgstr "Način overovitve za uporabo."
 
-#: src/Config/Descriptions.php:455
+#: src/Config/Descriptions.php:456
 msgid "Compress connection to MySQL server."
 msgstr "Stisni povezavo s strežnikom MySQL."
 
-#: src/Config/Descriptions.php:456
+#: src/Config/Descriptions.php:457
 msgid "Hide databases matching regular expression (PCRE)."
 msgstr "Skrije zbirke podatkov, ki se ujemajo z običajnim izrazom (PCRE)."
 
-#: src/Config/Descriptions.php:457
+#: src/Config/Descriptions.php:458
 msgid "Hostname where MySQL server is running."
 msgstr "Ime gostitelja, kjer teče strežnik MySQL."
 
-#: src/Config/Descriptions.php:458 src/Config/Descriptions.php:462
+#: src/Config/Descriptions.php:459 src/Config/Descriptions.php:463
 msgid "Leave empty if not using config auth."
 msgstr "Pustite prazno, če ne uporabljate overovitve config."
 
-#: src/Config/Descriptions.php:459
+#: src/Config/Descriptions.php:460
 msgid "Port on which MySQL server is listening, leave empty for default."
 msgstr ""
 "Vrata, na katera naj bo strežnik MySQL priključen; pustite prazno za "
 "privzeto."
 
-#: src/Config/Descriptions.php:460
+#: src/Config/Descriptions.php:461
 msgid "Socket on which MySQL server is listening, leave empty for default."
 msgstr ""
 "Vtičnica na katero je povezan strežnik MySQL; pustite prazno za privzeto."
 
-#: src/Config/Descriptions.php:461
+#: src/Config/Descriptions.php:462
 msgid "Enable SSL for connection to MySQL server."
 msgstr "Omogoči SSL za povezavo s strežnikom MySQL."
 
-#: src/Config/Descriptions.php:464
+#: src/Config/Descriptions.php:465
 msgid ""
 "Please note that enabling this has no effect with [kbd]config[/kbd] "
 "authentication mode because the password is hard coded in the configuration "
@@ -10115,33 +10122,33 @@ msgstr ""
 "kbd], saj je geslo vgrajeno v konfiguracijsko datoteko; to ne omejuje "
 "možnosti izvedbe enakega ukaza neposredno."
 
-#: src/Config/Descriptions.php:469
+#: src/Config/Descriptions.php:470
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
 msgstr ""
 "Prikaži ali skrij stolpec, ki prikazuje časovni žig nastanka vseh tabel."
 
-#: src/Config/Descriptions.php:472
+#: src/Config/Descriptions.php:473
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables."
 msgstr ""
 "Prikaži ali skrij stolpec, ki prikazuje časovni žig zadnje spremembe vseh "
 "tabel."
 
-#: src/Config/Descriptions.php:475
+#: src/Config/Descriptions.php:476
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables."
 msgstr ""
 "Prikaži ali skrij stolpec, ki prikazuje časovni žig zadnjega preverjanja "
 "vseh tabel."
 
-#: src/Config/Descriptions.php:478
+#: src/Config/Descriptions.php:479
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode."
 msgstr ""
 "Določa ali naj bodo v načinu urejanja/vstavljanja prikazane vrste polj."
 
-#: src/Config/Descriptions.php:481
+#: src/Config/Descriptions.php:482
 msgid ""
 "Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()"
 "[/a] output."
@@ -10149,53 +10156,45 @@ msgstr ""
 "Prikaže povezavo do podatkov [a@https://www.php.net/manual/en/function."
 "phpinfo.php]phpinfo()[/a]."
 
-#: src/Config/Descriptions.php:483
+#: src/Config/Descriptions.php:484
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
 msgstr "Ali se naj uporabniku prikaže gumb \"prikaži vse (vrstice)\"."
 
-#: src/Config/Descriptions.php:484
+#: src/Config/Descriptions.php:485
 msgid "Show or hide a column displaying the comments for all tables."
 msgstr "Prikaži ali skrij stolpec, ki prikazuje pripombe vseh tabel."
 
-#: src/Config/Descriptions.php:485
+#: src/Config/Descriptions.php:486
 msgid "Show or hide a column displaying the charset for all tables."
 msgstr "Prikaži ali skrij stolpec, ki prikazuje kodne nabore vseh tabel."
 
-#: src/Config/Descriptions.php:486
+#: src/Config/Descriptions.php:487
 msgid "Display the function fields in edit/insert mode."
 msgstr "Prikaže polja funkcij v načinu urejanja/vstavljanja."
 
-#: src/Config/Descriptions.php:487
+#: src/Config/Descriptions.php:488
 msgid "Whether to show hint or not."
 msgstr "Naj prikažem namig ali ne."
 
-#: src/Config/Descriptions.php:488
+#: src/Config/Descriptions.php:489
 msgid ""
 "Defines whether SQL queries generated by phpMyAdmin should be displayed."
 msgstr ""
 "Določi, ali se naj poizvedbe SQL, ki jih ustvari phpMyAdmin, prikažejo."
 
-#: src/Config/Descriptions.php:489
+#: src/Config/Descriptions.php:490
 msgid "Allow to display database and table statistics (e.g. space usage)."
 msgstr ""
 "Dovoli prikaz statistike zbirke podatkov in tabele (npr. poraba prostora)."
 
-#: src/Config/Descriptions.php:491
+#: src/Config/Descriptions.php:492
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables."
 msgstr ""
 "Označi uporabljene tabele in omogoči prikaz zbirk podatkov z zaklenjenimi "
 "tabelami."
 
-#: src/Config/Descriptions.php:494
-msgid ""
-"Disable the default warning that is displayed on the main page if Suhosin is "
-"detected."
-msgstr ""
-"Onemogoči privzeto opozorlo, ki se prikaže na glavni strani, če je zaznan "
-"Suhosin."
-
-#: src/Config/Descriptions.php:497
+#: src/Config/Descriptions.php:495
 msgid ""
 "Disable the default warning that is displayed on the main page if the value "
 "of the PHP setting session.gc_maxlifetime is less than the value of "
@@ -10205,7 +10204,7 @@ msgstr ""
 "nastavitve PHP session.gc_maxlifetime manjša kot vrednost "
 "`LoginCookieValidity`."
 
-#: src/Config/Descriptions.php:502
+#: src/Config/Descriptions.php:500
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
@@ -10213,7 +10212,7 @@ msgstr ""
 "Velikost besedilnega polja (stolpci) v načinu urejanja; vrednost bo povečana "
 "za polja poizvedb SQL (*2)."
 
-#: src/Config/Descriptions.php:505
+#: src/Config/Descriptions.php:503
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
@@ -10221,7 +10220,7 @@ msgstr ""
 "Velikost besedilnega polja (vrstice) v načinu urejanja; vrednost bo povečana "
 "za polja poizvedb SQL (*2)."
 
-#: src/Config/Descriptions.php:508
+#: src/Config/Descriptions.php:506
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
@@ -10232,7 +10231,7 @@ msgstr ""
 "navaja, da naj phpMyAdmin zaupa glavi HTTP_X_FORWARDED_FOR (X-Forwarded-For) "
 "prihajajoči iz proxyja 1.2.3.4:[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]."
 
-#: src/Config/Descriptions.php:514
+#: src/Config/Descriptions.php:512
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right."
@@ -10240,7 +10239,7 @@ msgstr ""
 "Ko je onemogočeno, uporabniki ne morejo nastaviti katere koli od spodnjih "
 "možnosti, ne glede na potrditveno polje na desni."
 
-#: src/Config/Descriptions.php:517
+#: src/Config/Descriptions.php:515
 msgid ""
 "The URL of the proxy to be used when retrieving the information about the "
 "latest version of phpMyAdmin, or when submitting error reports. You need "
@@ -10252,7 +10251,7 @@ msgstr ""
 "nameščen phpMyAdmin, nima neposredne povezave z internetom. Oblika je: "
 "»imegostitelja:številkavrat«."
 
-#: src/Config/Descriptions.php:523
+#: src/Config/Descriptions.php:521
 msgid ""
 "The username for authenticating with the proxy. By default, no "
 "authentication is performed. If a username is supplied, Basic Authentication "
@@ -10262,7 +10261,7 @@ msgstr ""
 "navedete uporabniško ime, se bo izvedla overitev Basic Authentication. Druge "
 "vrste overitve trenutno niso podprte."
 
-#: src/Config/Descriptions.php:529
+#: src/Config/Descriptions.php:527
 msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
@@ -10270,7 +10269,7 @@ msgstr ""
 "Poizvedbe izvede pritisk na Enter (namesto Ctrl+Enter). Nove vrstice lahko "
 "vstavite s Shift+Enter."
 
-#: src/Config/Descriptions.php:533
+#: src/Config/Descriptions.php:531
 msgid ""
 "Enable Zero Configuration mode which lets you set up phpMyAdmin "
 "configuration storage tables automatically."
@@ -10278,381 +10277,381 @@ msgstr ""
 "Omogoči način ničelne konfiguracije, ki omogoča, da phpMyAdmin samodejno "
 "nastavi hrambene tabele konfiguracije."
 
-#: src/Config/Descriptions.php:536
+#: src/Config/Descriptions.php:534
 msgid "Highlight selected rows."
 msgstr "Poudari izbrane vrstice."
 
-#: src/Config/Descriptions.php:537
+#: src/Config/Descriptions.php:535
 msgid "Highlight row pointed by the mouse cursor."
 msgstr "Poudari vrstico, na katero kaže kazalec miške."
 
-#: src/Config/Descriptions.php:538
+#: src/Config/Descriptions.php:536
 msgid "Number of columns for CHAR/VARCHAR textareas."
 msgstr "Število stolpcev besedilnih polj CHAR/VARCHAR."
 
-#: src/Config/Descriptions.php:539
+#: src/Config/Descriptions.php:537
 msgid "Number of rows for CHAR/VARCHAR textareas."
 msgstr "Število vrstic besedilnih polj CHAR/VARCHAR."
 
-#: src/Config/Descriptions.php:540
+#: src/Config/Descriptions.php:538
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
 msgstr "Zabeleži poizvedbe SQL in njihove čase izvajanj za prikaz v konzoli"
 
-#: src/Config/Descriptions.php:541
+#: src/Config/Descriptions.php:539
 msgid "Tab that is displayed when entering a database."
 msgstr "Zavihek, ki se prikaže ob odprtju zbirke podatkov."
 
-#: src/Config/Descriptions.php:542
+#: src/Config/Descriptions.php:540
 msgid "Tab that is displayed when entering a server."
 msgstr "Zavihek, ki se prikaže ob odprtju strežnika."
 
-#: src/Config/Descriptions.php:543
+#: src/Config/Descriptions.php:541
 msgid "Tab that is displayed when entering a table."
 msgstr "Zavihek, ki se prikaže ob odprtju tabele."
 
-#: src/Config/Descriptions.php:544
+#: src/Config/Descriptions.php:542
 msgid "Whether the table structure actions should be hidden."
 msgstr "Ali naj bodo dejanja strukture tabele skrita."
 
-#: src/Config/Descriptions.php:545
+#: src/Config/Descriptions.php:543
 msgid "Whether column comments should be shown in table structure view"
 msgstr "Ali naj bodo pripombe stolpcev prikazane v pogledu zgradbe tabele"
 
-#: src/Config/Descriptions.php:546
+#: src/Config/Descriptions.php:544
 msgid "Show server listing as a list instead of a drop down."
 msgstr "Prikaži naštete strežnike kot seznam namesto spustnega menija."
 
-#: src/Config/Descriptions.php:547
+#: src/Config/Descriptions.php:545
 msgid "A dropdown will be used if fewer items are present."
 msgstr "Uporabljen bo spustni seznam, če je prisotnih manj elementov."
 
-#: src/Config/Descriptions.php:548
+#: src/Config/Descriptions.php:546
 msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
 "Polje za privzeto vrednost za preverjanja tujih ključev pri nekaterih "
 "poizvedbah."
 
-#: src/Config/Descriptions.php:549
+#: src/Config/Descriptions.php:547
 msgid "Uncheck the checkbox to disable drag and drop import"
 msgstr ""
 "Odstranite kljukico potrditvenega polja, da onemogočite uvoz s povleci-in-"
 "spusti"
 
-#: src/Config/Descriptions.php:550
+#: src/Config/Descriptions.php:548
 msgid "How many rows can be inserted at one time."
 msgstr "Koliko vrstic je lahko vstavljenih naenkrat."
 
-#: src/Config/Descriptions.php:551
+#: src/Config/Descriptions.php:549
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view."
 msgstr ""
 "Največje število znakov prikazanih v katerem koli neštevilčnem stolpcu v "
 "načinu brskanja."
 
-#: src/Config/Descriptions.php:552
+#: src/Config/Descriptions.php:550
 msgid "Define how long (in seconds) a login cookie is valid."
 msgstr "Določa, kako dolgo (v sekundah) je prijavni piškotek veljaven."
 
-#: src/Config/Descriptions.php:553
+#: src/Config/Descriptions.php:551
 msgid "Double size of textarea for LONGTEXT columns."
 msgstr "Dvojna velikost besedilnega polja za stolpce LONGTEXT."
 
-#: src/Config/Descriptions.php:554
+#: src/Config/Descriptions.php:552
 msgid "Maximum number of databases displayed in database list."
 msgstr "Največje število zbirk podatkov, prikazanih na seznamu zbirk podatkov."
 
-#: src/Config/Descriptions.php:555
+#: src/Config/Descriptions.php:553
 msgid "Maximum number of tables displayed in table list."
 msgstr "Največje število tabel, prikazanih na seznamu tabel."
 
-#: src/Config/Descriptions.php:556
+#: src/Config/Descriptions.php:554
 msgid "Maximum number of recently used tables; set 0 to disable."
 msgstr ""
 "Največje število nedavno uporabljenih tabel; določite 0 za onemogočitev."
 
-#: src/Config/Descriptions.php:557
+#: src/Config/Descriptions.php:555
 msgid "Maximum number of favorite tables; set 0 to disable."
 msgstr "Največje število priljubljenih tabel; določite 0 za onemogočitev."
 
-#: src/Config/Descriptions.php:558
+#: src/Config/Descriptions.php:556
 msgid "These are Edit, Copy and Delete links."
 msgstr "To so povezave Uredi, Kopiraj in Izbriši."
 
-#: src/Config/Descriptions.php:559
+#: src/Config/Descriptions.php:557
 msgid "Whether to show row links even in the absence of a unique key."
 msgstr "Ali naj bodo povezave vrstic prikazane tudi ko ni unikatnega ključa."
 
-#: src/Config/Descriptions.php:560 src/Config/Descriptions.php:838
+#: src/Config/Descriptions.php:558 src/Config/Descriptions.php:837
 msgid "Disable shortcut keys"
 msgstr "Onemogoči bližnjične tipke"
 
-#: src/Config/Descriptions.php:561
+#: src/Config/Descriptions.php:559
 msgid "Use natural order for sorting table and database names."
 msgstr ""
 "Uporabi naravni vrstni red za razvrščanje tabel in imen zbirk podatkov."
 
-#: src/Config/Descriptions.php:562 src/Config/Descriptions.php:565
-#: src/Config/Descriptions.php:566
+#: src/Config/Descriptions.php:560 src/Config/Descriptions.php:563
+#: src/Config/Descriptions.php:564
 msgid "Use only icons, only text or both."
 msgstr "Uporabi samo ikone, samo besedilo ali oboje."
 
-#: src/Config/Descriptions.php:563
+#: src/Config/Descriptions.php:561
 msgid "Use GZip output buffering for increased speed in HTTP transfers."
 msgstr "Uporabi izhod medpomnjenja GZip za povečano hitrost v prenosih HTTP."
 
-#: src/Config/Descriptions.php:564
+#: src/Config/Descriptions.php:562
 msgid "Use persistent connections to MySQL databases."
 msgstr "Uporabi vztrajne povezave z zbirkami podatkov MySQL."
 
-#: src/Config/Descriptions.php:567
+#: src/Config/Descriptions.php:565
 msgid "Disallow BLOB and BINARY columns from editing."
 msgstr "Prepreči urejanje stolpcev BLOB in BINARY."
 
-#: src/Config/Descriptions.php:568
+#: src/Config/Descriptions.php:566
 msgid "How many queries are kept in history."
 msgstr "Koliko poizvedb je hranjenih v zgodovini."
 
-#: src/Config/Descriptions.php:569
+#: src/Config/Descriptions.php:567
 msgid "Select which functions will be used for character set conversion."
 msgstr "Določi, katere funkcije bodo uporabljene za pretvorbo nabora znakov."
 
-#: src/Config/Descriptions.php:570
+#: src/Config/Descriptions.php:568
 msgid "When browsing tables, the sorting of each table is remembered."
 msgstr "Med brskanjem po tabelah se razvrščanje vsake tabele ohrani."
 
-#: src/Config/Descriptions.php:571
+#: src/Config/Descriptions.php:569
 msgid "Default sort order for tables with a primary key."
 msgstr "Privzeto razvrščanje za tabele s primarnim ključem."
 
-#: src/Config/Descriptions.php:572
+#: src/Config/Descriptions.php:570
 msgid ""
 "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature."
 msgstr "Ponovi glave vsakih X celic, [kbd]0[/kbd] dezaktivira to funkcijo."
 
-#: src/Config/Descriptions.php:573
+#: src/Config/Descriptions.php:571
 msgid "For display Options"
 msgstr "Za prikaz Možnosti"
 
-#: src/Config/Descriptions.php:574
+#: src/Config/Descriptions.php:572
 msgid "Directory where exports can be saved on server."
 msgstr "Mapa, kamor se lahko na strežnik shranijo izvozi."
 
-#: src/Config/Descriptions.php:575
+#: src/Config/Descriptions.php:573
 msgid ""
 "Defines whether the query box should stay on-screen after its submission."
 msgstr "Določa, ali naj polje s poizvedbo ostane na zaslonu po njeni izvedbi."
 
-#: src/Config/Descriptions.php:576
+#: src/Config/Descriptions.php:574
 msgid "Title of browser window when a database is selected."
 msgstr "Naslov okna brskalnika, ko je izbrana zbirka podatkov."
 
-#: src/Config/Descriptions.php:577
+#: src/Config/Descriptions.php:575
 msgid "Title of browser window when nothing is selected."
 msgstr "Naslov okna brskalnika, ko je ni izbrano nič."
 
-#: src/Config/Descriptions.php:578
+#: src/Config/Descriptions.php:576
 msgid "Title of browser window when a server is selected."
 msgstr "Naslov okna brskalnika, ko je izbran strežnik."
 
-#: src/Config/Descriptions.php:579
+#: src/Config/Descriptions.php:577
 msgid "Title of browser window when a table is selected."
 msgstr "Naslov okna brskalnika, ko je izbrana tabela."
 
-#: src/Config/Descriptions.php:580
+#: src/Config/Descriptions.php:578
 msgid "Directory on server where you can upload files for import."
 msgstr "Mapa na strežniku, kamor lahko naložite datoteke za uvoz."
 
-#: src/Config/Descriptions.php:581
+#: src/Config/Descriptions.php:579
 msgid "Allow for searching inside the entire database."
 msgstr "Dovoli iskanje po celotni zbirki podatkov."
 
-#: src/Config/Descriptions.php:582
+#: src/Config/Descriptions.php:580
 msgid "Enables check for latest version on main phpMyAdmin page."
 msgstr "Omogoča preverjanje najnovejše različice na glavni strani phpMyAdmin."
 
-#: src/Config/Descriptions.php:583
+#: src/Config/Descriptions.php:581
 msgid "The password for authenticating with the proxy."
 msgstr "Geslo za overitev s proxyjem."
 
-#: src/Config/Descriptions.php:584
+#: src/Config/Descriptions.php:582
 msgid "Enable ZIP compression for import and export operations."
 msgstr "Omogoči stiskanje ZIP za posege uvoza in izvoza."
 
-#: src/Config/Descriptions.php:585
+#: src/Config/Descriptions.php:583
 msgid "Choose the default action when sending error reports."
 msgstr "Izberite privzeto dejanje za pošiljanje poročil o napakah."
 
-#: src/Config/Descriptions.php:597
+#: src/Config/Descriptions.php:595
 msgid "Allow login to any MySQL server"
 msgstr "Dovoli prijavo v katerikoli strežnik MySQL"
 
-#: src/Config/Descriptions.php:598
+#: src/Config/Descriptions.php:596
 msgid "Restrict login to MySQL server"
 msgstr "Omeji prijavo na strežnik MySQL"
 
-#: src/Config/Descriptions.php:599
+#: src/Config/Descriptions.php:597
 msgid "Allow third party framing"
 msgstr "Dovoli uokvirjanje tretjim osebam"
 
-#: src/Config/Descriptions.php:600
+#: src/Config/Descriptions.php:598
 msgid "Show \"Drop database\" link to normal users"
 msgstr ""
 "Pokaži povezavo &raquo;Zavrzi zbirko podatkov&laquo; normalnim uporabnikom"
 
-#: src/Config/Descriptions.php:601
+#: src/Config/Descriptions.php:599
 msgid "Blowfish secret"
 msgstr "Skrivno geslo (blowfish)"
 
-#: src/Config/Descriptions.php:602
+#: src/Config/Descriptions.php:600
 msgid "Row marker"
 msgstr "Označevalnik vrstic"
 
-#: src/Config/Descriptions.php:603
+#: src/Config/Descriptions.php:601
 msgid "Highlight pointer"
 msgstr "Poudari kazalec"
 
-#: src/Config/Descriptions.php:604
+#: src/Config/Descriptions.php:602
 msgid "Bzip2"
 msgstr "Bzip2"
 
-#: src/Config/Descriptions.php:605
+#: src/Config/Descriptions.php:603
 msgid "CHAR columns editing"
 msgstr "Urejanje stolpcev CHAR"
 
-#: src/Config/Descriptions.php:606
+#: src/Config/Descriptions.php:604
 msgid "Enable CodeMirror"
 msgstr "Omogoči CodeMirror"
 
-#: src/Config/Descriptions.php:607
+#: src/Config/Descriptions.php:605
 msgid "Enable linter"
 msgstr "Omogoči linter"
 
-#: src/Config/Descriptions.php:608
+#: src/Config/Descriptions.php:606
 msgid "Minimum size for input field"
 msgstr "Najmanjša velikost vnosnega polja"
 
-#: src/Config/Descriptions.php:609
+#: src/Config/Descriptions.php:607
 msgid "Maximum size for input field"
 msgstr "Največja velikost vnosnega polja"
 
-#: src/Config/Descriptions.php:610
+#: src/Config/Descriptions.php:608
 msgid "CHAR textarea columns"
 msgstr "Stolpcev polja CHAR"
 
-#: src/Config/Descriptions.php:611
+#: src/Config/Descriptions.php:609
 msgid "CHAR textarea rows"
 msgstr "Vrstic polja CHAR"
 
-#: src/Config/Descriptions.php:612
+#: src/Config/Descriptions.php:610
 msgid "Check config file permissions"
 msgstr "Preveri dovoljenja konfiguracijske datoteke"
 
-#: src/Config/Descriptions.php:613
+#: src/Config/Descriptions.php:611
 msgid "Compress on the fly"
 msgstr "Stisni med izvajanjem"
 
-#: src/Config/Descriptions.php:614
+#: src/Config/Descriptions.php:612
 msgid "Confirm DROP queries"
 msgstr "Potrjevanje poizvedb DROP"
 
-#: src/Config/Descriptions.php:616 src/Plugins/Schema/SchemaDia.php:64
+#: src/Config/Descriptions.php:614 src/Plugins/Schema/SchemaDia.php:64
 #: src/Plugins/Schema/SchemaPdf.php:74
 msgid "Paper size"
 msgstr "Velikost papirja"
 
-#: src/Config/Descriptions.php:617
+#: src/Config/Descriptions.php:615
 msgid "Default database tab"
 msgstr "Privzet zavihek zbirke podatkov"
 
-#: src/Config/Descriptions.php:618
+#: src/Config/Descriptions.php:616
 msgid "Default server tab"
 msgstr "Privzet zavihek strežnika"
 
-#: src/Config/Descriptions.php:619
+#: src/Config/Descriptions.php:617
 msgid "Default table tab"
 msgstr "Privzet zavihek tabele"
 
-#: src/Config/Descriptions.php:620
+#: src/Config/Descriptions.php:618
 msgid "Enable autocomplete for table and column names"
 msgstr "Omogoči samodokončanje imen tabel in stolpec"
 
-#: src/Config/Descriptions.php:621
+#: src/Config/Descriptions.php:619
 msgid "Show column comments"
 msgstr "Prikaži pripombe stolpcev"
 
-#: src/Config/Descriptions.php:622
+#: src/Config/Descriptions.php:620
 msgid "Hide table structure actions"
 msgstr "Skrij dejanja strukture tabele"
 
-#: src/Config/Descriptions.php:623
+#: src/Config/Descriptions.php:621
 msgid "Default transformations for Hex"
 msgstr "Privzete pretvorbe za Hex"
 
-#: src/Config/Descriptions.php:624
+#: src/Config/Descriptions.php:622
 msgid "Default transformations for Substring"
 msgstr "Privzete pretvorbe za Substring"
 
-#: src/Config/Descriptions.php:625
+#: src/Config/Descriptions.php:623
 msgid "Default transformations for Bool2Text"
 msgstr "Privzete pretvorbe za Bool2Text"
 
-#: src/Config/Descriptions.php:626
+#: src/Config/Descriptions.php:624
 msgid "Default transformations for External"
 msgstr "Privzete pretvorbe za External"
 
-#: src/Config/Descriptions.php:627
+#: src/Config/Descriptions.php:625
 msgid "Default transformations for PreApPend"
 msgstr "Privzete pretvorbe za PreApPend"
 
-#: src/Config/Descriptions.php:628
+#: src/Config/Descriptions.php:626
 msgid "Default transformations for DateFormat"
 msgstr "Privzete pretvorbe za DateFormat"
 
-#: src/Config/Descriptions.php:629
+#: src/Config/Descriptions.php:627
 msgid "Default transformations for Inline"
 msgstr "Privzete pretvorbe za Inline"
 
-#: src/Config/Descriptions.php:630
+#: src/Config/Descriptions.php:628
 msgid "Default transformations for TextImageLink"
 msgstr "Privzete pretvorbe za TextImageLink"
 
-#: src/Config/Descriptions.php:631
+#: src/Config/Descriptions.php:629
 msgid "Default transformations for TextLink"
 msgstr "Privzete pretvorbe za TextLink"
 
-#: src/Config/Descriptions.php:632
+#: src/Config/Descriptions.php:630
 msgid "Display servers as a list"
 msgstr "Prikaži strežnike kot seznam"
 
-#: src/Config/Descriptions.php:633
+#: src/Config/Descriptions.php:631
 msgid "Disable multi table maintenance"
 msgstr "Onemogoči množično vzdrževanje tabel"
 
-#: src/Config/Descriptions.php:634
+#: src/Config/Descriptions.php:632
 msgid "Maximum execution time"
 msgstr "Najdaljši čas izvajanja"
 
-#: src/Config/Descriptions.php:635
+#: src/Config/Descriptions.php:633
 msgid "Use [code]LOCK TABLES[/code] statement"
 msgstr "Uporabi ukaz [code]LOCK TABLES[/code]"
 
-#: src/Config/Descriptions.php:636
+#: src/Config/Descriptions.php:634
 msgid "Save as file"
 msgstr "Shrani kot datoteko"
 
-#: src/Config/Descriptions.php:637 src/Config/Descriptions.php:772
+#: src/Config/Descriptions.php:635 src/Config/Descriptions.php:770
 msgid "Character set of the file"
 msgstr "Nabor znakov datoteke"
 
-#: src/Config/Descriptions.php:639
+#: src/Config/Descriptions.php:637
 msgid "Compression"
 msgstr "Stiskanje"
 
-#: src/Config/Descriptions.php:640 src/Config/Descriptions.php:647
-#: src/Config/Descriptions.php:655 src/Config/Descriptions.php:659
-#: src/Config/Descriptions.php:672 src/Config/Descriptions.php:674
-#: src/Config/Descriptions.php:721 src/Plugins/Export/ExportCsv.php:98
+#: src/Config/Descriptions.php:638 src/Config/Descriptions.php:645
+#: src/Config/Descriptions.php:653 src/Config/Descriptions.php:657
+#: src/Config/Descriptions.php:670 src/Config/Descriptions.php:672
+#: src/Config/Descriptions.php:719 src/Plugins/Export/ExportCsv.php:98
 #: src/Plugins/Export/ExportExcel.php:78
 #: src/Plugins/Export/ExportHtmlword.php:91 src/Plugins/Export/ExportOds.php:70
 #: src/Plugins/Export/ExportOdt.php:126
@@ -10660,56 +10659,56 @@ msgstr "Stiskanje"
 msgid "Put columns names in the first row"
 msgstr "Postavi imena stolpcev v prvo vrstico"
 
-#: src/Config/Descriptions.php:641 src/Config/Descriptions.php:774
-#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:654
+#: src/Config/Descriptions.php:639 src/Config/Descriptions.php:772
+#: src/Config/Descriptions.php:779 src/Plugins/Import/ImportCsv.php:688
 msgid "Columns enclosed with"
 msgstr "Stolpci so obdani z"
 
-#: src/Config/Descriptions.php:642 src/Config/Descriptions.php:775
-#: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:665
+#: src/Config/Descriptions.php:640 src/Config/Descriptions.php:773
+#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:699
 msgid "Columns escaped with"
 msgstr "Stolpci so izognjeni z"
 
-#: src/Config/Descriptions.php:643 src/Config/Descriptions.php:649
-#: src/Config/Descriptions.php:656 src/Config/Descriptions.php:665
-#: src/Config/Descriptions.php:673 src/Config/Descriptions.php:677
-#: src/Config/Descriptions.php:722
+#: src/Config/Descriptions.php:641 src/Config/Descriptions.php:647
+#: src/Config/Descriptions.php:654 src/Config/Descriptions.php:663
+#: src/Config/Descriptions.php:671 src/Config/Descriptions.php:675
+#: src/Config/Descriptions.php:720
 msgid "Replace NULL with"
 msgstr "Zamenjaj NULL z"
 
-#: src/Config/Descriptions.php:644 src/Config/Descriptions.php:650
+#: src/Config/Descriptions.php:642 src/Config/Descriptions.php:648
 msgid "Remove CRLF characters within columns"
 msgstr "Odstrani znake CRLF znotraj stolpcev"
 
-#: src/Config/Descriptions.php:645 src/Config/Descriptions.php:778
-#: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:639
+#: src/Config/Descriptions.php:643 src/Config/Descriptions.php:777
+#: src/Config/Descriptions.php:784 src/Plugins/Import/ImportCsv.php:673
 msgid "Columns terminated with"
 msgstr "Stolpci so zaključeni z"
 
-#: src/Config/Descriptions.php:646 src/Config/Descriptions.php:773
-#: src/Plugins/Import/ImportCsv.php:672
+#: src/Config/Descriptions.php:644 src/Config/Descriptions.php:771
+#: src/Plugins/Import/ImportCsv.php:706
 msgid "Lines terminated with"
 msgstr "Vrstice so zaključene z"
 
-#: src/Config/Descriptions.php:648
+#: src/Config/Descriptions.php:646
 msgid "Excel edition"
 msgstr "Izdaja za Excel"
 
-#: src/Config/Descriptions.php:651
+#: src/Config/Descriptions.php:649
 msgid "Database name template"
 msgstr "Predloga imena zbirke podatkov"
 
-#: src/Config/Descriptions.php:652
+#: src/Config/Descriptions.php:650
 msgid "Server name template"
 msgstr "Predloga imena strežnika"
 
-#: src/Config/Descriptions.php:653
+#: src/Config/Descriptions.php:651
 msgid "Table name template"
 msgstr "Predloga imena tabele"
 
-#: src/Config/Descriptions.php:657 src/Config/Descriptions.php:670
-#: src/Config/Descriptions.php:679 src/Config/Descriptions.php:717
-#: src/Config/Descriptions.php:723 src/Plugins/Export/ExportHtmlword.php:67
+#: src/Config/Descriptions.php:655 src/Config/Descriptions.php:668
+#: src/Config/Descriptions.php:677 src/Config/Descriptions.php:715
+#: src/Config/Descriptions.php:721 src/Plugins/Export/ExportHtmlword.php:67
 #: src/Plugins/Export/ExportLatex.php:109
 #: src/Plugins/Export/ExportMediawiki.php:59
 #: src/Plugins/Export/ExportMediawiki.php:65
@@ -10719,80 +10718,80 @@ msgstr "Predloga imena tabele"
 msgid "Dump table"
 msgstr "Odloži tabelo"
 
-#: src/Config/Descriptions.php:658 src/Plugins/Export/ExportLatex.php:100
+#: src/Config/Descriptions.php:656 src/Plugins/Export/ExportLatex.php:100
 msgid "Include table caption"
 msgstr "Vključi ime tabele"
 
-#: src/Config/Descriptions.php:661 src/Config/Descriptions.php:667
+#: src/Config/Descriptions.php:659 src/Config/Descriptions.php:665
 msgid "Table caption"
 msgstr "Ime tabele"
 
-#: src/Config/Descriptions.php:662 src/Config/Descriptions.php:668
+#: src/Config/Descriptions.php:660 src/Config/Descriptions.php:666
 msgid "Continued table caption"
 msgstr "Nadaljevanje imena tabele"
 
-#: src/Config/Descriptions.php:663 src/Config/Descriptions.php:669
+#: src/Config/Descriptions.php:661 src/Config/Descriptions.php:667
 msgid "Label key"
 msgstr "Označi ključ"
 
-#: src/Config/Descriptions.php:666 src/Config/Descriptions.php:678
-#: src/Config/Descriptions.php:716
+#: src/Config/Descriptions.php:664 src/Config/Descriptions.php:676
+#: src/Config/Descriptions.php:714
 msgid "Relationships"
 msgstr "Razmerja"
 
-#: src/Config/Descriptions.php:671
+#: src/Config/Descriptions.php:669
 msgid "Export method"
 msgstr "Način izvoza"
 
-#: src/Config/Descriptions.php:680 src/Config/Descriptions.php:683
+#: src/Config/Descriptions.php:678 src/Config/Descriptions.php:681
 msgid "Save on server"
 msgstr "Shrani na strežnik"
 
-#: src/Config/Descriptions.php:682
+#: src/Config/Descriptions.php:680
 msgid "Export as separate files"
 msgstr "Izvozi v ločenih datotekah"
 
-#: src/Config/Descriptions.php:685
+#: src/Config/Descriptions.php:683
 msgid "Remember filename template"
 msgstr "Zapomni si predlogo imena datoteke"
 
-#: src/Config/Descriptions.php:686
+#: src/Config/Descriptions.php:684
 msgid "Remove DEFINER clause from definitions"
 msgstr "Iz opredelitev odstrani stavek DEFINER"
 
-#: src/Config/Descriptions.php:688
+#: src/Config/Descriptions.php:686
 msgid "Enclose table and column names with backquotes"
 msgstr "Obdaj imena tabel in stolpcev z enojnimi poševnimi narekovaji"
 
-#: src/Config/Descriptions.php:689 src/Config/Descriptions.php:791
+#: src/Config/Descriptions.php:687 src/Config/Descriptions.php:790
 msgid "SQL compatibility mode"
 msgstr "Združljivostni način SQL"
 
-#: src/Config/Descriptions.php:690
+#: src/Config/Descriptions.php:688
 msgid "Creation/Update/Check dates"
 msgstr "Datumi za ustvarjeno/posodobljeno/preverjeno"
 
-#: src/Config/Descriptions.php:691
+#: src/Config/Descriptions.php:689
 msgid "Use delayed inserts"
 msgstr "Uporabi zakasnjeno vstavljanje"
 
-#: src/Config/Descriptions.php:692 src/Plugins/Export/ExportSql.php:232
+#: src/Config/Descriptions.php:690 src/Plugins/Export/ExportSql.php:232
 msgid "Disable foreign key checks"
 msgstr "Onemogoči preverjanja tujih ključev"
 
-#: src/Config/Descriptions.php:693 src/Plugins/Export/ExportSql.php:242
+#: src/Config/Descriptions.php:691 src/Plugins/Export/ExportSql.php:242
 msgid "Export views as tables"
 msgstr "Izvozi poglede kot tabele"
 
-#: src/Config/Descriptions.php:694
+#: src/Config/Descriptions.php:692
 msgid "Export related metadata from phpMyAdmin configuration storage"
 msgstr "Izvozi sorodne metapodatke iz hrambe konfiguracije phpMyAdmin"
 
-#: src/Config/Descriptions.php:704
+#: src/Config/Descriptions.php:702
 msgid "Use hexadecimal for BINARY & BLOB"
 msgstr "Uporabi šestnajstiško za BINARY in BLOB"
 
-#: src/Config/Descriptions.php:706
+#: src/Config/Descriptions.php:704
 msgid ""
 "Add IF NOT EXISTS (less efficient as indexes will be generated during table "
 "creation)"
@@ -10800,847 +10799,847 @@ msgstr ""
 "Dodaj IF NOT EXISTS (manj učinkovito, saj bodo indeksi ustvarjeni med "
 "ustvarjanjem tabele)"
 
-#: src/Config/Descriptions.php:709 src/Plugins/Export/ExportSql.php:371
+#: src/Config/Descriptions.php:707 src/Plugins/Export/ExportSql.php:371
 #, php-format
 msgid "%s view"
 msgstr "%s pogled"
 
-#: src/Config/Descriptions.php:710
+#: src/Config/Descriptions.php:708
 msgid "Use ignore inserts"
 msgstr "Uporabi možnost prezri vstavke"
 
-#: src/Config/Descriptions.php:712
+#: src/Config/Descriptions.php:710
 msgid "Syntax to use when inserting data"
 msgstr "Skladnja ob vstavljanju podatkov"
 
-#: src/Config/Descriptions.php:713 src/Plugins/Export/ExportSql.php:498
+#: src/Config/Descriptions.php:711 src/Plugins/Export/ExportSql.php:498
 msgid "Maximal length of created query"
 msgstr "Največja dolžina ustvarjene poizvedbe"
 
-#: src/Config/Descriptions.php:718
+#: src/Config/Descriptions.php:716
 msgid "Export type"
 msgstr "Vrsta izvoza"
 
-#: src/Config/Descriptions.php:719 src/Plugins/Export/ExportSql.php:222
+#: src/Config/Descriptions.php:717 src/Plugins/Export/ExportSql.php:222
 msgid "Enclose export in a transaction"
 msgstr "Vključi izvoz v transakcijo"
 
-#: src/Config/Descriptions.php:720
+#: src/Config/Descriptions.php:718
 msgid "Export time in UTC"
 msgstr "Izvozi čas v UTC"
 
-#: src/Config/Descriptions.php:724
+#: src/Config/Descriptions.php:722
 msgid "Foreign key dropdown order"
 msgstr "Vrstni red spustnega seznama tujih ključev"
 
-#: src/Config/Descriptions.php:725
+#: src/Config/Descriptions.php:723
 msgid "Foreign key limit"
 msgstr "Omejitev tujih ključev"
 
-#: src/Config/Descriptions.php:726
+#: src/Config/Descriptions.php:724
 msgid "Foreign key checks"
 msgstr "Preverjanja tujih ključev"
 
-#: src/Config/Descriptions.php:727
+#: src/Config/Descriptions.php:725
 msgid "First day of calendar"
 msgstr "Prvi dan koledarja"
 
-#: src/Config/Descriptions.php:729
+#: src/Config/Descriptions.php:727
 msgid "Browse mode"
 msgstr "Način brskanja"
 
-#: src/Config/Descriptions.php:731 src/Config/Forms/User/ExportForm.php:80
+#: src/Config/Descriptions.php:729 src/Config/Forms/User/ExportForm.php:80
 #: src/Config/Forms/User/ImportForm.php:29
 msgid "CSV"
 msgstr "CSV"
 
-#: src/Config/Descriptions.php:732
+#: src/Config/Descriptions.php:730
 msgid "Developer"
 msgstr "Razvijalec"
 
-#: src/Config/Descriptions.php:733
+#: src/Config/Descriptions.php:731
 msgid "Edit mode"
 msgstr "Način urejanja"
 
-#: src/Config/Descriptions.php:734
+#: src/Config/Descriptions.php:732
 msgid "Export defaults"
 msgstr "Privzete možnosti izvoza"
 
-#: src/Config/Descriptions.php:735
+#: src/Config/Descriptions.php:733
 msgid "General"
 msgstr "Splošno"
 
-#: src/Config/Descriptions.php:736
+#: src/Config/Descriptions.php:734
 msgid "Import defaults"
 msgstr "Privzete možnosti uvoza"
 
-#: src/Config/Descriptions.php:737
+#: src/Config/Descriptions.php:735
 msgid "Import / export"
 msgstr "Uvoz / izvoz"
 
-#: src/Config/Descriptions.php:738
+#: src/Config/Descriptions.php:736
 msgid "LaTeX"
 msgstr "LaTeX"
 
-#: src/Config/Descriptions.php:741
+#: src/Config/Descriptions.php:739
 msgid "Navigation tree"
 msgstr "Navigacijsko drevo"
 
-#: src/Config/Descriptions.php:745
+#: src/Config/Descriptions.php:743
 msgid "Microsoft Office"
 msgstr "Microsoft Office"
 
-#: src/Config/Descriptions.php:747
+#: src/Config/Descriptions.php:745
 msgid "Other core settings"
 msgstr "Druge nastavitve"
 
-#: src/Config/Descriptions.php:748
+#: src/Config/Descriptions.php:746
 msgid "Page titles"
 msgstr "Naslovi strani"
 
-#: src/Config/Descriptions.php:749
+#: src/Config/Descriptions.php:747
 msgid "Security"
 msgstr "Varnost"
 
-#: src/Config/Descriptions.php:750
+#: src/Config/Descriptions.php:748
 msgid "Basic settings"
 msgstr "Osnovne nastavitve"
 
-#: src/Config/Descriptions.php:751
+#: src/Config/Descriptions.php:749
 msgid "Authentication"
 msgstr "Overovitev"
 
-#: src/Config/Descriptions.php:752
+#: src/Config/Descriptions.php:750
 msgid "Server configuration"
 msgstr "Konfiguracija strežnika"
 
-#: src/Config/Descriptions.php:753
+#: src/Config/Descriptions.php:751
 msgid "Configuration storage"
 msgstr "Hramba konfiguracije"
 
-#: src/Config/Descriptions.php:754
+#: src/Config/Descriptions.php:752
 msgid "Changes tracking"
 msgstr "Sledenje spremembam"
 
-#: src/Config/Descriptions.php:756
+#: src/Config/Descriptions.php:754
 msgid "SQL Query box"
 msgstr "Polje poizvedbe SQL"
 
-#: src/Config/Descriptions.php:758
+#: src/Config/Descriptions.php:756
 msgid "Startup"
 msgstr "Zagon"
 
-#: src/Config/Descriptions.php:759
+#: src/Config/Descriptions.php:757
 msgid "Database structure"
 msgstr "Zgradba zbirke podatkov"
 
-#: src/Config/Descriptions.php:761
+#: src/Config/Descriptions.php:759
 msgid "Tabs"
 msgstr "Zavihki"
 
-#: src/Config/Descriptions.php:762
+#: src/Config/Descriptions.php:760
 msgid "Display relational schema"
 msgstr "Prikaži relacijsko shemo"
 
-#: src/Config/Descriptions.php:763
+#: src/Config/Descriptions.php:761
 msgid "Text fields"
 msgstr "Besedilna polja"
 
-#: src/Config/Descriptions.php:764
+#: src/Config/Descriptions.php:762
 msgid "Texy! text"
 msgstr "Besedilo Texy!"
 
-#: src/Config/Descriptions.php:765
+#: src/Config/Descriptions.php:763
 msgid "Warnings"
 msgstr "Opozorila"
 
-#: src/Config/Descriptions.php:767
+#: src/Config/Descriptions.php:765
 msgid "GZip"
 msgstr "GZip"
 
-#: src/Config/Descriptions.php:768
+#: src/Config/Descriptions.php:766
 msgid "Extra parameters for iconv"
 msgstr "Dodatni parametri za iconv"
 
-#: src/Config/Descriptions.php:769
+#: src/Config/Descriptions.php:767
 msgid "Ignore multiple statement errors"
 msgstr "Prezri napake več stavkov"
 
-#: src/Config/Descriptions.php:770
+#: src/Config/Descriptions.php:768
 msgid "Enable drag and drop import"
 msgstr "Omogoči uvoz s povleci-in-spusti"
 
-#: src/Config/Descriptions.php:771
+#: src/Config/Descriptions.php:769
 msgid "Partial import: allow interrupt"
 msgstr "Delni uvoz: dovoli prekinitev"
 
-#: src/Config/Descriptions.php:776 src/Config/Descriptions.php:782
-#: src/Plugins/Import/ImportCsv.php:150 src/Plugins/Import/ImportLdi.php:75
+#: src/Config/Descriptions.php:774 src/Config/Descriptions.php:781
+#: src/Plugins/Import/ImportCsv.php:151 src/Plugins/Import/ImportLdi.php:75
 msgid "Do not abort on INSERT error"
 msgstr "Ne prekini ob napaki INSERT"
 
-#: src/Config/Descriptions.php:777 src/Config/Descriptions.php:784
+#: src/Config/Descriptions.php:775 src/Plugins/Import/ImportCsv.php:157
+msgid "Import empty values as NULL"
+msgstr ""
+
+#: src/Config/Descriptions.php:776 src/Config/Descriptions.php:783
 msgid "Add ON DUPLICATE KEY UPDATE"
 msgstr "Dodaj ON DUPLICATE KEY UPDATE"
 
-#: src/Config/Descriptions.php:779
+#: src/Config/Descriptions.php:778
 msgid "Format of imported file"
 msgstr "Oblika uvožene datoteke"
 
-#: src/Config/Descriptions.php:783 src/Plugins/Import/ImportLdi.php:81
+#: src/Config/Descriptions.php:782 src/Plugins/Import/ImportLdi.php:81
 msgid "Use LOCAL keyword"
 msgstr "Uporabi ključno besedo LOCAL"
 
-#: src/Config/Descriptions.php:786
+#: src/Config/Descriptions.php:785
 msgid "Column names in first row"
 msgstr "Imena stolpcev v prvi vrstici"
 
-#: src/Config/Descriptions.php:787 src/Plugins/Import/ImportOds.php:80
+#: src/Config/Descriptions.php:786 src/Plugins/Import/ImportOds.php:80
 msgid "Do not import empty rows"
 msgstr "Ne uvozi praznih vrstic"
 
-#: src/Config/Descriptions.php:788
+#: src/Config/Descriptions.php:787
 msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Uvozi denarne enote ($5.00 v 5.00)"
 
-#: src/Config/Descriptions.php:789
+#: src/Config/Descriptions.php:788
 msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "Uvozi odstotke kot ustrezne decimalne vrednosti (12.00% v .12)"
 
-#: src/Config/Descriptions.php:790
+#: src/Config/Descriptions.php:789
 msgid "Partial import: skip queries"
 msgstr "Delni uvoz: preskoči poizvedbe"
 
-#: src/Config/Descriptions.php:792
+#: src/Config/Descriptions.php:791
 msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "Ne uporabi AUTO_INCREMENT za ničelne vrednosti"
 
-#: src/Config/Descriptions.php:793
+#: src/Config/Descriptions.php:792
 msgid "Read as multibytes"
 msgstr "Preberi kot večbajtno"
 
-#: src/Config/Descriptions.php:794
+#: src/Config/Descriptions.php:793
 msgid "Initial state for sliders"
 msgstr "Začetno stanje drsnikov"
 
-#: src/Config/Descriptions.php:795
+#: src/Config/Descriptions.php:794
 msgid "Number of inserted rows"
 msgstr "Število vstavljenih vrstic"
 
-#: src/Config/Descriptions.php:796
+#: src/Config/Descriptions.php:795
 msgid "Limit column characters"
 msgstr "Omejitev znakov stolpca"
 
-#: src/Config/Descriptions.php:797
+#: src/Config/Descriptions.php:796
 msgid "Delete all cookies on logout"
 msgstr "Izbriši vse piškotke ob odjavi"
 
-#: src/Config/Descriptions.php:798
+#: src/Config/Descriptions.php:797
 msgid "Recall user name"
 msgstr "Prikliči uporabniško ime"
 
-#: src/Config/Descriptions.php:799
+#: src/Config/Descriptions.php:798
 msgid "Login cookie store"
 msgstr "Shranjevanje prijavnih piškotkov"
 
-#: src/Config/Descriptions.php:800
+#: src/Config/Descriptions.php:799
 msgid "Login cookie validity"
 msgstr "Veljavnost prijavnega piškotka"
 
-#: src/Config/Descriptions.php:801
+#: src/Config/Descriptions.php:800
 msgid "Bigger textarea for LONGTEXT"
 msgstr "Večje besedilno polje za LONGTEXT"
 
-#: src/Config/Descriptions.php:802
+#: src/Config/Descriptions.php:801
 msgid "Maximum displayed SQL length"
 msgstr "Največja dolžina prikazanega SQL"
 
-#: src/Config/Descriptions.php:803
+#: src/Config/Descriptions.php:802
 msgid "Maximum databases"
 msgstr "Največ zbirk podatkov"
 
-#: src/Config/Descriptions.php:804
+#: src/Config/Descriptions.php:803
 msgid "Maximum items on first level"
 msgstr "Največ predmetov na prvi stopnji"
 
-#: src/Config/Descriptions.php:805
+#: src/Config/Descriptions.php:804
 msgid "Maximum items in branch"
 msgstr "Največ predmetov v veji"
 
-#: src/Config/Descriptions.php:806
+#: src/Config/Descriptions.php:805
 msgid "Maximum number of rows to display"
 msgstr "Največje število vrstic za prikaz"
 
-#: src/Config/Descriptions.php:807
+#: src/Config/Descriptions.php:806
 msgid "Maximum tables"
 msgstr "Največ tabel"
 
-#: src/Config/Descriptions.php:808
+#: src/Config/Descriptions.php:807
 msgid "Memory limit"
 msgstr "Omejitev spomina"
 
-#: src/Config/Descriptions.php:809
+#: src/Config/Descriptions.php:808
 msgid "Show databases navigation as tree"
 msgstr "Prikaži navigacijo po zbirkah podatkov kot drevo"
 
-#: src/Config/Descriptions.php:810
+#: src/Config/Descriptions.php:809
 msgid "Navigation panel width"
 msgstr "Širina navigacijske plošče"
 
-#: src/Config/Descriptions.php:811
+#: src/Config/Descriptions.php:810
 #: src/Controllers/JavaScriptMessagesController.php:586
 #: src/Navigation/NavigationTree.php:1258
 msgid "Link with main panel"
 msgstr "Poveži z glavno ploščo"
 
-#: src/Config/Descriptions.php:812
+#: src/Config/Descriptions.php:811
 msgid "Display logo"
 msgstr "Prikaži logotip"
 
-#: src/Config/Descriptions.php:813
+#: src/Config/Descriptions.php:812
 msgid "Logo link URL"
 msgstr "URL-povezava logotipa"
 
-#: src/Config/Descriptions.php:814
+#: src/Config/Descriptions.php:813
 msgid "Logo link target"
 msgstr "Cilj povezave logotipa"
 
-#: src/Config/Descriptions.php:815
+#: src/Config/Descriptions.php:814
 msgid "Display servers selection"
 msgstr "Prikaži izbiro strežnikov"
 
-#: src/Config/Descriptions.php:816
+#: src/Config/Descriptions.php:815
 msgid "Target for quick access icon"
 msgstr "Cilj ikone za hitri dostop"
 
-#: src/Config/Descriptions.php:817
+#: src/Config/Descriptions.php:816
 msgid "Target for second quick access icon"
 msgstr "Cilj druge ikone za hitri dostop"
 
-#: src/Config/Descriptions.php:818
+#: src/Config/Descriptions.php:817
 msgid "Minimum number of items to display the filter box"
 msgstr "Najmanjše število predmetov, potrebnih za prikaz filtrirnega polja"
 
-#: src/Config/Descriptions.php:820
+#: src/Config/Descriptions.php:819
 msgid "Minimum number of databases to display the database filter box"
 msgstr ""
 "Najmanjše število zbirk podatkov, potrebnih za prikaz polja za filtriranje "
 "zbirk podatkov"
 
-#: src/Config/Descriptions.php:822
+#: src/Config/Descriptions.php:821
 msgid "Group items in the tree"
 msgstr "Združi predmete v drevesu"
 
-#: src/Config/Descriptions.php:823
+#: src/Config/Descriptions.php:822
 msgid "Database tree separator"
 msgstr "Ločilo drevesa zbirke podatkov"
 
-#: src/Config/Descriptions.php:824
+#: src/Config/Descriptions.php:823
 msgid "Table tree separator"
 msgstr "Ločilo drevesa tabel"
 
-#: src/Config/Descriptions.php:825
+#: src/Config/Descriptions.php:824
 msgid "Maximum table tree depth"
 msgstr "Največja globina drevesa tabel"
 
-#: src/Config/Descriptions.php:826
+#: src/Config/Descriptions.php:825
 msgid "Enable highlighting"
 msgstr "Omogoči poudarjanje"
 
-#: src/Config/Descriptions.php:827
+#: src/Config/Descriptions.php:826
 msgid "Enable navigation tree expansion"
 msgstr "Omogoči razširitev navigacijskega drevesa"
 
-#: src/Config/Descriptions.php:828
+#: src/Config/Descriptions.php:827
 msgid "Show tables in tree"
 msgstr "V drevesu prikaži tabele"
 
-#: src/Config/Descriptions.php:829
+#: src/Config/Descriptions.php:828
 msgid "Show views in tree"
 msgstr "V drevesu prikaži poglede"
 
-#: src/Config/Descriptions.php:830
+#: src/Config/Descriptions.php:829
 msgid "Show functions in tree"
 msgstr "V drevesu prikaži funkcije"
 
-#: src/Config/Descriptions.php:831
+#: src/Config/Descriptions.php:830
 msgid "Show procedures in tree"
 msgstr "V drevesu prikaži procedure"
 
-#: src/Config/Descriptions.php:832
+#: src/Config/Descriptions.php:831
 msgid "Show events in tree"
 msgstr "V drevesu prikaži dogodke"
 
-#: src/Config/Descriptions.php:833
+#: src/Config/Descriptions.php:832
 msgid "Expand single database"
 msgstr "Razširi samsko zbirko podatkov"
 
-#: src/Config/Descriptions.php:834
+#: src/Config/Descriptions.php:833
 msgid "Recently used tables"
 msgstr "Nedavno uporabljene tabele"
 
-#: src/Config/Descriptions.php:836
+#: src/Config/Descriptions.php:835
 msgid "Where to show the table row links"
 msgstr "Kje naj prikažem povezave vrstic tabel"
 
-#: src/Config/Descriptions.php:837
+#: src/Config/Descriptions.php:836
 msgid "Show row links anyway"
 msgstr "Prikaži povezave vrstic v vsakem primeru"
 
-#: src/Config/Descriptions.php:839
+#: src/Config/Descriptions.php:838
 msgid "Natural order"
 msgstr "Naravni vrstni red"
 
-#: src/Config/Descriptions.php:840
+#: src/Config/Descriptions.php:839
 msgid "Table navigation bar"
 msgstr "Navigacijska vrstica tabele"
 
-#: src/Config/Descriptions.php:841
+#: src/Config/Descriptions.php:840
 msgid "GZip output buffering"
 msgstr "Izhod medpomnjenja GZip"
 
-#: src/Config/Descriptions.php:842
+#: src/Config/Descriptions.php:841
 msgid "Default sorting order"
 msgstr "Privzet vrstni red"
 
-#: src/Config/Descriptions.php:843
+#: src/Config/Descriptions.php:842
 msgid "Persistent connections"
 msgstr "Vztrajne povezave"
 
-#: src/Config/Descriptions.php:844
+#: src/Config/Descriptions.php:843
 msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "Manjkajoče tabele hrambe konfiguracije phpMyAdmin"
 
-#: src/Config/Descriptions.php:845
+#: src/Config/Descriptions.php:844
 msgid "MySQL reserved word warning"
 msgstr "Opozorilo rezerviranih besed MySQL"
 
-#: src/Config/Descriptions.php:846
+#: src/Config/Descriptions.php:845
 msgid "How to display the menu tabs"
 msgstr "Kako prikazati zavihke menija"
 
-#: src/Config/Descriptions.php:847
+#: src/Config/Descriptions.php:846
 msgid "How to display various action links"
 msgstr "Kako prikazati različne povezave dejanj"
 
-#: src/Config/Descriptions.php:848
+#: src/Config/Descriptions.php:847
 msgid "Protect binary columns"
 msgstr "Zaščiti dvojiške stolpce"
 
-#: src/Config/Descriptions.php:849
+#: src/Config/Descriptions.php:848
 msgid "Permanent query history"
 msgstr "Trajna zgodovina poizvedb"
 
-#: src/Config/Descriptions.php:850
+#: src/Config/Descriptions.php:849
 msgid "Query history length"
 msgstr "Dolžina zgodovine poizvedb"
 
-#: src/Config/Descriptions.php:851
+#: src/Config/Descriptions.php:850
 msgid "Allow shared bookmarks between users"
 msgstr "Dovoli deljene zaznamke med uporabniki"
 
-#: src/Config/Descriptions.php:852
+#: src/Config/Descriptions.php:851
 msgid "Recoding engine"
 msgstr "Snemalni pogon"
 
-#: src/Config/Descriptions.php:853
+#: src/Config/Descriptions.php:852
 msgid "Remember table's sorting"
 msgstr "Ohrani razvrščanje tabel"
 
-#: src/Config/Descriptions.php:854
+#: src/Config/Descriptions.php:853
 msgid "Primary key default sort order"
 msgstr "Privzeto razvrščanje primarnega ključa"
 
-#: src/Config/Descriptions.php:855
+#: src/Config/Descriptions.php:854
 msgid "Repeat headers"
 msgstr "Ponovi glave"
 
-#: src/Config/Descriptions.php:856
+#: src/Config/Descriptions.php:855
 msgid "Grid editing: trigger action"
 msgstr "Urejanje mreže: sproži dejanje"
 
-#: src/Config/Descriptions.php:857
+#: src/Config/Descriptions.php:856
 msgid "Relational display"
 msgstr "Relacijski prikaz"
 
-#: src/Config/Descriptions.php:858
+#: src/Config/Descriptions.php:857
 msgid "Grid editing: save all edited cells at once"
 msgstr "Urejanje mreže: naenkrat shrani vse urejene celice"
 
-#: src/Config/Descriptions.php:859
+#: src/Config/Descriptions.php:858
 msgid "Save directory"
 msgstr "Mapa za shranjevanje"
 
-#: src/Config/Descriptions.php:860
+#: src/Config/Descriptions.php:859
 msgid "Host authorization order"
 msgstr "Zaporedje overovitve gostitelja"
 
-#: src/Config/Descriptions.php:861
+#: src/Config/Descriptions.php:860
 msgid "Host authorization rules"
 msgstr "Pravila overovitve gostitelja"
 
-#: src/Config/Descriptions.php:862
+#: src/Config/Descriptions.php:861
 msgid "Allow logins without a password"
 msgstr "Dovoli prijave brez gesla"
 
-#: src/Config/Descriptions.php:863
+#: src/Config/Descriptions.php:862
 msgid "Allow root login"
 msgstr "Dovoli prijavo root"
 
-#: src/Config/Descriptions.php:864
+#: src/Config/Descriptions.php:863
 msgid "Session timezone"
 msgstr "Časovni pas seje"
 
-#: src/Config/Descriptions.php:865
+#: src/Config/Descriptions.php:864
 msgid "HTTP Realm"
 msgstr "Področje HTTP"
 
-#: src/Config/Descriptions.php:867
+#: src/Config/Descriptions.php:866
 msgid "Bookmark table"
 msgstr "Tabela zaznamkov"
 
-#: src/Config/Descriptions.php:868
+#: src/Config/Descriptions.php:867
 msgid "Column information table"
 msgstr "Tabela informacij stolpcev"
 
-#: src/Config/Descriptions.php:869
+#: src/Config/Descriptions.php:868
 msgid "Compress connection"
 msgstr "Stisni povezavo"
 
-#: src/Config/Descriptions.php:870
+#: src/Config/Descriptions.php:869
 msgid "Control user password"
 msgstr "Geslo krmilnega uporabnika"
 
-#: src/Config/Descriptions.php:871
+#: src/Config/Descriptions.php:870
 msgid "Control user"
 msgstr "Krmilni uporabnik"
 
-#: src/Config/Descriptions.php:872
+#: src/Config/Descriptions.php:871
 msgid "Control host"
 msgstr "Krmilni gostitelj"
 
-#: src/Config/Descriptions.php:873
+#: src/Config/Descriptions.php:872
 msgid "Control port"
 msgstr "Krmilna vrata"
 
-#: src/Config/Descriptions.php:874
+#: src/Config/Descriptions.php:873
 msgid "Disable use of INFORMATION_SCHEMA"
 msgstr "Onemogoči uporabo INFORMATION_SCHEMA"
 
-#: src/Config/Descriptions.php:875
+#: src/Config/Descriptions.php:874
 msgid "Hide databases"
 msgstr "Skrij zbirke podatkov"
 
-#: src/Config/Descriptions.php:876
+#: src/Config/Descriptions.php:875
 msgid "SQL query history table"
 msgstr "Tabela zgodovine poizvedb SQL"
 
-#: src/Config/Descriptions.php:877
+#: src/Config/Descriptions.php:876
 msgid "Server hostname"
 msgstr "Ime gostitelja strežnika"
 
-#: src/Config/Descriptions.php:878
+#: src/Config/Descriptions.php:877
 msgid "Logout URL"
 msgstr "Odjavni URL"
 
-#: src/Config/Descriptions.php:879
+#: src/Config/Descriptions.php:878
 msgid "Maximal number of table preferences to store"
 msgstr "Največje število shranjenih nastavitev tabel"
 
-#: src/Config/Descriptions.php:880
+#: src/Config/Descriptions.php:879
 msgid "Export templates table"
 msgstr "Izvozi tabelo s predlogami"
 
-#: src/Config/Descriptions.php:881
+#: src/Config/Descriptions.php:880
 msgid "Central columns table"
 msgstr "Tabela osrednjih stolpcev"
 
-#: src/Config/Descriptions.php:882
+#: src/Config/Descriptions.php:881
 msgid "Show only listed databases"
 msgstr "Prikaži samo navedene zbirke podatkov"
 
-#: src/Config/Descriptions.php:883
+#: src/Config/Descriptions.php:882
 msgid "Password for config auth"
 msgstr "Geslo za overovitev config"
 
-#: src/Config/Descriptions.php:884
+#: src/Config/Descriptions.php:883
 msgid "PDF schema: pages table"
 msgstr "PDF-shema: tabele strani"
 
-#: src/Config/Descriptions.php:886
+#: src/Config/Descriptions.php:885
 msgid "Server port"
 msgstr "Vrata strežnika"
 
-#: src/Config/Descriptions.php:887
+#: src/Config/Descriptions.php:886
 msgid "Recently used table"
 msgstr "Nedavno uporabljena tabela"
 
-#: src/Config/Descriptions.php:888
+#: src/Config/Descriptions.php:887
 msgid "Favorites table"
 msgstr "Tabela priljubljenih"
 
-#: src/Config/Descriptions.php:889
+#: src/Config/Descriptions.php:888
 msgid "Relation table"
 msgstr "Relacijska tabela"
 
-#: src/Config/Descriptions.php:890
+#: src/Config/Descriptions.php:889
 msgid "Signon session name"
 msgstr "Ime seje signon"
 
-#: src/Config/Descriptions.php:891
+#: src/Config/Descriptions.php:890
 msgid "Signon URL"
 msgstr "URL signon"
 
-#: src/Config/Descriptions.php:892
+#: src/Config/Descriptions.php:891
 msgid "Server socket"
 msgstr "Vtičnica strežnika"
 
-#: src/Config/Descriptions.php:893
+#: src/Config/Descriptions.php:892
 msgid "Use SSL"
 msgstr "Uporabi SSL"
 
-#: src/Config/Descriptions.php:894
+#: src/Config/Descriptions.php:893
 msgid "Designer and PDF schema: table coordinates"
 msgstr "Shema PDF in Designer: koordinate tabel"
 
-#: src/Config/Descriptions.php:895
+#: src/Config/Descriptions.php:894
 msgid "Display columns table"
 msgstr "Tabela prikaznih stolpcev"
 
-#: src/Config/Descriptions.php:896
+#: src/Config/Descriptions.php:895
 msgid "UI preferences table"
 msgstr "Tabela nastavitev uporabniškega vmesnika"
 
-#: src/Config/Descriptions.php:897
+#: src/Config/Descriptions.php:896
 msgid "Add DROP DATABASE"
 msgstr "Dodaj DROP DATABASE"
 
-#: src/Config/Descriptions.php:899
+#: src/Config/Descriptions.php:898
 msgid "Add DROP VIEW"
 msgstr "Dodaj DROP VIEW"
 
-#: src/Config/Descriptions.php:900
+#: src/Config/Descriptions.php:899
 msgid "Statements to track"
 msgstr "Izjave za sledenje"
 
-#: src/Config/Descriptions.php:901
+#: src/Config/Descriptions.php:900
 msgid "SQL query tracking table"
 msgstr "Tabela sledenja poizvedb SQL"
 
-#: src/Config/Descriptions.php:902
+#: src/Config/Descriptions.php:901
 msgid "Automatically create versions"
 msgstr "Samodejno ustvari različice"
 
-#: src/Config/Descriptions.php:903
+#: src/Config/Descriptions.php:902
 msgid "User preferences storage table"
 msgstr "Tabela za hranjenje uporabnikovih nastavitev"
 
-#: src/Config/Descriptions.php:904
+#: src/Config/Descriptions.php:903
 msgid "Users table"
 msgstr "Tabela uporabnikov"
 
-#: src/Config/Descriptions.php:905
+#: src/Config/Descriptions.php:904
 msgid "User groups table"
 msgstr "Tabela uporabniških skupin"
 
-#: src/Config/Descriptions.php:906
+#: src/Config/Descriptions.php:905
 msgid "Hidden navigation items table"
 msgstr "Skriti predmeti navigacijskega drevesa"
 
-#: src/Config/Descriptions.php:907
+#: src/Config/Descriptions.php:906
 msgid "User for config auth"
 msgstr "Uporabnik za overovitev config"
 
-#: src/Config/Descriptions.php:908
+#: src/Config/Descriptions.php:907
 msgid "Verbose name of this server"
 msgstr "Razširjeno ime tega strežnika"
 
-#: src/Config/Descriptions.php:909
+#: src/Config/Descriptions.php:908
 msgid "Allow to display all the rows"
 msgstr "Dovoli prikaz vseh vrstic"
 
-#: src/Config/Descriptions.php:910
+#: src/Config/Descriptions.php:909
 msgid "Show password change form"
 msgstr "Pokaži obrazec za spremembo gesla"
 
-#: src/Config/Descriptions.php:911
+#: src/Config/Descriptions.php:910
 msgid "Show create database form"
 msgstr "Pokaži obrazec za ustvarjanje zbirke podatkov"
 
-#: src/Config/Descriptions.php:912
+#: src/Config/Descriptions.php:911
 msgid "Show table comments"
 msgstr "Prikaži pripombe tabele"
 
-#: src/Config/Descriptions.php:913
+#: src/Config/Descriptions.php:912
 msgid "Show creation timestamp"
 msgstr "Prikaži časovni žig nastanka"
 
-#: src/Config/Descriptions.php:914
+#: src/Config/Descriptions.php:913
 msgid "Show last update timestamp"
 msgstr "Prikaži časovni žig zadnje spremembe"
 
-#: src/Config/Descriptions.php:915
+#: src/Config/Descriptions.php:914
 msgid "Show last check timestamp"
 msgstr "Prikaži časovni žig zadnjega preverjanja"
 
-#: src/Config/Descriptions.php:916
+#: src/Config/Descriptions.php:915
 msgid "Show table charset"
 msgstr "Prikaži kodni nabor tabele"
 
-#: src/Config/Descriptions.php:917
+#: src/Config/Descriptions.php:916
 msgid "Show field types"
 msgstr "Pokaži vrste polj"
 
-#: src/Config/Descriptions.php:918
+#: src/Config/Descriptions.php:917
 msgid "Show function fields"
 msgstr "Prikaži polja funkcij"
 
-#: src/Config/Descriptions.php:919
+#: src/Config/Descriptions.php:918
 msgid "Show hint"
 msgstr "Prikaži namig"
 
-#: src/Config/Descriptions.php:920
+#: src/Config/Descriptions.php:919
 msgid "Show phpinfo() link"
 msgstr "Prikaži povezavo phpinfo()"
 
-#: src/Config/Descriptions.php:921
+#: src/Config/Descriptions.php:920
 msgid "Show detailed MySQL server information"
 msgstr "Prikaži podrobne informacije o strežniku MySQL"
 
-#: src/Config/Descriptions.php:922
+#: src/Config/Descriptions.php:921
 msgid "Show SQL queries"
 msgstr "Pokaži poizvedbe SQL"
 
-#: src/Config/Descriptions.php:924
+#: src/Config/Descriptions.php:923
 msgid "Show statistics"
 msgstr "Pokaži statistiko"
 
-#: src/Config/Descriptions.php:925
+#: src/Config/Descriptions.php:924
 msgid "Skip locked tables"
 msgstr "Preskoči zaklenjene tabele"
 
-#: src/Config/Descriptions.php:927 src/Html/Generator.php:498
+#: src/Config/Descriptions.php:926 src/Html/Generator.php:498
 msgid "Explain SQL"
 msgstr "Razloži stavek SQL"
 
-#: src/Config/Descriptions.php:929 src/Html/Generator.php:569
+#: src/Config/Descriptions.php:928 src/Html/Generator.php:569
 msgid "Create PHP code"
 msgstr "Ustvari kodo PHP"
 
-#: src/Config/Descriptions.php:930
-msgid "Suhosin warning"
-msgstr "Opozorilo Suhosin"
-
-#: src/Config/Descriptions.php:931
+#: src/Config/Descriptions.php:929
 msgid "Login cookie validity warning"
 msgstr "Opozorilo o veljavnost prijavnega piškotka"
 
-#: src/Config/Descriptions.php:932
+#: src/Config/Descriptions.php:930
 msgid "Textarea columns"
 msgstr "Stolpcev besedilnega polja"
 
-#: src/Config/Descriptions.php:933
+#: src/Config/Descriptions.php:931
 msgid "Textarea rows"
 msgstr "Vrstic besedilnega polja"
 
-#: src/Config/Descriptions.php:935
+#: src/Config/Descriptions.php:933
 msgid "Default title"
 msgstr "Privzeti naslov"
 
-#: src/Config/Descriptions.php:938
+#: src/Config/Descriptions.php:936
 msgid "List of trusted proxies for IP allow/deny"
 msgstr "Seznam zaupanja vrednih proxyjev za sprejetje/zavrnitev IP"
 
-#: src/Config/Descriptions.php:939
+#: src/Config/Descriptions.php:937
 msgid "Upload directory"
 msgstr "Mapa za nalaganje"
 
-#: src/Config/Descriptions.php:940
+#: src/Config/Descriptions.php:938
 msgid "Use database search"
 msgstr "Uporabi iskanje po zbirki podatkov"
 
-#: src/Config/Descriptions.php:941
+#: src/Config/Descriptions.php:939
 msgid "Enable the Developer tab in settings"
 msgstr "Omogoči zavihek Razvijalec v nastavitvah"
 
-#: src/Config/Descriptions.php:942 src/Setup/Index.php:125
+#: src/Config/Descriptions.php:940 src/Setup/Index.php:125
 #: src/Setup/Index.php:152 src/Setup/Index.php:160 src/Setup/Index.php:168
 msgid "Version check"
 msgstr "Preverjanje različice"
 
-#: src/Config/Descriptions.php:943
+#: src/Config/Descriptions.php:941
 msgid "Proxy URL"
 msgstr "URL proxyja"
 
-#: src/Config/Descriptions.php:944
+#: src/Config/Descriptions.php:942
 msgid "Proxy username"
 msgstr "Uporabniško ime proxyja"
 
-#: src/Config/Descriptions.php:945
+#: src/Config/Descriptions.php:943
 msgid "Proxy password"
 msgstr "Geslo proxyja"
 
-#: src/Config/Descriptions.php:946
+#: src/Config/Descriptions.php:944
 msgid "ZIP"
 msgstr "ZIP"
 
-#: src/Config/Descriptions.php:947
+#: src/Config/Descriptions.php:945
 msgid "URL for reCAPTCHA v2 API"
 msgstr "URL za API reCAPTCHA v2"
 
-#: src/Config/Descriptions.php:948
+#: src/Config/Descriptions.php:946
 msgid "Content-Security-Policy snippet for reCAPTCHA v2 API"
 msgstr "Podatki Content-Security-Policy za API reCAPTCHA v2"
 
-#: src/Config/Descriptions.php:949
+#: src/Config/Descriptions.php:947
 msgid "Request parameter for reCAPTCHA v2 API"
 msgstr "Parameter zahteve za API reCAPTCHA v2"
 
-#: src/Config/Descriptions.php:950
+#: src/Config/Descriptions.php:948
 msgid "Response parameter for reCAPTCHA v2 API"
 msgstr "Parameter odgovora za reCAPTCHA v2"
 
-#: src/Config/Descriptions.php:951
+#: src/Config/Descriptions.php:949
 msgid "Public key for reCAPTCHA"
 msgstr "Javni ključ za reCAPTCHA"
 
-#: src/Config/Descriptions.php:952
+#: src/Config/Descriptions.php:950
 msgid "Private key for reCAPTCHA"
 msgstr "Zasebni ključ za reCAPTCHA"
 
-#: src/Config/Descriptions.php:953
+#: src/Config/Descriptions.php:951
 msgid "URL for reCAPTCHA siteverify"
 msgstr "URL za preverjanje strani (siteverify) reCAPTCHA"
 
-#: src/Config/Descriptions.php:954
+#: src/Config/Descriptions.php:952
 msgid "Send error reports"
 msgstr "Pošlji poročila o napakah"
 
-#: src/Config/Descriptions.php:955
+#: src/Config/Descriptions.php:953
 msgid "Enter executes queries in console"
 msgstr "Enter izvede poizvedbe v konzoli"
 
-#: src/Config/Descriptions.php:956
+#: src/Config/Descriptions.php:954
 msgid "Enable Zero Configuration mode"
 msgstr "Omogoči način ničelne konfiguracije"
 
-#: src/Config/Descriptions.php:960
+#: src/Config/Descriptions.php:958
 msgid "Execute queries on Enter and insert new line with Shift+Enter"
 msgstr "Izvedi poizvedbe z enter in vstavi novo vrstico s shift + enter"
 
-#: src/Config/Descriptions.php:962
+#: src/Config/Descriptions.php:960
 msgid "Console height"
 msgstr "Višina konzole"
 
-#: src/Config/Descriptions.php:963
+#: src/Config/Descriptions.php:961
 msgid "Console mode"
 msgstr "Konzolni način"
 
-#: src/Config/Descriptions.php:966
+#: src/Config/Descriptions.php:964
 msgid "Order by"
 msgstr "Razvrsti po"
 
-#: src/Config/Descriptions.php:967
+#: src/Config/Descriptions.php:965
 msgid "Server connection collation"
 msgstr "Razvrščanje znakov povezave strežnika"
 
@@ -11673,7 +11672,8 @@ msgstr "Stisnjeni uvoz ne bo deloval, saj manjka funkcija %s."
 msgid "Compressed export will not work due to missing function %s."
 msgstr "Stisnjeni izvoz ne bo deloval, saj manjka funkcija %s."
 
-#: src/Config/FormDisplay.php:819
+#: src/Config/FormDisplay.php:815 src/Config/FormDisplay.php:816
+#: src/Config/FormDisplay.php:817
 #, php-format
 msgid "maximum %s"
 msgstr "največ %s"
@@ -11707,7 +11707,7 @@ msgid "Microsoft Word 2000"
 msgstr "Microsoft Word 2000"
 
 #: src/Config/Forms/User/ExportForm.php:120
-#: src/Config/Forms/User/ImportForm.php:46
+#: src/Config/Forms/User/ImportForm.php:47
 msgid "OpenDocument Spreadsheet"
 msgstr "Preglednica OpenDocument"
 
@@ -11715,7 +11715,7 @@ msgstr "Preglednica OpenDocument"
 msgid "OpenDocument Text"
 msgstr "Besedilo OpenDocument"
 
-#: src/Config/Forms/User/ImportForm.php:37
+#: src/Config/Forms/User/ImportForm.php:38
 msgid "CSV using LOAD DATA"
 msgstr "CSV z uporabo LOAD DATA"
 
@@ -11874,7 +11874,7 @@ msgstr ""
 "%1$sStiskanje in razširjanje GZip%2$s zahteva funkcije (%3$s), ki na tem "
 "sistemu niso na voljo."
 
-#: src/Config/Settings.php:3168
+#: src/Config/Settings.php:3144
 #, php-format
 msgid "Server %d"
 msgstr "Strežnik %d"
@@ -12152,7 +12152,7 @@ msgstr ""
 
 #: src/Controllers/Database/ExportController.php:129
 #: src/Controllers/Server/ExportController.php:57
-#: src/Controllers/Table/ExportController.php:90
+#: src/Controllers/Table/ExportController.php:92
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 "Ne morem naložiti vtičnikov za izvoz, prosimo, preverite vašo namestitev!"
@@ -12284,7 +12284,7 @@ msgid "Success!"
 msgstr "Uspešno!"
 
 #: src/Controllers/Database/StructureController.php:568
-#: src/Display/Results.php:3260
+#: src/Display/Results.php:3254
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -12348,7 +12348,7 @@ msgstr ""
 msgid "You may want to refresh the page."
 msgstr "Morda boste želeli osvežiti stran."
 
-#: src/Controllers/Export/ExportController.php:120 src/Export/Export.php:676
+#: src/Controllers/Export/ExportController.php:120 src/Export/Export.php:677
 msgid "Bad type!"
 msgstr "Slaba vrsta!"
 
@@ -12476,16 +12476,7 @@ msgstr ""
 "strežnika morda ogrožena, saj bodo nepooblaščene osebe lahko prenesle vašo "
 "konfiguracijo."
 
-#: src/Controllers/HomeController.php:404
-#, php-format
-msgid ""
-"Server running with Suhosin. Please refer to %sdocumentation%s for possible "
-"issues."
-msgstr ""
-"Strežnik, ki teče z Suhosin. Prosimo, nanašajte se na %sdokumentacijo%s za "
-"morebitna vprašanja."
-
-#: src/Controllers/HomeController.php:418
+#: src/Controllers/HomeController.php:398
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -12494,7 +12485,7 @@ msgstr ""
 "$cfg['TempDir'] (%s) ni dostopen. phpMyAdmin ne more predpomniti predlog in "
 "bo zaradi tega počasen."
 
-#: src/Controllers/HomeController.php:435
+#: src/Controllers/HomeController.php:415
 msgid ""
 "The [code]HTTP_HOST[/code] variable is missing, which might cause phpMyAdmin "
 "to not work properly. Please refer to [doc@faq1-46]documentation[/doc] for "
@@ -12504,7 +12495,7 @@ msgstr ""
 "delovanje phpMyAdmina. Prosimo, oglejte si [doc@faq1-46]dokumentacijo[/doc] "
 "za morebitne težave."
 
-#: src/Controllers/HomeController.php:488
+#: src/Controllers/HomeController.php:468
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -12514,7 +12505,7 @@ msgstr ""
 "nabor znakov. Brez razširitve mbstring phpMyAdmin ni sposoben pravilno "
 "razcepiti nizov, kar lahko vodi v nepričakovane rezultate."
 
-#: src/Controllers/HomeController.php:506
+#: src/Controllers/HomeController.php:486
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -12592,7 +12583,7 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Poizvedbe \"DROP DATABASE\" so izključene."
 
-#: src/Controllers/Import/ImportController.php:700 src/Sql.php:912
+#: src/Controllers/Import/ImportController.php:700 src/Sql.php:909
 msgid "[ROLLBACK occurred.]"
 msgstr "[Zgodil se je ROLLBACK.]"
 
@@ -14493,7 +14484,7 @@ msgid "No such column"
 msgstr "Ni takšnega stolpca"
 
 #: src/Controllers/Normalization/GetColumnsController.php:35
-#: src/Normalization.php:230 src/Types.php:652
+#: src/Normalization.php:230 src/Types.php:653
 msgctxt "string types"
 msgid "String"
 msgstr "Niz"
@@ -15353,7 +15344,7 @@ msgstr "Napačni podatki"
 msgid "Wrong data or no validation for %s"
 msgstr "Napačni podatki ali pa ni preverjanja za %s"
 
-#: src/Controllers/Sql/SqlController.php:218 src/Sql.php:1080
+#: src/Controllers/Sql/SqlController.php:218 src/Sql.php:1077
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Ustvarili smo zaznamek %s."
@@ -15434,7 +15425,7 @@ msgstr "Prišlo je do težave z vašo zahtevo."
 
 #: src/Controllers/Table/GetFieldController.php:108
 #: src/Database/Routines.php:1050 src/Import/Import.php:138
-#: src/InsertEdit.php:161 src/Sql.php:898
+#: src/InsertEdit.php:161 src/Sql.php:895
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL je vrnil kot rezultat prazno množico (npr. nič vrstic)."
 
@@ -15826,27 +15817,27 @@ msgstr ""
 msgid "The row has been deleted."
 msgstr "Vrstica je izbrisana."
 
-#: src/Display/Results.php:2979 src/Display/Results.php:3301 src/Sql.php:904
+#: src/Display/Results.php:2973 src/Display/Results.php:3295 src/Sql.php:901
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Poizvedba je potrebovala %01.4f sekunde."
 
-#: src/Display/Results.php:3269
+#: src/Display/Results.php:3263
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Prikazujem vrstice %1s–%2s"
 
-#: src/Display/Results.php:3283
+#: src/Display/Results.php:3277
 #, php-format
 msgid "%1$s total, %2$s in query"
 msgstr "skupno %1$s, %2$s v poizvedbi"
 
-#: src/Display/Results.php:3288
+#: src/Display/Results.php:3282
 #, php-format
 msgid "%s total"
 msgstr "skupaj %s"
 
-#: src/Display/Results.php:3597
+#: src/Display/Results.php:3591
 msgid "Link not found!"
 msgstr "Povezave ni mogoče najti!"
 
@@ -16476,11 +16467,11 @@ msgstr ""
 msgid "web server upload directory:"
 msgstr "imenik za nalaganje datotek:"
 
-#: src/InsertEdit.php:846 src/Sql.php:895
+#: src/InsertEdit.php:846 src/Sql.php:892
 msgid "Showing SQL query"
 msgstr "Prikazovanje poizvedbe SQL"
 
-#: src/InsertEdit.php:870 src/Sql.php:875
+#: src/InsertEdit.php:870 src/Sql.php:872
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Id vstavljene vrstice: %1$d"
@@ -16927,39 +16918,39 @@ msgstr "Seznam temelji na podmnožici podatkov iz tabele in ni nujno točen. "
 msgid "No partial dependencies found!"
 msgstr "Našli nismo nobene delne odvisnosti!"
 
-#: src/Operations.php:540
+#: src/Operations.php:536
 msgid "Coalesce"
 msgstr "Združi (coalesce)"
 
-#: src/Operations.php:891
+#: src/Operations.php:887
 msgid "Can't move table to same one!"
 msgstr "Tabele ne morete premakniti same vase!"
 
-#: src/Operations.php:893
+#: src/Operations.php:889
 msgid "Can't copy table to same one!"
 msgstr "Tabele ne morete kopirati same vase!"
 
-#: src/Operations.php:929
+#: src/Operations.php:925
 #, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "Tabelo %s smo premaknili na %s. Privilegije smo prilagodili."
 
-#: src/Operations.php:935
+#: src/Operations.php:931
 #, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "Tabelo %s smo skopirali na %s. Privilegije smo prilagodili."
 
-#: src/Operations.php:941
+#: src/Operations.php:937
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "Tabelo %s smo premaknili na %s."
 
-#: src/Operations.php:945
+#: src/Operations.php:941
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "Tabelo %s smo skopirali na %s."
 
-#: src/Operations.php:968
+#: src/Operations.php:964
 msgid "The table name is empty!"
 msgstr "Ime tabele je prazno!"
 
@@ -17041,7 +17032,7 @@ msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 "Omogočili ste dvostopenjsko overovitev; prosimo, potrdite svojo prijavo."
 
-#: src/Plugins/Export/ExportCsv.php:68 src/Plugins/Export/ExportToon.php:61
+#: src/Plugins/Export/ExportCsv.php:68 src/Plugins/Export/ExportToon.php:62
 #: src/Plugins/Import/AbstractImportCsv.php:36
 msgid "Columns separated with:"
 msgstr "Stolpci so ločeni z:"
@@ -17461,7 +17452,7 @@ msgstr ""
 "Sistem zbirk podatkov ali starejši strežnik MySQL, s katerim naj bo izhod "
 "kar se da združljiv:"
 
-#: src/Plugins/Export/ExportToon.php:66
+#: src/Plugins/Export/ExportToon.php:67
 #, fuzzy
 #| msgid "Orientation"
 msgid "Indentation:"
@@ -17486,19 +17477,19 @@ msgstr ""
 "Ko pri uvozu obstajajo podvojeni ključi, posodobi podatke (dodaj ON "
 "DUPLICATE KEY UPDATE)"
 
-#: src/Plugins/Import/ImportCsv.php:92
+#: src/Plugins/Import/ImportCsv.php:93
 msgid "Name of the new table (optional):"
 msgstr "Ime nove tabele (izbirno):"
 
-#: src/Plugins/Import/ImportCsv.php:101
+#: src/Plugins/Import/ImportCsv.php:102
 msgid "Name of the new database (optional):"
 msgstr "Ime nove zbirke podatkov (izbirno):"
 
-#: src/Plugins/Import/ImportCsv.php:110 src/Plugins/Import/ImportCsv.php:128
+#: src/Plugins/Import/ImportCsv.php:111 src/Plugins/Import/ImportCsv.php:129
 msgid "Import these many number of rows (optional):"
 msgstr "Uvozi toliko vrstic (izbirno):"
 
-#: src/Plugins/Import/ImportCsv.php:118 src/Plugins/Import/ImportOds.php:72
+#: src/Plugins/Import/ImportCsv.php:119 src/Plugins/Import/ImportOds.php:72
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
@@ -17506,7 +17497,7 @@ msgstr ""
 "Prva vrstica v datoteki vsebuje imena stolpcev tabele <i>(če to ni označeno, "
 "bo prva vrstica postala del podatkov)</i>"
 
-#: src/Plugins/Import/ImportCsv.php:135
+#: src/Plugins/Import/ImportCsv.php:136
 msgid ""
 "If the data in each row of the file is not in the same order as in the "
 "database, list the corresponding column names here. Column names must be "
@@ -17516,27 +17507,27 @@ msgstr ""
 "podatkov, tukaj navedite ustrezna imena stolpcev. Imena stolpcev morajo biti "
 "ločena z vejicami in ne smejo biti obdana z narekovaji."
 
-#: src/Plugins/Import/ImportCsv.php:143
+#: src/Plugins/Import/ImportCsv.php:144
 msgid "Column names:"
 msgstr "Imena stolpcev:"
 
-#: src/Plugins/Import/ImportCsv.php:275 src/Plugins/Import/ImportCsv.php:528
+#: src/Plugins/Import/ImportCsv.php:283 src/Plugins/Import/ImportCsv.php:541
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "Neveljavna oblika vnosa CSV v vrstici %d."
 
-#: src/Plugins/Import/ImportCsv.php:482
+#: src/Plugins/Import/ImportCsv.php:495
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Neveljavno število stolpcev v vnosu CSV v vrstici %d."
 
-#: src/Plugins/Import/ImportCsv.php:637 src/Plugins/Import/ImportCsv.php:652
-#: src/Plugins/Import/ImportCsv.php:663 src/Plugins/Import/ImportCsv.php:670
+#: src/Plugins/Import/ImportCsv.php:671 src/Plugins/Import/ImportCsv.php:686
+#: src/Plugins/Import/ImportCsv.php:697 src/Plugins/Import/ImportCsv.php:704
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Neveljavni parameter za uvoz CSV: %s"
 
-#: src/Plugins/Import/ImportCsv.php:760
+#: src/Plugins/Import/ImportCsv.php:794
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -18315,11 +18306,11 @@ msgstr "Na voljo ni novejše stabilne različice"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Uporaba zaznamka \"%s\" kot privzeto poizvedbo med brskanjem."
 
-#: src/Sql.php:892
+#: src/Sql.php:889
 msgid "Showing as PHP code"
 msgstr "Prikazovanje kot koda PHP"
 
-#: src/Sql.php:1248
+#: src/Sql.php:1245
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -18328,7 +18319,7 @@ msgstr ""
 "Trenutna izbira ne vsebuje unikatnega stolpca. Možnosti urejanja mreže, "
 "potrditvena polja, Uredi, Kopiraj in Izbriši niso na voljo. %s"
 
-#: src/Sql.php:1262
+#: src/Sql.php:1259
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -18594,22 +18585,22 @@ msgstr "Navesti morate veljavno ime tabele!"
 msgid "You must provide a trigger definition."
 msgstr "Navesti morate opredelitev sprožilca."
 
-#: src/Types.php:97
+#: src/Types.php:98
 msgid "empty"
 msgstr "prazno"
 
-#: src/Types.php:98
+#: src/Types.php:99
 msgid "not empty"
 msgstr "ni prazno"
 
-#: src/Types.php:161
+#: src/Types.php:162
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr ""
 "1-bitno celo število; predznačen razpon je -128 do 127, nepredznačen razpon "
 "pa 0 do 255"
 
-#: src/Types.php:162
+#: src/Types.php:163
 msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
 "65,535"
@@ -18617,7 +18608,7 @@ msgstr ""
 "2-bitno celo število; predznačen razpon je -32.768 do 32.767, nepredznačen "
 "razpon pa 0 do 65.535"
 
-#: src/Types.php:164
+#: src/Types.php:165
 msgid ""
 "A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is "
 "0 to 16,777,215"
@@ -18625,7 +18616,7 @@ msgstr ""
 "3-bitno celo število; predznačen razpon je -8.388.608 do 8.388.607, "
 "nepredznačen razpon pa 0 do 16.777.215"
 
-#: src/Types.php:167
+#: src/Types.php:168
 msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
 "range is 0 to 4,294,967,295"
@@ -18633,7 +18624,7 @@ msgstr ""
 "4-bitno celo število; predznačeni razpon je od -2.147.483.648 do "
 "2.147.483.647, nepredznačeni razpon pa od 0 do 4.294.967.295"
 
-#: src/Types.php:172
+#: src/Types.php:173
 msgid ""
 "An 8-byte integer, signed range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807, unsigned range is 0 to 18,446,744,073,709,551,615"
@@ -18642,7 +18633,7 @@ msgstr ""
 "9.223.372.036.854.775.807, nepredznačen razpon pa 0 do "
 "18.446.744.073.709.551.615"
 
-#: src/Types.php:177
+#: src/Types.php:178
 msgid ""
 "A fixed-point number (M, D) - the maximum number of digits (M) is 65 "
 "(default 10), the maximum number of decimals (D) is 30 (default 0)"
@@ -18650,7 +18641,7 @@ msgstr ""
 "Število s fiksno vejico (M, D) – največje število števk (M) je 65 (privzeto "
 "10), največje število decimalnih mest (D) je 30 (privzeto 0)"
 
-#: src/Types.php:182
+#: src/Types.php:183
 msgid ""
 "A small floating-point number, allowable values are -3.402823466E+38 to "
 "-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
@@ -18659,7 +18650,7 @@ msgstr ""
 "-3,402823466E+38 do -1,175494351E-38, 0 in od 1,175494351E-38 do "
 "3,402823466E+38"
 
-#: src/Types.php:187
+#: src/Types.php:188
 msgid ""
 "A double-precision floating-point number, allowable values are "
 "-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
@@ -18669,7 +18660,7 @@ msgstr ""
 "-1,7976931348623157E+308 do -2,2250738585072014E-308, 0 in od "
 "2,2250738585072014E-308 do 1,7976931348623157E+308"
 
-#: src/Types.php:191
+#: src/Types.php:192
 msgid ""
 "Synonym for DOUBLE (exception: in REAL_AS_FLOAT SQL mode it is a synonym for "
 "FLOAT)"
@@ -18677,7 +18668,7 @@ msgstr ""
 "Sopomenka za DOUBLE (izjema: v načinu SQL REAL_AS_FLOAT je sopomenka za "
 "FLOAT)"
 
-#: src/Types.php:192
+#: src/Types.php:193
 msgid ""
 "A bit-field type (M), storing M of bits per value (default is 1, maximum is "
 "64)"
@@ -18685,7 +18676,7 @@ msgstr ""
 "Bitna vrsta polja (M), ki shrani M bitov na vrednost (privzeto je 1, največ "
 "je 64)"
 
-#: src/Types.php:194
+#: src/Types.php:195
 msgid ""
 "A synonym for TINYINT(1), a value of zero is considered false, nonzero "
 "values are considered true"
@@ -18693,21 +18684,21 @@ msgstr ""
 "Sopomenka za TINYINT(1); ničelna vrednost se obravnava kot ni res, neničelne "
 "vrednosti se obravnavajo kot res"
 
-#: src/Types.php:196
+#: src/Types.php:197
 msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr "Vzdevek za BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 
-#: src/Types.php:198
+#: src/Types.php:199
 #, php-format
 msgid "A date, supported range is %1$s to %2$s"
 msgstr "Datum; podprt je razpon od %1$s do %2$s"
 
-#: src/Types.php:203
+#: src/Types.php:204
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr "Kombinacija datuma in časa; podprt je razpon od %1$s do %2$s"
 
-#: src/Types.php:208
+#: src/Types.php:209
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-19 03:14:07 UTC on "
 "32-bit platforms (MariaDB 11.3 and earlier), and up to 2106-02-07 06:28:15 "
@@ -18719,12 +18710,12 @@ msgstr ""
 "na 64-bitnih platformah (MariaDB 11.5 in pozneje), shranjeno kot število "
 "sekund od dobe (1970-01-01 00:00:00 UTC)"
 
-#: src/Types.php:214
+#: src/Types.php:215
 #, php-format
 msgid "A time, range is %1$s to %2$s"
 msgstr "Čas; razpon je od %1$s do %2$s"
 
-#: src/Types.php:219
+#: src/Types.php:220
 msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
@@ -18732,7 +18723,7 @@ msgstr ""
 "Leto v obliki s štirimi (4, privzeto) ali dvema (2) števkama; dovoljene so "
 "vrednosti od 70 (1970) do 69 (2069) ali od 1901 do 2155 in 0000"
 
-#: src/Types.php:224
+#: src/Types.php:225
 msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
@@ -18740,7 +18731,7 @@ msgstr ""
 "Niz stalne dolžine (0–255, privzeto 1), ki je ob shranjevanju vedno z desne "
 "zapolnjen s presledki do določene dolžine"
 
-#: src/Types.php:229
+#: src/Types.php:230
 #, php-format
 msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
@@ -18749,7 +18740,7 @@ msgstr ""
 "Niz spremenljive dolžine (%s); učinkujoča največja dolžina je odvisna od "
 "največje dolžine stolpca"
 
-#: src/Types.php:234
+#: src/Types.php:235
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
@@ -18757,7 +18748,7 @@ msgstr ""
 "Stolpec TEXT, dolg največ 255 (2^8 - 1) znakov, shranjen z enobajtno "
 "predpono, ki nakazuje dolžino vrednosti v bajtih"
 
-#: src/Types.php:239
+#: src/Types.php:240
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
@@ -18765,7 +18756,7 @@ msgstr ""
 "Stolpec TEXT, dolg največ 65.535 (2^16 - 1) znakov, shranjen z dvobajtno "
 "predpono, ki nakazuje dolžino vrednosti v bajtih"
 
-#: src/Types.php:244
+#: src/Types.php:245
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
@@ -18773,7 +18764,7 @@ msgstr ""
 "Stolpec TEXT, dolg največ 16.777.215 (2^24 - 1) znakov, shranjen s tribajtno "
 "predpono, ki nakazuje dolžino vrednosti v bajtih"
 
-#: src/Types.php:249
+#: src/Types.php:250
 msgid ""
 "A TEXT column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "characters, stored with a four-byte prefix indicating the length of the "
@@ -18782,7 +18773,7 @@ msgstr ""
 "Stolpec TEXT, dolg največ 4.294.967.295 ali 4 GiB (2^32 - 1) znakov, "
 "shranjen s štiribajtno predpono, ki nakazuje dolžino vrednosti v bajtih"
 
-#: src/Types.php:254
+#: src/Types.php:255
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
@@ -18790,7 +18781,7 @@ msgstr ""
 "Podobno vrsti CHAR, vendar shranjuje dvojiške nize bajtov namesto "
 "nedvojiških nizov znakov"
 
-#: src/Types.php:257
+#: src/Types.php:258
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
@@ -18798,7 +18789,7 @@ msgstr ""
 "Podobno vrsti VARCHAR, vendar shranjuje dvojiške nize bajtov namesto "
 "nedvojiških nizov znakov"
 
-#: src/Types.php:261
+#: src/Types.php:262
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
@@ -18806,7 +18797,7 @@ msgstr ""
 "Stolpec BLOB, dolg največ 255 (2^8 - 1) znakov, shranjen z enobajtno "
 "predpono, ki nakazuje dolžino vrednosti v bajtih"
 
-#: src/Types.php:265
+#: src/Types.php:266
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
@@ -18814,7 +18805,7 @@ msgstr ""
 "Stolpec BLOB, dolg največ 16.777.215 (2^24 - 1) znakov, shranjen s tribajtno "
 "predpono, ki nakazuje dolžino vrednosti v bajtih"
 
-#: src/Types.php:270
+#: src/Types.php:271
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
@@ -18822,7 +18813,7 @@ msgstr ""
 "Stolpec BLOB, dolg največ 65.535 (2^16 - 1) znakov, shranjen z dvobajtno "
 "predpono, ki nakazuje dolžino vrednosti v bajtih"
 
-#: src/Types.php:274
+#: src/Types.php:275
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
@@ -18830,7 +18821,7 @@ msgstr ""
 "Stolpec BLOB, dolg največ 4.294.967.295 ali 4 GiB (2^32 - 1) znakov, "
 "shranjen s štiribajtno predpono, ki nakazuje dolžino vrednosti v bajtih"
 
-#: src/Types.php:278
+#: src/Types.php:279
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
@@ -18838,43 +18829,43 @@ msgstr ""
 "Naštevanje, izbrano s seznama do 65.535 vrednosti ali posebne vrednosti "
 "napake ''"
 
-#: src/Types.php:279
+#: src/Types.php:280
 msgid "A single value chosen from a set of up to 64 members"
 msgstr "Ena vrednost, izbrana iz množice z največ 64 člani"
 
-#: src/Types.php:280
+#: src/Types.php:281
 msgid "A type that can store a geometry of any type"
 msgstr "Vrsta, ki lahko shrani katero koli geometrijsko vrsto"
 
-#: src/Types.php:281
+#: src/Types.php:282
 msgid "A point in 2-dimensional space"
 msgstr "Točka v dvodimenzionalnem prostoru"
 
-#: src/Types.php:282
+#: src/Types.php:283
 msgid "A curve with linear interpolation between points"
 msgstr "Krivulja z linearno interpolacijo med točkami"
 
-#: src/Types.php:283
+#: src/Types.php:284
 msgid "A polygon"
 msgstr "Večkotnik"
 
-#: src/Types.php:284
+#: src/Types.php:285
 msgid "A collection of points"
 msgstr "Zbirka točk"
 
-#: src/Types.php:285
+#: src/Types.php:286
 msgid "A collection of curves with linear interpolation between points"
 msgstr "Zbirka krivulj z linearno interpolacijo med točkami"
 
-#: src/Types.php:286
+#: src/Types.php:287
 msgid "A collection of polygons"
 msgstr "Zbirka večkotnikov"
 
-#: src/Types.php:287
+#: src/Types.php:288
 msgid "A collection of geometry objects of any type"
 msgstr "Zbirka geometrijskih objektov katere koli vrste"
 
-#: src/Types.php:288
+#: src/Types.php:289
 msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
@@ -18882,7 +18873,7 @@ msgstr ""
 "Shrani in omogoča učinkovit dostop do podatkov v dokumentih JSON (JavaScript "
 "Object Notation)"
 
-#: src/Types.php:289
+#: src/Types.php:290
 msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
@@ -18890,33 +18881,33 @@ msgstr ""
 "Namenjeno shranjevanju naslovov IPv6, kakor tudi naslovov IPv4, "
 "predpostavljajoč običajno preslikavo naslovov IPv4 v naslove IPv6"
 
-#: src/Types.php:292
+#: src/Types.php:293
 msgid "128-bit UUID (Universally Unique Identifier)"
 msgstr ""
 "128-bitni UUID (vsesplošno edinstven označevalnik, Universally Unique "
 "Identifier)"
 
-#: src/Types.php:293
+#: src/Types.php:294
 msgid ""
 "Stores vector data optimized for operations such as similarity search and "
 "machine learning applications"
 msgstr ""
 
-#: src/Types.php:295
+#: src/Types.php:296
 msgid "Intended for storage of XML data"
 msgstr ""
 
-#: src/Types.php:606
+#: src/Types.php:607
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr "Numerično"
 
-#: src/Types.php:624
+#: src/Types.php:625
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "Datum in čas"
 
-#: src/Types.php:654
+#: src/Types.php:655
 msgctxt "spatial types"
 msgid "Spatial"
 msgstr "Prostorsko"
@@ -18960,6 +18951,24 @@ msgstr "Napaka v arhivu ZIP:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "V arhivu ZIP ni bilo najdenih datotek!"
+
+#~ msgid ""
+#~ "Disable the default warning that is displayed on the main page if Suhosin "
+#~ "is detected."
+#~ msgstr ""
+#~ "Onemogoči privzeto opozorlo, ki se prikaže na glavni strani, če je zaznan "
+#~ "Suhosin."
+
+#~ msgid "Suhosin warning"
+#~ msgstr "Opozorilo Suhosin"
+
+#, php-format
+#~ msgid ""
+#~ "Server running with Suhosin. Please refer to %sdocumentation%s for "
+#~ "possible issues."
+#~ msgstr ""
+#~ "Strežnik, ki teče z Suhosin. Prosimo, nanašajte se na %sdokumentacijo%s "
+#~ "za morebitna vprašanja."
 
 #~ msgid "Exporting a raw query is not supported for this export method."
 #~ msgstr "Izvoz surove poizvedbe ni podprt pri tej metodi izvoza."

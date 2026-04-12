@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-04-05 00:43+0000\n"
+"POT-Creation-Date: 2026-04-12 00:44+0000\n"
 "PO-Revision-Date: 2023-11-25 02:27+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -769,8 +769,8 @@ msgstr "Kohanda õiguseid"
 #: resources/templates/columns_definitions/table_fields_definitions.twig:66
 #: resources/templates/database/data_dictionary/index.twig:30
 #: resources/templates/table/structure/display_structure.twig:28
-#: src/Config/Descriptions.php:660 src/Config/Descriptions.php:675
-#: src/Config/Descriptions.php:711 src/Plugins/Export/ExportHtmlword.php:313
+#: src/Config/Descriptions.php:658 src/Config/Descriptions.php:673
+#: src/Config/Descriptions.php:709 src/Plugins/Export/ExportHtmlword.php:313
 #: src/Plugins/Export/ExportLatex.php:471 src/Plugins/Export/ExportOdt.php:411
 #: src/Plugins/Export/ExportTexytext.php:309
 #: src/Plugins/Export/Helpers/Pdf.php:493
@@ -789,8 +789,8 @@ msgstr "Liiguta veergu"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:83
 #: resources/templates/database/data_dictionary/index.twig:32
-#: src/Config/Descriptions.php:664 src/Config/Descriptions.php:676
-#: src/Config/Descriptions.php:714 src/Plugins/Export/ExportHtmlword.php:320
+#: src/Config/Descriptions.php:662 src/Config/Descriptions.php:674
+#: src/Config/Descriptions.php:712 src/Plugins/Export/ExportHtmlword.php:320
 #: src/Plugins/Export/ExportOdt.php:418
 #: src/Plugins/Export/ExportTexytext.php:314
 #: src/Plugins/Export/Helpers/Pdf.php:501
@@ -861,7 +861,7 @@ msgstr "Lähtesta"
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:167
 #: src/Html/Generator.php:685 src/Html/MySQLDocumentation.php:51
-#: src/Sanitize.php:188
+#: src/Sanitize.php:189
 msgid "Documentation"
 msgstr "Dokumentatsioon"
 
@@ -1027,7 +1027,7 @@ msgstr "Korduspäring"
 #: resources/templates/setup/home/index.twig:64
 #: resources/templates/table/structure/display_structure.twig:494
 #: resources/templates/triggers/row.twig:28
-#: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
+#: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:925
 #: src/ConfigStorage/UserGroups.php:113
 #: src/Controllers/JavaScriptMessagesController.php:379
 #: src/Display/Results.php:1876 src/Html/Generator.php:533
@@ -1068,7 +1068,7 @@ msgstr "Kustuta"
 #: resources/templates/table/relation/common_form.twig:38
 #: resources/templates/table/relation/common_form.twig:95
 #: resources/templates/table/relation/foreign_key_row.twig:91
-#: src/Config/Descriptions.php:934 src/Plugins/Export/ExportHtmlword.php:145
+#: src/Config/Descriptions.php:932 src/Plugins/Export/ExportHtmlword.php:145
 #: src/Plugins/Export/ExportOdt.php:182
 #: src/Plugins/Export/ExportTexytext.php:115 src/Server/Privileges.php:1564
 #: src/Server/Privileges.php:1566 src/Server/Status/Processes.php:103
@@ -1079,7 +1079,7 @@ msgstr "Andmebaas"
 msgid "SQL Query Console"
 msgstr "SQL päringu konsool"
 
-#: resources/templates/console/display.twig:16 src/Config/Descriptions.php:766
+#: resources/templates/console/display.twig:16 src/Config/Descriptions.php:764
 msgid "Console"
 msgstr "Konsool"
 
@@ -1108,7 +1108,7 @@ msgid "Bookmarks"
 msgstr "Järjehoidjad"
 
 #: resources/templates/console/display.twig:34
-#: resources/templates/console/display.twig:88 src/Config/Descriptions.php:615
+#: resources/templates/console/display.twig:88 src/Config/Descriptions.php:613
 msgid "Debug SQL"
 msgstr "Silu SQL"
 
@@ -1180,7 +1180,7 @@ msgstr "Aega kulus"
 msgid "Order by:"
 msgstr "Järjesta:"
 
-#: resources/templates/console/display.twig:103 src/Config/Descriptions.php:964
+#: resources/templates/console/display.twig:103 src/Config/Descriptions.php:962
 msgid "Group queries"
 msgstr "Grupeeri päringud"
 
@@ -1208,7 +1208,7 @@ msgstr "Aega kulus:"
 #: resources/templates/console/display.twig:133
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
-#: src/Config/Descriptions.php:928 src/Export/Export.php:696
+#: src/Config/Descriptions.php:927 src/Export/Export.php:697
 #: src/Html/Generator.php:589
 msgid "Refresh"
 msgstr "Uuenda"
@@ -1248,15 +1248,15 @@ msgstr "OK"
 msgid "Restore default values"
 msgstr "Taasta vaikimisi väärtus"
 
-#: resources/templates/console/display.twig:185 src/Config/Descriptions.php:958
+#: resources/templates/console/display.twig:185 src/Config/Descriptions.php:956
 msgid "Always expand query messages"
 msgstr "Laienda päringu teated alati"
 
-#: resources/templates/console/display.twig:189 src/Config/Descriptions.php:957
+#: resources/templates/console/display.twig:189 src/Config/Descriptions.php:955
 msgid "Show query history at start"
 msgstr "Kuva päringu ajalugu alguses"
 
-#: resources/templates/console/display.twig:193 src/Config/Descriptions.php:959
+#: resources/templates/console/display.twig:193 src/Config/Descriptions.php:957
 msgid "Show current browsing query"
 msgstr "Kuva valitud lehitsemise päring"
 
@@ -1268,7 +1268,7 @@ msgstr ""
 "Käivita päringud klahviga Enter ja sisesta reavahetused Shift+Enter "
 "kombinatsiooniga. Selle püsivaks tegemiseks vaata sätteid."
 
-#: resources/templates/console/display.twig:201 src/Config/Descriptions.php:961
+#: resources/templates/console/display.twig:201 src/Config/Descriptions.php:959
 msgid "Switch to dark theme"
 msgstr "Vali tume teema"
 
@@ -1389,8 +1389,8 @@ msgstr "Tegevus"
 #: resources/templates/error/report_modal.twig:11
 #: resources/templates/gis_data_editor_form.twig:76
 #: resources/templates/modals/change_password.twig:11
-#: resources/templates/server/databases/index.twig:315
-#: resources/templates/server/databases/index.twig:319
+#: resources/templates/server/databases/index.twig:321
+#: resources/templates/server/databases/index.twig:325
 #: resources/templates/server/variables/index.twig:15
 #: resources/templates/table/search/index.twig:196
 #: src/Controllers/JavaScriptMessagesController.php:312
@@ -1816,7 +1816,7 @@ msgstr "Definitsioon"
 #: resources/templates/sql/query.twig:40
 #: resources/templates/table/structure/display_table_stats.twig:81
 #: resources/templates/triggers/editor_form.twig:64
-#: src/Config/Descriptions.php:638 src/Config/Descriptions.php:654
+#: src/Config/Descriptions.php:636 src/Config/Descriptions.php:652
 msgid "Format"
 msgstr "Formaat"
 
@@ -1916,7 +1916,7 @@ msgstr "Ekspordi"
 #: resources/templates/indexes.twig:59
 #: resources/templates/server/databases/index.twig:67
 #: resources/templates/server/databases/index.twig:68
-#: resources/templates/server/databases/index.twig:320
+#: resources/templates/server/databases/index.twig:326
 #: resources/templates/table/relation/foreign_key_row.twig:25
 #: resources/templates/table/structure/display_partitions.twig:146
 #: resources/templates/table/structure/display_structure.twig:120
@@ -1925,7 +1925,7 @@ msgstr "Ekspordi"
 #: resources/templates/triggers/list.twig:20
 #: resources/templates/triggers/list.twig:21
 #: resources/templates/triggers/row.twig:52
-#: resources/templates/triggers/row.twig:58 src/Operations.php:538
+#: resources/templates/triggers/row.twig:58 src/Operations.php:534
 msgid "Drop"
 msgstr "Kustuta"
 
@@ -2012,7 +2012,7 @@ msgstr "Tabelid:"
 
 #: resources/templates/database/export/index.twig:22
 #: resources/templates/database/structure/show_create.twig:6
-#: src/Config/Descriptions.php:743
+#: src/Config/Descriptions.php:741
 #: src/Controllers/Server/DatabasesController.php:266
 #: src/Navigation/Nodes/NodeTableContainer.php:23
 #: src/Navigation/Nodes/NodeTableContainer.php:25
@@ -2204,7 +2204,7 @@ msgstr "Kopeeri andmebaas kohta"
 
 #: resources/templates/database/operations/index.twig:123
 #: resources/templates/server/databases/index.twig:24
-#: src/Config/Descriptions.php:885
+#: src/Config/Descriptions.php:884
 msgid "Database name"
 msgstr "Andmebaasi nimi"
 
@@ -2235,10 +2235,10 @@ msgstr "CREATE DATABASE enne kopeerimist"
 
 #: resources/templates/database/operations/index.twig:156
 #: resources/templates/table/operations/index.twig:303
-#: src/Config/Descriptions.php:695 src/Config/Descriptions.php:696
-#: src/Config/Descriptions.php:698 src/Config/Descriptions.php:701
-#: src/Config/Descriptions.php:702 src/Config/Descriptions.php:703
-#: src/Config/Descriptions.php:715
+#: src/Config/Descriptions.php:693 src/Config/Descriptions.php:694
+#: src/Config/Descriptions.php:696 src/Config/Descriptions.php:699
+#: src/Config/Descriptions.php:700 src/Config/Descriptions.php:701
+#: src/Config/Descriptions.php:713
 #, php-format
 msgid "Add %s"
 msgstr "Lisa %s"
@@ -2246,7 +2246,7 @@ msgstr "Lisa %s"
 #: resources/templates/database/operations/index.twig:161
 #: resources/templates/table/operations/index.twig:73
 #: resources/templates/table/operations/index.twig:308
-#: src/Config/Descriptions.php:687
+#: src/Config/Descriptions.php:685
 msgid "Add AUTO_INCREMENT value"
 msgstr "Lisa AUTO_INCREMENT väärtus"
 
@@ -2758,7 +2758,7 @@ msgid "Database:"
 msgstr "Andmebaas:"
 
 #: resources/templates/database/structure/copy_form.twig:31
-#: src/Config/Descriptions.php:898
+#: src/Config/Descriptions.php:897
 msgid "Add DROP TABLE"
 msgstr "Lisa DROP TABLE"
 
@@ -2823,7 +2823,7 @@ msgstr "Kuvatakse loomise päringuid"
 #: resources/templates/table/relation/common_form.twig:102
 #: resources/templates/table/relation/foreign_key_row.twig:102
 #: resources/templates/triggers/editor_form.twig:32
-#: resources/templates/triggers/list.twig:49 src/Config/Descriptions.php:937
+#: resources/templates/triggers/list.twig:49 src/Config/Descriptions.php:935
 #: src/Plugins/Export/ExportXml.php:408 src/Server/Privileges.php:1570
 #: src/Server/Privileges.php:1572
 msgid "Table"
@@ -3137,7 +3137,7 @@ msgstr "Päringu tulemuste tegevused"
 
 #: resources/templates/display/results/table.twig:353
 #: src/Controllers/JavaScriptMessagesController.php:466
-#: src/Export/Export.php:715
+#: src/Export/Export.php:716
 msgid "Copy to clipboard"
 msgstr "Kopeeri lõikelauale"
 
@@ -3302,7 +3302,7 @@ msgid "Save on server in the directory <strong>%s</strong>"
 msgstr "Salvesta serveris kataloogi <strong>%s</strong>"
 
 #: resources/templates/export.twig:176 resources/templates/export.twig:371
-#: src/Config/Descriptions.php:681 src/Config/Descriptions.php:684
+#: src/Config/Descriptions.php:679 src/Config/Descriptions.php:682
 msgid "Overwrite existing file(s)"
 msgstr "Kirjuta olemasolev(ad) fail(id) üle"
 
@@ -3663,7 +3663,7 @@ msgstr "Võta see"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:411
-#: src/Export/Export.php:738 src/Html/Generator.php:849
+#: src/Export/Export.php:739 src/Html/Generator.php:849
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "Tagasi"
@@ -3673,7 +3673,7 @@ msgstr "Tagasi"
 #: resources/templates/preferences/manage/main.twig:11
 #: resources/templates/server/status/monitor/index.twig:53
 #: resources/templates/server/status/monitor/index.twig:69
-#: src/Config/Forms/User/ImportForm.php:58 src/Menu.php:250 src/Menu.php:357
+#: src/Config/Forms/User/ImportForm.php:59 src/Menu.php:250 src/Menu.php:357
 #: src/Menu.php:474 src/Util.php:1367 src/Util.php:1382 src/Util.php:1399
 msgid "Import"
 msgstr "Impordi"
@@ -4013,8 +4013,8 @@ msgstr "SQL üleslaadimine"
 #: resources/templates/server/export/index.twig:7
 #: resources/templates/server/export/index.twig:14
 #: resources/templates/server/privileges/user_properties.twig:20
-#: src/Config/ConfigFile.php:576 src/Config/Descriptions.php:728
-#: src/Config/Descriptions.php:739 src/Menu.php:440 src/Util.php:1362
+#: src/Config/ConfigFile.php:576 src/Config/Descriptions.php:726
+#: src/Config/Descriptions.php:737 src/Menu.php:440 src/Util.php:1362
 msgid "Databases"
 msgstr "Andmebaasid"
 
@@ -4038,7 +4038,7 @@ msgid "Recent"
 msgstr "Hiljutised"
 
 #: resources/templates/navigation/tree/quick_warp.twig:16
-#: src/Config/Descriptions.php:835
+#: src/Config/Descriptions.php:834
 msgid "Favorite tables"
 msgstr "Lemmikute tabel"
 
@@ -4076,17 +4076,17 @@ msgid "Features"
 msgstr "Funktsionaalsused"
 
 #: resources/templates/preferences/header.twig:24
-#: src/Config/Descriptions.php:757 src/Config/Forms/User/SqlForm.php:38
+#: src/Config/Descriptions.php:755 src/Config/Forms/User/SqlForm.php:38
 msgid "SQL queries"
 msgstr "SQL päringud"
 
 #: resources/templates/preferences/header.twig:30
-#: src/Config/Descriptions.php:740 src/Config/Forms/User/NaviForm.php:57
+#: src/Config/Descriptions.php:738 src/Config/Forms/User/NaviForm.php:57
 msgid "Navigation panel"
 msgstr "Navigeerimise paneel"
 
 #: resources/templates/preferences/header.twig:36
-#: src/Config/Descriptions.php:744 src/Config/Forms/User/MainForm.php:76
+#: src/Config/Descriptions.php:742 src/Config/Forms/User/MainForm.php:76
 msgid "Main panel"
 msgstr "Peapaneel"
 
@@ -4552,13 +4552,28 @@ msgstr "Kontrolli \"%s\" andmebaasi õigusi."
 msgid "Check privileges"
 msgstr "Kontrolli õigusi"
 
-#: resources/templates/server/databases/index.twig:249
+#: resources/templates/server/databases/index.twig:244
+#, fuzzy, php-format
+#| msgid "Run SQL query/queries on database %s"
+msgid "Run SQL queries on database \"%s\"."
+msgstr "Teosta SQL päring(ud) %s andmebaasis"
+
+#: resources/templates/server/databases/index.twig:245
+#: src/Config/ConfigFile.php:520 src/Config/ConfigFile.php:534
+#: src/Config/ConfigFile.php:588 src/Config/ConfigFile.php:598
+#: src/Config/Descriptions.php:753 src/Menu.php:219 src/Menu.php:327
+#: src/Menu.php:445 src/Navigation/Nodes/NodeTable.php:242 src/Util.php:1065
+#: src/Util.php:1363 src/Util.php:1378 src/Util.php:1395
+msgid "SQL"
+msgstr "SQL"
+
+#: resources/templates/server/databases/index.twig:255
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:34
 #: src/Controllers/JavaScriptMessagesController.php:293
 msgid "Total:"
 msgstr "Kokku:"
 
-#: resources/templates/server/databases/index.twig:294
+#: resources/templates/server/databases/index.twig:300
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -4566,16 +4581,16 @@ msgstr ""
 "Märkus: Statistika lubamine võib põhjustada koormava liikluse veebiserveri "
 "ja MySQL serveri vahel."
 
-#: resources/templates/server/databases/index.twig:296
-#: resources/templates/server/databases/index.twig:297
+#: resources/templates/server/databases/index.twig:302
+#: resources/templates/server/databases/index.twig:303
 msgid "Enable statistics"
 msgstr "Luba statistika"
 
-#: resources/templates/server/databases/index.twig:304
+#: resources/templates/server/databases/index.twig:310
 msgid "No databases"
 msgstr "Andmebaasid puuduvad"
 
-#: resources/templates/server/databases/index.twig:314
+#: resources/templates/server/databases/index.twig:320
 #: src/Controllers/JavaScriptMessagesController.php:337
 msgid "Confirm"
 msgstr "Kinnita"
@@ -5631,7 +5646,7 @@ msgid "Current server:"
 msgstr "Praegune server:"
 
 #: resources/templates/server/select/index.twig:6
-#: resources/templates/setup/home/index.twig:34 src/Config/Descriptions.php:742
+#: resources/templates/setup/home/index.twig:34 src/Config/Descriptions.php:740
 msgid "Servers"
 msgstr "Serverid"
 
@@ -5713,7 +5728,7 @@ msgid "Test:"
 msgstr "Test:"
 
 #: resources/templates/server/status/base.twig:6
-#: src/Config/Descriptions.php:936
+#: src/Config/Descriptions.php:934
 msgid "Server"
 msgstr "Server"
 
@@ -6334,7 +6349,7 @@ msgstr "Näita vormi"
 msgid "Show hidden messages"
 msgstr "Kuva peidetud sõnumid"
 
-#: resources/templates/setup/home/index.twig:51 src/Config/Descriptions.php:866
+#: resources/templates/setup/home/index.twig:51 src/Config/Descriptions.php:865
 msgid "Authentication type"
 msgstr "Autentimise tüüp"
 
@@ -6416,7 +6431,7 @@ msgid "Detailed profile"
 msgstr "Detailne profiil"
 
 #: resources/templates/sql/profiling_chart.twig:11
-#: src/Config/Descriptions.php:965
+#: src/Config/Descriptions.php:963
 msgid "Order"
 msgstr "Järjestus"
 
@@ -6477,7 +6492,7 @@ msgstr "Pirukagraafik profileerimise tulemustega."
 #: src/Controllers/Table/Partition/RepairController.php:49
 #: src/Controllers/Table/Partition/TruncateController.php:50
 #: src/Controllers/Table/RelationController.php:147
-#: src/Database/Routines.php:1033 src/Display/Results.php:2974
+#: src/Database/Routines.php:1033 src/Display/Results.php:2968
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "Sinu SQL päring teostati edukalt."
@@ -6523,7 +6538,7 @@ msgstr "Eraldaja"
 msgid "Show this query here again"
 msgstr "Näita seda päringut siin uuesti"
 
-#: resources/templates/sql/query.twig:130 src/Config/Descriptions.php:923
+#: resources/templates/sql/query.twig:130 src/Config/Descriptions.php:922
 msgid "Retain query box"
 msgstr "Säilita päringu kast"
 
@@ -6998,7 +7013,7 @@ msgid "Delete the view (DROP)"
 msgstr "Kustuta vaade (DROP)"
 
 #: resources/templates/table/page_with_secondary_tabs.twig:5
-#: src/Config/Descriptions.php:760 src/Plugins/Export/ExportPdf.php:170
+#: src/Config/Descriptions.php:758 src/Plugins/Export/ExportPdf.php:170
 msgid "Table structure"
 msgstr "Tabeli struktuur"
 
@@ -7165,32 +7180,32 @@ msgid "Index length"
 msgstr "Indeksi pikkus"
 
 #: resources/templates/table/structure/display_partitions.twig:85
-#: src/Operations.php:526
+#: src/Operations.php:522
 msgid "Analyze"
 msgstr "Analüüsi"
 
 #: resources/templates/table/structure/display_partitions.twig:95
-#: src/Operations.php:527
+#: src/Operations.php:523
 msgid "Check"
 msgstr "Kontrolli"
 
 #: resources/templates/table/structure/display_partitions.twig:105
-#: src/Operations.php:528
+#: src/Operations.php:524
 msgid "Optimize"
 msgstr "Optimeeri"
 
 #: resources/templates/table/structure/display_partitions.twig:115
-#: src/Operations.php:529
+#: src/Operations.php:525
 msgid "Rebuild"
 msgstr "Loo uuesti"
 
 #: resources/templates/table/structure/display_partitions.twig:125
-#: src/Operations.php:530
+#: src/Operations.php:526
 msgid "Repair"
 msgstr "Paranda"
 
 #: resources/templates/table/structure/display_partitions.twig:135
-#: src/Operations.php:531
+#: src/Operations.php:527
 msgid "Truncate"
 msgstr "Kärbi"
 
@@ -9067,14 +9082,6 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Vietnami"
 
-#: src/Config/ConfigFile.php:520 src/Config/ConfigFile.php:534
-#: src/Config/ConfigFile.php:588 src/Config/ConfigFile.php:598
-#: src/Config/Descriptions.php:755 src/Menu.php:219 src/Menu.php:327
-#: src/Menu.php:445 src/Navigation/Nodes/NodeTable.php:242 src/Util.php:1065
-#: src/Util.php:1363 src/Util.php:1378 src/Util.php:1395
-msgid "SQL"
-msgstr "SQL"
-
 #: src/Config/ConfigFile.php:545 src/Config/ConfigFile.php:557
 #: src/Config/ConfigFile.php:565
 msgid "Icons"
@@ -9252,19 +9259,19 @@ msgstr "mõlemad ülal nimetatuist"
 msgid "neither of the above"
 msgstr "mitte kumbki ülal nimetatuist"
 
-#: src/Config/Descriptions.php:61 src/Config/Descriptions.php:62
-#: src/Config/Descriptions.php:63
+#: src/Config/Descriptions.php:62 src/Config/Descriptions.php:63
+#: src/Config/Descriptions.php:64
 msgid "Users cannot set a higher value"
 msgstr "Kasutajad ei saa määrata kõrgemat väärtust"
 
-#: src/Config/Descriptions.php:76
+#: src/Config/Descriptions.php:77
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
 "Kui lubatud, siis kasutaja saab küpsisega autentimisega siseneda mistahes "
 "MySQL serverisse."
 
-#: src/Config/Descriptions.php:79
+#: src/Config/Descriptions.php:80
 msgid ""
 "Restricts the MySQL servers the user can enter when a login to an arbitrary "
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
@@ -9274,7 +9281,7 @@ msgstr ""
 "aadressid või hosti nimed, et kasutaja saaks sisse logida ainult "
 "konkreetsetesse MySQL serveritesse."
 
-#: src/Config/Descriptions.php:84
+#: src/Config/Descriptions.php:85
 msgid ""
 "Enabling this allows a page located on a different domain to call phpMyAdmin "
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
@@ -9284,49 +9291,49 @@ msgstr ""
 "lehte, kuid see on potentsiaalne [strong]turvaauk[/strong], sest võimaldab "
 "rist-raamimise skriptimise (XSS) rünnakuid."
 
-#: src/Config/Descriptions.php:89
+#: src/Config/Descriptions.php:90
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication."
 msgstr ""
 "Turvasõna kasutatakse [kbd]cookie[/kbd] autentimisel küpsiste krüptimiseks."
 
-#: src/Config/Descriptions.php:91
+#: src/Config/Descriptions.php:92
 msgid "Enable bzip2 compression for import operations."
 msgstr "Luba importimistel bzip2 tihendamine."
 
-#: src/Config/Descriptions.php:92
+#: src/Config/Descriptions.php:93
 msgid "Enter the URL for your reCAPTCHA v2 compatible API."
 msgstr "Sisesta oma reCaptcha v2-ga ühilduva teenuse aadress."
 
-#: src/Config/Descriptions.php:93
+#: src/Config/Descriptions.php:94
 msgid ""
 "Enter the Content-Security-Policy snippet for your reCAPTCHA v2 compatible "
 "API."
 msgstr ""
 "Sisesta reCAPTCHA v2-ga ühilduva API sisuturvalisuse-poliitika väljavõte."
 
-#: src/Config/Descriptions.php:94
+#: src/Config/Descriptions.php:95
 msgid "Enter the request parameter used by your reCAPTCHA v2 compatible API."
 msgstr "Sisestage reCAPTCHA v2-ga ühilduva API päringuparameeter."
 
-#: src/Config/Descriptions.php:95
+#: src/Config/Descriptions.php:96
 msgid "Enter the response parameter used by your reCAPTCHA v2 compatible API."
 msgstr "Sisesta oma reCAPTCHA v2-ga ühilduva API vastuse parameeter."
 
-#: src/Config/Descriptions.php:96
+#: src/Config/Descriptions.php:97
 msgid "Enter your public key for the reCAPTCHA service on your domain."
 msgstr "Sisesta oma domeeni reCAPTCHA teenuse avalik võti."
 
-#: src/Config/Descriptions.php:97
+#: src/Config/Descriptions.php:98
 msgid "Enter your private key for your domain reCAPTCHA service."
 msgstr "Sisesta oma domeeni reCAPTCHA teenuse salajane võti."
 
-#: src/Config/Descriptions.php:98
+#: src/Config/Descriptions.php:99
 msgid "Enter your siteverify URL for your reCAPTCHA service."
 msgstr "Sisesta reCAPTCHA teenuse siteverify aadress."
 
-#: src/Config/Descriptions.php:100
+#: src/Config/Descriptions.php:101
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
@@ -9336,7 +9343,7 @@ msgstr ""
 "kasutada. [kbd]input[/kbd] - lubab piirata sisendi pikkust, [kbd]textarea[/"
 "kbd] - lubab veergudes kasutada uusi ridu (newlines)."
 
-#: src/Config/Descriptions.php:105
+#: src/Config/Descriptions.php:106
 msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
@@ -9344,14 +9351,14 @@ msgstr ""
 "Kasuta SQL päringute muutmiseks kasutajasõbralikku toimetit (CodeMirror), "
 "mis toetab süntaksi esiletõstu ja ridade nummerdamist."
 
-#: src/Config/Descriptions.php:110
+#: src/Config/Descriptions.php:111
 msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
 msgstr ""
 "Leia kõik vead enne päringu käivitamist. CodeMirror peab olema lubatud."
 
-#: src/Config/Descriptions.php:113
+#: src/Config/Descriptions.php:114
 msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns."
@@ -9359,7 +9366,7 @@ msgstr ""
 "Määrab CHAR ja VARCHAR veergude jaoks loodud sisestusväljade minimaalse "
 "laiuse."
 
-#: src/Config/Descriptions.php:116
+#: src/Config/Descriptions.php:117
 msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns."
@@ -9367,7 +9374,7 @@ msgstr ""
 "Määrab CHAR ja VARCHAR veergude jaoks loodud sisestusväljade maksimaalse "
 "laiuse."
 
-#: src/Config/Descriptions.php:119
+#: src/Config/Descriptions.php:120
 msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature."
@@ -9375,7 +9382,7 @@ msgstr ""
 "Tihenda gzip eksportimised lennult vajamata suuri mälumahtusid. Kui sul "
 "esineb loodud gzip failidega probleeme, siis keela see funktsionaalsus."
 
-#: src/Config/Descriptions.php:123
+#: src/Config/Descriptions.php:124
 msgid ""
 "Whether a warning (\"Are your really sure…\") should be displayed when "
 "you're about to lose data."
@@ -9383,15 +9390,15 @@ msgstr ""
 "Kas hoiatusi (\"Kindel, et soovid…\") peaks näitama, kuid oled andmeid "
 "kaotamas."
 
-#: src/Config/Descriptions.php:126
+#: src/Config/Descriptions.php:127
 msgid "Autocomplete of the table and column names in the SQL queries."
 msgstr "Automaatne tabelite ja veergude nimede lõpetamine SQL päringutes."
 
-#: src/Config/Descriptions.php:129 src/Config/Descriptions.php:133
-#: src/Config/Descriptions.php:137 src/Config/Descriptions.php:141
-#: src/Config/Descriptions.php:145 src/Config/Descriptions.php:149
-#: src/Config/Descriptions.php:153 src/Config/Descriptions.php:157
-#: src/Config/Descriptions.php:161
+#: src/Config/Descriptions.php:130 src/Config/Descriptions.php:134
+#: src/Config/Descriptions.php:138 src/Config/Descriptions.php:142
+#: src/Config/Descriptions.php:146 src/Config/Descriptions.php:150
+#: src/Config/Descriptions.php:154 src/Config/Descriptions.php:158
+#: src/Config/Descriptions.php:162
 msgid ""
 "Values for options list for default transformations. These will be "
 "overwritten if transformation is filled in at table structure page."
@@ -9399,7 +9406,7 @@ msgstr ""
 "Vaikimisi teisenduste suvandite loendi väärtused. Need kirjutatase üle, kui "
 "teisendus täidetakse tabeli struktuuri lehel."
 
-#: src/Config/Descriptions.php:165
+#: src/Config/Descriptions.php:166
 msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
@@ -9407,19 +9414,19 @@ msgstr ""
 "Keela tabeli hoolduse massilised tegevused (nt andmebaasi valitud tabelite "
 "optimeerimine või parandamine)."
 
-#: src/Config/Descriptions.php:169
+#: src/Config/Descriptions.php:170
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)."
 msgstr ""
 "Määra skripti lubatud töötamise aeg sekundites ([kbd]0[/kbd] - piiramatu)."
 
-#: src/Config/Descriptions.php:171 src/Config/Descriptions.php:708
+#: src/Config/Descriptions.php:172 src/Config/Descriptions.php:706
 #: src/Plugins/Export/ExportSql.php:365
 msgid "Exclude definition of current user"
 msgstr "Välista praeguse kasutaja definitsioon"
 
-#: src/Config/Descriptions.php:173
+#: src/Config/Descriptions.php:174
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
@@ -9427,7 +9434,7 @@ msgstr ""
 "Vali sorteerimise järjekord võõrvõtme rippmenüü kasti üksustele. "
 "[kbd]content[/kbd] on viidatud andmed, [kbd]id[/kbd] on võtme väärtus."
 
-#: src/Config/Descriptions.php:177
+#: src/Config/Descriptions.php:178
 msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
@@ -9436,7 +9443,7 @@ msgstr ""
 "mõledud maagiliste sõnede kasutamist vaata [doc@faq6-27]dokumentatsioonist[/"
 "doc]."
 
-#: src/Config/Descriptions.php:182
+#: src/Config/Descriptions.php:183
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL."
@@ -9444,7 +9451,7 @@ msgstr ""
 "Palun pane tähele, et phpMyAdmin on lihtsalt kasutajaliides ja tema "
 "funktsionaalsus ei piira MySQL'i."
 
-#: src/Config/Descriptions.php:185
+#: src/Config/Descriptions.php:186
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for."
@@ -9452,7 +9459,7 @@ msgstr ""
 "Täpsem serveri seadistus, ära muuda neid valikuid, kui sa ei tea, mille "
 "jaoks need on."
 
-#: src/Config/Descriptions.php:188
+#: src/Config/Descriptions.php:189
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
@@ -9462,7 +9469,7 @@ msgstr ""
 "lisafunktsionaalsusele. Vaata dokumentatsioonist [doc@linked-"
 "tables]phpMyAdmin configuration storage[/doc]."
 
-#: src/Config/Descriptions.php:193
+#: src/Config/Descriptions.php:194
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
@@ -9470,116 +9477,116 @@ msgstr ""
 "Andmebaasis tehtud muudatuste jälgimine. Vajab phpMyAdmini seadistuse "
 "salvestust."
 
-#: src/Config/Descriptions.php:196
+#: src/Config/Descriptions.php:197
 msgid "Customize browse mode."
 msgstr "Kohanda sirvimise viisi."
 
-#: src/Config/Descriptions.php:197 src/Config/Descriptions.php:198
-#: src/Config/Descriptions.php:205 src/Config/Descriptions.php:211
-#: src/Config/Descriptions.php:212 src/Config/Descriptions.php:217
+#: src/Config/Descriptions.php:198 src/Config/Descriptions.php:199
+#: src/Config/Descriptions.php:206 src/Config/Descriptions.php:212
+#: src/Config/Descriptions.php:213 src/Config/Descriptions.php:218
 msgid "Customize default options."
 msgstr "Kohanda vaikimisi valikuid."
 
-#: src/Config/Descriptions.php:199
+#: src/Config/Descriptions.php:200
 msgid "Settings for phpMyAdmin developers."
 msgstr "phpMyAdmini arendajate sätted."
 
-#: src/Config/Descriptions.php:200
+#: src/Config/Descriptions.php:201
 msgid "Customize edit mode."
 msgstr "Kohanda muutmise vaadet."
 
-#: src/Config/Descriptions.php:201
+#: src/Config/Descriptions.php:202
 msgid "Customize default export options."
 msgstr "Muuda vaikimisi ekspordi valikuid."
 
-#: src/Config/Descriptions.php:202
+#: src/Config/Descriptions.php:203
 msgid "Set some commonly used options."
 msgstr "Määra mõningaid enamasti kasutatavaid valikuid."
 
-#: src/Config/Descriptions.php:203
+#: src/Config/Descriptions.php:204
 msgid "Customize default common import options."
 msgstr "Kohanda vaikimisi tavalise importimise valikuid."
 
-#: src/Config/Descriptions.php:204
+#: src/Config/Descriptions.php:205
 msgid "Set import and export directories and compression options."
 msgstr "Määra impordi ja ekspordi kataloogid ja tihendamise valikud."
 
-#: src/Config/Descriptions.php:206
+#: src/Config/Descriptions.php:207
 msgid "Databases display options."
 msgstr "Andmebaaside näitamise valikud."
 
-#: src/Config/Descriptions.php:207
+#: src/Config/Descriptions.php:208
 msgid "Customize appearance of the navigation panel."
 msgstr "Muuda navigeerimise paneeli välimust."
 
-#: src/Config/Descriptions.php:208
+#: src/Config/Descriptions.php:209
 msgid "Customize the navigation tree."
 msgstr "Muuda navigeerimispuud."
 
-#: src/Config/Descriptions.php:209
+#: src/Config/Descriptions.php:210
 msgid "Servers display options."
 msgstr "Serverite näitamise valikud."
 
-#: src/Config/Descriptions.php:210
+#: src/Config/Descriptions.php:211
 msgid "Tables display options."
 msgstr "Tabelite näitamise valikud."
 
-#: src/Config/Descriptions.php:213
+#: src/Config/Descriptions.php:214
 msgid "Settings that didn't fit anywhere else."
 msgstr "Sätted, mis mujale ei sobi."
 
-#: src/Config/Descriptions.php:214
+#: src/Config/Descriptions.php:215
 msgid "Authentication settings."
 msgstr "Autentimise sätted."
 
-#: src/Config/Descriptions.php:215
+#: src/Config/Descriptions.php:216
 msgid "Enter server connection parameters."
 msgstr "Sisesta serveri ühenduse parameetrid."
 
-#: src/Config/Descriptions.php:216
+#: src/Config/Descriptions.php:217
 msgid "Customize links shown in SQL Query boxes."
 msgstr "Kohanda linke, mida näidatakse SQL päringu kastides."
 
-#: src/Config/Descriptions.php:218
+#: src/Config/Descriptions.php:219
 msgid "SQL queries settings."
 msgstr "SQL päringute sätted."
 
-#: src/Config/Descriptions.php:219
+#: src/Config/Descriptions.php:220
 msgid "Customize startup page."
 msgstr "Muuda esimest lehte."
 
-#: src/Config/Descriptions.php:220
+#: src/Config/Descriptions.php:221
 msgid ""
 "Choose which details to show in the database structure (list of tables)."
 msgstr ""
 "Vali need detailid, mida soovid näha andmebaasi struktuuris (tabelite "
 "nimekirjas)."
 
-#: src/Config/Descriptions.php:221
+#: src/Config/Descriptions.php:222
 msgid "Settings for the table structure (list of columns)."
 msgstr "Tabeli struktuuri sätted (veergude nimekiri)."
 
-#: src/Config/Descriptions.php:222
+#: src/Config/Descriptions.php:223
 msgid "Choose how you want tabs to work."
 msgstr "Vali, kuidas sa tahaksid, et vahelehed toimiksid."
 
-#: src/Config/Descriptions.php:223
+#: src/Config/Descriptions.php:224
 msgid "Customize text input fields."
 msgstr "Muuda teksti lisamise väljasid."
 
-#: src/Config/Descriptions.php:224
+#: src/Config/Descriptions.php:225
 msgid "Customize default options"
 msgstr "Kohanda vaikimisi valikuid"
 
-#: src/Config/Descriptions.php:225
+#: src/Config/Descriptions.php:226
 msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr "Keela mõned phpMyAdmini poolt näidatavad hoiatused."
 
-#: src/Config/Descriptions.php:227
+#: src/Config/Descriptions.php:228
 msgid "Enable gzip compression for import and export operations."
 msgstr "Luba importimistel ja eksportimistel gzip tihendamine."
 
-#: src/Config/Descriptions.php:229
+#: src/Config/Descriptions.php:230
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed."
@@ -9587,7 +9594,7 @@ msgstr ""
 "Kui see on lubatud, siis phpMyAdmin jätkab multi-käsu päringute sooritamist "
 "ka sel juhul, kui üks päringutest ebaõnnestub."
 
-#: src/Config/Descriptions.php:233
+#: src/Config/Descriptions.php:234
 msgid ""
 "Allow interrupt of import in case script detects it is close to time limit. "
 "This might be a good way to import large files, however it can break "
@@ -9597,7 +9604,7 @@ msgstr ""
 "ajapiirangut. See on hea moodus importida suuri faile, kuid siiski võib see "
 "katkestada ülekanded."
 
-#: src/Config/Descriptions.php:238
+#: src/Config/Descriptions.php:239
 msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available."
@@ -9605,15 +9612,15 @@ msgstr ""
 "Vaikimisi formaat. Võta teadmiseks, et see nimekiri sõltub asukohast "
 "(andmebaas, tabel) ja ainult siis, kui SQL on alati saadaval."
 
-#: src/Config/Descriptions.php:241 src/Config/Descriptions.php:242
+#: src/Config/Descriptions.php:242 src/Config/Descriptions.php:243
 msgid "Update data when duplicate keys found on import"
 msgstr "Värskenda andmeid, kui importimisel avastatakse topeltvõtmeid"
 
-#: src/Config/Descriptions.php:243
+#: src/Config/Descriptions.php:244
 msgid "Number of queries to skip from start."
 msgstr "Päringute hulk, mida alguses vahele jätta."
 
-#: src/Config/Descriptions.php:245
+#: src/Config/Descriptions.php:246
 msgid ""
 "If TRUE, logout deletes cookies for all servers; when set to FALSE, logout "
 "only occurs for the current server. Setting this to FALSE makes it easy to "
@@ -9624,7 +9631,7 @@ msgstr ""
 "FALSE puhul on lihtne ära unustada välja logimast teistest serveritest, kui "
 "ühendatud on mitme serveriga."
 
-#: src/Config/Descriptions.php:250
+#: src/Config/Descriptions.php:251
 msgid ""
 "Define whether the previous login should be recalled or not in [kbd]cookie[/"
 "kbd] authentication mode."
@@ -9632,7 +9639,7 @@ msgstr ""
 "Määra, kas [kbd]küpsisega[/kbd] autentimisel kutsutakse tagasi eelmine "
 "sisselogimine või mitte."
 
-#: src/Config/Descriptions.php:254
+#: src/Config/Descriptions.php:255
 msgid ""
 "Defines how long (in seconds) a login cookie should be stored in browser. "
 "The default of 0 means that it will be kept for the existing session only, "
@@ -9644,24 +9651,24 @@ msgstr ""
 "seansi jaoks ja kustutatakse niipea, kui sulged veebilehitseja akna. Seda on "
 "soovitatav kasutada mitteusaldusväärses keskkonnas."
 
-#: src/Config/Descriptions.php:260
+#: src/Config/Descriptions.php:261
 msgid "Maximum number of characters used when a SQL query is displayed."
 msgstr "SQL päringu kuvamiseks kasutatav suurim sümbolite hulk."
 
-#: src/Config/Descriptions.php:263
+#: src/Config/Descriptions.php:264
 msgid ""
 "The number of items that can be displayed on each page on the first level of "
 "the navigation tree."
 msgstr ""
 "Igal lehel navigeerimispuu esimesel tasemel näidatavate elementide arv."
 
-#: src/Config/Descriptions.php:266
+#: src/Config/Descriptions.php:267
 msgid ""
 "The number of items that can be displayed on each page of the navigation "
 "tree."
 msgstr "Iga lehe navigeerimispuus näidatavate elementide arv."
 
-#: src/Config/Descriptions.php:269
+#: src/Config/Descriptions.php:270
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, \"Previous\" and \"Next\" links will be shown."
@@ -9669,7 +9676,7 @@ msgstr ""
 "Näidatavate ridade hulk tulemuses. Kui tulemus sisaldab rohkem ridu, siis "
 "näidatakse \"Eelmine\" ja \"Järgmine\" linke."
 
-#: src/Config/Descriptions.php:274
+#: src/Config/Descriptions.php:275
 msgid ""
 "The number of bytes a script is allowed to allocate, e.g. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
@@ -9677,22 +9684,22 @@ msgstr ""
 "Baitide hulk, mida skriptil on lubatud kasutada, nt [kbd]32M[/kbd] ([kbd]-1[/"
 "kbd] - piiramatu, [kbd]0[/kbd] ei muuda)."
 
-#: src/Config/Descriptions.php:278
+#: src/Config/Descriptions.php:279
 msgid "In the navigation panel, replaces the database tree with a selector"
 msgstr "Asendab navigeerimispaneelil andmebaasi puu valijaga"
 
-#: src/Config/Descriptions.php:281
+#: src/Config/Descriptions.php:282
 msgid "Link with main panel by highlighting the current database or table."
 msgstr "Lingi peapaneeliga tõstes esile aktiivse andmebaasi või tabeli."
 
-#: src/Config/Descriptions.php:284
+#: src/Config/Descriptions.php:285
 msgid ""
 "Open the linked page in the main window ([code]main[/code]) or in a new one "
 "([code]new[/code])."
 msgstr ""
 "Ava lingitud leht peaaknas ([code]main[/code]) või uues ([code]new[/code])."
 
-#: src/Config/Descriptions.php:287
+#: src/Config/Descriptions.php:288
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
@@ -9700,7 +9707,7 @@ msgstr ""
 "Minimaalne filtrikastis näidatavate elementide (tabelid, protseduurid ja "
 "sündmused) arv."
 
-#: src/Config/Descriptions.php:290
+#: src/Config/Descriptions.php:291
 msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
@@ -9708,64 +9715,64 @@ msgstr ""
 "Grupeeri navigeerimispuu elemendid (kaartidel Andmebaasid ja Tabelid "
 "määratud eraldaja alusel)."
 
-#: src/Config/Descriptions.php:294
+#: src/Config/Descriptions.php:295
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
 msgstr "Kas lubada navigeerimispaneelil puu laiendamist või mitte."
 
-#: src/Config/Descriptions.php:297
+#: src/Config/Descriptions.php:298
 msgid "Whether to show procedures under database in the navigation tree"
 msgstr "Kas kuvada protseduurid andmebaasi navigeerimispuus"
 
-#: src/Config/Descriptions.php:300
+#: src/Config/Descriptions.php:301
 msgid "Whether to expand single database in the navigation tree automatically."
 msgstr "Kas avada üksik andmebaas navigeerimispuus automaatselt."
 
-#: src/Config/Descriptions.php:302
+#: src/Config/Descriptions.php:303
 msgid "Set to 0 to collapse navigation panel."
 msgstr "Väärtus 0 peidab navigatsioonipaneeli."
 
-#: src/Config/Descriptions.php:303
+#: src/Config/Descriptions.php:304
 msgid "Show logo in navigation panel."
 msgstr "Näita logo navigeerimise paneelis."
 
-#: src/Config/Descriptions.php:304
+#: src/Config/Descriptions.php:305
 msgid "URL where logo in the navigation panel will point to."
 msgstr "URL, millele navigeerimise paneeli logo suunab."
 
-#: src/Config/Descriptions.php:305
+#: src/Config/Descriptions.php:306
 msgid "Display server choice at the top of the navigation panel."
 msgstr "Näita serveri valikut nevigeerimispaneeli ülaosas."
 
-#: src/Config/Descriptions.php:306
+#: src/Config/Descriptions.php:307
 msgid "String that separates databases into different tree levels."
 msgstr "Sõne, mis eraldab andmebaasid kolme erinevasse puu tasandisse."
 
-#: src/Config/Descriptions.php:307
+#: src/Config/Descriptions.php:308
 msgid "String that separates tables into different tree levels."
 msgstr "Sõne, mis eraldab tabelid kolme erinevasse puu tasandisse."
 
-#: src/Config/Descriptions.php:308
+#: src/Config/Descriptions.php:309
 msgid "Highlight server under the mouse cursor."
 msgstr "Tõsta kursori all olev server esile."
 
-#: src/Config/Descriptions.php:309
+#: src/Config/Descriptions.php:310
 msgid "Whether to show tables under database in the navigation tree"
 msgstr "Kas kuvada tabelid andmebaasi navigeerimispuus"
 
-#: src/Config/Descriptions.php:310
+#: src/Config/Descriptions.php:311
 msgid "Whether to show views under database in the navigation tree"
 msgstr "Kas kuvada vaated andmebaasi navigeerimispuus"
 
-#: src/Config/Descriptions.php:311
+#: src/Config/Descriptions.php:312
 msgid "Whether to show functions under database in the navigation tree"
 msgstr "Kas kuvada funktsioonid andmebaasi navigeerimispuus"
 
-#: src/Config/Descriptions.php:312
+#: src/Config/Descriptions.php:313
 msgid "Whether to show events under database in the navigation tree"
 msgstr "Kas kuvada sündmused andmebaasi navigeerimispuus"
 
-#: src/Config/Descriptions.php:314
+#: src/Config/Descriptions.php:315
 msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise."
@@ -9773,7 +9780,7 @@ msgstr ""
 "[kbd]SMART[/kbd] - st. TIME, DATE, DATETIME ja TIMESTAMP tüüpi veergude "
 "kahanevat järjekorda. Muul juhul on need kasvavas järjekorras."
 
-#: src/Config/Descriptions.php:318
+#: src/Config/Descriptions.php:319
 msgid ""
 "Disable the default warning that is displayed on the database details "
 "Structure page if any of the required tables for the phpMyAdmin "
@@ -9782,7 +9789,7 @@ msgstr ""
 "Keela vaikimisi hoiatus, mida näidatakse andmebaasi struktuuri lehel siis, "
 "kui phpMyAdmini seadistuse salvestuse jaoks vajalikku tabeleid ei leitud."
 
-#: src/Config/Descriptions.php:323
+#: src/Config/Descriptions.php:324
 msgid ""
 "Disable the default warning that is displayed on the Structure page if "
 "column names in a table are reserved MySQL words."
@@ -9790,7 +9797,7 @@ msgstr ""
 "Keela vaikimisi hoiatus, mida näidatakse struktuuri lehel siis, kui tabeli "
 "veergude nimed on MySQLi reserveeritud sõnad."
 
-#: src/Config/Descriptions.php:327
+#: src/Config/Descriptions.php:328
 msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
@@ -9801,19 +9808,19 @@ msgstr ""
 "päringu ajaloo näitamiseks Javascripti funktsioone (ajalugu kaob akna "
 "sulgemisel)."
 
-#: src/Config/Descriptions.php:331
+#: src/Config/Descriptions.php:332
 msgid "Allow users to create bookmarks that are available for all other users"
 msgstr ""
 "Luba kasutajatel luua järjehoidjaid, mis on ka teistele kasutajatele nähtavad"
 
-#: src/Config/Descriptions.php:333
+#: src/Config/Descriptions.php:334
 msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
 msgstr ""
 "Määrab kasutatava ajatsooni; võib erineda andmebaasi serveri ajatsoonist"
 
-#: src/Config/Descriptions.php:336
+#: src/Config/Descriptions.php:337
 msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
@@ -9821,7 +9828,7 @@ msgstr ""
 "Jäta tühjaks, et keelata [doc@https://wiki.phpmyadmin.net/pma/"
 "bookmark]järjehoidjate[/doc] tugi, soovitatav: [kbd]pma__bookmark[/kbd]"
 
-#: src/Config/Descriptions.php:339
+#: src/Config/Descriptions.php:340
 msgid ""
 "Leave blank for no column comments/media types, suggested: "
 "[kbd]pma__column_info[/kbd]."
@@ -9829,7 +9836,7 @@ msgstr ""
 "Jäta tühjaks, kui veeru kommentaarid/meedia tüübid puuduvad; soovitatav: "
 "[kbd]pma__column_info[/kbd]."
 
-#: src/Config/Descriptions.php:342
+#: src/Config/Descriptions.php:343
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
@@ -9837,7 +9844,7 @@ msgstr ""
 "Eriline, piiratud õigustega MySQL kasutaja. Lisainfot saab [doc@linked-"
 "tables]dokumentatsioonist[/doc]."
 
-#: src/Config/Descriptions.php:346
+#: src/Config/Descriptions.php:347
 msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host."
@@ -9845,7 +9852,7 @@ msgstr ""
 "Seadistuse salvestuse säilitamise asendushost. Jäta tühjaks, kui soovid "
 "kasutada juba määratud hosti."
 
-#: src/Config/Descriptions.php:349
+#: src/Config/Descriptions.php:350
 msgid ""
 "An alternate port to connect to the host that holds the configuration "
 "storage; leave blank to use the default port, or the already defined port, "
@@ -9855,7 +9862,7 @@ msgstr ""
 "Vaikimisi pordi kasutamiseks jäta tühjaks; kui kontrollhost on sama mis "
 "host, siis sisesta juba defineeritud port."
 
-#: src/Config/Descriptions.php:354
+#: src/Config/Descriptions.php:355
 msgid ""
 "More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
 "issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
@@ -9865,7 +9872,7 @@ msgstr ""
 "issues/8970]phpMyAdmini[/a] ja [a@https://bugs.mysql.com/19588]MySQLi[/a] "
 "veahaldussüsteemides"
 
-#: src/Config/Descriptions.php:358
+#: src/Config/Descriptions.php:359
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
@@ -9873,7 +9880,7 @@ msgstr ""
 "Jäta tühjaks, kuid puudub SQL päringu ajaloo tugi, soovitatav: "
 "[kbd]pma__history[/kbd]."
 
-#: src/Config/Descriptions.php:361
+#: src/Config/Descriptions.php:362
 msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed."
@@ -9881,7 +9888,7 @@ msgstr ""
 "Piirab andmebaasi salvestatud tabeli eelistuste hulka, vanimad sissekanded "
 "kustutatakse automaatselt."
 
-#: src/Config/Descriptions.php:365
+#: src/Config/Descriptions.php:366
 msgid ""
 "Leave blank for no export template support, suggested: "
 "[kbd]pma__export_templates[/kbd]."
@@ -9889,7 +9896,7 @@ msgstr ""
 "Jäta tühjaks, et keelata mallide eksportimine, soovitatav: "
 "[kbd]pma__export_templates[/kbd]."
 
-#: src/Config/Descriptions.php:368
+#: src/Config/Descriptions.php:369
 msgid ""
 "Leave blank for no central columns support, suggested: "
 "[kbd]pma__central_columns[/kbd]."
@@ -9897,7 +9904,7 @@ msgstr ""
 "Jäta tühjaks, et keskseid veerge mitte kasutada, soovitatav: "
 "[kbd]pma__table_coords[/kbd]."
 
-#: src/Config/Descriptions.php:371
+#: src/Config/Descriptions.php:372
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
@@ -9907,14 +9914,14 @@ msgstr ""
 "ette kurakaldkriipsu (\\). S.t kasuta [kbd]'my\\_db'[/kbd], aga mitte "
 "[kbd]'my_db'[/kbd]."
 
-#: src/Config/Descriptions.php:376
+#: src/Config/Descriptions.php:377
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
 "Jäta tühjaks, kui puudub PDF skeemi tugi, soovitatav: [kbd]pma__pdf_pages[/"
 "kbd]."
 
-#: src/Config/Descriptions.php:379
+#: src/Config/Descriptions.php:380
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [doc@linked-"
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
@@ -9924,7 +9931,7 @@ msgstr ""
 "võimaldamiseks. Lisateavet leiad aadressilt [doc@linked-tables]pmadb[/doc]. "
 "Nende keelamiseks jäta see valik tühjaks, soovitatav: [kbd]phpmyadmin[/kbd]."
 
-#: src/Config/Descriptions.php:384
+#: src/Config/Descriptions.php:385
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]."
@@ -9932,7 +9939,7 @@ msgstr ""
 "Jäta tühjaks, kui seansside vahel puuduvad \"püsivad\" hiljuti kasutatud "
 "tabelid, soovitatav: [kbd]pma__recent[/kbd]."
 
-#: src/Config/Descriptions.php:388
+#: src/Config/Descriptions.php:389
 msgid ""
 "Leave blank for no \"persistent\" favorite tables across sessions, "
 "suggested: [kbd]pma__favorite[/kbd]."
@@ -9940,7 +9947,7 @@ msgstr ""
 "Jäta tühjaks, kui sa ei soovi seansside vahelisi \"püsivad\" hiljuti "
 "kasutatud tabeleid, soovitatav: [kbd]pma__recent[/kbd]."
 
-#: src/Config/Descriptions.php:392
+#: src/Config/Descriptions.php:393
 msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
@@ -9948,12 +9955,12 @@ msgstr ""
 "Jäta tühjaks, et keelata [doc@relations@]seoste linkide[/doc] tugi, "
 "soovitatav: [kbd]pma__relation[/kbd]."
 
-#: src/Config/Descriptions.php:397
+#: src/Config/Descriptions.php:398
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr "Vaata näiteks [doc@authentication-modes]autentimise tüüpe[/doc]."
 
-#: src/Config/Descriptions.php:400
+#: src/Config/Descriptions.php:401
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
@@ -9961,7 +9968,7 @@ msgstr ""
 "Jäta tühjaks, kui puudub PDF skeemi tugi, soovitatav: "
 "[kbd]pma__table_coords[/kbd]."
 
-#: src/Config/Descriptions.php:403
+#: src/Config/Descriptions.php:404
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]."
@@ -9969,7 +9976,7 @@ msgstr ""
 "Tabel, mis kirjeldab veergude näitamist. Jäta tühjaks, kui puudub tugi, "
 "soovitatav: [kbd]pma__table_info[/kbd]."
 
-#: src/Config/Descriptions.php:407
+#: src/Config/Descriptions.php:408
 msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]."
@@ -9977,7 +9984,7 @@ msgstr ""
 "Jäta tühjaks, kui seansside vahel puuduvad \"püsivad\" tabelite UI "
 "eelistused, soovitatav: [kbd]pma__table_uiprefs[/kbd]."
 
-#: src/Config/Descriptions.php:411
+#: src/Config/Descriptions.php:412
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
@@ -9985,26 +9992,26 @@ msgstr ""
 "Kas lisada lause DROP DATABASE IF EXISTS andmebaasi loomise logisse "
 "esimeseks."
 
-#: src/Config/Descriptions.php:415
+#: src/Config/Descriptions.php:416
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
 msgstr ""
 "Kas lisada lause DROP TABLE IF EXISTS tabeli loomise logisse esimeseks."
 
-#: src/Config/Descriptions.php:419
+#: src/Config/Descriptions.php:420
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
 msgstr "Kas lisada lause DROP VIEW IF EXISTS vaate loomise logisse esimeseks."
 
-#: src/Config/Descriptions.php:423
+#: src/Config/Descriptions.php:424
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 "Määrab lausete nimekirja, mida kasutatakse uute versioonide loomisel "
 "automaatselt."
 
-#: src/Config/Descriptions.php:426
+#: src/Config/Descriptions.php:427
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: "
 "[kbd]pma__tracking[/kbd]."
@@ -10012,14 +10019,14 @@ msgstr ""
 "Jäta tühjaks, kui puudub SQL päringu jälgimise tugi, soovitatav: "
 "[kbd]pma__tracking[/kbd]."
 
-#: src/Config/Descriptions.php:429
+#: src/Config/Descriptions.php:430
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr ""
 "Kas jälgimise mehhanism loob versioneerib tabelida ja vaated automaatselt."
 
-#: src/Config/Descriptions.php:432
+#: src/Config/Descriptions.php:433
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: "
 "[kbd]pma__userconfig[/kbd]."
@@ -10027,7 +10034,7 @@ msgstr ""
 "Jäta tühjaks, kui kasutaja eelistusi andmebaasis ei hoita, soovitatav: "
 "[kbd]pma__userconfig[/kbd]."
 
-#: src/Config/Descriptions.php:435
+#: src/Config/Descriptions.php:436
 msgid ""
 "Both this table and the user groups table are required to enable the "
 "configurable menus feature; leaving either one of them blank will disable "
@@ -10037,7 +10044,7 @@ msgstr ""
 "tabel kui ka kasutajate gruppide tabel. Jättes neist ühe tühjaks, keelad "
 "menüüde kohandamise; soovitatav: [kbd]pma__users[/kbd].."
 
-#: src/Config/Descriptions.php:440
+#: src/Config/Descriptions.php:441
 msgid ""
 "Both this table and the users table are required to enable the configurable "
 "menus feature; leaving either one of them blank will disable this feature, "
@@ -10047,7 +10054,7 @@ msgstr ""
 "tabel kui ka kasutajate tabel. Jättes ühe neist tühjaks, keelad menüüde "
 "kohandamise; soovitatav: [kbd]pma__usergroups[/kbd]."
 
-#: src/Config/Descriptions.php:445
+#: src/Config/Descriptions.php:446
 msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
@@ -10055,7 +10062,7 @@ msgstr ""
 "Jäta tühjaks, et keelata navigeerimiselementide peitmine ja kuvamine, "
 "soovitatav: [kbd]pma__userconfig[/kbd]."
 
-#: src/Config/Descriptions.php:449
+#: src/Config/Descriptions.php:450
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
@@ -10063,55 +10070,55 @@ msgstr ""
 "Selle serveri kasutajasõbralik kirjeldus. Kui jätad tühjaks, siis näidatakse "
 "selle asemel hostinime."
 
-#: src/Config/Descriptions.php:451
+#: src/Config/Descriptions.php:452
 msgid "Leave blank if not used."
 msgstr "Kui ei kasutata, siis jäta tühjaks."
 
-#: src/Config/Descriptions.php:452
+#: src/Config/Descriptions.php:453
 msgid "Leave blank for defaults."
 msgstr "Vaikimisi jäta tühjaks."
 
-#: src/Config/Descriptions.php:453
+#: src/Config/Descriptions.php:454
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
 msgstr "HTTP lihtsa autentimise ajal kuvatav ligipääsuala nimi."
 
-#: src/Config/Descriptions.php:454
+#: src/Config/Descriptions.php:455
 msgid "Authentication method to use."
 msgstr "Kasutatav autentimise meetod."
 
-#: src/Config/Descriptions.php:455
+#: src/Config/Descriptions.php:456
 msgid "Compress connection to MySQL server."
 msgstr "Tihenda MySQL ühendus serveriga."
 
-#: src/Config/Descriptions.php:456
+#: src/Config/Descriptions.php:457
 msgid "Hide databases matching regular expression (PCRE)."
 msgstr "Peida andmebaasid, mis kattuvad regulaaravaldisega (PCRE)."
 
-#: src/Config/Descriptions.php:457
+#: src/Config/Descriptions.php:458
 msgid "Hostname where MySQL server is running."
 msgstr "Hostinimi, kus MySQL server töötab."
 
-#: src/Config/Descriptions.php:458 src/Config/Descriptions.php:462
+#: src/Config/Descriptions.php:459 src/Config/Descriptions.php:463
 msgid "Leave empty if not using config auth."
 msgstr "Jäta tühjaks, kui ei kasuta 'config' autentimist."
 
-#: src/Config/Descriptions.php:459
+#: src/Config/Descriptions.php:460
 msgid "Port on which MySQL server is listening, leave empty for default."
 msgstr ""
 "Port, mida MySQL server kuulab. Jäta tühjaks, kui soovid kasutada vaikimisi "
 "porti."
 
-#: src/Config/Descriptions.php:460
+#: src/Config/Descriptions.php:461
 msgid "Socket on which MySQL server is listening, leave empty for default."
 msgstr ""
 "Sokkel, mida MySQL server kuulab, jäta tühjaks, kui soovid kasutada "
 "vaikimisi soklit."
 
-#: src/Config/Descriptions.php:461
+#: src/Config/Descriptions.php:462
 msgid "Enable SSL for connection to MySQL server."
 msgstr "Luba SSL ühendus MySQL serverisse."
 
-#: src/Config/Descriptions.php:464
+#: src/Config/Descriptions.php:465
 msgid ""
 "Please note that enabling this has no effect with [kbd]config[/kbd] "
 "authentication mode because the password is hard coded in the configuration "
@@ -10121,28 +10128,28 @@ msgstr ""
 "autentimist, sest parool on seadistusfailis raskesti kodeeritud. See ei "
 "piira sama käsu otse käivitamist."
 
-#: src/Config/Descriptions.php:469
+#: src/Config/Descriptions.php:470
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
 msgstr "Näita või peida kõikides tabelites loomise ajatempli veerg."
 
-#: src/Config/Descriptions.php:472
+#: src/Config/Descriptions.php:473
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables."
 msgstr "Näita või peida kõikides tabelites viimase uuendamise ajatempli veerg."
 
-#: src/Config/Descriptions.php:475
+#: src/Config/Descriptions.php:476
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables."
 msgstr ""
 "Näita või peida kõikides tabelites viimase kontrolli ajatemplit näitav veerg."
 
-#: src/Config/Descriptions.php:478
+#: src/Config/Descriptions.php:479
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode."
 msgstr "Määrab, kas muutmisel/lisamisel näidata väljasid."
 
-#: src/Config/Descriptions.php:481
+#: src/Config/Descriptions.php:482
 msgid ""
 "Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()"
 "[/a] output."
@@ -10150,50 +10157,43 @@ msgstr ""
 "Kuvab viida [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()[/"
 "a] väljundile."
 
-#: src/Config/Descriptions.php:483
+#: src/Config/Descriptions.php:484
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
 msgstr "Kas kasutajale peaks näitama \"näita kõiki (ridu)\" nuppu."
 
-#: src/Config/Descriptions.php:484
+#: src/Config/Descriptions.php:485
 msgid "Show or hide a column displaying the comments for all tables."
 msgstr "Näita või peida kõigi tabelite kommentaaride veerg."
 
-#: src/Config/Descriptions.php:485
+#: src/Config/Descriptions.php:486
 msgid "Show or hide a column displaying the charset for all tables."
 msgstr "Näita või peida märgistiku veerg kõikidel tabelitel."
 
-#: src/Config/Descriptions.php:486
+#: src/Config/Descriptions.php:487
 msgid "Display the function fields in edit/insert mode."
 msgstr "Näita funktsiooni väljasid muutmisel/lisamisel."
 
-#: src/Config/Descriptions.php:487
+#: src/Config/Descriptions.php:488
 msgid "Whether to show hint or not."
 msgstr "Kas näidata vihjet või mitte."
 
-#: src/Config/Descriptions.php:488
+#: src/Config/Descriptions.php:489
 msgid ""
 "Defines whether SQL queries generated by phpMyAdmin should be displayed."
 msgstr "Määrab, kas phpMyAdmini poolt koostatud SQL päringuid näidatakse."
 
-#: src/Config/Descriptions.php:489
+#: src/Config/Descriptions.php:490
 msgid "Allow to display database and table statistics (e.g. space usage)."
 msgstr "Luba näidata andmebaasi ja tabeli statistikat (nt ruumi kasutus)."
 
-#: src/Config/Descriptions.php:491
+#: src/Config/Descriptions.php:492
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables."
 msgstr ""
 "Märgi kasutatud tabelid ja võimalda näidata andmebaase koos lukustatud "
 "tabelitega."
 
-#: src/Config/Descriptions.php:494
-msgid ""
-"Disable the default warning that is displayed on the main page if Suhosin is "
-"detected."
-msgstr ""
-"Keela vaikimisi hoiatus, mis kuvatakse avalehel Suhosin'i tuvastamisel."
-
-#: src/Config/Descriptions.php:497
+#: src/Config/Descriptions.php:495
 msgid ""
 "Disable the default warning that is displayed on the main page if the value "
 "of the PHP setting session.gc_maxlifetime is less than the value of "
@@ -10202,7 +10202,7 @@ msgstr ""
 "Keela vaikimisi hoiatus, mida näidatakse põhilehel siis, kui PHP sätte "
 "session.gc_maxlifetime väärtus on väiksem kui `LoginCookieValidity` väärtus."
 
-#: src/Config/Descriptions.php:502
+#: src/Config/Descriptions.php:500
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
@@ -10210,7 +10210,7 @@ msgstr ""
 "Tekstiala suurus (veerud) muutmise vaates. See väärtus tõstetakse esile SQL "
 "päringu tekstialades (*2)."
 
-#: src/Config/Descriptions.php:505
+#: src/Config/Descriptions.php:503
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
@@ -10218,7 +10218,7 @@ msgstr ""
 "Tekstiala suurus (read) muutmise vaates. See väärtus tõstetakse esile SQL "
 "päringu tekstialades (*2)."
 
-#: src/Config/Descriptions.php:508
+#: src/Config/Descriptions.php:506
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
@@ -10230,7 +10230,7 @@ msgstr ""
 "Forwarded-For) päist, mis tuleb proksist 1.2.3.4:[br][kbd]1.2.3.4: "
 "HTTP_X_FORWARDED_FOR[/kbd]."
 
-#: src/Config/Descriptions.php:514
+#: src/Config/Descriptions.php:512
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right."
@@ -10238,7 +10238,7 @@ msgstr ""
 "Kui keelatud, siis kasutajad ei saa kasutada ühtegi allolevat valikut, "
 "sõltumata paremal asuvast märkeruudust."
 
-#: src/Config/Descriptions.php:517
+#: src/Config/Descriptions.php:515
 msgid ""
 "The URL of the proxy to be used when retrieving the information about the "
 "latest version of phpMyAdmin, or when submitting error reports. You need "
@@ -10250,7 +10250,7 @@ msgstr ""
 "on paigaldatud, ei oma otseühendust Internetiga. Vorming on \"hostinimi:"
 "port\"."
 
-#: src/Config/Descriptions.php:523
+#: src/Config/Descriptions.php:521
 msgid ""
 "The username for authenticating with the proxy. By default, no "
 "authentication is performed. If a username is supplied, Basic Authentication "
@@ -10260,7 +10260,7 @@ msgstr ""
 "Kui kasutajanimi on antud, kastutatakse lihtsa autentimise (Basic "
 "Authentication) meetodit. Muud meetodid ei ole hetkel toetatud."
 
-#: src/Config/Descriptions.php:529
+#: src/Config/Descriptions.php:527
 msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
@@ -10268,7 +10268,7 @@ msgstr ""
 "Päringud käivitatakse klahvi Enter vajutamisel (Ctrl+Enter asemel). "
 "Reavahetuseks kasuta kombinatsiooni Shift+Enter."
 
-#: src/Config/Descriptions.php:533
+#: src/Config/Descriptions.php:531
 msgid ""
 "Enable Zero Configuration mode which lets you set up phpMyAdmin "
 "configuration storage tables automatically."
@@ -10276,377 +10276,377 @@ msgstr ""
 "Luba Nullseadistuse režiim, mis lubab sul häälestada phpMyAdmin'i "
 "seadistuste salvestamise tabelid automaatselt."
 
-#: src/Config/Descriptions.php:536
+#: src/Config/Descriptions.php:534
 msgid "Highlight selected rows."
 msgstr "Tõsta valitud read esile."
 
-#: src/Config/Descriptions.php:537
+#: src/Config/Descriptions.php:535
 msgid "Highlight row pointed by the mouse cursor."
 msgstr "Tõsta kursori all olevad read esile."
 
-#: src/Config/Descriptions.php:538
+#: src/Config/Descriptions.php:536
 msgid "Number of columns for CHAR/VARCHAR textareas."
 msgstr "CHAR/VARCHAR tekstialade veergude hulk."
 
-#: src/Config/Descriptions.php:539
+#: src/Config/Descriptions.php:537
 msgid "Number of rows for CHAR/VARCHAR textareas."
 msgstr "CHAR/VARCHAR tekstialade ridade hulk."
 
-#: src/Config/Descriptions.php:540
+#: src/Config/Descriptions.php:538
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
 msgstr "Logi konsoolil kuvamiseks SQL päringud ja nende käivitusaeg"
 
-#: src/Config/Descriptions.php:541
+#: src/Config/Descriptions.php:539
 msgid "Tab that is displayed when entering a database."
 msgstr "Vaheleht, mis avatakse andmebaasi sisenemisel."
 
-#: src/Config/Descriptions.php:542
+#: src/Config/Descriptions.php:540
 msgid "Tab that is displayed when entering a server."
 msgstr "Vaheleht, mis avatakse serverisse sisenemisel."
 
-#: src/Config/Descriptions.php:543
+#: src/Config/Descriptions.php:541
 msgid "Tab that is displayed when entering a table."
 msgstr "Vaheleht, mis avatakse tabelisse sisenemisel."
 
-#: src/Config/Descriptions.php:544
+#: src/Config/Descriptions.php:542
 msgid "Whether the table structure actions should be hidden."
 msgstr "Kas tabeli struktuuri tegevused peaks olema peidetud."
 
-#: src/Config/Descriptions.php:545
+#: src/Config/Descriptions.php:543
 msgid "Whether column comments should be shown in table structure view"
 msgstr "Kas kuvada veergude kommentaarid tabeli struktuuri vaates"
 
-#: src/Config/Descriptions.php:546
+#: src/Config/Descriptions.php:544
 msgid "Show server listing as a list instead of a drop down."
 msgstr "Näita servereid rippmenüü asemel nimekirjana."
 
-#: src/Config/Descriptions.php:547
+#: src/Config/Descriptions.php:545
 msgid "A dropdown will be used if fewer items are present."
 msgstr "Rippmenüüd kasutataks siis, kui selles on uusi üksusi."
 
-#: src/Config/Descriptions.php:548
+#: src/Config/Descriptions.php:546
 msgid "Default value for foreign key checks checkbox for some queries."
 msgstr "Mõningate päringute märkekasti vaikeväärtus võõrvõtmete kontrolliks."
 
-#: src/Config/Descriptions.php:549
+#: src/Config/Descriptions.php:547
 msgid "Uncheck the checkbox to disable drag and drop import"
 msgstr "Lohistamise-kukutamisega importimise keelamiseks eemalda kastist märge"
 
-#: src/Config/Descriptions.php:550
+#: src/Config/Descriptions.php:548
 msgid "How many rows can be inserted at one time."
 msgstr "Mitu rida saab korraga lisada."
 
-#: src/Config/Descriptions.php:551
+#: src/Config/Descriptions.php:549
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view."
 msgstr ""
 "Suurim hulk sümboleid, mida näidatakse mitte-arvulises veerus sirvimise "
 "vaates."
 
-#: src/Config/Descriptions.php:552
+#: src/Config/Descriptions.php:550
 msgid "Define how long (in seconds) a login cookie is valid."
 msgstr "Määra, kui kaua (sekundites) sisselogimise küpsis kehtib."
 
-#: src/Config/Descriptions.php:553
+#: src/Config/Descriptions.php:551
 msgid "Double size of textarea for LONGTEXT columns."
 msgstr "Kahekordista LONGTEXT veergude tekstiala suurust."
 
-#: src/Config/Descriptions.php:554
+#: src/Config/Descriptions.php:552
 msgid "Maximum number of databases displayed in database list."
 msgstr "Andmebaaside nimekirjas näidatavate andmebaaside suurim hulk."
 
-#: src/Config/Descriptions.php:555
+#: src/Config/Descriptions.php:553
 msgid "Maximum number of tables displayed in table list."
 msgstr "Tabeli nimekirjas näidatavate tabelite suurim hulk."
 
-#: src/Config/Descriptions.php:556
+#: src/Config/Descriptions.php:554
 msgid "Maximum number of recently used tables; set 0 to disable."
 msgstr "Hiljuti kasutatud tabelite suurim hulk. Keelamiseks sisesta 0."
 
-#: src/Config/Descriptions.php:557
+#: src/Config/Descriptions.php:555
 msgid "Maximum number of favorite tables; set 0 to disable."
 msgstr "Lemmiktabelite suurim hulk. Keelamiseks sisesta 0."
 
-#: src/Config/Descriptions.php:558
+#: src/Config/Descriptions.php:556
 msgid "These are Edit, Copy and Delete links."
 msgstr "Need on lingid Muuda, Kopeeri ja Kustuta."
 
-#: src/Config/Descriptions.php:559
+#: src/Config/Descriptions.php:557
 msgid "Whether to show row links even in the absence of a unique key."
 msgstr "Määrab reaviitade kuvamise ka unikaalse võtme puudumisel."
 
-#: src/Config/Descriptions.php:560 src/Config/Descriptions.php:838
+#: src/Config/Descriptions.php:558 src/Config/Descriptions.php:837
 msgid "Disable shortcut keys"
 msgstr "Keela kiirklahvid"
 
-#: src/Config/Descriptions.php:561
+#: src/Config/Descriptions.php:559
 msgid "Use natural order for sorting table and database names."
 msgstr "Kasuta algset tabeli ja andmebaasi nimede sorteerimise järjekorda."
 
-#: src/Config/Descriptions.php:562 src/Config/Descriptions.php:565
-#: src/Config/Descriptions.php:566
+#: src/Config/Descriptions.php:560 src/Config/Descriptions.php:563
+#: src/Config/Descriptions.php:564
 msgid "Use only icons, only text or both."
 msgstr "Kasuta ainult ikoone, ainult teksti või mõlemat."
 
-#: src/Config/Descriptions.php:563
+#: src/Config/Descriptions.php:561
 msgid "Use GZip output buffering for increased speed in HTTP transfers."
 msgstr ""
 "Kasuta HTTP ülekannete parema kiiruse saavutamiseks GZip väljundi "
 "puhverdamist."
 
-#: src/Config/Descriptions.php:564
+#: src/Config/Descriptions.php:562
 msgid "Use persistent connections to MySQL databases."
 msgstr "Kasuta püsiühendusi MySQL andmebaasidesse."
 
-#: src/Config/Descriptions.php:567
+#: src/Config/Descriptions.php:565
 msgid "Disallow BLOB and BINARY columns from editing."
 msgstr "Keela BLOB ja BINARY veergude muutmine."
 
-#: src/Config/Descriptions.php:568
+#: src/Config/Descriptions.php:566
 msgid "How many queries are kept in history."
 msgstr "Mitu päringut ajaloos hoitakse."
 
-#: src/Config/Descriptions.php:569
+#: src/Config/Descriptions.php:567
 msgid "Select which functions will be used for character set conversion."
 msgstr "Vali funktsioon, mida kasutatakse märgitabeli teisendamisel."
 
-#: src/Config/Descriptions.php:570
+#: src/Config/Descriptions.php:568
 msgid "When browsing tables, the sorting of each table is remembered."
 msgstr "Tabelite sirvimisel jäetakse meelde iga tabeli sortimisalus."
 
-#: src/Config/Descriptions.php:571
+#: src/Config/Descriptions.php:569
 msgid "Default sort order for tables with a primary key."
 msgstr "Vaikimisi sortimisrežiim primaarvõtmega tabelitele."
 
-#: src/Config/Descriptions.php:572
+#: src/Config/Descriptions.php:570
 msgid ""
 "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature."
 msgstr ""
 "Korda päiseid iga X rea tagant, [kbd]0[/kbd] keelab selle funktsionaalsuse."
 
-#: src/Config/Descriptions.php:573
+#: src/Config/Descriptions.php:571
 msgid "For display Options"
 msgstr "Kuvamise seaded"
 
-#: src/Config/Descriptions.php:574
+#: src/Config/Descriptions.php:572
 msgid "Directory where exports can be saved on server."
 msgstr "Serveri kataloog, kuhu eksporditud failid salvestatakse."
 
-#: src/Config/Descriptions.php:575
+#: src/Config/Descriptions.php:573
 msgid ""
 "Defines whether the query box should stay on-screen after its submission."
 msgstr "Määrab, kas päringukast jääb ekraanile pärast päringu saatmist."
 
-#: src/Config/Descriptions.php:576
+#: src/Config/Descriptions.php:574
 msgid "Title of browser window when a database is selected."
 msgstr "Veebilehitseja akna pealkiri, kui valitud on andmebaas."
 
-#: src/Config/Descriptions.php:577
+#: src/Config/Descriptions.php:575
 msgid "Title of browser window when nothing is selected."
 msgstr "Veebilehitseja akna pealkiri, kui valitud pole mitte midagi."
 
-#: src/Config/Descriptions.php:578
+#: src/Config/Descriptions.php:576
 msgid "Title of browser window when a server is selected."
 msgstr "Veebilehitseja akna pealkiri, kui valitud on server."
 
-#: src/Config/Descriptions.php:579
+#: src/Config/Descriptions.php:577
 msgid "Title of browser window when a table is selected."
 msgstr "Veebilehitseja akna pealkiri, kuid valitud on tabel."
 
-#: src/Config/Descriptions.php:580
+#: src/Config/Descriptions.php:578
 msgid "Directory on server where you can upload files for import."
 msgstr "Kataloog serveris, kuhu saad importimiseks faile üles laadida."
 
-#: src/Config/Descriptions.php:581
+#: src/Config/Descriptions.php:579
 msgid "Allow for searching inside the entire database."
 msgstr "Luba otsida tervest andmebaasist."
 
-#: src/Config/Descriptions.php:582
+#: src/Config/Descriptions.php:580
 msgid "Enables check for latest version on main phpMyAdmin page."
 msgstr "Lubab phpMyAdmini pealehel kontrollida viimast versiooni."
 
-#: src/Config/Descriptions.php:583
+#: src/Config/Descriptions.php:581
 msgid "The password for authenticating with the proxy."
 msgstr "Salasõna proksi serveris autentimiseks."
 
-#: src/Config/Descriptions.php:584
+#: src/Config/Descriptions.php:582
 msgid "Enable ZIP compression for import and export operations."
 msgstr "Luba importimistel ja eksportimistel ZIP tihendamine."
 
-#: src/Config/Descriptions.php:585
+#: src/Config/Descriptions.php:583
 msgid "Choose the default action when sending error reports."
 msgstr "Vali vaikimisi tegevus vearaportite saatmisel."
 
-#: src/Config/Descriptions.php:597
+#: src/Config/Descriptions.php:595
 msgid "Allow login to any MySQL server"
 msgstr "Luba sisse logida mistahes MySQL serverisse"
 
-#: src/Config/Descriptions.php:598
+#: src/Config/Descriptions.php:596
 msgid "Restrict login to MySQL server"
 msgstr "Piira meldimist MySQL serverisse"
 
-#: src/Config/Descriptions.php:599
+#: src/Config/Descriptions.php:597
 msgid "Allow third party framing"
 msgstr "Luba kolmanda osapoole raamimine"
 
-#: src/Config/Descriptions.php:600
+#: src/Config/Descriptions.php:598
 msgid "Show \"Drop database\" link to normal users"
 msgstr "Näita tavakasutajatele \"Kustuta andmebaas\" linki"
 
-#: src/Config/Descriptions.php:601
+#: src/Config/Descriptions.php:599
 msgid "Blowfish secret"
 msgstr "Blowfish turvasõna"
 
-#: src/Config/Descriptions.php:602
+#: src/Config/Descriptions.php:600
 msgid "Row marker"
 msgstr "Rea esiletõstmine"
 
-#: src/Config/Descriptions.php:603
+#: src/Config/Descriptions.php:601
 msgid "Highlight pointer"
 msgstr "Kursor tõstab esile"
 
-#: src/Config/Descriptions.php:604
+#: src/Config/Descriptions.php:602
 msgid "Bzip2"
 msgstr "Bzip2"
 
-#: src/Config/Descriptions.php:605
+#: src/Config/Descriptions.php:603
 msgid "CHAR columns editing"
 msgstr "CHAR veergude muutmine"
 
-#: src/Config/Descriptions.php:606
+#: src/Config/Descriptions.php:604
 msgid "Enable CodeMirror"
 msgstr "Luba CodeMirror"
 
-#: src/Config/Descriptions.php:607
+#: src/Config/Descriptions.php:605
 msgid "Enable linter"
 msgstr "Luba linter"
 
-#: src/Config/Descriptions.php:608
+#: src/Config/Descriptions.php:606
 msgid "Minimum size for input field"
 msgstr "Sisestusvälja minimaalne laius"
 
-#: src/Config/Descriptions.php:609
+#: src/Config/Descriptions.php:607
 msgid "Maximum size for input field"
 msgstr "Sisestusvälja maksimaalne laius"
 
-#: src/Config/Descriptions.php:610
+#: src/Config/Descriptions.php:608
 msgid "CHAR textarea columns"
 msgstr "CHAR tekstiala veerud"
 
-#: src/Config/Descriptions.php:611
+#: src/Config/Descriptions.php:609
 msgid "CHAR textarea rows"
 msgstr "CHAR tekstiala read"
 
-#: src/Config/Descriptions.php:612
+#: src/Config/Descriptions.php:610
 msgid "Check config file permissions"
 msgstr "Kontrolli seadistusfaili õigusi"
 
-#: src/Config/Descriptions.php:613
+#: src/Config/Descriptions.php:611
 msgid "Compress on the fly"
 msgstr "Tihenda lennult"
 
-#: src/Config/Descriptions.php:614
+#: src/Config/Descriptions.php:612
 msgid "Confirm DROP queries"
 msgstr "Kinnita DROP päringud"
 
-#: src/Config/Descriptions.php:616 src/Plugins/Schema/SchemaDia.php:64
+#: src/Config/Descriptions.php:614 src/Plugins/Schema/SchemaDia.php:64
 #: src/Plugins/Schema/SchemaPdf.php:74
 msgid "Paper size"
 msgstr "Paberi suurus"
 
-#: src/Config/Descriptions.php:617
+#: src/Config/Descriptions.php:615
 msgid "Default database tab"
 msgstr "Vaikimisi andmebaasi vaheleht"
 
-#: src/Config/Descriptions.php:618
+#: src/Config/Descriptions.php:616
 msgid "Default server tab"
 msgstr "Vaikimisi serveri vaheleht"
 
-#: src/Config/Descriptions.php:619
+#: src/Config/Descriptions.php:617
 msgid "Default table tab"
 msgstr "Vaikimisi tabeli vaheleht"
 
-#: src/Config/Descriptions.php:620
+#: src/Config/Descriptions.php:618
 msgid "Enable autocomplete for table and column names"
 msgstr "Luba tabelite ja veergude nimede automaatne lõpetamine"
 
-#: src/Config/Descriptions.php:621
+#: src/Config/Descriptions.php:619
 msgid "Show column comments"
 msgstr "Kuva veeru kommentaarid"
 
-#: src/Config/Descriptions.php:622
+#: src/Config/Descriptions.php:620
 msgid "Hide table structure actions"
 msgstr "Peida tabeli struktuuri tegevused"
 
-#: src/Config/Descriptions.php:623
+#: src/Config/Descriptions.php:621
 msgid "Default transformations for Hex"
 msgstr "Vaikimisi teisendused 16-nend süsteemi"
 
-#: src/Config/Descriptions.php:624
+#: src/Config/Descriptions.php:622
 msgid "Default transformations for Substring"
 msgstr "Vaikimisi teisendused alamstringle"
 
-#: src/Config/Descriptions.php:625
+#: src/Config/Descriptions.php:623
 msgid "Default transformations for Bool2Text"
 msgstr "Vaikimisi teisendused Bool2Text'le"
 
-#: src/Config/Descriptions.php:626
+#: src/Config/Descriptions.php:624
 msgid "Default transformations for External"
 msgstr "Vaikimisi teisendus välisele"
 
-#: src/Config/Descriptions.php:627
+#: src/Config/Descriptions.php:625
 msgid "Default transformations for PreApPend"
 msgstr "Vaikimisi teisendus PreApPend'le"
 
-#: src/Config/Descriptions.php:628
+#: src/Config/Descriptions.php:626
 msgid "Default transformations for DateFormat"
 msgstr "Vaikimisi teisendus DataFormat'le"
 
-#: src/Config/Descriptions.php:629
+#: src/Config/Descriptions.php:627
 msgid "Default transformations for Inline"
 msgstr "Vaikimisi teisendused Inline'ile"
 
-#: src/Config/Descriptions.php:630
+#: src/Config/Descriptions.php:628
 msgid "Default transformations for TextImageLink"
 msgstr "Vaikimisi teisendused TextImageLink'le"
 
-#: src/Config/Descriptions.php:631
+#: src/Config/Descriptions.php:629
 msgid "Default transformations for TextLink"
 msgstr "Vaikimisi teisendused TextLink'le"
 
-#: src/Config/Descriptions.php:632
+#: src/Config/Descriptions.php:630
 msgid "Display servers as a list"
 msgstr "Näita andmebaase nimekirjana"
 
-#: src/Config/Descriptions.php:633
+#: src/Config/Descriptions.php:631
 msgid "Disable multi table maintenance"
 msgstr "Keela multi-tabeli hooldus"
 
-#: src/Config/Descriptions.php:634
+#: src/Config/Descriptions.php:632
 msgid "Maximum execution time"
 msgstr "Suurim teostamise aeg"
 
-#: src/Config/Descriptions.php:635
+#: src/Config/Descriptions.php:633
 msgid "Use [code]LOCK TABLES[/code] statement"
 msgstr "Kasuta lauset [code]LOCK TABLES[/code]"
 
-#: src/Config/Descriptions.php:636
+#: src/Config/Descriptions.php:634
 msgid "Save as file"
 msgstr "Salvesta failina"
 
-#: src/Config/Descriptions.php:637 src/Config/Descriptions.php:772
+#: src/Config/Descriptions.php:635 src/Config/Descriptions.php:770
 msgid "Character set of the file"
 msgstr "Faili märgitabel"
 
-#: src/Config/Descriptions.php:639
+#: src/Config/Descriptions.php:637
 msgid "Compression"
 msgstr "Tihendamine"
 
-#: src/Config/Descriptions.php:640 src/Config/Descriptions.php:647
-#: src/Config/Descriptions.php:655 src/Config/Descriptions.php:659
-#: src/Config/Descriptions.php:672 src/Config/Descriptions.php:674
-#: src/Config/Descriptions.php:721 src/Plugins/Export/ExportCsv.php:98
+#: src/Config/Descriptions.php:638 src/Config/Descriptions.php:645
+#: src/Config/Descriptions.php:653 src/Config/Descriptions.php:657
+#: src/Config/Descriptions.php:670 src/Config/Descriptions.php:672
+#: src/Config/Descriptions.php:719 src/Plugins/Export/ExportCsv.php:98
 #: src/Plugins/Export/ExportExcel.php:78
 #: src/Plugins/Export/ExportHtmlword.php:91 src/Plugins/Export/ExportOds.php:70
 #: src/Plugins/Export/ExportOdt.php:126
@@ -10654,56 +10654,56 @@ msgstr "Tihendamine"
 msgid "Put columns names in the first row"
 msgstr "Aseta veergude nimed esimesse ritta"
 
-#: src/Config/Descriptions.php:641 src/Config/Descriptions.php:774
-#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:654
+#: src/Config/Descriptions.php:639 src/Config/Descriptions.php:772
+#: src/Config/Descriptions.php:779 src/Plugins/Import/ImportCsv.php:688
 msgid "Columns enclosed with"
 msgstr "Veergusid ümbritseb"
 
-#: src/Config/Descriptions.php:642 src/Config/Descriptions.php:775
-#: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:665
+#: src/Config/Descriptions.php:640 src/Config/Descriptions.php:773
+#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:699
 msgid "Columns escaped with"
 msgstr "Veergusid lõpetab"
 
-#: src/Config/Descriptions.php:643 src/Config/Descriptions.php:649
-#: src/Config/Descriptions.php:656 src/Config/Descriptions.php:665
-#: src/Config/Descriptions.php:673 src/Config/Descriptions.php:677
-#: src/Config/Descriptions.php:722
+#: src/Config/Descriptions.php:641 src/Config/Descriptions.php:647
+#: src/Config/Descriptions.php:654 src/Config/Descriptions.php:663
+#: src/Config/Descriptions.php:671 src/Config/Descriptions.php:675
+#: src/Config/Descriptions.php:720
 msgid "Replace NULL with"
 msgstr "NULL asendaja"
 
-#: src/Config/Descriptions.php:644 src/Config/Descriptions.php:650
+#: src/Config/Descriptions.php:642 src/Config/Descriptions.php:648
 msgid "Remove CRLF characters within columns"
 msgstr "Eemalda veergudest CRLF märgid"
 
-#: src/Config/Descriptions.php:645 src/Config/Descriptions.php:778
-#: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:639
+#: src/Config/Descriptions.php:643 src/Config/Descriptions.php:777
+#: src/Config/Descriptions.php:784 src/Plugins/Import/ImportCsv.php:673
 msgid "Columns terminated with"
 msgstr "Veerud lõpetab"
 
-#: src/Config/Descriptions.php:646 src/Config/Descriptions.php:773
-#: src/Plugins/Import/ImportCsv.php:672
+#: src/Config/Descriptions.php:644 src/Config/Descriptions.php:771
+#: src/Plugins/Import/ImportCsv.php:706
 msgid "Lines terminated with"
 msgstr "Ridasid katkestab"
 
-#: src/Config/Descriptions.php:648
+#: src/Config/Descriptions.php:646
 msgid "Excel edition"
 msgstr "Exceli väljaanne"
 
-#: src/Config/Descriptions.php:651
+#: src/Config/Descriptions.php:649
 msgid "Database name template"
 msgstr "Andmebaasi nime mall"
 
-#: src/Config/Descriptions.php:652
+#: src/Config/Descriptions.php:650
 msgid "Server name template"
 msgstr "Serveri nime mall"
 
-#: src/Config/Descriptions.php:653
+#: src/Config/Descriptions.php:651
 msgid "Table name template"
 msgstr "Tabeli nime mall"
 
-#: src/Config/Descriptions.php:657 src/Config/Descriptions.php:670
-#: src/Config/Descriptions.php:679 src/Config/Descriptions.php:717
-#: src/Config/Descriptions.php:723 src/Plugins/Export/ExportHtmlword.php:67
+#: src/Config/Descriptions.php:655 src/Config/Descriptions.php:668
+#: src/Config/Descriptions.php:677 src/Config/Descriptions.php:715
+#: src/Config/Descriptions.php:721 src/Plugins/Export/ExportHtmlword.php:67
 #: src/Plugins/Export/ExportLatex.php:109
 #: src/Plugins/Export/ExportMediawiki.php:59
 #: src/Plugins/Export/ExportMediawiki.php:65
@@ -10713,80 +10713,80 @@ msgstr "Tabeli nime mall"
 msgid "Dump table"
 msgstr "Loo tabeli tõmmis"
 
-#: src/Config/Descriptions.php:658 src/Plugins/Export/ExportLatex.php:100
+#: src/Config/Descriptions.php:656 src/Plugins/Export/ExportLatex.php:100
 msgid "Include table caption"
 msgstr "Lisa tabeli pealkiri"
 
-#: src/Config/Descriptions.php:661 src/Config/Descriptions.php:667
+#: src/Config/Descriptions.php:659 src/Config/Descriptions.php:665
 msgid "Table caption"
 msgstr "Tabeli pealkiri"
 
-#: src/Config/Descriptions.php:662 src/Config/Descriptions.php:668
+#: src/Config/Descriptions.php:660 src/Config/Descriptions.php:666
 msgid "Continued table caption"
 msgstr "Jätkatud tabeli pealkiri"
 
-#: src/Config/Descriptions.php:663 src/Config/Descriptions.php:669
+#: src/Config/Descriptions.php:661 src/Config/Descriptions.php:667
 msgid "Label key"
 msgstr "Nime võti"
 
-#: src/Config/Descriptions.php:666 src/Config/Descriptions.php:678
-#: src/Config/Descriptions.php:716
+#: src/Config/Descriptions.php:664 src/Config/Descriptions.php:676
+#: src/Config/Descriptions.php:714
 msgid "Relationships"
 msgstr "Seosed"
 
-#: src/Config/Descriptions.php:671
+#: src/Config/Descriptions.php:669
 msgid "Export method"
 msgstr "Ekspordi meetod"
 
-#: src/Config/Descriptions.php:680 src/Config/Descriptions.php:683
+#: src/Config/Descriptions.php:678 src/Config/Descriptions.php:681
 msgid "Save on server"
 msgstr "Salvesta serverisse"
 
-#: src/Config/Descriptions.php:682
+#: src/Config/Descriptions.php:680
 msgid "Export as separate files"
 msgstr "Ekspordi eraldi failidena"
 
-#: src/Config/Descriptions.php:685
+#: src/Config/Descriptions.php:683
 msgid "Remember filename template"
 msgstr "Jäta faili nime mall meelde"
 
-#: src/Config/Descriptions.php:686
+#: src/Config/Descriptions.php:684
 msgid "Remove DEFINER clause from definitions"
 msgstr "Eemalda definitsioonide alt DEFINER klausel"
 
-#: src/Config/Descriptions.php:688
+#: src/Config/Descriptions.php:686
 msgid "Enclose table and column names with backquotes"
 msgstr "Aseta tabeli ja veeru nimed alumise ja ülemise jutumärgi vahele"
 
-#: src/Config/Descriptions.php:689 src/Config/Descriptions.php:791
+#: src/Config/Descriptions.php:687 src/Config/Descriptions.php:790
 msgid "SQL compatibility mode"
 msgstr "SQL ühilduvuse meetod"
 
-#: src/Config/Descriptions.php:690
+#: src/Config/Descriptions.php:688
 msgid "Creation/Update/Check dates"
 msgstr "Loomise/Uuendamise/Kontrollimise kuupäevad"
 
-#: src/Config/Descriptions.php:691
+#: src/Config/Descriptions.php:689
 msgid "Use delayed inserts"
 msgstr "Kasuta viivitatud lisamisi"
 
-#: src/Config/Descriptions.php:692 src/Plugins/Export/ExportSql.php:232
+#: src/Config/Descriptions.php:690 src/Plugins/Export/ExportSql.php:232
 msgid "Disable foreign key checks"
 msgstr "Keela võõrvõtme kontrollid"
 
-#: src/Config/Descriptions.php:693 src/Plugins/Export/ExportSql.php:242
+#: src/Config/Descriptions.php:691 src/Plugins/Export/ExportSql.php:242
 msgid "Export views as tables"
 msgstr "Vaadete eksportimine tabelitena"
 
-#: src/Config/Descriptions.php:694
+#: src/Config/Descriptions.php:692
 msgid "Export related metadata from phpMyAdmin configuration storage"
 msgstr "Ekspordi seotud metaandmed phpMyAdmini häälestuse salvestuskohast"
 
-#: src/Config/Descriptions.php:704
+#: src/Config/Descriptions.php:702
 msgid "Use hexadecimal for BINARY & BLOB"
 msgstr "Kasuta 16-nendsüsteemi BINARY & BLOB väljadel"
 
-#: src/Config/Descriptions.php:706
+#: src/Config/Descriptions.php:704
 msgid ""
 "Add IF NOT EXISTS (less efficient as indexes will be generated during table "
 "creation)"
@@ -10794,847 +10794,847 @@ msgstr ""
 "Lisa IF NOT EXISTS (vähem efektiivne, sest tabeli loomise ajal luuakse ka "
 "indeksid)"
 
-#: src/Config/Descriptions.php:709 src/Plugins/Export/ExportSql.php:371
+#: src/Config/Descriptions.php:707 src/Plugins/Export/ExportSql.php:371
 #, php-format
 msgid "%s view"
 msgstr "Vaade %s"
 
-#: src/Config/Descriptions.php:710
+#: src/Config/Descriptions.php:708
 msgid "Use ignore inserts"
 msgstr "Kasuta INSERT IGNORE lauseid"
 
-#: src/Config/Descriptions.php:712
+#: src/Config/Descriptions.php:710
 msgid "Syntax to use when inserting data"
 msgstr "Andmete lisamisel kasutatav süntaks"
 
-#: src/Config/Descriptions.php:713 src/Plugins/Export/ExportSql.php:498
+#: src/Config/Descriptions.php:711 src/Plugins/Export/ExportSql.php:498
 msgid "Maximal length of created query"
 msgstr "Loodud päringu maksimaalne pikkus"
 
-#: src/Config/Descriptions.php:718
+#: src/Config/Descriptions.php:716
 msgid "Export type"
 msgstr "Ekspordi tüüp"
 
-#: src/Config/Descriptions.php:719 src/Plugins/Export/ExportSql.php:222
+#: src/Config/Descriptions.php:717 src/Plugins/Export/ExportSql.php:222
 msgid "Enclose export in a transaction"
 msgstr "Lisa eksport ülekandesse"
 
-#: src/Config/Descriptions.php:720
+#: src/Config/Descriptions.php:718
 msgid "Export time in UTC"
 msgstr "Ekspordi aeg UTC's"
 
-#: src/Config/Descriptions.php:724
+#: src/Config/Descriptions.php:722
 msgid "Foreign key dropdown order"
 msgstr "Võõrvõtme rippmenüü järjekord"
 
-#: src/Config/Descriptions.php:725
+#: src/Config/Descriptions.php:723
 msgid "Foreign key limit"
 msgstr "Võõrvõtme piirang"
 
-#: src/Config/Descriptions.php:726
+#: src/Config/Descriptions.php:724
 msgid "Foreign key checks"
 msgstr "Võõrvõtme(te) kontrollid"
 
-#: src/Config/Descriptions.php:727
+#: src/Config/Descriptions.php:725
 msgid "First day of calendar"
 msgstr "Kalendri esimene päev"
 
-#: src/Config/Descriptions.php:729
+#: src/Config/Descriptions.php:727
 msgid "Browse mode"
 msgstr "Sirvimisrežiim"
 
-#: src/Config/Descriptions.php:731 src/Config/Forms/User/ExportForm.php:80
+#: src/Config/Descriptions.php:729 src/Config/Forms/User/ExportForm.php:80
 #: src/Config/Forms/User/ImportForm.php:29
 msgid "CSV"
 msgstr "CSV"
 
-#: src/Config/Descriptions.php:732
+#: src/Config/Descriptions.php:730
 msgid "Developer"
 msgstr "Arendaja"
 
-#: src/Config/Descriptions.php:733
+#: src/Config/Descriptions.php:731
 msgid "Edit mode"
 msgstr "Muutmise vaade"
 
-#: src/Config/Descriptions.php:734
+#: src/Config/Descriptions.php:732
 msgid "Export defaults"
 msgstr "Ekspordi vaikimisi väärtused"
 
-#: src/Config/Descriptions.php:735
+#: src/Config/Descriptions.php:733
 msgid "General"
 msgstr "Üldine"
 
-#: src/Config/Descriptions.php:736
+#: src/Config/Descriptions.php:734
 msgid "Import defaults"
 msgstr "Impordi vaikimisi väärtused"
 
-#: src/Config/Descriptions.php:737
+#: src/Config/Descriptions.php:735
 msgid "Import / export"
 msgstr "Impordi / ekspordi"
 
-#: src/Config/Descriptions.php:738
+#: src/Config/Descriptions.php:736
 msgid "LaTeX"
 msgstr "LaTeX"
 
-#: src/Config/Descriptions.php:741
+#: src/Config/Descriptions.php:739
 msgid "Navigation tree"
 msgstr "Navigeerimispuu"
 
-#: src/Config/Descriptions.php:745
+#: src/Config/Descriptions.php:743
 msgid "Microsoft Office"
 msgstr "Microsoft Office"
 
-#: src/Config/Descriptions.php:747
+#: src/Config/Descriptions.php:745
 msgid "Other core settings"
 msgstr "Muud tuumsätted"
 
-#: src/Config/Descriptions.php:748
+#: src/Config/Descriptions.php:746
 msgid "Page titles"
 msgstr "Lehe pealkirjad"
 
-#: src/Config/Descriptions.php:749
+#: src/Config/Descriptions.php:747
 msgid "Security"
 msgstr "Turvalisus"
 
-#: src/Config/Descriptions.php:750
+#: src/Config/Descriptions.php:748
 msgid "Basic settings"
 msgstr "Peamised sätted"
 
-#: src/Config/Descriptions.php:751
+#: src/Config/Descriptions.php:749
 msgid "Authentication"
 msgstr "Autentimine"
 
-#: src/Config/Descriptions.php:752
+#: src/Config/Descriptions.php:750
 msgid "Server configuration"
 msgstr "Serveri seadistus"
 
-#: src/Config/Descriptions.php:753
+#: src/Config/Descriptions.php:751
 msgid "Configuration storage"
 msgstr "Seadistuse salvestuskoht"
 
-#: src/Config/Descriptions.php:754
+#: src/Config/Descriptions.php:752
 msgid "Changes tracking"
 msgstr "Muudatuste jälgimine"
 
-#: src/Config/Descriptions.php:756
+#: src/Config/Descriptions.php:754
 msgid "SQL Query box"
 msgstr "SQL päringuaken"
 
-#: src/Config/Descriptions.php:758
+#: src/Config/Descriptions.php:756
 msgid "Startup"
 msgstr "Käivitus"
 
-#: src/Config/Descriptions.php:759
+#: src/Config/Descriptions.php:757
 msgid "Database structure"
 msgstr "Andmebaasi struktuur"
 
-#: src/Config/Descriptions.php:761
+#: src/Config/Descriptions.php:759
 msgid "Tabs"
 msgstr "Vahelehed"
 
-#: src/Config/Descriptions.php:762
+#: src/Config/Descriptions.php:760
 msgid "Display relational schema"
 msgstr "Näita seoseskeemi"
 
-#: src/Config/Descriptions.php:763
+#: src/Config/Descriptions.php:761
 msgid "Text fields"
 msgstr "Tekstiväljad"
 
-#: src/Config/Descriptions.php:764
+#: src/Config/Descriptions.php:762
 msgid "Texy! text"
 msgstr "Texy! tekst"
 
-#: src/Config/Descriptions.php:765
+#: src/Config/Descriptions.php:763
 msgid "Warnings"
 msgstr "Hoiatused"
 
-#: src/Config/Descriptions.php:767
+#: src/Config/Descriptions.php:765
 msgid "GZip"
 msgstr "GZip"
 
-#: src/Config/Descriptions.php:768
+#: src/Config/Descriptions.php:766
 msgid "Extra parameters for iconv"
 msgstr "iconv lisaparameetrid"
 
-#: src/Config/Descriptions.php:769
+#: src/Config/Descriptions.php:767
 msgid "Ignore multiple statement errors"
 msgstr "Ignoreeri multi-käsu vigu"
 
-#: src/Config/Descriptions.php:770
+#: src/Config/Descriptions.php:768
 msgid "Enable drag and drop import"
 msgstr "Luba importimine lohistamise-kukutamisega"
 
-#: src/Config/Descriptions.php:771
+#: src/Config/Descriptions.php:769
 msgid "Partial import: allow interrupt"
 msgstr "Osaline importimine: luba katkestamine"
 
-#: src/Config/Descriptions.php:776 src/Config/Descriptions.php:782
-#: src/Plugins/Import/ImportCsv.php:150 src/Plugins/Import/ImportLdi.php:75
+#: src/Config/Descriptions.php:774 src/Config/Descriptions.php:781
+#: src/Plugins/Import/ImportCsv.php:151 src/Plugins/Import/ImportLdi.php:75
 msgid "Do not abort on INSERT error"
 msgstr "Ära katkesta INSERT vea puhul"
 
-#: src/Config/Descriptions.php:777 src/Config/Descriptions.php:784
+#: src/Config/Descriptions.php:775 src/Plugins/Import/ImportCsv.php:157
+msgid "Import empty values as NULL"
+msgstr ""
+
+#: src/Config/Descriptions.php:776 src/Config/Descriptions.php:783
 msgid "Add ON DUPLICATE KEY UPDATE"
 msgstr "Lisa ON DUPLICATE KEY UPDATE"
 
-#: src/Config/Descriptions.php:779
+#: src/Config/Descriptions.php:778
 msgid "Format of imported file"
 msgstr "Imporditava faili formaat"
 
-#: src/Config/Descriptions.php:783 src/Plugins/Import/ImportLdi.php:81
+#: src/Config/Descriptions.php:782 src/Plugins/Import/ImportLdi.php:81
 msgid "Use LOCAL keyword"
 msgstr "kasuta LOCAL võtmesõna"
 
-#: src/Config/Descriptions.php:786
+#: src/Config/Descriptions.php:785
 msgid "Column names in first row"
 msgstr "Veeru nimed esimeses reas"
 
-#: src/Config/Descriptions.php:787 src/Plugins/Import/ImportOds.php:80
+#: src/Config/Descriptions.php:786 src/Plugins/Import/ImportOds.php:80
 msgid "Do not import empty rows"
 msgstr "Ära impordi tühje ridu"
 
-#: src/Config/Descriptions.php:788
+#: src/Config/Descriptions.php:787
 msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Impordi valuutad ($5.00 -> 5.00)"
 
-#: src/Config/Descriptions.php:789
+#: src/Config/Descriptions.php:788
 msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "Impordi protsendid sobiva kümnendarvuna (12.00% -> .12)"
 
-#: src/Config/Descriptions.php:790
+#: src/Config/Descriptions.php:789
 msgid "Partial import: skip queries"
 msgstr "Osaline importimine: jäta päringud vahele"
 
-#: src/Config/Descriptions.php:792
+#: src/Config/Descriptions.php:791
 msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "Ära kasuta AUTO_INCREMENT null-väärtuste jaoks"
 
-#: src/Config/Descriptions.php:793
+#: src/Config/Descriptions.php:792
 msgid "Read as multibytes"
 msgstr "Loe mitmebaidistena"
 
-#: src/Config/Descriptions.php:794
+#: src/Config/Descriptions.php:793
 msgid "Initial state for sliders"
 msgstr "Liugurite algne asetus"
 
-#: src/Config/Descriptions.php:795
+#: src/Config/Descriptions.php:794
 msgid "Number of inserted rows"
 msgstr "Lisatud ridade hulk"
 
-#: src/Config/Descriptions.php:796
+#: src/Config/Descriptions.php:795
 msgid "Limit column characters"
 msgstr "Piira veeru sümboleid"
 
-#: src/Config/Descriptions.php:797
+#: src/Config/Descriptions.php:796
 msgid "Delete all cookies on logout"
 msgstr "Kustuta väljalogimisel kõik küpsised"
 
-#: src/Config/Descriptions.php:798
+#: src/Config/Descriptions.php:797
 msgid "Recall user name"
 msgstr "Kutsu kasutajanimi uuesti"
 
-#: src/Config/Descriptions.php:799
+#: src/Config/Descriptions.php:798
 msgid "Login cookie store"
 msgstr "Sisselogimise küpsise säilitamine"
 
-#: src/Config/Descriptions.php:800
+#: src/Config/Descriptions.php:799
 msgid "Login cookie validity"
 msgstr "Sisselogimise küpsise kehtivus"
 
-#: src/Config/Descriptions.php:801
+#: src/Config/Descriptions.php:800
 msgid "Bigger textarea for LONGTEXT"
 msgstr "Suurem tekstiala LONGTEXT jaoks"
 
-#: src/Config/Descriptions.php:802
+#: src/Config/Descriptions.php:801
 msgid "Maximum displayed SQL length"
 msgstr "Näidatava SQL'i maksimaalne pikkus"
 
-#: src/Config/Descriptions.php:803
+#: src/Config/Descriptions.php:802
 msgid "Maximum databases"
 msgstr "Suurim hulk andmebaase"
 
-#: src/Config/Descriptions.php:804
+#: src/Config/Descriptions.php:803
 msgid "Maximum items on first level"
 msgstr "Maksimaalne elementide arv esimesel tasemel"
 
-#: src/Config/Descriptions.php:805
+#: src/Config/Descriptions.php:804
 msgid "Maximum items in branch"
 msgstr "Maksimaalne elementide arv harus"
 
-#: src/Config/Descriptions.php:806
+#: src/Config/Descriptions.php:805
 msgid "Maximum number of rows to display"
 msgstr "Näidatavate ridade suurim hulk"
 
-#: src/Config/Descriptions.php:807
+#: src/Config/Descriptions.php:806
 msgid "Maximum tables"
 msgstr "Suurim hulk tabeleid"
 
-#: src/Config/Descriptions.php:808
+#: src/Config/Descriptions.php:807
 msgid "Memory limit"
 msgstr "Mälu piirang"
 
-#: src/Config/Descriptions.php:809
+#: src/Config/Descriptions.php:808
 msgid "Show databases navigation as tree"
 msgstr "Kuva andmebaaside navigeerimine puuna"
 
-#: src/Config/Descriptions.php:810
+#: src/Config/Descriptions.php:809
 msgid "Navigation panel width"
 msgstr "Navigatsioonipaneeli laius"
 
-#: src/Config/Descriptions.php:811
+#: src/Config/Descriptions.php:810
 #: src/Controllers/JavaScriptMessagesController.php:586
 #: src/Navigation/NavigationTree.php:1258
 msgid "Link with main panel"
 msgstr "Lingi peapaneeli"
 
-#: src/Config/Descriptions.php:812
+#: src/Config/Descriptions.php:811
 msgid "Display logo"
 msgstr "Näita logo"
 
-#: src/Config/Descriptions.php:813
+#: src/Config/Descriptions.php:812
 msgid "Logo link URL"
 msgstr "Logo lingi URL"
 
-#: src/Config/Descriptions.php:814
+#: src/Config/Descriptions.php:813
 msgid "Logo link target"
 msgstr "Logo lingi sihtkoht"
 
-#: src/Config/Descriptions.php:815
+#: src/Config/Descriptions.php:814
 msgid "Display servers selection"
 msgstr "Näita serverite valikut"
 
-#: src/Config/Descriptions.php:816
+#: src/Config/Descriptions.php:815
 msgid "Target for quick access icon"
 msgstr "Kiiravamisikooni sihtkoht"
 
-#: src/Config/Descriptions.php:817
+#: src/Config/Descriptions.php:816
 msgid "Target for second quick access icon"
 msgstr "Teise kiiravamisikooni sihtkoht"
 
-#: src/Config/Descriptions.php:818
+#: src/Config/Descriptions.php:817
 msgid "Minimum number of items to display the filter box"
 msgstr "Minimaalne filtri kastis näidatavate elementide arv"
 
-#: src/Config/Descriptions.php:820
+#: src/Config/Descriptions.php:819
 msgid "Minimum number of databases to display the database filter box"
 msgstr "Andmebaasi filtri kastis näidatavate andmebaaside minimaalne hulk"
 
-#: src/Config/Descriptions.php:822
+#: src/Config/Descriptions.php:821
 msgid "Group items in the tree"
 msgstr "Grupeeri puu elemendid"
 
-#: src/Config/Descriptions.php:823
+#: src/Config/Descriptions.php:822
 msgid "Database tree separator"
 msgstr "Andmebaasipuu eraldaja"
 
-#: src/Config/Descriptions.php:824
+#: src/Config/Descriptions.php:823
 msgid "Table tree separator"
 msgstr "Tabelipuu eraldaja"
 
-#: src/Config/Descriptions.php:825
+#: src/Config/Descriptions.php:824
 msgid "Maximum table tree depth"
 msgstr "Maksimaalne tabelipuu kõrgus"
 
-#: src/Config/Descriptions.php:826
+#: src/Config/Descriptions.php:825
 msgid "Enable highlighting"
 msgstr "Luba esiletõstmine"
 
-#: src/Config/Descriptions.php:827
+#: src/Config/Descriptions.php:826
 msgid "Enable navigation tree expansion"
 msgstr "Luba navigeerimispuu laiendamine"
 
-#: src/Config/Descriptions.php:828
+#: src/Config/Descriptions.php:827
 msgid "Show tables in tree"
 msgstr "Kuva puus tabelite loend"
 
-#: src/Config/Descriptions.php:829
+#: src/Config/Descriptions.php:828
 msgid "Show views in tree"
 msgstr "Kuva puus vaated"
 
-#: src/Config/Descriptions.php:830
+#: src/Config/Descriptions.php:829
 msgid "Show functions in tree"
 msgstr "Kuva puus funktsioonid"
 
-#: src/Config/Descriptions.php:831
+#: src/Config/Descriptions.php:830
 msgid "Show procedures in tree"
 msgstr "Kuva puus protseduurid"
 
-#: src/Config/Descriptions.php:832
+#: src/Config/Descriptions.php:831
 msgid "Show events in tree"
 msgstr "Kuva puus sündmused"
 
-#: src/Config/Descriptions.php:833
+#: src/Config/Descriptions.php:832
 msgid "Expand single database"
 msgstr "Ava üksik andmebaas"
 
-#: src/Config/Descriptions.php:834
+#: src/Config/Descriptions.php:833
 msgid "Recently used tables"
 msgstr "Hiljuti kasutatud tabelid"
 
-#: src/Config/Descriptions.php:836
+#: src/Config/Descriptions.php:835
 msgid "Where to show the table row links"
 msgstr "Kus näidata tabeli rea linke"
 
-#: src/Config/Descriptions.php:837
+#: src/Config/Descriptions.php:836
 msgid "Show row links anyway"
 msgstr "Kuva ridade viidad ikkagi"
 
-#: src/Config/Descriptions.php:839
+#: src/Config/Descriptions.php:838
 msgid "Natural order"
 msgstr "Algne järjekord"
 
-#: src/Config/Descriptions.php:840
+#: src/Config/Descriptions.php:839
 msgid "Table navigation bar"
 msgstr "Tabeli navigeerimisriba"
 
-#: src/Config/Descriptions.php:841
+#: src/Config/Descriptions.php:840
 msgid "GZip output buffering"
 msgstr "GZip väljundi puhverdamine"
 
-#: src/Config/Descriptions.php:842
+#: src/Config/Descriptions.php:841
 msgid "Default sorting order"
 msgstr "Vaikimisi sorteerimise järjekord"
 
-#: src/Config/Descriptions.php:843
+#: src/Config/Descriptions.php:842
 msgid "Persistent connections"
 msgstr "Püsiühendused"
 
-#: src/Config/Descriptions.php:844
+#: src/Config/Descriptions.php:843
 msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "Puudulikud phpMyAdmini seadistuse salvestuse tabelid"
 
-#: src/Config/Descriptions.php:845
+#: src/Config/Descriptions.php:844
 msgid "MySQL reserved word warning"
 msgstr "MySQL reserveeritud sõna hoiatus"
 
-#: src/Config/Descriptions.php:846
+#: src/Config/Descriptions.php:845
 msgid "How to display the menu tabs"
 msgstr "Kuidas kuvada menüü sakke"
 
-#: src/Config/Descriptions.php:847
+#: src/Config/Descriptions.php:846
 msgid "How to display various action links"
 msgstr "Kuidas kuvada erinevate tegevuste linke"
 
-#: src/Config/Descriptions.php:848
+#: src/Config/Descriptions.php:847
 msgid "Protect binary columns"
 msgstr "Kaitse binaarseid veergusid"
 
-#: src/Config/Descriptions.php:849
+#: src/Config/Descriptions.php:848
 msgid "Permanent query history"
 msgstr "Püsiv päringute ajalugu"
 
-#: src/Config/Descriptions.php:850
+#: src/Config/Descriptions.php:849
 msgid "Query history length"
 msgstr "Päringu ajaloo pikkus"
 
-#: src/Config/Descriptions.php:851
+#: src/Config/Descriptions.php:850
 msgid "Allow shared bookmarks between users"
 msgstr "Luba kastajatevahelised jagatud järjehoidjad"
 
-#: src/Config/Descriptions.php:852
+#: src/Config/Descriptions.php:851
 msgid "Recoding engine"
 msgstr "Ümberkodeerimise mootor"
 
-#: src/Config/Descriptions.php:853
+#: src/Config/Descriptions.php:852
 msgid "Remember table's sorting"
 msgstr "Jäta meelde tabeli sortimisalus"
 
-#: src/Config/Descriptions.php:854
+#: src/Config/Descriptions.php:853
 msgid "Primary key default sort order"
 msgstr "Primaarvõtme vaimisi sortimisrežiim"
 
-#: src/Config/Descriptions.php:855
+#: src/Config/Descriptions.php:854
 msgid "Repeat headers"
 msgstr "Korda päiseid"
 
-#: src/Config/Descriptions.php:856
+#: src/Config/Descriptions.php:855
 msgid "Grid editing: trigger action"
 msgstr "Võrgustikmuutmine: tegevuse päästik"
 
-#: src/Config/Descriptions.php:857
+#: src/Config/Descriptions.php:856
 msgid "Relational display"
 msgstr "Suhtestuskuva"
 
-#: src/Config/Descriptions.php:858
+#: src/Config/Descriptions.php:857
 msgid "Grid editing: save all edited cells at once"
 msgstr "Võrgustukmuutmine: salvesta kõik muudetud lahtrid"
 
-#: src/Config/Descriptions.php:859
+#: src/Config/Descriptions.php:858
 msgid "Save directory"
 msgstr "Salvestamise kataloog"
 
-#: src/Config/Descriptions.php:860
+#: src/Config/Descriptions.php:859
 msgid "Host authorization order"
 msgstr "Hosti autentimise järjekord"
 
-#: src/Config/Descriptions.php:861
+#: src/Config/Descriptions.php:860
 msgid "Host authorization rules"
 msgstr "Hosti autentimise reeglid"
 
-#: src/Config/Descriptions.php:862
+#: src/Config/Descriptions.php:861
 msgid "Allow logins without a password"
 msgstr "Luba paroolita sisselogimised"
 
-#: src/Config/Descriptions.php:863
+#: src/Config/Descriptions.php:862
 msgid "Allow root login"
 msgstr "Luba sisse logida 'root' kasutajana"
 
-#: src/Config/Descriptions.php:864
+#: src/Config/Descriptions.php:863
 msgid "Session timezone"
 msgstr "Seansi ajatsoon"
 
-#: src/Config/Descriptions.php:865
+#: src/Config/Descriptions.php:864
 msgid "HTTP Realm"
 msgstr "HTTP ligipääsuala"
 
-#: src/Config/Descriptions.php:867
+#: src/Config/Descriptions.php:866
 msgid "Bookmark table"
 msgstr "Järjehoidja tabel"
 
-#: src/Config/Descriptions.php:868
+#: src/Config/Descriptions.php:867
 msgid "Column information table"
 msgstr "Veeru teabe tabel"
 
-#: src/Config/Descriptions.php:869
+#: src/Config/Descriptions.php:868
 msgid "Compress connection"
 msgstr "Tihenda ühendus"
 
-#: src/Config/Descriptions.php:870
+#: src/Config/Descriptions.php:869
 msgid "Control user password"
 msgstr "Kontrollkasutaja parool"
 
-#: src/Config/Descriptions.php:871
+#: src/Config/Descriptions.php:870
 msgid "Control user"
 msgstr "Kontrollkasutaja"
 
-#: src/Config/Descriptions.php:872
+#: src/Config/Descriptions.php:871
 msgid "Control host"
 msgstr "Kontrollhost"
 
-#: src/Config/Descriptions.php:873
+#: src/Config/Descriptions.php:872
 msgid "Control port"
 msgstr "Kontrollport"
 
-#: src/Config/Descriptions.php:874
+#: src/Config/Descriptions.php:873
 msgid "Disable use of INFORMATION_SCHEMA"
 msgstr "Keela INFORMATION_SCHEMA kasutus"
 
-#: src/Config/Descriptions.php:875
+#: src/Config/Descriptions.php:874
 msgid "Hide databases"
 msgstr "Peida andmebaasid"
 
-#: src/Config/Descriptions.php:876
+#: src/Config/Descriptions.php:875
 msgid "SQL query history table"
 msgstr "SQL päringu ajaloo tabel"
 
-#: src/Config/Descriptions.php:877
+#: src/Config/Descriptions.php:876
 msgid "Server hostname"
 msgstr "Serveri hostinimi"
 
-#: src/Config/Descriptions.php:878
+#: src/Config/Descriptions.php:877
 msgid "Logout URL"
 msgstr "Väljalogimise URL"
 
-#: src/Config/Descriptions.php:879
+#: src/Config/Descriptions.php:878
 msgid "Maximal number of table preferences to store"
 msgstr "Suurim hulk tabeli eelistusi, mida salvestada"
 
-#: src/Config/Descriptions.php:880
+#: src/Config/Descriptions.php:879
 msgid "Export templates table"
 msgstr "Ekspordi mallide tabel"
 
-#: src/Config/Descriptions.php:881
+#: src/Config/Descriptions.php:880
 msgid "Central columns table"
 msgstr "Kesksete veergude tabel"
 
-#: src/Config/Descriptions.php:882
+#: src/Config/Descriptions.php:881
 msgid "Show only listed databases"
 msgstr "Näita ainult loendatud andmebaase"
 
-#: src/Config/Descriptions.php:883
+#: src/Config/Descriptions.php:882
 msgid "Password for config auth"
 msgstr "'config' autentimise parool"
 
-#: src/Config/Descriptions.php:884
+#: src/Config/Descriptions.php:883
 msgid "PDF schema: pages table"
 msgstr "PDF skeem: lehtede tabel"
 
-#: src/Config/Descriptions.php:886
+#: src/Config/Descriptions.php:885
 msgid "Server port"
 msgstr "Serveri port"
 
-#: src/Config/Descriptions.php:887
+#: src/Config/Descriptions.php:886
 msgid "Recently used table"
 msgstr "Hiljuti kasutatud tabel"
 
-#: src/Config/Descriptions.php:888
+#: src/Config/Descriptions.php:887
 msgid "Favorites table"
 msgstr "Lemmikute tabel"
 
-#: src/Config/Descriptions.php:889
+#: src/Config/Descriptions.php:888
 msgid "Relation table"
 msgstr "Seose tabel"
 
-#: src/Config/Descriptions.php:890
+#: src/Config/Descriptions.php:889
 msgid "Signon session name"
 msgstr "Sisselogimise seansi nimi"
 
-#: src/Config/Descriptions.php:891
+#: src/Config/Descriptions.php:890
 msgid "Signon URL"
 msgstr "Sisselogimise URL"
 
-#: src/Config/Descriptions.php:892
+#: src/Config/Descriptions.php:891
 msgid "Server socket"
 msgstr "Serveri sokkel"
 
-#: src/Config/Descriptions.php:893
+#: src/Config/Descriptions.php:892
 msgid "Use SSL"
 msgstr "Kasuta SSL'i"
 
-#: src/Config/Descriptions.php:894
+#: src/Config/Descriptions.php:893
 msgid "Designer and PDF schema: table coordinates"
 msgstr "Disainer ja PDF skeem: tabeli koordinaadid"
 
-#: src/Config/Descriptions.php:895
+#: src/Config/Descriptions.php:894
 msgid "Display columns table"
 msgstr "Näita veergude tabelit"
 
-#: src/Config/Descriptions.php:896
+#: src/Config/Descriptions.php:895
 msgid "UI preferences table"
 msgstr "UI eelistuste tabel"
 
-#: src/Config/Descriptions.php:897
+#: src/Config/Descriptions.php:896
 msgid "Add DROP DATABASE"
 msgstr "Lisa DROP DATABASE"
 
-#: src/Config/Descriptions.php:899
+#: src/Config/Descriptions.php:898
 msgid "Add DROP VIEW"
 msgstr "Lisa DROP VIEW"
 
-#: src/Config/Descriptions.php:900
+#: src/Config/Descriptions.php:899
 msgid "Statements to track"
 msgstr "Käsud, mida jälgida"
 
-#: src/Config/Descriptions.php:901
+#: src/Config/Descriptions.php:900
 msgid "SQL query tracking table"
 msgstr "SQL päringu jälgimise tabel"
 
-#: src/Config/Descriptions.php:902
+#: src/Config/Descriptions.php:901
 msgid "Automatically create versions"
 msgstr "Loo versioonid automaatselt"
 
-#: src/Config/Descriptions.php:903
+#: src/Config/Descriptions.php:902
 msgid "User preferences storage table"
 msgstr "Kasutaja eelistusi säilitav tabel"
 
-#: src/Config/Descriptions.php:904
+#: src/Config/Descriptions.php:903
 msgid "Users table"
 msgstr "Kasutajate tabel"
 
-#: src/Config/Descriptions.php:905
+#: src/Config/Descriptions.php:904
 msgid "User groups table"
 msgstr "Kasutajagruppide tabel"
 
-#: src/Config/Descriptions.php:906
+#: src/Config/Descriptions.php:905
 msgid "Hidden navigation items table"
 msgstr "Peidetud navigeerimiselementide tabel"
 
-#: src/Config/Descriptions.php:907
+#: src/Config/Descriptions.php:906
 msgid "User for config auth"
 msgstr "'config' autentimise kasutaja"
 
-#: src/Config/Descriptions.php:908
+#: src/Config/Descriptions.php:907
 msgid "Verbose name of this server"
 msgstr "Selle serveri sõnaline nimi"
 
-#: src/Config/Descriptions.php:909
+#: src/Config/Descriptions.php:908
 msgid "Allow to display all the rows"
 msgstr "Luba näidata kõiki ridu"
 
-#: src/Config/Descriptions.php:910
+#: src/Config/Descriptions.php:909
 msgid "Show password change form"
 msgstr "Näita parooli muutmise vormi"
 
-#: src/Config/Descriptions.php:911
+#: src/Config/Descriptions.php:910
 msgid "Show create database form"
 msgstr "Näita andmebaasi loomise vormi"
 
-#: src/Config/Descriptions.php:912
+#: src/Config/Descriptions.php:911
 msgid "Show table comments"
 msgstr "Kuva tabeli kommentaarid"
 
-#: src/Config/Descriptions.php:913
+#: src/Config/Descriptions.php:912
 msgid "Show creation timestamp"
 msgstr "Kuva loomise ajatempel"
 
-#: src/Config/Descriptions.php:914
+#: src/Config/Descriptions.php:913
 msgid "Show last update timestamp"
 msgstr "Kuva viimase uuendamise ajatempel"
 
-#: src/Config/Descriptions.php:915
+#: src/Config/Descriptions.php:914
 msgid "Show last check timestamp"
 msgstr "Kuva viimase kontrolli ajatempel"
 
-#: src/Config/Descriptions.php:916
+#: src/Config/Descriptions.php:915
 msgid "Show table charset"
 msgstr "Kuva tabeli märgistik"
 
-#: src/Config/Descriptions.php:917
+#: src/Config/Descriptions.php:916
 msgid "Show field types"
 msgstr "Näita välja tüüpe"
 
-#: src/Config/Descriptions.php:918
+#: src/Config/Descriptions.php:917
 msgid "Show function fields"
 msgstr "Näita funktsiooni väljasid"
 
-#: src/Config/Descriptions.php:919
+#: src/Config/Descriptions.php:918
 msgid "Show hint"
 msgstr "Näita vihjet"
 
-#: src/Config/Descriptions.php:920
+#: src/Config/Descriptions.php:919
 msgid "Show phpinfo() link"
 msgstr "Näita phpinfo() linki"
 
-#: src/Config/Descriptions.php:921
+#: src/Config/Descriptions.php:920
 msgid "Show detailed MySQL server information"
 msgstr "Näita detailset MySQL serveri teavet"
 
-#: src/Config/Descriptions.php:922
+#: src/Config/Descriptions.php:921
 msgid "Show SQL queries"
 msgstr "Näita SQL päringuid"
 
-#: src/Config/Descriptions.php:924
+#: src/Config/Descriptions.php:923
 msgid "Show statistics"
 msgstr "Näita statistikat"
 
-#: src/Config/Descriptions.php:925
+#: src/Config/Descriptions.php:924
 msgid "Skip locked tables"
 msgstr "Jäta lukustatud tabelid vahele"
 
-#: src/Config/Descriptions.php:927 src/Html/Generator.php:498
+#: src/Config/Descriptions.php:926 src/Html/Generator.php:498
 msgid "Explain SQL"
 msgstr "Selgita SQL"
 
-#: src/Config/Descriptions.php:929 src/Html/Generator.php:569
+#: src/Config/Descriptions.php:928 src/Html/Generator.php:569
 msgid "Create PHP code"
 msgstr "Loo PHP kood"
 
-#: src/Config/Descriptions.php:930
-msgid "Suhosin warning"
-msgstr "Suhosin'i hoiatus"
-
-#: src/Config/Descriptions.php:931
+#: src/Config/Descriptions.php:929
 msgid "Login cookie validity warning"
 msgstr "Sisselogimise küpsise kehtivuse hoiatus"
 
-#: src/Config/Descriptions.php:932
+#: src/Config/Descriptions.php:930
 msgid "Textarea columns"
 msgstr "Tekstiala veerud"
 
-#: src/Config/Descriptions.php:933
+#: src/Config/Descriptions.php:931
 msgid "Textarea rows"
 msgstr "Tekstiala read"
 
-#: src/Config/Descriptions.php:935
+#: src/Config/Descriptions.php:933
 msgid "Default title"
 msgstr "Vaikimisi pealkiri"
 
-#: src/Config/Descriptions.php:938
+#: src/Config/Descriptions.php:936
 msgid "List of trusted proxies for IP allow/deny"
 msgstr "Usaldusväärsete prokside nimekiri lubatud/keelatud IP'de jaoks"
 
-#: src/Config/Descriptions.php:939
+#: src/Config/Descriptions.php:937
 msgid "Upload directory"
 msgstr "Üleslaadimise kataloog"
 
-#: src/Config/Descriptions.php:940
+#: src/Config/Descriptions.php:938
 msgid "Use database search"
 msgstr "Kasuta andmebaasi otsingut"
 
-#: src/Config/Descriptions.php:941
+#: src/Config/Descriptions.php:939
 msgid "Enable the Developer tab in settings"
 msgstr "Luba sätetes kujundaja vaheleht"
 
-#: src/Config/Descriptions.php:942 src/Setup/Index.php:125
+#: src/Config/Descriptions.php:940 src/Setup/Index.php:125
 #: src/Setup/Index.php:152 src/Setup/Index.php:160 src/Setup/Index.php:168
 msgid "Version check"
 msgstr "Versiooni kontroll"
 
-#: src/Config/Descriptions.php:943
+#: src/Config/Descriptions.php:941
 msgid "Proxy URL"
 msgstr "Proksi aadress"
 
-#: src/Config/Descriptions.php:944
+#: src/Config/Descriptions.php:942
 msgid "Proxy username"
 msgstr "Proksi kasutajanimi"
 
-#: src/Config/Descriptions.php:945
+#: src/Config/Descriptions.php:943
 msgid "Proxy password"
 msgstr "Proksi parool"
 
-#: src/Config/Descriptions.php:946
+#: src/Config/Descriptions.php:944
 msgid "ZIP"
 msgstr "ZIP"
 
-#: src/Config/Descriptions.php:947
+#: src/Config/Descriptions.php:945
 msgid "URL for reCAPTCHA v2 API"
 msgstr "reCAPTCHA v2 API aadress"
 
-#: src/Config/Descriptions.php:948
+#: src/Config/Descriptions.php:946
 msgid "Content-Security-Policy snippet for reCAPTCHA v2 API"
 msgstr "ReCaptcha v2 API sisuturbe-poliitika väljavõte"
 
-#: src/Config/Descriptions.php:949
+#: src/Config/Descriptions.php:947
 msgid "Request parameter for reCAPTCHA v2 API"
 msgstr "ReCaptcha v2-ga ühilduva API päringu parameeter"
 
-#: src/Config/Descriptions.php:950
+#: src/Config/Descriptions.php:948
 msgid "Response parameter for reCAPTCHA v2 API"
 msgstr "ReCaptcha v2-ga ühilduva API vastuse parameeter"
 
-#: src/Config/Descriptions.php:951
+#: src/Config/Descriptions.php:949
 msgid "Public key for reCAPTCHA"
 msgstr "reCAPTCHA avalik võti"
 
-#: src/Config/Descriptions.php:952
+#: src/Config/Descriptions.php:950
 msgid "Private key for reCAPTCHA"
 msgstr "reCAPTCHA salajane võti"
 
-#: src/Config/Descriptions.php:953
+#: src/Config/Descriptions.php:951
 msgid "URL for reCAPTCHA siteverify"
 msgstr "reCAPTCHA siteverify aadress"
 
-#: src/Config/Descriptions.php:954
+#: src/Config/Descriptions.php:952
 msgid "Send error reports"
 msgstr "Saada vearaport"
 
-#: src/Config/Descriptions.php:955
+#: src/Config/Descriptions.php:953
 msgid "Enter executes queries in console"
 msgstr "Enter käivitab päringud konsoolil"
 
-#: src/Config/Descriptions.php:956
+#: src/Config/Descriptions.php:954
 msgid "Enable Zero Configuration mode"
 msgstr "Luba Nullseadustuse režiim"
 
-#: src/Config/Descriptions.php:960
+#: src/Config/Descriptions.php:958
 msgid "Execute queries on Enter and insert new line with Shift+Enter"
 msgstr ""
 "Käivita päringud klahviga Enter ja lisa reavahetused kombinatsiooniga "
 "Shift+Enter"
 
-#: src/Config/Descriptions.php:962
+#: src/Config/Descriptions.php:960
 msgid "Console height"
 msgstr "Konsooli kõrgus"
 
-#: src/Config/Descriptions.php:963
+#: src/Config/Descriptions.php:961
 msgid "Console mode"
 msgstr "Konsooli režiim"
 
-#: src/Config/Descriptions.php:966
+#: src/Config/Descriptions.php:964
 msgid "Order by"
 msgstr "Järjesta"
 
-#: src/Config/Descriptions.php:967
+#: src/Config/Descriptions.php:965
 msgid "Server connection collation"
 msgstr "Serveri ühenduse kodeering"
 
@@ -11667,7 +11667,8 @@ msgstr "Pakitud importimine ei toimi, sest puudub funktsioon %s."
 msgid "Compressed export will not work due to missing function %s."
 msgstr "Pakitud eksportimine ei toimi, sest puudub funktsioon %s."
 
-#: src/Config/FormDisplay.php:819
+#: src/Config/FormDisplay.php:815 src/Config/FormDisplay.php:816
+#: src/Config/FormDisplay.php:817
 #, php-format
 msgid "maximum %s"
 msgstr "maksimaalselt %s"
@@ -11701,7 +11702,7 @@ msgid "Microsoft Word 2000"
 msgstr "Microsoft Word 2000"
 
 #: src/Config/Forms/User/ExportForm.php:120
-#: src/Config/Forms/User/ImportForm.php:46
+#: src/Config/Forms/User/ImportForm.php:47
 msgid "OpenDocument Spreadsheet"
 msgstr "OpenDocument tabel"
 
@@ -11709,7 +11710,7 @@ msgstr "OpenDocument tabel"
 msgid "OpenDocument Text"
 msgstr "OpenDocument tekst"
 
-#: src/Config/Forms/User/ImportForm.php:37
+#: src/Config/Forms/User/ImportForm.php:38
 msgid "CSV using LOAD DATA"
 msgstr "CSV kasutades LOAD DATA"
 
@@ -11866,7 +11867,7 @@ msgstr ""
 "%1$sGZip tihendamine ja hõrendamine%2$s vajab funktsioone (%3$s), mida siin "
 "süsteemis pole."
 
-#: src/Config/Settings.php:3168
+#: src/Config/Settings.php:3144
 #, php-format
 msgid "Server %d"
 msgstr "Server %d"
@@ -12145,7 +12146,7 @@ msgstr ""
 
 #: src/Controllers/Database/ExportController.php:129
 #: src/Controllers/Server/ExportController.php:57
-#: src/Controllers/Table/ExportController.php:90
+#: src/Controllers/Table/ExportController.php:92
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 "Ei saanud laadida eksportimise pluginaid, palun kontrolli oma paigaldust!"
@@ -12278,7 +12279,7 @@ msgid "Success!"
 msgstr "Õnnestus!"
 
 #: src/Controllers/Database/StructureController.php:568
-#: src/Display/Results.php:3260
+#: src/Display/Results.php:3254
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -12340,7 +12341,7 @@ msgstr "Kui koged mingeid probleeme, siis raporteeri neist ise."
 msgid "You may want to refresh the page."
 msgstr "Sa võiksid lehekülje uuesti laadida."
 
-#: src/Controllers/Export/ExportController.php:120 src/Export/Export.php:676
+#: src/Controllers/Export/ExportController.php:120 src/Export/Export.php:677
 msgid "Bad type!"
 msgstr "Halb tüüp!"
 
@@ -12467,16 +12468,7 @@ msgstr ""
 "kataloogi kindlasti kustutama. Vastasel korral võivad su serveri turvalisust "
 "ohustada isikud, kes on alla laadinud serveri seadistuste faili."
 
-#: src/Controllers/HomeController.php:404
-#, php-format
-msgid ""
-"Server running with Suhosin. Please refer to %sdocumentation%s for possible "
-"issues."
-msgstr ""
-"Server töötab koos Suhosin'iga. Võimalike probleemide kohta loe "
-"%sdokumentatsioonist%s."
-
-#: src/Controllers/HomeController.php:418
+#: src/Controllers/HomeController.php:398
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -12485,14 +12477,14 @@ msgstr ""
 "$cfg['TempDir'] (%s) ei ole kasutatav. phpMyAdmin ei saa malle puhvermälus "
 "hoida ja on seetõttu aeglane."
 
-#: src/Controllers/HomeController.php:435
+#: src/Controllers/HomeController.php:415
 msgid ""
 "The [code]HTTP_HOST[/code] variable is missing, which might cause phpMyAdmin "
 "to not work properly. Please refer to [doc@faq1-46]documentation[/doc] for "
 "possible issues."
 msgstr ""
 
-#: src/Controllers/HomeController.php:488
+#: src/Controllers/HomeController.php:468
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -12502,7 +12494,7 @@ msgstr ""
 "märgitabelit. Ilma mbstring laiendita ei suuda phpMyAdmin sõnesid "
 "korralikult poolitada ja see võib viia ettearvamatute tulemusteni."
 
-#: src/Controllers/HomeController.php:506
+#: src/Controllers/HomeController.php:486
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -12578,7 +12570,7 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" käsud on keelatud."
 
-#: src/Controllers/Import/ImportController.php:700 src/Sql.php:912
+#: src/Controllers/Import/ImportController.php:700 src/Sql.php:909
 msgid "[ROLLBACK occurred.]"
 msgstr "[Toimus tagasipööramine.]"
 
@@ -14481,7 +14473,7 @@ msgid "No such column"
 msgstr "Sellist veergu ei ole"
 
 #: src/Controllers/Normalization/GetColumnsController.php:35
-#: src/Normalization.php:230 src/Types.php:652
+#: src/Normalization.php:230 src/Types.php:653
 msgctxt "string types"
 msgid "String"
 msgstr "Sõne"
@@ -15336,7 +15328,7 @@ msgstr "Valed andmed"
 msgid "Wrong data or no validation for %s"
 msgstr "Valed andmed või puudub %s valideerimine"
 
-#: src/Controllers/Sql/SqlController.php:218 src/Sql.php:1080
+#: src/Controllers/Sql/SqlController.php:218 src/Sql.php:1077
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Loodi järjehoidja %s."
@@ -15414,7 +15406,7 @@ msgstr "Sinu päring ei läbinud turvalisuse kontrolli."
 
 #: src/Controllers/Table/GetFieldController.php:108
 #: src/Database/Routines.php:1050 src/Import/Import.php:138
-#: src/InsertEdit.php:161 src/Sql.php:898
+#: src/InsertEdit.php:161 src/Sql.php:895
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL tagastas tühja tulemuse (s.t nulliread)."
 
@@ -15807,27 +15799,27 @@ msgstr ""
 msgid "The row has been deleted."
 msgstr "Rida on kustutatud."
 
-#: src/Display/Results.php:2979 src/Display/Results.php:3301 src/Sql.php:904
+#: src/Display/Results.php:2973 src/Display/Results.php:3295 src/Sql.php:901
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "päring kestis %01.4f sekundit."
 
-#: src/Display/Results.php:3269
+#: src/Display/Results.php:3263
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Kuvatakse read %1s - %2s"
 
-#: src/Display/Results.php:3283
+#: src/Display/Results.php:3277
 #, php-format
 msgid "%1$s total, %2$s in query"
 msgstr "Kokku %1$s, päringus %2$s"
 
-#: src/Display/Results.php:3288
+#: src/Display/Results.php:3282
 #, php-format
 msgid "%s total"
 msgstr "kokku: %s"
 
-#: src/Display/Results.php:3597
+#: src/Display/Results.php:3591
 msgid "Link not found!"
 msgstr "Linki ei leitud!"
 
@@ -16458,11 +16450,11 @@ msgstr ""
 msgid "web server upload directory:"
 msgstr "veebiserveri üleslaadimiskataloog:"
 
-#: src/InsertEdit.php:846 src/Sql.php:895
+#: src/InsertEdit.php:846 src/Sql.php:892
 msgid "Showing SQL query"
 msgstr "Näitan SQL päringut"
 
-#: src/InsertEdit.php:870 src/Sql.php:875
+#: src/InsertEdit.php:870 src/Sql.php:872
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Lisatud rea id: %1$d"
@@ -16908,39 +16900,39 @@ msgstr ""
 msgid "No partial dependencies found!"
 msgstr "Osalisi sõltuvusi ei leitud!"
 
-#: src/Operations.php:540
+#: src/Operations.php:536
 msgid "Coalesce"
 msgstr "Sulanda kokku"
 
-#: src/Operations.php:891
+#: src/Operations.php:887
 msgid "Can't move table to same one!"
 msgstr "Ei saa tabelit iseendasse liigutada!"
 
-#: src/Operations.php:893
+#: src/Operations.php:889
 msgid "Can't copy table to same one!"
 msgstr "Ei saa tabelit iseendasse kopeerida!"
 
-#: src/Operations.php:929
+#: src/Operations.php:925
 #, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "Tabel %s liigutati andmebaasi %s. Õiguseid kohandati vastavalt."
 
-#: src/Operations.php:935
+#: src/Operations.php:931
 #, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "Tabel %s kopeeriti andmebaasi %s. Õiguseid kohandati vastavalt."
 
-#: src/Operations.php:941
+#: src/Operations.php:937
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "%s tabel liigutati %s andmebaasi."
 
-#: src/Operations.php:945
+#: src/Operations.php:941
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "%s tabel kopeeriti %s andmebaasi."
 
-#: src/Operations.php:968
+#: src/Operations.php:964
 msgid "The table name is empty!"
 msgstr "Tabeli nimi on tühi!"
 
@@ -17023,7 +17015,7 @@ msgstr "Seadistuses on valitud vale autentimise meetod:"
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr "Oled lubanud kaheastmelise autentimise, palun kinnita oma meldimine."
 
-#: src/Plugins/Export/ExportCsv.php:68 src/Plugins/Export/ExportToon.php:61
+#: src/Plugins/Export/ExportCsv.php:68 src/Plugins/Export/ExportToon.php:62
 #: src/Plugins/Import/AbstractImportCsv.php:36
 msgid "Columns separated with:"
 msgstr "Veergusid eraldab:"
@@ -17443,7 +17435,7 @@ msgstr ""
 "Andmebaasi süsteem või vanem MySQL server, et saavutada väljundi maksimaalne "
 "ühilduvus:"
 
-#: src/Plugins/Export/ExportToon.php:66
+#: src/Plugins/Export/ExportToon.php:67
 #, fuzzy
 #| msgid "Orientation"
 msgid "Indentation:"
@@ -17468,19 +17460,19 @@ msgstr ""
 "Uuenda andmeid, kui importimisel leitakse topeltvõtmeid (lisa ON DUPLICATE "
 "KEY UPDATE)"
 
-#: src/Plugins/Import/ImportCsv.php:92
+#: src/Plugins/Import/ImportCsv.php:93
 msgid "Name of the new table (optional):"
 msgstr "Uue tabeli nimi (valikuline):"
 
-#: src/Plugins/Import/ImportCsv.php:101
+#: src/Plugins/Import/ImportCsv.php:102
 msgid "Name of the new database (optional):"
 msgstr "Uue andmebaasi nimi (valikuline):"
 
-#: src/Plugins/Import/ImportCsv.php:110 src/Plugins/Import/ImportCsv.php:128
+#: src/Plugins/Import/ImportCsv.php:111 src/Plugins/Import/ImportCsv.php:129
 msgid "Import these many number of rows (optional):"
 msgstr "Impordi nii palju ridu (valikuline):"
 
-#: src/Plugins/Import/ImportCsv.php:118 src/Plugins/Import/ImportOds.php:72
+#: src/Plugins/Import/ImportCsv.php:119 src/Plugins/Import/ImportOds.php:72
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
@@ -17488,7 +17480,7 @@ msgstr ""
 "Faili esimene rida sisaldab tabeli veeru nimesid <i>(kui seda pole valitud, "
 "siis esimene rida saab andmete osaks)</i>"
 
-#: src/Plugins/Import/ImportCsv.php:135
+#: src/Plugins/Import/ImportCsv.php:136
 msgid ""
 "If the data in each row of the file is not in the same order as in the "
 "database, list the corresponding column names here. Column names must be "
@@ -17498,27 +17490,27 @@ msgstr ""
 "andmebaasis, siis loenda siin vastavad veeru nimed. Veeru nimed peavad olema "
 "eraldatud komadega ja ei tohi asetseda jutumärkide vahel."
 
-#: src/Plugins/Import/ImportCsv.php:143
+#: src/Plugins/Import/ImportCsv.php:144
 msgid "Column names:"
 msgstr "Veergude nimed:"
 
-#: src/Plugins/Import/ImportCsv.php:275 src/Plugins/Import/ImportCsv.php:528
+#: src/Plugins/Import/ImportCsv.php:283 src/Plugins/Import/ImportCsv.php:541
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "Vale CSV sisendi formaat %d.-ndal real."
 
-#: src/Plugins/Import/ImportCsv.php:482
+#: src/Plugins/Import/ImportCsv.php:495
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Vale veeru hulk CSV sisendis %d.-ndal real."
 
-#: src/Plugins/Import/ImportCsv.php:637 src/Plugins/Import/ImportCsv.php:652
-#: src/Plugins/Import/ImportCsv.php:663 src/Plugins/Import/ImportCsv.php:670
+#: src/Plugins/Import/ImportCsv.php:671 src/Plugins/Import/ImportCsv.php:686
+#: src/Plugins/Import/ImportCsv.php:697 src/Plugins/Import/ImportCsv.php:704
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Vale parameeter CSV importimiseks: %s"
 
-#: src/Plugins/Import/ImportCsv.php:760
+#: src/Plugins/Import/ImportCsv.php:794
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -18287,11 +18279,11 @@ msgstr "Uut stabiilset versiooni saadaval ei ole"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "\"%s\" järjehoidjat kasutatakse vaikimisi sirvimise päringuna."
 
-#: src/Sql.php:892
+#: src/Sql.php:889
 msgid "Showing as PHP code"
 msgstr "Näitan PHP koodina"
 
-#: src/Sql.php:1248
+#: src/Sql.php:1245
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -18301,7 +18293,7 @@ msgstr ""
 "märkekastide, hariliku muutmisega, kopeerimisega ja kustutamisega seotud "
 "funksionaalsus ei ole saadaval. %s"
 
-#: src/Sql.php:1262
+#: src/Sql.php:1259
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -18564,26 +18556,26 @@ msgstr "Sa pead sisestama õige tabeli nime!"
 msgid "You must provide a trigger definition."
 msgstr "Sa pead andma päästiku definitsiooni."
 
-#: src/Types.php:97
+#: src/Types.php:98
 #, fuzzy
 #| msgid "Empty"
 msgid "empty"
 msgstr "Tühjenda"
 
-#: src/Types.php:98
+#: src/Types.php:99
 #, fuzzy
 #| msgid "not present"
 msgid "not empty"
 msgstr "puudub"
 
-#: src/Types.php:161
+#: src/Types.php:162
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr ""
 "Ühebaidine täisarv, märgiga vahemik -128 kuni 127, märgita vahemik on 0 kuni "
 "255"
 
-#: src/Types.php:162
+#: src/Types.php:163
 msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
 "65,535"
@@ -18591,7 +18583,7 @@ msgstr ""
 "Kahebaidine täisarv, märgiga vahemik on -32,768 kuni 32,767, märgita vahemik "
 "is 0 kuni 65,535"
 
-#: src/Types.php:164
+#: src/Types.php:165
 msgid ""
 "A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is "
 "0 to 16,777,215"
@@ -18599,7 +18591,7 @@ msgstr ""
 "Kolmebaidine täisarv, märgiga vahemik on -8,388,608 kuni 8,388,607, märgita "
 "vahemik on 0 kuni 16,777,215"
 
-#: src/Types.php:167
+#: src/Types.php:168
 msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
 "range is 0 to 4,294,967,295"
@@ -18607,7 +18599,7 @@ msgstr ""
 "Neljabaidine täisarv, märgiga vahemik on -2,147,483,648 kuni 2,147,483,647, "
 "märgita vahemik on 0 kuni 4,294,967,295"
 
-#: src/Types.php:172
+#: src/Types.php:173
 msgid ""
 "An 8-byte integer, signed range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807, unsigned range is 0 to 18,446,744,073,709,551,615"
@@ -18616,7 +18608,7 @@ msgstr ""
 "9,223,372,036,854,775,807, märgita vahemik on 0 kuni "
 "18,446,744,073,709,551,615"
 
-#: src/Types.php:177
+#: src/Types.php:178
 msgid ""
 "A fixed-point number (M, D) - the maximum number of digits (M) is 65 "
 "(default 10), the maximum number of decimals (D) is 30 (default 0)"
@@ -18624,7 +18616,7 @@ msgstr ""
 "Fikseeritud punktiga arv (M, D) - maksimaalne numbrite arv (M) on 65 "
 "(vaikimisi 10), maksimaalne kümnendkohtade arv (D) on 30 (vaikimisi 0)"
 
-#: src/Types.php:182
+#: src/Types.php:183
 msgid ""
 "A small floating-point number, allowable values are -3.402823466E+38 to "
 "-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
@@ -18632,7 +18624,7 @@ msgstr ""
 "Väike ujukoma arv, lubatud väärtused on vahemikus -3.402823466E+38 kuni "
 "-1.175494351E-38, 0, ja 1.175494351E-38 kuni 3.402823466E+38"
 
-#: src/Types.php:187
+#: src/Types.php:188
 msgid ""
 "A double-precision floating-point number, allowable values are "
 "-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
@@ -18642,14 +18634,14 @@ msgstr ""
 "-1.7976931348623157E+308 luni -2.2250738585072014E-308, 0, ja "
 "2.2250738585072014E-308 kuni 1.7976931348623157E+308"
 
-#: src/Types.php:191
+#: src/Types.php:192
 msgid ""
 "Synonym for DOUBLE (exception: in REAL_AS_FLOAT SQL mode it is a synonym for "
 "FLOAT)"
 msgstr ""
 "DOUBLE sünonüüm (erand: REAL_AS_FLOAT SQL režiimis on ta FLOAT'i sünonüüm)"
 
-#: src/Types.php:192
+#: src/Types.php:193
 msgid ""
 "A bit-field type (M), storing M of bits per value (default is 1, maximum is "
 "64)"
@@ -18657,7 +18649,7 @@ msgstr ""
 "Bitivälja tüüp (M), salvestab M bitti informatsiooni väärtuse kohta "
 "(vaikimisi on 1, maksimaalne on 64)"
 
-#: src/Types.php:194
+#: src/Types.php:195
 msgid ""
 "A synonym for TINYINT(1), a value of zero is considered false, nonzero "
 "values are considered true"
@@ -18665,21 +18657,21 @@ msgstr ""
 "TINYINT(1) sünonüüm, väärtust null tõlgendatakse väärana, mittenullist "
 "väärtust tõesena"
 
-#: src/Types.php:196
+#: src/Types.php:197
 msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr "BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE alias"
 
-#: src/Types.php:198
+#: src/Types.php:199
 #, php-format
 msgid "A date, supported range is %1$s to %2$s"
 msgstr "Kuupäev, sobiv vahemik on %1$s kuni %2$s"
 
-#: src/Types.php:203
+#: src/Types.php:204
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr "Kuupäeva ja aja kombinatsioon, sobiv vahemik on %1$s kuni %2$s"
 
-#: src/Types.php:208
+#: src/Types.php:209
 #, fuzzy
 #| msgid ""
 #| "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
@@ -18694,12 +18686,12 @@ msgstr ""
 "03:14:07\" UTC, säilitatakse sekundite hulgana alates ajastu algusest "
 "(\"1970-01-01 00:00:00\" UTC)"
 
-#: src/Types.php:214
+#: src/Types.php:215
 #, php-format
 msgid "A time, range is %1$s to %2$s"
 msgstr "Aeg, vahemik on %1$s kuni %2$s"
 
-#: src/Types.php:219
+#: src/Types.php:220
 msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
@@ -18707,7 +18699,7 @@ msgstr ""
 "Neljanumbriline aastaarv (vaikimisi 4) või kahenumbriline (2) formaat. "
 "Lubatud väärtused on 70 (1970) kuni 69 (2069) või 1901 kuni 2155 ja 0000"
 
-#: src/Types.php:224
+#: src/Types.php:225
 msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
@@ -18715,7 +18707,7 @@ msgstr ""
 "Fikseeritud pikkusega (0-255, vaikimisi 1) sõne, mis salvestamisel "
 "pikendatakse sobivasse pikkusesse paremal pool asuvate tühikute abil"
 
-#: src/Types.php:229
+#: src/Types.php:230
 #, php-format
 msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
@@ -18724,7 +18716,7 @@ msgstr ""
 "Muutuva pikkusega (%s) sõne. Parim sobiv maksimaalne pikkus on rea "
 "maksimaalne suurus"
 
-#: src/Types.php:234
+#: src/Types.php:235
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
@@ -18732,7 +18724,7 @@ msgstr ""
 "TEXT veerg (maksimaalse pikkusega 255 (2^8 - 1) sümbolit) salvestatakse "
 "ühebitise eesliitega, mis märgib väärtuse pikkust baitides"
 
-#: src/Types.php:239
+#: src/Types.php:240
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
@@ -18740,7 +18732,7 @@ msgstr ""
 "TEXT veerg (maksimaalse pikkusega 65,535 (2^16 - 1) sümbolit) salvestatakse "
 "kahebitise eesliitega, mis märgib väärtuse pikkust baitides"
 
-#: src/Types.php:244
+#: src/Types.php:245
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
@@ -18748,7 +18740,7 @@ msgstr ""
 "TEXT veerg (maksimaalse pikkusega 16,777,215 (2^24 - 1) sümbolit) "
 "salvestatakse kolmebitise eesliitega, mis märgib väärtuse pikkust baitides"
 
-#: src/Types.php:249
+#: src/Types.php:250
 msgid ""
 "A TEXT column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "characters, stored with a four-byte prefix indicating the length of the "
@@ -18757,7 +18749,7 @@ msgstr ""
 "TEXT veerg (maksimaalse pikkusega 4,294,967,295 or 4GiB (2^32 - 1) sümbolit) "
 "salvestatakse neljabitise eesliitega, mis märgib väärtuse pikkust baitides"
 
-#: src/Types.php:254
+#: src/Types.php:255
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
@@ -18765,7 +18757,7 @@ msgstr ""
 "Sarnane CHAR tüübile, kuid salvestab binaarse baidi sõned pigem "
 "mittebinaarse sümboli sõnedena"
 
-#: src/Types.php:257
+#: src/Types.php:258
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
@@ -18773,7 +18765,7 @@ msgstr ""
 "Sarnane VARCHAR tüübile, kuid salvestab binaarse baidi sõned pigem "
 "mittebinaarse sümboli sõnedena"
 
-#: src/Types.php:261
+#: src/Types.php:262
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
@@ -18781,7 +18773,7 @@ msgstr ""
 "BLOB veerg (maksimaalse pikkusega 255 (2^8 - 1) baiti) salvestatakse "
 "ühebaidise eesliitega, mis märgib väärtuse pikkust"
 
-#: src/Types.php:265
+#: src/Types.php:266
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
@@ -18789,7 +18781,7 @@ msgstr ""
 "BLOB veerg (maksimaalse pikkusega 16,777,215 (2^24 - 1) baiti) salvestatakse "
 "kolmebaidise eesliitega, mis märgib väärtuse pikkust"
 
-#: src/Types.php:270
+#: src/Types.php:271
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
@@ -18797,7 +18789,7 @@ msgstr ""
 "BLOB veerg (maksimaalse pikkusega 65,535 (2^16 - 1) baiti) salvestatakse "
 "kahebaidise eesliitega, mis märgib väärtuse pikkust"
 
-#: src/Types.php:274
+#: src/Types.php:275
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
@@ -18805,49 +18797,49 @@ msgstr ""
 "BLOB veerg (maksimaalse pikkusega 4,294,967,295 or 4GiB (2^32 - 1) baiti) "
 "salvestatakse neljabaidise eesliitega, mis märgib väärtuse pikkust"
 
-#: src/Types.php:278
+#: src/Types.php:279
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
 msgstr "Loend, valitakse kuni 65535 väärtusest või spetsiaalne '' vea tunnus"
 
-#: src/Types.php:279
+#: src/Types.php:280
 msgid "A single value chosen from a set of up to 64 members"
 msgstr "Üks väärtus, mis valitakse kuni 64 elemendiga hulgast"
 
-#: src/Types.php:280
+#: src/Types.php:281
 msgid "A type that can store a geometry of any type"
 msgstr "Tüüp, mis suudab salvestada mistahes tüüpi geomeetriat"
 
-#: src/Types.php:281
+#: src/Types.php:282
 msgid "A point in 2-dimensional space"
 msgstr "Punkt kahemõõtmelises ruumis"
 
-#: src/Types.php:282
+#: src/Types.php:283
 msgid "A curve with linear interpolation between points"
 msgstr "Punktidevaheline kaar koos sirgjoonega"
 
-#: src/Types.php:283
+#: src/Types.php:284
 msgid "A polygon"
 msgstr "Hulktahukas"
 
-#: src/Types.php:284
+#: src/Types.php:285
 msgid "A collection of points"
 msgstr "Punktide kogum"
 
-#: src/Types.php:285
+#: src/Types.php:286
 msgid "A collection of curves with linear interpolation between points"
 msgstr "Punktidevaheliste sirgjoontega kaarte kogum"
 
-#: src/Types.php:286
+#: src/Types.php:287
 msgid "A collection of polygons"
 msgstr "Hulktahukate kogum"
 
-#: src/Types.php:287
+#: src/Types.php:288
 msgid "A collection of geometry objects of any type"
 msgstr "Igat tüüpi geomeetriliste objektide kogum"
 
-#: src/Types.php:288
+#: src/Types.php:289
 msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
@@ -18855,7 +18847,7 @@ msgstr ""
 "Salvestab ja lubab efektiivse juurdepääsu JSON (JavaScript Object Notation) "
 "dokumentides olevatele andmetele"
 
-#: src/Types.php:289
+#: src/Types.php:290
 msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
@@ -18863,31 +18855,31 @@ msgstr ""
 "Mõeldud IPv6 aadresside salvestamiseks, aga ka IPv4 aadressidele, eeldades "
 "tavapärast IPv4 aadresside vastendamist IPv6 aadressideks"
 
-#: src/Types.php:292
+#: src/Types.php:293
 msgid "128-bit UUID (Universally Unique Identifier)"
 msgstr "128-bitine UUID (universaalselt unikaalne identifikaator)"
 
-#: src/Types.php:293
+#: src/Types.php:294
 msgid ""
 "Stores vector data optimized for operations such as similarity search and "
 "machine learning applications"
 msgstr ""
 
-#: src/Types.php:295
+#: src/Types.php:296
 msgid "Intended for storage of XML data"
 msgstr ""
 
-#: src/Types.php:606
+#: src/Types.php:607
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr "Arv"
 
-#: src/Types.php:624
+#: src/Types.php:625
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "Kuupäev ja aeg"
 
-#: src/Types.php:654
+#: src/Types.php:655
 msgctxt "spatial types"
 msgid "Spatial"
 msgstr "Ruumiline"
@@ -18931,6 +18923,23 @@ msgstr "Viga ZIP arhiivis:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "ZIP arhiivist ei leitud ühtegi faili!"
+
+#~ msgid ""
+#~ "Disable the default warning that is displayed on the main page if Suhosin "
+#~ "is detected."
+#~ msgstr ""
+#~ "Keela vaikimisi hoiatus, mis kuvatakse avalehel Suhosin'i tuvastamisel."
+
+#~ msgid "Suhosin warning"
+#~ msgstr "Suhosin'i hoiatus"
+
+#, php-format
+#~ msgid ""
+#~ "Server running with Suhosin. Please refer to %sdocumentation%s for "
+#~ "possible issues."
+#~ msgstr ""
+#~ "Server töötab koos Suhosin'iga. Võimalike probleemide kohta loe "
+#~ "%sdokumentatsioonist%s."
 
 #~ msgid "Exporting a raw query is not supported for this export method."
 #~ msgstr "Valitud ekspordimeetodiga ei ole toorpäringute eksport toetatud."

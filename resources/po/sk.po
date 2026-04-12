@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-04-05 00:43+0000\n"
+"POT-Creation-Date: 2026-04-12 00:44+0000\n"
 "PO-Revision-Date: 2023-10-24 11:03+0000\n"
 "Last-Translator: Pavol Linet <linet.pavol@gmail.com>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -781,8 +781,8 @@ msgstr "Upraviť oprávnenia"
 #: resources/templates/columns_definitions/table_fields_definitions.twig:66
 #: resources/templates/database/data_dictionary/index.twig:30
 #: resources/templates/table/structure/display_structure.twig:28
-#: src/Config/Descriptions.php:660 src/Config/Descriptions.php:675
-#: src/Config/Descriptions.php:711 src/Plugins/Export/ExportHtmlword.php:313
+#: src/Config/Descriptions.php:658 src/Config/Descriptions.php:673
+#: src/Config/Descriptions.php:709 src/Plugins/Export/ExportHtmlword.php:313
 #: src/Plugins/Export/ExportLatex.php:471 src/Plugins/Export/ExportOdt.php:411
 #: src/Plugins/Export/ExportTexytext.php:309
 #: src/Plugins/Export/Helpers/Pdf.php:493
@@ -801,8 +801,8 @@ msgstr "Presunúť stĺpce"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:83
 #: resources/templates/database/data_dictionary/index.twig:32
-#: src/Config/Descriptions.php:664 src/Config/Descriptions.php:676
-#: src/Config/Descriptions.php:714 src/Plugins/Export/ExportHtmlword.php:320
+#: src/Config/Descriptions.php:662 src/Config/Descriptions.php:674
+#: src/Config/Descriptions.php:712 src/Plugins/Export/ExportHtmlword.php:320
 #: src/Plugins/Export/ExportOdt.php:418
 #: src/Plugins/Export/ExportTexytext.php:314
 #: src/Plugins/Export/Helpers/Pdf.php:501
@@ -874,7 +874,7 @@ msgstr "Vynulovať"
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:167
 #: src/Html/Generator.php:685 src/Html/MySQLDocumentation.php:51
-#: src/Sanitize.php:188
+#: src/Sanitize.php:189
 msgid "Documentation"
 msgstr "Dokumentácia"
 
@@ -1040,7 +1040,7 @@ msgstr "Znovu spustiť dopyt"
 #: resources/templates/setup/home/index.twig:64
 #: resources/templates/table/structure/display_structure.twig:494
 #: resources/templates/triggers/row.twig:28
-#: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
+#: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:925
 #: src/ConfigStorage/UserGroups.php:113
 #: src/Controllers/JavaScriptMessagesController.php:379
 #: src/Display/Results.php:1876 src/Html/Generator.php:533
@@ -1081,7 +1081,7 @@ msgstr "Zmazať"
 #: resources/templates/table/relation/common_form.twig:38
 #: resources/templates/table/relation/common_form.twig:95
 #: resources/templates/table/relation/foreign_key_row.twig:91
-#: src/Config/Descriptions.php:934 src/Plugins/Export/ExportHtmlword.php:145
+#: src/Config/Descriptions.php:932 src/Plugins/Export/ExportHtmlword.php:145
 #: src/Plugins/Export/ExportOdt.php:182
 #: src/Plugins/Export/ExportTexytext.php:115 src/Server/Privileges.php:1564
 #: src/Server/Privileges.php:1566 src/Server/Status/Processes.php:103
@@ -1092,7 +1092,7 @@ msgstr "Databáza"
 msgid "SQL Query Console"
 msgstr "Konzola pre SQL dopyty"
 
-#: resources/templates/console/display.twig:16 src/Config/Descriptions.php:766
+#: resources/templates/console/display.twig:16 src/Config/Descriptions.php:764
 msgid "Console"
 msgstr "Konzola"
 
@@ -1121,7 +1121,7 @@ msgid "Bookmarks"
 msgstr "Záložky"
 
 #: resources/templates/console/display.twig:34
-#: resources/templates/console/display.twig:88 src/Config/Descriptions.php:615
+#: resources/templates/console/display.twig:88 src/Config/Descriptions.php:613
 msgid "Debug SQL"
 msgstr "Ladiť SQL"
 
@@ -1193,7 +1193,7 @@ msgstr "Ubehnutý čas"
 msgid "Order by:"
 msgstr "Zoradiť podľa:"
 
-#: resources/templates/console/display.twig:103 src/Config/Descriptions.php:964
+#: resources/templates/console/display.twig:103 src/Config/Descriptions.php:962
 msgid "Group queries"
 msgstr "Zoskupiť dopyty"
 
@@ -1221,7 +1221,7 @@ msgstr "Ubehnutý čas:"
 #: resources/templates/console/display.twig:133
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
-#: src/Config/Descriptions.php:928 src/Export/Export.php:696
+#: src/Config/Descriptions.php:927 src/Export/Export.php:697
 #: src/Html/Generator.php:589
 msgid "Refresh"
 msgstr "Obnoviť"
@@ -1260,15 +1260,15 @@ msgstr "OK"
 msgid "Restore default values"
 msgstr "Obnoviť východziu hodnotu"
 
-#: resources/templates/console/display.twig:185 src/Config/Descriptions.php:958
+#: resources/templates/console/display.twig:185 src/Config/Descriptions.php:956
 msgid "Always expand query messages"
 msgstr "Vždy rozbaliť správy dopytu"
 
-#: resources/templates/console/display.twig:189 src/Config/Descriptions.php:957
+#: resources/templates/console/display.twig:189 src/Config/Descriptions.php:955
 msgid "Show query history at start"
 msgstr "Zobraziť históriu dopytov na začiatku"
 
-#: resources/templates/console/display.twig:193 src/Config/Descriptions.php:959
+#: resources/templates/console/display.twig:193 src/Config/Descriptions.php:957
 msgid "Show current browsing query"
 msgstr "Zobraziť aktuálne prehliadaný dopyt"
 
@@ -1278,7 +1278,7 @@ msgid ""
 "permanent, view settings."
 msgstr ""
 
-#: resources/templates/console/display.twig:201 src/Config/Descriptions.php:961
+#: resources/templates/console/display.twig:201 src/Config/Descriptions.php:959
 msgid "Switch to dark theme"
 msgstr "Prepnúť na tmavú tému"
 
@@ -1403,8 +1403,8 @@ msgstr "Akcia"
 #: resources/templates/error/report_modal.twig:11
 #: resources/templates/gis_data_editor_form.twig:76
 #: resources/templates/modals/change_password.twig:11
-#: resources/templates/server/databases/index.twig:315
-#: resources/templates/server/databases/index.twig:319
+#: resources/templates/server/databases/index.twig:321
+#: resources/templates/server/databases/index.twig:325
 #: resources/templates/server/variables/index.twig:15
 #: resources/templates/table/search/index.twig:196
 #: src/Controllers/JavaScriptMessagesController.php:312
@@ -1839,7 +1839,7 @@ msgstr "Definícia"
 #: resources/templates/sql/query.twig:40
 #: resources/templates/table/structure/display_table_stats.twig:81
 #: resources/templates/triggers/editor_form.twig:64
-#: src/Config/Descriptions.php:638 src/Config/Descriptions.php:654
+#: src/Config/Descriptions.php:636 src/Config/Descriptions.php:652
 msgid "Format"
 msgstr "Formát"
 
@@ -1939,7 +1939,7 @@ msgstr "Exportovať"
 #: resources/templates/indexes.twig:59
 #: resources/templates/server/databases/index.twig:67
 #: resources/templates/server/databases/index.twig:68
-#: resources/templates/server/databases/index.twig:320
+#: resources/templates/server/databases/index.twig:326
 #: resources/templates/table/relation/foreign_key_row.twig:25
 #: resources/templates/table/structure/display_partitions.twig:146
 #: resources/templates/table/structure/display_structure.twig:120
@@ -1948,7 +1948,7 @@ msgstr "Exportovať"
 #: resources/templates/triggers/list.twig:20
 #: resources/templates/triggers/list.twig:21
 #: resources/templates/triggers/row.twig:52
-#: resources/templates/triggers/row.twig:58 src/Operations.php:538
+#: resources/templates/triggers/row.twig:58 src/Operations.php:534
 msgid "Drop"
 msgstr "Odstrániť"
 
@@ -2037,7 +2037,7 @@ msgstr "Tabuľky:"
 
 #: resources/templates/database/export/index.twig:22
 #: resources/templates/database/structure/show_create.twig:6
-#: src/Config/Descriptions.php:743
+#: src/Config/Descriptions.php:741
 #: src/Controllers/Server/DatabasesController.php:266
 #: src/Navigation/Nodes/NodeTableContainer.php:23
 #: src/Navigation/Nodes/NodeTableContainer.php:25
@@ -2241,7 +2241,7 @@ msgstr "Skopírovať databázu do"
 
 #: resources/templates/database/operations/index.twig:123
 #: resources/templates/server/databases/index.twig:24
-#: src/Config/Descriptions.php:885
+#: src/Config/Descriptions.php:884
 msgid "Database name"
 msgstr "Meno databázy"
 
@@ -2272,10 +2272,10 @@ msgstr "Vytvoriť databázu (CREATE DATABASE) pred kopírovaním"
 
 #: resources/templates/database/operations/index.twig:156
 #: resources/templates/table/operations/index.twig:303
-#: src/Config/Descriptions.php:695 src/Config/Descriptions.php:696
-#: src/Config/Descriptions.php:698 src/Config/Descriptions.php:701
-#: src/Config/Descriptions.php:702 src/Config/Descriptions.php:703
-#: src/Config/Descriptions.php:715
+#: src/Config/Descriptions.php:693 src/Config/Descriptions.php:694
+#: src/Config/Descriptions.php:696 src/Config/Descriptions.php:699
+#: src/Config/Descriptions.php:700 src/Config/Descriptions.php:701
+#: src/Config/Descriptions.php:713
 #, php-format
 msgid "Add %s"
 msgstr "Pridať %s"
@@ -2283,7 +2283,7 @@ msgstr "Pridať %s"
 #: resources/templates/database/operations/index.twig:161
 #: resources/templates/table/operations/index.twig:73
 #: resources/templates/table/operations/index.twig:308
-#: src/Config/Descriptions.php:687
+#: src/Config/Descriptions.php:685
 msgid "Add AUTO_INCREMENT value"
 msgstr "Pridať hodnotu AUTO_INCREMENT"
 
@@ -2800,7 +2800,7 @@ msgid "Database:"
 msgstr "Databáza:"
 
 #: resources/templates/database/structure/copy_form.twig:31
-#: src/Config/Descriptions.php:898
+#: src/Config/Descriptions.php:897
 msgid "Add DROP TABLE"
 msgstr "Pridať DROP TABLE"
 
@@ -2865,7 +2865,7 @@ msgstr "Zobrazovanie SQL dopytov pre vytvorenie"
 #: resources/templates/table/relation/common_form.twig:102
 #: resources/templates/table/relation/foreign_key_row.twig:102
 #: resources/templates/triggers/editor_form.twig:32
-#: resources/templates/triggers/list.twig:49 src/Config/Descriptions.php:937
+#: resources/templates/triggers/list.twig:49 src/Config/Descriptions.php:935
 #: src/Plugins/Export/ExportXml.php:408 src/Server/Privileges.php:1570
 #: src/Server/Privileges.php:1572
 msgid "Table"
@@ -3183,7 +3183,7 @@ msgstr "Operácie s výsledkami dopytu"
 
 #: resources/templates/display/results/table.twig:353
 #: src/Controllers/JavaScriptMessagesController.php:466
-#: src/Export/Export.php:715
+#: src/Export/Export.php:716
 msgid "Copy to clipboard"
 msgstr ""
 
@@ -3346,7 +3346,7 @@ msgid "Save on server in the directory <strong>%s</strong>"
 msgstr "Uložiť na server do adresára <b>%s</b>"
 
 #: resources/templates/export.twig:176 resources/templates/export.twig:371
-#: src/Config/Descriptions.php:681 src/Config/Descriptions.php:684
+#: src/Config/Descriptions.php:679 src/Config/Descriptions.php:682
 msgid "Overwrite existing file(s)"
 msgstr "Prepísať existujúce súbory"
 
@@ -3716,7 +3716,7 @@ msgstr "zvoliť"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:411
-#: src/Export/Export.php:738 src/Html/Generator.php:849
+#: src/Export/Export.php:739 src/Html/Generator.php:849
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "Späť"
@@ -3726,7 +3726,7 @@ msgstr "Späť"
 #: resources/templates/preferences/manage/main.twig:11
 #: resources/templates/server/status/monitor/index.twig:53
 #: resources/templates/server/status/monitor/index.twig:69
-#: src/Config/Forms/User/ImportForm.php:58 src/Menu.php:250 src/Menu.php:357
+#: src/Config/Forms/User/ImportForm.php:59 src/Menu.php:250 src/Menu.php:357
 #: src/Menu.php:474 src/Util.php:1367 src/Util.php:1382 src/Util.php:1399
 msgid "Import"
 msgstr "Import"
@@ -4067,8 +4067,8 @@ msgstr "Výsledok SQL dopytu"
 #: resources/templates/server/export/index.twig:7
 #: resources/templates/server/export/index.twig:14
 #: resources/templates/server/privileges/user_properties.twig:20
-#: src/Config/ConfigFile.php:576 src/Config/Descriptions.php:728
-#: src/Config/Descriptions.php:739 src/Menu.php:440 src/Util.php:1362
+#: src/Config/ConfigFile.php:576 src/Config/Descriptions.php:726
+#: src/Config/Descriptions.php:737 src/Menu.php:440 src/Util.php:1362
 msgid "Databases"
 msgstr "Databázy"
 
@@ -4091,7 +4091,7 @@ msgid "Recent"
 msgstr "Nedávne"
 
 #: resources/templates/navigation/tree/quick_warp.twig:16
-#: src/Config/Descriptions.php:835
+#: src/Config/Descriptions.php:834
 msgid "Favorite tables"
 msgstr "Obľúbené tabuľky"
 
@@ -4129,17 +4129,17 @@ msgid "Features"
 msgstr "Funkcie"
 
 #: resources/templates/preferences/header.twig:24
-#: src/Config/Descriptions.php:757 src/Config/Forms/User/SqlForm.php:38
+#: src/Config/Descriptions.php:755 src/Config/Forms/User/SqlForm.php:38
 msgid "SQL queries"
 msgstr "SQL dopyty"
 
 #: resources/templates/preferences/header.twig:30
-#: src/Config/Descriptions.php:740 src/Config/Forms/User/NaviForm.php:57
+#: src/Config/Descriptions.php:738 src/Config/Forms/User/NaviForm.php:57
 msgid "Navigation panel"
 msgstr "Navigačný panel"
 
 #: resources/templates/preferences/header.twig:36
-#: src/Config/Descriptions.php:744 src/Config/Forms/User/MainForm.php:76
+#: src/Config/Descriptions.php:742 src/Config/Forms/User/MainForm.php:76
 msgid "Main panel"
 msgstr "Hlavný panel"
 
@@ -4628,13 +4628,28 @@ msgstr "Skontrolovať oprávnenia pre databázu \"%s\"."
 msgid "Check privileges"
 msgstr "Skontrolovať oprávnenia"
 
-#: resources/templates/server/databases/index.twig:249
+#: resources/templates/server/databases/index.twig:244
+#, fuzzy, php-format
+#| msgid "Run SQL query/queries on database %s"
+msgid "Run SQL queries on database \"%s\"."
+msgstr "Spustiť SQL dopyt/dopyty na databázu %s"
+
+#: resources/templates/server/databases/index.twig:245
+#: src/Config/ConfigFile.php:520 src/Config/ConfigFile.php:534
+#: src/Config/ConfigFile.php:588 src/Config/ConfigFile.php:598
+#: src/Config/Descriptions.php:753 src/Menu.php:219 src/Menu.php:327
+#: src/Menu.php:445 src/Navigation/Nodes/NodeTable.php:242 src/Util.php:1065
+#: src/Util.php:1363 src/Util.php:1378 src/Util.php:1395
+msgid "SQL"
+msgstr "SQL"
+
+#: resources/templates/server/databases/index.twig:255
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:34
 #: src/Controllers/JavaScriptMessagesController.php:293
 msgid "Total:"
 msgstr "Celkom:"
 
-#: resources/templates/server/databases/index.twig:294
+#: resources/templates/server/databases/index.twig:300
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -4642,16 +4657,16 @@ msgstr ""
 "Poznámka: Aktivovanie štatistík databázy môže spôsobiť značné zvýšenie "
 "sieťovej prevádzky medzi databázou a web serverom."
 
-#: resources/templates/server/databases/index.twig:296
-#: resources/templates/server/databases/index.twig:297
+#: resources/templates/server/databases/index.twig:302
+#: resources/templates/server/databases/index.twig:303
 msgid "Enable statistics"
 msgstr "Povoliť štatistiky"
 
-#: resources/templates/server/databases/index.twig:304
+#: resources/templates/server/databases/index.twig:310
 msgid "No databases"
 msgstr "Žiadne databázy"
 
-#: resources/templates/server/databases/index.twig:314
+#: resources/templates/server/databases/index.twig:320
 #: src/Controllers/JavaScriptMessagesController.php:337
 msgid "Confirm"
 msgstr "Potvrdenie"
@@ -5722,7 +5737,7 @@ msgid "Current server:"
 msgstr "Aktuálny server:"
 
 #: resources/templates/server/select/index.twig:6
-#: resources/templates/setup/home/index.twig:34 src/Config/Descriptions.php:742
+#: resources/templates/setup/home/index.twig:34 src/Config/Descriptions.php:740
 msgid "Servers"
 msgstr "Servery"
 
@@ -5800,7 +5815,7 @@ msgid "Test:"
 msgstr "Kontrola"
 
 #: resources/templates/server/status/base.twig:6
-#: src/Config/Descriptions.php:936
+#: src/Config/Descriptions.php:934
 msgid "Server"
 msgstr "Server"
 
@@ -6399,7 +6414,7 @@ msgstr "Zobraziť formulár"
 msgid "Show hidden messages"
 msgstr "Zobraziť skryté položky"
 
-#: resources/templates/setup/home/index.twig:51 src/Config/Descriptions.php:866
+#: resources/templates/setup/home/index.twig:51 src/Config/Descriptions.php:865
 msgid "Authentication type"
 msgstr "Typ overovania"
 
@@ -6483,7 +6498,7 @@ msgid "Detailed profile"
 msgstr "Podrobný profil"
 
 #: resources/templates/sql/profiling_chart.twig:11
-#: src/Config/Descriptions.php:965
+#: src/Config/Descriptions.php:963
 msgid "Order"
 msgstr "Poradie"
 
@@ -6545,7 +6560,7 @@ msgstr "Výsledky profilovania"
 #: src/Controllers/Table/Partition/RepairController.php:49
 #: src/Controllers/Table/Partition/TruncateController.php:50
 #: src/Controllers/Table/RelationController.php:147
-#: src/Database/Routines.php:1033 src/Display/Results.php:2974
+#: src/Database/Routines.php:1033 src/Display/Results.php:2968
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "SQL dopyt bol úspešne vykonaný."
@@ -6592,7 +6607,7 @@ msgstr "Oddeľovač"
 msgid "Show this query here again"
 msgstr "Zobraziť tento dopyt znovu"
 
-#: resources/templates/sql/query.twig:130 src/Config/Descriptions.php:923
+#: resources/templates/sql/query.twig:130 src/Config/Descriptions.php:922
 msgid "Retain query box"
 msgstr "Zachovať príkazové okno"
 
@@ -7080,7 +7095,7 @@ msgid "Delete the view (DROP)"
 msgstr "Odstrániť zobrazenie (DROP)"
 
 #: resources/templates/table/page_with_secondary_tabs.twig:5
-#: src/Config/Descriptions.php:760 src/Plugins/Export/ExportPdf.php:170
+#: src/Config/Descriptions.php:758 src/Plugins/Export/ExportPdf.php:170
 msgid "Table structure"
 msgstr "Štruktúra tabuľky"
 
@@ -7252,32 +7267,32 @@ msgid "Index length"
 msgstr "Dĺžka kľúča"
 
 #: resources/templates/table/structure/display_partitions.twig:85
-#: src/Operations.php:526
+#: src/Operations.php:522
 msgid "Analyze"
 msgstr "Analyzovať"
 
 #: resources/templates/table/structure/display_partitions.twig:95
-#: src/Operations.php:527
+#: src/Operations.php:523
 msgid "Check"
 msgstr "Skontrolovať"
 
 #: resources/templates/table/structure/display_partitions.twig:105
-#: src/Operations.php:528
+#: src/Operations.php:524
 msgid "Optimize"
 msgstr "Optimalizovať"
 
 #: resources/templates/table/structure/display_partitions.twig:115
-#: src/Operations.php:529
+#: src/Operations.php:525
 msgid "Rebuild"
 msgstr ""
 
 #: resources/templates/table/structure/display_partitions.twig:125
-#: src/Operations.php:530
+#: src/Operations.php:526
 msgid "Repair"
 msgstr "Opraviť"
 
 #: resources/templates/table/structure/display_partitions.twig:135
-#: src/Operations.php:531
+#: src/Operations.php:527
 msgid "Truncate"
 msgstr ""
 
@@ -9092,14 +9107,6 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Vietnamčina"
 
-#: src/Config/ConfigFile.php:520 src/Config/ConfigFile.php:534
-#: src/Config/ConfigFile.php:588 src/Config/ConfigFile.php:598
-#: src/Config/Descriptions.php:755 src/Menu.php:219 src/Menu.php:327
-#: src/Menu.php:445 src/Navigation/Nodes/NodeTable.php:242 src/Util.php:1065
-#: src/Util.php:1363 src/Util.php:1378 src/Util.php:1395
-msgid "SQL"
-msgstr "SQL"
-
 #: src/Config/ConfigFile.php:545 src/Config/ConfigFile.php:557
 #: src/Config/ConfigFile.php:565
 msgid "Icons"
@@ -9284,26 +9291,26 @@ msgstr "obidve vyššie uvedené"
 msgid "neither of the above"
 msgstr "žiadny z vyššie uvedených"
 
-#: src/Config/Descriptions.php:61 src/Config/Descriptions.php:62
-#: src/Config/Descriptions.php:63
+#: src/Config/Descriptions.php:62 src/Config/Descriptions.php:63
+#: src/Config/Descriptions.php:64
 msgid "Users cannot set a higher value"
 msgstr "Uživatelia nemôžu nastaviť vyššiu hodnotu"
 
-#: src/Config/Descriptions.php:76
+#: src/Config/Descriptions.php:77
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
 "Pokiaľ je povolené, užívateľ može zadať ľuvolný MySQL server pre prihlásenie "
 "cez cookie autentifikáciu."
 
-#: src/Config/Descriptions.php:79
+#: src/Config/Descriptions.php:80
 msgid ""
 "Restricts the MySQL servers the user can enter when a login to an arbitrary "
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
 "to the given regular expression."
 msgstr ""
 
-#: src/Config/Descriptions.php:84
+#: src/Config/Descriptions.php:85
 msgid ""
 "Enabling this allows a page located on a different domain to call phpMyAdmin "
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
@@ -9313,7 +9320,7 @@ msgstr ""
 "phpMyAdmina vo vnútri rámca a je potenciálnou [strong]bezpečnostnou dierou[/"
 "strong] dovoľujúcou XSS (cross-frame scripting) útoky."
 
-#: src/Config/Descriptions.php:89
+#: src/Config/Descriptions.php:90
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication."
@@ -9321,48 +9328,48 @@ msgstr ""
 "Tajné heslo používané pre šifrovanie cookies pri prihlasovaní pomocou "
 "[kbd]cookie[/kbd]."
 
-#: src/Config/Descriptions.php:91
+#: src/Config/Descriptions.php:92
 msgid "Enable bzip2 compression for import operations."
 msgstr "Povoliť bzip2 kompresiu pre operácie importu."
 
-#: src/Config/Descriptions.php:92
+#: src/Config/Descriptions.php:93
 #, fuzzy
 msgid "Enter the URL for your reCAPTCHA v2 compatible API."
 msgstr "Zadajte váš súkromný kľúč pre službu reCaptcha."
 
-#: src/Config/Descriptions.php:93
+#: src/Config/Descriptions.php:94
 #, fuzzy
 msgid ""
 "Enter the Content-Security-Policy snippet for your reCAPTCHA v2 compatible "
 "API."
 msgstr "Zadajte váš súkromný kľúč pre službu reCaptcha."
 
-#: src/Config/Descriptions.php:94
+#: src/Config/Descriptions.php:95
 #, fuzzy
 msgid "Enter the request parameter used by your reCAPTCHA v2 compatible API."
 msgstr "Zadajte váš súkromný kľúč pre službu reCaptcha."
 
-#: src/Config/Descriptions.php:95
+#: src/Config/Descriptions.php:96
 #, fuzzy
 msgid "Enter the response parameter used by your reCAPTCHA v2 compatible API."
 msgstr "Zadajte váš súkromný kľúč pre službu reCaptcha."
 
-#: src/Config/Descriptions.php:96
+#: src/Config/Descriptions.php:97
 #, fuzzy
 msgid "Enter your public key for the reCAPTCHA service on your domain."
 msgstr "Vložte váš verejný kľúč pre službu reCaptcha."
 
-#: src/Config/Descriptions.php:97
+#: src/Config/Descriptions.php:98
 #, fuzzy
 msgid "Enter your private key for your domain reCAPTCHA service."
 msgstr "Zadajte váš súkromný kľúč pre službu reCaptcha."
 
-#: src/Config/Descriptions.php:98
+#: src/Config/Descriptions.php:99
 #, fuzzy
 msgid "Enter your siteverify URL for your reCAPTCHA service."
 msgstr "Zadajte váš súkromný kľúč pre službu reCaptcha."
 
-#: src/Config/Descriptions.php:100
+#: src/Config/Descriptions.php:101
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
@@ -9372,7 +9379,7 @@ msgstr ""
 "CHAR a VARCHAR; [kbd]vstup[/kbd] - umožňuje obmedziť dĺžku vstupu, "
 "[kbd]textová oblasť[/kbd] - umožňuje použitie nových riadkov v poli."
 
-#: src/Config/Descriptions.php:105
+#: src/Config/Descriptions.php:106
 msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
@@ -9380,13 +9387,13 @@ msgstr ""
 "Použiť užívateľsky príjemný editor na úpravu SQL dozatazov CodeMirror) s "
 "číslovaním riadkov a zvýrazňovaním syntaxe."
 
-#: src/Config/Descriptions.php:110
+#: src/Config/Descriptions.php:111
 msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
 msgstr ""
 
-#: src/Config/Descriptions.php:113
+#: src/Config/Descriptions.php:114
 msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns."
@@ -9394,7 +9401,7 @@ msgstr ""
 "Definuje minimálnu veľkosť pre vstupné polia generované pre stĺpce typu CHAR "
 "a VARCHAR."
 
-#: src/Config/Descriptions.php:116
+#: src/Config/Descriptions.php:117
 msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns."
@@ -9402,7 +9409,7 @@ msgstr ""
 "Definuje maximálnu veľkosť pre vstupné polia generované pre stĺpce typu CHAR "
 "a VARCHAR."
 
-#: src/Config/Descriptions.php:119
+#: src/Config/Descriptions.php:120
 msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature."
@@ -9411,7 +9418,7 @@ msgstr ""
 "Pokiaľ zistíte problémy s takto vytvorenými gzip súbormi, vypnite túto "
 "funkciu."
 
-#: src/Config/Descriptions.php:123
+#: src/Config/Descriptions.php:124
 msgid ""
 "Whether a warning (\"Are your really sure…\") should be displayed when "
 "you're about to lose data."
@@ -9419,21 +9426,21 @@ msgstr ""
 "Či sa má zobrazovať varovanie (\"Ste si naozaj istí…\") pokiaľ hrozí strata "
 "dát."
 
-#: src/Config/Descriptions.php:126
+#: src/Config/Descriptions.php:127
 msgid "Autocomplete of the table and column names in the SQL queries."
 msgstr "Automatické dopĺňanie názvov tabuliek a stĺpcov v SQL dopytoch."
 
-#: src/Config/Descriptions.php:129 src/Config/Descriptions.php:133
-#: src/Config/Descriptions.php:137 src/Config/Descriptions.php:141
-#: src/Config/Descriptions.php:145 src/Config/Descriptions.php:149
-#: src/Config/Descriptions.php:153 src/Config/Descriptions.php:157
-#: src/Config/Descriptions.php:161
+#: src/Config/Descriptions.php:130 src/Config/Descriptions.php:134
+#: src/Config/Descriptions.php:138 src/Config/Descriptions.php:142
+#: src/Config/Descriptions.php:146 src/Config/Descriptions.php:150
+#: src/Config/Descriptions.php:154 src/Config/Descriptions.php:158
+#: src/Config/Descriptions.php:162
 msgid ""
 "Values for options list for default transformations. These will be "
 "overwritten if transformation is filled in at table structure page."
 msgstr ""
 
-#: src/Config/Descriptions.php:165
+#: src/Config/Descriptions.php:166
 msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
@@ -9441,19 +9448,19 @@ msgstr ""
 "Vypnúť hromadné operácie pre údržbu tabuliek, ako je optimalizácia alebo "
 "opravy vybraných tabuliek v databáze."
 
-#: src/Config/Descriptions.php:169
+#: src/Config/Descriptions.php:170
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)."
 msgstr ""
 "Nastavte dĺžku behu skriptu v sekundách ([kbd]0[/kbd] znamená bez obmedzení)."
 
-#: src/Config/Descriptions.php:171 src/Config/Descriptions.php:708
+#: src/Config/Descriptions.php:172 src/Config/Descriptions.php:706
 #: src/Plugins/Export/ExportSql.php:365
 msgid "Exclude definition of current user"
 msgstr ""
 
-#: src/Config/Descriptions.php:173
+#: src/Config/Descriptions.php:174
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
@@ -9461,7 +9468,7 @@ msgstr ""
 "Poradie radenia položiek v rozbaľovacej ponuke cudzích kľúčov; [kbd]obsah[/"
 "kbd] sú referenčné dáta, [kbd]id[/kbd] je hodnota kľúča."
 
-#: src/Config/Descriptions.php:177
+#: src/Config/Descriptions.php:178
 msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
@@ -9470,7 +9477,7 @@ msgstr ""
 "[doc@faq6-27]documentácii[/doc] nájdete špeciálne reťazce, ktoré môžete "
 "použiť na získanie špeciálnych hodnôt."
 
-#: src/Config/Descriptions.php:182
+#: src/Config/Descriptions.php:183
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL."
@@ -9478,7 +9485,7 @@ msgstr ""
 "Pripomíname, že phpMyAdmin je len užívateľské rozhranie a jeho funkcie "
 "neobmedzujú MySQL."
 
-#: src/Config/Descriptions.php:185
+#: src/Config/Descriptions.php:186
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for."
@@ -9486,7 +9493,7 @@ msgstr ""
 "Pokročilá konfigurácia servera, nemeňte tieto nastavenia, pokiaľ neviete "
 "čoho sa týkajú."
 
-#: src/Config/Descriptions.php:188
+#: src/Config/Descriptions.php:189
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
@@ -9496,7 +9503,7 @@ msgstr ""
 "prídavným funkciám, viď [doc@linked-tables]miesto uloženia konfigurácie [/"
 "doc] v dokumentácii."
 
-#: src/Config/Descriptions.php:193
+#: src/Config/Descriptions.php:194
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
@@ -9504,116 +9511,116 @@ msgstr ""
 "Sledovanie zmien vykonaných v databáze. Vyžaduje nastavenie miesta uloženia "
 "zmien phpMyAdmina."
 
-#: src/Config/Descriptions.php:196
+#: src/Config/Descriptions.php:197
 msgid "Customize browse mode."
 msgstr "Prispôsobiť režim prezerania."
 
-#: src/Config/Descriptions.php:197 src/Config/Descriptions.php:198
-#: src/Config/Descriptions.php:205 src/Config/Descriptions.php:211
-#: src/Config/Descriptions.php:212 src/Config/Descriptions.php:217
+#: src/Config/Descriptions.php:198 src/Config/Descriptions.php:199
+#: src/Config/Descriptions.php:206 src/Config/Descriptions.php:212
+#: src/Config/Descriptions.php:213 src/Config/Descriptions.php:218
 msgid "Customize default options."
 msgstr "Prispôsobenie východzích nastavení."
 
-#: src/Config/Descriptions.php:199
+#: src/Config/Descriptions.php:200
 msgid "Settings for phpMyAdmin developers."
 msgstr "Nastavenia pre vývojárov phpMyAdmina."
 
-#: src/Config/Descriptions.php:200
+#: src/Config/Descriptions.php:201
 msgid "Customize edit mode."
 msgstr "Prispôsobenie režimu úprav."
 
-#: src/Config/Descriptions.php:201
+#: src/Config/Descriptions.php:202
 msgid "Customize default export options."
 msgstr "Prispôsobiť východzie nastavenia exportu."
 
-#: src/Config/Descriptions.php:202
+#: src/Config/Descriptions.php:203
 msgid "Set some commonly used options."
 msgstr "Nastaviť často používané nastavenia."
 
-#: src/Config/Descriptions.php:203
+#: src/Config/Descriptions.php:204
 msgid "Customize default common import options."
 msgstr "Prispôsobiť východzie nastavenia importu."
 
-#: src/Config/Descriptions.php:204
+#: src/Config/Descriptions.php:205
 msgid "Set import and export directories and compression options."
 msgstr "Nastaví adresáre pre import a export a voľby kompresie."
 
-#: src/Config/Descriptions.php:206
+#: src/Config/Descriptions.php:207
 msgid "Databases display options."
 msgstr "Nastavenia zobrazenia databáz."
 
-#: src/Config/Descriptions.php:207
+#: src/Config/Descriptions.php:208
 msgid "Customize appearance of the navigation panel."
 msgstr "Prizpôsobiť vzhľad navigačného panela."
 
-#: src/Config/Descriptions.php:208
+#: src/Config/Descriptions.php:209
 msgid "Customize the navigation tree."
 msgstr "Prispôsobiť navigačný strom."
 
-#: src/Config/Descriptions.php:209
+#: src/Config/Descriptions.php:210
 msgid "Servers display options."
 msgstr "Nastavenie zobrazenia serverov."
 
-#: src/Config/Descriptions.php:210
+#: src/Config/Descriptions.php:211
 msgid "Tables display options."
 msgstr "Nastavenie zobrazenia tabuliek."
 
-#: src/Config/Descriptions.php:213
+#: src/Config/Descriptions.php:214
 msgid "Settings that didn't fit anywhere else."
 msgstr "Nastavenia, ktoré sa nedajú zaradiť inde."
 
-#: src/Config/Descriptions.php:214
+#: src/Config/Descriptions.php:215
 msgid "Authentication settings."
 msgstr "Nastavenia prihlasovania."
 
-#: src/Config/Descriptions.php:215
+#: src/Config/Descriptions.php:216
 msgid "Enter server connection parameters."
 msgstr "Vložte parametre pripojenia servera."
 
-#: src/Config/Descriptions.php:216
+#: src/Config/Descriptions.php:217
 msgid "Customize links shown in SQL Query boxes."
 msgstr "Prispôsobenie odkazov zobrazovaných v poliach pre SQL dopyty."
 
-#: src/Config/Descriptions.php:218
+#: src/Config/Descriptions.php:219
 msgid "SQL queries settings."
 msgstr "Nastavenia SQL dopytov."
 
-#: src/Config/Descriptions.php:219
+#: src/Config/Descriptions.php:220
 msgid "Customize startup page."
 msgstr "Prispôsobenie úvodnej stránky."
 
-#: src/Config/Descriptions.php:220
+#: src/Config/Descriptions.php:221
 msgid ""
 "Choose which details to show in the database structure (list of tables)."
 msgstr ""
 "Vyberte, ktoré detaily sa majú zobrazovať v štruktúre databázy (zoznam "
 "tabuliek)."
 
-#: src/Config/Descriptions.php:221
+#: src/Config/Descriptions.php:222
 msgid "Settings for the table structure (list of columns)."
 msgstr "Nastavenia štruktúry tabuliek (zoznam stĺpcov)."
 
-#: src/Config/Descriptions.php:222
+#: src/Config/Descriptions.php:223
 msgid "Choose how you want tabs to work."
 msgstr "Zvoľte, ako majú panely fungovať."
 
-#: src/Config/Descriptions.php:223
+#: src/Config/Descriptions.php:224
 msgid "Customize text input fields."
 msgstr "Prispôsobenie vstupných textových polí."
 
-#: src/Config/Descriptions.php:224
+#: src/Config/Descriptions.php:225
 msgid "Customize default options"
 msgstr "Prispôsobenie východzích nastavení"
 
-#: src/Config/Descriptions.php:225
+#: src/Config/Descriptions.php:226
 msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr "Vypnúť niektoré varovania zobrazované phpMyAdminom."
 
-#: src/Config/Descriptions.php:227
+#: src/Config/Descriptions.php:228
 msgid "Enable gzip compression for import and export operations."
 msgstr "Povolí gzip kompresiu pre importovanie a exportovanie."
 
-#: src/Config/Descriptions.php:229
+#: src/Config/Descriptions.php:230
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed."
@@ -9621,7 +9628,7 @@ msgstr ""
 "Pokiaľ je povolené, phpMyAdmin bude pokračovať v spracovaní viacprvkových "
 "dopytov, aj keď jeden z nich zlyhal."
 
-#: src/Config/Descriptions.php:233
+#: src/Config/Descriptions.php:234
 msgid ""
 "Allow interrupt of import in case script detects it is close to time limit. "
 "This might be a good way to import large files, however it can break "
@@ -9631,7 +9638,7 @@ msgstr ""
 "Týmto spôsobom sa môžu importovať aj veľké súbory, ale môže to zároveň "
 "spôsobiť problémy s transakciami."
 
-#: src/Config/Descriptions.php:238
+#: src/Config/Descriptions.php:239
 msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available."
@@ -9639,15 +9646,15 @@ msgstr ""
 "Východzí formát: Berte na vedomie, že tento zoznam závisí na umiestnení "
 "(databáza, tabuľka) a len SQL je stále dostupné."
 
-#: src/Config/Descriptions.php:241 src/Config/Descriptions.php:242
+#: src/Config/Descriptions.php:242 src/Config/Descriptions.php:243
 msgid "Update data when duplicate keys found on import"
 msgstr ""
 
-#: src/Config/Descriptions.php:243
+#: src/Config/Descriptions.php:244
 msgid "Number of queries to skip from start."
 msgstr "Počet dopytov, ktoré sa majú preskočiť od začiatku."
 
-#: src/Config/Descriptions.php:245
+#: src/Config/Descriptions.php:246
 msgid ""
 "If TRUE, logout deletes cookies for all servers; when set to FALSE, logout "
 "only occurs for the current server. Setting this to FALSE makes it easy to "
@@ -9658,7 +9665,7 @@ msgstr ""
 "sa môže ľahko stať, že sa zabudnete odhlásiť z ostatných serverov, pokiaľ "
 "ich používate viac."
 
-#: src/Config/Descriptions.php:250
+#: src/Config/Descriptions.php:251
 msgid ""
 "Define whether the previous login should be recalled or not in [kbd]cookie[/"
 "kbd] authentication mode."
@@ -9666,7 +9673,7 @@ msgstr ""
 "Určuje, či sa má obnoviť predchádzajúce prihlásenie alebo nie pri "
 "prihlasovaní pomocou [kbd]cookie[/kbd]."
 
-#: src/Config/Descriptions.php:254
+#: src/Config/Descriptions.php:255
 msgid ""
 "Defines how long (in seconds) a login cookie should be stored in browser. "
 "The default of 0 means that it will be kept for the existing session only, "
@@ -9678,11 +9685,11 @@ msgstr ""
 "sedenia a bude vymazaná pri zatvorení okna. Toto je odporúčané v "
 "nedôveryhodných prostrediach."
 
-#: src/Config/Descriptions.php:260
+#: src/Config/Descriptions.php:261
 msgid "Maximum number of characters used when a SQL query is displayed."
 msgstr "Maximálny počet znakov pri zobrazení SQL dopytu."
 
-#: src/Config/Descriptions.php:263
+#: src/Config/Descriptions.php:264
 msgid ""
 "The number of items that can be displayed on each page on the first level of "
 "the navigation tree."
@@ -9690,14 +9697,14 @@ msgstr ""
 "Počet položiek, ktoré sa zobrazia na každej stránke prvej úrovne navigačného "
 "stromu."
 
-#: src/Config/Descriptions.php:266
+#: src/Config/Descriptions.php:267
 msgid ""
 "The number of items that can be displayed on each page of the navigation "
 "tree."
 msgstr ""
 "Počet položiek, ktoré sa zobrazia na každej stránke navigačného stromu."
 
-#: src/Config/Descriptions.php:269
+#: src/Config/Descriptions.php:270
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, \"Previous\" and \"Next\" links will be shown."
@@ -9705,7 +9712,7 @@ msgstr ""
 "Počet zobrazených riadkov pri prechádzaní sady výsledkov. Ak sada výsledkov "
 "obsahuje viac riadkov, zobrazia sa odkazy \"Predchádzajúci\" a \"Ďalší\"."
 
-#: src/Config/Descriptions.php:274
+#: src/Config/Descriptions.php:275
 #, fuzzy
 msgid ""
 "The number of bytes a script is allowed to allocate, e.g. [kbd]32M[/kbd] "
@@ -9714,15 +9721,15 @@ msgstr ""
 "Počet bytov, ktoré môže alokovať skript, napr. [kbd]32M[/kbd] ([kbd]-1[/kbd] "
 "pre žiadny limit a [kbd]0[/kbd] pre žiadnu zmenu)."
 
-#: src/Config/Descriptions.php:278
+#: src/Config/Descriptions.php:279
 msgid "In the navigation panel, replaces the database tree with a selector"
 msgstr ""
 
-#: src/Config/Descriptions.php:281
+#: src/Config/Descriptions.php:282
 msgid "Link with main panel by highlighting the current database or table."
 msgstr ""
 
-#: src/Config/Descriptions.php:284
+#: src/Config/Descriptions.php:285
 #, fuzzy
 msgid ""
 "Open the linked page in the main window ([code]main[/code]) or in a new one "
@@ -9731,7 +9738,7 @@ msgstr ""
 "Otvoriť odkazovanú stránku v hlavnom okne ([kbd]hlavné[/kbd]) alebo v novom "
 "([kbd]nové[/kbd])."
 
-#: src/Config/Descriptions.php:287
+#: src/Config/Descriptions.php:288
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
@@ -9739,7 +9746,7 @@ msgstr ""
 "Definuje minimálny počet položiek (tabuliek, zobrazení, rutín, udalostí) pre "
 "zobrazenie filtra."
 
-#: src/Config/Descriptions.php:290
+#: src/Config/Descriptions.php:291
 msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
@@ -9747,66 +9754,66 @@ msgstr ""
 "Zoskupovať položky v navigačnom paneli (určené oddeľovačom nastaveným v "
 "záložke Databázy a tabuľky vyššie)."
 
-#: src/Config/Descriptions.php:294
+#: src/Config/Descriptions.php:295
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
 msgstr "Či sa má ponúknuť možnosť rozbaľovania stromu v navigačnom paneli."
 
-#: src/Config/Descriptions.php:297
+#: src/Config/Descriptions.php:298
 msgid "Whether to show procedures under database in the navigation tree"
 msgstr ""
 
-#: src/Config/Descriptions.php:300
+#: src/Config/Descriptions.php:301
 #, fuzzy
 msgid "Whether to expand single database in the navigation tree automatically."
 msgstr "Či sa majú zobrazovať udalosti pod databázou v navigačnom strome"
 
-#: src/Config/Descriptions.php:302
+#: src/Config/Descriptions.php:303
 #, fuzzy
 msgid "Set to 0 to collapse navigation panel."
 msgstr "Zobraziť logo v navigačnom paneli."
 
-#: src/Config/Descriptions.php:303
+#: src/Config/Descriptions.php:304
 msgid "Show logo in navigation panel."
 msgstr "Zobraziť logo v navigačnom paneli."
 
-#: src/Config/Descriptions.php:304
+#: src/Config/Descriptions.php:305
 msgid "URL where logo in the navigation panel will point to."
 msgstr "URL, na ktoré bude odkazovať logo v navigačnom paneli."
 
-#: src/Config/Descriptions.php:305
+#: src/Config/Descriptions.php:306
 msgid "Display server choice at the top of the navigation panel."
 msgstr "Zobraziť voľbu servera v hornej časti navigačného panela."
 
-#: src/Config/Descriptions.php:306
+#: src/Config/Descriptions.php:307
 msgid "String that separates databases into different tree levels."
 msgstr "Reťazec, ktorý rozdeľuje databázy do rôznych úrovní stromu."
 
-#: src/Config/Descriptions.php:307
+#: src/Config/Descriptions.php:308
 msgid "String that separates tables into different tree levels."
 msgstr "Reťazec, ktorý rozdelí tabuľky do rôznych úrovní stromu."
 
-#: src/Config/Descriptions.php:308
+#: src/Config/Descriptions.php:309
 msgid "Highlight server under the mouse cursor."
 msgstr "Zvýrazní server pod kurzorom myši."
 
-#: src/Config/Descriptions.php:309
+#: src/Config/Descriptions.php:310
 msgid "Whether to show tables under database in the navigation tree"
 msgstr "Či sa majú zobrazovať tabuľky pod databázou v navigačnom strome"
 
-#: src/Config/Descriptions.php:310
+#: src/Config/Descriptions.php:311
 msgid "Whether to show views under database in the navigation tree"
 msgstr "Či sa majú zobrazovať pohľady pod databázou v navigačnom strome"
 
-#: src/Config/Descriptions.php:311
+#: src/Config/Descriptions.php:312
 msgid "Whether to show functions under database in the navigation tree"
 msgstr ""
 
-#: src/Config/Descriptions.php:312
+#: src/Config/Descriptions.php:313
 msgid "Whether to show events under database in the navigation tree"
 msgstr "Či sa majú zobrazovať udalosti pod databázou v navigačnom strome"
 
-#: src/Config/Descriptions.php:314
+#: src/Config/Descriptions.php:315
 msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise."
@@ -9814,7 +9821,7 @@ msgstr ""
 "[kbd]SMART[/kbd] - t.j. zostupné radenie pre polia typu TIME, DATE, DATETIME "
 "a TIMESTAMP, ostatné budú radené vzostupne."
 
-#: src/Config/Descriptions.php:318
+#: src/Config/Descriptions.php:319
 msgid ""
 "Disable the default warning that is displayed on the database details "
 "Structure page if any of the required tables for the phpMyAdmin "
@@ -9824,7 +9831,7 @@ msgstr ""
 "vyžadovaných tabuliek pre miesto uloženia phpMyAdmin konfigurácie nebola "
 "nájdená."
 
-#: src/Config/Descriptions.php:323
+#: src/Config/Descriptions.php:324
 msgid ""
 "Disable the default warning that is displayed on the Structure page if "
 "column names in a table are reserved MySQL words."
@@ -9832,7 +9839,7 @@ msgstr ""
 "Vypnúť štandardné varovanie na stránke so štruktúou tabuľky, ak názvy "
 "stĺpcov v tabuľke patria k rezervovaným kľúčovým slovám MySQL."
 
-#: src/Config/Descriptions.php:327
+#: src/Config/Descriptions.php:328
 msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
@@ -9843,11 +9850,11 @@ msgstr ""
 "zobrazeniu histórie dopytoj Java Scriptové funkcie (bude stratená pri "
 "zavretí okna)."
 
-#: src/Config/Descriptions.php:331
+#: src/Config/Descriptions.php:332
 msgid "Allow users to create bookmarks that are available for all other users"
 msgstr ""
 
-#: src/Config/Descriptions.php:333
+#: src/Config/Descriptions.php:334
 msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
@@ -9855,7 +9862,7 @@ msgstr ""
 "Nastaví efektívnu časovú zónu; pravdepodobne rôznu od nastavenia vášho "
 "databázového servera"
 
-#: src/Config/Descriptions.php:336
+#: src/Config/Descriptions.php:337
 msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
@@ -9863,7 +9870,7 @@ msgstr ""
 "Nechajte prázdne pre žiadnu podporu [doc@bookmarks@]záložiek[/doc], "
 "navrhované: [kbd]pma__bookmark[/kbd]"
 
-#: src/Config/Descriptions.php:339
+#: src/Config/Descriptions.php:340
 #, fuzzy
 msgid ""
 "Leave blank for no column comments/media types, suggested: "
@@ -9872,7 +9879,7 @@ msgstr ""
 "Nechajte prázdne pre žiadne komentáre či mime typy polí, navrhované: "
 "[kbd]pma__column_info[/kbd]."
 
-#: src/Config/Descriptions.php:342
+#: src/Config/Descriptions.php:343
 #, fuzzy
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
@@ -9881,7 +9888,7 @@ msgstr ""
 "Špeciálny MySQL užívateľ s obmedzenými právami, viac informácii je "
 "dostupných na [a@https://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
 
-#: src/Config/Descriptions.php:346
+#: src/Config/Descriptions.php:347
 msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host."
@@ -9889,7 +9896,7 @@ msgstr ""
 "Alternatívny hostiteľ na ukladanie konfigurácie; ponechajte prázdne, aby sa "
 "použil už definovaný hostiteľ."
 
-#: src/Config/Descriptions.php:349
+#: src/Config/Descriptions.php:350
 msgid ""
 "An alternate port to connect to the host that holds the configuration "
 "storage; leave blank to use the default port, or the already defined port, "
@@ -9899,7 +9906,7 @@ msgstr ""
 "ponechajte prázdne na použitie štandardného portu alebo už definovaný port, "
 "ak je nastavený server rovnaký ako hostiteľ."
 
-#: src/Config/Descriptions.php:354
+#: src/Config/Descriptions.php:355
 #, fuzzy
 msgid ""
 "More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
@@ -9909,7 +9916,7 @@ msgstr ""
 "Viac informácii na [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
 "bug tracker[/a] a [a@https://bugs.mysql.com/19588]MySQL Bugs[/a]"
 
-#: src/Config/Descriptions.php:358
+#: src/Config/Descriptions.php:359
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
@@ -9917,7 +9924,7 @@ msgstr ""
 "Nechajte prázdne pre vypnutie histórie SQL dopytov, navrhované: "
 "[kbd]pma__history[/kbd]."
 
-#: src/Config/Descriptions.php:361
+#: src/Config/Descriptions.php:362
 msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed."
@@ -9925,7 +9932,7 @@ msgstr ""
 "Obmedzuje počet nastavení tabuľky, ktoré sú uložené v databáze. Najstaršie "
 "záznamy sú automaticky odstraňované."
 
-#: src/Config/Descriptions.php:365
+#: src/Config/Descriptions.php:366
 msgid ""
 "Leave blank for no export template support, suggested: "
 "[kbd]pma__export_templates[/kbd]."
@@ -9933,7 +9940,7 @@ msgstr ""
 "Nechajte prázdne pre vypnutie podpory exportných šablón, navrhované: "
 "[kbd]pma__export_templates[/kbd]."
 
-#: src/Config/Descriptions.php:368
+#: src/Config/Descriptions.php:369
 msgid ""
 "Leave blank for no central columns support, suggested: "
 "[kbd]pma__central_columns[/kbd]."
@@ -9941,7 +9948,7 @@ msgstr ""
 "Nechajte prázdne pre vypnutie podpory centrálnych stĺpcov. Odporúčaná "
 "hodnota: [kbd]pma__central_columns[/kbd]."
 
-#: src/Config/Descriptions.php:371
+#: src/Config/Descriptions.php:372
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
@@ -9951,14 +9958,14 @@ msgstr ""
 "ich pôvodnom význame, vložte spätné lomítko pred, napríklad "
 "[kbd]'moja\\_db'[/kbd] namiesto [kbd]'moja_db'[/kbd]."
 
-#: src/Config/Descriptions.php:376
+#: src/Config/Descriptions.php:377
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
 "Nechajte prázdne pre vypnutie podpory pre PDF schémy, navrhované: "
 "[kbd]pma__pdf_pages[/kbd]."
 
-#: src/Config/Descriptions.php:379
+#: src/Config/Descriptions.php:380
 #, fuzzy
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [doc@linked-"
@@ -9970,7 +9977,7 @@ msgstr ""
 "prázdne, bude táto možnosť vypnutá. Doporučená hodnota: [kbd]phpmyadmin[/"
 "kbd]."
 
-#: src/Config/Descriptions.php:384
+#: src/Config/Descriptions.php:385
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]."
@@ -9978,7 +9985,7 @@ msgstr ""
 "Nechajte prázdne pre vypnutie možnosti \"trvalého\" ukladania nedávno "
 "použitých tabuliek. Odporúčaná hodnota: [kbd]pma__recent[/kbd]."
 
-#: src/Config/Descriptions.php:388
+#: src/Config/Descriptions.php:389
 msgid ""
 "Leave blank for no \"persistent\" favorite tables across sessions, "
 "suggested: [kbd]pma__favorite[/kbd]."
@@ -9986,7 +9993,7 @@ msgstr ""
 "Nechajte prázdne pre vypnutie možnosti \"trvalého\" ukladania obľúbených "
 "tabuliek počas sedenia. Odporúčaná hodnota: [kbd]pma__favorite[/kbd]."
 
-#: src/Config/Descriptions.php:392
+#: src/Config/Descriptions.php:393
 #, fuzzy
 msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
@@ -9995,7 +10002,7 @@ msgstr ""
 "Nechajte prázdne pre vypnutie podpory [a@https://wiki.phpmyadmin.net/pma/"
 "relation]relation-links[/a]. Odporúčaná hodnota: [kbd]pma__relation[/kbd]."
 
-#: src/Config/Descriptions.php:397
+#: src/Config/Descriptions.php:398
 #, fuzzy
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
@@ -10003,7 +10010,7 @@ msgstr ""
 "Priklad, viď [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]typy "
 "overovania[/a]."
 
-#: src/Config/Descriptions.php:400
+#: src/Config/Descriptions.php:401
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
@@ -10011,7 +10018,7 @@ msgstr ""
 "Nechajte prázdne pre vypnutie podpory pre PDF schému. Odporúčaná hodnota: "
 "[kbd]pma__table_coords[/kbd]."
 
-#: src/Config/Descriptions.php:403
+#: src/Config/Descriptions.php:404
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]."
@@ -10019,7 +10026,7 @@ msgstr ""
 "Tabuľka obsahujúca popisy polí. Nechajte prázdnu pre vypnutie tejto funkcie. "
 "Odporúčaná hodnota: [kbd]pma__table_info[/kbd]."
 
-#: src/Config/Descriptions.php:407
+#: src/Config/Descriptions.php:408
 msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]."
@@ -10027,7 +10034,7 @@ msgstr ""
 "Nechajte prázdne pre vypnutie podpory \"trvalého\" ukladania nastavení, "
 "navrhované: [kbd]pma__table_uiprefs[/kbd]."
 
-#: src/Config/Descriptions.php:411
+#: src/Config/Descriptions.php:412
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
@@ -10035,7 +10042,7 @@ msgstr ""
 "Či chcete pridať príkaz DROP DATABASE IF EXISTS do logu ako prvý riadok pri "
 "vytváraní databázy."
 
-#: src/Config/Descriptions.php:415
+#: src/Config/Descriptions.php:416
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
@@ -10043,7 +10050,7 @@ msgstr ""
 "Či chcete pridať príkaz DROP TABLE IF EXISTS do logu ako prvý riadok pri "
 "vytváraní tabuľky."
 
-#: src/Config/Descriptions.php:419
+#: src/Config/Descriptions.php:420
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
@@ -10051,13 +10058,13 @@ msgstr ""
 "Či chcete pridať príkaz DROP VIEW IF EXISTS do logu ako prvý riadok pri "
 "vytváraní pohľadu."
 
-#: src/Config/Descriptions.php:423
+#: src/Config/Descriptions.php:424
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 "Určuje zoznam príkazov, ktoré sa automaticky použijú pri vytváraní nových "
 "verzií."
 
-#: src/Config/Descriptions.php:426
+#: src/Config/Descriptions.php:427
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: "
 "[kbd]pma__tracking[/kbd]."
@@ -10065,14 +10072,14 @@ msgstr ""
 "Nechajte prázdne pre vypnutie podpory pre sledovanie SQL dopytov. Odporúčaná "
 "hodnota: [kbd]pma__tracking[/kbd]."
 
-#: src/Config/Descriptions.php:429
+#: src/Config/Descriptions.php:430
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr ""
 "Či má sledovací mechanizmus automaticky vytvárať verzie tabuliek a pohľadov."
 
-#: src/Config/Descriptions.php:432
+#: src/Config/Descriptions.php:433
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: "
 "[kbd]pma__userconfig[/kbd]."
@@ -10080,21 +10087,21 @@ msgstr ""
 "Nechajte prázdne pre vypnutie možnosti ukladania užívateľských nastavení v "
 "databáze. Odporúčaná hodnota: [kbd]pma__userconfig[/kbd]."
 
-#: src/Config/Descriptions.php:435
+#: src/Config/Descriptions.php:436
 msgid ""
 "Both this table and the user groups table are required to enable the "
 "configurable menus feature; leaving either one of them blank will disable "
 "this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
 
-#: src/Config/Descriptions.php:440
+#: src/Config/Descriptions.php:441
 msgid ""
 "Both this table and the users table are required to enable the configurable "
 "menus feature; leaving either one of them blank will disable this feature, "
 "suggested: [kbd]pma__usergroups[/kbd]."
 msgstr ""
 
-#: src/Config/Descriptions.php:445
+#: src/Config/Descriptions.php:446
 msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
@@ -10102,7 +10109,7 @@ msgstr ""
 "Nechajte prázdne pre vypnutie možnosti pre schovávanie navigačných položiek. "
 "Odporúčané nastavenie: [kbd]pma__navigationhiding[/kbd]."
 
-#: src/Config/Descriptions.php:449
+#: src/Config/Descriptions.php:450
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
@@ -10110,53 +10117,53 @@ msgstr ""
 "Užívateľsky prívetivý popis tohto servera. Ak necháte prízdne, zobrazí sa "
 "namiesto popisu meno servera."
 
-#: src/Config/Descriptions.php:451
+#: src/Config/Descriptions.php:452
 msgid "Leave blank if not used."
 msgstr "Nechajte prázdne pokiaľ nepoužívate."
 
-#: src/Config/Descriptions.php:452
+#: src/Config/Descriptions.php:453
 msgid "Leave blank for defaults."
 msgstr "Nechajte prázdne, ak chcete použiť východzie nastavenia."
 
-#: src/Config/Descriptions.php:453
+#: src/Config/Descriptions.php:454
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
 msgstr "Názov pre zobrazenie pri použití HTTP prihlasovania."
 
-#: src/Config/Descriptions.php:454
+#: src/Config/Descriptions.php:455
 msgid "Authentication method to use."
 msgstr "Výber použitej prihlasovacej metódy."
 
-#: src/Config/Descriptions.php:455
+#: src/Config/Descriptions.php:456
 msgid "Compress connection to MySQL server."
 msgstr "Komprimovať spojenie s MySQL serverom."
 
-#: src/Config/Descriptions.php:456
+#: src/Config/Descriptions.php:457
 msgid "Hide databases matching regular expression (PCRE)."
 msgstr "Skryť databázy zodpovedajúce regulárnemu výrazu (PCRE)."
 
-#: src/Config/Descriptions.php:457
+#: src/Config/Descriptions.php:458
 msgid "Hostname where MySQL server is running."
 msgstr "Meno počítača, kde beží MySQL server."
 
-#: src/Config/Descriptions.php:458 src/Config/Descriptions.php:462
+#: src/Config/Descriptions.php:459 src/Config/Descriptions.php:463
 msgid "Leave empty if not using config auth."
 msgstr "Nechajte prázdne ak nepoužívate prihlasovací config."
 
-#: src/Config/Descriptions.php:459
+#: src/Config/Descriptions.php:460
 msgid "Port on which MySQL server is listening, leave empty for default."
 msgstr ""
 "Port, na ktorom počúva MySQL server, nechajte prázdne pre východziu hodnotu."
 
-#: src/Config/Descriptions.php:460
+#: src/Config/Descriptions.php:461
 msgid "Socket on which MySQL server is listening, leave empty for default."
 msgstr ""
 "Socket na ktorom počúva MySQL server, nechajte prázdne pre východziu hodnotu."
 
-#: src/Config/Descriptions.php:461
+#: src/Config/Descriptions.php:462
 msgid "Enable SSL for connection to MySQL server."
 msgstr "Povoliť SSL pre pripojenie k MySQL serveru."
 
-#: src/Config/Descriptions.php:464
+#: src/Config/Descriptions.php:465
 msgid ""
 "Please note that enabling this has no effect with [kbd]config[/kbd] "
 "authentication mode because the password is hard coded in the configuration "
@@ -10167,26 +10174,26 @@ msgstr ""
 "konfiguračnom súbore; toto nemá vplyv na možnosť vykonať rovnaký príkaz "
 "priamo."
 
-#: src/Config/Descriptions.php:469
+#: src/Config/Descriptions.php:470
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
 msgstr ""
 "Zobraziť/Skryť stĺpec s Časovou značkou vytvorenia vo všetkých tabuľkách."
 
-#: src/Config/Descriptions.php:472
+#: src/Config/Descriptions.php:473
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables."
 msgstr ""
 "Zobraziť/Skryť stĺpec s Časovou značkou poslednej aktualizácie vo všetkých "
 "tabuľkách."
 
-#: src/Config/Descriptions.php:475
+#: src/Config/Descriptions.php:476
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables."
 msgstr ""
 "Zobraziť/Skryť stĺpec s Časovou značkou poslednej kontroly vo všetkých "
 "tabuľkách."
 
-#: src/Config/Descriptions.php:478
+#: src/Config/Descriptions.php:479
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode."
@@ -10194,7 +10201,7 @@ msgstr ""
 "Definuje, či sa majú alebo nemajú zobrazovať typové polia v móde úprav/"
 "vkladania."
 
-#: src/Config/Descriptions.php:481
+#: src/Config/Descriptions.php:482
 #, fuzzy
 msgid ""
 "Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()"
@@ -10203,55 +10210,47 @@ msgstr ""
 "Zobraziť odkaz na výstup funkcie [a@https://www.php.net/manual/function."
 "phpinfo.php]phpinfo()[/a]."
 
-#: src/Config/Descriptions.php:483
+#: src/Config/Descriptions.php:484
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
 msgstr ""
 "Či sa bude užívateľovi zobrazovať tlačidlo \"zobraziť všetky (riadky)\"."
 
-#: src/Config/Descriptions.php:484
+#: src/Config/Descriptions.php:485
 msgid "Show or hide a column displaying the comments for all tables."
 msgstr "Zobraziť/Skryť stĺpec zobrazujúci komentáre pre všetky tabuľky."
 
-#: src/Config/Descriptions.php:485
+#: src/Config/Descriptions.php:486
 #, fuzzy
 msgid "Show or hide a column displaying the charset for all tables."
 msgstr "Zobraziť/Skryť stĺpec zobrazujúci komentáre pre všetky tabuľky."
 
-#: src/Config/Descriptions.php:486
+#: src/Config/Descriptions.php:487
 msgid "Display the function fields in edit/insert mode."
 msgstr "Zobraziť zoznam funkcií v móde úprav."
 
-#: src/Config/Descriptions.php:487
+#: src/Config/Descriptions.php:488
 msgid "Whether to show hint or not."
 msgstr "Či sa má zobrazovať nápoveda alebo nie."
 
-#: src/Config/Descriptions.php:488
+#: src/Config/Descriptions.php:489
 msgid ""
 "Defines whether SQL queries generated by phpMyAdmin should be displayed."
 msgstr "Určuje, či sa budú zobrazovať SQL dopyty generované phpMyAdminom."
 
-#: src/Config/Descriptions.php:489
+#: src/Config/Descriptions.php:490
 #, fuzzy
 msgid "Allow to display database and table statistics (e.g. space usage)."
 msgstr ""
 "Povoliť zobrazenie štatistík o databázach a tabuľkách (napr. využité miesto)."
 
-#: src/Config/Descriptions.php:491
+#: src/Config/Descriptions.php:492
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables."
 msgstr ""
 "Označiť použité tabuľky a umožniť zobrazovanie databáz s uzamknutými "
 "tabuľkami."
 
-#: src/Config/Descriptions.php:494
-msgid ""
-"Disable the default warning that is displayed on the main page if Suhosin is "
-"detected."
-msgstr ""
-"Vypne štandardné varovanie, ktoré je zobrazované na hlavnej stránke ak je "
-"zistený Suhosin."
-
-#: src/Config/Descriptions.php:497
+#: src/Config/Descriptions.php:495
 msgid ""
 "Disable the default warning that is displayed on the main page if the value "
 "of the PHP setting session.gc_maxlifetime is less than the value of "
@@ -10260,7 +10259,7 @@ msgstr ""
 "Vypnúť štandardné varovanie na hlavnej stránke, ak je hodnota PHP nastavenia "
 "session.gc_maxlifetime nižšia ako hodnota `LoginCookieValidity`."
 
-#: src/Config/Descriptions.php:502
+#: src/Config/Descriptions.php:500
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
@@ -10268,7 +10267,7 @@ msgstr ""
 "Veľkosť editačného okna (počet stĺpcov). Táto hodnota bude zväčšená pre okná "
 "SQL dopytov (*2)."
 
-#: src/Config/Descriptions.php:505
+#: src/Config/Descriptions.php:503
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
@@ -10276,7 +10275,7 @@ msgstr ""
 "Veľkosť editačného okna (počet riadkov). Táto hodnota bude zväčšená pre okná "
 "SQL dopytov (*2)."
 
-#: src/Config/Descriptions.php:508
+#: src/Config/Descriptions.php:506
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
@@ -10288,7 +10287,7 @@ msgstr ""
 "Forwarded-For) prichádzajúcej z proxy 1.2.3.4:[br][kbd]1.2.3.4: "
 "HTTP_X_FORWARDED_FOR[/kbd]."
 
-#: src/Config/Descriptions.php:514
+#: src/Config/Descriptions.php:512
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right."
@@ -10296,7 +10295,7 @@ msgstr ""
 "Pokiaľ je vypnuté, užívatelia nemôžu zmeniť žiadne z nižšie uvedených "
 "nastavení, bez ohľadu na zaškrtávacie pole vpravo."
 
-#: src/Config/Descriptions.php:517
+#: src/Config/Descriptions.php:515
 msgid ""
 "The URL of the proxy to be used when retrieving the information about the "
 "latest version of phpMyAdmin, or when submitting error reports. You need "
@@ -10304,7 +10303,7 @@ msgid ""
 "to the Internet. The format is: \"hostname:portnumber\"."
 msgstr ""
 
-#: src/Config/Descriptions.php:523
+#: src/Config/Descriptions.php:521
 msgid ""
 "The username for authenticating with the proxy. By default, no "
 "authentication is performed. If a username is supplied, Basic Authentication "
@@ -10314,404 +10313,404 @@ msgstr ""
 "žiadne prihlásenie. Ak je zadané užívateľské meno, použije sa základné "
 "overenie. Žiadny iný spôsob overovania momentálne nie je podporovaný."
 
-#: src/Config/Descriptions.php:529
+#: src/Config/Descriptions.php:527
 msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
 msgstr ""
 
-#: src/Config/Descriptions.php:533
+#: src/Config/Descriptions.php:531
 #, fuzzy
 msgid ""
 "Enable Zero Configuration mode which lets you set up phpMyAdmin "
 "configuration storage tables automatically."
 msgstr "%sVytvoriť%s chýbajúce tabuľky pre uloženie phpMyAdmin konfigurácie."
 
-#: src/Config/Descriptions.php:536
+#: src/Config/Descriptions.php:534
 msgid "Highlight selected rows."
 msgstr "Zvýrazniť zvolené riadky."
 
-#: src/Config/Descriptions.php:537
+#: src/Config/Descriptions.php:535
 msgid "Highlight row pointed by the mouse cursor."
 msgstr "Zvýrazniť riadok označený kurzórom myši."
 
-#: src/Config/Descriptions.php:538
+#: src/Config/Descriptions.php:536
 msgid "Number of columns for CHAR/VARCHAR textareas."
 msgstr "Počet stĺpcov techtový oblastí typu CHAR/VARCHAR."
 
-#: src/Config/Descriptions.php:539
+#: src/Config/Descriptions.php:537
 msgid "Number of rows for CHAR/VARCHAR textareas."
 msgstr "Počet riadkov textových oblastí typu CHAR/VARCHAR."
 
-#: src/Config/Descriptions.php:540
+#: src/Config/Descriptions.php:538
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
 msgstr ""
 
-#: src/Config/Descriptions.php:541
+#: src/Config/Descriptions.php:539
 msgid "Tab that is displayed when entering a database."
 msgstr "Panel, ktorý je zobrazený pri prístupe k databáze."
 
-#: src/Config/Descriptions.php:542
+#: src/Config/Descriptions.php:540
 msgid "Tab that is displayed when entering a server."
 msgstr "Panel, ktorý je zobrazený pri prístupe na server."
 
-#: src/Config/Descriptions.php:543
+#: src/Config/Descriptions.php:541
 msgid "Tab that is displayed when entering a table."
 msgstr "Panel, ktorý je zobrazený pri prístupe k tabuľke."
 
-#: src/Config/Descriptions.php:544
+#: src/Config/Descriptions.php:542
 msgid "Whether the table structure actions should be hidden."
 msgstr "Určuje, či akcie štruktúry tabuliek majú byť skryté."
 
-#: src/Config/Descriptions.php:545
+#: src/Config/Descriptions.php:543
 msgid "Whether column comments should be shown in table structure view"
 msgstr ""
 
-#: src/Config/Descriptions.php:546
+#: src/Config/Descriptions.php:544
 msgid "Show server listing as a list instead of a drop down."
 msgstr "Zobraziť prehľad serverov ako zoznam namiesto rozbaľovacieho menu."
 
-#: src/Config/Descriptions.php:547
+#: src/Config/Descriptions.php:545
 msgid "A dropdown will be used if fewer items are present."
 msgstr "Pokiaľ je dostupných menej položiek, bude použitá rozbaľovacia ponuka."
 
-#: src/Config/Descriptions.php:548
+#: src/Config/Descriptions.php:546
 msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
 
-#: src/Config/Descriptions.php:549
+#: src/Config/Descriptions.php:547
 msgid "Uncheck the checkbox to disable drag and drop import"
 msgstr ""
 
-#: src/Config/Descriptions.php:550
+#: src/Config/Descriptions.php:548
 msgid "How many rows can be inserted at one time."
 msgstr "Koľko riadkov môže byť vložených naraz."
 
-#: src/Config/Descriptions.php:551
+#: src/Config/Descriptions.php:549
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view."
 msgstr ""
 "Maximálny počet znakov zobrazovaných v nečíselných poliach pri prechádzaní."
 
-#: src/Config/Descriptions.php:552
+#: src/Config/Descriptions.php:550
 msgid "Define how long (in seconds) a login cookie is valid."
 msgstr "Určuje, ako dlho je platná prihlasovacie cookie (v sekundách)."
 
-#: src/Config/Descriptions.php:553
+#: src/Config/Descriptions.php:551
 msgid "Double size of textarea for LONGTEXT columns."
 msgstr "Zdvojnásobiť veľkosť editačného poľa pre stĺpec typu LONGTEXT."
 
-#: src/Config/Descriptions.php:554
+#: src/Config/Descriptions.php:552
 msgid "Maximum number of databases displayed in database list."
 msgstr "Maximálny počet databáz zobrazených v zozname databáz."
 
-#: src/Config/Descriptions.php:555
+#: src/Config/Descriptions.php:553
 msgid "Maximum number of tables displayed in table list."
 msgstr "Maximálny počet tabuliek zobrazených v zozname tabuliek."
 
-#: src/Config/Descriptions.php:556
+#: src/Config/Descriptions.php:554
 msgid "Maximum number of recently used tables; set 0 to disable."
 msgstr ""
 "Maximálny počet tabuliek v zozname nedávno zobrazených tabuliek; nastavte 0 "
 "pre vypnutie."
 
-#: src/Config/Descriptions.php:557
+#: src/Config/Descriptions.php:555
 msgid "Maximum number of favorite tables; set 0 to disable."
 msgstr ""
 "Maximálny počet tabuliek v zozname obľúbených tabuliek; nastavte 0 pre "
 "vypnutie."
 
-#: src/Config/Descriptions.php:558
+#: src/Config/Descriptions.php:556
 msgid "These are Edit, Copy and Delete links."
 msgstr "Toto sú odkazy na Upraviť, Kopírovať a Odstrániť."
 
-#: src/Config/Descriptions.php:559
+#: src/Config/Descriptions.php:557
 msgid "Whether to show row links even in the absence of a unique key."
 msgstr ""
 
-#: src/Config/Descriptions.php:560 src/Config/Descriptions.php:838
+#: src/Config/Descriptions.php:558 src/Config/Descriptions.php:837
 #, fuzzy
 msgid "Disable shortcut keys"
 msgstr "Vypnúť kontrolu cudzích kľúčov"
 
-#: src/Config/Descriptions.php:561
+#: src/Config/Descriptions.php:559
 msgid "Use natural order for sorting table and database names."
 msgstr "Použiť prirodzené triedenie pre mená tabuliek a databáz."
 
-#: src/Config/Descriptions.php:562 src/Config/Descriptions.php:565
-#: src/Config/Descriptions.php:566
+#: src/Config/Descriptions.php:560 src/Config/Descriptions.php:563
+#: src/Config/Descriptions.php:564
 msgid "Use only icons, only text or both."
 msgstr "Použiť len ikony, len text alebo obidve."
 
-#: src/Config/Descriptions.php:563
+#: src/Config/Descriptions.php:561
 msgid "Use GZip output buffering for increased speed in HTTP transfers."
 msgstr ""
 "Použiť vyrovnávaciu pamäť GZip výstupu pre zvýšenie rýchlosti HTTP prenosov."
 
-#: src/Config/Descriptions.php:564
+#: src/Config/Descriptions.php:562
 msgid "Use persistent connections to MySQL databases."
 msgstr "Použiť trvalé (persistent) spojenia k MySQL databázam."
 
-#: src/Config/Descriptions.php:567
+#: src/Config/Descriptions.php:565
 msgid "Disallow BLOB and BINARY columns from editing."
 msgstr "Zakázať úpravu polí typu BLOB a BINARY."
 
-#: src/Config/Descriptions.php:568
+#: src/Config/Descriptions.php:566
 msgid "How many queries are kept in history."
 msgstr "Koľko dopytov sa má držať v histórii."
 
-#: src/Config/Descriptions.php:569
+#: src/Config/Descriptions.php:567
 msgid "Select which functions will be used for character set conversion."
 msgstr "Zvoľte, ktorí funkcie budú použité pre konverziu znakových sád."
 
-#: src/Config/Descriptions.php:570
+#: src/Config/Descriptions.php:568
 msgid "When browsing tables, the sorting of each table is remembered."
 msgstr "Pri prechádzaní tabuliek, sa pre každú uloží nastavenie triedenia."
 
-#: src/Config/Descriptions.php:571
+#: src/Config/Descriptions.php:569
 msgid "Default sort order for tables with a primary key."
 msgstr "Prednastavený spôsob triedenia pre tabuľky s primárnym kľúčom."
 
-#: src/Config/Descriptions.php:572
+#: src/Config/Descriptions.php:570
 msgid ""
 "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature."
 msgstr "Opkovať hlavičku každých X buniek, [kbd]0[/kbd] vypne túto možnosť."
 
-#: src/Config/Descriptions.php:573
+#: src/Config/Descriptions.php:571
 msgid "For display Options"
 msgstr "Pre zobrazenie nastavení"
 
-#: src/Config/Descriptions.php:574
+#: src/Config/Descriptions.php:572
 msgid "Directory where exports can be saved on server."
 msgstr "Adresár na serveri pre ukladanie exportov."
 
-#: src/Config/Descriptions.php:575
+#: src/Config/Descriptions.php:573
 msgid ""
 "Defines whether the query box should stay on-screen after its submission."
 msgstr "Určuje či má príkazové okno ostať na obrazovke po vykonaní."
 
-#: src/Config/Descriptions.php:576
+#: src/Config/Descriptions.php:574
 msgid "Title of browser window when a database is selected."
 msgstr "Názov okna prehliadača pri výbere databázy."
 
-#: src/Config/Descriptions.php:577
+#: src/Config/Descriptions.php:575
 msgid "Title of browser window when nothing is selected."
 msgstr "Názov okna prehliadača keď nie je nič vybrané."
 
-#: src/Config/Descriptions.php:578
+#: src/Config/Descriptions.php:576
 msgid "Title of browser window when a server is selected."
 msgstr "Názov okna prehliadača keď je vybraný server."
 
-#: src/Config/Descriptions.php:579
+#: src/Config/Descriptions.php:577
 msgid "Title of browser window when a table is selected."
 msgstr "Popis okna prehliadača keď je vybraná tabuľka."
 
-#: src/Config/Descriptions.php:580
+#: src/Config/Descriptions.php:578
 msgid "Directory on server where you can upload files for import."
 msgstr "Adresár na serveri, kde môžete nahrať súbor pre import."
 
-#: src/Config/Descriptions.php:581
+#: src/Config/Descriptions.php:579
 msgid "Allow for searching inside the entire database."
 msgstr "Povoliť prehľadávať celú databázu."
 
-#: src/Config/Descriptions.php:582
+#: src/Config/Descriptions.php:580
 msgid "Enables check for latest version on main phpMyAdmin page."
 msgstr "Povoliť kontrolu poslednej verzie na hlavnej stránke phpMyAdmina."
 
-#: src/Config/Descriptions.php:583
+#: src/Config/Descriptions.php:581
 msgid "The password for authenticating with the proxy."
 msgstr "Heslo pre prihlásenie sa k proxy serveru."
 
-#: src/Config/Descriptions.php:584
+#: src/Config/Descriptions.php:582
 #, fuzzy
 msgid "Enable ZIP compression for import and export operations."
 msgstr ""
 "Povolí [a@https://sk.wikipedia.org/wiki/GZ_(súborový_formát)]gzip[/a] "
 "kompresiu pre importovanie a exportovanie."
 
-#: src/Config/Descriptions.php:585
+#: src/Config/Descriptions.php:583
 msgid "Choose the default action when sending error reports."
 msgstr "Zvoľte východziu akciu pri odosielaní hlásení o chybe."
 
-#: src/Config/Descriptions.php:597
+#: src/Config/Descriptions.php:595
 msgid "Allow login to any MySQL server"
 msgstr "Povoliť prihlásenie k ľubovoľnému MySQL serveru"
 
-#: src/Config/Descriptions.php:598
+#: src/Config/Descriptions.php:596
 msgid "Restrict login to MySQL server"
 msgstr "Obmedziť prihlásenie k MySQL serveru"
 
-#: src/Config/Descriptions.php:599
+#: src/Config/Descriptions.php:597
 msgid "Allow third party framing"
 msgstr "Povoliť vkladanie do cudzieho rámu"
 
-#: src/Config/Descriptions.php:600
+#: src/Config/Descriptions.php:598
 msgid "Show \"Drop database\" link to normal users"
 msgstr "Zobraziť príkaz \"Zrušiť databázu\" bežným užívateľom"
 
-#: src/Config/Descriptions.php:601
+#: src/Config/Descriptions.php:599
 msgid "Blowfish secret"
 msgstr "Šifrovacia fráza Blowfish"
 
-#: src/Config/Descriptions.php:602
+#: src/Config/Descriptions.php:600
 msgid "Row marker"
 msgstr "Značkovač riadkov"
 
-#: src/Config/Descriptions.php:603
+#: src/Config/Descriptions.php:601
 msgid "Highlight pointer"
 msgstr "Zvýrazňovač"
 
-#: src/Config/Descriptions.php:604
+#: src/Config/Descriptions.php:602
 msgid "Bzip2"
 msgstr "BZip2"
 
-#: src/Config/Descriptions.php:605
+#: src/Config/Descriptions.php:603
 msgid "CHAR columns editing"
 msgstr "Úprava polí typu CHAR"
 
-#: src/Config/Descriptions.php:606
+#: src/Config/Descriptions.php:604
 msgid "Enable CodeMirror"
 msgstr "Povoliť CodeMirror"
 
-#: src/Config/Descriptions.php:607
+#: src/Config/Descriptions.php:605
 msgid "Enable linter"
 msgstr "Povoliť kontrolovanie SQL"
 
-#: src/Config/Descriptions.php:608
+#: src/Config/Descriptions.php:606
 msgid "Minimum size for input field"
 msgstr "Minimálna veľkosť vstupného poľa"
 
-#: src/Config/Descriptions.php:609
+#: src/Config/Descriptions.php:607
 msgid "Maximum size for input field"
 msgstr "Maximálna veľkosť vstupného poľa"
 
-#: src/Config/Descriptions.php:610
+#: src/Config/Descriptions.php:608
 msgid "CHAR textarea columns"
 msgstr "Stĺpce techtovej oblasti typu CHAR"
 
-#: src/Config/Descriptions.php:611
+#: src/Config/Descriptions.php:609
 msgid "CHAR textarea rows"
 msgstr "Riadky pre textové oblasti CHAR"
 
-#: src/Config/Descriptions.php:612
+#: src/Config/Descriptions.php:610
 msgid "Check config file permissions"
 msgstr "Skontrolujte prístupové práva konfiguračného súboru"
 
-#: src/Config/Descriptions.php:613
+#: src/Config/Descriptions.php:611
 msgid "Compress on the fly"
 msgstr "Komprimovať za behu"
 
-#: src/Config/Descriptions.php:614
+#: src/Config/Descriptions.php:612
 msgid "Confirm DROP queries"
 msgstr "Potvrdzovať DROP dopyty"
 
-#: src/Config/Descriptions.php:616 src/Plugins/Schema/SchemaDia.php:64
+#: src/Config/Descriptions.php:614 src/Plugins/Schema/SchemaDia.php:64
 #: src/Plugins/Schema/SchemaPdf.php:74
 msgid "Paper size"
 msgstr "Veľkosť stránky"
 
-#: src/Config/Descriptions.php:617
+#: src/Config/Descriptions.php:615
 msgid "Default database tab"
 msgstr "Prednastavený panel databázy"
 
-#: src/Config/Descriptions.php:618
+#: src/Config/Descriptions.php:616
 msgid "Default server tab"
 msgstr "Východzí panel servera"
 
-#: src/Config/Descriptions.php:619
+#: src/Config/Descriptions.php:617
 msgid "Default table tab"
 msgstr "Východzí panel tabuľky"
 
-#: src/Config/Descriptions.php:620
+#: src/Config/Descriptions.php:618
 msgid "Enable autocomplete for table and column names"
 msgstr "Povoliť automatické dopĺňanie názvov tabuliek a stĺpcov"
 
-#: src/Config/Descriptions.php:621
+#: src/Config/Descriptions.php:619
 msgid "Show column comments"
 msgstr "Zobraziť komentáre stĺpca"
 
-#: src/Config/Descriptions.php:622
+#: src/Config/Descriptions.php:620
 msgid "Hide table structure actions"
 msgstr "Skryť akcie štruktúry tabuľky"
 
-#: src/Config/Descriptions.php:623
+#: src/Config/Descriptions.php:621
 #, fuzzy
 msgid "Default transformations for Hex"
 msgstr "Východzie radenie"
 
-#: src/Config/Descriptions.php:624
+#: src/Config/Descriptions.php:622
 #, fuzzy
 msgid "Default transformations for Substring"
 msgstr "Vstupné parametre transformácie"
 
-#: src/Config/Descriptions.php:625
+#: src/Config/Descriptions.php:623
 #, fuzzy
 msgid "Default transformations for Bool2Text"
 msgstr "Východzie radenie"
 
-#: src/Config/Descriptions.php:626
+#: src/Config/Descriptions.php:624
 #, fuzzy
 msgid "Default transformations for External"
 msgstr "Východzie radenie"
 
-#: src/Config/Descriptions.php:627
+#: src/Config/Descriptions.php:625
 #, fuzzy
 msgid "Default transformations for PreApPend"
 msgstr "Vstupné parametre transformácie"
 
-#: src/Config/Descriptions.php:628
+#: src/Config/Descriptions.php:626
 #, fuzzy
 msgid "Default transformations for DateFormat"
 msgstr "Východzie radenie"
 
-#: src/Config/Descriptions.php:629
+#: src/Config/Descriptions.php:627
 #, fuzzy
 msgid "Default transformations for Inline"
 msgstr "Vstupné parametre transformácie"
 
-#: src/Config/Descriptions.php:630
+#: src/Config/Descriptions.php:628
 #, fuzzy
 msgid "Default transformations for TextImageLink"
 msgstr "Vstupné parametre transformácie"
 
-#: src/Config/Descriptions.php:631
+#: src/Config/Descriptions.php:629
 #, fuzzy
 msgid "Default transformations for TextLink"
 msgstr "Vstupné parametre transformácie"
 
-#: src/Config/Descriptions.php:632
+#: src/Config/Descriptions.php:630
 msgid "Display servers as a list"
 msgstr "Zobraziť servery ako zoznam"
 
-#: src/Config/Descriptions.php:633
+#: src/Config/Descriptions.php:631
 msgid "Disable multi table maintenance"
 msgstr "Vypnúť hromadné operácie s tabuľkami"
 
-#: src/Config/Descriptions.php:634
+#: src/Config/Descriptions.php:632
 msgid "Maximum execution time"
 msgstr "Maximálny čas behu"
 
-#: src/Config/Descriptions.php:635
+#: src/Config/Descriptions.php:633
 msgid "Use [code]LOCK TABLES[/code] statement"
 msgstr ""
 
-#: src/Config/Descriptions.php:636
+#: src/Config/Descriptions.php:634
 msgid "Save as file"
 msgstr "Uložiť ako súbor"
 
-#: src/Config/Descriptions.php:637 src/Config/Descriptions.php:772
+#: src/Config/Descriptions.php:635 src/Config/Descriptions.php:770
 msgid "Character set of the file"
 msgstr "Znaková sada súboru"
 
-#: src/Config/Descriptions.php:639
+#: src/Config/Descriptions.php:637
 msgid "Compression"
 msgstr "Kompresia"
 
-#: src/Config/Descriptions.php:640 src/Config/Descriptions.php:647
-#: src/Config/Descriptions.php:655 src/Config/Descriptions.php:659
-#: src/Config/Descriptions.php:672 src/Config/Descriptions.php:674
-#: src/Config/Descriptions.php:721 src/Plugins/Export/ExportCsv.php:98
+#: src/Config/Descriptions.php:638 src/Config/Descriptions.php:645
+#: src/Config/Descriptions.php:653 src/Config/Descriptions.php:657
+#: src/Config/Descriptions.php:670 src/Config/Descriptions.php:672
+#: src/Config/Descriptions.php:719 src/Plugins/Export/ExportCsv.php:98
 #: src/Plugins/Export/ExportExcel.php:78
 #: src/Plugins/Export/ExportHtmlword.php:91 src/Plugins/Export/ExportOds.php:70
 #: src/Plugins/Export/ExportOdt.php:126
@@ -10719,56 +10718,56 @@ msgstr "Kompresia"
 msgid "Put columns names in the first row"
 msgstr "Pridať názvy polí na prvý riadok"
 
-#: src/Config/Descriptions.php:641 src/Config/Descriptions.php:774
-#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:654
+#: src/Config/Descriptions.php:639 src/Config/Descriptions.php:772
+#: src/Config/Descriptions.php:779 src/Plugins/Import/ImportCsv.php:688
 msgid "Columns enclosed with"
 msgstr "Polia uzatvorené do"
 
-#: src/Config/Descriptions.php:642 src/Config/Descriptions.php:775
-#: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:665
+#: src/Config/Descriptions.php:640 src/Config/Descriptions.php:773
+#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:699
 msgid "Columns escaped with"
 msgstr "Polia uvedené pomocou"
 
-#: src/Config/Descriptions.php:643 src/Config/Descriptions.php:649
-#: src/Config/Descriptions.php:656 src/Config/Descriptions.php:665
-#: src/Config/Descriptions.php:673 src/Config/Descriptions.php:677
-#: src/Config/Descriptions.php:722
+#: src/Config/Descriptions.php:641 src/Config/Descriptions.php:647
+#: src/Config/Descriptions.php:654 src/Config/Descriptions.php:663
+#: src/Config/Descriptions.php:671 src/Config/Descriptions.php:675
+#: src/Config/Descriptions.php:720
 msgid "Replace NULL with"
 msgstr "Nahradiť NULL hodnoty"
 
-#: src/Config/Descriptions.php:644 src/Config/Descriptions.php:650
+#: src/Config/Descriptions.php:642 src/Config/Descriptions.php:648
 msgid "Remove CRLF characters within columns"
 msgstr "Odstrániť konce riadkov (CRLF) z polí"
 
-#: src/Config/Descriptions.php:645 src/Config/Descriptions.php:778
-#: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:639
+#: src/Config/Descriptions.php:643 src/Config/Descriptions.php:777
+#: src/Config/Descriptions.php:784 src/Plugins/Import/ImportCsv.php:673
 msgid "Columns terminated with"
 msgstr "Stĺpce ukončené"
 
-#: src/Config/Descriptions.php:646 src/Config/Descriptions.php:773
-#: src/Plugins/Import/ImportCsv.php:672
+#: src/Config/Descriptions.php:644 src/Config/Descriptions.php:771
+#: src/Plugins/Import/ImportCsv.php:706
 msgid "Lines terminated with"
 msgstr "Riadky ukončené"
 
-#: src/Config/Descriptions.php:648
+#: src/Config/Descriptions.php:646
 msgid "Excel edition"
 msgstr "Verzia Excelu"
 
-#: src/Config/Descriptions.php:651
+#: src/Config/Descriptions.php:649
 msgid "Database name template"
 msgstr "Vzor pre názov databázy"
 
-#: src/Config/Descriptions.php:652
+#: src/Config/Descriptions.php:650
 msgid "Server name template"
 msgstr "Vzor pre názov servera"
 
-#: src/Config/Descriptions.php:653
+#: src/Config/Descriptions.php:651
 msgid "Table name template"
 msgstr "Vzor pre názov tabuľky"
 
-#: src/Config/Descriptions.php:657 src/Config/Descriptions.php:670
-#: src/Config/Descriptions.php:679 src/Config/Descriptions.php:717
-#: src/Config/Descriptions.php:723 src/Plugins/Export/ExportHtmlword.php:67
+#: src/Config/Descriptions.php:655 src/Config/Descriptions.php:668
+#: src/Config/Descriptions.php:677 src/Config/Descriptions.php:715
+#: src/Config/Descriptions.php:721 src/Plugins/Export/ExportHtmlword.php:67
 #: src/Plugins/Export/ExportLatex.php:109
 #: src/Plugins/Export/ExportMediawiki.php:59
 #: src/Plugins/Export/ExportMediawiki.php:65
@@ -10778,934 +10777,934 @@ msgstr "Vzor pre názov tabuľky"
 msgid "Dump table"
 msgstr "Vypísať tabuľku"
 
-#: src/Config/Descriptions.php:658 src/Plugins/Export/ExportLatex.php:100
+#: src/Config/Descriptions.php:656 src/Plugins/Export/ExportLatex.php:100
 msgid "Include table caption"
 msgstr "Zahrnúť nadpis tabuľky"
 
-#: src/Config/Descriptions.php:661 src/Config/Descriptions.php:667
+#: src/Config/Descriptions.php:659 src/Config/Descriptions.php:665
 msgid "Table caption"
 msgstr "Nadpis tabuľky"
 
-#: src/Config/Descriptions.php:662 src/Config/Descriptions.php:668
+#: src/Config/Descriptions.php:660 src/Config/Descriptions.php:666
 msgid "Continued table caption"
 msgstr "Nadpis pokračovania tabuľky"
 
-#: src/Config/Descriptions.php:663 src/Config/Descriptions.php:669
+#: src/Config/Descriptions.php:661 src/Config/Descriptions.php:667
 msgid "Label key"
 msgstr "Návestie"
 
-#: src/Config/Descriptions.php:666 src/Config/Descriptions.php:678
-#: src/Config/Descriptions.php:716
+#: src/Config/Descriptions.php:664 src/Config/Descriptions.php:676
+#: src/Config/Descriptions.php:714
 #, fuzzy
 msgid "Relationships"
 msgstr "Prepojenia"
 
-#: src/Config/Descriptions.php:671
+#: src/Config/Descriptions.php:669
 msgid "Export method"
 msgstr "Metóda exportu"
 
-#: src/Config/Descriptions.php:680 src/Config/Descriptions.php:683
+#: src/Config/Descriptions.php:678 src/Config/Descriptions.php:681
 msgid "Save on server"
 msgstr "Uložiť na server"
 
-#: src/Config/Descriptions.php:682
+#: src/Config/Descriptions.php:680
 msgid "Export as separate files"
 msgstr "Exportovať ako samostatné súbory"
 
-#: src/Config/Descriptions.php:685
+#: src/Config/Descriptions.php:683
 #, fuzzy
 msgid "Remember filename template"
 msgstr "Zapamätať si vzor pre názov súboru"
 
-#: src/Config/Descriptions.php:686
+#: src/Config/Descriptions.php:684
 msgid "Remove DEFINER clause from definitions"
 msgstr ""
 
-#: src/Config/Descriptions.php:688
+#: src/Config/Descriptions.php:686
 msgid "Enclose table and column names with backquotes"
 msgstr "Použiť opačný apostrof pri názvoch tabuliek a polí"
 
-#: src/Config/Descriptions.php:689 src/Config/Descriptions.php:791
+#: src/Config/Descriptions.php:687 src/Config/Descriptions.php:790
 msgid "SQL compatibility mode"
 msgstr "Režim kompatibility SQL"
 
-#: src/Config/Descriptions.php:690
+#: src/Config/Descriptions.php:688
 msgid "Creation/Update/Check dates"
 msgstr "Dátum vytvorenia, poslednej zmeny a kontroly"
 
-#: src/Config/Descriptions.php:691
+#: src/Config/Descriptions.php:689
 msgid "Use delayed inserts"
 msgstr "Použiť oneskorené vloženia"
 
-#: src/Config/Descriptions.php:692 src/Plugins/Export/ExportSql.php:232
+#: src/Config/Descriptions.php:690 src/Plugins/Export/ExportSql.php:232
 msgid "Disable foreign key checks"
 msgstr "Vypnúť kontrolu cudzích kľúčov"
 
-#: src/Config/Descriptions.php:693 src/Plugins/Export/ExportSql.php:242
+#: src/Config/Descriptions.php:691 src/Plugins/Export/ExportSql.php:242
 msgid "Export views as tables"
 msgstr "Exportovať pohľady (views) ako tabuľky"
 
-#: src/Config/Descriptions.php:694
+#: src/Config/Descriptions.php:692
 msgid "Export related metadata from phpMyAdmin configuration storage"
 msgstr "Exportovať súvisiace metadata z úložiska phpMyAdmin konfigurácie"
 
-#: src/Config/Descriptions.php:704
+#: src/Config/Descriptions.php:702
 msgid "Use hexadecimal for BINARY & BLOB"
 msgstr "Použiť hexadecimálne zobrazenie pre BINARY & BLOB"
 
-#: src/Config/Descriptions.php:706
+#: src/Config/Descriptions.php:704
 msgid ""
 "Add IF NOT EXISTS (less efficient as indexes will be generated during table "
 "creation)"
 msgstr ""
 
-#: src/Config/Descriptions.php:709 src/Plugins/Export/ExportSql.php:371
+#: src/Config/Descriptions.php:707 src/Plugins/Export/ExportSql.php:371
 #, fuzzy, php-format
 msgid "%s view"
 msgstr "%s hodnota"
 
-#: src/Config/Descriptions.php:710
+#: src/Config/Descriptions.php:708
 msgid "Use ignore inserts"
 msgstr "Použiť IGNORE"
 
-#: src/Config/Descriptions.php:712
+#: src/Config/Descriptions.php:710
 msgid "Syntax to use when inserting data"
 msgstr "Použitá syntax pre vkladanie dát"
 
-#: src/Config/Descriptions.php:713 src/Plugins/Export/ExportSql.php:498
+#: src/Config/Descriptions.php:711 src/Plugins/Export/ExportSql.php:498
 msgid "Maximal length of created query"
 msgstr "Maximálna veľkosť vytvoreného príkazu"
 
-#: src/Config/Descriptions.php:718
+#: src/Config/Descriptions.php:716
 msgid "Export type"
 msgstr "Typ exportu"
 
-#: src/Config/Descriptions.php:719 src/Plugins/Export/ExportSql.php:222
+#: src/Config/Descriptions.php:717 src/Plugins/Export/ExportSql.php:222
 msgid "Enclose export in a transaction"
 msgstr "Uzatvoriť príkazy v transakcii"
 
-#: src/Config/Descriptions.php:720
+#: src/Config/Descriptions.php:718
 msgid "Export time in UTC"
 msgstr "Exportovať čas v UTC"
 
-#: src/Config/Descriptions.php:724
+#: src/Config/Descriptions.php:722
 msgid "Foreign key dropdown order"
 msgstr "Poradie cudzích kľúčov v rozbaľovacej ponuke"
 
-#: src/Config/Descriptions.php:725
+#: src/Config/Descriptions.php:723
 msgid "Foreign key limit"
 msgstr "Limit cudzích kľúčov"
 
-#: src/Config/Descriptions.php:726
+#: src/Config/Descriptions.php:724
 msgid "Foreign key checks"
 msgstr "Kontrola cudzích kľúčov"
 
-#: src/Config/Descriptions.php:727
+#: src/Config/Descriptions.php:725
 msgid "First day of calendar"
 msgstr ""
 
-#: src/Config/Descriptions.php:729
+#: src/Config/Descriptions.php:727
 msgid "Browse mode"
 msgstr "Režim prezerania"
 
-#: src/Config/Descriptions.php:731 src/Config/Forms/User/ExportForm.php:80
+#: src/Config/Descriptions.php:729 src/Config/Forms/User/ExportForm.php:80
 #: src/Config/Forms/User/ImportForm.php:29
 msgid "CSV"
 msgstr "CSV dáta"
 
-#: src/Config/Descriptions.php:732
+#: src/Config/Descriptions.php:730
 msgid "Developer"
 msgstr "Vývojár"
 
-#: src/Config/Descriptions.php:733
+#: src/Config/Descriptions.php:731
 msgid "Edit mode"
 msgstr "Režim úprav"
 
-#: src/Config/Descriptions.php:734
+#: src/Config/Descriptions.php:732
 msgid "Export defaults"
 msgstr "Východzie nastavenia exportu"
 
-#: src/Config/Descriptions.php:735
+#: src/Config/Descriptions.php:733
 msgid "General"
 msgstr "Všeobecné"
 
-#: src/Config/Descriptions.php:736
+#: src/Config/Descriptions.php:734
 msgid "Import defaults"
 msgstr "Východzie nastavenia importu"
 
-#: src/Config/Descriptions.php:737
+#: src/Config/Descriptions.php:735
 msgid "Import / export"
 msgstr "Import / export"
 
-#: src/Config/Descriptions.php:738
+#: src/Config/Descriptions.php:736
 msgid "LaTeX"
 msgstr "LaTeX"
 
-#: src/Config/Descriptions.php:741
+#: src/Config/Descriptions.php:739
 msgid "Navigation tree"
 msgstr "Navigačný strom"
 
-#: src/Config/Descriptions.php:745
+#: src/Config/Descriptions.php:743
 msgid "Microsoft Office"
 msgstr "Microsoft Office"
 
-#: src/Config/Descriptions.php:747
+#: src/Config/Descriptions.php:745
 msgid "Other core settings"
 msgstr "Ostatné základné nastavenia"
 
-#: src/Config/Descriptions.php:748
+#: src/Config/Descriptions.php:746
 msgid "Page titles"
 msgstr "Mená stránok"
 
-#: src/Config/Descriptions.php:749
+#: src/Config/Descriptions.php:747
 msgid "Security"
 msgstr "Zabezpečenie"
 
-#: src/Config/Descriptions.php:750
+#: src/Config/Descriptions.php:748
 msgid "Basic settings"
 msgstr "Základné nastavenia"
 
-#: src/Config/Descriptions.php:751
+#: src/Config/Descriptions.php:749
 msgid "Authentication"
 msgstr "Overenie"
 
-#: src/Config/Descriptions.php:752
+#: src/Config/Descriptions.php:750
 msgid "Server configuration"
 msgstr "Konfigurácia servera"
 
-#: src/Config/Descriptions.php:753
+#: src/Config/Descriptions.php:751
 msgid "Configuration storage"
 msgstr "Miesto uloženia konfigurácie"
 
-#: src/Config/Descriptions.php:754
+#: src/Config/Descriptions.php:752
 msgid "Changes tracking"
 msgstr "Sledovanie zmien"
 
-#: src/Config/Descriptions.php:756
+#: src/Config/Descriptions.php:754
 msgid "SQL Query box"
 msgstr "Pole pre SQL dopyty"
 
-#: src/Config/Descriptions.php:758
+#: src/Config/Descriptions.php:756
 msgid "Startup"
 msgstr "Úvodná stránka"
 
-#: src/Config/Descriptions.php:759
+#: src/Config/Descriptions.php:757
 msgid "Database structure"
 msgstr "Štruktúra databázy"
 
-#: src/Config/Descriptions.php:761
+#: src/Config/Descriptions.php:759
 msgid "Tabs"
 msgstr "Panely"
 
-#: src/Config/Descriptions.php:762
+#: src/Config/Descriptions.php:760
 msgid "Display relational schema"
 msgstr "Zobraziť relačnú schému"
 
-#: src/Config/Descriptions.php:763
+#: src/Config/Descriptions.php:761
 msgid "Text fields"
 msgstr "Textové polia"
 
-#: src/Config/Descriptions.php:764
+#: src/Config/Descriptions.php:762
 msgid "Texy! text"
 msgstr "Texy! text"
 
-#: src/Config/Descriptions.php:765
+#: src/Config/Descriptions.php:763
 msgid "Warnings"
 msgstr "Varovania"
 
-#: src/Config/Descriptions.php:767
+#: src/Config/Descriptions.php:765
 msgid "GZip"
 msgstr "GZip"
 
-#: src/Config/Descriptions.php:768
+#: src/Config/Descriptions.php:766
 msgid "Extra parameters for iconv"
 msgstr "Extra parametre pre iconv"
 
-#: src/Config/Descriptions.php:769
+#: src/Config/Descriptions.php:767
 msgid "Ignore multiple statement errors"
 msgstr "Ignorovať chyby vo viacprvkových dopytoch"
 
-#: src/Config/Descriptions.php:770
+#: src/Config/Descriptions.php:768
 msgid "Enable drag and drop import"
 msgstr ""
 
-#: src/Config/Descriptions.php:771
+#: src/Config/Descriptions.php:769
 msgid "Partial import: allow interrupt"
 msgstr "Čiastočný import: povoliť prerušenie"
 
-#: src/Config/Descriptions.php:776 src/Config/Descriptions.php:782
-#: src/Plugins/Import/ImportCsv.php:150 src/Plugins/Import/ImportLdi.php:75
+#: src/Config/Descriptions.php:774 src/Config/Descriptions.php:781
+#: src/Plugins/Import/ImportCsv.php:151 src/Plugins/Import/ImportLdi.php:75
 msgid "Do not abort on INSERT error"
 msgstr "Neprerušovať pri chybe v príkaze INSERT"
 
-#: src/Config/Descriptions.php:777 src/Config/Descriptions.php:784
+#: src/Config/Descriptions.php:775 src/Plugins/Import/ImportCsv.php:157
+msgid "Import empty values as NULL"
+msgstr ""
+
+#: src/Config/Descriptions.php:776 src/Config/Descriptions.php:783
 msgid "Add ON DUPLICATE KEY UPDATE"
 msgstr "Pridaj ON DUPLICATE KEY UPDATE"
 
-#: src/Config/Descriptions.php:779
+#: src/Config/Descriptions.php:778
 msgid "Format of imported file"
 msgstr "Formát importovaného súboru"
 
-#: src/Config/Descriptions.php:783 src/Plugins/Import/ImportLdi.php:81
+#: src/Config/Descriptions.php:782 src/Plugins/Import/ImportLdi.php:81
 msgid "Use LOCAL keyword"
 msgstr "Použiť kľúčové slovo LOCAL"
 
-#: src/Config/Descriptions.php:786
+#: src/Config/Descriptions.php:785
 msgid "Column names in first row"
 msgstr "Mená stĺpcov na prvom riadku"
 
-#: src/Config/Descriptions.php:787 src/Plugins/Import/ImportOds.php:80
+#: src/Config/Descriptions.php:786 src/Plugins/Import/ImportOds.php:80
 msgid "Do not import empty rows"
 msgstr "Neimportovať prázdne riadky"
 
-#: src/Config/Descriptions.php:788
+#: src/Config/Descriptions.php:787
 msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Import mien (5.00 namiesto $5.00)"
 
-#: src/Config/Descriptions.php:789
+#: src/Config/Descriptions.php:788
 msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "Importovať percentá ako desatinné čísla (0,12 namiesto 12,00%)"
 
-#: src/Config/Descriptions.php:790
+#: src/Config/Descriptions.php:789
 msgid "Partial import: skip queries"
 msgstr "Čiastočný import: preskočiť dopyty"
 
-#: src/Config/Descriptions.php:792
+#: src/Config/Descriptions.php:791
 msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "Nepoužívať AUTO_INCREMENT pre nulové hodnoty"
 
-#: src/Config/Descriptions.php:793
+#: src/Config/Descriptions.php:792
 msgid "Read as multibytes"
 msgstr "Čítať ako multibyty"
 
-#: src/Config/Descriptions.php:794
+#: src/Config/Descriptions.php:793
 msgid "Initial state for sliders"
 msgstr "Počiatočný stav pre posuvníky"
 
-#: src/Config/Descriptions.php:795
+#: src/Config/Descriptions.php:794
 msgid "Number of inserted rows"
 msgstr "Počet vložených riadkov"
 
-#: src/Config/Descriptions.php:796
+#: src/Config/Descriptions.php:795
 msgid "Limit column characters"
 msgstr "Obmedzenie počtu znakov"
 
-#: src/Config/Descriptions.php:797
+#: src/Config/Descriptions.php:796
 msgid "Delete all cookies on logout"
 msgstr "Vymazať všetky cookies pri prihlásení"
 
-#: src/Config/Descriptions.php:798
+#: src/Config/Descriptions.php:797
 msgid "Recall user name"
 msgstr "Pamätať si užívateľské meno"
 
-#: src/Config/Descriptions.php:799
+#: src/Config/Descriptions.php:798
 msgid "Login cookie store"
 msgstr "Uloženie prihlasovacej cookie"
 
-#: src/Config/Descriptions.php:800
+#: src/Config/Descriptions.php:799
 msgid "Login cookie validity"
 msgstr "Platnosť prihlasovacej cookie"
 
-#: src/Config/Descriptions.php:801
+#: src/Config/Descriptions.php:800
 msgid "Bigger textarea for LONGTEXT"
 msgstr "Väčšie editačné pole pre LONGTEXT"
 
-#: src/Config/Descriptions.php:802
+#: src/Config/Descriptions.php:801
 msgid "Maximum displayed SQL length"
 msgstr "Mazimálna dĺžka zobrazeného SQL dopytu"
 
-#: src/Config/Descriptions.php:803
+#: src/Config/Descriptions.php:802
 msgid "Maximum databases"
 msgstr "Najvyšší počet databáz"
 
-#: src/Config/Descriptions.php:804
+#: src/Config/Descriptions.php:803
 msgid "Maximum items on first level"
 msgstr "Maximálny počet položiek na prvej úrovni"
 
-#: src/Config/Descriptions.php:805
+#: src/Config/Descriptions.php:804
 msgid "Maximum items in branch"
 msgstr "Maximálny počet položiek vo vetve"
 
-#: src/Config/Descriptions.php:806
+#: src/Config/Descriptions.php:805
 msgid "Maximum number of rows to display"
 msgstr "Maximálny počet zobrazených riadkov"
 
-#: src/Config/Descriptions.php:807
+#: src/Config/Descriptions.php:806
 msgid "Maximum tables"
 msgstr "Maximum tabuliek"
 
-#: src/Config/Descriptions.php:808
+#: src/Config/Descriptions.php:807
 msgid "Memory limit"
 msgstr "Obmedzenie pamäte"
 
-#: src/Config/Descriptions.php:809
+#: src/Config/Descriptions.php:808
 msgid "Show databases navigation as tree"
 msgstr "Zobraziť databázovú navigáciu ako strom"
 
-#: src/Config/Descriptions.php:810
+#: src/Config/Descriptions.php:809
 #, fuzzy
 msgid "Navigation panel width"
 msgstr "Navigačný panel"
 
-#: src/Config/Descriptions.php:811
+#: src/Config/Descriptions.php:810
 #: src/Controllers/JavaScriptMessagesController.php:586
 #: src/Navigation/NavigationTree.php:1258
 msgid "Link with main panel"
 msgstr "Prepojiť s hlavným panelom"
 
-#: src/Config/Descriptions.php:812
+#: src/Config/Descriptions.php:811
 msgid "Display logo"
 msgstr "Zobraziť logo"
 
-#: src/Config/Descriptions.php:813
+#: src/Config/Descriptions.php:812
 msgid "Logo link URL"
 msgstr "URL odkazu loga"
 
-#: src/Config/Descriptions.php:814
+#: src/Config/Descriptions.php:813
 msgid "Logo link target"
 msgstr "Cieľ odkazu loga"
 
-#: src/Config/Descriptions.php:815
+#: src/Config/Descriptions.php:814
 msgid "Display servers selection"
 msgstr "Zobraziť výber serverov"
 
-#: src/Config/Descriptions.php:816
+#: src/Config/Descriptions.php:815
 msgid "Target for quick access icon"
 msgstr "Cieľ pre ikonu rýchleho prístupu"
 
-#: src/Config/Descriptions.php:817
+#: src/Config/Descriptions.php:816
 msgid "Target for second quick access icon"
 msgstr "Cieľ pre druhú ikonu rýchleho prístupu"
 
-#: src/Config/Descriptions.php:818
+#: src/Config/Descriptions.php:817
 msgid "Minimum number of items to display the filter box"
 msgstr "Minimálny počet položiek pre zobrazenie filtra"
 
-#: src/Config/Descriptions.php:820
+#: src/Config/Descriptions.php:819
 msgid "Minimum number of databases to display the database filter box"
 msgstr "Minimálny počet databáz pre zobrazenie filtra databáz"
 
-#: src/Config/Descriptions.php:822
+#: src/Config/Descriptions.php:821
 msgid "Group items in the tree"
 msgstr "Zoskupovať položky v strome"
 
-#: src/Config/Descriptions.php:823
+#: src/Config/Descriptions.php:822
 msgid "Database tree separator"
 msgstr "Oddeľovač databázového stromu"
 
-#: src/Config/Descriptions.php:824
+#: src/Config/Descriptions.php:823
 msgid "Table tree separator"
 msgstr "Oddeľovač tabuľkového stromu"
 
-#: src/Config/Descriptions.php:825
+#: src/Config/Descriptions.php:824
 msgid "Maximum table tree depth"
 msgstr "Maximálna hĺbka tabuľkového stromu"
 
-#: src/Config/Descriptions.php:826
+#: src/Config/Descriptions.php:825
 msgid "Enable highlighting"
 msgstr "Povoliť zvýrazňovanie"
 
-#: src/Config/Descriptions.php:827
+#: src/Config/Descriptions.php:826
 msgid "Enable navigation tree expansion"
 msgstr "Povoliť rozbalenie navigačného stromu"
 
-#: src/Config/Descriptions.php:828
+#: src/Config/Descriptions.php:827
 msgid "Show tables in tree"
 msgstr "Zobraziť tabuľky v strome"
 
-#: src/Config/Descriptions.php:829
+#: src/Config/Descriptions.php:828
 msgid "Show views in tree"
 msgstr "Zobraziť pohľady v strome"
 
-#: src/Config/Descriptions.php:830
+#: src/Config/Descriptions.php:829
 msgid "Show functions in tree"
 msgstr "Zobraziť funkcie v strome"
 
-#: src/Config/Descriptions.php:831
+#: src/Config/Descriptions.php:830
 msgid "Show procedures in tree"
 msgstr "Zobraziť procedúry v strome"
 
-#: src/Config/Descriptions.php:832
+#: src/Config/Descriptions.php:831
 msgid "Show events in tree"
 msgstr "Zobraziť udalosti v strome"
 
-#: src/Config/Descriptions.php:833
+#: src/Config/Descriptions.php:832
 #, fuzzy
 msgid "Expand single database"
 msgstr "Kopírujem databázu"
 
-#: src/Config/Descriptions.php:834
+#: src/Config/Descriptions.php:833
 msgid "Recently used tables"
 msgstr "Nedávno použité tabuľky"
 
-#: src/Config/Descriptions.php:836
+#: src/Config/Descriptions.php:835
 msgid "Where to show the table row links"
 msgstr "Kde zobraziť linky riadkov tabuľky"
 
-#: src/Config/Descriptions.php:837
+#: src/Config/Descriptions.php:836
 msgid "Show row links anyway"
 msgstr ""
 
-#: src/Config/Descriptions.php:839
+#: src/Config/Descriptions.php:838
 msgid "Natural order"
 msgstr "Prirodzené poradie"
 
-#: src/Config/Descriptions.php:840
+#: src/Config/Descriptions.php:839
 msgid "Table navigation bar"
 msgstr "Navigačná lišta tabuľky"
 
-#: src/Config/Descriptions.php:841
+#: src/Config/Descriptions.php:840
 msgid "GZip output buffering"
 msgstr "Medzipamäť pre GZip výstup"
 
-#: src/Config/Descriptions.php:842
+#: src/Config/Descriptions.php:841
 msgid "Default sorting order"
 msgstr "Východzie radenie"
 
-#: src/Config/Descriptions.php:843
+#: src/Config/Descriptions.php:842
 msgid "Persistent connections"
 msgstr "Trvalé spojenia"
 
-#: src/Config/Descriptions.php:844
+#: src/Config/Descriptions.php:843
 msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "Chýbajú tabuľky pre miesto uloženia phpMyAdmin konfigurácie"
 
-#: src/Config/Descriptions.php:845
+#: src/Config/Descriptions.php:844
 msgid "MySQL reserved word warning"
 msgstr "Varovanie o kľúčových slovách MySQL"
 
-#: src/Config/Descriptions.php:846
+#: src/Config/Descriptions.php:845
 msgid "How to display the menu tabs"
 msgstr "Ako zobraziť lišty menu"
 
-#: src/Config/Descriptions.php:847
+#: src/Config/Descriptions.php:846
 msgid "How to display various action links"
 msgstr "Ako zobraziť rôzne príkazy"
 
-#: src/Config/Descriptions.php:848
+#: src/Config/Descriptions.php:847
 msgid "Protect binary columns"
 msgstr "Chrániť binárne polia"
 
-#: src/Config/Descriptions.php:849
+#: src/Config/Descriptions.php:848
 msgid "Permanent query history"
 msgstr "Trvalá história dopytov"
 
-#: src/Config/Descriptions.php:850
+#: src/Config/Descriptions.php:849
 msgid "Query history length"
 msgstr "Dĺžka histórie dopytov"
 
-#: src/Config/Descriptions.php:851
+#: src/Config/Descriptions.php:850
 msgid "Allow shared bookmarks between users"
 msgstr ""
 
-#: src/Config/Descriptions.php:852
+#: src/Config/Descriptions.php:851
 msgid "Recoding engine"
 msgstr "Prekódovací nástroj"
 
-#: src/Config/Descriptions.php:853
+#: src/Config/Descriptions.php:852
 msgid "Remember table's sorting"
 msgstr "Pamätať si triedenie tabuľky"
 
-#: src/Config/Descriptions.php:854
+#: src/Config/Descriptions.php:853
 msgid "Primary key default sort order"
 msgstr "Východzie radenie primárneho kľúča"
 
-#: src/Config/Descriptions.php:855
+#: src/Config/Descriptions.php:854
 msgid "Repeat headers"
 msgstr "Opakovať záhlavie"
 
-#: src/Config/Descriptions.php:856
+#: src/Config/Descriptions.php:855
 msgid "Grid editing: trigger action"
 msgstr "Úprava mriežky: vyvolať akciu"
 
-#: src/Config/Descriptions.php:857
+#: src/Config/Descriptions.php:856
 msgid "Relational display"
 msgstr "Relačné zobrazenie"
 
-#: src/Config/Descriptions.php:858
+#: src/Config/Descriptions.php:857
 msgid "Grid editing: save all edited cells at once"
 msgstr "Úprava mriežky: uložiť všetky upravené bunky naraz"
 
-#: src/Config/Descriptions.php:859
+#: src/Config/Descriptions.php:858
 msgid "Save directory"
 msgstr "Adresár pre ukladanie"
 
-#: src/Config/Descriptions.php:860
+#: src/Config/Descriptions.php:859
 msgid "Host authorization order"
 msgstr "Poradie overovania hostiteľa"
 
-#: src/Config/Descriptions.php:861
+#: src/Config/Descriptions.php:860
 msgid "Host authorization rules"
 msgstr "Pravidlá overovania hostiteľa"
 
-#: src/Config/Descriptions.php:862
+#: src/Config/Descriptions.php:861
 msgid "Allow logins without a password"
 msgstr "Povoliť prihlásenie bez hesla"
 
-#: src/Config/Descriptions.php:863
+#: src/Config/Descriptions.php:862
 msgid "Allow root login"
 msgstr "Povoliť prihlásenia užívateľa root"
 
-#: src/Config/Descriptions.php:864
+#: src/Config/Descriptions.php:863
 msgid "Session timezone"
 msgstr "Časová zóna sedenia"
 
-#: src/Config/Descriptions.php:865
+#: src/Config/Descriptions.php:864
 msgid "HTTP Realm"
 msgstr "HTTP Realm"
 
-#: src/Config/Descriptions.php:867
+#: src/Config/Descriptions.php:866
 msgid "Bookmark table"
 msgstr "Tabuľka záložiek"
 
-#: src/Config/Descriptions.php:868
+#: src/Config/Descriptions.php:867
 msgid "Column information table"
 msgstr "Tabuľka informácii o poliach"
 
-#: src/Config/Descriptions.php:869
+#: src/Config/Descriptions.php:868
 msgid "Compress connection"
 msgstr "Komprimovať pripojenie"
 
-#: src/Config/Descriptions.php:870
+#: src/Config/Descriptions.php:869
 msgid "Control user password"
 msgstr "Heslo kontrolného užívateľa"
 
-#: src/Config/Descriptions.php:871
+#: src/Config/Descriptions.php:870
 msgid "Control user"
 msgstr "Kontrolný užívateľ"
 
-#: src/Config/Descriptions.php:872
+#: src/Config/Descriptions.php:871
 msgid "Control host"
 msgstr "Kontrolný hostiteľ"
 
-#: src/Config/Descriptions.php:873
+#: src/Config/Descriptions.php:872
 msgid "Control port"
 msgstr "Kontrolný port"
 
-#: src/Config/Descriptions.php:874
+#: src/Config/Descriptions.php:873
 msgid "Disable use of INFORMATION_SCHEMA"
 msgstr "Zakazať použitie INFORMATION_SCHEMA"
 
-#: src/Config/Descriptions.php:875
+#: src/Config/Descriptions.php:874
 msgid "Hide databases"
 msgstr "Skryť databázy"
 
-#: src/Config/Descriptions.php:876
+#: src/Config/Descriptions.php:875
 msgid "SQL query history table"
 msgstr "Tabuľka histórie SQL dopytov"
 
-#: src/Config/Descriptions.php:877
+#: src/Config/Descriptions.php:876
 msgid "Server hostname"
 msgstr "Meno servera"
 
-#: src/Config/Descriptions.php:878
+#: src/Config/Descriptions.php:877
 msgid "Logout URL"
 msgstr "URL pri odhlásení"
 
-#: src/Config/Descriptions.php:879
+#: src/Config/Descriptions.php:878
 msgid "Maximal number of table preferences to store"
 msgstr "Maximálny počet uložených nastavení tabuliek"
 
-#: src/Config/Descriptions.php:880
+#: src/Config/Descriptions.php:879
 msgid "Export templates table"
 msgstr "Exportovať tabuľku šablón"
 
-#: src/Config/Descriptions.php:881
+#: src/Config/Descriptions.php:880
 msgid "Central columns table"
 msgstr "Tabuľka centrálnych stĺpcov"
 
-#: src/Config/Descriptions.php:882
+#: src/Config/Descriptions.php:881
 msgid "Show only listed databases"
 msgstr "Zobraziť len vybrané databázy"
 
-#: src/Config/Descriptions.php:883
+#: src/Config/Descriptions.php:882
 msgid "Password for config auth"
 msgstr "Heslo pre prihlásenie podľa konfigurácie"
 
-#: src/Config/Descriptions.php:884
+#: src/Config/Descriptions.php:883
 msgid "PDF schema: pages table"
 msgstr "PDF schéma: tabuľka stránok"
 
-#: src/Config/Descriptions.php:886
+#: src/Config/Descriptions.php:885
 msgid "Server port"
 msgstr "Port servera"
 
-#: src/Config/Descriptions.php:887
+#: src/Config/Descriptions.php:886
 msgid "Recently used table"
 msgstr "Naposledy použitá tabuľka"
 
-#: src/Config/Descriptions.php:888
+#: src/Config/Descriptions.php:887
 msgid "Favorites table"
 msgstr "Tabuľka obľúbených"
 
-#: src/Config/Descriptions.php:889
+#: src/Config/Descriptions.php:888
 msgid "Relation table"
 msgstr "Relačná tabuľka"
 
-#: src/Config/Descriptions.php:890
+#: src/Config/Descriptions.php:889
 msgid "Signon session name"
 msgstr "Meno prihlasovacej session/sedenia"
 
-#: src/Config/Descriptions.php:891
+#: src/Config/Descriptions.php:890
 msgid "Signon URL"
 msgstr "URL pri prihlásení"
 
-#: src/Config/Descriptions.php:892
+#: src/Config/Descriptions.php:891
 msgid "Server socket"
 msgstr "Socket servera"
 
-#: src/Config/Descriptions.php:893
+#: src/Config/Descriptions.php:892
 msgid "Use SSL"
 msgstr "Použiť SSL"
 
-#: src/Config/Descriptions.php:894
+#: src/Config/Descriptions.php:893
 msgid "Designer and PDF schema: table coordinates"
 msgstr "Dizajnér a PDF schéma: tabuľka súradníc"
 
-#: src/Config/Descriptions.php:895
+#: src/Config/Descriptions.php:894
 msgid "Display columns table"
 msgstr "Zobrazenie stĺpcov tabuľky"
 
-#: src/Config/Descriptions.php:896
+#: src/Config/Descriptions.php:895
 msgid "UI preferences table"
 msgstr "Tabuľka pre nastavenie rozhrania"
 
-#: src/Config/Descriptions.php:897
+#: src/Config/Descriptions.php:896
 msgid "Add DROP DATABASE"
 msgstr "Pridať DROP DATABASE"
 
-#: src/Config/Descriptions.php:899
+#: src/Config/Descriptions.php:898
 msgid "Add DROP VIEW"
 msgstr "Pridať DROP VIEW"
 
-#: src/Config/Descriptions.php:900
+#: src/Config/Descriptions.php:899
 msgid "Statements to track"
 msgstr "Sledované príkazy"
 
-#: src/Config/Descriptions.php:901
+#: src/Config/Descriptions.php:900
 msgid "SQL query tracking table"
 msgstr "Tabuľka pre sledovanie SQL dopytov"
 
-#: src/Config/Descriptions.php:902
+#: src/Config/Descriptions.php:901
 msgid "Automatically create versions"
 msgstr "Automaticky vytvárať verzie"
 
-#: src/Config/Descriptions.php:903
+#: src/Config/Descriptions.php:902
 msgid "User preferences storage table"
 msgstr "Tabuľka pre užívateľské nastavenia"
 
-#: src/Config/Descriptions.php:904
+#: src/Config/Descriptions.php:903
 msgid "Users table"
 msgstr "Tabuľka používateľov"
 
-#: src/Config/Descriptions.php:905
+#: src/Config/Descriptions.php:904
 msgid "User groups table"
 msgstr "Tabuľka užívateľských skupín"
 
-#: src/Config/Descriptions.php:906
+#: src/Config/Descriptions.php:905
 msgid "Hidden navigation items table"
 msgstr ""
 
-#: src/Config/Descriptions.php:907
+#: src/Config/Descriptions.php:906
 msgid "User for config auth"
 msgstr "Užívateľ pre prihlásenie podľa konfigurácie"
 
-#: src/Config/Descriptions.php:908
+#: src/Config/Descriptions.php:907
 msgid "Verbose name of this server"
 msgstr "Dlhé meno tohto servera"
 
-#: src/Config/Descriptions.php:909
+#: src/Config/Descriptions.php:908
 msgid "Allow to display all the rows"
 msgstr "Povoliť zobraziť všetky riadky"
 
-#: src/Config/Descriptions.php:910
+#: src/Config/Descriptions.php:909
 msgid "Show password change form"
 msgstr "Zobraziť formulár na zmenu hesla"
 
-#: src/Config/Descriptions.php:911
+#: src/Config/Descriptions.php:910
 msgid "Show create database form"
 msgstr "Zobraziť formulár na vytvorenie databázy"
 
-#: src/Config/Descriptions.php:912
+#: src/Config/Descriptions.php:911
 msgid "Show table comments"
 msgstr "Zobraziť komentáre tabuľky"
 
-#: src/Config/Descriptions.php:913
+#: src/Config/Descriptions.php:912
 msgid "Show creation timestamp"
 msgstr "Zobraziť časovú značku vytvorenia"
 
-#: src/Config/Descriptions.php:914
+#: src/Config/Descriptions.php:913
 msgid "Show last update timestamp"
 msgstr "Zobraziť časovú značku poslednej aktualizácie"
 
-#: src/Config/Descriptions.php:915
+#: src/Config/Descriptions.php:914
 msgid "Show last check timestamp"
 msgstr "Zobraziť časovú značku poslednej kontroly"
 
-#: src/Config/Descriptions.php:916
+#: src/Config/Descriptions.php:915
 #, fuzzy
 msgid "Show table charset"
 msgstr "Zobraziť komentáre tabuľky"
 
-#: src/Config/Descriptions.php:917
+#: src/Config/Descriptions.php:916
 msgid "Show field types"
 msgstr "Zobraziť typy polí"
 
-#: src/Config/Descriptions.php:918
+#: src/Config/Descriptions.php:917
 msgid "Show function fields"
 msgstr "Zobraziť zoznam funkcií"
 
-#: src/Config/Descriptions.php:919
+#: src/Config/Descriptions.php:918
 msgid "Show hint"
 msgstr "Zobraziť nápovedu"
 
-#: src/Config/Descriptions.php:920
+#: src/Config/Descriptions.php:919
 msgid "Show phpinfo() link"
 msgstr "Zobraziť odkaz na phpinfo()"
 
-#: src/Config/Descriptions.php:921
+#: src/Config/Descriptions.php:920
 msgid "Show detailed MySQL server information"
 msgstr "Zobraziť podrobné informácie o MySQL serveri"
 
-#: src/Config/Descriptions.php:922
+#: src/Config/Descriptions.php:921
 msgid "Show SQL queries"
 msgstr "Zobraziť SQL dopyty"
 
-#: src/Config/Descriptions.php:924
+#: src/Config/Descriptions.php:923
 msgid "Show statistics"
 msgstr "Zobraziť štatistiky"
 
-#: src/Config/Descriptions.php:925
+#: src/Config/Descriptions.php:924
 msgid "Skip locked tables"
 msgstr "Preskočiť zamknuté tabuľky"
 
-#: src/Config/Descriptions.php:927 src/Html/Generator.php:498
+#: src/Config/Descriptions.php:926 src/Html/Generator.php:498
 msgid "Explain SQL"
 msgstr "Vysvetliť SQL"
 
-#: src/Config/Descriptions.php:929 src/Html/Generator.php:569
+#: src/Config/Descriptions.php:928 src/Html/Generator.php:569
 msgid "Create PHP code"
 msgstr "Vytvoriť PHP kód"
 
-#: src/Config/Descriptions.php:930
-msgid "Suhosin warning"
-msgstr "Varovanie Suhosin rozšírenia"
-
-#: src/Config/Descriptions.php:931
+#: src/Config/Descriptions.php:929
 msgid "Login cookie validity warning"
 msgstr "Varovanie o platnosti prihlasovacej cookie"
 
-#: src/Config/Descriptions.php:932
+#: src/Config/Descriptions.php:930
 msgid "Textarea columns"
 msgstr "Stĺpce s textovou oblasťou"
 
-#: src/Config/Descriptions.php:933
+#: src/Config/Descriptions.php:931
 msgid "Textarea rows"
 msgstr "Riadkov v textovej oblasti"
 
-#: src/Config/Descriptions.php:935
+#: src/Config/Descriptions.php:933
 msgid "Default title"
 msgstr "Východzí popis"
 
-#: src/Config/Descriptions.php:938
+#: src/Config/Descriptions.php:936
 msgid "List of trusted proxies for IP allow/deny"
 msgstr "Zoznam dôveryhodných proxy pre povolenie/zakázanie IP adresy"
 
-#: src/Config/Descriptions.php:939
+#: src/Config/Descriptions.php:937
 msgid "Upload directory"
 msgstr "Adresár pre nahrávanie"
 
-#: src/Config/Descriptions.php:940
+#: src/Config/Descriptions.php:938
 msgid "Use database search"
 msgstr "Použiť databázové vyhľadávanie"
 
-#: src/Config/Descriptions.php:941
+#: src/Config/Descriptions.php:939
 msgid "Enable the Developer tab in settings"
 msgstr "Povoliť záložku Pre vývojára v nastaveniach"
 
-#: src/Config/Descriptions.php:942 src/Setup/Index.php:125
+#: src/Config/Descriptions.php:940 src/Setup/Index.php:125
 #: src/Setup/Index.php:152 src/Setup/Index.php:160 src/Setup/Index.php:168
 msgid "Version check"
 msgstr "Kontrola verzie"
 
-#: src/Config/Descriptions.php:943
+#: src/Config/Descriptions.php:941
 #, fuzzy
 msgid "Proxy URL"
 msgstr "Proxy url"
 
-#: src/Config/Descriptions.php:944
+#: src/Config/Descriptions.php:942
 msgid "Proxy username"
 msgstr "Proxy užívateľské meno"
 
-#: src/Config/Descriptions.php:945
+#: src/Config/Descriptions.php:943
 msgid "Proxy password"
 msgstr "Proxy heslo"
 
-#: src/Config/Descriptions.php:946
+#: src/Config/Descriptions.php:944
 msgid "ZIP"
 msgstr "ZIP"
 
-#: src/Config/Descriptions.php:947
+#: src/Config/Descriptions.php:945
 msgid "URL for reCAPTCHA v2 API"
 msgstr ""
 
-#: src/Config/Descriptions.php:948
+#: src/Config/Descriptions.php:946
 msgid "Content-Security-Policy snippet for reCAPTCHA v2 API"
 msgstr ""
 
-#: src/Config/Descriptions.php:949
+#: src/Config/Descriptions.php:947
 msgid "Request parameter for reCAPTCHA v2 API"
 msgstr ""
 
-#: src/Config/Descriptions.php:950
+#: src/Config/Descriptions.php:948
 msgid "Response parameter for reCAPTCHA v2 API"
 msgstr ""
 
-#: src/Config/Descriptions.php:951
+#: src/Config/Descriptions.php:949
 #, fuzzy
 msgid "Public key for reCAPTCHA"
 msgstr "Verejný kľúč pre reCaptcha"
 
-#: src/Config/Descriptions.php:952
+#: src/Config/Descriptions.php:950
 #, fuzzy
 msgid "Private key for reCAPTCHA"
 msgstr "Verejný kľúč pre reCaptcha"
 
-#: src/Config/Descriptions.php:953
+#: src/Config/Descriptions.php:951
 msgid "URL for reCAPTCHA siteverify"
 msgstr ""
 
-#: src/Config/Descriptions.php:954
+#: src/Config/Descriptions.php:952
 msgid "Send error reports"
 msgstr "Poslať chybové hlásenia"
 
-#: src/Config/Descriptions.php:955
+#: src/Config/Descriptions.php:953
 msgid "Enter executes queries in console"
 msgstr "Enter spustí dopyty v konzole"
 
-#: src/Config/Descriptions.php:956
+#: src/Config/Descriptions.php:954
 msgid "Enable Zero Configuration mode"
 msgstr "Povoliť režim nulovej konfigurácie"
 
-#: src/Config/Descriptions.php:960
+#: src/Config/Descriptions.php:958
 msgid "Execute queries on Enter and insert new line with Shift+Enter"
 msgstr ""
 
-#: src/Config/Descriptions.php:962
+#: src/Config/Descriptions.php:960
 msgid "Console height"
 msgstr "Výška konzoly"
 
-#: src/Config/Descriptions.php:963
+#: src/Config/Descriptions.php:961
 #, fuzzy
 msgid "Console mode"
 msgstr "Konzola"
 
-#: src/Config/Descriptions.php:966
+#: src/Config/Descriptions.php:964
 #, fuzzy
 msgid "Order by"
 msgstr "Zoradiť podľa:"
 
-#: src/Config/Descriptions.php:967
+#: src/Config/Descriptions.php:965
 msgid "Server connection collation"
 msgstr "Znaková sada pre pripojenie k serveru"
 
@@ -11738,7 +11737,8 @@ msgstr "Komprimovaný import nebude funkčný, chýba funkcia %s."
 msgid "Compressed export will not work due to missing function %s."
 msgstr "Komprimovaný export nebude funkčný, chýba funkcia %s."
 
-#: src/Config/FormDisplay.php:819
+#: src/Config/FormDisplay.php:815 src/Config/FormDisplay.php:816
+#: src/Config/FormDisplay.php:817
 #, php-format
 msgid "maximum %s"
 msgstr "maximálne %s"
@@ -11772,7 +11772,7 @@ msgid "Microsoft Word 2000"
 msgstr "Microsoft Word 2000"
 
 #: src/Config/Forms/User/ExportForm.php:120
-#: src/Config/Forms/User/ImportForm.php:46
+#: src/Config/Forms/User/ImportForm.php:47
 msgid "OpenDocument Spreadsheet"
 msgstr "Tabuľkový procesor Open Document"
 
@@ -11780,7 +11780,7 @@ msgstr "Tabuľkový procesor Open Document"
 msgid "OpenDocument Text"
 msgstr "Open Document Text"
 
-#: src/Config/Forms/User/ImportForm.php:37
+#: src/Config/Forms/User/ImportForm.php:38
 msgid "CSV using LOAD DATA"
 msgstr "CSV pomocou LOAD DATA"
 
@@ -11918,7 +11918,7 @@ msgstr ""
 "%sGZip kompresia a dekompresia%s vyžaduje funkicie  (%s), ktoré nie sú "
 "dostupné na tomto systéme."
 
-#: src/Config/Settings.php:3168
+#: src/Config/Settings.php:3144
 #, php-format
 msgid "Server %d"
 msgstr "Server %d"
@@ -12197,7 +12197,7 @@ msgstr "V databáze %2$s nebola nájdená žiadna udalosť s menom %1$s"
 
 #: src/Controllers/Database/ExportController.php:129
 #: src/Controllers/Server/ExportController.php:57
-#: src/Controllers/Table/ExportController.php:90
+#: src/Controllers/Table/ExportController.php:92
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 "Nepodarilo sa načítať exportné pluginy, skontrolujte prosím vašu inštaláciu!"
@@ -12326,7 +12326,7 @@ msgid "Success!"
 msgstr "Úspech!"
 
 #: src/Controllers/Database/StructureController.php:568
-#: src/Display/Results.php:3260
+#: src/Display/Results.php:3254
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -12391,7 +12391,7 @@ msgstr "Ak spozorujete problém, odošlite hlášku o chybe manuálne."
 msgid "You may want to refresh the page."
 msgstr "Možno bude treba obnoviť stránku."
 
-#: src/Controllers/Export/ExportController.php:120 src/Export/Export.php:676
+#: src/Controllers/Export/ExportController.php:120 src/Export/Export.php:677
 msgid "Bad type!"
 msgstr "Nesprávny typ!"
 
@@ -12492,16 +12492,7 @@ msgstr ""
 "nakonfigurovaný. V opačnom prípade bezpečnosť Vášho servera môže byť "
 "narušená neautorizovanými užívateľmi, ktorí stiahnu Vašu konfiguráciu."
 
-#: src/Controllers/HomeController.php:404
-#, php-format
-msgid ""
-"Server running with Suhosin. Please refer to %sdocumentation%s for possible "
-"issues."
-msgstr ""
-"Webový server beží so Suhosin-patchom. Možné dôsledky konzultujte s "
-"%sdokumentáciou%s."
-
-#: src/Controllers/HomeController.php:418
+#: src/Controllers/HomeController.php:398
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -12510,14 +12501,14 @@ msgstr ""
 "$cfg['TempDir'] (%s) nie je dostupný. phpMyAdmin nie je schopný ukladať "
 "šablóny do vyrovnávacej pamäte a bude kvôli tomu pomalý."
 
-#: src/Controllers/HomeController.php:435
+#: src/Controllers/HomeController.php:415
 msgid ""
 "The [code]HTTP_HOST[/code] variable is missing, which might cause phpMyAdmin "
 "to not work properly. Please refer to [doc@faq1-46]documentation[/doc] for "
 "possible issues."
 msgstr ""
 
-#: src/Controllers/HomeController.php:488
+#: src/Controllers/HomeController.php:468
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -12528,7 +12519,7 @@ msgstr ""
 "rozdeľovať reťazce kódované v týchto znakových sadách a môže to viesť k "
 "nečakaným výsledkom."
 
-#: src/Controllers/HomeController.php:506
+#: src/Controllers/HomeController.php:486
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -12605,7 +12596,7 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Príkaz \"DROP DATABASE\" je zakázaný."
 
-#: src/Controllers/Import/ImportController.php:700 src/Sql.php:912
+#: src/Controllers/Import/ImportController.php:700 src/Sql.php:909
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -14522,7 +14513,7 @@ msgid "No such column"
 msgstr "Stĺpec neexistuje"
 
 #: src/Controllers/Normalization/GetColumnsController.php:35
-#: src/Normalization.php:230 src/Types.php:652
+#: src/Normalization.php:230 src/Types.php:653
 msgctxt "string types"
 msgid "String"
 msgstr "Reťazec"
@@ -15379,7 +15370,7 @@ msgstr "Nesprávne dáta"
 msgid "Wrong data or no validation for %s"
 msgstr ""
 
-#: src/Controllers/Sql/SqlController.php:218 src/Sql.php:1080
+#: src/Controllers/Sql/SqlController.php:218 src/Sql.php:1077
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Príkaz %s bol zaradený medzi obľúbené."
@@ -15459,7 +15450,7 @@ msgstr "Je príliš veľa spojení bez indexov."
 
 #: src/Controllers/Table/GetFieldController.php:108
 #: src/Database/Routines.php:1050 src/Import/Import.php:138
-#: src/InsertEdit.php:161 src/Sql.php:898
+#: src/InsertEdit.php:161 src/Sql.php:895
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL vrátil prázdny výsledok (tj. nulový počet riadkov)."
 
@@ -15853,27 +15844,27 @@ msgstr ""
 msgid "The row has been deleted."
 msgstr "Riadok bol zmazaný."
 
-#: src/Display/Results.php:2979 src/Display/Results.php:3301 src/Sql.php:904
+#: src/Display/Results.php:2973 src/Display/Results.php:3295 src/Sql.php:901
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Dopyt zabral %01.4f sekúnd."
 
-#: src/Display/Results.php:3269
+#: src/Display/Results.php:3263
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Zobrazené riadky %1s - %2s"
 
-#: src/Display/Results.php:3283
+#: src/Display/Results.php:3277
 #, fuzzy, php-format
 msgid "%1$s total, %2$s in query"
 msgstr "%1$d celkom, %2$d v dotaze"
 
-#: src/Display/Results.php:3288
+#: src/Display/Results.php:3282
 #, fuzzy, php-format
 msgid "%s total"
 msgstr "celkom %d"
 
-#: src/Display/Results.php:3597
+#: src/Display/Results.php:3591
 msgid "Link not found!"
 msgstr "Odkaz nebol nájdený!"
 
@@ -16478,11 +16469,11 @@ msgstr ""
 msgid "web server upload directory:"
 msgstr "upload adresár web serveru:"
 
-#: src/InsertEdit.php:846 src/Sql.php:895
+#: src/InsertEdit.php:846 src/Sql.php:892
 msgid "Showing SQL query"
 msgstr "Zobrazujem SQL dotaz"
 
-#: src/InsertEdit.php:870 src/Sql.php:875
+#: src/InsertEdit.php:870 src/Sql.php:872
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Vložený riadok id: %1$d"
@@ -16885,39 +16876,39 @@ msgstr ""
 msgid "No partial dependencies found!"
 msgstr "Neboli nájdené žiadne čiastočné závislosti!"
 
-#: src/Operations.php:540
+#: src/Operations.php:536
 msgid "Coalesce"
 msgstr "Zlúčiť"
 
-#: src/Operations.php:891
+#: src/Operations.php:887
 msgid "Can't move table to same one!"
 msgstr "Nedá sa presunúť tabuľka sama do seba!"
 
-#: src/Operations.php:893
+#: src/Operations.php:889
 msgid "Can't copy table to same one!"
 msgstr "Nedá sa skopírovať tabuľka sama do seba!"
 
-#: src/Operations.php:929
+#: src/Operations.php:925
 #, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "Tabuľka %s bola presunutá do %s. Oprávnenia boli upravené."
 
-#: src/Operations.php:935
+#: src/Operations.php:931
 #, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "Tabuľka %s bola skopírovaná do %s. Oprávnenia boli upravené."
 
-#: src/Operations.php:941
+#: src/Operations.php:937
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "Tabuľka %s bola presunutá do %s."
 
-#: src/Operations.php:945
+#: src/Operations.php:941
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "Tabuľka %s bola skorírovaná do %s."
 
-#: src/Operations.php:968
+#: src/Operations.php:964
 msgid "The table name is empty!"
 msgstr "Tabuľka je prázdna!"
 
@@ -16997,7 +16988,7 @@ msgstr "V konfigurácii je nastavená nesprávna autentifikačná metóda:"
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 
-#: src/Plugins/Export/ExportCsv.php:68 src/Plugins/Export/ExportToon.php:61
+#: src/Plugins/Export/ExportCsv.php:68 src/Plugins/Export/ExportToon.php:62
 #: src/Plugins/Import/AbstractImportCsv.php:36
 msgid "Columns separated with:"
 msgstr "Polia oddelené s:"
@@ -17406,7 +17397,7 @@ msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
 
-#: src/Plugins/Export/ExportToon.php:66
+#: src/Plugins/Export/ExportToon.php:67
 #, fuzzy
 #| msgid "Orientation"
 msgid "Indentation:"
@@ -17429,52 +17420,52 @@ msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:92
+#: src/Plugins/Import/ImportCsv.php:93
 msgid "Name of the new table (optional):"
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:101
+#: src/Plugins/Import/ImportCsv.php:102
 msgid "Name of the new database (optional):"
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:110 src/Plugins/Import/ImportCsv.php:128
+#: src/Plugins/Import/ImportCsv.php:111 src/Plugins/Import/ImportCsv.php:129
 msgid "Import these many number of rows (optional):"
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:118 src/Plugins/Import/ImportOds.php:72
+#: src/Plugins/Import/ImportCsv.php:119 src/Plugins/Import/ImportOds.php:72
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:135
+#: src/Plugins/Import/ImportCsv.php:136
 msgid ""
 "If the data in each row of the file is not in the same order as in the "
 "database, list the corresponding column names here. Column names must be "
 "separated by commas and not enclosed in quotations."
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:143
+#: src/Plugins/Import/ImportCsv.php:144
 msgid "Column names:"
 msgstr "Názvy stĺpcov:"
 
-#: src/Plugins/Import/ImportCsv.php:275 src/Plugins/Import/ImportCsv.php:528
+#: src/Plugins/Import/ImportCsv.php:283 src/Plugins/Import/ImportCsv.php:541
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "Chybný formát v CSV vstupe na riadku %d."
 
-#: src/Plugins/Import/ImportCsv.php:482
+#: src/Plugins/Import/ImportCsv.php:495
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Chybný počet položiek v CSV vstupe na riadku %d."
 
-#: src/Plugins/Import/ImportCsv.php:637 src/Plugins/Import/ImportCsv.php:652
-#: src/Plugins/Import/ImportCsv.php:663 src/Plugins/Import/ImportCsv.php:670
+#: src/Plugins/Import/ImportCsv.php:671 src/Plugins/Import/ImportCsv.php:686
+#: src/Plugins/Import/ImportCsv.php:697 src/Plugins/Import/ImportCsv.php:704
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Chybný parameter pre CSV import: %s"
 
-#: src/Plugins/Import/ImportCsv.php:760
+#: src/Plugins/Import/ImportCsv.php:794
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -18209,11 +18200,11 @@ msgstr ""
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: src/Sql.php:892
+#: src/Sql.php:889
 msgid "Showing as PHP code"
 msgstr "Zobrazujem ako PHP kód"
 
-#: src/Sql.php:1248
+#: src/Sql.php:1245
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -18222,7 +18213,7 @@ msgstr ""
 "Aktuálny výber neobsahuje unikátny stĺpec. Úprava gridu, zaškrtávanie, "
 "editácia, kopírovanie a mazanie nie sú dostupné. %s"
 
-#: src/Sql.php:1262
+#: src/Sql.php:1259
 #, fuzzy, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -18482,23 +18473,23 @@ msgstr "Musíte zadať platný názov tabuľky!"
 msgid "You must provide a trigger definition."
 msgstr ""
 
-#: src/Types.php:97
+#: src/Types.php:98
 #, fuzzy
 msgid "empty"
 msgstr "Vyprázdniť"
 
-#: src/Types.php:98
+#: src/Types.php:99
 msgid "not empty"
 msgstr ""
 
-#: src/Types.php:161
+#: src/Types.php:162
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr ""
 "1-bytové celé číslo, rozsah: so znamienkom -128 až 127, bez znamienka 0 až "
 "255"
 
-#: src/Types.php:162
+#: src/Types.php:163
 msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
 "65,535"
@@ -18506,7 +18497,7 @@ msgstr ""
 "2-bytové celé číslo, rozsah: so znamienkom -32 768 až 32 767, bez znamienka "
 "0 až 65,535"
 
-#: src/Types.php:164
+#: src/Types.php:165
 msgid ""
 "A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is "
 "0 to 16,777,215"
@@ -18514,7 +18505,7 @@ msgstr ""
 "3-bytové celé číslo, rozsah: so znamienkom -8 388 608 až 8 388 607, bez "
 "znamienka 0 až 16 777 215"
 
-#: src/Types.php:167
+#: src/Types.php:168
 msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
 "range is 0 to 4,294,967,295"
@@ -18522,7 +18513,7 @@ msgstr ""
 "4-bitové celé číslo, rozsah: so znamienkom -2 147 483 648 až 2 147 483 647, "
 "bez znamienka 0 až 4 294 967 295"
 
-#: src/Types.php:172
+#: src/Types.php:173
 msgid ""
 "An 8-byte integer, signed range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807, unsigned range is 0 to 18,446,744,073,709,551,615"
@@ -18530,7 +18521,7 @@ msgstr ""
 "8-bytové celé číslo, rozsah: so znamienkom -9 223 372 036 854 775 808 až 9 "
 "223 372 036 854 775 807, bez znamienka 0 až 18 446 744 073 709 551 615"
 
-#: src/Types.php:177
+#: src/Types.php:178
 msgid ""
 "A fixed-point number (M, D) - the maximum number of digits (M) is 65 "
 "(default 10), the maximum number of decimals (D) is 30 (default 0)"
@@ -18538,7 +18529,7 @@ msgstr ""
 "Číslo s pevnou čiarkou (M, D) - maximálny počet číslic (M) je 65 (predvolené "
 "10), maximálny počet desatinných miest (D) 30 (predvolené 0)"
 
-#: src/Types.php:182
+#: src/Types.php:183
 msgid ""
 "A small floating-point number, allowable values are -3.402823466E+38 to "
 "-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
@@ -18546,7 +18537,7 @@ msgstr ""
 "Číslo s plávajúcou desatinnou čiarkou, rozsahy: od -3,402823466E+38 do "
 "-1,175494351E-38; 0; od 1,175494351E-38 do 3,402823466E+38"
 
-#: src/Types.php:187
+#: src/Types.php:188
 msgid ""
 "A double-precision floating-point number, allowable values are "
 "-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
@@ -18556,7 +18547,7 @@ msgstr ""
 "-1,7976931348623157E+308 do -2,2250738585072014E-308; 0; od "
 "2,2250738585072014E-308 do 1,7976931348623157E+308"
 
-#: src/Types.php:191
+#: src/Types.php:192
 msgid ""
 "Synonym for DOUBLE (exception: in REAL_AS_FLOAT SQL mode it is a synonym for "
 "FLOAT)"
@@ -18564,14 +18555,14 @@ msgstr ""
 "Synonymum pre DOUBLE (výnimka: v SQL režime REAL_AS_FLOAT je to synonymum "
 "pre FLOAT)"
 
-#: src/Types.php:192
+#: src/Types.php:193
 msgid ""
 "A bit-field type (M), storing M of bits per value (default is 1, maximum is "
 "64)"
 msgstr ""
 "Pole bitov (M), ukladá M bitov pre každú hodnotu (predvolené 1, maximum 64)"
 
-#: src/Types.php:194
+#: src/Types.php:195
 msgid ""
 "A synonym for TINYINT(1), a value of zero is considered false, nonzero "
 "values are considered true"
@@ -18579,21 +18570,21 @@ msgstr ""
 "Synonymum pre TINYINT(1), hodnota 0 znamená NEPRAVDA, nenulové hodnoty "
 "znamenajú PRAVDA"
 
-#: src/Types.php:196
+#: src/Types.php:197
 msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr "Alias pre BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 
-#: src/Types.php:198
+#: src/Types.php:199
 #, php-format
 msgid "A date, supported range is %1$s to %2$s"
 msgstr "Dátum, podporovaný rozsah je od %1$s do %2$s"
 
-#: src/Types.php:203
+#: src/Types.php:204
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr "Dátum a čas, podporovaný rozsah je od %1$s do %2$s"
 
-#: src/Types.php:208
+#: src/Types.php:209
 #, fuzzy
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-19 03:14:07 UTC on "
@@ -18604,12 +18595,12 @@ msgstr ""
 "Časová značka, rozsah od 1.1.1970 00:00:01 UTC do 1.9.2038 03:14:07 UTC, "
 "ukladá sa ako počet sekúnd od počiatku (1.1.1970 00:00:00 UTC)"
 
-#: src/Types.php:214
+#: src/Types.php:215
 #, php-format
 msgid "A time, range is %1$s to %2$s"
 msgstr "Čas, rozsah je od %1$s do %2$s"
 
-#: src/Types.php:219
+#: src/Types.php:220
 msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
@@ -18617,7 +18608,7 @@ msgstr ""
 "Rok v 4-číslicovom formáte (predvolené 4) alebo 2-číslicovom formáte (2), "
 "povolené hodnoty od 70 (1970) do 69 (2069) alebo 1901 až 2155 a 0000"
 
-#: src/Types.php:224
+#: src/Types.php:225
 msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
@@ -18625,7 +18616,7 @@ msgstr ""
 "Text s pevnou dĺžkou (0-255, predvolené 1), zarovnaný sprava s medzerami na "
 "začiatku"
 
-#: src/Types.php:229
+#: src/Types.php:230
 #, php-format
 msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
@@ -18634,7 +18625,7 @@ msgstr ""
 "Text s premenlivou dĺžkou (%s), skutočná maximálna dĺžka súvisí s maximálnou "
 "dĺžkou riadku"
 
-#: src/Types.php:234
+#: src/Types.php:235
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
@@ -18642,7 +18633,7 @@ msgstr ""
 "Stĺpec typu TEXT, maximálna dĺžka 255 (2^8 - 1) znakov, ukladá sa s 1-"
 "bytovým prefixom, ktorý obsahuje dĺžku textu v bytoch"
 
-#: src/Types.php:239
+#: src/Types.php:240
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
@@ -18650,7 +18641,7 @@ msgstr ""
 "Stĺpec typu TEXT, maximálna dĺžka 65 535 (2^16 - 1) znakov, ukladá sa s 2-"
 "bytovým prefixom, ktorý obsahuje dĺžku textu v bytoch"
 
-#: src/Types.php:244
+#: src/Types.php:245
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
@@ -18658,7 +18649,7 @@ msgstr ""
 "Stĺpec typu TEXT, maximálna dĺžka 16 777 215 (2^24 - 1) znakov, ukladá sa s "
 "3-bytovým prefixom, ktorý obsahuje dĺžku textu v bytoch"
 
-#: src/Types.php:249
+#: src/Types.php:250
 msgid ""
 "A TEXT column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "characters, stored with a four-byte prefix indicating the length of the "
@@ -18667,21 +18658,21 @@ msgstr ""
 "Stĺpec typu TEXT, maximálna dĺžka 4 294 967 295 or 4 GB (2^32 - 1) znakov, "
 "ukladá sa s 4-bytovým prefixom, ktorý obsahuje dĺžku textu v bytoch"
 
-#: src/Types.php:254
+#: src/Types.php:255
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
 "Podobné typu CHAR, ale ukladá binárne bajty namiesto nebinárnych znakov"
 
-#: src/Types.php:257
+#: src/Types.php:258
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
 "Podobné typu VARCHAR, ale ukladá binárne bajty namiesto nebinárnych znakov"
 
-#: src/Types.php:261
+#: src/Types.php:262
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
@@ -18689,7 +18680,7 @@ msgstr ""
 "Stĺpec BLOB, maximálna dĺžka 255 (2^8 - 1) bytov, ukladá sa sa 1-bytovým "
 "prefixom, ktorý obsahuje dĺžku hodnoty"
 
-#: src/Types.php:265
+#: src/Types.php:266
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
@@ -18697,7 +18688,7 @@ msgstr ""
 "Stĺpec BLOB, maximálna dĺžka 16 777 (2^24 - 1) bytov, ukladá sa sa 3-bytovým "
 "prefixom, ktorý obsahuje dĺžku hodnoty"
 
-#: src/Types.php:270
+#: src/Types.php:271
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
@@ -18705,7 +18696,7 @@ msgstr ""
 "Stĺpec BLOB, maximálna dĺžka 65 535 (2^16 - 1) bytov, ukladá sa sa 2-bytovým "
 "prefixom, ktorý obsahuje dĺžku hodnoty"
 
-#: src/Types.php:274
+#: src/Types.php:275
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
@@ -18713,7 +18704,7 @@ msgstr ""
 "Stĺpec BLOB, maximálna dĺžka 4 294 967 295 alebo 4 GB (2^32 - 1) bytov, "
 "ukladá sa sa 4-bytovým prefixom, ktorý obsahuje dĺžku hodnoty"
 
-#: src/Types.php:278
+#: src/Types.php:279
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
@@ -18721,80 +18712,80 @@ msgstr ""
 "Vymenovanie hodnôt vybratých zo zoznamu dlhého až 65 535 hodnôt alebo "
 "špeciálna chybová hodnota ''"
 
-#: src/Types.php:279
+#: src/Types.php:280
 msgid "A single value chosen from a set of up to 64 members"
 msgstr "Jediná hodnota vybratá z množiny max. 64 členov"
 
-#: src/Types.php:280
+#: src/Types.php:281
 msgid "A type that can store a geometry of any type"
 msgstr "Tento typ ukladá geometriu akéhokoľvek druhu"
 
-#: src/Types.php:281
+#: src/Types.php:282
 msgid "A point in 2-dimensional space"
 msgstr "Bod vo dvojrozmernom priestore"
 
-#: src/Types.php:282
+#: src/Types.php:283
 msgid "A curve with linear interpolation between points"
 msgstr "Krivka s lineárnou interpoláciou medzi bodmi"
 
-#: src/Types.php:283
+#: src/Types.php:284
 msgid "A polygon"
 msgstr "Polygón"
 
-#: src/Types.php:284
+#: src/Types.php:285
 msgid "A collection of points"
 msgstr "Množina bodov"
 
-#: src/Types.php:285
+#: src/Types.php:286
 msgid "A collection of curves with linear interpolation between points"
 msgstr "Množina kriviek s lineárnou interpoláciou medzi bodmi"
 
-#: src/Types.php:286
+#: src/Types.php:287
 msgid "A collection of polygons"
 msgstr "Množina polygónov"
 
-#: src/Types.php:287
+#: src/Types.php:288
 msgid "A collection of geometry objects of any type"
 msgstr "Množina geometrických objektov akéhokoľvek typu"
 
-#: src/Types.php:288
+#: src/Types.php:289
 msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
 msgstr ""
 
-#: src/Types.php:289
+#: src/Types.php:290
 msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
 msgstr ""
 
-#: src/Types.php:292
+#: src/Types.php:293
 #, fuzzy
 msgid "128-bit UUID (Universally Unique Identifier)"
 msgstr "Ukladá Univerzálny jedinečný identifikátor (UUID)"
 
-#: src/Types.php:293
+#: src/Types.php:294
 msgid ""
 "Stores vector data optimized for operations such as similarity search and "
 "machine learning applications"
 msgstr ""
 
-#: src/Types.php:295
+#: src/Types.php:296
 msgid "Intended for storage of XML data"
 msgstr ""
 
-#: src/Types.php:606
+#: src/Types.php:607
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr "Číslo"
 
-#: src/Types.php:624
+#: src/Types.php:625
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "Dátum a čas"
 
-#: src/Types.php:654
+#: src/Types.php:655
 msgctxt "spatial types"
 msgid "Spatial"
 msgstr "Priestorový objekt"
@@ -18839,6 +18830,24 @@ msgstr "Chyba v ZIP archíve:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "V ZIP archíve neboli nájdené žiadne súbory!"
+
+#~ msgid ""
+#~ "Disable the default warning that is displayed on the main page if Suhosin "
+#~ "is detected."
+#~ msgstr ""
+#~ "Vypne štandardné varovanie, ktoré je zobrazované na hlavnej stránke ak je "
+#~ "zistený Suhosin."
+
+#~ msgid "Suhosin warning"
+#~ msgstr "Varovanie Suhosin rozšírenia"
+
+#, php-format
+#~ msgid ""
+#~ "Server running with Suhosin. Please refer to %sdocumentation%s for "
+#~ "possible issues."
+#~ msgstr ""
+#~ "Webový server beží so Suhosin-patchom. Možné dôsledky konzultujte s "
+#~ "%sdokumentáciou%s."
 
 #~ msgid "Version information"
 #~ msgstr "Informácie o verzii"
