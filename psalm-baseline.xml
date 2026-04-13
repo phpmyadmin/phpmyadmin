@@ -8042,12 +8042,12 @@
       <code><![CDATA[$statement->altered]]></code>
       <code><![CDATA[$statement->altered]]></code>
     </PossiblyNullIterator>
+    <PossiblyUndefinedVariable>
+      <code><![CDATA[$maintainRelations]]></code>
+    </PossiblyUndefinedVariable>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! $relationParams[$work]]]></code>
     </RiskyTruthyFalsyComparison>
-    <UnusedVariable>
-      <code><![CDATA[$maintainRelations]]></code>
-    </UnusedVariable>
   </file>
   <file src="src/Theme/Theme.php">
     <MixedArgument>

@@ -1021,6 +1021,12 @@ parameters:
 			path: src/Config/Validator.php
 
 		-
+			message: '#^Offset ''Servers/1…'' on non\-empty\-array\<mixed\> in empty\(\) always exists and is not falsy\.$#'
+			identifier: empty.offset
+			count: 1
+			path: src/Config/Validator.php
+
+		-
 			message: '#^Only booleans are allowed in a negated boolean, mysqli\|false given\.$#'
 			identifier: booleanNot.exprNotBoolean
 			count: 1
@@ -4789,6 +4795,12 @@ parameters:
 			path: src/Dbal/DatabaseInterface.php
 
 		-
+			message: '#^Cannot assign new offset to array\<string\|null\>\|string\|null\.$#'
+			identifier: offsetAssign.dimType
+			count: 1
+			path: src/Dbal/DatabaseInterface.php
+
+		-
 			message: '#^Cannot cast mixed to string\.$#'
 			identifier: cast.string
 			count: 1
@@ -4803,6 +4815,12 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
+			count: 1
+			path: src/Dbal/DatabaseInterface.php
+
+		-
+			message: '#^Method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:fetchResultMultidimensional\(\) should return array\<mixed\> but returns array\<string\|null\>\|string\|null\.$#'
+			identifier: return.type
 			count: 1
 			path: src/Dbal/DatabaseInterface.php
 
@@ -4833,12 +4851,6 @@ parameters:
 		-
 			message: '#^Method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:getTableIndexes\(\) should return array\<int, array\{Table\: string, Non_unique\: ''0''\|''1'', Key_name\: string, Seq_in_index\: string, Column_name\: string\|null, Collation\: ''A''\|''D''\|null, Cardinality\: string, Sub_part\: string\|null, \.\.\.\}\> but returns list\<array\<string\|null\>\>\.$#'
 			identifier: return.type
-			count: 1
-			path: src/Dbal/DatabaseInterface.php
-
-		-
-			message: '#^Offset string\|null on array\{\} in isset\(\) does not exist\.$#'
-			identifier: isset.offset
 			count: 1
 			path: src/Dbal/DatabaseInterface.php
 
@@ -6438,7 +6450,13 @@ parameters:
 		-
 			message: '#^Cannot access offset int\<0, max\> on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 8
+			count: 6
+			path: src/Gis/GisMultiPolygon.php
+
+		-
+			message: '#^Cannot access offset int\<0, max\> on non\-empty\-array\<''data_length''\|int\<0, max\>, array\{x\: float, y\: float\}\|int\<0, max\>\>\|int\<1, max\>\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
 			path: src/Gis/GisMultiPolygon.php
 
 		-
