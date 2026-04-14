@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2023-12-08 16:03+0000\n"
+"PO-Revision-Date: 2026-04-15 18:09+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "hr/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.3-dev\n"
+"X-Generator: Weblate 5.17.1-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -7368,10 +7368,8 @@ msgid "at least one of the words"
 msgstr "najmanje jedna riječ"
 
 #: libraries/classes/Database/Search.php:94
-#, fuzzy
-#| msgid "at least one of the words"
 msgid "all of the words"
-msgstr "najmanje jedna riječ"
+msgstr "sve riječi"
 
 #: libraries/classes/Database/Search.php:95
 #, fuzzy
@@ -16211,10 +16209,8 @@ msgid "Deactivate now"
 msgstr ""
 
 #: templates/display/export/method.twig:3
-#, fuzzy
-#| msgid "Export type"
 msgid "Export method:"
-msgstr "Vrsta izvoza"
+msgstr "Način izvoza:"
 
 #: templates/display/export/method.twig:9
 msgid "Quick - display only the minimal options"
@@ -16419,10 +16415,8 @@ msgid "Encoding Conversion:"
 msgstr "MySQL verzija klijenta"
 
 #: templates/display/export/template_options.twig:1
-#, fuzzy
-#| msgid "Select Tables"
 msgid "Select a template"
-msgstr "Odaberite tablice"
+msgstr "Odaberi predložak"
 
 #: templates/display/import/import.twig:40
 #, fuzzy
@@ -16548,21 +16542,16 @@ msgid "None"
 msgstr "Bez"
 
 #: templates/display/export/template_loading.twig:2
-#, fuzzy
 msgid "Export templates:"
-msgstr "Vrsta izvoza"
+msgstr "Izvezi predloške:"
 
 #: templates/display/export/template_loading.twig:6
-#, fuzzy
-#| msgid "File name template"
 msgid "New template:"
-msgstr "Predložak naziva datoteka"
+msgstr "Novi predložak:"
 
 #: templates/display/export/template_loading.twig:8
-#, fuzzy
-#| msgid "Table name"
 msgid "Template name"
-msgstr "Naziv tablice"
+msgstr "Ime predloška"
 
 #: templates/display/export/template_loading.twig:10
 #: templates/server/databases/create.twig:30
@@ -16570,16 +16559,12 @@ msgid "Create"
 msgstr "Izradi"
 
 #: templates/display/export/template_loading.twig:16
-#, fuzzy
-#| msgid "File name template"
 msgid "Existing templates:"
-msgstr "Predložak naziva datoteka"
+msgstr "Postojeći predlošci:"
 
 #: templates/display/export/template_loading.twig:17
-#, fuzzy
-#| msgid "%s table(s)"
 msgid "Template:"
-msgstr "%s tablica"
+msgstr "Predložak:"
 
 #: templates/display/export/template_loading.twig:21
 #, fuzzy
@@ -16607,19 +16592,16 @@ msgstr "Korisničko ime:"
 #, php-format
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%s poklapanje unutar tablice <i>%s</i>"
-msgstr[1] "%s poklapanja unutar tablice <i>%s</i>"
-msgstr[2] "%s poklapanja unutar tablice <i>%s</i>"
+msgstr[0] "%1$s poklapanje u <strong>%2$s</strong>"
+msgstr[1] "%1$s poklapanja u <strong>%2$s</strong>"
+msgstr[2] "%1$s poklapanja u <strong>%2$s</strong>"
 
 #: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>Ukupno:</b> <i>%s</i> poklapanje"
-msgstr[1] "<b>Ukupno:</b> <i>%s</i> poklapanja"
-msgstr[2] "<b>Ukupno:</b> <i>%s</i> poklapanja"
+msgstr[0] "<strong>Ukupno:</strong> <em>%count%</em> poklapanje"
+msgstr[1] "<strong>Ukupno:</strong> <em>%count%</em> poklapanja"
+msgstr[2] "<strong>Ukupno:</strong> <em>%count%</em> poklapanja"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
 #, fuzzy
@@ -16854,7 +16836,7 @@ msgstr "Unutar tablica:"
 
 #: templates/database/search/selection_form.twig:51
 msgid "Inside column:"
-msgstr "Unutar polja:"
+msgstr "Unutar stupca:"
 
 #: templates/privileges/add_privileges_routine.twig:3
 #, fuzzy
