@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2023-12-08 16:03+0000\n"
+"PO-Revision-Date: 2026-04-15 18:09+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "hr/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.3-dev\n"
+"X-Generator: Weblate 5.17.1-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -9588,10 +9588,8 @@ msgstr "najmanje jedna riječ"
 
 #: libraries/classes/Database/Search.php:110
 #: templates/database/search/main.twig:23
-#, fuzzy
-#| msgid "at least one of the words"
 msgid "all of the words"
-msgstr "najmanje jedna riječ"
+msgstr "sve riječi"
 
 #: libraries/classes/Database/Search.php:111
 #: templates/database/search/main.twig:27
@@ -15976,25 +15974,22 @@ msgstr "Ukloni sav odabir"
 
 #: templates/database/search/main.twig:67
 msgid "Inside column:"
-msgstr "Unutar polja:"
+msgstr "Unutar stupca:"
 
 #: templates/database/search/results.twig:12
-#, fuzzy, php-format
-#| msgid "%s match(es) inside table <i>%s</i>"
+#, php-format
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%s poklapanja unutar tablice <i>%s</i>"
-msgstr[1] "%s poklapanja unutar tablice <i>%s</i>"
+msgstr[0] "%1$s poklapanje u <strong>%2$s</strong>"
+msgstr[1] "%1$s poklapanja u <strong>%2$s</strong>"
+msgstr[2] "%1$s poklapanja u <strong>%2$s</strong>"
 
 #: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>Ukupno:</b> <i>%s</i> poklapanje"
-msgstr[1] "<b>Ukupno:</b> <i>%s</i> poklapanja"
-msgstr[2] "<b>Ukupno:</b> <i>%s</i> poklapanja"
+msgstr[0] "<strong>Ukupno:</strong> <em>%count%</em> poklapanje"
+msgstr[1] "<strong>Ukupno:</strong> <em>%count%</em> poklapanja"
+msgstr[2] "<strong>Ukupno:</strong> <em>%count%</em> poklapanja"
 
 #: templates/database/structure/add_prefix.twig:7
 #: templates/database/structure/add_prefix.twig:9
@@ -16371,43 +16366,32 @@ msgid "You may examine the data in the error report:"
 msgstr ""
 
 #: templates/export/template_options.twig:1 templates/export.twig:30
-#, fuzzy
-#| msgid "Select Tables"
 msgid "Select a template"
-msgstr "Odaberite tablice"
+msgstr "Odaberi predložak"
 
 #: templates/export.twig:15
-#, fuzzy
 msgid "Export templates:"
-msgstr "Vrsta izvoza"
+msgstr "Izvezi predloške:"
 
 #: templates/export.twig:19
-#, fuzzy
-#| msgid "File name template"
 msgid "New template:"
-msgstr "Predložak naziva datoteka"
+msgstr "Novi predložak:"
 
 #: templates/export.twig:20
-#, fuzzy
-#| msgid "Table name"
 msgid "Template name"
-msgstr "Naziv tablice"
+msgstr "Ime predloška"
 
 #: templates/export.twig:21 templates/server/databases/index.twig:55
 msgid "Create"
 msgstr "Izradi"
 
 #: templates/export.twig:27
-#, fuzzy
-#| msgid "File name template"
 msgid "Existing templates:"
-msgstr "Predložak naziva datoteka"
+msgstr "Postojeći predlošci:"
 
 #: templates/export.twig:28
-#, fuzzy
-#| msgid "%s table(s)"
 msgid "Template:"
-msgstr "%s tablica"
+msgstr "Predložak:"
 
 #: templates/export.twig:37
 #, fuzzy
@@ -16422,10 +16406,8 @@ msgid "Show SQL query"
 msgstr "Prikazivanje SQL upita"
 
 #: templates/export.twig:72
-#, fuzzy
-#| msgid "Export type"
 msgid "Export method:"
-msgstr "Vrsta izvoza"
+msgstr "Način izvoza:"
 
 #: templates/export.twig:78
 msgid "Quick - display only the minimal options"
