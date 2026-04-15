@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2024-03-29 08:32+0000\n"
-"Last-Translator: mixeros <mixer@mixercz.cz>\n"
+"PO-Revision-Date: 2026-04-16 20:09+0000\n"
+"Last-Translator: Adam Havránek <adamhavra@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/5-1/cs/>"
 "\n"
 "Language: cs\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.17.1-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -3383,7 +3383,7 @@ msgstr "Pohled %s"
 
 #: libraries/classes/Config/Descriptions.php:739
 msgid "Use ignore inserts"
-msgstr "Použít IGNORE"
+msgstr "Použít ignorování vkládání"
 
 #: libraries/classes/Config/Descriptions.php:741
 msgid "Syntax to use when inserting data"
@@ -5393,7 +5393,7 @@ msgid ""
 msgstr ""
 "Bohužel během posledního pokusu nebyla žádná data načtena. Toto obvykle "
 "znamená, že phpMyAdmin nebude schopen načíst tento soubor, pokud nezvýšíte "
-"časové limity v PHP."
+"časové limity v PHP."
 
 #: libraries/classes/Controllers/ImportController.php:787
 #: libraries/classes/Controllers/SqlController.php:169
@@ -7580,9 +7580,10 @@ msgid ""
 "to increase the tmp_table_size  value to cause temporary tables to be memory-"
 "based instead of disk-based."
 msgstr ""
-"Počet dočasných tabulek vytvořených serverem na disku při provádění dotazů. "
-"Pokud je tato hodnota velká, můžete zvětšit parametr tmp_table_size  a MySQL "
-"bude používat větší dočasné tabulky v paměti."
+"Počet dočasných tabulek na disku, které server automaticky vytváří při "
+"provádění příkazů. Pokud je hodnota Created_tmp_disk_tables vysoká, může být "
+"vhodné zvýšit hodnotu tmp_table_size, aby se dočasné tabulky ukládaly do "
+"paměti namísto na disk."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:270
 msgid "How many temporary files mysqld has created."
@@ -7746,7 +7747,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:372
 msgid "Total size of buffer pool, in pages."
-msgstr "Celková velikost InnoDB bufferů, ve stránkách."
+msgstr "Celková velikost vyrovnávací paměti v stránkách."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:375
 msgid ""
@@ -12059,7 +12060,7 @@ msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
 msgstr ""
-"Server neodpovídá (nebo není správně nastaven lokální socket MySQL serveru)."
+"Server neodpovídá (nebo není správně nakonfigurován socket místního serveru)."
 
 #: libraries/classes/Query/Utilities.php:98
 msgid "The server is not responding."
@@ -12465,8 +12466,7 @@ msgstr "Umožňuje odstranit databáze a tabulky."
 #: templates/server/privileges/privileges_table.twig:578
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
-"Umožňuje znovu načíst nastavení a vyprázdnění vyrovnávacích pamětí MySQL "
-"serveru."
+"Umožňuje znovu načíst nastavení serveru a vyprázdnit mezipaměti serveru."
 
 #: libraries/classes/Server/Privileges.php:363
 #: templates/server/privileges/privileges_table.twig:588
