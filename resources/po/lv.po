@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-04-12 00:44+0000\n"
-"PO-Revision-Date: 2026-04-11 20:09+0000\n"
+"PO-Revision-Date: 2026-04-17 00:09+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/lv/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2;\n"
-"X-Generator: Weblate 5.17-dev\n"
+"X-Generator: Weblate 5.17.1-dev\n"
 
 #: resources/templates/base.twig:40 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -2706,11 +2706,12 @@ msgid "Inside column:"
 msgstr "Tabulā(s):"
 
 #: resources/templates/database/search/results.twig:11
-#, fuzzy, php-format
+#, php-format
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%s rezultāti tabulā <i>%s</i>"
-msgstr[1] "%s rezultāti tabulā <i>%s</i>"
+msgstr[0] "%1$s atbilstība <strong>%2$s</strong> tabulā"
+msgstr[1] "%1$s atbilstības <strong>%2$s</strong> tabulā"
+msgstr[2] "%1$s atbilstību <strong>%2$s</strong> tabulā"
 
 #: resources/templates/database/search/results.twig:25
 #: resources/templates/database/structure/structure_table_row.twig:43
@@ -7089,9 +7090,8 @@ msgid "Use the NULL value for this column."
 msgstr "Kolonnas vērtība \"%s\""
 
 #: resources/templates/table/insert/column_row.twig:65
-#, fuzzy
 msgid "Because of its length,<br> this column might not be editable."
-msgstr "Sava garuma dēļ,<br /> šis lauks var būt nerediģējams "
+msgstr "Sava garuma dēļ<br> šo kolonnu, iespējams, nevarēs rediģēt."
 
 #: resources/templates/table/insert/column_row.twig:93
 msgid "Binary - do not edit"
@@ -7670,9 +7670,8 @@ msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
 msgstr "Izpildīt \"vaicājumu pēc parauga\" (aizstājējzīme: \"%\")"
 
 #: resources/templates/table/zoom_search/index.twig:54
-#, fuzzy
 msgid "Additional search criteria"
-msgstr "SQL vaicājums"
+msgstr "Papildu meklēšanas kritēriji"
 
 #: resources/templates/table/zoom_search/index.twig:114
 msgid "Use this column to label each point"
@@ -13155,7 +13154,7 @@ msgstr "Importēt failus"
 #. l10n: As in differential values
 #: src/Controllers/JavaScriptMessagesController.php:257
 msgid "Differential"
-msgstr ""
+msgstr "Atšķirība"
 
 #: src/Controllers/JavaScriptMessagesController.php:258
 #, php-format
@@ -13430,7 +13429,7 @@ msgstr "Mainīgais %d:"
 #: src/Controllers/JavaScriptMessagesController.php:387
 #: src/Normalization.php:956
 msgid "Pick"
-msgstr ""
+msgstr "Atlasīt"
 
 #: src/Controllers/JavaScriptMessagesController.php:388
 #, fuzzy
@@ -13527,7 +13526,7 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:417
 msgid "Step"
-msgstr ""
+msgstr "Solis"
 
 #: src/Controllers/JavaScriptMessagesController.php:418
 msgid "The following actions will be performed:"
