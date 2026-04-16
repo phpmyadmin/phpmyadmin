@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2026-04-11 20:09+0000\n"
+"PO-Revision-Date: 2026-04-16 20:09+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "lv/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2;\n"
-"X-Generator: Weblate 5.17-dev\n"
+"X-Generator: Weblate 5.17.1-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -5997,7 +5997,7 @@ msgstr "Importēt failus"
 #. l10n: As in differential values
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:242
 msgid "Differential"
-msgstr ""
+msgstr "Atšķirība"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:243
 #, php-format
@@ -6484,7 +6484,7 @@ msgstr "Mainīgais %d:"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:400
 #: libraries/classes/Normalization.php:1046
 msgid "Pick"
-msgstr ""
+msgstr "Atlasīt"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:401
 #, fuzzy
@@ -6614,7 +6614,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:437
 msgid "Step"
-msgstr ""
+msgstr "Solis"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:438
 msgid "The following actions will be performed:"
@@ -9976,10 +9976,8 @@ msgid "Binary"
 msgstr "Binārais"
 
 #: libraries/classes/InsertEdit.php:794
-#, fuzzy
-#| msgid "Because of its length,<br /> this field might not be editable "
 msgid "Because of its length,<br> this column might not be editable."
-msgstr "Sava garuma dēļ,<br /> šis lauks var būt nerediģējams "
+msgstr "Sava garuma dēļ<br> šo kolonnu, iespējams, nevarēs rediģēt."
 
 #: libraries/classes/InsertEdit.php:1417
 msgid "Binary - do not edit"
@@ -15247,20 +15245,19 @@ msgid "Inside column:"
 msgstr "Tabulā(s):"
 
 #: templates/database/search/results.twig:12
-#, fuzzy, php-format
-#| msgid "%s match(es) inside table <i>%s</i>"
+#, php-format
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%s rezultāti tabulā <i>%s</i>"
-msgstr[1] "%s rezultāti tabulā <i>%s</i>"
+msgstr[0] "%1$s atbilstība <strong>%2$s</strong> tabulā"
+msgstr[1] "%1$s atbilstības <strong>%2$s</strong> tabulā"
+msgstr[2] "%1$s atbilstību <strong>%2$s</strong> tabulā"
 
 #: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>Kopumā:</b> <i>%s</i> rezultāti"
-msgstr[1] "<b>Kopumā:</b> <i>%s</i> rezultāti"
+msgstr[0] "<strong>Pavisam:</strong> <em>%count%</em> atbilstība"
+msgstr[1] "<strong>Pavisam:</strong> <em>%count%</em> atbilstības"
+msgstr[2] "<strong>Pavisam:</strong> <em>%count%</em> atbilstību"
 
 #: templates/database/structure/add_prefix.twig:7
 #: templates/database/structure/add_prefix.twig:9
@@ -19016,9 +19013,8 @@ msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
 msgstr "Izpildīt \"vaicājumu pēc parauga\" (aizstājējzīme: \"%\")"
 
 #: templates/table/zoom_search/index.twig:56
-#, fuzzy
 msgid "Additional search criteria"
-msgstr "SQL vaicājums"
+msgstr "Papildu meklēšanas kritēriji"
 
 #: templates/table/zoom_search/index.twig:118
 msgid "Use this column to label each point"
