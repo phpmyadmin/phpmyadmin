@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2026-04-11 20:09+0000\n"
+"PO-Revision-Date: 2026-04-16 20:09+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "lv/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2;\n"
-"X-Generator: Weblate 5.17-dev\n"
+"X-Generator: Weblate 5.17.1-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -1487,7 +1487,7 @@ msgstr "Importēt failus"
 #. l10n: As in differential values
 #: js/messages.php:259
 msgid "Differential"
-msgstr ""
+msgstr "Atšķirība"
 
 #: js/messages.php:260
 #, php-format
@@ -2019,7 +2019,7 @@ msgstr "Mainīgais %d:"
 
 #: js/messages.php:430 libraries/classes/Normalization.php:967
 msgid "Pick"
-msgstr ""
+msgstr "Atlasīt"
 
 #: js/messages.php:431
 #, fuzzy
@@ -2138,7 +2138,7 @@ msgstr ""
 
 #: js/messages.php:469
 msgid "Step"
-msgstr ""
+msgstr "Solis"
 
 #: js/messages.php:471
 msgid "The following actions will be performed:"
@@ -15399,9 +15399,8 @@ msgid "New page name"
 msgstr "Lietotājvārds"
 
 #: templates/table/search/rows_zoom.twig:12
-#, fuzzy
 msgid "Additional search criteria"
-msgstr "SQL vaicājums"
+msgstr "Papildu meklēšanas kritēriji"
 
 #: templates/login/twofactor/application.twig:2
 #: templates/login/twofactor/application_configure.twig:21
@@ -16158,20 +16157,19 @@ msgid "Username"
 msgstr "Lietotājvārds"
 
 #: templates/database/search/results.twig:12
-#, fuzzy, php-format
-#| msgid "%s match(es) inside table <i>%s</i>"
+#, php-format
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%s rezultāti tabulā <i>%s</i>"
-msgstr[1] "%s rezultāti tabulā <i>%s</i>"
+msgstr[0] "%1$s atbilstība <strong>%2$s</strong> tabulā"
+msgstr[1] "%1$s atbilstības <strong>%2$s</strong> tabulā"
+msgstr[2] "%1$s atbilstību <strong>%2$s</strong> tabulā"
 
 #: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>Kopumā:</b> <i>%s</i> rezultāti"
-msgstr[1] "<b>Kopumā:</b> <i>%s</i> rezultāti"
+msgstr[0] "<strong>Pavisam:</strong> <em>%count%</em> atbilstība"
+msgstr[1] "<strong>Pavisam:</strong> <em>%count%</em> atbilstības"
+msgstr[2] "<strong>Pavisam:</strong> <em>%count%</em> atbilstību"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
 #, fuzzy
