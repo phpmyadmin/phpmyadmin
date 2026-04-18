@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-02-25 10:35-0300\n"
-"PO-Revision-Date: 2026-01-04 03:01+0000\n"
-"Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
+"PO-Revision-Date: 2026-04-19 12:09+0000\n"
+"Last-Translator: veiskiboi <vesahok@gmail.com>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "fi/>\n"
 "Language: fi\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.15.1\n"
+"X-Generator: Weblate 5.17.1-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -49,12 +49,16 @@ msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
 msgstr ""
+"Alle 1 000 kysymystä on suoritettu tällä palvelimella. Suositukset eivät "
+"välttämättä ole tarkkoja."
 
 #: libraries/advisory_rules_generic.php:30
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
 msgstr ""
+"Anna palvelimen olla käynnissä pidempään, kunnes se on suorittanut suuremman "
+"määrän kyselyitä."
 
 #: libraries/advisory_rules_generic.php:32
 #, php-format
@@ -62,10 +66,8 @@ msgid "Current amount of Questions: %s"
 msgstr "Kysymysten nykyinen määrä: %s"
 
 #: libraries/advisory_rules_generic.php:37
-#, fuzzy
-#| msgid "Show SQL queries"
 msgid "Percentage of slow queries"
-msgstr "Näytä SQL-kyselyt"
+msgstr "Hitaiden kyselyiden prosenttiosuus"
 
 #: libraries/advisory_rules_generic.php:41
 msgid ""
