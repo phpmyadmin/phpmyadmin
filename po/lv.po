@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2026-04-16 20:09+0000\n"
+"PO-Revision-Date: 2026-04-19 12:09+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "lv/>\n"
@@ -1158,10 +1158,9 @@ msgid "query_cache_limit is set to 1 MiB"
 msgstr ""
 
 #: libraries/classes/Advisor.php:233
-#, fuzzy, php-format
-#| msgid "Allows reading data."
+#, php-format
 msgid "Error when evaluating: %s"
-msgstr "Ļauj lasīt datus."
+msgstr "Kļūda, kad novērtēja: %s"
 
 #: libraries/classes/Advisor.php:260
 #, php-format
@@ -8624,15 +8623,14 @@ msgid "MySQL said: "
 msgstr "MySQL teica: "
 
 #: libraries/classes/Database/Events.php:130
-#, fuzzy, php-format
-#| msgid "Table %s has been dropped."
+#, php-format
 msgid "Event %1$s has been modified."
-msgstr "Tabula %s tika izdzēsta"
+msgstr "%1$s notikums ir mainīts."
 
 #: libraries/classes/Database/Events.php:150
-#, fuzzy, php-format
+#, php-format
 msgid "Event %1$s has been created."
-msgstr "Tabula %s tika izdzēsta"
+msgstr "%1$s notikums ir izveidots."
 
 #: libraries/classes/Database/Events.php:164
 #: libraries/classes/Database/Routines.php:272
@@ -8697,10 +8695,9 @@ msgid "Error in processing request:"
 msgstr "Kļūda, apstrādājot pieprasījumu:"
 
 #: libraries/classes/Database/Events.php:534
-#, fuzzy, php-format
-#| msgid "No tables found in database."
+#, php-format
 msgid "No event with name %1$s found in database %2$s."
-msgstr "Tabulas nav atrastas šajā datubāzē."
+msgstr "%2$s datubāzē nav atrasts neviens notikums ar %1$s nosaukumu."
 
 #: libraries/classes/Database/Events.php:566
 #, php-format
