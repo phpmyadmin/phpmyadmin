@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-04-19 00:46+0000\n"
-"PO-Revision-Date: 2026-03-03 23:09+0000\n"
+"PO-Revision-Date: 2026-04-20 15:09+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ru/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.17-dev\n"
+"X-Generator: Weblate 5.17.1-dev\n"
 
 #: resources/templates/base.twig:40 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -3096,11 +3096,11 @@ msgstr "Геометрия"
 
 #: resources/templates/display/results/table.twig:268
 msgid "Well Known Text"
-msgstr "Текст (WKT)"
+msgstr "Хорошо известный текст"
 
 #: resources/templates/display/results/table.twig:272
 msgid "Well Known Binary"
-msgstr "Бинарный (WKB)"
+msgstr "Хорошо известные двоичные данные"
 
 #: resources/templates/display/results/table.twig:323
 #: resources/templates/display/results/table.twig:324
@@ -4538,10 +4538,9 @@ msgid "Check privileges"
 msgstr "Проверить привилегии"
 
 #: resources/templates/server/databases/index.twig:244
-#, fuzzy, php-format
-#| msgid "Run SQL query/queries on database %s"
+#, php-format
 msgid "Run SQL queries on database \"%s\"."
-msgstr "Выполнить SQL-запрос(ы) к базе данных %s"
+msgstr "Выполнить SQL-запросы к базе данных «%s»."
 
 #: resources/templates/server/databases/index.twig:245
 #: src/Config/ConfigFile.php:520 src/Config/ConfigFile.php:534
@@ -5086,7 +5085,7 @@ msgstr "Разрешает изменение структуры существ�
 #: src/Server/Privileges.php:304 src/Server/Privileges.php:350
 #: src/Server/Privileges.php:354
 msgid "Allows creating new views."
-msgstr "Разрешает создание новых представлений (CREATE VIEW)."
+msgstr "Разрешает создание новых представлений."
 
 #: resources/templates/server/privileges/privileges_table.twig:210
 #: resources/templates/server/privileges/privileges_table.twig:213
@@ -5699,7 +5698,7 @@ msgstr ""
 
 #: resources/templates/server/status/advisor/index.twig:45
 msgid "Errors occurred while executing rule expressions:"
-msgstr "В процессе получения информации по отладке SQL произошла ошибка:"
+msgstr "Ошибки, возникшие при выполнении выражений правил:"
 
 #: resources/templates/server/status/advisor/index.twig:55
 msgid "Possible performance issues"
@@ -7109,7 +7108,7 @@ msgstr "Выберите поля (не менее одного):"
 
 #: resources/templates/table/search/index.twig:129
 msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "Добавить условия поиска (тело для условия \"WHERE\"):"
+msgstr "Добавить условия поиска (тело для условия \"where\"):"
 
 #: resources/templates/table/search/index.twig:137
 msgid "Number of rows per page"
@@ -10825,7 +10824,7 @@ msgstr "Даты создания, обновления и проверки"
 
 #: src/Config/Descriptions.php:689
 msgid "Use delayed inserts"
-msgstr "Использовать отложенные вставки (DELAYED)"
+msgstr "Использовать отложенные вставки"
 
 #: src/Config/Descriptions.php:690 src/Plugins/Export/ExportSql.php:232
 msgid "Disable foreign key checks"
@@ -10859,7 +10858,7 @@ msgstr "%s вид"
 
 #: src/Config/Descriptions.php:708
 msgid "Use ignore inserts"
-msgstr "Использовать игнорирующие вставки (IGNORE)"
+msgstr "Использовать игнорирующие вставки"
 
 #: src/Config/Descriptions.php:710
 msgid "Syntax to use when inserting data"
@@ -11033,7 +11032,7 @@ msgstr "Не прерывать при возникновении ошибки �
 
 #: src/Config/Descriptions.php:775 src/Plugins/Import/ImportCsv.php:157
 msgid "Import empty values as NULL"
-msgstr ""
+msgstr "Импортировать пустые значения как NULL"
 
 #: src/Config/Descriptions.php:776 src/Config/Descriptions.php:783
 msgid "Add ON DUPLICATE KEY UPDATE"
@@ -15500,13 +15499,11 @@ msgstr "Для этого SQL-запроса не найден простран�
 
 #: src/Controllers/Table/GisVisualizationController.php:121
 msgid "Invalid file format, expected one of: "
-msgstr ""
+msgstr "Недопустимый формат файла, ожидается один из: "
 
 #: src/Controllers/Table/GisVisualizationController.php:129
-#, fuzzy
-#| msgid "Failed to open remote URL"
 msgid "Failed to create image"
-msgstr "Не удалось открыть удаленный URL"
+msgstr "Не удалось создать изображение"
 
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:67
 #: src/Controllers/Table/Maintenance/CheckController.php:67
@@ -16308,10 +16305,8 @@ msgstr ""
 "doc]."
 
 #: src/File.php:372
-#, fuzzy
-#| msgid "Cannot read uploaded file."
 msgid "Cannot create temporary file."
-msgstr "Невозможно прочесть загруженный файл."
+msgstr "Невозможно создать временный файл."
 
 #: src/File.php:383
 msgid "Error while moving uploaded file."
@@ -18971,7 +18966,7 @@ msgstr ""
 
 #: src/Types.php:296
 msgid "Intended for storage of XML data"
-msgstr ""
+msgstr "Предназначен для хранения данных XML"
 
 #: src/Types.php:607
 msgctxt "numeric types"
