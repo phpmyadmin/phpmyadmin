@@ -1,0 +1,6 @@
+[tools]
+php = "8"
+
+[tasks.composer]
+run = "php composer.phar"
+
