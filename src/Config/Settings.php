@@ -82,6 +82,7 @@ use const VERSION_CHECK_DEFAULT;
  *     LoginCookieStore: int<0, max>,
  *     LoginCookieDeleteAll: bool,
  *     UseDbSearch: bool,
+ *     DefaultSearchOperatorText: 'LIKE'|'LIKE %...%'|'NOT LIKE'|'NOT LIKE %...%'|'='|'!='|'REGEXP'|'REGEXP ^...$'|'NOT REGEXP',
  *     IgnoreMultiSubmitErrors: bool,
  *     URLQueryEncryption: bool,
  *     URLQueryEncryptionSecretKey: string,
@@ -718,6 +719,19 @@ final class Settings
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_UseDbSearch
      */
     public bool $UseDbSearch;
+
+    /**
+     * Default comparison operator for text columns in the table search form.
+     * Using 'LIKE %...%' will wrap the search value in wildcard characters,
+     * making it easier to find partial matches without typing them manually.
+     *
+     * ```php
+     * $cfg['DefaultSearchOperatorText'] = 'LIKE %...%';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_DefaultSearchOperatorText
+     */
+    public string $DefaultSearchOperatorText;
 
     /**
      * if set to true, PMA continues computing multiple-statement queries
@@ -2655,6 +2669,7 @@ final class Settings
         $this->LoginCookieStore = $this->setLoginCookieStore($settings);
         $this->LoginCookieDeleteAll = $this->setLoginCookieDeleteAll($settings);
         $this->UseDbSearch = $this->setUseDbSearch($settings);
+        $this->DefaultSearchOperatorText = $this->setDefaultSearchOperatorText($settings);
         $this->IgnoreMultiSubmitErrors = $this->setIgnoreMultiSubmitErrors($settings);
         $this->URLQueryEncryption = $this->setURLQueryEncryption($settings);
         $this->URLQueryEncryptionSecretKey = $this->setURLQueryEncryptionSecretKey($settings);
@@ -2852,6 +2867,7 @@ final class Settings
             'LoginCookieStore' => $this->LoginCookieStore,
             'LoginCookieDeleteAll' => $this->LoginCookieDeleteAll,
             'UseDbSearch' => $this->UseDbSearch,
+            'DefaultSearchOperatorText' => $this->DefaultSearchOperatorText,
             'IgnoreMultiSubmitErrors' => $this->IgnoreMultiSubmitErrors,
             'URLQueryEncryption' => $this->URLQueryEncryption,
             'URLQueryEncryptionSecretKey' => $this->URLQueryEncryptionSecretKey,
@@ -3505,6 +3521,32 @@ final class Settings
         }
 
         return (bool) $settings['UseDbSearch'];
+    }
+
+    /** @param array<int|string, mixed> $settings */
+    private function setDefaultSearchOperatorText(array $settings): string
+    {
+        $validOperators = [
+            'LIKE',
+            'LIKE %...%',
+            'NOT LIKE',
+            'NOT LIKE %...%',
+            '=',
+            '!=',
+            'REGEXP',
+            'REGEXP ^...$',
+            'NOT REGEXP',
+        ];
+
+        if (
+            ! isset($settings['DefaultSearchOperatorText'])
+            || ! is_string($settings['DefaultSearchOperatorText'])
+            || ! in_array($settings['DefaultSearchOperatorText'], $validOperators, true)
+        ) {
+            return 'LIKE %...%';
+        }
+
+        return $settings['DefaultSearchOperatorText'];
     }
 
     /** @param array<int|string, mixed> $settings */

@@ -317,6 +317,12 @@ final class SearchController implements InvocableController
         $type = $this->columnTypes[$columnIndex];
         $collation = $this->columnCollations[$columnIndex];
         $cleanType = preg_replace('@\(.*@s', '', $type);
+        // When no operator was submitted (first load), apply the configured default
+        // for text/char columns so that wildcard searches work out of the box.
+        if ($selectedOperator === '' && preg_match('@char|binary|blob|text|uuid@i', $cleanType) === 1) {
+            $selectedOperator = $this->config->config->DefaultSearchOperatorText;
+        }
+
         //Gets column's comparison operators depending on column type
         $typeOperators = $this->dbi->types->getTypeOperatorsHtml(
             $cleanType,

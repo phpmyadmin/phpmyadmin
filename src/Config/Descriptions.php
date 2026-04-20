@@ -576,6 +576,9 @@ class Descriptions
             'TitleServer_desc' => __('Title of browser window when a server is selected.'),
             'TitleTable_desc' => __('Title of browser window when a table is selected.'),
             'UploadDir_desc' => __('Directory on server where you can upload files for import.'),
+            'DefaultSearchOperatorText_desc' => __(
+                'Default comparison operator used for text columns in the table search form.',
+            ),
             'UseDbSearch_desc' => __('Allow for searching inside the entire database.'),
             'VersionCheck_desc' => __('Enables check for latest version on main phpMyAdmin page.'),
             'ProxyPass_desc' => __('The password for authenticating with the proxy.'),
@@ -935,6 +938,7 @@ class Descriptions
             'TitleTable_name' => __('Table'),
             'TrustedProxies_name' => __('List of trusted proxies for IP allow/deny'),
             'UploadDir_name' => __('Upload directory'),
+            'DefaultSearchOperatorText_name' => __('Default text search operator'),
             'UseDbSearch_name' => __('Use database search'),
             'UserprefsDeveloperTab_name' => __('Enable the Developer tab in settings'),
             'VersionCheck_name' => __('Version check'),

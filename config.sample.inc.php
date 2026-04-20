@@ -88,6 +88,16 @@ $cfg['SaveDir'] = '';
 //$cfg['ShowAll'] = true;
 
 /**
+ * Default comparison operator for text/char columns in the table search form.
+ * Using 'LIKE %...%' wraps the search value in wildcards, making partial-match
+ * searches easier. Set to 'LIKE' to restore the previous behaviour.
+ * Possible values: 'LIKE', 'LIKE %...%', 'NOT LIKE', 'NOT LIKE %...%',
+ *                  '=', '!=', 'REGEXP', 'REGEXP ^...$', 'NOT REGEXP'
+ * default = 'LIKE %...%'
+ */
+//$cfg['DefaultSearchOperatorText'] = 'LIKE %...%';
+
+/**
  * Number of rows displayed when browsing a result set. If the result
  * set contains more rows, "Previous" and "Next".
  * Possible values: 25, 50, 100, 250, 500
