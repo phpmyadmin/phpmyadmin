@@ -123,11 +123,11 @@ const DatabaseTriggers = {
                 triggersExportModal.querySelector('.modal-body').innerHTML = triggersExportTextarea;
                 document.getElementById('triggersExportTextarea').textContent = data.message;
                 getSqlEditor($('#triggersExportTextarea'));
-            });
+            }, { once: true });
 
             triggersExportModal.addEventListener('hidden.bs.modal', function () {
                 triggersExportModal.querySelector('.modal-body').innerHTML = triggersExportTextarea;
-            });
+            }, { once: true });
 
             bootstrap.Modal.getOrCreateInstance(triggersExportModal).show();
         }
@@ -334,14 +334,14 @@ const DatabaseTriggers = {
                 };
                 that.syntaxHiglighter = getSqlEditor($elm, {}, 'vertical', linterOptions);
                 window.codeMirrorEditor = that.syntaxHiglighter;
-            });
+            }, { once: true });
 
             triggersEditorModal.addEventListener('hidden.bs.modal', function () {
                 const triggersEditorModalSaveButton = document.getElementById('triggersEditorModalSaveButton');
                 triggersEditorModalSaveButton?.removeEventListener('click', triggersEditorModalSaveEventHandler);
                 document.getElementById('triggersEditorModal').querySelector('.modal-body').innerHTML = '<div class="spinner-border" role="status">' +
                     '<span class="visually-hidden">' + window.Messages.strLoading + '</span></div>';
-            });
+            }, { once: true });
 
             bootstrap.Modal.getOrCreateInstance(triggersEditorModal).show();
         });
