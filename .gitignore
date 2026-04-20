@@ -112,3 +112,4 @@ infection.json5
 !/public/themes/pmahomme/
 /public/themes/*/css/*.css
 /public/themes/*/css/*.css.map
+composer.phar
