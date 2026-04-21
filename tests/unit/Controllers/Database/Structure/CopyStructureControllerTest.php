@@ -9,7 +9,6 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
-use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -30,11 +29,13 @@ final class CopyStructureControllerTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
             ->withQueryParams(['db' => '']);
 
-        $response = (new CopyStructureController($responseRenderer, $dbi, new DbTableExists($dbi)))($request);
+        (new CopyStructureController($responseRenderer, $dbi, new DbTableExists($dbi)))($request);
 
-        self::assertInstanceOf(Response::class, $response);
         self::assertFalse($responseRenderer->hasSuccessState());
-        $message = (string) $responseRenderer->getJSONResult()['message'];
+        $json = $responseRenderer->getJSONResult();
+        self::assertArrayHasKey('message', $json);
+        $message = $json['message'];
+        self::assertIsString($message);
         self::assertStringContainsString('No databases selected', $message);
     }
 
@@ -50,11 +51,13 @@ final class CopyStructureControllerTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
             ->withQueryParams(['db' => '']);
 
-        $response = (new CopyStructureController($responseRenderer, $dbi, new DbTableExists($dbi)))($request);
+        (new CopyStructureController($responseRenderer, $dbi, new DbTableExists($dbi)))($request);
 
-        self::assertInstanceOf(Response::class, $response);
         self::assertFalse($responseRenderer->hasSuccessState());
-        $message = (string) $responseRenderer->getJSONResult()['message'];
+        $json = $responseRenderer->getJSONResult();
+        self::assertArrayHasKey('message', $json);
+        $message = $json['message'];
+        self::assertIsString($message);
         self::assertStringContainsString('No databases selected', $message);
     }
 
@@ -89,11 +92,13 @@ final class CopyStructureControllerTest extends AbstractTestCase
             ->withQueryParams(['db' => 'test_db'])
             ->withParsedBody(['db' => 'test_db']);
 
-        $response = (new CopyStructureController($responseRenderer, $dbi, new DbTableExists($dbi)))($request);
+        (new CopyStructureController($responseRenderer, $dbi, new DbTableExists($dbi)))($request);
 
-        self::assertInstanceOf(Response::class, $response);
         self::assertTrue($responseRenderer->hasSuccessState());
-        $sql = (string) $responseRenderer->getJSONResult()['sql'];
+        $json = $responseRenderer->getJSONResult();
+        self::assertArrayHasKey('sql', $json);
+        $sql = $json['sql'];
+        self::assertIsString($sql);
         self::assertStringContainsString('-- Database: test_db', $sql);
         self::assertStringContainsString($createSql, $sql);
         self::assertStringNotContainsString('-- Views', $sql);
@@ -137,11 +142,13 @@ final class CopyStructureControllerTest extends AbstractTestCase
             ->withQueryParams(['db' => 'test_db'])
             ->withParsedBody(['db' => 'test_db']);
 
-        $response = (new CopyStructureController($responseRenderer, $dbi, new DbTableExists($dbi)))($request);
+        (new CopyStructureController($responseRenderer, $dbi, new DbTableExists($dbi)))($request);
 
-        self::assertInstanceOf(Response::class, $response);
         self::assertTrue($responseRenderer->hasSuccessState());
-        $sql = (string) $responseRenderer->getJSONResult()['sql'];
+        $json = $responseRenderer->getJSONResult();
+        self::assertArrayHasKey('sql', $json);
+        $sql = $json['sql'];
+        self::assertIsString($sql);
         self::assertStringContainsString('-- Database: test_db', $sql);
         self::assertStringContainsString($tableSql, $sql);
         self::assertStringContainsString('-- Views', $sql);
@@ -172,11 +179,13 @@ final class CopyStructureControllerTest extends AbstractTestCase
             ->withQueryParams(['db' => 'empty_db'])
             ->withParsedBody(['db' => 'empty_db']);
 
-        $response = (new CopyStructureController($responseRenderer, $dbi, new DbTableExists($dbi)))($request);
+        (new CopyStructureController($responseRenderer, $dbi, new DbTableExists($dbi)))($request);
 
-        self::assertInstanceOf(Response::class, $response);
         self::assertTrue($responseRenderer->hasSuccessState());
-        $sql = (string) $responseRenderer->getJSONResult()['sql'];
+        $json = $responseRenderer->getJSONResult();
+        self::assertArrayHasKey('sql', $json);
+        $sql = $json['sql'];
+        self::assertIsString($sql);
         self::assertStringContainsString('-- Database: empty_db', $sql);
         self::assertStringNotContainsString('CREATE TABLE', $sql);
         self::assertStringNotContainsString('-- Views', $sql);

@@ -9,7 +9,6 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
-use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -29,11 +28,13 @@ final class CopyStructureControllerTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
             ->withQueryParams(['db' => '', 'table' => 'orders']);
 
-        $response = (new CopyStructureController($responseRenderer, $dbi, new DbTableExists($dbi)))($request);
+        (new CopyStructureController($responseRenderer, $dbi, new DbTableExists($dbi)))($request);
 
-        self::assertInstanceOf(Response::class, $response);
         self::assertFalse($responseRenderer->hasSuccessState());
-        $message = (string) $responseRenderer->getJSONResult()['message'];
+        $json = $responseRenderer->getJSONResult();
+        self::assertArrayHasKey('message', $json);
+        $message = $json['message'];
+        self::assertIsString($message);
         self::assertStringContainsString('No databases selected', $message);
     }
 
@@ -49,11 +50,14 @@ final class CopyStructureControllerTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
             ->withQueryParams(['db' => 'test_db', 'table' => '']);
 
-        $response = (new CopyStructureController($responseRenderer, $dbi, new DbTableExists($dbi)))($request);
+        (new CopyStructureController($responseRenderer, $dbi, new DbTableExists($dbi)))($request);
 
-        self::assertInstanceOf(Response::class, $response);
         self::assertFalse($responseRenderer->hasSuccessState());
-        self::assertStringContainsString('No table selected', (string) $responseRenderer->getJSONResult()['message']);
+        $json = $responseRenderer->getJSONResult();
+        self::assertArrayHasKey('message', $json);
+        $message = $json['message'];
+        self::assertIsString($message);
+        self::assertStringContainsString('No table selected', $message);
     }
 
     public function testReturnErrorWhenDatabaseNameInvalid(): void
@@ -69,11 +73,13 @@ final class CopyStructureControllerTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
             ->withQueryParams(['db' => '', 'table' => 'orders']);
 
-        $response = (new CopyStructureController($responseRenderer, $dbi, new DbTableExists($dbi)))($request);
+        (new CopyStructureController($responseRenderer, $dbi, new DbTableExists($dbi)))($request);
 
-        self::assertInstanceOf(Response::class, $response);
         self::assertFalse($responseRenderer->hasSuccessState());
-        $message = (string) $responseRenderer->getJSONResult()['message'];
+        $json = $responseRenderer->getJSONResult();
+        self::assertArrayHasKey('message', $json);
+        $message = $json['message'];
+        self::assertIsString($message);
         self::assertStringContainsString('No databases selected', $message);
     }
 
@@ -103,11 +109,14 @@ final class CopyStructureControllerTest extends AbstractTestCase
             ->withQueryParams(['db' => 'test_db', 'table' => 'orders'])
             ->withParsedBody(['db' => 'test_db', 'table' => 'orders']);
 
-        $response = (new CopyStructureController($responseRenderer, $dbi, new DbTableExists($dbi)))($request);
+        (new CopyStructureController($responseRenderer, $dbi, new DbTableExists($dbi)))($request);
 
-        self::assertInstanceOf(Response::class, $response);
         self::assertTrue($responseRenderer->hasSuccessState());
-        self::assertSame($createSql, $responseRenderer->getJSONResult()['sql']);
+        $json = $responseRenderer->getJSONResult();
+        self::assertArrayHasKey('sql', $json);
+        $sql = $json['sql'];
+        self::assertIsString($sql);
+        self::assertSame($createSql, $sql);
 
         $dbiDummy->assertAllSelectsConsumed();
         $dbiDummy->assertAllQueriesConsumed();
@@ -137,11 +146,14 @@ final class CopyStructureControllerTest extends AbstractTestCase
             ->withQueryParams(['db' => 'test_db', 'table' => 'v_orders'])
             ->withParsedBody(['db' => 'test_db', 'table' => 'v_orders']);
 
-        $response = (new CopyStructureController($responseRenderer, $dbi, new DbTableExists($dbi)))($request);
+        (new CopyStructureController($responseRenderer, $dbi, new DbTableExists($dbi)))($request);
 
-        self::assertInstanceOf(Response::class, $response);
         self::assertTrue($responseRenderer->hasSuccessState());
-        self::assertSame($viewSql, $responseRenderer->getJSONResult()['sql']);
+        $json = $responseRenderer->getJSONResult();
+        self::assertArrayHasKey('sql', $json);
+        $sql = $json['sql'];
+        self::assertIsString($sql);
+        self::assertSame($viewSql, $sql);
 
         $dbiDummy->assertAllSelectsConsumed();
         $dbiDummy->assertAllQueriesConsumed();
@@ -165,11 +177,14 @@ final class CopyStructureControllerTest extends AbstractTestCase
             ->withQueryParams(['db' => 'test_db', 'table' => 'ghost_table'])
             ->withParsedBody(['db' => 'test_db', 'table' => 'ghost_table']);
 
-        $response = (new CopyStructureController($responseRenderer, $dbi, new DbTableExists($dbi)))($request);
+        (new CopyStructureController($responseRenderer, $dbi, new DbTableExists($dbi)))($request);
 
-        self::assertInstanceOf(Response::class, $response);
         self::assertFalse($responseRenderer->hasSuccessState());
-        self::assertStringContainsString('No table selected', (string) $responseRenderer->getJSONResult()['message']);
+        $json = $responseRenderer->getJSONResult();
+        self::assertArrayHasKey('message', $json);
+        $message = $json['message'];
+        self::assertIsString($message);
+        self::assertStringContainsString('No table selected', $message);
 
         $dbiDummy->assertAllSelectsConsumed();
         $dbiDummy->assertAllQueriesConsumed();
