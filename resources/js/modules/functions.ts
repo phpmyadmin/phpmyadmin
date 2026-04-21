@@ -1616,9 +1616,9 @@ function resetAttributeForNonNumericType ($typeSelector) {
 
     if (numericTypes.indexOf(type) === -1) {
         // Find the attribute select in the same row
-        var $row = $typeSelector.closest('tr');
-        var $attrSelect = $row.find('select[name^="field_attribute"]');
-        var currentAttr = String($attrSelect.val() || '').toUpperCase();
+        const $row = $typeSelector.closest('tr');
+        const $attrSelect = $row.find('select[name^="field_attribute"]');
+        const currentAttr = String($attrSelect.val() || '').toUpperCase();
         if (currentAttr === 'UNSIGNED' || currentAttr === 'UNSIGNED ZEROFILL'
             || currentAttr === 'ZEROFILL'
         ) {
