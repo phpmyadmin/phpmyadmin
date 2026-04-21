@@ -1602,8 +1602,8 @@ function showNoticeForEnum (selectElement) {
  * are only valid for numeric types.
  */
 function resetAttributeForNonNumericType ($typeSelector) {
-    var type = String($typeSelector.val() || '').toUpperCase();
-    var numericTypes = [
+    const type = String($typeSelector.val() || '').toUpperCase();
+    const numericTypes = [
         'TINYINT',
         'SMALLINT',
         'MEDIUMINT',
