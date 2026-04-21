@@ -731,6 +731,32 @@ export function checkTableEditForm (theForm, fieldsCnt) {
             }
         }
 
+        // Check for UNSIGNED/ZEROFILL on non-numeric types
+        const $typeField = $('#field_' + i + '_2');
+        const $attrField = $typeField.closest('tr').find('select[name^="field_attribute"]');
+        const typeVal = String($typeField.val() || '').toUpperCase();
+        const attrVal = String($attrField.val() || '').toUpperCase();
+        if (attrVal === 'UNSIGNED' || attrVal === 'UNSIGNED ZEROFILL' || attrVal === 'ZEROFILL') {
+            const numTypes = [
+                'TINYINT',
+                'SMALLINT',
+                'MEDIUMINT',
+                'INT',
+                'BIGINT',
+                'FLOAT',
+                'DOUBLE',
+                'DECIMAL',
+            ];
+            elm3 = $('#field_' + i + '_1');
+            if (numTypes.indexOf(typeVal) === -1 && elm3.val() !== '') {
+                $attrField.trigger('select');
+                ajaxShowMessage(typeVal + ' ' + window.Messages.strInvalidAttribute, null, 'error');
+                $attrField.trigger('focus');
+
+                return false;
+            }
+        }
+
         if (atLeastOneField === 0) {
             id = 'field_' + i + '_1';
             if (! emptyCheckTheField(theForm, id)) {
@@ -1570,6 +1596,37 @@ function showNoticeForEnum (selectElement) {
 /**
  * Hides/shows a warning message when LENGTH is used with inappropriate integer type
  */
+/**
+ * Reset the attribute dropdown when the column type is changed
+ * to a non-numeric type. Attributes like UNSIGNED and ZEROFILL
+ * are only valid for numeric types.
+ */
+function resetAttributeForNonNumericType ($typeSelector) {
+    const type = String($typeSelector.val() || '').toUpperCase();
+    const numericTypes = [
+        'TINYINT',
+        'SMALLINT',
+        'MEDIUMINT',
+        'INT',
+        'BIGINT',
+        'FLOAT',
+        'DOUBLE',
+        'DECIMAL',
+    ];
+
+    if (numericTypes.indexOf(type) === -1) {
+        // Find the attribute select in the same row
+        const $row = $typeSelector.closest('tr');
+        const $attrSelect = $row.find('select[name^="field_attribute"]');
+        const currentAttr = String($attrSelect.val() || '').toUpperCase();
+        if (currentAttr === 'UNSIGNED' || currentAttr === 'UNSIGNED ZEROFILL'
+            || currentAttr === 'ZEROFILL'
+        ) {
+            $attrSelect.val('');
+        }
+    }
+}
+
 function showWarningForIntTypes () {
     if (! $('div#length_not_allowed').length) {
         return;
@@ -2144,6 +2201,7 @@ export function onloadEnumSetEditorMessage (): void {
     $(document).on('change', 'select.column_type', function () {
         showNoticeForEnum($(this));
         showWarningForIntTypes();
+        resetAttributeForNonNumericType($(this));
     });
 
     $(document).on('change', 'select.default_type', function () {

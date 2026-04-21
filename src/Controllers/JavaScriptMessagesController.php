@@ -116,6 +116,7 @@ final readonly class JavaScriptMessagesController implements InvocableController
             'strRadioUnchecked' => __('Select at least one of the options!'),
             'strEnterValidNumber' => __('Please enter a valid number!'),
             'strEnterValidLength' => __('Please enter a valid length!'),
+            'strInvalidAttribute' => __('does not support the UNSIGNED attribute.'),
             'strAddIndex' => __('Add index'),
             'strEditIndex' => __('Edit index'),
             /* l10n: Rename a table Index */
