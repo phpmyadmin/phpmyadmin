@@ -117,7 +117,7 @@ class HomeController extends AbstractController
                     )
                 );
             if ($hasServerSelection) {
-                $serverSelection = Select::render(true, true);
+                $serverSelection = Select::render(true, true, true);
             }
 
             if ($server > 0) {

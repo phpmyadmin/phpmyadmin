@@ -4,7 +4,13 @@
             <fieldset class="pma-fieldset">
         {% endif %}
         {{ get_hidden_fields([]) }}
-        <label for="select_server">{% trans 'Current server:' %}</label>
+        <label for="select_server">
+          {% if has_label_icon %}
+            {{ get_icon('s_host', 'Current server:'|trans) }}
+          {% else %}
+            {% trans 'Current server:' %}
+          {% endif %}
+        </label>
         <select id="select_server" class="autosubmit" name="server">
             <option value="">({% trans 'Servers' %}) ...</option>
             {% include 'server/select/server_options.twig' with {
