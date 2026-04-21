@@ -9,7 +9,6 @@ use CodeLts\U2F\U2FServer\SignRequest;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
-use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Http\ServerRequest;
@@ -47,14 +46,6 @@ class TwoFactorTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $this->dummyDbi = $this->createDbiDummy();
-        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        DatabaseInterface::$instance = $this->dbi;
-        Current::$database = '';
-        Current::$table = 'table';
-        $config = Config::getInstance();
-        $config->selectedServer['DisableIS'] = false;
-        $config->settings['NaturalOrder'] = true;
         $this->initStorageConfigAndData();
     }
 

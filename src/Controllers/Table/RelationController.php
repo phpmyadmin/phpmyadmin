@@ -181,7 +181,7 @@ final readonly class RelationController implements InvocableController
             $columnArray[$column->field] = $column->field;
         }
 
-        if ($this->config->settings['NaturalOrder']) {
+        if ($this->config->config->NaturalOrder) {
             uksort($columnArray, strnatcasecmp(...));
             usort(
                 $relationsForeign,
@@ -306,7 +306,7 @@ final readonly class RelationController implements InvocableController
             'internal_relation_columns' => $internalRelationColumns,
             'url_params' => UrlParams::$params,
             'databases' => $this->dbi->getDatabaseList(),
-            'default_sliders_state' => $this->config->settings['InitialSlidersState'],
+            'default_sliders_state' => $this->config->config->InitialSlidersState,
             'route' => $request->getRoute(),
             'display_field' => $this->relation->getDisplayField(Current::$database, Current::$table),
             'foreign_key_row' => $foreignKeyRow,
@@ -380,7 +380,7 @@ final readonly class RelationController implements InvocableController
             $columnList = $tableObj->getIndexedColumns(false, false);
         }
 
-        if ($this->config->settings['NaturalOrder']) {
+        if ($this->config->config->NaturalOrder) {
             usort($columnList, strnatcasecmp(...));
         }
 

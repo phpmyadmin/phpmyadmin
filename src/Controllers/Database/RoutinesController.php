@@ -452,7 +452,7 @@ final readonly class RoutinesController implements InvocableController
         }
 
         $totalNumRoutines = Routines::getRoutineCount($this->dbi, Current::$database, $type);
-        $pageSize = $this->config->settings['MaxRoutineList'];
+        $pageSize = $this->config->config->MaxRoutineList;
         $pos = (int) $request->getParam('pos');
 
         // Checks if there are any routines to be shown on current page.

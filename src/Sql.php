@@ -263,7 +263,7 @@ class Sql
             $foreignData->foreignField ?? '',
             $foreignData->foreignDisplay,
             $currentValue,
-            $this->config->settings['ForeignKeyMaxLimit'],
+            $this->config->config->ForeignKeyMaxLimit,
         );
 
         return '<select>' . $dropdown . '</select>';
@@ -359,7 +359,7 @@ class Sql
      */
     private function isRememberSortingOrder(StatementInfo $statementInfo): bool
     {
-        return $this->config->settings['RememberSorting']
+        return $this->config->config->RememberSorting
             && ! ($statementInfo->flags->isCount
                 || $statementInfo->flags->isExport
                 || $statementInfo->flags->isFunc
@@ -420,7 +420,7 @@ class Sql
     public function hasNoRightsToDropDatabase(
         StatementInfo $statementInfo,
     ): bool {
-        return ! $this->config->settings['AllowUserDropDatabase']
+        return ! $this->config->config->AllowUserDropDatabase
             && $statementInfo->flags->dropDatabase
             && ! $this->dbi->isSuperUser();
     }
@@ -451,10 +451,7 @@ class Sql
 
         $defaultOrderByClause = '';
 
-        if (
-            isset($this->config->settings['TablePrimaryKeyOrder'])
-            && ($this->config->settings['TablePrimaryKeyOrder'] !== 'NONE')
-        ) {
+        if ($this->config->config->TablePrimaryKeyOrder !== 'NONE') {
             $primaryKey = null;
             $primary = Index::getPrimary($this->dbi, $table, $db);
 
@@ -470,7 +467,7 @@ class Sql
                     $defaultOrderByClause = ' ORDER BY '
                         . Util::backquote($table) . '.'
                         . Util::backquote($primaryKey) . ' '
-                        . $this->config->settings['TablePrimaryKeyOrder'];
+                        . $this->config->config->TablePrimaryKeyOrder;
                 }
             }
         }
@@ -665,7 +662,7 @@ class Sql
                  *       (in this case there would be no need for getting
                  *       an exact count)?
                  */
-                if ($unlimNumRows < $this->config->settings['MaxExactCount']) {
+                if ($unlimNumRows < $this->config->config->MaxExactCount) {
                     // Get the exact count if approximate count
                     // is less than MaxExactCount
                     /**
@@ -774,7 +771,7 @@ class Sql
 
         // Displays an error message if required and stop parsing the script
         $error = $this->dbi->getError();
-        if ($error && $this->config->settings['IgnoreMultiSubmitErrors']) {
+        if ($error && $this->config->config->IgnoreMultiSubmitErrors) {
             $errorMessage = $error;
         } elseif ($error !== '') {
             $this->handleQueryExecuteError($isGotoFile, $error, $fullSqlQuery);
@@ -975,7 +972,7 @@ class Sql
         // For ajax requests add message and sql_query as JSON
         if (! $request->has('ajax_page_request')) {
             $extraData['message'] = $message;
-            if ($this->config->settings['ShowSQL']) {
+            if ($this->config->config->ShowSQL) {
                 $extraData['sql_query'] = $queryMessage;
             }
         }
@@ -1340,7 +1337,7 @@ class Sql
         $hasUnique = $table !== null && $this->resultSetContainsUniqueKey($db, $table, $fieldsMeta);
 
         $editable = ($hasUnique
-            || $this->config->settings['RowActionLinksWithoutUnique']
+            || $this->config->config->RowActionLinksWithoutUnique
             || $updatableView)
             && $justOneTable
             && ! Utilities::isSystemSchema($db);
@@ -1387,7 +1384,7 @@ class Sql
 
         $previousUpdateQueryHtml = $this->getHtmlForPreviousUpdateQuery(
             $dispQuery,
-            $this->config->settings['ShowSQL'],
+            $this->config->config->ShowSQL,
             $dispMessage,
         );
 

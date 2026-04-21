@@ -37,7 +37,6 @@ class NavigationTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->selectedServer['user'] = 'user';
         $config->selectedServer['DisableIS'] = false;
-        $config->settings['ActionLinksMode'] = 'both';
 
         $relationParameters = RelationParameters::fromArray([
             RelationParameters::DATABASE => 'pmadb',

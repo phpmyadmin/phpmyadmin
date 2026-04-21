@@ -27,7 +27,6 @@ class PluginsTest extends AbstractTestCase
     public function testGetAll(): void
     {
         $config = Config::getInstance();
-        $config->settings['MaxCharactersInDisplayedSQL'] = 1000;
         $config->selectedServer['DisableIS'] = false;
 
         $this->plugins = new Plugins(DatabaseInterface::getInstance());
@@ -58,7 +57,6 @@ class PluginsTest extends AbstractTestCase
     public function testGetAllWithoutInformationSchema(): void
     {
         $config = Config::getInstance();
-        $config->settings['MaxCharactersInDisplayedSQL'] = 1000;
         $config->selectedServer['DisableIS'] = true;
 
         $this->plugins = new Plugins(DatabaseInterface::getInstance());

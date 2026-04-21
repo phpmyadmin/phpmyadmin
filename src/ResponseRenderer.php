@@ -298,7 +298,7 @@ class ResponseRenderer
             // set current db, table and sql query in the querywindow
             // (this is for the bottom console)
             $query = '';
-            $maxChars = $this->config->settings['MaxCharactersInDisplayedSQL'];
+            $maxChars = $this->config->config->MaxCharactersInDisplayedSQL;
             if (mb_strlen(Current::$sqlQuery) < $maxChars) {
                 $query = Current::$sqlQuery;
             }

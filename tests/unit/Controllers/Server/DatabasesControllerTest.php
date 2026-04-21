@@ -84,8 +84,6 @@ class DatabasesControllerTest extends AbstractTestCase
         $dbi = DatabaseInterface::getInstance();
         $controller = new DatabasesController($response, $dbi, new UserPrivilegesFactory($dbi), $config);
 
-        $config->settings['ShowCreateDb'] = true;
-
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
             ->withQueryParams([
                 'statistics' => '1',

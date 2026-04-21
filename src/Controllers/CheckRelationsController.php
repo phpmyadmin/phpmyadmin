@@ -58,7 +58,7 @@ final readonly class CheckRelationsController implements InvocableController
 
         $this->response->render('relation/check_relations', [
             'db' => $db?->getName() ?? '',
-            'zero_conf' => $this->config->settings['ZeroConf'],
+            'zero_conf' => $this->config->config->zeroConf,
             'relation_parameters' => $relationParameters->toArray(),
             'sql_dir' => SQL_DIR,
             'config_storage_database_name' => $cfgStorageDbName,

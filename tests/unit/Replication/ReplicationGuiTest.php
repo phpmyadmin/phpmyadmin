@@ -5,14 +5,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Replication;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Replication\Replication;
 use PhpMyAdmin\Replication\ReplicationGui;
 use PhpMyAdmin\Replication\ReplicationInfo;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\UrlParams;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Medium;
 
@@ -34,14 +32,9 @@ class ReplicationGuiTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
 
-        $config = Config::getInstance();
-
-        Current::$table = 'table';
-        UrlParams::$params = [];
-
         $this->replicationGui = new ReplicationGui(
             new Replication(DatabaseInterface::getInstance()),
-            new Template($config),
+            new Template(Config::getInstance()),
         );
     }
 

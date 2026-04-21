@@ -98,7 +98,7 @@ class TableMover
             return true;
         }
 
-        if ($what === MoveScope::DataOnly || isset($maintainRelations)) {
+        if ($what === MoveScope::DataOnly || $maintainRelations) {
             return true;
         }
 

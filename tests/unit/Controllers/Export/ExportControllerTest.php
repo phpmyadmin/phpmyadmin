@@ -54,8 +54,6 @@ final class ExportControllerTest extends AbstractTestCase
 
         Current::$lang = 'en';
         $config = Config::getInstance();
-        $config->selectServer('1');
-        $config->settings['Export']['sql_procedure_function'] = false;
 
         $dbiDummy->addResult(
             'SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`',
@@ -230,8 +228,6 @@ final class ExportControllerTest extends AbstractTestCase
 
         Current::$lang = 'en';
         $config = Config::getInstance();
-        $config->selectServer('1');
-        $config->settings['Export']['sql_procedure_function'] = false;
 
         $dbiDummy->addResult(
             'SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`',
@@ -568,8 +564,6 @@ final class ExportControllerTest extends AbstractTestCase
         $config = new Config();
         Config::$instance = $config;
         $config->selectedServer['DisableIS'] = true;
-        $config->set('SaveDir', '');
-        $config->settings['CompressOnFly'] = false;
 
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addResult('SET SQL_MODE=""', []);

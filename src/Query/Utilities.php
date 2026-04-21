@@ -139,7 +139,7 @@ class Utilities
 
         // produces f.e.:
         // return -1 * strnatcasecmp($a['SCHEMA_TABLES'], $b['SCHEMA_TABLES'])
-        $compare = Config::getInstance()->settings['NaturalOrder'] ? strnatcasecmp(
+        $compare = Config::getInstance()->config->NaturalOrder ? strnatcasecmp(
             (string) $a[$sortBy],
             (string) $b[$sortBy],
         ) : strcasecmp((string) $a[$sortBy], (string) $b[$sortBy]);

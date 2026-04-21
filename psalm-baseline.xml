@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="6.15.0@204d06619833a297b402cbc66be7f2df74437db4">
+<files psalm-version="6.16.1@f1f5de594dc76faf8784e02d3dc4716c91c6f6ac">
   <file src="src/Advisory/Advisor.php">
     <ArgumentTypeCoercion>
       <code><![CDATA[$pattern]]></code>
@@ -8042,12 +8042,12 @@
       <code><![CDATA[$statement->altered]]></code>
       <code><![CDATA[$statement->altered]]></code>
     </PossiblyNullIterator>
+    <PossiblyUndefinedVariable>
+      <code><![CDATA[$maintainRelations]]></code>
+    </PossiblyUndefinedVariable>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! $relationParams[$work]]]></code>
     </RiskyTruthyFalsyComparison>
-    <UnusedVariable>
-      <code><![CDATA[$maintainRelations]]></code>
-    </UnusedVariable>
   </file>
   <file src="src/Theme/Theme.php">
     <MixedArgument>
@@ -8634,7 +8634,6 @@
   </file>
   <file src="tests/unit/Bookmarks/BookmarkTest.php">
     <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
@@ -9847,9 +9846,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[[
@@ -10381,7 +10377,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
@@ -10508,7 +10503,6 @@
   </file>
   <file src="tests/unit/TwoFactorTest.php">
     <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>

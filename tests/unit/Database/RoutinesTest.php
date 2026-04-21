@@ -32,10 +32,6 @@ class RoutinesTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         $config = Config::getInstance();
-        $config->selectedServer['DisableIS'] = false;
-        $config->settings['ActionLinksMode'] = 'icons';
-        Current::$database = 'db';
-        Current::$table = 'table';
 
         $this->routines = new Routines(DatabaseInterface::getInstance(), $config);
     }

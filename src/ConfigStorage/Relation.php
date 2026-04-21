@@ -612,14 +612,14 @@ class Relation
         // is available
         if ($mode === 'id-content' || $mode === 'id-only') {
             // sort for id-content
-            if ($this->config->settings['NaturalOrder']) {
+            if ($this->config->config->NaturalOrder) {
                 uksort($foreign, strnatcasecmp(...));
             } else {
                 ksort($foreign);
             }
         } elseif ($mode === 'content-id') {
             // sort for content-id
-            if ($this->config->settings['NaturalOrder']) {
+            if ($this->config->config->NaturalOrder) {
                 natcasesort($foreign);
             } else {
                 asort($foreign);
@@ -703,7 +703,7 @@ class Relation
         int|null $maxNumberOfItems = null,
     ): string {
         if ($maxNumberOfItems === null) {
-            $maxNumberOfItems = $this->config->settings['ForeignKeyMaxLimit'];
+            $maxNumberOfItems = $this->config->config->ForeignKeyMaxLimit;
         }
 
         $foreign = [];
@@ -721,13 +721,13 @@ class Relation
         // put the dropdown sections in correct order
         $bottom = [];
         if ($foreignDisplay !== '') {
-            $top = $this->buildForeignDropdown($foreign, $data, $this->config->settings['ForeignKeyDropdownOrder'][0]);
+            $top = $this->buildForeignDropdown($foreign, $data, $this->config->config->ForeignKeyDropdownOrder[0]);
 
-            if (isset($this->config->settings['ForeignKeyDropdownOrder'][1])) {
+            if (isset($this->config->config->ForeignKeyDropdownOrder[1])) {
                 $bottom = $this->buildForeignDropdown(
                     $foreign,
                     $data,
-                    $this->config->settings['ForeignKeyDropdownOrder'][1],
+                    $this->config->config->ForeignKeyDropdownOrder[1],
                 );
             }
         } else {
@@ -800,7 +800,7 @@ class Relation
 
             // Check if table has more rows than specified by ForeignKeyMaxLimit
             $moreThanLimit = $this->dbi->getTable($foreignDb, $foreignTable)
-                ->checkIfMinRecordsExist($this->config->settings['ForeignKeyMaxLimit']);
+                ->checkIfMinRecordsExist($this->config->config->ForeignKeyMaxLimit);
 
             if ($overrideTotal || ! $moreThanLimit) {
                 // foreign_display can be false if no display field defined:
@@ -1469,7 +1469,7 @@ class Relation
         /** @var list<string> $tables */
         $tables = $tablesRows->fetchAllColumn();
 
-        if ($this->config->settings['NaturalOrder']) {
+        if ($this->config->config->NaturalOrder) {
             usort($tables, strnatcasecmp(...));
         }
 

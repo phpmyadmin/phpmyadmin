@@ -93,7 +93,6 @@ class StructureControllerTest extends AbstractTestCase
         $property = $class->getProperty('isShowStats');
         $property->setValue($controller, true);
 
-        $config->settings['MaxExactCount'] = 10;
         $currentTable = [
             'ENGINE' => 'InnoDB',
             'TABLE_ROWS' => 5,
@@ -343,8 +342,6 @@ class StructureControllerTest extends AbstractTestCase
                 ->invokeArgs($structureController, [[], 0]),
         );
 
-        // Enable stats
-        $config->settings['ShowStats'] = true;
         (new ReflectionMethod(StructureController::class, 'getDatabaseInfo'))
             ->invokeArgs($structureController, [self::createStub(ServerRequest::class)]);
 

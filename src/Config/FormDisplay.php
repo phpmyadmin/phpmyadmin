@@ -747,7 +747,7 @@ class FormDisplay
         $config = Config::getInstance();
         $userPrefsDisallow = $config->isSetup()
             ? $this->configFile->get('UserprefsDisallow', [])
-            : $config->settings['UserprefsDisallow'];
+            : $config->config->UserprefsDisallow;
         $this->userprefsDisallow = array_flip($userPrefsDisallow ?? []);
     }
 
@@ -811,14 +811,12 @@ class FormDisplay
             return;
         }
 
-        if ($systemPath !== 'MaxDbList' && $systemPath !== 'MaxTableList' && $systemPath !== 'QueryHistoryMax') {
-            return;
-        }
-
-        $opts['comment'] = sprintf(
-            __('maximum %s'),
-            $config->settings[$systemPath],
-        );
+        match ($systemPath) {
+            'MaxDbList' => $opts['comment'] = sprintf(__('maximum %s'), $config->config->MaxDbList),
+            'MaxTableList' => $opts['comment'] = sprintf(__('maximum %s'), $config->config->MaxTableList),
+            'QueryHistoryMax' => $opts['comment'] = sprintf(__('maximum %s'), $config->config->QueryHistoryMax),
+            default => null,
+        };
     }
 
     /**

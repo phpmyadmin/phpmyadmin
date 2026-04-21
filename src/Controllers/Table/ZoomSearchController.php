@@ -404,7 +404,7 @@ final class ZoomSearchController implements InvocableController
                 $foreignData[$columnIndex]->foreignField ?? '',
                 $foreignData[$columnIndex]->foreignDisplay,
                 '',
-                $this->config->settings['ForeignKeyMaxLimit'],
+                $this->config->config->ForeignKeyMaxLimit,
             );
         }
 
@@ -499,7 +499,7 @@ final class ZoomSearchController implements InvocableController
                 $foreignData->foreignField ?? '',
                 $foreignData->foreignDisplay,
                 '',
-                $this->config->settings['ForeignKeyMaxLimit'],
+                $this->config->config->ForeignKeyMaxLimit,
             );
         }
 
