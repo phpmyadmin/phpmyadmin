@@ -732,10 +732,10 @@ export function checkTableEditForm (theForm, fieldsCnt) {
         }
 
         // Check for UNSIGNED/ZEROFILL on non-numeric types
-        var $typeField = $('#field_' + i + '_2');
-        var $attrField = $typeField.closest('tr').find('select[name^="field_attribute"]');
-        var typeVal = String($typeField.val() || '').toUpperCase();
-        var attrVal = String($attrField.val() || '').toUpperCase();
+        const $typeField = $('#field_' + i + '_2');
+        const $attrField = $typeField.closest('tr').find('select[name^="field_attribute"]');
+        const typeVal = String($typeField.val() || '').toUpperCase();
+        const attrVal = String($attrField.val() || '').toUpperCase();
         if (attrVal === 'UNSIGNED' || attrVal === 'UNSIGNED ZEROFILL' || attrVal === 'ZEROFILL') {
             var numTypes = [
                 'TINYINT',
