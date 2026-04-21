@@ -749,9 +749,9 @@ export function checkTableEditForm (theForm, fieldsCnt) {
             ];
             elm3 = $('#field_' + i + '_1');
             if (numTypes.indexOf(typeVal) === -1 && elm3.val() !== '') {
-                $attrField.select();
-                alert(typeVal + ' ' + window.Messages.strInvalidAttribute);
-                $attrField.focus();
+                $attrField.trigger('select');
+                ajaxShowMessage(typeVal + ' ' + window.Messages.strInvalidAttribute, null, 'error');
+                $attrField.trigger('focus');
 
                 return false;
             }
