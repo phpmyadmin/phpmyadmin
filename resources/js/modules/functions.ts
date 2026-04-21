@@ -737,7 +737,7 @@ export function checkTableEditForm (theForm, fieldsCnt) {
         const typeVal = String($typeField.val() || '').toUpperCase();
         const attrVal = String($attrField.val() || '').toUpperCase();
         if (attrVal === 'UNSIGNED' || attrVal === 'UNSIGNED ZEROFILL' || attrVal === 'ZEROFILL') {
-            var numTypes = [
+            const numTypes = [
                 'TINYINT',
                 'SMALLINT',
                 'MEDIUMINT',
