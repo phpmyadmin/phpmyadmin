@@ -29,7 +29,7 @@ class Select
      *
      * @return string
      */
-    public static function render($not_only_options, $omit_fieldset)
+    public static function render($not_only_options, $omit_fieldset, bool $hasLabelIcon = false)
     {
         // Show as list?
         if ($not_only_options) {
@@ -108,6 +108,7 @@ class Select
             'not_only_options' => $not_only_options,
             'omit_fieldset' => $omit_fieldset,
             'servers' => $servers,
+            'has_label_icon' => $hasLabelIcon,
         ];
         if ($not_only_options) {
             $renderDetails['form_action'] = $form_action;
