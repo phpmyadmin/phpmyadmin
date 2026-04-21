@@ -9,6 +9,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -24,14 +25,16 @@ final class CopyStructureControllerTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
 
-        $response = new ResponseStub();
+        $responseRenderer = new ResponseStub();
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
             ->withQueryParams(['db' => '', 'table' => 'orders']);
 
-        (new CopyStructureController($response, $dbi, new DbTableExists($dbi)))($request);
+        $response = (new CopyStructureController($responseRenderer, $dbi, new DbTableExists($dbi)))($request);
 
-        self::assertFalse($response->hasSuccessState());
-        self::assertStringContainsString('No databases selected', $response->getJSONResult()['message']);
+        self::assertInstanceOf(Response::class, $response);
+        self::assertFalse($responseRenderer->hasSuccessState());
+        $message = (string) $responseRenderer->getJSONResult()['message'];
+        self::assertStringContainsString('No databases selected', $message);
     }
 
     public function testReturnErrorWhenNoTableSet(): void
@@ -42,14 +45,15 @@ final class CopyStructureControllerTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
 
-        $response = new ResponseStub();
+        $responseRenderer = new ResponseStub();
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
             ->withQueryParams(['db' => 'test_db', 'table' => '']);
 
-        (new CopyStructureController($response, $dbi, new DbTableExists($dbi)))($request);
+        $response = (new CopyStructureController($responseRenderer, $dbi, new DbTableExists($dbi)))($request);
 
-        self::assertFalse($response->hasSuccessState());
-        self::assertStringContainsString('No table selected', $response->getJSONResult()['message']);
+        self::assertInstanceOf(Response::class, $response);
+        self::assertFalse($responseRenderer->hasSuccessState());
+        self::assertStringContainsString('No table selected', (string) $responseRenderer->getJSONResult()['message']);
     }
 
     public function testReturnErrorWhenDatabaseNameInvalid(): void
@@ -57,23 +61,20 @@ final class CopyStructureControllerTest extends AbstractTestCase
         Current::$database = 'test_db';
         Current::$table = 'orders';
 
-        // Controller calls selectDb(Current::$database) before the DatabaseName check
-        $dbiDummy = $this->createDbiDummy();
-        $dbiDummy->addSelectDb('test_db');
-        $dbi = $this->createDatabaseInterface($dbiDummy);
+        $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
 
-        $response = new ResponseStub();
-        // 'db' param is empty → DatabaseName::tryFrom returns null
+        $responseRenderer = new ResponseStub();
+        // 'db' param is empty → DatabaseName::tryFrom returns null, no DB call made
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
             ->withQueryParams(['db' => '', 'table' => 'orders']);
 
-        (new CopyStructureController($response, $dbi, new DbTableExists($dbi)))($request);
+        $response = (new CopyStructureController($responseRenderer, $dbi, new DbTableExists($dbi)))($request);
 
-        self::assertFalse($response->hasSuccessState());
-        self::assertStringContainsString('No databases selected', $response->getJSONResult()['message']);
-
-        $dbiDummy->assertAllSelectsConsumed();
+        self::assertInstanceOf(Response::class, $response);
+        self::assertFalse($responseRenderer->hasSuccessState());
+        $message = (string) $responseRenderer->getJSONResult()['message'];
+        self::assertStringContainsString('No databases selected', $message);
     }
 
     public function testReturnsSqlForTable(): void
@@ -84,9 +85,6 @@ final class CopyStructureControllerTest extends AbstractTestCase
         $createSql = "CREATE TABLE `orders` (\n  `id` int(11) NOT NULL\n) ENGINE=InnoDB";
 
         $dbiDummy = $this->createDbiDummy();
-        // 1st: controller calls selectDb(Current::$database)
-        // 2nd: DbTableExists::selectDatabase() calls selectDb($databaseName)
-        $dbiDummy->addSelectDb('test_db');
         $dbiDummy->addSelectDb('test_db');
         // DbTableExists::hasTable issues SELECT 1 FROM `db`.`table` LIMIT 1
         $dbiDummy->addResult('SELECT 1 FROM `test_db`.`orders` LIMIT 1;', [['1']]);
@@ -100,15 +98,16 @@ final class CopyStructureControllerTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface($dbiDummy);
         DatabaseInterface::$instance = $dbi;
 
-        $response = new ResponseStub();
+        $responseRenderer = new ResponseStub();
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
             ->withQueryParams(['db' => 'test_db', 'table' => 'orders'])
             ->withParsedBody(['db' => 'test_db', 'table' => 'orders']);
 
-        (new CopyStructureController($response, $dbi, new DbTableExists($dbi)))($request);
+        $response = (new CopyStructureController($responseRenderer, $dbi, new DbTableExists($dbi)))($request);
 
-        self::assertTrue($response->hasSuccessState());
-        self::assertSame($createSql, $response->getJSONResult()['sql']);
+        self::assertInstanceOf(Response::class, $response);
+        self::assertTrue($responseRenderer->hasSuccessState());
+        self::assertSame($createSql, $responseRenderer->getJSONResult()['sql']);
 
         $dbiDummy->assertAllSelectsConsumed();
         $dbiDummy->assertAllQueriesConsumed();
@@ -123,7 +122,6 @@ final class CopyStructureControllerTest extends AbstractTestCase
 
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addSelectDb('test_db');
-        $dbiDummy->addSelectDb('test_db');
         $dbiDummy->addResult('SELECT 1 FROM `test_db`.`v_orders` LIMIT 1;', [['1']]);
         $dbiDummy->addResult(
             'SHOW CREATE TABLE `test_db`.`v_orders`',
@@ -134,15 +132,16 @@ final class CopyStructureControllerTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface($dbiDummy);
         DatabaseInterface::$instance = $dbi;
 
-        $response = new ResponseStub();
+        $responseRenderer = new ResponseStub();
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
             ->withQueryParams(['db' => 'test_db', 'table' => 'v_orders'])
             ->withParsedBody(['db' => 'test_db', 'table' => 'v_orders']);
 
-        (new CopyStructureController($response, $dbi, new DbTableExists($dbi)))($request);
+        $response = (new CopyStructureController($responseRenderer, $dbi, new DbTableExists($dbi)))($request);
 
-        self::assertTrue($response->hasSuccessState());
-        self::assertSame($viewSql, $response->getJSONResult()['sql']);
+        self::assertInstanceOf(Response::class, $response);
+        self::assertTrue($responseRenderer->hasSuccessState());
+        self::assertSame($viewSql, $responseRenderer->getJSONResult()['sql']);
 
         $dbiDummy->assertAllSelectsConsumed();
         $dbiDummy->assertAllQueriesConsumed();
@@ -155,22 +154,22 @@ final class CopyStructureControllerTest extends AbstractTestCase
 
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addSelectDb('test_db');
-        $dbiDummy->addSelectDb('test_db');
         // hasTable SELECT fails (table not found)
         $dbiDummy->addResult('SELECT 1 FROM `test_db`.`ghost_table` LIMIT 1;', false);
 
         $dbi = $this->createDatabaseInterface($dbiDummy);
         DatabaseInterface::$instance = $dbi;
 
-        $response = new ResponseStub();
+        $responseRenderer = new ResponseStub();
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
             ->withQueryParams(['db' => 'test_db', 'table' => 'ghost_table'])
             ->withParsedBody(['db' => 'test_db', 'table' => 'ghost_table']);
 
-        (new CopyStructureController($response, $dbi, new DbTableExists($dbi)))($request);
+        $response = (new CopyStructureController($responseRenderer, $dbi, new DbTableExists($dbi)))($request);
 
-        self::assertFalse($response->hasSuccessState());
-        self::assertStringContainsString('No table selected', $response->getJSONResult()['message']);
+        self::assertInstanceOf(Response::class, $response);
+        self::assertFalse($responseRenderer->hasSuccessState());
+        self::assertStringContainsString('No table selected', (string) $responseRenderer->getJSONResult()['message']);
 
         $dbiDummy->assertAllSelectsConsumed();
         $dbiDummy->assertAllQueriesConsumed();

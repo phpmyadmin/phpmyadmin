@@ -46,15 +46,15 @@ final readonly class CopyStructureController implements InvocableController
             return $this->response->response();
         }
 
-        $this->dbi->selectDb(Current::$database);
+        $dbName = $databaseName->getName();
 
         /** @var string[] $tableNames */
-        $tableNames = $this->dbi->getTables(Current::$database);
+        $tableNames = $this->dbi->getTables($dbName);
 
         $baseTables = [];
         $views = [];
         foreach ($tableNames as $table) {
-            $object = $this->dbi->getTable(Current::$database, $table);
+            $object = $this->dbi->getTable($dbName, $table);
             if ($object->isView()) {
                 $views[] = $table;
             } else {
@@ -63,18 +63,18 @@ final readonly class CopyStructureController implements InvocableController
         }
 
         $segments = [
-            sprintf('-- Database: %s', Current::$database),
+            sprintf('-- Database: %s', $dbName),
         ];
 
         foreach ($baseTables as $table) {
-            $object = $this->dbi->getTable(Current::$database, $table);
+            $object = $this->dbi->getTable($dbName, $table);
             $segments[] = $object->showCreate();
         }
 
         if ($views !== []) {
             $segments[] = '-- Views';
             foreach ($views as $table) {
-                $object = $this->dbi->getTable(Current::$database, $table);
+                $object = $this->dbi->getTable($dbName, $table);
                 $segments[] = $object->showCreate();
             }
         }

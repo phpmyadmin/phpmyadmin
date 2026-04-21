@@ -44,8 +44,6 @@ final readonly class CopyStructureController implements InvocableController
             return $this->response->response();
         }
 
-        $this->dbi->selectDb(Current::$database);
-
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
             $this->response->setRequestStatus(false);
@@ -62,7 +60,7 @@ final readonly class CopyStructureController implements InvocableController
             return $this->response->response();
         }
 
-        $object = $this->dbi->getTable(Current::$database, Current::$table);
+        $object = $this->dbi->getTable($databaseName->getName(), $tableName->getName());
         $this->response->addJSON('sql', $object->showCreate());
 
         return $this->response->response();
