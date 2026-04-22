@@ -708,8 +708,17 @@ class Sql
                 // Removes LIMIT clause that might have been added
                 $statement->limit = null;
 
-                if ($changeExpression) {
-                    $statement->expr[0] = new Expression();
+                // Replace SELECT expressions with 1 to avoid
+                // "Duplicate column name" errors when aliases shadow
+                // existing column names (e.g. SELECT id, name AS id).
+                // Only safe when there's no GROUP BY, DISTINCT, or UNION
+                // since those depend on the actual expressions.
+                if (
+                    ! $statementInfo->flags->isGroup
+                    && ! $statementInfo->flags->distinct
+                    && ! $statementInfo->flags->union
+                ) {
+                    $statement->expr = [new Expression()];
                     $statement->expr[0]->expr = '1';
                 }
 

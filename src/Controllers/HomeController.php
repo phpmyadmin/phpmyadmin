@@ -114,7 +114,7 @@ final class HomeController implements InvocableController
                     )
                 );
             if ($hasServerSelection) {
-                $serverSelection = Select::render(true);
+                $serverSelection = Select::render(true, true);
             }
 
             if (Current::$server > 0) {

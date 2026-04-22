@@ -462,6 +462,8 @@ AJAX.registerTeardown('sql.js', function () {
     $(document).off('click', '#sqlquery');
     $(document).off('click', 'input.sqlbutton');
     $('#fieldsSelect').off('dblclick');
+
+    $('#simulateDmlModal').modal('hide');
 });
 
 /**
