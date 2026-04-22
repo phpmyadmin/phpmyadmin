@@ -513,7 +513,8 @@ class SqlTest extends AbstractTestCase
                 ],
                 20,
                 42,
-
+                false,
+                'SELECT COUNT(*) FROM (SELECT 1 FROM company_users WHERE subquery_case = 0 ) as cnt',
             ],
             [
                 'SELECT ( as c2 FROM company_users WHERE working_count = 0',// Invalid query
@@ -545,6 +546,14 @@ class SqlTest extends AbstractTestCase
                 100,
                 false,
                 'SELECT COUNT(*) FROM (SELECT 1 FROM t1 WHERE id <> 0 ) as cnt',
+            ],
+            'duplicate column alias should not break count' => [
+                'SELECT id, name AS id FROM company_users WHERE working_count = 0',
+                ['max_rows' => 10, 'pos' => 0],
+                25,
+                384,
+                false,
+                'SELECT COUNT(*) FROM (SELECT 1 FROM company_users WHERE working_count = 0 ) as cnt',
             ],
         ];
     }
