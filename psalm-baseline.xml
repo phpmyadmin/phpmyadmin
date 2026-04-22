@@ -954,6 +954,11 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
   </file>
+  <file src="src/Controllers/Database/Structure/CopyStructureController.php">
+    <PossiblyUnusedReturnValue>
+      <code><![CDATA[Response]]></code>
+    </PossiblyUnusedReturnValue>
+  </file>
   <file src="src/Controllers/Database/Structure/CopyTableController.php">
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
@@ -2480,6 +2485,11 @@
       <code><![CDATA[$selected]]></code>
       <code><![CDATA[[$request->getParam('field')]]]></code>
     </MixedArgumentTypeCoercion>
+  </file>
+  <file src="src/Controllers/Table/Structure/CopyStructureController.php">
+    <PossiblyUnusedReturnValue>
+      <code><![CDATA[Response]]></code>
+    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/Structure/MoveColumnsController.php">
     <MixedArgumentTypeCoercion>
