@@ -13930,31 +13930,25 @@ parameters:
 			path: tests/unit/Config/ConfigFileTest.php
 
 		-
-			message: '#^Argument of an invalid type array\<array\<string\>\|bool\|int\<0, max\>\|string\>\|bool\|int\<1, max\>\|string\|null supplied for foreach, only iterables are supported\.$#'
-			identifier: foreach.nonIterable
-			count: 1
-			path: tests/unit/Config/DescriptionTest.php
-
-		-
 			message: '#^Call to function in_array\(\) requires parameter \#3 to be set\.$#'
 			identifier: function.strict
 			count: 1
 			path: tests/unit/Config/DescriptionTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertIsArray\(\) with array\<int\<1, max\>, non\-empty\-array\<''AllowDeny''\|''AllowNoPassword''\|''AllowRoot''\|''auth_http_realm''\|''auth_type''\|''bookmarktable''\|''central_columns''\|''column_info''\|''compress''\|''control_compress''\|''control_hide…''\|''control_socket''\|''control_ssl''\|''control_ssl_ca''\|''control_ssl_ca_path''\|''control_ssl_cert''\|''control_ssl_ciphers''\|''control_ssl_key''\|''control_ssl_verify''\|''controlhost''\|''controlpass''\|''controlport''\|''controluser''\|''designer_settings''\|''DisableIS''\|''export_templates''\|''favorite''\|''hide_db''\|''history''\|''host''\|''LogoutURL''\|''MaxTableUiprefs''\|''navigationhiding''\|''only_db''\|''password''\|''pdf_pages''\|''pmadb''\|''port''\|''recent''\|''relation''\|''savedsearches''\|''SessionTimeZone''\|''SignonCookieParams''\|''SignonScript''\|''SignonSession''\|''SignonURL''\|''socket''\|''ssl''\|''ssl_ca''\|''ssl_ca_path''\|''ssl_cert''\|''ssl_ciphers''\|''ssl_key''\|''ssl_verify''\|''table_coords''\|''table_info''\|''table_uiprefs''\|''tracking''\|''user''\|''userconfig''\|''usergroups''\|''users''\|''verbose'', array\<array\<string\>\|bool\|int\<0, max\>\|string\>\|bool\|int\<1, max\>\|string\|null\>\> will always evaluate to true\.$#'
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertIsArray\(\) with array\<int\<1, max\>, array\{host\: string, port\: string, socket\: string, ssl\: bool, ssl_key\: string\|null, ssl_cert\: string\|null, ssl_ca\: string\|null, ssl_ca_path\: string\|null, \.\.\.\}\> will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: tests/unit/Config/DescriptionTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertIsArray\(\) with non\-empty\-array\<''AllowDeny''\|''AllowNoPassword''\|''AllowRoot''\|''auth_http_realm''\|''auth_type''\|''bookmarktable''\|''central_columns''\|''column_info''\|''compress''\|''control_compress''\|''control_hide…''\|''control_socket''\|''control_ssl''\|''control_ssl_ca''\|''control_ssl_ca_path''\|''control_ssl_cert''\|''control_ssl_ciphers''\|''control_ssl_key''\|''control_ssl_verify''\|''controlhost''\|''controlpass''\|''controlport''\|''controluser''\|''designer_settings''\|''DisableIS''\|''export_templates''\|''favorite''\|''hide_db''\|''history''\|''host''\|''LogoutURL''\|''MaxTableUiprefs''\|''navigationhiding''\|''only_db''\|''password''\|''pdf_pages''\|''pmadb''\|''port''\|''recent''\|''relation''\|''savedsearches''\|''SessionTimeZone''\|''SignonCookieParams''\|''SignonScript''\|''SignonSession''\|''SignonURL''\|''socket''\|''ssl''\|''ssl_ca''\|''ssl_ca_path''\|''ssl_cert''\|''ssl_ciphers''\|''ssl_key''\|''ssl_verify''\|''table_coords''\|''table_info''\|''table_uiprefs''\|''tracking''\|''user''\|''userconfig''\|''usergroups''\|''users''\|''verbose'', array\<array\<string\>\|bool\|int\<0, max\>\|string\>\|bool\|int\<1, max\>\|string\|null\> will always evaluate to true\.$#'
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertIsArray\(\) with array\{host\: string, port\: string, socket\: string, ssl\: bool, ssl_key\: string\|null, ssl_cert\: string\|null, ssl_ca\: string\|null, ssl_ca_path\: string\|null, \.\.\.\} will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: tests/unit/Config/DescriptionTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertNotNull\(\) with array\<string\>\|bool\|int\<0, max\>\|string will always evaluate to true\.$#'
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertNotNull\(\) with ''''\|''allow,deny''\|''deny,allow''\|''explicit''\|array\<string\> will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: tests/unit/Config/DescriptionTest.php
