@@ -606,7 +606,10 @@ export function confirmQuery (theForm1, sqlQuery1) {
 export function checkSqlQuery (theForm) {
     // get the textarea element containing the query
     let sqlQuery;
-    if (window.codeMirrorEditor) {
+    if (codeMirrorInlineEditor) {
+        codeMirrorInlineEditor.save();
+        sqlQuery = codeMirrorInlineEditor.getValue();
+    } else if (window.codeMirrorEditor) {
         window.codeMirrorEditor.save();
         sqlQuery = window.codeMirrorEditor.getValue();
     } else {
