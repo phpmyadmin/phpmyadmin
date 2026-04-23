@@ -353,7 +353,7 @@ function reverseSubArray(arr, begin, end) {
  * @param {!Array<VALUE>|VALUE} data The elements or arrays of elements to add to arr.
  * @template VALUE
  */
-function array_extend(arr, data) {
+function extend(arr, data) {
     var extension = Array.isArray(data) ? data : [data];
     var length = extension.length;
     for (var i = 0; i < length; i++) {
@@ -475,7 +475,7 @@ function TRUE() {
  * Always returns false.
  * @return {boolean} false.
  */
-function functions_FALSE() {
+function FALSE() {
     return false;
 }
 /**
@@ -596,7 +596,7 @@ var getValues = typeof Object.values === 'function'
  * @param {Object} object The object to check.
  * @return {boolean} The object is empty.
  */
-function obj_isEmpty(object) {
+function isEmpty(object) {
     var property;
     for (property in object) {
         return false;
@@ -1418,7 +1418,7 @@ var BaseObject = /** @class */ (function (_super) {
         if (this.values_ && key in this.values_) {
             var oldValue = this.values_[key];
             delete this.values_[key];
-            if (obj_isEmpty(this.values_)) {
+            if (isEmpty(this.values_)) {
                 this.values_ = null;
             }
             if (!opt_silent) {
@@ -1506,7 +1506,7 @@ var WEBKIT = ua.indexOf('webkit') !== -1 && ua.indexOf('edge') == -1;
  * User agent string says we are dealing with a Mac as platform.
  * @type {boolean}
  */
-var has_MAC = ua.indexOf('macintosh') !== -1;
+var MAC = ua.indexOf('macintosh') !== -1;
 /**
  * The ratio between physical pixels and device-independent pixels
  * (dips) on the device (`window.devicePixelRatio`).
@@ -2041,7 +2041,7 @@ var AssertionError = /** @class */ (function (_super) {
  * @param {*} assertion Assertion we expected to be truthy.
  * @param {number} errorCode Error code.
  */
-function asserts_assert(assertion, errorCode) {
+function assert(assertion, errorCode) {
     if (!assertion) {
         throw new ol_AssertionError(errorCode);
     }
@@ -2059,7 +2059,7 @@ function asserts_assert(assertion, errorCode) {
  * @return {number} The input number if it is within bounds, or the nearest
  *     number within the bounds.
  */
-function math_clamp(value, min, max) {
+function clamp(value, min, max) {
     return Math.min(Math.max(value, min), max);
 }
 /**
@@ -2209,7 +2209,7 @@ function solveLinearSystem(mat) {
  * @param {number} angleInRadians Angle in radians.
  * @return {number} Angle in degrees.
  */
-function math_toDegrees(angleInRadians) {
+function toDegrees(angleInRadians) {
     return (angleInRadians * 180) / Math.PI;
 }
 /**
@@ -2218,7 +2218,7 @@ function math_toDegrees(angleInRadians) {
  * @param {number} angleInDegrees Angle in degrees.
  * @return {number} Angle in radians.
  */
-function math_toRadians(angleInDegrees) {
+function toRadians(angleInDegrees) {
     return (angleInDegrees * Math.PI) / 180;
 }
 /**
@@ -2228,7 +2228,7 @@ function math_toRadians(angleInDegrees) {
  * @param {number} b Divisor.
  * @return {number} Modulo.
  */
-function math_modulo(a, b) {
+function modulo(a, b) {
     var r = a % b;
     return r * b < 0 ? r + b : r;
 }
@@ -2392,7 +2392,7 @@ var BaseLayer = /** @class */ (function (_super) {
         }
         properties[Property.OPACITY] =
             options.opacity !== undefined ? options.opacity : 1;
-        asserts_assert(typeof properties[Property.OPACITY] === 'number', 64); // Layer opacity must be a number
+        assert(typeof properties[Property.OPACITY] === 'number', 64); // Layer opacity must be a number
         properties[Property.VISIBLE] =
             options.visible !== undefined ? options.visible : true;
         properties[Property.Z_INDEX] = options.zIndex;
@@ -2447,7 +2447,7 @@ var BaseLayer = /** @class */ (function (_super) {
                 managed: opt_managed === undefined ? true : opt_managed,
             });
         var zIndex = this.getZIndex();
-        state.opacity = math_clamp(Math.round(this.getOpacity() * 100) / 100, 0, 1);
+        state.opacity = clamp(Math.round(this.getOpacity() * 100) / 100, 0, 1);
         state.visible = this.getVisible();
         state.extent = this.getExtent();
         state.zIndex = zIndex === undefined && !state.managed ? Infinity : zIndex;
@@ -2622,7 +2622,7 @@ var BaseLayer = /** @class */ (function (_super) {
      * @api
      */
     BaseLayer.prototype.setOpacity = function (opacity) {
-        asserts_assert(typeof opacity === 'number', 64); // Layer opacity must be a number
+        assert(typeof opacity === 'number', 64); // Layer opacity must be a number
         this.set(Property.OPACITY, opacity);
     };
     /**
@@ -3029,7 +3029,7 @@ var Layer = /** @class */ (function (_super) {
                 var layerStatesArray = renderEvent.frameState.layerStatesArray;
                 var layerState = this.getLayerState(false);
                 // A layer can only be added to the map once. Use either `layer.setMap()` or `map.addLayer()`, not both.
-                asserts_assert(!layerStatesArray.some(function (arrayLayerState) {
+                assert(!layerStatesArray.some(function (arrayLayerState) {
                     return arrayLayerState.layer === layerState.layer;
                 }), 67);
                 layerStatesArray.push(layerState);
@@ -3535,13 +3535,13 @@ function fromCode(code) {
  * @type {Object<Units, number>}
  * @api
  */
-var Units_METERS_PER_UNIT = {};
+var METERS_PER_UNIT = {};
 // use the radius of the Normal sphere
-Units_METERS_PER_UNIT[Units.RADIANS] = 6370997 / (2 * Math.PI);
-Units_METERS_PER_UNIT[Units.DEGREES] = (2 * Math.PI * 6370997) / 360;
-Units_METERS_PER_UNIT[Units.FEET] = 0.3048;
-Units_METERS_PER_UNIT[Units.METERS] = 1;
-Units_METERS_PER_UNIT[Units.USFEET] = 1200 / 3937;
+METERS_PER_UNIT[Units.RADIANS] = 6370997 / (2 * Math.PI);
+METERS_PER_UNIT[Units.DEGREES] = (2 * Math.PI * 6370997) / 360;
+METERS_PER_UNIT[Units.FEET] = 0.3048;
+METERS_PER_UNIT[Units.METERS] = 1;
+METERS_PER_UNIT[Units.USFEET] = 1200 / 3937;
 /* harmony default export */ var proj_Units = (Units);
 //# sourceMappingURL=Units.js.map
 ;// ./node_modules/ol/proj/Projection.js
@@ -3699,7 +3699,7 @@ var Projection = /** @class */ (function () {
      * @api
      */
     Projection.prototype.getMetersPerUnit = function () {
-        return this.metersPerUnit_ || Units_METERS_PER_UNIT[this.units_];
+        return this.metersPerUnit_ || METERS_PER_UNIT[this.units_];
     };
     /**
      * Get the world extent for this projection.
@@ -4058,6 +4058,7 @@ function add(code, projection) {
 }
 //# sourceMappingURL=projections.js.map
 ;// ./node_modules/ol/proj/transforms.js
+/* unused harmony import specifier */ var transforms_isEmpty;
 /**
  * @module ol/proj/transforms
  */
@@ -4103,7 +4104,7 @@ function transforms_remove(source, destination) {
     var destinationCode = destination.getCode();
     var transform = transforms[sourceCode][destinationCode];
     delete transforms[sourceCode][destinationCode];
-    if (isEmpty(transforms[sourceCode])) {
+    if (transforms_isEmpty(transforms[sourceCode])) {
         delete transforms[sourceCode];
     }
     return transform;
@@ -4555,7 +4556,7 @@ function forEachCorner(extent, callback) {
 function getArea(extent) {
     var area = 0;
     if (!extent_isEmpty(extent)) {
-        area = extent_getWidth(extent) * getHeight(extent);
+        area = getWidth(extent) * getHeight(extent);
     }
     return area;
 }
@@ -4607,7 +4608,7 @@ function getCorner(extent, corner) {
         coordinate = getTopRight(extent);
     }
     else {
-        asserts_assert(false, 13); // Invalid corner
+        assert(false, 13); // Invalid corner
     }
     return coordinate;
 }
@@ -4730,7 +4731,7 @@ function getIntersection(extent1, extent2, opt_extent) {
  * @return {number} Margin.
  */
 function getMargin(extent) {
-    return extent_getWidth(extent) + getHeight(extent);
+    return getWidth(extent) + getHeight(extent);
 }
 /**
  * Get the size (width, height) of an extent.
@@ -4765,7 +4766,7 @@ function getTopRight(extent) {
  * @return {number} Width.
  * @api
  */
-function extent_getWidth(extent) {
+function getWidth(extent) {
     return extent[2] - extent[0];
 }
 /**
@@ -4929,7 +4930,7 @@ function wrapX(extent, projection) {
     var center = getCenter(extent);
     if (projection.canWrapX() &&
         (center[0] < projectionExtent[0] || center[0] >= projectionExtent[2])) {
-        var worldWidth = extent_getWidth(projectionExtent);
+        var worldWidth = getWidth(projectionExtent);
         var worldsAway = Math.floor((center[0] - projectionExtent[0]) / worldWidth);
         var offset = worldsAway * worldWidth;
         extent[0] -= offset;
@@ -4956,8 +4957,8 @@ function wrapAndSliceX(extent, projection) {
             return [[projectionExtent[0], extent[1], projectionExtent[2], extent[3]]];
         }
         wrapX(extent, projection);
-        var worldWidth = extent_getWidth(projectionExtent);
-        if (extent_getWidth(extent) > worldWidth) {
+        var worldWidth = getWidth(projectionExtent);
+        if (getWidth(extent) > worldWidth) {
             // the extent wraps around on itself
             return [[projectionExtent[0], extent[1], projectionExtent[2], extent[3]]];
         }
@@ -4980,6 +4981,8 @@ function wrapAndSliceX(extent, projection) {
 }
 //# sourceMappingURL=extent.js.map
 ;// ./node_modules/ol/coordinate.js
+/* unused harmony import specifier */ var coordinate_modulo;
+/* unused harmony import specifier */ var padNumber;
 /**
  * @module ol/coordinate
  */
@@ -5132,7 +5135,7 @@ function createStringXY(opt_fractionDigits) {
  * @return {string} String.
  */
 function degreesToStringHDMS(hemispheres, degrees, opt_fractionDigits) {
-    var normalizedDegrees = modulo(degrees + 180, 360) - 180;
+    var normalizedDegrees = coordinate_modulo(degrees + 180, 360) - 180;
     var x = Math.abs(3600 * normalizedDegrees);
     var dflPrecision = opt_fractionDigits || 0;
     var precision = Math.pow(10, dflPrecision);
@@ -5268,7 +5271,7 @@ function scale(coordinate, scale) {
  * @param {Coordinate} coord2 Second coordinate.
  * @return {number} Squared distance between coord1 and coord2.
  */
-function coordinate_squaredDistance(coord1, coord2) {
+function squaredDistance(coord1, coord2) {
     var dx = coord1[0] - coord2[0];
     var dy = coord1[1] - coord2[1];
     return dx * dx + dy * dy;
@@ -5279,7 +5282,7 @@ function coordinate_squaredDistance(coord1, coord2) {
  * @return {number} Distance between coord1 and coord2.
  */
 function distance(coord1, coord2) {
-    return Math.sqrt(coordinate_squaredDistance(coord1, coord2));
+    return Math.sqrt(squaredDistance(coord1, coord2));
 }
 /**
  * Calculate the squared distance from a coordinate to a line segment.
@@ -5290,7 +5293,7 @@ function distance(coord1, coord2) {
  * @return {number} Squared distance from the point to the line segment.
  */
 function squaredDistanceToSegment(coordinate, segment) {
-    return coordinate_squaredDistance(coordinate, closestOnSegment(coordinate, segment));
+    return squaredDistance(coordinate, closestOnSegment(coordinate, segment));
 }
 /**
  * Format a geographic coordinate with the hemisphere, degrees, minutes, and
@@ -5367,8 +5370,8 @@ function toStringXY(coordinate, opt_fractionDigits) {
  */
 function coordinate_wrapX(coordinate, projection) {
     if (projection.canWrapX()) {
-        var worldWidth = extent_getWidth(projection.getExtent());
-        var worldsAway = coordinate_getWorldsAway(coordinate, projection, worldWidth);
+        var worldWidth = getWidth(projection.getExtent());
+        var worldsAway = getWorldsAway(coordinate, projection, worldWidth);
         if (worldsAway) {
             coordinate[0] -= worldsAway * worldWidth;
         }
@@ -5381,18 +5384,20 @@ function coordinate_wrapX(coordinate, projection) {
  * @param {number} [opt_sourceExtentWidth] Width of the source extent.
  * @return {number} Offset in world widths.
  */
-function coordinate_getWorldsAway(coordinate, projection, opt_sourceExtentWidth) {
+function getWorldsAway(coordinate, projection, opt_sourceExtentWidth) {
     var projectionExtent = projection.getExtent();
     var worldsAway = 0;
     if (projection.canWrapX() &&
         (coordinate[0] < projectionExtent[0] || coordinate[0] > projectionExtent[2])) {
-        var sourceExtentWidth = opt_sourceExtentWidth || extent_getWidth(projectionExtent);
+        var sourceExtentWidth = opt_sourceExtentWidth || getWidth(projectionExtent);
         worldsAway = Math.floor((coordinate[0] - projectionExtent[0]) / sourceExtentWidth);
     }
     return worldsAway;
 }
 //# sourceMappingURL=coordinate.js.map
 ;// ./node_modules/ol/sphere.js
+/* unused harmony import specifier */ var sphere_toRadians;
+/* unused harmony import specifier */ var sphere_toDegrees;
 /**
  * @module ol/sphere
  */
@@ -5425,10 +5430,10 @@ var DEFAULT_RADIUS = 6371008.8;
  */
 function getDistance(c1, c2, opt_radius) {
     var radius = opt_radius || DEFAULT_RADIUS;
-    var lat1 = math_toRadians(c1[1]);
-    var lat2 = math_toRadians(c2[1]);
+    var lat1 = toRadians(c1[1]);
+    var lat2 = toRadians(c2[1]);
     var deltaLatBy2 = (lat2 - lat1) / 2;
-    var deltaLonBy2 = math_toRadians(c2[0] - c1[0]) / 2;
+    var deltaLonBy2 = toRadians(c2[0] - c1[0]) / 2;
     var a = Math.sin(deltaLatBy2) * Math.sin(deltaLatBy2) +
         Math.sin(deltaLonBy2) *
             Math.sin(deltaLonBy2) *
@@ -5537,8 +5542,8 @@ function getAreaInternal(coordinates, radius) {
         var x2 = coordinates[i][0];
         var y2 = coordinates[i][1];
         area +=
-            toRadians(x2 - x1) *
-                (2 + Math.sin(toRadians(y1)) + Math.sin(toRadians(y2)));
+            sphere_toRadians(x2 - x1) *
+                (2 + Math.sin(sphere_toRadians(y1)) + Math.sin(sphere_toRadians(y2)));
         x1 = x2;
         y1 = y2;
     }
@@ -5618,17 +5623,25 @@ function sphere_getArea(geometry, opt_options) {
  */
 function offset(c1, distance, bearing, opt_radius) {
     var radius = opt_radius || DEFAULT_RADIUS;
-    var lat1 = toRadians(c1[1]);
-    var lon1 = toRadians(c1[0]);
+    var lat1 = sphere_toRadians(c1[1]);
+    var lon1 = sphere_toRadians(c1[0]);
     var dByR = distance / radius;
     var lat = Math.asin(Math.sin(lat1) * Math.cos(dByR) +
         Math.cos(lat1) * Math.sin(dByR) * Math.cos(bearing));
     var lon = lon1 +
         Math.atan2(Math.sin(bearing) * Math.sin(dByR) * Math.cos(lat1), Math.cos(dByR) - Math.sin(lat1) * Math.sin(lat));
-    return [toDegrees(lon), toDegrees(lat)];
+    return [sphere_toDegrees(lon), sphere_toDegrees(lat)];
 }
 //# sourceMappingURL=sphere.js.map
 ;// ./node_modules/ol/proj.js
+/* unused harmony import specifier */ var proj_METERS_PER_UNIT;
+/* unused harmony import specifier */ var clearProj;
+/* unused harmony import specifier */ var clearTransformFuncs;
+/* unused harmony import specifier */ var addTransformFunc;
+/* unused harmony import specifier */ var proj_getWidth;
+/* unused harmony import specifier */ var proj_modulo;
+/* unused harmony import specifier */ var proj_clamp;
+/* unused harmony import specifier */ var proj_getWorldsAway;
 /**
  * @module ol/proj
  */
@@ -5814,7 +5827,7 @@ function getPointResolution(projection, resolution, point, opt_units) {
             var metersPerUnit = projection.getMetersPerUnit();
             if (metersPerUnit) {
                 pointResolution =
-                    (pointResolution * metersPerUnit) / Units_METERS_PER_UNIT[opt_units];
+                    (pointResolution * metersPerUnit) / METERS_PER_UNIT[opt_units];
             }
         }
     }
@@ -5849,7 +5862,7 @@ function getPointResolution(projection, resolution, point, opt_units) {
                 pointResolution = (width + height) / 2;
             }
             var metersPerUnit = opt_units
-                ? Units_METERS_PER_UNIT[opt_units]
+                ? METERS_PER_UNIT[opt_units]
                 : projection.getMetersPerUnit();
             if (metersPerUnit !== undefined) {
                 pointResolution /= metersPerUnit;
@@ -6002,7 +6015,7 @@ function toLonLat(coordinate, opt_projection) {
     var lonLat = transform(coordinate, opt_projection !== undefined ? opt_projection : 'EPSG:3857', 'EPSG:4326');
     var lon = lonLat[0];
     if (lon < -180 || lon > 180) {
-        lonLat[0] = modulo(lon + 180, 360) - 180;
+        lonLat[0] = proj_modulo(lon + 180, 360) - 180;
     }
     return lonLat;
 }
@@ -6189,7 +6202,7 @@ function fromUserCoordinate(coordinate, destProjection) {
  * @param {ProjectionLike} sourceProjection The input extent projection.
  * @return {import("./extent.js").Extent} The input extent in the user projection.
  */
-function proj_toUserExtent(extent, sourceProjection) {
+function toUserExtent(extent, sourceProjection) {
     if (!userProjection) {
         return extent;
     }
@@ -6202,7 +6215,7 @@ function proj_toUserExtent(extent, sourceProjection) {
  * @param {ProjectionLike} destProjection The destination projection.
  * @return {import("./extent.js").Extent} The input extent transformed.
  */
-function proj_fromUserExtent(extent, destProjection) {
+function fromUserExtent(extent, destProjection) {
     if (!userProjection) {
         return extent;
     }
@@ -6223,7 +6236,7 @@ function toUserResolution(resolution, sourceProjection) {
     var sourceUnits = proj_get(sourceProjection).getUnits();
     var userUnits = userProjection.getUnits();
     return sourceUnits && userUnits
-        ? (resolution * Units_METERS_PER_UNIT[sourceUnits]) / Units_METERS_PER_UNIT[userUnits]
+        ? (resolution * METERS_PER_UNIT[sourceUnits]) / METERS_PER_UNIT[userUnits]
         : resolution;
 }
 /**
@@ -6234,14 +6247,14 @@ function toUserResolution(resolution, sourceProjection) {
  * @param {ProjectionLike} destProjection The destination projection.
  * @return {number} Resolution in destination projection units per pixel.
  */
-function proj_fromUserResolution(resolution, destProjection) {
+function fromUserResolution(resolution, destProjection) {
     if (!userProjection) {
         return resolution;
     }
     var sourceUnits = proj_get(destProjection).getUnits();
     var userUnits = userProjection.getUnits();
     return sourceUnits && userUnits
-        ? (resolution * METERS_PER_UNIT[userUnits]) / METERS_PER_UNIT[sourceUnits]
+        ? (resolution * proj_METERS_PER_UNIT[userUnits]) / proj_METERS_PER_UNIT[sourceUnits]
         : resolution;
 }
 /**
@@ -6259,15 +6272,15 @@ function createSafeCoordinateTransform(sourceProj, destProj, transform) {
         var transformed, worldsAway;
         if (sourceProj.canWrapX()) {
             var sourceExtent = sourceProj.getExtent();
-            var sourceExtentWidth = getWidth(sourceExtent);
+            var sourceExtentWidth = proj_getWidth(sourceExtent);
             coord = coord.slice(0);
-            worldsAway = getWorldsAway(coord, sourceProj, sourceExtentWidth);
+            worldsAway = proj_getWorldsAway(coord, sourceProj, sourceExtentWidth);
             if (worldsAway) {
                 // Move x to the real world
                 coord[0] = coord[0] - worldsAway * sourceExtentWidth;
             }
-            coord[0] = clamp(coord[0], sourceExtent[0], sourceExtent[2]);
-            coord[1] = clamp(coord[1], sourceExtent[1], sourceExtent[3]);
+            coord[0] = proj_clamp(coord[0], sourceExtent[0], sourceExtent[2]);
+            coord[1] = proj_clamp(coord[1], sourceExtent[1], sourceExtent[3]);
             transformed = transform(coord);
         }
         else {
@@ -6275,7 +6288,7 @@ function createSafeCoordinateTransform(sourceProj, destProj, transform) {
         }
         if (worldsAway && destProj.canWrapX()) {
             // Move transformed coordinate back to the offset world
-            transformed[0] += worldsAway * getWidth(destProj.getExtent());
+            transformed[0] += worldsAway * proj_getWidth(destProj.getExtent());
         }
         return transformed;
     };
@@ -6803,7 +6816,7 @@ var Zoom = /** @class */ (function (_super) {
  * `'XYZ'`, `'XYM'`, `'XYZM'`.
  * @enum {string}
  */
-/* harmony default export */ var geom_GeometryLayout = ({
+/* harmony default export */ var GeometryLayout = ({
     XY: 'XY',
     XYZ: 'XYZ',
     XYM: 'XYM',
@@ -7031,7 +7044,7 @@ function invert(source) {
  */
 function makeInverse(target, source) {
     var det = determinant(source);
-    asserts_assert(det !== 0, 32); // Transformation matrix cannot be inverted
+    assert(det !== 0, 32); // Transformation matrix cannot be inverted
     var a = source[0];
     var b = source[1];
     var c = source[2];
@@ -7529,7 +7542,7 @@ var SimpleGeometry = /** @class */ (function (_super) {
          * @protected
          * @type {import("./GeometryLayout.js").default}
          */
-        _this.layout = geom_GeometryLayout.XY;
+        _this.layout = GeometryLayout.XY;
         /**
          * @protected
          * @type {number}
@@ -7666,7 +7679,7 @@ var SimpleGeometry = /** @class */ (function (_super) {
         else {
             for (var i = 0; i < nesting; ++i) {
                 if (coordinates.length === 0) {
-                    this.layout = geom_GeometryLayout.XY;
+                    this.layout = GeometryLayout.XY;
                     this.stride = 2;
                     return;
                 }
@@ -7759,13 +7772,13 @@ var SimpleGeometry = /** @class */ (function (_super) {
 function getLayoutForStride(stride) {
     var layout;
     if (stride == 2) {
-        layout = geom_GeometryLayout.XY;
+        layout = GeometryLayout.XY;
     }
     else if (stride == 3) {
-        layout = geom_GeometryLayout.XYZ;
+        layout = GeometryLayout.XYZ;
     }
     else if (stride == 4) {
-        layout = geom_GeometryLayout.XYZM;
+        layout = GeometryLayout.XYZM;
     }
     return /** @type {import("./GeometryLayout.js").default} */ (layout);
 }
@@ -7775,13 +7788,13 @@ function getLayoutForStride(stride) {
  */
 function getStrideForLayout(layout) {
     var stride;
-    if (layout == geom_GeometryLayout.XY) {
+    if (layout == GeometryLayout.XY) {
         stride = 2;
     }
-    else if (layout == geom_GeometryLayout.XYZ || layout == geom_GeometryLayout.XYM) {
+    else if (layout == GeometryLayout.XYZ || layout == GeometryLayout.XYM) {
         stride = 3;
     }
-    else if (layout == geom_GeometryLayout.XYZM) {
+    else if (layout == GeometryLayout.XYZM) {
         stride = 4;
     }
     return /** @type {number} */ (stride);
@@ -8106,6 +8119,7 @@ function deflateMultiCoordinatesArray(flatCoordinates, offset, coordinatesss, st
 }
 //# sourceMappingURL=deflate.js.map
 ;// ./node_modules/ol/geom/flat/simplify.js
+/* unused harmony import specifier */ var simplify_squaredDistance;
 /**
  * @module ol/geom/flat/simplify
  */
@@ -8298,7 +8312,7 @@ function radialDistance(flatCoordinates, offset, end, stride, squaredTolerance, 
     for (offset += stride; offset < end; offset += stride) {
         x2 = flatCoordinates[offset];
         y2 = flatCoordinates[offset + 1];
-        if (squaredDistance(x1, y1, x2, y2) > squaredTolerance) {
+        if (simplify_squaredDistance(x1, y1, x2, y2) > squaredTolerance) {
             // copy point at offset
             simplifiedFlatCoordinates[simplifiedOffset++] = x2;
             simplifiedFlatCoordinates[simplifiedOffset++] = y2;
@@ -9077,7 +9091,7 @@ var LineString = /** @class */ (function (_super) {
             this.flatCoordinates = coordinate.slice();
         }
         else {
-            array_extend(this.flatCoordinates, coordinate);
+            extend(this.flatCoordinates, coordinate);
         }
         this.changed();
     };
@@ -9137,8 +9151,8 @@ var LineString = /** @class */ (function (_super) {
      * @api
      */
     LineString.prototype.getCoordinateAtM = function (m, opt_extrapolate) {
-        if (this.layout != geom_GeometryLayout.XYM &&
-            this.layout != geom_GeometryLayout.XYZM) {
+        if (this.layout != GeometryLayout.XYM &&
+            this.layout != GeometryLayout.XYZM) {
             return null;
         }
         var extrapolate = opt_extrapolate !== undefined ? opt_extrapolate : false;
@@ -9191,7 +9205,7 @@ var LineString = /** @class */ (function (_super) {
     LineString.prototype.getSimplifiedGeometryInternal = function (squaredTolerance) {
         var simplifiedFlatCoordinates = [];
         simplifiedFlatCoordinates.length = douglasPeucker(this.flatCoordinates, 0, this.flatCoordinates.length, this.stride, squaredTolerance, simplifiedFlatCoordinates, 0);
-        return new LineString(simplifiedFlatCoordinates, geom_GeometryLayout.XY);
+        return new LineString(simplifiedFlatCoordinates, GeometryLayout.XY);
     };
     /**
      * Get the type of this geometry.
@@ -9397,7 +9411,7 @@ var LinearRing = /** @class */ (function (_super) {
     LinearRing.prototype.getSimplifiedGeometryInternal = function (squaredTolerance) {
         var simplifiedFlatCoordinates = [];
         simplifiedFlatCoordinates.length = douglasPeucker(this.flatCoordinates, 0, this.flatCoordinates.length, this.stride, squaredTolerance, simplifiedFlatCoordinates, 0);
-        return new LinearRing(simplifiedFlatCoordinates, geom_GeometryLayout.XY);
+        return new LinearRing(simplifiedFlatCoordinates, GeometryLayout.XY);
     };
     /**
      * Get the type of this geometry.
@@ -9515,7 +9529,7 @@ var MultiLineString = /** @class */ (function (_super) {
                 if (i === 0) {
                     layout = lineString.getLayout();
                 }
-                array_extend(flatCoordinates, lineString.getFlatCoordinates());
+                extend(flatCoordinates, lineString.getFlatCoordinates());
                 ends.push(flatCoordinates.length);
             }
             _this.setFlatCoordinates(layout, flatCoordinates);
@@ -9533,7 +9547,7 @@ var MultiLineString = /** @class */ (function (_super) {
             this.flatCoordinates = lineString.getFlatCoordinates().slice();
         }
         else {
-            array_extend(this.flatCoordinates, lineString.getFlatCoordinates().slice());
+            extend(this.flatCoordinates, lineString.getFlatCoordinates().slice());
         }
         this.ends_.push(this.flatCoordinates.length);
         this.changed();
@@ -9588,8 +9602,8 @@ var MultiLineString = /** @class */ (function (_super) {
      * @api
      */
     MultiLineString.prototype.getCoordinateAtM = function (m, opt_extrapolate, opt_interpolate) {
-        if ((this.layout != geom_GeometryLayout.XYM &&
-            this.layout != geom_GeometryLayout.XYZM) ||
+        if ((this.layout != GeometryLayout.XYM &&
+            this.layout != GeometryLayout.XYZM) ||
             this.flatCoordinates.length === 0) {
             return null;
         }
@@ -9655,7 +9669,7 @@ var MultiLineString = /** @class */ (function (_super) {
         for (var i = 0, ii = ends.length; i < ii; ++i) {
             var end = ends[i];
             var midpoint = interpolatePoint(flatCoordinates, offset, end, stride, 0.5);
-            array_extend(midpoints, midpoint);
+            extend(midpoints, midpoint);
             offset = end;
         }
         return midpoints;
@@ -9669,7 +9683,7 @@ var MultiLineString = /** @class */ (function (_super) {
         var simplifiedFlatCoordinates = [];
         var simplifiedEnds = [];
         simplifiedFlatCoordinates.length = douglasPeuckerArray(this.flatCoordinates, 0, this.ends_, this.stride, squaredTolerance, simplifiedFlatCoordinates, 0, simplifiedEnds);
-        return new MultiLineString(simplifiedFlatCoordinates, geom_GeometryLayout.XY, simplifiedEnds);
+        return new MultiLineString(simplifiedFlatCoordinates, GeometryLayout.XY, simplifiedEnds);
     };
     /**
      * Get the type of this geometry.
@@ -9890,7 +9904,7 @@ var MultiPoint = /** @class */ (function (_super) {
             this.flatCoordinates = point.getFlatCoordinates().slice();
         }
         else {
-            array_extend(this.flatCoordinates, point.getFlatCoordinates());
+            extend(this.flatCoordinates, point.getFlatCoordinates());
         }
         this.changed();
     };
@@ -10289,6 +10303,10 @@ function inflateEnds(flatCoordinates, ends) {
 }
 //# sourceMappingURL=orient.js.map
 ;// ./node_modules/ol/geom/Polygon.js
+/* unused harmony import specifier */ var Polygon_GeometryLayout;
+/* unused harmony import specifier */ var Polygon_extend;
+/* unused harmony import specifier */ var Polygon_modulo;
+/* unused harmony import specifier */ var sphereOffset;
 var Polygon_extends = (undefined && undefined.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -10401,7 +10419,7 @@ var Polygon = /** @class */ (function (_super) {
             this.flatCoordinates = linearRing.getFlatCoordinates().slice();
         }
         else {
-            array_extend(this.flatCoordinates, linearRing.getFlatCoordinates());
+            extend(this.flatCoordinates, linearRing.getFlatCoordinates());
         }
         this.ends_.push(this.flatCoordinates.length);
         this.changed();
@@ -10497,7 +10515,7 @@ var Polygon = /** @class */ (function (_super) {
      * @api
      */
     Polygon.prototype.getInteriorPoint = function () {
-        return new geom_Point(this.getFlatInteriorPoint(), geom_GeometryLayout.XYM);
+        return new geom_Point(this.getFlatInteriorPoint(), GeometryLayout.XYM);
     };
     /**
      * Return the number of rings of the polygon,  this includes the exterior
@@ -10570,7 +10588,7 @@ var Polygon = /** @class */ (function (_super) {
         var simplifiedFlatCoordinates = [];
         var simplifiedEnds = [];
         simplifiedFlatCoordinates.length = quantizeArray(this.flatCoordinates, 0, this.ends_, this.stride, Math.sqrt(squaredTolerance), simplifiedFlatCoordinates, 0, simplifiedEnds);
-        return new Polygon(simplifiedFlatCoordinates, geom_GeometryLayout.XY, simplifiedEnds);
+        return new Polygon(simplifiedFlatCoordinates, GeometryLayout.XY, simplifiedEnds);
     };
     /**
      * Get the type of this geometry.
@@ -10624,10 +10642,10 @@ function circular(center, radius, opt_n, opt_sphereRadius) {
     /** @type {Array<number>} */
     var flatCoordinates = [];
     for (var i = 0; i < n; ++i) {
-        extend(flatCoordinates, sphereOffset(center, radius, (2 * Math.PI * i) / n, opt_sphereRadius));
+        Polygon_extend(flatCoordinates, sphereOffset(center, radius, (2 * Math.PI * i) / n, opt_sphereRadius));
     }
     flatCoordinates.push(flatCoordinates[0], flatCoordinates[1]);
-    return new Polygon(flatCoordinates, GeometryLayout.XY, [
+    return new Polygon(flatCoordinates, Polygon_GeometryLayout.XY, [
         flatCoordinates.length,
     ]);
 }
@@ -10654,7 +10672,7 @@ function fromExtent(extent) {
         minX,
         minY,
     ];
-    return new Polygon(flatCoordinates, geom_GeometryLayout.XY, [
+    return new Polygon(flatCoordinates, GeometryLayout.XY, [
         flatCoordinates.length,
     ]);
 }
@@ -10701,7 +10719,7 @@ function makeRegular(polygon, center, radius, opt_angle) {
     var startAngle = opt_angle ? opt_angle : 0;
     for (var i = 0; i <= sides; ++i) {
         var offset = i * stride;
-        var angle = startAngle + (modulo(i, sides) * 2 * Math.PI) / sides;
+        var angle = startAngle + (Polygon_modulo(i, sides) * 2 * Math.PI) / sides;
         flatCoordinates[offset] = center[0] + radius * Math.cos(angle);
         flatCoordinates[offset + 1] = center[1] + radius * Math.sin(angle);
     }
@@ -10833,7 +10851,7 @@ var MultiPolygon = /** @class */ (function (_super) {
                 for (var j = 0, jj = ends.length; j < jj; ++j) {
                     ends[j] += offset;
                 }
-                array_extend(flatCoordinates, polygon.getFlatCoordinates());
+                extend(flatCoordinates, polygon.getFlatCoordinates());
                 endss.push(ends);
             }
             opt_layout = layout;
@@ -10866,7 +10884,7 @@ var MultiPolygon = /** @class */ (function (_super) {
         }
         else {
             var offset = this.flatCoordinates.length;
-            array_extend(this.flatCoordinates, polygon.getFlatCoordinates());
+            extend(this.flatCoordinates, polygon.getFlatCoordinates());
             ends = polygon.getEnds().slice();
             for (var i = 0, ii = ends.length; i < ii; ++i) {
                 ends[i] += offset;
@@ -10971,7 +10989,7 @@ var MultiPolygon = /** @class */ (function (_super) {
      * @api
      */
     MultiPolygon.prototype.getInteriorPoints = function () {
-        return new geom_MultiPoint(this.getFlatInteriorPoints().slice(), geom_GeometryLayout.XYM);
+        return new geom_MultiPoint(this.getFlatInteriorPoints().slice(), GeometryLayout.XYM);
     };
     /**
      * @return {Array<number>} Oriented flat coordinates.
@@ -10999,7 +11017,7 @@ var MultiPolygon = /** @class */ (function (_super) {
         var simplifiedFlatCoordinates = [];
         var simplifiedEndss = [];
         simplifiedFlatCoordinates.length = quantizeMultiArray(this.flatCoordinates, 0, this.endss_, this.stride, Math.sqrt(squaredTolerance), simplifiedFlatCoordinates, 0, simplifiedEndss);
-        return new MultiPolygon(simplifiedFlatCoordinates, geom_GeometryLayout.XY, simplifiedEndss);
+        return new MultiPolygon(simplifiedFlatCoordinates, GeometryLayout.XY, simplifiedEndss);
     };
     /**
      * Return the polygon at the specified index.
@@ -11726,7 +11744,7 @@ function fromStringInternal_(s) {
         normalize(color);
     }
     else {
-        asserts_assert(false, 14); // Invalid color
+        assert(false, 14); // Invalid color
     }
     return color;
 }
@@ -11736,10 +11754,10 @@ function fromStringInternal_(s) {
  * @return {Color} Clamped color.
  */
 function normalize(color) {
-    color[0] = math_clamp((color[0] + 0.5) | 0, 0, 255);
-    color[1] = math_clamp((color[1] + 0.5) | 0, 0, 255);
-    color[2] = math_clamp((color[2] + 0.5) | 0, 0, 255);
-    color[3] = math_clamp(color[3], 0, 1);
+    color[0] = clamp((color[0] + 0.5) | 0, 0, 255);
+    color[1] = clamp((color[1] + 0.5) | 0, 0, 255);
+    color[2] = clamp((color[2] + 0.5) | 0, 0, 255);
+    color[3] = clamp(color[3], 0, 1);
     return color;
 }
 /**
@@ -13008,20 +13026,20 @@ var Triangulation = /** @class */ (function () {
             this.sourceProj_.canWrapX() &&
                 !!maxSourceExtent &&
                 !!this.sourceProj_.getExtent() &&
-                extent_getWidth(maxSourceExtent) == extent_getWidth(this.sourceProj_.getExtent());
+                getWidth(maxSourceExtent) == getWidth(this.sourceProj_.getExtent());
         /**
          * @type {?number}
          * @private
          */
         this.sourceWorldWidth_ = this.sourceProj_.getExtent()
-            ? extent_getWidth(this.sourceProj_.getExtent())
+            ? getWidth(this.sourceProj_.getExtent())
             : null;
         /**
          * @type {?number}
          * @private
          */
         this.targetWorldWidth_ = this.targetProj_.getExtent()
-            ? extent_getWidth(this.targetProj_.getExtent())
+            ? getWidth(this.targetProj_.getExtent())
             : null;
         var destinationTopLeft = getTopLeft(targetExtent);
         var destinationTopRight = getTopRight(targetExtent);
@@ -13123,7 +13141,7 @@ var Triangulation = /** @class */ (function () {
     Triangulation.prototype.addQuad_ = function (a, b, c, d, aSrc, bSrc, cSrc, dSrc, maxSubdivision) {
         var sourceQuadExtent = boundingExtent([aSrc, bSrc, cSrc, dSrc]);
         var sourceCoverageX = this.sourceWorldWidth_
-            ? extent_getWidth(sourceQuadExtent) / this.sourceWorldWidth_
+            ? getWidth(sourceQuadExtent) / this.sourceWorldWidth_
             : null;
         var sourceWorldWidth = /** @type {number} */ (this.sourceWorldWidth_);
         // when the quad is wrapped in the source projection
@@ -13135,7 +13153,7 @@ var Triangulation = /** @class */ (function () {
         if (maxSubdivision > 0) {
             if (this.targetProj_.isGlobal() && this.targetWorldWidth_) {
                 var targetQuadExtent = boundingExtent([a, b, c, d]);
-                var targetCoverageX = extent_getWidth(targetQuadExtent) / this.targetWorldWidth_;
+                var targetCoverageX = getWidth(targetQuadExtent) / this.targetWorldWidth_;
                 needsSubdivision =
                     targetCoverageX > MAX_TRIANGLE_WIDTH || needsSubdivision;
             }
@@ -13191,10 +13209,10 @@ var Triangulation = /** @class */ (function () {
                 var centerSrc = this.transformInv_(center);
                 var dx = void 0;
                 if (wrapsX) {
-                    var centerSrcEstimX = (math_modulo(aSrc[0], sourceWorldWidth) +
-                        math_modulo(cSrc[0], sourceWorldWidth)) /
+                    var centerSrcEstimX = (modulo(aSrc[0], sourceWorldWidth) +
+                        modulo(cSrc[0], sourceWorldWidth)) /
                         2;
-                    dx = centerSrcEstimX - math_modulo(centerSrc[0], sourceWorldWidth);
+                    dx = centerSrcEstimX - modulo(centerSrc[0], sourceWorldWidth);
                 }
                 else {
                     dx = (aSrc[0] + cSrc[0]) / 2 - centerSrc[0];
@@ -13470,7 +13488,7 @@ function render(width, height, pixelRatio, sourceResolution, sourceExtent, targe
     sources.forEach(function (src, i, arr) {
         extent_extend(sourceDataExtent, src.extent);
     });
-    var canvasWidthInUnits = extent_getWidth(sourceDataExtent);
+    var canvasWidthInUnits = getWidth(sourceDataExtent);
     var canvasHeightInUnits = getHeight(sourceDataExtent);
     var stitchContext = createCanvasContext2D(Math.round((pixelRatio * canvasWidthInUnits) / sourceResolution), Math.round((pixelRatio * canvasHeightInUnits) / sourceResolution));
     if (!opt_interpolate) {
@@ -13480,7 +13498,7 @@ function render(width, height, pixelRatio, sourceResolution, sourceExtent, targe
     sources.forEach(function (src, i, arr) {
         var xPos = src.extent[0] - sourceDataExtent[0];
         var yPos = -(src.extent[3] - sourceDataExtent[3]);
-        var srcWidth = extent_getWidth(src.extent);
+        var srcWidth = getWidth(src.extent);
         var srcHeight = getHeight(src.extent);
         // This test should never fail -- but it does. Need to find a fix the upstream condition
         if (src.image.width > 0 && src.image.height > 0) {
@@ -13750,8 +13768,8 @@ var ReprojTile = /** @class */ (function (_super) {
         var sourceExtent = _this.triangulation_.calculateSourceExtent();
         if (maxSourceExtent) {
             if (sourceProj.canWrapX()) {
-                sourceExtent[1] = math_clamp(sourceExtent[1], maxSourceExtent[1], maxSourceExtent[3]);
-                sourceExtent[3] = math_clamp(sourceExtent[3], maxSourceExtent[1], maxSourceExtent[3]);
+                sourceExtent[1] = clamp(sourceExtent[1], maxSourceExtent[1], maxSourceExtent[3]);
+                sourceExtent[3] = clamp(sourceExtent[3], maxSourceExtent[1], maxSourceExtent[3]);
             }
             else {
                 sourceExtent = getIntersection(sourceExtent, maxSourceExtent);
@@ -14310,11 +14328,11 @@ var CanvasTileLayerRenderer = /** @class */ (function (_super) {
         var resolution = frameState.viewState.resolution;
         var tilePixelRatio = tileSource.getTilePixelRatio(pixelRatio);
         // desired dimensions of the canvas in pixels
-        var width = Math.round((extent_getWidth(extent) / resolution) * pixelRatio);
+        var width = Math.round((getWidth(extent) / resolution) * pixelRatio);
         var height = Math.round((getHeight(extent) / resolution) * pixelRatio);
-        var layerExtent = layerState.extent && proj_fromUserExtent(layerState.extent, projection);
+        var layerExtent = layerState.extent && fromUserExtent(layerState.extent, projection);
         if (layerExtent) {
-            extent = getIntersection(extent, proj_fromUserExtent(layerState.extent, projection));
+            extent = getIntersection(extent, fromUserExtent(layerState.extent, projection));
         }
         var dx = (tileResolution * width) / 2 / tilePixelRatio;
         var dy = (tileResolution * height) / 2 / tilePixelRatio;
@@ -16063,7 +16081,7 @@ var Circle_extends = (undefined && undefined.__extends) || (function () {
  * Set circle style for vector features.
  * @api
  */
-var Circle_CircleStyle = /** @class */ (function (_super) {
+var CircleStyle = /** @class */ (function (_super) {
     Circle_extends(CircleStyle, _super);
     /**
      * @param {Options} [opt_options] Options.
@@ -16114,7 +16132,7 @@ var Circle_CircleStyle = /** @class */ (function (_super) {
     };
     return CircleStyle;
 }(style_RegularShape));
-/* harmony default export */ var Circle = (Circle_CircleStyle);
+/* harmony default export */ var Circle = (CircleStyle);
 //# sourceMappingURL=Circle.js.map
 ;// ./node_modules/ol/style/Fill.js
 /**
@@ -16131,7 +16149,7 @@ var Circle_CircleStyle = /** @class */ (function (_super) {
  * Set fill style for vector features.
  * @api
  */
-var Fill_Fill = /** @class */ (function () {
+var Fill = /** @class */ (function () {
     /**
      * @param {Options} [opt_options] Options.
      */
@@ -16173,7 +16191,7 @@ var Fill_Fill = /** @class */ (function () {
     };
     return Fill;
 }());
-/* harmony default export */ var style_Fill = (Fill_Fill);
+/* harmony default export */ var style_Fill = (Fill);
 //# sourceMappingURL=Fill.js.map
 ;// ./node_modules/ol/style/Stroke.js
 /**
@@ -16201,7 +16219,7 @@ var Fill_Fill = /** @class */ (function () {
  * the options; they will not return the default.
  * @api
  */
-var Stroke_Stroke = /** @class */ (function () {
+var Stroke = /** @class */ (function () {
     /**
      * @param {Options} [opt_options] Options.
      */
@@ -16387,9 +16405,12 @@ var Stroke_Stroke = /** @class */ (function () {
     };
     return Stroke;
 }());
-/* harmony default export */ var style_Stroke = (Stroke_Stroke);
+/* harmony default export */ var style_Stroke = (Stroke);
 //# sourceMappingURL=Stroke.js.map
 ;// ./node_modules/ol/style/Style.js
+/* unused harmony import specifier */ var Style_CircleStyle;
+/* unused harmony import specifier */ var Style_Fill;
+/* unused harmony import specifier */ var Style_Stroke;
 /**
  * @module ol/style/Style
  */
@@ -16799,7 +16820,7 @@ function toFunction(obj) {
             styles_1 = obj;
         }
         else {
-            asserts_assert(typeof ( /** @type {?} */(obj).getZIndex) === 'function', 41); // Expected an `Style` or an array of `Style`
+            assert(typeof ( /** @type {?} */(obj).getZIndex) === 'function', 41); // Expected an `Style` or an array of `Style`
             var style = /** @type {Style} */ (obj);
             styles_1 = [style];
         }
@@ -16858,7 +16879,7 @@ function createEditingStyle() {
     var width = 3;
     styles['Polygon'] = [
         new Style({
-            fill: new Fill({
+            fill: new Style_Fill({
                 color: [255, 255, 255, 0.5],
             }),
         }),
@@ -16866,13 +16887,13 @@ function createEditingStyle() {
     styles['MultiPolygon'] = styles['Polygon'];
     styles['LineString'] = [
         new Style({
-            stroke: new Stroke({
+            stroke: new Style_Stroke({
                 color: white,
                 width: width + 2,
             }),
         }),
         new Style({
-            stroke: new Stroke({
+            stroke: new Style_Stroke({
                 color: blue,
                 width: width,
             }),
@@ -16882,12 +16903,12 @@ function createEditingStyle() {
     styles['Circle'] = styles['Polygon'].concat(styles['LineString']);
     styles['Point'] = [
         new Style({
-            image: new CircleStyle({
+            image: new Style_CircleStyle({
                 radius: width * 2,
-                fill: new Fill({
+                fill: new Style_Fill({
                     color: blue,
                 }),
-                stroke: new Stroke({
+                stroke: new Style_Stroke({
                     color: white,
                     width: width / 2,
                 }),
@@ -20588,7 +20609,7 @@ var ExecutorGroup = /** @class */ (function () {
      * @return {boolean} Is empty.
      */
     ExecutorGroup.prototype.isEmpty = function () {
-        return obj_isEmpty(this.executorsByZIndex_);
+        return isEmpty(this.executorsByZIndex_);
     };
     /**
      * @param {CanvasRenderingContext2D} context Context.
@@ -22247,12 +22268,12 @@ var Icon = /** @class */ (function (_super) {
          * @type {string|undefined}
          */
         var src = options.src;
-        asserts_assert(!(src !== undefined && image), 4); // `image` and `src` cannot be provided at the same time
-        asserts_assert(!image || (image && _this.imgSize_), 5); // `imgSize` must be set when `image` is provided
+        assert(!(src !== undefined && image), 4); // `image` and `src` cannot be provided at the same time
+        assert(!image || (image && _this.imgSize_), 5); // `imgSize` must be set when `image` is provided
         if ((src === undefined || src.length === 0) && image) {
             src = /** @type {HTMLImageElement} */ (image).src || getUid(image);
         }
-        asserts_assert(src !== undefined && src.length > 0, 6); // A defined and non-empty `src` or `image` must be provided
+        assert(src !== undefined && src.length > 0, 6); // A defined and non-empty `src` or `image` must be provided
         /**
          * @type {import("../ImageState.js").default}
          */
@@ -22634,8 +22655,8 @@ function hitDetect(pixel, features, imageData) {
         // The pixel coordinate is clamped down to the hit-detect canvas' size to account
         // for browsers returning coordinates slightly larger than the actual canvas size
         // due to a non-integer pixel ratio.
-        var index = (math_clamp(x, 0, imageData.width - 1) +
-            math_clamp(y, 0, imageData.height - 1) * imageData.width) *
+        var index = (clamp(x, 0, imageData.width - 1) +
+            clamp(y, 0, imageData.height - 1) * imageData.width) *
             4;
         var r = imageData.data[index];
         var g = imageData.data[index + 1];
@@ -23147,7 +23168,7 @@ var CanvasVectorLayerRenderer = /** @class */ (function (_super) {
         var width = Math.round(frameState.size[0] * pixelRatio);
         var height = Math.round(frameState.size[1] * pixelRatio);
         var multiWorld = vectorSource.getWrapX() && projection.canWrapX();
-        var worldWidth = multiWorld ? extent_getWidth(projectionExtent) : null;
+        var worldWidth = multiWorld ? getWidth(projectionExtent) : null;
         var endWorld = multiWorld
             ? Math.ceil((extent[2] - projectionExtent[2]) / worldWidth) + 1
             : 1;
@@ -23234,7 +23255,7 @@ var CanvasVectorLayerRenderer = /** @class */ (function (_super) {
         var clipped = false;
         var render = true;
         if (layerState.extent && this.clipping) {
-            var layerExtent = proj_fromUserExtent(layerState.extent, projection);
+            var layerExtent = fromUserExtent(layerState.extent, projection);
             render = intersects(layerExtent, frameState.extent);
             clipped = render && !containsExtent(layerExtent, frameState.extent);
             if (clipped) {
@@ -23286,7 +23307,7 @@ var CanvasVectorLayerRenderer = /** @class */ (function (_super) {
                     projection.canWrapX() &&
                     !containsExtent(projectionExtent, extent)) {
                     var startX = extent[0];
-                    var worldWidth = extent_getWidth(projectionExtent);
+                    var worldWidth = getWidth(projectionExtent);
                     var world = 0;
                     var offsetX = void 0;
                     while (startX < projectionExtent[0]) {
@@ -23436,8 +23457,8 @@ var CanvasVectorLayerRenderer = /** @class */ (function (_super) {
             // to +540°, we add at least 1 world width on each side of the projection
             // extent. If the viewport is wider than the world, we need to add half of
             // the viewport width to make sure we cover the whole viewport.
-            var worldWidth = extent_getWidth(projectionExtent);
-            var gutter = Math.max(extent_getWidth(extent) / 2, worldWidth);
+            var worldWidth = getWidth(projectionExtent);
+            var gutter = Math.max(getWidth(extent) / 2, worldWidth);
             extent[0] = projectionExtent[0] - gutter;
             extent[2] = projectionExtent[2] + gutter;
             coordinate_wrapX(center, projection);
@@ -23486,7 +23507,7 @@ var CanvasVectorLayerRenderer = /** @class */ (function (_super) {
         if (userProjection) {
             for (var i = 0, ii = loadExtents.length; i < ii; ++i) {
                 var extent_1 = loadExtents[i];
-                var userExtent_1 = proj_toUserExtent(extent_1, projection);
+                var userExtent_1 = toUserExtent(extent_1, projection);
                 vectorSource.loadFeatures(userExtent_1, toUserResolution(resolution, projection), userProjection);
             }
             userTransform = getTransformFromProjections(userProjection, projection);
@@ -23514,7 +23535,7 @@ var CanvasVectorLayerRenderer = /** @class */ (function (_super) {
                 ready = ready && !dirty;
             }
         }.bind(this);
-        var userExtent = proj_toUserExtent(extent, projection);
+        var userExtent = toUserExtent(extent, projection);
         /** @type {Array<import("../../Feature.js").default>} */
         var features = vectorSource.getFeaturesInExtent(userExtent);
         if (vectorLayerRenderOrder) {
@@ -23727,7 +23748,7 @@ var LRUCache = /** @class */ (function () {
      */
     LRUCache.prototype.get = function (key, opt_options) {
         var entry = this.entries_[key];
-        asserts_assert(entry !== undefined, 15); // Tried to get a value for a key that does not exist in the cache
+        assert(entry !== undefined, 15); // Tried to get a value for a key that does not exist in the cache
         if (entry === this.newest_) {
             return entry.value_;
         }
@@ -23752,7 +23773,7 @@ var LRUCache = /** @class */ (function () {
      */
     LRUCache.prototype.remove = function (key) {
         var entry = this.entries_[key];
-        asserts_assert(entry !== undefined, 15); // Tried to get a value for a key that does not exist in the cache
+        assert(entry !== undefined, 15); // Tried to get a value for a key that does not exist in the cache
         if (entry === this.newest_) {
             this.newest_ = /** @type {Entry} */ (entry.older);
             if (this.newest_) {
@@ -23862,7 +23883,7 @@ var LRUCache = /** @class */ (function () {
      * @param {T} value Value.
      */
     LRUCache.prototype.set = function (key, value) {
-        asserts_assert(!(key in this.entries_), 16); // Tried to set a value for a key that is used already
+        assert(!(key in this.entries_), 16); // Tried to set a value for a key that is used already
         var entry = {
             key_: key,
             newer: null,
@@ -24402,7 +24423,7 @@ var TileGrid = /** @class */ (function () {
          * @type {!Array<number>}
          */
         this.resolutions_ = options.resolutions;
-        asserts_assert(isSorted(this.resolutions_, function (a, b) {
+        assert(isSorted(this.resolutions_, function (a, b) {
             return b - a;
         }, true), 17); // `resolutions` must be sorted in descending order
         // check if we've got a consistent zoom factor and origin
@@ -24442,13 +24463,13 @@ var TileGrid = /** @class */ (function () {
         this.origins_ = null;
         if (options.origins !== undefined) {
             this.origins_ = options.origins;
-            asserts_assert(this.origins_.length == this.resolutions_.length, 20); // Number of `origins` and `resolutions` must be equal
+            assert(this.origins_.length == this.resolutions_.length, 20); // Number of `origins` and `resolutions` must be equal
         }
         var extent = options.extent;
         if (extent !== undefined && !this.origin_ && !this.origins_) {
             this.origin_ = getTopLeft(extent);
         }
-        asserts_assert((!this.origin_ && this.origins_) || (this.origin_ && !this.origins_), 18); // Either `origin` or `origins` must be configured, never both
+        assert((!this.origin_ && this.origins_) || (this.origin_ && !this.origins_), 18); // Either `origin` or `origins` must be configured, never both
         /**
          * @private
          * @type {Array<number|import("../size.js").Size>}
@@ -24456,7 +24477,7 @@ var TileGrid = /** @class */ (function () {
         this.tileSizes_ = null;
         if (options.tileSizes !== undefined) {
             this.tileSizes_ = options.tileSizes;
-            asserts_assert(this.tileSizes_.length == this.resolutions_.length, 19); // Number of `tileSizes` and `resolutions` must be equal
+            assert(this.tileSizes_.length == this.resolutions_.length, 19); // Number of `tileSizes` and `resolutions` must be equal
         }
         /**
          * @private
@@ -24468,7 +24489,7 @@ var TileGrid = /** @class */ (function () {
                 : !this.tileSizes_
                     ? DEFAULT_TILE_SIZE
                     : null;
-        asserts_assert((!this.tileSize_ && this.tileSizes_) ||
+        assert((!this.tileSize_ && this.tileSizes_) ||
             (this.tileSize_ && !this.tileSizes_), 22); // Either `tileSize` or `tileSizes` must be configured, never both
         /**
          * @private
@@ -24865,7 +24886,7 @@ var TileGrid = /** @class */ (function () {
      */
     TileGrid.prototype.getZForResolution = function (resolution, opt_direction) {
         var z = linearFindNearest(this.resolutions_, resolution, opt_direction || 0);
-        return math_clamp(z, this.minZoom, this.maxZoom);
+        return clamp(z, this.minZoom, this.maxZoom);
     };
     /**
      * The tile with the provided tile coordinate intersects the given viewport.
@@ -24926,7 +24947,7 @@ function tilegrid_wrapX(tileGrid, tileCoord, projection) {
     var center = tileGrid.getTileCoordCenter(tileCoord);
     var projectionExtent = extentFromProjection(projection);
     if (!containsCoordinate(projectionExtent, center)) {
-        var worldWidth = extent_getWidth(projectionExtent);
+        var worldWidth = getWidth(projectionExtent);
         var worldsAway = Math.ceil((projectionExtent[0] - center[0]) / worldWidth);
         center[0] += worldWidth * worldsAway;
         return tileGrid.getTileCoordForCoordAndZ(center, z);
@@ -24995,7 +25016,7 @@ function createXYZ(opt_options) {
 function resolutionsFromExtent(extent, opt_maxZoom, opt_tileSize, opt_maxResolution) {
     var maxZoom = opt_maxZoom !== undefined ? opt_maxZoom : DEFAULT_MAX_ZOOM;
     var height = getHeight(extent);
-    var width = extent_getWidth(extent);
+    var width = getWidth(extent);
     var tileSize = toSize(opt_tileSize !== undefined ? opt_tileSize : DEFAULT_TILE_SIZE);
     var maxResolution = opt_maxResolution > 0
         ? opt_maxResolution
@@ -25030,7 +25051,7 @@ function extentFromProjection(projection) {
     projection = proj_get(projection);
     var extent = projection.getExtent();
     if (!extent) {
-        var half = (180 * Units_METERS_PER_UNIT[proj_Units.DEGREES]) / projection.getMetersPerUnit();
+        var half = (180 * METERS_PER_UNIT[proj_Units.DEGREES]) / projection.getMetersPerUnit();
         extent = createOrUpdate(-half, -half, half, half);
     }
     return extent;
@@ -25306,7 +25327,7 @@ var TileSource = /** @class */ (function (_super) {
      */
     TileSource.prototype.getTileCacheForProjection = function (projection) {
         var sourceProjection = this.getProjection();
-        asserts_assert(sourceProjection === null || equivalent(sourceProjection, projection), 68 // A VectorTile source can only be rendered if it has a projection compatible with the view projection.
+        assert(sourceProjection === null || equivalent(sourceProjection, projection), 68 // A VectorTile source can only be rendered if it has a projection compatible with the view projection.
         );
         return this.tileCache;
     };
@@ -25449,7 +25470,7 @@ function createFromTemplate(template, tileGrid) {
                 .replace(dashYRegEx, function () {
                 var z = tileCoord[0];
                 var range = tileGrid.getFullTileRange(z);
-                asserts_assert(range, 55); // The {-y} placeholder requires a tile grid with extent
+                assert(range, 55); // The {-y} placeholder requires a tile grid with extent
                 var y = range.getHeight() - tileCoord[2] - 1;
                 return y.toString();
             });
@@ -25490,7 +25511,7 @@ function createFromTileUrlFunctions(tileUrlFunctions) {
         }
         else {
             var h = hash(tileCoord);
-            var index = math_modulo(h, tileUrlFunctions.length);
+            var index = modulo(h, tileUrlFunctions.length);
             return tileUrlFunctions[index](tileCoord, pixelRatio, projection);
         }
     });
@@ -26947,7 +26968,7 @@ var RBush = /** @class */ (function () {
      * @return {boolean} Is empty.
      */
     RBush.prototype.isEmpty = function () {
-        return obj_isEmpty(this.items_);
+        return isEmpty(this.items_);
     };
     /**
      * Remove all values from the RBush.
@@ -27034,6 +27055,9 @@ var RBush = /** @class */ (function () {
  */
 //# sourceMappingURL=VectorEventType.js.map
 ;// ./node_modules/ol/loadingstrategy.js
+/* unused harmony import specifier */ var loadingstrategy_fromUserResolution;
+/* unused harmony import specifier */ var loadingstrategy_fromUserExtent;
+/* unused harmony import specifier */ var loadingstrategy_toUserExtent;
 /**
  * @module ol/loadingstrategy
  */
@@ -27074,15 +27098,15 @@ function tile(tileGrid) {
      * @return {Array<import("./extent.js").Extent>} Extents.
      */
     function (extent, resolution, projection) {
-        var z = tileGrid.getZForResolution(fromUserResolution(resolution, projection));
-        var tileRange = tileGrid.getTileRangeForExtentAndZ(fromUserExtent(extent, projection), z);
+        var z = tileGrid.getZForResolution(loadingstrategy_fromUserResolution(resolution, projection));
+        var tileRange = tileGrid.getTileRangeForExtentAndZ(loadingstrategy_fromUserExtent(extent, projection), z);
         /** @type {Array<import("./extent.js").Extent>} */
         var extents = [];
         /** @type {import("./tilecoord.js").TileCoord} */
         var tileCoord = [z, 0, 0];
         for (tileCoord[1] = tileRange.minX; tileCoord[1] <= tileRange.maxX; ++tileCoord[1]) {
             for (tileCoord[2] = tileRange.minY; tileCoord[2] <= tileRange.maxY; ++tileCoord[2]) {
-                extents.push(toUserExtent(tileGrid.getTileCoordExtent(tileCoord), projection));
+                extents.push(loadingstrategy_toUserExtent(tileGrid.getTileCoordExtent(tileCoord), projection));
             }
         }
         return extents;
@@ -27479,7 +27503,7 @@ var VectorSource = /** @class */ (function (_super) {
             _this.loader_ = options.loader;
         }
         else if (_this.url_ !== undefined) {
-            asserts_assert(_this.format_, 7); // `format` must be set when `url` is set
+            assert(_this.format_, 7); // `format` must be set when `url` is set
             // create a XHR feature loader for "url" and "format"
             _this.loader_ = xhr(_this.url_, 
             /** @type {import("../format/Feature.js").default} */ (_this.format_));
@@ -27626,7 +27650,7 @@ var VectorSource = /** @class */ (function (_super) {
             }
         }
         if (valid) {
-            asserts_assert(!(featureKey in this.uidIndex_), 30); // The passed `feature` was already added to the source
+            assert(!(featureKey in this.uidIndex_), 30); // The passed `feature` was already added to the source
             this.uidIndex_[featureKey] = feature;
         }
         return valid;
@@ -27897,8 +27921,8 @@ var VectorSource = /** @class */ (function (_super) {
         }
         else if (this.featuresRtree_) {
             features = this.featuresRtree_.getAll();
-            if (!obj_isEmpty(this.nullGeometryFeatures_)) {
-                array_extend(features, getValues(this.nullGeometryFeatures_));
+            if (!isEmpty(this.nullGeometryFeatures_)) {
+                extend(features, getValues(this.nullGeometryFeatures_));
             }
         }
         return /** @type {Array<import("../Feature.js").default<Geometry>>} */ (features);
@@ -28124,7 +28148,7 @@ var VectorSource = /** @class */ (function (_super) {
      */
     VectorSource.prototype.isEmpty = function () {
         if (this.featuresRtree_) {
-            return (this.featuresRtree_.isEmpty() && obj_isEmpty(this.nullGeometryFeatures_));
+            return (this.featuresRtree_.isEmpty() && isEmpty(this.nullGeometryFeatures_));
         }
         if (this.featuresCollection_) {
             return this.featuresCollection_.getLength() === 0;
@@ -28273,7 +28297,7 @@ var VectorSource = /** @class */ (function (_super) {
      * @api
      */
     VectorSource.prototype.setUrl = function (url) {
-        asserts_assert(this.format_, 7); // `format` must be set when `url` is set
+        assert(this.format_, 7); // `format` must be set when `url` is set
         this.url_ = url;
         this.setLoader(xhr(url, this.format_));
     };
@@ -29109,7 +29133,7 @@ function createStyleFunction(obj) {
             styles_1 = obj;
         }
         else {
-            asserts_assert(typeof ( /** @type {?} */(obj).getZIndex) === 'function', 41); // Expected an `import("./style/Style.js").Style` or an array of `import("./style/Style.js").Style`
+            assert(typeof ( /** @type {?} */(obj).getZIndex) === 'function', 41); // Expected an `import("./style/Style.js").Style` or an array of `import("./style/Style.js").Style`
             var style = /** @type {import("./style/Style.js").default} */ (obj);
             styles_1 = [style];
         }
@@ -29225,7 +29249,7 @@ var MapRenderer = /** @class */ (function (_super) {
         var offsets = [[0, 0]];
         if (projection.canWrapX() && checkWrapped) {
             var projectionExtent = projection.getExtent();
-            var worldWidth = extent_getWidth(projectionExtent);
+            var worldWidth = getWidth(projectionExtent);
             offsets.push([-worldWidth, 0], [worldWidth, 0]);
         }
         var layerStates = frameState.layerStatesArray;
@@ -29658,7 +29682,7 @@ var LayerGroup = /** @class */ (function (_super) {
                 layers = new ol_Collection(layers.slice(), { unique: true });
             }
             else {
-                asserts_assert(typeof ( /** @type {?} */(layers).getArray) === 'function', 43); // Expected `layers` to be an array or a `Collection`
+                assert(typeof ( /** @type {?} */(layers).getArray) === 'function', 43); // Expected `layers` to be an array or a `Collection`
             }
         }
         else {
@@ -30025,7 +30049,7 @@ var MapBrowserEvent = /** @class */ (function (_super) {
  * Constants for event names.
  * @enum {string}
  */
-/* harmony default export */ var ol_MapBrowserEventType = ({
+/* harmony default export */ var MapBrowserEventType = ({
     /**
      * A true single click with no dragging and no double click. Note that this
      * event is delayed by 250 ms to ensure that it is not a double click.
@@ -30184,13 +30208,13 @@ var MapBrowserEventHandler = /** @class */ (function (_super) {
      * @private
      */
     MapBrowserEventHandler.prototype.emulateClick_ = function (pointerEvent) {
-        var newEvent = new ol_MapBrowserEvent(ol_MapBrowserEventType.CLICK, this.map_, pointerEvent);
+        var newEvent = new ol_MapBrowserEvent(MapBrowserEventType.CLICK, this.map_, pointerEvent);
         this.dispatchEvent(newEvent);
         if (this.clickTimeoutId_ !== undefined) {
             // double-click
             clearTimeout(this.clickTimeoutId_);
             this.clickTimeoutId_ = undefined;
-            newEvent = new ol_MapBrowserEvent(ol_MapBrowserEventType.DBLCLICK, this.map_, pointerEvent);
+            newEvent = new ol_MapBrowserEvent(MapBrowserEventType.DBLCLICK, this.map_, pointerEvent);
             this.dispatchEvent(newEvent);
         }
         else {
@@ -30199,7 +30223,7 @@ var MapBrowserEventHandler = /** @class */ (function (_super) {
             /** @this {MapBrowserEventHandler} */
             function () {
                 this.clickTimeoutId_ = undefined;
-                var newEvent = new ol_MapBrowserEvent(ol_MapBrowserEventType.SINGLECLICK, this.map_, pointerEvent);
+                var newEvent = new ol_MapBrowserEvent(MapBrowserEventType.SINGLECLICK, this.map_, pointerEvent);
                 this.dispatchEvent(newEvent);
             }.bind(this), 250);
         }
@@ -30214,8 +30238,8 @@ var MapBrowserEventHandler = /** @class */ (function (_super) {
     MapBrowserEventHandler.prototype.updateActivePointers_ = function (pointerEvent) {
         var event = pointerEvent;
         var id = event.pointerId;
-        if (event.type == ol_MapBrowserEventType.POINTERUP ||
-            event.type == ol_MapBrowserEventType.POINTERCANCEL) {
+        if (event.type == MapBrowserEventType.POINTERUP ||
+            event.type == MapBrowserEventType.POINTERCANCEL) {
             delete this.trackedTouches_[id];
             for (var pointerId in this.trackedTouches_) {
                 if (this.trackedTouches_[pointerId].target !== event.target) {
@@ -30228,8 +30252,8 @@ var MapBrowserEventHandler = /** @class */ (function (_super) {
                 }
             }
         }
-        else if (event.type == ol_MapBrowserEventType.POINTERDOWN ||
-            event.type == ol_MapBrowserEventType.POINTERMOVE) {
+        else if (event.type == MapBrowserEventType.POINTERDOWN ||
+            event.type == MapBrowserEventType.POINTERMOVE) {
             this.trackedTouches_[id] = event;
         }
         this.activePointers_ = getValues(this.trackedTouches_);
@@ -30241,7 +30265,7 @@ var MapBrowserEventHandler = /** @class */ (function (_super) {
      */
     MapBrowserEventHandler.prototype.handlePointerUp_ = function (pointerEvent) {
         this.updateActivePointers_(pointerEvent);
-        var newEvent = new ol_MapBrowserEvent(ol_MapBrowserEventType.POINTERUP, this.map_, pointerEvent, undefined, undefined, this.activePointers_);
+        var newEvent = new ol_MapBrowserEvent(MapBrowserEventType.POINTERUP, this.map_, pointerEvent, undefined, undefined, this.activePointers_);
         this.dispatchEvent(newEvent);
         // We emulate click events on left mouse button click, touch contact, and pen
         // contact. isMouseActionButton returns true in these cases (evt.button is set
@@ -30279,7 +30303,7 @@ var MapBrowserEventHandler = /** @class */ (function (_super) {
     MapBrowserEventHandler.prototype.handlePointerDown_ = function (pointerEvent) {
         this.emulateClicks_ = this.activePointers_.length === 0;
         this.updateActivePointers_(pointerEvent);
-        var newEvent = new ol_MapBrowserEvent(ol_MapBrowserEventType.POINTERDOWN, this.map_, pointerEvent, undefined, undefined, this.activePointers_);
+        var newEvent = new ol_MapBrowserEvent(MapBrowserEventType.POINTERDOWN, this.map_, pointerEvent, undefined, undefined, this.activePointers_);
         this.dispatchEvent(newEvent);
         // Store a copy of the down event
         this.down_ = /** @type {PointerEvent} */ ({});
@@ -30289,7 +30313,7 @@ var MapBrowserEventHandler = /** @class */ (function (_super) {
         }
         if (this.dragListenerKeys_.length === 0) {
             var doc = this.map_.getOwnerDocument();
-            this.dragListenerKeys_.push(listen(doc, ol_MapBrowserEventType.POINTERMOVE, this.handlePointerMove_, this), listen(doc, ol_MapBrowserEventType.POINTERUP, this.handlePointerUp_, this), 
+            this.dragListenerKeys_.push(listen(doc, MapBrowserEventType.POINTERMOVE, this.handlePointerMove_, this), listen(doc, MapBrowserEventType.POINTERUP, this.handlePointerUp_, this), 
             /* Note that the listener for `pointercancel is set up on
              * `pointerEventHandler_` and not `documentPointerEventHandler_` like
              * the `pointerup` and `pointermove` listeners.
@@ -30303,9 +30327,9 @@ var MapBrowserEventHandler = /** @class */ (function (_super) {
              * only receive a `touchcancel` from `pointerEventHandler_`, because it is
              * only registered there.
              */
-            listen(this.element_, ol_MapBrowserEventType.POINTERCANCEL, this.handlePointerUp_, this));
+            listen(this.element_, MapBrowserEventType.POINTERCANCEL, this.handlePointerUp_, this));
             if (this.element_.getRootNode && this.element_.getRootNode() !== doc) {
-                this.dragListenerKeys_.push(listen(this.element_.getRootNode(), ol_MapBrowserEventType.POINTERUP, this.handlePointerUp_, this));
+                this.dragListenerKeys_.push(listen(this.element_.getRootNode(), MapBrowserEventType.POINTERUP, this.handlePointerUp_, this));
             }
         }
     };
@@ -30321,7 +30345,7 @@ var MapBrowserEventHandler = /** @class */ (function (_super) {
         if (this.isMoving_(pointerEvent)) {
             this.updateActivePointers_(pointerEvent);
             this.dragging_ = true;
-            var newEvent = new ol_MapBrowserEvent(ol_MapBrowserEventType.POINTERDRAG, this.map_, pointerEvent, this.dragging_, undefined, this.activePointers_);
+            var newEvent = new ol_MapBrowserEvent(MapBrowserEventType.POINTERDRAG, this.map_, pointerEvent, this.dragging_, undefined, this.activePointers_);
             this.dispatchEvent(newEvent);
         }
     };
@@ -30334,7 +30358,7 @@ var MapBrowserEventHandler = /** @class */ (function (_super) {
     MapBrowserEventHandler.prototype.relayMoveEvent_ = function (pointerEvent) {
         this.originalPointerMoveEvent_ = pointerEvent;
         var dragging = !!(this.down_ && this.isMoving_(pointerEvent));
-        this.dispatchEvent(new ol_MapBrowserEvent(ol_MapBrowserEventType.POINTERMOVE, this.map_, pointerEvent, dragging));
+        this.dispatchEvent(new ol_MapBrowserEvent(MapBrowserEventType.POINTERMOVE, this.map_, pointerEvent, dragging));
     };
     /**
      * Flexible handling of a `touch-action: none` css equivalent: because calling
@@ -30490,7 +30514,7 @@ var PriorityQueue = /** @class */ (function () {
      * @return {boolean} The element was added to the queue.
      */
     PriorityQueue.prototype.enqueue = function (element) {
-        asserts_assert(!(this.keyFunction_(element) in this.queuedElements_), 31); // Tried to enqueue an `element` that was already added to the queue
+        assert(!(this.keyFunction_(element) in this.queuedElements_), 31); // Tried to enqueue an `element` that was already added to the queue
         var priority = this.priorityFunction_(element);
         if (priority != DROP) {
             this.elements_.push(element);
@@ -30862,8 +30886,8 @@ function createExtent(extent, onlyCenter, smooth) {
             minY = (maxY + minY) / 2;
             maxY = minY;
         }
-        var x = math_clamp(center[0], minX, maxX);
-        var y = math_clamp(center[1], minY, maxY);
+        var x = clamp(center[0], minX, maxX);
+        var y = clamp(center[1], minY, maxY);
         // during an interaction, allow some overscroll
         if (opt_isMoving && smooth && resolution) {
             var ratio = 30 * resolution;
@@ -30905,7 +30929,7 @@ function none(center) {
  * @return {number} Capped resolution.
  */
 function getViewportClampedResolution(resolution, maxExtent, viewportSize, showFullExtent) {
-    var xResolution = extent_getWidth(maxExtent) / viewportSize[0];
+    var xResolution = getWidth(maxExtent) / viewportSize[0];
     var yResolution = getHeight(maxExtent) / viewportSize[1];
     if (showFullExtent) {
         return Math.min(resolution, Math.max(xResolution, yResolution));
@@ -30937,7 +30961,7 @@ function getSmoothClampedResolution(resolution, maxResolution, minResolution) {
                 ratio +
                 1;
     }
-    return math_clamp(result, minResolution / 2, maxResolution * 2);
+    return clamp(result, minResolution / 2, maxResolution * 2);
 }
 /**
  * @param {Array<number>} resolutions Resolutions.
@@ -30966,7 +30990,7 @@ function createSnapToResolutions(resolutions, opt_smooth, opt_maxExtent, opt_sho
             if (opt_isMoving) {
                 var smooth = opt_smooth !== undefined ? opt_smooth : true;
                 if (!smooth) {
-                    return math_clamp(resolution, minResolution, cappedMaxRes);
+                    return clamp(resolution, minResolution, cappedMaxRes);
                 }
                 return getSmoothClampedResolution(resolution, cappedMaxRes, minResolution);
             }
@@ -31010,7 +31034,7 @@ function createSnapToPower(power, maxResolution, opt_minResolution, opt_smooth, 
             if (opt_isMoving) {
                 var smooth = opt_smooth !== undefined ? opt_smooth : true;
                 if (!smooth) {
-                    return math_clamp(resolution, minResolution, cappedMaxRes);
+                    return clamp(resolution, minResolution, cappedMaxRes);
                 }
                 return getSmoothClampedResolution(resolution, cappedMaxRes, minResolution);
             }
@@ -31021,7 +31045,7 @@ function createSnapToPower(power, maxResolution, opt_minResolution, opt_smooth, 
             var cappedZoomLevel = Math.floor(Math.log(maxResolution / capped) / Math.log(power) + offset);
             var zoomLevel = Math.max(minZoomLevel, cappedZoomLevel);
             var newResolution = maxResolution / Math.pow(power, zoomLevel);
-            return math_clamp(newResolution, minResolution, cappedMaxRes);
+            return clamp(newResolution, minResolution, cappedMaxRes);
         }
         else {
             return undefined;
@@ -31052,7 +31076,7 @@ function createMinMaxResolution(maxResolution, minResolution, opt_smooth, opt_ma
                 : maxResolution;
             var smooth = opt_smooth !== undefined ? opt_smooth : true;
             if (!smooth || !opt_isMoving) {
-                return math_clamp(resolution, minResolution, cappedMaxRes);
+                return clamp(resolution, minResolution, cappedMaxRes);
             }
             return getSmoothClampedResolution(resolution, cappedMaxRes, minResolution);
         }
@@ -31124,7 +31148,7 @@ function createSnapToN(n) {
  * @return {Type} Rotation constraint.
  */
 function createSnapToZero(opt_tolerance) {
-    var tolerance = opt_tolerance || math_toRadians(5);
+    var tolerance = opt_tolerance || toRadians(5);
     return (
     /**
      * @param {number|undefined} rotation Rotation.
@@ -31519,7 +31543,7 @@ var View = /** @class */ (function (_super) {
             options.center = fromUserCoordinate(options.center, _this.projection_);
         }
         if (options.extent) {
-            options.extent = proj_fromUserExtent(options.extent, _this.projection_);
+            options.extent = fromUserExtent(options.extent, _this.projection_);
         }
         _this.applyOptions_(options);
         return _this;
@@ -31758,7 +31782,7 @@ var View = /** @class */ (function (_super) {
             }
             if (options.rotation !== undefined) {
                 animation.sourceRotation = rotation;
-                var delta = math_modulo(options.rotation - rotation + Math.PI, 2 * Math.PI) - Math.PI;
+                var delta = modulo(options.rotation - rotation + Math.PI, 2 * Math.PI) - Math.PI;
                 animation.targetRotation = rotation + delta;
                 rotation = animation.targetRotation;
             }
@@ -31879,7 +31903,7 @@ var View = /** @class */ (function (_super) {
                 if (animation.sourceRotation !== undefined &&
                     animation.targetRotation !== undefined) {
                     var rotation = progress === 1
-                        ? math_modulo(animation.targetRotation + Math.PI, 2 * Math.PI) -
+                        ? modulo(animation.targetRotation + Math.PI, 2 * Math.PI) -
                             Math.PI
                         : animation.sourceRotation +
                             progress *
@@ -32043,7 +32067,7 @@ var View = /** @class */ (function (_super) {
      */
     View.prototype.calculateExtent = function (opt_size) {
         var extent = this.calculateExtentInternal(opt_size);
-        return proj_toUserExtent(extent, this.getProjection());
+        return toUserExtent(extent, this.getProjection());
     };
     /**
      * @param {import("./size.js").Size} [opt_size] Box pixel size. If not provided,
@@ -32053,11 +32077,11 @@ var View = /** @class */ (function (_super) {
     View.prototype.calculateExtentInternal = function (opt_size) {
         var size = opt_size || this.getViewportSizeMinusPadding_();
         var center = /** @type {!import("./coordinate.js").Coordinate} */ (this.getCenterInternal());
-        asserts_assert(center, 1); // The view center is not defined
+        assert(center, 1); // The view center is not defined
         var resolution = /** @type {!number} */ (this.getResolution());
-        asserts_assert(resolution !== undefined, 2); // The view resolution is not defined
+        assert(resolution !== undefined, 2); // The view resolution is not defined
         var rotation = /** @type {!number} */ (this.getRotation());
-        asserts_assert(rotation !== undefined, 3); // The view rotation is not defined
+        assert(rotation !== undefined, 3); // The view rotation is not defined
         return getForViewAndSize(center, resolution, rotation, size);
     };
     /**
@@ -32151,7 +32175,7 @@ var View = /** @class */ (function (_super) {
      * @api
      */
     View.prototype.getResolutionForExtent = function (extent, opt_size) {
-        return this.getResolutionForExtentInternal(proj_fromUserExtent(extent, this.getProjection()), opt_size);
+        return this.getResolutionForExtentInternal(fromUserExtent(extent, this.getProjection()), opt_size);
     };
     /**
      * Get the resolution for a provided extent (in map units) and size (in pixels).
@@ -32162,7 +32186,7 @@ var View = /** @class */ (function (_super) {
      */
     View.prototype.getResolutionForExtentInternal = function (extent, opt_size) {
         var size = opt_size || this.getViewportSizeMinusPadding_();
-        var xResolution = extent_getWidth(extent) / size[0];
+        var xResolution = getWidth(extent) / size[0];
         var yResolution = getHeight(extent) / size[1];
         return Math.max(xResolution, yResolution);
     };
@@ -32310,10 +32334,10 @@ var View = /** @class */ (function (_super) {
             if (this.resolutions_.length <= 1) {
                 return 0;
             }
-            var baseLevel = math_clamp(Math.floor(zoom), 0, this.resolutions_.length - 2);
+            var baseLevel = clamp(Math.floor(zoom), 0, this.resolutions_.length - 2);
             var zoomFactor = this.resolutions_[baseLevel] / this.resolutions_[baseLevel + 1];
             return (this.resolutions_[baseLevel] /
-                Math.pow(zoomFactor, math_clamp(zoom - baseLevel, 0, 1)));
+                Math.pow(zoomFactor, clamp(zoom - baseLevel, 0, 1)));
         }
         else {
             return (this.maxResolution_ / Math.pow(this.zoomFactor_, zoom - this.minZoom_));
@@ -32332,16 +32356,16 @@ var View = /** @class */ (function (_super) {
     View.prototype.fit = function (geometryOrExtent, opt_options) {
         /** @type {import("./geom/SimpleGeometry.js").default} */
         var geometry;
-        asserts_assert(Array.isArray(geometryOrExtent) ||
+        assert(Array.isArray(geometryOrExtent) ||
             typeof ( /** @type {?} */(geometryOrExtent).getSimplifiedGeometry) ===
                 'function', 24); // Invalid extent or geometry provided as `geometry`
         if (Array.isArray(geometryOrExtent)) {
-            asserts_assert(!extent_isEmpty(geometryOrExtent), 25); // Cannot fit empty extent provided as `geometry`
-            var extent = proj_fromUserExtent(geometryOrExtent, this.getProjection());
+            assert(!extent_isEmpty(geometryOrExtent), 25); // Cannot fit empty extent provided as `geometry`
+            var extent = fromUserExtent(geometryOrExtent, this.getProjection());
             geometry = fromExtent(extent);
         }
         else if (geometryOrExtent.getType() === 'Circle') {
-            var extent = proj_fromUserExtent(geometryOrExtent.getExtent(), this.getProjection());
+            var extent = fromUserExtent(geometryOrExtent.getExtent(), this.getProjection());
             geometry = fromExtent(extent);
             geometry.rotate(this.getRotation(), getCenter(extent));
         }
@@ -32850,8 +32874,8 @@ function createResolutionConstraint(options) {
         // calculate the default min and max resolution
         var size = !projExtent
             ? // use an extent that can fit the whole world if need be
-                (360 * Units_METERS_PER_UNIT[proj_Units.DEGREES]) / projection.getMetersPerUnit()
-            : Math.max(extent_getWidth(projExtent), getHeight(projExtent));
+                (360 * METERS_PER_UNIT[proj_Units.DEGREES]) / projection.getMetersPerUnit()
+            : Math.max(getWidth(projExtent), getHeight(projExtent));
         var defaultMaxResolution = size / DEFAULT_TILE_SIZE / Math.pow(defaultZoomFactor, DEFAULT_MIN_ZOOM);
         var defaultMinResolution = defaultMaxResolution /
             Math.pow(defaultZoomFactor, defaultMaxZoom - DEFAULT_MIN_ZOOM);
@@ -34060,8 +34084,8 @@ var PluggableMap = /** @class */ (function (_super) {
                 this.renderer_ = this.createRenderer();
             }
             this.mapBrowserEventHandler_ = new ol_MapBrowserEventHandler(this, this.moveTolerance_);
-            for (var key in ol_MapBrowserEventType) {
-                this.mapBrowserEventHandler_.addEventListener(ol_MapBrowserEventType[key], this.handleMapBrowserEvent.bind(this));
+            for (var key in MapBrowserEventType) {
+                this.mapBrowserEventHandler_.addEventListener(MapBrowserEventType[key], this.handleMapBrowserEvent.bind(this));
             }
             this.viewport_.addEventListener(EventType.CONTEXTMENU, this.boundHandleBrowserEvent_, false);
             this.viewport_.addEventListener(EventType.WHEEL, this.boundHandleBrowserEvent_, PASSIVE_EVENT_LISTENERS ? { passive: false } : false);
@@ -34439,7 +34463,7 @@ function createOptionsInternal(options) {
             controls = new ol_Collection(options.controls.slice());
         }
         else {
-            asserts_assert(typeof ( /** @type {?} */(options.controls).getArray) === 'function', 47); // Expected `controls` to be an array or an `import("./Collection.js").Collection`
+            assert(typeof ( /** @type {?} */(options.controls).getArray) === 'function', 47); // Expected `controls` to be an array or an `import("./Collection.js").Collection`
             controls = /** @type {Collection} */ (options.controls);
         }
     }
@@ -34449,7 +34473,7 @@ function createOptionsInternal(options) {
             interactions = new ol_Collection(options.interactions.slice());
         }
         else {
-            asserts_assert(typeof ( /** @type {?} */(options.interactions).getArray) ===
+            assert(typeof ( /** @type {?} */(options.interactions).getArray) ===
                 'function', 48); // Expected `interactions` to be an array or an `import("./Collection.js").Collection`
             interactions = /** @type {Collection} */ (options.interactions);
         }
@@ -34460,7 +34484,7 @@ function createOptionsInternal(options) {
             overlays = new ol_Collection(options.overlays.slice());
         }
         else {
-            asserts_assert(typeof ( /** @type {?} */(options.overlays).getArray) === 'function', 49); // Expected `overlays` to be an array or an `import("./Collection.js").Collection`
+            assert(typeof ( /** @type {?} */(options.overlays).getArray) === 'function', 49); // Expected `overlays` to be an array or an `import("./Collection.js").Collection`
             overlays = options.overlays;
         }
     }
@@ -34961,7 +34985,7 @@ var DoubleClickZoom = /** @class */ (function (_super) {
      */
     DoubleClickZoom.prototype.handleEvent = function (mapBrowserEvent) {
         var stopEvent = false;
-        if (mapBrowserEvent.type == ol_MapBrowserEventType.DBLCLICK) {
+        if (mapBrowserEvent.type == MapBrowserEventType.DBLCLICK) {
             var browserEvent = /** @type {MouseEvent} */ (mapBrowserEvent.originalEvent);
             var map = mapBrowserEvent.map;
             var anchor = mapBrowserEvent.coordinate;
@@ -35111,24 +35135,24 @@ var PointerInteraction = /** @class */ (function (_super) {
         var stopEvent = false;
         this.updateTrackedPointers_(mapBrowserEvent);
         if (this.handlingDownUpSequence) {
-            if (mapBrowserEvent.type == ol_MapBrowserEventType.POINTERDRAG) {
+            if (mapBrowserEvent.type == MapBrowserEventType.POINTERDRAG) {
                 this.handleDragEvent(mapBrowserEvent);
                 // prevent page scrolling during dragging
                 mapBrowserEvent.originalEvent.preventDefault();
             }
-            else if (mapBrowserEvent.type == ol_MapBrowserEventType.POINTERUP) {
+            else if (mapBrowserEvent.type == MapBrowserEventType.POINTERUP) {
                 var handledUp = this.handleUpEvent(mapBrowserEvent);
                 this.handlingDownUpSequence =
                     handledUp && this.targetPointers.length > 0;
             }
         }
         else {
-            if (mapBrowserEvent.type == ol_MapBrowserEventType.POINTERDOWN) {
+            if (mapBrowserEvent.type == MapBrowserEventType.POINTERDOWN) {
                 var handled = this.handleDownEvent(mapBrowserEvent);
                 this.handlingDownUpSequence = handled;
                 stopEvent = this.stopDown(handled);
             }
-            else if (mapBrowserEvent.type == ol_MapBrowserEventType.POINTERMOVE) {
+            else if (mapBrowserEvent.type == MapBrowserEventType.POINTERMOVE) {
                 this.handleMoveEvent(mapBrowserEvent);
             }
         }
@@ -35186,6 +35210,10 @@ function Pointer_centroid(pointerEvents) {
 /* harmony default export */ var Pointer = (PointerInteraction);
 //# sourceMappingURL=Pointer.js.map
 ;// ./node_modules/ol/events/condition.js
+/* unused harmony import specifier */ var condition_MapBrowserEventType;
+/* unused harmony import specifier */ var condition_FALSE;
+/* unused harmony import specifier */ var condition_MAC;
+/* unused harmony import specifier */ var condition_assert;
 /**
  * @module ol/events/condition
  */
@@ -35289,7 +35317,7 @@ var always = TRUE;
  * @api
  */
 var click = function (mapBrowserEvent) {
-    return mapBrowserEvent.type == MapBrowserEventType.CLICK;
+    return mapBrowserEvent.type == condition_MapBrowserEventType.CLICK;
 };
 /**
  * Return `true` if the event has an "action"-producing mouse button.
@@ -35302,7 +35330,7 @@ var click = function (mapBrowserEvent) {
  */
 var mouseActionButton = function (mapBrowserEvent) {
     var originalEvent = /** @type {MouseEvent} */ (mapBrowserEvent.originalEvent);
-    return originalEvent.button == 0 && !(WEBKIT && has_MAC && originalEvent.ctrlKey);
+    return originalEvent.button == 0 && !(WEBKIT && MAC && originalEvent.ctrlKey);
 };
 /**
  * Return always false.
@@ -35311,7 +35339,7 @@ var mouseActionButton = function (mapBrowserEvent) {
  * @return {boolean} False.
  * @api
  */
-var never = (/* unused pure expression or super */ null && (FALSE));
+var never = (/* unused pure expression or super */ null && (condition_FALSE));
 /**
  * Return `true` if the browser event is a `pointermove` event, `false`
  * otherwise.
@@ -35331,7 +35359,7 @@ var pointerMove = function (mapBrowserEvent) {
  * @api
  */
 var singleClick = function (mapBrowserEvent) {
-    return mapBrowserEvent.type == MapBrowserEventType.SINGLECLICK;
+    return mapBrowserEvent.type == condition_MapBrowserEventType.SINGLECLICK;
 };
 /**
  * Return `true` if the event is a map `dblclick` event, `false` otherwise.
@@ -35341,7 +35369,7 @@ var singleClick = function (mapBrowserEvent) {
  * @api
  */
 var doubleClick = function (mapBrowserEvent) {
-    return mapBrowserEvent.type == MapBrowserEventType.DBLCLICK;
+    return mapBrowserEvent.type == condition_MapBrowserEventType.DBLCLICK;
 };
 /**
  * Return `true` if no modifier key (alt-, shift- or platform-modifier-key) is
@@ -35369,7 +35397,7 @@ var noModifierKeys = function (mapBrowserEvent) {
 var platformModifierKeyOnly = function (mapBrowserEvent) {
     var originalEvent = /** @type {KeyboardEvent|MouseEvent|TouchEvent} */ (mapBrowserEvent.originalEvent);
     return (!originalEvent.altKey &&
-        (MAC ? originalEvent.metaKey : originalEvent.ctrlKey) &&
+        (condition_MAC ? originalEvent.metaKey : originalEvent.ctrlKey) &&
         !originalEvent.shiftKey);
 };
 /**
@@ -35415,7 +35443,7 @@ var targetNotEditable = function (mapBrowserEvent) {
  */
 var mouseOnly = function (mapBrowserEvent) {
     var pointerEvent = /** @type {import("../MapBrowserEvent").default} */ (mapBrowserEvent).originalEvent;
-    asserts_assert(pointerEvent !== undefined, 56); // mapBrowserEvent must originate from a pointer event
+    assert(pointerEvent !== undefined, 56); // mapBrowserEvent must originate from a pointer event
     // see https://www.w3.org/TR/pointerevents/#widl-PointerEvent-pointerType
     return pointerEvent.pointerType == 'mouse';
 };
@@ -35428,7 +35456,7 @@ var mouseOnly = function (mapBrowserEvent) {
  */
 var touchOnly = function (mapBrowserEvent) {
     var pointerEvt = /** @type {import("../MapBrowserEvent").default} */ (mapBrowserEvent).originalEvent;
-    assert(pointerEvt !== undefined, 56); // mapBrowserEvent must originate from a pointer event
+    condition_assert(pointerEvt !== undefined, 56); // mapBrowserEvent must originate from a pointer event
     // see https://www.w3.org/TR/pointerevents/#widl-PointerEvent-pointerType
     return pointerEvt.pointerType === 'touch';
 };
@@ -35441,7 +35469,7 @@ var touchOnly = function (mapBrowserEvent) {
  */
 var penOnly = function (mapBrowserEvent) {
     var pointerEvt = /** @type {import("../MapBrowserEvent").default} */ (mapBrowserEvent).originalEvent;
-    assert(pointerEvt !== undefined, 56); // mapBrowserEvent must originate from a pointer event
+    condition_assert(pointerEvt !== undefined, 56); // mapBrowserEvent must originate from a pointer event
     // see https://www.w3.org/TR/pointerevents/#widl-PointerEvent-pointerType
     return pointerEvt.pointerType === 'pen';
 };
@@ -35456,7 +35484,7 @@ var penOnly = function (mapBrowserEvent) {
  */
 var primaryAction = function (mapBrowserEvent) {
     var pointerEvent = /** @type {import("../MapBrowserEvent").default} */ (mapBrowserEvent).originalEvent;
-    asserts_assert(pointerEvent !== undefined, 56); // mapBrowserEvent must originate from a pointer event
+    assert(pointerEvent !== undefined, 56); // mapBrowserEvent must originate from a pointer event
     return pointerEvent.isPrimary && pointerEvent.button === 0;
 };
 //# sourceMappingURL=condition.js.map
@@ -35505,7 +35533,7 @@ var DragPan = /** @class */ (function (_super) {
      */
     function DragPan(opt_options) {
         var _this = _super.call(this, {
-            stopDown: functions_FALSE,
+            stopDown: FALSE,
         }) || this;
         var options = opt_options ? opt_options : {};
         /**
@@ -35697,7 +35725,7 @@ var DragRotate = /** @class */ (function (_super) {
         var _this = this;
         var options = opt_options ? opt_options : {};
         _this = _super.call(this, {
-            stopDown: functions_FALSE,
+            stopDown: FALSE,
         }) || this;
         /**
          * @private
@@ -36853,7 +36881,7 @@ var MouseWheelZoom = /** @class */ (function (_super) {
         if (view.getAnimating()) {
             view.cancelAnimations();
         }
-        var delta = -math_clamp(this.totalDelta_, -this.maxDelta_ * this.deltaPerZoom_, this.maxDelta_ * this.deltaPerZoom_) / this.deltaPerZoom_;
+        var delta = -clamp(this.totalDelta_, -this.maxDelta_ * this.deltaPerZoom_, this.maxDelta_ * this.deltaPerZoom_) / this.deltaPerZoom_;
         if (view.getConstrainResolution() || this.constrainResolution_) {
             // view has a zoom constraint, zoom by 1
             delta = delta ? (delta > 0 ? 1 : -1) : 0;
@@ -36925,7 +36953,7 @@ var PinchRotate = /** @class */ (function (_super) {
         var options = opt_options ? opt_options : {};
         var pointerOptions = /** @type {import("./Pointer.js").Options} */ (options);
         if (!pointerOptions.stopDown) {
-            pointerOptions.stopDown = functions_FALSE;
+            pointerOptions.stopDown = FALSE;
         }
         _this = _super.call(this, pointerOptions) || this;
         /**
@@ -37080,7 +37108,7 @@ var PinchZoom = /** @class */ (function (_super) {
         var options = opt_options ? opt_options : {};
         var pointerOptions = /** @type {import("./Pointer.js").Options} */ (options);
         if (!pointerOptions.stopDown) {
-            pointerOptions.stopDown = functions_FALSE;
+            pointerOptions.stopDown = FALSE;
         }
         _this = _super.call(this, pointerOptions) || this;
         /**
