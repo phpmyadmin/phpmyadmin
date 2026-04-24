@@ -190,7 +190,6 @@ cleanup_composer_vendors() {
         vendor/nikic/fast-route/psalm.xml \
         vendor/nikic/fast-route/test/ \
         vendor/twig/twig/README.rst \
-        vendor/twig/twig/splitsh.json \
         vendor/webmozart/assert/.php-cs-fixer.php \
         vendor/twig/twig/src/Test/ \
         vendor/psr/event-dispatcher/.editorconfig \
