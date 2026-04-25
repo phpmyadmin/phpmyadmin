@@ -512,6 +512,33 @@ final class ExportSqlTest extends AbstractTestCase
         self::assertStringContainsString('USE db;', $result);
     }
 
+    public function testExportDBCreateDataOnly(): void
+    {
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody([
+                'sql_backquotes' => 'true',
+                'sql_compatibility' => 'NONE',
+                'sql_structure_or_data' => 'data',
+            ]);
+
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $dbi->expects(self::any())->method('quoteString')
+            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
+
+        $exportSql = $this->getExportSql($dbi);
+        $exportSql->setExportOptions($request, new Export());
+
+        ob_start();
+        $exportSql->exportDBCreate('db');
+        $result = ob_get_clean();
+
+        self::assertIsString($result);
+        self::assertStringNotContainsString('CREATE DATABASE', $result);
+        self::assertStringContainsString('USE `db`;', $result);
+    }
+
     public function testExportDBHeader(): void
     {
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')

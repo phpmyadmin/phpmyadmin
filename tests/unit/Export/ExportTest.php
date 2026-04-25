@@ -230,7 +230,6 @@ class ExportTest extends AbstractTestCase
         );
 
         $expected = <<<'SQL'
-            CREATE DATABASE IF NOT EXISTS test_db DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
             USE test_db;
 
             INSERT INTO test_table (id, name, datetimefield) VALUES

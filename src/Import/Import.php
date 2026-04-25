@@ -775,7 +775,7 @@ final class Import
                         $size = 10;
                     }
 
-                    $tempSQLStr .= Util::backquote($column) . ' ' . match ($analyses[$i][$j]->type) {
+                    $colType = match ($analyses[$i][$j]->type) {
                         ColumnType::None => 'NULL',
                         ColumnType::Varchar => 'varchar',
                         ColumnType::Int => 'int',
@@ -783,7 +783,17 @@ final class Import
                         ColumnType::BigInt => 'bigint',
                         ColumnType::Geometry => 'geometry',
                     };
-                    if ($analyses[$i][$j]->type !== ColumnType::Geometry) {
+
+                    // Use TEXT instead of VARCHAR when the length exceeds
+                    // the maximum allowed for VARCHAR. The limit depends on
+                    // the charset (e.g. 16383 for utf8mb4, 65535 for latin1).
+                    // We use the most restrictive limit (utf8mb4) to be safe.
+                    if ($colType === 'varchar' && $size > 16383) {
+                        $colType = 'text';
+                    }
+
+                    $tempSQLStr .= Util::backquote($column) . ' ' . $colType;
+                    if ($colType !== 'text' && $analyses[$i][$j]->type !== ColumnType::Geometry) {
                         $tempSQLStr .= '(' . $size . ')';
                     }
 
