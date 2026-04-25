@@ -17,8 +17,8 @@ class ColumnsDefinitionTest extends AbstractTestCase
      *
      * @param array $columnMeta column metadata
      * @param array $expected   expected result
-     * @phpstan-param array<string, string|null> $columnMeta
-     * @phpstan-param array<string, string> $expected
+     * @phpstan-param array{Default: string|null, Null: 'YES'|'NO', Type: string} $columnMeta
+     * @phpstan-param array{DefaultType: string, DefaultValue: string} $expected
      *
      * @dataProvider providerColumnMetaDefault
      */
@@ -33,15 +33,19 @@ class ColumnsDefinitionTest extends AbstractTestCase
      * Data provider for testDecorateColumnMetaDefault
      *
      * @return array
-     * @psalm-return array<string, array{array<string, string|null>, array<string, string>}>
+     * @psalm-return array<string, array{
+     *   array{Default: string|null, Null: 'YES'|'NO', Type: string},
+     *   array{DefaultType: string, DefaultValue: string},
+     * }>
      */
     public static function providerColumnMetaDefault(): array
     {
         return [
             'when Default is null and Null is YES' => [
                 [
-                    'Default' => null,
+                    'Type' => 'int',
                     'Null' => 'YES',
+                    'Default' => null,
                 ],
                 [
                     'DefaultType' => 'NULL',
@@ -50,8 +54,9 @@ class ColumnsDefinitionTest extends AbstractTestCase
             ],
             'when Default is null and Null is NO' => [
                 [
-                    'Default' => null,
+                    'Type' => 'int',
                     'Null' => 'NO',
+                    'Default' => null,
                 ],
                 [
                     'DefaultType' => 'NONE',
@@ -59,28 +64,44 @@ class ColumnsDefinitionTest extends AbstractTestCase
                 ],
             ],
             'when Default is CURRENT_TIMESTAMP' => [
-                ['Default' => 'CURRENT_TIMESTAMP'],
+                [
+                    'Type' => 'timestamp',
+                    'Null' => 'NO',
+                    'Default' => 'CURRENT_TIMESTAMP',
+                ],
                 [
                     'DefaultType' => 'CURRENT_TIMESTAMP',
                     'DefaultValue' => '',
                 ],
             ],
             'when Default is current_timestamp' => [
-                ['Default' => 'current_timestamp()'],
+                [
+                    'Type' => 'datetime',
+                    'Null' => 'NO',
+                    'Default' => 'current_timestamp()',
+                ],
                 [
                     'DefaultType' => 'CURRENT_TIMESTAMP',
                     'DefaultValue' => '',
                 ],
             ],
             'when Default is UUID' => [
-                ['Default' => 'UUID'],
+                [
+                    'Type' => 'UUID',
+                    'Null' => 'NO',
+                    'Default' => 'UUID',
+                ],
                 [
                     'DefaultType' => 'UUID',
                     'DefaultValue' => '',
                 ],
             ],
             'when Default is uuid()' => [
-                ['Default' => 'uuid()'],
+                [
+                    'Type' => 'UUID',
+                    'Null' => 'YES',
+                    'Default' => 'uuid()',
+                ],
                 [
                     'DefaultType' => 'UUID',
                     'DefaultValue' => '',
@@ -88,23 +109,57 @@ class ColumnsDefinitionTest extends AbstractTestCase
             ],
             'when Default is anything else and Type is text' => [
                 [
-                    'Default' => '"some\/thing"',
                     'Type' => 'text',
+                    'Null' => 'NO',
+                    'Default' => "'some\\/thing'",
                 ],
                 [
-                    'Default' => 'some/thing',
                     'DefaultType' => 'USER_DEFINED',
-                    'DefaultValue' => '"some\/thing"',
+                    'DefaultValue' => 'some/thing',
                 ],
             ],
             'when Default is anything else and Type is not text' => [
                 [
-                    'Default' => '"some\/thing"',
                     'Type' => 'something',
+                    'Null' => 'NO',
+                    'Default' => '"some\/thing"',
                 ],
                 [
                     'DefaultType' => 'USER_DEFINED',
                     'DefaultValue' => '"some\/thing"',
+                ],
+            ],
+            'when varchar Default is empty string' => [
+                [
+                    'Type' => 'varchar(255)',
+                    'Null' => 'YES',
+                    'Default' => '',
+                ],
+                [
+                    'DefaultType' => 'USER_DEFINED',
+                    'DefaultValue' => '',
+                ],
+            ],
+            'when longtext Default is empty string' => [
+                [
+                    'Type' => 'longtext',
+                    'Null' => 'YES',
+                    'Default' => "''",
+                ],
+                [
+                    'DefaultType' => 'USER_DEFINED',
+                    'DefaultValue' => '',
+                ],
+            ],
+            'when text type default is an expression' => [
+                [
+                    'Type' => 'tinytext',
+                    'Null' => 'YES',
+                    'Default' => 'unix_timestamp()',
+                ],
+                [
+                    'DefaultType' => 'USER_DEFINED',
+                    'DefaultValue' => 'unix_timestamp()',
                 ],
             ],
         ];

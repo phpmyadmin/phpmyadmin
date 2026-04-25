@@ -24,10 +24,13 @@ use function explode;
 use function in_array;
 use function intval;
 use function is_array;
+use function mb_strlen;
 use function mb_strtoupper;
 use function preg_quote;
 use function preg_replace;
 use function rtrim;
+use function str_ends_with;
+use function str_starts_with;
 use function stripcslashes;
 use function substr;
 use function trim;
@@ -497,9 +500,10 @@ final class ColumnsDefinition
      * Set default type and default value according to the column metadata
      *
      * @param array $columnMeta Column Metadata
-     * @phpstan-param array<string, string|null> $columnMeta
+     * @phpstan-param array{Default: string|null, Null: 'YES'|'NO', Type: string} $columnMeta
      *
-     * @return non-empty-array<array-key, mixed>
+     * @return non-empty-array<string, string>
+     * @psalm-return array{DefaultType: string, DefaultValue: string}
      */
     public static function decorateColumnMetaDefault(array $columnMeta): array
     {
@@ -510,10 +514,9 @@ final class ColumnsDefinition
 
         switch ($columnMeta['Default']) {
             case null:
-                if ($columnMeta['Null'] === 'YES') {
-                    $metaDefault['DefaultType'] = 'NULL';
-                } else {
-                    $metaDefault['DefaultType'] = 'NONE';
+                // Could be null or empty string here
+                if ($columnMeta['Default'] === null) {
+                    $metaDefault['DefaultType'] = $columnMeta['Null'] === 'YES' ? 'NULL' : 'NONE';
                 }
 
                 break;
@@ -528,11 +531,19 @@ final class ColumnsDefinition
 
                 break;
             default:
-                $metaDefault['DefaultValue'] = $columnMeta['Default'];
-
                 if (substr((string) $columnMeta['Type'], -4) === 'text') {
-                    $textDefault = substr($columnMeta['Default'], 1, -1);
-                    $metaDefault['Default'] = stripcslashes($textDefault);
+                    if (
+                        mb_strlen($columnMeta['Default']) >= 2 &&
+                        str_starts_with($columnMeta['Default'], "'") &&
+                        str_ends_with($columnMeta['Default'], "'")
+                    ) {
+                        $textDefault = substr($columnMeta['Default'], 1, -1);
+                        $metaDefault['DefaultValue'] = stripcslashes($textDefault);
+                    } else {
+                        $metaDefault['DefaultValue'] = $columnMeta['Default'];
+                    }
+                } else {
+                    $metaDefault['DefaultValue'] = $columnMeta['Default'];
                 }
 
                 break;
