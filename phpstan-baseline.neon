@@ -27002,7 +27002,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$compat of method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportSql\\:\\:exportUseStatement\\(\\) expects string, mixed given\\.$#"
-			count: 2
+			count: 3
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-
@@ -46512,7 +46512,7 @@ parameters:
 
 		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:any\\(\\)\\.$#"
-			count: 25
+			count: 26
 			path: test/classes/Plugins/Export/ExportSqlTest.php
 
 		-
@@ -46532,7 +46532,7 @@ parameters:
 
 		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnArgument\\(\\)\\.$#"
-			count: 15
+			count: 16
 			path: test/classes/Plugins/Export/ExportSqlTest.php
 
 		-

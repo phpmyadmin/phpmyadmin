@@ -879,6 +879,11 @@ class ExportSql extends ExportPlugin
             return true;
         }
 
+        // Skip CREATE DATABASE when only exporting data
+        if (! $exportStructure) {
+            return $this->exportUseStatement($dbAlias, $compat);
+        }
+
         $createQuery = 'CREATE DATABASE IF NOT EXISTS '
             . Util::backquoteCompat($dbAlias, $compat, isset($GLOBALS['sql_backquotes']));
         $collation = $dbi->getDbCollation($db);
