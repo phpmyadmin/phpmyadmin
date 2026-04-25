@@ -33,7 +33,7 @@
     "chartjs-adapter-date-fns": "^3.0.0",
     "chartjs-plugin-zoom": "^2.0.1",
     "codemirror": "5.65.12",
-    "copy-webpack-plugin": "^11.0.0",
+    "copy-webpack-plugin": "^14.0.0",
     "css-loader": "^6.6.0",
     "date-fns": "^3.6.0",
     "jquery": "3.7.1",
