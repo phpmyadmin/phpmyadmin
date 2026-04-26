@@ -1244,7 +1244,10 @@ class Relation
     public function getCreateTableSqlQueries(array $tableNameReplacements): array
     {
         $pmaTables = [];
-        $createTablesFile = (string) file_get_contents(SQL_DIR . 'create_tables.sql');
+        // The resources/sql/ directory may have been removed by the user (per
+        // FAQ 1.44), so don't emit a warning when the file is missing. The
+        // empty result signals to fixPmaTables() that no tables can be created.
+        $createTablesFile = (string) @file_get_contents(SQL_DIR . 'create_tables.sql');
 
         $queries = explode(';', $createTablesFile);
 
@@ -1344,6 +1347,25 @@ class Relation
         $createQueries = [];
         if ($create) {
             $createQueries = $this->getCreateTableSqlQueries($tableNameReplacements);
+            if ($createQueries === []) {
+                // The SQL setup files (resources/sql/create_tables.sql) are
+                // missing — most likely the user removed the resources/sql/
+                // directory per FAQ 1.44 to save disk space. We can't create
+                // the configuration storage without them, so give the user a
+                // clear error rather than a TypeError further down.
+                $sqlDir = SQL_DIR . '';
+                Current::$message = Message::error(sprintf(
+                    __(
+                        'Cannot create the phpMyAdmin configuration storage:'
+                        . ' the SQL setup files in %s are missing. Please restore'
+                        . ' the directory from the phpMyAdmin distribution.',
+                    ),
+                    $sqlDir,
+                ));
+
+                return;
+            }
+
             if (! $this->dbi->selectDb($db, ConnectionType::ControlUser)) {
                 Current::$message = Message::error($this->dbi->getError(ConnectionType::ControlUser));
 
