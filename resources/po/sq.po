@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-04-19 00:46+0000\n"
+"POT-Creation-Date: 2026-04-26 00:48+0000\n"
 "PO-Revision-Date: 2022-02-15 16:20+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Albanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -48,25 +48,25 @@ msgstr "Dokumentacioni"
 msgid "Appearance:"
 msgstr "Rregullimet e pamjes"
 
-#: resources/templates/base.twig:80 resources/templates/home/index.twig:150
+#: resources/templates/base.twig:80 resources/templates/home/index.twig:149
 msgid "Color mode for the theme"
 msgstr ""
 
-#: resources/templates/base.twig:84 resources/templates/home/index.twig:154
+#: resources/templates/base.twig:84 resources/templates/home/index.twig:153
 #, fuzzy
 #| msgid "Right"
 msgctxt "Light color mode of the theme"
 msgid "Light"
 msgstr "Djathtas"
 
-#: resources/templates/base.twig:86 resources/templates/home/index.twig:156
+#: resources/templates/base.twig:86 resources/templates/home/index.twig:155
 msgctxt "Dark color mode of the theme"
 msgid "Dark"
 msgstr ""
 
 #: resources/templates/base.twig:99
 #: resources/templates/server/status/monitor/index.twig:8
-#: src/Controllers/JavaScriptMessagesController.php:215 src/Menu.php:479
+#: src/Controllers/JavaScriptMessagesController.php:216 src/Menu.php:479
 #: src/Util.php:1368
 msgid "Settings"
 msgstr "Konfigurimet"
@@ -78,7 +78,7 @@ msgid "Log out"
 msgstr "Dalje"
 
 #: resources/templates/base.twig:112
-#: src/Controllers/JavaScriptMessagesController.php:315
+#: src/Controllers/JavaScriptMessagesController.php:316
 msgid "Page-related settings"
 msgstr "Rregullimet faqe-relevante"
 
@@ -211,8 +211,8 @@ msgstr "pas %s"
 #: resources/templates/table/zoom_search/index.twig:62
 #: resources/templates/table/zoom_search/index.twig:120
 #: src/Config/ConfigFile.php:554
-#: src/Controllers/JavaScriptMessagesController.php:218
-#: src/Display/Results.php:930 src/Plugins/Export/ExportSql.php:1981
+#: src/Controllers/JavaScriptMessagesController.php:219
+#: src/Display/Results.php:930 src/Plugins/Export/ExportSql.php:1988
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "Asnjë"
@@ -285,7 +285,7 @@ msgstr "Kolona(t)"
 #: resources/templates/table/zoom_search/index.twig:152
 #: resources/templates/triggers/editor_form.twig:75
 #: resources/templates/view_create.twig:123 src/BrowseForeigners.php:180
-#: src/Controllers/JavaScriptMessagesController.php:311
+#: src/Controllers/JavaScriptMessagesController.php:312
 #: src/Controllers/Server/PrivilegesController.php:328
 #: src/Normalization.php:235 src/Tracking/Tracking.php:288
 #: src/Tracking/Tracking.php:403
@@ -339,7 +339,7 @@ msgstr "Përfshij eksportin në një transaksion"
 #: resources/templates/table/relation/common_form.twig:141
 #: resources/templates/table/structure/display_structure.twig:333
 #: resources/templates/table/structure/display_structure.twig:343
-#: src/Controllers/JavaScriptMessagesController.php:130
+#: src/Controllers/JavaScriptMessagesController.php:131
 msgid "Preview SQL"
 msgstr "Paraqit SQL"
 
@@ -353,7 +353,7 @@ msgstr "Paraqit SQL"
 #: resources/templates/table/relation/common_form.twig:142
 #: resources/templates/table/structure/partition_definition_form.twig:13
 #: resources/templates/table/zoom_search/result_form.twig:79
-#: src/Controllers/JavaScriptMessagesController.php:431
+#: src/Controllers/JavaScriptMessagesController.php:432
 msgid "Save"
 msgstr "Ruaj"
 
@@ -398,8 +398,8 @@ msgstr "Ngarkon…"
 #: resources/templates/export_modal.twig:6
 #: resources/templates/export_modal.twig:10 resources/templates/export.twig:82
 #: resources/templates/export.twig:90 resources/templates/export.twig:188
-#: resources/templates/home/index.twig:317
-#: resources/templates/home/index.twig:325
+#: resources/templates/home/index.twig:316
+#: resources/templates/home/index.twig:324
 #: resources/templates/modals/change_password.twig:6
 #: resources/templates/modals/create_view.twig:6
 #: resources/templates/modals/create_view.twig:11
@@ -456,7 +456,7 @@ msgstr "Ngarkon…"
 #: resources/templates/triggers/list.twig:90
 #: resources/templates/triggers/list.twig:102
 #: resources/templates/triggers/list.twig:106
-#: src/Controllers/JavaScriptMessagesController.php:154
+#: src/Controllers/JavaScriptMessagesController.php:155
 #: src/Tracking/Tracking.php:201 src/Tracking/Tracking.php:541
 msgid "Close"
 msgstr "Mbyll"
@@ -595,8 +595,8 @@ msgstr "Grup nyjë"
 #: src/Config/Forms/User/ExportForm.php:53
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
-#: src/Controllers/JavaScriptMessagesController.php:694
-#: src/Import/Import.php:1157 src/Menu.php:214 src/Menu.php:322
+#: src/Controllers/JavaScriptMessagesController.php:695
+#: src/Import/Import.php:1167 src/Menu.php:214 src/Menu.php:322
 #: src/Navigation/Nodes/NodeColumn.php:38
 #: src/Navigation/Nodes/NodeDatabase.php:59
 #: src/Navigation/Nodes/NodeTable.php:239 src/Util.php:1064 src/Util.php:1377
@@ -711,7 +711,7 @@ msgstr ""
 #: resources/templates/database/operations/index.twig:195
 #: resources/templates/database/operations/index.twig:199
 #: resources/templates/database/structure/table_header.twig:31
-#: resources/templates/home/index.twig:63 resources/templates/indexes.twig:23
+#: resources/templates/home/index.twig:62 resources/templates/indexes.twig:23
 #: resources/templates/server/databases/index.twig:29
 #: resources/templates/server/databases/index.twig:30
 #: resources/templates/server/databases/index.twig:123
@@ -850,7 +850,7 @@ msgid "No change"
 msgstr "Nuk ka ndryshime"
 
 #: resources/templates/config/form_display/display.twig:46
-#: src/Controllers/JavaScriptMessagesController.php:316
+#: src/Controllers/JavaScriptMessagesController.php:317
 msgid "Apply"
 msgstr "Apliko"
 
@@ -863,7 +863,7 @@ msgid "Reset"
 msgstr "Rivendos"
 
 #: resources/templates/config/form_display/input.twig:10
-#: resources/templates/home/index.twig:265
+#: resources/templates/home/index.twig:264
 #: resources/templates/server/variables/index.twig:17
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:167
@@ -930,7 +930,7 @@ msgstr "Pasivizuar"
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:29
 #: src/Controllers/Database/Structure/DropTableController.php:43
 #: src/Controllers/Database/Structure/EmptyTableController.php:42
-#: src/Controllers/JavaScriptMessagesController.php:481
+#: src/Controllers/JavaScriptMessagesController.php:482
 #: src/Controllers/Table/DeleteRowsController.php:34
 #: src/Controllers/Table/DropColumnController.php:46
 #: src/Controllers/Table/Structure/PrimaryController.php:101
@@ -969,7 +969,7 @@ msgstr "Po"
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:35
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:28
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:29
-#: src/Controllers/JavaScriptMessagesController.php:343
+#: src/Controllers/JavaScriptMessagesController.php:344
 #: src/Indexes/IndexColumn.php:145 src/Indexes/Index.php:448
 #: src/Indexes/Index.php:474 src/Plugins/Export/ExportHtmlword.php:515
 #: src/Plugins/Export/ExportLatex.php:532 src/Plugins/Export/ExportOdt.php:625
@@ -1037,7 +1037,7 @@ msgstr "Requery (kërkesë)"
 #: resources/templates/triggers/row.twig:28
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:925
 #: src/ConfigStorage/UserGroups.php:113
-#: src/Controllers/JavaScriptMessagesController.php:379
+#: src/Controllers/JavaScriptMessagesController.php:380
 #: src/Display/Results.php:1876 src/Html/Generator.php:533
 #: src/Html/Generator.php:790
 msgid "Edit"
@@ -1056,7 +1056,7 @@ msgstr "Redakto"
 #: resources/templates/server/user_groups/user_groups.twig:56
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:189
-#: src/Controllers/JavaScriptMessagesController.php:381
+#: src/Controllers/JavaScriptMessagesController.php:382
 #: src/Display/Results.php:2414 src/Tracking/Tracking.php:225
 msgid "Delete"
 msgstr "Fshij"
@@ -1106,7 +1106,7 @@ msgstr "Historia"
 #: resources/templates/database/designer/database_tables.twig:116
 #: resources/templates/database/routines/editor_form.twig:58
 #: resources/templates/table/structure/display_table_stats.twig:94
-#: src/Import/Import.php:1158 src/Import/Import.php:1216
+#: src/Import/Import.php:1168 src/Import/Import.php:1226
 msgid "Options"
 msgstr "Opsionet"
 
@@ -1209,7 +1209,7 @@ msgid "Count:"
 msgstr "Numri:"
 
 #: resources/templates/console/display.twig:121
-#: src/Controllers/JavaScriptMessagesController.php:644
+#: src/Controllers/JavaScriptMessagesController.php:645
 msgid "Time taken:"
 msgstr "Koha që ka marrë:"
 
@@ -1246,7 +1246,7 @@ msgstr "Ndan këtë faqeruajtës"
 #: resources/templates/database/designer/main.twig:1058
 #: resources/templates/modals/preview_sql_confirmation.twig:14
 #: resources/templates/table/structure/display_structure.twig:367
-#: src/Controllers/JavaScriptMessagesController.php:335
+#: src/Controllers/JavaScriptMessagesController.php:336
 msgid "OK"
 msgstr "OK"
 
@@ -1414,7 +1414,7 @@ msgstr "Veprimi"
 #: resources/templates/server/databases/index.twig:325
 #: resources/templates/server/variables/index.twig:15
 #: resources/templates/table/search/index.twig:196
-#: src/Controllers/JavaScriptMessagesController.php:312
+#: src/Controllers/JavaScriptMessagesController.php:313
 msgid "Cancel"
 msgstr "Anulo"
 
@@ -1539,7 +1539,7 @@ msgid "Page to delete"
 msgstr "Faqe për të fshirë"
 
 #: resources/templates/database/designer/main.twig:10
-#: src/Controllers/JavaScriptMessagesController.php:525
+#: src/Controllers/JavaScriptMessagesController.php:526
 msgid "Untitled"
 msgstr "Pa titull"
 
@@ -1560,7 +1560,7 @@ msgstr "Dalje nga ekran i plotë"
 
 #: resources/templates/database/designer/main.twig:40
 #: resources/templates/database/designer/main.twig:43
-#: src/Controllers/JavaScriptMessagesController.php:517
+#: src/Controllers/JavaScriptMessagesController.php:518
 msgid "Add tables from other databases"
 msgstr "Shto tabela nga bazat e të dhënave të tjera"
 
@@ -1571,19 +1571,19 @@ msgstr "Faqe e re"
 
 #: resources/templates/database/designer/main.twig:56
 #: resources/templates/database/designer/main.twig:59
-#: src/Controllers/JavaScriptMessagesController.php:521
+#: src/Controllers/JavaScriptMessagesController.php:522
 msgid "Open page"
 msgstr "Hap faqe"
 
 #: resources/templates/database/designer/main.twig:63
 #: resources/templates/database/designer/main.twig:66
-#: src/Controllers/JavaScriptMessagesController.php:519
+#: src/Controllers/JavaScriptMessagesController.php:520
 msgid "Save page"
 msgstr "Ruaj faqen"
 
 #: resources/templates/database/designer/main.twig:70
 #: resources/templates/database/designer/main.twig:73
-#: src/Controllers/JavaScriptMessagesController.php:520
+#: src/Controllers/JavaScriptMessagesController.php:521
 msgid "Save page as"
 msgstr "Ruaj faqen si"
 
@@ -1606,7 +1606,7 @@ msgstr "Krijo relacion"
 
 #: resources/templates/database/designer/main.twig:98
 #: resources/templates/database/designer/main.twig:101
-#: src/Controllers/JavaScriptMessagesController.php:511
+#: src/Controllers/JavaScriptMessagesController.php:512
 msgid "Choose column to display"
 msgstr "Zgjedh kolonën për të shfaqur"
 
@@ -1754,7 +1754,7 @@ msgstr "Opsionet aktive"
 
 #: resources/templates/database/designer/main.twig:1138
 #: resources/templates/sql/query.twig:181
-#: src/Controllers/JavaScriptMessagesController.php:536
+#: src/Controllers/JavaScriptMessagesController.php:537
 msgid "Submit"
 msgstr "Dërgo"
 
@@ -1796,7 +1796,7 @@ msgstr "Emri i ngjarjes"
 #: resources/templates/database/tracking/tables.twig:17
 #: resources/templates/table/tracking/main.twig:31
 #: src/Config/ConfigFile.php:578
-#: src/Controllers/JavaScriptMessagesController.php:275 src/Menu.php:450
+#: src/Controllers/JavaScriptMessagesController.php:276 src/Menu.php:450
 #: src/Server/Status/Processes.php:106 src/Util.php:1364
 msgid "Status"
 msgstr "Statusi"
@@ -1864,7 +1864,7 @@ msgstr "Përcaktuesi"
 #: resources/templates/database/events/index.twig:3 src/Menu.php:381
 #: src/Navigation/Nodes/NodeEventContainer.php:23
 #: src/Navigation/Nodes/NodeEventContainer.php:25
-#: src/Plugins/Export/ExportSql.php:982 src/Plugins/Export/ExportXml.php:92
+#: src/Plugins/Export/ExportSql.php:989 src/Plugins/Export/ExportXml.php:92
 #: src/Util.php:1386
 msgid "Events"
 msgstr "Ngjarjet"
@@ -1925,7 +1925,7 @@ msgstr "Shënjo të gjitha"
 #: resources/templates/triggers/list.twig:18
 #: resources/templates/triggers/row.twig:41
 #: src/Config/Forms/User/ExportForm.php:148
-#: src/Controllers/JavaScriptMessagesController.php:361 src/Menu.php:241
+#: src/Controllers/JavaScriptMessagesController.php:362 src/Menu.php:241
 #: src/Menu.php:347 src/Menu.php:469 src/Server/Privileges.php:1279
 #: src/Util.php:1366 src/Util.php:1381 src/Util.php:1398
 msgid "Export"
@@ -1995,7 +1995,7 @@ msgstr "Edicioni excel"
 #: resources/templates/database/events/index.twig:166
 #: resources/templates/database/routines/index.twig:83
 #: resources/templates/database/routines/index.twig:118
-#: resources/templates/home/index.twig:321
+#: resources/templates/home/index.twig:320
 #: resources/templates/modals/index_dialog_modal.twig:26
 #: resources/templates/navigation/main.twig:58
 #: resources/templates/server/privileges/users_overview.twig:172
@@ -2003,7 +2003,7 @@ msgstr "Edicioni excel"
 #: resources/templates/server/status/monitor/index.twig:296
 #: resources/templates/table/structure/display_structure.twig:348
 #: resources/templates/triggers/list.twig:86
-#: src/Controllers/JavaScriptMessagesController.php:319
+#: src/Controllers/JavaScriptMessagesController.php:320
 msgid "Loading…"
 msgstr "Ngarkon…"
 
@@ -2108,7 +2108,7 @@ msgstr "Zgjidh kolonën:"
 #: resources/templates/database/multi_table_query/form.twig:38
 #: resources/templates/database/tracking/tables.twig:19
 #: resources/templates/table/tracking/main.twig:33
-#: src/Controllers/JavaScriptMessagesController.php:693
+#: src/Controllers/JavaScriptMessagesController.php:694
 #: src/Controllers/Table/ChangeController.php:223
 msgid "Show"
 msgstr "Shfaq"
@@ -2793,7 +2793,7 @@ msgid "Replace table prefix"
 msgstr "Zëvendëso prefiksin e tabelës"
 
 #: resources/templates/database/structure/check_all_tables.twig:28
-#: src/Controllers/JavaScriptMessagesController.php:656
+#: src/Controllers/JavaScriptMessagesController.php:657
 msgid "Copy table with prefix"
 msgstr "Kopjo tabelën me prefiks"
 
@@ -2828,7 +2828,7 @@ msgstr ""
 
 #: resources/templates/database/structure/copy_form.twig:5
 #: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:250
-#: src/Plugins/Export/ExportSql.php:912 src/Plugins/Export/ExportXml.php:356
+#: src/Plugins/Export/ExportSql.php:919 src/Plugins/Export/ExportXml.php:356
 #: src/Plugins/Export/Helpers/Pdf.php:147
 msgid "Database:"
 msgstr "Databaza:"
@@ -2854,7 +2854,7 @@ msgstr "Doni me të vërtetë të ekzekutoni pyetsorin që vijon?"
 #: resources/templates/database/structure/empty_form.twig:15
 #: resources/templates/import.twig:154 resources/templates/sql/query.twig:145
 #: resources/templates/table/delete/confirm.twig:25
-#: src/Controllers/JavaScriptMessagesController.php:346
+#: src/Controllers/JavaScriptMessagesController.php:347
 msgid "Enable foreign key checks"
 msgstr "Aftëso kontrollet e çelësave të huaj"
 
@@ -3129,7 +3129,7 @@ msgstr "Fund"
 #: resources/templates/server/privileges/initials_row.twig:21
 #: resources/templates/table/browse_foreigners/show_all.twig:2
 #: src/BrowseForeigners.php:287
-#: src/Controllers/JavaScriptMessagesController.php:554
+#: src/Controllers/JavaScriptMessagesController.php:555
 msgid "Show all"
 msgstr "Shfaq të gjitha"
 
@@ -3195,7 +3195,7 @@ msgid "Hide browser transformation"
 msgstr "Fsheh transformimin e shfletuesit"
 
 #: resources/templates/display/results/table.twig:263
-#: src/Controllers/JavaScriptMessagesController.php:473
+#: src/Controllers/JavaScriptMessagesController.php:474
 msgid "Geometry"
 msgstr "Gjeometri"
 
@@ -3210,7 +3210,7 @@ msgstr "Binare e mirënjohur"
 #: resources/templates/display/results/table.twig:323
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
-#: src/Controllers/JavaScriptMessagesController.php:467
+#: src/Controllers/JavaScriptMessagesController.php:468
 #: src/Display/Results.php:1877 src/Html/Generator.php:83
 msgid "Copy"
 msgstr "Kopjo"
@@ -3221,7 +3221,7 @@ msgid "Query results operations"
 msgstr "Veprimet e rezultatit të pyetsorit"
 
 #: resources/templates/display/results/table.twig:353
-#: src/Controllers/JavaScriptMessagesController.php:466
+#: src/Controllers/JavaScriptMessagesController.php:467
 #: src/Export/Export.php:716
 msgid "Copy to clipboard"
 msgstr "Kopjo në clipboard"
@@ -3332,7 +3332,7 @@ msgstr "Aktualizo"
 
 #. l10n: Title of the option on the Export page
 #: resources/templates/export.twig:68
-#: src/Controllers/JavaScriptMessagesController.php:134
+#: src/Controllers/JavaScriptMessagesController.php:135
 #: src/Html/Generator.php:765
 msgid "SQL query:"
 msgstr "SQL pyetsor:"
@@ -3405,7 +3405,7 @@ msgid "Defined aliases"
 msgstr "Emërtimet e përcaktuara"
 
 #: resources/templates/export.twig:204
-#: src/Controllers/JavaScriptMessagesController.php:282
+#: src/Controllers/JavaScriptMessagesController.php:283
 msgctxt "Alias"
 msgid "Database"
 msgstr "Databaza"
@@ -3416,13 +3416,13 @@ msgid "Remove"
 msgstr "Heq"
 
 #: resources/templates/export.twig:218
-#: src/Controllers/JavaScriptMessagesController.php:283
+#: src/Controllers/JavaScriptMessagesController.php:284
 msgctxt "Alias"
 msgid "Table"
 msgstr "Tabela"
 
 #: resources/templates/export.twig:231
-#: src/Controllers/JavaScriptMessagesController.php:284
+#: src/Controllers/JavaScriptMessagesController.php:285
 msgctxt "Alias"
 msgid "Column"
 msgstr "Kolona"
@@ -3617,7 +3617,7 @@ msgstr ""
 msgid "General settings"
 msgstr "Rregullimet e përgjithshme"
 
-#: resources/templates/home/index.twig:44
+#: resources/templates/home/index.twig:43
 #: resources/templates/modals/change_password.twig:5
 #: resources/templates/server/privileges/change_password.twig:10
 #: resources/templates/server/privileges/change_password.twig:11
@@ -3625,23 +3625,23 @@ msgstr "Rregullimet e përgjithshme"
 msgid "Change password"
 msgstr "Ndrysho fjalëkalimin"
 
-#: resources/templates/home/index.twig:56
+#: resources/templates/home/index.twig:55
 #, fuzzy
 #| msgid "Server connection collation"
 msgid "Server connection collation:"
 msgstr "Përshtatja e lidhjes me serverin"
 
-#: resources/templates/home/index.twig:82
+#: resources/templates/home/index.twig:81
 #: resources/templates/preferences/manage/main.twig:55
 msgid "More settings"
 msgstr "Më shumë konfigurime"
 
-#: resources/templates/home/index.twig:93
+#: resources/templates/home/index.twig:92
 msgid "Appearance settings"
 msgstr "Rregullimet e pamjes"
 
+#: resources/templates/home/index.twig:102
 #: resources/templates/home/index.twig:103
-#: resources/templates/home/index.twig:104
 #: resources/templates/login/form.twig:21
 #: resources/templates/login/form.twig:22
 #: resources/templates/setup/home/index.twig:8
@@ -3649,115 +3649,115 @@ msgstr "Rregullimet e pamjes"
 msgid "Language"
 msgstr "Gjuha"
 
-#: resources/templates/home/index.twig:131
+#: resources/templates/home/index.twig:130
 msgid "Theme"
 msgstr "Modeli"
 
-#: resources/templates/home/index.twig:142
+#: resources/templates/home/index.twig:141
 #, fuzzy
 #| msgid "View only"
 msgctxt "View all themes"
 msgid "View all"
 msgstr "Shfaq vetëm"
 
-#: resources/templates/home/index.twig:178
+#: resources/templates/home/index.twig:177
 msgid "Database server"
 msgstr "Serveri i databazës"
 
-#: resources/templates/home/index.twig:182
+#: resources/templates/home/index.twig:181
 #: resources/templates/login/form.twig:63 resources/templates/menu/main.twig:7
 msgid "Server:"
 msgstr "Serveri:"
 
-#: resources/templates/home/index.twig:186
+#: resources/templates/home/index.twig:185
 #, fuzzy
 #| msgid "Host name:"
 msgid "Hostname:"
 msgstr "Emri i pritësit:"
 
-#: resources/templates/home/index.twig:190
+#: resources/templates/home/index.twig:189
 msgid "Server type:"
 msgstr "Tipi i serverit:"
 
-#: resources/templates/home/index.twig:194
+#: resources/templates/home/index.twig:193
 msgid "Server connection:"
 msgstr "Lidhja e serverit:"
 
-#: resources/templates/home/index.twig:198
+#: resources/templates/home/index.twig:197
 #: src/Plugins/Export/ExportLatex.php:231 src/Plugins/Export/ExportSql.php:762
 #: src/Plugins/Export/ExportXml.php:203
 msgid "Server version:"
 msgstr "Versioni i serverit:"
 
-#: resources/templates/home/index.twig:202
+#: resources/templates/home/index.twig:201
 msgid "User:"
 msgstr "Përdoruesi:"
 
-#: resources/templates/home/index.twig:206
+#: resources/templates/home/index.twig:205
 msgid "Server charset:"
 msgstr "Seti i karaktereve të serverit:"
 
-#: resources/templates/home/index.twig:218
+#: resources/templates/home/index.twig:217
 msgid "Web server"
 msgstr "Ueb server"
 
-#: resources/templates/home/index.twig:228
+#: resources/templates/home/index.twig:227
 msgid "Database client version:"
 msgstr "Versioni klient i databazës:"
 
-#: resources/templates/home/index.twig:232
+#: resources/templates/home/index.twig:231
 msgid "PHP extension:"
 msgstr "Zgjerimi PHP:"
 
-#: resources/templates/home/index.twig:239
+#: resources/templates/home/index.twig:238
 msgid "PHP version:"
 msgstr "Versioni PHP:"
 
-#: resources/templates/home/index.twig:246
+#: resources/templates/home/index.twig:245
 msgid "Show PHP information"
 msgstr "Shfaq informacionin PHP"
 
-#: resources/templates/home/index.twig:260
+#: resources/templates/home/index.twig:259
 msgid "Version information:"
 msgstr "Informacion mbi versionin:"
 
-#: resources/templates/home/index.twig:270
+#: resources/templates/home/index.twig:269
 msgid "Official Homepage"
 msgstr "Webfaqja zyrtare"
 
-#: resources/templates/home/index.twig:275
+#: resources/templates/home/index.twig:274
 msgid "Contribute"
 msgstr "Kontributi"
 
-#: resources/templates/home/index.twig:280
+#: resources/templates/home/index.twig:279
 msgid "Get support"
 msgstr "Merr mbështetje"
 
-#: resources/templates/home/index.twig:285
+#: resources/templates/home/index.twig:284
 msgid "List of changes"
 msgstr "Lista e ndryshimeve"
 
-#: resources/templates/home/index.twig:290
+#: resources/templates/home/index.twig:289
 #: resources/templates/server/plugins/index.twig:30
 msgid "License"
 msgstr "Liçensa"
 
-#: resources/templates/home/index.twig:301
+#: resources/templates/home/index.twig:300
 #: resources/templates/setup/error.twig:2
 msgid "Warning"
 msgstr "Paralajmërim"
 
-#: resources/templates/home/index.twig:303
+#: resources/templates/home/index.twig:302
 msgid "Notice"
 msgstr ""
 
-#: resources/templates/home/index.twig:316
+#: resources/templates/home/index.twig:315
 #, fuzzy
 #| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Themes"
 msgstr "phpMyAdmin uebfaqja"
 
-#: resources/templates/home/index.twig:327
+#: resources/templates/home/index.twig:326
 msgid "Get more themes!"
 msgstr "Merr më shumë modele!"
 
@@ -3776,7 +3776,7 @@ msgstr "merre atë"
 
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
-#: src/Controllers/JavaScriptMessagesController.php:411
+#: src/Controllers/JavaScriptMessagesController.php:412
 #: src/Export/Export.php:739 src/Html/Generator.php:849
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
@@ -4142,7 +4142,7 @@ msgid "An error has occurred while loading the navigation display"
 msgstr "Një gabim ka ndodhur gjatë ngarkimit të shfaqjes së navigimit"
 
 #: resources/templates/navigation/main.twig:84
-#: src/Controllers/JavaScriptMessagesController.php:571
+#: src/Controllers/JavaScriptMessagesController.php:572
 msgid "Drop files here"
 msgstr "Lësho filet këtu"
 
@@ -4777,7 +4777,7 @@ msgstr "SQL"
 
 #: resources/templates/server/databases/index.twig:255
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:34
-#: src/Controllers/JavaScriptMessagesController.php:293
+#: src/Controllers/JavaScriptMessagesController.php:294
 msgid "Total:"
 msgstr "Totali:"
 
@@ -4799,7 +4799,7 @@ msgid "No databases"
 msgstr "Nuk ka databaza"
 
 #: resources/templates/server/databases/index.twig:320
-#: src/Controllers/JavaScriptMessagesController.php:337
+#: src/Controllers/JavaScriptMessagesController.php:338
 msgid "Confirm"
 msgstr "Konfirmo"
 
@@ -5042,7 +5042,7 @@ msgstr "Llogaria e përdoruesit"
 #: resources/templates/server/privileges/edit_routine_privileges.twig:29
 #: resources/templates/server/privileges/edit_routine_privileges.twig:46
 #: resources/templates/server/privileges/edit_routine_privileges.twig:59
-#: src/Controllers/JavaScriptMessagesController.php:363
+#: src/Controllers/JavaScriptMessagesController.php:364
 #: src/Server/Privileges.php:1576 src/Server/Privileges.php:1578
 msgid "Routine"
 msgstr "Rutina"
@@ -5640,27 +5640,27 @@ msgid "User group"
 msgstr "Grup përdoruesi"
 
 #: resources/templates/server/privileges/users_overview.twig:100
-#: src/Controllers/JavaScriptMessagesController.php:158
+#: src/Controllers/JavaScriptMessagesController.php:159
 #, fuzzy
 #| msgid "User account"
 msgid "Unlock this account."
 msgstr "Llogaria e përdoruesit"
 
 #: resources/templates/server/privileges/users_overview.twig:100
-#: src/Controllers/JavaScriptMessagesController.php:157
+#: src/Controllers/JavaScriptMessagesController.php:158
 #, fuzzy
 #| msgid "Log file count"
 msgid "Lock this account."
 msgstr "Numri i regjistrit (log) të filit"
 
 #: resources/templates/server/privileges/users_overview.twig:102
-#: src/Controllers/JavaScriptMessagesController.php:156
+#: src/Controllers/JavaScriptMessagesController.php:157
 msgctxt "Unlock the account."
 msgid "Unlock"
 msgstr ""
 
 #: resources/templates/server/privileges/users_overview.twig:105
-#: src/Controllers/JavaScriptMessagesController.php:155
+#: src/Controllers/JavaScriptMessagesController.php:156
 msgctxt "Lock the account."
 msgid "Lock"
 msgstr ""
@@ -5746,7 +5746,7 @@ msgid "Generate password:"
 msgstr "Gjenero fjalëkalimin:"
 
 #: resources/templates/server/replication/primary_add_replica_user.twig:73
-#: src/Controllers/JavaScriptMessagesController.php:578
+#: src/Controllers/JavaScriptMessagesController.php:579
 msgid "Generate"
 msgstr "Gjenero"
 
@@ -5960,12 +5960,13 @@ msgstr "Statusi i replikimit"
 msgid "Variable"
 msgstr "Variabli"
 
-#: resources/templates/server/select/index.twig:4
-#: resources/templates/server/select/index.twig:13
+#: resources/templates/server/select/index.twig:6
+#: resources/templates/server/select/index.twig:8
+#: resources/templates/server/select/index.twig:19
 msgid "Current server:"
 msgstr "Serveri aktual:"
 
-#: resources/templates/server/select/index.twig:6
+#: resources/templates/server/select/index.twig:12
 #: resources/templates/setup/home/index.twig:34 src/Config/Descriptions.php:740
 msgid "Servers"
 msgstr "Serverat"
@@ -6069,7 +6070,7 @@ msgstr "Serveri"
 
 #: resources/templates/server/status/base.twig:11
 #: resources/templates/server/status/processes/list.twig:5
-#: src/Controllers/JavaScriptMessagesController.php:200
+#: src/Controllers/JavaScriptMessagesController.php:201
 msgid "Processes"
 msgstr "Proçeset"
 
@@ -6164,7 +6165,7 @@ msgid "Importing system monitor configuration"
 msgstr "Konfigurimi i monitorit të importit"
 
 #: resources/templates/server/status/monitor/index.twig:63
-#: src/Controllers/JavaScriptMessagesController.php:301
+#: src/Controllers/JavaScriptMessagesController.php:302
 msgid "Please select the file you want to import:"
 msgstr "Ju lutem, zgjedh filin që doni të importoni:"
 
@@ -6278,13 +6279,13 @@ msgstr "Apliko një pjesëtues"
 
 #. l10n: shortcuts for Kilobyte
 #: resources/templates/server/status/monitor/index.twig:181
-#: src/Controllers/JavaScriptMessagesController.php:204 src/Util.php:311
+#: src/Controllers/JavaScriptMessagesController.php:205 src/Util.php:311
 msgid "KiB"
 msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
 #: resources/templates/server/status/monitor/index.twig:182
-#: src/Controllers/JavaScriptMessagesController.php:205 src/Util.php:313
+#: src/Controllers/JavaScriptMessagesController.php:206 src/Util.php:313
 msgid "MiB"
 msgstr "MiB"
 
@@ -6305,7 +6306,7 @@ msgid "Series in chart:"
 msgstr "Seritë në grafik:"
 
 #: resources/templates/server/status/monitor/index.twig:212
-#: src/Controllers/JavaScriptMessagesController.php:216
+#: src/Controllers/JavaScriptMessagesController.php:217
 msgid "Add chart to grid"
 msgstr "Shto grafik tek rrjeta"
 
@@ -6455,7 +6456,7 @@ msgstr ""
 "ndërmjet ueb serverit dhe MySQL server."
 
 #: resources/templates/server/status/processes/index.twig:49
-#: src/Controllers/JavaScriptMessagesController.php:223
+#: src/Controllers/JavaScriptMessagesController.php:224
 msgid "Start auto refresh"
 msgstr "Fillo auto rifreskim"
 
@@ -6530,7 +6531,7 @@ msgid "This MySQL server has been running for %1$s. It started up on %2$s."
 msgstr "Ky MySQL server ka qenë në punë për %1$s. Ka filluar më %2$s."
 
 #: resources/templates/server/status/status/index.twig:14
-#: src/Controllers/JavaScriptMessagesController.php:214
+#: src/Controllers/JavaScriptMessagesController.php:215
 msgid "Traffic"
 msgstr "Trafiku"
 
@@ -6543,7 +6544,7 @@ msgstr ""
 "statistika që raportohen nga serveri MySQL mund të jenë jokorrekte."
 
 #: resources/templates/server/status/status/index.twig:36
-#: src/Controllers/JavaScriptMessagesController.php:199
+#: src/Controllers/JavaScriptMessagesController.php:200
 msgid "Connections"
 msgstr "Lidhjet"
 
@@ -6816,7 +6817,7 @@ msgstr "Gjendja"
 
 #: resources/templates/sql/profiling_chart.twig:13
 #: resources/templates/triggers/list.twig:51
-#: src/Controllers/JavaScriptMessagesController.php:276
+#: src/Controllers/JavaScriptMessagesController.php:277
 #: src/Plugins/Export/ExportHtmlword.php:395
 #: src/Plugins/Export/ExportOdt.php:503
 #: src/Plugins/Export/ExportTexytext.php:370
@@ -6941,14 +6942,14 @@ msgid "View only"
 msgstr "Shfaq vetëm"
 
 #: resources/templates/sql/query.twig:221
-#: src/Controllers/JavaScriptMessagesController.php:133
+#: src/Controllers/JavaScriptMessagesController.php:134
 msgid "Simulate query"
 msgstr "Simulo pyetsor"
 
 #: resources/templates/sql/relational_column_dropdown.twig:3
 #: resources/templates/table/insert/column_row.twig:48
 #: resources/templates/table/search/input_box.twig:21
-#: src/Controllers/JavaScriptMessagesController.php:383
+#: src/Controllers/JavaScriptMessagesController.php:384
 msgid "Browse foreign values"
 msgstr "Shfleto vlerat e huaja"
 
@@ -7181,14 +7182,14 @@ msgstr "Tërhiq për të ri-renditur"
 
 #: resources/templates/table/index_form.twig:170
 #: resources/templates/table/index_form.twig:213
-#: src/Controllers/JavaScriptMessagesController.php:465
-#: src/Controllers/JavaScriptMessagesController.php:617
+#: src/Controllers/JavaScriptMessagesController.php:466
+#: src/Controllers/JavaScriptMessagesController.php:618
 #: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1412
 msgid "Ignore"
 msgstr "Injoro"
 
 #: resources/templates/table/index_form.twig:254
-#: src/Controllers/JavaScriptMessagesController.php:123
+#: src/Controllers/JavaScriptMessagesController.php:124
 #, php-format
 msgid "Add %s column(s) to index"
 msgstr "Shto %s kolonë(a) tek indeksi"
@@ -7665,7 +7666,7 @@ msgid "Column %s has been dropped."
 msgstr "Kolona %s është fshirë."
 
 #: resources/templates/table/structure/display_structure.twig:130
-#: src/Controllers/JavaScriptMessagesController.php:581
+#: src/Controllers/JavaScriptMessagesController.php:582
 msgid "More"
 msgstr "Më shumë"
 
@@ -7877,7 +7878,7 @@ msgstr "Koha"
 
 #: resources/templates/triggers/editor_form.twig:52
 #: resources/templates/triggers/list.twig:52
-#: src/Controllers/JavaScriptMessagesController.php:365
+#: src/Controllers/JavaScriptMessagesController.php:366
 #: src/Navigation/Nodes/NodeEvent.php:27
 #: src/Plugins/Export/ExportHtmlword.php:396
 #: src/Plugins/Export/ExportOdt.php:506
@@ -7897,7 +7898,7 @@ msgstr "Eksporti i shkrehësit %s"
 #: src/Navigation/Nodes/NodeTriggerContainer.php:26
 #: src/Plugins/Export/ExportHtmlword.php:448
 #: src/Plugins/Export/ExportOdt.php:568 src/Plugins/Export/ExportPdf.php:173
-#: src/Plugins/Export/ExportSql.php:1844
+#: src/Plugins/Export/ExportSql.php:1851
 #: src/Plugins/Export/ExportTexytext.php:408
 #: src/Plugins/Export/ExportXml.php:112 src/Util.php:1387 src/Util.php:1403
 msgid "Triggers"
@@ -9659,7 +9660,7 @@ msgid "Closed"
 msgstr "Mbyllur"
 
 #: src/Config/ConfigFile.php:608
-#: src/Controllers/JavaScriptMessagesController.php:725
+#: src/Controllers/JavaScriptMessagesController.php:726
 #, fuzzy
 #| msgid "Monday"
 msgctxt "Week day name"
@@ -9667,7 +9668,7 @@ msgid "Monday"
 msgstr "E hënë"
 
 #: src/Config/ConfigFile.php:609
-#: src/Controllers/JavaScriptMessagesController.php:726
+#: src/Controllers/JavaScriptMessagesController.php:727
 #, fuzzy
 #| msgid "Tuesday"
 msgctxt "Week day name"
@@ -9675,7 +9676,7 @@ msgid "Tuesday"
 msgstr "E martë"
 
 #: src/Config/ConfigFile.php:610
-#: src/Controllers/JavaScriptMessagesController.php:727
+#: src/Controllers/JavaScriptMessagesController.php:728
 #, fuzzy
 #| msgid "Wednesday"
 msgctxt "Week day name"
@@ -9683,7 +9684,7 @@ msgid "Wednesday"
 msgstr "E mërkurë"
 
 #: src/Config/ConfigFile.php:611
-#: src/Controllers/JavaScriptMessagesController.php:728
+#: src/Controllers/JavaScriptMessagesController.php:729
 #, fuzzy
 #| msgid "Thursday"
 msgctxt "Week day name"
@@ -9691,7 +9692,7 @@ msgid "Thursday"
 msgstr "E enjte"
 
 #: src/Config/ConfigFile.php:612
-#: src/Controllers/JavaScriptMessagesController.php:729
+#: src/Controllers/JavaScriptMessagesController.php:730
 #, fuzzy
 #| msgid "Friday"
 msgctxt "Week day name"
@@ -9699,7 +9700,7 @@ msgid "Friday"
 msgstr "E premte"
 
 #: src/Config/ConfigFile.php:613
-#: src/Controllers/JavaScriptMessagesController.php:730
+#: src/Controllers/JavaScriptMessagesController.php:731
 #, fuzzy
 #| msgid "Saturday"
 msgctxt "Week day name"
@@ -9707,7 +9708,7 @@ msgid "Saturday"
 msgstr "E shtunë"
 
 #: src/Config/ConfigFile.php:614
-#: src/Controllers/JavaScriptMessagesController.php:724
+#: src/Controllers/JavaScriptMessagesController.php:725
 #, fuzzy
 #| msgid "Sunday"
 msgctxt "Week day name"
@@ -11719,7 +11720,7 @@ msgid "Navigation panel width"
 msgstr "Paneli i navigimit"
 
 #: src/Config/Descriptions.php:810
-#: src/Controllers/JavaScriptMessagesController.php:586
+#: src/Controllers/JavaScriptMessagesController.php:587
 #: src/Navigation/NavigationTree.php:1258
 msgid "Link with main panel"
 msgstr "Lidh me panelin kryesor"
@@ -12295,7 +12296,7 @@ msgid "Missing data for %s"
 msgstr "Mungojnë të dhëna për %s"
 
 #: src/Config/FormDisplay.php:620 src/Config/Validator.php:589
-#: src/Controllers/JavaScriptMessagesController.php:808
+#: src/Controllers/JavaScriptMessagesController.php:809
 msgid "Incorrect value!"
 msgstr "Vlerë jokorrekte!"
 
@@ -12630,22 +12631,22 @@ msgid "Incorrect IP address: %s"
 msgstr "Adresë jokorrekte IP: %s"
 
 #: src/Config/Validator.php:524
-#: src/Controllers/JavaScriptMessagesController.php:807
+#: src/Controllers/JavaScriptMessagesController.php:808
 msgid "Not a valid port number!"
 msgstr "Nuk është një numër i vlefshëm porte!"
 
 #: src/Config/Validator.php:546
-#: src/Controllers/JavaScriptMessagesController.php:805
+#: src/Controllers/JavaScriptMessagesController.php:806
 msgid "Not a positive number!"
 msgstr "Nuk është një numër pozitiv!"
 
 #: src/Config/Validator.php:568
-#: src/Controllers/JavaScriptMessagesController.php:806
+#: src/Controllers/JavaScriptMessagesController.php:807
 msgid "Not a non-negative number!"
 msgstr "Nuk është një numër jo-negativ!"
 
 #: src/Config/Validator.php:607
-#: src/Controllers/JavaScriptMessagesController.php:809
+#: src/Controllers/JavaScriptMessagesController.php:810
 #, php-format
 msgid "Value must be less than or equal to %s!"
 msgstr "Vlera duhet të jetë e barabartë ose më e ulët se %s!"
@@ -12672,7 +12673,7 @@ msgstr ""
 "shumë informacion."
 
 #: src/Controllers/Console/Bookmark/AddController.php:42
-#: src/Controllers/JavaScriptMessagesController.php:568
+#: src/Controllers/JavaScriptMessagesController.php:569
 msgid "Failed"
 msgstr "Dështoi"
 
@@ -12725,7 +12726,7 @@ msgstr ""
 #: src/Controllers/Database/Structure/RealRowCountController.php:52
 #: src/Controllers/Database/TrackingController.php:55
 #: src/Controllers/Database/TrackingController.php:60
-#: src/Controllers/JavaScriptMessagesController.php:330
+#: src/Controllers/JavaScriptMessagesController.php:331
 #: src/Controllers/Operations/Database/CollationController.php:54
 #: src/Controllers/Operations/DatabaseController.php:234
 #: src/Controllers/Operations/DatabaseController.php:239
@@ -12854,7 +12855,7 @@ msgstr "Ju nuk keni privilegje të manipuloni me përdoruesit!"
 #: src/Controllers/Database/Structure/EmptyFormController.php:33
 #: src/Controllers/Database/Structure/ShowCreateController.php:36
 #: src/Controllers/Export/TablesController.php:29
-#: src/Controllers/JavaScriptMessagesController.php:331
+#: src/Controllers/JavaScriptMessagesController.php:332
 #: src/Controllers/Operations/TableController.php:98
 #: src/Controllers/Operations/TableController.php:103
 #: src/Controllers/Operations/ViewController.php:73
@@ -13231,7 +13232,7 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" - deklaratat janë pasivizuar."
 
-#: src/Controllers/Import/ImportController.php:700 src/Sql.php:909
+#: src/Controllers/Import/ImportController.php:700 src/Sql.php:918
 msgid "[ROLLBACK occurred.]"
 msgstr "[RIKTHIMI u shfaq.]"
 
@@ -13427,273 +13428,277 @@ msgid "Please enter a valid length!"
 msgstr "Ju lutem, fut një gjatësi të vlefshme!"
 
 #: src/Controllers/JavaScriptMessagesController.php:119
+msgid "does not support the UNSIGNED attribute."
+msgstr ""
+
+#: src/Controllers/JavaScriptMessagesController.php:120
 msgid "Add index"
 msgstr "Shto indeks"
 
-#: src/Controllers/JavaScriptMessagesController.php:120
+#: src/Controllers/JavaScriptMessagesController.php:121
 msgid "Edit index"
 msgstr "Redakto indeksin"
 
 #. l10n: Rename a table Index
-#: src/Controllers/JavaScriptMessagesController.php:122
+#: src/Controllers/JavaScriptMessagesController.php:123
 #, fuzzy
 #| msgid "Rename view to"
 msgid "Rename index"
 msgstr "Riemëro pamjen në"
 
-#: src/Controllers/JavaScriptMessagesController.php:124
+#: src/Controllers/JavaScriptMessagesController.php:125
 msgid "Create single-column index"
 msgstr "Krijo indeksin kolonë-e-vetme"
 
-#: src/Controllers/JavaScriptMessagesController.php:125
+#: src/Controllers/JavaScriptMessagesController.php:126
 msgid "Create composite index"
 msgstr "Krijo indeksin e përzier"
 
-#: src/Controllers/JavaScriptMessagesController.php:126
+#: src/Controllers/JavaScriptMessagesController.php:127
 msgid "Composite with:"
 msgstr "Përzierje me:"
 
-#: src/Controllers/JavaScriptMessagesController.php:127
+#: src/Controllers/JavaScriptMessagesController.php:128
 msgid "Please select column(s) for the index."
 msgstr "Ju lutem zgjedh kolonën(at) për indeksin."
 
 #. l10n: Default label for the y-Axis of Charts
-#: src/Controllers/JavaScriptMessagesController.php:138
+#: src/Controllers/JavaScriptMessagesController.php:139
 msgid "Y values"
 msgstr "Vlerat Y"
 
-#: src/Controllers/JavaScriptMessagesController.php:141
+#: src/Controllers/JavaScriptMessagesController.php:142
 #, fuzzy
 #| msgid "Please enter the same value again"
 msgid "Please enter the SQL query first."
 msgstr "Ju lutem, fut të njëjtën vlerë përsëri"
 
-#: src/Controllers/JavaScriptMessagesController.php:144
+#: src/Controllers/JavaScriptMessagesController.php:145
 msgid "The host name is empty!"
 msgstr "Emri host (pritësit) është i zbrazët!"
 
-#: src/Controllers/JavaScriptMessagesController.php:145
+#: src/Controllers/JavaScriptMessagesController.php:146
 msgid "The user name is empty!"
 msgstr "Emri i përdoruesit është i zbrazët!"
 
-#: src/Controllers/JavaScriptMessagesController.php:146
+#: src/Controllers/JavaScriptMessagesController.php:147
 #: src/Server/Privileges.php:764 src/UserPassword.php:41
 msgid "The password is empty!"
 msgstr "Fjalëkalimi është i zbrazët!"
 
-#: src/Controllers/JavaScriptMessagesController.php:147
+#: src/Controllers/JavaScriptMessagesController.php:148
 #: src/Server/Privileges.php:762 src/UserPassword.php:45
 msgid "The passwords aren't the same!"
 msgstr "Fjalëkalimet nuk janë të njëjtë!"
 
-#: src/Controllers/JavaScriptMessagesController.php:149
+#: src/Controllers/JavaScriptMessagesController.php:150
 msgid ""
 "You are trying to set this account to log in with no password, but the "
 "configuration directive <code>AllowNoPassword</code> is false. If you "
 "proceed, the account will not be able to log in through phpMyAdmin."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:153
+#: src/Controllers/JavaScriptMessagesController.php:154
 msgid "Removing Selected Users"
 msgstr "Largon përdoruesit e zgjedhur"
 
-#: src/Controllers/JavaScriptMessagesController.php:161
+#: src/Controllers/JavaScriptMessagesController.php:162
 msgid "Template was created."
 msgstr "Shablloni është krijuar."
 
-#: src/Controllers/JavaScriptMessagesController.php:162
+#: src/Controllers/JavaScriptMessagesController.php:163
 msgid "Template was loaded."
 msgstr "Shablloni është lokalizuar."
 
-#: src/Controllers/JavaScriptMessagesController.php:163
+#: src/Controllers/JavaScriptMessagesController.php:164
 msgid "Template was updated."
 msgstr "Shablloni është aktualizuar."
 
-#: src/Controllers/JavaScriptMessagesController.php:164
+#: src/Controllers/JavaScriptMessagesController.php:165
 msgid "Template was deleted."
 msgstr "Shablloni është fshirë."
 
 #. l10n: Other, small valued, queries
-#: src/Controllers/JavaScriptMessagesController.php:167
+#: src/Controllers/JavaScriptMessagesController.php:168
 #: src/Server/Status/Data.php:130
 msgid "Other"
 msgstr "Tjetër"
 
 #. l10n: Thousands separator
-#: src/Controllers/JavaScriptMessagesController.php:169 src/Util.php:391
+#: src/Controllers/JavaScriptMessagesController.php:170 src/Util.php:391
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: src/Controllers/JavaScriptMessagesController.php:171 src/Util.php:389
+#: src/Controllers/JavaScriptMessagesController.php:172 src/Util.php:389
 msgid "."
 msgstr "."
 
-#: src/Controllers/JavaScriptMessagesController.php:173
+#: src/Controllers/JavaScriptMessagesController.php:174
 msgid "Connections / Processes"
 msgstr "Lidhjet / Proçeset"
 
-#: src/Controllers/JavaScriptMessagesController.php:175
+#: src/Controllers/JavaScriptMessagesController.php:176
 #, fuzzy
 #| msgid "Number of tables:"
 msgid "Number of statements"
 msgstr "Numri i tabelave:"
 
-#: src/Controllers/JavaScriptMessagesController.php:177
+#: src/Controllers/JavaScriptMessagesController.php:178
 msgid "Query cache efficiency"
 msgstr "Efiçienca e cache të pyetsorit"
 
-#: src/Controllers/JavaScriptMessagesController.php:178
+#: src/Controllers/JavaScriptMessagesController.php:179
 msgid "Query cache usage"
 msgstr "Përdorimi cache i pyetsorit"
 
-#: src/Controllers/JavaScriptMessagesController.php:179
+#: src/Controllers/JavaScriptMessagesController.php:180
 msgid "Query cache used"
 msgstr "Cache e përdorur e pyetsorit"
 
-#: src/Controllers/JavaScriptMessagesController.php:181
+#: src/Controllers/JavaScriptMessagesController.php:182
 msgid "System CPU usage"
 msgstr "Përdorimi CPU i sistemit"
 
-#: src/Controllers/JavaScriptMessagesController.php:182
+#: src/Controllers/JavaScriptMessagesController.php:183
 msgid "System memory"
 msgstr "Kujtesa e sistemit"
 
-#: src/Controllers/JavaScriptMessagesController.php:183
+#: src/Controllers/JavaScriptMessagesController.php:184
 msgid "System swap"
 msgstr "Shkëmbimi i sistemit"
 
-#: src/Controllers/JavaScriptMessagesController.php:185
+#: src/Controllers/JavaScriptMessagesController.php:186
 msgid "Average load"
 msgstr "Ngarkimi mesatar"
 
-#: src/Controllers/JavaScriptMessagesController.php:186
+#: src/Controllers/JavaScriptMessagesController.php:187
 msgid "Total memory"
 msgstr "Kujtesa totale"
 
-#: src/Controllers/JavaScriptMessagesController.php:187
+#: src/Controllers/JavaScriptMessagesController.php:188
 msgid "Cached memory"
 msgstr "Cached kujtesë"
 
-#: src/Controllers/JavaScriptMessagesController.php:188
+#: src/Controllers/JavaScriptMessagesController.php:189
 msgid "Buffered memory"
 msgstr "Kujtesa e amortizimit (zbutjes)"
 
-#: src/Controllers/JavaScriptMessagesController.php:189
+#: src/Controllers/JavaScriptMessagesController.php:190
 msgid "Free memory"
 msgstr "Kujtesë e lirë"
 
-#: src/Controllers/JavaScriptMessagesController.php:190
+#: src/Controllers/JavaScriptMessagesController.php:191
 msgid "Used memory"
 msgstr "Kujtesa e përdorur"
 
-#: src/Controllers/JavaScriptMessagesController.php:192
+#: src/Controllers/JavaScriptMessagesController.php:193
 msgid "Total swap"
 msgstr "Shkëmbimi total"
 
-#: src/Controllers/JavaScriptMessagesController.php:193
+#: src/Controllers/JavaScriptMessagesController.php:194
 msgid "Cached swap"
 msgstr "Shkëmbimi cache"
 
-#: src/Controllers/JavaScriptMessagesController.php:194
+#: src/Controllers/JavaScriptMessagesController.php:195
 msgid "Used swap"
 msgstr "Shkëmbimi i përdorur"
 
-#: src/Controllers/JavaScriptMessagesController.php:195
+#: src/Controllers/JavaScriptMessagesController.php:196
 msgid "Free swap"
 msgstr "Shkëmbimi i lirë"
 
-#: src/Controllers/JavaScriptMessagesController.php:197
+#: src/Controllers/JavaScriptMessagesController.php:198
 msgid "Bytes sent"
 msgstr "Bajt të dërguara"
 
-#: src/Controllers/JavaScriptMessagesController.php:198
+#: src/Controllers/JavaScriptMessagesController.php:199
 msgid "Bytes received"
 msgstr "Bajt të marra"
 
 #. l10n: shortcuts for Byte
-#: src/Controllers/JavaScriptMessagesController.php:203 src/Util.php:309
+#: src/Controllers/JavaScriptMessagesController.php:204 src/Util.php:309
 msgid "B"
 msgstr "B"
 
 #. l10n: shortcuts for Gigabyte
-#: src/Controllers/JavaScriptMessagesController.php:206 src/Util.php:315
+#: src/Controllers/JavaScriptMessagesController.php:207 src/Util.php:315
 msgid "GiB"
 msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
-#: src/Controllers/JavaScriptMessagesController.php:207 src/Util.php:317
+#: src/Controllers/JavaScriptMessagesController.php:208 src/Util.php:317
 msgid "TiB"
 msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
-#: src/Controllers/JavaScriptMessagesController.php:208 src/Util.php:319
+#: src/Controllers/JavaScriptMessagesController.php:209 src/Util.php:319
 msgid "PiB"
 msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
-#: src/Controllers/JavaScriptMessagesController.php:209 src/Util.php:321
+#: src/Controllers/JavaScriptMessagesController.php:210 src/Util.php:321
 msgid "EiB"
 msgstr "EiB"
 
-#: src/Controllers/JavaScriptMessagesController.php:210
+#: src/Controllers/JavaScriptMessagesController.php:211
 #, php-format
 msgid "%d table(s)"
 msgstr "%d tabelë(a)"
 
 #. l10n: Questions is the name of a MySQL Status variable
-#: src/Controllers/JavaScriptMessagesController.php:213
+#: src/Controllers/JavaScriptMessagesController.php:214
 msgid "Questions"
 msgstr "Pyetjet"
 
-#: src/Controllers/JavaScriptMessagesController.php:217
+#: src/Controllers/JavaScriptMessagesController.php:218
 msgid "Please add at least one variable to the series!"
 msgstr "Ju lutem, shtoni së paku një variabël në seri!"
 
 #. l10n: SQL Query on modal to show exported query
-#: src/Controllers/JavaScriptMessagesController.php:220
+#: src/Controllers/JavaScriptMessagesController.php:221
 #, fuzzy
 #| msgid "SQL query"
 msgid "SQL Query"
 msgstr "SQL pyetsor"
 
-#: src/Controllers/JavaScriptMessagesController.php:221
+#: src/Controllers/JavaScriptMessagesController.php:222
 msgid "Resume monitor"
 msgstr "Rifillo monitorin"
 
-#: src/Controllers/JavaScriptMessagesController.php:222
+#: src/Controllers/JavaScriptMessagesController.php:223
 msgid "Pause monitor"
 msgstr "Monitori i pauzës"
 
-#: src/Controllers/JavaScriptMessagesController.php:224
+#: src/Controllers/JavaScriptMessagesController.php:225
 msgid "Stop auto refresh"
 msgstr "Ndalo auto rifreskim"
 
-#: src/Controllers/JavaScriptMessagesController.php:226
+#: src/Controllers/JavaScriptMessagesController.php:227
 msgid "general_log and slow_query_log are enabled."
 msgstr "general_log dhe slow_query_log janë aftësuar."
 
-#: src/Controllers/JavaScriptMessagesController.php:227
+#: src/Controllers/JavaScriptMessagesController.php:228
 msgid "general_log is enabled."
 msgstr "general_log është aftësuar."
 
-#: src/Controllers/JavaScriptMessagesController.php:228
+#: src/Controllers/JavaScriptMessagesController.php:229
 msgid "slow_query_log is enabled."
 msgstr "slow_query_log është aftësuar."
 
-#: src/Controllers/JavaScriptMessagesController.php:229
+#: src/Controllers/JavaScriptMessagesController.php:230
 msgid "slow_query_log and general_log are disabled."
 msgstr "slow_query_log dhe general_log janë pasivizuar."
 
-#: src/Controllers/JavaScriptMessagesController.php:230
+#: src/Controllers/JavaScriptMessagesController.php:231
 msgid "log_output is not set to TABLE."
 msgstr "log_output nuk është vendosur në TABLE."
 
-#: src/Controllers/JavaScriptMessagesController.php:231
+#: src/Controllers/JavaScriptMessagesController.php:232
 msgid "log_output is set to TABLE."
 msgstr "log_output është vendosur në TABLE."
 
-#: src/Controllers/JavaScriptMessagesController.php:233
+#: src/Controllers/JavaScriptMessagesController.php:234
 #, php-format
 msgid ""
 "slow_query_log is enabled, but the server logs only queries that take longer "
@@ -13704,12 +13709,12 @@ msgstr ""
 "marrin më shumë se %d sekonda. Këshillohet ta vendosni këtë long_query_time "
 "0-2 sekonda, në varësi të sistemit tuaj."
 
-#: src/Controllers/JavaScriptMessagesController.php:237
+#: src/Controllers/JavaScriptMessagesController.php:238
 #, php-format
 msgid "long_query_time is set to %d second(s)."
 msgstr "long_query_time është vendosur në %d sekond(a)."
 
-#: src/Controllers/JavaScriptMessagesController.php:239
+#: src/Controllers/JavaScriptMessagesController.php:240
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
@@ -13718,30 +13723,30 @@ msgstr ""
 "rifillimin e serverit:"
 
 #. l10n: %s is FILE or TABLE
-#: src/Controllers/JavaScriptMessagesController.php:242
+#: src/Controllers/JavaScriptMessagesController.php:243
 #, php-format
 msgid "Set log_output to %s"
 msgstr "Vendos log_output në %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
-#: src/Controllers/JavaScriptMessagesController.php:244
+#: src/Controllers/JavaScriptMessagesController.php:245
 #, php-format
 msgid "Enable %s"
 msgstr "Aftëso %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
-#: src/Controllers/JavaScriptMessagesController.php:246
+#: src/Controllers/JavaScriptMessagesController.php:247
 #, php-format
 msgid "Disable %s"
 msgstr "Pasivizo %s"
 
 #. l10n: %d seconds
-#: src/Controllers/JavaScriptMessagesController.php:248
+#: src/Controllers/JavaScriptMessagesController.php:249
 #, php-format
 msgid "Set long_query_time to %d seconds."
 msgstr "Vendos long_query_time në %d sekonda."
 
-#: src/Controllers/JavaScriptMessagesController.php:250
+#: src/Controllers/JavaScriptMessagesController.php:251
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
@@ -13749,39 +13754,39 @@ msgstr ""
 "Nuk mund t'i ndryshoni këto variabla. Ju lutem, hyni si rrënjë (root) ose "
 "kontaktoni administratorin tuaj të databazës."
 
-#: src/Controllers/JavaScriptMessagesController.php:252
+#: src/Controllers/JavaScriptMessagesController.php:253
 msgid "Change settings"
 msgstr "Ndrysho konfigurimet"
 
-#: src/Controllers/JavaScriptMessagesController.php:253
+#: src/Controllers/JavaScriptMessagesController.php:254
 msgid "Current settings"
 msgstr "Rregullimet aktuale"
 
-#: src/Controllers/JavaScriptMessagesController.php:255
+#: src/Controllers/JavaScriptMessagesController.php:256
 msgid "Chart title"
 msgstr "Titull grafiku"
 
 #. l10n: As in differential values
-#: src/Controllers/JavaScriptMessagesController.php:257
+#: src/Controllers/JavaScriptMessagesController.php:258
 msgid "Differential"
 msgstr "Diferencial"
 
-#: src/Controllers/JavaScriptMessagesController.php:258
+#: src/Controllers/JavaScriptMessagesController.php:259
 #, php-format
 msgid "Divided by %s"
 msgstr "Ndarë sipas %s"
 
-#: src/Controllers/JavaScriptMessagesController.php:259
+#: src/Controllers/JavaScriptMessagesController.php:260
 msgid "Unit"
 msgstr "Njësi"
 
-#: src/Controllers/JavaScriptMessagesController.php:261
+#: src/Controllers/JavaScriptMessagesController.php:262
 msgid "The database name is not known for this query in the server's logs."
 msgstr ""
 "Emri i databazës nuk është i njohur për këtë pyetsor në regjistrat (logs) e "
 "serverit."
 
-#: src/Controllers/JavaScriptMessagesController.php:263
+#: src/Controllers/JavaScriptMessagesController.php:264
 msgid ""
 "This column shows the amount of identical queries that are grouped together. "
 "However only the SQL query itself has been used as a grouping criteria, so "
@@ -13792,7 +13797,7 @@ msgstr ""
 "kështu që atributet e tjera të pyetsorëve, të tilla si koha e fillimit, mund "
 "të ndryshojnë."
 
-#: src/Controllers/JavaScriptMessagesController.php:268
+#: src/Controllers/JavaScriptMessagesController.php:269
 msgid ""
 "Since grouping of INSERTs queries has been selected, INSERT queries into the "
 "same table are also being grouped together, disregarding of the inserted "
@@ -13802,124 +13807,124 @@ msgstr ""
 "njëjtën tabelë grupohen gjithashtu bashkë, pa marrë parasysh të dhënave të "
 "futura."
 
-#: src/Controllers/JavaScriptMessagesController.php:273
+#: src/Controllers/JavaScriptMessagesController.php:274
 msgid "Analyzing…"
 msgstr "Analizon…"
 
-#: src/Controllers/JavaScriptMessagesController.php:274
+#: src/Controllers/JavaScriptMessagesController.php:275
 msgid "Explain output"
 msgstr "Sqaro rezultatin"
 
-#: src/Controllers/JavaScriptMessagesController.php:277
+#: src/Controllers/JavaScriptMessagesController.php:278
 msgid "Total time:"
 msgstr "Koha totale:"
 
-#: src/Controllers/JavaScriptMessagesController.php:278
+#: src/Controllers/JavaScriptMessagesController.php:279
 msgid "Profiling results"
 msgstr "Rezultatet e profilimit"
 
-#: src/Controllers/JavaScriptMessagesController.php:279
+#: src/Controllers/JavaScriptMessagesController.php:280
 msgctxt "Display format"
 msgid "Table"
 msgstr "Tabelë"
 
-#: src/Controllers/JavaScriptMessagesController.php:280
+#: src/Controllers/JavaScriptMessagesController.php:281
 msgid "Chart"
 msgstr "Grafik"
 
 #. l10n: A collection of available filters
-#: src/Controllers/JavaScriptMessagesController.php:287
+#: src/Controllers/JavaScriptMessagesController.php:288
 msgid "Log table filter options"
 msgstr "Opsionet e filtrit të regjistrit (log) të tabelës"
 
 #. l10n: Filter as in "Start Filtering"
-#: src/Controllers/JavaScriptMessagesController.php:289
+#: src/Controllers/JavaScriptMessagesController.php:290
 msgid "Filter"
 msgstr "Filtro"
 
-#: src/Controllers/JavaScriptMessagesController.php:290
+#: src/Controllers/JavaScriptMessagesController.php:291
 msgid "Filter queries by word/regexp:"
 msgstr "Filtro pyetsorët spas fjalës/regexp:"
 
-#: src/Controllers/JavaScriptMessagesController.php:291
+#: src/Controllers/JavaScriptMessagesController.php:292
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr ""
 "Pyetsorët e grupit, injoron të dhënat e variablave në klauzolën (ku) WHERE"
 
-#: src/Controllers/JavaScriptMessagesController.php:292
+#: src/Controllers/JavaScriptMessagesController.php:293
 msgid "Sum of grouped rows:"
 msgstr "Shuma e radhëve të grupuara:"
 
-#: src/Controllers/JavaScriptMessagesController.php:295
+#: src/Controllers/JavaScriptMessagesController.php:296
 msgid "Affected rows:"
 msgstr "Radhët e ndikuara:"
 
-#: src/Controllers/JavaScriptMessagesController.php:297
+#: src/Controllers/JavaScriptMessagesController.php:298
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
 "Dështoi në parsimin e filit config. Nuk duket se është një kod i vlefshëm "
 "JSON."
 
-#: src/Controllers/JavaScriptMessagesController.php:299
+#: src/Controllers/JavaScriptMessagesController.php:300
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
 "Dështoi në ndërtimin e rrjetës së grafikut me konfig të importuar. "
 "Rivendosje në konfig standard…"
 
-#: src/Controllers/JavaScriptMessagesController.php:302
+#: src/Controllers/JavaScriptMessagesController.php:303
 #, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid table name."
 msgstr "Ju lutem, fut një emër të vlefshëm faqeje"
 
-#: src/Controllers/JavaScriptMessagesController.php:303
+#: src/Controllers/JavaScriptMessagesController.php:304
 #, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid database name."
 msgstr "Ju lutem, fut një emër të vlefshëm faqeje"
 
-#: src/Controllers/JavaScriptMessagesController.php:304
+#: src/Controllers/JavaScriptMessagesController.php:305
 msgid "No files available on server for import!"
 msgstr "Nuk ka file të vlefshme në server për import!"
 
-#: src/Controllers/JavaScriptMessagesController.php:307
+#: src/Controllers/JavaScriptMessagesController.php:308
 msgid "Formatting SQL…"
 msgstr "Formaton SQL…"
 
-#: src/Controllers/JavaScriptMessagesController.php:308
+#: src/Controllers/JavaScriptMessagesController.php:309
 msgid "No parameters found!"
 msgstr "Nuk gjenden parametra!"
 
-#: src/Controllers/JavaScriptMessagesController.php:320
+#: src/Controllers/JavaScriptMessagesController.php:321
 msgid "Request aborted!!"
 msgstr "Kërkesa u abortua!!"
 
-#: src/Controllers/JavaScriptMessagesController.php:321
+#: src/Controllers/JavaScriptMessagesController.php:322
 msgid "Processing request"
 msgstr "Proçeson kërkesën"
 
-#: src/Controllers/JavaScriptMessagesController.php:322
+#: src/Controllers/JavaScriptMessagesController.php:323
 msgid "Request failed!!"
 msgstr "Kërkesa dështoi!!"
 
-#: src/Controllers/JavaScriptMessagesController.php:323
+#: src/Controllers/JavaScriptMessagesController.php:324
 #: src/Controllers/Sql/EnumValuesController.php:38
 #: src/Controllers/Sql/SetValuesController.php:41
 msgid "Error in processing request"
 msgstr "Gabim në proçesimin e kërkesës"
 
-#: src/Controllers/JavaScriptMessagesController.php:324
+#: src/Controllers/JavaScriptMessagesController.php:325
 #, php-format
 msgid "Error code: %s"
 msgstr "Kodi i gabimit: %s"
 
-#: src/Controllers/JavaScriptMessagesController.php:325
+#: src/Controllers/JavaScriptMessagesController.php:326
 #, php-format
 msgid "Error text: %s"
 msgstr "Teksti gabim: %s"
 
-#: src/Controllers/JavaScriptMessagesController.php:327
+#: src/Controllers/JavaScriptMessagesController.php:328
 msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
@@ -13927,144 +13932,144 @@ msgstr ""
 "Duket se lidhja me serverin ka humbur. Kontrollo lidhjen e rrjetit dhe "
 "statusin e serverit."
 
-#: src/Controllers/JavaScriptMessagesController.php:332
+#: src/Controllers/JavaScriptMessagesController.php:333
 msgid "No accounts selected."
 msgstr "Nuk ka llogari zgjedhur."
 
-#: src/Controllers/JavaScriptMessagesController.php:333
+#: src/Controllers/JavaScriptMessagesController.php:334
 msgid "Dropping column"
 msgstr "Po fshin kolonën"
 
-#: src/Controllers/JavaScriptMessagesController.php:334
+#: src/Controllers/JavaScriptMessagesController.php:335
 msgid "Adding primary key"
 msgstr "Shton çelësin primar"
 
-#: src/Controllers/JavaScriptMessagesController.php:336
+#: src/Controllers/JavaScriptMessagesController.php:337
 msgid "Click to dismiss this notification"
 msgstr "Kliko për të larguar këtë njoftim"
 
-#: src/Controllers/JavaScriptMessagesController.php:340
+#: src/Controllers/JavaScriptMessagesController.php:341
 msgid "Renaming databases"
 msgstr "Riemëron databazën"
 
-#: src/Controllers/JavaScriptMessagesController.php:341
+#: src/Controllers/JavaScriptMessagesController.php:342
 msgid "Copying database"
 msgstr "Kopjon databazën"
 
-#: src/Controllers/JavaScriptMessagesController.php:342
+#: src/Controllers/JavaScriptMessagesController.php:343
 msgid "Changing charset"
 msgstr "Ndryshon setin e karaktereve"
 
-#: src/Controllers/JavaScriptMessagesController.php:349
+#: src/Controllers/JavaScriptMessagesController.php:350
 msgid "Failed to get real row count."
 msgstr "Dështoi në marrjen e numrit real të radhës."
 
-#: src/Controllers/JavaScriptMessagesController.php:352
+#: src/Controllers/JavaScriptMessagesController.php:353
 msgid "Searching"
 msgstr "Kërkon"
 
-#: src/Controllers/JavaScriptMessagesController.php:353
+#: src/Controllers/JavaScriptMessagesController.php:354
 msgid "Hide search results"
 msgstr "Fsheh rezultatet e kërkimit"
 
-#: src/Controllers/JavaScriptMessagesController.php:354
+#: src/Controllers/JavaScriptMessagesController.php:355
 msgid "Show search results"
 msgstr "Shfaq rezultatet e kërkimit"
 
-#: src/Controllers/JavaScriptMessagesController.php:355
+#: src/Controllers/JavaScriptMessagesController.php:356
 msgid "Browsing"
 msgstr "Shfleton"
 
-#: src/Controllers/JavaScriptMessagesController.php:356
+#: src/Controllers/JavaScriptMessagesController.php:357
 msgid "Deleting"
 msgstr "Fshin"
 
-#: src/Controllers/JavaScriptMessagesController.php:357
+#: src/Controllers/JavaScriptMessagesController.php:358
 #, php-format
 msgid "Delete the matches for the %s table?"
 msgstr "Fshij përkimet për tabelën %s?"
 
-#: src/Controllers/JavaScriptMessagesController.php:360
+#: src/Controllers/JavaScriptMessagesController.php:361
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
 "Përkufizimi i një funksioni të ruajtur duhet të përmbajë një deklaratë "
 "RETURN!"
 
-#: src/Controllers/JavaScriptMessagesController.php:362
+#: src/Controllers/JavaScriptMessagesController.php:363
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
 "Asnjë rutinë nuk mund të eksportohet. Mund të mungojnë privilegjet e "
 "kërkuara."
 
-#: src/Controllers/JavaScriptMessagesController.php:364
+#: src/Controllers/JavaScriptMessagesController.php:365
 #: src/Navigation/Nodes/NodeTrigger.php:27
 #, fuzzy
 #| msgid "Triggers"
 msgid "Trigger"
 msgstr "Shkrehësit"
 
-#: src/Controllers/JavaScriptMessagesController.php:368
+#: src/Controllers/JavaScriptMessagesController.php:369
 #, php-format
 msgid "Values for column %s"
 msgstr "Vlerat për kolonat %s"
 
-#: src/Controllers/JavaScriptMessagesController.php:369
+#: src/Controllers/JavaScriptMessagesController.php:370
 msgid "Values for a new column"
 msgstr "Vlerat për kolonën e re"
 
-#: src/Controllers/JavaScriptMessagesController.php:370
+#: src/Controllers/JavaScriptMessagesController.php:371
 msgid "Enter each value in a separate field."
 msgstr "Fut secilën vlerë në një fushë të ndarë."
 
-#: src/Controllers/JavaScriptMessagesController.php:371
+#: src/Controllers/JavaScriptMessagesController.php:372
 #, php-format
 msgid "Add %d value(s)"
 msgstr "Shto %d vlerë(a)"
 
-#: src/Controllers/JavaScriptMessagesController.php:374
+#: src/Controllers/JavaScriptMessagesController.php:375
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
 "Shënim: Nëse fili përmban tabela të shumëfishta, ato do të kombinohen në një."
 
-#: src/Controllers/JavaScriptMessagesController.php:377
+#: src/Controllers/JavaScriptMessagesController.php:378
 msgid "Hide query box"
 msgstr "Fsheh kutinë e pyetsorit"
 
-#: src/Controllers/JavaScriptMessagesController.php:378
+#: src/Controllers/JavaScriptMessagesController.php:379
 msgid "Show query box"
 msgstr "Shfaq kutinë e pyetsorit"
 
-#: src/Controllers/JavaScriptMessagesController.php:380
+#: src/Controllers/JavaScriptMessagesController.php:381
 #, fuzzy
 #| msgid "Submit query"
 msgid "Edit query"
 msgstr "Dërgo pyetsor"
 
-#: src/Controllers/JavaScriptMessagesController.php:382
+#: src/Controllers/JavaScriptMessagesController.php:383
 #, php-format
 msgid "%d is not valid row number."
 msgstr "%d nuk është numër i vlefshëm radhe."
 
-#: src/Controllers/JavaScriptMessagesController.php:384
+#: src/Controllers/JavaScriptMessagesController.php:385
 #, php-format
 msgid "Variable %d:"
 msgstr "Variabli %d:"
 
-#: src/Controllers/JavaScriptMessagesController.php:387
+#: src/Controllers/JavaScriptMessagesController.php:388
 #: src/Normalization.php:956
 msgid "Pick"
 msgstr "Zgjedh"
 
-#: src/Controllers/JavaScriptMessagesController.php:388
+#: src/Controllers/JavaScriptMessagesController.php:389
 msgid "Column selector"
 msgstr "Zgjedhësi i kolonës"
 
-#: src/Controllers/JavaScriptMessagesController.php:389
+#: src/Controllers/JavaScriptMessagesController.php:390
 msgid "Search this list"
 msgstr "Kërko këtë listë"
 
-#: src/Controllers/JavaScriptMessagesController.php:391
+#: src/Controllers/JavaScriptMessagesController.php:392
 #, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
@@ -14073,54 +14078,54 @@ msgstr ""
 "Nuk ka kolona në listën qendrore. Sigurohu që lista Qendrore e kolonave për "
 "databazën  %s ka kolona, të cilat nuk janë të pranishme në tabelën e aktuale."
 
-#: src/Controllers/JavaScriptMessagesController.php:394
+#: src/Controllers/JavaScriptMessagesController.php:395
 msgid "See more"
 msgstr "Shiko më shumë"
 
-#: src/Controllers/JavaScriptMessagesController.php:397
+#: src/Controllers/JavaScriptMessagesController.php:398
 msgid "Add primary key"
 msgstr "Shto çelës primar"
 
-#: src/Controllers/JavaScriptMessagesController.php:398
+#: src/Controllers/JavaScriptMessagesController.php:399
 msgid "Primary key added."
 msgstr "Çelësi primar u shtua."
 
-#: src/Controllers/JavaScriptMessagesController.php:399
+#: src/Controllers/JavaScriptMessagesController.php:400
 #: src/Normalization.php:263
 msgid "Taking you to next step…"
 msgstr "Po kalon në hapin tjetër…"
 
-#: src/Controllers/JavaScriptMessagesController.php:400
+#: src/Controllers/JavaScriptMessagesController.php:401
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
 msgstr "Hapi i parë i normalizimit është i plotë për tabelën '%s'."
 
-#: src/Controllers/JavaScriptMessagesController.php:401
+#: src/Controllers/JavaScriptMessagesController.php:402
 #: src/Normalization.php:519 src/Normalization.php:578
 #: src/Normalization.php:665 src/Normalization.php:738
 msgid "End of step"
 msgstr "Fundi i hapit"
 
-#: src/Controllers/JavaScriptMessagesController.php:402
+#: src/Controllers/JavaScriptMessagesController.php:403
 msgid "Second step of normalization (2NF)"
 msgstr "Hapi i dytë i normalizimit (2NF)"
 
 #. l10n: Display text for calendar close link
-#: src/Controllers/JavaScriptMessagesController.php:403
-#: src/Controllers/JavaScriptMessagesController.php:757
+#: src/Controllers/JavaScriptMessagesController.php:404
+#: src/Controllers/JavaScriptMessagesController.php:758
 #: src/Normalization.php:351
 msgid "Done"
 msgstr "U krye"
 
-#: src/Controllers/JavaScriptMessagesController.php:404
+#: src/Controllers/JavaScriptMessagesController.php:405
 msgid "Confirm partial dependencies"
 msgstr "Konfirmo varësitë e pjesëshme"
 
-#: src/Controllers/JavaScriptMessagesController.php:405
+#: src/Controllers/JavaScriptMessagesController.php:406
 msgid "Selected partial dependencies are as follows:"
 msgstr "Varësitë e pjesëshme të zgjedhura janë si vijon:"
 
-#: src/Controllers/JavaScriptMessagesController.php:407
+#: src/Controllers/JavaScriptMessagesController.php:408
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
@@ -14128,19 +14133,19 @@ msgstr ""
 "Shënim: a, b -> d,f implikon vlerat e kolonave a dhe b të kombinuara së "
 "bashku, mund të përcaktojnë vlerat e kolonës d dhe kolonës f."
 
-#: src/Controllers/JavaScriptMessagesController.php:410
+#: src/Controllers/JavaScriptMessagesController.php:411
 msgid "No partial dependencies selected!"
 msgstr "Nuk janë zgjedhur varësi të pjesëshme!"
 
-#: src/Controllers/JavaScriptMessagesController.php:412
+#: src/Controllers/JavaScriptMessagesController.php:413
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr "Shfaq varësitë e mundshme të pjesëshme në bazë të të dhënave në tabelë"
 
-#: src/Controllers/JavaScriptMessagesController.php:413
+#: src/Controllers/JavaScriptMessagesController.php:414
 msgid "Hide partial dependencies list"
 msgstr "Fsheh listën e varësisë së pjesëshme"
 
-#: src/Controllers/JavaScriptMessagesController.php:415
+#: src/Controllers/JavaScriptMessagesController.php:416
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
@@ -14148,181 +14153,181 @@ msgstr ""
 "Trego durim! Mund të marrë disa sekonda, në varësi të madhësisë së të "
 "dhënave dhe numrit të kolonave të tabelës."
 
-#: src/Controllers/JavaScriptMessagesController.php:417
+#: src/Controllers/JavaScriptMessagesController.php:418
 msgid "Step"
 msgstr "Hapi"
 
-#: src/Controllers/JavaScriptMessagesController.php:418
+#: src/Controllers/JavaScriptMessagesController.php:419
 msgid "The following actions will be performed:"
 msgstr "Veprimet që vijojnë do të kryhen:"
 
-#: src/Controllers/JavaScriptMessagesController.php:419
+#: src/Controllers/JavaScriptMessagesController.php:420
 #, php-format
 msgid "DROP columns %s from the table %s"
 msgstr "DROP (hedh) kolonat %s nga tabela %s"
 
-#: src/Controllers/JavaScriptMessagesController.php:420
+#: src/Controllers/JavaScriptMessagesController.php:421
 msgid "Create the following table"
 msgstr "Krijo tabelën që vijon"
 
-#: src/Controllers/JavaScriptMessagesController.php:423
+#: src/Controllers/JavaScriptMessagesController.php:424
 msgid "Third step of normalization (3NF)"
 msgstr "Hapi i tretë i normalizimit (3NF)"
 
-#: src/Controllers/JavaScriptMessagesController.php:424
+#: src/Controllers/JavaScriptMessagesController.php:425
 msgid "Confirm transitive dependencies"
 msgstr "Konfirmo varësitë kalimtare"
 
-#: src/Controllers/JavaScriptMessagesController.php:425
+#: src/Controllers/JavaScriptMessagesController.php:426
 msgid "Selected dependencies are as follows:"
 msgstr "Varësitë e zgjedhura janë si vijon:"
 
-#: src/Controllers/JavaScriptMessagesController.php:426
+#: src/Controllers/JavaScriptMessagesController.php:427
 msgid "No dependencies selected!"
 msgstr "Nuk janë zgjedhur varësi!"
 
-#: src/Controllers/JavaScriptMessagesController.php:427
+#: src/Controllers/JavaScriptMessagesController.php:428
 #, fuzzy
 #| msgid "Use this value"
 msgid "Enter first value"
 msgstr "Përdor këtë vlerë"
 
-#: src/Controllers/JavaScriptMessagesController.php:428
+#: src/Controllers/JavaScriptMessagesController.php:429
 #, fuzzy
 #| msgid "Session value"
 msgid "Enter second value"
 msgstr "Vlera e sesionit"
 
-#: src/Controllers/JavaScriptMessagesController.php:434
+#: src/Controllers/JavaScriptMessagesController.php:435
 msgid "Hide search criteria"
 msgstr "Fsheh kriteret e kërkimit"
 
-#: src/Controllers/JavaScriptMessagesController.php:435
+#: src/Controllers/JavaScriptMessagesController.php:436
 msgid "Show search criteria"
 msgstr "Shfaq kriteret e kërkimit"
 
-#: src/Controllers/JavaScriptMessagesController.php:436
+#: src/Controllers/JavaScriptMessagesController.php:437
 msgid "Column maximum:"
 msgstr "Maksimumi i kolonës:"
 
-#: src/Controllers/JavaScriptMessagesController.php:437
+#: src/Controllers/JavaScriptMessagesController.php:438
 msgid "Column minimum:"
 msgstr "Minimumi i kolonës:"
 
-#: src/Controllers/JavaScriptMessagesController.php:440
+#: src/Controllers/JavaScriptMessagesController.php:441
 msgid "Hide find and replace criteria"
 msgstr "Fsheh gjetjen dhe zëvendëso kriteret"
 
-#: src/Controllers/JavaScriptMessagesController.php:441
+#: src/Controllers/JavaScriptMessagesController.php:442
 msgid "Show find and replace criteria"
 msgstr "Shfaq gjej dhe zëvendëso kriteret"
 
-#: src/Controllers/JavaScriptMessagesController.php:445
+#: src/Controllers/JavaScriptMessagesController.php:446
 msgid "Each point represents a data row."
 msgstr "Secila pikë paraqet një radhë të dhënash."
 
-#: src/Controllers/JavaScriptMessagesController.php:447
+#: src/Controllers/JavaScriptMessagesController.php:448
 msgid "Hovering over a point will show its label."
 msgstr ""
 "Vendosja e treguesit të miut sipër një pike do të shfaqë etiketën e saj."
 
-#: src/Controllers/JavaScriptMessagesController.php:449
+#: src/Controllers/JavaScriptMessagesController.php:450
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr "Për ta zvogëluar, kap një zgjedhje nga subjekti me treguesin e miut."
 
-#: src/Controllers/JavaScriptMessagesController.php:451
+#: src/Controllers/JavaScriptMessagesController.php:452
 msgid "Click reset zoom button to come back to original state."
 msgstr ""
 "Kliko butonin rivendos dimensionimin (zoom), për t'u kthyer në gjendjen "
 "origjinale."
 
-#: src/Controllers/JavaScriptMessagesController.php:453
+#: src/Controllers/JavaScriptMessagesController.php:454
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
 "Kliko një pikë të të dhënave për të parë dhe ndoshta korrigjuar radhën e të "
 "dhënave."
 
-#: src/Controllers/JavaScriptMessagesController.php:455
+#: src/Controllers/JavaScriptMessagesController.php:456
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
 "Komploti mund të ndryshojë madhësi, duke u zvarritur përgjatë qoshes së "
 "djathtë në fund."
 
-#: src/Controllers/JavaScriptMessagesController.php:458
+#: src/Controllers/JavaScriptMessagesController.php:459
 msgid "Select two columns"
 msgstr "Zgjedh dy kolona"
 
-#: src/Controllers/JavaScriptMessagesController.php:460
+#: src/Controllers/JavaScriptMessagesController.php:461
 msgid "Select two different columns"
 msgstr "Zgjedh dy kolona të ndryshme"
 
-#: src/Controllers/JavaScriptMessagesController.php:462
+#: src/Controllers/JavaScriptMessagesController.php:463
 msgid "Data point content"
 msgstr "Përmbajtja e pikës së të dhënave"
 
-#: src/Controllers/JavaScriptMessagesController.php:468
+#: src/Controllers/JavaScriptMessagesController.php:469
 msgid "X"
 msgstr "X"
 
-#: src/Controllers/JavaScriptMessagesController.php:469
+#: src/Controllers/JavaScriptMessagesController.php:470
 msgid "Y"
 msgstr "Y"
 
-#: src/Controllers/JavaScriptMessagesController.php:470
+#: src/Controllers/JavaScriptMessagesController.php:471
 msgid "Point"
 msgstr "Pikë"
 
-#: src/Controllers/JavaScriptMessagesController.php:471
+#: src/Controllers/JavaScriptMessagesController.php:472
 msgid "Linestring"
 msgstr "Vargu i linjës"
 
-#: src/Controllers/JavaScriptMessagesController.php:472
+#: src/Controllers/JavaScriptMessagesController.php:473
 msgid "Polygon"
 msgstr "Poligon"
 
-#: src/Controllers/JavaScriptMessagesController.php:474
+#: src/Controllers/JavaScriptMessagesController.php:475
 msgid "Inner ring"
 msgstr "Brenda rrethit"
 
-#: src/Controllers/JavaScriptMessagesController.php:475
+#: src/Controllers/JavaScriptMessagesController.php:476
 msgid "Outer ring"
 msgstr "Rrethi i jashtëm"
 
-#: src/Controllers/JavaScriptMessagesController.php:476
+#: src/Controllers/JavaScriptMessagesController.php:477
 msgid "Add a point"
 msgstr "Shto një pikë"
 
-#: src/Controllers/JavaScriptMessagesController.php:477
+#: src/Controllers/JavaScriptMessagesController.php:478
 msgid "Add a linestring"
 msgstr "Shto një linestring (varg linje)"
 
-#: src/Controllers/JavaScriptMessagesController.php:478
+#: src/Controllers/JavaScriptMessagesController.php:479
 msgid "Add an inner ring"
 msgstr "Shto një rreth të brendshëm"
 
-#: src/Controllers/JavaScriptMessagesController.php:479
+#: src/Controllers/JavaScriptMessagesController.php:480
 msgid "Add a polygon"
 msgstr "Shto një poligon"
 
-#: src/Controllers/JavaScriptMessagesController.php:480
+#: src/Controllers/JavaScriptMessagesController.php:481
 msgid "Add geometry"
 msgstr "Shto gjeometri"
 
-#: src/Controllers/JavaScriptMessagesController.php:482
+#: src/Controllers/JavaScriptMessagesController.php:483
 msgid "Do you want to copy encryption key?"
 msgstr "Doni të kopjoni çelësin e kriptimit?"
 
-#: src/Controllers/JavaScriptMessagesController.php:483
+#: src/Controllers/JavaScriptMessagesController.php:484
 msgid "Encryption key"
 msgstr "Çelësi i kriptimit"
 
-#: src/Controllers/JavaScriptMessagesController.php:486
+#: src/Controllers/JavaScriptMessagesController.php:487
 msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:491
+#: src/Controllers/JavaScriptMessagesController.php:492
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
@@ -14330,7 +14335,7 @@ msgstr ""
 "MySQL pranon vlera shtesë që nuk mund të selektohen nga slider; çelni në ato "
 "vlera drejtpërdrejt nëse dëshironi"
 
-#: src/Controllers/JavaScriptMessagesController.php:497
+#: src/Controllers/JavaScriptMessagesController.php:498
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
@@ -14338,7 +14343,7 @@ msgstr ""
 "MySQL pranon vlera shtesë që nuk mund të selektohen nga datapicker; çelni në "
 "ato vlera drejtpërdrejt nëse dëshironi"
 
-#: src/Controllers/JavaScriptMessagesController.php:503
+#: src/Controllers/JavaScriptMessagesController.php:504
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
@@ -14346,19 +14351,19 @@ msgstr ""
 "Tregon se keni bërë ndryshime në këtë faqe; do të nxiteni për konfirmim para "
 "braktisjes së ndryshimeve"
 
-#: src/Controllers/JavaScriptMessagesController.php:508
+#: src/Controllers/JavaScriptMessagesController.php:509
 msgid "Select referenced key"
 msgstr "Zgjedh çelësin e referencës"
 
-#: src/Controllers/JavaScriptMessagesController.php:509
+#: src/Controllers/JavaScriptMessagesController.php:510
 msgid "Select Foreign Key"
 msgstr "Zgjedh çelësin e huaj"
 
-#: src/Controllers/JavaScriptMessagesController.php:510
+#: src/Controllers/JavaScriptMessagesController.php:511
 msgid "Please select the primary key or a unique key!"
 msgstr "Ju lutem, zgjedh çelësin primar ose një çelës unik!"
 
-#: src/Controllers/JavaScriptMessagesController.php:513
+#: src/Controllers/JavaScriptMessagesController.php:514
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
@@ -14366,65 +14371,65 @@ msgstr ""
 "Nuk i keni ruajtur ndryshimet e faqosjes (layout). Do të humbin, nëse nuk i "
 "ruani ato. Doni të vazhdoni?"
 
-#: src/Controllers/JavaScriptMessagesController.php:516
+#: src/Controllers/JavaScriptMessagesController.php:517
 msgid "value/subQuery is empty"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:518
+#: src/Controllers/JavaScriptMessagesController.php:519
 msgid "Page name"
 msgstr "Emri i faqes"
 
-#: src/Controllers/JavaScriptMessagesController.php:522
+#: src/Controllers/JavaScriptMessagesController.php:523
 msgid "Delete page"
 msgstr "Fshij faqen"
 
 #. l10n: When the user opens a page saved in the Designer
-#: src/Controllers/JavaScriptMessagesController.php:524
+#: src/Controllers/JavaScriptMessagesController.php:525
 msgid "Some tables saved in this page might have been renamed or deleted."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:526
+#: src/Controllers/JavaScriptMessagesController.php:527
 msgid "Please select a page to continue"
 msgstr "Ju lutem, zgjedh një faqe për të vazhduar"
 
-#: src/Controllers/JavaScriptMessagesController.php:527
+#: src/Controllers/JavaScriptMessagesController.php:528
 msgid "Please enter a valid page name"
 msgstr "Ju lutem, fut një emër të vlefshëm faqeje"
 
-#: src/Controllers/JavaScriptMessagesController.php:528
+#: src/Controllers/JavaScriptMessagesController.php:529
 msgid "Do you want to save the changes to the current page?"
 msgstr "A doni të ruani ndryshimet në faqen aktuale?"
 
-#: src/Controllers/JavaScriptMessagesController.php:529
+#: src/Controllers/JavaScriptMessagesController.php:530
 msgid "Successfully deleted the page"
 msgstr "Faqja u fshi me sukses"
 
-#: src/Controllers/JavaScriptMessagesController.php:530
+#: src/Controllers/JavaScriptMessagesController.php:531
 msgid "Export relational schema"
 msgstr "Eksporto skemën relacionale"
 
-#: src/Controllers/JavaScriptMessagesController.php:531
+#: src/Controllers/JavaScriptMessagesController.php:532
 msgid "Modifications have been saved"
 msgstr "Modifikimet janë ruajtur"
 
-#: src/Controllers/JavaScriptMessagesController.php:534
+#: src/Controllers/JavaScriptMessagesController.php:535
 #, php-format
 msgid "%d object(s) created."
 msgstr "%d objekt(e) u krijuan."
 
-#: src/Controllers/JavaScriptMessagesController.php:535
+#: src/Controllers/JavaScriptMessagesController.php:536
 #, fuzzy
 #| msgid "Column names"
 msgid "Column name"
 msgstr "Emrat e kolonës"
 
-#: src/Controllers/JavaScriptMessagesController.php:539
+#: src/Controllers/JavaScriptMessagesController.php:540
 #, fuzzy
 #| msgid "Press escape to cancel editing."
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
 msgstr "Shtyp Esc (ik) për të anulluar korrigjimin."
 
-#: src/Controllers/JavaScriptMessagesController.php:541
+#: src/Controllers/JavaScriptMessagesController.php:542
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
@@ -14432,15 +14437,15 @@ msgstr ""
 "Keni ndryshuar disa të dhëna dhe ato nuk janë ruajtur. Jeni i sigurtë, qe "
 "doni të largoheni nga kjo faqe, para se të ruani të dhënat?"
 
-#: src/Controllers/JavaScriptMessagesController.php:544
+#: src/Controllers/JavaScriptMessagesController.php:545
 msgid "Drag to reorder."
 msgstr "Tërhiq dhe rirendit."
 
-#: src/Controllers/JavaScriptMessagesController.php:545
+#: src/Controllers/JavaScriptMessagesController.php:546
 msgid "Click to sort results by this column."
 msgstr "Kliko të klasifikoni rezultatet sipas kësaj kolone."
 
-#: src/Controllers/JavaScriptMessagesController.php:547
+#: src/Controllers/JavaScriptMessagesController.php:548
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
@@ -14450,22 +14455,22 @@ msgstr ""
 "bashkuar ASC/DESC.<br>- Ctrl+klikim ose Alt+klikim (Mac: "
 "Shift+Option+klikim), për të larguar kolonën nga klauzola ORDER BY"
 
-#: src/Controllers/JavaScriptMessagesController.php:551
+#: src/Controllers/JavaScriptMessagesController.php:552
 msgid "Click to mark/unmark."
 msgstr "Kliko për të shënjuar/mos-shënjuar."
 
-#: src/Controllers/JavaScriptMessagesController.php:552
+#: src/Controllers/JavaScriptMessagesController.php:553
 msgid "Double-click to copy column name."
 msgstr "Kliko dyfish për të kopjuar emrin e kolonës."
 
-#: src/Controllers/JavaScriptMessagesController.php:553
+#: src/Controllers/JavaScriptMessagesController.php:554
 #, fuzzy
 #| msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgid "Click the drop-down arrow to toggle column's visibility."
 msgstr ""
 "Kliko shigjetën lësho-poshtë<br>për të shkëmbyer shikueshmërinë e kolonës."
 
-#: src/Controllers/JavaScriptMessagesController.php:556
+#: src/Controllers/JavaScriptMessagesController.php:557
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -14474,13 +14479,13 @@ msgstr ""
 "redaktimin rrjetë, kuti kontrolli, Redakto, Kopjo dhe Fshij mund të mos "
 "punojnë pas ruajtjes."
 
-#: src/Controllers/JavaScriptMessagesController.php:559
+#: src/Controllers/JavaScriptMessagesController.php:560
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 "Ju lutem, fut një varg të vlefshëm hekzadecimal. Karakteret e vlefshme janë "
 "0-9, A-F."
 
-#: src/Controllers/JavaScriptMessagesController.php:561
+#: src/Controllers/JavaScriptMessagesController.php:562
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
@@ -14488,53 +14493,53 @@ msgstr ""
 "Doni me të vërtetë t'i shikoni të gjitha radhët? Për një tabelë të madhe, "
 "kjo mund të dështojë shfletuesin."
 
-#: src/Controllers/JavaScriptMessagesController.php:563
+#: src/Controllers/JavaScriptMessagesController.php:564
 msgid "Original length"
 msgstr "Gjatësi origjinale"
 
-#: src/Controllers/JavaScriptMessagesController.php:566
+#: src/Controllers/JavaScriptMessagesController.php:567
 msgid "cancel"
 msgstr "anulo"
 
-#: src/Controllers/JavaScriptMessagesController.php:567
+#: src/Controllers/JavaScriptMessagesController.php:568
 #: src/Controllers/Server/Status/StatusController.php:185
 msgid "Aborted"
 msgstr "Abortuar"
 
-#: src/Controllers/JavaScriptMessagesController.php:569
+#: src/Controllers/JavaScriptMessagesController.php:570
 msgid "Success"
 msgstr "Sukses"
 
-#: src/Controllers/JavaScriptMessagesController.php:570
+#: src/Controllers/JavaScriptMessagesController.php:571
 msgid "Import status"
 msgstr "Importo statusin"
 
-#: src/Controllers/JavaScriptMessagesController.php:572
+#: src/Controllers/JavaScriptMessagesController.php:573
 msgid "Select database first"
 msgstr "Zgjedh databazën së pari"
 
-#: src/Controllers/JavaScriptMessagesController.php:574
+#: src/Controllers/JavaScriptMessagesController.php:575
 msgid "Go to link:"
 msgstr "Shko tek lidhja:"
 
-#: src/Controllers/JavaScriptMessagesController.php:577
+#: src/Controllers/JavaScriptMessagesController.php:578
 msgid "Generate password"
 msgstr "Gjenero fjalëkalimin"
 
-#: src/Controllers/JavaScriptMessagesController.php:584
+#: src/Controllers/JavaScriptMessagesController.php:585
 msgid "Show panel"
 msgstr "Shfaq panelin"
 
-#: src/Controllers/JavaScriptMessagesController.php:585
+#: src/Controllers/JavaScriptMessagesController.php:586
 msgid "Hide panel"
 msgstr "Fsheh panelin"
 
-#: src/Controllers/JavaScriptMessagesController.php:587
+#: src/Controllers/JavaScriptMessagesController.php:588
 #: src/Navigation/NavigationTree.php:1261
 msgid "Unlink from main panel"
 msgstr "Moslidh nga paneli kryesor"
 
-#: src/Controllers/JavaScriptMessagesController.php:591 src/Setup/Index.php:153
+#: src/Controllers/JavaScriptMessagesController.php:592 src/Setup/Index.php:153
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -14544,21 +14549,21 @@ msgstr ""
 "aktualizimin. Versioni më i ri është %s, lëshuar më %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: src/Controllers/JavaScriptMessagesController.php:595
+#: src/Controllers/JavaScriptMessagesController.php:596
 msgid ", latest stable version:"
 msgstr ", versioni i fundit stabil:"
 
-#: src/Controllers/JavaScriptMessagesController.php:596
+#: src/Controllers/JavaScriptMessagesController.php:597
 msgid "up to date"
 msgstr "aktual"
 
-#: src/Controllers/JavaScriptMessagesController.php:597
+#: src/Controllers/JavaScriptMessagesController.php:598
 #, fuzzy
 #| msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgid "There was an error in loading the Git information."
 msgstr "Ka një gabim në importimin e filit të formës ESRI: \"%s\"."
 
-#: src/Controllers/JavaScriptMessagesController.php:600
+#: src/Controllers/JavaScriptMessagesController.php:601
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
@@ -14566,15 +14571,15 @@ msgstr ""
 "Një gabim fatal ka ndodhur në JavaScript. Dëshironi të dërgoni një raport "
 "gabimi?"
 
-#: src/Controllers/JavaScriptMessagesController.php:601
+#: src/Controllers/JavaScriptMessagesController.php:602
 msgid "Change report settings"
 msgstr "Ndrysho rregullimet e raportit"
 
-#: src/Controllers/JavaScriptMessagesController.php:602
+#: src/Controllers/JavaScriptMessagesController.php:603
 msgid "Show report details"
 msgstr "Shfaq detajet e raportit"
 
-#: src/Controllers/JavaScriptMessagesController.php:603
+#: src/Controllers/JavaScriptMessagesController.php:604
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
@@ -14582,7 +14587,7 @@ msgstr ""
 "Eksporti juaj është jo i plotë, për shkak të ekzekutimit të ulët të "
 "kufizimit kohor në nivel të PHP!"
 
-#: src/Controllers/JavaScriptMessagesController.php:606
+#: src/Controllers/JavaScriptMessagesController.php:607
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -14592,78 +14597,78 @@ msgstr ""
 "dorëzimin, disa nga fushat mund të injorohen, për shkak të konfigurimit PHP "
 "max_input_vars."
 
-#: src/Controllers/JavaScriptMessagesController.php:612
-#: src/Controllers/JavaScriptMessagesController.php:625
+#: src/Controllers/JavaScriptMessagesController.php:613
+#: src/Controllers/JavaScriptMessagesController.php:626
 msgid "Some errors have been detected on the server!"
 msgstr "Disa gabime janë zbuluar në server!"
 
-#: src/Controllers/JavaScriptMessagesController.php:614
+#: src/Controllers/JavaScriptMessagesController.php:615
 msgid "Please look at the bottom of this window."
 msgstr "Ju lutem shiko në fund të kësaj dritareje."
 
-#: src/Controllers/JavaScriptMessagesController.php:620
+#: src/Controllers/JavaScriptMessagesController.php:621
 #: src/Error/ErrorHandler.php:431
 msgid "Ignore All"
 msgstr "Injoro të gjitha"
 
-#: src/Controllers/JavaScriptMessagesController.php:627
+#: src/Controllers/JavaScriptMessagesController.php:628
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 "Si per rregullimet tuaja, ata janë duke u dërguar aktualisht, ju lutem "
 "tregoni durim."
 
-#: src/Controllers/JavaScriptMessagesController.php:631
+#: src/Controllers/JavaScriptMessagesController.php:632
 msgid "Column name successfully copied to clipboard!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:632
+#: src/Controllers/JavaScriptMessagesController.php:633
 msgid "Column name copying to clipboard failed!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:633
+#: src/Controllers/JavaScriptMessagesController.php:634
 #, fuzzy
 #| msgid "Successfully deleted the page"
 msgid "Successfully copied!"
 msgstr "Faqja u fshi me sukses"
 
-#: src/Controllers/JavaScriptMessagesController.php:634
+#: src/Controllers/JavaScriptMessagesController.php:635
 #, fuzzy
 #| msgid "Copying database"
 msgid "Copying failed!"
 msgstr "Kopjon databazën"
 
-#: src/Controllers/JavaScriptMessagesController.php:637
+#: src/Controllers/JavaScriptMessagesController.php:638
 msgid "Execute this query again?"
 msgstr "Ekzekuto përsëri këtë pyetsor?"
 
-#: src/Controllers/JavaScriptMessagesController.php:638
+#: src/Controllers/JavaScriptMessagesController.php:639
 msgid "Do you really want to delete this bookmark?"
 msgstr "Doni me të vërtetë të fshini këtë faqeruajtës?"
 
-#: src/Controllers/JavaScriptMessagesController.php:639
+#: src/Controllers/JavaScriptMessagesController.php:640
 msgid "Some error occurred while getting SQL debug info."
 msgstr "Disa gabime knë ndodhur, ndërsa merr informacion për SQL debug."
 
-#: src/Controllers/JavaScriptMessagesController.php:640
+#: src/Controllers/JavaScriptMessagesController.php:641
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "%s pyetsorë të ekzekutuar %s herë në %s sekonda."
 
-#: src/Controllers/JavaScriptMessagesController.php:641
+#: src/Controllers/JavaScriptMessagesController.php:642
 #, php-format
 msgid "%s argument(s) passed"
 msgstr "%s argument(e) kaluan"
 
-#: src/Controllers/JavaScriptMessagesController.php:642
+#: src/Controllers/JavaScriptMessagesController.php:643
 msgid "Show arguments"
 msgstr "Shfaq argumentet"
 
-#: src/Controllers/JavaScriptMessagesController.php:643
+#: src/Controllers/JavaScriptMessagesController.php:644
 msgid "Hide arguments"
 msgstr "Fsheh argumentet"
 
-#: src/Controllers/JavaScriptMessagesController.php:646
+#: src/Controllers/JavaScriptMessagesController.php:647
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -14678,52 +14683,52 @@ msgstr ""
 "tillë, pastrimi i \"Offline Website Data\" mund të ndihmojë. Në Safari, "
 "probleme të tilla zakonisht shkaktohen nga \"Private Mode Browsing\"."
 
-#: src/Controllers/JavaScriptMessagesController.php:653
+#: src/Controllers/JavaScriptMessagesController.php:654
 msgid "Copy tables to"
 msgstr "Kopjo tabelat në"
 
-#: src/Controllers/JavaScriptMessagesController.php:654
+#: src/Controllers/JavaScriptMessagesController.php:655
 msgid "Add table prefix"
 msgstr "Shto prefiks tabele"
 
-#: src/Controllers/JavaScriptMessagesController.php:655
+#: src/Controllers/JavaScriptMessagesController.php:656
 msgid "Replace table with prefix"
 msgstr "Zëvendëso tabelën me prefiksin"
 
-#: src/Controllers/JavaScriptMessagesController.php:659
+#: src/Controllers/JavaScriptMessagesController.php:660
 msgid "Extremely weak"
 msgstr "Jashtëzakonisht i dobët"
 
-#: src/Controllers/JavaScriptMessagesController.php:660
+#: src/Controllers/JavaScriptMessagesController.php:661
 msgid "Very weak"
 msgstr "Shumë i dobët"
 
-#: src/Controllers/JavaScriptMessagesController.php:661
+#: src/Controllers/JavaScriptMessagesController.php:662
 msgid "Weak"
 msgstr "Dobet"
 
-#: src/Controllers/JavaScriptMessagesController.php:662
+#: src/Controllers/JavaScriptMessagesController.php:663
 msgid "Good"
 msgstr "Mire"
 
-#: src/Controllers/JavaScriptMessagesController.php:663
+#: src/Controllers/JavaScriptMessagesController.php:664
 msgid "Strong"
 msgstr "Forte"
 
 #. l10n: error code 5 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:667
+#: src/Controllers/JavaScriptMessagesController.php:668
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
 msgstr ""
 
 #. l10n: error code 2 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:669
+#: src/Controllers/JavaScriptMessagesController.php:670
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
 msgstr ""
 
 #. l10n: unknown error code (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:671
+#: src/Controllers/JavaScriptMessagesController.php:672
 #, fuzzy
 #| msgid "Unknown error"
 msgctxt "U2F error"
@@ -14731,39 +14736,39 @@ msgid "Unknown security key error."
 msgstr "Gabim i panjohur"
 
 #. l10n: error code 3 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:673
+#: src/Controllers/JavaScriptMessagesController.php:674
 msgctxt "U2F error"
 msgid "Client does not support security key."
 msgstr ""
 
 #. l10n: error code 4 (from U2F API) on register
-#: src/Controllers/JavaScriptMessagesController.php:675
+#: src/Controllers/JavaScriptMessagesController.php:676
 msgctxt "U2F error"
 msgid "Failed security key activation."
 msgstr ""
 
 #. l10n: error code 4 (from U2F API) on authanticate
-#: src/Controllers/JavaScriptMessagesController.php:677
+#: src/Controllers/JavaScriptMessagesController.php:678
 #, fuzzy
 #| msgid "Invalid export type"
 msgctxt "U2F error"
 msgid "Invalid security key."
 msgstr "Tip eksporti i pavlefshëm"
 
-#: src/Controllers/JavaScriptMessagesController.php:680
+#: src/Controllers/JavaScriptMessagesController.php:681
 msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:685
+#: src/Controllers/JavaScriptMessagesController.php:686
 msgid ""
 "You can not open, save or delete your page layout, as IndexedDB is not "
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:690
+#: src/Controllers/JavaScriptMessagesController.php:691
 #, fuzzy, php-format
 #| msgid "Table %s already exists!"
 msgctxt ""
@@ -14771,284 +14776,284 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "Tabela %s ekziston ndërkohë!"
 
-#: src/Controllers/JavaScriptMessagesController.php:692 src/InsertEdit.php:243
+#: src/Controllers/JavaScriptMessagesController.php:693 src/InsertEdit.php:243
 #: src/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "Fsheh"
 
-#: src/Controllers/JavaScriptMessagesController.php:696
+#: src/Controllers/JavaScriptMessagesController.php:697
 msgid ""
 "The fullscreen request was denied because the Fullscreen API is disabled by "
 "user preference in the browser."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:700
+#: src/Controllers/JavaScriptMessagesController.php:701
 #, fuzzy
 #| msgid "January"
 msgctxt "Month name"
 msgid "January"
 msgstr "Janar"
 
-#: src/Controllers/JavaScriptMessagesController.php:701
+#: src/Controllers/JavaScriptMessagesController.php:702
 #, fuzzy
 #| msgid "February"
 msgctxt "Month name"
 msgid "February"
 msgstr "Shkurt"
 
-#: src/Controllers/JavaScriptMessagesController.php:702
+#: src/Controllers/JavaScriptMessagesController.php:703
 #, fuzzy
 #| msgid "March"
 msgctxt "Month name"
 msgid "March"
 msgstr "Mars"
 
-#: src/Controllers/JavaScriptMessagesController.php:703
+#: src/Controllers/JavaScriptMessagesController.php:704
 #, fuzzy
 #| msgid "April"
 msgctxt "Month name"
 msgid "April"
 msgstr "Prill"
 
-#: src/Controllers/JavaScriptMessagesController.php:704
+#: src/Controllers/JavaScriptMessagesController.php:705
 #, fuzzy
 #| msgid "May"
 msgctxt "Month name"
 msgid "May"
 msgstr "Maj"
 
-#: src/Controllers/JavaScriptMessagesController.php:705
+#: src/Controllers/JavaScriptMessagesController.php:706
 #, fuzzy
 #| msgid "June"
 msgctxt "Month name"
 msgid "June"
 msgstr "June"
 
-#: src/Controllers/JavaScriptMessagesController.php:706
+#: src/Controllers/JavaScriptMessagesController.php:707
 #, fuzzy
 #| msgid "July"
 msgctxt "Month name"
 msgid "July"
 msgstr "Korrik"
 
-#: src/Controllers/JavaScriptMessagesController.php:707
+#: src/Controllers/JavaScriptMessagesController.php:708
 #, fuzzy
 #| msgid "August"
 msgctxt "Month name"
 msgid "August"
 msgstr "Gusht"
 
-#: src/Controllers/JavaScriptMessagesController.php:708
+#: src/Controllers/JavaScriptMessagesController.php:709
 #, fuzzy
 #| msgid "September"
 msgctxt "Month name"
 msgid "September"
 msgstr "Shtator"
 
-#: src/Controllers/JavaScriptMessagesController.php:709
+#: src/Controllers/JavaScriptMessagesController.php:710
 #, fuzzy
 #| msgid "October"
 msgctxt "Month name"
 msgid "October"
 msgstr "Tetor"
 
-#: src/Controllers/JavaScriptMessagesController.php:710
+#: src/Controllers/JavaScriptMessagesController.php:711
 #, fuzzy
 #| msgid "November"
 msgctxt "Month name"
 msgid "November"
 msgstr "Nëntor"
 
-#: src/Controllers/JavaScriptMessagesController.php:711
+#: src/Controllers/JavaScriptMessagesController.php:712
 #, fuzzy
 #| msgid "December"
 msgctxt "Month name"
 msgid "December"
 msgstr "Dhjetor"
 
-#: src/Controllers/JavaScriptMessagesController.php:712 src/Util.php:503
+#: src/Controllers/JavaScriptMessagesController.php:713 src/Util.php:503
 #, fuzzy
 #| msgid "Jan"
 msgctxt "Short month name for January"
 msgid "Jan"
 msgstr "Jan"
 
-#: src/Controllers/JavaScriptMessagesController.php:713 src/Util.php:504
+#: src/Controllers/JavaScriptMessagesController.php:714 src/Util.php:504
 #, fuzzy
 #| msgid "Feb"
 msgctxt "Short month name for February"
 msgid "Feb"
 msgstr "Shk"
 
-#: src/Controllers/JavaScriptMessagesController.php:714 src/Util.php:505
+#: src/Controllers/JavaScriptMessagesController.php:715 src/Util.php:505
 #, fuzzy
 #| msgid "Mar"
 msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "Mar"
 
-#: src/Controllers/JavaScriptMessagesController.php:715 src/Util.php:506
+#: src/Controllers/JavaScriptMessagesController.php:716 src/Util.php:506
 #, fuzzy
 #| msgid "Apr"
 msgctxt "Short month name for April"
 msgid "Apr"
 msgstr "Pri"
 
-#: src/Controllers/JavaScriptMessagesController.php:716 src/Util.php:507
+#: src/Controllers/JavaScriptMessagesController.php:717 src/Util.php:507
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name for May"
 msgid "May"
 msgstr "Maj"
 
-#: src/Controllers/JavaScriptMessagesController.php:717 src/Util.php:508
+#: src/Controllers/JavaScriptMessagesController.php:718 src/Util.php:508
 #, fuzzy
 #| msgid "Jun"
 msgctxt "Short month name for June"
 msgid "Jun"
 msgstr "Jun"
 
-#: src/Controllers/JavaScriptMessagesController.php:718 src/Util.php:509
+#: src/Controllers/JavaScriptMessagesController.php:719 src/Util.php:509
 #, fuzzy
 #| msgid "Jul"
 msgctxt "Short month name for July"
 msgid "Jul"
 msgstr "Kor"
 
-#: src/Controllers/JavaScriptMessagesController.php:719 src/Util.php:510
+#: src/Controllers/JavaScriptMessagesController.php:720 src/Util.php:510
 #, fuzzy
 #| msgid "Aug"
 msgctxt "Short month name for August"
 msgid "Aug"
 msgstr "Gus"
 
-#: src/Controllers/JavaScriptMessagesController.php:720 src/Util.php:511
+#: src/Controllers/JavaScriptMessagesController.php:721 src/Util.php:511
 #, fuzzy
 #| msgid "Sep"
 msgctxt "Short month name for September"
 msgid "Sep"
 msgstr "Sht"
 
-#: src/Controllers/JavaScriptMessagesController.php:721 src/Util.php:512
+#: src/Controllers/JavaScriptMessagesController.php:722 src/Util.php:512
 #, fuzzy
 #| msgid "Oct"
 msgctxt "Short month name for October"
 msgid "Oct"
 msgstr "Tet"
 
-#: src/Controllers/JavaScriptMessagesController.php:722 src/Util.php:513
+#: src/Controllers/JavaScriptMessagesController.php:723 src/Util.php:513
 #, fuzzy
 #| msgid "Nov"
 msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "Nën"
 
-#: src/Controllers/JavaScriptMessagesController.php:723 src/Util.php:514
+#: src/Controllers/JavaScriptMessagesController.php:724 src/Util.php:514
 #, fuzzy
 #| msgid "Dec"
 msgctxt "Short month name for December"
 msgid "Dec"
 msgstr "Dhj"
 
-#: src/Controllers/JavaScriptMessagesController.php:731 src/Util.php:517
+#: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:517
 #, fuzzy
 #| msgid "Sun"
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "Die"
 
-#: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:518
+#: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:518
 #, fuzzy
 #| msgid "Mon"
 msgctxt "Short week day name for Monday"
 msgid "Mon"
 msgstr "Hën"
 
-#: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:519
+#: src/Controllers/JavaScriptMessagesController.php:734 src/Util.php:519
 #, fuzzy
 #| msgid "Tue"
 msgctxt "Short week day name for Tuesday"
 msgid "Tue"
 msgstr "Mar"
 
-#: src/Controllers/JavaScriptMessagesController.php:734 src/Util.php:520
+#: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:520
 #, fuzzy
 #| msgid "Wed"
 msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr "Mër"
 
-#: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:521
+#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:521
 #, fuzzy
 #| msgid "Thu"
 msgctxt "Short week day name for Thursday"
 msgid "Thu"
 msgstr "Enj"
 
-#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:522
+#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:522
 #, fuzzy
 #| msgid "Fri"
 msgctxt "Short week day name for Friday"
 msgid "Fri"
 msgstr "Pre"
 
-#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:523
+#: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:523
 #, fuzzy
 #| msgid "Sat"
 msgctxt "Short week day name for Saturday"
 msgid "Sat"
 msgstr "Sht"
 
-#: src/Controllers/JavaScriptMessagesController.php:738
+#: src/Controllers/JavaScriptMessagesController.php:739
 #, fuzzy
 #| msgid "Su"
 msgctxt "Minimal week day name for Sunday"
 msgid "Su"
 msgstr "Di"
 
-#: src/Controllers/JavaScriptMessagesController.php:739
+#: src/Controllers/JavaScriptMessagesController.php:740
 #, fuzzy
 #| msgid "Mo"
 msgctxt "Minimal week day name for Monday"
 msgid "Mo"
 msgstr "Hë"
 
-#: src/Controllers/JavaScriptMessagesController.php:740
+#: src/Controllers/JavaScriptMessagesController.php:741
 #, fuzzy
 #| msgid "Tu"
 msgctxt "Minimal week day name for Tuesday"
 msgid "Tu"
 msgstr "Ma"
 
-#: src/Controllers/JavaScriptMessagesController.php:741
+#: src/Controllers/JavaScriptMessagesController.php:742
 #, fuzzy
 #| msgid "We"
 msgctxt "Minimal week day name for Wednesday"
 msgid "We"
 msgstr "Më"
 
-#: src/Controllers/JavaScriptMessagesController.php:742
+#: src/Controllers/JavaScriptMessagesController.php:743
 #, fuzzy
 #| msgid "Th"
 msgctxt "Minimal week day name for Thursday"
 msgid "Th"
 msgstr "Enj"
 
-#: src/Controllers/JavaScriptMessagesController.php:743
+#: src/Controllers/JavaScriptMessagesController.php:744
 #, fuzzy
 #| msgid "Fr"
 msgctxt "Minimal week day name for Friday"
 msgid "Fr"
 msgstr "Pr"
 
-#: src/Controllers/JavaScriptMessagesController.php:744
+#: src/Controllers/JavaScriptMessagesController.php:745
 #, fuzzy
 #| msgid "Sa"
 msgctxt "Minimal week day name for Saturday"
 msgid "Sa"
 msgstr "Sh"
 
-#: src/Controllers/JavaScriptMessagesController.php:745
+#: src/Controllers/JavaScriptMessagesController.php:746
 #, fuzzy
 #| msgid "Wk"
 msgctxt "Column header for week of the year in calendar"
@@ -15056,13 +15061,13 @@ msgid "Wk"
 msgstr "Wk"
 
 #. l10n: DO NOT TRANSLATE! Use either "calendar-month-year" or "calendar-year-month".
-#: src/Controllers/JavaScriptMessagesController.php:747
+#: src/Controllers/JavaScriptMessagesController.php:748
 #, fuzzy
 msgctxt "The month-year order in a calendar"
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
-#: src/Controllers/JavaScriptMessagesController.php:748
+#: src/Controllers/JavaScriptMessagesController.php:749
 #, fuzzy
 #| msgctxt "Year suffix"
 #| msgid "none"
@@ -15070,49 +15075,49 @@ msgctxt "Year suffix for calendar, \"none\" is empty"
 msgid "none"
 msgstr "asnjë"
 
-#: src/Controllers/JavaScriptMessagesController.php:749
+#: src/Controllers/JavaScriptMessagesController.php:750
 #, fuzzy
 #| msgid "Time"
 msgctxt "A specific point in the day, as shown on a clock"
 msgid "Time"
 msgstr "Koha"
 
-#: src/Controllers/JavaScriptMessagesController.php:750
+#: src/Controllers/JavaScriptMessagesController.php:751
 #, fuzzy
 #| msgid "Hour"
 msgctxt "Unit of time"
 msgid "Hour"
 msgstr "Orë"
 
-#: src/Controllers/JavaScriptMessagesController.php:751
+#: src/Controllers/JavaScriptMessagesController.php:752
 #, fuzzy
 #| msgid "Minute"
 msgctxt "Unit of time"
 msgid "Minute"
 msgstr "Minutë"
 
-#: src/Controllers/JavaScriptMessagesController.php:752
+#: src/Controllers/JavaScriptMessagesController.php:753
 #, fuzzy
 #| msgid "Second"
 msgctxt "Unit of time"
 msgid "Second"
 msgstr "Dytësor"
 
-#: src/Controllers/JavaScriptMessagesController.php:753
+#: src/Controllers/JavaScriptMessagesController.php:754
 #, fuzzy
 #| msgid "seconds"
 msgctxt "Unit of time"
 msgid "Millisecond"
 msgstr "në sekondë"
 
-#: src/Controllers/JavaScriptMessagesController.php:754
+#: src/Controllers/JavaScriptMessagesController.php:755
 #, fuzzy
 #| msgid "per second"
 msgctxt "Unit of time"
 msgid "Microsecond"
 msgstr "për sekondë"
 
-#: src/Controllers/JavaScriptMessagesController.php:755
+#: src/Controllers/JavaScriptMessagesController.php:756
 #, fuzzy
 #| msgctxt "Chart type"
 #| msgid "Timeline"
@@ -15121,7 +15126,7 @@ msgid "Time zone"
 msgstr "Linjë kohore"
 
 #. l10n: Display text for previous month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:759
+#: src/Controllers/JavaScriptMessagesController.php:760
 #, fuzzy
 #| msgctxt "Previous month"
 #| msgid "Prev"
@@ -15130,7 +15135,7 @@ msgid "Prev"
 msgstr "Para"
 
 #. l10n: Display text for next month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:761
+#: src/Controllers/JavaScriptMessagesController.php:762
 #, fuzzy
 #| msgctxt "Next month"
 #| msgid "Next"
@@ -15139,94 +15144,94 @@ msgid "Next"
 msgstr "Tjetër"
 
 #. l10n: Display text for current month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:763
+#: src/Controllers/JavaScriptMessagesController.php:764
 msgid "Today"
 msgstr "Sot"
 
-#: src/Controllers/JavaScriptMessagesController.php:766
+#: src/Controllers/JavaScriptMessagesController.php:767
 msgid "This field is required"
 msgstr "Kjo fushë kërkohet"
 
-#: src/Controllers/JavaScriptMessagesController.php:767
+#: src/Controllers/JavaScriptMessagesController.php:768
 msgid "Please fix this field"
 msgstr "Ju lutem, fiksoje këtë fushë"
 
-#: src/Controllers/JavaScriptMessagesController.php:768
+#: src/Controllers/JavaScriptMessagesController.php:769
 msgid "Please enter a valid email address"
 msgstr "Ju lutem, fut një adresë të vlefshme email"
 
-#: src/Controllers/JavaScriptMessagesController.php:769
+#: src/Controllers/JavaScriptMessagesController.php:770
 msgid "Please enter a valid URL"
 msgstr "Ju lutem, fut një URL të vlefshme"
 
-#: src/Controllers/JavaScriptMessagesController.php:770
+#: src/Controllers/JavaScriptMessagesController.php:771
 msgid "Please enter a valid date"
 msgstr "Ju lutem, fut një datë të vlefshme"
 
-#: src/Controllers/JavaScriptMessagesController.php:771
+#: src/Controllers/JavaScriptMessagesController.php:772
 msgid "Please enter a valid date ( ISO )"
 msgstr "Ju lutem, fut një datë të vlefshme ( ISO )"
 
-#: src/Controllers/JavaScriptMessagesController.php:772
+#: src/Controllers/JavaScriptMessagesController.php:773
 msgid "Please enter a valid number"
 msgstr "Ju lutem, fut një numër të vlefshëm"
 
-#: src/Controllers/JavaScriptMessagesController.php:773
+#: src/Controllers/JavaScriptMessagesController.php:774
 msgid "Please enter a valid credit card number"
 msgstr "Ju lutem, fut një numër të vlefshëm karte krediti"
 
-#: src/Controllers/JavaScriptMessagesController.php:774
+#: src/Controllers/JavaScriptMessagesController.php:775
 msgid "Please enter only digits"
 msgstr "Ju lutem, fut vetëm numra"
 
-#: src/Controllers/JavaScriptMessagesController.php:775
+#: src/Controllers/JavaScriptMessagesController.php:776
 msgid "Please enter the same value again"
 msgstr "Ju lutem, fut të njëjtën vlerë përsëri"
 
-#: src/Controllers/JavaScriptMessagesController.php:776
+#: src/Controllers/JavaScriptMessagesController.php:777
 msgid "Please enter no more than {0} characters"
 msgstr "Ju lutem, mos fut më shumë se {0} karaktere"
 
-#: src/Controllers/JavaScriptMessagesController.php:777
+#: src/Controllers/JavaScriptMessagesController.php:778
 msgid "Please enter at least {0} characters"
 msgstr "Ju lutem, fut së paku {0} karaktere"
 
-#: src/Controllers/JavaScriptMessagesController.php:778
+#: src/Controllers/JavaScriptMessagesController.php:779
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr "Ju lutem, fut një vlerë të gjatë ndërmjet {0} dhe {1} karaktere"
 
-#: src/Controllers/JavaScriptMessagesController.php:779
+#: src/Controllers/JavaScriptMessagesController.php:780
 msgid "Please enter a value between {0} and {1}"
 msgstr "Ju lutem, fut një vlerë ndërmjet {0} dhe {1}"
 
-#: src/Controllers/JavaScriptMessagesController.php:780
+#: src/Controllers/JavaScriptMessagesController.php:781
 msgid "Please enter a value less than or equal to {0}"
 msgstr "Ju lutem, fut një vlerë më të vogël ose të barabartë me {0}"
 
-#: src/Controllers/JavaScriptMessagesController.php:781
+#: src/Controllers/JavaScriptMessagesController.php:782
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "Ju lutem, fut një vlerë më të madhe ose të barabartë me {0}"
 
-#: src/Controllers/JavaScriptMessagesController.php:782
+#: src/Controllers/JavaScriptMessagesController.php:783
 msgid "Please enter a valid date or time"
 msgstr "Ju lutem, fut një datë ose kohë të vlefshme"
 
-#: src/Controllers/JavaScriptMessagesController.php:783
+#: src/Controllers/JavaScriptMessagesController.php:784
 msgid "Please enter a valid HEX input"
 msgstr "Ju lutem, fut një hyrje HEX të vlefshëm"
 
 #. l10n: To validate the usage of a MD5 function on the column
-#: src/Controllers/JavaScriptMessagesController.php:785
+#: src/Controllers/JavaScriptMessagesController.php:786
 msgid "This column can not contain a 32 chars value"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:788
+#: src/Controllers/JavaScriptMessagesController.php:789
 msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:793
+#: src/Controllers/JavaScriptMessagesController.php:794
 #, fuzzy
 #| msgid ""
 #| "The file being uploaded is probably larger than the maximum allowed size "
@@ -15239,33 +15244,33 @@ msgstr ""
 "lejuar, ose kjo është një defekt i njohur në bazën webkit të shfletuesve  "
 "(Safari, Google Chrome, Arora etj.)."
 
-#: src/Controllers/JavaScriptMessagesController.php:795
+#: src/Controllers/JavaScriptMessagesController.php:796
 #, php-format
 msgid "%s of %s"
 msgstr "%s nga %s"
 
-#: src/Controllers/JavaScriptMessagesController.php:796
+#: src/Controllers/JavaScriptMessagesController.php:797
 #, php-format
 msgid "%s/sec."
 msgstr "%s/sek."
 
-#: src/Controllers/JavaScriptMessagesController.php:797
+#: src/Controllers/JavaScriptMessagesController.php:798
 msgid "About %MIN min. %SEC sec. remaining."
 msgstr "Rreth %MIN min. %SEC sek. kanë mbetur."
 
-#: src/Controllers/JavaScriptMessagesController.php:798
+#: src/Controllers/JavaScriptMessagesController.php:799
 msgid "About %SEC sec. remaining."
 msgstr "Rreth %SEC sek. kanë mbetur."
 
-#: src/Controllers/JavaScriptMessagesController.php:799
+#: src/Controllers/JavaScriptMessagesController.php:800
 msgid "The file is being processed, please be patient."
 msgstr "Fili po proçesohet, ju lutem, tregoni durim."
 
-#: src/Controllers/JavaScriptMessagesController.php:800
+#: src/Controllers/JavaScriptMessagesController.php:801
 msgid "Uploading your import file…"
 msgstr "Ngarkon filin tuaj të importit…"
 
-#: src/Controllers/JavaScriptMessagesController.php:802
+#: src/Controllers/JavaScriptMessagesController.php:803
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
@@ -16189,7 +16194,7 @@ msgstr "Të dhëna gabim"
 msgid "Wrong data or no validation for %s"
 msgstr "Të dhëna të gabuara ose pa validim për %s"
 
-#: src/Controllers/Sql/SqlController.php:218 src/Sql.php:1077
+#: src/Controllers/Sql/SqlController.php:218 src/Sql.php:1086
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Faqerojtësi %s është krijuar."
@@ -16271,7 +16276,7 @@ msgstr "Ka shumë bashkime pa indekse."
 
 #: src/Controllers/Table/GetFieldController.php:108
 #: src/Database/Routines.php:1050 src/Import/Import.php:138
-#: src/InsertEdit.php:161 src/Sql.php:895
+#: src/InsertEdit.php:161 src/Sql.php:904
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL ktheu një set rezultati të zbrazët (psh. zero radhë)."
 
@@ -16680,7 +16685,7 @@ msgstr ""
 msgid "The row has been deleted."
 msgstr "Radha është fshirë."
 
-#: src/Display/Results.php:2973 src/Display/Results.php:3295 src/Sql.php:901
+#: src/Display/Results.php:2973 src/Display/Results.php:3295 src/Sql.php:910
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Pyetsori mori %01.4f sekonda."
@@ -17287,7 +17292,7 @@ msgstr "Ju lutem, mos fut më shumë se {0} karaktere"
 msgid "The trigger name cannot end with a space character."
 msgstr "Fjalët ndahen me një karakter hapësire (\" \")."
 
-#: src/Import/Import.php:944
+#: src/Import/Import.php:954
 #, fuzzy
 #| msgid ""
 #| "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing "
@@ -17299,47 +17304,47 @@ msgstr ""
 "Vetëm pyetsorët INSERT, UPDATE, DELETE dhe REPLACE SQL, që përmbajnë tabela "
 "të makinës transaksionale, mund të rikthehen."
 
-#: src/Import/Import.php:1161
+#: src/Import/Import.php:1171
 #, php-format
 msgid "Go to table: %s"
 msgstr "Shko tek tabela: %s"
 
-#: src/Import/Import.php:1169
+#: src/Import/Import.php:1179
 #, php-format
 msgid "Structure of %s"
 msgstr "Struktura e %s"
 
-#: src/Import/Import.php:1176 src/Import/Import.php:1225
+#: src/Import/Import.php:1186 src/Import/Import.php:1235
 #, php-format
 msgid "Edit settings for %s"
 msgstr "Redakto cilësimet për %s"
 
-#: src/Import/Import.php:1187
+#: src/Import/Import.php:1197
 #, php-format
 msgid "Go to view: %s"
 msgstr "Shko tek pamja: %s"
 
-#: src/Import/Import.php:1208
+#: src/Import/Import.php:1218
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr "Strukturat e mëposhtme janë krijuar ose ndryshuar. Këtu ju mund të:"
 
-#: src/Import/Import.php:1210
+#: src/Import/Import.php:1220
 msgid "View a structure's contents by clicking on its name."
 msgstr "Shfaq një përmbajtje të strukturës duke klikuar mbi emrin e saj."
 
-#: src/Import/Import.php:1211
+#: src/Import/Import.php:1221
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 "Ndrysho ndonjë nga rregullimet e saj, duke klikuar lidhjen korresponduese "
 "\"Options\" (opsionet)."
 
-#: src/Import/Import.php:1212
+#: src/Import/Import.php:1222
 msgid "Edit structure by following the \"Structure\" link."
 msgstr "Redakto strukturën duke ndjekur lidhjen \"Struktura\"."
 
-#: src/Import/Import.php:1219
+#: src/Import/Import.php:1229
 #, php-format
 msgid "Go to database: %s"
 msgstr "Shko tek databaza: %s"
@@ -17357,11 +17362,11 @@ msgstr ""
 msgid "web server upload directory:"
 msgstr "drejtoria e ngarkimit në ueb server:"
 
-#: src/InsertEdit.php:846 src/Sql.php:892
+#: src/InsertEdit.php:846 src/Sql.php:901
 msgid "Showing SQL query"
 msgstr "Shfaqën pyetsorin SQL"
 
-#: src/InsertEdit.php:870 src/Sql.php:872
+#: src/InsertEdit.php:870 src/Sql.php:881
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "ID e radhës së futur: %1$d"
@@ -17976,25 +17981,25 @@ msgid "Data dump options"
 msgstr "Opsionet e heqjes (dump) së të dhënave"
 
 #: src/Plugins/Export/ExportHtmlword.php:167
-#: src/Plugins/Export/ExportOdt.php:209 src/Plugins/Export/ExportSql.php:2090
+#: src/Plugins/Export/ExportOdt.php:209 src/Plugins/Export/ExportSql.php:2097
 #: src/Plugins/Export/ExportTexytext.php:137
 msgid "Dumping data for table"
 msgstr "Zbraz të dhënat për tabelën"
 
 #: src/Plugins/Export/ExportHtmlword.php:439
-#: src/Plugins/Export/ExportOdt.php:558 src/Plugins/Export/ExportSql.php:1826
+#: src/Plugins/Export/ExportOdt.php:558 src/Plugins/Export/ExportSql.php:1833
 #: src/Plugins/Export/ExportTexytext.php:401
 msgid "Table structure for table"
 msgstr "Struktura e tabelës për tabelën"
 
 #: src/Plugins/Export/ExportHtmlword.php:456
-#: src/Plugins/Export/ExportOdt.php:578 src/Plugins/Export/ExportSql.php:1892
+#: src/Plugins/Export/ExportOdt.php:578 src/Plugins/Export/ExportSql.php:1899
 #: src/Plugins/Export/ExportTexytext.php:414
 msgid "Structure for view"
 msgstr "Struktura për pamjen"
 
 #: src/Plugins/Export/ExportHtmlword.php:462
-#: src/Plugins/Export/ExportOdt.php:586 src/Plugins/Export/ExportSql.php:1935
+#: src/Plugins/Export/ExportOdt.php:586 src/Plugins/Export/ExportSql.php:1942
 #: src/Plugins/Export/ExportTexytext.php:418
 msgid "Stand-in structure for view"
 msgstr "Struktura zëvendësuese për pamjen"
@@ -18069,7 +18074,7 @@ msgstr "Koha e gjenerimit:"
 msgid "PHP Version:"
 msgstr "PHP Versioni:"
 
-#: src/Plugins/Export/ExportLatex.php:287 src/Plugins/Export/ExportSql.php:1981
+#: src/Plugins/Export/ExportLatex.php:287 src/Plugins/Export/ExportSql.php:1988
 msgid "Data:"
 msgstr "Të dhëna:"
 
@@ -18178,7 +18183,7 @@ msgstr ""
 msgid "Data creation options"
 msgstr "Opsionet e krijimit të të dhënave"
 
-#: src/Plugins/Export/ExportSql.php:417 src/Plugins/Export/ExportSql.php:2053
+#: src/Plugins/Export/ExportSql.php:417 src/Plugins/Export/ExportSql.php:2060
 msgid "Truncate table before insert"
 msgstr "Cungo tabelën para futjes"
 
@@ -18258,104 +18263,104 @@ msgstr ""
 msgid "It appears your database uses routines;"
 msgstr "Duket se databaza juaj përdor rutinat;"
 
-#: src/Plugins/Export/ExportSql.php:594 src/Plugins/Export/ExportSql.php:1450
-#: src/Plugins/Export/ExportSql.php:1876
+#: src/Plugins/Export/ExportSql.php:594 src/Plugins/Export/ExportSql.php:1457
+#: src/Plugins/Export/ExportSql.php:1883
 msgid "alias export may not work reliably in all cases."
 msgstr ""
 "eksporti i pseudonimit nuk mund të punojnë në mënyrë të besueshme në të "
 "gjitha rastet."
 
-#: src/Plugins/Export/ExportSql.php:1042
+#: src/Plugins/Export/ExportSql.php:1049
 msgid "Metadata"
 msgstr "Metadata"
 
-#: src/Plugins/Export/ExportSql.php:1101
+#: src/Plugins/Export/ExportSql.php:1108
 #, php-format
 msgid "Metadata for table %s"
 msgstr "Metadata për tabelën %s"
 
-#: src/Plugins/Export/ExportSql.php:1108
+#: src/Plugins/Export/ExportSql.php:1115
 #, php-format
 msgid "Metadata for database %s"
 msgstr "Metadata për databazën %s"
 
-#: src/Plugins/Export/ExportSql.php:1368
+#: src/Plugins/Export/ExportSql.php:1375
 #, php-format
 msgid "Error reading structure for table %s:"
 msgstr "Gabim në leximin e strukturës për tabelën %s:"
 
-#: src/Plugins/Export/ExportSql.php:1447
+#: src/Plugins/Export/ExportSql.php:1454
 msgid "It appears your database uses views;"
 msgstr "Duket se databaza juaj përdor pamjet;"
 
-#: src/Plugins/Export/ExportSql.php:1586
+#: src/Plugins/Export/ExportSql.php:1593
 msgid "Constraints for dumped tables"
 msgstr "Detyrimet për tabelat e hedhura"
 
-#: src/Plugins/Export/ExportSql.php:1587
+#: src/Plugins/Export/ExportSql.php:1594
 msgid "Constraints for table"
 msgstr "Detyrimet për tabelën"
 
-#: src/Plugins/Export/ExportSql.php:1613
+#: src/Plugins/Export/ExportSql.php:1620
 msgid "Indexes for dumped tables"
 msgstr "Indekset për tabelat e hedhura"
 
-#: src/Plugins/Export/ExportSql.php:1614
+#: src/Plugins/Export/ExportSql.php:1621
 msgid "Indexes for table"
 msgstr "Indekset për tabelë"
 
-#: src/Plugins/Export/ExportSql.php:1637
+#: src/Plugins/Export/ExportSql.php:1644
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "AUTO_INCREMENT për tabelat e hedhura"
 
-#: src/Plugins/Export/ExportSql.php:1638
+#: src/Plugins/Export/ExportSql.php:1645
 msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT për tabelë"
 
-#: src/Plugins/Export/ExportSql.php:1692
+#: src/Plugins/Export/ExportSql.php:1699
 #, fuzzy
 #| msgid "MIME TYPES FOR TABLE"
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "TIPET MIME PËR TABELËN"
 
-#: src/Plugins/Export/ExportSql.php:1722
+#: src/Plugins/Export/ExportSql.php:1729
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "RELACIONET PËR TABELËN"
 
-#: src/Plugins/Export/ExportSql.php:1873
+#: src/Plugins/Export/ExportSql.php:1880
 msgid "It appears your table uses triggers;"
 msgstr "Duket se tabela juaj përdor shkrehës;"
 
-#: src/Plugins/Export/ExportSql.php:1907
+#: src/Plugins/Export/ExportSql.php:1914
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "Struktura për pamjen %s eksportuar si një tabelë"
 
-#: src/Plugins/Export/ExportSql.php:1938
+#: src/Plugins/Export/ExportSql.php:1945
 msgid "(See below for the actual view)"
 msgstr "(Shiko më poshtë pamjen aktuale)"
 
-#: src/Plugins/Export/ExportSql.php:1994
+#: src/Plugins/Export/ExportSql.php:2001
 #, php-format
 msgid "Error reading data for table %s:"
 msgstr "Gabim gjatë leximit të të dhënave për tabelën %s:"
 
-#: src/Plugins/Export/ExportSql.php:2518
+#: src/Plugins/Export/ExportSql.php:2525
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:566
 msgid "Creation:"
 msgstr "Krijimi:"
 
-#: src/Plugins/Export/ExportSql.php:2526
+#: src/Plugins/Export/ExportSql.php:2533
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:577
 msgid "Last update:"
 msgstr "Aktualizimi i fundit:"
 
-#: src/Plugins/Export/ExportSql.php:2534
+#: src/Plugins/Export/ExportSql.php:2541
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:588
 msgid "Last check:"
 msgstr "Kontrolli i fundit:"
 
-#: src/Plugins/Export/ExportSql.php:2555
+#: src/Plugins/Export/ExportSql.php:2562
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
@@ -19250,11 +19255,11 @@ msgstr "Nuk ka version stabil të ri të vlefshëm"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Përdorimi i faqerojtësit \"%s\" si shfletues pyetsori standard."
 
-#: src/Sql.php:889
+#: src/Sql.php:898
 msgid "Showing as PHP code"
 msgstr "Shfaqën si kod PHP"
 
-#: src/Sql.php:1245
+#: src/Sql.php:1254
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -19263,7 +19268,7 @@ msgstr ""
 "Zgjedhja aktuale nuk përmban një kolonë unike. Tiparet redaktimi i rrjetës, "
 "kutisë së kontrollit, Redakto, Kopjo dhe Fshij nuk janë në vlefshme. %s"
 
-#: src/Sql.php:1259
+#: src/Sql.php:1268
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-04-19 00:46+0000\n"
+"POT-Creation-Date: 2026-04-26 00:48+0000\n"
 "PO-Revision-Date: 2026-02-03 19:01+0000\n"
 "Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -45,23 +45,23 @@ msgstr "Tài liệu MySQL"
 msgid "Appearance:"
 msgstr "Giao diện:"
 
-#: resources/templates/base.twig:80 resources/templates/home/index.twig:150
+#: resources/templates/base.twig:80 resources/templates/home/index.twig:149
 msgid "Color mode for the theme"
 msgstr "Chế độ màu cho chủ đề"
 
-#: resources/templates/base.twig:84 resources/templates/home/index.twig:154
+#: resources/templates/base.twig:84 resources/templates/home/index.twig:153
 msgctxt "Light color mode of the theme"
 msgid "Light"
 msgstr "Sáng"
 
-#: resources/templates/base.twig:86 resources/templates/home/index.twig:156
+#: resources/templates/base.twig:86 resources/templates/home/index.twig:155
 msgctxt "Dark color mode of the theme"
 msgid "Dark"
 msgstr "Tối"
 
 #: resources/templates/base.twig:99
 #: resources/templates/server/status/monitor/index.twig:8
-#: src/Controllers/JavaScriptMessagesController.php:215 src/Menu.php:479
+#: src/Controllers/JavaScriptMessagesController.php:216 src/Menu.php:479
 #: src/Util.php:1368
 msgid "Settings"
 msgstr "Cài đặt"
@@ -73,7 +73,7 @@ msgid "Log out"
 msgstr "Đăng xuất"
 
 #: resources/templates/base.twig:112
-#: src/Controllers/JavaScriptMessagesController.php:315
+#: src/Controllers/JavaScriptMessagesController.php:316
 msgid "Page-related settings"
 msgstr "Cài đặt liên quan đến trang"
 
@@ -206,8 +206,8 @@ msgstr "sau %s"
 #: resources/templates/table/zoom_search/index.twig:62
 #: resources/templates/table/zoom_search/index.twig:120
 #: src/Config/ConfigFile.php:554
-#: src/Controllers/JavaScriptMessagesController.php:218
-#: src/Display/Results.php:930 src/Plugins/Export/ExportSql.php:1981
+#: src/Controllers/JavaScriptMessagesController.php:219
+#: src/Display/Results.php:930 src/Plugins/Export/ExportSql.php:1988
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "Không"
@@ -280,7 +280,7 @@ msgstr "cột"
 #: resources/templates/table/zoom_search/index.twig:152
 #: resources/templates/triggers/editor_form.twig:75
 #: resources/templates/view_create.twig:123 src/BrowseForeigners.php:180
-#: src/Controllers/JavaScriptMessagesController.php:311
+#: src/Controllers/JavaScriptMessagesController.php:312
 #: src/Controllers/Server/PrivilegesController.php:328
 #: src/Normalization.php:235 src/Tracking/Tracking.php:288
 #: src/Tracking/Tracking.php:403
@@ -330,7 +330,7 @@ msgstr "Giao dịch trực tuyến"
 #: resources/templates/table/relation/common_form.twig:141
 #: resources/templates/table/structure/display_structure.twig:333
 #: resources/templates/table/structure/display_structure.twig:343
-#: src/Controllers/JavaScriptMessagesController.php:130
+#: src/Controllers/JavaScriptMessagesController.php:131
 msgid "Preview SQL"
 msgstr "Xem trước Mã SQL"
 
@@ -344,7 +344,7 @@ msgstr "Xem trước Mã SQL"
 #: resources/templates/table/relation/common_form.twig:142
 #: resources/templates/table/structure/partition_definition_form.twig:13
 #: resources/templates/table/zoom_search/result_form.twig:79
-#: src/Controllers/JavaScriptMessagesController.php:431
+#: src/Controllers/JavaScriptMessagesController.php:432
 msgid "Save"
 msgstr "Ghi lại"
 
@@ -389,8 +389,8 @@ msgstr "Đang tải"
 #: resources/templates/export_modal.twig:6
 #: resources/templates/export_modal.twig:10 resources/templates/export.twig:82
 #: resources/templates/export.twig:90 resources/templates/export.twig:188
-#: resources/templates/home/index.twig:317
-#: resources/templates/home/index.twig:325
+#: resources/templates/home/index.twig:316
+#: resources/templates/home/index.twig:324
 #: resources/templates/modals/change_password.twig:6
 #: resources/templates/modals/create_view.twig:6
 #: resources/templates/modals/create_view.twig:11
@@ -447,7 +447,7 @@ msgstr "Đang tải"
 #: resources/templates/triggers/list.twig:90
 #: resources/templates/triggers/list.twig:102
 #: resources/templates/triggers/list.twig:106
-#: src/Controllers/JavaScriptMessagesController.php:154
+#: src/Controllers/JavaScriptMessagesController.php:155
 #: src/Tracking/Tracking.php:201 src/Tracking/Tracking.php:541
 msgid "Close"
 msgstr "Đóng"
@@ -586,8 +586,8 @@ msgstr "Nhóm nút"
 #: src/Config/Forms/User/ExportForm.php:53
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
-#: src/Controllers/JavaScriptMessagesController.php:694
-#: src/Import/Import.php:1157 src/Menu.php:214 src/Menu.php:322
+#: src/Controllers/JavaScriptMessagesController.php:695
+#: src/Import/Import.php:1167 src/Menu.php:214 src/Menu.php:322
 #: src/Navigation/Nodes/NodeColumn.php:38
 #: src/Navigation/Nodes/NodeDatabase.php:59
 #: src/Navigation/Nodes/NodeTable.php:239 src/Util.php:1064 src/Util.php:1377
@@ -701,7 +701,7 @@ msgstr ""
 #: resources/templates/database/operations/index.twig:195
 #: resources/templates/database/operations/index.twig:199
 #: resources/templates/database/structure/table_header.twig:31
-#: resources/templates/home/index.twig:63 resources/templates/indexes.twig:23
+#: resources/templates/home/index.twig:62 resources/templates/indexes.twig:23
 #: resources/templates/server/databases/index.twig:29
 #: resources/templates/server/databases/index.twig:30
 #: resources/templates/server/databases/index.twig:123
@@ -838,7 +838,7 @@ msgid "No change"
 msgstr "Không thay đổi gì"
 
 #: resources/templates/config/form_display/display.twig:46
-#: src/Controllers/JavaScriptMessagesController.php:316
+#: src/Controllers/JavaScriptMessagesController.php:317
 msgid "Apply"
 msgstr "Áp dụng"
 
@@ -851,7 +851,7 @@ msgid "Reset"
 msgstr "Đặt lại"
 
 #: resources/templates/config/form_display/input.twig:10
-#: resources/templates/home/index.twig:265
+#: resources/templates/home/index.twig:264
 #: resources/templates/server/variables/index.twig:17
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:167
@@ -917,7 +917,7 @@ msgstr "Tắt"
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:29
 #: src/Controllers/Database/Structure/DropTableController.php:43
 #: src/Controllers/Database/Structure/EmptyTableController.php:42
-#: src/Controllers/JavaScriptMessagesController.php:481
+#: src/Controllers/JavaScriptMessagesController.php:482
 #: src/Controllers/Table/DeleteRowsController.php:34
 #: src/Controllers/Table/DropColumnController.php:46
 #: src/Controllers/Table/Structure/PrimaryController.php:101
@@ -956,7 +956,7 @@ msgstr "Có"
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:35
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:28
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:29
-#: src/Controllers/JavaScriptMessagesController.php:343
+#: src/Controllers/JavaScriptMessagesController.php:344
 #: src/Indexes/IndexColumn.php:145 src/Indexes/Index.php:448
 #: src/Indexes/Index.php:474 src/Plugins/Export/ExportHtmlword.php:515
 #: src/Plugins/Export/ExportLatex.php:532 src/Plugins/Export/ExportOdt.php:625
@@ -1024,7 +1024,7 @@ msgstr "Truy vấn lại"
 #: resources/templates/triggers/row.twig:28
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:925
 #: src/ConfigStorage/UserGroups.php:113
-#: src/Controllers/JavaScriptMessagesController.php:379
+#: src/Controllers/JavaScriptMessagesController.php:380
 #: src/Display/Results.php:1876 src/Html/Generator.php:533
 #: src/Html/Generator.php:790
 msgid "Edit"
@@ -1043,7 +1043,7 @@ msgstr "Sửa"
 #: resources/templates/server/user_groups/user_groups.twig:56
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:189
-#: src/Controllers/JavaScriptMessagesController.php:381
+#: src/Controllers/JavaScriptMessagesController.php:382
 #: src/Display/Results.php:2414 src/Tracking/Tracking.php:225
 msgid "Delete"
 msgstr "Xóa bỏ"
@@ -1093,7 +1093,7 @@ msgstr "Lịch sử"
 #: resources/templates/database/designer/database_tables.twig:116
 #: resources/templates/database/routines/editor_form.twig:58
 #: resources/templates/table/structure/display_table_stats.twig:94
-#: src/Import/Import.php:1158 src/Import/Import.php:1216
+#: src/Import/Import.php:1168 src/Import/Import.php:1226
 msgid "Options"
 msgstr "Tùy chọn"
 
@@ -1196,7 +1196,7 @@ msgid "Count:"
 msgstr "Số lượng:"
 
 #: resources/templates/console/display.twig:121
-#: src/Controllers/JavaScriptMessagesController.php:644
+#: src/Controllers/JavaScriptMessagesController.php:645
 msgid "Time taken:"
 msgstr "Thời gian cần:"
 
@@ -1233,7 +1233,7 @@ msgstr "Đánh đánh dấu này"
 #: resources/templates/database/designer/main.twig:1058
 #: resources/templates/modals/preview_sql_confirmation.twig:14
 #: resources/templates/table/structure/display_structure.twig:367
-#: src/Controllers/JavaScriptMessagesController.php:335
+#: src/Controllers/JavaScriptMessagesController.php:336
 msgid "OK"
 msgstr "Tốt"
 
@@ -1386,7 +1386,7 @@ msgstr "Hành động"
 #: resources/templates/server/databases/index.twig:325
 #: resources/templates/server/variables/index.twig:15
 #: resources/templates/table/search/index.twig:196
-#: src/Controllers/JavaScriptMessagesController.php:312
+#: src/Controllers/JavaScriptMessagesController.php:313
 msgid "Cancel"
 msgstr "Hủy bỏ"
 
@@ -1506,7 +1506,7 @@ msgid "Page to delete"
 msgstr "Trang cần xóa"
 
 #: resources/templates/database/designer/main.twig:10
-#: src/Controllers/JavaScriptMessagesController.php:525
+#: src/Controllers/JavaScriptMessagesController.php:526
 msgid "Untitled"
 msgstr "Chưa đặt tên"
 
@@ -1527,7 +1527,7 @@ msgstr "Thoát khỏi toàn màn hình"
 
 #: resources/templates/database/designer/main.twig:40
 #: resources/templates/database/designer/main.twig:43
-#: src/Controllers/JavaScriptMessagesController.php:517
+#: src/Controllers/JavaScriptMessagesController.php:518
 msgid "Add tables from other databases"
 msgstr "Thêm bảng từ cơ sở dữ liệu khác"
 
@@ -1538,19 +1538,19 @@ msgstr "Trang mới"
 
 #: resources/templates/database/designer/main.twig:56
 #: resources/templates/database/designer/main.twig:59
-#: src/Controllers/JavaScriptMessagesController.php:521
+#: src/Controllers/JavaScriptMessagesController.php:522
 msgid "Open page"
 msgstr "Mở trang"
 
 #: resources/templates/database/designer/main.twig:63
 #: resources/templates/database/designer/main.twig:66
-#: src/Controllers/JavaScriptMessagesController.php:519
+#: src/Controllers/JavaScriptMessagesController.php:520
 msgid "Save page"
 msgstr "Ghi lại trang"
 
 #: resources/templates/database/designer/main.twig:70
 #: resources/templates/database/designer/main.twig:73
-#: src/Controllers/JavaScriptMessagesController.php:520
+#: src/Controllers/JavaScriptMessagesController.php:521
 msgid "Save page as"
 msgstr "Ghi trang bằng tên mới"
 
@@ -1573,7 +1573,7 @@ msgstr "Tạo mối quan hệ"
 
 #: resources/templates/database/designer/main.twig:98
 #: resources/templates/database/designer/main.twig:101
-#: src/Controllers/JavaScriptMessagesController.php:511
+#: src/Controllers/JavaScriptMessagesController.php:512
 msgid "Choose column to display"
 msgstr "Chọn cột bạn muốn hiển thị"
 
@@ -1719,7 +1719,7 @@ msgstr "Tùy chọn đang kích hoạt"
 
 #: resources/templates/database/designer/main.twig:1138
 #: resources/templates/sql/query.twig:181
-#: src/Controllers/JavaScriptMessagesController.php:536
+#: src/Controllers/JavaScriptMessagesController.php:537
 msgid "Submit"
 msgstr "Gửi"
 
@@ -1759,7 +1759,7 @@ msgstr "Tên sự kiện"
 #: resources/templates/database/tracking/tables.twig:17
 #: resources/templates/table/tracking/main.twig:31
 #: src/Config/ConfigFile.php:578
-#: src/Controllers/JavaScriptMessagesController.php:275 src/Menu.php:450
+#: src/Controllers/JavaScriptMessagesController.php:276 src/Menu.php:450
 #: src/Server/Status/Processes.php:106 src/Util.php:1364
 msgid "Status"
 msgstr "Trạng thái"
@@ -1827,7 +1827,7 @@ msgstr "Bộ định nghĩa"
 #: resources/templates/database/events/index.twig:3 src/Menu.php:381
 #: src/Navigation/Nodes/NodeEventContainer.php:23
 #: src/Navigation/Nodes/NodeEventContainer.php:25
-#: src/Plugins/Export/ExportSql.php:982 src/Plugins/Export/ExportXml.php:92
+#: src/Plugins/Export/ExportSql.php:989 src/Plugins/Export/ExportXml.php:92
 #: src/Util.php:1386
 msgid "Events"
 msgstr "Sự kiện"
@@ -1888,7 +1888,7 @@ msgstr "Theo dõi bảng"
 #: resources/templates/triggers/list.twig:18
 #: resources/templates/triggers/row.twig:41
 #: src/Config/Forms/User/ExportForm.php:148
-#: src/Controllers/JavaScriptMessagesController.php:361 src/Menu.php:241
+#: src/Controllers/JavaScriptMessagesController.php:362 src/Menu.php:241
 #: src/Menu.php:347 src/Menu.php:469 src/Server/Privileges.php:1279
 #: src/Util.php:1366 src/Util.php:1381 src/Util.php:1398
 msgid "Export"
@@ -1956,7 +1956,7 @@ msgstr "Bản ấn hành Excel"
 #: resources/templates/database/events/index.twig:166
 #: resources/templates/database/routines/index.twig:83
 #: resources/templates/database/routines/index.twig:118
-#: resources/templates/home/index.twig:321
+#: resources/templates/home/index.twig:320
 #: resources/templates/modals/index_dialog_modal.twig:26
 #: resources/templates/navigation/main.twig:58
 #: resources/templates/server/privileges/users_overview.twig:172
@@ -1964,7 +1964,7 @@ msgstr "Bản ấn hành Excel"
 #: resources/templates/server/status/monitor/index.twig:296
 #: resources/templates/table/structure/display_structure.twig:348
 #: resources/templates/triggers/list.twig:86
-#: src/Controllers/JavaScriptMessagesController.php:319
+#: src/Controllers/JavaScriptMessagesController.php:320
 msgid "Loading…"
 msgstr "Đang tải…"
 
@@ -2057,7 +2057,7 @@ msgstr "chọn cột"
 #: resources/templates/database/multi_table_query/form.twig:38
 #: resources/templates/database/tracking/tables.twig:19
 #: resources/templates/table/tracking/main.twig:33
-#: src/Controllers/JavaScriptMessagesController.php:693
+#: src/Controllers/JavaScriptMessagesController.php:694
 #: src/Controllers/Table/ChangeController.php:223
 msgid "Show"
 msgstr "Hiện"
@@ -2699,7 +2699,7 @@ msgid "Replace table prefix"
 msgstr "Thêm tiền tố cho bảng"
 
 #: resources/templates/database/structure/check_all_tables.twig:28
-#: src/Controllers/JavaScriptMessagesController.php:656
+#: src/Controllers/JavaScriptMessagesController.php:657
 msgid "Copy table with prefix"
 msgstr "Chép bảng với tiền tố"
 
@@ -2734,7 +2734,7 @@ msgstr ""
 
 #: resources/templates/database/structure/copy_form.twig:5
 #: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:250
-#: src/Plugins/Export/ExportSql.php:912 src/Plugins/Export/ExportXml.php:356
+#: src/Plugins/Export/ExportSql.php:919 src/Plugins/Export/ExportXml.php:356
 #: src/Plugins/Export/Helpers/Pdf.php:147
 msgid "Database:"
 msgstr "Cơ sở dữ liệu:"
@@ -2760,7 +2760,7 @@ msgstr "Bạn có thực sự muốn thực hiện lệnh truy vấn sau đây k
 #: resources/templates/database/structure/empty_form.twig:15
 #: resources/templates/import.twig:154 resources/templates/sql/query.twig:145
 #: resources/templates/table/delete/confirm.twig:25
-#: src/Controllers/JavaScriptMessagesController.php:346
+#: src/Controllers/JavaScriptMessagesController.php:347
 msgid "Enable foreign key checks"
 msgstr "Bật kiểm tra khóa ngoại"
 
@@ -3030,7 +3030,7 @@ msgstr "Cuối"
 #: resources/templates/server/privileges/initials_row.twig:21
 #: resources/templates/table/browse_foreigners/show_all.twig:2
 #: src/BrowseForeigners.php:287
-#: src/Controllers/JavaScriptMessagesController.php:554
+#: src/Controllers/JavaScriptMessagesController.php:555
 msgid "Show all"
 msgstr "Hiện tất"
 
@@ -3092,7 +3092,7 @@ msgid "Hide browser transformation"
 msgstr "Ẩn trình duyệt chuyển đổi"
 
 #: resources/templates/display/results/table.twig:263
-#: src/Controllers/JavaScriptMessagesController.php:473
+#: src/Controllers/JavaScriptMessagesController.php:474
 msgid "Geometry"
 msgstr "Hình dạng"
 
@@ -3109,7 +3109,7 @@ msgstr "Định dạng nhị phân được biết đến (WKB)"
 #: resources/templates/display/results/table.twig:323
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
-#: src/Controllers/JavaScriptMessagesController.php:467
+#: src/Controllers/JavaScriptMessagesController.php:468
 #: src/Display/Results.php:1877 src/Html/Generator.php:83
 msgid "Copy"
 msgstr "Chép"
@@ -3120,7 +3120,7 @@ msgid "Query results operations"
 msgstr "Kết quả truy vấn các thao tác"
 
 #: resources/templates/display/results/table.twig:353
-#: src/Controllers/JavaScriptMessagesController.php:466
+#: src/Controllers/JavaScriptMessagesController.php:467
 #: src/Export/Export.php:716
 msgid "Copy to clipboard"
 msgstr "Chép vào clipboard"
@@ -3230,7 +3230,7 @@ msgstr "Cập nhật"
 
 #. l10n: Title of the option on the Export page
 #: resources/templates/export.twig:68
-#: src/Controllers/JavaScriptMessagesController.php:134
+#: src/Controllers/JavaScriptMessagesController.php:135
 #: src/Html/Generator.php:765
 msgid "SQL query:"
 msgstr "Truy vấn SQL:"
@@ -3299,7 +3299,7 @@ msgid "Defined aliases"
 msgstr "Bí danh đã được xác định"
 
 #: resources/templates/export.twig:204
-#: src/Controllers/JavaScriptMessagesController.php:282
+#: src/Controllers/JavaScriptMessagesController.php:283
 msgctxt "Alias"
 msgid "Database"
 msgstr "Cơ sở dữ liệu"
@@ -3310,13 +3310,13 @@ msgid "Remove"
 msgstr "Xóa"
 
 #: resources/templates/export.twig:218
-#: src/Controllers/JavaScriptMessagesController.php:283
+#: src/Controllers/JavaScriptMessagesController.php:284
 msgctxt "Alias"
 msgid "Table"
 msgstr "Bảng"
 
 #: resources/templates/export.twig:231
-#: src/Controllers/JavaScriptMessagesController.php:284
+#: src/Controllers/JavaScriptMessagesController.php:285
 msgctxt "Alias"
 msgid "Column"
 msgstr "Cột"
@@ -3494,7 +3494,7 @@ msgstr ""
 msgid "General settings"
 msgstr "Cài đặt cơ bản"
 
-#: resources/templates/home/index.twig:44
+#: resources/templates/home/index.twig:43
 #: resources/templates/modals/change_password.twig:5
 #: resources/templates/server/privileges/change_password.twig:10
 #: resources/templates/server/privileges/change_password.twig:11
@@ -3502,21 +3502,21 @@ msgstr "Cài đặt cơ bản"
 msgid "Change password"
 msgstr "Đổi mật khẩu"
 
-#: resources/templates/home/index.twig:56
+#: resources/templates/home/index.twig:55
 msgid "Server connection collation:"
 msgstr "Đối chiếu kết nối máy chủ:"
 
-#: resources/templates/home/index.twig:82
+#: resources/templates/home/index.twig:81
 #: resources/templates/preferences/manage/main.twig:55
 msgid "More settings"
 msgstr "Cài đặt thêm"
 
-#: resources/templates/home/index.twig:93
+#: resources/templates/home/index.twig:92
 msgid "Appearance settings"
 msgstr "Cài đặt diện mạo"
 
+#: resources/templates/home/index.twig:102
 #: resources/templates/home/index.twig:103
-#: resources/templates/home/index.twig:104
 #: resources/templates/login/form.twig:21
 #: resources/templates/login/form.twig:22
 #: resources/templates/setup/home/index.twig:8
@@ -3524,109 +3524,109 @@ msgstr "Cài đặt diện mạo"
 msgid "Language"
 msgstr "Ngôn ngữ"
 
-#: resources/templates/home/index.twig:131
+#: resources/templates/home/index.twig:130
 msgid "Theme"
 msgstr "Chủ đề"
 
-#: resources/templates/home/index.twig:142
+#: resources/templates/home/index.twig:141
 msgctxt "View all themes"
 msgid "View all"
 msgstr "Xem tất cả"
 
-#: resources/templates/home/index.twig:178
+#: resources/templates/home/index.twig:177
 msgid "Database server"
 msgstr "Máy chủ cơ sở dữ liệu"
 
-#: resources/templates/home/index.twig:182
+#: resources/templates/home/index.twig:181
 #: resources/templates/login/form.twig:63 resources/templates/menu/main.twig:7
 msgid "Server:"
 msgstr "Máy chủ:"
 
-#: resources/templates/home/index.twig:186
+#: resources/templates/home/index.twig:185
 msgid "Hostname:"
 msgstr "Tên máy:"
 
-#: resources/templates/home/index.twig:190
+#: resources/templates/home/index.twig:189
 msgid "Server type:"
 msgstr "Kiểu máy chủ:"
 
-#: resources/templates/home/index.twig:194
+#: resources/templates/home/index.twig:193
 msgid "Server connection:"
 msgstr "Kết nối máy chủ:"
 
-#: resources/templates/home/index.twig:198
+#: resources/templates/home/index.twig:197
 #: src/Plugins/Export/ExportLatex.php:231 src/Plugins/Export/ExportSql.php:762
 #: src/Plugins/Export/ExportXml.php:203
 msgid "Server version:"
 msgstr "Phiên bản máy phục vụ:"
 
-#: resources/templates/home/index.twig:202
+#: resources/templates/home/index.twig:201
 msgid "User:"
 msgstr "Người dùng:"
 
-#: resources/templates/home/index.twig:206
+#: resources/templates/home/index.twig:205
 msgid "Server charset:"
 msgstr "Bảng mã máy chủ:"
 
-#: resources/templates/home/index.twig:218
+#: resources/templates/home/index.twig:217
 msgid "Web server"
 msgstr "Máy chủ Web"
 
-#: resources/templates/home/index.twig:228
+#: resources/templates/home/index.twig:227
 msgid "Database client version:"
 msgstr "Phiên bản cơ sở dữ liệu máy khách:"
 
-#: resources/templates/home/index.twig:232
+#: resources/templates/home/index.twig:231
 msgid "PHP extension:"
 msgstr "Phần mở rộng PHP:"
 
-#: resources/templates/home/index.twig:239
+#: resources/templates/home/index.twig:238
 msgid "PHP version:"
 msgstr "Phiên bản PHP:"
 
-#: resources/templates/home/index.twig:246
+#: resources/templates/home/index.twig:245
 msgid "Show PHP information"
 msgstr "Hiện thông tin PHP"
 
-#: resources/templates/home/index.twig:260
+#: resources/templates/home/index.twig:259
 msgid "Version information:"
 msgstr "Thông tin phiên bản:"
 
-#: resources/templates/home/index.twig:270
+#: resources/templates/home/index.twig:269
 msgid "Official Homepage"
 msgstr "Trang chủ chính thức"
 
-#: resources/templates/home/index.twig:275
+#: resources/templates/home/index.twig:274
 msgid "Contribute"
 msgstr "Đóng góp"
 
-#: resources/templates/home/index.twig:280
+#: resources/templates/home/index.twig:279
 msgid "Get support"
 msgstr "Hỗ trợ"
 
-#: resources/templates/home/index.twig:285
+#: resources/templates/home/index.twig:284
 msgid "List of changes"
 msgstr "Danh sách các thay đổi"
 
-#: resources/templates/home/index.twig:290
+#: resources/templates/home/index.twig:289
 #: resources/templates/server/plugins/index.twig:30
 msgid "License"
 msgstr "Giấy phép"
 
-#: resources/templates/home/index.twig:301
+#: resources/templates/home/index.twig:300
 #: resources/templates/setup/error.twig:2
 msgid "Warning"
 msgstr "Cảnh báo"
 
-#: resources/templates/home/index.twig:303
+#: resources/templates/home/index.twig:302
 msgid "Notice"
 msgstr "Thông báo"
 
-#: resources/templates/home/index.twig:316
+#: resources/templates/home/index.twig:315
 msgid "phpMyAdmin Themes"
 msgstr "Chủ đề phpMyAdmin"
 
-#: resources/templates/home/index.twig:327
+#: resources/templates/home/index.twig:326
 msgid "Get more themes!"
 msgstr "Muốn lấy thêm các chủ đề khác!"
 
@@ -3642,7 +3642,7 @@ msgstr "Lấy nó"
 
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
-#: src/Controllers/JavaScriptMessagesController.php:411
+#: src/Controllers/JavaScriptMessagesController.php:412
 #: src/Export/Export.php:739 src/Html/Generator.php:849
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
@@ -3983,7 +3983,7 @@ msgid "An error has occurred while loading the navigation display"
 msgstr "Gặp lỗi khi đang tải bộ trình bày điều hướng"
 
 #: resources/templates/navigation/main.twig:84
-#: src/Controllers/JavaScriptMessagesController.php:571
+#: src/Controllers/JavaScriptMessagesController.php:572
 msgid "Drop files here"
 msgstr "Thả tập tin vào đây"
 
@@ -4558,7 +4558,7 @@ msgstr "SQL"
 
 #: resources/templates/server/databases/index.twig:255
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:34
-#: src/Controllers/JavaScriptMessagesController.php:293
+#: src/Controllers/JavaScriptMessagesController.php:294
 msgid "Total:"
 msgstr "Tổng cộng:"
 
@@ -4580,7 +4580,7 @@ msgid "No databases"
 msgstr "Không có cơ sở dữ liệu nào"
 
 #: resources/templates/server/databases/index.twig:320
-#: src/Controllers/JavaScriptMessagesController.php:337
+#: src/Controllers/JavaScriptMessagesController.php:338
 msgid "Confirm"
 msgstr "Xác nhận"
 
@@ -4810,7 +4810,7 @@ msgstr "Tài khoản người dùng"
 #: resources/templates/server/privileges/edit_routine_privileges.twig:29
 #: resources/templates/server/privileges/edit_routine_privileges.twig:46
 #: resources/templates/server/privileges/edit_routine_privileges.twig:59
-#: src/Controllers/JavaScriptMessagesController.php:363
+#: src/Controllers/JavaScriptMessagesController.php:364
 #: src/Server/Privileges.php:1576 src/Server/Privileges.php:1578
 msgid "Routine"
 msgstr "Thủ tục"
@@ -5388,23 +5388,23 @@ msgid "User group"
 msgstr "Nhóm người dùng"
 
 #: resources/templates/server/privileges/users_overview.twig:100
-#: src/Controllers/JavaScriptMessagesController.php:158
+#: src/Controllers/JavaScriptMessagesController.php:159
 msgid "Unlock this account."
 msgstr "Mở khóa tài khoản này."
 
 #: resources/templates/server/privileges/users_overview.twig:100
-#: src/Controllers/JavaScriptMessagesController.php:157
+#: src/Controllers/JavaScriptMessagesController.php:158
 msgid "Lock this account."
 msgstr "Khóa tài khoản này."
 
 #: resources/templates/server/privileges/users_overview.twig:102
-#: src/Controllers/JavaScriptMessagesController.php:156
+#: src/Controllers/JavaScriptMessagesController.php:157
 msgctxt "Unlock the account."
 msgid "Unlock"
 msgstr "Mở khóa"
 
 #: resources/templates/server/privileges/users_overview.twig:105
-#: src/Controllers/JavaScriptMessagesController.php:155
+#: src/Controllers/JavaScriptMessagesController.php:156
 msgctxt "Lock the account."
 msgid "Lock"
 msgstr "Khóa"
@@ -5487,7 +5487,7 @@ msgid "Generate password:"
 msgstr "Tạo mật khẩu:"
 
 #: resources/templates/server/replication/primary_add_replica_user.twig:73
-#: src/Controllers/JavaScriptMessagesController.php:578
+#: src/Controllers/JavaScriptMessagesController.php:579
 msgid "Generate"
 msgstr "Tạo"
 
@@ -5679,12 +5679,13 @@ msgstr "Trạng thái bản sao"
 msgid "Variable"
 msgstr "Biến"
 
-#: resources/templates/server/select/index.twig:4
-#: resources/templates/server/select/index.twig:13
+#: resources/templates/server/select/index.twig:6
+#: resources/templates/server/select/index.twig:8
+#: resources/templates/server/select/index.twig:19
 msgid "Current server:"
 msgstr "Máy phục vụ hiện tại:"
 
-#: resources/templates/server/select/index.twig:6
+#: resources/templates/server/select/index.twig:12
 #: resources/templates/setup/home/index.twig:34 src/Config/Descriptions.php:740
 msgid "Servers"
 msgstr "Máy phục vụ"
@@ -5778,7 +5779,7 @@ msgstr "Máy phục vụ"
 
 #: resources/templates/server/status/base.twig:11
 #: resources/templates/server/status/processes/list.twig:5
-#: src/Controllers/JavaScriptMessagesController.php:200
+#: src/Controllers/JavaScriptMessagesController.php:201
 msgid "Processes"
 msgstr "Tiến trình"
 
@@ -5871,7 +5872,7 @@ msgid "Importing system monitor configuration"
 msgstr "Nhập vào cấu hình theo dõi"
 
 #: resources/templates/server/status/monitor/index.twig:63
-#: src/Controllers/JavaScriptMessagesController.php:301
+#: src/Controllers/JavaScriptMessagesController.php:302
 msgid "Please select the file you want to import:"
 msgstr "Chọn những thể loại bạn muốn nhập vào:"
 
@@ -5959,13 +5960,13 @@ msgstr "Áp dụng một phép chia"
 
 #. l10n: shortcuts for Kilobyte
 #: resources/templates/server/status/monitor/index.twig:181
-#: src/Controllers/JavaScriptMessagesController.php:204 src/Util.php:311
+#: src/Controllers/JavaScriptMessagesController.php:205 src/Util.php:311
 msgid "KiB"
 msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
 #: resources/templates/server/status/monitor/index.twig:182
-#: src/Controllers/JavaScriptMessagesController.php:205 src/Util.php:313
+#: src/Controllers/JavaScriptMessagesController.php:206 src/Util.php:313
 msgid "MiB"
 msgstr "MiB"
 
@@ -5986,7 +5987,7 @@ msgid "Series in chart:"
 msgstr "Sê-ri trong biểu đồ:"
 
 #: resources/templates/server/status/monitor/index.twig:212
-#: src/Controllers/JavaScriptMessagesController.php:216
+#: src/Controllers/JavaScriptMessagesController.php:217
 msgid "Add chart to grid"
 msgstr "Thêm vào màu người dùng"
 
@@ -6136,7 +6137,7 @@ msgstr ""
 "lượng giữa máy phục vụ web và dịch vụ MySQL tăng cao."
 
 #: resources/templates/server/status/processes/index.twig:49
-#: src/Controllers/JavaScriptMessagesController.php:223
+#: src/Controllers/JavaScriptMessagesController.php:224
 msgid "Start auto refresh"
 msgstr "Chạy tự động làm tươi mới"
 
@@ -6210,7 +6211,7 @@ msgid "This MySQL server has been running for %1$s. It started up on %2$s."
 msgstr "Máy phục vụ MySQL này đã chạy %1$s. Nó được khởi động vào %2$s."
 
 #: resources/templates/server/status/status/index.twig:14
-#: src/Controllers/JavaScriptMessagesController.php:214
+#: src/Controllers/JavaScriptMessagesController.php:215
 msgid "Traffic"
 msgstr "Lưu lượng"
 
@@ -6223,7 +6224,7 @@ msgstr ""
 "dạng báo cáo bởi máy dịch vụ MySQL có thể không chính xác."
 
 #: resources/templates/server/status/status/index.twig:36
-#: src/Controllers/JavaScriptMessagesController.php:199
+#: src/Controllers/JavaScriptMessagesController.php:200
 msgid "Connections"
 msgstr "Kết nối"
 
@@ -6497,7 +6498,7 @@ msgstr "Tình trạng"
 
 #: resources/templates/sql/profiling_chart.twig:13
 #: resources/templates/triggers/list.twig:51
-#: src/Controllers/JavaScriptMessagesController.php:276
+#: src/Controllers/JavaScriptMessagesController.php:277
 #: src/Plugins/Export/ExportHtmlword.php:395
 #: src/Plugins/Export/ExportOdt.php:503
 #: src/Plugins/Export/ExportTexytext.php:370
@@ -6622,14 +6623,14 @@ msgid "View only"
 msgstr "Chỉ hiển thị"
 
 #: resources/templates/sql/query.twig:221
-#: src/Controllers/JavaScriptMessagesController.php:133
+#: src/Controllers/JavaScriptMessagesController.php:134
 msgid "Simulate query"
 msgstr "Mô phỏng Truy vấn"
 
 #: resources/templates/sql/relational_column_dropdown.twig:3
 #: resources/templates/table/insert/column_row.twig:48
 #: resources/templates/table/search/input_box.twig:21
-#: src/Controllers/JavaScriptMessagesController.php:383
+#: src/Controllers/JavaScriptMessagesController.php:384
 msgid "Browse foreign values"
 msgstr "Duyệt giá trị khóa ngoại"
 
@@ -6859,14 +6860,14 @@ msgstr "Kéo thả để thay đổi thứ tự"
 
 #: resources/templates/table/index_form.twig:170
 #: resources/templates/table/index_form.twig:213
-#: src/Controllers/JavaScriptMessagesController.php:465
-#: src/Controllers/JavaScriptMessagesController.php:617
+#: src/Controllers/JavaScriptMessagesController.php:466
+#: src/Controllers/JavaScriptMessagesController.php:618
 #: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1412
 msgid "Ignore"
 msgstr "Bỏ qua"
 
 #: resources/templates/table/index_form.twig:254
-#: src/Controllers/JavaScriptMessagesController.php:123
+#: src/Controllers/JavaScriptMessagesController.php:124
 #, php-format
 msgid "Add %s column(s) to index"
 msgstr "Thêm %s cột vào chỉ mục"
@@ -7315,7 +7316,7 @@ msgid "Column %s has been dropped."
 msgstr "Cột %s đã được xóa bỏ."
 
 #: resources/templates/table/structure/display_structure.twig:130
-#: src/Controllers/JavaScriptMessagesController.php:581
+#: src/Controllers/JavaScriptMessagesController.php:582
 msgid "More"
 msgstr "Thêm"
 
@@ -7519,7 +7520,7 @@ msgstr "Thời gian"
 
 #: resources/templates/triggers/editor_form.twig:52
 #: resources/templates/triggers/list.twig:52
-#: src/Controllers/JavaScriptMessagesController.php:365
+#: src/Controllers/JavaScriptMessagesController.php:366
 #: src/Navigation/Nodes/NodeEvent.php:27
 #: src/Plugins/Export/ExportHtmlword.php:396
 #: src/Plugins/Export/ExportOdt.php:506
@@ -7539,7 +7540,7 @@ msgstr "Xuất của bẫy %s"
 #: src/Navigation/Nodes/NodeTriggerContainer.php:26
 #: src/Plugins/Export/ExportHtmlword.php:448
 #: src/Plugins/Export/ExportOdt.php:568 src/Plugins/Export/ExportPdf.php:173
-#: src/Plugins/Export/ExportSql.php:1844
+#: src/Plugins/Export/ExportSql.php:1851
 #: src/Plugins/Export/ExportTexytext.php:408
 #: src/Plugins/Export/ExportXml.php:112 src/Util.php:1387 src/Util.php:1403
 msgid "Triggers"
@@ -9227,7 +9228,7 @@ msgid "Closed"
 msgstr "Đóng"
 
 #: src/Config/ConfigFile.php:608
-#: src/Controllers/JavaScriptMessagesController.php:725
+#: src/Controllers/JavaScriptMessagesController.php:726
 #, fuzzy
 #| msgid "Monday"
 msgctxt "Week day name"
@@ -9235,7 +9236,7 @@ msgid "Monday"
 msgstr "Thứ hai"
 
 #: src/Config/ConfigFile.php:609
-#: src/Controllers/JavaScriptMessagesController.php:726
+#: src/Controllers/JavaScriptMessagesController.php:727
 #, fuzzy
 #| msgid "Tuesday"
 msgctxt "Week day name"
@@ -9243,7 +9244,7 @@ msgid "Tuesday"
 msgstr "Thứ ba"
 
 #: src/Config/ConfigFile.php:610
-#: src/Controllers/JavaScriptMessagesController.php:727
+#: src/Controllers/JavaScriptMessagesController.php:728
 #, fuzzy
 #| msgid "Wednesday"
 msgctxt "Week day name"
@@ -9251,7 +9252,7 @@ msgid "Wednesday"
 msgstr "Thứ tư"
 
 #: src/Config/ConfigFile.php:611
-#: src/Controllers/JavaScriptMessagesController.php:728
+#: src/Controllers/JavaScriptMessagesController.php:729
 #, fuzzy
 #| msgid "Thursday"
 msgctxt "Week day name"
@@ -9259,7 +9260,7 @@ msgid "Thursday"
 msgstr "Thứ năm"
 
 #: src/Config/ConfigFile.php:612
-#: src/Controllers/JavaScriptMessagesController.php:729
+#: src/Controllers/JavaScriptMessagesController.php:730
 #, fuzzy
 #| msgid "Friday"
 msgctxt "Week day name"
@@ -9267,7 +9268,7 @@ msgid "Friday"
 msgstr "Thứ sáu"
 
 #: src/Config/ConfigFile.php:613
-#: src/Controllers/JavaScriptMessagesController.php:730
+#: src/Controllers/JavaScriptMessagesController.php:731
 #, fuzzy
 #| msgid "Saturday"
 msgctxt "Week day name"
@@ -9275,7 +9276,7 @@ msgid "Saturday"
 msgstr "Thứ bảy"
 
 #: src/Config/ConfigFile.php:614
-#: src/Controllers/JavaScriptMessagesController.php:724
+#: src/Controllers/JavaScriptMessagesController.php:725
 #, fuzzy
 #| msgid "Sunday"
 msgctxt "Week day name"
@@ -11233,7 +11234,7 @@ msgid "Navigation panel width"
 msgstr "Độ rộng bảng điều hướng"
 
 #: src/Config/Descriptions.php:810
-#: src/Controllers/JavaScriptMessagesController.php:586
+#: src/Controllers/JavaScriptMessagesController.php:587
 #: src/Navigation/NavigationTree.php:1258
 msgid "Link with main panel"
 msgstr "Liên kết với bảng điều khiển chính"
@@ -11805,7 +11806,7 @@ msgid "Missing data for %s"
 msgstr "Thiếu dữ liệu cho %s"
 
 #: src/Config/FormDisplay.php:620 src/Config/Validator.php:589
-#: src/Controllers/JavaScriptMessagesController.php:808
+#: src/Controllers/JavaScriptMessagesController.php:809
 msgid "Incorrect value!"
 msgstr "Giá trị không đúng!"
 
@@ -12098,22 +12099,22 @@ msgid "Incorrect IP address: %s"
 msgstr "Địa chỉ IP của không đúng: %s"
 
 #: src/Config/Validator.php:524
-#: src/Controllers/JavaScriptMessagesController.php:807
+#: src/Controllers/JavaScriptMessagesController.php:808
 msgid "Not a valid port number!"
 msgstr "Số hiệu cổng không hợp lệ"
 
 #: src/Config/Validator.php:546
-#: src/Controllers/JavaScriptMessagesController.php:805
+#: src/Controllers/JavaScriptMessagesController.php:806
 msgid "Not a positive number!"
 msgstr "không phải là số hiệu phiên bản"
 
 #: src/Config/Validator.php:568
-#: src/Controllers/JavaScriptMessagesController.php:806
+#: src/Controllers/JavaScriptMessagesController.php:807
 msgid "Not a non-negative number!"
 msgstr "Không là con số âm"
 
 #: src/Config/Validator.php:607
-#: src/Controllers/JavaScriptMessagesController.php:809
+#: src/Controllers/JavaScriptMessagesController.php:810
 #, php-format
 msgid "Value must be less than or equal to %s!"
 msgstr "Giá trị phải nhỏ hơn hoặc bằng %s"
@@ -12139,7 +12140,7 @@ msgstr ""
 "tin."
 
 #: src/Controllers/Console/Bookmark/AddController.php:42
-#: src/Controllers/JavaScriptMessagesController.php:568
+#: src/Controllers/JavaScriptMessagesController.php:569
 msgid "Failed"
 msgstr "Thất bại"
 
@@ -12192,7 +12193,7 @@ msgstr ""
 #: src/Controllers/Database/Structure/RealRowCountController.php:52
 #: src/Controllers/Database/TrackingController.php:55
 #: src/Controllers/Database/TrackingController.php:60
-#: src/Controllers/JavaScriptMessagesController.php:330
+#: src/Controllers/JavaScriptMessagesController.php:331
 #: src/Controllers/Operations/Database/CollationController.php:54
 #: src/Controllers/Operations/DatabaseController.php:234
 #: src/Controllers/Operations/DatabaseController.php:239
@@ -12322,7 +12323,7 @@ msgstr "Bạn không có đủ thẩm quyền cần thiết để tạo một b�
 #: src/Controllers/Database/Structure/EmptyFormController.php:33
 #: src/Controllers/Database/Structure/ShowCreateController.php:36
 #: src/Controllers/Export/TablesController.php:29
-#: src/Controllers/JavaScriptMessagesController.php:331
+#: src/Controllers/JavaScriptMessagesController.php:332
 #: src/Controllers/Operations/TableController.php:98
 #: src/Controllers/Operations/TableController.php:103
 #: src/Controllers/Operations/ViewController.php:73
@@ -12689,7 +12690,7 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Câu lệnh \"DROP DATABASE\" bị tăt."
 
-#: src/Controllers/Import/ImportController.php:700 src/Sql.php:909
+#: src/Controllers/Import/ImportController.php:700 src/Sql.php:918
 msgid "[ROLLBACK occurred.]"
 msgstr "[đã nảy sinh ROLLBACK.]"
 
@@ -12877,271 +12878,275 @@ msgid "Please enter a valid length!"
 msgstr "Hãy gõ chiều dài hợp lệ!"
 
 #: src/Controllers/JavaScriptMessagesController.php:119
+msgid "does not support the UNSIGNED attribute."
+msgstr ""
+
+#: src/Controllers/JavaScriptMessagesController.php:120
 msgid "Add index"
 msgstr "Thêm chỉ mục"
 
-#: src/Controllers/JavaScriptMessagesController.php:120
+#: src/Controllers/JavaScriptMessagesController.php:121
 msgid "Edit index"
 msgstr "Sửa chỉ mục"
 
 #. l10n: Rename a table Index
-#: src/Controllers/JavaScriptMessagesController.php:122
+#: src/Controllers/JavaScriptMessagesController.php:123
 #, fuzzy
 #| msgid "Rename view to"
 msgid "Rename index"
 msgstr "Việc đổi tên %s thành %s bị lỗi"
 
-#: src/Controllers/JavaScriptMessagesController.php:124
+#: src/Controllers/JavaScriptMessagesController.php:125
 msgid "Create single-column index"
 msgstr "Tạo chỉ mục đơn-cột"
 
-#: src/Controllers/JavaScriptMessagesController.php:125
+#: src/Controllers/JavaScriptMessagesController.php:126
 msgid "Create composite index"
 msgstr "Tạo chỉ mục phức hợp"
 
-#: src/Controllers/JavaScriptMessagesController.php:126
+#: src/Controllers/JavaScriptMessagesController.php:127
 msgid "Composite with:"
 msgstr "Phức hợp với:"
 
-#: src/Controllers/JavaScriptMessagesController.php:127
+#: src/Controllers/JavaScriptMessagesController.php:128
 msgid "Please select column(s) for the index."
 msgstr "Vui lòng chọn (các) cột cho chỉ mục"
 
 #. l10n: Default label for the y-Axis of Charts
-#: src/Controllers/JavaScriptMessagesController.php:138
+#: src/Controllers/JavaScriptMessagesController.php:139
 msgid "Y values"
 msgstr "Giá trị Y"
 
-#: src/Controllers/JavaScriptMessagesController.php:141
+#: src/Controllers/JavaScriptMessagesController.php:142
 msgid "Please enter the SQL query first."
 msgstr "Vui lòng nhập truy vấn SQL trước."
 
-#: src/Controllers/JavaScriptMessagesController.php:144
+#: src/Controllers/JavaScriptMessagesController.php:145
 msgid "The host name is empty!"
 msgstr "Tên máy chủ còn để trống!"
 
-#: src/Controllers/JavaScriptMessagesController.php:145
+#: src/Controllers/JavaScriptMessagesController.php:146
 msgid "The user name is empty!"
 msgstr "Tên tài khoản còn để trống!"
 
-#: src/Controllers/JavaScriptMessagesController.php:146
+#: src/Controllers/JavaScriptMessagesController.php:147
 #: src/Server/Privileges.php:764 src/UserPassword.php:41
 msgid "The password is empty!"
 msgstr "Mật khẩu còn để trống!"
 
-#: src/Controllers/JavaScriptMessagesController.php:147
+#: src/Controllers/JavaScriptMessagesController.php:148
 #: src/Server/Privileges.php:762 src/UserPassword.php:45
 msgid "The passwords aren't the same!"
 msgstr "Mật khẩu không giống nhau!"
 
-#: src/Controllers/JavaScriptMessagesController.php:149
+#: src/Controllers/JavaScriptMessagesController.php:150
 msgid ""
 "You are trying to set this account to log in with no password, but the "
 "configuration directive <code>AllowNoPassword</code> is false. If you "
 "proceed, the account will not be able to log in through phpMyAdmin."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:153
+#: src/Controllers/JavaScriptMessagesController.php:154
 msgid "Removing Selected Users"
 msgstr "Xóa bỏ người dùng đã chọn"
 
-#: src/Controllers/JavaScriptMessagesController.php:161
+#: src/Controllers/JavaScriptMessagesController.php:162
 msgid "Template was created."
 msgstr "Mẫu đã được tạo."
 
-#: src/Controllers/JavaScriptMessagesController.php:162
+#: src/Controllers/JavaScriptMessagesController.php:163
 msgid "Template was loaded."
 msgstr "Mẫu đã được tải."
 
-#: src/Controllers/JavaScriptMessagesController.php:163
+#: src/Controllers/JavaScriptMessagesController.php:164
 msgid "Template was updated."
 msgstr "Mẫu đã được cập nhật."
 
-#: src/Controllers/JavaScriptMessagesController.php:164
+#: src/Controllers/JavaScriptMessagesController.php:165
 msgid "Template was deleted."
 msgstr "Mẫu đã bị xóa."
 
 #. l10n: Other, small valued, queries
-#: src/Controllers/JavaScriptMessagesController.php:167
+#: src/Controllers/JavaScriptMessagesController.php:168
 #: src/Server/Status/Data.php:130
 msgid "Other"
 msgstr "Khác"
 
 #. l10n: Thousands separator
-#: src/Controllers/JavaScriptMessagesController.php:169 src/Util.php:391
+#: src/Controllers/JavaScriptMessagesController.php:170 src/Util.php:391
 msgid ","
 msgstr "."
 
 #. l10n: Decimal separator
-#: src/Controllers/JavaScriptMessagesController.php:171 src/Util.php:389
+#: src/Controllers/JavaScriptMessagesController.php:172 src/Util.php:389
 msgid "."
 msgstr ","
 
-#: src/Controllers/JavaScriptMessagesController.php:173
+#: src/Controllers/JavaScriptMessagesController.php:174
 msgid "Connections / Processes"
 msgstr "Kết nối / Tiến trình"
 
-#: src/Controllers/JavaScriptMessagesController.php:175
+#: src/Controllers/JavaScriptMessagesController.php:176
 #, fuzzy
 #| msgid "Number of tables:"
 msgid "Number of statements"
 msgstr "Số lượng bảng:"
 
-#: src/Controllers/JavaScriptMessagesController.php:177
+#: src/Controllers/JavaScriptMessagesController.php:178
 msgid "Query cache efficiency"
 msgstr "Bộ nhớ tạm khi truy vấn có ích"
 
-#: src/Controllers/JavaScriptMessagesController.php:178
+#: src/Controllers/JavaScriptMessagesController.php:179
 msgid "Query cache usage"
 msgstr "Mức dùng bộ nhớ tạm khi truy vấn"
 
-#: src/Controllers/JavaScriptMessagesController.php:179
+#: src/Controllers/JavaScriptMessagesController.php:180
 msgid "Query cache used"
 msgstr "Bộ nhớ tạm khi truy vấn đã dùng"
 
-#: src/Controllers/JavaScriptMessagesController.php:181
+#: src/Controllers/JavaScriptMessagesController.php:182
 msgid "System CPU usage"
 msgstr "Mức dùng CPU hệ thống"
 
-#: src/Controllers/JavaScriptMessagesController.php:182
+#: src/Controllers/JavaScriptMessagesController.php:183
 msgid "System memory"
 msgstr "Bộ nhớ hệ thống"
 
-#: src/Controllers/JavaScriptMessagesController.php:183
+#: src/Controllers/JavaScriptMessagesController.php:184
 msgid "System swap"
 msgstr "Bộ nhớ tráo đổi hệ thống"
 
-#: src/Controllers/JavaScriptMessagesController.php:185
+#: src/Controllers/JavaScriptMessagesController.php:186
 msgid "Average load"
 msgstr "Mức tải trung bình"
 
-#: src/Controllers/JavaScriptMessagesController.php:186
+#: src/Controllers/JavaScriptMessagesController.php:187
 msgid "Total memory"
 msgstr "Tổng dung lượng bộ nhớ"
 
-#: src/Controllers/JavaScriptMessagesController.php:187
+#: src/Controllers/JavaScriptMessagesController.php:188
 msgid "Cached memory"
 msgstr "Bộ nhớ dùng để lưu tạm"
 
-#: src/Controllers/JavaScriptMessagesController.php:188
+#: src/Controllers/JavaScriptMessagesController.php:189
 msgid "Buffered memory"
 msgstr "Bộ nhớ đã làm đệm"
 
-#: src/Controllers/JavaScriptMessagesController.php:189
+#: src/Controllers/JavaScriptMessagesController.php:190
 msgid "Free memory"
 msgstr "Bộ nhớ còn trống"
 
-#: src/Controllers/JavaScriptMessagesController.php:190
+#: src/Controllers/JavaScriptMessagesController.php:191
 msgid "Used memory"
 msgstr "RAM đã dùng"
 
-#: src/Controllers/JavaScriptMessagesController.php:192
+#: src/Controllers/JavaScriptMessagesController.php:193
 msgid "Total swap"
 msgstr "Bộ nhớ tráo đổi tổng cộng"
 
-#: src/Controllers/JavaScriptMessagesController.php:193
+#: src/Controllers/JavaScriptMessagesController.php:194
 msgid "Cached swap"
 msgstr "Bộ nhớ tráo đổi đã đệm"
 
-#: src/Controllers/JavaScriptMessagesController.php:194
+#: src/Controllers/JavaScriptMessagesController.php:195
 msgid "Used swap"
 msgstr "Bộ nhớ tráo đổi đã dùng"
 
-#: src/Controllers/JavaScriptMessagesController.php:195
+#: src/Controllers/JavaScriptMessagesController.php:196
 msgid "Free swap"
 msgstr "Bộ nhớ tráo đổi còn trống"
 
-#: src/Controllers/JavaScriptMessagesController.php:197
+#: src/Controllers/JavaScriptMessagesController.php:198
 msgid "Bytes sent"
 msgstr "Byte gửi"
 
-#: src/Controllers/JavaScriptMessagesController.php:198
+#: src/Controllers/JavaScriptMessagesController.php:199
 msgid "Bytes received"
 msgstr "Số byte đã nhận"
 
 #. l10n: shortcuts for Byte
-#: src/Controllers/JavaScriptMessagesController.php:203 src/Util.php:309
+#: src/Controllers/JavaScriptMessagesController.php:204 src/Util.php:309
 msgid "B"
 msgstr "B"
 
 #. l10n: shortcuts for Gigabyte
-#: src/Controllers/JavaScriptMessagesController.php:206 src/Util.php:315
+#: src/Controllers/JavaScriptMessagesController.php:207 src/Util.php:315
 msgid "GiB"
 msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
-#: src/Controllers/JavaScriptMessagesController.php:207 src/Util.php:317
+#: src/Controllers/JavaScriptMessagesController.php:208 src/Util.php:317
 msgid "TiB"
 msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
-#: src/Controllers/JavaScriptMessagesController.php:208 src/Util.php:319
+#: src/Controllers/JavaScriptMessagesController.php:209 src/Util.php:319
 msgid "PiB"
 msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
-#: src/Controllers/JavaScriptMessagesController.php:209 src/Util.php:321
+#: src/Controllers/JavaScriptMessagesController.php:210 src/Util.php:321
 msgid "EiB"
 msgstr "EiB"
 
-#: src/Controllers/JavaScriptMessagesController.php:210
+#: src/Controllers/JavaScriptMessagesController.php:211
 #, php-format
 msgid "%d table(s)"
 msgstr "%d bảng"
 
 #. l10n: Questions is the name of a MySQL Status variable
-#: src/Controllers/JavaScriptMessagesController.php:213
+#: src/Controllers/JavaScriptMessagesController.php:214
 msgid "Questions"
 msgstr "Câu hỏi"
 
-#: src/Controllers/JavaScriptMessagesController.php:217
+#: src/Controllers/JavaScriptMessagesController.php:218
 msgid "Please add at least one variable to the series!"
 msgstr "Vui lòng thêm ít nhất là một biến vào sê-ri!"
 
 #. l10n: SQL Query on modal to show exported query
-#: src/Controllers/JavaScriptMessagesController.php:220
+#: src/Controllers/JavaScriptMessagesController.php:221
 #, fuzzy
 #| msgid "SQL query"
 msgid "SQL Query"
 msgstr "Truy vấn SQL"
 
-#: src/Controllers/JavaScriptMessagesController.php:221
+#: src/Controllers/JavaScriptMessagesController.php:222
 msgid "Resume monitor"
 msgstr "Phục hồi lại việc theo dõi"
 
-#: src/Controllers/JavaScriptMessagesController.php:222
+#: src/Controllers/JavaScriptMessagesController.php:223
 msgid "Pause monitor"
 msgstr "Tạm dừng theo dõi"
 
-#: src/Controllers/JavaScriptMessagesController.php:224
+#: src/Controllers/JavaScriptMessagesController.php:225
 msgid "Stop auto refresh"
 msgstr "Dừng tự động làm tươi mới"
 
-#: src/Controllers/JavaScriptMessagesController.php:226
+#: src/Controllers/JavaScriptMessagesController.php:227
 msgid "general_log and slow_query_log are enabled."
 msgstr "general_log và slow_query_log được bật."
 
-#: src/Controllers/JavaScriptMessagesController.php:227
+#: src/Controllers/JavaScriptMessagesController.php:228
 msgid "general_log is enabled."
 msgstr "general_log được bật."
 
-#: src/Controllers/JavaScriptMessagesController.php:228
+#: src/Controllers/JavaScriptMessagesController.php:229
 msgid "slow_query_log is enabled."
 msgstr "slow_query_log được bật."
 
-#: src/Controllers/JavaScriptMessagesController.php:229
+#: src/Controllers/JavaScriptMessagesController.php:230
 msgid "slow_query_log and general_log are disabled."
 msgstr "slow_query_log và general_log được tắt."
 
-#: src/Controllers/JavaScriptMessagesController.php:230
+#: src/Controllers/JavaScriptMessagesController.php:231
 msgid "log_output is not set to TABLE."
 msgstr "log_output không được đặt thành TABLE (Bảng)."
 
-#: src/Controllers/JavaScriptMessagesController.php:231
+#: src/Controllers/JavaScriptMessagesController.php:232
 msgid "log_output is set to TABLE."
 msgstr "log_output được đặt thành TABLE (Bảng)."
 
-#: src/Controllers/JavaScriptMessagesController.php:233
+#: src/Controllers/JavaScriptMessagesController.php:234
 #, php-format
 msgid ""
 "slow_query_log is enabled, but the server logs only queries that take longer "
@@ -13152,12 +13157,12 @@ msgstr ""
 "hơn %d giây. Giá trị thích hợp để đạt cho long_query_time là 0-2 seconds, "
 "phụ thuộc vào hệ thống của bạn."
 
-#: src/Controllers/JavaScriptMessagesController.php:237
+#: src/Controllers/JavaScriptMessagesController.php:238
 #, php-format
 msgid "long_query_time is set to %d second(s)."
 msgstr "long_query_time được đặt thành %d giây."
 
-#: src/Controllers/JavaScriptMessagesController.php:239
+#: src/Controllers/JavaScriptMessagesController.php:240
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
@@ -13166,30 +13171,30 @@ msgstr ""
 "định khi khởi động lại máy chủ:"
 
 #. l10n: %s is FILE or TABLE
-#: src/Controllers/JavaScriptMessagesController.php:242
+#: src/Controllers/JavaScriptMessagesController.php:243
 #, php-format
 msgid "Set log_output to %s"
 msgstr "Đặt log_output thành %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
-#: src/Controllers/JavaScriptMessagesController.php:244
+#: src/Controllers/JavaScriptMessagesController.php:245
 #, php-format
 msgid "Enable %s"
 msgstr "Bật %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
-#: src/Controllers/JavaScriptMessagesController.php:246
+#: src/Controllers/JavaScriptMessagesController.php:247
 #, php-format
 msgid "Disable %s"
 msgstr "Tắt %s"
 
 #. l10n: %d seconds
-#: src/Controllers/JavaScriptMessagesController.php:248
+#: src/Controllers/JavaScriptMessagesController.php:249
 #, php-format
 msgid "Set long_query_time to %d seconds."
 msgstr "Đặt long_query_time thành %ds"
 
-#: src/Controllers/JavaScriptMessagesController.php:250
+#: src/Controllers/JavaScriptMessagesController.php:251
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
@@ -13197,39 +13202,39 @@ msgstr ""
 "Bạn không thể thay đổi những biến này. Xin hãy đăng nhập với tài khoản root "
 "hoặc liên hệ với người quản lý cơ sở dữ liệu của bạn."
 
-#: src/Controllers/JavaScriptMessagesController.php:252
+#: src/Controllers/JavaScriptMessagesController.php:253
 msgid "Change settings"
 msgstr "Các cài đặt thay đổi"
 
-#: src/Controllers/JavaScriptMessagesController.php:253
+#: src/Controllers/JavaScriptMessagesController.php:254
 msgid "Current settings"
 msgstr "Cài đặt hiện hành"
 
-#: src/Controllers/JavaScriptMessagesController.php:255
+#: src/Controllers/JavaScriptMessagesController.php:256
 msgid "Chart title"
 msgstr "Kiểu biểu đồ"
 
 #. l10n: As in differential values
-#: src/Controllers/JavaScriptMessagesController.php:257
+#: src/Controllers/JavaScriptMessagesController.php:258
 msgid "Differential"
 msgstr "Chênh lệch"
 
-#: src/Controllers/JavaScriptMessagesController.php:258
+#: src/Controllers/JavaScriptMessagesController.php:259
 #, php-format
 msgid "Divided by %s"
 msgstr "Chia cho %s"
 
-#: src/Controllers/JavaScriptMessagesController.php:259
+#: src/Controllers/JavaScriptMessagesController.php:260
 msgid "Unit"
 msgstr "Đơn vị"
 
-#: src/Controllers/JavaScriptMessagesController.php:261
+#: src/Controllers/JavaScriptMessagesController.php:262
 msgid "The database name is not known for this query in the server's logs."
 msgstr ""
 "Tên cơ sở dữ liệu là chưa biết với truy vấn này trong nhật ký của máy phục "
 "vụ."
 
-#: src/Controllers/JavaScriptMessagesController.php:263
+#: src/Controllers/JavaScriptMessagesController.php:264
 msgid ""
 "This column shows the amount of identical queries that are grouped together. "
 "However only the SQL query itself has been used as a grouping criteria, so "
@@ -13240,7 +13245,7 @@ msgstr ""
 "vậy các thuộc tính khác của truy vấn, như thời gian khởi chạy, có thể khác "
 "đi."
 
-#: src/Controllers/JavaScriptMessagesController.php:268
+#: src/Controllers/JavaScriptMessagesController.php:269
 msgid ""
 "Since grouping of INSERTs queries has been selected, INSERT queries into the "
 "same table are also being grouped together, disregarding of the inserted "
@@ -13249,119 +13254,119 @@ msgstr ""
 "Do việc nhóm các truy vấn các INSERT đã được chọn, truy vấn vào INSERT cùng "
 "một bảng cũng đồng thời được nhóm."
 
-#: src/Controllers/JavaScriptMessagesController.php:273
+#: src/Controllers/JavaScriptMessagesController.php:274
 msgid "Analyzing…"
 msgstr "Đang phân tích…"
 
-#: src/Controllers/JavaScriptMessagesController.php:274
+#: src/Controllers/JavaScriptMessagesController.php:275
 msgid "Explain output"
 msgstr "Xuất vùng chọn:"
 
-#: src/Controllers/JavaScriptMessagesController.php:277
+#: src/Controllers/JavaScriptMessagesController.php:278
 msgid "Total time:"
 msgstr "Tổng thời gian:"
 
-#: src/Controllers/JavaScriptMessagesController.php:278
+#: src/Controllers/JavaScriptMessagesController.php:279
 msgid "Profiling results"
 msgstr "Không có kết quả"
 
-#: src/Controllers/JavaScriptMessagesController.php:279
+#: src/Controllers/JavaScriptMessagesController.php:280
 msgctxt "Display format"
 msgid "Table"
 msgstr "Bảng"
 
-#: src/Controllers/JavaScriptMessagesController.php:280
+#: src/Controllers/JavaScriptMessagesController.php:281
 msgid "Chart"
 msgstr "Biểu đồ"
 
 #. l10n: A collection of available filters
-#: src/Controllers/JavaScriptMessagesController.php:287
+#: src/Controllers/JavaScriptMessagesController.php:288
 msgid "Log table filter options"
 msgstr "Tùy chọn bộ lọc bảng"
 
 #. l10n: Filter as in "Start Filtering"
-#: src/Controllers/JavaScriptMessagesController.php:289
+#: src/Controllers/JavaScriptMessagesController.php:290
 msgid "Filter"
 msgstr "Bộ lọc"
 
-#: src/Controllers/JavaScriptMessagesController.php:290
+#: src/Controllers/JavaScriptMessagesController.php:291
 msgid "Filter queries by word/regexp:"
 msgstr "Lọc các truy vấn theo từ/btcq:"
 
-#: src/Controllers/JavaScriptMessagesController.php:291
+#: src/Controllers/JavaScriptMessagesController.php:292
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr "Nhóm các truy vấn, bỏ qua dữ liệu biến trong mệnh đề WHERE"
 
-#: src/Controllers/JavaScriptMessagesController.php:292
+#: src/Controllers/JavaScriptMessagesController.php:293
 msgid "Sum of grouped rows:"
 msgstr "Tổng dòng được nhóm:"
 
-#: src/Controllers/JavaScriptMessagesController.php:295
+#: src/Controllers/JavaScriptMessagesController.php:296
 msgid "Affected rows:"
 msgstr "Các hàng chịu tác động:"
 
-#: src/Controllers/JavaScriptMessagesController.php:297
+#: src/Controllers/JavaScriptMessagesController.php:298
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
 "Gặp lỗi khi phân tích tập tin cấu hình. Nó trông như không phải là mã JSON "
 "hợp lệ."
 
-#: src/Controllers/JavaScriptMessagesController.php:299
+#: src/Controllers/JavaScriptMessagesController.php:300
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
 "Gặp lỗi khi xây dựng lưới đồ thị với cấu hình đã nhập vào. Đang đặt lại "
 "thành cấu hình mặc định…"
 
-#: src/Controllers/JavaScriptMessagesController.php:302
+#: src/Controllers/JavaScriptMessagesController.php:303
 msgid "Please enter a valid table name."
 msgstr "Vui lòng nhập tên bảng hợp lệ."
 
-#: src/Controllers/JavaScriptMessagesController.php:303
+#: src/Controllers/JavaScriptMessagesController.php:304
 msgid "Please enter a valid database name."
 msgstr "Vui lòng nhập tên cơ sở dữ liệu hợp lệ."
 
-#: src/Controllers/JavaScriptMessagesController.php:304
+#: src/Controllers/JavaScriptMessagesController.php:305
 msgid "No files available on server for import!"
 msgstr "Không có sẵn tập tin nào trên máy chủ để mà nhập vào!"
 
-#: src/Controllers/JavaScriptMessagesController.php:307
+#: src/Controllers/JavaScriptMessagesController.php:308
 msgid "Formatting SQL…"
 msgstr "Đang định dạng SQL…"
 
-#: src/Controllers/JavaScriptMessagesController.php:308
+#: src/Controllers/JavaScriptMessagesController.php:309
 msgid "No parameters found!"
 msgstr "Tham số không đúng!"
 
-#: src/Controllers/JavaScriptMessagesController.php:320
+#: src/Controllers/JavaScriptMessagesController.php:321
 msgid "Request aborted!!"
 msgstr "Yêu cầu bị bãi bỏ!!"
 
-#: src/Controllers/JavaScriptMessagesController.php:321
+#: src/Controllers/JavaScriptMessagesController.php:322
 msgid "Processing request"
 msgstr "Đang xử lý yêu cầu"
 
-#: src/Controllers/JavaScriptMessagesController.php:322
+#: src/Controllers/JavaScriptMessagesController.php:323
 msgid "Request failed!!"
 msgstr "Yêu cầu thất bại!!"
 
-#: src/Controllers/JavaScriptMessagesController.php:323
+#: src/Controllers/JavaScriptMessagesController.php:324
 #: src/Controllers/Sql/EnumValuesController.php:38
 #: src/Controllers/Sql/SetValuesController.php:41
 msgid "Error in processing request"
 msgstr "Có lỗi trong yêu cầu xử lý"
 
-#: src/Controllers/JavaScriptMessagesController.php:324
+#: src/Controllers/JavaScriptMessagesController.php:325
 #, php-format
 msgid "Error code: %s"
 msgstr "Mã lỗi sai: %s"
 
-#: src/Controllers/JavaScriptMessagesController.php:325
+#: src/Controllers/JavaScriptMessagesController.php:326
 #, php-format
 msgid "Error text: %s"
 msgstr "Chuỗi lỗi: %s"
 
-#: src/Controllers/JavaScriptMessagesController.php:327
+#: src/Controllers/JavaScriptMessagesController.php:328
 msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
@@ -13369,139 +13374,139 @@ msgstr ""
 "Có vẻ như kết nối tới máy chủ đã bị mất. Vui lòng kiểm tra lại kết nối mạng "
 "và trạng thái máy chủ."
 
-#: src/Controllers/JavaScriptMessagesController.php:332
+#: src/Controllers/JavaScriptMessagesController.php:333
 msgid "No accounts selected."
 msgstr "Chưa chọn tài khoản nào."
 
-#: src/Controllers/JavaScriptMessagesController.php:333
+#: src/Controllers/JavaScriptMessagesController.php:334
 msgid "Dropping column"
 msgstr "Xóa cột"
 
-#: src/Controllers/JavaScriptMessagesController.php:334
+#: src/Controllers/JavaScriptMessagesController.php:335
 msgid "Adding primary key"
 msgstr "Thêm khóa chính"
 
-#: src/Controllers/JavaScriptMessagesController.php:336
+#: src/Controllers/JavaScriptMessagesController.php:337
 msgid "Click to dismiss this notification"
 msgstr "Bấm chuột vào để bãi bỏ cảnh báo này"
 
-#: src/Controllers/JavaScriptMessagesController.php:340
+#: src/Controllers/JavaScriptMessagesController.php:341
 msgid "Renaming databases"
 msgstr "Đang đổi tên cơ sở dữ liệu"
 
-#: src/Controllers/JavaScriptMessagesController.php:341
+#: src/Controllers/JavaScriptMessagesController.php:342
 msgid "Copying database"
 msgstr "Đang chép cơ sở dữ liệu"
 
-#: src/Controllers/JavaScriptMessagesController.php:342
+#: src/Controllers/JavaScriptMessagesController.php:343
 msgid "Changing charset"
 msgstr "Đang đổi bảng mã"
 
-#: src/Controllers/JavaScriptMessagesController.php:349
+#: src/Controllers/JavaScriptMessagesController.php:350
 msgid "Failed to get real row count."
 msgstr "Gặp lỗi khi lấy số lượng hàng thực tế."
 
-#: src/Controllers/JavaScriptMessagesController.php:352
+#: src/Controllers/JavaScriptMessagesController.php:353
 msgid "Searching"
 msgstr "Đang tìm kiếm"
 
-#: src/Controllers/JavaScriptMessagesController.php:353
+#: src/Controllers/JavaScriptMessagesController.php:354
 msgid "Hide search results"
 msgstr "Ẩn kết quả tìm kiếm"
 
-#: src/Controllers/JavaScriptMessagesController.php:354
+#: src/Controllers/JavaScriptMessagesController.php:355
 msgid "Show search results"
 msgstr "Hiển thị kết quả tìm kiếm"
 
-#: src/Controllers/JavaScriptMessagesController.php:355
+#: src/Controllers/JavaScriptMessagesController.php:356
 msgid "Browsing"
 msgstr "Đang duyệt"
 
-#: src/Controllers/JavaScriptMessagesController.php:356
+#: src/Controllers/JavaScriptMessagesController.php:357
 msgid "Deleting"
 msgstr "Đang xóa"
 
-#: src/Controllers/JavaScriptMessagesController.php:357
+#: src/Controllers/JavaScriptMessagesController.php:358
 #, php-format
 msgid "Delete the matches for the %s table?"
 msgstr "Xóa những cái khớp cho bảng %s không?"
 
-#: src/Controllers/JavaScriptMessagesController.php:360
+#: src/Controllers/JavaScriptMessagesController.php:361
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "Định nghĩa hàm lưu trữ phải có chứa lệnh RETURN!"
 
-#: src/Controllers/JavaScriptMessagesController.php:362
+#: src/Controllers/JavaScriptMessagesController.php:363
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:364
+#: src/Controllers/JavaScriptMessagesController.php:365
 #: src/Navigation/Nodes/NodeTrigger.php:27
 #, fuzzy
 #| msgid "Triggers"
 msgid "Trigger"
 msgstr "Bẫy"
 
-#: src/Controllers/JavaScriptMessagesController.php:368
+#: src/Controllers/JavaScriptMessagesController.php:369
 #, php-format
 msgid "Values for column %s"
 msgstr "Giá trị cho cột %s"
 
-#: src/Controllers/JavaScriptMessagesController.php:369
+#: src/Controllers/JavaScriptMessagesController.php:370
 msgid "Values for a new column"
 msgstr "Giá trị cho cho cột mới"
 
-#: src/Controllers/JavaScriptMessagesController.php:370
+#: src/Controllers/JavaScriptMessagesController.php:371
 msgid "Enter each value in a separate field."
 msgstr "Nhập vào từng giá trị trong một trường ngăn cách."
 
-#: src/Controllers/JavaScriptMessagesController.php:371
+#: src/Controllers/JavaScriptMessagesController.php:372
 #, php-format
 msgid "Add %d value(s)"
 msgstr "Thêm %d giá trị"
 
-#: src/Controllers/JavaScriptMessagesController.php:374
+#: src/Controllers/JavaScriptMessagesController.php:375
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr "Chú ý: Nếu tập tin chứa nhiều bảng, chũng sẽ được tổ hợp thành một."
 
-#: src/Controllers/JavaScriptMessagesController.php:377
+#: src/Controllers/JavaScriptMessagesController.php:378
 msgid "Hide query box"
 msgstr "Ẩn hộp truy vấn"
 
-#: src/Controllers/JavaScriptMessagesController.php:378
+#: src/Controllers/JavaScriptMessagesController.php:379
 msgid "Show query box"
 msgstr "Hiện hộp truy vấn"
 
-#: src/Controllers/JavaScriptMessagesController.php:380
+#: src/Controllers/JavaScriptMessagesController.php:381
 #, fuzzy
 #| msgid "Submit query"
 msgid "Edit query"
 msgstr "Gửi truy vấn"
 
-#: src/Controllers/JavaScriptMessagesController.php:382
+#: src/Controllers/JavaScriptMessagesController.php:383
 #, php-format
 msgid "%d is not valid row number."
 msgstr "%d không phải là số hàng hợp lệ."
 
-#: src/Controllers/JavaScriptMessagesController.php:384
+#: src/Controllers/JavaScriptMessagesController.php:385
 #, php-format
 msgid "Variable %d:"
 msgstr "Biến %d:"
 
-#: src/Controllers/JavaScriptMessagesController.php:387
+#: src/Controllers/JavaScriptMessagesController.php:388
 #: src/Normalization.php:956
 msgid "Pick"
 msgstr "Chọn"
 
-#: src/Controllers/JavaScriptMessagesController.php:388
+#: src/Controllers/JavaScriptMessagesController.php:389
 msgid "Column selector"
 msgstr "Bộ chọn cột"
 
-#: src/Controllers/JavaScriptMessagesController.php:389
+#: src/Controllers/JavaScriptMessagesController.php:390
 msgid "Search this list"
 msgstr "Tìm kiếm danh sách này"
 
-#: src/Controllers/JavaScriptMessagesController.php:391
+#: src/Controllers/JavaScriptMessagesController.php:392
 #, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
@@ -13511,54 +13516,54 @@ msgstr ""
 "cột trung tâm cho cơ sở dữ liệu %s có các cột mà không hiện diện trong bảng "
 "hiện tại."
 
-#: src/Controllers/JavaScriptMessagesController.php:394
+#: src/Controllers/JavaScriptMessagesController.php:395
 msgid "See more"
 msgstr "Xem thêm"
 
-#: src/Controllers/JavaScriptMessagesController.php:397
+#: src/Controllers/JavaScriptMessagesController.php:398
 msgid "Add primary key"
 msgstr "Thêm khóa chính"
 
-#: src/Controllers/JavaScriptMessagesController.php:398
+#: src/Controllers/JavaScriptMessagesController.php:399
 msgid "Primary key added."
 msgstr "Đã thêm khóa chính."
 
-#: src/Controllers/JavaScriptMessagesController.php:399
+#: src/Controllers/JavaScriptMessagesController.php:400
 #: src/Normalization.php:263
 msgid "Taking you to next step…"
 msgstr "Đưa bạn đến bước kế tiếp…"
 
-#: src/Controllers/JavaScriptMessagesController.php:400
+#: src/Controllers/JavaScriptMessagesController.php:401
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
 msgstr "Bước đầu của việc tiêu chuẩn hóa là đủ cho bảng '%s'."
 
-#: src/Controllers/JavaScriptMessagesController.php:401
+#: src/Controllers/JavaScriptMessagesController.php:402
 #: src/Normalization.php:519 src/Normalization.php:578
 #: src/Normalization.php:665 src/Normalization.php:738
 msgid "End of step"
 msgstr "Bước cuối"
 
-#: src/Controllers/JavaScriptMessagesController.php:402
+#: src/Controllers/JavaScriptMessagesController.php:403
 msgid "Second step of normalization (2NF)"
 msgstr "Bước thứ hai của việc tiêu chuẩn hóa (2NF)"
 
 #. l10n: Display text for calendar close link
-#: src/Controllers/JavaScriptMessagesController.php:403
-#: src/Controllers/JavaScriptMessagesController.php:757
+#: src/Controllers/JavaScriptMessagesController.php:404
+#: src/Controllers/JavaScriptMessagesController.php:758
 #: src/Normalization.php:351
 msgid "Done"
 msgstr "Xong"
 
-#: src/Controllers/JavaScriptMessagesController.php:404
+#: src/Controllers/JavaScriptMessagesController.php:405
 msgid "Confirm partial dependencies"
 msgstr "Xác nhận các phần phục thuộc một phần"
 
-#: src/Controllers/JavaScriptMessagesController.php:405
+#: src/Controllers/JavaScriptMessagesController.php:406
 msgid "Selected partial dependencies are as follows:"
 msgstr "Chọn các phần phục thuộc một phần được hiển thị ở dưới đây:"
 
-#: src/Controllers/JavaScriptMessagesController.php:407
+#: src/Controllers/JavaScriptMessagesController.php:408
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
@@ -13566,20 +13571,20 @@ msgstr ""
 "Chú ý: a, b -> d,f ngầm ý là giá trị của các cột a và biến kết hợp cùng nhau "
 "có thể xác định các giá trị của cột d và cột f."
 
-#: src/Controllers/JavaScriptMessagesController.php:410
+#: src/Controllers/JavaScriptMessagesController.php:411
 msgid "No partial dependencies selected!"
 msgstr "Chưa chọn cơ sở dữ liệu."
 
-#: src/Controllers/JavaScriptMessagesController.php:412
+#: src/Controllers/JavaScriptMessagesController.php:413
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr ""
 "Hiển thị cho tôi xem các phần phụ thuộc một phần trên dữ liệu trong bảng"
 
-#: src/Controllers/JavaScriptMessagesController.php:413
+#: src/Controllers/JavaScriptMessagesController.php:414
 msgid "Hide partial dependencies list"
 msgstr "Ẩn danh sách các phần phục thuộc một phần"
 
-#: src/Controllers/JavaScriptMessagesController.php:415
+#: src/Controllers/JavaScriptMessagesController.php:416
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
@@ -13587,174 +13592,174 @@ msgstr ""
 "Hãy ngồi yên! Có thể mất vài giây tùy thuộc vào kích thước dữ liệu và số cột "
 "của bảng."
 
-#: src/Controllers/JavaScriptMessagesController.php:417
+#: src/Controllers/JavaScriptMessagesController.php:418
 msgid "Step"
 msgstr "Bước"
 
-#: src/Controllers/JavaScriptMessagesController.php:418
+#: src/Controllers/JavaScriptMessagesController.php:419
 msgid "The following actions will be performed:"
 msgstr "Những thao tác sau đây sẽ được thực hiện:"
 
-#: src/Controllers/JavaScriptMessagesController.php:419
+#: src/Controllers/JavaScriptMessagesController.php:420
 #, php-format
 msgid "DROP columns %s from the table %s"
 msgstr "DROP cột %s từ bảng %s"
 
-#: src/Controllers/JavaScriptMessagesController.php:420
+#: src/Controllers/JavaScriptMessagesController.php:421
 msgid "Create the following table"
 msgstr "Tạo ra bảng sau đây"
 
-#: src/Controllers/JavaScriptMessagesController.php:423
+#: src/Controllers/JavaScriptMessagesController.php:424
 msgid "Third step of normalization (3NF)"
 msgstr "Bước thứ ba của việc tiêu chuẩn hóa (3NF)"
 
-#: src/Controllers/JavaScriptMessagesController.php:424
+#: src/Controllers/JavaScriptMessagesController.php:425
 msgid "Confirm transitive dependencies"
 msgstr "Xác nhận phụ thuộc chuyển tiếp"
 
-#: src/Controllers/JavaScriptMessagesController.php:425
+#: src/Controllers/JavaScriptMessagesController.php:426
 msgid "Selected dependencies are as follows:"
 msgstr "Các phụ thuộc được chọn như sau:"
 
-#: src/Controllers/JavaScriptMessagesController.php:426
+#: src/Controllers/JavaScriptMessagesController.php:427
 msgid "No dependencies selected!"
 msgstr "Chưa chọn ô điều khiển."
 
-#: src/Controllers/JavaScriptMessagesController.php:427
+#: src/Controllers/JavaScriptMessagesController.php:428
 #, fuzzy
 #| msgid "Use this value"
 msgid "Enter first value"
 msgstr "Dùng giá trị này"
 
-#: src/Controllers/JavaScriptMessagesController.php:428
+#: src/Controllers/JavaScriptMessagesController.php:429
 #, fuzzy
 #| msgid "Session value"
 msgid "Enter second value"
 msgstr "Giá trị phiên"
 
-#: src/Controllers/JavaScriptMessagesController.php:434
+#: src/Controllers/JavaScriptMessagesController.php:435
 msgid "Hide search criteria"
 msgstr "Ẩn kết quả tìm kiếm"
 
-#: src/Controllers/JavaScriptMessagesController.php:435
+#: src/Controllers/JavaScriptMessagesController.php:436
 msgid "Show search criteria"
 msgstr "Hiển thị kết quả tìm kiếm"
 
-#: src/Controllers/JavaScriptMessagesController.php:436
+#: src/Controllers/JavaScriptMessagesController.php:437
 msgid "Column maximum:"
 msgstr "Giá trị tối đa"
 
-#: src/Controllers/JavaScriptMessagesController.php:437
+#: src/Controllers/JavaScriptMessagesController.php:438
 msgid "Column minimum:"
 msgstr "Chiều cao nhỏ nhất"
 
-#: src/Controllers/JavaScriptMessagesController.php:440
+#: src/Controllers/JavaScriptMessagesController.php:441
 msgid "Hide find and replace criteria"
 msgstr "Ẩn kết quả tìm kiếm"
 
-#: src/Controllers/JavaScriptMessagesController.php:441
+#: src/Controllers/JavaScriptMessagesController.php:442
 msgid "Show find and replace criteria"
 msgstr "Hiển thị hộp thoại tìm kiếm."
 
-#: src/Controllers/JavaScriptMessagesController.php:445
+#: src/Controllers/JavaScriptMessagesController.php:446
 msgid "Each point represents a data row."
 msgstr "Mỗi điểm biểu diễn một dòng dữ liệu."
 
-#: src/Controllers/JavaScriptMessagesController.php:447
+#: src/Controllers/JavaScriptMessagesController.php:448
 msgid "Hovering over a point will show its label."
 msgstr "Di chuột lên trên một điểm sẽ hiển thị nhãn của nó."
 
-#: src/Controllers/JavaScriptMessagesController.php:449
+#: src/Controllers/JavaScriptMessagesController.php:450
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr "Để phóng to, chọn một vùng của biểu đồ bằng chuột."
 
-#: src/Controllers/JavaScriptMessagesController.php:451
+#: src/Controllers/JavaScriptMessagesController.php:452
 msgid "Click reset zoom button to come back to original state."
 msgstr "Bấm chuột vào nút đặt lại phóng to để trở lại trạng thái ban đầu."
 
-#: src/Controllers/JavaScriptMessagesController.php:453
+#: src/Controllers/JavaScriptMessagesController.php:454
 msgid "Click a data point to view and possibly edit the data row."
 msgstr "Bấm vào điểm dữ liệu để xem và gần như chắc là sửa dòng dữ liệu."
 
-#: src/Controllers/JavaScriptMessagesController.php:455
+#: src/Controllers/JavaScriptMessagesController.php:456
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr "Biểu đồ có thể được thay đổi cỡ bằng cách kéo nó ở góc phải dưới."
 
-#: src/Controllers/JavaScriptMessagesController.php:458
+#: src/Controllers/JavaScriptMessagesController.php:459
 msgid "Select two columns"
 msgstr "Chọn hai cột"
 
-#: src/Controllers/JavaScriptMessagesController.php:460
+#: src/Controllers/JavaScriptMessagesController.php:461
 msgid "Select two different columns"
 msgstr "Phải chọn hai cột khác nhau"
 
-#: src/Controllers/JavaScriptMessagesController.php:462
+#: src/Controllers/JavaScriptMessagesController.php:463
 msgid "Data point content"
 msgstr "bài tóm tắt diễn tả nội dung của dữ liệu này"
 
-#: src/Controllers/JavaScriptMessagesController.php:468
+#: src/Controllers/JavaScriptMessagesController.php:469
 msgid "X"
 msgstr "X"
 
-#: src/Controllers/JavaScriptMessagesController.php:469
+#: src/Controllers/JavaScriptMessagesController.php:470
 msgid "Y"
 msgstr "Y"
 
-#: src/Controllers/JavaScriptMessagesController.php:470
+#: src/Controllers/JavaScriptMessagesController.php:471
 msgid "Point"
 msgstr "Điểm"
 
-#: src/Controllers/JavaScriptMessagesController.php:471
+#: src/Controllers/JavaScriptMessagesController.php:472
 msgid "Linestring"
 msgstr "Chuỗi-dòng"
 
-#: src/Controllers/JavaScriptMessagesController.php:472
+#: src/Controllers/JavaScriptMessagesController.php:473
 msgid "Polygon"
 msgstr "Hình đa giác"
 
-#: src/Controllers/JavaScriptMessagesController.php:474
+#: src/Controllers/JavaScriptMessagesController.php:475
 msgid "Inner ring"
 msgstr "Vòng trong"
 
-#: src/Controllers/JavaScriptMessagesController.php:475
+#: src/Controllers/JavaScriptMessagesController.php:476
 msgid "Outer ring"
 msgstr "Vòng ngoài"
 
-#: src/Controllers/JavaScriptMessagesController.php:476
+#: src/Controllers/JavaScriptMessagesController.php:477
 msgid "Add a point"
 msgstr "Thêm điểm"
 
-#: src/Controllers/JavaScriptMessagesController.php:477
+#: src/Controllers/JavaScriptMessagesController.php:478
 msgid "Add a linestring"
 msgstr "Thêm một chuỗi-dòng"
 
-#: src/Controllers/JavaScriptMessagesController.php:478
+#: src/Controllers/JavaScriptMessagesController.php:479
 msgid "Add an inner ring"
 msgstr "Thêm một vòng trong"
 
-#: src/Controllers/JavaScriptMessagesController.php:479
+#: src/Controllers/JavaScriptMessagesController.php:480
 msgid "Add a polygon"
 msgstr "Thêm hình đa giác"
 
-#: src/Controllers/JavaScriptMessagesController.php:480
+#: src/Controllers/JavaScriptMessagesController.php:481
 msgid "Add geometry"
 msgstr "Thêm dạng hình"
 
-#: src/Controllers/JavaScriptMessagesController.php:482
+#: src/Controllers/JavaScriptMessagesController.php:483
 msgid "Do you want to copy encryption key?"
 msgstr "Bạn có thực sự muốn chép khóa mã hóa?"
 
-#: src/Controllers/JavaScriptMessagesController.php:483
+#: src/Controllers/JavaScriptMessagesController.php:484
 msgid "Encryption key"
 msgstr "Khóa mã hóa"
 
-#: src/Controllers/JavaScriptMessagesController.php:486
+#: src/Controllers/JavaScriptMessagesController.php:487
 msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:491
+#: src/Controllers/JavaScriptMessagesController.php:492
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
@@ -13762,7 +13767,7 @@ msgstr ""
 "MySQL chấp nhận các giá trị bổ sung không được lựa chọn bởi thanh trượt; "
 "chọn những giá trị này trực tiếp nếu muốn"
 
-#: src/Controllers/JavaScriptMessagesController.php:497
+#: src/Controllers/JavaScriptMessagesController.php:498
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
@@ -13770,7 +13775,7 @@ msgstr ""
 "MySQL chấp nhận các giá trị bổ sung không được lựa chọn bởi bảng chọn ngày; "
 "chọn những giá trị này trực tiếp nếu muốn"
 
-#: src/Controllers/JavaScriptMessagesController.php:503
+#: src/Controllers/JavaScriptMessagesController.php:504
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
@@ -13778,19 +13783,19 @@ msgstr ""
 "Thấy rằng bạn đã thay đổi trang này; bạn sẽ được nhắc xác nhận trước khi bỏ "
 "phí những thay đổi"
 
-#: src/Controllers/JavaScriptMessagesController.php:508
+#: src/Controllers/JavaScriptMessagesController.php:509
 msgid "Select referenced key"
 msgstr "Chọn Khóa tham chiếu"
 
-#: src/Controllers/JavaScriptMessagesController.php:509
+#: src/Controllers/JavaScriptMessagesController.php:510
 msgid "Select Foreign Key"
 msgstr "Chọn Khóa Ngoại"
 
-#: src/Controllers/JavaScriptMessagesController.php:510
+#: src/Controllers/JavaScriptMessagesController.php:511
 msgid "Please select the primary key or a unique key!"
 msgstr "Vui lòng chọn khóa chính hoặc một khóa có giá trị độc nhất!"
 
-#: src/Controllers/JavaScriptMessagesController.php:513
+#: src/Controllers/JavaScriptMessagesController.php:514
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
@@ -13798,65 +13803,65 @@ msgstr ""
 "Bạn chưa lưu các thay đổi trong bố cục. Chúng sẽ mất nếu bạn không lưu lại. "
 "Bạn vẫn muốn tiếp tục chứ?"
 
-#: src/Controllers/JavaScriptMessagesController.php:516
+#: src/Controllers/JavaScriptMessagesController.php:517
 msgid "value/subQuery is empty"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:518
+#: src/Controllers/JavaScriptMessagesController.php:519
 msgid "Page name"
 msgstr "Tên trang"
 
-#: src/Controllers/JavaScriptMessagesController.php:522
+#: src/Controllers/JavaScriptMessagesController.php:523
 msgid "Delete page"
 msgstr "Xóa trang"
 
 #. l10n: When the user opens a page saved in the Designer
-#: src/Controllers/JavaScriptMessagesController.php:524
+#: src/Controllers/JavaScriptMessagesController.php:525
 msgid "Some tables saved in this page might have been renamed or deleted."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:526
+#: src/Controllers/JavaScriptMessagesController.php:527
 msgid "Please select a page to continue"
 msgstr "Xin hãy chọn trang bạn muốn hiển thị:"
 
-#: src/Controllers/JavaScriptMessagesController.php:527
+#: src/Controllers/JavaScriptMessagesController.php:528
 msgid "Please enter a valid page name"
 msgstr "Vui lòng nhập vào tên trang hợp lệ"
 
-#: src/Controllers/JavaScriptMessagesController.php:528
+#: src/Controllers/JavaScriptMessagesController.php:529
 msgid "Do you want to save the changes to the current page?"
 msgstr "Bạn có thực sự muốn lưu các thay đổi vào trang hiện tại không?"
 
-#: src/Controllers/JavaScriptMessagesController.php:529
+#: src/Controllers/JavaScriptMessagesController.php:530
 msgid "Successfully deleted the page"
 msgstr "Trang đã được xóa thành công"
 
-#: src/Controllers/JavaScriptMessagesController.php:530
+#: src/Controllers/JavaScriptMessagesController.php:531
 msgid "Export relational schema"
 msgstr "Lược đồ quan hệ"
 
-#: src/Controllers/JavaScriptMessagesController.php:531
+#: src/Controllers/JavaScriptMessagesController.php:532
 msgid "Modifications have been saved"
 msgstr "Các thay đổi đã được ghi lại"
 
-#: src/Controllers/JavaScriptMessagesController.php:534
+#: src/Controllers/JavaScriptMessagesController.php:535
 #, php-format
 msgid "%d object(s) created."
 msgstr "%d đối tượng đã được tạo."
 
-#: src/Controllers/JavaScriptMessagesController.php:535
+#: src/Controllers/JavaScriptMessagesController.php:536
 #, fuzzy
 #| msgid "Column names"
 msgid "Column name"
 msgstr "Các tên cột"
 
-#: src/Controllers/JavaScriptMessagesController.php:539
+#: src/Controllers/JavaScriptMessagesController.php:540
 #, fuzzy
 #| msgid "Press escape to cancel editing."
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
 msgstr "Nhấn vào Esc để hủy sửa chữa."
 
-#: src/Controllers/JavaScriptMessagesController.php:541
+#: src/Controllers/JavaScriptMessagesController.php:542
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
@@ -13864,15 +13869,15 @@ msgstr ""
 "Bạn đã sửa một số dữ liệu và chúng chưa được lưu lại. Bạn có thực sự muốn "
 "rời trang này trước khi ghi lại dữ liệu hay không?"
 
-#: src/Controllers/JavaScriptMessagesController.php:544
+#: src/Controllers/JavaScriptMessagesController.php:545
 msgid "Drag to reorder."
 msgstr "Kéo thả để thay đổi thứ tự."
 
-#: src/Controllers/JavaScriptMessagesController.php:545
+#: src/Controllers/JavaScriptMessagesController.php:546
 msgid "Click to sort results by this column."
 msgstr "Bấm để sắp xếp kết quả theo cột này."
 
-#: src/Controllers/JavaScriptMessagesController.php:547
+#: src/Controllers/JavaScriptMessagesController.php:548
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
@@ -13882,21 +13887,21 @@ msgstr ""
 "<br>- Ctrl+Click hay Alt+Click (Mac: Shift+Option+Click) để xóa cột khỏi "
 "mệnh đề ORDER BY"
 
-#: src/Controllers/JavaScriptMessagesController.php:551
+#: src/Controllers/JavaScriptMessagesController.php:552
 msgid "Click to mark/unmark."
 msgstr "Bấm chuột để đánh/bỏ đánh dấu"
 
-#: src/Controllers/JavaScriptMessagesController.php:552
+#: src/Controllers/JavaScriptMessagesController.php:553
 msgid "Double-click to copy column name."
 msgstr "Bấm đúp chuột để sao chép tên cột"
 
-#: src/Controllers/JavaScriptMessagesController.php:553
+#: src/Controllers/JavaScriptMessagesController.php:554
 #, fuzzy
 #| msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgid "Click the drop-down arrow to toggle column's visibility."
 msgstr "Bấm vào mũi tên chỉ xuống<br> để bật/tắt tính khả kiến của cột."
 
-#: src/Controllers/JavaScriptMessagesController.php:556
+#: src/Controllers/JavaScriptMessagesController.php:557
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -13905,12 +13910,12 @@ msgstr ""
 "lưới, dấu kiểm, Sửa, Chép hay Xóa liên kết sẽ không hoạt động sau khi ghi "
 "lại."
 
-#: src/Controllers/JavaScriptMessagesController.php:559
+#: src/Controllers/JavaScriptMessagesController.php:560
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 "Vui lòng nhập vào chuỗi thập lục phân hợp lệ. Các ký tự hợp lệ là 0-9, A-F."
 
-#: src/Controllers/JavaScriptMessagesController.php:561
+#: src/Controllers/JavaScriptMessagesController.php:562
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
@@ -13918,53 +13923,53 @@ msgstr ""
 "Bạn có thực sự muốn xem tất cả các dòng? Với các bảng lớn, việc này có thể "
 "làm treo trình duyệt."
 
-#: src/Controllers/JavaScriptMessagesController.php:563
+#: src/Controllers/JavaScriptMessagesController.php:564
 msgid "Original length"
 msgstr "Chiều dài gốc"
 
-#: src/Controllers/JavaScriptMessagesController.php:566
+#: src/Controllers/JavaScriptMessagesController.php:567
 msgid "cancel"
 msgstr "thôi"
 
-#: src/Controllers/JavaScriptMessagesController.php:567
+#: src/Controllers/JavaScriptMessagesController.php:568
 #: src/Controllers/Server/Status/StatusController.php:185
 msgid "Aborted"
 msgstr "Bị hủy bỏ"
 
-#: src/Controllers/JavaScriptMessagesController.php:569
+#: src/Controllers/JavaScriptMessagesController.php:570
 msgid "Success"
 msgstr "Thành công"
 
-#: src/Controllers/JavaScriptMessagesController.php:570
+#: src/Controllers/JavaScriptMessagesController.php:571
 msgid "Import status"
 msgstr "Trạng thái nhập"
 
-#: src/Controllers/JavaScriptMessagesController.php:572
+#: src/Controllers/JavaScriptMessagesController.php:573
 msgid "Select database first"
 msgstr "Hãy chọn cơ sở dữ liệu trước"
 
-#: src/Controllers/JavaScriptMessagesController.php:574
+#: src/Controllers/JavaScriptMessagesController.php:575
 msgid "Go to link:"
 msgstr "Nhảy đến liên kết:"
 
-#: src/Controllers/JavaScriptMessagesController.php:577
+#: src/Controllers/JavaScriptMessagesController.php:578
 msgid "Generate password"
 msgstr "Tạo mật khẩu"
 
-#: src/Controllers/JavaScriptMessagesController.php:584
+#: src/Controllers/JavaScriptMessagesController.php:585
 msgid "Show panel"
 msgstr "Hiển thị bảng điều khiển"
 
-#: src/Controllers/JavaScriptMessagesController.php:585
+#: src/Controllers/JavaScriptMessagesController.php:586
 msgid "Hide panel"
 msgstr "Ẩn bảng điều khiển"
 
-#: src/Controllers/JavaScriptMessagesController.php:587
+#: src/Controllers/JavaScriptMessagesController.php:588
 #: src/Navigation/NavigationTree.php:1261
 msgid "Unlink from main panel"
 msgstr "Bỏ liên kết với bảng điều khiển chính"
 
-#: src/Controllers/JavaScriptMessagesController.php:591 src/Setup/Index.php:153
+#: src/Controllers/JavaScriptMessagesController.php:592 src/Setup/Index.php:153
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -13974,43 +13979,43 @@ msgstr ""
 "bản mới nhất là %s, phát hành vào %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: src/Controllers/JavaScriptMessagesController.php:595
+#: src/Controllers/JavaScriptMessagesController.php:596
 msgid ", latest stable version:"
 msgstr ", phiên bản ổn định mới nhất:"
 
-#: src/Controllers/JavaScriptMessagesController.php:596
+#: src/Controllers/JavaScriptMessagesController.php:597
 msgid "up to date"
 msgstr "đã cập nhật"
 
-#: src/Controllers/JavaScriptMessagesController.php:597
+#: src/Controllers/JavaScriptMessagesController.php:598
 #, fuzzy
 #| msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgid "There was an error in loading the Git information."
 msgstr "Có lỗi khi nhập vào tập tin hình dạng ESRI: \"%s\"."
 
-#: src/Controllers/JavaScriptMessagesController.php:600
+#: src/Controllers/JavaScriptMessagesController.php:601
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
 "Có lỗi JavaScript nghiêm trọng đã xảy ra. Bạn có muốn gửi báo cáo lỗi không?"
 
-#: src/Controllers/JavaScriptMessagesController.php:601
+#: src/Controllers/JavaScriptMessagesController.php:602
 msgid "Change report settings"
 msgstr "Thay đổi các cài đặt báo cáo"
 
-#: src/Controllers/JavaScriptMessagesController.php:602
+#: src/Controllers/JavaScriptMessagesController.php:603
 msgid "Show report details"
 msgstr "Hiển thị chi tiết báo cáo"
 
-#: src/Controllers/JavaScriptMessagesController.php:603
+#: src/Controllers/JavaScriptMessagesController.php:604
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
 "Việc xuất của bạn chưa hoàn tất, bởi vì giới hạn thực thi thấp ở mức PHP!"
 
-#: src/Controllers/JavaScriptMessagesController.php:606
+#: src/Controllers/JavaScriptMessagesController.php:607
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -14019,77 +14024,77 @@ msgstr ""
 "Cảnh báo: mẫu đơn trên trang này có nhiều hơn %d trường. Khi được gửi đi, "
 "một số trường có thể bị bỏ qua, bởi vì phần cấu hình max_input_vars của PHP."
 
-#: src/Controllers/JavaScriptMessagesController.php:612
-#: src/Controllers/JavaScriptMessagesController.php:625
+#: src/Controllers/JavaScriptMessagesController.php:613
+#: src/Controllers/JavaScriptMessagesController.php:626
 msgid "Some errors have been detected on the server!"
 msgstr "Một số lỗi đã thấy trên máy phục vụ!"
 
-#: src/Controllers/JavaScriptMessagesController.php:614
+#: src/Controllers/JavaScriptMessagesController.php:615
 msgid "Please look at the bottom of this window."
 msgstr "Vui lòng xem ở phần dưới của cửa sổ này."
 
-#: src/Controllers/JavaScriptMessagesController.php:620
+#: src/Controllers/JavaScriptMessagesController.php:621
 #: src/Error/ErrorHandler.php:431
 msgid "Ignore All"
 msgstr "Bỏ qua tất"
 
-#: src/Controllers/JavaScriptMessagesController.php:627
+#: src/Controllers/JavaScriptMessagesController.php:628
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 "Với mỗi cài đặt của bạn, chúng hiện đang được gửi đi, vui lòng nhẫn nại."
 
-#: src/Controllers/JavaScriptMessagesController.php:631
+#: src/Controllers/JavaScriptMessagesController.php:632
 msgid "Column name successfully copied to clipboard!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:632
+#: src/Controllers/JavaScriptMessagesController.php:633
 msgid "Column name copying to clipboard failed!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:633
+#: src/Controllers/JavaScriptMessagesController.php:634
 #, fuzzy
 #| msgid "Successfully deleted the page"
 msgid "Successfully copied!"
 msgstr "Trang đã được xóa thành công"
 
-#: src/Controllers/JavaScriptMessagesController.php:634
+#: src/Controllers/JavaScriptMessagesController.php:635
 #, fuzzy
 #| msgid "Copying database"
 msgid "Copying failed!"
 msgstr "Đang chép cơ sở dữ liệu"
 
-#: src/Controllers/JavaScriptMessagesController.php:637
+#: src/Controllers/JavaScriptMessagesController.php:638
 msgid "Execute this query again?"
 msgstr "Thực hiện truy vấn này lần nữa?"
 
-#: src/Controllers/JavaScriptMessagesController.php:638
+#: src/Controllers/JavaScriptMessagesController.php:639
 msgid "Do you really want to delete this bookmark?"
 msgstr "Bạn có thực sự muốn xóa đánh dấu này?"
 
-#: src/Controllers/JavaScriptMessagesController.php:639
+#: src/Controllers/JavaScriptMessagesController.php:640
 msgid "Some error occurred while getting SQL debug info."
 msgstr "Đã có một số lỗi xảy ra khi lấy thông tin gỡ lỗi SQL."
 
-#: src/Controllers/JavaScriptMessagesController.php:640
+#: src/Controllers/JavaScriptMessagesController.php:641
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "các truy vấn %s thực thi %s lần trong %s giây."
 
-#: src/Controllers/JavaScriptMessagesController.php:641
+#: src/Controllers/JavaScriptMessagesController.php:642
 #, php-format
 msgid "%s argument(s) passed"
 msgstr "đã chuyển qua %s tham số"
 
-#: src/Controllers/JavaScriptMessagesController.php:642
+#: src/Controllers/JavaScriptMessagesController.php:643
 msgid "Show arguments"
 msgstr "Hiển thị các đối số"
 
-#: src/Controllers/JavaScriptMessagesController.php:643
+#: src/Controllers/JavaScriptMessagesController.php:644
 msgid "Hide arguments"
 msgstr "Ẩn các đối số"
 
-#: src/Controllers/JavaScriptMessagesController.php:646
+#: src/Controllers/JavaScriptMessagesController.php:647
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -14104,40 +14109,40 @@ msgstr ""
 "tuyến\" có thể giúp ích. Với Safari, vấn đề như vậy thường gây ra bởi \"Chế "
 "độ Duyệt riêng tư\"."
 
-#: src/Controllers/JavaScriptMessagesController.php:653
+#: src/Controllers/JavaScriptMessagesController.php:654
 msgid "Copy tables to"
 msgstr "Chép các bảng sang"
 
-#: src/Controllers/JavaScriptMessagesController.php:654
+#: src/Controllers/JavaScriptMessagesController.php:655
 msgid "Add table prefix"
 msgstr "Thêm tiền tố cho bảng"
 
-#: src/Controllers/JavaScriptMessagesController.php:655
+#: src/Controllers/JavaScriptMessagesController.php:656
 msgid "Replace table with prefix"
 msgstr "Thay bảng với tiền tố"
 
-#: src/Controllers/JavaScriptMessagesController.php:659
+#: src/Controllers/JavaScriptMessagesController.php:660
 msgid "Extremely weak"
 msgstr "Cực kỳ yếu"
 
-#: src/Controllers/JavaScriptMessagesController.php:660
+#: src/Controllers/JavaScriptMessagesController.php:661
 msgid "Very weak"
 msgstr "Rất yếu"
 
-#: src/Controllers/JavaScriptMessagesController.php:661
+#: src/Controllers/JavaScriptMessagesController.php:662
 msgid "Weak"
 msgstr "Yếu"
 
-#: src/Controllers/JavaScriptMessagesController.php:662
+#: src/Controllers/JavaScriptMessagesController.php:663
 msgid "Good"
 msgstr "Tốt"
 
-#: src/Controllers/JavaScriptMessagesController.php:663
+#: src/Controllers/JavaScriptMessagesController.php:664
 msgid "Strong"
 msgstr "Mạnh"
 
 #. l10n: error code 5 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:667
+#: src/Controllers/JavaScriptMessagesController.php:668
 #, fuzzy
 #| msgid "Timed out waiting for security key activation."
 msgctxt "U2F error"
@@ -14145,13 +14150,13 @@ msgid "Timed out waiting for security key activation."
 msgstr "Đã hết thời gian chờ đợi kích hoạt khóa bảo mật."
 
 #. l10n: error code 2 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:669
+#: src/Controllers/JavaScriptMessagesController.php:670
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
 msgstr ""
 
 #. l10n: unknown error code (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:671
+#: src/Controllers/JavaScriptMessagesController.php:672
 #, fuzzy
 #| msgid "Unknown error"
 msgctxt "U2F error"
@@ -14159,13 +14164,13 @@ msgid "Unknown security key error."
 msgstr "Lỗi chưa biết"
 
 #. l10n: error code 3 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:673
+#: src/Controllers/JavaScriptMessagesController.php:674
 msgctxt "U2F error"
 msgid "Client does not support security key."
 msgstr ""
 
 #. l10n: error code 4 (from U2F API) on register
-#: src/Controllers/JavaScriptMessagesController.php:675
+#: src/Controllers/JavaScriptMessagesController.php:676
 #, fuzzy
 #| msgid "Failed security key activation (%s)."
 msgctxt "U2F error"
@@ -14173,27 +14178,27 @@ msgid "Failed security key activation."
 msgstr "Kích hoạt khóa bảo mật thất bại (%s)."
 
 #. l10n: error code 4 (from U2F API) on authanticate
-#: src/Controllers/JavaScriptMessagesController.php:677
+#: src/Controllers/JavaScriptMessagesController.php:678
 #, fuzzy
 #| msgid "Invalid export type"
 msgctxt "U2F error"
 msgid "Invalid security key."
 msgstr "Kiểu xuất ra không hợp lệ"
 
-#: src/Controllers/JavaScriptMessagesController.php:680
+#: src/Controllers/JavaScriptMessagesController.php:681
 msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:685
+#: src/Controllers/JavaScriptMessagesController.php:686
 msgid ""
 "You can not open, save or delete your page layout, as IndexedDB is not "
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:690
+#: src/Controllers/JavaScriptMessagesController.php:691
 #, fuzzy, php-format
 #| msgid "Table %s already exists!"
 msgctxt ""
@@ -14201,284 +14206,284 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "Bảng %s đã sẵn có từ trước rồi!"
 
-#: src/Controllers/JavaScriptMessagesController.php:692 src/InsertEdit.php:243
+#: src/Controllers/JavaScriptMessagesController.php:693 src/InsertEdit.php:243
 #: src/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "Ẩn"
 
-#: src/Controllers/JavaScriptMessagesController.php:696
+#: src/Controllers/JavaScriptMessagesController.php:697
 msgid ""
 "The fullscreen request was denied because the Fullscreen API is disabled by "
 "user preference in the browser."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:700
+#: src/Controllers/JavaScriptMessagesController.php:701
 #, fuzzy
 #| msgid "January"
 msgctxt "Month name"
 msgid "January"
 msgstr "Tháng giêng"
 
-#: src/Controllers/JavaScriptMessagesController.php:701
+#: src/Controllers/JavaScriptMessagesController.php:702
 #, fuzzy
 #| msgid "February"
 msgctxt "Month name"
 msgid "February"
 msgstr "Tháng hai"
 
-#: src/Controllers/JavaScriptMessagesController.php:702
+#: src/Controllers/JavaScriptMessagesController.php:703
 #, fuzzy
 #| msgid "March"
 msgctxt "Month name"
 msgid "March"
 msgstr "Tháng ba"
 
-#: src/Controllers/JavaScriptMessagesController.php:703
+#: src/Controllers/JavaScriptMessagesController.php:704
 #, fuzzy
 #| msgid "April"
 msgctxt "Month name"
 msgid "April"
 msgstr "Tháng tư"
 
-#: src/Controllers/JavaScriptMessagesController.php:704
+#: src/Controllers/JavaScriptMessagesController.php:705
 #, fuzzy
 #| msgid "May"
 msgctxt "Month name"
 msgid "May"
 msgstr "Tháng năm"
 
-#: src/Controllers/JavaScriptMessagesController.php:705
+#: src/Controllers/JavaScriptMessagesController.php:706
 #, fuzzy
 #| msgid "June"
 msgctxt "Month name"
 msgid "June"
 msgstr "Tháng sáu"
 
-#: src/Controllers/JavaScriptMessagesController.php:706
+#: src/Controllers/JavaScriptMessagesController.php:707
 #, fuzzy
 #| msgid "July"
 msgctxt "Month name"
 msgid "July"
 msgstr "Tháng bảy"
 
-#: src/Controllers/JavaScriptMessagesController.php:707
+#: src/Controllers/JavaScriptMessagesController.php:708
 #, fuzzy
 #| msgid "August"
 msgctxt "Month name"
 msgid "August"
 msgstr "Tháng tám"
 
-#: src/Controllers/JavaScriptMessagesController.php:708
+#: src/Controllers/JavaScriptMessagesController.php:709
 #, fuzzy
 #| msgid "September"
 msgctxt "Month name"
 msgid "September"
 msgstr "Tháng chín"
 
-#: src/Controllers/JavaScriptMessagesController.php:709
+#: src/Controllers/JavaScriptMessagesController.php:710
 #, fuzzy
 #| msgid "October"
 msgctxt "Month name"
 msgid "October"
 msgstr "Tháng mười"
 
-#: src/Controllers/JavaScriptMessagesController.php:710
+#: src/Controllers/JavaScriptMessagesController.php:711
 #, fuzzy
 #| msgid "November"
 msgctxt "Month name"
 msgid "November"
 msgstr "Tháng mười một"
 
-#: src/Controllers/JavaScriptMessagesController.php:711
+#: src/Controllers/JavaScriptMessagesController.php:712
 #, fuzzy
 #| msgid "December"
 msgctxt "Month name"
 msgid "December"
 msgstr "Tháng mười hai"
 
-#: src/Controllers/JavaScriptMessagesController.php:712 src/Util.php:503
+#: src/Controllers/JavaScriptMessagesController.php:713 src/Util.php:503
 #, fuzzy
 #| msgid "Jan"
 msgctxt "Short month name for January"
 msgid "Jan"
 msgstr "Th1"
 
-#: src/Controllers/JavaScriptMessagesController.php:713 src/Util.php:504
+#: src/Controllers/JavaScriptMessagesController.php:714 src/Util.php:504
 #, fuzzy
 #| msgid "Feb"
 msgctxt "Short month name for February"
 msgid "Feb"
 msgstr "Th2"
 
-#: src/Controllers/JavaScriptMessagesController.php:714 src/Util.php:505
+#: src/Controllers/JavaScriptMessagesController.php:715 src/Util.php:505
 #, fuzzy
 #| msgid "Mar"
 msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "Th3"
 
-#: src/Controllers/JavaScriptMessagesController.php:715 src/Util.php:506
+#: src/Controllers/JavaScriptMessagesController.php:716 src/Util.php:506
 #, fuzzy
 #| msgid "Apr"
 msgctxt "Short month name for April"
 msgid "Apr"
 msgstr "Th4"
 
-#: src/Controllers/JavaScriptMessagesController.php:716 src/Util.php:507
+#: src/Controllers/JavaScriptMessagesController.php:717 src/Util.php:507
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name for May"
 msgid "May"
 msgstr "Tháng năm"
 
-#: src/Controllers/JavaScriptMessagesController.php:717 src/Util.php:508
+#: src/Controllers/JavaScriptMessagesController.php:718 src/Util.php:508
 #, fuzzy
 #| msgid "Jun"
 msgctxt "Short month name for June"
 msgid "Jun"
 msgstr "Th6"
 
-#: src/Controllers/JavaScriptMessagesController.php:718 src/Util.php:509
+#: src/Controllers/JavaScriptMessagesController.php:719 src/Util.php:509
 #, fuzzy
 #| msgid "Jul"
 msgctxt "Short month name for July"
 msgid "Jul"
 msgstr "Th7"
 
-#: src/Controllers/JavaScriptMessagesController.php:719 src/Util.php:510
+#: src/Controllers/JavaScriptMessagesController.php:720 src/Util.php:510
 #, fuzzy
 #| msgid "Aug"
 msgctxt "Short month name for August"
 msgid "Aug"
 msgstr "Th8"
 
-#: src/Controllers/JavaScriptMessagesController.php:720 src/Util.php:511
+#: src/Controllers/JavaScriptMessagesController.php:721 src/Util.php:511
 #, fuzzy
 #| msgid "Sep"
 msgctxt "Short month name for September"
 msgid "Sep"
 msgstr "Th9"
 
-#: src/Controllers/JavaScriptMessagesController.php:721 src/Util.php:512
+#: src/Controllers/JavaScriptMessagesController.php:722 src/Util.php:512
 #, fuzzy
 #| msgid "Oct"
 msgctxt "Short month name for October"
 msgid "Oct"
 msgstr "Th10"
 
-#: src/Controllers/JavaScriptMessagesController.php:722 src/Util.php:513
+#: src/Controllers/JavaScriptMessagesController.php:723 src/Util.php:513
 #, fuzzy
 #| msgid "Nov"
 msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "Th10"
 
-#: src/Controllers/JavaScriptMessagesController.php:723 src/Util.php:514
+#: src/Controllers/JavaScriptMessagesController.php:724 src/Util.php:514
 #, fuzzy
 #| msgid "Dec"
 msgctxt "Short month name for December"
 msgid "Dec"
 msgstr "Th12"
 
-#: src/Controllers/JavaScriptMessagesController.php:731 src/Util.php:517
+#: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:517
 #, fuzzy
 #| msgid "Sun"
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "CN"
 
-#: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:518
+#: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:518
 #, fuzzy
 #| msgid "Mon"
 msgctxt "Short week day name for Monday"
 msgid "Mon"
 msgstr "T2"
 
-#: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:519
+#: src/Controllers/JavaScriptMessagesController.php:734 src/Util.php:519
 #, fuzzy
 #| msgid "Tue"
 msgctxt "Short week day name for Tuesday"
 msgid "Tue"
 msgstr "T3"
 
-#: src/Controllers/JavaScriptMessagesController.php:734 src/Util.php:520
+#: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:520
 #, fuzzy
 #| msgid "Wed"
 msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr "T4"
 
-#: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:521
+#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:521
 #, fuzzy
 #| msgid "Thu"
 msgctxt "Short week day name for Thursday"
 msgid "Thu"
 msgstr "T5"
 
-#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:522
+#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:522
 #, fuzzy
 #| msgid "Fri"
 msgctxt "Short week day name for Friday"
 msgid "Fri"
 msgstr "T6"
 
-#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:523
+#: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:523
 #, fuzzy
 #| msgid "Sat"
 msgctxt "Short week day name for Saturday"
 msgid "Sat"
 msgstr "T7"
 
-#: src/Controllers/JavaScriptMessagesController.php:738
+#: src/Controllers/JavaScriptMessagesController.php:739
 #, fuzzy
 #| msgid "Su"
 msgctxt "Minimal week day name for Sunday"
 msgid "Su"
 msgstr "CN"
 
-#: src/Controllers/JavaScriptMessagesController.php:739
+#: src/Controllers/JavaScriptMessagesController.php:740
 #, fuzzy
 #| msgid "Mo"
 msgctxt "Minimal week day name for Monday"
 msgid "Mo"
 msgstr "T2"
 
-#: src/Controllers/JavaScriptMessagesController.php:740
+#: src/Controllers/JavaScriptMessagesController.php:741
 #, fuzzy
 #| msgid "Tu"
 msgctxt "Minimal week day name for Tuesday"
 msgid "Tu"
 msgstr "T3"
 
-#: src/Controllers/JavaScriptMessagesController.php:741
+#: src/Controllers/JavaScriptMessagesController.php:742
 #, fuzzy
 #| msgid "We"
 msgctxt "Minimal week day name for Wednesday"
 msgid "We"
 msgstr "T4"
 
-#: src/Controllers/JavaScriptMessagesController.php:742
+#: src/Controllers/JavaScriptMessagesController.php:743
 #, fuzzy
 #| msgid "Th"
 msgctxt "Minimal week day name for Thursday"
 msgid "Th"
 msgstr "T5"
 
-#: src/Controllers/JavaScriptMessagesController.php:743
+#: src/Controllers/JavaScriptMessagesController.php:744
 #, fuzzy
 #| msgid "Fr"
 msgctxt "Minimal week day name for Friday"
 msgid "Fr"
 msgstr "T6"
 
-#: src/Controllers/JavaScriptMessagesController.php:744
+#: src/Controllers/JavaScriptMessagesController.php:745
 #, fuzzy
 #| msgid "Sa"
 msgctxt "Minimal week day name for Saturday"
 msgid "Sa"
 msgstr "T7"
 
-#: src/Controllers/JavaScriptMessagesController.php:745
+#: src/Controllers/JavaScriptMessagesController.php:746
 #, fuzzy
 #| msgid "Wk"
 msgctxt "Column header for week of the year in calendar"
@@ -14486,14 +14491,14 @@ msgid "Wk"
 msgstr "Tuần"
 
 #. l10n: DO NOT TRANSLATE! Use either "calendar-month-year" or "calendar-year-month".
-#: src/Controllers/JavaScriptMessagesController.php:747
+#: src/Controllers/JavaScriptMessagesController.php:748
 #, fuzzy
 #| msgid "calendar-month-year"
 msgctxt "The month-year order in a calendar"
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
-#: src/Controllers/JavaScriptMessagesController.php:748
+#: src/Controllers/JavaScriptMessagesController.php:749
 #, fuzzy
 #| msgctxt "Year suffix"
 #| msgid "none"
@@ -14501,35 +14506,35 @@ msgctxt "Year suffix for calendar, \"none\" is empty"
 msgid "none"
 msgstr "không"
 
-#: src/Controllers/JavaScriptMessagesController.php:749
+#: src/Controllers/JavaScriptMessagesController.php:750
 #, fuzzy
 #| msgid "Time"
 msgctxt "A specific point in the day, as shown on a clock"
 msgid "Time"
 msgstr "Thời gian"
 
-#: src/Controllers/JavaScriptMessagesController.php:750
+#: src/Controllers/JavaScriptMessagesController.php:751
 #, fuzzy
 #| msgid "Hour"
 msgctxt "Unit of time"
 msgid "Hour"
 msgstr "Giờ"
 
-#: src/Controllers/JavaScriptMessagesController.php:751
+#: src/Controllers/JavaScriptMessagesController.php:752
 #, fuzzy
 #| msgid "Minute"
 msgctxt "Unit of time"
 msgid "Minute"
 msgstr "Phút"
 
-#: src/Controllers/JavaScriptMessagesController.php:752
+#: src/Controllers/JavaScriptMessagesController.php:753
 #, fuzzy
 #| msgid "Second"
 msgctxt "Unit of time"
 msgid "Second"
 msgstr "Giây"
 
-#: src/Controllers/JavaScriptMessagesController.php:753
+#: src/Controllers/JavaScriptMessagesController.php:754
 #, fuzzy
 #| msgid "%d second"
 #| msgid_plural "%d seconds"
@@ -14537,14 +14542,14 @@ msgctxt "Unit of time"
 msgid "Millisecond"
 msgstr "%d giây"
 
-#: src/Controllers/JavaScriptMessagesController.php:754
+#: src/Controllers/JavaScriptMessagesController.php:755
 #, fuzzy
 #| msgid "per second"
 msgctxt "Unit of time"
 msgid "Microsecond"
 msgstr "mỗi giây"
 
-#: src/Controllers/JavaScriptMessagesController.php:755
+#: src/Controllers/JavaScriptMessagesController.php:756
 #, fuzzy
 #| msgctxt "Chart type"
 #| msgid "Timeline"
@@ -14553,7 +14558,7 @@ msgid "Time zone"
 msgstr "Bảng thời gian"
 
 #. l10n: Display text for previous month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:759
+#: src/Controllers/JavaScriptMessagesController.php:760
 #, fuzzy
 #| msgctxt "Previous month"
 #| msgid "Prev"
@@ -14562,7 +14567,7 @@ msgid "Prev"
 msgstr "Trước"
 
 #. l10n: Display text for next month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:761
+#: src/Controllers/JavaScriptMessagesController.php:762
 #, fuzzy
 #| msgctxt "Next month"
 #| msgid "Next"
@@ -14571,94 +14576,94 @@ msgid "Next"
 msgstr "Tiếp theo"
 
 #. l10n: Display text for current month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:763
+#: src/Controllers/JavaScriptMessagesController.php:764
 msgid "Today"
 msgstr "Hôm nay"
 
-#: src/Controllers/JavaScriptMessagesController.php:766
+#: src/Controllers/JavaScriptMessagesController.php:767
 msgid "This field is required"
 msgstr "Trường này là bắt buộc"
 
-#: src/Controllers/JavaScriptMessagesController.php:767
+#: src/Controllers/JavaScriptMessagesController.php:768
 msgid "Please fix this field"
 msgstr "Vui lòng sửa trường này"
 
-#: src/Controllers/JavaScriptMessagesController.php:768
+#: src/Controllers/JavaScriptMessagesController.php:769
 msgid "Please enter a valid email address"
 msgstr "Vui lòng nhập một địa chỉ thư hợp lệ"
 
-#: src/Controllers/JavaScriptMessagesController.php:769
+#: src/Controllers/JavaScriptMessagesController.php:770
 msgid "Please enter a valid URL"
 msgstr "Vui lòng nhập một địa chỉ URL hợp lệ"
 
-#: src/Controllers/JavaScriptMessagesController.php:770
+#: src/Controllers/JavaScriptMessagesController.php:771
 msgid "Please enter a valid date"
 msgstr "Vui lòng nhập ngày tháng hợp lệ"
 
-#: src/Controllers/JavaScriptMessagesController.php:771
+#: src/Controllers/JavaScriptMessagesController.php:772
 msgid "Please enter a valid date ( ISO )"
 msgstr "Vui lòng nhập ngày tháng hợp lệ ( ISO )"
 
-#: src/Controllers/JavaScriptMessagesController.php:772
+#: src/Controllers/JavaScriptMessagesController.php:773
 msgid "Please enter a valid number"
 msgstr "Vui lòng nhập con số hợp lệ"
 
-#: src/Controllers/JavaScriptMessagesController.php:773
+#: src/Controllers/JavaScriptMessagesController.php:774
 msgid "Please enter a valid credit card number"
 msgstr "Vui lòng nhập thẻ tín dụng hợp lệ"
 
-#: src/Controllers/JavaScriptMessagesController.php:774
+#: src/Controllers/JavaScriptMessagesController.php:775
 msgid "Please enter only digits"
 msgstr "Vui lòng chỉ nhập số"
 
-#: src/Controllers/JavaScriptMessagesController.php:775
+#: src/Controllers/JavaScriptMessagesController.php:776
 msgid "Please enter the same value again"
 msgstr "Vui lòng nhập lại giá trị đó một lần nữa"
 
-#: src/Controllers/JavaScriptMessagesController.php:776
+#: src/Controllers/JavaScriptMessagesController.php:777
 msgid "Please enter no more than {0} characters"
 msgstr "Vui lòng nhập vào nhiều hơn {0} ký tự"
 
-#: src/Controllers/JavaScriptMessagesController.php:777
+#: src/Controllers/JavaScriptMessagesController.php:778
 msgid "Please enter at least {0} characters"
 msgstr "Vui lòng nhập vào ít nhất {0} ký tự"
 
-#: src/Controllers/JavaScriptMessagesController.php:778
+#: src/Controllers/JavaScriptMessagesController.php:779
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr "Vui lòng nhập vào một giá trị độ dài giữa {0} và {1} ký tự"
 
-#: src/Controllers/JavaScriptMessagesController.php:779
+#: src/Controllers/JavaScriptMessagesController.php:780
 msgid "Please enter a value between {0} and {1}"
 msgstr "Vui lòng nhập vào một giá trị giữa {0} và {1}"
 
-#: src/Controllers/JavaScriptMessagesController.php:780
+#: src/Controllers/JavaScriptMessagesController.php:781
 msgid "Please enter a value less than or equal to {0}"
 msgstr "Vui lòng nhập vào một giá trị nhỏ hơn hoặc bằng {0}"
 
-#: src/Controllers/JavaScriptMessagesController.php:781
+#: src/Controllers/JavaScriptMessagesController.php:782
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "Vui lòng nhập vào một giá trị lớn hơn hoặc bằng {0}"
 
-#: src/Controllers/JavaScriptMessagesController.php:782
+#: src/Controllers/JavaScriptMessagesController.php:783
 msgid "Please enter a valid date or time"
 msgstr "Vui lòng nhập vào một ngày tháng hay thời gian hợp lệ"
 
-#: src/Controllers/JavaScriptMessagesController.php:783
+#: src/Controllers/JavaScriptMessagesController.php:784
 msgid "Please enter a valid HEX input"
 msgstr "Vui lòng nhập vào một HEX hợp lệ"
 
 #. l10n: To validate the usage of a MD5 function on the column
-#: src/Controllers/JavaScriptMessagesController.php:785
+#: src/Controllers/JavaScriptMessagesController.php:786
 msgid "This column can not contain a 32 chars value"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:788
+#: src/Controllers/JavaScriptMessagesController.php:789
 msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:793
+#: src/Controllers/JavaScriptMessagesController.php:794
 #, fuzzy
 #| msgid ""
 #| "The file being uploaded is probably larger than the maximum allowed size "
@@ -14670,33 +14675,33 @@ msgstr ""
 "Tập tin đang được tải lên gần như chắn chắn là lớn hơn kích thước được phép "
 "hoặc đây là một lỗi của trình duyệt (Safari, Google Chrome, Arora ví dụ thế)."
 
-#: src/Controllers/JavaScriptMessagesController.php:795
+#: src/Controllers/JavaScriptMessagesController.php:796
 #, php-format
 msgid "%s of %s"
 msgstr "%s trong số %s"
 
-#: src/Controllers/JavaScriptMessagesController.php:796
+#: src/Controllers/JavaScriptMessagesController.php:797
 #, php-format
 msgid "%s/sec."
 msgstr "%s/giây."
 
-#: src/Controllers/JavaScriptMessagesController.php:797
+#: src/Controllers/JavaScriptMessagesController.php:798
 msgid "About %MIN min. %SEC sec. remaining."
 msgstr "Còn lại khoảng %MIN phút %SEC giây."
 
-#: src/Controllers/JavaScriptMessagesController.php:798
+#: src/Controllers/JavaScriptMessagesController.php:799
 msgid "About %SEC sec. remaining."
 msgstr "Còn lại khoảng %SEC giây."
 
-#: src/Controllers/JavaScriptMessagesController.php:799
+#: src/Controllers/JavaScriptMessagesController.php:800
 msgid "The file is being processed, please be patient."
 msgstr "Tập tin đang được xử lý, vui lòng đợi."
 
-#: src/Controllers/JavaScriptMessagesController.php:800
+#: src/Controllers/JavaScriptMessagesController.php:801
 msgid "Uploading your import file…"
 msgstr "Đang tải lên tập tin cần nhập của bạn…"
 
-#: src/Controllers/JavaScriptMessagesController.php:802
+#: src/Controllers/JavaScriptMessagesController.php:803
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
@@ -15479,7 +15484,7 @@ msgstr "Sai dữ liệu"
 msgid "Wrong data or no validation for %s"
 msgstr ""
 
-#: src/Controllers/Sql/SqlController.php:218 src/Sql.php:1077
+#: src/Controllers/Sql/SqlController.php:218 src/Sql.php:1086
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Đánh dấu %s đã được tạo ra."
@@ -15560,7 +15565,7 @@ msgstr "Có quá nhiều phép gia nhập mà không dùng chỉ mục."
 
 #: src/Controllers/Table/GetFieldController.php:108
 #: src/Database/Routines.php:1050 src/Import/Import.php:138
-#: src/InsertEdit.php:161 src/Sql.php:895
+#: src/InsertEdit.php:161 src/Sql.php:904
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL trả về kết quả là trống rỗng (vd. không có hàng nào)."
 
@@ -15975,7 +15980,7 @@ msgstr ""
 msgid "The row has been deleted."
 msgstr "Hàng đã bị xóa bỏ."
 
-#: src/Display/Results.php:2973 src/Display/Results.php:3295 src/Sql.php:901
+#: src/Display/Results.php:2973 src/Display/Results.php:3295 src/Sql.php:910
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Truy vấn cần %01.4f giây."
@@ -16535,7 +16540,7 @@ msgstr "Vui lòng nhập vào nhiều hơn {0} ký tự"
 msgid "The trigger name cannot end with a space character."
 msgstr "Các từ được ngăn cách nhau bằng ký tự khoảng trắng (\" \")."
 
-#: src/Import/Import.php:944
+#: src/Import/Import.php:954
 #, fuzzy
 #| msgid ""
 #| "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing "
@@ -16547,48 +16552,48 @@ msgstr ""
 "Chỉ các truy vấn SQL INSERT, UPDATE, DELETE và REPLACE có chưa các bảng bộ "
 "máy giao dịch là có thể được hoàn lại."
 
-#: src/Import/Import.php:1161
+#: src/Import/Import.php:1171
 #, php-format
 msgid "Go to table: %s"
 msgstr "Chuyển đến bảng: %s"
 
-#: src/Import/Import.php:1169
+#: src/Import/Import.php:1179
 #, php-format
 msgid "Structure of %s"
 msgstr "Cấu trúc của %s"
 
-#: src/Import/Import.php:1176 src/Import/Import.php:1225
+#: src/Import/Import.php:1186 src/Import/Import.php:1235
 #, php-format
 msgid "Edit settings for %s"
 msgstr "Sửa các cài đặt cho %s"
 
-#: src/Import/Import.php:1187
+#: src/Import/Import.php:1197
 #, php-format
 msgid "Go to view: %s"
 msgstr "Chuyển đến view: %s"
 
-#: src/Import/Import.php:1208
+#: src/Import/Import.php:1218
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 "Các cấu trúc sau đây hoặc là được tạo hoặc là bị sửa chữa. Ở đây bạn có thể:"
 
-#: src/Import/Import.php:1210
+#: src/Import/Import.php:1220
 msgid "View a structure's contents by clicking on its name."
 msgstr "Xem nội dung của cấu trúc bằng cách bấm vào tên của nó."
 
-#: src/Import/Import.php:1211
+#: src/Import/Import.php:1221
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 "Thay đổi bất kỳ các tùy chọn của nó bằng các bấm vào liên kết \"Tùy chọn\" "
 "tương ứng."
 
-#: src/Import/Import.php:1212
+#: src/Import/Import.php:1222
 msgid "Edit structure by following the \"Structure\" link."
 msgstr "Sửa cấu trúc bằng cách bấm vào liên kết \"Cấu trúc\"."
 
-#: src/Import/Import.php:1219
+#: src/Import/Import.php:1229
 #, php-format
 msgid "Go to database: %s"
 msgstr "Chuyển đến cơ sở dữ liệu: %s"
@@ -16606,11 +16611,11 @@ msgstr ""
 msgid "web server upload directory:"
 msgstr "thư mục để tải lên máy chủ:"
 
-#: src/InsertEdit.php:846 src/Sql.php:892
+#: src/InsertEdit.php:846 src/Sql.php:901
 msgid "Showing SQL query"
 msgstr "Hiện truy vấn SQL"
 
-#: src/InsertEdit.php:870 src/Sql.php:872
+#: src/InsertEdit.php:870 src/Sql.php:881
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Chỉ số id người dùng kép: %1$d"
@@ -17165,25 +17170,25 @@ msgid "Data dump options"
 msgstr "Hiển thị hộp thoại tùy chọn"
 
 #: src/Plugins/Export/ExportHtmlword.php:167
-#: src/Plugins/Export/ExportOdt.php:209 src/Plugins/Export/ExportSql.php:2090
+#: src/Plugins/Export/ExportOdt.php:209 src/Plugins/Export/ExportSql.php:2097
 #: src/Plugins/Export/ExportTexytext.php:137
 msgid "Dumping data for table"
 msgstr "Đang đổ dữ liệu cho bảng"
 
 #: src/Plugins/Export/ExportHtmlword.php:439
-#: src/Plugins/Export/ExportOdt.php:558 src/Plugins/Export/ExportSql.php:1826
+#: src/Plugins/Export/ExportOdt.php:558 src/Plugins/Export/ExportSql.php:1833
 #: src/Plugins/Export/ExportTexytext.php:401
 msgid "Table structure for table"
 msgstr "Cấu trúc bảng cho bảng"
 
 #: src/Plugins/Export/ExportHtmlword.php:456
-#: src/Plugins/Export/ExportOdt.php:578 src/Plugins/Export/ExportSql.php:1892
+#: src/Plugins/Export/ExportOdt.php:578 src/Plugins/Export/ExportSql.php:1899
 #: src/Plugins/Export/ExportTexytext.php:414
 msgid "Structure for view"
 msgstr "Cấu trúc cho view"
 
 #: src/Plugins/Export/ExportHtmlword.php:462
-#: src/Plugins/Export/ExportOdt.php:586 src/Plugins/Export/ExportSql.php:1935
+#: src/Plugins/Export/ExportOdt.php:586 src/Plugins/Export/ExportSql.php:1942
 #: src/Plugins/Export/ExportTexytext.php:418
 msgid "Stand-in structure for view"
 msgstr "Cấu trúc đóng vai cho view"
@@ -17258,7 +17263,7 @@ msgstr "Thời gian đã tạo:"
 msgid "PHP Version:"
 msgstr "Phiên bản PHP:"
 
-#: src/Plugins/Export/ExportLatex.php:287 src/Plugins/Export/ExportSql.php:1981
+#: src/Plugins/Export/ExportLatex.php:287 src/Plugins/Export/ExportSql.php:1988
 msgid "Data:"
 msgstr "Dữ liệu:"
 
@@ -17359,7 +17364,7 @@ msgstr ""
 msgid "Data creation options"
 msgstr "Tùy chọn tạo tập tin:"
 
-#: src/Plugins/Export/ExportSql.php:417 src/Plugins/Export/ExportSql.php:2053
+#: src/Plugins/Export/ExportSql.php:417 src/Plugins/Export/ExportSql.php:2060
 msgid "Truncate table before insert"
 msgstr "Cắt ngắn bảng trước khi chèn"
 
@@ -17436,106 +17441,106 @@ msgstr ""
 msgid "It appears your database uses routines;"
 msgstr "Cơ sở dữ liệu của bạn có vẻ như có dùng các hàm;"
 
-#: src/Plugins/Export/ExportSql.php:594 src/Plugins/Export/ExportSql.php:1450
-#: src/Plugins/Export/ExportSql.php:1876
+#: src/Plugins/Export/ExportSql.php:594 src/Plugins/Export/ExportSql.php:1457
+#: src/Plugins/Export/ExportSql.php:1883
 msgid "alias export may not work reliably in all cases."
 msgstr "xuất bí danh có thể không làm việc đúng trong mọi trường hợp"
 
-#: src/Plugins/Export/ExportSql.php:1042
+#: src/Plugins/Export/ExportSql.php:1049
 msgid "Metadata"
 msgstr "Siêu dữ liệu"
 
-#: src/Plugins/Export/ExportSql.php:1101
+#: src/Plugins/Export/ExportSql.php:1108
 #, php-format
 msgid "Metadata for table %s"
 msgstr "Siêu dữ liệu cho bảng %s"
 
-#: src/Plugins/Export/ExportSql.php:1108
+#: src/Plugins/Export/ExportSql.php:1115
 #, php-format
 msgid "Metadata for database %s"
 msgstr "Siêu dữ liệu cho cơ sở dữ liệu %s"
 
-#: src/Plugins/Export/ExportSql.php:1368
+#: src/Plugins/Export/ExportSql.php:1375
 #, fuzzy, php-format
 #| msgid "Table structure for table"
 msgid "Error reading structure for table %s:"
 msgstr "Cấu trúc bảng cho bảng"
 
-#: src/Plugins/Export/ExportSql.php:1447
+#: src/Plugins/Export/ExportSql.php:1454
 msgid "It appears your database uses views;"
 msgstr "Cơ sở dữ liệu của bạn có vẻ như có dùng các view;"
 
-#: src/Plugins/Export/ExportSql.php:1586
+#: src/Plugins/Export/ExportSql.php:1593
 msgid "Constraints for dumped tables"
 msgstr "Ràng buộc đối với các bảng kết xuất"
 
-#: src/Plugins/Export/ExportSql.php:1587
+#: src/Plugins/Export/ExportSql.php:1594
 msgid "Constraints for table"
 msgstr "Ràng buộc cho bảng"
 
-#: src/Plugins/Export/ExportSql.php:1613
+#: src/Plugins/Export/ExportSql.php:1620
 msgid "Indexes for dumped tables"
 msgstr "Chỉ mục cho các bảng đã đổ"
 
-#: src/Plugins/Export/ExportSql.php:1614
+#: src/Plugins/Export/ExportSql.php:1621
 msgid "Indexes for table"
 msgstr "Chỉ mục cho bảng"
 
-#: src/Plugins/Export/ExportSql.php:1637
+#: src/Plugins/Export/ExportSql.php:1644
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "AUTO_INCREMENT cho các bảng đã đổ"
 
-#: src/Plugins/Export/ExportSql.php:1638
+#: src/Plugins/Export/ExportSql.php:1645
 msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT cho bảng"
 
-#: src/Plugins/Export/ExportSql.php:1692
+#: src/Plugins/Export/ExportSql.php:1699
 #, fuzzy
 #| msgid "MIME TYPES FOR TABLE"
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "MIME TYPES FOR TABLE"
 
-#: src/Plugins/Export/ExportSql.php:1722
+#: src/Plugins/Export/ExportSql.php:1729
 #, fuzzy
 #| msgid "RELATIONS FOR TABLE"
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "RELATIONS FOR TABLE"
 
-#: src/Plugins/Export/ExportSql.php:1873
+#: src/Plugins/Export/ExportSql.php:1880
 msgid "It appears your table uses triggers;"
 msgstr "Cơ sở dữ liệu của bạn có vẻ như có dùng các bẫy;"
 
-#: src/Plugins/Export/ExportSql.php:1907
+#: src/Plugins/Export/ExportSql.php:1914
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "Cấu trúc cho view %s được xuất dạng một bảng"
 
-#: src/Plugins/Export/ExportSql.php:1938
+#: src/Plugins/Export/ExportSql.php:1945
 msgid "(See below for the actual view)"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1994
+#: src/Plugins/Export/ExportSql.php:2001
 #, fuzzy, php-format
 #| msgid "Error reading data:"
 msgid "Error reading data for table %s:"
 msgstr "Gặp lỗi khi đọc dữ liệu:"
 
-#: src/Plugins/Export/ExportSql.php:2518
+#: src/Plugins/Export/ExportSql.php:2525
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:566
 msgid "Creation:"
 msgstr "Tạo:"
 
-#: src/Plugins/Export/ExportSql.php:2526
+#: src/Plugins/Export/ExportSql.php:2533
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:577
 msgid "Last update:"
 msgstr "Cập nhật lần cuối:"
 
-#: src/Plugins/Export/ExportSql.php:2534
+#: src/Plugins/Export/ExportSql.php:2541
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:588
 msgid "Last check:"
 msgstr "Lần kiểm tra cuối:"
 
-#: src/Plugins/Export/ExportSql.php:2555
+#: src/Plugins/Export/ExportSql.php:2562
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
@@ -18353,11 +18358,11 @@ msgstr "Không có phiên bản ổn định nào mới hơn"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Dùng đánh dấu \"%s\" như là truy vấn duyệt mặc định."
 
-#: src/Sql.php:889
+#: src/Sql.php:898
 msgid "Showing as PHP code"
 msgstr "Hiện dạng mã PHP"
 
-#: src/Sql.php:1245
+#: src/Sql.php:1254
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -18366,7 +18371,7 @@ msgstr ""
 "Chọn lựa hiện nay không chứa một cột duy nhất. Tính năng sửa lưới, dấu kiểm, "
 "Sửa, Chép và Xóa không sẵn có. %s"
 
-#: src/Sql.php:1259
+#: src/Sql.php:1268
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
