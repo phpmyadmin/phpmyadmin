@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-02-25 10:35-0300\n"
-"PO-Revision-Date: 2026-04-16 20:09+0000\n"
+"PO-Revision-Date: 2026-04-27 10:09+0000\n"
 "Last-Translator: Adam Havránek <adamhavra@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/5-2/cs/>"
 "\n"
@@ -5391,7 +5391,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Import/ImportController.php:324
 msgid "Sorry an unexpected error happened!"
-msgstr ""
+msgstr "Omlouváme se, došlo k neočekávané chybě!"
 
 #: libraries/classes/Controllers/Import/ImportController.php:372
 #: libraries/classes/Controllers/Import/ImportController.php:610
@@ -6623,10 +6623,8 @@ msgid "Show query box"
 msgstr "Zobrazit pole pro dotaz"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:388
-#, fuzzy
-#| msgid "Submit query"
 msgid "Edit query"
-msgstr "Provést dotaz"
+msgstr "Upravit dotaz"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:389
 #: libraries/classes/Display/Results.php:3046
@@ -7513,6 +7511,8 @@ msgid ""
 "The fullscreen request was denied because the Fullscreen API is disabled by "
 "user preference in the browser."
 msgstr ""
+"Žádost o přepnutí do režimu celé obrazovky byla zamítnuta, protože API pro "
+"režim celé obrazovky je v prohlížeči zakázáno v nastavení uživatele."
 
 #: libraries/classes/Controllers/NavigationController.php:46
 msgid "Fatal error: The navigation can only be accessed via AJAX"
@@ -8738,7 +8738,7 @@ msgstr "Při zpracování požadavku došlo k několika chybám:"
 
 #: libraries/classes/Database/Events.php:181
 msgid "The event was dropped immediately after creation."
-msgstr ""
+msgstr "Událost byla zrušena ihned po vytvoření."
 
 #: libraries/classes/Database/Events.php:249
 msgid "Add event"
@@ -12984,18 +12984,16 @@ msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr "Datum a čas, podporovaný rozsah od %1$s do %2$s"
 
 #: libraries/classes/Types.php:306
-#, fuzzy
-#| msgid ""
-#| "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
-#| "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-19 03:14:07 UTC on "
 "32-bit platforms (MariaDB 11.3 and earlier), and up to 2106-02-07 06:28:15 "
 "UTC on 64-bit platforms (MariaDB 11.5 and later), stored as the number of "
 "seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
-"Časová značka v rozsahu od 1970-01-01 00:00:01 UTC do 2038-01-09 03:14:07 "
-"UTC, ukládaná jako počet sekund od počátku epochy (1970-01-01 00:00:00 UTC)"
+"Časové razítko, rozsah je od 1. 1. 1970 00:00:01 UTC do 19. 1. 2038 03:14:07 "
+"UTC na 32bitových platformách (MariaDB 11.3 a starší), a do 7. 2. 2106 "
+"06:28:15 UTC na 64bitových platformách (MariaDB 11.5 a novější), uložený "
+"jako počet sekund od epochy (1. 1. 1970 00:00:00 UTC)"
 
 #: libraries/classes/Types.php:314
 #, php-format
@@ -13173,6 +13171,8 @@ msgid ""
 "Stores vector data optimized for operations such as similarity search and "
 "machine learning applications"
 msgstr ""
+"Ukládá vektorová data optimalizovaná pro operace, jako je vyhledávání "
+"podobností a aplikace strojového učení"
 
 #: libraries/classes/Types.php:798
 msgctxt "numeric types"
