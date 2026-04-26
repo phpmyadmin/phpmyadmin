@@ -313,10 +313,14 @@ export default function onloadNavigation () {
                 typeof storage.navTreePaths === 'undefined'
             ) {
                 Navigation.reload();
-            } else if (CommonParams.get('server') === storage.server &&
+            } else if (String(CommonParams.get('server')) === storage.server &&
                 CommonParams.get('token') === storage.token
             ) {
-                // Reload the tree to the state before page refresh
+                // Reload the tree to the state before page refresh.
+                // `server` is a number in CommonParams but a string in sessionStorage
+                // (sessionStorage stringifies values), so coerce to string before
+                // comparing — otherwise the strict equality always fails and the
+                // saved expansion paths get discarded.
                 Navigation.reload(Navigation.filterStateRestore, JSON.parse(storage.navTreePaths));
             } else {
                 // If the user is different
