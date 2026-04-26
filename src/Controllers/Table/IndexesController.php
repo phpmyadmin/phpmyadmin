@@ -132,7 +132,13 @@ final readonly class IndexesController implements InvocableController
                 return $this->response->response();
             }
 
-            $this->dbi->query($sqlQuery);
+            // The SQL may contain multiple statements (e.g. ALTER TABLE ...; ALTER TABLE ... ALTER INDEX ... VISIBLE;)
+            // when toggling index visibility, so use multi-query and drain any
+            // additional result sets so subsequent queries on the same connection don't fail.
+            $this->dbi->tryMultiQuery($sqlQuery);
+            do {
+                $next = $this->dbi->nextResult();
+            } while ($next !== false);
 
             if ($request->isAjax()) {
                 $message = Message::success(

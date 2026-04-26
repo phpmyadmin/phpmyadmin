@@ -86,4 +86,92 @@ class IndexesTest extends AbstractTestCase
         $indexes->getSqlQueryForIndexCreateOrEdit('PRIMARY', $index, $db, $table);
         self::assertInstanceOf(Message::class, $indexes->getError());
     }
+
+    public function testGetSqlQueryForInvisibleIndex(): void
+    {
+        $table = $this->getMockBuilder(Table::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $table->expects(self::any())->method('isEngine')->willReturn(false);
+        $this->dbi->expects(self::any())->method('getTable')->willReturn($table);
+        $indexes = new Indexes($this->dbi);
+
+        $index = new Index([
+            'Key_name' => 'idx_email',
+            'Index_choice' => 'INDEX',
+            'Visible' => 'NO',
+            'columns' => [['Column_name' => 'email']],
+        ]);
+
+        $expected = 'ALTER TABLE `pma_db`.`pma_table` ADD INDEX `idx_email` (`email`);'
+            . ' ALTER TABLE `pma_db`.`pma_table` ALTER INDEX `idx_email` INVISIBLE;';
+        self::assertSame($expected, $indexes->getSqlQueryForIndexCreateOrEdit(null, $index, 'pma_db', 'pma_table'));
+    }
+
+    public function testGetSqlQueryForEditIndexToInvisible(): void
+    {
+        $table = $this->getMockBuilder(Table::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $table->expects(self::any())->method('isEngine')->willReturn(false);
+        $this->dbi->expects(self::any())->method('getTable')->willReturn($table);
+        $indexes = new Indexes($this->dbi);
+
+        $index = new Index([
+            'Key_name' => 'idx_email',
+            'Index_choice' => 'INDEX',
+            'Visible' => 'NO',
+            'columns' => [['Column_name' => 'email']],
+        ]);
+
+        $expected = 'ALTER TABLE `pma_db`.`pma_table` DROP INDEX `idx_email`,'
+            . ' ADD INDEX `idx_email` (`email`);'
+            . ' ALTER TABLE `pma_db`.`pma_table` ALTER INDEX `idx_email` INVISIBLE;';
+        $sql = $indexes->getSqlQueryForIndexCreateOrEdit('idx_email', $index, 'pma_db', 'pma_table');
+        self::assertSame($expected, $sql);
+    }
+
+    public function testGetSqlQueryForVisibleIndexEmitsVisible(): void
+    {
+        // The visibility keyword is set via a separate `ALTER INDEX` statement
+        // because MySQL silently ignores `VISIBLE` inside compound
+        // `DROP INDEX x, ADD INDEX x` clauses (the new index inherits the
+        // previous visibility otherwise).
+        $table = $this->getMockBuilder(Table::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $table->expects(self::any())->method('isEngine')->willReturn(false);
+        $this->dbi->expects(self::any())->method('getTable')->willReturn($table);
+        $indexes = new Indexes($this->dbi);
+
+        $index = new Index([
+            'Key_name' => 'idx_email',
+            'Index_choice' => 'INDEX',
+            'columns' => [['Column_name' => 'email']],
+        ]);
+
+        $expected = 'ALTER TABLE `pma_db`.`pma_table` DROP INDEX `idx_email`,'
+            . ' ADD INDEX `idx_email` (`email`);'
+            . ' ALTER TABLE `pma_db`.`pma_table` ALTER INDEX `idx_email` VISIBLE;';
+        $sql = $indexes->getSqlQueryForIndexCreateOrEdit('idx_email', $index, 'pma_db', 'pma_table');
+        self::assertSame($expected, $sql);
+    }
+
+    public function testGetSqlQueryForPrimaryDoesNotEmitVisibilityKeyword(): void
+    {
+        // Primary keys cannot be invisible — never emit the keyword for them.
+        $table = $this->getMockBuilder(Table::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $this->dbi->expects(self::any())->method('getTable')->willReturn($table);
+        $indexes = new Indexes($this->dbi);
+
+        $index = new Index([
+            'Key_name' => 'PRIMARY',
+            'columns' => [['Column_name' => 'id']],
+        ]);
+
+        $sql = $indexes->getSqlQueryForIndexCreateOrEdit(null, $index, 'pma_db', 'pma_table');
+        self::assertSame('ALTER TABLE `pma_db`.`pma_table` ADD PRIMARY KEY (`id`);', $sql);
+    }
 }
