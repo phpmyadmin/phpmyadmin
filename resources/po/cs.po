@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-04-26 00:48+0000\n"
-"PO-Revision-Date: 2024-03-29 10:58+0000\n"
-"Last-Translator: Vaniron CZ <vanironcz@gmail.com>\n"
+"PO-Revision-Date: 2026-04-27 03:09+0000\n"
+"Last-Translator: Adam Havránek <adamhavra@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "cs/>\n"
 "Language: cs\n"
@@ -15,17 +15,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.17.1-dev\n"
 
 #: resources/templates/base.twig:40 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
 msgstr "Pro použití phpMyAdmina musíte mít zapnutý Javascript!"
 
 #: resources/templates/base.twig:50
-#, fuzzy
-#| msgid "Add user account"
 msgid "Open user account menu"
-msgstr "Přidat uživatele"
+msgstr "Otevřít nabídku uživatelského účtu"
 
 #: resources/templates/base.twig:61 resources/templates/navigation/main.twig:35
 #: resources/templates/navigation/main.twig:36
