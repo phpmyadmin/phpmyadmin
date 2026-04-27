@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-04-26 00:48+0000\n"
-"PO-Revision-Date: 2026-04-15 18:09+0000\n"
+"PO-Revision-Date: 2026-04-27 16:31+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/hr/>\n"
@@ -3703,10 +3703,9 @@ msgid "Output:"
 msgstr ""
 
 #: resources/templates/export.twig:169 resources/templates/export.twig:364
-#, fuzzy, php-format
-#| msgid "Save on server in %s directory"
+#, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Spremi na poslužitelju u mapi %s"
+msgstr "Spremi na poslužitelju u mapi <strong>%s</strong>"
 
 #: resources/templates/export.twig:176 resources/templates/export.twig:371
 #: src/Config/Descriptions.php:679 src/Config/Descriptions.php:682
