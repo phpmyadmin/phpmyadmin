@@ -13642,7 +13642,7 @@ msgstr ""
 
 #: src/Controllers/Import/StatusController.php:73
 msgid "Could not load the progress of the import."
-msgstr "Nije moguće učitati tijek uvoza."
+msgstr "Nije bilo moguće očitati napredak uvoza."
 
 #: src/Controllers/JavaScriptMessagesController.php:55
 #, php-format
