@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-04-26 00:48+0000\n"
-"PO-Revision-Date: 2026-04-24 09:09+0000\n"
+"PO-Revision-Date: 2026-04-27 16:31+0000\n"
 "Last-Translator: kjo-sdds <kjo@domo-supply.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
@@ -12933,7 +12933,7 @@ msgstr "Merci de saisir une longueur valide !"
 
 #: src/Controllers/JavaScriptMessagesController.php:119
 msgid "does not support the UNSIGNED attribute."
-msgstr ""
+msgstr "ne supporte pas l'attribut UNSIGNED."
 
 #: src/Controllers/JavaScriptMessagesController.php:120
 msgid "Add index"
