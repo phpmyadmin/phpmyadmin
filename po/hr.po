@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-02-25 10:35-0300\n"
 "PO-Revision-Date: 2026-04-28 20:09+0000\n"
-"Last-Translator: test <ebe37302@tqosi.com>\n"
+"Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "hr/>\n"
 "Language: hr\n"
@@ -5329,7 +5329,7 @@ msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
-"Odjavljen si sa jednoga servera, a kako bi se u potpunosti odjavio sa "
+"Odjavljen si s jednoga servera, a kako bi se u potpunosti odjavio s "
 "phpMyAdmin-a, moraš se odjaviti sa svih servera."
 
 #: libraries/classes/Controllers/HomeController.php:201
@@ -5531,7 +5531,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Import/StatusController.php:66
 msgid "Could not load the progress of the import."
-msgstr "Nije bilo moguće očitati napredak uvoza."
+msgstr "Nije bilo moguće učitati napredak uvoza."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:39
 #: templates/server/databases/index.twig:318
@@ -6978,7 +6978,7 @@ msgstr "Nema odabrane baze podataka."
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:292
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
-msgstr "Nazad"
+msgstr "Natrag"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:424
 msgid "Show me the possible partial dependencies based on data in the table"
@@ -7880,9 +7880,9 @@ msgstr "Baza podataka %1$s uspješno je izrađena."
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "Baza podataka %1$d uspješno je odbačena."
-msgstr[1] "Baza podataka %1$d uspješno je odbačena."
-msgstr[2] "Baza podataka %1$d uspješno je odbačena."
+msgstr[0] "%1$d baza podataka je uspješno odbačena."
+msgstr[1] "%1$d baze podataka su uspješno odbačene."
+msgstr[2] "%1$d baza podataka je uspješno odbačeno."
 
 #: libraries/classes/Controllers/Server/Privileges/AccountLockController.php:47
 #, fuzzy, php-format
@@ -8789,14 +8789,12 @@ msgid "No column selected."
 msgstr "Nema odabranih redova"
 
 #: libraries/classes/Controllers/Table/DropColumnController.php:80
-#, fuzzy, php-format
-#| msgid "%1$d database has been dropped successfully."
-#| msgid_plural "%1$d databases have been dropped successfully."
+#, php-format
 msgid "%1$d column has been dropped successfully."
 msgid_plural "%1$d columns have been dropped successfully."
-msgstr[0] "Baza podataka %1$d uspješno je odbačena."
-msgstr[1] "Baza podataka %1$d uspješno je odbačena."
-msgstr[2] "Baza podataka %1$d uspješno je odbačena."
+msgstr[0] "%1$d stupac je uspješno odbačen."
+msgstr[1] "%1$d stupca su uspješno odbačena."
+msgstr[2] "%1$d stupaca je uspješno odbačeno."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:63
 msgid "Invalid table name"
@@ -10519,12 +10517,12 @@ msgid "Plugins"
 msgstr "Dodatci"
 
 #: libraries/classes/Message.php:252
-#, fuzzy, php-format
-#| msgid "%1$d row(s) affected."
+#, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "Zahvaćeno redaka: %1$d."
-msgstr[1] "Zahvaćeno redaka: %1$d."
+msgstr[0] "%1$d zahvaćeni redak."
+msgstr[1] "%1$d zahvaćena retka."
+msgstr[2] "%1$d zahvaćenih redaka."
 
 #: libraries/classes/Message.php:273
 #, fuzzy, php-format
@@ -10543,41 +10541,29 @@ msgstr[0] "Umetnuto redaka: %1$d."
 msgstr[1] "Umetnuto redaka: %1$d."
 
 #: libraries/classes/Navigation/Navigation.php:231
-#, fuzzy
-#| msgid "Column names"
 msgid "Groups:"
-msgstr "Nazivi stupaca"
+msgstr "Grupe:"
 
 #: libraries/classes/Navigation/Navigation.php:232
-#, fuzzy
-#| msgid "Events"
 msgid "Events:"
-msgstr "Događaji"
+msgstr "Događaji:"
 
 #: libraries/classes/Navigation/Navigation.php:233
-#, fuzzy
-#| msgid "Functions"
 msgid "Functions:"
-msgstr "Funkcije"
+msgstr "Funkcije:"
 
 #: libraries/classes/Navigation/Navigation.php:234
-#, fuzzy
-#| msgid "Procedures"
 msgid "Procedures:"
-msgstr "Postupci"
+msgstr "Postupci:"
 
 #: libraries/classes/Navigation/Navigation.php:235
 #: templates/database/export/index.twig:14
-#, fuzzy
-#| msgid "Tables"
 msgid "Tables:"
-msgstr "Tablice"
+msgstr "Tablice:"
 
 #: libraries/classes/Navigation/Navigation.php:236
-#, fuzzy
-#| msgid "View"
 msgid "Views:"
-msgstr "Prikaz"
+msgstr "Prikazi:"
 
 #: libraries/classes/Navigation/NavigationTree.php:758
 msgid ""
@@ -10586,10 +10572,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Navigation/NavigationTree.php:832
-#, fuzzy
-#| msgid "Column names"
 msgid "Groups"
-msgstr "Nazivi stupaca"
+msgstr "Grupe"
 
 #: libraries/classes/Navigation/NavigationTree.php:945
 #, php-format
@@ -16602,9 +16586,8 @@ msgstr "Otvori novi phpMyAdmin prozor"
 
 #: templates/footer.twig:26 templates/home/index.twig:18
 #: templates/login/form.twig:5
-#, fuzzy
 msgid "phpMyAdmin Demo Server"
-msgstr "phpMyAdmin Demo Poslužitelj"
+msgstr "phpMyAdmin Demo server"
 
 #: templates/footer.twig:34
 #, php-format
@@ -16628,10 +16611,9 @@ msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Iskoristi OpenStreetMaps kao osnovni sloj"
 
 #: templates/gis_data_editor_form.twig:39
-#, fuzzy
 msgctxt "Spatial Reference System Identifier"
 msgid "SRID:"
-msgstr "SRID"
+msgstr "SRID:"
 
 #: templates/gis_data_editor_form.twig:62
 #, php-format
@@ -16645,10 +16627,9 @@ msgstr "Točka:"
 #: templates/gis_data_editor_form.twig:106
 #: templates/gis_data_editor_form.twig:151
 #: templates/gis_data_editor_form.twig:207
-#, fuzzy, php-format
-#| msgid "Point %d"
+#, php-format
 msgid "Point %d:"
-msgstr "Točka %d"
+msgstr "Točka %d:"
 
 #: templates/gis_data_editor_form.twig:130
 #, php-format
@@ -16658,7 +16639,7 @@ msgstr "Linija teksta %d:"
 #: templates/gis_data_editor_form.twig:132
 #: templates/gis_data_editor_form.twig:191
 msgid "Outer ring:"
-msgstr "Vanjski prsten"
+msgstr "Vanjski krug:"
 
 #: templates/gis_data_editor_form.twig:134
 #: templates/gis_data_editor_form.twig:193
