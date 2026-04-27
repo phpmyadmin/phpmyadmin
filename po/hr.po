@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-02-25 10:35-0300\n"
-"PO-Revision-Date: 2026-04-15 18:09+0000\n"
+"PO-Revision-Date: 2026-04-27 16:31+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "hr/>\n"
@@ -16436,10 +16436,9 @@ msgid "Output:"
 msgstr ""
 
 #: templates/export.twig:175 templates/export.twig:370
-#, fuzzy, php-format
-#| msgid "Save on server in %s directory"
+#, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Spremi na poslužitelju u mapi %s"
+msgstr "Spremi na poslužitelju u mapi <strong>%s</strong>"
 
 #: templates/export.twig:193 templates/export.twig:337
 msgid "Rename exported databases/tables/columns"
