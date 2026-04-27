@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump FOR testing
+- version 4.1-dev
+- https://www.phpmyadmin.net
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="https://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="testdata" collation="utf8_bin" charset="utf8">
+            <pma:table name="test_data">
+                CREATE TABLE `test_data` (
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `data` varchar(255) DEFAULT NULL,
+                  PRIMARY KEY (`id`),
+                  UNIQUE KEY `data` (`data`)
+                ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Database: 'testdata'
+    -->
+    <database name="testdata">
+        <!-- Table test_data -->
+        <table name="test_data">
+            <column name="id">3</column>
+            <column name="data">01234</column>
+        </table>
+        <table name="test_data">
+            <column name="id">2</column>
+            <column name="data">1234</column>
+        </table>
+        <table name="test_data">
+            <column name="id">1</column>
+            <column name="data">abcd</column>
+        </table>
+    </database>
+</pma_xml_export>

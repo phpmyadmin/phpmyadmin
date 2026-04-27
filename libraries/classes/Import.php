@@ -1176,20 +1176,24 @@ class Import
                     ) {
                         $tempSQLStr .= (string) $tables[$i][self::ROWS][$j][$k];
                     } else {
+                        $value = (string) $tables[$i][self::ROWS][$j][$k];
                         if ($analyses != null) {
                             $isVarchar = ($analyses[$i][self::TYPES][$colCount] === self::VARCHAR);
                         } else {
-                            $isVarchar = ! is_numeric($tables[$i][self::ROWS][$j][$k])
-                                && ! preg_match('/^0x[0-9a-f]+$/', (string) $tables[$i][self::ROWS][$j][$k]);
+                            $isVarchar = ! preg_match('/^0x[0-9a-f]+$/', $value)
+                                && (
+                                    ! is_numeric($value)
+                                    || ($value !== (string) (int) $value && $value !== (string) (float) $value)
+                                );
                         }
 
                         /* Don't put quotes around NULL fields */
-                        if (! strcmp((string) $tables[$i][self::ROWS][$j][$k], 'NULL')) {
+                        if (! strcmp($value, 'NULL')) {
                             $isVarchar = false;
                         }
 
                         $tempSQLStr .= $isVarchar ? "'" : '';
-                        $tempSQLStr .= $dbi->escapeString((string) $tables[$i][self::ROWS][$j][$k]);
+                        $tempSQLStr .= $dbi->escapeString($value);
                         $tempSQLStr .= $isVarchar ? "'" : '';
                     }
 

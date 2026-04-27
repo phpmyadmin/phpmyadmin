@@ -20192,12 +20192,12 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 2 on mixed\\.$#"
-			count: 9
+			count: 6
 			path: libraries/classes/Import.php
 
 		-
 			message: "#^Cannot access offset int\\<0, max\\> on mixed\\.$#"
-			count: 22
+			count: 17
 			path: libraries/classes/Import.php
 
 		-
@@ -20247,7 +20247,7 @@ parameters:
 
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
-			count: 8
+			count: 6
 			path: libraries/classes/Import.php
 
 		-
@@ -46857,12 +46857,12 @@ parameters:
 
 		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:any\\(\\)\\.$#"
-			count: 3
+			count: 4
 			path: test/classes/Plugins/Import/ImportXmlTest.php
 
 		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnArgument\\(\\)\\.$#"
-			count: 3
+			count: 4
 			path: test/classes/Plugins/Import/ImportXmlTest.php
 
 		-
