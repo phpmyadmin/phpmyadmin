@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-04-26 00:48+0000\n"
-"PO-Revision-Date: 2026-03-23 11:44+0000\n"
+"PO-Revision-Date: 2026-04-27 03:09+0000\n"
 "Last-Translator: kim8ccf3a4116ec4691 <kim@yong.biz>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ko/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.17-dev\n"
+"X-Generator: Weblate 5.17.1-dev\n"
 
 #: resources/templates/base.twig:40 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -4499,10 +4499,9 @@ msgid "Check privileges"
 msgstr "사용권한 검사"
 
 #: resources/templates/server/databases/index.twig:244
-#, fuzzy, php-format
-#| msgid "Run SQL query/queries on database %s"
+#, php-format
 msgid "Run SQL queries on database \"%s\"."
-msgstr "데이터베이스 %s에 SQL 질의를 실행"
+msgstr "데이터베이스 \"%s\"에 SQL 질의를 실행합니다."
 
 #: resources/templates/server/databases/index.twig:245
 #: src/Config/ConfigFile.php:520 src/Config/ConfigFile.php:534
@@ -10772,7 +10771,7 @@ msgstr "INSERT 에러시 종료하지 않기"
 
 #: src/Config/Descriptions.php:775 src/Plugins/Import/ImportCsv.php:157
 msgid "Import empty values as NULL"
-msgstr ""
+msgstr "빈 값을 NULL로 내보내기"
 
 #: src/Config/Descriptions.php:776 src/Config/Descriptions.php:783
 msgid "Add ON DUPLICATE KEY UPDATE"
@@ -12516,7 +12515,7 @@ msgstr "올바른 길이를 입력하세요!"
 
 #: src/Controllers/JavaScriptMessagesController.php:119
 msgid "does not support the UNSIGNED attribute."
-msgstr ""
+msgstr "UNSIGNED 속성을 지원하지 않습니다."
 
 #: src/Controllers/JavaScriptMessagesController.php:120
 msgid "Add index"
@@ -18485,7 +18484,7 @@ msgstr ""
 
 #: src/Types.php:296
 msgid "Intended for storage of XML data"
-msgstr ""
+msgstr "XML 데이터의 저장용"
 
 #: src/Types.php:607
 msgctxt "numeric types"
