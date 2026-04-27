@@ -5531,7 +5531,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Import/StatusController.php:66
 msgid "Could not load the progress of the import."
-msgstr "Nije moguće učitati tijek uvoza."
+msgstr "Nije bilo moguće očitati napredak uvoza."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:39
 #: templates/server/databases/index.twig:318
