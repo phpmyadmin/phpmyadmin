@@ -73,13 +73,13 @@ final readonly class FavoriteTableController implements InvocableController
         $favoriteTable = new RecentFavoriteTable($databaseName, TableName::from($favoriteTableName));
         $alreadyFavorite = $favoriteInstance->contains($favoriteTable);
 
-        if (isset($_REQUEST['remove_favorite'])) {
+        if ($request->has('remove_favorite')) {
             if ($alreadyFavorite) {
                 // If already in favorite list, remove it.
                 $favoriteInstance->remove($favoriteTable);
                 $alreadyFavorite = false; // for favorite_anchor template
             }
-        } elseif (isset($_REQUEST['add_favorite'])) {
+        } elseif ($request->has('add_favorite')) {
             if (! $alreadyFavorite) {
                 $numTables = count($favoriteInstance->getTables());
                 if ($numTables === $this->config->config->NumFavoriteTables) {
