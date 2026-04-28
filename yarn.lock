@@ -3847,11 +3847,6 @@ jquery-migrate@^3.6.0:
   resolved "https://registry.yarnpkg.com/jquery-migrate/-/jquery-migrate-3.6.0.tgz#9bbad8e222cef02091b3842568dde261f517a77a"
   integrity sha512-2k3GMQXXEellCOkj8tczgCd/Y0KMm7LErz4rE6CkHIZV1JTUDlgs7XFN+GpwGKXDQtw/HsjtJuE+CS8IfEOnPg==
 
-jquery-ui-timepicker-addon@^1.6.3:
-  version "1.6.3"
-  resolved "https://registry.yarnpkg.com/jquery-ui-timepicker-addon/-/jquery-ui-timepicker-addon-1.6.3.tgz#8037c39b0b630282dd0b37dd8ad7fc5e1163377f"
-  integrity sha512-JvZTp1vGN1Ws9tr39VPRBC1/cOVdY/pa6a2mMcAXpEgjrsXc02xBXQthDtQsBXEqR0FbZV+GdXi/c+LDpuyk/A==
-
 jquery-ui@^1.14.2:
   version "1.14.2"
   resolved "https://registry.yarnpkg.com/jquery-ui/-/jquery-ui-1.14.2.tgz#515288b5c730b720acca6e53a0366827ad834053"
