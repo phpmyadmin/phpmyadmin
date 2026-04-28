@@ -406,7 +406,7 @@ class TransformationPluginsTest extends AbstractTestCase
     }
 
     /**
-     * @return array<array{
+     * @return iterable<array-key, array{
      *     0: TransformationsPlugin,
      *     1: array{0: string, 1?: mixed[], 2?: FieldMetadata|null},
      *     2: string|int,
@@ -414,217 +414,234 @@ class TransformationPluginsTest extends AbstractTestCase
      *     4?: string
      * }>
      */
-    public static function transformationDataProvider(): array
+    public static function transformationDataProvider(): iterable
     {
-        $result = [
-            [new Image_JPEG_Upload(), ['test', [150, 100]], 'test'],
-            [new Text_Plain_FileUpload(), ['test', []], 'test'],
-            [new Text_Plain_RegexValidation(), ['phpMyAdmin', ['/php/i']], 'phpMyAdmin', true, ''],
-            [
-                new Text_Plain_RegexValidation(),
-                ['qwerty', ['/^a/']],
-                'qwerty',
-                false,
-                'Validation failed for the input string qwerty.',
-            ],
-            [
-                new Application_Octetstream_Download(),
-                [
-                    'PMA_BUFFER',
-                    [0 => 'filename', 'wrapper_link' => 'PMA_wrapper_link', 'wrapper_params' => ['key' => 'value']],
-                ],
-                '<a href="index.php?route=/transformation/wrapper&key=value'
-                . '&ct=application%2Foctet-stream&cn=filename&lang=en" '
-                . 'title="filename" class="disableAjax">filename</a>',
-            ],
-            [
-                new Application_Octetstream_Download(),
-                [
-                    'PMA_BUFFER',
-                    [
-                        0 => '',
-                        1 => 'cloumn',
-                        'wrapper_link' => 'PMA_wrapper_link',
-                        'wrapper_params' => ['key' => 'value'],
-                    ],
-                ],
-                '<a href="index.php?route=/transformation/wrapper&key=value'
-                . '&ct=application%2Foctet-stream&cn=binary_file.dat&lang=en" '
-                . 'title="binary_file.dat" class="disableAjax">binary_file.dat</a>',
-            ],
-            [new Application_Octetstream_Hex(), ['11111001', [3]], '313 131 313 130 303 1 '],
-            [new Application_Octetstream_Hex(), ['11111001', [0]], '3131313131303031'],
-            [new Application_Octetstream_Hex(), ['11111001', []], '31 31 31 31 31 30 30 31 '],
-            [
-                new Image_JPEG_Link(),
-                [
-                    'PMA_IMAGE_LINK',
-                    [
-                        0 => './image/',
-                        1 => '200',
-                        'wrapper_link' => 'PMA_wrapper_link',
-                        'wrapper_params' => ['key' => 'value'],
-                    ],
-                ],
-                '<a class="disableAjax" target="_blank" rel="noopener noreferrer"'
-                . ' href="index.php?route=/transformation/wrapper&key=value&lang=en"'
-                . ' alt="[PMA_IMAGE_LINK]">[BLOB]</a>',
-            ],
-            [
-                new Text_Plain_Dateformat(),
-                ['12345', [0], FieldHelper::fromArray(['type' => MYSQLI_TYPE_TINY])],
-                '<dfn onclick="alert(&quot;12345&quot;);" title="12345">Jan 01, 1970 at 03:25 AM</dfn>',
-            ],
-            [
-                new Text_Plain_Dateformat(),
-                ['12345678', [0], FieldHelper::fromArray(['type' => MYSQLI_TYPE_STRING])],
-                '<dfn onclick="alert(&quot;12345678&quot;);" title="12345678">May 23, 1970 at 09:21 PM</dfn>',
-            ],
-            [
-                new Text_Plain_Dateformat(),
-                ['123456789', [0], FieldHelper::fromArray(['type' => -1])],
-                '<dfn onclick="alert(&quot;123456789&quot;);" title="123456789">Nov 29, 1973 at 09:33 PM</dfn>',
-            ],
-            [
-                new Text_Plain_Dateformat(),
-                ['20100201', [0], FieldHelper::fromArray(['type' => -1])],
-                '<dfn onclick="alert(&quot;20100201&quot;);" title="20100201">Feb 01, 2010 at 12:00 AM</dfn>',
-            ],
-            [
-                new Text_Plain_Dateformat(),
-                ['1617153941', ['0', '%B %d, %Y at %I:%M %p', 'local'], FieldHelper::fromArray(['type' => -1])],
-                '<dfn onclick="alert(&quot;1617153941&quot;);" title="1617153941">Mar 31, 2021 at 01:25 AM</dfn>',
-            ],
-            [
-                new Text_Plain_Dateformat(),
-                [
-                    '1617153941',
-                    [
-                        '0',
-                        '',// Empty uses the "Y-m-d  H:i:s" format
-                        'utc',
-                    ],
-                    FieldHelper::fromArray(['type' => -1]),
-                ],
-                '<dfn onclick="alert(&quot;1617153941&quot;);" title="1617153941">2021-03-31  01:25:41</dfn>',
-            ],
-            [
-                new Text_Plain_Dateformat(),
-                [
-                    '1617153941',
-                    [
-                        '0',
-                        '',// Empty uses the "%B %d, %Y at %I:%M %p" format
-                        'local',
-                    ],
-                    FieldHelper::fromArray(['type' => -1]),
-                ],
-                '<dfn onclick="alert(&quot;1617153941&quot;);" title="1617153941">Mar 31, 2021 at 01:25 AM</dfn>',
-            ],
-            [
-                new Text_Plain_Dateformat(),
-                ['1617153941', ['0', 'H:i:s Y-d-m', 'utc'], FieldHelper::fromArray(['type' => -1])],
-                '<dfn onclick="alert(&quot;1617153941&quot;);" title="1617153941">01:25:41 2021-31-03</dfn>',
-            ],
-            [
-                new Text_Plain_External(),
-                ['PMA_BUFFER', ['/dev/null -i -wrap -q', '/dev/null -i -wrap -q']],
-                'PMA_BUFFER',
-            ],
-            [
-                new Text_Plain_Formatted(),
-                ["<a ref='https://www.example.com/'>PMA_BUFFER</a>", ['option1', 'option2']],
-                "<iframe srcdoc=\"<a ref='https://www.example.com/'>PMA_BUFFER</a>\" sandbox=\"\"></iframe>",
-            ],
-            [
-                new Text_Plain_Formatted(),
-                ['<a ref="https://www.example.com/">PMA_BUFFER</a>', ['option1', 'option2']],
-                "<iframe srcdoc=\"<a ref='https://www.example.com/'>PMA_BUFFER</a>\" sandbox=\"\"></iframe>",
-            ],
-            [
-                new Text_Plain_Imagelink(),
-                ['PMA_IMAGE', ['http://image/', '200']],
-                '<a href="http://image/PMA_IMAGE" rel="noopener noreferrer" target="_blank">' . "\n"
-                . '    <img src="http://image/PMA_IMAGE" border="0" width="200" height="50">' . "\n"
-                . '    PMA_IMAGE' . "\n"
-                . '</a>' . "\n",
-            ],
-            [new Text_Plain_Imagelink(), ['PMA_IMAGE', ['./image/', '200']], './image/PMA_IMAGE'],
-            [
-                new Text_Plain_Sql(),
-                ['select *', ['option1', 'option2']],
-                '<pre><code class="sql" dir="ltr">'
-                . 'select *'
-                . '</code></pre>',
-            ],
-            [new Text_Plain_Link(), ['PMA_TXT_LINK', ['./php/', 'text_name']], './php/PMA_TXT_LINK'],
-            [new Text_Plain_Link(), ['PMA_TXT_LINK', []], 'PMA_TXT_LINK'],
-            [
-                new Text_Plain_Link(),
-                ['https://example.com/PMA_TXT_LINK', []],
-                '<a href="https://example.com/PMA_TXT_LINK" title=""'
-                . ' target="_blank" rel="noopener noreferrer">https://example.com/PMA_TXT_LINK</a>',
-            ],
-            [new Text_Plain_Link(), ['PMA_TXT_LINK', ['./php/', 'text_name']], './php/PMA_TXT_LINK'],
-            [new Text_Plain_Longtoipv4(), ['42949672', []], '2.143.92.40'],
-            [new Text_Plain_Longtoipv4(), ['4294967295', ['option1', 'option2']], '255.255.255.255'],
-            [new Text_Plain_PreApPend(), ['My', ['php', 'Admin']], 'phpMyAdmin'],
-            [new Text_Plain_Substring(), ['PMA_BUFFER', [1, 3, 'suffix']], 'suffixMA_suffix'],
-            [new Text_Plain_Substring(), ['PMA_BUFFER', ['1', '3', 'suffix']], 'suffixMA_suffix'],
-            [new Text_Plain_Substring(), ['PMA_BUFFER', ['2']], '…A_BUFFER'],
-            [new Text_Plain_Substring(), ['PMA_BUFFER', [2]], '…A_BUFFER'],
-            [new Text_Plain_Substring(), ['PMA_BUFFER', [0]], 'PMA_BUFFER'],
-            [new Text_Plain_Substring(), ['PMA_BUFFER', ['0']], 'PMA_BUFFER'],
-            [new Text_Plain_Substring(), ['PMA_BUFFER', [-1]], '…R…'],
-            [new Text_Plain_Substring(), ['PMA_BUFFER', ['-1']], '…R…'],
-            [new Text_Plain_Substring(), ['PMA_BUFFER', [0, 2]], 'PM…'],
-            [new Text_Plain_Substring(), ['PMA_BUFFER', ['0', '2']], 'PM…'],
-            [new Text_Plain_Substring(), ['2', []], '2'],
-            [new Text_Plain_Longtoipv4(), ['168496141'], '10.11.12.13'],
-            [new Text_Plain_Longtoipv4(), ['my ip'], 'my ip'],
-            [new Text_Plain_Longtoipv4(), ['<my ip>'], '&lt;my ip&gt;'],
-            [new Text_Plain_Iptolong(), ['10.11.12.13'], '168496141'],
-            [new Text_Plain_Iptolong(), ['10.11.12.913'], '10.11.12.913'],
-            [new Text_Plain_Iptolong(), ['my ip'], 'my ip'],
-            [new Text_Plain_Iptolong(), ['<my ip>'], '<my ip>'],
+        yield [new Image_JPEG_Upload(), ['test', [150, 100]], 'test'];
+        yield [new Text_Plain_FileUpload(), ['test', []], 'test'];
+        yield [new Text_Plain_RegexValidation(), ['phpMyAdmin', ['/php/i']], 'phpMyAdmin', true, ''];
+        yield [
+            new Text_Plain_RegexValidation(),
+            ['qwerty', ['/^a/']],
+            'qwerty',
+            false,
+            'Validation failed for the input string qwerty.',
         ];
 
-        if (function_exists('imagecreatetruecolor')) {
-            $result[] = [
-                new Image_JPEG_Inline(),
+        yield [
+            new Application_Octetstream_Download(),
+            [
+                'PMA_BUFFER',
+                [0 => 'filename', 'wrapper_link' => 'PMA_wrapper_link', 'wrapper_params' => ['key' => 'value']],
+            ],
+            '<a href="index.php?route=/transformation/wrapper&key=value'
+            . '&ct=application%2Foctet-stream&cn=filename&lang=en" '
+            . 'title="filename" class="disableAjax">filename</a>',
+        ];
+
+        yield [
+            new Application_Octetstream_Download(),
+            [
+                'PMA_BUFFER',
                 [
-                    'PMA_JPEG_Inline',
-                    [
-                        0 => './image/',
-                        1 => '200',
-                        'wrapper_link' => 'PMA_wrapper_link',
-                        'wrapper_params' => ['key' => 'value'],
-                    ],
+                    0 => '',
+                    1 => 'cloumn',
+                    'wrapper_link' => 'PMA_wrapper_link',
+                    'wrapper_params' => ['key' => 'value'],
                 ],
-                '<a href="index.php?route=/transformation/wrapper&key=value&lang=en" '
-                . 'rel="noopener noreferrer" target="_blank"><img src="index.php?route=/transformation/wrapper'
-                . '&key=value&resize=jpeg&newWidth=0&'
-                . 'newHeight=200&lang=en" alt="[PMA_JPEG_Inline]" border="0"></a>',
-            ];
-            $result[] = [
-                new Image_PNG_Inline(),
+            ],
+            '<a href="index.php?route=/transformation/wrapper&key=value'
+            . '&ct=application%2Foctet-stream&cn=binary_file.dat&lang=en" '
+            . 'title="binary_file.dat" class="disableAjax">binary_file.dat</a>',
+        ];
+
+        yield [new Application_Octetstream_Hex(), ['11111001', [3]], '313 131 313 130 303 1 '];
+        yield [new Application_Octetstream_Hex(), ['11111001', [0]], '3131313131303031'];
+        yield [new Application_Octetstream_Hex(), ['11111001', []], '31 31 31 31 31 30 30 31 '];
+        yield [
+            new Image_JPEG_Link(),
+            [
+                'PMA_IMAGE_LINK',
                 [
-                    'PMA_PNG_Inline',
-                    [
-                        0 => './image/',
-                        1 => '200',
-                        'wrapper_link' => 'PMA_wrapper_link',
-                        'wrapper_params' => ['key' => 'value'],
-                    ],
+                    0 => './image/',
+                    1 => '200',
+                    'wrapper_link' => 'PMA_wrapper_link',
+                    'wrapper_params' => ['key' => 'value'],
                 ],
-                '<a href="index.php?route=/transformation/wrapper&key=value&lang=en"'
-                . ' rel="noopener noreferrer" target="_blank"><img src="index.php?route=/transformation/wrapper'
-                . '&key=value&resize=jpeg&newWidth=0&newHeight=200&lang=en" '
-                . 'alt="[PMA_PNG_Inline]" border="0"></a>',
-            ];
+            ],
+            '<a class="disableAjax" target="_blank" rel="noopener noreferrer"'
+            . ' href="index.php?route=/transformation/wrapper&key=value&lang=en"'
+            . ' alt="[PMA_IMAGE_LINK]">[BLOB]</a>',
+        ];
+
+        yield [
+            new Text_Plain_Dateformat(),
+            ['12345', [0], FieldHelper::fromArray(['type' => MYSQLI_TYPE_TINY])],
+            '<dfn onclick="alert(&quot;12345&quot;);" title="12345">Jan 01, 1970 at 03:25 AM</dfn>',
+        ];
+
+        yield [
+            new Text_Plain_Dateformat(),
+            ['12345678', [0], FieldHelper::fromArray(['type' => MYSQLI_TYPE_STRING])],
+            '<dfn onclick="alert(&quot;12345678&quot;);" title="12345678">May 23, 1970 at 09:21 PM</dfn>',
+        ];
+
+        yield [
+            new Text_Plain_Dateformat(),
+            ['123456789', [0], FieldHelper::fromArray(['type' => -1])],
+            '<dfn onclick="alert(&quot;123456789&quot;);" title="123456789">Nov 29, 1973 at 09:33 PM</dfn>',
+        ];
+
+        yield [
+            new Text_Plain_Dateformat(),
+            ['20100201', [0], FieldHelper::fromArray(['type' => -1])],
+            '<dfn onclick="alert(&quot;20100201&quot;);" title="20100201">Feb 01, 2010 at 12:00 AM</dfn>',
+        ];
+
+        yield [
+            new Text_Plain_Dateformat(),
+            ['1617153941', ['0', '%B %d, %Y at %I:%M %p', 'local'], FieldHelper::fromArray(['type' => -1])],
+            '<dfn onclick="alert(&quot;1617153941&quot;);" title="1617153941">Mar 31, 2021 at 01:25 AM</dfn>',
+        ];
+
+        yield [
+            new Text_Plain_Dateformat(),
+            [
+                '1617153941',
+                [
+                    '0',
+                    '',// Empty uses the "Y-m-d  H:i:s" format
+                    'utc',
+                ],
+                FieldHelper::fromArray(['type' => -1]),
+            ],
+            '<dfn onclick="alert(&quot;1617153941&quot;);" title="1617153941">2021-03-31  01:25:41</dfn>',
+        ];
+
+        yield [
+            new Text_Plain_Dateformat(),
+            [
+                '1617153941',
+                [
+                    '0',
+                    '',// Empty uses the "%B %d, %Y at %I:%M %p" format
+                    'local',
+                ],
+                FieldHelper::fromArray(['type' => -1]),
+            ],
+            '<dfn onclick="alert(&quot;1617153941&quot;);" title="1617153941">Mar 31, 2021 at 01:25 AM</dfn>',
+        ];
+
+        yield [
+            new Text_Plain_Dateformat(),
+            ['1617153941', ['0', 'H:i:s Y-d-m', 'utc'], FieldHelper::fromArray(['type' => -1])],
+            '<dfn onclick="alert(&quot;1617153941&quot;);" title="1617153941">01:25:41 2021-31-03</dfn>',
+        ];
+
+        yield [
+            new Text_Plain_External(),
+            ['PMA_BUFFER', ['/dev/null -i -wrap -q', '/dev/null -i -wrap -q']],
+            'PMA_BUFFER',
+        ];
+
+        yield [
+            new Text_Plain_Formatted(),
+            ["<a ref='https://www.example.com/'>PMA_BUFFER</a>", ['option1', 'option2']],
+            "<iframe srcdoc=\"<a ref='https://www.example.com/'>PMA_BUFFER</a>\" sandbox=\"\"></iframe>",
+        ];
+
+        yield [
+            new Text_Plain_Formatted(),
+            ['<a ref="https://www.example.com/">PMA_BUFFER</a>', ['option1', 'option2']],
+            "<iframe srcdoc=\"<a ref='https://www.example.com/'>PMA_BUFFER</a>\" sandbox=\"\"></iframe>",
+        ];
+
+        yield [
+            new Text_Plain_Imagelink(),
+            ['PMA_IMAGE', ['http://image/', '200']],
+            '<a href="http://image/PMA_IMAGE" rel="noopener noreferrer" target="_blank">' . "\n"
+            . '    <img src="http://image/PMA_IMAGE" border="0" width="200" height="50">' . "\n"
+            . '    PMA_IMAGE' . "\n"
+            . '</a>' . "\n",
+        ];
+
+        yield [new Text_Plain_Imagelink(), ['PMA_IMAGE', ['./image/', '200']], './image/PMA_IMAGE'];
+        yield [
+            new Text_Plain_Sql(),
+            ['select *', ['option1', 'option2']],
+            '<pre><code class="sql" dir="ltr">'
+            . 'select *'
+            . '</code></pre>',
+        ];
+
+        yield [new Text_Plain_Link(), ['PMA_TXT_LINK', ['./php/', 'text_name']], './php/PMA_TXT_LINK'];
+        yield [new Text_Plain_Link(), ['PMA_TXT_LINK', []], 'PMA_TXT_LINK'];
+        yield [
+            new Text_Plain_Link(),
+            ['https://example.com/PMA_TXT_LINK', []],
+            '<a href="https://example.com/PMA_TXT_LINK" title=""'
+            . ' target="_blank" rel="noopener noreferrer">https://example.com/PMA_TXT_LINK</a>',
+        ];
+
+        yield [new Text_Plain_Link(), ['PMA_TXT_LINK', ['./php/', 'text_name']], './php/PMA_TXT_LINK'];
+        yield [new Text_Plain_Longtoipv4(), ['42949672', []], '2.143.92.40'];
+        yield [new Text_Plain_Longtoipv4(), ['4294967295', ['option1', 'option2']], '255.255.255.255'];
+        yield [new Text_Plain_PreApPend(), ['My', ['php', 'Admin']], 'phpMyAdmin'];
+        yield [new Text_Plain_Substring(), ['PMA_BUFFER', [1, 3, 'suffix']], 'suffixMA_suffix'];
+        yield [new Text_Plain_Substring(), ['PMA_BUFFER', ['1', '3', 'suffix']], 'suffixMA_suffix'];
+        yield [new Text_Plain_Substring(), ['PMA_BUFFER', ['2']], '…A_BUFFER'];
+        yield [new Text_Plain_Substring(), ['PMA_BUFFER', [2]], '…A_BUFFER'];
+        yield [new Text_Plain_Substring(), ['PMA_BUFFER', [0]], 'PMA_BUFFER'];
+        yield [new Text_Plain_Substring(), ['PMA_BUFFER', ['0']], 'PMA_BUFFER'];
+        yield [new Text_Plain_Substring(), ['PMA_BUFFER', [-1]], '…R…'];
+        yield [new Text_Plain_Substring(), ['PMA_BUFFER', ['-1']], '…R…'];
+        yield [new Text_Plain_Substring(), ['PMA_BUFFER', [0, 2]], 'PM…'];
+        yield [new Text_Plain_Substring(), ['PMA_BUFFER', ['0', '2']], 'PM…'];
+        yield [new Text_Plain_Substring(), ['2', []], '2'];
+        yield [new Text_Plain_Longtoipv4(), ['168496141'], '10.11.12.13'];
+        yield [new Text_Plain_Longtoipv4(), ['my ip'], 'my ip'];
+        yield [new Text_Plain_Longtoipv4(), ['<my ip>'], '&lt;my ip&gt;'];
+        yield [new Text_Plain_Iptolong(), ['10.11.12.13'], '168496141'];
+        yield [new Text_Plain_Iptolong(), ['10.11.12.913'], '10.11.12.913'];
+        yield [new Text_Plain_Iptolong(), ['my ip'], 'my ip'];
+        yield [new Text_Plain_Iptolong(), ['<my ip>'], '<my ip>'];
+
+        if (! function_exists('imagecreatetruecolor')) {
+            return;
         }
 
-        return $result;
+        yield [
+            new Image_JPEG_Inline(),
+            [
+                'PMA_JPEG_Inline',
+                [
+                    0 => './image/',
+                    1 => '200',
+                    'wrapper_link' => 'PMA_wrapper_link',
+                    'wrapper_params' => ['key' => 'value'],
+                ],
+            ],
+            '<a href="index.php?route=/transformation/wrapper&key=value&lang=en" '
+            . 'rel="noopener noreferrer" target="_blank"><img src="index.php?route=/transformation/wrapper'
+            . '&key=value&resize=jpeg&newWidth=0&'
+            . 'newHeight=200&lang=en" alt="[PMA_JPEG_Inline]" border="0"></a>',
+        ];
+
+        yield [
+            new Image_PNG_Inline(),
+            [
+                'PMA_PNG_Inline',
+                [
+                    0 => './image/',
+                    1 => '200',
+                    'wrapper_link' => 'PMA_wrapper_link',
+                    'wrapper_params' => ['key' => 'value'],
+                ],
+            ],
+            '<a href="index.php?route=/transformation/wrapper&key=value&lang=en"'
+            . ' rel="noopener noreferrer" target="_blank"><img src="index.php?route=/transformation/wrapper'
+            . '&key=value&resize=jpeg&newWidth=0&newHeight=200&lang=en" '
+            . 'alt="[PMA_PNG_Inline]" border="0"></a>',
+        ];
     }
 
     /**

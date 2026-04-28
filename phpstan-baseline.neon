@@ -2464,6 +2464,12 @@ parameters:
 			path: src/Controllers/Server/Status/VariablesController.php
 
 		-
+			message: '#^Cannot access an offset on bool\|float\|int\|list\<array\<string, array\<string, string\>\|string\>\>\|string\|null\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Controllers/Server/Status/VariablesController.php
+
+		-
 			message: '#^Only booleans are allowed in a negated boolean, mixed given\.$#'
 			identifier: booleanNot.exprNotBoolean
 			count: 1
@@ -3178,12 +3184,6 @@ parameters:
 			path: src/Controllers/Table/SearchController.php
 
 		-
-			message: '#^Parameter \#1 \$type of method PhpMyAdmin\\Types\:\:getIntegerRange\(\) expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Table/SearchController.php
-
-		-
 			message: '#^Parameter \#1 \$type of method PhpMyAdmin\\Types\:\:getTypeOperatorsHtml\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
@@ -3683,12 +3683,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#1 \$string of function strtoupper expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Table/ZoomSearchController.php
-
-		-
-			message: '#^Parameter \#1 \$type of method PhpMyAdmin\\Types\:\:getIntegerRange\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Table/ZoomSearchController.php
@@ -4681,12 +4675,6 @@ parameters:
 			path: src/Database/Routines.php
 
 		-
-			message: '#^Parameter \#2 \$array of function implode expects array, list\<string\|null\>\|string given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Database/Routines.php
-
-		-
 			message: '#^Parameter \#2 \$array of function implode expects array\<string\>, array\<mixed, mixed\> given\.$#'
 			identifier: argument.type
 			count: 1
@@ -5584,12 +5572,6 @@ parameters:
 			path: src/Error/Error.php
 
 		-
-			message: '#^Cannot access offset mixed on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Error/Error.php
-
-		-
 			message: '#^Only booleans are allowed in \|\|, int\<0, 18176\> given on the right side\.$#'
 			identifier: booleanOr.rightNotBoolean
 			count: 1
@@ -5616,6 +5598,12 @@ parameters:
 		-
 			message: '#^Parameter \#2 \$function of static method PhpMyAdmin\\Error\\Error\:\:getArg\(\) expects string, mixed given\.$#'
 			identifier: argument.type
+			count: 1
+			path: src/Error/Error.php
+
+		-
+			message: '#^Possibly invalid array key type mixed\.$#'
+			identifier: offsetAccess.invalidOffset
 			count: 1
 			path: src/Error/Error.php
 
@@ -5931,12 +5919,6 @@ parameters:
 		-
 			message: '#^Call to function in_array\(\) requires parameter \#3 to be true\.$#'
 			identifier: function.strict
-			count: 1
-			path: src/Favorites/RecentFavoriteTables.php
-
-		-
-			message: '#^Cannot access an offset on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
 			path: src/Favorites/RecentFavoriteTables.php
 
@@ -8518,7 +8500,7 @@ parameters:
 			path: src/Plugins/Auth/AuthenticationSignon.php
 
 		-
-			message: '#^Parameter \#1 \$options of function session_set_cookie_params expects array\{lifetime\?\: int, path\?\: string\|null, domain\?\: string\|null, secure\?\: bool\|null, httponly\?\: bool\|null, samesite\?\: ''Lax''\|''lax''\|''None''\|''none''\|''Strict''\|''strict''\}, array\<mixed\> given\.$#'
+			message: '#^Parameter \#1 \$options of function session_set_cookie_params expects array\{lifetime\?\: int, path\?\: string\|null, domain\?\: string\|null, secure\?\: bool\|null, httponly\?\: bool\|null, samesite\?\: ''Lax''\|''lax''\|''None''\|''none''\|''Strict''\|''strict''\}, non\-empty\-array\<mixed\> given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Plugins/Auth/AuthenticationSignon.php
@@ -13537,18 +13519,6 @@ parameters:
 			path: tests/config.e2e.inc.php
 
 		-
-			message: '#^Cannot access offset ''auth_type'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: tests/config.e2e.inc.php
-
-		-
-			message: '#^Cannot access offset ''host'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: tests/config.e2e.inc.php
-
-		-
 			message: '#^Cannot access offset ''verbose'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
@@ -14032,63 +14002,75 @@ parameters:
 			path: tests/unit/Config/PageSettingsTest.php
 
 		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) with ''notice'' and array\{blowfish_secret\: ''aaaaaaaaaaaaaaaaaaa…'', Servers\: array\{1\: array\{host\: ''localhost'', auth_type\: ''cookie''\}\}\} will always evaluate to false\.$#'
+			identifier: staticMethod.impossibleType
+			count: 1
+			path: tests/unit/Config/ServerConfigChecksTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) with ''notice'' and array\{blowfish_secret\: ''aaaaaaaaaaaaaaaaaaa…'', Servers\: array\{1\: array\{host\: ''localhost'', ssl\: true, auth_type\: ''cookie'', AllowRoot\: false\}\}\} will always evaluate to false\.$#'
+			identifier: staticMethod.impossibleType
+			count: 1
+			path: tests/unit/Config/ServerConfigChecksTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) with ''notice'' and array\{blowfish_secret\: null, Servers\: array\{1\: array\{host\: ''localhost'', ssl\: true, auth_type\: ''cookie'', AllowRoot\: false\}\}, AllowArbitraryServer\: false, LoginCookieValidity\: \-1, LoginCookieStore\: 0, SaveDir\: '''', TempDir\: '''', GZipDump\: false, \.\.\.\} will always evaluate to false\.$#'
+			identifier: staticMethod.impossibleType
+			count: 1
+			path: tests/unit/Config/ServerConfigChecksTest.php
+
+		-
 			message: '#^Cannot access offset ''AllowArbitraryServer'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
+			count: 1
 			path: tests/unit/Config/ServerConfigChecksTest.php
 
 		-
 			message: '#^Cannot access offset ''BZipDump'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
+			count: 1
 			path: tests/unit/Config/ServerConfigChecksTest.php
 
 		-
 			message: '#^Cannot access offset ''GZipDump'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
+			count: 1
 			path: tests/unit/Config/ServerConfigChecksTest.php
 
 		-
 			message: '#^Cannot access offset ''LoginCookieStore'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
+			count: 1
 			path: tests/unit/Config/ServerConfigChecksTest.php
 
 		-
 			message: '#^Cannot access offset ''LoginCookieValidity'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
+			count: 1
 			path: tests/unit/Config/ServerConfigChecksTest.php
 
 		-
 			message: '#^Cannot access offset ''SaveDir'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
+			count: 1
 			path: tests/unit/Config/ServerConfigChecksTest.php
 
 		-
 			message: '#^Cannot access offset ''Servers'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 4
+			count: 1
 			path: tests/unit/Config/ServerConfigChecksTest.php
 
 		-
 			message: '#^Cannot access offset ''TempDir'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
+			count: 1
 			path: tests/unit/Config/ServerConfigChecksTest.php
 
 		-
 			message: '#^Cannot access offset ''ZipDump'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: tests/unit/Config/ServerConfigChecksTest.php
-
-		-
-			message: '#^Cannot access offset ''blowfish_secret'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 3
+			count: 1
 			path: tests/unit/Config/ServerConfigChecksTest.php
 
 		-
@@ -14100,6 +14082,24 @@ parameters:
 		-
 			message: '#^Cannot access offset ''notice'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/unit/Config/ServerConfigChecksTest.php
+
+		-
+			message: '#^Offset ''blowfish_secret'' on array\{blowfish_secret\: ''aaaaaaaaaaaaaaaaaaa…'', Servers\: array\{1\: array\{host\: ''localhost'', auth_type\: ''cookie''\}\}\} on left side of \?\? always exists and is not nullable\.$#'
+			identifier: nullCoalesce.offset
+			count: 1
+			path: tests/unit/Config/ServerConfigChecksTest.php
+
+		-
+			message: '#^Offset ''blowfish_secret'' on array\{blowfish_secret\: ''aaaaaaaaaaaaaaaaaaa…'', Servers\: array\{1\: array\{host\: ''localhost'', ssl\: true, auth_type\: ''cookie'', AllowRoot\: false\}\}\} on left side of \?\? always exists and is not nullable\.$#'
+			identifier: nullCoalesce.offset
+			count: 1
+			path: tests/unit/Config/ServerConfigChecksTest.php
+
+		-
+			message: '#^Offset ''blowfish_secret'' on array\{blowfish_secret\: null, Servers\: array\{1\: array\{host\: ''localhost'', ssl\: true, auth_type\: ''cookie'', AllowRoot\: false\}\}, AllowArbitraryServer\: false, LoginCookieValidity\: \-1, LoginCookieStore\: 0, SaveDir\: '''', TempDir\: '''', GZipDump\: false, \.\.\.\} on left side of \?\? always exists and is always null\.$#'
+			identifier: nullCoalesce.offset
 			count: 1
 			path: tests/unit/Config/ServerConfigChecksTest.php
 
