@@ -37,7 +37,7 @@ module.exports = [
             'home': rootPath + '/resources/js/home.ts',
             'import': rootPath + '/resources/js/import.ts',
             'jquery.sortable-table': rootPath + '/resources/js/jquery.sortable-table.ts',
-            'jquery-ui-timepicker-addon': rootPath + '/resources/js/jquery-ui-timepicker-addon.js',
+            'jquery-ui-timepicker-addon': rootPath + '/resources/js/jquery-ui-timepicker-addon.ts',
             'main': rootPath + '/resources/js/main.ts',
             'makegrid': rootPath + '/resources/js/makegrid.ts',
             'menu_resizer': rootPath + '/resources/js/menu_resizer.ts',
