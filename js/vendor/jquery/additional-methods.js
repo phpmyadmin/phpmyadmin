@@ -1,9 +1,9 @@
 /*!
- * jQuery Validation Plugin v1.21.0
+ * jQuery Validation Plugin v1.22.1
  *
  * https://jqueryvalidation.org/
  *
- * Copyright (c) 2024 Jörn Zaefferer
+ * Copyright (c) 2026 Jörn Zaefferer
  * Released under the MIT license
  */
 (function( factory ) {
@@ -270,9 +270,9 @@ $.validator.addMethod( "cifES", function( value, element ) {
 	}
 
 	all_sum = even_sum + odd_sum;
-	control_digit = ( 10 - ( all_sum ).toString().substr( -1 ) ).toString();
+	control_digit = ( 10 - ( all_sum ).toString().slice( -1 ) ).toString();
 	control_digit = parseInt( control_digit, 10 ) > 9 ? "0" : control_digit;
-	control_letter = "JABCDEFGHI".substr( control_digit, 1 ).toString();
+	control_letter = "JABCDEFGHI".charAt( control_digit ).toString();
 
 	// Control must be a digit
 	if ( letter.match( /[ABEH]/ ) ) {
