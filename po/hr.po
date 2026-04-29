@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2026-04-28 20:09+0000\n"
+"PO-Revision-Date: 2026-04-30 10:09+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "hr/>\n"
@@ -3843,10 +3843,8 @@ msgid "Show functions in tree"
 msgstr "Veze od zadnjeg osvježavanja"
 
 #: libraries/classes/Config/Descriptions.php:860
-#, fuzzy
-#| msgid "Show processes"
 msgid "Show procedures in tree"
-msgstr "Prikaži procese"
+msgstr "Prikaži procedure"
 
 #: libraries/classes/Config/Descriptions.php:861
 #, fuzzy
@@ -6258,10 +6256,8 @@ msgid "Log analysed, but no data found in this time span."
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:270
-#, fuzzy
-#| msgid "Analyze"
 msgid "Analyzing…"
-msgstr "Analiziraj"
+msgstr "Analiziranje …"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:271
 #, fuzzy
@@ -6480,9 +6476,8 @@ msgstr ""
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:331
 #: templates/navigation/main.twig:58
 #: templates/server/status/monitor/index.twig:95
-#, fuzzy
 msgid "Loading…"
-msgstr "Lokalno"
+msgstr "Učitavanje …"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:332
 msgid "Request aborted!!"
@@ -10830,7 +10825,7 @@ msgstr "Funkcije:"
 
 #: libraries/classes/Navigation/Navigation.php:226
 msgid "Procedures:"
-msgstr "Postupci:"
+msgstr "Procedure:"
 
 #: libraries/classes/Navigation/Navigation.php:227
 #: templates/database/export/index.twig:14
@@ -10896,18 +10891,14 @@ msgid "Columns"
 msgstr "Nazivi stupaca"
 
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:36
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new column"
 msgid "New"
-msgstr "Novo"
+msgstr "Novi"
 
 #: libraries/classes/Navigation/Nodes/NodeDatabaseContainer.php:40
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new database"
 msgid "New"
-msgstr "Novo"
+msgstr "Nova"
 
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:43
 #, fuzzy
@@ -10923,11 +10914,9 @@ msgstr "Prikaži mrežu"
 
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:36
 #: templates/database/events/index.twig:105
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new event"
 msgid "New"
-msgstr "Novo"
+msgstr "Novi"
 
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:24
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:25
@@ -10937,18 +10926,14 @@ msgid "Functions"
 msgstr "Funkcije"
 
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:38
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new function"
 msgid "New"
-msgstr "Novo"
+msgstr "Nova"
 
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:36
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new index"
 msgid "New"
-msgstr "Novo"
+msgstr "Novi"
 
 #: libraries/classes/Navigation/Nodes/Node.php:802
 msgid "Expand/Collapse"
@@ -10959,35 +10944,27 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportSql.php:617
 #: libraries/classes/Plugins/Export/ExportXml.php:125
 msgid "Procedures"
-msgstr "Postupci"
+msgstr "Procedure"
 
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:38
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new procedure"
 msgid "New"
-msgstr "Novo"
+msgstr "Nova"
 
 #: libraries/classes/Navigation/Nodes/NodeProcedure.php:29
-#, fuzzy
-#| msgid "Procedures"
 msgid "Procedure"
-msgstr "Postupci"
+msgstr "Procedura"
 
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:39
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new table"
 msgid "New"
-msgstr "Novo"
+msgstr "Nova"
 
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:36
 #: templates/database/triggers/footer.twig:2
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new trigger"
 msgid "New"
-msgstr "Novo"
+msgstr "Novi"
 
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:24
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:25
@@ -10999,11 +10976,9 @@ msgid "Views"
 msgstr "Prikaz"
 
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:39
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new view"
 msgid "New"
-msgstr "Novo"
+msgstr "Novi"
 
 #: libraries/classes/Normalization.php:227
 msgid "Make all columns atomic"
@@ -16753,7 +16728,7 @@ msgstr "PHP ekstenzija:"
 
 #: templates/home/index.twig:174
 msgid "PHP version:"
-msgstr "PHP  verzija:"
+msgstr "PHP verzija:"
 
 #: templates/home/index.twig:181
 msgid "Show PHP information"
@@ -16769,7 +16744,7 @@ msgstr "Službena stranica programa phpMyAdmin"
 
 #: templates/home/index.twig:210
 msgid "Contribute"
-msgstr "Doprinijeti"
+msgstr "Doprinesi"
 
 #: templates/home/index.twig:215
 msgid "Get support"
