@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2026-04-28 20:09+0000\n"
+"PO-Revision-Date: 2026-04-30 10:09+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "hr/>\n"
@@ -728,7 +728,7 @@ msgstr "PHP ekstenzija:"
 
 #: index.php:417
 msgid "PHP version:"
-msgstr "PHP  verzija:"
+msgstr "PHP verzija:"
 
 #: index.php:428
 msgid "Show PHP information"
@@ -754,7 +754,7 @@ msgstr "Službena stranica programa phpMyAdmin"
 
 #: index.php:472
 msgid "Contribute"
-msgstr "Doprinijeti"
+msgstr "Doprinesi"
 
 #: index.php:479
 msgid "Get support"
@@ -1569,7 +1569,7 @@ msgstr ""
 
 #: js/messages.php:290
 msgid "Analyzing…"
-msgstr "Analiziranje…"
+msgstr "Analiziranje …"
 
 #: js/messages.php:291
 #, fuzzy
@@ -1803,9 +1803,8 @@ msgstr "Primijeni"
 
 #: js/messages.php:362 libraries/classes/Navigation/NavigationHeader.php:61
 #: libraries/classes/Server/Status/Monitor.php:130
-#, fuzzy
 msgid "Loading…"
-msgstr "Lokalno"
+msgstr "Učitavanje …"
 
 #: js/messages.php:363
 msgid "Request aborted!!"
@@ -5289,10 +5288,8 @@ msgid "Whether to show functions under database in the navigation tree"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:849
-#, fuzzy
-#| msgid "Show processes"
 msgid "Show procedures in tree"
-msgstr "Prikaži procese"
+msgstr "Prikaži procedure"
 
 #: libraries/classes/Config/Descriptions.php:851
 msgid "Whether to show procedures under database in the navigation tree"
@@ -8747,7 +8744,7 @@ msgstr "Funkcije:"
 
 #: libraries/classes/Navigation/Navigation.php:210
 msgid "Procedures:"
-msgstr "Postupci:"
+msgstr "Procedure:"
 
 #: libraries/classes/Navigation/Navigation.php:211
 #: templates/display/export/selection.twig:5
@@ -8892,17 +8889,15 @@ msgid "New"
 msgstr "Novi"
 
 #: libraries/classes/Navigation/Nodes/NodeProcedure.php:30
-#, fuzzy
-#| msgid "Procedures"
 msgid "Procedure"
-msgstr "Postupci"
+msgstr "Procedura"
 
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:26
 #: libraries/classes/Plugins/Export/ExportSql.php:563
 #: libraries/classes/Plugins/Export/ExportXml.php:116
 msgid "Procedures"
-msgstr "Postupci"
+msgstr "Procedure"
 
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:35
 #: libraries/classes/Rte/Footer.php:37
@@ -12617,22 +12612,20 @@ msgid "Advisor"
 msgstr ""
 
 #: libraries/classes/Server/Status/Data.php:491
-#, fuzzy, php-format
-#| msgid "per second"
+#, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "po sekundi"
-msgstr[1] "po sekundi"
-msgstr[2] "po sekundi"
+msgstr[0] "%d sekunda"
+msgstr[1] "%d sekunde"
+msgstr[2] "%d sekundi"
 
 #: libraries/classes/Server/Status/Data.php:496
-#, fuzzy, php-format
-#| msgid "in use"
+#, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] "u upotrebi"
-msgstr[1] "u upotrebi"
-msgstr[2] "u upotrebi"
+msgstr[0] "%d minuta"
+msgstr[1] "%d minute"
+msgstr[2] "%d minuta"
 
 #: libraries/classes/Server/Status/Monitor.php:73
 #, fuzzy
