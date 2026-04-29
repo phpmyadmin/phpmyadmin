@@ -3,7 +3,7 @@ name: Daily snapshots
 on:
   pull_request:
     paths:
-      - '.github/workflows/daily-snapshots.yml'
+      - '.github/aripitek/workflows/daily-snapshots.yml'
       - 'bin/**'
   workflow_dispatch:
   schedule:
