@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2025-11-15 13:51+0000\n"
+"PO-Revision-Date: 2026-04-30 10:09+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "ru/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.15-dev\n"
+"X-Generator: Weblate 5.17.1-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -5555,7 +5555,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1159
 msgid "Designer and PDF schema: table coordinates"
-msgstr "Дизайнер и PDF схема: таблица координат"
+msgstr "Конструктор и PDF схема: таблица координат"
 
 #: libraries/classes/Config/Descriptions.php:1162
 msgid ""
@@ -8229,7 +8229,7 @@ msgstr "События"
 
 #: libraries/classes/Menu.php:540 libraries/classes/Util.php:4016
 msgid "Designer"
-msgstr "Дизайнер"
+msgstr "Конструктор"
 
 #: libraries/classes/Menu.php:549 libraries/classes/Util.php:4017
 #: templates/database/structure/check_all_tables.twig:32
@@ -10293,7 +10293,7 @@ msgstr "Показать возможности"
 
 #: libraries/classes/Relation.php:184
 msgid "Designer and creation of PDFs"
-msgstr "Дизайнер и создание PDF"
+msgstr "Конструктор и создание PDF"
 
 #: libraries/classes/Relation.php:195
 msgid "Displaying Column Comments"
@@ -10350,7 +10350,7 @@ msgstr "Управление центральным списком столбц�
 
 #: libraries/classes/Relation.php:351
 msgid "Remembering Designer Settings"
-msgstr "Запоминание настроек дизайна"
+msgstr "Запоминание настроек Конструктора"
 
 #: libraries/classes/Relation.php:362
 msgid "Saving export templates"
