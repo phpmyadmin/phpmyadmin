@@ -102,6 +102,32 @@ class ServerSettingsTest extends TestBase
     }
 
     /**
+     * Tests that the active preferences tab is restored after a page refresh
+     *
+     * @group large
+     */
+    public function testActiveTabRestoredAfterRefresh(): void
+    {
+        $this->byPartialLinkText('Main panel')->click();
+        $this->waitAjax();
+
+        $this->waitForElement('className', 'nav-tabs');
+
+        // Switch to a non-default tab
+        $this->byCssSelector("a[href='#Tabs']")->click();
+        self::assertTrue($this->byId('Tabs')->isDisplayed());
+        self::assertFalse($this->byId('Startup')->isDisplayed());
+
+        // Reload the page – the hash is preserved in the URL
+        $this->reloadPage();
+        $this->waitAjax();
+
+        // The previously active tab must still be shown
+        self::assertTrue($this->byId('Tabs')->isDisplayed());
+        self::assertFalse($this->byId('Startup')->isDisplayed());
+    }
+
+    /**
      * Tests if hiding the logo works or not
      *
      * @group large
