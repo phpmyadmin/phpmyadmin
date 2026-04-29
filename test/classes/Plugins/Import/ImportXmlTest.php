@@ -182,6 +182,51 @@ SQL;
     }
 
     /**
+     * Test for doImport with numeric-looking string values
+     *
+     * @group medium
+     * @requires extension simplexml
+     */
+    public function testDoImportNumericStringValues(): void
+    {
+        global $sql_query;
+
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
+        $GLOBALS['dbi'] = $dbi;
+
+        $GLOBALS['import_file'] = 'test/test_data/phpmyadmin_importXML_Numeric_String_For_Testing.xml';
+
+        $importHandle = new File($GLOBALS['import_file']);
+        $importHandle->open();
+
+        $this->object->doImport($importHandle);
+
+        $expectedQuery = <<<'SQL'
+CREATE DATABASE IF NOT EXISTS `testdata` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;;USE `testdata`;
+CREATE TABLE IF NOT EXISTS `test_data` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `data` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `data` (`data`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+            ;INSERT INTO `testdata`.`test_data` (`id`, `data`) VALUES (3, '01234'),
+ (2, 1234),
+ (1, 'abcd');;
+SQL;
+
+        self::assertSame(
+            $expectedQuery,
+            $sql_query
+        );
+
+        self::assertTrue($GLOBALS['finished']);
+    }
+
+    /**
      * Test for doImport using no database dataset
      *
      * @group medium
