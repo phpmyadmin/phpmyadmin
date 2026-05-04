@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2026-04-19 12:09+0000\n"
+"PO-Revision-Date: 2026-05-04 18:09+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "lv/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2;\n"
-"X-Generator: Weblate 5.17.1-dev\n"
+"X-Generator: Weblate 5.17.1\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -358,7 +358,7 @@ msgstr "Pieeja aizliegta!"
 
 #: db_tracking.php:55 db_tracking.php:80
 msgid "Tracking data deleted successfully."
-msgstr "Atsekošanas dati veiksmīgi dzēsti."
+msgstr "Izsekošanas dati veiksmīgi dzēsti."
 
 #: db_tracking.php:64
 #, php-format
@@ -1771,7 +1771,7 @@ msgstr "Mainīt uzstādījumus"
 
 #: js/messages.php:359 templates/config/form_display/fieldset_bottom.twig:8
 msgid "Apply"
-msgstr ""
+msgstr "Pielietot"
 
 #: js/messages.php:362 libraries/classes/Navigation/NavigationHeader.php:61
 #: libraries/classes/Server/Status/Monitor.php:130
@@ -2284,7 +2284,7 @@ msgstr "Līnija"
 
 #: js/messages.php:526
 msgid "Polygon"
-msgstr ""
+msgstr "Daudzstūris"
 
 #: js/messages.php:527 templates/display/results/options_block.twig:79
 msgid "Geometry"
@@ -2849,7 +2849,7 @@ msgstr "Binārais"
 
 #: js/messages.php:799
 msgid "February"
-msgstr ""
+msgstr "Februāris"
 
 #: js/messages.php:800
 #, fuzzy
@@ -2887,7 +2887,7 @@ msgstr "Aug"
 
 #: js/messages.php:806
 msgid "September"
-msgstr ""
+msgstr "Septembris"
 
 #: js/messages.php:807
 #, fuzzy
@@ -2897,11 +2897,11 @@ msgstr "Okt"
 
 #: js/messages.php:808
 msgid "November"
-msgstr ""
+msgstr "Novembris"
 
 #: js/messages.php:809
 msgid "December"
-msgstr ""
+msgstr "Decembris"
 
 #. l10n: Short month name
 #: js/messages.php:816 libraries/classes/Util.php:1481
@@ -2986,11 +2986,11 @@ msgstr "O"
 
 #: js/messages.php:847
 msgid "Wednesday"
-msgstr ""
+msgstr "Trešdiena"
 
 #: js/messages.php:848
 msgid "Thursday"
-msgstr ""
+msgstr "Ceturtdiena"
 
 #: js/messages.php:849
 #, fuzzy
@@ -3000,7 +3000,7 @@ msgstr "Pk"
 
 #: js/messages.php:850
 msgid "Saturday"
-msgstr ""
+msgstr "Sestdiena"
 
 #. l10n: Short week day name for Sunday
 #: js/messages.php:857
@@ -3092,7 +3092,7 @@ msgstr "S"
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:892
 msgid "Wk"
-msgstr ""
+msgstr "Ned."
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year"
 #. * or "calendar-year-month".
@@ -3112,7 +3112,7 @@ msgstr "Nav"
 
 #: js/messages.php:914
 msgid "Hour"
-msgstr ""
+msgstr "Stunda"
 
 #: js/messages.php:915
 #, fuzzy
@@ -4870,7 +4870,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:603
 #: templates/console/display.twig:4
 msgid "Console"
-msgstr ""
+msgstr "Konsole"
 
 #: libraries/classes/Config/Descriptions.php:606
 msgid "Enable gzip compression for import and export operations."
@@ -7240,7 +7240,7 @@ msgstr "Vai:"
 #: libraries/classes/Database/Qbe.php:854
 #: libraries/classes/Database/Qbe.php:946
 msgid "And:"
-msgstr ""
+msgstr "Un:"
 
 #: libraries/classes/Database/Qbe.php:859
 msgid "Ins"
@@ -12623,10 +12623,8 @@ msgid "#"
 msgstr ""
 
 #: libraries/classes/Server/Status/Variables.php:52 templates/filter.twig:4
-#, fuzzy
-#| msgid "Do not change the password"
 msgid "Containing the word:"
-msgstr "Nemainīt paroli"
+msgstr "Satur vārdu:"
 
 #: libraries/classes/Server/Status/Variables.php:60
 #, fuzzy
@@ -14834,12 +14832,12 @@ msgstr "Izpildīt iegrāmatoto vaicājumu"
 #: templates/console/display.twig:31 templates/console/display.twig:84
 #: templates/console/display.twig:175 templates/console/bookmark_content.twig:7
 msgid "Collapse"
-msgstr ""
+msgstr "Sakļaut"
 
 #: templates/console/display.twig:31 templates/console/display.twig:84
 #: templates/console/display.twig:175 templates/console/bookmark_content.twig:7
 msgid "Expand"
-msgstr ""
+msgstr "Izvērst"
 
 #: templates/console/display.twig:31 templates/console/display.twig:175
 #: templates/console/bookmark_content.twig:7
@@ -15401,10 +15399,8 @@ msgstr "Papildu meklēšanas kritēriji"
 
 #: templates/login/twofactor/application.twig:2
 #: templates/login/twofactor/application_configure.twig:21
-#, fuzzy
-#| msgid "Documentation"
 msgid "Authentication code:"
-msgstr "Dokumentācija"
+msgstr "Autentifikācijas kods:"
 
 #: templates/login/twofactor/application.twig:4
 msgid ""
@@ -15779,10 +15775,8 @@ msgid "Deactivate now"
 msgstr ""
 
 #: templates/display/export/method.twig:3
-#, fuzzy
-#| msgid "Export type"
 msgid "Export method:"
-msgstr "Eksporta veids"
+msgstr "Izgūšanas veids:"
 
 #: templates/display/export/method.twig:9
 msgid "Quick - display only the minimal options"
@@ -15834,10 +15828,8 @@ msgid "Size"
 msgstr "Izmērs"
 
 #: templates/display/export/options_rows.twig:2
-#, fuzzy
-#| msgid "Rows"
 msgid "Rows:"
-msgstr "Rindas"
+msgstr "Ierakstu rindas:"
 
 #: templates/display/export/options_rows.twig:7
 msgid "Dump some row(s)"
@@ -15963,10 +15955,8 @@ msgstr "Pievienot %s lauku(s)"
 
 #: templates/display/export/options_format.twig:2
 #: templates/display/import/import.twig:174
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Format-specific options:"
-msgstr "Transformācijas opcijas"
+msgstr "Formāta parametri:"
 
 #: templates/display/export/options_format.twig:4
 #: templates/display/import/import.twig:176
@@ -16104,9 +16094,8 @@ msgid "None"
 msgstr "Nav"
 
 #: templates/display/export/template_loading.twig:2
-#, fuzzy
 msgid "Export templates:"
-msgstr "Eksporta veids"
+msgstr "Izgūt veidnes:"
 
 #: templates/display/export/template_loading.twig:6
 msgid "New template:"
@@ -16760,10 +16749,8 @@ msgid "Define new aliases"
 msgstr ""
 
 #: templates/export/alias_add.twig:9
-#, fuzzy
-#| msgid "Select Tables"
 msgid "Select database:"
-msgstr "Izvēlieties tabulas"
+msgstr "Atlasiet datubāzi:"
 
 #: templates/export/alias_add.twig:15
 #, fuzzy
@@ -16772,10 +16759,8 @@ msgid "New database name"
 msgstr "Datubāze"
 
 #: templates/export/alias_add.twig:23
-#, fuzzy
-#| msgid "Select Tables"
 msgid "Select table:"
-msgstr "Izvēlieties tabulas"
+msgstr "Atlasiet tabulu:"
 
 #: templates/export/alias_add.twig:29
 #, fuzzy
@@ -16784,10 +16769,8 @@ msgid "New table name"
 msgstr "Nav tabulu"
 
 #: templates/export/alias_add.twig:37
-#, fuzzy
-#| msgid "Select two columns"
 msgid "Select column:"
-msgstr "Izvēlies 2 kolonnas"
+msgstr "Atlasiet kolonnu:"
 
 #: templates/export/alias_add.twig:43
 #, fuzzy
