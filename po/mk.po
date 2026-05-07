@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2026-01-30 01:01+0000\n"
+"PO-Revision-Date: 2026-05-07 18:11+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/5-"
 "1/mk/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 5.16-dev\n"
+"X-Generator: Weblate 5.17.1\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -63,9 +63,8 @@ msgid "Current amount of Questions: %s"
 msgstr "Сегашна количина на Прашања: %s"
 
 #: libraries/advisory_rules_generic.php:37
-#, fuzzy
 msgid "Percentage of slow queries"
-msgstr "Прикажи комплетни упити"
+msgstr "Процент на бавни барања"
 
 #: libraries/advisory_rules_generic.php:41
 msgid ""
@@ -87,14 +86,15 @@ msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr "Бавната стапка на барања треба да биде под 5%%, вашата вредност е %s%%."
 
 #: libraries/advisory_rules_generic.php:51
-#, fuzzy
 msgid "Slow query rate"
-msgstr "SQL упит"
+msgstr "Стапка на бавни барања"
 
 #: libraries/advisory_rules_generic.php:55
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
+"Постои висок процент на бавни барања во споредба со времето на непрекината "
+"работа на серверот."
 
 #: libraries/advisory_rules_generic.php:60
 #, php-format
@@ -104,9 +104,8 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:65
-#, fuzzy
 msgid "Long query time"
-msgstr "SQL упит"
+msgstr "Долго време на барање"
 
 #: libraries/advisory_rules_generic.php:69
 msgid ""
@@ -127,16 +126,13 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:81
 #: libraries/advisory_rules_generic.php:94
-#, fuzzy
 msgid "Slow query logging"
-msgstr "SQL упит"
+msgstr "Евидентирање на бавни барања"
 
 #: libraries/advisory_rules_generic.php:85
 #: libraries/advisory_rules_generic.php:98
-#, fuzzy
-#| msgid "The server is not responding"
 msgid "The slow query log is disabled."
-msgstr "Серверот не одговара"
+msgstr "Дневникот за бавни барања е оневозможен."
 
 #: libraries/advisory_rules_generic.php:87
 msgid ""
@@ -177,9 +173,9 @@ msgstr ""
 #: libraries/advisory_rules_generic.php:115
 #: libraries/advisory_rules_generic.php:129
 #: libraries/advisory_rules_generic.php:140
-#, fuzzy, php-format
+#, php-format
 msgid "Current version: %s"
-msgstr "Верзија на серверот"
+msgstr "Тековна верзија: %s"
 
 #: libraries/advisory_rules_generic.php:120
 #: libraries/advisory_rules_generic.php:134
@@ -319,10 +315,8 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:220
-#, fuzzy
-#| msgid "Allows creating temporary tables."
 msgid "Rate of sorts that cause temporary tables"
-msgstr "Дозволува креирање на привремени табели…"
+msgstr "Стапка на сортирања што предизвикуваат привремени табели"
 
 #: libraries/advisory_rules_generic.php:228
 #, fuzzy, php-format
@@ -14221,10 +14215,8 @@ msgstr "Позиција"
 
 #: templates/columns_definitions/partitions.twig:32
 #: templates/columns_definitions/partitions.twig:60
-#, fuzzy
-#| msgid "Number of rows per page"
 msgid "Expression or column list"
-msgstr "Број на записи на страница"
+msgstr "Израз или список на колони"
 
 #: templates/columns_definitions/partitions.twig:37
 #, fuzzy
@@ -14261,27 +14253,20 @@ msgid "Engine"
 msgstr "Мотор"
 
 #: templates/columns_definitions/partitions.twig:86
-#, fuzzy
-#| msgid "Data home directory"
 msgid "Data directory"
-msgstr "Основен директориум на податоците"
+msgstr "Директориум за податоци"
 
 #: templates/columns_definitions/partitions.twig:87
-#, fuzzy
 msgid "Index directory"
-msgstr "Основен директориум на податоците"
+msgstr "Директориум за индекси"
 
 #: templates/columns_definitions/partitions.twig:88
-#, fuzzy
-#| msgid "Latched pages"
 msgid "Max rows"
-msgstr "Заглавени страници"
+msgstr "Максимален број редови"
 
 #: templates/columns_definitions/partitions.twig:89
-#, fuzzy
-#| msgid "rows"
 msgid "Min rows"
-msgstr "Преглед"
+msgstr "Минимален број редови"
 
 #: templates/columns_definitions/partitions.twig:90
 #, fuzzy
@@ -18994,10 +18979,8 @@ msgid "table-specific"
 msgstr "Специфично за базата на податоци"
 
 #: templates/table/relation/common_form.twig:9
-#, fuzzy
-#| msgid "Disable foreign key checks"
 msgid "Foreign key constraints"
-msgstr "Исклучи проверка на надворешни клучеви"
+msgstr "Oграничувањa на странски клуч"
 
 #: templates/table/relation/common_form.twig:14
 msgid "Actions"
@@ -19023,7 +19006,7 @@ msgstr ""
 
 #: templates/table/relation/common_form.twig:28
 msgid "Foreign key constraint"
-msgstr ""
+msgstr "Oграничување на странски клуч"
 
 #: templates/table/relation/common_form.twig:93
 #, fuzzy
