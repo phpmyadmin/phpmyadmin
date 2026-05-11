@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2026-05-07 18:11+0000\n"
+"PO-Revision-Date: 2026-05-12 09:11+0000\n"
 "Last-Translator: ButterflyOfFire <boffire@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Kabyle <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "kab/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.17.1\n"
+"X-Generator: Weblate 2026.5-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -2260,15 +2260,13 @@ msgstr ""
 
 #: js/messages.php:567 templates/database/designer/side_menu.twig:57
 #: templates/database/designer/side_menu.twig:60
-#, fuzzy
 msgid "Save page"
-msgstr "Kles asebtar"
+msgstr "Kles asebter"
 
 #: js/messages.php:568 templates/database/designer/side_menu.twig:64
 #: templates/database/designer/side_menu.twig:67
-#, fuzzy
 msgid "Save page as"
-msgstr "Kles asebtar daw"
+msgstr "Kles asebter am"
 
 #: js/messages.php:569 templates/database/designer/side_menu.twig:50
 #: templates/database/designer/side_menu.twig:53
