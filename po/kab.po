@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-02-25 10:35-0300\n"
-"PO-Revision-Date: 2026-05-07 18:11+0000\n"
+"PO-Revision-Date: 2026-05-12 09:11+0000\n"
 "Last-Translator: ButterflyOfFire <boffire@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Kabyle <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "kab/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.17.1\n"
+"X-Generator: Weblate 2026.5-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -6602,16 +6602,14 @@ msgstr ""
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:527
 #: templates/database/designer/main.twig:63
 #: templates/database/designer/main.twig:66
-#, fuzzy
 msgid "Save page"
-msgstr "Kles asebtar"
+msgstr "Kles asebter"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:528
 #: templates/database/designer/main.twig:70
 #: templates/database/designer/main.twig:73
-#, fuzzy
 msgid "Save page as"
-msgstr "Kles asebtar daw"
+msgstr "Kles asebter am"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:529
 #: templates/database/designer/main.twig:56
@@ -16641,9 +16639,8 @@ msgid "Drop the databases that have the same names as the users."
 msgstr ""
 
 #: templates/server/privileges/users_overview.twig:178
-#, fuzzy
 msgid "Save changes"
-msgstr "Kles asebtar"
+msgstr "Sekles ibeddilen"
 
 #: templates/server/replication/change_primary.twig:5
 #, fuzzy
