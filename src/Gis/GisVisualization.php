@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;
 
+use Com\Tecnick\Pdf\Tcpdf;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Gis\Ds\Extent;
@@ -14,7 +15,7 @@ use PhpMyAdmin\Gis\Ds\FileDownload;
 use PhpMyAdmin\Gis\Ds\ScaleData;
 use PhpMyAdmin\Image\ImageWrapper;
 use PhpMyAdmin\Util;
-use TCPDF;
+use PhpMyAdmin\Version;
 
 use function assert;
 use function count;
@@ -340,25 +341,19 @@ class GisVisualization
         $pdf = $this->createEmptyPdf(Config::getInstance()->config->PDFDefaultPageSize ?? 'A4');
         $this->prepareDataSet($this->data, 'pdf', $pdf);
 
-        $blob = $pdf->Output('', 'S');
+        $blob = $pdf->getOutPDFString();
 
         return new FileDownload(mime: 'application/pdf', extension: 'pdf', blob: $blob);
     }
 
-    private function createEmptyPdf(string $format): TCPDF
+    private function createEmptyPdf(string $format): Tcpdf
     {
-        $pdf = new TCPDF(
-            orientation: 'P',
-            unit: 'pt',
-            format: $format,
-            unicode: true,
-            encoding: 'UTF-8',
-            diskcache: false,
-        );
-        $pdf->setPrintHeader(false);
-        $pdf->setPrintFooter(false);
-        $pdf->setAutoPageBreak(false);
-        $pdf->AddPage();
+        $pdf = new Tcpdf('pt', compress: false);
+        $pdf->setCreator('phpMyAdmin ' . Version::VERSION);
+        $fontRegular = $pdf->font->insert($pdf->pon, 'helvetica', '', 14);
+        $pdf->addPage(['format' => $format, 'orientation' => 'P']);
+        $pdf->page->enableAutoPageBreak(false);
+        $pdf->page->addContent($fontRegular['out']);
 
         return $pdf;
     }
@@ -438,7 +433,7 @@ class GisVisualization
      *
      * @param mixed[][]               $data     Raw data
      * @param string                  $format   Format of the visualization
-     * @param ImageWrapper|TCPDF|null $renderer Image object in the case of png, TCPDF object in the case of pdf
+     * @param ImageWrapper|Tcpdf|null $renderer Image object in the case of png, TCPDF object in the case of pdf
      * @psalm-param T $format
      *
      * @psalm-return (T is 'svg' ? string : (T is 'ol' ? list<array{wkt: string, srid?: int, label?: string}> : null))
@@ -449,7 +444,7 @@ class GisVisualization
     private function prepareDataSet(
         array $data,
         string $format,
-        ImageWrapper|TCPDF|null $renderer = null,
+        ImageWrapper|Tcpdf|null $renderer = null,
     ): array|string|null {
         $svg = '';
         $olDataset = [];
@@ -478,7 +473,7 @@ class GisVisualization
                     assert($renderer instanceof ImageWrapper);
                     $gisObj->prepareRowAsPng($wkt, $label, $color, $scaleData, $renderer);
                 } elseif ($format === 'pdf') {
-                    assert($renderer instanceof TCPDF);
+                    assert($renderer instanceof Tcpdf);
                     $gisObj->prepareRowAsPdf($wkt, $label, $color, $scaleData, $renderer);
                 } elseif ($format === 'ol') {
                     $olDataset[] = $gisObj->prepareRowAsOl($wkt, (int) $row['srid'], $label);
