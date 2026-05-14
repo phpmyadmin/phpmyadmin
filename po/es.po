@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-02-25 10:35-0300\n"
-"PO-Revision-Date: 2025-02-24 01:46+0000\n"
+"PO-Revision-Date: 2026-05-15 16:11+0000\n"
 "Last-Translator: Salvador Peña <salvadorp74@hotmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "es/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.1-dev\n"
+"X-Generator: Weblate 2026.6.dev0\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -5432,34 +5432,25 @@ msgstr ""
 "[doc@cfg_blowfish_secret]documentación[/doc]."
 
 #: libraries/classes/Controllers/HomeController.php:363
-#, fuzzy
-#| msgid ""
-#| "The configuration file needs a valid key for cookie encryption. A "
-#| "temporary key was automatically generated for you. Please refer to the "
-#| "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgid ""
 "The configuration file needs a valid key for query encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
 msgstr ""
-"El archivo de configuración necesita una clave válida para el cifrado de las "
-"cookies. Se ha generado automáticamente una clave temporal para ti. Consulta "
-"la [doc@cfg_blowfish_secret]documentación[/doc]."
+"El archivo de configuración necesita una clave válida para el cifrado de "
+"consulta. Se ha generado automáticamente una clave temporal para ti. "
+"Consulta la [doc@cfg_URLQueryEncryptionSecretKey]documentación[/doc]."
 
 #: libraries/classes/Controllers/HomeController.php:373
-#, fuzzy, php-format
-#| msgid ""
-#| "The cookie encryption key in the configuration file is longer than "
-#| "necessary. It should only be %d bytes long. Please refer to the "
-#| "[doc@cfg_blowfish_secret]documentation[/doc]."
+#, php-format
 msgid ""
 "The query encryption key in the configuration file is longer than necessary. "
 "It should only be %d bytes long. Please refer to the "
 "[doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
 msgstr ""
-"La clave de cifrado de la cookie en el archivo de configuración es más larga "
+"La clave de cifrado de consulta en el archivo de configuración es más larga "
 "de lo necesario. Sólo debería tener %d bytes de longitud. Consulta la "
-"[doc@cfg_blowfish_secret]documentación[/doc]."
+"[doc@cfg_URLQueryEncryptionSecretKey]documentación[/doc]."
 
 #: libraries/classes/Controllers/HomeController.php:391
 msgid ""
@@ -5542,7 +5533,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Import/ImportController.php:324
 msgid "Sorry an unexpected error happened!"
-msgstr ""
+msgstr "Perdón ¡ha ocurrido un error inesperado!"
 
 #: libraries/classes/Controllers/Import/ImportController.php:372
 #: libraries/classes/Controllers/Import/ImportController.php:610
