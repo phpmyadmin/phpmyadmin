@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-02-25 10:35-0300\n"
-"PO-Revision-Date: 2026-05-06 13:11+0000\n"
+"PO-Revision-Date: 2026-05-15 23:22+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "lv/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2;\n"
-"X-Generator: Weblate 5.17.1\n"
+"X-Generator: Weblate 2026.6.dev0\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -4095,10 +4095,8 @@ msgid "Add DROP VIEW"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:920
-#, fuzzy
-#| msgid "Statements"
 msgid "Statements to track"
-msgstr "Parametrs"
+msgstr "Izteiksmes, kas jāizseko"
 
 #: libraries/classes/Config/Descriptions.php:921
 msgid "SQL query tracking table"
@@ -6796,10 +6794,8 @@ msgid "Selected dependencies are as follows:"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:438
-#, fuzzy
-#| msgid "No databases selected."
 msgid "No dependencies selected!"
-msgstr "Datubāze nav izvēlēta."
+msgstr "Nav atlasītas atkarības!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:441
 #: templates/columns_definitions/column_definitions_form.twig:160
@@ -11102,10 +11098,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:270
-#, fuzzy
-#| msgid "Statements"
 msgid "Add statements:"
-msgstr "Parametrs"
+msgstr "Pievienot izteiksmes:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:278
 #: libraries/classes/Plugins/Export/ExportSql.php:287
@@ -11114,10 +11108,9 @@ msgstr "Parametrs"
 #: libraries/classes/Plugins/Export/ExportSql.php:337
 #: libraries/classes/Plugins/Export/ExportSql.php:365
 #: libraries/classes/Plugins/Export/ExportSql.php:374
-#, fuzzy, php-format
-#| msgid "Statements"
+#, php-format
 msgid "Add %s statement"
-msgstr "Parametrs"
+msgstr "Pievienot %s izteiksmi"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:320
 msgid "(less efficient as indexes will be generated during table creation)"
@@ -14097,9 +14090,9 @@ msgid ""
 msgstr ""
 
 #: templates/create_tracking_version.twig:10
-#, fuzzy, php-format
+#, php-format
 msgid "Create version %1$s of %2$s"
-msgstr "Servera versija"
+msgstr "Izveidot %1$s versiju no %2$s"
 
 #: templates/create_tracking_version.twig:15
 #, php-format
@@ -15720,10 +15713,9 @@ msgid "New column name"
 msgstr "Kolonnu nosaukumi"
 
 #: templates/export.twig:347
-#, fuzzy, php-format
-#| msgid "Statements"
+#, php-format
 msgid "Use %s statement"
-msgstr "Parametrs"
+msgstr "Izmantot %s izteiksmi"
 
 #: templates/export.twig:356
 #, fuzzy
@@ -16168,10 +16160,8 @@ msgid "Select from the web server upload directory [strong]%s[/strong]:"
 msgstr "Atlasiet no tīmekļa servera augšupielādes mapes [strong]%s[/strong]:"
 
 #: templates/import.twig:69 templates/import.twig:96
-#, fuzzy
-#| msgid "Partial Texts"
 msgid "There are no files to import!"
-msgstr "Daļēji teksti"
+msgstr "Nav nevienas datnes, ko ievietot!"
 
 #: templates/import.twig:100
 msgid "File uploads are not allowed on this server."
@@ -18296,6 +18286,7 @@ msgid "per second:"
 msgstr "sekundē:"
 
 #: templates/server/status/queries/index.twig:37
+#, fuzzy
 msgid "Statements"
 msgstr "Parametrs"
 
