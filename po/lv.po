@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2026-05-06 13:11+0000\n"
+"PO-Revision-Date: 2026-05-15 23:22+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "lv/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2;\n"
-"X-Generator: Weblate 5.17.1\n"
+"X-Generator: Weblate 2026.6.dev0\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -2964,10 +2964,9 @@ msgid "Maximum execution time"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:662 templates/export.twig:293
-#, fuzzy, php-format
-#| msgid "Statements"
+#, php-format
 msgid "Use %s statement"
-msgstr "Parametrs"
+msgstr "Izmantot %s izteiksmi"
 
 #: libraries/classes/Config/Descriptions.php:665
 msgid "Save as file"
@@ -4042,10 +4041,8 @@ msgid "Add DROP VIEW"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:929
-#, fuzzy
-#| msgid "Statements"
 msgid "Statements to track"
-msgstr "Parametrs"
+msgstr "Izteiksmes, kas jāizseko"
 
 #: libraries/classes/Config/Descriptions.php:930
 msgid "SQL query tracking table"
@@ -6639,10 +6636,8 @@ msgid "Selected dependencies are as follows:"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:446
-#, fuzzy
-#| msgid "No databases selected."
 msgid "No dependencies selected!"
-msgstr "Datubāze nav izvēlēta."
+msgstr "Nav atlasītas atkarības!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:449
 #: libraries/classes/InsertEdit.php:1892
@@ -11275,10 +11270,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:263
-#, fuzzy
-#| msgid "Statements"
 msgid "Add statements:"
-msgstr "Parametrs"
+msgstr "Pievienot izteiksmes:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:271
 #: libraries/classes/Plugins/Export/ExportSql.php:280
@@ -11287,10 +11280,9 @@ msgstr "Parametrs"
 #: libraries/classes/Plugins/Export/ExportSql.php:335
 #: libraries/classes/Plugins/Export/ExportSql.php:363
 #: libraries/classes/Plugins/Export/ExportSql.php:372
-#, fuzzy, php-format
-#| msgid "Statements"
+#, php-format
 msgid "Add %s statement"
-msgstr "Parametrs"
+msgstr "Pievienot %s izteiksmi"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:317
 msgid "(less efficient as indexes will be generated during table creation)"
@@ -14288,9 +14280,9 @@ msgid ""
 msgstr ""
 
 #: templates/create_tracking_version.twig:11
-#, fuzzy, php-format
+#, php-format
 msgid "Create version %1$s of %2$s"
-msgstr "Servera versija"
+msgstr "Izveidot %1$s versiju no %2$s"
 
 #: templates/create_tracking_version.twig:16
 #, php-format
@@ -17907,6 +17899,7 @@ msgid "per second:"
 msgstr "sekundē:"
 
 #: templates/server/status/queries/index.twig:37
+#, fuzzy
 msgid "Statements"
 msgstr "Parametrs"
 
