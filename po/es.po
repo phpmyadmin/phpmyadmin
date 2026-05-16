@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-02-25 10:35-0300\n"
-"PO-Revision-Date: 2026-05-15 16:11+0000\n"
+"PO-Revision-Date: 2026-05-17 04:24+0000\n"
 "Last-Translator: Salvador Peña <salvadorp74@hotmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "es/>\n"
@@ -2667,7 +2667,9 @@ msgstr ""
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
-msgstr "Nombre del servidor donde el servidor SQL se está ejecutando."
+msgstr ""
+"Una descripción amigable al usuario de este servidor. Déjelo en blanco para "
+"mostrar el nombre del host en su lugar."
 
 #: libraries/classes/Config/Descriptions.php:466
 msgid "Leave blank if not used."
@@ -5489,6 +5491,9 @@ msgid ""
 "to not work properly. Please refer to [doc@faq1-46]documentation[/doc] for "
 "possible issues."
 msgstr ""
+"Falta la variable [code]HTTP_HOST[/code], lo cual puede provocar que "
+"phpMyAdmin no funcione adecuadamente. Por favor revise los problemas "
+"posibles en la [doc@faq1-46]documentación[/doc]."
 
 #: libraries/classes/Controllers/HomeController.php:498
 msgid ""
@@ -6102,38 +6107,38 @@ msgstr "B"
 #: libraries/classes/Util.php:461
 #: templates/server/status/monitor/index.twig:186
 msgid "KiB"
-msgstr "KB"
+msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:194
 #: libraries/classes/Util.php:463
 #: templates/server/status/monitor/index.twig:187
 msgid "MiB"
-msgstr "MB"
+msgstr "MiB"
 
 #. l10n: shortcuts for Gigabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:195
 #: libraries/classes/Util.php:465
 msgid "GiB"
-msgstr "GB"
+msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:196
 #: libraries/classes/Util.php:467
 msgid "TiB"
-msgstr "TB"
+msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:197
 #: libraries/classes/Util.php:469
 msgid "PiB"
-msgstr "PB"
+msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:198
 #: libraries/classes/Util.php:471
 msgid "EiB"
-msgstr "EB"
+msgstr "EiB"
 
 # singular: tabla
 # plural: tablas
@@ -7514,7 +7519,7 @@ msgstr "¡Error al copiar el nombre de la columna en el portapapeles!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:651
 msgid "Successfully copied!"
-msgstr "¡Copiado OK!"
+msgstr "¡Copiado exitoso!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:652
 msgid "Copying failed!"
@@ -7688,6 +7693,8 @@ msgid ""
 "The fullscreen request was denied because the Fullscreen API is disabled by "
 "user preference in the browser."
 msgstr ""
+"La petición de pantalla completa fue denegada porque la API de pantalla "
+"completa está deshabilitada en las preferencias del usuario del navegador."
 
 #: libraries/classes/Controllers/NavigationController.php:46
 msgid "Fatal error: The navigation can only be accessed via AJAX"
@@ -8965,7 +8972,7 @@ msgstr "Ocurrieron uno o más errores al procesar el pedido:"
 
 #: libraries/classes/Database/Events.php:181
 msgid "The event was dropped immediately after creation."
-msgstr ""
+msgstr "El evento ha sido descartado inmediatamente después de su creación."
 
 #: libraries/classes/Database/Events.php:249
 msgid "Add event"
@@ -13295,19 +13302,17 @@ msgstr ""
 "«%2$s»"
 
 #: libraries/classes/Types.php:306
-#, fuzzy
-#| msgid ""
-#| "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
-#| "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-19 03:14:07 UTC on "
 "32-bit platforms (MariaDB 11.3 and earlier), and up to 2106-02-07 06:28:15 "
 "UTC on 64-bit platforms (MariaDB 11.5 and later), stored as the number of "
 "seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
-"Una marca temporal; el rango es de «01-Ene-1970 00:00:01» UTC a «09-Ene-2038 "
-"03:14:07» UTC almacenados como la cantidad de segundos desde el «epoch» («01-"
-"Ene-1970 00:00:00» UTC)"
+"Una marca temporal; el rango es desde 1970-01-01 00:00:01 UTC hasta 2038-01-"
+"19 03:14:07 UTC en plataformas de 32 bits (MariaDB 11.3 y anteriores) y "
+"hasta 2106-02-07 06:28:15 UTC en plataformas de 64 bits (MariaDB 11.5 y "
+"posteriores), almacenados como la cantidad de segundos desde el «epoch» "
+"(1970-01-01 00:00:00 UTC)"
 
 #: libraries/classes/Types.php:314
 #, php-format
@@ -13498,6 +13503,8 @@ msgid ""
 "Stores vector data optimized for operations such as similarity search and "
 "machine learning applications"
 msgstr ""
+"Almacena datos de vector optimizados para operaciones como búsqueda por "
+"similitud y aplicaciones de machine learning"
 
 #: libraries/classes/Types.php:798
 msgctxt "numeric types"
