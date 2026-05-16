@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2025-02-24 01:46+0000\n"
+"PO-Revision-Date: 2026-05-17 04:24+0000\n"
 "Last-Translator: Salvador Peña <salvadorp74@hotmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "es/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.1-dev\n"
+"X-Generator: Weblate 2026.6.dev0\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -2623,7 +2623,9 @@ msgstr ""
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
-msgstr "Nombre del servidor donde el servidor SQL se está ejecutando."
+msgstr ""
+"Una descripción amigable al usuario de este servidor. Déjelo en blanco para "
+"mostrar el nombre del host en su lugar."
 
 #: libraries/classes/Config/Descriptions.php:476
 msgid "Leave blank if not used."
@@ -5990,38 +5992,38 @@ msgstr "B"
 #: libraries/classes/Util.php:511
 #: templates/server/status/monitor/index.twig:179
 msgid "KiB"
-msgstr "KB"
+msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:188
 #: libraries/classes/Util.php:513
 #: templates/server/status/monitor/index.twig:180
 msgid "MiB"
-msgstr "MB"
+msgstr "MiB"
 
 #. l10n: shortcuts for Gigabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:189
 #: libraries/classes/Util.php:515
 msgid "GiB"
-msgstr "GB"
+msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:190
 #: libraries/classes/Util.php:517
 msgid "TiB"
-msgstr "TB"
+msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:191
 #: libraries/classes/Util.php:519
 msgid "PiB"
-msgstr "PB"
+msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:192
 #: libraries/classes/Util.php:521
 msgid "EiB"
-msgstr "EB"
+msgstr "EiB"
 
 # singular: tabla
 # plural: tablas
@@ -7397,7 +7399,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:682
 msgid "Successfully copied!"
-msgstr "¡Copiado OK!"
+msgstr "¡Copiado exitoso!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:683
 msgid "Copying failed!"
