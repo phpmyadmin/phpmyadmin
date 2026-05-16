@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-04-19 18:08+0000\n"
-"Last-Translator: Joaquín <quinchote@gmail.com>\n"
+"PO-Revision-Date: 2026-05-17 04:24+0000\n"
+"Last-Translator: Salvador Peña <salvadorp74@hotmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "es/>\n"
 "Language: es\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.12-dev\n"
+"X-Generator: Weblate 2026.6.dev0\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -1292,33 +1292,33 @@ msgstr "B"
 #: js/messages.php:204 libraries/classes/Server/Status/Monitor.php:224
 #: libraries/classes/Util.php:1266
 msgid "KiB"
-msgstr "KB"
+msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:205 libraries/classes/Server/Status/Monitor.php:225
 #: libraries/classes/Util.php:1268
 msgid "MiB"
-msgstr "MB"
+msgstr "MiB"
 
 #. l10n: shortcuts for Gigabyte
 #: js/messages.php:206 libraries/classes/Util.php:1270
 msgid "GiB"
-msgstr "GB"
+msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
 #: js/messages.php:207 libraries/classes/Util.php:1272
 msgid "TiB"
-msgstr "TB"
+msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
 #: js/messages.php:208 libraries/classes/Util.php:1274
 msgid "PiB"
-msgstr "PB"
+msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
 #: js/messages.php:209 libraries/classes/Util.php:1276
 msgid "EiB"
-msgstr "EB"
+msgstr "EiB"
 
 # singular: tabla
 # plural: tablas
@@ -5772,7 +5772,9 @@ msgstr "Usuario para config auth"
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
-msgstr "Nombre del servidor donde el servidor SQL se está ejecutando."
+msgstr ""
+"Una descripción amigable al usuario de este servidor. Déjelo en blanco para "
+"mostrar el nombre del host en su lugar."
 
 #: libraries/classes/Config/Descriptions.php:1253
 msgid "Verbose name of this server"
