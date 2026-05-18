@@ -250,7 +250,8 @@ class Bookmark
             . " WHERE ( `user` = ''"
             . " OR `user` = '" . $dbi->escapeString($user) . "' )";
         if ($db !== false) {
-            $query .= " AND dbase = '" . $dbi->escapeString($db) . "'";
+            $query .= " AND ( dbase = ''"
+                . " OR dbase = '" . $dbi->escapeString($db) . "' )";
         }
 
         $query .= ' ORDER BY label ASC';
@@ -308,7 +309,8 @@ class Bookmark
             . ' WHERE ' . Util::backquote($id_field)
             . " = '" . $dbi->escapeString((string) $id) . "'";
         if ($db !== '') {
-            $query .= " AND dbase = '" . $dbi->escapeString($db) . "'";
+            $query .= " AND ( dbase = ''"
+                . " OR dbase = '" . $dbi->escapeString($db) . "' )";
         }
 
         if (! $action_bookmark_all) {
