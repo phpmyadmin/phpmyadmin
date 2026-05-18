@@ -1,0 +1,4 @@
+# AI Query plugin - deny direct web access to the config file (contains API key).
+<Files "ai_query.config.json">
+    Require all denied
+</Files>
