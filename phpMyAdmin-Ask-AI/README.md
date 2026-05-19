@@ -25,7 +25,7 @@ No phpMyAdmin core files are modified. The plugin uses phpMyAdmin's official `cu
 
 - phpMyAdmin 5.x (tested on 5.2.1)
 - PHP 7.2.5+ with the `curl` extension enabled
-- A web server (Apache, Nginx, etc.). The `.htaccess` uses Apache directives; on Nginx see [Security](#security) for the equivalent location block.
+- A web server (Apache, Nginx, etc.) that hands `.php` to the PHP handler - the same assumption phpMyAdmin makes for its own `config.inc.php`. See [Optional web-server hardening](#optional-web-server-hardening) for extra deny rules if you want them.
 
 ## Install
 
@@ -46,7 +46,6 @@ Clone or copy this repository so the folder `phpMyAdmin-Ask-AI/` lives inside yo
         main.php
         install/
             config.footer.inc.php
-        .htaccess
         README.md
 ```
 
@@ -66,12 +65,22 @@ phpMyAdmin only loads one footer file. Don't overwrite an existing one - just ap
 include __DIR__ . '/phpMyAdmin-Ask-AI/main.php';
 ```
 
-### Nginx instead of Apache
+### Optional web-server hardening
 
-The bundled `.htaccess` denies web access to `ai_query.config.json` (which holds your API key). On Nginx, add an equivalent block to your phpMyAdmin server block:
+The config file (`ai_query.config.php`) is a PHP file: a direct GET executes the file, which returns the config array and emits nothing. The API key only leaks if your server stops handing `.php` to PHP (mod_php disabled, FPM down, hosting quirk). phpMyAdmin's own `config.inc.php` carries the same assumption, so the same trust model applies.
+
+If you want belt-and-braces protection, drop a deny rule in your web-server config. Apache:
+
+```apache
+<Files "ai_query.config.php">
+    Require all denied
+</Files>
+```
+
+Nginx:
 
 ```nginx
-location ~ /phpMyAdmin-Ask-AI/ai_query\.config\.json$ {
+location ~ /phpMyAdmin-Ask-AI/ai_query\.config\.php$ {
     deny all;
     return 403;
 }
@@ -98,7 +107,7 @@ location ~ /phpMyAdmin-Ask-AI/ai_query\.config\.json$ {
 
 ## Configuration
 
-API keys and provider settings are stored in `phpMyAdmin-Ask-AI/ai_query.config.json`. The file is created on first save, is gitignored, and is blocked from direct web access by the `.htaccess` in the same folder.
+API keys and provider settings are stored in `phpMyAdmin-Ask-AI/ai_query.config.php` as a `<?php return [...];` array. The file is created on first save and is gitignored. Because it's a PHP file, a direct web fetch executes it (returns nothing) rather than serving the array literal as text - same trust model phpMyAdmin uses for its own `config.inc.php`. See [Optional web-server hardening](#optional-web-server-hardening) if you want an explicit deny on top.
 
 To switch providers, open the settings (gear icon in the modal header), pick another tab, and save. Each provider tab has its own saved profile, so flipping between providers doesn't lose your keys.
 
@@ -118,7 +127,7 @@ Then click **Detect installed** again. Recommended SQL-strong local models: `qwe
 
 ## Security
 
-- **API key storage**: keys are stored in plaintext in `phpMyAdmin-Ask-AI/ai_query.config.json`. The file is gitignored and `.htaccess`-blocked. On Linux the install applies `0600` permissions automatically; on Windows file ACLs are at the OS default.
+- **API key storage**: keys are stored in plaintext in `phpMyAdmin-Ask-AI/ai_query.config.php` (a `<?php return [...];` file). The file is gitignored. Direct web access executes the file harmlessly (returns empty); see [Optional web-server hardening](#optional-web-server-hardening) for an extra Apache/Nginx deny. On Linux the saver applies `0600` permissions automatically; on Windows file ACLs are at the OS default.
 - **CSRF**: the AJAX endpoint validates phpMyAdmin's session CSRF token on every request.
 - **Auth**: the endpoint requires an active phpMyAdmin login - it bootstraps phpMyAdmin and inherits the existing session. Anonymous requests are rejected.
 - **Schema disclosure**: the database schema and 3 sample rows from the currently open table are sent to your configured AI provider on every Generate. Be mindful for sensitive data; prefer a local provider (Ollama) for confidential schemas.
@@ -138,7 +147,7 @@ The plugin always sends a request, degrading gracefully based on what the logged
 
 ## Updating
 
-Pull the latest changes inside `phpMyAdmin-Ask-AI/`. Your `ai_query.config.json` is gitignored and left untouched. If the stub file at the phpMyAdmin root changes, copy the new one from `install/config.footer.inc.php`.
+Pull the latest changes inside `phpMyAdmin-Ask-AI/`. Your `ai_query.config.php` is gitignored and left untouched. If the stub file at the phpMyAdmin root changes, copy the new one from `install/config.footer.inc.php`.
 
 ## Uninstalling
 
@@ -160,7 +169,7 @@ If you want a different folder name than `phpMyAdmin-Ask-AI`:
 - **`config.footer.inc.php` (at root)** is just a 3-line stub that `include`s the real file from this plugin's subfolder. phpMyAdmin reads this path from its hardcoded `customFooterFile` setting in `libraries/vendor_config.php`.
 - **`phpMyAdmin-Ask-AI/main.php`** outputs a hidden Bootstrap modal plus an inline `<script>` that injects the **Ask AI** button into the SQL toolbar and wires up the modal handlers. A `MutationObserver` on `document.body` reattaches the button whenever phpMyAdmin AJAX-replaces `#page_content`.
 - **`phpMyAdmin-Ask-AI/ai_query.php`** is the AJAX endpoint. It bootstraps phpMyAdmin via `Common::run()` so it inherits the session, CSRF token, and `$dbi` handle. Three actions: `get_config`, `save_config`, and `generate`. Schema collection uses `INFORMATION_SCHEMA` plus `SHOW CREATE TABLE` for the focused table. Provider calls go via cURL.
-- **`phpMyAdmin-Ask-AI/.htaccess`** denies direct web access to `ai_query.config.json` in the same folder.
+- **`phpMyAdmin-Ask-AI/ai_query.config.php`** is a `<?php return [...];` file written via `var_export`. `ai_query.php` loads it with `require`. Same trust model as phpMyAdmin's own `config.inc.php`.
 
 ## Troubleshooting
 
@@ -190,4 +199,4 @@ If you want a different folder name than `phpMyAdmin-Ask-AI`:
 
 ## License
 
-MIT. The plugin lives in `phpMyAdmin/`'s directory but is otherwise independent of phpMyAdmin's own license.
+GPL-2.0-or-later, inherited from phpMyAdmin. See the repository root `LICENSE`.

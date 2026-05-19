@@ -6,7 +6,7 @@
  * Bootstraps phpMyAdmin so we inherit the active session, configured DB server,
  * authentication, and the $dbi handle. Three actions:
  *   - get_config   return current provider settings (api_key redacted)
- *   - save_config  persist provider settings to ai_query.config.json
+ *   - save_config  persist provider settings to ai_query.config.php
  *   - generate     read INFORMATION_SCHEMA for the active DB and ask the
  *                  configured LLM provider to return a SQL query
  */
@@ -45,7 +45,7 @@ $aiResponse = ResponseRenderer::getInstance();
 $aiResponse->disable();
 $aiResponse->setAjax(true);
 
-$configPath = __DIR__ . DIRECTORY_SEPARATOR . 'ai_query.config.json';
+$configPath = __DIR__ . DIRECTORY_SEPARATOR . 'ai_query.config.php';
 
 /** Emit a JSON response and exit. We echo directly (not via addJSON) because
  *  the renderer is disabled and its shutdown path discards the JSON map. The
@@ -81,46 +81,25 @@ const AI_PROVIDER_TYPES = ['anthropic', 'openai_compatible'];
 /** Allowed tab keys. 'custom' lets users freely set provider+url+model. */
 const AI_TAB_KEYS = ['ollama', 'openai', 'anthropic', 'openrouter', 'groq', 'deepseek', 'custom'];
 
-/**
- * Load the config in the new {active, profiles} shape. Auto-migrates an older
- * flat config file (single profile) into the new structure on first read.
- */
+/** Load the config in the {active, profiles} shape, or return defaults. */
 function ai_load_config(string $path): array {
   $default = ['active' => null, 'profiles' => []];
   if (! file_exists($path)) {
     return $default;
   }
-  $raw = json_decode((string) file_get_contents($path), true);
-  if (! is_array($raw)) {
+  $raw = require $path;
+  if (! is_array($raw) || ! isset($raw['profiles']) || ! is_array($raw['profiles'])) {
     return $default;
   }
-
-  // Already in the new shape.
-  if (isset($raw['profiles']) && is_array($raw['profiles'])) {
-    return [
-      'active'   => isset($raw['active']) && is_string($raw['active']) ? $raw['active'] : null,
-      'profiles' => $raw['profiles'],
-    ];
-  }
-
-  // Migrate the flat shape into a single profile keyed by best-guess tab.
-  $tab = ($raw['provider'] ?? '') === 'anthropic' ? 'anthropic' : 'custom';
   return [
-    'active'   => $tab,
-    'profiles' => [
-      $tab => [
-        'provider' => $raw['provider'] ?? 'openai_compatible',
-        'base_url' => $raw['base_url'] ?? '',
-        'model'    => $raw['model'] ?? '',
-        'api_key'  => $raw['api_key'] ?? '',
-      ],
-    ],
+    'active'   => isset($raw['active']) && is_string($raw['active']) ? $raw['active'] : null,
+    'profiles' => $raw['profiles'],
   ];
 }
 
 function ai_save_config(string $path, array $cfg): void {
-  $json = json_encode($cfg, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
-  if (file_put_contents($path, $json) === false) {
+  $content = "<?php\n\nreturn " . var_export($cfg, true) . ";\n";
+  if (file_put_contents($path, $content) === false) {
     throw new RuntimeException('Could not write ' . $path);
   }
   @chmod($path, 0600);
