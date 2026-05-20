@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-05-17 00:56+0000\n"
-"PO-Revision-Date: 2026-05-15 23:22+0000\n"
+"PO-Revision-Date: 2026-05-21 05:11+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/lv/>\n"
@@ -1585,9 +1585,8 @@ msgstr ""
 #: resources/templates/database/designer/main.twig:40
 #: resources/templates/database/designer/main.twig:43
 #: src/Controllers/JavaScriptMessagesController.php:518
-#, fuzzy
 msgid "Add tables from other databases"
-msgstr "Šajā datubāzē tabulas nav atrastas."
+msgstr "Pievienot tabulas no citām datubāzēm"
 
 #: resources/templates/database/designer/main.twig:48
 #: resources/templates/database/designer/main.twig:52
@@ -2716,11 +2715,12 @@ msgid "Browse"
 msgstr "Apskatīt"
 
 #: resources/templates/database/search/results.twig:43
-#, fuzzy, php-format
+#, php-format
 msgid "<strong>Total:</strong> <em>%s</em> match"
 msgid_plural "<strong>Total:</strong> <em>%s</em> matches"
-msgstr[0] "<b>Kopumā:</b> <i>%s</i> rezultāti"
-msgstr[1] "<b>Kopumā:</b> <i>%s</i> rezultāti"
+msgstr[0] "<strong>Kopumā:</strong> <em>%s</em> atbilstība"
+msgstr[1] "<strong>Kopumā:</strong> <em>%s</em> atbilstības"
+msgstr[2] "<strong>Kopumā:</strong> <em>%s</em> atbilstības"
 
 #: resources/templates/database/structure/add_prefix.twig:4
 #, fuzzy
@@ -3657,7 +3657,7 @@ msgstr "ievietoja %s %s"
 #: resources/templates/home/git_info.twig:32
 #, fuzzy, php-format
 msgid "authored on %s by %s"
-msgstr "Servera versija"
+msgstr "autorizēja %s %s"
 
 #: resources/templates/home/index.twig:22 resources/templates/login/form.twig:8
 #, php-format
@@ -5580,15 +5580,13 @@ msgstr ""
 
 #: resources/templates/server/privileges/users_overview.twig:100
 #: src/Controllers/JavaScriptMessagesController.php:159
-#, fuzzy
 msgid "Unlock this account."
-msgstr "Lietotājs"
+msgstr "Atbloķēt šo kontu."
 
 #: resources/templates/server/privileges/users_overview.twig:100
 #: src/Controllers/JavaScriptMessagesController.php:158
-#, fuzzy
 msgid "Lock this account."
-msgstr "Noņemt diagrammu"
+msgstr "Bloķēt šo kontu."
 
 #: resources/templates/server/privileges/users_overview.twig:102
 #: src/Controllers/JavaScriptMessagesController.php:157
@@ -6674,9 +6672,8 @@ msgstr "SQL rezultāts"
 #: src/Controllers/Table/RelationController.php:147
 #: src/Database/Routines.php:1033 src/Display/Results.php:2968
 #: src/Message.php:122
-#, fuzzy
 msgid "Your SQL query has been executed successfully."
-msgstr "Jūsu SQL vaicājums tika veiksmīgi izpildīts"
+msgstr "Jūsu SQL vaicājums veiksmīgi izpildīts."
 
 #: resources/templates/sql/query.twig:20 src/Server/Status/Data.php:113
 #: src/Server/Status/Processes.php:113
@@ -7044,21 +7041,20 @@ msgid "Edit next row"
 msgstr ""
 
 #: resources/templates/table/insert/actions_panel.twig:33
-#, fuzzy
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere."
 msgstr ""
-"Lietojiet TAB taustiņu, lai pārvietotos no vērtības līdz vērtībai, vai "
-"CTRL+bultiņas, lai pārvietotos jebkurā vietā"
+"Lai pārvietotos starp vērtības laukiem, izmantojiet taustiņu TAB vai "
+"CTRL+bulttaustiņus, lai pārvietoties uz jebkuru vērtības lauku pēc paša "
+"izvēles."
 
 #: resources/templates/table/insert/column_row.twig:15
 msgid "Binary"
 msgstr "Binārais"
 
 #: resources/templates/table/insert/column_row.twig:30
-#, fuzzy
 msgid "Use the NULL value for this column."
-msgstr "Kolonnas vērtība \"%s\""
+msgstr "Šai kolonnai izmantot NULL vērtību."
 
 #: resources/templates/table/insert/column_row.twig:65
 msgid "Because of its length,<br> this column might not be editable."
@@ -7180,15 +7176,15 @@ msgstr "Nav datubāzu"
 #: resources/templates/table/operations/index.twig:459
 #: resources/templates/table/operations/view.twig:32
 #: src/Controllers/Database/StructureController.php:369
-#, fuzzy, php-format
+#, php-format
 msgid "View %s has been dropped."
-msgstr "Lauks %s tika izdzēsts"
+msgstr "%s skats dzēsts."
 
 #: resources/templates/table/operations/index.twig:459
 #: src/Controllers/Database/StructureController.php:369
-#, fuzzy, php-format
+#, php-format
 msgid "Table %s has been dropped."
-msgstr "Tabula %s tika izdzēsta"
+msgstr "%s tabula dzēsta."
 
 #: resources/templates/table/operations/index.twig:460
 #, fuzzy
@@ -7477,9 +7473,9 @@ msgid "Change"
 msgstr "Labot"
 
 #: resources/templates/table/structure/display_structure.twig:116
-#, fuzzy, php-format
+#, php-format
 msgid "Column %s has been dropped."
-msgstr "Tabula %s tika izdzēsta"
+msgstr "%s kolonna dzēsta."
 
 #: resources/templates/table/structure/display_structure.twig:130
 #: src/Controllers/JavaScriptMessagesController.php:582
@@ -7841,7 +7837,7 @@ msgstr ""
 #: src/Advisory/Rules.php:57
 #, php-format
 msgid "Current amount of Questions: %s"
-msgstr "Tekošais vaicājumu daudzums: %s"
+msgstr "Pašreizējais jautājumu skaits: %s"
 
 #: src/Advisory/Rules.php:62
 msgid "Percentage of slow queries"
@@ -8053,7 +8049,7 @@ msgstr "Vaicājuma kešatmiņas metode"
 #: src/Advisory/Rules.php:215
 #, fuzzy
 msgid "Suboptimal caching method."
-msgstr "Vaicājuma tips"
+msgstr "Neoptimāla kešatmiņas metode."
 
 #: src/Advisory/Rules.php:217
 msgid ""
@@ -10126,9 +10122,8 @@ msgid "Authentication method to use."
 msgstr "Dokumentācija"
 
 #: src/Config/Descriptions.php:456
-#, fuzzy
 msgid "Compress connection to MySQL server."
-msgstr "Nevar pieslēgties MySQL serverim"
+msgstr "Saspiest savienojuma datus ar MySQL serveri."
 
 #: src/Config/Descriptions.php:457
 msgid "Hide databases matching regular expression (PCRE)."
@@ -12202,10 +12197,12 @@ msgid "Export of event %s"
 msgstr "Izgūt %s notikumu"
 
 #: src/Controllers/Database/EventsController.php:237
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
-msgstr "Tabulas nav atrastas šajā datubāzē."
+msgstr ""
+"Kļūda, apstrādājot pieprasījumu: %2$s datubāzē neatrasta nevienu notikumu ar "
+"%1$s nosaukumu."
 
 #: src/Controllers/Database/ExportController.php:129
 #: src/Controllers/Server/ExportController.php:57
@@ -12306,9 +12303,11 @@ msgstr ""
 
 #: src/Controllers/Database/RoutinesController.php:305
 #: src/Controllers/Database/RoutinesController.php:373
-#, fuzzy, php-format
+#, php-format
 msgid "No routine with name %1$s found in database %2$s."
-msgstr "Tabulas nav atrastas šajā datubāzē."
+msgstr ""
+"%2$s datubāzē neatrada nevienu rutīnu (procedūru vai funkciju) ar %1$s "
+"nosaukumu."
 
 #: src/Controllers/Database/RoutinesController.php:416
 #, php-format
@@ -12819,9 +12818,8 @@ msgid "Composite with:"
 msgstr "Lauki iekļauti iekš"
 
 #: src/Controllers/JavaScriptMessagesController.php:128
-#, fuzzy
 msgid "Please select column(s) for the index."
-msgstr "Pievienot %s lauku(s) indeksam"
+msgstr "Lūdzu, atlasiet indeksa kolonnu(-as)."
 
 #. l10n: Default label for the y-Axis of Charts
 #: src/Controllers/JavaScriptMessagesController.php:139
@@ -12830,9 +12828,8 @@ msgid "Y values"
 msgstr "Y Vērtība"
 
 #: src/Controllers/JavaScriptMessagesController.php:142
-#, fuzzy
 msgid "Please enter the SQL query first."
-msgstr "Lūdzu ievadiet derīgu numuru"
+msgstr "Lūdzu, vispirms ievadiet SQL vaicājumu."
 
 #: src/Controllers/JavaScriptMessagesController.php:145
 msgid "The host name is empty!"
@@ -12864,9 +12861,8 @@ msgid "Removing Selected Users"
 msgstr "Dzēš izvēlētos lietotājus"
 
 #: src/Controllers/JavaScriptMessagesController.php:162
-#, fuzzy
 msgid "Template was created."
-msgstr "Tabula %s tika izdzēsta"
+msgstr "Veidne tika izveidota."
 
 #: src/Controllers/JavaScriptMessagesController.php:163
 msgid "Template was loaded."
@@ -12878,9 +12874,8 @@ msgid "Template was updated."
 msgstr "Profils tika modificēts."
 
 #: src/Controllers/JavaScriptMessagesController.php:165
-#, fuzzy
 msgid "Template was deleted."
-msgstr "Ieraksts tika dzēsts"
+msgstr "Veidne tika dzēsta."
 
 #. l10n: Other, small valued, queries
 #: src/Controllers/JavaScriptMessagesController.php:168
@@ -13218,14 +13213,12 @@ msgid ""
 msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:303
-#, fuzzy
 msgid "Please enter a valid table name."
-msgstr "Lūdzu ievadiet derīgu numuru"
+msgstr "Lūdzu, ievadiet derīgu tabulas nosaukumu."
 
 #: src/Controllers/JavaScriptMessagesController.php:304
-#, fuzzy
 msgid "Please enter a valid database name."
-msgstr "Lūdzu ievadiet derīgu numuru"
+msgstr "Lūdzu, ievadiet derīgu datubāzes nosaukumu."
 
 #: src/Controllers/JavaScriptMessagesController.php:305
 msgid "No files available on server for import!"
@@ -13789,9 +13782,8 @@ msgid "Click to mark/unmark."
 msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:553
-#, fuzzy
 msgid "Double-click to copy column name."
-msgstr "Kolonnu nosaukumi"
+msgstr "Veiciet dubultklikšķi, lai kopētu kolonnas nosaukumu."
 
 #: src/Controllers/JavaScriptMessagesController.php:554
 msgid "Click the drop-down arrow to toggle column's visibility."
@@ -14601,9 +14593,8 @@ msgid "Could not import configuration"
 msgstr ""
 
 #: src/Controllers/Preferences/TwoFactorController.php:49
-#, fuzzy
 msgid "Two-factor authentication has been removed."
-msgstr "Iekšējās relācijas"
+msgstr "Divfaktoru autentifikācija noņemta."
 
 #: src/Controllers/Preferences/TwoFactorController.php:62
 msgid "Two-factor authentication has been configured."
@@ -15694,23 +15685,24 @@ msgid "Invalid routine type: \"%s\""
 msgstr ""
 
 #: src/Database/Routines.php:139
-#, fuzzy, php-format
+#, php-format
 msgid "Routine %1$s has been created."
-msgstr "Tabula %s tika izdzēsta"
+msgstr "Izveidota %1$s rutīna (procedūra vai funkcija)."
 
 #: src/Database/Routines.php:225
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr ""
 
 #: src/Database/Routines.php:274
-#, fuzzy, php-format
+#, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
-msgstr "Tabula %s tika izdzēsta"
+msgstr ""
+"%1$s rutīna (procedūra vai funkcija) modificēta. Privilēģijas ir pielāgotas."
 
 #: src/Database/Routines.php:279
-#, fuzzy, php-format
+#, php-format
 msgid "Routine %1$s has been modified."
-msgstr "Tabula %s tika izdzēsta"
+msgstr "%1$s rutīna (procedūra vai funkcija) modificēta."
 
 #: src/Database/Routines.php:661
 msgid "You must provide a name and a type for each routine parameter."
@@ -15777,9 +15769,8 @@ msgid ""
 msgstr ""
 
 #: src/Display/Results.php:2391 src/Display/Results.php:2406
-#, fuzzy
 msgid "The row has been deleted."
-msgstr "Ieraksts tika dzēsts"
+msgstr "Ierakstu rinda dzēsta."
 
 #: src/Display/Results.php:2973 src/Display/Results.php:3295 src/Sql.php:910
 #, php-format
@@ -15797,9 +15788,9 @@ msgid "%1$s total, %2$s in query"
 msgstr ""
 
 #: src/Display/Results.php:3282
-#, fuzzy, php-format
+#, php-format
 msgid "%s total"
-msgstr "kopā"
+msgstr "%s kopā"
 
 #: src/Display/Results.php:3591
 msgid "Link not found!"
@@ -17293,7 +17284,7 @@ msgstr ""
 #: src/Plugins/Export/ExportSql.php:1914
 #, fuzzy, php-format
 msgid "Structure for view %s exported as a table"
-msgstr "Tikai struktūra"
+msgstr "%s skata struktūra, kas izgūta kā tabula"
 
 #: src/Plugins/Export/ExportSql.php:1945
 msgid "(See below for the actual view)"
@@ -17822,9 +17813,8 @@ msgid ""
 msgstr ""
 
 #: src/Query/Utilities.php:96
-#, fuzzy
 msgid "The server is not responding."
-msgstr "Serveris neatbild"
+msgstr "Serveris neatbild."
 
 #: src/Query/Utilities.php:100
 msgid "Logout and try as another user."
@@ -18361,9 +18351,9 @@ msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr ""
 
 #: src/Tracking/Tracking.php:964
-#, fuzzy, php-format
+#, php-format
 msgid "Version %1$s of %2$s was deleted."
-msgstr "Servera versija"
+msgstr "%2$s %1$s versija tika dzēsta."
 
 #: src/Tracking/Tracking.php:995
 #, php-format
