@@ -209,6 +209,8 @@ for filePath in ${FILE_LIST}; do
     case $filePath in
         */composer-require-checker.json)
         foundFile;;
+        */.phpstorm.meta.php)
+        foundFile;;
         */CLAUDE.[Mm][Dd])
         foundFile;;
         */AGENTS.[Mm][Dd])
