@@ -1210,24 +1210,6 @@ parameters:
 			path: src/ConfigStorage/Relation.php
 
 		-
-			message: '#^Offset ''bookmarktable''\|''central_columns''\|''column_info''\|''designer_settings''\|''export_templates''\|''favorite''\|''history''\|''navigationhiding''\|''pdf_pages''\|''recent''\|''relation''\|''savedsearches''\|''table_coords''\|''table_info''\|''table_uiprefs''\|''tracking''\|''userconfig''\|''usergroups''\|''users'' on array\{host\: string, port\: string, socket\: string, ssl\: bool, ssl_key\: string\|null, ssl_cert\: string\|null, ssl_ca\: string\|null, ssl_ca_path\: string\|null, \.\.\.\} in isset\(\) always exists and is not nullable\.$#'
-			identifier: isset.offset
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
-			message: '#^Offset ''bookmarktable''\|''central_columns''\|''column_info''\|''designer_settings''\|''export_templates''\|''favorite''\|''history''\|''navigationhiding''\|''recent''\|''relation''\|''savedsearches''\|''table_uiprefs''\|''tracking''\|''userconfig'' on array\{host\: string, port\: string, socket\: string, ssl\: bool, ssl_key\: string\|null, ssl_cert\: string\|null, ssl_ca\: string\|null, ssl_ca_path\: string\|null, \.\.\.\} in isset\(\) always exists and is not nullable\.$#'
-			identifier: isset.offset
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
-			message: '#^Offset ''pdf_pages''\|''relation''\|''table_coords''\|''table_info''\|''usergroups''\|''users'' on array\{host\: string, port\: string, socket\: string, ssl\: bool, ssl_key\: string\|null, ssl_cert\: string\|null, ssl_ca\: string\|null, ssl_ca_path\: string\|null, \.\.\.\} in isset\(\) always exists and is not nullable\.$#'
-			identifier: isset.offset
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
 			message: '#^Only booleans are allowed in &&, PhpMyAdmin\\Dbal\\ResultInterface\|false given on the left side\.$#'
 			identifier: booleanAnd.leftNotBoolean
 			count: 2
@@ -1300,10 +1282,10 @@ parameters:
 			path: src/ConfigStorage/Relation.php
 
 		-
-			message: '#^Only booleans are allowed in &&, mixed given on the right side\.$#'
-			identifier: booleanAnd.rightNotBoolean
-			count: 18
-			path: src/ConfigStorage/RelationParameters.php
+			message: '#^Property PhpMyAdmin\\ConfigStorage\\Relation\:\:\$config in isset\(\) is not nullable nor uninitialized\.$#'
+			identifier: isset.initializedProperty
+			count: 3
+			path: src/ConfigStorage/Relation.php
 
 		-
 			message: '''
@@ -3364,12 +3346,6 @@ parameters:
 			path: src/Controllers/Table/Structure/SaveController.php
 
 		-
-			message: '#^Only booleans are allowed in an if condition, mixed given\.$#'
-			identifier: if.condNotBoolean
-			count: 1
-			path: src/Controllers/Table/Structure/SaveController.php
-
-		-
 			message: '#^Parameter \#1 \$identifier of static method PhpMyAdmin\\Util\:\:backquote\(\) expects string\|Stringable\|null, mixed given\.$#'
 			identifier: argument.type
 			count: 3
@@ -4997,18 +4973,6 @@ parameters:
 
 		-
 			message: '#^Access to an undefined property PhpMyAdmin\\SqlParser\\Statement\:\:\$where\.$#'
-			identifier: property.notFound
-			count: 1
-			path: src/Display/Results.php
-
-		-
-			message: '#^Access to an undefined property object\:\:\$column\.$#'
-			identifier: property.notFound
-			count: 1
-			path: src/Display/Results.php
-
-		-
-			message: '#^Access to an undefined property object\:\:\$database\.$#'
 			identifier: property.notFound
 			count: 1
 			path: src/Display/Results.php
