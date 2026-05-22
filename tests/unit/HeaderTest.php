@@ -72,7 +72,7 @@ class HeaderTest extends AbstractTestCase
 
         return new Header(
             $template,
-            new Console($relation, $template, new BookmarkRepository($dbi, $relation), $history),
+            new Console($relation, $template, new BookmarkRepository($dbi, $relation, $config), $history),
             $config,
             $dbi,
             $relation,
@@ -91,7 +91,7 @@ class HeaderTest extends AbstractTestCase
         $relation = new Relation($dbi, $config);
         $template = new Template($config);
         $history = new History($dbi, $relation, $config);
-        $console = new Console($relation, $template, new BookmarkRepository($dbi, $relation), $history);
+        $console = new Console($relation, $template, new BookmarkRepository($dbi, $relation, $config), $history);
         $userPreferences = new UserPreferences($dbi, $relation, $template, $config, new Clock());
         $userPreferencesHandler = new UserPreferencesHandler(
             $config,

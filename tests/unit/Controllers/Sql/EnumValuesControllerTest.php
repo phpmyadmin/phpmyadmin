@@ -62,8 +62,8 @@ class EnumValuesControllerTest extends AbstractTestCase
         $responseRenderer = new ResponseRenderer();
         $config = Config::getInstance();
         $template = new Template($config);
-        $relation = new Relation($this->dbi);
-        $bookmarkRepository = new BookmarkRepository($this->dbi, $relation);
+        $relation = new Relation($this->dbi, $config);
+        $bookmarkRepository = new BookmarkRepository($this->dbi, $relation, $config);
         $sql = new Sql(
             $this->dbi,
             $relation,
@@ -125,8 +125,8 @@ class EnumValuesControllerTest extends AbstractTestCase
         $responseRenderer = new ResponseRenderer();
         $config = Config::getInstance();
         $template = new Template($config);
-        $relation = new Relation($this->dbi);
-        $bookmarkRepository = new BookmarkRepository($this->dbi, $relation);
+        $relation = new Relation($this->dbi, $config);
+        $bookmarkRepository = new BookmarkRepository($this->dbi, $relation, $config);
         $sql = new Sql(
             $this->dbi,
             $relation,

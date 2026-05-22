@@ -23,6 +23,7 @@ class AddControllerTest extends AbstractTestCase
 {
     public function testWithInvalidParams(): void
     {
+        $config = new Config();
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
         $response = new ResponseRenderer();
@@ -33,24 +34,24 @@ class AddControllerTest extends AbstractTestCase
                 'bookmark_query' => null,
                 'shared' => null,
             ]);
-        $relation = new Relation($dbi);
-        $bookmarkRepository = new BookmarkRepository($dbi, $relation);
-        $controller = new AddController($response, $bookmarkRepository, new Config());
+        $relation = new Relation($dbi, $config);
+        $bookmarkRepository = new BookmarkRepository($dbi, $relation, $config);
+        $controller = new AddController($response, $bookmarkRepository, $config);
         $this->expectException(InvalidArgumentException::class);
         $controller($request);
     }
 
     public function testWithoutRelationParameters(): void
     {
-        $config = Config::getInstance();
+        $config = new Config();
         $config->selectedServer['user'] = 'user';
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
         $response = new ResponseRenderer();
         $request = self::createStub(ServerRequest::class);
-        $relation = new Relation($dbi);
-        $bookmarkRepository = new BookmarkRepository($dbi, $relation);
+        $relation = new Relation($dbi, $config);
+        $bookmarkRepository = new BookmarkRepository($dbi, $relation, $config);
         $controller = new AddController($response, $bookmarkRepository, $config);
         $controller($request);
         self::assertSame(['message' => 'Failed'], $response->getJSONResult());
@@ -58,7 +59,7 @@ class AddControllerTest extends AbstractTestCase
 
     public function testWithValidParameters(): void
     {
-        $config = Config::getInstance();
+        $config = new Config();
         $config->selectedServer['user'] = 'test_user';
         $relationParameters = RelationParameters::fromArray([
             RelationParameters::USER => 'test_user',
@@ -84,8 +85,8 @@ class AddControllerTest extends AbstractTestCase
                 'bookmark_query' => 'test_query',
                 'shared' => 'true',
             ]);
-        $relation = new Relation($dbi);
-        $bookmarkRepository = new BookmarkRepository($dbi, $relation);
+        $relation = new Relation($dbi, $config);
+        $bookmarkRepository = new BookmarkRepository($dbi, $relation, $config);
         $controller = new AddController($response, $bookmarkRepository, $config);
         $controller($request);
         self::assertSame(

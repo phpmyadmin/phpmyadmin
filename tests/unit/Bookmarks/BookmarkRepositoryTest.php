@@ -23,8 +23,9 @@ final class BookmarkRepositoryTest extends AbstractTestCase
             RelationParameters::BOOKMARK => 'pma_bookmark',
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
+        $config = new Config();
         $dbi = $this->createDatabaseInterface();
-        $bookmarkRepository = new BookmarkRepository($dbi, new Relation($dbi, new Config()));
+        $bookmarkRepository = new BookmarkRepository($dbi, new Relation($dbi, $config), $config);
         $bookmark = $bookmarkRepository->createBookmark('SELECT "phpmyadmin"', 'bookmark1', 'root', 'phpmyadmin');
         self::assertNotFalse($bookmark);
         self::assertSame(0, $bookmark->getId());

@@ -75,7 +75,7 @@ final class QueryControllerTest extends AbstractTestCase
             new RelationCleanup($dbi, $relation),
             new Transformations($dbi, $relation),
             new Template($config),
-            new BookmarkRepository($dbi, $relation),
+            new BookmarkRepository($dbi, $relation, $config),
             $config,
             $responseRenderer,
         );

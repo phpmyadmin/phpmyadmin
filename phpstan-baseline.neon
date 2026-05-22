@@ -187,24 +187,9 @@ parameters:
 			path: src/Bookmarks/Bookmark.php
 
 		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Bookmarks/BookmarkRepository.php
-
-		-
 			message: '#^Parameter \#1 \$row of method PhpMyAdmin\\Bookmarks\\BookmarkRepository\:\:createFromRow\(\) expects array\<string\>, array\<string\|null\> given\.$#'
 			identifier: argument.type
 			count: 3
-			path: src/Bookmarks/BookmarkRepository.php
-
-		-
-			message: '#^Parameter \#2 \$bookmarkFeature of class PhpMyAdmin\\Bookmarks\\Bookmark constructor expects PhpMyAdmin\\ConfigStorage\\Features\\BookmarkFeature, PhpMyAdmin\\ConfigStorage\\Features\\BookmarkFeature\|null given\.$#'
-			identifier: argument.type
-			count: 1
 			path: src/Bookmarks/BookmarkRepository.php
 
 		-
@@ -2504,18 +2489,6 @@ parameters:
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
 			path: src/Controllers/Sql/RelationalValuesController.php
-
-		-
-			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
-			identifier: notEqual.notAllowed
-			count: 3
-			path: src/Controllers/Sql/SqlController.php
-
-		-
-			message: '#^Only booleans are allowed in an if condition, bool\|null given\.$#'
-			identifier: if.condNotBoolean
-			count: 1
-			path: src/Controllers/Sql/SqlController.php
 
 		-
 			message: '#^Parameter \#2 \$signature of static method PhpMyAdmin\\Core\:\:checkSqlQuerySignature\(\) expects string, mixed given\.$#'
@@ -13771,24 +13744,6 @@ parameters:
 			path: tests/unit/Advisory/RulesTest.php
 
 		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 2
-			path: tests/unit/Bookmarks/BookmarkTest.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 3
-			path: tests/unit/Bookmarks/BookmarkTest.php
-
-		-
 			message: '#^Parameter \#2 \$haystack of static method PHPUnit\\Framework\\Assert\:\:assertStringContainsString\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 3
@@ -14279,15 +14234,6 @@ parameters:
 			identifier: staticMethod.deprecated
 			count: 1
 			path: tests/unit/Controllers/CheckRelationsControllerTest.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 2
-			path: tests/unit/Controllers/Console/Bookmark/AddControllerTest.php
 
 		-
 			message: '''

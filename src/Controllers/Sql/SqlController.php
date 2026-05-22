@@ -23,6 +23,7 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
 
 use function __;
+use function is_array;
 use function is_string;
 use function mb_strpos;
 use function str_contains;
@@ -78,13 +79,12 @@ readonly class SqlController implements InvocableController
             $errorUrl .= '&amp;table=' . urlencode(Current::$table);
         }
 
-        /** @var array<string>|null $bkmFields */
-        $bkmFields = $request->getParsedBodyParam('bkm_fields');
+        $bookmarkFields = $this->getBookmarkFields($request->getParsedBodyParam('bkm_fields'));
         $sqlQuery = $request->getParsedBodyParamAsStringOrNull('sql_query');
 
         // Coming from a bookmark dialog
-        if ($bkmFields !== null && $bkmFields['bkm_sql_query'] != null) {
-            Current::$sqlQuery = $bkmFields['bkm_sql_query'];
+        if (isset($bookmarkFields['bkm_sql_query'])) {
+            Current::$sqlQuery = $bookmarkFields['bkm_sql_query'];
         } elseif ($sqlQuery !== null) {
             Current::$sqlQuery = $sqlQuery;
         } elseif ($request->hasQueryParam('sql_query') && $request->hasQueryParam('sql_signature')) {
@@ -98,8 +98,8 @@ readonly class SqlController implements InvocableController
         }
 
         // This one is just to fill $db
-        if ($bkmFields !== null && $bkmFields['bkm_database'] != null) {
-            Current::$database = $bkmFields['bkm_database'];
+        if (isset($bookmarkFields['bkm_database'])) {
+            Current::$database = $bookmarkFields['bkm_database'];
         }
 
         // Default to browse if no query set and we have table
@@ -122,7 +122,7 @@ readonly class SqlController implements InvocableController
             $request->isAjax(),
         );
 
-        if (Current::$table != $tableFromSql && $tableFromSql !== '') {
+        if (Current::$table !== $tableFromSql && $tableFromSql !== '') {
             Current::$table = $tableFromSql;
         }
 
@@ -157,8 +157,8 @@ readonly class SqlController implements InvocableController
          */
         $storeBkm = $request->hasBodyParam('store_bkm');
         $bkmAllUsers = $request->getParsedBodyParam('bkm_all_users'); // Should this be hasBodyParam?
-        if ($storeBkm && $bkmFields !== null) {
-            return $this->addBookmark(UrlParams::$goto, $bkmFields, (bool) $bkmAllUsers);
+        if ($storeBkm) {
+            return $this->addBookmark(UrlParams::$goto, $bookmarkFields, (bool) $bkmAllUsers);
         }
 
         /**
@@ -192,31 +192,31 @@ readonly class SqlController implements InvocableController
         return $this->response->response();
     }
 
-    /** @param array<string> $bkmFields */
-    private function addBookmark(string $goto, array $bkmFields, bool $bkmAllUsers): Response
+    /** @param array<string> $bookmarkFields */
+    private function addBookmark(string $goto, array $bookmarkFields, bool $bkmAllUsers): Response
     {
         $bookmark = $this->bookmarkRepository->createBookmark(
-            $bkmFields['bkm_sql_query'],
-            $bkmFields['bkm_label'],
-            $bkmFields['bkm_user'],
-            $bkmFields['bkm_database'],
+            $bookmarkFields['bkm_sql_query'] ?? '',
+            $bookmarkFields['bkm_label'] ?? '',
+            $bookmarkFields['bkm_user'] ?? '',
+            $bookmarkFields['bkm_database'] ?? '',
             $bkmAllUsers,
         );
 
-        $result = null;
+        $result = false;
         if ($bookmark !== false) {
             $result = $bookmark->save();
         }
 
         if (! $this->response->isAjax()) {
-            $this->response->redirect('./' . $goto . '&label=' . $bkmFields['bkm_label']);
+            $this->response->redirect('./' . $goto . '&label=' . $bookmarkFields['bkm_label']);
 
             return $this->response->response();
         }
 
         if ($result) {
             $msg = Message::success(__('Bookmark %s has been created.'));
-            $msg->addParam($bkmFields['bkm_label']);
+            $msg->addParam($bookmarkFields['bkm_label']);
             $this->response->addJSON('message', $msg);
 
             return $this->response->response();
@@ -227,5 +227,24 @@ readonly class SqlController implements InvocableController
         $this->response->addJSON('message', $msg);
 
         return $this->response->response();
+    }
+
+    /** @return array{bkm_label?: string, bkm_database?: string, bkm_sql_query?: string, bkm_user?: string} */
+    private function getBookmarkFields(mixed $param): array
+    {
+        if (! is_array($param)) {
+            return [];
+        }
+
+        $fields = [];
+        foreach (['bkm_label', 'bkm_database', 'bkm_sql_query', 'bkm_user'] as $key) {
+            if (! isset($param[$key]) || ! is_string($param[$key])) {
+                continue;
+            }
+
+            $fields[$key] = $param[$key];
+        }
+
+        return $fields;
     }
 }

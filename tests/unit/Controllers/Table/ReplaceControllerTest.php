@@ -96,13 +96,13 @@ class ReplaceControllerTest extends AbstractTestCase
         $dummyDbi = $this->createDbiDummy();
         $dbi = $this->createDatabaseInterface($dummyDbi);
         $config = Config::getInstance();
-        $relation = new Relation($dbi);
+        $relation = new Relation($dbi, $config);
         $transformations = new Transformations($dbi, $relation);
         $template = new Template($config);
         $response = new ResponseRenderer();
 
         $pageSettings = self::createStub(PageSettings::class);
-        $bookmarkRepository = new BookmarkRepository($dbi, $relation);
+        $bookmarkRepository = new BookmarkRepository($dbi, $relation, $config);
         $sqlController = new SqlController(
             $response,
             new Sql(

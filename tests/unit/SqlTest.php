@@ -60,7 +60,7 @@ class SqlTest extends AbstractTestCase
             new RelationCleanup($this->dbi, $relation),
             new Transformations($this->dbi, $relation),
             new Template($config),
-            new BookmarkRepository($this->dbi, $relation),
+            new BookmarkRepository($this->dbi, $relation, $config),
             $config,
             new ResponseRenderer(),
         );
@@ -667,7 +667,7 @@ class SqlTest extends AbstractTestCase
             new RelationCleanup($this->dbi, $relation),
             new Transformations($this->dbi, $relation),
             new Template($config),
-            new BookmarkRepository($this->dbi, $relation),
+            new BookmarkRepository($this->dbi, $relation, $config),
             $config,
             new ResponseRenderer(),
         );
