@@ -7584,7 +7584,7 @@
       <code>$tables[$i][self::TBL_NAME]</code>
       <code>$tables[$n][self::TBL_NAME]</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="28">
+    <MixedArrayAccess occurrences="25">
       <code>$analyses[$i][self::FORMATTEDSQL][$colCount]</code>
       <code>$analyses[$i][self::SIZES]</code>
       <code>$analyses[$i][self::TYPES]</code>
@@ -7602,9 +7602,6 @@
       <code>$tables[$i][self::COL_NAMES]</code>
       <code>$tables[$i][self::COL_NAMES]</code>
       <code>$tables[$i][self::COL_NAMES]</code>
-      <code>$tables[$i][self::ROWS]</code>
-      <code>$tables[$i][self::ROWS]</code>
-      <code>$tables[$i][self::ROWS]</code>
       <code>$tables[$i][self::ROWS]</code>
       <code>$tables[$i][self::ROWS]</code>
       <code>$tables[$i][self::ROWS]</code>
