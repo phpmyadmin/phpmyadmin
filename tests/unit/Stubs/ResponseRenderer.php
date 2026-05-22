@@ -63,7 +63,7 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
         $dbi = DatabaseInterface::getInstanceForTest($dummyDbi, $config);
         $relation = new Relation($dbi, $config);
         $history = new History($dbi, $relation, $config);
-        $console = new Console($relation, $template, new BookmarkRepository($dbi, $relation), $history);
+        $console = new Console($relation, $template, new BookmarkRepository($dbi, $relation, $config), $history);
         $userPreferences = new UserPreferences($dbi, $relation, $template, $config, new Clock());
         $userPreferencesHandler = new UserPreferencesHandler(
             $config,

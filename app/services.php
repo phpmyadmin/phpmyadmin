@@ -385,7 +385,7 @@ return [
     VersionInformation::class => ['class' => VersionInformation::class],
     BookmarkRepository::class => [
         'class' => BookmarkRepository::class,
-        'arguments' => [DatabaseInterface::class, Relation::class],
+        'arguments' => [DatabaseInterface::class, Relation::class, Config::class],
     ],
     Console::class => [
         'class' => Console::class,

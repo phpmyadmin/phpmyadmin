@@ -56,7 +56,7 @@ final class SqlControllerTest extends AbstractTestCase
 
         return new SqlController(
             $responseRenderer,
-            new SqlQueryForm($template, $dbi, new BookmarkRepository($dbi, $relation)),
+            new SqlQueryForm($template, $dbi, new BookmarkRepository($dbi, $relation, $config)),
             new PageSettings(new UserPreferences($dbi, $relation, $template, $config, new Clock()), $responseRenderer),
             new DbTableExists($dbi),
         );

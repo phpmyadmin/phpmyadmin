@@ -30,17 +30,11 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Bookmarks/BookmarkRepository.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <InvalidArgument>
       <code><![CDATA[$result]]></code>
       <code><![CDATA[$result]]></code>
       <code><![CDATA[$row]]></code>
     </InvalidArgument>
-    <PossiblyNullArgument>
-      <code><![CDATA[$this->bookmarkFeature]]></code>
-    </PossiblyNullArgument>
   </file>
   <file src="src/Cache.php">
     <MixedAssignment>
@@ -8629,15 +8623,6 @@
       <code><![CDATA[testAdvisorBytime]]></code>
     </PossiblyInvalidArgument>
   </file>
-  <file src="tests/unit/Bookmarks/BookmarkTest.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-    </DeprecatedMethod>
-  </file>
   <file src="tests/unit/BrowseForeignersTest.php">
     <MixedArgument>
       <code><![CDATA[$result]]></code>
@@ -9001,12 +8986,6 @@
   </file>
   <file src="tests/unit/Controllers/CheckRelationsControllerTest.php">
     <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
-  </file>
-  <file src="tests/unit/Controllers/Console/Bookmark/AddControllerTest.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
   </file>

@@ -22,7 +22,7 @@ class ConsoleTest extends AbstractTestCase
         $dbi = DatabaseInterface::getInstance();
         $config = Config::getInstance();
         $relation = new Relation($dbi);
-        $bookmarkRepository = new BookmarkRepository($dbi, $relation);
+        $bookmarkRepository = new BookmarkRepository($dbi, $relation, $config);
         $history = new History($dbi, $relation, $config);
         $console = new Console($relation, new Template($config), $bookmarkRepository, $history);
         self::assertSame(['console.js'], $console->getScripts());
