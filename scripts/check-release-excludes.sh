@@ -299,6 +299,8 @@ for filePath in ${FILE_LIST}; do
         foundFile;;
         */codecov.yml)
         foundFile;;
+        */.codecov.yml)
+        foundFile;;
         */.gitattributes)
         foundFile;;
         */.gitignore)
