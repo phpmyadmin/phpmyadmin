@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-02-25 10:35-0300\n"
-"PO-Revision-Date: 2025-10-20 04:51+0000\n"
-"Last-Translator: \"Lisek (Damian Bartyś)\" <damianbart22@gmail.com>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/5-2/pl/"
-">\n"
+"PO-Revision-Date: 2026-05-24 13:11+0000\n"
+"Last-Translator: Konrad Snarski <xyrusowski@gmail.com>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
+"pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.14-dev\n"
+"X-Generator: Weblate 2026.6.dev0\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -5469,7 +5469,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Import/ImportController.php:324
 msgid "Sorry an unexpected error happened!"
-msgstr ""
+msgstr "Przepraszamy, wystąpił nieoczekiwany błąd!"
 
 #: libraries/classes/Controllers/Import/ImportController.php:372
 #: libraries/classes/Controllers/Import/ImportController.php:610
@@ -7613,6 +7613,8 @@ msgid ""
 "The fullscreen request was denied because the Fullscreen API is disabled by "
 "user preference in the browser."
 msgstr ""
+"Żądanie trybu pełnoekranowego zostało odrzucone, ponieważ z powodu ustawień "
+"przeglądarki użytkownika."
 
 #: libraries/classes/Controllers/NavigationController.php:46
 msgid "Fatal error: The navigation can only be accessed via AJAX"
@@ -8866,7 +8868,7 @@ msgstr "Jeden lub więcej błędów miały miejsce podczas przetwarzania żądan
 
 #: libraries/classes/Database/Events.php:181
 msgid "The event was dropped immediately after creation."
-msgstr ""
+msgstr "Wydarzenie zostało odrzucone od razu po jego utworzeniu."
 
 #: libraries/classes/Database/Events.php:249
 msgid "Add event"
