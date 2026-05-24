@@ -10,6 +10,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
+use PhpMyAdmin\Version;
 use ReflectionClass;
 
 use function implode;
@@ -185,6 +186,43 @@ class RelationTest extends AbstractTestCase
         $expected['on_update'] = 'CASCADE';
 
         self::assertEquals($expected, $foreigner);
+    }
+
+    /**
+     * @see https://github.com/phpmyadmin/phpmyadmin/issues/20190
+     *
+     * @group with-trigger-error
+     */
+    public function testGetForeignersForUnparsableShowCreate(): void
+    {
+        parent::setGlobalDbi();
+
+        $GLOBALS['server'] = 1;
+        $relation = new Relation($this->dbi);
+        $_SESSION['relation'] = [1 => ['version' => Version::VERSION]];
+
+        // Some SHOW CREATE TABLE output leaves the parser with no statement,
+        // such as a binary DEFAULT value on a binary(16) column.
+        $this->dummyDbi->removeDefaultResults();
+        $this->dummyDbi->addResult(
+            'SHOW CREATE TABLE `db`.`table`',
+            [
+                [
+                    'table',
+                    "CREATE TABLE `product` (\n"
+                    . "  `id` binary(16) NOT NULL,\n"
+                    . "  `version_id` binary(16) NOT NULL DEFAULT '\xc7\x84\x1b\x1e\xb9',\n"
+                    . "  PRIMARY KEY (`id`,`version_id`)\n"
+                    . ') ENGINE=InnoDB DEFAULT CHARSET=utf8mb4',
+                ],
+            ],
+            ['Table', 'Create Table']
+        );
+
+        $foreigners = $relation->getForeigners('db', 'table', '', 'foreign');
+
+        self::assertSame(['foreign_keys_data' => []], $foreigners);
+        $this->assertAllQueriesConsumed();
     }
 
     public function testFixPmaTablesNothingWorks(): void
