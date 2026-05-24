@@ -4537,7 +4537,6 @@ msgstr "Sprawdź uprawnienia"
 
 #: resources/templates/server/databases/index.twig:244
 #, fuzzy, php-format
-#| msgid "Run SQL query/queries on database %s"
 msgid "Run SQL queries on database \"%s\"."
 msgstr "Wykonanie zapytania/zapytań SQL do bazy danych %s"
 
@@ -7734,8 +7733,8 @@ msgid ""
 "Percona documentation is at <a href=\"https://www.percona.com/software/"
 "documentation/\">https://www.percona.com/software/documentation/</a>"
 msgstr ""
-"Dokumentacja Percony znajduje się na stronie <a href=\"https://www.percona."
-"com/software/documentation/\"> https://www.percona.com/software/"
+"Dokumentacja Percony znajduje się na stronie <a href=\"https://"
+"www.percona.com/software/documentation/\"> https://www.percona.com/software/"
 "documentation </a>"
 
 #: src/Advisory/Rules.php:191
@@ -7776,9 +7775,9 @@ msgstr "Nieoptymalna metoda buforowania."
 #: src/Advisory/Rules.php:217
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-"refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
-"cache, especially if you have multiple replicas."
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/refman/"
+"5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query cache, "
+"especially if you have multiple replicas."
 msgstr ""
 "Używasz bufora zapytań MySQL z bazą danych o dość dużym ruchu. Być może "
 "warto rozważyć użycie <a href=\"https://dev.mysql.com/doc/refman/5.6/en/ha-"
@@ -8450,19 +8449,19 @@ msgid ""
 "note however that you cannot simply change the value of this variable. You "
 "need to shutdown the server, remove the InnoDB log files, set the new value "
 "in my.cnf, start the server, then check the error logs if everything went "
-"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot.com/"
+"2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "Zwłaszcza w systemie z dużą ilością zapisów do tabel InnoDB powinieneś "
 "ustawić {innodb_log_file_size} na 25% {innodb_buffer_pool_size}. Jednak im "
 "większa jest ta wartość, tym dłuższy będzie czas przywracania w przypadku "
 "awarii bazy danych, więc wartość ta nie powinna być znacznie wyższa niż 256 "
 "MiB. Pamiętaj jednak, że nie możesz po prostu zmienić wartości tej zmiennej. "
-"Musisz wyłączyć serwer, usunąć pliki logów InnoDB, ustawić nową wartość w my."
-"cnf, uruchomić serwer, a następnie sprawdzić logi błędów, czy wszystko "
-"poszło dobrze. Zobacz także <a href=\"https://mysqldatabaseadministration."
-"blogspot.com/2007/01/increase-innodblogfilesize-proper-way.html\">ten wpis "
-"na blogu</a>"
+"Musisz wyłączyć serwer, usunąć pliki logów InnoDB, ustawić nową wartość w "
+"my.cnf, uruchomić serwer, a następnie sprawdzić logi błędów, czy wszystko "
+"poszło dobrze. Zobacz także <a href=\"https://"
+"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
+"proper-way.html\">ten wpis na blogu</a>"
 
 #: src/Advisory/Rules.php:662 src/Advisory/Rules.php:692
 #, php-format
@@ -9864,9 +9863,9 @@ msgstr ""
 
 #: src/Config/Descriptions.php:355
 msgid ""
-"More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
-"com/19588]MySQL Bugs[/a]"
+"More information on [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 msgstr ""
 "Więcej informacji pod adresem: [a@https://github.com/phpmyadmin/phpmyadmin/"
 "issues/8970] Narzędzie do śledzenia problemów phpMyAdmin[/a] i [a@https://"
@@ -10166,8 +10165,8 @@ msgid ""
 "Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()"
 "[/a] output."
 msgstr ""
-"Pokazuje odnośnik do [a@https://www.php.net/manual/function.phpinfo."
-"php]phpinfo()[/a]."
+"Pokazuje odnośnik do [a@https://www.php.net/manual/"
+"function.phpinfo.php]phpinfo()[/a]."
 
 #: src/Config/Descriptions.php:484
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
@@ -10998,7 +10997,7 @@ msgstr "Nie przerywaj w przypadku błędów WSTAWIANIA wierszy"
 
 #: src/Config/Descriptions.php:775 src/Plugins/Import/ImportCsv.php:157
 msgid "Import empty values as NULL"
-msgstr ""
+msgstr "Zaimportowane wartości są puste"
 
 #: src/Config/Descriptions.php:776 src/Config/Descriptions.php:783
 msgid "Add ON DUPLICATE KEY UPDATE"
@@ -11852,9 +11851,9 @@ msgid ""
 "may cause random session invalidation (currently session.gc_maxlifetime is "
 "%5$d)."
 msgstr ""
-"%1$sWażność ciasteczka logowania%2$s większa niż %3$ssession."
-"gc_maxlifetime%4$s może powodować losowe wygasanie sesji (aktualnie session."
-"gc_maxlifetime wynosi %5$d)."
+"%1$sWażność ciasteczka logowania%2$s większa niż "
+"%3$ssession.gc_maxlifetime%4$s może powodować losowe wygasanie sesji "
+"(aktualnie session.gc_maxlifetime wynosi %5$d)."
 
 #: src/Config/ServerConfigChecks.php:340
 #, php-format
@@ -12139,7 +12138,7 @@ msgstr "Żadna baza danych nie został wybrana."
 
 #: src/Controllers/Database/EventsController.php:69
 msgid "The event was dropped immediately after creation."
-msgstr ""
+msgstr "Wydarzenie zostało odrzucone od razu po jego utworzeniu."
 
 #: src/Controllers/Database/EventsController.php:136
 msgid "Add event"
@@ -12298,8 +12297,8 @@ msgid ""
 "Searching inside the database is disabled by the [code]$cfg['UseDbSearch'][/"
 "code] configuration."
 msgstr ""
-"Wyszukiwanie w bazie danych jest wyłączone przez konfigurację "
-"[code]$cfg['UseDbSearch'][/code]."
+"Wyszukiwanie w bazie danych jest wyłączone przez konfigurację [code]"
+"$cfg['UseDbSearch'][/code]."
 
 #: src/Controllers/Database/Structure/CentralColumns/AddController.php:49
 #: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:48
@@ -12411,15 +12410,17 @@ msgstr ""
 
 #: src/Controllers/HomeController.php:267
 msgid ""
-"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
-"than cookie validity configured in phpMyAdmin, because of this, your login "
-"might expire sooner than configured in phpMyAdmin."
+"Your PHP parameter [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie validity "
+"configured in phpMyAdmin, because of this, your login might expire sooner "
+"than configured in phpMyAdmin."
 msgstr ""
-"Parametr PHP [a@https://www.php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] ma mniejszą wartość "
-"niż czas przechowywania ciasteczka skonfigurowany w phpMyAdmin. Z tego "
-"powodu sesja wygaśnie wcześniej niż jest to skonfigurowane w phpMyAdmin."
+"Parametr PHP [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] ma mniejszą wartość niż czas "
+"przechowywania ciasteczka skonfigurowany w phpMyAdmin. Z tego powodu sesja "
+"wygaśnie wcześniej niż jest to skonfigurowane w phpMyAdmin."
 
 #: src/Controllers/HomeController.php:287
 msgid ""
@@ -12463,10 +12464,6 @@ msgstr ""
 
 #: src/Controllers/HomeController.php:355
 #, fuzzy
-#| msgid ""
-#| "The configuration file needs a valid key for cookie encryption. A "
-#| "temporary key was automatically generated for you. Please refer to the "
-#| "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgid ""
 "The configuration file needs a valid key for query encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
@@ -12478,10 +12475,6 @@ msgstr ""
 
 #: src/Controllers/HomeController.php:365
 #, fuzzy, php-format
-#| msgid ""
-#| "The cookie encryption key in the configuration file is longer than "
-#| "necessary. It should only be %d bytes long. Please refer to the "
-#| "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgid ""
 "The query encryption key in the configuration file is longer than necessary. "
 "It should only be %d bytes long. Please refer to the "
@@ -12558,7 +12551,7 @@ msgstr "Nieprawidłowy parametr formatu"
 
 #: src/Controllers/Import/ImportController.php:253
 msgid "Sorry an unexpected error happened!"
-msgstr ""
+msgstr "Przepraszamy, wystąpił nieoczekiwany błąd!"
 
 #: src/Controllers/Import/ImportController.php:300
 #: src/Controllers/Import/ImportController.php:511
@@ -14116,6 +14109,8 @@ msgid ""
 "The fullscreen request was denied because the Fullscreen API is disabled by "
 "user preference in the browser."
 msgstr ""
+"Żądanie trybu pełnoekranowego zostało odrzucone, ponieważ z powodu ustawień "
+"przeglądarki użytkownika."
 
 #: src/Controllers/JavaScriptMessagesController.php:701
 msgctxt "Month name"
@@ -15173,8 +15168,8 @@ msgstr ""
 "Liczba zapytań, które zostały usunięte z pamięci podręcznej, by zwolnic "
 "pamięć do buforowania nowych zapytań. Ta informacje może pomóc dostroić "
 "wielkość bufora podręcznego. Do decydowania o tym, które zapytania usunąć z "
-"bufora podręcznego używana jest strategia \"najpierw najdłużej "
-"nieużywany\" (<i>least recently used</i> - LRU)."
+"bufora podręcznego używana jest strategia \"najpierw najdłużej nieużywany\" "
+"(<i>least recently used</i> - LRU)."
 
 #: src/Controllers/Server/Status/VariablesController.php:441
 msgid ""
@@ -15476,11 +15471,10 @@ msgstr "Nie znaleziono kolumny przestrzennej dla tego zapytania SQL."
 
 #: src/Controllers/Table/GisVisualizationController.php:121
 msgid "Invalid file format, expected one of: "
-msgstr ""
+msgstr "Nieprawidłowy format pliku, oczekiwano %s "
 
 #: src/Controllers/Table/GisVisualizationController.php:129
 #, fuzzy
-#| msgid "Failed to open remote URL"
 msgid "Failed to create image"
 msgstr "Nie udało się otworzyć zdalnego adresu URL"
 
@@ -16277,7 +16271,6 @@ msgstr ""
 
 #: src/File.php:372
 #, fuzzy
-#| msgid "Cannot read uploaded file."
 msgid "Cannot create temporary file."
 msgstr "Nie można odczytać przesłanego pliku."
 
@@ -16337,7 +16330,6 @@ msgstr "Pomiń wyjaśnienie SQL"
 
 #: src/Html/Generator.php:517
 #, fuzzy
-#| msgid "Skip Validate SQL"
 msgid "Skip Analyze SQL"
 msgstr "Pomiń sprawdzanie poprawności SQL"
 
@@ -17495,7 +17487,6 @@ msgstr ""
 
 #: src/Plugins/Export/ExportToon.php:67
 #, fuzzy
-#| msgid "Orientation"
 msgid "Indentation:"
 msgstr "Orientacja"
 
@@ -18935,7 +18926,7 @@ msgstr ""
 
 #: src/Types.php:296
 msgid "Intended for storage of XML data"
-msgstr ""
+msgstr "Przeznaczone dla przetrzymywania danych w formacie XML"
 
 #: src/Types.php:607
 msgctxt "numeric types"
@@ -19669,8 +19660,8 @@ msgstr "Archiwum ZIP jest puste!"
 #~ msgid ""
 #~ "Incorrect formset, check $formsets array in setup/frames/form.inc.php!"
 #~ msgstr ""
-#~ "Nieprawidłowa formset, sprawdź tablicę $formsets w setup/frames/form.inc."
-#~ "php"
+#~ "Nieprawidłowa formset, sprawdź tablicę $formsets w setup/frames/"
+#~ "form.inc.php"
 
 #, fuzzy
 #~ msgid "Unknonwn"
@@ -20636,9 +20627,9 @@ msgstr "Archiwum ZIP jest puste!"
 #~ msgstr ""
 #~ "Jeśli chcesz skorzystać z usługi Weryfikcji SQL, należy pamiętać, że "
 #~ "wszystkie [strong]instrukcje SQL są przechowywane anonimowo do celów "
-#~ "statystycznych[/strong]. [br][em][a@https://sqlvalidator.mimer."
-#~ "com/]Usługę Mimer SQL Validator[/a], Prawo autorskie 2002 Upright "
-#~ "Database Technology. Wszelkie prawa zastrzeżone.[/em]"
+#~ "statystycznych[/strong]. [br][em][a@https://"
+#~ "sqlvalidator.mimer.com/]Usługę Mimer SQL Validator[/a], Prawo autorskie "
+#~ "2002 Upright Database Technology. Wszelkie prawa zastrzeżone.[/em]"
 
 #, fuzzy
 #~ msgid "Requires SQL Validator to be enabled."
