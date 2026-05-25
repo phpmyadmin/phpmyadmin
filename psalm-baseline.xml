@@ -4599,12 +4599,6 @@
     <MixedAssignment>
       <code><![CDATA[$pftext]]></code>
     </MixedAssignment>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$message]]></code>
-    </PossiblyInvalidArgument>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($_REQUEST['message'])]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Html/Generator.php">
     <DeprecatedMethod>

@@ -24,6 +24,7 @@ use function array_merge;
 use function htmlspecialchars;
 use function implode;
 use function ini_get;
+use function is_string;
 use function json_encode;
 
 use const JSON_HEX_TAG;
@@ -313,20 +314,19 @@ class Header
      */
     public function getMessage(): string
     {
-        $retval = '';
-        $message = '';
         if (Current::$message !== null) {
             $message = Current::$message;
             Current::$message = null;
-        } elseif (! empty($_REQUEST['message'])) {
-            $message = $_REQUEST['message'];
+
+            return Generator::getMessage($message);
         }
 
-        if ($message !== '') {
-            $retval .= Generator::getMessage($message);
+        $message = $_POST['message'] ?? $_GET['message'] ?? null;
+        if (is_string($message) && $message !== '') {
+            return Generator::getMessage(Message::notice(htmlspecialchars($message)));
         }
 
-        return $retval;
+        return '';
     }
 
     /** @return array<string, string> */
