@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-02-25 10:35-0300\n"
+"POT-Creation-Date: 2026-05-25 18:05+0000\n"
 "PO-Revision-Date: 2022-02-17 10:35+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Tatar <https://hosted.weblate.org/projects/phpmyadmin/5-2/tt/"
@@ -274,9 +274,9 @@ msgstr "Soraw alxätere"
 #: libraries/advisory_rules_generic.php:190
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"https://dev.mysql.com/doc/refman/"
-"5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query cache, "
-"especially if you have multiple replicas."
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
+"refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
+"cache, especially if you have multiple replicas."
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:196
@@ -928,8 +928,8 @@ msgid ""
 "note however that you cannot simply change the value of this variable. You "
 "need to shutdown the server, remove the InnoDB log files, set the new value "
 "in my.cnf, start the server, then check the error logs if everything went "
-"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot.com/"
-"2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
+"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:626
@@ -1251,7 +1251,7 @@ msgstr "Ezläw"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:323
 #: libraries/classes/Controllers/Server/PrivilegesController.php:330
 #: libraries/classes/Normalization.php:255
-#: libraries/classes/Normalization.php:978 libraries/classes/Tracking.php:327
+#: libraries/classes/Normalization.php:980 libraries/classes/Tracking.php:327
 #: libraries/classes/Tracking.php:481
 #: templates/columns_definitions/column_definitions_form.twig:43
 #: templates/database/designer/main.twig:1102
@@ -2316,9 +2316,9 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:366
 msgid ""
-"More information on [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
-"8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
-"Bugs[/a]"
+"More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
+"issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
+"com/19588]MySQL Bugs[/a]"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:370
@@ -3467,7 +3467,7 @@ msgid "Navigation tree"
 msgstr "Biremlek saqlaw köyläneşe"
 
 #: libraries/classes/Config/Descriptions.php:762
-#: templates/server/select/index.twig:9 templates/setup/home/index.twig:34
+#: templates/server/select/index.twig:15 templates/setup/home/index.twig:34
 msgid "Servers"
 msgstr "Serverlär"
 
@@ -4621,7 +4621,7 @@ msgstr ""
 #: libraries/classes/Config/Forms/User/ExportForm.php:100
 #: libraries/classes/Config/Forms/User/ExportForm.php:128
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:712
-#: libraries/classes/Import.php:1313 libraries/classes/Menu.php:247
+#: libraries/classes/Import.php:1325 libraries/classes/Menu.php:247
 #: libraries/classes/Menu.php:357
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:42
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:51
@@ -5113,7 +5113,7 @@ msgstr "Biremlek saylanmağan."
 msgid "Success!"
 msgstr ""
 
-#: libraries/classes/Controllers/Database/StructureController.php:365
+#: libraries/classes/Controllers/Database/StructureController.php:370
 #: templates/table/operations/index.twig:451
 #: templates/table/operations/view.twig:32
 #, fuzzy, php-format
@@ -5121,21 +5121,21 @@ msgstr ""
 msgid "View %s has been dropped."
 msgstr "\"%s\" atlı Qaraş beterelgän buldı"
 
-#: libraries/classes/Controllers/Database/StructureController.php:365
+#: libraries/classes/Controllers/Database/StructureController.php:370
 #: templates/table/operations/index.twig:451
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
 msgstr "\"%s\" atlı tüşämä beterelde"
 
-#: libraries/classes/Controllers/Database/StructureController.php:412
+#: libraries/classes/Controllers/Database/StructureController.php:417
 #: templates/table/operations/index.twig:410
 #: templates/table/operations/index.twig:428
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "\"%s\" atlı tüşämä buşatıldı."
 
-#: libraries/classes/Controllers/Database/StructureController.php:575
+#: libraries/classes/Controllers/Database/StructureController.php:589
 #: libraries/classes/Display/Results.php:4006
 #, php-format
 msgid ""
@@ -5143,7 +5143,7 @@ msgid ""
 "%sdocumentation%s."
 msgstr ""
 
-#: libraries/classes/Controllers/Database/StructureController.php:772
+#: libraries/classes/Controllers/Database/StructureController.php:786
 msgid "unknown"
 msgstr "belgesez"
 
@@ -5250,7 +5250,7 @@ msgid "You may want to refresh the page."
 msgstr ""
 
 #: libraries/classes/Controllers/Export/ExportController.php:239
-#: libraries/classes/Export.php:1345
+#: libraries/classes/Export.php:1355
 #, fuzzy
 #| msgid "Bar type"
 msgid "Bad type!"
@@ -5287,11 +5287,10 @@ msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:271
 msgid ""
-"Your PHP parameter [a@https://www.php.net/manual/en/"
-"session.configuration.php#ini.session.gc-"
-"maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie validity "
-"configured in phpMyAdmin, because of this, your login might expire sooner "
-"than configured in phpMyAdmin."
+"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
+"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
+"than cookie validity configured in phpMyAdmin, because of this, your login "
+"might expire sooner than configured in phpMyAdmin."
 msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:288
@@ -5808,7 +5807,7 @@ msgstr "Saylanğan qullanuçı beterü"
 #: templates/error/report_modal.twig:14 templates/export_modal.twig:6
 #: templates/export_modal.twig:10 templates/export.twig:82
 #: templates/export.twig:92 templates/export.twig:194
-#: templates/home/index.twig:298 templates/home/index.twig:306
+#: templates/home/index.twig:297 templates/home/index.twig:305
 #: templates/modals/build_query.twig:6 templates/modals/build_query.twig:16
 #: templates/modals/create_view.twig:6 templates/modals/create_view.twig:11
 #: templates/modals/enum_set_editor.twig:6
@@ -6114,7 +6113,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:207
 #: libraries/classes/Display/Results.php:1274
-#: libraries/classes/Plugins/Export/ExportSql.php:2258
+#: libraries/classes/Plugins/Export/ExportSql.php:2263
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:99
 #: libraries/config.values.php:111
 #: templates/columns_definitions/column_attributes.twig:217
@@ -6430,7 +6429,7 @@ msgid "Sum of grouped rows:"
 msgstr "Tezelgän yazma sanı bu."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:292
-#: libraries/classes/Engines/Innodb.php:140
+#: libraries/classes/Engines/Innodb.php:141
 #: templates/server/databases/index.twig:253
 #, fuzzy
 #| msgid "Total"
@@ -6552,7 +6551,7 @@ msgid "Apply"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:331
-#: templates/home/index.twig:302 templates/modals/index_dialog_modal.twig:26
+#: templates/home/index.twig:301 templates/modals/index_dialog_modal.twig:26
 #: templates/navigation/main.twig:58
 #: templates/server/privileges/users_overview.twig:173
 #: templates/server/status/monitor/index.twig:95
@@ -6831,7 +6830,7 @@ msgid "Variable %d:"
 msgstr "Üzgärmä"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:399
-#: libraries/classes/Normalization.php:1051
+#: libraries/classes/Normalization.php:1053
 msgid "Pick"
 msgstr ""
 
@@ -6869,7 +6868,7 @@ msgid "Primary key added."
 msgstr "\"%s\" öçen töp açqıç qorıldı"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:411
-#: libraries/classes/Normalization.php:282
+#: libraries/classes/Normalization.php:284
 #, fuzzy
 #| msgid "Change"
 msgid "Taking you to next step…"
@@ -6881,10 +6880,10 @@ msgid "The first step of normalization is complete for table '%s'."
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:413
-#: libraries/classes/Normalization.php:540
-#: libraries/classes/Normalization.php:602
-#: libraries/classes/Normalization.php:699
-#: libraries/classes/Normalization.php:775
+#: libraries/classes/Normalization.php:542
+#: libraries/classes/Normalization.php:604
+#: libraries/classes/Normalization.php:701
+#: libraries/classes/Normalization.php:777
 #, fuzzy
 #| msgid "At End of Table"
 msgid "End of step"
@@ -6896,7 +6895,7 @@ msgstr ""
 
 #. l10n: Display text for calendar close link
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:415
-#: libraries/classes/Normalization.php:375
+#: libraries/classes/Normalization.php:377
 #: templates/javascript/variables.twig:15
 #, fuzzy
 msgid "Done"
@@ -7433,7 +7432,7 @@ msgstr "Ürçet"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:594
 #: libraries/classes/Controllers/UserPasswordController.php:84
-#: templates/home/index.twig:46
+#: templates/home/index.twig:45
 #: templates/server/privileges/change_password.twig:10
 msgid "Change password"
 msgstr "Sersüz üzgärtü"
@@ -7747,7 +7746,7 @@ msgid "No such column"
 msgstr "Add/Delete Field Columns"
 
 #: libraries/classes/Controllers/NormalizationController.php:46
-#: libraries/classes/Normalization.php:250 libraries/classes/Types.php:850
+#: libraries/classes/Normalization.php:250 libraries/classes/Types.php:854
 #, fuzzy
 #| msgid "Lines terminated by"
 msgctxt "string types"
@@ -8510,7 +8509,7 @@ msgid "Insecure connection"
 msgstr ""
 
 #: libraries/classes/Controllers/Sql/SqlController.php:235
-#: libraries/classes/Sql.php:1187
+#: libraries/classes/Sql.php:1196
 #, fuzzy, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
@@ -8539,7 +8538,7 @@ msgid "No row selected."
 msgstr "Kertemnär sayladı"
 
 #: libraries/classes/Controllers/Table/ChartController.php:60
-#: libraries/classes/Controllers/Table/GisVisualizationController.php:73
+#: libraries/classes/Controllers/Table/GisVisualizationController.php:76
 msgid "No SQL query was set to fetch data."
 msgstr ""
 
@@ -8625,7 +8624,7 @@ msgstr "Tüşämä tikşerü"
 #: libraries/classes/Controllers/Table/GetFieldController.php:86
 #: libraries/classes/Database/Routines.php:1256
 #: libraries/classes/Import.php:149 libraries/classes/InsertEdit.php:230
-#: libraries/classes/Sql.php:1001
+#: libraries/classes/Sql.php:1010
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL sorawğa buş cawap, yäğni nül kertem qaytarttı."
 
@@ -8710,7 +8709,7 @@ msgstr "Saylanğan qullanuçını beterü uñışlı uzdı."
 
 #: libraries/classes/Controllers/Table/Structure/PartitioningController.php:267
 #: libraries/classes/Controllers/Table/Structure/SaveController.php:281
-#: libraries/classes/Tracking.php:776
+#: libraries/classes/Tracking.php:779
 #, fuzzy
 #| msgid "Query type"
 msgid "Query error"
@@ -9406,7 +9405,7 @@ msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Törle buluı bar. [doc@faq3-11]YBS 3.11[/doc] qarísı"
 
 #: libraries/classes/Display/Results.php:3709
-#: libraries/classes/Display/Results.php:4047 libraries/classes/Sql.php:1007
+#: libraries/classes/Display/Results.php:4047 libraries/classes/Sql.php:1016
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
@@ -9439,33 +9438,33 @@ msgstr "Bäyläneş tabılmadı"
 msgid "Version information"
 msgstr "Söreme turında"
 
-#: libraries/classes/Engines/Innodb.php:31
+#: libraries/classes/Engines/Innodb.php:32
 msgid "Data home directory"
 msgstr "Biremnär törgäge"
 
-#: libraries/classes/Engines/Innodb.php:32
+#: libraries/classes/Engines/Innodb.php:33
 msgid "The common part of the directory path for all InnoDB data files."
 msgstr "InnoDB biremnäre öçen törgäk yulınıñ töp öleşe bu."
 
-#: libraries/classes/Engines/Innodb.php:35
+#: libraries/classes/Engines/Innodb.php:36
 msgid "Data files"
 msgstr "Eçtälek bireme"
 
-#: libraries/classes/Engines/Innodb.php:38
+#: libraries/classes/Engines/Innodb.php:39
 msgid "Autoextend increment"
 msgstr "Biremlektä arttıru adımı"
 
-#: libraries/classes/Engines/Innodb.php:40
+#: libraries/classes/Engines/Innodb.php:41
 msgid ""
 "The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr "Tüşämä alanı tulğaç, anı arttıruçı adımı bu."
 
-#: libraries/classes/Engines/Innodb.php:45
+#: libraries/classes/Engines/Innodb.php:46
 msgid "Buffer pool size"
 msgstr "Bufer pul olılığı"
 
-#: libraries/classes/Engines/Innodb.php:46
+#: libraries/classes/Engines/Innodb.php:47
 msgid ""
 "The size of the memory buffer InnoDB uses to cache data and indexes of its "
 "tables."
@@ -9473,72 +9472,72 @@ msgstr ""
 "InnoDB üz tüşämä öçen alxäter belän açqıçlar urnaştırğanda bu olılıqta "
 "bulğan bufer qullana."
 
-#: libraries/classes/Engines/Innodb.php:107
+#: libraries/classes/Engines/Innodb.php:108
 msgid "Buffer Pool"
 msgstr "Bufer Pulı"
 
-#: libraries/classes/Engines/Innodb.php:108
+#: libraries/classes/Engines/Innodb.php:109
 #: libraries/classes/Server/Status/Data.php:233
 msgid "InnoDB Status"
 msgstr "InnoDB Torışı"
 
-#: libraries/classes/Engines/Innodb.php:135
+#: libraries/classes/Engines/Innodb.php:136
 msgid "Buffer Pool Usage"
 msgstr "Bufer Pul Totılğanlığı"
 
-#: libraries/classes/Engines/Innodb.php:142
+#: libraries/classes/Engines/Innodb.php:143
 msgid "pages"
 msgstr "bit"
 
-#: libraries/classes/Engines/Innodb.php:150
+#: libraries/classes/Engines/Innodb.php:151
 msgid "Free pages"
 msgstr "Buş bit sanı"
 
-#: libraries/classes/Engines/Innodb.php:156
+#: libraries/classes/Engines/Innodb.php:157
 msgid "Dirty pages"
 msgstr "Üzgärtelgän bit"
 
-#: libraries/classes/Engines/Innodb.php:162
+#: libraries/classes/Engines/Innodb.php:163
 msgid "Pages containing data"
 msgstr "Eçtälekle bitlär"
 
-#: libraries/classes/Engines/Innodb.php:168
+#: libraries/classes/Engines/Innodb.php:169
 msgid "Pages to be flushed"
 msgstr "Buşatası bit"
 
-#: libraries/classes/Engines/Innodb.php:174
+#: libraries/classes/Engines/Innodb.php:175
 msgid "Busy pages"
 msgstr "Eştä bit"
 
-#: libraries/classes/Engines/Innodb.php:183
+#: libraries/classes/Engines/Innodb.php:184
 msgid "Latched pages"
 msgstr "Berketelgän bit"
 
-#: libraries/classes/Engines/Innodb.php:194
+#: libraries/classes/Engines/Innodb.php:195
 msgid "Buffer Pool Activity"
 msgstr "Bufer Pul Terelege"
 
-#: libraries/classes/Engines/Innodb.php:198
+#: libraries/classes/Engines/Innodb.php:199
 msgid "Read requests"
 msgstr "Uquğa soraw"
 
-#: libraries/classes/Engines/Innodb.php:204
+#: libraries/classes/Engines/Innodb.php:205
 msgid "Write requests"
 msgstr "Yazuğa soraw"
 
-#: libraries/classes/Engines/Innodb.php:210
+#: libraries/classes/Engines/Innodb.php:211
 msgid "Read misses"
 msgstr "Uñışsız uqu"
 
-#: libraries/classes/Engines/Innodb.php:216
+#: libraries/classes/Engines/Innodb.php:217
 msgid "Write waits"
 msgstr "Yazğanda kötterü"
 
-#: libraries/classes/Engines/Innodb.php:222
+#: libraries/classes/Engines/Innodb.php:223
 msgid "Read misses in %"
 msgstr "Uñışsız uqu, % öçen"
 
-#: libraries/classes/Engines/Innodb.php:237
+#: libraries/classes/Engines/Innodb.php:238
 msgid "Write waits in %"
 msgstr "Yazğanda kötterü, % öçen"
 
@@ -9745,7 +9744,7 @@ msgstr ""
 #: libraries/classes/Html/Generator.php:745
 #: libraries/classes/Html/MySQLDocumentation.php:50
 #: libraries/classes/Sanitize.php:203
-#: templates/config/form_display/input.twig:10 templates/home/index.twig:246
+#: templates/config/form_display/input.twig:10 templates/home/index.twig:245
 #: templates/server/variables/index.twig:17 templates/setup/home/index.twig:113
 #: templates/setup/home/index.twig:131
 msgid "Documentation"
@@ -9799,7 +9798,7 @@ msgid "Dump has been saved to file %s."
 msgstr "Eçtälege \"%s\" biremenä saqlandı."
 
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
-#: libraries/classes/Export.php:992
+#: libraries/classes/Export.php:997
 msgid "Exporting a raw query is not supported for this export method."
 msgstr ""
 
@@ -9946,29 +9945,29 @@ msgstr ""
 msgid "%d errors were found during analysis."
 msgstr ""
 
-#: libraries/classes/Import.php:292 libraries/classes/Sql.php:1015
+#: libraries/classes/Import.php:292 libraries/classes/Sql.php:1024
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
-#: libraries/classes/Import.php:1272
+#: libraries/classes/Import.php:1284
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 
-#: libraries/classes/Import.php:1274
+#: libraries/classes/Import.php:1286
 msgid "View a structure's contents by clicking on its name."
 msgstr ""
 
-#: libraries/classes/Import.php:1275
+#: libraries/classes/Import.php:1287
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 
-#: libraries/classes/Import.php:1276
+#: libraries/classes/Import.php:1288
 msgid "Edit structure by following the \"Structure\" link."
 msgstr ""
 
-#: libraries/classes/Import.php:1280 libraries/classes/Import.php:1314
+#: libraries/classes/Import.php:1292 libraries/classes/Import.php:1326
 #: libraries/classes/Plugins/Export/ExportCodegen.php:66
 #: libraries/classes/Plugins/Export/ExportCsv.php:47
 #: libraries/classes/Plugins/Export/ExportExcel.php:39
@@ -9999,34 +9998,34 @@ msgstr ""
 msgid "Options"
 msgstr "Eşkärtü"
 
-#: libraries/classes/Import.php:1283
+#: libraries/classes/Import.php:1295
 #, fuzzy, php-format
 msgid "Go to database: %s"
 msgstr "Biremleklär yuq"
 
-#: libraries/classes/Import.php:1289 libraries/classes/Import.php:1332
+#: libraries/classes/Import.php:1301 libraries/classes/Import.php:1344
 #, php-format
 msgid "Edit settings for %s"
 msgstr ""
 
-#: libraries/classes/Import.php:1317
+#: libraries/classes/Import.php:1329
 #, fuzzy, php-format
 msgid "Go to table: %s"
 msgstr "Biremleklär yuq"
 
-#: libraries/classes/Import.php:1325
+#: libraries/classes/Import.php:1337
 #, fuzzy, php-format
 #| msgid "Structure only"
 msgid "Structure of %s"
 msgstr "Tözeleşen genä"
 
-#: libraries/classes/Import.php:1343
+#: libraries/classes/Import.php:1355
 #, fuzzy, php-format
 #| msgid "Export views"
 msgid "Go to view: %s"
 msgstr "Çığaru ısulı"
 
-#: libraries/classes/Import.php:1371
+#: libraries/classes/Import.php:1383
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -10102,12 +10101,12 @@ msgstr "Yä"
 msgid "web server upload directory:"
 msgstr "web-server'neñ yökläw törgäge"
 
-#: libraries/classes/InsertEdit.php:1345 libraries/classes/Sql.php:998
+#: libraries/classes/InsertEdit.php:1345 libraries/classes/Sql.php:1007
 #, fuzzy
 msgid "Showing SQL query"
 msgstr "Tulı Sorawlar Kürsät"
 
-#: libraries/classes/InsertEdit.php:1369 libraries/classes/Sql.php:978
+#: libraries/classes/InsertEdit.php:1369 libraries/classes/Sql.php:987
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -10188,7 +10187,7 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:558
 #: libraries/classes/Plugins/Export/ExportOdt.php:708
 #: libraries/classes/Plugins/Export/ExportPdf.php:271
-#: libraries/classes/Plugins/Export/ExportSql.php:2115
+#: libraries/classes/Plugins/Export/ExportSql.php:2120
 #: libraries/classes/Plugins/Export/ExportTexytext.php:554
 #: libraries/classes/Plugins/Export/ExportXml.php:121
 #: libraries/classes/Util.php:1971 libraries/classes/Util.php:1987
@@ -10213,7 +10212,7 @@ msgstr ""
 #: libraries/classes/Menu.php:418
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:1025
+#: libraries/classes/Plugins/Export/ExportSql.php:1030
 #: libraries/classes/Plugins/Export/ExportXml.php:101
 #: libraries/classes/Util.php:1970 templates/database/events/index.twig:3
 #, fuzzy
@@ -10516,14 +10515,14 @@ msgid "Make all columns atomic"
 msgstr ""
 
 #: libraries/classes/Normalization.php:225
-#: libraries/classes/Normalization.php:961
+#: libraries/classes/Normalization.php:963
 msgid "First step of normalization (1NF)"
 msgstr ""
 
 #: libraries/classes/Normalization.php:228
-#: libraries/classes/Normalization.php:278
-#: libraries/classes/Normalization.php:324
-#: libraries/classes/Normalization.php:361
+#: libraries/classes/Normalization.php:280
+#: libraries/classes/Normalization.php:326
+#: libraries/classes/Normalization.php:363
 msgid "Step 1."
 msgstr ""
 
@@ -10547,73 +10546,73 @@ msgstr ""
 msgid "split into "
 msgstr ""
 
-#: libraries/classes/Normalization.php:275
+#: libraries/classes/Normalization.php:277
 msgid "Have a primary key"
 msgstr ""
 
-#: libraries/classes/Normalization.php:281
+#: libraries/classes/Normalization.php:283
 #, fuzzy
 #| msgid "Table %s already exists!"
 msgid "Primary key already exists."
 msgstr "%s atlı tüşämä bar inde!"
 
-#: libraries/classes/Normalization.php:286
+#: libraries/classes/Normalization.php:288
 msgid ""
 "There is no primary key; please add one.<br>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
 msgstr ""
 
-#: libraries/classes/Normalization.php:294
+#: libraries/classes/Normalization.php:296
 msgid "Add a primary key on existing column(s)"
 msgstr ""
 
-#: libraries/classes/Normalization.php:298
+#: libraries/classes/Normalization.php:300
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
 msgstr ""
 
-#: libraries/classes/Normalization.php:300
+#: libraries/classes/Normalization.php:302
 #, fuzzy
 #| msgid "Add %s field(s)"
 msgid "+ Add a new primary key column"
 msgstr "%s alan östäw"
 
-#: libraries/classes/Normalization.php:323
+#: libraries/classes/Normalization.php:325
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Remove redundant columns"
 msgstr "Biremlekne bolay atap quy"
 
-#: libraries/classes/Normalization.php:326
+#: libraries/classes/Normalization.php:328
 msgid ""
 "Do you have a group of columns which on combining gives an existing column? "
 "For example, if you have first_name, last_name and full_name then combining "
 "first_name and last_name gives full_name which is redundant."
 msgstr ""
 
-#: libraries/classes/Normalization.php:332
+#: libraries/classes/Normalization.php:334
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
 msgstr ""
 
-#: libraries/classes/Normalization.php:337
+#: libraries/classes/Normalization.php:339
 #, fuzzy
 #| msgid "Remove selected users"
 msgid "Remove selected"
 msgstr "Saylanğan qullanuçı beterü"
 
-#: libraries/classes/Normalization.php:338
+#: libraries/classes/Normalization.php:340
 #, fuzzy
 #| msgid "Add %s field(s)"
 msgid "No redundant column"
 msgstr "%s alan östäw"
 
-#: libraries/classes/Normalization.php:360
+#: libraries/classes/Normalization.php:362
 msgid "Move repeating groups"
 msgstr ""
 
-#: libraries/classes/Normalization.php:363
+#: libraries/classes/Normalization.php:365
 msgid ""
 "Do you have a group of two or more columns that are closely related and are "
 "all repeating the same attribute? For example, a table that holds data on "
@@ -10622,121 +10621,121 @@ msgid ""
 "should be created."
 msgstr ""
 
-#: libraries/classes/Normalization.php:371
+#: libraries/classes/Normalization.php:373
 msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
 msgstr ""
 
-#: libraries/classes/Normalization.php:376
+#: libraries/classes/Normalization.php:378
 msgid "No repeating group"
 msgstr ""
 
-#: libraries/classes/Normalization.php:404
+#: libraries/classes/Normalization.php:406
 msgid "Step 2."
 msgstr ""
 
-#: libraries/classes/Normalization.php:404
+#: libraries/classes/Normalization.php:406
 msgid "Find partial dependencies"
 msgstr ""
 
-#: libraries/classes/Normalization.php:425
+#: libraries/classes/Normalization.php:427
 #, php-format
 msgid ""
 "No partial dependencies possible as no non-primary column exists since "
 "primary key ( %1$s ) is composed of all the columns in the table."
 msgstr ""
 
-#: libraries/classes/Normalization.php:431
-#: libraries/classes/Normalization.php:473
+#: libraries/classes/Normalization.php:433
+#: libraries/classes/Normalization.php:475
 msgid "Table is already in second normal form."
 msgstr ""
 
-#: libraries/classes/Normalization.php:436
+#: libraries/classes/Normalization.php:438
 #, php-format
 msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
 "the partial dependencies."
 msgstr ""
 
-#: libraries/classes/Normalization.php:440
-#: libraries/classes/Normalization.php:870
+#: libraries/classes/Normalization.php:442
+#: libraries/classes/Normalization.php:872
 msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
 msgstr ""
 
-#: libraries/classes/Normalization.php:442
+#: libraries/classes/Normalization.php:444
 msgid "+ Show me the possible partial dependencies based on data in the table"
 msgstr ""
 
-#: libraries/classes/Normalization.php:445
+#: libraries/classes/Normalization.php:447
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
 "value of the column."
 msgstr ""
 
-#: libraries/classes/Normalization.php:458
-#: libraries/classes/Normalization.php:912
+#: libraries/classes/Normalization.php:460
+#: libraries/classes/Normalization.php:914
 #, php-format
 msgid "'%1$s' depends on:"
 msgstr ""
 
-#: libraries/classes/Normalization.php:469
+#: libraries/classes/Normalization.php:471
 #, php-format
 msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column."
 msgstr ""
 
-#: libraries/classes/Normalization.php:497
+#: libraries/classes/Normalization.php:499
 #, php-format
 msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
 "create the following tables:"
 msgstr ""
 
-#: libraries/classes/Normalization.php:535
+#: libraries/classes/Normalization.php:537
 #, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
 msgstr ""
 
-#: libraries/classes/Normalization.php:591
-#: libraries/classes/Normalization.php:764
-#: libraries/classes/Normalization.php:842
+#: libraries/classes/Normalization.php:593
+#: libraries/classes/Normalization.php:766
+#: libraries/classes/Normalization.php:844
 #, fuzzy
 #| msgid "Processes"
 msgid "Error in processing!"
 msgstr "Proseslar"
 
-#: libraries/classes/Normalization.php:638
+#: libraries/classes/Normalization.php:640
 #, php-format
 msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
 "create the following tables:"
 msgstr ""
 
-#: libraries/classes/Normalization.php:695
+#: libraries/classes/Normalization.php:697
 msgid "The third step of normalization is complete."
 msgstr ""
 
-#: libraries/classes/Normalization.php:815
+#: libraries/classes/Normalization.php:817
 #, php-format
 msgid "Selected repeating group has been moved to the table '%s'"
 msgstr ""
 
-#: libraries/classes/Normalization.php:868
+#: libraries/classes/Normalization.php:870
 #, fuzzy
 #| msgid "Sep"
 msgid "Step 3."
 msgstr "Sen"
 
-#: libraries/classes/Normalization.php:868
+#: libraries/classes/Normalization.php:870
 msgid "Find transitive dependencies"
 msgstr ""
 
-#: libraries/classes/Normalization.php:872
+#: libraries/classes/Normalization.php:874
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -10744,83 +10743,83 @@ msgid ""
 "that case you don't have to select any."
 msgstr ""
 
-#: libraries/classes/Normalization.php:926
+#: libraries/classes/Normalization.php:928
 msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
 msgstr ""
 
-#: libraries/classes/Normalization.php:929
+#: libraries/classes/Normalization.php:931
 msgid "Table is already in Third normal form!"
 msgstr ""
 
-#: libraries/classes/Normalization.php:955
+#: libraries/classes/Normalization.php:957
 #, fuzzy
 #| msgid "Propose table structure"
 msgid "Improve table structure (Normalization):"
 msgstr "Tüşämä tözeleşenä küzätü"
 
-#: libraries/classes/Normalization.php:956
+#: libraries/classes/Normalization.php:958
 msgid "Select up to what step you want to normalize"
 msgstr ""
 
-#: libraries/classes/Normalization.php:966
+#: libraries/classes/Normalization.php:968
 msgid "Second step of normalization (1NF+2NF)"
 msgstr ""
 
-#: libraries/classes/Normalization.php:971
+#: libraries/classes/Normalization.php:973
 msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr ""
 
-#: libraries/classes/Normalization.php:976
+#: libraries/classes/Normalization.php:978
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
 msgstr ""
 
-#: libraries/classes/Normalization.php:1047
+#: libraries/classes/Normalization.php:1049
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
 msgstr ""
 
-#: libraries/classes/Normalization.php:1062
+#: libraries/classes/Normalization.php:1064
 msgid "No partial dependencies found!"
 msgstr ""
 
-#: libraries/classes/Operations.php:552
+#: libraries/classes/Operations.php:548
 #: templates/table/structure/display_partitions.twig:84
 msgid "Analyze"
 msgstr ""
 
-#: libraries/classes/Operations.php:553
+#: libraries/classes/Operations.php:549
 #: templates/table/structure/display_partitions.twig:94
 #, fuzzy
 msgid "Check"
 msgstr "Çexçä"
 
-#: libraries/classes/Operations.php:554
+#: libraries/classes/Operations.php:550
 #: templates/table/structure/display_partitions.twig:104
 msgid "Optimize"
 msgstr ""
 
-#: libraries/classes/Operations.php:555
+#: libraries/classes/Operations.php:551
 #: templates/table/structure/display_partitions.twig:114
 msgid "Rebuild"
 msgstr ""
 
-#: libraries/classes/Operations.php:556
+#: libraries/classes/Operations.php:552
 #: templates/table/structure/display_partitions.twig:124
 #, fuzzy
 msgid "Repair"
 msgstr "Tüşämä tözätü"
 
-#: libraries/classes/Operations.php:557
+#: libraries/classes/Operations.php:553
 #: templates/table/structure/display_partitions.twig:134
 msgid "Truncate"
 msgstr ""
 
-#: libraries/classes/Operations.php:569 templates/database/events/index.twig:20
+#: libraries/classes/Operations.php:565 templates/database/events/index.twig:20
 #: templates/database/events/index.twig:21
 #: templates/database/events/index.twig:98
 #: templates/database/events/index.twig:104
@@ -10846,42 +10845,42 @@ msgstr ""
 msgid "Drop"
 msgstr "Beter"
 
-#: libraries/classes/Operations.php:571
+#: libraries/classes/Operations.php:567
 #, fuzzy
 msgid "Coalesce"
 msgstr "Berär genä dä tüşämä yuq"
 
-#: libraries/classes/Operations.php:925
+#: libraries/classes/Operations.php:921
 msgid "Can't move table to same one!"
 msgstr "Ber ük at belän tüşämä küçerep bulmí!"
 
-#: libraries/classes/Operations.php:927
+#: libraries/classes/Operations.php:923
 msgid "Can't copy table to same one!"
 msgstr ""
 
-#: libraries/classes/Operations.php:951
+#: libraries/classes/Operations.php:947
 #, fuzzy, php-format
 #| msgid "Table %s has been moved to %s."
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "\"%s\" atlı tüşämä \"%s\" kebek ataldı."
 
-#: libraries/classes/Operations.php:957
+#: libraries/classes/Operations.php:953
 #, fuzzy, php-format
 #| msgid "Table %s has been moved to %s."
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "\"%s\" atlı tüşämä \"%s\" kebek ataldı."
 
-#: libraries/classes/Operations.php:964
+#: libraries/classes/Operations.php:960
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "\"%s\" atlı tüşämä \"%s\" kebek ataldı."
 
-#: libraries/classes/Operations.php:968
+#: libraries/classes/Operations.php:964
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr ""
 
-#: libraries/classes/Operations.php:992
+#: libraries/classes/Operations.php:988
 msgid "The table name is empty!"
 msgstr "Tüşämä adı kertelmi qaldı!"
 
@@ -11097,7 +11096,7 @@ msgstr "Biremlek saqlaw köyläneşe"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:194
 #: libraries/classes/Plugins/Export/ExportOdt.php:245
-#: libraries/classes/Plugins/Export/ExportSql.php:2379
+#: libraries/classes/Plugins/Export/ExportSql.php:2384
 #: libraries/classes/Plugins/Export/ExportTexytext.php:179
 msgid "Dumping data for table"
 msgstr "Tüşämä eçtälegen çığaru"
@@ -11142,7 +11141,7 @@ msgstr "Buş"
 #: templates/database/central_columns/main.twig:28
 #: templates/database/central_columns/main.twig:232
 #: templates/database/data_dictionary/index.twig:26
-#: templates/database/structure/body_for_table_summary.twig:52
+#: templates/database/structure/body_for_table_summary.twig:46
 #: templates/server/replication/replica_configuration.twig:9
 #: templates/table/structure/display_structure.twig:26
 #: templates/table/tracking/structure_snapshot_columns.twig:10
@@ -11191,14 +11190,14 @@ msgstr "Açıqlama"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:548
 #: libraries/classes/Plugins/Export/ExportOdt.php:686
-#: libraries/classes/Plugins/Export/ExportSql.php:2101
+#: libraries/classes/Plugins/Export/ExportSql.php:2106
 #: libraries/classes/Plugins/Export/ExportTexytext.php:534
 msgid "Table structure for table"
 msgstr "Tüşämä tözeleşe"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:566
 #: libraries/classes/Plugins/Export/ExportOdt.php:718
-#: libraries/classes/Plugins/Export/ExportSql.php:2159
+#: libraries/classes/Plugins/Export/ExportSql.php:2164
 #: libraries/classes/Plugins/Export/ExportTexytext.php:560
 #, fuzzy
 msgid "Structure for view"
@@ -11206,7 +11205,7 @@ msgstr "Tözeleşen genä"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:572
 #: libraries/classes/Plugins/Export/ExportOdt.php:738
-#: libraries/classes/Plugins/Export/ExportSql.php:2198
+#: libraries/classes/Plugins/Export/ExportSql.php:2203
 #: libraries/classes/Plugins/Export/ExportTexytext.php:576
 #, fuzzy
 msgid "Stand-in structure for view"
@@ -11311,7 +11310,7 @@ msgstr "Ürçäw Zamanı"
 #: libraries/classes/Plugins/Export/ExportLatex.php:219
 #: libraries/classes/Plugins/Export/ExportSql.php:768
 #: libraries/classes/Plugins/Export/ExportXml.php:241
-#: templates/home/index.twig:175
+#: templates/home/index.twig:174
 #, fuzzy
 #| msgid "Server version"
 msgid "Server version:"
@@ -11326,7 +11325,7 @@ msgid "PHP Version:"
 msgstr "PHP Söreme"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:247
-#: libraries/classes/Plugins/Export/ExportSql.php:952
+#: libraries/classes/Plugins/Export/ExportSql.php:957
 #: libraries/classes/Plugins/Export/ExportXml.php:396
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:201
 #: templates/database/structure/copy_form.twig:5
@@ -11337,7 +11336,7 @@ msgid "Database:"
 msgstr "Biremlek"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:314
-#: libraries/classes/Plugins/Export/ExportSql.php:2258
+#: libraries/classes/Plugins/Export/ExportSql.php:2263
 #, fuzzy
 #| msgid "Data"
 msgid "Data:"
@@ -11471,7 +11470,7 @@ msgid "Data creation options"
 msgstr "Transformation options"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:403
-#: libraries/classes/Plugins/Export/ExportSql.php:2336
+#: libraries/classes/Plugins/Export/ExportSql.php:2341
 msgid "Truncate table before insert"
 msgstr ""
 
@@ -11539,118 +11538,118 @@ msgid "It appears your database uses routines;"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:591
-#: libraries/classes/Plugins/Export/ExportSql.php:1625
-#: libraries/classes/Plugins/Export/ExportSql.php:2147
+#: libraries/classes/Plugins/Export/ExportSql.php:1630
+#: libraries/classes/Plugins/Export/ExportSql.php:2152
 msgid "alias export may not work reliably in all cases."
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1077
+#: libraries/classes/Plugins/Export/ExportSql.php:1082
 #, fuzzy
 #| msgid "Export type"
 msgid "Metadata"
 msgstr "Çığaru ısulı"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1145
+#: libraries/classes/Plugins/Export/ExportSql.php:1150
 #, fuzzy, php-format
 #| msgid "Dumping data for table"
 msgid "Metadata for table %s"
 msgstr "Tüşämä eçtälegen çığaru"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1152
+#: libraries/classes/Plugins/Export/ExportSql.php:1157
 #, fuzzy, php-format
 #| msgid "Create table on database %s"
 msgid "Metadata for database %s"
 msgstr "%s biremlegendä yaña tüşämä yaratu"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1469
+#: libraries/classes/Plugins/Export/ExportSql.php:1474
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:631
 #, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
 msgstr "Yasalışı"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1479
+#: libraries/classes/Plugins/Export/ExportSql.php:1484
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:642
 #, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
 msgstr "Soñğı yañartılu"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1489
+#: libraries/classes/Plugins/Export/ExportSql.php:1494
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:653
 #, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
 msgstr "Soñğı tikşerü"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1540
+#: libraries/classes/Plugins/Export/ExportSql.php:1545
 #, fuzzy, php-format
 #| msgid "Table structure for table"
 msgid "Error reading structure for table %s:"
 msgstr "Tüşämä tözeleşe"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1622
+#: libraries/classes/Plugins/Export/ExportSql.php:1627
 msgid "It appears your database uses views;"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1789
+#: libraries/classes/Plugins/Export/ExportSql.php:1794
 msgid "Constraints for dumped tables"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1790
+#: libraries/classes/Plugins/Export/ExportSql.php:1795
 msgid "Constraints for table"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1817
+#: libraries/classes/Plugins/Export/ExportSql.php:1822
 #, fuzzy
 #| msgid "Inside table(s):"
 msgid "Indexes for dumped tables"
 msgstr "Kiläse tüşämä eçendä:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1818
+#: libraries/classes/Plugins/Export/ExportSql.php:1823
 #, fuzzy
 #| msgid "Inside table(s):"
 msgid "Indexes for table"
 msgstr "Kiläse tüşämä eçendä:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1854
+#: libraries/classes/Plugins/Export/ExportSql.php:1859
 #, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "\"AUTO_INCREMENT\" bäyäsen östise"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1855
+#: libraries/classes/Plugins/Export/ExportSql.php:1860
 #, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for table"
 msgstr "\"AUTO_INCREMENT\" bäyäsen östise"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1930
+#: libraries/classes/Plugins/Export/ExportSql.php:1935
 #, fuzzy
 #| msgid "MIME TYPES FOR TABLE"
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "MIME TYPES FOR TABLE"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1955
+#: libraries/classes/Plugins/Export/ExportSql.php:1960
 #, fuzzy
 #| msgid "RELATIONS FOR TABLE"
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "RELATIONS FOR TABLE"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2144
+#: libraries/classes/Plugins/Export/ExportSql.php:2149
 msgid "It appears your table uses triggers;"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2174
+#: libraries/classes/Plugins/Export/ExportSql.php:2179
 #, fuzzy, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "Tözeleşen genä"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2201
+#: libraries/classes/Plugins/Export/ExportSql.php:2206
 msgid "(See below for the actual view)"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2269
+#: libraries/classes/Plugins/Export/ExportSql.php:2274
 #, fuzzy, php-format
 #| msgid "Allows reading data."
 msgid "Error reading data for table %s:"
@@ -11815,13 +11814,13 @@ msgstr ""
 msgid "XML"
 msgstr "XML"
 
-#: libraries/classes/Plugins.php:589
+#: libraries/classes/Plugins.php:610
 #, fuzzy
 #| msgid "This format has no options"
 msgid "This format has no options"
 msgstr "Bu tözeleşeneñ köyläneşe yuq"
 
-#: libraries/classes/Plugins.php:607
+#: libraries/classes/Plugins.php:628
 msgid "Invalid authentication method set in configuration:"
 msgstr ""
 
@@ -11999,13 +11998,13 @@ msgstr ""
 #| "UX ONLY: Launches an external application and feeds it the field data  "
 #| "standard input. Returns the standard output of the application. The ault "
 #| "is Tidy, to pretty-print HTML code. For security reasons, you e to "
-#| "manually edit the file libraries/transformations/"
-#| "t_plain__external.inc.php and list the tools you want to make ilable. The "
-#| "first option is then the number of the program you want to  and the "
-#| "second option is the parameters for the program. The third ion, if set to "
-#| "1, will convert the output using htmlspecialchars() fault 1). The fourth "
-#| "option, if set to 1, will prevent wrapping and ure that the output "
-#| "appears all on one line (Default 1)."
+#| "manually edit the file libraries/transformations/t_plain__external.inc."
+#| "php and list the tools you want to make ilable. The first option is then "
+#| "the number of the program you want to  and the second option is the "
+#| "parameters for the program. The third ion, if set to 1, will convert the "
+#| "output using htmlspecialchars() fault 1). The fourth option, if set to 1, "
+#| "will prevent wrapping and ure that the output appears all on one line "
+#| "(Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -12969,18 +12968,18 @@ msgstr ""
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: libraries/classes/Sql.php:995
+#: libraries/classes/Sql.php:1004
 msgid "Showing as PHP code"
 msgstr ""
 
-#: libraries/classes/Sql.php:1370
+#: libraries/classes/Sql.php:1379
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available. %s"
 msgstr ""
 
-#: libraries/classes/Sql.php:1384
+#: libraries/classes/Sql.php:1393
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -13010,7 +13009,7 @@ msgid ""
 msgstr "Bu saqlaw engine öçen xälät turında centekle belem yuq."
 
 #: libraries/classes/StorageEngine.php:470
-#: templates/database/structure/body_for_table_summary.twig:46
+#: templates/database/structure/body_for_table_summary.twig:40
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "Bu MySQL-serverdä %s digän saqlaw ısulı töp bularaq saylanğan."
@@ -13213,54 +13212,54 @@ msgstr ""
 msgid "Structure snapshot"
 msgstr "Tözeleşen genä"
 
-#: libraries/classes/Tracking.php:658
+#: libraries/classes/Tracking.php:660
 #, php-format
 msgid "Version %s snapshot (SQL code)"
 msgstr ""
 
-#: libraries/classes/Tracking.php:728
+#: libraries/classes/Tracking.php:731
 msgid "Tracking data definition successfully deleted"
 msgstr ""
 
-#: libraries/classes/Tracking.php:740
+#: libraries/classes/Tracking.php:743
 msgid "Tracking data manipulation successfully deleted"
 msgstr ""
 
-#: libraries/classes/Tracking.php:797
+#: libraries/classes/Tracking.php:800
 msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
 msgstr ""
 
-#: libraries/classes/Tracking.php:801
+#: libraries/classes/Tracking.php:804
 msgid "Comment out these two lines if you do not need them."
 msgstr ""
 
-#: libraries/classes/Tracking.php:812
+#: libraries/classes/Tracking.php:815
 msgid "SQL statements exported. Please copy the dump or execute it."
 msgstr ""
 
-#: libraries/classes/Tracking.php:845
+#: libraries/classes/Tracking.php:848
 #, php-format
 msgid "Tracking report for table `%s`"
 msgstr ""
 
-#: libraries/classes/Tracking.php:877
+#: libraries/classes/Tracking.php:880
 #, php-format
 msgid "Tracking for %1$s was activated at version %2$s."
 msgstr ""
 
-#: libraries/classes/Tracking.php:880
+#: libraries/classes/Tracking.php:883
 #, php-format
 msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr ""
 
-#: libraries/classes/Tracking.php:979
+#: libraries/classes/Tracking.php:982
 #, fuzzy, php-format
 msgid "Version %1$s of %2$s was deleted."
 msgstr "Server söreme"
 
-#: libraries/classes/Tracking.php:1010
+#: libraries/classes/Tracking.php:1013
 #, php-format
 msgid "Version %1$s was created, tracking for %2$s is active."
 msgstr ""
@@ -13505,19 +13504,23 @@ msgid ""
 "machine learning applications"
 msgstr ""
 
-#: libraries/classes/Types.php:798
+#: libraries/classes/Types.php:453
+msgid "Intended for storage of XML data"
+msgstr ""
+
+#: libraries/classes/Types.php:802
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr ""
 
-#: libraries/classes/Types.php:816
+#: libraries/classes/Types.php:820
 #, fuzzy
 #| msgid "Create an index"
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "Yaña tezeş yaratu"
 
-#: libraries/classes/Types.php:852
+#: libraries/classes/Types.php:856
 #, fuzzy
 #| msgid "Total"
 msgctxt "spatial types"
@@ -14226,7 +14229,7 @@ msgstr ""
 #: templates/database/operations/index.twig:194
 #: templates/database/operations/index.twig:198
 #: templates/database/structure/table_header.twig:31
-#: templates/home/index.twig:64 templates/indexes.twig:22
+#: templates/home/index.twig:63 templates/indexes.twig:22
 #: templates/server/databases/index.twig:29
 #: templates/server/databases/index.twig:30
 #: templates/server/databases/index.twig:123
@@ -16437,148 +16440,148 @@ msgstr ""
 msgid "General settings"
 msgstr "Bäyläneşlär buyınça töp mömkinleklär"
 
-#: templates/home/index.twig:57
+#: templates/home/index.twig:56
 #, fuzzy
 #| msgid "MySQL connection collation"
 msgid "Server connection collation:"
 msgstr "MySQL-totaşunıñ tezü cayı"
 
-#: templates/home/index.twig:83 templates/preferences/manage/main.twig:56
+#: templates/home/index.twig:82 templates/preferences/manage/main.twig:56
 #, fuzzy
 #| msgid "General relation features"
 msgid "More settings"
 msgstr "Bäyläneşlär buyınça töp mömkinleklär"
 
-#: templates/home/index.twig:94
+#: templates/home/index.twig:93
 #, fuzzy
 #| msgid "General relation features"
 msgid "Appearance settings"
 msgstr "Bäyläneşlär buyınça töp mömkinleklär"
 
-#: templates/home/index.twig:104 templates/home/index.twig:105
+#: templates/home/index.twig:103 templates/home/index.twig:104
 #: templates/login/form.twig:23 templates/login/form.twig:24
 #: templates/setup/home/index.twig:8 templates/setup/home/index.twig:9
 msgid "Language"
 msgstr ""
 
-#: templates/home/index.twig:132
+#: templates/home/index.twig:131
 msgid "Theme"
 msgstr ""
 
-#: templates/home/index.twig:143
+#: templates/home/index.twig:142
 #, fuzzy
 #| msgid "View only"
 msgctxt "View all themes"
 msgid "View all"
 msgstr "Kürep kenä"
 
-#: templates/home/index.twig:159
+#: templates/home/index.twig:158
 #, fuzzy
 #| msgid "Database for user"
 msgid "Database server"
 msgstr "Qullanuçı biremlege"
 
-#: templates/home/index.twig:163 templates/login/form.twig:65
+#: templates/home/index.twig:162 templates/login/form.twig:65
 #: templates/menu/breadcrumbs.twig:7
 msgid "Server:"
 msgstr "Server:"
 
-#: templates/home/index.twig:167
+#: templates/home/index.twig:166
 #, fuzzy
 msgid "Server type:"
 msgstr "Server ID'e"
 
-#: templates/home/index.twig:171
+#: templates/home/index.twig:170
 #, fuzzy
 #| msgid "% aborted connections"
 msgid "Server connection:"
 msgstr "Totaşular"
 
-#: templates/home/index.twig:179
+#: templates/home/index.twig:178
 #, fuzzy
 #| msgid "Protocol version"
 msgid "Protocol version:"
 msgstr "Protokol söreme"
 
-#: templates/home/index.twig:183
+#: templates/home/index.twig:182
 #, fuzzy
 #| msgid "User"
 msgid "User:"
 msgstr "Qullanuçı"
 
-#: templates/home/index.twig:187
+#: templates/home/index.twig:186
 #, fuzzy
 msgid "Server charset:"
 msgstr "Server Saylaw"
 
-#: templates/home/index.twig:199
+#: templates/home/index.twig:198
 msgid "Web server"
 msgstr ""
 
-#: templates/home/index.twig:209
+#: templates/home/index.twig:208
 #, fuzzy
 msgid "Database client version:"
 msgstr "MySQL belän totaştırğıç söreme"
 
-#: templates/home/index.twig:213
+#: templates/home/index.twig:212
 #, fuzzy
 msgid "PHP extension:"
 msgstr "PHP Söreme"
 
-#: templates/home/index.twig:220
+#: templates/home/index.twig:219
 #, fuzzy
 #| msgid "PHP Version"
 msgid "PHP version:"
 msgstr "PHP Söreme"
 
-#: templates/home/index.twig:227
+#: templates/home/index.twig:226
 msgid "Show PHP information"
 msgstr "PHP turında"
 
-#: templates/home/index.twig:241
+#: templates/home/index.twig:240
 #, fuzzy
 #| msgid "Version information"
 msgid "Version information:"
 msgstr "Söreme turında"
 
-#: templates/home/index.twig:251
+#: templates/home/index.twig:250
 msgid "Official Homepage"
 msgstr "phpMyAdmin säxifäse"
 
-#: templates/home/index.twig:256
+#: templates/home/index.twig:255
 #, fuzzy
 #| msgid "Attributes"
 msgid "Contribute"
 msgstr "Üzençälek"
 
-#: templates/home/index.twig:261
+#: templates/home/index.twig:260
 msgid "Get support"
 msgstr ""
 
-#: templates/home/index.twig:266
+#: templates/home/index.twig:265
 #, fuzzy
 #| msgid "No change"
 msgid "List of changes"
 msgstr "Üzgäreşsez"
 
-#: templates/home/index.twig:271 templates/server/plugins/index.twig:30
+#: templates/home/index.twig:270 templates/server/plugins/index.twig:30
 msgid "License"
 msgstr ""
 
-#: templates/home/index.twig:282 templates/setup/error.twig:2
+#: templates/home/index.twig:281 templates/setup/error.twig:2
 msgid "Warning"
 msgstr ""
 
-#: templates/home/index.twig:284
+#: templates/home/index.twig:283
 msgid "Notice"
 msgstr ""
 
-#: templates/home/index.twig:297
+#: templates/home/index.twig:296
 #, fuzzy
 msgid "phpMyAdmin Themes"
 msgstr "phpMyAdmin qullanması"
 
-#: templates/home/index.twig:308
+#: templates/home/index.twig:307
 msgid "Get more themes!"
 msgstr ""
 
@@ -18509,7 +18512,8 @@ msgstr "Bäyläneşlär"
 msgid "Variable"
 msgstr "Üzgärmä"
 
-#: templates/server/select/index.twig:7 templates/server/select/index.twig:19
+#: templates/server/select/index.twig:9 templates/server/select/index.twig:11
+#: templates/server/select/index.twig:25
 #, fuzzy
 #| msgid "Server"
 msgid "Current server:"
