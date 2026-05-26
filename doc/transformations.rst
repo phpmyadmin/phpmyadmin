@@ -89,7 +89,7 @@ They are called ':term:`Media type`', 'Browser transformation' and
   :config:option:`$cfg['DefaultTransformations']`.
 * 'Input transformation' is another drop-down menu that corresponds exactly
   with the instructions above for "Browser display transformation" except
-  these these affect the data before insertion in to the database. These are
+  these affect the data before insertion in to the database. These are
   most commonly used to either provide a specialized editor (for example, using
   the phpMyAdmin SQL editor interface) or selector (such as for uploading an image).
   It's also possible to manipulate the data such as converting an IPv4 address to binary
