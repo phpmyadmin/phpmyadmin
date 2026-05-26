@@ -6769,18 +6769,6 @@ parameters:
 			path: src/Header.php
 
 		-
-			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
-			identifier: empty.notAllowed
-			count: 1
-			path: src/Header.php
-
-		-
-			message: '#^Parameter \#1 \$message of static method PhpMyAdmin\\Html\\Generator\:\:getMessage\(\) expects PhpMyAdmin\\Message\|string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Header.php
-
-		-
 			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 2

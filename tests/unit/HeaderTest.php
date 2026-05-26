@@ -26,6 +26,8 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Medium;
 use ReflectionProperty;
 
+use function sprintf;
+
 #[CoversClass(Header::class)]
 #[Medium]
 class HeaderTest extends AbstractTestCase
@@ -40,10 +42,6 @@ class HeaderTest extends AbstractTestCase
         $this->setLanguage();
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
-
-        Current::$message = Message::success('phpmyadminmessage');
-        Current::$database = 'db';
-        Current::$table = '';
 
         $config = Config::getInstance();
         $config->settings['Servers'] = [];
@@ -155,15 +153,85 @@ class HeaderTest extends AbstractTestCase
     }
 
     /**
-     * Test for Get Message
+     * @param array<mixed>|string|null $getParam
+     * @param array<mixed>|string|null $postParam
      */
-    public function testGetMessage(): void
+    #[DataProvider('getMessageProvider')]
+    public function testGetMessage(
+        string $expected,
+        string|null $current,
+        array|string|null $getParam,
+        array|string|null $postParam,
+        bool $hasSqlQuery,
+    ): void {
+        Current::$database = 'test_db';
+        Current::$table = 'test_table';
+        Current::$sqlQuery = $hasSqlQuery ? 'SELECT 1' : '';
+        Current::$message = $current === null ? null : Message::success($current);
+        $_GET['message'] = $getParam;
+        $_POST['message'] = $postParam;
+        self::assertSame($expected, $this->getNewHeaderInstance()->getMessage());
+        self::assertNull(Current::$message);
+    }
+
+    /** @return iterable<array-key, array{string, string|null, array<mixed>|string|null, array<mixed>|string|null, bool}> */
+    public static function getMessageProvider(): iterable
     {
-        $header = $this->getNewHeaderInstance();
-        self::assertStringContainsString(
-            'phpmyadminmessage',
-            $header->getMessage(),
-        );
+        $message = <<<'HTML'
+            <div class="alert %s" role="alert">
+              <img src="themes/dot.gif" title="" alt="" class="icon %s
+            </div>
+
+            HTML;
+
+        // phpcs:disable Generic.Files.LineLength.TooLong
+        $messageWithSqlQuery = <<<'HTML'
+            <div class="card mb-3 result_query">
+            <div class="alert %s border-top-0 border-start-0 border-end-0 rounded-bottom-0 mb-0" role="alert">
+              <img src="themes/dot.gif" title="" alt="" class="icon %s
+            </div>
+            <div class="card-body sqlOuter"><pre><code class="sql" dir="ltr">SELECT 1</code></pre></div>
+            <div class="card-footer tools d-print-none">
+            <div class="row align-items-center">
+            <div class="col-auto">
+            <form action="index.php?route=/sql&db=test_db&table=test_table&lang=en" method="post" class="disableAjax">
+            <input type="hidden" name="db" value="test_db"><input type="hidden" name="table" value="test_table"><input type="hidden" name="lang" value="en"><input type="hidden" name="token" value="token">
+            <input type="hidden" name="sql_query" value="SELECT 1">
+            </form></div>
+            <div class="col-auto"><a href="#" class="btn btn-link inline_edit_sql">Edit inline</a></div>
+            <div class="col-auto"><a href="index.php" data-post="route=/table/sql&db=test_db&table=test_table&sql_query=SELECT+1&show_query=1&lang=en" class="btn btn-link">Edit</a></div>
+            <div class="col-auto"><a href="index.php" data-post="route=/import&db=test_db&table=test_table&sql_query=EXPLAIN+SELECT+1&lang=en" class="btn btn-link">Explain SQL</a></div>
+            <div class="col-auto"><a href="index.php" data-post="route=/import&db=test_db&table=test_table&sql_query=SELECT+1&show_query=1&show_as_php=1&lang=en" class="btn btn-link">Create PHP code</a></div>
+            <div class="col-auto"><a href="index.php" data-post="route=/sql&db=test_db&table=test_table&sql_query=SELECT+1&show_query=1&lang=en" class="btn btn-link">Refresh</a></div>
+            </div></div></div>
+            HTML;
+        // phpcs:enable
+
+        yield ['', null, null, null, false];
+        yield ['', null, null, null, true];
+        yield ['', null, '', null, false];
+        yield ['', null, null, '', false];
+        yield ['', null, [], null, false];
+        yield ['', null, null, [], false];
+        yield ['', null, ['message'], null, false];
+        yield ['', null, null, ['message'], false];
+
+        yield [sprintf($message, 'alert-primary', 'ic_s_notice"> Get'), null, 'Get', null, false];
+        yield [sprintf($message, 'alert-primary', 'ic_s_notice"> Post'), null, null, 'Post', false];
+        yield [sprintf($message, 'alert-primary', 'ic_s_notice"> Post'), null, 'Get', 'Post', false];
+        yield [sprintf($message, 'alert-success', 'ic_s_success"> Current'), 'Current', null, null, false];
+        yield [sprintf($message, 'alert-success', 'ic_s_success"> Current'), 'Current', 'Get', null, false];
+        yield [sprintf($message, 'alert-success', 'ic_s_success"> Current'), 'Current', null, 'Post', false];
+        yield [sprintf($message, 'alert-success', 'ic_s_success"> Current'), 'Current', 'Get', 'Post', false];
+
+        yield [sprintf($messageWithSqlQuery, 'alert-success', 'ic_s_success"> Current'), 'Current', null, null, true];
+        yield [
+            sprintf($messageWithSqlQuery, 'alert-primary', 'ic_s_notice"> A &lt;em&gt;B&lt;/em&gt; <em>C</em> D'),
+            null,
+            'A <em>B</em> [em]C[/em] D',
+            null,
+            true,
+        ];
     }
 
     /**
