@@ -7433,9 +7433,6 @@
       <code>$pftext</code>
       <code>$value</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$message</code>
-    </PossiblyInvalidArgument>
     <PropertyNotSetInConstructor occurrences="1">
       <code>$menu</code>
     </PropertyNotSetInConstructor>

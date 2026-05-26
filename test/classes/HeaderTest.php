@@ -10,6 +10,7 @@ use PhpMyAdmin\Header;
 use ReflectionProperty;
 
 use function gmdate;
+use function sprintf;
 
 use const DATE_RFC1123;
 use const PHP_VERSION_ID;
@@ -30,11 +31,8 @@ class HeaderTest extends AbstractTestCase
         parent::setLanguage();
 
         $GLOBALS['server'] = 0;
-        $GLOBALS['message'] = 'phpmyadminmessage';
         $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
         $GLOBALS['server'] = 'server';
-        $GLOBALS['db'] = 'db';
-        $GLOBALS['table'] = '';
         parent::setGlobalConfig();
         $GLOBALS['cfg']['Servers'] = [];
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
@@ -93,12 +91,60 @@ class HeaderTest extends AbstractTestCase
     }
 
     /**
-     * Test for Get Message
+     * @param array<mixed>|string|null $param
+     *
+     * @dataProvider getMessageProvider
      */
-    public function testGetMessage(): void
+    public function testGetMessage(string $expected, ?string $current, $param, bool $hasSqlQuery): void
     {
-        $header = new Header();
-        self::assertStringContainsString('phpmyadminmessage', $header->getMessage());
+        $GLOBALS['server'] = 1;
+        $GLOBALS['db'] = 'test_db';
+        $GLOBALS['table'] = 'test_table';
+        $GLOBALS['sql_query'] = $hasSqlQuery ? 'SELECT 1' : '';
+        $GLOBALS['message'] = $current;
+        $_REQUEST['message'] = $param;
+        self::assertSame($expected, (new Header())->getMessage());
+    }
+
+    /** @return iterable<array-key, array{string, string|null, array<mixed>|string|null, bool}> */
+    public static function getMessageProvider(): iterable
+    {
+        $message = '<div class="alert alert-primary" role="alert">%s</div>';
+
+        $messageWithSqlQuery = '<div class="result_query">' . "\n"
+            . '<div class="alert alert-primary" role="alert">%s</div><div class="sqlOuter">'
+            . '<code class="sql" dir="ltr"><pre>' . "\n" . 'SELECT 1' . "\n"
+            . '</pre></code></div><div class="tools d-print-none">'
+            . '<form action="index.php?route=/sql&db=test_db&table=test_table&lang=en" method="post"'
+            . ' class="disableAjax"><input type="hidden" name="db" value="test_db"><input type="hidden" name="table"'
+            . ' value="test_table"><input type="hidden" name="lang" value="en">'
+            . '<input type="hidden" name="token" value="token"><input type="hidden" name="sql_query"'
+            . ' value="SELECT 1"></form> [&nbsp;<a href="#" class="inline_edit_sql">Edit inline</a>&nbsp;] [&nbsp;<a'
+            . ' href="index.php" data-post="route=/table/sql&db=test_db&table=test_table&sql_query=SELECT+1'
+            . '&show_query=1&lang=en">Edit</a>&nbsp;] [&nbsp;<a href="index.php" data-post="'
+            . 'route=/import&db=test_db&table=test_table&sql_query=EXPLAIN+SELECT+1&lang=en">Explain SQL'
+            . '</a>&nbsp;] [&nbsp;<a href="index.php" data-post="route=/import&db=test_db&table=test_table'
+            . '&sql_query=SELECT+1&show_query=1&show_as_php=1&lang=en">Create PHP code</a>&nbsp;]'
+            . ' [&nbsp;<a href="index.php" data-post="route=/sql&db=test_db&table=test_table&sql_query=SELECT+1'
+            . '&show_query=1&lang=en">Refresh</a>&nbsp;]</div></div>';
+
+        yield ['', null, null, false];
+        yield ['', null, null, true];
+        yield ['', null, '', false];
+        yield ['', null, [], false];
+        yield ['', null, ['message'], false];
+
+        yield [sprintf($message, 'Request'), null, 'Request', false];
+        yield [sprintf($message, 'Current'), 'Current', null, false];
+        yield [sprintf($message, 'Current'), 'Current', 'Request', false];
+
+        yield [sprintf($messageWithSqlQuery, 'Current'), 'Current', null, true];
+        yield [
+            sprintf($messageWithSqlQuery, 'A &lt;em&gt;B&lt;/em&gt; <em>C</em> D'),
+            null,
+            'A <em>B</em> [em]C[/em] D',
+            true,
+        ];
     }
 
     /**
