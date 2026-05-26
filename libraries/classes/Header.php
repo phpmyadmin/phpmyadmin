@@ -19,6 +19,7 @@ use function htmlspecialchars;
 use function implode;
 use function ini_get;
 use function is_bool;
+use function is_string;
 use function sprintf;
 use function strlen;
 use function strtolower;
@@ -440,7 +441,7 @@ class Header
         if (! empty($GLOBALS['message'])) {
             $message = $GLOBALS['message'];
             unset($GLOBALS['message']);
-        } elseif (! empty($_REQUEST['message'])) {
+        } elseif (! empty($_REQUEST['message']) && is_string($_REQUEST['message'])) {
             $message = $_REQUEST['message'];
         }
 
