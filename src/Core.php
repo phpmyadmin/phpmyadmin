@@ -640,7 +640,11 @@ class Core
             return null;
         }
 
-        return unserialize($data);
+        // The manual parser above only permits scalars and plain arrays (s/b/i/d/N/a);
+        // any object token ('O:'/'C:') causes an early return null. Explicitly passing
+        // allowed_classes => false here adds defence-in-depth in case of parser edge
+        // cases and makes the intent clear to static analysis tools.
+        return unserialize($data, ['allowed_classes' => false]);
     }
 
     /**
