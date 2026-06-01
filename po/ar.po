@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2026-01-03 06:36+0000\n"
-"Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
+"PO-Revision-Date: 2026-06-02 19:01+0000\n"
+"Last-Translator: Shiko Extra <shikoextra@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "ar/>\n"
 "Language: ar\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 5.15.1\n"
+"X-Generator: Weblate 2026.6\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -2611,10 +2611,8 @@ msgid "Show arguments"
 msgstr "إظهار الحجج"
 
 #: js/messages.php:734
-#, fuzzy
-#| msgid "Hide search results"
 msgid "Hide arguments"
-msgstr "إخفاء نتائج البحث"
+msgstr "إخفاء الحجج"
 
 #: js/messages.php:735
 msgid "Time taken:"
@@ -3123,7 +3121,7 @@ msgstr "رقم الصفحة:"
 msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
-msgstr ""
+msgstr "نظام تخزين الإعدادات غير جاهز لميزة القائمة المركزية للأعمدة."
 
 #: libraries/classes/CentralColumns.php:362
 #, php-format
@@ -3217,7 +3215,7 @@ msgstr "الخاصية"
 #: libraries/classes/CentralColumns.php:757
 #: libraries/classes/CentralColumns.php:1429
 msgid "A_I"
-msgstr ""
+msgstr "أي_أي"
 
 #: libraries/classes/CentralColumns.php:793
 msgid "Select a table"
@@ -3305,8 +3303,6 @@ msgid "Armenian"
 msgstr "الأرمنية"
 
 #: libraries/classes/Charsets.php:419
-#, fuzzy
-#| msgid "Cyrillic"
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "السيريلية"
@@ -3487,8 +3483,6 @@ msgid "Vietnamese"
 msgstr "الفيتنامية"
 
 #: libraries/classes/Charsets.php:667
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "case-insensitive"
 msgstr "غير حساس لحالة الأحرف"
@@ -3526,7 +3520,7 @@ msgstr "ثنائي"
 #: libraries/classes/Charsets.php:689
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr ""
+msgstr "بدون–جهاز لوحي"
 
 #: libraries/classes/Config.php:1132
 #, php-format
@@ -3584,6 +3578,9 @@ msgid ""
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
 "to the given regular expression."
 msgstr ""
+"يقيد هذا الخيار خوادم MySQL التي يمكن للمستخدم إدخالها عند تمكين تسجيل "
+"الدخول إلى خادم MySQL عشوائي عن طريق مطابقة عنوان IP أو اسم مضيف خادم MySQL "
+"مع التعبير النمطي المحدد."
 
 #: libraries/classes/Config/Descriptions.php:72
 msgid "Restrict login to MySQL server"
@@ -3601,7 +3598,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:80
 msgid "Allow third party framing"
-msgstr ""
+msgstr "السماح بتأطير الطرف الثالث"
 
 #: libraries/classes/Config/Descriptions.php:82
 msgid "Show \"Drop database\" link to normal users"
@@ -3723,6 +3720,8 @@ msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature."
 msgstr ""
+"قم بضغط ملفات gzip المصدرة أثناء التشغيل دون الحاجة إلى ذاكرة كبيرة؛ إذا "
+"واجهت مشاكل مع ملفات gzip التي تم إنشاؤها، فقم بتعطيل هذه الميزة."
 
 #: libraries/classes/Config/Descriptions.php:158
 msgid "Compress on the fly"
@@ -3798,10 +3797,8 @@ msgid "Hide table structure actions"
 msgstr "إخفاء إجراءات بنية الجدول"
 
 #: libraries/classes/Config/Descriptions.php:195
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for Hex"
-msgstr "الترتيب الإفتراضي"
+msgstr "التحويلات الافتراضية لنظام Hex"
 
 #: libraries/classes/Config/Descriptions.php:197
 #: libraries/classes/Config/Descriptions.php:201
@@ -3820,14 +3817,12 @@ msgstr ""
 "في صفحة بنية الجدول."
 
 #: libraries/classes/Config/Descriptions.php:199
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for Substring"
-msgstr "خيارات التحويل"
+msgstr "التحويلات الافتراضية للسلسلة الفرعية"
 
 #: libraries/classes/Config/Descriptions.php:203
 msgid "Default transformations for Bool2Text"
-msgstr ""
+msgstr "التحويلات الافتراضية لـ Bool2Text"
 
 #: libraries/classes/Config/Descriptions.php:207
 msgid "Default transformations for External"
@@ -4158,6 +4153,8 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
 msgstr ""
+"ترتيب فرز العناصر في مربع القائمة المنسدلة للمفتاح الخارجي؛ [kbd]content[/"
+"kbd] هي البيانات المشار إليها، [kbd]id[/kbd] هي قيمة المفتاح."
 
 #: libraries/classes/Config/Descriptions.php:424
 msgid "Foreign key dropdown order"
@@ -4325,6 +4322,8 @@ msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
 msgstr ""
+"حدد نص شريط عنوان المتصفح. راجع [doc@faq6-27]documentation[/doc] للاطلاع على "
+"السلاسل النصية الخاصة التي يمكن استخدامها للحصول على قيم محددة."
 
 #: libraries/classes/Config/Descriptions.php:516
 msgid "Security"
@@ -4374,6 +4373,8 @@ msgid ""
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
 "documentation."
 msgstr ""
+"قم بتكوين وحدة تخزين تكوين phpMyAdmin للوصول إلى ميزات إضافية، راجع "
+"[doc@linked-tables]phpMyAdmin configuration storage[/doc] في الوثائق."
 
 #: libraries/classes/Config/Descriptions.php:546
 msgid "Changes tracking"
@@ -4485,7 +4486,7 @@ msgstr "تعطيل عرض بعض التحذيرات في phpMyAdmin ."
 #: libraries/classes/Config/Descriptions.php:603
 #: templates/console/display.twig:4
 msgid "Console"
-msgstr ""
+msgstr "وحدة التحكم"
 
 #: libraries/classes/Config/Descriptions.php:606
 msgid "Enable gzip compression for import and export operations."
@@ -4517,6 +4518,8 @@ msgid ""
 "This might be a good way to import large files, however it can break "
 "transactions."
 msgstr ""
+"اسمح بمقاطعة الاستيراد في حال اكتشف البرنامج النصي اقترابه من الحد الزمني. قد "
+"تكون هذه طريقة جيدة لاستيراد الملفات الكبيرة، ولكنها قد تُعطّل العمليات."
 
 #: libraries/classes/Config/Descriptions.php:627
 msgid "Partial import: allow interrupt"
@@ -4617,6 +4620,10 @@ msgid ""
 "only occurs for the current server. Setting this to FALSE makes it easy to "
 "forget to log out from other servers when connected to multiple servers."
 msgstr ""
+"إذا كانت القيمة TRUE، فسيتم حذف ملفات تعريف الارتباط لجميع الخوادم عند تسجيل "
+"الخروج؛ أما إذا كانت القيمة FALSE، فسيتم تسجيل الخروج للخادم الحالي فقط. "
+"يؤدي ضبط هذه القيمة على FALSE إلى سهولة نسيان تسجيل الخروج من الخوادم الأخرى "
+"عند الاتصال."
 
 #: libraries/classes/Config/Descriptions.php:700
 msgid "Delete all cookies on logout"
@@ -4641,10 +4648,13 @@ msgid ""
 "and will be deleted as soon as you close the browser window. This is "
 "recommended for non-trusted environments."
 msgstr ""
+"يُحدد هذا الخيار مدة تخزين ملف تعريف الارتباط الخاص بتسجيل الدخول في المتصفح "
+"(بالثواني). القيمة الافتراضية 0 تعني أنه سيتم الاحتفاظ به للجلسة الحالية فقط، "
+"وسيتم حذفه بمجرد إغلاق المتصفح."
 
 #: libraries/classes/Config/Descriptions.php:716
 msgid "Login cookie store"
-msgstr ""
+msgstr "متجر ملفات تعريف الارتباط لتسجيل الدخول"
 
 #: libraries/classes/Config/Descriptions.php:718
 msgid "Define how long (in seconds) a login cookie is valid."
@@ -4710,6 +4720,8 @@ msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, \"Previous\" and \"Next\" links will be shown."
 msgstr ""
+"عدد الصفوف المعروضة عند استعراض مجموعة النتائج. إذا احتوت مجموعة النتائج على "
+"عدد أكبر من الصفوف، فسيتم عرض روابط \"السابق\" و\"التالي\"."
 
 #: libraries/classes/Config/Descriptions.php:753
 msgid "Maximum number of rows to display"
@@ -4758,6 +4770,7 @@ msgstr "اضبط على 0 لتصغير لوحة التنقل."
 #: libraries/classes/Config/Descriptions.php:776
 msgid "Link with main panel by highlighting the current database or table."
 msgstr ""
+"قم بالربط مع اللوحة الرئيسية عن طريق تحديد قاعدة البيانات أو الجدول الحالي."
 
 #: libraries/classes/Config/Descriptions.php:780
 msgid "Show logo in navigation panel."
@@ -4828,6 +4841,8 @@ msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
 msgstr ""
+"تجميع العناصر في شجرة التنقل (يتم تحديدها بواسطة الفاصل المحدد في علامات "
+"التبويب \"قواعد البيانات\" و \"الجداول\" أعلاه)."
 
 #: libraries/classes/Config/Descriptions.php:817
 msgid "Group items in the tree"
@@ -4835,7 +4850,7 @@ msgstr "عناصر المجموعة في الشجرة"
 
 #: libraries/classes/Config/Descriptions.php:819
 msgid "String that separates databases into different tree levels."
-msgstr ""
+msgstr "سلسلة نصية تفصل قواعد البيانات إلى مستويات شجرية مختلفة."
 
 #: libraries/classes/Config/Descriptions.php:821
 msgid "Database tree separator"
@@ -4843,7 +4858,7 @@ msgstr "فاصل شجرة قاعدة البيانات"
 
 #: libraries/classes/Config/Descriptions.php:823
 msgid "String that separates tables into different tree levels."
-msgstr ""
+msgstr "سلسلة نصية تفصل الجداول إلى مستويات شجرية مختلفة."
 
 #: libraries/classes/Config/Descriptions.php:825
 msgid "Table tree separator"
@@ -4864,7 +4879,7 @@ msgstr "تفعيل التوضيح (highlighting)"
 #: libraries/classes/Config/Descriptions.php:833
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
-msgstr ""
+msgstr "ما إذا كان ينبغي توفير إمكانية توسيع الشجرة في لوحة التنقل."
 
 #: libraries/classes/Config/Descriptions.php:835
 #, fuzzy
