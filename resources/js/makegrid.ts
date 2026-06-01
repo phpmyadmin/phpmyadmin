@@ -1191,7 +1191,10 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                         firstDay: window.firstDayOfCalendar,
                     });
 
-                    $inputField.on('keyup', function (e) {
+                    $inputField.off('keydown.gridEditDateTime keyup.gridEditDateTime');
+                    $(g.cEdit).off('keydown.gridEditDateTime');
+
+                    $inputField.on('keydown.gridEditDateTime', function (e) {
                         if (e.which === 13) {
                             // post on pressing "Enter"
                             e.preventDefault();
@@ -1199,6 +1202,15 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                             g.saveOrPostEditedCell();
                         } else if (e.which !== 27) {
                             toggleDatepickerIfInvalid($td, $inputField);
+                        }
+                    });
+
+                      // Catch Enter when focus is in the datepicker UI (inside cEdit)
+                    $(g.cEdit).on('keydown.gridEditDateTime', function (e) {
+                        if (e.which === 13 && ! $(e.target).is('.edit_box')) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            g.saveOrPostEditedCell();
                         }
                     });
 
