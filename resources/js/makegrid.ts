@@ -822,12 +822,15 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
             $(g.cEdit).find('.edit_box').trigger('blur');
             g.isCellEditActive = false;
             g.currentEditCell = null;
+            $(g.cEdit).off('keydown.gridEditDateTime');
+            $(g.cEdit).find('.edit_box').off('keydown.gridEditDateTime keyup.gridEditDateTime');
+
             // destroy datepicker in edit area, if exist
             const $dp = $(g.cEdit).find('.hasDatepicker');
             if ($dp.length > 0) {
                 // @ts-ignore
                 $(document).on('mousedown', $.datepicker._checkExternalClick); // eslint-disable-line no-underscore-dangle
-                $dp.datepicker('refresh');
+                $dp.datepicker('destroy');
 
                 // change the cursor in edit box back to normal
                 // (the cursor become a hand pointer when we add datepicker)
@@ -1191,7 +1194,10 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                         firstDay: window.firstDayOfCalendar,
                     });
 
-                    $inputField.on('keyup', function (e) {
+                    $inputField.off('keydown.gridEditDateTime keyup.gridEditDateTime');
+                    $(g.cEdit).off('keydown.gridEditDateTime');
+
+                    $inputField.on('keydown.gridEditDateTime', function (e) {
                         if (e.which === 13) {
                             // post on pressing "Enter"
                             e.preventDefault();
@@ -1199,6 +1205,15 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                             g.saveOrPostEditedCell();
                         } else if (e.which !== 27) {
                             toggleDatepickerIfInvalid($td, $inputField);
+                        }
+                    });
+
+                    // Catch Enter when focus is in the datepicker UI (inside cEdit)
+                    $(g.cEdit).on('keydown.gridEditDateTime', function (e) {
+                        if (e.which === 13 && ! $(e.target).is('.edit_box')) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            g.saveOrPostEditedCell();
                         }
                     });
 
