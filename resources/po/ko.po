@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-05-31 01:03+0000\n"
-"PO-Revision-Date: 2026-04-27 03:09+0000\n"
+"PO-Revision-Date: 2026-06-02 06:01+0000\n"
 "Last-Translator: kim8ccf3a4116ec4691 <kim@yong.biz>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ko/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.17.1-dev\n"
+"X-Generator: Weblate 2026.6\n"
 
 #: resources/templates/base.twig:40 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -18484,7 +18484,7 @@ msgstr ""
 
 #: src/Types.php:296
 msgid "Intended for storage of XML data"
-msgstr "XML 데이터의 저장용"
+msgstr "XML 데이터 저장용"
 
 #: src/Types.php:607
 msgctxt "numeric types"
