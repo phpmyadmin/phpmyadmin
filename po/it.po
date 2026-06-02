@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2026-06-01 11:01+0000\n"
+"PO-Revision-Date: 2026-06-03 19:01+0000\n"
 "Last-Translator: medgives <danielemedda@rocketmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "it/>\n"
@@ -5161,7 +5161,7 @@ msgstr "Mostro le righe %1$s - %2$s."
 #, php-format
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
-msgstr ""
+msgstr "Esiste già una pagina chiamata \"%s\", usare un altro nome."
 
 #: libraries/classes/Controllers/Database/ExportController.php:78
 #: libraries/classes/Controllers/Database/TrackingController.php:128
