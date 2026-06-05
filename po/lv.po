@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-05-25 18:05+0000\n"
-"PO-Revision-Date: 2026-05-21 05:11+0000\n"
+"PO-Revision-Date: 2026-06-05 18:01+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "lv/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2;\n"
-"X-Generator: Weblate 2026.6.dev0\n"
+"X-Generator: Weblate 2026.6\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -88,8 +88,9 @@ msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr "Lēno vaicājumu rādītājam jābūt zem 5%%, jūsu vērtība ir %s%%."
 
 #: libraries/advisory_rules_generic.php:50
+#, fuzzy
 msgid "Slow query rate"
-msgstr "Lēnu vaicājumu līmenis"
+msgstr "Lēno vaicājumu biežums"
 
 #: libraries/advisory_rules_generic.php:54
 msgid ""
@@ -240,16 +241,16 @@ msgstr "'source' atrasts iekš version_comment"
 #: libraries/advisory_rules_generic.php:159
 msgid "The MySQL manual only is accurate for official MySQL binaries."
 msgstr ""
-"MySQL lietotāja instrukcija ir akurāta tikai oficiālajiem MySQL bināriem "
-"failiem."
+"MySQL rokasgrāmata ir pilnībā precīzi piemērojama tikai oficiālajām MySQL "
+"binārajām datnēm."
 
 #: libraries/advisory_rules_generic.php:161
 msgid ""
 "Percona documentation is at <a href=\"https://www.percona.com/software/"
 "documentation/\">https://www.percona.com/software/documentation/</a>"
 msgstr ""
-"Percona dokumentācija atrodas <a href=\"https://www.percona.com/software/"
-"documentation/\">https://www.percona.com/software/documentation/</a>"
+"Percona dokumentācija pieejama <a href=\"https://www.percona.com/software/"
+"documentation/\">https://www.percona.com/software/documentation/</a> vietnē"
 
 #: libraries/advisory_rules_generic.php:164
 msgid "'percona' found in version_comment"
@@ -276,7 +277,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.php:178
 #, php-format
 msgid "Available memory on this host: %s"
-msgstr "Pieejamā atmiņa šajā hostā: %s"
+msgstr "Pieejamais atmiņas apjoms šajā resursdatorā: %s"
 
 #: libraries/advisory_rules_generic.php:184
 msgid "Query caching method"
@@ -1005,10 +1006,8 @@ msgid "Query cache disabled"
 msgstr "Vaicājuma tips"
 
 #: libraries/advisory_rules_mysql_before80003.php:12
-#, fuzzy
-#| msgid "The server is not responding"
 msgid "The query cache is not enabled."
-msgstr "Serveris neatbild"
+msgstr "Vaicājuma kešatmiņa nav iespējota."
 
 #: libraries/advisory_rules_mysql_before80003.php:14
 msgid ""
@@ -1069,10 +1068,8 @@ msgid "Query cache fragmentation"
 msgstr "Vaicājuma tips"
 
 #: libraries/advisory_rules_mysql_before80003.php:56
-#, fuzzy
-#| msgid "The server is not responding"
 msgid "The query cache is considerably fragmented."
-msgstr "Serveris neatbild"
+msgstr "Vaicājuma kešatmiņa ir ievērojami sadrumstalota."
 
 #: libraries/advisory_rules_mysql_before80003.php:58
 msgid ""
@@ -1841,10 +1838,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:139
-#, fuzzy
-#| msgid "Enclose table and field names with backquotes"
 msgid "Autocomplete of the table and column names in the SQL queries."
-msgstr "Lietot apostrofa simbolu [`] tabulu un lauku nosaukumiem"
+msgstr "Automātiska tabulu un kolonnu nosaukumu aizpildīšana SQL vaicājumos."
 
 #: libraries/classes/Config/Descriptions.php:142
 #: libraries/classes/Config/Descriptions.php:146
@@ -1927,23 +1922,20 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:224
 #: libraries/classes/Config/Descriptions.php:225
 #: libraries/classes/Config/Descriptions.php:230
-#, fuzzy
 msgid "Customize default options."
-msgstr "Datubāzu eksporta opcijas"
+msgstr "Pielāgot noklusējuma parametrus."
 
 #: libraries/classes/Config/Descriptions.php:212
 msgid "Settings for phpMyAdmin developers."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:213
-#, fuzzy
 msgid "Customize edit mode."
-msgstr "Datubāzu eksporta opcijas"
+msgstr "Pielāgot rediģēšanas režīmu."
 
 #: libraries/classes/Config/Descriptions.php:214
-#, fuzzy
 msgid "Customize default export options."
-msgstr "Datubāzu eksporta opcijas"
+msgstr "Pielāgot noklusējuma izgūt parametrus."
 
 #: libraries/classes/Config/Descriptions.php:215
 msgid "Set some commonly used options."
@@ -1962,14 +1954,12 @@ msgid "Databases display options."
 msgstr "Datubāzu attēlošanas parametri."
 
 #: libraries/classes/Config/Descriptions.php:220
-#, fuzzy
 msgid "Customize appearance of the navigation panel."
-msgstr "Datubāzu eksporta opcijas"
+msgstr "Pielāgot navigācijas paneļa izskatu."
 
 #: libraries/classes/Config/Descriptions.php:221
-#, fuzzy
 msgid "Customize the navigation tree."
-msgstr "Datubāzu eksporta opcijas"
+msgstr "Pielāgot navigācijas koku."
 
 #: libraries/classes/Config/Descriptions.php:222
 msgid "Servers display options."
@@ -1984,10 +1974,8 @@ msgid "Settings that didn't fit anywhere else."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:227
-#, fuzzy
-#| msgid "Documentation"
 msgid "Authentication settings."
-msgstr "Dokumentācija"
+msgstr "Autentifikācijas iestatījumi."
 
 #: libraries/classes/Config/Descriptions.php:228
 msgid "Enter server connection parameters."
@@ -1998,14 +1986,12 @@ msgid "Customize links shown in SQL Query boxes."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:231
-#, fuzzy
 msgid "SQL queries settings."
-msgstr "SQL vaicājums"
+msgstr "SQL vaicājumu iestatījumi."
 
 #: libraries/classes/Config/Descriptions.php:232
-#, fuzzy
 msgid "Customize startup page."
-msgstr "Datubāzu eksporta opcijas"
+msgstr "Pielāgot sākuma lapu."
 
 #: libraries/classes/Config/Descriptions.php:233
 msgid ""
@@ -2134,6 +2120,8 @@ msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
 msgstr ""
+"Definē minimālo vienumu skaitu (tabulas, skatus, apakšprogrammas un "
+"notikumus), kas jāparāda atlases laukā."
 
 #: libraries/classes/Config/Descriptions.php:303
 msgid ""
@@ -2157,14 +2145,12 @@ msgid "Whether to expand single database in the navigation tree automatically."
 msgstr "Rādīt režģi"
 
 #: libraries/classes/Config/Descriptions.php:315
-#, fuzzy
 msgid "Set to 0 to collapse navigation panel."
-msgstr "Datubāzu eksporta opcijas"
+msgstr "Iestatiet uz 0, lai sakļautu navigācijas paneli."
 
 #: libraries/classes/Config/Descriptions.php:316
-#, fuzzy
 msgid "Show logo in navigation panel."
-msgstr "Datubāzu eksporta opcijas"
+msgstr "Rādīt logotipu navigācijas panelī."
 
 #: libraries/classes/Config/Descriptions.php:317
 msgid "URL where logo in the navigation panel will point to."
@@ -2447,10 +2433,8 @@ msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:469
-#, fuzzy
-#| msgid "Documentation"
 msgid "Authentication method to use."
-msgstr "Dokumentācija"
+msgstr "Kuru autentifikācijas metodi izmantot."
 
 #: libraries/classes/Config/Descriptions.php:470
 msgid "Compress connection to MySQL server."
@@ -3885,7 +3869,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:875
 msgid "Grid editing: trigger action"
-msgstr ""
+msgstr "Režģa rediģēšana: palaidēja darbība"
 
 #: libraries/classes/Config/Descriptions.php:876
 #, fuzzy
@@ -5364,7 +5348,7 @@ msgstr ""
 #: libraries/classes/Controllers/Import/ImportController.php:736
 #: libraries/classes/Controllers/Sql/SqlController.php:162
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr "\"DROP DATABASE\" komanda ir aizliegta."
+msgstr "\"DROP DATABASE\" (dzēst datubāzi) izteiksme ir atspējota."
 
 #: libraries/classes/Controllers/Import/SimulateDmlController.php:96
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
@@ -6548,6 +6532,8 @@ msgstr ""
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:373
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
+"Neviena apakšprogramma nav izgūstama. Iespējams, trūkst nepieciešamo "
+"privilēģiju."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:376
 #, php-format
@@ -6636,10 +6622,8 @@ msgid "Pick"
 msgstr "Atlasīt"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:400
-#, fuzzy
-#| msgid "No column selected."
 msgid "Column selector"
-msgstr "Nav izvēlēta kolonna."
+msgstr "Kolonnas atlasītājs"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:401
 #, fuzzy
@@ -7052,10 +7036,8 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:533
 #: templates/database/designer/main.twig:10
-#, fuzzy
-#| msgid "Unit"
 msgid "Untitled"
-msgstr "Vienība"
+msgstr "Bez nosaukuma"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:534
 #, fuzzy
@@ -7163,10 +7145,8 @@ msgid "Original length"
 msgstr "Oriģinālā pozīcija"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:574
-#, fuzzy
-#| msgid "Cancel"
 msgid "cancel"
-msgstr "Atcelt"
+msgstr "atcelt"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:575
 #: libraries/classes/Controllers/Server/Status/StatusController.php:193
@@ -7226,10 +7206,8 @@ msgstr "Mainīt paroli"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:597
 #: templates/table/structure/display_structure.twig:130
-#, fuzzy
-#| msgid "Mon"
 msgid "More"
-msgstr "P"
+msgstr "Vairāk"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:600
 #, fuzzy
@@ -7519,28 +7497,22 @@ msgstr "Atlasiet vienu…"
 
 #: libraries/classes/Controllers/NormalizationController.php:41
 #: libraries/classes/Normalization.php:246
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
 msgid "No such column"
-msgstr "Pievienot/Dzēst laukus (kolonnas)"
+msgstr "Nav tādas kolonnas"
 
 #: libraries/classes/Controllers/NormalizationController.php:46
 #: libraries/classes/Normalization.php:250 libraries/classes/Types.php:854
-#, fuzzy
-#| msgid "Lines terminated by"
 msgctxt "string types"
 msgid "String"
-msgstr "Rindas atdalītas ar"
+msgstr "Rakstzīmju virkne"
 
 #: libraries/classes/Controllers/Preferences/ManageController.php:94
-#, fuzzy
-#| msgid "phpMyAdmin documentation"
 msgid "phpMyAdmin configuration snippet"
-msgstr "phpMyAdmin dokumentācija"
+msgstr "phpMyAdmin konfigurācijas fragments"
 
 #: libraries/classes/Controllers/Preferences/ManageController.php:95
 msgid "Paste it to your config.inc.php"
-msgstr ""
+msgstr "Ielīmējiet to savā config.inc.php datnē"
 
 #: libraries/classes/Controllers/Preferences/ManageController.php:144
 msgid "Could not import configuration"
@@ -7651,10 +7623,8 @@ msgid "Sent"
 msgstr "Nosūtīts"
 
 #: libraries/classes/Controllers/Server/Status/StatusController.php:181
-#, fuzzy
-#| msgid "Connections"
 msgid "Max. concurrent connections"
-msgstr "Konekcijas"
+msgstr "Maks. vienlaicīgo savienojumu skaits"
 
 #: libraries/classes/Controllers/Server/Status/StatusController.php:187
 msgid "Failed attempts"
@@ -8289,10 +8259,8 @@ msgstr "%1$s tabula veiksmīgi izmainīta."
 #: libraries/classes/Controllers/Table/ChangeRowsController.php:36
 #: libraries/classes/Controllers/Table/DeleteConfirmController.php:25
 #: libraries/classes/Controllers/Table/ExportRowsController.php:36
-#, fuzzy
-#| msgid "No rows selected"
 msgid "No row selected."
-msgstr "Rindas nav iezīmētas"
+msgstr "Nav atlasīta neviena ierakstu rinda."
 
 #: libraries/classes/Controllers/Table/ChartController.php:60
 #: libraries/classes/Controllers/Table/GisVisualizationController.php:76
@@ -8493,10 +8461,8 @@ msgid "Tracking versions deleted successfully."
 msgstr "Izvēlētie lietotāji tika veiksmīgi dzēsti."
 
 #: libraries/classes/Controllers/Table/TrackingController.php:145
-#, fuzzy
-#| msgid "No rows selected"
 msgid "No versions selected."
-msgstr "Rindas nav iezīmētas"
+msgstr "Nav atlasīta neviena versija."
 
 #: libraries/classes/Controllers/Table/TrackingController.php:174
 msgid "SQL statements executed."
@@ -8828,7 +8794,7 @@ msgstr "Pievienot jaunu lauku"
 
 #: libraries/classes/Database/Routines.php:122
 msgid "Edit routine"
-msgstr ""
+msgstr "Rediģēt apakšprogrammu"
 
 #: libraries/classes/Database/Routines.php:154
 #, php-format
@@ -8841,23 +8807,22 @@ msgstr ""
 #: libraries/classes/Database/Routines.php:1005
 #, php-format
 msgid "Invalid routine type: \"%s\""
-msgstr ""
+msgstr "Nederīgs apakšprogrammas tips: \"%s\""
 
 #: libraries/classes/Database/Routines.php:253
 #, php-format
 msgid "Routine %1$s has been created."
-msgstr "Izveidota %1$s rutīna (procedūra vai funkcija)."
+msgstr "Izveidota %1$s apakšprogramma."
 
 #: libraries/classes/Database/Routines.php:412
 #, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
-msgstr ""
-"%1$s rutīna (procedūra vai funkcija) modificēta. Privilēģijas ir pielāgotas."
+msgstr "%1$s apakšprogramma izmainīta. Privilēģijas ir pielāgotas."
 
 #: libraries/classes/Database/Routines.php:417
 #, php-format
 msgid "Routine %1$s has been modified."
-msgstr "%1$s rutīna (procedūra vai funkcija) modificēta."
+msgstr "%1$s apakšprogramma izmainīta."
 
 #: libraries/classes/Database/Routines.php:838
 msgid "You must provide a name and a type for each routine parameter."
@@ -8874,6 +8839,8 @@ msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
 msgstr ""
+"Jāievada ENUM, SET, VARCHAR un VARBINARY tipa apakšprogrammu parametru "
+"garums/vērtības."
 
 #: libraries/classes/Database/Routines.php:925
 msgid "You must provide a valid return type for the routine."
@@ -8881,7 +8848,7 @@ msgstr ""
 
 #: libraries/classes/Database/Routines.php:1013
 msgid "You must provide a routine name!"
-msgstr ""
+msgstr "Jāievada apakšprogrammas nosaukums!"
 
 #: libraries/classes/Database/Routines.php:1078
 msgid "You must provide a routine definition."
@@ -8891,9 +8858,7 @@ msgstr ""
 #: libraries/classes/Database/Routines.php:1327
 #, php-format
 msgid "No routine with name %1$s found in database %2$s."
-msgstr ""
-"%2$s datubāzē neatrada nevienu rutīnu (procedūru vai funkciju) ar %1$s "
-"nosaukumu."
+msgstr "%2$s datubāzē neatrada nevienu apakšprogrammu ar %1$s nosaukumu."
 
 #: libraries/classes/Database/Routines.php:1197
 #, php-format
@@ -8915,7 +8880,7 @@ msgstr ""
 
 #: libraries/classes/Database/Routines.php:1550
 msgid "Sorry, we failed to restore the dropped routine."
-msgstr ""
+msgstr "Atvainojiet, mums neizdevās atjaunot izdzēsto apakšprogrammu."
 
 #: libraries/classes/Database/Routines.php:1580
 #, php-format
@@ -8962,37 +8927,34 @@ msgid "as regular expression"
 msgstr "kā regulāro izteiksmi"
 
 #: libraries/classes/Database/Triggers.php:140
-#, fuzzy, php-format
-#| msgid "Table %s has been dropped."
+#, php-format
 msgid "Trigger %1$s has been modified."
-msgstr "Tabula %s tika izdzēsta"
+msgstr "%1$s palaidējs mainīts."
 
 #: libraries/classes/Database/Triggers.php:160
-#, fuzzy, php-format
+#, php-format
 msgid "Trigger %1$s has been created."
-msgstr "Tabula %s tika izdzēsta"
+msgstr "%1$s palaidējs izveidots."
 
 #: libraries/classes/Database/Triggers.php:255
-#, fuzzy
 msgid "Add trigger"
-msgstr "Pievienot jaunu lietotāju"
+msgstr "Pievienot palaidēju"
 
 #: libraries/classes/Database/Triggers.php:259
-#, fuzzy
 msgid "Edit trigger"
-msgstr "Pievienot jaunu lietotāju"
+msgstr "Rediģēt palaidēju"
 
 #: libraries/classes/Database/Triggers.php:389
 msgid "You must provide a trigger name!"
-msgstr ""
+msgstr "Jāievada palaidēja nosaukums!"
 
 #: libraries/classes/Database/Triggers.php:395
 msgid "You must provide a valid timing for the trigger!"
-msgstr ""
+msgstr "Jāievada derīgs palaidēja izpildes laiks!"
 
 #: libraries/classes/Database/Triggers.php:401
 msgid "You must provide a valid event for the trigger!"
-msgstr ""
+msgstr "Jāievada derīgs palaidēja notikums!"
 
 #: libraries/classes/Database/Triggers.php:408
 msgid "You must provide a valid table name!"
@@ -9000,31 +8962,31 @@ msgstr ""
 
 #: libraries/classes/Database/Triggers.php:415
 msgid "You must provide a trigger definition."
-msgstr ""
+msgstr "Jāievada palaidēja definīcija."
 
 #: libraries/classes/Database/Triggers.php:434
 msgid "Sorry, we failed to restore the dropped trigger."
-msgstr ""
+msgstr "Atvainojiet, mums neizdevās atjaunot izdzēsto palaidēju."
 
 #: libraries/classes/Database/Triggers.php:468
-#, fuzzy, php-format
-#| msgid "No tables found in database."
+#, php-format
 msgid "No trigger with name %1$s found in database %2$s."
-msgstr "Tabulas nav atrastas šajā datubāzē."
+msgstr "%2$s datubāzē nav atrasts neviens palaidējs ar %1$s nosaukumu."
 
 #: libraries/classes/Database/Triggers.php:502
 #: templates/database/triggers/export.twig:2
 #, php-format
 msgid "Export of trigger %s"
-msgstr ""
+msgstr "%s palaidēja izgūtie dati"
 
 #: libraries/classes/Database/Triggers.php:520
-#, fuzzy, php-format
-#| msgid "No tables found in database."
+#, php-format
 msgid ""
 "Error in processing request: No trigger with name %1$s found in database "
 "%2$s."
-msgstr "Tabulas nav atrastas šajā datubāzē."
+msgstr ""
+"Kļūda, apstrādājot pieprasījumu: Palaidējs ar %1$s nosaukumu nav atrasts "
+"%2$s datubāzē."
 
 #: libraries/classes/Dbal/DbiMysqli.php:153
 msgid "SSL connection enforced by server, automatically enabling it."
@@ -9893,7 +9855,7 @@ msgstr ""
 #: libraries/classes/Util.php:1971 libraries/classes/Util.php:1987
 #: templates/database/triggers/list.twig:3
 msgid "Triggers"
-msgstr ""
+msgstr "Palaidēji"
 
 #: libraries/classes/Menu.php:371 libraries/classes/Menu.php:379
 #: libraries/classes/Menu.php:387
@@ -9901,14 +9863,13 @@ msgid "Database seems to be empty!"
 msgstr ""
 
 #: libraries/classes/Menu.php:374 libraries/classes/Util.php:1964
-#, fuzzy
 msgid "Query"
-msgstr "Vaicājums pēc parauga"
+msgstr "Vaicājums"
 
 #: libraries/classes/Menu.php:412 libraries/classes/Util.php:1969
 #: templates/database/routines/index.twig:3
 msgid "Routines"
-msgstr ""
+msgstr "Apakšprogrammas"
 
 #: libraries/classes/Menu.php:418
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:25
@@ -10180,12 +10141,11 @@ msgstr ""
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:33
 msgctxt "Create new trigger"
 msgid "New"
-msgstr ""
+msgstr "Jauns"
 
 #: libraries/classes/Navigation/Nodes/NodeTrigger.php:28
-#, fuzzy
 msgid "Trigger"
-msgstr "Pievienot jaunu lietotāju"
+msgstr "Palaidējs"
 
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:26
@@ -10413,10 +10373,8 @@ msgid "Selected repeating group has been moved to the table '%s'"
 msgstr ""
 
 #: libraries/classes/Normalization.php:870
-#, fuzzy
-#| msgid "Sep"
 msgid "Step 3."
-msgstr "Sep"
+msgstr "3. solis."
 
 #: libraries/classes/Normalization.php:870
 msgid "Find transitive dependencies"
@@ -11173,7 +11131,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:588
 msgid "It appears your database uses routines;"
-msgstr ""
+msgstr "Izskatās, ka jūsu datubāze izmanto apakšprogrammas;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:591
 #: libraries/classes/Plugins/Export/ExportSql.php:1630
@@ -11266,7 +11224,7 @@ msgstr "RELĀCIJAS TABULAI"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2149
 msgid "It appears your table uses triggers;"
-msgstr ""
+msgstr "Izskatās, ka jūsu tabula izmanto palaidējus;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2179
 #, fuzzy, php-format
@@ -11583,9 +11541,8 @@ msgstr ""
 #. l10n: See https://www.php.net/manual/en/function.strftime.php
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:72
 #: libraries/classes/Util.php:710
-#, fuzzy
 msgid "%B %d, %Y at %I:%M %p"
-msgstr "%d.%m.%Y %H:%M"
+msgstr "%Y.%m.%d %H:%M:%S"
 
 #: libraries/classes/Plugins/Transformations/Abs/DownloadTransformationsPlugin.php:31
 #, fuzzy
@@ -11942,10 +11899,8 @@ msgid "Success."
 msgstr ""
 
 #: libraries/classes/ReplicationGui.php:487
-#, fuzzy
-#| msgid "Error"
 msgid "Error."
-msgstr "Kļūda"
+msgstr "Kļūda."
 
 #: libraries/classes/ReplicationGui.php:532
 msgid "Unknown error"
@@ -12130,9 +12085,8 @@ msgstr ""
 #: templates/server/privileges/privileges_table.twig:224
 #: templates/server/privileges/privileges_table.twig:537
 #: templates/server/privileges/privileges_table.twig:540
-#, fuzzy
 msgid "Allows creating and dropping triggers."
-msgstr "Ļauj veidot un dzēst indeksus."
+msgstr "Ļauj veidot un dzēst palaidējus."
 
 #: libraries/classes/Server/Privileges.php:351
 #: templates/server/privileges/privileges_table.twig:15
@@ -13157,114 +13111,109 @@ msgstr "Maksimālais izmērs: %s%s"
 #. l10n: Short month name for January
 #: libraries/classes/Util.php:667 templates/javascript/variables.twig:34
 msgid "Jan"
-msgstr "Jan"
+msgstr "Janv."
 
 #. l10n: Short month name
 #. l10n: Short month name for February
 #: libraries/classes/Util.php:669 templates/javascript/variables.twig:35
 msgid "Feb"
-msgstr "Feb"
+msgstr "Febr."
 
 #. l10n: Short month name
 #. l10n: Short month name for March
 #: libraries/classes/Util.php:671 templates/javascript/variables.twig:36
 msgid "Mar"
-msgstr "Mar"
+msgstr "Marts"
 
 #. l10n: Short month name
 #. l10n: Short month name for April
 #: libraries/classes/Util.php:673 templates/javascript/variables.twig:37
 msgid "Apr"
-msgstr "Apr"
+msgstr "Apr."
 
 #. l10n: Short month name
 #: libraries/classes/Util.php:675
-#, fuzzy
-#| msgid "May"
 msgctxt "Short month name"
 msgid "May"
-msgstr "Mai"
+msgstr "Maijs"
 
 #. l10n: Short month name
 #. l10n: Short month name for June
 #: libraries/classes/Util.php:677 templates/javascript/variables.twig:39
 msgid "Jun"
-msgstr "Jūn"
+msgstr "Jūn."
 
 #. l10n: Short month name
 #. l10n: Short month name for July
 #: libraries/classes/Util.php:679 templates/javascript/variables.twig:40
 msgid "Jul"
-msgstr "Jūl"
+msgstr "Jūl."
 
 #. l10n: Short month name
 #. l10n: Short month name for August
 #: libraries/classes/Util.php:681 templates/javascript/variables.twig:41
 msgid "Aug"
-msgstr "Aug"
+msgstr "Aug."
 
 #. l10n: Short month name
 #. l10n: Short month name for September
 #: libraries/classes/Util.php:683 templates/javascript/variables.twig:42
 msgid "Sep"
-msgstr "Sep"
+msgstr "Sept."
 
 #. l10n: Short month name
 #. l10n: Short month name for October
 #: libraries/classes/Util.php:685 templates/javascript/variables.twig:43
 msgid "Oct"
-msgstr "Okt"
+msgstr "Okt."
 
 #. l10n: Short month name
 #. l10n: Short month name for November
 #: libraries/classes/Util.php:687 templates/javascript/variables.twig:44
 msgid "Nov"
-msgstr "Nov"
+msgstr "Nov."
 
 #. l10n: Short month name
 #. l10n: Short month name for December
 #: libraries/classes/Util.php:689 templates/javascript/variables.twig:45
 msgid "Dec"
-msgstr "Dec"
+msgstr "Dec."
 
 #. l10n: Short week day name for Sunday
 #: libraries/classes/Util.php:693
-#, fuzzy
-#| msgctxt "Short week day name"
-#| msgid "Sun"
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
-msgstr "Sv"
+msgstr "Svētd."
 
 #. l10n: Short week day name for Monday
 #: libraries/classes/Util.php:695 templates/javascript/variables.twig:58
 msgid "Mon"
-msgstr "P"
+msgstr "Pirmd."
 
 #. l10n: Short week day name for Tuesday
 #: libraries/classes/Util.php:697 templates/javascript/variables.twig:59
 msgid "Tue"
-msgstr "O"
+msgstr "Otrd."
 
 #. l10n: Short week day name for Wednesday
 #: libraries/classes/Util.php:699 templates/javascript/variables.twig:60
 msgid "Wed"
-msgstr "T"
+msgstr "Trešd."
 
 #. l10n: Short week day name for Thursday
 #: libraries/classes/Util.php:701 templates/javascript/variables.twig:61
 msgid "Thu"
-msgstr "C"
+msgstr "Ceturtd."
 
 #. l10n: Short week day name for Friday
 #: libraries/classes/Util.php:703 templates/javascript/variables.twig:62
 msgid "Fri"
-msgstr "Pk"
+msgstr "Piektd."
 
 #. l10n: Short week day name for Saturday
 #: libraries/classes/Util.php:705 templates/javascript/variables.twig:63
 msgid "Sat"
-msgstr "S"
+msgstr "Sestd."
 
 #: libraries/classes/Util.php:733
 msgctxt "AM/PM indication in time"
@@ -14149,10 +14098,8 @@ msgid "Select a table"
 msgstr "Izvēlieties tabulas"
 
 #: templates/database/central_columns/main.twig:194
-#, fuzzy
-#| msgid "Select two columns"
 msgid "Select a column."
-msgstr "Izvēlies 2 kolonnas"
+msgstr "Atlasiet kolonnu."
 
 #: templates/database/central_columns/main.twig:213
 msgid "Click to sort."
@@ -14939,16 +14886,15 @@ msgstr "Kolonna:"
 
 #: templates/database/qbe/selection_form.twig:17
 msgid "Alias:"
-msgstr ""
+msgstr "Aizstājvārds:"
 
 #: templates/database/qbe/selection_form.twig:22
 msgid "Show:"
 msgstr "Rādīt:"
 
 #: templates/database/qbe/selection_form.twig:27
-#, fuzzy
 msgid "Sort:"
-msgstr "Kārtošana:"
+msgstr "Kārtot:"
 
 #: templates/database/qbe/selection_form.twig:32
 msgid "Sort order:"
@@ -14983,10 +14929,8 @@ msgid "SQL query on database <b>%s</b>:"
 msgstr "SQL vaicājums datubāzē <b>%s</b>:"
 
 #: templates/database/routines/editor_form.twig:20
-#, fuzzy
-#| msgid "Column names"
 msgid "Routine name"
-msgstr "Kolonnu nosaukumi"
+msgstr "Apakšprogrammas nosaukums"
 
 #: templates/database/routines/editor_form.twig:43
 msgid "Parameters"
@@ -15428,27 +15372,21 @@ msgid "Track table"
 msgstr "Pārbaudīt tabulu"
 
 #: templates/database/triggers/editor_form.twig:23
-#, fuzzy
-#| msgid "server name"
 msgid "Trigger name"
-msgstr "Lietotājvārds"
+msgstr "Palaidēja nosaukums"
 
 #: templates/database/triggers/editor_form.twig:37
-#, fuzzy
-#| msgid "Time"
 msgctxt "Trigger action time"
 msgid "Time"
 msgstr "Laiks"
 
 #: templates/database/triggers/list.twig:29
-#, fuzzy
-#| msgid "Create trigger"
 msgid "Create new trigger"
-msgstr "Servera versija"
+msgstr "Izveidot jaunu palaidēju"
 
 #: templates/database/triggers/list.twig:38
 msgid "There are no triggers to display."
-msgstr ""
+msgstr "Nav neviena palaidēja, ko parādīt."
 
 #: templates/display/results/table.twig:32
 msgid "Save edited data"
@@ -15703,10 +15641,8 @@ msgid "Save output to a file"
 msgstr "Saglabāt kā failu"
 
 #: templates/export.twig:387
-#, fuzzy
-#| msgid "File name template"
 msgid "File name template:"
-msgstr "Faila nosaukuma šablons"
+msgstr "Datnes nosaukuma veidne:"
 
 #: templates/export.twig:388
 #, php-format
@@ -16060,40 +15996,40 @@ msgstr ""
 #: templates/import/javascript.twig:13
 #, php-format
 msgid "%s of %s"
-msgstr ""
+msgstr "%s no %s"
 
 #: templates/import/javascript.twig:14
 #, php-format
 msgid "%s/sec."
-msgstr ""
+msgstr "%s/sek."
 
 #: templates/import/javascript.twig:15
 msgid "About %MIN min. %SEC sec. remaining."
-msgstr ""
+msgstr "Atlikušas aptuveni %MIN min. un %SEC sek."
 
 #: templates/import/javascript.twig:16
 msgid "About %SEC sec. remaining."
-msgstr ""
+msgstr "Atlikušas aptuveni %SEC sek."
 
 #: templates/import/javascript.twig:17
 msgid "The file is being processed, please be patient."
-msgstr ""
+msgstr "Lūdzu, esiet pacietīgi. Datne tiek apstrādāta."
 
 #: templates/import/javascript.twig:29
 msgid "Uploading your import file…"
-msgstr ""
+msgstr "Augšupielādē jūsu ievietošanas datni…"
 
 #: templates/import/javascript.twig:152
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
 msgstr ""
+"Lūdzu, esiet pacietīgi, datne tiek augšupielādēta. Informācija par "
+"augšupielādi nav pieejama."
 
 #: templates/import.twig:26
-#, fuzzy
-#| msgid "Partial Texts"
 msgid "File to import:"
-msgstr "Daļēji teksti"
+msgstr "Datne, ko ievietot:"
 
 #: templates/import.twig:31
 #, php-format
@@ -16216,66 +16152,50 @@ msgstr "Nākamie"
 
 #. l10n: Display text for current month link in calendar
 #: templates/javascript/variables.twig:18
-#, fuzzy
-#| msgid "Total"
 msgid "Today"
-msgstr "Kopā"
+msgstr "Šodien"
 
 #: templates/javascript/variables.twig:20
-#, fuzzy
-#| msgid "Binary"
 msgid "January"
-msgstr "Binārais"
+msgstr "Janvāris"
 
 #: templates/javascript/variables.twig:21
 msgid "February"
 msgstr "Februāris"
 
 #: templates/javascript/variables.twig:22
-#, fuzzy
-#| msgid "Mar"
 msgid "March"
-msgstr "Mar"
+msgstr "Marts"
 
 #: templates/javascript/variables.twig:23
-#, fuzzy
-#| msgid "Apr"
 msgid "April"
-msgstr "Apr"
+msgstr "Aprīlis"
 
 #. l10n: Short month name for May
 #: templates/javascript/variables.twig:24
 #: templates/javascript/variables.twig:38
 msgid "May"
-msgstr "Mai"
+msgstr "Maijs"
 
 #: templates/javascript/variables.twig:25
-#, fuzzy
-#| msgid "Jun"
 msgid "June"
-msgstr "Jūn"
+msgstr "Jūnijs"
 
 #: templates/javascript/variables.twig:26
-#, fuzzy
-#| msgid "Jul"
 msgid "July"
-msgstr "Jūl"
+msgstr "Jūlijs"
 
 #: templates/javascript/variables.twig:27
-#, fuzzy
-#| msgid "Aug"
 msgid "August"
-msgstr "Aug"
+msgstr "Augusts"
 
 #: templates/javascript/variables.twig:28
 msgid "September"
 msgstr "Septembris"
 
 #: templates/javascript/variables.twig:29
-#, fuzzy
-#| msgid "Oct"
 msgid "October"
-msgstr "Okt"
+msgstr "Oktobris"
 
 #: templates/javascript/variables.twig:30
 msgid "November"
@@ -16365,110 +16285,80 @@ msgstr "sekundē"
 
 #: templates/javascript/variables.twig:90
 msgid "This field is required"
-msgstr ""
+msgstr "Šis lauks ir jāaizpilda"
 
 #: templates/javascript/variables.twig:91
-#, fuzzy
-#| msgid "Use text field"
 msgid "Please fix this field"
-msgstr "Lietot teksta lauku"
+msgstr "Lūdzu, izlabojiet šo lauku"
 
 #: templates/javascript/variables.twig:92
-#, fuzzy
-#| msgid "Please enter a valid number"
 msgid "Please enter a valid email address"
-msgstr "Lūdzu ievadiet derīgu numuru"
+msgstr "Lūdzu, ievadiet derīgu e-pasta adresi"
 
 #: templates/javascript/variables.twig:93
-#, fuzzy
-#| msgid "Please enter a valid number"
 msgid "Please enter a valid URL"
-msgstr "Lūdzu ievadiet derīgu numuru"
+msgstr "Lūdzu, ievadiet derīgu URL adresi"
 
 #: templates/javascript/variables.twig:94
-#, fuzzy
-#| msgid "Please enter a valid number"
 msgid "Please enter a valid date"
-msgstr "Lūdzu ievadiet derīgu numuru"
+msgstr "Lūdzu, ievadiet derīgu datumu"
 
 #: templates/javascript/variables.twig:95
-#, fuzzy
-#| msgid "Please enter a valid number"
 msgid "Please enter a valid date ( ISO )"
-msgstr "Lūdzu ievadiet derīgu numuru"
+msgstr "Lūdzu, ievadiet derīgu datumu (ISO)"
 
 #: templates/javascript/variables.twig:96
-#, fuzzy
-#| msgid "Please enter a valid number"
 msgid "Please enter a valid number"
-msgstr "Lūdzu ievadiet derīgu numuru"
+msgstr "Lūdzu, ievadiet derīgu skaitli"
 
 #: templates/javascript/variables.twig:97
-#, fuzzy
-#| msgid "Please enter a valid number"
 msgid "Please enter a valid credit card number"
-msgstr "Lūdzu ievadiet derīgu numuru"
+msgstr "Lūdzu, ievadiet derīgu kredītkartes numuru"
 
 #: templates/javascript/variables.twig:98
-#, fuzzy
-#| msgid "Please enter a valid length"
 msgid "Please enter only digits"
-msgstr "Lūdzu ievadiet derīgu garumu"
+msgstr "Lūdzu, ievadiet tikai ciparus"
 
 #: templates/javascript/variables.twig:99
-#, fuzzy
-#| msgid "Please enter a valid number"
 msgid "Please enter the same value again"
-msgstr "Lūdzu ievadiet derīgu numuru"
+msgstr "Lūdzu, vēlreiz ievadiet to pašu vērtību"
 
 #: templates/javascript/variables.twig:100
 msgid "Please enter no more than {0} characters"
-msgstr ""
+msgstr "Lūdzu, ievadiet ne vairāk kā {0} rakstzīmes"
 
 #: templates/javascript/variables.twig:101
-#, fuzzy
-#| msgid "Please enter a valid number"
 msgid "Please enter at least {0} characters"
-msgstr "Lūdzu ievadiet derīgu numuru"
+msgstr "Lūdzu, ievadiet vismaz {0} rakstzīmes"
 
 #: templates/javascript/variables.twig:102
 msgid "Please enter a value between {0} and {1} characters long"
-msgstr ""
+msgstr "Lūdzu, ievadiet vērtību no {0} līdz {1} rakstzīmēm"
 
 #: templates/javascript/variables.twig:103
-#, fuzzy
-#| msgid "Please enter a valid number"
 msgid "Please enter a value between {0} and {1}"
-msgstr "Lūdzu ievadiet derīgu numuru"
+msgstr "Lūdzu, ievadiet vērtību no {0} līdz {1}"
 
 #: templates/javascript/variables.twig:104
-#, fuzzy
-#| msgid "Please enter a valid length"
 msgid "Please enter a value less than or equal to {0}"
-msgstr "Lūdzu ievadiet derīgu garumu"
+msgstr "Lūdzu, ievadiet vērtību, kas ir mazāka vai vienāda ar {0}"
 
 #: templates/javascript/variables.twig:105
-#, fuzzy
-#| msgid "Please enter a valid number"
 msgid "Please enter a value greater than or equal to {0}"
-msgstr "Lūdzu ievadiet derīgu numuru"
+msgstr "Lūdzu, ievadiet vērtību, kas ir lielāka vai vienāda ar {0}"
 
 #: templates/javascript/variables.twig:106
-#, fuzzy
-#| msgid "Please enter a valid number"
 msgid "Please enter a valid date or time"
-msgstr "Lūdzu ievadiet derīgu numuru"
+msgstr "Lūdzu, ievadiet derīgu datumu vai laiku"
 
 #: templates/javascript/variables.twig:107
-#, fuzzy
-#| msgid "Please enter a valid number"
 msgid "Please enter a valid HEX input"
-msgstr "Lūdzu ievadiet derīgu numuru"
+msgstr "Lūdzu, ievadiet derīgu heksadecimālo vērtību"
 
 #. l10n: To validate the usage of a MD5 function on the column
 #: templates/javascript/variables.twig:108
 msgid "This column can not contain a 32 chars value"
-msgstr ""
+msgstr "Šī kolonna nevar saturēt 32 rakstzīmju vērtību"
 
 #. l10n: To validate the usage of a AES_ENCRYPT/DES_ENCRYPT function on the column
 #: templates/javascript/variables.twig:109
@@ -16603,10 +16493,8 @@ msgid "Go back"
 msgstr ""
 
 #: templates/modals/unhide_nav_item.twig:5
-#, fuzzy
-#| msgid "Show grid"
 msgid "Show hidden navigation tree items."
-msgstr "Rādīt režģi"
+msgstr "Rādīt slēptos navigācijas koka vienumus."
 
 #: templates/navigation/item_unhide_dialog.twig:20
 msgid "Unhide"
@@ -16701,10 +16589,8 @@ msgstr "Dokumentācija"
 
 #: templates/preferences/header.twig:55
 #: templates/preferences/manage/main.twig:72
-#, fuzzy
-#| msgid "Modifications have been saved"
 msgid "Configuration has been saved."
-msgstr "Labojumi tika saglabāti"
+msgstr "Iestatījumi saglabāti."
 
 #: templates/preferences/header.twig:60
 #, php-format
@@ -17311,10 +17197,8 @@ msgid "Re-type:"
 msgstr "Atkārtot:"
 
 #: templates/server/privileges/change_password.twig:40
-#, fuzzy
-#| msgid "Password Hashing"
 msgid "Password Hashing:"
-msgstr "Paroles jaukšana"
+msgstr "Paroles jaukšana:"
 
 #: templates/server/privileges/change_password.twig:58
 msgid ""
@@ -17615,16 +17499,12 @@ msgstr ""
 "Ierobežo jauno konekciju skaitu, ko lietotājs var atvērt stundas laikā."
 
 #: templates/server/privileges/privileges_table.twig:784
-#, fuzzy
-#| msgid "Connections"
 msgid "Does not require SSL-encrypted connections."
-msgstr "Konekcijas"
+msgstr "Nav nepieciešami SSL šifrēti savienojumi."
 
 #: templates/server/privileges/privileges_table.twig:793
-#, fuzzy
-#| msgid "Connections"
 msgid "Requires SSL-encrypted connections."
-msgstr "Konekcijas"
+msgstr "Nepieciešami SSL šifrēti savienojumi."
 
 #: templates/server/privileges/privileges_table.twig:802
 msgid "Requires a valid X509 certificate."
@@ -17749,10 +17629,8 @@ msgid ""
 msgstr ""
 
 #: templates/server/replication/index.twig:43
-#, fuzzy
-#| msgid "No privileges."
 msgid "No privileges"
-msgstr "Nav privilēģiju."
+msgstr "Nav privilēģiju"
 
 #: templates/server/replication/primary_add_replica_user.twig:6
 #: templates/server/replication/primary_replication.twig:44
@@ -17764,10 +17642,8 @@ msgstr "Nepieciešams replikāciju kopijām."
 #: templates/server/replication/primary_add_replica_user.twig:21
 #: templates/server/replication/primary_add_replica_user.twig:40
 #: templates/server/replication/primary_add_replica_user.twig:54
-#, fuzzy
-#| msgid "Use text field"
 msgid "Use text field:"
-msgstr "Lietot teksta lauku"
+msgstr "Izmantot teksta lauku:"
 
 #: templates/server/replication/primary_add_replica_user.twig:70
 msgid "Generate password:"
@@ -17926,10 +17802,8 @@ msgstr "Mainīgais"
 
 #: templates/server/select/index.twig:9 templates/server/select/index.twig:11
 #: templates/server/select/index.twig:25
-#, fuzzy
-#| msgid "Server"
 msgid "Current server:"
-msgstr "Serveris"
+msgstr "Pašreizējais serveris:"
 
 #: templates/server/status/advisor/index.twig:6
 #: templates/server/status/advisor/index.twig:19
@@ -17981,16 +17855,12 @@ msgid "Possible performance issues"
 msgstr ""
 
 #: templates/server/status/advisor/index.twig:76
-#, fuzzy
-#| msgid "Issue"
 msgid "Issue:"
-msgstr "Problēma"
+msgstr "Problēma:"
 
 #: templates/server/status/advisor/index.twig:79
-#, fuzzy
-#| msgid "Recommendation"
 msgid "Recommendation:"
-msgstr "Ieteikums"
+msgstr "Ieteikums:"
 
 #: templates/server/status/advisor/index.twig:82
 #, fuzzy
