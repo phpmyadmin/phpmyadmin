@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-06-07 01:05+0000\n"
-"PO-Revision-Date: 2026-05-12 09:11+0000\n"
+"PO-Revision-Date: 2026-06-08 09:01+0000\n"
 "Last-Translator: ButterflyOfFire <boffire@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Kabyle <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "kab/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.5-dev\n"
+"X-Generator: Weblate 2026.6\n"
 
 #: resources/templates/base.twig:40 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -2534,9 +2534,8 @@ msgstr ""
 #: resources/templates/table/search/index.twig:36
 #: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:258
 #: src/Navigation/Nodes/NodeFunction.php:27
-#, fuzzy
 msgid "Function"
-msgstr "Tawuri"
+msgstr "Tasɣent"
 
 #: resources/templates/database/routines/execute_form.twig:54
 msgid "This routine does not require any parameters."
@@ -6114,7 +6113,7 @@ msgstr ""
 
 #: resources/templates/server/status/monitor/index.twig:267
 msgid "Query analyzer"
-msgstr ""
+msgstr "Amsisleḍ n tuttra"
 
 #: resources/templates/server/status/monitor/index.twig:273 src/Menu.php:339
 #: src/Util.php:1380
@@ -11505,7 +11504,7 @@ msgstr ""
 #: src/Config/FormDisplay.php:817
 #, php-format
 msgid "maximum %s"
-msgstr ""
+msgstr "afellay %s"
 
 #: src/Config/Forms/Setup/ServersForm.php:26
 msgid "Config authentication"
@@ -16041,9 +16040,8 @@ msgid "Events:"
 msgstr "Tidyanin:"
 
 #: src/Navigation/Navigation.php:223
-#, fuzzy
 msgid "Functions:"
-msgstr "Tiwuriwin"
+msgstr "Tiseɣnatin:"
 
 #: src/Navigation/Navigation.php:224
 msgid "Procedures:"
@@ -16102,9 +16100,8 @@ msgstr "Nouveau"
 #: src/Navigation/Nodes/NodeFunctionContainer.php:23
 #: src/Navigation/Nodes/NodeFunctionContainer.php:27
 #: src/Plugins/Export/ExportSql.php:642 src/Plugins/Export/ExportXml.php:97
-#, fuzzy
 msgid "Functions"
-msgstr "Tiwuriwin"
+msgstr "Tiseɣnatin"
 
 #: src/Navigation/Nodes/NodeFunctionContainer.php:38
 #, fuzzy
