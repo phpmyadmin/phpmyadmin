@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-06-07 01:05+0000\n"
-"PO-Revision-Date: 2026-06-05 18:01+0000\n"
+"PO-Revision-Date: 2026-06-14 01:08+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/lv/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2;\n"
-"X-Generator: Weblate 2026.6\n"
+"X-Generator: Weblate 2026.7.dev0\n"
 
 #: resources/templates/base.twig:40 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -1916,7 +1916,7 @@ msgstr ""
 #: src/Plugins/Export/ExportSql.php:989 src/Plugins/Export/ExportXml.php:92
 #: src/Util.php:1386
 msgid "Events"
-msgstr ""
+msgstr "Notikumi"
 
 #: resources/templates/database/events/index.twig:14
 #: resources/templates/database/privileges/index.twig:112
@@ -4859,7 +4859,7 @@ msgstr "Ievieto pašreizējā serverī"
 #: resources/templates/server/plugins/index.twig:4 src/Menu.php:522
 #: src/Util.php:1373
 msgid "Plugins"
-msgstr ""
+msgstr "Papildinājumi"
 
 #: resources/templates/server/plugins/index.twig:26
 msgid "Plugin"
@@ -7312,9 +7312,9 @@ msgid "Choose column to display:"
 msgstr "Atlasiet kolonnu, kuru rādīt:"
 
 #: resources/templates/table/relation/foreign_key_row.twig:15
-#, fuzzy, php-format
+#, php-format
 msgid "Foreign key constraint %s has been dropped"
-msgstr "Svešo atslēgu pārbaude:"
+msgstr "%s ārējās atslēgas ierobežojums dzēsts"
 
 #: resources/templates/table/relation/foreign_key_row.twig:33
 #, fuzzy
@@ -16311,7 +16311,7 @@ msgstr "Rakstzīmju kopas"
 
 #: src/Menu.php:517 src/Util.php:1374
 msgid "Engines"
-msgstr ""
+msgstr "Tabulas tipi"
 
 #: src/Message.php:185
 #, php-format
