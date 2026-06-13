@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2026-06-05 18:01+0000\n"
+"PO-Revision-Date: 2026-06-14 16:01+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "lv/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2;\n"
-"X-Generator: Weblate 2026.6\n"
+"X-Generator: Weblate 2026.7.dev0\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -7155,11 +7155,11 @@ msgstr "Mainīt:"
 
 #: libraries/classes/Database/Qbe.php:941
 msgid "Ins:"
-msgstr ""
+msgstr "Ievietot:"
 
 #: libraries/classes/Database/Qbe.php:956
 msgid "Del:"
-msgstr ""
+msgstr "Dzēst:"
 
 #: libraries/classes/Database/Qbe.php:1823
 #, php-format
@@ -8346,7 +8346,7 @@ msgstr "Apakšprogrammas"
 #: libraries/classes/Plugins/Export/ExportXml.php:106
 #: libraries/classes/Rte/Words.php:77 libraries/classes/Util.php:4013
 msgid "Events"
-msgstr ""
+msgstr "Notikumi"
 
 #: libraries/classes/Menu.php:540 libraries/classes/Util.php:4016
 msgid "Designer"
@@ -8392,12 +8392,12 @@ msgstr "Rakstzīmju kopas"
 
 #: libraries/classes/Menu.php:653 libraries/classes/Util.php:4001
 msgid "Engines"
-msgstr ""
+msgstr "Tabulas tipi"
 
 #: libraries/classes/Menu.php:657 libraries/classes/Util.php:4000
 #: templates/server/sub_page_header.twig:2
 msgid "Plugins"
-msgstr ""
+msgstr "Papildinājumi"
 
 #: libraries/classes/Message.php:247
 #, php-format
@@ -13386,7 +13386,7 @@ msgstr ""
 
 #: libraries/classes/ThemeManager.php:348
 msgid "Theme:"
-msgstr ""
+msgstr "Motīvs:"
 
 #: libraries/classes/Tracking.php:159 templates/server/plugins/section.twig:11
 #, fuzzy
@@ -15731,10 +15731,9 @@ msgid "disabled"
 msgstr "Izslēgts"
 
 #: templates/table/relation/foreign_key_row.twig:15
-#, fuzzy, php-format
-#| msgid "Foreign key check:"
+#, php-format
 msgid "Foreign key constraint %s has been dropped"
-msgstr "Svešo atslēgu pārbaude:"
+msgstr "%s ārējās atslēgas ierobežojums dzēsts"
 
 #: templates/table/relation/foreign_key_row.twig:38
 #, fuzzy
