@@ -1916,7 +1916,7 @@ msgstr ""
 #: src/Plugins/Export/ExportSql.php:989 src/Plugins/Export/ExportXml.php:92
 #: src/Util.php:1386
 msgid "Events"
-msgstr ""
+msgstr "Notikumi"
 
 #: resources/templates/database/events/index.twig:14
 #: resources/templates/database/privileges/index.twig:112
@@ -4859,7 +4859,7 @@ msgstr "Ievieto pašreizējā serverī"
 #: resources/templates/server/plugins/index.twig:4 src/Menu.php:522
 #: src/Util.php:1373
 msgid "Plugins"
-msgstr ""
+msgstr "Papildinājumi"
 
 #: resources/templates/server/plugins/index.twig:26
 msgid "Plugin"
@@ -7312,9 +7312,9 @@ msgid "Choose column to display:"
 msgstr "Atlasiet kolonnu, kuru rādīt:"
 
 #: resources/templates/table/relation/foreign_key_row.twig:15
-#, fuzzy, php-format
+#, php-format
 msgid "Foreign key constraint %s has been dropped"
-msgstr "Svešo atslēgu pārbaude:"
+msgstr "%s ārējās atslēgas ierobežojums dzēsts"
 
 #: resources/templates/table/relation/foreign_key_row.twig:33
 #, fuzzy
@@ -8034,9 +8034,9 @@ msgstr "Neoptimāla kešatmiņas metode."
 #: src/Advisory/Rules.php:217
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-"refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
-"cache, especially if you have multiple replicas."
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/refman/"
+"5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query cache, "
+"especially if you have multiple replicas."
 msgstr ""
 
 #: src/Advisory/Rules.php:223
@@ -8620,8 +8620,8 @@ msgid ""
 "note however that you cannot simply change the value of this variable. You "
 "need to shutdown the server, remove the InnoDB log files, set the new value "
 "in my.cnf, start the server, then check the error logs if everything went "
-"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot.com/"
+"2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 
 #: src/Advisory/Rules.php:662 src/Advisory/Rules.php:692
@@ -9918,9 +9918,9 @@ msgstr ""
 
 #: src/Config/Descriptions.php:355
 msgid ""
-"More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
-"com/19588]MySQL Bugs[/a]"
+"More information on [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 msgstr ""
 
 #: src/Config/Descriptions.php:359
@@ -12397,10 +12397,11 @@ msgstr ""
 
 #: src/Controllers/HomeController.php:267
 msgid ""
-"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
-"than cookie validity configured in phpMyAdmin, because of this, your login "
-"might expire sooner than configured in phpMyAdmin."
+"Your PHP parameter [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie validity "
+"configured in phpMyAdmin, because of this, your login might expire sooner "
+"than configured in phpMyAdmin."
 msgstr ""
 
 #: src/Controllers/HomeController.php:287
@@ -16311,7 +16312,7 @@ msgstr "Rakstzīmju kopas"
 
 #: src/Menu.php:517 src/Util.php:1374
 msgid "Engines"
-msgstr ""
+msgstr "Tabulas tipi"
 
 #: src/Message.php:185
 #, php-format
