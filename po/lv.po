@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2026-06-14 16:01+0000\n"
+"PO-Revision-Date: 2026-06-16 23:01+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "lv/>\n"
@@ -876,34 +876,24 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "Jūs taisaties LIKVIDĒT veselu tabulu!"
 
 #: js/messages.php:52
-#, fuzzy
-#| msgid "Dumping data for table"
 msgid "Delete tracking data for this table?"
-msgstr "Dati tabulai"
+msgstr "Vai tiešām dzēst šīs tabulas izsekošanas datus?"
 
 #: js/messages.php:54
-#, fuzzy
-#| msgid "Dumping data for table"
 msgid "Delete tracking data for these tables?"
-msgstr "Dati tabulai"
+msgstr "Vai tiešām dzēst šo tabulu izsekošanas datus?"
 
 #: js/messages.php:56
-#, fuzzy
-#| msgid "Allows inserting and replacing data."
 msgid "Delete tracking data for this version?"
-msgstr "Ļauj ievietot un mainīt datus."
+msgstr "Vai tiešām dzēst šīs versijas izsekošanas datus?"
 
 #: js/messages.php:58
-#, fuzzy
-#| msgid "Allows inserting and replacing data."
 msgid "Delete tracking data for these versions?"
-msgstr "Ļauj ievietot un mainīt datus."
+msgstr "Vai tiešām dzēst šo versiju izsekošanas datus?"
 
 #: js/messages.php:59
-#, fuzzy
-#| msgid "Allows inserting and replacing data."
 msgid "Delete entry from tracking report?"
-msgstr "Ļauj ievietot un mainīt datus."
+msgstr "Vai tiešām dzēst ierakstu no izsekošanas pārskata?"
 
 #: js/messages.php:60
 msgid "Deleting tracking data"
@@ -2082,9 +2072,8 @@ msgstr ""
 #: js/messages.php:453 js/messages.php:782
 #: libraries/classes/Normalization.php:340
 #, fuzzy
-#| msgid "None"
 msgid "Done"
-msgstr "Nav"
+msgstr "Gatavs"
 
 #: js/messages.php:454
 msgid "Confirm partial dependencies"
@@ -2552,9 +2541,8 @@ msgid "Generate password"
 msgstr "Mainīt paroli"
 
 #: js/messages.php:651 libraries/classes/ReplicationGui.php:890
-#, fuzzy
 msgid "Generate"
-msgstr "Uzģenerēja"
+msgstr "Ģenerēt"
 
 #: js/messages.php:655
 #: templates/table/structure/actions_in_table_structure.twig:4
@@ -2913,22 +2901,16 @@ msgid "Dec"
 msgstr "Dec."
 
 #: js/messages.php:844
-#, fuzzy
-#| msgid "Sun"
 msgid "Sunday"
-msgstr "Sv"
+msgstr "Svētdiena"
 
 #: js/messages.php:845
-#, fuzzy
-#| msgid "Mon"
 msgid "Monday"
-msgstr "P"
+msgstr "Pirmdiena"
 
 #: js/messages.php:846
-#, fuzzy
-#| msgid "Tue"
 msgid "Tuesday"
-msgstr "O"
+msgstr "Otrdiena"
 
 #: js/messages.php:847
 msgid "Wednesday"
@@ -2939,10 +2921,8 @@ msgid "Thursday"
 msgstr "Ceturtdiena"
 
 #: js/messages.php:849
-#, fuzzy
-#| msgid "Fri"
 msgid "Friday"
-msgstr "Pk"
+msgstr "Piektdiena"
 
 #: js/messages.php:850
 msgid "Saturday"
@@ -2950,11 +2930,8 @@ msgstr "Sestdiena"
 
 #. l10n: Short week day name for Sunday
 #: js/messages.php:857
-#, fuzzy
-#| msgctxt "Short week day name"
-#| msgid "Sun"
 msgid "Sun"
-msgstr "Sv"
+msgstr "Svētd."
 
 #. l10n: Short week day name for Monday
 #: js/messages.php:859 libraries/classes/Util.php:1508
@@ -2988,50 +2965,36 @@ msgstr "Sestd."
 
 #. l10n: Minimal week day name for Sunday
 #: js/messages.php:876
-#, fuzzy
-#| msgid "Sun"
 msgid "Su"
 msgstr "Sv"
 
 #. l10n: Minimal week day name for Monday
 #: js/messages.php:878
-#, fuzzy
-#| msgid "Mon"
 msgid "Mo"
 msgstr "P"
 
 #. l10n: Minimal week day name for Tuesday
 #: js/messages.php:880
-#, fuzzy
-#| msgid "Tue"
 msgid "Tu"
 msgstr "O"
 
 #. l10n: Minimal week day name for Wednesday
 #: js/messages.php:882
-#, fuzzy
-#| msgid "Wed"
 msgid "We"
 msgstr "T"
 
 #. l10n: Minimal week day name for Thursday
 #: js/messages.php:884
-#, fuzzy
-#| msgid "Thu"
 msgid "Th"
 msgstr "C"
 
 #. l10n: Minimal week day name for Friday
 #: js/messages.php:886
-#, fuzzy
-#| msgid "Fri"
 msgid "Fr"
 msgstr "Pk"
 
 #. l10n: Minimal week day name for Saturday
 #: js/messages.php:888
-#, fuzzy
-#| msgid "Sat"
 msgid "Sa"
 msgstr "S"
 
@@ -3044,17 +3007,14 @@ msgstr "Ned."
 #. * or "calendar-year-month".
 #.
 #: js/messages.php:899
-#, fuzzy
 msgid "calendar-month-year"
-msgstr "calendar-month-year"
+msgstr "calendar-year-month"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:902
-#, fuzzy
-#| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
-msgstr "Nav"
+msgstr "none"
 
 #: js/messages.php:914
 msgid "Hour"
@@ -4442,10 +4402,8 @@ msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:432
-#, fuzzy
-#| msgid "Foreign key check:"
 msgid "Foreign key checks"
-msgstr "Svešo atslēgu pārbaude:"
+msgstr "Ārējās atslēgas pārbaudes"
 
 #: libraries/classes/Config/Descriptions.php:434
 msgid "Browse mode"
@@ -5373,10 +5331,8 @@ msgid "Default sort order for tables with a primary key."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:951
-#, fuzzy
-#| msgid "A primary key has been added on %s."
 msgid "Primary key default sort order"
-msgstr "Primārā atslēga pievienota uz lauka %s."
+msgstr "Primārās atslēgas noklusējuma kārtošanas secība"
 
 #: libraries/classes/Config/Descriptions.php:953
 msgid ""
@@ -7874,12 +7830,12 @@ msgid "Insufficient space to save the file %s."
 msgstr "Nepietiek vietas, lai saglabātu failu %s."
 
 #: libraries/classes/Export.php:355
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
-"Fails %s jau eksistē uz servera. Lūdzu nomainiet faila nosaukumu vai "
-"atzīmējiet failu pārrakstīšanas opciju."
+"%s datne jau eksistē serverī. Nomainiet datnes nosaukumu vai pārbaudiet "
+"datnes pārrakstīšanas tiesības."
 
 #: libraries/classes/Export.php:363 libraries/classes/Export.php:371
 #, php-format
@@ -7934,9 +7890,9 @@ msgid "File could not be read!"
 msgstr "Nevar nolasīt failu!"
 
 #: libraries/classes/File.php:506
-#, fuzzy
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
-msgstr "Var būt aptuvens skaits. Skatīt FAQ 3.11"
+msgstr ""
+"Kļūda, pārvietojot augšupielādēto datni. Skatiet [doc@faq1-11]BUJ 1.11[/doc]."
 
 #: libraries/classes/File.php:525
 msgid "Error while moving uploaded file."
@@ -13423,10 +13379,8 @@ msgid "Tracking statements"
 msgstr ""
 
 #: libraries/classes/Tracking.php:350
-#, fuzzy
-#| msgid "Allows inserting and replacing data."
 msgid "Delete tracking data row from report"
-msgstr "Ļauj ievietot un mainīt datus."
+msgstr "Dzēst izsekošanas datu rindu no pārskata"
 
 #: libraries/classes/Tracking.php:361
 #, fuzzy
@@ -17425,9 +17379,8 @@ msgstr "Vaicājuma tips"
 
 #: libraries/advisory_rules_generic.txt:304
 #, fuzzy
-#| msgid "The server is not responding"
 msgid "Thread cache is not efficient."
-msgstr "Serveris neatbild"
+msgstr "Pavedienu kešatmiņa ir neefektīva"
 
 #: libraries/advisory_rules_generic.txt:305
 msgid "Increase {thread_cache_size}."
