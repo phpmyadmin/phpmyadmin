@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-06-14 01:08+0000\n"
-"PO-Revision-Date: 2026-06-05 18:01+0000\n"
+"PO-Revision-Date: 2026-06-16 23:01+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/lv/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2;\n"
-"X-Generator: Weblate 2026.6\n"
+"X-Generator: Weblate 2026.7.dev0\n"
 
 #: resources/templates/base.twig:40 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -5662,9 +5662,8 @@ msgstr "Izveidot paroli:"
 
 #: resources/templates/server/replication/primary_add_replica_user.twig:73
 #: src/Controllers/JavaScriptMessagesController.php:579
-#, fuzzy
 msgid "Generate"
-msgstr "Uzģenerēja"
+msgstr "Ģenerēt"
 
 #: resources/templates/server/replication/primary_configuration.twig:2
 #, fuzzy
@@ -8446,7 +8445,7 @@ msgstr "Vaicājuma tips"
 #: src/Advisory/Rules.php:525
 #, fuzzy
 msgid "Thread cache is not efficient."
-msgstr "Serveris neatbild"
+msgstr "Pavedienu kešatmiņa ir neefektīva"
 
 #: src/Advisory/Rules.php:526
 msgid "Increase {thread_cache_size}."
@@ -10838,9 +10837,8 @@ msgid "Foreign key limit"
 msgstr ""
 
 #: src/Config/Descriptions.php:724
-#, fuzzy
 msgid "Foreign key checks"
-msgstr "Svešo atslēgu pārbaude:"
+msgstr "Ārējās atslēgas pārbaudes"
 
 #: src/Config/Descriptions.php:725
 msgid "First day of calendar"
@@ -11278,9 +11276,8 @@ msgid "Remember table's sorting"
 msgstr "Pārsaukt tabulu uz"
 
 #: src/Config/Descriptions.php:853
-#, fuzzy
 msgid "Primary key default sort order"
-msgstr "Primārā atslēga pievienota uz lauka %s."
+msgstr "Primārās atslēgas noklusējuma kārtošanas secība"
 
 #: src/Config/Descriptions.php:854
 msgid "Repeat headers"
@@ -12608,23 +12605,23 @@ msgstr "Jūs taisaties LIKVIDĒT veselu tabulu!"
 
 #: src/Controllers/JavaScriptMessagesController.php:63
 msgid "Delete tracking data for this table?"
-msgstr "Vai izdzēst izsekošanas datus šai tabulai?"
+msgstr "Vai tiešām dzēst šīs tabulas izsekošanas datus?"
 
 #: src/Controllers/JavaScriptMessagesController.php:64
 msgid "Delete tracking data for these tables?"
-msgstr "Vai izdzēst izsekošanas datus šīm tabulām?"
+msgstr "Vai tiešām dzēst šo tabulu izsekošanas datus?"
 
 #: src/Controllers/JavaScriptMessagesController.php:65
 msgid "Delete tracking data for this version?"
-msgstr "Vai izdzēst izsekošanas datus no šīs versijas?"
+msgstr "Vai tiešām dzēst šīs versijas izsekošanas datus?"
 
 #: src/Controllers/JavaScriptMessagesController.php:66
 msgid "Delete tracking data for these versions?"
-msgstr "Vai izdzēst izsekošanas datus no šīm versijām?"
+msgstr "Vai tiešām dzēst šo versiju izsekošanas datus?"
 
 #: src/Controllers/JavaScriptMessagesController.php:67
 msgid "Delete entry from tracking report?"
-msgstr "Vai izdzēst ierakstu no izsekošanas ziņojuma?"
+msgstr "Vai tiešām dzēst ierakstu no izsekošanas pārskata?"
 
 #: src/Controllers/JavaScriptMessagesController.php:68
 msgid "Deleting tracking data"
@@ -13422,7 +13419,7 @@ msgstr ""
 #: src/Normalization.php:351
 #, fuzzy
 msgid "Done"
-msgstr "Nav"
+msgstr "Gatavs"
 
 #: src/Controllers/JavaScriptMessagesController.php:405
 msgid "Confirm partial dependencies"
@@ -15941,9 +15938,8 @@ msgid "Report"
 msgstr "Imports"
 
 #: src/Exceptions/AuthenticationFailure.php:35
-#, fuzzy
 msgid "Cannot log in to the database server."
-msgstr "Nevar pieslēgties MySQL serverim"
+msgstr "Nevar pieteikties datubāzes serverī."
 
 #: src/Exceptions/AuthenticationFailure.php:43
 #: src/Exceptions/AuthenticationFailure.php:51
@@ -15971,12 +15967,12 @@ msgid "Insufficient space to save the file %s."
 msgstr "Nepietiek vietas, lai saglabātu failu %s."
 
 #: src/Export/OutputHandler.php:195
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
-"Fails %s jau eksistē uz servera. Lūdzu nomainiet faila nosaukumu vai "
-"atzīmējiet failu pārrakstīšanas opciju."
+"%s datne jau eksistē serverī. Nomainiet datnes nosaukumu vai pārbaudiet "
+"datnes pārrakstīšanas tiesības."
 
 #: src/Export/OutputHandler.php:206 src/Export/OutputHandler.php:218
 #, php-format
@@ -16040,9 +16036,9 @@ msgid "File could not be read!"
 msgstr "Nevar nolasīt failu!"
 
 #: src/File.php:361
-#, fuzzy
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
-msgstr "Var būt aptuvens skaits. Skatīt FAQ 3.11"
+msgstr ""
+"Kļūda, pārvietojot augšupielādēto datni. Skatiet [doc@faq1-11]BUJ 1.11[/doc]."
 
 #: src/File.php:372
 #, fuzzy
@@ -16067,9 +16063,8 @@ msgstr ""
 "nu šis tips nav atbalstīts vai ir izslēgts konfigurācijā."
 
 #: src/FlashMessenger.php:31
-#, fuzzy
 msgid "Session not found."
-msgstr "Links nav atrasts"
+msgstr "Sesija nav atrasta."
 
 #: src/Html/Generator.php:149
 #, fuzzy, php-format
@@ -16168,9 +16163,8 @@ msgid "Ignoring unsupported language code."
 msgstr ""
 
 #: src/Identifiers/InvalidDatabaseName.php:14
-#, fuzzy
 msgid "The database name must be a non-empty string."
-msgstr "Nav norādīts datu bāzes nosaukums!"
+msgstr "Datubāzes nosaukumam jābūt virknei, kas nav tukša."
 
 #: src/Identifiers/InvalidDatabaseName.php:20
 #, php-format
@@ -16183,9 +16177,8 @@ msgid "The database name cannot end with a space character."
 msgstr "Vārdi ir atdalīti ar tukšumu (\" \")."
 
 #: src/Identifiers/InvalidTableName.php:14
-#, fuzzy
 msgid "The table name must be a non-empty string."
-msgstr "Tabulas nosaukums nav norādīts!"
+msgstr "Tabulas nosaukumam jābūt virknei, kas nav tukša."
 
 #: src/Identifiers/InvalidTableName.php:20
 #, php-format
@@ -17215,9 +17208,8 @@ msgid ""
 msgstr ""
 
 #: src/Plugins/Export/ExportToon.php:67
-#, fuzzy
 msgid "Indentation:"
-msgstr "Izveidošana"
+msgstr "Atkāpe:"
 
 #: src/Plugins/Export/ExportXml.php:86
 msgid "Object creation options (all are recommended)"
@@ -17474,7 +17466,6 @@ msgid ""
 msgstr ""
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:38
-#, fuzzy
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -17487,15 +17478,16 @@ msgid ""
 "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
 "ensure that the output appears all on one line (Default 1)."
 msgstr ""
-"Tikai LINUX: Palaiž ārējo aplikāciju un padod lauka datus tās "
-"standartievadā. Atgriež aplikācijas standartizvadi. Noklusējums ir Tidy, kas "
-"izskaistina HTML kodu. Drošības apsvērumu dēļ, nepieciešams manuāli rediģēt "
-"failu libraries/transformations/text_plain__external.inc.php un ielikt "
-"rīkus, kurus Jūs atļaujat palaist. Pirmā opcija ir programmas numurs, ko Jūs "
-"vēlaties lietot, otrā opcija ir parametri šai programmai. Trešā opcija, ja "
-"ir vienāda ar 1, konvertē izvadi, izmantojot htmlspecialchars() (noklusējums "
-"ir 1). Ceturtais parametrs, ja vienāds ar 1, liek NOWRAP parametru satura "
-"šūnai, tā kā izvade tiks attēlota bez pārformatēšanas. (noklusējums ir 1)"
+"TIKAI LINUX: Palaiž ārēju programmu un padod tai kolonnas datus caur "
+"standartievadi. Atgriež programmas standartizvadi. Noklusējuma programma — "
+"Tidy, kas smuki noformē HTML kodu. Drošības apsvērumu dēļ jums pašrocīgi "
+"jārediģē src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php "
+"datne un jānorāda rīki, kurus vēlaties padarīt pieejamus. Pirmais parametrs "
+"ir programmas numurs, ko Jūs vēlaties lietot. Otram parametram vēsturisku "
+"iemeslu dēļ jābūt tukšam. Ja trešais parametrs iestatīts uz 1, tad izvade "
+"tiks konvertēta, izmantojot htmlspecialchars() funkciju (nokl. vērtība ir 1)"
+". Un, ja ceturtais parametrs iestatīts uz 1, tad novērš teksta aplaušanu un "
+"nodrošina, ka izvades dati parādās vienā rindā (nokl. vērtība ir 1)."
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:117
 #, php-format
@@ -18178,9 +18170,8 @@ msgid "Tracking statements"
 msgstr ""
 
 #: src/Tracking/Tracking.php:220
-#, fuzzy
 msgid "Delete tracking data row from report"
-msgstr "Ļauj ievietot un mainīt datus."
+msgstr "Dzēst izsekošanas datu rindu no pārskata"
 
 #: src/Tracking/Tracking.php:230
 #, fuzzy
