@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2026-06-14 16:01+0000\n"
+"PO-Revision-Date: 2026-06-16 23:01+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "lv/>\n"
@@ -715,9 +715,8 @@ msgstr "Vaicājuma tips"
 
 #: libraries/advisory_rules_generic.php:497
 #, fuzzy
-#| msgid "The server is not responding"
 msgid "Thread cache is not efficient."
-msgstr "Serveris neatbild"
+msgstr "Pavedienu kešatmiņa ir neefektīva"
 
 #: libraries/advisory_rules_generic.php:498
 msgid "Increase {thread_cache_size}."
@@ -3274,10 +3273,8 @@ msgid "Foreign key limit"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:755
-#, fuzzy
-#| msgid "Foreign key check:"
 msgid "Foreign key checks"
-msgstr "Svešo atslēgu pārbaude:"
+msgstr "Ārējās atslēgas pārbaudes"
 
 #: libraries/classes/Config/Descriptions.php:756
 msgid "First day of calendar"
@@ -3807,10 +3804,8 @@ msgid "Remember table's sorting"
 msgstr "Pārsaukt tabulu uz"
 
 #: libraries/classes/Config/Descriptions.php:882
-#, fuzzy
-#| msgid "A primary key has been added on %s."
 msgid "Primary key default sort order"
-msgstr "Primārā atslēga pievienota uz lauka %s."
+msgstr "Primārās atslēgas noklusējuma kārtošanas secība"
 
 #: libraries/classes/Config/Descriptions.php:883
 msgid "Repeat headers"
@@ -5347,23 +5342,23 @@ msgstr "Jūs taisaties LIKVIDĒT veselu tabulu!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:43
 msgid "Delete tracking data for this table?"
-msgstr "Vai izdzēst izsekošanas datus šai tabulai?"
+msgstr "Vai tiešām dzēst šīs tabulas izsekošanas datus?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:44
 msgid "Delete tracking data for these tables?"
-msgstr "Vai izdzēst izsekošanas datus šīm tabulām?"
+msgstr "Vai tiešām dzēst šo tabulu izsekošanas datus?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:45
 msgid "Delete tracking data for this version?"
-msgstr "Vai izdzēst izsekošanas datus no šīs versijas?"
+msgstr "Vai tiešām dzēst šīs versijas izsekošanas datus?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:46
 msgid "Delete tracking data for these versions?"
-msgstr "Vai izdzēst izsekošanas datus no šīm versijām?"
+msgstr "Vai tiešām dzēst šo versiju izsekošanas datus?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:47
 msgid "Delete entry from tracking report?"
-msgstr "Vai izdzēst ierakstu no izsekošanas ziņojuma?"
+msgstr "Vai tiešām dzēst ierakstu no izsekošanas pārskata?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:48
 msgid "Deleting tracking data"
@@ -6530,9 +6525,8 @@ msgstr ""
 #: libraries/classes/Normalization.php:385
 #: templates/javascript/variables.twig:15
 #, fuzzy
-#| msgid "None"
 msgid "Done"
-msgstr "Nav"
+msgstr "Gatavs"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:423
 msgid "Confirm partial dependencies"
@@ -7065,9 +7059,8 @@ msgstr "Mainīt paroli"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:612
 #: templates/server/replication/master_add_slave_user.twig:73
-#, fuzzy
 msgid "Generate"
-msgstr "Uzģenerēja"
+msgstr "Ģenerēt"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:613
 #: libraries/classes/Controllers/UserPasswordController.php:80
@@ -9635,12 +9628,12 @@ msgid "Insufficient space to save the file %s."
 msgstr "Nepietiek vietas, lai saglabātu failu %s."
 
 #: libraries/classes/Export.php:428
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
-"Fails %s jau eksistē uz servera. Lūdzu nomainiet faila nosaukumu vai "
-"atzīmējiet failu pārrakstīšanas opciju."
+"%s datne jau eksistē serverī. Nomainiet datnes nosaukumu vai pārbaudiet "
+"datnes pārrakstīšanas tiesības."
 
 #: libraries/classes/Export.php:436 libraries/classes/Export.php:447
 #, php-format
@@ -9700,9 +9693,9 @@ msgid "File could not be read!"
 msgstr "Nevar nolasīt failu!"
 
 #: libraries/classes/File.php:552
-#, fuzzy
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
-msgstr "Var būt aptuvens skaits. Skatīt FAQ 3.11"
+msgstr ""
+"Kļūda, pārvietojot augšupielādēto datni. Skatiet [doc@faq1-11]BUJ 1.11[/doc]."
 
 #: libraries/classes/File.php:572
 msgid "Error while moving uploaded file."
@@ -12975,10 +12968,8 @@ msgid "Tracking statements"
 msgstr ""
 
 #: libraries/classes/Tracking.php:254
-#, fuzzy
-#| msgid "Allows inserting and replacing data."
 msgid "Delete tracking data row from report"
-msgstr "Ļauj ievietot un mainīt datus."
+msgstr "Dzēst izsekošanas datu rindu no pārskata"
 
 #: libraries/classes/Tracking.php:265
 #, fuzzy
@@ -13594,16 +13585,12 @@ msgid "Closed"
 msgstr "Neaizvērtas pēdiņas"
 
 #: libraries/config.values.php:191 templates/javascript/variables.twig:49
-#, fuzzy
-#| msgid "Mon"
 msgid "Monday"
-msgstr "P"
+msgstr "Pirmdiena"
 
 #: libraries/config.values.php:192 templates/javascript/variables.twig:50
-#, fuzzy
-#| msgid "Tue"
 msgid "Tuesday"
-msgstr "O"
+msgstr "Otrdiena"
 
 #: libraries/config.values.php:193 templates/javascript/variables.twig:51
 msgid "Wednesday"
@@ -13614,20 +13601,16 @@ msgid "Thursday"
 msgstr "Ceturtdiena"
 
 #: libraries/config.values.php:195 templates/javascript/variables.twig:53
-#, fuzzy
-#| msgid "Fri"
 msgid "Friday"
-msgstr "Pk"
+msgstr "Piektdiena"
 
 #: libraries/config.values.php:196 templates/javascript/variables.twig:54
 msgid "Saturday"
 msgstr "Sestdiena"
 
 #: libraries/config.values.php:197 templates/javascript/variables.twig:48
-#, fuzzy
-#| msgid "Sun"
 msgid "Sunday"
-msgstr "Sv"
+msgstr "Svētdiena"
 
 #: libraries/config.values.php:200
 msgid "Ask before sending error reports"
@@ -16039,9 +16022,8 @@ msgstr "Indekss %s dzēsts."
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
 #: templates/javascript/variables.twig:8
-#, fuzzy
 msgid "calendar-month-year"
-msgstr "calendar-month-year"
+msgstr "calendar-year-month"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: templates/javascript/variables.twig:11
@@ -16119,58 +16101,41 @@ msgstr "Decembris"
 
 #. l10n: Short week day name for Sunday
 #: templates/javascript/variables.twig:57
-#, fuzzy
-#| msgctxt "Short week day name"
-#| msgid "Sun"
 msgid "Sun"
-msgstr "Sv"
+msgstr "Svētd."
 
 #. l10n: Minimal week day name for Sunday
 #: templates/javascript/variables.twig:66
-#, fuzzy
-#| msgid "Sun"
 msgid "Su"
 msgstr "Sv"
 
 #. l10n: Minimal week day name for Monday
 #: templates/javascript/variables.twig:67
-#, fuzzy
-#| msgid "Mon"
 msgid "Mo"
 msgstr "P"
 
 #. l10n: Minimal week day name for Tuesday
 #: templates/javascript/variables.twig:68
-#, fuzzy
-#| msgid "Tue"
 msgid "Tu"
 msgstr "O"
 
 #. l10n: Minimal week day name for Wednesday
 #: templates/javascript/variables.twig:69
-#, fuzzy
-#| msgid "Wed"
 msgid "We"
 msgstr "T"
 
 #. l10n: Minimal week day name for Thursday
 #: templates/javascript/variables.twig:70
-#, fuzzy
-#| msgid "Thu"
 msgid "Th"
 msgstr "C"
 
 #. l10n: Minimal week day name for Friday
 #: templates/javascript/variables.twig:71
-#, fuzzy
-#| msgid "Fri"
 msgid "Fr"
 msgstr "Pk"
 
 #. l10n: Minimal week day name for Saturday
 #: templates/javascript/variables.twig:72
-#, fuzzy
-#| msgid "Sat"
 msgid "Sa"
 msgstr "S"
 
