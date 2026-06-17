@@ -1026,7 +1026,8 @@ AJAX.registerOnload('server/status/monitor.js', function () {
     });
 
     $('#variableInput').autocomplete({
-        source: variableNames
+        source: variableNames,
+        appendTo: '#addChartModal',
     });
 
     /* Initializes the monitor, called only once */
