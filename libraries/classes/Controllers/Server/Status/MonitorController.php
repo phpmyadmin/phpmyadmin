@@ -13,6 +13,7 @@ use PhpMyAdmin\Url;
 
 use function is_numeric;
 use function microtime;
+use function sort;
 
 class MonitorController extends AbstractController
 {
@@ -67,6 +68,8 @@ class MonitorController extends AbstractController
 
             $javascriptVariableNames[] = $name;
         }
+
+        sort($javascriptVariableNames);
 
         $this->render('server/status/monitor/index', [
             'javascript_variable_names' => $javascriptVariableNames,
