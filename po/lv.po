@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-05-25 18:05+0000\n"
-"PO-Revision-Date: 2026-06-16 23:01+0000\n"
+"PO-Revision-Date: 2026-06-19 20:01+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "lv/>\n"
@@ -270,9 +270,9 @@ msgid ""
 "so MySQL might not be able to access all of your memory. You might want to "
 "consider installing the 64-bit version of MySQL."
 msgstr ""
-"Jūsu operatīvās atmiņas apjoms ir virs 3 GiB (pieņemot, ka Serveris atrodas "
-"uz localhost), tādēļ MySQL, iespējams, nevar piekļūt visam operatīvās "
-"atmiņas apjomam. Jūs varētu apsvērt iespēju instalēt 64-bit MySQL versiju."
+"Pieejamās atmiņas apjoms pārsniedz 3 GiB (pieņemot, ka serveris darbojas "
+"localhost), tādēļ MySQL, iespējams, nevar izmantot visu atmiņas apjomu. "
+"Varbūt jums vajadzētu apsvērt iespēju uzstādīt 64-bitu MySQL versiju."
 
 #: libraries/advisory_rules_generic.php:178
 #, php-format
@@ -306,8 +306,8 @@ msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
 msgstr ""
-"Pieprasījumu kešatmiņa ir iespējota un serveris saņem %d pieprasījumus "
-"sekundē. Šis noteikums nostrādā, ja būs vairāk kā 100 pieprasījumi sekundē."
+"Vaicājumu kešatmiņa ir iespējota, un serveris saņem %d vaicājumus sekundē. "
+"Šī kārtula nostrādās, ja būs vairāk kā 100 vaicājumi sekundē."
 
 #: libraries/advisory_rules_generic.php:204
 msgid "Percentage of sorts that cause temporary tables"
@@ -2006,9 +2006,8 @@ msgid "Choose how you want tabs to work."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:236
-#, fuzzy
 msgid "Customize text input fields."
-msgstr "Datubāzu eksporta opcijas"
+msgstr "Pielāgot teksta ievades laukus."
 
 #: libraries/classes/Config/Descriptions.php:237
 #, fuzzy
@@ -5370,7 +5369,7 @@ msgstr "Jūs taisaties LIKVIDĒT veselu datubāzi!"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:43
 msgid "Cannot rename database to the same name. Change the name and try again."
 msgstr ""
-"Nevar pārsaukt datubāzi uz to pašu nosaukumu. Nomainiet nosaukumu un "
+"Nevar pārdēvēt datubāzi uz to pašu nosaukumu. Mainiet tā nosaukumu un "
 "mēģiniet vēlreiz."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:45
@@ -8203,9 +8202,8 @@ msgstr "Trūkstošais parametrs:"
 
 #: libraries/classes/Controllers/Server/UserGroupsFormController.php:60
 #, fuzzy
-#| msgid "The server is not responding"
 msgid "User groups management is not enabled."
-msgstr "Serveris neatbild"
+msgstr "Lietotāju grupu pārvaldība nav iespējota."
 
 #: libraries/classes/Controllers/Server/Variables/SetVariableController.php:93
 msgid "Setting variable failed"
@@ -8780,10 +8778,8 @@ msgid "Delete bookmark"
 msgstr "Meklēt"
 
 #: libraries/classes/Database/Routines.php:118
-#, fuzzy
-#| msgid "Add new field"
 msgid "Add routine"
-msgstr "Pievienot jaunu lauku"
+msgstr "Pievienot apakšprogrammu"
 
 #: libraries/classes/Database/Routines.php:122
 msgid "Edit routine"
@@ -8795,6 +8791,8 @@ msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
 msgstr ""
+"Apakšprogramma ar %1$s nosaukumu netika atrasta %2$s datubāzē. Iespējams, "
+"jums nav nepieciešamo privilēģiju šīs apakšprogrammas rediģēšanai."
 
 #: libraries/classes/Database/Routines.php:206
 #: libraries/classes/Database/Routines.php:1005
@@ -8819,7 +8817,7 @@ msgstr "%1$s apakšprogramma izmainīta."
 
 #: libraries/classes/Database/Routines.php:838
 msgid "You must provide a name and a type for each routine parameter."
-msgstr ""
+msgstr "Katram apakšprogrammas parametram jāiestata nosaukums un tips."
 
 #: libraries/classes/Database/Routines.php:856
 #, php-format
@@ -8832,12 +8830,12 @@ msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
 msgstr ""
-"Jāievada ENUM, SET, VARCHAR un VARBINARY tipa apakšprogrammu parametru "
+"Jāiestata ENUM, SET, VARCHAR un VARBINARY tipa apakšprogrammu parametru "
 "garums/vērtības."
 
 #: libraries/classes/Database/Routines.php:925
 msgid "You must provide a valid return type for the routine."
-msgstr ""
+msgstr "Apakšprogrammai jāiestata derīgs atgriešanas (gala rezultāta) tips."
 
 #: libraries/classes/Database/Routines.php:1013
 msgid "You must provide a routine name!"
@@ -8845,18 +8843,18 @@ msgstr "Jāievada apakšprogrammas nosaukums!"
 
 #: libraries/classes/Database/Routines.php:1078
 msgid "You must provide a routine definition."
-msgstr ""
+msgstr "Jāiestata apakšprogrammas definīcija."
 
 #: libraries/classes/Database/Routines.php:1158
 #: libraries/classes/Database/Routines.php:1327
 #, php-format
 msgid "No routine with name %1$s found in database %2$s."
-msgstr "%2$s datubāzē neatrada nevienu apakšprogrammu ar %1$s nosaukumu."
+msgstr "Neatrada nevienu apakšprogrammu ar %1$s nosaukumu %2$s datubāzē."
 
 #: libraries/classes/Database/Routines.php:1197
 #, php-format
 msgid "Execution results of routine %s"
-msgstr ""
+msgstr "Izpildītās %s apakšprogrammas rezultāti"
 
 #: libraries/classes/Database/Routines.php:1245
 #, php-format
@@ -8869,7 +8867,7 @@ msgstr[2] ""
 #: libraries/classes/Database/Routines.php:1310
 #: libraries/classes/Database/Routines.php:1317
 msgid "Execute routine"
-msgstr ""
+msgstr "Izpildīt apakšprogrammu"
 
 #: libraries/classes/Database/Routines.php:1550
 msgid "Sorry, we failed to restore the dropped routine."
@@ -8878,7 +8876,7 @@ msgstr "Atvainojiet, mums neizdevās atjaunot izdzēsto apakšprogrammu."
 #: libraries/classes/Database/Routines.php:1580
 #, php-format
 msgid "Export of routine %s"
-msgstr ""
+msgstr "%s apakšprogrammas izguve"
 
 #: libraries/classes/Database/Routines.php:1602
 #, php-format
@@ -9075,9 +9073,8 @@ msgstr "Ierakstu rinda dzēsta."
 
 #: libraries/classes/Display/Results.php:3069
 #: templates/server/status/processes/list.twig:44
-#, fuzzy
 msgid "Kill"
-msgstr "Apturēt"
+msgstr "Pārtraukt"
 
 #: libraries/classes/Display/Results.php:3637
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
@@ -11553,18 +11550,6 @@ msgstr ""
 "satur faula nosaukumu. Ja izmantojat otro opciju, pirmo atstājiet tukšo."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:41
-#, fuzzy
-#| msgid ""
-#| "UX ONLY: Launches an external application and feeds it the field data  "
-#| "standard input. Returns the standard output of the application. The ault "
-#| "is Tidy, to pretty-print HTML code. For security reasons, you e to "
-#| "manually edit the file libraries/transformations/t_plain__external.inc."
-#| "php and list the tools you want to make ilable. The first option is then "
-#| "the number of the program you want to  and the second option is the "
-#| "parameters for the program. The third ion, if set to 1, will convert the "
-#| "output using htmlspecialchars() fault 1). The fourth option, if set to 1, "
-#| "will prevent wrapping and ure that the output appears all on one line "
-#| "(Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -11577,15 +11562,17 @@ msgid ""
 "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
 "ensure that the output appears all on one line (Default 1)."
 msgstr ""
-"Tikai LINUX: Palaiž ārējo aplikāciju un padod lauka datus tās "
-"standartievadā. Atgriež aplikācijas standartizvadi. Noklusējums ir Tidy, kas "
-"izskaistina HTML kodu. Drošības apsvērumu dēļ, nepieciešams manuāli rediģēt "
-"failu libraries/transformations/text_plain__external.inc.php un ielikt "
-"rīkus, kurus Jūs atļaujat palaist. Pirmā opcija ir programmas numurs, ko Jūs "
-"vēlaties lietot, otrā opcija ir parametri šai programmai. Trešā opcija, ja "
-"ir vienāda ar 1, konvertē izvadi, izmantojot htmlspecialchars() (noklusējums "
-"ir 1). Ceturtais parametrs, ja vienāds ar 1, liek NOWRAP parametru satura "
-"šūnai, tā kā izvade tiks attēlota bez pārformatēšanas. (noklusējums ir 1)"
+"TIKAI LINUX: Palaiž ārēju programmu un padod tai kolonnas datus caur "
+"standartievadi. Atgriež programmas standartizvadi. Noklusējuma programma — "
+"Tidy, kas smuki noformē HTML kodu. Drošības apsvērumu dēļ jums pašrocīgi "
+"jārediģē libraries/classes/Plugins/Transformations/Abs/"
+"ExternalTransformationsPlugin.php datne un jānorāda rīki, kurus vēlaties "
+"padarīt pieejamus. Pirmais parametrs ir programmas numurs, ko Jūs vēlaties "
+"lietot. Otram parametram vēsturisku iemeslu dēļ jābūt tukšam. Ja trešais "
+"parametrs iestatīts uz 1, tad izvade tiks konvertēta, izmantojot "
+"htmlspecialchars() funkciju (nokl. vērtība ir 1). Un, ja ceturtais parametrs "
+"iestatīts uz 1, tad novērš teksta aplaušanu un nodrošina, ka izvades dati "
+"parādās vienā rindā (nokl. vērtība ir 1)."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:121
 #, php-format
@@ -12210,16 +12197,14 @@ msgstr "Ļauj dzēst datus."
 #: libraries/classes/Server/Privileges.php:498
 #: templates/server/privileges/privileges_table.twig:454
 #: templates/server/privileges/privileges_table.twig:457
-#, fuzzy
 msgid "Allows creating stored routines."
-msgstr "Ļauj veidot jaunas tabulas."
+msgstr "Ļauj veidot saglabātas apakšprogrammas."
 
 #: libraries/classes/Server/Privileges.php:503
 #: templates/server/privileges/privileges_table.twig:467
 #: templates/server/privileges/privileges_table.twig:470
-#, fuzzy
 msgid "Allows altering and dropping stored routines."
-msgstr "Ļauj veidot un dzēst indeksus."
+msgstr "Ļauj mainīt un dzēst saglabātās apakšprogrammas."
 
 #: libraries/classes/Server/Privileges.php:508
 #: templates/server/privileges/privileges_table.twig:707
@@ -12231,7 +12216,7 @@ msgstr ""
 #: templates/server/privileges/privileges_table.twig:480
 #: templates/server/privileges/privileges_table.twig:483
 msgid "Allows executing stored routines."
-msgstr ""
+msgstr "Ļauj izpildīt saglabātās apakšprogrammas."
 
 #: libraries/classes/Server/Privileges.php:1083
 #, php-format
@@ -12280,10 +12265,8 @@ msgstr "Tabulu specifiskās privilēģijas"
 #: templates/server/privileges/edit_routine_privileges.twig:29
 #: templates/server/privileges/edit_routine_privileges.twig:46
 #: templates/server/privileges/edit_routine_privileges.twig:58
-#, fuzzy
-#| msgid "Add new field"
 msgid "Routine"
-msgstr "Pievienot jaunu lauku"
+msgstr "Apakšprogramma"
 
 #: libraries/classes/Server/Privileges.php:1832
 #: templates/server/privileges/edit_routine_privileges.twig:47
@@ -13583,10 +13566,8 @@ msgid "Referenced by %s."
 msgstr ""
 
 #: templates/columns_definitions/column_name.twig:12
-#, fuzzy
-#| msgid "Disable foreign key checks"
 msgid "Is a foreign key."
-msgstr "Nepārbaudīt ārējās atslēgas"
+msgstr "Šī ir ārējā atslēga."
 
 #: templates/columns_definitions/column_name.twig:39
 #, fuzzy
@@ -14565,10 +14546,8 @@ msgid "Export the structure of all tables."
 msgstr "Ļauj mainīt esošo tabulu struktūru."
 
 #: templates/database/export/index.twig:33
-#, fuzzy
-#| msgid "Create table on database %s"
 msgid "Export the data of all tables."
-msgstr "Izveidot jaunu tabulu datubāzē %s"
+msgstr "Izgūt datus no visām tabulām."
 
 #: templates/database/import/index.twig:3
 #, php-format
@@ -14798,10 +14777,8 @@ msgstr "aizstājējzīme"
 
 #: templates/database/privileges/index.twig:55
 #: templates/table/privileges/index.twig:59
-#, fuzzy
-#| msgid "Add new field"
 msgid "routine"
-msgstr "Pievienot jaunu lauku"
+msgstr "apakšprogramma"
 
 #: templates/database/privileges/index.twig:112
 #: templates/database/privileges/index.twig:115
@@ -14981,7 +14958,7 @@ msgstr ""
 #: templates/database/routines/execute_form.twig:7
 #: templates/database/routines/execute_form.twig:12
 msgid "Routine parameters"
-msgstr ""
+msgstr "Apakšprogrammas parametri"
 
 #: templates/database/routines/index.twig:36
 #, fuzzy
@@ -14990,7 +14967,7 @@ msgstr "Servera versija"
 
 #: templates/database/routines/index.twig:45
 msgid "There are no routines to display."
-msgstr ""
+msgstr "Nav apakšprogrammu, ko parādīt."
 
 #: templates/database/routines/index.twig:54
 #, fuzzy
@@ -15266,12 +15243,12 @@ msgid "in use"
 msgstr "lietošanā"
 
 #: templates/database/structure/table_header.twig:27
-#, fuzzy
-#| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgid ""
 "May be approximate. Click on the number to get the exact count. See "
 "[doc@faq3-11]FAQ 3.11[/doc]."
-msgstr "Var būt aptuvens skaits. Skatīt [doc@faq3-11]FAQ 3.11[/doc]"
+msgstr ""
+"Tās var būt aptuvenas vērtības. Noklikšķiniet uz skaitļa, lai iegūtu precīzu "
+"skaitu. Skatiet [doc@faq3-11]BUJ 3.11[/doc]."
 
 #: templates/database/structure/table_header.twig:36
 #: templates/table/index_form.twig:144
@@ -16708,10 +16685,8 @@ msgid "You have enabled two factor authentication."
 msgstr ""
 
 #: templates/recent_favorite_table_no_tables.twig:3
-#, fuzzy
-#| msgid "The server is not responding"
 msgid "There are no recent tables."
-msgstr "Serveris neatbild"
+msgstr "Nav nevienas nesenas tabulas."
 
 #: templates/recent_favorite_table_no_tables.twig:5
 #, fuzzy
@@ -17004,10 +16979,8 @@ msgid "Create database"
 msgstr "Izveidot jaunu datubāzi"
 
 #: templates/server/databases/index.twig:50
-#, fuzzy
-#| msgid "Check privileges for database \"%s\"."
 msgid "No privileges to create databases"
-msgstr "Pārbaudīt privilēģijas uz datubāzi \"%s\"."
+msgstr "Nav privilēģiju izveidot datubāzes"
 
 #: templates/server/databases/index.twig:156
 #: templates/server/replication/index.twig:18
@@ -17074,10 +17047,8 @@ msgid "@SERVER@ will become the server name."
 msgstr ""
 
 #: templates/server/export/index.twig:3
-#, fuzzy
-#| msgid "Allows locking tables for the current thread."
 msgid "Exporting databases from the current server"
-msgstr "Ļauj bloķēt tabulas tekošajai darbībai."
+msgstr "Izgūst datubāzes no pašreizējā servera"
 
 #: templates/server/import/index.twig:3
 msgid "Importing into the current server"
@@ -17196,10 +17167,8 @@ msgstr ""
 #: templates/server/privileges/edit_routine_privileges.twig:51
 #: templates/server/privileges/privileges_table.twig:10
 #: templates/server/privileges/privileges_table.twig:272
-#, fuzzy
-#| msgid "Note: MySQL privilege names are expressed in English"
 msgid "Note: MySQL privilege names are expressed in English."
-msgstr "Piezīme: MySQL privilēģiju apzīmējumi tiek rakstīti angļu valodā"
+msgstr "Piezīme: MySQL privilēģiju nosaukumi ir angļu valodā."
 
 #: templates/server/privileges/edit_routine_privileges.twig:63
 #: templates/server/privileges/edit_routine_privileges.twig:67
@@ -17836,10 +17805,8 @@ msgid "Used variable / formula:"
 msgstr ""
 
 #: templates/server/status/advisor/index.twig:88
-#, fuzzy
-#| msgid "Test"
 msgid "Test:"
-msgstr "Tests"
+msgstr "Tests:"
 
 #: templates/server/status/base.twig:16
 msgid "Query statistics"
@@ -19292,10 +19259,8 @@ msgid "(current)"
 msgstr ""
 
 #: templates/transformation_overview.twig:1
-#, fuzzy
-#| msgid "Available MIME types"
 msgid "Available media types"
-msgstr "Pieejamie MIME tipi"
+msgstr "Pieejamie multimediju tipi"
 
 #: templates/transformation_overview.twig:13
 #, fuzzy
