@@ -1025,8 +1025,24 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         return false;
     });
 
+    if (!$.ui.autocomplete.resizeReplaced) {
+        $.ui.autocomplete.resizeReplaced = true;
+        // eslint-disable-next-line no-underscore-dangle
+        const originalResizeMenu = $.ui.autocomplete.prototype._resizeMenu;
+        // Make sure the autocomplete menu does not overflow the browser window
+        // eslint-disable-next-line no-underscore-dangle
+        $.ui.autocomplete.prototype._resizeMenu = function () {
+            const containerRect = this.menu.element[0].parentNode.getBoundingClientRect();
+            const inputRect = this.element[0].getBoundingClientRect();
+            const maxMenuSize = Math.max(100, containerRect.height - inputRect.bottom - 5);
+            this.menu.element[0].style.maxHeight = maxMenuSize + 'px';
+
+            return originalResizeMenu.apply(this, arguments);
+        };
+    }
     $('#variableInput').autocomplete({
-        source: variableNames
+        source: variableNames,
+        appendTo: '#addChartModal',
     });
 
     /* Initializes the monitor, called only once */
