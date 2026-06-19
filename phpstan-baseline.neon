@@ -502,18 +502,6 @@ parameters:
 			path: src/Config/FormDisplay.php
 
 		-
-			message: '#^Call to function function_exists\(\) with ''bzcompress''\|''gzcompress''\|''gzencode'' will always evaluate to true\.$#'
-			identifier: function.alreadyNarrowedType
-			count: 1
-			path: src/Config/FormDisplay.php
-
-		-
-			message: '#^Call to function function_exists\(\) with ''bzopen''\|''gzopen''\|''zip_open'' will always evaluate to true\.$#'
-			identifier: function.alreadyNarrowedType
-			count: 1
-			path: src/Config/FormDisplay.php
-
-		-
 			message: '#^Cannot access an offset on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 3
@@ -3481,6 +3469,12 @@ parameters:
 			path: src/Controllers/Table/Structure/SaveController.php
 
 		-
+			message: '#^Strict comparison using \!\=\= between non\-empty\-list\<non\-falsy\-string\> and array\{\} will always evaluate to true\.$#'
+			identifier: notIdentical.alwaysTrue
+			count: 1
+			path: src/Controllers/Table/Structure/SaveController.php
+
+		-
 			message: '#^Binary operation "\+" between int\|non\-falsy\-string and int\|non\-falsy\-string results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 4
@@ -4510,6 +4504,12 @@ parameters:
 			path: src/Database/Routines.php
 
 		-
+			message: '#^Cannot assign new offset to list\<string\>\|string\|null\.$#'
+			identifier: offsetAssign.dimType
+			count: 1
+			path: src/Database/Routines.php
+
+		-
 			message: '#^Cannot assign new offset to list\<string\|null\>\|string\.$#'
 			identifier: offsetAssign.dimType
 			count: 1
@@ -5380,12 +5380,6 @@ parameters:
 			path: src/Encoding.php
 
 		-
-			message: '#^Call to function function_exists\(\) with ''iconv''\|''mb_convert_encoding'' will always evaluate to true\.$#'
-			identifier: function.alreadyNarrowedType
-			count: 1
-			path: src/Encoding.php
-
-		-
 			message: '#^Foreach overwrites \$engine with its value variable\.$#'
 			identifier: foreach.valueOverwrite
 			count: 1
@@ -6193,15 +6187,15 @@ parameters:
 			path: src/Gis/GisMultiLineString.php
 
 		-
-			message: '#^Cannot access offset int\<0, max\> on mixed\.$#'
+			message: '#^Cannot access offset int\<0, max\> on array\<''data_length''\|int\<0, max\>, array\{x\: float, y\: float\}\|int\<0, max\>\>\|int\<1, max\>\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 4
+			count: 1
 			path: src/Gis/GisMultiLineString.php
 
 		-
-			message: '#^Cannot access offset int\<0, max\> on non\-empty\-array\<''data_length''\|int\<0, max\>, array\{x\: float, y\: float\}\|int\<0, max\>\>\|int\<1, max\>\.$#'
+			message: '#^Cannot access offset int\<0, max\> on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
+			count: 4
 			path: src/Gis/GisMultiLineString.php
 
 		-
@@ -6369,13 +6363,7 @@ parameters:
 		-
 			message: '#^Cannot access offset int\<0, max\> on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 6
-			path: src/Gis/GisMultiPolygon.php
-
-		-
-			message: '#^Cannot access offset int\<0, max\> on non\-empty\-array\<''data_length''\|int\<0, max\>, array\{x\: float, y\: float\}\|int\<0, max\>\>\|int\<1, max\>\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
+			count: 8
 			path: src/Gis/GisMultiPolygon.php
 
 		-
@@ -6499,15 +6487,15 @@ parameters:
 			path: src/Gis/GisPolygon.php
 
 		-
-			message: '#^Cannot access offset int\<0, max\> on mixed\.$#'
+			message: '#^Cannot access offset int\<0, max\> on array\<''data_length''\|int\<0, max\>, array\{x\: float, y\: float\}\|int\<0, max\>\>\|int\<1, max\>\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 3
+			count: 1
 			path: src/Gis/GisPolygon.php
 
 		-
-			message: '#^Cannot access offset int\<0, max\> on non\-empty\-array\<''data_length''\|int\<0, max\>, array\{x\: float, y\: float\}\|int\<0, max\>\>\|int\<1, max\>\.$#'
+			message: '#^Cannot access offset int\<0, max\> on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
+			count: 3
 			path: src/Gis/GisPolygon.php
 
 		-
@@ -6579,6 +6567,12 @@ parameters:
 		-
 			message: '#^Parameter \#2 \$height of static method PhpMyAdmin\\Image\\ImageWrapper\:\:create\(\) expects int\<1, max\>, int given\.$#'
 			identifier: argument.type
+			count: 1
+			path: src/Gis/GisVisualization.php
+
+		-
+			message: '#^Strict comparison using \=\=\= between \(T of ''ol''\)\|T of ''ol'' and ''ol'' will always evaluate to false\.$#'
+			identifier: identical.alwaysFalse
 			count: 1
 			path: src/Gis/GisVisualization.php
 
@@ -6679,19 +6673,19 @@ parameters:
 			path: src/Git.php
 
 		-
-			message: '#^Offset 1 might not exist on array\{\}\|array\{0\: non\-falsy\-string, 1\: non\-empty\-string, 2\: non\-empty\-string, 3\: numeric\-string, 4\?\: non\-falsy\-string\}\.$#'
+			message: '#^Offset 1 might not exist on array\{\}\|array\{0\: non\-falsy\-string, 1\: non\-empty\-string, 2\: non\-empty\-string, 3\: decimal\-int\-string, 4\?\: non\-falsy\-string\}\.$#'
 			identifier: offsetAccess.notFound
 			count: 1
 			path: src/Git.php
 
 		-
-			message: '#^Offset 2 might not exist on array\{\}\|array\{0\: non\-falsy\-string, 1\: non\-empty\-string, 2\: non\-empty\-string, 3\: numeric\-string, 4\?\: non\-falsy\-string\}\.$#'
+			message: '#^Offset 2 might not exist on array\{\}\|array\{0\: non\-falsy\-string, 1\: non\-empty\-string, 2\: non\-empty\-string, 3\: decimal\-int\-string, 4\?\: non\-falsy\-string\}\.$#'
 			identifier: offsetAccess.notFound
 			count: 1
 			path: src/Git.php
 
 		-
-			message: '#^Offset 3 might not exist on array\{\}\|array\{0\: non\-falsy\-string, 1\: non\-empty\-string, 2\: non\-empty\-string, 3\: numeric\-string, 4\?\: non\-falsy\-string\}\.$#'
+			message: '#^Offset 3 might not exist on array\{\}\|array\{0\: non\-falsy\-string, 1\: non\-empty\-string, 2\: non\-empty\-string, 3\: decimal\-int\-string, 4\?\: non\-falsy\-string\}\.$#'
 			identifier: offsetAccess.notFound
 			count: 1
 			path: src/Git.php
@@ -7288,7 +7282,7 @@ parameters:
 			path: src/InsertEdit.php
 
 		-
-			message: '#^Offset 2 might not exist on array\{\}\|array\{0\: non\-falsy\-string, 1\: string, 2\: string, 3\?\: numeric\-string\}\.$#'
+			message: '#^Offset 2 might not exist on array\{\}\|array\{0\: non\-falsy\-string, 1\: string, 2\: string, 3\?\: decimal\-int\-string\}\.$#'
 			identifier: offsetAccess.notFound
 			count: 1
 			path: src/InsertEdit.php
@@ -13156,7 +13150,7 @@ parameters:
 			path: src/Utils/HttpRequest.php
 
 		-
-			message: '#^Offset 1 might not exist on array\{\}\|array\{non\-falsy\-string, numeric\-string\}\.$#'
+			message: '#^Offset 1 might not exist on array\{\}\|array\{non\-falsy\-string, decimal\-int\-string\}\.$#'
 			identifier: offsetAccess.notFound
 			count: 1
 			path: src/Utils/HttpRequest.php
@@ -13864,7 +13858,7 @@ parameters:
 			path: tests/unit/Config/FormDisplayTest.php
 
 		-
-			message: '#^Offset 1 might not exist on array\{\}\|array\{non\-falsy\-string, numeric\-string\}\.$#'
+			message: '#^Offset 1 might not exist on array\{\}\|array\{non\-falsy\-string, decimal\-int\-string\}\.$#'
 			identifier: offsetAccess.notFound
 			count: 1
 			path: tests/unit/Config/FormTest.php
