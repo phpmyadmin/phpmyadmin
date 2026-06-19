@@ -16,6 +16,7 @@ use PhpMyAdmin\Template;
 
 use function is_numeric;
 use function microtime;
+use function sort;
 
 #[Route('/server/status/monitor', ['GET'])]
 final class MonitorController extends AbstractController implements InvocableController
@@ -58,6 +59,8 @@ final class MonitorController extends AbstractController implements InvocableCon
 
             $javascriptVariableNames[] = $name;
         }
+
+        sort($javascriptVariableNames);
 
         $this->response->render('server/status/monitor/index', [
             'javascript_variable_names' => $javascriptVariableNames,

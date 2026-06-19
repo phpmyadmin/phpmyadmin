@@ -1471,6 +1471,13 @@ input#auto_increment_opt {
   }
 }
 
+.ui-autocomplete {
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
 // css for timepicker
 .ui-timepicker-div {
   .ui-widget-header {
