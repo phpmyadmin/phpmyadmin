@@ -313,7 +313,8 @@ export default function onloadNavigation () {
                 typeof storage.navTreePaths === 'undefined'
             ) {
                 Navigation.reload();
-            } else if (CommonParams.get('server') === storage.server &&
+            // sessionStorage only stores strings, so cast the current page's server id to a string as well
+            } else if (String(CommonParams.get('server')) === storage.server &&
                 CommonParams.get('token') === storage.token
             ) {
                 // Reload the tree to the state before page refresh
