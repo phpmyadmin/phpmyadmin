@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-06-14 01:08+0000\n"
+"POT-Creation-Date: 2026-06-21 01:09+0000\n"
 "PO-Revision-Date: 2026-06-19 20:01+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -8024,9 +8024,9 @@ msgstr "Neoptimāla kešatmiņas metode."
 #: src/Advisory/Rules.php:217
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"https://dev.mysql.com/doc/refman/"
-"5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query cache, "
-"especially if you have multiple replicas."
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
+"refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
+"cache, especially if you have multiple replicas."
 msgstr ""
 
 #: src/Advisory/Rules.php:223
@@ -8612,8 +8612,8 @@ msgid ""
 "note however that you cannot simply change the value of this variable. You "
 "need to shutdown the server, remove the InnoDB log files, set the new value "
 "in my.cnf, start the server, then check the error logs if everything went "
-"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot.com/"
-"2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
+"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 
 #: src/Advisory/Rules.php:662 src/Advisory/Rules.php:692
@@ -9909,9 +9909,9 @@ msgstr ""
 
 #: src/Config/Descriptions.php:355
 msgid ""
-"More information on [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
-"8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
-"Bugs[/a]"
+"More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
+"issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
+"com/19588]MySQL Bugs[/a]"
 msgstr ""
 
 #: src/Config/Descriptions.php:359
@@ -12387,11 +12387,10 @@ msgstr ""
 
 #: src/Controllers/HomeController.php:267
 msgid ""
-"Your PHP parameter [a@https://www.php.net/manual/en/"
-"session.configuration.php#ini.session.gc-"
-"maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie validity "
-"configured in phpMyAdmin, because of this, your login might expire sooner "
-"than configured in phpMyAdmin."
+"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
+"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
+"than cookie validity configured in phpMyAdmin, because of this, your login "
+"might expire sooner than configured in phpMyAdmin."
 msgstr ""
 
 #: src/Controllers/HomeController.php:287
@@ -17477,9 +17476,9 @@ msgstr ""
 "datne un jānorāda rīki, kurus vēlaties padarīt pieejamus. Pirmais parametrs "
 "ir programmas numurs, ko Jūs vēlaties lietot. Otram parametram vēsturisku "
 "iemeslu dēļ jābūt tukšam. Ja trešais parametrs iestatīts uz 1, tad izvade "
-"tiks konvertēta, izmantojot htmlspecialchars() funkciju (nokl. vērtība ir 1)"
-". Un, ja ceturtais parametrs iestatīts uz 1, tad novērš teksta aplaušanu un "
-"nodrošina, ka izvades dati parādās vienā rindā (nokl. vērtība ir 1)."
+"tiks konvertēta, izmantojot htmlspecialchars() funkciju (nokl. vērtība ir "
+"1). Un, ja ceturtais parametrs iestatīts uz 1, tad novērš teksta aplaušanu "
+"un nodrošina, ka izvades dati parādās vienā rindā (nokl. vērtība ir 1)."
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:117
 #, php-format
