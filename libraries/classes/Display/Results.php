@@ -1974,11 +1974,13 @@ class Results
         $rightColumnHtml = '';
         $displayParams = $this->properties['display_params'];
 
+        $rightOrBoth = $GLOBALS['cfg']['RowActionLinks'] === self::POSITION_RIGHT
+            || $GLOBALS['cfg']['RowActionLinks'] === self::POSITION_BOTH;
+
         // Displays the needed checkboxes at the right
         // column of the result table header if possible and required...
         if (
-            ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_RIGHT)
-            || ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_BOTH)
+            $rightOrBoth
             && (($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
             || ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE))
             && ($displayParts['text_btn'] == '1')
@@ -1991,20 +1993,17 @@ class Results
                 . $fullOrPartialTextLink
                 . '</th>';
         } elseif (
-            ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_LEFT)
-            || ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_BOTH)
-            && (($displayParts['edit_lnk'] === self::NO_EDIT_OR_DELETE)
-            && ($displayParts['del_lnk'] === self::NO_EDIT_OR_DELETE))
-            && (! isset($GLOBALS['is_header_sent']) || ! $GLOBALS['is_header_sent'])
+            $rightOrBoth
+            && (($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
+            || ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE))
         ) {
             //     ... elseif no button, displays empty columns if required
-            // (unless coming from Browse mode print view)
 
             $displayParams['emptyafter'] = ($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
                 && ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE) ? 4 : 1;
 
-            $rightColumnHtml .= "\n" . '<td class="d-print-none"' . $colspan
-                . '></td>';
+            $rightColumnHtml .= "\n" . '<th class="d-print-none"' . $colspan
+                . '></th>';
         }
 
         $this->properties['display_params'] = $displayParams;

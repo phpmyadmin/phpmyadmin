@@ -1580,7 +1580,7 @@ class ResultsTest extends AbstractTestCase
                 'has_bulk_actions_form' => false,
                 'button' => '<thead><tr>' . "\n",
                 'table_headers_for_columns' => $tableHeadersForColumns,
-                'column_at_right_side' => "\n" . '<td class="d-print-none"></td>',
+                'column_at_right_side' => '',
             ],
             'body' => '<tr><td data-decimals="0" data-type="real" class="'
                 . 'text-end data not_null text-nowrap">1</td>' . "\n"
@@ -1632,6 +1632,50 @@ class ResultsTest extends AbstractTestCase
         ]);
 
         self::assertSame($tableTemplate, $actual);
+    }
+
+    /**
+     * The right-side column header must only be emitted when row actions are
+     * positioned on the right (or both), and never as a <td> inside <thead>.
+     * Regression test for an extra header cell added on left/none layouts.
+     *
+     * @see https://github.com/phpmyadmin/phpmyadmin/issues/17869
+     */
+    public function testGetColumnAtRightSideMatchesRowActionPosition(): void
+    {
+        $displayParts = [
+            'edit_lnk' => DisplayResults::UPDATE_ROW,
+            'del_lnk' => DisplayResults::DELETE_ROW,
+            'sort_lnk' => '1',
+            'nav_bar' => '1',
+            'bkm_form' => '1',
+            'text_btn' => '0',
+            'pview_lnk' => '1',
+        ];
+
+        $getColumnAtRightSide = function (string $position) use ($displayParts) {
+            /** @var array<string, mixed> $cfg */
+            $cfg = $GLOBALS['cfg'];
+            $cfg['RowActionLinks'] = $position;
+            $GLOBALS['cfg'] = $cfg;
+
+            return $this->callFunction(
+                $this->object,
+                DisplayResults::class,
+                'getColumnAtRightSide',
+                [$displayParts, '', '']
+            );
+        };
+
+        // No right-side header cell when actions are on the left or disabled.
+        self::assertSame('', $getColumnAtRightSide('left'));
+        self::assertSame('', $getColumnAtRightSide('none'));
+
+        // Right/both layouts emit the placeholder as a <th> (never a <td>) so
+        // the <thead> stays valid and aligned with the body rows.
+        $placeholder = "\n" . '<th class="d-print-none"></th>';
+        self::assertSame($placeholder, $getColumnAtRightSide('right'));
+        self::assertSame($placeholder, $getColumnAtRightSide('both'));
     }
 
     /**
