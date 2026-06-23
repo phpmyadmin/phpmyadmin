@@ -1981,8 +1981,6 @@ class Results
         // column of the result table header if possible and required...
         if (
             $rightOrBoth
-            && (($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
-            || ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE))
             && ($displayParts['text_btn'] == '1')
         ) {
             $displayParams['emptyafter'] = ($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
@@ -2380,11 +2378,12 @@ class Results
             );
 
             // 3. Displays the modify/delete links on the right if required
+            $rightActionColumn = $GLOBALS['cfg']['RowActionLinks'] === self::POSITION_RIGHT
+                || $GLOBALS['cfg']['RowActionLinks'] === self::POSITION_BOTH;
             if (
                 ($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE
                     || $displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE)
-                && ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_RIGHT
-                    || $GLOBALS['cfg']['RowActionLinks'] === self::POSITION_BOTH)
+                && $rightActionColumn
             ) {
                 $tableBodyHtml .= $this->template->render('display/results/checkbox_and_links', [
                     'position' => self::POSITION_RIGHT,
@@ -2407,6 +2406,11 @@ class Results
                     'is_ajax' => ResponseRenderer::getInstance()->isAjax(),
                     'js_conf' => $jsConf ?? '',
                 ]);
+            } elseif ($rightActionColumn && $displayParts['text_btn'] == '1') {
+                // No edit/delete links, but the full/partial-text toggle occupies
+                // the right action-column header (see getColumnAtRightSide()); emit
+                // an empty cell so each body row stays aligned with that header.
+                $tableBodyHtml .= '<td class="d-print-none"></td>';
             }
 
             $tableBodyHtml .= '</tr>';

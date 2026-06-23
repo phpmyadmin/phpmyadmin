@@ -1653,29 +1653,73 @@ class ResultsTest extends AbstractTestCase
             'pview_lnk' => '1',
         ];
 
-        $getColumnAtRightSide = function (string $position) use ($displayParts) {
+        $assertColumnAtRightSide = function (string $position, string $expected) use ($displayParts): void {
             /** @var array<string, mixed> $cfg */
             $cfg = $GLOBALS['cfg'];
             $cfg['RowActionLinks'] = $position;
             $GLOBALS['cfg'] = $cfg;
 
-            return $this->callFunction(
+            self::assertSame($expected, $this->callFunction(
                 $this->object,
                 DisplayResults::class,
                 'getColumnAtRightSide',
                 [$displayParts, '', '']
-            );
+            ));
         };
 
         // No right-side header cell when actions are on the left or disabled.
-        self::assertSame('', $getColumnAtRightSide('left'));
-        self::assertSame('', $getColumnAtRightSide('none'));
+        $assertColumnAtRightSide('left', '');
+        $assertColumnAtRightSide('none', '');
 
         // Right/both layouts emit the placeholder as a <th> (never a <td>) so
         // the <thead> stays valid and aligned with the body rows.
         $placeholder = "\n" . '<th class="d-print-none"></th>';
-        self::assertSame($placeholder, $getColumnAtRightSide('right'));
-        self::assertSame($placeholder, $getColumnAtRightSide('both'));
+        $assertColumnAtRightSide('right', $placeholder);
+        $assertColumnAtRightSide('both', $placeholder);
+    }
+
+    /**
+     * With no edit/delete links but an active full/partial-text toggle
+     * (text_btn = '1') the toggle must still render in the right-side header for
+     * right/both layouts - the left side emits no button for this case. Reachable
+     * for multi-table JOINs with TEXT columns, SHOW statements and keyless tables.
+     *
+     * @see https://github.com/phpmyadmin/phpmyadmin/issues/17869
+     */
+    public function testGetColumnAtRightSideShowsTextButtonWithoutEditDeleteLinks(): void
+    {
+        $displayParts = [
+            'edit_lnk' => DisplayResults::NO_EDIT_OR_DELETE,
+            'del_lnk' => DisplayResults::NO_EDIT_OR_DELETE,
+            'sort_lnk' => '1',
+            'nav_bar' => '1',
+            'bkm_form' => '1',
+            'text_btn' => '1',
+            'pview_lnk' => '1',
+        ];
+
+        $assertColumnAtRightSide = function (string $position, string $expected) use ($displayParts): void {
+            /** @var array<string, mixed> $cfg */
+            $cfg = $GLOBALS['cfg'];
+            $cfg['RowActionLinks'] = $position;
+            $GLOBALS['cfg'] = $cfg;
+
+            self::assertSame($expected, $this->callFunction(
+                $this->object,
+                DisplayResults::class,
+                'getColumnAtRightSide',
+                [$displayParts, 'FULL_OR_PARTIAL_TEXT_LINK', '']
+            ));
+        };
+
+        // The toggle must appear on the right for right/both even without links.
+        $button = "\n" . '<th class="column_action d-print-none">FULL_OR_PARTIAL_TEXT_LINK</th>';
+        $assertColumnAtRightSide('right', $button);
+        $assertColumnAtRightSide('both', $button);
+
+        // Left/none never emit a right-side cell.
+        $assertColumnAtRightSide('left', '');
+        $assertColumnAtRightSide('none', '');
     }
 
     /**
