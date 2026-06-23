@@ -4,8 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-06-21 01:09+0000\n"
-"PO-Revision-Date: 2025-03-20 18:17+0000\n"
-"Last-Translator: 吴绮 <rs2.free@qq.com>\n"
+"PO-Revision-Date: 2026-06-24 15:01+0000\n"
+"Last-Translator: reducedradius "
+"<flytothehighest@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/phpmyadmin/master/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -13,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.11-dev\n"
+"X-Generator: Weblate 2026.7.dev0\n"
 
 #: resources/templates/base.twig:40 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -11690,7 +11691,7 @@ msgstr "没有已选择的数据库。"
 
 #: src/Controllers/Database/EventsController.php:69
 msgid "The event was dropped immediately after creation."
-msgstr ""
+msgstr "本事件在创建后立刻被删除。"
 
 #: src/Controllers/Database/EventsController.php:136
 msgid "Add event"
@@ -12071,7 +12072,7 @@ msgstr "格式参数不正确"
 
 #: src/Controllers/Import/ImportController.php:253
 msgid "Sorry an unexpected error happened!"
-msgstr ""
+msgstr "很抱歉一个未预料的错误发生了！"
 
 #: src/Controllers/Import/ImportController.php:300
 #: src/Controllers/Import/ImportController.php:511
@@ -13567,7 +13568,7 @@ msgstr "隐藏"
 msgid ""
 "The fullscreen request was denied because the Fullscreen API is disabled by "
 "user preference in the browser."
-msgstr ""
+msgstr "由于全屏API在浏览器中被用户偏好设置禁用，全屏请求被拒绝。"
 
 #: src/Controllers/JavaScriptMessagesController.php:701
 msgctxt "Month name"
@@ -17930,18 +17931,15 @@ msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr "日期与时间，支持的范围从 %1$s 到 %2$s"
 
 #: src/Types.php:209
-#, fuzzy
-#| msgid ""
-#| "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
-#| "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-19 03:14:07 UTC on "
 "32-bit platforms (MariaDB 11.3 and earlier), and up to 2106-02-07 06:28:15 "
 "UTC on 64-bit platforms (MariaDB 11.5 and later), stored as the number of "
 "seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
-"时间戳，范围从 1970-01-01 00:00:01 UTC 到 2038-01-09 03:14:07 UTC，存储为自纪"
-"元（1970-01-01 00:00:00 UTC）起的秒数"
+"时间戳，范围从 1970-01-01 00:00:01 UTC 到 2038-01-19 03:14:07 UTC（在32位平台"
+"），64位平台（MariaDB 11.3及以后的版本）为2106-02-07 06：28：15 UTC，存储为自"
+"纪元（1970-01-01 00:00:00 UTC）起的秒数"
 
 #: src/Types.php:215
 #, php-format
@@ -18112,7 +18110,7 @@ msgstr ""
 
 #: src/Types.php:296
 msgid "Intended for storage of XML data"
-msgstr ""
+msgstr "旨在存储XML数据"
 
 #: src/Types.php:607
 msgctxt "numeric types"
