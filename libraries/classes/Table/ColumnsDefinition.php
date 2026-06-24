@@ -527,6 +527,16 @@ final class ColumnsDefinition
                 $metaDefault['DefaultType'] = 'UUID';
 
                 break;
+            case 'UUID_v4':
+            case 'uuid_v4()':
+                $metaDefault['DefaultType'] = 'UUID_v4';
+
+                break;
+            case 'UUID_v7':
+            case 'uuid_v7()':
+                $metaDefault['DefaultType'] = 'UUID_v7';
+
+                break;
             default:
                 $metaDefault['DefaultValue'] = $columnMeta['Default'];
 

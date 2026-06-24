@@ -389,6 +389,8 @@ class TypesTest extends AbstractTestCase
                     'UPPER',
                     'USER',
                     'UUID',
+                    'UUID_v4',
+                    'UUID_v7',
                     'VERSION',
                 ],
             ],
@@ -538,6 +540,8 @@ class TypesTest extends AbstractTestCase
             'UPPER',
             'USER',
             'UUID',
+            'UUID_v4',
+            'UUID_v7',
             'VERSION',
         ], $this->object->getFunctions('enum'));
     }
@@ -659,6 +663,8 @@ class TypesTest extends AbstractTestCase
             'UTC_TIMESTAMP',
             'UUID',
             'UUID_SHORT',
+            'UUID_v4',
+            'UUID_v7',
             'VERSION',
             'WEEK',
             'WEEKDAY',

@@ -2588,6 +2588,46 @@ class InsertEditTest extends AbstractTestCase
         );
 
         self::assertSame('uuid()', $result);
+
+        // case 12
+        $result = $this->insertEdit->getCurrentValueForDifferentTypes(
+            false,
+            '0',
+            ['uuid'],
+            'uuid_v4()',
+            [],
+            0,
+            ['a'],
+            [],
+            [1],
+            true,
+            true,
+            '',
+            'test_table',
+            []
+        );
+
+        self::assertSame('uuid_v4()', $result);
+
+        // case 13
+        $result = $this->insertEdit->getCurrentValueForDifferentTypes(
+            false,
+            '0',
+            ['uuid'],
+            'uuid_v7()',
+            [],
+            0,
+            ['a'],
+            [],
+            [1],
+            true,
+            true,
+            '',
+            'test_table',
+            []
+        );
+
+        self::assertSame('uuid_v7()', $result);
     }
 
     /**

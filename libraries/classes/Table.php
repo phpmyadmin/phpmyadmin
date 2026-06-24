@@ -621,6 +621,8 @@ class Table implements Stringable
                             }
                         } elseif ($type === 'BINARY' || $type === 'VARBINARY') {
                             $query .= ' DEFAULT 0x' . $defaultValue;
+                        } elseif ($defaultValue === 'uuid_v4()' || $defaultValue === 'uuid_v7()') {
+                            $query .= ' DEFAULT ' . $defaultValue;
                         } elseif ($defaultValue === 'unix_timestamp()' || $defaultValue === 'UNIX_TIMESTAMP()') {
                             $query .= ' DEFAULT ' . $defaultValue;
                         } elseif (
@@ -658,6 +660,16 @@ class Table implements Stringable
                     case 'UUID':
                     case 'uuid()':
                         $query .= ' DEFAULT uuid()';
+
+                        break;
+                    case 'UUID_v4':
+                    case 'uuid_v4()':
+                        $query .= ' DEFAULT uuid_v4()';
+
+                        break;
+                    case 'UUID_v7':
+                    case 'uuid_v7()':
+                        $query .= ' DEFAULT uuid_v7()';
 
                         break;
                     case 'NONE':

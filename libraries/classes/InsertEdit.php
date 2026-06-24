@@ -1843,6 +1843,22 @@ class InsertEdit
             $currentValue = 'uuid()';
         }
 
+        if (
+            $type === 'uuid'
+                && ! isset($multiEditColumnsNull[$key])
+                && $currentValue === "'uuid_v4()'"
+        ) {
+            $currentValue = 'uuid_v4()';
+        }
+
+        if (
+            $type === 'uuid'
+                && ! isset($multiEditColumnsNull[$key])
+                && $currentValue === "'uuid_v7()'"
+        ) {
+            $currentValue = 'uuid_v7()';
+        }
+
         return $currentValue;
     }
 
