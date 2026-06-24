@@ -2638,7 +2638,7 @@ class UtilTest extends AbstractTestCase
 
         $oldDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
-        self::assertSame(Util::isUUIDv4Supported(), $expected);
+        self::assertSame(Util::isUUIDv7Supported(), $expected);
         $GLOBALS['dbi'] = $oldDbi;
     }
 

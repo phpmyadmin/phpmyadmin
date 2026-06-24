@@ -583,7 +583,7 @@ class Types
                     $ret = array_diff($ret, ['INET6_NTOA']);
                 }
 
-                if ($isMariaDB && $serverVersion < 110070) {
+                if (! $isMariaDB || $serverVersion < 110700) {
                     $ret = array_diff($ret, ['UUID_v4', 'UUID_v7']);
                 }
 
