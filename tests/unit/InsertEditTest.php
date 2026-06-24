@@ -1593,6 +1593,25 @@ class InsertEditTest extends AbstractTestCase
         );
         self::assertSame("''", $result);
 
+        // Datatype: uuid with no value should produce uuid()
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                '',
+                '',
+                'uuid',
+                false,
+                false,
+                false,
+                '',
+                null,
+                null,
+                false,
+            ),
+            false,
+            '',
+        );
+        self::assertSame('uuid()', $result);
+
         // Datatype: set
         $result = $this->insertEdit->getQueryValueForInsert(
             new EditField(
