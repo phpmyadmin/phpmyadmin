@@ -25,6 +25,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
+        with:
+          persist-credentials: false
       - id: tests-list
         name: Send test names to outputs
         run: |
@@ -79,6 +81,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
+        with:
+          persist-credentials: false
 
       - name: Install gettext
         run: sudo apt-get update && sudo apt-get install -y gettext

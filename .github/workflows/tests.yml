@@ -29,6 +29,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
+        with:
+          persist-credentials: false
 
       - name: Write script
         # tcpdf allowed memory exhausted needs the memory_limit workaround
@@ -82,6 +84,7 @@ jobs:
         with:
           # Fetch some commits for Scrutinizer coverage upload
           fetch-depth: 15
+          persist-credentials: false
 
       - name: Install gettext
         run: sudo apt-get install -y gettext
@@ -143,6 +146,7 @@ jobs:
         with:
           # Fetch some commits for Scrutinizer coverage upload
           fetch-depth: 15
+          persist-credentials: false
 
       - name: Install gettext
         run: sudo apt-get install -y gettext
