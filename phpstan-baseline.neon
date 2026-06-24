@@ -7384,6 +7384,12 @@ parameters:
 			path: src/InsertEdit.php
 
 		-
+			message: '#^Right side of \|\| is always true\.$#'
+			identifier: booleanOr.rightAlwaysTrue
+			count: 1
+			path: src/InsertEdit.php
+
+		-
 			message: '#^Method PhpMyAdmin\\InsertEditColumn\:\:getDisplayType\(\) should return string but returns string\|null\.$#'
 			identifier: return.type
 			count: 1
