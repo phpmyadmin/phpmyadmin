@@ -234,7 +234,7 @@ class Compatibility
      */
     public static function isUUIDv4Supported(DatabaseInterface $dbi): bool
     {
-        // @see: https://mariadb.com/docs/server/reference/sql-functions/secondary-functions/miscellaneous-functions/uuid_v4
+        // https://mariadb.com/docs/server/reference/sql-functions/secondary-functions/miscellaneous-functions/uuid_v4
         return $dbi->isMariaDB() && $dbi->getVersion() >= 110700; // 11.7.0
     }
 
@@ -245,7 +245,7 @@ class Compatibility
      */
     public static function isUUIDv7Supported(DatabaseInterface $dbi): bool
     {
-        // @see: https://mariadb.com/docs/server/reference/sql-functions/secondary-functions/miscellaneous-functions/uuid_v7
+        // https://mariadb.com/docs/server/reference/sql-functions/secondary-functions/miscellaneous-functions/uuid_v7
         return $dbi->isMariaDB() && $dbi->getVersion() >= 110700; // 11.7.0
     }
 
