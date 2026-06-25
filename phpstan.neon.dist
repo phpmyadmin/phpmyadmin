@@ -15,6 +15,7 @@ parameters:
         - config.inc.php (?)
         - config.sample.inc.php
         - examples/config.manyhosts.inc.php
+        - app/cache/*
         - node_modules/*
         - libraries/cache/*
         - test/doctum-config.php
