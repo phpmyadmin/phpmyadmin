@@ -11,9 +11,15 @@ use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use Psr\Http\Message\ServerRequestFactoryInterface;
+use Psr\Http\Message\UriInterface;
+use ReflectionMethod;
+use ReflectionProperty;
 use Slim\Psr7\Factory\ServerRequestFactory as SlimServerRequestFactory;
 
+use function array_merge;
 use function class_exists;
+
+use const PHP_VERSION_ID;
 
 /**
  * @covers \PhpMyAdmin\Http\Factory\ServerRequestFactory
@@ -97,9 +103,6 @@ class ServerRequestFactoryTest extends AbstractTestCase
         ], $request->getQueryParams());
     }
 
-    /**
-     * @requires PHPUnit < 10
-     */
     public function testCreateServerRequestFromGlobals(): void
     {
         $_GET['foo'] = 'bar';
@@ -112,20 +115,21 @@ class ServerRequestFactoryTest extends AbstractTestCase
         $_SERVER['REQUEST_METHOD'] = 'POST';
         $_SERVER['HTTP_HOST'] = 'phpmyadmin.local';
 
-        $creator = $this->getMockBuilder(ServerRequestFactory::class)
-            ->onlyMethods(['getallheaders'])
-            ->getMock();
+        $property = new ReflectionProperty(ServerRequestFactory::class, 'getAllHeaders');
+        if (PHP_VERSION_ID < 80100) {
+            $property->setAccessible(true);
+        }
 
-        $creator
-            ->method('getallheaders')
-            ->willReturn(['Content-Type' => 'application/x-www-form-urlencoded']);
+        $property->setValue(null, static function (): array {
+            return ['Content-Type' => 'application/x-www-form-urlencoded'];
+        });
 
-        $serverRequest = $this->callFunction(
-            $creator,
-            ServerRequestFactory::class,
-            'createServerRequestFromGlobals',
-            [$creator]
-        );
+        $method = (new ReflectionMethod(ServerRequestFactory::class, 'createServerRequestFromGlobals'));
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
+
+        $serverRequest = $method->invokeArgs(null, [new ServerRequestFactory()]);
 
         $request = new ServerRequest($serverRequest);
 
@@ -165,9 +169,197 @@ class ServerRequestFactoryTest extends AbstractTestCase
         $serverRequestFactory = new $className();
         self::assertInstanceOf(ServerRequestFactoryInterface::class, $serverRequestFactory);
 
-        $factory = new ServerRequestFactory(
-            $serverRequestFactory
-        );
+        $factory = new ServerRequestFactory($serverRequestFactory);
         self::assertInstanceOf(ServerRequestFactory::class, $factory);
+    }
+
+    /**
+     * @param array<string, mixed> $server
+     *
+     * @dataProvider providerCreateUriFromGlobals
+     */
+    public function testCreateUriFromGlobals(string $expected, array $server): void
+    {
+        $createUriFromGlobals = (new ReflectionMethod(ServerRequestFactory::class, 'createUriFromGlobals'));
+        if (PHP_VERSION_ID < 80100) {
+            $createUriFromGlobals->setAccessible(true);
+        }
+
+        $uri = $createUriFromGlobals->invoke(new ServerRequestFactory(), $server);
+        self::assertInstanceOf(UriInterface::class, $uri);
+        self::assertSame($expected, (string) $uri);
+    }
+
+    /**
+     * @see https://github.com/guzzle/psr7/blob/7ec62dc3f44aa218487dbed81a9bf9bc647be55d/tests/ServerRequestTest.php#L296
+     *
+     * @return iterable<string, array{string, array<string, mixed>}>
+     */
+    public static function providerCreateUriFromGlobals(): iterable
+    {
+        $server = [
+            'REQUEST_URI' => '/blog/article.php?id=10&user=foo',
+            'SERVER_PORT' => '443',
+            'SERVER_ADDR' => '217.112.82.20',
+            'SERVER_NAME' => 'www.example.org',
+            'SERVER_PROTOCOL' => 'HTTP/1.1',
+            'REQUEST_METHOD' => 'POST',
+            'QUERY_STRING' => 'id=10&user=foo',
+            'DOCUMENT_ROOT' => '/path/to/your/server/root/',
+            'HTTP_HOST' => 'www.example.org',
+            'HTTPS' => 'on',
+            'REMOTE_ADDR' => '193.60.168.69',
+            'REMOTE_PORT' => '5390',
+            'SCRIPT_NAME' => '/blog/article.php',
+            'SCRIPT_FILENAME' => '/path/to/your/server/root/blog/article.php',
+            'PHP_SELF' => '/blog/article.php',
+        ];
+
+        yield 'HTTPS request' => ['https://www.example.org/blog/article.php?id=10&user=foo', $server];
+
+        yield 'HTTPS request with different on value' => [
+            'https://www.example.org/blog/article.php?id=10&user=foo',
+            array_merge($server, ['HTTPS' => '1']),
+        ];
+
+        yield 'HTTP request' => [
+            'http://www.example.org/blog/article.php?id=10&user=foo',
+            array_merge($server, ['HTTPS' => 'off', 'SERVER_PORT' => '80']),
+        ];
+
+        yield 'HTTP_HOST missing -> fallback to SERVER_NAME' => [
+            'https://www.example.org/blog/article.php?id=10&user=foo',
+            array_merge($server, ['HTTP_HOST' => null]),
+        ];
+
+        yield 'HTTP_HOST and SERVER_NAME missing -> fallback to SERVER_ADDR' => [
+            'https://217.112.82.20/blog/article.php?id=10&user=foo',
+            array_merge($server, ['HTTP_HOST' => null, 'SERVER_NAME' => null]),
+        ];
+
+        yield 'Query string with ?' => [
+            'https://www.example.org/path?continue=https://example.com/path?param=1',
+            array_merge(
+                $server,
+                ['REQUEST_URI' => '/path?continue=https://example.com/path?param=1', 'QUERY_STRING' => '']
+            ),
+        ];
+
+        yield 'No query String' => [
+            'https://www.example.org/blog/article.php',
+            array_merge($server, ['REQUEST_URI' => '/blog/article.php', 'QUERY_STRING' => '']),
+        ];
+
+        yield 'Host header with port' => [
+            'https://www.example.org:8324/blog/article.php?id=10&user=foo',
+            array_merge($server, ['HTTP_HOST' => 'www.example.org:8324']),
+        ];
+
+        yield 'IPv6 local loopback address' => [
+            'https://[::1]:8000/blog/article.php?id=10&user=foo',
+            array_merge($server, ['HTTP_HOST' => '[::1]:8000']),
+        ];
+
+        yield 'Invalid host' => [
+            'https://localhost/blog/article.php?id=10&user=foo',
+            array_merge($server, ['HTTP_HOST' => 'a:b']),
+        ];
+
+        yield 'Host header with userinfo delimiter' => [
+            'https://localhost/blog/article.php?id=10&user=foo',
+            array_merge($server, ['HTTP_HOST' => 'trusted.example@evil.example']),
+        ];
+
+        yield 'Host header with path delimiter' => [
+            'https://localhost/blog/article.php?id=10&user=foo',
+            array_merge($server, ['HTTP_HOST' => 'example.com/path']),
+        ];
+
+        yield 'Host header with query delimiter' => [
+            'https://localhost/blog/article.php?id=10&user=foo',
+            array_merge($server, ['HTTP_HOST' => 'example.com?x=1']),
+        ];
+
+        yield 'Host header with fragment delimiter' => [
+            'https://localhost/blog/article.php?id=10&user=foo',
+            array_merge($server, ['HTTP_HOST' => 'example.com#frag']),
+        ];
+
+        yield 'Host header with backslash delimiter' => [
+            'https://localhost/blog/article.php?id=10&user=foo',
+            array_merge($server, ['HTTP_HOST' => 'example.com\\evil']),
+        ];
+
+        yield 'Host header with space' => [
+            'https://localhost/blog/article.php?id=10&user=foo',
+            array_merge($server, ['HTTP_HOST' => 'bad host']),
+        ];
+
+        yield 'Host header with multiple ports' => [
+            'https://localhost/blog/article.php?id=10&user=foo',
+            array_merge($server, ['HTTP_HOST' => 'example.com:80:90']),
+        ];
+
+        yield 'Host header with invalid ip literal' => [
+            'https://localhost/blog/article.php?id=10&user=foo',
+            array_merge($server, ['HTTP_HOST' => '[bad]']),
+        ];
+
+        yield 'Host header with invalid ip literal 2' => [
+            'https://localhost/blog/article.php?id=10&user=foo',
+            array_merge($server, ['HTTP_HOST' => '[b:ad]']),
+        ];
+
+        yield 'Host header with unexpected opening bracket' => [
+            'https://localhost/blog/article.php?id=10&user=foo',
+            array_merge($server, ['HTTP_HOST' => 'foo[bar']),
+        ];
+
+        yield 'Host header with unexpected closing bracket' => [
+            'https://localhost/blog/article.php?id=10&user=foo',
+            array_merge($server, ['HTTP_HOST' => 'foo]bar']),
+        ];
+
+        yield 'Different port with SERVER_PORT' => [
+            'https://www.example.org:8324/blog/article.php?id=10&user=foo',
+            array_merge($server, ['SERVER_PORT' => '8324']),
+        ];
+
+        yield 'Invalid SERVER_PORT is ignored instead of coerced to zero' => [
+            'https://www.example.org/blog/article.php?id=10&user=foo',
+            array_merge($server, ['SERVER_PORT' => 'not-a-port']),
+        ];
+
+        yield 'Non-string SERVER_PORT is ignored' => [
+            'https://www.example.org/blog/article.php?id=10&user=foo',
+            array_merge($server, ['SERVER_PORT' => ['443']]),
+        ];
+
+        yield 'Non-string HTTP_HOST falls back to SERVER_NAME' => [
+            'https://www.example.org/blog/article.php?id=10&user=foo',
+            array_merge($server, ['HTTP_HOST' => ['www.example.org']]),
+        ];
+
+        yield 'Non-string SERVER_NAME falls back to SERVER_ADDR' => [
+            'https://217.112.82.20/blog/article.php?id=10&user=foo',
+            array_merge($server, ['HTTP_HOST' => null, 'SERVER_NAME' => ['www.example.org']]),
+        ];
+
+        yield 'REQUEST_URI missing query string' => [
+            'https://www.example.org/blog/article.php?id=10&user=foo',
+            array_merge($server, ['REQUEST_URI' => '/blog/article.php']),
+        ];
+
+        yield 'Non-string REQUEST_URI is treated as missing' => [
+            'https://www.example.org/?id=10&user=foo',
+            array_merge($server, ['REQUEST_URI' => ['bad']]),
+        ];
+
+        yield 'Non-string QUERY_STRING is treated as missing' => [
+            'https://www.example.org/blog/article.php',
+            array_merge($server, ['REQUEST_URI' => '/blog/article.php', 'QUERY_STRING' => ['bad']]),
+        ];
+
+        yield 'Empty server variable' => ['http://localhost/', []];
     }
 }
