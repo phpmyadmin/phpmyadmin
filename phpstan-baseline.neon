@@ -20056,11 +20056,6 @@ parameters:
 			path: libraries/classes/Html/MySQLDocumentation.php
 
 		-
-			message: "#^Only booleans are allowed in an if condition, int\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Http/Factory/ServerRequestFactory.php
-
-		-
 			message: "#^Parameter \\#1 \\$method of method Psr\\\\Http\\\\Message\\\\ServerRequestFactoryInterface\\:\\:createServerRequest\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Http/Factory/ServerRequestFactory.php
