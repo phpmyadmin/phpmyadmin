@@ -48,6 +48,9 @@
     "stylelint-config-standard": "^22.0.0",
     "stylelint-scss": "^3.21.0"
   },
+  "resolutions": {
+    "node-releases": "<2.0.45"
+  },
   "scripts": {
     "postinstall": "yarn run build",
     "build": "yarn run css-compile --style=compressed && yarn run css-prefix && yarn run css-rtl && yarn run js-compile",
