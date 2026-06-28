@@ -1646,7 +1646,9 @@ class UtilTest extends AbstractTestCase
             [
                 1617153941,
                 '',
-                $hasTranslations ? 'mer. 31 mars 2021 à 03:25' : 'Mar 31, 2021 at 03:25 AM',// No format uses format "%B %d, %Y at %I:%M %p"
+                $hasTranslations
+                    ? 'mer. 31 mars 2021 à 03:25'
+                    : 'Mar 31, 2021 at 03:25 AM',// No format uses format "%B %d, %Y at %I:%M %p"
                 'Europe/Paris',
                 'fr',
             ],

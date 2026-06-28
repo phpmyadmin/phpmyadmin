@@ -14,6 +14,7 @@
     <exclude-pattern>*/build/*</exclude-pattern>
     <exclude-pattern>*/config.inc.php</exclude-pattern>
     <exclude-pattern>*/libraries/cache/*</exclude-pattern>
+    <exclude-pattern>*/app/cache/*</exclude-pattern>
     <exclude-pattern>*/libraries/language_stats.inc.php</exclude-pattern>
     <exclude-pattern>*/node_modules/*</exclude-pattern>
     <exclude-pattern>*/test/doctum-config.php</exclude-pattern>
