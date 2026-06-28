@@ -1402,7 +1402,7 @@ class Util
             $zerofill = ($zerofillCount > 0);
             $printType = (string) preg_replace('@unsigned@', '', $printType, -1, $unsignedCount);
             $unsigned = ($unsignedCount > 0);
-            $printType = (string) preg_replace('@\/\*!100301 compressed\*\/@', '', $printType, -1, $compressedCount);
+            $printType = (string) preg_replace('@\/\*m?!100301 compressed\*\/@', '', $printType, -1, $compressedCount);
             $compressed = ($compressedCount > 0);
             $printType = trim($printType);
         }
