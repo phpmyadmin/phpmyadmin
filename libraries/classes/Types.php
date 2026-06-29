@@ -574,11 +574,17 @@ class Types
                     'UPPER',
                     'USER',
                     'UUID',
+                    'UUID_v4',
+                    'UUID_v7',
                     'VERSION',
                 ];
 
                 if (($isMariaDB && $serverVersion < 100012) || $serverVersion < 50603) {
                     $ret = array_diff($ret, ['INET6_NTOA']);
+                }
+
+                if (! $isMariaDB || $serverVersion < 110700) {
+                    $ret = array_diff($ret, ['UUID_v4', 'UUID_v7']);
                 }
 
                 return array_values($ret);

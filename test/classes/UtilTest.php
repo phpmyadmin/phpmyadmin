@@ -2553,4 +2553,126 @@ class UtilTest extends AbstractTestCase
             ],
         ];
     }
+
+    /**
+     * Tests for Util::testIsUUIDv4Supported() method.
+     *
+     * @param bool $isMariaDB True if mariadb
+     * @param int  $version   Database version as integer
+     * @param bool $expected  Expected Result
+     *
+     * @dataProvider provideForTestIsUUIDv4Supported
+     */
+    public function testIsUUIDv4Supported(bool $isMariaDB, int $version, bool $expected): void
+    {
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $dbi->expects($this->any())
+            ->method('isMariaDB')
+            ->will($this->returnValue($isMariaDB));
+
+        $dbi->expects($this->any())
+            ->method('getVersion')
+            ->will($this->returnValue($version));
+
+        $oldDbi = $GLOBALS['dbi'];
+        $GLOBALS['dbi'] = $dbi;
+        self::assertSame(Util::isUUIDv4Supported(), $expected);
+        $GLOBALS['dbi'] = $oldDbi;
+    }
+
+    /**
+     * Data provider for isUUIDv4Supported() tests.
+     *
+     * @return array
+     * @psalm-return array<int, array{bool, int, bool}>
+     */
+    public static function provideForTestIsUUIDv4Supported(): array
+    {
+        return [
+            [
+                false,
+                60100,
+                false,
+            ],
+            [
+                false,
+                110700,
+                false,
+            ],
+            [
+                true,
+                60100,
+                false,
+            ],
+            [
+                true,
+                110700,
+                true,
+            ],
+        ];
+    }
+
+    /**
+     * Tests for Util::testIsUUIDv7Supported() method.
+     *
+     * @param bool $isMariaDB True if mariadb
+     * @param int  $version   Database version as integer
+     * @param bool $expected  Expected Result
+     *
+     * @dataProvider provideForTestIsUUIDv7Supported
+     */
+    public function testIsUUIDv7Supported(bool $isMariaDB, int $version, bool $expected): void
+    {
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $dbi->expects($this->any())
+            ->method('isMariaDB')
+            ->will($this->returnValue($isMariaDB));
+
+        $dbi->expects($this->any())
+            ->method('getVersion')
+            ->will($this->returnValue($version));
+
+        $oldDbi = $GLOBALS['dbi'];
+        $GLOBALS['dbi'] = $dbi;
+        self::assertSame(Util::isUUIDv7Supported(), $expected);
+        $GLOBALS['dbi'] = $oldDbi;
+    }
+
+    /**
+     * Data provider for isUUIDv7Supported() tests.
+     *
+     * @return array
+     * @psalm-return array<int, array{bool, int, bool}>
+     */
+    public static function provideForTestIsUUIDv7Supported(): array
+    {
+        return [
+            [
+                false,
+                60100,
+                false,
+            ],
+            [
+                false,
+                110700,
+                false,
+            ],
+            [
+                true,
+                60100,
+                false,
+            ],
+            [
+                true,
+                110700,
+                true,
+            ],
+        ];
+    }
 }

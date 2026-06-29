@@ -37771,6 +37771,16 @@ parameters:
 			path: libraries/classes/Util.php
 
 		-
+			message: "#^Parameter \\#1 \\$dbi of static method PhpMyAdmin\\\\Query\\\\Compatibility\\:\\:isUUIDv4Supported\\(\\) expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Util.php
+
+		-
+			message: "#^Parameter \\#1 \\$dbi of static method PhpMyAdmin\\\\Query\\\\Compatibility\\:\\:isUUIDv7Supported\\(\\) expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Util.php
+
+		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Util.php
@@ -48752,7 +48762,7 @@ parameters:
 
 		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:any\\(\\)\\.$#"
-			count: 2
+			count: 6
 			path: test/classes/UtilTest.php
 
 		-
@@ -48767,7 +48777,7 @@ parameters:
 
 		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
-			count: 11
+			count: 15
 			path: test/classes/UtilTest.php
 
 		-
