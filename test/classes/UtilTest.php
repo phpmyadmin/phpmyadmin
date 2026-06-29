@@ -1549,7 +1549,7 @@ class UtilTest extends AbstractTestCase
      */
     public static function providerLocalisedDate(): array
     {
-        $hasJaTranslations = file_exists(LOCALE_PATH . '/cs/LC_MESSAGES/phpmyadmin.mo');
+        $hasTranslations = file_exists(LOCALE_PATH . '/cs/LC_MESSAGES/phpmyadmin.mo');
 
         return [
             [
@@ -1597,21 +1597,21 @@ class UtilTest extends AbstractTestCase
             [
                 1227455558,
                 '%Y-%m-%d %H:%M:%S %a',
-                $hasJaTranslations ? '2008-11-24 00:52:38 月' : '2008-11-24 00:52:38 Mon',
+                $hasTranslations ? '2008-11-24 00:52:38 月' : '2008-11-24 00:52:38 Mon',
                 'Asia/Tokyo',
                 'ja',
             ],
             [
                 1227455558,
                 '%a %A %b %B',
-                $hasJaTranslations ? '月 月 11 月 11 月' : 'Mon Mon Nov Nov',
+                $hasTranslations ? '月 月 11 月 11 月' : 'Mon Mon Nov Nov',
                 'Asia/Tokyo',
                 'ja',
             ],
             [
                 1227455558,
                 '%a %A %b %B %P',
-                $hasJaTranslations ? '月 月 11 月 11 月 午前' : 'Mon Mon Nov Nov AM',
+                $hasTranslations ? '月 月 11 月 11 月 午前' : 'Mon Mon Nov Nov AM',
                 'Asia/Tokyo',
                 'ja',
             ],
@@ -1646,7 +1646,9 @@ class UtilTest extends AbstractTestCase
             [
                 1617153941,
                 '',
-                'mer. 31 mars 2021 à 03:25',// No format uses format "%B %d, %Y at %I:%M %p"
+                $hasTranslations
+                    ? 'mer. 31 mars 2021 à 03:25'
+                    : 'Mar 31, 2021 at 03:25 AM',// No format uses format "%B %d, %Y at %I:%M %p"
                 'Europe/Paris',
                 'fr',
             ],
