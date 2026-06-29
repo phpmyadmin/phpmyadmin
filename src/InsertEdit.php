@@ -1211,6 +1211,16 @@ class InsertEdit
             return '';
         }
 
+        // For uuid type, generate uuid value
+        // if empty value but not set null or value is uuid() function
+        if (
+            $editField->type === 'uuid'
+                && ! $editField->isNull
+                && in_array($editField->value, ["''", '', "'uuid()'", 'uuid()'], true)
+        ) {
+            return 'uuid()';
+        }
+
         if ($editField->value === '') {
             // When the field is autoIncrement, the best way to avoid problems
             // in strict mode is to set the value to null (works also in non-strict mode)
@@ -1231,16 +1241,6 @@ class InsertEdit
             $currentValue = (string) preg_replace('/[^01]/', '0', $editField->value);
 
             return 'b' . $this->dbi->quoteString($currentValue);
-        }
-
-        // For uuid type, generate uuid value
-        // if empty value but not set null or value is uuid() function
-        if (
-            $editField->type === 'uuid'
-                && ! $editField->isNull
-                && in_array($editField->value, ["''", '', "'uuid()'", 'uuid()'], true)
-        ) {
-            return 'uuid()';
         }
 
         if (
