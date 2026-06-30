@@ -272,6 +272,26 @@ class ColumnsDefinitionTest extends AbstractTestCase
                 false,
                 ['DefaultType' => 'UUID', 'DefaultValue' => ''],
             ],
+            'when Default is UUID_v4' => [
+                'UUID_v4',
+                false,
+                ['DefaultType' => 'UUID_v4', 'DefaultValue' => ''],
+            ],
+            'when Default is uuid_v4()' => [
+                'uuid_v4()',
+                false,
+                ['DefaultType' => 'UUID_v4', 'DefaultValue' => ''],
+            ],
+            'when Default is UUID_v7' => [
+                'UUID_v7',
+                false,
+                ['DefaultType' => 'UUID_v7', 'DefaultValue' => ''],
+            ],
+            'when Default is uuid_v7()' => [
+                'uuid_v7()',
+                false,
+                ['DefaultType' => 'UUID_v7', 'DefaultValue' => ''],
+            ],
             'when Default is anything else and Type is text' => [
                 '"some/thing"',
                 false,

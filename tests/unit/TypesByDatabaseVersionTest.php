@@ -465,6 +465,28 @@ final class TypesByDatabaseVersionTest extends AbstractTestCase
                     'MPolyFromWKB',
                 ],
             ],
+            'mariadb 11.7.0 - support UUID_v4 and UUID_v7' => [
+                '11.7.0-MariaDB',
+                ['UUID_v4', 'UUID_v7'],
+                [
+                    'GeomFromText',
+                    'GeomFromWKB',
+                    'GeomCollFromText',
+                    'LineFromText',
+                    'MLineFromText',
+                    'PointFromText',
+                    'MPointFromText',
+                    'PolyFromText',
+                    'MPolyFromText',
+                    'GeomCollFromWKB',
+                    'LineFromWKB',
+                    'MLineFromWKB',
+                    'PointFromWKB',
+                    'MPointFromWKB',
+                    'PolyFromWKB',
+                    'MPolyFromWKB',
+                ],
+            ],
         ];
     }
 

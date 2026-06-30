@@ -373,6 +373,8 @@ final class ColumnsDefinition
             null => ['DefaultType' => $isNull ? 'NULL' : 'NONE', 'DefaultValue' => ''],
             'CURRENT_TIMESTAMP', 'current_timestamp()' => ['DefaultType' => 'CURRENT_TIMESTAMP', 'DefaultValue' => ''],
             'UUID', 'uuid()' => ['DefaultType' => 'UUID', 'DefaultValue' => ''],
+            'UUID_v4', 'uuid_v4()' => ['DefaultType' => 'UUID_v4', 'DefaultValue' => ''],
+            'UUID_v7', 'uuid_v7()' => ['DefaultType' => 'UUID_v7', 'DefaultValue' => ''],
             default => ['DefaultType' => 'USER_DEFINED', 'DefaultValue' => $default],
         };
     }

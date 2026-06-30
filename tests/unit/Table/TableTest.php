@@ -746,6 +746,90 @@ class TableTest extends AbstractTestCase
         );
         self::assertSame('`PMA_name` UUID PMA_attribute NULL DEFAULT uuid()', $query);
 
+        //$default_type is UUID_v4
+        $type = 'UUID';
+        $defaultType = 'UUID_v4';
+        $moveTo = '';
+        $query = Table::generateFieldSpec(
+            $name,
+            $type,
+            $length,
+            $attribute,
+            $collation,
+            $null,
+            $defaultType,
+            $moveTo,
+            $extra,
+            '',
+            $virtuality,
+            $expression,
+            $moveTo,
+        );
+        self::assertSame('`PMA_name` UUID PMA_attribute NULL DEFAULT uuid_v4()', $query);
+
+        //$default_type is uuid_v4()
+        $type = 'UUID';
+        $defaultType = 'uuid_v4()';
+        $moveTo = '';
+        $query = Table::generateFieldSpec(
+            $name,
+            $type,
+            $length,
+            $attribute,
+            $collation,
+            $null,
+            $defaultType,
+            $defaultValue,
+            $extra,
+            '',
+            $virtuality,
+            $expression,
+            $moveTo,
+        );
+        self::assertSame('`PMA_name` UUID PMA_attribute NULL DEFAULT uuid_v4()', $query);
+
+        //$default_type is UUID_v7
+        $type = 'UUID';
+        $defaultType = 'UUID_v7';
+        $moveTo = '';
+        $query = Table::generateFieldSpec(
+            $name,
+            $type,
+            $length,
+            $attribute,
+            $collation,
+            $null,
+            $defaultType,
+            $defaultValue,
+            $extra,
+            '',
+            $virtuality,
+            $expression,
+            $moveTo,
+        );
+        self::assertSame('`PMA_name` UUID PMA_attribute NULL DEFAULT uuid_v7()', $query);
+
+        //$default_type is uuid_v7()
+        $type = 'UUID';
+        $defaultType = 'uuid_v7()';
+        $moveTo = '';
+        $query = Table::generateFieldSpec(
+            $name,
+            $type,
+            $length,
+            $attribute,
+            $collation,
+            $null,
+            $defaultType,
+            $defaultValue,
+            $extra,
+            '',
+            $virtuality,
+            $expression,
+            $moveTo,
+        );
+        self::assertSame('`PMA_name` UUID PMA_attribute NULL DEFAULT uuid_v7()', $query);
+
         //$default_type is NONE
         $type = 'BOOLEAN';
         $defaultType = 'NONE';

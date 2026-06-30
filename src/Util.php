@@ -1194,6 +1194,24 @@ class Util
     }
 
     /**
+     * This function is to check whether database support UUID_v4
+     */
+    #[AsTwigFunction('is_uuid_v4_supported')]
+    public static function isUUIDv4Supported(): bool
+    {
+        return Compatibility::isUUIDv4Supported(DatabaseInterface::getInstance());
+    }
+
+    /**
+     * This function is to check whether database support UUID_v7
+     */
+    #[AsTwigFunction('is_uuid_v7_supported')]
+    public static function isUUIDv7Supported(): bool
+    {
+        return Compatibility::isUUIDv7Supported(DatabaseInterface::getInstance());
+    }
+
+    /**
      * Checks if the current user has a specific privilege and returns true if the
      * user indeed has that privilege or false if they don't. This function must
      * only be used for features that are available since MySQL 5, because it
