@@ -9,16 +9,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-05-25 18:05+0000\n"
-"PO-Revision-Date: 2026-02-03 19:01+0000\n"
-"Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
-"Language-Team: Vietnamese <https://hosted.weblate.org/projects/"
-"phpmyadmin/5-2/vi/>\n"
+"PO-Revision-Date: 2026-07-03 07:01+0000\n"
+"Last-Translator: hoanghuy309 <hoanghuy309@gmail.com>\n"
+"Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/5-"
+"2/vi/>\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.16-dev\n"
+"X-Generator: Weblate 2026.7.1.dev0\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -1451,33 +1451,27 @@ msgstr "Tiếng Tây Ban Nha (hiện đại)"
 #: libraries/classes/Charsets/Collation.php:298
 msgctxt "Collation variant"
 msgid "case-insensitive"
-msgstr "không phân biệt HOA/thường"
+msgstr "không phân biệt hoa-thường"
 
 #: libraries/classes/Charsets/Collation.php:301
 msgctxt "Collation variant"
 msgid "case-sensitive"
-msgstr "phân biệt chữ HOA/thường"
+msgstr "phân biệt hoa-thường"
 
 #: libraries/classes/Charsets/Collation.php:304
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "accent-insensitive"
-msgstr "không phân biệt HOA/thường"
+msgstr "không phân biệt giọng điệu"
 
 #: libraries/classes/Charsets/Collation.php:307
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "accent-sensitive"
-msgstr "phân biệt chữ HOA/thường"
+msgstr "phân biệt giọng điệu"
 
 #: libraries/classes/Charsets/Collation.php:310
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "phân biệt chữ HOA/thường"
+msgstr "phân biệt kana"
 
 #: libraries/classes/Charsets/Collation.php:314
 msgctxt "Collation variant"
@@ -1874,9 +1868,9 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns."
 msgstr ""
-"Định nghĩa xem kiểu của điều khiển sửa chữa nào sẽ được dùng cho các cột "
-"CHAR và VARCHAR; [kbd]input[/kbd] - cho phép giới hạn chiều dài đầu vào,  "
-"[kbd]textarea[/kbd] - cho phép dòng mới trong cột."
+"Xác định loại điều khiển chỉnh sửa nào nên được sử dụng cho các cột CHAR và "
+"VARCHAR; [kbd]input[/kbd] - cho phép giới hạn độ dài nhập liệu, "
+"[kbd]textarea[/kbd] - cho phép xuống dòng trong các cột."
 
 #: libraries/classes/Config/Descriptions.php:118
 msgid ""
@@ -2641,7 +2635,7 @@ msgstr "Phương thức xác thực sẽ dùng"
 
 #: libraries/classes/Config/Descriptions.php:470
 msgid "Compress connection to MySQL server."
-msgstr "Kết nối có nén  đến máy phục vụ MySQL."
+msgstr "Nén kết nối đến máy chủ MySQL"
 
 #: libraries/classes/Config/Descriptions.php:471
 msgid "Hide databases matching regular expression (PCRE)."
@@ -2775,8 +2769,8 @@ msgid ""
 "of the PHP setting session.gc_maxlifetime is less than the value of "
 "`LoginCookieValidity`."
 msgstr ""
-"Tắt cảnh báo mặc định cái mà hiển thị trên trang chính nếu giá trị của cài "
-"đặt phiên  PHP session.gc_maxlifetime thấp hơn giá trị của "
+"Vô hiệu hóa cảnh báo mặc định hiển thị trên trang chính nếu giá trị của "
+"thiết lập PHP session.gc_maxlifetime nhỏ hơn giá trị của "
 "`LoginCookieValidity`."
 
 #: libraries/classes/Config/Descriptions.php:517
@@ -2844,8 +2838,8 @@ msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
 msgstr ""
-"Truy vấn được thực thi bằng cách bấm Enter (thay vì  Ctrl+Enter). Các dòng "
-"mới sẽ được chèn thêm bằng Shift+Enter."
+"Các truy vấn được thực thi bằng cách nhấn phím Enter (thay vì Ctrl+Enter). "
+"Dòng mới sẽ được chèn bằng tổ hợp phím Shift+Enter."
 
 #: libraries/classes/Config/Descriptions.php:548
 #, fuzzy
@@ -4919,10 +4913,8 @@ msgid "Could not connect to the database server!"
 msgstr "Không thể kết nối đến máy chủ phục vụ cơ sở dữ liệu!"
 
 #: libraries/classes/Config/Validator.php:279
-#, fuzzy
-#| msgid "Authentication type"
 msgid "Invalid authentication type!"
-msgstr "Kiểu xác thực"
+msgstr "Loại xác thực không hợp lệ!"
 
 #: libraries/classes/Config/Validator.php:284
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
@@ -4961,23 +4953,23 @@ msgstr "Địa chỉ IP của không đúng: %s"
 #: libraries/classes/Config/Validator.php:523
 #: templates/config/form_display/display.twig:66
 msgid "Not a valid port number!"
-msgstr "Số hiệu cổng không hợp lệ"
+msgstr "Số cổng không hợp lệ!"
 
 #: libraries/classes/Config/Validator.php:545
 #: templates/config/form_display/display.twig:64
 msgid "Not a positive number!"
-msgstr "không phải là số hiệu phiên bản"
+msgstr "Không phải là số dương!"
 
 #: libraries/classes/Config/Validator.php:567
 #: templates/config/form_display/display.twig:65
 msgid "Not a non-negative number!"
-msgstr "Không là con số âm"
+msgstr "Không phải là số không âm!"
 
 #: libraries/classes/Config/Validator.php:608
 #: templates/config/form_display/display.twig:68
 #, php-format
 msgid "Value must be less than or equal to %s!"
-msgstr "Giá trị phải nhỏ hơn hoặc bằng %s"
+msgstr "Giá trị phải nhỏ hơn hoặc bằng %s!"
 
 #: libraries/classes/Console.php:92
 #, fuzzy, php-format
@@ -5007,8 +4999,8 @@ msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
-"Tập tin %s  không có sẵn trên hệ thống, hãy truy cập %s để biết thêm thông "
-"tin."
+"Tệp %s không có sẵn trên hệ thống này, vui lòng truy cập %s để biết thêm "
+"thông tin."
 
 #: libraries/classes/Controllers/Database/CentralColumnsController.php:140
 #, php-format
@@ -5466,9 +5458,9 @@ msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
-"Tuy nhiên trên lần chạy cuối không dữ liệu nào được phân tích, điều đó "
-"thường có nghĩa là phpMyAdmin sẽ không thể hoàn tất việc nhập vào trừ khi "
-"bạn gia tăng giới hạn chờ của PHP."
+"Tuy nhiên, trong lần chạy cuối cùng, không có dữ liệu nào được phân tích cú "
+"pháp, điều này thường có nghĩa là phpMyAdmin sẽ không thể hoàn tất quá trình "
+"nhập dữ liệu này trừ khi bạn tăng giới hạn thời gian của php."
 
 #: libraries/classes/Controllers/Import/ImportController.php:736
 #: libraries/classes/Controllers/Sql/SqlController.php:162
@@ -5641,11 +5633,11 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
-"Thông qua hoạt động này, MySQL sẽ cố gắng ánh xạ dữ liệu giữa các bảng mã. "
-"Nếu các bộ ký tự không tương thích, có thể sẽ gây mất dữ liệu và dữ liệu bị "
-"mất này <b> KHÔNG THỂ</b> khôi phục được kể cả khi đổi lại về bảng mã ban "
-"đầu.<b> Để chuyển đổi dữ liệu hiện có, bạn nên sử dụng tính năng chỉnh sửa "
-"(các) cột (Nhấn vào \"Thay đổi\") trên trang bảng cấu trúc. </b>"
+"Thông qua thao tác này, MySQL cố gắng ánh xạ các giá trị dữ liệu giữa các bộ "
+"ký tự. Nếu các bộ ký tự không tương thích, có thể xảy ra mất dữ liệu và dữ "
+"liệu bị mất này có thể <b>KHÔNG</b> thể khôi phục được chỉ bằng cách thay "
+"đổi lại bộ ký tự của cột. <b>Để chuyển đổi dữ liệu hiện có, bạn nên sử dụng "
+"tính năng chỉnh sửa cột (liên kết \"Thay đổi\") trên trang cấu trúc bảng.</b>"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:94
 msgid ""
@@ -5897,10 +5889,10 @@ msgid ""
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
-"Cấu hình sắp xếp biểu đồ trong trình lưu trữ cục bộ của trình duyệt không "
-"tương thích nữa với phiên bản mới hơn của hộp thoại màn hình. Rất có thể cấu "
-"hình hiện tại của bạn sẽ không hoạt động nữa. Vui lòng đặt lại cấu hình của "
-"bạn về mặc định trong trình đơn <i>Cài đặt </i>."
+"Cấu hình sắp xếp biểu đồ trong bộ nhớ cục bộ của trình duyệt không còn tương "
+"thích với phiên bản mới hơn của hộp thoại màn hình. Rất có thể cấu hình hiện "
+"tại của bạn sẽ không hoạt động nữa. Vui lòng đặt lại cấu hình về mặc định "
+"trong menu <i>Cài đặt</i>."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:166
 msgid "Query cache efficiency"
@@ -5948,7 +5940,7 @@ msgstr "Bộ nhớ còn trống"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:179
 msgid "Used memory"
-msgstr "RAM đã dùng"
+msgstr "Bộ nhớ đã dùng"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:181
 msgid "Total swap"
@@ -6715,6 +6707,8 @@ msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
 msgstr ""
+"Bạn có một truy vấn đã được lưu trước đó. Nhấp vào Lấy truy vấn đã lưu tự "
+"động để tải truy vấn."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:396
 #, php-format
@@ -6803,7 +6797,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:422
 msgid "No partial dependencies selected!"
-msgstr "Chưa chọn cơ sở dữ liệu."
+msgstr "Không có phụ thuộc từng phần nào được chọn!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:423
 #: libraries/classes/Export.php:589 libraries/classes/Html/Generator.php:940
@@ -6860,7 +6854,7 @@ msgstr "Các phụ thuộc được chọn như sau:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:438
 msgid "No dependencies selected!"
-msgstr "Chưa chọn ô điều khiển."
+msgstr "Không có phụ thuộc nào được chọn!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:441
 #: templates/columns_definitions/column_definitions_form.twig:160
@@ -7081,7 +7075,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:524
 msgid "value/subQuery is empty"
-msgstr ""
+msgstr "giá trị/truy vấn con trống"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:525
 #: templates/database/designer/main.twig:40
@@ -7123,7 +7117,7 @@ msgstr ""
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:533
 #: templates/database/designer/main.twig:10
 msgid "Untitled"
-msgstr "Chưa đặt tên"
+msgstr "Không có tiêu đề"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:534
 msgid "Please select a page to continue"
@@ -7155,10 +7149,8 @@ msgid "%d object(s) created."
 msgstr "%d đối tượng đã được tạo."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:543
-#, fuzzy
-#| msgid "Column names"
 msgid "Column name"
-msgstr "Các tên cột"
+msgstr "Tên cột"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:544
 #: templates/modals/build_query.twig:17 templates/sql/query.twig:178
@@ -7331,10 +7323,8 @@ msgid "up to date"
 msgstr "đã cập nhật"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:613
-#, fuzzy
-#| msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgid "There was an error in loading the Git information."
-msgstr "Có lỗi khi nhập vào tập tin hình dạng ESRI: \"%s\"."
+msgstr "Đã xảy ra lỗi khi tải thông tin Git."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:616
 msgid ""
@@ -7396,16 +7386,12 @@ msgid "Column name copying to clipboard failed!"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:651
-#, fuzzy
-#| msgid "Successfully deleted the page"
 msgid "Successfully copied!"
-msgstr "Trang đã được xóa thành công"
+msgstr "Sao chép thành công!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:652
-#, fuzzy
-#| msgid "Copying database"
 msgid "Copying failed!"
-msgstr "Đang chép cơ sở dữ liệu"
+msgstr "Sao chép thất bại!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:655
 msgid "Execute this query again?"
@@ -7684,10 +7670,8 @@ msgid "No Privileges"
 msgstr "Không có Đặc quyền gì"
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:161
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a trigger"
 msgid "You do not have the privileges to administrate the users!"
-msgstr "Bạn không có đủ thẩm quyền cần thiết để tạo một bẫy"
+msgstr "Bạn không có quyền quản trị người dùng!"
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:176
 msgid ""
@@ -8503,10 +8487,9 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Hàng: %1$s, Cột: %2$s, Lỗi: %3$s"
 
 #: libraries/classes/Controllers/Table/Structure/ChangeController.php:91
-#, fuzzy, php-format
-#| msgid "Failed to get real row count."
+#, php-format
 msgid "Failed to get description of column %s!"
-msgstr "Gặp lỗi khi lấy số lượng hàng thực tế."
+msgstr "Không thể lấy mô tả của cột %s!"
 
 #: libraries/classes/Controllers/Table/StructureController.php:220
 #: templates/columns_definitions/column_attributes.twig:112
@@ -8659,7 +8642,7 @@ msgstr "Lỗi: Thiếu chỉ mục trên các cột."
 #: libraries/classes/Database/Designer/Common.php:648
 #: libraries/classes/Database/Designer/Common.php:727
 msgid "Error: Relational features are disabled!"
-msgstr "Mối quan hệ profile không tìm thấy"
+msgstr "Lỗi: Các tính năng quan hệ đã bị vô hiệu hóa!"
 
 #: libraries/classes/Database/Designer/Common.php:672
 #, fuzzy
@@ -8763,7 +8746,7 @@ msgstr "Định nghĩa phải ở định dạng \"username@hostname\"!"
 
 #: libraries/classes/Database/Events.php:422
 msgid "You must provide an event name!"
-msgstr "Phải ghi rõ tên tập tin."
+msgstr "Bạn phải cung cấp tên sự kiện!"
 
 #: libraries/classes/Database/Events.php:436
 msgid "You must provide a valid interval value for the event."
@@ -10929,10 +10912,8 @@ msgstr "Hiện chú thích"
 #: libraries/classes/Plugins/Export/ExportLatex.php:147
 #: libraries/classes/Plugins/Export/ExportOdt.php:109
 #: libraries/classes/Plugins/Export/ExportSql.php:164
-#, fuzzy
-#| msgid "Display MIME types"
 msgid "Display media types"
-msgstr "Hiển thị kiểu MIME"
+msgstr "Các loại phương tiện hiển thị"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:165
 msgid "Put columns names in the first row:"
@@ -11313,10 +11294,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:134
-#, fuzzy
-#| msgid "Column names: "
 msgid "Column names:"
-msgstr "Tên cột: "
+msgstr "Tên cột:"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:272
 #: libraries/classes/Plugins/Import/ImportCsv.php:631
@@ -11384,7 +11363,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportOds.php:163
 msgid "Could not parse OpenDocument Spreadsheet!"
-msgstr "Mở tài liệu định dạng HTML"
+msgstr "Không thể phân tích Bảng tính OpenDocument!"
 
 #: libraries/classes/Plugins/Import/ImportShp.php:68
 msgid "ESRI Shape File"
@@ -14402,17 +14381,13 @@ msgstr "Nhập vào cơ sở dữ liệu \"%s\""
 
 #: templates/database/multi_table_query/form.twig:4
 #: templates/database/qbe/index.twig:4
-#, fuzzy
-#| msgid "Simulate query"
 msgid "Multi-table query"
-msgstr "Mô phỏng Truy vấn"
+msgstr "Truy vấn nhiều bảng"
 
 #: templates/database/multi_table_query/form.twig:10
 #: templates/database/qbe/index.twig:10
-#, fuzzy
-#| msgid "Query failed"
 msgid "Query by example"
-msgstr "Truy vấn bị lỗi"
+msgstr "Truy vấn theo ví dụ"
 
 #: templates/database/multi_table_query/form.twig:17
 msgid "Query window"
@@ -14829,12 +14804,9 @@ msgid_plural "%1$s matches in <strong>%2$s</strong>"
 msgstr[0] "%1$s khớp trong <strong>%2$s</strong>"
 
 #: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>Tổng cộng:</b> <i>%s</i> khớp mẫu"
+msgstr[0] "<strong>Tổng:</strong> <em>%count%</em> phù hợp"
 
 #: templates/database/structure/add_prefix.twig:7
 #: templates/database/structure/add_prefix.twig:9
@@ -15161,9 +15133,8 @@ msgid "Hide browser transformation"
 msgstr "Ẩn trình duyệt chuyển đổi"
 
 #: templates/display/results/table.twig:182
-#, fuzzy
 msgid "Well Known Text"
-msgstr "Định dạng văn bản được biết đến (WKT)"
+msgstr "Văn Bản Nổi Tiếng"
 
 #: templates/display/results/table.twig:186
 #, fuzzy
