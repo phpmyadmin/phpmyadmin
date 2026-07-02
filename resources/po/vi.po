@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-06-28 01:02+0000\n"
-"PO-Revision-Date: 2026-02-03 19:01+0000\n"
-"Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
+"PO-Revision-Date: 2026-07-03 07:01+0000\n"
+"Last-Translator: hoanghuy309 <hoanghuy309@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/vi/>\n"
 "Language: vi\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.16-dev\n"
+"X-Generator: Weblate 2026.7.1.dev0\n"
 
 #: resources/templates/base.twig:40 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -1508,7 +1508,7 @@ msgstr "Trang cần xóa"
 #: resources/templates/database/designer/main.twig:10
 #: src/Controllers/JavaScriptMessagesController.php:526
 msgid "Untitled"
-msgstr "Chưa đặt tên"
+msgstr "Không có tiêu đề"
 
 #: resources/templates/database/designer/main.twig:19
 #: resources/templates/database/designer/main.twig:25
@@ -3097,9 +3097,8 @@ msgid "Geometry"
 msgstr "Hình dạng"
 
 #: resources/templates/display/results/table.twig:268
-#, fuzzy
 msgid "Well Known Text"
-msgstr "Định dạng văn bản được biết đến (WKT)"
+msgstr "Văn Bản Nổi Tiếng"
 
 #: resources/templates/display/results/table.twig:272
 #, fuzzy
@@ -8890,33 +8889,27 @@ msgstr "Tiếng Tây Ban Nha (hiện đại)"
 #: src/Charsets/Collation.php:225
 msgctxt "Collation variant"
 msgid "case-insensitive"
-msgstr "không phân biệt HOA/thường"
+msgstr "không phân biệt hoa-thường"
 
 #: src/Charsets/Collation.php:226
 msgctxt "Collation variant"
 msgid "case-sensitive"
-msgstr "phân biệt chữ HOA/thường"
+msgstr "phân biệt hoa-thường"
 
 #: src/Charsets/Collation.php:227
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "accent-insensitive"
-msgstr "không phân biệt HOA/thường"
+msgstr "không phân biệt giọng điệu"
 
 #: src/Charsets/Collation.php:228
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "accent-sensitive"
-msgstr "phân biệt chữ HOA/thường"
+msgstr "phân biệt giọng điệu"
 
 #: src/Charsets/Collation.php:229
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "phân biệt chữ HOA/thường"
+msgstr "phân biệt kana"
 
 #: src/Charsets/Collation.php:230
 msgctxt "Collation variant"
@@ -9451,9 +9444,9 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns."
 msgstr ""
-"Định nghĩa xem kiểu của điều khiển sửa chữa nào sẽ được dùng cho các cột "
-"CHAR và VARCHAR; [kbd]input[/kbd] - cho phép giới hạn chiều dài đầu vào,  "
-"[kbd]textarea[/kbd] - cho phép dòng mới trong cột."
+"Xác định loại điều khiển chỉnh sửa nào nên được sử dụng cho các cột CHAR và "
+"VARCHAR; [kbd]input[/kbd] - cho phép giới hạn độ dài nhập liệu, "
+"[kbd]textarea[/kbd] - cho phép xuống dòng trong các cột."
 
 #: src/Config/Descriptions.php:106
 msgid ""
@@ -10205,7 +10198,7 @@ msgstr "Phương thức xác thực sẽ dùng"
 
 #: src/Config/Descriptions.php:456
 msgid "Compress connection to MySQL server."
-msgstr "Kết nối có nén  đến máy phục vụ MySQL."
+msgstr "Nén kết nối đến máy chủ MySQL"
 
 #: src/Config/Descriptions.php:457
 msgid "Hide databases matching regular expression (PCRE)."
@@ -10330,8 +10323,8 @@ msgid ""
 "of the PHP setting session.gc_maxlifetime is less than the value of "
 "`LoginCookieValidity`."
 msgstr ""
-"Tắt cảnh báo mặc định cái mà hiển thị trên trang chính nếu giá trị của cài "
-"đặt phiên  PHP session.gc_maxlifetime thấp hơn giá trị của "
+"Vô hiệu hóa cảnh báo mặc định hiển thị trên trang chính nếu giá trị của "
+"thiết lập PHP session.gc_maxlifetime nhỏ hơn giá trị của "
 "`LoginCookieValidity`."
 
 #: src/Config/Descriptions.php:500
@@ -10399,8 +10392,8 @@ msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
 msgstr ""
-"Truy vấn được thực thi bằng cách bấm Enter (thay vì  Ctrl+Enter). Các dòng "
-"mới sẽ được chèn thêm bằng Shift+Enter."
+"Các truy vấn được thực thi bằng cách nhấn phím Enter (thay vì Ctrl+Enter). "
+"Dòng mới sẽ được chèn bằng tổ hợp phím Shift+Enter."
 
 #: src/Config/Descriptions.php:531
 #, fuzzy
@@ -12059,10 +12052,8 @@ msgid "Could not connect to the database server!"
 msgstr "Không thể kết nối đến máy chủ phục vụ cơ sở dữ liệu!"
 
 #: src/Config/Validator.php:283
-#, fuzzy
-#| msgid "Authentication type"
 msgid "Invalid authentication type!"
-msgstr "Kiểu xác thực"
+msgstr "Loại xác thực không hợp lệ!"
 
 #: src/Config/Validator.php:288
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
@@ -12101,23 +12092,23 @@ msgstr "Địa chỉ IP của không đúng: %s"
 #: src/Config/Validator.php:524
 #: src/Controllers/JavaScriptMessagesController.php:808
 msgid "Not a valid port number!"
-msgstr "Số hiệu cổng không hợp lệ"
+msgstr "Số cổng không hợp lệ!"
 
 #: src/Config/Validator.php:546
 #: src/Controllers/JavaScriptMessagesController.php:806
 msgid "Not a positive number!"
-msgstr "không phải là số hiệu phiên bản"
+msgstr "Không phải là số dương!"
 
 #: src/Config/Validator.php:568
 #: src/Controllers/JavaScriptMessagesController.php:807
 msgid "Not a non-negative number!"
-msgstr "Không là con số âm"
+msgstr "Không phải là số không âm!"
 
 #: src/Config/Validator.php:607
 #: src/Controllers/JavaScriptMessagesController.php:810
 #, php-format
 msgid "Value must be less than or equal to %s!"
-msgstr "Giá trị phải nhỏ hơn hoặc bằng %s"
+msgstr "Giá trị phải nhỏ hơn hoặc bằng %s!"
 
 #: src/Console/Console.php:64
 #, fuzzy, php-format
@@ -12136,8 +12127,8 @@ msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
-"Tập tin %s  không có sẵn trên hệ thống, hãy truy cập %s để biết thêm thông "
-"tin."
+"Tệp %s không có sẵn trên hệ thống này, vui lòng truy cập %s để biết thêm "
+"thông tin."
 
 #: src/Controllers/Console/Bookmark/AddController.php:42
 #: src/Controllers/JavaScriptMessagesController.php:569
@@ -12307,10 +12298,8 @@ msgstr "Không có Đặc quyền gì"
 #: src/Controllers/Database/PrivilegesController.php:73
 #: src/Controllers/Server/PrivilegesController.php:109
 #: src/Controllers/Table/PrivilegesController.php:76
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a trigger"
 msgid "You do not have the privileges to administrate the users!"
-msgstr "Bạn không có đủ thẩm quyền cần thiết để tạo một bẫy"
+msgstr "Bạn không có quyền quản trị người dùng!"
 
 #: src/Controllers/Database/RoutinesController.php:88
 #: src/Controllers/Database/Structure/AddPrefixController.php:35
@@ -12681,9 +12670,9 @@ msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
-"Tuy nhiên trên lần chạy cuối không dữ liệu nào được phân tích, điều đó "
-"thường có nghĩa là phpMyAdmin sẽ không thể hoàn tất việc nhập vào trừ khi "
-"bạn gia tăng giới hạn chờ của PHP."
+"Tuy nhiên, trong lần chạy cuối cùng, không có dữ liệu nào được phân tích cú "
+"pháp, điều này thường có nghĩa là phpMyAdmin sẽ không thể hoàn tất quá trình "
+"nhập dữ liệu này trừ khi bạn tăng giới hạn thời gian của php."
 
 #: src/Controllers/Import/ImportController.php:637
 #: src/Controllers/Sql/SqlController.php:138
@@ -12849,6 +12838,11 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
+"Thông qua thao tác này, MySQL cố gắng ánh xạ các giá trị dữ liệu giữa các bộ "
+"ký tự. Nếu các bộ ký tự không tương thích, có thể xảy ra mất dữ liệu và dữ "
+"liệu bị mất này có thể <b>KHÔNG</b> thể khôi phục được chỉ bằng cách thay "
+"đổi lại bộ ký tự của cột. <b>Để chuyển đổi dữ liệu hiện có, bạn nên sử dụng "
+"tính năng chỉnh sửa cột (liên kết \"Thay đổi\") trên trang cấu trúc bảng.</b>"
 
 #: src/Controllers/JavaScriptMessagesController.php:107
 msgid ""
@@ -13038,7 +13032,7 @@ msgstr "Bộ nhớ còn trống"
 
 #: src/Controllers/JavaScriptMessagesController.php:191
 msgid "Used memory"
-msgstr "RAM đã dùng"
+msgstr "Bộ nhớ đã dùng"
 
 #: src/Controllers/JavaScriptMessagesController.php:193
 msgid "Total swap"
@@ -13573,7 +13567,7 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:411
 msgid "No partial dependencies selected!"
-msgstr "Chưa chọn cơ sở dữ liệu."
+msgstr "Không có phụ thuộc từng phần nào được chọn!"
 
 #: src/Controllers/JavaScriptMessagesController.php:413
 msgid "Show me the possible partial dependencies based on data in the table"
@@ -13623,7 +13617,7 @@ msgstr "Các phụ thuộc được chọn như sau:"
 
 #: src/Controllers/JavaScriptMessagesController.php:427
 msgid "No dependencies selected!"
-msgstr "Chưa chọn ô điều khiển."
+msgstr "Không có phụ thuộc nào được chọn!"
 
 #: src/Controllers/JavaScriptMessagesController.php:428
 #, fuzzy
@@ -13805,7 +13799,7 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:517
 msgid "value/subQuery is empty"
-msgstr ""
+msgstr "giá trị/truy vấn con trống"
 
 #: src/Controllers/JavaScriptMessagesController.php:519
 msgid "Page name"
@@ -13850,10 +13844,8 @@ msgid "%d object(s) created."
 msgstr "%d đối tượng đã được tạo."
 
 #: src/Controllers/JavaScriptMessagesController.php:536
-#, fuzzy
-#| msgid "Column names"
 msgid "Column name"
-msgstr "Các tên cột"
+msgstr "Tên cột"
 
 #: src/Controllers/JavaScriptMessagesController.php:540
 #, fuzzy
@@ -13988,10 +13980,8 @@ msgid "up to date"
 msgstr "đã cập nhật"
 
 #: src/Controllers/JavaScriptMessagesController.php:598
-#, fuzzy
-#| msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgid "There was an error in loading the Git information."
-msgstr "Có lỗi khi nhập vào tập tin hình dạng ESRI: \"%s\"."
+msgstr "Đã xảy ra lỗi khi tải thông tin Git."
 
 #: src/Controllers/JavaScriptMessagesController.php:601
 msgid ""
@@ -14053,16 +14043,12 @@ msgid "Column name copying to clipboard failed!"
 msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:634
-#, fuzzy
-#| msgid "Successfully deleted the page"
 msgid "Successfully copied!"
-msgstr "Trang đã được xóa thành công"
+msgstr "Sao chép thành công!"
 
 #: src/Controllers/JavaScriptMessagesController.php:635
-#, fuzzy
-#| msgid "Copying database"
 msgid "Copying failed!"
-msgstr "Đang chép cơ sở dữ liệu"
+msgstr "Sao chép thất bại!"
 
 #: src/Controllers/JavaScriptMessagesController.php:638
 msgid "Execute this query again?"
@@ -15782,7 +15768,7 @@ msgstr "Lỗi: Thiếu chỉ mục trên các cột."
 
 #: src/Database/Designer/Common.php:543 src/Database/Designer/Common.php:605
 msgid "Error: Relational features are disabled!"
-msgstr "Mối quan hệ profile không tìm thấy"
+msgstr "Lỗi: Các tính năng quan hệ đã bị vô hiệu hóa!"
 
 #: src/Database/Designer/Common.php:564
 #, fuzzy
@@ -15869,7 +15855,7 @@ msgstr "Định nghĩa phải ở định dạng \"username@hostname\"!"
 
 #: src/Database/Events.php:275
 msgid "You must provide an event name!"
-msgstr "Phải ghi rõ tên tập tin."
+msgstr "Bạn phải cung cấp tên sự kiện!"
 
 #: src/Database/Events.php:289
 msgid "You must provide a valid interval value for the event."
@@ -17244,10 +17230,8 @@ msgstr "Hiện chú thích"
 
 #: src/Plugins/Export/ExportLatex.php:162 src/Plugins/Export/ExportOdt.php:109
 #: src/Plugins/Export/ExportSql.php:212
-#, fuzzy
-#| msgid "Display MIME types"
 msgid "Display media types"
-msgstr "Hiển thị kiểu MIME"
+msgstr "Các loại phương tiện hiển thị"
 
 #: src/Plugins/Export/ExportLatex.php:179
 msgid "Put columns names in the first row:"
@@ -17594,10 +17578,8 @@ msgid ""
 msgstr ""
 
 #: src/Plugins/Import/ImportCsv.php:144
-#, fuzzy
-#| msgid "Column names: "
 msgid "Column names:"
-msgstr "Tên cột: "
+msgstr "Tên cột:"
 
 #: src/Plugins/Import/ImportCsv.php:283 src/Plugins/Import/ImportCsv.php:541
 #, php-format
@@ -17661,7 +17643,7 @@ msgstr ""
 
 #: src/Plugins/Import/ImportOds.php:165
 msgid "Could not parse OpenDocument Spreadsheet!"
-msgstr "Mở tài liệu định dạng HTML"
+msgstr "Không thể phân tích Bảng tính OpenDocument!"
 
 #: src/Plugins/Import/ImportShp.php:74
 msgid "ESRI Shape File"
