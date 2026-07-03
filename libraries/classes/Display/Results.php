@@ -4363,15 +4363,10 @@ class Results
      */
     private function getFromForeign(array $fieldInfo, string $whereComparison): ?string
     {
-        $dispsql = 'SELECT '
-            . Util::backquote($fieldInfo[2])
-            . ' FROM '
-            . Util::backquote($fieldInfo[3])
-            . '.'
-            . Util::backquote($fieldInfo[0])
-            . ' WHERE '
-            . Util::backquote($fieldInfo[1])
-            . $whereComparison;
+        $dispsql = 'SELECT ' . Util::backquote($fieldInfo[2])
+            . ' FROM ' . Util::backquote($fieldInfo[3]) . '.' . Util::backquote($fieldInfo[0])
+            . ' WHERE ' . Util::backquote($fieldInfo[1]) . $whereComparison
+            . ' LIMIT 1';
 
         $dispval = $this->dbi->fetchValue($dispsql);
         if ($dispval === false) {
