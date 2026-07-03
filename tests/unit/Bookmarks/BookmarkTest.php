@@ -40,7 +40,7 @@ class BookmarkTest extends AbstractTestCase
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addResult(
             'SELECT * FROM `phpmyadmin`.`pma_bookmark` WHERE (`user` = \'root\' OR `user` = \'\')'
-                . ' AND dbase = \'sakila\' ORDER BY label ASC',
+                . ' AND (dbase = \'sakila\' OR dbase = \'\') ORDER BY label ASC',
             [['1', 'sakila', 'root', 'label', 'SELECT * FROM `actor` WHERE `actor_id` < 10;']],
             ['id', 'dbase', 'user', 'label', 'query'],
         );
