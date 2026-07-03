@@ -35,6 +35,7 @@ use PhpMyAdmin\Utils\Gis;
 use function __;
 use function _pgettext;
 use function array_filter;
+use function array_key_exists;
 use function array_keys;
 use function array_merge;
 use function array_shift;
@@ -248,6 +249,9 @@ class Results
 
     /** @var Template */
     public $template;
+
+    /** @var array<string, string|null> */
+    private $foreignKeyDisplayCache = [];
 
     /**
      * @param string $db       the database name
@@ -4367,18 +4371,19 @@ class Results
             . ' FROM ' . Util::backquote($fieldInfo[3]) . '.' . Util::backquote($fieldInfo[0])
             . ' WHERE ' . Util::backquote($fieldInfo[1]) . $whereComparison
             . ' LIMIT 1';
+        if (array_key_exists($dispsql, $this->foreignKeyDisplayCache)) {
+            return $this->foreignKeyDisplayCache[$dispsql];
+        }
 
         $dispval = $this->dbi->fetchValue($dispsql);
         if ($dispval === false) {
-            return __('Link not found!');
+            $dispval = __('Link not found!');
+        } elseif ($dispval !== null) {
+            // Truncate values that are too long, see: #17902
+            [, $dispval] = $this->getPartialText($dispval);
         }
 
-        if ($dispval === null) {
-            return null;
-        }
-
-        // Truncate values that are too long, see: #17902
-        [, $dispval] = $this->getPartialText($dispval);
+        $this->foreignKeyDisplayCache[$dispsql] = $dispval;
 
         return $dispval;
     }
