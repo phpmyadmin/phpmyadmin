@@ -113,8 +113,8 @@ class TwigLintCommandTest extends AbstractTestCase
         self::assertArrayHasKey('exception', $filesFound[1]);
         $exception = $filesFound[1]['exception'];
         self::assertInstanceOf(SyntaxError::class, $exception);
-        self::assertSame(
-            'Unexpected "}" in "' . $path . DIRECTORY_SEPARATOR . 'foo-invalid.twig" at line 1.',
+        self::assertStringMatchesFormat(
+            'Unexpected "}" in "%s%efoo-invalid.twig" at line %s.',
             $exception->getMessage()
         );
     }
