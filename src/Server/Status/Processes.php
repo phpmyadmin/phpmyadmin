@@ -10,9 +10,18 @@ use PhpMyAdmin\Util;
 
 use function __;
 use function array_change_key_case;
+use function array_fill;
 use function array_key_exists;
+use function array_map;
+use function array_unique;
+use function array_values;
 use function count;
+use function implode;
 use function number_format;
+use function preg_match;
+use function preg_quote;
+use function str_replace;
+use function substr_count;
 
 use const CASE_LOWER;
 
@@ -66,8 +75,9 @@ final class Processes
 
             $rows[] = [
                 'id' => $process['id'],
-                'user' => $process['user'],
+                'user' => (string) $process['user'],
                 'host' => $process['host'],
+                'host_without_port' => self::stripPort((string) $process['host']),
                 'db' => $process['db'] ?? '',
                 'command' => $process['command'],
                 'time' => $process['time'],
@@ -77,6 +87,8 @@ final class Processes
             ];
         }
 
+        $this->resolveGrantHostnames($rows);
+
         $columns = $this->getSortableColumnsForProcessList($showExecuting, $showFullSql, $orderByField, $sortOrder);
 
         return [
@@ -85,6 +97,127 @@ final class Processes
             'refresh_params' => $urlParams,
             'is_mariadb' => $this->dbi->isMariaDB(),
         ];
+    }
+
+    /**
+     * Strips the port from a `SHOW PROCESSLIST`/`INFORMATION_SCHEMA.PROCESSLIST`
+     * `Host` value (e.g. `10.0.0.5:41414`, `[::1]:41414`, `localhost`).
+     *
+     * `mysql.user`/`mysql.global_priv`'s `Host` column never includes a port
+     * (it is matched by exact string against a plain hostname/IP/`%`
+     * wildcard), so passing the raw connection host straight through to a
+     * user-lookup link never matches. IPv6 addresses are only stripped when
+     * bracketed with an explicit port (`[::1]:3306`) — a bare IPv6 address
+     * has multiple colons of its own and no port to strip, so it is left
+     * untouched to avoid truncating it.
+     */
+    private static function stripPort(string $host): string
+    {
+        if (preg_match('/^\[(?P<host>[0-9a-fA-F:]+)]:\d+$/', $host, $matches) === 1) {
+            return $matches['host'];
+        }
+
+        if (substr_count($host, ':') === 1 && preg_match('/^(?P<host>.+):\d+$/', $host, $matches) === 1) {
+            return $matches['host'];
+        }
+
+        return $host;
+    }
+
+    /**
+     * Replaces each row's `host_without_port` with the actual `Host` pattern
+     * stored in `mysql.user`/`mysql.global_priv`, when one can be found.
+     *
+     * `SHOW PROCESSLIST` only ever reports the connecting client's real
+     * host/IP — never the (possibly wildcarded, e.g. `%`, `192.168.%`) grant
+     * entry that authorized the connection. Since the grant `Host` column
+     * uses the same `%`/`_` wildcard syntax as SQL `LIKE`, the actual
+     * pattern can be recovered by fetching every `Host` registered for the
+     * row's `User` and testing which one matches the connecting host —
+     * preferring an exact (non-wildcard) match when one exists, since that
+     * is the least ambiguous choice.
+     *
+     * Reading `mysql.user` requires a privilege the current user might not
+     * have; failing to read it (or finding no match) leaves
+     * `host_without_port` as the plain connecting host, same as before this
+     * resolution existed — an imprecise but harmless fallback.
+     *
+     * @param list<array{user: string, host_without_port: string}&array<string, mixed>> $rows
+     */
+    private function resolveGrantHostnames(array &$rows): void
+    {
+        $usernames = array_values(array_unique(array_map(
+            static fn (array $row): string => $row['user'],
+            $rows,
+        )));
+
+        if ($usernames === []) {
+            return;
+        }
+
+        $placeholders = implode(', ', array_fill(0, count($usernames), '?'));
+        $result = $this->dbi->executeQuery(
+            'SELECT `User`, `Host` FROM `mysql`.`user` WHERE `User` IN (' . $placeholders . ')',
+            $usernames,
+        );
+
+        if ($result === null) {
+            return;
+        }
+
+        $hostsByUser = [];
+        foreach ($result as $grant) {
+            $hostsByUser[(string) $grant['User']][] = (string) $grant['Host'];
+        }
+
+        foreach ($rows as &$row) {
+            $candidates = $hostsByUser[$row['user']] ?? [];
+            $match = self::findMatchingHost($row['host_without_port'], $candidates);
+            if ($match === null) {
+                continue;
+            }
+
+            $row['host_without_port'] = $match;
+        }
+    }
+
+    /**
+     * Finds, among the given grant `Host` patterns, the one that the actual
+     * connecting host satisfies — an exact literal match wins over a
+     * wildcard pattern, since it is the least ambiguous choice.
+     *
+     * @param string[] $patterns
+     */
+    private static function findMatchingHost(string $host, array $patterns): string|null
+    {
+        foreach ($patterns as $pattern) {
+            if ($pattern === $host) {
+                return $pattern;
+            }
+        }
+
+        foreach ($patterns as $pattern) {
+            if (self::hostMatchesPattern($host, $pattern)) {
+                return $pattern;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * Tests a connecting host against a `mysql.user`-style `Host` pattern,
+     * which uses the same `%`/`_` wildcard syntax as SQL `LIKE` — `%` for
+     * any run of characters, `_` for exactly one. Netmask notation
+     * (`192.168.1.0/255.255.255.0`) is a separate, non-`LIKE` syntax MySQL
+     * also accepts for `Host`; it is not handled here and such a pattern
+     * simply will not match, falling back to the plain connecting host.
+     */
+    private static function hostMatchesPattern(string $host, string $pattern): bool
+    {
+        $regex = str_replace(['%', '_'], ['.*', '.'], preg_quote($pattern, '/'));
+
+        return preg_match('/^' . $regex . '$/i', $host) === 1;
     }
 
     /** @return mixed[] */
