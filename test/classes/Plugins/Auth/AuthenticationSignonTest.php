@@ -11,11 +11,9 @@ use PhpMyAdmin\Tests\AbstractNetworkTestCase;
 
 use function ob_get_clean;
 use function ob_start;
-use function phpversion;
 use function session_get_cookie_params;
 use function session_id;
 use function session_name;
-use function version_compare;
 
 use const PHP_VERSION_ID;
 
@@ -327,11 +325,16 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
             'domain' => '',
             'secure' => false,
             'partitioned' => false,
-            'httponly' => false,
-            'samesite' => '',
+            'httponly' => true,
+            'samesite' => 'Lax',
         ];
+        if (PHP_VERSION_ID < 80600) {
+            $defaultOptions['httponly'] = false;
+            $defaultOptions['samesite'] = '';
+        }
+
         // php did not set 'samesite' attribute in session_get_cookie_params since not yet implemented
-        if (version_compare((string) phpversion(), '7.3.0', '<')) {
+        if (PHP_VERSION_ID < 70300) {
             unset($defaultOptions['samesite']);
         }
 
