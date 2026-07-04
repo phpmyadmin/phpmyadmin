@@ -25,6 +25,8 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 use function __;
+use function array_map;
+use function array_reduce;
 use function array_search;
 use function ceil;
 use function count;
@@ -932,19 +934,20 @@ class StructureController extends AbstractController
         }
 
         if ($this->isShowStats) {
-            // Only count columns that have double quotes
-            $columnCount = (int) $this->dbi->fetchValue(
-                'SELECT COUNT(COLUMN_NAME) FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = \''
-                . $this->dbi->escapeString($this->db) . '\' AND TABLE_NAME = \''
-                . $this->dbi->escapeString($currentTable['TABLE_NAME']) . '\' AND NUMERIC_SCALE IS NULL;'
-            );
-
             // Get column names
-            $columnNames = $this->dbi->fetchValue(
-                'SELECT GROUP_CONCAT(COLUMN_NAME) FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = \''
+            /** @var list<array{COLUMN_NAME: string, HAS_QUOTES: numeric-string}> $columns */
+            $columns = $this->dbi->fetchResult(
+                'SELECT COLUMN_NAME, NUMERIC_SCALE IS NULL AS HAS_QUOTES'
+                . ' FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = \''
                 . $this->dbi->escapeString($this->db) . '\' AND TABLE_NAME = \''
                 . $this->dbi->escapeString($currentTable['TABLE_NAME']) . '\';'
             );
+            $columnsString = implode(',', array_map(
+                static function (array $column): string {
+                    return Util::backquote($column['COLUMN_NAME']);
+                },
+                $columns
+            ));
 
             // 10Mb buffer for CONCAT_WS
             // not sure if is needed
@@ -956,7 +959,7 @@ class StructureController extends AbstractController
             $dataLength = (int) $this->dbi->fetchValue("
                 SELECT SUM(LENGTH(REPLACE(
                     REPLACE(
-                        REPLACE(CONCAT_WS(',', " . $columnNames . "), '\\n', 'nl'),
+                        REPLACE(CONCAT_WS(',', " . $columnsString . "), '\\n', 'nl'),
                         '\"',
                         'qu'
                     ),
@@ -964,11 +967,13 @@ class StructureController extends AbstractController
                     'bs'
                 ))) FROM " . Util::backquote($this->db) . '.' . Util::backquote($currentTable['TABLE_NAME']));
 
-            // Calculate quotes length
-            $quotesLength = $currentTable['TABLE_ROWS'] * $columnCount * 2;
+            $quotedColumns = array_reduce($columns, static function (int $sum, array $column): int {
+                return $sum + (int) $column['HAS_QUOTES'];
+            }, 0);
+            $newLines = $currentTable['TABLE_ROWS'];
 
             /** @var int $tblsize */
-            $tblsize = $dataLength + $quotesLength + $currentTable['TABLE_ROWS'];
+            $tblsize = $dataLength + $currentTable['TABLE_ROWS'] * $quotedColumns * 2 + $newLines;
 
             $sumSize += $tblsize;
             [$formattedSize, $unit] = Util::formatByteDown($tblsize, 3, $tblsize > 0 ? 1 : 0);
