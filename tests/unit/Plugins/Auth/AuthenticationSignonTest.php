@@ -365,9 +365,13 @@ class AuthenticationSignonTest extends AbstractTestCase
             'domain' => '',
             'secure' => false,
             'partitioned' => false,
-            'httponly' => false,
-            'samesite' => '',
+            'httponly' => true,
+            'samesite' => 'Lax',
         ];
+        if (PHP_VERSION_ID < 80600) {
+            $defaultOptions['httponly'] = false;
+            $defaultOptions['samesite'] = '';
+        }
 
         if (PHP_VERSION_ID < 80500) {
             unset($defaultOptions['partitioned']);
