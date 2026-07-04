@@ -1,0 +1,23 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: pma-mysql
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: keploy123
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-pkeploy123"]
+      interval: 2s
+      timeout: 5s
+      retries: 30
+
+  phpmyadmin:
+    build: .
+    container_name: phpmyadmin
+    volumes:
+      - .:/var/www/html
+    ports:
+      - "8080:8080"
+    depends_on:
+      mysql:
+        condition: service_healthy

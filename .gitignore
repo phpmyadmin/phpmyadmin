@@ -112,3 +112,9 @@ infection.json5
 !/public/themes/pmahomme/
 /public/themes/*/css/*.css
 /public/themes/*/css/*.css.map
+
+# Keploy transient artifacts (tests + mocks under keploy/ are kept)
+/keploy/reports/
+/keploy/**/agent-debug.log
+/keploy/agent-debug.log
+/docker-compose-tmp.yaml
