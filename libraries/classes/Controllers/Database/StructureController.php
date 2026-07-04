@@ -954,7 +954,7 @@ class StructureController extends AbstractController
             // literal new line, double quote and backslash characters are escaped in csv
             // and use up two bytes instead of one.
             $dataLength = (int) $this->dbi->fetchValue("
-                SELECT SUM(CHAR_LENGTH(REPLACE(
+                SELECT SUM(LENGTH(REPLACE(
                     REPLACE(
                         REPLACE(CONCAT_WS(',', " . $columnNames . "), '\\n', 'nl'),
                         '\"',
