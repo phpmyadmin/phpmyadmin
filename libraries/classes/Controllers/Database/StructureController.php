@@ -579,7 +579,7 @@ class StructureController extends AbstractController
         if (isset($currentTable['TABLE_ROWS']) && ($currentTable['ENGINE'] != null || $tableIsView)) {
             // InnoDB/TokuDB table: we did not get an accurate row count
             $approxRows = ! $tableIsView
-                && in_array($currentTable['ENGINE'], ['CSV', 'InnoDB', 'TokuDB'])
+                && in_array($currentTable['ENGINE'], ['InnoDB', 'TokuDB'])
                 && ! $currentTable['COUNTED'];
 
             if ($tableIsView && $currentTable['TABLE_ROWS'] >= $GLOBALS['cfg']['MaxExactCountViews']) {
@@ -924,14 +924,10 @@ class StructureController extends AbstractController
     ) {
         $formattedSize = $unit = '';
 
-        if ($currentTable['ENGINE'] === 'CSV') {
-            $currentTable['COUNTED'] = true;
-            $currentTable['TABLE_ROWS'] = $this->dbi
-                ->getTable($this->db, $currentTable['TABLE_NAME'])
-                ->countRecords(true);
-        } else {
-            $currentTable['COUNTED'] = false;
-        }
+        $currentTable['COUNTED'] = true;
+        $currentTable['TABLE_ROWS'] = $this->dbi
+            ->getTable($this->db, $currentTable['TABLE_NAME'])
+            ->countRecords(true);
 
         if ($this->isShowStats) {
             // Get column names
