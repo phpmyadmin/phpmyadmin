@@ -1,0 +1,46 @@
+name: Keploy MySQL integration tests
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+
+env:
+  # Version this suite was recorded and calibrated with.
+  KEPLOY_VERSION: v3.5.84
+
+jobs:
+  keploy-replay:
+    name: Replay recorded API tests (MySQL mocked)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install PHP dependencies
+        run: |
+          docker run --rm -v "$PWD:/app" -w /app composer:2 \
+            install --no-dev --ignore-platform-reqs --no-interaction --no-progress
+
+      - name: Install Keploy OSS
+        run: |
+          curl -sL -o /tmp/keploy.tar.gz \
+            "https://github.com/keploy/keploy/releases/download/${KEPLOY_VERSION}/keploy_linux_amd64.tar.gz"
+          sudo tar -xzf /tmp/keploy.tar.gz -C /usr/local/bin keploy
+          keploy --version
+
+      - name: Run Keploy replay
+        # Replays keploy/test-set-0 against the app started via docker compose
+        # (see keploy.yml). MySQL traffic is served from the recorded mocks, so
+        # no real database is needed. Exits non-zero if any test fails.
+        run: sudo -E keploy test
+
+      - name: Upload Keploy reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: keploy-reports
+          path: keploy/reports/
+          if-no-files-found: ignore

@@ -1,0 +1,7 @@
+preScript: ""
+postScript: ""
+appCommand: ""
+template: {}
+metadata:
+    name: mysql-crud
+    description: MySQL CRUD through phpMyAdmin /import route — create db+table, insert x3, select, update, read-back, delete, browse, structure, drop table+db. Recorded by keploy/test-set-0/seed.sh.
