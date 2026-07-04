@@ -949,17 +949,16 @@ class StructureController extends AbstractController
                 $columns
             ));
 
-            // 10Mb buffer for CONCAT_WS
-            // not sure if is needed
+            // 10 MB buffer for CONCAT, not sure if is needed
             $this->dbi->query('SET SESSION group_concat_max_len = 10 * 1024 * 1024');
 
             // Calculate data length
             // literal new line, double quote and backslash characters are escaped in csv
             // and use up two bytes instead of one.
-            $dataLength = (int) $this->dbi->fetchValue("
+            $dataLength = (int) $this->dbi->fetchValue('
                 SELECT SUM(LENGTH(REPLACE(
                     REPLACE(
-                        REPLACE(CONCAT_WS(',', " . $columnsString . "), '\\n', 'nl'),
+                        REPLACE(CONCAT(' . $columnsString . "), '\\n', 'nl'),
                         '\"',
                         'qu'
                     ),
@@ -970,10 +969,10 @@ class StructureController extends AbstractController
             $quotedColumns = array_reduce($columns, static function (int $sum, array $column): int {
                 return $sum + (int) $column['HAS_QUOTES'];
             }, 0);
-            $newLines = $currentTable['TABLE_ROWS'];
+            $separatorsAndNewLine = count($columns);
 
             /** @var int $tblsize */
-            $tblsize = $dataLength + $currentTable['TABLE_ROWS'] * $quotedColumns * 2 + $newLines;
+            $tblsize = $dataLength + $currentTable['TABLE_ROWS'] * ($quotedColumns * 2 + $separatorsAndNewLine);
 
             $sumSize += $tblsize;
             [$formattedSize, $unit] = Util::formatByteDown($tblsize, 3, $tblsize > 0 ? 1 : 0);
