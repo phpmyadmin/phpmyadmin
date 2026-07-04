@@ -2011,6 +2011,12 @@ parameters:
 			path: src/Controllers/Import/StatusController.php
 
 		-
+			message: '#^Casting to string something that''s already string\.$#'
+			identifier: cast.useless
+			count: 1
+			path: src/Controllers/LicenseController.php
+
+		-
 			message: '#^Parameter \#1 \$partialDependencies of method PhpMyAdmin\\Normalization\:\:createNewTablesFor2NF\(\) expects array\<mixed\>, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -2099,6 +2105,12 @@ parameters:
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Operations/TableController.php
+
+		-
+			message: '#^Casting to string something that''s already string\.$#'
+			identifier: cast.useless
+			count: 1
+			path: src/Controllers/PhpInfoController.php
 
 		-
 			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
@@ -3465,12 +3477,6 @@ parameters:
 		-
 			message: '#^Possibly invalid array key type mixed\.$#'
 			identifier: offsetAccess.invalidOffset
-			count: 1
-			path: src/Controllers/Table/Structure/SaveController.php
-
-		-
-			message: '#^Strict comparison using \!\=\= between non\-empty\-list\<non\-falsy\-string\> and array\{\} will always evaluate to true\.$#'
-			identifier: notIdentical.alwaysTrue
 			count: 1
 			path: src/Controllers/Table/Structure/SaveController.php
 
@@ -6673,19 +6679,19 @@ parameters:
 			path: src/Git.php
 
 		-
-			message: '#^Offset 1 might not exist on array\{\}\|array\{0\: non\-falsy\-string, 1\: non\-empty\-string, 2\: non\-empty\-string, 3\: decimal\-int\-string, 4\?\: non\-falsy\-string\}\.$#'
+			message: '#^Offset 1 might not exist on array\{\}\|array\{0\: non\-falsy\-string, 1\: non\-empty\-string, 2\: non\-empty\-string, 3\: numeric\-string, 4\?\: non\-falsy\-string\}\.$#'
 			identifier: offsetAccess.notFound
 			count: 1
 			path: src/Git.php
 
 		-
-			message: '#^Offset 2 might not exist on array\{\}\|array\{0\: non\-falsy\-string, 1\: non\-empty\-string, 2\: non\-empty\-string, 3\: decimal\-int\-string, 4\?\: non\-falsy\-string\}\.$#'
+			message: '#^Offset 2 might not exist on array\{\}\|array\{0\: non\-falsy\-string, 1\: non\-empty\-string, 2\: non\-empty\-string, 3\: numeric\-string, 4\?\: non\-falsy\-string\}\.$#'
 			identifier: offsetAccess.notFound
 			count: 1
 			path: src/Git.php
 
 		-
-			message: '#^Offset 3 might not exist on array\{\}\|array\{0\: non\-falsy\-string, 1\: non\-empty\-string, 2\: non\-empty\-string, 3\: decimal\-int\-string, 4\?\: non\-falsy\-string\}\.$#'
+			message: '#^Offset 3 might not exist on array\{\}\|array\{0\: non\-falsy\-string, 1\: non\-empty\-string, 2\: non\-empty\-string, 3\: numeric\-string, 4\?\: non\-falsy\-string\}\.$#'
 			identifier: offsetAccess.notFound
 			count: 1
 			path: src/Git.php
@@ -7282,7 +7288,7 @@ parameters:
 			path: src/InsertEdit.php
 
 		-
-			message: '#^Offset 2 might not exist on array\{\}\|array\{0\: non\-falsy\-string, 1\: string, 2\: string, 3\?\: decimal\-int\-string\}\.$#'
+			message: '#^Offset 2 might not exist on array\{\}\|array\{0\: non\-falsy\-string, 1\: ''''\|''\\'''', 2\: string, 3\?\: numeric\-string\}\.$#'
 			identifier: offsetAccess.notFound
 			count: 1
 			path: src/InsertEdit.php
@@ -7380,12 +7386,6 @@ parameters:
 		-
 			message: '#^Possibly impure call to function preg_match\(\) in pure method PhpMyAdmin\\InsertEdit\:\:isWhereClauseNumeric\(\)\.$#'
 			identifier: possiblyImpure.functionCall
-			count: 1
-			path: src/InsertEdit.php
-
-		-
-			message: '#^Right side of \|\| is always true\.$#'
-			identifier: booleanOr.rightAlwaysTrue
 			count: 1
 			path: src/InsertEdit.php
 
@@ -13156,7 +13156,7 @@ parameters:
 			path: src/Utils/HttpRequest.php
 
 		-
-			message: '#^Offset 1 might not exist on array\{\}\|array\{non\-falsy\-string, decimal\-int\-string\}\.$#'
+			message: '#^Offset 1 might not exist on array\{\}\|array\{non\-falsy\-string, numeric\-string\}\.$#'
 			identifier: offsetAccess.notFound
 			count: 1
 			path: src/Utils/HttpRequest.php
@@ -13864,7 +13864,7 @@ parameters:
 			path: tests/unit/Config/FormDisplayTest.php
 
 		-
-			message: '#^Offset 1 might not exist on array\{\}\|array\{non\-falsy\-string, decimal\-int\-string\}\.$#'
+			message: '#^Offset 1 might not exist on array\{\}\|array\{non\-falsy\-string, numeric\-string\}\.$#'
 			identifier: offsetAccess.notFound
 			count: 1
 			path: tests/unit/Config/FormTest.php
@@ -14460,6 +14460,12 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
+			count: 1
+			path: tests/unit/Controllers/PhpInfoControllerTest.php
+
+		-
+			message: '#^Casting to string something that''s already string\.$#'
+			identifier: cast.useless
 			count: 1
 			path: tests/unit/Controllers/PhpInfoControllerTest.php
 
@@ -16096,12 +16102,6 @@ parameters:
 			'''
 			identifier: staticMethod.deprecated
 			count: 13
-			path: tests/unit/Plugins/Auth/AuthenticationSignonTest.php
-
-		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\) with array\{lifetime\: 0, path\: ''/'', domain\: '''', secure\: false, partitioned\?\: false, httponly\: false, samesite\: ''''\} and array\{lifetime\: int\<0, max\>, path\: non\-falsy\-string, domain\: string, secure\: bool, httponly\: bool, samesite\: ''Lax''\|''lax''\|''None''\|''none''\|''Strict''\|''strict''\} will always evaluate to false\.$#'
-			identifier: staticMethod.impossibleType
-			count: 1
 			path: tests/unit/Plugins/Auth/AuthenticationSignonTest.php
 
 		-
