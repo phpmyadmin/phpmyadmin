@@ -951,11 +951,18 @@ class StructureController extends AbstractController
             $this->dbi->query('SET SESSION group_concat_max_len = 10 * 1024 * 1024');
 
             // Calculate data length
-            $dataLength = (int) $this->dbi->fetchValue('
-                SELECT SUM(CHAR_LENGTH(REPLACE(REPLACE(REPLACE(
-                    CONCAT_WS(\',\', ' . $columnNames . '),
-                    UNHEX(\'0A\'), \'nn\'), UNHEX(\'22\'), \'nn\'), UNHEX(\'5C\'), \'nn\'
-                ))) FROM ' . Util::backquote($this->db) . '.' . Util::backquote($currentTable['TABLE_NAME']));
+            // literal new line, double quote and backslash characters are escaped in csv
+            // and use up two bytes instead of one.
+            $dataLength = (int) $this->dbi->fetchValue("
+                SELECT SUM(CHAR_LENGTH(REPLACE(
+                    REPLACE(
+                        REPLACE(CONCAT_WS(',', " . $columnNames . "), '\\n', 'nl'),
+                        '\"',
+                        'qu'
+                    ),
+                    '\\\\',
+                    'bs'
+                ))) FROM " . Util::backquote($this->db) . '.' . Util::backquote($currentTable['TABLE_NAME']));
 
             // Calculate quotes length
             $quotesLength = $currentTable['TABLE_ROWS'] * $columnCount * 2;
