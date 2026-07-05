@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2026-07-03 07:01+0000\n"
+"PO-Revision-Date: 2026-07-06 15:01+0000\n"
 "Last-Translator: hoanghuy309 <hoanghuy309@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/4-"
 "9/vi/>\n"
@@ -260,7 +260,7 @@ msgstr "Xem phần đổ (lược đồ) của cơ sở dữ liệu"
 #: libraries/classes/Database/Qbe.php:341
 #: libraries/classes/Navigation/NavigationTree.php:926
 msgid "No tables found in database."
-msgstr "Không tìm thấy bảng nào trong cơ sở dữ liệu"
+msgstr "Không tìm thấy bảng nào trong cơ sở dữ liệu."
 
 #: db_export.php:68 libraries/classes/Config/Descriptions.php:490
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:338
@@ -952,11 +952,13 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
+"Bạn đang cố gắng giảm số lượng hàng, nhưng dữ liệu đã nhập vào các hàng sẽ "
+"bị mất. Bạn có muốn tiếp tục không?"
 
 #: js/messages.php:74
-#, fuzzy
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "Bạn có thực sự muốn thực thi \"%s\"?"
+msgstr ""
+"Bạn có thực sự muốn thu hồi quyền truy cập của người dùng đã chọn không?"
 
 #: js/messages.php:76
 msgid "Do you really want to delete this central column?"
@@ -1002,7 +1004,7 @@ msgstr ""
 
 #: js/messages.php:95
 msgid "Garbled Data"
-msgstr "Dữ liệu bị cắt xén"
+msgstr "Dữ Liệu Bị Cắt Xén"
 
 #: js/messages.php:97
 msgid "Are you sure you wish to change the collation and convert the data?"
@@ -1087,7 +1089,7 @@ msgstr "Phức hợp với:"
 
 #: js/messages.php:127
 msgid "Please select column(s) for the index."
-msgstr "Vui lòng chọn (các) cột cho chỉ mục"
+msgstr "Vui lòng chọn (các) cột cho chỉ mục."
 
 #: js/messages.php:130 libraries/classes/InsertEdit.php:1893
 #: templates/columns_definitions/column_definitions_form.twig:146
@@ -1444,7 +1446,7 @@ msgstr "Tắt %s"
 #: js/messages.php:249
 #, php-format
 msgid "Set long_query_time to %d seconds."
-msgstr "Đặt long_query_time thành %ds"
+msgstr "Đặt long_query_time thành %d giây."
 
 #: js/messages.php:251
 msgid ""
@@ -1552,7 +1554,7 @@ msgstr "Đang phân tích…"
 
 #: js/messages.php:291
 msgid "Explain output"
-msgstr "Xuất vùng chọn:"
+msgstr "Giải thích kết quả đầu ra"
 
 #: js/messages.php:292 libraries/classes/Menu.php:591
 #: libraries/classes/Rte/Events.php:413 libraries/classes/Rte/RteList.php:116
@@ -1909,7 +1911,7 @@ msgstr "Giá trị cho cột %s"
 
 #: js/messages.php:410
 msgid "Values for a new column"
-msgstr "Giá trị cho cho cột mới"
+msgstr "Các giá trị cho một cột mới"
 
 #: js/messages.php:411
 msgid "Enter each value in a separate field."
@@ -2154,19 +2156,19 @@ msgstr "Vùng tìm kiếm"
 
 #: js/messages.php:488
 msgid "Column maximum:"
-msgstr "Giá trị tối đa"
+msgstr "Giá trị tối đa của cột:"
 
 #: js/messages.php:489
 msgid "Column minimum:"
-msgstr "Chiều cao nhỏ nhất"
+msgstr "Tối thiểu cột:"
 
 #: js/messages.php:490
 msgid "Minimum value:"
-msgstr "Giá trị tối thiểu"
+msgstr "Giá trị tối thiểu:"
 
 #: js/messages.php:491
 msgid "Maximum value:"
-msgstr "Giá trị tối đa"
+msgstr "Giá trị tối đa:"
 
 #: js/messages.php:494
 msgid "Hide find and replace criteria"
@@ -2174,7 +2176,7 @@ msgstr "Ẩn kết quả tìm kiếm"
 
 #: js/messages.php:495
 msgid "Show find and replace criteria"
-msgstr "Hiển thị hộp thoại tìm kiếm."
+msgstr "Hiển thị tiêu chí tìm kiếm và thay thế"
 
 #: js/messages.php:499
 msgid "Each point represents a data row."
@@ -2342,7 +2344,7 @@ msgstr "Không có tiêu đề"
 
 #: js/messages.php:572
 msgid "Please select a page to continue"
-msgstr "Xin hãy chọn trang bạn muốn hiển thị:"
+msgstr "Vui lòng chọn một trang để tiếp tục"
 
 #: js/messages.php:573
 msgid "Please enter a valid page name"
@@ -2409,15 +2411,15 @@ msgstr ""
 
 #: js/messages.php:598
 msgid "Click to mark/unmark."
-msgstr "Bấm chuột để đánh/bỏ đánh dấu"
+msgstr "Bấm chuột để đánh/bỏ đánh dấu."
 
 #: js/messages.php:599
 msgid "Double-click to copy column name."
-msgstr "Bấm đúp chuột để sao chép tên cột"
+msgstr "Bấm đúp chuột để sao chép tên cột."
 
 #: js/messages.php:601
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
-msgstr "Bấm vào mũi tên chỉ xuống<br /> để bật/tắt tính khả kiến của cột."
+msgstr "Nhấp vào mũi tên thả xuống<br />để bật/tắt hiển thị cột."
 
 #: js/messages.php:603 libraries/classes/BrowseForeigners.php:340
 #: templates/display/results/show_all_checkbox.twig:11
@@ -2668,11 +2670,10 @@ msgid ""
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
 "Đã xảy ra sự cố khi truy cập bộ nhớ trình duyệt của bạn, một số tính năng có "
-"thể không hoạt động chính xác với bạn. Có khả năng là trình duyệt không hỗ "
-"trợ lưu trữ hoặc giới hạn hạn ngạch đã đầy. Với Firefox, dung lượng lưu trữ "
-"bị hỏng cũng có thể gây ra sự cố như vậy, việc xoá \"Dữ liệu web ngoại tuyến"
-"\" có thể giúp ích. Với Safari, vấn đề như vậy thường gây ra bởi \"Chế độ "
-"Duyệt riêng tư\"."
+"thể không hoạt động bình thường. Có thể trình duyệt không hỗ trợ bộ nhớ hoặc "
+"đã đạt đến giới hạn dung lượng. Trong Firefox, bộ nhớ bị lỗi cũng có thể gây "
+"ra sự cố này, việc xóa \"Dữ liệu trang web ngoại tuyến\" có thể giúp ích. "
+"Trong Safari, sự cố này thường do \"Chế độ duyệt web riêng tư\" gây ra."
 
 #: js/messages.php:738
 msgid "Copy tables to"
@@ -4250,7 +4251,8 @@ msgstr "Giới hạn khóa ngoại"
 
 #: libraries/classes/Config/Descriptions.php:430
 msgid "Default value for foreign key checks checkbox for some queries."
-msgstr "Giá trị mặc định cho dấu kiểm kiểm khóa ngoại cho một số truy vấn."
+msgstr ""
+"Giá trị mặc định cho khóa ngoại kiểm tra hộp chọn đối với một số truy vấn."
 
 #: libraries/classes/Config/Descriptions.php:432
 msgid "Foreign key checks"
@@ -4293,7 +4295,7 @@ msgstr "Chế độ sửa"
 
 #: libraries/classes/Config/Descriptions.php:452
 msgid "Customize edit mode."
-msgstr "Cá nhân hóa chế độ chỉnh sửa"
+msgstr "Tùy chỉnh chế độ chỉnh sửa."
 
 #: libraries/classes/Config/Descriptions.php:454
 msgid "Export defaults"
@@ -4309,7 +4311,7 @@ msgstr "Chung"
 
 #: libraries/classes/Config/Descriptions.php:460
 msgid "Set some commonly used options."
-msgstr "Đặt một số tùy chọn hay dùng"
+msgstr "Thiết lập một số tùy chọn thường dùng."
 
 #: libraries/classes/Config/Descriptions.php:462
 msgid "Import defaults"
@@ -4317,7 +4319,7 @@ msgstr "Các mặc định nhập vào"
 
 #: libraries/classes/Config/Descriptions.php:464
 msgid "Customize default common import options."
-msgstr "Tùy chỉnh các tùy chọn nhập dữ liệu vào mặc định"
+msgstr "Tùy chỉnh các tùy chọn nhập vào thường mặc định."
 
 #: libraries/classes/Config/Descriptions.php:466
 msgid "Import / export"
@@ -4341,7 +4343,7 @@ msgstr "Cơ sở dữ liệu"
 
 #: libraries/classes/Config/Descriptions.php:476
 msgid "Databases display options."
-msgstr "Hiển thị tùy chọn thêm"
+msgstr "Các tùy chọn hiển thị cơ sở dữ liệu."
 
 #: libraries/classes/Config/Descriptions.php:478
 #: libraries/classes/Config/Forms/User/NaviForm.php:59
@@ -4425,7 +4427,7 @@ msgstr "Xác thực"
 
 #: libraries/classes/Config/Descriptions.php:527
 msgid "Authentication settings."
-msgstr "Cài đặt xác thực"
+msgstr "Cài đặt xác thực."
 
 #: libraries/classes/Config/Descriptions.php:529
 msgid "Server configuration"
@@ -4549,7 +4551,7 @@ msgstr "Trường Text"
 
 #: libraries/classes/Config/Descriptions.php:593
 msgid "Customize text input fields."
-msgstr "Tùy chỉnh các trường nhập vào kiểu text"
+msgstr "Tùy chỉnh các trường nhập văn bản."
 
 #: libraries/classes/Config/Descriptions.php:595
 msgid "Texy! text"
@@ -4663,7 +4665,7 @@ msgstr "Nhập phần trăm thành dạng thập phân cho thích hợp (12.00% 
 
 #: libraries/classes/Config/Descriptions.php:674
 msgid "Number of queries to skip from start."
-msgstr "Số lượng câu truy vấn được bỏ qua tính từ khởi đầu"
+msgstr "Số lượng truy vấn cần bỏ qua từ đầu."
 
 #: libraries/classes/Config/Descriptions.php:676
 msgid "Partial import: skip queries"
@@ -4683,7 +4685,7 @@ msgstr "Trạng thái khởi đầu cho con trượt"
 
 #: libraries/classes/Config/Descriptions.php:686
 msgid "How many rows can be inserted at one time."
-msgstr "Bao nhiêu dòng có thể chèn vào cùng một lúc"
+msgstr "Có thể chèn tối đa bao nhiêu hàng cùng lúc."
 
 #: libraries/classes/Config/Descriptions.php:688
 msgid "Number of inserted rows"
@@ -4724,7 +4726,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:707
 msgid "Recall user name"
-msgstr ""
+msgstr "Nhớ lại tên người dùng"
 
 #: libraries/classes/Config/Descriptions.php:710
 msgid ""
@@ -4752,7 +4754,7 @@ msgstr "Hiệu lực của cookie"
 
 #: libraries/classes/Config/Descriptions.php:722
 msgid "Double size of textarea for LONGTEXT columns."
-msgstr "Làm cho cỡ của vùng văn bản cho cột LONGTEXT lớn gấp đôi"
+msgstr "Gấp đôi kích thước vùng văn bản các cột LONGTEXT."
 
 #: libraries/classes/Config/Descriptions.php:724
 msgid "Bigger textarea for LONGTEXT"
@@ -4775,7 +4777,9 @@ msgstr "Người dùng không thể đặt giá trị cao hơn"
 
 #: libraries/classes/Config/Descriptions.php:732
 msgid "Maximum number of databases displayed in database list."
-msgstr "Số lượng cơ sở dữ liệu tối đa sẽ được hiển thị trong danh sách"
+msgstr ""
+"Số lượng tối đa các cơ sở dữ liệu được hiển thị trong danh sách cơ sở dữ "
+"liệu."
 
 #: libraries/classes/Config/Descriptions.php:734
 msgid "Maximum databases"
@@ -4786,7 +4790,8 @@ msgid ""
 "The number of items that can be displayed on each page on the first level of "
 "the navigation tree."
 msgstr ""
-"Số lượng mục mà nó có thể được trình bày trên mỗi trang của cây điều hướng"
+"Số lượng mục có thể hiển thị trên mỗi trang ở cấp độ đầu tiên của cây điều "
+"hướng."
 
 #: libraries/classes/Config/Descriptions.php:741
 msgid "Maximum items on first level"
@@ -4796,8 +4801,7 @@ msgstr "Số mục tối đa ở mức đầu tiên"
 msgid ""
 "The number of items that can be displayed on each page of the navigation "
 "tree."
-msgstr ""
-"Số lượng mục mà nó có thể được trình bày trên mỗi trang của cây điều hướng"
+msgstr "Số lượng mục có thể hiển thị trên mỗi trang của cây điều hướng."
 
 #: libraries/classes/Config/Descriptions.php:745
 msgid "Maximum items in branch"
@@ -4817,7 +4821,7 @@ msgstr "Số lượng hàng tối đa có thể hiển thị"
 
 #: libraries/classes/Config/Descriptions.php:757
 msgid "Maximum number of tables displayed in table list."
-msgstr "Số lượng cơ sở dữ liệu tối đa sẽ được hiển thị trong danh sách"
+msgstr "Số lượng tối đa các bảng được hiển thị trong danh sách bảng."
 
 #: libraries/classes/Config/Descriptions.php:759
 msgid "Maximum tables"
@@ -4859,7 +4863,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:780
 msgid "Show logo in navigation panel."
-msgstr "Hiện biểu tượng trong bảng điều hướng"
+msgstr "Hiển thị logo trong bảng điều hướng."
 
 #: libraries/classes/Config/Descriptions.php:782
 msgid "Display logo"
@@ -4911,7 +4915,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:808
 msgid "Minimum number of items to display the filter box"
-msgstr "Các định nghĩa số lượng mục tin được hiển thị trong hộp lọc tối thiểu."
+msgstr "Số lượng mục tối thiểu để hiển thị hộp lọc"
 
 #: libraries/classes/Config/Descriptions.php:810
 msgid "Minimum number of databases to display the database filter box"
@@ -5012,11 +5016,11 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:857
 msgid "Maximum number of recently used tables; set 0 to disable."
-msgstr "Số lượng hàng tối đa có thể hiển thị"
+msgstr "Số lượng tối đa các bảng được sử dụng gần đây; đặt 0 để tắt."
 
 #: libraries/classes/Config/Descriptions.php:859
 msgid "Maximum number of favorite tables; set 0 to disable."
-msgstr "Số lượng hàng tối đa có thể hiển thị"
+msgstr "Số lượng tối đa các bàn yêu thích; đặt 0 để tắt."
 
 #: libraries/classes/Config/Descriptions.php:861
 msgid "Recently used tables"
@@ -5052,17 +5056,17 @@ msgstr "Tắt phiếm tắt"
 
 #: libraries/classes/Config/Descriptions.php:877
 msgid "Use natural order for sorting table and database names."
-msgstr "Dùng thứ tự tự nhiên để sắp xếp tên bảng và cơ sở dữ liệu."
+msgstr "Dùng sắp đặt tự nhiên để sắp xếp tên bảng và cơ sở dữ liệu."
 
 #: libraries/classes/Config/Descriptions.php:879
 msgid "Natural order"
-msgstr "Thứ tự tự nhiên"
+msgstr "Sắp đặt tự nhiên"
 
 #: libraries/classes/Config/Descriptions.php:881
 #: libraries/classes/Config/Descriptions.php:915
 #: libraries/classes/Config/Descriptions.php:919
 msgid "Use only icons, only text or both."
-msgstr "Chỉ sử dụng các biểu tượng hay văn bản hoặc cả hai."
+msgstr "Chỉ sử dụng biểu tượng, chỉ sử dụng văn bản hoặc cả hai."
 
 #: libraries/classes/Config/Descriptions.php:883
 msgid "Table navigation bar"
@@ -5090,7 +5094,7 @@ msgstr "Kiểu sắp xếp mặc định"
 
 #: libraries/classes/Config/Descriptions.php:896
 msgid "Use persistent connections to MySQL databases."
-msgstr "Cổng để kết nối đến máy phục vụ"
+msgstr "Sử dụng kết nối liên tục đến cơ sở dữ liệu MySQL."
 
 #: libraries/classes/Config/Descriptions.php:898
 msgid "Persistent connections"
@@ -5154,7 +5158,7 @@ msgstr "Lịch sử truy vấn vĩnh viễn"
 
 #: libraries/classes/Config/Descriptions.php:937
 msgid "How many queries are kept in history."
-msgstr "Bao nhiêu truy vấn sẽ được lưu giữ trong lịch sử"
+msgstr "Bao nhiêu truy vấn sẽ được lưu giữ trong lịch sử."
 
 #: libraries/classes/Config/Descriptions.php:939
 msgid "Query history length"
@@ -5162,7 +5166,7 @@ msgstr "Độ dài của lịch sử các câu truy vấn"
 
 #: libraries/classes/Config/Descriptions.php:941
 msgid "Select which functions will be used for character set conversion."
-msgstr "Chọn hàm nào sẽ được dùng cho chuyển đổi bộ mã ký tự"
+msgstr "Chọn các hàm sẽ được sử dụng để chuyển đổi bộ ký tự."
 
 #: libraries/classes/Config/Descriptions.php:943
 msgid "Recoding engine"
@@ -5262,7 +5266,7 @@ msgstr "HTTP Realm"
 
 #: libraries/classes/Config/Descriptions.php:992
 msgid "Authentication method to use."
-msgstr "Phương thức xác thực sẽ dùng"
+msgstr "Phương thức xác thực cần sử dụng."
 
 #: libraries/classes/Config/Descriptions.php:994 setup/frames/index.inc.php:142
 msgid "Authentication type"
@@ -5285,6 +5289,8 @@ msgid ""
 "Leave blank for no column comments/mime types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
+"Để trống nếu không có bình luận cột/loại mime, gợi ý: [kbd]pma__column_info[/"
+"kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1008
 msgid "Column information table"
@@ -5292,7 +5298,7 @@ msgstr "Bảng thông tin cột"
 
 #: libraries/classes/Config/Descriptions.php:1010
 msgid "Compress connection to MySQL server."
-msgstr "Nén kết nối đến máy chủ MySQL"
+msgstr "Nén kết nối đến máy chủ MySQL."
 
 #: libraries/classes/Config/Descriptions.php:1012
 msgid "Compress connection"
@@ -5548,7 +5554,7 @@ msgstr "Ổ cắm mạng máy phục vụ"
 
 #: libraries/classes/Config/Descriptions.php:1153
 msgid "Enable SSL for connection to MySQL server."
-msgstr "Dùng SSL khi kết nối đến máy chủ MySQL"
+msgstr "Bật SSL để kết nối với máy chủ MySQL."
 
 #: libraries/classes/Config/Descriptions.php:1155
 msgid "Use SSL"
@@ -5591,26 +5597,24 @@ msgid "UI preferences table"
 msgstr "Bảng tùy thích UI"
 
 #: libraries/classes/Config/Descriptions.php:1176
-#, fuzzy
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
 msgstr ""
-"Có thể câu XÓA CƠ SỞ DỮ LIỆU NẾU TỒN TẠI sẽ được thêm vào dòng đầu tiên của "
-"nhật ký khi tạo một cơ sở dữ liệu."
+"Liệu câu lệnh DROP DATABASE IF EXISTS có được thêm vào làm dòng đầu tiên "
+"trong nhật ký khi tạo cơ sở dữ liệu hay không."
 
 #: libraries/classes/Config/Descriptions.php:1180
 msgid "Add DROP DATABASE"
 msgstr "Thêm DROP DATABASE"
 
 #: libraries/classes/Config/Descriptions.php:1183
-#, fuzzy
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
 msgstr ""
-"Có thể câu XÓA BẢNG NẾU TỒN TẠI sẽ được thêm vào dòng đầu tiên của nhật ký "
-"khi tạo bảng."
+"Liệu câu lệnh DROP TABLE IF EXISTS có được thêm vào làm dòng đầu tiên trong "
+"nhật ký khi tạo bảng hay không."
 
 #: libraries/classes/Config/Descriptions.php:1187
 #: libraries/classes/MultSubmits.php:405
@@ -6090,7 +6094,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1417
 msgid "Proxy url"
-msgstr "URL của máy ủy nhiệm"
+msgstr "Proxy url"
 
 #: libraries/classes/Config/Descriptions.php:1420
 msgid ""
@@ -6520,10 +6524,10 @@ msgid "Incorrect IP address: %s"
 msgstr "Địa chỉ IP của không đúng: %s"
 
 #: libraries/classes/Console.php:93
-#, fuzzy, php-format
+#, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
-msgstr[0] "Hiển thị %1$d dấu trang (cả riêng tư và chia sẻ chung)"
+msgstr[0] "Hiển thị %1$d dấu trang (cả riêng tư và được chia sẻ)"
 
 #: libraries/classes/Console.php:100
 msgid "No bookmarks"
@@ -6877,10 +6881,8 @@ msgstr ""
 "Cấu hình bộ lưu trữ chưa sẵn sàng cho danh sách trung tâm của tính năng cột."
 
 #: libraries/classes/Database/Designer/Common.php:565
-#, fuzzy
-#| msgid "Error: relation already exists."
 msgid "Error: relationship already exists."
-msgstr "Lỗi: quan hệ đã sẵn có"
+msgstr "Lỗi: Mối quan hệ đã tồn tại."
 
 #: libraries/classes/Database/Designer/Common.php:611
 #, fuzzy
@@ -7065,10 +7067,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/DatabaseInterface.php:1550
-#, fuzzy
-#| msgid "Failed to read configuration file!"
 msgid "Failed to set configured collation connection!"
-msgstr "Không thể thiết lập kết nối với sự đối chiếu cấu hình!"
+msgstr "Không thể thiết lập kết nối đối chiếu đã cấu hình!"
 
 #: libraries/classes/DatabaseInterface.php:2177
 msgid ""
@@ -7095,10 +7095,8 @@ msgid "Details…"
 msgstr "Chi tiết…"
 
 #: libraries/classes/DatabaseInterface.php:2507
-#, fuzzy
-#| msgid "Missing parameter:"
 msgid "Missing connection parameters!"
-msgstr "Thiếu tham số kết nối!"
+msgstr "Thiếu các tham số kết nối!"
 
 #: libraries/classes/DatabaseInterface.php:2532
 msgid "Connection for controluser as defined in your configuration failed."
@@ -7343,7 +7341,7 @@ msgstr "Truy vấn cần %01.4f giây."
 #: templates/database/structure/check_all_tables.twig:9
 #: templates/select_all.twig:2 templates/select_all.twig:6
 msgid "With selected:"
-msgstr "Lưu mục đã chọn"
+msgstr "Với cái đã chọn:"
 
 #: libraries/classes/Display/Results.php:4693
 #: libraries/classes/Display/Results.php:4695
@@ -7936,7 +7934,7 @@ msgstr "Chú thích"
 
 #: libraries/classes/Index.php:753
 msgid "The primary key has been dropped."
-msgstr "Khóa chính đã được xóa bỏ"
+msgstr "Khóa chính đã được xóa bỏ."
 
 #: libraries/classes/Index.php:760
 #, php-format
@@ -8578,7 +8576,7 @@ msgstr "Không cột thừa"
 
 #: libraries/classes/Normalization.php:324
 msgid "Move repeating groups"
-msgstr ""
+msgstr "Di chuyển các nhóm lặp lại"
 
 #: libraries/classes/Normalization.php:327
 msgid ""
@@ -8597,7 +8595,7 @@ msgstr ""
 
 #: libraries/classes/Normalization.php:341
 msgid "No repeating group"
-msgstr ""
+msgstr "Không có nhóm lặp lại"
 
 #: libraries/classes/Normalization.php:370
 msgid "Step 2."
@@ -8697,7 +8695,7 @@ msgstr "Bước 3."
 
 #: libraries/classes/Normalization.php:793
 msgid "Find transitive dependencies"
-msgstr ""
+msgstr "Tìm các phụ thuộc bắc cầu"
 
 #: libraries/classes/Normalization.php:800
 msgid ""
@@ -9245,7 +9243,7 @@ msgstr "Cấu trúc của bảng @TABLE@"
 #: libraries/classes/Plugins/Export/ExportOdt.php:94
 #: libraries/classes/Plugins/Export/ExportSql.php:228
 msgid "Object creation options"
-msgstr "Tùy chọn tạo tập tin:"
+msgstr "Tùy chọn tạo đối tượng"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:121
 #: libraries/classes/Plugins/Export/ExportLatex.php:173
@@ -9255,7 +9253,7 @@ msgstr "Tiêu đề bảng:"
 #: libraries/classes/Plugins/Export/ExportLatex.php:127
 #: libraries/classes/Plugins/Export/ExportLatex.php:179
 msgid "Table caption (continued):"
-msgstr "Tiêu đề bảng truy cập được"
+msgstr "Chú thích bảng (tiếp theo):"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:133
 #: libraries/classes/Plugins/Export/ExportLatex.php:185
@@ -9281,7 +9279,7 @@ msgstr "Hiển thị kiểu MIME"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:168
 msgid "Put columns names in the first row:"
-msgstr "Đặt tên các cột ở hàng đầu tiên"
+msgstr "Đặt tên các cột ở hàng đầu tiên:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:216
 #: libraries/classes/Plugins/Export/ExportSql.php:695
@@ -9400,7 +9398,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:346
 msgid "Data creation options"
-msgstr "Tùy chọn tạo tập tin:"
+msgstr "Tùy chọn tạo dữ liệu"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:351
 #: libraries/classes/Plugins/Export/ExportSql.php:2300
@@ -9444,8 +9442,9 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
-"chèn nhiều dòng mỗi lệnh <code>INSERT</code><br /> &nbsp; &nbsp; &nbsp; Ví "
-"dụ: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
+"chèn nhiều hàng trong mỗi câu lệnh <code>INSERT</code> <br />&nbsp; &nbsp; "
+"&nbsp; Ví dụ: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</"
+"code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:425
 msgid ""
@@ -9517,10 +9516,9 @@ msgid "Last check:"
 msgstr "Lần kiểm tra cuối:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1493
-#, fuzzy, php-format
-#| msgid "Table structure for table"
+#, php-format
 msgid "Error reading structure for table %s:"
-msgstr "Cấu trúc bảng cho bảng"
+msgstr "Lỗi khi đọc cấu trúc bảng %s:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1547
 msgid "It appears your database uses views;"
@@ -9574,10 +9572,9 @@ msgid "(See below for the actual view)"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2210
-#, fuzzy, php-format
-#| msgid "Error reading data:"
+#, php-format
 msgid "Error reading data for table %s:"
-msgstr "Gặp lỗi khi đọc dữ liệu:"
+msgstr "Lỗi khi đọc dữ liệu cho bảng %s:"
 
 #: libraries/classes/Plugins/Export/ExportXml.php:100
 msgid "Object creation options (all are recommended)"
@@ -9704,7 +9701,7 @@ msgstr "MySQL Spatial Extension không hỗ trợ kiểu ESRI \"%s\"."
 
 #: libraries/classes/Plugins/Import/ImportShp.php:238
 msgid "The imported file does not contain any data!"
-msgstr "Tập tin không chứa bất kỳ một dữ liệu có thể nhập vào."
+msgstr "Tệp đã nhập không chứa bất kỳ dữ liệu nào!"
 
 #: libraries/classes/Plugins/Import/ImportSql.php:68
 msgid "SQL compatibility mode:"
@@ -10025,16 +10022,13 @@ msgid "For testing purposes only!"
 msgstr ""
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:70
-#, fuzzy, php-format
-#| msgid "Hardware authentication failed!"
+#, php-format
 msgid "Two-factor authentication failed: %s"
-msgstr "Gặp lỗi khi xác thực phần cứng!"
+msgstr "Xác thực hai yếu tố thất bại: %s"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:74
-#, fuzzy
-#| msgid "Hardware authentication failed!"
 msgid "Two-factor authentication failed."
-msgstr "Gặp lỗi khi xác thực phần cứng!"
+msgstr "Xác thực hai yếu tố đã thất bại."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:127
 msgid "No Two-Factor"
@@ -10046,11 +10040,11 @@ msgstr ""
 
 #: libraries/classes/RecentFavoriteTable.php:145
 msgid "Could not save recent table!"
-msgstr "Không thể ghi lại bảng mới dùng"
+msgstr "Không thể lưu bảng gần đây!"
 
 #: libraries/classes/RecentFavoriteTable.php:149
 msgid "Could not save favorite table!"
-msgstr "Không thể ghi lại bảng mới dùng"
+msgstr "Không thể lưu bảng yêu thích!"
 
 #: libraries/classes/RecentFavoriteTable.php:219
 #: templates/database/structure/favorite_anchor.twig:4
@@ -10177,7 +10171,7 @@ msgstr "Tạo các bảng cần thiết với <code>%screate_tables.sql</code>."
 
 #: libraries/classes/Relation.php:381
 msgid "Create a pma user and give access to these tables."
-msgstr "Tạo người dùng pma và cho quyền truy các các bảng đó."
+msgstr "Tạo người dùng pma và cấp quyền truy cập vào các bảng này."
 
 #: libraries/classes/Relation.php:384
 msgid ""
@@ -10350,16 +10344,13 @@ msgid "Change or reconfigure master server"
 msgstr "Thay đổi hoặc cấu hình lại máy phục vụ chính"
 
 #: libraries/classes/ReplicationGui.php:293
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as slave in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
-"Máy phục vụ này không được cấu hình là máy phụ trong một tiến trình tái tạo "
-"bản sao. Bạn có muốn <a href=\"%s\">cấu hình</a> nó?"
+"Máy chủ này chưa được cấu hình làm máy chủ phụ trong quá trình sao chép dữ "
+"liệu. Bạn có muốn %scấu hình%s nó không?"
 
 #: libraries/classes/ReplicationGui.php:316
 msgid "Error management:"
@@ -10377,19 +10368,16 @@ msgstr "Bỏ qua lỗi hiện tại"
 #: libraries/classes/ReplicationGui.php:328
 #, php-format
 msgid "Skip next %s errors."
-msgstr "Bỏ qua %s lỗi kế"
+msgstr "Bỏ qua %s lỗi kế."
 
 #: libraries/classes/ReplicationGui.php:355
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as master in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
-"Máy phục vụ này không được cấu hình là máy chính trong một tiến trình tái "
-"tạo bản sao. Bạn có muốn <a href=\"%s\">cấu hình</a> nó?"
+"Máy chủ này chưa được cấu hình làm máy chủ chính trong quy trình sao chép dữ "
+"liệu. Bạn có muốn %scấu hình%s nó không?"
 
 #: libraries/classes/ReplicationGui.php:389
 #: templates/display/export/select_options.twig:8
@@ -10936,10 +10924,9 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Rte/Words.php:47
-#, fuzzy, php-format
-#| msgid "No routine with name %1$s found in database %2$s"
+#, php-format
 msgid "No routine with name %1$s found in database %2$s."
-msgstr "Không có thủ tục nào mang tên %1$s ở trong cơ sở dữ liệu %2$s"
+msgstr "Không có thủ tục nào mang tên %1$s ở trong cơ sở dữ liệu %2$s."
 
 #: libraries/classes/Rte/Words.php:48
 msgid "There are no routines to display."
@@ -10965,10 +10952,10 @@ msgid "You do not have the necessary privileges to create a trigger."
 msgstr "Bạn không có đủ thẩm quyền cần thiết để tạo một bẫy"
 
 #: libraries/classes/Rte/Words.php:61
-#, fuzzy, php-format
-#| msgid "No trigger with name %1$s found in database %2$s"
+#, php-format
 msgid "No trigger with name %1$s found in database %2$s."
-msgstr "Không có bẫy nào mang tên %1$s ở trong cơ sở dữ liệu %2$s"
+msgstr ""
+"Không tìm thấy trình kích hoạt nào có tên %1$s trong cơ sở dữ liệu %2$s."
 
 #: libraries/classes/Rte/Words.php:62
 msgid "There are no triggers to display."
@@ -10994,10 +10981,9 @@ msgid "You do not have the necessary privileges to create an event."
 msgstr "Bạn không có đủ thẩm quyền cần thiết để tạo một sự kiện"
 
 #: libraries/classes/Rte/Words.php:75
-#, fuzzy, php-format
-#| msgid "No event with name %1$s found in database %2$s"
+#, php-format
 msgid "No event with name %1$s found in database %2$s."
-msgstr "Không có sự kiện nào mang tên %1$s ở trong cơ sở dữ liệu %2$s"
+msgstr "Không tìm thấy sự kiện nào có tên %1$s trong cơ sở dữ liệu %2$s."
 
 #: libraries/classes/Rte/Words.php:76
 msgid "There are no events to display."
@@ -11273,7 +11259,7 @@ msgstr "Quản trị"
 #: libraries/classes/Server/Privileges.php:1176
 #: libraries/classes/Server/Privileges.php:3562
 msgid "Global privileges"
-msgstr "Không đủ quyền."
+msgstr "Đặc quyền toàn bộ"
 
 #: libraries/classes/Server/Privileges.php:1177
 msgid "Global"
@@ -12101,7 +12087,7 @@ msgstr "Số hàng INSERT DELAYED được ghi lại."
 
 #: libraries/classes/Server/Status/Variables.php:386
 msgid "The number of executed FLUSH statements."
-msgstr "Ghi rõ số thứ tự bẫy chuyển hết vùng nhớ tạm ra ngoài"
+msgstr "Số lượng câu lệnh FLUSH đã được thực thi."
 
 #: libraries/classes/Server/Status/Variables.php:389
 msgid "The number of internal COMMIT statements."
@@ -12137,9 +12123,9 @@ msgid ""
 "incremented if you are querying an index column with a range constraint or "
 "if you are doing an index scan."
 msgstr ""
-"Số lượng yêu cầu đọc hàng tiếp theo theo thứ tự khóa. Điều này sẽ tăng lên "
-"nếu bạn đang truy vấn một cột chỉ mục có giới hạn phạm vi hoặc nếu bạn đang "
-"thực hiện quét chỉ mục."
+"Số lượng yêu cầu đọc hàng kế tiếp theo thứ tự khóa. Số này sẽ tăng lên nếu "
+"bạn truy vấn cột chỉ mục có ràng buộc phạm vi hoặc nếu bạn thực hiện quét "
+"chỉ mục."
 
 #: libraries/classes/Server/Status/Variables.php:417
 msgid ""
@@ -12293,7 +12279,7 @@ msgstr ""
 
 #: libraries/classes/Server/Status/Variables.php:534
 msgid "The number of log write requests."
-msgstr "Số lượng nhật ký I/O đã đạt ngưỡng tối đa"
+msgstr "Số lượng yêu cầu ghi nhật ký."
 
 #: libraries/classes/Server/Status/Variables.php:537
 msgid "The number of physical writes to the log file."
@@ -12629,7 +12615,7 @@ msgstr "Nhóm người dùng"
 
 #: libraries/classes/Server/UserGroups.php:90
 msgid "Server level tabs"
-msgstr "Phiên bản máy phục vụ:"
+msgstr "Các tab cấp máy chủ"
 
 #: libraries/classes/Server/UserGroups.php:91
 msgid "Database level tabs"
@@ -12696,7 +12682,7 @@ msgstr "Tổng thời gian"
 
 #: libraries/classes/Sql.php:295
 msgid "% Time"
-msgstr "Thời gian:"
+msgstr "% Thời gian"
 
 #: libraries/classes/Sql.php:297
 msgid "Calls"
@@ -12796,7 +12782,7 @@ msgstr "Dấu phân tách"
 
 #: libraries/classes/SqlQueryForm.php:346
 msgid "Show this query here again"
-msgstr "Hiển thị truy vấn này lần sau nữa."
+msgstr "Hiển thị lại truy vấn này ở đây"
 
 #: libraries/classes/SqlQueryForm.php:363
 msgid "Rollback when finished"
@@ -12856,12 +12842,12 @@ msgstr "Cơ sở dữ liệu không hợp lệ:"
 
 #: libraries/classes/Table.php:1479
 msgid "Invalid table name:"
-msgstr "Tên bảng không hợp lệ"
+msgstr "Tên bảng không hợp lệ:"
 
 #: libraries/classes/Table.php:1514
 #, php-format
 msgid "Failed to rename table %1$s to %2$s!"
-msgstr "Gặp lỗi khi đổi tên bảng %1$s thành %2$s"
+msgstr "Không thể đổi tên bảng %1$s thành %2$s!"
 
 #: libraries/classes/Table.php:1533
 #, php-format
@@ -12870,7 +12856,7 @@ msgstr "Bảng %1$s đã được đổi tên thành %2$s."
 
 #: libraries/classes/Table.php:1767
 msgid "Could not save table UI preferences!"
-msgstr "Không thể ghi lại bảng mới dùng"
+msgstr "Không thể lưu tùy chọn giao diện bảng!"
 
 #: libraries/classes/Table.php:1797
 #, php-format
@@ -12910,10 +12896,9 @@ msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Gặp lỗi khi tạo khóa ngoại trên %1$s (kiểm tra lại kiểu dữ liệu)"
 
 #: libraries/classes/Template.php:127
-#, fuzzy, php-format
-#| msgid "Error while loading the search."
+#, php-format
 msgid "Error while working with template cache: %s"
-msgstr "Gặp lỗi khi đang tải tìm kiếm."
+msgstr "Lỗi khi làm việc với bộ nhớ đệm mẫu: %s"
 
 #: libraries/classes/Theme.php:186
 #, php-format
@@ -13079,11 +13064,11 @@ msgid "not active"
 msgstr "không hoạt động"
 
 #: libraries/classes/Types.php:203
-#, fuzzy
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr ""
-"Một số nguyên 1-byte, ký khoảng từ -128 đến 127, không ký khoảng từ 0 đến 255"
+"Số nguyên 1 byte, phạm vi giá trị có dấu là từ -128 đến 127, phạm vi giá trị "
+"không dấu là từ 0 đến 255."
 
 #: libraries/classes/Types.php:208
 #, fuzzy
@@ -13424,12 +13409,12 @@ msgstr "CN"
 #: libraries/classes/Util.php:1543
 msgctxt "AM/PM indication in time"
 msgid "PM"
-msgstr ""
+msgstr "CH"
 
 #: libraries/classes/Util.php:1545
 msgctxt "AM/PM indication in time"
 msgid "AM"
-msgstr ""
+msgstr "SA"
 
 #: libraries/classes/Util.php:1847
 #, php-format
@@ -13487,7 +13472,7 @@ msgstr ""
 
 #: libraries/classes/Util.php:3871
 msgid "SSL is used"
-msgstr ""
+msgstr "SSL được sử dụng"
 
 #: libraries/classes/Util.php:3992
 msgid "Users"
@@ -13637,7 +13622,7 @@ msgstr "không có gì ở trên"
 
 #: libraries/db_common.inc.php:151 tbl_operations.php:224
 msgid "No collation provided."
-msgstr ""
+msgstr "Không có thông tin đối chiếu nào được cung cấp."
 
 #: libraries/mult_submits.inc.php:337
 msgid "Success!"
@@ -13670,7 +13655,7 @@ msgstr "Lỗi nghiêm trọng: Bảng điều hướng chỉ có thể truy cậ
 
 #: prefs_forms.php:30 setup/frames/form.inc.php:21
 msgid "Incorrect form specified!"
-msgstr ""
+msgstr "Biểu mẫu không chính xác!"
 
 #: prefs_forms.php:82
 msgid "Cannot save settings, submitted form contains errors!"
@@ -13768,10 +13753,8 @@ msgid "Two-factor authentication has been removed."
 msgstr "Quan hệ bên trong đã bị gỡ bỏ."
 
 #: prefs_twofactor.php:39
-#, fuzzy
-#| msgid "Invalid authentication method set in configuration:"
 msgid "Two-factor authentication has been configured."
-msgstr "Phương thức xác thực trong cấu hình không hợp lệ:"
+msgstr "Xác thực hai yếu tố đã được cấu hình."
 
 #: server_export.php:25
 msgid "View dump (schema) of databases"
@@ -13787,10 +13770,8 @@ msgid "No Privileges"
 msgstr "Không có Đặc quyền gì"
 
 #: server_privileges.php:152
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a trigger"
 msgid "You do not have privileges to manipulate with the users!"
-msgstr "Bạn không có đủ thẩm quyền cần thiết để tạo một bẫy"
+msgstr "Bạn không có quyền điều khiển người dùng!"
 
 #: server_privileges.php:166
 msgid ""
@@ -13845,16 +13826,12 @@ msgstr ""
 "tin đặc biệt nhạy cảm, như mật khẩu) được truyền đi mà không được mã hóa!"
 
 #: setup/frames/index.inc.php:54
-#, fuzzy
-#| msgid ""
-#| "If your server is also configured to accept HTTPS requests follow [a@"
-#| "%s]this link[/a] to use a secure connection."
 msgid ""
 "If your server is also configured to accept HTTPS requests follow this link "
 "to use a secure connection."
 msgstr ""
-"Nếu máy phục vụ của bạn đồng thời được cấu hình để chấp nhận các yêu cầu "
-"HTTPS thì [a@%s]bấm vào liên kết này[/a] để dùng kiểu an toàn"
+"Nếu máy chủ của bạn cũng được cấu hình để chấp nhận các yêu cầu HTTPS, hãy "
+"làm theo liên kết này để sử dụng kết nối an toàn."
 
 #: setup/frames/index.inc.php:58
 msgid "Insecure connection"
@@ -13874,10 +13851,8 @@ msgstr ""
 "nó."
 
 #: setup/frames/index.inc.php:97
-#, fuzzy
-#| msgid "Configuration saved."
 msgid "Configuration not saved!"
-msgstr "Cấu hình đã được lưu."
+msgstr "Cấu hình không được lưu!"
 
 #: setup/frames/index.inc.php:100
 msgid ""
@@ -13899,7 +13874,7 @@ msgstr "Hiển thị các lời nhắn ẩn (#MSG_COUNT)"
 
 #: setup/frames/index.inc.php:171
 msgid "There are no configured servers"
-msgstr "Hiện chưa có máy in nào được cấu hình."
+msgstr "Hiện chưa có máy chủ nào được cấu hình"
 
 #: setup/frames/index.inc.php:180
 msgid "New server"
@@ -13963,7 +13938,7 @@ msgstr "Cảnh báo"
 
 #: setup/lib/FormProcessing.php:64
 msgid "Submitted form contains errors"
-msgstr "Hệ thống tập tin chứa lỗi."
+msgstr "Biểu mẫu đã gửi có lỗi"
 
 #: setup/lib/FormProcessing.php:66
 msgid "Try to revert erroneous fields to their default values"
@@ -14150,10 +14125,9 @@ msgid "Save output to a file"
 msgstr "Ghi kết xuất ra tập tin"
 
 #: templates/display/export/options_output.twig:51
-#, fuzzy, php-format
-#| msgid "Skip tables larger than"
+#, php-format
 msgid "Skip tables larger than %s MiB"
-msgstr "Bỏ qua các bảng lớn hơn"
+msgstr "Bỏ qua các bảng lớn hơn %s MiB"
 
 #: templates/table/search/table_header.twig:9
 #: templates/database/designer/having_query_panel.twig:30
@@ -14499,7 +14473,7 @@ msgstr "Các giá trị X"
 
 #: templates/table/chart/tbl_chart.twig:107
 msgid "Y-Axis label:"
-msgstr "Nhãn trục Y"
+msgstr "Nhãn trục Y:"
 
 #: templates/table/chart/tbl_chart.twig:109
 msgid "Y Values"
@@ -14676,7 +14650,7 @@ msgstr "Tên trang mới"
 
 #: templates/table/search/rows_zoom.twig:12
 msgid "Additional search criteria"
-msgstr "Hãy gõ các tiêu chuẩn tìm kiếm."
+msgstr "Tiêu chí tìm kiếm bổ sung"
 
 #: templates/login/twofactor/application.twig:2
 #: templates/login/twofactor/application_configure.twig:21
@@ -14752,10 +14726,9 @@ msgid "Note: Setting these options to 0 (zero) removes the limit."
 msgstr "Chú ý: Đặt các tùy chọn này thành 0 (số không) để không giới hạn."
 
 #: templates/database/structure/show_create_row.twig:7
-#, fuzzy, php-format
-#| msgid "Create"
+#, php-format
 msgid "Create %s"
-msgstr "Tạo"
+msgstr "Tạo %s"
 
 #: templates/database/tracking/tracked_tables.twig:2
 msgid "Tracked tables"
@@ -14845,10 +14818,9 @@ msgid "As defined:"
 msgstr "Định nghĩa là:"
 
 #: templates/server/databases/table_row.twig:13
-#, fuzzy, php-format
-#| msgid "Jump to database"
+#, php-format
 msgid "Jump to database '%s'"
-msgstr "Nhảy tới cơ sở dữ liệu"
+msgstr "Chuyển đến cơ sở dữ liệu '%s'"
 
 #: templates/server/databases/table_row.twig:63
 #, php-format
@@ -15044,10 +15016,8 @@ msgid "Storage engines"
 msgstr "Máy lưu trữ"
 
 #: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Character Sets and Collations"
 msgid "Character sets and collations"
-msgstr "Bảng mã đối chiếu và Bộ ký tự"
+msgstr "Bộ ký tự và cách sắp xếp"
 
 #: templates/server/sub_page_header.twig:2
 msgid "Databases statistics"
@@ -15269,10 +15239,9 @@ msgid ""
 "to the PHP timeout limit. <em>(This might be a good way to import large "
 "files, however it can break transactions.)</em>"
 msgstr ""
-"Cho phép ngắt quãng quá trình nhập dữ liệu trong trường hợp phát hiện thời "
-"gian thực hiện gần đạt tới giới hạn thời gian cho phép thực thi mã PHP. "
-"<em>(Việc này sẽ hữu ích trong trường hợp nhập dữ liệu từ tệp tin có kích "
-"thước lớn, tuy nhiên nó có thể làm gián đoạn các transactions.)</em>"
+"Cho phép tạm dừng quá trình nhập dữ liệu nếu tập lệnh phát hiện thời gian "
+"chờ của PHP sắp hết. <em>(Đây có thể là một cách tốt để nhập các tệp lớn, "
+"tuy nhiên nó có thể làm gián đoạn các giao dịch.)</em>"
 
 #: templates/display/import/import.twig:144
 msgid "Skip this number of queries (for SQL) starting from the first one:"
@@ -15284,7 +15253,7 @@ msgstr "Những tùy chọn khác:"
 
 #: templates/table/gis_visualization/gis_visualization.twig:3
 msgid "Display GIS Visualization"
-msgstr "Không thể khỏi tạo bộ hiển thị."
+msgstr "Hiển Thị Trực Quan GIS"
 
 #: templates/table/gis_visualization/gis_visualization.twig:8
 msgid "Label column"
@@ -15820,7 +15789,7 @@ msgstr "Sử dụng cột này trong tiêu chí"
 
 #: templates/database/multi_table_query/form.twig:53
 msgid "criteria"
-msgstr "tiêu chuẩn:"
+msgstr "tiêu chuẩn"
 
 #: templates/database/multi_table_query/form.twig:67
 msgid "Add as"
@@ -16185,8 +16154,8 @@ msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
 msgstr ""
-"Bạn nên nâng cấp vì MySQL 5.1 có hiệu năng được cải thiện, và MySQL 5.5 thậm "
-"chí hơn hơn thế."
+"Bạn nên nâng cấp, vì MySQL 5.1 đã cải thiện hiệu năng, và MySQL 5.5 còn tốt "
+"hơn nữa."
 
 #: libraries/advisory_rules_generic.txt:105
 #: libraries/advisory_rules_generic.txt:112
@@ -16209,8 +16178,8 @@ msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
 msgstr ""
-"Bạn nên nâng cấp vì MySQL 5.1 gần đây có hiệu năng được cải thiện, và MySQL "
-"5.5 thậm chí hơn hơn thế."
+"Bạn nên nâng cấp, vì các phiên bản MySQL 5.1 gần đây đã cải thiện hiệu năng "
+"và MySQL 5.5 thậm chí còn tốt hơn nữa."
 
 #: libraries/advisory_rules_generic.txt:117
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
@@ -16277,9 +16246,9 @@ msgid ""
 "so MySQL might not be able to access all of your memory. You might want to "
 "consider installing the 64-bit version of MySQL."
 msgstr ""
-"Dung lượng bộ nhớ của bạn hơn 3 GiB (coi rằng máy phục vụ là localhost), do "
-"vậy MySQL có lẽ không thể truy cập toàn bộ bộ nhớ của bạn. Bạn có lẽ nên cân "
-"nhắc cài đặt bản MySQL 64-bít."
+"Dung lượng bộ nhớ của bạn lớn hơn 3 GiB (giả sử máy chủ đang chạy trên "
+"localhost), vì vậy MySQL có thể không truy cập được hết dung lượng bộ nhớ. "
+"Bạn nên cân nhắc cài đặt phiên bản MySQL 64-bit."
 
 #: libraries/advisory_rules_generic.txt:140
 #, php-format
@@ -16353,7 +16322,7 @@ msgstr "Sắp xếp các hàng"
 
 #: libraries/advisory_rules_generic.txt:171
 msgid "There are lots of rows being sorted."
-msgstr "Có nhiều hàng được sắp xếp"
+msgstr "Có rất nhiều hàng đang được sắp xếp."
 
 #: libraries/advisory_rules_generic.txt:172
 msgid ""
@@ -16538,7 +16507,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.txt:219
 msgid "Temp disk rate"
-msgstr ""
+msgstr "Tốc độ đĩa tạm thời"
 
 #: libraries/advisory_rules_generic.txt:223
 msgid ""
@@ -16675,8 +16644,8 @@ msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing {open_files_limit}."
 msgstr ""
-"Cân nhắc việc tăng {open_files_limit} và kiểm tra nhật ký lỗi khi khởi động "
-"lại sau khi thay đổi {open_files_limit}"
+"Cân nhắc tăng {open_files_limit} và kiểm tra nhật ký lỗi khi khởi động lại "
+"sau khi thay đổi {open_files_limit}."
 
 #: libraries/advisory_rules_generic.txt:271
 #, php-format
@@ -16883,7 +16852,7 @@ msgstr "Tỷ lệ phần trăm của các máy khách bị bãi bỏ"
 #: libraries/advisory_rules_generic.txt:348
 #: libraries/advisory_rules_generic.txt:355
 msgid "Too many clients are aborted."
-msgstr "Quá nhiều ứng dụng khách bị bãi bỏ"
+msgstr "Quá nhiều máy khách bị hủy bỏ."
 
 #: libraries/advisory_rules_generic.txt:349
 #: libraries/advisory_rules_generic.txt:356
@@ -17050,9 +17019,9 @@ msgid ""
 "writers for a given table. See also <a href=\"https://dev.mysql.com/doc/"
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
-"Setting {concurrent_insert} to 1 reduces contention between readers and "
-"writers for a given table. See also <a href=\"https://dev.mysql.com/doc/"
-"refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
+"Việc đặt {concurrent_insert} thành 1 giúp giảm thiểu sự xung đột giữa người "
+"đọc và người ghi đối với một bảng nhất định. Xem thêm <a href=\"https://"
+"dev.mysql.com/doc/refman/5.5/en/concurrent-inserts.html\">Tài liệu MySQL</a>"
 
 #: libraries/advisory_rules_generic.txt:396
 msgid "concurrent_insert is set to 0"
