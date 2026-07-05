@@ -12,7 +12,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use Twig\Compiler;
 use Twig\Error\SyntaxError;
 use Twig\Node\Expression\ConstantExpression;
-use Twig\Node\Expression\NameExpression;
+use Twig\Node\Expression\Variable\ContextVariable;
 use Twig\Node\Node;
 
 #[CoversClass(TransExpression::class)]
@@ -86,7 +86,7 @@ final class TransExpressionTest extends AbstractTestCase
             [
                 self::getConstantExpression('One apple'),
                 self::getConstantExpression('%d apples'),
-                self::getNameExpression('number_of_apples'),
+                self::getContextVariable('number_of_apples'),
             ],
             '\\_ngettext("One apple", "%d apples", // line 1' . "\n" . '($context["number_of_apples"] ?? null))',
         ];
@@ -95,7 +95,7 @@ final class TransExpressionTest extends AbstractTestCase
             [
                 0 => self::getConstantExpression('One apple'),
                 1 => self::getConstantExpression('%d apples'),
-                'count' => self::getNameExpression('number_of_apples'),
+                'count' => self::getContextVariable('number_of_apples'),
             ],
             '\\_ngettext("One apple", "%d apples", // line 1' . "\n" . '($context["number_of_apples"] ?? null))',
         ];
@@ -104,7 +104,7 @@ final class TransExpressionTest extends AbstractTestCase
             [
                 0 => self::getConstantExpression('One apple'),
                 'plural' => self::getConstantExpression('%d apples'),
-                'count' => self::getNameExpression('number_of_apples'),
+                'count' => self::getContextVariable('number_of_apples'),
             ],
             '\\_ngettext("One apple", "%d apples", // line 1' . "\n" . '($context["number_of_apples"] ?? null))',
         ];
@@ -113,7 +113,7 @@ final class TransExpressionTest extends AbstractTestCase
             [
                 'singular' => self::getConstantExpression('One apple'),
                 'plural' => self::getConstantExpression('%d apples'),
-                'count' => self::getNameExpression('number_of_apples'),
+                'count' => self::getContextVariable('number_of_apples'),
             ],
             '\\_ngettext("One apple", "%d apples", // line 1' . "\n" . '($context["number_of_apples"] ?? null))',
         ];
@@ -170,12 +170,12 @@ final class TransExpressionTest extends AbstractTestCase
         ];
 
         yield 't(variable_name)' => [
-            [self::getNameExpression('variable_name')],
+            [self::getContextVariable('variable_name')],
             'Value for argument "message" must be a non-empty literal string at line 1.',
         ];
 
         yield 't(message = variable_name)' => [
-            ['message' => self::getNameExpression('variable_name')],
+            ['message' => self::getContextVariable('variable_name')],
             'Value for argument "message" must be a non-empty literal string at line 1.',
         ];
 
@@ -185,7 +185,7 @@ final class TransExpressionTest extends AbstractTestCase
         ];
 
         yield 't("Message", notes = variable_name)' => [
-            [self::getConstantExpression('Message'), 'notes' => self::getNameExpression('variable_name')],
+            [self::getConstantExpression('Message'), 'notes' => self::getContextVariable('variable_name')],
             'Value for argument "notes" must be a non-empty literal string at line 1.',
         ];
 
@@ -200,7 +200,7 @@ final class TransExpressionTest extends AbstractTestCase
         ];
 
         yield 't("Message", context = variable_name)' => [
-            [self::getConstantExpression('Message'), 'context' => self::getNameExpression('variable_name')],
+            [self::getConstantExpression('Message'), 'context' => self::getContextVariable('variable_name')],
             'Value for argument "context" must be a non-empty literal string at line 1.',
         ];
 
@@ -234,7 +234,7 @@ final class TransExpressionTest extends AbstractTestCase
 
         yield 't(variable_name, "%d apples", 3)' => [
             [
-                self::getNameExpression('variable_name'),
+                self::getContextVariable('variable_name'),
                 self::getConstantExpression('%d apples'),
                 self::getConstantExpression(3),
             ],
@@ -253,7 +253,7 @@ final class TransExpressionTest extends AbstractTestCase
         yield 't("One apple", variable_name, 3)' => [
             [
                 self::getConstantExpression('One apple'),
-                self::getNameExpression('variable_name'),
+                self::getContextVariable('variable_name'),
                 self::getConstantExpression(3),
             ],
             'Value for argument "plural" must be a non-empty literal string at line 1.',
@@ -303,9 +303,9 @@ final class TransExpressionTest extends AbstractTestCase
         return new ConstantExpression($value, 1);
     }
 
-    private static function getNameExpression(string $name): NameExpression
+    private static function getContextVariable(string $name): ContextVariable
     {
-        return new NameExpression($name, 1);
+        return new ContextVariable($name, 1);
     }
 
     private function getCompiler(): Compiler
