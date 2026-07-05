@@ -461,7 +461,7 @@ class RelationTest extends AbstractTestCase
             . ' Table structure for table `pma__users` '
             . '-- CREATE TABLE IF NOT EXISTS `pma__users` ( '
                 . '`username` varchar(64) NOT NULL, `usergroup` varchar(64) NOT NULL,'
-                . ' PRIMARY KEY (`username`,`usergroup`) )'
+                . ' PRIMARY KEY (`username`) )'
                 . ' COMMENT=\'Users and their assignments to user groups\''
                 . ' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
             []
@@ -746,7 +746,7 @@ class RelationTest extends AbstractTestCase
             . ' Table structure for table `pma__users` '
             . '-- CREATE TABLE IF NOT EXISTS `pma__users` ( '
                 . '`username` varchar(64) NOT NULL, `usergroup` varchar(64) NOT NULL,'
-                . ' PRIMARY KEY (`username`,`usergroup`) )'
+                . ' PRIMARY KEY (`username`) )'
                 . ' COMMENT=\'Users and their assignments to user groups\''
                 . ' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
             []
@@ -1247,7 +1247,7 @@ class RelationTest extends AbstractTestCase
                 'CREATE TABLE IF NOT EXISTS `pma__users` (',
                 '  `username` varchar(64) NOT NULL,',
                 '  `usergroup` varchar(64) NOT NULL,',
-                '  PRIMARY KEY (`username`,`usergroup`)',
+                '  PRIMARY KEY (`username`)',
                 ')',
                 '  COMMENT=\'Users and their assignments to user groups\'',
                 '  DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
