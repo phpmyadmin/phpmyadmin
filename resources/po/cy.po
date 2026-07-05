@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-06-28 01:02+0000\n"
+"POT-Creation-Date: 2026-07-05 00:50+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Welsh <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -71,7 +71,7 @@ msgstr ""
 #: resources/templates/base.twig:99
 #: resources/templates/server/status/monitor/index.twig:8
 #: src/Controllers/JavaScriptMessagesController.php:216 src/Menu.php:479
-#: src/Util.php:1368
+#: src/Util.php:1386
 #, fuzzy
 #| msgid "General relation features"
 msgid "Settings"
@@ -139,13 +139,13 @@ msgstr "Dim"
 msgid "As defined:"
 msgstr "Fel a ddiffiniwyd:"
 
-#: resources/templates/columns_definitions/column_attributes.twig:91
+#: resources/templates/columns_definitions/column_attributes.twig:101
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details"
 msgstr ""
 
-#: resources/templates/columns_definitions/column_attributes.twig:101
+#: resources/templates/columns_definitions/column_attributes.twig:111
 #: resources/templates/database/data_dictionary/index.twig:42
 #: resources/templates/table/structure/display_structure.twig:137
 #: resources/templates/table/structure/display_structure.twig:143
@@ -155,7 +155,7 @@ msgstr ""
 msgid "Primary"
 msgstr "Cynradd"
 
-#: resources/templates/columns_definitions/column_attributes.twig:105
+#: resources/templates/columns_definitions/column_attributes.twig:115
 #: resources/templates/database/data_dictionary/index.twig:76
 #: resources/templates/indexes.twig:19
 #: resources/templates/table/structure/display_structure.twig:150
@@ -166,7 +166,7 @@ msgstr "Cynradd"
 msgid "Unique"
 msgstr "Unigryw"
 
-#: resources/templates/columns_definitions/column_attributes.twig:109
+#: resources/templates/columns_definitions/column_attributes.twig:119
 #: resources/templates/columns_definitions/table_fields_definitions.twig:58
 #: resources/templates/table/structure/display_structure.twig:163
 #: resources/templates/table/structure/display_structure.twig:169
@@ -178,39 +178,39 @@ msgstr "Unigryw"
 msgid "Index"
 msgstr "Indecs"
 
-#: resources/templates/columns_definitions/column_attributes.twig:113
+#: resources/templates/columns_definitions/column_attributes.twig:123
 #: resources/templates/table/structure/display_structure.twig:209
 #: resources/templates/table/structure/display_structure.twig:212
 #: resources/templates/table/structure/display_structure.twig:296
 msgid "Fulltext"
 msgstr "Testunllawn"
 
-#: resources/templates/columns_definitions/column_attributes.twig:117
+#: resources/templates/columns_definitions/column_attributes.twig:127
 #: resources/templates/table/structure/display_structure.twig:186
 #: resources/templates/table/structure/display_structure.twig:192
 #: resources/templates/table/structure/display_structure.twig:293
 msgid "Spatial"
 msgstr ""
 
-#: resources/templates/columns_definitions/column_attributes.twig:154
+#: resources/templates/columns_definitions/column_attributes.twig:164
 #: resources/templates/table/structure/display_partitions.twig:27
 #, fuzzy
 #| msgid "Compression"
 msgid "Expression"
 msgstr "Cywasgiad"
 
-#: resources/templates/columns_definitions/column_attributes.twig:174
+#: resources/templates/columns_definitions/column_attributes.twig:184
 msgid "first"
 msgstr ""
 
-#: resources/templates/columns_definitions/column_attributes.twig:179
+#: resources/templates/columns_definitions/column_attributes.twig:189
 #: resources/templates/table/structure/display_structure.twig:447
 #, php-format
 msgid "after %s"
 msgstr ""
 
-#: resources/templates/columns_definitions/column_attributes.twig:205
-#: resources/templates/columns_definitions/column_attributes.twig:228
+#: resources/templates/columns_definitions/column_attributes.twig:215
+#: resources/templates/columns_definitions/column_attributes.twig:238
 #: resources/templates/config/form_display/input.twig:43
 #: resources/templates/database/central_columns/main.twig:311
 #: resources/templates/database/designer/main.twig:585
@@ -657,8 +657,8 @@ msgstr "Defnyddiwr"
 #: src/Import/Import.php:1167 src/Menu.php:214 src/Menu.php:322
 #: src/Navigation/Nodes/NodeColumn.php:38
 #: src/Navigation/Nodes/NodeDatabase.php:59
-#: src/Navigation/Nodes/NodeTable.php:239 src/Util.php:1064 src/Util.php:1377
-#: src/Util.php:1394
+#: src/Navigation/Nodes/NodeTable.php:239 src/Util.php:1064 src/Util.php:1395
+#: src/Util.php:1412
 msgid "Structure"
 msgstr "Strwythur"
 
@@ -700,7 +700,7 @@ msgstr "Enw"
 #: resources/templates/table/structure/display_structure.twig:473
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:9
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:11
-#: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:259
+#: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:261
 #: src/Plugins/Export/ExportHtmlword.php:226
 #: src/Plugins/Export/ExportHtmlword.php:297
 #: src/Plugins/Export/ExportLatex.php:463 src/Plugins/Export/ExportOdt.php:324
@@ -1964,7 +1964,7 @@ msgstr "Math y digwyddiad"
 #: resources/templates/table/tracking/main.twig:31
 #: src/Config/ConfigFile.php:578
 #: src/Controllers/JavaScriptMessagesController.php:276 src/Menu.php:450
-#: src/Server/Status/Processes.php:106 src/Util.php:1364
+#: src/Server/Status/Processes.php:106 src/Util.php:1382
 msgid "Status"
 msgstr "Statws"
 
@@ -2039,7 +2039,7 @@ msgstr ""
 #: src/Navigation/Nodes/NodeEventContainer.php:23
 #: src/Navigation/Nodes/NodeEventContainer.php:25
 #: src/Plugins/Export/ExportSql.php:989 src/Plugins/Export/ExportXml.php:92
-#: src/Util.php:1386
+#: src/Util.php:1404
 msgid "Events"
 msgstr "Digwyddiadau"
 
@@ -2103,7 +2103,7 @@ msgstr "Dewis Pob"
 #: src/Config/Forms/User/ExportForm.php:148
 #: src/Controllers/JavaScriptMessagesController.php:362 src/Menu.php:241
 #: src/Menu.php:347 src/Menu.php:469 src/Server/Privileges.php:1279
-#: src/Util.php:1366 src/Util.php:1381 src/Util.php:1398
+#: src/Util.php:1384 src/Util.php:1399 src/Util.php:1416
 msgid "Export"
 msgstr "Allforio"
 
@@ -2320,7 +2320,7 @@ msgid "criteria"
 msgstr "Meini prawf"
 
 #: resources/templates/database/multi_table_query/form.twig:56
-#: src/Util.php:1626
+#: src/Util.php:1644
 msgid "Sort"
 msgstr "Trefnu"
 
@@ -2332,7 +2332,7 @@ msgstr "Trefnu"
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:158
 #: src/Config/ConfigFile.php:554 src/Display/Results.php:1391
-#: src/Display/Results.php:1397 src/Util.php:1634 src/Util.php:1651
+#: src/Display/Results.php:1397 src/Util.php:1652 src/Util.php:1669
 msgid "Ascending"
 msgstr "Esgynnol"
 
@@ -2344,7 +2344,7 @@ msgstr "Esgynnol"
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:162
 #: src/Config/ConfigFile.php:554 src/Display/Results.php:1386
-#: src/Display/Results.php:1402 src/Util.php:1639 src/Util.php:1656
+#: src/Display/Results.php:1402 src/Util.php:1657 src/Util.php:1674
 msgid "Descending"
 msgstr "Disgynnol"
 
@@ -2561,7 +2561,7 @@ msgstr "Enw'r log"
 #: resources/templates/table/privileges/index.twig:22
 #: src/Config/ConfigFile.php:582
 #: src/Controllers/Server/PrivilegesController.php:455 src/Menu.php:257
-#: src/Menu.php:369 src/Util.php:1384 src/Util.php:1400
+#: src/Menu.php:369 src/Util.php:1402 src/Util.php:1418
 msgid "Privileges"
 msgstr "Breintiau"
 
@@ -2725,7 +2725,7 @@ msgstr "Rheolweithiau"
 
 #: resources/templates/database/routines/execute_form.twig:19
 #: resources/templates/table/search/index.twig:36
-#: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:258
+#: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:260
 #: src/Navigation/Nodes/NodeFunction.php:27
 msgid "Function"
 msgstr "Swyddogaeth"
@@ -2737,7 +2737,7 @@ msgid "This routine does not require any parameters."
 msgstr "Nid yw ffeil %s yn cynnwys unrhyw id allwedd"
 
 #: resources/templates/database/routines/index.twig:3 src/Menu.php:375
-#: src/Util.php:1385
+#: src/Util.php:1403
 msgid "Routines"
 msgstr "Rheolweithiau"
 
@@ -2750,7 +2750,7 @@ msgstr "Rheolweithiau"
 #: src/Config/ConfigFile.php:522 src/Config/ConfigFile.php:536
 #: src/Config/ConfigFile.php:590 src/Config/ConfigFile.php:600 src/Menu.php:223
 #: src/Menu.php:331 src/Navigation/Nodes/NodeTable.php:240 src/Util.php:1066
-#: src/Util.php:1379 src/Util.php:1396
+#: src/Util.php:1397 src/Util.php:1414
 msgid "Search"
 msgstr "Chwilio"
 
@@ -2889,7 +2889,7 @@ msgstr[1] "%s ergyd mewn tabl <i>%s</i>"
 #: resources/templates/table/structure/display_structure.twig:271
 #: src/Config/ConfigFile.php:526 src/Config/ConfigFile.php:540
 #: src/Config/ConfigFile.php:604 src/Menu.php:207
-#: src/Navigation/Nodes/NodeTable.php:243 src/Util.php:1068 src/Util.php:1393
+#: src/Navigation/Nodes/NodeTable.php:243 src/Util.php:1068 src/Util.php:1411
 msgid "Browse"
 msgstr "Pori"
 
@@ -2918,7 +2918,7 @@ msgstr[3] ""
 #: resources/templates/database/structure/body_for_table_summary.twig:8
 #: resources/templates/database/structure/table_header.twig:10
 #: resources/templates/server/replication/index.twig:5 src/Menu.php:501
-#: src/Server/Status/Data.php:124 src/Util.php:1370
+#: src/Server/Status/Data.php:124 src/Util.php:1388
 msgid "Replication"
 msgstr "Dyblygiad"
 
@@ -3037,7 +3037,7 @@ msgid "Copy table with prefix"
 msgstr ""
 
 #: resources/templates/database/structure/check_all_tables.twig:32
-#: src/Menu.php:409 src/Util.php:1390
+#: src/Menu.php:409 src/Util.php:1408
 #, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Central columns"
@@ -3210,7 +3210,7 @@ msgstr "Dyblygiad"
 #: resources/templates/database/structure/structure_table_row.twig:59
 #: resources/templates/sql/query.twig:76 src/Config/ConfigFile.php:524
 #: src/Config/ConfigFile.php:538 src/Config/ConfigFile.php:602 src/Menu.php:234
-#: src/Navigation/Nodes/NodeTable.php:241 src/Util.php:1067 src/Util.php:1397
+#: src/Navigation/Nodes/NodeTable.php:241 src/Util.php:1067 src/Util.php:1415
 msgid "Insert"
 msgstr "Mewnosod"
 
@@ -3533,7 +3533,7 @@ msgstr ""
 #: src/Controllers/Table/Partition/DropController.php:56
 #: src/Controllers/Table/Partition/RebuildController.php:56
 #: src/Controllers/Table/Partition/TruncateController.php:56
-#: src/Html/Generator.php:741 src/Import/Import.php:122 src/InsertEdit.php:423
+#: src/Html/Generator.php:741 src/Import/Import.php:122 src/InsertEdit.php:425
 #: src/Message.php:138
 msgid "Error"
 msgstr "Gwall"
@@ -4135,7 +4135,7 @@ msgstr "Nôl"
 #: resources/templates/server/status/monitor/index.twig:53
 #: resources/templates/server/status/monitor/index.twig:69
 #: src/Config/Forms/User/ImportForm.php:59 src/Menu.php:250 src/Menu.php:357
-#: src/Menu.php:474 src/Util.php:1367 src/Util.php:1382 src/Util.php:1399
+#: src/Menu.php:474 src/Util.php:1385 src/Util.php:1400 src/Util.php:1417
 msgid "Import"
 msgstr "Mewnforio"
 
@@ -4178,7 +4178,7 @@ msgid "You may also drag and drop a file on any page."
 msgstr ""
 
 #: resources/templates/import.twig:56 resources/templates/import.twig:80
-#: src/InsertEdit.php:424
+#: src/InsertEdit.php:426
 msgid "The directory you set for upload work cannot be reached."
 msgstr ""
 "Does dim modd cyrraedd y cyfeiriadur a osodoch chi ar gyfer gwaith a "
@@ -4498,7 +4498,7 @@ msgstr "Dadlwythiad SQL"
 #: resources/templates/server/export/index.twig:14
 #: resources/templates/server/privileges/user_properties.twig:20
 #: src/Config/ConfigFile.php:576 src/Config/Descriptions.php:726
-#: src/Config/Descriptions.php:737 src/Menu.php:440 src/Util.php:1362
+#: src/Config/Descriptions.php:737 src/Menu.php:440 src/Util.php:1380
 msgid "Databases"
 msgstr "Cronfeydd Data"
 
@@ -4995,7 +4995,7 @@ msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 
 #: resources/templates/server/binlog/index.twig:3 src/Menu.php:494
-#: src/Server/Status/Data.php:119 src/Util.php:1369
+#: src/Server/Status/Data.php:119 src/Util.php:1387
 msgid "Binary log"
 msgstr "Log deuaidd"
 
@@ -5118,7 +5118,7 @@ msgstr "Tabl hanes ymholiadau SQL"
 #: src/Config/ConfigFile.php:588 src/Config/ConfigFile.php:598
 #: src/Config/Descriptions.php:753 src/Menu.php:219 src/Menu.php:327
 #: src/Menu.php:445 src/Navigation/Nodes/NodeTable.php:242 src/Util.php:1065
-#: src/Util.php:1363 src/Util.php:1378 src/Util.php:1395
+#: src/Util.php:1381 src/Util.php:1396 src/Util.php:1413
 msgid "SQL"
 msgstr "SQL"
 
@@ -5239,7 +5239,7 @@ msgstr "Arosiadau ysgrifennu mewn %"
 #: resources/templates/server/engines/show.twig:18
 #: resources/templates/server/engines/show.twig:21
 #: resources/templates/sql/query.twig:194 src/Config/ConfigFile.php:580
-#: src/Menu.php:507 src/Server/Status/Data.php:186 src/Util.php:1371
+#: src/Menu.php:507 src/Server/Status/Data.php:186 src/Util.php:1389
 msgid "Variables"
 msgstr "Newidynnau"
 
@@ -5266,7 +5266,7 @@ msgid "Importing into the current server"
 msgstr "Methu â mewngofnodi i'r gweinydd MySQL"
 
 #: resources/templates/server/plugins/index.twig:4 src/Menu.php:522
-#: src/Util.php:1373
+#: src/Util.php:1391
 msgid "Plugins"
 msgstr ""
 
@@ -5605,7 +5605,7 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:60
 #: resources/templates/server/privileges/privileges_table.twig:87
 #: resources/templates/server/privileges/privileges_table.twig:114
-#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:432
+#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:434
 msgid "Or"
 msgstr ""
 
@@ -6639,7 +6639,7 @@ msgid "Query analyzer"
 msgstr "Ymholiad"
 
 #: resources/templates/server/status/monitor/index.twig:273 src/Menu.php:339
-#: src/Util.php:1380
+#: src/Util.php:1398
 msgid "Query"
 msgstr "Ymholiad"
 
@@ -7541,7 +7541,7 @@ msgstr ""
 #: resources/templates/table/index_form.twig:213
 #: src/Controllers/JavaScriptMessagesController.php:466
 #: src/Controllers/JavaScriptMessagesController.php:618
-#: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1412
+#: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1430
 msgid "Ignore"
 msgstr "Anwybyddu"
 
@@ -7762,7 +7762,7 @@ msgstr ""
 
 #: resources/templates/table/operations/view.twig:8
 #: src/Config/ConfigFile.php:592 src/Menu.php:268 src/Menu.php:278
-#: src/Menu.php:362 src/Util.php:1069 src/Util.php:1383 src/Util.php:1401
+#: src/Menu.php:362 src/Util.php:1069 src/Util.php:1401 src/Util.php:1419
 msgid "Operations"
 msgstr "Gweithrediadau"
 
@@ -8324,7 +8324,7 @@ msgstr "Allforio fel %s"
 #: src/Plugins/Export/ExportOdt.php:568 src/Plugins/Export/ExportPdf.php:173
 #: src/Plugins/Export/ExportSql.php:1851
 #: src/Plugins/Export/ExportTexytext.php:408
-#: src/Plugins/Export/ExportXml.php:112 src/Util.php:1387 src/Util.php:1403
+#: src/Plugins/Export/ExportXml.php:112 src/Util.php:1405 src/Util.php:1421
 msgid "Triggers"
 msgstr ""
 
@@ -15205,7 +15205,7 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "Gwall: perthynas yn bodoli yn barod."
 
-#: src/Controllers/JavaScriptMessagesController.php:693 src/InsertEdit.php:243
+#: src/Controllers/JavaScriptMessagesController.php:693 src/InsertEdit.php:245
 #: src/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "Cuddio"
@@ -15747,7 +15747,7 @@ msgid "No such column"
 msgstr "Ychwanegu/Dileu colofnau"
 
 #: src/Controllers/Normalization/GetColumnsController.php:35
-#: src/Normalization.php:230 src/Types.php:653
+#: src/Normalization.php:230 src/Types.php:659
 #, fuzzy
 #| msgid "Lines terminated by"
 msgctxt "string types"
@@ -16601,7 +16601,7 @@ msgstr "Nid oes unrhyw gweinyddion a ffurfweddwyd"
 
 #: src/Controllers/Table/GetFieldController.php:108
 #: src/Database/Routines.php:1050 src/Import/Import.php:138
-#: src/InsertEdit.php:161 src/Sql.php:904
+#: src/InsertEdit.php:163 src/Sql.php:904
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr ""
 
@@ -17676,17 +17676,17 @@ msgstr ""
 "Mae'n edrych fel bod yr indecsau %1$s a %2$s yn hafal. Gallwch chi dynnu un "
 "ohonyn nhw."
 
-#: src/InsertEdit.php:433
+#: src/InsertEdit.php:435
 #, fuzzy
 #| msgid "web server upload directory"
 msgid "web server upload directory:"
 msgstr "cyfeiriadur lanlwytho y gweinydd gwe"
 
-#: src/InsertEdit.php:846 src/Sql.php:901
+#: src/InsertEdit.php:848 src/Sql.php:901
 msgid "Showing SQL query"
 msgstr ""
 
-#: src/InsertEdit.php:870 src/Sql.php:881
+#: src/InsertEdit.php:872 src/Sql.php:881
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -17701,7 +17701,7 @@ msgstr ""
 msgid "%1$s (near <code>%2$s</code>)"
 msgstr ""
 
-#: src/Menu.php:284 src/Menu.php:395 src/Util.php:1388 src/Util.php:1402
+#: src/Menu.php:284 src/Menu.php:395 src/Util.php:1406 src/Util.php:1420
 msgid "Tracking"
 msgstr "Tracio"
 
@@ -17709,7 +17709,7 @@ msgstr "Tracio"
 msgid "Database seems to be empty!"
 msgstr "Mae'r gronfa ddata yn ymddangos yn wag!"
 
-#: src/Menu.php:402 src/Util.php:1389
+#: src/Menu.php:402 src/Util.php:1407
 msgid "Designer"
 msgstr "Dyluniwr"
 
@@ -17719,11 +17719,11 @@ msgstr "Dyluniwr"
 msgid "User accounts"
 msgstr "Defnyddiwr"
 
-#: src/Menu.php:512 src/Util.php:1372
+#: src/Menu.php:512 src/Util.php:1390
 msgid "Charsets"
 msgstr "Setiau nod"
 
-#: src/Menu.php:517 src/Util.php:1374
+#: src/Menu.php:517 src/Util.php:1392
 msgid "Engines"
 msgstr "Peiriannau"
 
@@ -19614,36 +19614,36 @@ msgstr "Cronfa ddata ffynhonnell"
 msgid "Target database `%s` was not found!"
 msgstr "Heb ddarganfod thema ddiofyn %s!"
 
-#: src/Table/Table.php:829
+#: src/Table/Table.php:841
 #, fuzzy
 #| msgid "Invalid database"
 msgid "Invalid database:"
 msgstr "Crofna ddata annilys"
 
-#: src/Table/Table.php:847
+#: src/Table/Table.php:859
 #, fuzzy
 #| msgid "Invalid table name"
 msgid "Invalid table name:"
 msgstr "Enw tabl annilys"
 
-#: src/Table/Table.php:892
+#: src/Table/Table.php:904
 #, fuzzy, php-format
 #| msgid "Table %s has been renamed to %s."
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Cafodd y tabl %s ei ailenwi i %s"
 
-#: src/Table/Table.php:1128
+#: src/Table/Table.php:1140
 msgid "Could not save table UI preferences!"
 msgstr ""
 
-#: src/Table/Table.php:1150
+#: src/Table/Table.php:1162
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
 
-#: src/Table/Table.php:1268
+#: src/Table/Table.php:1280
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -19651,7 +19651,7 @@ msgid ""
 "changed."
 msgstr ""
 
-#: src/Table/Table.php:1593
+#: src/Table/Table.php:1605
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -20077,19 +20077,19 @@ msgstr ""
 msgid "Intended for storage of XML data"
 msgstr ""
 
-#: src/Types.php:607
+#: src/Types.php:613
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr ""
 
-#: src/Types.php:625
+#: src/Types.php:631
 #, fuzzy
 #| msgid "Create an index"
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "Crëwch dudalen"
 
-#: src/Types.php:655
+#: src/Types.php:661
 #, fuzzy
 #| msgid "Log file count"
 msgctxt "spatial types"
@@ -20126,7 +20126,7 @@ msgstr ""
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s diwrnod, %s awr, %s munud a %s eiliad"
 
-#: src/Util.php:1365
+#: src/Util.php:1383
 #, fuzzy
 #| msgid "User"
 msgid "Users"
