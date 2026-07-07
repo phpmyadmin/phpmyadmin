@@ -23,6 +23,7 @@ use function strval;
  *     ssl_ciphers: string|null,
  *     ssl_verify: bool,
  *     compress: bool,
+ *     driver: 'mysqli'|'pdo_mysql',
  *     controlhost: string,
  *     controlport: string,
  *     controluser: string,
@@ -216,6 +217,19 @@ final class Server
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_compress
      */
     public bool $compress;
+
+    /**
+     * The PHP MySQL driver to use for the connection ('mysqli' or 'pdo_mysql')
+     *
+     * ```php
+     * $cfg['Servers'][$i]['driver'] = 'mysqli';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_Servers_driver
+     *
+     * @psalm-var 'mysqli'|'pdo_mysql'
+     */
+    public string $driver;
 
     /**
      * MySQL control host. This permits to use a host different from the
@@ -907,6 +921,7 @@ final class Server
         $this->sslCiphers = $this->setSslCiphers($server);
         $this->sslVerify = $this->setSslVerify($server);
         $this->compress = $this->setCompress($server);
+        $this->driver = $this->setDriver($server);
         $this->controlHost = $this->setControlHost($server);
         $this->controlPort = $this->setControlPort($server);
         $this->controlUser = $this->setControlUser($server);
@@ -982,6 +997,7 @@ final class Server
             'ssl_ciphers' => $this->sslCiphers,
             'ssl_verify' => $this->sslVerify,
             'compress' => $this->compress,
+            'driver' => $this->driver,
             'controlhost' => $this->controlHost,
             'controlport' => $this->controlPort,
             'controluser' => $this->controlUser,
@@ -1159,6 +1175,20 @@ final class Server
         }
 
         return false;
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     *
+     * @psalm-return 'mysqli'|'pdo_mysql'
+     */
+    private function setDriver(array $server): string
+    {
+        if (isset($server['driver']) && $server['driver'] === 'pdo_mysql') {
+            return 'pdo_mysql';
+        }
+
+        return 'mysqli';
     }
 
     /** @param array<int|string, mixed> $server */
