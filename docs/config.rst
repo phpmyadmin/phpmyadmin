@@ -509,6 +509,25 @@ Server connection settings
     Whether to use a compressed protocol for the MySQL server connection
     or not (experimental).
 
+.. config:option:: $cfg['Servers'][$i]['extension']
+
+    :type: string
+    :default: ``'mysqli'``
+
+    The PHP MySQL extension to use for the connection to this server.
+    Your options are ``'mysqli'`` and ``'pdo'`` (the ``pdo_mysql`` driver).
+
+    The ``mysqli`` extension is the recommended choice. The ``pdo`` support
+    is experimental and has some limitations, because PDO exposes less
+    metadata about result columns than mysqli: phpMyAdmin cannot detect
+    binary columns (they are displayed as text), the original names of
+    aliased columns and tables, or ``ENUM``/``SET`` columns in results.
+    The control connection (configuration storage) uses the same extension
+    as the main connection.
+
+    When every configured server uses ``'pdo'``, the ``mysqli`` extension
+    does not need to be installed (and vice versa).
+
 .. _controlhost:
 .. config:option:: $cfg['Servers'][$i]['controlhost']
 
