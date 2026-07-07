@@ -2244,4 +2244,144 @@ class RelationTest extends AbstractTestCase
 
         $this->assertAllQueriesConsumed();
     }
+
+     /**
+     * Test that getForeigners correctly parses foreign keys from a system-versioned table.
+     * System-versioned tables include PERIOD FOR SYSTEM_TIME and GENERATED ALWAYS AS ROW
+     * START/END columns in SHOW CREATE TABLE output, which previously broke the SQL parser.
+     *
+     * @see https://github.com/phpmyadmin/phpmyadmin/issues/20095
+     */
+    public function testGetForeignersWithSystemVersionedTable(): void
+    {
+        $showCreateTable = "CREATE TABLE `orders` (\n"
+            . "  `id` int(11) NOT NULL,\n"
+            . "  `customer_id` int(11) DEFAULT NULL,\n"
+            . "  `ts` timestamp(6) GENERATED ALWAYS AS ROW START,\n"
+            . "  `te` timestamp(6) GENERATED ALWAYS AS ROW END,\n"
+            . "  PRIMARY KEY (`id`,`te`),\n"
+            . "  KEY `fk_customer` (`customer_id`),\n"
+            . "  PERIOD FOR SYSTEM_TIME (`ts`, `te`),\n"
+            . "  CONSTRAINT `fk_customer` FOREIGN KEY (`customer_id`)"
+            . " REFERENCES `customers` (`id`)\n"
+            . ') ENGINE=InnoDB WITH SYSTEM VERSIONING';
+
+        // Strip GENERATED ALWAYS AS ROW START/END columns
+        $processed = (string) preg_replace(
+            '/^\s*`?\w+`?\s+\w+(?:\(\d+\))?\s+GENERATED ALWAYS AS ROW (?:START|END)[^\n]*,?\n?/im',
+            '',
+            $showCreateTable
+        );
+        // Strip PERIOD FOR SYSTEM_TIME clause
+        $processed = (string) preg_replace(
+            '/^\s*PERIOD\s+FOR\s+SYSTEM_TIME\s*\([^)]*\),?\n?/im',
+            '',
+            $processed
+        );
+
+        // After stripping, the parser should find the foreign key
+        $parser = new \PhpMyAdmin\SqlParser\Parser($processed);
+        $stmt = $parser->statements[0];
+        self::assertInstanceOf(\PhpMyAdmin\SqlParser\Statements\CreateStatement::class, $stmt);
+
+        $foreignKeys = $stmt->getForeignKeys();
+        self::assertCount(1, $foreignKeys);
+        self::assertSame('fk_customer', $foreignKeys[0]->constraint);
+        self::assertSame(['customer_id'], $foreignKeys[0]->indexList);
+        self::assertSame('customers', $foreignKeys[0]->refTableName);
+    }
+
+    /**
+     * Test that PERIOD FOR SYSTEM_TIME clause is stripped before parsing.
+     *
+     * @see https://github.com/phpmyadmin/phpmyadmin/issues/20095
+     */
+    public function testStripPeriodForSystemTime(): void
+    {
+        $showCreateTable = "CREATE TABLE `orders` (\n"
+            . "  `id` int(11) NOT NULL,\n"
+            . "  `customer_id` int(11) DEFAULT NULL,\n"
+            . "  PERIOD FOR SYSTEM_TIME (`ts`, `te`),\n"
+            . "  CONSTRAINT `fk_customer` FOREIGN KEY (`customer_id`)"
+            . " REFERENCES `customers` (`id`)\n"
+            . ') ENGINE=InnoDB';
+
+        $processed = (string) preg_replace(
+            '/^\s*PERIOD\s+FOR\s+SYSTEM_TIME\s*\([^)]*\),?\n?/im',
+            '',
+            $showCreateTable
+        );
+
+        self::assertStringNotContainsString('PERIOD FOR SYSTEM_TIME', $processed);
+
+        $parser = new \PhpMyAdmin\SqlParser\Parser($processed);
+        $stmt = $parser->statements[0];
+        $foreignKeys = $stmt->getForeignKeys();
+        self::assertCount(1, $foreignKeys);
+        self::assertSame('fk_customer', $foreignKeys[0]->constraint);
+    }
+
+    /**
+     * Test that GENERATED ALWAYS AS ROW START/END columns are stripped before parsing.
+     *
+     * @see https://github.com/phpmyadmin/phpmyadmin/issues/20095
+     */
+    public function testStripGeneratedAlwaysAsRowStartEnd(): void
+    {
+        $showCreateTable = "CREATE TABLE `orders` (\n"
+            . "  `id` int(11) NOT NULL,\n"
+            . "  `ts` timestamp(6) GENERATED ALWAYS AS ROW START,\n"
+            . "  `te` timestamp(6) GENERATED ALWAYS AS ROW END,\n"
+            . "  CONSTRAINT `fk_customer` FOREIGN KEY (`customer_id`)"
+            . " REFERENCES `customers` (`id`)\n"
+            . ') ENGINE=InnoDB';
+
+        $processed = (string) preg_replace(
+            '/^\s*`?\w+`?\s+\w+(?:\(\d+\))?\s+GENERATED ALWAYS AS ROW (?:START|END)[^\n]*,?\n?/im',
+            '',
+            $showCreateTable
+        );
+
+        self::assertStringNotContainsString('ROW START', $processed);
+        self::assertStringNotContainsString('ROW END', $processed);
+    }
+
+    /**
+     * Test that non-versioned tables are unaffected by the system versioning fix.
+     *
+     * @see https://github.com/phpmyadmin/phpmyadmin/issues/20095
+     */
+    public function testGetForeignersWithNonVersionedTable(): void
+    {
+        $showCreateTable = "CREATE TABLE `orders` (\n"
+            . "  `id` int(11) NOT NULL,\n"
+            . "  `customer_id` int(11) DEFAULT NULL,\n"
+            . "  PRIMARY KEY (`id`),\n"
+            . "  CONSTRAINT `fk_customer` FOREIGN KEY (`customer_id`)"
+            . " REFERENCES `customers` (`id`)\n"
+            . ') ENGINE=InnoDB';
+
+        // Apply the same pre-processing — should not alter a non-versioned table
+        $processed = (string) preg_replace(
+            '/^\s*`?\w+`?\s+\w+(?:\(\d+\))?\s+GENERATED ALWAYS AS ROW (?:START|END)[^\n]*,?\n?/im',
+            '',
+            $showCreateTable
+        );
+        $processed = (string) preg_replace(
+            '/^\s*PERIOD\s+FOR\s+SYSTEM_TIME\s*\([^)]*\),?\n?/im',
+            '',
+            $processed
+        );
+
+        // String should be unchanged
+        self::assertSame($showCreateTable, $processed);
+
+        // Foreign key should still be found
+        $parser = new \PhpMyAdmin\SqlParser\Parser($processed);
+        $stmt = $parser->statements[0];
+        $foreignKeys = $stmt->getForeignKeys();
+        self::assertCount(1, $foreignKeys);
+        self::assertSame('fk_customer', $foreignKeys[0]->constraint);
+    }
 }
+
