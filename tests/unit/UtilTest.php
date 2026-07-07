@@ -23,6 +23,7 @@ use function __;
 use function _setlocale;
 use function date_default_timezone_get;
 use function date_default_timezone_set;
+use function extension_loaded;
 use function file_exists;
 use function htmlspecialchars;
 use function ini_get;
@@ -46,10 +47,16 @@ class UtilTest extends AbstractTestCase
     #[RequiresPhpExtension('sodium')]
     public function testListPHPExtensions(): void
     {
-        self::assertSame(
-            ['mysqli', 'curl', 'mbstring', 'sodium'],
-            Util::listPHPExtensions(),
-        );
+        $expected = ['mysqli'];
+        if (extension_loaded('pdo_mysql')) {
+            $expected[] = 'pdo_mysql';
+        }
+
+        $expected[] = 'curl';
+        $expected[] = 'mbstring';
+        $expected[] = 'sodium';
+
+        self::assertSame($expected, Util::listPHPExtensions());
     }
 
     /**

@@ -142,11 +142,29 @@ class DatabaseInterface
 
     public static int|null $errorNumber = null;
 
+    /**
+     * Extensions used by the open connections, indexed by connection type
+     *
+     * @var array<int, DbiExtension>
+     */
+    private array $extensions = [];
+
+    private DbiPdo|null $pdoExtension = null;
+
     /** @param DbiExtension $extension Object to be used for database queries */
     private function __construct(private DbiExtension $extension, private readonly Config $config)
     {
         $this->cache = new Cache();
         $this->types = new Types($this);
+    }
+
+    /**
+     * Returns the extension used by the given connection, falling back to the
+     * default one when no connection was opened for that connection type yet.
+     */
+    private function getExtension(ConnectionType $connectionType): DbiExtension
+    {
+        return $this->extensions[$connectionType->value] ?? $this->extension;
     }
 
     /** @deprecated Use dependency injection instead. */
@@ -210,7 +228,8 @@ class DatabaseInterface
 
         $time = microtime(true);
 
-        $result = $this->extension->realQuery($query, $this->connections[$connectionType->value], $unbuffered);
+        $result = $this->getExtension($connectionType)
+            ->realQuery($query, $this->connections[$connectionType->value], $unbuffered);
 
         if ($connectionType === ConnectionType::User) {
             $this->lastQueryExecutionTime = microtime(true) - $time;
@@ -268,7 +287,8 @@ class DatabaseInterface
             return false;
         }
 
-        return $this->extension->realMultiQuery($this->connections[$connectionType->value], $multiQuery);
+        return $this->getExtension($connectionType)
+            ->realMultiQuery($this->connections[$connectionType->value], $multiQuery);
     }
 
     /**
@@ -1618,11 +1638,18 @@ class DatabaseInterface
 
         $target ??= $connectionType;
 
+        $extension = $this->extension;
+        if ($server->extension === 'pdo') {
+            $extension = $this->pdoExtension ??= new DbiPdo();
+        }
+
+        $this->extensions[$target->value] = $extension;
+
         // Do not show location and backtrace for connection errors
         $errorHandler = ErrorHandler::getInstance();
         $errorHandler->setHideLocation(true);
         try {
-            $result = $this->extension->connect($server);
+            $result = $extension->connect($server);
         } catch (ConnectionException $exception) {
             $errorHandler->addUserError($exception->getMessage());
 
@@ -1651,7 +1678,7 @@ class DatabaseInterface
             return false;
         }
 
-        return $this->extension->selectDb($dbname, $this->connections[$connectionType->value]);
+        return $this->getExtension($connectionType)->selectDb($dbname, $this->connections[$connectionType->value]);
     }
 
     /**
@@ -1664,11 +1691,11 @@ class DatabaseInterface
         }
 
         // TODO: Figure out if we really need to check the return value of this function.
-        if (! $this->extension->nextResult($this->connections[$connectionType->value])) {
+        if (! $this->getExtension($connectionType)->nextResult($this->connections[$connectionType->value])) {
             return false;
         }
 
-        return $this->extension->storeResult($this->connections[$connectionType->value]);
+        return $this->getExtension($connectionType)->storeResult($this->connections[$connectionType->value]);
     }
 
     /**
@@ -1682,7 +1709,7 @@ class DatabaseInterface
             return false;
         }
 
-        return $this->extension->getHostInfo($this->connections[$connectionType->value]);
+        return $this->getExtension($connectionType)->getHostInfo($this->connections[$connectionType->value]);
     }
 
     /**
@@ -1692,7 +1719,7 @@ class DatabaseInterface
      */
     public function getClientInfo(): string
     {
-        return $this->extension->getClientInfo();
+        return $this->getExtension(ConnectionType::User)->getClientInfo();
     }
 
     /**
@@ -1704,12 +1731,12 @@ class DatabaseInterface
             return '';
         }
 
-        return $this->extension->getError($this->connections[$connectionType->value]);
+        return $this->getExtension($connectionType)->getError($this->connections[$connectionType->value]);
     }
 
     public function getConnectionErrorNumber(): int
     {
-        return $this->extension->getConnectionErrorNumber();
+        return $this->getExtension(ConnectionType::User)->getConnectionErrorNumber();
     }
 
     /**
@@ -1747,7 +1774,7 @@ class DatabaseInterface
             return self::$cachedAffectedRows;
         }
 
-        return $this->extension->affectedRows($this->connections[$connectionType->value]);
+        return $this->getExtension($connectionType)->affectedRows($this->connections[$connectionType->value]);
     }
 
     /**
@@ -1795,7 +1822,8 @@ class DatabaseInterface
      */
     public function quoteString(string $str, ConnectionType $connectionType = ConnectionType::User): string
     {
-        return "'" . $this->extension->escapeString($this->connections[$connectionType->value], $str) . "'";
+        return "'" . $this->getExtension($connectionType)
+            ->escapeString($this->connections[$connectionType->value], $str) . "'";
     }
 
     /**
@@ -1958,7 +1986,8 @@ class DatabaseInterface
         array $params,
         ConnectionType $connectionType = ConnectionType::User,
     ): ResultInterface|null {
-        return $this->extension->executeQuery($this->connections[$connectionType->value], $query, $params);
+        return $this->getExtension($connectionType)
+            ->executeQuery($this->connections[$connectionType->value], $query, $params);
     }
 
     public function getDatabaseList(): ListDatabase
@@ -1979,6 +2008,6 @@ class DatabaseInterface
             return 0;
         }
 
-        return $this->extension->getWarningCount($this->connections[$connectionType->value]);
+        return $this->getExtension($connectionType)->getWarningCount($this->connections[$connectionType->value]);
     }
 }
