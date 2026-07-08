@@ -295,6 +295,17 @@ AJAX.registerOnload('table/select.js', function () {
         window.openGISEditor(value, field, type, inputName);
     });
 
+    gisEditorModal?.addEventListener('hide.bs.modal', event => {
+        // Move focus out of the modal before Bootstrap marks it aria-hidden.
+        // Otherwise the browser blocks aria-hidden while a descendant (such as
+        // the close button) still holds focus, which hides the focused element
+        // from assistive technology (see issue #19793).
+        const modal = event.currentTarget as HTMLElement;
+        if (modal.contains(document.activeElement)) {
+            (document.activeElement as HTMLElement).blur();
+        }
+    });
+
     /**
      * Ajax event handler for Range-Search.
      */
