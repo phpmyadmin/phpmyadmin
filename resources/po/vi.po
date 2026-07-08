@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-07-05 00:50+0000\n"
-"PO-Revision-Date: 2026-07-06 15:01+0000\n"
+"PO-Revision-Date: 2026-07-08 12:01+0000\n"
 "Last-Translator: hoanghuy309 <hoanghuy309@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/vi/>\n"
@@ -2545,7 +2545,7 @@ msgstr "Tùy chọn:"
 
 #: resources/templates/database/search/main.twig:40
 msgid "include hex matches"
-msgstr ""
+msgstr "bao gồm các giá trị khớp hệ thập lục phân"
 
 #: resources/templates/database/search/main.twig:45
 msgid "Inside tables:"
@@ -3097,9 +3097,8 @@ msgid "Well Known Text"
 msgstr "Văn Bản Nổi Tiếng"
 
 #: resources/templates/display/results/table.twig:272
-#, fuzzy
 msgid "Well Known Binary"
-msgstr "Định dạng nhị phân được biết đến (WKB)"
+msgstr "Nhị Phân Nổi Tiếng (wkb)"
 
 #: resources/templates/display/results/table.twig:323
 #: resources/templates/display/results/table.twig:324
@@ -3434,7 +3433,7 @@ msgstr "Loại hình học:"
 
 #: resources/templates/gis_data_editor_form.twig:41
 msgid "Spatial Reference System Identifier"
-msgstr ""
+msgstr "Định Danh Hệ Quy Chiếu Không Gian"
 
 #: resources/templates/gis_data_editor_form.twig:41
 msgctxt "Spatial Reference System Identifier"
@@ -4396,7 +4395,7 @@ msgstr "Ẩn/hiện các mục điều hướng:"
 
 #: resources/templates/relation/check_relations.twig:433
 msgid "Saving Query-By-Example searches:"
-msgstr ""
+msgstr "Lưu các tìm kiếm Truy vấn theo Ví dụ:"
 
 #: resources/templates/relation/check_relations.twig:458
 msgid "Managing central list of columns:"
@@ -4507,17 +4506,13 @@ msgstr "Không có đặc quyền để tạo cơ sở dữ liệu"
 #: resources/templates/server/databases/index.twig:156
 #: resources/templates/server/replication/index.twig:18
 #: resources/templates/server/replication/primary_replication.twig:3
-#, fuzzy
-#| msgid "Master replication"
 msgid "Primary replication"
-msgstr "Máy chính"
+msgstr "Sao chép chính"
 
 #: resources/templates/server/databases/index.twig:160
 #: resources/templates/server/replication/replica_configuration.twig:2
-#, fuzzy
-#| msgid "Slave replication"
 msgid "Replica replication"
-msgstr "Máy phụ"
+msgstr "Sao chép phụ"
 
 #: resources/templates/server/databases/index.twig:181
 #, php-format
@@ -4577,8 +4572,6 @@ msgstr "Xác nhận"
 
 #: resources/templates/server/engines/index.twig:5
 #: resources/templates/server/engines/show.twig:3
-#, fuzzy
-#| msgid "Storage Engines"
 msgid "Storage engines"
 msgstr "Máy lưu trữ"
 
@@ -4594,10 +4587,8 @@ msgid "Description"
 msgstr "Mô tả"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:2
-#, fuzzy
-#| msgid "Buffer Pool Usage"
 msgid "Buffer pool usage"
-msgstr "Mức dùng Bể đệm"
+msgstr "Mức sử dụng bộ đệm"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:5
 msgid "Free pages"
@@ -4629,10 +4620,8 @@ msgid "%s pages"
 msgstr "%s trang"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:41
-#, fuzzy
-#| msgid "Buffer Pool Activity"
 msgid "Buffer pool activity"
-msgstr "Hoạt động Bể bộ đệm"
+msgstr "Hoạt động bộ đệm"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:44
 msgid "Read requests"
@@ -4708,10 +4697,8 @@ msgid "disabled"
 msgstr "tắt"
 
 #: resources/templates/server/plugins/index.twig:45
-#, fuzzy
-#| msgid "Deleting"
 msgid "deleting"
-msgstr "Đang xóa"
+msgstr "đang xóa"
 
 #: resources/templates/server/plugins/index.twig:47
 msgid "deleted"
@@ -4737,10 +4724,9 @@ msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr "Cấp mọi đặc quyền trên các tên dùng ký tự đại diện (username\\_%)."
 
 #: resources/templates/server/privileges/add_user.twig:25
-#, fuzzy, php-format
-#| msgid "Grant all privileges on database \"%s\"."
+#, php-format
 msgid "Grant all privileges on database %s."
-msgstr "Cấp mọi đặc quyền trên cơ sở dữ liệu \"%s\"."
+msgstr "Cấp đầy đủ quyền truy cập vào cơ sở dữ liệu %s."
 
 #: resources/templates/server/privileges/add_user.twig:38
 msgid "Create user"
@@ -15125,6 +15111,9 @@ msgid ""
 "then your key_buffer_size value is probably too small. The cache miss rate "
 "can be calculated as Key_reads/Key_read_requests."
 msgstr ""
+"Số lần đọc vật lý một khối khóa từ đĩa. Nếu Key_reads lớn, thì giá trị "
+"key_buffer_size của bạn có thể quá nhỏ. Tỷ lệ lỗi bộ nhớ cache có thể được "
+"tính bằng Key_reads/Key_read_requests."
 
 #: src/Controllers/Server/Status/VariablesController.php:403
 msgid ""
@@ -16198,7 +16187,7 @@ msgstr "Không thể lưu bảng yêu thích!"
 
 #: src/File.php:180
 msgid "File was not an uploaded file."
-msgstr "Tập tin không phải là một tập tin được tải lên"
+msgstr "Tập tin không phải là một tập tin được tải lên."
 
 #: src/File.php:216
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
@@ -16230,7 +16219,7 @@ msgstr "Tải tập tin bị dừng bởi phần mở rộng."
 
 #: src/File.php:239
 msgid "Unknown error in file upload."
-msgstr "Gặp lỗi chưa biết trong tải tập tin"
+msgstr "Lỗi không xác định khi tải tệp lên."
 
 #: src/File.php:318
 msgid "File is a symbolic link"
@@ -16265,8 +16254,9 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
-"Bạn đã cố tải tập tin với kiểu nén chưa được hỗ trợ (%s). Hoặc là việc hỗ "
-"trợ nó chưa được thực hiện hoặc là bị tắt bởi cấu hình của bạn"
+"Bạn đã cố tải một tệp có kiểu nén không được hỗ trợ (%s). Hoặc việc hỗ trợ "
+"cho kiểu nén này chưa được triển khai, hoặc đã bị vô hiệu hóa bởi cấu hình "
+"của bạn."
 
 #: src/FlashMessenger.php:31
 #, fuzzy
@@ -16925,10 +16915,8 @@ msgid "The table name is empty!"
 msgstr "Tên bảng còn để trống!"
 
 #: src/Partitioning/Maintenance.php:136
-#, fuzzy
-#| msgid "This is a read-only variable and can not be edited"
 msgid "This table is a view, it can not be truncated."
-msgstr "Đây là biến chỉ đọc nên không thể sửa"
+msgstr "Bảng này là một khung nhìn (view), không thể bị cắt bớt (truncate)."
 
 #: src/Pdf.php:146
 msgid "Error while creating PDF:"
@@ -17316,7 +17304,7 @@ msgstr "Cơ sở dữ liệu của bạn có vẻ như có dùng các hàm;"
 #: src/Plugins/Export/ExportSql.php:594 src/Plugins/Export/ExportSql.php:1457
 #: src/Plugins/Export/ExportSql.php:1883
 msgid "alias export may not work reliably in all cases."
-msgstr "xuất bí danh có thể không làm việc đúng trong mọi trường hợp"
+msgstr "xuất bí danh có thể không hoạt động đáng tin cậy trong mọi trường hợp."
 
 #: src/Plugins/Export/ExportSql.php:1049
 msgid "Metadata"
@@ -17944,10 +17932,9 @@ msgid "Error."
 msgstr "Lỗi."
 
 #: src/Replication/ReplicationGui.php:488
-#, fuzzy, php-format
-#| msgid "Unable to connect to master %s."
+#, php-format
 msgid "Unable to connect to primary %s."
-msgstr "Không thể kết nối tới máy chính %s"
+msgstr "Không thể kết nối với %s chính."
 
 #: src/Replication/ReplicationGui.php:498
 #, fuzzy
@@ -18511,8 +18498,8 @@ msgstr "không trống"
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr ""
-"Số nguyên 1 byte, phạm vi giá trị có dấu là từ -128 đến 127, phạm vi giá trị "
-"không dấu là từ 0 đến 255."
+"Một số nguyên 1 byte, phạm vi có dấu là từ -128 đến 127, phạm vi không dấu "
+"là từ 0 đến 255"
 
 #: src/Types.php:163
 #, fuzzy
