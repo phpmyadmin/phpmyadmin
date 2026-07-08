@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2026-06-19 20:01+0000\n"
+"PO-Revision-Date: 2026-07-08 12:01+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "lv/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2;\n"
-"X-Generator: Weblate 2026.7.dev0\n"
+"X-Generator: Weblate 2026.7.1.dev0\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -345,6 +345,8 @@ msgstr "Ļauj veidot pagaidu tabulas."
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
 msgstr ""
+"Pagaidu tabulu vidējais rādītājs: %s, šim lielumam stundā nevajadzētu "
+"pārsniegt 1."
 
 #: libraries/advisory_rules_generic.php:233
 msgid "Sort rows"
@@ -1000,9 +1002,8 @@ msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert iestatīts uz 0"
 
 #: libraries/advisory_rules_mysql_before80003.php:9
-#, fuzzy
 msgid "Query cache disabled"
-msgstr "Vaicājuma tips"
+msgstr "Vaicājumu kešatmiņa atspējota"
 
 #: libraries/advisory_rules_mysql_before80003.php:12
 msgid "The query cache is not enabled."
@@ -1201,7 +1202,7 @@ msgstr "stundā"
 
 #: libraries/classes/Advisor.php:421
 msgid "per day"
-msgstr ""
+msgstr "dienā"
 
 #: libraries/classes/BrowseForeigners.php:198
 msgid "Search:"
@@ -1285,7 +1286,7 @@ msgstr "Apraksts"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:536
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:569
 msgid "Page number:"
-msgstr "Lapas numurs:"
+msgstr "Lappuses numurs:"
 
 #: libraries/classes/BrowseForeigners.php:338
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:574
@@ -1297,66 +1298,52 @@ msgstr "Rādīt visu"
 
 #: libraries/classes/Charsets/Collation.php:168
 #: libraries/classes/Charsets.php:172 libraries/classes/Charsets.php:173
-#, fuzzy
-#| msgid "unknown"
 msgid "Unknown"
-msgstr "nazināma"
+msgstr "Nezināms"
 
 #: libraries/classes/Charsets/Collation.php:212
 #: libraries/classes/Charsets/Collation.php:481
 msgctxt "Collation"
 msgid "German (phone book order)"
-msgstr ""
+msgstr "Vācu (tālruņu grāmatas secība)"
 
 #: libraries/classes/Charsets/Collation.php:215
 #: libraries/classes/Charsets/Collation.php:478
-#, fuzzy
-#| msgid "Data Dictionary"
 msgctxt "Collation"
 msgid "German (dictionary order)"
-msgstr "Datu vārdnīca"
+msgstr "Vācu (vārdnīcas secība)"
 
 #: libraries/classes/Charsets/Collation.php:223
 #: libraries/classes/Charsets/Collation.php:556
 msgctxt "Collation"
 msgid "Spanish (traditional)"
-msgstr ""
+msgstr "Spāņu (tradicionāla)"
 
 #: libraries/classes/Charsets/Collation.php:226
 #: libraries/classes/Charsets/Collation.php:549
-#, fuzzy
-#| msgid "Spanish"
 msgctxt "Collation"
 msgid "Spanish (modern)"
-msgstr "Spāņu"
+msgstr "Spāņu (mūsdienu)"
 
 #: libraries/classes/Charsets/Collation.php:288
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "case-insensitive"
-msgstr "reģistrnejūtīgs"
+msgstr "nav reģistrjutīgs"
 
 #: libraries/classes/Charsets/Collation.php:291
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "case-sensitive"
-msgstr "reģistrjūtīgs"
+msgstr "reģistrjutīgs"
 
 #: libraries/classes/Charsets/Collation.php:294
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "accent-insensitive"
-msgstr "reģistrnejūtīgs"
+msgstr "nav diakritiskjutīgs"
 
 #: libraries/classes/Charsets/Collation.php:297
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "accent-sensitive"
-msgstr "reģistrjūtīgs"
+msgstr "diakritiskjutīgs"
 
 #: libraries/classes/Charsets/Collation.php:300
 #, fuzzy
@@ -1508,11 +1495,9 @@ msgid "Greek"
 msgstr "Grieķu"
 
 #: libraries/classes/Charsets/Collation.php:410
-#, fuzzy
-#| msgid "Czech-Slovak"
 msgctxt "Collation"
 msgid "Czech-Slovak"
-msgstr "Čehu-Slovāku"
+msgstr "Čehu-slovāku"
 
 #: libraries/classes/Charsets/Collation.php:413
 #: libraries/classes/Charsets/Collation.php:572
@@ -2661,10 +2646,8 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:591
 #: libraries/classes/Config/Descriptions.php:867
-#, fuzzy
-#| msgid "Disable foreign key checks"
 msgid "Disable shortcut keys"
-msgstr "Nepārbaudīt ārējās atslēgas"
+msgstr "Atspējot īsinājumtaustiņus"
 
 #: libraries/classes/Config/Descriptions.php:592
 msgid "Use natural order for sorting table and database names."
@@ -3418,9 +3401,8 @@ msgid "SQL"
 msgstr "SQL"
 
 #: libraries/classes/Config/Descriptions.php:785
-#, fuzzy
 msgid "SQL Query box"
-msgstr "SQL vaicājums"
+msgstr "SQL vaicājuma logs"
 
 #: libraries/classes/Config/Descriptions.php:786
 #: libraries/classes/Config/Forms/User/SqlForm.php:46
@@ -4126,9 +4108,8 @@ msgid "Show detailed MySQL server information"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:951
-#, fuzzy
 msgid "Show SQL queries"
-msgstr "Rādīt pilnos vaicājumus"
+msgstr "Rādīt SQL vaicājumus"
 
 #: libraries/classes/Config/Descriptions.php:952 templates/sql/query.twig:120
 msgid "Retain query box"
@@ -5475,10 +5456,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:94
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save & close"
-msgstr "Saglabāt kā failu"
+msgstr "Saglabāt un aizvērt"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:95
 #: libraries/classes/InsertEdit.php:1982
@@ -5486,13 +5465,11 @@ msgstr "Saglabāt kā failu"
 #: templates/preferences/manage/main.twig:114
 #: templates/preferences/manage/main.twig:122
 msgid "Reset"
-msgstr "Atcelt"
+msgstr "Atiestatīt"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:96
-#, fuzzy
-#| msgid "Select All"
 msgid "Reset all"
-msgstr "Iezīmēt visu"
+msgstr "Atiestatīt visu"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:99
 msgid "Missing value in the form!"
@@ -5690,8 +5667,6 @@ msgid "Query cache used"
 msgstr "Izmantotā vaicājumu kešatmiņa"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:164
-#, fuzzy
-#| msgid "System CPU Usage"
 msgid "System CPU usage"
 msgstr "Sistēmas CPU noslodze"
 
@@ -6080,31 +6055,25 @@ msgstr "Tabula"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:277
 msgid "Chart"
-msgstr "Diagramma"
+msgstr "Grafiks"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:279
 #: templates/export.twig:171
-#, fuzzy
-#| msgid "Database"
 msgctxt "Alias"
 msgid "Database"
 msgstr "Datubāze"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:280
 #: templates/export.twig:185
-#, fuzzy
-#| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
 msgstr "Tabula"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:281
 #: templates/export.twig:198
-#, fuzzy
-#| msgid "Column"
 msgctxt "Alias"
 msgid "Column"
-msgstr "Lauks"
+msgstr "Kolonna"
 
 #. l10n: A collection of available filters
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:284
@@ -6310,8 +6279,6 @@ msgid "Renaming databases"
 msgstr "Pārsauc datubāzes"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:351
-#, fuzzy
-#| msgid "Copying Database"
 msgid "Copying database"
 msgstr "Kopē datubāzi"
 
@@ -6495,10 +6462,8 @@ msgid "Add primary key"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:417
-#, fuzzy
-#| msgid "A primary key has been added on %s."
 msgid "Primary key added."
-msgstr "Primārā atslēga pievienota uz lauka %s."
+msgstr "Primārā atslēga pievienota."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:418
 #: libraries/classes/Normalization.php:288
@@ -6782,11 +6747,11 @@ msgstr "Pievienot iekšējo loku"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:500
 msgid "Do you want to copy encryption key?"
-msgstr ""
+msgstr "Vai vēlaties kopēt šifrēšanas atslēgu?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:501
 msgid "Encryption key"
-msgstr ""
+msgstr "Šifrēšanas atslēga"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:504
 msgid ""
@@ -6855,33 +6820,24 @@ msgstr "Lapas nosaukums"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:537
 #: templates/database/designer/main.twig:63
 #: templates/database/designer/main.twig:66
-#, fuzzy
-#| msgid "Select All"
 msgid "Save page"
-msgstr "Iezīmēt visu"
+msgstr "Saglabāt lapu"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:538
 #: templates/database/designer/main.twig:70
 #: templates/database/designer/main.twig:73
-#, fuzzy
-#| msgid "Select All"
 msgid "Save page as"
-msgstr "Iezīmēt visu"
+msgstr "Saglabāt lapu kā"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:539
 #: templates/database/designer/main.twig:56
 #: templates/database/designer/main.twig:59
-#, fuzzy
-#| msgctxt "PDF"
-#| msgid "page"
 msgid "Open page"
-msgstr "Aizņem"
+msgstr "Atvērt lapu"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:540
-#, fuzzy
-#| msgid "Select All"
 msgid "Delete page"
-msgstr "Iezīmēt visu"
+msgstr "Dzēst lapu"
 
 #. l10n: When the user opens a page saved in the Designer
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:542
@@ -6929,10 +6885,8 @@ msgid "%d object(s) created."
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:553
-#, fuzzy
-#| msgid "Column names"
 msgid "Column name"
-msgstr "Kolonnu nosaukumi"
+msgstr "Kolonnas nosaukums"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:554
 #: templates/sql/query.twig:165
@@ -7022,10 +6976,8 @@ msgid "Drop files here"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:593
-#, fuzzy
-#| msgid "Select Tables"
 msgid "Select database first"
-msgstr "Izvēlieties tabulas"
+msgstr "Vispirms atlasiet datubāzi"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:596
 #: templates/database/data_dictionary/index.twig:117
@@ -7224,10 +7176,8 @@ msgid "%s argument(s) passed"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:691
-#, fuzzy
-#| msgid "Table comments"
 msgid "Show arguments"
-msgstr "Komentārs tabulai"
+msgstr "Rādīt argumentus"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:692
 #, fuzzy
@@ -7249,10 +7199,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:702
-#, fuzzy
-#| msgid "Copy database to"
 msgid "Copy tables to"
-msgstr "Kopēt datubāzi uz"
+msgstr "Kopēt tabulas uz"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:703
 #, fuzzy
@@ -7337,11 +7285,11 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:735
-#, fuzzy, php-format
+#, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
-msgstr "Lietotājs %s jau eksistē!"
+msgstr "%s tabula jau pastāv!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:737
 #: libraries/classes/InsertEdit.php:339
@@ -7491,7 +7439,7 @@ msgstr "Lietotājs"
 #: templates/server/replication/master_add_slave_user.twig:43
 #: templates/server/replication/master_replication.twig:25
 msgid "Host"
-msgstr "Hosts"
+msgstr "Resursdators"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:163
 msgid "Command"
@@ -8129,7 +8077,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Setup/HomeController.php:131
 msgid "Default language"
-msgstr ""
+msgstr "Noklusējuma valoda"
 
 #: libraries/classes/Controllers/Setup/HomeController.php:140
 msgid "Default server"
@@ -8269,7 +8217,7 @@ msgstr "Iekšējās relācijas"
 #: libraries/classes/Controllers/Table/ReplaceController.php:301
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
-msgstr ""
+msgstr "Rinda: %1$s, Kolonna: %2$s, Kļūda: %3$s"
 
 #: libraries/classes/Controllers/Table/StructureController.php:210
 #: libraries/classes/Controllers/Table/StructureController.php:233
@@ -8294,7 +8242,7 @@ msgstr "Izvēlētie lietotāji tika veiksmīgi dzēsti."
 #: libraries/classes/Controllers/Table/StructureController.php:746
 #, php-format
 msgid "Failed to get description of column %s!"
-msgstr ""
+msgstr "Neizdevās iegūt %s kolonnas aprakstu!"
 
 #: libraries/classes/Controllers/Table/StructureController.php:987
 #: libraries/classes/Controllers/Table/StructureController.php:1271
@@ -8362,7 +8310,7 @@ msgstr ""
 #: libraries/classes/Controllers/ThemesController.php:20
 #: templates/themes.twig:1
 msgid "Theme"
-msgstr ""
+msgstr "Motīvs"
 
 #: libraries/classes/Controllers/UserPasswordController.php:51
 msgid "You don't have sufficient privileges to be here right now!"
@@ -8436,11 +8384,11 @@ msgstr "Nevarēja izdzēst kolonnas!"
 
 #: libraries/classes/Database/CentralColumns.php:665
 msgid "YES"
-msgstr ""
+msgstr "JĀ"
 
 #: libraries/classes/Database/CentralColumns.php:665
 msgid "NO"
-msgstr ""
+msgstr "NĒ"
 
 #: libraries/classes/Database/Designer/Common.php:568
 #, fuzzy
@@ -8693,28 +8641,20 @@ msgid "Saved bookmarked search:"
 msgstr "Saglabātais grāmatzīmē meklējums:"
 
 #: libraries/classes/Database/Qbe.php:1733
-#, fuzzy
-#| msgid "Search"
 msgid "New bookmark"
-msgstr "Meklēt"
+msgstr "Jauna grāmatzīme"
 
 #: libraries/classes/Database/Qbe.php:1759
-#, fuzzy
-#| msgid "Search"
 msgid "Create bookmark"
-msgstr "Meklēt"
+msgstr "Izveidot grāmatzīmi"
 
 #: libraries/classes/Database/Qbe.php:1762
-#, fuzzy
-#| msgid "Showing bookmark"
 msgid "Update bookmark"
-msgstr "Rāda grāmatzīmi"
+msgstr "Atjaunināt grāmatzīmi"
 
 #: libraries/classes/Database/Qbe.php:1764
-#, fuzzy
-#| msgid "Search"
 msgid "Delete bookmark"
-msgstr "Meklēt"
+msgstr "Dzēst grāmatzīmi"
 
 #: libraries/classes/Database/Routines.php:117
 #: templates/database/routines/index.twig:67
@@ -8808,7 +8748,7 @@ msgstr "Mainīt uz %s"
 
 #: libraries/classes/Database/Routines.php:878
 msgid "Parameters"
-msgstr ""
+msgstr "Parametri"
 
 #: libraries/classes/Database/Routines.php:886
 #, fuzzy
@@ -8869,6 +8809,7 @@ msgstr "Garums/Vērtības*"
 #: templates/display/results/table.twig:107
 #: templates/table/search/index.twig:100
 #: templates/table/structure/display_table_stats.twig:97
+#, fuzzy
 msgid "Options"
 msgstr "Parametri"
 
@@ -8879,10 +8820,8 @@ msgid "Add parameter"
 msgstr "Pievienot jaunu lauku"
 
 #: libraries/classes/Database/Routines.php:911
-#, fuzzy
-#| msgid "Rename database to"
 msgid "Remove last parameter"
-msgstr "Pārsaukt datubāzi par"
+msgstr "Noņemt pēdējo parametru"
 
 #: libraries/classes/Database/Routines.php:916
 msgid "Return type"
@@ -8964,9 +8903,8 @@ msgstr ""
 #: templates/table/structure/display_structure.twig:423
 #: templates/table/tracking/structure_snapshot_columns.twig:12
 #: templates/table/tracking/structure_snapshot_indexes.twig:13
-#, fuzzy
 msgid "Comment"
-msgstr "Komentāri"
+msgstr "Komentārs"
 
 #: libraries/classes/Database/Routines.php:1076
 msgid "You must provide a name and a type for each routine parameter."
@@ -9785,8 +9723,6 @@ msgid "Analyze Explain at %s"
 msgstr ""
 
 #: libraries/classes/Html/Generator.php:710
-#, fuzzy
-#| msgid "Without PHP Code"
 msgid "Without PHP code"
 msgstr "Bez PHP koda"
 
@@ -9916,10 +9852,8 @@ msgstr "tīmekļa servera augšupielādes mape:"
 
 #: libraries/classes/InsertEdit.php:1787
 #: templates/table/search/input_box.twig:37
-#, fuzzy
-#| msgid "Insert"
 msgid "Edit/Insert"
-msgstr "Pievienot"
+msgstr "Rediģēt/Ievietot"
 
 #: libraries/classes/InsertEdit.php:1856
 msgid "and then"
@@ -10035,7 +9969,7 @@ msgstr ""
 #: libraries/classes/LanguageManager.php:1016 templates/setup/home/index.twig:8
 #: templates/setup/home/index.twig:9
 msgid "Language"
-msgstr ""
+msgstr "Valoda"
 
 #: libraries/classes/Linter.php:109
 msgid ""
@@ -10075,6 +10009,7 @@ msgstr "Meklēt"
 #: templates/database/qbe/ins_del_and_or_cell.twig:6
 #: templates/database/structure/structure_table_row.twig:59
 #: templates/sql/query.twig:76
+#, fuzzy
 msgid "Insert"
 msgstr "Pievienot"
 
@@ -10269,7 +10204,7 @@ msgstr "Saglabāt kā failu"
 
 #: libraries/classes/Navigation/NavigationTree.php:1475
 msgid "Collapse all"
-msgstr ""
+msgstr "Sakļaut visu"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/classes/Navigation/NodeFactory.php:39
@@ -10285,15 +10220,13 @@ msgstr "Nevarēja ielādēt \"%1$s\" klasi"
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:24
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:25
 #: templates/sql/query.twig:63
-#, fuzzy
-#| msgid "Column names"
 msgid "Columns"
-msgstr "Kolonnu nosaukumi"
+msgstr "Kolonnas"
 
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:36
 msgctxt "Create new column"
 msgid "New"
-msgstr ""
+msgstr "Jauna"
 
 #: libraries/classes/Navigation/Nodes/NodeDatabaseContainer.php:40
 msgctxt "Create new database"
@@ -10316,20 +10249,19 @@ msgstr "Rādīt režģi"
 #: templates/database/events/index.twig:105
 msgctxt "Create new event"
 msgid "New"
-msgstr ""
+msgstr "Jauns"
 
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:24
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:25
 #: libraries/classes/Plugins/Export/ExportSql.php:628
 #: libraries/classes/Plugins/Export/ExportXml.php:120
-#, fuzzy
 msgid "Functions"
-msgstr "Funkcija"
+msgstr "Funkcijas"
 
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:38
 msgctxt "Create new function"
 msgid "New"
-msgstr ""
+msgstr "Jauna"
 
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:36
 msgctxt "Create new index"
@@ -10338,30 +10270,28 @@ msgstr ""
 
 #: libraries/classes/Navigation/Nodes/Node.php:802
 msgid "Expand/Collapse"
-msgstr ""
+msgstr "Izvērst/Sakļaut"
 
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:24
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:25
 #: libraries/classes/Plugins/Export/ExportSql.php:617
 #: libraries/classes/Plugins/Export/ExportXml.php:125
-#, fuzzy
 msgid "Procedures"
-msgstr "Procesi"
+msgstr "Procedūras"
 
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:38
 msgctxt "Create new procedure"
 msgid "New"
-msgstr ""
+msgstr "Jauna"
 
 #: libraries/classes/Navigation/Nodes/NodeProcedure.php:29
-#, fuzzy
 msgid "Procedure"
-msgstr "Procesi"
+msgstr "Procedūra"
 
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:39
 msgctxt "Create new table"
 msgid "New"
-msgstr ""
+msgstr "Jauna"
 
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:36
 #: templates/database/triggers/footer.twig:2
@@ -10379,7 +10309,7 @@ msgstr ""
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:39
 msgctxt "Create new view"
 msgid "New"
-msgstr ""
+msgstr "Jauns"
 
 #: libraries/classes/Normalization.php:227
 msgid "Make all columns atomic"
@@ -10447,10 +10377,8 @@ msgid "+ Add a new primary key column"
 msgstr "Pievienot %s lauku(s)"
 
 #: libraries/classes/Normalization.php:332
-#, fuzzy
-#| msgid "Remove chart"
 msgid "Remove redundant columns"
-msgstr "Noņemt diagrammu"
+msgstr "Noņemt liekās kolonnas"
 
 #: libraries/classes/Normalization.php:335
 msgid ""
@@ -10573,10 +10501,8 @@ msgstr ""
 #: libraries/classes/Normalization.php:593
 #: libraries/classes/Normalization.php:755
 #: libraries/classes/Normalization.php:831
-#, fuzzy
-#| msgid "Processes"
 msgid "Error in processing!"
-msgstr "Procesi"
+msgstr "Kļūda, apstrādājot pieprasījumu!"
 
 #: libraries/classes/Normalization.php:640
 #, php-format
@@ -10814,6 +10740,7 @@ msgid "You are not allowed to log in to this MySQL server!"
 msgstr "Jums nav piekļuves tiesību šim MySQL serverim!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:91
+#, fuzzy
 msgid "Wrong username/password. Access denied."
 msgstr "Kļūdains lietotājvārds/parole. Pieeja aizliegta."
 
@@ -10897,9 +10824,8 @@ msgstr "Excel versija:"
 #: libraries/config.values.php:254 libraries/config.values.php:320
 #: libraries/config.values.php:336 libraries/config.values.php:344
 #: libraries/config.values.php:349
-#, fuzzy
 msgid "structure"
-msgstr "Struktūra"
+msgstr "struktūra"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:66
 #: libraries/classes/Plugins/Export/ExportLatex.php:102
@@ -10912,7 +10838,7 @@ msgstr "Struktūra"
 #: libraries/config.values.php:337 libraries/config.values.php:345
 #: libraries/config.values.php:350
 msgid "data"
-msgstr ""
+msgstr "dati"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:67
 #: libraries/classes/Plugins/Export/ExportLatex.php:103
@@ -10924,10 +10850,8 @@ msgstr ""
 #: libraries/config.values.php:256 libraries/config.values.php:322
 #: libraries/config.values.php:338 libraries/config.values.php:346
 #: libraries/config.values.php:351
-#, fuzzy
-#| msgid "Structure and data"
 msgid "structure and data"
-msgstr "Struktūra un dati"
+msgstr "struktūra un dati"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:77
 #: libraries/classes/Plugins/Export/ExportLatex.php:162
@@ -10941,6 +10865,7 @@ msgstr "Datu izguves parametri"
 #: libraries/classes/Plugins/Export/ExportOdt.php:266
 #: libraries/classes/Plugins/Export/ExportSql.php:2477
 #: libraries/classes/Plugins/Export/ExportTexytext.php:191
+#, fuzzy
 msgid "Dumping data for table"
 msgstr "Dati tabulai"
 
@@ -11008,20 +10933,16 @@ msgid "Output unicode characters unescaped"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:48
-#, fuzzy
-#| msgid "Content of table __TABLE__"
 msgid "Content of table @TABLE@"
-msgstr "Tabulas __TABLE__ saturs"
+msgstr "@TABLE@ tabulas saturs"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:49
 msgid "(continued)"
 msgstr "(turpinājums)"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:50
-#, fuzzy
-#| msgid "Structure of table __TABLE__"
 msgid "Structure of table @TABLE@"
-msgstr "Tabulas __TABLE__ struktūra"
+msgstr "@TABLE@ tabulas struktūra"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:114
 #: libraries/classes/Plugins/Export/ExportOdt.php:91
@@ -11056,10 +10977,8 @@ msgstr "Nepārbaudīt ārējās atslēgas"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:145
 #: libraries/classes/Plugins/Export/ExportOdt.php:104
-#, fuzzy
-#| msgid "Displaying Column Comments"
 msgid "Display comments"
-msgstr "Rādu kolonnu komentārus"
+msgstr "Rādīt komentārus"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:151
 #: libraries/classes/Plugins/Export/ExportOdt.php:110
@@ -11117,16 +11036,12 @@ msgid "Structure:"
 msgstr "Struktūra:"
 
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:80
-#, fuzzy
-#| msgid "Export"
 msgid "Export table names"
-msgstr "Eksports"
+msgstr "Izgūt tabulas nosaukumus"
 
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:87
-#, fuzzy
-#| msgid "horizontal (rotated headers)"
 msgid "Export table headers"
-msgstr "horizontālā (pagriezti virsraksti)"
+msgstr "Izgūt tabulas galvenes"
 
 #: libraries/classes/Plugins/Export/ExportOdt.php:267
 #: libraries/classes/Plugins/Export/ExportTexytext.php:192
@@ -11152,9 +11067,8 @@ msgid "Query result data"
 msgstr "Pieprasījuma rezultāti"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:310
-#, fuzzy
 msgid "View structure"
-msgstr "Struktūra"
+msgstr "Skatīt struktūru"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:313
 msgid "Stand in"
@@ -11179,10 +11093,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:201
-#, fuzzy
-#| msgid "Export type"
 msgid "Export metadata"
-msgstr "Eksporta veids"
+msgstr "Izgūt metadatus"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:216
 msgid ""
@@ -11303,10 +11215,8 @@ msgid "alias export may not work reliably in all cases."
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1062
-#, fuzzy
-#| msgid "Static data"
 msgid "Metadata"
-msgstr "Statiski dati"
+msgstr "Metadati"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1134
 #, php-format
@@ -11314,20 +11224,19 @@ msgid "Metadata for table %s"
 msgstr "%s tabulas metadati"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1141
-#, fuzzy, php-format
-#| msgid "Create table on database %s"
+#, php-format
 msgid "Metadata for database %s"
-msgstr "Izveidot jaunu tabulu datubāzē %s"
+msgstr "%s datubāzes metadati"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1476
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:674
 msgid "Creation:"
-msgstr "Izveidošana:"
+msgstr "Izveidota:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1489
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:685
 msgid "Last update:"
-msgstr "Pēdējo reizi atjaunots:"
+msgstr "Pēdējo reizi atjaunināta:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1502
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:696
@@ -11492,7 +11401,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:57
 msgid "MediaWiki Table"
-msgstr ""
+msgstr "MediaWiki tabula"
 
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:291
 #, php-format
@@ -11631,28 +11540,26 @@ msgstr ""
 #: libraries/classes/Plugins/Schema/SchemaDia.php:53
 #: libraries/classes/Plugins/Schema/SchemaEps.php:61
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:61
-#, fuzzy
-#| msgid "Creation"
 msgid "Orientation"
-msgstr "Izveidošana"
+msgstr "Orientācija"
 
 #: libraries/classes/Plugins/Schema/SchemaDia.php:57
 #: libraries/classes/Plugins/Schema/SchemaEps.php:65
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:65
 msgid "Landscape"
-msgstr "Ainava"
+msgstr "Horizontāla"
 
 #: libraries/classes/Plugins/Schema/SchemaDia.php:58
 #: libraries/classes/Plugins/Schema/SchemaEps.php:66
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:66
 msgid "Portrait"
-msgstr "Portrets"
+msgstr "Vertikāla"
 
 #: libraries/classes/Plugins/Schema/SchemaEps.php:55
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:55
 #: libraries/classes/Plugins/Schema/SchemaSvg.php:54
 msgid "Same width for all tables"
-msgstr ""
+msgstr "Vienāds platums visām tabulām"
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:80
 msgid "Show grid"
@@ -12018,6 +11925,7 @@ msgid "Favorites"
 msgstr "Mainīgie"
 
 #: libraries/classes/Relation.php:142
+#, fuzzy
 msgid "not OK"
 msgstr "nav OK"
 
@@ -12090,7 +11998,7 @@ msgstr ""
 
 #: libraries/classes/Relation.php:327
 msgid "User preferences"
-msgstr ""
+msgstr "Lietotāja iestatījumi"
 
 #: libraries/classes/Relation.php:344
 #, fuzzy
@@ -12868,10 +12776,8 @@ msgid "Invalid database:"
 msgstr "Nederīga datubāze:"
 
 #: libraries/classes/Table.php:1615
-#, fuzzy
-#| msgid "Inside table(s):"
 msgid "Invalid table name:"
-msgstr "Tabulā(s):"
+msgstr "Nederīgs tabulas nosaukums:"
 
 #: libraries/classes/Table.php:1653
 #, php-format
@@ -13310,11 +13216,9 @@ msgid "Numeric"
 msgstr ""
 
 #: libraries/classes/Types.php:741
-#, fuzzy
-#| msgid "Create an index"
 msgctxt "date and time types"
 msgid "Date and time"
-msgstr "Izveidot jaunu indeksu"
+msgstr "Datums un laiks"
 
 #: libraries/classes/Types.php:771
 #, fuzzy
@@ -14211,10 +14115,8 @@ msgid "A_I"
 msgstr ""
 
 #: templates/database/central_columns/main.twig:131
-#, fuzzy
-#| msgid "The central list of columns for the current database is empty."
 msgid "The central list of columns for the current database is empty"
-msgstr "Centrālais kolonnu saraksts pašreizējai datubāzei ir tukšs."
+msgstr "Pašreizējās datubāzes centrālais kolonnu saraksts ir tukšs"
 
 #: templates/database/central_columns/main.twig:168
 #: templates/display/results/table.twig:62
@@ -14324,10 +14226,8 @@ msgid "Show/hide columns"
 msgstr "Pievienot %s lauku(s)"
 
 #: templates/database/designer/database_tables.twig:46
-#, fuzzy
-#| msgid "Databases"
 msgid "See table structure"
-msgstr "Datubāzes"
+msgstr "Skatīt tabulas struktūru"
 
 #: templates/database/designer/database_tables.twig:91
 #, php-format
@@ -14767,10 +14667,8 @@ msgstr "Noņemt diagrammu"
 
 #: templates/database/multi_table_query/form.twig:154
 #: templates/table/relation/foreign_key_row.twig:85
-#, fuzzy
-#| msgid "Add %s field(s)"
 msgid "+ Add column"
-msgstr "Pievienot %s lauku(s)"
+msgstr "+ Pievienot kolonnu"
 
 #: templates/database/multi_table_query/form.twig:169
 #: templates/database/qbe/selection_form.twig:80
@@ -14821,9 +14719,8 @@ msgid "Database %s has been dropped."
 msgstr "Datubāze %s tika izdzēsta."
 
 #: templates/database/operations/index.twig:100
-#, fuzzy
 msgid "Drop the database (DROP)"
-msgstr "Nav datubāzu"
+msgstr "Dzēst datubāzi (DROP)"
 
 #: templates/database/operations/index.twig:124
 #, fuzzy
@@ -14931,10 +14828,8 @@ msgstr ""
 #: templates/server/privileges/user_overview.twig:24
 #: templates/server/privileges/users_overview.twig:124
 #: templates/table/privileges/index.twig:140
-#, fuzzy
-#| msgid "Add user"
 msgid "Add user account"
-msgstr "Pievienot lietotāju"
+msgstr "Pievienot lietotāja kontu"
 
 #: templates/database/qbe/index.twig:16
 #, php-format
@@ -15114,14 +15009,12 @@ msgid "Sum"
 msgstr "Kopumā"
 
 #: templates/database/structure/change_prefix_form.twig:7
-#, fuzzy
-#| msgid "Fri"
 msgid "From"
-msgstr "Pk"
+msgstr "No"
 
 #: templates/database/structure/change_prefix_form.twig:13
 msgid "To"
-msgstr ""
+msgstr "Uz"
 
 #: templates/database/structure/check_all_tables.twig:6
 msgid "Check tables having overhead"
@@ -15142,10 +15035,8 @@ msgstr "Rādīt krāsas"
 #: templates/database/structure/check_all_tables.twig:14
 #: templates/table/operations/index.twig:381
 #: templates/table/operations/view.twig:22
-#, fuzzy
-#| msgid "Dumping data for table"
 msgid "Delete data or table"
-msgstr "Dati tabulai"
+msgstr "Dzēst datus vai tabulu"
 
 #: templates/database/structure/check_all_tables.twig:15
 #: templates/database/structure/structure_table_row.twig:74
@@ -15155,7 +15046,7 @@ msgstr "Iztukšot"
 #: templates/database/structure/check_all_tables.twig:18
 #: templates/table/operations/index.twig:312
 msgid "Table maintenance"
-msgstr "Tabulas apkalpošana"
+msgstr "Tabulas apkope"
 
 #: templates/database/structure/check_all_tables.twig:19
 #: templates/table/maintenance/analyze.twig:3
@@ -15187,6 +15078,7 @@ msgstr "Optimizēt tabulu"
 #: templates/database/structure/check_all_tables.twig:23
 #: templates/table/maintenance/repair.twig:3
 #: templates/table/operations/index.twig:371
+#, fuzzy
 msgid "Repair table"
 msgstr "Restaurēt tabulu"
 
@@ -15609,10 +15501,8 @@ msgid "Character set of the file:"
 msgstr "Tabulas kodējums:"
 
 #: templates/export.twig:352
-#, fuzzy
-#| msgid "Compression"
 msgid "Compression:"
-msgstr "Kompresija"
+msgstr "Saspiešana:"
 
 #: templates/export.twig:359
 #, fuzzy
@@ -16138,10 +16028,8 @@ msgid "Minute"
 msgstr "lietošanā"
 
 #: templates/javascript/variables.twig:84
-#, fuzzy
-#| msgid "per second"
 msgid "Second"
-msgstr "sekundē"
+msgstr "Sekunde"
 
 #: templates/javascript/variables.twig:90
 msgid "This field is required"
@@ -16317,7 +16205,7 @@ msgstr ""
 
 #: templates/navigation/main.twig:25 templates/navigation/main.twig:26
 msgid "Home"
-msgstr "Sākumlapa"
+msgstr "Sākums"
 
 #: templates/navigation/main.twig:30 templates/navigation/main.twig:31
 #, fuzzy
@@ -16344,9 +16232,8 @@ msgid "MySQL Documentation"
 msgstr "Dokumentācija"
 
 #: templates/navigation/main.twig:43 templates/navigation/main.twig:44
-#, fuzzy
 msgid "Navigation panel settings"
-msgstr "Datubāzu eksporta opcijas"
+msgstr "Navigācijas paneļa iestatījumi"
 
 #: templates/navigation/main.twig:47 templates/navigation/main.twig:48
 #, fuzzy
@@ -16380,10 +16267,8 @@ msgid "Cannot save settings, submitted form contains errors!"
 msgstr ""
 
 #: templates/preferences/header.twig:6
-#, fuzzy
-#| msgid "General relation features"
 msgid "Manage your settings"
-msgstr "Galvenās relāciju īpašības"
+msgstr "Pārvaldīt savus iestatījumus"
 
 #: templates/preferences/header.twig:12
 #, fuzzy
@@ -16502,10 +16387,8 @@ msgstr ""
 
 #: templates/preferences/two_factor/confirm.twig:13
 #: templates/preferences/two_factor/main.twig:46
-#, fuzzy
-#| msgid "Change password"
 msgid "Disable two-factor authentication"
-msgstr "Mainīt paroli"
+msgstr "Atspējot divfaktoru (2FA) autentifikāciju"
 
 #: templates/preferences/two_factor/main.twig:5
 #, fuzzy
@@ -16883,7 +16766,7 @@ msgstr "Resursdatora nosaukums:"
 #: templates/server/privileges/login_information_fields.twig:27
 #: templates/server/replication/master_add_slave_user.twig:34
 msgid "Any host"
-msgstr "Jebkurš hosts"
+msgstr "Jebkurš resursdators"
 
 #: templates/server/privileges/login_information_fields.twig:28
 #: templates/server/replication/master_add_slave_user.twig:35
@@ -16978,10 +16861,8 @@ msgid "Add privileges on the following table:"
 msgstr "Pievienot privilēģijas šai tabulai:"
 
 #: templates/server/privileges/privileges_summary.twig:86
-#, fuzzy
-#| msgid "Add privileges on the following table"
 msgid "Add privileges on the following routine:"
-msgstr "Pievienot privilēģijas uz sekojošo tabulu"
+msgstr "Pievienot privilēģijas sekojošai apakšprogrammai:"
 
 #: templates/server/privileges/privileges_table.twig:29
 #: templates/server/privileges/privileges_table.twig:30
@@ -17680,9 +17561,8 @@ msgid "per second:"
 msgstr "sekundē:"
 
 #: templates/server/status/queries/index.twig:37
-#, fuzzy
 msgid "Statements"
-msgstr "Parametrs"
+msgstr "Izteiksmes"
 
 #. l10n: # = Amount of queries
 #: templates/server/status/queries/index.twig:38
@@ -18296,7 +18176,7 @@ msgid "Defragment table"
 msgstr "Defragmentēt tabulu"
 
 #: templates/table/operations/index.twig:350
-#, php-format
+#, fuzzy, php-format
 msgid "Table %s has been flushed."
 msgstr "Tabula %s tika atsvaidzināta."
 
@@ -18306,12 +18186,11 @@ msgstr "Atsvaidzināt tabulu (FLUSH)"
 
 #: templates/table/operations/index.twig:391
 msgid "Empty the table (TRUNCATE)"
-msgstr ""
+msgstr "Iztukšot/Notīrīt tabulu (TRUNCATE)"
 
 #: templates/table/operations/index.twig:411
-#, fuzzy
 msgid "Delete the table (DROP)"
-msgstr "Nav datubāzu"
+msgstr "Dzēst tabulu (DROP)"
 
 #: templates/table/operations/index.twig:432
 #, fuzzy
