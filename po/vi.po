@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2026-07-06 15:01+0000\n"
+"PO-Revision-Date: 2026-07-08 12:01+0000\n"
 "Last-Translator: hoanghuy309 <hoanghuy309@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/4-"
 "9/vi/>\n"
@@ -7713,7 +7713,7 @@ msgstr "Đổ đã được lưu vào tập tin %s."
 
 #: libraries/classes/File.php:260
 msgid "File was not an uploaded file."
-msgstr "Tập tin không phải là một tập tin được tải lên"
+msgstr "Tập tin không phải là một tập tin được tải lên."
 
 #: libraries/classes/File.php:300
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
@@ -7745,7 +7745,7 @@ msgstr "Tải tập tin bị dừng bởi phần mở rộng."
 
 #: libraries/classes/File.php:325
 msgid "Unknown error in file upload."
-msgstr "Gặp lỗi chưa biết trong tải tập tin"
+msgstr "Lỗi không xác định khi tải tệp lên."
 
 #: libraries/classes/File.php:461
 msgid "File is a symbolic link"
@@ -7774,8 +7774,9 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
-"Bạn đã cố tải tập tin với kiểu nén chưa được hỗ trợ (%s). Hoặc là việc hỗ "
-"trợ nó chưa được thực hiện hoặc là bị tắt bởi cấu hình của bạn"
+"Bạn đã cố tải một tệp có kiểu nén không được hỗ trợ (%s). Hoặc việc hỗ trợ "
+"cho kiểu nén này chưa được triển khai, hoặc đã bị vô hiệu hóa bởi cấu hình "
+"của bạn."
 
 #: libraries/classes/Footer.php:85
 #, php-format
@@ -9484,7 +9485,7 @@ msgstr "Cơ sở dữ liệu của bạn có vẻ như có dùng các hàm;"
 #: libraries/classes/Plugins/Export/ExportSql.php:1550
 #: libraries/classes/Plugins/Export/ExportSql.php:2072
 msgid "alias export may not work reliably in all cases."
-msgstr "xuất bí danh có thể không làm việc đúng trong mọi trường hợp"
+msgstr "xuất bí danh có thể không hoạt động đáng tin cậy trong mọi trường hợp."
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1010
 msgid "Metadata"
@@ -11370,10 +11371,9 @@ msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr "Cấp mọi đặc quyền trên các tên dùng ký tự đại diện (username\\_%)."
 
 #: libraries/classes/Server/Privileges.php:2214
-#, fuzzy, php-format
-#| msgid "Grant all privileges on database \"%s\"."
+#, php-format
 msgid "Grant all privileges on database %s."
-msgstr "Cấp mọi đặc quyền trên cơ sở dữ liệu \"%s\"."
+msgstr "Cấp đầy đủ quyền truy cập vào cơ sở dữ liệu %s."
 
 #: libraries/classes/Server/Privileges.php:2388
 #: libraries/classes/Server/Privileges.php:2462
@@ -12388,6 +12388,9 @@ msgid ""
 "then your key_buffer_size value is probably too small. The cache miss rate "
 "can be calculated as Key_reads/Key_read_requests."
 msgstr ""
+"Số lần đọc vật lý một khối khóa từ đĩa. Nếu Key_reads lớn, thì giá trị "
+"key_buffer_size của bạn có thể quá nhỏ. Tỷ lệ lỗi bộ nhớ cache có thể được "
+"tính bằng Key_reads/Key_read_requests."
 
 #: libraries/classes/Server/Status/Variables.php:619
 msgid ""
@@ -13067,8 +13070,8 @@ msgstr "không hoạt động"
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr ""
-"Số nguyên 1 byte, phạm vi giá trị có dấu là từ -128 đến 127, phạm vi giá trị "
-"không dấu là từ 0 đến 255."
+"Một số nguyên 1 byte, phạm vi có dấu là từ -128 đến 127, phạm vi không dấu "
+"là từ 0 đến 255"
 
 #: libraries/classes/Types.php:208
 #, fuzzy
@@ -15010,8 +15013,6 @@ msgid "Server variables and settings"
 msgstr "Các cài đặt và biến máy chủ"
 
 #: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Storage Engines"
 msgid "Storage engines"
 msgstr "Máy lưu trữ"
 
@@ -15421,9 +15422,8 @@ msgstr "Văn Bản Nổi Tiếng"
 
 #: templates/display/results/options_block.twig:79
 #: templates/display/results/options_block.twig:96
-#, fuzzy
 msgid "Well Known Binary"
-msgstr "Định dạng nhị phân được biết đến (WKB)"
+msgstr "Nhị Phân Nổi Tiếng (wkb)"
 
 #: templates/server/variables/variable_row.twig:6
 msgid "This is a read-only variable and can not be edited"
