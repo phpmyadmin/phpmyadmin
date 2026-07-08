@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2026-07-06 15:01+0000\n"
+"PO-Revision-Date: 2026-07-08 12:01+0000\n"
 "Last-Translator: hoanghuy309 <hoanghuy309@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/5-"
 "1/vi/>\n"
@@ -7947,6 +7947,9 @@ msgid ""
 "then your key_buffer_size value is probably too small. The cache miss rate "
 "can be calculated as Key_reads/Key_read_requests."
 msgstr ""
+"Số lần đọc vật lý một khối khóa từ đĩa. Nếu Key_reads lớn, thì giá trị "
+"key_buffer_size của bạn có thể quá nhỏ. Tỷ lệ lỗi bộ nhớ cache có thể được "
+"tính bằng Key_reads/Key_read_requests."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:522
 msgid ""
@@ -9666,7 +9669,7 @@ msgstr ""
 
 #: libraries/classes/File.php:286
 msgid "File was not an uploaded file."
-msgstr "Tập tin không phải là một tập tin được tải lên"
+msgstr "Tập tin không phải là một tập tin được tải lên."
 
 #: libraries/classes/File.php:326
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
@@ -9698,7 +9701,7 @@ msgstr "Tải tập tin bị dừng bởi phần mở rộng."
 
 #: libraries/classes/File.php:351
 msgid "Unknown error in file upload."
-msgstr "Gặp lỗi chưa biết trong tải tập tin"
+msgstr "Lỗi không xác định khi tải tệp lên."
 
 #: libraries/classes/File.php:503
 msgid "File is a symbolic link"
@@ -9727,8 +9730,9 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
-"Bạn đã cố tải tập tin với kiểu nén chưa được hỗ trợ (%s). Hoặc là việc hỗ "
-"trợ nó chưa được thực hiện hoặc là bị tắt bởi cấu hình của bạn"
+"Bạn đã cố tải một tệp có kiểu nén không được hỗ trợ (%s). Hoặc việc hỗ trợ "
+"cho kiểu nén này chưa được triển khai, hoặc đã bị vô hiệu hóa bởi cấu hình "
+"của bạn."
 
 #: libraries/classes/Footer.php:82 templates/home/index.twig:18
 #: templates/login/form.twig:5
@@ -11260,7 +11264,7 @@ msgstr "Cơ sở dữ liệu của bạn có vẻ như có dùng các hàm;"
 #: libraries/classes/Plugins/Export/ExportSql.php:1652
 #: libraries/classes/Plugins/Export/ExportSql.php:2194
 msgid "alias export may not work reliably in all cases."
-msgstr "xuất bí danh có thể không làm việc đúng trong mọi trường hợp"
+msgstr "xuất bí danh có thể không hoạt động đáng tin cậy trong mọi trường hợp."
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1062
 msgid "Metadata"
@@ -12947,8 +12951,8 @@ msgstr "Phiên bản %1$s đã được tạo, việc theo dõi %2$s đang hoạ
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr ""
-"Số nguyên 1 byte, phạm vi giá trị có dấu là từ -128 đến 127, phạm vi giá trị "
-"không dấu là từ 0 đến 255."
+"Một số nguyên 1 byte, phạm vi có dấu là từ -128 đến 127, phạm vi không dấu "
+"là từ 0 đến 255"
 
 #: libraries/classes/Types.php:211
 #, fuzzy
@@ -15066,7 +15070,7 @@ msgstr "Văn Bản Nổi Tiếng"
 
 #: templates/display/results/table.twig:168
 msgid "Well Known Binary"
-msgstr ""
+msgstr "Nhị Phân Nổi Tiếng (wkb)"
 
 #: templates/display/results/table.twig:238
 #: templates/sql/no_results_returned.twig:9
@@ -16315,8 +16319,6 @@ msgid "No databases"
 msgstr "Không có cơ sở dữ liệu nào"
 
 #: templates/server/engines/index.twig:5 templates/server/engines/show.twig:3
-#, fuzzy
-#| msgid "Storage Engines"
 msgid "Storage engines"
 msgstr "Máy lưu trữ"
 
@@ -16365,10 +16367,8 @@ msgid "disabled"
 msgstr "tắt"
 
 #: templates/server/plugins/index.twig:45
-#, fuzzy
-#| msgid "Deleting"
 msgid "deleting"
-msgstr "Đang xóa"
+msgstr "đang xóa"
 
 #: templates/server/plugins/index.twig:47
 msgid "deleted"
@@ -16387,10 +16387,9 @@ msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr "Cấp mọi đặc quyền trên các tên dùng ký tự đại diện (username\\_%)."
 
 #: templates/server/privileges/add_user.twig:24
-#, fuzzy, php-format
-#| msgid "Grant all privileges on database \"%s\"."
+#, php-format
 msgid "Grant all privileges on database %s."
-msgstr "Cấp mọi đặc quyền trên cơ sở dữ liệu \"%s\"."
+msgstr "Cấp đầy đủ quyền truy cập vào cơ sở dữ liệu %s."
 
 #: templates/server/privileges/change_password.twig:15
 msgid "No Password"
