@@ -527,4 +527,48 @@ class CreateAddFieldTest extends AbstractTestCase
         $sqlQuery = $this->createAddField->getColumnCreationQuery('my_table');
         self::assertSame($expected, $sqlQuery);
     }
+
+    /**
+     * Adding a column must not fail when the request does not contain the index
+     * arrays (primary_indexes, indexes, unique_indexes, fulltext_indexes and
+     * spatial_indexes). This happens for instance when a primary key column is
+     * added from the normalization page, which does not submit those fields.
+     *
+     * Regression test for https://github.com/phpmyadmin/phpmyadmin/issues/18304
+     */
+    public function testGetColumnCreationQueryWithoutIndexPostVariables(): void
+    {
+        $_POST = [
+            'db' => '2fa',
+            'field_where' => 'after',
+            'after_field' => 'd',
+            'table' => 'aes',
+            'orig_num_fields' => '1',
+            'orig_field_where' => 'after',
+            'orig_after_field' => 'd',
+            'field_name' => ['dd'],
+            'field_type' => ['INT'],
+            'field_length' => [''],
+            'field_default_type' => ['NONE'],
+            'field_default_value' => [''],
+            'field_collation' => [''],
+            'field_attribute' => [''],
+            'field_key' => ['none_0'],
+            'field_comments' => [''],
+            'field_virtuality' => [''],
+            'field_expression' => [''],
+            'field_move_to' => [''],
+            'field_mimetype' => [''],
+            'field_transformation' => [''],
+            'field_transformation_options' => [''],
+            'field_input_transformation' => [''],
+            'field_input_transformation_options' => [''],
+            'do_save_data' => '1',
+            'preview_sql' => '1',
+            'ajax_request' => '1',
+        ];
+
+        $sqlQuery = $this->createAddField->getColumnCreationQuery('my_table');
+        self::assertSame('ALTER TABLE `my_table` ADD `dd` INT NOT NULL AFTER `d`;', $sqlQuery);
+    }
 }
