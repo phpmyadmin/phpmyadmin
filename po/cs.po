@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-05-25 18:05+0000\n"
-"PO-Revision-Date: 2026-06-19 20:01+0000\n"
+"PO-Revision-Date: 2026-07-11 09:01+0000\n"
 "Last-Translator: Adam Havránek <adamhavra@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/5-2/cs/>"
 "\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
-"X-Generator: Weblate 2026.7.dev0\n"
+"X-Generator: Weblate 2026.7.1.dev0\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -5343,8 +5343,9 @@ msgid ""
 "to not work properly. Please refer to [doc@faq1-46]documentation[/doc] for "
 "possible issues."
 msgstr ""
-"Chybí proměnná [code]HTTP_HOST[/code], což může způsobit nesprávnou funkci "
-"phpMyAdmin. Možné problémy najdete v [doc@faq1-46]dokumentaci[/doc]."
+"Chybí proměnná [code]HTTP_HOST[/code], což může způsobit, že phpMyAdmin "
+"nebude fungovat správně. Možné problémy najdete v [doc@faq1-46]dokumentaci[/"
+"doc]."
 
 #: libraries/classes/Controllers/HomeController.php:498
 msgid ""
@@ -7276,7 +7277,7 @@ msgstr "aktuální"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:613
 msgid "There was an error in loading the Git information."
-msgstr "Při načítání informací z Gitu došlo k chybě."
+msgstr "Při načítání informací z Git došlo k chybě."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:616
 msgid ""
@@ -7509,7 +7510,7 @@ msgid ""
 "user preference in the browser."
 msgstr ""
 "Žádost o přepnutí do režimu celé obrazovky byla zamítnuta, protože API pro "
-"režim celé obrazovky je v prohlížeči zakázáno v nastavení uživatele."
+"režim celé obrazovky je v prohlížeči deaktivováno v nastavení uživatele."
 
 #: libraries/classes/Controllers/NavigationController.php:46
 msgid "Fatal error: The navigation can only be accessed via AJAX"
@@ -10653,7 +10654,7 @@ msgstr "Název tabulky je prázdný!"
 
 #: libraries/classes/Partitioning/Maintenance.php:141
 msgid "This table is a view, it can not be truncated."
-msgstr "Tato tabulka je pouze pro čtení a nelze ji upravovat."
+msgstr "Tato tabulka je pohled, nelze ji zkrátit."
 
 #: libraries/classes/Pdf.php:142
 msgid "Error while creating PDF:"
@@ -12987,10 +12988,10 @@ msgid ""
 "UTC on 64-bit platforms (MariaDB 11.5 and later), stored as the number of "
 "seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
-"Časové razítko, rozsah je od 1. 1. 1970 00:00:01 UTC do 19. 1. 2038 03:14:07 "
-"UTC na 32bitových platformách (MariaDB 11.3 a starší), a do 7. 2. 2106 "
+"Časové razítko, rozsah je od 1970-01-01 00:00:01 UTC do 2038-01-19 03:14:07 "
+"UTC na 32bitových platformách (MariaDB 11.3 a starší), a až do 7. února 2106 "
 "06:28:15 UTC na 64bitových platformách (MariaDB 11.5 a novější), uložený "
-"jako počet sekund od epochy (1. 1. 1970 00:00:00 UTC)"
+"jako počet sekund od epochy (1. ledna 1970 00:00:00 UTC)"
 
 #: libraries/classes/Types.php:314
 #, php-format
