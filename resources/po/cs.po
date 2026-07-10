@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-07-05 00:50+0000\n"
-"PO-Revision-Date: 2026-06-19 20:01+0000\n"
+"PO-Revision-Date: 2026-07-11 09:01+0000\n"
 "Last-Translator: Adam Havránek <adamhavra@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "cs/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
-"X-Generator: Weblate 2026.7.dev0\n"
+"X-Generator: Weblate 2026.7.1.dev0\n"
 
 #: resources/templates/base.twig:40 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -2574,14 +2574,12 @@ msgid "Browse"
 msgstr "Projít"
 
 #: resources/templates/database/search/results.twig:43
-#, fuzzy, php-format
-#| msgid "<strong>Total:</strong> <em>%count%</em> match"
-#| msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
+#, php-format
 msgid "<strong>Total:</strong> <em>%s</em> match"
 msgid_plural "<strong>Total:</strong> <em>%s</em> matches"
-msgstr[0] "<strong>Celkem:</strong> <em>%s</em> odpovídající záznam"
-msgstr[1] "<strong>Celkem:</strong> <em>%s</em> odpovídající záznamy"
-msgstr[2] "<strong>Celkem:</strong> <em>%s</em> odpovídajících záznamů"
+msgstr[0] "<strong>Celkem:</strong> <em>%s</em> shoda"
+msgstr[1] "<strong>Celkem:</strong> <em>%s</em> shody"
+msgstr[2] "<strong>Celkem:</strong> <em>%s</em> shod"
 
 #: resources/templates/database/structure/add_prefix.twig:4
 msgid "Add prefix"
@@ -3430,14 +3428,12 @@ msgid "Containing the word:"
 msgstr "Obsahuje slovo:"
 
 #: resources/templates/gis_data_editor_form.twig:26
-#, fuzzy
-#| msgid "Geometry %d:"
 msgid "Geometry type:"
-msgstr "Geometrie %d:"
+msgstr "Typ geometrie:"
 
 #: resources/templates/gis_data_editor_form.twig:41
 msgid "Spatial Reference System Identifier"
-msgstr ""
+msgstr "Identifikátor prostorového referenčního systému"
 
 #: resources/templates/gis_data_editor_form.twig:41
 msgctxt "Spatial Reference System Identifier"
@@ -3540,10 +3536,8 @@ msgid "Server:"
 msgstr "Server:"
 
 #: resources/templates/home/index.twig:185
-#, fuzzy
-#| msgid "Host name:"
 msgid "Hostname:"
-msgstr "Název počítače:"
+msgstr "Název hostitele:"
 
 #: resources/templates/home/index.twig:189
 msgid "Server type:"
@@ -4007,10 +4001,8 @@ msgid "Clear fast filter"
 msgstr "Vymazat filtr"
 
 #: resources/templates/navigation/tree/quick_warp.twig:5
-#, fuzzy
-#| msgid "Recently used tables"
 msgid "Recently visited tables"
-msgstr "Nedávno použité tabulky"
+msgstr "Nedávno navštívené tabulky"
 
 #: resources/templates/navigation/tree/quick_warp.twig:6
 msgid "Recent"
@@ -4533,10 +4525,9 @@ msgid "Check privileges"
 msgstr "Zkontrolovat oprávnění"
 
 #: resources/templates/server/databases/index.twig:244
-#, fuzzy, php-format
-#| msgid "Run SQL query/queries on database %s"
+#, php-format
 msgid "Run SQL queries on database \"%s\"."
-msgstr "Spustit SQL dotaz(y) na databázi %s"
+msgstr "Spusťte dotazy SQL v databázi „%s“."
 
 #: resources/templates/server/databases/index.twig:245
 #: src/Config/ConfigFile.php:520 src/Config/ConfigFile.php:534
@@ -4592,8 +4583,6 @@ msgid "Description"
 msgstr "Popis"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:2
-#, fuzzy
-#| msgid "Buffer Pool Usage"
 msgid "Buffer pool usage"
 msgstr "Využití vyrovnávací paměti"
 
@@ -4622,14 +4611,11 @@ msgid "Latched pages"
 msgstr "Zamčených stránek"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:34
-#, fuzzy, php-format
-#| msgid "Busy pages"
+#, php-format
 msgid "%s pages"
-msgstr "Zpracovávaných stránek"
+msgstr "%s stránek"
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:41
-#, fuzzy
-#| msgid "Buffer Pool Activity"
 msgid "Buffer pool activity"
 msgstr "Aktivita vyrovnávací paměti"
 
@@ -5396,10 +5382,8 @@ msgid "Drop the databases that have the same names as the users."
 msgstr "Odstranit databáze se stejnými názvy jako jména uživatelů."
 
 #: resources/templates/server/replication/change_primary.twig:7
-#, fuzzy
-#| msgid "Change or reconfigure primary server"
 msgid "Replica configuration - Change or reconfigure primary server"
-msgstr "Změnit nebo přenastavit primární server"
+msgstr "Konfigurace repliky – Změna nebo překonfigurace primárního serveru"
 
 #: resources/templates/server/replication/change_primary.twig:12
 msgid ""
@@ -5737,14 +5721,10 @@ msgid "Advisor"
 msgstr "Poradce"
 
 #: resources/templates/server/status/monitor/index.twig:4
-#, fuzzy
-#| msgid "System memory"
 msgid "System monitor"
-msgstr "Operační paměť"
+msgstr "Monitor systému"
 
 #: resources/templates/server/status/monitor/index.twig:7
-#, fuzzy
-#| msgid "Start Monitor"
 msgid "Start monitor"
 msgstr "Spustit monitor"
 
@@ -5771,23 +5751,21 @@ msgstr "Obnovovací frekvence"
 
 #: resources/templates/server/status/monitor/index.twig:28
 #: resources/templates/server/status/processes/index.twig:39
-#, fuzzy, php-format
-#| msgid "%d second"
+#, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "%d sekunda"
-msgstr[1] "%d sekunda"
-msgstr[2] "%d sekunda"
+msgstr[0] "%d vteřina"
+msgstr[1] "%d vteřiny"
+msgstr[2] "%d vteřin"
 
 #: resources/templates/server/status/monitor/index.twig:30
 #: resources/templates/server/status/processes/index.twig:41
-#, fuzzy, php-format
-#| msgid "%d minute"
+#, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "%d minuta"
-msgstr[1] "%d minuta"
-msgstr[2] "%d minuta"
+msgstr[1] "%d minuty"
+msgstr[2] "%d minut"
 
 #: resources/templates/server/status/monitor/index.twig:38
 msgid "Chart columns"
@@ -5806,10 +5784,8 @@ msgstr ""
 "nastavení, možná ho budete chtít exportovat a zálohovat."
 
 #: resources/templates/server/status/monitor/index.twig:58
-#, fuzzy
-#| msgid "Import monitor configuration"
 msgid "Importing system monitor configuration"
-msgstr "Nahrát nastavení monitoru"
+msgstr "Import konfigurace monitoru systému"
 
 #: resources/templates/server/status/monitor/index.twig:63
 #: src/Controllers/JavaScriptMessagesController.php:302
@@ -5821,10 +5797,8 @@ msgid "Reset to default"
 msgstr "Obnovit na výchozí hodnotu"
 
 #: resources/templates/server/status/monitor/index.twig:87
-#, fuzzy
-#| msgid "Monitor Instructions"
 msgid "System monitor instructions"
-msgstr "Instrukce monitoru"
+msgstr "Pokyny k monitorování systému"
 
 #: resources/templates/server/status/monitor/index.twig:92
 msgid ""
@@ -5854,21 +5828,14 @@ msgstr ""
 "odstranit grafy."
 
 #: resources/templates/server/status/monitor/index.twig:104
-#, fuzzy
-#| msgid ""
-#| "To display queries from the logs, select the relevant time span on any "
-#| "chart by holding down the left mouse button and panning over the chart. "
-#| "Once confirmed, this will load a table of grouped queries, there you may "
-#| "click on any occurring SELECT statements to further analyze them."
 msgid ""
 "To display queries from the logs, click on any chart. Once confirmed, this "
 "will load a table of grouped queries, there you may click on any occurring "
 "SELECT statements to further analyze them."
 msgstr ""
-"Pro zobrazení dotazů ze záznamu zvolte časové období, které vás zajímá, "
-"podržením levého tlačítka myši a pohybem přes graf. Po potvrzení bude "
-"nahrána tabulka sloučených dotazů, kde můžete zvolit libovolný dotaz k další "
-"analýze."
+"Chcete-li zobrazit dotazy z protokolů, klikněte na libovolný graf. Po "
+"potvrzení se načte tabulka seskupených dotazů, kde můžete kliknout na "
+"libovolný výskyt příkazu SELECT a provést jeho další analýzu."
 
 #: resources/templates/server/status/monitor/index.twig:108
 msgid "Please note:"
@@ -6007,10 +5974,8 @@ msgid "Cancel request"
 msgstr "Zrušit požadavek"
 
 #: resources/templates/server/status/monitor/index.twig:294
-#, fuzzy
-#| msgid "Analysing & loading logs. This may take a while."
 msgid "Analysing and loading logs. This may take a while."
-msgstr "Načítám a analyzuji záznamy. To může chvíli trvat."
+msgstr "Probíhá analýza a načítání protokolů. To může chvíli trvat."
 
 #: resources/templates/server/status/monitor/index.twig:310
 msgid "No data found"
@@ -6033,10 +5998,8 @@ msgstr ""
 "dotazy:"
 
 #: resources/templates/server/status/monitor/index.twig:336
-#, fuzzy
-#| msgid "Jump to Log table"
 msgid "Jump to the log table"
-msgstr "Přejít na tabulku se záznamem"
+msgstr "Přejít na tabulku protokolů"
 
 #: resources/templates/server/status/monitor/index.twig:346
 msgid "Monitor refresh failed"
@@ -6044,10 +6007,8 @@ msgstr "Obnovení monitoru selhalo"
 
 #: resources/templates/server/status/monitor/index.twig:350
 #: resources/templates/server/status/monitor/index.twig:369
-#, fuzzy
-#| msgid "Warning"
 msgid "Warning:"
-msgstr "Varování"
+msgstr "Varování:"
 
 #: resources/templates/server/status/monitor/index.twig:351
 msgid ""
@@ -6068,21 +6029,16 @@ msgid "Local monitor configuration incompatible!"
 msgstr "Vaše nastavení monitoru není kompatibilní!"
 
 #: resources/templates/server/status/monitor/index.twig:370
-#, fuzzy
-#| msgid ""
-#| "The chart arrangement configuration in your browsers local storage is not "
-#| "compatible anymore to the newer version of the monitor dialog. It is very "
-#| "likely that your current configuration will not work anymore. Please "
-#| "reset your configuration to default in the <i>Settings</i> menu."
 msgid ""
 "The chart arrangement configuration in your browsers local storage is not "
 "compatible anymore to the newer version of the monitor dialog. It is very "
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the [em]Settings[/em] menu."
 msgstr ""
-"Uspořádání grafů uložené ve vašem prohlížeči není kompatibilní s touto verzí "
-"monitoru a pravděpodobně tedy nebude fungovat správně. Prosím obnovte "
-"výchozí nastavení v nabídce <i>Nastavení</i>."
+"Konfigurace uspořádání grafů v lokálním úložišti vašeho prohlížeče již není "
+"kompatibilní s novější verzí dialogového okna monitoru. Je velmi "
+"pravděpodobné, že vaše aktuální konfigurace již nebude fungovat. Obnovte "
+"prosím výchozí nastavení v nabídce [em]Nastavení[/em]."
 
 #: resources/templates/server/status/processes/index.twig:14
 msgid "Show only active"
@@ -6117,24 +6073,21 @@ msgstr "Dotazů od spuštění:"
 
 #. l10n: Average per hour
 #: resources/templates/server/status/queries/index.twig:15
-#, fuzzy, php-format
-#| msgid "ø per hour"
+#, php-format
 msgid "ø per hour: %s"
-msgstr "ø za hodinu"
+msgstr "ø za hodinu: %s"
 
 #. l10n: Average per minute
 #: resources/templates/server/status/queries/index.twig:16
-#, fuzzy, php-format
-#| msgid "per minute:"
+#, php-format
 msgid "ø per minute: %s"
-msgstr "za minutu:"
+msgstr "ø za minutu: %s"
 
 #. l10n: Average per second
 #: resources/templates/server/status/queries/index.twig:18
-#, fuzzy, php-format
-#| msgid "per second:"
+#, php-format
 msgid "ø per second: %s"
-msgstr "za sekundu:"
+msgstr "ø za sekundu: %s"
 
 #: resources/templates/server/status/queries/index.twig:32
 msgid "Statements"
@@ -6462,10 +6415,8 @@ msgid "ø Time"
 msgstr "ø čas"
 
 #: resources/templates/sql/profiling_chart.twig:66
-#, fuzzy
-#| msgid "Profiling results"
 msgid "Pie chart with profiling results."
-msgstr "Výsledky profilování"
+msgstr "Výsečový graf s výsledky profilování."
 
 #: resources/templates/sql/query.twig:7
 #: src/Controllers/Operations/ViewController.php:110
@@ -6496,7 +6447,7 @@ msgstr "SQL-dotaz"
 
 #: resources/templates/sql/query.twig:41
 msgid "Format as a single line"
-msgstr ""
+msgstr "Naformátovat jako jeden řádek"
 
 #: resources/templates/sql/query.twig:45
 msgid "Get auto-saved query"
@@ -6661,7 +6612,7 @@ msgstr "Sloupec hodnoty:"
 #: resources/templates/table/chart/tbl_chart.twig:145
 #: resources/templates/table/zoom_search/result_form.twig:16
 msgid "The generated chart"
-msgstr ""
+msgstr "Vygenerovaný graf"
 
 #: resources/templates/table/chart/tbl_chart.twig:148
 msgid "Save chart as image"
@@ -6898,10 +6849,8 @@ msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr "Třetí krok normalizace (1NF+2NF+3NF)"
 
 #: resources/templates/table/operations/index.twig:2
-#, fuzzy
-#| msgid "Table options"
 msgid "Table operations"
-msgstr "Parametry tabulky"
+msgstr "Operace s tabulkami"
 
 #: resources/templates/table/operations/index.twig:10
 msgid "Alter table order by"
@@ -7477,16 +7426,12 @@ msgid "There are no triggers to display."
 msgstr "Nebyly nalezeny žádné triggery."
 
 #: resources/templates/triggers/list.twig:81
-#, fuzzy
-#| msgid "Trigger name"
 msgid "Trigger editor"
-msgstr "Název triggeru"
+msgstr "Editor triggerů"
 
 #: resources/templates/triggers/list.twig:101
-#, fuzzy
-#| msgid "Export of trigger %s"
 msgid "Export trigger"
-msgstr "Exportovat trigger %s"
+msgstr "Exportovat trigger"
 
 #: resources/templates/view_create.twig:75
 msgid "VIEW name"
@@ -10969,7 +10914,7 @@ msgstr "Nepřerušit při chybě v příkazu INSERT"
 
 #: src/Config/Descriptions.php:775 src/Plugins/Import/ImportCsv.php:157
 msgid "Import empty values as NULL"
-msgstr ""
+msgstr "Importovat prázdné hodnoty jako NULL"
 
 #: src/Config/Descriptions.php:776 src/Config/Descriptions.php:783
 msgid "Add ON DUPLICATE KEY UPDATE"
@@ -12013,17 +11958,14 @@ msgid "Succeeded"
 msgstr "Úspěch"
 
 #: src/Controllers/Console/UpdateConfigController.php:53
-#, fuzzy
-#| msgid "Table %1$s has been altered successfully."
 msgid "Console settings has been updated successfully."
-msgstr "Tabulka %1$s byla úspěšně změněna."
+msgstr "Nastavení konzole bylo úspěšně aktualizováno."
 
 #: src/Controllers/Console/UpdateConfigController.php:75
 #: src/Controllers/Console/UpdateConfigController.php:114
 #: src/Controllers/Navigation/UpdateNavWidthConfigController.php:32
-#, fuzzy
 msgid "Unexpected parameter value."
-msgstr "Neočekávané znaky na řádku %s."
+msgstr "Neočekávaná hodnota parametru."
 
 #: src/Controllers/Database/CentralColumnsController.php:148
 #, php-format
@@ -12109,7 +12051,7 @@ msgstr "Nebyla vybrána žádná databáze."
 
 #: src/Controllers/Database/EventsController.php:69
 msgid "The event was dropped immediately after creation."
-msgstr ""
+msgstr "Událost byla zrušena ihned po vytvoření."
 
 #: src/Controllers/Database/EventsController.php:136
 msgid "Add event"
@@ -12427,34 +12369,25 @@ msgstr ""
 "[doc@cfg_blowfish_secret]dokumentaci[/doc]."
 
 #: src/Controllers/HomeController.php:355
-#, fuzzy
-#| msgid ""
-#| "The configuration file needs a valid key for cookie encryption. A "
-#| "temporary key was automatically generated for you. Please refer to the "
-#| "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgid ""
 "The configuration file needs a valid key for query encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
 msgstr ""
-"Konfigurační soubor potřebuje správný klíč pro zabezpečení souborů cookie. "
-"Byl pro Vás automaticky vygenerován dočasný klíč. Prosím, upravte si ho v "
-"[doc@cfg_blowfish_secret]dokumentaci[/doc]."
+"Konfigurační soubor vyžaduje platný klíč pro šifrování dotazů. Byl pro vás "
+"automaticky vygenerován dočasný klíč. Podrobnosti najdete v "
+"[doc@cfg_URLQueryEncryptionSecretKey]dokumentaci[/doc]."
 
 #: src/Controllers/HomeController.php:365
-#, fuzzy, php-format
-#| msgid ""
-#| "The cookie encryption key in the configuration file is longer than "
-#| "necessary. It should only be %d bytes long. Please refer to the "
-#| "[doc@cfg_blowfish_secret]documentation[/doc]."
+#, php-format
 msgid ""
 "The query encryption key in the configuration file is longer than necessary. "
 "It should only be %d bytes long. Please refer to the "
 "[doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
 msgstr ""
-"Šifrovací klíč souboru cookie je v konfiguračním souboru je delší než je "
-"potřeba. Měl by být dlouhý pouze %d bytů. Prosím, opravte si ho v "
-"[doc@cfg_blowfish_secret]dokumentaci[/doc]."
+"Klíč pro šifrování dotazů v konfiguračním souboru je delší, než je nutné. "
+"Měl by mít délku pouze %d bajtů. Podívejte se prosím do "
+"[doc@cfg_URLQueryEncryptionSecretKey]dokumentace[/doc]."
 
 #: src/Controllers/HomeController.php:383
 msgid ""
@@ -12483,6 +12416,9 @@ msgid ""
 "to not work properly. Please refer to [doc@faq1-46]documentation[/doc] for "
 "possible issues."
 msgstr ""
+"Chybí proměnná [code]HTTP_HOST[/code], což může způsobit, že phpMyAdmin "
+"nebude fungovat správně. Možné problémy najdete v [doc@faq1-46]dokumentaci[/"
+"doc]."
 
 #: src/Controllers/HomeController.php:468
 msgid ""
@@ -12517,7 +12453,7 @@ msgstr "Uveden chybný parametr formátu"
 
 #: src/Controllers/Import/ImportController.php:253
 msgid "Sorry an unexpected error happened!"
-msgstr ""
+msgstr "Omlouváme se, došlo k neočekávané chybě!"
 
 #: src/Controllers/Import/ImportController.php:300
 #: src/Controllers/Import/ImportController.php:511
@@ -12592,12 +12528,9 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "Chystáte se ZRUŠIT celou databázi!"
 
 #: src/Controllers/JavaScriptMessagesController.php:58
-#, fuzzy
-#| msgid ""
-#| "Cannot rename database to the same name. Change the name and try again"
 msgid "Cannot rename database to the same name. Change the name and try again."
 msgstr ""
-"Databázi nelze přejmenovat na stejný název. Změňte název a zkuste to znovu"
+"Databázi nelze přejmenovat na stejný název. Změňte název a zkuste to znovu."
 
 #: src/Controllers/JavaScriptMessagesController.php:60
 msgid "You are about to DESTROY a complete table!"
@@ -12758,7 +12691,7 @@ msgstr "Prosím zadejte platnou délku!"
 
 #: src/Controllers/JavaScriptMessagesController.php:119
 msgid "does not support the UNSIGNED attribute."
-msgstr ""
+msgstr "nepodporuje atribut UNSIGNED."
 
 #: src/Controllers/JavaScriptMessagesController.php:120
 msgid "Add index"
@@ -12822,6 +12755,9 @@ msgid ""
 "configuration directive <code>AllowNoPassword</code> is false. If you "
 "proceed, the account will not be able to log in through phpMyAdmin."
 msgstr ""
+"Snažíte se nastavit tento účet tak, aby se přihlašoval bez hesla, ale "
+"konfigurační direktiva <code>AllowNoPassword</code> má hodnotu „false“. "
+"Pokud budete pokračovat, nebude se tento účet moci přihlásit přes phpMyAdmin."
 
 #: src/Controllers/JavaScriptMessagesController.php:154
 msgid "Removing Selected Users"
@@ -13344,10 +13280,8 @@ msgid "Show query box"
 msgstr "Zobrazit pole pro dotaz"
 
 #: src/Controllers/JavaScriptMessagesController.php:381
-#, fuzzy
-#| msgid "Submit query"
 msgid "Edit query"
-msgstr "Provést dotaz"
+msgstr "Upravit dotaz"
 
 #: src/Controllers/JavaScriptMessagesController.php:383
 #, php-format
@@ -13491,16 +13425,12 @@ msgid "No dependencies selected!"
 msgstr "Nebyly vybrány žádné závislosti!"
 
 #: src/Controllers/JavaScriptMessagesController.php:428
-#, fuzzy
-#| msgid "Use this value"
 msgid "Enter first value"
-msgstr "Použít tuto hodnotu"
+msgstr "Zadejte první hodnotu"
 
 #: src/Controllers/JavaScriptMessagesController.php:429
-#, fuzzy
-#| msgid "Session value"
 msgid "Enter second value"
-msgstr "Hodnota relace"
+msgstr "Zadejte druhou hodnotu"
 
 #: src/Controllers/JavaScriptMessagesController.php:435
 msgid "Hide search criteria"
@@ -13760,10 +13690,9 @@ msgid "Double-click to copy column name."
 msgstr "Poklepejte pro zkopírování názvu sloupce."
 
 #: src/Controllers/JavaScriptMessagesController.php:554
-#, fuzzy
-#| msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgid "Click the drop-down arrow to toggle column's visibility."
-msgstr "Klikněte na šipku<br>pro vybrání sloupců."
+msgstr ""
+"Kliknutím na šipku rozbalovacího seznamu můžete přepínat zobrazení sloupce."
 
 #: src/Controllers/JavaScriptMessagesController.php:557
 msgid ""
@@ -13852,10 +13781,8 @@ msgid "up to date"
 msgstr "aktuální"
 
 #: src/Controllers/JavaScriptMessagesController.php:598
-#, fuzzy
-#| msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgid "There was an error in loading the Git information."
-msgstr "Při nahrávání souboru ESRI došlo k chybě: „%s“."
+msgstr "Při načítání informací z Git došlo k chybě."
 
 #: src/Controllers/JavaScriptMessagesController.php:601
 msgid ""
@@ -14069,6 +13996,8 @@ msgid ""
 "The fullscreen request was denied because the Fullscreen API is disabled by "
 "user preference in the browser."
 msgstr ""
+"Žádost o přepnutí do režimu celé obrazovky byla zamítnuta, protože API pro "
+"režim celé obrazovky je v prohlížeči deaktivováno v nastavení uživatele."
 
 #: src/Controllers/JavaScriptMessagesController.php:701
 msgctxt "Month name"
@@ -15402,13 +15331,11 @@ msgstr "Pro tento SQL dotaz nebyl nalezen žádný prostorový sloupec."
 
 #: src/Controllers/Table/GisVisualizationController.php:121
 msgid "Invalid file format, expected one of: "
-msgstr ""
+msgstr "Neplatný formát souboru, očekávalo se jedno z následujících: "
 
 #: src/Controllers/Table/GisVisualizationController.php:129
-#, fuzzy
-#| msgid "Failed to open remote URL"
 msgid "Failed to create image"
-msgstr "Nepodařilo se otevřít vzdálené URL"
+msgstr "Vytvoření obrázku se nezdařilo"
 
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:67
 #: src/Controllers/Table/Maintenance/CheckController.php:67
@@ -15429,10 +15356,8 @@ msgid "The partition name must be a non-empty string."
 msgstr "Název tabulky nesmí být prázdný."
 
 #: src/Controllers/Table/RecentFavoriteController.php:37
-#, fuzzy
-#| msgid "Invalid table name"
 msgid "Invalid database or table name."
-msgstr "Chybný název tabulky"
+msgstr "Neplatný název databáze nebo tabulky."
 
 #: src/Controllers/Table/RelationController.php:327
 msgid "Display column was successfully updated."
@@ -15448,25 +15373,20 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Řádek: %1$s, Sloupec: %2$s, Chyba: %3$s"
 
 #: src/Controllers/Table/Structure/AddKeyController.php:26
-#, fuzzy
-#| msgctxt "U2F error"
-#| msgid "Invalid request sent to security key."
 msgid "Invalid request parameter."
-msgstr "Byl odeslán neplatný požadavek na bezpečnostní klíč."
+msgstr "Neplatný parametr požadavku."
 
 #: src/Controllers/Table/Structure/MoveColumnsController.php:82
 msgid "The columns have been moved successfully."
 msgstr "Vybrané sloupce byly úspěšně přesunuty."
 
 #: src/Controllers/Table/Structure/MoveColumnsController.php:114
-#, fuzzy
-#| msgid "The selected user was not found in the privilege table."
 msgid "The selected columns do not match the columns in the table."
-msgstr "Zvolený uživatel nebyl nalezen v tabulce oprávnění."
+msgstr "Vybrané sloupce se neshodují se sloupci v tabulce."
 
 #: src/Controllers/Table/Structure/MoveColumnsController.php:141
 msgid "The selected columns are already in the correct order."
-msgstr ""
+msgstr "Vybrané sloupce jsou již ve správném pořadí."
 
 #: src/Controllers/Table/Structure/PartitioningController.php:258
 #: src/Controllers/Table/Structure/SaveController.php:281
@@ -15735,10 +15655,8 @@ msgid "You must provide a valid return type for the routine."
 msgstr "Musíte zadat platný návratový typ rutiny."
 
 #: src/Database/Routines.php:823
-#, fuzzy
-#| msgid "Invalid routine type: \"%s\""
 msgid "Invalid routine type!"
-msgstr "Chybný typ rutiny: „%s“"
+msgstr "Neplatný typ rutiny!"
 
 #: src/Database/Routines.php:829
 msgid "You must provide a routine name!"
@@ -15800,16 +15718,14 @@ msgid "Showing rows %1s - %2s"
 msgstr "Zobrazeny záznamy %1s - %2s"
 
 #: src/Display/Results.php:3277
-#, fuzzy, php-format
-#| msgid "%1$d total, %2$d in query"
+#, php-format
 msgid "%1$s total, %2$s in query"
-msgstr "%1$d celkem, %2$d v dotazu"
+msgstr "Celkem %1$s, v dotazu %2$s"
 
 #: src/Display/Results.php:3282
-#, fuzzy, php-format
-#| msgid "%d total"
+#, php-format
 msgid "%s total"
-msgstr "%d celkem"
+msgstr "%s celkem"
 
 #: src/Display/Results.php:3591
 msgid "Link not found!"
@@ -16097,10 +16013,8 @@ msgid "Report"
 msgstr "Nahlásit"
 
 #: src/Exceptions/AuthenticationFailure.php:35
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "Cannot log in to the database server."
-msgstr "Nepodařilo se přihlášení k MySQL serveru"
+msgstr "Nelze se přihlásit k databázovému serveru."
 
 #: src/Exceptions/AuthenticationFailure.php:43
 #: src/Exceptions/AuthenticationFailure.php:51
@@ -16110,13 +16024,9 @@ msgid "Access denied!"
 msgstr "Přístup odepřen!"
 
 #: src/Exceptions/AuthenticationFailure.php:61
-#, fuzzy
-#| msgid ""
-#| "Login without a password is forbidden by configuration (see "
-#| "AllowNoPassword)"
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)."
-msgstr "Přihlášení bez hesla je zakázáno v nastavení (viz AllowNoPassword)"
+msgstr "Přihlášení bez hesla je zakázáno v nastavení (viz AllowNoPassword)."
 
 #: src/Exceptions/AuthenticationFailure.php:73
 #, php-format
@@ -16211,10 +16121,8 @@ msgstr ""
 "Chyba při přejmenování nahraného soubory, viz [doc@faq1-11]FAQ 1.11[/doc]."
 
 #: src/File.php:372
-#, fuzzy
-#| msgid "Cannot read uploaded file."
 msgid "Cannot create temporary file."
-msgstr "Nahraný soubor nelze přečíst."
+msgstr "Nelze vytvořit dočasný soubor."
 
 #: src/File.php:383
 msgid "Error while moving uploaded file."
@@ -16271,10 +16179,8 @@ msgid "Skip Explain SQL"
 msgstr "Bez vysvětlení SQL"
 
 #: src/Html/Generator.php:517
-#, fuzzy
-#| msgid "Skip Validate SQL"
 msgid "Skip Analyze SQL"
-msgstr "Bez kontroly SQL"
+msgstr "Přeskočit analýzu SQL"
 
 #: src/Html/Generator.php:549
 msgid "Without PHP code"
@@ -16363,34 +16269,25 @@ msgid "The table name cannot end with a space character."
 msgstr "Název tabulky nesmí končit mezerou."
 
 #: src/Identifiers/InvalidTriggerName.php:14
-#, fuzzy
-#| msgid "View name can not be empty!"
 msgid "The trigger name must not be empty."
-msgstr "Název pohledu nemůže být prázdný!"
+msgstr "Název triggeru nesmí být prázdný."
 
 #: src/Identifiers/InvalidTriggerName.php:20
-#, fuzzy, php-format
-#| msgid "The table name cannot be longer than %d characters."
+#, php-format
 msgid "The trigger name cannot be longer than %d characters."
-msgstr "Název tabulky nesmí být delší než %d znaků."
+msgstr "Název triggeru nesmí být delší než %d znaků."
 
 #: src/Identifiers/InvalidTriggerName.php:25
-#, fuzzy
-#| msgid "The table name cannot end with a space character."
 msgid "The trigger name cannot end with a space character."
-msgstr "Název tabulky nesmí končit mezerou."
+msgstr "Název triggeru nesmí končit mezerou."
 
 #: src/Import/Import.php:954
-#, fuzzy
-#| msgid ""
-#| "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing "
-#| "transactional engine tables can be rolled back."
 msgid ""
 "Only INSERT, UPDATE, DELETE, REPLACE and SET (without options like GLOBAL) "
 "SQL queries containing transactional engine tables can be rolled back."
 msgstr ""
-"Pouze INSERT, UPDATE, DELETE nebo REPLACE SQL dotazy používající tabulky "
-"podporující transakce mohou být navráceny."
+"Vrátit zpět lze pouze dotazy SQL typu INSERT, UPDATE, DELETE, REPLACE a SET "
+"(bez parametrů jako GLOBAL), které obsahují tabulky transakčního modulu."
 
 #: src/Import/Import.php:1171
 #, php-format
@@ -16938,10 +16835,8 @@ msgid "The table name is empty!"
 msgstr "Název tabulky je prázdný!"
 
 #: src/Partitioning/Maintenance.php:136
-#, fuzzy
-#| msgid "This is a read-only variable and can not be edited"
 msgid "This table is a view, it can not be truncated."
-msgstr "Tato proměnná je pouze pro čtení a nelze ji upravovat"
+msgstr "Tato tabulka je pohled, nelze ji zkrátit."
 
 #: src/Pdf.php:146
 msgid "Error while creating PDF:"
@@ -16977,11 +16872,8 @@ msgid "Your session has expired. Please log in again."
 msgstr "Platnost vaší relace vypršela, přihlaste se prosím znovu."
 
 #: src/Plugins/Auth/AuthenticationCookie.php:233
-#, fuzzy
-#| msgid ""
-#| "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
 msgid "Missing Captcha verification, maybe it has been blocked by adblock?"
-msgstr "Chybí ověření reCAPTCHA, není blokované adblockem?"
+msgstr "Chybí ověření pomocí Captcha, možná ho zablokoval Adblock?"
 
 #: src/Plugins/Auth/AuthenticationCookie.php:268
 msgid "Failed to connect to the reCAPTCHA service!"
@@ -17008,10 +16900,9 @@ msgid "Wrong username/password. Access denied."
 msgstr "Chybné uživatelské jméno nebo heslo. Přístup odepřen."
 
 #: src/Plugins/Auth/AuthenticationSignon.php:127
-#, fuzzy, php-format
-#| msgid "Can not find signon authentication script:"
+#, php-format
 msgid "Can not find signon authentication script: %s"
-msgstr "Nepodařilo se nalézt přihlašovací skript pro signon:"
+msgstr "Nelze najít skript pro ověření při přihlášení: %s"
 
 #: src/Plugins/AuthenticationPluginFactory.php:36
 msgid "Invalid authentication method set in configuration:"
@@ -17442,10 +17333,8 @@ msgstr ""
 "kompatibilní:"
 
 #: src/Plugins/Export/ExportToon.php:67
-#, fuzzy
-#| msgid "Orientation"
 msgid "Indentation:"
-msgstr "Orientace"
+msgstr "Odsazení:"
 
 #: src/Plugins/Export/ExportXml.php:86
 msgid "Object creation options (all are recommended)"
@@ -17716,20 +17605,10 @@ msgid ""
 "Displays a link to download the binary data of the column. You can use the "
 "option to specify the filename."
 msgstr ""
+"Zobrazí odkaz ke stažení binárních dat sloupce. Pomocí této možnosti můžete "
+"zadat název souboru."
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:38
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/classes/Plugins/Transformations/"
-#| "Abs/ExternalTransformationsPlugin.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use. The second option should be blank for historical reasons. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -17742,16 +17621,17 @@ msgid ""
 "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
 "ensure that the output appears all on one line (Default 1)."
 msgstr ""
-"JEN PRO LINUX: Spustí externí program, na jeho standardní vstup pošle obsah "
-"pole a zobrazí výstup programu. Výchozí je program Tidy, který zformátuje "
-"kód HTML. Z bezpečnostních důvodů musíte názvy povolených programů zapsat do "
-"souboru libraries/classes/Plugins/Transformations/Abs/"
-"ExternalTransformationsPlugin.php. První parametr je číslo programu, který "
-"má být spuštěn. Druhý parametr ponechte z historických důvodů prázdný. Třetí "
-"parametr určuje, zda mají být ve výstupu nahrazeny HTML entity (např. pro "
-"zobrazení zdrojového kódu HTML) (výchozí je 1, tedy převádět na entity), "
-"čtvrtý (při nastavení na 1) zajistí přidání parametru NOWRAP k vypisovanému "
-"textu, čímž se zachová formátování (výchozí je 1)."
+"POUZE PRO LINUX: Spustí externí aplikaci a předá jí data ze sloupců "
+"prostřednictvím standardního vstupu. Vrátí standardní výstup aplikace. "
+"Výchozí volbou je Tidy, který formátuje HTML kód do čitelné podoby. Z "
+"bezpečnostních důvodů musíte ručně upravit soubor src/Plugins/"
+"Transformations/Abs/ExternalTransformationsPlugin.php a uvést seznam "
+"nástrojů, které chcete zpřístupnit. První volba pak představuje číslo "
+"programu, který chcete použít. Druhá volba by měla zůstat prázdná z "
+"historických důvodů. Třetí volba, je-li nastavena na 1, převede výstup "
+"pomocí funkce htmlspecialchars() (výchozí hodnota 1). Čtvrtá volba, je-li "
+"nastavena na 1, zabrání zalomení řádků a zajistí, že se výstup zobrazí celý "
+"na jednom řádku (výchozí hodnota 1)."
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:117
 #, php-format
@@ -18575,16 +18455,12 @@ msgid "You must provide a trigger definition."
 msgstr "Musíte zadat definici triggeru."
 
 #: src/Types.php:98
-#, fuzzy
-#| msgid "Empty"
 msgid "empty"
-msgstr "Vyprázdnit"
+msgstr "prázdný"
 
 #: src/Types.php:99
-#, fuzzy
-#| msgid "not present"
 msgid "not empty"
-msgstr "zde není"
+msgstr "není prázdné"
 
 #: src/Types.php:162
 msgid ""
@@ -18687,18 +18563,16 @@ msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr "Datum a čas, podporovaný rozsah od %1$s do %2$s"
 
 #: src/Types.php:209
-#, fuzzy
-#| msgid ""
-#| "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
-#| "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-19 03:14:07 UTC on "
 "32-bit platforms (MariaDB 11.3 and earlier), and up to 2106-02-07 06:28:15 "
 "UTC on 64-bit platforms (MariaDB 11.5 and later), stored as the number of "
 "seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
-"Časová značka v rozsahu od 1970-01-01 00:00:01 UTC do 2038-01-09 03:14:07 "
-"UTC, ukládaná jako počet sekund od počátku epochy (1970-01-01 00:00:00 UTC)"
+"Časové razítko, rozsah je od 1970-01-01 00:00:01 UTC do 2038-01-19 03:14:07 "
+"UTC na 32bitových platformách (MariaDB 11.3 a starší), a až do 7. února 2106 "
+"06:28:15 UTC na 64bitových platformách (MariaDB 11.5 a novější), uložený "
+"jako počet sekund od epochy (1. ledna 1970 00:00:00 UTC)"
 
 #: src/Types.php:215
 #, php-format
@@ -18876,6 +18750,8 @@ msgid ""
 "Stores vector data optimized for operations such as similarity search and "
 "machine learning applications"
 msgstr ""
+"Ukládá vektorová data optimalizovaná pro operace, jako je vyhledávání "
+"podobností a aplikace strojového učení"
 
 #: src/Types.php:296
 msgid "Intended for storage of XML data"
