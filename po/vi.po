@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2026-07-08 12:01+0000\n"
+"PO-Revision-Date: 2026-07-11 16:01+0000\n"
 "Last-Translator: hoanghuy309 <hoanghuy309@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/4-"
 "9/vi/>\n"
@@ -2888,7 +2888,7 @@ msgstr "Thứ bảy"
 #. l10n: Short week day name for Sunday
 #: js/messages.php:857
 msgid "Sun"
-msgstr "CN"
+msgstr "Cn"
 
 #. l10n: Short week day name for Monday
 #: js/messages.php:859 libraries/classes/Util.php:1508
@@ -2923,7 +2923,7 @@ msgstr "T7"
 #. l10n: Minimal week day name for Sunday
 #: js/messages.php:876
 msgid "Su"
-msgstr "CN"
+msgstr "Cn"
 
 #. l10n: Minimal week day name for Monday
 #: js/messages.php:878
@@ -7015,7 +7015,7 @@ msgstr "Gửi truy vấn"
 
 #: libraries/classes/Database/Qbe.php:1856
 msgid "Saved bookmarked search:"
-msgstr "Sửa đổi việc tìm kiếm đã lưu"
+msgstr "Tìm kiếm đã được đánh dấu đã lưu:"
 
 #: libraries/classes/Database/Qbe.php:1858
 msgid "New bookmark"
@@ -7023,7 +7023,7 @@ msgstr "Đánh dấu mới"
 
 #: libraries/classes/Database/Qbe.php:1884
 msgid "Create bookmark"
-msgstr "Tạo đánh đánh dấu"
+msgstr "Tạo dấu trang"
 
 #: libraries/classes/Database/Qbe.php:1887
 msgid "Update bookmark"
@@ -15059,8 +15059,9 @@ msgid ""
 "this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
 "browsers."
 msgstr ""
-"Tập tin đang được tải lên gần như chắn chắn là lớn hơn kích thước được phép "
-"hoặc đây là một lỗi của trình duyệt (Safari, Google Chrome, Arora ví dụ thế)."
+"Tệp đang được tải lên có thể lớn hơn kích thước tối đa cho phép hoặc đây là "
+"lỗi đã biết trong các trình duyệt dựa trên Webkit (Safari, Google Chrome, "
+"Arora, v.v.)."
 
 #: templates/display/import/javascript.twig:16
 #, php-format
@@ -16282,7 +16283,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.txt:154
 msgid "Percentage of sorts that cause temporary tables"
-msgstr "Tỷ lệ sắp xếp gây ra các bảng tạm thời"
+msgstr "Tỷ lệ sắp xếp phát sinh các bảng tạm thời"
 
 #: libraries/advisory_rules_generic.txt:157
 #: libraries/advisory_rules_generic.txt:164
