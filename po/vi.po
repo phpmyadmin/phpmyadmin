@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-05-25 18:05+0000\n"
-"PO-Revision-Date: 2026-07-08 12:01+0000\n"
+"PO-Revision-Date: 2026-07-11 09:01+0000\n"
 "Last-Translator: hoanghuy309 <hoanghuy309@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/5-"
 "2/vi/>\n"
@@ -310,7 +310,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:204
 msgid "Percentage of sorts that cause temporary tables"
-msgstr "Tỷ lệ sắp xếp gây ra các bảng tạm thời"
+msgstr "Tỷ lệ sắp xếp phát sinh các bảng tạm thời"
 
 #: libraries/advisory_rules_generic.php:208
 #: libraries/advisory_rules_generic.php:221
@@ -8832,7 +8832,7 @@ msgstr "Xóa"
 
 #: libraries/classes/Database/Qbe.php:1672
 msgid "Saved bookmarked search:"
-msgstr "Sửa đổi việc tìm kiếm đã lưu"
+msgstr "Tìm kiếm đã được đánh dấu đã lưu:"
 
 #: libraries/classes/Database/Qbe.php:1674
 msgid "New bookmark"
@@ -8840,7 +8840,7 @@ msgstr "Đánh dấu mới"
 
 #: libraries/classes/Database/Qbe.php:1701
 msgid "Create bookmark"
-msgstr "Tạo đánh đánh dấu"
+msgstr "Tạo dấu trang"
 
 #: libraries/classes/Database/Qbe.php:1704
 msgid "Update bookmark"
@@ -14586,10 +14586,8 @@ msgid "Ins:"
 msgstr "Chèn:"
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:12
-#, fuzzy
-#| msgid "And:"
 msgid "And"
-msgstr "Và:"
+msgstr "Và"
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:17
 msgid "Del:"
@@ -14631,10 +14629,8 @@ msgid "Add/Delete criteria rows:"
 msgstr "Thêm/Xóa các hàng tiêu chí"
 
 #: templates/database/qbe/selection_form.twig:67
-#, fuzzy
-#| msgid "Add/Delete columns"
 msgid "Add/Delete columns:"
-msgstr "Thêm/Xóa các cột"
+msgstr "Thêm/Xóa các cột:"
 
 #: templates/database/qbe/selection_form.twig:86
 #: templates/database/qbe/selection_form.twig:88
@@ -15625,8 +15621,9 @@ msgid ""
 "this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
 "browsers."
 msgstr ""
-"Tập tin đang được tải lên gần như chắn chắn là lớn hơn kích thước được phép "
-"hoặc đây là một lỗi của trình duyệt (Safari, Google Chrome, Arora ví dụ thế)."
+"Tệp đang được tải lên có thể lớn hơn kích thước tối đa cho phép hoặc đây là "
+"lỗi đã biết trong các trình duyệt dựa trên Webkit (Safari, Google Chrome, "
+"Arora, v.v.)."
 
 #: templates/import/javascript.twig:13
 #, php-format
@@ -15847,12 +15844,12 @@ msgstr "Tháng mười hai"
 #. l10n: Short week day name for Sunday
 #: templates/javascript/variables.twig:57
 msgid "Sun"
-msgstr "CN"
+msgstr "Cn"
 
 #. l10n: Minimal week day name for Sunday
 #: templates/javascript/variables.twig:66
 msgid "Su"
-msgstr "CN"
+msgstr "Cn"
 
 #. l10n: Minimal week day name for Monday
 #: templates/javascript/variables.twig:67
