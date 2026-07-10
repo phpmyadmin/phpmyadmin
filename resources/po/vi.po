@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-07-05 00:50+0000\n"
-"PO-Revision-Date: 2026-07-08 12:01+0000\n"
+"PO-Revision-Date: 2026-07-11 09:01+0000\n"
 "Last-Translator: hoanghuy309 <hoanghuy309@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/vi/>\n"
@@ -7837,7 +7837,7 @@ msgstr ""
 
 #: src/Advisory/Rules.php:231
 msgid "Percentage of sorts that cause temporary tables"
-msgstr "Tỷ lệ sắp xếp gây ra các bảng tạm thời"
+msgstr "Tỷ lệ sắp xếp phát sinh các bảng tạm thời"
 
 #: src/Advisory/Rules.php:235 src/Advisory/Rules.php:250
 msgid "Too many sorts are causing temporary tables."
