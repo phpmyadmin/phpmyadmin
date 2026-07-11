@@ -228,6 +228,7 @@ cleanup_composer_vendors() {
         vendor/tecnickcom/tcpdf/fonts/dejavu-fonts-ttf-2.*/ \
         vendor/tecnickcom/tcpdf/fonts/freefont-*/ \
         vendor/tecnickcom/tcpdf/include/sRGB.icc \
+        vendor/tecnickcom/tcpdf/Makefile \
         vendor/thecodingmachine/safe/generated/Exceptions/.gitkeep \
         vendor/thecodingmachine/safe/rector-migrate-0.7.php \
         vendor/bacon/bacon-qr-code/phpunit.xml.dist \
