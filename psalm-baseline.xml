@@ -4552,13 +4552,13 @@
       <code>$_POST['field_null'][$i] ?? 'NO'</code>
       <code>$_POST['field_type'][$i]</code>
       <code>$_POST['field_virtuality'][$i] ?? ''</code>
-      <code>$_POST['fulltext_indexes']</code>
-      <code>$_POST['indexes']</code>
-      <code>$_POST['primary_indexes']</code>
-      <code>$_POST['spatial_indexes']</code>
+      <code>$_POST['fulltext_indexes'] ?? '[]'</code>
+      <code>$_POST['indexes'] ?? '[]'</code>
+      <code>$_POST['primary_indexes'] ?? '[]'</code>
+      <code>$_POST['spatial_indexes'] ?? '[]'</code>
       <code>$_POST['tbl_collation'] ?? ''</code>
       <code>$_POST['tbl_storage_engine']</code>
-      <code>$_POST['unique_indexes']</code>
+      <code>$_POST['unique_indexes'] ?? '[]'</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast occurrences="21">
       <code>$_POST['comment']</code>
@@ -4575,13 +4575,13 @@
       <code>$_POST['field_virtuality'][$i] ?? ''</code>
       <code>$_POST['field_where']</code>
       <code>$_POST['field_where']</code>
-      <code>$_POST['fulltext_indexes']</code>
-      <code>$_POST['indexes']</code>
-      <code>$_POST['primary_indexes']</code>
-      <code>$_POST['spatial_indexes']</code>
+      <code>$_POST['fulltext_indexes'] ?? '[]'</code>
+      <code>$_POST['indexes'] ?? '[]'</code>
+      <code>$_POST['primary_indexes'] ?? '[]'</code>
+      <code>$_POST['spatial_indexes'] ?? '[]'</code>
       <code>$_POST['tbl_collation'] ?? ''</code>
       <code>$_POST['tbl_storage_engine']</code>
-      <code>$_POST['unique_indexes']</code>
+      <code>$_POST['unique_indexes'] ?? '[]'</code>
     </PossiblyInvalidCast>
     <PossiblyInvalidIterator occurrences="1">
       <code>$_POST['partitions']</code>
