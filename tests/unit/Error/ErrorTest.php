@@ -18,7 +18,6 @@ use const E_ERROR;
 use const E_NOTICE;
 use const E_PARSE;
 use const E_RECOVERABLE_ERROR;
-use const E_STRICT;
 use const E_USER_DEPRECATED;
 use const E_USER_ERROR;
 use const E_USER_NOTICE;
@@ -165,7 +164,7 @@ class ErrorTest extends AbstractTestCase
         yield 'E_USER_ERROR error' => [E_USER_ERROR, 'danger'];
         yield 'E_USER_WARNING error' => [E_USER_WARNING, 'danger'];
         yield 'E_USER_NOTICE notice' => [E_USER_NOTICE, 'primary'];
-        yield 'E_STRICT notice' => [@E_STRICT, 'primary'];
+        yield 'E_STRICT notice' => [2048, 'primary'];
         yield 'E_DEPRECATED notice' => [E_DEPRECATED, 'primary'];
         yield 'E_USER_DEPRECATED notice' => [E_USER_DEPRECATED, 'primary'];
         yield 'E_RECOVERABLE_ERROR error' => [E_RECOVERABLE_ERROR, 'danger'];
@@ -192,7 +191,7 @@ class ErrorTest extends AbstractTestCase
         yield 'E_USER_ERROR error' => [E_USER_ERROR, 'User Error'];
         yield 'E_USER_WARNING warning' => [E_USER_WARNING, 'User Warning'];
         yield 'E_USER_NOTICE notice' => [E_USER_NOTICE, 'User Notice'];
-        yield 'E_STRICT notice' => [@E_STRICT, 'Runtime Notice'];
+        yield 'E_STRICT notice' => [2048, 'Runtime Notice'];
         yield 'E_DEPRECATED notice' => [E_DEPRECATED, 'Deprecation Notice'];
         yield 'E_USER_DEPRECATED notice' => [E_USER_DEPRECATED, 'Deprecation Notice'];
         yield 'E_RECOVERABLE_ERROR error' => [E_RECOVERABLE_ERROR, 'Catchable Fatal Error'];

@@ -27,7 +27,6 @@ use function array_keys;
 
 #[CoversClass(DatabaseInterface::class)]
 #[CoversClass(Column::class)]
-#[CoversClass(Column::class)]
 final class DatabaseInterfaceTest extends AbstractTestCase
 {
     protected function setUp(): void

@@ -152,7 +152,6 @@ class SearchTest extends AbstractTestCase
                 . " OR HEX(`column1`) LIKE '%search string%'"
                 . " OR CONVERT(`column2` USING utf8) LIKE '%search string%'"
                 . " OR HEX(`column2`) LIKE '%search string%')",
-                'on',
             ],
             [
                 '4',
