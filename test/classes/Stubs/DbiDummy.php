@@ -2570,7 +2570,7 @@ class DbiDummy implements DbiExtension
                 ],
             ],
             [
-                'query' => 'SELECT * FROM `test_table` WHERE `id` = 4;',
+                'query' => 'SELECT * FROM `test_table` WHERE `id` = 4 LIMIT 1;',
                 'columns' => ['id', 'name', 'datetimefield'],
                 'result' => [['4', '101', '2013-01-20 02:00:02']],
             ],

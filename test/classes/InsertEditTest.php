@@ -1912,7 +1912,7 @@ class InsertEditTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with(
-                'SELECT `TABLE_COMMENT` FROM `information_schema`.`TABLES` WHERE `f`=1'
+                'SELECT `TABLE_COMMENT` FROM `information_schema`.`TABLES` WHERE `f`=1 LIMIT 1'
             )
             ->will($this->returnValue($resultStub));
 
@@ -2648,7 +2648,7 @@ class InsertEditTest extends AbstractTestCase
 
         $dbi->expects($this->exactly(3))
             ->method('tryQuery')
-            ->with('SELECT `table`.`a` FROM `db`.`table` WHERE 1')
+            ->with('SELECT `table`.`a` FROM `db`.`table` WHERE 1 LIMIT 1')
             ->willReturn($resultStub);
 
         $meta1 = new FieldMetadata(MYSQLI_TYPE_TINY, 0, (object) []);

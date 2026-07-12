@@ -1428,7 +1428,8 @@ class InsertEdit
                 . ' FROM ' . Util::backquote($foreigner['foreign_db'])
                 . '.' . Util::backquote($foreigner['foreign_table'])
                 . ' WHERE ' . Util::backquote($foreigner['foreign_field'])
-                . $whereComparison;
+                . $whereComparison
+                . ' LIMIT 1';
             $dispresult = $this->dbi->tryQuery($dispsql);
             if ($dispresult && $dispresult->numRows() > 0) {
                 return (string) $dispresult->fetchValue();
@@ -1783,7 +1784,8 @@ class InsertEdit
             ) {
                 $protectedRow = $this->dbi->fetchSingleRow(
                     'SELECT * FROM ' . Util::backquote($table)
-                    . ' WHERE ' . $whereClause . ';'
+                    . ' WHERE ' . $whereClause
+                    . ' LIMIT 1;'
                 );
             }
 
@@ -1883,7 +1885,8 @@ class InsertEdit
             . Util::backquote($columnName)
             . ' FROM ' . Util::backquote($db) . '.'
             . Util::backquote($table)
-            . ' WHERE ' . $_POST['where_clause'][0];
+            . ' WHERE ' . $_POST['where_clause'][0]
+            . ' LIMIT 1';
 
         $result = $this->dbi->tryQuery($sqlForRealValue);
 
