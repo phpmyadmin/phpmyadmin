@@ -43,7 +43,7 @@
     "jquery-uitablefilter": "^1.0.0",
     "jquery-validation": "^1.22.1",
     "js-cookie": "3.0.5",
-    "locutus.sprintf": "^2.0.32-code-lts.1",
+    "locutus": "^3.0.36",
     "mini-css-extract-plugin": "^2.5.3",
     "ol": "^10.7.0",
     "postcss": "^8.5.6",

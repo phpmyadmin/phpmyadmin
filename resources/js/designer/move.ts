@@ -8,6 +8,7 @@ import { DesignerObjects } from './objects.ts';
 import { DesignerHistory } from './history.ts';
 import { DesignerPage } from './page.ts';
 import { DesignerConfig } from './config.ts';
+import { sprintf } from 'locutus/php/strings/sprintf';
 
 let change = 0; // variable to track any change in designer layout.
 let showRelationLines = true;
@@ -675,7 +676,7 @@ const addOtherDbTables = function () {
         const $table = $('[id="' + encodeURIComponent(db) + '.' + encodeURIComponent(table) + '"]');
         if ($table.length !== 0) {
             ajaxShowMessage(
-                window.sprintf(window.Messages.strTableAlreadyExists, db + '.' + table),
+                sprintf(window.Messages.strTableAlreadyExists, db + '.' + table),
                 undefined,
                 'error'
             );
@@ -1948,7 +1949,7 @@ const addObject = function (dbName, tableName, colName, dbTableNameUrl) {
     const init = DesignerHistory.historyArray.length;
     if (rel.value !== '--') {
         if ((document.getElementById('Query') as HTMLTextAreaElement).value === '') {
-            ajaxShowMessage(window.sprintf(window.Messages.strQueryEmpty));
+            ajaxShowMessage(sprintf(window.Messages.strQueryEmpty));
 
             return;
         }
@@ -2001,7 +2002,7 @@ const addObject = function (dbName, tableName, colName, dbTableNameUrl) {
         // make orderby
     }
 
-    ajaxShowMessage(window.sprintf(window.Messages.strObjectsCreated, sum));
+    ajaxShowMessage(sprintf(window.Messages.strObjectsCreated, sum));
     // output sum new objects created
     const existingDiv = document.getElementById('ab');
     existingDiv.innerHTML = DesignerHistory.display(init, DesignerHistory.historyArray.length);

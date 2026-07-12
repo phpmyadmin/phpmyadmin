@@ -8,6 +8,7 @@ import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.ts';
 import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.ts';
 import { escapeHtml } from '../modules/functions/escape.ts';
 import refreshMainContent from '../modules/functions/refreshMainContent.ts';
+import { sprintf } from 'locutus/php/strings/sprintf';
 
 /**
  * Unbind all event handlers before tearing down a page
@@ -41,7 +42,7 @@ const confirmAndPost = function (linkObject, action): void {
         question += window.Messages.strDeleteTableStrongWarning + ' ';
     }
 
-    question += window.sprintf(window.Messages.strDoYouReally, linkObject.data('query'));
+    question += sprintf(window.Messages.strDoYouReally, linkObject.data('query'));
     question += getForeignKeyCheckboxLoader();
     linkObject.confirm(question, linkObject.attr('href'), function (url) {
         ajaxShowMessage(window.Messages.strProcessingRequest);
@@ -288,7 +289,7 @@ AJAX.registerOnload('table/operations.js', function () {
          * @var {string} question String containing the question to be asked for confirmation
          */
         let question = window.Messages.strDropTableStrongWarning + ' ';
-        question += window.sprintf(window.Messages.strDoYouReally, $link[0].getAttribute('data-query'));
+        question += sprintf(window.Messages.strDoYouReally, $link[0].getAttribute('data-query'));
         question += getForeignKeyCheckboxLoader();
 
         $(this).confirm(question, $(this).attr('href'), function (url) {
@@ -320,7 +321,7 @@ AJAX.registerOnload('table/operations.js', function () {
          * @var {string} question String containing the question to be asked for confirmation
          */
         let question = window.Messages.strDropTableStrongWarning + ' ';
-        question += window.sprintf(
+        question += sprintf(
             window.Messages.strDoYouReally,
             'DROP VIEW `' + escapeHtml(CommonParams.get('table') + '`')
         );

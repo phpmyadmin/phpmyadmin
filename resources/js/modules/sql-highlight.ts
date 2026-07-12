@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { sprintf } from 'locutus/php/strings/sprintf';
 
 /**
  * Definition of links to MySQL documentation.
@@ -377,7 +378,7 @@ function documentationAdd ($elm, params) {
         return;
     }
 
-    let url = window.sprintf(
+    let url = sprintf(
         decodeURIComponent(window.mysqlDocTemplate),
         params[0],
     );

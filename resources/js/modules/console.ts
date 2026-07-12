@@ -6,6 +6,7 @@ import { CommonParams } from './common.ts';
 import { Navigation } from './navigation.ts';
 import Config from './console/config.ts';
 import { escapeHtml } from './functions/escape.ts';
+import { sprintf } from 'locutus/php/strings/sprintf';
 
 let config: Config;
 
@@ -1275,7 +1276,7 @@ const ConsoleDebug = {
                 .append(
                     $('<div class="message welcome">')
                         .text(
-                            window.sprintf(
+                            sprintf(
                                 window.Messages.strConsoleDebugArgsSummary,
                                 dbgStep.args.length
                             )
@@ -1507,7 +1508,7 @@ const ConsoleDebug = {
         // Show summary
         $('#debug_console').find('.debug>.welcome').append(
             $('<span class="debug_summary">').text(
-                window.sprintf(
+                sprintf(
                     window.Messages.strConsoleDebugSummary,
                     totalUnique,
                     totalExec,

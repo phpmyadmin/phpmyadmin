@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { sprintf } from 'locutus/php/strings/sprintf';
 
 /**
  * Adjust number of rows and total size in the summary
@@ -104,7 +105,7 @@ export default function adjustTotals () {
 
     // Update summary with new data
     const $summary = $('#tbl_summary_row');
-    $summary.find('.tbl_num').text(window.sprintf(window.Messages.strNTables, tableSum));
+    $summary.find('.tbl_num').text(sprintf(window.Messages.strNTables, tableSum));
     if (rowSumApproximated) {
         $summary.find('.row_count_sum').text(strRowSum);
     } else {

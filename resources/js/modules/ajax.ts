@@ -9,6 +9,7 @@ import { ignorePhpErrors } from './functions/ignorePhpErrors.ts';
 import handleRedirectAndReload from './functions/handleRedirectAndReload.ts';
 import checkNumberOfFields from './functions/checkNumberOfFields.ts';
 import mainMenuResizerCallback from './functions/mainMenuResizerCallback.ts';
+import { sprintf } from 'locutus/php/strings/sprintf';
 
 /**
  * This object handles ajax requests for pages. It also
@@ -966,10 +967,10 @@ const AJAX = {
                 }
 
                 if (request.status !== 0) {
-                    details += '<div>' + escapeHtml(window.sprintf(window.Messages.strErrorCode, request.status)) + '</div>';
+                    details += '<div>' + escapeHtml(sprintf(window.Messages.strErrorCode, request.status) as string) + '</div>';
                 }
 
-                details += '<div>' + escapeHtml(window.sprintf(window.Messages.strErrorText, request.statusText + ' (' + state + ')')) + '</div>';
+                details += '<div>' + escapeHtml(sprintf(window.Messages.strErrorText, request.statusText + ' (' + state + ')') as string) + '</div>';
                 if (state === 'rejected' || state === 'timeout') {
                     details += '<div>' + escapeHtml(window.Messages.strErrorConnection) + '</div>';
                 }

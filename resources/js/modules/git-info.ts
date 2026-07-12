@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import { CommonParams } from './common.ts';
 import { escapeHtml } from './functions/escape.ts';
+import { sprintf } from 'locutus/php/strings/sprintf';
 
 const GitInfo = {
     /**
@@ -66,11 +67,11 @@ const GitInfo = {
             versionInformationMessage.appendChild(prefixMessage);
             versionInformationMessage.appendChild(versionInformationMessageLink);
             if (latest > current) {
-                const message = window.sprintf(
+                const message = sprintf(
                     window.Messages.strNewerVersion,
                     escapeHtml(data.version),
                     escapeHtml(data.date)
-                );
+                ) as string;
                 let htmlClass = 'alert alert-primary';
                 if (Math.floor(latest / 10000) === Math.floor(current / 10000)) {
                     /* Security update */

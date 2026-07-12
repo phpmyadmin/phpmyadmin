@@ -4,6 +4,7 @@ import { formatBytes } from './modules/functions.ts';
 import { Navigation } from './modules/navigation.ts';
 import { CommonParams } from './modules/common.ts';
 import { ajaxShowMessage } from './modules/ajax-message.ts';
+import { sprintf } from 'locutus/php/strings/sprintf';
 
 /**
  * Functions used in the import tab
@@ -215,7 +216,7 @@ AJAX.registerOnload('import.js', function () {
                                 nowDate.getSeconds(),
                             ) + nowDate.getMilliseconds() - 1000;
 
-                            let statusText = window.sprintf(
+                            let statusText = sprintf(
                                 window.Messages.uploadProgressStatusText,
                                 formatBytes(
                                     complete, 1, window.Messages.strDecimalSeparator,
@@ -223,7 +224,7 @@ AJAX.registerOnload('import.js', function () {
                                 formatBytes(
                                     total, 1, window.Messages.strDecimalSeparator,
                                 ),
-                            );
+                            ) as string;
 
                             if ($('#importmain').is(':visible')) {
                                 // Show progress UI
@@ -241,7 +242,7 @@ AJAX.registerOnload('import.js', function () {
                                 // Calculate estimated time
                                 const usedTime = now - importStart;
                                 let seconds = parseInt((((total - complete) / complete) * usedTime / 1000).toString());
-                                const speed = window.sprintf(
+                                const speed = sprintf(
                                     window.Messages.uploadProgressPerSecond,
                                     formatBytes(complete / usedTime * 1000, 1, window.Messages.strDecimalSeparator),
                                 );

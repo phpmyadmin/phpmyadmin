@@ -5,6 +5,7 @@ import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.ts';
 import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.ts';
 import { escapeHtml } from '../modules/functions/escape.ts';
 import refreshMainContent from '../modules/functions/refreshMainContent.ts';
+import { sprintf } from 'locutus/php/strings/sprintf';
 
 /**
  * for table relation
@@ -252,7 +253,7 @@ AJAX.registerOnload('table/relation.js', function () {
                 .val() as string),
         );
 
-        const question = window.sprintf(window.Messages.strDoYouReally, dropQuery);
+        const question = sprintf(window.Messages.strDoYouReally, dropQuery);
 
         $anchor.confirm(question, $anchor.attr('href'), function (url) {
             const $msg = ajaxShowMessage(window.Messages.strDroppingForeignKey, false);

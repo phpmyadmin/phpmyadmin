@@ -11,6 +11,7 @@ import { ajaxRemoveMessage, ajaxShowMessage } from './modules/ajax-message.ts';
 import { escapeBacktick, escapeHtml } from './modules/functions/escape.ts';
 import refreshMainContent from './modules/functions/refreshMainContent.ts';
 import isStorageSupported from './modules/functions/isStorageSupported.ts';
+import { sprintf } from 'locutus/php/strings/sprintf';
 
 /**
  * @fileoverview    functions used wherever an sql query form is used
@@ -527,7 +528,7 @@ AJAX.registerOnload('sql.js', function () {
     // Delete row from SQL results
     $(document).on('click', 'a.delete_row.ajax', function (e) {
         e.preventDefault();
-        const question = window.sprintf(window.Messages.strDoYouReally, escapeHtml($(this).closest('td').find('div').text()));
+        const question = sprintf(window.Messages.strDoYouReally, escapeHtml($(this).closest('td').find('div').text()));
         const $link = $(this);
         $link.confirm(question, $link.attr('href'), function (url) {
             ajaxShowMessage();
@@ -766,7 +767,7 @@ AJAX.registerOnload('sql.js', function () {
         $varDiv.empty();
         for (let i = 1; i <= varCount; i++) {
             $varDiv.append($('<div class="mb-3">'));
-            $varDiv.append($('<label for="bookmarkVariable' + i + '">' + window.sprintf(window.Messages.strBookmarkVariable, i) + '</label>'));
+            $varDiv.append($('<label for="bookmarkVariable' + i + '">' + sprintf(window.Messages.strBookmarkVariable, i) + '</label>'));
             $varDiv.append($('<input class="form-control" type="text" size="10" name="bookmark_variable[' + i + ']" id="bookmarkVariable' + i + '">'));
             $varDiv.append($('</div>'));
         }

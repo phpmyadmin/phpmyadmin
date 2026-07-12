@@ -5,6 +5,7 @@ import { CommonParams } from '../modules/common.ts';
 import highlightSql from '../modules/sql-highlight.ts';
 import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.ts';
 import getImageTag from '../modules/functions/getImageTag.ts';
+import { sprintf } from 'locutus/php/strings/sprintf';
 
 /**
  * JavaScript functions used on Database Search page
@@ -171,10 +172,10 @@ AJAX.registerOnload('database/search.js', function () {
         $('#sqlqueryform').hide();
         $('#togglequerybox').hide();
         /** Conformation message for deletion */
-        const msg = window.sprintf(
+        const msg = sprintf(
             window.Messages.strConfirmDeleteResults,
             $(this).data('table-name'),
-        );
+        ) as string;
         if (confirm(msg)) {
             const $msg = ajaxShowMessage(window.Messages.strDeleting, false);
             /** Load the deleted option to the page*/

@@ -7,6 +7,7 @@ import { ajaxShowMessage } from '../modules/ajax-message.ts';
 import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.ts';
 import { escapeHtml } from '../modules/functions/escape.ts';
 import refreshMainContent from '../modules/functions/refreshMainContent.ts';
+import { sprintf } from 'locutus/php/strings/sprintf';
 
 /**
  * @see https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
@@ -45,7 +46,7 @@ const DropDatabases = {
          * @var question    String containing the question to be asked for confirmation
          */
         const question = window.Messages.strDropDatabaseStrongWarning + ' ' +
-            window.sprintf(window.Messages.strDoYouReally, selectedDbs.join('<br>'));
+            sprintf(window.Messages.strDoYouReally, selectedDbs.join('<br>'));
 
         const modal = $('#dropDatabaseModal');
         modal.find('.modal-body').html(question);
