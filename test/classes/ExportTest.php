@@ -118,4 +118,37 @@ class ExportTest extends AbstractTestCase
             'application/x-gzip',
         ], $finalFileName);
     }
+
+    /**
+     * Test that getFilenameAndMimetype uses database/table aliases in the
+     * filename template (see issue #18510).
+     */
+    public function testGetFilenameAndMimetypeUsesAliases(): void
+    {
+        parent::setGlobalConfig();
+        $GLOBALS['cfg']['Server']['host'] = 'localhost';
+        $GLOBALS['cfg']['Server']['verbose'] = '';
+        $GLOBALS['db'] = 'test_db';
+        $GLOBALS['table'] = 'test_table';
+
+        $aliases = [
+            'test_db' => [
+                'alias' => 'aliasdb',
+                'tables' => [
+                    'test_table' => ['alias' => 'aliastbl'],
+                ],
+            ],
+        ];
+
+        [$filename] = $this->export->getFilenameAndMimetype(
+            'table',
+            '',
+            new ExportPhparray(),
+            'none',
+            '@DATABASE@-@TABLE@',
+            $aliases
+        );
+
+        self::assertSame('aliasdb-aliastbl.php', $filename);
+    }
 }

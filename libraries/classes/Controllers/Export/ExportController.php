@@ -400,7 +400,8 @@ final class ExportController extends AbstractController
                 $remember_template,
                 $export_plugin,
                 $compression,
-                $filename_template
+                $filename_template,
+                $aliases
             );
         } else {
             $mime_type = '';
