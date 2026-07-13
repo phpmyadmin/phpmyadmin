@@ -884,7 +884,6 @@ final class StructureController implements InvocableController
             // Calculate quotes length
             $quotesLength = $currentTable['TABLE_ROWS'] * $columnCount * 2;
 
-            /** @var int $tblsize */
             $tblsize = $dataLength + $quotesLength + $currentTable['TABLE_ROWS'];
 
             $sumSize += $tblsize;

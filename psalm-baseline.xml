@@ -1144,7 +1144,6 @@
       <code><![CDATA[int]]></code>
       <code><![CDATA[int]]></code>
       <code><![CDATA[int]]></code>
-      <code><![CDATA[int]]></code>
     </UnnecessaryVarAnnotation>
   </file>
   <file src="src/Controllers/Database/TrackingController.php">

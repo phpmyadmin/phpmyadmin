@@ -451,12 +451,6 @@ parameters:
 			path: src/Config/Form.php
 
 		-
-			message: '#^PHPDoc tag @var for variable \$value has no value type specified in iterable type array\.$#'
-			identifier: missingType.iterableValue
-			count: 1
-			path: src/Config/Form.php
-
-		-
 			message: '#^Parameter \#1 \$keys of function array_combine expects an array of values castable to string, list\<mixed\> given\.$#'
 			identifier: argument.type
 			count: 1

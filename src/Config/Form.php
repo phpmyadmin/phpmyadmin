@@ -137,7 +137,6 @@ class Form
         }
 
         if (! $hasStringKeys) {
-            /** @var array $value */
             $value = array_combine($keys, $value);
         }
 
