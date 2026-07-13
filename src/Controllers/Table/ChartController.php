@@ -216,7 +216,7 @@ final readonly class ChartController implements InvocableController
         $parser = new Parser(Current::$sqlQuery);
         $statement = $parser->statements[0];
         assert($statement instanceof SelectStatement);
-        if (empty($statement->limit)) {
+        if (! $statement->limit instanceof Limit) {
             $statement->limit = new Limit($_REQUEST['session_max_rows'], $_REQUEST['pos']);
         } else {
             $start = $statement->limit->offset + $_REQUEST['pos'];
