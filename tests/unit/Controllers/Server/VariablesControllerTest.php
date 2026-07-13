@@ -70,7 +70,7 @@ class VariablesControllerTest extends AbstractTestCase
     {
         $response = new ResponseStub();
 
-        $resultStub = $this->createMock(DummyResult::class);
+        $resultStub = self::createStub(DummyResult::class);
 
         $this->mockedDbi->expects(self::once())
             ->method('tryQuery')

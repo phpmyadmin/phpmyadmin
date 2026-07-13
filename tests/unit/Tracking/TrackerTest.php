@@ -155,7 +155,7 @@ class TrackerTest extends AbstractTestCase
         $config->selectedServer['tracking_add_drop_view'] = true;
         $config->selectedServer['user'] = 'pma_test_user';
 
-        $resultStub = $this->createMock(DummyResult::class);
+        $resultStub = self::createStub(DummyResult::class);
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -211,7 +211,7 @@ class TrackerTest extends AbstractTestCase
         $config->selectedServer['tracking_add_drop_view'] = true;
         $config->selectedServer['user'] = 'pma_test_user';
 
-        $resultStub = $this->createMock(DummyResult::class);
+        $resultStub = self::createStub(DummyResult::class);
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -256,7 +256,7 @@ class TrackerTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $resultStub = $this->createMock(DummyResult::class);
+        $resultStub = self::createStub(DummyResult::class);
 
         $sqlQuery = 'UPDATE `pmadb`.`tracking` SET `tracking_active` = ' . $newState .
         " WHERE `db_name` = '" . $dbname . "'" .
