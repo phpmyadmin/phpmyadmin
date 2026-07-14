@@ -49,7 +49,7 @@
             {% if row.user not in ['system user', 'event_scheduler', 'unauthenticated user'] %}
               <a href="{{ url('/server/privileges', {
                   'username': row.user,
-                  'hostname': row.host,
+                  'hostname': row.host_without_port,
                   'dbname': row.db,
                   'tablename': '',
                   'routinename': '',
