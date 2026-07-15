@@ -12,6 +12,7 @@ use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Replication\Replication;
 use PhpMyAdmin\Table\Table;
@@ -611,5 +612,36 @@ class StructureControllerTest extends AbstractTestCase
         // From SESSION
         $actual = $structureController->getTableListPosition(null, 'test_db');
         self::assertSame(250, $actual);
+
+        // Negative positions are clamped to 0
+        $actual = $structureController->getTableListPosition('-250', 'test_db');
+        self::assertSame(0, $actual);
+    }
+
+    public function testRedirectsToLastPageWhenPositionIsBeyondTheTableList(): void
+    {
+        Current::$database = 'test_db';
+        $this->config->selectedServer['DisableIS'] = true;
+
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addSelectDb('test_db');
+        $dbiDummy->addResult('SHOW TABLES FROM `test_db`;', [['test_table']], ['Tables_in_test_db']);
+        $dbiDummy->addResult(
+            'SHOW TABLE STATUS FROM `test_db`',
+            [['test_table', 'InnoDB', '3']],
+            ['Name', 'Engine', 'Rows'],
+        );
+        $dbi = $this->createDatabaseInterface($dbiDummy, $this->config);
+
+        // The first (and only) page holds the whole table list, so position 1 is past the end
+        $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
+            ->withQueryParams(['db' => 'test_db', 'pos' => '1']);
+
+        $response = $this->createController($dbi)($request);
+
+        self::assertSame(302, $response->getStatusCode());
+        self::assertStringContainsString('pos=0', $response->getHeaderLine('Location'));
+        self::assertStringContainsString('route=/database/structure', $response->getHeaderLine('Location'));
+        $dbiDummy->assertAllQueriesConsumed();
     }
 }
