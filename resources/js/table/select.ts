@@ -122,9 +122,7 @@ AJAX.registerOnload('table/select.js', function () {
         // Dispose tooltips. See #19950
         $('input.datefield, input.timefield').each(function () {
             const tooltipInstance = bootstrap.Tooltip.getInstance(this);
-            if (tooltipInstance) {
-                tooltipInstance.dispose();
-            }
+            tooltipInstance?.dispose();
         });
 
         // empty previous search results while we are waiting for new results

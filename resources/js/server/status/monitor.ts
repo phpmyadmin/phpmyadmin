@@ -533,9 +533,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         monitorSettings.gridRefresh = parseInt(this.value, 10) * 1000;
         clearTimeout(runtime.refreshTimeout);
 
-        if (runtime.refreshRequest) {
-            runtime.refreshRequest.abort();
-        }
+        runtime.refreshRequest?.abort();
 
         runtime.xmin = new Date().getTime() - serverTimeDiff - runtime.gridMaxPoints * monitorSettings.gridRefresh;
         // fixing chart shift towards left on refresh rate change
@@ -1696,9 +1694,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         const analysingLogsModal = document.getElementById('analysingLogsModal');
 
         analysingLogsModal.addEventListener('hidden.bs.modal', function () {
-            if (logRequest !== null) {
-                logRequest.abort();
-            }
+            logRequest?.abort();
         });
 
         bootstrap.Modal.getOrCreateInstance(analysingLogsModal).show();
@@ -2102,9 +2098,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             const queryAnalyzerModalAnalyseButton = document.getElementById('queryAnalyzerModalAnalyseButton');
             queryAnalyzerModalAnalyseButton?.removeEventListener('click', queryAnalyzerModalSaveEventHandler);
 
-            if (profilingChart !== null) {
-                profilingChart.destroy();
-            }
+            profilingChart?.destroy();
 
             queryAnalyzerModal.querySelector('div.placeHolder').textContent = '';
             if (window.codeMirrorEditor) {

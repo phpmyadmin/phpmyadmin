@@ -162,17 +162,13 @@ import getImageTag from './modules/functions/getImageTag.ts';
         resize: function () {
             return this.each(function () {
                 const self = $(this).data('menuResizer');
-                if (self) {
-                    self.resize();
-                }
+                self?.resize();
             });
         },
         destroy: function () {
             return this.each(function () {
                 const self = $(this).data('menuResizer');
-                if (self) {
-                    self.destroy();
-                }
+                self?.destroy();
             });
         },
     };

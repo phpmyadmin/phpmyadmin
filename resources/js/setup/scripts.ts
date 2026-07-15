@@ -83,9 +83,7 @@ function ajaxValidate (parent, id, values) {
         }
     }
 
-    if ($parent.data('ajax') !== null) {
-        $parent.data('ajax').abort();
-    }
+    $parent.data('ajax')?.abort();
 
     $parent.data('ajax', $.ajax({
         url: '../setup/index.php?route=/setup/validate',

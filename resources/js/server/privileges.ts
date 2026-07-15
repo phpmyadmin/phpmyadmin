@@ -534,9 +534,7 @@ AJAX.registerTeardown('server/privileges.js', function () {
     $('#text_pma_change_pw2').off('change');
 
     const editUserGroupModal = document.getElementById('editUserGroupModal');
-    if (editUserGroupModal) {
-        editUserGroupModal.removeEventListener('show.bs.modal', EditUserGroup);
-    }
+    editUserGroupModal?.removeEventListener('show.bs.modal', EditUserGroup);
 
     $(document).off('click', 'button.mult_submit[value=export]');
     $(document).off('click', 'a.export_user_anchor.ajax');
@@ -559,9 +557,7 @@ AJAX.registerOnload('server/privileges.js', function () {
     $(document).on('click', '#deleteUserCard .btn.ajax', RevokeUser.handleEvent);
 
     const editUserGroupModal = document.getElementById('editUserGroupModal');
-    if (editUserGroupModal) {
-        editUserGroupModal.addEventListener('show.bs.modal', EditUserGroup);
-    }
+    editUserGroupModal?.addEventListener('show.bs.modal', EditUserGroup);
 
     $(document).on('click', 'button.mult_submit[value=export]', ExportPrivileges.handleEvent);
 

@@ -217,9 +217,7 @@ function queryChart (data, columnNames, settings) {
 
     // @ts-ignore
     let queryChart = window.Chart.getChart('queryChartCanvas');
-    if (queryChart) {
-        queryChart.destroy();
-    }
+    queryChart?.destroy();
 
     // @ts-ignore
     queryChart = new window.Chart(queryChartCanvas, chartOptions);
@@ -237,9 +235,7 @@ function drawChart () {
     currentSettings.height = $('#resizer').height() - 20;
 
     // TODO: a better way using .redraw() ?
-    if (currentChart !== null) {
-        currentChart.destroy();
-    }
+    currentChart?.destroy();
 
     const columnNames = [];
     $('#chartXAxisSelect option').each(function () {
