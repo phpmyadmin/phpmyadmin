@@ -348,7 +348,7 @@ class StructureControllerTest extends AbstractTestCase
         );
 
         (new ReflectionMethod(StructureController::class, 'getDatabaseInfo'))
-            ->invokeArgs($structureController, [self::createStub(ServerRequest::class)]);
+            ->invokeArgs($structureController, [self::createStub(ServerRequest::class), 0]);
 
         self::assertSame(
             [['Data_length' => 45, 'Index_length' => 60], '105', 'B', 105],
