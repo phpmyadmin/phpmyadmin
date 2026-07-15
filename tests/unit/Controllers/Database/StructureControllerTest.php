@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Database;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\Config\Settings;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\Current;
@@ -23,6 +24,8 @@ use ReflectionClass;
 use ReflectionException;
 use ReflectionMethod;
 
+use function array_keys;
+
 #[CoversClass(StructureController::class)]
 class StructureControllerTest extends AbstractTestCase
 {
@@ -34,6 +37,8 @@ class StructureControllerTest extends AbstractTestCase
 
     private Template $template;
 
+    private Config $config;
+
     /**
      * Prepares environment for the test.
      */
@@ -41,8 +46,8 @@ class StructureControllerTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $config = Config::getInstance();
-        $config->selectedServer['DisableIS'] = false;
+        $this->config = Config::getInstance();
+        $this->config->selectedServer['DisableIS'] = false;
         Current::$table = 'table';
         Current::$database = 'db';
 
@@ -63,7 +68,7 @@ class StructureControllerTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $dbi;
 
-        $this->template = new Template($config);
+        $this->template = new Template($this->config);
         $this->response = new ResponseStub();
         $this->relation = new Relation($dbi);
         $this->replication = new Replication($dbi);
@@ -428,8 +433,156 @@ class StructureControllerTest extends AbstractTestCase
             'TABLE_TYPE' => 'BASE TABLE',
         ];
         $expected = [['test_table' => $tableInfo], 1];
-        $actual = $structureController->getDbInfo('test_db', null, null, null, null);
+        $actual = $structureController->getDbInfo('test_db', null, null, null, null, 0);
         self::assertSame($expected, $actual);
+    }
+
+    public function testGetDbInfoWithSortedColumnAndDescendingOrder(): void
+    {
+        $this->config->selectedServer['DisableIS'] = true;
+
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addResult('SHOW TABLES FROM `test_db`;', [['a_table'], ['b_table']], ['Tables_in_test_db']);
+        $dbiDummy->addResult(
+            'SHOW TABLE STATUS FROM `test_db` WHERE `Name` IN (\'a_table\', \'b_table\')',
+            [['a_table', 'InnoDB', '3'], ['b_table', 'InnoDB', '10']],
+            ['Name', 'Engine', 'Rows'],
+        );
+        $dbi = $this->createDatabaseInterface($dbiDummy, $this->config);
+
+        [$tables, $totalNumTables] = $this->createController($dbi)->getDbInfo('test_db', 'records', 'DESC', null, null, 0);
+
+        self::assertSame(['b_table', 'a_table'], array_keys($tables));
+        self::assertSame(2, $totalNumTables);
+        $dbiDummy->assertAllQueriesConsumed();
+    }
+
+    public function testGetDbInfoWithUnknownSortColumnFallsBackToNameAscending(): void
+    {
+        $this->config->selectedServer['DisableIS'] = true;
+
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addResult('SHOW TABLES FROM `test_db`;', [['a_table'], ['b_table']], ['Tables_in_test_db']);
+        // The 'DESC' sort order must be ignored for an unrecognized sort column
+        $dbiDummy->addResult(
+            'SHOW TABLE STATUS FROM `test_db` WHERE `Name` IN (\'a_table\', \'b_table\')',
+            [['a_table', 'InnoDB', '3'], ['b_table', 'InnoDB', '10']],
+            ['Name', 'Engine', 'Rows'],
+        );
+        $dbi = $this->createDatabaseInterface($dbiDummy, $this->config);
+
+        [$tables, $totalNumTables] = $this->createController($dbi)->getDbInfo('test_db', 'invalid', 'DESC', null, null, 0);
+
+        self::assertSame(['a_table', 'b_table'], array_keys($tables));
+        self::assertSame(2, $totalNumTables);
+        $dbiDummy->assertAllQueriesConsumed();
+    }
+
+    public function testGetDbInfoWithTableGroup(): void
+    {
+        $this->config->selectedServer['DisableIS'] = true;
+
+        $dbiDummy = $this->createDbiDummy();
+        // The table with the exact name of the group is fetched first
+        $dbiDummy->addResult(
+            'SHOW TABLE STATUS FROM `test_db` WHERE `Name` LIKE \'2024%\'',
+            [['2024', 'InnoDB', '3']],
+            ['Name', 'Engine', 'Rows'],
+        );
+        $dbiDummy->addResult(
+            'SHOW TABLE STATUS FROM `test_db` WHERE `Name` LIKE \'2024\\\\_\\\\_%\'',
+            [['2024__child', 'InnoDB', '5']],
+            ['Name', 'Engine', 'Rows'],
+        );
+        $dbi = $this->createDatabaseInterface($dbiDummy, $this->config);
+
+        [$tables, $totalNumTables] = $this->createController($dbi)->getDbInfo('test_db', null, null, '2024', null, 0);
+
+        // Numerical keys must be preserved when both results are merged
+        self::assertSame([2024, '2024__child'], array_keys($tables));
+        self::assertSame(2, $totalNumTables);
+        $dbiDummy->assertAllQueriesConsumed();
+    }
+
+    public function testGetDbInfoWithTableGroupAndTableType(): void
+    {
+        $this->config->selectedServer['DisableIS'] = true;
+
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addResult(
+            'SHOW TABLE STATUS FROM `test_db` WHERE `Name` LIKE \'2024%\' AND `Comment` != \'VIEW\'',
+            [['2024', 'InnoDB', '3']],
+            ['Name', 'Engine', 'Rows'],
+        );
+        $dbiDummy->addResult(
+            'SHOW TABLE STATUS FROM `test_db` WHERE `Name` LIKE \'2024\\\\_\\\\_%\' AND `Comment` != \'VIEW\'',
+            [['2024__child', 'InnoDB', '5']],
+            ['Name', 'Engine', 'Rows'],
+        );
+        $dbi = $this->createDatabaseInterface($dbiDummy, $this->config);
+
+        [$tables, $totalNumTables] = $this->createController($dbi)->getDbInfo('test_db', null, null, '2024', 'table', 0);
+
+        self::assertSame([2024, '2024__child'], array_keys($tables));
+        self::assertSame(2, $totalNumTables);
+        $dbiDummy->assertAllQueriesConsumed();
+    }
+
+    public function testGetDbInfoWithTableType(): void
+    {
+        $this->config->selectedServer['DisableIS'] = true;
+
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addResult(
+            'SHOW TABLE STATUS FROM `test_db` WHERE `Comment` = \'VIEW\'',
+            [['test_view', null, '0', 'VIEW']],
+            ['Name', 'Engine', 'Rows', 'Comment'],
+        );
+        $dbi = $this->createDatabaseInterface($dbiDummy, $this->config);
+
+        [$tables, $totalNumTables] = $this->createController($dbi)->getDbInfo('test_db', null, null, null, 'view', 0);
+
+        self::assertSame(['test_view'], array_keys($tables));
+        self::assertSame('VIEW', $tables['test_view']['TABLE_TYPE']);
+        self::assertSame(1, $totalNumTables);
+        $dbiDummy->assertAllQueriesConsumed();
+    }
+
+    public function testGetDbInfoWithLimitedTableList(): void
+    {
+        $this->config->selectedServer['DisableIS'] = true;
+        $this->config->config = new Settings(['MaxTableList' => 1]);
+
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addResult('SHOW TABLES FROM `test_db`;', [['a_table'], ['b_table']], ['Tables_in_test_db']);
+        // Only the page starting at the current position is fetched in detail
+        $dbiDummy->addResult(
+            'SHOW TABLE STATUS FROM `test_db` WHERE `Name` IN (\'b_table\')',
+            [['b_table', 'InnoDB', '10']],
+            ['Name', 'Engine', 'Rows'],
+        );
+        $dbi = $this->createDatabaseInterface($dbiDummy, $this->config);
+
+        [$tables, $totalNumTables] = $this->createController($dbi)->getDbInfo('test_db', null, null, null, null, 1);
+
+        self::assertSame(['b_table'], array_keys($tables));
+        self::assertSame(2, $totalNumTables);
+        $dbiDummy->assertAllQueriesConsumed();
+    }
+
+    private function createController(DatabaseInterface $dbi): StructureController
+    {
+        return new StructureController(
+            $this->response,
+            $this->template,
+            $this->relation,
+            $this->replication,
+            $dbi,
+            self::createStub(TrackingChecker::class),
+            self::createStub(PageSettings::class),
+            new DbTableExists($dbi),
+            $this->config,
+        );
     }
 
     public function testGetTableListPosition(): void

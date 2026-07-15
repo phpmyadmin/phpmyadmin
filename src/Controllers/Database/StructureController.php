@@ -117,12 +117,13 @@ final class StructureController implements InvocableController
                 $request->getParam('sort_order'),
                 $request->getParam('tbl_group'),
                 $request->getParam('tbl_type'),
+                $this->position,
             );
         }
 
         $this->tables = $tables;
         $this->numTables = count($tables);
-        $this->totalNumTables = $totalNumTables ?? count($tables);
+        $this->totalNumTables = $totalNumTables;
 
         /**
          * whether to display extended stats
@@ -934,7 +935,7 @@ final class StructureController implements InvocableController
     /**
      * Gets the list of tables in the current db and information about these tables if possible.
      *
-     * @return array{(string|int|null)[][], int|null}
+     * @return array{(string|int|null)[][], int}
      */
     public function getDbInfo(
         string $db,
@@ -942,97 +943,62 @@ final class StructureController implements InvocableController
         mixed $sortOrderParam,
         mixed $tableGroupParam,
         mixed $tableTypeParam,
+        int $position,
     ): array {
-        /**
-         * information about tables in db
-         */
-        $tables = [];
-        $totalNumTables = null;
+        $sort = match ($sortParam) {
+            'table' => 'Name',
+            'records' => 'Rows',
+            'type' => 'Engine',
+            'collation' => 'Collation',
+            'size' => 'Data_length',
+            'overhead' => 'Data_free',
+            'creation' => 'Create_time',
+            'last_update' => 'Update_time',
+            'last_check' => 'Check_time',
+            'comment' => 'Comment',
+            default => null,
+        };
+        // the sort order is only honored for an implemented sort type
+        $sortOrder = $sort !== null && $sortOrderParam === 'DESC' ? 'DESC' : 'ASC';
+        $sort ??= 'Name';
 
-        // Set some sorting defaults
-        $sort = 'Name';
-        $sortOrder = 'ASC';
+        $tableGroup = is_string($tableGroupParam) && $tableGroupParam !== '' ? $tableGroupParam : null;
+        $tableType = is_string($tableTypeParam) && $tableTypeParam !== '' ? $tableTypeParam : null;
 
-        if (is_string($sortParam)) {
-            $sortableNameMappings = [
-                'table' => 'Name',
-                'records' => 'Rows',
-                'type' => 'Engine',
-                'collation' => 'Collation',
-                'size' => 'Data_length',
-                'overhead' => 'Data_free',
-                'creation' => 'Create_time',
-                'last_update' => 'Update_time',
-                'last_check' => 'Check_time',
-                'comment' => 'Comment',
-            ];
-
-            // Make sure the sort type is implemented
-            if (isset($sortableNameMappings[$sortParam])) {
-                $sort = $sortableNameMappings[$sortParam];
-                if ($sortOrderParam === 'DESC') {
-                    $sortOrder = 'DESC';
-                }
-            }
-        }
-
-        $groupWithSeparator = false;
-        $tableType = null;
-        $limitOffset = 0;
-        $limitCount = false;
-        $groupTable = [];
-
-        if (
-            is_string($tableGroupParam) && $tableGroupParam !== ''
-            || is_string($tableTypeParam) && $tableTypeParam !== ''
-        ) {
-            if (is_string($tableTypeParam) && $tableTypeParam !== '') {
-                // only tables for selected type
-                $tableType = $tableTypeParam;
-            }
-
-            if (is_string($tableGroupParam) && $tableGroupParam !== '') {
-                // only tables for selected group
-                // include the table with the exact name of the group if such exists
-                $groupTable = $this->dbi->getTablesFull(
-                    $db,
-                    $tableGroupParam,
-                    false,
-                    0,
-                    false,
-                    $sort,
-                    $sortOrder,
-                    $tableType,
-                );
-                $groupWithSeparator = $tableGroupParam . $this->config->config->NavigationTreeTableSeparator;
-            }
-        } else {
+        if ($tableGroup === null && $tableType === null) {
             // all tables in db
             // - get the total number of tables
             //  (needed for proper working of the MaxTableList feature)
-            $tables = $this->dbi->getTables($db);
-            $totalNumTables = count($tables);
-            // fetch the details for a possible limited subset
-            $limitOffset = $this->position;
-            $limitCount = true;
+            $tableNames = $this->dbi->getTables($db);
+            $tables = $this->dbi->getTablesFull($db, $tableNames, false, $position, true, $sort, $sortOrder);
+
+            return [$tables, count($tableNames)];
         }
 
-        // We must use union operator here instead of array_merge to preserve numerical keys
-        $tables = $groupTable + $this->dbi->getTablesFull(
-            $db,
-            $groupWithSeparator !== false ? $groupWithSeparator : $tables,
-            $groupWithSeparator !== false,
-            $limitOffset,
-            $limitCount,
-            $sort,
-            $sortOrder,
-            $tableType,
-        );
+        if ($tableGroup === null) {
+            // only tables for selected type
+            $tables = $this->dbi->getTablesFull($db, [], false, 0, false, $sort, $sortOrder, $tableType);
 
-        return [
-            $tables,
-            $totalNumTables, // needed for proper working of the MaxTableList feature
-        ];
+            return [$tables, count($tables)];
+        }
+
+        // only tables for selected group (and type, if any):
+        // the table with the exact name of the group if such exists, plus the tables
+        // with the group prefix; we must use the union operator here instead of
+        // array_merge to preserve numerical keys
+        $tables = $this->dbi->getTablesFull($db, $tableGroup, false, 0, false, $sort, $sortOrder, $tableType)
+            + $this->dbi->getTablesFull(
+                $db,
+                $tableGroup . $this->config->config->NavigationTreeTableSeparator,
+                true,
+                0,
+                false,
+                $sort,
+                $sortOrder,
+                $tableType,
+            );
+
+        return [$tables, count($tables)];
     }
 
     /**
