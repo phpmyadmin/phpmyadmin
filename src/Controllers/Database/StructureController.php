@@ -63,9 +63,6 @@ final class StructureController implements InvocableController
     /** @var int Number of tables */
     private int $numTables = 0;
 
-    /** @var int Current position in the list */
-    private int $position = 0;
-
     /** @var bool DB is information_schema */
     private bool $dbIsSystemSchema = false;
 
@@ -101,10 +98,8 @@ final class StructureController implements InvocableController
     /**
      * Retrieves database information for further use.
      */
-    private function getDatabaseInfo(ServerRequest $request): void
+    private function getDatabaseInfo(ServerRequest $request, int $position): void
     {
-        $this->position = $this->getTableListPosition($request->getParam('pos'), Current::$database);
-
         // Special speedup for newer MySQL Versions (in 4.0 format changed)
         if ($this->config->config->SkipLockedTables) {
             $tables = $this->getTablesWhenOpen(Current::$database, (string) $request->getParam('tbl_group'));
@@ -116,7 +111,7 @@ final class StructureController implements InvocableController
                 $request->getParam('sort_order'),
                 $request->getParam('tbl_group'),
                 $request->getParam('tbl_type'),
-                $this->position,
+                $position,
             );
         }
 
@@ -164,13 +159,15 @@ final class StructureController implements InvocableController
 
         $this->response->addScriptFiles(['database/structure.js', 'table/change.js']);
 
+        $position = $this->getTableListPosition($request->getParam('pos'), Current::$database);
+
         // Gets the database structure
-        $this->getDatabaseInfo($request);
+        $this->getDatabaseInfo($request, $position);
 
         // Checks if there are any tables to be shown on current page.
         // If there are no tables, the user is redirected to the last page
         // having any.
-        if ($this->totalNumTables > 0 && $this->position > $this->totalNumTables) {
+        if ($this->totalNumTables > 0 && $position > $this->totalNumTables) {
             return $this->response->redirectToRoute('/database/structure', [
                 'db' => Current::$database,
                 'pos' => max(0, $this->totalNumTables - $this->config->config->MaxTableList),
@@ -186,7 +183,7 @@ final class StructureController implements InvocableController
         $this->response->addHTML($this->pageSettings->getHTML());
 
         if ($this->numTables > 0) {
-            $urlParams = ['pos' => $this->position, 'db' => Current::$database];
+            $urlParams = ['pos' => $position, 'db' => Current::$database];
             if (isset($parameters['sort'])) {
                 $urlParams['sort'] = $parameters['sort'];
             }
@@ -197,7 +194,7 @@ final class StructureController implements InvocableController
 
             $listNavigator = Generator::getListNavigator(
                 $this->totalNumTables,
-                $this->position,
+                $position,
                 $urlParams,
                 Url::getFromRoute('/database/structure'),
                 'frame_content',
