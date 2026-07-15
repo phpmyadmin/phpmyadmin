@@ -168,7 +168,7 @@ final class StructureController implements InvocableController
         // Checks if there are any tables to be shown on current page.
         // If there are no tables, the user is redirected to the last page
         // having any.
-        if ($this->totalNumTables > 0 && $position > $this->totalNumTables) {
+        if ($this->totalNumTables > 0 && $position >= $this->totalNumTables) {
             return $this->response->redirectToRoute('/database/structure', [
                 'db' => Current::$database,
                 'pos' => max(0, $this->totalNumTables - $this->config->config->MaxTableList),
@@ -1094,7 +1094,7 @@ final class StructureController implements InvocableController
         }
 
         if (is_numeric($posParam)) {
-            $_SESSION['tmpval']['table_limit_offset'] = (int) $posParam;
+            $_SESSION['tmpval']['table_limit_offset'] = max(0, (int) $posParam);
         }
 
         return $_SESSION['tmpval']['table_limit_offset'];
