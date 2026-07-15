@@ -125,9 +125,9 @@ class ExportTest extends AbstractTestCase
      */
     public function testGetFilenameAndMimetypeUsesAliases(): void
     {
-        parent::setGlobalConfig();
-        $GLOBALS['cfg']['Server']['host'] = 'localhost';
-        $GLOBALS['cfg']['Server']['verbose'] = '';
+        // Util::expandUserString() reads the current server host/verbose when
+        // building the filename, so provide a minimal server configuration.
+        $GLOBALS['cfg']['Server'] = ['host' => 'localhost', 'verbose' => ''];
         $GLOBALS['db'] = 'test_db';
         $GLOBALS['table'] = 'test_table';
 

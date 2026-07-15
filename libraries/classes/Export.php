@@ -335,7 +335,7 @@ class Export
      * @param ExportPlugin $exportPlugin     the export plugin
      * @param string       $compression      compression asked
      * @param string       $filenameTemplate the filename template
-     * @param array        $aliases          alias information for db/table/column
+     * @param mixed[]      $aliases          alias information for db/table/column
      *
      * @return string[] the filename template and mime type
      */
