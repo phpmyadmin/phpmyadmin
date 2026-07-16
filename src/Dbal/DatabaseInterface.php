@@ -359,7 +359,7 @@ class DatabaseInterface
      * @param bool|int       $limitCount   number of tables to return
      * @param string         $sortBy       table attribute to sort by
      * @param string         $sortOrder    direction to sort (ASC or DESC)
-     * @param string|null    $tableType    whether table or view
+     * @param TableType|null $tableType    whether to list only tables or only views
      *
      * @return (string|int|null)[][]           list of tables in given db(s)
      *
@@ -373,7 +373,7 @@ class DatabaseInterface
         bool|int $limitCount = false,
         string $sortBy = 'Name',
         string $sortOrder = 'ASC',
-        string|null $tableType = null,
+        TableType|null $tableType = null,
         ConnectionType $connectionType = ConnectionType::User,
     ): array {
         if ($limitCount === true) {
@@ -506,7 +506,7 @@ class DatabaseInterface
         // this is why we fall back to SHOW TABLE STATUS even for MySQL >= 50002
         if ($tables === []) {
             $sql = 'SHOW TABLE STATUS FROM ' . Util::backquote($database);
-            if (($table !== '' && $table !== []) || $tableIsGroup || ($tableType !== null && $tableType !== '')) {
+            if (($table !== '' && $table !== []) || $tableIsGroup || $tableType !== null) {
                 $sql .= ' WHERE';
                 $needAnd = false;
                 if (($table !== '' && $table !== []) || $tableIsGroup) {
@@ -527,16 +527,15 @@ class DatabaseInterface
                     $needAnd = true;
                 }
 
-                if ($tableType !== null && $tableType !== '') {
+                if ($tableType !== null) {
                     if ($needAnd) {
                         $sql .= ' AND';
                     }
 
-                    if ($tableType === 'view') {
-                        $sql .= " `Comment` = 'VIEW'";
-                    } elseif ($tableType === 'table') {
-                        $sql .= " `Comment` != 'VIEW'";
-                    }
+                    $sql .= match ($tableType) {
+                        TableType::View => " `Comment` = 'VIEW'",
+                        TableType::Table => " `Comment` != 'VIEW'",
+                    };
                 }
             }
 
