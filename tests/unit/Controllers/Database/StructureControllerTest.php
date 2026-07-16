@@ -549,6 +549,26 @@ class StructureControllerTest extends AbstractTestCase
         $dbiDummy->assertAllQueriesConsumed();
     }
 
+    public function testGetDbInfoWithUnknownTableTypeFallsBackToFullList(): void
+    {
+        $this->config->selectedServer['DisableIS'] = true;
+
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addResult('SHOW TABLES FROM `test_db`;', [['a_table']], ['Tables_in_test_db']);
+        $dbiDummy->addResult(
+            'SHOW TABLE STATUS FROM `test_db` WHERE `Name` IN (\'a_table\')',
+            [['a_table', 'InnoDB', '3']],
+            ['Name', 'Engine', 'Rows'],
+        );
+        $dbi = $this->createDatabaseInterface($dbiDummy, $this->config);
+
+        [$tables, $totalNumTables] = $this->createController($dbi)->getDbInfo('test_db', null, null, null, 'bogus', 0);
+
+        self::assertSame(['a_table'], array_keys($tables));
+        self::assertSame(1, $totalNumTables);
+        $dbiDummy->assertAllQueriesConsumed();
+    }
+
     public function testGetDbInfoWithLimitedTableList(): void
     {
         $this->config->selectedServer['DisableIS'] = true;

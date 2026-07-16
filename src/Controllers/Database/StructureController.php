@@ -12,10 +12,11 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Dbal\TableType;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Favorites\RecentFavoriteTable;
 use PhpMyAdmin\Favorites\RecentFavoriteTables;
-use PhpMyAdmin\Favorites\TableType;
+use PhpMyAdmin\Favorites\TableType as FavoriteTableType;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -246,7 +247,7 @@ final class StructureController implements InvocableController
         $overallApproxRows = false;
         $structureTableRows = [];
         $trackedTables = $this->trackingChecker->getTrackedTables(Current::$database);
-        $recentFavoriteTables = RecentFavoriteTables::getInstance(TableType::Favorite);
+        $recentFavoriteTables = RecentFavoriteTables::getInstance(FavoriteTableType::Favorite);
         foreach ($this->tables as $currentTable) {
             // Get valid statistics whatever is the table type
 
@@ -960,7 +961,7 @@ final class StructureController implements InvocableController
         $sort ??= 'Name';
 
         $tableGroup = is_string($tableGroupParam) && $tableGroupParam !== '' ? $tableGroupParam : null;
-        $tableType = is_string($tableTypeParam) && $tableTypeParam !== '' ? $tableTypeParam : null;
+        $tableType = is_string($tableTypeParam) ? TableType::tryFrom($tableTypeParam) : null;
 
         if ($tableGroup === null && $tableType === null) {
             // all tables in db
@@ -1044,13 +1045,14 @@ final class StructureController implements InvocableController
             $whereAdded = true;
         }
 
-        if (isset($_REQUEST['tbl_type']) && in_array($_REQUEST['tbl_type'], ['table', 'view'], true)) {
+        $tableTypeParam = $_REQUEST['tbl_type'] ?? null;
+        $tableType = is_string($tableTypeParam) ? TableType::tryFrom($tableTypeParam) : null;
+        if ($tableType !== null) {
             $tblGroupSql .= $whereAdded ? ' AND' : ' WHERE';
-            if ($_REQUEST['tbl_type'] === 'view') {
-                $tblGroupSql .= " `Table_type` NOT IN ('BASE TABLE', 'SYSTEM VERSIONED')";
-            } else {
-                $tblGroupSql .= " `Table_type` IN ('BASE TABLE', 'SYSTEM VERSIONED')";
-            }
+            $tblGroupSql .= match ($tableType) {
+                TableType::View => " `Table_type` NOT IN ('BASE TABLE', 'SYSTEM VERSIONED')",
+                TableType::Table => " `Table_type` IN ('BASE TABLE', 'SYSTEM VERSIONED')",
+            };
         }
 
         $dbInfoResult = $this->dbi->query('SHOW FULL TABLES FROM ' . Util::backquote($db) . $tblGroupSql);

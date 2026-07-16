@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Query;
 
 use PhpMyAdmin\Database\RoutineType;
+use PhpMyAdmin\Dbal\TableType;
 use PhpMyAdmin\Triggers\Trigger;
 use PhpMyAdmin\Util;
 
@@ -52,22 +53,17 @@ class Generator
     /**
      * returns a segment of the SQL WHERE clause regarding table type
      *
-     * @param string|null $tableType whether table or view
+     * @param TableType|null $tableType whether to list only tables or only views
      *
      * @return string a segment of the WHERE clause
      */
-    public static function getTableTypeCondition(
-        string|null $tableType,
-    ): string {
-        $sqlWhereTable = '';
-
-        if ($tableType === 'view') {
-            $sqlWhereTable .= " AND t.`TABLE_TYPE` NOT IN ('BASE TABLE', 'SYSTEM VERSIONED')";
-        } elseif ($tableType === 'table') {
-            $sqlWhereTable .= " AND t.`TABLE_TYPE` IN ('BASE TABLE', 'SYSTEM VERSIONED')";
-        }
-
-        return $sqlWhereTable;
+    public static function getTableTypeCondition(TableType|null $tableType): string
+    {
+        return match ($tableType) {
+            TableType::View => " AND t.`TABLE_TYPE` NOT IN ('BASE TABLE', 'SYSTEM VERSIONED')",
+            TableType::Table => " AND t.`TABLE_TYPE` IN ('BASE TABLE', 'SYSTEM VERSIONED')",
+            null => '',
+        };
     }
 
     /**
