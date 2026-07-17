@@ -540,8 +540,12 @@ class DatabaseInterface
                         ),
                     ) . ')';
             } else {
-                $conditions[] = '`Name` LIKE '
-                    . $this->quoteString($this->escapeMysqlWildcards($table) . '%', $connectionType);
+                if ($tableIsGroup) {
+                    $conditions[] = '`Name` LIKE '
+                        . $this->quoteString($this->escapeMysqlWildcards($table) . '%', $connectionType);
+                } else {
+                    $conditions[] = '`Name` = ' . $this->quoteString($table, $connectionType);
+                }
             }
         }
 
