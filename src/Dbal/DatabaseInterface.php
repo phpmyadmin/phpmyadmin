@@ -33,11 +33,9 @@ use stdClass;
 
 use function __;
 use function array_column;
-use function array_combine;
 use function array_diff;
 use function array_keys;
 use function array_map;
-use function array_multisort;
 use function array_reverse;
 use function array_shift;
 use function array_slice;
@@ -69,8 +67,6 @@ use const LOG_INFO;
 use const LOG_NDELAY;
 use const LOG_PID;
 use const LOG_USER;
-use const SORT_ASC;
-use const SORT_DESC;
 
 /**
  * Main interface for database interactions
@@ -339,11 +335,10 @@ class DatabaseInterface
     }
 
     /**
-     * returns array of all tables in given db or dbs
+     * returns array of all tables in given db
      * this function expects unquoted names:
      * RIGHT: my_database
      * WRONG: `my_database`
-     * WRONG: my\_database
      * if $tbl_is_group is true, $table is used as filter for table names
      *
      * <code>
@@ -356,7 +351,7 @@ class DatabaseInterface
      * @param string|mixed[] $table        table name(s)
      * @param bool           $tableIsGroup $table is a table group
      * @param int            $limitOffset  zero-based offset for the count
-     * @param bool|int       $limitCount   number of tables to return
+     * @param int            $limitCount   number of tables to return
      * @param string         $sortBy       table attribute to sort by
      * @param string         $sortOrder    direction to sort (ASC or DESC)
      * @param TableType|null $tableType    whether to list only tables or only views
@@ -370,243 +365,42 @@ class DatabaseInterface
         string|array $table = '',
         bool $tableIsGroup = false,
         int $limitOffset = 0,
-        bool|int $limitCount = false,
+        int $limitCount = 0,
         string $sortBy = 'Name',
         string $sortOrder = 'ASC',
         TableType|null $tableType = null,
         ConnectionType $connectionType = ConnectionType::User,
     ): array {
-        if ($limitCount === true) {
-            $limitCount = $this->config->config->MaxTableList;
-        }
-
         $tables = [];
-        $pagingApplied = false;
-
-        if ($limitCount && is_array($table) && $sortBy === 'Name') {
-            if ($sortOrder === 'DESC') {
-                $table = array_reverse($table);
-            }
-
-            $table = array_slice($table, $limitOffset, $limitCount);
-            $pagingApplied = true;
-        }
-
         if (! $this->config->selectedServer['DisableIS']) {
-            $sqlWhereTable = '';
-            if ($table !== [] && $table !== '') {
-                if (is_array($table)) {
-                    $sqlWhereTable = QueryGenerator::getTableNameConditionForMultiple(
-                        Util::getCollateForIS($this),
-                        array_map($this->quoteString(...), $table),
-                    );
-                } else {
-                    $sqlWhereTable = QueryGenerator::getTableNameCondition(
-                        Util::getCollateForIS($this),
-                        $this->quoteString($tableIsGroup ? $this->escapeMysqlWildcards($table) : $table),
-                        $tableIsGroup,
-                    );
-                }
-            }
-
-            $sqlWhereTable .= QueryGenerator::getTableTypeCondition($tableType);
-
-            // for PMA bc:
-            // `SCHEMA_FIELD_NAME` AS `SHOW_TABLE_STATUS_FIELD_NAME`
-            //
-            // on non-Windows servers,
-            // added BINARY in the WHERE clause to force a case sensitive
-            // comparison (if we are looking for the db Aa we don't want
-            // to find the db aa)
-
-            $sql = QueryGenerator::getSqlForTablesFull(
-                Util::getCollateForIS($this),
-                $this->quoteString($database),
-                $sqlWhereTable,
-            );
-
-            // Sort the tables
-            $sql .= ' ORDER BY ' . $sortBy . ' ' . $sortOrder;
-
-            if ($limitCount && ! $pagingApplied) {
-                $sql .= ' LIMIT ' . $limitCount . ' OFFSET ' . $limitOffset;
-            }
-
-            /** @var (string|int|null)[][][] $tables */
-            $tables = $this->fetchResultMultidimensional(
-                $sql,
-                ['TABLE_SCHEMA', 'TABLE_NAME'],
-                null,
+            $tables = $this->getTablesFullFromInformationSchema(
+                $database,
+                $table,
+                $tableIsGroup,
+                $limitOffset,
+                $limitCount,
+                $sortBy,
+                $sortOrder,
+                $tableType,
                 $connectionType,
             );
-
-            // here, we check for Mroonga engine and compute the good data_length and index_length
-            // in the StructureController only we need to sum the two values as the other engines
-            foreach ($tables as $oneDatabaseName => $oneDatabaseTables) {
-                foreach ($oneDatabaseTables as $oneTableName => $oneTableData) {
-                    if ($oneTableData['Engine'] !== 'Mroonga') {
-                        continue;
-                    }
-
-                    if (! StorageEngine::hasMroongaEngine()) {
-                        continue;
-                    }
-
-                    [
-                        $tables[$oneDatabaseName][$oneTableName]['Data_length'],
-                        $tables[$oneDatabaseName][$oneTableName]['Index_length'],
-                    ] = StorageEngine::getMroongaLengths((string) $oneDatabaseName, (string) $oneTableName);
-                }
-            }
-
-            if ($sortBy === 'Name' && $this->config->config->NaturalOrder) {
-                // here, the array's first key is by schema name
-                foreach ($tables as $oneDatabaseName => $oneDatabaseTables) {
-                    uksort($oneDatabaseTables, strnatcasecmp(...));
-
-                    if ($sortOrder === 'DESC') {
-                        $oneDatabaseTables = array_reverse($oneDatabaseTables);
-                    }
-
-                    $tables[$oneDatabaseName] = $oneDatabaseTables;
-                }
-            } elseif ($sortBy === 'Data_length') {
-                // Size = Data_length + Index_length
-                foreach ($tables as $oneDatabaseName => $oneDatabaseTables) {
-                    uasort(
-                        $oneDatabaseTables,
-                        static function (array $a, array $b): int {
-                            $aLength = $a['Data_length'] + $a['Index_length'];
-                            $bLength = $b['Data_length'] + $b['Index_length'];
-
-                            return $aLength <=> $bLength;
-                        },
-                    );
-
-                    if ($sortOrder === 'DESC') {
-                        $oneDatabaseTables = array_reverse($oneDatabaseTables);
-                    }
-
-                    $tables[$oneDatabaseName] = $oneDatabaseTables;
-                }
-            }
-
-            // on windows with lower_case_table_names = 1
-            // MySQL returns
-            // with SHOW DATABASES or information_schema.SCHEMATA: `Test`
-            // but information_schema.TABLES gives `test`
-            // see https://github.com/phpmyadmin/phpmyadmin/issues/8402
-            $tables = $tables[$database]
-                ?? $tables[mb_strtolower($database)]
-                ?? [];
         }
 
         // If permissions are wrong on even one database directory,
         // information_schema does not return any table info for any database
         // this is why we fall back to SHOW TABLE STATUS even for MySQL >= 50002
         if ($tables === []) {
-            $sql = 'SHOW TABLE STATUS FROM ' . Util::backquote($database);
-            if (($table !== '' && $table !== []) || $tableIsGroup || $tableType !== null) {
-                $sql .= ' WHERE';
-                $needAnd = false;
-                if (($table !== '' && $table !== []) || $tableIsGroup) {
-                    if (is_array($table)) {
-                        $sql .= ' `Name` IN ('
-                            . implode(
-                                ', ',
-                                array_map(
-                                    fn (string $string): string => $this->quoteString($string, $connectionType),
-                                    $table,
-                                ),
-                            ) . ')';
-                    } else {
-                        $sql .= ' `Name` LIKE '
-                            . $this->quoteString($this->escapeMysqlWildcards($table) . '%', $connectionType);
-                    }
-
-                    $needAnd = true;
-                }
-
-                if ($tableType !== null) {
-                    if ($needAnd) {
-                        $sql .= ' AND';
-                    }
-
-                    $sql .= match ($tableType) {
-                        TableType::View => " `Comment` = 'VIEW'",
-                        TableType::Table => " `Comment` != 'VIEW'",
-                    };
-                }
-            }
-
-            /** @var (string|int|null)[][] $eachTables */
-            $eachTables = $this->fetchResult($sql, 'Name', null, $connectionType);
-
-            // here, we check for Mroonga engine and compute the good data_length and index_length
-            // in the StructureController only we need to sum the two values as the other engines
-            foreach ($eachTables as $tableName => $tableData) {
-                if ($tableData['Engine'] !== 'Mroonga') {
-                    continue;
-                }
-
-                if (! StorageEngine::hasMroongaEngine()) {
-                    continue;
-                }
-
-                [
-                    $eachTables[$tableName]['Data_length'],
-                    $eachTables[$tableName]['Index_length'],
-                ] = StorageEngine::getMroongaLengths($database, (string) $tableName);
-            }
-
-            // Sort naturally if the config allows it and we're sorting
-            // the Name column.
-            if ($sortBy === 'Name' && $this->config->config->NaturalOrder) {
-                uksort($eachTables, strnatcasecmp(...));
-
-                if ($sortOrder === 'DESC') {
-                    $eachTables = array_reverse($eachTables);
-                }
-            } else {
-                // Prepare to sort by creating array of the selected sort
-                // value to pass to array_multisort
-
-                // Size = Data_length + Index_length
-                $sortValues = [];
-                if ($sortBy === 'Data_length') {
-                    foreach ($eachTables as $tableName => $tableData) {
-                        $sortValues[$tableName] = strtolower(
-                            (string) ($tableData['Data_length']
-                            + $tableData['Index_length']),
-                        );
-                    }
-                } else {
-                    foreach ($eachTables as $tableName => $tableData) {
-                        $sortValues[$tableName] = strtolower($tableData[$sortBy] ?? '');
-                    }
-                }
-
-                if ($sortValues !== []) {
-                    // See https://stackoverflow.com/a/32461188 for the explanation of below hack
-                    $keys = array_keys($eachTables);
-                    if ($sortOrder === 'DESC') {
-                        array_multisort($sortValues, SORT_DESC, $eachTables, $keys);
-                    } else {
-                        array_multisort($sortValues, SORT_ASC, $eachTables, $keys);
-                    }
-
-                    $eachTables = array_combine($keys, $eachTables);
-                }
-
-                // cleanup the temporary sort array
-                unset($sortValues);
-            }
-
-            if ($limitCount && ! $pagingApplied) {
-                $eachTables = array_slice($eachTables, $limitOffset, $limitCount, true);
-            }
-
-            $tables = Compatibility::getISCompatForGetTablesFull($eachTables, $database);
+            $tables = $this->getTablesFullFromShowTableStatus(
+                $database,
+                $table,
+                $tableIsGroup,
+                $limitOffset,
+                $limitCount,
+                $sortBy,
+                $sortOrder,
+                $tableType,
+                $connectionType,
+            );
         }
 
         if ($tables !== []) {
@@ -615,6 +409,205 @@ class DatabaseInterface
         }
 
         return $tables;
+    }
+
+    /**
+     * @param string|mixed[] $table
+     *
+     * @return (string|int|null)[][]
+     */
+    private function getTablesFullFromInformationSchema(
+        string $database,
+        string|array $table,
+        bool $tableIsGroup,
+        int $limitOffset,
+        int $limitCount,
+        string $sortBy,
+        string $sortOrder,
+        TableType|null $tableType,
+        ConnectionType $connectionType,
+    ): array {
+        $sqlWhereTable = '';
+        if ($table !== [] && $table !== '') {
+            if (is_array($table)) {
+                $sqlWhereTable = QueryGenerator::getTableNameConditionForMultiple(
+                    Util::getCollateForIS($this),
+                    array_map($this->quoteString(...), $table),
+                );
+            } else {
+                $sqlWhereTable = QueryGenerator::getTableNameCondition(
+                    Util::getCollateForIS($this),
+                    $this->quoteString($tableIsGroup ? $this->escapeMysqlWildcards($table) : $table),
+                    $tableIsGroup,
+                );
+            }
+        }
+
+        $sqlWhereTable .= QueryGenerator::getTableTypeCondition($tableType);
+
+        // for PMA bc:
+        // `SCHEMA_FIELD_NAME` AS `SHOW_TABLE_STATUS_FIELD_NAME`
+        //
+        // on non-Windows servers,
+        // added BINARY in the WHERE clause to force a case sensitive
+        // comparison (if we are looking for the db Aa we don't want
+        // to find the db aa)
+
+        $sql = QueryGenerator::getSqlForTablesFull(
+            Util::getCollateForIS($this),
+            $this->quoteString($database),
+            $sqlWhereTable,
+        );
+
+        $sortingNeeded = is_array($table) || $table === '' || $tableIsGroup;
+        if ($sortingNeeded) {
+            $sql .= ' ORDER BY ' . $sortBy . ' ' . $sortOrder;
+        }
+
+        if ($limitCount !== 0) {
+            $sql .= ' LIMIT ' . $limitCount . ' OFFSET ' . $limitOffset;
+        }
+
+        /** @var (string|int|null)[][] $tables */
+        $tables = $this->fetchResultMultidimensional(
+            $sql,
+            ['TABLE_NAME'],
+            null,
+            $connectionType,
+        );
+
+        $tables = $this->applyMroongaLengths($database, $tables);
+
+        // the query is already sorted by ORDER BY; re-sort only when PHP can do better:
+        // natural sorting by name or sorting by the Data_length + Index_length sum
+        if (($sortBy === 'Name' && $this->config->config->NaturalOrder) || $sortBy === 'Data_length') {
+            $tables = $this->sortTables($tables, $sortBy, $sortOrder);
+        }
+
+        return $tables;
+    }
+
+    /**
+     * @param string|mixed[] $table
+     *
+     * @return (string|int|null)[][]
+     */
+    private function getTablesFullFromShowTableStatus(
+        string $database,
+        string|array $table,
+        bool $tableIsGroup,
+        int $limitOffset,
+        int $limitCount,
+        string $sortBy,
+        string $sortOrder,
+        TableType|null $tableType,
+        ConnectionType $connectionType,
+    ): array {
+        $sql = 'SHOW TABLE STATUS FROM ' . Util::backquote($database)
+            . $this->getShowTableStatusWhereClause($table, $tableIsGroup, $tableType, $connectionType);
+
+        /** @var (string|int|null)[][] $tables */
+        $tables = $this->fetchResult($sql, 'Name', null, $connectionType);
+
+        $tables = $this->applyMroongaLengths($database, $tables);
+
+        $tables = $this->sortTables($tables, $sortBy, $sortOrder);
+
+        if ($limitCount !== 0) {
+            $tables = array_slice($tables, $limitOffset, $limitCount, true);
+        }
+
+        return Compatibility::getISCompatForGetTablesFull($tables, $database);
+    }
+
+    /** @param string|mixed[] $table */
+    private function getShowTableStatusWhereClause(
+        string|array $table,
+        bool $tableIsGroup,
+        TableType|null $tableType,
+        ConnectionType $connectionType,
+    ): string {
+        $conditions = [];
+        if (($table !== '' && $table !== []) || $tableIsGroup) {
+            if (is_array($table)) {
+                $conditions[] = '`Name` IN ('
+                    . implode(
+                        ', ',
+                        array_map(
+                            fn (string $string): string => $this->quoteString($string, $connectionType),
+                            $table,
+                        ),
+                    ) . ')';
+            } else {
+                $conditions[] = '`Name` LIKE '
+                    . $this->quoteString($this->escapeMysqlWildcards($table) . '%', $connectionType);
+            }
+        }
+
+        if ($tableType !== null) {
+            $conditions[] = match ($tableType) {
+                TableType::View => "`Comment` = 'VIEW'",
+                TableType::Table => "`Comment` != 'VIEW'",
+            };
+        }
+
+        return $conditions === [] ? '' : ' WHERE ' . implode(' AND ', $conditions);
+    }
+
+    /**
+     * @param (string|int|null)[][] $tables
+     *
+     * @return (string|int|null)[][]
+     */
+    private function applyMroongaLengths(string $database, array $tables): array
+    {
+        foreach ($tables as $tableName => $tableData) {
+            if ($tableData['Engine'] !== 'Mroonga' || ! StorageEngine::hasMroongaEngine()) {
+                continue;
+            }
+
+            [
+                $tables[$tableName]['Data_length'],
+                $tables[$tableName]['Index_length'],
+            ] = StorageEngine::getMroongaLengths($database, (string) $tableName);
+        }
+
+        return $tables;
+    }
+
+    /**
+     * Sorts the table list by the given column; table names sort naturally
+     * if the NaturalOrder config allows it.
+     *
+     * @param (string|int|null)[][] $tables table data keyed by table name
+     *
+     * @return (string|int|null)[][]
+     */
+    private function sortTables(array $tables, string $sortBy, string $sortOrder): array
+    {
+        if ($sortBy === 'Name' && $this->config->config->NaturalOrder) {
+            uksort($tables, strnatcasecmp(...));
+        } elseif ($sortBy === 'Data_length') {
+            // Size = Data_length + Index_length
+            uasort(
+                $tables,
+                static function (array $a, array $b): int {
+                    $aLength = $a['Data_length'] + $a['Index_length'];
+                    $bLength = $b['Data_length'] + $b['Index_length'];
+
+                    return $aLength <=> $bLength;
+                },
+            );
+        } else {
+            uasort(
+                $tables,
+                static function (array $a, array $b) use ($sortBy): int {
+                    return strtolower((string) ($a[$sortBy] ?? '')) <=> strtolower((string) ($b[$sortBy] ?? ''));
+                },
+            );
+        }
+
+        return $sortOrder === 'DESC' ? array_reverse($tables, true) : $tables;
     }
 
     /**

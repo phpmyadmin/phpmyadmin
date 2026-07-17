@@ -473,7 +473,7 @@ class SqlTest extends AbstractTestCase
             ],
         );
         $this->dummyDbi->addResult(
-            'SHOW TABLE STATUS FROM `sakila` WHERE `Name` LIKE \'country%\'',
+            'SHOW TABLE STATUS FROM `sakila` WHERE `Name` = \'country\'',
             [
                 [
                     'country',
@@ -695,7 +695,7 @@ class SqlTest extends AbstractTestCase
         $dbiDummy->addResult('SELECT @@lower_case_table_names', [['0']]);
         // phpcs:disable Generic.Files.LineLength.TooLong
         $dbiDummy->addResult(
-            "SHOW TABLE STATUS FROM `sakila` WHERE `Name` LIKE 'country%'",
+            "SHOW TABLE STATUS FROM `sakila` WHERE `Name` = 'country'",
             [['country', 'InnoDB', '10', 'Dynamic', '109', '150', '16384', '0', '0', '0', '110', '2011-12-13 14:15:16', null, null, 'utf8mb4_general_ci', null, '', '', '0', 'N']],
             ['Name', 'Engine', 'Version', 'Row_format', 'Rows', 'Avg_row_length', 'Data_length', 'Max_data_length', 'Index_length', 'Data_free', 'Auto_increment', 'Create_time', 'Update_time', 'Check_time', 'Collation', 'Checksum', 'Create_options', 'Comment', 'Max_index_length', 'Temporary'],
         );
