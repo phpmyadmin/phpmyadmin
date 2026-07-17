@@ -54,6 +54,8 @@ class Common
             $db = Current::$database;
         }
 
+        $table = $table !== '' ? [$table] : [];
+
         // seems to be needed later
         $this->dbi->selectDb($db);
         $tables = $this->dbi->getTablesFull($db, $table);

@@ -68,13 +68,8 @@ class Generator
 
     /**
      * returns the beginning of the SQL statement to fetch the list of tables
-     *
-     * @param string $thisDatabases databases to list
-     * @param string $sqlWhereTable additional condition
-     *
-     * @return string the SQL statement
      */
-    public static function getSqlForTablesFull(string $collate, string $thisDatabases, string $sqlWhereTable): string
+    public static function getSqlForTablesFull(string $collate, string $database, string $sqlWhereTable): string
     {
         return 'SELECT *,'
             . ' `TABLE_SCHEMA`       AS `Db`,'
@@ -100,7 +95,7 @@ class Generator
             . ' `TABLE_COMMENT`      AS `Comment`'
             . ' FROM `information_schema`.`TABLES` t'
             . ' WHERE `TABLE_SCHEMA` ' . $collate
-            . ' IN (' . $thisDatabases . ')'
+            . ' = ' . $database
             . ' ' . $sqlWhereTable;
     }
 
