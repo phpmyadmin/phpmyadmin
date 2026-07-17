@@ -495,7 +495,7 @@ class StructureControllerTest extends AbstractTestCase
         $dbiDummy = $this->createDbiDummy();
         // The table with the exact name of the group is fetched first
         $dbiDummy->addResult(
-            'SHOW TABLE STATUS FROM `test_db` WHERE `Name` LIKE \'2024%\'',
+            'SHOW TABLE STATUS FROM `test_db` WHERE `Name` = \'2024\'',
             [['2024', 'InnoDB', '3']],
             ['Name', 'Engine', 'Rows'],
         );
@@ -520,7 +520,7 @@ class StructureControllerTest extends AbstractTestCase
 
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addResult(
-            'SHOW TABLE STATUS FROM `test_db` WHERE `Name` LIKE \'2024%\' AND `Comment` != \'VIEW\'',
+            'SHOW TABLE STATUS FROM `test_db` WHERE `Name` = \'2024\' AND `Comment` != \'VIEW\'',
             [['2024', 'InnoDB', '3']],
             ['Name', 'Engine', 'Rows'],
         );
