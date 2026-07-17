@@ -588,33 +588,17 @@ class DatabaseInterface
     private function sortTables(array $tables, string $sortBy, string $sortOrder): array
     {
         $direction = $sortOrder === 'DESC' ? -1 : 1;
-
-        if ($sortBy === 'Name' && $this->config->config->NaturalOrder) {
-            uasort(
-                $tables,
-                static function (array $a, array $b) use ($direction): int {
-                    return $direction * strnatcasecmp((string) $a['Name'], (string) $b['Name']);
-                },
-            );
-        } elseif ($sortBy === 'Data_length') {
-            uasort(
-                $tables,
-                static function (array $a, array $b) use ($direction): int {
-                    $aLength = $a['Data_length'] + $a['Index_length'];
-                    $bLength = $b['Data_length'] + $b['Index_length'];
-
-                    return $direction * ($aLength <=> $bLength);
-                },
-            );
-        } else {
-            uasort(
-                $tables,
-                static function (array $a, array $b) use ($sortBy, $direction): int {
-                    return $direction * (strtolower((string) ($a[$sortBy] ?? ''))
-                        <=> strtolower((string) ($b[$sortBy] ?? '')));
-                },
-            );
-        }
+        $naturalOrder = $sortBy === 'Name' && $this->config->config->NaturalOrder;
+        uasort(
+            $tables,
+            static fn (array $a, array $b): int => $direction * match (true) {
+                $naturalOrder => strnatcasecmp((string) $a['Name'], (string) $b['Name']),
+                $sortBy === 'Data_length' => $a['Data_length'] + $a['Index_length']
+                    <=> $b['Data_length'] + $b['Index_length'],
+                default => strtolower((string) ($a[$sortBy] ?? ''))
+                    <=> strtolower((string) ($b[$sortBy] ?? '')),
+            },
+        );
 
         return $tables;
     }
