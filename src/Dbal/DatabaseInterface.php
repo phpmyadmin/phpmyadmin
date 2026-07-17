@@ -36,7 +36,6 @@ use function array_column;
 use function array_diff;
 use function array_keys;
 use function array_map;
-use function array_reverse;
 use function array_shift;
 use function array_slice;
 use function basename;
@@ -60,7 +59,6 @@ use function strtr;
 use function substr;
 use function syslog;
 use function uasort;
-use function uksort;
 use function usort;
 
 use const LOG_INFO;
@@ -589,29 +587,36 @@ class DatabaseInterface
      */
     private function sortTables(array $tables, string $sortBy, string $sortOrder): array
     {
+        $direction = $sortOrder === 'DESC' ? -1 : 1;
+
         if ($sortBy === 'Name' && $this->config->config->NaturalOrder) {
-            uksort($tables, strnatcasecmp(...));
-        } elseif ($sortBy === 'Data_length') {
-            // Size = Data_length + Index_length
             uasort(
                 $tables,
-                static function (array $a, array $b): int {
+                static function (array $a, array $b) use ($direction): int {
+                    return $direction * strnatcasecmp((string) $a['Name'], (string) $b['Name']);
+                },
+            );
+        } elseif ($sortBy === 'Data_length') {
+            uasort(
+                $tables,
+                static function (array $a, array $b) use ($direction): int {
                     $aLength = $a['Data_length'] + $a['Index_length'];
                     $bLength = $b['Data_length'] + $b['Index_length'];
 
-                    return $aLength <=> $bLength;
+                    return $direction * ($aLength <=> $bLength);
                 },
             );
         } else {
             uasort(
                 $tables,
-                static function (array $a, array $b) use ($sortBy): int {
-                    return strtolower((string) ($a[$sortBy] ?? '')) <=> strtolower((string) ($b[$sortBy] ?? ''));
+                static function (array $a, array $b) use ($sortBy, $direction): int {
+                    return $direction * (strtolower((string) ($a[$sortBy] ?? ''))
+                        <=> strtolower((string) ($b[$sortBy] ?? '')));
                 },
             );
         }
 
-        return $sortOrder === 'DESC' ? array_reverse($tables, true) : $tables;
+        return $tables;
     }
 
     /**
