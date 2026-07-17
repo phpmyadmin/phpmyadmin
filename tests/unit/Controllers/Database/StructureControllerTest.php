@@ -446,7 +446,14 @@ class StructureControllerTest extends AbstractTestCase
         );
         $dbi = $this->createDatabaseInterface($dbiDummy, $this->config);
 
-        [$tables, $totalNumTables] = $this->createController($dbi)->getDbInfo('test_db', 'records', 'DESC', null, null, 0);
+        [$tables, $totalNumTables] = $this->createController($dbi)->getDbInfo(
+            'test_db',
+            'records',
+            'DESC',
+            null,
+            null,
+            0,
+        );
 
         self::assertSame(['b_table', 'a_table'], array_keys($tables));
         self::assertSame(2, $totalNumTables);
@@ -467,7 +474,14 @@ class StructureControllerTest extends AbstractTestCase
         );
         $dbi = $this->createDatabaseInterface($dbiDummy, $this->config);
 
-        [$tables, $totalNumTables] = $this->createController($dbi)->getDbInfo('test_db', 'invalid', 'DESC', null, null, 0);
+        [$tables, $totalNumTables] = $this->createController($dbi)->getDbInfo(
+            'test_db',
+            'invalid',
+            'DESC',
+            null,
+            null,
+            0,
+        );
 
         self::assertSame(['a_table', 'b_table'], array_keys($tables));
         self::assertSame(2, $totalNumTables);
@@ -517,7 +531,14 @@ class StructureControllerTest extends AbstractTestCase
         );
         $dbi = $this->createDatabaseInterface($dbiDummy, $this->config);
 
-        [$tables, $totalNumTables] = $this->createController($dbi)->getDbInfo('test_db', null, null, '2024', 'table', 0);
+        [$tables, $totalNumTables] = $this->createController($dbi)->getDbInfo(
+            'test_db',
+            null,
+            null,
+            '2024',
+            'table',
+            0,
+        );
 
         self::assertSame([2024, '2024__child'], array_keys($tables));
         self::assertSame(2, $totalNumTables);

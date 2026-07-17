@@ -39,7 +39,9 @@ use PhpMyAdmin\Util;
 use Throwable;
 
 use function __;
+use function array_reverse;
 use function array_search;
+use function array_slice;
 use function ceil;
 use function count;
 use function implode;
@@ -968,14 +970,25 @@ final class StructureController implements InvocableController
             // - get the total number of tables
             //  (needed for proper working of the MaxTableList feature)
             $tableNames = $this->dbi->getTables($db);
-            $tables = $this->dbi->getTablesFull($db, $tableNames, false, $position, true, $sort, $sortOrder);
+            $limitCount = $this->config->config->MaxTableList;
+            $totalNumberOfTables = count($tableNames);
+            if ($sort === 'Name') {
+                $tableNames = array_slice(
+                    $sortOrder === 'DESC' ? array_reverse($tableNames) : $tableNames,
+                    $position,
+                    $limitCount,
+                );
+                $limitCount = 0;
+            }
 
-            return [$tables, count($tableNames)];
+            $tables = $this->dbi->getTablesFull($db, $tableNames, false, $position, $limitCount, $sort, $sortOrder);
+
+            return [$tables, $totalNumberOfTables];
         }
 
         if ($tableGroup === null) {
             // only tables for selected type
-            $tables = $this->dbi->getTablesFull($db, [], false, 0, false, $sort, $sortOrder, $tableType);
+            $tables = $this->dbi->getTablesFull($db, [], sortBy: $sort, sortOrder: $sortOrder, tableType: $tableType);
 
             return [$tables, count($tables)];
         }
@@ -984,17 +997,22 @@ final class StructureController implements InvocableController
         // the table with the exact name of the group if such exists, plus the tables
         // with the group prefix; we must use the union operator here instead of
         // array_merge to preserve numerical keys
-        $tables = $this->dbi->getTablesFull($db, $tableGroup, false, 0, false, $sort, $sortOrder, $tableType)
-            + $this->dbi->getTablesFull(
-                $db,
-                $tableGroup . $this->config->config->NavigationTreeTableSeparator,
-                true,
-                0,
-                false,
-                $sort,
-                $sortOrder,
-                $tableType,
-            );
+        $tableStatusOfGroup = $this->dbi->getTablesFull(
+            $db,
+            $tableGroup,
+            sortBy: $sort,
+            sortOrder: $sortOrder,
+            tableType: $tableType,
+        );
+        $tableStatusOfSubelements = $this->dbi->getTablesFull(
+            $db,
+            $tableGroup . $this->config->config->NavigationTreeTableSeparator,
+            true,
+            sortBy: $sort,
+            sortOrder: $sortOrder,
+            tableType: $tableType,
+        );
+        $tables = $tableStatusOfGroup + $tableStatusOfSubelements;
 
         return [$tables, count($tables)];
     }
