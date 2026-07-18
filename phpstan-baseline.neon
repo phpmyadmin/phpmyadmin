@@ -451,12 +451,6 @@ parameters:
 			path: src/Config/Form.php
 
 		-
-			message: '#^PHPDoc tag @var for variable \$value has no value type specified in iterable type array\.$#'
-			identifier: missingType.iterableValue
-			count: 1
-			path: src/Config/Form.php
-
-		-
 			message: '#^Parameter \#1 \$keys of function array_combine expects an array of values castable to string, list\<mixed\> given\.$#'
 			identifier: argument.type
 			count: 1
@@ -2613,12 +2607,6 @@ parameters:
 		-
 			message: '#^Binary operation "\-" between int\|string and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
-			count: 1
-			path: src/Controllers/Table/ChartController.php
-
-		-
-			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
-			identifier: empty.notAllowed
 			count: 1
 			path: src/Controllers/Table/ChartController.php
 
@@ -8670,7 +8658,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 11
+			count: 10
 			path: src/Plugins/Export/ExportSql.php
 
 		-

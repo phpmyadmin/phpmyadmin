@@ -35,6 +35,7 @@ use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\SqlParser\Components\CreateDefinition;
+use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
@@ -1492,7 +1493,7 @@ class ExportSql extends ExportPlugin
             $statement = $parser->statements[0];
             assert($statement instanceof CreateStatement);
 
-            if (! empty($statement->entityOptions)) {
+            if ($statement->entityOptions instanceof OptionsArray) {
                 $engine = $statement->entityOptions->get('ENGINE');
             } else {
                 $engine = '';
