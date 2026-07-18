@@ -182,21 +182,20 @@ class Util
             $link = 'index';
         }
 
-        $mysql = '5.5';
+        $mysql = '5.7';
         $lang = 'en';
         $dbi = DatabaseInterface::getInstance();
         if ($dbi->isConnected()) {
             $serverVersion = $dbi->getVersion();
-            if ($serverVersion >= 80000) {
+            if ($serverVersion >= 90000) {
+                $mysql = '9.0';
+            } elseif ($serverVersion >= 80000) {
                 $mysql = '8.0';
-            } elseif ($serverVersion >= 50700) {
-                $mysql = '5.7';
-            } elseif ($serverVersion >= 50600) {
-                $mysql = '5.6';
             }
         }
 
-        $url = 'https://dev.mysql.com/doc/refman/' . $mysql . '/' . $lang . '/' . $link . '.html';
+        $section = $link === 'server-error-reference' ? 'mysql-errors' : 'refman';
+        $url = 'https://dev.mysql.com/doc/' . $section . '/' . $mysql . '/' . $lang . '/' . $link . '.html';
         if ($anchor !== '') {
             $url .= '#' . $anchor;
         }
@@ -974,7 +973,7 @@ class Util
             $zerofill = $zerofillCount > 0;
             $printType = (string) preg_replace('@unsigned@', '', $printType, -1, $unsignedCount);
             $unsigned = $unsignedCount > 0;
-            $printType = (string) preg_replace('@\/\*!100301 compressed\*\/@', '', $printType, -1, $compressedCount);
+            $printType = (string) preg_replace('@\/\*m?!100301 compressed\*\/@', '', $printType, -1, $compressedCount);
             $compressed = $compressedCount > 0;
             $printType = trim($printType);
         }

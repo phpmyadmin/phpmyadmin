@@ -332,6 +332,21 @@ class UtilTest extends AbstractTestCase
                     'displayed_type' => 'varchar(11)',
                 ],
             ],
+            [
+                'varchar(11) /*M!100301 COMPRESSED*/',
+                [
+                    'type' => 'varchar',
+                    'print_type' => 'varchar(11)',
+                    'binary' => false,
+                    'unsigned' => false,
+                    'zerofill' => false,
+                    'spec_in_brackets' => '11',
+                    'enum_set_values' => [],
+                    'attribute' => 'COMPRESSED=zlib',
+                    'can_contain_collation' => true,
+                    'displayed_type' => 'varchar(11)',
+                ],
+            ],
         ];
     }
 
@@ -1300,14 +1315,14 @@ SQL;
                 'alter-table-index',
                 '5.6.0',
                 'index.php?route=/url&url='
-                . 'https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.6%2Fen%2Findex.html%23alter-table-index',
+                . 'https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.7%2Fen%2Findex.html%23alter-table-index',
             ],
             [
                 'ALTER_TABLE',
                 '',
                 '5.5.0',
                 'index.php?route=/url&url='
-                . 'https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.5%2Fen%2Falter-table.html',
+                . 'https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.7%2Fen%2Falter-table.html',
             ],
             [
                 '',
@@ -1329,11 +1344,11 @@ SQL;
             Util::getDocuURL(true),
         );
         self::assertSame(
-            'index.php?route=/url&url=https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.5%2Fen%2Findex.html',
+            'index.php?route=/url&url=https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.7%2Fen%2Findex.html',
             Util::getDocuURL(false),
         );
         self::assertSame(
-            'index.php?route=/url&url=https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.5%2Fen%2Findex.html',
+            'index.php?route=/url&url=https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.7%2Fen%2Findex.html',
             Util::getDocuURL(),
         );
     }

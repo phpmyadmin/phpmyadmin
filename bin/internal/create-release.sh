@@ -176,6 +176,7 @@ cleanup_composer_vendors() {
         vendor/tecnickcom/tcpdf/fonts/dejavu-fonts-ttf-2.*/ \
         vendor/tecnickcom/tcpdf/fonts/freefont-*/ \
         vendor/tecnickcom/tcpdf/include/sRGB.icc \
+        vendor/tecnickcom/tcpdf/Makefile \
         vendor/williamdes/mariadb-mysql-kbs/schemas/ \
         vendor/williamdes/mariadb-mysql-kbs/dist/merged-raw.json \
         vendor/williamdes/mariadb-mysql-kbs/dist/merged-raw.md \
