@@ -183,12 +183,8 @@ cleanup_composer_vendors() {
         vendor/williamdes/mariadb-mysql-kbs/dist/merged-ultraslim.php \
         vendor/google/recaptcha/app.yaml \
         vendor/laminas/laminas-httphandlerrunner/.laminas-ci.json \
-        vendor/nikic/fast-route/.travis.yml \
         vendor/nikic/fast-route/.hhconfig \
         vendor/nikic/fast-route/FastRoute.hhi \
-        vendor/nikic/fast-route/phpunit.xml \
-        vendor/nikic/fast-route/psalm.xml \
-        vendor/nikic/fast-route/test/ \
         vendor/twig/twig/README.rst \
         vendor/webmozart/assert/.php-cs-fixer.php \
         vendor/twig/twig/src/Test/ \
