@@ -13,7 +13,7 @@ permissions:
 
 env:
   php-version: "8.2"
-  node-version: "20"
+  node-version: '24'
 
 jobs:
   generate-matrix:

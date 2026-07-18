@@ -17,6 +17,9 @@ on:
 permissions:
   contents: read
 
+env:
+  node-version: '24'
+
 jobs:
   javascript-test:
     name: Test JavaScript files
@@ -30,7 +33,7 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v6
         with:
-          node-version: '20'
+          node-version: '${{ env.node-version }}'
           cache: 'yarn'
 
       - name: Install modules
@@ -51,7 +54,7 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v6
         with:
-          node-version: '20'
+          node-version: '${{ env.node-version }}'
           cache: 'yarn'
 
       - name: Install modules
@@ -72,7 +75,7 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v6
         with:
-          node-version: '20'
+          node-version: '${{ env.node-version }}'
           cache: 'yarn'
 
       - name: Install modules
