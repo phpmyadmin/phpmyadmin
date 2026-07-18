@@ -79,20 +79,18 @@ const DragDropImport = {
         const jqXHR = $.ajax({
             xhr: function () {
                 const xhrobj = $.ajaxSettings.xhr();
-                if (xhrobj.upload) {
-                    xhrobj.upload.addEventListener('progress', function (event) {
-                        let percent = 0;
-                        // @ts-ignore
-                        const position = event.loaded || event.position;
-                        const total = event.total;
-                        if (event.lengthComputable) {
-                            percent = Math.ceil(position / total * 100);
-                        }
+                xhrobj.upload?.addEventListener('progress', function (event) {
+                    let percent = 0;
+                    // @ts-ignore
+                    const position = event.loaded || event.position;
+                    const total = event.total;
+                    if (event.lengthComputable) {
+                        percent = Math.ceil(position / total * 100);
+                    }
 
-                        // Set progress
-                        DragDropImport.setProgress(hash, percent);
-                    }, false);
-                }
+                    // Set progress
+                    DragDropImport.setProgress(hash, percent);
+                }, false);
 
                 return xhrobj;
             },

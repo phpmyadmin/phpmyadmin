@@ -1247,9 +1247,7 @@ const FastFilter = {
             event.stopPropagation();
             // Clear the input and apply the fast filter with empty input
             const filter = $(this).closest('div.list_container').data('fastFilter');
-            if (filter) {
-                filter.restore();
-            }
+            filter?.restore();
 
             const value = ($(this).prev()[0] as HTMLInputElement).defaultValue;
             $(this).prev().val(value).trigger('keyup');
@@ -1286,9 +1284,7 @@ FastFilter.Filter.prototype.request = function (): void {
         );
     }
 
-    if (self.xhr) {
-        self.xhr.abort();
-    }
+    self.xhr?.abort();
 
     let params = self.$this.find('> ul > li > form.fast_filter').first().serialize();
 

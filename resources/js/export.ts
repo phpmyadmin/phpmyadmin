@@ -742,29 +742,19 @@ function toggleQuickOrCustom () {
         && radioCustomExportElement.checked;
 
     const databasesAndTablesElement = document.getElementById('databases_and_tables');
-    if (databasesAndTablesElement) {
-        databasesAndTablesElement.classList.toggle('d-none', ! isCustomExport);
-    }
+    databasesAndTablesElement?.classList.toggle('d-none', ! isCustomExport);
 
     const rowsElement = document.getElementById('rows');
-    if (rowsElement) {
-        rowsElement.classList.toggle('d-none', ! isCustomExport);
-    }
+    rowsElement?.classList.toggle('d-none', ! isCustomExport);
 
     const outputElement = document.getElementById('output');
-    if (outputElement) {
-        outputElement.classList.toggle('d-none', ! isCustomExport);
-    }
+    outputElement?.classList.toggle('d-none', ! isCustomExport);
 
     const formatSpecificOptionsElement = document.getElementById('format_specific_opts');
-    if (formatSpecificOptionsElement) {
-        formatSpecificOptionsElement.classList.toggle('d-none', ! isCustomExport);
-    }
+    formatSpecificOptionsElement?.classList.toggle('d-none', ! isCustomExport);
 
     const outputQuickExportElement = document.getElementById('output_quick_export');
-    if (outputQuickExportElement) {
-        outputQuickExportElement.classList.toggle('d-none', isCustomExport);
-    }
+    outputQuickExportElement?.classList.toggle('d-none', isCustomExport);
 
     if (! isCustomExport) {
         return;
@@ -777,11 +767,7 @@ function toggleQuickOrCustom () {
     }
 
     const pluginOptionsElement = document.getElementById(selectedPluginName + '_options');
-    if (! pluginOptionsElement) {
-        return;
-    }
-
-    pluginOptionsElement.classList.remove('d-none');
+    pluginOptionsElement?.classList.remove('d-none');
 }
 
 let timeOut;
