@@ -1753,7 +1753,7 @@ parameters:
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: '#^Parameter \#2 \$table of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:getTablesFull\(\) expects array\<mixed\>\|string, mixed given\.$#'
+			message: '#^Parameter \#2 \$table of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:getTablesFull\(\) expects array\<string\>\|string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Database/StructureController.php
@@ -4806,18 +4806,6 @@ parameters:
 		-
 			message: '#^Parameter \#1 \$array of function usort contains unresolvable type\.$#'
 			identifier: argument.unresolvableType
-			count: 1
-			path: src/Dbal/DatabaseInterface.php
-
-		-
-			message: '#^Parameter \#1 \$callback of function array_map expects \(callable\(mixed\)\: mixed\)\|null, Closure\(string\)\: non\-empty\-string given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Dbal/DatabaseInterface.php
-
-		-
-			message: '#^Parameter \#1 \$callback of function array_map expects \(callable\(mixed\)\: mixed\)\|null, Closure\(string, PhpMyAdmin\\Dbal\\ConnectionType\=\)\: non\-empty\-string given\.$#'
-			identifier: argument.type
 			count: 1
 			path: src/Dbal/DatabaseInterface.php
 

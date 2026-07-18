@@ -345,14 +345,14 @@ class DatabaseInterface
      * $dbi->getTablesFull('my_database', 'my_tables_', true));
      * </code>
      *
-     * @param string         $database     database
-     * @param string|mixed[] $table        table name(s)
-     * @param bool           $tableIsGroup $table is a table group
-     * @param int            $limitOffset  zero-based offset for the count
-     * @param int            $limitCount   number of tables to return
-     * @param string         $sortBy       table attribute to sort by
-     * @param string         $sortOrder    direction to sort (ASC or DESC)
-     * @param TableType|null $tableType    whether to list only tables or only views
+     * @param string          $database     database
+     * @param string|string[] $table        table name(s)
+     * @param bool            $tableIsGroup $table is a table group
+     * @param int             $limitOffset  zero-based offset for the count
+     * @param int             $limitCount   number of tables to return
+     * @param string          $sortBy       table attribute to sort by
+     * @param string          $sortOrder    direction to sort (ASC or DESC)
+     * @param TableType|null  $tableType    whether to list only tables or only views
      *
      * @return (string|int|null)[][]           list of tables in given db(s)
      *
@@ -410,7 +410,7 @@ class DatabaseInterface
     }
 
     /**
-     * @param string|mixed[] $table
+     * @param string|string[] $table
      *
      * @return (string|int|null)[][]
      */
@@ -430,12 +430,15 @@ class DatabaseInterface
             if (is_array($table)) {
                 $sqlWhereTable = QueryGenerator::getTableNameConditionForMultiple(
                     Util::getCollateForIS($this),
-                    array_map($this->quoteString(...), $table),
+                    array_map(
+                        fn (string $string): string => $this->quoteString($string, $connectionType),
+                        $table,
+                    ),
                 );
             } else {
                 $sqlWhereTable = QueryGenerator::getTableNameCondition(
                     Util::getCollateForIS($this),
-                    $this->quoteString($tableIsGroup ? $this->escapeMysqlWildcards($table) : $table),
+                    $this->quoteString($tableIsGroup ? $this->escapeMysqlWildcards($table) : $table, $connectionType),
                     $tableIsGroup,
                 );
             }
@@ -486,7 +489,7 @@ class DatabaseInterface
     }
 
     /**
-     * @param string|mixed[] $table
+     * @param string|string[] $table
      *
      * @return (string|int|null)[][]
      */
@@ -518,7 +521,7 @@ class DatabaseInterface
         return Compatibility::getISCompatForGetTablesFull($tables, $database);
     }
 
-    /** @param string|mixed[] $table */
+    /** @param string|string[] $table */
     private function getShowTableStatusWhereClause(
         string|array $table,
         bool $tableIsGroup,
