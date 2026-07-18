@@ -1291,7 +1291,7 @@ class PrivilegesTest extends AbstractTestCase
 
         $serverPrivileges = $this->getPrivileges($this->createDatabaseInterface($dummyDbi));
 
-        $resultStub = $this->createMock(DummyResult::class);
+        $resultStub = self::createStub(DummyResult::class);
         $dbRights = [];
 
         $html = $serverPrivileges->getUsersOverview($resultStub, $dbRights);
@@ -1818,7 +1818,7 @@ class PrivilegesTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface();
         $serverPrivileges = $this->getPrivileges($dbi);
 
-        $resultStub = $this->createMock(DummyResult::class);
+        $resultStub = self::createStub(DummyResult::class);
 
         //Mock DBI
         $dbi = $this->getMockBuilder(DatabaseInterface::class)

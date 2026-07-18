@@ -1247,7 +1247,7 @@ class TableTest extends AbstractTestCase
         $table = 'PMA_BookMark';
         $db = 'PMA';
 
-        $this->mockedDbi->expects(self::any())->method('tryQuery')->willReturn($this->createMock(DummyResult::class));
+        $this->mockedDbi->expects(self::any())->method('tryQuery')->willReturn(self::createStub(DummyResult::class));
 
         $table = new Table($table, $db, $this->mockedDbi);
 
@@ -1331,7 +1331,7 @@ class TableTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $resultStub = $this->createMock(DummyResult::class);
+        $resultStub = self::createStub(DummyResult::class);
 
         $dbi->expects(self::once())
             ->method('tryQuery')
