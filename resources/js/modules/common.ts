@@ -1,4 +1,4 @@
-import { sprintf } from "locutus/php/strings/sprintf";
+import { sprintf } from 'locutus/php/strings/sprintf';
 
 /**
  * Holds common parameters such as server, db, table, etc

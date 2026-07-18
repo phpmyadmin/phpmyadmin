@@ -1850,7 +1850,7 @@ class DbiDummy implements DbiExtension
                 'result' => [['user<br>group', 'server_sql', 'Y']],
             ],
             [
-                'query' => 'SELECT `name` FROM `test_table` WHERE `id` = 4',
+                'query' => 'SELECT `name` FROM `test_table` WHERE `id` = 4 LIMIT 1;',
                 'columns' => ['name'],
                 'result' => [['101']],
             ],

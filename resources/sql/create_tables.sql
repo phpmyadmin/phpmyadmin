@@ -18,7 +18,7 @@
 -- Database : `phpmyadmin`
 --
 CREATE DATABASE IF NOT EXISTS `phpmyadmin`
-  DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+  DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
 USE phpmyadmin;
 
 -- --------------------------------------------------------
@@ -40,12 +40,12 @@ CREATE TABLE IF NOT EXISTS `pma__bookmark` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `dbase` varchar(255) NOT NULL default '',
   `user` varchar(255) NOT NULL default '',
-  `label` varchar(255) COLLATE utf8_general_ci NOT NULL default '',
+  `label` varchar(255) COLLATE utf8mb4_general_ci NOT NULL default '',
   `query` text NOT NULL,
   PRIMARY KEY  (`id`)
 )
   COMMENT='Bookmarks'
-  DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+  DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
 
 -- --------------------------------------------------------
 
@@ -58,8 +58,8 @@ CREATE TABLE IF NOT EXISTS `pma__column_info` (
   `db_name` varchar(64) NOT NULL default '',
   `table_name` varchar(64) NOT NULL default '',
   `column_name` varchar(64) NOT NULL default '',
-  `comment` varchar(255) COLLATE utf8_general_ci NOT NULL default '',
-  `mimetype` varchar(255) COLLATE utf8_general_ci NOT NULL default '',
+  `comment` varchar(255) COLLATE utf8mb4_general_ci NOT NULL default '',
+  `mimetype` varchar(255) COLLATE utf8mb4_general_ci NOT NULL default '',
   `transformation` varchar(255) NOT NULL default '',
   `transformation_options` varchar(255) NOT NULL default '',
   `input_transformation` varchar(255) NOT NULL default '',
@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `pma__column_info` (
   UNIQUE KEY `db_name` (`db_name`,`table_name`,`column_name`)
 )
   COMMENT='Column information for phpMyAdmin'
-  DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+  DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
 
 -- --------------------------------------------------------
 
@@ -87,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `pma__history` (
   KEY `username` (`username`,`db`,`table`,`timevalue`)
 )
   COMMENT='SQL history for phpMyAdmin'
-  DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+  DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
 
 -- --------------------------------------------------------
 
@@ -98,12 +98,12 @@ CREATE TABLE IF NOT EXISTS `pma__history` (
 CREATE TABLE IF NOT EXISTS `pma__pdf_pages` (
   `db_name` varchar(64) NOT NULL default '',
   `page_nr` int(10) unsigned NOT NULL auto_increment,
-  `page_descr` varchar(50) COLLATE utf8_general_ci NOT NULL default '',
+  `page_descr` varchar(50) COLLATE utf8mb4_general_ci NOT NULL default '',
   PRIMARY KEY  (`page_nr`),
   KEY `db_name` (`db_name`)
 )
   COMMENT='PDF relation pages for phpMyAdmin'
-  DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+  DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
 
 -- --------------------------------------------------------
 
@@ -117,7 +117,7 @@ CREATE TABLE IF NOT EXISTS `pma__recent` (
   PRIMARY KEY (`username`)
 )
   COMMENT='Recently accessed tables'
-  DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+  DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
 
 -- --------------------------------------------------------
 
@@ -131,7 +131,7 @@ CREATE TABLE IF NOT EXISTS `pma__favorite` (
   PRIMARY KEY (`username`)
 )
   COMMENT='Favorite tables'
-  DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+  DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
 
 -- --------------------------------------------------------
 
@@ -148,7 +148,7 @@ CREATE TABLE IF NOT EXISTS `pma__table_uiprefs` (
   PRIMARY KEY (`username`,`db_name`,`table_name`)
 )
   COMMENT='Tables'' UI preferences'
-  DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+  DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
 
 -- --------------------------------------------------------
 
@@ -167,7 +167,7 @@ CREATE TABLE IF NOT EXISTS `pma__relation` (
   KEY `foreign_field` (`foreign_db`,`foreign_table`)
 )
   COMMENT='Relation table'
-  DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+  DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
 
 -- --------------------------------------------------------
 
@@ -184,7 +184,7 @@ CREATE TABLE IF NOT EXISTS `pma__table_coords` (
   PRIMARY KEY  (`db_name`,`table_name`,`pdf_page_number`)
 )
   COMMENT='Table coordinates for phpMyAdmin PDF output'
-  DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+  DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
 
 -- --------------------------------------------------------
 
@@ -199,7 +199,7 @@ CREATE TABLE IF NOT EXISTS `pma__table_info` (
   PRIMARY KEY  (`db_name`,`table_name`)
 )
   COMMENT='Table information for phpMyAdmin'
-  DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+  DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
 
 -- --------------------------------------------------------
 
@@ -221,7 +221,7 @@ CREATE TABLE IF NOT EXISTS `pma__tracking` (
   PRIMARY KEY  (`db_name`,`table_name`,`version`)
 )
   COMMENT='Database changes tracking for phpMyAdmin'
-  DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+  DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
 
 -- --------------------------------------------------------
 
@@ -236,7 +236,7 @@ CREATE TABLE IF NOT EXISTS `pma__userconfig` (
   PRIMARY KEY  (`username`)
 )
   COMMENT='User preferences storage for phpMyAdmin'
-  DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+  DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
 
 -- --------------------------------------------------------
 
@@ -250,7 +250,7 @@ CREATE TABLE IF NOT EXISTS `pma__users` (
   PRIMARY KEY (`username`,`usergroup`)
 )
   COMMENT='Users and their assignments to user groups'
-  DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+  DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
 
 -- --------------------------------------------------------
 
@@ -265,7 +265,7 @@ CREATE TABLE IF NOT EXISTS `pma__usergroups` (
   PRIMARY KEY (`usergroup`,`tab`,`allowed`)
 )
   COMMENT='User groups with configured menu items'
-  DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+  DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
 
 -- --------------------------------------------------------
 
@@ -282,7 +282,7 @@ CREATE TABLE IF NOT EXISTS `pma__navigationhiding` (
   PRIMARY KEY (`username`,`item_name`,`item_type`,`db_name`,`table_name`)
 )
   COMMENT='Hidden items of navigation tree'
-  DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+  DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
 
 -- --------------------------------------------------------
 
@@ -300,7 +300,7 @@ CREATE TABLE IF NOT EXISTS `pma__savedsearches` (
   UNIQUE KEY `u_savedsearches_username_dbname` (`username`,`db_name`,`search_name`)
 )
   COMMENT='Saved searches'
-  DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+  DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
 
 -- --------------------------------------------------------
 
@@ -320,7 +320,7 @@ CREATE TABLE IF NOT EXISTS `pma__central_columns` (
   PRIMARY KEY (`db_name`,`col_name`)
 )
   COMMENT='Central list of columns'
-  DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+  DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
 
 -- --------------------------------------------------------
 
@@ -334,7 +334,7 @@ CREATE TABLE IF NOT EXISTS `pma__designer_settings` (
   PRIMARY KEY (`username`)
 )
   COMMENT='Settings related to Designer'
-  DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+  DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
 
 -- --------------------------------------------------------
 
@@ -352,4 +352,4 @@ CREATE TABLE IF NOT EXISTS `pma__export_templates` (
   UNIQUE KEY `u_user_type_template` (`username`,`export_type`,`template_name`)
 )
   COMMENT='Saved export templates'
-  DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+  DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;

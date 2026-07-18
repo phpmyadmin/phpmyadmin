@@ -2996,13 +2996,13 @@
       <code><![CDATA[$_POST['field_null'][$i] ?? 'NO']]></code>
       <code><![CDATA[$_POST['field_type'][$i]]]></code>
       <code><![CDATA[$_POST['field_virtuality'][$i] ?? '']]></code>
-      <code><![CDATA[$_POST['fulltext_indexes']]]></code>
-      <code><![CDATA[$_POST['indexes']]]></code>
-      <code><![CDATA[$_POST['primary_indexes']]]></code>
-      <code><![CDATA[$_POST['spatial_indexes']]]></code>
+      <code><![CDATA[$_POST['fulltext_indexes'] ?? '[]']]></code>
+      <code><![CDATA[$_POST['indexes'] ?? '[]']]></code>
+      <code><![CDATA[$_POST['primary_indexes'] ?? '[]']]></code>
+      <code><![CDATA[$_POST['spatial_indexes'] ?? '[]']]></code>
       <code><![CDATA[$_POST['tbl_collation']]]></code>
       <code><![CDATA[$_POST['tbl_storage_engine']]]></code>
-      <code><![CDATA[$_POST['unique_indexes']]]></code>
+      <code><![CDATA[$_POST['unique_indexes'] ?? '[]']]></code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$_POST['comment']]]></code>
@@ -3019,13 +3019,13 @@
       <code><![CDATA[$_POST['field_virtuality'][$i] ?? '']]></code>
       <code><![CDATA[$_POST['field_where']]]></code>
       <code><![CDATA[$_POST['field_where']]]></code>
-      <code><![CDATA[$_POST['fulltext_indexes']]]></code>
-      <code><![CDATA[$_POST['indexes']]]></code>
-      <code><![CDATA[$_POST['primary_indexes']]]></code>
-      <code><![CDATA[$_POST['spatial_indexes']]]></code>
+      <code><![CDATA[$_POST['fulltext_indexes'] ?? '[]']]></code>
+      <code><![CDATA[$_POST['indexes'] ?? '[]']]></code>
+      <code><![CDATA[$_POST['primary_indexes'] ?? '[]']]></code>
+      <code><![CDATA[$_POST['spatial_indexes'] ?? '[]']]></code>
       <code><![CDATA[$_POST['tbl_collation']]]></code>
       <code><![CDATA[$_POST['tbl_storage_engine']]]></code>
-      <code><![CDATA[$_POST['unique_indexes']]]></code>
+      <code><![CDATA[$_POST['unique_indexes'] ?? '[]']]></code>
     </PossiblyInvalidCast>
     <PossiblyInvalidIterator>
       <code><![CDATA[$_POST['partitions']]]></code>

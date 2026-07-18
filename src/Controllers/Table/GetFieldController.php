@@ -100,7 +100,8 @@ final readonly class GetFieldController implements InvocableController
         /* Grab data */
         $sql = 'SELECT ' . Util::backquote($transformKey)
             . ' FROM ' . Util::backquote(Current::$table)
-            . ' WHERE ' . $whereClause . ';';
+            . ' WHERE ' . $whereClause
+            . ' LIMIT 1;';
         $result = $this->dbi->fetchValue($sql);
 
         /* Check return code */

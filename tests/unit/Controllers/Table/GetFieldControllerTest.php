@@ -56,7 +56,7 @@ class GetFieldControllerTest extends AbstractTestCase
             ['Table', 'Key_name', 'Column_name'],
         );
         $dummyDbi->addResult(
-            'SELECT `file` FROM `table_with_blob` WHERE `table_with_blob`.`id` = 1;',
+            'SELECT `file` FROM `table_with_blob` WHERE `table_with_blob`.`id` = 1 LIMIT 1;',
             [[bin2hex('FILE')]],
             ['file'],
         );

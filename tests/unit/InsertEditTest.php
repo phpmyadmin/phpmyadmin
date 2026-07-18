@@ -1262,7 +1262,7 @@ class InsertEditTest extends AbstractTestCase
 
         $dbi->expects(self::once())
             ->method('tryQuery')
-            ->with('SELECT `TABLE_COMMENT` FROM `information_schema`.`TABLES` WHERE `f`=1')
+            ->with('SELECT `TABLE_COMMENT` FROM `information_schema`.`TABLES` WHERE `f`=1 LIMIT 1')
             ->willReturn($resultStub);
 
         $resultStub->expects(self::once())
@@ -2057,7 +2057,7 @@ class InsertEditTest extends AbstractTestCase
 
         $dbi->expects(self::exactly(3))
             ->method('tryQuery')
-            ->with('SELECT `table`.`a` FROM `db`.`table` WHERE 1')
+            ->with('SELECT `table`.`a` FROM `db`.`table` WHERE 1 LIMIT 1')
             ->willReturn($resultStub);
 
         $meta1 = FieldHelper::fromArray(['type' => MYSQLI_TYPE_TINY]);

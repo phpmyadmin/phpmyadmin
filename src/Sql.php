@@ -320,7 +320,7 @@ class Sql
         string $whereClause,
     ): string {
         $row = $this->dbi->fetchSingleRow(sprintf(
-            'SELECT `%s` FROM `%s`.`%s` WHERE %s',
+            'SELECT `%s` FROM `%s`.`%s` WHERE %s LIMIT 1',
             $column,
             $db,
             $table,

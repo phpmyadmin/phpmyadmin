@@ -44,6 +44,7 @@ use PhpMyAdmin\Utils\Gis;
 
 use function __;
 use function array_filter;
+use function array_key_exists;
 use function array_map;
 use function array_merge;
 use function array_shift;
@@ -198,6 +199,9 @@ class Results
 
     /** @var list<string|null> */
     private static array $row = [];
+
+    /** @var array<string, string|null> */
+    private array $foreignKeyDisplayCache = [];
 
     /**
      * @param string $db       the database name
@@ -3576,27 +3580,25 @@ class Results
      */
     private function getFromForeign(ForeignKeyRelatedTable $fieldInfo, string $whereComparison): string|null
     {
-        $dispsql = 'SELECT '
-            . Util::backquote($fieldInfo->displayField)
-            . ' FROM '
-            . Util::backquote($fieldInfo->database)
-            . '.'
-            . Util::backquote($fieldInfo->table)
-            . ' WHERE '
-            . Util::backquote($fieldInfo->field)
-            . $whereComparison;
+        $dispsql = 'SELECT ' . Util::backquote($fieldInfo->displayField)
+            . ' FROM ' . Util::backquote($fieldInfo->database) . '.' . Util::backquote($fieldInfo->table)
+            . ' WHERE ' . Util::backquote($fieldInfo->field) . $whereComparison
+            . ' LIMIT 1';
+        if (array_key_exists($dispsql, $this->foreignKeyDisplayCache)) {
+            return $this->foreignKeyDisplayCache[$dispsql];
+        }
 
         $dispval = $this->dbi->fetchValue($dispsql);
         if ($dispval === false) {
-            return __('Link not found!');
+            $dispval = __('Link not found!');
+        } elseif ($dispval !== null) {
+            // Truncate values that are too long, see: #17902
+            $dispval = $this->getPartialText($dispval);
         }
 
-        if ($dispval === null) {
-            return null;
-        }
+        $this->foreignKeyDisplayCache[$dispsql] = $dispval;
 
-        // Truncate values that are too long, see: #17902
-        return $this->getPartialText($dispval);
+        return $dispval;
     }
 
     /**
