@@ -157,6 +157,11 @@
         },
         "platform": {
             "php": "8.2.99"
+        },
+        "policy": {
+            "advisories": {
+                "ignore-id": ["PKSA-zk1n-qbm6-d3rq"]
+            }
         }
     }
 }
