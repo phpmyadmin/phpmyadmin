@@ -69,4 +69,4 @@ For `support <https://www.phpmyadmin.net/support/>`_ or `security issues, <https
 
 Translations are welcome. You can `translate phpMyAdmin into your language <https://hosted.weblate.org/projects/phpmyadmin/>`_.
 
-If you would like to contribute to the phpMyAdmin's codebase, you can read the `code contribution file <CONTRIBUTING.md>`_ or browse our website's `contributing page <https://www.phpmyadmin.net/contribute/>`_.
+If you would like to contribute to phpMyAdmin's codebase, you can read the `code contribution file <CONTRIBUTING.md>`_ or browse our website's `contributing page <https://www.phpmyadmin.net/contribute/>`_.
