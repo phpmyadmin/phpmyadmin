@@ -9,6 +9,7 @@ import { Indexes } from '../modules/indexes.ts';
 import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.ts';
 import { escapeHtml, escapeJsString } from '../modules/functions/escape.ts';
 import refreshMainContent from '../modules/functions/refreshMainContent.ts';
+import { sprintf } from 'locutus/php/strings/sprintf';
 
 /**
  * @fileoverview    functions used on the table structure page
@@ -161,7 +162,7 @@ AJAX.registerOnload('table/structure.js', function () {
 
                 // If Collation is changed, Warn and Confirm
                 if (checkIfConfirmRequired($form)) {
-                    const question = window.sprintf(
+                    const question = sprintf(
                         window.Messages.strChangeColumnCollation, 'https://wiki.phpmyadmin.net/pma/Garbled_data',
                     );
                     $form.confirm(question, $form.attr('action'), function () {
@@ -200,7 +201,7 @@ AJAX.registerOnload('table/structure.js', function () {
         /**
          * @var question String containing the question to be asked for confirmation
          */
-        const question = window.sprintf(window.Messages.strDoYouReally, 'ALTER TABLE `' + currTableName + '` DROP `' + currColumnName + '`;');
+        const question = sprintf(window.Messages.strDoYouReally, 'ALTER TABLE `' + currTableName + '` DROP `' + currColumnName + '`;');
         const $thisAnchor = $(this);
         $thisAnchor.confirm(question, $thisAnchor.attr('href'), function (url) {
             const $msg = ajaxShowMessage(window.Messages.strDroppingColumn, false);
@@ -277,7 +278,7 @@ AJAX.registerOnload('table/structure.js', function () {
             addClause = 'ADD FULLTEXT';
         }
 
-        const question = window.sprintf(window.Messages.strDoYouReally, 'ALTER TABLE `' +
+        const question = sprintf(window.Messages.strDoYouReally, 'ALTER TABLE `' +
             escapeHtml(currTableName) + '` ' + addClause + '(`' + escapeHtml(currColumnName) + '`);');
 
         const $thisAnchor = $(this);

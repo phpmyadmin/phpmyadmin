@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import { escapeBacktick, escapeSingleQuote } from '../modules/functions/escape.ts';
+import { sprintf } from 'locutus/php/strings/sprintf';
 
 /**
  * @fileoverview    function used in QBE for DB
@@ -108,16 +109,16 @@ function generateCondition (criteriaDiv, table) {
 
             criteriaText = joinWrappingElementsWith(critertiaTextArray, '\'');
 
-            query += window.sprintf(formatsText[criteriaOp], criteriaText);
+            query += sprintf(formatsText[criteriaOp], criteriaText);
         } else if (acceptsTwoValues(criteriaOp)) {
             const formatsText = getFormatsText();
             const valuesInputs = criteriaDiv.find('input.val');
 
-            query += window.sprintf(formatsText[criteriaOp], valuesInputs[0].value, valuesInputs[1].value);
+            query += sprintf(formatsText[criteriaOp], valuesInputs[0].value, valuesInputs[1].value);
         } else {
             const formatsText = getFormatsText();
 
-            query += window.sprintf(formatsText[criteriaOp], criteriaText);
+            query += sprintf(formatsText[criteriaOp], criteriaText);
         }
     } else {
         query += ' ' + criteriaOp;

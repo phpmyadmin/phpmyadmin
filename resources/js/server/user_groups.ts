@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.ts';
+import { sprintf } from 'locutus/php/strings/sprintf';
 
 /**
  * @fileoverview    Javascript functions used in server user groups page
@@ -23,10 +24,10 @@ AJAX.registerOnload('server/user_groups.js', function () {
     deleteUserGroupModal.on('show.bs.modal', function (event) {
         // @ts-ignore
         const userGroupName = $(event.relatedTarget).data('user-group');
-        (this.querySelector('.modal-body') as HTMLDivElement).innerText = window.sprintf(
+        (this.querySelector('.modal-body') as HTMLDivElement).innerText = sprintf(
             window.Messages.strDropUserGroupWarning,
             userGroupName
-        );
+        ) as string;
     });
 
     deleteUserGroupModal.on('shown.bs.modal', function (event) {

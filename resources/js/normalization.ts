@@ -4,6 +4,7 @@ import { indexEditorDialog } from './modules/functions.ts';
 import { CommonParams } from './modules/common.ts';
 import { ajaxShowMessage } from './modules/ajax-message.ts';
 import { escapeHtml, escapeJsString } from './modules/functions/escape.ts';
+import { sprintf } from 'locutus/php/strings/sprintf';
 
 /**
  * @fileoverview   events handling from normalization page
@@ -128,7 +129,7 @@ function goToFinish1NF () {
 
     $('#mainContent .card-header').html(window.Messages.strEndStep);
     $('#mainContent h4').html(
-        '<h3>' + window.sprintf(window.Messages.strFinishMsg, escapeHtml(CommonParams.get('table'))) + '</h3>'
+        '<h3>' + sprintf(window.Messages.strFinishMsg, escapeHtml(CommonParams.get('table'))) + '</h3>'
     );
 
     $('#mainContent p').html('');
@@ -743,7 +744,7 @@ AJAX.registerOnload('normalization.js', function () {
         if (repeatingCols !== '') {
             const newColName = ($('#extra input[type=checkbox]:checked').first().val() as string);
             repeatingCols = repeatingCols.slice(0, -2);
-            let confirmStr = window.sprintf(window.Messages.strMoveRepeatingGroup, escapeHtml(repeatingCols), escapeHtml(CommonParams.get('table')));
+            let confirmStr = sprintf(window.Messages.strMoveRepeatingGroup, escapeHtml(repeatingCols), escapeHtml(CommonParams.get('table'))) as string;
             confirmStr += '<input type="text" name="repeatGroupTable" placeholder="' + window.Messages.strNewTablePlaceholder + '">' +
                 '( ' + escapeHtml(primaryKey.toString()) + ', <input type="text" name="repeatGroupColumn" placeholder="' + window.Messages.strNewColumnPlaceholder + '" value="' + escapeHtml(newColName) + '">)' +
                 '</ol>';

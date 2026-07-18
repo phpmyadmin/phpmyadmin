@@ -14,6 +14,7 @@ import checkIndexName from './indexes/checkIndexName.ts';
 import mainMenuResizerCallback from './functions/mainMenuResizerCallback.ts';
 import isStorageSupported from './functions/isStorageSupported.ts';
 import adjustTotals from './functions/adjustTotals.ts';
+import { sprintf } from 'locutus/php/strings/sprintf';
 
 /**
  * Object containing CodeMirror editor of the query editor in SQL tab.
@@ -521,7 +522,7 @@ export function confirmLink (theLink, theSqlQuery) {
         return true;
     }
 
-    const isConfirmed = window.confirm(window.sprintf(window.Messages.strDoYouReally, theSqlQuery));
+    const isConfirmed = window.confirm(sprintf(window.Messages.strDoYouReally, theSqlQuery) as string);
     if (isConfirmed) {
         if (typeof (theLink.href) !== 'undefined') {
             theLink.href += CommonParams.get('arg_separator') + 'is_js_confirmed=1';
@@ -574,7 +575,7 @@ export function confirmQuery (theForm1, sqlQuery1) {
             message = sqlQuery1;
         }
 
-        const isConfirmed = window.confirm(window.sprintf(window.Messages.strDoYouReally, message));
+        const isConfirmed = window.confirm(sprintf(window.Messages.strDoYouReally, message) as string);
         // statement is confirmed -> update the
         // "is_js_confirmed" form field so the confirm test won't be
         // run on the server side and allows to submit the form
@@ -694,7 +695,7 @@ export function checkFormElementInRange (theForm, theFieldName, message, minimum
         return false;
     } else if (val < min || val > max) {
         theField.select();
-        alert(window.sprintf(message, val));
+        alert(sprintf(message, val));
         theField.focus();
 
         return false;
@@ -2424,7 +2425,7 @@ export function onloadEnumSetEditor (): void {
             '<div class="slider"></div>' +
             '</td><td>' +
             '<form><div><input type="submit" class="add_value btn btn-primary" value="' +
-            window.sprintf(window.Messages.enum_addValue, 1) +
+            sprintf(window.Messages.enum_addValue, 1) +
             '"></div></form>' +
             '</td></tr></table>' +
             '<input type="hidden" value="' + // So we know which column's data is being edited
@@ -2474,7 +2475,7 @@ export function onloadEnumSetEditor (): void {
             max: 9,
             slide: function (event, ui) {
                 $(this).closest('table').find('input[type=submit]').val(
-                    window.sprintf(window.Messages.enum_addValue, ui.value)
+                    sprintf(window.Messages.enum_addValue, ui.value) as string
                 );
             }
         });
@@ -2547,7 +2548,7 @@ export function onloadEnumSetEditor (): void {
         let resultPointer = i;
         let searchIn = '<input type="text" class="filter_rows" placeholder="' + window.Messages.searchList + '">';
         if (fields === '') {
-            fields = window.sprintf(window.Messages.strEmptyCentralList, '\'' + escapeHtml(db) + '\'');
+            fields = sprintf(window.Messages.strEmptyCentralList, '\'' + escapeHtml(db) + '\'') as string;
             searchIn = '';
         }
 
@@ -2877,7 +2878,7 @@ export function showIndexEditDialog ($outer) {
         max: 16,
         slide: function (event, ui) {
             $(this).closest('.card-body').find('input[type=submit]').val(
-                window.sprintf(window.Messages.strAddToIndex, ui.value)
+                sprintf(window.Messages.strAddToIndex, ui.value) as string
             );
         }
     });

@@ -4049,10 +4049,10 @@ locate-path@^7.1.0:
   dependencies:
     p-locate "^6.0.0"
 
-locutus.sprintf@^2.0.32-code-lts.1:
-  version "2.0.32-code-lts.1"
-  resolved "https://registry.yarnpkg.com/locutus.sprintf/-/locutus.sprintf-2.0.32-code-lts.1.tgz#ec6dc980046480de12fa650682576d621f052f72"
-  integrity sha512-+e/iW8ngWB7s3QxXALY3GyLktLFx9ZPNabdPxJwkxVgFNF9KuBtY62rbb/j6nEcBAcSVL5cTj+CSIT9C+WFq+g==
+locutus@^3.0.36:
+  version "3.0.36"
+  resolved "https://registry.yarnpkg.com/locutus/-/locutus-3.0.36.tgz#a1a427becf5c69f06c0703dbdd644224abbeefbf"
+  integrity sha512-ilsz33lqEd+KerV9JnSHM9EApVYOZ86/JTGKyafmWvhTFtjYauzT1WmZgdJ4JBGR3dY0N0PTfIq2uLvazw5QsQ==
 
 lodash.debounce@^4.0.8:
   version "4.0.8"

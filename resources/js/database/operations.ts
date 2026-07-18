@@ -7,6 +7,7 @@ import { ajaxShowMessage } from '../modules/ajax-message.ts';
 import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.ts';
 import { escapeHtml } from '../modules/functions/escape.ts';
 import refreshMainContent from '../modules/functions/refreshMainContent.ts';
+import { sprintf } from 'locutus/php/strings/sprintf';
 
 /**
  * @fileoverview    function used in server privilege pages
@@ -160,7 +161,7 @@ AJAX.registerOnload('database/operations.js', function () {
          * @var {string} question String containing the question to be asked for confirmation
          */
         let question = window.Messages.strDropDatabaseStrongWarning + ' ';
-        question += window.sprintf(
+        question += sprintf(
             window.Messages.strDoYouReally,
             'DROP DATABASE `' + escapeHtml(CommonParams.get('db') + '`')
         );

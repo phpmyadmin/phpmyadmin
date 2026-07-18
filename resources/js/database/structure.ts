@@ -8,6 +8,7 @@ import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.ts';
 import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.ts';
 import { escapeHtml, escapeJsString } from '../modules/functions/escape.ts';
 import adjustTotals from '../modules/functions/adjustTotals.ts';
+import { sprintf } from 'locutus/php/strings/sprintf';
 
 /**
  * @fileoverview    functions used on the database structure page
@@ -233,7 +234,7 @@ AJAX.registerOnload('database/structure.js', function () {
          * @var question    String containing the question to be asked for confirmation
          */
         const question = window.Messages.strTruncateTableStrongWarning + ' ' +
-            window.sprintf(window.Messages.strDoYouReally, 'TRUNCATE `' + escapeHtml(currTableName) + '`') +
+            sprintf(window.Messages.strDoYouReally, 'TRUNCATE `' + escapeHtml(currTableName) + '`') +
             getForeignKeyCheckboxLoader();
 
         $thisAnchor.confirm(question, $thisAnchor.attr('href'), function (url) {
@@ -283,10 +284,10 @@ AJAX.registerOnload('database/structure.js', function () {
         let question;
         if (! isView) {
             question = window.Messages.strDropTableStrongWarning + ' ' +
-                window.sprintf(window.Messages.strDoYouReally, 'DROP TABLE `' + escapeHtml(currTableName) + '`');
+                sprintf(window.Messages.strDoYouReally, 'DROP TABLE `' + escapeHtml(currTableName) + '`');
         } else {
             question =
-                window.sprintf(window.Messages.strDoYouReally, 'DROP VIEW `' + escapeHtml(currTableName) + '`');
+                sprintf(window.Messages.strDoYouReally, 'DROP VIEW `' + escapeHtml(currTableName) + '`');
         }
 
         question += getForeignKeyCheckboxLoader();

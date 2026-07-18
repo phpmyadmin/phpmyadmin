@@ -3,6 +3,7 @@ import { CommonParams } from './common.ts';
 import { ajaxShowMessage } from './ajax-message.ts';
 import isStorageSupported from './functions/isStorageSupported.ts';
 import formatDateTime from './functions/formatDateTime.ts';
+import { sprintf } from 'locutus/php/strings/sprintf';
 
 let configInlineParams: any[] | undefined;
 let configScriptLoaded: boolean = false;
@@ -304,7 +305,7 @@ const validators = {
             return true;
         }
 
-        return val <= maxValue ? true : window.sprintf(window.Messages.configErrorInvalidUpperBound, maxValue);
+        return val <= maxValue ? true : sprintf(window.Messages.configErrorInvalidUpperBound, maxValue);
     },
     // field validators
     field: {},

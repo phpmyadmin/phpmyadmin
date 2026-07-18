@@ -1,3 +1,5 @@
+import { sprintf } from "locutus/php/strings/sprintf";
+
 /**
  * Holds common parameters such as server, db, table, etc
  *
@@ -85,7 +87,7 @@ const CommonParams = (function () {
                 common = common.endsWith(argsep) ? common : common + argsep;
             }
 
-            return window.sprintf(
+            return sprintf(
                 '%s%sserver=%s' + argsep + 'db=%s' + argsep + 'table=%s',
                 sep,
                 common,

@@ -9,8 +9,6 @@ interface Window {
     msCrypto: any;
     u2f: any;
     variableNames: string[];
-
-    sprintf(format: string, ...values: (string|number)[]): string;
 }
 
 interface JQuery {
