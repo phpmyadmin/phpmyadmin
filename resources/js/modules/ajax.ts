@@ -953,13 +953,7 @@ const AJAX = {
                     'isErrorResponse' in request.responseJSON &&
                     request.responseJSON.isErrorResponse
                 ) {
-                    ajaxShowMessage(
-                        '<div class="alert alert-danger" role="alert">' +
-                        escapeHtml(request.responseJSON.error) +
-                        '</div>',
-                        false
-                    );
-
+                    ajaxShowMessage(escapeHtml(request.responseJSON.error), false, 'error');
                     AJAX.active = false;
                     AJAX.xhr = null;
 
@@ -976,11 +970,9 @@ const AJAX = {
                 }
 
                 ajaxShowMessage(
-                    '<div class="alert alert-danger" role="alert">' +
-                    window.Messages.strErrorProcessingRequest +
-                    details +
-                    '</div>',
-                    false
+                    window.Messages.strErrorProcessingRequest + details,
+                    false,
+                    'error',
                 );
 
                 AJAX.active = false;

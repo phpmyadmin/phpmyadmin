@@ -1834,10 +1834,7 @@ export function onloadCreateTableEvents (): void {
             // User wants to submit the form
             $.post($form.attr('action'), $form.serialize() + CommonParams.get('arg_separator') + 'do_save_data=1', function (data) {
                 if (typeof data === 'undefined' || data.success !== true) {
-                    ajaxShowMessage(
-                        '<div class="alert alert-danger" role="alert">' + data.error + '</div>',
-                        false
-                    );
+                    ajaxShowMessage(data.error, false, 'error');
 
                     return;
                 }

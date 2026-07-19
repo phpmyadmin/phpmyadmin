@@ -676,7 +676,7 @@ const addOtherDbTables = function () {
         const $table = $('[id="' + encodeURIComponent(db) + '.' + encodeURIComponent(table) + '"]');
         if ($table.length !== 0) {
             ajaxShowMessage(
-                sprintf(window.Messages.strTableAlreadyExists, db + '.' + table),
+                sprintf(window.Messages.strTableAlreadyExists, db + '.' + table) as string,
                 undefined,
                 'error'
             );
@@ -1949,7 +1949,7 @@ const addObject = function (dbName, tableName, colName, dbTableNameUrl) {
     const init = DesignerHistory.historyArray.length;
     if (rel.value !== '--') {
         if ((document.getElementById('Query') as HTMLTextAreaElement).value === '') {
-            ajaxShowMessage(sprintf(window.Messages.strQueryEmpty));
+            ajaxShowMessage(sprintf(window.Messages.strQueryEmpty) as string);
 
             return;
         }
@@ -2002,7 +2002,7 @@ const addObject = function (dbName, tableName, colName, dbTableNameUrl) {
         // make orderby
     }
 
-    ajaxShowMessage(sprintf(window.Messages.strObjectsCreated, sum));
+    ajaxShowMessage(sprintf(window.Messages.strObjectsCreated, sum) as string);
     // output sum new objects created
     const existingDiv = document.getElementById('ab');
     existingDiv.innerHTML = DesignerHistory.display(init, DesignerHistory.historyArray.length);

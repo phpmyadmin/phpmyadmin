@@ -176,12 +176,7 @@ AJAX.registerOnload('database/central_columns.js', function () {
             dataType: 'json',
             success: function (data) {
                 if (data.message !== '1') {
-                    ajaxShowMessage(
-                        '<div class="alert alert-danger" role="alert">' +
-                        data.message +
-                        '</div>',
-                        false
-                    );
+                    ajaxShowMessage(data.message, false, 'error');
                 } else {
                     $('#f_' + rownum + ' td input[id=checkbox_row_' + rownum + ']').val($('#f_' + rownum + ' input[name=col_name]').val()).html();
                     $('#f_' + rownum + ' td[name=col_name] span').text(($('#f_' + rownum + ' input[name=col_name]').val() as string)).html();
@@ -201,12 +196,7 @@ AJAX.registerOnload('database/central_columns.js', function () {
                 $('#tableslistcontainer').find('.checkall').show();
             },
             error: function () {
-                ajaxShowMessage(
-                    '<div class="alert alert-danger" role="alert">' +
-                    window.Messages.strErrorProcessingRequest +
-                    '</div>',
-                    false
-                );
+                ajaxShowMessage(window.Messages.strErrorProcessingRequest, false, 'error');
             }
         });
     });

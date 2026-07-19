@@ -447,10 +447,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
 
                 $.post('index.php?route=/sql/set-column-preferences', postParams, function (data) {
                     if (data.success !== true) {
-                        const $tempDiv = $(document.createElement('div'));
-                        $tempDiv.html(data.error);
-                        $tempDiv.addClass('alert alert-danger');
-                        ajaxShowMessage($tempDiv, false);
+                        ajaxShowMessage(data.error, false, 'error');
                     }
                 });
             }
@@ -1607,8 +1604,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                     if (($(g.cEdit).find('.edit_box').val() as string).match(/^(0x)?[a-f0-9]*$/i) !== null) {
                         thisFieldParams[fieldName] = $(g.cEdit).find('.edit_box').val();
                     } else {
-                        const hexError = '<div class="alert alert-danger" role="alert">' + window.Messages.strEnterValidHex + '</div>';
-                        ajaxShowMessage(hexError, false);
+                        ajaxShowMessage(window.Messages.strEnterValidHex, false, 'error');
                         thisFieldParams[fieldName] = getCellValue(g.currentEditCell);
                     }
                 } else {
