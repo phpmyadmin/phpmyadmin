@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2022-02-17 10:34+0000\n"
-"Last-Translator: Péter Báthory <bathory86p@gmail.com>\n"
+"PO-Revision-Date: 2026-07-20 17:01+0000\n"
+"Last-Translator: Péter Rózsahegyi <rozsahegyi.peter.71@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "hu/>\n"
 "Language: hu\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 2026.8.dev0\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -8808,6 +8808,8 @@ msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
+"A php.ini-ben letiltásra került az ini_get és/vagy ini_set funkció. A "
+"phpMyAdminnak szüksége van ezekre."
 
 #: libraries/classes/Core.php:1275
 msgid "GLOBALS overwrite attempt"
@@ -8822,6 +8824,8 @@ msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
+"A munkamenet-süti beállítása sikertelen. Talán HTTPS helyett HTTP-n próbál a "
+"phpMyAdminhoz csatlakozni."
 
 #: libraries/classes/Database/CentralColumns.php:305
 #: libraries/classes/Database/CentralColumns.php:429
