@@ -1055,6 +1055,7 @@
       <code><![CDATA[$replicaInfo['Wild_Do_Table']]]></code>
       <code><![CDATA[$replicaInfo['Wild_Ignore_Table']]]></code>
       <code><![CDATA[$request->getParam('pos')]]></code>
+      <code><![CDATA[Current::$database]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[uksort($tables, strnatcasecmp(...))]]></code>
@@ -1133,10 +1134,6 @@
       <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
       <code><![CDATA[$currentTable['TABLE_ROWS']]]></code>
     </PossiblyNullOperand>
-    <RedundantCast>
-      <code><![CDATA[(string) $_REQUEST['tbl_group']]]></code>
-      <code><![CDATA[(string) $_REQUEST['tbl_group']]]></code>
-    </RedundantCast>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! $currentTable['COUNTED']]]></code>
     </RiskyTruthyFalsyComparison>
@@ -3459,10 +3456,6 @@
       <code><![CDATA[$this->versionComment]]></code>
       <code><![CDATA[$this->versionString]]></code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion>
-      <code><![CDATA[uksort($eachTables, strnatcasecmp(...))]]></code>
-      <code><![CDATA[uksort($oneDatabaseTables, strnatcasecmp(...))]]></code>
-    </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$resultTarget[$row[$keyIndex]]]]></code>
       <code><![CDATA[$resultTarget[]]]></code>
@@ -3471,8 +3464,6 @@
       <code><![CDATA[$resultTarget[$row[$keyIndex]]]]></code>
     </MixedArrayAssignment>
     <MixedAssignment>
-      <code><![CDATA[$aLength]]></code>
-      <code><![CDATA[$bLength]]></code>
       <code><![CDATA[$resultTarget]]></code>
       <code><![CDATA[$resultTarget]]></code>
       <code><![CDATA[$this->versionComment]]></code>
@@ -3513,17 +3504,10 @@
       <code><![CDATA[$resultRows]]></code>
       <code><![CDATA[$user]]></code>
     </NullableReturnStatement>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$tableData[$sortBy] ?? '']]></code>
-    </PossiblyInvalidArgument>
     <PossiblyInvalidArrayOffset>
       <code><![CDATA[$resultTarget[$row[$keyIndex]]]]></code>
       <code><![CDATA[$resultTarget[$row[$keyIndex]]]]></code>
     </PossiblyInvalidArrayOffset>
-    <PossiblyInvalidOperand>
-      <code><![CDATA[$tableData['Data_length']]]></code>
-      <code><![CDATA[$tableData['Index_length']]]></code>
-    </PossiblyInvalidOperand>
     <PossiblyNullArgument>
       <code><![CDATA[$_SERVER['SCRIPT_NAME']]]></code>
       <code><![CDATA[$version['@@sql_mode']]]></code>
@@ -3545,8 +3529,6 @@
       <code><![CDATA[$row['Index_length']]]></code>
       <code><![CDATA[$row['Max_data_length']]]></code>
       <code><![CDATA[$row['Rows']]]></code>
-      <code><![CDATA[$tableData['Data_length']]]></code>
-      <code><![CDATA[$tableData['Index_length']]]></code>
     </PossiblyNullOperand>
     <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$_SERVER['SCRIPT_NAME']]]></code>
@@ -3556,9 +3538,6 @@
     </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$index->isUnique()]]></code>
-      <code><![CDATA[$limitCount]]></code>
-      <code><![CDATA[$limitCount]]></code>
-      <code><![CDATA[$limitCount]]></code>
       <code><![CDATA[$limitCount]]></code>
       <code><![CDATA[$limitCount]]></code>
       <code><![CDATA[empty($fieldData['Key'])]]></code>
@@ -5775,10 +5754,10 @@
       <code><![CDATA[empty($statement->fields)]]></code>
       <code><![CDATA[empty($statement->name->database)]]></code>
       <code><![CDATA[empty($statement->table->database)]]></code>
+      <code><![CDATA[empty($tableStatus['Check_time'])]]></code>
+      <code><![CDATA[empty($tableStatus['Create_time'])]]></code>
+      <code><![CDATA[empty($tableStatus['Update_time'])]]></code>
       <code><![CDATA[empty($this->config->selectedServer['port'])]]></code>
-      <code><![CDATA[empty($tmpres['Check_time'])]]></code>
-      <code><![CDATA[empty($tmpres['Create_time'])]]></code>
-      <code><![CDATA[empty($tmpres['Update_time'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Plugins/Export/ExportTexytext.php">
@@ -10189,6 +10168,8 @@
   </file>
   <file src="tests/unit/Plugins/Export/ExportSqlTest.php">
     <DeprecatedMethod>
+      <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <MixedArgument>

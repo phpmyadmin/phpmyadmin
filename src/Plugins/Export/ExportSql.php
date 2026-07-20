@@ -41,6 +41,7 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokenType;
+use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Triggers\Triggers;
 use PhpMyAdmin\UniqueCondition;
 use PhpMyAdmin\Util;
@@ -1331,17 +1332,17 @@ class ExportSql extends ExportPlugin
         array $aliases = [],
     ): string {
         $tableAlias = $this->getTableAlias($aliases, $db, $table);
+        $tableObject = $this->dbi->getTable($db, $table);
+        $schemaCreate = $this->getTableStatus($tableObject);
 
-        $schemaCreate = $this->getTableStatus($db, $table);
-
-        if ($this->dropTable && $this->dbi->getTable($db, $table)->isView()) {
+        if ($this->dropTable && $tableObject->isView()) {
             $schemaCreate .= 'DROP VIEW IF EXISTS '
                 . Util::backquoteCompat($tableAlias, 'NONE', $this->useSqlBackquotes) . ';'
                 . "\n";
         }
 
         // no need to generate a DROP VIEW here, it was done earlier
-        if ($this->dropTable && ! $this->dbi->getTable($db, $table)->isView()) {
+        if ($this->dropTable && ! $tableObject->isView()) {
             $schemaCreate .= 'DROP TABLE IF EXISTS '
                 . Util::backquoteCompat($tableAlias, 'NONE', $this->useSqlBackquotes) . ';'
                 . "\n";
@@ -2509,38 +2510,34 @@ class ExportSql extends ExportPlugin
         return $sqlStatement;
     }
 
-    private function getTableStatus(string $db, string $table): string
+    private function getTableStatus(Table $table): string
     {
         $newCrlf = "\n";
         $schemaCreate = '';
 
-        $result = $this->dbi->tryQuery(
-            'SHOW TABLE STATUS FROM ' . Util::backquote($db)
-            . ' WHERE Name = ' . $this->dbi->quoteString($table),
-        );
-        if ($result !== false && $result->numRows() > 0) {
-            $tmpres = $result->fetchAssoc();
+        $tableStatus = $table->getStatusInfo();
 
-            if ($this->doDates && ! empty($tmpres['Create_time'])) {
+        if ($this->doDates) {
+            if (! empty($tableStatus['Create_time']) && is_string($tableStatus['Create_time'])) {
                 $schemaCreate .= $this->exportComment(
                     __('Creation:') . ' '
-                    . Util::localisedDate(new DateTimeImmutable($tmpres['Create_time'])),
+                    . Util::localisedDate(new DateTimeImmutable($tableStatus['Create_time'])),
                 );
                 $newCrlf = $this->exportComment() . "\n";
             }
 
-            if ($this->doDates && ! empty($tmpres['Update_time'])) {
+            if (! empty($tableStatus['Update_time']) && is_string($tableStatus['Update_time'])) {
                 $schemaCreate .= $this->exportComment(
                     __('Last update:') . ' '
-                    . Util::localisedDate(new DateTimeImmutable($tmpres['Update_time'])),
+                    . Util::localisedDate(new DateTimeImmutable($tableStatus['Update_time'])),
                 );
                 $newCrlf = $this->exportComment() . "\n";
             }
 
-            if ($this->doDates && ! empty($tmpres['Check_time'])) {
+            if (! empty($tableStatus['Check_time']) && is_string($tableStatus['Check_time'])) {
                 $schemaCreate .= $this->exportComment(
                     __('Last check:') . ' '
-                    . Util::localisedDate(new DateTimeImmutable($tmpres['Check_time'])),
+                    . Util::localisedDate(new DateTimeImmutable($tableStatus['Check_time'])),
                 );
                 $newCrlf = $this->exportComment() . "\n";
             }

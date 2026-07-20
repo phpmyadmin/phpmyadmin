@@ -194,10 +194,9 @@ final class CommonTest extends AbstractTestCase
             . ' `AUTO_INCREMENT` AS `Auto_increment`, `CREATE_TIME` AS `Create_time`, `UPDATE_TIME` AS `Update_time`,'
             . ' `CHECK_TIME` AS `Check_time`, `TABLE_COLLATION` AS `Collation`, `CHECKSUM` AS `Checksum`,'
             . ' `CREATE_OPTIONS` AS `Create_options`, `TABLE_COMMENT` AS `Comment` FROM `information_schema`.`TABLES` t'
-            . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin IN (\'%s\') AND t.`TABLE_NAME` COLLATE utf8_bin = \'%s\''
-            . ' ORDER BY Name ASC';
+            . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'%s\' AND t.`TABLE_NAME` COLLATE utf8_bin = \'%s\'';
 
-        $tableStatusQuery = 'SHOW TABLE STATUS FROM `%s` WHERE `Name` LIKE \'%s\'';
+        $tableStatusQuery = 'SHOW TABLE STATUS FROM `%s` WHERE `Name` = \'%s\'';
 
         $dbiDummy->addResult(
             sprintf(
@@ -221,7 +220,7 @@ final class CommonTest extends AbstractTestCase
             sprintf(
                 $tableStatusQuery,
                 'db\'1',
-                'table\\\'1%',
+                'table\\\'1',
             ),
             [
                 [
@@ -241,7 +240,7 @@ final class CommonTest extends AbstractTestCase
             sprintf(
                 $tableStatusQuery,
                 'db\'2',
-                'table\\\'2%',
+                'table\\\'2',
             ),
             [
                 [
