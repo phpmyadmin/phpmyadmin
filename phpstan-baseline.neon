@@ -1747,12 +1747,6 @@ parameters:
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: '#^Parameter \#2 \$table of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:getTablesFull\(\) expects array\<string\>\|string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
 			message: '#^Parameter \#2 \$tableName of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:getTable\(\) expects string, int\|string\|null given\.$#'
 			identifier: argument.type
 			count: 4
@@ -1766,6 +1760,12 @@ parameters:
 
 		-
 			message: '#^Parameter \#3 \$name of static method PhpMyAdmin\\Charsets\:\:findCollationByName\(\) expects string, int\|string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Controllers/Database/StructureController.php
+
+		-
+			message: '#^Parameter \#3 \$tableGroup of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:getTablesFull\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Database/StructureController.php

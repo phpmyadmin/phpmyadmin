@@ -498,15 +498,9 @@ class StructureControllerTest extends AbstractTestCase
         $this->config->selectedServer['DisableIS'] = true;
 
         $dbiDummy = $this->createDbiDummy();
-        // The table with the exact name of the group is fetched first
         $dbiDummy->addResult(
-            'SHOW TABLE STATUS FROM `test_db` WHERE `Name` = \'2024\'',
-            [['2024', 'InnoDB', '3']],
-            ['Name', 'Engine', 'Rows'],
-        );
-        $dbiDummy->addResult(
-            'SHOW TABLE STATUS FROM `test_db` WHERE `Name` LIKE \'2024\\\\_\\\\_%\'',
-            [['2024__child', 'InnoDB', '5']],
+            'SHOW TABLE STATUS FROM `test_db` WHERE (`Name` LIKE \'2024\\\\_\\\\_%\' OR `Name` = \'2024\')',
+            [['2024', 'InnoDB', '3'], ['2024__child', 'InnoDB', '5']],
             ['Name', 'Engine', 'Rows'],
         );
         $dbi = $this->createDatabaseInterface($dbiDummy, $this->config);
@@ -525,13 +519,9 @@ class StructureControllerTest extends AbstractTestCase
 
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addResult(
-            'SHOW TABLE STATUS FROM `test_db` WHERE `Name` = \'2024\' AND `Comment` != \'VIEW\'',
-            [['2024', 'InnoDB', '3']],
-            ['Name', 'Engine', 'Rows'],
-        );
-        $dbiDummy->addResult(
-            'SHOW TABLE STATUS FROM `test_db` WHERE `Name` LIKE \'2024\\\\_\\\\_%\' AND `Comment` != \'VIEW\'',
-            [['2024__child', 'InnoDB', '5']],
+            'SHOW TABLE STATUS FROM `test_db` WHERE '
+                . '(`Name` LIKE \'2024\\\\_\\\\_%\' OR `Name` = \'2024\') AND `Comment` != \'VIEW\'',
+            [['2024', 'InnoDB', '3'], ['2024__child', 'InnoDB', '5']],
             ['Name', 'Engine', 'Rows'],
         );
         $dbi = $this->createDatabaseInterface($dbiDummy, $this->config);
