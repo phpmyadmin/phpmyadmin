@@ -24,8 +24,8 @@ use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 use Psr\Http\Message\ServerRequestInterface;
 use ReflectionProperty;
 
+use function array_key_exists;
 use function count;
-use function in_array;
 use function json_encode;
 use function str_replace;
 
@@ -266,7 +266,7 @@ class TwoFactorTest extends AbstractTestCase
         $request = new ServerRequest(self::createStub(ServerRequestInterface::class));
 
         $object = $this->getTwoFactorAndLoadConfig('user', null);
-        if (! in_array('application', $object->getAvailable(), true)) {
+        if (! array_key_exists('application', $object->getAvailable())) {
             self::markTestSkipped('google2fa not available');
         }
 
@@ -320,7 +320,7 @@ class TwoFactorTest extends AbstractTestCase
         $request = new ServerRequest(self::createStub(ServerRequestInterface::class));
 
         $object = $this->getTwoFactorAndLoadConfig('user', null);
-        if (! in_array('key', $object->getAvailable(), true)) {
+        if (! array_key_exists('key', $object->getAvailable())) {
             self::markTestSkipped('u2f-php-server not available');
         }
 
@@ -386,7 +386,7 @@ class TwoFactorTest extends AbstractTestCase
         $request = new ServerRequest(self::createStub(ServerRequestInterface::class));
 
         $object = $this->getTwoFactorAndLoadConfig('user', null);
-        if (! in_array('key', $object->getAvailable(), true)) {
+        if (! array_key_exists('key', $object->getAvailable())) {
             self::markTestSkipped('u2f-php-server not available');
         }
 
@@ -509,7 +509,7 @@ class TwoFactorTest extends AbstractTestCase
         $object = $this->getTwoFactorAndLoadConfig('user', null);
         $backends = $object->getAllBackends();
         self::assertCount(
-            count($object->getAvailable()) + 1,
+            count($object->getAvailable()),
             $backends,
         );
         $config->config->debug->simple2fa = false;
