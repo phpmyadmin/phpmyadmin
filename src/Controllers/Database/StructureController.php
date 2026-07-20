@@ -105,8 +105,11 @@ final class StructureController implements InvocableController
     {
         // Special speedup for newer MySQL Versions (in 4.0 format changed)
         if ($this->config->config->SkipLockedTables) {
-            $tables = $this->getTablesWhenOpen(Current::$database, (string) $request->getParam('tbl_group'));
-            $totalNumTables = count($tables);
+            [$tables, $totalNumTables] = $this->getTablesWhenOpen(
+                Current::$database,
+                (string) $request->getParam('tbl_group'),
+                $request->getParam('tbl_type'),
+            );
         } else {
             [$tables, $totalNumTables] = $this->getDbInfo(
                 Current::$database,
@@ -1020,9 +1023,9 @@ final class StructureController implements InvocableController
      * Gets the list of tables in the current db, taking into account
      * that they might be "in use"
      *
-     * @return (string|int|null)[][] list of tables
+     * @return array{(string|int|null)[][], int}
      */
-    private function getTablesWhenOpen(string $db, string $tableGroupParam): array
+    private function getTablesWhenOpen(string $db, string $tableGroupParam, mixed $tableTypeParam): array
     {
         $openTables = $this->dbi->query(
             'SHOW OPEN TABLES FROM ' . Util::backquote($db) . ' WHERE In_use > 0;',
@@ -1038,7 +1041,7 @@ final class StructureController implements InvocableController
 
         // is there at least one "in use" table?
         if ($openTableNames === []) {
-            return [];
+            return [[], 0];
         }
 
         $tables = [];
@@ -1058,7 +1061,6 @@ final class StructureController implements InvocableController
             $whereAdded = true;
         }
 
-        $tableTypeParam = $_REQUEST['tbl_type'] ?? null;
         $tableType = is_string($tableTypeParam) ? TableType::tryFrom($tableTypeParam) : null;
         if ($tableType !== null) {
             $tblGroupSql .= $whereAdded ? ' AND' : ' WHERE';
@@ -1095,7 +1097,7 @@ final class StructureController implements InvocableController
             }
         }
 
-        return $tables;
+        return [$tables, count($tables)];
     }
 
     public function getTableListPosition(string|null $posParam, string $db): int
