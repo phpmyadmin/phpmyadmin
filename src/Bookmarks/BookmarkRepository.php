@@ -63,10 +63,16 @@ final class BookmarkRepository
     }
 
     /**
-     * Gets the list of bookmarks defined for the current database
+     * Retrieve the bookmarks visible to the given user, optionally scoped to a database.
+     *
+     * Bookmarks shared across users (empty `user`, subject to
+     * AllowSharedBookmarks) and bookmarks shared across databases (empty
+     * `dbase`, created without a database context) are always included
+     * alongside the exact matches.
      *
      * @param string       $user Current user
-     * @param string|false $db   the current database name or false
+     * @param string|false $db   the database to scope the results to, or false to return
+     *                           bookmarks for every database
      *
      * @return Bookmark[] the bookmarks list
      *
@@ -81,19 +87,12 @@ final class BookmarkRepository
             return [];
         }
 
-        $exactUserMatch = ! $this->config->config->AllowSharedBookmarks;
-
         $query = 'SELECT * FROM ' . Util::backquote($bookmarkFeature->database)
             . '.' . Util::backquote($bookmarkFeature->bookmark)
-            . ' WHERE (`user` = ' . $this->dbi->quoteString($user);
-        if (! $exactUserMatch) {
-            $query .= " OR `user` = ''";
-        }
-
-        $query .= ')';
+            . ' WHERE (' . $this->userMatchCondition('`user`', $user) . ')';
 
         if ($db !== false) {
-            $query .= ' AND dbase = ' . $this->dbi->quoteString($db);
+            $query .= ' AND (dbase = ' . $this->dbi->quoteString($db) . " OR dbase = '')";
         }
 
         $query .= ' ORDER BY label ASC';
@@ -109,7 +108,14 @@ final class BookmarkRepository
     }
 
     /**
-     * Retrieve a specific bookmark
+     * Retrieve a specific bookmark by id.
+     *
+     * When $user is not null, only bookmarks owned by that user (or shared,
+     * subject to AllowSharedBookmarks) are matched. Passing null skips the
+     * user filter entirely, returning the bookmark regardless of its owner
+     * — callers are responsible for their own authorization check in that case.
+     *
+     * @return Bookmark|null the matching bookmark, or null if none exists
      */
     public function get(
         string|null $user,
@@ -125,14 +131,7 @@ final class BookmarkRepository
             . ' WHERE `id` = ' . $id;
 
         if ($user !== null) {
-            $query .= ' AND (user = ' . $this->dbi->quoteString($user);
-
-            $exactUserMatch = ! $this->config->config->AllowSharedBookmarks;
-            if (! $exactUserMatch) {
-                $query .= " OR user = ''";
-            }
-
-            $query .= ')';
+            $query .= ' AND (' . $this->userMatchCondition('user', $user) . ')';
         }
 
         $query .= ' LIMIT 1';
@@ -146,7 +145,16 @@ final class BookmarkRepository
     }
 
     /**
-     * Retrieve a specific bookmark by its label
+     * Retrieve a specific bookmark by its label.
+     *
+     * Matches bookmarks shared across users (empty `user`, subject to
+     * AllowSharedBookmarks) as well as bookmarks owned by the given user —
+     * same fallback behavior as getList(). Used by
+     * {@see \PhpMyAdmin\Sql::getDefaultSqlQueryForBrowse()} to look up a
+     * per-table default browse query, which is why a bookmark labeled after
+     * a table can be shared to apply to every user browsing it.
+     *
+     * @return Bookmark|null the matching bookmark, or null if none exists
      */
     public function getByLabel(
         string $user,
@@ -163,7 +171,7 @@ final class BookmarkRepository
             . ' WHERE `label`'
             . ' = ' . $this->dbi->quoteString($label)
             . ' AND dbase = ' . $this->dbi->quoteString($db->getName())
-            . ' AND user = ' . $this->dbi->quoteString($user)
+            . ' AND (' . $this->userMatchCondition('user', $user) . ')'
             . ' LIMIT 1';
 
         $result = $this->dbi->fetchSingleRow($query, DatabaseInterface::FETCH_ASSOC, ConnectionType::ControlUser);
@@ -186,6 +194,19 @@ final class BookmarkRepository
             $row['query'],
             (int) $row['id'],
         );
+    }
+
+    /**
+     * Builds the `WHERE` fragment that matches the owner of a bookmark,
+     * accounting for shared (publicly owned, empty `user`) bookmarks.
+     */
+    private function userMatchCondition(string $column, string $user): string
+    {
+        $condition = $column . ' = ' . $this->dbi->quoteString($user);
+
+        return $this->config->config->AllowSharedBookmarks
+            ? $condition . ' OR ' . $column . " = ''"
+            : $condition;
     }
 
     private function getBookmarkFeature(): BookmarkFeature|null
