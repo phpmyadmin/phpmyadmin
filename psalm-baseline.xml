@@ -1134,10 +1134,6 @@
       <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
       <code><![CDATA[$currentTable['TABLE_ROWS']]]></code>
     </PossiblyNullOperand>
-    <RedundantCast>
-      <code><![CDATA[(string) $_REQUEST['tbl_group']]]></code>
-      <code><![CDATA[(string) $_REQUEST['tbl_group']]]></code>
-    </RedundantCast>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! $currentTable['COUNTED']]]></code>
     </RiskyTruthyFalsyComparison>
