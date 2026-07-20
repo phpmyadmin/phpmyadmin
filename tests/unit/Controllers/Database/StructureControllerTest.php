@@ -540,6 +540,37 @@ class StructureControllerTest extends AbstractTestCase
         $dbiDummy->assertAllQueriesConsumed();
     }
 
+    public function testGetDbInfoWithTableGroupAndInformationSchema(): void
+    {
+        $this->config->selectedServer['DisableIS'] = false;
+
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addResult(
+            'SELECT *, `TABLE_SCHEMA` AS `Db`, `TABLE_NAME` AS `Name`,'
+                . ' `TABLE_TYPE` AS `TABLE_TYPE`, `ENGINE` AS `Engine`, `ENGINE` AS `Type`,'
+                . ' `VERSION` AS `Version`, `ROW_FORMAT` AS `Row_format`, `TABLE_ROWS` AS `Rows`,'
+                . ' `AVG_ROW_LENGTH` AS `Avg_row_length`, `DATA_LENGTH` AS `Data_length`,'
+                . ' `MAX_DATA_LENGTH` AS `Max_data_length`, `INDEX_LENGTH` AS `Index_length`,'
+                . ' `DATA_FREE` AS `Data_free`, `AUTO_INCREMENT` AS `Auto_increment`,'
+                . ' `CREATE_TIME` AS `Create_time`, `UPDATE_TIME` AS `Update_time`,'
+                . ' `CHECK_TIME` AS `Check_time`, `TABLE_COLLATION` AS `Collation`,'
+                . ' `CHECKSUM` AS `Checksum`, `CREATE_OPTIONS` AS `Create_options`,'
+                . ' `TABLE_COMMENT` AS `Comment` FROM `information_schema`.`TABLES` t'
+                . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'test_db\''
+                . ' AND (t.`TABLE_NAME` LIKE \'2024\\\\_\\\\_%\' OR t.`TABLE_NAME` COLLATE utf8_bin = \'2024\')'
+                . ' ORDER BY Name ASC',
+            [['2024', '2024', 'InnoDB', 'InnoDB', '3'], ['2024__child', '2024__child', 'InnoDB', 'InnoDB', '5']],
+            ['TABLE_NAME', 'Name', 'ENGINE', 'Engine', 'TABLE_ROWS'],
+        );
+        $dbi = $this->createDatabaseInterface($dbiDummy, $this->config);
+
+        [$tables, $totalNumTables] = $this->createController($dbi)->getDbInfo('test_db', null, null, '2024', null, 0);
+
+        self::assertSame([2024, '2024__child'], array_keys($tables));
+        self::assertSame(2, $totalNumTables);
+        $dbiDummy->assertAllQueriesConsumed();
+    }
+
     public function testGetDbInfoWithTableType(): void
     {
         $this->config->selectedServer['DisableIS'] = true;
