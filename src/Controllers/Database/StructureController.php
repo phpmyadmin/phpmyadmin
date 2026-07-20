@@ -983,7 +983,14 @@ final class StructureController implements InvocableController
                 $limitCount = 0;
             }
 
-            $tables = $this->dbi->getTablesFull($db, $tableNames, false, $position, $limitCount, $sort, $sortOrder);
+            $tables = $this->dbi->getTablesFull(
+                $db,
+                $tableNames,
+                limitOffset: $position,
+                limitCount: $limitCount,
+                sortBy: $sort,
+                sortOrder: $sortOrder,
+            );
 
             return [$tables, $totalNumberOfTables];
         }
@@ -999,22 +1006,14 @@ final class StructureController implements InvocableController
         // the table with the exact name of the group if such exists, plus the tables
         // with the group prefix; we must use the union operator here instead of
         // array_merge to preserve numerical keys
-        $tableStatusOfGroup = $this->dbi->getTablesFull(
+        $tables = $this->dbi->getTablesFull(
             $db,
             $tableGroup,
-            sortBy: $sort,
-            sortOrder: $sortOrder,
-            tableType: $tableType,
-        );
-        $tableStatusOfSubelements = $this->dbi->getTablesFull(
-            $db,
             $tableGroup . $this->config->config->NavigationTreeTableSeparator,
-            true,
             sortBy: $sort,
             sortOrder: $sortOrder,
             tableType: $tableType,
         );
-        $tables = $tableStatusOfGroup + $tableStatusOfSubelements;
 
         return [$tables, count($tables)];
     }

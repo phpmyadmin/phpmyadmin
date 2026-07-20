@@ -338,22 +338,21 @@ class DatabaseInterface
      * this function expects unquoted names:
      * RIGHT: my_database
      * WRONG: `my_database`
-     * if $tbl_is_group is true, $table is used as filter for table names
      *
      * <code>
      * $dbi->getTablesFull('my_database');
      * $dbi->getTablesFull('my_database', 'my_table'));
-     * $dbi->getTablesFull('my_database', 'my_tables_', true));
+     * $dbi->getTablesFull('my_database', 'my_tables', 'my_tables__'));
      * </code>
      *
-     * @param string          $database     database
-     * @param string|string[] $table        table name(s)
-     * @param bool            $tableIsGroup $table is a table group
-     * @param int             $limitOffset  zero-based offset for the count
-     * @param int             $limitCount   number of tables to return
-     * @param string          $sortBy       table attribute to sort by
-     * @param string          $sortOrder    direction to sort (ASC or DESC)
-     * @param TableType|null  $tableType    whether to list only tables or only views
+     * @param string          $database    database
+     * @param string|string[] $table       table name(s)
+     * @param string          $tableGroup  table group name
+     * @param int             $limitOffset zero-based offset for the count
+     * @param int             $limitCount  number of tables to return
+     * @param string          $sortBy      table attribute to sort by
+     * @param string          $sortOrder   direction to sort (ASC or DESC)
+     * @param TableType|null  $tableType   whether to list only tables or only views
      *
      * @return (string|int|null)[][]           list of tables in given db(s)
      *
@@ -362,7 +361,7 @@ class DatabaseInterface
     public function getTablesFull(
         string $database,
         string|array $table = '',
-        bool $tableIsGroup = false,
+        string $tableGroup = '',
         int $limitOffset = 0,
         int $limitCount = 0,
         string $sortBy = 'Name',
@@ -375,7 +374,7 @@ class DatabaseInterface
             $tables = $this->getTablesFullFromInformationSchema(
                 $database,
                 $table,
-                $tableIsGroup,
+                $tableGroup,
                 $limitOffset,
                 $limitCount,
                 $sortBy,
@@ -392,7 +391,7 @@ class DatabaseInterface
             $tables = $this->getTablesFullFromShowTableStatus(
                 $database,
                 $table,
-                $tableIsGroup,
+                $tableGroup,
                 $limitOffset,
                 $limitCount,
                 $sortBy,
@@ -418,7 +417,7 @@ class DatabaseInterface
     private function getTablesFullFromInformationSchema(
         string $database,
         string|array $table,
-        bool $tableIsGroup,
+        string $tableGroup,
         int $limitOffset,
         int $limitCount,
         string $sortBy,
@@ -439,8 +438,10 @@ class DatabaseInterface
             } else {
                 $sqlWhereTable = QueryGenerator::getTableNameCondition(
                     Util::getCollateForIS($this),
-                    $this->quoteString($tableIsGroup ? $this->escapeMysqlWildcards($table) : $table, $connectionType),
-                    $tableIsGroup,
+                    $this->quoteString($table, $connectionType),
+                    $tableGroup !== ''
+                        ? $this->quoteString($this->escapeMysqlWildcards($tableGroup) . '%', $connectionType)
+                        : '',
                 );
             }
         }
@@ -461,7 +462,7 @@ class DatabaseInterface
             $sqlWhereTable,
         );
 
-        $sortingNeeded = is_array($table) || $table === '' || $tableIsGroup;
+        $sortingNeeded = is_array($table) || $table === '' || $tableGroup !== '';
         if ($sortingNeeded) {
             $sql .= ' ORDER BY ' . $sortBy . ' ' . $sortOrder;
         }
@@ -497,7 +498,7 @@ class DatabaseInterface
     private function getTablesFullFromShowTableStatus(
         string $database,
         string|array $table,
-        bool $tableIsGroup,
+        string $tableGroup,
         int $limitOffset,
         int $limitCount,
         string $sortBy,
@@ -506,7 +507,7 @@ class DatabaseInterface
         ConnectionType $connectionType,
     ): array {
         $sql = 'SHOW TABLE STATUS FROM ' . Util::backquote($database)
-            . $this->getShowTableStatusWhereClause($table, $tableIsGroup, $tableType, $connectionType);
+            . $this->getShowTableStatusWhereClause($table, $tableGroup, $tableType, $connectionType);
 
         /** @var (string|int|null)[][] $tables */
         $tables = $this->fetchResult($sql, 'Name', null, $connectionType);
@@ -525,12 +526,12 @@ class DatabaseInterface
     /** @param string|string[] $table */
     private function getShowTableStatusWhereClause(
         string|array $table,
-        bool $tableIsGroup,
+        string $tableGroup,
         TableType|null $tableType,
         ConnectionType $connectionType,
     ): string {
         $conditions = [];
-        if (($table !== '' && $table !== []) || $tableIsGroup) {
+        if ($table !== '' && $table !== []) {
             if (is_array($table)) {
                 $conditions[] = '`Name` IN ('
                     . implode(
@@ -541,9 +542,11 @@ class DatabaseInterface
                         ),
                     ) . ')';
             } else {
-                if ($tableIsGroup) {
-                    $conditions[] = '`Name` LIKE '
-                        . $this->quoteString($this->escapeMysqlWildcards($table) . '%', $connectionType);
+                if ($tableGroup !== '') {
+                    $conditions[] = '(`Name` LIKE '
+                        . $this->quoteString($this->escapeMysqlWildcards($tableGroup) . '%', $connectionType)
+                        . ' OR '
+                        . '`Name` = ' . $this->quoteString($table, $connectionType) . ')';
                 } else {
                     $conditions[] = '`Name` = ' . $this->quoteString($table, $connectionType);
                 }
