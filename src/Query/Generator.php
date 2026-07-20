@@ -19,23 +19,14 @@ use function sprintf;
  */
 class Generator
 {
-    /**
-     * returns a segment of the SQL WHERE clause regarding table name
-     *
-     * @param bool $tblIsGroup $table is a table group
-     *
-     * @return string a segment of the WHERE clause
-     */
-    public static function getTableNameCondition(string $collate, string $escapedTabletable, bool $tblIsGroup): string
+    public static function getTableNameCondition(string $collate, string $escapedTable, string $tableGroup): string
     {
-        $sqlWhereTable = 'AND t.`TABLE_NAME` ';
-        if ($tblIsGroup) {
-            $sqlWhereTable .= 'LIKE ' . $escapedTabletable . '%';
-        } else {
-            $sqlWhereTable .= $collate . ' = ' . $escapedTabletable;
+        if ($tableGroup !== '') {
+            return 'AND (t.`TABLE_NAME` LIKE ' . $tableGroup
+                . ' OR t.`TABLE_NAME` ' . $collate . ' = ' . $escapedTable . ')';
         }
 
-        return $sqlWhereTable;
+        return 'AND t.`TABLE_NAME` ' . $collate . ' = ' . $escapedTable;
     }
 
     /**
