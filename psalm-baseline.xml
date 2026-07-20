@@ -6312,9 +6312,6 @@
       <code><![CDATA[$status !== []]]></code>
       <code><![CDATA[$status !== null && $status !== []]]></code>
     </RedundantCondition>
-    <UnusedClass>
-      <code><![CDATA[UploadProgress]]></code>
-    </UnusedClass>
   </file>
   <file src="src/Plugins/Import/Upload/UploadSession.php">
     <MixedArgument>

@@ -51,7 +51,7 @@ final readonly class ImportController implements InvocableController
             $this->dbi->selectDb('mysql');
         }
 
-        [$uploadId] = Ajax::uploadProgressSetup();
+        $uploadId = Ajax::uploadProgressSetup();
 
         ImportSettings::$importType = 'server';
         $importList = Plugins::getImport();

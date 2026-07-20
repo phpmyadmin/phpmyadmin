@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Import;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Plugins\Import\Upload\UploadNoplugin;
+use PhpMyAdmin\Plugins\Import\Upload\UploadProgress;
 
 use function defined;
 use function function_exists;
@@ -12,7 +14,6 @@ use function header;
 use function ini_get;
 use function json_encode;
 use function sprintf;
-use function ucwords;
 use function uniqid;
 
 /**
@@ -23,12 +24,7 @@ final class Ajax
     /** For differentiating array in $_SESSION variable */
     public const SESSION_KEY = '__upload_status';
 
-    /**
-     * Sets up some variables for upload progress
-     *
-     * @return array{string, string[]}
-     */
-    public static function uploadProgressSetup(): array
+    public static function uploadProgressSetup(): string
     {
         /**
          * sets default plugin for handling the import process
@@ -45,23 +41,22 @@ final class Ajax
          */
         $plugins = [
             // in PHP 5.4 session-based upload progress was problematic, see closed bug 3964
-            //"session",
-            'progress',
-            'noplugin',
+            // [UploadSession::class, 'sessionCheck'],
+            [UploadProgress::class, 'progressCheck'],
+            [UploadNoplugin::class, 'nopluginCheck'],
         ];
 
         // select available plugin
         foreach ($plugins as $plugin) {
-            $check = $plugin . 'Check';
+            [$class, $method] = $plugin;
 
-            if (self::$check()) {
-                $uploadClass = 'PhpMyAdmin\Plugins\Import\Upload\Upload' . ucwords($plugin);
-                $_SESSION[self::SESSION_KEY]['handler'] = $uploadClass;
+            if (self::$method()) {
+                $_SESSION[self::SESSION_KEY]['handler'] = $class;
                 break;
             }
         }
 
-        return [$uploadId, $plugins];
+        return $uploadId;
     }
 
     /**
