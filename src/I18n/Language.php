@@ -96,7 +96,10 @@ class Language
      */
     public function cmp(Language $other): int
     {
-        return strcmp($this->name, $other->name);
+        return strcmp(
+            $this->native === '' ? $this->name : $this->native,
+            $other->native === '' ? $other->name : $other->native,
+        );
     }
 
     /**
